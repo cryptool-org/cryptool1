@@ -496,6 +496,10 @@ BEGIN
                             "[i18n] Do you want to cancel the calculation?"
     IDS_SELECT_SEARCH_ALGORITHM 
                             "[i18n] The NumberShark contains two different algorithms to determine the maximum number of points possible: The originally available brute-force algorithm was complemented by a new back-tracking algorithm.\n\nThe new algorithm is considerably faster, but at the moment it does not offer any support to continue the search after the program was closed.\n\no you want to use the new algorithm anyway?"
+    IDS_GAME_DATA_FILE_MISSING 
+                            "[i18n] The game data file (%s) was not found. It needs to be placed in the same folder as the NumberShark executable.\n\nWithout the game data file some functions will remain unavailable."
+    IDS_BACKTRACKING_ALGORITHM_RESULT 
+                            "[i18n] To calculate for %s numbers the highest score of %s points, the program needed %s seconds.\n\nThe highest prime number here is %s. You should start the game with this prime to be able to reach the maximum score.\n\nTo achieve the highest score, you can choose the numbers in this order: %s\n\n"
 END
 
 #endif    // Polish resources
@@ -951,6 +955,8 @@ BEGIN
                             "Der Zahlenhai beinhaltet zwei verschiedene Algorithmen für die Suche nach der maximalen Punktzahl: Der ursprünglich verfügbare Brute-Force-Algorithmus wurde um einen Back-Tracking-Algorithmus ergänzt.\n\nDer neue Algorithmus ist bedeutend schneller, aber er bietet im Moment noch keine Möglichkeit, den Fortschritt nach Programmende wieder aufzunehmen.\n\nWollen Sie trotzdem den neuen Algorithmus verwenden?"
     IDS_GAME_DATA_FILE_MISSING 
                             "Die Datei mit den Spieldaten (%s) konnte nicht gefunden werden. Sie muss im gleichen Verzeichnis liegen wie die Programmdatei des Zahlenhais.\n\nOhne die Spieldaten ist nicht die volle Funktionalität des Zahlenhais verfügbar."
+    IDS_BACKTRACKING_ALGORITHM_RESULT 
+                            "Um bei %s Zahlen die maximal mögliche Punktzahl %s zu berechnen, hat das Programm %s Sekunden gebraucht.\n\nDie höchste Primzahl ist %s. Mit dieser Zahl musst Du das Spiel beginnen, um die maximal mögliche Punktzahl erreichen zu können.\n\nDie höchste Punktzahl kannst Du unter anderem mit folgender Zugfolge (Weg) erreichen: %s."
 END
 
 #endif    // German (Germany) resources
@@ -1406,6 +1412,8 @@ BEGIN
                             "The NumberShark contains two different algorithms to determine the maximum number of points possible: The originally available brute-force algorithm was complemented by a new back-tracking algorithm.\n\nThe new algorithm is considerably faster, but at the moment it does not offer any support to continue the search after the program was closed.\n\no you want to use the new algorithm anyway?"
     IDS_GAME_DATA_FILE_MISSING 
                             "The game data file (%s) was not found. It needs to be placed in the same folder as the NumberShark executable.\n\nWithout the game data file some functions will remain unavailable."
+    IDS_BACKTRACKING_ALGORITHM_RESULT 
+                            "To calculate for %s numbers the highest score of %s points, the program needed %s seconds.\n\nThe highest prime number here is %s. You should start the game with this prime to be able to reach the maximum score.\n\nTo achieve the highest score, you can choose the numbers in this order: %s\n\n"
 END
 
 #endif    // English (U.K.) resources

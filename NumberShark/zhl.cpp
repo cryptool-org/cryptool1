@@ -18,10 +18,13 @@
 
 **************************************************************************/
 
-#include "StdAfx.h"
+#include "stdafx.h"
+#include "afxwin.h"
+#include "resource.h"
 #include "zhl.h"
 #include "math.h"
 #include "stdlib.h"
+#include <time.h>
 
 #define MAX_LAENGE 100
 
@@ -599,14 +602,41 @@ UINT zhl::maxPointsSearch(LPVOID param)
 
 	// create the zhl object
 	zhl zhlObject(upperLimit);
+
+	clock_t startTime = clock();	
+
 	// start the search
 	zhlObject.loesungenSuchen();
+
+	clock_t endTime = clock();
 
 	// calculate the score of the best possible way
 	unsigned short score = 0;
 	for(int i=0; i<zhlObject.wegOptimalLaenge; i++) {
 		score += zhlObject.wegOptimal[i];
 	}
+
+	// fill string variables
+	CString strLimit; strLimit.Format("%d", upperLimit);
+	CString strScore; strScore.Format("%d", score);
+	CString strSeconds; strSeconds.Format("%01.3f", (float)(endTime - startTime)/(1000));
+	CString strHighestPrime; strHighestPrime.Format("%d", zhlObject.wegOptimal[0]);
+	// create the optimal-way sequence
+	CString strSequence;
+	for(int i=0; i<zhlObject.wegOptimalLaenge; i++) {
+		CString temp; temp.Format("%d", zhlObject.wegOptimal[i]);
+		strSequence.Append(temp);
+		strSequence.Append(",");
+	}
+	// remove the last comma
+	strSequence.Delete(strSequence.GetLength() - 1, 1);
+
+	// display the score
+	CString message;
+	message.Format(IDS_BACKTRACKING_ALGORITHM_RESULT, strLimit, strScore, strSeconds, strHighestPrime, strSequence);
+	CString title;
+	title.Format(IDS_NUMBER_SHARK);
+	MessageBox(NULL, message, title, MB_ICONINFORMATION);
 
 	return score;
 }
