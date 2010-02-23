@@ -100,6 +100,7 @@
 #define IDD_GAME_SUMMARY                174
 #define IDS_LED_LOST                    175
 #define IDD_MFCZAHLENHAI_DIALOG1        175
+#define IDD_SEARCH_PROGRESS             175
 #define IDS_LED_DRAW                    176
 #define IDS_ZUG2                        177
 #define IDS_SPIELER2                    178
@@ -154,6 +155,10 @@
 #define IDS_SELECT_SEARCH_ALGORITHM     215
 #define IDS_GAME_DATA_FILE_MISSING      216
 #define IDS_BACKTRACKING_ALGORITHM_RESULT 217
+#define IDS_SEARCH_PROGRESS_TEXT_1      218
+#define IDS_SEARCH_PROGRESS_TEXT_2      219
+#define IDS_ALGORITHM_BRUTE_FORCE       220
+#define IDS_ALGORITHM_BACK_TRACKING     221
 #define IDC_LIST2                       1001
 #define IDC_EDIT1                       1007
 #define IDC_BUTTON1                     1008
@@ -249,6 +254,8 @@
 #define IDC_BUTTON_LOAD                 1170
 #define IDC_BUTTON_SAVE                 1171
 #define IDC_ACCELERATORS                1174
+#define IDC_TEXT_SEARCH_PROGRESS_1      1175
+#define IDC_TEXT_SEARCH_PROGRESS_2      1176
 #define ID_OPTIONEN_TOOLTIPSANZEIGEN    32771
 #define ID_OPTIONEN_MAXIMALPUNKTEZAHL   32772
 #define ID_OPTIONEN_MITHAIBEGINNEN      32773
@@ -265,7 +272,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        209
 #define _APS_NEXT_COMMAND_VALUE         32788
-#define _APS_NEXT_CONTROL_VALUE         1175
+#define _APS_NEXT_CONTROL_VALUE         1177
 #define _APS_NEXT_SYMED_VALUE           175
 #endif
 #endif

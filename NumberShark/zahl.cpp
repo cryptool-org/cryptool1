@@ -29,12 +29,14 @@
 #include "zahl.h"
 #include "MFC-ZahlenHaiDlg.h"
 
+// flomar, 02/23/2010
+extern SearchStatus searchStatus;
+
 __int64 numberOfRounds;
 
 bool ContinueSearchFromFile;
 
 //int globalPoints;
-int endSearch;
 int maxEndPoints;
 int endTime;
 
@@ -188,7 +190,6 @@ void writeSearchState(item *Stack, int StackPointer, int upperLimit, __int64 num
 void SucheNRek(EvoZahlenHai &Spiel, int startTime)
 {
 	item *Stack;
-    endSearch = 0;
 	CStdioFile file;
 	int openStatus;
 	openStatus=file.Open("Test",CFile::modeCreate | CFile::modeReadWrite);
@@ -301,8 +302,8 @@ void SucheNRek(EvoZahlenHai &Spiel, int startTime)
 			}
 			StackPointer--;
 		}
-		if(endSearch==-1)
-			StackPointer=endSearch;
+		if(searchStatus == ABORTED)
+			StackPointer=-1;
 	}
 	while (StackPointer >= 0);
 	// wenn keine Zahl mehr FREE ist, wird die ermittelte höchste Punktezahl mit vorherigen
@@ -398,9 +399,14 @@ UINT maxPointsStatic(LPVOID param)
 	//}
 
 	Spiel.startRound(maxPrime(upperLimit));
-    
+
+	searchStatus = RUNNING;
+
 	//Suche(Spiel);
 	SucheNRek(Spiel, startTime);
+
+	if(searchStatus != ABORTED)
+		searchStatus = DONE;
 
 	//Ende der Zeitmessung
 	int stopTime = clock();
@@ -428,9 +434,9 @@ UINT maxPointsStatic(LPVOID param)
 	if(doSearch==0)
 		maxEndPoints = -1;
 
-	if(endSearch != -1)
+	if(searchStatus == DONE) {
         zahlenHaiDlg.calculationResult(maxEndPoints, upperLimit);
-
+	}
 	return maxEndPoints;
 }
 

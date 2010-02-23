@@ -44,6 +44,7 @@
 #include "digistatic.h"
 
 #include <map>
+#include "DlgSearchProgress.h"
 
 // flomar, 02/22/2010
 // this is used for a much clearer code
@@ -53,6 +54,14 @@ struct GameDataBlock {
 	CString sequence;
 	CString sequenceLength;
 	CString leadingPrime;
+};
+
+
+// flomar, 02/23/2010
+enum SearchStatus {
+	RUNNING,
+	ABORTED,
+	DONE
 };
 
 #define MAX_ZAHLENHAI_BUTTON 30
@@ -151,11 +160,6 @@ public:
 	void writeSaveGame();
 	void readSaveGame();
 	void calculationResult(int maxEndPoints, int upperLimit);
-	
-	// flomar, 02/22/2010
-	std::map<int, GameDataBlock> mapProved;
-	std::map<int, GameDataBlock> mapBestKnown;
-	CString readGameDataBlock(CString &data);
 
 	CString sumText;
 	CString startInfo;
@@ -194,4 +198,13 @@ public:
 
 	afx_msg void OnBnClickedButtonLoad();
 	afx_msg void OnBnClickedButtonSave();
+
+protected:
+	// flomar, 02/22/2010
+	std::map<int, GameDataBlock> mapProved;
+	std::map<int, GameDataBlock> mapBestKnown;
+	CString readGameDataBlock(CString &data);
+
+	// flomar, 02/23/2010
+	CDlgSearchProgress dialogSearchProgress;
 };

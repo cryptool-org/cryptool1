@@ -154,6 +154,17 @@ BEGIN
     PUSHBUTTON      "&Zachowaj",IDC_BUTTON_SAVE,398,294,59,14,NOT WS_VISIBLE
 END
 
+IDD_SEARCH_PROGRESS DIALOGEX 0, 0, 200, 110
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "[i18n] Search Progress"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LTEXT           "DYNAMICALLY_GENERATED",IDC_TEXT_SEARCH_PROGRESS_1,7,7,186,24
+    LTEXT           "[i18n] Unfortunately we cannot predict how much time the search will take, but you can cancel the search at any time.",IDC_STATIC,7,55,186,24
+    PUSHBUTTON      "Cancel",IDCANCEL,75,87,50,16
+    CTEXT           "DYNAMICALLY_GENERATED",IDC_TEXT_SEARCH_PROGRESS_2,7,39,186,8
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -266,6 +277,14 @@ BEGIN
         HORZGUIDE, 353
         HORZGUIDE, 371
     END
+
+    IDD_SEARCH_PROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 193
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -356,7 +375,7 @@ BEGIN
     IDS_MAX_POINTS_INFORMATION 
                             "Najwy¿szym osi¹galnym wynikiem na %s numerów jest %s \n\n\n\nMo¿emy pokazaæ Tobie najwy¿szy mo¿liwy wynik, poniewa¿ ta wartoœæ zosta³a ju¿ policzona i jest przechowywana przez program.\n\n\n\nPodpowiedŸ:\n\nNajwiêksza liczba pierwsza z %s liczbami to %s. \n\n\n\nCzy chcesz zobaczyæ drogê do osi¹gniêcia tego wyniku?"
     IDS_QUESTION            "\r\nCzy chesz aby program obliczy³ maksymalny mo¿liwy wynik? \r\n"
-    IDS_WARNING             "%s liczb... To zajmie bardzo du¿o czasu.\n\n\n\nDla 20 liczba, procesor 3GHz musia³ liczyæ oko³o 9 godzin.\n\n Przy 22 liczbach zajê³o mu to oko³o 9 dni. Wydaje nam siê, ¿e dla 30 liczb zajmie to tygodnie lub miesi¹ce. \r\n Jeœli posiadasz jakieœ nowe rezultaty dla %s liczb, bêdziemy wdziêczni za ich przes³anie.\n"
+    IDS_WARNING             "[i18n] %s numbers... This will take a long time.\r\n\r\nUsing a brute-force algorithm, for 20 numbers a 3 GHz PC had to calculate about 9 hours, for 22 numbers the calculation took about 9 days. And we think for 30 numbers it will take weeks or months.\r\n\r\nIf you get some new results for %s numbers, we would appreciate it if you could send them to us.\r\n\r\nDo you really want the calculation to be performed now?\r\n"
     IDS_INVALID_INPUT       "Nie wprowadzaj liczby mniejszej ni¿ 1 lub wiêkszej ni¿ %s!"
 END
 
@@ -495,11 +514,16 @@ BEGIN
     IDS_ASK_FOR_USER_CANCELLATION 
                             "[i18n] Do you want to cancel the calculation?"
     IDS_SELECT_SEARCH_ALGORITHM 
-                            "[i18n] The NumberShark contains two different algorithms to determine the maximum number of points possible: The originally available brute-force algorithm was complemented by a new back-tracking algorithm.\n\nThe new algorithm is considerably faster, but at the moment it does not offer any support to continue the search after the program was closed.\n\no you want to use the new algorithm anyway?"
+                            "[i18n] The NumberShark contains two different algorithms to determine the maximum number of points possible: The originally available brute-force algorithm was complemented by a new back-tracking algorithm.\n\nUsing the brute-force algorithm, a 3 GHz PC had to calculate about 9 hours for 20 numbers. For 22 numbers the calculation took about 9 days. And we believe it will take weeks or months for 30 numbers.\n\nThe new algorithm is considerably faster.\n\nDo you want to use the new algorithm?"
     IDS_GAME_DATA_FILE_MISSING 
                             "[i18n] The game data file (%s) was not found. It needs to be placed in the same folder as the NumberShark executable.\n\nWithout the game data file some functions will remain unavailable."
     IDS_BACKTRACKING_ALGORITHM_RESULT 
                             "[i18n] To calculate for %s numbers the highest score of %s points, the program needed %s seconds.\n\nThe highest prime number here is %s. You should start the game with this prime to be able to reach the maximum score.\n\nTo achieve the highest score, you can choose the numbers in this order: %s\n\n"
+    IDS_SEARCH_PROGRESS_TEXT_1 
+                            "[i18n] The NumberShark is using a %s algorithm to find the highest possible score for %d numbers."
+    IDS_SEARCH_PROGRESS_TEXT_2 "[i18n] Elapsed time: %d seconds"
+    IDS_ALGORITHM_BRUTE_FORCE "[i18n] brute-force"
+    IDS_ALGORITHM_BACK_TRACKING "[i18n] back-tracking"
 END
 
 #endif    // Polish resources
@@ -648,6 +672,17 @@ BEGIN
     PUSHBUTTON      "&Speichern",IDC_BUTTON_SAVE,398,294,59,14,NOT WS_VISIBLE
 END
 
+IDD_SEARCH_PROGRESS DIALOGEX 0, 0, 200, 110
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Suchfortschritt"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LTEXT           "DYNAMICALLY_GENERATED",IDC_TEXT_SEARCH_PROGRESS_1,7,7,186,24
+    LTEXT           "Leider können wir nicht genau vorhersagen, wie lange die Suche dauern wird. Wenn Du möchtest, kannst Du die Suche jederzeit abbrechen.",IDC_STATIC,7,55,186,24
+    PUSHBUTTON      "Abbrechen",IDCANCEL,75,87,50,16
+    CTEXT           "DYNAMICALLY_GENERATED",IDC_TEXT_SEARCH_PROGRESS_2,7,39,186,8
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -760,6 +795,14 @@ BEGIN
         HORZGUIDE, 353
         HORZGUIDE, 371
     END
+
+    IDD_SEARCH_PROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 193
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -814,7 +857,7 @@ BEGIN
     IDS_MAX_POINTS_INFORMATION 
                             "Bei %s Zahlen ist die maximal erreichbare Punktzahl %s.\r\n\r\nWir können Dir hier die maximale Punktzahl sofort anzeigen, da wir diesen Wert schon vorberechnet    \r\nund im Programm abgelegt haben.\r\n\r\nTipp:\r\nDie höchste Primzahl bei %s Zahlen ist %s. Mit dieser Zahl musst Du das Spiel beginnen, um die maximal mögliche     \r\nPunktzahl zu erreichen.\r\n\r\nWillst Du einen optimalen Weg wissen, der zu diesem Ergebnis führt?\r\n"
     IDS_QUESTION            "\r\nSoll das Programm die maximal mögliche Punktezahl berechnen?\r\n"
-    IDS_WARNING             "%s Zahlen - das kann dauern...\r\n\r\nFür 20 Zahlen hat ein 3 GHz Rechner knapp 8 Stunden am Stück gerechnet.\r\nBei 22 Zahlen dauerte das schon ca. 9 Tage. Und bei 30 Zahlen sind es wahrscheinlich Wochen oder Monate.\r\n\r\nFalls Du für %s Zahlen ein Ergebnis herausbekommst, würden wir uns freuen\r\nwenn Du uns dieses zusendest.\r\n\r\nSoll die Berechnung jetzt wirklich durchgeführt werden?\r\n"
+    IDS_WARNING             "%s Zahlen - das kann dauern...\r\n\r\nMit einem Brute-Force-Algorithmus hat ein 3 GHz Rechner für 20 Zahlen knapp 8 Stunden am Stück gerechnet.\r\nBei 22 Zahlen dauerte das schon ca. 9 Tage. Und bei 30 Zahlen sind es wahrscheinlich Wochen oder Monate.\r\n\r\nFalls Du für %s Zahlen ein Ergebnis herausbekommst, würden wir uns freuen\r\nwenn Du uns dieses zusendest.\r\n\r\nSoll die Berechnung jetzt wirklich durchgeführt werden?\r\n"
     IDS_INVALID_INPUT       "Für den Zahlenhai können nur Zahlen\r\nzwischen 1 und %s eingegeben werden!"
 END
 
@@ -952,11 +995,16 @@ BEGIN
     IDS_LOAD_FAILED         "Die Datei ""%s"" konnte nicht richtig eingelesen werden."
     IDS_ASK_FOR_USER_CANCELLATION "Soll die Berechnung unterbrochen werden?"
     IDS_SELECT_SEARCH_ALGORITHM 
-                            "Der Zahlenhai beinhaltet zwei verschiedene Algorithmen für die Suche nach der maximalen Punktzahl: Der ursprünglich verfügbare Brute-Force-Algorithmus wurde um einen Back-Tracking-Algorithmus ergänzt.\n\nDer neue Algorithmus ist bedeutend schneller, aber er bietet im Moment noch keine Möglichkeit, den Fortschritt nach Programmende wieder aufzunehmen.\n\nWollen Sie trotzdem den neuen Algorithmus verwenden?"
+                            "Der Zahlenhai beinhaltet zwei verschiedene Algorithmen für die Suche nach der maximalen Punktzahl: Der ursprünglich verfügbare Brute-Force-Algorithmus wurde um einen Back-Tracking-Algorithmus ergänzt.\n\nMit dem Brute-Force-Algorithmus hat ein 3 GHz Rechner für 20 Zahlen knapp 8 Stunden am Stück gerechnet. Bei 22 Zahlen dauerte das schon ca. 9 Tage. Und bei 30 Zahlen sind es wahrscheinlich Wochen oder Monate.\n\nDer neue Algorithmus ist bedeutend schneller.\n\nWillst Du den neuen Algorithmus verwenden?"
     IDS_GAME_DATA_FILE_MISSING 
                             "Die Datei mit den Spieldaten (%s) konnte nicht gefunden werden. Sie muss im gleichen Verzeichnis liegen wie die Programmdatei des Zahlenhais.\n\nOhne die Spieldaten ist nicht die volle Funktionalität des Zahlenhais verfügbar."
     IDS_BACKTRACKING_ALGORITHM_RESULT 
                             "Um bei %s Zahlen die maximal mögliche Punktzahl %s zu berechnen, hat das Programm %s Sekunden gebraucht.\n\nDie höchste Primzahl ist %s. Mit dieser Zahl musst Du das Spiel beginnen, um die maximal mögliche Punktzahl erreichen zu können.\n\nDie höchste Punktzahl kannst Du unter anderem mit folgender Zugfolge (Weg) erreichen: %s."
+    IDS_SEARCH_PROGRESS_TEXT_1 
+                            "Der Zahlenhai sucht mit einem %s-Algorithmus nach der bestmöglichen Punktausbeute für %d Zahlen."
+    IDS_SEARCH_PROGRESS_TEXT_2 "Verstrichene Zeit: %d Sekunden"
+    IDS_ALGORITHM_BRUTE_FORCE "Brute-Force"
+    IDS_ALGORITHM_BACK_TRACKING "Back-Tracking"
 END
 
 #endif    // German (Germany) resources
@@ -1105,6 +1153,17 @@ BEGIN
     PUSHBUTTON      "&Save",IDC_BUTTON_SAVE,398,294,59,14,NOT WS_VISIBLE
 END
 
+IDD_SEARCH_PROGRESS DIALOGEX 0, 0, 200, 110
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Search Progress"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LTEXT           "DYNAMICALLY_GENERATED",IDC_TEXT_SEARCH_PROGRESS_1,7,7,186,24
+    LTEXT           "Unfortunately we cannot predict how much time the search will take, but you can cancel the search at any time.",IDC_STATIC,7,55,186,24
+    PUSHBUTTON      "Cancel",IDCANCEL,75,87,50,16
+    CTEXT           "DYNAMICALLY_GENERATED",IDC_TEXT_SEARCH_PROGRESS_2,7,39,186,8
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1217,6 +1276,14 @@ BEGIN
         HORZGUIDE, 353
         HORZGUIDE, 371
     END
+
+    IDD_SEARCH_PROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 193
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -1271,7 +1338,7 @@ BEGIN
     IDS_MAX_POINTS_INFORMATION 
                             "The highest attainable score at %s numbers is %s.\r\n\r\nWe can show you the highest possible score, because this value has already been calculated and is stored in the program.\r\n\r\nHint:\r\nThe highest prime with %s numbers is %s. You have to start the game with this prime to be able to reach the maximum score.\r\n\r\nDo you want to see an optimal way to achieve this score?\r\n"
     IDS_QUESTION            "\r\nDo you want the program to calculate the highest possible score?\r\n"
-    IDS_WARNING             "%s numbers... This will take a long time.\r\n\r\nFor 20 numbers, a 3 GHz PC had to calculate about 9 hours.\r\nFor 22 numbers the calculation took about 9 days. And we think for 30 numbers it will take weeks or months.\r\n\r\nIf you get some new results for %s numbers, we would appreciate it if you could send them to us.\r\n\r\nDo you really want the calculation to be performed now?\r\n"
+    IDS_WARNING             "%s numbers... This will take a long time.\r\n\r\nUsing a brute-force algorithm, for 20 numbers a 3 GHz PC had to calculate about 9 hours, for 22 numbers the calculation took about 9 days. And we think for 30 numbers it will take weeks or months.\r\n\r\nIf you get some new results for %s numbers, we would appreciate it if you could send them to us.\r\n\r\nDo you really want the calculation to be performed now?\r\n"
     IDS_INVALID_INPUT       "In the Number Shark game you can/r/nplay with numbers between 1 and %s!"
 END
 
@@ -1409,11 +1476,16 @@ BEGIN
     IDS_LOAD_FAILED         "The file ""%s"" could not be loaded."
     IDS_ASK_FOR_USER_CANCELLATION "Do you want to cancel the calculation?"
     IDS_SELECT_SEARCH_ALGORITHM 
-                            "The NumberShark contains two different algorithms to determine the maximum number of points possible: The originally available brute-force algorithm was complemented by a new back-tracking algorithm.\n\nThe new algorithm is considerably faster, but at the moment it does not offer any support to continue the search after the program was closed.\n\no you want to use the new algorithm anyway?"
+                            "The NumberShark contains two different algorithms to determine the maximum number of points possible: The originally available brute-force algorithm was complemented by a new back-tracking algorithm.\n\nUsing the brute-force algorithm, a 3 GHz PC had to calculate about 9 hours for 20 numbers. For 22 numbers the calculation took about 9 days. And we believe it will take weeks or months for 30 numbers.\n\nThe new algorithm is considerably faster.\n\nDo you want to use the new algorithm?"
     IDS_GAME_DATA_FILE_MISSING 
                             "The game data file (%s) was not found. It needs to be placed in the same folder as the NumberShark executable.\n\nWithout the game data file some functions will remain unavailable."
     IDS_BACKTRACKING_ALGORITHM_RESULT 
                             "To calculate for %s numbers the highest score of %s points, the program needed %s seconds.\n\nThe highest prime number here is %s. You should start the game with this prime to be able to reach the maximum score.\n\nTo achieve the highest score, you can choose the numbers in this order: %s\n\n"
+    IDS_SEARCH_PROGRESS_TEXT_1 
+                            "The NumberShark is using a %s algorithm to find the highest possible score for %d numbers."
+    IDS_SEARCH_PROGRESS_TEXT_2 "Elapsed time: %d seconds"
+    IDS_ALGORITHM_BRUTE_FORCE "brute-force"
+    IDS_ALGORITHM_BACK_TRACKING "back-tracking"
 END
 
 #endif    // English (U.K.) resources

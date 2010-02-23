@@ -87,6 +87,10 @@ using namespace std;
 // Problem dabei: Was ist, wenn die Wurzel wieder viele Teiler hat, 
 // z.B. 64 -> 8,4,2 zum Zahlenhai
 
+#include "MFC-ZahlenHaiDlg.h"
+
+// flomar, 02/23/2010
+extern SearchStatus searchStatus;
 
 zhl::zhl(unsigned short n)
 {
@@ -228,8 +232,8 @@ void zhl::loesungenSuchen(void)
 void zhl::loesungenSuchenRek(unsigned short stufe)
 {
 	// flomar, 02/17/2010
-	// in case endSearch is set, we simply return without doing anything else
-	if(endSearch == -1) return;
+	// we simply return without doing anything else
+	if(searchStatus == ABORTED) return;
 
 	// stufe nur zur Überprüfung der Konsistenz vorhanden!
 	// kann später gelöscht werden
@@ -598,17 +602,24 @@ UINT zhl::maxPointsSearch(LPVOID param)
 	int upperLimit = (int)((LPVOID)(param));
 
 	// we want to start a new search
-	endSearch = 0;
+	searchStatus = RUNNING;
 
 	// create the zhl object
 	zhl zhlObject(upperLimit);
 
-	clock_t startTime = clock();	
+	clock_t startTime = clock();
 
 	// start the search
 	zhlObject.loesungenSuchen();
 
 	clock_t endTime = clock();
+
+	if(searchStatus != ABORTED)
+		searchStatus = DONE;
+
+	// return (and don't display anything more) if the search was cancelled
+	if(searchStatus == ABORTED)
+		return 0;
 
 	// calculate the score of the best possible way
 	unsigned short score = 0;

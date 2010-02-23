@@ -550,6 +550,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\DlgSearchProgress.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\DynTabCtrl.cpp"
 				>
 			</File>
@@ -669,6 +673,10 @@
 			</File>
 			<File
 				RelativePath=".\Digistatic.h"
+				>
+			</File>
+			<File
+				RelativePath=".\DlgSearchProgress.h"
 				>
 			</File>
 			<File
@@ -818,11 +826,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Bilder\Zahlenhai.ico"
+				RelativePath=".\res\Zahlenhai.ico"
 				>
 			</File>
 			<File
-				RelativePath=".\res\Zahlenhai.ico"
+				RelativePath=".\Bilder\Zahlenhai.ico"
 				>
 			</File>
 		</Filter>
