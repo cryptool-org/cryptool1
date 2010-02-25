@@ -945,8 +945,6 @@ c) New functionality / Usability:
 
 - The educational program/game "Number Shark" (in version 1.2) was
   corrected and the online help was updated and enhanced.
-  For calculating an optimal solution a backtracking algorithm was
-  added which amends the previous slow brute-force algorithm.
 
   Showing the optional solutions:
   - Until now optimal results could be shown in two ways:
@@ -955,10 +953,10 @@ c) New functionality / Usability:
       algorithm.
   - Now they can be calculated much faster using a back-tracking algorithm
     (39 numbers within around 1 minute; 40 numbers within around 5 minutes).
-  - Even much faster are heuristic algorithms, like the ones implmented
+  - Even much more faster are heuristic algorithms, like the ones implemented
     in JCT. They normally don't find an optimal result, but a very good one.
   - If the Number Shark calculates optional results, which can last very long,
-    then it now can restart using old precalulations. 
+    then it now can restart using old stored precalulations. 
 
 - If the result in the dialog primality testing says, that the given number
   is NOT prime, then you can directly (via a new button) call the
