@@ -22,13 +22,22 @@
 
 <BODY>
 
+
 <h3>Starting page: An Introduction to CrypTool</h3>
 
-<P>You can access the starting page of CrypTool via the menu entry <a href="menu_help.html">Help</a> \ <a href="hidd_tipps_and_tricks.html">Starting Page</a>.</P>
+<P>CrypTool is a comprehensive, free e-learning program about cryptography and cryptanalysis (<a href="crypto_methods.html">cryptology</a>). The relationship of the topics cryptology, IT security and risk management is described <a href="cryptology.html">here</a>.</P>
 
-<P>CrypTool is a comprehensive e-learning program about cryptography and cryptanalysis (<a href="crypto_methods.html">cryptology</a>). The relationship of cryptology, IT security and risk management is described <a href="cryptology.html">here</a>.</P>
+<P>You can access the starting page of CrypTool via the menu entry <a href="menu_help.html">Help</a> \ <a href="hidd_tipps_and_tricks.html">Starting Page</a>.
+<br>This starting page is part of an extensive online help.</P>
 
-<h3>Content of this page:</h3>
+<P>In the following we always mean with the "CrypTool"-Programm stets the version family
+CT 1.x.
+<br>You can find further information about the future program versions CT2 and JCT under 
+<a href="#FutureVersions">Future Versions CT2 and JCT</a>.</P>
+
+
+
+<br><h3>Content of this page:</h3>
 
 <p>
 <a href="#whatiscryptool">What is CrypTool?</a><p>
@@ -36,15 +45,18 @@
 <a href="#demo">Interactive Demonstrations / Visualizations</a><p>
 <a href="#onlinehelp">Online Help, Documentation and Tutorials</a><p>
 <a href="#organization">Organizational</a><p>
+<a href="#FutureVersions">Future Versions CT2 and JCT</a><p>
 <A href="#licence_terms">Terms of the Licence / Non-Liability / Copyright</a><p>
 <a href="#opensource">Release of the Source Code</a><p>
-<p>
+</p>
 
-<TABLE cols=2 width="0*">
+
+<br><p><TABLE cols=2 width="0*">
 
 <TR VALIGN="top">
 <TD width=30%>
-By pressing <b>F1</b> or using the <A href="hid_context_help.html">context-sensitive help</A> via mouse you can get help everywhere in the program. Help is available for
+<p>By pressing <b>F1</b> or using the <A href="hid_context_help.html">context-sensitive help</A> via mouse you can get help everywhere in the program.</p>
+Help is available for
 <ul>
 <li>any selected (end) menu item.</li>
 <li>any opened dialog window.</li>
@@ -55,29 +67,36 @@ By pressing <b>F1</b> or using the <A href="hid_context_help.html">context-sensi
 <P>Via the <A href="hid_options_startoptions.html">Starting Options</A> you can determine which windows are opened automatically when starting CrypTool.</P>
 
 <P>Kindly note the <A href="#licence_terms">terms of the licence</A> and the <A href="gewaehrleistung.html">information regarding non-liability for any damage arising from the use of CrypTool</A>.</P>
+
 </TD>
 <TD width=70%><IMG SRC="images/CrypToolAboutDialog.png" ALT="CrypToolAboutDialog.png" BORDER=0></TD>
 </TR>
-</TABLE><BR>
+</TABLE></p>
 
-<P><B><a name="whatiscryptool">What is CrypTool?</a></B></P>
 
-<P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> is a <B>freeware</B> program which enables you to apply and analyse cryptographic mechanisms. It has the typical look-and-feel of a modern Windows application.</P>
 
-<P>CrypTool contains exhaustive <A href="main_index.html">online help</A>, which can be understood without extensive knowledge of cryptography.<br>
-	CrypTool is available in <B>English</B>, <B>German</B>, <B>Polish</B> and <B>Spanish</B>. CrypTool has implemented almost all state-of-the-art crypto functions and allows you to learn about and use <B>cryptography</B> within the same environment.</P>
+<br><P><B><a name="whatiscryptool">What is CrypTool?</a></B></P>
 
-	<P>The methods available include both classic methods and modern cryptosystems:</P>
-	<UL>
-	<li>	classic methods: e.g. the <A href="hid_rot13caesar_asc.html">Caesar</A> cipher, the <A href="hid_encrypt_adfgvx.html">ADFGVX</A> cipher, the <A href="hid_permutation.html">double-column transposition (permutation)</A> and the <a href="hid_flash_enigmademo.html">Enigma</a> encryption algorithm.
-	<li>	modern methods: for example, the <A href="hid_crypt_rsaenc.html">RSA</A> and <A href="aes_gewinner.html">AES</A> algorithms, hybrid encryption and algorithms based on <A href="menu_analysis_asymmetric_latticebasedattacks.html">lattice reduction</A> and <A href="ellipkurven.html">elliptic curves</A>. 
-	</UL>
+<P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> is a <B>freeware</B> and <B>open source</B> program which enables you to apply and analyse cryptographic mechanisms. It has the typical look-and-feel of a modern Windows application.</P>
 
-	<P>A summary of all the <!--ZZZPOPUP--><A href="verschluesselung.html"><B>encryption algorithms</B></A> implemented in CrypTool is available in the online help page for the <A href="menu_crypt.html">Crypt/Decrypt</A> menu.</P>
+<P>CrypTool contains exhaustive <A href="main_index.html">online help</A>, which can be understood without extensive knowledge of cryptography.</p>
 
-	<p>Both, the included <a class="filelink" onclick="parser('CrypToolPresentation-en.pdf')">CrypTool presentation</a> as well as the <a href="http://www.cryptool.com" target="_blank">CrypTool web site</a>, contain many screen shots.</p>
+<p>CrypTool has been continously developed since 1998. It is available in <B>English</B>, <B>German</B>, <B>Polish</B>, <B>Serbian</B> and <B>Spanish</B>. CrypTool has implemented almost all state-of-the-art crypto functions and allows you to learn about and use <B>cryptography</B> within the same environment.</P>
 
-	<p>If you encrypt a document the result will be shown in a new sub-window: The title of the resulting window contains both the name of the original document and the encryption key used. The usage of keys is supported by two special icons: Clicking the icon "Show key" <img
+<P>The methods available include both classic methods and modern cryptosystems:</P>
+
+<UL>
+<li><B>classic</B> methods: e.g. the <A href="hid_rot13caesar_asc.html">Caesar</A> cipher, the <A href="hid_encrypt_adfgvx.html">ADFGVX</A> cipher, the <A href="hid_permutation.html">double-column transposition (permutation)</A> and the <a href="hid_flash_enigmademo.html">Enigma</a> encryption algorithm.</li>
+
+<li><B>modern</B> methods: e.g. the <A href="hid_crypt_rsaenc.html">RSA</A> and <A href="aes_gewinner.html">AES</A> algorithms, hybrid encryption and algorithms based on <A href="menu_analysis_asymmetric_latticebasedattacks.html">lattice reduction</A> and <A href="ellipkurven.html">elliptic curves</A>.</li> 
+</UL>
+
+<P>A summary of all the <!--ZZZPOPUP--><A href="verschluesselung.html"><B>encryption algorithms</B></A> implemented in CrypTool is available in the online help page for the <A href="menu_crypt.html">Crypt/Decrypt</A> menu.</P>
+
+<p>Both, the included <a class="filelink" onclick="parser('CrypToolPresentation-en.pdf')">CrypTool presentation</a> as well as the <a href="http://www.cryptool.com" target="_blank">CrypTool web site</a>, contain many <B>screen shots</B>.</p>
+
+
+<p>If you encrypt a document the result will be shown in a new sub-window: The title of the resulting window contains both the name of the original document and the encryption key used. The usage of keys is supported by two special icons: Clicking the icon "Show key" <img
 	src="images/keycopy.png"> allows you to copy the used key from a resulting window into an internal storage. If you then encrypt another document with the same encryption method the icon "Insert key" <img
 	src="images/keypaste.png"> is active within the key entry dialog box. This is helpful, especially with more complex keys.</p>
 
@@ -93,7 +112,7 @@ For example:</P>
 <UL>
 	<LI>calculate <!--ZZZPOPUP--><A href="hashwert.html">hash values</A> (see menu Indiv. Procedures \ <A href="menu_individualprocedures_hashprocedures.html">Hash</A>) and show their sensitivity.</LI>
 
-	<LI>create <A href="hid_generate_macs.html">Message Authentication Codes (MACs)</A>.</LI>
+	<LI>create <A href="hid_generate_macs.html">Message Authentication Codes (HMACs)</A>.</LI>
 
 	<LI>find out how "strong" keys can be generated from passwords according to the <A href="hid_einzelverfahren_schluesselgenerieren.html">PKCS #5</A> standard.</LI>
 
@@ -119,11 +138,15 @@ For example:</P>
 
 <P>The authors of CrypTool did not implement cryptographic functionality where very good free programs were available in the internet: So dictionary attacks against password files (see John-the-Ripper, <a href="http://www.openwall.com/john/" target="_blank">http://www.openwall.com/john/</a>) are not part of CrypTool.</P>
 
+
+
 <br><P><B><a name="rsa">The RSA Cryptosystem</a></B></P>
 
 <P>The RSA cryptosystem (see menu <A href="menu_related_methods.html">Indiv. Procedures</A> \ <A href="menu_individualprocedures_rsacryptosystem.html">RSA Cryptosystem</A> \ <A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">RSA demonstration</A>) is covered comprehensively and implemented for different codings. The RSA key can be generated from prime numbers selected by the user. Key generation, encryption and decryption can be followed step-by-step.</P>
 
 <P>Factorization of numbers is also an important application for cryptography. Simple RSA cryptosystems can be easily cracked using the factorization algorithms presented in CrypTool. Thus, you get an idea of the minimum length of keys necessary for secure systems.</P>
+
+
 
 <br><P><B><a name="demo">Interactive Demonstrations / Visualizations</a></B></P>
 <p>These interactive demonstrations (<A href="visualizations.html">visualizations</a>) are helpful for improving the understanding of the following topics: 
@@ -161,7 +184,11 @@ For example:</P>
 </ul>
 </p>
 
-Besides the interactive demonstrations the CrypTool package contains the educational game "The Number Shark", which trains pupils to calculate factors.
+<p>Besides the interactive demonstrations the CrypTool package contains the educational game
+<A href="hid_numbershark.html">The Number Shark</a>, which trains pupils to calculate
+factors and to make use of prime numbers.</p>
+
+
 
 <br><p><P><B><a name="onlinehelp">Online Help, Documentation and Tutorials</a></B></P>
 
@@ -183,7 +210,7 @@ Besides the interactive demonstrations the CrypTool package contains the educati
 	<LI>The readme file (<A class="filelink" onclick="parser('readme-en.txt')">readme-en.txt</A>) describes all important elements of the CrypTool package and the new features of this version.<br>
 	Additionally it contains information about the project itself.</LI>
 
-<LI>In the <A class="filelink" onclick="parser('script-en.pdf')">script</A> (provided as a PDF file with about 200 pages) you will find more mathematically oriented information about</LI>
+<LI>In the <A class="filelink" onclick="parser('script-en.pdf')">script</A> (provided as a PDF file with about 250 pages) you will find more mathematically oriented information about</LI>
 
 <UL type="disc">
 
@@ -212,6 +239,8 @@ Authorware computer based training about elementary number theory.</P>
 <P>Also, a couple of encrypted files are attached to CrypTool. Klaus Schmeh compiled most of these 
 <a href="cryptochallenges.html">Crypto Puzzles</a> and illustrated them in his book.</P>
 
+
+
 <br><P><B><a name="organization">Organizational</a></B></P>
 
 <P>CrypTool was developed jointly by companies and universities to provide an adequate teaching aid. It is also used to raise IT security awareness in programs conducted by corporations and, for the end user, to gain a deeper understanding of the concept of security. </P>
@@ -232,9 +261,21 @@ Authorware computer based training about elementary number theory.</P>
 
 <p>The GMP library (<a href="http://www.swox.com/gmp/" target="_blank">http://www.swox.com/gmp/</a>) for arbitrary precision arithmetic is used for prime number tests.</p>
 
-<p>Information about the future roadmap can be found on the <a href="www.cryptool.org" target="_blank">CrypTool web site</a>, within the <a class="filelink" onclick="parser('readme-en.txt')">Readme file</a> and in the <A class="filelink" onclick="parser('CrypToolPresentation-en.pdf')">CrypTool presentation</a>. Here the successor projects CT2 and JCT are introduced too.
-
 <p>The source code of CrypTool 1.4.x is hosted by the University of Duisburg-Essen, Germany.</p>
+
+
+
+<br><P><A NAME="FutureVersions"></A><b>Future Versions CT2 and JCT</b></P>
+
+<p>Information about the future roadmap can be found on the <a href="www.cryptool.org" target="_blank">CrypTool web site</a>, within the <a class="filelink" onclick="parser('readme-en.txt')">Readme file</a> and in the <A class="filelink" onclick="parser('CrypToolPresentation-en.pdf')">CrypTool presentation</a>. There the successor projects CT2 and JCT are introduced too.
+</P>
+
+<p>The successor versions of CT1 are:
+<ul>
+<li><a href="http://www.cryptool2.vs.uni-due.de" target="_blank">CT2</a>: CrypTool 2 is developed for the .NET platform using C#, WPF and VisualStudio. CT2 is based on a modern plugin software architecture and offers visual programming to the user. </li>
+<li><a href="http://jcryptool.sourceforge.net/JCrypTool/" target="_blank">JCT</a>: Java-CrypTool is developed for the platforms Windows, MAC and Linux using Java, SWT and Eclipse. JCT is also based on a modern plugin software architecture and offers document and function centric perspectives.</li>
+</ul></p>
+
 
 <br><P><A NAME="licence_terms"></A><B>Terms of the Licence / Non-Liability / Copyright</B></P>
 
@@ -266,6 +307,7 @@ Authorware computer based training about elementary number theory.</P>
 
 	<P>The enclosed stories "The Dialogue of the Sisters" and "The Chinese Labyrinth" are governed by the following licence terms: The author owns all rights to these stories. The maintainer of CrypTool is authorized by the author to distribute these stories only together with the CrypTool package.</P>
 
+
 <br><P><B><a name="opensource">Release of the Source Code</a></B></P>
 
 	<p>
@@ -275,7 +317,7 @@ Authorware computer based training about elementary number theory.</P>
 	GmbH, Shamus Software Ltd, cv cryptovision and the ANIMAL system.
 	</p>
 
-<p>The open source developer group, headed by Bernhard Esslinger (<a href="mailto:esslinger@fb5.uni-siegen.de">esslinger@fb5.uni-siegen.de</a>), does the maintenance. Being the maintainer means to coordinate and execute actively the further development of CrypTool as freeware and open source software. Each maintainer has committed himself to take care that:
+<p>The open source developer group, headed by Prof. Bernhard Esslinger (<a href="mailto:esslinger@fb5.uni-siegen.de">esslinger@fb5.uni-siegen.de</a>), does the maintenance. Being the maintainer means to coordinate and execute actively the further development of CrypTool as freeware and open source software. Each maintainer has committed himself to take care that:
 <ul>
 <li>	the source code remains consistent.
 <li>	competent contact persons are available, should they be needed by other developers.

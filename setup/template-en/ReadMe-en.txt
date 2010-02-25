@@ -818,7 +818,7 @@ b) Changes within the user documentation / on the websites:
 - Online help: well enhanced (e.g. modi and padding variants used for block
                ciphers now are described explicitly).
 
-- CrypTool Script: Extensive revision:
+- CrypTool script: Extensive revision:
                    - extensions and update to status quo,
                    - inclusion of many Sage code samples,
                      delivery of the Sage code as files,
@@ -890,6 +890,10 @@ c) New functionality / Usability:
      key length despite the shown autocorrelation was correct.
      Now the correct key length is shown and used.
 
+
+- CrypTool now remembers its main window position and size and uses
+  this when it is restarted.
+
 - For all DES based methods now the dialogs show both the effectively used
   key length and the key length which the user has to enter.
 
@@ -939,8 +943,22 @@ c) New functionality / Usability:
 
 - The permutation cipher now also can be applied to hex files.
 
-- The educational program/game "Number Shark" (in version 1.1.6 xxx) was
-  corrected a little bit and the online help was enhanced.
+- The educational program/game "Number Shark" (in version 1.2) was
+  corrected and the online help was updated and enhanced.
+  For calculating an optimal solution a backtracking algorithm was
+  added which amends the previous slow brute-force algorithm.
+
+  Showing the optional solutions:
+  - Until now optimal results could be shown in two ways:
+    - Until n=158 they have been stored.
+    - For any number they could be calculated in a very slow brute-force
+      algorithm.
+  - Now they can be calculated much faster using a back-tracking algorithm
+    (39 numbers within around 1 minute; 40 numbers within around 5 minutes).
+  - Even much faster are heuristic algorithms, like the ones implmented
+    in JCT. They normally don't find an optimal result, but a very good one.
+  - If the Number Shark calculates optional results, which can last very long,
+    then it now can restart using old precalulations. 
 
 - If the result in the dialog primality testing says, that the given number
   is NOT prime, then you can directly (via a new button) call the
@@ -1844,7 +1862,7 @@ Version   Date		Size of Windows Setup  Needed size  Released
 1.4.10    July 2007	26.7 MB	     27.5 MB	47 MB        DB
 1.4.20    July 2008	36.1 MB	     37.1 MB	73 MB        DB
 1.4.21    July 2008	36.1 MB	     37.1 MB	73 MB        DB
-1.4.30    Feb. 2010	46.1 MB      47.0 MB	85 MB        DB   xxxxxx
+1.4.30    Mar. 2010	46.1 MB      47.0 MB	85 MB        DB   xxxxxx
 
 Remarks about the versions:
 1.3.02   Many new functions compared to 1.3.00.

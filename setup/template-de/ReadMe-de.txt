@@ -908,6 +908,9 @@ c) Neue Funktionalität / Bedienung:
      Nun wird die richtige Schlüssellänge angezeigt und benutzt.
 
 
+- CrypTool merkt sich nun die Position un dGröße des Hauptfensters und nutzt
+  dies beim Neustart.
+
 - Bei allen DES-basierten Verfahren wird nun sowohl die effektiv genutzte als
   auch die einzugebende Schlüssellänge angezeigt.
 
@@ -959,8 +962,21 @@ c) Neue Funktionalität / Bedienung:
 - Die Permutationsverschlüsselung kann nun auch auf Hexdateien angewandt
   werden.
 
-- Das Lernprogramm/Lernspiel "Zahlenhai" (in der Version 1.1.6 xxx) wurde etwas
-  korrigiert und vor allem wurde die Onlinehilfe erweitert.
+- Das Lernprogramm/Lernspiel "Zahlenhai" (in der Version 1.2) wurde 
+  korrigiert und die Onlinehilfe aktualisiert und erweitert.
+  Ausgabe/Anzeige der optionalen Werte:
+  - Bisher konnte man die optionalen Werte auf zwei Arten anzeigen:
+    - Bis n=158 waren sie abgespeichert.
+    - Für beliebige Werte konnten sie mit einem sehr langsamen
+      Brute-Force-Verfahren berechnet werden.
+  - Nun können diese mit einem Backtracking-Verfahren deutlich schneller
+    berechnet werden (39 Zahlen in ca. 1 Minute; 40 Zahlen in ca. 5 Minuten).
+  - Noch viel schneller sind heuristische Methoden, wie sie in JCT
+    implementiert sind. Diese finden meist nicht den optimalen Wert,
+    aber einen sehr guten Wert.
+  - Wenn man die optionalen Werte berechnet, was sehr lange dauern kann,
+    kann der Zahlenhai nun auf bisher schon berechnete Zwischenergebnisse
+    aufsetzen. 
 
 - Wenn sich im Dialog Primzahltest ergibt, dass die zu testende Zahl
   NICHT prim ist, kann per Button direkt zum Faktorisierungsdialog
@@ -981,13 +997,14 @@ c) Neue Funktionalität / Bedienung:
   Methoden. Somit konnten wir den Menüeintrag "Weitere Optionen" entfernen.
 
 - Das in den Textoptionen eingestellte Alphabet wirkt sich nun auf fast alle
-  klassischen Chifren aus: Deshalb haben alle angepassten Verfahren nun einen
-  Button, um aus der Schlüsseleingabe-Maske direkt zu den Textoptionen zu springen.
+  klassischen Chiffren aus: Deshalb haben alle angepassten Verfahren nun einen
+  Button, um aus der Schlüsseleingabe-Maske direkt zu den Textoptionen zu
+  springen.
 
   Der Textoptionen-Button ist vorhanden bei
-  - den klassischen Substitutions-Verfahren (Caesar, Vigenère,
-        monoalphabetische Substitution) und bei 
-  - den klassichen Transpositions-Verfahren
+  - den klassischen Substitutions-Verfahren
+        (Caesar, Vigenère, monoalphabetische Substitution) und bei 
+  - den klassischen Transpositions-Verfahren
         (Skytale, Transpositions-Teil von ADFGVX).
 
   Er ist noch nicht vorhanden bei: xxxxxxxxxxxxxxx
@@ -1898,7 +1915,7 @@ Version   Datum         Größe des Windows-Setups  Plattenplatz  Freigabe
 1.4.10    Juli 2007      27,5 MB     26,7 MB         47 MB        DB
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
-1.4.30    Feb. 2010      47,0 MB     46,1 MB         86 MB        DB   xxxxxxx
+1.4.30    März 2010      47,0 MB     46,1 MB         86 MB        DB   xxxxxxx
 
 Bemerkungen zu den Versionen:
 1.3.02   Viele neue Funktionen gegenüber 1.3.00.
