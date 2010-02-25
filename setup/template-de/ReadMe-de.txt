@@ -452,8 +452,8 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
 - Codierungen wie Base64 und UU-Encode.
 
 - Nahezu alle modernen symmetrischen Verschlüsselungsverfahren: Und dazu
-  jeweils die Brute-force-Analyse
-  (Beim Brute-force-Angriff auf symmetrische Algorithmen werden Jokerzeichen
+  jeweils die Brute-Force-Analyse
+  (Beim Brute-Force-Angriff auf symmetrische Algorithmen werden Jokerzeichen
    zugelassen und die erwartete Zeit wird ausgegeben. 
    Außerdem kann man die Breite für das hierbei genutzte Entropiefenster in
    den Analyseoptionen einstellen, sowie welche Erwartung man an das Alphabet
@@ -522,7 +522,7 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
 
 - Hashwerte berechnen und ihre Sensitivität demonstrieren.
 
-- Implementierung von MAC-Verfahren (Kombination von Hashes und 
+- Implementierung von HMAC-Verfahren (Kombination von Hashes und 
   symmetrischen Verfahren zur Authentisierung von Nachrichten). 
   Hashverfahren wurden bisher schon von den in CrypTool implementierten
   Konzepten PKCS#5 und digitale Signaturen verwendet.
@@ -559,7 +559,7 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
 - In allen klassischen Algorithmen, wo die Alphabete der zu bearbeitenden
   Texte eine Rolle spielen, wird nun das im zentralen Dialog "Textoptionen"
   eingestellte Alphabet benutzt.
-  Damit ließ sich eine verbesserte Bedienbarkeit umsetzen:
+  Damit wurde die Transparenz und Bedienbarkeit verbessert:
   Um sofort bei der Schlüsseleingabe sichtbar zu machen, welche Verfahren
   darauf reagieren, enthält jede passende Schlüsseleingabe-Maske einen
   zusätzlichen Button "Textoptionen", der direkt zum Dialog "Textoptionen"
@@ -636,36 +636,36 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
   svn checkout http://www.cryptool.com/svn/CrypTool/trunk --username anonymous
 
 - Einen Eindruck von der Größe des CT1-Projekts liefert die folgende, im
-  Januar 2010 erstellte Statistik (anhand der Dateien für die deutsche,
+  Februar 2010 erstellte Statistik (anhand der Dateien für die deutsche,
   englische und polnische Version):
 
     FILE SUMMARY (Anzahl der Dateien anhand ihrer Dateinamenserweiterung)
     ------------
               4 .rc
              36 .c
-            314 .cpp
-            369 .h
+            316 .cpp
+            371 .h
              36 .java
              12 .pl
            1636 .html
              47 .txt
              39 .tex
               4 .sage
-           2497 TOTAL
+           2501 TOTAL
   
     LINES OF CODE (LoC) SUMMARY
     ---------------------------
-         46.685 MFC resource code (rc)
-        246.526 C/C++ source code (c cpp h)
+         47.006 MFC resource code (rc)
+        247.889 C/C++ source code (c cpp h)
           9.781 Java source code (java)
           1.888 Perl code (pl)
-         90.898 HTML code (html hpp)
-         10.341 Text files (txt)
+         90.977 HTML code (html hpp)
+         10.500 Text files (txt)
          34.463 LaTeX code (tex)
            825 Sage code (sage)
-        441.407 TOTAL
+        443.329 TOTAL
 
-    TOTAL: 441.407 Code-Zeilen (plus von 15,4 % gegenüber 382.244 bei v1.4.21)
+    TOTAL: 443.329 Code-Zeilen (plus von 15,9 % gegenüber 382.244 bei v1.4.21)
     - In den TOTAL-Wert gehen nur Sourcen ein, die innerhalb des
       CrypTool-Projektes entwickelt wurden oder dem CT-Projekt gewidmet wurden.
       Die Sourcen anderer Open-Source-Projekte, die innerhalb von CrypTool
@@ -772,7 +772,7 @@ c) Funktionale Änderungen / Erweiterungen:
   variable Alphabet für das Transpositions-Passwort nutzen (nicht mehr
   nur die 26 Großbuchstaben).
 
-- Erweiterung der Brute-force-Analyse symmetrischer Verfahren (Henk -- danke
+- Erweiterung der Brute-Force-Analyse symmetrischer Verfahren (Henk -- danke
   für die praktischen und didaktischen Anregungen):
   - Einstellen des Alphabets für den erwarteten Klartext, um die Suche
     nach einem möglichen richtigen Schlüssel einzuschränken.
@@ -881,10 +881,10 @@ c) Neue Funktionalität / Bedienung:
        ist übersichtlicher gestaltet.
      - Die Versionsnummer wurde auf 1.1 erhöht und wird nun im Titel angezeigt.
    - Korrektur bei DESX/DESXL: Nun wird die effektive Bitlänge in den
-     Dialogen zur Verschlüsselung und zur Brute-force-Analyse angezeigt.
-   - Korrektur bei der DESX/DESXL-Brute-force-Analyse, die Schlüssel überging,
+     Dialogen zur Verschlüsselung und zur Brute-Force-Analyse angezeigt.
+   - Korrektur bei der DESX/DESXL-Brute-Force-Analyse, die Schlüssel überging,
      wenn die obersten 128 Bit des Schlüssels durchsucht wurden (das Parity-
-     Bit wird bei der Brute-force-Analyse aus Performancegründen ignoriert;
+     Bit wird bei der Brute-Force-Analyse aus Performancegründen ignoriert;
      diese geht aber nur beim DES-Key-Teil des Gesamtschlüssels).
    - Beim Angriff auf den Hashwert einer elektronischen Signatur wurde bisher
      die benötigte Schrittzahl falsch ausgegeben (immer ca. 4,x*10^18).
@@ -1209,8 +1209,8 @@ Installationsprogramm (Setup).
 - Textfenster in Dialogen werden mit zwei unterschiedlichen Editor-Controls
   erstellt. Diese haben ein unterschiedliches Verhalten beim Drücken der
   Enter-Taste:
-  a) Scintila-Editor: Enter bewirkt das Hinzufügen von CR/NL und der
-                      Cursor steht in der nächsten Zeile.
+  a) Scintilla-Editor: Enter bewirkt das Hinzufügen von CR/NL und der
+                       Cursor steht in der nächsten Zeile.
   b) Standard MFC-Editor: Mit Enter wird der Texteditor verlassen und
                           es wird versucht, den OK-Button auszulösen.
 
@@ -1325,7 +1325,7 @@ Bitte beachten Sie:
        Exportieren Sie diese PSEs mit Hilfe des alten CrypTools in ein
        PKCS#12-Format und importieren Sie diese Dateien im neuen CrypTool.
      - Für ECC-Schlüssel:
-       Hier reicht es, die entsprechenden Dateien 
+       Hier reicht es, die entsprechenden Dateien
        (z.B. [da][db][EC-prime239v1][1131039030][d] )
        vom alten CrypTool\pse-Verzeichnis in das neue Verzeichnis zu
        kopieren.
@@ -1939,6 +1939,7 @@ Bemerkungen zu den Versionen:
 1.4.30-Beta03  März 2009  Erste öffentliche Beta von Version 1.4.30.
 1.4.30-Beta04  Sep. 2009  Zweite öffentliche Beta von Version 1.4.30.
 1.4.30-Beta05  Jan. 2010  Dritte öffentliche Beta von Version 1.4.30 (22.1.2010).
+1.4.30-Beta06  Feb. 2010  Vierte öffentliche Beta von Version 1.4.30 (26.2.2010).
 1.4.30   Viele Bugfixes und erweiterter Funktionsumfang i.Vgl. zu 1.4.21.
 
 
@@ -2143,8 +2144,7 @@ b) Auf der Professional Security Testers Warehouse (PST) postete
    Ein ähnliches Post gab es am 22.09.2005 auf der "CISSP, SSCP, CISM, 
    CISA, ISSPCS, and SANS GIAC GCFW Open Study Guides Web site" for 
    Cryptography: http://www.cccure.org/modules.php?name=News&new_topic=51
-   mit dem Titel "CrypTool A great tool to learn more about
-   cryptography".
+   mit dem Titel "CrypTool A great tool to learn more about cryptography".
 
 
 c) Wikipedia:
@@ -2565,7 +2565,7 @@ A.2.1.2. Funktionalität: Analyse
   samt Visualisierung weiter ausgebaut werden könnte.
 
 - Zu allen Verschlüsselungsverfahren eine (gute) Analyse anbieten, die
-  (zumindest für die klassischen Verfahren besser ist als Brute-force).
+  (zumindest für die klassischen Verfahren besser ist als Brute-Force).
 
 - Angriff auf symmetrische Verschlüsselungsverfahren, bei denen die
   Parameter der Verschlüsselungsverfahren flexibel reduziert werden
@@ -2573,7 +2573,7 @@ A.2.1.2. Funktionalität: Analyse
 
 - Differentielle Kryptoanalyse auf symmetrische Chiffren (DES, ...).
 
-- Die Brute-force-Möglichkeiten erweitern: Nutzen von Wissen
+- Die Brute-Force-Möglichkeiten erweitern: Nutzen von Wissen
   - um Teile des Klartextes,
   - um Teile des Schlüssels.
 
@@ -2684,8 +2684,8 @@ A.2.1.3. Interne Schnittstellen / Editoren
   Schlüsselspeicher aufgenommen werden.
 
 - Langzahl- und Krypto-Bibliotheken:
-   - Unterstützung weiterer Libraries (LiDIA, FLINT/C, 
-     Wei Dai's Crypto++, APFLOAT, ...).
+   - Unterstützung weiterer Libraries
+     (FLINT/C, Wei Dai's Crypto++, APFLOAT, ...).
 
 - Vorhandene Einschränkungen in der N-Gramm-Analyse bzgl. Dateigröße
   ausdehnen (evtl. mit Benutzerfeedback und der Möglichkeit abzubrechen,
@@ -2834,7 +2834,7 @@ b) Java-CrypTool (JCrypTool, JCT):
    - Plattform-unabhängig.
    - Nutzt strikt die Standards von Eclipse 3.5.
    - Nutzung von SWT (und Jigloo) für die GUI.
-   - Bouncy-Castle und FlexiProvider werden als krypto-Provider benutzt.
+   - Bouncy-Castle und FlexiProvider werden als Krypto-Provider benutzt.
    - Meilenstein 1 (August 2007) war für Entwickler und zeigte, dass die
      neuen Architektur-Konzepte umsetzbar sind.
      Milestone 2 (August 2008), 3 (Dezember 2008), 4 und 4a (Februar 2009)
@@ -2861,7 +2861,7 @@ c) CrypTool 2.0 (CT 2)
      Beta-Versionen (für Entwickler und Nutzer) werden seit Juli 2008
      regelmäßig veröffentlicht.
      Mit der Releaseversion von CT2 wird die Weiter-Entwicklung von CrypTool 1.x
-     eingestellt.
+     eingestellt werden.
    - Hoher Lerneffekt bei Einsteigern durch visuelle Programmierung.
    - Weitere Entwickler und graphisch anspruchsvolle Designer sind
      in diesem neuen Projekt sehr herzlich willkommen.

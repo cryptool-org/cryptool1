@@ -511,7 +511,7 @@ The general properties and functions of CrypTool are:
 
 - Calculate hash values and demonstrate its sensitivity.
 
-- Implementation of MACs (combination of hashes and symmetric methods
+- Implementation of HMACs (combination of hashes and symmetric methods
   to authenticate messages). 
   Hashes have been already used in CrypTool within PKCS#5 or digital
   signatures.
@@ -621,36 +621,36 @@ The general properties and functions of CrypTool are:
   svn checkout http://www.cryptool.com/svn/CrypTool/trunk --username anonymous
 
 To get an impression of the size of the CT1 project here is a statistics created
-in January 2010 using the files for the English, German and Polish version.
+in February 2010 using the files for the English, German and Polish version.
 
     FILE SUMMARY (number of files according to file extension)
     ------------
               4 .rc
              36 .c
-            314 .cpp
-            369 .h
+            316 .cpp
+            371 .h
              36 .java
              12 .pl
            1636 .html
              47 .txt
              39 .tex
               4 .sage
-           2497 TOTAL
+           2501 TOTAL
 
   
     LINES OF CODE (LoC) SUMMARY
     ---------------------------
-         46,685 MFC resource code (rc)
-        246,526 C/C++ source code (c cpp h)
+         47,006 MFC resource code (rc)
+        247,889 C/C++ source code (c cpp h)
           9,781 Java source code (java)
           1,888 Perl code (pl)
-         90,898 HTML code (html hpp)
-         10,341 Text files (txt)
+         90,977 HTML code (html hpp)
+         10,500 Text files (txt)
          34,463 LaTeX code (tex)
            825 Sage code (sage)
-        441,407 TOTAL
+        443,329 TOTAL
 
-    TOTAL: 441,407 lines of code (plus of 15.4 % from 382,244 with v1.4.21)
+    TOTAL: 443,329 lines of code (plus of 15.9 % from 382,244 with v1.4.21)
     - Here only code written within the CrypTool project or explicitly
       dedicated to the CrypTool project is counted. Any sources used
       within the CrypTool project coming from other open source projects
@@ -955,8 +955,8 @@ c) New functionality / Usability:
     (39 numbers within around 1 minute; 40 numbers within around 5 minutes).
   - Even much more faster are heuristic algorithms, like the ones implemented
     in JCT. They normally don't find an optimal result, but a very good one.
-  - If the Number Shark calculates optional results, which can last very long,
-    then it now can restart using old stored precalulations. 
+  - If the Number Shark calculates optional results (which can last very long),
+    then you now can restart using stored pre-calculations. 
 
 - If the result in the dialog primality testing says, that the given number
   is NOT prime, then you can directly (via a new button) call the
@@ -991,7 +991,7 @@ c) New functionality / Usability:
   - Permutation
   - Solitaire.
 
-  This enhancement came especialy because of many requests to offer more
+  This enhancement came especially because of many requests to offer more
   characters for the monoalphabetic substitution.
 
 - The way, how a permutation is created from a key word, is now the same with
@@ -1174,7 +1174,7 @@ program (setup).
 
 - Text boxes within dialogs are built with two different editor controls.
   They handle pressing the enter key at the key board differently:
-  a) Scintila: Enter adds CR/NL and moves the cursor to the next line.
+  a) Scintilla: Enter adds CR/NL and moves the cursor to the next line.
   b) Standard MFC editor: Pressing Enter moves the focus away from
                           the text editor and tries to trigger the
                           OK button.
@@ -1200,7 +1200,7 @@ program (setup).
 - Hash values of external files, which are not loaded into the internal
   editor, can be calculated for files of any size. 
 
-- SMIME FlashVideo-Bug
+- SMIME FlashVideo bug
   > Error description:
     Flashvideos of the type ".flv" are opened with the CrypTool
     player for flash animations after CrypTool was started and
@@ -1714,8 +1714,8 @@ xtras\BMPVIEW.X32
 
 
 
-smimedemo\ ............ Gehört zur Flash/Java-Animation einer
-                        S/MIME-E-Mail. 
+smimedemo\ ............ Files needed by Flash/Java animation of an
+                        S/MIME e-mail. 
 
 smimedemo\anim.swf
          \lock2.gif
@@ -1883,6 +1883,7 @@ Remarks about the versions:
 1.4.30-Beta03  Mar. 2009  First public beta of version 1.4.30.
 1.4.30-Beta04  Sep. 2009  Second public beta of version 1.4.30.
 1.4.30-Beta05  Jan. 2010  Third public beta of version 1.4.30.
+1.4.30-Beta06  Feb. 2010  Forth public beta of version 1.4.30.
 1.4.30   Many bug fixes and enhanced functionality compared to 1.4.21.
 
 
@@ -2227,10 +2228,10 @@ are such, where the source code is not public:
   http://members.aon.at/cipherclerk/
 
 - CryptoBench - GUI around parts of Wei Dai's Crypto++ library
-  Compact and clearly arranged GUI implemented around Wei Dai's 
+  Compact and clearly arranged GUI implemented around Wei Dai's
   Crypto++ library (no cryptanalysis).
   The current version 1.0.1 of the CryptoBench exists since 2004.
-  Wei Dai's Crypto++ library is open source, the GUI of CryptoBench is 
+  Wei Dai's Crypto++ library is open source, the GUI of CryptoBench is
   freeware, but not open source.
   http://www.addario.org/cryptobench/
 
@@ -2605,8 +2606,7 @@ A.2.1.3. Internal interfaces / Editors
   format for the internal key storage.
 
 - Libraries for arbitrary length numbers and cryptography:
-   - Support further libraries (LiDIA, FLINT/C, Wei Dai's Crypto++,
-     APFLOAT, ...)
+   - Support further libraries (FLINT/C, Wei Dai's Crypto++, APFLOAT, ...)
 
 - Extend existing limitations of the N-Gram analysis concerning
   the file size (evtl. give user feedback and allow to stop calculation,
@@ -2629,7 +2629,7 @@ A.2.1.4. User interface / Visualizations
 - It would be useful if a calculator can be called from within 
   CrypTool as an a-modal window: it should accept terms with numbers 
   of any basis as input and it should show the result in several
-  fields in parallel with different number bases. 
+  fields in parallel with different number bases.
   The right output number representation could be transferred into
   the clipboard via button, or the mouse could drag the field content
   directly into the entry field in the CrypTool dialog box.
@@ -2708,15 +2708,15 @@ A.2.1.4. User interface / Visualizations
   of the permutation cipher does not allow longer permutation lengths.
 
 - Visualization:
-   - Visualization of dependencies and workflows in protocols 
+   - Visualization of dependencies and workflows in protocols
      (not only "simple" algorithms) is a meaningful enhancement.
-   - Attacks on weak RSA keys are described in CrypTool's 
+   - Attacks on weak RSA keys are described in CrypTool's
      online help at Help \ Scenarios \ RSA cryptosystem (demonstration),
      under the topic "3. Attack on the RSA algorithm", which explains
      that factorization of the module can break the method.
      This is implemented, but not visualized.
    - Attacks on other asymmetric methods are not implemented in
-     CrypTool yet. To attack Diffie-Hellman, DSA or EC-DSA, one 
+     CrypTool yet. To attack Diffie-Hellman, DSA or EC-DSA, one
      has to calculate "discrete logarithms". After implementing
      this it also could be visualized.
 

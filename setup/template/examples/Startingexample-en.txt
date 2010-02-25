@@ -1,6 +1,7 @@
-CrypTool version 1
+CrypTool (Starting example for the CrypTool version family 1.x)
 
-CrypTool is a comprehensive educational program about cryptography and cryptanalysis with many visualizations.
+CrypTool is a comprehensive free educational program about cryptography and cryptanalysis
+offering extensive online help and many visualizations.
 
 This is a text file, created in order to help you to make your first steps with CrypTool.
 
@@ -18,3 +19,4 @@ Press F1 to start the online help everywhere in CrypTool.
 - Viewing the webpage www.cryptool.org.
 
 February 2010
+The CrypTool team
