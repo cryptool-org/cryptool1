@@ -22,7 +22,7 @@
 <p>The game starts once you picked a number -- the Number Shark gets the factors of this number. This number and its factors will be deactivated in the shell square, you can’t use them any longer.</p>
 <p>Once you and the Number Shark completed one round the next steps are:</p>
 <p>You take a number and the Number Shark gets the factors - until all numbers are used.<br>
-Your goal is that the sum of your numbers is higher than the sum of the numbers of the Number Shark has eaten.<br></p>
+Your goal is that the sum of your numbers is higher than the sum of the numbers the Number Shark eats.<br></p>
 
 <P><IMG SRC="Pictures_en/Dlg_main_en.png" ALT=Dlg_main_en.png" BORDER=0 width="91%"></P> 
 
@@ -95,34 +95,7 @@ The width of the columns in the game progress list can be changed by the player,
 
 <p><IMG SRC="Pictures_en/Dlg_main_noshells_en.png" ALT="Dlg_main_noshells_en.png" BORDER=0></p>
 
-<p><h4><u>3. Setting the game options</u></h4></p>
-
-<p>You can reach the options by pressing the <b>More options</b> button in the main dialog.</p>
-<p>On the <b>Welcome</b> tab you can read some information about the Number Shark game.</p>
-
-<P><IMG SRC="Pictures_en/Dlg_options1_en.png" ALT="Dlg_options1_en.png" BORDER=0></p>
-
-<p>In the <b>Standard</b> tab you have the following possibilities:</p>
-<ul>
-	<li>You can insert your player name, which will be written into the <a href="NumberSharkTutorial.html#Summary">Summary.txt</a> at the end of the game and it is shown in the head of the main dialog.</li>
-	<li>If the checkbox "Activate tool tips" is set, then the game will show you all factors of a number. This should only be used by beginners who don’t have enough experience and know-how with this game, factors and prime numbers.</li>
-	<li>With "Show dialog at next game start" you can decide if you want to see the options dialog at the next game start or not.</li>
-	<li>With the checkbox "Remember the last total number..." the game stores this number for the next game start.</li>
-</ul>
-<br>All these settings can be changed in the game at any time.
-</p>
-
-<P><IMG SRC="Pictures_en/Dlg_options2_en.png" ALT="Dlg_options2_en.png" BORDER=0></p>
-
-<p>Via the button <b>Show/Calculate</b> on the tab <b>Maximum values</b> the program can show you how many points you can get with your chosen count of numbers.</P>
-
-<P>Because the calculations with our brute-force algorithm take very long, the values for numbers &lt; 23 has already been done and the values are saved in the program. The calculation of the number 23 takes about 80 days on a 3GHz PC. Also saved in the program are the results from Dan Hoey for values &lt 159.</P>
-
-<P>Beside the  <a href="NumberSharkDevelopment.html#Calculation">maximum possible points</a>, you also get one <B>way</B> on which you can achieve this score, which means that the program shows you in which order you should take the numbers. Sometimes the order can be changed in some parts and you will also achieve the highest score (there is no unique solution). And you get a hint with which number you need to start the game in order to achieve the highest score.</p>
-
-<P><IMG SRC="Pictures_en/Dlg_options4_en.png" ALT="Dlg_options4_en.png" BORDER=0></p>
-
-<p><h4><u>4. Game rules</u></h4></p>
+<p><h4><u>3. Game rules</u></h4></p>
 <table border="0">
 <tr>
 	<td><IMG SRC="Pictures_en/Dlg_button_help_en.png" ALT="Dlg_button_help_de.png" BORDER=0 width="91%"></td>
@@ -137,9 +110,50 @@ The width of the columns in the game progress list can be changed by the player,
 </tr>
 </table>
 
-
-
 <P><IMG SRC="Pictures_en/Dlg_rules_en.png" ALT="Dlg_rules_en.png" BORDER=0 width="91%"></p>
+
+<p><h4><u>4. Setting the game options</u></h4></p>
+
+<p>You can reach the options by pressing the <b>More options</b> button in the main dialog.</p>
+
+<p><B>4.1</B>: On the <b>Welcome</b> tab you can read some information about the Number Shark game.</p>
+
+<P><IMG SRC="Pictures_en/Dlg_options1_en.png" ALT="Dlg_options1_en.png" BORDER=0></p>
+
+<p><B>4.2</B>: In the <b>Standard</b> tab you have the following possibilities:</p>
+<ul>
+	<li>You can insert your player name, which will be written into the <a href="NumberSharkTutorial.html#Summary">Summary.txt</a> at the end of the game and it is shown in the head of the main dialog.</li>
+	<li>If the checkbox "Activate tool tips" is set, then the game will show you all factors of a number. This should only be used by beginners who don’t have enough experience and know-how with this game, factors and prime numbers.</li>
+	<li>With "Show dialog at next game start" you can decide if you want to see the options dialog at the next game start or not.</li>
+	<li>With the checkbox "Remember the last total number..." the game stores this number for the next game start.</li>
+</ul>
+<br>All these settings can be changed in the game at any time.
+</p>
+
+<P><IMG SRC="Pictures_en/Dlg_options2_en.png" ALT="Dlg_options2_en.png" BORDER=0></p>
+
+<p><B>4.3</B>: Via the button <b>Show/Calculate</b> on the tab <b>Maximum values</b> the program can 
+show you how many points you can get with your chosen count of numbers.</P>
+
+<P>The calculation of these optimal values with our brute-force algorithm takes very long even for 
+numbers up to 20. We believe a search for n=23 will take around 80 days on a 3 GHz PC. But even the new 
+backtracking algorithm needs over ten minutes for numbers bigger than 40.</P>
+
+<P>Therefore the results for n=158 have been pre-calculated. If the radio button <B>Show highest score 
+possible</B> is checked, the result will be displayed immediately after clicking the <B>Start</B> 
+button.</P>
+
+<P>Beside the <a href="NumberSharkDevelopment.html#Calculation">maximum possible points</a>, you also 
+get one <B>way</B> on which you can achieve this score, which means that the program shows you in which 
+order you should take the numbers. Sometimes the order can be changed in some parts and you will also 
+achieve the highest score (there is no unique solution). And you get a hint with which number you need 
+to start the game in order to achieve the highest score.</p>
+
+<P><IMG SRC="Pictures_en/Dlg_options4_en.png" ALT="Dlg_options4_en.png" BORDER=0></p>
+
+<P><B>4.4</B>: Below the tab <B>Accelerators</B> you can find the implemented keyboard shortcuts.</P>
+
+<br><br>
 
 <p>You can find more information about the development of the Number Shark game  <a href="NumberSharkDevelopment.html">here</a>.</p>
 
