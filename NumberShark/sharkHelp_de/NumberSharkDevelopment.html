@@ -25,6 +25,8 @@ urspr&uuml;ngliche Fassung des Zahlenhai-Spiels:</P>
 
 <IMG SRC="Pictures_de/game_original_de.png" ALT="game_original_de.png" BORDER=0>
 
+<IMG SRC="Pictures_de/hai.gif" ALT="hai.gif" BORDER=0>
+
 <P>Das neue Zahlenhai-Programm hier ist Open-Source und Freeware.</P>
 
 <P>Im Englischen heißt diese Spielidee bezeichnenderweise "Taxman".</P>
@@ -53,7 +55,7 @@ unbedingt optimale Wege - suchen. Diese Verfahren sind sehr schnell.</P>
 
 <p>Danach wurde das Programm stetig erweitert: <a name="Buttons">Die</a> erste Erweiterung bestand darin, das Spiel mit mehr als 50 Zahlen spielen zu k&ouml;nnen (50 Zahlen waren die Obergrenze in dem Spiel von Herrn Carl). Daf&uuml;r wurde ein Reiter-Control verwendet, auf dem sich 30 Buttons befinden, die je nach ausgew&auml;hltem Reiter ihre Beschriftung und somit auch ihren Wert &auml;ndern.<br>
 Dadurch wurde die maximal m&ouml;gliche Anzahl an Zahlen auf 9999 erh&ouml;ht. Die Grenze ist im Quellcode so vorgegeben und ist bedingt durch die Gr&ouml;&szlig;e der Buttons und der Reiter. Es w&auml;re auch nicht sinnvoll, mit noch mehr Zahlen zu spielen, da man bei so einer Menge gleichzeitig sehr viele Teiler von sehr vielen Zahlen ber&uuml;cksichtigen muss und dadurch auch schnell den &Uuml;berblick &uuml;ber das Spiel verliert.</p>
-<p>Das Spielfenster und alle Teile darin haben eine feste Gr&ouml;&szlig;e. Wir h&auml;tten gern das Fenster wenigstens in vertikaler Richtung  so gr&ouml;&szlig;enver&auml;nderlich gemacht, dass sich die Spielverlaufstabelle entsprechend anpasst, leider bot uns der Layout-Manager im Ressourceneditor von Visual C++ 6.0 und Visual C++ 7.1 (Visual Studio 2003) keine M&ouml;glichkeit f&uuml;r das so genannte "Andocken" von grafischen Elementen an die Dialogmasken. Nur die Spalten der Spielverlaufstabelle sind in ihrer Breite ver&auml;nderbar, damit sich der Spieler wirklich alle Punkte, die der Zahlenhai erhalten hat, anschauen kann. Die Spalten passen sich aber nicht automatisch ihrem Inhalt an. Die Größenveränderlichkeit wäre eine gute Aufgabe für eine zukünftige Version, die den Grafikmechanismus WPF von Windows Vista benutzt (siehe <a href="#TODOLIST">TODO #16</a>).</p>
+<p>Das Spielfenster und alle Teile darin haben eine feste Gr&ouml;&szlig;e. Wir h&auml;tten gern das Fenster wenigstens in vertikaler Richtung  so gr&ouml;&szlig;enver&auml;nderlich gemacht, dass sich die Spielverlaufstabelle entsprechend anpasst, leider bot uns der Layout-Manager im Ressourceneditor von Visual C++ 6.0 und Visual C++ 7.1 (Visual Studio 2003) keine M&ouml;glichkeit f&uuml;r das so genannte "Andocken" von grafischen Elementen an die Dialogmasken. Nur die Spalten der Spielverlaufstabelle sind in ihrer Breite ver&auml;nderbar, damit sich der Spieler wirklich alle Punkte, die der Zahlenhai erhalten hat, anschauen kann. Die Spalten passen sich aber nicht automatisch ihrem Inhalt an. Die Größenveränderlichkeit wäre eine gute Aufgabe für eine zukünftige Version, die den Grafikmechanismus WPF von Windows 7 benutzt (siehe <a href="#TODOLIST">TODO #16</a>).</p>
 
 <p><IMG SRC="Pictures_de/Dlg_limit_de.png" ALT="Dlg_limit_de.png" BORDER=0 width="91%"></p>
 
@@ -66,11 +68,11 @@ ausrechnet. Dr&uuml;ckt man auf den Button <b>Start</b>, welcher sich in dem "Sp
 
 <p><B>Brute-Force-Algorithmus</B>: <a name="Berechnung">Die</a> hier implementierte Berechnung 
 l&auml;sst das Programm jedes m&ouml;gliche Spiel und jeden m&ouml;glichen Spielzug spielen und die 
-erreichten Punkte vergleichen (Brute-force-Ansatz).</P>
+erreichten Punkte vergleichen (Brute-Force-Ansatz).</P>
 
 <P><B>Back-Tracking-Algorithmus</B>: Der Algorithmus arbeitet nach dem Versuch-und-Irrtum-Prinzip; 
 Teillösungen werden Schritt für Schritt zu einer Gesamtlösung zusammengesetzt. Weitere Informationen 
-zu Back-Tracking-Algorithmen finden Sie <a href="http://de.wikipedia.org/wiki/Backtracking" target="_blank">hier</a>.</P>
+zu Back-Tracking-Algorithmen findest Du <a href="http://de.wikipedia.org/wiki/Backtracking" target="_blank">hier</a>.</P>
 
 <P>Nach der Auswahl des Algorithmus erhält man:</P>
 
@@ -108,7 +110,7 @@ zu Back-Tracking-Algorithmen finden Sie <a href="http://de.wikipedia.org/wiki/Ba
 
 <p><IMG SRC="Pictures_de/game_max_calc.png" ALT="game_max_calc.png" BORDER=0 width="91%"></p>
 
-<p>Wenn jetzt eine neue Berechnung der maximalen Punktzahl gestartet wird, schaut das Programm erst, ob schon eine Datei mit gespeicherten Werten existiert, liest diese ein und setzt dann die Suche an der eingelesenen Stelle fort. Auch ohne Wissen dar&uuml;ber, was f&uuml;r Werte in der Datei gespeichert werden und wie die Brute-force-Suche funktioniert, kannst Du, einen schnellen Rechner und viel Zeit vorausgesetzt, auch selbst neue Werte berechnen.</p>
+<p>Wenn jetzt eine neue Berechnung der maximalen Punktzahl gestartet wird, schaut das Programm erst, ob schon eine Datei mit gespeicherten Werten existiert, liest diese ein und setzt dann die Suche an der eingelesenen Stelle fort. Auch ohne Wissen dar&uuml;ber, was f&uuml;r Werte in der Datei gespeichert werden und wie die Brute-Force-Suche funktioniert, kannst Du, einen schnellen Rechner und viel Zeit vorausgesetzt, auch selbst neue Werte berechnen.</p>
 
 <p>F&uuml;r Zahlen &gt; 158 bitten wir um Deine Mithilfe: siehe <a href="NumberSharkChallenge.html">Challenge</a>. Wenn Du f&uuml;r Zahlen &gt; 158 eine maximale Punktzahl und einen optimalen Weg gefunden hast, w&uuml;rden wir uns sehr freuen, wenn Du diese Ergebnisse dann an esslinger@fb5.uni-siegen.de sendest.</p>
 
@@ -134,14 +136,14 @@ zu Back-Tracking-Algorithmen finden Sie <a href="http://de.wikipedia.org/wiki/Ba
 <p>Die Optionen wurden auf die Reiter <B>Willkommen</B>, <B>Standard</B> und <B>Maximalwerte</B> verteilt, so dass jede Optionen-Art f&uuml;r sich alleine steht. In dem Reiter <B>Farben</B> soll man sp&auml;ter noch die M&ouml;glichkeit haben, sich die Farben der Tabelle und die Schriftfarben, &auml;hnlich wie bei MS Paint, selber auszusuchen (siehe <a href="#TODOLIST">TODO #5</a>).<p>
 
 <p>Bei der Gestaltung der Buttons f&uuml;r den Zahlenvorrat, der LED-Anzeige und der farbigen Darstellung 
-der Spielverlaufstabelle wurde auf Quellcodebeispielen von <a href="http://www.codeproject.com" 
+der Spielverlaufstabelle wurde auf Quellcodebeispiele von <a href="http://www.codeproject.com" 
 target="_blank">http://www.codeproject.com</a> zurückgegriffen.</p> 
 
 <p><a name="TODOLIST"></a><b><u>7. TODOs</u> - Wie man das Programm weiter verbessern kann.</b></p>
 
 <p>Das Zahlenhai-Programm kann nat&uuml;rlich noch weiterentwickelt werden. Vorschl&auml;ge f&uuml;r eine Version 2.0 sind:
 <ol type =1>
-	<li>Eine gro&szlig;e Aufgabe, die sich noch stellt, ist es, schnellere M&ouml;glichkeiten zu finden, die maximal m&ouml;gliche (optimale) Punktezahl und den Weg dahin zu berechnen (siehe <a href="NumberSharkChallenge.html">Challenge</a>).<br/>
+	<li>Eine gro&szlig;e Aufgabe, die sich noch stellt, ist es, schnellere M&ouml;glichkeiten zu finden, die maximal m&ouml;gliche (optimale) Punktzahl und den Weg dahin zu berechnen (siehe <a href="NumberSharkChallenge.html">Challenge</a>).<br/>
 	Ein erster grosser Fortschritt wurde mit dem Back-Tracking-Algorithmus erzielt. Der Back-Tracking-Algorithmus 
 	wurde uns freundlicherweise von Herrn Dr. Jens Liebehenschel, iocon GbR, zur Verfügung gestellt.</li>
 	<li>Au&szlig;erdem gibt es viele M&ouml;glichkeiten, das Programm bunter und spielerischer aussehen zu lassen.</li>
@@ -156,7 +158,7 @@ target="_blank">http://www.codeproject.com</a> zurückgegriffen.</p>
 	<li>Zeilen aus der Spielverlaufstabelle markieren und in ein Clipboard kopieren k&ouml;nnen.</li>
 	<li>Batch-Aufruf mit allen n&ouml;tigen Eingaben (Name, Anzahl, Eingabezahlen, Outputdateiname). Damit k&ouml;nnte man herausfinden, wieviel Punkte man durchschnittlich erh&auml;lt, wenn die Muscheln willk&uuml;rlich gedr&uuml;ckt werden. Man könnte auch eine Folge von benutzergewählten Zahlen direkt eingeben, und das Programm berechnet den zugehörigen Wert.</li>
 	<li>Eine Idee w&auml;re auch noch, dass man das Spiel nicht mit einem Zahlenvorrat von 1 bis n startet, sondern zum Beispiel von 5 bis n (den kleinsten Wert ändern).</li>
-	<li>Wenn man Brute-force optimale Werte f&uuml;r n &gt; 158 berechnen l&auml;sst, sollte<br>
+	<li>Wenn man brute-force optimale Werte f&uuml;r n &gt; 158 berechnen l&auml;sst, sollte<br>
 	<ol type = "a">
 		<li>diese Task abzubrechen sein (Multithreading).</li>
 		<li>es möglich sein, während der Berechnung weiterzuspielen.</li>
