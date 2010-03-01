@@ -36518,7 +36518,7 @@ BEGIN
     PUSHBUTTON      "Cancel",IDC_BUTTON67,544,415,102,14
     PUSHBUTTON      "Decrypt",IDC_BUTTON68,134,415,102,14,WS_DISABLED
     GROUPBOX        "Description",IDC_STATIC,7,2,662,83
-    LTEXT           "With this dialogue you can make use of the Solitaire cipher. Usually 54 cards are used.",IDC_STATIC,12,10,590,9
+    LTEXT           "With this dialog you can make use of the Solitaire cipher. Usually 54 cards are used.",IDC_STATIC,12,10,590,9
     CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,504,414,23,15
     GROUPBOX        "1. Generating the initial deck (= shuffling) == Generating the key",IDC_STATIC,14,100,649,121
     GROUPBOX        "Optional",IDC_STATIC,219,112,436,103
@@ -36538,7 +36538,7 @@ BEGIN
     EDITTEXT        IDC_EDIT5,481,247,26,14,ES_CENTER | ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT WS_BORDER
     EDITTEXT        IDC_EDIT6,523,247,40,12,ES_CENTER | ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT WS_BORDER
     LTEXT           "of",IDC_STATIC,508,247,8,8
-    LTEXT           "The different cards are represented as numbers from 1 to 54: The values of the different cards can be found in the Online-Help (F1) at ""Solitaire description"".",IDC_STATIC,12,18,505,8
+    LTEXT           "The different cards are represented as numbers from 1 to 54: The values of the different cards can be found in the online help (F1) at ""Solitaire description"".",IDC_STATIC,12,18,505,8
     LTEXT           "Step 1: Either you create the key (the shuffled card deck) by yourself or you load a key (depended on your choice down at grouping „1 b: Defining the cards´order“).",IDC_STATIC,12,34,556,9
     LTEXT           "The result of generating the key is the shuffled card deck, which can be seen at „Initial deck“ in the grouping „Output“.",IDC_STATIC,37,42,521,8
     LTEXT           "Total number of cards\n(incl. joker):",IDC_STATIC,48,127,82,16

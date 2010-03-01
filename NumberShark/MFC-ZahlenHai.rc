@@ -966,7 +966,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_SEARCH2             " Zahlen].zha"
-    IDS_BUTTON_HELP         "Zeigt Dir die Online Hilfe des Zahlenhai-Spiels."
+    IDS_BUTTON_HELP         "Zeigt Dir die Online-Hilfe des Zahlenhai-Spiels."
     IDS_WARNING_SHORT       "%s Zahlen - das kann dauern...\n\nSoll die Berechnung jetzt wirklich durchgeführt werden?"
     IDS_MAX_POINTS_INFORMATION_NOVALUE 
                             "Leider konnte die Datei %s aus dem Verzeichnis %s nicht geladen werden. Die Datei muss sich im selben Verzeichnis wie das Zahlenhai-Spiel befinden."
