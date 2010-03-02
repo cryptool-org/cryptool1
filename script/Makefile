@@ -1,12 +1,16 @@
-all:
-	make -C de all
-	make -C en all
+all: de en
+
+de:
+	$(MAKE) -C de all
+en:
+	$(MAKE) -C en all
 
 zip:
 	rm -f script-`date -I`.zip
 	zip script-`date -I`.zip */*.tex */chapters/*.tex de/*.pdf en/*.pdf
 
 clean:
-	make -C de clean
-	make -C en clean
+	$(MAKE) -C de clean
+	$(MAKE) -C en clean
 
+.PHONY: all de en zip clean
