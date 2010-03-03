@@ -163,12 +163,35 @@ int VigenereAnalysisSchroedel::readTriDigrams() {
 	std::ifstream fileInputDigrams;
 	fileInputDigrams.open(pathToDigrams);
 	if(!fileInputDigrams) {
-		// display an info message that the file could not be opened
-		CString infoMessage;
-		infoMessage.LoadStringA(IDS_STRING_FILE_COULD_NOT_BE_OPENED);
-		infoMessage.Append(pathToDigrams);
-		MessageBox(NULL, infoMessage, "CrypTool", MB_ICONINFORMATION);
-		return -1;
+		// flomar, 03/03/2010
+		// there are two possible reasons why the desired file (the digrams file) 
+		// cannot be opened: (a) the default location is invalid (i.e. the file 
+		// was manually deleted), or (b) the location is invalid but the 
+		// default location (where the file SHOULD be) is valid-- as for case (b),
+		// we should point out to the user that he might have a problem with old 
+		// registry entries and offer to bend all the resource paths (digrams, 
+		// trigrams and dictionary) back to its proper default location for the 
+		// current installation of CrypTool
+
+		// CASE (a): location is invalid and default location is invalid
+		if(!isDefaultResourceLocationValid()) {
+			CString infoMessage;
+			infoMessage.LoadStringA(IDS_STRING_FILE_COULD_NOT_BE_OPENED);
+			infoMessage.Append(pathToDigrams);
+			MessageBox(NULL, infoMessage, "CrypTool", MB_ICONINFORMATION);
+			return -1;
+		}
+		// CASE (b): location is invalid, but default location is valid
+		else {
+			// the user probably has a problem with old registry entries; ask 
+			// him if we should bend all resource paths (dict, digrams, trigrams) 
+			// back to the default location; regardless of the answer, return -1
+			CString infoMessage;
+			infoMessage.LoadStringA(IDS_STRING_FILE_NOT_FOUND_BUT_ASK_FOR_MIGRATION_TO_DEFAULT_RESOURCES);
+			if(MessageBox(NULL, infoMessage, "CrypTool", MB_ICONQUESTION|MB_YESNO) == IDYES)
+				bendResourceLocationsBackToDefault();
+			return -1;
+		}
 	}
 
 	// the currently selected language
@@ -223,12 +246,35 @@ int VigenereAnalysisSchroedel::readTriDigrams() {
 	std::ifstream fileInputTrigrams;
 	fileInputTrigrams.open(pathToTrigrams);
 	if(!fileInputTrigrams) {
-		// display an info message that the file could not be opened
-		CString infoMessage;
-		infoMessage.LoadStringA(IDS_STRING_FILE_COULD_NOT_BE_OPENED);
-		infoMessage.Append(pathToTrigrams);
-		MessageBox(NULL, infoMessage, "CrypTool", MB_ICONINFORMATION);
-		return -1;
+		// flomar, 03/03/2010
+		// there are two possible reasons why the desired file (the trigrams file) 
+		// cannot be opened: (a) the default location is invalid (i.e. the file 
+		// was manually deleted), or (b) the location is invalid but the 
+		// default location (where the file SHOULD be) is valid-- as for case (b),
+		// we should point out to the user that he might have a problem with old 
+		// registry entries and offer to bend all the resource paths (digrams, 
+		// trigrams and dictionary) back to its proper default location for the 
+		// current installation of CrypTool
+
+		// CASE (a): location is invalid and default location is invalid
+		if(!isDefaultResourceLocationValid()) {
+			CString infoMessage;
+			infoMessage.LoadStringA(IDS_STRING_FILE_COULD_NOT_BE_OPENED);
+			infoMessage.Append(pathToTrigrams);
+			MessageBox(NULL, infoMessage, "CrypTool", MB_ICONINFORMATION);
+			return -1;
+		}
+		// CASE (b): location is invalid, but default location is valid
+		else {
+			// the user probably has a problem with old registry entries; ask 
+			// him if we should bend all resource paths (dict, digrams, trigrams) 
+			// back to the default location; regardless of the answer, return -1
+			CString infoMessage;
+			infoMessage.LoadStringA(IDS_STRING_FILE_NOT_FOUND_BUT_ASK_FOR_MIGRATION_TO_DEFAULT_RESOURCES);
+			if(MessageBox(NULL, infoMessage, "CrypTool", MB_ICONQUESTION|MB_YESNO) == IDYES)
+				bendResourceLocationsBackToDefault();
+			return -1;
+		}
 	}
 
 	while(!fileInputTrigrams.eof()) {
@@ -1034,12 +1080,35 @@ int VigenereAnalysisSchroedel::readDict() {
 	std::ifstream fileInput;
 	fileInput.open(pathToDictionary);
 	if(!fileInput) {
-		// display an info message that the file could not be opened
-		CString infoMessage;
-		infoMessage.LoadStringA(IDS_STRING_FILE_COULD_NOT_BE_OPENED);
-		infoMessage.Append(pathToDictionary);
-		MessageBox(NULL, infoMessage, "CrypTool", MB_ICONINFORMATION);
-		return -1;
+		// flomar, 03/03/2010
+		// there are two possible reasons why the desired file (the dictionary) 
+		// cannot be opened: (a) the default location is invalid (i.e. the file 
+		// was manually deleted), or (b) the location is invalid but the 
+		// default location (where the file SHOULD be) is valid-- as for case (b),
+		// we should point out to the user that he might have a problem with old 
+		// registry entries and offer to bend all the resource paths (digrams, 
+		// trigrams and dictionary) back to its proper default location for the 
+		// current installation of CrypTool
+
+		// CASE (a): location is invalid and default location is invalid
+		if(!isDefaultResourceLocationValid()) {
+			CString infoMessage;
+			infoMessage.LoadStringA(IDS_STRING_FILE_COULD_NOT_BE_OPENED);
+			infoMessage.Append(pathToDictionary);
+			MessageBox(NULL, infoMessage, "CrypTool", MB_ICONINFORMATION);
+			return -1;
+		}
+		// CASE (b): location is invalid, but default location is valid
+		else {
+			// the user probably has a problem with old registry entries; ask 
+			// him if we should bend all resource paths (dict, digrams, trigrams) 
+			// back to the default location; regardless of the answer, return -1
+			CString infoMessage;
+			infoMessage.LoadStringA(IDS_STRING_FILE_NOT_FOUND_BUT_ASK_FOR_MIGRATION_TO_DEFAULT_RESOURCES);
+			if(MessageBox(NULL, infoMessage, "CrypTool", MB_ICONQUESTION|MB_YESNO) == IDYES)
+				bendResourceLocationsBackToDefault();
+			return -1;
+		}
 	}
 
 	// the currently selected language
@@ -1380,6 +1449,70 @@ void VigenereAnalysisSchroedel::readSettingsFromRegistry() {
 		pathToDictionary = (CString)c_dictionaryFile;
 		pathToDigrams = (CString)c_digramsFile;
 		pathToTrigrams = (CString)c_trigramsFile;
+	}
+}
+
+bool VigenereAnalysisSchroedel::isDefaultResourceLocationValid() {
+	// flomar, 03/03/2010
+	// this function returns true only if all three files are 
+	// available in their default locations: the dictionary, the 
+	// digrams file and the trigrams file
+
+	// get default paths for our resources
+	CString pathToDefaultDictionaryFile;
+	pathToDefaultDictionaryFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME);
+	pathToDefaultDictionaryFile.Insert(0, Pfad);
+	CString pathToDefaultDigramsFile;
+	pathToDefaultDigramsFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME);
+	pathToDefaultDigramsFile.Insert(0, Pfad);
+	CString pathToDefaultTrigramsFile;
+	pathToDefaultTrigramsFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME);
+	pathToDefaultTrigramsFile.Insert(0, Pfad);
+
+	bool allResourcesAvailable = true;
+
+	// retrieve the file stati (sp?) for our resources
+	CFileStatus dictionaryFileStatus;
+	if(!CFile::GetStatus(pathToDefaultDictionaryFile, dictionaryFileStatus))
+		return false;
+	CFileStatus digramsFileStatus;
+	if(!CFile::GetStatus(pathToDefaultDigramsFile, digramsFileStatus)) 
+		return false;
+	CFileStatus trigramsFileStatus;
+	if(!CFile::GetStatus(pathToDefaultTrigramsFile, trigramsFileStatus))
+		return false;
+
+	// if we get to this point, all our resource files are there
+	return true;
+}
+
+void VigenereAnalysisSchroedel::bendResourceLocationsBackToDefault() {
+	// flomar, 03/03/2010
+	// this function bends all resource locations (dictionary, digrams, trigrams) 
+	// back to their default values (i.e. to the installation directory); needless 
+	// to say, you shouldn't use this function unless you verified the default 
+	// resource locations are valid
+
+	CString pathToDefaultDictionaryFile;
+	pathToDefaultDictionaryFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME);
+	pathToDefaultDictionaryFile.Insert(0, Pfad);
+	CString pathToDefaultDigramsFile;
+	pathToDefaultDigramsFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME);
+	pathToDefaultDigramsFile.Insert(0, Pfad);
+	CString pathToDefaultTrigramsFile;
+	pathToDefaultTrigramsFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME);
+	pathToDefaultTrigramsFile.Insert(0, Pfad);
+
+	// essentially, we're writing the application defaults back to the registry
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "VigenereAnalysisSchroedel" ) == ERROR_SUCCESS )
+	{	
+		CT_WRITE_REGISTRY(pathToDefaultDictionaryFile, "DictionaryFile");
+		CT_WRITE_REGISTRY(pathToDefaultDigramsFile, "DigramsFile");
+		CT_WRITE_REGISTRY(pathToDefaultTrigramsFile, "TrigramsFile");
+	}
+	else {
+		// flomar, 03/03/2010
+		// TODO/FIXME: that's a problem almost everywhere in registry-related code
 	}
 }
 

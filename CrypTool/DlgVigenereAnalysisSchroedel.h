@@ -178,6 +178,10 @@ protected:
 	// some helper variables
 	CString outputString;
 	CString formatString;
+
+	// flomar, 03/03/2010
+	bool isDefaultResourceLocationValid();
+	void bendResourceLocationsBackToDefault();
 };
 
 // the actual analysis function (to be run in a separate thread)
