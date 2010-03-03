@@ -66,8 +66,7 @@
 \label{Chapter_ModernCryptography}
 %********************************************************************
 (Oyono R./ Esslinger B./ Schneider J., Sep. 2000;
-           Updates Nov. 2000, Feb. 2003, Apr. 2007)
-
+           Updates Nov. 2000, Feb. 2003, Apr. 2007, März 2010)
 
 
 \vskip +30 pt
@@ -153,20 +152,18 @@ Die wichtigsten Komplexitätsklassen  sind die Klassen \textbf{P} und \textbf{NP}
 
 \end{itemize}
 
-Die Klasse \textbf{P} ist in der Klasse \textbf{NP} enthalten. Ein berühmtes offenes Problem ist die Frage, ob $ \textbf{P} \neq \textbf{NP} $ gilt oder nicht, d.h. ob \textbf{P} eine echte Teilmenge ist oder nicht. Eine wichtige Eigenschaft der Klasse \textbf{NP} ist, dass sie auch sogenannte \glqq \textbf{NP}-vollständige\grqq {} Probleme enthält. Dies sind Probleme, welche die Klasse \textbf{NP} im folgenden Sinne vollständig repräsentieren: Wenn es einen \glqq guten\grqq {} Algorithmus für ein solches Problem gibt, dann existieren für alle Probleme aus \textbf{NP} \glqq gute\grqq {} Algorithmen. Insbesondere gilt: wenn auch nur ein vollständiges Problem in \textbf{P} läge, d.h. wenn es einen polynomialen \index{Polynom} Lösungsalgorithmus für dieses Problem gäbe, so wäre \textbf{P}=\textbf{NP}. In diesem Sinn sind die \textbf{NP}-vollständigen Probleme die schwierigsten Probleme in \textbf{NP}.
+Die Klasse \textbf{P} ist in der Klasse \textbf{NP} enthalten. Ein berühmtes offenes Problem ist die Frage, ob $ \textbf{P} \neq \textbf{NP} $ gilt oder nicht, d.h. ob \textbf{P} eine echte Teilmenge ist oder nicht. Eine wichtige Eigenschaft der Klasse \textbf{NP} ist, dass sie auch sogenannte \glqq \textbf{NP}-vollständige\grqq {} Probleme enthält. Dies sind Probleme, welche die Klasse \textbf{NP} im Folgenden Sinne vollständig repräsentieren: Wenn es einen \glqq guten\grqq {} Algorithmus für ein solches Problem gibt, dann existieren für alle Probleme aus \textbf{NP} \glqq gute\grqq {} Algorithmen. Insbesondere gilt: wenn auch nur ein vollständiges Problem in \textbf{P} läge, d.h. wenn es einen polynomialen \index{Polynom} Lösungsalgorithmus für dieses Problem gäbe, so wäre \textbf{P}=\textbf{NP}. In diesem Sinn sind die \textbf{NP}-vollständigen Probleme die schwierigsten Probleme in \textbf{NP}.
 
 Viele kryptographische Protokolle sind so gemacht, dass die \glqq guten\grqq {} Teilnehmer nur Probleme aus \textbf{P} lösen müssen, während sich ein Angreifer vor Probleme aus \textbf{NP} gestellt sieht.
 
 Man weiß leider bis heute nicht, ob es Einwegfunktionen überhaupt gibt. Man kann aber zeigen, dass Einwegfunktionen genau dann existieren, wenn $ \textbf{P} \neq \textbf{NP} $ gilt \cite[S.63]{mc:Balcazar1988}.
 \vskip +5pt
 
-Es gab immer wieder die Aussage, jemand habe die Äquivalenz bewiesen, z.B.
-
-\href{http://www.geocities.com/st\_busygin/clipat.html}{\texttt{http://www.geocities.com/st\_busygin/clipat.html}}, 
-
+Immer wieder behauptete jemand, er habe die Äquivalenz bewiesen
+(z.B.  \cite{mc:Hesselink2001}), %%Hinweis wegen geocities per he.pa, 16.2.2010
 aber bisher erwiesen sich diese Aussagen stets als falsch.
 
-Es wurden eine Reihe von Algorithmen für Public-Key-Verfahren vorgeschlagen. Einige davon erwiesen sich, obwohl sie zunächst vielversprechend erschienen, als polynomial \index{Polynom} lösbar. Der berühmteste durchgefallene Bewerber ist der von Ralph Merkle \cite{mc:Merkle1978} vorgeschlagen Knapsack mit Falltür.
+Es wurden eine Reihe von Algorithmen für Public-Key-Verfahren vorgeschlagen. Einige davon erwiesen sich, obwohl sie zunächst vielversprechend erschienen, als polynomial \index{Polynom} lösbar. Der berühmteste durchgefallene Bewerber ist der von Ralph Merkle \cite{mc:Merkle1978} vorgeschlagene Knapsack mit Falltür.
 
 
 %\newpage
@@ -390,7 +387,7 @@ $L(N)$ & $ 1,42 \cdot 10^{10} $ &  $ 2,34  \cdot 10^{15} $ &  $ 3,26 \cdot 10^{1
 \label{lnvalues}
 \end{table}
 
-Bewiesen ist bis heute nicht, dass das Problem, RSA zu brechen äquivalent zum
+Bewiesen ist bis heute nicht, dass das Problem, RSA zu brechen, äquivalent zum
 Faktorisierungsproblem \index{Faktorisierung!Faktorisierungsproblem} ist. Es ist
 aber klar, dass wenn das Faktorisierungsproblem \glqq gelöst\grqq {} ist, dass
 dann das RSA-Verfahren nicht mehr sicher ist.\footnote{%
@@ -406,7 +403,7 @@ Dass es aber nicht doch schon morgen zu einem mathematischen Durchbruch kommt,
 kann man nie ausschließen.\\
 Wie leicht man sich verschätzen kann, zeigt die
 \hyperlink{RSA-200-chap3}{Faktorisierung von RSA-200} 
-(siehe Kapitel \ref{NoteFactorisation}) -- ganz ohne \glqq mathematische
+(siehe Kapitel \ref{nt:NoteFactorisation}) -- ganz ohne \glqq mathematische
 Durchbrüche''.}
 
 
@@ -474,7 +471,7 @@ Die Umkehrfunktion wird diskrete Logarithmusfunktion $ \log_g $ genannt; es gilt
 \index{Exponentialfunktion!diskrete} Unter dem Problem des diskreten Logarithmus (in $ \Z_p^\ast$) versteht man das folgende:
 \[ \text{Gegeben } p,g \text{~(ein Erzeuger der Gruppe } \Z_p^* \text{) und } y, \text{ bestimme } k \text{ so, dass } y=g^k \mod p \text{ gilt.}\]
 Die Berechnung des diskreten Logarithmus ist viel schwieriger als die Auswertung der diskreten Exponentialfunktion (siehe Kapitel \ref{MultOrdPrimitveRoot}).
-Tabelle~\ref{dlogprocs} listet verschiedene Verfahren zur Berechung des diskreten Logarithmus \cite{mc:Stinson1995} und ihre Komplexität.
+Tabelle~\ref{dlogprocs} listet verschiedene Verfahren zur Berechnung des diskreten Logarithmus \cite{mc:Stinson1995} und ihre Komplexität.
 \begin{table}[ht]
 \begin{center}
 \begin{tabular}{|l|l|}\hline
@@ -590,7 +587,7 @@ und
 %--------------------------------------------------------------------
 \subsection{Verallgemeinertes ElGamal-Public-Key-Verschlüsselungsverfahren }
 
-Den diskreten Logarithmus kann man in beliebigen endlichen \index{Gruppen} Gruppen $ (G, \circ) $ verallgemeinern. Im folgenden geben wir einige Eigenschaften über die Gruppe $G$ an, damit das diskrete Logarithmusproblem schwierig wird. \\
+Den diskreten Logarithmus kann man in beliebigen endlichen \index{Gruppen} Gruppen $ (G, \circ) $ verallgemeinern. Im Folgenden geben wir einige Eigenschaften über die Gruppe $G$ an, damit das diskrete Logarithmusproblem schwierig wird. \\
 \index{Exponentialfunktion!Berechnung}
 \paragraph{Berechnung der diskreten Exponentialfunktion}
 Sei $ G $ eine Gruppe mit der Operation $ \circ $ und $ g \in G. $ Die (diskrete) Exponentialfunktion  zur Basis $ g $ ist definiert durch
@@ -648,7 +645,7 @@ In endlichen abelschen Gruppen lässt sich das  diskrete Logarithmusproblem in Gr
 Sei $ G $ eine endliche abelsche Gruppe mit $ |G|= p_1^{a_1} p_2^{a_2} \cdot \ldots \cdot p_s^{a_s}. $ Dann lässt sich das diskrete Logarithmusproblem in $ G $ auf das Lösen von Logarithmenproblemen in Gruppen der Ordnung $ p_1, \ldots , p_s $ zurückführen.
 \end{satz}
 
-\noindent Enthält $ |G| $ eine \glqq dominanten\grqq {} Primteiler $ p ,$ so ist die Komplexität \index{Komplexität} des Logarithmenproblem ungefähr
+\noindent Enthält $ |G| $ einen \glqq dominanten\grqq {} Primteiler $ p ,$ so ist die Komplexität \index{Komplexität} des Logarithmusproblems ungefähr
 \[ O(\sqrt{p}). \]
 
 \noindent Wenn also das Logarithmusproblem schwer sein soll, so muss die Ordnung der verwendeten Gruppe $ G $ einen großen Primteiler haben. Insbesondere gilt, wenn die diskrete Exponentialfunktion in der Gruppe $ \Z_p^{\ast} $ eine Einwegfunktion sein soll, so muss $ p -1 $ einen großen Primteiler haben. In diesem Fall kann man ein verallgemeinertes ElGamal-Verfahren definieren (Krypto-Verfahren~\ref{genelgamalproc}).
@@ -688,7 +685,6 @@ und
        Plenum Press 1983, 303-308.
 
    \bibitem[Balcazar1988]{mc:Balcazar1988} \index{Balcazar 1988} 
-%       Balcazar J.L., Daaz J., Gabarr\'{} J.: \\ 
        Balcazar J.L., Daaz J., Gabarr J.: \\ 
        \emph{Structural Complexity I.} \\ 
        Springer Verlag, pp 63.
@@ -696,10 +692,15 @@ und
     \bibitem[Brickell1985]{mc:Brickell1985} \index{Brickell 1985}
        Brickell E.F.: \\
        \emph{Breaking Iterated Knapsacks.}  \\
-%       Advances in Cryptology: Proc. CRYPTO\'84, 
        Advances in Cryptology: Proc. CRYPTO'84, 
        Lecture Notes in Computer Science, vol. 196, 
        Springer Verlag, New York, 1985, pp. 342-358.
+
+    \bibitem[Hesselink2001]{mc:Hesselink2001} \index{Hesselink 2001} 
+       Hesselink Wim H.: \\
+       \emph{The borderline between P and NP.} \\
+       \url{http://www.cs.rug.nl/~wim/pub/whh237.pdf},\\
+       Februar 12, 2001.
 
     \bibitem[Lagarias1983]{mc:Lagarias1983} \index{Lagarias 1983} 
        Lagarias J.C.: \\
@@ -733,14 +734,13 @@ und
 
 
 %--------------------------------------------------------------------
-\newpage
-\chapter*{Web-Links}
-% \section*{Web-Links}
-\addcontentsline{toc}{section}{Web-Links}
-\begin{enumerate}
-   \item \href{http://www.geocities.com/st\_busygin/clipat.html}
-              {http://www.geocities.com/st\_busygin/clipat.html }
-\end{enumerate}
+%\newpage
+%\chapter*{Web-Links}
+%
+%\addcontentsline{toc}{section}{Web-Links}
+%\begin{enumerate}
+%   \item \url{http://www.geocities.com/st_busygin/clipat.html}
+%\end{enumerate}
 
 % Local Variables:
 % TeX-master: "../script-de.tex"
