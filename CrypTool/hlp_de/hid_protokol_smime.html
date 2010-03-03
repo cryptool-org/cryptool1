@@ -103,8 +103,9 @@ Cryptography Library als zusätzlicher Security Provider für Java.</P>
 <P>Um bei der Verschlüsselung Schlüssel beliebiger Länge verwenden zu können, müssen vor Einsatz der BC die 
 "unrestricted policy files" installiert werden. Man erhält diese z.B. von 
 <a href="http://java.sun.com" target="_blank">http://java.sun.com</a> oder genauer 
-<a href="http://java.sun.com/javase/downloads/index.jsp" target="_blank">http://java.sun.com/javase/downloads/index.jsp</a>. Zur Installation sind in C:\program files\Java\jre6\lib\security 
-die beiden alten JAR-Dateien umzubenennen und die neuen einzuspielen: local_policy.jar, US_export_policy.jar.</P>
+<a href="http://java.sun.com/javase/downloads/index.jsp" target="_blank">http://java.sun.com/javase/downloads/index.jsp</a>. 
+Zur Installation sind in C:\program files\Java\jre6\lib\security die beiden standardmäßig ausgelieferten 
+JAR-Dateien umzubenennen und die neuen einzuspielen: local_policy.jar, US_export_policy.jar.</P>
 
 <P>Damit es funktioniert, muss man das Control-Center schließen und neu starten.</P>
 
@@ -112,6 +113,10 @@ die beiden alten JAR-Dateien umzubenennen und die neuen einzuspielen: local_poli
 kommt folgende Meldung:</P>
 
 <P><IMG SRC="images/jce_not_installed.png" ALT="jce_not_installed.png" BORDER=0></P>
+
+<P>Sind weder die Default- noch die "Unlimited Strength Jurisdiction Policy"-Dateien vorhanden, wird 
+das S/MIME-Control-Center nach einem Klick auf den Button "Verschlüsselung starten" einfach beendet. 
+Dies sollte aber nicht vorkommen, wenn Java ordnungsgemäß installiert wurde.</P> 
 
 <P><B>Bemerkung 2</B>:</P>
 

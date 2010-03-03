@@ -96,7 +96,7 @@ Provider for Java.</P>
 <P>In order to use encryption keys of arbitrary length, the "unrestricted policy files" need to be installed before 
 using BC. You can obtain these files from <a href="http://java.sun.com" target="_blank">http://java.sun.com</a> 
 or <a href="http://java.sun.com/javase/downloads/index.jsp" target="_blank">http://java.sun.com/javase/downloads/index.jsp</a> 
-respectively. To install these files, rename the old JAR files local_policy.jar and US_export_policy.jar in 
+respectively. To install these files, rename the JAR files rolled out by default, local_policy.jar and US_export_policy.jar in 
 C:\program files\Java\jre6\lib\security and use the new ones instead.</P>
 
 <P>Remember to restart the control center.</P>
@@ -105,6 +105,10 @@ C:\program files\Java\jre6\lib\security and use the new ones instead.</P>
 you get the following message:</P>
 
 <P><IMG SRC="images/jce_not_installed.png" ALT="jce_not_installed.png" BORDER=0></P>
+
+<P>If neither the default nor the "Unlimited Strength Jurisdiction Policy" files are available,
+the S/MIME control center will simply be closed after clicking the button "Start encrypting". 
+However, this should not happen if Java was properly installed.</P>
 
 <P><B>Remark 2</B>:</P>
 
