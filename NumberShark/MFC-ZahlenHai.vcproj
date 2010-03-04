@@ -762,6 +762,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Bilder\bitmap11.bmp"
+				>
+			</File>
+			<File
 				RelativePath=".\Bilder\foreward-engl.bmp"
 				>
 			</File>
@@ -826,11 +830,35 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Bilder\Zahlenhai.ico"
+				>
+			</File>
+			<File
 				RelativePath=".\res\Zahlenhai.ico"
 				>
 			</File>
 			<File
-				RelativePath=".\Bilder\Zahlenhai.ico"
+				RelativePath=".\Bilder\Zahlenhai_Bild1.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\Zahlenhai_Bild2.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\Zahlenhai_Bild3.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\Zahlenhai_Bild4.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\Zahlenhai_Bild5.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\Zahlenhai_Bild6.bmp"
 				>
 			</File>
 		</Filter>

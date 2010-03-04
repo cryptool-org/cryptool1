@@ -125,6 +125,10 @@ public:
 	CBitmap haiBild2;
 	CBitmap haiBild3;
 	CBitmap haiBild4;
+
+	// flomar, 03/04/2010
+	CBitmap comicBackgroundBitmaps[6];
+
 	CPropertySheet propSheet;
 	CPropertyPage propPage;
 

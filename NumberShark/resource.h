@@ -148,11 +148,17 @@
 #define IDS_ACC_LOAD                    208
 #define IDS_ACC_SAVE                    209
 #define IDS_PLAYER_WINS_OPTIMAL2        210
+#define IDB_BITMAP12                    210
 #define IDS_PLAYER_WINS3                211
+#define IDB_BITMAP13                    211
 #define IDS_NUMBER_ONE                  212
+#define IDB_BITMAP14                    212
 #define IDS_LOAD_FAILED                 213
+#define IDB_BITMAP15                    213
 #define IDS_ASK_FOR_USER_CANCELLATION   214
+#define IDB_BITMAP16                    214
 #define IDS_SELECT_SEARCH_ALGORITHM     215
+#define IDB_BITMAP17                    215
 #define IDS_GAME_DATA_FILE_MISSING      216
 #define IDS_BACKTRACKING_ALGORITHM_RESULT 217
 #define IDS_SEARCH_PROGRESS_TEXT_1      218
@@ -270,7 +276,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        209
+#define _APS_NEXT_RESOURCE_VALUE        216
 #define _APS_NEXT_COMMAND_VALUE         32788
 #define _APS_NEXT_CONTROL_VALUE         1177
 #define _APS_NEXT_SYMED_VALUE           175

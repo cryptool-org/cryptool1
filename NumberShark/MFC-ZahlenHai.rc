@@ -301,6 +301,12 @@ IDB_BITMAP2             BITMAP                  "Bilder\\hai01-engl.bmp"
 IDB_BITMAP_REDO         BITMAP                  "bilder\\foreward-engl.bmp"
 IDB_BITMAP9             BITMAP                  "Bilder\\shark-engl.bmp"
 IDB_BITMAP3             BITMAP                  "Bilder\\HaiAnAngel-engl.bmp"
+IDB_BITMAP12            BITMAP                  "bilder\\bitmap12.bmp"
+IDB_BITMAP13            BITMAP                  "bilder\\bitmap13.bmp"
+IDB_BITMAP14            BITMAP                  "bilder\\bitmap14.bmp"
+IDB_BITMAP15            BITMAP                  "bilder\\bitmap15.bmp"
+IDB_BITMAP16            BITMAP                  "bilder\\bitmap16.bmp"
+IDB_BITMAP17            BITMAP                  "bilder\\bitmap17.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -819,6 +825,12 @@ IDB_BITMAP2             BITMAP                  "Bilder\\hai01.bmp"
 IDB_BITMAP_REDO         BITMAP                  "Bilder\\foreward.bmp"
 IDB_BITMAP9             BITMAP                  "Bilder\\shark.bmp"
 IDB_BITMAP3             BITMAP                  "Bilder\\HaiAnAngel.bmp"
+IDB_BITMAP12            BITMAP                  "bilder\\bitmap12.bmp"
+IDB_BITMAP13            BITMAP                  "bilder\\bitmap13.bmp"
+IDB_BITMAP14            BITMAP                  "bilder\\bitmap14.bmp"
+IDB_BITMAP15            BITMAP                  "bilder\\bitmap15.bmp"
+IDB_BITMAP16            BITMAP                  "bilder\\bitmap16.bmp"
+IDB_BITMAP17            BITMAP                  "bilder\\bitmap17.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1300,6 +1312,12 @@ IDB_BITMAP2             BITMAP                  "Bilder\\hai01-engl.bmp"
 IDB_BITMAP_REDO         BITMAP                  "bilder\\foreward-engl.bmp"
 IDB_BITMAP9             BITMAP                  "Bilder\\shark-engl.bmp"
 IDB_BITMAP3             BITMAP                  "Bilder\\HaiAnAngel-engl.bmp"
+IDB_BITMAP12            BITMAP                  "bilder\\bitmap12.bmp"
+IDB_BITMAP13            BITMAP                  "bilder\\bitmap13.bmp"
+IDB_BITMAP14            BITMAP                  "bilder\\bitmap14.bmp"
+IDB_BITMAP15            BITMAP                  "bilder\\bitmap15.bmp"
+IDB_BITMAP16            BITMAP                  "bilder\\bitmap16.bmp"
+IDB_BITMAP17            BITMAP                  "bilder\\bitmap17.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
