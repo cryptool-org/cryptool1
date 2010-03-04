@@ -2319,7 +2319,7 @@ prognostizierten Entwicklung (rot; Quelle Fox 2001)}
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 \subsection{Status der Faktorisierung von konkreten großen Zahlen}
-\label{nt:NoteFactorisation}
+\label{nt:NoteFactorization}
 
 Ausführliche Übersichten über die Rekorde im Faktorisieren
 zusammengesetzter Zahlen \index{Faktorisierung!Faktorisierungsrekorde}
@@ -2442,7 +2442,8 @@ Mit der $512$ Bit-Zahl RSA-155 war eine {\em magische} Grenze erreicht.
 \hypertarget{C158-chap3}{}
 
 Am 18. Januar 2002 zerlegten Forscher der Universität Bonn\footnote{%
-\url{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}} 
+\url{http://www.uni-bonn.de/Aktuelles/Pressemitteilungen/pm02/pm035-02.html}
+} 
 mit der GNFS-Methode (General Number Field Sieve) \index{General Number
 Field Sieve (GNFS)} eine $158$-stellige Dezimalzahl in ihre beiden Primfaktoren 
 (diese haben 73 und 86 Dezimalstellen).
@@ -2883,9 +2884,8 @@ des RSA-Algorithmus} \label{RSABernstein} \index{Faktorisierung!Faktorisierungsp
         % Braucht die Leerzeile danach auch noch !! bebebe ?
 
 Die im November 2001 veröffentlichte Arbeit ``Circuits for integer
-factorization: a proposal'' (siehe
-\url{http://cr.yp.to/djb.html}) von
-D.J. Bernstein \cite{nt:Bernstein2001} behandelt das Problem der 
+factorization: a proposal'' (siehe \url{http://cr.yp.to/djb.html})
+von D.J. Bernstein \cite{nt:Bernstein2001} behandelt das Problem der 
 Faktorisierung großer Zahlen.
 Die Kernaussage des Papers besteht darin, dass es möglich ist, die
 Implementierung des General Number Field Sieve-Algorithmus (GNFS)
@@ -2966,8 +2966,10 @@ We conclude that from a practical standpoint, the security of RSA relies
 exclusively on the hardness of the relation collection step of the number
 field sieve.''
 
-Auch RSA Security\footnote{\url{http://www.rsasecurity.com/}} kommt in ihrer Analyse der Bernstein-Arbeit \cite{nt:RSA Security 2002} vom 8. April 2002 erwartungsgemäß
-zu dem Ergebnis, dass RSA weiterhin als ungebrochen betrachtet werden kann.
+Auch RSA Security\footnote{\url{http://www.rsasecurity.com/}} kommt in ihrer
+Analyse der Bernstein-Arbeit \cite{nt:RSA Security 2002} vom 8. April 2002
+erwartungsgemäß zu dem Ergebnis, dass RSA weiterhin als ungebrochen betrachtet
+werden kann.
 
 Die Diskussion ist weiterhin im Gang.
 
@@ -3050,10 +3052,8 @@ Aber selbst die Autoren merken an, dass andere bekannte Algorithmen (z.B. ECPP) 
 \begin{itemize}
   \item[] \url{http://www.mersenne.org/} \\
           \url{http://fatphil.org/maths/AKS/} Originaltext in Englisch\\
-          \href{http://ls2-www.cs.uni-dortmund.de/lehre/winter200203/kt/material/primes.ps}
-	  {\tt http://ls2-www.cs.uni-dortmund.de/lehre/winter200203/kt/material/primes}\\
-          \href{http://ls2-www.cs.uni-dortmund.de/lehre/winter200203/kt/material/primes.ps}
-	  {\tt .ps} Gute Erläuterung in Deutsch von Thomas Hofmeister.
+          \url{http://ls2-www.cs.uni-dortmund.de/lehre/winter200203/kt/material/primes.ps} \\
+           Gute Erläuterung in Deutsch von Thomas Hofmeister.
 \end{itemize}
 
 \vskip +10 pt
@@ -3312,8 +3312,8 @@ Von Bob: $11 ^ y \equiv 285 {\rm ~(mod~}347)$, also $\log_{11}(285){\rm ~(mod~}3
     \index{Sage}%
     \index{Nguyen, Minh Van }%
     Weiteres Material: Minh Van Nguyen: \glqq Number Theory and the RSA Public Key
-    Cryptosystem. Introductory tutorial on using Sage to study elementary number theory
-    and public key cryptography'', 2009.
+    Cryptosystem. Introductory tutorial on using Sage to study elementary number
+    theory and public key cryptography'', 2009.
     Didaktisch sehr klarer Artikel zu einigen Grundlagen der Zahlentheorie und zur
     Benutzung von Sage.
     \url{http://nguyenminh2.googlepages.com/sage_numtheory-rsa.pdf}.
@@ -3635,7 +3635,6 @@ Chiffrat: \\
 \index{RSA!Cipher-Challenge}
 Die Aufgabe stammt aus \cite[Exercise 4.6]{nt:3Stinson1995}\index{Stinson 1995}:
 Die pure Lösung hat Prof. Stinson unter
-
 \url{http://www.cacr.math.uwaterloo.ca/~dstinson/solns.html}\footnote{%
 oder
 \url{http://bibd.unl/~stinson/solns.html}.
@@ -5341,7 +5340,7 @@ Satz~\ref{thm-zth-ordp} & Ausschöpfung des Wertebereiches & \pageref{thm-zth-ord
           
    \item  LiDIA, \index{LiDIA} \\ 
           Umfangreiche Bibliothek mit zahlentheoretischen Funktionen und dem
-          Interpreter LC \\
+          Interpreter LC. Wird nicht weiter entwickelt. \\
           \url{http://www.informatik.tu-darmstadt.de/TI/LiDIA}
           
    \item BC, \index{BC} \\
@@ -5391,8 +5390,10 @@ Satz~\ref{thm-zth-ordp} & Ausschöpfung des Wertebereiches & \pageref{thm-zth-ord
 
          \url{http://www.rsa.com/rsalabs/node.asp?id=2092}
 	 
+
    \item Das Cunningham-Projekt, \index{Cunningham-Projekt}\\ 
          \url{http://www.cerias.purdue.edu/homes/ssw/cun/}
+
 
    \item\sloppy Sage, \index{Sage} \\
          Ausgezeichnetes Open-Source Computer-Algebra-System, basierend auf Python
