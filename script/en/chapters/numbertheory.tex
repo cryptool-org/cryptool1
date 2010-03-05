@@ -3911,7 +3911,7 @@ sage: [power_mod(a, e, m) for e in exp]
 \subsection{Multiplicative order}
 \label{nt:AppArith3a1}{}
 
-The order $\text{ord}_m(a)$ of a number $a$ in the multiplicative
+\noindent The order $\text{ord}_m(a)$ of a number $a$ in the multiplicative
 group $\mathbf{Z}_m^{\ast}$ is the smallest number $i \geq 1$ such that
 $a^i \equiv 1 \pmod{m}$ holds
 (see chapter~\ref{MultOrdPrimitveRoot}, ``\nameref{MultOrdPrimitveRoot}'').
@@ -3962,10 +3962,11 @@ sage: for a in xrange(1, m):
 \newpage
 \hypertarget{nt:AppArith3b}{}
 \label{nt:AppArith3b}{}
-Table~\ref{expmod45} on page~\pageref{SrcArith3b} gives examples for the order modulo
+
+\noindent Table~\ref{expmod45} on page~\pageref{SrcArith3b} gives examples for the order modulo
 45 $\text{ord}_{45}(a)$ and the Euler number $J(45)$.
 
-The following Sage code constructs a table similar to that on page~\pageref{SrcArith3b}.
+\noindent The following Sage code constructs a table similar to that on page~\pageref{SrcArith3b}.
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -4011,10 +4012,11 @@ the row as represented by the object \verb!lst!.
 \newpage
 \hypertarget{nt:AppArith3c}{}
 \label{nt:AppArith3c}{}
-Table~\ref{modexp46} on page~\pageref{SrcArith3c} displays exponentiation
+
+\noindent Table~\ref{modexp46} on page~\pageref{SrcArith3c} displays exponentiation
 $a^i \pmod{46}$ as well as the order $\text{ord}_{46}(a)$.
 
-Sage can create that table as follows:
+\noindent Sage can create that table as follows:
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -4173,7 +4175,8 @@ AA_Start -- Testcases for enum_PrimitiveRoots_of_an_Integer(M)
 3-----------Testcase: M = 17
 {3, 5, 6, 7, 10, 11, 12, 14}
 \end{Verbatim}
-\caption{Function ``enum\_PrimitiveRoots\_of\_an\_Integer'' to calculate all primitive roots for a given number}
+\caption{Function ``enum\_PrimitiveRoots\_of\_an\_Integer'' to calculate all primitive
+roots for a given number}
 \end{sagecode}
 
 
@@ -4253,7 +4256,8 @@ def count_PrimitiveRoots_of_an_IntegerRange(start, end, bPrimesOnly=True):
 			      "Amount of numbers without primitive roots: %s)" % \
 			          nCheckedNumb_WithoutPrimitivRoots
 \end{Verbatim}
-\caption{Function ``count\_PrimitiveRoots\_of\_an\_IntegerRange'' to calculate all primitive roots for a given range of integers}
+\caption{Function ``count\_PrimitiveRoots\_of\_an\_IntegerRange'' to calculate all
+primitive roots for a given range of integers}
 \end{sagecode}
 
 
@@ -4357,7 +4361,8 @@ CC_Start -- Testcases for count_PrimitiveRoots_of_a_PrimesRange(start, end)
 Found all 62044 primitive roots of 239 primes.
 Time: CPU 7.55 s, Wall: 7.85 s
 \end{Verbatim}
-\caption{Function ``count\_PrimitiveRoots\_of\_a\_PrimesRange'' to calculate the number of primitive roots for a given range of primes}
+\caption{Function ``count\_PrimitiveRoots\_of\_a\_PrimesRange'' to calculate the number
+of primitive roots for a given range of primes}
 \end{sagecode}
 
 
@@ -4385,7 +4390,8 @@ for p in primes(start, end+1):
     file.flush()
 file.close()
 \end{Verbatim}
-\caption{Code to generate the database with all primitive roots for all primes between 1 and 100,000}
+\caption{Code to generate the database with all primitive roots for all primes between
+1 and 100,000}
 \end{sagecode}
 
 It took about one day on the machine sage.math to generate the
@@ -4397,9 +4403,7 @@ was put in a Sage script file and executed non-interactively.
 The file ``primroots.dat'' is a database of all primitive roots of all primes
 between 1 and 100,000 inclusive. It is a very large file (about 1 GB
 uncompressed, and 285 MB compressed with bzip2). You can find the file
-at
-   \href{http://sage.math.washington.edu/home/mvngu/doc/primitive-roots/primroots.dat.bz2}  %%% WARUM DOPPELT ????? be_be
-   {\url{http://sage.math.washington.edu/home/mvngu/doc/primitive-roots/primroots.dat.bz2}}.
+at {\url{http://sage.math.washington.edu/home/mvngu/doc/primitive-roots/primroots.dat.bz2}}.
 
 
 
