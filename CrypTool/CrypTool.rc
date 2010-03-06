@@ -8361,8 +8361,10 @@ BEGIN
                             "Alfabet (%d znaków) zostanie zmapowany"
     IDS_STRING_MONOALPHABETIC_SUBSTITUTION_CHARACTERS_REMOVED_DURING_COPYANDPASTE 
                             "Nale¿y pamiêtaæ, ¿e podczas kopiowania z schowka zosta³y usuniête znaki, które nie s¹ czêœci¹ ustalonego alfabetu."
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_NOT_SUCCESSFUL 
+                            "[i18n] \n\nUnfortunately, there were no possible results found.\n\nMake sure you have chosen the correct language(s) for keyword and ciphertext.\n\nMaybe you should consider decreasing the threshold value in the analysis options dialog."
     IDS_STRING_FILE_NOT_FOUND_BUT_ASK_FOR_MIGRATION_TO_DEFAULT_RESOURCES 
-                            "[i18n] A file required for the analysis could not be found.\n\nYet this file is part of your CrypTool installation.\n\nCrypTool is probably using out-dated Windows registry keys at the moment.\n\nFrom now on, do you want CrypTool to use the files required for the analysis (dictionary, digrams and trigrams) that have been rolled out with your CrypTool installation?"
+                            "[i18n] A file required for the analysis could not be found.\n\nYet this file is part of your CrypTool installation.\n\nCrypTool is probably using out-dated Windows registry keys at the moment.\n\nFrom now on, do you want CrypTool to use the files required for the analysis (dictionary, digrams and trigrams) that have been rolled out with your current CrypTool installation?"
 END
 
 STRINGTABLE 
@@ -19251,7 +19253,7 @@ BEGIN
     IDR_ASCTYPE             "\nNeimenovana\n\nASCII datoteka (*.asc)\n.asc\n\nASCII Tip Datoteke\nASCII\nASCII Datoteke\n"
     IDR_PLOTTYPE            "\nNeimenovana\n\nPLOT datoteka (*.plt)\n.plt\n\nPlot Tip Datoteke\nPLOT\nPlot Datoteke\n"
     IDS_STRING_FILE_NOT_FOUND_BUT_ASK_FOR_MIGRATION_TO_DEFAULT_RESOURCES 
-                            "[i18n] A file required for the analysis could not be found.\n\nYet this file is part of your CrypTool installation.\n\nCrypTool is probably using out-dated Windows registry keys at the moment.\n\nFrom now on, do you want CrypTool to use the files required for the analysis (dictionary, digrams and trigrams) that have been rolled out with your CrypTool installation?"
+                            "[i18n] A file required for the analysis could not be found.\n\nYet this file is part of your CrypTool installation.\n\nCrypTool is probably using out-dated Windows registry keys at the moment.\n\nFrom now on, do you want CrypTool to use the files required for the analysis (dictionary, digrams and trigrams) that have been rolled out with your current CrypTool installation?"
 END
 
 STRINGTABLE 
@@ -21958,8 +21960,8 @@ BEGIN
     GROUPBOX        "Caesar",IDC_STATIC,15,20,120,80
     GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,145,20,146,80
     GROUPBOX        "Optionen für Brute-Force Angriffe gegen moderne symmetrische Algorithmen",IDC_STATIC,7,232,292,92
-    LTEXT           "Anzahl Bytes für den Entropietest:",IDC_STATIC,27,259,109,8
-    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,150,257,30,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Anzahl der Bytes aus dem Geheimtextdokument für den Entropietest:",IDC_STATIC,27,259,220,8
+    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,250,257,30,14,ES_AUTOHSCROLL | ES_NUMBER
     GROUPBOX        "Umfang der Ausgabe bei der automatischen Analyse",IDC_STATIC,7,7,292,102
     LTEXT           "Zeichensatz für den zu erwartenden Klartext",IDC_STATIC,27,276,210,8
     CONTROL         "Alle 256 Zeichen",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,27,287,245,10
@@ -30003,7 +30005,7 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_NOT_SUCCESSFUL 
                             "\n\nEs wurden leider keine möglichen Lösungen gefunden.\n\nÜberprüfen Sie, ob Sie die richtige(n) Sprache(n) für Schlüsselwort und Ciphertext ausgewählt haben.\n\nVielleicht sollten Sie auch in Erwägung ziehen, den Grenzwert im Dialog Analyseoptionen zu verkleinern."
     IDS_STRING_FILE_NOT_FOUND_BUT_ASK_FOR_MIGRATION_TO_DEFAULT_RESOURCES 
-                            "Eine für die Analyse notwendige Datei konnte nicht gefunden werden.\n\nIn Ihrer CrypTool-Installation ist die Datei aber vorhanden.\n\nVermutlich verwendet CrypTool im Moment veraltete Einträge aus der Windows-Registry.\n\nWollen Sie, dass CrypTool in Zukunft die für die Analyse notwendigen Dateien (Wörterbuch, Digramme und Trigramme) aus Ihrer CrypTool-Installation verwendet?"
+                            "Eine für die Analyse notwendige Datei konnte nicht gefunden werden.\n\nIn Ihrer CrypTool-Installation ist die Datei aber vorhanden.\n\nVermutlich verwendet CrypTool im Moment veraltete Einträge aus der Windows-Registry.\n\nWollen Sie, dass CrypTool in Zukunft die für die Analyse notwendigen Dateien (Wörterbuch, Digramme und Trigramme) aus Ihrer aktuellen CrypTool-Installation verwendet?"
 END
 
 STRINGTABLE 
@@ -32453,7 +32455,7 @@ BEGIN
     IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT 
                             "Zeilen-Spalten Matrix-Vektorprodukt"
     IDS_LISTBRUTEFORCECANDIDATES_HEADER 
-                            "Die Brute-Force-Analyse entschlüsselte das Chiffrat mit allen möglichen Schlüsseln aus dem gegebenen Schlüsselraum und bestimmte dann für jede entschlüsselte Nachricht deren Entropiewert.\nDie folgende Liste enthält die entschlüsselten Nachrichten mit den niedrigsten Entropiewerten.\nGerade bei sehr kurzen Chiffraten kann es sein, dass es falsche Kandidaten mit einem kleinen Entropiewert gibt. Sie haben hier die Möglichkeit, den Kandidaten mit der richtigen Entschlüsselung auszuwählen."
+                            "Die Brute-Force-Analyse entschlüsselte die ersten %d Zeichen des Chiffrats - indem nacheinander alle möglichen Schlüssel aus dem gegebenen Schlüsselraum angewendet wurden. Danach wurde für jede entschlüsselte Nachricht der Entropiewert bestimmt. Die folgende Liste enthält die entschlüsselten Nachrichten mit den niedrigsten Entropiewerten.\nGerade bei sehr kurzen Chiffraten kann es sein, dass es falsche Kandidaten mit einem kleinen Entropiewert gibt. Sie haben hier die Möglichkeit, den Kandidaten mit der richtigen Entschlüsselung von Hand auszuwählen."
 END
 
 STRINGTABLE 
@@ -32915,8 +32917,8 @@ BEGIN
     GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,145,20,146,80
     GROUPBOX        "Output options for automatic analysis",IDC_STATIC,7,7,292,102
     GROUPBOX        "Options for brute-force attacks against modern symmetric algorithms",IDC_STATIC,7,232,292,92
-    LTEXT           "Number of bytes for the entropy test:",IDC_STATIC,27,259,118,8
-    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,150,257,30,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Number of bytes of the ciphertext document used for the entropy test:",IDC_STATIC,27,259,220,8
+    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,250,257,30,14,ES_AUTOHSCROLL | ES_NUMBER
     LTEXT           "Alphabet for the expected cleartext:",IDC_STATIC,27,276,118,8
     CONTROL         "All 256 characters",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,27,287,245,10
     CONTROL         "Printable characters (ascii 32 - 256)",IDC_RADIO2,
@@ -41088,7 +41090,7 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_NOT_SUCCESSFUL 
                             "\n\nUnfortunately, there were no possible results found.\n\nMake sure you have chosen the correct language(s) for keyword and ciphertext.\n\nMaybe you should consider decreasing the threshold value in the analysis options dialog."
     IDS_STRING_FILE_NOT_FOUND_BUT_ASK_FOR_MIGRATION_TO_DEFAULT_RESOURCES 
-                            "A file required for the analysis could not be found.\n\nYet this file is part of your CrypTool installation.\n\nCrypTool is probably using out-dated Windows registry keys at the moment.\n\nFrom now on, do you want CrypTool to use the files required for the analysis (dictionary, digrams and trigrams) that have been rolled out with your CrypTool installation?"
+                            "A file required for the analysis could not be found.\n\nYet this file is part of your CrypTool installation.\n\nCrypTool is probably using out-dated Windows registry keys at the moment.\n\nFrom now on, do you want CrypTool to use the files required for the analysis (dictionary, digrams and trigrams) that have been rolled out with your current CrypTool installation?"
 END
 
 STRINGTABLE 
@@ -42236,7 +42238,7 @@ BEGIN
                             "The input looks like a sequence of numbers!\n\nDo you wish to consider it as a sequence of numbers [yes/no]?"
     IDS_ENTROPY_ALPHABET_INFO 
                             "This document contains %i different characters compared to the %i characters of the selected alphabet."
-    IDS_ENTROPY_INFO        "The entropy of the document is %s\n(maximum possible entropy %s)."
+    IDS_ENTROPY_INFO        "The entropy of the whole document is %s\n(maximum possible entropy %s)."
     IDS_BINARY_ENTROPY_ALPHABET_INFO 
                             "This document contains %i different byte values (there are %i different byte values)."
     IDS_BINARY_ENTROPY_ALPHABET_MAX_INFO 
@@ -43477,7 +43479,7 @@ STRINGTABLE
 BEGIN
     IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT "row*column matrix*vector product"
     IDS_LISTBRUTEFORCECANDIDATES_HEADER 
-                            "The brute-force analysis decrypted the given ciphertext with all possible keys out of the selected key space and then calculated for each decrypted message the entropy value.\nThe following list contains the decrypted messages with the lowest entropy values.\nEspecially in case of very short ciphertexts it could be, that there are wrong candidates with a small entropy value. Here you have the opportunity to select the candidate with the correct decryption."
+                            "The brute-force analysis decrypted the first %d characters of the given ciphertext -- using step-by-step all possible keys out of the selected key space -- and then calculated for each decrypted message the entropy value. The following list contains the decrypted messages with the lowest entropy values.\nEspecially in case of very short ciphertexts it could be, that there are wrong candidates with a small entropy value. Therefore you have the opportunity to manually select the candidate with the correct decryption."
 END
 
 STRINGTABLE 

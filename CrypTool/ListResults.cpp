@@ -60,10 +60,13 @@ END_MESSAGE_MAP()
 BOOL CListResults::OnInitDialog()
 {
 	CDialog::OnInitDialog();
-	UpdateData();
-	headerStr.LoadString(IDS_LISTBRUTEFORCECANDIDATES_HEADER);
-	UpdateData(FALSE);
-	// TODO:  Add extra initialization here
+
+	// flomar, 03/06/2010
+	// as of today, the resource string IDS_LISTBRUTEFORCECANDIDATES_HEADER contains a format 
+	// string wild-card (%d) for the number of bytes of the ciphertext that have been decrypted; 
+	// because we don't have an interface to cleanly access this information at the moment, we 
+	// temporarily use the "clist->plain_size" variable (it's dirty, but it works)
+	headerStr.Format(IDS_LISTBRUTEFORCECANDIDATES_HEADER, clist->plain_size);
 
 	CString ColumnText;
 	resultListCtrl.SetExtendedStyle( LVS_EX_FULLROWSELECT );
@@ -101,6 +104,8 @@ BOOL CListResults::OnInitDialog()
 	GetDlgItem(IDC_LIST4)->GetWindowRect(&initialRectList);
 	GetDlgItem(IDOK)->GetWindowRect(&initialRectButtonOK);
 	GetDlgItem(IDCANCEL)->GetWindowRect(&initialRectButtonCancel);
+
+	UpdateData(false);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
