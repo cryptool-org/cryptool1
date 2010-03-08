@@ -250,7 +250,7 @@ Die {\it Ordnung der Gruppe} ist die Anzahl der Elemente in der Menge $G$. Ist d
 In praktischen Anwendungen betrachtet man häufig Mengen, auf denen nicht nur eine (Grup"-pen"~)
 Verknüpfung, sondern zwei Verknüpfungen definiert sind. Diese nennt man oft Addition und Multiplikation. Die mathematisch interessantesten Mengen dieser Art sind sogenannte Körper, wie z.B. die Menge der reellen Zahlen.
 
-Unter einem Körper versteht man in der Mathematik eine Menge $K$ mit den zwei Verknüpfungen Addition und Multiplikation (mit $+$ und $\cdot$ bezeichnet), so dass die folgenden Bedingungen erfüllt sind:
+Unter einem Körper versteht man in der Mathematik eine Menge $K$ mit den zwei Verknüp"-fungen Addition und Multiplikation (mit $+$ und $\cdot$ bezeichnet), so dass die folgenden Bedingungen erfüllt sind:
 \begin{itemize}
    \item Die Menge $K$ ist zusammen mit der Verknüpfung $+$ (Addition) 
          eine abelsche Gruppe. Dabei sei $0$ das neutrale Element der 
@@ -464,7 +464,7 @@ Ebene dargestellt werden.
 Wie bereits in Abschnitt \ref{ECC-Crypto} erwähnt, betrachten wir in der Kryptographie Elliptische Kurven über diskreten\footnote{Diskret im Gegensatz zu kontinuierlich.} Körpern $GF(2^n)$ oder $GF(p)$ (für große Primzahlen $p$). Dies bedeutet, dass alle Parameter, die zur Beschreibung der Elliptischen Kurve notwendig sind, aus diesem zugrunde liegenden Körper stammen. Ist nun $E$ eine Elliptische Kurve über einem solchen Körper und $P$ ein Punkt auf der Kurve $E$, so kann man für jede natürliche Zahl $m$
 $$ mP := \underbrace{P+P+\dots+P}_{\hbox{$m$ mal}}
 $$
-bilden. Diese Operation ist aus kryptographischer Sicht deshalb besonders interessant, weil man einerseits um $mP$ zu berechnen im allgemeinen nur $\log m$ Additionen durchführen muss --- man bildet einfach $P$, $2P$, $2^2P$, $2^3P$, \dots, schreibt $m$ binär und addiert schließlich entsprechend der Binärdarstellung von $m$ auf --- es andererseits sehr aufwa"ndig zu sein scheint, zu gegebenen Punkten $P$ und $Q=mP$ auf $E$ die Zahl $m$ zu bestimmen. Natürlich kann man $P,2P,3P,4P,5P,\dots$ bilden und jeweils mit $Q$ vergleichen. Hierzu benötigt man jedoch $m$ Additionen.
+bilden. Diese Operation ist aus kryptographischer Sicht deshalb besonders interessant, weil man einerseits um $mP$ zu berechnen im allgemeinen nur $\log m$ Additionen durchführen muss --- man bildet einfach $P$, $2P$, $2^2P$, $2^3P$, \dots, schreibt $m$ binär und addiert schließlich entsprechend der Binärdarstellung von $m$ auf --- es andererseits sehr aufwa"ndig zu sein scheint, zu gegebenen Punkten $P$ und $Q=mP$ auf $E$ die Zahl $m$ zu bestimmen. Natürlich kann man die Folge $P,2P,3P,4P,5P,\dots$ bilden und jeweils mit $Q$ vergleichen. Hierzu benötigt man jedoch $m$ Additionen.
 
 Bisher ist noch kein Algorithmus bekannt, der effizient $m$ aus $P$ und $Q$ berechnet. Die bisher besten Verfahren liegen z.B. im Fall $GF(p)$ in der Größenordnung $\sqrt{q}$, wobei $q$ ein (großer) Primfaktor von $p-1$ ist; $m$ selbst sollte in diesem Fall zwischen $1$ und $q$ liegen, so dass man für die Muliplikation $mP$ maximal $\log q$ Schritte benötigt. Der Quotient ${\sqrt{q}\over\log q}$ strebt jedoch (schnell) gegen $+\infty$.
 
