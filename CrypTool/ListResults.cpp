@@ -31,11 +31,12 @@
 // CListResults dialog
 
 IMPLEMENT_DYNAMIC(CListResults, CDialog)
-CListResults::CListResults(CWnd* pParent /*=NULL*/)
+CListResults::CListResults(const int &_numberOfBytesForEntropyCalculation, CWnd* pParent /*=NULL*/)
 	: CDialog(CListResults::IDD, pParent)
 	, headerStr(_T(""))
 	, clist_size(0)
 	, nItem(-1)
+	, numberOfBytesForEntropyCalculation(_numberOfBytesForEntropyCalculation)
 {
 }
 
@@ -63,10 +64,8 @@ BOOL CListResults::OnInitDialog()
 
 	// flomar, 03/06/2010
 	// as of today, the resource string IDS_LISTBRUTEFORCECANDIDATES_HEADER contains a format 
-	// string wild-card (%d) for the number of bytes of the ciphertext that have been decrypted; 
-	// because we don't have an interface to cleanly access this information at the moment, we 
-	// temporarily use the "clist->plain_size" variable (it's dirty, but it works)
-	headerStr.Format(IDS_LISTBRUTEFORCECANDIDATES_HEADER, clist->plain_size);
+	// string wild-card (%d) for the number of bytes of the ciphertext that have been decrypted
+	headerStr.Format(IDS_LISTBRUTEFORCECANDIDATES_HEADER, numberOfBytesForEntropyCalculation);
 
 	CString ColumnText;
 	resultListCtrl.SetExtendedStyle( LVS_EX_FULLROWSELECT );

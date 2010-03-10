@@ -29,7 +29,7 @@ class CListResults : public CDialog
 	DECLARE_DYNAMIC(CListResults)
 
 public:
-	CListResults(CWnd* pParent = NULL);   // standard constructor
+	CListResults(const int &_numberOfBytesForEntropyCalculation, CWnd* pParent = NULL);   // standard constructor
 	virtual ~CListResults();
 	void LoadList(struct candidate *candidate_list, int listSize);
 
@@ -49,6 +49,7 @@ public:
 	CString headerStr;
 	afx_msg void OnBnClickedOk();
 	char *get_keyhex();
+	int numberOfBytesForEntropyCalculation;
 
 protected:
 	afx_msg void OnSize(UINT nType, int cx, int cy);

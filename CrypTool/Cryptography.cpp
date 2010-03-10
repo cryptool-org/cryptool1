@@ -3823,7 +3823,7 @@ UINT SymmetricBruteForce(PVOID p)
 	else
 	{
 		candidates.sort();
-		CListResults dlgResults;
+		CListResults dlgResults(datalen);
 		dlgResults.LoadList( candidates.list, candidates.heapsize );
 		// TODO load list
 		if ( IDOK == dlgResults.DoModal() )
