@@ -76,6 +76,7 @@ unsigned int VigenereAnalysisSchroedel::run() {
 	if(	readCiphertext() < 0 ||					// read ciphertext
 			readDict() < 0 ||								// read dictionary
 			readTriDigrams() < 0 ||					// read digrams and trigrams file
+			chooseLanguages() < 0 ||				// let the user choose the languages
 			firstChar() < 0 ||							// create pairs for first character
 			secondChar() < 0 ||							// create pairs for second and third character
 			solveTrigram() < 0)							// solve trigrams
@@ -147,7 +148,7 @@ void VigenereAnalysisSchroedel::output(CString str, const bool _debug) {
 
 int VigenereAnalysisSchroedel::readTriDigrams() {
 	
-	// flomar, 02/02/2009
+	// flomar, 02/02/2010
 	// we expect the digram/trigram files to be formatted in different LANGUAGE sections; a language 
 	// within the digram/trigram file is declared with "[LANGUAGE X]", where "X" is the current 
 	// language; each line following this declaration is interpreted as digram/trigram and 
@@ -185,12 +186,21 @@ int VigenereAnalysisSchroedel::readTriDigrams() {
 		else {
 			// the user probably has a problem with old registry entries; ask 
 			// him if we should bend all resource paths (dict, digrams, trigrams) 
-			// back to the default location; regardless of the answer, return -1
+			// back to the default location; if the answer is yes, re-init the 
+			// resource paths and re-read the settings from the registry, then 
+			// proceed as usual; otherwise, return -1
 			CString infoMessage;
 			infoMessage.LoadStringA(IDS_STRING_FILE_NOT_FOUND_BUT_ASK_FOR_MIGRATION_TO_DEFAULT_RESOURCES);
-			if(MessageBox(NULL, infoMessage, "CrypTool", MB_ICONQUESTION|MB_YESNO) == IDYES)
+			if(MessageBox(NULL, infoMessage, "CrypTool", MB_ICONQUESTION|MB_YESNO) == IDYES) {
 				bendResourceLocationsBackToDefault();
-			return -1;
+				readSettingsFromRegistry();
+				// the clear call is necessary, otherwise the stream is corrupted
+				fileInputDigrams.clear();
+				fileInputDigrams.open(pathToDigrams);
+			}
+			else {
+				return -1;
+			}
 		}
 	}
 
@@ -268,12 +278,21 @@ int VigenereAnalysisSchroedel::readTriDigrams() {
 		else {
 			// the user probably has a problem with old registry entries; ask 
 			// him if we should bend all resource paths (dict, digrams, trigrams) 
-			// back to the default location; regardless of the answer, return -1
+			// back to the default location; if the answer is yes, re-init the 
+			// resource paths and re-read the settings from the registry, then 
+			// proceed as usual; otherwise, return -1
 			CString infoMessage;
 			infoMessage.LoadStringA(IDS_STRING_FILE_NOT_FOUND_BUT_ASK_FOR_MIGRATION_TO_DEFAULT_RESOURCES);
-			if(MessageBox(NULL, infoMessage, "CrypTool", MB_ICONQUESTION|MB_YESNO) == IDYES)
+			if(MessageBox(NULL, infoMessage, "CrypTool", MB_ICONQUESTION|MB_YESNO) == IDYES) {
 				bendResourceLocationsBackToDefault();
-			return -1;
+				readSettingsFromRegistry();
+				// the clear call is necessary, otherwise the stream is corrupted
+				fileInputTrigrams.clear();
+				fileInputTrigrams.open(pathToTrigrams);
+			}
+			else {
+				return -1;
+			}
 		}
 	}
 
@@ -312,20 +331,6 @@ int VigenereAnalysisSchroedel::readTriDigrams() {
 
 	// close input file
 	fileInputTrigrams.close();
-
-	// flomar, 02/02/2009
-	// let the user decide which language(s) to use
-	CDlgVigenereAnalysisSchroedelChooseCiphertextLanguage dlg(mapDigramsTrigrams);
-	dlg.DoModal();
-	// set the trigrams/digrams for our analysis
-	std::list<std::string>::iterator iter;
-	for(iter=dlg.listChosenLanguages.begin(); iter!=dlg.listChosenLanguages.end(); iter++) {
-		cDigramFactorString = mapDigramsTrigrams[(*iter)].digramFactorString;
-		memset(cDigram, 0, sizeof(cDigram));
-		memset(cTrigram, 0, sizeof(cTrigram));
-		memcpy(cDigram, mapDigramsTrigrams[(*iter)].digrams, sizeof(cDigram));
-		memcpy(cTrigram, mapDigramsTrigrams[(*iter)].trigrams, sizeof(cTrigram));
-	}
 
 	progress = 0.10;
 
@@ -1063,7 +1068,7 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 
 int VigenereAnalysisSchroedel::readDict() {
 
-	// flomar, 01/19/2009
+	// flomar, 01/19/2010
 	// we expect the dictionary to be formatted in different LANGUAGE sections; a language 
 	// within the dictionary is declared with "[LANGUAGE X]", where "X" is the current 
 	// language; each line following this declaration is interpreted as dictionary word and 
@@ -1077,9 +1082,9 @@ int VigenereAnalysisSchroedel::readDict() {
 	output(outputString);
 
 	// create a handle for the input file
-	std::ifstream fileInput;
-	fileInput.open(pathToDictionary);
-	if(!fileInput) {
+	std::ifstream fileInputDictionary;
+	fileInputDictionary.open(pathToDictionary);
+	if(!fileInputDictionary) {
 		// flomar, 03/03/2010
 		// there are two possible reasons why the desired file (the dictionary) 
 		// cannot be opened: (a) the default location is invalid (i.e. the file 
@@ -1102,12 +1107,21 @@ int VigenereAnalysisSchroedel::readDict() {
 		else {
 			// the user probably has a problem with old registry entries; ask 
 			// him if we should bend all resource paths (dict, digrams, trigrams) 
-			// back to the default location; regardless of the answer, return -1
+			// back to the default location; if the answer is yes, re-init the 
+			// resource paths and re-read the settings from the registry, then 
+			// proceed as usual; otherwise, return -1
 			CString infoMessage;
 			infoMessage.LoadStringA(IDS_STRING_FILE_NOT_FOUND_BUT_ASK_FOR_MIGRATION_TO_DEFAULT_RESOURCES);
-			if(MessageBox(NULL, infoMessage, "CrypTool", MB_ICONQUESTION|MB_YESNO) == IDYES)
+			if(MessageBox(NULL, infoMessage, "CrypTool", MB_ICONQUESTION|MB_YESNO) == IDYES) {
 				bendResourceLocationsBackToDefault();
-			return -1;
+				readSettingsFromRegistry();
+				// the clear call is necessary, otherwise the stream is corrupted
+				fileInputDictionary.clear();
+				fileInputDictionary.open(pathToDictionary);
+			}
+			else {
+				return -1;
+			}
 		}
 	}
 
@@ -1118,11 +1132,11 @@ int VigenereAnalysisSchroedel::readDict() {
 	std::string s2;
 	dictCount = 0;
 
-	while(!fileInput.eof() && dictCount<MAX_NUMBER_OF_DICT_WORDS) {
+	while(!fileInputDictionary.eof() && dictCount<MAX_NUMBER_OF_DICT_WORDS) {
 		// watch out for user cancellation
 		if(canceled) return -1;
 		// get the next word
-		getline(fileInput, s2);
+		getline(fileInputDictionary, s2);
 		// check if we need to change the current language
 		if(s2.find("[LANGUAGE ") != - 1) {
 			int beg = 10;
@@ -1150,24 +1164,38 @@ int VigenereAnalysisSchroedel::readDict() {
 	}
 
 	// close input file
-	fileInput.close();
-
-	// flomar, 01/19/2009
-	// let the user decide which language(s) to use
-	CDlgVigenereAnalysisSchroedelChooseKeywordLanguages dlg(mapListsDictionaryWords);
-	dlg.DoModal();
-	// create the dictionary for our analysis
-	std::list<std::string>::iterator iter;
-	for(iter=dlg.listChosenLanguages.begin(); iter!=dlg.listChosenLanguages.end() && dictCount < MAX_NUMBER_OF_DICT_WORDS; iter++) {
-		std::list<std::string>::iterator iterTemp;
-		for(iterTemp=mapListsDictionaryWords[(*iter)].begin(); iterTemp!=mapListsDictionaryWords[(*iter)].end(); iterTemp++) {
-			dict[dictCount++] = (*iterTemp).c_str();
-		}
-	}
+	fileInputDictionary.close();
 
 	progress = 0.05;
 
 	return 0;
+}
+
+int VigenereAnalysisSchroedel::chooseLanguages() {
+
+	// flomar, 03/08/2010
+	// let the user decide which language(s) to use
+	CDlgVigenereAnalysisSchroedelChooseLanguages dlg(mapListsDictionaryWords, mapDigramsTrigrams);
+	if(dlg.DoModal() == IDOK) {
+
+		// create the dictionary for our analysis
+		std::list<std::string>::iterator iter;
+		for(iter=dlg.selectedKeywordsList.begin(); iter!=dlg.selectedKeywordsList.end(); iter++) {
+			dict[dictCount++] = (*iter).c_str();
+		}
+
+		// create digrams/trigrams for our analysis
+		cDigramFactorString = dlg.selectedDigramTrigramSet.digramFactorString;
+		memset(cDigram, 0, sizeof(cDigram));
+		memset(cTrigram, 0, sizeof(cTrigram));
+		memcpy(cDigram, dlg.selectedDigramTrigramSet.digrams, sizeof(cDigram));
+		memcpy(cTrigram, dlg.selectedDigramTrigramSet.trigrams, sizeof(cTrigram));
+	
+		// indicate we're done without any errors
+		return 0;
+	}
+
+	return -1;
 }
 
 int VigenereAnalysisSchroedel::readCiphertext() {
@@ -1578,7 +1606,7 @@ BOOL CDlgVigenereAnalysisSchroedel::OnInitDialog()
 	CString columnHeaderKey; columnHeaderKey.LoadString(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERKEY);
 	CString columnHeaderCleartext; columnHeaderCleartext.LoadString(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT);
 	controlListPossibleResults.InsertColumn( 0, columnHeaderKey, LVCFMT_LEFT, 200);
-	controlListPossibleResults.InsertColumn( 1, columnHeaderCleartext, LVCFMT_LEFT, 250);
+	controlListPossibleResults.InsertColumn( 1, columnHeaderCleartext, LVCFMT_LEFT, 270);
 
 	// enable the "start analysis" button
 	GetDlgItem(IDC_BUTTON_START_ANALYSIS)->EnableWindow(true);
@@ -1710,112 +1738,86 @@ void CDlgVigenereAnalysisSchroedel::OnTimer(UINT nIDEvent)
 
 
 
-IMPLEMENT_DYNAMIC(CDlgVigenereAnalysisSchroedelChooseKeywordLanguages, CDialog)
+IMPLEMENT_DYNAMIC(CDlgVigenereAnalysisSchroedelChooseLanguages, CDialog)
 
-CDlgVigenereAnalysisSchroedelChooseKeywordLanguages::CDlgVigenereAnalysisSchroedelChooseKeywordLanguages(std::map<std::string, std::list<std::string>> &_mapListsDictionaryWords, CWnd* pParent) : 
-	CDialog(CDlgVigenereAnalysisSchroedelChooseKeywordLanguages::IDD, pParent),
-	mapListsDictionaryWords(_mapListsDictionaryWords) {
-
-}
-
-CDlgVigenereAnalysisSchroedelChooseKeywordLanguages::~CDlgVigenereAnalysisSchroedelChooseKeywordLanguages()
-{
-	
-}
-
-void CDlgVigenereAnalysisSchroedelChooseKeywordLanguages::DoDataExchange(CDataExchange* pDX)
-{
-	CDialog::DoDataExchange(pDX);
-	DDX_Control(pDX, IDC_LIST_LANGUAGES, controlListLanguages);
-}
-
-BEGIN_MESSAGE_MAP(CDlgVigenereAnalysisSchroedelChooseKeywordLanguages, CDialog)
-	ON_BN_CLICKED(IDOK, OnOK)
-END_MESSAGE_MAP()
-
-BOOL CDlgVigenereAnalysisSchroedelChooseKeywordLanguages::OnInitDialog()
-{
-	CDialog::OnInitDialog();
-
-	// clear the list
-	controlListLanguages.DeleteAllItems();
-
-	// add all available languages
-	std::map<std::string, std::list<std::string>>::iterator mapIter;
-	for(mapIter=mapListsDictionaryWords.begin(); mapIter!=mapListsDictionaryWords.end(); mapIter++) {
-		controlListLanguages.InsertItem(0, (*mapIter).first.c_str());
-	}
-
-	return FALSE;
-}
-
-void CDlgVigenereAnalysisSchroedelChooseKeywordLanguages::OnOK()
-{
-	// don't do anything if no language was selected
-	if(controlListLanguages.GetSelectedCount() == 0)
-		return;
-	// store the selected languages in listChosenLanguages
-	POSITION pos = controlListLanguages.GetFirstSelectedItemPosition();
-	for(int i=0; i<controlListLanguages.GetSelectedCount(); i++) {
-		int index = controlListLanguages.GetNextSelectedItem(pos);
-		listChosenLanguages.push_back(controlListLanguages.GetItemText(index, 0).GetBuffer());
-	}
-	// close the dialog
-	CDialog::OnOK();
-}
-
-
-
-IMPLEMENT_DYNAMIC(CDlgVigenereAnalysisSchroedelChooseCiphertextLanguage, CDialog)
-
-CDlgVigenereAnalysisSchroedelChooseCiphertextLanguage::CDlgVigenereAnalysisSchroedelChooseCiphertextLanguage(std::map<std::string, DigramTrigramSet> &_mapDigramsTrigrams, CWnd* pParent) : 
-	CDialog(CDlgVigenereAnalysisSchroedelChooseCiphertextLanguage::IDD, pParent),
+CDlgVigenereAnalysisSchroedelChooseLanguages::CDlgVigenereAnalysisSchroedelChooseLanguages(std::map<std::string, std::list<std::string>> &_mapListsDictionaryWords, std::map<std::string, DigramTrigramSet> &_mapDigramsTrigrams, CWnd* pParent) : 
+	CDialog(CDlgVigenereAnalysisSchroedelChooseLanguages::IDD, pParent),
+	mapListsDictionaryWords(_mapListsDictionaryWords),
 	mapDigramsTrigrams(_mapDigramsTrigrams) {
 
 }
 
-CDlgVigenereAnalysisSchroedelChooseCiphertextLanguage::~CDlgVigenereAnalysisSchroedelChooseCiphertextLanguage()
+CDlgVigenereAnalysisSchroedelChooseLanguages::~CDlgVigenereAnalysisSchroedelChooseLanguages()
 {
 	
 }
 
-void CDlgVigenereAnalysisSchroedelChooseCiphertextLanguage::DoDataExchange(CDataExchange* pDX)
+void CDlgVigenereAnalysisSchroedelChooseLanguages::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	DDX_Control(pDX, IDC_LIST_LANGUAGES, controlListLanguages);
+	DDX_Control(pDX, IDC_LIST_LANGUAGES_KEYWORD, controlListLanguagesKeyword);
+	DDX_Control(pDX, IDC_LIST_LANGUAGES_CIPHERTEXT, controlListLanguagesCiphertext);
 }
 
-BEGIN_MESSAGE_MAP(CDlgVigenereAnalysisSchroedelChooseCiphertextLanguage, CDialog)
+BEGIN_MESSAGE_MAP(CDlgVigenereAnalysisSchroedelChooseLanguages, CDialog)
 	ON_BN_CLICKED(IDOK, OnOK)
 END_MESSAGE_MAP()
 
-BOOL CDlgVigenereAnalysisSchroedelChooseCiphertextLanguage::OnInitDialog()
+BOOL CDlgVigenereAnalysisSchroedelChooseLanguages::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// clear the list
-	controlListLanguages.DeleteAllItems();
+	// clear the lists
+	controlListLanguagesKeyword.DeleteAllItems();
+	controlListLanguagesCiphertext.DeleteAllItems();
 
-	// add all available languages
-	std::map<std::string, DigramTrigramSet>::iterator mapIter;
-	for(mapIter=mapDigramsTrigrams.begin(); mapIter!=mapDigramsTrigrams.end(); mapIter++) {
-		controlListLanguages.InsertItem(0, (*mapIter).first.c_str());
+	// set extended style for lists
+	controlListLanguagesKeyword.SetExtendedStyle(LVS_EX_FULLROWSELECT);
+	controlListLanguagesCiphertext.SetExtendedStyle(LVS_EX_FULLROWSELECT);
+	
+	// add all available languages (keyword)
+	std::map<std::string, std::list<std::string>>::iterator mapIteratorKeyword;
+	for(mapIteratorKeyword=mapListsDictionaryWords.begin(); mapIteratorKeyword!=mapListsDictionaryWords.end(); mapIteratorKeyword++) {
+		controlListLanguagesKeyword.InsertItem(0, (*mapIteratorKeyword).first.c_str());
 	}
+
+	// all all available languages (ciphertext)
+	std::map<std::string, DigramTrigramSet>::iterator mapIteratorCiphertext;
+	for(mapIteratorCiphertext=mapDigramsTrigrams.begin(); mapIteratorCiphertext!=mapDigramsTrigrams.end(); mapIteratorCiphertext++) {
+		controlListLanguagesCiphertext.InsertItem(0, (*mapIteratorCiphertext).first.c_str());
+	}
+
+	UpdateData(false);
 
 	return FALSE;
 }
 
-void CDlgVigenereAnalysisSchroedelChooseCiphertextLanguage::OnOK()
+void CDlgVigenereAnalysisSchroedelChooseLanguages::OnOK()
 {
-	// don't do anything if no language was selected
-	if(controlListLanguages.GetSelectedCount() == 0)
+	// don't do anything if less than one keyword language is selected
+	if(controlListLanguagesKeyword.GetSelectedCount() < 1)
 		return;
-	// store the selected languages in listChosenLanguages
-	POSITION pos = controlListLanguages.GetFirstSelectedItemPosition();
-	for(int i=0; i<controlListLanguages.GetSelectedCount(); i++) {
-		int index = controlListLanguages.GetNextSelectedItem(pos);
-		listChosenLanguages.push_back(controlListLanguages.GetItemText(index, 0).GetBuffer());
+	// don't do aynthing if not exactly one ciphertext language is selected
+	if(controlListLanguagesCiphertext.GetSelectedCount() != 1)
+		return;
+
+	// store the selected keyword languages in its output structures
+	POSITION posKeyword = controlListLanguagesKeyword.GetFirstSelectedItemPosition();
+	for(int i=0; i<controlListLanguagesKeyword.GetSelectedCount(); i++) {
+		int index = controlListLanguagesKeyword.GetNextSelectedItem(posKeyword);
+		std::list<std::string> listKeywords = mapListsDictionaryWords[controlListLanguagesKeyword.GetItemText(index, 0).GetBuffer()];
+		for(std::list<std::string>::iterator iter=listKeywords.begin(); iter!=listKeywords.end(); iter++) {
+			selectedKeywordsList.push_back(*iter);
+		}	
 	}
+
+	// store the selected ciphertext language in its output structure
+	POSITION posCiphertext = controlListLanguagesCiphertext.GetFirstSelectedItemPosition();
+	for(int i=0; i<controlListLanguagesCiphertext.GetSelectedCount(); i++) {
+		int index = controlListLanguagesCiphertext.GetNextSelectedItem(posCiphertext);
+		selectedDigramTrigramSet = mapDigramsTrigrams[controlListLanguagesCiphertext.GetItemText(index, 0).GetBuffer()];
+	}
+
 	// close the dialog
 	CDialog::OnOK();
 }
