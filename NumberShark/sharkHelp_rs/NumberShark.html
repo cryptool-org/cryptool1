@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Number Shark manual</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<BODY>
+<h3><P><A NAME="zahlenhai"></A><B>Number Shark manual</B></P></h3>
+
+<p>At the beginning the shell square will be filled with a certain amount of numbers (for example the numbers 1-20).</p>
+
+<p><h4><u>1. The game idea</u></h4></p
+
+<p>The game idea of the Number Shark game is to win as many of the numbers as possible for yourself, so that the sum of your numbers is higher than the sum of the Number Shark, and also to reach the highest possible score. When you choose a number, the Number Shark gets all free <a href="NumberSharkRealFactors.html">real factors</a> etc. (the real factors of the number "6" are "1", "2", and "3").</p>
+<p>The Number Shark game playfully teaches the handling with factors and <a href="NumberSharkPrimes.html">prime numbers</a> and was originally designed for school kids.</p>
+<P>In the following paragraph the handling of the Number Shark program is described.</P>
+
+<p><h4><u>2. Handling of the game -  Main dialog</u></h4></p>
+
+<p>The game starts once you picked a number -- the Number Shark gets the factors of this number. This number and its factors will be deactivated in the shell square, you can’t use them any longer.</p>
+<p>Once you and the Number Shark completed one round the next steps are:</p>
+<p>You take a number and the Number Shark gets the factors - until all numbers are used.<br>
+Your goal is that the sum of your numbers is higher than the sum of the numbers the Number Shark eats.<br></p>
+
+<P><IMG SRC="Pictures_en/Dlg_main_en.png" ALT=Dlg_main_en.png" BORDER=0 width="91%"></P> 
+
+<P>In the group box "Settings for a new game" you can select with how many numbers you want to play the game. This decision needs to be confirmed by the <b>OK</b> button or the <b>Enter</b> key on your keyboard. When you first start the game this field contains the value 20. <br>If you press <b>New game</b> the number inserted lastly will be conserved. In the "Game Options" dialog you can decide if the program should remember this number for the next start too.</P>
+
+<p>If you press the <b>OK</b> button, the number store will be filled with shells which you can use as normal buttons. You only can see 30 shells at once in the block. If you choose a number higher than 30, further tabs will appear above the block via which you can see all other shells.</p>
+
+<P><IMG SRC="Pictures_en/Dlg_main_settings_en.png" ALT="Dlg_main_settings_en.png" BORDER=0 width="91%"></p>
+
+<p>With the tabulator and the arrow keys on your keyboard, you can move through the numbers and select them with the Enter key. For a better readability, all numbers are labeled in yellow. At the beginning of the game, all shells are blue, which means, that you can select <b>anyone</b> of it.</P>
+
+<p><IMG SRC="Pictures_en/Dlg_main_shells_en.png" ALT="Dlg_main_shells_en.png" BORDER=0 width="91%"></p>
+
+<P>Every number you chose, and every factor of this number, will be colored in red to show you that you cannot use this number any longer.</P>
+
+<p><IMG SRC="Pictures_en/Dlg_main_shells_use_en.png" ALT="Dlg_main_shells_use_en.png" BORDER=0 width="91%"></p>
+
+<P>The game progress list which appears instead of the shark pictures after your first choice shows you the current score. The list is divided into six columns.<br>
+<ul>
+	<li>the current round,</li>
+	<li>the number you have chosen in this round,</li>
+	<li>which numbers the Number Shark had taken,</li>
+	<li>your current points,</li>
+	<li>the points of the Number Shark and</li>
+	<li>how many numbers are left in the game.</li>
+</ul>
+The width of the columns in the game progress list can be changed by the player, but they will not be adjusted automatically. Each row in the list can be selected and if the list is full a scroll bar will appear so that you can always scroll to every round.</p>
+
+<p>Always when a <a href="NumberSharkPrimes.html">prime number</a> was chosen, no matter from whom, "(prime)" will be written behind this number in the game progress list to show that this number is a prime number.</p>
+
+<p><IMG SRC="Pictures_en/Dlg_game_course_en.png" ALT="Dlg_game_course_en.png" BORDER=0 width="91%"></P>
+
+<p>The following buttons will help you to control the game.</p>
+
+<table border="0">
+<tr>
+	<td><IMG SRC="Pictures_en/Dlg_button_newgame_en.png" ALT="Dlg_button_newgame_en.png" BORDER=0 width="91%"></td>
+	<td>When you press the button <b>New game</b> the course of the game and the shells are set back to the status they have at the beginning of the game. Only the amount numbers with which you played the last game will be kept.</td>
+</tr>
+<tr>
+	<td><p>		<br>		</p></td>
+</tr>
+<tr>
+	<td><IMG SRC="Pictures_en/Dlg_button_sharkfood_en.png" ALT="Dlg_button_sharkfood_en.png" BORDER=0 width="91%"></td>
+	<td>The button <b>Shark food</b> only gets active if there are numbers left in the game which have no more real factors and at the same time are not a factor of any other number.<br>If you press this button, all these numbers will be given to the Number Shark, because sooner or later he definitely gets these numbers. </td>
+</tr>
+<tr>
+	<td><p>		<br>		</p></td>
+</tr>
+<tr>
+	<td><IMG SRC="Pictures_en/Dlg_button_options_en.png" ALT="Dlg_button_options_en.png" BORDER=0 width="91%"></td>
+	<td>With the <b>More options</b> button you get access to the options screen, which you also saw at the beginning of the game.</td>
+</tr>
+<tr>
+	<td><p>		<br>		</p></td>
+</tr>
+<tr>
+	<td><IMG SRC="Pictures_en/Dlg_button_undo_redo_en.png" ALT="Dlg_button_undo_redo_en.png" BORDER=0 width="91%"></td>
+	<td>With <b>Undo</b> you can repeat previous rounds if you want to choose other numbers. With <b>Redo</b> you can go forward through the game as many steps as you went back via <b>Undo</b>.</td>
+</tr>
+	
+</table>
+</p>
+
+<p>After you pressed the first shell or selected the first number you can see an LED-like display at the bottom of the dialog. On the left side you can see you current points and on the right side the points from the Number Shark.</p>
+
+<IMG SRC="Pictures_en/Dlg_led_en.png" ALT="Dlg_led_en.png" BORDER=0 width="91%">
+
+<p>While playing the game you can alternatingly make the shells on the buttons visible and invisible by pressing <b>SHIFT+ALT+C</b> on your keyboard</p>
+
+<p><IMG SRC="Pictures_en/Dlg_main_noshells_en.png" ALT="Dlg_main_noshells_en.png" BORDER=0></p>
+
+<p><h4><u>3. Game rules</u></h4></p>
+<table border="0">
+<tr>
+	<td><IMG SRC="Pictures_en/Dlg_button_help_en.png" ALT="Dlg_button_help_de.png" BORDER=0 width="91%"></td>
+	<td>Via the <b>Help</b> button you can take a look at the online help of the Number Shark game. This is also possible via the F1 key on your keyboard.</td>
+</tr>
+<tr>
+	<td><p>		<br>		</p></td>
+</tr>
+<tr>
+	<td><IMG SRC="Pictures_en/Dlg_button_rules_en.png" ALT="Dlg_button_rules_de.png" BORDER=0 width="91%"></td>
+	<td>Via the button <b>Rules of the game</b> you get a short summary of the game rules.</td>
+</tr>
+</table>
+
+<P><IMG SRC="Pictures_en/Dlg_rules_en.png" ALT="Dlg_rules_en.png" BORDER=0 width="91%"></p>
+
+<p><h4><u>4. Setting the game options</u></h4></p>
+
+<p>You can reach the options by pressing the <b>More options</b> button in the main dialog.</p>
+
+<p><B>4.1</B>: On the <b>Welcome</b> tab you can read some information about the Number Shark game.</p>
+
+<P><IMG SRC="Pictures_en/Dlg_options1_en.png" ALT="Dlg_options1_en.png" BORDER=0></p>
+
+<p><B>4.2</B>: In the <b>Standard</b> tab you have the following possibilities:</p>
+<ul>
+	<li>You can insert your player name, which will be written into the <a href="NumberSharkTutorial.html#Summary">Summary.txt</a> at the end of the game and it is shown in the head of the main dialog.</li>
+	<li>If the checkbox "Activate tool tips" is set, then the game will show you all factors of a number. This should only be used by beginners who don’t have enough experience and know-how with this game, factors and prime numbers.</li>
+	<li>With "Show dialog at next game start" you can decide if you want to see the options dialog at the next game start or not.</li>
+	<li>With the checkbox "Remember the last total number..." the game stores this number for the next game start.</li>
+</ul>
+<br>All these settings can be changed in the game at any time.
+</p>
+
+<P><IMG SRC="Pictures_en/Dlg_options2_en.png" ALT="Dlg_options2_en.png" BORDER=0></p>
+
+<p><B>4.3</B>: Via the button <b>Show/Calculate</b> on the tab <b>Maximum values</b> the program can 
+show you how many points you can get with your chosen count of numbers.</P>
+
+<P>The calculation of these optimal values with our brute-force algorithm takes very long even for 
+numbers up to 20. We believe a search for n=23 will take around 80 days on a 3 GHz PC. But even the new 
+backtracking algorithm needs over ten minutes for numbers bigger than 40.</P>
+
+<P>Therefore the results for n=158 have been pre-calculated. If the radio button <B>Show highest score 
+possible</B> is checked, the result will be displayed immediately after clicking the <B>Start</B> 
+button.</P>
+
+<P>Beside the <a href="NumberSharkDevelopment.html#Calculation">maximum possible points</a>, you also 
+get one <B>way</B> on which you can achieve this score, which means that the program shows you in which 
+order you should take the numbers. Sometimes the order can be changed in some parts and you will also 
+achieve the highest score (there is no unique solution). And you get a hint with which number you need 
+to start the game in order to achieve the highest score.</p>
+
+<P><IMG SRC="Pictures_en/Dlg_options4_en.png" ALT="Dlg_options4_en.png" BORDER=0></p>
+
+<P><B>4.4</B>: Below the tab <B>Accelerators</B> you can find the implemented keyboard shortcuts.</P>
+
+<br><br>
+
+<p>You can find more information about the development of the Number Shark game  <a href="NumberSharkDevelopment.html">here</a>.</p>
+
+
+<p>By legal reasons we explicitly have to point at the <a href="NumberSharkLicense.html">terms of licence and the information regarding non-liability</a>.</p>
+</BODY>
+</HTML> 

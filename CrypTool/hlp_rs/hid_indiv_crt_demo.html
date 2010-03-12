@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+	<HEAD>
+		<TITLE>Modular Forward and Backward Transformation</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+			<script language="JScript" src="helper.js"></script>
+	</HEAD>
+	<!-- multiple keywords for CrypTool HTML help index -->
+	<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+		VIEWASTEXT>
+		<PARAM NAME="Keyword" VALUE="Modular transformation">
+		<PARAM NAME="Keyword" VALUE="Forward and backward transformation">
+		<PARAM NAME="Keyword" VALUE="Chinese remainder theorem (CRT)">
+	</OBJECT>
+	<BODY>
+		<h3>Modular Forward and Backward Transformation (Menu <A href="menu_related_methods.html">
+				Individual Procedures</A> \ Chinese Remainder Theorem Applications)</h3>
+		<P>The dialog window <A href="hidd_crt_transformation.html">modular transformation</A>
+			shows the <A href="hid_einzelverfahren_crt_definition.html">Chinese Remainder 
+				Theorem</A> calculation with the modular remainders. In addition, the 
+			original numbers are transformed into these remainders and after the 
+			calculation of the remainders, their result is reconverted again into a 
+			“normal“ number.</P>
+		<P>The dialog offers multiplication, addition or subtraction of two numbers A and B 
+			as mathematical operation. In normal practice it is used, if the memory for the 
+			representation of large numbers and their intermediate results is not 
+			sufficient and to speed up calculations.</P>
+		<P>In comparison to conventional number notation the idea of the modular arithmetic 
+			consists in selecting t different <U>modules</U> m<SUB>1</SUB>, m<SUB>2</SUB>, 
+			…, m<SUB>t </SUB>, which are <U>pairwise relatively prime</U> and to perform 
+			the calculation on remainders x <EM>mod</EM> m<SUB>1</SUB>, x <EM>mod </EM>m<SUB>2</SUB>, 
+			..., x <EM>mod</EM> m<SUB>t </SUB>instead of directly with the whole number x.</P>
+		<P>This is possible, because&nbsp;the modular representation uses the same arithmetic rules&nbsp;(addition, subtraction and multiplication). 
+			The&nbsp;range, that can be represented by modular arithmetic, goes from 0 to 
+			(m<SUB>1</SUB> &#8729; m<SUB>2</SUB> &#8729; … &#8729; m<SUB>t</SUB>)-1.</P>
+		<P>This procedure has the additional advantage of allowing&nbsp;operations to be 
+			distributed to different computers and carrying them out in parallel.</P>
+		<P>Further details about modular arithmetic can be found in the CrypTool <A class="filelink" onclick="parser('script-en.pdf')">script</A>
+				, chapter 4.</P>
+	</BODY>
+</HTML>

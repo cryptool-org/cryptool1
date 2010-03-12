@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+	<HEAD>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<TITLE>Square and multiply exponentiation</TITLE>
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<!-- multiple keywords for CrypTool HTML help index -->
+	<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+		VIEWASTEXT ID="Object1">
+		<PARAM NAME="Keyword" VALUE="Square and multiply exponentiation">
+		<PARAM NAME="Keyword" VALUE="RSA encryption algorithm">
+		<PARAM NAME="Keyword" VALUE="Exponentation">
+		<PARAM NAME="Keyword" VALUE="Fast exponentation">
+	</OBJECT>
+	<BODY>
+		<h3>Square and multiply exponentiation</h3>
+		<P>"Square and multiply" exponentiation is a quick method of raising to a power x 
+			modulus N, which needs only bit length (x) operations instead of x operations.</P>
+		<P>Calculation of y = m^x (mod N) in pseudo-code where we use for the exponent x 
+			the binary representation of x[0] x[1] ... x[n-1]:</P>
+		<PRE><CODE>1. y = 1
+2. for ( i = 0, ..., n-1 )
+    {
+    y = y*y (mod N)                             // Square
+    if (x[i] == 1) then y = y*m (mod N)         // Multiply
+    }</CODE></PRE>
+		<P>This algorithm thus requires bit length(x) multiplications and squares.</P>
+		<P>For example, in</P>
+		<div class="indent">
+			<P>
+				m^65537_10 = m^10000000000000001_2 (mod N)</P>
+			<P>y = 1;
+				<br>
+				y = y*y;
+				<br>
+				y = y*m (x[0]=1);
+				<br>
+				y=y*y (x[1]=0);
+				<br>
+				....;
+				<br>
+				y=y*y (x[15]=0);
+				<br>
+				y=y*y; y*y*m (x[16]=1)</P>
+		</div>
+		<P>is calculated via one multiplication and 16 squares.</P>
+	</BODY>
+</HTML>

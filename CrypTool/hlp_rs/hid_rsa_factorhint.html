@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Factoring with a hint</TITLE>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="RSA encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Lattice reduction">
+	<PARAM NAME="Keyword" VALUE="Attacks">
+</OBJECT>
+
+<BODY>
+
+<h3>Factoring with a Hint (Menu <A href="menu_related_methods.html">Individual Procedures</A> \ RSA Cryptosystem \ Lattice Based Attacks on RSA)</h3>
+
+<p>You can execute the attack using the <a href="hidd_rsafactorhint.html">Factoring with a Hint</a> dialog.</p>
+
+<p>With the Factoring-with-a-Hint attack it is possible to factor a <a href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">RSA</a>-moduls 
+  <font face="Times New Roman, Times, serif"><strong>N</strong></font> , if a 
+  part of one of the factors <font face="Times New Roman, Times, serif"><strong>p</strong></font> 
+  or <font face="Times New Roman, Times, serif"><strong>q</strong></font> is known. 
+</p>
+<p>To do that this problem is transformed into a root finding task, which is solved 
+  with the method of <a href="menu_individualprocedures_rsacryptosystem_latticebasedattacks.html">lattice reduction</a>.</p>
+<p>We assume in the following without loss of generality that a part of p is known. 
+  We call P the number that matches p in the least significant bits. For the most 
+  significant bits the attack is very similar. The polynomial
+<div align="center" style="margin-top:5px ; margin-bottom: 5px"> <font face="Times New Roman, Times, serif"><strong>f(x) 
+  = (P + x) mod p </strong></font></div>
+has a root in <font face="Times New Roman, Times, serif"><strong>x<sub>0</sub>= 
+p-P</strong></font> which can be found using the <a href="menu_individualprocedures_rsacryptosystem_latticebasedattacks.html">lattice reduction</a>. 
+<p> It is an important condition that the known part P of p is big enough. If 
+  N is a number with a length of n bit, at least <font face="Times New Roman, Times, serif"><strong>(n/4)+1</strong></font> 
+  bit of <font face="Times New Roman, Times, serif"><strong>p</strong></font> 
+  are needed to mount the attack successfully. </p>
+<p>Dan Boneh, Glenn Durfee and Nick Howgrave-Graham presented this attack in [BDHG99]. 
+  In [Dur02] Durfee showed how to factor N, knowing the most or the least significant 
+  bits.</p>
+<h4>Sources:</h4>
+<div ></div>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr> 
+    <td width="51" height="1" align="left" valign="top">[BDHG99]</td>
+    <td width="688" align="left" valign="top"><div align="justify"> Boneh, Dan; Durfee, Glenn; Howgrave-Graham, Nick: Factoring N = p<sup>r </sup>q 
+        for Large r. In: <em>Advances in Cryptology - Crypto’99, Lecture Notes 
+        in Computer Science Bd. 1666</em>, Springer, 1999, S. 326–337</div></td>
+  </tr>
+  <tr> 
+    <td align="left" valign="top">[Dur02]</td>
+    <td align="left" valign="top"><div align="justify"> Durfee, Glenn: Public Key Cryptanalysis Using Algebraic and Lattice Methods, Stanford University, Diss., 2002</div></td>
+  </tr>
+</table>
+
+</BODY>
+</HTML>

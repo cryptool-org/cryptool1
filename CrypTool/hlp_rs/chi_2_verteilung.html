@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+	<HEAD>
+		<TITLE>Chi^2 distribution</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+		<!-- multiple keywords for CrypTool HTML help index -->
+	</HEAD>
+	<BODY>
+		<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+			VIEWASTEXT>
+			<PARAM NAME="Keyword" VALUE="Chi^2 distribution">
+			<PARAM NAME="Keyword" VALUE="Statistics">
+			<PARAM NAME="Keyword" VALUE="Distribution (statistics)">
+			<PARAM NAME="Keyword" VALUE="Analysis">
+			<PARAM NAME="Keyword" VALUE="Random">
+		</OBJECT>
+		<h3>Chi^2 distribution</h3>
+		<P>The chi^2 distribution can be used to compare the goodness of fit of observed 
+			frequencies to the frequency that is expected under a hypothetical 
+			distribution. A chi^2 distribution with v degrees of freedom is produced from 
+			summing the squares of v independent, <a href="norm_vert.html">normally distributed</a> random variables.
+		</P>
+		<P>Compare the tests Frequency, Poker, Runs and Serial in the menu <A href="menu_analyze.html">
+				Analysis</A> \ <A href="menu_analysis_randomanalysis.html">Analyse Randomness</A>.</P>
+		<P>A number of reference tables exist for evaluating the probability density of the 
+			chi^2 distribution. The table below provides a few selected quantiles for the 
+			chi^2 distribution for v degrees of freedom:</P>
+		<PRE><CODE><B>v    alpha  = 0.01    alpha  = 0.05    alpha  = 0.1
+     (P[X&gt;x]&lt;0.01)    (P[X&gt;x]&lt;0.05)    (P[X&gt;x]&lt;0.1)
+          x=               x=               x=
+</B>
+<I>1        </I>6.63              3.84             2.71 
+<I>2        </I>9.21              5.99             4.61 
+<I>3       </I>11.34              7.82             6.25
+<I>4       </I>13.28              9.49             7.78
+<I>5       </I>15.09             11.07             9.23
+<I>6       </I>16.81             12.59            10.64
+<I>7       </I>18.48             14.07            12.01
+<I>8       </I>20.09             15.51            13.36
+<I>9       </I>21.67             16.92            14.68
+<I>10      </I>23.21             18.31            15.98
+<I>15      </I>30.58             25.00            22.30
+<I>20      </I>37.57             31.41            28.41
+<I>30      </I>50.89             43.77            40.25
+<I>255   &nbsp;</I>310.40            293.20           284.30</CODE></PRE>
+		<P>The entry (v = 10, alpha = 0.05, x = 18.31) means that &#150; assuming that X has a 
+			chi^2 distribution with 10 degrees of freedom &#150; the probability of obtaining a 
+			value for X of 18.31 or more is only 5%.</P>
+		<P>Reference: Christian Schiestl, <I>Pseudozufallszahlen in der Kryptographie</I>, 
+			in Klagenfurt, 1999.</P>
+	</BODY>
+</HTML>

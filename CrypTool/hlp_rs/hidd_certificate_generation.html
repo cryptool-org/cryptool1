@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog Create Certificate and PSE</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Certificate">
+	<PARAM NAME="Keyword" VALUE="PSE">
+	<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+</OBJECT>
+
+<BODY>
+
+<h3>Dialog Create Certificate and PSE</h3>
+
+<P>This dialog provides the <a href="pse.html">PSE</a> and certificate for the <A href="hidd_signature_demo.html">RSA signature demonstration</A> (pops up when pressing the button <B>Provide certificate</B>).</P>
+
+<P>The area title <B>Public RSA parameter</B> displays the bit length and public parameters of the key that was generated in <A href="hidd_demo_rsakey_generation.html">Generate RSA key</A> resp. imported using the <B>Import certificate and key</B> button described below.</P>
+
+<P>Please enter <B>Personal data for the certificate </B>as described in the online help page for the <A href="hid_crypt_keygen.html">Key generation</A> dialog.</P>
+
+<P>The field <B>User Key ID </B>displays the name of the PSE being generated or selected. The field <B>Distinguished Name</B> shows the name of the certificate in the CA data base (CA = certification authority).</P>
+
+<P>An already existing PSE can be used by selecting the <B>Import certificate and key</B> button. That way a previously generated key and certificate an be re-used for further signatures. The PSE can be selected as described in <A href="hid_crypt_rsadec.html">RSA decryption</A>.</P>
+
+<P>If you import a key as described above, then the RSA key generation step (<A href="hidd_demo_rsakey_generation.html">RSA key generated</A> dialog) can (and should) be skipped.</P>
+
+<P>The button <B>Create Certificate and PSE</B> finally, generates a new Certificate signed by the demonstration CA, which is delivered with CrypTool, and stores it together with the previously generated key pair (dialog <A href="hidd_demo_rsakey_generation.html">Generate RSA key</A>) in a PIN protected and encrypted PSE file. Additionally the certificate is stored in the CA data base.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,320 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<Title>UU Coding</Title>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</head>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="UU coding">
+	<PARAM NAME="Keyword" VALUE="Codings">
+</OBJECT>
+
+<body>
+	
+<h3>UU Coding</h3>
+
+<p>You can reach the functionality regarding UU Encode respectively UU Decode using the menu 
+<a href="menu_related_methods.html">Individual Procedures</a> \
+<A href="menu_relatedmethods_tools.html">Tools</A> \
+<A href="menu_individualprocedures_codes.html">Codes</A> \ 
+<A href="menu_individualprocedures_codes_uu.html">UU Encode/Decode</A>.</p>
+
+<p>UUencode is a coding procedure for representing binary data in a printable char set. The name was derived from "Unix to Unix encoding", because it was originally intended for unix systems only.</p>
+
+<p>UUencode is no encryption: No key is used, and every time the plaintext is encoded to UUcode it leads to the same output.</p>
+
+<p>UUencode became popular, because it was one of the first possibilities to send emails with arbitrary data, in which at that time only ASCII characters were allowed. The Usenet (an online messaging platform) was another place were UUencode was often used.
+UUencode is based on the ASCII char set and therefore is only useful for the data exchange between ASCII platforms. The UUencoding is mostly replaced by <a href="hid_decode_base64.html">Base64 encoding</a>, which only uses characters which exist in both the ASCII and the EBCDIC char set.
+</p>
+
+<p>An UUencoded file basically consists of 3 parts:<p>
+
+<ol>
+<li>
+<u>Headline:</u>
+<p>The first line always starts with a "begin". After a space you get the file permissions in form of three digits as used under unix, and after an additional space the file name.<br>
+Example:</p>
+<table border="1" rules="all" ID="Table1">
+	<tr>
+		<td style="background-color:silver">
+			begin 644 cryptool.exe
+		</td>
+	</tr>
+</table>
+</li><br>
+<li>
+<u>Body:</u>
+<p>
+In the body, the real encoding takes place.<br>
+Like in Base64 encoding, a 24-bit buffer is always divided into 4 blocks with 6-bit each.
+<br>
+Each 6-bit value is increased by decimal 32, and then the corresponding ASCII character is used. By adding 32, the value gets out of the area of the control characters (ASCII 0 to ASCII 31).
+</p>
+
+<p>Due to problems that arise by sending mails with the space character (= ASCII 32), the character "`" (= ASCII 96 ) is being used.</p>
+<p>
+The first byte of a line is used for the length byte, it counts the number of input characters which are encoded in this line, here too, increased by 32.
+Therefore the number of input characters per line is limited to the highest number which is possible with 6-bit: 63:<br>
+
+<br>
+A common value for the length byte is the ASCII character "M" (= ASCII 77). So there are 77 - 32 = 45 input characters – which result in 60 coded characters – written in one line.
+Every line could have a different length. But usually all lines, except the last line, have the same length.</p>
+
+<p>Encoding expample: The word "Cat"
+</p>
+<table border="1" rules="all" ID="Table2">
+
+<tr>
+<td style="border-right: 2px solid black">ASCII input character</td>
+
+<th colspan="8" style="border-right: 2px solid green"><code>C</code></th>
+<th colspan="8" style="border-right: 2px solid green"><code>a</code></th>
+<th colspan="8" style="border-right: 2px solid black"><code>t</code></th>
+</tr>
+<tr>
+	<td style="border-right: 2px solid black">ASCII input character, decimal</td>
+<th colspan="8" style="border-right: 2px solid green">67</th>
+<th colspan="8" style="border-right: 2px solid green">97</th>
+<th colspan="8" style="border-right: 2px solid black">116</th>
+</tr>
+
+<tr>
+	<td style="border-right: 2px solid black">ASCII, binary</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td style="border-right: 2px solid red">0</td>
+<td>1</td>
+
+<td style="border-right: 2px solid green">1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td style="border-right: 2px solid red">0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td style="border-right: 2px solid green">1</td>
+
+<td>0</td>
+<td style="border-right: 2px solid red">1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td style="border-right: 2px solid black">0</td>
+</tr>
+
+<tr>
+<td style="border-right: 2px solid black">New decimal value</td>
+<th colspan="6" style="border-right: 2px solid red">16</th>
+<th colspan="6" style="border-right: 2px solid red">54</th>
+<th colspan="6" style="border-right: 2px solid red">5</th>
+<th colspan="6" style="border-right: 2px solid black">52</th>
+</tr>
+<tr>
+<td style="border-right: 2px solid black">+32</td>
+<th colspan="6" style="border-right: 2px solid red">48</th>
+
+<th colspan="6" style="border-right: 2px solid red">86</th>
+<th colspan="6" style="border-right: 2px solid red">37</th>
+<th colspan="6" style="border-right: 2px solid black">84</th>
+</tr>
+<tr>
+	<td style="border-right: 2px solid black">UUencoded character</td>
+<th colspan="6" style="border-right: 2px solid red"><code>0</code></th>
+<th colspan="6" style="border-right: 2px solid red"><code>V</code></th>
+<th colspan="6" style="border-right: 2px solid red"><code>%</code></th>
+<th colspan="6" style="border-right: 2px solid black"><code>T</code></th>
+
+</tr>
+</table>
+<br>
+Length byte for "Cat":
+<dir> Cat = 3 input characters + 32 = 35 -> ASCII "#"</dir>
+Die Zeile lautet also:
+<table border="1" rules="all" ID="Table3">
+	<tr>
+		<td style="background-color:silver">
+			#0V%T
+		</td>
+	</tr>
+</table>
+<p>
+In case the number of input characters is no multiple of three, the end is filled up with binary zeros until the next full 6-bit block.
+</p>
+Possible cases:<br>
+<ol type="a">
+	<li>
+	<p>
+	1 input character = 8 bit = 1 full 6-bit block + 2 bit. These are filled up with 4 binary zeros for getting two full 6-bit blocks = 2 coded characters.
+	</p>Example:<br>
+<table border="1" rules="all" ID="Table4">
+<tr>
+	<td style="border-right: 2px solid black">ASCII input character</td>
+
+<th colspan="8" style="border-right: 2px solid green"><code>C</code></th>
+<th colspan="8" style="border-right: 2px solid black"><code></code></th>
+</tr>
+<tr>
+<td style="border-right: 2px solid black">ASCII input character, decimal</td>
+<th colspan="8" style="border-right: 2px solid green">67</th>
+<th colspan="8" style="border-right: 2px solid black"></th>
+</tr>
+
+<tr>
+	<td style="border-right: 2px solid black">ASCII, binary</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td style="border-right: 2px solid red">0</td>
+<td>1</td>
+
+<td style="border-right: 2px solid green">1</td>
+
+<td style="background-color:#00FFFF">0</td>
+<td style="background-color:#00FFFF">0</td>
+<td style="background-color:#00FFFF">0</td>
+<td style="border-right: 2px solid black;background-color:#00FFFF">0</td>
+
+</tr>
+
+<tr>
+<td style="border-right: 2px solid black">New decimal value</td>
+<th colspan="6" style="border-right: 2px solid red">16</th>
+<th colspan="6" style="border-right: 2px solid black">48</th>
+</tr>
+<tr>
+<td style="border-right: 2px solid black">+32</td>
+<th colspan="6" style="border-right: 2px solid red">48</th>
+
+<th colspan="6" style="border-right: 2px solid black">80</th>
+</tr>
+<tr>
+	<td style="border-right: 2px solid black">UUencoded character</td>
+<th colspan="6" style="border-right: 2px solid red"><code>0</code></th>
+<th colspan="6" style="border-right: 2px solid black"><code>P</code></th>
+
+</tr>
+</table>
+</li>
+<li>
+<p>
+2 input characters = 16 bit = 2 full 6-bit blocks + 4 bit. These are filled up with 2 binary zeros for getting three full 6-bit blocks = 3 coded characters.
+
+</p>
+
+Beispiel:<br>
+<table border="1" rules="all" ID="Table5">
+<tr>
+	<td style="border-right: 2px solid black">ASCII input character</td>
+<th colspan="8" style="border-right: 2px solid green"><code>C</code></th>
+<th colspan="8" style="border-right: 2px solid green"><code>a</code></th>
+<th colspan="8" style="border-right: 2px solid black"><code></code></th>
+</tr>
+<tr>
+	<td style="border-right: 2px solid black">ASCII input character, decimal</td>
+<th colspan="8" style="border-right: 2px solid green">67</th>
+<th colspan="8" style="border-right: 2px solid green">97</th>
+<th colspan="8" style="border-right: 2px solid black"></th>
+</tr>
+
+<tr>
+	<td style="border-right: 2px solid black">ASCII, binary</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td style="border-right: 2px solid red">0</td>
+<td>1</td>
+
+<td style="border-right: 2px solid green">1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td style="border-right: 2px solid red">0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td style="border-right: 2px solid green">1</td>
+
+<td style="background-color:#00FFFF">0</td>
+<td style="border-right: 2px solid black;background-color:#00FFFF">0</td>
+
+</tr>
+
+<tr>
+	<td style="border-right: 2px solid black">New decimal value</td>
+<th colspan="6" style="border-right: 2px solid red">16</th>
+<th colspan="6" style="border-right: 2px solid red">54</th>
+<th colspan="6" style="border-right: 2px solid black">4</th>
+</tr>
+<tr>
+<td style="border-right: 2px solid black">+32</td>
+<th colspan="6" style="border-right: 2px solid red">48</th>
+
+<th colspan="6" style="border-right: 2px solid red">86</th>
+<th colspan="6" style="border-right: 2px solid black">36</th>
+</tr>
+<tr>
+	<td style="border-right: 2px solid black">UUencoded character</td>
+<th colspan="6" style="border-right: 2px solid red"><code>0</code></th>
+<th colspan="6" style="border-right: 2px solid red"><code>V</code></th>
+<th colspan="6" style="border-right: 2px solid black"><code>$</code></th>
+
+</tr>
+</table>
+
+</ol><br><br>
+<li><u>Ending:</u><p>
+The termination is accomplished with an ASCII character of value 96 – followed by a newline, the word "end" and a second newline.<br>
+Example:
+</p>
+<table border="1" rules="all" ID="Table6">
+	<tr>
+		<td style="background-color:silver">
+			`<br>
+			end<br><br>
+		</td>
+	</tr>
+</table>
+</li>
+</ol>
+<p>Example of a complete UUencoded file:</p>
+<table border="1" rules="all" ID="Table7">
+	<tr>
+		<td style="background-color:silver">
+			begin 644 examplefile.txt<br>
+			#0V%T<br>
+			`<br>
+			end<br><br>
+			
+		</td>
+	</tr>
+</table>
+<br>
+
+<br>
+<p>
+Unlike the Base64 encoding there aren't any fixed standards (RFCs) in the field of UUencoding.
+</p>
+
+<P><a href="base64uucomparison.html">Comparison of Base64 and UU encode</a>.</P>
+
+<b>Sources<br></b>
+<ul type="disc">
+	<li>Wikipedia about UUEncode: <a href="http://en.wikipedia.org/UUencode" target="_blank">http://en.wikipedia.org/UUencode</a></li>
+	<li>FOLDOC about UUEncode: <a href="http://foldoc.org/foldoc.cgi?query=uuencode" target="_blank">http://foldoc.org/foldoc.cgi?query=uuencode</a></li>
+	<li><a href="http://www.pruefziffernberechnung.de/U/UUcode.shtml" target="_blank">http://www.pruefziffernberechnung.de/U/UUcode.shtml</a></lI>
+	<li><a href="http://fpx.de/fp/Software/UUDeview/Introduction.html" target="_blank">http://fpx.de/fp/Software/UUDeview/Introduction.html</a></lI>
+
+</body>
+</html>

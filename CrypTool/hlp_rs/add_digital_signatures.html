@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Digital Signatures</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+<script language="JScript" src="helper.js"></script>
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Digital signatures / PKI">
+	<PARAM NAME="Keyword" VALUE="Signature">
+	<PARAM NAME="Keyword" VALUE="DSA">
+	<PARAM NAME="Keyword" VALUE="RSA encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Elliptic curves">
+	
+</OBJECT>
+
+<BODY>
+
+<h3><P><A NAME="add_digital_signatures"></A><B>Digital Signatures</B></P></h3>
+
+<P>In the <A class="filelink" onclick="parser('script-en.pdf')">Scriptum</A> you can find a section on signature algorithms entitled Digital Signatures. There you can obtain further information about digital <!--ZZZPOPUP--><A href="signatur.html">signatures</A> and, in particular, the significance of <!--ZZZPOPUP--><A href="hashfunktion.html">hash functions</A> for digital signatures is explained there.</P>
+
+<P>CrypTool supports signature algorithms which are based on the following cryptographically relevant problems: </P>
+
+<UL>
+	<LI>The difficulty of breaking down a large whole number into its (two) prime factors (the "factorization" problem). The RSA signature algorithm is based on this problem.</LI>
+
+	<LI>The problem of determining the discrete logarithm in finite groups. The <A href="dsa.html">DSA signature algorithm</A> is based on this problem.</LI>
+
+	<LI>The discrete logarithm problem applied to <A href="ellipkurven.html">elliptic curve</A> groups. CrypTool covers the two following methods which are based on this problem: elliptic curve signature after Nyberg-Rueppel and DSA on elliptic curve groups.</LI>
+</UL>
+
+<P>The CrypTool implementation of the two methods specified above is based on the provisional draft (Draft Version 8, October 1998) of the IEEE P1363 working group on Standard Specifications for Public Key Cryptography. In that draft, the elliptic curve signature algorithms used, which are implemented in CrypTool, can be found under the following headings:</P>
+
+<P class="tindent"> <B>ECSP-DSA</B> (Elliptic Curve Signature Primitive – DSA variant) is a variant of DSA which makes use of the elliptic curve discrete logarithm problem but is otherwise very similar to DSA.</P>
+
+<P class="tindent"> <B>ECSP-NR</B> (Elliptic Curve Signature Primitive – Nyberg-Rueppel variant) is a signature algorithm which is named after its inventors (Nyberg and Rueppel).</P>
+
+<P>If one chooses the menu option Sign message, the content of the <!--ZZZPOPUP--><A href="dokument.html">document</A> currently active in CrypTool is signed with a user-specified procedure and a user-specified hash function that is suitable for this procedure. The parameters are selected in the <A href="hidd_signature.html">Create message signature</A> dialog.</P>
+
+<P>The output of this command appears in <A href="hidr_hextype.html">hexadecimal form</A> (see <A href="ascii.html">ASCII Table</A>). Here one can find the signature of the message, the procedure used, the hash function used, the name under which the <!--ZZZPOPUP--><A href="schluesselpaar.html">key pair</A> used was stored following creation, together with the signed message.</P>
+
+<P>For ECSP-DSA and ECSP-NR a message signature consists of two numbers, c and d. These numbers can be found in the output window after the character string "Signature:". Here, [c=] specifies the beginning of number c, while [d=] stands for the beginning of number d. This means that the two character strings [c=] and [d=] really do not belong to the signature – they are simply used to distinguish the two numbers c and d from each other in the output.</P>
+
+<P>The <A href="hid_hilfe_szenarien.html">Examples</A> chapter provides an <A href="szenarien_rsa_signatur.html">example</A> which illustrates message signing using the RSA procedure.</P>
+
+</BODY>
+</HTML>

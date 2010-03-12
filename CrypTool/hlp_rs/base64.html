@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<Title>Base64 Coding</Title>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object2">
+	<PARAM NAME="Keyword" VALUE="Codings">
+	<PARAM NAME="Keyword" VALUE="Base64 coding">
+</OBJECT>
+
+<body>
+
+<h3>Base64 Coding</h3>
+
+<p>You can reach the functionality regarding Base64 Encode respectively Base64 decode using the menu 
+<a href="menu_related_methods.html">Individual Procedures</a> \
+<A href="menu_relatedmethods_tools.html">Tools</A> \
+<A href="menu_individualprocedures_codes.html">Codes</A> \ 
+<A href="menu_individualprocedures_codes_base64.html">Base64 Encode/Decode</A>.</p>
+
+<p>Base64 is primary used for attachments of emails.</p>
+
+<p>Base64 is a coding procedure for representing binary data in a printable char-set. </p>
+
+<p>Base64 is no encryption: No key is used, and every time the plaintext is encoded to base64 code it leads to the same output.</p>
+
+<p>Base64 encodes every 3 bytes binary data (on the basis of the base64 coding table) to 4 byte character data, where all characters are printable, this ends up in a 33% larger file.</p>
+
+<p><h4><b>Where is base64 used?</h4></b></p>
+
+<p>The main field is the email standard MIME, in order to receive and send emails with any text or binary data. This is necessary because the used transfer protocol SMTP has some restrictions:</p>
+<div class="indent"><ul type="disc">
+<li>All characters must be members of the 7-bit ASCII character set.</li>
+<li>Text lines must be no more than 1000 characters long.</li>
+</ul>
+</div>
+<p>And with this restrictions untreated binary data is not suitable for this, because line breaks appear just randomly. Also the character set of binary data is bigger.</p>
+
+<p>By the base64 encoding all chars are members of a 6-bit ASCII character set. As specified in the RFCs lines of base64 code are never longer than 76 (standard 64) characters. So with this encoding there is no problem any more transferring binary data via the SMTP protocol.</p>
+
+<p>Base64 encoding is mostly used for attachments of emails. For the textual part of emails usually the quoted-printable encoding is used, which at least is partly readable without decoding  by humans.</p>
+
+<p><h4><b>How does it work?</h4></b></p>
+
+<p>Base64 uses a 24-bit buffer (3-byte) which is divided into 4 parts with 6-bit each. </p>
+ 
+
+ <P><IMG SRC="images/base64_scheme.gif" ALT="base64_scheme.gif" width="391" height="155" BORDER=0></p>
+
+<p>These 6-bit characters are encoded via the base64 coding-table, which only consists of the 
+characters “0-9”,”a-z”,”A-Z”, “+” and “/”.
+Transferring 3 bytes of plaintext in 4 bytes base64 code results in 1/3 longer data.</p>
+
+<p>A special functionality is fulfilled by the padding-char”=”. It is used in the case if there is no full 3 byte block at the end, the missing part is filled up with bits of the value zero which then result in the padding-char”=”.</p>
+
+<p>The base64 encoding/decoding implementation in CrypTool is equivalent to the RFCs 1421/2045. It is compatible to a base64 encoding via OpenSSL, except for the handling of illegal characters in base64 encoded text. OpenSSL handles illegal characters like defined in the RFCs and ignores them. The implementation in CrypTool handles illegal characters like defined in a draft of the IETF (a workgroup for internet-standards) and aborts the decoding when an illegal character is found, because illegal characters otherwise could be used for nefarious purposes, e.g., buffer overflow attacks.</p>
+
+
+
+<p><h4><b>Example: Encoding of the word “Sven”</h4></b></p>
+
+ 
+<P><IMG SRC="images/base64_exampleword.gif" ALT="base64_exampleword.gif"  BORDER=0></p>
+<br>
+
+<p><h4><b>Example: Encoding of a small sentence</h4></b></p>
+
+<p><u>Plaintext:</u></p>
+<p>Sven owns a ford focus.</p>
+
+
+<p><u>Base64 encoded text:</u></p>
+
+<p>U3ZlbiBvd25zIGEgZm9yZCBmb2N1cy4=</p>
+
+
+
+<br>
+<p><h4><b>Base64 coding table</h4></b></p>
+
+<P><IMG SRC="images/base64_chartable.gif" ALT="base64_zeichentabelle.gif" BORDER=0></p>
+
+<P><a href="base64uucomparison.html">Comparison of Base64 and UU encode</a>.</P>
+
+<b>Sources:<br></b>
+<ul type="disc">
+<li>Wikipedia about Base64: <a href="http://en.wikipedia.org/wiki/Base64" target="_blank">http://en.wikipedia.org/wiki/Base64</a></li>
+<li>RFCs: see <a href="http://www.rfc-editor.org/rfc-index2.html/" target="_blank">http://www.rfc-editor.org/rfc-index2.html/</a></li>
+<li>Draft of the IETF for base16, base32 and base64 encoding: <a href="http://www.ietf.org/internet-drafts/draft-josefsson-rfc3548bis-00.txt" target="_blank">http://www.ietf.org/internet-drafts/draft-josefsson-rfc3548bis-00.txt</a></li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>RSA signature demonstration</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+<script language="JScript" src="helper.js"></script>
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="RSA encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Demonstrations / Scenarios">
+	<PARAM NAME="Keyword" VALUE="Signature">
+</OBJECT>
+
+<BODY>
+
+<h3>Signature Demonstration (Signature Generation) (Menu <A href="menu_digitalsignaturespki.html">Digital Signatures/PKI</A>)</h3>
+
+<P>The <A href="hid_crypt_sign.html">digital signature</A> is the counterpart of the hand made signature in the physical world for electronic documents.</P>
+
+<P>It fulfils high security requirements: authenticity, integrity and liability. In many countries (e.g. European Union) the electronic signature is also legally equivalent to a hand written signature (depending on some prerequisites). For more information, please refer to the <A class="filelink" onclick="parser('script-en.pdf')">script</A>.</P>
+
+<P>To generate an electronic signature you need: </P>
+
+<UL>
+	<LI>access to the secret (private) part of your own electronic ID (PSE)</LI>
+
+	<LI>the document in electronic form</LI>
+
+	<LI>programs to calculate hash values</LI>
+
+	<LI>programs to encrypt the hash value</LI>
+
+	<LI>programs to generate a standard-format (PKCS #7) for the signature.</LI>
+	
+</UL>
+
+<P>The <A href="hidd_signature_demo.html">RSA signature demonstration</A> visualizes the process of generating a digital signature using an interactive flow chart. This workflow shows the details behind the digital signature, using the methods RSA encryption and hashing. </P>
+
+<P><IMG SRC="images/flowchartsignaturegeneration.gif" ALT="flowchartsignaturegeneration.gif" BORDER=0></P>
+
+<P>More details about the RSA procedure are within the dialog <A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">RSA cryptosystem</A>.</P>
+
+</BODY>
+</HTML>

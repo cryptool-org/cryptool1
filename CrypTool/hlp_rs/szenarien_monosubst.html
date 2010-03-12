@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Example illustrating encryption using monoalphabetic substitution</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Monoalphabetic substitution encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Substitution encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Atbash encryption algorithm">	
+	<PARAM NAME="Keyword" VALUE="Encryption">
+	<PARAM NAME="Keyword" VALUE="Examples / Scenarios">
+	<PARAM NAME="Keyword" VALUE="Scenarios / Demonstrations">
+</OBJECT>
+
+<BODY>
+
+<h3>Example illustrating encryption using monoalphabetic substitution</h3>
+
+<P>This section provides an <A href="hid_hilfe_szenarien.html">example</A> illustrating <!--ZZZPOPUP--><A href="verschluesselung.html">encryption</A> using <A href="hid_cryptmono.html">monoalphabetic substitution</A>. To make it easier to follow the steps that need to be performed with <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>, the example is illustrated with a number of screenshots.</P>
+
+<P>We will <!--ZZZPOPUP--><A href="verschluesselung.html">encrypt</A> a fairly long German <!--ZZZPOPUP--><A href="dokument.html">document</A> and then, using the <A href="hid_analyze_subst.html">automatic analysis function for monoalphabetic substitution</A>, we will work out the <!--ZZZPOPUP--><A href="schluessel.html">key</A> and the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> version in a <U>ciphertext-only</U> <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">attack</A>.</P>
+
+<P>The text runs as follows:</P>
+
+<P>DIE DEUTSCHE BANK IST VON INFORMATIONEN ABHAENGIG.</P>
+
+<P>INFORMATIONEN ENTSCHEIDEN UEBER UNSEREN ERFOLG UND</P>
+
+<P>DEN UNSERER KUNDEN. VON GROESSTER WICHTIGKEIT IST </P>
+
+<P>NEBEN DER GENAUIGKEIT UND VERFUEGBARKEIT IN DEN </P>
+
+<P>MEISTEN FAELLEN AUCH DIE VERTRAULICHKEIT VON </P>
+
+<P>INFORMATIONEN. JEDER ANGESTELLTE MUSS SICH DAHER </P>
+
+<P>DER NOTWENDIGKEIT DER INFORMATIONSSICHERHEIT </P>
+
+<P>BEWUSST SEIN UND ENTSPRECHEND HANDELN.</P>
+
+<P>This text is contained in the <!--ZZZPOPUP--><A href="datei.html">file</A> <CODE>probetext-de.txt</CODE>. To open this <!--ZZZPOPUP--><A href="dokument.html">document</A> in CrypTool, select <A href="menu_file.html">File</A> \ <A href="hid_file_open.html">Open</A>.</P>
+
+<P><IMG SRC="images/szenariosubst1.gif" ALT="szenariosubst1.gif" BORDER=0></P>
+
+<P>The <!--ZZZPOPUP--><A href="dokument.html">document</A> is now <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> with the <!--ZZZPOPUP--><A href="schluessel.html">key</A> <CODE>CRYPTOOL</CODE>. The dialog box in which the key is entered is accessed via <A href="menu_crypt.html">Crypt/Decrypt</A> \<A href="hid_cryptmono.html"> Classical \ Substitution</A>.</P>
+
+<P><IMG SRC="images/szenariosubst2.gif" ALT="szenariosubst2.gif" BORDER=0></P>
+
+<P>Enter <CODE>CRYPTOOL</CODE> into the appropriate data input field and click on the <B>Encrypt</B> button, following which this dialog box will appear.</P>
+
+<P><IMG SRC="images/szenariosubst3.gif" ALT="szenariosubst3.gif" BORDER=0></P>
+
+<P>This box explains how the substitutions have been derived from the <!--ZZZPOPUP--><A href="schluessel.html">key</A> <CODE>CRYPTOOL</CODE>. For <!--ZZZPOPUP--><A href="verschluesselung.html">encryption</A>, the following substitutions have been made:</P>
+
+<TABLE cols=3 width="0*" class="pad20">
+
+<TR VALIGN="top">
+<TD>
+<PRE><CODE>A</CODE></PRE>
+</TD>
+<TD>-&gt;</TD>
+<TD><CODE>C</CODE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>
+<PRE><CODE>B</CODE></PRE>
+</TD>
+<TD>-&gt;</TD>
+<TD><CODE>R</CODE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>
+<PRE><CODE>C</CODE></PRE>
+</TD>
+<TD>-&gt;</TD>
+<TD><CODE>Y</CODE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>
+<PRE><CODE>D</CODE></PRE>
+</TD>
+<TD>-&gt;</TD>
+<TD><CODE>P</CODE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>
+<PRE><CODE>E</CODE></PRE>
+</TD>
+<TD>-&gt;</TD>
+<TD><CODE>T</CODE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>&nbsp;</TD>
+<TD>...</TD>
+<TD>&nbsp;</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>
+<PRE><CODE>Y</CODE></PRE>
+</TD>
+<TD>-&gt;</TD>
+<TD><CODE>B</CODE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>
+<PRE><CODE>Z</CODE></PRE>
+</TD>
+<TD>-&gt;</TD>
+<TD><CODE>A</CODE></TD>
+</TR>
+</TABLE><BR>
+
+<P><U>How the key is generated from the keyword</U></P>
+
+<P>If monoalphabetic substitution is used with a key, a common way to use it, is that the letters of the key are attached to first letters of the cleartext alphabet. Then the remaining letters of the remaining letters of the target alphabet are attached to the remaining cleartext letters from the back of the alphabet. </P>
+
+<P>Now click on <B>OK</B>, and a new window opens containing the encrypted text.</P>
+
+<P><IMG SRC="images/szenariosubst4.gif" ALT="szenariosubst4.gif" BORDER=0></P>
+
+<P>Let us now forget the key and carry out an analysis of the encrypted text. To do this, we select <A href="menu_analyze.html">Analysis</A><A href="hid_analyze_subst.html"> \ Manual Analysis \ Substitution</A>, following which this dialog box appears.</P>
+
+<P><IMG SRC="images/szenariosubst5.gif" ALT="szenariosubst5.gif" BORDER=0></P>
+
+<P>Here we specify that we are expecting the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> to be in German and that an extended analysis should be performed. Confirmation of this dialog box opens the <A href="hidd_manual_subst_analysis.html">Manual Postprocessing</A> window containing the analysis results.</P>
+
+<P><IMG SRC="images/szenariosubst6.gif" ALT="szenariosubst6.gif" BORDER=0></P>
+
+<P>The bottom section of the window presents the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> identified so far. The upper case letters denote substitutions recognised by the automatic analysis, while the lower case letters are taken directly from the <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> text.</P>
+
+<P>Manual post-processing is now necessary. We could, for example, make the following suppositions from looking at the plaintext: </P>
+
+<UL>
+	<LI>The first word is <CODE>DIE</CODE>, in which case the encrypted letter <CODE>P</CODE> should be replaced by <CODE>D</CODE> rather than by <CODE>B</CODE>, as suggested.</LI>
+
+	<LI>The second word is <CODE>DEUTSCHE</CODE>, i.e. replace <CODE>G</CODE> with <CODE>U.</CODE></LI>
+
+	<LI>The sixth word from the end is <CODE>INFORMATIONSSICHERHEIT</CODE>, i.e. <CODE>O</CODE> should be replaced by <CODE>F</CODE>, <CODE>N</CODE> by <CODE>O</CODE>, <CODE>S</CODE> by <CODE>M</CODE> and <CODE>C</CODE> by <CODE>A</CODE>. </LI>
+</UL>
+
+<P>After making these corrections, the <A href="hidd_manual_subst_analysis.html">Manual Post-processing</A> window looks like this:</P>
+
+<P><IMG SRC="images/szenariosubst7.gif" ALT="szenariosubst7.gif" BORDER=0></P>
+
+<P>The remaining substitutions are now easy to guess and can be entered into the dialog box: <CODE>R</CODE> is replaced by <CODE>B</CODE>, <CODE>V</CODE> is by <CODE>K</CODE>, <CODE>F</CODE> by <CODE>V</CODE>, <CODE>L</CODE> by <CODE>G</CODE>, <CODE>U</CODE> by <CODE>L</CODE>, <CODE>E</CODE> by <CODE>W</CODE>, <CODE>W</CODE> by <CODE>J</CODE> and <CODE>M</CODE> by <CODE>P</CODE>.</P>
+
+<P><IMG SRC="images/szenariosubst8.gif" ALT="szenariosubst8.gif" BORDER=0></P>
+
+<P>This is the correct solution, giving the original <!--ZZZPOPUP--><A href="klartext.html">plaintext</A>. To crack the encryption, apart from the <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> <!--ZZZPOPUP--><A href="dokument.html">document</A> the only knowledge required was that it was a German text and a small amount of instinctive feeling as to the first substitutions required. When the <B>OK</B> button is clicked, the plaintext is presented in another window.</P>
+
+<P><IMG SRC="images/szenariosubst9.gif" ALT="szenariosubst9.gif" BORDER=0></P>
+
+</BODY>
+</HTML>

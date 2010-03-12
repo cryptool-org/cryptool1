@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Hier den Titel der neuen Seite einfuegen</TITLE> <!-- die Titel der einzelnen Seiten erscheinen nicht in der Hilfe-->
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<BODY>
+<!--Durch das Stylesheet wird bereits die Hintergrundfarbe, sowie die Farbe der Links vorgegeben-->
+
+<h1>Template für die HTML Hilfe zu CrypTool</h1>
+
+<p><u>Hier</u> im Quelltext können Sie sehen, wie Schlüsselbegriffe für die Hilfe deklariert werden müssen.</p>
+
+	<!-- Beispiel fuer Schluesselbegriffe: Das sind die Begriffe, mit Hilfe derer diese
+	Seite ueber den Index der kompilierten Hilfe gefunden werden kann. Dies koennen beliebig viele sein.
+	-->	
+	
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="template_Schluesselbegriff1">
+	<PARAM NAME="Keyword" VALUE="template_Schluesselbegriff2...">
+</OBJECT>
+
+<br>
+
+<p><u>Hier</u> im Quelltext können Sie sehen, wie ein Alink für die Hilfe deklariert werden muss.</p>
+
+
+	<!-- Beispiel fuer einen Alink. Ein Alink ist notwendig wenn diese Seite die Hilfe fuer ein "Ober"-Menue enthaelt,
+	oder die Hilfe fuer einen Menueeintrag darstellt, der weitere Unterpunkte enthaelt. In beiden Faellen kann in 
+	Visual Studio keine ID vergeben werden, weshalb die Hilfe ueber einen Alink angesprochen werden muss. 
+	Fuer pmenuid muss die für das neue Menue vergebene pmenuid aus der Datei CrypToolPopupMenuIDs.txt eingefuegt werden.
+	-->
+	
+<!-- alink for CrypTool HTML help -->
+<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="ALink Name" VALUE="pmenuid">
+</OBJECT>
+
+<br>
+<br>
+
+<h3>Im folgenden sind die durch das Stylesheet abgedeckten Elemente aufgeführt</h3>
+
+
+<!--Alle Überschriften in der Html-Hilfe sind 3.Ordnung, mit Ausnahme der main_index.html in der deutschen Hilfe, die eine Überschrift 1.Ordnung enthält-->
+
+<h1>Ueberschrift 1. Ordnung</h1>
+<h2>Ueberschrift 2. Ordnung</h2>
+<h3>Ueberschrift 3. Ordnung</h3>
+<h4>Ueberschrift 4. Ordnung</h4>
+
+<BR>
+<BR>
+
+<h3>Grundaufbau einer Tabelle</h3>
+
+<!--Durch den Ausdruck class="pad10"/"pad20"/"pad30" erhält jedes Tabellenelement auf der linken und rechten Seite eine	Rand von 10/20/30 Punkten. In den <TD></TD> Ausdrücken müssen keinen weiteren Breitenangaben gemacht werden. Im Stylesheet wird dies ausgedrückt durch - table.pad10 td {padding-left:10pt;padding-right:10pt;} - wobei die 10 in diesem Fall für die gewünschte Breite steht und verändert werden kann. Der Tabellenrand wird nur angezeigt um die Wirkung des Ausdruckes zu verdeutlichen. -->
+
+
+<BR>
+<TABLE cols=2 width="0*" class="pad10" border=1>
+<TR VALIGN=top>
+<TD>class="pad10"</TD>
+<TD>Rand von 10pt</TD>
+</TR>
+</TABLE>
+<BR>
+<TABLE cols=2 width="0*" class="pad20" border=1>
+<TR VALIGN=top>
+<TD>class="pad20"</TD>
+<TD>Rand von 20pt</TD>
+</TR>
+</TABLE>
+<BR>
+<TABLE cols=2 width="0*" class="pad30" border=1>
+<TR VALIGN=top>
+<TD>class="pad30"</TD>
+<TD>Rand von 30pt</TD>
+</TR>
+</TABLE>
+
+<BR>
+<BR>
+
+<h3>Möglichkeiten der Texteinrückung</h3>
+
+
+<!--Durch <div style="text-align:center"> wird der darauffolgende Text zentriert dargestellt. Dies wird nicht durch das Stylesheet übernommen-->
+<div style="text-align:center">  div style="text-align:center"  --  Dieser Text ist zentriert</div>
+<BR>
+
+
+<!--Durch den Ausdruck div class="indent" wird alles was sich zwischen <div>...</div> befindet um den Wert von 40 Punkten vom
+linken Seitenrand weggerückt. Der komplette Ausdruck würde lauten <div style="margin-left=40pt">...</div>, im Stylesheet findet sich nur noch 
+div.indent {margin-left:40pt}-->
+<div class="indent">  div class="indent"  --  Dieser Text wurde mit einem Rand vom 40pt(40 Punkten) vom linken Seitenrand weggerückt</div>
+<BR>
+
+
+<!--Durch <P class="tindent"> wird der nachfolgende Text ab der zweiten Zeile um den Wert von 40 Punkten vom linken Seitenrand weggerückt. Ausgeschrieben würde der Ausdruck lauten <p style="text-indent:-40pt;margin-left:40pt">...</p>. Im Stylesheet lautet der Ausdruck p.tindent {text-indent:-40pt;margin-left:40pt;}. -->
+<P class="tindent">  p class="tindent"  --  Dieser Text wird nach einem Zeilenumbruch mit einem Abstand von 40pt(40 Punkten) vom linken Seitenrand eingerückt weitergeführt. Die genauen Ausdrücke sowie Erklärungen dazu findet man im Quelltext dieser Datei (template.html) </P>
+
+<BR>
+<BR>
+<h3>Links</h3>
+
+<A href="menu_index.html"><B>Beispiel_Link: hierfuer sind die Farben im CSS definiert</B></A>
+
+</BODY>
+</HTML>

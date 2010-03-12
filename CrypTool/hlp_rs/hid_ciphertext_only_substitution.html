@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Analysis of monoalphabetic substitution ciphers</TITLE>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Analysis">
+	<PARAM NAME="Keyword" VALUE="Substitution encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Monoalphabetic substitution encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Atbash encryption algorithm">	
+</OBJECT>
+
+<BODY>
+
+<h3>Substituion (Menu <A href="menu_analyze.html">Analysis</A> \ Symmetric Encryption (classic) \ Ciphertext-Only)</h3>
+<P>
+<A href="#introduction">Introduction</A><br>
+&nbsp;&nbsp;<A href="#automaticanalysis">Automatic crypt analysis by method 1</A><br>
+&nbsp;&nbsp;<A href="#languagerecognition">Language recognition</A><br>
+&nbsp;&nbsp;<A href="#automaticanalysis2">Automatic crypt analysis by method 2</A><br>
+<A href="#usage">Usage</A><br>
+<A href="#constraints">Known constraints</A><br>
+</P>
+
+<h3><A name="introduction">Introduction</h3>
+
+<P>There are two methods for <B>automatic crypt analysis of monoalphabetic substitution ciphers</B> 
+implemented in CrypTool.</p><p>The old (and weaker) method (now called <u>method 2</u>) is based on the recognition of the most frequent words of 
+a language and has the following constraints: No automatic language recognition, the need for 
+retaining whitespaces within the ciphertext and no distinction between upper and lower case.</P>
+
+<P>The new implementation (now called <u>method 1</u>) is based on "A Fast Method for the Cryptanalysis of Substitution 
+Ciphers" (Cryptologia 19:3, 1995) by Thomas Jakobsen. Mainly this method was to introduce 
+the following benefits:</P>
+
+<UL>
+<LI>better rates of success for decryption,</LI>
+<LI>increase of speed,</LI>
+<LI>decryption of ciphertexts with and without whitespaces.</LI>
+</UL>
+
+<P>The algorithm works on the Latin alphabet mit 26 characters (A to Z). The alphabet can 
+be extended with the whitespace character, so that whitespaces are encrypted just like other 
+characters (each character is mapped on another character). Umlauts, punctuation marks and 
+special characters as well as upper and lower case are retained during encryption, by default.</P>
+
+<P>Furthermore the new implementation was extended with an algorithm for automatic language 
+recognition. The implemented method is based on the "index of coincidence" (according to 
+W. F. Friedman, 1922).</P>
+
+
+<h4><A name="automaticanalysis">Automatic crypt analysis (Method 1)</h4>
+
+<P>The implemented crypt analysis method determines the frequency distribution of the 
+given text. The frequency distribution of single characters is used to compute the initial 
+value of the key, whereas the frequency distribution of digrams is used to determine the 
+quality of this key. The method is based on a fast algorithm, computing an initial value for 
+the key at the beginning and then improving this key with each iteration.</P>
+
+<P>The increased speed of this method is based on a distribution matrix for digramsy. 
+During key search the frequency of single characters is taken into account.</P>
+
+<P>The computation of the key "quality" is based on a comparison of the digram frequency 
+distribution of the given ciphertext with the frequency distribution of the CrypTool 
+reference text file, which can be found via the menu entry <A href="menu_options.html">Options</A> 
+\ <A href="hid_opttext.html">Text Options</A>. The overall deviation is computed by summing 
+up the deviation of all single digrams. The smaller this deviation is, the "better" is the 
+computed key. In an ideal case there should be no deviation at all. But this is rarely seen 
+in reality, since every text has its own digram frequency distribution differing from the 
+reference distribution. So the strategy of this algorithm is the minimization of the given 
+deviation.</P>
+
+<P>According to the author Thomas Jakobsen, this method is significantly faster than other known methods 
+such as Carroll-Robbins and King-Bahler, and the algorithm is to succeed at a rate of 98% 
+(with ciphertexts of at least 400 characters).</P>
+
+<h4><A name="languagerecognition">Language recognition</h4>
+
+<P>It is easier to decide which language a ciphertext was written in than it is to 
+decrypt this ciphertext without knowing the key. This has already been shown by W. F. 
+Friedman in 1922. The language is determined using the index of coincidence, which is 
+characteristic for a certain language. The index of coincidence is computed using the 
+frequency of single characters in the ciphertext.</P>
+
+<P>But even language recognition does not always lead to accurate results. The reason for 
+this is the statistical spread of character frequencies in different texts that 
+significantly differ from reference texts of a certain language.</P>
+
+<h4><A name="automaticanalysis2">Automatic crypt analysis by Method 2</h4>
+<p>This method tries to match the most frequent words of a language to the words within the given ciphertext.<br>
+The prequesite therefore is, that spaces and punctuation marks are kept.
+<h3><A name="usage">Usage</h3>
+
+<P>First the user can choose between the new (method 1) and the old (method 2) algorithm:</P>
+
+<P><IMG SRC="images/automaticAnalysisSubstitutionSelection.gif" ALT="images/automaticAnalysisSubstitutionSelection.gif" BORDER=0></P>
+
+<P>By default the new algorithm (digram analysis) is selected. After choosing the algorithm,
+an options dialog is shown as follows:</P>
+
+<P><IMG SRC="images/automaticAnalysisSubstitutionOptions.gif" ALT="images/automaticAnalysisSubstitutionOptions.gif" BORDER=0></P>
+
+<P>Users can choose if whitespaces belong to the alphabet. Additionally the user can hide 
+the graphical user interface during analysis in order to see the finals result only. The 
+selection of this option leads to an increase of speed, because not each successful decrypted text needs to 
+be printed on the screen.</P>
+
+<P>The following warning appears if the text to be analyzed is too short (less than 
+300 characters of the alphabet):</P>
+
+<P><IMG SRC="images/automaticAnalysisSubstitutionWarning.gif" ALT="images/automaticAnalysisSubstitutionWarning.gif" BORDER=0></P>
+
+<P>The final result is shown in another window. If the graphical user interface was not 
+deactivated earlier, the current computations are shown in the same window. The display is 
+updated each time a "better" key was found, so the crypt analysis can be tracked in a 
+dynamic way.</P>
+
+<P><IMG SRC="images/automaticAnalysisSubstitutionResult.gif" ALT="images/automaticAnalysisSubstitutionResult.gif" BORDER=0></P>
+
+<P>The user can copy the current 
+substitution key to the internal key store by clicking the button <b>Copy key</b>. <br>Furthermore you can try yourself to improve the result of the automatic analysis: By clicking the button <b>Manual analysis</b> you get the dialog for <a href="hid_analyze_subst.html">manual analysis for monoalphabetic substitution</a> .</P>
+
+<p>If the user accepts the substitution, a new window is opened containing the 
+decrypted text. The text can then be saved by the user. </p>
+
+<h3><A name="constraints">Known constraints</h3>
+
+<P>The biggest constraint to the aforementioned methods is the length of the ciphertext. Like with all other frequency based methods, the ciphertext has to be sufficient in 
+size to allow the substitution analysis at all. Thus the implemented methods are not suited
+for the crypt analysis of short ciphertexts. According to the author, best results are 
+achieved when using ciphertexts of 300 to 400 characters or more (98% rate of success), 
+whereas the rate of success for ciphertexts of 100 to 200 characters is between 50% and 80%.</P>
+
+</BODY>
+</HTML>

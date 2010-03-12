@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Example illustrating the Caesar encryption algorithm</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Caesar encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Encryption">
+	<PARAM NAME="Keyword" VALUE="Examples / Scenarios">	
+	<PARAM NAME="Keyword" VALUE="Scenarios / Demonstrations">
+</OBJECT>
+
+<BODY>
+
+<h3>Example illustrating the Caesar encryption algorithm</h3>
+
+<P>This section provides an <A href="hid_hilfe_szenarien.html">example</A> illustrating the use of the <A href="hid_rot13caesar_asc.html">Caesar encryption algorithm</A>. To make it easier to follow the steps that need to be performed with <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>, the example is illustrated with a number of screenshots.</P>
+
+<P>First of all, to acquaint ourselves with the <A href="hid_rot13caesar_asc.html">Caesar encryption algorithm</A> we will open a <!--ZZZPOPUP--><A href="dokument.html">document</A>, <!--ZZZPOPUP--><A href="verschluesselung.html">encrypt</A> it and then <!--ZZZPOPUP--><A href="entschluesselung.html">decrypt</A> it again. We will then try to get the computer to work out the <!--ZZZPOPUP--><A href="schluessel.html">key</A> with which a <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> is encrypted.</P>
+
+<P>Therefore, we open the <!--ZZZPOPUP--><A href="datei.html">file</A> <CODE>CrypTool-en.txt</CODE> out of the directory <CODE>CrypTool\examples</CODE> via the menu <A href="menu_file.html">File</A> \ <A href="hid_file_open.html">Open</A>.</P>
+
+<P><IMG SRC="images/szenariocaesar1.gif" ALT="szenariocaesar1.gif" BORDER=0></P>
+
+<P>We will now <!--ZZZPOPUP--><A href="verschluesselung.html">encrypt</A> this document using the <A href="hid_rot13caesar_asc.html">Caesar encryption algorithm</A>. To do this, we select the menu <A href="menu_crypt.html">Crypt/Decrypt</A> \ <A href="menu_crypt_symmetricclassic.html">Symmetric (classic)</A> \ <A href="hid_rot13caesar_asc.html">Caesar/Rot-13</A>. Then the following which this dialog box appears. The key we enter is the letter <CODE>A</CODE>. Additionally, we change the options how to interpret the alphabet characters: The first alphabet character is set to 1 (if we set the first character to 0 and use A as key, then the resulting ciphertext is the same as the plaintext).</P>
+
+<P><IMG SRC="images/szenariocaesar2.gif" ALT="szenariocaesar2.gif" BORDER=0></P>
+
+<P>Clicking on the <B>Encrypt</B> button opens a new window that contains the <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> text. On closer examination of the text it becomes apparent that the letters have been shifted by one position, so that the initial word, <CODE>CrypTool</CODE>, is now <CODE>DszqUppm</CODE>.</P>
+
+<P><IMG SRC="images/szenariocaesar3.gif" ALT="szenariocaesar3.gif" BORDER=0></P>
+
+<P>The <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> version of this <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> <!--ZZZPOPUP--><A href="dokument.html">document</A> can now be obtained by selecting <A href="menu_crypt.html">Crypt/Decrypt</A> <A href="hid_rot13caesar_asc.html">\ Classical \ Caesar</A> again. In the dialog box which now appears we enter the key with which the document was encrypted (<CODE>A</CODE>). This time we do not want the text to be encrypted, but instead to be <!--ZZZPOPUP--><A href="entschluesselung.html">decrypted</A>. Therefore the <B>Decrypt</B> button must be selected.</P>
+
+<P><IMG SRC="images/szenariocaesar4.gif" ALT="szenariocaesar4.gif" BORDER=0></P>
+
+<P>Clicking on the <B>Decrypt</B> button tells <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> to go ahead and <!--ZZZPOPUP--><A href="entschluesselung.html">decrypt</A> the text. The <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> appears immediately.</P>
+
+<P><IMG SRC="images/szenariocaesar5.gif" ALT="szenariocaesar5.gif" BORDER=0></P>
+
+<P>We have seen how a text is <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> using the <A href="hid_rot13caesar_asc.html">Caesar encryption algorithm</A> and then <!--ZZZPOPUP--><A href="entschluesselung.html">decrypted</A> again.</P>
+
+<P>Under the classical <U>Caesar encryption algorithm </U>only the letters are encrypted. During encryption, the lower case letters were converted to upper case letters and encrypted, but all the other characters such as punctuation characters and formatting characters (blank characters and line breaks) were omitted.</P>
+
+<P>In the classical <!--ZZZPOPUP--><A href="verschluesselung.html">encryption algorithms</A> <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> retains the formatting by default. This can be disabled via the menu option <A href="menu_options.html">Options</A> <A href="hid_opttext.html">\ Text Options</A>. In the following dialog box the option <B>Keep characters not present in the alphabet unchanged</B> and the option <B>Distinguish between uppercase and lowercase</B> must be disabled.</P>
+
+<P><IMG SRC="images/szenariocaesar6.gif" ALT="szenariocaesar6.gif" BORDER=0></P>
+
+<P>We now return to the window containing the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> (by clicking on it with the mouse) and <!--ZZZPOPUP--><A href="verschluesselung.html">encrypt</A> this <!--ZZZPOPUP--><A href="dokument.html">document</A> once again with the <A href="hid_rot13caesar_asc.html">Caesar encryption algorithm</A>, using the <!--ZZZPOPUP--><A href="schluessel.html">key</A> <CODE>A</CODE>. From the results one can see immediately that the encrypted text has the same content as the previous version but this time it contains only upper case letters and the formatting has been removed. For example, the first characters in the encrypted text are once again <CODE>DSZQUPPM</CODE> (the ciphertext of <CODE>CrypTool</CODE>).</P>
+
+<P>To improve legibility, blocks of five characters have been created and a space has been inserted after every fifth character.</P>
+
+<P>We would like to save this document under a different name. Select <A href="menu_file.html">File</A> \ <A href="hid_file_save_as.html">Save As</A> to access the dialog box used for saving a document under a new name. As <!--ZZZPOPUP--><A href="datei.html">file name</A> we enter <CODE>CrypTool.Caesar.txt</CODE>. </P>
+
+<P><IMG SRC="images/szenariocaesar7.gif" ALT="szenariocaesar7.gif" BORDER=0></P>
+
+<P>The <!--ZZZPOPUP--><A href="entschluesselung.html">decryption</A> operation works in exactly the same way as described above. We decrypt this <!--ZZZPOPUP--><A href="dokument.html">document</A> once again and the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> version is restored. This of course now consists only of a sequence of upper case letters. Because no distinction is made any longer between upper and lower case letters, and especially because of the absence of formatting, this text is more difficult to read. However, if we compare the document briefly with the original text, we can see that it is the same text. The original text begins with the words, ”CrypTool is a program which will enable you …” These words appear once again in the first line of the decrypted text.</P>
+
+<P><IMG SRC="images/szenariocaesar8.gif" ALT="szenariocaesar8.gif" BORDER=0></P>
+
+<P>Having now learned the steps involved in <!--ZZZPOPUP--><A href="verschluesselung.html">encrypting</A> and <!--ZZZPOPUP--><A href="entschluesselung.html">decrypting</A> a <!--ZZZPOPUP--><A href="dokument.html">document</A>, we would like to take a look at the security of the <A href="hid_rot13caesar_asc.html">Caesar encryption algorithm</A>. To do this, all the windows should be closed apart from the window containing the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> and the version of the encrypted text in which the formatting is retained. The only two windows now open should be the following:</P>
+
+<P><IMG SRC="images/szenariocaesar1.gif" ALT="szenariocaesar1.gif" BORDER=0></P>
+
+<P><IMG SRC="images/szenariocaesar3.gif" ALT="szenariocaesar3.gif" BORDER=0></P>
+
+<P>First, make the window containing the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> the active window again by clicking on it with the mouse. We now have the <!--ZZZPOPUP--><A href="entropie.html">entropy</A> (accessed via the menu selection <A href="menu_analyze.html">Analysis \ General</A> \<A href="hid_entropy.html"> Entropy</A>) and</P>
+
+<P><IMG SRC="images/szenariocaesar9.gif" ALT="szenariocaesar9.gif" BORDER=0></P>
+
+<P>the frequency distribution of the letters (<A href="menu_analyze.html">Analysis</A> \ <U>General</U> \ <A href="hid_histogram.html">Histogram</A>) calculated.</P>
+
+<P><IMG SRC="images/szenariocaesar10.gif" ALT="szenariocaesar10.gif" BORDER=0></P>
+
+<P>We repeat the same procedure after making the other window active. We can see immediately that both <!--ZZZPOPUP--><A href="dokument.html">documents</A> have the same <!--ZZZPOPUP--><A href="entropie.html">entropy</A>.</P>
+
+<P><IMG SRC="images/szenariocaesar11.gif" ALT="szenariocaesar11.gif" BORDER=0></P>
+
+<P>When we examine the <!--ZZZPOPUP--><A href="histogramm.html">histogram</A> of the <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> <!--ZZZPOPUP--><A href="dokument.html">document</A> we can see that the letter frequencies have merely been shifted by one position. That means that this old <!--ZZZPOPUP--><A href="verschluesselung.html">encryption algorithm</A> is not secure. (Moreover there are only 26 possible <!--ZZZPOPUP--><A href="schluessel.html">keys</A>, and of these the <CODE>Z</CODE> shifts the text by 26 positions so that the ”encrypted” text is actually identical with the unencrypted text. Hence there are really only 25 keys!)</P>
+
+<P>The <A href="hid_rot13caesar_asc.html">Caesar encryption algorithm</A> can be broken easily by a <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">ciphertext-only attack</A>. To perform such an attack, restore the window containing the <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> text to the active window and select <U>Analysis</U> \ <A href="menu_analyze.html">Ciphertext-only</A> \ <A href="hid_caesar_auto.html">Caesar</A>. The text will automatically be analyzed.</P>
+
+<P><IMG SRC="images/szenariocaesar12.gif" ALT="szenariocaesar12.gif" BORDER=0></P>
+
+<P>By analyzing the superposition it is possible to discover the <!--ZZZPOPUP--><A href="schluessel.html">key</A> which was used to <!--ZZZPOPUP--><A href="verschluesselung.html">encrypt</A> this <!--ZZZPOPUP--><A href="dokument.html">document</A>. In this case it was the letter <CODE>A</CODE>.</P>
+
+<P><IMG SRC="images/szenariocaesar13.gif" ALT="szenariocaesar13.gif" BORDER=0></P>
+
+<P>When you click on the <B>Decrypt</B> button in the message window, the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> appears, i.e. the text that has been <!--ZZZPOPUP--><A href="entschluesselung.html">decrypted</A> with the <!--ZZZPOPUP--><A href="schluessel.html">key</A> <CODE>A</CODE> that was discovered<CODE>.</CODE></P>
+
+<P><IMG SRC="images/szenariocaesar14.gif" ALT="szenariocaesar14.gif" BORDER=0></P>
+
+<P>So <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> managed successfully to find the <!--ZZZPOPUP--><A href="schluessel.html">key</A> with which the <!--ZZZPOPUP--><A href="dokument.html">document</A> had been <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A>. The only information it needed to do this was the <!--ZZZPOPUP--><A href="verschluesselung.html">encryption algorithm</A>.</P>
+
+</BODY>
+</HTML>

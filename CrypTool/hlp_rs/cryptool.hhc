@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Start with CrypTool">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Starting page: An Introduction to CrypTool">
+			<param name="Local" value="hidd_tipps_and_tricks.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="How to work through the examples/scenarios/tutorials">
+			<param name="Local" value="hid_hilfe_szenarien.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="How to use the CrypTool online help">
+			<param name="Local" value="hilfeueberhilfe.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Broader Context of Cryptology">
+			<param name="Local" value="cryptology.html">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Functionality of CrypTool">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Document encryption">
+			<param name="Local" value="menu_crypt.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="The hash value of a document">
+			<param name="Local" value="menu_individualprocedures_hashprocedures.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Document compression">
+			<param name="Local" value="menu_individualprocedures_compress.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Analyzing documents">
+			<param name="Local" value="menu_analyze.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Obtaining information about the actual document">
+			<param name="Local" value="hid_fileproperties.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Protocols, codes and much more">
+			<param name="Local" value="menu_related_methods.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="The CrypTool help index">
+			<param name="Local" value="main_index.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Time table">
+			<param name="Local" value="menu_zeittafel.html">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Work on a document">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="New document">
+			<param name="Local" value="hid_file_new.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Open an existing document">
+			<param name="Local" value="hid_file_open.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Edit document">
+			<param name="Local" value="hidr_texttype.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Save document">
+			<param name="Local" value="hid_file_save.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Save document as">
+			<param name="Local" value="hid_file_save_as.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Close document">
+			<param name="Local" value="hid_file_close.html">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Change CrypTool options">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Select default options">
+			<param name="Local" value="menu_options.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Switch on/off symbol or status bar">
+			<param name="Local" value="menu_view.html">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="CrypTool Menus">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Menu File">
+			<param name="Local" value="menu_file.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Menu Edit">
+			<param name="Local" value="menu_edit.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Menu View">
+			<param name="Local" value="menu_view.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Menu Crypt/Decrypt">
+			<param name="Local" value="menu_crypt.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Menu Digital Signatures/PKI">
+			<param name="Local" value="menu_digitalsignaturespki.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Menu Individual Procedures">
+			<param name="Local" value="menu_related_methods.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Menu Analysis">
+			<param name="Local" value="menu_analyze.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Menu Options">
+			<param name="Local" value="menu_options.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Menu Window">
+			<param name="Local" value="menu_window.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Menu Help">
+			<param name="Local" value="menu_help.html">
+			</OBJECT>
+	</UL>
+</UL>
+</BODY></HTML>

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Period length of a pseudorandom generator</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Periodicity analysis">
+	<PARAM NAME="Keyword" VALUE="Pseudorandom generator">
+</OBJECT>
+
+<BODY>
+
+<h3>Period length of a pseudorandom generator</h3>
+
+<P>The period p of a <a href="pseudozufalls_generatoren.html">pseudorandom generator</a> is determined by the interval at which a pseudorandom number in the generated output sequence X[i] is repeated for the first time, so that it is for every i: X[i] = X[i+p].</p>
+ <p>The period is dependent on the skilful choice of <a href="select_randomgeneratorparameter.html">parameters</a> for the generator, as only with a suitable choice of parameters the generator achieves the biggest possible period. </P>
+
+<P>Once the periodicity is known, the random number generator is cracked, as for every pseudorandom number X[i] the next number X[i+1] is known. Good pseudorandom number generators therefore have very large period lengths where in practice it is not possible to save all the sequence members of the period.</P>
+
+</BODY>
+</HTML>

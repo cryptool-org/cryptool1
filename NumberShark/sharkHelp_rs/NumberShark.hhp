@@ -1,0 +1,22 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=NumberShark-rs.chm
+Contents file=NumberShark.hhc
+Default topic=NumberShark.html
+Display compile progress=No
+Index file=NumberShark.hhk
+Language=0x81a Serbisch (Lateinisch, Serbien)
+Title=Number Shark Help
+
+
+[FILES]
+NumberSharkRealFactors.html
+NumberSharkChallenge.html
+NumberSharkDevelopment.html
+NumberSharkLicense.html
+NumberShark.html
+NumberSharkTutorial.html
+NumberSharkPrimes.html
+
+[INFOTYPES]
+

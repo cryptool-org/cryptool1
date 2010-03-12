@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Triple-DES (CBC) encryption algorithm</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Symmetric">
+	<PARAM NAME="Keyword" VALUE="Encryption">
+	<PARAM NAME="Keyword" VALUE="Triple-DES encryption algorithm">
+</OBJECT>
+
+<BODY>
+
+<h3>Triple-DES (CBC) (Menu <A href="menu_crypt.html">Crypt/Decrypt</A> \ Symmetric (modern))</h3>
+
+<P>In the version of Triple-DES that is used here, a threefold <!--ZZZPOPUP--><A href="verschluesselung.html">encryption</A> operation is performed with two different <A href="hid_crypt_des_descbc.html">DES</A> <!--ZZZPOPUP--><A href="schluessel.html">keys</A>:</P>
+
+<P>The plaintext block is DES-encrypted with the first key.</P>
+
+<P>The resulting block is DES-<!--ZZZPOPUP--><A href="entschluesselung.html">decrypted</A> with the second key.</P>
+
+<P>The resulting block is now DES-encrypted once more with the first key.</P>
+
+<P>Decryption entails alternating between encryption and decryption in the reverse sequence. This method is also known as Encrypt-Decrypt-Encrypt (EDE).</P>
+
+<P><A href="cbcmodus.html">CBC mode</A> is used here with zero initialization vector and <a href="padding.html#p7">PKCS#7 padding</a>.</P>
+
+<P>As in <A href="hid_crypt_des_descbc.html">DES</A>, <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> offers both <A href="cbcmodus.html">CBC mode</A> and <A href="ecbmodus.html">ECB mode</A>.</P>
+
+<P>The key is entered in the <A href="hidd_key.html">Key entry</A> dialog.</P>
+
+<P>CrypTool contains a tool which performs a <A href="hid_analyse_tripledescbc.html">brute-force attack on the Triple-DES encryption algorithm in CBC mode</A>.</P>
+
+<P>In the <A href="hid_hilfe_szenarien.html">Examples</A> chapter there is one <A href="szenarien_tripledescbc.html">example</A> which covers both encryption and decryption using the Triple-DES <!--ZZZPOPUP--><A href="verschluesselung.html">encryption algorithm</A> in <!--ZZZPOPUP--><A href="cbcmodus.html">CBC mode</A> and also the <!--ZZZPOPUP--><A href="bruteforce.html">brute-force attack</A>.</P>
+
+</BODY>
+</HTML>

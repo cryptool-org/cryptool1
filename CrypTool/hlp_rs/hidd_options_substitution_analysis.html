@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog Automatic analysis of monoalphabetic substitution (method 2)</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+	<PARAM NAME="Keyword" VALUE="Analysis">
+	<PARAM NAME="Keyword" VALUE="Monoalphabetic substitution encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Substitution encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Atbash encryption algorithm">	
+	<PARAM NAME="Keyword" VALUE="Options">
+</OBJECT>
+
+<BODY>
+
+<h3>Dialog Automatic Analysis of Monoalphabetic Substitution using most frequent words (Method 2)</h3>
+
+<P>You can reach this dialog after selecting method 2 in the dialog <a href="hidd_auto_substitution_analysis_algorithm_choice.html">selecting a method for automatic substitution analysis</a>.</P>
+
+<P>This dialog is used to enter the settings for executing an automatic analysis of monoalphabetic substitution by method 2 (using most frequent words).</P>
+
+
+<P>If no options are chosen, then a <A href="pattern_suche.html">pattern search</A> is performed using the most frequent words of the plaintext language. Satisfactory results are obtained with this tool when applied to English language texts. However, the analysis results are often much less impressive when the language is German.</P>
+
+<P>For this reason additional options can be chosen.</P>
+<ul>
+<li>
+<P><U>"Use 'e' as most frequent character" option</U></P>
+
+<P>Prior to the <A href="pattern_suche.html">pattern search</A>, the character that occurs most frequently in the text is worked out. It is assumed that this character corresponds to the plaintext character "e". The pattern search is started having made this (partial) substitution.</P>
+
+<P>The assumption that "e" is the character found the most frequently in a text is equally valid in German and in English. However, this assumption can be wrong if the text is extremely short or highly specialised.</P>
+
+<P><u>Note</u>: A complete (and meaningful) novel has been written in the French language in which the letter "e" does not occur once. This novel has been translated into German (once again, avoiding the letter "e").</P></li>
+<li>
+<P><U>"Extended Analysis (German plaintext)" option</U></P>
+
+<P>This analysis is based on peculiarities of the German language. In principle, however, this analysis would also be possible for English plaintext, albeit with different baseline numbers.</P>
+
+<P>Prior to the pattern search four letters are assigned in the following manner: </P>
+
+<UL>
+	<LI>It is assumed that the letter that occurs most frequently in the text is the encrypted version of the letter "e".</LI>
+
+	<LI>For this reason it would be inconsistent to select this option but at the same time disable the option "Use "e" as most frequent character", so the program does not permit this combination of options.</LI>
+
+	<LI>A list containing the letters which occur most frequently at the beginning and end of a word and before and after the letter "e" is created. This is sorted in descending order.</LI>
+
+	<LI>The program then ascertains the two letters which in the sorted lists of letters which occur the most frequently at the end of a word and after the letter "e" are nearest to the top of the list (the sum of the indices is minimal). It is assumed that these two letters corresponds to the encrypted letters "n" and "r".</LI>
+
+	<LI>The encrypted version of "n" is assumed to be the letter which occurs most frequently at the end of a word.</LI>
+
+	<LI>Lists containing the most frequent letters before and after the "n" are then created and sorted.</LI>
+
+	<LI>The letter which in the three lists of the letters which occur the most frequently before and after the "e" and before the "n" the greatest number of times is assumed to be the letter "i".</LI>
+</UL>
+</li></ul>
+
+<P>A pattern search is now started having made this (partial) substitution.</P>
+
+<P>When CrypTool has completed its analysis, a <A href="hidd_manual_subst_analysis.html">Manual Post-processing window</A> containing the results appears.</P>
+
+<P>In the <U>Examples</U> chapter there is an <A href="szenarien_monosubst.html">example</A> of an <A href="angriffe.html">attack</A> on the <!--ZZZPOPUP--><A href="verschluesselung.html">encryption algorithm</A>.</P>
+
+<P><b>Conditions which the document must satisfy for a successful attack</b></P>
+
+<P>Generally one can say that the key (i.e. the substitutions or at least a large part of the substitutions) can be found if the <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> document contains several hundreds of characters of German and English text which by and large contain the words which occur most frequently in the language. The words which occur most frequently in the language concerned are held in a list within <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>. The analysis does not work if the text to be analysed consists largely of words which do not occur in the list.</P>
+
+<P>For example, encryption of</P>
+
+<P>THE QUICK BROWN FOX JUMPED OVER THE LAZY DOGS BACK</P>
+
+<P>produces (without manual post processing or extended analysis) the result</P>
+
+<P>thL THEIR brown fox SHOULD ovLr thL MANY Dogs bAIR.</P>
+
+<P>On the other hand, however, remarkably good results can be achieved with this kind of analysis even for very short encrypted texts.</P>
+
+<P>An encrypted version of the text</P>
+
+<P>THIS IS A TEST</P>
+
+<P>produces (without manual post-processing or extended analysis) the result</P>
+
+<P>THIS IS A TeST.</P>
+
+<P>Such a text would be much too short to contain statistically significant information, as required by the analysis methods that are based on frequency distributions. There is a high probability that such an analysis would fail.</P>
+
+<P>The results of a <A href="pattern_suche.html">pattern search analysis</A> are significantly poorer for German plaintext than for English plaintext. This is probably due to all the inflexions that are found in German words. Whereas in English the article "the" only appears once in the list (for English plaintext), in the list for German plaintext we find not only "der" but also "die", "das", "den", "dem", etc.</P>
+
+<P>For this reason CrypTool also offers the Extended Analysis option described above, which enables the key to be computed, building on the pre-analysis by CrypTool.</P>
+
+</BODY>
+</HTML>

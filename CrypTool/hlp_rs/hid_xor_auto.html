@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Automatic analysis, binary Exclusive-OR (XOR)</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Analysis">
+	<PARAM NAME="Keyword" VALUE="Binary exclusive-OR">
+</OBJECT>
+
+<BODY>
+
+<h3>XOR / Vernam (Menu <A href="menu_analyze.html">Analysis</A> \ Symmetric Encryption (classic) \ Ciphertext-Only)</h3>
+
+<P>A <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">ciphertext-only</A><!--ZZZPOPUP--><A href="angriffe.html"> attack</A> is available for <A href="hid_xor_bin.html">encryption with the Exclusive-OR</A> in the form of an analysis with whose aid the <!--ZZZPOPUP--><A href="schluessel.html">key</A> and hence the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> can be worked out for relatively long <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> <!--ZZZPOPUP--><A href="dokument.html">documents</A>.</P>
+
+<P>There are two stages in the analysis:</P>
+
+<P>First of all the <!--ZZZPOPUP--><A href="schluessellaenge.html">key length</A> used is worked out,</P>
+
+<P>and then the key itself.</P>
+
+<P>The key length is calculated using <!--ZZZPOPUP--><A href="autokorrelation.html">autocorrelation</A>. Since in most documents not every character occurs equally often, the probability of two identical characters occurring is relatively large if they are separated by a multiple of the key length. Therefore in an autocorrelation analysis a typical comb formation is generated, in which the individual teeth are separated by exactly the length of the key. If automatic detection of the key length produces an incorrect result, it is possible to determine the key length manually.</P>
+
+<P>Once the key length has been worked out, the actual key used is calculated. This is done by performing a frequency analysis (see <!--ZZZPOPUP--><A href="histogramm.html">Histogram</A>) for every character of the key. Here <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> assumes that the character which occurs most frequently is the binary zero. If it is known that a different character occurs more frequently, then this can be entered in the <A href="hidd_bin_keylength.html">Automatic Analysis (Addition, Exclusive-OR)</A> dialog. It is also possible to correct this entry after the analysis by means of the <A href="hid_xor_bin.html">binary Exclusive-OR (XOR)</A> of the corresponding character.</P>
+
+<P>In the <A href="hidd_options_analysis.html">Options for automatic analysis</A> dialog it is possible to specify which and how many intermediate results should be displayed in separate windows. If the user clicks on <B>Cancel</B> instead of <B>OK</B> when viewing one of these intermediate results, no more of these windows or subordinate windows will appear. (For a more detailed explanation see <A href="hid_vigenere_auto.html">Automatic analysis, Vigenère encryption algorithm</A>).</P>
+
+<P>It is entirely possible for one or more parts of the key to not be calculated correctly.</P>
+
+<P>In the <A href="hid_hilfe_szenarien.html">Examples</A> chapter there is an <A href="szenarien_xor.html">example</A> of an <A href="angriffe.html">attack</A> on the <!--ZZZPOPUP--><A href="verschluesselung.html">encryption algorithm</A>.</P>
+
+<P><U>Conditions which the document must satisfy for a successful attack</U></P>
+
+<P>The key will always be found if the character which occurs most frequently in the unencrypted document is known. It makes no difference here how long the document is. But often the character which occurs most frequently in a text is not known. See the <A href="hid_hilfe_szenarien.html">example</A> on encryption using the <A href="szenarien_xor.html">binary Exclusive-OR (XOR)</A> for further information on this point.</P>
+
+</BODY>
+</HTML>

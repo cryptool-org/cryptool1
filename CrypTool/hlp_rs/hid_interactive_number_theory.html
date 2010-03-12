@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Learning Tool for Number Theory</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+<script language="JScript" src="helper.js"></script>
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Number theory">
+	<PARAM NAME="Keyword" VALUE="Gauss">
+	<PARAM NAME="Keyword" VALUE="BC">
+	<PARAM NAME="Keyword" VALUE="Tutorial for number theory">
+</OBJECT>
+
+<BODY>
+
+<h3>Learning Tool for Number Theory</h3>
+
+<P>You can reach this dialog using the menu entry <a href="menu_related_methods.html">Individual Procedures</a> \ <a href="menu_individualprocedures_interactivenumbertheory.html">Number Theory - Interactive</a> \ <a href="hid_interactive_number_theory.html">Learning Tool for Number Theory</a>.</P>
+
+<P>The educational tool "NT" (Number Theory) developed by Martin Ramberger introduces number theory and visualizes many of the methods and concepts. Where appropriate, the mathematical formulas are shown. It allows to dynamically check out the mathematical methods with own number examples. It can be best used accompanying the reading of an according book.</P>
+
+<P>This visualization was build with Authorware 4.</P>
+
+<P><a href="http://en.wikipedia.org/wiki/Number_theory">Number theory</a>, formerly called <a href="http://en.wikipedia.org/wiki/Arithmetic">arithmetic</a>, is a very old branch of pure <a href="http://en.wikipedia.org/wiki/Mathematics">mathematics</a> concerned with the properties of numbers in general, and integers in particular, as well as the wider classes of problems that arise from their study (like solving equations in integers = <a href="http://en.wikipedia.org/wiki/Diophantine_equation">Diophantine equations</a>).</P>
+
+<P>Gauss considered number theory the "queen of mathematics", as beautiful as perfectly useless. Therefore it normally found no place in the school’s curriculum, so not many people know about number theory. Finally in the 20th century number theory was widely used for asymmetric encryption, digital signatures and modern key exchange protocols.</P>
+
+<P>Methods and problems from number theory are the basis of modern public-key cryptography.</P>
+
+<P><B>Samples and Operating</B></P>
+
+<P>Within the Authorware application you can use the arrows <B>Back</B>, <B>Next page</B> and <B>Previous page</B> to always get back to the beginning of a learning unit. Within a learning unit you get the next screen using the <B>Enter</B> key -- normally such a page contains a white framed arrow, which you should click directly:</P>
+
+<P><img src="images/numbertheory_arrow.png" alt="numbertheory_arrow.png"></P>
+
+<P>Further explanations are displayed in sub windows. All sub windows are displayed within the Authorware main windows as modal windows. You can close all sub windows with the <B>Escape</B> key.</P>
+
+<P>The operating is explained exhaustively within the educational program in the menu item Help \ Program Handling (F1).</P>
+
+<P><img src="images/numbertheory_1-1.png" alt="numbertheory_1-1.png" width="91%"></P>
+<P><img src="images/numbertheory_1-3.png" alt="numbertheory_1-3.png" width="91%"></P>
+<P><img src="images/numbertheory_2-1.png" alt="numbertheory_2-1.png" width="91%"></P>
+
+<P><B>The Educational Tool Covers the Following Topics</B></P>
+
+<UL>
+<LI>Eratosthenes, canonical prime decomposition, Euclidian algorithm</LI>
+<LI>congruence, transversal sum, prime residue class, Euler function, Chinese Residue theorem, ring decomposition, Euler-Fermat, little Fermat, fast exponentiation, Montgomery multiplication, cyclic group, subgroup, order, primitive residue class, polynomial</LI>
+<LI>prime test, Mersenne number, Fermat test, pseudo prime, Carmichael number, Miller-Rabin test</LI>
+<LI>Caesar, frequency analysis, Vigenère, text as number, public key, RSA, Diffie-Hellman, ElGamal, one-way function, digital signature</LI>
+<LI>factorization, quadratic residue, birthday paradox, Pollard Rho, cycle finding algorithms by Floyd and Brent, Pollard p-1, elliptic curves, quadratic sieve</LI>
+<LI>discrete logarithm, Shanks's Babystep-Giantstep, again Pollard Rho</LI>
+</UL>
+
+<P><B>The Educational Tool is Made up of the Following Learning Units</B></P>
+
+<P>1. Integers<br>1.1 Divisibility<br>1.2 Primes<br>1.3 Euclid's Algorithm<br>1.4 The LCM</P>
+<P>2. Residue Classes<br>2.1 Congruences<br>2.2 Prime Residue Classes<br>2.3 Subgroups<br>2.4 Primitive Residue Classes</P>
+<P>3. Prime Generation<br>3.1 Finding Primes<br>3.2 Fermat Test<br>3.3 Miller-Rabin Test</P>
+<P>4. Public Key Cryptography<br>4.1 Cryptography<br>4.2 RSA<br>4.3 Other Ciphers</P>
+<P>5. Factorization<br>5.1 Finding Divisors<br>5.2 Fermat Factorization<br>5.3 Pollard's Rho Factorization<br> 5.4 Pollard's p-1 Factorization<br>5.5 Quadratic Sieve Factorization</P>
+<P>6. Discrete Logarithms<br>6.1 Finding Exponents<br>6.2 Shanks' Babystep Giantstep Method<br>6.3 Pollard's Rho Algorithm<br>6.4 Other Methods</P>
+
+<P><B>Remark 1: Limits of Numbers to be Used as Samples within the Educational Tool</B></P>
+
+<P>Within this Authorware educational tool all selectable numbers are limited in their size: On the one hand this results from the layout (in order to fit into the graphics), on the other hand because the performance of the calculations within Authorware is relatively slow (the methods are programmed within this mathematical educational software, so their performance is much slower than what you can achieve within CrypTool, which is implemented in C++). But for purposes of learning and understanding no sample with really big numbers are necessary.</P>
+
+<P>Here are some samples for these limitations:</P>
+
+<UL>
+<LI>RSA-Demo (the program uses the next bigger primes): you can enter two 35 digit number.</LI>
+<LI>Demo of factorizing with Pollards Rho algorithm: 18 digit numbers.</LI>
+<LI>Demo of factorizing with Pollards p-1 algorithm: 68 digit numbers (here you also can enter products using the multiplication letter).<br>(The factorization doesn’t always succeed with the Pollard algorithms.)</LI>
+<LI>Calculations of Phi: 15 digit numbers (should always work).</LI>
+</UL>
+
+<P><B>Remark 2: Thesis Written in Combination with this Educational Tool</B></P>
+
+<P>The thesis, which led to the initial German version of the number theory educational programme, can be found at <a class="filelink" onclick="parser('http://www.uni-koblenz.de/~rambo/ZT.pdf')">http://www.uni-koblenz.de/~rambo/ZT.pdf</a>. Please mind that this thesis only exists in German.</P>
+
+<P><B>Remark 3: BC (arbitrary precision calculator)</B></P>
+
+<P>Part of the distribution of the educational tool "Number Theory" is the command line calculator <a href="bc.html">bc</a> (version 1.06, published by Free Software Foundation under <a href="http://www.gnu.org/licenses/gpl.html" target="_blank">GPL</a>).</P>
+
+<P>Bc is both a programming language that supports arbitrary precision numbers and an arbitrary precision calculator program, which handles scripts and commands written in the language bc and interactively executes the statements from the user. This tool can be used to do some of the number theoretical calculations with higher speed and higher precision than from within the educational tool.</P>
+
+</BODY>
+</HTML>

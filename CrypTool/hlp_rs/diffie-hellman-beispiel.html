@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Diffie-Hellman key exchange protocol (exemplary)</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Keys">
+	<PARAM NAME="Keyword" VALUE="Diffie-Hellman key exchange">
+</OBJECT>
+
+<BODY>
+
+<h3>Diffie-Hellman Key Exchange Protocol (exemplary)</h3>
+
+<P>The Diffie-Hellman Key Exchange Protocol will exemplified in the following. The relatively small size of the parameters was intentionally chosen to facilitate a better comprehension.</P>
+
+<P>At first the <I>public parameters</I> need to be set. They are called <I>public</I> because any third party may gain knowledge of them without weakening the security of the protocol. Alice and Bob agree on the following <I>public parameters</I>:</P>
+
+<div class="indent">
+
+<P><!--ZZZFORMEL--><I> g</I> = 4</P>
+
+<P><I>p</I> = 13</P>
+
+</div>
+
+<P>Now Alice and Bob each choose a <I>secret number</I> which is known only to either Alice or Bob. Alice chooses her <I>secret number a</I> while Bob chooses his <I>secret number b</I>:</P>
+
+<div class="indent">
+
+<P><!--ZZZFORMEL--> <I>a</I> = 10</P>
+
+<P><!--ZZZFORMEL--> <I>b</I> = 8 </P>
+
+</div>
+
+<P>Next, Alice and Bob have to compute their respective <I>shared keys A</I> and <I>B</I>:</P>
+
+<div class="indent">
+
+<P><!--ZZZFORMEL--> <I>A</I> = <I>g</I><SUP>a</SUP> mod <I>p</I> = 9</P>
+
+<P><I>B</I> = <I>g</I><SUP>b</SUP> mod <I>p</I> = 3</P>
+
+</div>
+
+<P>Alice and Bob need to exchange their previously created <I>shared keys</I> to calculate the final common and secret <I>session key</I>. Alice sends over her <I>shared key A</I> to Bob while Bob sends over <I>his shared key B</I> to Alice:</P>
+
+<P>During the last step of the procedure, Alice and Bob separately compute their respective <I>session keys</I>:</P>
+
+<div class="indent">
+
+<P><!--ZZZFORMEL--> <I>S<SUB>Alice</SUB></I> = <I>B</I><SUP>a</SUP> mod <I>p</I> = 3</P>
+
+<P><I>S<SUB>Bob</SUB></I> = <I>A</I><SUP>b</SUP> mod <I>p</I> = 3</P>
+
+</div>
+
+<P>If you exchange both shared keys A and B with the appropriate equations from the second to last paragraph, the following equations appear:</P>
+
+<div class="indent">
+
+<P><!--ZZZFORMEL--> <I>S<SUB>Alice</SUB></I> = <I>B</I><SUP>a</SUP> mod <I>p</I> = (<I>g</I><SUP>b</SUP>)<SUP>a</SUP> mod <I>p</I></P>
+
+<P><I>S<SUB>Bob</SUB></I> = <I>A</I><SUP>b</SUP> mod <I>p</I> = (<I>g</I><SUP>a</SUP>)<SUP>b</SUP> mod <I>p</I> </P>
+
+</div>
+
+<P>Since you can execute the multiplication in exponents commutatively (even when calculating modulo),</P>
+
+<div class="indent">
+
+<P><!--ZZZFORMEL--> (<I>g</I><SUP>a</SUP>)<SUP>b</SUP> = <I>g</I><SUP>a b = </SUP><I>g</I><SUP>b a = </SUP><I>(g</I><SUP>b</SUP>)<SUP>a</SUP> mod <I>p</I><SUP> </SUP></P>
+
+</div>
+
+<P>the two <I>session keys</I> separately computed by Alice and Bob must be identical:</P>
+
+<div class="indent">
+
+<P><!--ZZZFORMEL--> <I>(g</I><SUP>b</SUP>)<SUP>a</SUP> mod <I>p</I><SUP> </SUP>= <I>(g</I><SUP>a</SUP>)<SUP>b</SUP> mod <I>p</I><SUP> </SUP></P>
+
+</div>
+
+<P>and thus</P>
+
+<div class="indent">
+
+<P><!--ZZZFORMEL--> <I>S<SUB>Alice</SUB></I> =<I><SUB> </SUB>S<SUB>Bob</SUB></I></P>
+
+</div>
+
+<P>Another example with concrete small numbers can be found in the book "Computer Security. Art and Science", © 2003 by Matt Bishop.</P>
+
+</BODY>
+</HTML>

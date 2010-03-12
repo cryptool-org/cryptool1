@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+	<HEAD>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<TITLE>Dialog Find and Replace</TITLE>
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<!-- multiple keywords for CrypTool HTML help index -->
+	<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+		VIEWASTEXT>
+		<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+	</OBJECT>
+	<BODY>
+		<h3>Dialog Find and Replace</h3>
+		<P>You can reach this dialog using the menu <a href="menu_edit.html">Edit</a> \ <A href="hid_edit_find.html">
+				Find/Replace</A>.</P>
+		<P>To find or replace a search term in the present <!--ZZZPOPUP--><A href="dokument.html">
+				document</A>, you can enter the search string in the current dialog and 
+			then click on the <B>Find</B> button.</P>
+		<P>If the search term is found, it is highlighted. If the search term cannot be 
+			found in the specified direction of search, a message box informs you.</P>
+		<P>To repeat a search, click on the <B>Find</B> button repeatedly. If you already 
+			closed this dialog, you can repeat the last search with the menu item <A href="menu_edit.html">
+				Edit</A> \ <A href="hid_edit_find_next.html">Find Next</A> (or by pressing 
+			F3).</P>
+		<P>To replace a search term with a different text, use the button <B>Replace</B>. 
+			With the button <B>Replace all</B> you can replace all fitting search patterns.</P>
+		<P><B>Mode</B>:</P>
+		<P>You can choose between two different modes: Initially, the text mode is set in which you 
+		can search strings as usual. If the hex mode is set, the search string is entered in 
+		hexadecimal format.</P>	
+		<P><B>Search Options</B>:</P>
+		<P>If you wish to differentiate between upper and lower case letters, then you 
+			should activate the <i>Case sensitive</i> checkbox.</P>
+		<P>It is also possible to specify the direction of search within the document. By 
+			default, the search proceeds downwards from the current cursor position. By 
+			activating the <i>Find backwards</i> checkbox the search proceeds upwards.</P>
+		<P>By activating the <i>Regular expressions (text view only)</i> checkbox you can 
+			search for regular expressions.</P>
+		<P><B>Remark 1</B>:</P>
+		<P>Currently, regular expressions are only valid in the search field if the search 
+			is applied to windows with text documents.</P>
+		<P><B>Remark 2</B>:</P>
+		<P>Information regarding regular expressions can be found <a href="http://scintilla.sourceforge.net/ScintillaDoc.html#Searching" target="_blank">
+				here</a> and <a href="http://scintilla.sourceforge.net/SciTERegEx.html" target="_blank">
+				here</a>.</P>
+		<P>Using a short excerpt of HTML code, the following example shows how you can 
+			search and replace with the help of regular expressions.</P>
+		<P>
+			&lt;img width=123 height="456" src="..."&gt;<br>
+			&lt;img width=456 height="789" src="..."&gt;<br>
+			&lt;img width=789 height="123" src="..."&gt;
+		</P>
+		<P>The task is to embed the numbers of the "width" attribute in apostrophes.</P>
+		<P>
+			Search: width=\([0-9]+\)<br>
+			Replace: width="\1"
+		</P>
+		<P>After applying the regular expression, the code excerpt looks as follows:</P>
+		<P>
+			&lt;img width=<B>"</B>123<B>"</B> height="456" src="..."&gt;<br>
+			&lt;img width=<B>"</B>456<B>"</B> height="789" src="..."&gt;<br>
+			&lt;img width=<B>"</B>789<B>"</B> height="123" src="..."&gt;
+		</P>
+	</BODY>
+</HTML>

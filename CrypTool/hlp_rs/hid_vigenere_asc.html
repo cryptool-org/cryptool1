@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Vigenère encryption algorithm</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Symmetric">
+	<PARAM NAME="Keyword" VALUE="Encryption">
+	<PARAM NAME="Keyword" VALUE="Vigenère encryption algorithm">
+</OBJECT>
+
+<BODY>
+
+<h3>Vigenère (Menu <A href="menu_crypt.html">Crypt/Decrypt</A> \ Symmetric (classic))</h3>
+
+<P>The Vigenère <!--ZZZPOPUP--><A href="verschluesselung.html">encryption algorithm</A> uses a <!--ZZZPOPUP--><A href="schluessel.html">key</A> that is several characters long. The Caesar encryption algorithm may be viewed as a special case of Vigenère encryption with a key of length 1, and conversely the Vigenère encryption algorithm can be thought of as a multiple use of a modified Caesar encryption operation.</P>
+
+<P>Characters that are not to be encrypted are of course ignored during encryption and decryption and do not have the effect of continuing the key on the next key letter either.</P>
+
+<P>As under the <A href="hid_rot13caesar_asc.html">Caesar encryption algorithm</A>, only letters from the alphabetic are <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> (the alphabet is selected in the <A href="hidd_text_options.html">Text Options</A> dialog). Characters which are not part of the alphabet are normally left out of the encrypted text, so that after <!--ZZZPOPUP--><A href="entschluesselung.html">decryption</A> these characters have to be inserted from the textual context. This applies to both punctuation characters and special characters (especially spaces between two words). The menu selection <A href="menu_options.html">Options</A> \ Text Options is used to specify whether punctuation and special characters should be retained during encryption and decryption.</P>
+
+<P>The <!--ZZZPOPUP--><A href="schluessel.html">key</A> for the Vigenère <!--ZZZPOPUP--><A href="verschluesselung.html">encryption algorithm</A> is entered in the <A href="hidd_key.html">Key entry</A> dialog.</P>
+
+<P><U>Example:</U></P>
+
+<P>In the 3-letter long key " KEY",</P>
+
+<UL>
+	<LI>the first letter of the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> is encrypted with "K",</LI>
+
+	<LI>the second with "E",</LI>
+
+	<LI>the third with "Y",</LI>
+
+	<LI>the fourth with "K" once again,</LI>
+
+	<LI>the fifth with "E" and so on.</LI>
+</UL>
+
+<P><U>Comment:</U></P>
+
+<P>In the literature, the Vigenère encryption algorithm is often described in terms of the Vigenère tableau rather than as a multiple use of the Caesar encryption algorithm, since this tableau was used as a manual tool for encryption and decryption earlier.</P>
+
+<P>In the classical Caesar procedure, the letter "A" means a shift of 1 character position, the letter "B" a shift of 2. In the Vigenère system on the other hand the shift is always one character less, i.e. no character for "A", one character for "B", two characters for "C", .... 25 characters for "Z". </P>
+
+<P>Under the Vigenère method, the plaintext and the encrypted text are identical when the key is "A" (and not "Z", as with the Caesar encryption algorithm).</P>
+
+<P>The Vigenère encryption algorithm can be broken relatively easily with a <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">ciphertext-only</A> attack (see <A href="hid_vigenere_auto.html">Automatic analysis, Vigenère encryption algorithm</A>). An <A href="szenarien_vigenere.html">example</A> of this will be found in the <A href="hid_hilfe_szenarien.html">Examples</A> chapter.</P>
+
+</BODY>
+</HTML>

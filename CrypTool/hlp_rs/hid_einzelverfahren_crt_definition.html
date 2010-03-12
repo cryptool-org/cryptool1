@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+	<HEAD>
+		<TITLE>Chinese Remainder Theorem (CRT)</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<BODY>
+		<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+			VIEWASTEXT>
+			<PARAM NAME="Keyword" VALUE="Chinese remainder theorem (CRT)">
+		</OBJECT>
+		<h3><P><A NAME="hid_einzelverfahren_crt_definition"></A><B> Chinese Remainder Theorem (CRT)</B></P>
+		</h3>
+		<P>The original form of the theorem, found in a book of&nbsp; the Chinese 
+			mathematician Sun Zi published in 100-300 a.c., is a statement about 
+			simultaneous congruences.</P>
+		<P>
+			<TABLE id="Table1" height="342" cellSpacing="1" cellPadding="1" width="672" bgColor="gray"
+				border="1">
+				<TR>
+					<TD bgColor="silver">
+						<P><STRONG> <B>Chinese Remainder Theorem</B></STRONG>
+						</P>
+						<P>Suppose m<SUB>1</SUB>, m<SUB>2</SUB>, ... , m<SUB>t</SUB> are positive integers 
+							which are pairwise coprime and&nbsp;a<SUB>1</SUB>, a<SUB>2</SUB>, ... , a<SUB>t</SUB>&nbsp;any 
+							given integers (a<SUB>i</SUB> &lt; m<SUB>i</SUB>, i = 1, ..., t).</P>
+						<P>Then exists an integer x solving the system of simultaneous congruences
+						</P>
+						<P align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+							x <EM>&#8801;</EM> a<SUB>1</SUB> <EM>mod </EM>m<SUB>1 </SUB>
+						</P>
+						<P align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+							x <EM>&#8801;</EM> a<SUB>2</SUB> <EM>mod</EM> m<SUB>2 </SUB>
+						</P>
+						<P align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</P>
+						<P align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+							x <EM>&#8801;</EM> a<SUB>t </SUB><EM>mod</EM> m<SUB>t </SUB>
+						</P>
+						<P>
+							which is unique&nbsp; <EM>mod </EM>M with M = m<SUB>1 </SUB>&#8729; m<SUB>2</SUB>
+							&#8729; … &#8729; m<SUB>t</SUB>.&nbsp;&nbsp;</P>
+					</TD>
+				</TR>
+			</TABLE>
+		</P>
+		<P>Furthermore, all solutions x&nbsp;+ k &#8729; M (k in Z) to this system are 
+			congruent modulo the product&nbsp;M.
+		</P>
+		<P><STRONG>A solution x can be found as follows:</STRONG></P>
+		<P>
+			For each i, the integers m<SUB>i </SUB>und M<SUB>i</SUB> := M / m<SUB>i </SUB>are 
+			coprime, and using the extended Euclidean algorithm we can find integers r and 
+			s such that
+		</P>
+		<P>r &#8729; m<SUB>i </SUB>+ s &#8729; M<SUB>i</SUB> = 1</P>
+		<P>is a representation of the greatest common divisor (gcd) of m<SUB>i </SUB>and M<SUB>i</SUB>.</P>
+		<P>s is&nbsp;the modular inverse&nbsp;from M<SUB>i </SUB>mod m<SUB>i </SUB>(s = M<SUB>i</SUB>
+			<SUP>-1</SUP> <EM>mod</EM> m<SUB>i</SUB>).
+		</P>
+		<P>If we set e<SUB>i</SUB> := s &#8729; M<SUB>i</SUB>, then we have
+		</P>
+		<P>e<SUB>i</SUB> <EM>&#8801;</EM> 1 <EM>mod</EM> m<SUB>i </SUB>
+		</P>
+		<P>e<SUB>i</SUB> <EM>&#8801;</EM> 0 <EM>mod</EM> m<SUB>j</SUB>, j &#8800; i
+		</P>
+		<P>and the integers&nbsp;e<SUB>1</SUB>,..., e<SUB>t</SUB> are called base.
+		</P>
+		<P>The solution to the system of simultaneous congruences is therefore x := a<SUB>1</SUB>e<SUB>1</SUB>+a<SUB>2</SUB>e<SUB>2</SUB>&nbsp;+...+ 
+			a<SUB>t</SUB>e<SUB>t</SUB>.
+		</P>
+		<P><STRONG>Example </STRONG>
+		</P>
+		<P>We consider the problem of finding an integer x such that</P>
+		<P>x <EM>&#8801; </EM>2 <EM>mod</EM> 3
+		</P>
+		<P>x <EM>&#8801; </EM>3 <EM>mod</EM> 5
+		</P>
+		<P>x <EM>&#8801;</EM> 2 <EM>mod</EM> 7
+		</P>
+		<P>We&nbsp;get M = 3 · 5 · 7 = 105,
+		</P>
+		<P>
+			M<SUB>1</SUB> = M/3 = 35,
+		</P>
+		<P>
+			M<SUB>2</SUB> = M/5 = 21,
+		</P>
+		<P>
+			M<SUB>3</SUB> = M/7 = 15.
+		</P>
+		<P>
+			Using the extended Euclidean algorithm we find integers r and s, so 
+			that&nbsp;&nbsp;m<SUB>i</SUB> · r + M<SUB>i</SUB> · s = 1 or respectively
+		</P>
+		<P>&nbsp;&nbsp;&nbsp;&nbsp; r · m<SUB>i </SUB>+ s · M<SUB>i</SUB> &nbsp; = 1:
+		</P>
+		<P>(-23) · 3 + 2 · 35 = 1, also e<SUB>1</SUB> = s · M<SUB>1 </SUB>=70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</P>
+		<P>&nbsp; (-4) · 5 + 1 · 21 = 1, also e<SUB>2</SUB> = s · M<SUB>2 </SUB>= 21
+		</P>
+		<P>&nbsp; (-2) · 7 + 1 · 15 = 1, also e<SUB>3 </SUB>= s · M<SUB>3 </SUB>
+		= 15
+		<P>
+		A solution x is therefore&nbsp; x = 2 · 70 + 3 · 21 + 2 · 15 = 233.
+		<P>All other solutions are congruent to 233 <EM>&#8801;</EM> 23 <EM>mod</EM> 105, 
+			which means that they are all congruent to 23 <EM>mod</EM> 105.</P>
+		<P>A practical demonstration&nbsp;of&nbsp; Chinese Remainder Theorem (CRT) is shown 
+			in the <A href="menu_individualprocedures_chineseremaindertheorem.html"><B>Applications of the Chinese Remainder 
+					Theorem (CRT)</B></A> related to the 3 topics <A href="hid_indiv_crt_planet.html">
+				Astronomy and Planetary Motion</A>,&nbsp;<A href="hid_indiv_crt_demo.html">Modular Forward and Backward Transformation</A>&nbsp;and
+			<A href="hid_indiv_crt_secretsharing.html">Secret Sharing by CRT</A>.
+		</P>
+	</BODY>
+</HTML>

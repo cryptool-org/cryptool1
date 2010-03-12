@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Dialog Modular Transformation</TITLE>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Modular transformation">
+	<PARAM NAME="Keyword" VALUE="Forward and backward transformation">
+	<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+	<PARAM NAME="Keyword" VALUE="Chinese remainder theorem (CRT)">
+</OBJECT>
+
+<BODY>
+
+		<a name="anfang"></a>
+		<h3><P><A NAME="hid_einzelverfahren_crt_transformation_dialog"></A><B> Dialog 
+					Modular&nbsp;transformation</B></P>
+		</h3>
+		<P>This dialog window can be reached via the menu entry <A href="menu_related_methods.html">Individual Procedures</A> \ 
+				<a href="menu_individualprocedures_chineseremaindertheorem.html">Applications of the Chinese Remainder Theorem (CRT)</a> \ <A href="hid_indiv_crt_demo.html">
+						Modular transformation</A>.</P>
+		<P>This dialog is supposed to help you understand the transformation of the normal 
+			number notation into the modular representation and backwards&nbsp;based on the <A href="hid_einzelverfahren_crt_definition.html">
+				Chinese Remainder Theorem (CRT)</A>.</P>
+		<P><STRONG>Procedure:</STRONG>
+		</P>
+		<P>
+			<IMG SRC="images/CrtTransformation1.gif" ALT="CrtTransformation1.gif" BORDER="0"><br>
+		</P>
+		<P>With radio buttons the user can select multiplication, addition or subtraction 
+			of two numbers A and B as mathematical operation. Default is multiplication.</P>
+		<P>
+			Let's&nbsp;look at a simple example by entering 23 as A and 41 as B.</P>
+		<P>
+			After that the user has to set the range of the numbers, that can be 
+			represented by the modular arithmetic using the modules m<SUB>1</SUB> · m<SUB>2</SUB>
+			· … · m<SUB>5. </SUB>The modules limit the range of the start numbers and the 
+			result.</P>
+		<P>The user either creates the modules&nbsp;automatically, or enters them manually.</P>
+		<UL>
+			<LI>
+				To&nbsp;automatically generate the modules enter the desired number and the 
+				range (lower and upper limit in the form 2^x). Clicking <b>Generate </b>transfers 
+				the modules to the input fields and activates the&nbsp;<STRONG>Solve</STRONG>
+			button.
+			<LI>
+				If the modules are entered <STRONG>manually</STRONG>, it is important that they 
+				are pairwise relatively prime (coprime) positive integers and larger than 1.</LI></UL>
+		<P>If the modules are not coprime then the user gets a message after clicking the 
+			button <b>Solve. </b>In this case the user has to enter a new module.</P>
+		<P>
+			<IMG SRC="images/CrtTransformation2.gif" ALT="CrtTransformation2.gif" BORDER="0"></P>
+		<P>If the result of a mathematical operation exceeds the representable range, which 
+			depends on the size of the modules, a message window informs the user.</P>
+		<P>
+			<IMG SRC="images/CrtTransformation3.gif" ALT="CrtTransformation3.gif" BORDER="0"></P>
+		<P>An example is the multiplication of 23 and 41. The result 943 exceeds the 
+			representable range if you select only the modules 11 and 10 [0, ..., 110-1].
+		</P>
+		<P>If the result&nbsp; of a mathematical operation is negative a message window 
+			informs the user.</P>
+		<P>
+			<IMG SRC="images/CrtTransformation6.gif" ALT="CrtTransformation6.gif" BORDER="0"></P>
+		<P>An example is the subtraction of 23 and 41. The result is -18 and smaller or 
+			less than 0.</P>
+		<P>Along with the two numbers A = 23 and B= 41 we choose three coprime modules 
+			manually:<br>
+			<br>
+			m<SUB>1</SUB> = 11, m<SUB>2</SUB> = 10, m<SUB>3</SUB> = 9.
+		</P>
+		<P>This allows us to represent every integer value between 0 and 989 (m<SUB>1</SUB>&#8729;m<SUB>2</SUB>&#8729;m<SUB>3</SUB>
+			- 1).</P>
+		<P>
+			<IMG SRC="images/CrtTransformation4.gif" ALT="CrtTransformation4.gif" BORDER="0"></P>
+		<P>After selecting the mathematical operation, entering the numbers A and B and 
+			entering the modules, we can click on <b>Solve</b> to start the visualization.</P>
+		<P><STRONG></STRONG>&nbsp;</P>
+		<P><STRONG><A name="Visualisierung"></A>Visualization:</STRONG></P>
+		<P>
+			<IMG SRC="images/CrtTransformation5.gif" ALT="CrtTransformation5.gif" BORDER="0"></P>
+		<P>The representable number range is shown on the output field below the module 
+			fields.</P>
+		<P>The visualization runs clockwise beginning at the CR-Arrow:</P>
+		<P>&nbsp;</P>
+		<P><u>1. The number notation is transformed into the modular representation (CR-Arrow).</u></P>
+		<P>The numbers A = 23 and B = 41 are mapped to their corresponding remainder 
+			triple.</P>
+		<P>23 mod 11 = 1,&nbsp; 23 mod 10 = 3 und&nbsp; 23 mod 9 = 5 as well as&nbsp;
+		</P>
+		<P>41 mod 11 = 8,&nbsp; 41 mod 10 = 1 und&nbsp; 41 mod 9 = 5.
+		</P>
+		<P>We get the triple&nbsp; (1, 3, 5) for the number 23 and (8, 1, 5) for the number 
+			41 displayed in the group <b>Modular representation.</b></P>
+		<P>
+		</P>
+		<P><u>2. The arithmetic operation is executed (f '-arrow)</u></P>
+		<P>Then the triples are multiplied with each other</P>
+		<P>(1 &#8729; 8) mod 11 = 8
+		</P>
+		<P>(3 &#8729; 1) mod 10 = 3
+		</P>
+		<P>(5 &#8729; 5) mod 9 = 7
+		</P>
+		<P>and we get the resulting triple (8, 3, 7) which is displayed in the group <b>Result 
+				of operation.</b></P>
+		<P><U></U>
+		</P>
+		<P><u>3. The base is computed (Base arrow)</u></P>
+		<P>The base is computed to take the result of the operation back to the number 
+			notation.</P>
+		<P>Here is M = 11 · 10 · 9 = 990, M<SUB>1 </SUB>= M/11 = 90, M<SUB>2</SUB> = M/10 = 
+			99, M<SUB>3</SUB> = M/9 = 110.
+		</P>
+		<P>
+			With the help of the extended Euclidean algorithm&nbsp;the inverse numbers M<SUB>i </SUB>
+			mod m<SUB>i </SUB>calculated e<SUB>i </SUB>equalies M<SUB>i</SUB><SUP>-1</SUP> mod 
+			m<SUB>i</SUB> [i = 1, 2, 3]. Theses are called the base words.</P>
+		<P>e<SUB>1</SUB> = 6 &#8729; 90 = 540
+		</P>
+		<P>e<SUB>2</SUB> = 9 &#8729; 99 = 891
+		</P>
+		<P>e<SUB>3 </SUB>= 5 &#8729; 110 = 550
+		</P>
+		<P>The base (540, 891, 550) is displayed in the group <b>Base calculation.</b></P>
+		<P><U></U>
+		</P>
+		<P><u>4. The result is transformed back to the number notation (CR-1-arrow)</u></P>
+		<P>By forming the dot product of the result vector with the base vector we can 
+			compute the value x.<br>
+			<br>
+			x = 8 &#8729; 540 + 3 &#8729; 891 + 7 &#8729; 550 mod 990. The calculation 
+			method is shown on the output field <b>Transformation back</b>.</P>
+		<P><U></U>
+		</P>
+		<P><u>5. The result in conventional value notation (f-arrow)</u></P>
+		<P>The Number x = 943 is displayed in the group <b>Result.</b></P>
+		<P>
+		</P>
+		<P>&nbsp;</P>
+		<P>By clicking on the <b>Reset</b> button on the dialog the user can clear all 
+			fields.</P>
+		<P>Clicking on <b>Exit </b>closes the dialog and leads back to CrypTool main 
+			window.</P>
+		<P>
+			<a href="#anfang">to the top</a></P>
+	</BODY>
+</HTML>

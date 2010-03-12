@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Automatic Analysis, Vigenère encryption algorithm</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Analysis">
+	<PARAM NAME="Keyword" VALUE="Vigenère encryption algorithm">
+</OBJECT>
+
+<BODY>
+
+<h3>Vigenère (Menu <A href="menu_analyze.html">Analysis</A> \ Symmetric Encryption (classic) \ Ciphertext-Only)</h3>
+
+<P>A <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">ciphertext-only attack</A> is available for the <A href="hid_vigenere_asc.html">Vigenère encryption algorithm</A> in the form of an automated key search.</P>
+
+<P>There are two stages in the analysis:</P>
+
+<P>First of all the <!--ZZZPOPUP--><A href="schluessellaenge.html">key length</A> used is worked out,</P>
+
+<P>and then the <!--ZZZPOPUP--><A href="schluessel.html">key</A> itself.</P>
+
+<P>The key length is calculated using <!--ZZZPOPUP--><A href="autokorrelation.html">autocorrelation</A>. Since not every character occurs equally often in natural language, the probability of two identical characters occurring is relatively large if they are separated by a multiple of the key length. Therefore in an autocorrelation analysis a typical comb formation is generated, in which the individual teeth are separated by exactly the length of the key. If automatic detection of the key length produces an incorrect result, it is possible to determine the key length manually.</P>
+
+<P>Once the key length has been worked out, the actual key used is calculated. This is done by performing a <A href="hid_caesar_auto.html">Caesar automatic analysis</A> for every character of the key. The key which CrypTool comes up with can be overwritten manually.</P>
+
+<P>In the <A href="hidd_options_analysis.html">Options for automatic analysis</A> dialog it is possible to specify which and how many intermediate results should be displayed in separate windows. The <!--ZZZPOPUP--><A href="schluessellaenge.html">key length</A> is displayed in the <A href="hidd_keylength.html">Automatic Vigenère Analysis</A> dialog and the key in the <A href="hidd_key_analysis.html">Automatic Analysis</A> dialog. If the user clicks on <B>Cancel</B> instead of <B>OK</B> when viewing one of these intermediate results, no more of these windows or subordinate windows will appear. If, for example, all the items in the option field are selected, the analysis of the individual <A href="hid_rot13caesar_asc.html">Caesar encryption operations</A> is also performed in detail. On the other hand, if the user clicks on <B>Cancel</B> between the distributions in the Autocorrelation dialog during the second Caesar encryption, the window will no longer be displayed from the third Caesar encryption. If the user now clicks on <B>Cancel</B> during the fourth Caesar encryption in the <A href="hidr_plottype.html">Histogram</A> window, then this too will no longer be shown during subsequent <!--ZZZPOPUP--><A href="verschluesselung.html">encryption</A> operations.</P>
+
+<P>It is possible for one or more parts of the key to be incorrectly calculated.</P>
+
+<P>In the <A href="hid_hilfe_szenarien.html">Examples</A> chapter there is an <A href="szenarien_vigenere.html">example</A> of an <A href="angriffe.html">attack</A> on the <!--ZZZPOPUP--><A href="verschluesselung.html">encryption algorithm</A>.</P>
+
+<P><U>Conditions which the document must satisfy for a successful attack</U></P>
+
+<P>The key will normally be found if the <!--ZZZPOPUP--><A href="dokument.html">document</A></P>
+
+<P>is not too short (at least around 20 characters per character in the key, e.g. at least approx. 80 characters for the key<CODE> TEST</CODE>),</P>
+
+<P>contains German text in which the character frequency distribution is normal.</P>
+
+<P>The second condition means, for example, that it is not possible to calculate the key for a plaintext </P>
+
+<div class="indent">
+
+<PRE><CODE>qw yx as qw yx as qw yx as qw yx as qw yx as, </CODE></PRE>
+
+</div>
+
+<P>even though there are sufficient characters.</P>
+
+<P>The two above conditions are normally satisfied if the plaintext consists of German words.</P>
+
+<P>However, it may occasionally still be possible to find the key even with a very short text.</P>
+
+</BODY>
+</HTML>

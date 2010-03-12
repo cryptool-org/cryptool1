@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Scenario Challenge-response (asymmetric)</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Challenge-response demonstration">
+	<PARAM NAME="Keyword" VALUE="Network authentication">
+	<PARAM NAME="Keyword" VALUE="Examples / Scenarios">
+	<PARAM NAME="Keyword" VALUE="Scenarios / Demonstrations">
+</OBJECT>
+
+<BODY>
+
+<H3>Scenario Challenge-Response (asymmetric)</H3>
+
+<P>You can also carry out challenge-response method with an asymmetric encryption method. So great exertion to secure exchange for every client server pair can be avoided.</P>
+
+<P>Categorical there are two alternatives, but furthermore only the first will be treated:</P>
+
+<OL>
+	<LI>For authentication the server sends a Challenge (random number) to the client, who signs it with his secret key and then sends the result back to the server. Now everyone, knowing the client´s public key, so as well the server, can verify the Response, viz verify that the challenge was signed by the use of the client´s private key, which only he owns.<BR><BR></LI>
+
+	<LI>For authentication the server sends a Challenge to the client, consisting of a random number encrypted by the use of the client´s public key. The client decrypts the challenge by the use of his private key and returns the result (the random number) to the server. Now the server can verify if the received random numbers equals the sent one. Do they match, the server can be sure it was sent from the client, because only he has the private key to decrypt the challenge. Thus, that alternative expects true random numbers, to prevent an attackers guess the response. Because of that the first alternative is preferred in most cases.</LI>
+</OL>
+
+<P>Your task as attacker is, again, to find acceptance by Server 1 as Client. This time there is a very special solution. If you fail to find one you can get one <A href="hid_cr_sol_crasymmetric.html">here</A>.</P>
+
+<P><A href="hid_cr_sol_crasymmetric.html">To Solution</A></P>
+
+</BODY>
+</HTML>

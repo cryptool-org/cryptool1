@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Example illustrating encryption using binary addition</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+	
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Byte addition">
+	<PARAM NAME="Keyword" VALUE="Encryption">
+	<PARAM NAME="Keyword" VALUE="Examples / Scenarios">	
+	<PARAM NAME="Keyword" VALUE="Scenarios / Demonstrations">
+</OBJECT>
+
+
+<BODY>
+
+<h3>Example illustrating encryption using binary addition</h3>
+					
+		<P>This section provides an <A href="hid_hilfe_szenarien.html">example</A> illustrating 
+			the use of <A href="hid_add_bin.html">binary addition</A> for <!--ZZZPOPUP--><A href="verschluesselung.html">encryption</A>. 
+			To make it easier to follow the steps that need to be performed with <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>, 
+			the example is illustrated with a number of screenshots.</P>
+		<P>A <U>text </U><!--ZZZPOPUP--><A href="dokument.html">document</A> will be used 
+			to illustrate <!--ZZZPOPUP--><A href="verschluesselung.html">encryption</A> through
+			<A href="hid_add_bin.html">binary addition</A> and a <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">Ciphertext 
+				Only attack</A> on this method. It will be shown that with many encrypted <!--ZZZPOPUP--><A href="dokument.html">documents</A>
+			it is easy to work out the <!--ZZZPOPUP--><A href="schluessel.html">key</A> and 
+			hence the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> as well. 
+			However, if the plaintext is <A href="hid_zip.html">compressed</A> prior to 
+			encryption, the key and the plaintext cannot be worked out directly with 
+			CrypTool as the <!--ZZZPOPUP--><A href="histogramm.html">frequencies</A> of the 
+			individual characters prior to encryption (but after compressing) are not 
+			known. On the other hand, certain properties of uncompressed documents, such as 
+			texts, are known and can therefore be utilised in the analysis.</P>
+		<P>The example presented here functions in a manner similar to a binary document 
+			containing, for example, a graphic image (in contrast to the text document used 
+			in this example). In an <A href="szenarien_xor.html">example illustrating 
+				encryption using the Exclusive-OR</A>, the steps performed are similar to 
+			those described here except that the file that is encrypted is a graphic image 
+			in the form of a bitmap, i.e. a binary document.</P>
+		<P>First of all we load part of the CrypTool Help text entitled ”Introduction to 
+			CrypTool”, which will be found in the <CODE>CrypTool-en.txt</CODE> <!--ZZZPOPUP--><A href="datei.html">file</A>. 
+			To open this <!--ZZZPOPUP--><A href="dokument.html">document</A> in CrypTool, 
+			select <A href="menu_file.html">File</A> \ <A href="hid_file_open.html">Open</A>.</P>
+		<P><IMG SRC="images/szenarioadd1.gif" ALT="szenarioadd1.gif" BORDER="0"></P>
+		<P>Before the <!--ZZZPOPUP--><A href="dokument.html">document</A> is <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A>, 
+			let us examine the frequency distribution of the characters as presented in the 
+			form of a <!--ZZZPOPUP--><A href="histogramm.html">histogram</A>. Select <A href="menu_analyze.html">
+				Analysis</A> <A href="hid_histogram.html">\ General \ Histogram</A>).</P>
+		<P><IMG SRC="images/szenarioadd2.gif" ALT="szenarioadd2.gif" BORDER="0"></P>
+		<P>One can see from the histogram that the character which occurs most frequently 
+			is the letter <CODE>E</CODE>. This is true of many German and English texts. 
+			This information will be utilised later on during our attack.</P>
+		<P>First of all, make the <!--ZZZPOPUP--><A href="dokument.html">text document</A> the 
+			active window again by clicking on it with the mouse. To now <!--ZZZPOPUP--><A href="verschluesselung.html">encrypt</A>
+			the <!--ZZZPOPUP--><A href="dokument.html">document</A> using binary addition, 
+			select <A href="menu_crypt.html">Crypt/Decrypt</A> \ Symmetric (classic) \ 
+			Addition. Now enter <CODE>12</CODE> <CODE>34</CODE> <CODE>AB</CODE> <CODE>CD</CODE>
+			into the dialog box which opens as the <!--ZZZPOPUP--><A href="schluessel.html">key</A>.</P>
+		<P><IMG SRC="images/szenarioadd3.gif" ALT="szenarioadd3.gif" BORDER="0"></P>
+		<P>Click the<B>Encrypt </B>button, and a new window opens containing the <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> <!--ZZZPOPUP--><A href="dokument.html">document</A>.</P>
+		<P><IMG SRC="images/szenarioadd4.gif" ALT="szenarioadd4.gif" BORDER="0"></P>
+		<P>A <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">ciphertext-only attack</A> 
+			will now be performed. To do this, with the <!--ZZZPOPUP--><A href="dokument.html">document</A> <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A>
+			in the last step as the active window, select <A href="menu_analyze.html">Analysis 
+				\ Ciphertext-Only</A> <A href="hid_add_auto.html">\ Addition</A>, and the <!--ZZZPOPUP--><A href="autokorrelation.html">autocorrelation</A>
+			will be calculated and displayed.</P>
+		<P><IMG SRC="images/szenarioadd5.gif" ALT="szenarioadd5.gif" BORDER="0"></P>
+		<P>Following a click on the <B>OK</B> button the <A href="hidd_bin_keylength.html">Automatic 
+				Analysis</A> dialog box appears, in which we are told that the <!--ZZZPOPUP--><A href="schluessellaenge.html">key 
+				length</A> is calculated to be <CODE>4</CODE>. As we saw at the beginning, 
+			the commonest character is the letter <CODE>E</CODE>. The hexadecimal value of <CODE>
+				E</CODE> is <CODE>45</CODE> (see <A href="ascii.html">ASCII Table</A>). If, 
+			however, we return briefly to the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A>, 
+			we notice that the character which occurs most frequently is not the upper case 
+			letter <CODE>E</CODE>, but the lower case letter <CODE>e.</CODE> In most texts, 
+			the lower case letter <CODE>e</CODE> is the character which occurs most 
+			frequently. In shorter texts it could also be the space, which has a 
+			hexadecimal value of <CODE>20</CODE>. The hexadecimal value of <CODE>e</CODE> is
+			<CODE>65</CODE>. This we enter into the <B>Expected most common character</B> field 
+			in the Automatic Analysis dialog box.</P>
+		<P><IMG SRC="images/szenarioadd6.gif" ALT="szenarioadd6.gif" BORDER="0"></P>
+		<P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> has been able to find the <!--ZZZPOPUP--><A href="schluessel.html">key</A>, 
+			as can be seen from the next box. The only information that was needed to do 
+			this was the fact that the character which occurred most frequently in the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A>
+			was the lower case letter <CODE>e</CODE>.</P>
+		<P><IMG SRC="images/szenarioadd7.gif" ALT="szenarioadd7.gif" BORDER="0"></P>
+		<P>A click on the <B>OK</B> button produces a new window containing the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A>.</P>
+		<P><IMG SRC="images/szenarioadd8.gif" ALT="szenarioadd8.gif" BORDER="0"></P>
+		<P>The <!--ZZZPOPUP--><A href="schluessel.html">key</A> <CODE>12</CODE> <CODE>34</CODE>
+			<CODE>AB</CODE> <CODE>CD</CODE>, with which the <!--ZZZPOPUP--><A href="dokument.html">text 
+				document</A> was originally <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A>, 
+			is displayed in the window title bar.</P>
+		<P>In this case it was no problem for <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>
+			to work out the key and hence the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A>
+			version of an encrypted document as we did have some information about the 
+			encrypted document, namely that it contained text. We also knew that the lower 
+			case letter <CODE>e</CODE> is often the character that occurs most frequently 
+			in textual documents.</P>
+		<P>But if the text is <A href="hid_zip.html">compressed</A> prior to encryption 
+			then we will not be able to draw any conclusions from the frequency 
+			distribution of the characters in the text about the frequency distribution of 
+			the compressed text, since the compression process not only reduces the size of 
+			a file but alters the frequencies of the individual characters so that they no 
+			longer reflect the frequencies of the characters in the original text. This 
+			means that we do not know the commonest character and cannot help <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>
+			with the analysis.</P>
+		<P>To compress the document, it must be made the active window again.</P>
+		<P><IMG SRC="images/szenarioadd1.gif" ALT="szenarioadd1.gif" BORDER="0"></P>
+		<P>It can now be compressed by selecting the menu option <A href="menu_individualprocedures_compress.html">
+				Compress</A><A href="hid_zip.html"> \ Zip</A>.</P>
+		<P><IMG SRC="images/szenarioadd19.gif" ALT="szenarioadd19.gif" BORDER="0"></P>
+		<P>The rate of compression is displayed, following which the <A href="hid_zip.html">compressed</A> <!--ZZZPOPUP--><A href="dokument.html">document</A>
+			is shown.</P>
+		<P><IMG SRC="images/szenarioadd9.gif" ALT="szenarioadd9.gif" BORDER="0"></P>
+		<P>For this <!--ZZZPOPUP--><A href="dokument.html">document</A> too, let us first 
+			take a look at the <!--ZZZPOPUP--><A href="histogramm.html">histogram</A> (<A href="menu_analyze.html">Analysis 
+				\ General</A> <A href="hid_histogram.html">\ Histogram</A>).</P>
+		<P><IMG SRC="images/szenarioadd10.gif" ALT="szenarioadd10.gif" BORDER="0"></P>
+		<P>One can see immediately that the <A href="hid_zip.html">compression</A> process 
+			produces a quite different <!--ZZZPOPUP--><A href="histogramm.html">histogram</A>
+			profile from the one previously obtained for the uncompressed <!--ZZZPOPUP--><A href="dokument.html">document</A>. 
+			The characters are much more evenly distributed than in the <!--ZZZPOPUP--><A href="verschluesselung.html">unencrypted</A>
+			document.</P>
+		<P>While it is possible to attempt to analyze an <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A>, 
+			compressed document, because we do not know which character occurs most 
+			frequently in a compressed document, we cannot provide <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>
+			with any help during the analysis and must therefore use the default value of <CODE>
+				00</CODE> as the character which occurs most frequently.</P>
+		<P>Make the compressed document the active window once again and then encrypt it, 
+			using the same <!--ZZZPOPUP--><A href="schluessel.html">key</A> as before: <CODE>12</CODE>
+			<CODE>34</CODE> <CODE>AB</CODE> <CODE>CD</CODE>.</P>
+		<P><IMG SRC="images/szenarioadd3.gif" ALT="szenarioadd3.gif" BORDER="0"></P>
+		<P>Following input of the <!--ZZZPOPUP--><A href="schluessel.html">key</A> and a 
+			click on the <B>OK</B> button, the window with the <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> <!--ZZZPOPUP--><A href="dokument.html">document</A>
+			appears as usual.</P>
+		<P><IMG SRC="images/szenarioadd11.gif" ALT="szenarioadd11.gif" BORDER="0"></P>
+		<P>We now invoke the Analysis function again and see that the autocorrelation 
+			process has not been as accurate as before in its estimate of the length of the  <!--ZZZPOPUP--><A href="schluessel.html">key</A>
+			as before.</P>
+		<P><IMG SRC="images/szenarioadd12.gif" ALT="szenarioadd12.gif" BORDER="0"></P>
+		<P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> in fact returns an incorrect  <!--ZZZPOPUP--><A href="schluessellaenge.html">key 
+				length</A> of <CODE>34</CODE>.</P>
+		<P><IMG SRC="images/szenarioadd13.gif" ALT="szenarioadd13.gif" BORDER="0"></P>
+		<P>Given this key length, it is not possible to find the correct <!--ZZZPOPUP--><A href="schluessel.html">key</A>
+			either.</P>
+		<P><IMG SRC="images/szenarioadd14.gif" ALT="szenarioadd14.gif" BORDER="0"></P>
+		<P>A mouse click on the <B>OK</B> button produces a display, incorrect of course, 
+			of the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A><!--ZZZPOPUP--><A href="dokument.html">
+				document</A>. This document bears no similarity with the original <A href="hid_zip.html">
+				compressed</A>, but <!--ZZZPOPUP--><A href="verschluesselung.html">unencrypted</A>
+			document.</P>
+		<P><IMG SRC="images/szenarioadd15.gif" ALT="szenarioadd15.gif" BORDER="0"></P>
+		<P>Finally, we would like to check whether it is possible to arrive at a readable 
+			version of the text <!--ZZZPOPUP--><A href="dokument.html">document</A> from 
+			the compressed and then <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> <!--ZZZPOPUP--><A href="dokument.html">document</A>. 
+			To do this we need to know the <!--ZZZPOPUP--><A href="schluessel.html">key</A> 
+			with which the document was encrypted (<CODE>12</CODE> <CODE>34</CODE> <CODE>AB</CODE>
+			<CODE>CD</CODE>) and the encryption algorithm (<A href="hid_add_bin.html">binary 
+				addition</A>). First of all we make the compressed, encrypted document the 
+			active window again.</P>
+		<P><IMG SRC="images/szenarioadd11.gif" ALT="szenarioadd11.gif" BORDER="0"></P>
+		<P>We now <!--ZZZPOPUP--><A href="entschluesselung.html">decrypt</A> the <!--ZZZPOPUP--><A href="dokument.html">document</A>
+			with the known <!--ZZZPOPUP--><A href="schluessel.html">key</A>. Make sure you 
+			select the <B>Decrypt</B> option in the dialog box i.e. so that there is a 
+			dot in the radial button to the left the field. This is achieved by clicking on 
+			the field.</P>
+		<P><IMG SRC="images/szenarioadd18.gif" ALT="szenarioadd18.gif" BORDER="0"></P>
+		<P>Clicking the <B>OK</B> button produces the <!--ZZZPOPUP--><A href="verschluesselung.html">unencrypted</A>, 
+			but still <A href="hid_zip.html">compressed</A> <!--ZZZPOPUP--><A href="dokument.html">document</A>.</P>
+		<P><IMG SRC="images/szenarioadd16.gif" ALT="szenarioadd16.gif" BORDER="0"></P>
+		<P>The document can now be <A href="hid_unzip.html">decompressed</A> by selecting <A href="menu_individualprocedures_compress.html">
+				Compress</A><A href="hid_unzip.html"> \ UnZip</A>, and the original text is 
+			displayed once more.</P>
+		<P><IMG SRC="images/szenarioadd17.gif" ALT="szenarioadd17.gif" BORDER="0"></P>
+	</BODY>
+</HTML>

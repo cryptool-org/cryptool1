@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog Attack on small secret keys</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="RSA encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Lattice reduction">
+	<PARAM NAME="Keyword" VALUE="Attacks">
+	<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+</OBJECT>
+
+<BODY>
+
+<h3>Dialog Attack on Small Secret Keys</h3>
+
+<P>You can reach this dialog via the menu entry 
+<A href="menu_related_methods.html">Individual Procedures</A> \ 
+<A href="menu_individualprocedures_rsacryptosystem.html">RSA Cryptosystem</A> \ 
+<A href="menu_individualprocedures_rsacryptosystem_latticebasedattacks.html">Lattice Based Attacks on RSA</A> \ <a href="HID_RSA_BLOEMERMAY.html">Attack on small secret Keys</a>.</P>
+
+<p>The user has the choice between two modes of <a href="hid_rsa_bloemermay.html">attack 
+  on small secret keys</a>: <br>
+  <strong>1. Enter all input data and start the attack</strong><br>
+  The user enters the values for <font face="Times New Roman, Times, serif"><strong>e</strong></font> 
+  and <font face="Times New Roman, Times, serif"><strong>N</strong></font> and 
+  estimates the value for d according to delta. <br>
+  <strong>2. Generate sample input data and start the attack</strong><br>
+  The user chooses the bit length of <font face="Times New Roman, Times, serif"><strong>N</strong></font> 
+  and the wanted <font face="Times New Roman, Times, serif"><strong>delta</strong></font> 
+  to have a sample created by the program. </p>
+<h4><strong>1. Enter all input data and start the attack</strong></h4>
+<h4><img src="images/RSA_Bloemer_May_EN.gif" width="743" height="702"></h4>
+<ol>
+  <li> First of all <font face="Times New Roman, Times, serif"><strong>N</strong></font> 
+    and <font face="Times New Roman, Times, serif"><strong>e</strong></font> have 
+    to be entered.</li>
+  <li>Then the estimation for <font face="Times New Roman, Times, serif"><strong>delta</strong></font> 
+    has to be added. If you choose to enter <font face="Times New Roman, Times, serif"><strong>d</strong></font> 
+    directly, <font face="Times New Roman, Times, serif"><strong>delta</strong></font> 
+    will be calculated. This step is not mandatory to perform the attack but leaves 
+    you with the option to check whether the key in use is vulnerable to attack.</li>
+  <li>Now the attack can commence by clicking on “Start.”</li>
+</ol>
+<p>In the “Attack” group information on the current attack are shown and in case 
+  of success the factors <font face="Times New Roman, Times, serif"><strong>p</strong></font> 
+  and <font face="Times New Roman, Times, serif"><strong>q </strong></font> are 
+  displayed. </p>
+<h4>Example</h4>
+<p> The attacker enters <font face="Times New Roman, Times, serif"><strong>e=741077250369232479059668207375016571081542804590833038433249892326787378484956638636330841 
+  </strong></font> and <font face="Times New Roman, Times, serif"><strong>N=1259723741173449567548189641230786965150346729930314335887552587458506570619692703188420329 
+  </strong></font> and estimates the size of <font face="Times New Roman, Times, serif"><strong>d</strong></font> 
+  with <font face="Times New Roman, Times, serif"><strong>delta=0.260</strong></font>. 
+  <br>
+</p>
+<p><strong>2. Generate sample input data and start the attack</strong></p>
+<p>To generate your own example you have to choose the bit length of <font face="Times New Roman, Times, serif"><strong>N</strong></font> 
+  (i.e. 300) and a delta (i.e. 0.260). After clicking <em>“Generate random key”</em> 
+  the attack can be started by clicking <em>&quot;Start&quot;</em>.</p>
+<h4>Annotations</h4>
+<p>In both cases the parameter <font face="Times New Roman, Times, serif"><strong>m</strong></font> 
+  can be changed. <font face="Times New Roman, Times, serif"><strong>m</strong></font> 
+  influences the dimension of the lattice and should not be chosen to be too big 
+  since an increase in the number negatively influences the runtime of the program. 
+  It depends on <font face="Times New Roman, Times, serif"><strong>m</strong></font> 
+  to which size delta can be chosen so that the attack can succeed. The calculation 
+  of the maximum <font face="Times New Roman, Times, serif"><strong>delta</strong></font> 
+  is not exact for small <font face="Times New Roman, Times, serif"><strong>N</strong></font> 
+  (<font face="Times New Roman, Times, serif"><strong>N</strong></font> &lt;1000 
+  bit), so the chosen <font face="Times New Roman, Times, serif"><strong>delta</strong></font> 
+  should be approximately 0.05 less than the maximum value of <font face="Times New Roman, Times, serif"><strong>delta</strong></font>. 
+  The formula used to calculate <font face="Times New Roman, Times, serif"><strong>delta</strong></font> 
+  is:<br>
+</p>
+<div align="center" 
+	style="margin-top:5px; 
+	margin-bottom:5px"><img src="images/RSA_Bloemer_May_delta.gif" width="418" height="55"> 
+</div>
+
+  
+<p>Here the root of an equation in two unknowns has to be found. To do so, two 
+  short vectors are used and two polynomials are build. These two polynomials 
+  do not necessarily reveal the sought root. For that reason this attack has to 
+  be considered as a heuristic. From the found polynomials the resultant is built. 
+  That means that from two polynomials in two unknown a new polynomial in one 
+  unknown is created.</p>
+
+</BODY>
+</HTML>

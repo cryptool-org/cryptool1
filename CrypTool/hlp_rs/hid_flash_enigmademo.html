@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Visualization of the Enigma machine using Flash</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Enigma">
+</OBJECT>
+
+<BODY>
+
+<h3>Enigma (Menu <a href="menu_related_methods.html">Individual Procedures</a> \ Visualization of Algorithms)</h3>
+
+<P>The Enigma was a cipher machine, used in big numbers in World War 2 to encrypt and decrypt messages of the German army. Over the years there were many variants: Mostly widespread was the standard Enigma machine "Enigma I", which was applied by the Wehrmacht from 1930.</P>
+
+<P>Historically the Enigma and its decipherment were very important: Polish and British cryptanalysts deciphered it, which critically influenced the course of war for the benefit of the allies. The project Ultra, which performed the decipherment, had the utmost secrecy; and probably never than then was put more effort in the cracking of a single encryption system. By the end of World War 2, Bletchley Park employed 10,000 people working round the clock shifts.</P>
+
+<P>By 1945 almost all German Enigma messages from Wehrmacht, Kriegsmarine, Luftwaffe, Abwehr, SS, etc. could be decrypted within a day or two, yet the Germans remained confident of its security.</P>
+
+<P>The visualization of Frank Spiess simulates the standard Enigma machine with 3 rotors of the German Wehrmacht.</P>
+
+<P>This visualization shows for each entered cleartext letter, which way led to the appropriate ciphertext letter by the given circuits.</P>
+
+<IMG src="images/Label-enigma.jpg" alt="Label-enigma.jpg" width="91%">
+
+<P>For further links please see literature about <a href="literatur.html#enigma">Enigma</a> or Wikipedia:<br><a href="http://de.wikipedia.org/wiki/Enigma_(Maschine)">http://de.wikipedia.org/wiki/Enigma_(Maschine)</a><br><a href="http://en.wikipedia.org/wiki/Enigma_machine">http://en.wikipedia.org/wiki/Enigma_mchine</a></P>
+
+<br><P><B>Remark 1: Components of the Enigma and the According Parts in the Visualization Mask</B></P>
+
+<P>The Enigma consisted of an entry unit (keyboard) and of an output unit (lamps which showed the ciphertext letter / lampboard). They only could handle the 26 letters of the alphabet, and only letter by letter.</P>
+
+<P>Between input and output unit there were 5 components, which did the enciphering:</P>
+
+<UL>
+<LI>1 plugboard,</LI>
+<LI>3 discs (also called rotors, or German Walzen) in order, which were used from the right to the left and which rotated to the left), and</LI>
+<LI>1 reflector.</LI>
+</UL>
+
+<P>The wiring (permutation) of the alphabet in reflector and each rotor was fixed. At the beginning the rotors were not known to the allies.</P>
+
+<P>The wiring of the plugboard could be changed dynamically (with up to 13 connections to swap).</P>
+
+<P>Furthermore there were 5 rotors (each with a fixed, but different alphabet permutation), from which any 3 had to be chosen.</P>
+
+<P>The following picture shows a sample text to be decrypted.</P>
+
+<IMG src="images/Enigma-Flash-sample1.png" alt="Enigma-Flash-sample1.png" width="91%">
+
+<P>So the key consisted of the following set, which was published in code books:</P>
+
+<UL>
+<LI>symmetric starting permutation at the plugboard ((e.g. B for L, L for B)</LI>
+<LI>which rotors were used from right to left and what was each starting position (e.g. use rotors I,IV,III with the according starting positions R, I, U).</LI>
+</UL>
+
+<br><P><B>Remark 2: Number of Keys</B></P>
+
+<P>If the wiring is secret, the total number of possible configurations has been calculated to be around 10^114 (approximately 380 bits); with known wiring and other operational constraints (e.g. A was never moved to A), this is reduced to around 10^23 (76 bits).</P>
+
+<P>Users of Enigma then were confident of its security because of the large number of possibilities (they believed that it was unfeasible for an adversary to try every possible configuration in a <a href="bruteforce.html">brute-force attack</a>).</P>
+
+
+
+<br><P><B>Remark Successor Version CrypTool 2 (CT2):</B></P>
+
+<P>Using CT2 you cannot only visualize how a 3-rotor Enigma works,
+but you also can efficiently encrypt and decrypt messages with different types of Enigma cipher machines.
+<br>Additionally CT2 offers the possibility to perform a distributed cryptanalysis of an Enigma ciphertext.
+</P>
+
+
+</BODY>
+</HTML>
+

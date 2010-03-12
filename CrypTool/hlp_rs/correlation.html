@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Correlation</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Correlation">
+	<PARAM NAME="Keyword" VALUE="Statistics">
+</OBJECT>
+
+<BODY>
+
+<h3>Correlation</h3>
+
+<P>The correlation is a quantitative measure to describes coherences. The correlation analysis considers <B>criterias</B> (e.g. experimental results) and measures - based on a <B>hypothesis</B> - their connection properties. </P>
+
+<P>The quality of the correspondence between criterias and the considered hypothesis is characterised by the <B>correlation coefficient</B>. </P>
+
+<P>The correlation coefficient r is a number of the range -1 and +1. In the case r is near by +1 (r is near by -1) then there is a good connection between the criterias and the hyptothesis (between the criterias and and the "reverse" hypothesis). </P>
+
+<P>If r is near by 0 it is suggested that the criterias are "non correlated" to the hypothesis.</P>
+
+<P>The statistical cryptanalysis is searching for a hypothesis that has a maximum correlation. </P>
+
+<P><B>Example.</B> Correlation analysis to determine a Caesar encryption key:</P>
+
+<P>At the first step of the Caesar analysis the histograms of the ciphertext and of a reference text are determined (you may define the reference file via menu <B>Options \ <A href="hid_opttext.html">Text Options</A></B>). The main hypothesis is that the histograms of the decrypted ciphertext and the reference text are equal.</P>
+
+<P>Based on this hypothesis the following key hypotheses are derived: the Caesar key is the letter "A", the Caesar key is the letter "B", etc. The key hypothesis with the best correlation is the output of the Caesar analysis:</P>
+
+<P><IMG SRC="images/examplecorrelation.gif" ALT="examplecorrelation.gif" BORDER=0></P>
+
+<P>In this example the letter "J" is the result of the Caesar analysis. </P>
+
+</BODY>
+</HTML>

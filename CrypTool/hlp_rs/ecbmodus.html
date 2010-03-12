@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>ECB mode</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="ECB mode">
+	<PARAM NAME="Keyword" VALUE="Symmetric">
+	<PARAM NAME="Keyword" VALUE="Encryption">
+</OBJECT>
+
+<BODY>
+
+<h3>ECB mode</h3>
+
+<P>ECB stands for <B>E</B>lectronic <B>C</B>ode<B>b</B>ook.</P>
+
+<P>One plaintext block is <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> after the other. As identical plaintext blocks (with the same <!--ZZZPOPUP--><A href="schluessel.html">key</A>) are also always mapped to identical blocks of ciphertext, one could (theoretically) create a code book with plaintext blocks and the associated blocks of encrypted text (hence the name ECB). However, with a block size of 64 bits the code book would have 2 to the power of 64 = 2 * 2 *... * 2 (64 two‚s) = 18,446,744,073,709,551,616 entries and hence far too many to calculate and store in advance. Moreover, for every key there would be a different code book.</P>
+
+<P>In the <A href="cbcmodus.html">CBC mode</A>, every <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> block is dependent on the previous blocks.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog Keyed-Hash Message Authentication Code (HMAC)</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+       <PARAM NAME="Keyword" VALUE="Keyed-hash message authentication code (HMAC)">
+       <PARAM NAME="Keyword" VALUE="Hash function">
+       <PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+</OBJECT>
+
+<BODY>
+
+<h3>Dialog Keyed-Hash Message Authentication Code (HMAC)</h3>
+
+<P>You can reach this dialog via the menu entry <a href="menu_related_methods.html">Individual Procedures</a> \ <a href="menu_individualprocedures_hashprocedures.html">Hash</a> \ <A href="hid_generate_macs.html">Generation of HMACs</A>.</P>
+
+<P><IMG SRC="images/hmacdialog.gif" ALT="hmacdialog.gif" BORDER=0></P>
+
+<P>With this dialog you can generate the keyed-hash message authentication code (HMAC) of the currently opened document. The generated HMAC is displayed in hexadecimal notation.</P>
+
+<P>You can choose one of the following <A href="hashfunktion.html">hash functions</A>: MD2, MD4, MD5, SHA, SHA-1, SHA-256, SHA-512 and RIPEMD-160.</P>
+
+<P>CrypTool contains five HMAC variants (H = hash function, k = key, m = message):</P>
+<ol>
+  <li>H ( k, m )</li>
+  <li>H ( m, k )</li>
+  <li>H ( k, m, k )</li>
+  <li>H ( k, m, k' )</li>
+  <li>H ( k , H (k, m) )</li>
+ </ol>
+ 
+<P>The secret key used for the HMAC generation can be specified in the respective input box. Additionally, one out of five combinations (HMAC variants) of document and key can be chosen. The variable m refers to the message, k and H refer to the key and the hash function, respectively.</P>
+
+<P>The first combination is called "Secret Prefix Method", the second combination is called "Secret Suffix Method". The third and fourth combination are called "Envelope Method" using one or two keys, respectively. Only variant five is specified by a standard (RFC 2104, FIPS PUB 198). This HMAC is calculated via: H ( k XOR opad, H(k XOR ipad, m) )  where ipad = 64 bytes each 0x36, opad = 64 bytes each 0x5C.  If the key k is longer than the block length of the hash function, then k will be substituted by H(k). [See Menezes, van Oorschot, Vanstone: <a href="literatur.html">Handbook of Applied Cryptography</a>]</P>
+    
+<P>
+All hash functions used here are implemented with <A HREF="cryptolibraries.html">OpenSSL</A>.
+</P>
+
+<P><B>Remark:</B></P>
+
+<P>Please note that this demonstration is available for text documents only, and the text length is restricted to 16,000 bytes. Further bytes do not affect the generated HMAC.</P>
+
+</BODY>
+</HTML>

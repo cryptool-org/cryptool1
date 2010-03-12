@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Scenario Mutual authentication</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Challenge-response demonstration">
+	<PARAM NAME="Keyword" VALUE="Network authentication">
+	<PARAM NAME="Keyword" VALUE="Examples / Scenarios">
+	<PARAM NAME="Keyword" VALUE="Scenarios / Demonstrations">
+</OBJECT>
+
+<BODY>
+
+<H1>Scenario Mutual Authentication</H1>
+
+<P>This scenario is also based on challenge-response method with asymmetric encryption. This time it will be simultaneously applied in both directions. Viz the server sends a challenge to the client, who signs it and returns it and an additional challenge to the server. Now the server can verify the response derives from the client, because only he has the according private key. Also to prove his identity, the server signs the client´s challenge by the use of his own private key and returns it to the client. Now, also the client can verify that the response derives from the server. Thus both can be sure who they communicate with and basing on that they can establish a secure (encrypted) channel by means of exchanging an asymmetrical encrypted session key.</P>
+
+<P>It is of particular importance to note that attacks on protocol level are impossible now. You can try all previous solutions you will not succeed to crack the code. Please bear in mind that there are other attacks aimed at implemented encryption methods or at physical and logical connections. Attacks aimed at cryptographic methods can be tested by the use of CrypTool (e.g. Vigenére). For attacks aimed at physical and logical connections look in the internet for DNS-spoofing or ARP-spoofing.</P>
+
+<P>Two-way authentication on the basis of challenge-response method is implemented in UMTS networks. But UMTS standards make arrangements for several aspects like key escrow to conform to legal provision in the area of criminal prosecution.</P>
+
+<P><A href="hid_cr_sol_mutualauthentication.html">To Solution</A></P>
+
+</BODY>
+</HTML>

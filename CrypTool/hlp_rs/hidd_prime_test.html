@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+	<HEAD>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<TITLE>Dialog Prime Number Test</TITLE>
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+			<script language="JScript" src="helper.js"></script>
+	</HEAD>
+	<!-- multiple keywords for CrypTool HTML help index -->
+	<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+		VIEWASTEXT>
+		<PARAM NAME="Keyword" VALUE="Prime numbers">
+		<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+	</OBJECT>
+	<BODY>
+		<h3>Dialog Prime Number Test</h3>
+		<P>You can access this dialog through the menu <a href="menu_related_methods.html">Individual 
+				Procedures</a> \ <a href="menu_individualprocedures_rsacryptosystem.html">RSA 
+				Cryptosystem</a> \ <a href="hidd_prime_test.html">Prime Number Test</a>.</P>
+		<P>Prime numbers are natural numbers greater 1, which can only be divided by 1 and 
+			by its own value. Prime numbers are very important in cryptography. In the 
+			dialog <B>Prime Number Test</B> you can enter a number and test if it is a prime 
+			number or not.</P>
+		<P><IMG SRC="images/DialogPrimzahltest1.gif" BORDER="0"></P>
+		<P>By clicking the button <B>Test number</B> the number in the input field "Number 
+			to test" will be tested if it is a prime number or not. There are integers and 
+			mathematical terms allowed as input.</P>
+		<P>Currently the dialog supports only positive numbers up to a bit length smaller 
+			than 8192. This corresponds to a decimal number with a maximum of 2466 digits.</P>
+		<P>The following algorithms can be chosen to perform the prime number test:</P>
+		<UL>
+			<LI>
+				Miller-Rabin Test,</LI>
+			<LI>
+				Fermat Test,</LI>
+			<LI>
+				Solovay-Strassen Test and</LI>
+			<LI>
+				AKS Test [1].</LI>
+		</UL>
+		<P>The table shows the durations in seconds of the different tests for various 
+			prime numbers: The time measurements were made on a PC system equipped with an 
+			Intel Pentium-4 processor of 2 GHz.</P>
+		<table width="600" border="1">
+			<tr align="center">
+				<th>
+					Prime number</th>
+				<th>
+					Miller-Rabin</th>
+				<th>
+					Fermat</th>
+				<th>
+					Solovay-Strassen</th>
+				<th>
+					AKS method</th>
+			</tr>
+			<tr align="right">
+				<td>7309</td>
+				<td>0.01</td>
+				<td>0.01</td>
+				<td>0.01</td>
+				<td>12.34</td>
+			</tr>
+			<tr align="right">
+				<td>9004097</td>
+				<td>0.01</td>
+				<td>0.01</td>
+				<td>0.01</td>
+				<td>23:22.55</td>
+			</tr>
+			<tr align="right">
+				<td>2^31-1</td>
+				<td>0.01</td>
+				<td>0.01</td>
+				<td>0.01</td>
+				<td>6:03:14.36</td>
+			</tr>
+			<tr align="right">
+				<td>2^607-1</td>
+				<td>0.61</td>
+				<td>0.61</td>
+				<td>1.62</td>
+				<td>n/a</td>
+			</tr>
+		</table>
+		<P>
+			Table: Duration of the algorithms in seconds.
+		</P>
+		<P>Using the button <B>Load number from file</B> allows to load a number from a 
+			text file. The file has to contain one single number or term without any text. 
+			Spaces and line breaks will be automatically removed during import of the data.</P>
+			
+		<P>Clicking the button <B>Factorize number</B> opens up the dialog 
+		<a href="HID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP.html">Factorization of 
+		a number </a>. Please note that this button is active only if the result of a previous 
+		prime number test was negative. After clicking the button, the non-prime number is 
+		automatically inserted into the new dialog.</P>	
+			
+		<P>Comprehensive information about prime numbers can be found in the <A class="filelink" onclick="parser('script-en.pdf')">
+				script</A>. Further information about the AKS ("Primes in P") can be obtained <a href="http://fatphil.org/maths/AKS" target="_blank">here</a>.</P>
+		<P>[1] 
+		Agrawal, Kayal, Saxena, <a class="filelink" onclick="parser('http://www.cse.iitk.ac.in/~manindra/algebra/primality_v6.pdf')">"PRIMES is in P"</A>, 2002, v6
+		</P>
+	</BODY>
+</HTML>

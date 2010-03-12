@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>(t, n) Shamir scheme</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Secret sharing">
+	<PARAM NAME="Keyword" VALUE="Shamir">
+	<PARAM NAME="Keyword" VALUE="Threshold scheme">
+</OBJECT>
+
+<BODY>
+
+<h3>(t, n) Shamir scheme</h3>
+
+<P>This well-known threshold scheme was discovered in 1979 by Adi Shamir. It's a form of <A 
+href="HID_INDIVIDUAL_PROCEDURES_SECRETSHARING.html">secret sharing</A> that is 
+based on polynomials over finite fields.</P>
+<P>Threshold t is the number of shares needed to successfully reconstruct the 
+secret. n is the number of participants an p is a prime that has to be bigger 
+than the number of participants and the secret K to be shared among them.</P>
+<P>To set up a Shamir scheme, the dealer has to go through the following 
+steps:</P>
+<UL>
+<LI>He chooses n different elements from the finite field GF(p). Each 
+participant is assigned one of these numbers as his or her public value x. 
+<LI>Further, the dealer chooses t-1 elements at random that are kept secret. A 
+polynomial f(x) is created that intersects the y-axis in (0, K) and whose 
+coefficients are the previously selected elements. Thus the resulting polynomial 
+is of degree t-1 and of the form f(x) = K + a1*x + a2*x^2 + ... + at-1*x^t-1. 
+<LI>Last, the dealer comutes the participants' secret shares by evaluating the 
+polynomial for every point x. All shares lie in the intervall from 0 to p-1 as 
+all calculations are executed <A href="modulo.html">modulo</A> p. The dealer 
+securely transfers each share to its owner. </LI></UL>
+<P>To reconstruct the secret, at least t participants have to cooperate. First, 
+these participants have to transfer their shares to the combiner. Now he is the 
+one who not only knows all public values, but t secret values, too. As a result, 
+he is able to compute the secret by using a simplified version of LaGrange 
+formula for interpolating polynomials:</P>
+<P><IMG alt=LaGrange.gif src="images/LaGrange.gif" border=0></P>
+
+</BODY>
+</HTML>

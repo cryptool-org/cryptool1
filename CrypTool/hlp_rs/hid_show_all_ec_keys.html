@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Display/Export Keys</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+			<script language="JScript" src="helper.js"></script>
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Keys">
+	<PARAM NAME="Keyword" VALUE="Asymmetric">
+</OBJECT>
+
+<BODY>
+
+<h3>Display/Export Keys (Menu <A href="menu_digitalsignaturespki.html">Digital Signatures/PKI</A> \ PKI)</h3>
+
+<P>The menu <A href="menu_digitalsignaturespki.html">Digital Signatures/PKI</A> \ <a href="menu_digitalsignaturespkipki.html">PKI</a> \ <A href="hid_show_all_ec_keys.html">Display/export keys</A> calls the dialog <A href="hidd_key_asym.html">Available asymmetric key pairs</A>: here the parameters of all existing Elliptic curves, RSA and DSA keys, generated with CrypTool, can be viewed or exported.</P>
+
+<OL>
+
+	<LI>Anyone can view the domain parameters and the domain parameters associated with existing <A href="ellipkurven.html">elliptic curve</A> <!--ZZZPOPUP--><A href="schluesselpaar.html">key pairs</A> (created with <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>). The domain parameters are public information and describe the curve. If one knows the PIN which was used when the key was generated, it is possible to see all of the parameters (i.e. domain parameters, public and secret key). It is also necessary to know this PIN to delete existing key pairs.<BR>
+Further information can be found in the <A class="filelink" onclick="parser('script-en.pdf')">script</A> under "Elliptic curves in cryptography". It is explained that an elliptic curve E and a cyclic group on this curve E are specified through the domain parameters of E; this determines how valid key pairs and calculations appear on E.<BR><BR></LI>
+
+	<LI>For existing RSA and DSA <!--ZZZPOPUP--><A href="schluesselpaar.html">key pairs</A> which have been created using <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> it is possible to view a certificate. Certificates can be viewed via the <A href="hidd_dialog_listbox.html">Certificates</A> dialog.<BR><BR></LI>
+
+</OL>
+
+<P>Further information on certificates can be found in the <A class="filelink" onclick="parser('script-en.pdf')">script</A> under the heading "Public Key Certification".</P>
+
+</BODY>
+</HTML>

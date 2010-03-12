@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+	<HEAD>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<TITLE>Automatic analysis, Caesar encryption algorithm</TITLE>
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<!-- multiple keywords for CrypTool HTML help index -->
+	<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+		<PARAM NAME="Keyword" VALUE="Analysis">
+		<PARAM NAME="Keyword" VALUE="Caesar encryption algorithm">
+	</OBJECT>
+	<BODY>
+		<h3>Caesar (Menu <A href="menu_analyze.html">Analysis</A>
+			\ Symmetric Encryption (classic) \ Ciphertext-Only)</h3>
+		<P>A <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">ciphertext-only</A><!--ZZZPOPUP--><A href="angriffe.html">
+				attack</A> is available for the <A href="hid_rot13caesar_asc.html">Caesar 
+				encryption algorithm</A> in the form of an automated key search.</P>
+		<P>In the analysis, a frequency distribution is calculated for the individual 
+			characters, i.e. producing a <!--ZZZPOPUP--><A href="histogramm.html">histogram</A>. 
+			This distribution is compared with the distribution of the German language. 
+			This entails superimposing the distributions with various <a href="offset.html">offsets</a> (<!--ZZZPOPUP--><A href="autokorrelation.html">autocorrelation</A>) 
+			and comparing their frequencies. The offset with the greatest similarity to the 
+			distribution of the German language is assumed to be the correct <!--ZZZPOPUP--><A href="schluessel.html">key</A>. 
+			In the <A href="hidd_options_analysis.html">Options for automatic analysis</A> dialog 
+			it is possible to specify which and how many intermediate results should be 
+			displayed in separate windows. If the user clicks on <B>Cancel</B> instead of <B>OK</B>
+			when viewing one of these intermediate results, no more of these windows or 
+			subordinate windows will appear. The key which CrypTool has worked out is 
+			displayed in the <A href="hidd_caesar_analysis.html">Automatic analysis</A> dialog. 
+			It can be overwritten in this dialog.
+		</P>
+		<P>In the <U>Examples</U> chapter there is an <A href="szenarien_caesar.html">example</A>
+			of an <A href="angriffe.html">attack</A> on the <!--ZZZPOPUP--><A href="verschluesselung.html">encryption 
+				algorithm</A>.</P>
+		<P><U>Conditions which the document must satisfy for a successful attack</U></P>
+		<P>The key will normally be found if the <!--ZZZPOPUP--><A href="dokument.html">document</A></P>
+		<P>is not too short (at least 20 characters long);</P>
+		<P>contains German text in which the character frequency distribution is normal.</P>
+		<P>The second condition means, for example, that it is not possible to calculate 
+			the key for a <!--ZZZPOPUP--><A href="klartext.html">plaintext</A>
+		</P>
+		<div class="indent">
+			<P><CODE>qw yx as qw yx as qw yx as qw yx as qw yx as</CODE>,
+			</P>
+		</div>
+		<P>even though there are sufficient characters.</P>
+		<P>The two above conditions are normally satisfied if the plaintext consists of 
+			German words.</P>
+		<P>However, it may occasionally still be possible to find the key even with a very 
+			short text.</P>
+	</BODY>
+</HTML>

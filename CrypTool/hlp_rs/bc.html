@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>BC (arbitrary precision calculator)</TITLE>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+<script language="JScript" src="helper.js"></script>
+</HEAD>
+
+<BODY>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT id="Object1" type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="BC">
+</OBJECT>
+
+<h3>BC (arbitrary precision calculator)</h3>
+
+<P>Bc is both a <B>programming language</B> that supports arbitrary precision numbers and an arbitrary precision desktop calculator program (<B>utility</B>), which handles scripts and commands written in the language bc and interactively executes the statements from the user. This tool can be used to do some of the number theoretical calculations with higher speed and higher precision than within the number theory <a href="hid_interactive_number_theory.html">educational program</a>.</P>
+
+<P>The utility bc, an extended precision calculator, can compute to at least 99 places right of the decimal point and at least 4000 to the left.</P>
+
+<P>A standard math library is available by command line option. If requested, the math library is defined before processing any files. bc starts by processing code from all the files listed on the command line in the order listed. After all files have been processed, bc reads from the standard input. All code is executed as it is read. (If a file contains a command to halt the processor, bc will never read from the standard input.)</P>
+
+<P>Calling syntax:<br>bc [ -hlwsqv ] [long-options] [ files  ]</P>
+
+<br>
+
+<P><B>BC and the Educational Software "<a href="hid_interactive_number_theory.html">Number Theory</a>" Distributed with CrypTool</B></P>
+
+<P>Part of the distribution of the educational tool "Number Theory" is the command line calculator, <a href="http://en.wikipedia.org/wiki/Basic_Calculator">bc</a> (version 1.06, published by Free Software Foundation under <a href="hidd_tipps_and_tricks.html#opensource">GPL</a>), supplemented with some functions from some file loaded directly when starting bc from the educational tool.</P>
+
+<br>
+
+<P><B>Bc as Command Line Calculator</B></P>
+
+<P><B>1)</B> For whole numbers bc deals with multiple <B>bases</B>. The input base is stored in the environment variable <b>ibase</b>. Setting conversion bases means, bc inputs ALL numbers using <b>ibase</b>. The output base is stored in <b>obase</b>.</P>
+
+<P>Sample: To convert 4521 from base 7 to base 13, you have to enter:
+
+<P class="paddedleft">obase = 13<br>ibase = 7<br>4521
+
+<P>or another sample: Conversion from the decimal to the hexadecimal number system:</P>
+
+<P class="paddedleft">obase=16; ibase=10; 13<br>B</P>
+
+<P><B>2)</B> For <B>fractional precision</B> of the calculation bc deals with the environment variable <b>scale</b>, which means the precision of floating points, which is how many digits after the point. By default the <B>scale</B> is 0, that means it is integer. The result of division will usually be a floating point number. In order to get the correct answer, you need to specify the variable <b>scale</b>. <b>scale</b> means the precision of floating point. In "5.00500" the <b>scale</b> is 5; in "5.005" the <b>scale</b> is 3. Some implementations also output one digit more (see below).</P>
+
+<P>Samples:</P>
+
+<P class="paddedleft">scale=6;  60/7.02<br>6.6476776</P>
+
+<P class="paddedleft">obase=10; ibase=10; scale=0; 7/3<br>2</P>
+
+<P class="paddedleft">obase=10; ibase=10; scale=3; 7/3<br>2.2523</P>
+
+<P><b>3)</b> To do calculation with bc there are three possibilities:</P>
+
+<UL>
+<LI>Execute scripts, called at the command line,</LI>
+<LI>type the term after starting bc, or</LI>
+<LI>passing the term through pipeline, such as in the following samples:<br>echo "56.8 + 77.7" | bc<br>echo "obase=16; ibase=10; 56" | bc</LI>
+</UL>
+
+<P>At the input mode of bc you can repeat the last statement using the vertical arrow keys on the keyboard, and then edit it.</P>
+
+<P>To get the value of an environment variable: Just enter the name of the variable and enter.</P>
+
+<br>
+
+<P><B>Some Sample Calculations Using bc (Base Calculator)</B></P>
+
+<P>You can call bc from within the educational program "Number Theory" via F3 (menu Calculators \ BC Calculator) or from the command prompt:</P>
+
+<P class="paddedleft">bc</P>
+
+<P>Test calculation: 686^79:</P>
+
+<P class="paddedleft">686^79<br>117382982726682578986166177099458354591354816385525364361499835772376409385660129455427115381646910282753710610818762831176373701406457183724515147357457376424117782495278817923488619922286175976292059037752989068589810057216<br>quit</P>
+
+<P>Description for further functions transferred via the educational program "Number Theory" are available within the educational program via F8 (menu Glossaries \ BC Functions).</P>
+
+<P class="paddedleft">powermod(17,33,11)<br>7</P>
+
+<p class="paddedleft">euklid(847,22)<br>11</p>
+
+<br>
+
+<P><B>Remark 1: BC as a Programming Language</B></P>
+
+<P>bc is a programming language, which supports calculations (numeric processing) in an arbitrary precision. Its description is included in the POSIX P1003.2/D11 draft standard.</P>
+
+<P>The syntax is similar to "C" – with the following (and more) exceptions:</P>
+
+<ol>
+<LI>No semicolon is needed at the end of a line.</LI>
+<LI>The define statement is used to define functions.</LI>
+</ol>
+
+<P>Other features of the bc program are:</P>
+
+<UL>
+<LI>Control statements are if, while, for, break, and quit.</LI>
+<LI>Comments are between /* ...... */  or after the „#“ character.</LI>
+<LI>Arrays use square brackets [ ] for indexes.</LI>
+<LI>quit  returns to the shell.</LI>
+</UL>
+
+<br>
+
+<P><B>Remark 2: Links</B></P>
+
+<P><a href="http://directory.fsf.org/gnu/bc.html" target="_blank">http://directory.fsf.org/gnu/bc.html</a> - Web page about the GNU package</P>
+<P><a href="http://www.gnu.org/software/bc/bc.html" target="_blank">http://www.gnu.org/software/bc/bc.html</a> - Web page about BC</P>
+<P><a href="http://ftp.gnu.org/pub/gnu/bc/bc-1.06.tar.gz" target="_blank">http://ftp.gnu.org/pub/gnu/bc/bc-1.06.tar.gz</a> - Source code, released 2001</P>
+<P><a href="http://en.wikipedia.org/wiki/Bc_(Unix)" target="_blank">http://en.wikipedia.org/wiki/Bc_(Unix)</a> - Wikipedia about bc</P>
+<P><a href="http://de.wikipedia.org/wiki/Basic_Calculator" target="_blank">http://de.wikipedia.org/wiki/Basic_Calculator</a> - Wikipedia about bc</P>
+
+</BODY>
+</HTML>

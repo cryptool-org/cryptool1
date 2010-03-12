@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+	<HEAD>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<TITLE>Dialog Challenge-response demonstration</TITLE>
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<!-- multiple keywords for CrypTool HTML help index -->
+	<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+		VIEWASTEXT>
+		<PARAM NAME="Keyword" VALUE="Challenge-response demonstration">
+		<PARAM NAME="Keyword" VALUE="Network authentication">
+		<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+	</OBJECT>
+	<BODY>
+		<H3>Dialog Challenge-Response Demonstration</H3>
+		<p>You can reach this dialog via the menu entry <a href="menu_related_methods.html">Indiv. 
+				Procedures</a> \ <a href="menu_individualprocedures_protocols.html">Protocols</a>
+			\ <a href="hid_cr_overview.html">Network Authentication</a>.</p>
+		<P>Here the way is described how to handle the
+			challenge-response demonstration:</P>
+		<UL>
+			<LI>
+				By pressing F1 you can get the help for the outline of all challenge-response scenarios.<BR>
+				<BR>
+			</LI>
+			<LI>
+				On the left margin there is a series of buttons. By pressing one of them 
+				several scenarios (like <b>Password</b>) can be started.<BR>
+				<BR>
+			</LI>
+			<LI>
+				Beneath there is the <b>Quit</b> button.<BR>
+				<BR>
+			</LI>
+			<LI>
+				On the white surface area some scenarios are demonstrated. A network with 
+				following elements form the basis of all scenarios:
+				<UL type="disc">
+					<LI>
+						Squares represent computers and their users. Routers direct data between the 
+						nodes of the network. Servers make information and services available to the 
+						client.<BR>
+					</LI>
+					<LI>
+						Lines are the network connections between the computers.<BR>
+					</LI>
+					<LI>
+						All elements pictured in blue are normal parts of the networks, red elements 
+						belong to the attacker or are subject to his control.</LI>
+				</UL>
+			</LI>
+			<br>
+			<LI>
+				In the rightmost margin there are buttons for manipulating stations and 
+				connections:
+				<UL type="disc">
+					<LI>
+						The empty button means: Select no action.<BR>
+					</LI>
+					<LI>
+						With the buttons <b>Link</b> and <b>Unlink</b> you can influence the status of connections. If 
+						you click on connecting and then on one of the router a (red) connection 
+						between the attacker and the router will be applied. If you click on separating 
+						and then on the connection in progress the red connection will be cleared, blue 
+						connection will be displayed as black and separated. Each of both commands can 
+						be reversed by the other one.<BR>
+					</LI>
+					<LI>
+						<b>Attack station</b> is possible, when your computer is directly or through network 
+						connected to the station. You can assume control over the other computer if it 
+						is not well-protected. Server 1 and Client are well-protected, Server 2 and the 
+						routers are vulnerable. Attacked computers will be displayed as red and you get 
+						a copy of all data saved on this computer. Furthermore, this computer will send 
+						you a copy of each incoming data packet.
+						<BR>
+					</LI>
+					<LI>
+						If you click on <b>Quit attacking station</b> you cancel the attack and the computer 
+						will be displayed as blue again.</LI>
+				</UL>
+			</LI>
+			<br>
+			<LI>
+				On the left beside the client there is the <b>Authenticate client</b> button which 
+				starts the protocol of the chosen scenario.<BR>
+				<BR>
+			</LI>
+			<LI>
+				The attacker has an <b>Authenticate attacker</b> button as well. So the attacker 
+				(you) can initiate the protocol from his computer and can try to be accepted by 
+				the server as client. Needless to say, it works only if the necessary data have 
+				been spied out before. Apart from the authentication button there is the <b>Mask</b> 
+				button. With the right configuration (which you have to find out) it is 
+				possible to identify yourself to the client as server and to the server 
+				as client (<A href="man_in_the_middle.html">man-in-the-middle-attack</A>).<BR>
+				<BR>
+			</LI>
+			<LI>
+				Down to the right on the white surface area there is the <b>Help for scenario</b> 
+				button by which you can have access to specific scenario support sites (and 
+				from there to the solutions).<BR>
+				<BR>
+			</LI>
+			<LI>
+				To restore the initial state of a scenario press <b>Reset scenario</b>.<BR>
+				<BR>
+			</LI>
+			<LI>
+				In the display under the white scenario surface there is a short explanation of 
+				the scenario and of the task in each case. Further information and solutions can be 
+				accessed by using help.</LI>
+		</UL>
+		<P><IMG SRC="images/cr_usage.gif" ALT="cr_usage.gif" BORDER="0"></P>
+	</BODY>
+</HTML>

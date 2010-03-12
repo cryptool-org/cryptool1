@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Scenario Challenge-response (symmetric) </TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Challenge-response demonstration">
+	<PARAM NAME="Keyword" VALUE="Network authentication">
+	<PARAM NAME="Keyword" VALUE="Examples / Scenarios">
+	<PARAM NAME="Keyword" VALUE="Scenarios / Demonstrations">
+</OBJECT>
+
+<BODY>
+
+<H3>Scenario Challenge-Response (symmetric)</H3>
+
+<P>This scenario slightly updates the idea of one-time passwords. The improvement lies in the fact that current password can only be obtained during the time protocol is processed. It is rendered possible due to usage of a symmetric encryption method.</P>
+
+<P>The protocol starts by Server 1 sending a random number to the client called challenge. The client encrypts this number with a secret key and returns the result as response to Server 1 who knows the secret key as well. It decodes the response and compares it with the challenge. When matched, the client’s identity is accepted and he is authenticated.</P>
+
+<P>Excursion key exchange: If n parties (example with n=1000) want to communicate confidential and symmetric cryptography should be used in a way that each two communication partners use one common key, there need to be</P>
+
+<P>½ * n * (n-1) </P>
+
+
+<P>different keys. (With n = 1000, this would be 499500 different keys)</P>
+<br>
+<P>Would asymmetric cryptography be used, there needed to be</P>
+
+<P>2 * n </P>
+
+<P>keys. (With n = 1000, this would be 2000 different keys)</P>
+
+<P>Because every station uses symmetric cryptography, Server 1, Server 2 and Client share the same symmetric key in that scenario to communicate confidential for reasons of efficiency. One of the possible solutions for this scenario aim to a connected problem with that characteristic.</P>
+
+<P>Your task as attacker is, again, to find acceptance by Server 1 as Client. This time here are several solutions. If you fail to find one you can get one <A href="hid_cr_sol_crsymmetric.html">here</A>.</P>
+
+<P>Challenge response method is in e.g. in cellular mobile networks (respectively GSM networks).</P>
+
+<P><A href="hid_cr_sol_crsymmetric.html">To Solution</A></P>
+
+</BODY>
+</HTML>

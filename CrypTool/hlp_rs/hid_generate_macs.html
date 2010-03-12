@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Keyed-Hash Message Authentication Code (HMAC)</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+       <PARAM NAME="Keyword" VALUE="Keyed-hash message authentication code (HMAC)">
+       <PARAM NAME="Keyword" VALUE="Hash function">
+       <PARAM NAME="Keyword" VALUE="Individual procedures">
+</OBJECT>
+
+<BODY>
+	
+<h3>Generation of HMACs (Menu <A href="menu_related_methods.html">Indiv. Procedures</A> \ Hash)</h3>
+
+<P>The dialog <A href="hidd_hmac.html">Keyed-Hash Message Authentication Code (HMAC)</A> shows how the 
+digital fingerprint of a file is created using a <A href="hashfunktion.html">hash function</A>. 
+The purpose of a HMAC is to ensure <A href="authentizitaet.html">authenticity</A>.</P>
+
+<P>Sender and receiver agree on a secret key and cryptographical hash function prior to 
+message transmission. The sender links the message and the key (i.e. by appending) and hashes 
+the created file. Then the hash value is transmitted together with the original message.</P>
+
+<P>To check the authenticity, the receiver executes the same operations as the sender. He hashes 
+the (received) message together with the secret key and compares the resulting hash value with 
+the one he received. The message is authentic only if the two hash values are equal.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>RSA in blocks each of k characters</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="RSA encryption algorithm">
+</OBJECT>
+
+<BODY>
+
+<h3>Blocks of k characters each</h3>
+
+<P>The RSA algorithm can encrypt and decrypt numbers from the range of values 0,1,2, ...., N-1. A message M can thus not be encrypted if the bit length of the message is greater or equal to the <!--ZZZPOPUP--><A href="rsa_demo_bitlength.html">bit length of the RSA key</A>. Therefore the message is split up into k blocks each of bit length k*8, whereby k*8 must be smaller than the bit length of the RSA modulus. The number 8 comes from the fact that 8 bits are needed to present ASCII characters.</P>
+
+</BODY>
+</HTML>

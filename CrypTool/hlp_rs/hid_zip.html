@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Compression (Zip)</TITLE>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Compress">
+	<PARAM NAME="Keyword" VALUE="Decompress">
+	<PARAM NAME="Keyword" VALUE="ZIP">
+</OBJECT>
+
+<BODY>
+
+<h3>Zip (Menu <A href="menu_related_methods.html">Individual Procedures</A> \ Tools \ Compress)</h3>
+
+<P>The Compress (Zip) function is used to compress data. When the Zip function is 
+			selected, the content of the current <!--ZZZPOPUP--><A href="dokument.html">document</A>
+			is compressed and the result&nbsp;is presented in a new <A href="hidr_hextype.html">
+				window</A>. The original document can be restored at a later time by 
+			selecting the <A href="hid_unzip.html">UnZip</A> function.</P>
+		<P>There are a number of data compression algorithms available. <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>
+			uses the GnuZip algorithm.</P>
+		<P>
+			Before the results are presented in a new window, the rate of compression is 
+			shown. The rate of compression states the percentage by which it has been 
+			possible to compress (i.e. reduce) a document. If the rate of compression is 
+			10%, then the compressed document is 10% shorter than the <A href="hid_unzip.html">uncompressed</A>
+			version. With short documents or documents that have already been compressed it 
+			is possible for the compressed <!--ZZZPOPUP--><A href="dokument.html">document</A>
+			to actually be a few characters longer. This is expressed as a negative rate of 
+			compression. Thus, if the rate of compression is -10%, then the compressed 
+			document is 10% longer than the uncompressed version.</P>
+		<P>As well as their smaller size, a second characteristic of compressed files is 
+			that if they contain text written in natural language, the redundancy of the 
+			data is reduced. Normally this will make an <A href="angriffe.html">attack</A> &nbsp;more 
+			difficult. For this reason the <A href="pgp.html">PGP</A> (Pretty Good Privacy) 
+			encryption program, for example, compresses the data prior to actually <!--ZZZPOPUP--><A href="verschluesselung.html">encrypting</A>
+			it. The packets containing <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A>
+			text are thus generally significantly smaller as a result while at the same 
+			time they are more secure.</P>
+		<P>The <A href="hid_hilfe_szenarien.html">Examples</A> chapter contains an <A href="szenarien_xor.html">
+				example</A> in which the <!--ZZZPOPUP--><A href="schluessel.html">key</A> can 
+			be found in a <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">Ciphertext-Only 
+				attack</A> if the document has been <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A>
+			using the <A href="hid_xor_bin.html">Exclusive-OR</A>, but not if the document 
+			has been previously compressed.</P>
+		<P><STRONG>Remark 1:</STRONG></P>
+		<P>In order to recognize the document as compressed the keyword "CTZ" is attached 
+			at the beginning.</P>
+		<P><STRONG>Remark 2:</STRONG></P>
+		<P>If you save documents compressed with CrypTool in a file, you cannot decrypt 
+			them using tools like unzip or Winzip, even if you are deleting the three magic 
+			characters at the beginning.</P>
+
+<P>Productively applicable compression programs support a multitude of different algorithms for 
+data compression and archiving, i.e. to create ZIP or RAR archives. A fixed data structure is 
+defined so that programs can process these compressed archives. These data structures consist of 
+a header (information about the compressed data) and a body (the compressed data itself).</P>
+
+<P>Due to the complexity, a complete ZIP-compatible implementation amounts to an enormous 
+effort. Such an implementation is not planned for CrypTool. You can find an up-to-date ZIP 
+specification at <a href="http://www.info-zip.org/FAQ.html" target="_blank">http://www.info-zip.org/FAQ.html</a>. For example, this specification is also 
+implemented in open-source programs like 7-ZIP (<a href="http://www.7-zip.org/" target="_blank">http://www.7-zip.org/</a>).</P>	
+		
+</BODY>
+</HTML>

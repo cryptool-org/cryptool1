@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Secure E-Mail with S/MIME</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+<script language="JScript" src="helper.js"></script>
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+    <PARAM NAME="Keyword" VALUE="S/MIME">
+    <PARAM NAME="Keyword" VALUE="Visualization">
+</OBJECT>
+
+<BODY>
+
+<h3>Secure E-Mail with S/MIME (Menu <A href="menu_related_methods.html">Individual Procedures</A> \ <a href="menu_individualprocedures_protocols.html">Protocols</a>)</h3>
+
+<P>This visualization of a secure e-mail shows how to sign and encrypt an e-mail according to the S/MIME 
+standard.</P>
+
+<P>This visualization uses two windows appearing one after another:</P>
+
+<UL>
+<LI>At first you see the <B>control center window</B>:<br>
+Therein you can change data and control parameters.</LI>
+<LI>After that you can start the <B>Flash animation window</B>:<br>
+This animation shows an e-mail travelling from sender to receiver, and you can learn about the structure 
+of the message.</LI>
+</UL>
+
+<P>All data structures and visualizations are executed dynamically based on the given data.</P>
+
+<P>Restriction: The message text is truncated to a length of 50 characters to make sure it does not 
+exceed the display area within the Flash animation.</P>
+
+<P>The concepts of PKI, certificates, hash algorithms, encryption and digital signatures are explained, 
+because these concepts are used in e-mails according to the S/MIME protocol.</P>
+
+<P>The comprehensible visualization with modern animation software is an appropriate way to achieve user 
+awareness, because secure e-mail is an important component for preserving privacy and for defending 
+man-in-the-middle attacks and phishing.</P>
+
+<P><IMG SRC="images/smime_control_center.jpg" ALT="smime_control_center.jpg" BORDER=0 width="800px"></P>
+
+<P><IMG SRC="images/smime_animation.jpg" ALT="smime_control_center.jpg" BORDER=0 width="800px"></P>
+
+<!-- <P><IMG SRC="images/smime_flow_chart.jpg" ALT="smime_control_center.jpg" BORDER=0 width="800px"></P> -->
+
+<P>The foundation of text-based e-mail traffic was already established in 1982 by two standards:</P>
+<UL>
+<LI>The standard [RFC822] specifies the structure of an e-mail.</LI>
+<LI>The standard [RFC821] specifies the Simple Mail Transport Protocol (SMTP), that is used for 
+transmitting e-mails from sender to receiver with a protocol based on ASCII characters.</LI>
+</UL>
+
+<P>Because e-mails are passed on between different networks that are possibly communicating with different 
+protocols, gateways are used as nodes to connect these networks. An e-mail gateway triggers the temporary 
+storage of an e-mail and its delivery to the target.</P>
+
+<P>E-mails nowadays often contain attachments exceeding pure text, for example various attachments in binary 
+format. Therefore the standards mentioned above were expanded by the MIME standard (Multipurpose Internet Mail 
+Extensions) specified in [RFC2045 to 2049].</P>
+
+<P>S/MIME (Secure Multipurpose Internet Mail Extensions) is a further expansion of MIME, adding the possibility 
+of digital signatures and encryption. S/MIME is based on the format of the Cryptographic Message Syntax (CMS) 
+specified in the Public Key Cryptography Standards (PKCS #7). S/MIME can be used for encrypted e-mails as 
+well as encrypted communication via http. The following table shows some of the algorithms used in S/MIME v3.1:</P>
+
+<TABLE class="pad10">
+<TR><TD><B>Algorithm</B></TD><TD><B>S/MIME v3.1<br>mandatory, optional</B></TD></TR>
+<TR><TD>Hash algorithms</TD><TD>SHA-1, MD5</TD></TR>
+<TR><TD>Signature algorithms</TD><TD>DSA, RSA</TD></TR>
+<TR><TD>Public key encryption</TD><TD>RSA, Diffie-Hellman (RFC2631)</TD></TR>
+<TR><TD>Symmetric algorithms</TD><TD>3DES, AES</TD></TR>
+</TABLE>
+
+<P><B><U>Literature</U></B>:</P>
+
+<P>[1] Wikipedia, article on S/MIME: http://en.wikipedia.org/wiki/S/MIME</P>
+
+<P>[2] RFC822 - STANDARD FOR THE FORMAT OF ARPA INTERNET TEXT MESSAGES: 
+<a href="http://www.faqs.org/rfcs/rfc822.html" target="_blank">http://www.faqs.org/rfcs/rfc822.html</a></P>
+
+<P>[3] RFC821 - Simple Mail Transfer Protocol: <a href="http://www.faqs.org/rfcs/rfc821.html" target="_blank">http://www.faqs.org/rfcs/rfc821.html</a></P>
+
+<P>[4] RFC2631 - Diffie-Hellman Key Agreement Method: <a href="http://www.faqs.org/rfcs/rfc2631.html" target="_blank">http://www.faqs.org/rfcs/rfc2631.html</a></P>
+
+<P><B>Remark 1</B>:</P>
+
+<P>The control center is written in Java SWT and requires at least Java 1.5. The Bouncy Castle (BC) 
+Cryptographic Library is used for cryptographic routines, it also serves as additional Security 
+Provider for Java.</P>
+
+<P>In order to use encryption keys of arbitrary length, the "unrestricted policy files" need to be installed before 
+using BC. You can obtain these files from <a href="http://java.sun.com" target="_blank">http://java.sun.com</a> 
+or <a href="http://java.sun.com/javase/downloads/index.jsp" target="_blank">http://java.sun.com/javase/downloads/index.jsp</a> 
+respectively. To install these files, rename the JAR files rolled out by default, local_policy.jar and US_export_policy.jar in 
+C:\program files\Java\jre6\lib\security and use the new ones instead.</P>
+
+<P>Remember to restart the control center.</P>
+
+<P>If the Java Cryptography Extension (JCE) "Unlimited Strength Jurisdiction Policy" is not installed, 
+you get the following message:</P>
+
+<P><IMG SRC="images/jce_not_installed.png" ALT="jce_not_installed.png" BORDER=0></P>
+
+<P>If neither the default nor the "Unlimited Strength Jurisdiction Policy" files are available,
+the S/MIME control center will simply be closed after clicking the button "Start encrypting". 
+However, this should not happen if Java was properly installed.</P>
+
+<P><B>Remark 2</B>:</P>
+
+<P>In the Flash animation the Windows pixel font Bavaria Extended is used to display all dynamic content. 
+If this font is not installed, you can still read the text but the highlighted areas will not always be 
+at the right place. This font can be used freely for non-commercial purposes.<br>Source: 
+http://pixelfonts.style-force.net/download/bavaria-extended/</P>
+
+<P>Installation of fonts under Windows requires the following steps:</P>
+
+<OL>
+<LI>Extract font in temporary directory (not directly into the Windows font directory).</LI>
+<LI>Copy the extracted TTF file from the temporary directory into "C:\Windows\Fonts" by drag and drop.</LI>
+<LI>Delete the temporary directory.</LI>
+</OL>
+
+</BODY>
+</HTML>

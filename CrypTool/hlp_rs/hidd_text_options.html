@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog Text options</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+	<PARAM NAME="Keyword" VALUE="Options">
+</OBJECT>
+
+<BODY>
+
+<h3>Dialog Text Options</h3>
+
+<P>You can reach this dialog via the menu entry <a href="menu_options.html">Options</a> \ <a href="HID_OPTTEXT.html">Text Options</a>.</P>
+
+<P>This dialog is used to specify which alphabet should be used for the classical <!--ZZZPOPUP--><A href="verschluesselung.html">encryption algorithms</A> <A href="hid_rot13caesar_asc.html">Caesar</A>, <A href="hid_vigenere_asc.html">Vigenère</A>, <A href="hid_hill.html">Hill</A> and <A href="hid_cryptmono.html">monoalphabetic substitution</A> and how characters that are not included in the alphabet should be handled. The default setting is the letters "A" to "Z", case insensitive. The individual characters or character groups (upper case letters, lower case letters, digits, special characters and spaces) can be selected either in groups by checking the boxes in front of the options you require or else they can be specified and deleted individually in the <B>Alphabet to use</B> field. If a different alphabet is chosen, the classical <!--ZZZPOPUP--><A href="verschluesselung.html">encryption algorithms</A> will behave in accordance with the now extended or restricted alphabet and the software will carry out the necessary additional actions.</P>
+
+<P>In the <B>Keep characters not present in the alphabet unchanged</B> field it is possible to specify the response to characters which are not contained in the alphabet. This is generally a case of whether the special characters (especially the spaces between words and line breaks) should be retained during <!--ZZZPOPUP--><A href="verschluesselung.html">encryption</A> or <!--ZZZPOPUP--><A href="entschluesselung.html">decryption</A> (in which case a check mark should be placed next to <B>Keep characters not present in the alphabet unchanged</B>) or not (no check mark). The check marks in the boxes can be removed and restored by clicking with the mouse.</P>
+
+<P>From the cryptographic viewpoint the retention of text formatting is not a good idea. However, for demonstration purposes it is nice as it means that a reconstructed <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> is easier to read and verify.</P>
+
+<P>Normally all characters other than the letters A-Z are ignored during the above-mentioned classical encryption algorithms. (The lower case letters a-z are converted to upper case letters A-Z.)</P>
+
+<P>With the classical encryption algorithms, all the lower case letters are converted to upper case letters for encryption. The <B>Keep uppercase / lowercase (if possible)</B> option enables the distinction between upper and lower case letters in the document to be retained unless lower case letters are not allowed for encryption under the chosen encryption algorithm.</P>
+
+<P>The reference file for statistical analysis can be selected by the <B>Search</B> button. Preset reference is the file<CODE> english.txt</CODE>. If you suppose an non English plaintext behind a cipher, you may select the matching reference file at this option. The reference file is used during analysis of the following encryption algorithms: <a href="hid_rot13caesar_asc.html">Caesar/Rot-13</a>, <a href="hid_vigenere_asc.html">Vigenère</a>, <a href="hid_cryptmono.html">Monoalphabetic Substitution/Atbash</a> and <a href="hid_homophone_asc.html">Homophone Substituion</a>.</P>
+
+<P>In the section <B>Playfair</B> you can alter two settings regarding the <A href="hid_playfair_bin.html">Playfair encryption</A>: On the one hand you can decide if you want to separate pairs of identical letters before encryption, on the other hand you can specify which character should be used as separator.</P>
+
+</BODY>
+</HTML>

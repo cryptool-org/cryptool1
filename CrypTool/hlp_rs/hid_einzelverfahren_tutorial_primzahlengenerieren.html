@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+	<HEAD>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<TITLE>Dialog Prime Number Generation</TITLE>
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+			<script language="JScript" src="helper.js"></script>
+	</HEAD>
+	<!-- multiple keywords for CrypTool HTML help index -->
+	<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+		VIEWASTEXT ID="Object1">
+		<PARAM NAME="Keyword" VALUE="Prime numbers">
+		<PARAM NAME="Keyword" VALUE="Generate">
+		<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+	</OBJECT>
+	<BODY>
+		<h3>Dialog Prime Number Generation (Menu <a href="menu_related_methods.html">Individual 
+				Procedures</a> \ RSA Cryptosystem)</h3>
+		<P>You can access this dialog via the menu entry <a href="menu_related_methods.html">Individual 
+				Procedures</a> \ <a href="menu_individualprocedures_rsacryptosystem.html">RSA Cryptosystem</a> \ <a href="hid_einzelverfahren_tutorial_primzahlengenerieren.html"> Generate prime numbers</a>.</P>
+		
+		<P>Prime numbers are natural numbers greater than 1, which are divisible only by 1 
+			and by themselves, and in cryptography they play an important role. In this 
+			demonstration you can generate prime numbers yourself, the prime numbers are 
+			generated randomly within freely definable limits.</P>
+		<P><IMG SRC="images/generatepz.gif" ALT="generatepz.gif" BORDER="0"></P>
+		<P>If you press the <B>Generate prime numbers</B> button, a <!--ZZZPOPUP--><A href="hid_zufall_generatoren.html">random</A>
+			search for the prime numbers p and q will be initiated. A number X will be 
+			taken at random from the range specified [Lower limit, Upper limit]. The 
+			system then "tests" whether X can be a prime number.</P>
+		<p>For this test random is also necessary:</p>
+		<UL>
+			<LI>
+				If X is not a prime number, then the chosen test states with a probability of ½ 
+				that X is not a prime number, whereas in the other case the feedback is always 
+				positive. If the prime number test is repeated 80 times "independently" and 
+				always has a positive outcome, then the probability that X is not actually a 
+				prime number is extremely small at 2^(-80) and the number thus found is 
+				understood as a prime number, and is displayed as either prime number p or 
+				prime number q.</LI>
+			<LI>
+				If one of k prime number test is negative, then X is not prime and the test is 
+				repeated with a new randomly chosen number X.</LI>
+		</UL>
+		<P>In this dialog you can choose between the following prime number tests:</P>
+		<UL>
+			<LI>
+				Miller-Rabin test,</LI>
+			<LI>
+				Solovay-Strassen test and</LI>
+			<LI>
+				Fermat test</LI>
+		</UL>
+		<P>If no prime number has been found after trying 1000 randomly drawn numbers X, 
+			then an appropriate error message is displayed. In that case you need to raise 
+			the range defined by the limits [Lower limit, Upper limit] for the prime numbers 
+			accordingly.
+		</P>
+		<P>Detailed information on the subject of prime numbers will be found in the <A class="filelink" onclick="parser('script-en.pdf')">
+				script</A>.</P>
+				
+<P><B>Generation of all prime numbers in a specific value range</B></P>
+
+<P>If the radio button <B>Generate all prime numbers in a value range</B> is checked, the dialog searches for 
+all prime numbers within the value range specified for the prime number p. In contrast to the 
+generation of only two prime numbers, the numbers are not randomly chosen from the value range. 
+Instead, each number within the value range is tested one after another. Please note that this 
+process can be very time consuming. However, you can interrupt this process using the emerging 
+progress bar.</P>
+
+<P>When the process is finished, all prime numbers that were found are dumped into a new document. 
+You can configure the separator used to separate the prime numbers using the input field 
+<b>Separator for the display of the primes</b>.</P>
+
+</BODY>
+</HTML>

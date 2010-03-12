@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>AES (self extracting) / AES tool</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="AES encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="AES-Tool">
+	<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+	<PARAM NAME="Keyword" VALUE="Symmetric">
+	<PARAM NAME="Keyword" VALUE="Encryption">
+</OBJECT>
+
+<BODY>
+
+<h3>AES (self-extracting) (Menu <a href="menu_crypt.html">Crypt/Decrypt</a> \ Symmetric Encryption (modern))</h3>
+
+<P>Included in the package CrypTool is the separate encryption utility <B>AES-Tool</B>. Using this tool it is possible to convert documents into self-extracting archives. These archives are encrypted using the AES algorithm (Rijndael).</P>
+
+<P>If this option is selected the main window of AES-Tool is opened.</P>
+
+<img src="images/aesscreenshot.gif" alt="aesscreenshot.gif">
+
+<P>Here the key can be entered in hexadecimal form and the output file can be specified. Two different formats can be selected: encrypted file and self-extracting archive. For an encrypted file the receiver also need AES-Tool. For a self-extracting archive the complete executable is included in the archive. This results in a significantly increased size of the archive.</P>
+
+<P>AES-Tool is used to exchange encrypted data with other users. It does not contain functions for <a href="schluessel.html">key</a> management. The keys have to be exchanged between the users on a secure channel.</P>
+
+<P>AES-Tool also can be used independently of CrypTool. AES-Tool is governed by <A href="hidd_tipps_and_tricks.html#licence_terms">the same terms of licence and the exclusion of any kind of liability</A> as the CrypTool package.</P>
+
+<P><B>Remark 1</B>:</P>
+
+<P>Documents encrypted using the AES-Tool <B>cannot</B> be decrypted via the <A href="menu_crypt.html">Crypt/Decrypt</A> \ Symmetric \ <A href="hid_crypt_aes_rijndael.html">Rijndael</A> menu.</P>
+
+<P>Accordingly documents encrypted using CrypTool via the <A href="menu_crypt.html">Crypt/Decrypt</A> \ Symmetric \ <A href="hid_crypt_aes_rijndael.html">Rijndael</A> menu cannot be decrypted with the AES-Tool.</P>
+
+<P><B>Remark 2</B>:</P>
+
+<P>When AES-Tool is started via the CrypTool menu option <A href="menu_crypt.html">Crypt/Decrypt</A> \ AES (self extracting), the field <B>Input file</B> will be filled with a path of the following form: C:\TEMP\cry7.org (C:\TEMP results from the environment variable TEMP and another number can be displayed than 7). This file is a copy of the file currently opened in CrypTool. It contains all manual modifications to that file, even if they have not yet been saved.</P>
+
+<P><B>Remark 3</B>:</P>
+
+<P>The Rijndael <!--ZZZPOPUP--><A href="verschluesselung.html">encryption algorithm</A> works with a block length of 128 bits, and a variable key length e.g. 128, 192 and 256 bits. The input key will be filled with hex-zero characters up to the next minimal key length of 128, 196 resp. 256 bits.</P>
+
+<P>Note that too short key lengths are considered as a security risk (see dialog <A href="hidd_key.html">Key Input</A>). </P>
+
+<P><B>Remark 4</B>:</P>
+
+<P>AES-Tool version 2.3 was successfully tested as standalone program with files up to 4 GB length.</P>
+
+</BODY>
+</HTML>

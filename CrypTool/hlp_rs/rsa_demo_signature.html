@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Digital signing of messages</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->	
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Digital signatures / PKI">
+	<PARAM NAME="Keyword" VALUE="Signature">
+</OBJECT>
+
+<BODY>
+
+<h3>Digital signing of messages</h3>
+
+<OL type="a">
+
+<LI><B>Simple, naive procedure</B>: you could encrypt a plaintext using secret key (N,d). The situation has now fundamentally altered:</LI>
+
+<div class="indent">
+
+<P><B>Anyone can decrypt the encrypted message using public key (N,e). But only you, as owner of the secret key (N,d), could encrypt the message.</B></P>
+
+</div>
+
+<P>The owner of the secret key encrypts message M using the secret key C(N,d;M). The encrypted version C(N,d;M) can also be viewed as the <B>signature</B> for message M, because the authenticity of the signature can be verified by anyone in possession of C(N,d;M), public key (N,e) and message M:</P>
+
+<div class="indent">
+
+<P><B>The signature C(N,d;M) is valid if the signature that was decrypted with (N,e), M‚ = E(N,e;C), matches the message M.</B></P>
+
+</div>
+
+<LI> In practice usually not the message itself is signed, but it is condensed into a hash value of fixed length using a <A href="hashfunktion.html">hash function</A> Hand then the hash value signed. This eliminates the following disadvantages of the pure signature C(N,d;M):</LI>
+
+<div class="indent">
+
+<UL type=disc>
+	<LI>If a message M is encrypted with the secret RSA key, the amount of time needed for long messages M is very high. </LI>
+
+	<LI>The signature C(N,d;M) is at least as long as the signed message M itself.</LI>
+
+	<LI>A possible privacy problem, because the message can be recovered from the signature.</LI>
+</UL>
+
+</div>
+
+<P>Therefore it is more efficient to sign only the hash value H = H(M) of the message. To verify the signature C = C(N,d;H), one now requires knowledge of the hash function H that has been used as well: </P>
+
+<div class="indent">
+
+<P><B>The signature C(N,d;H) is valid if the signature that was decrypted with (N,e), H‚ = E(N,e;C), matches the message M‚s hash value H(M).</B></P>
+
+</div>
+
+</OL>
+
+</BODY>
+</HTML>

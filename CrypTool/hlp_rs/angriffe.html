@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Examples of different kinds of attacks</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Analysis">
+	<PARAM NAME="Keyword" VALUE="Attacks">
+	<PARAM NAME="Keyword" VALUE="Cryptanalysis">
+</OBJECT>
+
+<BODY>
+
+<h3><P><A NAME="angriffe"></A><B>Examples of different kinds of attacks</B></P></h3>
+
+<P>A number of different types of attack on cryptosystems is possible. These attacks require different levels of knowledge, computing power, and availability of data on the part of the adversary. However, it is normally assumed that the adversary starts from the position of knowing which <!--ZZZPOPUP--><A href="verschluesselung.html">encryption algorithm</A> is being used. This assumption has proved correct in practice, as it has proved virtually impossible to keep encryption algorithms which are normally implemented in freely available programs secret in the long-term.</P>
+
+<P>The <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">ciphertext-only attack</A> has the least requirements for the attacker's knowledge &ndash; considering the knowledge of the <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> text and the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A>. The attacker's demand raise then from a <!--ZZZPOPUP--><A href="knownplaintextangriff.html">known-plaintext attack</A> to the <A href="chosenplaintextangriff.html">chosen-plaintext attack</A>.</P>
+
+<P>The effort required to perpetrate the attack is inversely proportional to the requirements: With a known-plaintext attack the adversary has one set of plaintext and encrypted text available, whereas in the ciphertext-only attack he has only the encrypted text. Hence a ciphertext-only attack is generally more difficult than a known-plaintext attack. In a chosen-plaintext attack, one can generate any number of sets of plaintext and encrypted text, hence a chosen-plaintext attack takes less time than a known-plaintext attack.</P>
+
+<P>Another type of attack is the <!--ZZZPOPUP--><A href="bruteforce.html">brute-force attack</A>. In this type of attack, an attempt is made to get the correct <!--ZZZPOPUP--><A href="schluessel.html">key</A> by trying out every possible permutation (from within a pre-specified range). A variation of brute-force attacks are <A href="textboock_attack.html">dictionary attacks</A> on passwords.</P>
+
+<P>Other types of attacks are:
+<ol type="disc"><li>
+<A href="man_in_the_middle.html">man-in-the-middle attacks</A></li>
+<li>
+<A href="sidechannelattacks.html">side-channel attacks</A></P></li></ol>
+
+<P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> contains <A href="hid_hilfe_szenarien.html">examples</A> in which the existing attacks on encryption algorithms contained in CrypTool are described.</P>
+
+</BODY>
+</HTML>

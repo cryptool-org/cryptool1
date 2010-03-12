@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Diffie-Hellman key exchange protocol</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+<script language="JScript" src="helper.js"></script>
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->	
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Diffie-Hellman key exchange">
+</OBJECT>
+
+<BODY>
+
+<h3>Diffie-Hellman Key Exchange Protocol</h3>
+
+		<P>The Diffie-Hellman key exchange protocol was developed by Whitfield Diffie, 
+			Martin E. Hellman and Ralph Merkle in 1976.</P>
+		<P>CrypTool contains a visualization of the Diffie-Hellman key exchange protocol. 
+			You can access it via the menu item <A href="menu_related_methods.html"><B>Individual 
+					Procedures</B></A> / <B>Diffie-Hellman Demonstration</B>. For the 
+			dialog <A href="hidd_diffiehellmanvisualization.html">Diffie-Hellman 
+				Visualization</A> online help is offered too.</P>
+		<P>Furthermore CrypTool offers an <A href="diffie-hellman-beispiel.html"><B>exemplary 
+					execution</B></A> of the key exchange protocol with small numbers in 
+			order to ease your understanding.</P>
+		<P>Despite communicating via a non-secure line, the protocol enables two or more 
+			parties to negotiate on a secret key which is solely known to the participating 
+			parties.
+		</P>
+		<P>For better comprehension the two participating parties will be described as 
+			Alice and Bob. The following drawing is to give a quick overview of the 
+			Diffie-Hellman key exchange protocol:</P>
+		<P><IMG SRC="images/dh_procedure.gif" ALT="dh_procedure.gif" BORDER="0"></P>
+		<P>The secret and common key, often described as <I>session key</I>, depends on the 
+			following parameters:</P>
+		<UL>
+			<LI>
+				Public parameters (p and g)</LI>
+			<LI>
+				Secret of Alice</LI>
+			<LI>
+				Secret of Bob</LI>
+			<LI>
+				Shared key of Alice</LI>
+			<LI>
+				Shared key of Bob</LI>
+		</UL>
+		<P>The protocol is based on the discrete logarithm problem, that is making use of a 
+			so-called <B>one-way-function</B> property: Whereas the computation of a 
+			mathematical one-way-function is of low complexity, the inverse operation is 
+			extremely hard to accomplish.</P>
+		<P>The creation of the session key at the end of the protocol is based on such a 
+			one-way-function: Even if a potential attacker has knowledge of the shared keys 
+			of both Alice and Bob, it is hardly possible for him to compute the session 
+			key; depending on the key length, it can easily turn out as impossible for the 
+			attacker to calculate the session key.</P>
+		<P>Increasing the prime module p directly affects the complexity to compute the 
+			session key. Anyhow, the additional expenses to compute the exponential 
+			function are bearable for Alice and Bob.</P>
+		<P>Contrary to the situation of Alice and Bob, the attacker needs to compute the 
+			discrete logarithm, which is the <U>inversion of the exponential function</U>. 
+			This effort increases much more than the effort necessary for the two 
+			communication partners.</P>
+		<P>For this reason the safety of the Diffie-Hellman key exchange protocol depends 
+			essentially on the size of the prime module p. In practical prime module 
+			numbers are considered safe if their bit length has at least 1024 bit, which 
+			complies with a 300-digit decimal number.</P>
+		<P>Besides the prime module p, the secret numbers of Alice and Bob need to be of a 
+			certain length in order to prevent the attacker from correctly guessing the 
+			session key by chance. Thus, in practice secrets should be at least 80 bit long 
+			(25-digit decimal number).</P>
+		<P><B>Remark 1</B>:</P>
+		<P>The key exchange protocol according to Diffie-Hellman is <B>NOT an encryption method</B>, 
+			it is merely used to agree on a secret and common key.</P>
+		<P><B>Remark 2</B>:</P>
+		<P>The Diffie-Hellman protocol is vulnerable against "<a href="man_in_the_middle.html">Man-In-The-Middle</a>" 
+			attacks:</P>
+		<P>The attacker attempts to personate as Alice for Bob and at the same time to 
+			personate as Bob against Alice (the attacker stands in the middle of the 
+			communication between Alice and Bob). If he is successful then he obtains via 
+			the Diffie-Hellman protocol a common secret key with Alice and a second common 
+			secret key with Bob.</P>
+		<P>This attack can be prevented via digital certificates by the secure 
+			identification of the communication partners.</P>
+		<P><B>Remark 3</B>:</P>
+		<P>Additional information on the mathematical background can be found
+		</P>
+		<UL>
+			<LI>
+				within the CrypTool <A class="filelink" onclick="parser('script-en.pdf')">script</A> and
+			</LI>
+			<LI>
+				in chapter 12.6 ”Key agreement based on asymmetric techniques" (p 515 ff.) in 
+				Menezes/Oorschot/Vanstone, Handbook of Applied Cryptography, CRC Press, © 1997, 
+				5th printing 2001.</LI>
+		</UL>
+	</BODY>
+</HTML>

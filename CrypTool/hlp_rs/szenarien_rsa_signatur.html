@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Example illustrating the RSA signature generation</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="RSA encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Signature">
+	<PARAM NAME="Keyword" VALUE="Examples / Scenarios">	
+	<PARAM NAME="Keyword" VALUE="Scenarios / Demonstrations">
+</OBJECT>
+
+<BODY>
+
+<h3>Example Illustrating the RSA Signature Generation</h3>
+
+<P>This section provides an <A href="hid_hilfe_szenarien.html">example</A> which illustrates the use of the <A href="hid_crypt_sign.html">RSA method</A> applied to generate <A href="signatur.html">signatures</A>. To make it easier to follow the steps that need to be performed with <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>, the example is illustrated with a number of screenshots.</P>
+
+<P>The application of the <A href="hid_crypt_sign.html">RSA method</A> to signatures is illustrated with a binary <!--ZZZPOPUP--><A href="dokument.html">document</A>.</P>
+
+<P>First of all it is necessary (as for <!--ZZZPOPUP--><A href="verschluesselung.html">encryption</A> and <!--ZZZPOPUP--><A href="entschluesselung.html">decryption</A> using the <A href="hid_crypt_rsaenc.html">RSA encryption algorithm</A>) to generate an asymmetric <!--ZZZPOPUP--><A href="schluesselpaar.html">key pair</A>. Select the item <A href="hid_crypt_keygen.html">Key Generation/Import</A> in the menu <A href="menu_digitalsignaturespki.html">Digital Signatures/PKI</A> \ <a href="menu_digitalsignaturespkipki.html">PKI</a>, and the following dialog opens.</P>
+
+<P><IMG SRC="images/szenariorsa_sig1.gif" ALT="szenariorsa_sig1.gif" BORDER=0></P>
+
+<P>The name we enter is <CODE>Joe Smith</CODE>, the optional key identifier is <CODE>Joes key </CODE>and the PIN (twice) is <CODE>CrypTool</CODE>. The length of the modulus is <CODE>512</CODE> bits. Press the <B>RETURN</B> key or else click on the <B>Generate new key pair</B> button, and generation of the <!--ZZZPOPUP--><A href="schluesselpaar.html">key pair</A> will be started.</P>
+
+<P>In the next window the public RSA parameters (public key) appear: the modulus composed of two prime numbers and the public exponent.</P>
+
+<P><IMG SRC="images/szenariorsa-sigparam.gif" ALT="szenariorsa-sigparam.gif" BORDER=0></P>
+
+<P>Click on <B>Apply key</B>, and the name under which the key pair has been saved in the database and the time which elapsed during creation of the key pair are displayed.</P>
+
+<P><IMG SRC="images/szenariorsa_sig2.gif" ALT="szenariorsa_sig2.gif" BORDER=0></P>
+
+<P>When this dialog is closed, the <A href="hidd_keyasym_generation.html">Generation of asymmetric key pair</A> dialog must also be closed by clicking on <B>Cancel</B>.</P>
+
+<P>Before we <!--ZZZPOPUP--><A href="signatur.html">sign</A> a <!--ZZZPOPUP--><A href="dokument.html">document</A> we want to display the certificate for the <!--ZZZPOPUP--><A href="schluesselpaar.html">key pair</A> that has been generated. We therefore select <A href="menu_digitalsignaturespki.html">Digital Signatures/PKI</A> \ <a href="menu_digitalsignaturespkipki.html">PKI</a> \ <A href="hid_show_all_ec_keys.html">Key Display/Export</A>, following which the <A href="hidd_key_asym.html">Available asymmetric key pairs</A> dialog box appears, with the key pair previously generated highlighted.</P>
+
+<P><IMG SRC="images/szenariorsa_sig3.gif" ALT="szenariorsa_sig3.gif" BORDER=0></P>
+
+<P>The certificate is displayed by clicking on the <B>Show certificate</B> pushbutton.</P>
+
+<P><IMG SRC="images/szenariorsa_sig4.gif" ALT="szenariorsa_sig4.gif" BORDER=0></P>
+
+<P>We then close this dialog box and the dialog <A href="hidd_key_asym.html">Available asymmetric key pairs</A> by clicking on <B>Close</B>.</p><p>Now we know, which certificates are available. So we are now ready to <!--ZZZPOPUP--><A href="signatur.html">sign</A> a <!--ZZZPOPUP--><A href="dokument.html">document</A>, what we want to show with the following sample file.</p>
+
+<P>We want to <!--ZZZPOPUP--><A href="signatur.html">sign</A> the <A href="cryptoolfoto.html">screenshot</A> of <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>, which is to be found in <!--ZZZPOPUP--><A href="datei.html">file</A> <CODE>CrypTool.bmp</CODE>.</P>
+
+<P><IMG SRC="images/cryptool.gif" ALT="cryptool.gif" BORDER=0></P>
+
+<P>This <!--ZZZPOPUP--><A href="dokument.html">document</A> is opened in <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> (via <A href="menu_file.html">File</A> \ <A href="hid_file_open.html">Open</A>).</P>
+
+<P><IMG SRC="images/szenariorsa_sig5.gif" ALT="szenariorsa_sig5.gif" BORDER=0></P>
+
+<P>To <!--ZZZPOPUP--><A href="signatur.html">sign</A> the <!--ZZZPOPUP--><A href="dokument.html">document</A> it is necessary to select <A href="menu_digitalsignaturespki.html">Digital Signatures/PKI</A> \ <A href="hid_crypt_sign.html">Sign Message</A>.</P>
+
+<P><IMG SRC="images/szenariorsa_sig6.gif" ALT="szenariorsa_sig6.gif" BORDER=0></P>
+
+<P>We want to <!--ZZZPOPUP--><A href="signatur.html">sign</A> with the <A href="hid_crypt_sign.html">RSA encryption algorithm</A> and the <A href="hid_crypt_hash_ripemd160.html">RIPEMD-160</A> <!--ZZZPOPUP--><A href="hashwert.html">hash function</A>. To sign the <!--ZZZPOPUP--><A href="dokument.html">document</A>, select the <!--ZZZPOPUP--><A href="schluesselpaar.html">key pair</A> and enter the PIN <CODE>CrypTool</CODE>, then either press the <B>RETURN</B> key or click on the <B>Sign</B> button.</P>
+
+<P><IMG SRC="images/szenariorsa_sig7.gif" ALT="szenariorsa_sig7.gif" BORDER=0></P>
+
+<P>The dialog box closes and the <!--ZZZPOPUP--><A href="signatur.html">signed</A> <!--ZZZPOPUP--><A href="dokument.html">document</A> is displayed.</P>
+
+<P><IMG SRC="images/szenariorsa_sig8.gif" ALT="szenariorsa_sig8.gif" BORDER=0></P>
+
+<P>The <!--ZZZPOPUP--><A href="signatur.html">signature</A> is at the start of the <!--ZZZPOPUP--><A href="dokument.html">document</A> and the document to be signed is at the end, as can be verified easily by comparing with the original document.</P>
+
+<P>A clearer presentation, with separation of the signature and the <!--ZZZPOPUP--><A href="dokument.html">document</A>, can be obtained by selecting <A href="menu_digitalsignaturespki.html">Digital Signatures/PKI</A> \ <A href="hid_crypt_extract.html">Extract Signature</A>.</P>
+
+<P><IMG SRC="images/szenariorsa_sig11.gif" ALT="szenariorsa_sig11.gif" BORDER=0></P>
+
+<P>We now wish to check that the <!--ZZZPOPUP--><A href="dokument.html">document</A> has not been altered. To do this, select <A href="menu_digitalsignaturespki.html">Digital Signatures/PKI</A> \ <A href="hid_crypt_verify.html">Verify signature</A>.</P>
+
+<P><IMG SRC="images/szenariorsa_sig9.gif" ALT="szenariorsa_sig9.gif" BORDER=0></P>
+
+<P>Select Joe Smith from the list of signatories and click on the <B>Verify signature</B> button. The following dialog box now appears.</P>
+
+<P><IMG SRC="images/szenariorsa_sig10.gif" ALT="szenariorsa_sig10.gif" BORDER=0></P>
+
+<P>So, the message has not been changed.</p><p>We now wish to change the message, so we replace the first character in the message, the <CODE>B</CODE>, with an <CODE>A</CODE>.</P>
+
+<P><IMG SRC="images/szenariorsa_sig12.gif" ALT="szenariorsa_sig12.gif" BORDER=0></P>
+
+<P>If we now select <A href="menu_digitalsignaturespki.html">Digital Signatures/PKI</A> \ <A href="hid_crypt_verify.html">Verify signature</A>, the following dialog box appears.</P>
+
+<P><IMG SRC="images/szenariorsa_sig13.gif" ALT="szenariorsa_sig13.png" BORDER=0></P>
+
+<P>Thus, <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> has detected using the RSA signature that the <!--ZZZPOPUP--><A href="dokument.html">document</A> has been changed.</P>
+
+</BODY>
+</HTML>

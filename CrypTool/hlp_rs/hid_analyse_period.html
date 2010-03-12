@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Analysis of periodicity</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Periodicity analysis">
+	<PARAM NAME="Keyword" VALUE="Analysis">
+</OBJECT>
+
+<BODY>
+
+<h3>Periodicity (Menu <A href="menu_analyze.html">Analysis</A> \ Tools for Analysis)</h3>
+
+<P>Periodicity is the repetition of a certain sequence of characters of length k (k &gt;= 1) from a certain position in the document &#150; the <a href="offset.html">offset</a>. The periodicity must continue through to the end of the document. Therefore it is not enough that a patterns appears multiple times in a file to be a period.</P>
+
+<P>All periodic cycles are shown. It is only possible to have several cycles when they are nested within each other.</P>
+
+<P>A document with k cycles must be at least 2 ^ (k + 1) – 2 bytes long. CrypTool can find at most 100 periodic cycles.</P>
+
+<P>The first byte of the document has the offset value 1.</P>
+
+<P>The periodicity analysis can be applied to text and binary documents.</P>
+
+<P>Examples:</P>
+
+<TABLE cols=2 width="0*" class="pad20">
+
+<TR VALIGN="top">
+<TD>
+<PRE><CODE>bbbbaaaa      </CODE></PRE>
+</TD>
+<TD>cycle <B><CODE>a</CODE></B> has offset 5 and period length 1.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>
+<PRE><CODE>bbbazazaz     </CODE></PRE>
+</TD>
+<TD>cycle <B><CODE>az</CODE></B> has offset 4 and period length 2.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>
+<PRE><CODE>bbbazazbazaz  </CODE></PRE>
+</TD>
+<TD>contains two nested cycles, the first with offset 3 and period length 5 (<B><CODE>bazaz</CODE></B>) and the second with offset 9 and length 2 (<B><CODE>az</CODE></B>).</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>
+<PRE><CODE>axakaxal</CODE></PRE>
+</TD>
+<TD>is not a period</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>
+<PRE><CODE>axaxaxak</CODE></PRE>
+</TD>
+<TD>is not a period</TD>
+</TR>
+</TABLE><BR>
+
+<P><IMG SRC="images/perioddlg.gif" ALT="perioddlg.gif" BORDER=0></P>
+
+<P>An analysis of periodicity can only be carried out if the length of the document is at least 2 bytes.</P>
+
+<P>The display can be stored in a text file if required.</P>
+
+<P>If the cycle is longer than 20 characters, then only the first 20 characters of a cycle will be displayed.</P>
+
+</BODY>
+</HTML>

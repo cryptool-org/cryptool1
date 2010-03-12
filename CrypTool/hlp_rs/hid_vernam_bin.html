@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+	<HEAD>
+		<TITLE>Vernam encryption algorithm</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+		<!-- multiple keywords for CrypTool HTML help index -->
+	</HEAD>
+	<BODY>
+		<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+			VIEWASTEXT>
+			<PARAM NAME="Keyword" VALUE="Symmetric">
+			<PARAM NAME="Keyword" VALUE="Encryption">
+				<PARAM NAME="Keyword" VALUE="Vernam encryption algorithm">
+			<PARAM NAME="Keyword" VALUE="One-time pad">
+		</OBJECT>
+		<h3>Vernam (Menu <A href="menu_crypt.html">Crypt/Decrypt</A>
+			\ Symmetric (classic))</h3>
+		<P>The Vernam <!--ZZZPOPUP--><A href="verschluesselung.html">encryption algorithm</A>
+			works with an exclusive-OR logical operation (compare binary <a href="hid_xor_bin.html">
+				XOR</a> encryption). However, since <A href="hid_xor_bin.html">encryption by 
+				means of an exclusive-OR</A> is relatively easy to break with a short <!--ZZZPOPUP--><A href="schluessel.html">key</A>, 
+			a <!--ZZZPOPUP--><A href="dokument.html">document</A> is used here as the key (key file).</P>
+			<P>XOR encryption is (provably) secure if a key which contains only random bits and which 
+			is at least as long as the <!--ZZZPOPUP--><A href="dokument.html">document</A>
+			to be <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> is chosen 
+			(this is known as a one-time pad).</P>
+		<P>To invoke this function, select the menu <A href="menu_crypt.html">Crypt/Decrypt</A>
+			\ <a href="menu_crypt_symmetricclassic.html">Symmetric (classic)</a> \ Vernam: Then a dialog opens in which the file with the 
+			key (keystream) can be selected.</P>
+		<P>An <A href="szenarien_vernam.html">example</A> of the Vernam encryption 
+			algorithm can be found in the <A href="hid_hilfe_szenarien.html">Examples</A> chapter.</P>
+		<p><u>Remark 1</u>:<br>
+			This implementation does not check, whether the data of the key file is random 
+			or whether the data of the key file is longer than the cleartext document.</p>
+		<p><u>Remark 2</u>:<br>
+			If the data of the cleartext document is longer than the keystream, then the 
+			key automatically is applied cyclically (repeated again and again).</p>
+		<p><u>Remark 3</u>:<br>
+			The character "A" in the keystream file for Vernam has the same effect on the 
+			cleartext document as the two hex numbers "4" and "1" for XOR.</p>
+	</BODY>
+</HTML>

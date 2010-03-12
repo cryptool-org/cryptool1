@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog Hash Demonstration</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Hash function">
+	<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+</OBJECT>
+
+<BODY>
+
+<h3>Dialog Hash Demonstration</h3>
+
+<P>This dialog can be achieved via the menu <a href="menu_related_methods.html">Indiv. Procedures</a> \ <a href="menu_individualprocedures_hashprocedures.html">Hash</a> \ <A href="hid_einzelverfahren_hashwerte_hashdemo.html">Hash Demonstration</A>.</P>
+
+<P>This dialog demonstrates the security property of cryptographic hash functions. It compares the hash value of a text file in CrypTool with the hash value of a modification from it. </P>
+
+<P>You have the choice between the <A href="hashfunktion.html">hash functions</A> MD2, MD5, and SHA-1. The base of numbers representing the respective hash values can be hex, decimal or binary.</P>
+
+<P>In the text window "Actual file" you may edit the opened file -- with the restriction that only the first 16,000 characters of the original file will be copied into this dialog (for performance reasons). After each change the hash value will be computed again and shown (see output text field "Hash value of the actual file").</P>
+
+<P>The bottommost text field shows the bit wise difference between the hash value of the original file and the hash value of the actual file (differences are marked by red 1). Below this bit sequence there are shown two statistical values: </P>
+
+<UL>
+	<LI>On the one hand you can see the percentage of the bits that are different, absolute numbers are given in brackets.</LI>
+
+	<LI>On the other hand you can see the longest bit sequence appearing in both the actual file and the original file.</LI>
+</UL>
+
+<P>In order to analyse the hash functions, the respective hash value is observed as a bit sequence in binary representation. The comparison of both hash values results in a bit sequence as well. Within this sequence two different types of sub sequences occur: The so called zero-runs only consist of zeros, whereas the so called one-runs only consist of ones. A zero-run indicates a bit sequence being identical in both the original file and the actual file. The longest zero-run together with its length and its zero-based <a href="offset.html">offset</a> is stated in the bottom line. The statistical analysis of the longest zero-run was the basic approach to the successful analysis of the MD-4 hash function.</P>
+
+<P><B>Remark:</B></P>
+
+<P>Please note that this demonstration is only available for text files.</P>
+
+</BODY>
+</HTML>

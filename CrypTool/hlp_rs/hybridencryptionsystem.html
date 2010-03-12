@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Hybrid encryption system</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Hybrid encryption">
+</OBJECT>
+
+<BODY>
+
+<h3>Hybrid encryption system</h3>
+
+<P>The goal of the hybrid method is to compensate the respective disadvantages of 
+			symmetric and asymmetric encryption and to combine their advantages.</P>
+		<P>The main problem of all symmetric encryption algorithms is the <!--ZZZPOPUP--><A href="keyexchange.html">key 
+				management</A> for a large number of secret keys (one for each pair of 
+			communicating parties). Asymmetric cryptography solves this problem. Symmetric 
+			algorithms on the other hand are much faster than the asymmetric ones.</P>
+		<P>Asymmetric encryption systems are, due to their large computational 
+			requirements, used in practice only for encrypting so called "session keys". 
+			The pay load is encrypted with a symmetric algorithm using the session key. 
+			This combination of two methods is called hybrid encryption 
+			(asymmetric/symmetric). This implies no security deficit if you use a good 
+			random number generator for the session key.</P>
+		<P>In <B>hybrid encryption systems</B> the sender "A" creates in a secure 
+			environment a "random", i.e. not predictable, symmetric key "S" (the so called 
+			"session key") and encrypts the message using this key. The sender then 
+			encrypts the session key with the (asymmetric) public key of the recipient "B". 
+			Then both, the message encrypted with "S" and the encrypted session key are 
+			transmitted to the recipient.</P>
+		<P>Recipient "B" not knowing the session key, has to decrypt the encrypted session 
+			key before he can decrypt the message. He decrypts "S" with his (asymmetric) 
+			private key. Now he knows the session key and can use it to decrypt the message 
+			that was sent to him.
+		<P>S/MIME and <a href="pgp.html">PGP</a> e.g. are based on the hybrid encryption scheme. PGP e.g. uses
+		<a href="hid_crypt_idea.html">IDEA</a> for encrypting the data symmetrically and 
+		<a href="hid_crypt_rsaenc.html">RSA</a> to transport the session key securely.</P>
+		
+		<P>In CrypTool there are two hybrid encryption systems:
+		<ul>
+		<li><a href="hid_verentschlsseln_hybridverfahren_hybridverschlsselung.html">Hybrid encryption with RSA-AES</a></li>
+		<li><a href="hid_hybrid_eccenc.html">Hybrid encryption with ECC-AES</a></li>
+		</ul>
+		</P>
+
+</BODY>
+</HTML>

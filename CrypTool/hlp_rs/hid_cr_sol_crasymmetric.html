@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Solution to challenge-response scenario (asymmetric)</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Challenge-response demonstration">
+	<PARAM NAME="Keyword" VALUE="Network authentication">
+	<PARAM NAME="Keyword" VALUE="Examples / Scenarios">
+	<PARAM NAME="Keyword" VALUE="Scenarios / Demonstrations">
+</OBJECT>
+
+<BODY>
+
+<H3>Solution to Challenge Response Scenario (asymmetric)</H3>
+
+<P>The solution is based on the so-called <A href="man_in_the_middle.html">man-in-the-middle-attack</A>. The attacker makes sure that all data packets are transferred through him and identifies himself to the client as server and to the server as client. So, invisibly, he is involved in all protocol steps. As soon as the client is accepted by the server the attacker can disconnect the client and play its role for further communication. In the scenario you proceed as follows:</p>
+
+<OL>
+	<LI>You create a connection between the attacker and the two routers.<BR><BR></LI>
+
+	<LI>Separate the connection between the two routers.<BR><BR></LI>
+
+	<LI>Now you have reached a connection configuration so that the whole communication between Client and Server 1 is passed through you. If you put on your masking you are ready for the <A href="man_in_the_middle.html">man-in-the-middle-attack</A>.<BR><BR></LI>
+
+	<LI>Start the protocol from the client. Finally, you (attacker) due to your masking will be authenticated instead of the client (<A href="man_in_the_middle.html">man-in-the-middle-attack</A>).</LI>
+</OL>
+
+<P>This solution works, by the way, for all previous scenarios too.</P>
+
+<P><IMG SRC="images/cr_sol_crasymmetric.gif" ALT="cr_sol_crasymmetric.gif" BORDER=0></P>
+
+</BODY>
+</HTML>

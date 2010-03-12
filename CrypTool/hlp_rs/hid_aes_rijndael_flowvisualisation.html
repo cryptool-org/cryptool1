@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Rijndeal Flow Visualization</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+<script language="JScript" src="helper.js"></script>
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="AES encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Rijndael">
+	<PARAM NAME="Keyword" VALUE="Visualization">
+</OBJECT>
+
+<BODY>
+
+<h3>Rijndael Flow Visualization (Menu <a href="menu_related_methods.html">Individual Procedures</a> \ Visualization of Algorithms \ AES)</h3>
+
+<P>The AES flow visualization uses a colorful display to show how data changes in each round of the AES 
+encryption algorithm. This is shown using the example of AES128 with 10 rounds, where data as well as the key 
+consist of a 16 byte block (128 bits) each.</P>
+
+<P>Every byte of the 16 byte block is illustrated by a color stream, whereas the color reflects the current 
+value (through direct derivation of the RGB values from the numerical values of the bytes - see 
+<a href="http://en.wikipedia.org/wiki/RGB_color_model">http://en.wikipedia.org/wiki/RGB_color_model</a>). 
+This way you can easily see that a data block consisting of zeros only will turn "colored" very fast, even 
+though the key consists of zeros only, too.</P>
+
+<P><IMG SRC="images/aes_flow_visualization.jpg" ALT="images/aes_flow_visualization.jpg" BORDER="0"></P>
+
+<P><B>Usage</B>:</P>
+
+<P>You can enter each byte manually - this is applies to both, the data block as well as the key block.</P>
+
+<P>The buttons underneath allow to fill the data and the key block with either zeros or random hex values. 
+The <B>Reset</B> button restarts the algorithm in the first round using the current hex values.</P>
+
+<P>By clicking the <B>Calculation</B> button (on the far left) you can start the visualization in the lower 
+section. Therein you can see one round of AES at a time (unfortunately, you cannot scroll through all 10 rounds 
+at the moment, the current implementation can display and save only one round).</P>
+
+<P>With the check box <B>Stops</B> (on the far right) you can configure how autonomously the visualization is 
+executed:</P>
+
+<UL>
+<LI>If this check box is <u>checked</u>, the visualizations stops after every round: you can scroll to the 
+next round by clicking the <B>New Round</B> button. Then you can calculate the new round by clicking the 
+<B>Calculation</B> button.</LI>
+<LI>If this check box is <u>not checked</u>, the visualization automatically runs from one round to another 
+in an endless loop.</LI>
+</UL>
+
+<P>The steps visualized in each round are:</P>
+
+<ol>
+	<li>addition of the roundkey</li>
+	<li>replacements with S-boxes</li>
+	<li>block shifts within rows (ShiftRow)</li>
+	<li>block mixes within columns (MixColumn)</li>
+</ol>
+
+<P>A detailed description of each step as well as further documentation can be found here:</P>
+
+<ul>
+    <li><a href="aes_gewinner.html">The AES Winner Rijndael</a></li>
+	<li><a href="http://www.math.uni-paderborn.de/~aggathen/rijndael/2002/experimente.html" target="_blank">http://www.math.uni-paderborn.de/~aggathen/rijndael/2002/experimente.html</a></li>
+	<li><a href="http://de.wikipedia.org/wiki/Advanced_Encryption_Standard" target="_blank">http://de.wikipedia.org/wiki/Advanced_Encryption_Standard</a></li>
+	<li>or this <A class="filelink" onclick="parser('rijndael-poster-a4.pdf')">poster</A> as attachment to CrypTool (source: www.math.uni-paderborn.de/~aggathen/rijndael/2002/experimente.html).</li>
+</ul>
+
+</BODY>
+</HTML>

@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog Manual analysis of monoalphabetic substitution</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Analysis">
+	<PARAM NAME="Keyword" VALUE="Monoalphabetic substitution encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Substitution encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Atbash encryption algorithm">	
+</OBJECT>
+
+<BODY>
+
+<h3>Dialog Manual Analysis of Monoalphabetic Substitution (Menu <A href="menu_analyze.html">Analysis</A> \ Symmetric Encryption (classic) \ Manual Analysis)</h3>
+
+<P>Here you can perform a computer supported manual analysis.</p>
+<p> The same dialog pops up, if a <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">ciphertext-only attack</A><U> </U> for the <A href="hid_cryptmono.html">monoalphabetic substitution encryption algorithm</A> is done, and then you want to manually improve the automated result.</p>
+
+
+<P>This post-processing window appears once <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> has finished its <A href="hid_analyze_subst.html">automatic analysis of monoalphabetic substitution</A> or if you directly enter the menu <A href="menu_analyze.html">Analysis</A> \ <A href="menu_analysis_symmetricclassic.html">Symmetric Encryption (classic)</A> \ <a href="menu_analysis_symmetricclassic_manualanalysis.html">Manual Analysis</a> \ <a href="hid_analyze_subst.html">Substitution</a>. The upper section of the dialog shows the letter assignments which have been worked out by CrypTool.</P>
+
+<P>These can be changed by overwriting. For example, assigning the letter A to the letter E means that the letter A in the encrypted text corresponds to the plaintext letter E. CrypTool checks whether any new assignments clash with existing assignments, i.e. whether two different letters have been assigned to one and the same letter (which is not permitted in monoalphabetic substitution). If a collision is identified, an error box asks whether you wish to keep the old assignment or the new one. The assignment which is discarded is set to unknown (*). If the input is valid, it is applied to the text to be analysed and the results are presented in the lower part of the dialog.</P>
+
+<P>Your own inputs can be reversed by clicking on <B>Reset entries to results of the automatic analysis</B>, upon which the upper part of the dialog once more displays the (partial) substitution worked out by CrypTool. You may undo the last change with a click on the button <B>Back</B>.</P>
+
+<P>Clicking on the <B>Output current status</B> button causes the encrypted text to be <!--ZZZPOPUP--><A href="entschluesselung.html">decrypted</A> with the current substitution and output in a new <A href="hidr_texttype.html">text window</A>.</P>
+
+
+</BODY>
+</HTML>

@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Attack on small secret keys</TITLE>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="RSA encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Lattice reduction">
+	<PARAM NAME="Keyword" VALUE="Attacks">
+</OBJECT>
+
+<BODY>
+
+<h3>Attack on Small Secret Keys (Menu <A href="menu_related_methods.html">Individual Procedures</A> \ RSA Cryptosystem \ Lattice Based Attacks on RSA)</h3>
+
+<p>You can execute the attack using the <a href="hidd_rsabloemermay.html">Attack on Small Secret Keys</a> dialog.</p>
+
+The attack on short secret keys allows to factor a <A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">RSA</A>-Modulus 
+<font face="Times New Roman, Times, serif"> <strong>N </strong> </font> efficiently, 
+if the public key<font face="Times New Roman, Times, serif"> <strong>e </strong> 
+</font> is known and the secret key<font face="Times New Roman, Times, serif"> 
+<strong>d </strong> </font> is selected too small. 
+<p>For this purpose this task is transformed into a root-finding problem, which 
+  is solved with the method of <a href="menu_individualprocedures_rsacryptosystem_latticebasedattacks.html">Lattice reduction</a>.<br>
+  We start with the following equation of the <a href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">RSA 
+  Cryptosystem</a>: 
+<div align="center" 
+	style="margin-top:5px; 
+	margin-bottom:5px"><font face="Times New Roman, Times, serif"> <strong>e &middot; 
+  d &equiv; 1 mod &Phi;(N) </strong> </font> </div>
+
+  There exists a<font face="Times New Roman, Times, serif"> <strong> k </strong> 
+</font> for which 
+<div align="center" 
+	style="margin-top:5px; 
+	margin-bottom:5px"><font face="Times New Roman, Times, serif">
+	<strong>ed + k &Phi;(N) = 1
+	</strong>
+</font> 
+</div>
+  
+holds in Z. Here<font face="Times New Roman, Times, serif"><strong> &Phi;(N) </strong> 
+</font> is<font face="Times New Roman, Times, serif"> <strong>(p-1)(q-1) = pq-p-q+1 
+= N -(p+q)+1</strong></font>.<br>
+Combining both equations we get: 
+<div align="center" 
+	style="margin-top:5px; 
+	margin-bottom:5px"><font face="Times New Roman, Times, serif"> <strong>e &middot; 
+  d + k(N + 1 - (p + q)) = 1 </strong> </font> </div>
+Now set<font face="Times New Roman, Times, serif">ting <strong>s := -(p + q) </strong> 
+</font> and<font face="Times New Roman, Times, serif"> <strong>A := N + 1 </strong> 
+</font> and reducing both sides<font face="Times New Roman, Times, serif"> <strong>modulo 
+e</strong></font>, we get: 
+<div align="center" 
+	style="margin-top:5px; 
+	margin-bottom:5px"><font face="Times New Roman, Times, serif"> <strong>k(A 
+  + s) &equiv; 1<font face="Times New Roman, Times, serif"><strong> </strong></font> 
+  mod e </strong> </font> </div>
+<br>
+This Equation is now solved with the method of <a href="menu_individualprocedures_rsacryptosystem_latticebasedattacks.html">Lattice 
+reduction</a>.<br>
+<br>
+The size of <font face="Times New Roman, Times, serif"> <strong>d </strong> </font> 
+is in the following alway expressed relative to <font face="Times New Roman, Times, serif"> 
+<strong>N</strong></font>. We introduce the variable <font face="Times New Roman, Times, serif"><strong>delta 
+</strong> </font> so, that the following equation holds: <font face="Times New Roman, Times, serif"> 
+</font> 
+<div align="center" 
+	style="margin-top:5px; 
+	margin-bottom:5px"><font face="Times New Roman, Times, serif"> <strong>d=N<sup>delta 
+  </sup></strong> </font> </div>
+
+  The attack is theoretically mountable for <font face="Times New Roman, Times, serif"> 
+</font> up to 0.292. That means, that <font face="Times New Roman, Times, serif"> 
+<strong>N </strong> </font> can be factored, if <font face="Times New Roman, Times, serif"><strong>d</strong></font> 
+is less than <font face="Times New Roman, Times, serif"> <strong>N<sup>0.292</sup></strong></font>. 
+To increase the upper limit on <font face="Times New Roman, Times, serif"><strong>d</strong></font>, 
+allowing to factor <font face="Times New Roman, Times, serif"><strong>N</strong></font> 
+for delta greater than 0.292, is the subject of research.<br>
+<br>
+In [BD00] for the first time Boneh and Durfee show attacks on <font face="Times New Roman, Times, serif"><strong>d 
+&gt; N<sup>&frac14; </sup></strong></font> using <a href="menu_individualprocedures_rsacryptosystem_latticebasedattacks.html">Lattice 
+reduction</a>. They were able to prove the usability of their method for <font face="Times New Roman, Times, serif"><strong>d</strong></font> 
+up to <font face="Times New Roman, Times, serif"><strong>N<sup>0,292</sup></strong></font>. 
+At first they show an approach for <font face="Times New Roman, Times, serif"><strong>d 
+&lt; N<sup>0,284 </sup></strong></font> and improve this result by modifying the 
+lattice base.<br>
+In this application the algorithm of Bl&ouml;mer and May[BM01, May03] is used, 
+which is based on the approach of Boneh and Durfee. By using a different strategy 
+of modifying the lattice base the theoretical boundary on <font face="Times New Roman, Times, serif"><strong>d</strong></font> 
+is is slightly worse (<font face="Times New Roman, Times, serif"><strong>d&lt;N<sup>0,290</sup></strong></font>). 
+<font face="Times New Roman, Times, serif"></font> However because of the smaller 
+lattice base practically higher values can be achieved.<br>
+<br>
+<h4>Sources:</h4>
+<div ></div>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr> 
+    <td width="1" height="1" align="left" valign="top">[BD00]</td>
+    <td align="left" valign="top"><div align="justify"> Boneh, Dan; Durfee, Glenn: 
+        Cryptanalysis of RSA with private key d less than N0.292. In: <em>IEEE 
+        Transactions on Information Theory Bd. 46</em>, 2000. – ISSN 0018–9448, 
+        S. 1339–1349</div></td>
+  </tr>
+  <tr> 
+    <td align="left" valign="top">[BM01]</td>
+    <td align="left" valign="top"><div align="justify"> Bl&ouml;mer, Johannes; May, Alexander: Low Secret Exponent RSA Revisited. In: <em>Cryptography and Lattice Conference (CaLC 2001), Lecture Notes in Computer Science Bd. 2146</em>, Springer, 2001, S. 4–19</div></td>
+  </tr>
+  <tr> 
+    <td align="left" valign="top">[May03] </td>
+    <td align="left" valign="top"><div align="justify">May, Alexander: New RSA Vulnerabilities Using Lattice Reduction Methods, University of Paderborn, Diss., 2003</div></td>
+  </tr>
+</table>
+
+</BODY>
+</HTML>

@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>DESX encryption algorithm</TITLE>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Symmetric">
+	<PARAM NAME="Keyword" VALUE="Encryption">
+	<PARAM NAME="Keyword" VALUE="DESX encryption algorithm">
+</OBJECT>
+
+<BODY>
+
+<h3>DESX (Menu <A href="menu_crypt.html">Crypt/Decrypt</A> \ Symmetric (modern) \ Further Algorithms)</h3>
+
+<P>Since the <A href="des_info.html">DES</A> algorithm was announced in the 1970s it was criticized for its short key length of 56 bit. In order to enlarge the key space of DES, Ron Rivest (the "R" in <A href="hid_crypt_rsaenc.html">RSA</A>) came up with the DESX proposal already in the mid-1980s. A message that is to be DESX encrypted is XORed with a 64-bit pre-whitening key K<span style="vertical-align:text-bottom;font-size:0.6em">1</span> before it is encrypted with DES using a 56-bit key K<span style="vertical-align:text-bottom;font-size:0.6em">DES</span>. Finally, the result is XORed with a post-whitening key K<span style="vertical-align:text-bottom;font-size:0.6em">2</span>.</P>
+
+<P>DESX(x) = K<span style="vertical-align:text-bottom;font-size:0.6em">2</span> + DES<span style="vertical-align:text-bottom;font-size:0.6em">K</span><span style="vertical-align:text-bottom;font-size:0.5em">DES</span>(x + K<span style="vertical-align:text-bottom;font-size:0.6em">1</span>)</P>
+
+<P>The key space is extended to 184 bits due to the two 64-bit pre- and post-whitening keys. However, Kilian and Rogaway proved in [KR96] that the security level of DESX equals a key length of 118 bits. Compared to a 56-bit security level of the original DES this is still a remarkable improvement.</P>
+
+<P>The simplicity of DESX is one of its main advantages: Just two simple XOR gates are additionally required. XOR gates can be implemented very efficiently both in hardware and in software without a significant loss of performance. Furthermore, when K<span style="vertical-align:text-bottom;font-size:0.6em">1</span> = K<span style="vertical-align:text-bottom;font-size:0.6em">2</span> = 0 is chosen, DESX is compliant to DES.</P>
+
+<P>DESX is used with a slightly modified key in the SAFER security toolkit by RSA. The 64-bit pre-whitening key K<span style="vertical-align:text-bottom;font-size:0.6em">1</span> and the DES key K<span style="vertical-align:text-bottom;font-size:0.6em">DES</span> are concatenated and fed into a one-way function. The 64-bit output of this one-way function serves as the post-whitening key K<span style="vertical-align:text-bottom;font-size:0.6em">2</span>.</P>
+
+<P>For further information see: <A href="http://www.crypto.rub.de/en_publications.html" target="_blank">http://www.crypto.rub.de/en_publications.html</A></P>
+
+<P>CrypTool uses DESX in <A href="cbcmodus.html">CBC mode</A> mit zero initialization vector and <a href="padding.html#0100">01-00 padding</a>.</P>
+
+<p>It expects key entry in the order K<span style="vertical-align:text-bottom;font-size:0.6em">DES</span>, K<span style="vertical-align:text-bottom;font-size:0.6em">1</span>, K<span style="vertical-align:text-bottom;font-size:0.6em">2</span>. E. g. the input <blockquote>00 00 00 00 00 00 00 00 11 11 11 11 11 11 11 11 22 22 22 22 22 22 22 22</blockquote> is interpreted as K<span style="vertical-align:text-bottom;font-size:0.6em">DES</span> = 00 ... 00, K<span style="vertical-align:text-bottom;font-size:0.6em">1</span> = 11 ... 11 and K<span style="vertical-align:text-bottom;font-size:0.6em">2</span> = 22 ... 22. </p>
+
+<P>References:</P>
+
+<P>[KR96a] <A href="http://www.cs.ucdavis.edu/~rogaway/papers/desx.ps" target="_blank">www.cs.ucdavis.edu/~rogaway/papers/desx.ps</A></P>
+
+<P>[KR96b] Phillip Rogaway, RSA Laboratories' CryptoBytes, Summer 1996<br />
+<A href="http://www.cs.ucdavis.edu/~rogaway/papers/cryptobytes.ps" target="_blank">www.cs.ucdavis.edu/~rogaway/papers/cryptobytes.ps</A>
+</P>
+<P>Also see: <A href="hid_crypt_desl.html">DESL</A>, <A href="hid_crypt_desxl.html">DESXL</A></P>
+
+
+
+	</BODY>
+</HTML>

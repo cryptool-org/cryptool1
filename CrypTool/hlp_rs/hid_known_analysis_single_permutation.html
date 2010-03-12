@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3,2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Automatic Analysis of a Single Column Transposition</TITLE>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Analysis">
+	<PARAM NAME="Keyword" VALUE="Column transposition">
+	<PARAM NAME="Keyword" VALUE="Permutation encryption algorithm">
+</OBJECT>
+
+<BODY>
+
+<h3>Single Column Transposition (Menu Analysis \ Symmetric Encryption (classic) \ Known Plaintext) </h3>
+
+		<p>A known-plaintext attack is available for the <!--ZZZPOPUP--><A href="hid_permutation.html">Permutation encryption algorithm</A>.
+		<br> This means that it is necessary to enter not only the text encrypted by the permutation encryption algorithm but also the according
+		plaintext.
+		CrypTool then works out the key used to encrypt the plaintext. </p>
+		<p>For the automatic analysis both the plaintext and the encrypted text are required. Therefore you have to upload both texts using 
+		<!--ZZZPOPUP--><A href="hidd_automated_perm_analysis.html">Dialog Analysis of a Single Column Transposition (Known Plaintext)</A>. 
+		Corresponding texts have always the same length.</p>
+		<p>The analysis operates as follows: The plaintext as well as the ciphertext will be read into a table. Depending on the parameters
+	        (variant) the respective table has n columns or n rows (n = length of permutation). CrypTool compares the columns of both tables and determines the transposition of the columns. 
+		This permutation is the key that was used for permutation encryption (together with the parameters of the method).</p>
+		<p>CrypTool runs through an automatic analysis when the user does not specify the key length and parameters for computing the key. 
+		Several keys could be found with it. However, only the first key which is found will be displayed 
+		in <!--ZZZPOPUP--><A href="hidd_automated_perm_analysis_output.html">Dialog Single Column Transposition Key</A>. The cryptanalysis program assumes, that all rows are filled completely.
+		So if a user limits the key size, only such keys can be considered, where the texts have a length of an integer multiple of the keys.
+		<p><u>Exemplary computation of the permutation key:</u></p>
+		<TABLE cols="2" width="0*" class="pad10">
+			<TR VALIGN="top">
+				<TD>The plaintext is:</TD>
+				<TD>ABCDEFGHIJKL.</TD>
+			</TR>
+			<TR VALIGN="top">
+				<TD>The ciphertext is:</TD>
+				<TD>IEAJFBKGCLHD.</TD>
+		</TABLE><br>
+		The following exemplary analysis of a single column transposition expects the following parameters:<br>
+		<br>
+		<TABLE cols="2" width="0*" class="pad10">
+			<TR VALIGN="top">
+				<TD>Read in:</TD>
+				<TD>column by column</TD>
+			</TR>
+			<TR VALIGN="top">
+				<TD>Permute:</TD>
+				<TD>column by column</TD>
+			</TR>
+			<TR VALIGN="top">
+				<TD>Read out:</TD>
+				<TD>row by row</TD>
+			</TR>
+			<TR VALIGN="top">
+				<TD>Key size:</TD>
+				<TD>3</TD>
+			</TR>
+		</TABLE><br>
+		As described above the analysis starts with reading the plaintext and ciphertext into a table.
+		Because of the key size (3) and the column by column permutation, both texts consist of exactly 3 columns. The column size will be calculated by the text size and by the key length. 
+		In this example the 3 columns consist of 4 characters, because the text have a size of 12. <br>
+		<br>
+		First the plaintext will be read into a table column by column. 
+		&nbsp;</FONT></p>
+		<table border="1" cellpadding="0" cellspacing="0" style="BORDER-COLLAPSE: collapse" bordercolor="#111111"
+			width="10%" id="AutoNumber1">
+			<tr>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">A</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">E</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">I</font></td>
+			</tr>
+			<tr>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">B</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">F</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">J</font></td>
+			</tr>
+			<tr>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">C</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">G</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">K</font></td>
+			</tr>
+			<tr>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">D</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">H</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">L</font></td>
+			</tr>
+		</table>
+        	<br>
+       	After that, a table of the ciphertext will be created. Because the assumed parameters say the plaintext will be permuted 
+		column by column and read out row by row, the ciphertext has to be read in row by row, The ciphertext table looks as follows:
+       	&nbsp;</p>
+		<table border="1" cellpadding="0" cellspacing="0" style="BORDER-COLLAPSE: collapse" bordercolor="#111111"
+			width="10%" id="Table1">
+			<tr>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">I</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">E</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">A</font></td>
+			</tr>
+			<tr>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">J</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">F</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">B</font></td>
+			</tr>
+			<tr>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">K</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">G</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">C</font></td>
+			</tr>
+			<tr>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">L</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">H</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">D</font></td>
+
+			</tr>
+		</table>
+		<br>
+            CrypTool compares the columns of both tables with each other. Based on this comparison you can see the first column of 
+		the ciphertext table is located on the third position of the ciphertext table. The column in the second position kept its location, 
+		the third was switched to the first position in ciphertext. <br>
+		Thereby the analysis of permutation encryption gives the permutation key: 3,2,1.
+		&nbsp;</p>
+		<p><u>Remarks:</u></p>
+		<p>1) The known-plaintext attack requires both the plaintext and the encrypted text. 
+		The encrypted text can be generated in CrypTool via the menu De-/Encrypt \ Symmetric (classic) \ <A href="hid_permutation.html">Permutation/Transposition</a>. 
+		The automatic analysis of a single column transposition computes the key used to encrypt the plaintext. 
+		<p>2) The maximum length of both texts is limited to 2 Gigabyte. 
+		This comes from the range of values of a 32-bit integer. 
+		This data type was used to declare the file size (= text length) and it also determines the limit of the file size. 
+		Due to the fact that the key length can not exceed the text length, the permutation size have the same upper limit.  </p>
+	</BODY>
+</HTML>
