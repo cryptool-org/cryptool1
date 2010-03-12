@@ -27,8 +27,8 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot; LANG=en OUTDIR=..\..\$(ConfigurationName)"
-				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a LANG=en OUTDIR=..\..\$(ConfigurationName)"
+				BuildCommandLine="nmake /f &quot;hlp_rs.mak&quot; LANG=rs OUTDIR=..\..\$(ConfigurationName)"
+				ReBuildCommandLine="nmake /f &quot;hlp_rs.mak&quot; /a LANG=rs OUTDIR=..\..\$(ConfigurationName)"
 				CleanCommandLine=""
 				Output="CrypTool-en.chm"
 				PreprocessorDefinitions=""
