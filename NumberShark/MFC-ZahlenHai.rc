@@ -32,8 +32,8 @@ CAPTION "Informacje o grze NumberShark"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            128,IDC_STATIC,11,17,20,20
-    LTEXT           "Number Shark Wersja 1.1.5",IDC_STATIC,40,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2008",IDC_STATIC,40,25,119,8
+    LTEXT           "Number Shark Wersja 1.2",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2010",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
 END
 
@@ -188,13 +188,13 @@ BEGIN
     BEGIN
         BLOCK "040704e4"
         BEGIN
-            VALUE "Copyright (C) 2006", " (C) CrypTool-Project 2007"
+            VALUE "Copyright (C) 2006", " (C) CrypTool-Project 2010"
             VALUE "FileDescription", "Number Shark is an educational game to improve the knowledge of factors and prime numbers."
-            VALUE "FileVersion", "1.1.0.0"
+            VALUE "FileVersion", "1.2"
             VALUE "InternalName", "NumberShark.exe"
             VALUE "OriginalFilename", "NumberShark.exe"
             VALUE "ProductName", "NumberShark"
-            VALUE "ProductVersion", "1.1.0.0"
+            VALUE "ProductVersion", "1.2"
         END
     END
     BLOCK "VarFileInfo"
@@ -374,7 +374,7 @@ BEGIN
     IDS_ABOUTBOX            "&Informacje o Number Shark"
     IDS_RULES               "Opis gry:\n - Na pocz¹tku gry Number Shark mo¿esz wybraæ rozmiar ""shell square"", czyli iloœci liczb, z którymi chcesz zagraæ.\n\n Rozmiar ""shell square"" - n nazywamy ""liczb¹ wybieralnych liczb"". Pula liczb zaczyna siê o 1 \n i koñczy liczb¹, któr¹ wybra³eœ jako rozmiar ""shell square"" (na pocz¹tek sugerujemy liczbê 20).\n\n Po tym wszystkie liczby z ""shell square"" zostan¹ podane albo Tobie albo komputerowi (""Number Shark"").\n\n Mo¿esz przeczytaæ zasady tego, jak dzielone s¹ liczby  w poni¿szym tekœcie\n\nCel gry:\nTwoim celem jest osi¹gn¹æ wiêkszy wynik ni¿ suma liczb, które zosta³y zjedzone przez Number Sharka.\n\nZasady gry:\n - Pierwszy ruch zawsze nale¿y do Ciebie: zawsze Ty rozpoczynasz pierwsz¹ rundê.\n - W tej rundzie mo¿esz wybraæ ka¿d¹ z n liczb z shell square.\n - Number Shark pobiera ka¿dy dostêpny czynnik rzeczywisty liczby wybranej przez Ciebie, jeœli nie zosta³ \n jeszcze wybrany. (na przyk³ad: 6 jest podzielne przez 1,2,3 i 6. Rzeczywistym czynnikiem jest 1,2 i 3).\n - We wszystkich nastêpnych rundach mo¿esz wybraæ tylko liczby, które nie zosta³y ju¿ przez Ciebie wybrane,\n    lub zosta³y zjedzone przez Number Sharka w poprzednich rundach (np.: tylko niebieskie muszelki)\n -ALE: Number Shark mo¿e nigdy siê nie pomyliæ!\n -Jeœli wybierzesz liczbê, która nie ma ju¿ dostêpnych czynników, wówczas Number Shark po³yka Twoj¹ liczbê,\n a Ty otrzymujesz 0 punktów za bie¿¹c¹ rundê."
     IDS_PLAYER_WINS         "Gratulacje, wygra³eœ z Number Sharkiem!\n\n\n\n Jeœli poszukujesz wiêkszego wyzwania, spróbuj liczbê wiêksz¹ ni¿ %s. \n\n\n\nOsi¹gn¹³eœ %s punktów. Najwiêkszy mo¿liwy wynik z %s liczbami wyniós³by %s."
-    IDS_VERSION_INFO        "[i18n] Number Shark Wersja 1.0"
+    IDS_VERSION_INFO        "Number Shark Wersja 1.2"
     IDS_COMPUTER_WINS       "Tym razem Number Shark wygra³:-( \r\n\r\n Wygra³ z Tob¹ %s do %s. \r\n\r\n Spróbuj jeszcze raz! \r\n\r\n"
     IDS_DRAW                "Remis!?!\r\n\r\n To zdarza siê bardzo rzadko! \r\n\r\n Ty i Number Shark macie po % punktów."
     IDS_MAX_POINTS_NEW      "Aby obliczyæ dla %s liczb najwiêkszy wynik z %s punktów \n\n program potrzebowa³ %s sekund. Musia³ przejœæ przez%s wêz³ów. \n\n Najwiêksza liczba pierwsza to %s. Powinieneœ rozpocz¹æ grê od tej w³aœnie liczby, aby osi¹gn¹æ maksymalny wynik.\n\n\n\n To achieve the highest score, you can choose the numbers in this order: %s Aby osi¹gn¹æ najwiêkszy wynik, mo¿esz wybraæ liczby w tej kolejnoœci: %s.\n\n\n\nProszê wys³aæ swoje nowo obliczone wartoœci na esslinger@fb5.uni-siegen.de, aby zintegrowaæ je z gr¹."
@@ -556,8 +556,8 @@ CAPTION "Info über den Zahlenhai"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            128,IDC_STATIC,11,17,20,20
-    LTEXT           "ZahlenHai Version 1.1.5",IDC_STATIC,40,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2008",IDC_STATIC,40,25,119,8
+    LTEXT           "ZahlenHai Version 1.2",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2010",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
 END
 
@@ -712,13 +712,13 @@ BEGIN
     BEGIN
         BLOCK "040704e4"
         BEGIN
-            VALUE "Copyright (C) 2006", " (C) CrypTool-Project 2007"
+            VALUE "Copyright (C) 2006", " (C) CrypTool-Project 2010"
             VALUE "FileDescription", "Number Shark is an educational game to improve the knowledge of factors and prime numbers."
-            VALUE "FileVersion", "1.1.5.0"
+            VALUE "FileVersion", "1.2.0.0"
             VALUE "InternalName", "NumberShark.exe"
             VALUE "OriginalFilename", "NumberShark.exe"
             VALUE "ProductName", "NumberShark"
-            VALUE "ProductVersion", "1.1.5.0"
+            VALUE "ProductVersion", "1.2.0.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -1043,8 +1043,8 @@ CAPTION "Information about the Number Shark"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            128,IDC_STATIC,11,17,20,20
-    LTEXT           "Number Shark Version 1.1.5",IDC_STATIC,40,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2008",IDC_STATIC,40,25,119,8
+    LTEXT           "Number Shark Version 1.2",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2010",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
 END
 
@@ -1199,13 +1199,13 @@ BEGIN
     BEGIN
         BLOCK "040704e4"
         BEGIN
-            VALUE "Copyright (C) 2006", " (C) CrypTool-Project 2007"
+            VALUE "Copyright (C) 2006", " (C) CrypTool-Project 2010"
             VALUE "FileDescription", "Number Shark is an educational game to improve the knowledge of factors and prime numbers."
-            VALUE "FileVersion", "1.1.5.0"
+            VALUE "FileVersion", "1.2.0"
             VALUE "InternalName", "NumberShark.exe"
             VALUE "OriginalFilename", "NumberShark.exe"
             VALUE "ProductName", "NumberShark"
-            VALUE "ProductVersion", "1.1.5.0"
+            VALUE "ProductVersion", "1.2.0"
         END
     END
     BLOCK "VarFileInfo"
