@@ -20,6 +20,8 @@
 #define HID_TEXTOPTIONS                         0x107CC
 #define HID_MEASUREPASSWORDQUALITY              0x107CF
 #define HID_CONTRIBUTORS                        0x10809
+#define HID_CONTRIBUTORS2                       0x1080A
+#define HID_PORTS                               0x1080A
 #define HID_CR_OVERVIEW                         0x12B7B
 #define HID_CR_USAGE                            0x12B7C
 #define HID_CR_SZ_PASSWORDS                     0x12B7D
@@ -294,6 +296,7 @@
 #define HIDD_ICG_RANDOMPARAMETER                0x20067
 #define HIDD_KEY                                0x2006D
 #define HIDD_RSA_DECRYPTION                     0x2006E
+#define HIDD_PORTS                              0x2006F
 #define HIDD_KEY_SUBSTITUTION                   0x20070
 #define HIDD_SIGNATURE                          0x20071
 #define HIDD_DIALOG_PLOT_PARAM                  0x20075

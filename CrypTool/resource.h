@@ -27,6 +27,7 @@
 #define IDR_HTML_DLGPASSWORDGUIDELINES  108
 #define IDD_KEY                         109
 #define IDD_RSA_DECRYPTION              110
+#define IDD_PORTS                       111
 #define IDD_KEY_SUBSTITUTION            112
 #define IDD_SIGNATURE                   113
 #define IDD_DIALOG_PLOT_PARAM           117
@@ -1647,6 +1648,8 @@
 #define IDC_TEXT_SCROLLER_2             2056
 #define ID_CONTRIBUTORS                 2057
 #define IDC_EDIT_BITLENGTH              2058
+#define ID_CONTRIBUTORS2                2058
+#define ID_PORTS                        2058
 #define IDC_EDITPRIME                   2062
 #define IDC_FILE_SELECT                 2064
 #define IDC_BUTTON_COPY_KEY             2066
@@ -3311,6 +3314,6 @@
 #define _APS_NEXT_RESOURCE_VALUE        885
 #define _APS_NEXT_COMMAND_VALUE         33392
 #define _APS_NEXT_CONTROL_VALUE         2077
-#define _APS_NEXT_SYMED_VALUE           109
+#define _APS_NEXT_SYMED_VALUE           114
 #endif
 #endif
