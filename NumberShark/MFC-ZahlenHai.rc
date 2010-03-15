@@ -294,7 +294,7 @@ END
 // Bitmap
 //
 
-IDB_BITMAP1             BITMAP                  "Bilder\\muschel-zweifarbig-5-engl.bmp"
+IDB_BITMAP1             BITMAP                  "Bilder\\shells-pl.bmp"
 IDB_BITMAP8             BITMAP                  "Bilder\\Hai04-vers5-engl.bmp"
 IDB_BITMAP_UNDO         BITMAP                  "bilder\\backward-engl.bmp"
 IDB_BITMAP2             BITMAP                  "Bilder\\hai01-engl.bmp"
@@ -818,7 +818,7 @@ END
 // Bitmap
 //
 
-IDB_BITMAP1             BITMAP                  "Bilder\\muschel-zweifarbig-5.bmp"
+IDB_BITMAP1             BITMAP                  "Bilder\\shells-de.bmp"
 IDB_BITMAP8             BITMAP                  "Bilder\\Hai04-vers5.bmp"
 IDB_BITMAP_UNDO         BITMAP                  "Bilder\\backward.bmp"
 IDB_BITMAP2             BITMAP                  "Bilder\\hai01.bmp"
@@ -1305,7 +1305,7 @@ END
 // Bitmap
 //
 
-IDB_BITMAP1             BITMAP                  "Bilder\\muschel-zweifarbig-5-engl.bmp"
+IDB_BITMAP1             BITMAP                  "Bilder\\shells-en.bmp"
 IDB_BITMAP8             BITMAP                  "Bilder\\Hai04-vers5-engl.bmp"
 IDB_BITMAP_UNDO         BITMAP                  "bilder\\backward-engl.bmp"
 IDB_BITMAP2             BITMAP                  "Bilder\\hai01-engl.bmp"

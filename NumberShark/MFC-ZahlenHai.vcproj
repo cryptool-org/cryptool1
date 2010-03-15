@@ -952,6 +952,30 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Bilder\bitmap12.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\bitmap13.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\bitmap14.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\bitmap15.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\bitmap16.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\bitmap17.bmp"
+				>
+			</File>
+			<File
 				RelativePath=".\Bilder\foreward-engl.bmp"
 				>
 			</File>
@@ -1013,6 +1037,22 @@
 			</File>
 			<File
 				RelativePath=".\Bilder\shark.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\shells-de.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\shells-en.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\shells-pl.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\shells.bmp"
 				>
 			</File>
 			<File
