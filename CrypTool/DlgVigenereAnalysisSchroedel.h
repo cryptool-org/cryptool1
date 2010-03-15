@@ -261,9 +261,9 @@ protected:
 	std::map<std::string, DigramTrigramSet> mapDigramsTrigrams;
 
 	// control for the list of keyword languages
-	CListCtrl controlListLanguagesKeyword;
+	CCheckListBox listBoxLanguagesKeyword;
 	// control for the list of ciphertext languages
-	CListCtrl controlListLanguagesCiphertext;
+	CCheckListBox listBoxLanguagesCiphertext;
 
 public:
 	// the list of selected keywords (this is compiled from ALL selected languages)

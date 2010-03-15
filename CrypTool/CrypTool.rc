@@ -6667,6 +6667,7 @@ IDB_CRT_DOWN_F          BITMAP                  "res\\CRT\\crtdownf.bmp"
 IDB_CRT_DOWN_FSTR       BITMAP                  "res\\CRT\\crtdownfstr.bmp"
 IDB_SIMPLE_TRANSPOSITION_RAIL_FENCE BITMAP                  "res\\Bitmaps\\simple_transposition_rail_fence.bmp"
 IDB_SIMPLE_TRANSPOSITION_SCYTALE BITMAP                  "res\\Bitmaps\\simple_transposition_scytale.bmp"
+AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\Bitmaps_pl\\checkboxbitmap.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -8345,6 +8346,8 @@ BEGIN
                             "[i18n] \n\nUnfortunately, there were no possible results found.\n\nMake sure you have chosen the correct language(s) for keyword and ciphertext.\n\nMaybe you should consider decreasing the threshold value in the analysis options dialog."
     IDS_STRING_FILE_NOT_FOUND_BUT_ASK_FOR_MIGRATION_TO_DEFAULT_RESOURCES 
                             "[i18n] A file required for the analysis could not be found.\n\nYet this file is part of your CrypTool installation.\n\nCrypTool is probably using out-dated Windows registry keys at the moment.\n\nFrom now on, do you want CrypTool to use the files required for the analysis (dictionary, digrams and trigrams) that have been rolled out with your current CrypTool installation?"
+    IDS_STRING_LANGUAGE_CHOICE_REQUIREMENTS 
+                            "[i18n] Please choose AT LEAST ONE keyword language and EXACTLY ONE ciphertext language."
 END
 
 STRINGTABLE 
@@ -17566,6 +17569,7 @@ IDB_CRT_DOWN_F          BITMAP                  "res\\CRT\\crtdownf.bmp"
 IDB_CRT_DOWN_FSTR       BITMAP                  "res\\CRT\\crtdownfstr.bmp"
 IDB_SIMPLE_TRANSPOSITION_SCYTALE BITMAP                  "res\\Bitmaps\\simple_transposition_scytale.bmp"
 IDB_SIMPLE_TRANSPOSITION_RAIL_FENCE BITMAP                  "res\\Bitmaps\\simple_transposition_rail_fence.bmp"
+AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\Bitmaps_rs\\checkboxbitmap.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -19234,6 +19238,8 @@ BEGIN
     IDR_PLOTTYPE            "\nNeimenovana\n\nPLOT datoteka (*.plt)\n.plt\n\nPlot Tip Datoteke\nPLOT\nPlot Datoteke\n"
     IDS_STRING_FILE_NOT_FOUND_BUT_ASK_FOR_MIGRATION_TO_DEFAULT_RESOURCES 
                             "[i18n] A file required for the analysis could not be found.\n\nYet this file is part of your CrypTool installation.\n\nCrypTool is probably using out-dated Windows registry keys at the moment.\n\nFrom now on, do you want CrypTool to use the files required for the analysis (dictionary, digrams and trigrams) that have been rolled out with your current CrypTool installation?"
+    IDS_STRING_LANGUAGE_CHOICE_REQUIREMENTS 
+                            "[i18n] Please choose AT LEAST ONE keyword language and EXACTLY ONE ciphertext language."
 END
 
 STRINGTABLE 
@@ -21798,8 +21804,8 @@ BEGIN
     PUSHBUTTON      "OK",IDOK,7,115,216,18
     LTEXT           "Sprache(n) für Schlüsselworte:",IDC_STATIC,7,39,97,8
     LTEXT           "Sprache(n) für Ciphertext:",IDC_STATIC,118,39,97,8
-    CONTROL         "",IDC_LIST_LANGUAGES_KEYWORD,"SysListView32",LVS_LIST | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,49,105,60
-    CONTROL         "",IDC_LIST_LANGUAGES_CIPHERTEXT,"SysListView32",LVS_LIST | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,118,49,105,60
+    LISTBOX         IDC_LIST_LANGUAGES_KEYWORD,7,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         IDC_LIST_LANGUAGES_CIPHERTEXT,118,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
 END
 
 IDD_DIALOG_PLOT_PARAM DIALOG  0, 0, 159, 118
@@ -28455,6 +28461,7 @@ IDB_CRT_DOWN_F          BITMAP                  "res\\CRT\\CrtDownf.bmp"
 IDB_CRT_DOWN_FSTR       BITMAP                  "res\\CRT\\CrtDownfstr.bmp"
 IDB_SIMPLE_TRANSPOSITION_SCYTALE BITMAP                  "res\\Bitmaps\\simple_transposition_scytale.bmp"
 IDB_SIMPLE_TRANSPOSITION_RAIL_FENCE BITMAP                  "res\\Bitmaps\\simple_transposition_rail_fence.bmp"
+AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\Bitmaps\\checkboxbitmap.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -29987,6 +29994,8 @@ BEGIN
                             "\n\nEs wurden leider keine möglichen Lösungen gefunden.\n\nÜberprüfen Sie, ob Sie die richtige(n) Sprache(n) für Schlüsselwort und Ciphertext ausgewählt haben.\n\nVielleicht sollten Sie auch in Erwägung ziehen, den Grenzwert im Dialog Analyseoptionen zu verkleinern."
     IDS_STRING_FILE_NOT_FOUND_BUT_ASK_FOR_MIGRATION_TO_DEFAULT_RESOURCES 
                             "Eine für die Analyse notwendige Datei konnte nicht gefunden werden.\n\nIn Ihrer CrypTool-Installation ist die Datei aber vorhanden.\n\nVermutlich verwendet CrypTool im Moment veraltete Einträge aus der Windows-Registry.\n\nWollen Sie, dass CrypTool in Zukunft die für die Analyse notwendigen Dateien (Wörterbuch, Digramme und Trigramme) aus Ihrer aktuellen CrypTool-Installation verwendet?"
+    IDS_STRING_LANGUAGE_CHOICE_REQUIREMENTS 
+                            "Bitte wählen Sie MINDESTENS EINE Schlüsselwortsprache und GENAU EINE Ciphertextsprache aus."
 END
 
 STRINGTABLE 
@@ -37181,8 +37190,8 @@ BEGIN
     PUSHBUTTON      "OK",IDOK,7,115,216,18
     LTEXT           "Language(s) for keywords:",IDC_STATIC,7,39,84,8
     LTEXT           "Language(s) for ciphertext:",IDC_STATIC,118,39,97,8
-    CONTROL         "",IDC_LIST_LANGUAGES_KEYWORD,"SysListView32",LVS_LIST | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,49,105,60
-    CONTROL         "",IDC_LIST_LANGUAGES_CIPHERTEXT,"SysListView32",LVS_LIST | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,118,49,105,60
+    LISTBOX         IDC_LIST_LANGUAGES_KEYWORD,7,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         IDC_LIST_LANGUAGES_CIPHERTEXT,118,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
 END
 
 
@@ -39358,6 +39367,7 @@ IDB_CRT_DOWN_F          BITMAP                  "res\\CRT\\crtdownf.bmp"
 IDB_CRT_DOWN_FSTR       BITMAP                  "res\\CRT\\crtdownfstr.bmp"
 IDB_SIMPLE_TRANSPOSITION_SCYTALE BITMAP                  "res\\Bitmaps\\simple_transposition_scytale.bmp"
 IDB_SIMPLE_TRANSPOSITION_RAIL_FENCE BITMAP                  "res\\Bitmaps\\simple_transposition_rail_fence.bmp"
+AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\Bitmaps_en\\checkboxbitmap.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -41073,6 +41083,8 @@ BEGIN
                             "\n\nUnfortunately, there were no possible results found.\n\nMake sure you have chosen the correct language(s) for keyword and ciphertext.\n\nMaybe you should consider decreasing the threshold value in the analysis options dialog."
     IDS_STRING_FILE_NOT_FOUND_BUT_ASK_FOR_MIGRATION_TO_DEFAULT_RESOURCES 
                             "A file required for the analysis could not be found.\n\nYet this file is part of your CrypTool installation.\n\nCrypTool is probably using out-dated Windows registry keys at the moment.\n\nFrom now on, do you want CrypTool to use the files required for the analysis (dictionary, digrams and trigrams) that have been rolled out with your current CrypTool installation?"
+    IDS_STRING_LANGUAGE_CHOICE_REQUIREMENTS 
+                            "Please choose AT LEAST ONE keyword language and EXACTLY ONE ciphertext language."
 END
 
 STRINGTABLE 

@@ -1755,8 +1755,8 @@ CDlgVigenereAnalysisSchroedelChooseLanguages::~CDlgVigenereAnalysisSchroedelChoo
 void CDlgVigenereAnalysisSchroedelChooseLanguages::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	DDX_Control(pDX, IDC_LIST_LANGUAGES_KEYWORD, controlListLanguagesKeyword);
-	DDX_Control(pDX, IDC_LIST_LANGUAGES_CIPHERTEXT, controlListLanguagesCiphertext);
+	DDX_Control(pDX, IDC_LIST_LANGUAGES_KEYWORD, listBoxLanguagesKeyword);
+	DDX_Control(pDX, IDC_LIST_LANGUAGES_CIPHERTEXT, listBoxLanguagesCiphertext);
 }
 
 BEGIN_MESSAGE_MAP(CDlgVigenereAnalysisSchroedelChooseLanguages, CDialog)
@@ -1768,23 +1768,23 @@ BOOL CDlgVigenereAnalysisSchroedelChooseLanguages::OnInitDialog()
 	CDialog::OnInitDialog();
 
 	// clear the lists
-	controlListLanguagesKeyword.DeleteAllItems();
-	controlListLanguagesCiphertext.DeleteAllItems();
+	listBoxLanguagesKeyword.ResetContent();
+	listBoxLanguagesCiphertext.ResetContent();
 
-	// set extended style for lists
-	controlListLanguagesKeyword.SetExtendedStyle(LVS_EX_FULLROWSELECT);
-	controlListLanguagesCiphertext.SetExtendedStyle(LVS_EX_FULLROWSELECT);
-	
+	// make sure we're using the correct checkbox style
+	listBoxLanguagesKeyword.SetCheckStyle(BS_AUTOCHECKBOX);
+	listBoxLanguagesCiphertext.SetCheckStyle(BS_AUTOCHECKBOX);
+
 	// add all available languages (keyword)
 	std::map<std::string, std::list<std::string>>::iterator mapIteratorKeyword;
 	for(mapIteratorKeyword=mapListsDictionaryWords.begin(); mapIteratorKeyword!=mapListsDictionaryWords.end(); mapIteratorKeyword++) {
-		controlListLanguagesKeyword.InsertItem(0, (*mapIteratorKeyword).first.c_str());
+		listBoxLanguagesKeyword.AddString((*mapIteratorKeyword).first.c_str());
 	}
 
 	// all all available languages (ciphertext)
 	std::map<std::string, DigramTrigramSet>::iterator mapIteratorCiphertext;
 	for(mapIteratorCiphertext=mapDigramsTrigrams.begin(); mapIteratorCiphertext!=mapDigramsTrigrams.end(); mapIteratorCiphertext++) {
-		controlListLanguagesCiphertext.InsertItem(0, (*mapIteratorCiphertext).first.c_str());
+		listBoxLanguagesCiphertext.AddString((*mapIteratorCiphertext).first.c_str());
 	}
 
 	UpdateData(false);
@@ -1794,28 +1794,47 @@ BOOL CDlgVigenereAnalysisSchroedelChooseLanguages::OnInitDialog()
 
 void CDlgVigenereAnalysisSchroedelChooseLanguages::OnOK()
 {
-	// don't do anything if less than one keyword language is selected
-	if(controlListLanguagesKeyword.GetSelectedCount() < 1)
-		return;
-	// don't do aynthing if not exactly one ciphertext language is selected
-	if(controlListLanguagesCiphertext.GetSelectedCount() != 1)
-		return;
-
-	// store the selected keyword languages in its output structures
-	POSITION posKeyword = controlListLanguagesKeyword.GetFirstSelectedItemPosition();
-	for(int i=0; i<controlListLanguagesKeyword.GetSelectedCount(); i++) {
-		int index = controlListLanguagesKeyword.GetNextSelectedItem(posKeyword);
-		std::list<std::string> listKeywords = mapListsDictionaryWords[controlListLanguagesKeyword.GetItemText(index, 0).GetBuffer()];
-		for(std::list<std::string>::iterator iter=listKeywords.begin(); iter!=listKeywords.end(); iter++) {
-			selectedKeywordsList.push_back(*iter);
-		}	
+	// flomar, 03/15/2010
+	// since we're using custom items with checkboxes, we need to manually 
+	// extract how many items are actually selected
+	int numberOfKeywordLanguagesSelected = 0;
+	int numberOfCiphertextLanguagesSelected = 0;
+	for(int i=0; i<listBoxLanguagesKeyword.GetCount(); i++) {
+		if(listBoxLanguagesKeyword.GetCheck(i)) {
+			// we have a keyword language here
+			numberOfKeywordLanguagesSelected++;
+			// add the language to the result structure
+			CString selectedLanguage;
+			listBoxLanguagesKeyword.GetText(i, selectedLanguage);
+			std::list<std::string> listKeywords = mapListsDictionaryWords[(LPCTSTR)selectedLanguage];
+			for(std::list<std::string>::iterator iter=listKeywords.begin(); iter!=listKeywords.end(); iter++)
+         selectedKeywordsList.push_back(*iter);
+		}
+	}
+	for(int i=0; i<listBoxLanguagesCiphertext.GetCount(); i++) {
+		if(listBoxLanguagesCiphertext.GetCheck(i)) {
+			// we have a ciphertext language here
+			numberOfCiphertextLanguagesSelected++;
+			// add the language to the result structure
+			CString selectedLanguage;
+			listBoxLanguagesCiphertext.GetText(i, selectedLanguage);
+			selectedDigramTrigramSet = mapDigramsTrigrams[(LPCTSTR)selectedLanguage];			
+		}
 	}
 
-	// store the selected ciphertext language in its output structure
-	POSITION posCiphertext = controlListLanguagesCiphertext.GetFirstSelectedItemPosition();
-	for(int i=0; i<controlListLanguagesCiphertext.GetSelectedCount(); i++) {
-		int index = controlListLanguagesCiphertext.GetNextSelectedItem(posCiphertext);
-		selectedDigramTrigramSet = mapDigramsTrigrams[controlListLanguagesCiphertext.GetItemText(index, 0).GetBuffer()];
+	// don't do anything if less than one keyword language is selected or if not exactly 
+	// one ciphertext language is selected; in this case, revert all changes, display 
+	// a notification message to the user and return 
+	if(numberOfKeywordLanguagesSelected < 1 || numberOfCiphertextLanguagesSelected != 1) {
+		// clean up our result structures
+		selectedKeywordsList.clear();
+		selectedDigramTrigramSet.digramFactorString = "";
+		memset(selectedDigramTrigramSet.digrams, sizeof(selectedDigramTrigramSet.digrams), 0);
+		memset(selectedDigramTrigramSet.trigrams, sizeof(selectedDigramTrigramSet.trigrams), 0);
+		// display notification message
+		CString message; message.Format(IDS_STRING_LANGUAGE_CHOICE_REQUIREMENTS);
+		AfxMessageBox(message, MB_ICONINFORMATION);
+		return;
 	}
 
 	// close the dialog
