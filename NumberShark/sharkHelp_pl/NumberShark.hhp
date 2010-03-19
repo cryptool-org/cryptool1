@@ -2,20 +2,21 @@
 Compatibility=1.1 or later
 Compiled file=NumberShark-pl.chm
 Contents file=NumberShark.hhc
-Default topic=NumberShark_Manual.html
+Default topic=NumberShark.html
 Display compile progress=No
 Index file=NumberShark.hhk
-Language=0x809 Englisch (Groﬂbritannien)
+Language=0x415 Polnisch (Polen)
 Title=Number Shark Help
 
 
 [FILES]
-Real_Factors.html
-NumberShark_Challenge.html
-NumberShark_Development.html
-NumberShark_License.html
-NumberShark_Manual.html
-NumberShark_Tutorial.html
+NumberSharkRealFactors.html
+NumberSharkChallenge.html
+NumberSharkDevelopment.html
+NumberSharkLicense.html
+NumberShark.html
+NumberSharkTutorial.html
+NumberSharkPrimes.html
 
 [INFOTYPES]
 

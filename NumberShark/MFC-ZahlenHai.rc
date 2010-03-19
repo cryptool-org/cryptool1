@@ -188,12 +188,12 @@ BEGIN
     BEGIN
         BLOCK "040704e4"
         BEGIN
-            VALUE "Copyright (C) 2006", " (C) CrypTool-Project 2010"
-            VALUE "FileDescription", "Number Shark is an educational game to improve the knowledge of factors and prime numbers."
+            VALUE "Copyright (C) 2006", " (C) CrypTool Project 2010"
+            VALUE "FileDescription", "[i18n] Number Shark is an educational game to improve the knowledge of factors and prime numbers."
             VALUE "FileVersion", "1.2"
-            VALUE "InternalName", "NumberShark.exe"
-            VALUE "OriginalFilename", "NumberShark.exe"
-            VALUE "ProductName", "NumberShark"
+            VALUE "InternalName", "[i18n] NumberShark.exe"
+            VALUE "OriginalFilename", "[i18n] NumberShark.exe"
+            VALUE "ProductName", "[i18n] NumberShark"
             VALUE "ProductVersion", "1.2"
         END
     END
@@ -442,7 +442,7 @@ BEGIN
     IDS_REG_TRUE            "prawda"
     IDS_SHARK_AGAINST       "przeciwko"
     IDS_GAME_DATA           "GameData.txt"
-    IDS_HELP_FILE           "NumberShark-pl.chm::/NumberShark_Manual.html"
+    IDS_HELP_FILE           "NumberShark-pl.chm::/NumberShark.html"
     IDS_TITLE_VERSION       "[i18n] - Wersja 1.0"
 END
 
@@ -712,13 +712,13 @@ BEGIN
     BEGIN
         BLOCK "040704e4"
         BEGIN
-            VALUE "Copyright (C) 2006", " (C) CrypTool-Project 2010"
-            VALUE "FileDescription", "Number Shark is an educational game to improve the knowledge of factors and prime numbers."
-            VALUE "FileVersion", "1.2.0.0"
-            VALUE "InternalName", "NumberShark.exe"
-            VALUE "OriginalFilename", "NumberShark.exe"
-            VALUE "ProductName", "NumberShark"
-            VALUE "ProductVersion", "1.2.0.0"
+            VALUE "Copyright (C) 2006", " (C) CrypTool-Projekt 2010"
+            VALUE "FileDescription", "Der Zahlenhai ist ein Lernspiel für den spielerischen Umgang mit Teilern und Primzahlen."
+            VALUE "FileVersion", "1.2"
+            VALUE "InternalName", "Zahlenhai.exe"
+            VALUE "OriginalFilename", "Zahlenhai.exe"
+            VALUE "ProductName", "Zahlenhai"
+            VALUE "ProductVersion", "1.2"
         END
     END
     BLOCK "VarFileInfo"
@@ -1199,13 +1199,13 @@ BEGIN
     BEGIN
         BLOCK "040704e4"
         BEGIN
-            VALUE "Copyright (C) 2006", " (C) CrypTool-Project 2010"
+            VALUE "Copyright (C) 2006", " (C) CrypTool Project 2010"
             VALUE "FileDescription", "Number Shark is an educational game to improve the knowledge of factors and prime numbers."
-            VALUE "FileVersion", "1.2.0"
+            VALUE "FileVersion", "1.2"
             VALUE "InternalName", "NumberShark.exe"
             VALUE "OriginalFilename", "NumberShark.exe"
             VALUE "ProductName", "NumberShark"
-            VALUE "ProductVersion", "1.2.0"
+            VALUE "ProductVersion", "1.2"
         END
     END
     BLOCK "VarFileInfo"

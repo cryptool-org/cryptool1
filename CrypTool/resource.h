@@ -1632,8 +1632,6 @@
 #define IDC_EDIT_AUTORUN_FILE_NAME      2042
 #define IDC_TAB1                        2043
 #define IDC_BUTTON_OPENFILE             2044
-#define IDC_EDIT_AUTHORS_1              2045
-#define IDC_EDIT_AUTHORS_2              2046
 #define IDC_LIST_STATUS                 2046
 #define IDC_EDIT_STATUS                 2047
 #define IDC_EDIT_DICTIONARY_FILE        2048

@@ -221,7 +221,8 @@ BEGIN
     CONTROL         "Klucz poœredni",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,158,31,76,10
     CONTROL         "D³ugoœæ klucz poœredniego",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,158,44,91,10
     CONTROL         "Autokorelacja",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,158,57,61,10
-    CONTROL         "Poka¿ podstawow¹ analizê szyfru",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,159,71,120,10
+    CONTROL         "[i18n] Poka¿ podstawow¹ analizê szyfru",IDC_CHECK4,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,159,71,120,10
     GROUPBOX        "Cezar",IDC_STATIC,20,18,121,67
     GROUPBOX        "Vigenere, XOR, Dodawanie",IDC_STATIC,150,18,141,67
     GROUPBOX        "Opcje wyjœciowe dla analizy automatycznej",IDC_STATIC,13,5,286,88
@@ -649,14 +650,14 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "O CrypToolu:"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    CTEXT           "Osoby rozwijaj¹ce CrypToola:",IDC_STATIC,7,6,353,11,SS_CENTERIMAGE | WS_BORDER
-    CTEXT           "Bernhard Esslinger",IDC_STATIC,7,33,353,8
-    CTEXT           "Henrik Koy",IDC_STATIC,7,94,353,8,NOT WS_GROUP
-    CTEXT           "Peer Wichmann\nJoerg Cornelius Schneider",IDC_STATIC,7,59,353,17
-    GROUPBOX        "Pomys³, Sponsorzy, Wyzwania, Kierownictwo:",IDC_STATIC,7,23,353,23,BS_CENTER
-    GROUPBOX        "Projekt, wsparcie i architektura:",IDC_STATIC,7,49,353,31,BS_CENTER
-    GROUPBOX        "G³ówna osoba zajmuj¹ca siê wersjami 1.3 i 1.4",IDC_STATIC,7,83,353,24,BS_CENTER
-    DEFPUSHBUTTON   "OK",IDOK,155,250,60,18
+    CTEXT           "Osoby rozwijaj¹ce CrypToola:",IDC_STATIC,7,6,356,11,SS_CENTERIMAGE | WS_BORDER
+    CTEXT           "Bernhard Esslinger",IDC_STATIC,7,33,356,8
+    CTEXT           "Henrik Koy",IDC_STATIC,7,94,356,8,NOT WS_GROUP
+    CTEXT           "Peer Wichmann\nJoerg Cornelius Schneider",IDC_STATIC,7,59,356,17
+    GROUPBOX        "Pomys³, Sponsorzy, Wyzwania, Kierownictwo:",IDC_STATIC,7,23,356,23,BS_CENTER
+    GROUPBOX        "Projekt, wsparcie i architektura:",IDC_STATIC,7,49,356,31,BS_CENTER
+    GROUPBOX        "G³ówna osoba zajmuj¹ca siê wersjami 1.3 i 1.4",IDC_STATIC,7,83,356,24,BS_CENTER
+    DEFPUSHBUTTON   "Close",IDOK,303,255,60,18
     GROUPBOX        "Implementacja, Dokumentacja, Tlumaczenie",IDC_STATIC,7,115,175,125,BS_CENTER
     GROUPBOX        "Recenzje i wsparcie",IDC_STATIC,188,115,175,125,BS_CENTER
     CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_1,20,125,150,105
@@ -4486,13 +4487,13 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Vigenere (Analiza Schroedela)"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    CONTROL         "",IDC_LIST_POSSIBLE_RESULTS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,35,316,75
+    CONTROL         "",IDC_LIST_POSSIBLE_RESULTS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,35,316,95
     LTEXT           "Po rozpoczêciu analizy mo¿liwe rozwi¹zania s¹ wpisywane w listê poni¿ej. Szczegó³owe informacje mo¿na uzyskaæ po zakoñczeniu analizy.",IDC_STATIC,7,7,316,24
-    PUSHBUTTON      "Start analizy",IDC_BUTTON_START_ANALYSIS,7,135,110,18
-    PUSHBUTTON      "Zamknij",IDCANCEL,243,175,80,18
-    PUSHBUTTON      "Poka¿ wyniki analizy",IDC_BUTTON_SHOW_ANALYSIS_RESULTS,7,175,110,18
-    CONTROL         "",IDC_PROGRESS_ANALYSIS,"msctls_progress32",WS_BORDER,7,115,316,14
-    PUSHBUTTON      "Anuluj analizê",IDC_BUTTON_CANCEL_ANALYSIS,7,155,110,18
+    PUSHBUTTON      "Start analizy",IDC_BUTTON_START_ANALYSIS,7,155,110,18
+    PUSHBUTTON      "Zamknij",IDCANCEL,213,175,110,18
+    PUSHBUTTON      "Poka¿ wyniki analizy",IDC_BUTTON_SHOW_ANALYSIS_RESULTS,213,155,110,18
+    CONTROL         "",IDC_PROGRESS_ANALYSIS,"msctls_progress32",WS_BORDER,7,135,316,14
+    PUSHBUTTON      "Anuluj analizê",IDC_BUTTON_CANCEL_ANALYSIS,7,175,110,18
 END
 
 IDD_PORTS DIALOGEX 0, 0, 370, 280
@@ -4500,8 +4501,8 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "i18n About CrypTool: Ports"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,313,259,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,7,259,50,14
+    LTEXT           "The CrypTool versions in English and German have been created by the CrypTool core team.",IDC_STATIC,7,7,297,8
+    DEFPUSHBUTTON   "Close",IDOK,303,255,60,18
 END
 
 
@@ -6322,7 +6323,7 @@ VS_VERSION_INFO VERSIONINFO
 BEGIN
     BLOCK "StringFileInfo"
     BEGIN
-        BLOCK "040704b0"
+        BLOCK "041504b0"
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
@@ -6336,7 +6337,7 @@ BEGIN
     END
     BLOCK "VarFileInfo"
     BEGIN
-        VALUE "Translation", 0x407, 1200
+        VALUE "Translation", 0x415, 1200
     END
 END
 
@@ -7341,8 +7342,8 @@ BEGIN
     IDD_AUTHORS, DIALOG
     BEGIN
         VERTGUIDE, 7
-        VERTGUIDE, 360
-        BOTTOMMARGIN, 271
+        VERTGUIDE, 363
+        BOTTOMMARGIN, 273
     END
 
     IDD_CAESAR_ANALYSIS, DIALOG
@@ -11225,7 +11226,8 @@ BEGIN
     CONTROL         "Izvedeni kljuc",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,55,76,10
     CONTROL         "Dužina izvedenog kljuca",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,77,91,10
     CONTROL         "Autokorelacija",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,100,61,10
-    CONTROL         "Prikaži analizu osnovnih cifara",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,156,122,120,10
+    CONTROL         "[i18n] Prikaži analizu osnovnih cifara",IDC_CHECK4,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,156,122,120,10
     GROUPBOX        "Caesar",IDC_STATIC,20,35,118,105
     GROUPBOX        "Vigenère, XOR, Adicija",IDC_STATIC,150,35,136,105
     GROUPBOX        "Opcije izlaza za automatsku analizu",IDC_STATIC,13,16,280,132
@@ -11634,25 +11636,6 @@ BEGIN
     LTEXT           "Unesite PIN kod:",IDC_STATIC,11,112,98,12
     EDITTEXT        IDC_EDIT2,8,27,176,73,ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY | ES_WANTRETURN | WS_VSCROLL
     EDITTEXT        IDC_EDIT3,8,6,176,14,ES_CENTER | ES_READONLY | NOT WS_BORDER
-END
-
-IDD_AUTHORS DIALOGEX 0, 0, 300, 320
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "O CrypTool-u: Doprinosioci"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
-BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,120,293,60,20
-    CTEXT           "Osobe Koje Doprinose CrypTool-u",IDC_STATIC,7,7,286,11,SS_CENTERIMAGE | WS_BORDER
-    CTEXT           "Bernhard Esslinger",IDC_STATIC,20,33,260,8
-    CTEXT           "Henrik Koy",IDC_STATIC,20,94,260,8,NOT WS_GROUP
-    CTEXT           "Peer Wichmann (do izdanja 1.2)\nJoerg Cornelius Schneider (od izdanja 1.3)",IDC_STATIC,20,59,260,16
-    GROUPBOX        " Ideje, Sponzorstvo, Izazovi, Odgovori i Pitanja, Vodstvo ",IDC_STATIC,7,23,286,22,BS_CENTER
-    GROUPBOX        " Dizajn, Podrška i Arhitektura",IDC_STATIC,7,49,286,30,BS_CENTER
-    GROUPBOX        " Glavna osoba koja se u celini pobrinula za verzije 1.3 i 1.4",IDC_STATIC,7,83,286,22,BS_CENTER
-    GROUPBOX        " Implementacija, Dokumentacija, Prevod ",IDC_STATIC,7,109,286,120,BS_CENTER
-    GROUPBOX        " Recenzija i Povratna Informacija",IDC_STATIC,7,234,286,50,BS_CENTER
-    EDITTEXT        IDC_EDIT_AUTHORS_1,15,121,270,100,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN
-    EDITTEXT        IDC_EDIT_AUTHORS_2,15,246,270,30,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN
 END
 
 IDD_SHOW_PUBLICKEY_EC DIALOG  0, 0, 399, 287
@@ -15439,8 +15422,27 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "i18n About CrypTool: Ports"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,313,259,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,7,259,50,14
+    LTEXT           "The CrypTool versions in English and German have been created by the CrypTool core team.",IDC_STATIC,7,7,297,8
+    DEFPUSHBUTTON   "Close",IDOK,303,255,60,18
+END
+
+IDD_AUTHORS DIALOGEX 0, 0, 370, 280
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "i18n About CrypTool: Contributors"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,303,255,60,18
+    CTEXT           "Persons Contributing to CrypTool",IDC_STATIC,7,7,356,15,SS_CENTERIMAGE | WS_BORDER
+    CTEXT           "Bernhard Esslinger",IDC_STATIC,20,38,330,8
+    CTEXT           "Henrik Koy",IDC_STATIC,20,99,330,8,NOT WS_GROUP
+    CTEXT           "Peer Wichmann (till release 1.2)\nJoerg Cornelius Schneider (from release 1.3)",IDC_STATIC,20,64,330,16
+    GROUPBOX        " Idea, Sponsoring, Challenges, QA, Lead ",IDC_STATIC,7,28,356,22,BS_CENTER
+    GROUPBOX        " Design, Support and Architecture",IDC_STATIC,7,54,356,30,BS_CENTER
+    GROUPBOX        " Main person taking overall care for version 1.3 and 1.4",IDC_STATIC,7,88,356,22,BS_CENTER
+    GROUPBOX        " Implementation, Documentation, Translation ",IDC_STATIC,7,115,175,129,BS_CENTER
+    GROUPBOX        " Review and Feedback",IDC_STATIC,188,115,175,129,BS_CENTER
+    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_1,20,125,150,105
+    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_2,200,125,150,105
 END
 
 
@@ -17241,13 +17243,13 @@ VS_VERSION_INFO VERSIONINFO
 BEGIN
     BLOCK "StringFileInfo"
     BEGIN
-        BLOCK "040704b0"
+        BLOCK "081a04b0"
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
             VALUE "FileVersion", "1.4.30"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Copyright ?1999-2009"
+            VALUE "LegalCopyright", "Copyright © 1998-2010"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
             VALUE "ProductVersion", "1.4.30"
@@ -17255,7 +17257,7 @@ BEGIN
     END
     BLOCK "VarFileInfo"
     BEGIN
-        VALUE "Translation", 0x407, 1200
+        VALUE "Translation", 0x81a, 1200
     END
 END
 
@@ -18259,16 +18261,6 @@ BEGIN
         HORZGUIDE, 147
     END
 
-    IDD_AUTHORS, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 293
-        VERTGUIDE, 20
-        VERTGUIDE, 280
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 313
-    END
-
     IDD_CAESAR_ANALYSIS, DIALOG
     BEGIN
         RIGHTMARGIN, 178
@@ -19066,6 +19058,16 @@ BEGIN
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 363
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 273
+    END
+
+    IDD_AUTHORS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 363
+        VERTGUIDE, 20
+        VERTGUIDE, 350
         TOPMARGIN, 7
         BOTTOMMARGIN, 273
     END
@@ -21821,13 +21823,13 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Vigenère (Analyse nach Schrödel)"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    PUSHBUTTON      "Analyse starten",IDC_BUTTON_START_ANALYSIS,7,135,110,18
-    CONTROL         "",IDC_LIST_POSSIBLE_RESULTS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,35,316,75
+    PUSHBUTTON      "Analyse starten",IDC_BUTTON_START_ANALYSIS,7,155,110,18
+    CONTROL         "",IDC_LIST_POSSIBLE_RESULTS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,35,316,95
     LTEXT           "Sobald Sie die Analyse starten, werden mögliche Lösungen in die nachstehende Liste eingetragen. Detaillierte Informationen können Sie sich anzeigen lassen, sobald die Analyse vollständig beendet wurde.",IDC_STATIC,7,7,316,24
-    PUSHBUTTON      "Schließen",IDCANCEL,243,175,80,18
-    PUSHBUTTON      "Analyseergebnisse anzeigen",IDC_BUTTON_SHOW_ANALYSIS_RESULTS,7,175,110,18
-    CONTROL         "",IDC_PROGRESS_ANALYSIS,"msctls_progress32",WS_BORDER,7,115,316,14
-    PUSHBUTTON      "Analyse abbrechen",IDC_BUTTON_CANCEL_ANALYSIS,7,155,110,18
+    PUSHBUTTON      "Schließen",IDCANCEL,213,175,110,18
+    PUSHBUTTON      "Analyseergebnisse anzeigen",IDC_BUTTON_SHOW_ANALYSIS_RESULTS,213,155,110,18
+    CONTROL         "",IDC_PROGRESS_ANALYSIS,"msctls_progress32",WS_BORDER,7,135,316,14
+    PUSHBUTTON      "Analyse abbrechen",IDC_BUTTON_CANCEL_ANALYSIS,7,175,110,18
 END
 
 IDD_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_LANGUAGES DIALOGEX 0, 0, 230, 140
@@ -21970,7 +21972,7 @@ BEGIN
     CONTROL         "Ermittelter Schlüssel",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,40,76,10
     CONTROL         "Ermittelte Schlüssellänge",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,55,91,10
     CONTROL         "Autokorrelation",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,70,61,10
-    CONTROL         "Analysen der Basischiffren ausgeben",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,85,132,10
+    CONTROL         "Weitere Analyse-Werte ausgeben",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,85,122,10
     GROUPBOX        "Caesar",IDC_STATIC,15,20,120,80
     GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,145,20,146,80
     GROUPBOX        "Optionen für Brute-Force Angriffe gegen moderne symmetrische Algorithmen",IDC_STATIC,7,232,292,92
@@ -22401,7 +22403,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Über CrypTool: Mitwirkende"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,155,255,60,18
+    DEFPUSHBUTTON   "Schließen",IDOK,303,255,60,18
     CTEXT           "Personen, die zu CrypTool beitrugen",IDC_STATIC,7,7,356,15,SS_CENTERIMAGE | WS_BORDER
     CTEXT           "Bernhard Esslinger",IDC_STATIC,20,38,330,8
     CTEXT           "Peer Wichmann (bis Version 1.2)\nJoerg Cornelius Schneider (ab Version 1.3)",IDC_STATIC,20,64,330,16
@@ -26329,8 +26331,8 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Über CrypTool: Portierungen"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,313,259,50,14
-    PUSHBUTTON      "Abbrechen",IDCANCEL,7,259,50,14
+    DEFPUSHBUTTON   "Schließen",IDOK,303,255,60,18
+    LTEXT           "Die Sprachversionen Deutsch und Englisch wurden vom CrypTool-Kernteam entwickelt.",IDC_STATIC,7,7,278,8
 END
 
 
@@ -30048,7 +30050,7 @@ BEGIN
     IDS_STRING_FILE_NOT_FOUND_BUT_ASK_FOR_MIGRATION_TO_DEFAULT_RESOURCES 
                             "Eine für die Analyse notwendige Datei konnte nicht gefunden werden.\n\nIn Ihrer CrypTool-Installation ist die Datei aber vorhanden.\n\nVermutlich verwendet CrypTool im Moment veraltete Einträge aus der Windows-Registry.\n\nWollen Sie, dass CrypTool in Zukunft die für die Analyse notwendigen Dateien (Wörterbuch, Digramme und Trigramme) aus Ihrer aktuellen CrypTool-Installation verwendet?"
     IDS_STRING_LANGUAGE_CHOICE_REQUIREMENTS 
-                            "Bitte wählen Sie MINDESTENS EINE Schlüsselwortsprache und GENAU EINE Ciphertextsprache aus."
+                            "Bitte wählen Sie MINDESTENS EINE Schlüsselwort-Sprache und GENAU EINE Geheimtext-Sprache aus."
 END
 
 STRINGTABLE 
@@ -32955,7 +32957,7 @@ BEGIN
     CONTROL         "Derived key",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,40,76,10
     CONTROL         "Derived key length",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,55,91,10
     CONTROL         "Autocorrelation",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,70,61,10
-    CONTROL         "Show base ciphers analysis",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,156,85,120,10
+    CONTROL         "Show further analysis results",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,156,85,120,10
     GROUPBOX        "Caesar",IDC_STATIC,15,20,120,80
     GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,145,20,146,80
     GROUPBOX        "Output options for automatic analysis",IDC_STATIC,7,7,292,102
@@ -32966,7 +32968,7 @@ BEGIN
     CONTROL         "All 256 characters",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,27,287,245,10
     CONTROL         "Printable characters (ascii 32 - 256)",IDC_RADIO2,
                     "Button",BS_AUTORADIOBUTTON,27,298,245,10
-    CONTROL         "Charcters as defined in menu: Options \\ Textoptions",IDC_RADIO3,
+    CONTROL         "Characters as defined in menu: Options \\ Text Options",IDC_RADIO3,
                     "Button",BS_AUTORADIOBUTTON,27,308,245,11
     LTEXT           "See menu: Analysis \\ Symmetric Encryption (modern)",IDC_STATIC,14,242,258,8
     GROUPBOX        "Options for the Vigenère analysis according to Schroedel",IDC_STATIC,7,117,292,106
@@ -33382,7 +33384,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About CrypTool: Contributors"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,155,255,60,18
+    DEFPUSHBUTTON   "Close",IDOK,303,255,60,18
     CTEXT           "Persons Contributing to CrypTool",IDC_STATIC,7,7,356,15,SS_CENTERIMAGE | WS_BORDER
     CTEXT           "Bernhard Esslinger",IDC_STATIC,20,38,330,8
     CTEXT           "Henrik Koy",IDC_STATIC,20,99,330,8,NOT WS_GROUP
@@ -37226,13 +37228,13 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Vigenère (Analysis according to Schroedel)"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    CONTROL         "",IDC_LIST_POSSIBLE_RESULTS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,35,316,75
+    CONTROL         "",IDC_LIST_POSSIBLE_RESULTS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,35,316,95
     LTEXT           "As soon as you start the analysis, possible results are written into the list below. Detailed information can be obtained after the analysis is complete.",IDC_STATIC,7,7,316,24
-    PUSHBUTTON      "Start analysis",IDC_BUTTON_START_ANALYSIS,7,135,110,18
-    PUSHBUTTON      "Close",IDCANCEL,243,175,80,18
-    PUSHBUTTON      "Show analysis results",IDC_BUTTON_SHOW_ANALYSIS_RESULTS,7,175,110,18
-    CONTROL         "",IDC_PROGRESS_ANALYSIS,"msctls_progress32",WS_BORDER,7,115,316,14
-    PUSHBUTTON      "Cancel analysis",IDC_BUTTON_CANCEL_ANALYSIS,7,155,110,18
+    PUSHBUTTON      "Start analysis",IDC_BUTTON_START_ANALYSIS,7,155,110,18
+    PUSHBUTTON      "Close",IDCANCEL,213,175,110,18
+    PUSHBUTTON      "Show analysis results",IDC_BUTTON_SHOW_ANALYSIS_RESULTS,213,155,110,18
+    CONTROL         "",IDC_PROGRESS_ANALYSIS,"msctls_progress32",WS_BORDER,7,135,316,14
+    PUSHBUTTON      "Cancel analysis",IDC_BUTTON_CANCEL_ANALYSIS,7,175,110,18
 END
 
 IDD_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_LANGUAGES DIALOGEX 0, 0, 230, 140
@@ -37253,8 +37255,8 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "About CrypTool: Ports"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,313,259,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,7,259,50,14
+    DEFPUSHBUTTON   "Close",IDOK,303,255,60,18
+    LTEXT           "The CrypTool versions in English and German have been created by the CrypTool core team.",IDC_STATIC,7,7,297,8
 END
 
 
@@ -39075,7 +39077,7 @@ VS_VERSION_INFO VERSIONINFO
 BEGIN
     BLOCK "StringFileInfo"
     BEGIN
-        BLOCK "040704b0"
+        BLOCK "080904b0"
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
@@ -39089,7 +39091,7 @@ BEGIN
     END
     BLOCK "VarFileInfo"
     BEGIN
-        VALUE "Translation", 0x407, 1200
+        VALUE "Translation", 0x809, 1200
     END
 END
 

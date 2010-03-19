@@ -1787,6 +1787,16 @@ BOOL CDlgVigenereAnalysisSchroedelChooseLanguages::OnInitDialog()
 		listBoxLanguagesCiphertext.AddString((*mapIteratorCiphertext).first.c_str());
 	}
 
+	// select ALL LANGUAGES (keyword) by default
+	for(int i=0; i<listBoxLanguagesKeyword.GetCount(); i++) {
+		listBoxLanguagesKeyword.SetCheck(i, 1);
+	}
+
+	// select THE FIRST LANGUAGE (ciphertext) by default
+	if(listBoxLanguagesCiphertext.GetCount() > 0) {
+		listBoxLanguagesCiphertext.SetCheck(0, 1);
+	}
+
 	UpdateData(false);
 
 	return FALSE;
