@@ -485,14 +485,16 @@ public interface ITexte {
 	/** Fehler beim initialisieren der JCE*/
 	public static final TranslationText ERR_ENCRYPT_JCE = new TranslationText(
 			"Die \"Java Unlimited Strength Jurisdiction Policy\" ist nicht installiert!\n" +
-			"Um starke Verschlüsselungsfunktionen unter Java aufzurufen, muss diese Policy installiert sein.\n" +
-			"Die dynamische Visualisierung für sichere E-Mail-Verschlüsselung nutzt diese starken Verschlüsselungsverfahren.\n" +
-			"Eine Installationsanleitung finden Sie unter \"http://java.sun.com/javase/downloads/index.jsp\".\n" +
+			"Um starke Verschlüsselungsfunktionen unter Java zu verwenden, muss diese Policy installiert sein.\n" +
+			"Die dynamische Visualisierung für sichere E-Mail-Verschlüsselung nutzt diese starken Verschlüsselungsverfahren.\n\n" +
+			"Die benötigten Policy-Dateien finden Sie unter \"http://java.sun.com/javase/downloads/index.jsp\".\n" +
+			"Details zur Installation erhalten Sie in der CrypTool-Onlinehilfe, indem Sie den Menüpunkt \"Einzelverfahren \\ Protokolle \\ Sichere E-Mail mit S/MIME\" markieren (ohne ihn anzuklicken) und F1 drücken. Dort finden Sie unter \"Bemerkung 1\" eine genaue Beschreibung des nötigen Vorgehens.\n\n" +
 			"Die Anwendung muss danach neu gestartet werden.",
 			"The \"Java Unlimited Strength Jurisdiction Policy\" is not installed!\n" +
-			"This policy is needed in order to use strong encryption. You have to intall it in order to encrypt mails\n" +
-			"due to the use of strong encryptions for the visualisation.\n" +
-			"The installation manual can be found at \"http://java.sun.com/javase/downloads/index.jsp\".\n" +
+			"This policy is needed in order to apply strong encryption. You have to install the policy files when selecting to encrypt emails.\n" +
+			"The visualisation of secure email encryption uses strong encryption methods.\n\n" +
+			"The required policy-files can be found at \"http://java.sun.com/javase/downloads/index.jsp\".\n" +
+			"Detailled instructions on how to install these files can be found in the CrypTool online help system by highlighting \"Indiv. Procedures \\ Protocols \\ Secure E-Mail with S/MIME\" in CrypTool and pressing F1. Step-by-step instructions are provided in section \"Remark 1\".\n\n" +
 			"The application has to be restarted afterwards.");
 	
 	/**
