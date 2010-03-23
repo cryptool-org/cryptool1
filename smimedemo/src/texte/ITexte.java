@@ -37,10 +37,10 @@ public interface ITexte {
 			"- Nach dem Drücken des Startknopfes werden diese Vorgänge in einer Flash-Animation visualisiert.\n" +
 			"\nSie können mit dem Steuerfenster auch mehrere parallel laufende Flash-Animationen erzeugen. Diese laufen unabhängig vom Steuerfenster.",
 			"In this window you can dynamically configure parameters for secure email messaging.\n\n" +
-			"The visualisation is then done in two steps (control center & flash animation):\n" +
-			"- At the contol center you choose wether to encrypt or sign an email and the appropriate parameters.\n" +
-			"- After clicking the start button the chosen procedure is visualized with a flash animation.\n" +
-			"\nYou can open more than one flash animation at once with different parameter from the control center.");
+			"The visualization is then done in two steps (control center and flash animation):\n" +
+			"- In the contol center you can choose whether to encrypt or sign an email and then select the appropriate parameters.\n" +
+			"- After clicking the start button the chosen procedure will be visualized with a flash animation.\n" +
+			"\nYou can open more than one flash animation simultaneously with different parameters from the control center.");
 	
 	/** Überschrift / Headline  */
 	public static final TranslationText HEADLINE = new TranslationText(
@@ -50,7 +50,7 @@ public interface ITexte {
 	/** Titel Filedialog  */
 	public static final TranslationText TITEL_FILEDIALOG = new TranslationText(
 			"E-Mail-Text aus Datei laden",
-			"Load message text from file");
+			"Load email text from file");
 	
 	/** Start Signieren  */
 	public static final TranslationText START_SIGNIEREN = new TranslationText(
@@ -143,7 +143,7 @@ public interface ITexte {
 	/** Eigenes Zertifikat geladen*/
 	public static final TranslationText ZERTIFIKAT_GELADEN = new TranslationText(
 			"Eigenes Zertifikat geladen",
-			"Certificate loaded");
+			"Personal certificate loaded");
 
 	/** Zertifikatsfehler*/
 	public static final TranslationText ZERTIFIKAT_FEHLER = new TranslationText(
@@ -158,14 +158,14 @@ public interface ITexte {
 	/** Hier den Text der E-Mail eingeben... */
 	public static final TranslationText EMAIL_TEXT = new TranslationText(
 			"Hier den Text der E-Mail eingeben...",
-			"Enter the message text here...");
+			"Enter the email text here...");
 	
 	
 	
 	/** Gruppe Signieren / Verschlüsseln */
 	public static final TranslationText GRP_SIGNIEREN = new TranslationText(
 			"Signieren oder Verschlüsseln",
-			"Signing or encrypting");
+			"Sign or encrypt");
 
 	/** Gruppe Steuerungsparameter */
 	public static final TranslationText GRP_STEUERUNGS_PARAM = new TranslationText(
@@ -190,12 +190,12 @@ public interface ITexte {
 	/** Bitte geben Sie das Passwort der PSE ein  */
 	public static final TranslationText EINGABE_PASSWORT = new TranslationText(
 			"Bitte geben Sie das Passwort der PSE ein",
-			"Please enter the password");
+			"Please enter the PSE password");
 	
 	/** Bitte geben Sie den Alias für den privaten Schlüssel ein */
 	public static final TranslationText EINGABE_ALIAS = new TranslationText(
 			"Bitte geben Sie den Alias an, mit dem der private Schlüssel verknüpft ist:",
-			"Please enter the alias which is associated with the private key:");
+			"Please enter the alias associated with the private key:");
 	
 	
 	/** Alias eingeben */
@@ -253,13 +253,13 @@ public interface ITexte {
 	/** Verschlüsselungsverfahren */
 	public static final TranslationText VERSCHL_VERFAHREN = new TranslationText(
 			"Verschlüsselungsverfahren: ",
-			"Encrypting algorithm :");
+			"Encryption algorithm :");
 
 	
 	/** Verschlüsselungsverfahren */
 	public static final TranslationText TT_VERSCHL_VERFAHREN = new TranslationText(
 			"Verschlüsselungsverfahren wählen",
-			"Choose encrypting algorithm");
+			"Choose encryption algorithm");
 	
 	
 	
@@ -287,42 +287,42 @@ public interface ITexte {
 	/** Tooltip Gruppe Signieren */
 	public static final TranslationText TT_GRP_SIG_VER = new TranslationText(
 			"Hier erfolgt die Auswahl zwischen Signieren und Verschlüsseln",
-			"Here you can make a choice between signing or encrypting");
+			"Please select whether you want to sign or encrypt");
 
 	/** Tooltip Gruppe  */
 	public static final TranslationText TT_GRP_CERT_OPT = new TranslationText(
 			"Hier kann ausgewählt werden, ob ein Beispielzertifikat oder ein eigenes benutzt werden soll",
-			"Here you can make a choice between a personal certificate or an internal certificate");
+			"Please select whether to use an example certificate or a personal certificate");
 	
 	/** Tooltip Gruppe PSE-Optionen */
 	public static final TranslationText TT_GRP_PSE_OPT = new TranslationText(
 			"Hier kann ausgewählt werden, ob eine Beispiel-PSE oder eine Eigene benutzt werden soll",
-			"Here you can make a choice between a personal PSE or an internal PSE");
+			"Please select whether to use an example PSE or an internal PSE");
 	
 	/** Tooltip Gruppe  */
 	public static final TranslationText TT_GRP_ST_PARAM = new TranslationText(
 			"Auswahl der Steuerungsparameter",
-			"Choice of control parameters");
+			"Selection of control parameters");
 
 	/** Tooltip Gruppe  */
 	public static final TranslationText TT_GRP_NACH_TEXT = new TranslationText(
 			"Hier den Text der E-Mail eingeben",
-			"Here you can enter the message text");
+			"Please enter the message text");
 	
 	/** Tooltip Gruppe  */
 	public static final TranslationText TT_GRP_NACH_TEXT_MAX = new TranslationText(
 			"Hinweis: In dieser Demo kann das Nachrichtenfeld maximal 50 Zeichen aufnehmen. Beim Laden aus einer Datei wird nach 50 Zeichen abgeschnitten.",
-			"Note: In this demonstration the text field can only handle 50 characters, longer texts will be shortened.");
+			"Note: In this demonstration, the text field can only handle 50 characters. If reading from a file, only the first 50 characters will be read.");
 
 	/** Tooltip Tab Signieren  */
 	public static final TranslationText TT_TAB_SIGNIEREN = new TranslationText(
 			"Hier werden alle Einstellungen zum Signieren festgelegt",
-			"Here you can modify settings for signing");
+			"Please choose the signing settings");
 	
 	/** Tooltip Tab Signieren  */
 	public static final TranslationText TT_TAB_ENCRYPT = new TranslationText(
 			"Hier werden alle Einstellungen zum Verschlüsseln festgelegt",
-			"Here you can modify settings for encrypting");
+			"Please choose the encryption settings");
 	
 	/** Tooltip Hash-Funktion */
 	public static final TranslationText TT_HASH = new TranslationText(
@@ -332,7 +332,7 @@ public interface ITexte {
 	/** Tooltip Signaturalgorithmus */
 	public static final TranslationText TT_SIG_ALG = new TranslationText(
 			"Algorithmus zum Signieren wählen",
-			"Choose encryption algorithm");
+			"Choose an encryption algorithm");
 
 	/** Tooltip Transfercodierung */
 	public static final TranslationText TT_TRANS_CODE = new TranslationText(
@@ -347,17 +347,17 @@ public interface ITexte {
 	/** Tooltip E-Mail-Adresse */
 	public static final TranslationText TT_EMAIL = new TranslationText(
 			"Hier E-Mail-Adresse des Empfängers eingeben",
-			"Here you can enter the receiver's address");
+			"Please enter the receiver's address");
 	
 	/** Tooltip E-Mail-Adresse */
 	public static final TranslationText TT_SENDER_EMAIL = new TranslationText(
 			"Hier E-Mail-Adresse des Absenders eingeben",
-			"Here you can enter the sender's address");
+			"Please enter the sender's address");
 	
 	/** Tooltip E-Mail-Adresse */
 	public static final TranslationText TT_SUBJECT_EMAIL = new TranslationText(
 			"Hier den Betreff eingeben",
-			"Here you can enter the subject");
+			"Please enter the subject");
 	
 	/** Titel Tabreiter Signieren  */
 	public static final TranslationText TAB_SIGNIEREN = new TranslationText(
@@ -377,7 +377,7 @@ public interface ITexte {
 	/** Tooltip Button Abbrechen  */
 	public static final TranslationText TT_BUTTON_ABBRECHEN = new TranslationText(
 			"Beendet das Programm",
-			"Shutdown application");
+			"Close the application");
 	
 	/** Tooltip Button Hilfe  */
 	public static final TranslationText TT_BUTTON_HELP = new TranslationText(
@@ -387,15 +387,15 @@ public interface ITexte {
 	public static final TranslationText TT_BUTTON_FILEDIALOG = new TranslationText(
 			"Öffnet einen Dialog zum Auswählen eines Zertifikats aus einer Datei.\nWird " + 
 			"kein Zertifikat aus einer externen Datei geladen, wird ein intern generiertes Zertifikat benutzt.",
-			"Opens an dialog for choosing a certificate from a file. If no certificate was chosen,\n"
-			+ " an internal certificate will be used.");
+			"Opens a dialog window for selecting a certificate from file. If a certificate is not chosen,\n"
+			+ " an internally generated certificate will be used.");
 	
 
 	public static final TranslationText TT_BUTTON_FILEDIALOG2 = new TranslationText(
 			"Öffnet einen Dialog zum Auswählen einer PSE aus einer Datei.\nWird " + 
 			"keine PSE aus einer externen Datei geladen, wird eine intern generierte PSE benutzt.",
-			"Opens an dialog for choosing a PSE from a file. If no PSE was chosen,\n"
-			+ " an internal PSE will be used.");
+			"Opens a dialog window for selecting a PSE from file. If a PSE is not chosen,\n"
+			+ " an internally generated PSE will be used.");
 	
 	
 	/** Fehler: Datei nicht gefunden  */
@@ -460,7 +460,7 @@ public interface ITexte {
 	/** Fehler beim verschlüsseln */
 	public static final TranslationText ERR_ENCRYPT = new TranslationText(
 			"Verschlüsselung konnte nicht ausgeführt werden",
-			"Encryption could not be performed");
+			"Encryption execution failed");
 	
 	/** Fehler beim laden des Providers */
 	public static final TranslationText ERR_ENCRYPT_PROVIDER = new TranslationText(
@@ -480,7 +480,7 @@ public interface ITexte {
 	/** Fehler bei der Erstellung der eMail*/
 	public static final TranslationText ERR_ENCRYPT_MAIL = new TranslationText(
 			"Fehler beim erstellen der Mail!",
-			"Error generating mail!");
+			"Error generating the email!");
 	
 	/** Fehler beim initialisieren der JCE*/
 	public static final TranslationText ERR_ENCRYPT_JCE = new TranslationText(
@@ -491,18 +491,13 @@ public interface ITexte {
 			"Details zur Installation erhalten Sie in der CrypTool-Onlinehilfe, indem Sie den Menüpunkt \"Einzelverfahren \\ Protokolle \\ Sichere E-Mail mit S/MIME\" markieren (ohne ihn anzuklicken) und F1 drücken. Dort finden Sie unter \"Bemerkung 1\" eine genaue Beschreibung des nötigen Vorgehens.\n\n" +
 			"Die Anwendung muss danach neu gestartet werden.",
 			"The \"Java Unlimited Strength Jurisdiction Policy\" is not installed!\n" +
-			"This policy is needed in order to apply strong encryption. You have to install the policy files when selecting to encrypt emails.\n" +
-			"The visualisation of secure email encryption uses strong encryption methods.\n\n" +
-			"The required policy-files can be found at \"http://java.sun.com/javase/downloads/index.jsp\".\n" +
-			"Detailled instructions on how to install these files can be found in the CrypTool online help system by highlighting \"Indiv. Procedures \\ Protocols \\ Secure E-Mail with S/MIME\" in CrypTool and pressing F1. Step-by-step instructions are provided in section \"Remark 1\".\n\n" +
-			"The application has to be restarted afterwards.");
+			"This policy is required to use the strong encryption functions used by the secure email encryption visualization.\n\n" +
+			"The required policy files can be found at \"http://java.sun.com/javase/downloads/index.jsp\".\n" +
+			"Detailed instructions on how to install these files can be found in the CrypTool online help system by selecting (without clicking on) \"Indiv. Procedures \\ Protocols \\ Secure E-Mail with S/MIME\" in CrypTool and pressing F1. Step-by-step instructions are provided in section \"Remark 1\".\n\n" +
+			"The application must be restarted after the policy installation.");
 	
 	/**
 	 * Content-Transfer-Encoding: 7bit
 	 */
 	public static final String CONTENT = "Content-Transfer-Encoding: 7bit";
-			
-
-	
-	
 }
