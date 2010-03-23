@@ -899,7 +899,6 @@
 #define IDC_RSA_MODE_FACTORISATION      1409
 #define IDC_TEXTOPTIONS_ALPHABET        1410
 #define IDC_BUTTON_DATENAUSGABE         1411
-#define IDC_ABOUTBOX_CRYPTOOL           1412
 #define IDC_ALPHABET_INFO               1413
 #define IDC_ENTROPY_INFO                1414
 #define IDC_FOREWARD                    1416
@@ -1033,7 +1032,6 @@
 #define IDC_EDIT_GMP                    1551
 #define IDC_EDITD                       1552
 #define IDBACK                          1552
-#define IDC_EDIT_BUILD_INFO             1552
 #define IDC_R                           1553
 #define IDC_CONTROLFRAME                1553
 #define IDC_EDIT_CRYPTOVISION           1553
@@ -1754,11 +1752,8 @@
 #define IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_2 30729
 #define IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_3 30730
 #define IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_1 30731
-#define IDD_SELECTCOPYENCODING1         30732
 #define IDD_SELECTPASTEDECODING         30732
-#define IDD_SELECTPASTEDECODING1        30733
-#define IDD_KEYS_LIST1                  30733
-#define IDD_VIGENERE_ANALYSIS_SCHROEDEL1 30733
+#define IDD_SOLITAIRE_ANALYSE_NEW       30733
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
 #define ID_HILL                         33002
@@ -3310,7 +3305,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        885
-#define _APS_NEXT_COMMAND_VALUE         33392
+#define _APS_NEXT_COMMAND_VALUE         33397
 #define _APS_NEXT_CONTROL_VALUE         2077
 #define _APS_NEXT_SYMED_VALUE           114
 #endif

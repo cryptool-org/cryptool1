@@ -58,6 +58,48 @@
 				CompileAsManaged=""
 			/>
 		</Configuration>
+		<Configuration
+			Name="debug_es|Win32"
+			OutputDirectory="$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="0"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="rem nmake /f &quot;hlp_pl.mak&quot; LANG=pl OUTDIR=..\..\$(ConfigurationName)&#x0D;&#x0A;echo copying ENGLISH help file to POLISH target directory&#x0D;&#x0A;copy ..\hlp_en\CrypTool-en.chm ..\..\$(ConfigurationName)\CrypTool-pl.chm"
+				ReBuildCommandLine="rem nmake /f &quot;hlp_pl.mak&quot; /a LANG=pl OUTDIR=..\..\$(ConfigurationName)&#x0D;&#x0A;echo copying ENGLISH help file to POLISH target directory&#x0D;&#x0A;copy ..\hlp_en\CrypTool-en.chm ..\..\$(ConfigurationName)\CrypTool-pl.chm"
+				CleanCommandLine=""
+				Output="CrypTool-pl.chm"
+				PreprocessorDefinitions=""
+				IncludeSearchPath=""
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release_es|Win32"
+			OutputDirectory="$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="0"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="rem nmake /f &quot;hlp_pl.mak&quot; LANG=pl OUTDIR=..\..\$(ConfigurationName)&#x0D;&#x0A;echo copying ENGLISH help file to POLISH target directory&#x0D;&#x0A;copy ..\hlp_en\CrypTool-en.chm ..\..\$(ConfigurationName)\CrypTool-pl.chm"
+				ReBuildCommandLine="rem nmake /f &quot;hlp_pl.mak&quot; /a LANG=pl OUTDIR=..\..\$(ConfigurationName)&#x0D;&#x0A;echo copying ENGLISH help file to POLISH target directory&#x0D;&#x0A;copy ..\hlp_en\CrypTool-en.chm ..\..\$(ConfigurationName)\CrypTool-pl.chm"
+				CleanCommandLine=""
+				Output="CrypTool-pl.chm"
+				PreprocessorDefinitions=""
+				IncludeSearchPath=""
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
 	</Configurations>
 	<References>
 	</References>

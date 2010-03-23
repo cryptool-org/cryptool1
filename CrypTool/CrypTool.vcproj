@@ -809,6 +809,204 @@
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
+		<Configuration
+			Name="Debug_es|Win32"
+			OutputDirectory="$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="1"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
+			UseOfMFC="1"
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+				Description="Checking integrity of &quot;authors.txt&quot; file..."
+				CommandLine="perl authorsFileIntegrityCheck.pl"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="_DEBUG"
+				MkTypLibCompatible="true"
+				SuppressStartupBanner="true"
+				TargetEnvironment="1"
+				TypeLibraryName=".\Debug/CrypTool.tlb"
+				HeaderFileName=""
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalOptions="/MP"
+				Optimization="0"
+				AdditionalIncludeDirectories="..\libNTL\include;&quot;.\dialogue-buttons&quot;;..\ChallengeResponse;..;..\Secude;..\Libec\include;.\;..\libmiracl\include;..\OpenSSL;..\scintilla\include;..\libVolRen;..\libgmp;..\libCVact\include"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;NO_SMARTCARD"
+				RuntimeLibrary="1"
+				PrecompiledHeaderFile=".\Debug/CrypTool.pch"
+				AssemblerListingLocation=".\Debug/"
+				ObjectFile="$(IntDir)/"
+				ProgramDataBaseFileName="$(IntDir)/vc70.pdb"
+				BrowseInformation="1"
+				WarningLevel="3"
+				SuppressStartupBanner="true"
+				DebugInformationFormat="4"
+				CompileAs="0"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_DEBUG,AFX_RESOURCE_DLL,AFX_TARG_ESN"
+				Culture="3082"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib ..\OpenSSL\libeay32.lib ..\libNtl\Debug\LibNTL.lib htmlhelp.lib opengl32.lib ..\libgmp\lib\gmpDebug.lib ..\libCVact\actvcmtd.lib ..\cracklib-2.7\cracklib_Win32\Debug\cracklib_Win32.lib"
+				OutputFile="../$(ConfigurationName)/$(ProjectName).exe"
+				LinkIncremental="2"
+				SuppressStartupBanner="true"
+				AdditionalLibraryDirectories=""
+				IgnoreDefaultLibraryNames="libcd"
+				GenerateDebugInformation="true"
+				ProgramDatabaseFile=".\Debug/CrypTool.pdb"
+				GenerateMapFile="true"
+				MapFileName=".\Debug/CrypTool.map"
+				SubSystem="2"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
+				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release_es|Win32"
+			OutputDirectory="$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="1"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
+			UseOfMFC="1"
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+				Description="Checking integrity of &quot;authors.txt&quot; file..."
+				CommandLine="perl authorsFileIntegrityCheck.pl"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="NDEBUG"
+				MkTypLibCompatible="true"
+				SuppressStartupBanner="true"
+				TargetEnvironment="1"
+				TypeLibraryName=".\..\Release_en/CrypTool.tlb"
+				HeaderFileName=""
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalOptions="/MP"
+				Optimization="2"
+				InlineFunctionExpansion="1"
+				AdditionalIncludeDirectories="..\libNTL\include;&quot;.\dialogue-buttons&quot;;..\ChallengeResponse;..;..\Secude;..\Libec\include;.\;..\libmiracl\include;..\OpenSSL;..\scintilla\include;..\libVolRen;..\libgmp;..\libCVact\include"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;NO_SMARTCARD"
+				StringPooling="true"
+				RuntimeLibrary="0"
+				EnableFunctionLevelLinking="true"
+				UsePrecompiledHeader="0"
+				PrecompiledHeaderFile=".\..\Release_en/CrypTool.pch"
+				AssemblerListingLocation=".\..\Release_en/"
+				ObjectFile="$(IntDir)/"
+				ProgramDataBaseFileName="$(IntDir)/vc70.pdb"
+				BrowseInformation="1"
+				WarningLevel="3"
+				SuppressStartupBanner="true"
+				CompileAs="0"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG,AFX_RESOURCE_DLL,AFX_TARG_ESN"
+				Culture="3082"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib ..\OpenSSL\libeay32.lib ..\libNTL\Release\libNTL.lib htmlhelp.lib openGL32.lib ..\libgmp\lib\gmp.lib ..\libCVact\actvcmt.lib ..\cracklib-2.7\cracklib_Win32\Release\cracklib_Win32.lib"
+				OutputFile="../$(ConfigurationName)/$(ProjectName).exe"
+				LinkIncremental="1"
+				SuppressStartupBanner="true"
+				IgnoreDefaultLibraryNames="libc"
+				GenerateDebugInformation="true"
+				ProgramDatabaseFile=".\..\Release_en/CrypTool.pdb"
+				SubSystem="2"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
+				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
 	</Configurations>
 	<References>
 	</References>
@@ -931,6 +1129,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -1080,6 +1300,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="AscEdit.h"
@@ -1176,6 +1418,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="AsymmetricEncryption.cpp"
@@ -1259,6 +1523,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -1363,6 +1649,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -1559,6 +1867,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -1994,15 +2324,15 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_pl\bmps\Button10_G_D.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\SCABitmaps_en\bmps\Button10_G_D.bmp"
 			>
 		</File>
 		<File
 			RelativePath=".\res\SCABitmaps\bmps\Button10_G_D.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\SCABitmaps_pl\bmps\Button10_G_D.bmp"
 			>
 		</File>
 		<File
@@ -2018,10 +2348,6 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_pl\bmps\Button10_G_U.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\SCABitmaps_en\bmps\Button10_G_U.bmp"
 			>
 		</File>
@@ -2030,7 +2356,7 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps\bmps\Button10_G_X.bmp"
+			RelativePath=".\res\SCABitmaps_pl\bmps\Button10_G_U.bmp"
 			>
 		</File>
 		<File
@@ -2039,6 +2365,10 @@
 		</File>
 		<File
 			RelativePath=".\res\SCABitmaps_en\bmps\Button10_G_X.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\SCABitmaps\bmps\Button10_G_X.bmp"
 			>
 		</File>
 		<File
@@ -2054,15 +2384,15 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_en\bmps\Button10_R_F.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\SCABitmaps\bmps\Button10_R_F.bmp"
 			>
 		</File>
 		<File
 			RelativePath=".\res\SCABitmaps_pl\bmps\Button10_R_F.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\SCABitmaps_en\bmps\Button10_R_F.bmp"
 			>
 		</File>
 		<File
@@ -2078,15 +2408,15 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_pl\bmps\Button10_R_X.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\SCABitmaps_en\bmps\Button10_R_X.bmp"
 			>
 		</File>
 		<File
 			RelativePath=".\res\SCABitmaps\bmps\Button10_R_X.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\SCABitmaps_pl\bmps\Button10_R_X.bmp"
 			>
 		</File>
 		<File
@@ -2138,10 +2468,6 @@
 			>
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button1_G_U.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\DHBitmaps_pl\bmps\Button1_G_U.bmp"
 			>
 		</File>
@@ -2159,6 +2485,10 @@
 		</File>
 		<File
 			RelativePath=".\res\SCABitmaps_pl\bmps\Button1_G_U.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\SCABitmaps_en\bmps\Button1_G_U.bmp"
 			>
 		</File>
 		<File
@@ -2210,10 +2540,6 @@
 			>
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\Button1_R_F.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\DHBitmaps_pl\bmps\Button1_R_F.bmp"
 			>
 		</File>
@@ -2231,6 +2557,10 @@
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button1_R_F.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\DHBitmaps\bmps\Button1_R_F.bmp"
 			>
 		</File>
 		<File
@@ -2258,10 +2588,6 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\DHBitmaps_pl\bmps\Button1_R_X.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button1_R_X.bmp"
 			>
 		</File>
@@ -2279,6 +2605,10 @@
 		</File>
 		<File
 			RelativePath="res\DHBitmaps\bmps\Button1_R_X.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\DHBitmaps_pl\bmps\Button1_R_X.bmp"
 			>
 		</File>
 		<File
@@ -2330,10 +2660,6 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\DHBitmaps_pl\bmps\Button2_G_U.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\DHBitmaps_en\bmps\Button2_G_U.bmp"
 			>
 		</File>
@@ -2351,6 +2677,10 @@
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button2_G_U.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\DHBitmaps_pl\bmps\Button2_G_U.bmp"
 			>
 		</File>
 		<File
@@ -2378,10 +2708,6 @@
 			>
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button2_R_D.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\SCABitmaps_pl\bmps\Button2_R_D.bmp"
 			>
 		</File>
@@ -2399,6 +2725,10 @@
 		</File>
 		<File
 			RelativePath="res\DHBitmaps_en\bmps\Button2_R_D.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\SCABitmaps_en\bmps\Button2_R_D.bmp"
 			>
 		</File>
 		<File
@@ -2450,10 +2780,6 @@
 			>
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button2_R_X.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button2_R_X.bmp"
 			>
 		</File>
@@ -2471,6 +2797,10 @@
 		</File>
 		<File
 			RelativePath="res\DHBitmaps\bmps\Button2_R_X.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\SCABitmaps\bmps\Button2_R_X.bmp"
 			>
 		</File>
 		<File
@@ -2498,10 +2828,6 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_pl\bmps\Button3_G_F.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\DHBitmaps_pl\bmps\Button3_G_F.bmp"
 			>
 		</File>
@@ -2519,6 +2845,10 @@
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button3_G_F.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\SCABitmaps_pl\bmps\Button3_G_F.bmp"
 			>
 		</File>
 		<File
@@ -2570,10 +2900,6 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\DHBitmaps_pl\bmps\Button3_R_D.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\DHBitmaps_en\bmps\Button3_R_D.bmp"
 			>
 		</File>
@@ -2591,6 +2917,10 @@
 		</File>
 		<File
 			RelativePath=".\res\SCABitmaps_pl\bmps\Button3_R_D.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\DHBitmaps_pl\bmps\Button3_R_D.bmp"
 			>
 		</File>
 		<File
@@ -2618,10 +2948,6 @@
 			>
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button3_R_U.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\DHBitmaps_pl\bmps\Button3_R_U.bmp"
 			>
 		</File>
@@ -2639,6 +2965,10 @@
 		</File>
 		<File
 			RelativePath="res\DHBitmaps\bmps\Button3_R_U.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\SCABitmaps_en\bmps\Button3_R_U.bmp"
 			>
 		</File>
 		<File
@@ -2690,10 +3020,6 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_pl\bmps\Button4_G_F.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\DHBitmaps_pl\bmps\Button4_G_F.bmp"
 			>
 		</File>
@@ -2711,6 +3037,10 @@
 		</File>
 		<File
 			RelativePath="res\DHBitmaps_en\bmps\Button4_G_F.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\SCABitmaps_pl\bmps\Button4_G_F.bmp"
 			>
 		</File>
 		<File
@@ -2738,10 +3068,6 @@
 			>
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button4_G_X.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\SCABitmaps_pl\bmps\Button4_G_X.bmp"
 			>
 		</File>
@@ -2759,6 +3085,10 @@
 		</File>
 		<File
 			RelativePath="res\DHBitmaps\bmps\Button4_G_X.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\SCABitmaps\bmps\Button4_G_X.bmp"
 			>
 		</File>
 		<File
@@ -2810,10 +3140,6 @@
 			>
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button4_R_U.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button4_R_U.bmp"
 			>
 		</File>
@@ -2831,6 +3157,10 @@
 		</File>
 		<File
 			RelativePath="res\DHBitmaps\bmps\Button4_R_U.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\SCABitmaps\bmps\Button4_R_U.bmp"
 			>
 		</File>
 		<File
@@ -2858,10 +3188,6 @@
 			>
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button5_G_D.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\SCABitmaps_pl\bmps\Button5_G_D.bmp"
 			>
 		</File>
@@ -2879,6 +3205,10 @@
 		</File>
 		<File
 			RelativePath=".\res\DHBitmaps_pl\bmps\Button5_G_D.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\SCABitmaps_en\bmps\Button5_G_D.bmp"
 			>
 		</File>
 		<File
@@ -2930,10 +3260,6 @@
 			>
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button5_G_X.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\DHBitmaps\bmps\Button5_G_X.bmp"
 			>
 		</File>
@@ -2951,6 +3277,10 @@
 		</File>
 		<File
 			RelativePath="res\DHBitmaps_en\bmps\Button5_G_X.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\SCABitmaps_en\bmps\Button5_G_X.bmp"
 			>
 		</File>
 		<File
@@ -2978,10 +3308,6 @@
 			>
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button5_R_F.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\SCABitmaps_pl\bmps\Button5_R_F.bmp"
 			>
 		</File>
@@ -2999,6 +3325,10 @@
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button5_R_F.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\SCABitmaps_en\bmps\Button5_R_F.bmp"
 			>
 		</File>
 		<File
@@ -3050,10 +3380,6 @@
 			>
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button6_G_D.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button6_G_D.bmp"
 			>
 		</File>
@@ -3062,7 +3388,7 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_pl\bmps\Button6_G_F.bmp"
+			RelativePath="res\SCABitmaps\bmps\Button6_G_D.bmp"
 			>
 		</File>
 		<File
@@ -3071,6 +3397,10 @@
 		</File>
 		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button6_G_F.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\SCABitmaps_pl\bmps\Button6_G_F.bmp"
 			>
 		</File>
 		<File
@@ -3086,15 +3416,15 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_pl\bmps\Button6_G_X.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\SCABitmaps\bmps\Button6_G_X.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button6_G_X.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\SCABitmaps_pl\bmps\Button6_G_X.bmp"
 			>
 		</File>
 		<File
@@ -3110,15 +3440,15 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_pl\bmps\Button6_R_F.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button6_R_F.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button6_R_F.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\SCABitmaps_pl\bmps\Button6_R_F.bmp"
 			>
 		</File>
 		<File
@@ -3134,15 +3464,15 @@
 			>
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button6_R_X.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button6_R_X.bmp"
 			>
 		</File>
 		<File
 			RelativePath=".\res\SCABitmaps_pl\bmps\Button6_R_X.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\SCABitmaps\bmps\Button6_R_X.bmp"
 			>
 		</File>
 		<File
@@ -3158,15 +3488,15 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_pl\bmps\Button7_G_F.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\SCABitmaps\bmps\Button7_G_F.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button7_G_F.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\SCABitmaps_pl\bmps\Button7_G_F.bmp"
 			>
 		</File>
 		<File
@@ -3182,10 +3512,6 @@
 			>
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button7_G_X.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\SCABitmaps_pl\bmps\Button7_G_X.bmp"
 			>
 		</File>
@@ -3194,7 +3520,7 @@
 			>
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button7_R_D.bmp"
+			RelativePath="res\SCABitmaps_en\bmps\Button7_G_X.bmp"
 			>
 		</File>
 		<File
@@ -3203,6 +3529,10 @@
 		</File>
 		<File
 			RelativePath=".\res\SCABitmaps_pl\bmps\Button7_R_D.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\SCABitmaps_en\bmps\Button7_R_D.bmp"
 			>
 		</File>
 		<File
@@ -3218,15 +3548,15 @@
 			>
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button7_R_U.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\SCABitmaps_pl\bmps\Button7_R_U.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button7_R_U.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\SCABitmaps\bmps\Button7_R_U.bmp"
 			>
 		</File>
 		<File
@@ -3242,10 +3572,6 @@
 			>
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button8_G_D.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button8_G_D.bmp"
 			>
 		</File>
@@ -3254,7 +3580,7 @@
 			>
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button8_G_F.bmp"
+			RelativePath="res\SCABitmaps\bmps\Button8_G_D.bmp"
 			>
 		</File>
 		<File
@@ -3263,6 +3589,10 @@
 		</File>
 		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button8_G_F.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\SCABitmaps\bmps\Button8_G_F.bmp"
 			>
 		</File>
 		<File
@@ -3278,15 +3608,15 @@
 			>
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button8_G_X.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\SCABitmaps_pl\bmps\Button8_G_X.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button8_G_X.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\SCABitmaps\bmps\Button8_G_X.bmp"
 			>
 		</File>
 		<File
@@ -3302,10 +3632,6 @@
 			>
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button8_R_F.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\SCABitmaps_pl\bmps\Button8_R_F.bmp"
 			>
 		</File>
@@ -3314,7 +3640,7 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_pl\bmps\Button8_R_U.bmp"
+			RelativePath="res\SCABitmaps\bmps\Button8_R_F.bmp"
 			>
 		</File>
 		<File
@@ -3323,6 +3649,10 @@
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button8_R_U.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\SCABitmaps_pl\bmps\Button8_R_U.bmp"
 			>
 		</File>
 		<File
@@ -3338,15 +3668,15 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_pl\bmps\Button9_G_D.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button9_G_D.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button9_G_D.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\SCABitmaps_pl\bmps\Button9_G_D.bmp"
 			>
 		</File>
 		<File
@@ -3362,15 +3692,15 @@
 			>
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button9_G_U.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\SCABitmaps\bmps\Button9_G_U.bmp"
 			>
 		</File>
 		<File
 			RelativePath=".\res\SCABitmaps_pl\bmps\Button9_G_U.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\SCABitmaps_en\bmps\Button9_G_U.bmp"
 			>
 		</File>
 		<File
@@ -3386,15 +3716,15 @@
 			>
 		</File>
 		<File
-			RelativePath="res\SCABitmaps_en\bmps\Button9_R_D.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\SCABitmaps_pl\bmps\Button9_R_D.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\bmps\Button9_R_D.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\SCABitmaps_en\bmps\Button9_R_D.bmp"
 			>
 		</File>
 		<File
@@ -3410,15 +3740,15 @@
 			>
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\bmps\Button9_R_U.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\SCABitmaps_pl\bmps\Button9_R_U.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\SCABitmaps_en\bmps\Button9_R_U.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\SCABitmaps\bmps\Button9_R_U.bmp"
 			>
 		</File>
 		<File
@@ -3524,13 +3854,31 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="ButtonControl.h"
-			>
-		</File>
-		<File
-			RelativePath="res\DHBitmaps\bmps\Calculate_G_D.bmp"
 			>
 		</File>
 		<File
@@ -3539,6 +3887,10 @@
 		</File>
 		<File
 			RelativePath="res\DHBitmaps_en\bmps\Calculate_G_D.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\DHBitmaps\bmps\Calculate_G_D.bmp"
 			>
 		</File>
 		<File
@@ -3554,10 +3906,6 @@
 			>
 		</File>
 		<File
-			RelativePath="res\DHBitmaps_en\bmps\Calculate_G_U.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\DHBitmaps_pl\bmps\Calculate_G_U.bmp"
 			>
 		</File>
@@ -3566,7 +3914,7 @@
 			>
 		</File>
 		<File
-			RelativePath="res\DHBitmaps_en\bmps\Calculate_G_X.bmp"
+			RelativePath="res\DHBitmaps_en\bmps\Calculate_G_U.bmp"
 			>
 		</File>
 		<File
@@ -3575,6 +3923,10 @@
 		</File>
 		<File
 			RelativePath=".\res\DHBitmaps_pl\bmps\Calculate_G_X.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\DHBitmaps_en\bmps\Calculate_G_X.bmp"
 			>
 		</File>
 		<File
@@ -3590,15 +3942,15 @@
 			>
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\Calculate_R_F.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\DHBitmaps_pl\bmps\Calculate_R_F.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\DHBitmaps_en\bmps\Calculate_R_F.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\DHBitmaps\bmps\Calculate_R_F.bmp"
 			>
 		</File>
 		<File
@@ -3614,15 +3966,15 @@
 			>
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\Calculate_R_X.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\DHBitmaps_pl\bmps\Calculate_R_X.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\DHBitmaps_en\bmps\Calculate_R_X.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\DHBitmaps\bmps\Calculate_R_X.bmp"
 			>
 		</File>
 		<File
@@ -3728,6 +4080,26 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCustomBuildTool"
+					Description="Copying template PSE to $(OutDir)"
+					CommandLine="xcopy /s/y &quot;$(InputDir)..&quot; &quot;$(OutDir)\pse\&quot;&#x0D;&#x0A;"
+					Outputs="$(OutDir)\pse\pseca\capse.cse"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCustomBuildTool"
+					Description="Copying template PSE to $(OutDir)"
+					CommandLine="xcopy /s/y &quot;$(InputDir)..&quot; &quot;$(OutDir)\pse\&quot;&#x0D;&#x0A;"
+					Outputs="$(OutDir)\pse\pseca\capse.cse"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCustomBuildTool"
@@ -3847,6 +4219,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -3996,6 +4390,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="COMFLASH.H"
@@ -4134,11 +4550,11 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\Crt\CrtAstronomy.gif"
+			RelativePath=".\res\CrtAstronomy.gif"
 			>
 		</File>
 		<File
-			RelativePath=".\res\CrtAstronomy.gif"
+			RelativePath=".\res\Crt\CrtAstronomy.gif"
 			>
 		</File>
 		<File
@@ -4256,6 +4672,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="CryptDoc.h"
@@ -4352,6 +4790,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="CryptDocTemplate.h"
@@ -4439,6 +4899,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -4548,6 +5030,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="CrypToolApp.h"
@@ -4644,6 +5148,28 @@
 					Outputs="CheckResourceIDs.log"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCustomBuildTool"
+					Description="Checking CrypTool.rc and $(InputPath) (-&gt;CheckResourceIDs.*)"
+					CommandLine="CheckResourceIDs.bat&#x0D;&#x0A;"
+					AdditionalDependencies="CrypTool.rc;"
+					Outputs="CheckResourceIDs.log"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCustomBuildTool"
+					Description="Checking CrypTool.rc and $(InputPath) (-&gt;CheckResourceIDs.*)"
+					CommandLine="CheckResourceIDs.bat&#x0D;&#x0A;"
+					AdditionalDependencies="CrypTool.rc;"
+					Outputs="CheckResourceIDs.log"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="CrypToolTools.cpp"
@@ -4727,6 +5253,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -4896,6 +5444,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DialogeMessage.h"
@@ -4983,6 +5553,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -5088,6 +5680,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DiffieHellmanButtonControl.h"
@@ -5175,6 +5789,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -5280,6 +5916,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DiffieHellmanParty.h"
@@ -5367,6 +6025,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -5512,6 +6192,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgASN1PSEPINPrompt.h"
@@ -5599,6 +6301,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -5728,6 +6452,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgBruteForceAES.h"
@@ -5815,6 +6561,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -5920,6 +6688,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgCertificateGeneration.h"
@@ -6007,6 +6797,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -6168,6 +6980,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgDemoRSAKeyGeneration.h"
@@ -6255,6 +7089,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -6360,6 +7216,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgDiffieHellmanExchangeSharedKeys.h"
@@ -6447,6 +7325,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -6552,6 +7452,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgDiffieHellmanGenerateFinalKey.h"
@@ -6639,6 +7561,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -6744,6 +7688,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgDiffieHellmanKeyInformation.h"
@@ -6831,6 +7797,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -6936,6 +7924,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgDiffieHellmanSecretInput.h"
@@ -7023,6 +8033,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -7128,6 +8160,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgDiffieHellmanSetSecrets.h"
@@ -7215,6 +8269,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -7336,6 +8412,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgECGeneration.h"
@@ -7423,6 +8521,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -7528,6 +8648,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgEntropyInfo.h"
@@ -7615,6 +8757,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -7720,6 +8884,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgFactorisationDemo.h"
@@ -7807,6 +8993,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -7944,6 +9152,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgHashDemo.h"
@@ -8031,6 +9261,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -8152,6 +9404,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgHybridDecryptionDemo.h"
@@ -8239,6 +9513,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -8344,6 +9640,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgICGRandomParamater.h"
@@ -8431,6 +9749,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -8536,6 +9876,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgKeyAsym.h"
@@ -8623,6 +9985,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -8728,6 +10112,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgKeyFromPassword.h"
@@ -8815,6 +10221,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -8920,6 +10348,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgKeyHexAnalysis.h"
@@ -9007,6 +10457,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -9112,6 +10584,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgKeyHill10x10.h"
@@ -9199,6 +10693,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -9304,6 +10820,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgKeyHomophone.h"
@@ -9391,6 +10929,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -9504,6 +11064,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgKeyPermutation.h"
@@ -9591,6 +11173,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -9696,6 +11300,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgKeyPlayfair.h"
@@ -9783,6 +11409,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -9888,6 +11536,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgKeyVigenere.h"
@@ -9984,6 +11654,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgLCGRandomParameter.h"
@@ -10071,6 +11763,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -10184,6 +11898,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgNGramAnalysis.h"
@@ -10271,6 +12007,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -10384,6 +12142,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgOptionsRSADemo.h"
@@ -10471,6 +12251,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -10576,6 +12378,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgOptionsStartoptions.h"
@@ -10663,6 +12487,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -10797,6 +12643,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgPeriodicityAnalysis.h"
@@ -10901,6 +12769,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgPINAccess.h"
@@ -10988,6 +12878,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -11101,6 +13013,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgPrimesGeneratorDemo.h"
@@ -11196,6 +13130,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -11301,6 +13257,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgRandomGenerator.h"
@@ -11388,6 +13366,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -11501,6 +13501,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgRSADecryption.h"
@@ -11597,6 +13619,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgRSADemo.h"
@@ -11684,6 +13728,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -11837,6 +13903,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgSelectHashFunction.h"
@@ -11924,6 +14012,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -12029,6 +14139,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgShowHash.h"
@@ -12116,6 +14248,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -12221,6 +14375,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgShowKeyHill10x10.h"
@@ -12308,6 +14484,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -12413,6 +14611,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgShowKeyParameter.h"
@@ -12500,6 +14720,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -12605,6 +14847,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgShowPrivateKeyEC.h"
@@ -12692,6 +14956,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -12797,6 +15083,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgShowPublicKeyEC.h"
@@ -12884,6 +15192,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -12989,6 +15319,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgSideChannelAttackVisualizationHEAlice.h"
@@ -13076,6 +15428,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -13181,6 +15555,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgSideChannelAttackVisualizationHEBob.h"
@@ -13268,6 +15664,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -13373,6 +15791,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgSideChannelAttackVisualizationHEIntroduction.h"
@@ -13460,6 +15900,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -13565,6 +16027,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgSideChannelAttackVisualizationHEMessageTransmission.h"
@@ -13652,6 +16136,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -13781,6 +16287,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgSideChannelAttackVisualizationHEPSEPINPrompt.h"
@@ -13868,6 +16396,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -13973,6 +16523,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgSideChannelAttackVisualizationHETrudy.h"
@@ -14060,6 +16632,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -14165,6 +16759,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgSignature.h"
@@ -14261,6 +16877,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgSignatureAttack.h"
@@ -14348,6 +16986,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -14477,6 +17137,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgStatisticsSignatureAttack.h"
@@ -14564,6 +17246,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -14669,6 +17373,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgTextOptions.h"
@@ -14756,6 +17482,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -14861,6 +17609,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="DlgVerifyECSignatureStepByStep.h"
@@ -14948,6 +17718,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -15052,6 +17844,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -15169,6 +17983,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="..\LibEc\include\ECSSA.H"
@@ -15256,6 +18092,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -15356,6 +18214,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -15521,6 +18401,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="FileTools.h"
@@ -15608,6 +18510,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -15712,6 +18636,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -16085,6 +19031,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="HashingOperations.h"
@@ -16176,6 +19144,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -16313,6 +19303,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="HillEncryption.h"
@@ -16400,6 +19412,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -16669,6 +19703,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="IntegerArithmetic.h"
@@ -16687,15 +19743,15 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\DHBitmaps_pl\bmps\Key_F.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\DHBitmaps_en\bmps\Key_F.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\DHBitmaps\bmps\Key_F.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\DHBitmaps_pl\bmps\Key_F.bmp"
 			>
 		</File>
 		<File
@@ -16711,15 +19767,15 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\DHBitmaps_pl\bmps\Key_X.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\DHBitmaps\bmps\Key_X.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\DHBitmaps_en\bmps\Key_X.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\DHBitmaps_pl\bmps\Key_X.bmp"
 			>
 		</File>
 		<File
@@ -16808,6 +19864,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -16917,6 +19995,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="KeyFileHandling.h"
@@ -17004,6 +20104,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -17109,6 +20231,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="KeyParameterHomophone.h"
@@ -17196,6 +20340,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -17393,6 +20559,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="MakeNewName.h"
@@ -17489,6 +20677,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="MakeZip.h"
@@ -17576,6 +20786,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -17697,6 +20929,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="ModifiedDocument_Attachments.h"
@@ -17784,6 +21038,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -17889,6 +21165,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="ModifiedDocumentForHashing.h"
@@ -17984,6 +21282,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -18209,17 +21529,39 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="OptionsForSignatureAttack.h"
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Oval1_D.bmp"
+			RelativePath="res\Bitmaps_en\Oval1_D.bmp"
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Oval1_D.bmp"
+			RelativePath="res\Bitmaps\Oval1_D.bmp"
 			>
 		</File>
 		<File
@@ -18231,10 +21573,6 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\Bitmaps_pl\Oval1_G_D.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps_en\Oval1_G_D.bmp"
 			>
 		</File>
@@ -18243,7 +21581,7 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\Bitmaps_pl\Oval1_G_F.bmp"
+			RelativePath=".\res\Bitmaps_pl\Oval1_G_D.bmp"
 			>
 		</File>
 		<File
@@ -18252,6 +21590,10 @@
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Oval1_G_F.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Bitmaps_pl\Oval1_G_F.bmp"
 			>
 		</File>
 		<File
@@ -18267,15 +21609,11 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Oval1_U.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps\Oval1_U.bmp"
 			>
 		</File>
 		<File
-			RelativePath="res\Oval2_D.bmp"
+			RelativePath="res\Bitmaps_en\Oval1_U.bmp"
 			>
 		</File>
 		<File
@@ -18284,6 +21622,10 @@
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Oval2_D.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Oval2_D.bmp"
 			>
 		</File>
 		<File
@@ -18299,15 +21641,15 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Oval2_G_D.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps_en\Oval2_G_D.bmp"
 			>
 		</File>
 		<File
 			RelativePath=".\res\Bitmaps_pl\Oval2_G_D.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps\Oval2_G_D.bmp"
 			>
 		</File>
 		<File
@@ -18323,10 +21665,6 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\Bitmaps_pl\Oval2_G_U.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps\Oval2_G_U.bmp"
 			>
 		</File>
@@ -18335,7 +21673,7 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Oval2_U.bmp"
+			RelativePath=".\res\Bitmaps_pl\Oval2_G_U.bmp"
 			>
 		</File>
 		<File
@@ -18344,6 +21682,10 @@
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Oval2_U.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps\Oval2_U.bmp"
 			>
 		</File>
 		<File
@@ -18359,15 +21701,15 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Oval2_X_U.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps_en\Oval2_X_U.bmp"
 			>
 		</File>
 		<File
 			RelativePath=".\res\Bitmaps_pl\Oval2_X_U.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps\Oval2_X_U.bmp"
 			>
 		</File>
 		<File
@@ -18473,6 +21815,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="ParseIniFile.h"
@@ -18560,6 +21924,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -18689,6 +22075,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="passwordqualitymeter.h"
@@ -18772,6 +22180,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -18876,6 +22306,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -19321,6 +22773,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="PlayfairAnalysis.h"
@@ -19417,6 +22891,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="PlayfairStructures.cpp"
@@ -19500,6 +22996,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -19605,6 +23123,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="res\plottype.ico"
@@ -19692,6 +23232,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -19797,6 +23359,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="POLY.H"
@@ -19884,6 +23468,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -20013,6 +23619,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="PSEDemo.h"
@@ -20104,6 +23732,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -20209,13 +23859,31 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="RandomTest.h"
-			>
-		</File>
-		<File
-			RelativePath="res\Bitmaps_en\Raute1_B_D.bmp"
 			>
 		</File>
 		<File
@@ -20224,6 +23892,10 @@
 		</File>
 		<File
 			RelativePath=".\res\Bitmaps_pl\Raute1_B_D.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps_en\Raute1_B_D.bmp"
 			>
 		</File>
 		<File
@@ -20239,15 +23911,15 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Raute1_B_U.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\Bitmaps_pl\Raute1_B_U.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Raute1_B_U.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps\Raute1_B_U.bmp"
 			>
 		</File>
 		<File
@@ -20259,15 +23931,11 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Raute1_F.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps\Raute1_F.bmp"
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Raute1_U.bmp"
+			RelativePath="res\Bitmaps_en\Raute1_F.bmp"
 			>
 		</File>
 		<File
@@ -20275,11 +23943,15 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Raute1_X.bmp"
+			RelativePath="res\Bitmaps\Raute1_U.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Raute1_X.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps_en\Raute1_X.bmp"
 			>
 		</File>
 		<File
@@ -20295,15 +23967,15 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Raute2_B_D.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\Bitmaps_pl\Raute2_B_D.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Raute2_B_D.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps_en\Raute2_B_D.bmp"
 			>
 		</File>
 		<File
@@ -20319,10 +23991,6 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Raute2_B_U.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\Bitmaps_pl\Raute2_B_U.bmp"
 			>
 		</File>
@@ -20331,11 +23999,15 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Raute2_D.bmp"
+			RelativePath="res\Bitmaps_en\Raute2_B_U.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Raute2_D.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps_en\Raute2_D.bmp"
 			>
 		</File>
 		<File
@@ -20347,19 +24019,19 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Raute2_U.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps_en\Raute2_U.bmp"
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Raute2_X.bmp"
+			RelativePath="res\Bitmaps\Raute2_U.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Raute2_X.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps\Raute2_X.bmp"
 			>
 		</File>
 		<File
@@ -20375,10 +24047,6 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Raute3_B_D.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps_en\Raute3_B_D.bmp"
 			>
 		</File>
@@ -20387,7 +24055,7 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Raute3_B_F.bmp"
+			RelativePath="res\Bitmaps\Raute3_B_D.bmp"
 			>
 		</File>
 		<File
@@ -20396,6 +24064,10 @@
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Raute3_B_F.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps_en\Raute3_B_F.bmp"
 			>
 		</File>
 		<File
@@ -20411,19 +24083,19 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Raute3_D.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps_en\Raute3_D.bmp"
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Raute3_F.bmp"
+			RelativePath="res\Bitmaps\Raute3_D.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Raute3_F.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps_en\Raute3_F.bmp"
 			>
 		</File>
 		<File
@@ -20435,15 +24107,11 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Raute3_X.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps\Raute3_X.bmp"
 			>
 		</File>
 		<File
-			RelativePath=".\res\Bitmaps_pl\Raute3_X_U.bmp"
+			RelativePath="res\Bitmaps_en\Raute3_X.bmp"
 			>
 		</File>
 		<File
@@ -20452,6 +24120,10 @@
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Raute3_X_U.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Bitmaps_pl\Raute3_X_U.bmp"
 			>
 		</File>
 		<File
@@ -20467,15 +24139,15 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Raute4_B_F.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps_en\Raute4_B_F.bmp"
 			>
 		</File>
 		<File
 			RelativePath=".\res\Bitmaps_pl\Raute4_B_F.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps\Raute4_B_F.bmp"
 			>
 		</File>
 		<File
@@ -20491,19 +24163,19 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Raute4_D.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps_en\Raute4_D.bmp"
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Raute4_F.bmp"
+			RelativePath="res\Bitmaps\Raute4_D.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Raute4_F.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps_en\Raute4_F.bmp"
 			>
 		</File>
 		<File
@@ -20515,15 +24187,11 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Raute4_X.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps_en\Raute4_X.bmp"
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Raute4_X_U.bmp"
+			RelativePath="res\Bitmaps\Raute4_X.bmp"
 			>
 		</File>
 		<File
@@ -20532,6 +24200,10 @@
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Raute4_X_U.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps\Raute4_X_U.bmp"
 			>
 		</File>
 		<File
@@ -20547,10 +24219,6 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Raute5_B_F.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\Bitmaps_pl\Raute5_B_F.bmp"
 			>
 		</File>
@@ -20559,7 +24227,7 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Raute5_B_U.bmp"
+			RelativePath="res\Bitmaps_en\Raute5_B_F.bmp"
 			>
 		</File>
 		<File
@@ -20571,6 +24239,10 @@
 			>
 		</File>
 		<File
+			RelativePath="res\Bitmaps\Raute5_B_U.bmp"
+			>
+		</File>
+		<File
 			RelativePath="res\Bitmaps\Raute5_D.bmp"
 			>
 		</File>
@@ -20579,19 +24251,19 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Raute5_F.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps\Raute5_F.bmp"
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Raute5_U.bmp"
+			RelativePath="res\Bitmaps_en\Raute5_F.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Raute5_U.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps\Raute5_U.bmp"
 			>
 		</File>
 		<File
@@ -20603,15 +24275,15 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Raute5_X_U.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps_en\Raute5_X_U.bmp"
 			>
 		</File>
 		<File
 			RelativePath=".\res\Bitmaps_pl\Raute5_X_U.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps\Raute5_X_U.bmp"
 			>
 		</File>
 		<File
@@ -20709,6 +24381,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="..\AES\RC6\rc6.h"
@@ -20727,15 +24421,15 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\Bitmaps_pl\Rechteck1_G_F.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps\Rechteck1_G_F.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Rechteck1_G_F.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Bitmaps_pl\Rechteck1_G_F.bmp"
 			>
 		</File>
 		<File
@@ -20751,10 +24445,6 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Rechteck1_R_D.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\Bitmaps_pl\Rechteck1_R_D.bmp"
 			>
 		</File>
@@ -20763,7 +24453,7 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Rechteck1_R_F.bmp"
+			RelativePath="res\Bitmaps\Rechteck1_R_D.bmp"
 			>
 		</File>
 		<File
@@ -20772,6 +24462,10 @@
 		</File>
 		<File
 			RelativePath=".\res\Bitmaps_pl\Rechteck1_R_F.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps_en\Rechteck1_R_F.bmp"
 			>
 		</File>
 		<File
@@ -20787,15 +24481,15 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\Bitmaps_pl\Rechteck1_X_U.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps_en\Rechteck1_X_U.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Rechteck1_X_U.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Bitmaps_pl\Rechteck1_X_U.bmp"
 			>
 		</File>
 		<File
@@ -20811,10 +24505,6 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Rechteck2_G_F.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\Bitmaps_pl\Rechteck2_G_F.bmp"
 			>
 		</File>
@@ -20823,7 +24513,7 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Rechteck2_G_U.bmp"
+			RelativePath="res\Bitmaps_en\Rechteck2_G_F.bmp"
 			>
 		</File>
 		<File
@@ -20832,6 +24522,10 @@
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Rechteck2_G_U.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps_en\Rechteck2_G_U.bmp"
 			>
 		</File>
 		<File
@@ -20847,15 +24541,15 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Rechteck2_R_F.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps_en\Rechteck2_R_F.bmp"
 			>
 		</File>
 		<File
 			RelativePath=".\res\Bitmaps_pl\Rechteck2_R_F.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps\Rechteck2_R_F.bmp"
 			>
 		</File>
 		<File
@@ -20871,15 +24565,15 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\Bitmaps_pl\Rechteck2_X_U.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps\Rechteck2_X_U.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Rechteck2_X_U.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Bitmaps_pl\Rechteck2_X_U.bmp"
 			>
 		</File>
 		<File
@@ -20968,6 +24662,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -21073,6 +24789,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="..\AES\Rijndael\rijndael-alg-fst.h"
@@ -21160,6 +24898,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -21293,6 +25053,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="..\LibEc\include\s_prng.h"
@@ -21315,15 +25097,15 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_pl\gifs\sca_ab_arrow_interception.gif"
-			>
-		</File>
-		<File
 			RelativePath=".\res\SCABitmaps_en\gifs\sca_ab_arrow_interception.gif"
 			>
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\gifs\sca_ab_arrow_interception.gif"
+			>
+		</File>
+		<File
+			RelativePath=".\res\SCABitmaps_pl\gifs\sca_ab_arrow_interception.gif"
 			>
 		</File>
 		<File
@@ -21339,10 +25121,6 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_en\gifs\sca_ab_arrow_success.gif"
-			>
-		</File>
-		<File
 			RelativePath=".\res\SCABitmaps_pl\gifs\sca_ab_arrow_success.gif"
 			>
 		</File>
@@ -21351,7 +25129,7 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_pl\gifs\sca_ab_arrow_transmission.gif"
+			RelativePath=".\res\SCABitmaps_en\gifs\sca_ab_arrow_success.gif"
 			>
 		</File>
 		<File
@@ -21360,6 +25138,10 @@
 		</File>
 		<File
 			RelativePath="res\SCABitmaps\gifs\sca_ab_arrow_transmission.gif"
+			>
+		</File>
+		<File
+			RelativePath=".\res\SCABitmaps_pl\gifs\sca_ab_arrow_transmission.gif"
 			>
 		</File>
 		<File
@@ -21375,15 +25157,15 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_pl\bmps\sca_alice_small.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\SCABitmaps\bmps\sca_alice_small.bmp"
 			>
 		</File>
 		<File
 			RelativePath=".\res\SCABitmaps_en\bmps\sca_alice_small.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\SCABitmaps_pl\bmps\sca_alice_small.bmp"
 			>
 		</File>
 		<File
@@ -21403,10 +25185,6 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_en\bmps\sca_bob_small.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\SCABitmaps_pl\bmps\sca_bob_small.bmp"
 			>
 		</File>
@@ -21415,11 +25193,11 @@
 			>
 		</File>
 		<File
-			RelativePath="res\sca_butt.bmp"
+			RelativePath=".\res\SCABitmaps_en\bmps\sca_bob_small.bmp"
 			>
 		</File>
 		<File
-			RelativePath=".\res\SCABitmaps_en\bmps\sca_gapfiller.bmp"
+			RelativePath="res\sca_butt.bmp"
 			>
 		</File>
 		<File
@@ -21428,6 +25206,10 @@
 		</File>
 		<File
 			RelativePath=".\res\SCABitmaps_pl\bmps\sca_gapfiller.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\SCABitmaps_en\bmps\sca_gapfiller.bmp"
 			>
 		</File>
 		<File
@@ -21451,15 +25233,15 @@
 			>
 		</File>
 		<File
-			RelativePath="res\SCABitmaps\gifs\sca_lights_green.gif"
-			>
-		</File>
-		<File
 			RelativePath=".\res\SCABitmaps_en\gifs\sca_lights_green.gif"
 			>
 		</File>
 		<File
 			RelativePath=".\res\SCABitmaps_pl\gifs\sca_lights_green.gif"
+			>
+		</File>
+		<File
+			RelativePath="res\SCABitmaps\gifs\sca_lights_green.gif"
 			>
 		</File>
 		<File
@@ -21605,6 +25387,26 @@
 					Outputs="$(OutDir)\$(InputFileName)"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCustomBuildTool"
+					Description="copying template DLLs to $(OutDir)"
+					CommandLine="cmd /c copy /y &quot;$(InputDir)*.dll&quot; &quot;$(OutDir)&quot;&#x0D;&#x0A;cmd /c copy /y &quot;$(InputDir)*.ini&quot; &quot;$(OutDir)&quot;&#x0D;&#x0A;cmd /c copy /y &quot;$(InputDir)*.xml&quot; &quot;$(OutDir)&quot;&#x0D;&#x0A;cmd /c copy /y &quot;$(InputDir)ticket&quot; &quot;$(OutDir)&quot;&#x0D;&#x0A;&#x0D;&#x0A;"
+					Outputs="$(OutDir)\$(InputFileName)"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCustomBuildTool"
+					Description="copying template DLLs to $(OutDir)"
+					CommandLine="cmd /c copy /y &quot;$(InputDir)*.dll&quot; &quot;$(OutDir)&quot;&#x0D;&#x0A;cmd /c copy /y &quot;$(InputDir)*.ini&quot; &quot;$(OutDir)&quot;&#x0D;&#x0A;cmd /c copy /y &quot;$(InputDir)*.xml&quot; &quot;$(OutDir)&quot;&#x0D;&#x0A;cmd /c copy /y &quot;$(InputDir)ticket&quot; &quot;$(OutDir)&quot;&#x0D;&#x0A;&#x0D;&#x0A;"
+					Outputs="$(OutDir)\$(InputFileName)"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath=".\ScintillaDoc.cpp"
@@ -21643,15 +25445,11 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Sechseck1_F.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps_en\Sechseck1_F.bmp"
 			>
 		</File>
 		<File
-			RelativePath=".\res\Bitmaps_pl\Sechseck1_G_D.bmp"
+			RelativePath="res\Bitmaps\Sechseck1_F.bmp"
 			>
 		</File>
 		<File
@@ -21660,6 +25458,10 @@
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Sechseck1_G_D.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Bitmaps_pl\Sechseck1_G_D.bmp"
 			>
 		</File>
 		<File
@@ -21675,15 +25477,15 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\Bitmaps_pl\Sechseck1_G_U.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps\Sechseck1_G_U.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Sechseck1_G_U.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Bitmaps_pl\Sechseck1_G_U.bmp"
 			>
 		</File>
 		<File
@@ -21699,10 +25501,6 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\Bitmaps_pl\Sechseck1_R_F.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps_en\Sechseck1_R_F.bmp"
 			>
 		</File>
@@ -21711,7 +25509,7 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\Bitmaps_pl\Sechseck1_R_U.bmp"
+			RelativePath=".\res\Bitmaps_pl\Sechseck1_R_F.bmp"
 			>
 		</File>
 		<File
@@ -21723,6 +25521,10 @@
 			>
 		</File>
 		<File
+			RelativePath=".\res\Bitmaps_pl\Sechseck1_R_U.bmp"
+			>
+		</File>
+		<File
 			RelativePath="res\Bitmaps\Sechseck1_U.bmp"
 			>
 		</File>
@@ -21731,19 +25533,19 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Sechseck2_D.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps_en\Sechseck2_D.bmp"
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Sechseck2_F.bmp"
+			RelativePath="res\Bitmaps\Sechseck2_D.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Sechseck2_F.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps\Sechseck2_F.bmp"
 			>
 		</File>
 		<File
@@ -21759,10 +25561,6 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Sechseck2_G_F.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps_en\Sechseck2_G_F.bmp"
 			>
 		</File>
@@ -21771,7 +25569,7 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Sechseck2_G_U.bmp"
+			RelativePath="res\Bitmaps\Sechseck2_G_F.bmp"
 			>
 		</File>
 		<File
@@ -21780,6 +25578,10 @@
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Sechseck2_G_U.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps\Sechseck2_G_U.bmp"
 			>
 		</File>
 		<File
@@ -21795,15 +25597,15 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Sechseck2_R_F.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps\Sechseck2_R_F.bmp"
 			>
 		</File>
 		<File
 			RelativePath=".\res\Bitmaps_pl\Sechseck2_R_F.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps_en\Sechseck2_R_F.bmp"
 			>
 		</File>
 		<File
@@ -21819,15 +25621,11 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Sechseck2_U.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps_en\Sechseck2_U.bmp"
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Sechseck3_D.bmp"
+			RelativePath="res\Bitmaps\Sechseck2_U.bmp"
 			>
 		</File>
 		<File
@@ -21835,11 +25633,15 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Sechseck3_F.bmp"
+			RelativePath="res\Bitmaps_en\Sechseck3_D.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Sechseck3_F.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps_en\Sechseck3_F.bmp"
 			>
 		</File>
 		<File
@@ -21855,15 +25657,15 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Sechseck3_G_F.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\Bitmaps_pl\Sechseck3_G_F.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Sechseck3_G_F.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps_en\Sechseck3_G_F.bmp"
 			>
 		</File>
 		<File
@@ -21879,15 +25681,15 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\Bitmaps_pl\Sechseck3_R_D.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps\Sechseck3_R_D.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\Bitmaps_en\Sechseck3_R_D.bmp"
+			>
+		</File>
+		<File
+			RelativePath=".\res\Bitmaps_pl\Sechseck3_R_D.bmp"
 			>
 		</File>
 		<File
@@ -21903,10 +25705,6 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Sechseck3_R_U.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps_en\Sechseck3_R_U.bmp"
 			>
 		</File>
@@ -21915,11 +25713,15 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Sechseck3_U.bmp"
+			RelativePath="res\Bitmaps\Sechseck3_R_U.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Sechseck3_U.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps_en\Sechseck3_U.bmp"
 			>
 		</File>
 		<File
@@ -21935,10 +25737,6 @@
 			>
 		</File>
 		<File
-			RelativePath=".\res\DHBitmaps_pl\bmps\Secret_G_F.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\DHBitmaps_en\bmps\Secret_G_F.bmp"
 			>
 		</File>
@@ -21947,7 +25745,7 @@
 			>
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\Secret_G_U.bmp"
+			RelativePath=".\res\DHBitmaps_pl\bmps\Secret_G_F.bmp"
 			>
 		</File>
 		<File
@@ -21956,6 +25754,10 @@
 		</File>
 		<File
 			RelativePath=".\res\DHBitmaps_pl\bmps\Secret_G_U.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\DHBitmaps\bmps\Secret_G_U.bmp"
 			>
 		</File>
 		<File
@@ -21971,15 +25773,15 @@
 			>
 		</File>
 		<File
-			RelativePath="res\DHBitmaps_en\bmps\Secret_R_D.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\DHBitmaps\bmps\Secret_R_D.bmp"
 			>
 		</File>
 		<File
 			RelativePath=".\res\DHBitmaps_pl\bmps\Secret_R_D.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\DHBitmaps_en\bmps\Secret_R_D.bmp"
 			>
 		</File>
 		<File
@@ -21995,10 +25797,6 @@
 			>
 		</File>
 		<File
-			RelativePath="res\DHBitmaps_en\bmps\Secret_R_U.bmp"
-			>
-		</File>
-		<File
 			RelativePath=".\res\DHBitmaps_pl\bmps\Secret_R_U.bmp"
 			>
 		</File>
@@ -22007,7 +25805,7 @@
 			>
 		</File>
 		<File
-			RelativePath="res\DHBitmaps_en\bmps\Secret_R_X.bmp"
+			RelativePath="res\DHBitmaps_en\bmps\Secret_R_U.bmp"
 			>
 		</File>
 		<File
@@ -22016,6 +25814,10 @@
 		</File>
 		<File
 			RelativePath=".\res\DHBitmaps_pl\bmps\Secret_R_X.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\DHBitmaps_en\bmps\Secret_R_X.bmp"
 			>
 		</File>
 		<File
@@ -22108,6 +25910,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -22213,6 +26037,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="SecudeLib.h"
@@ -22300,6 +26146,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -22454,6 +26322,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="..\AES\Serpent\SERPENT.H"
@@ -22545,6 +26435,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -22650,6 +26562,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="SideChannelAttackButtonControl.h"
@@ -22737,6 +26671,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -22842,17 +26798,39 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="SignatureAttackMFC.h"
 			>
 		</File>
 		<File
-			RelativePath=".\res\Bitmaps_en\simple_transposition_rail_fence.bmp"
+			RelativePath=".\res\Bitmaps\simple_transposition_rail_fence.bmp"
 			>
 		</File>
 		<File
-			RelativePath=".\res\Bitmaps\simple_transposition_rail_fence.bmp"
+			RelativePath=".\res\Bitmaps_en\simple_transposition_rail_fence.bmp"
 			>
 		</File>
 		<File
@@ -22978,6 +26956,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="SquareMatrixModN.h"
@@ -23074,17 +27074,39 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="stdafx.h"
 			>
 		</File>
 		<File
-			RelativePath="res\DHBitmaps_en\bmps\Step_1.bmp"
+			RelativePath="res\DHBitmaps\bmps\Step_1.bmp"
 			>
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\Step_1.bmp"
+			RelativePath="res\DHBitmaps_en\bmps\Step_1.bmp"
 			>
 		</File>
 		<File
@@ -23096,15 +27118,11 @@
 			>
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\Step_3.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\DHBitmaps_en\bmps\Step_3.bmp"
 			>
 		</File>
 		<File
-			RelativePath="res\DHBitmaps\bmps\Step_4.bmp"
+			RelativePath="res\DHBitmaps\bmps\Step_3.bmp"
 			>
 		</File>
 		<File
@@ -23112,11 +27130,15 @@
 			>
 		</File>
 		<File
-			RelativePath="res\DHBitmaps_en\bmps\Step_5.bmp"
+			RelativePath="res\DHBitmaps\bmps\Step_4.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\DHBitmaps\bmps\Step_5.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\DHBitmaps_en\bmps\Step_5.bmp"
 			>
 		</File>
 		<File
@@ -23250,6 +27272,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="TimeCalculation.h"
@@ -23374,6 +27418,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath=".\uucode.cpp"
@@ -23478,17 +27544,39 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="1"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="ValueList.h"
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Viereck1_D.bmp"
+			RelativePath="res\Bitmaps_en\Viereck1_D.bmp"
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Viereck1_D.bmp"
+			RelativePath="res\Bitmaps\Viereck1_D.bmp"
 			>
 		</File>
 		<File
@@ -23532,11 +27620,11 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Viereck1_X.bmp"
+			RelativePath="res\Bitmaps_en\Viereck1_X.bmp"
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Viereck1_X.bmp"
+			RelativePath="res\Bitmaps\Viereck1_X.bmp"
 			>
 		</File>
 		<File
@@ -23544,11 +27632,11 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Viereck2_D.bmp"
+			RelativePath="res\Bitmaps\Viereck2_D.bmp"
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Viereck2_D.bmp"
+			RelativePath="res\Bitmaps_en\Viereck2_D.bmp"
 			>
 		</File>
 		<File
@@ -23584,19 +27672,19 @@
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps\Viereck2_U.bmp"
-			>
-		</File>
-		<File
 			RelativePath="res\Bitmaps_en\Viereck2_U.bmp"
 			>
 		</File>
 		<File
-			RelativePath="res\Bitmaps_en\Viereck2_X.bmp"
+			RelativePath="res\Bitmaps\Viereck2_U.bmp"
 			>
 		</File>
 		<File
 			RelativePath="res\Bitmaps\Viereck2_X.bmp"
+			>
+		</File>
+		<File
+			RelativePath="res\Bitmaps_en\Viereck2_X.bmp"
 			>
 		</File>
 		<File
@@ -23722,6 +27810,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="zip\zdeflate.c"
@@ -23805,6 +27915,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -23906,6 +28038,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="zip\zglobals.c"
@@ -23989,6 +28143,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -24090,6 +28266,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="zip\zip.c"
@@ -24173,6 +28371,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -24274,6 +28494,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="zip\ztrees.c"
@@ -24357,6 +28599,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -24458,6 +28722,28 @@
 					BrowseInformation="1"
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath=".\ZZ_helpers.cpp"
@@ -24549,6 +28835,28 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release_rs|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"

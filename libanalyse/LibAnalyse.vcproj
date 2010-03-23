@@ -156,6 +156,147 @@
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
+		<Configuration
+			Name="debug_es|Win32"
+			OutputDirectory="$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="4"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
+			UseOfMFC="1"
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
+				RuntimeLibrary="1"
+				UsePrecompiledHeader="0"
+				PrecompiledHeaderFile=".\Debug/LibAnalyse.pch"
+				AssemblerListingLocation=".\Debug/"
+				ObjectFile=".\Debug/"
+				ProgramDataBaseFileName=".\Debug/"
+				BrowseInformation="1"
+				WarningLevel="3"
+				SuppressStartupBanner="true"
+				DebugInformationFormat="1"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				Culture="1031"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLibrarianTool"
+				OutputFile=".\Debug\LibAnalyse.lib"
+				SuppressStartupBanner="true"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release_es|Win32"
+			OutputDirectory="$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="4"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
+			UseOfMFC="1"
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="2"
+				InlineFunctionExpansion="1"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
+				StringPooling="true"
+				RuntimeLibrary="0"
+				EnableFunctionLevelLinking="true"
+				UsePrecompiledHeader="0"
+				PrecompiledHeaderFile=".\Release/LibAnalyse.pch"
+				AssemblerListingLocation=".\Release/"
+				ObjectFile=".\Release/"
+				ProgramDataBaseFileName=".\Release/"
+				WarningLevel="3"
+				SuppressStartupBanner="true"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				Culture="1031"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLibrarianTool"
+				OutputFile=".\Release\LibAnalyse.lib"
+				SuppressStartupBanner="true"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
 	</Configurations>
 	<References>
 	</References>
@@ -202,6 +343,25 @@
 					PreprocessorDefinitions=""
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					PreprocessorDefinitions=""
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="Chi2.h"
@@ -229,6 +389,25 @@
 					PreprocessorDefinitions=""
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					PreprocessorDefinitions=""
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="Cipher.h"
@@ -249,6 +428,25 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					PreprocessorDefinitions=""
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -295,6 +493,25 @@
 					PreprocessorDefinitions=""
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					PreprocessorDefinitions=""
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="Des.h"
@@ -315,6 +532,25 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					PreprocessorDefinitions=""
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -346,6 +582,25 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					PreprocessorDefinitions=""
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -396,6 +651,25 @@
 					PreprocessorDefinitions=""
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					PreprocessorDefinitions=""
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="LFSR.H"
@@ -416,6 +690,25 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					PreprocessorDefinitions=""
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -458,6 +751,25 @@
 					PreprocessorDefinitions=""
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					PreprocessorDefinitions=""
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="NGram.h"
@@ -485,6 +797,25 @@
 					PreprocessorDefinitions=""
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					PreprocessorDefinitions=""
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="Permutation.cpp"
@@ -501,6 +832,25 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					PreprocessorDefinitions=""
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -543,6 +893,25 @@
 					PreprocessorDefinitions=""
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					PreprocessorDefinitions=""
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="SBox.h"
@@ -578,6 +947,25 @@
 					PreprocessorDefinitions=""
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					PreprocessorDefinitions=""
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="STDINC.H"
@@ -598,6 +986,25 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					PreprocessorDefinitions=""
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
@@ -632,6 +1039,25 @@
 					PreprocessorDefinitions=""
 				/>
 			</FileConfiguration>
+			<FileConfiguration
+				Name="debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					PreprocessorDefinitions=""
+				/>
+			</FileConfiguration>
 		</File>
 		<File
 			RelativePath="Symbol.h"
@@ -652,6 +1078,25 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					PreprocessorDefinitions=""
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="debug_es|Win32"
+				>
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					PreprocessorDefinitions=""
+					BrowseInformation="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_es|Win32"
 				>
 				<Tool
 					Name="VCCLCompilerTool"
