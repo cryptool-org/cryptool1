@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Hash Demonstration</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Demonstrations / Scenarios">
+	<PARAM NAME="Keyword" VALUE="Hash function">
+	<PARAM NAME="Keyword" VALUE="Individual procedures">
+</OBJECT>
+
+<BODY>
+
+<h3>Hash Demonstration (Menu <A href="menu_related_methods.html">Individual Procedures</A> \ Hash )</h3>
+
+<P>The <A href="hidd_hash_demo.html">dialog</A> demonstrates the security property of cryptographic <A href="hashfunktion.html">hash functions</A>. It shall be practically impossible to find two different documents with the same hash value.</P>
+
+<P>In the dialog you can edit the original file as you like. Any change in the text window will change the hash value of the actual file which is then compared bitwise to the hash value of the original file.</P>
+
+<P>Ideally, a cryptographic hash function behaves like a random function. </P>
+
+<P>In the text window "Actual file" you may edit the opened file, with the restriction, that only the first 16,000 characters of the original file will be copied into this dialog (see text field "Hash value of the original file" and "Hash value of the actual file").</P>
+
+<P><B>Example:</B></P>
+
+<P>Applying a 128 bit hash function to 2^128 different documents you can generate 2^128 pseudo-random hash values. Then the probability that one of the 2^128 documents has the same hash value as the original file is 1 – 1 / e (= 0.6931...; with e being the "Euler number"). This statement is only correct if the hash function really behaves like a random function.</P>
+
+<P><B>Remark:</B></P>
+
+<P>Please note that this demonstration is only available for text files. At most, 16,000 bytes of a file are loaded, i.e. only the first 16,000 bytes determine the hash value of the original file.</P>
+
+</BODY>
+</HTML>

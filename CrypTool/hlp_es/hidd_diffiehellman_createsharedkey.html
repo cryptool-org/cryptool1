@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog Diffie-Hellman-Key Exchange: Create Shared Keys</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object2">
+	<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+</OBJECT>
+
+<BODY>
+
+<h3>Dialog Create Shared Keys</h3>
+
+<P>This dialog window appears after clicking the <B>Create shared keys</B> button from within the <a href="hidd_diffiehellmanvisualization.html">Diffie-Hellman Demonstration</a>.</P>
+
+<P>You can create the shared keys of Alice and Bob after a click on the <B>OK</B> button.</P>
+
+<P>You can <U>only</U> create a party‚s shared key if you already defined a party‚s secret!</P>
+
+<P>This circumstance can easily be understood if you take a look at the following equation which defines a party‚s shared key:</P>
+
+<div style="text-align:center">
+
+<P><!--ZZZFORMEL-->  <I>A</I> = <I>g</I><SUP>a</SUP>mod <I>p</I></P>
+
+</div>
+
+<P>Bob‚s shared key is computed analogically, but you have to raise to the power with the secret of Bob (b) instead of Alice‚s secret (a).</P>
+
+<P>The equation clarifies that a party‚s secret is indispensable for the computation of the shared key.</P>
+
+<P><B>For that reason, it is possible that you can only compute one of the two shared keys!</B> In this case, please correct your input and add the missing secret number.</P>
+
+</BODY>
+</HTML>

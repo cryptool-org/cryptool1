@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+	<HEAD>
+		<TITLE>e is prime relative to phi(N)</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+			<script language="JScript" src="helper.js"></script>
+		<!-- multiple keywords for CrypTool HTML help index -->
+	</HEAD>
+	<BODY>
+		<OBJECT id="Object1" type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+			VIEWASTEXT>
+
+			<PARAM NAME="Keyword" VALUE="Relatively prime">
+		<PARAM NAME="Keyword" VALUE="GCD">
+		<PARAM NAME="Keyword" VALUE="Phi function of Euler">
+		<PARAM NAME="Keyword" VALUE="Euler`s totient function">
+
+		</OBJECT>
+		<h3>e is prime relative to phi(N)</h3>
+		<P>This is an important condition for the public key of the RSA method.</P>
+		<P>It is said that e is relatively prime to phi(N) when e and phi(N) are co-prime, 
+			i.e. they do not possess any common divisor (apart from the number one). This 
+			condition is a requirement that the number e possesses a multiplicative inverse 
+			d modulus phi(N).</P>
+		<P>Let a and m be natural numbers and gcd(a,m) the greatest common divisor of a and 
+			m. The following is then true:</P>
+		<div class="indent">
+			<P><B>For all a and m there exist whole numbers x,y so that gcd(a,m) = x*a + y*m</B>.</P>
+		</div>
+		<P>The extended Euclidean algorithm calculates these numbers x and y. When 
+			gcd(e,phi(N)) = 1 then it follows that</P>
+		<div class="indent">
+			<P>x*e + phi(N)*y = 1,</P>
+		</div>
+		<P>and when the equation modulus phi(N) is calculated</P>
+		<div class="indent">
+			<P>x*e = 1 - phi(N)*y = 1 (mod phi(N)).</P>
+		</div>
+		<P>The number x is thus the multiplicatively inverse number modulus phi(N). During 
+			the RSA key generation procedure, the extended Euclidean algorithm calculates 
+			the secret exponent d = x for RSA decryption.</P><br>
+		<P><u><b>Euler´s totient function</b></u> phi(N) of a positive integer N is defined to be 
+			the number of positive integers less than or equal to n and coprime to n.</P>
+		<P>Example: phi(8) = 4, since the four numbers 1, 3, 5, 7 are coprime to 8.</P>
+		<P>Further details: see <A class="filelink" onclick="parser('script-en.pdf')">script</A>.</P>
+	</BODY>
+</HTML>

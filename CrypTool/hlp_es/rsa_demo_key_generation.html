@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>RSA key generation</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+<script language="JScript" src="helper.js"></script>
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Generate">
+	<PARAM NAME="Keyword" VALUE="Keys">
+	<PARAM NAME="Keyword" VALUE="Demonstrations / Scenarios">
+</OBJECT>
+
+<BODY>
+
+<h3>RSA key generation (in RSA cryptosystem)</h3>
+
+<P>A special characteristic of the RSA cryptosystem is that extensive calculations are necessary to generate the RSA key before RSA encryption or decryption can take place. First of all the RSA parameters p, q, N and the Euler number phi(N) are calculated:</P>
+
+<div class="indent">
+
+<P>Choose two different prime numbers p and q at random and calculate the so-called RSA modulus N = pq. The Euler number phi(N) = (p-1)*(q-1) is calculated from the prime factors p and q.</P>
+
+</div>
+
+<P>In a second step, the public RSA exponent e is determined and from this together with phi(N) the secret RSA exponent d is calculated:</P>
+
+<div class="indent">
+
+<P>Choose the number e: 1 &lt; e &lt; phi(N), with the property that <!--ZZZPOPUP--><A href="rsa_demo_ggt.html">e is relatively prime to phi(N)</A></P>
+
+</div>
+
+<P>An especially popular value for e is 2^16+1 = 65537, as in most cases this is co-prime to phi(N) and is especially well-suited for <!--ZZZPOPUP--><A href="rsa_demo_square_and_multiply.html">square and multiply exponentiation</A> resulting in a very fast public key operation.</P>
+
+<P>The secret exponent d = e^(-1) mod phi(N) is calculated from the public exponent e as the multiplicative inverse modulo phi(N).</P>
+
+<P>Further explanatory material can be found in the <A class="filelink" onclick="parser('script-en.pdf')">script</A>, which is part of the CrypTool documentation. </P>
+
+<P><IMG SRC="images/rsa_demo_2.gif" ALT="rsa_demo_2.gif" BORDER=0></P>
+
+<P>In the dialog "The RSA Cryptosystem" you can enter the prime numbers p and q directly. If you do not enter any prime numbers for p or q, an error message will be displayed. By clicking on the <A href="hid_einzelverfahren_tutorial_primzahlengenerieren.html"><B>Generate prime numbers</B></A> button, you can search for random prime numbers from within specified number intervals. The <B>Update parameters </B>button is used to calculate the secret exponent d from e and phi(N) as described above. If e is not co-prime to phi(N), an error message will be displayed, asking you to choose a new number for the public exponent e.</P>
+
+<P>After successful generation of the RSA key, the asymmetric RSA key pair is displayed:</P>
+
+<div class="indent">
+
+<P>(N,e) is the <!--ZZZPOPUP--><A href="rsa_demo_public_key.html">public key</A> and</P>
+
+<P>(N,d) is the <!--ZZZPOPUP--><A href="rsa_demo_private_key.html">secret key</A>.</P>
+
+</div>
+
+<P>An <A href="rsa_demo_bitlength.html">RSA key bit length</A> is calculated from the number of bits of the binary representation of the RSA modulus N.</P>
+
+<P>After the key has been generated, anyone can <A href="rsa_demo_encryption.html">encrypt</A> a message with the RSA algorithm using the public key (N,e), but only the owner of the secret key (N,d) can <A href="rsa_demo_decryption.html">decrypt</A> the message again with the RSA algorithm. </P>
+
+</BODY>
+</HTML>

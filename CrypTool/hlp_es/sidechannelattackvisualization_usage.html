@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Tips on how to execute the side-channel attack</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Demonstrations / Scenarios">	
+	<PARAM NAME="Keyword" VALUE="Side-channel attack">
+</OBJECT>
+
+<BODY>
+
+<h3>Tips on how to execute the side-channel attack</h3>
+
+<P>There are three possibilities to easily execute the side-channel attack against the hybrid encryption protocol.</P>
+
+<P><U>Possibility A</U>:</P>
+
+<P>Open the (decrypted) file "letterFromAliceToBob-DECRYPTED-en.txt" which is contained in the CrypTool package and start the side-channel attack. After closing the "Preparations" dialog choose the option "You hybrid encrypt the opened document".</P>
+
+<P><U>Possibility B</U>:</P>
+
+<P>Open the (hybrid encrypted) file "letterFromAliceToBob-ENCRYPTED-en.hex" which is contained in the CrypTool package and start the side-channel attack. After closing the "Preparations" dialog choose the option "You use the opened document".</P>
+
+<P><U>Possibility C</U>:</P>
+
+<P>Irrespective from which document was opened at the beginning of the side-channel attack, you can always choose the option "You use a document integrated in CrypTool..." after closing the "Preparations" dialog. Thus CrypTool is using the correct file (the hybrid encrypted file "letterFromAliceToBob-ENCRYPTED-en.hex" from option B) "in the background".</P>
+
+<P><B>Remark 1</B>:</P>
+
+<P>The PIN for Bob's private key is always <B>1234</B>.</P>
+
+<P><B>Remark 2</B>:</P>
+
+<P>Bob needs to verify whether he could correctly decrypt received messages in order to make the side-channel attack work.</P>
+
+<P>At present all messages containing the string "Alice" are correctly decrypted -- we refer to this as "keyword". One could also implement it using the entropy of the received document.</P>
+
+<P>You can change the keyword via the dialog <a href="hidd_sidechannelattackvisualization_he_bob.html">Current Status of Bob</a>.</P>
+
+<P><B>Please note</B>: If you change the keyword, possibilites B and C (see above) do no longer work! In these cases the hard-coded keyword ("Alice") would not be recognized.</P>
+
+</BODY>
+</HTML>

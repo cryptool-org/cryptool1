@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Example illustrating the Triple-DES encryption algorithm in CBC mode</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="DES encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Symmetric">
+	<PARAM NAME="Keyword" VALUE="Examples / Scenarios">	
+	<PARAM NAME="Keyword" VALUE="Scenarios / Demonstrations">
+</OBJECT>
+
+<BODY>
+
+<h3>Example illustrating the Triple-DES encryption algorithm in CBC Mode</h3>
+
+<P>This section provides an <A href="hid_hilfe_szenarien.html">example</A> which illustrates the use of the <A href="hid_crypt_3des_cbc.html">Triple-DES encryption algorithm</A> in <A href="cbcmodus.html">CBC mode</A>. To make it easier to follow the steps that need to be performed with <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>, the example is illustrated with a number of screenshots.</P>
+
+<P>The use of the <A href="hid_crypt_3des_cbc.html">Triple-DES encryption algorithm</A> in <A href="cbcmodus.html">CBC mode</A> for <!--ZZZPOPUP--><A href="verschluesselung.html">encryption</A> and <!--ZZZPOPUP--><A href="entschluesselung.html">decryption</A> will be demonstrated as applied to a <!--ZZZPOPUP--><A href="dokument.html">text document</A>. Furthermore, it will be shown using the <!--ZZZPOPUP--><A href="histogramm.html">frequency distribution</A> and <!--ZZZPOPUP--><A href="autokorrelation.html">autocorrelation</A> of the letters in the encrypted <!--ZZZPOPUP--><A href="dokument.html">document</A> that an attack on <A href="hid_crypt_3des_cbc.html">Triple-DES encryption</A> in <A href="cbcmodus.html">CBC mode</A> is more difficult than an attack on the classical <!--ZZZPOPUP--><A href="verschluesselung.html">encryption algorithms</A>. On this point, see the <A href="hid_hilfe_szenarien.html">examples</A> provided for the <A href="hid_rot13caesar_asc.html">Caesar encryption algorithm</A> or <!--ZZZPOPUP--><A href="verschluesselung.html">encryption</A> through <A href="hid_add_bin.html">binary addition</A>. It is possible to work out a <!--ZZZPOPUP--><A href="schluessel.html">key</A> using a <!--ZZZPOPUP--><A href="bruteforce.html">brute-force attack</A>, provided that it is short, or that the set out of which the <!--ZZZPOPUP--><A href="schluessel.html">key</A> originates does not contain many keys.</P>
+
+<P>First of all we load a part of the Help text for <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>, ”Introduction to CrypTool”, which is contained in the <CODE>CrypTool-en.txt</CODE> <!--ZZZPOPUP--><A href="datei.html">file</A>. To open this <!--ZZZPOPUP--><A href="dokument.html">document</A> in CrypTool, select <A href="menu_file.html">File</A> \ <A href="hid_file_open.html">Open</A>.</P>
+
+<P><IMG SRC="images/szenario3descbc1.gif" ALT="szenario3descbc1.gif" BORDER=0></P>
+
+<P>Before the <!--ZZZPOPUP--><A href="dokument.html">document</A> is <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A>, let us have a look at the <!--ZZZPOPUP--><A href="histogramm.html">frequency distribution</A> of the characters in the <!--ZZZPOPUP--><A href="histogramm.html">histogram</A> (accessed via <A href="menu_analyze.html">Analysis \ General</A> <A href="hid_histogram.html">\ Histogram</A>).</P>
+
+<P><IMG SRC="images/szenario3descbc2.gif" ALT="szenario3descbc2.gif" BORDER=0></P>
+
+<P>To <!--ZZZPOPUP--><A href="verschluesselung.html">encrypt</A> the <!--ZZZPOPUP--><A href="dokument.html">document</A> using <A href="hid_crypt_3des_cbc.html">Triple-DES encryption</A> in <A href="cbcmodus.html">CBC mode</A>, we now select <A href="menu_crypt.html">Crypt/Decrypt</A> \ Symmetric (classic) \ Triple DES (CBC). We enter <CODE>12</CODE> <CODE>34</CODE> <CODE>AB</CODE> <CODE>CD</CODE> into the dialog box as the key.</P>
+
+<P><IMG SRC="images/szenario3descbc3.gif" ALT="szenario3descbc3.gif" BORDER=0></P>
+
+<P>This causes a window containing the <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> <!--ZZZPOPUP--><A href="dokument.html">document</A> to open.</P>
+
+<P><IMG SRC="images/szenario3descbc4.gif" ALT="szenario3descbc4.gif" BORDER=0></P>
+
+<P>We now obtain a <!--ZZZPOPUP--><A href="histogramm.html">histogram</A> of the <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> <!--ZZZPOPUP--><A href="dokument.html">document</A>.</P>
+
+<P><IMG SRC="images/szenario3descbc5.gif" ALT="szenario3descbc5.gif" BORDER=0></P>
+
+<P>This bears no resemblance at all to the <!--ZZZPOPUP--><A href="histogramm.html">histogram</A> of the <!--ZZZPOPUP--><A href="verschluesselung.html">unencrypted</A> <!--ZZZPOPUP--><A href="dokument.html">document</A> as, for example, was the case in the <A href="hid_hilfe_szenarien.html">example</A> we used to illustrate the <A href="hid_rot13caesar_asc.html">Caesar encryption algorithm</A>.</P>
+
+<P>The <!--ZZZPOPUP--><A href="autokorrelation.html">autocorrelation</A> of the <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> <!--ZZZPOPUP--><A href="dokument.html">document</A> is calculated by selecting <A href="menu_analyze.html">Analysis \ General</A> <A href="hid_auto.html">\ Autocorrelation</A>.</P>
+
+<P><IMG SRC="images/szenario3descbc6.gif" ALT="szenario3descbc6.gif" BORDER=0></P>
+
+<P>The <!--ZZZPOPUP--><A href="autokorrelation.html">autocorrelation</A> exhibits no regularity which could provide a clue as to the <!--ZZZPOPUP--><A href="schluessellaenge.html">key length</A>, as, for example, was the case in the <A href="hid_hilfe_szenarien.html">example</A> of <!--ZZZPOPUP--><A href="verschluesselung.html">encryption</A> using <A href="hid_add_bin.html">binary addition</A>.</P>
+
+<P><!--ZZZPOPUP--><A href="entschluesselung.html">Decryption</A> of an encrypted <!--ZZZPOPUP--><A href="dokument.html">document</A> functions like encryption except that the <B>Decrypt</B> field must be selected in the dialog box.</P>
+
+<P><IMG SRC="images/szenario3descbc7.gif" ALT="szenario3descbc7.gif" BORDER=0></P>
+
+<P>A click on the <B>OK</B> button produces a new window containing the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A>.</P>
+
+<P><IMG SRC="images/szenario3descbc8.gif" ALT="szenario3descbc8.gif" BORDER=0></P>
+
+<P>Having seen how <!--ZZZPOPUP--><A href="verschluesselung.html">encryption</A> and <!--ZZZPOPUP--><A href="entschluesselung.html">decryption</A> work, we want to determine the <!--ZZZPOPUP--><A href="schluessel.html">key</A> from the encrypted <!--ZZZPOPUP--><A href="dokument.html">document</A> using a <!--ZZZPOPUP--><A href="bruteforce.html">brute-force attack</A><U>.</U></P>
+
+<P>To do this, first of all we return to the encrypted document.</P>
+
+<P><IMG SRC="images/szenario3descbc4.gif" ALT="szenario3descbc4.gif" BORDER=0></P>
+
+<P>We now select <A href="menu_analyze.html">Analysis \ Symmetric</A> <A href="hid_analyse_tripledescbc.html">\ Triple DES (CBC)</A>. In the dialog box which appears, we enter ** ** AB CD as the range to be searched through(see also the <A href="hidd_bruteforce.html">Key range</A> dialog box.</P>
+
+<P><IMG SRC="images/szenario3descbc9.gif" ALT="szenario3descbc9.gif" BORDER=0></P>
+
+<P>The <!--ZZZPOPUP--><A href="bruteforce.html">brute-force attack</A> is initiated by clicking on the <B>OK</B> button or pressing the <B>RETURN</B> key. After CrypTool has searched through the range of <!--ZZZPOPUP--><A href="schluessel.html">keys</A>, a dialog box opens with the key it has found.</P>
+
+<P><IMG SRC="images/szenario3descbc10.gif" ALT="szenario3descbc10.gif" BORDER=0></P>
+
+<P>User confirmation results in <!--ZZZPOPUP--><A href="entschluesselung.html">decryption</A> of the <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> <!--ZZZPOPUP--><A href="dokument.html">document</A>. As the correct <!--ZZZPOPUP--><A href="schluessel.html">key</A> has been found, our original <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> is restored.</P>
+
+<P><IMG SRC="images/szenario3descbc11.gif" ALT="szenario3descbc11.gif" BORDER=0></P>
+
+</BODY>
+</HTML>

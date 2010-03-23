@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+	<HEAD>
+		<TITLE>Calculation the entropy of a document</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+		<!-- multiple keywords for CrypTool HTML help index -->
+	</HEAD>
+	<BODY>
+		<OBJECT id="Object1" type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+			VIEWASTEXT>
+			<PARAM NAME="Keyword" VALUE="Entropy">
+			<PARAM NAME="Keyword" VALUE="Analysis">
+			</OBJECT>
+		<h3>Entropy (Menu <A href="menu_analyze.html">Analysis</A>
+			\ Tools for Analysis)</h3>
+		<P>The entropy of a <!--ZZZPOPUP--><A href="dokument.html">document</A> is an index 
+			of its information content. The entropy is measured in bits per character.</P>
+			
+			<p>Clicking on the menu item above, calculates the entropy value of the <b>current</b> document.</p>
+			
+		<P><U>Information content of a source</U></P>
+		<P>From the information theory point of view, the data in the current window can be 
+			viewed as a message source. To calculate the information content one examines 
+			the probability distribution of this source. It is assumed here that the 
+			individual messages (characters in the <!--ZZZPOPUP--><A href="dokument.html">document</A>
+			/ <!--ZZZPOPUP--><A href="datei.html">file</A>) are stochastically independent 
+			of each other and are transmitted by the source with a uniform probability.</P>
+		<P>The information content of a message<CODE> M[i]</CODE> is defined by</P>
+		<P>information content(<CODE>M[i]</CODE>) := log(1/<CODE>p[i]</CODE>) = -log(<CODE>p[i]</CODE>)</P>
+		<P>where<CODE> p[i]</CODE> is the probability that message<CODE> M[i]</CODE> is 
+			transmitted by the message source and log denotes logarithms to base 2 (as 
+			indeed it does elsewhere in this document).</P>
+		<P>This means that the information content depends exclusively on the probability 
+			distribution with which the source generates the messages. The semantic content 
+			of the message does not enter into the calculation. As the information content 
+			of an unusual message is higher than that of a common message, the inverse 
+			value of the probability is used in the definition.</P>
+		<P>Moreover, the information content of two messages chosen independently of one 
+			another is equal to the sum of the information contents of the individual 
+			messages.</P>
+		<P><U>Entropy</U></P>
+		<P>With the aid of the information content of the individual messages, the average 
+			amount of information which a source with a specified distribution delivers can 
+			be calculated. To calculate this mean, the individual messages are weighted 
+			with the probabilities of their occurrence.</P>
+		<P>Entropy(<CODE>p[1]</CODE>,<CODE> p[2]</CODE>,...,<CODE> p[r]</CODE>):= - [<CODE>p[1]</CODE>
+			* log(<CODE>p[1]</CODE>) +<CODE> p[2]</CODE> * log(<CODE>p[2]</CODE>) +... +<CODE> p[r]</CODE>
+			* log(<CODE>p[r]</CODE>)]</P>
+		<P>The entropy of a source thus indicates its characteristic distribution. It 
+			measures the average amount of information which one can obtain through 
+			observation of the source or, conversely, the indeterminacy which prevails over 
+			the generated messages when one cannot observe the source.</P>
+		<P><U>Simple description of entropy</U></P>
+		<P>Entropy is an expression of insecurity as the number of Yes/No questions which 
+			have to be answered in order to clarify a message or a character. If a 
+			character has a very high probability of occurrence, then its information 
+			content is low. This would be the case, for example, with a business partner 
+			who regularly replies "Yes". This reply also does not permit any conclusions to 
+			be drawn as to understanding or attention. Replies which occur very seldom have 
+			a high information content.</P>
+		<P><U>Extreme values of entropy</U></P>
+		<P>For documents which contain only upper case letters, the entropy lies between 0 
+			bit/char (in a document which consists of only one character) and log(26) 
+			bit/char = 4.700440 bit/char (in a document in which all 26 characters occur 
+			equally often).</P>
+		<P>For documents which can contain every character of the character set (0 to 255) 
+			the entropy lies between 0 bit/char (in a document which consists of only one 
+			character) and log(256) bit/char = 8 bit/char (in a document in which all 256 
+			characters occur equally often).</P>
+	</BODY>
+</HTML>

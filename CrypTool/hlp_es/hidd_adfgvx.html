@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog Key entry: ADFGVX</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+	<PARAM NAME="Keyword" VALUE="ADFGVX encryption algorithm">
+		<PARAM NAME="Keyword" VALUE="Keys">
+</OBJECT>
+
+<body>
+
+<h3>Dialog Key Entry: ADFGVX </h3>
+
+<P>You can reach this dialog via the menu entry <A href="menu_crypt.html">Crypt/Decrypt</a> \ <a href="menu_crypt_symmetricclassic.html">Symmetric (classic)</a> \ <a href="HID_ENCRYPT_ADFGVX.html">ADFGVX</a>.</P>
+
+
+<p>In this dialog, the key for the <!--ZZZPOPUP--><A href="hid_encrypt_adfgvx.html">ADFGVX encryption algorithm</A> is entered.</p>
+<p>
+Since ADFGVX is a two-step cascade cipher, the key consists of two parts: the substitution key and the transposition key. Accordingly, the key entry dialog is divided into two sections.</font></p>
+<p><font face="Arial">
+<img border="0" src="images/adfgvx_key.png"></font></p>
+<p><font face="Arial"><b>Step 1: Substitution</b></p>
+<p>
+The <b>substitution matrix</b> is filled with each letter from 'A' to 'Z' and each digit from '0' to '9', other entries are not allowed. On repeated entry of an existing character, a dialog box is displayed, giving the user the possibility to erase the old entry or to undo the change.</p>
+<p>The button <b>Standard matrix</b> fills the substitution matrix with all characters in order, the button <b>Random matrix</b> fills it with a random order of all characters. Clicking the button <b>Erase matrix</b> and confirming the pop-up-dialog will erase the substitution matrix. This is a comfortable way to enter examples from literature or other sources.</p>
+<p>The button <b>Enter string</b> allows to enter the characters of the transposition matrix as a string (this string must contain all alphabet characters once). This is helpful if you want to reproduce samples from the literature.</p>
+<p>
+<b>Step 2: Transposition</b></p>
+<p>
+The text field <b>Transposition password</b> can contain any string of characters. Redundant or invalid characters will be removed before de- or encryption. Below the text field, the current sequence of the transposition columns is displayed.</p>
+<p>Clicking the <b>Insert key</b> icon inserts an ADFGVX key that was previously copied to the internal key store (if the button is inactive, there is no ADFGVX key available).</p>
+<p>
+<b>Output options</b></p>
+<p>
+By checking the box <b>Separate output blocks by blanks</b> and entering a value in the according input field for <b>block length</b>, it is possible to display the ciphertext in groups of 1 to 26 characters. The default value "5" is determined by the historical circumstances: During WW1 the ADFGVX-code was transmitted via morse code; the morse signals were sent in groups of five letters.<br>
+The check box <b>New line after each block</b> starts a new line of text after each group of letters.</p>
+<p>
+The box <b>Print out intermediate result</b> causes the unpermutated but substituted text to be written to a separate document window. This output can be formatted in the same way as the final ciphertext. By default, the block length is adjusted to the transposition password length.</p>
+<p>
+To enhance the readablility of the ADFGVX-bigrams in step 1, a grouping of two letters is recommended. If you want a better understanding of the column transposition, you should set the grouping of both steps to the current password length and activate the <i>new line</i> option of step 1. You will discover that the text of step 1 read by columns from top to bottom is identical to the final ciphertext read by the line.</p>
+<p>
+If both parts of the ADFGVX key are entered correctly, the button <b>Encrypt</b> is activated. You can now encrypt the document with the ADFGVX encoding method.<br>If the document is already an ADFGVX encrypted text, the button <b>Decrypt</b> is activated as well and you can decipher the message.</p>
+</body>
+
+</html>

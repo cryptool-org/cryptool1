@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>DES (Data Encryption Standard)</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="DES encryption algorithm">
+</OBJECT>
+
+<BODY>
+
+<h3>DES (Data Encryption Standard)</h3>
+
+<p>The DES encryption method was selected as an official Federal Information Processing Standard 
+(FIPS 46-3) for the United States in 1976. Afterwards it was wideley used worldwide (<a href="http://en.wikipedia.org/wiki/Data_Encryption_Standard" target="_blank">http://en.wikipedia.org/wiki/Data_Encryption_Standard</a>).<br>
+At May 26, 2002 <a href="aes_gewinner.html">AES</a> became the successor of DES. At May 19, 2005 FIPS 46-3 
+was overruled.</P>
+
+<P><A href="hid_crypt_des_desecb.html">DES</A> is a symmetric <!--ZZZPOPUP--><A href="verschluesselung.html">encryption algorithm</A>, which operates on plaintext blocks of length 64 bits (= 8 bytes) and generates blocks with <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> text of length 64 bits. Once again the <!--ZZZPOPUP--><A href="schluessel.html">key</A> is 64 bits long, but in fact only 56 bits are actually used as 8 bits serve as parity bits. As the U.S. American <!--ZZZPOPUP--><A href="nsa.html">NSA</A> was involved in the development of DES, its security was questioned for a long time; yet to this day no one has found a way of performing an effective attack on DES. However, it is possible today to crack a message encrypted with DES in less than 25 hours (Source: <a href="http://www.eff.org/descracker/" target="_blank">http://www.eff.org/descracker/</a>), albeit with considerable effort, by searching through the entire key space. For this reason, DES can no longer be considered as secure.</P>
+
+<P>A sequence of three DES encryptions using two or three different DES keys is called Triple DES (two or three key Triple DES). By this trick, the effective key length is 112 resp. 168 bit. Today Triple DES is a quasi standard for symmetric encryption. </P>
+
+<P>Due to its worse performance it is endeavoured to replace Triple DES by the modern <A href="aes.html">AES</A> algorithm.</P>
+
+<P><U>Comment</U></P>
+
+<P>With encryption using the DES algorithm, the lowest order bit in each key byte is not used for encryption or decryption as it is used as a parity bit. As a result it is possible to to find a key via brute-force analysis that is not identical to the key which was used to encrypt the document. However, the two keys are equivalent if the only difference between them is the lowest order bit of each byte. Hence, bytes 00 and 01, 02 and 03,..., 0C and 0D, 0E and 0F are all equivalent to each other. The same applies also if instead of the leading 0 there is a different hexadecimal character 1, 2, 3,..., 9, A, B,..., F (see below).</P>
+
+<P><B>Example</B>: The DES keys</P>
+
+<P>00 22 44 66 88 AA CC EE  (hex) = </P>
+
+<P>0000000<B>0</B> 0010001<B>0</B> 0100010<B>0</B> 0110011<B>0</B> 1000100<B>0</B> 1010101<B>0</B> 1100110<B>0</B> 1110111<B>0</B>  (binary) and</P>
+
+<P>01 23 45 67 89 AB CD EF  (hex) =</P>
+
+<P>0000000<B>1</B> 0010001<B>1</B> 0100010<B>1</B> 0110011<B>1</B> 1000100<B>1</B> 1010101<B>1</B> 1100110<B>1</B> 1110111<B>1</B>  (binary)</P>
+
+<P>are equal.</P>
+
+</BODY>
+</HTML>

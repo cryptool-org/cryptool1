@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+	<HEAD>
+		<TITLE>Dialog Diffie-Hellman visualization</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+			<script language="JScript" src="helper.js"></script>
+		<!-- multiple keywords for CrypTool HTML help index -->
+	</HEAD>
+	<BODY>
+		<OBJECT id="Object1" type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+			VIEWASTEXT>
+			<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+			<PARAM NAME="Keyword" VALUE="Keys">
+			<PARAM NAME="Keyword" VALUE="Diffie-Hellman key exchange">
+			<PARAM NAME="Keyword" VALUE="Visualization">
+		</OBJECT>
+		<h3>Dialog Diffie-Hellman Visualization</h3>
+		<P>You can reach this dialog via the menu entry <a href="menu_related_methods.html">Individual 
+				Procedures</a> \ <a href="menu_individualprocedures_protocols.html">Protocols</a>
+			\ <a href="hid_einzelverfahren_diffiehellmandemo.html">Diffie-Hellman Demonstration</a>.</P>
+		<P>This dialog is supposed to help you understand the <A href="dh-verfahren.html">Diffie-Hellman 
+				key exchange protocol</A>.</P>
+		<P><IMG SRC="images/dh_maindialogue.gif" ALT="dh_maindialogue.gif" BORDER="0"></P>
+		<P>Please be sure to mark the check box <B>Show information dialogs</B> if you are 
+			new to the Diffie-Hellman key exchange protocol. By doing this you receive 
+			useful information concerning the operating sequence throughout the whole 
+			proceeding:<br>An information dialog will pop up each time a button is pushed. If the checkbox is not marked, you will 
+			be solely responsible for executing the key exchange in the correct order. Within each information dialog <b>F1</b> offers
+			additional online help, and you can mark the check box <b>Show introduction dialog</b> to 
+			see a short introduction the next time this dialog is started.</P>
+		<P>In the visualization dialog there are <B>inactive buttons</B> as well as <B>active buttons</B>
+			to ease the handling of the dialog. Take into account that only the active 
+			buttons can be pushed. Which buttons are active depends on the particular step you are in. While inactive buttons have got a grey hue and seem to 
+			be a bit faded, active buttons look bright and painted.</P>
+		<P>Furthermore there are <B>green buttons</B> and <B>red buttons</B> to distinguish 
+			the different partial stages of the key exchange protocol. A red button 
+			indicates that a certain function has not been executed yet, while a green 
+			button is indicating the completion of the respective function.</P>
+		<P>On the left side of the dialog you can find a <B>navigation bar</B>. Please use 
+			the navigation buttons to initiate each of the specific stages as follows:</P>
+		<UL>
+			<LI>
+			Setting the public parameters
+			<LI>
+			Choosing the secrets
+			<LI>
+			Creating the shared keys
+			<LI>
+			Exchanging the shared keys
+			<LI>
+				Creating the common and secret key (<I>session key</I>)</LI>
+		</UL>
+		<P>Although the <A href="hidd_diffiehellman_publicparameters.html">setting of the 
+				public parameters</A> is deemed to both Alice and Bob, all further steps 
+			need to be accomplished separately. The separation between Alice and Bob is 
+			indicated by two <B>group boxes</B>. They symbolize private areas for Alice and 
+			Bob respectively. Nobody else but the authorized party gains an insight into 
+			these private areas.</P>
+		<P>On the other hand the public parameters are an exception because they are freely 
+			accessible for everyone and therefore not safe. This is indicated by the group 
+				box "Public parameters" overlapping the public area as well as the 
+			private areas of Alice and Bob. The transferred data A and B are also 
+			considered as public.</P>
+		<P>According to this not only Alice and Bob are able to gain knowledge of the 
+			public parameters: every third party can view the public parameters, too. After 
+			having set the public parameters you need to continue with choosing the secret 
+			numbers of Alice and Bob.</P>
+		<P>Alice's and Bob's secret numbers need to be chosen separately because Alice may 
+			not gain knowledge of Bob‚s secret and the other way around.</P>
+		<P>First of all you need to push the button <B>Choose secrets</B>. Thereby the two <B>Secret</B>
+			buttons of Alice and Bob are activated. If you push one of those buttons, the 
+			following <A href="hidd_diffiehellman_secretinput.html">dialog</A> appears to 
+			prompt you for Alice's or Bob's secret number.</P>
+		<P>Now you must create the shared keys of Alice and Bob, which are a necessity to 
+			compute the common and secret session key at the end of the key exchange; 
+			please click the button <B>Create shared keys</B> first to activate the <B>Calculate</B>
+			buttons of Alice and Bob. Analogically to the last step you need to calculate 
+			the shared keys separately.</P>
+		<P>After the calculation the shared keys need to be exchanged, that means Alice 
+			sends her shared key over to Bob and Bob sends his shared key over to Alice. To 
+			do this please push the button <B>Exchange shared keys</B> on the navigation 
+			bar.</P>
+		<P>Now every party can compute the secret and common session key on its own. Push 
+			the button <B>Generate common Session Key</B> to let Alice and Bob compute 
+			their session keys.</P>
+		<P>If you need further information on the session key, just push the key icon at 
+			the lower side of the dialog.</P>
+		<P><B>Remark 1</B>:</P>
+		<P>The Diffie-Hellman key exchange can <B>not be used for encryption</B>. It is 
+			"solely" for key agreement.</P>
+		<P><B>Remark 2</B>:</P>
+		<P>The Diffie-Hellman protocol is vulnerable against <a href="man_in_the_middle.html">man-in-the-middle attacks</a>:</P>
+		<P>If the attacker is able to pose as Bob against Alice and to pose as Alice 
+			against Bob (the attacker stands in the middle of the communication), then he 
+			obtains a common secret key with Alice and a different common secret key with 
+			Bob.</P>
+		<P>This attack can be prevented by using <a href="certificates.html">digital certificates</a> to identify Alice 
+			against Bob and vice versa.</P>
+		<P><B>Remark 3</B>:</P>
+		<P>In chapter 4.12.2 of the CrypTool <A class="filelink" onclick="parser('script-en.pdf')">
+				script</A> you can find additional information on the mathematical 
+			background of the protocol.</P>
+	</BODY>
+</HTML>

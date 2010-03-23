@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+	<HEAD>
+		<TITLE>Dialog Generation of an asymmetric key pair</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+			<script language="JScript" src="helper.js"></script>
+		<!-- multiple keywords for CrypTool HTML help index -->
+	</HEAD>
+	<BODY>
+		<OBJECT id="Object1" type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+			VIEWASTEXT>
+			<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+			<PARAM NAME="Keyword" VALUE="Asymmetric">
+			<PARAM NAME="Keyword" VALUE="Keys">
+		</OBJECT>
+		<h3>Dialog Generation of&nbsp;an Asymmetric Key Pair</h3>
+		<P>This dialog is accessed by selecting the menu item <A href="menu_digitalsignaturespki.html">
+				Digital Signatures/PKI</A> \ <a href="menu_digitalsignaturespkipki.html">PKI</a>
+			\ <A href="hid_crypt_keygen.html">Key Generation/Import</A>.</P>
+		<P>This dialog is used to specify the parameters to be used to <A href="hid_crypt_keygen.html">
+				generate an asymmetric key pair</A>.Asymmetric <!--ZZZPOPUP--><A href="schluesselpaar.html">key 
+				pairs</A> can be generated for the following cryptosystems:</P>
+		<UL>
+			<LI>
+				<A href="hid_crypt_rsaenc.html">RSA</A>
+			<LI>
+				<A href="dsa.html">DSA</A>
+			<LI>
+				methods based on <A href="ellipkurven.html">elliptic curves</A></LI>
+		</UL>
+		<P><A href="ellipkurven.html">Elliptic curves</A> and DSA <!--ZZZPOPUP--><A href="schluessel.html">keys</A>
+			can only be used in <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> to <!--ZZZPOPUP--><A href="signatur.html">sign</A>
+			messages. RSA keys can be used in <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>
+			to <!--ZZZPOPUP--><A href="signatur.html">sign</A>, <!--ZZZPOPUP--><A href="verschluesselung.html">encrypt</A>
+			and <!--ZZZPOPUP--><A href="entschluesselung.html">decrypt</A> data.</P>
+<P><IMG SRC="images/dlgkeygen.gif" ALT="dlgkeygen.gif" BORDER=0></P>
+		<P>The dialog is divided into five areas (the lower three areas are only active 
+			when <A href="ellipkurven.html">elliptic curve</A> keys are generated):</P>
+		<UL>
+			<LI>
+				Choice of <B>algorithm</B>:<BR>
+				For RSA and DSA keys, the <!--ZZZPOPUP--><A href="schluessellaenge.html">length of 
+					the key</A> must be specified (in bits). The <B>RSA</B> modulus n (n is the 
+				product of two approximately equal-sized prime numbers) must be between 301 and 
+				8192 bits long. Every integer in between is valid and is accepted if 
+				entered. Bit lengths 512, 768, 1024 and 2048 are already pre-defined and can be 
+				selected with the mouse. <br>
+				The <B>DSA</B> prime number p - through which 
+				essentially the DSA key is determined - must be between 301 and 8192 bits long, in addition its length must be divisible by 64. The bit lengths 512, 768, 1024 and 2048 are already pre-defined and can be 
+				selected with the mouse. <br>
+				For <B>elliptic curves</B>, seven options are 
+				provided. The curves are selected by choosing among a set of "parameter 
+				identifiers" (also known as "curve identifiers"). Every parameter identifier is 
+				of the form primeXXXvY, where XXX stands for the bit length of prime number p 
+				and Y distinguishes different curves for which p has the same bit length. (The 
+				elliptic curve is defined through Z[p]. See also Elliptic Curves <A class="filelink" onclick="parser('script-en.pdf')">
+					script</A>, section entitled Elliptic Curves in Cryptography.)
+				<BR>
+				<BR>
+			<LI>
+				<B>User information</B>:<BR>
+				There are fields in which to enter user-relevant data by means of which it is 
+				possible to distinguish the different <!--ZZZPOPUP--><A href="schluessel.html">keys</A>. 
+				Entries in the fields <B>Last</B> <B>name</B>, <B>First name</B>, <B>PIN</B> and
+				<B>PIN verification</B> are mandatory. An entry in <B>Key identifier</B> is 
+				optional and enables you to create several keys under your own name. When 
+				entering the last name, first name and key identifier, no special characters 
+				(for example, \ / : * ? " &lt; &gt; | ) may be used; if they are, an 
+				appropriate error message will be displayed.<BR>
+				<BR>
+			<LI>
+				<B>Domain parameters</B>:<BR>
+				In the <B>Domain Parameter</B> box at the bottom of the window, the parameters 
+				for the currently selected curve identifier are displayed. The Elliptic Curves <A class="filelink" onclick="parser('script-en.pdf')">
+					script</A>, section entitled Elliptic Curves in Cryptography, explains what 
+				is meant by domain parameters.<BR>
+				<BR>
+			<LI>
+				<B>Base for presentation of numbers:<BR>
+				</B>The choices available are octal, decimal and hexadecimal (see <A href="ascii.html">
+					ASCII Table</A>).<BR>
+				<BR>
+			<LI>
+				<B>Display generated key pair</B>:<BR>
+				This field allows you to decide whether you wish to see the <!--ZZZPOPUP--><A href="schluesselpaar.html">key 
+					pair</A> generated for <A href="ellipkurven.html">elliptic curves</A> or 
+				not. If you choose to have the key pair displayed, a new dialog, <A href="hidd_show_parameter_key_ec.html">
+					Display public and private key for elliptic curves</A>, is opened. Here you 
+				can continue generating pseudorandom numbers until one of the key pairs 
+				generated "pleases you" and you are happy to keep it.</LI>
+		</UL>
+		<P>Every key pair generated and any additional relevant data are stored under a <!--ZZZPOPUP--><A href="schluesselbezeichner.html">key 
+				identifier</A>.</P>
+		<P>Generated RSA and DSA key can be exported to a file in PKCS #12 format using the <A href="hidd_key_asym.html">
+				Available asymmetric key pairs</A> dialog. You can use the <B>PKCS #12 import </B>
+			button in this dialog to re-import those keys. Please note that there are some <A href="pkcs12_import_export.html">
+				restrictions regarding PKCS #12 import</A>.</P>
+	</BODY>
+</HTML>

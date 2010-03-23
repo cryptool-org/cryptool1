@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+	<HEAD>
+		<TITLE>Generate/Import Keys</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+			<script language="JScript" src="helper.js"></script>
+		<!-- multiple keywords for CrypTool HTML help index -->
+	</HEAD>
+	<BODY>
+		<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+			VIEWASTEXT>
+			<PARAM NAME="Keyword" VALUE="Asymmetric">
+			<PARAM NAME="Keyword" VALUE="Keys">
+		</OBJECT>
+		<h3>
+			Generate/Import Keys (Menu <A href="menu_digitalsignaturespki.html">Digital 
+				Signatures/PKI</A> \ PKI)</h3>
+		<P>In order to use asymmetric procedures for <!--ZZZPOPUP--><A href="verschluesselung.html">encryption</A>
+			or for digital <!--ZZZPOPUP--><A href="signatur.html">signing</A> of messages, 
+			it is necessary to have corresponding <!--ZZZPOPUP--><A href="schluesselpaar.html">key 
+				pairs</A>. Further information on asymmetric <!--ZZZPOPUP--><A href="verschluesselung.html">encryption 
+				algorithms</A> will be found in the <A class="filelink" onclick="parser('script-en.pdf')">
+				Script</A>. Using <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> it is 
+			possible to generate asymmetric <!--ZZZPOPUP--><A href="schluesselpaar.html">key 
+				pairs</A> from the <A href="hidd_keyasym_generation.html">Generation of 
+				asymmetric key pair</A> dialog for the following methods:</P>
+		<P><B>RSA</B>
+			<div class="indent">
+				CrypTool supports RSA <!--ZZZPOPUP--><A href="verschluesselung.html">encryption</A>
+				or RSA <!--ZZZPOPUP--><A href="signatur.html">signing</A> of <!--ZZZPOPUP--><A href="dokument.html">documents</A>
+				- with RSA <!--ZZZPOPUP--><A href="schluessel.html">keys</A> generated using 
+				CrypTool.
+			</div>
+		<P></P>
+		<P><B>DSA</B>
+			<div class="indent">
+				DSA keys are used to sign documents using the digital signature algorithm <A href="dsa.html">
+					DSA</A>.
+			</div>
+		<P></P>
+		<P><B>Elliptic curves</B>
+		</P>
+		<div class="indent">
+			<P>CrypTool also offers two procedures for creating signatures for documents that 
+				are based on <A href="ellipkurven.html">elliptic curves</A>. The two following 
+				signature algorithms are involved here:</P>
+			<P class="tindent">
+				<B>ECSP-DSA</B> (Elliptic Curve Signature Primitive – DSA variant) is a variant 
+				of DSA which makes use of the elliptic curve discrete logarithm problem but is 
+				otherwise very similar to DSA.</P>
+			<P class="tindent">
+				<B>ECSP-NR</B> (Elliptic Curve Signature Primitive – Nyberg-Rueppel variant) is 
+				a signature algorithm which is named after its inventors (Nyberg and Rueppel).</P>
+		</div>
+		<P>RSA and DSA key pairs are stored in the Personal Security Environment (PSE), an 
+			encrypted file, and access to the secret key is only possible with a PIN 
+			defined by the user. The public parameters of the elliptic curve key pair are 
+			stored in an unencrypted file, while the secret part is encrypted and - 
+			protected with a PIN - written to the corresponding PSE.</P>
+		<P>For all three methods – <A href="hid_crypt_rsaenc.html">RSA</A>, <A href="hid_crypt_sign.html">
+				DSA</A> and elliptic curves – every key pair must be given a separate PIN.</P>
+		<P>Every key pair generated and any additional relevant data are stored under a <!--ZZZPOPUP--><A href="schluesselbezeichner.html">key 
+				identifier</A>.</P>
+	</BODY>
+</HTML>

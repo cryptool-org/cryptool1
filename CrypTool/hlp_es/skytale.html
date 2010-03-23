@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Scytale of Sparta</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->	
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Scytale encryption algorithm">
+</OBJECT>
+
+<BODY>
+
+<h3>Scytale of Sparta (500 ad) (described by Plutarch)</h3>
+
+<P>Sender and receiver both need 2 cylinders (squared timbers) of the </P>
+
+<P>same radius and of the same number of corners.</P>
+
+<P>The sender winds a small ribbon of vellum spirally round his cylinder and writes lengthwise his message onto the ribbon. The message on the unwinded ribbon can be read only by a person who has a cylinder of the same kind. </P>
+
+<div class="indent">
+
+<P><IMG SRC="images/skytale1.gif" ALT="skytale1.gif" BORDER=0></P>
+
+</div>
+
+<P>How can this algorithm be modelled within CrypTool ? </P>
+
+<P>The Skytale is equivalent to the identical <A href="hid_permutation.html">permutation</A> (1,2,3, ..., n) with n columns (n was the number of corners of the Skytale).</P>
+
+<P>Example:</P>
+
+<P>For n=3 (exactly 3 corners) the sender writes onto the ribbon:</P>
+
+<div class="indent">
+
+<PRE><CODE>JAM ESB OND</CODE></PRE>
+
+</div>
+
+<P>and gets an unwinded ribbon with: </P>
+
+<div class="indent">
+
+<P><CODE>JEO ASN MBD</CODE>.</P>
+
+</div>
+
+<P></P>
+
+<P>If he writes </P>
+
+<div class="indent">
+
+<PRE><CODE>    JAM ESB OND
+    WAN TED DEA</CODE>
+    <CODE>DOR ALI VE</CODE></PRE>
+
+</div>
+
+<P>he gets </P>
+
+<div class="indent">
+
+<PRE><CODE>    JEO WTD DAV
+    ASN AEE OLE</CODE>
+    <CODE>MBD NDA RI</CODE></PRE>
+
+</div>
+
+You can directly call this cipher <a href="hid_encryption_simple_transpositions.html">here</a>.
+</BODY>
+</HTML>

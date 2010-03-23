@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Verify the RSA signature of a message</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->	
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="RSA encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Signature">
+	<PARAM NAME="Keyword" VALUE="Demonstrations / Scenarios">
+</OBJECT>
+
+<BODY>
+
+<h3>Verify the RSA Signature of a Message</h3>
+
+<P>You can verify a digital RSA signature using the signers public <A href="public_rsa_parameter.html">RSA parameter</A>.</P>
+
+<P>Before you can verify a received signature, you must get the public key of the sender.</P>
+
+<P>The signature to verify is a number strictly less than the modulus N. You may enter the signature as a sequence of two hexadecimal digits separated by blanks or as number of the selected base.</P>
+
+<P>After the click on the button <B>Decrypt</B> (if you get to this dialog via the menu <A href="hid_crypt_verify.html">Digital Signatures \ Verify Signature</A> the button <B>Verify</B> will be shown instead) the exponentiation with the public key e RSA is be computed. </P>
+
+<P>The result of the RSA exponentiation is a hash value which has to be compared with the hash value computed from the document. If both hash values are identical this is considered as a proof that the owner of the corresponding private RSA key has signed the document.</P>
+
+<P>If you use the menu <A href="hid_crypt_verify.html">Digital Signatures \ Verify Signature</A> to verify a RSA signature, you can select the check box <B>Display intermediate results</B>. Clicking on the button <B>Verify</B> will result into the following output:</P>
+
+<P><IMG SRC="images/rsademoverifysignature.gif" ALT="rsademoverifysignature.gif" BORDER=0></P>
+
+<P>If the result of the RSA exponentiation and the hash of the document match, then the signature is approved as valid and a smiley :-) is displayed.</P>
+
+</BODY>
+</HTML>

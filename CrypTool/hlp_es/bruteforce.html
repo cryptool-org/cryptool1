@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+	<HEAD>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<TITLE>Brute-force attack</TITLE>
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<!-- multiple keywords for CrypTool HTML help index -->
+	<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+		VIEWASTEXT>
+		<PARAM NAME="Keyword" VALUE="Analysis">
+		<PARAM NAME="Keyword" VALUE="Brute-force attack">
+	</OBJECT>
+	<BODY>
+		<h3><P><A NAME="bruteforce"></A><B>Brute-force attack</B></P>
+		</h3>
+		<P>A brute-force attack is an <A href="angriffe.html">attack</A> in which every 
+			possible <!--ZZZPOPUP--><A href="schluessel.html">key</A> is tried in turn in 
+			an attempt to discover the key with which the <!--ZZZPOPUP--><A href="dokument.html">document</A>
+			has been <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A>.</P>
+		<P>The CPU time required increases very drastically as the <!--ZZZPOPUP--><A href="schluessellaenge.html">key 
+				length</A> is increased.</P>
+		<P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> offers a brute-force attack 
+			to be carried out. The key range to be searched through is entered in the <A href="hidd_bruteforce.html">
+				Key range</A> dialog.</P>
+				<p><h4>Brute-force attack against modern symmetric encryption algorithms</h4></p>
+		<P>To perform an attack successfully in an appropriate 
+			time, some conditions must be fulfilled:</P>
+		<ul><li>
+		<P> The document is a text file containing normal language texts and is not too short (>1000 characters 
+			long).</P>
+			</li><li>
+		<P>The first 128 characters at the beginning of the according cleartext 
+			document (this number can be adjusted in the dialog <a href="hidd_options_analysis.html">
+				Analysis Options</a>) are not too uniquely distributed (see <a href="histogramm.html">
+				histogram</a> and <a href="entropie.html">entropy</a>). This applies to 
+			most documents which are not compressed.</P></li><li>
+		<P>The key range, which has 2^128 and more possibilities with modern 
+			symmetric algorithms, can be cut down. So we make the assumption: Parts of the 
+			key are known, e.g. because the user did not choose the key by random, or 
+			because the attacker somehow got the knowledge, or because the random number 
+			generator does (by will) not use the full key range.</P></li></ul>
+			
+			<P>The key will always be found if the document fullfills the above requirements.</P>
+	</BODY>
+</HTML>

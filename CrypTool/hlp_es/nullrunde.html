@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>Solitaire joker output (zero round)</Title>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+<script language="JScript" src="helper.js"></script>
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->	
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Card game">
+	<PARAM NAME="Keyword" VALUE="Solitaire encryption algorithm">
+</OBJECT>
+
+<BODY>
+
+<H3>Zero round (joker output)</H3>
+
+<p>A zero round appears at the <a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire algorithm</a> always ,  if in step 5 of the keystream generation a joker is found.<br />In this case the card value 53  (at a <a href="kartendeck.html">card deck</a> consisting of 54 cards) is not taken as the keystream letter, but the algorithm is started again, until a valid <a href="kartendeck.html">card value</a> (1-52) is found in step 5. <br /><br />This is leaded of the application impliedly.</p>
+
+</BODY>
+</HTML>
+

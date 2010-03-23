@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Inverse Permutation</TITLE>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<!-- ... -->
+
+<BODY>
+
+<h3>Inverse Permutation</h3>
+
+<P>A permutation of length n consists of the n elements of a set. If you take the numbers 1 to n of the set, and then build an arbitrary sequence (without dublication) you get a determined permutation (can also be written as a vector).</P>
+
+<P>An inverse permutation is a permutation in which each element and the position of the element are exchanged. For example the two following permutations are inverse:</P>
+
+<div class="indent">
+
+<P>P1 = ( 3, 6, 5, 2, 7, 1, 8, 4 )</P>
+
+<P>P2 = ( 6, 4, 1, 8, 3, 2, 5, 7 )</P>
+
+</div>
+
+<P>If you want to calculate the inverse of a permutation, you have to look at each single element separately. The following example shows how to calculate from P1 the inverse permutation of P1.</P>
+
+<P>At first you determine the position at which the smallest element (here: Element "1") is located. In the above example the first element is located at <b>position</b> (index) "6".</P>
+
+<P>It is: 1 = P1(6) and 6 = P2(1) = index of P1(6).</P>
+
+<P>The first element of P1 is located at the sixth position, thus the first element of P2 is six. The second element of P1 is located at the fourth position, thus the second element of P2 is four.</P>
+
+<P>Each of the permutation's elements is operated as described until all elements are done.</P>
+
+</BODY>
+</HTML>

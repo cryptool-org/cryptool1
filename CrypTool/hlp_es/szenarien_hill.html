@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Example illustrating the Hill encryption algorithm</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Hill encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Encryption">
+	<PARAM NAME="Keyword" VALUE="Examples / Scenarios">
+	<PARAM NAME="Keyword" VALUE="Scenarios / Demonstrations">
+</OBJECT>
+
+<BODY>
+
+<h3>Example illustrating the Hill encryption algorithm</h3>
+
+<P>This section provides an <A href="hid_hilfe_szenarien.html">example</A> illustrating the use of the <A href="hid_hill.html">Hill encryption algorithm</A>. To make it easier to follow the steps that need to be performed with <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>, the example is illustrated with a number of screenshots.</P>
+
+<P><U>To start with, here is a brief summary of the steps to be performed.</U></P>
+
+<P>The text <CODE>HILLCIPHER</CODE> is to be <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> with the <!--ZZZPOPUP--><A href="schluessel.html">key</A> <CODE>T</CODE> <CODE>E</CODE> <CODE>S</CODE> <CODE>T</CODE>.</P>
+
+<TABLE cols=6 width="0*" class="pad20">
+
+<TR VALIGN="top">
+<TD>Key:</TD>
+<TD>
+<PRE><CODE>T</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>E</CODE></PRE>
+</TD>
+<TD>Corresponds to:</TD>
+<TD>19</TD>
+<TD>4</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>&nbsp;</TD>
+<TD>
+<PRE><CODE>S</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>T</CODE></PRE>
+</TD>
+<TD>&nbsp;</TD>
+<TD>18</TD>
+<TD>19</TD>
+</TR>
+</TABLE><BR>
+
+<P>As the key consists of two rows and columns, the text has to be divided up into blocks of two characters.</P>
+
+<TABLE cols=14 width="0*" class="pad20">
+
+<TR VALIGN="top">
+<TD>
+<PRE><CODE>H</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>I</CODE></PRE>
+</TD>
+<TD>&nbsp;</TD>
+<TD>
+<PRE><CODE>L</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>L</CODE></PRE>
+</TD>
+<TD>&nbsp;</TD>
+<TD>
+<PRE><CODE>C</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>I</CODE></PRE>
+</TD>
+<TD>&nbsp;</TD>
+<TD>
+<PRE><CODE>P</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>H</CODE></PRE>
+</TD>
+<TD>&nbsp;</TD>
+<TD>
+<PRE><CODE>E</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>R</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>7</TD>
+<TD>8</TD>
+<TD>&nbsp;</TD>
+<TD>11</TD>
+<TD>11</TD>
+<TD>&nbsp;</TD>
+<TD>2</TD>
+<TD>8</TD>
+<TD>&nbsp;</TD>
+<TD>15</TD>
+<TD>7</TD>
+<TD>&nbsp;</TD>
+<TD>4</TD>
+<TD>17</TD>
+</TR>
+</TABLE><BR>
+
+<P>To encrypt the first block, the following calculations are performed:</P>
+
+<P>7 * 19 + 8 * 18 = 277 = 10 * 26 + 17 = 17 (<!--ZZZPOPUP--><A href="modulo.html">modulo</A> 26),</P>
+
+<P>7 * 4 + 8 * 19 = 180 = 6 * 26 +24 = 24 (modulo 26).</P>
+
+<P>Hence the first block of the encrypted text is: 17 24. This corresponds to <CODE>R</CODE> <CODE>Y</CODE>.</P>
+
+<P>The entire encrypted text reads as follows:</P>
+
+<TABLE cols=14 width="0*" class="pad20">
+
+<TR VALIGN="top">
+<TD>
+<PRE><CODE>R</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>Y</CODE></PRE>
+</TD>
+<TD>&nbsp;</TD>
+<TD>
+<PRE><CODE>R</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>T</CODE></PRE>
+</TD>
+<TD>&nbsp;</TD>
+<TD>
+<PRE><CODE>A</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>E</CODE></PRE>
+</TD>
+<TD>&nbsp;</TD>
+<TD>
+<PRE><CODE>V</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>L</CODE></PRE>
+</TD>
+<TD>&nbsp;</TD>
+<TD>
+<PRE><CODE>S</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>B</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>17</TD>
+<TD>24</TD>
+<TD>&nbsp;</TD>
+<TD>17</TD>
+<TD>19</TD>
+<TD>&nbsp;</TD>
+<TD>0</TD>
+<TD>4</TD>
+<TD>&nbsp;</TD>
+<TD>21</TD>
+<TD>11</TD>
+<TD>&nbsp;</TD>
+<TD>18</TD>
+<TD>1</TD>
+</TR>
+</TABLE><BR>
+
+<P>If <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> is given a <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> and the corresponding encrypted version of that text, it is able to perform a successful <A href="hid_hill_auto.html">attack on the Hill encryption algorithm</A> and work out the key, as will be seen below.</P>
+
+<P><U>We shall now examine the individual steps in detail.</U></P>
+
+<P>The text <CODE>HILLCIPHER</CODE> is to be encrypted with the key <CODE>T</CODE> <CODE>E</CODE> <CODE>S</CODE> <CODE>T</CODE>. To do this, a new <!--ZZZPOPUP--><A href="dokument.html">document</A> is created (via <A href="menu_file.html">File</A> \ <A href="hid_file_new.html">New</A>) and the text <CODE>HILLCIPHER</CODE> is entered. Under the classical encryption algorithms lower case letters are always replaced by the corresponding upper case letters. However, CrypTool keeps upper and lower case letters distinct in order to make the text easier for you to read. These two aspects can be disabled independently of each other via the options <B>Keep characters not present in the alphabet unchanged</B> and <B>Keep uppercase / lowercase (if possible)</B> in the <A href="hid_opttext.html">Text Options</A> dialog box. Therefore it does not matter whether the text contains lower case letters. To demonstrate this we will use <CODE>Hillcipher</CODE> instead of <CODE>HILLCIPHER</CODE>:</P>
+
+<P><IMG SRC="images/szenariohill1.gif" ALT="szenariohill1.gif" BORDER=0></P>
+
+<P>We now select <A href="menu_crypt.html">Crypt/Decrypt</A> <A href="hid_hill.html">\ Classical \ Hill</A>, following which this dialog box appears:</P>
+
+<P><IMG SRC="images/szenariohill2.gif" ALT="szenariohill2.gif" BORDER=0></P>
+
+<P>After entering the key <CODE>T</CODE> <CODE>E</CODE> <CODE>S</CODE> <CODE>T</CODE> it can be saved in the clipboard (in order to avoid having to enter it again later on at the <!--ZZZPOPUP--><A href="entschluesselung.html">decryption</A> stage) by clicking on the <B>Copy</B> button. Information on the clipboard will be found in the <A href="afx_hidw_toolbar.html">Help facility on the toolbar</A>. Now click on the <B>Encrypt</B> button, and a new window that contains the encrypted text opens.</P>
+
+<P><IMG SRC="images/szenariohill3.gif" ALT="szenariohill3.gif" BORDER=0></P>
+
+<P>The <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> text is now <!--ZZZPOPUP--><A href="entschluesselung.html">decrypted</A> for checking purposes. The decryption procedure is identical to encryption, except that this time the <B>Decrypt</B> option must be selected, i.e. the radial button next to that option must be selected. This is done by clicking on the field with the mouse. The <!--ZZZPOPUP--><A href="schluessel.html">key</A> can now either be typed in manually as before or else it can be inserted from the clipboard using the <B>Paste</B> button if it had previously been copied.</P>
+
+<P><IMG SRC="images/szenariohill4.gif" ALT="szenariohill4.gif" BORDER=0></P>
+
+<P>Now click on <B>Decrypt</B>, and the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> reappears.</P>
+
+<P><IMG SRC="images/szenariohill5.gif" ALT="szenariohill5.gif" BORDER=0></P>
+
+<P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> will now work out the <!--ZZZPOPUP--><A href="schluessel.html">key</A> using a <!--ZZZPOPUP--><A href="knownplaintextangriff.html">Known Plaintext attack</A>. Such an attack requires that both the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> and the <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> text are available. The easiest approach is to <A href="hid_edit_copy.html">copy</A> the plaintext (mark with the mouse pointer and then press the key combination Ctrl+C) from one of the two windows which contain <CODE>Hillcipher</CODE> to the clipboard. Now make the window containing the <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> text the active window again (by clicking on it with the mouse) and select the menu option <A href="menu_analyze.html">Analysis</A> <A href="hid_hill_auto.html">\ Known Plaintext \ Hill</A> to view the <B>Analysis Hill cipher </B>window. The <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> is then <A href="hid_edit_paste.html">pasted from clipboard into this window (using the key combination Ctrl+V)</A>.</P>
+
+<P><IMG SRC="images/szenariohill6.gif" ALT="szenariohill6.gif" BORDER=0></P>
+
+<P>The analysis starts when the C<B>ontinue</B> button is clicked and the <!--ZZZPOPUP--><A href="schluessel.html">key</A> <CODE>T</CODE> <CODE>E</CODE> <CODE>S</CODE> <CODE>T</CODE> appears in the following window.</P>
+
+<P><IMG SRC="images/szenariohill7.gif" ALT="szenariohill7.gif" BORDER=0></P>
+
+<P>In this way the <!--ZZZPOPUP--><A href="schluessel.html">key</A> was worked out simply from knowing the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> and the corresponding <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> text.</P>
+
+</BODY>
+</HTML>

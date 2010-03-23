@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>RSA encryption of messages</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="RSA encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Encryption">
+	<PARAM NAME="Keyword" VALUE="Demonstrations / Scenarios">
+</OBJECT>
+
+<BODY>
+
+<h3>RSA encryption of messages</h3>
+
+<P>After the <A href="rsa_demo_key_generation.html">RSA key generation</A>, the modulus N and the RSA key e can be published. Anyone could encrypt a message to the owner of the secret RSA key or check a digital signature.</P>
+
+<P>If you <A href="rsa_demo_key_generation.html">generate the RSA key by your own</A> in the RSA demo dialog the public RSA parameter appears already in the dialog. In the other case you <A href="public_rsa_parameter.html">enter the public RSA paramater</A>. The message can now be encrypted.</P>
+
+<P>To this end, enter the "plaintext" message M that is to be encrypted. For example:</P>
+
+<P>"Verkaufen Sie am 14.07.00 meine Aktienpakete, und kaufen Sie mir dafür eine Südsee Insel" [Sell my shares on 14 July 2000 and use the proceeds to buy me a South Sea Island].</P>
+
+<P>When you click on <B>Encrypt</B>, first of all the message is converted to numbers. For this purpose, message M is split up into <!--ZZZPOPUP--><A href="rsa_demo_segment_size.html">blocks of k characters</A> (M = M[1] # M[2] # ... # M[j]), whereby k*8 is always smaller than the <!--ZZZPOPUP--><A href="rsa_demo_bitlength.html">bit length of RSA modulus N</A>. The message blocks (M[i], i = 1, 2, ..., j) are converted for encryption into numbers (m[i], for i = 1, 2, ..., j) and encrypted with the public RSA key (N,e) according to the following formula:</P>
+
+<div class="indent">
+
+<P>c[i] = m[i]^e (mod N)    for  i = 1, 2, ..., j .</P>
+
+</div>
+
+<P>Because the public key (N,e) is available to everyone and the secret key (N,d) remains confidential, we can establish that</P>
+
+<div class="indent">
+
+<P><B>Anyone can encrypt a message with the public key. But only the owner of the secret key can <A href="#rsa_demo_encryption">decrypt</A></B> <B>the message again.</B></P>
+
+</div>
+
+<P><IMG SRC="images/rsa_demo_3.gif" ALT="rsa_demo_3.gif" BORDER=0></P>
+
+<P>The conversion of the plaintext M to numbers m = m[1] # m[2] # .... #  m[j] and the encrypted version c = c[1] # c[2] # .... # c[j] are displayed in the two lines below the data input field. </P>
+
+<P>The character  #  does not have any significance here: it is simply a visual separator between different number blocks to be encrypted or decrypted. </P>
+
+<P>You can specify the block length k by clicking on <!--ZZZPOPUP--><A href="hidd_options_rsa_demo.html">Options for the alphabet and the number system</A>. In the dialog accessed by this option you can also determine the basis for representation of numbers in RSA encryption and you can experiment with the RSA variant from the story <A href="rsa_demo_variant.html">Dialogue of the Sisters</A> [see c‚t 25/99].</P>
+
+<P>Instead of entering text you can also specify in the options that you wish to directly encrypt a sequence of plaintext numbers m =  m[1] # m[2] # ... # m[j]:</P>
+
+<P><IMG SRC="images/rsa_demo_4.gif" ALT="rsa_demo_4.gif" BORDER=0></P>
+
+</BODY>
+</HTML>

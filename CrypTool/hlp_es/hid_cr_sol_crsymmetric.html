@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Solution to scenario challenge response (symmetric)</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Challenge-response demonstration">
+	<PARAM NAME="Keyword" VALUE="Network authentication">
+	<PARAM NAME="Keyword" VALUE="Examples / Scenarios">
+	<PARAM NAME="Keyword" VALUE="Scenarios / Demonstrations">
+	<PARAM NAME="Keyword" VALUE="Solutions to the authentication scenarios">
+</OBJECT>
+
+<BODY>
+
+<H3>Solution to Scenario Challenge-Response (symmetric)</H3>
+
+<P>This solution aims to the point that all communication partners, thus Server 1, Server 2 and Client use the same symmetric key. If only one of these parties is untrustworthy the hole system gets compromised.</P>
+
+<P>This is a specific problem for the implementation of symmetric cryptography. Thus, in our is case it is sufficient obtain the secret key from one server without authorization to authenticate with all the other servers. In scenario you proceed as follows:</P>
+
+<OL>
+	<LI>Connect yourself to Router 1 or 2.<BR><BR></LI>
+
+	<LI>Then attack Server 2 so you can obtain the secret key. That is possible, because Server 2 stands for the insufficient protected server.<BR><BR></LI>
+
+	<LI>Then you can start the protocol from the attacker’s computer.</LI>
+</OL>
+
+<P><IMG SRC="images/cr_sol_crsymmetric.gif" ALT="cr_sol_crsymmetric.gif" BORDER=0></P>
+
+</BODY>
+</HTML>

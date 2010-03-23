@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Dialog Semiautomatic analysis of the ADFGVX-Cipher</TITLE>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+	<PARAM NAME="Keyword" VALUE="ADFGVX encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Analysis">
+</OBJECT>
+
+<body>
+
+<h3>Dialog Semi-automatic Analysis of the ADFGVX Cipher </h3>
+
+<P>You can reach this dialog via the menu entry <A href="menu_analyze.html">Analysis</A> \ <a href="menu_analysis_symmetricclassic.html">Symmetric Encryption (classic)</a> \ <a href="menu_analysis_symmetricclassic_ciphertextonly.html">Ciphertext-Only</a> \ <a href="HID_ANALYSE_SYMMCLASSIC_ADFGVX.html">ADFGVX</a>.</P>
+
+
+
+		<p>This dialog window supports you in analysing <!--ZZZPOPUP--><A href="hid_encrypt_adfgvx.html">ADFGVX 
+				encrypted</A> messages.<br>
+			The theoretical basis to analyse the ADFGVX cipher can be found <!--ZZZPOPUP--><A href="hid_analyse_symmclassic_adfgvx.html">here</A>.<br>
+			<br>
+			Just like the dialog <!--ZZZPOPUP--><A href="hidd_adfgvx.html">ADFGVX Cipher: Key 
+				Input</A>, this dialog is divided into two sections, in which the two 
+			stages of ADFGVX can be analysed. However, the analysis of ADFGVX must be 
+			carried out in reverse order: At first, the transposition (encryption step 2) 
+			is analysed, the second phase consists of analysing the substitution 
+			(encryption step 1) and possibly you may discover that the transposition 
+			password is not correct.<br>
+			&nbsp;</FONT></p>
+		<p><img border="0" src="images/adfgvx_analys.gif" width="399" height="602"></p>
+		<p><font face="Arial"><b>Step 2: Finding the Transposition Password</b><br>
+				<br>
+				The dropdown fields for the <b>Password length</b> control the lower and upper 
+				boundaries of the brute-force search for the transposition password. A large 
+				search area will lead to a long wait while the computer works its way to the 
+				upper boundary (as a reminder: a maximum password length of 6 characters 
+				results in 1! + 2! + 3! + 4! + 5! + 6! = 873 possible combinations). As a rule 
+				of thumb, passwords with a length up to 11 characters (43,954,713 possible 
+				solutions) will be found in an acceptable time.<br>
+				<br>
+				The dropdown field <b>Current standardized password</b> shows the last found 
+				transposition password. All previously used transposition passwords and their 
+				corresponding substitution matrixes are stored in this dropdown field.<br>
+				Passwords found by the automatic analysis always consist of the first <i>n</i> letters 
+				of the alphabet, <i>n</i> being the password length. Thus, the passwords 
+				"MATRIX" and "CAEDBF" are equivalent. If the field is empty when beginning the 
+				analysis, the search will cover the whole range defined by the minimal and 
+				maximal password length fields. If a password is entered, the search will begin 
+				with the given password and stop at the upper boundary. For example, with the 
+				given password "CAEBDF" and an upper boundary of seven characters, the search 
+				will terminate with the combination "GFEDCBA".<br>
+				Entries made in this field will deny changes in the password length fields that 
+				stand in contrast to the current password. For example, while the maximal 
+				password length can be greater than the current length, it cannot be smaller.<br>
+				<b>To begin a new search within other boundaries, the current password must be 
+					erased or changed.</b><br>
+				Below the password text field, the current sequence for the column 
+				transposition is displayed.<br>
+				<br>
+				The button <b>Apply</b> bypasses the analysis of the transposition password. 
+				This is especially useful with short messages, since in this case the bigram 
+				analysis is unlikely to deliver a meaningful result. The entered password can 
+				be used to transpose the message without being tested first. The bigram 
+				analysis is carried out anyway, but not in order to assess the password. The 
+				entries made into the substitution matrix can be faulty, they represent the 
+				best, but not necessarily a good result of the analysis.<br>
+				As long as no password is given, the button is deactivated.<br>
+				<br>
+				By clicking the button <b>Analyse</b>, the brute-force search for the 
+				transposition key is started, beginning at the lower boundary or the current 
+				password and stopping when it finds a possible password or reaching the upper 
+				boundary.<br>
+				For determining a posible solution, the current implementation searches for an 
+				ADFGVX bigram with a relative frequency of 16%, representing the letter 'E' in 
+				English and German texts. Despite of this very crude criterion, there is almost 
+				no occurrance of false alarms (disregarding the cases of pair wise <A href="hid_analyse_symmclassic_adfgvx.html#column_shift">
+					column shifts</A>).<br>
+				<br>
+				<b>Step 1: Finding the Substitution Key</b><br>
+				<br>
+				If a possible solution is found, the search stops and the letters 'E', 'N', 'R' 
+				and 'S' are entered into the substitution matrix at their most probable 
+				positions.<br>
+				<br>
+				The <b>Current solution</b> of the analysis is displayed at the bottom of the 
+				dialog, small letters indicate the parts that are already resubstituted, 
+				capital letters are ADFGVX bigrams. The first bigram letter marks the row, the 
+				second marks the column of the plaintext letter in the substitution matrix.<br>
+				<br>The user now has to try to detect whole words in the text and assign 
+			the missing plaintext letters to the ADFGVX bigrams.</p>
+		<p>The <b>Substitution matrix</b> can only contain the letters 'A' to 'Z' and the 
+			figures '0' to '9'. On repeated entry of an existing character, a dialog box is 
+			displayed, giving the user the possibility to erase the old entry or to undo 
+			the change.<br>
+			The button <b>Clear matrix</b> erases all entries of the substitution matrix. 
+			The button <b>Standard matrix</b> fills the substitution matrix with all 36 
+			allowed characters in order.<br>
+			<br>
+			Since the field <STRONG>Current solution</STRONG> is not updated dynamically, 
+			clicking the button <b>Update current solution</b> will do just this.<br>
+			<br>
+			If, by looking at the text, one does not discover any meaningful words, the 
+			transposition password may be incorrect. In this case the transposition 
+			analysis must be resumed by clicking <i>Analyse</i> and the substitution 
+			analysis must be restarted with the next possible transposition password.<br>
+			This step can be repeated until the upper boundary of the password search is 
+			reached.<br>
+			<br>
+			Clicking the <b>key icon</b> inserts an ADFGVX key that was previously copied 
+			to the <a href="keystore.html">internal key store</a> (if the button is 
+			inactive, there is no ADFGVX key available).<br>
+			<br>
+			By clicking the&nbsp; <b>Output</b> button the current solution is written to a 
+			new text window and the analysis dialog is closed.<br>
+			<br>
+			The checkbox <b>Show opening dialog</b> determines, whether the short 
+			information about how to analyse an ADFGVX-message is displayed when opening 
+			the dialog. </FONT></p>
+	</body>
+</HTML>

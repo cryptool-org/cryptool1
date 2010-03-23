@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Calculating the autocorrelation of a document</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Autocorrelation">
+	<PARAM NAME="Keyword" VALUE="Analysis">
+</OBJECT>
+
+<BODY>
+
+<h3>Autocorrelation (Menu <A href="menu_analyze.html">Analysis</A> \ Tools for Analysis)</h3>
+
+<P>The autocorrelation of a <!--ZZZPOPUP--><A href="dokument.html">document</A> is an index of the similarity of different sections of the document. It is sometimes possible to work out the <!--ZZZPOPUP--><A href="schluessellaenge.html">key length</A> of an <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> document from its autocorrelation.</P>
+
+<P><U>Correlation</U></P>
+
+<P>The statements about Correlation are valid here for a <B>independently, uniformly distributed, binary random sequence</B>: </P>
+
+<UL>
+	<LI>"Binary random sequence" means that the events of the random sequence takes the values '0' or '1'.</LI>
+
+	<LI>"Independent" means that the probability of the (n+1)st event is independent from all n previous events.</LI>
+
+	<LI>"uniformly distributed" means for each event in the random sequence that the probability of '1' is equal to the probability of '0'.</LI>
+</UL>
+
+<P>The similarity between two sets of data is normally measured by their correlation. Correlation<CODE> C</CODE> between two sequences of length<CODE> n</CODE> is calculated from the number<CODE> A</CODE> of agreeing and the number<CODE> D</CODE> of non-agreeing sequence members according to the formula</P>
+
+<P>C := (A-D) / n</P>
+
+<P>According to this formula, the expected value of the correlation between two independent random sequences is 0. On the other hand, two sequences which agree relatively often will have a positive correlation value. In the extreme case where the two documents are identical<CODE> A</CODE>=<CODE>n</CODE>,<CODE> D</CODE>=0 and therefore<CODE> C</CODE>=1. Conversely, if there are fewer than<CODE> n</CODE>/2 agreements, the correlation will be negative. The degree of correlation between two sequences is therefore a measure of their mutual dependence.</P>
+
+<P><U>Autocorrelation</U></P>
+
+<P>The autocorrelation function<CODE> C</CODE>(<CODE>t</CODE>) measures the similarity of sequence (<CODE>s[i]</CODE>)=<CODE>s[1] s[2]</CODE>... to sequence (<CODE>s[i+t]</CODE>)=<CODE>s[t] s[t+1]</CODE>.... which is shifted by<CODE> t</CODE> places.</P>
+
+<P>A sequence of length<CODE> n</CODE> is examined, and the following parameters are defined:</P>
+
+<P><CODE>A</CODE>(<CODE>t</CODE>) := number of members of sequences (<CODE>s[i]</CODE>) and (<CODE>s[i+t]</CODE>) in the segment under consideration which agree.</P>
+
+<P><CODE>D</CODE>(<CODE>t</CODE>) := number of members of sequences (<CODE>s[i]</CODE>) and (<CODE>s[i+t]</CODE>) in the segment under consideration which do not agree.</P>
+
+<P>The autocorrelation function<CODE> C</CODE>(<CODE>t</CODE>) = (<CODE>A</CODE>(<CODE>t</CODE>)-<CODE>D</CODE>(<CODE>t</CODE>)) /<CODE> n</CODE>.</P>
+
+<P>In the case of finite sequences, sequence<CODE> s</CODE> is shifted (acyclically) by<CODE> t</CODE> positions, so that sequence (<CODE>s[i+t]</CODE>) has only<CODE> n</CODE>-<CODE>t</CODE> sequence members (where<CODE> n</CODE> is the length of sequence (<CODE>s[i]</CODE>). To calculate the autocorrelation, one now considers the sequences<CODE> s[1] s[2]</CODE>...<CODE> s[n-t+1]</CODE> and<CODE> s[t] s[t+1]</CODE>...<CODE> s[n]</CODE> and calculates their correlation.</P>
+
+<P>The autocorrelation function is used among other applications to work out the cycle length for automatic analysis of the <A href="hid_vigenere_asc.html">Vigenère encryption algorithm</A> and encryption by <A href="hid_add_bin.html">Byte Addition</A> and the <A href="hid_xor_bin.html">Exclusive-OR</A>. For further information, see <A href="hid_hilfe_szenarien.html">Examples</A> chapter.</P>
+
+</BODY>
+</HTML>

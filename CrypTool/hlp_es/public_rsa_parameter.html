@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Public parameter for RSA encryption and RSA signature verification</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Encryption">
+	<PARAM NAME="Keyword" VALUE="Signature">
+	<PARAM NAME="Keyword" VALUE="Public key">
+	<PARAM NAME="Keyword" VALUE="Private key">
+	<PARAM NAME="Keyword" VALUE="RSA encryption algorithm">
+</OBJECT>
+
+<BODY>
+
+<h3>Public parameter for RSA encryption and RSA signature verification</h3>
+
+<P>In contrast to symmetric encryption methods, the RSA public key is available to everybody for encryption and signature verification.</P>
+
+<P>To perform one of the public key operations, select the lower option in the upper radio button group: <B>RSA using only the public key</B>. </P>
+
+<P><IMG SRC="images/rsapublickeyonly.gif" ALT="rsapublickeyonly.gif" BORDER=0></P>
+
+<P>After you enter the public RSA key consisting of the RSA modulus N and the public exponent e, you can perform the following three operations:</P>
+
+<OL>
+
+<LI> <A href="rsa_demo_encryption.html">RSA encryption</A>,<BR><BR></LI>
+
+<LI> <A href="rsa_demo_verify_signature.html">RSA signature verification</A> and <BR><BR></LI>
+
+<LI> <A href="rsa_demo_factorisation_attack.html">attacking RSA using factorization</A>.<BR><BR></LI>
+
+</OL>
+
+<P>The most well known attack on RSA is to compute the <A href="rsa_demo_factorisation_attack.html">factorization</A> of the RSA modulus N (which is part of the public RSA key). You can start this factorization attack directly from this dialog. In case of successful factorization all secret parameters of the attacked RSA key will be filled into the dialog (this attack is only successful in case of an RSA key with a "small" bit length: smaller than 250 bit).</P>
+
+<P>This gives you the opportunity to experiment and determine, which key lengths are definitely too short for real-life usage.</P>
+
+<P>In case of successful factorization the first option in the upper radio button group (<A href="rsa_demo_key_generation.html"><B>RSA using the private and public key</B></A>) will be enabled, because now the private parameters are known. This enables you to decrypt messages and to sign a message in the name of the key owner.</P>
+
+</BODY>
+</HTML>

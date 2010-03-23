@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>CrypTool PKCS #12 import / export</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="PKCS #12">
+	<PARAM NAME="Keyword" VALUE="Certificate">
+	<PARAM NAME="Keyword" VALUE="Import (certificate) / PKCS #12">
+	<PARAM NAME="Keyword" VALUE="Export (certificate) / PKCS #12">
+</OBJECT>
+
+<BODY>
+
+<h3>CrypTool PKCS #12 Import / Export</h3>
+
+<P>CrypTool supports exporting and importing of <a href="certificates.html">digital certificates</a> with the corresponding private key in a PKCS #12 structure. PKCS #12 is a widely adopted industry <A href="standards.html">standard</A> that allows safe delivery of sensitive data. The private key contained in a PKCS #12 structure is protected by symmetrical encryption; the key for this encryption is computed from a transport password that protects the PKCS #12 structure.</P>
+
+<P>CrypTool is able to export its own private keys and corresponding X.509 certificates in a PKCS #12 structure, allowing these certificates to be imported in other CrypTool installations. It is possible to import and use these PKCS #12 files in other applications as well (such as Netscape or MS Windows).</P>
+
+<P>Users should be aware that the certificates created by CrypTool are for educational use only. It is not recommended to use these certificates in real-world applications because of security considerations (the CrypTool CA key is the same for each CrypTool installation).</P>
+
+<P><B>Limitations:</B> </P>
+
+
+
+<P>Although the certificates created and used in CrypTool are standard X.509 certificates, it is currently not possible to import foreign certificates into CrypTool. CrypTool stores internal data in the certificate subject name that is not present in foreign certificates. This data is necessary to fill internal CrypTool data structures when transferring certificates to another CrypTool installation.</P>
+</div>
+
+</BODY>
+</HTML>

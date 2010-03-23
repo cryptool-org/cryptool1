@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Verify Signature</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Signature">
+	<PARAM NAME="Keyword" VALUE="Verification of a signature">
+</OBJECT>
+
+<BODY>
+
+<h3>Verify Signature (Menu <A href="menu_digitalsignaturespki.html">Digital Signatures/PKI</A></B>)</P></h3>
+
+<P>In the <A href="hidd_verify_signature.html">Signature Verification</A> dialog it is possible to verify a <!--ZZZPOPUP--><A href="signatur.html">signature</A> created using <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>. For this purpose the active <!--ZZZPOPUP--><A href="dokument.html">document</A> must contain the output which was generated using the <A href="hid_crypt_sign.html">Sign message</A> menu option or using the button <B>Store signature</B> via the <A href="hid_einzelverfahren_sign_doc.html">Signature demonstration</A>.</P>
+
+<P>To verify a signature, it is necessary to inform CrypTool manually (through appropriate selections in the <A href="hidd_verify_signature.html">Signature Verification</A> dialog) who created a signature (or rather, with which <!--ZZZPOPUP--><A href="schluesselpaar.html">key pair</A> the signature was generated): </P>
+
+<UL>
+	<LI>For RSA and DSA signatures CrypTool automatically filters out the rest of the information needed to verify the signature (such as, for example, which <A href="hashfunktion.html">hash function</A> was used to sign the message) from the signature output.</LI>
+
+	<LI>Under both of the <A href="ellipkurven.html">elliptic curve</A> signature algorithms (ECSP-DSA and ECSP-NR) as well as entering the name of the person who created the signature it is also necessary to select the hash function used and the procedure used. All this information will be found in the output window which opened following the selection of the <A href="hid_crypt_sign.html">Sign message</A> menu option. Automatic recognition of the hash function used and the procedure used was deliberately omitted in order to enable experimentation.</LI>
+</UL>
+
+<P>It is possible to extract the signature by selecting menu <A href="menu_digitalsignaturespki.html">Digital Signatures/PKI</A> \ <A href="hid_crypt_extract.html">Extract signature</A>.</P>
+
+</BODY>
+</HTML>

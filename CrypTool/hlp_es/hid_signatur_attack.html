@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Attack on the hash value of the digital signature</TITLE>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+<script language="JScript" src="helper.js"></script>
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Hash function">
+	<PARAM NAME="Keyword" VALUE="Attacks">
+</OBJECT>
+
+<BODY>
+
+<h3>Attack on the Hash Value of the Digital Signature (Menu <a href="menu_analyze.html">Analysis</a> \ Hash )</h3>
+
+		<P>The visualized attack is designed to attack the <!--ZZZPOPUP--><A href="hashfunktion.html">hash 
+				value</A> of the <!--ZZZPOPUP--><A href="signatur.html">digital signature</A>
+			-- independently of the hash function used.</P>
+		<P>This is implemented with the dialog <A href="hidd_signature_attack.html">attack on 
+				the hash value of the digital signature</A>, where you can choose the 
+			parameters of the attack, and a further dialog is describing the status of 
+			the attack.</P>
+		<P>CrypTool allows you to vary the length of the identical bits of the hash value. 
+			Additionally you can directly see, how the two modified documents with 
+			different content but identical hash value (for the chosen significant digits) look like.</P><br>
+		Reference:<br>
+		
+		<UL>
+			<LI>
+				Alfred J. Menezes, Paul C. van Oorschot, Scott A. Vanstone: <I>Handbook of Applied 
+					Cryptography</I>, CRC Press, 1997.
+			<LI>
+				Jan Blumenstein: <I>Methoden und Werkzeuge für Angriffe auf die digitale Signatur</I>, 
+				Bachelor-Arbeit des Kooperativen Studiengangs Informatik an der Fachhochschule 
+				Darmstadt, 2003.<BR>
+				This diploma thesis describes how the attack was implemented using the Floyd 
+				algorithm.</LI>
+		</UL>
+		<P>Practical experiments with the implementation in CrypTool were done to generate 
+			partly collisions (this means that the significant bit length was varied and 
+			permanently increased, but still stayed below the complete hash value length): 
+			On a single PC we could find collisions for the first 72 bits of MD5 hash 
+			values within days. The paper of Mr. Blumenstein explains, that today digital 
+			signatures using hash functions with 128 bits are practically attackable with 
+			massively parallel methods!</P>
+		<P>This justifies the early and careful recommendations of the GISA (German 
+			Information Security Agency) to demand for hash functions like RIPEMD or SHA-1 
+			a sufficiently big buffer on top of the topical research results.</P>
+		<P>This implementation performs a <U>collision search</U> using brute-force methods 
+			(generic attack). Modern break-throughs since 2004 found additional methods 
+			using structural weaknesses within the hash algorithms. See the CrypTool <A class="filelink" onclick="parser('script-en.pdf')">
+				script</A> for further details.</P>
+	</BODY>
+</HTML>
