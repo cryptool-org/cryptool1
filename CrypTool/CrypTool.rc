@@ -4501,8 +4501,21 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "i18n About CrypTool: Ports"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    LTEXT           "The CrypTool versions in English and German have been created by the CrypTool core team.",IDC_STATIC,7,7,297,8
     DEFPUSHBUTTON   "Close",IDOK,303,255,60,18
+    LTEXT           "The CrypTool versions in English and German have been created by the CrypTool core team.",IDC_STATIC,7,7,297,8
+    GROUPBOX        "Polish Port",IDC_STATIC,7,30,356,55
+    GROUPBOX        "Serbian Port",IDC_STATIC,7,100,356,55
+    GROUPBOX        "Spanish Port",IDC_STATIC,7,170,356,55
+    LTEXT           "Initial Port:",IDC_STATIC,20,45,36,8
+    LTEXT           "Further Updates:",IDC_STATIC,20,65,56,8
+    LTEXT           "Warsaw University, Poland (http://www.ee.pw.edu.pl/),\nMr. Bartosz Sawicki and his students",IDC_STATIC,100,45,250,16
+    LTEXT           "Mr. Pawel Polewski",IDC_STATIC,100,65,250,16
+    LTEXT           "Initial Port:",IDC_STATIC,20,115,36,8
+    LTEXT           "Advanced School of Electrical Engineering, Belgrade, Serbia,\nProf. Dragan Pleskonjic, Mr. Bojan Dimitrovski and his fellow students",IDC_STATIC,100,115,250,16
+    LTEXT           "Initial Port:",IDC_STATIC,20,185,36,8
+    LTEXT           "Further Updates:",IDC_STATIC,20,205,56,8
+    LTEXT           "Madrid University, Spain (http://www.csic.es),\nMr. Gonzalo Alvarez Maranon and his students",IDC_STATIC,100,185,250,16
+    LTEXT           "Mr. Raphael Labaca Castro",IDC_STATIC,100,205,250,16
 END
 
 
@@ -15417,15 +15430,6 @@ BEGIN
     LTEXT           "Kljuc",IDC_STATIC,17,122,158,8,WS_DISABLED
 END
 
-IDD_PORTS DIALOGEX 0, 0, 370, 280
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "i18n About CrypTool: Ports"
-FONT 8, "MS Shell Dlg", 0, 0, 0x0
-BEGIN
-    LTEXT           "The CrypTool versions in English and German have been created by the CrypTool core team.",IDC_STATIC,7,7,297,8
-    DEFPUSHBUTTON   "Close",IDOK,303,255,60,18
-END
-
 IDD_AUTHORS DIALOGEX 0, 0, 370, 280
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "i18n About CrypTool: Contributors"
@@ -15443,6 +15447,28 @@ BEGIN
     GROUPBOX        " Review and Feedback",IDC_STATIC,188,115,175,129,BS_CENTER
     CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_1,20,125,150,105
     CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_2,200,125,150,105
+END
+
+IDD_PORTS DIALOGEX 0, 0, 370, 280
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "i18n About CrypTool: Ports"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,303,255,60,18
+    LTEXT           "The CrypTool versions in English and German have been created by the CrypTool core team.",IDC_STATIC,7,7,297,8
+    GROUPBOX        "Polish Port",IDC_STATIC,7,30,356,55
+    GROUPBOX        "Serbian Port",IDC_STATIC,7,100,356,55
+    GROUPBOX        "Spanish Port",IDC_STATIC,7,170,356,55
+    LTEXT           "Initial Port:",IDC_STATIC,20,45,36,8
+    LTEXT           "Further Updates:",IDC_STATIC,20,65,56,8
+    LTEXT           "Warsaw University, Poland (http://www.ee.pw.edu.pl/),\nMr. Bartosz Sawicki and his students",IDC_STATIC,100,45,250,16
+    LTEXT           "Mr. Pawel Polewski",IDC_STATIC,100,65,250,16
+    LTEXT           "Initial Port:",IDC_STATIC,20,115,36,8
+    LTEXT           "Advanced School of Electrical Engineering, Belgrade, Serbia,\nProf. Dragan Pleskonjic, Mr. Bojan Dimitrovski and his fellow students",IDC_STATIC,100,115,250,16
+    LTEXT           "Initial Port:",IDC_STATIC,20,185,36,8
+    LTEXT           "Further Updates:",IDC_STATIC,20,205,56,8
+    LTEXT           "Madrid University, Spain (http://www.csic.es),\nMr. Gonzalo Alvarez Maranon and his students",IDC_STATIC,100,185,250,16
+    LTEXT           "Mr. Raphael Labaca Castro",IDC_STATIC,100,205,250,16
 END
 
 
@@ -19054,20 +19080,20 @@ BEGIN
         BOTTOMMARGIN, 234
     END
 
-    IDD_PORTS, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 363
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 273
-    END
-
     IDD_AUTHORS, DIALOG
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 363
         VERTGUIDE, 20
         VERTGUIDE, 350
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 273
+    END
+
+    IDD_PORTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 363
         TOPMARGIN, 7
         BOTTOMMARGIN, 273
     END
@@ -26333,6 +26359,19 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Schlieﬂen",IDOK,303,255,60,18
     LTEXT           "Die Sprachversionen Deutsch und Englisch wurden vom CrypTool-Kernteam entwickelt.",IDC_STATIC,7,7,278,8
+    GROUPBOX        "Polnische Portierung",IDC_STATIC,7,30,356,55
+    GROUPBOX        "Serbische Portierung",IDC_STATIC,7,100,356,55
+    GROUPBOX        "Spanische Portierung",IDC_STATIC,7,170,356,55
+    LTEXT           "Erstportierung:",IDC_STATIC,20,45,50,8
+    LTEXT           "Weitere Updates:",IDC_STATIC,20,65,58,8
+    LTEXT           "Universit‰t Warschau, Polen (http://www.ee.pw.edu.pl/),\nHr. Bartosz Sawicki und seine Studenten",IDC_STATIC,100,45,250,16
+    LTEXT           "Hr. Pawel Polewski",IDC_STATIC,100,65,250,16
+    LTEXT           "Erstportierung:",IDC_STATIC,20,115,50,8
+    LTEXT           "Advanced School of Electrical Engineering, Belgrad, Serbien,\nProf. Dragan Pleskonjic, Hr. Bojan Dimitrovski und seine Kommilitonen",IDC_STATIC,100,115,250,16
+    LTEXT           "Erstportierung:",IDC_STATIC,20,185,50,8
+    LTEXT           "Weitere Updates:",IDC_STATIC,20,205,58,8
+    LTEXT           "Universit‰t Madrid, Spanien (http://www.csic.es),\nHr. Gonzalo Alvarez Maranon und seine Studenten",IDC_STATIC,100,185,250,16
+    LTEXT           "Hr. Raphael Labaca Castro",IDC_STATIC,100,205,250,16
 END
 
 
@@ -29826,6 +29865,9 @@ BEGIN
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 363
+        VERTGUIDE, 20
+        VERTGUIDE, 100
+        VERTGUIDE, 350
         TOPMARGIN, 7
         BOTTOMMARGIN, 273
     END
@@ -37257,6 +37299,19 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Close",IDOK,303,255,60,18
     LTEXT           "The CrypTool versions in English and German have been created by the CrypTool core team.",IDC_STATIC,7,7,297,8
+    GROUPBOX        "Polish Port",IDC_STATIC,7,30,356,55
+    GROUPBOX        "Serbian Port",IDC_STATIC,7,100,356,55
+    GROUPBOX        "Spanish Port",IDC_STATIC,7,170,356,55
+    LTEXT           "Initial Port:",IDC_STATIC,20,45,36,8
+    LTEXT           "Further Updates:",IDC_STATIC,20,65,56,8
+    LTEXT           "Warsaw University, Poland (http://www.ee.pw.edu.pl/),\nMr. Bartosz Sawicki and his students",IDC_STATIC,100,45,250,16
+    LTEXT           "Mr. Pawel Polewski",IDC_STATIC,100,65,250,16
+    LTEXT           "Initial Port:",IDC_STATIC,20,115,36,8
+    LTEXT           "Advanced School of Electrical Engineering, Belgrade, Serbia,\nProf. Dragan Pleskonjic, Mr. Bojan Dimitrovski and his fellow students",IDC_STATIC,100,115,250,16
+    LTEXT           "Initial Port:",IDC_STATIC,20,185,36,8
+    LTEXT           "Further Updates:",IDC_STATIC,20,205,56,8
+    LTEXT           "Madrid University, Spain (http://www.csic.es),\nMr. Gonzalo Alvarez Maranon and his students",IDC_STATIC,100,185,250,16
+    LTEXT           "Mr. Raphael Labaca Castro",IDC_STATIC,100,205,250,16
 END
 
 
