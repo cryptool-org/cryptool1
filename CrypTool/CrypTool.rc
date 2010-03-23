@@ -48468,6 +48468,7 @@ BEGIN
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
         END
+        MENUITEM "Formato de documento de texto", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
         MENUITEM "&Mostrar cubo (dibujar bordes)", ID_POPUP_OPENGL_SHOW_BOX, GRAYED
     END
@@ -48595,6 +48596,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Animación Rijndael...",      ID_FLASH_AESDEMO
                 MENUITEM "&Inspector Rijndael...",      ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "Visualización de flujo de &Rijndael", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
@@ -48814,8 +48816,9 @@ BEGIN
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
         END
+        MENUITEM "Formato de documento de texto", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
-        MENUITEM "Mostrar &cubo (dibujar bordes)", ID_POPUP_OPENGL_SHOW_BOX, GRAYED
+        MENUITEM "&Mostrar cubo (dibujar bordes)", ID_POPUP_OPENGL_SHOW_BOX, GRAYED
     END
     POPUP "&Cifrar/Descifrar"
     BEGIN
@@ -48941,6 +48944,7 @@ BEGIN
             BEGIN
                 MENUITEM " &Animación Rijndael...",     ID_FLASH_AESDEMO
                 MENUITEM "&Inspector Rijndael ...",     ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "Visualización de flujo de &Rijndael", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
@@ -49160,6 +49164,7 @@ BEGIN
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
         END
+        MENUITEM "Formato de documento de texto", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
         MENUITEM "&Mostrar cubo (dibujar bordes)", ID_POPUP_OPENGL_SHOW_BOX
     END
@@ -49287,6 +49292,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Animación Rijndael ...",     ID_FLASH_AESDEMO
                 MENUITEM "&Inspector Rijndael ...",     ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "Visualización de flujo de &Rijndael", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
@@ -49634,6 +49640,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Animación Rijndael...",      ID_FLASH_AESDEMO
                 MENUITEM "&Inspector Rijndael ...",     ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "Visualización de flujo de &Rijndael", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
@@ -49853,6 +49860,7 @@ BEGIN
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
         END
+        MENUITEM "Formato de documento de texto", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
         MENUITEM "&Mostrar cubo (dibujar bordes)", ID_POPUP_OPENGL_SHOW_BOX, GRAYED
     END
@@ -49980,6 +49988,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Animación Rijndael...",      ID_FLASH_AESDEMO
                 MENUITEM "&Inspector Rijndael ...",     ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "Visualización de flujo de &Rijndael", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
