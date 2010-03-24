@@ -11055,7 +11055,7 @@ BEGIN
     EDITTEXT        IDC_EDIT1,103,66,245,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
     EDITTEXT        IDC_EDIT2,103,54,245,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
     EDITTEXT        IDC_EDIT132,103,41,245,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
-    CONTROL         "Kljuc",IDC_BUTTON1,"Button",BS_OWNERDRAW | WS_TABSTOP,7,130,25,22
+    CONTROL         "KLJUC",IDC_BUTTON1,"Button",BS_OWNERDRAW | WS_TABSTOP,7,130,25,22
     LTEXT           "Ime privremene datoteke:",IDC_STATIC,13,66,84,8,0,WS_EX_RIGHT
     EDITTEXT        IDC_EDIT3,103,29,245,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
     EDITTEXT        IDC_EDIT4,103,18,245,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
@@ -11116,8 +11116,7 @@ BEGIN
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,67,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,71,8,5
     CONTROL         "",IDC_ANIMGIF,"Static",SS_GRAYRECT,281,159,20,20
-    CONTROL         "Prikaži dijaloge sa informacijama",IDC_CHECK_DISABLEHELP,
-                    "Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,403,327,110,10
+    CONTROL         "Prikaži dijaloge sa informacijama",IDC_CHECK_DISABLEHELP,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,403,327,110,10
     CONTROL         "Prikaži uvodni dijalog",IDC_CHECK_DISABLEINTRODUCTION,
                     "Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,403,315,110,10
 END
@@ -11131,9 +11130,9 @@ BEGIN
     EDITTEXT        IDC_EDIT1,106,11,13,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT2,106,29,14,12,ES_CENTER | ES_NUMBER
     CONTROL         "Prikaži nulu",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,49,105,10
-    CONTROL         "Autokorelacija u relativno",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,64,130,10
+    CONTROL         "Autokorelacija relativna",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,64,130,10
     PUSHBUTTON      "&Otkaži",IDCANCEL,99,91,50,18
-    LTEXT           "Širina linije     (1-10):",IDC_STATIC,21,14,84,10
+    LTEXT           "Širina linije  (1-10):",IDC_STATIC,21,14,84,10
     LTEXT           "Širina krive   (1-10) :",IDC_STATIC,21,31,84,10
 END
 
@@ -11171,7 +11170,7 @@ BEGIN
     DEFPUSHBUTTON   "&Zašifruj",IDOK,5,352,63,19
     PUSHBUTTON      "&Dešifruj",IDC_BUTTON5,75,352,60,19
     PUSHBUTTON      "&Otkaži",IDCANCEL,300,352,58,19
-    GROUPBOX        "Znaci alfabeta",IDC_STATIC,15,168,109,100
+    GROUPBOX        "Karakteri alfabeta",IDC_STATIC,15,168,109,100
     GROUPBOX        "Velicina matrice",IDC_STATIC,254,180,104,139
     CONTROL         "&1 x 1",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,277,198,31,10
     CONTROL         "&2 x 2",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,277,216,31,10
@@ -11254,6 +11253,20 @@ BEGIN
     CONTROL         "Karakteri definisani kao u menu-ju: Opcije \\ Opcije za tekst",IDC_RADIO3,
                     "Button",BS_AUTORADIOBUTTON,29,245,245,11
     LTEXT           "Pogledajte menu: Analiza \\ Simetricno Šifrovanje (moderno)",IDC_STATIC,19,170,258,8
+	GROUPBOX        "Opcije za Vigenère analizu prema Schroedelu",IDC_STATIC,7,117,292,106
+    PUSHBUTTON      "&Pretraga...",IDC_BUTTON_SEARCH_DICTIONARY_FILE,236,153,55,14
+    EDITTEXT        IDC_EDIT_DICTIONARY_FILE,85,153,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_DIGRAMS_FILE,85,170,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_TRIGRAMS_FILE,85,187,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
+    PUSHBUTTON      "&Pretraga...",IDC_BUTTON_SEARCH_DIGRAMS_FILE,236,170,55,14
+    PUSHBUTTON      "&Pretraga...",IDC_BUTTON_SEARCH_TRIGRAMS_FILE,236,187,55,14
+    LTEXT           "Recnik:",IDC_STATIC,25,154,34,8
+    LTEXT           "Datoteka digrama:",IDC_STATIC,25,171,36,8
+    LTEXT           "Datoteka trigrama:",IDC_STATIC,25,188,37,8
+    CONTROL         "Produženo logovanje",IDC_CHECK_EXTENSIVE_LOGGING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,133,71,10
+    PUSHBUTTON      "&Vrati standard",IDC_BUTTON_RESTORE_STANDARD,105,331,99,17
+    EDITTEXT        IDC_EDIT_ANALYSIS_THRESHOLD,86,204,25,14,ES_CENTER | ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
+    LTEXT           "Prag:",IDC_STATIC,25,205,34,8
 END
 
 IDD_HILL_ANALYSIS DIALOGEX 0, 0, 302, 361
@@ -11268,17 +11281,16 @@ BEGIN
     CTEXT           "do",IDC_STATIC,169,310,9,8
     COMBOBOX        IDC_DIM_BIS,182,306,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,9,26,284,233
-    PUSHBUTTON      "Otvorena datoteka",IDC_BUTTON_OPENFILE,232,237,50,14
-    PUSHBUTTON      "Aktivna datoteka",IDC_BUTTON2,154,237,71,14
-    LTEXT           "Hill-ova analiza je analiza otvoreni tekst, koja pomaže pri izracunavanju Hill-ovog kljuca iz otvorenog i skrivenog teksta.",IDC_LBL_INFOTEXT,9,5,284,17,0,WS_EX_TRANSPARENT
-    GROUPBOX        "Varijanta Hill-ove šifre koja ce biti analizirana.",IDC_STATIC,9,263,284,63
+    LTEXT           "Ova Hill-ova analiza je analiza Poznatog otvorenog teksta. Na ulazu otvoreni tekst i šifrat izracunavaju Hill-ov kljuc",IDC_LBL_INFOTEXT,9,5,284,17,0,WS_EX_TRANSPARENT
+    GROUPBOX        "Hill varijante šifrovanja ",IDC_STATIC,9,263,284,63
     PUSHBUTTON      "Opcije za tekst",IDC_BUTTON1,154,335,71,18
-    LTEXT           "Varijansa umnožavanja",IDC_STATIC,16,276,57,8
-    CONTROL         "(vektor reda) x (matrica)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,86,276,87,8
-    CONTROL         "(matrica) x (vektor reda)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,182,276,87,8
-    LTEXT           "Vrednost prvog simbola alfabeta:",IDC_STATIC,16,293,123,8
+    LTEXT           "Varijansa umnožavanja",IDC_STATIC,16,276,66,8
+    CONTROL         "(vektor vrste) * (matrica)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,86,276,87,8
+    CONTROL         "(matrica) * (vektor kolone)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,182,276,99,8
+    LTEXT           "Red prvog karaktera alfabeta:",IDC_STATIC,16,293,123,8
     CONTROL         "0",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,152,293,18,8
     CONTROL         "1",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,182,293,19,8
+    COMBOBOX        IDC_FILE_SELECT,15,239,272,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
 END
 
 IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 302, 252
@@ -11288,11 +11300,9 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "Kopiraj &kljuc",IDC_BUTTON1,9,227,52,19
     DEFPUSHBUTTON   "&Zatvori",IDOK,239,227,52,19
-    CONTROL         "&Hill-ova kljucna matrica (šifrovanje)",IDC_RADIO1,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,97,7,132,8
+    CONTROL         "&Hill-ova kljucna matrica (šifrovanje)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,97,7,132,8
     EDITTEXT        IDC_EDIT1,56,7,19,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
-    CONTROL         "&Inverzna Hill-ova kljucna matrica (dešifrovanje)",IDC_RADIO2,
-                    "Button",BS_AUTORADIOBUTTON,97,22,124,8
+    CONTROL         "&Inverzna Hill-ova kljucna matrica (dešifrovanje)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,97,22,124,8
     GROUPBOX        "Hill-ova kljucna matrica",IDC_STATIC,9,42,281,178
     EDITTEXT        IDC_EDIT11,35,82,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT12,55,82,16,12,ES_CENTER | ES_READONLY
@@ -11346,6 +11356,11 @@ BEGIN
     EDITTEXT        IDC_EDIT65,228,163,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT66,248,163,16,12,ES_CENTER | ES_READONLY
     GROUPBOX        "Brojne vrednosti",IDC_STATIC,156,68,119,118
+	GROUPBOX        "Varijansa množenja",IDC_STATIC,10,6,133,41
+    CONTROL         "(vektor reda) * (matrix)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,19,82,10
+    CONTROL         "(matrica) * (vektor kolone)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,29,32,93,10
+    GROUPBOX        "Vrenost prvog karaktera alfabeta",IDC_STATIC,154,7,135,40
+    EDITTEXT        IDC_EDIT2,165,23,50,14,ES_AUTOHSCROLL
 END
 
 IDD_KEYASYM_GENERATION DIALOGEX 0, 0, 419, 338
@@ -11368,8 +11383,7 @@ BEGIN
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,10,166,399,100
     CONTROL         "&Oktalni",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,283,61,12
     CONTROL         "&Decimalni",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,98,283,61,12
-    CONTROL         "&Hexadecimalni",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,170,283,61,12
-    CONTROL         "Prikaži par izgenerisanih kljuceva",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,265,284,144,10
+    CONTROL         "&Heksadecimalni",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,170,283,61,12
     PUSHBUTTON      "PKCS #12 &Uvoz",IDC_BUTTON_P12IMPORT,154,310,86,19
     PUSHBUTTON      "&Zatvori",IDCANCEL,337,310,72,19
     GROUPBOX        "Algoritam",IDC_STATIC,10,4,205,145
@@ -11386,6 +11400,7 @@ BEGIN
     GROUPBOX        "Korisnicki podaci",IDC_STATIC,224,4,185,145
     LTEXT           "",IDC_STATIC_PARAM_DESCRIPTION,10,157,400,8
     EDITTEXT        IDC_EDIT_LV,363,268,39,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
+	PUSHBUTTON      "Prikaži par kljuceva...",IDC_BUTTON1,215,310,96,19
 END
 
 IDD_RSA_ENCRYPTION DIALOGEX 0, 0, 392, 271
@@ -11429,25 +11444,19 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "O CrypTool-u"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,76,419,90,19,WS_GROUP
+    DEFPUSHBUTTON   "Zatvori",IDOK,76,419,90,19,WS_GROUP
     CTEXT           "Univerziteti Siegen i Darmstadt razvili su zajedno \nprojekat otvorenog koda, zahvaljujuci mnogim programerima dobrovoljcima.",IDC_STATIC,0,130,242,17
-    CTEXT           "CrypTool koristi sledece biblioteke:",IDC_STATIC,1,219,241,8
-    CTEXT           "Kontakt:",IDC_STATIC,0,315,241,10
-    CTEXT           "Copyright (C) 1998-2009\nDeutsche Bank AG and Contributors\nFrankfurt am Main, Germany",IDC_STATIC,0,380,242,24
-    CTEXT           "CrypTool je besplatni i sveobuhvatni program za e-ucenje o\nklasicnoj i savremenoj kriptografiji i kriptoanalizi.\n\nU udruženom naporu sa sponzorima",IDC_STATIC,1,10,241,32
-    CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,41,48,105,37,WS_EX_TRANSPARENT
-    CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,40,80,143,37,WS_EX_TRANSPARENT
-    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,46,228,79
-    CTEXT           "MIRACL",IDC_EDIT_MIRACL,1,257,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "SECUDE1",IDC_EDIT_SECUDE1,1,234,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "OPENSSL",IDC_EDIT_OPENSSL,1,268,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "NTL",IDC_EDIT_NTL,1,278,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "SCINTILLA",IDC_EDIT_SCINTILLA,1,288,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "GMP",IDC_EDIT_GMP,0,298,241,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "CrypTool se koristi širom sveta za edukaciju u školama, univerzitetima, i za edukaciju i širenje svesti zaposlenih u kompanijama i vladinim organizacijama.",IDC_STATIC,3,185,236,24
-    CTEXT           "CRYPTOVISION",IDC_EDIT_CRYPTOVISION,0,246,241,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,7,151,228,28,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,7,326,228,44,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    CTEXT           "Copyright (C) 1998-2010 Deutsche Bank AG i Saradnici\nDistribuirano kao open-source pod uslovima Apache License 2.0",IDC_STATIC,7,233,356,16
+    CTEXT           "CrypTool je besplatan i sveobuhvatan program za e-ucenje\nklasicne i savremene kriptografije i kriptoanalize.\n\nU zajednickoj saradnji sa sponzorima",IDC_STATIC,20,35,330,32
+    CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,44,74,105,37,WS_EX_TRANSPARENT
+    CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,198,73,143,37,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,71,356,44
+	CTEXT           "CrypTool se koristi širom sveta za edukaciju u školama, univerzitetima, i za edukaciju i širenje svesti zaposlenih u kompanijama i vladinim organizacijama.",IDC_STATIC,3,185,236,24
+    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,213,178,145,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Informacije o verziji",IDC_STATIC,7,164,195,64
+    GROUPBOX        "Kontakt informacije",IDC_STATIC,208,164,155,64
+    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,11,178,185,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Saradnici",ID_CONTRIBUTORS,7,250,60,18,WS_GROUP
 END
 
 IDD_SHOW_PROGRESS DIALOG  0, 0, 187, 105
@@ -11457,7 +11466,7 @@ FONT 8, "MS Sans Serif"
 BEGIN
     PUSHBUTTON      "&Otkaži",IDCANCEL,68,84,50,14
     CONTROL         "Napredak1",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,7,29,173,18
-    CTEXT           "Staticno\nDani",IDC_TEXT,6,53,174,28
+    CTEXT           "Staticno\nDana",IDC_TEXT,6,53,174,28
 END
 
 IDD_TEXT_OPTIONS DIALOGEX 0, 0, 272, 300
@@ -11467,7 +11476,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Primeni",IDOK,20,275,50,17
     PUSHBUTTON      "&Vrati na standardni",IDC_BUTTON_RESTORE_STANDARD,86,275,99,17
-    CONTROL         "Cuvaj karaktere koji nisu prisutni u alfabetu nepromenjene",IDC_CHECK_KEEP_CHARACTERS_NOT_PRESENT_IN_ALPHABET_UNCHANGED,
+    CONTROL         "Cuvaj karaktere koji nisu prisutni u alfabetu nepromenjenenima",IDC_CHECK_KEEP_CHARACTERS_NOT_PRESENT_IN_ALPHABET_UNCHANGED,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,16,213,10
     CONTROL         "Ako je moguce: cuvaj za šifrovanje/dešifrovanje informacije o malim/velikim slovima",IDC_CHECK_KEEP_UPPER_LOWER_CASE_INFORMATION,
                     "Button",BS_AUTOCHECKBOX | BS_TOP | BS_MULTILINE | WS_TABSTOP,20,52,235,16
@@ -11484,7 +11493,7 @@ BEGIN
     EDITTEXT        IDC_EDIT_SEPARATOR,202,247,15,12,ES_AUTOHSCROLL
     CONTROL         "Brojevima",IDC_CHECK_DIGITS,"Button",BS_AUTO3STATE | WS_TABSTOP,20,136,49,10
     PUSHBUTTON      "&Otkaži",IDCANCEL,202,275,55,17
-    GROUPBOX        "Opcije formatizovanja",IDC_STATIC,8,5,256,27
+    GROUPBOX        "Opcije formatizovanja otvorenog teksta i šifrata",IDC_STATIC,8,5,256,27
     GROUPBOX        "Definiši alfabet koji se koristi u tekstualnim šifratima",IDC_STATIC,8,93,256,90
     LTEXT           "Alfabet za korišcenje:",IDC_TEXTOPTIONS_ALPHABET,20,151,226,8
     GROUPBOX        "Referentna datoteka za statisticke aplikacije",IDC_STATIC,8,189,256,39
@@ -11651,6 +11660,25 @@ BEGIN
     EDITTEXT        IDC_EDIT3,8,6,176,14,ES_CENTER | ES_READONLY | NOT WS_BORDER
 END
 
+IDD_AUTHORS DIALOGEX 0, 0, 300, 320
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "O CrypTool-u: Doprinosioci"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,120,293,60,20
+    CTEXT           "Osobe Koje Doprinose CrypTool-u",IDC_STATIC,7,7,286,11,SS_CENTERIMAGE | WS_BORDER
+    CTEXT           "Bernhard Esslinger",IDC_STATIC,20,33,260,8
+    CTEXT           "Henrik Koy",IDC_STATIC,20,94,260,8,NOT WS_GROUP
+    CTEXT           "Peer Wichmann (do izdanja 1.2)\nJoerg Cornelius Schneider (od izdanja 1.3)",IDC_STATIC,20,59,260,16
+    GROUPBOX        " Ideje, Sponzorstvo, Izazovi, Pitanja i Odgovori, Vodstvo ",IDC_STATIC,7,23,286,22,BS_CENTER
+    GROUPBOX        " Dizajn, Podrška i Arhitektura",IDC_STATIC,7,49,286,30,BS_CENTER
+    GROUPBOX        " Glavna osoba koja se u celini pobrinula za verzije 1.3 i 1.4",IDC_STATIC,7,83,286,22,BS_CENTER
+    GROUPBOX        " Implementacija, Dokumentacija, Prevod ",IDC_STATIC,7,109,286,120,BS_CENTER
+    GROUPBOX        " Recenzija i Povratna Informacija",IDC_STATIC,7,234,286,50,BS_CENTER
+    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_1,20,125,150,105
+    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_2,200,125,150,105
+END
+
 IDD_SHOW_PUBLICKEY_EC DIALOG  0, 0, 399, 287
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Javni Kljuc (Asimetricni)"
@@ -11715,8 +11743,7 @@ BEGIN
     PUSHBUTTON      "Kopiraj &kljuc",IDC_BUTTON1,9,309,96,20
     DEFPUSHBUTTON   "&Zatvori",IDOK,415,309,96,20
     CONTROL         "&Hill-ova kljucna matrica (zašifruj)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,208,10,143,8
-    CONTROL         "&Inverzna Hill-ova kljucna matrica (dešifruj)",IDC_RADIO2,
-                    "Button",BS_AUTORADIOBUTTON,208,24,150,8
+    CONTROL         "&Inverzna Hill-ova kljucna matrica (dešifruj)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,208,24,150,8
     EDITTEXT        IDC_EDIT1,400,14,19,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
     GROUPBOX        "Hill-ova kljucna matrica",IDC_STATIC,10,45,501,257
     EDITTEXT        IDC_EDIT11,42,78,16,12,ES_CENTER | ES_READONLY
@@ -11920,7 +11947,13 @@ BEGIN
     EDITTEXT        IDC_EDIT199,419,259,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT200,439,259,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT1012,459,259,16,12,ES_CENTER | ES_READONLY
-    GROUPBOX        "Brojne vrednosti",IDC_STATIC,265,62,225,222
+    GROUPBOX        "Brojne vrednosti",IDC_STATIC,265,67,225,222
+    GROUPBOX        "Reprezentacija matrice",IDC_STATIC,12,6,210,42
+    GROUPBOX        "Varijansa množenja",IDC_STATIC,232,7,132,41
+    CONTROL         "(vektor reda) * (matrica)",IDC_RADIO25,"Button",BS_AUTORADIOBUTTON | WS_GROUP,250,20,82,10
+    CONTROL         "(matrica) * (vektor kolone)",IDC_RADIO26,"Button",BS_AUTORADIOBUTTON,250,33,93,10
+    GROUPBOX        "Vrednost prvog karaktera alfabeta",IDC_STATIC,375,7,135,40
+    EDITTEXT        IDC_EDIT2,386,23,50,14,ES_AUTOHSCROLL
 END
 
 IDD_KEY_HILL_10X10 DIALOGEX 0, 0, 546, 401
@@ -12048,9 +12081,9 @@ BEGIN
     CONTROL         "Nalepi",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,244,323,22,20
     PUSHBUTTON      "&Manja matrica",IDC_BUTTON4,455,325,73,18
     EDITTEXT        IDC_EDIT1,505,159,19,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
-    CONTROL         "Show details and single steps of the Hill cipher",IDC_CHECK1,
+    CONTROL         "Prikaži detalje i pojedinacne korake Hill-ove šifre",IDC_CHECK1,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,214,358,174,9
-    GROUPBOX        "Description",IDC_STATIC,5,4,537,50
+    GROUPBOX        "Opis",IDC_STATIC,5,4,537,50
     LTEXT           "Hill-ova šifra je poligraficka zamenska šifra zasnovana na linearnoj algebri",IDC_STATIC,11,17,512,8
     LTEXT           "Ovo je bila prva poligraficka šifra, sa kojom je bilo prakticno manipulisati nad grupom slova koja sadrži više od tri slova.",IDC_STATIC,11,27,399,8
     LTEXT           "Dužina grupe slova otvoreni tekst je velicina kvadratne matrice.",IDC_STATIC,11,37,516,8
@@ -12241,10 +12274,10 @@ BEGIN
     CONTROL         "RSA kljucevi",IDC_CHECK_RSA_KEYS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,246,66,10
     CONTROL         "DSA kljucevi",IDC_CHECK_DSA_KEYS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,263,66,10
     CONTROL         "EC kljucevi",IDC_CHECK_EC_KEYS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,279,71,10
-    GROUPBOX        "Provera algoritma:",IDC_STATIC,132,231,161,27
+    GROUPBOX        "Algoritam za proveru:",IDC_STATIC,132,231,161,27
     CONTROL         "ECSP-&DSA",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON | WS_GROUP,144,244,63,10
     CONTROL         "ECSP-&NR",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,218,244,63,10
-    GROUPBOX        "Provera heš funkcije:",IDC_STATIC,132,267,161,27
+    GROUPBOX        "Heš funkcija za proveru:",IDC_STATIC,132,267,161,27
     CONTROL         "SH&A-1",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | WS_GROUP,143,279,63,12
     CONTROL         "&RIPEMD-160",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,218,279,63,12
     CONTROL         "Prikaži vreme provere",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | BS_LEFT | BS_TOP | BS_MULTILINE | WS_TABSTOP,18,301,97,19
@@ -12291,8 +12324,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&Zatvori",IDOK,300,321,80,17
     EDITTEXT        IDC_EDIT4,12,64,368,86,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
-    CONTROL         "Hex premeštanje (heksadecimalno i ASCII):",IDC_RADIO1,
-                    "Button",BS_AUTORADIOBUTTON | BS_LEFTTEXT | WS_GROUP,242,176,123,11
+    CONTROL         "Hex premeštanje (heksadecimalno i ASCII):",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | BS_LEFTTEXT | WS_GROUP,242,176,123,11
     CONTROL         "&Oktalno",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,54,177,33,8
     CONTROL         "&Decimalno",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,91,177,41,8
     CONTROL         "&Heksadecimalno",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,136,177,56,8
@@ -12467,9 +12499,9 @@ BEGIN
     LTEXT           "Primer:",IDC_STATIC,10,33,29,8
     LTEXT           "Dužina kljuca:",IDC_STATIC,10,82,36,8
     LTEXT           "Nagoveštaj:",IDC_STATIC,10,57,22,8
-    LTEXT           "Vreme pretrage ce biti reda minuta do sati ukoliko ne koristite više od 6 asteriksa (*) (= 24 bit-a).",IDC_STATIC,42,57,225,18
+    LTEXT           "Vreme pretrage ce biti reda minuta do sati ukoliko ne koristite više od 6 asteriksa (*) (= 24 bita).",IDC_STATIC,42,57,225,18
     LTEXT           "Unesite <00 ** AB ** ... **>  da biste pretražili sve kljuceve koji pocinju nultim byte-om, koga sledi nepoznati byte, byte <AB> i nepoznati sledbenik.",IDC_STATIC,42,33,225,18
-    DEFPUSHBUTTON   "&Opcije analize",IDOK2,104,131,68,17
+    DEFPUSHBUTTON   "&Opcije Analize",IDOK2,104,131,68,17
 END
 
 IDD_SHOW_KEY_PARAMETER DIALOGEX 0, 0, 317, 156
@@ -12519,7 +12551,7 @@ BEGIN
     LTEXT           "Donja granica",IDC_STATIC,178,185,40,9
     LTEXT           "Gornja granica",IDC_STATIC,178,204,44,8
     LTEXT           "Rezultat",IDC_STATIC,179,225,35,10
-    GROUPBOX        "Kolicina prostih brojeva koja ce biti generisana",IDC_STATIC,11,36,302,55
+    GROUPBOX        "Kolicina prostih brojeva za generisanje",IDC_STATIC,11,36,302,55
     CONTROL         "Generiši dva prosta broja nasumicno unutar opsega vrednosti",IDC_RADIO6,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,23,49,205,10
     CONTROL         "Generiši sve proste brojeve unutar postavljenog opsega vrednosti za p",IDC_RADIO7,
@@ -12560,9 +12592,9 @@ BEGIN
     EDITTEXT        IDC_HEADER2,19,301,353,10,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
     EDITTEXT        IDC_HEADER3,19,333,353,10,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
     GROUPBOX        "RSA koji koristi privatne i javne kljuceve -- ili koristi samo javne kljuceve",IDC_STATIC,10,4,371,62
-    GROUPBOX        "Unos prostih brojeva",IDC_FRAME_RSA_MODE,10,70,371,48
+    GROUPBOX        "Unos prostog broja",IDC_FRAME_RSA_MODE,10,70,371,48
     GROUPBOX        "RSA parametri",IDC_STATIC,10,121,371,84
-    GROUPBOX        "RSA šifrovanje pomocu e / dešifrovanje using d",IDC_STATIC,10,208,371,158
+    GROUPBOX        "RSA šifrovanje pomocu e / dešifrovanje pomocu d",IDC_STATIC,10,208,371,158
     LTEXT           "Prost broj p",IDC_RSA_CAPTION_PRIME_P,19,83,55,8
     LTEXT           "Prost broj q",IDC_RSA_CAPTION_PRIME_Q,19,101,59,8
     LTEXT           "RSA moduo N",IDC_STATIC,19,133,52,8
@@ -12614,6 +12646,7 @@ BEGIN
     CONTROL         "Tekst",IDC_RADIO_TEXT_INPUT,"Button",BS_AUTORADIOBUTTON | WS_GROUP,192,32,30,8
     CONTROL         "Binarni podaci",IDC_RADIO_BINARY_INPUT,"Button",BS_AUTORADIOBUTTON,224,32,57,8
     LTEXT           "Uzeti u obzir unos dokumenta kao",IDC_STATIC,192,18,100,11
+	PUSHBUTTON      "Opcije za tekst",IDC_BUTTON_TEXTOPTIONS,221,388,72,18
 END
 
 IDD_EC_GENERATION DIALOGEX 0, 0, 404, 353
@@ -12636,7 +12669,7 @@ BEGIN
     LTEXT           "Izracunavanje elipticke krive koristi funkciju pseudo nasumicnih \nbrojeva. Molim unesite nasumicno 'seme'.",IDC_STATIC,155,16,221,16
     LTEXT           "Seme",IDC_STATIC,155,38,18,8
     GROUPBOX        "Prost broj",IDC_STATIC,14,65,378,51
-    LTEXT           "Molim unesite broj (primeri: 24877, 2^{17-1}-1). \nIn case the number is not prime this number will be replaced with the next larger prime.",IDC_STATIC,29,77,347,18
+    LTEXT           "Molim unesite broj (primeri: 24877, 2^{17-1}-1). \nU slucaju da broj nije prost, ovaj broj ce biti zamenjen sa sledecim vecim prostim brojem",IDC_STATIC,29,77,347,18
     GROUPBOX        "Parametri generisane elipticke krive",IDC_STATIC,14,156,378,154
     LTEXT           "Domenski parametri generisane elipticke krive",IDC_STATIC,29,169,172,8
     GROUPBOX        "Brojna osnova za predstavljanje parametara",IDC_STATIC,29,272,160,28
@@ -12685,7 +12718,7 @@ BEGIN
     PUSHBUTTON      "&Zatvori",IDCANCEL,7,229,99,24
     CONTROL         "&Histogram",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,22,53,10
     CONTROL         "&Dijagram",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,20,36,56,10
-    CONTROL         "&Trijagram",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,20,49,45,10
+    CONTROL         "&Trigram",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,20,49,45,10
     CONTROL         "",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,20,64,8,8
     EDITTEXT        IDC_EDIT2,31,62,13,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
     EDITTEXT        IDC_EDIT1,66,87,27,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
@@ -12705,11 +12738,9 @@ BEGIN
     CONTROL         "&Secude Biblioteka generator nasumicnih brojeva",IDC_RADIO1,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,18,59,165,8
     CONTROL         "&X^2 (mod N)  generator nasumicnih brojeva",IDC_RADIO2,
-                    "Button",BS_AUTORADIOBUTTON,18,74,158,8
-    CONTROL         "&Generator Linearne Podudarnosti (GLP)",IDC_RADIO3,
-                    "Button",BS_AUTORADIOBUTTON,18,89,129,8
-    CONTROL         "&Generator Inverzne Podudarnosti (GIP)",IDC_RADIO4,
-                    "Button",BS_AUTORADIOBUTTON,18,104,127,8
+					"Button",BS_AUTORADIOBUTTON,18,74,158,8
+    CONTROL         "&Generator Linearne Podudarnosti (GLP)",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,18,89,129,8
+    CONTROL         "&Generator Inverzne Podudarnosti (GIP)",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,18,104,127,8
     EDITTEXT        IDC_EDIT1,40,140,207,12,ES_AUTOHSCROLL
     PUSHBUTTON      "Odaberite generatorski-specificne &parametre ...",IDC_BUTTON1,18,158,155,18
     EDITTEXT        IDC_EDIT2,110,200,40,12,ES_AUTOHSCROLL
@@ -12820,7 +12851,7 @@ BEGIN
     CONTROL         "&Binarno",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,89,249,35,10
     CONTROL         "&Oktalno",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,153,249,33,10
     CONTROL         "&Heksadecimalno",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,218,250,57,10
-    PUSHBUTTON      "&Oktaži",IDCANCEL,234,274,50,18
+    PUSHBUTTON      "&Otkaži",IDCANCEL,234,274,50,18
     GROUPBOX        "Opcije alfabeta",IDC_STATIC,7,5,277,65
     LTEXT           "Izmeni",IDC_EDIT_ANZAHL_ZEICHEN,145,25,121,11
     GROUPBOX        "RSA varijansa",IDC_STATIC,7,76,277,31
@@ -12842,7 +12873,7 @@ BEGIN
     PUSHBUTTON      "&Zatvori",IDCANCEL,307,236,68,22
     CONTROL         "List1",IDC_LIST_KEYS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,62,370,159
     LTEXT           "Svaka linija ispod sadrži sledece karakteristike pronadenih ciklusa:",-1,7,7,368,10
-    LTEXT           "- prva pozicija u datoteci, odakle ciklus pocinje (prvi karakter unutar datoteke ima offset vrednost 1)",-1,7,17,356,10
+    LTEXT           "- prva pozicija u datoteci, odakle ciklus pocinje (prvi karakter unutar datoteke ima ofset vrednost 1)",-1,7,17,356,10
     LTEXT           "- dužina ciklusa",-1,7,27,310,10
     LTEXT           "- prvih maksimalnih 20 byte-ova ciklusa (predstavljenih u ASCII i hex formatu)",-1,7,47,310,10
     LTEXT           "- broj, koliko cesto se ciklus pojavljuje",-1,7,37,310,10
@@ -12921,7 +12952,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     COMBOBOX        IDC_COMBO_ALPHA,101,18,45,44,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_TUPELCOMBO,206,18,27,60,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
-    CONTROL         "Podrazumevani offset i test dužine",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,39,106,11
+    CONTROL         "Podrazumevani ofset i test dužine",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,39,106,11
     CONTROL         "Koristi nasumicno odabrane sekcije iz datoteke",IDC_CHECK2,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,52,159,10
     EDITTEXT        IDC_EDIT1,41,68,60,12,ES_AUTOHSCROLL
@@ -12930,10 +12961,10 @@ BEGIN
     DEFPUSHBUTTON   "&Zatvori",IDOK,163,152,79,19
     GROUPBOX        "Opcije parametara",IDC_STATIC,8,7,234,82
     LTEXT           "Nivo znacaja alfa:",IDC_STATIC,15,20,78,8
-    LTEXT           "Tupel-ova velicina",IDC_TUPEL_STATIC,159,20,33,8
-    LTEXT           "Offset: ",IDC_STATIC,15,70,24,8
+    LTEXT           "Tupel velicina",IDC_TUPEL_STATIC,159,20,33,8
+    LTEXT           "Ofset: ",IDC_STATIC,15,70,24,8
     LTEXT           "Testiraj dužinu",IDC_STATIC,136,69,36,8
-    GROUPBOX        "Testiraj rezultate",IDC_STATIC,8,91,234,53
+    GROUPBOX        "Rezultati testa",IDC_STATIC,8,91,234,53
     LTEXT           "Def_Parameter ...",IDC_INFO_STATIC,16,102,218,16
     LTEXT           "Testiraj datoteku ...",IDC_STATIC_ERGEBNIS,16,124,107,10
     CONTROL         251,IDC_BITMAP_1,"Static",SS_BITMAP | NOT WS_VISIBLE,133,119,18,16
@@ -12957,16 +12988,16 @@ BEGIN
     DEFPUSHBUTTON   "&Zatvori",IDOK,143,275,83,18
     GROUPBOX        "Runs parametri",IDC_STATIC,8,7,218,104
     LTEXT           "Nivo znacaja alfa: ",IDC_STATIC,18,21,80,8
-    LTEXT           "Offset:",IDC_STATIC,18,72,22,8
+    LTEXT           "Ofset:",IDC_STATIC,18,72,22,8
     LTEXT           "Dužina:",IDC_STATIC,133,72,25,8
     LTEXT           "Run dužina:",IDC_STATIC,18,91,38,8
     GROUPBOX        "Dugacki run parametri",IDC_STATIC,8,115,218,50
     CONTROL         "Podrazumevani dugacki runs parametri",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,127,110,10
     LTEXT           "Maksimalna run length:",IDC_STATIC,18,145,62,8
-    GROUPBOX        "Test status",IDC_STATIC,8,168,218,100
-    LTEXT           "Static",IDC_INFO_STATIC_RUN,18,179,128,17
+    GROUPBOX        "Status testa",IDC_STATIC,8,168,218,100
+    LTEXT           "Staticki",IDC_INFO_STATIC_RUN,18,179,128,17
     LTEXT           "\nMolim odaberite ""Izvrši testove""",IDC_RUN_ERGEBNIS,18,203,101,12
-    LTEXT           "Static",IDC_INFO_STATIC_LONGRUN,18,220,128,16
+    LTEXT           "Staticki",IDC_INFO_STATIC_LONGRUN,18,220,128,16
     LTEXT           "",IDC_LONGRUN_ERGEBNIS,18,244,101,12
     CONTROL         251,IDC_ERFOLGNICHT_RUN,"Static",SS_BITMAP,137,199,18,16
     CONTROL         251,IDC_ERFOLGNICHT_LONGRUN,"Static",SS_BITMAP,137,240,18,16
@@ -12984,7 +13015,7 @@ BEGIN
     GROUPBOX        "Stanje entropije",IDC_STATIC,7,7,183,33
     GROUPBOX        "Rezultati pojedinih FIPS-PUB-140-1 testova",IDC_STATIC,7,46,183,111
     GROUPBOX        "Stanje test baterije",IDC_STATIC,7,163,183,42
-    LTEXT           "Entropie_static",IDC_ENTROPIE_STATIC,17,22,139,11
+    LTEXT           "Staticka entropija",IDC_ENTROPIE_STATIC,17,22,139,11
     LTEXT           "Rezultati Longrun testa:",IDC_TEXT_LONG,17,62,123,13
     LTEXT           "Rezultati mono bit testa:",IDC_TEXT_MONO,17,87,123,13
     LTEXT           "Rezultati poker testa:",IDC_TEXT_POKER,17,112,123,13
@@ -13070,7 +13101,7 @@ BEGIN
     GROUPBOX        "Razlaganje (stepeno)",-1,13,118,340,64
     LTEXT           "Klikom na dugme ""Nastavi"" prvo ce broj iz polja unosa, a onda i sledeci kompozitni broj iz polja ""Rezultat razlaganja na cinioce"" biti razložen na dva cinioca.",-1,24,132,318,17
     GROUPBOX        "Razlaganje",-1,13,192,340,116
-    LTEXT           "The factorization is represented in the format <z1^a1 * z2^a2 *.... * zn^an>.\nComposite numbers are appearing in red color.",-1,24,208,318,19
+    LTEXT           "Razlaganje je predstavljeno u formatu <z1^a1 * z2^a2 *.... * zn^an>.\nKompozitni brojevi su prikazani u crvenoj boji.",-1,24,208,318,19
     LTEXT           "Poslednje razlaganje kroz:",-1,24,230,83,14
     EDITTEXT        IDC_EDIT2,112,229,71,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Izmeni",IDS_STRING_BENOETIGTE_ZEIT_FAKT,191,231,151,14
@@ -13110,10 +13141,8 @@ BEGIN
     CONTROL         "Rucna analiza.",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,30,178,71,9
     CONTROL         "Rucna analiza pomocu smeštenog kljuca.",IDC_RADIO4,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,30,191,150,8
-    CONTROL         "Upotrebi 'e' kao najucestaniji karakter.",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,30,102,168,8
-    CONTROL         "Proširena analiza (Nemacki obican tekst)",IDC_CHECK2,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,30,143,136,8
+    CONTROL         "Upotrebi 'e' kao najucestaniji karakter.",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,30,102,168,8
+    CONTROL         "Proširena analiza (Nemacki obican tekst)",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,30,143,136,8
     LTEXT           "Analiza automatske zamene implementirana je samo za Nemacki i Engleski obican tekst. Za sve ostale jezike preporucuje se rucna analiza.",IDC_STATIC,10,5,208,26
     LTEXT           "U mnogim slucajevima automatska analiza može biti poboljšana pod pretpostavkom da je 'e' najucestanije slovo u obicnom tekstu:",IDC_STATIC,19,74,192,25
     LTEXT           "U Nemackom obicnom tekstu digrami 'en' i 'er' su veoma cesti. Ova pretpostavka može poboljšati analizu:",IDC_STATIC,19,120,192,16
@@ -13231,11 +13260,11 @@ BEGIN
     LTEXT           "Javni kljuc e:",IDC_STATIC_RSA3,15,54,75,8
     EDITTEXT        IDC_EDIT_RSA_KEY_PUBLIC,97,52,242,12,ES_AUTOHSCROLL | ES_READONLY
     GROUPBOX        "Licni podaci za sertifikat",IDC_STATIC,7,76,340,113
-    LTEXT           "Naziv:",IDC_STATIC,15,90,75,8
+    LTEXT           "Ime:",IDC_STATIC,15,90,75,8
     EDITTEXT        IDC_EDIT_CERT_NAME,97,89,138,12,ES_AUTOHSCROLL
-    LTEXT           "Ime:",IDC_STATIC,15,109,75,8
-    EDITTEXT        IDC_EDIT_CERT_FIRSTNAME,97,108,138,12,ES_AUTOHSCROLL
-    LTEXT           "Kljucni identifikator:",IDC_STATIC,15,129,75,8
+	LTEXT           "Prvo ime:",IDC_STATIC,15,109,75,8
+	EDITTEXT        IDC_EDIT_CERT_FIRSTNAME,97,108,138,12,ES_AUTOHSCROLL
+    LTEXT           "Identifikator kljuca:",IDC_STATIC,15,129,75,8
     EDITTEXT        IDC_EDIT_CERT_KEY_ID,97,127,138,12,ES_AUTOHSCROLL
     LTEXT           "(opciono)",IDC_STATIC,244,128,30,8
     LTEXT           "PIN:",IDC_STATIC,15,147,75,8
@@ -13294,7 +13323,7 @@ END
 
 IDD_HYBRID_ENCRYPTION_DEMO DIALOGEX 0, 0, 555, 429
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Hibridna Šifrovanje sa RSA-AES - Vizualizacija Dijagramom Toka"
+CAPTION "Hibridno Šifrovanje sa RSA-AES - Vizuelizacija Dijagramom Toka"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "Sechseck1_R_",IDC_BUTTON1_TXT_EINFUEGEN,"Button",BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,34,14,89,14
@@ -13340,9 +13369,9 @@ FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,12,61,50,18
     PUSHBUTTON      "&Otkaži",IDCANCEL,215,61,50,18
-    CONTROL         "Prikaži dijalog ""Kako poceti"" kada se pokrece CrypTool.",IDC_CHECK1,
+    CONTROL         "Prikaži dijalog ""Kako poceti"" prilikom pokretanja CrypTool-a.",IDC_CHECK1,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,15,185,10
-    CONTROL         "Otvori primer tekstualne datoteke automatski kada se pokrece CrypTool.",IDC_CHECK2,
+    CONTROL         "Otvori primer tekstualne datoteke automatski prilikom pokretanja CrypTool-a.",IDC_CHECK2,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,36,212,10
 END
 
@@ -13447,7 +13476,7 @@ BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,96,50,14
     PUSHBUTTON      "&Otkaži",IDCANCEL,143,96,50,14
     LTEXT           "Svi preduslovi za generisanje zajednickog i deljenog kljuca sesije S za Alisu i Boba su ispunjeni. Možete generisati Alisin i Bobov kljuc sesije klikom na dugme 'OK'.",IDC_STATIC,7,37,186,24,NOT WS_GROUP
-    LTEXT           "Zajednicki kljuc sesije se S se izracunava na sledeci nacin:\nA = (g^a)^b mod p and B = (g^b)^a mod p.",IDC_STATIC,7,69,186,16
+    LTEXT           "Zajednicki kljuc sesije S se izracunava na sledeci nacin:\nA = (g^a)^b mod p and B = (g^b)^a mod p.",IDC_STATIC,7,69,186,16
     LTEXT           "Staticki",IDC_HEADING,7,7,186,16
 END
 
@@ -13462,11 +13491,11 @@ BEGIN
     PUSHBUTTON      "Kreiraj Ge&nerator",IDC_GENERATE_GENERATOR,278,109,100,14
     DEFPUSHBUTTON   "&Prihvati parametre",IDOK,15,137,100,20
     PUSHBUTTON      "&Otkaži",IDCANCEL,278,137,100,20
-    LTEXT           "Generator (g) je prirodni broj, po mogucnosti ne nula ili jedan i net množilac prostog modula (p). Pritisnite dugme 'Kreiraj Generator' da bi CrypTool kreirao validan prirodan broj.",IDC_STATIC,15,84,363,16
+    LTEXT           "Generator (g) je prirodni broj, po mogucnosti ne-nula ili jedan i net množilac prostog modula (p). Pritisnite dugme 'Kreiraj Generator' da bi CrypTool kreirao validan prirodan broj.",IDC_STATIC,15,84,363,16
     LTEXT           "Generator:",IDC_STATIC,25,109,50,14,SS_CENTERIMAGE
     LTEXT           "Oba parametra, generator (g) i prosti modul (p) mogu biti poznati javno.",IDC_STATIC,15,7,363,8
     LTEXT           "Prost modul (p) mora biti prost broj; ako ne znate nijedan veliki prost broj, jednostavno kliknite 'Generiši Prost Broj'. Validan prost modul ce biti kreiran odmah.",IDC_STATIC,15,28,363,16
-    LTEXT           "Prost module:",IDC_STATIC,25,53,50,14,SS_CENTERIMAGE
+    LTEXT           "Prost modul:",IDC_STATIC,25,53,50,14,SS_CENTERIMAGE
 END
 
 IDD_DIFFIEHELLMAN_SECRETINPUT DIALOG  0, 0, 388, 146
@@ -13506,7 +13535,7 @@ BEGIN
     LTEXT           "Alisin Kljuc Sesije:",IDC_STATIC,20,35,75,14,SS_CENTERIMAGE
     LTEXT           "Bobov Kljuc Sesije:",IDC_STATIC,20,90,75,14,SS_CENTERIMAGE
     GROUPBOX        "Provera",IDC_STATIC,7,135,410,30
-    LTEXT           "Ishod teksta",IDC_RESULT,20,149,391,8
+    LTEXT           "ERGEBNISTEXT",IDC_RESULT,20,149,391,8
     EDITTEXT        IDC_KEY_ALICE,99,35,312,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_BITLENGTHALICE,180,55,40,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_KEY_BOB,99,90,312,14,ES_AUTOHSCROLL | ES_READONLY
@@ -13529,9 +13558,9 @@ BEGIN
     GROUPBOX        "Odaberi ""bezopasnu"" datoteku",IDC_STATIC,18,54,291,63
     GROUPBOX        "Odaberi ""opasnu"" datoteku",IDC_STATIC,18,123,291,63
     EDITTEXT        IDC_FILE_HARMLESS,27,94,205,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Gledaj ...",IDC_BROWSE_HARMLESS,248,92,50,17
+    PUSHBUTTON      "Pregledaj ...",IDC_BROWSE_HARMLESS,248,92,50,17
     EDITTEXT        IDC_FILE_DANGEROUS,27,163,205,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Gledaj ...",IDC_BROWSE_DANGEROUS,248,161,50,17
+    PUSHBUTTON      "Pregledaj ...",IDC_BROWSE_DANGEROUS,248,161,50,17
     PUSHBUTTON      "&Opcije ...",IDC_OPTIONS,150,280,56,17
     LTEXT           "Napad koji je implementiran ovde pokušava da pronade dve razlicite poruke koje prevode u istu heš vrednost.",IDC_STATIC,19,13,270,20
     LTEXT           "Napadac pretpostavlja da ce njegova žrtva digitalno potpisati ""bezopasnu"" poruku zbog njenog bezopasnog sadržaja.",IDC_STATIC,28,69,272,22
@@ -13560,7 +13589,7 @@ BEGIN
     CONTROL         "SHA-1",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,86,71,37,10
     CONTROL         "RIPEMD-160",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,151,71,58,10
     GROUPBOX        "Heš funkcija",IDC_STATIC,11,7,247,105
-    LTEXT           "Dužina znacajnog bit-a",IDC_STATIC,21,93,64,8
+    LTEXT           "Dužina znacajnog bita",IDC_STATIC,21,93,64,8
     EDITTEXT        IDC_EDIT1,96,91,20,14,ES_AUTOHSCROLL
     PUSHBUTTON      "&Resetuj na standardno",IDC_BUTTON1,82,242,104,17
     LTEXT           "",IDC_STATIC_SIG_ATT_BITLENGTH_RANGE,128,93,79,8
@@ -13683,7 +13712,7 @@ END
 IDD_SIDECHANNELATTACKVISUALIZATION_HE DIALOGEX 0, 0, 650, 385
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION 
-"Napad Sporednog Kanala protiv hibridnog protokola šifrovanja (Recnik-RSA)"
+"Napad Sporednog Kanala protiv hibridnog protokola šifrovanja (Recnicki-RSA)"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     CONTROL         "IDB_SCA_BUTTON1_R_",IDC_INTRODUCTION,"Button",BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,20,100,30
@@ -13708,8 +13737,7 @@ BEGIN
     PUSHBUTTON      "&Sledeci korak",IDC_BUTTON_NEXTSINGLESTEP,225,296,100,25
     PUSHBUTTON      "&Svi koraci odjednom",IDC_BUTTON_ALLREMAININGSTEPS,225,325,100,26
     GROUPBOX        "Kontrola napada:",IDC_ATTACKCONTROL,220,282,111,75
-    CONTROL         "Prikaži &dijaloge sa informacijama",IDC_CHECK_DISABLEHELP,
-                    "Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,553,368,90,10
+    CONTROL         "Prikaži &dijaloge sa informacijama",IDC_CHECK_DISABLEHELP,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,553,368,90,10
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_ALICE DIALOG  0, 0, 375, 250
@@ -13876,7 +13904,7 @@ BEGIN
     CONTROL         "Generišite šifrat zadavanjem otvoreni tekst i njegovim šifrovanjem.",IDC_RADIOCHOICE2,
                     "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,16,158,210,10
     EDITTEXT        IDC_EDITPLAINFULL,15,183,242,35,ES_MULTILINE | ES_READONLY | ES_WANTRETURN | NOT WS_VISIBLE | WS_VSCROLL
-    PUSHBUTTON      "Encrypt",IDC_BUTTONENCRYPT,15,224,52,14,NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "Zašifruj",IDC_BUTTONENCRYPT,15,224,52,14,NOT WS_VISIBLE | WS_DISABLED
     EDITTEXT        IDC_EDITCIPHER,265,183,239,35,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
     CONTROL         "Decimalno",IDC_RADIONUMBER,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,364,226,39,10
     CONTROL         "Heksadecimalno",IDC_RADIOHEX,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,414,226,57,10
@@ -13894,14 +13922,14 @@ BEGIN
     LTEXT           "Pregled:",IDC_STATIC,15,325,28,12
     EDITTEXT        IDC_EDITPLAIN,13,279,242,35,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
     GROUPBOX        "Korak 3: Deo otvoreni tekst poznatog napadacu",IDC_STATIC,9,252,504,93
-    LTEXT           "Dužina otvoreni tekst (maksimalna moguca):",IDC_PTLENGTH,86,227,111,8,NOT WS_VISIBLE
+    LTEXT           "Dužina otvorenog teksta (maksimalna moguca):",IDC_PTLENGTH,86,227,111,8,NOT WS_VISIBLE
     EDITTEXT        IDC_EDITPLAINLENGTH,203,224,54,14,ES_AUTOHSCROLL | ES_NUMBER | NOT WS_VISIBLE
     LTEXT           "Cisti tekst",IDC_STATIC_PLAINTEXT,15,173,125,8,NOT WS_VISIBLE
     LTEXT           "Šifrovani tekst",IDC_STATIC,265,173,84,8
-    LTEXT           "Unesite deo otvoreni tekst poznatog napadacu.",IDC_STATIC_ENTER_KNOWN,15,263,165,10
-    LTEXT           "Ovde se menjaju podešavanja vezana za offset i dužinu.",IDC_STATIC_ENTER_POS,265,263,236,26,NOT WS_VISIBLE
-    LTEXT           "Ovde se menjaju podešavanja vezana za offset i dužinu. Unesite ih u tekstualne kutije ili oznacite delove otvoreni tekst iz koraka 2 i kliknite ""Iseci"".",IDC_STATIC_HIGHLIGHT_POS,265,263,239,37
-    LTEXT           "Ovo je deo otvoreni tekst poznatog napadacu.",IDC_STATIC_SHOW_KNOWN,15,263,241,10,NOT WS_VISIBLE
+    LTEXT           "Unesite deo otvorenog teksta poznatog napadacu.",IDC_STATIC_ENTER_KNOWN,15,263,165,10
+    LTEXT           "Ovde se menjaju podešavanja vezana za ofset i dužinu.",IDC_STATIC_ENTER_POS,265,263,236,26,NOT WS_VISIBLE
+    LTEXT           "Ovde se menjaju podešavanja vezana za ofset i dužinu. Unesite ih u tekstualne kutije ili oznacite delove otvoreni tekst iz koraka 2 i kliknite ""Iseci"".",IDC_STATIC_HIGHLIGHT_POS,265,263,239,37
+    LTEXT           "Ovo je deo otvorenog teksta poznatog napadacu.",IDC_STATIC_SHOW_KNOWN,15,263,241,10,NOT WS_VISIBLE
     LTEXT           "Predstavljanje cifre:",IDC_STATIC,269,226,87,8
 END
 
@@ -13948,7 +13976,7 @@ BEGIN
     LTEXT           "Dužina bit-a N:",IDC_STATIC,14,117,46,8
     LTEXT           "Odreduje velicinu rešetke za smanjenje i maksimalnu velicinu delta. Trebala bi da bude najmanje 4.",IDC_STATIC,154,215,316,19
     LTEXT           "Optimalno se racuna kao funkcija od m.",IDC_STATIC,154,236,168,8
-    LTEXT           "Makslimalna velicina delte za veliko N (N>1000 Bit-a).",IDC_STATIC,154,271,139,11
+    LTEXT           "Maksimalna velicina delte za veliko N (N>1000 Bit-a).",IDC_STATIC,154,271,139,11
     LTEXT           "Dimenzija rešetke:",IDC_STATIC,24,253,60,8,0,WS_EX_RIGHT
     LTEXT           "Dimenzija rešetke za smanjenje. Ima veliki uticaj na vreme izvršenja.",IDC_STATIC,154,254,238,8
     GROUPBOX        "Opis",IDC_STATIC,7,7,477,84
@@ -13958,7 +13986,7 @@ BEGIN
     LTEXT           "Smanjenje rešetke:",IDC_STATIC,22,336,62,8,0,WS_EX_RIGHT
     LTEXT           "Smanjenja:",IDC_STATIC,154,336,54,8,0,WS_EX_RIGHT
     LTEXT           "Izracunavanje rezultante:",IDC_STATIC,16,355,68,8,0,WS_EX_RIGHT
-    LTEXT           "Rezultatne:",IDC_STATIC,154,354,54,8,0,WS_EX_RIGHT
+    LTEXT           "Rezultante:",IDC_STATIC,154,354,54,8,0,WS_EX_RIGHT
     LTEXT           "Ukupno vreme:",IDC_STATIC,16,372,68,8,0,WS_EX_RIGHT
     LTEXT           "Pronadena razlaganja:",IDC_STATIC,15,392,76,8
     LTEXT           "p:",IDC_STATIC,15,404,8,8
@@ -13976,7 +14004,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     CONTROL         "U cilju primene primera iz literature, možete uneti zahtevane parametre sami:\nvrednost N, dužinu bit-a p i vrednost P.",IDC_RADIOCHOICE,
                     "Button",BS_AUTORADIOBUTTON | BS_MULTILINE | WS_GROUP,15,45,398,16
-    CONTROL         "U cilju generisanja na primeru, unesite željene dužine bita N, p i P.\nNakon toga kliknite na ""Generiši primer"".  Možete pronaci savete za odgovarajuce parametre u on-line pomoci.",IDC_RADIOCHOICE2,
+    CONTROL         "U cilju generisanja na primeru, unesite željene dužine bita N, p i P.\nNakon toga kliknite na ""Generiši primer"".  Možete pronaci savete za odgovarajuce parametre u online pomoci.",IDC_RADIOCHOICE2,
                     "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,15,62,398,16
     EDITTEXT        IDC_EDITN,31,116,250,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_NUMBER | WS_GROUP
     EDITTEXT        IDC_EDITBITSOFP,365,127,48,14,ES_AUTOHSCROLL | ES_NUMBER | WS_GROUP
@@ -13984,10 +14012,10 @@ BEGIN
     CONTROL         "Decimalno",IDC_RADIONUMBER,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,13,252,41,10
     CONTROL         "Heksadecimalno",IDC_RADIOHEX,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,96,252,57,10
     CONTROL         "Binarno",IDC_RADIOBIN,"Button",BS_AUTORADIOBUTTON,182,251,35,10
-    CONTROL         "najznacajniji bit-ovi",IDC_RADIOMSB,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,14,170,77,10
-    CONTROL         "najmanje znacajni bit-ovi",IDC_RADIOLSB,"Button",BS_AUTORADIOBUTTON,96,170,77,10
+    CONTROL         "najznacajniji bitovi",IDC_RADIOMSB,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,14,170,77,10
+    CONTROL         "najmanje znacajni bitovi",IDC_RADIOLSB,"Button",BS_AUTORADIOBUTTON,96,170,77,10
     EDITTEXT        IDC_EDITB,365,168,48,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER | WS_GROUP
-    PUSHBUTTON      "Podesi podrazumevani parametre",IDC_BUTTONDEFAULT,262,250,83,14,WS_DISABLED
+    PUSHBUTTON      "Podesi podrazumevane parametre",IDC_BUTTONDEFAULT,262,250,83,14,WS_DISABLED
     PUSHBUTTON      "Generiši primer",IDC_R,350,250,63,14,WS_DISABLED
     EDITTEXT        IDC_EDITP_RIGHT,31,210,382,14,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE
     EDITTEXT        IDC_EDITGUESSP_RIGHT,31,189,382,14,ES_AUTOHSCROLL | ES_NUMBER | NOT WS_VISIBLE,WS_EX_RIGHT
@@ -14008,10 +14036,10 @@ BEGIN
     LTEXT           "Bitlength of P:",IDC_STATIC,312,171,46,8,0,WS_EX_RIGHT
     LTEXT           "p:",IDC_STATIC,17,378,8,8
     LTEXT           "q:",IDC_STATIC,218,378,8,8
-    GROUPBOX        "Željene dužine bit-ova",IDC_STATIC,304,100,115,46
+    GROUPBOX        "Željene dužine bitova",IDC_STATIC,304,100,115,46
     LTEXT           "Ovaj napad dozvoljava da se razloži RSA-Moduo N, ako je deo jednog od njegovih cinilaca p i q poznat (ovde pretpostavljamo da je deo p poznat). Neka P bude poznati deo p-a.",IDC_STATIC,15,15,398,18
     GROUPBOX        "Korak 1: Unesite javni kljuc",IDC_STATIC,7,100,288,46
-    RTEXT           "Dužina bit-a N:",IDC_STATIC,310,112,48,8
+    RTEXT           "Dužina bita N:",IDC_STATIC,310,112,48,8
     GROUPBOX        "Brojna osnova",IDC_STATIC,8,240,216,32,WS_GROUP
     GROUPBOX        "Korak 3: Pocni napad",IDC_STATIC,8,280,411,118
     LTEXT           "Izgradnja rešetke:",IDC_STATIC,17,291,61,8
@@ -14019,10 +14047,10 @@ BEGIN
     LTEXT           "Ukupno vreme:",IDC_STATIC,17,340,61,10
     LTEXT           "Pronadeno rešenje:",IDC_STATIC,17,364,83,8
     LTEXT           "Dimenzija rešetke:",IDC_STATIC,208,308,70,8
-    LTEXT           "Potrebno bit-ova (n/4+1):",IDC_STATIC,207,291,67,8
+    LTEXT           "Potrebno bitova (n/4+1):",IDC_STATIC,207,291,67,8
     LTEXT           "Smanjenja:",IDC_STATIC,17,324,61,10
-    RTEXT           "Dužina bit-a p:",IDC_STATIC,310,129,48,8
-    LTEXT           "Dakle, P je broj koji se sastoji od poznatih delova bit-a p-a (na pocetku ili na kraju).",IDC_STATIC,15,34,377,8
+    RTEXT           "Dužina bita p:",IDC_STATIC,310,129,48,8
+    LTEXT           "Dakle, P je broj koji se sastoji od poznatih delova bita p-a (na pocetku ili na kraju).",IDC_STATIC,15,34,377,8
     GROUPBOX        "Korak 2: Unesite P (poznati deo prostog broja p)",IDC_STATIC,8,153,411,80
     LTEXT           "p:",IDC_STATIC,14,213,8,8
     EDITTEXT        IDC_EDITGUESSP_LEFT,31,189,382,14,ES_MULTILINE | ES_AUTOHSCROLL
@@ -14036,38 +14064,27 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Kôd Autentikacije Poruke sa Heš-Kljucem (HMAC)"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    EDITTEXT        IDC_EDIT_KEY,7,285,311,12,ES_AUTOHSCROLL | ES_WANTRETURN
-    CONTROL         "MD2",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,19,156,31,8
-    CONTROL         "MD4",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,19,170,31,8
-    CONTROL         "MD5",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,19,184,31,8
-    CONTROL         "SHA",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,19,198,31,8
-    CONTROL         "SHA-1",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,19,212,37,8
-    CONTROL         "SHA-256",IDC_RADIO12,"Button",BS_AUTORADIOBUTTON,19,226,65,8
-    CONTROL         "SHA-512",IDC_RADIO13,"Button",BS_AUTORADIOBUTTON,19,240,65,8
-    CONTROL         "RIPEMD-160",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,19,254,58,8
-    CONTROL         "H(k, m): ispred poruke",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | WS_GROUP,133,156,177,8
-    CONTROL         "H(m, k): iza poruke",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,133,170,177,8
-    CONTROL         "H(k, m, k): ispred i iza",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,133,184,177,8
-    CONTROL         "H(k, m, k'): razliciti kljucevi",IDC_RADIO11,"Button",BS_AUTORADIOBUTTON,133,198,94,8
-    CONTROL         "H(k, H(k, m)): duplo heš-ovanje (RFC 2104)",IDC_RADIO10,
-                    "Button",BS_AUTORADIOBUTTON,133,212,177,8
-    EDITTEXT        IDC_EDIT_KEY2,7,314,311,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_SHOW_MAC,7,437,311,32,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_SHOW_TEXT,7,343,311,32,ES_MULTILINE | ES_READONLY
-    PUSHBUTTON      "Zatvori",IDCANCEL,7,478,90,20
-    LTEXT           "Unesite Vaš kljuc (k):",IDC_STATIC,7,273,58,8
-    LTEXT           "Unesite drugi kljuc (k'):",IDC_STATIC,7,303,70,8
-    LTEXT           "HMAC generisan iz kljuca i poruke:",IDC_STATIC,7,426,130,8
-    LTEXT           "Unos za spoljnu heš funkciju (zavisi od HMAC varijanse odabrane iznad):",IDC_STATIC,7,331,311,8
-    GROUPBOX        "Odaberite heš funkciju",IDC_STATIC,7,143,102,126
-    GROUPBOX        "HMAC varijansa (pozicije kljuceva; gneždenje)",IDC_STATIC,123,143,195,126
-    LTEXT           "Putem HMAC-a primalac poruke je u stanju da proveri njen integritet i autenticnost njenog pošaljioca. Prema tome, obe strane koriste deljenu tajnu (simetricni kljuc).",IDC_STATIC,15,20,295,16
-    LTEXT           "Za kreiranje HMAC-a, primenjuje se kriptografska heš funkcija na kombinaciju poruke m i tajnog kljuca k. Prema varijaciji odabranoj ispod, dva razlicita kljuca k i k' mogu biti upotrebljena.",IDC_STATIC,15,40,295,24
-    GROUPBOX        "Opis",IDC_STATIC,7,7,311,70
-    EDITTEXT        IDC_EDIT_ORIGINAL_MESSAGE,15,93,295,42,ES_AUTOHSCROLL
-    GROUPBOX        "Poruka",IDC_STATIC,7,80,311,60
-    LTEXT           "Heš vrednost same poruke m:",IDC_STATIC,7,379,111,8
-    EDITTEXT        IDC_SHOW_HASH,7,390,311,32,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_KEY,132,244,384,12,ES_AUTOHSCROLL | ES_WANTRETURN
+    EDITTEXT        IDC_EDIT_KEY2,132,265,384,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_SHOW_MAC,7,411,518,32,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_SHOW_TEXT,7,346,518,49,ES_MULTILINE | ES_READONLY
+    PUSHBUTTON      "Zatvori",IDCANCEL,435,454,90,20
+    LTEXT           "Unesite Vaš kljuc (k)",IDC_STATIC,15,245,103,8
+    LTEXT           "Unesite drugi kljuc (k')",IDC_STATIC,15,266,72,8
+    LTEXT           "HMAC generisan iz kljuca i poruke",IDC_STATIC,7,400,128,8
+    LTEXT           "Unos za spoljnu heš funkciju (zavisi od HMAC varijante odabrane iznad)",IDC_STATIC,7,335,518,8
+    LTEXT           "Putem HMAC-a primalac poruke je u stanju da proveri njen integritet i autenticnost njenog pošaljioca. Prema tome, obe strane koriste deljenu tajnu (simetricni kljuc).",IDC_STATIC,15,20,501,16
+    LTEXT           "Za kreiranje HMAC-a, primenjuje se kriptografska heš funkcija na kombinaciju poruke m i tajnog kljuca k. Prema varijaciji odabranoj ispod, dva razlicita kljuca k i k' mogu biti upotrebljena.",IDC_STATIC,15,38,501,17
+    GROUPBOX        "Opis",IDC_STATIC,7,7,518,52
+    EDITTEXT        IDC_EDIT_ORIGINAL_MESSAGE,15,79,501,120,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL
+    GROUPBOX        "Poruka",IDC_STATIC,7,66,518,140
+    LTEXT           "Unutrašnja heš vrednost:",IDC_STATIC,7,291,56,9
+    EDITTEXT        IDC_SHOW_HASH,7,303,518,25,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,65,221,175,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_SELECT_HMAC_ALGORITHM,315,221,202,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Heš funkcija",IDC_STATIC,15,223,47,9
+    LTEXT           "MAC varijanta",IDC_STATIC,267,224,44,9
+    GROUPBOX        "HMAC parametar i kljuc",IDC_STATIC,7,209,518,76
 END
 
 IDD_ADFGVX DIALOGEX 0, 0, 265, 466
@@ -14313,7 +14330,7 @@ BEGIN
     EDITTEXT        IDC_CRT_ASTRONOMY_EDITAEARTH,353,190,55,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     LTEXT           "i",IDC_STATIC,339,191,14,9
     LTEXT           "dana.",IDC_STATIC,410,191,18,11
-    GROUPBOX        "Simultane podudarnost/ modularni linearni sistemi jednacina",IDC_STATIC,7,46,258,167
+    GROUPBOX        "Simultane podudarnosti/ modularni linearni sistemi jednacina",IDC_STATIC,7,46,258,167
     LTEXT           "x",IDC_STATIC,16,59,8,8
     GROUPBOX        "",IDC_STATIC,7,3,491,39
     LTEXT           "Korišcenjem Kineske Teorije Ostatka (CRT) u mogucnosti ste da rešite linearne modularne sisteme jednacina. Možete uneti do 9 jednacina x = a[i] mod m[i] (i=1, ..., 9) ispod i izracunati rešenje.",IDC_STATIC,13,12,477,16
@@ -14337,12 +14354,12 @@ BEGIN
     CONTROL         830,IDC_STATIC,"Static",SS_BITMAP,25,196,5,4
     CONTROL         "",IDC_GIF_CRT_ASTRONOMY,"Static",SS_BLACKRECT,288,60,20,20
     LTEXT           "izravnane.",IDC_STATIC,13,28,26,8
-    LTEXT           "Ovakvi sistemi jednacina mogu koristiti za pronalaženje broja dana kada ce odredene planete postati",IDC_STATIC,166,20,314,8
+    LTEXT           "Ovakvi sistemi jednacina mogu se koristiti za pronalaženje broja dana kada ce odredene planete postati",IDC_STATIC,166,20,314,8
 END
 
 IDD_CRT_SECRETSHARING DIALOGEX 0, 0, 386, 423
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Dinamicko"
+CAPTION "DYNAMISCH"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     EDITTEXT        IDC_CRT_SECRETSHARINGEDIT5,12,98,143,15,ES_RIGHT | ES_READONLY | ES_NUMBER
@@ -14372,8 +14389,7 @@ BEGIN
     PUSHBUTTON      "+ / -",IDC_SECRETSHARING_ADD7,21,360,20,14,WS_DISABLED
     EDITTEXT        IDC_CRT_SECRETSHARINGEDIT22,48,360,143,14,ES_AUTOHSCROLL | WS_DISABLED,WS_EX_RIGHT
     PUSHBUTTON      "Ponovo izgradi &tajnu",IDC_BUTTON1,253,360,59,15,WS_DISABLED
-    CONTROL         "Prikaži uvod pri sledecem pokretanju",IDC_CRT_SHOWDIALOG,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,387,102,10
+    CONTROL         "Prikaži uvod pri sledecem pokretanju",IDC_CRT_SHOWDIALOG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,387,102,10
     PUSHBUTTON      "&Pomoc",IDOK,75,403,50,15
     PUSHBUTTON      "&Log datoteka",IDC_SECRETSHARING_LOG,170,402,50,14,WS_DISABLED
     PUSHBUTTON      "&Izlaz",IDC_SECRETSHARING_ALGO,258,401,50,15
@@ -14386,9 +14402,9 @@ BEGIN
     EDITTEXT        IDC_CRT_SECRETSHARINGEDIT15b,162,205,143,14,ES_AUTOHSCROLL | ES_READONLY,WS_EX_RIGHT
     CONTROL         "rucno",IDC_CRT_RADIO_MAN,"Button",BS_AUTORADIOBUTTON,314,120,62,9
     LTEXT           "Identifikator (= Prost broj)",IDC_STATIC,17,88,91,10
-    GROUPBOX        "Dinamicki",IDC_CRT_FR_KO,6,77,375,151
+    GROUPBOX        "DYNAMISCH",IDC_CRT_FR_KO,6,77,375,151
     LTEXT           "Lozinka (= Kljuc)",IDC_STATIC,167,89,61,8
-    GROUPBOX        "Dinamicki",IDC_CRT_FR_REKO,5,232,375,151
+    GROUPBOX        "DYNAMISCH",IDC_CRT_FR_REKO,5,232,375,151
     RTEXT           "1:",IDC_STATIC1,8,258,9,12,WS_DISABLED
     RTEXT           "2:",IDC_STATIC2,7,275,10,12,WS_DISABLED
     RTEXT           "3:",IDC_STATIC3,8,292,9,12,WS_DISABLED
@@ -14401,7 +14417,7 @@ BEGIN
     GROUPBOX        "",IDC_STATIC,6,3,375,70
     LTEXT           "Nakon izracunavanja: Ako obezbedite minimalan broj kljuceva klikom na '+/-' dugmad u najnižoj grupi, ovaj program ce pokušati da ponovo izgradi tajnu nakon klika na 'Ponovo izgradi tajnu'.",IDC_STATIC,12,51,362,16
     LTEXT           "Deljenje tajne putem CRT-a dozvoljava distribuciju tajne na n kljuceva, tako da originalna tajna može biti rekonstruisana, ako se proizvoljan podskup od k<=n vlasnika kljuceva približi. ",IDC_STATIC,12,11,360,16
-    LTEXT           "Dinamicki",IDC_REKOHELP,11,242,361,11
+    LTEXT           "DYNAMISCH",IDC_REKOHELP,11,242,361,11
     LTEXT           "Distribuiraj kljuceve:",IDC_CRT_Calculation,314,92,62,11
 END
 
@@ -14416,8 +14432,8 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,316,220,50,14
     EDITTEXT        IDC_CRT_FACT1,6,18,360,29,ES_MULTILINE | ES_READONLY
     EDITTEXT        IDC_CRT_FACT2,6,63,360,28,ES_MULTILINE | ES_READONLY
-    LTEXT           "Dinamicki",IDC_CRT_FACTS1,6,8,171,8
-    LTEXT           "Dinamicki",IDC_CRT_FACTS2,6,53,188,8
+    LTEXT           "DYNAMISCH",IDC_CRT_FACTS1,6,8,171,8
+    LTEXT           "DYNAMISCH",IDC_CRT_FACTS2,6,53,188,8
     LTEXT           "3. Kolicnik ovih gornjih brojeva (w):",IDC_STATIC,6,97,156,8
     EDITTEXT        IDC_CRT_FACT3,6,107,175,12,ES_MULTILINE | ES_READONLY
     LTEXT           "4. Tajna (s) je slucajan broj izmedu 0 i w:",IDC_STATIC,190,97,176,8
@@ -14436,15 +14452,14 @@ BEGIN
     LTEXT           "Korišcenjem ove aplikacije tajna može biti dostavljena najviše na 7 osoba, da bi mogla da bude rešenja manjim brojm, koji je naveden prethodno. Svakako, nije fiksno, koji su od ovih ljudi ukljuceni u ovaj podskup.",IDC_STATIC,7,7,219,32
     LTEXT           "Ovo možete porediti sa primerom banke, gde 5 ljudi iz izvršnog odbora poseduju kljuceve od sefa. Da bi osigurali, da nije samo jedna osoba u stanju da otvori sef, neko zahteva da npr. tri osobe moraju da koriste",IDC_STATIC,7,45,219,35
     LTEXT           "U ovoj šemi, koristimo brojevne kljuceve: svaka osoba je 'oznacena' sa identifikatorom i poseduje licni kljuc, koji može biti samo proveren, kada se koristi sa ispravnim identifikatorom.",IDC_STATIC,7,84,219,25
-    CONTROL         "Prikaži ovaj dijalog pri sledecem pokretanju",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,171,133,10
+    CONTROL         "Prikaži ovaj dijalog pri sledecem pokretanju",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,171,133,10
     LTEXT           "U slucaju pojavljivanja nejasnoca prilikom korišcenja ove aplikacije, jednostavno pritisnite dugme F1 da biste dobili kontekstno osetljivu pomoc.",IDC_STATIC,7,117,219,23
     LTEXT           "svoje kljuceve istovremeno.",IDC_STATIC,138,69,90,9
 END
 
 IDD_CRT_SECRETSHARING_LOG DIALOGEX 0, 0, 318, 131
 STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
-CAPTION "Dinamicki"
+CAPTION "DYNAMISCH"
 FONT 8, "Microsoft Sans Serif", 400, 0, 0x1
 BEGIN
     EDITTEXT        IDC_CRT_LOG,0,0,318,112,ES_MULTILINE | ES_AUTOHSCROLL | ES_NOHIDESEL | WS_VSCROLL | WS_HSCROLL | NOT WS_TABSTOP
@@ -14506,7 +14521,7 @@ BEGIN
     GROUPBOX        "Modularni prikaz",IDC_STATIC,346,45,207,62
     GROUPBOX        "Rezultat operacije",IDC_STATIC,346,159,207,30
     GROUPBOX        "Proracun osnove",IDC_STATIC,346,240,207,32
-    GROUPBOX        "Transformation back",IDC_STATIC,346,286,207,136
+    GROUPBOX        "Transformacija nazad",IDC_STATIC,346,286,207,136
     EDITTEXT        IDC_CRT_TRANSFORMATION_EDITSOLVE6,12,301,271,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER | NOT WS_TABSTOP
     GROUPBOX        "Rešenje",IDC_STATIC,6,370,281,31
     PUSHBUTTON      "Generiši",IDC_Generate1,228,175,48,14
@@ -14590,7 +14605,8 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,13,169,13
     LTEXT           "(odnosno, šifrovani alfabet sadrži ""praznine"").",IDC_STATIC,33,26,156,11
     GROUPBOX        "GUI",IDC_STATIC,7,44,198,29
-    CONTROL         "Ne prikazuj srednje rezultate (brže).",IDC_NOGUI,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,22,56,169,10
+    CONTROL         "Ne prikazuj srednje rezultate (brže).",IDC_NOGUI,
+					"Button",BS_AUTOCHECKBOX | WS_TABSTOP,22,56,169,10
 END
 
 IDD_ROT13_CAESAR DIALOGEX 0, 0, 316, 342
@@ -14603,7 +14619,7 @@ BEGIN
     DEFPUSHBUTTON   "&Zašifruj",ID_ENCRYPT,14,317,58,19
     PUSHBUTTON      "&Dešifruj",ID_DECRYPT,85,317,58,19
     PUSHBUTTON      "&Otkaži",IDCANCEL,250,317,57,19
-    GROUPBOX        "Izaberite varijansu",IDC_STATIC,13,105,80,45
+    GROUPBOX        "Izaberite varijantu",IDC_STATIC,13,105,80,45
     GROUPBOX        "Svojstva odabranog šifrovanja",IDC_STATIC,14,213,293,94
     LTEXT           "Pomakom",IDC_TEXT0,25,230,58,8
     LTEXT           "od:",IDC_TEXT2,25,265,15,8
@@ -14715,7 +14731,7 @@ BEGIN
     GROUPBOX        "Unos kljuca",IDC_STATIC,14,76,288,37
     LTEXT           "Kljuc",IDC_STATIC,21,94,36,11
     GROUPBOX        "Informacije o zameni šifre",IDC_STATIC,14,120,288,74
-    LTEXT           "Alfabet (26 karaktera) ce biti mapiran ",IDC_TEXT1,21,134,145,8
+    LTEXT           "Alfabet (26 karaktera) ce biti mapiran ",IDC_ALPHABET_HEADING,21,134,145,8
     LTEXT           "od:",IDC_TEXT2,21,151,16,8
     LTEXT           "do:",IDC_TEXT3,21,172,9,8
     GROUPBOX        "Odaberite varijanu monoalfabetske zamene",IDC_STATIC,14,9,288,60
@@ -14725,6 +14741,7 @@ BEGIN
                     "Button",BS_AUTORADIOBUTTON,21,38,210,10
     CONTROL         "Atbash (šifrovanje koristi fiksni kljuc)",IDC_RADIO2,
                     "Button",BS_AUTORADIOBUTTON,21,51,229,10
+	PUSHBUTTON      "&Opcije teksta",IDC_BUTTON_TEXTOPTIONS,165,205,55,19
 END
 
 IDD_VISUALIZE_PHASE_SPACE DIALOGEX 0, 0, 388, 273
@@ -14749,186 +14766,214 @@ BEGIN
     CONTROL         "0",IDC_RENDER_SHIFT_0,"Button",BS_AUTORADIOBUTTON,289,121,35,18
 END
 
-IDD_SOLITAIRE DIALOGEX 0, 0, 625, 329
+IDD_SOLITAIRE DIALOGEX 0, 0, 676, 433																
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Generisanje Pasijans toka kljuca"
-FONT 8, "MS Shell Dlg", 0, 0, 0x1
+CAPTION "Solitaire Šifrovanje/Dešifrovanje"		
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    COMBOBOX        IDC_Kartenanzahl,18,24,30,204,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    GROUPBOX        "1. Odaberite broj karata",IDC_STATIC,7,6,204,42
-    LTEXT           "Klasicno: 54 karte",IDC_STATIC,60,24,66,8
-    COMBOBOX        IDC_COMBO2,18,72,90,72,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    EDITTEXT        IDC_EDIT1,16,174,552,14,ES_AUTOHSCROLL | ES_READONLY
-    GROUPBOX        "Izlaz špila",IDC_STATIC,7,150,612,84
-    EDITTEXT        IDC_EDIT2,16,210,551,14,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT3,16,252,551,30,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    GROUPBOX        "2. Odaberite tip inicijalnog kljuca",IDC_STATIC,7,54,204,48
-    GROUPBOX        "2a. Unesite lozinku (opciono, za generisanje inicijalnog špila)",IDC_STATIC,222,55,216,47
-    EDITTEXT        IDC_EDIT4,228,72,132,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Inicijalizuj",IDC_BUTTON1,372,72,50,14
-    GROUPBOX        "Izlaz toka kljuca",IDC_STATIC,7,240,612,54
-    LTEXT           "Inicijalni špil [stvarni kljuc]:",IDC_STATIC,16,162,90,8
-    LTEXT           "Konacni špil:",IDC_STATIC,16,198,36,8
-    GROUPBOX        "3. Odaberite tip generisanja kljuca",IDC_STATIC,7,108,204,40
-    GROUPBOX        "3a. Rucni koraci",IDC_STATIC,222,108,216,40
-    GROUPBOX        "2b. Unesite inicijalni špil sami",IDC_STATIC,444,6,175,144
-    PUSHBUTTON      "automatski",IDC_BUTTON2,42,126,50,14
-    PUSHBUTTON      "rucno",IDC_BUTTON3,120,126,50,14
-    PUSHBUTTON      "Korak 1",IDC_BUTTON4,228,126,36,14,WS_DISABLED
-    PUSHBUTTON      "Korak 2",IDC_BUTTON5,270,126,36,14,WS_DISABLED
-    PUSHBUTTON      "Korak 3",IDC_BUTTON6,312,126,36,14,WS_DISABLED
-    PUSHBUTTON      "Korak 4",IDC_BUTTON7,354,126,36,14,WS_DISABLED
-    PUSHBUTTON      "Korak 5",IDC_BUTTON8,396,126,36,14,WS_DISABLED
-    PUSHBUTTON      "2",IDC_BUTTON10,468,36,18,14
-    PUSHBUTTON      "3",IDC_BUTTON11,486,36,18,14
-    PUSHBUTTON      "4",IDC_BUTTON12,504,36,18,14
-    PUSHBUTTON      "5",IDC_BUTTON13,522,36,18,14
-    PUSHBUTTON      "6",IDC_BUTTON14,540,36,18,14
-    PUSHBUTTON      "7",IDC_BUTTON15,558,36,18,14
-    PUSHBUTTON      "8",IDC_BUTTON16,576,36,18,14
-    PUSHBUTTON      "9",IDC_BUTTON17,594,36,18,14
-    PUSHBUTTON      "10",IDC_BUTTON18,450,54,18,14
-    PUSHBUTTON      "11",IDC_BUTTON19,468,54,18,14
-    PUSHBUTTON      "12",IDC_BUTTON20,486,54,18,14
-    PUSHBUTTON      "13",IDC_BUTTON21,504,54,18,14
-    PUSHBUTTON      "14",IDC_BUTTON22,522,54,18,14
-    PUSHBUTTON      "15",IDC_BUTTON23,540,54,18,14
-    PUSHBUTTON      "16",IDC_BUTTON24,558,54,18,14
-    PUSHBUTTON      "17",IDC_BUTTON25,576,54,18,14
-    PUSHBUTTON      "18",IDC_BUTTON26,594,54,18,14
-    PUSHBUTTON      "19",IDC_BUTTON27,450,72,18,14
-    PUSHBUTTON      "20",IDC_BUTTON28,468,72,18,14
-    PUSHBUTTON      "21",IDC_BUTTON29,486,72,18,14
-    PUSHBUTTON      "22",IDC_BUTTON30,504,72,18,14
-    PUSHBUTTON      "23",IDC_BUTTON31,522,72,18,14
-    PUSHBUTTON      "24",IDC_BUTTON32,540,72,18,14
-    PUSHBUTTON      "25",IDC_BUTTON33,558,72,18,14
-    PUSHBUTTON      "26",IDC_BUTTON34,576,72,18,14
-    PUSHBUTTON      "27",IDC_BUTTON35,594,72,18,14
-    PUSHBUTTON      "28",IDC_BUTTON36,450,90,18,14
-    PUSHBUTTON      "29",IDC_BUTTON37,468,90,18,14
-    PUSHBUTTON      "30",IDC_BUTTON38,486,90,18,14
-    PUSHBUTTON      "31",IDC_BUTTON39,504,90,18,14
-    PUSHBUTTON      "32",IDC_BUTTON40,522,90,18,14
-    PUSHBUTTON      "33",IDC_BUTTON41,540,90,18,14
-    PUSHBUTTON      "34",IDC_BUTTON42,558,90,18,14
-    PUSHBUTTON      "35",IDC_BUTTON43,576,90,18,14
-    PUSHBUTTON      "36",IDC_BUTTON44,594,90,18,14
-    PUSHBUTTON      "37",IDC_BUTTON45,450,108,18,14
-    PUSHBUTTON      "38",IDC_BUTTON46,468,108,18,14
-    PUSHBUTTON      "39",IDC_BUTTON47,486,108,18,14
-    PUSHBUTTON      "40",IDC_BUTTON48,504,108,18,14
-    PUSHBUTTON      "41",IDC_BUTTON49,522,108,18,14
-    PUSHBUTTON      "42",IDC_BUTTON50,540,108,18,14
-    PUSHBUTTON      "43",IDC_BUTTON51,558,108,18,14
-    PUSHBUTTON      "44",IDC_BUTTON52,576,108,18,14
-    PUSHBUTTON      "45",IDC_BUTTON53,594,108,18,14
-    PUSHBUTTON      "46",IDC_BUTTON54,450,126,18,14
-    PUSHBUTTON      "47",IDC_BUTTON55,468,126,18,14
-    PUSHBUTTON      "48",IDC_BUTTON56,486,126,18,14
-    PUSHBUTTON      "49",IDC_BUTTON57,504,126,18,14
-    PUSHBUTTON      "50",IDC_BUTTON58,522,126,18,14
-    PUSHBUTTON      "51",IDC_BUTTON59,540,126,18,14
-    PUSHBUTTON      "52",IDC_BUTTON60,558,126,18,14
-    PUSHBUTTON      "53",IDC_BUTTON61,576,126,18,14
-    PUSHBUTTON      "54",IDC_BUTTON62,594,126,18,14
-    PUSHBUTTON      "1",IDC_BUTTON9,450,36,18,14
-    PUSHBUTTON      "Resetuj",IDC_BUTTON63,561,16,50,14
-    PUSHBUTTON      "Sacuvaj",IDC_BUTTON64,577,173,35,14,WS_DISABLED
-    PUSHBUTTON      "Sacuvaj",IDC_BUTTON65,577,210,35,14,WS_DISABLED
-    PUSHBUTTON      "Zašifruj",IDC_BUTTON66,7,304,102,18,WS_DISABLED
-    PUSHBUTTON      "Otkaži",IDC_BUTTON67,517,304,102,18
-    PUSHBUTTON      "Dešifruj",IDC_BUTTON68,121,304,102,18,WS_DISABLED
-    GROUPBOX        "Opis",IDC_STATIC,222,6,214,46
-    LTEXT           "Ovaj dijalog generiše tok kljuca Pasijans algoritma. Tok kljuca se koristi za šifrovanje ili dešifrovanje date poruke.",IDC_STATIC,232,15,192,32
-    CONTROL         "Nalepi",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,241,307,23,15
+    COMBOBOX        IDC_Kartenanzahl,136,130,30,204,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "1 a. Broj karata (klasicno: 52+2)",IDC_STATIC,21,112,195,45
+    COMBOBOX        IDC_COMBO2,32,188,90,72,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT1,28,308,552,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT2,28,336,551,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT3,28,364,551,30,ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY | WS_VSCROLL
+    GROUPBOX        "1 b. Definisanje redosleda karata",IDC_STATIC,20,166,195,49
+    GROUPBOX        "Unesite lozinku",IDC_STATIC,233,120,414,31
+    EDITTEXT        IDC_EDIT4,241,130,132,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Izmena inicijalnog špila",IDC_BUTTON1,375,130,79,14
+    LTEXT           "Inicijalni špil (vec promešan špil karata; predstavlja stanje špila karata pre nego što je algoritam za generisanje toka kljuca generisan po prvi put)",IDC_STATIC,29,298,474,8
+    LTEXT           "Finalni špil (predstavlja stanje špila karata odmah nakon generisanja zadnje slova toka kljuca)",IDC_STATIC,29,326,320,8
+    GROUPBOX        "2 a. Rucni koraci Solitaire algoritma",IDC_STATIC,234,236,422,38
+    GROUPBOX        "Sopstveni Izbor",IDC_STATIC,233,151,415,58
+    PUSHBUTTON      "Automatski",IDC_BUTTON2,54,252,50,14
+    PUSHBUTTON      "Rucno",IDC_BUTTON3,114,252,50,14
+    PUSHBUTTON      "Korak 1",IDC_BUTTON4,245,252,36,14,WS_DISABLED
+    PUSHBUTTON      "Korak 2",IDC_BUTTON5,281,252,36,14,WS_DISABLED
+    PUSHBUTTON      "Korak 3",IDC_BUTTON6,317,252,36,14,WS_DISABLED
+    PUSHBUTTON      "Korak 4",IDC_BUTTON7,353,252,36,14,WS_DISABLED
+    PUSHBUTTON      "Korak 5",IDC_BUTTON8,389,252,36,14,WS_DISABLED
+    PUSHBUTTON      "2",IDC_BUTTON10,258,161,18,14
+    PUSHBUTTON      "3",IDC_BUTTON11,276,161,18,14
+    PUSHBUTTON      "4",IDC_BUTTON12,294,161,18,14
+    PUSHBUTTON      "5",IDC_BUTTON13,312,161,18,14
+    PUSHBUTTON      "6",IDC_BUTTON14,330,161,18,14
+    PUSHBUTTON      "7",IDC_BUTTON15,348,161,18,14
+    PUSHBUTTON      "8",IDC_BUTTON16,366,161,18,14
+    PUSHBUTTON      "9",IDC_BUTTON17,384,161,18,14
+    PUSHBUTTON      "10",IDC_BUTTON18,402,161,18,14
+    PUSHBUTTON      "11",IDC_BUTTON19,420,161,18,14
+    PUSHBUTTON      "12",IDC_BUTTON20,438,161,18,14
+    PUSHBUTTON      "13",IDC_BUTTON21,456,161,18,14
+    PUSHBUTTON      "14",IDC_BUTTON22,474,161,18,14
+    PUSHBUTTON      "15",IDC_BUTTON23,492,161,18,14
+    PUSHBUTTON      "16",IDC_BUTTON24,510,161,18,14
+    PUSHBUTTON      "17",IDC_BUTTON25,528,161,18,14
+    PUSHBUTTON      "18",IDC_BUTTON26,546,161,18,14
+    PUSHBUTTON      "19",IDC_BUTTON27,240,175,18,14
+    PUSHBUTTON      "20",IDC_BUTTON28,258,175,18,14
+    PUSHBUTTON      "21",IDC_BUTTON29,276,175,18,14
+    PUSHBUTTON      "22",IDC_BUTTON30,294,175,18,14
+    PUSHBUTTON      "23",IDC_BUTTON31,312,175,18,14
+    PUSHBUTTON      "24",IDC_BUTTON32,330,175,18,14
+    PUSHBUTTON      "25",IDC_BUTTON33,348,175,18,14
+    PUSHBUTTON      "26",IDC_BUTTON34,366,175,18,14
+    PUSHBUTTON      "27",IDC_BUTTON35,384,175,18,14
+    PUSHBUTTON      "28",IDC_BUTTON36,402,175,18,14
+    PUSHBUTTON      "29",IDC_BUTTON37,420,175,18,14
+    PUSHBUTTON      "30",IDC_BUTTON38,438,175,18,14
+    PUSHBUTTON      "31",IDC_BUTTON39,456,175,18,14
+    PUSHBUTTON      "32",IDC_BUTTON40,474,175,18,14
+    PUSHBUTTON      "33",IDC_BUTTON41,492,175,18,14
+    PUSHBUTTON      "34",IDC_BUTTON42,510,175,18,14
+    PUSHBUTTON      "35",IDC_BUTTON43,528,175,18,14
+    PUSHBUTTON      "36",IDC_BUTTON44,546,175,18,14
+    PUSHBUTTON      "37",IDC_BUTTON45,240,189,18,14
+    PUSHBUTTON      "38",IDC_BUTTON46,258,189,18,14
+    PUSHBUTTON      "39",IDC_BUTTON47,276,189,18,14
+    PUSHBUTTON      "40",IDC_BUTTON48,294,189,18,14
+    PUSHBUTTON      "41",IDC_BUTTON49,312,189,18,14
+    PUSHBUTTON      "42",IDC_BUTTON50,330,189,18,14
+    PUSHBUTTON      "43",IDC_BUTTON51,348,189,18,14
+    PUSHBUTTON      "44",IDC_BUTTON52,366,189,18,14
+    PUSHBUTTON      "45",IDC_BUTTON53,384,189,18,14
+    PUSHBUTTON      "46",IDC_BUTTON54,402,189,18,14
+    PUSHBUTTON      "47",IDC_BUTTON55,420,189,18,14
+    PUSHBUTTON      "48",IDC_BUTTON56,438,189,18,14
+    PUSHBUTTON      "49",IDC_BUTTON57,456,189,18,14
+    PUSHBUTTON      "50",IDC_BUTTON58,474,189,18,14
+    PUSHBUTTON      "51",IDC_BUTTON59,492,189,18,14
+    PUSHBUTTON      "52",IDC_BUTTON60,510,189,18,14
+    PUSHBUTTON      "53",IDC_BUTTON61,528,189,18,14
+    PUSHBUTTON      "54",IDC_BUTTON62,546,189,18,14
+    PUSHBUTTON      "1",IDC_BUTTON9,240,161,18,14
+    PUSHBUTTON      "Resetuj",IDC_BUTTON63,577,173,59,14
+    PUSHBUTTON      "Sacuvaj",IDC_BUTTON64,580,307,35,14,WS_DISABLED
+    PUSHBUTTON      "Sacuvaj",IDC_BUTTON65,579,336,35,14,WS_DISABLED
+    PUSHBUTTON      "Zašifruj",IDC_BUTTON66,16,415,102,14,WS_DISABLED
+    PUSHBUTTON      "Otkaži",IDC_BUTTON67,544,415,102,14
+    PUSHBUTTON      "Dešifruj",IDC_BUTTON68,134,415,102,14,WS_DISABLED
+    GROUPBOX        "Opis",IDC_STATIC,7,2,662,83
+    LTEXT           "Sa ovim dijalogom možete da iskoristite Solitaire šifru. Obicno se koriste 54 karte.",IDC_STATIC,12,10,590,9
+    CONTROL         "Nalepi",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,504,414,23,15
+    GROUPBOX        "1. Generisanje pocetnog spila (= mešanje) == Generisanje kljuca",IDC_STATIC,14,100,649,121
+    GROUPBOX        "Opciono",IDC_STATIC,219,112,436,103
+    GROUPBOX        "2. Generisanje toka kljuca (automatski ili rucno)",IDC_STATIC,13,226,650,56
+    GROUPBOX        "Izlaz razlicitih stanja špila karata i generisanog toka kljuca",IDC_STATIC,14,287,650,117
+    LTEXT           "Tok kljuca",IDC_STATIC,28,353,35,8
+    LTEXT           "Korak 2: Možete da generišete tok kljuca (Ovo je aktuelni Solitaire algoritam). Ovaj proces menja špil karata.",IDC_STATIC,12,50,625,10
+    LTEXT           "Primena Solitaire šifre se svodi na 3 koraka (prvi i drugi su pripremni koraci; u trecem koraku izvršava se šifrovanje):",IDC_STATIC,12,26,508,8
+    LTEXT           "Korak 3: Možete šifrovati odabrani tekst (Cineci to, svako slovo otvorenog teksta se XOR-uje svakom slovu toka kljuca).",IDC_STATIC,12,66,593,9
+    LTEXT           "U slucaju da je odabran tekst vec šifrovan sa Solitaireom, možete ga i dešifrovati",IDC_STATIC,12,74,591,8
+    LTEXT           "I dalje su Vam potrebna",IDC_STATIC,434,247,47,12
+    LTEXT           "slova toka kljuca.",IDC_STATIC,434,259,82,11
+    PUSHBUTTON      "Generiši ostalo",IDC_BUTTON69,585,252,60,14,WS_DISABLED
+    PUSHBUTTON      "Razlicito mešanje",IDC_BUTTON70,135,186,66,14
+    PUSHBUTTON      "Generisanje inicijalnog stanja",IDC_BUTTON71,326,415,88,14
+    LTEXT           "Inicijalni špil se može modifikovati pomocu lozinke.\nMožete procitati više o funkcionalnosti lozinki u online pomoci.",IDC_STATIC,460,125,179,24
+    EDITTEXT        IDC_EDIT5,481,247,26,14,ES_CENTER | ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT WS_BORDER
+    EDITTEXT        IDC_EDIT6,523,247,40,12,ES_CENTER | ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT WS_BORDER
+    LTEXT           "od",IDC_STATIC,508,247,8,8
+    LTEXT           "Razlicite karte su predstavljene brojevima od 1 do 54: Vrednosti razlicitih karata mogu se pronaci u online pomoci (F1) u ""Solitaire opis"".",IDC_STATIC,12,18,505,8
+    LTEXT           "Korak 1: Ili kreirate kljuc (promešani špil karata) sami ili ucitate kljuc (zavisi od Vašeg izbora u grupi „1 b: Definisanje redosleda karata“).",IDC_STATIC,12,34,556,9
+    LTEXT           "Rezultat generisanja kljuca je promešan špil karata, koji se može videti u „Inicijalnom špilu“ u grupi „Izlaz“.",IDC_STATIC,37,42,521,8
+    LTEXT           "Ukupan broj karata\n(sa jokerom):",IDC_STATIC,48,127,82,16
+    GROUPBOX        "Mešanje karata i generisanje toka kljuca",IDC_STATIC,7,88,662,320
+    LTEXT           "Pravi redosled karata može da se vidi u „finalnom špilu“ u grupi „Izlaz“.",IDC_STATIC,38,58,239,8
+    PUSHBUTTON      "Sacuvaj",IDC_BUTTON72,578,372,37,14,WS_DISABLED
 END
 
-IDD_SOLITAIRE_ANALYSE DIALOGEX 0, 0, 620, 351
+IDD_SOLITAIRE_ANALYSE DIALOGEX 0, 0, 603, 414
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Analiza Pasijansa"
-FONT 8, "MS Shell Dlg", 0, 0, 0x1
+CAPTION "Solitaire analiza"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "Dešifruj",IDOK,11,330,68,14,WS_DISABLED
-    PUSHBUTTON      "Otkaži",IDCANCEL,101,330,50,14
-    PUSHBUTTON      "uvek ispred",IDC_BUTTON1,18,138,50,14,WS_DISABLED
-    COMBOBOX        IDC_Kartenanzahl,24,24,30,204,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    GROUPBOX        "1. Izaberite broj karata",IDC_STATIC,12,6,202,42
-    LTEXT           "Klasicno: 54 karte",IDC_STATIC,66,24,66,8
-    COMBOBOX        IDC_COMBO2,23,72,90,72,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    GROUPBOX        "2. izaberite pronadeni špil",IDC_STATIC,12,54,202,48
-    GROUPBOX        "3. Izaberite pozicije za džokere",IDC_STATIC,12,114,202,48
-    LTEXT           "automatski:",IDC_STATIC,18,126,40,8
-    PUSHBUTTON      "uvek iza",IDC_BUTTON2,72,138,50,14,WS_DISABLED
-    LTEXT           "rucno:",IDC_STATIC,138,126,26,8
-    PUSHBUTTON      "pocni rucno",IDC_BUTTON3,138,138,50,14,WS_DISABLED
-    GROUPBOX        "2a. Odaberite pronadeni špil sami",IDC_STATIC,387,7,175,155
-    PUSHBUTTON      "2",IDC_BUTTON10,412,46,18,14
-    PUSHBUTTON      "3",IDC_BUTTON11,430,46,18,14
-    PUSHBUTTON      "4",IDC_BUTTON12,448,46,18,14
-    PUSHBUTTON      "5",IDC_BUTTON13,466,46,18,14
-    PUSHBUTTON      "6",IDC_BUTTON14,484,46,18,14
-    PUSHBUTTON      "7",IDC_BUTTON15,502,46,18,14
-    PUSHBUTTON      "8",IDC_BUTTON16,520,46,18,14
-    PUSHBUTTON      "9",IDC_BUTTON17,538,46,18,14
-    PUSHBUTTON      "10",IDC_BUTTON18,394,64,18,14
-    PUSHBUTTON      "11",IDC_BUTTON19,412,64,18,14
-    PUSHBUTTON      "12",IDC_BUTTON20,430,64,18,14
-    PUSHBUTTON      "13",IDC_BUTTON21,448,64,18,14
-    PUSHBUTTON      "14",IDC_BUTTON22,466,64,18,14
-    PUSHBUTTON      "15",IDC_BUTTON23,484,64,18,14
-    PUSHBUTTON      "16",IDC_BUTTON24,502,64,18,14
-    PUSHBUTTON      "17",IDC_BUTTON25,520,64,18,14
-    PUSHBUTTON      "18",IDC_BUTTON26,538,64,18,14
-    PUSHBUTTON      "19",IDC_BUTTON27,394,82,18,14
-    PUSHBUTTON      "20",IDC_BUTTON28,412,82,18,14
-    PUSHBUTTON      "21",IDC_BUTTON29,430,82,18,14
-    PUSHBUTTON      "22",IDC_BUTTON30,448,82,18,14
-    PUSHBUTTON      "23",IDC_BUTTON31,466,82,18,14
-    PUSHBUTTON      "24",IDC_BUTTON32,484,82,18,14
-    PUSHBUTTON      "25",IDC_BUTTON33,502,82,18,14
-    PUSHBUTTON      "26",IDC_BUTTON34,520,82,18,14
-    PUSHBUTTON      "27",IDC_BUTTON35,538,82,18,14
-    PUSHBUTTON      "28",IDC_BUTTON36,394,100,18,14
-    PUSHBUTTON      "29",IDC_BUTTON37,412,100,18,14
-    PUSHBUTTON      "30",IDC_BUTTON38,430,100,18,14
-    PUSHBUTTON      "31",IDC_BUTTON39,448,100,18,14
-    PUSHBUTTON      "32",IDC_BUTTON40,466,100,18,14
-    PUSHBUTTON      "33",IDC_BUTTON41,484,100,18,14
-    PUSHBUTTON      "34",IDC_BUTTON42,502,100,18,14
-    PUSHBUTTON      "35",IDC_BUTTON43,520,100,18,14
-    PUSHBUTTON      "36",IDC_BUTTON44,538,100,18,14
-    PUSHBUTTON      "37",IDC_BUTTON45,394,118,18,14
-    PUSHBUTTON      "38",IDC_BUTTON46,412,118,18,14
-    PUSHBUTTON      "39",IDC_BUTTON47,430,118,18,14
-    PUSHBUTTON      "40",IDC_BUTTON48,448,118,18,14
-    PUSHBUTTON      "41",IDC_BUTTON49,466,118,18,14
-    PUSHBUTTON      "42",IDC_BUTTON50,484,118,18,14
-    PUSHBUTTON      "43",IDC_BUTTON51,502,118,18,14
-    PUSHBUTTON      "44",IDC_BUTTON52,520,118,18,14
-    PUSHBUTTON      "45",IDC_BUTTON53,538,118,18,14
-    PUSHBUTTON      "46",IDC_BUTTON54,394,136,18,14
-    PUSHBUTTON      "47",IDC_BUTTON55,412,136,18,14
-    PUSHBUTTON      "48",IDC_BUTTON56,430,136,18,14
-    PUSHBUTTON      "49",IDC_BUTTON57,448,136,18,14
-    PUSHBUTTON      "50",IDC_BUTTON58,466,136,18,14
-    PUSHBUTTON      "51",IDC_BUTTON59,484,136,18,14
-    PUSHBUTTON      "52",IDC_BUTTON60,502,136,18,14
-    PUSHBUTTON      "53",IDC_BUTTON61,520,136,18,14
-    PUSHBUTTON      "54",IDC_BUTTON62,538,136,18,14
-    PUSHBUTTON      "1",IDC_BUTTON9,394,46,18,14
-    PUSHBUTTON      "Resetuj",IDC_BUTTON63,505,26,50,14
-    EDITTEXT        IDC_EDIT1,11,183,552,14,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT2,11,247,552,14,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "Pronadeni špil:",IDC_STATIC,11,172,40,8
-    LTEXT           "Inicijalni špil:",IDC_STATIC,11,236,38,8
-    EDITTEXT        IDC_EDIT132,11,212,552,14,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "Privremeni špil:",IDC_STATIC,11,201,55,8
-    EDITTEXT        IDC_EDIT3,11,293,551,30,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "Generiši kljuc",IDC_BUTTON4,11,270,82,14,WS_DISABLED
-    GROUPBOX        "Opis",IDC_STATIC,223,7,160,155
-    LTEXT           "Ovaj dijalog vrši automatsku ili poluautomatsku analizu šifrata, koji je šifrovan PASIJANSOM.\nPocetna pozicija je pronadeni šifrat sa svojim odgovarajucim finalnim špilom. ",IDC_STATIC,230,20,144,55
-    LTEXT           "Zbog ireverzibilnosti Pasijansa nije navedeno, da ispravni otvoreni tekst može biti definisan.",IDC_STATIC,227,85,148,31
+    DEFPUSHBUTTON   "Dešifruj",IDOK,5,395,68,14,WS_DISABLED
+    PUSHBUTTON      "Otkaži",IDCANCEL,548,395,50,14
+    PUSHBUTTON      "Uvek napred",IDC_BUTTON1,20,193,53,14,WS_DISABLED
+    COMBOBOX        IDC_Kartenanzahl,233,94,30,204,CBS_DROPDOWNLIST | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "1. Parametri pronadenog špila",IDC_STATIC,11,74,581,96
+    GROUPBOX        "2. Pozicioniranje jokera ",IDC_STATIC,12,172,580,48
+    PUSHBUTTON      "Uvek nazad",IDC_BUTTON2,75,193,52,14,WS_DISABLED
+    PUSHBUTTON      "Pocni rucno",IDC_BUTTON3,149,193,50,14,WS_DISABLED
+    PUSHBUTTON      "2",IDC_BUTTON10,188,116,18,14,WS_DISABLED
+    PUSHBUTTON      "3",IDC_BUTTON11,206,116,18,14,WS_DISABLED
+    PUSHBUTTON      "4",IDC_BUTTON12,224,116,18,14,WS_DISABLED
+    PUSHBUTTON      "5",IDC_BUTTON13,242,116,18,14,WS_DISABLED
+    PUSHBUTTON      "6",IDC_BUTTON14,260,116,18,14,WS_DISABLED
+    PUSHBUTTON      "7",IDC_BUTTON15,278,116,18,14,WS_DISABLED
+    PUSHBUTTON      "8",IDC_BUTTON16,296,116,18,14,WS_DISABLED
+    PUSHBUTTON      "9",IDC_BUTTON17,314,116,18,14,WS_DISABLED
+    PUSHBUTTON      "10",IDC_BUTTON18,332,116,18,14,WS_DISABLED
+    PUSHBUTTON      "11",IDC_BUTTON19,350,116,18,14,WS_DISABLED
+    PUSHBUTTON      "12",IDC_BUTTON20,368,116,18,14,WS_DISABLED
+    PUSHBUTTON      "13",IDC_BUTTON21,386,116,18,14,WS_DISABLED
+    PUSHBUTTON      "14",IDC_BUTTON22,404,116,18,14,WS_DISABLED
+    PUSHBUTTON      "15",IDC_BUTTON23,422,116,18,14,WS_DISABLED
+    PUSHBUTTON      "16",IDC_BUTTON24,440,116,18,14,WS_DISABLED
+    PUSHBUTTON      "17",IDC_BUTTON25,458,116,18,14,WS_DISABLED
+    PUSHBUTTON      "18",IDC_BUTTON26,476,116,18,14,WS_DISABLED
+    PUSHBUTTON      "19",IDC_BUTTON27,170,130,18,14,WS_DISABLED
+    PUSHBUTTON      "20",IDC_BUTTON28,188,130,18,14,WS_DISABLED
+    PUSHBUTTON      "21",IDC_BUTTON29,206,130,18,14,WS_DISABLED
+    PUSHBUTTON      "22",IDC_BUTTON30,224,130,18,14,WS_DISABLED
+    PUSHBUTTON      "23",IDC_BUTTON31,242,130,18,14,WS_DISABLED
+    PUSHBUTTON      "24",IDC_BUTTON32,260,130,18,14,WS_DISABLED
+    PUSHBUTTON      "25",IDC_BUTTON33,278,130,18,14,WS_DISABLED
+    PUSHBUTTON      "26",IDC_BUTTON34,296,130,18,14,WS_DISABLED
+    PUSHBUTTON      "27",IDC_BUTTON35,314,130,18,14,WS_DISABLED
+    PUSHBUTTON      "28",IDC_BUTTON36,332,130,18,14,WS_DISABLED
+    PUSHBUTTON      "29",IDC_BUTTON37,350,130,18,14,WS_DISABLED
+    PUSHBUTTON      "30",IDC_BUTTON38,368,130,18,14,WS_DISABLED
+    PUSHBUTTON      "31",IDC_BUTTON39,386,130,18,14,WS_DISABLED
+    PUSHBUTTON      "32",IDC_BUTTON40,404,130,18,14,WS_DISABLED
+    PUSHBUTTON      "33",IDC_BUTTON41,422,130,18,14,WS_DISABLED
+    PUSHBUTTON      "34",IDC_BUTTON42,440,130,18,14,WS_DISABLED
+    PUSHBUTTON      "35",IDC_BUTTON43,458,130,18,14,WS_DISABLED
+    PUSHBUTTON      "36",IDC_BUTTON44,476,130,18,14,WS_DISABLED
+    PUSHBUTTON      "37",IDC_BUTTON45,170,144,18,14,WS_DISABLED
+    PUSHBUTTON      "38",IDC_BUTTON46,188,144,18,14,WS_DISABLED
+    PUSHBUTTON      "39",IDC_BUTTON47,206,144,18,14,WS_DISABLED
+    PUSHBUTTON      "40",IDC_BUTTON48,224,144,18,14,WS_DISABLED
+    PUSHBUTTON      "41",IDC_BUTTON49,242,144,18,14,WS_DISABLED
+    PUSHBUTTON      "42",IDC_BUTTON50,260,144,18,14,WS_DISABLED
+    PUSHBUTTON      "43",IDC_BUTTON51,278,144,18,14,WS_DISABLED
+    PUSHBUTTON      "44",IDC_BUTTON52,296,144,18,14,WS_DISABLED
+    PUSHBUTTON      "45",IDC_BUTTON53,314,144,18,14,WS_DISABLED
+    PUSHBUTTON      "46",IDC_BUTTON54,332,144,18,14,WS_DISABLED
+    PUSHBUTTON      "47",IDC_BUTTON55,350,144,18,14,WS_DISABLED
+    PUSHBUTTON      "48",IDC_BUTTON56,368,144,18,14,WS_DISABLED
+    PUSHBUTTON      "49",IDC_BUTTON57,386,144,18,14,WS_DISABLED
+    PUSHBUTTON      "50",IDC_BUTTON58,404,144,18,14,WS_DISABLED
+    PUSHBUTTON      "51",IDC_BUTTON59,422,144,18,14,WS_DISABLED
+    PUSHBUTTON      "52",IDC_BUTTON60,440,144,18,14,WS_DISABLED
+    PUSHBUTTON      "53",IDC_BUTTON61,458,144,18,14,WS_DISABLED
+    PUSHBUTTON      "54",IDC_BUTTON62,476,144,18,14,WS_DISABLED
+    PUSHBUTTON      "1",IDC_BUTTON9,170,116,18,14,WS_DISABLED
+    PUSHBUTTON      "Resetuj",IDC_BUTTON63,500,130,50,14,WS_DISABLED
+    EDITTEXT        IDC_EDIT1,15,241,552,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT2,15,288,552,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Pronadeni špil",IDC_STATIC,17,232,38,8
+    LTEXT           "Inicijalni špil",IDC_STATIC,17,278,35,8
+    EDITTEXT        IDC_EDIT132,15,264,552,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Privremeni špil",IDC_STATIC,17,255,52,8
+    EDITTEXT        IDC_EDIT3,17,345,551,30,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
+    PUSHBUTTON      "Automatsko generisanje toka kljuca",IDC_BUTTON4,18,327,132,14,WS_DISABLED
+    GROUPBOX        "Opis",IDC_STATIC,5,2,593,57
+    LTEXT           "Legitimni pošaljilac treba da zašifruje šifrat i inicilajni špil. Pretpostavljamo da napadac takode ime šifrat i inicijalni špil ",IDC_STATIC,17,12,544,9
+    LTEXT           "Ova kriptoanaliza pokušava da reprodukuje inicijalni špil iz završnog špila. Zbog ireverzibilnosti generisanja toka kljuca ova obrnuta proizvodnja ne uspeva uvek",IDC_STATIC,17,28,573,9
+    PUSHBUTTON      "Ucitaj finalni špil",IDC_BUTTON5,39,100,69,14
+    PUSHBUTTON      "Sopstveni izbor",IDC_BUTTON6,38,140,70,14
+    LTEXT           "Broj karata:",IDC_STATIC,173,98,56,8,WS_DISABLED
+    GROUPBOX        "Sopstveni izbor",IDC_STATIC,166,80,403,85,WS_DISABLED
+    LTEXT           "Zbog ireverzibilnosti solitaire algoritma korisnik mora da odluci\nu specijalnim slucajevima obrnutog izracunavanja, gde da smesti jokera.  ",IDC_STATIC,225,193,354,18
+    GROUPBOX        "3. Generisanje inicijalnog špila",IDC_STATIC,11,222,581,88
+    GROUPBOX        "4. Generisanje toka kljuca",IDC_STATIC,11,314,581,67
+    LTEXT           "Onda originalni tok kljuca može da se generiše iz inicijalnog špila. ",IDC_STATIC,17,44,251,8
+    LTEXT           "na jednistven nacin. Potom cete biti upitani za odluku, gde smestiti jokera.",IDC_STATIC,17,36,431,10
+    GROUPBOX        "Ustanovljavanje inicijalnog špila i generisanje toka kljuca",IDC_STATIC,5,64,593,324
+    LTEXT           "generisanog od strane pošaljioca (kroz šifrovanje) ili od strane primaoca (kroz dešifrovanje). ",IDC_STATIC,17,20,282,8
+    GROUPBOX        "Uvek ista odluka",IDC_STATIC,15,182,118,30
+    GROUPBOX        "Rucno",IDC_STATIC,140,182,70,30
 END
 
 IDD_SET_VISOPT DIALOGEX 0, 0, 230, 149
@@ -14937,7 +14982,7 @@ CAPTION "3D Vizualizacija - Opcije"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,112,124,50,18
-    PUSHBUTTON      "Oktaži",IDCANCEL,173,124,50,18
+    PUSHBUTTON      "Otkaži",IDCANCEL,173,124,50,18
     PUSHBUTTON      "Resetuj",IDC_BUTTON_RESET,7,124,48,18
     CONTROL         "",IDC_SLIDER_RESOLUTION,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,111,18,106,14
     RTEXT           "Rezolucija:",IDC_STATIC,15,21,47,11
@@ -14979,7 +15024,7 @@ BEGIN
     LTEXT           "Režim:",IDC_STATIC,7,15,21,8
 END
 
-IDD_SECRETSHARING_INTRO DIALOGEX 0, 0, 281, 258
+IDD_SECRETSHARING_INTRO DIALOGEX 0, 0, 281, 258											// ovde stao sa proverama i prepravkama 16.03 @ 16:52
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
 CAPTION "Uvod Demonstracija Deljenja Tajne"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
@@ -15018,7 +15063,7 @@ BEGIN
     CONTROL         "Prikaži informacijski dijalog pri pokretanju",IDC_CHECK_SHOWINTRO,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,382,122,10
     PUSHBUTTON      "Otkaži",IDCANCEL,7,402,86,14
-    DEFPUSHBUTTON   "rekonstrukcija",IDOK,279,402,85,14,WS_DISABLED
+    DEFPUSHBUTTON   "Rekonstrukcija",IDOK,279,402,85,14,WS_DISABLED
     GROUPBOX        "Odaberite Vašu tajnu i parametre (cele brojeve) da biste podesili šemu",IDC_STATIC_PARAMETER,7,64,357,71
     LTEXT           "Tajna S sa S >= 0",IDC_STATIC,13,81,66,8
     GROUPBOX        "Parametri koji se odnose na polinom f(x) stepena t-1",IDC_STATIC_PARAMETER2,7,164,357,72
@@ -15195,7 +15240,7 @@ BEGIN
     DEFPUSHBUTTON   "&Dešifruj",IDOK,9,242,85,19
     PUSHBUTTON      "&Otkaži",IDCANCEL,319,242,56,19
     LTEXT           "Odaberite Vaš tajni kljuc iz PSE liste.",-1,9,6,366,10
-    LTEXT           "Note: Only PSEs containing an ECC key are shown.",-1,8,214,265,8
+    LTEXT           "Napomena: Samo PSE-ovi koji sadrže ECC kljuc su prikazani.",-1,8,214,265,8
     RTEXT           "PIN kod:",-1,273,214,39,15
 END
 
@@ -15315,7 +15360,7 @@ BEGIN
     LTEXT           "Entropija:",IDC_STATIC,56,74,29,8
     EDITTEXT        IDC_EDIT_PASSWORDBITLENGTH,90,72,30,14,ES_RIGHT | ES_AUTOHSCROLL
     LTEXT           "karakteri",IDC_STATIC,125,192,35,8
-    LTEXT           "bit-ovi",IDC_STATIC,125,74,9,8
+    LTEXT           "bitovi",IDC_STATIC,125,74,9,8
     PUSHBUTTON      "Opcije teksta",ID_TEXTOPTIONS,191,110,209,14
     LTEXT           "Ovaj dijalog racuna nasumicnu lozinku.",IDC_STATIC,20,20,380,8
     CONTROL         "Ne koristiti karaktere koji se lako mešaju (napisani prenos)",IDC_CHECK_USENONCONFUSABLECHARACTERS_WRITTENTRANSMISSION,
@@ -15345,6 +15390,7 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,68,88,10
     EDITTEXT        IDC_EDIT_BLOCK_SIZE,109,67,20,14,ES_AUTOHSCROLL | WS_DISABLED
     DEFPUSHBUTTON   "OK",IDOK,7,97,50,14
+	DEFPUSHBUTTON   "Opcije teksta",ID_TEXTOPTIONS,75,97,50,14
 END
 
 IDD_SIMPLE_TRANSPOSITIONS DIALOGEX 0, 0, 285, 185
@@ -15375,52 +15421,51 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Analiza jednostavne transpozicije kolone (Poznati Cisti Tekst)"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Taster za pretragu",ID_BTN_BERECHNEN,7,338,75,17
-    CONTROL         "Nacin linije",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,267,53,10
-    CONTROL         "Kolona",IDC_CHECK13,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,283,54,10
-    CONTROL         "Nacin linije",IDC_CHECK11,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,267,53,10
-    CONTROL         "Kolona",IDC_CHECK14,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,283,54,10
-    CONTROL         "Nacin linije",IDC_CHECK12,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,267,53,10
-    CONTROL         "Kolona",IDC_CHECK15,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,283,54,10
+    DEFPUSHBUTTON   "Pretraži kljuc",ID_BTN_BERECHNEN,7,338,75,17
+	CONTROL         "Linija po linija",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,267,51,10
+    CONTROL         "Kolona po kolona",IDC_CHECK13,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,283,54,10
+    CONTROL         "Linija po linija",IDC_CHECK11,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,267,51,10
+    CONTROL         "Kolona po kolona",IDC_CHECK14,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,283,54,10
+    CONTROL         "Linija po linija",IDC_CHECK12,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,267,51,10
+    CONTROL         "Kolona po kolona",IDC_CHECK15,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,283,54,10
     EDITTEXT        IDC_EDIT_RANGE_FROM,250,265,42,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_RANGE_TO,250,281,42,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Ucitaj datoteke",IDC_BUTTON1,252,218,54,14
     PUSHBUTTON      "Zatvori",IDCANCEL,248,338,65,17
-    GROUPBOX        "Citanja",IDC_GB_EINLESEN,15,254,67,43
-    GROUPBOX        "Razmena",IDC_GB_PERMUTIEREN,87,254,66,43
-    GROUPBOX        "Citanja",IDC_GB_AUSLESEN,157,254,66,43
+    GROUPBOX        "Unos",IDC_GB_EINLESEN,15,254,67,43
+    GROUPBOX        "Permutacija",IDC_GB_PERMUTIEREN,87,254,66,43
+    GROUPBOX        "Izlaz",IDC_GB_AUSLESEN,157,254,66,43
     GROUPBOX        "Koja varijanta permutacione procedure treba da se analizira?",IDC_GB_VERFAHREN,7,241,306,63
     LTEXT           "Ova analiza permutacije je analiza poznatog otvoreni tekst, koji ce Vam pomoci da iz otvorenog i šifrata izracunate kljuc permutacije.",IDC_LBL_INFOTEXT,7,8,306,15,0,WS_EX_TRANSPARENT
     GROUPBOX        "Velicina permutacije",IDC_GB_AUSLESEN2,228,254,76,43
     LTEXT           "od",IDC_STATIC,234,268,14,9
     LTEXT           "do",IDC_STATIC,234,284,14,9
     GROUPBOX        "Opcije",IDC_STATIC,7,304,306,26
-    CONTROL         "Binarni podaci",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,129,315,51,10
-    CONTROL         "Tekst",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,182,315,59,10
-    LTEXT           "Smatram unos dokumenta:",IDC_STATIC,17,315,110,10
+    CONTROL         "binarni podaci",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,129,315,51,10
+    CONTROL         "tekst",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,182,315,59,10
+    LTEXT           "Smatrati unos dokumenta kao",IDC_STATIC,17,315,110,10
     PUSHBUTTON      "Opcije za tekst",IDC_BUTTON2,101,338,59,17
     CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,31,306,205
-    PUSHBUTTON      "Ucitaj aktivni dokument",IDC_BUTTON70,157,218,81,14
+    COMBOBOX        IDC_FILE_SELECT,14,218,292,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
 END
 
 IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT DIALOGEX 0, 0, 242, 241
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Unos Kljuca: Jednostepena Transpozicija Kolone"
+CAPTION "Prikaz Kljuca: Jednostavna Transpozicija Kolone"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Zatvori",IDOK,185,219,50,15
-    GROUPBOX        "1. Permutacija (jednostavna cilindricna transpozicija)",IDC_STATIC,7,7,228,94
-    LTEXT           "Citanje:",IDC_STATIC,17,53,35,10
-    LTEXT           "Razmena:",IDC_STATIC,17,70,54,10
-    LTEXT           "Citanja:",IDC_STATIC,17,86,54,10
+    GROUPBOX        "Prva Permutacija (jednostavna cilindricna transpozicija)",IDC_STATIC,7,7,228,94
+    LTEXT           "Unos:",IDC_STATIC,17,53,35,10
+    LTEXT           "Permutacija:",IDC_STATIC,17,70,54,10
+    LTEXT           "Izlaz:",IDC_STATIC,17,86,54,10
     LTEXT           "",IDC_INDIR,63,52,112,11,WS_BORDER
     LTEXT           "",IDC_permDir1,63,69,112,11,WS_BORDER
     LTEXT           "",IDC_OUTDIR1,63,85,112,11,WS_BORDER
     LTEXT           "",IDC_PERMKEY1,17,30,209,12,WS_BORDER
-    GROUPBOX        "2. Permutacija (dupla cilindricna transpozicija)",IDC_STATIC,7,108,228,99,WS_DISABLED
-    LTEXT           "Citanje:",IDC_STATIC,17,153,35,12,WS_DISABLED
+    GROUPBOX        "Druga Permutacija (dupla cilindricna transpozicija)",IDC_STATIC,7,108,228,99,WS_DISABLED
+    LTEXT           "Unos:",IDC_STATIC,17,153,35,12,WS_DISABLED
     LTEXT           "Permutacija:",IDC_STATIC,17,171,46,10,WS_DISABLED
-    LTEXT           "Citanje:",IDC_STATIC,17,188,46,10,WS_DISABLED
+    LTEXT           "Izlaz:",IDC_STATIC,17,188,46,10,WS_DISABLED
     LTEXT           "",IDC_INDIR2,63,154,112,11,WS_DISABLED | WS_BORDER
     LTEXT           "",IDC_PERMDIR2,63,170,112,11,WS_DISABLED | WS_BORDER
     LTEXT           "",IDC_OUTDIR2,63,187,112,11,WS_DISABLED | WS_BORDER
@@ -15430,23 +15475,59 @@ BEGIN
     LTEXT           "Kljuc",IDC_STATIC,17,122,158,8,WS_DISABLED
 END
 
-IDD_AUTHORS DIALOGEX 0, 0, 370, 280
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "i18n About CrypTool: Contributors"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+IDD_GENERATE_SAVE_PRIME DIALOGEX 0, 0, 379, 147
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Generiši siguran prost broj"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Close",IDOK,303,255,60,18
-    CTEXT           "Persons Contributing to CrypTool",IDC_STATIC,7,7,356,15,SS_CENTERIMAGE | WS_BORDER
-    CTEXT           "Bernhard Esslinger",IDC_STATIC,20,38,330,8
-    CTEXT           "Henrik Koy",IDC_STATIC,20,99,330,8,NOT WS_GROUP
-    CTEXT           "Peer Wichmann (till release 1.2)\nJoerg Cornelius Schneider (from release 1.3)",IDC_STATIC,20,64,330,16
-    GROUPBOX        " Idea, Sponsoring, Challenges, QA, Lead ",IDC_STATIC,7,28,356,22,BS_CENTER
-    GROUPBOX        " Design, Support and Architecture",IDC_STATIC,7,54,356,30,BS_CENTER
-    GROUPBOX        " Main person taking overall care for version 1.3 and 1.4",IDC_STATIC,7,88,356,22,BS_CENTER
-    GROUPBOX        " Implementation, Documentation, Translation ",IDC_STATIC,7,115,175,129,BS_CENTER
-    GROUPBOX        " Review and Feedback",IDC_STATIC,188,115,175,129,BS_CENTER
-    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_1,20,125,150,105
-    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_2,200,125,150,105
+    DEFPUSHBUTTON   "Prihvati prost broj",IDOK,113,118,87,22
+    PUSHBUTTON      "Otkaži",IDCANCEL,322,118,50,22
+    PUSHBUTTON      "Generiši prost broj",IDC_BUTTON1,7,118,87,22
+    LTEXT           "Ovaj dijalog generiše siguran prost broj p. Prosti brojevi q se biraju dok p = 2q+1 takode prost broj. Molimo uzmite u obzir da je vreme za generisanje sigurnog prostog broja generalno znatno duže u odnosu na generisanje prostog broja bez ovog svojstva.",IDC_STATIC,14,6,351,25
+    GROUPBOX        "Generiši prost broj",IDC_STATIC,7,48,365,62
+    EDITTEXT        IDC_EDIT1,50,66,34,12,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT2,50,88,315,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Dužina bita",IDC_STATIC,14,67,29,8
+    LTEXT           "Prost broj",IDC_STATIC,14,90,29,8
+    LTEXT           "Sigurni prosti brojevi su važni za kriptosisteme bazirane na diskretnom logaritmu, kao što je Diffie-Hellman metoda.",IDC_STATIC,14,31,351,13
+END
+
+IDD_KEYS_LIST DIALOGEX 0, 0, 365, 221
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dijalog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Zatvori",IDCANCEL,280,195,78,19
+    EDITTEXT        IDC_HEADER,7,7,351,25,ES_MULTILINE | ES_READONLY | NOT WS_BORDER
+    PUSHBUTTON      "Kopiraj kljuc",IDC_BUTTON_COPY_KEY,176,195,82,19
+    CONTROL         "",IDC_KEY_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,39,351,149
+END
+
+IDD_VIGENERE_ANALYSIS_SCHROEDEL DIALOGEX 0, 0, 330, 200
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Vigenère (Analiza prema Schroedelu)"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_LIST_POSSIBLE_RESULTS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,35,316,75
+    LTEXT           "Cim pocnete sa analizom, moguci rezultati ce biti upisani u listu ispod. Detaljni rezultati se mogu dobiti kada se analiza završi.",IDC_STATIC,7,7,316,24
+    PUSHBUTTON      "Pocni analizu",IDC_BUTTON_START_ANALYSIS,7,135,110,18
+    PUSHBUTTON      "Zatvori",IDCANCEL,243,175,80,18
+    PUSHBUTTON      "Prikaži rezultate analize",IDC_BUTTON_SHOW_ANALYSIS_RESULTS,7,175,110,18
+    CONTROL         "",IDC_PROGRESS_ANALYSIS,"msctls_progress32",WS_BORDER,7,115,316,14
+    PUSHBUTTON      "Otkaži analizu",IDC_BUTTON_CANCEL_ANALYSIS,7,155,110,18
+END
+
+IDD_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_LANGUAGES DIALOGEX 0, 0, 230, 140
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Odaberite jezik"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Molim odaberite barem jedan jezik koji je pretraživan za moguce kljucne reci, i odaberite tacno jedan jezik u kojem je šifrat originalno napisan.",IDC_STATIC,7,7,216,24
+    PUSHBUTTON      "OK",IDOK,7,115,216,18
+    LTEXT           "Jezik(ci) za kljucne reci:",IDC_STATIC,7,39,84,8
+    LTEXT           "Jezik(ci) za šifrat:",IDC_STATIC,118,39,97,8
+    CONTROL         "",IDC_LIST_LANGUAGES_KEYWORD,"SysListView32",LVS_LIST | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,49,105,60
+    CONTROL         "",IDC_LIST_LANGUAGES_CIPHERTEXT,"SysListView32",LVS_LIST | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,118,49,105,60
 END
 
 IDD_PORTS DIALOGEX 0, 0, 370, 280
@@ -15470,7 +15551,6 @@ BEGIN
     LTEXT           "Madrid University, Spain (http://www.csic.es),\nMr. Gonzalo Alvarez Maranon and his students",IDC_STATIC,100,185,250,16
     LTEXT           "Mr. Raphael Labaca Castro",IDC_STATIC,100,205,250,16
 END
-
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -15532,9 +15612,13 @@ BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14, GRAYED
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16, GRAYED
+			MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
+			MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14, GRAYED
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16, GRAYED
         END
         MENUITEM "&Formatizovanje Tekstualnog Dokumenta...", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -15622,9 +15706,9 @@ BEGIN
             MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512, GRAYED
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160, GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "Heš vrednost datoteke...",    ID_HASH_OFAFILE
+            MENUITEM "Heš Vrednost Datoteke...",    ID_HASH_OFAFILE
             MENUITEM "Heš &Demonstracija...",       ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, GRAYED
-            MENUITEM "&Generisanje kljuceva iz lozinke (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
+            MENUITEM "&Generisanje Kljuca iz Lozinke (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
             MENUITEM "&Generisanje HMAC-ova...",    ID_GENERATE_MACS, GRAYED
         END
         POPUP "&RSA Kriptosistem"
@@ -15726,12 +15810,13 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO, GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
+				MENUITEM "V&igenère (Analiza prema Schroedelu)", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Zamena",                     ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "Sabiranje B&yte-ova",         ID_ADD_AUTO, GRAYED
-                MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
+                MENUITEM "&XOR / Vernam",               ID_XOR_AUTO
             END
             POPUP "Poznati &Obican Tekst"
             BEGIN
@@ -15743,7 +15828,6 @@ BEGIN
                 MENUITEM "&Zamena...",                  ID_ANALYZE_SUBST, GRAYED
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE, GRAYED
                 MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
-                MENUITEM "&Vigenère (Schrödel)...",     ID_ANALYSIS_VIGENERE_SCHROEDEL
             END
         END
         POPUP "Simetricno Šifrovanje (moderno)"
@@ -15777,7 +15861,7 @@ BEGIN
                 MENUITEM "&Napad na Stereotipne Poruke...", ID_RSA_STEREOTYPED
                 MENUITEM "Napad na &Male Tajne Kljuceve...", ID_RSA_BLOEMERMAY
             END
-            MENUITEM "&Napad sporednog kanala na ""Recnicki RSA""...", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
+            MENUITEM "&Napad Sporednog Kanala na ""Recnicki RSA""...", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
         END
         POPUP "&Heš"
         BEGIN
@@ -15866,26 +15950,30 @@ BEGIN
         MENUITEM "&Traka sa statusom",          ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
         MENUITEM "Prikaži &kao Tekst",          ID_TOTXT
-        MENUITEM "Prikaži kao &HexDump ",       ID_TOHEX, GRAYED
+        MENUITEM "Prikaži kao &HexDump ",       ID_TOHEX
         MENUITEM SEPARATOR
-        MENUITEM "&Traka sa grafikonom",        ID_PLOTBAR, GRAYED
+        MENUITEM "&Traka sa grafikonom",        ID_PLOTBAR
         MENUITEM SEPARATOR
-        MENUITEM "Al&fabet",                    ID_VIEW_ALPHABET, GRAYED
-        MENUITEM "&Kraj Linije",                ID_VIEW_ENDOFLINE, GRAYED
-        MENUITEM "Prelom Lin&ije",              ID_VIEW_LINEWRAP, GRAYED
-        MENUITEM "&Beline",                     ID_VIEW_WHITESPACE, GRAYED
+        MENUITEM "Al&fabet",                    ID_VIEW_ALPHABET
+        MENUITEM "&Kraj Linije",                ID_VIEW_ENDOFLINE
+        MENUITEM "Prelom Lin&ije",              ID_VIEW_LINEWRAP
+        MENUITEM "&Beline",                     ID_VIEW_WHITESPACE
         POPUP "&Font"
         BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+			MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+			MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
         END
         MENUITEM "&Formatizovanje Tekstualnog Dokumenta...", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
-        MENUITEM "Prikaži K&utiju (kocke u granicama)", ID_POPUP_OPENGL_SHOW_BOX, GRAYED
+        MENUITEM "Prikaži K&utiju (kocke u granicama)", ID_POPUP_OPENGL_SHOW_BOX
     END
     POPUP "&Šifrovanje/Dešifrovanje"
     BEGIN
@@ -15944,7 +16032,7 @@ BEGIN
             MENUITEM "ECC-AES De&šifrovanje...",    ID_HYBRID_ECCDEC
         END
     END
-    POPUP "Digitalni Potpis/&PKI"
+    POPUP "Digitalni Potpisi/&PKI"
     BEGIN
         POPUP "&PKI"
         BEGIN
@@ -15954,7 +16042,7 @@ BEGIN
         MENUITEM "&Potpiši Dokument...",        ID_CRYPT_SIGN
         MENUITEM "&Proveri Potpis...",          ID_CRYPT_VERIFY
         MENUITEM "&Ekstraktuj Potpis",          ID_CRYPT_EXTRACT
-        MENUITEM "&Demonstracija Potpis (Generisanje Potpisa)...", ID_EINZELVERFAHREN_SIGN_DOC
+        MENUITEM "&Demonstracija Potpisa (Generisanje Potpisa)...", ID_EINZELVERFAHREN_SIGN_DOC
     END
     POPUP "&Individualne Procedure"
     BEGIN
@@ -15976,14 +16064,14 @@ BEGIN
         END
         POPUP "&RSA Kriptosistem"
         BEGIN
-            MENUITEM "&Test Prostih Brojeva...",    ID_PRIMENUMBER_TEST
+            MENUITEM "&Test Prostih &Brojeva...",   ID_PRIMENUMBER_TEST
             MENUITEM "Generiši &Proste Brojeve...", ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
             MENUITEM "&Razlaganje Broja...",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             MENUITEM "&RSA Demonstracija...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
             MENUITEM "&Demonstracija Potpisa (Generisanje Potpisa)...", ID_EINZELVERFAHREN_SIGN_DOC
             POPUP "&Napad na RSA Zasnovan na Rešetki"
             BEGIN
-                MENUITEM "&Razlaganje sa nagoveštajem...", ID_RSA_FACTORHINT
+                MENUITEM "&Razlaganje sa Nagoveštajem...", ID_RSA_FACTORHINT
                 MENUITEM "&Napad na Stereotipne Poruke...", ID_RSA_STEREOTYPED
                 MENUITEM "Napad na &Male Tajne Kljuceve...", ID_RSA_BLOEMERMAY
             END
@@ -16073,12 +16161,13 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
+				MENUITEM "V&igenère (Analiza prema Schroedelu)", ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 MENUITEM "&Zamena",                     ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
                 MENUITEM "Sabiranje B&yte-ova",         ID_ADD_AUTO
-                MENUITEM "&XOR",                        ID_XOR_AUTO
+                MENUITEM "&XOR / Vernam",               ID_XOR_AUTO
             END
             POPUP "Poznati &Obican Tekst"
             BEGIN
@@ -16090,7 +16179,6 @@ BEGIN
                 MENUITEM "&Zamena...",                  ID_ANALYZE_SUBST
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
                 MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
-                MENUITEM "&Vigenère (Schrödel)...",     ID_ANALYSIS_VIGENERE_SCHROEDEL
             END
         END
         POPUP "Simetricno Šifrovanje (moderno)"
@@ -16223,12 +16311,16 @@ BEGIN
         MENUITEM "&Beline",                     ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14, GRAYED
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16, GRAYED
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14, GRAYED
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16, GRAYED
         END
         MENUITEM "&Formatizovanje Tekstualnog Dokumenta...", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -16316,14 +16408,14 @@ BEGIN
             MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512, GRAYED
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160, GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "Heš vrednost datoteke...",    ID_HASH_OFAFILE
+            MENUITEM "Heš Vrednost Datoteke...",    ID_HASH_OFAFILE
             MENUITEM "Heš &Demonstracija...",       ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, GRAYED
-            MENUITEM "&Generisanje kljuceva iz lozinke (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
+            MENUITEM "&Generisanje Kljuca iz Lozinke (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
             MENUITEM "&Generisanje HMAC-ova...",    ID_GENERATE_MACS, GRAYED
         END
         POPUP "&RSA Kriptosistem"
         BEGIN
-            MENUITEM "Test Prostih &Brojeva...",    ID_PRIMENUMBER_TEST
+            MENUITEM "&Test Prostih &Brojeva...",    ID_PRIMENUMBER_TEST
             MENUITEM "Generiši &Proste Brojeve...", ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
             MENUITEM "&Razlaganje Broja...",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             MENUITEM "&RSA Demonstracija...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
@@ -16420,12 +16512,13 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
+				MENUITEM "V&igenère (Analiza prema Schroedelu)", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
-                MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
+                MENUITEM "&Zamena",               		ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "Sabiranje B&yte-ova",         ID_ADD_AUTO, GRAYED
-                MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
+                MENUITEM "&XOR / Vernam",               ID_XOR_AUTO
             END
             POPUP "Poznati &Obican Tekst"
             BEGIN
@@ -16437,7 +16530,6 @@ BEGIN
                 MENUITEM "&Zamena...",                  ID_ANALYZE_SUBST
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE, GRAYED
                 MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
-                MENUITEM "&Vigenère (Schrödel)...",     ID_ANALYSIS_VIGENERE_SCHROEDEL
             END
         END
         POPUP "Simetricno Šifrovanje (moderno)"
@@ -16471,7 +16563,7 @@ BEGIN
                 MENUITEM "&Napad na Stereotipne Poruke...", ID_RSA_STEREOTYPED
                 MENUITEM "Napad na &Male Tajne Kljuceve...", ID_RSA_BLOEMERMAY
             END
-            MENUITEM "&Napad sporednog kanala na ""Recnicki RSA""...", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
+            MENUITEM "&Napad Sporednog Kanala na ""Recnicki RSA""...", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
         END
         POPUP "&Heš"
         BEGIN
@@ -16573,9 +16665,13 @@ BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
         END
         MENUITEM "&Formatizovanje Tekstualnog Dokumenta...", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -16610,7 +16706,7 @@ BEGIN
             MENUITEM "T&rostruki DES (CBC)...",     ID_CRYPT_3DES_CBC
             MENUITEM "Rijndael (&AES)...\tShift + Strg + R", ID_CRYPT_AES_RIJNDAEL
             MENUITEM SEPARATOR
-            POPUP "&Further Algorithms"
+            POPUP "&Dalji Algoritmi"
             BEGIN
                 MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
                 MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
@@ -16630,7 +16726,7 @@ BEGIN
             MENUITEM "RSA &Dešifrovanje...",        ID_CRYPT_RsaDec
             MENUITEM "RSA &Demonstracija...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
         END
-        POPUP "&Hybrid"
+        POPUP "&Hibridno"
         BEGIN
             MENUITEM "RSA-AES &Šifrovanje...",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
             MENUITEM "RSA-AES &Dešifrovanje...",    ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
@@ -16663,9 +16759,9 @@ BEGIN
             MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             MENUITEM SEPARATOR
-            MENUITEM "Heš vrednost datoteke...",    ID_HASH_OFAFILE
+            MENUITEM "Heš Vrednost Datoteke...",    ID_HASH_OFAFILE
             MENUITEM "Heš &Demonstracija...",       ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
-            MENUITEM "&Generisanje kljuceva iz lozinke (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
+            MENUITEM "&Generisanje Kljuca iz Lozinke (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
             MENUITEM "&Generisanje HMAC-ova...",    ID_GENERATE_MACS
         END
         POPUP "&RSA Kriptosistem"
@@ -16767,12 +16863,13 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
+				MENUITEM "V&igenère (Analiza prema Schroedelu)", ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
-                MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
+                MENUITEM "&Zamena",               		ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
                 MENUITEM "Sabiranje B&yte-ova",         ID_ADD_AUTO
-                MENUITEM "&XOR",                        ID_XOR_AUTO
+                MENUITEM "&XOR / Vernam",               ID_XOR_AUTO
             END
             POPUP "Poznati &Obican Tekst"
             BEGIN
@@ -16784,7 +16881,6 @@ BEGIN
                 MENUITEM "&Zamena...",                  ID_ANALYZE_SUBST
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
                 MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
-                MENUITEM "&Vigenère (Schrödel)...",     ID_ANALYSIS_VIGENERE_SCHROEDEL
             END
         END
         POPUP "Simetricno Šifrovanje (moderno)"
@@ -16815,10 +16911,10 @@ BEGIN
             POPUP "&Napad na RSA Zasnovan na Rešetki"
             BEGIN
                 MENUITEM "&Razlaganje sa Nagoveštajem...", ID_RSA_FACTORHINT
-                MENUITEM "&Attack on Stereotyped Messages...", ID_RSA_STEREOTYPED
-                MENUITEM "Attack on &Small Secret Keys...", ID_RSA_BLOEMERMAY
+                MENUITEM "&Napad na Stereotipne Poruke...", ID_RSA_STEREOTYPED
+                MENUITEM "Napad na &Male Tajne Kljuceve...", ID_RSA_BLOEMERMAY
             END
-            MENUITEM "&Napad sporednog kanala na ""Recnicki RSA""...", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
+            MENUITEM "&Napad Sporednog Kanala na ""Recnicki RSA""...", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
         END
         POPUP "&Heš"
         BEGIN
@@ -16947,9 +17043,13 @@ BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14, GRAYED
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16, GRAYED
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14, GRAYED
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16, GRAYED
         END
         MENUITEM "&Formatizovanje Tekstualnog Dokumenta...", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -17001,7 +17101,7 @@ BEGIN
         POPUP "&Asimetricno"
         BEGIN
             MENUITEM "RSA &Šifrovanje...",          ID_CRYPT_RsaEnc, GRAYED
-            MENUITEM "RSA &Decryption...",          ID_CRYPT_RsaDec, GRAYED
+            MENUITEM "RSA &Dešifrovanje...",        ID_CRYPT_RsaDec, GRAYED
             MENUITEM "RSA &Demonstracija...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
         END
         POPUP "&Hibridno"
@@ -17012,7 +17112,7 @@ BEGIN
             MENUITEM "ECC-AES De&šifrovanje...",    ID_HYBRID_ECCDEC, GRAYED
         END
     END
-    POPUP "Digitalni Potpis/&PKI"
+    POPUP "Digitalni Potpisi/&PKI"
     BEGIN
         POPUP "&PKI"
         BEGIN
@@ -17022,7 +17122,7 @@ BEGIN
         MENUITEM "&Potpiši Dokument...",        ID_CRYPT_SIGN, GRAYED
         MENUITEM "&Proveri Potpis...",          ID_CRYPT_VERIFY, GRAYED
         MENUITEM "&Ekstraktuj Potpis",          ID_CRYPT_EXTRACT, GRAYED
-        MENUITEM "&Demonstracija Potpis (Generisanje Potpisa)...", ID_EINZELVERFAHREN_SIGN_DOC
+        MENUITEM "&Demonstracija Potpisa (Generisanje Potpisa)...", ID_EINZELVERFAHREN_SIGN_DOC
     END
     POPUP "&Individualne Procedure"
     BEGIN
@@ -17044,7 +17144,7 @@ BEGIN
         END
         POPUP "&RSA Kriptosistem"
         BEGIN
-            MENUITEM "Test Prostih Brojeva...",     ID_PRIMENUMBER_TEST
+            MENUITEM "Test Prostih &Brojeva...",    ID_PRIMENUMBER_TEST
             MENUITEM "Generiši &Proste Brojeve...", ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
             MENUITEM "&Razlaganje Broja...",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             MENUITEM "&RSA Demonstracija...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
@@ -17141,12 +17241,13 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO, GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
+				MENUITEM "V&igenère (Analiza prema Schroedelu)", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Zamena",                     ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "Sabiranje B&yte-ova",         ID_ADD_AUTO, GRAYED
-                MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
+                MENUITEM "&XOR / Vernam",               ID_XOR_AUTO
             END
             POPUP "Poznati &Obican Tekst"
             BEGIN
@@ -17158,7 +17259,6 @@ BEGIN
                 MENUITEM "&Zamena...",                  ID_ANALYZE_SUBST, GRAYED
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE, GRAYED
                 MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
-                MENUITEM "&Vigenère (Schrödel)...",     ID_ANALYSIS_VIGENERE_SCHROEDEL
             END
         END
         POPUP "Simetricno Šifrovanje (moderno)"
@@ -19294,15 +19394,44 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.30 Beta04 (EN)"
+    IDR_MAINFRAME           "CrypTool 1.4.30"
     IDR_TEXTTYPE            "\nNeimenovani\nTEKST dokument\nTekst datoteka (*.txt)\n.txt\nTip Tekst Datoteke\nTEKST Tip Datoteke\nTEKST\nTekst Datoteke\n"
     IDR_HEXTYPE             "\nNeimenovana\n\nBinarna datoteka (*.hex)\n.hex\n\nHEX Tip Datoteke\nHEX\nHex Datoteke\n"
     IDR_ASCTYPE             "\nNeimenovana\n\nASCII datoteka (*.asc)\n.asc\n\nASCII Tip Datoteke\nASCII\nASCII Datoteke\n"
     IDR_PLOTTYPE            "\nNeimenovana\n\nPLOT datoteka (*.plt)\n.plt\n\nPlot Tip Datoteke\nPLOT\nPlot Datoteke\n"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERKEY "Kljuc:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT "Otvoreni tekst:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_COMPLETE 
+                            "Analiza je završena."
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_INCOMPLETE 
+                            "Analiza nije završena."
+    IDS_STRING_CERTIFICATE_GENERATION_RSA_PARAMETERS_REQUIRED 
+                            "Trebate da podesite RSA parametre pre nego što kreirate sertifikat."
+    IDS_STRING_MONOALPHABETIC_SUBSTITUTION_ALPHABET_HEADING 
+                            "Alfabet (%d karaktera) bice mapiran"
+    IDS_STRING_MONOALPHABETIC_SUBSTITUTION_CHARACTERS_REMOVED_DURING_COPYANDPASTE 
+                            "Molimo uzmite u obzir da ce karakteri koji nisu deo trenutno podešenog alfabeta biti uklonjeni prilikom nalepljivanja iz klipborda."
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_NOT_SUCCESSFUL 
+                            "\n\nNa žalost, nisu nadeni moguci rezultati.\n\nProverite da li ste odabrali ispravan jezik(e) za kljucnu rec i šifrat.\n\nMožda biste trebali da razmotrite smanjivanje vrednosti praga u dijalogu za opcije analize."
     IDS_STRING_FILE_NOT_FOUND_BUT_ASK_FOR_MIGRATION_TO_DEFAULT_RESOURCES 
-                            "[i18n] A file required for the analysis could not be found.\n\nYet this file is part of your CrypTool installation.\n\nCrypTool is probably using out-dated Windows registry keys at the moment.\n\nFrom now on, do you want CrypTool to use the files required for the analysis (dictionary, digrams and trigrams) that have been rolled out with your current CrypTool installation?"
+                            "Datoteka potrebna za analizu nije pronadena.\n\nIpak, ova datoteka je deo Vaše CrypTool instalacije.\n\nCrypTool verovatno trenutno koristi starije Windows kljuceve registra.\n\nOd sada, da li želite da CrypTool koristi datoteke koje su potrebne za analizu (recnik, digrami i trigrami) koje su izdate sa Vašom CrypTool instalacijom?"
     IDS_STRING_LANGUAGE_CHOICE_REQUIREMENTS 
                             "[i18n] Please choose AT LEAST ONE keyword language and EXACTLY ONE ciphertext language."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_HMAC_ALGORITHM_HKM  "H(k, m): kljuc ispred poruke"
+    IDS_HMAC_ALGORITHM_HMK  "H(m, k): kljuc na kraju poruke"
+    IDS_HMAC_ALGORITHM_HKMK "H(k, m, k): kljuc ispred i na kraju"
+    IDS_HMAC_ALGORITHM_HK1MK2 "H(k, m, k'): razliciti kljucevi"
+    IDS_HMAC_ALGORITHM_RFC2104 "H(k, H(k, m)): duplo heširanje (RFC 2104)"
+    IDS_HASHDEMO_SELALGORITHM "Molim odaberite heš funkciju"
+    IDS_HMAC_SELALGORITHM   "Molim odaberite HMAC varijansu"
+    IDS_SOLITAIRE_ZULANG    "Velicina toka kljuca je ogranicena na 4,000 karaktera.\nDalji karakteri se ignorišu."
+    IDS_SOLITAIRE_COULD_NOT_LOAD_DECK "Nije moguce ucitati Solitaire špil."
+    IDS_SOLITAIRE_PASSWORD_NEEDS_26_CARDS 
+                            "Inicijalizacija lozinke zahteva najmanje 26 karata. Broj karata je uvecan na ovaj broj."
 END
 
 STRINGTABLE 
@@ -19318,7 +19447,7 @@ BEGIN
     ID_ADD_BIN              "Sabiranje Byte-ova po modulu 256"
     ID_XOR_BIN              "Byte-po-byte XOR operacija"
     ID_ENTROPY              "Racuna entropiju dokumenta"
-    ID_HISTOGRAM            "Racina ucestanost karaktera u dokumentu"
+    ID_HISTOGRAM            "Racuna ucestanost karaktera u dokumentu"
     ID_AUTO                 "Izvodi autokorelaciju nad karakterima u dokumentu"
 END
 
@@ -19353,6 +19482,7 @@ BEGIN
                             "Šifrovanje pomocu jednostavnih transpozicija (Scytale, Rail Fence)"
     ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION 
                             "Napad poznatog obicnog teksta na dokument šifrovanog algoritmom jednostruke transpozicije kolone"
+	ID_PROTOKOL_SMIME       "Vizualizuje S/MIME protokol"
 END
 
 STRINGTABLE 
@@ -19364,7 +19494,7 @@ BEGIN
     IDS_STRING_EC_ERROR_LOADING_KEYFILE 
                             "Greška! Datoteka %s se ne može otvoriti ili ne postoji.\nBez ove datoteke nije moguce prikazati bilo koji par kljuceva za elipticke krive."
     ID_OPTTEXT              "Odreduje alfabet i referentni izvor teksta za klasicne algoritme za šifrovanje"
-    ID_SHOW_ALL_EC_KEYS     "Prikazuje ili briše asimetricne kljuceve; prikazuje ili briše serti"
+    ID_SHOW_ALL_EC_KEYS     "Prikazuje ili briše asimetricne kljuceve; prikazuje ili briše sertifikate"
     IDS_STRING_KEYLIST_ASYM_SELECT "Odaberite identifikator kljuca iz liste."
     IDS_STRING_KEYLIST_ASYM_EMPTY 
                             "Trenutno nema raspoloživih asimetricnih kljuceva željenog tipa.\nOdaberite drugi tip kljuca ili kreirajte neke nove kljuceve."
@@ -19496,7 +19626,7 @@ BEGIN
     IDS_STRING_ASYMKEY_ERR_WRONG_SIGNATURE_FORMAT2 
                             "Postoji raspoloživ DSA potpis. Ipak, PSE\nkoji ste odabrali sadrži RSA kljuc!"
     IDS_STRING_ASYMKEY_MSG_SIGNATURE_FAIL "Signature is not correct!"
-    IDS_STRING_ASYMKEY_MSG_SIGNATURE_CORRECT "Correct signature!"
+    IDS_STRING_ASYMKEY_MSG_SIGNATURE_CORRECT "Tacan potpis!"
     IDS_STRING_ASYMKEY_COULD_NOT_EXTRACT_SIGNATURE 
                             "Nisu pronadene sve kljucne reci u delu o informacijama potpisa.\nMolim da uzmete u obzir da se potpisan dokument sastoji od dela sa informacijama o potpisu i samog dokumenta.\nDeo o informacijama nije mogao da bude analiziran, stoga, provera potpisa nije izvršena!"
     IDS_STRING_ASYMKEY_SELECT_HASH_METHOD "                Heš funkcija:   "
@@ -19568,8 +19698,10 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_YOUR_KEYWORD "Vaša kljucna rec je:\n"
-    IDS_STRING_MSG_SUBSTITUTION "\n\nOvo dovodi do sledece zamene:\n"
-    IDS_STRING_MONOALPHABETIC_SUBSTITUTION "Monoalfabetska zamena <%s>"
+    IDS_STRING_MSG_SUBSTITUTION 
+							"\n\nOvo dovodi do sledece zamene:\n"
+    IDS_STRING_MONOALPHABETIC_SUBSTITUTION 
+							"Monoalfabetska zamena <%s>"
     IDS_STRING_MSG_FREQ_ANALYSE_NOTE 
                             "Nekoliko karaktera se javlja podjednako cesto.\nNajcešci karakter je ignorisan.\nTo znaci da proširena analiza nije moguca."
     IDS_STRING_POSSIBLE_PLAINTEXT_OF "Analiza zamene <%s>, kljuc <%s>"
@@ -19596,9 +19728,10 @@ BEGIN
     IDS_STRING_ERR_EC_FILE_NOT_FOUND 
                             "Nije moguce pronaci datoteku %s!\nBez ove datoteke nije moguce kreirati bilo koji par kljuceva za elipticke krive."
     IDS_STRING_SUBSTITUTION_ANALYSE "Analiza Zamene"
-    IDS_STRING_SUBSTITUTION_ANALYSE_COMPLETE "Analiza zamene završena: %d%%"
+    IDS_STRING_SUBSTITUTION_ANALYSE_COMPLETE 
+							"Analiza zamene završena: %d%%"
     IDS_STRING_ERR_EC_FILE_UNSPECIFIED_CURVE_ID 
-                            "U datoteci '%s' elipticka kriva sa oznakom '%s' je definisana kao podrazumevani izbor.\\Medutim, nijedna kriva sa ovom oznakom nije navedena u CURVE_ID_LIST.\nStoga, ne postoji podrazumevani unos za ID elipticke krive."
+                            "U datoteci '%s' elipticka kriva sa oznakom '%s' je definisana kao podrazumevani izbor.\nMedutim, nijedna kriva sa ovom oznakom nije navedena u CURVE_ID_LIST.\nStoga, ne postoji podrazumevani unos za ID elipticke krive."
     IDS_STRING_ERR_EC_FILE_READING 
                             "Parametri za elipticku krivu sa ID kôdom '%s'\nsu procitani iz datoteke '%s'.\nMedutim, došlo je do greške u toku konverzije niski u reprezentaciju dugih brojeva.\nOdabrana kriva, stoga, NE MOŽE biti inicijalizovana."
     IDS_STRING_ERR_EC_GEN_EC_KEY_PAIR 
@@ -19608,11 +19741,10 @@ BEGIN
     IDS_STRING_MSG_FILENAME_SIGNED_MESSAGE 
                             "Potpisana poruka je u ovoj datoteci:        "
     IDS_STRING_ERR_INPUT_TEXT_LENGTH 
-                            "Unos mora sadržati najmanje %d karakter(a) iz trenutnog alfabeta."
+                            "Unos mora sadržati najmanje %d (ne nužno razlicitih) karakter(a) iz trenutnog alfabeta."
     IDS_STRING_ERR_EC_ON_CONVERT_PARAM 
                             "Greška. Domenski parametri elipticke krive ne mogu biti konvertovani u niske!"
-    IDS_STRING_ERR_NO_ZIP_FILE 
-                            "Nema ZIP datoteke (greška ""Magicnog broja"")."
+    IDS_STRING_ERR_NO_ZIP_FILE "Nema ZIP datoteke (greška ""Magicnog broja"")."
     IDS_STRING_SUBSTITUTION "Zamena"
 END
 
@@ -19640,7 +19772,8 @@ BEGIN
                             "Kljuc nije pronaden pošto je tekst previše kratak!"
     IDS_STRING_MSG_KEY_NOT_FOUND_CONFLICT 
                             "Kljuc ne može biti pronaden zbog sukoba!"
-    IDS_STRING_MSG_DATALENGTH_MISMATCH "Dokumenti su razlicitih dužina!"
+    IDS_STRING_MSG_DATALENGTH_MISMATCH 
+							"Dokumenti su razlicitih dužina!"
 END
 
 STRINGTABLE 
@@ -19655,7 +19788,7 @@ BEGIN
     IDS_STRING_ERR_ON_WRONG_ALPHABET 
                             "Ne postoji kljuc za alfabet koji sadrži samo jedan karakter."
     IDS_STRING_MSG_ON_ALPHABET 
-                            "Alfabet definisan u [Opcije->Opcije teksta] mora sadržati barem %d karaktera."
+                            "Alfabet definisan u [Opcije->Opcije Teksta] mora sadržati barem %d karaktera."
     IDS_STRING_ERR_ON_SECUDE_DLL 
                             "Secude biblioteka nije mogla da se ucita.\nNeke funkcije su stoga nedostupne."
     IDS_STRING_ANALYSE_ON   "Analiza Brutalne-Sile %s"
@@ -19680,7 +19813,7 @@ BEGIN
     IDS_STRING_YEARS        "godine"
     IDS_PERMUTATION_DECRYPT_INV "Dešifruj tekst sa inverznom permutacijom"
     IDS_ALINK_ERROR_MESSAGE_TITLE "Greška"
-    IDS_ALINK_ERROR_MESSAGE "Link ne može biti razrešen."
+    IDS_ALINK_ERROR_MESSAGE "ALink ne može biti razrešen."
     IDS_HELP_ERROR          "Pomoc nije moguce pronaci na: "
     IDS_STRING_ADFGVX_BLOCKLENGTH_STAGE1 
                             "Dužina bloka faza1:\nZa dužinu bloka molim unesite vrednosti izmedu 1 i 26 iskljucivo!"
@@ -19709,9 +19842,9 @@ BEGIN
     IDS_STRING_MESSAGE_TO_SIGN "Poruka M koja treba da bude potpisana:"
     IDS_STRING_SIGNATURE_STEP_BY_STEP "Korak-po-korak generisanje potpisa:"
     IDS_STRING_SIGNATURE_CREATOR "Tvorac sertifikata:"
-    IDS_STRING_DOMAIN_PARAMETER_TO_USE 
-                            "Domenski parametri koji trebaju da se koriste '%s':"
-    IDS_STRING_SIGNATURE_SECRET_KEY "Tajni kljuc s tvorca potpisa:"
+    IDS_STRING_DOMAIN_PARAMETER_TO_USE "Domenski parametri koji trebaju da se koriste '%s':"
+    IDS_STRING_SIGNATURE_SECRET_KEY 
+							"Tajni kljuc s tvorca potpisa:"
     IDS_STRING_SEL_SIGNATURE_HASH_FUNCTION 
                             "Odabrani algoritam potpisivanja: %s sa heš funkcijom %s"
     IDS_STRING_CONTINUE     "Nastavak ..."
@@ -19809,11 +19942,11 @@ BEGIN
     IDS_STRING_MSG_EVAL_RSA_PRIVATE_KEY_2 
                             "Racuna broj d = u - s*c (mod r) (d je razlicito od 0):"
     IDS_STRING_MSG_EC_AFFINE_PROJECTIVE_COORDINATES 
-                            "Proracun ""na"" na eliptickoj krivoj se obavlja u toku prezentacije srednjih vrednosti potpisa u affine-im koordinatama. Nije moguce proizvesti srednje rezultate u projektivnim koordinatama (x, y, z koordinate), npr. tacke na eliptickoj krivoj ce biti proizvedene kao x, y koordinate (affine koordinate)."
+                            "Proracun ""na"" na eliptickoj krivoj se obavlja u toku prezentacije srednjih vrednosti potpisa u afinim koordinatama. Nije moguce proizvesti srednje rezultate u projektivnim koordinatama (x, y, z koordinate), npr. tacke na eliptickoj krivoj ce biti proizvedene kao x, y koordinate (afine koordinate)."
     IDS_STRING_MSG_SIGNATURE_VERIFICATION_STEP_BY_STEP 
                             "Korak-po-korak provera potpisa:"
     IDS_STRING_MSG_EC_VERIFICATION_AFFINE_PROJECTIVE_COORDINATES 
-                            "Proracun ""na"" na eliptickoj krivoj se obavlja u toku prezentacije provere srednjih vrednosti u affine-im koordinatama. Nije moguce proizvesti srednje rezultate u projektivnim koordinatama (x, y, z koordinate), npr. tacke na eliptickoj krivoj ce biti proizvedene kao x, y koordinate (affine koordinate)."
+                            "Proracun ""na"" na eliptickoj krivoj se obavlja u toku prezentacije provere srednjih vrednosti u afinim koordinatama. Nije moguce proizvesti srednje rezultate u projektivnim koordinatama (x, y, z koordinate), npr. tacke na eliptickoj krivoj ce biti proizvedene kao x, y koordinate (afine koordinate)."
     IDS_STRING_PUBLIC_EC_KEY 
                             "Javni kljuc W=(Wx,Wy) (W je tacka na eliptickoj krivoj) tvorca potpisa:"
     IDS_STRING_SIGNATURE_MESSAGE_SIZE_2 
@@ -19835,9 +19968,10 @@ BEGIN
     IDS_STRING_EC_DIV_REMAINDER "Racuna broj c' = i mod r:"
     IDS_STRING_EC_COMPARE   "Ako je c' = c onda je potpis ispravan; u suprotnom je potpis nevažeci:"
     IDS_STRING_EC_C_D_ERROR "Ili c ili d NE ne pripada zahtevanom intervalu [1, r-1]."
-    IDS_STRING_EC_C_D_CORRECT "c i d pripadaju zahtevanom intervalu [1, r-1]."
+    IDS_STRING_EC_C_D_CORRECT 
+							"c i d pripadaju zahtevanom intervalu [1, r-1]."
     IDS_STRING_EC_SIGNATURE_INCORRECT 
-                            "Tacka P = (inf,inf) pokazuje da je potpis ispravan."
+                            "Tacka P = (inf,inf) pokazuje da je potpis neispravan."
     IDS_STRING_EC_CALC_P    "Racuna tacku elipticke krive P = d G + c W\r\n(Ako je P = (Px, Py) = (inf, inf) onda je potpis nevažeci):"
     IDS_STRING_EC_CALC_MESSAGE_REPRESENTATIVE 
                             "Racuna broj f = c - i (mod r) (f je 'predstavnik poruke'):"
@@ -19863,13 +19997,13 @@ BEGIN
     IDS_STRING_HYBRID_CIPHERTEXT "    Šifrovan tekst:    "
     IDS_STRING_ZERT_DATEN   "Podaci Vašeg sertifikata ce biti prikazani ispod."
     IDS_STRING_HYBRID_DEC_STEP "Korak-po-korak hibridno dešifrovanje:"
-    IDS_STRING_HYBRID_ENC_SYM_KEY 
-                            "Simetricni kljuc sesije, odabran nasumicno:"
+    IDS_STRING_HYBRID_ENC_SYM_KEY "Simetricni kljuc sesije, odabran nasumicno:"
     IDS_STRING_HYBRID_DEC_MSG2 
                             "Kao korak 1 molim odaberite Vaš sertifikat iz PSE i unesite \r\nVaš PIN, da biste mogli da procitate Vaš privatni RSA kljuc iz PSE.\r\n"
     IDS_STRING_HYBRID_ENC_SYM_ENC_DOC 
                             "Dokument šifrovan simtericno sa kljucem sesije:"
-    IDS_STRING_HYBRID_DEC_MSG4 "Vaš privatni RSA kljuc d je ceo broj:\r\nd = "
+    IDS_STRING_HYBRID_DEC_MSG4 
+							"Vaš privatni RSA kljuc d je ceo broj:\r\nd = "
     IDS_STRING_HYBRID_DEC_MSG5 
                             "Kao korak 3 Vaš kljuc sesije ce biti dešifrovan i prikazan.\r\n"
     IDS_STRING_HYBRID_DEC_MSG6 
@@ -19899,7 +20033,8 @@ BEGIN
     IDS_STRING_HYBRID_STEP_BY_STEP "Korak %d od najviše %d koraka."
     IDS_STRING_HYB_SHOW_DATA 
                             "Ovo dugme trenutno nije aktivno!\nPre cuvanja, dokument mora biti šifrovan simetricno\ni kljuc sesije mora biti šifrovan asimetricno.\n\nDugme F1 ce Vam dati dodatne informacije o tome koji redosled aktivnosti možete da kontrolišete na dijagramu toka."
-    IDS_STRING_HYBRID_HEADLINE_ENC_DLG "Odaberite primaocev kljuc iz liste."
+    IDS_STRING_HYBRID_HEADLINE_ENC_DLG 
+							"Odaberite primaocev kljuc iz liste."
     IDS_KEYHEX_MAX_INPUT_LENGTH_TXT 
                             "Unesite kljuc koristeci hex karaktere (0..9, A..F).\nDužina kljuca sa najviše  %d hex karaktera (= %d byte-ova)."
 END
@@ -19964,14 +20099,15 @@ STRINGTABLE
 BEGIN
     IDS_STRING_RAND_DATA_PARAM 
                             "Nasumicni podaci generisani sa %s generatorom - dužina %i byte-ova"
-    IDS_RSA_MKPZ_PLAINTEXT  "Obican tekst"
+    IDS_RSA_MKPZ_PLAINTEXT  "Otvoreni tekst"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_RSA_MKPZ_CIPHERTEXT "Šifrovan tekst"
+    IDS_RSA_MKPZ_CIPHERTEXT "Šifrat"
     IDS_STRING_CHOOSE_REF_FILENAME "Odaberite Referentnu Datoteku"
-    IDS_STRING_MSG_CMP_CIPHER_REFERENCE "Uporedite šifrat sa datotekom %s"
+    IDS_STRING_MSG_CMP_CIPHER_REFERENCE 
+							"Uporedite šifrat sa referentnom datotekom %s"
     IDS_STRING_KEYINPUT_AES_CANDIDATE "Unos Kljuca: %s (AES kandidat)"
     IDS_STRING_KEYINPUT_SYMMETRIC "Unos Kljuca: %s"
     IDS_STRING_KEYINPUT_AES_RIJNDAEL "Unos Kljuca: Rijndael (AES)"
@@ -20023,10 +20159,10 @@ BEGIN
     IDS_HEADING_EMPTY_ECDOMAINPARAMETER 
                             "Domenski parametar odabrane elipticke krive ce biti prikazan ispod."
     IDS_TEXTOPTIONS_KEEP_UPPERCASE_LOWERCASE 
-                            "Da biste odabrali ovu opciju, prvo morate deaktivirati opciju ispod\n[+] ""Razlikuj velika i mala slova""!"
+                            "Ne možete odabrati više od jedne opcije u grupi ""Velika/mala slova u otvorenom tekstu i šifratu""."
     IDS_SECUDE_COULD_NOT_BE_LOADED 
-                            "The Secude biblioteka ne može da bude ucitana !\n""Secude.dll"" je isporucena sa CrypTool paketom.\nMolim proverite da li je ova datoteka dostupna u Vašem CrypTool direktorijumu."
-    IDS_NGRAM_TITLE         "N-Gram Lista %s"
+                            "Secude biblioteka ne može da se ucita !\n""Secude.dll"" je isporucena sa CrypTool paketom.\nMolim proverite da li je ova datoteka dostupna u Vašem CrypTool direktorijumu."
+    IDS_NGRAM_TITLE         "N-Gram Lista od %s"
     IDS_FACTORISATION_LIST_DESCRIPTION 
                             "Sledeci odgovarajuci složen broj ce biti razložen na dva cinoica:"
     IDS_FACTORISATION_LIST_TOTAL_TIME 
@@ -20043,7 +20179,7 @@ BEGIN
     IDS_STRING_RSA_TUTORIAL_ENCRYPTION 
                             "Šifrovanje u šifrovani tekst  c[i] = m[i]^e (mod N)"
     IDS_STRING_RSA_TUTORIAL_DECRYPTION 
-                            "Šifrovanje u obican tekst  m[i] = c[i]^d (mod N)"
+                            "Šifrovanje u obican tekst m[i] = c[i]^d (mod N)"
     IDS_STRING_RSATUT_MAXBLOCKLENGTH "(Maksimalna dužina bloka %i karaktera)"
     IDS_STRING_RSATUT_INPUTPLAINTEXT "Unos teksta"
     IDS_STRING_RSATUT_INPUT_PLAINTEXT_CODING 
@@ -20051,7 +20187,7 @@ BEGIN
     IDS_STRING_RSATUT_PLAINTEXTNUMBERS 
                             "Obican tekst kôdiran u brojeve osnove %i."
     IDS_STRING_RSATUT_CIPHERTEXTNUMBERS 
-                            "Šifrovan tekst kôdiran u brojeve osnove %i"
+                            "Šifrat kôdiran u brojeve osnove %i"
     IDS_STRING_PA_FILENAME  "PeriodicityAnalysis.txt"
     IDS_STRING_PA_OFFSET    "Pomeraj"
     IDS_STRING_PA_PCNT      "Broj ciklusa"
@@ -20067,7 +20203,7 @@ BEGIN
     IDS_STRING_PA_LENGTH    "Dužina"
     IDS_RAND_OUTPUT         "Nasumicni podaci generisani od %d %%"
     IDS_RANDOM_GENERATOR    "Generisanje nasumicnih podataka"
-    IDS_STRING_CAPTATION_SERIAL_TEST "Serijski Test (preklapanjem) %s"
+    IDS_STRING_CAPTATION_SERIAL_TEST "Serijski Test (preklapanje) %s"
 END
 
 STRINGTABLE 
@@ -20105,8 +20241,7 @@ BEGIN
     AFX_IDP_FAILED_TO_LAUNCH_HELP "Nije uspelo pokretanje pomoci."
     AFX_IDP_INTERNAL_FAILURE "Interna greška aplikacije."
     AFX_IDP_COMMAND_FAILURE "Komanda nije uspela."
-    AFX_IDP_FAILED_MEMORY_ALLOC 
-                            "Nedovoljno memorije za izvršavanje operacije."
+    AFX_IDP_FAILED_MEMORY_ALLOC "Nedovoljno memorije za izvršavanje operacije."
     AFX_IDP_DLL_LOAD_FAILED "Ovaj program zahteva datoteku %s, koja nije pronadena na ovom sistemu."
     AFX_IDP_DLL_BAD_VERSION "Ovaj program je povezan sa nedostajucim izvozom %s u datoteci %s. Ova mašina možda ima nekompatibilnu verziju %s."
 END
@@ -20214,7 +20349,8 @@ BEGIN
     IDS_DH_PP_NO_USER_INPUT "Molim popunite sva polja za unos!"
     IDS_STRING_SIG_ATT_STA_HARMLESS 
                             "%d byte-ova je dodato u bezopasnu poruku."
-    IDS_STRING_SIG_ATT_STA_DANGEROUS "%d byte-ova je dodato u opasnu poruku."
+    IDS_STRING_SIG_ATT_STA_DANGEROUS 
+							"%d byte-ova je dodato u opasnu poruku."
     IDS_STRING_SIG_ATT_STA_TIME 
                             "%I64i godina(e), %i dan(a), %i sat(i), %i minut(a) und %s sekund(i)"
     IDS_STRING_SIG_ATT_STA_CYCLE "Koraka do kolizije"
@@ -20237,8 +20373,7 @@ BEGIN
     IDS_ASN1_INTERNAL_ERROR "Došlo je do interne greške u ASN.1 dekôderu."
     IDS_ASN1_VALID_ASN1_FILE 
                             "Odabrana datoteka je validna ASN.1 šifrovana datoteka.\n\nNovi prozor koji sadrži ASN.1 dump ce biti otvoren."
-    IDS_ASN1_FILE_NOT_EXISTING 
-                            "Datoteka kojoj ste pokušali da pristupite ne postoji."
+    IDS_ASN1_FILE_NOT_EXISTING "Datoteka kojoj ste pokušali da pristupite ne postoji."
     IDS_DH_GENERATOR_INVALID "Vrednost generatora nije validna! (1 < g < p)"
     IDS_DH_PRIME_INVALID    "Nevalidna vrednost je dodeljena prostom broju. Molim ispravite Vaš unos ili prepustite CrypTool-u da generiše adekvatan prost broj klikom na dugme 'Generiši Prost Broj'."
     IDS_DH_SECRET_INVALID   "Tajna ne može biti inicijalizovana! Molimo proverite Vaš unos!"
@@ -20345,8 +20480,7 @@ BEGIN
     IDS_STRING_CAPTATION_FREQUENCY_TEST "Test ucestanosti %s"
     IDS_STRING_TESTS_EMPFHAELUNG_FREQ_TEST 
                             "Za test ucestanosti preporuceno je da se ispita najmanje 1250 byte-ova."
-    IDS_STRING_TEST_KLEINE_DATEI 
-                            "Velicina datoteke mora biti najmanje 16 byte-ova !"
+    IDS_STRING_TEST_KLEINE_DATEI "Velicina datoteke mora biti najmanje 16 byte-ova !"
     IDS_STRING_CAPTATION_RUNS_TESTS "Runs Testovi %s"
     IDS_STRING_CAPTATION_POKER_TEST "Poker Test %s"
     IDS_STRING_CAPTATION_FIPS_PUB "FIPS-PUB-140-1 test baterija %s"
@@ -20363,14 +20497,12 @@ BEGIN
     IDS_STRING_TESTS_ERGEBNIS_NICHT_BESTANDEN "%s nije uspeo!"
     IDS_STRING_TESTS_BATTERIE_BESTANDEN "Test baterija prošla!"
     IDS_STRING_TESTS_BATTERIE_NICHT_BESTANDEN "Test baterija nije uspela!"
-    IDS_STRING_TESTS_FALSCHE_OFFSET_DIALOG 
-                            "Pogrešan pomeraj ili dužina testa !"
+    IDS_STRING_TESTS_FALSCHE_OFFSET_DIALOG "Pogrešan pomeraj ili dužina testa !"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE_DIALOG 
-                            "Pogrešna dužina dugih prolaza !"
+    IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE_DIALOG "Pogrešna dužina dugih prolaza !"
     IDS_STRING_PKCS5_KEYGEN_ITERATIONS_EXCEEDED 
                             "Najviši zbir heš-iteracije je limitiran na 100,000!\nMolim odaberite manji broj za 'Broj iteracija'."
     IDS_STRING_PKCS5_KEYGEN_ITERATIONS_NEGATIVE 
@@ -20384,12 +20516,14 @@ BEGIN
     IDS_STRING_FAKTORISATION_NEU_WAEHLEN 
                             "Postojece razlaganje i dalje sadrži najmanje jedan složeni cinilac, koji ne može biti razložen dalje sa odabranim algoritmima.\n Molim pokušajte drugu proceduru. "
     IDS_STRING_FAKTORISATION_PRIMZAHL "Unos je prost broj. "
-    IDS_STRING_FAKTORISATION_VOLLSTAENDIG "Unos je sada kompletno razložen."
+    IDS_STRING_FAKTORISATION_VOLLSTAENDIG 
+							"Unos je sada potpuno razložen."
     IDS_STRING_FAKTORISATION_NICHT_VOLLSTAENDIG 
                             "Unos ne može biti kompletno razložen na proste cinioce korišcenjem odabranih algoritama.\nMolim pokušajte drugu proceduru. "
     IDS_STRING_FAKTORISATION_VERFAHREN 
-                            "Molim odaberite najmanje jedan algoritam razlaganja. "
-    IDS_STRING_FAKTORISATION_FALSCHE_EINGABE "Unos nije pozitivan ceo broj."
+                            "Molim odaberite najmanje jedan algoritam za razlaganje. "
+    IDS_STRING_FAKTORISATION_FALSCHE_EINGABE 
+							"Unos nije pozitivan ceo broj."
     IDS_STRING_FAKTORISATION_ABORTED 
                             "Razlaganje je obustavljeno.\nPostojece razlaganje i dalje sadrži barem jedan složen cinilac."
     IDS_STRING_FAKTORISATION_ABORT_MSG "obustavljeno"
@@ -20429,7 +20563,7 @@ BEGIN
                             "Ulaz deluje kao sekvenca brojeva!\n\nDa li želite da ga tretirate kao ulaz brojeva [da/ne]?"
     IDS_ENTROPY_ALPHABET_INFO 
                             "Ovaj dokument sadrži %i razlicitih brojeva u poredenju sa %i karaktera odabranog alfabeta."
-    IDS_ENTROPY_INFO        "Entropija dokumenta je %s\n(najveca moguca entropija %s)."
+    IDS_ENTROPY_INFO        "Entropija celog dokumenta je %s\n(najveca moguca entropija %s)."
     IDS_BINARY_ENTROPY_ALPHABET_INFO 
                             "Ovaj dokument sadrži %i razlicitih vrednosti byte-ova (postoji %i razlicitih vrednosti byte-ova)."
     IDS_BINARY_ENTROPY_ALPHABET_MAX_INFO 
@@ -20464,21 +20598,19 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_NGRAM_ANALYSIS_OF 
-                            "%s Analiza <%s>. Velicina datoteke %i byte-ova."
+    IDS_STRING_NGRAM_ANALYSIS_OF "%s Analiza <%s>. Velicina datoteke %i byte-ova."
     IDS_STRING_NGRAM_HISTOGRAM "Histogram"
     IDS_STRING_NGRAM_DIGRAM "Digram"
     IDS_STRING_NGRAM_TRIGRAM "Trigram"
     IDS_STRING_NGRAM_NGRAM  "%i Gram"
-    IDS_STRING_NGRAM_DESCRIPTION 
-                            "Ucestanost sortirana po opadajucem redosledu."
+    IDS_STRING_NGRAM_DESCRIPTION "Ucestanost sortirana po opadajucem redosledu."
     IDS_STRING_NGRAM_NO     "Ne."
     IDS_STRING_NGRAM_RELFREQUENCY "Ucestanost (u %)"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_NGRAM_SUBSTR "Podstring"
+    IDS_STRING_NGRAM_SUBSTR "Podniz"
     IDS_STRING_MSG_HOMOPHONE_LOWERBND 
                             "Apsolutni broj homofonih je ogranicen unutar intervala [256 ... 4096].\nZbog toga, broj homofonih ce biti uvecan do %i !"
     IDS_STRING_MSG_HOMOPHONE_UPPERBND 
@@ -20511,7 +20643,7 @@ BEGIN
                             "Vaš unos nije sekvenca brojeva sa osnovom %i. \nMolim ispravite Vaš unos ili šifrujte unos kao tekst."
     IDS_STRING_WARN_BEFOR_SKIPWS 
                             "Unos sadrži karaktere koji nisu u setu alfabeta!\nAko kliknete OK, samo karakteri alfabeta ce biti šifrovani (drugi karakteri ce biti obrisani iz unosa)."
-    IDS_STRING_HELPNAME     "CrypTool-en.chm"
+    IDS_STRING_HELPNAME     "CrypTool-rs.chm"
     IDS_STRING_PLAYFAIR_ERRMSG121 
                             "U slucaju preformatiranja, duplirana slova su zamenjena slovom 'X'.\nMolim ispravite."
     IDS_STRING_PLAYFAIR_ERRMSG122 
@@ -20530,15 +20662,15 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_PLAYFAIR_ERRMSG001 
-                            "Napomena: playfair šifrat i obican tekst su uvek razliciti.\nPozicija=%d, slovo=%c"
+                            "Napomena: playfair šifrat i otvoren tekst su uvek razliciti.\nPozicija=%d, slovo=%c"
     IDS_STRING_PLAYFAIR_ERRMSGALLG 
                             "Prilikom playfair analize došlo je do greške pri konstruisanju grafika.\\Pozicija=%d, slovo=%c"
     IDS_STRING_PLAYFAIR_ERRMSG100 
-                            "Greška prilikom analize obicnog teksta !\nNajmanje jedna od listi je prepunjena: Pozicija=%d, slovo=%c.\nMolim ispravite Vaš unos."
+                            "Greška prilikom analize otvorenog teksta !\nNajmanje jedna od listi je prepunjena: Pozicija=%d, slovo=%c.\nMolim ispravite Vaš unos."
     IDS_STRING_PLAYFAIR_ERRMSG200 
-                            "Greška prilikom analize obicnog teksta !\nBarem jedan od suseda je uzet kao ispravan: Pozicija=%d, slovo=%c.\nMolim ispravite Vaš unos."
+                            "Greška prilikom analize otvorenog teksta !\nBarem jedan od suseda je uzet kao ispravan: Pozicija=%d, slovo=%c.\nMolim ispravite Vaš unos."
     IDS_STRING_PLAYFAIR_ERRMSG110 
-                            "Greška prilikom analize obicnog teksta !\nGreška slaganja suseda: Pozicija=%d, slovo=%c.\nMolim ispravite Vaš unos."
+                            "Greška prilikom analize otvorenog teksta !\nGreška slaganja suseda: Pozicija=%d, slovo=%c.\nMolim ispravite Vaš unos."
     IDS_STRING_PLAYFAIR_NOMATRIX "Nije pronadena odgovarajuca matrica ."
     IDS_STRING_ERROR        "Greška"
     IDS_STRING_PLAYFAIR_WARNMSG001 
@@ -20558,10 +20690,11 @@ BEGIN
     IDS_STRING_BIG_NUMBER   "Demonstracija podržava samo pozitivne cele brojeve bitske dužine manje od 8192. Ovo su decimalni brojevi sa najviše 2467 cifara."
     IDS_STRING_BIG_RSA_MODUL 
                             "Demonstracija podržava samo pozitivne cele brojeve bitske dužine manje od 8192.\nBitska dužina trenutno generisanog RSA modula prelazi 8192.\nMolim odaberite proste brojeve p i q, gde je RSA moduo N = p*q manji od 2^8192."
-    IDS_STRING_INPUT_FALSE  "Molim unesite u ovo polje ceo broj ili izraz, koji\ncija je vrednost ceo broj!\nPrimeri: 123, 2^15+1, (2^17-5)^2."
+    IDS_STRING_INPUT_FALSE  "Molim unesite u ovo polje ceo broj ili izraz, \ncija je vrednost ceo broj!\nPrimeri: 123, 2^15+1, (2^17-5)^2."
     IDS_STRING_FAKTORISATION_NOT_NULL_OR_ONE 
                             "Molim unesite pozitivan ceo broj veci od 1."
-    IDS_STRING_MODUL_NOT_PRIME "Vaš unos za moduo P nije prost broj."
+    IDS_STRING_MODUL_NOT_PRIME 
+							"Vaš unos za moduo P nije prost broj."
     IDS_STRING_FACTORISATION_TIMER "Brojac razlaganja"
     IDS_OPEN_DOCUMENT_FILTER 
                             "TEKSTUALNE datoteke (*.txt) |*.txt|ASCII datoteke (*.asc)|*.asc|sve datoteke (*.*) |*.*||"
@@ -20571,7 +20704,8 @@ STRINGTABLE
 BEGIN
     IDS_DETFACTORISATION_FACTORPRIME "Bitska dužina = %i,  prost broj."
     IDS_DETFACTORISATION_FACTORCOMPOSITE "Bitska dužina = %i,  složen broj."
-    IDS_DETFACTORISATION_HL_INPUT "Detalji razlaganja \nUlazni broj = "
+    IDS_DETFACTORISATION_HL_INPUT 
+							"Detalji razlaganja \nUlazni broj = "
     IDS_DETFACTORISATION_HL_FACTORISEDNUMBER "Razložen broj = "
     IDS_DETFACTORISATION_HL_FACTOR1 "Prvi cinilac = "
     IDS_DETFACTORISATION_HL_FACTOR2 "Drugi cinilac = "
@@ -20612,8 +20746,8 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_CONTENT_HASH_ENC    "Heš vrednost šifrovana privatnim kljucem potpisnika"
-    IDS_CONTENT_KEY         "RSA kljuc potpisnika"
+    IDS_CONTENT_HASH_ENC    "Heš vrednost šifrovana privatnim kljucem potpisaoca"
+    IDS_CONTENT_KEY         "RSA kljuc potpisaoca"
     IDS_PRIME_CHECK         "p i q su prosti brojevi."
     IDS_PRIME_NO_CHECK_Q    "q NIJE prost broj !"
     IDS_PUBLIC_CHECK        "e ne deli phi (N) ."
@@ -20703,8 +20837,8 @@ STRINGTABLE
 BEGIN
     IDS_KEYHEX_INPUT_LENGTH_TXT 
                             "Unesite kljuc korišcenjem hex karaktera (0..9, A..F).\nDužina kljuca tacno  %d hex karaktera (= %d byte-ova)."
-    IDS_READMEPATH          "%sReadMe-en.txt"
-    IDS_ERR_ONOPENREADME    "Procitaj-me datoteka ne može da se otvori!\nMolim proverite da li je datoteka ""Readme-en.txt"" u istom direktorijumu kao i ""CrypTool.exe""."
+    IDS_READMEPATH          "%sReadMe-rs.txt"
+    IDS_ERR_ONOPENREADME    "Procitaj-me datoteka ne može da se otvori!\nMolim proverite da li je datoteka ""Readme-rs.txt"" u istom direktorijumu kao i ""CrypTool.exe""."
     IDS_SIGATT_HARMLESS     "examples\\original.txt"
     IDS_SIGATT_DANGEROUS    "examples\\fake.txt"
     IDS_SCRIPTPATH          "%sScript-en.pdf"
@@ -20753,8 +20887,7 @@ BEGIN
                             "ProlazBr.     Koraka do kolizije     Provera kolizije     Ukupno koraka\n\n"
     IDS_STRING_SIG_ATT_STA_ADDEDBYTES "MODIFIKACIJE TEKSTA"
     IDS_STRING_SIG_ATT_STA_DOCTITLE "Statistike napada"
-    IDS_STRING_SIG_ATT_STA_TEST_SERIES_STOPPED 
-                            "Serije testova su obustavljene."
+    IDS_STRING_SIG_ATT_STA_TEST_SERIES_STOPPED "Serije testova su obustavljene."
     IDS_DH_STEP1            "Korak 1"
     IDS_DH_STEP2            "Korak 2"
     IDS_DH_STEP3            "Korak 3"
@@ -20766,7 +20899,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_SIG_ATT_BAD_HARMLESS_FILE 
-                            """bezopasna"" nije mogla da se otvori ili je velicine 0 !"
+                            """bezopasna"" datoteka nije mogla da se otvori ili je velicine 0 !"
     IDS_DH_SECRET_EXCEEDS_PRIME 
                             "Tajna premašuje prost moduo i zbog toga je skracena na broj manji nego ovaj prost broj!"
     IDS_ASN1_INVALID_CERTIFICATE_STRUCTURE 
@@ -20774,7 +20907,7 @@ BEGIN
     IDS_STRING_SIG_ATT_NO_CHECK 
                             "Morate obeležiti najmanje jednu kutiju za cekiranje."
     IDS_STRING_SIG_ATT_BAD_BITLENGTH 
-                            "Odabrani algoritam zahteva dužinu najznacajnijeg bita izmedu 1 i %d."
+                            "Odabrani heš algoritam zahteva dužinu najznacajnijeg bita u granicama izmedu 1 i %d."
     IDS_STRING_SIG_ATT_DOCUMENTS_FOUND 
                             "Napad je bio uspešan: Dve razlicite poruke su nadene gde je heš poruke jednak za prvih %d bitova."
     IDS_STRING_SIG_ATT_RUN_NUMBER "Prolaz Br."
@@ -20788,7 +20921,7 @@ BEGIN
     IDS_STRING_SIG_ATT_PROGRESS_CYCLE_SEARCH 
                             "Prolaz %d\nCiklicna pretraga (%d bita)\\Napredak: %%d%%%%  preostalo vreme: %%s"
     IDS_STRING_SIG_ATT_BAD_DANGEROUS_FILE 
-                            """opasna"" ne može da se otvori ili je velicine 0 !"
+                            """opasna"" datoteka ne može da se otvori ili je velicine 0 !"
     IDS_STRING_SIG_ATT_UNKNOWN_ERROR "Došlo je do nepoznate greške !"
     IDS_STRING_SIG_ATT_BAD_HASH_ALGORITHM 
                             "Došlo je do greške prilikom izvodenja heš operacije !"
@@ -20808,7 +20941,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_DH_KEY_LOGTEXT_CREATED 
-                            "Dnevnik teksta (log) procedure je uspešno zapisan u glavni prozor CrypTool aplikacije."
+                            "Log tekst procedure je uspešno zapisan u glavni prozor CrypTool aplikacije."
     IDS_SCA_HYBENCFILE_ALREADY_OPENED 
                             "Otvoreni dokument ""%s"" je vec hibridno zašifrovan za Boba.\nDa li želite da koristite ovaj dokument za izvršavanje napada na sporedni kanal (možete odabrati drugu datoteku odgovaranjem sa Ne)?"
     IDS_SCA_NO_KEYPAIRS_AVAILABLE 
@@ -20848,11 +20981,12 @@ END
 STRINGTABLE 
 BEGIN
     IDS_SCA_REPORT_HEADINGMESSAGETRANSMISSION "\nII. TRANSMISIJA PORUKE\n\n"
-    IDS_SCA_REPORT_HEADINGMESSAGEINTERCEPTION "\nIII. PRESRETANJE PORUKE\n\n"
+    IDS_SCA_REPORT_HEADINGMESSAGEINTERCEPTION 
+							"\nIII. PRESRETANJE PORUKE\n\n"
     IDS_SCA_REPORT_HEADINGATTACKCYCLE "\n\nIV. POCETAK CIKLUSA NAPADA\n\n"
     IDS_SCA_REPORT_TRUDYREPEATSMODIFICATION 
                             "\nTrudi ponavlja ovaj korak %d puta, gde broj koraka zavisi od dužine bita upotrebljenog kljuca sesije (broj koraka = dužina bita + 2)."
-    IDS_SCA_E_TIMER_NOT_AVAILABLE "NIje dostupan casovnik!"
+    IDS_SCA_E_TIMER_NOT_AVAILABLE "Nije dostupan casovnik!"
     IDS_SCA_SESSIONKEYISNULL 
                             "Šifrovani kljuc sesije je NULL! Zato napad sporednog kanala nije moguc!"
     IDS_SCA_REPORTNOTYETGENERATED 
@@ -20863,7 +20997,7 @@ BEGIN
                             "- Bobov server nije uspešno dešifrovao modifikovanu poruku"
     IDS_SCA_ATTACKER_SUCCESSRESPONSE_TRUE 
                             "- Bobov server je uspešno dešifrovao modifikovanu poruku"
-    IDS_SCA_SERVER_FAILURERESPONSE "- Bob could not decrypt the message"
+    IDS_SCA_SERVER_FAILURERESPONSE "- Bob nije uspeo da dešifruje poruku"
     IDS_SCA_SERVER_SUCCESSRESPONSES 
                             "- Bob je uspešno dešifrovao %d od %d poruka"
     IDS_SCA_SERVER_RECEIVEDMESSAGE "- Bob je primio 1 poruku"
@@ -20907,15 +21041,14 @@ END
 STRINGTABLE 
 BEGIN
     IDS_Message_ComputerToStrong "Ova stanica je prejako zašticena!"
-    IDS_Message_NoConnectionToComputer 
-                            "Nemate podignut link do ovog kompjutera!"
+    IDS_Message_NoConnectionToComputer "Nemate podignut link do ovog kompjutera!"
     IDS_Message_NoScenarioChosen "Niste odabrali scenarijo."
     IDS_Message_ProtocolInterrupted "Protokol je poremecen."
     IDS_Message_AuthenticationFailed "Autentikacija nije uspela."
     IDS_Message_AuthenticationOfAttackerSuccessfull 
                             "Autentikacija napadaca uspešna."
     IDS_Message_ManInTheMiddleSuccessful 
-                            "Autentikacija napadaca kao 'Coveka u Sredini'  je uspela pomocu maskiranja."
+                            "Autentikacija napadaca kao 'Coveka u Sredini' je uspela pomocu maskiranja."
     IDS_Message_AuthenticationOfClientSuccessful 
                             "Autentikacija klijenta uspešna."
     IDS_Message_CannotMaskConnectionsMisconfiguration 
@@ -20938,8 +21071,7 @@ BEGIN
                             "Da li želite da izvršite napad na sporedni kanal korak po korak na detaljan nacin?"
     IDS_SCA_E_INTERNAL_ERROR "Došlo je do interne greške!"
     IDS_SCA_E_MEMORY_ALLOCATION "Greška pri alociranju memorije!"
-    IDS_SCA_E_HYBENCFILE_EXTRACTION 
-                            "Greška pri rašclanjivanju hibridno šifrovane datoteke!"
+    IDS_SCA_E_HYBENCFILE_EXTRACTION "Greška pri rašclanjivanju hibridno šifrovane datoteke!"
     IDS_SCA_E_ATTACK_CONDITIONS_NOT_MET 
                             "Preduslovi za napad na sporedni kanal nisu ispunjeni!\n\nRSA mora biti najmanje 388 bita dugacak."
     IDS_SCA_E_MIRACL_ERROR  "Došlo je do greške u Miracl biblioteci!"
@@ -20993,8 +21125,7 @@ BEGIN
                             "- Alisa je simetricno zašifrovala poruku kljucem sesije"
     IDS_SCA_CLIENT_TRANSMITTEDHYBENCFILE 
                             "- Alisa je poslala hibridno šifrovanu datoteku Bobu"
-    IDS_SCA_CLIENT_CHOSESESSIONKEY 
-                            "- Alisa je odabrala nasumicni kljuc sesije"
+    IDS_SCA_CLIENT_CHOSESESSIONKEY "- Alisa je odabrala nasumicni kljuc sesije"
     IDS_SCA_CLIENT_ENCRYPTSESSIONKEY 
                             "- Alisa je zašifrovala kljuc sesije Bobovim javnim RSA kljucem"
     IDS_SCA_SERVER_RECEIVEDMESSAGES "- Bob je primio %d poruka do sada"
@@ -21014,7 +21145,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_RSA_BM_MAXDELTA     "Vrednost koju ste uneli za delta je veca od maksimalne. Uvecajte m da biste dozvolili vece delta vrednosti."
+    IDS_RSA_BM_MAXDELTA     "Vrednost koju ste uneli za delta je veca od maksimalne moguce. Uvecajte m da biste dozvolili vece delta vrednosti."
     IDS_RSA_BM_NTOOSMALL    "Molim da za ""Dužinu bita N"" unesete broj veci od 5."
     IDS_RSA_BM_DELTARANGE   "Molim da za ""delta"" unesete vrednost izmedu 0 i 0.29."
     IDS_RSA_BM_NOEXAMPLE    "Za date parametre nije bilo moguce generisati primer."
@@ -21027,7 +21158,7 @@ BEGIN
     IDS_RSA_FH_ENTERP       "Molim unesite dužinu bita p."
     IDS_RSA_FH_BITSOFP      "Data dužina bita p (%d) je manja nego dužina bita poznatog dela P (%d).\r\nMolim podesite ""Dužinu bita p"" tako da (Dužina bita P) bude <= (Dužina bita p)."
     IDS_RSA_FH_CHOOSEN      "Molim odaberite N."
-    IDS_RSA_FH_ATLEASTKNOWN "%d Bitovi p-a su poznati.\r\nNajmanje (""Dužina bita N""/4)+1=%d bitaova p moraju da budu poznati."
+    IDS_RSA_FH_ATLEASTKNOWN "%d Bitovi p-a su poznati.\r\nNajmanje (""Dužina bita N""/4)+1=%d bitova p moraju da budu poznati."
     IDS_RSA_SM_FULLPLAIN    "Dati poznati deo obicnog teksta je pun obicni tekst."
     IDS_RSA_SM_UNKNOWNTOOBIG 
                             "Nepoznati deo obicnog teksta je prevelik.\r\nProbajte smanjivanje parametra h da biste smanjili maksimalnu dužinu."
@@ -21061,7 +21192,7 @@ BEGIN
                             "Ilustruje metod deljene tajne pomocu KTO (otvaranje trezora sa bilo koja 3 od 5 kljuca)"
     ID_HELP_ANIMAL_CAESAR   "Program za animaciju ANIMAL demonstrira protok podataka Caesar algoritma"
     ID_ADFGVX               "Poluautomatska analiza dokumenta zašifrovanog algoritmom zamene"
-    IDS_TITLE_SOLITAIRE     "Solitaire šifrovanje"
+	IDS_TITLE_SOLITAIRE     "Solitaire šifrovanje"
     ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE 
                             "Rucna analiza dokumenta zašifrovanog Solitaire algoritmom"
 END
@@ -21118,7 +21249,7 @@ STRINGTABLE
 BEGIN
     IDS_SOLITAIRE_MESSAGE_11 "Da li želite da stavite Džoker A ispred?"
     IDS_TITLE_3D_VISUALISATION "3-D Vizualizacija: %s"
-    IDS_ROT13_INFO_NEGATIVE "Rot-13 šifrovanje je deaktivirano zato što se alfabet ne sadrži od parnog broja slova!"
+    IDS_ROT13_INFO_NEGATIVE "Rot-13 šifrovanje je deaktivirano zato što se alfabet ne sastoji od parnog broja slova!"
     IDS_CRYPT_ROT13         "ROT 13"
     IDS_FILENAME_NOT_YET    "Nova datoteka (nije još uskladištena)"
     IDS_STRING_PT           ","
@@ -21256,8 +21387,7 @@ BEGIN
                             "Uneseni tekst je prekratak da bi proizveo pouzdan rezultat. \nKako eksperimenti pokazuju, Jakobsen algoritmu je potrebno najmanje 300 karaktera. \nAko automatska analiza ne uspe, možete pokušati analizu šifrata rucno."
     IDS_MONO_SUBST_AUTO_STAT_ANALYSIS_IS_RUNNING 
                             "Statisticka analiza teksta je u toku. Molim sacekajte..."
-    IDS_MONO_SUBST_AUTO_FILE_CONTENT_ERROR 
-                            "Greška u statistickoj datoteci: \n"
+    IDS_MONO_SUBST_AUTO_FILE_CONTENT_ERROR "Greška u statistickoj datoteci: \n"
     IDS_MONO_SUBST_AUTO_LANG_DE "Nemacki"
     IDS_MONO_SUBST_AUTO_LANG_EN "Engleski"
 END
@@ -21281,10 +21411,8 @@ BEGIN
     IDS_CRT_SECRETSHARING_MAN2 
                             "Svaki identifikator mora da bude prost broj i svi uneseni brojevi moraju da budu razliciti.\r\n Identifikator %d je unet dvaput."
     IDS_CRT_SECRETSHARING_MAN3 "Molim unesite dovoljno identifikatora."
-    IDS_CRT_SECRETSHARING_FACTS3 
-                            "Molim obratite pažnju na formalna ogranicenja."
-    IDS_CRT_SECRETSHARING_LOGTITLE 
-                            "Deljenje tajne pomocu KTO: prikaži log-datoteku"
+    IDS_CRT_SECRETSHARING_FACTS3 "Molim obratite pažnju na formalna ogranicenja."
+    IDS_CRT_SECRETSHARING_LOGTITLE "Deljenje tajne pomocu KTO: prikaži log-datoteku"
     IDS_CRT_SECRETSHARING_LOGWRITTEN 
                             "Log datoteka uspešno upisana u glavni prozor."
     ID_EINZELVERFAHREN_SECRETSHARINGDEMO 
@@ -21337,7 +21465,7 @@ BEGIN
     IDS_SOLITAIRE_MESSAGE_4 "Špil inicijalizovan."
     IDS_SOLITAIRE_MESSAGE_5 "Imajte na umu broj karata."
     IDS_CRYPT_SOLITAIRE     "Solitaire"
-    IDS_SOLITAIRE_MESSAGE_6 "Pronaden uneen špil."
+    IDS_SOLITAIRE_MESSAGE_6 "Pronaden unesen špil."
     IDS_SOLITAIRE_MESSAGE_7 "Džoker B stavljen iza."
     IDS_SOLITAIRE_MESSAGE_8 "Džoker A stavljen iza."
     IDS_SOLITAIRE_MESSAGE_9 "Da li želite da stavite Džoker B ispred?"
@@ -21346,9 +21474,11 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_TITLE_DLG_RSAENCRYPTION "Odabir kljuca za RSA šifrovanje <%s>"
+    IDS_TITLE_DLG_RSAENCRYPTION 
+							"Odabir kljuca za RSA šifrovanje <%s>"
     IDS_TITLE_DLG_SOLITAIRE "Generisanje Solitaire niza kljuca za <%s>"
-    IDS_TITLE_DLG_RSADECRYPTION "Odabir kljuca za RSA dešifrovanje <%s>"
+    IDS_TITLE_DLG_RSADECRYPTION 
+							"Odabir kljuca za RSA dešifrovanje <%s>"
     ID_POPUP_OPENGL_SHOW_BOX "Prikazuje ivice kocke u OpenGL vizualizaciji"
     ID_VIEW_ENDOFLINE       "Menjajte za prikaz specijalnog vidljivog karaktera kao kraja linije"
     ID_VIEW_LINEWRAP        "Menjajte za prikaz specijalnog vidljivog karaktera kao novi red"
@@ -21359,8 +21489,7 @@ BEGIN
                             "Reprezentacija teksta korišcenjem Courier 10 tackastog fonta - fiksirana dužina fonta."
     ID_ZEICHENFORMAT_COURIER12 
                             "Reprezentacija teksta korišcenjem Courier 12 tackastog fonta - fiksirana dužina fonta."
-    ID_ZEICHENFORMAT_ARIAL10 
-                            "Reprezentacija teksta korišcenjem Arial 10 tackastog fonta."
+    ID_ZEICHENFORMAT_ARIAL10 "Reprezentacija teksta korišcenjem Arial 10 tackastog fonta."
 END
 
 STRINGTABLE 
@@ -21385,14 +21514,13 @@ BEGIN
     ID_FLASH_ENIGMADEMO     "Vizualizuje Enigma mašinu pomocu Flash-a"
     ID_FLASH_RIJNDAEL_INSPECTOR 
                             "Prikazuje srednje AES rezultate nakon svakog koraka u svakoj rundi za proizvoljne podatke"
+	ID_EDIT_FIND_NEXT       "Nastavi pretragu na trenutnoj reci za pretragu"
 END
 
 STRINGTABLE 
 BEGIN
-    ID_ZEICHENFORMAT_ARIAL12 
-                            "Reprezentacija teksta pomocu Arial 12 tackastog fonta."
-    ID_ZEICHENFORMAT_ARIAL08 
-                            "Reprezentacija teksta pomocu Arial 8 tackastog fonta."
+    ID_ZEICHENFORMAT_ARIAL12 "Reprezentacija teksta pomocu Arial 12 tackastog fonta."
+    ID_ZEICHENFORMAT_ARIAL08 "Reprezentacija teksta pomocu Arial 8 tackastog fonta."
     ID_ZEICHENFORMAT_COURIER08 
                             "Reprezentacija teksta pomocu Courier 8 tackastog fonta - fiksna dužina fonta."
     ID_DECODE_BASE64        "Dešifrovanje aktivnog dokumenta pomocu Base64"
@@ -21411,7 +21539,19 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED 
+    IDS_HEADERTEXT_PERMUTATION "Permutacija"
+    IDS_HEADERTEXT_READOUT  "Ispis"
+    IDS_HEADER_PERMKEYLIST  "Najmanje jedan kljuc permutacije je pronaden. Ovi kljucevi se ne prikazuju u listi ispod.\nMožete kopirati svoj trenutni kljuc u skladište kljuceva."
+    IDS_NOKEYSELECTED       "Molim odaberite kljuc iz liste"
+    IDS_ACTIVE              "(Aktivan) "
+    IDS_PERMKEY_COPIED_AND_TIPPS 
+                            "Odabrani kljuc je kopiran u skladište kljuceva. Možete koristiti ovaj kljuc permutacije za šifrovanje dokumenata ili dešifrovanje šifrata (Pogledajte meni: Šifruj/Dešifruj \\ Simetricno (klasicno) \\ Permutacija / Transpozicija).\n\nKorišcenjem dijaloga za šifrovanje Permutacijom možete kliknuti na simbol kljuca da nalepite uskladišten kljuc."
+    IDS_DIALOGHEADER_PERMKEY_LIST "Lista oporavljenih kljuceva permutacije."
+    IDS_INFO_TEXT_ENCRYPTION 
+                            "Odabrali ste opciju da šifrujete u tekstualnom režimu.\nOvo znaci da karakteri, koji ne pripadaju alfabetu, nisu šifrovani (prema podešavanjima za opcije Teksta ovi karakteri su ili uklonjeni ili nepromenjeni)."
+    IDS_INFO_BYNARY_ENCRYPTION 
+                            "Odabrali ste opciju da šifrujete u binarnom režimu. Ovo znaci da su svi karakteri šifrovani i odabrani tekst alfabeta nije bitan."
+	IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED 
                             "ZA URADITI: Funkcionalnost još uvek nije implementirana za HEX režim!"
     IDS_FINDANDREPLACE_TEXTNOTFOUND "Željeni tekst nije naden!"
     IDS_FINDANDREPLACE_TEXTOCCURANCESREPLACED 
@@ -21426,7 +21566,7 @@ STRINGTABLE
 BEGIN
     IDS_HASHDEMO_STRING_SHA1 "SHA-1 (160 bita)"
     IDS_HASHDEMO_STRING_RIPEMD160 "RIPEMD-160 (160 bita)"
-    IDS_NUMBERSHARK_EXE     "Number Shark.exe"
+    IDS_NUMBERSHARK_EXE     "NumberShark.exe"
     IDS_STRING_ADFGVX_STRINGLENGTH 
                             "Unos ne sadrži sva slova od\n'A' do 'Z' i sve cifre od '0' do '9'."
     IDS_STRING_ADFGVX_STRINGINVALID 
@@ -21449,9 +21589,9 @@ BEGIN
     IDS_CT_FILE_OPEN_ERROR  "Greška prilikom otvaranja datoteke\n%s:\n%s"
     IDS_UU_FILE_WRITE_ERROR "Greška prilikom pisanja u datoteku %s."
     IDS_UU_DECODE_LB_DIFFERS_TOLONG 
-                            "Trenutna linije je kraca od dužine koja je odredena dužinom byte-a.\nLinija: %u\n Dešifrovanje je zaustavljeno na ovoj lokaciji i dešifrovanje može imati greške."
+                            "Trenutna linija je kraca od dužine koja je odredena dužinom byte-a.\nLinija: %u\n Dešifrovanje je zaustavljeno na ovoj lokaciji i dešifrovanje može imati greške."
     IDS_UU_DECODE_LB_DIFFERS_TOSHORT 
-                            "Trenutna linije je duža od dužine koja je odredena dužinom byte-a.\nLinija: %u\n Dešifrovanje je zaustavljeno na ovoj lokaciji i dešifrovanje može imati greške."
+                            "Trenutna linija je duža od dužine koja je odredena dužinom byte-a.\nLinija: %u\n Dešifrovanje je zaustavljeno na ovoj lokaciji i dešifrovanje može imati greške."
 END
 
 STRINGTABLE 
@@ -21464,7 +21604,8 @@ BEGIN
     IDS_STRING_LOGSS_2B     "You did set a prime number p."
     IDS_STRING_LOGSS_3A     "Pored toga, polinom f(x) stepena t-1 sa nasumicnim koeficijentima i apsolutnim ciniocem S je kreiran. Svi proracuni se odvijaju u diskretnom prostoru GF(p). "
     IDS_STRING_LOGSS_3B     "Ustanovili ste koeficijente polinoma stepena t-1. Svi proracuni se odvijaju u diskretnom prostoru GF(p)."
-    IDS_STRING_SECRETSHARING_NOPRIME "Broj koji ste uneli nije prost."
+    IDS_STRING_SECRETSHARING_NOPRIME 
+							"Broj koji ste uneli nije prost."
     IDS_STRING_SECRETSHARING_PRIMELESS 
                             "Odabrani prost broj je previše mali. Njegova vrednost mora da premaši tajnu i broj ucesnika. "
     IDS_STRING_SECRETSHARING_EXCEEDSLIMIT 
@@ -21526,9 +21667,9 @@ BEGIN
     IDS_STRING_HILL_DETAILS "Detalji Hill"
     IDS_STRING_TEST_FREQ    "Test ucestanosti"
     IDS_STRING_TEST_SERIAL  "Serijski test"
-    IDS_STRING_TEST_RUNS_NICHT_BESTANDEN "Runs test failed!"
+    IDS_STRING_TEST_RUNS_NICHT_BESTANDEN "Runs test nije uspeo!"
     IDS_QUADRATIC_SIEVE     "Kvadratno sito"
-    IDS_STRING_TEST_RUNS_BESTANDEN "Runs test prošao!"
+    IDS_STRING_TEST_RUNS_BESTANDEN "Runs test uspeo!"
     IDS_HILL_CASE           "Korišceni alfabet (%d karaktera)"
     IDS_ROT13_CAESAR_TOO_LARGE_KEY 
                             "Unos je veci nego dužina alfabeta.\nPodesiti vrednost automatski na 1?"
@@ -21540,7 +21681,7 @@ STRINGTABLE
 BEGIN
     IDS_FINDANDREPLACE_NOREGULAREXPRESSIONS_IN_HEX 
                             "Pretraga za regularnim izrazima nije dostupna za heksadecimalne podatke."
-    IDS_STRING_ADFGVX_OPTION_BACK "- ponovite proces unosa."
+    IDS_STRING_ADFGVX_OPTION_BACK "- ponoviti proces unosa."
     IDS_STRING_ADFGVX_OPTION_CONTINUE 
                             "\n\nSada, možete ili\n- da nastavite šifrovanje sa skracenom lozinkom transpozicije ili\n"
     IDS_CLIPBORD_COPY_ERROR "Ne može se kopirati na klipbord."
@@ -21584,7 +21725,7 @@ BEGIN
     IDS_STRING_INVALID_VERNAM_KEY 
                             "Odabrani Vernam kljuc je dužine 0.\nMolim proverite datoteku kljuca."
     IDS_STRING_SHORT_VERNAM_KEY 
-                            "vernam kljuc je kraci od teksta koji treba da se šifruje."
+                            "Vernam kljuc je kraci od teksta koji treba da se šifruje."
 END
 
 STRINGTABLE 
@@ -21661,8 +21802,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT 
-                            "vrsta*kolona matrica*vektor proizvod"
+    IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT "vrsta*kolona matrica*vektor proizvod"
     IDS_LISTBRUTEFORCECANDIDATES_HEADER 
                             "Analiza brutalne sile dešifrovane datim šifrovanim tekstom sa svim mogucim kljucevima od odabranog prostora kljuceva i potom izracunata vrednost entropije za svaku dešifrovanu poruku.\nSledeca lista sadrži dešifrovane poruke sa najnižim vrednostima entropije.\nSpecijalno u slucaju veoma kratkog šifrata može da bude, da postoje pogrešni kandidati sa malom vrednošcu entropije. Ovde imate priliku da izaberete kandidata sa tacnim dešifrovanjem."
 END
@@ -21712,7 +21852,7 @@ BEGIN
                             "Generisanje prostih brojeva u sledecem opsegu vrednosti:\n[%s, %s]"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION_CANCELLED 
                             "Procesi su otkazani. U datom opsegu vrednosti [%s, %s], pronadeno je još %d prostih brojeva."
-    IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_SCYTALE "Number of edges:"
+    IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_SCYTALE "Broj ivica:"
     IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_RAIL_FENCE "Broj redova:"
     IDS_SIMPLE_TRANSPOSITION_KEY_INVALID 
                             "Kljuc nije validan. On mora biti veci od 1 i manji od dužine unesenog teksta.\n\nKarakteri koji nisu deo CrypTool Alfabeta se brišu pre šifrovanja/dešifrovanja. Ako ne želite da menjate uneseni tekst, molim koristite dugme ""Opcije teksta"" da izmenite CrypTool u cilju nastavljanja."
@@ -21728,7 +21868,7 @@ BEGIN
     IDS_SIMPLE_TRANSPOSITION_OFFSET_INVALID 
                             "Pomeraj nije validan. Ne sme biti manji od 0."
     IDS_STRING_FACTORIZATION_BRUTE_FORCE_LIMIT 
-                            "Broj ne može da se rastavi korišcenjem brutalne sile. Ovde, brutalna sila je implementirana na nacin da nade samo faktore manje od %d."
+                            "Ovaj broj ne može da se rastavi korišcenjem brutalne sile. Ovde, brutalna sila je implementirana na nacin da nade samo faktore manje od %d."
     IDS_CRYPT_SIMPLETRANSPOSITION "Jednostavna Transpozicija"
 END
 
@@ -21736,8 +21876,7 @@ STRINGTABLE
 BEGIN
     IDS_REGISTRY_SETTINGS   "Software\\CrypTool\\Settings"
     IDS_REGISTRY_SETTINGS_OPTIONS "Software\\CrypTool\\Settings\\Options"
-    IDS_ERROR_LOAD_LOCAL_PSE_CAPTION 
-                            "Greška prilikom ucitavanja PSE kljuceva!"
+    IDS_ERROR_LOAD_LOCAL_PSE_CAPTION "Greška prilikom ucitavanja PSE kljuceva!"
     IDS_ERROR_LOAD_LOCAL_PSE_MESSAGE 
                             "Molim uklonite direktorijum\n%s\ni potom restartujte CrypTool!   "
     IDS_PSE_FILESTRUCT_CORRUPTED 
@@ -21762,10 +21901,8 @@ BEGIN
                             "Lista specijalnih karaktera je prazna!\nMolim obezbedite neke specijalne karaktere ili smanjite broj specijalnih karaktera na nulu."
     IDS_IOP_COL             "Kolona po kolona"
     IDS_IOP_ROW             "Red po red"
-    IDS_PA_COULDNOTOPEN_PLAINFILE 
-                            "Ne može da se otvori datoteka sa obicnim tekstom."
-    IDS_PA_COULDNOTOPEN_CIPHERFILE 
-                            "Ne može da se otvori datoteka sa šifrovanim tekstom."
+    IDS_PA_COULDNOTOPEN_PLAINFILE "Ne može da se otvori datoteka sa obicnim tekstom."
+    IDS_PA_COULDNOTOPEN_CIPHERFILE "Ne može da se otvori datoteka sa šifrovanim tekstom."
     IDS_PA_FILESIZES_DIFFERENT 
                             "Niža granica opsega pretrage kljuca je veca nego gornja granica."
     IDS_PA_EMPTYFILE        "Obe datoteke (obican tekst i šifrat) su prazne."
@@ -21790,11 +21927,25 @@ BEGIN
     IDS_STRING_JAVA_PROGRAM_NOT_FOUND 
                             "Java program nije pronaden! (Puna putanja: ""%s"")"
     IDS_STRING_JAVA_PROGRAM_EXECUTION_FAILED 
-                            "Java program nije mogao da bude izvršen. Molim kontaktirajte razvojni tim."
+                            "Java program nije mogao da se izvrši. Molim kontaktirajte razvojni tim."
     IDS_STRING_SMIME_DEMO_PROGRAM "main\\Programm.class"
     IDS_AES_FLOWVISUALIZATION_JAVA_FILE "AES_Flussvisualisierung.jar"
     IDS_STRING_SMIME_DEMO_PROGRAM_COMPLETE_CALL 
                             "-cp "".;./lib/*"" main.Programm"
+	IDS_VIGENERE_ANALYSIS_SCHROEDEL_INFO 
+                            "Cim se analiza završi, rezultat ce biti prikazan u novom dokumentu."
+    IDS_AUTHORS_FILE_MISSING 
+                            "Datoteka ""authors.txt"" nije pronadena. Molim da proverite da li se datoteka nalazi u glavnom CrypTool direktorijumu."
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME 
+                            "words\\VigenereAnalysisSchroedelDictionary.txt"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME 
+                            "words\\VigenereAnalysisSchroedelDigrams.txt"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME 
+                            "words\\VigenereAnalysisSchroedelTrigrams.txt"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_PROGRESS_BAR_TITLE 
+                            "Vigenère analiza prema Schroedelu"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_CIPHERTEXT_TAG "Šifrat:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_POSSIBLE_KEY_TAG "Moguci kljuc:"
 END
 
 STRINGTABLE 
@@ -21803,13 +21954,94 @@ BEGIN
     IDS_AES_FLOWVISUALIZATION_PARAM "-jar AES_Flussvisualisierung.jar EN"
     IDS_ERR_AES_FLOWVISUALIZATION 
                             "AES vizualizacija toka ne može da se otvori! Molim proverite da li je datoteka AES_Flussvisualisierung.jar instalirana u CrypTool maticnom direktorijumu\n(""%s"")."
+	IDS_PA_KEYFOUND         "Ein Permutationsschlüssel wurde bestimmt."
+    ID_PA_ERROR_DIFFERNT_DOCUMENT_SIZES 
+                            "Die Dokumentgrößen stimmen nicht überein."
+    ID_PA_ERROR_DIFFERNT_HISTOGRAMS 
+                            "Die Histogramme der Dokumente stimmen nicht überein."
+    ID_PA_KEYFOUND          "Najmanje jedan kljuc permutacije je pronaden. Najkraci ce biti prikazan."
+    IDS_BL_ATLEAST2         "Molim odaberite dužinu bita izmedu 2 i 16384."
+    IDS_BL_TOOLARGE         "Molim odaberite dužinu bita izmedu 2 i 16384."
+    IDS_DH_NO_SAVE_PRIME    "Ne sacuvati prost broj!"
+    IDS_SELECT_PLAINTEXT    "Molim odaberite dokument sa otvorenim tekstom."
+    IDS_SELECT_CIPHERTEXT   "Molim odaberite dokument sa šifratom."
+    IDS_OPEN_FILE           "[Otvori dokument ...]"
+    IDS_SELECT_DOCUMENT     "[Molim odaberite dokument.]"
+    IDS_HEADERTEXT_KEY      "Kljuc"
+    IDS_HEADERTEXT_READIN   "Ucitaj"
 END
 
 STRINGTABLE 
 BEGIN
     ID_AES_RIJNDAEL_FLOWVISUALISATION 
                             "Prikazuje Rijndael algoritam u vizualizaciji toka"
-    ID_ANALYSIS_VIGENERE_SCHROEDEL "Rucna analiza Vigenère-ovog algoritma."
+    ID_ANALYSIS_VIGENERE_SCHROEDEL 
+							"Automatska analiza dokumenta šifrovanog pomocu Vigenère algoritma (Schroedel)"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_FOUND_CLEARTEXT_TAG 
+                            "Pronaden cisti tekst:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_NO_POSSIBLE_RESULTS_FOUND 
+                            "Analiza nije uspela. Nisu pronadeni moguci rezultati."
+    IDS_STRING_VIGENERE_ANALYSIS_HEADER_TAG 
+                            "CrypTool: Samo analiza šifrata prema Schroedel protiv Vigenère šifre"
+    IDS_STRING_VIGENERE_ANALYSIS_TIME_NEEDED_TAG 
+                            "Vreme potrebno za izvršenje analize:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_CIPHERTEXT_LENGTH_TAG 
+                            "Dužina analiziranog šifrata:"
+    IDS_AUTHORS_FILE_CORRUPTED 
+                            "Datoteka authors.txt je promenjena nakon što je CrypTool instaliran."
+    IDS_CRYPTOOL_RELEASE_INFORMATION "%s (%s, %s), kompajliran sa "
+    IDS_STRING_FILE_COULD_NOT_BE_OPENED 
+                            "Sledeca datoteka nije mogla da se otvori:\n"
+    IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DICTIONARY_FILE 
+                            "Odaberite datoteku recnika"
+    IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DIGRAMS_FILE "Odaberite digram datoteku"
+    IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_TRIGRAMS_FILE "Odaberite trigram datoteku"
+    IDS_STRING_VIGENERE_ANALYSIS_DIGRAM_FACTOR_STRING 
+                            "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SUGGEST_RESULT 
+                            "Analiza uzima u obzir ""%s"" kao moguci kljuc.\n\nRezultujuci cisti tekst glasi: ""%s"".\n\nDa li želite da obustavite analizu?"
+    IDS_HASHDEMO_STRING_SHA_256 "SHA-256 (256 bita)"
+    IDS_HASHDEMO_STRING_SHA_384 "SHA-384 (384 bita)"
+    IDS_HASHDEMO_STRING_SHA_512 "SHA-512 (512 bita)"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_DIGRAMS "Ucitavam digrame..."
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_TRIGRAMS "Ucitavam trigrame..."
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_REMOVE_DUPLICATES 
+                            "%d uklonjenih duplikata:"
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_1ST_CHARACTER_OF_CIPHER 
+                            "1. karakter šifrata: "
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_2ND_CHARACTER_OF_CIPHER 
+                            "2. karakter šifrata: "
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_3RD_CHARACTER_OF_CIPHER 
+                            "3. karakter šifrata: "
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_CIPHERTEXT 
+                            "Ucitavam šifrat..."
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_DICTIONARY 
+                            "Ucitavam recnik..."
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_POSSIBLE_PAIRS "%d mogucih parova: "
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_COUNT "Zbir:"
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_REMAINING "Preostali parovi: "
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_SORTED_LIST_ALL_REMAINING 
+                            "Uredena lista svih parova:"
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_SORTED_LIST_AFTER_DISCARDING 
+                            "Uredena lista svih preostalih parova:"
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_SORTED_LEADERS 
+                            "Uredena lista najboljih parova:"
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_CHECKING_FOR_RATINGS 
+                            "Provera recnika za moguca rešenja:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_SECONDS " sekundi"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "karaktera"
 END
 
 #endif    // Serbian (Latin) resources
