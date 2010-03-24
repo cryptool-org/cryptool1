@@ -53,21 +53,31 @@ BOOL CDlgPasswordGuidelines::OnInitDialog()
 	CDialog::OnInitDialog();
 
 	// some default values
-	unsigned long minimumLength = 8;
-	unsigned long minimumDigits = 1;
-	unsigned long minimumSpecial = 1;
+	unsigned long minimumLength;
+	unsigned long minimumDigits;
+	unsigned long minimumSpecial;
 	unsigned long buffer = 1024;
-	char *specialGroup = new char[buffer+1];
-	memset(specialGroup, 0, buffer+1);
-	memcpy(specialGroup, "^°!\"§$%&/()=?´`\\<>|,;:.-_#\'+*~@", 31); 
+	char *specialGroup = new char[buffer+1]; 
 
 	// try to read guidelines from registry 
 	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_READ, IDS_REGISTRY_SETTINGS, "PasswordGuidelines" ) == ERROR_SUCCESS )
 	{
-		CT_READ_REGISTRY(minimumLength, "MinimumLength");
-		CT_READ_REGISTRY(minimumDigits, "MinimumDigits");
-		CT_READ_REGISTRY(minimumSpecial, "MinimumSpecial");
-		CT_READ_REGISTRY(specialGroup, "SpecialGroup", buffer);
+		// if we cannot read a variable, we stick to a specific default value (see below)
+
+		if(!CT_READ_REGISTRY(minimumLength, "MinimumLength")) {
+			minimumLength = 8;
+		}
+		if(!CT_READ_REGISTRY(minimumDigits, "MinimumDigits")) {
+			minimumDigits = 1;
+		}
+		if(!CT_READ_REGISTRY(minimumSpecial, "MinimumSpecial")) {
+			minimumSpecial = 1;
+		}
+		if(!CT_READ_REGISTRY(specialGroup, "SpecialGroup", buffer)) {
+			memset(specialGroup, 0, buffer+1);
+			memcpy(specialGroup, ".,:;!?()-+*/[]{}@_><#~=\\\"&%$§", 29);
+		}
+
 		CT_CLOSE_REGISTRY();
 	}
 	else
@@ -77,7 +87,7 @@ BOOL CDlgPasswordGuidelines::OnInitDialog()
 
 	_itoa(minimumLength, pc_str, 10);
 	stringMinimumLength = pc_str;
-    _itoa(minimumDigits, pc_str, 10);
+  _itoa(minimumDigits, pc_str, 10);
 	stringMinimumDigits = pc_str;
 	_itoa(minimumSpecial, pc_str, 10);
 	stringMinimumSpecial = pc_str;

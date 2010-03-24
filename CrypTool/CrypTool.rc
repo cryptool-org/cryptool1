@@ -4298,7 +4298,7 @@ END
 
 IDD_PASSWORD_GUIDELINES DIALOGEX 0, 0, 250, 185
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Wytyczne dla has³a"
+CAPTION "i18n Wytyczne dla has³a"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,164,50,14
@@ -4312,11 +4312,11 @@ BEGIN
     EDITTEXT        IDC_EDIT_PASSWORD_LENGTH,90,78,20,14,ES_RIGHT | ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_PASSWORD_DIGITS,90,97,20,14,ES_RIGHT | ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL,90,116,20,14,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL_GROUP,90,135,140,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Domyœlnie",ID_DEFAULT,100,164,50,14
     LTEXT           "znaków",IDC_STATIC,115,80,45,8
     LTEXT           "cyfr",IDC_STATIC,115,99,45,8
     LTEXT           "znaków",IDC_STATIC,115,118,46,8
-    EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL_GROUP,90,135,140,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Domyœlnie",ID_DEFAULT,100,164,50,14
 END
 
 IDD_PASSWORDENTROPY DIALOGEX 0, 0, 420, 260
@@ -15351,7 +15351,7 @@ END
 
 IDD_PASSWORD_GUIDELINES DIALOGEX 0, 0, 250, 185
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Smernice Lozinke"
+CAPTION "i18n Smernice Lozinke"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,164,50,14
@@ -26436,27 +26436,25 @@ BEGIN
     LTEXT           "Statisch",IDC_TEXT_INFO,7,7,221,145
 END
 
-IDD_PASSWORD_GUIDELINES DIALOGEX 0, 0, 250, 185
+IDD_PASSWORD_GUIDELINES DIALOGEX 0, 0, 275, 170
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Passwort-Richtlinien"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,164,50,14
-    PUSHBUTTON      "Abbrechen",IDCANCEL,193,164,50,14
-    GROUPBOX        "Beschreibung",IDC_STATIC,7,7,236,45
-    GROUPBOX        "Mindestanforderung an Passwörter",IDC_STATIC,7,65,236,91
-    LTEXT           "Hier können Sie einstellen, welche Mindestanforderungen der in CrypTool integrierte Passwort-Qualitätsmesser an Ihre Passwörter stellt.",IDC_STATIC,20,20,210,24
-    RTEXT           "Länge:",IDC_STATIC,30,80,50,8
-    RTEXT           "Ziffern:",IDC_STATIC,30,99,50,8
-    RTEXT           "Sonderzeichen:",IDC_STATIC,30,118,50,8
-    EDITTEXT        IDC_EDIT_PASSWORD_LENGTH,90,78,20,14,ES_RIGHT | ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_PASSWORD_DIGITS,90,97,20,14,ES_RIGHT | ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL,90,116,20,14,ES_RIGHT | ES_AUTOHSCROLL
-    LTEXT           "Zeichen",IDC_STATIC,115,80,45,8
-    LTEXT           "Zeichen",IDC_STATIC,115,99,45,8
-    LTEXT           "Zeichen",IDC_STATIC,115,118,46,8
-    EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL_GROUP,90,135,140,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Default",ID_DEFAULT,100,164,50,14
+    DEFPUSHBUTTON   "OK",IDOK,7,149,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,218,149,50,14
+    GROUPBOX        "Beschreibung",IDC_STATIC,7,7,261,35
+    GROUPBOX        "Mindestanforderung an Passwörter",IDC_STATIC,7,50,261,91
+    LTEXT           "Hier können Sie einstellen, welche Mindestanforderungen der in CrypTool integrierte Passwort-Qualitätsmesser an Ihre Passwörter stellt.",IDC_STATIC,15,20,245,16
+    EDITTEXT        IDC_EDIT_PASSWORD_LENGTH,125,63,20,14,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PASSWORD_DIGITS,125,82,20,14,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL,125,101,20,14,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL_GROUP,125,120,135,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Standard",ID_DEFAULT,125,149,50,14
+    LTEXT           "Länge:",IDC_STATIC,97,65,23,8
+    LTEXT           "Anzahl Ziffern:",IDC_STATIC,72,84,48,8
+    LTEXT           "Anzahl Sonderzeichen:",IDC_STATIC,46,103,74,8
+    LTEXT           "Gültige Sonderzeichen:",IDC_STATIC,46,122,74,8
 END
 
 IDD_PASSWORDENTROPY DIALOGEX 0, 0, 420, 260
@@ -30036,16 +30034,13 @@ BEGIN
     IDD_PASSWORD_GUIDELINES, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 243
-        VERTGUIDE, 20
-        VERTGUIDE, 80
-        VERTGUIDE, 90
-        VERTGUIDE, 110
-        VERTGUIDE, 115
-        VERTGUIDE, 230
+        RIGHTMARGIN, 268
+        VERTGUIDE, 15
+        VERTGUIDE, 120
+        VERTGUIDE, 125
+        VERTGUIDE, 260
         TOPMARGIN, 7
-        BOTTOMMARGIN, 178
-        HORZGUIDE, 20
+        BOTTOMMARGIN, 163
     END
 
     IDD_PASSWORDENTROPY, DIALOG
@@ -32907,7 +32902,7 @@ STRINGTABLE
 BEGIN
     IDS_SIGATT_STAT_FAKE_FILE "Dateiname Fälschung: %s"
     IDS_PQMERROR_NO_SPECIALCHARACTERS 
-                            "Die Liste der Sonderzeichen ist leer!\nBitte geben Sie Sonderzeichen an, oder veringern Sie die Minimalzahl der Sonderzeichen auf Null."
+                            "Die Liste der Sonderzeichen ist leer!\nBitte geben Sie Sonderzeichen an, oder verringern Sie die Minimalzahl der Sonderzeichen auf Null."
     IDS_IOP_COL             "Spaltenweise"
     IDS_IOP_ROW             "Zeilenweise"
     IDS_PA_COULDNOTOPEN_PLAINFILE 
@@ -37349,27 +37344,25 @@ BEGIN
     LTEXT           "Statisch",IDC_TEXT_INFO,7,7,221,145
 END
 
-IDD_PASSWORD_GUIDELINES DIALOGEX 0, 0, 250, 185
+IDD_PASSWORD_GUIDELINES DIALOGEX 0, 0, 275, 170
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Password Guidelines"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,164,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,193,164,50,14
-    GROUPBOX        "Description",IDC_STATIC,7,7,236,45
-    GROUPBOX        "Minimum requirements for passwords",IDC_STATIC,7,65,236,91
-    LTEXT           "Here you can adjust the minimum requirements for passwords checked by the password quality meter that is integrated in CrypTool.",IDC_STATIC,20,20,210,24
-    RTEXT           "Length:",IDC_STATIC,30,80,50,8
-    RTEXT           "Digits:",IDC_STATIC,30,99,50,8
-    RTEXT           "Special characters:",IDC_STATIC,18,118,62,8
-    EDITTEXT        IDC_EDIT_PASSWORD_LENGTH,90,78,20,14,ES_RIGHT | ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_PASSWORD_DIGITS,90,97,20,14,ES_RIGHT | ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL,90,116,20,14,ES_RIGHT | ES_AUTOHSCROLL
-    LTEXT           "characters",IDC_STATIC,115,80,45,8
-    LTEXT           "characters",IDC_STATIC,115,99,45,8
-    LTEXT           "characters",IDC_STATIC,115,118,46,8
-    EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL_GROUP,90,135,140,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Default",ID_DEFAULT,100,164,50,14
+    DEFPUSHBUTTON   "OK",IDOK,7,149,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,218,149,50,14
+    GROUPBOX        "Description",IDC_STATIC,7,7,261,35
+    GROUPBOX        "Minimum requirements for passwords",IDC_STATIC,7,50,261,91
+    LTEXT           "Here you can adjust the minimum requirements for passwords checked by the password quality meter that is integrated in CrypTool.",IDC_STATIC,15,20,245,16
+    EDITTEXT        IDC_EDIT_PASSWORD_LENGTH,125,63,20,14,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PASSWORD_DIGITS,125,82,20,14,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL,125,101,20,14,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL_GROUP,125,120,135,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Default",ID_DEFAULT,125,149,50,14
+    LTEXT           "Length:",IDC_STATIC,94,65,26,8
+    LTEXT           "Number of digits:",IDC_STATIC,64,84,56,8
+    LTEXT           "Number of special characters:",IDC_STATIC,24,103,96,8
+    LTEXT           "Valid special characters:",IDC_STATIC,42,122,78,8
 END
 
 IDD_PASSWORDENTROPY DIALOGEX 0, 0, 420, 260
@@ -41151,16 +41144,13 @@ BEGIN
     IDD_PASSWORD_GUIDELINES, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 243
-        VERTGUIDE, 20
-        VERTGUIDE, 80
-        VERTGUIDE, 90
-        VERTGUIDE, 110
-        VERTGUIDE, 115
-        VERTGUIDE, 230
+        RIGHTMARGIN, 268
+        VERTGUIDE, 15
+        VERTGUIDE, 120
+        VERTGUIDE, 125
+        VERTGUIDE, 260
         TOPMARGIN, 7
-        BOTTOMMARGIN, 178
-        HORZGUIDE, 20
+        BOTTOMMARGIN, 163
     END
 
     IDD_PASSWORDENTROPY, DIALOG
@@ -46693,7 +46683,7 @@ END
 
 IDD_PASSWORD_GUIDELINES DIALOGEX 0, 0, 250, 185
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Pautas para Contraseñas"
+CAPTION "i18n Pautas para Contraseñas"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Aceptar",IDOK,7,164,50,14
