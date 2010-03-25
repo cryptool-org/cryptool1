@@ -749,8 +749,11 @@ char *checkPassword(char *password, char *path, int hidePassword, double *determ
     strcat(str_fnds, pc_str);
 	get_pwd_substrings( pwd_len, closure_matrix, KBD_SERIALS, password, hidePassword, str_fnds, word_list, word_listSize);
 
-	LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS, pc_str, STR_LAENGE_STRING_TABLE);
-    strcat(str_fnds, pc_str);
+	// flomar, 03/24/2010
+	// we add the dict size to the line that displays dictionary hits (extern feature request)
+	CString reconstructionDictionaryWords;
+	reconstructionDictionaryWords.Format(IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS, dict_size);
+	strcat(str_fnds, (LPCTSTR)(reconstructionDictionaryWords));
 	get_pwd_substrings( pwd_len, closure_matrix, DICT_WORDS, password, hidePassword, str_fnds, word_list, word_listSize);
 
 	for (int i=0; i<pwd_len*pwd_len; i++) 
