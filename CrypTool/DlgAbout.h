@@ -56,6 +56,8 @@ public:
 	CString strVersionCryptovision;
 	// Versionsstring der GMP Bibliothek
 	CString strVersionGMP;
+	// Versionsstring der Cracklib Bibliothek
+	CString strVersionCracklib;
 	//}}AFX_DATA
 	
 	// Überschreibungen

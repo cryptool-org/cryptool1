@@ -156,7 +156,8 @@ BOOL CDlgAbout::OnInitDialog()
 		stringReleaseInformation.Append(strVersionNTL); stringReleaseInformation.Append(", ");
 		stringReleaseInformation.Append(strVersionScintilla); stringReleaseInformation.Append(", ");
 		stringReleaseInformation.Append(strVersionCryptovision); stringReleaseInformation.Append(", ");
-		stringReleaseInformation.Append(strVersionGMP); stringReleaseInformation.Append(".");
+		stringReleaseInformation.Append(strVersionGMP); stringReleaseInformation.Append(", ");
+		stringReleaseInformation.Append(strVersionCracklib); stringReleaseInformation.Append(".");
 		// display information
 		windowReleaseInformation->SetWindowText(stringReleaseInformation);
 	}
@@ -234,6 +235,10 @@ void CDlgAbout::determineLibraryVersions()
 	CString StrGMPWindowText;
 	StrGMPWindowText.Format("GMP %s", gmp_version);
 	this->strVersionGMP = StrGMPWindowText;
+
+	// CRACKLIB (statisch)
+	this->strVersionCracklib = "2.7";
+	this->strVersionCracklib.Insert(0, "cracklib ");
 
 	// CRYPTOVISION (statisch)
 	this->strVersionCryptovision = "1.3.0";
