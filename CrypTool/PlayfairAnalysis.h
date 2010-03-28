@@ -438,7 +438,7 @@ class CPlayfairAnalysis
 {
 public:
 	void ApplyPlayfairToInput( bool ); //used in crypt.cpp
-	void ApplyPlayfairPreformat( bool,char *,char *); //used in crypt.cpp
+	void ApplyPlayfairPreformat(bool, char*, char*, bool, bool, CString); //used in crypt.cpp
 /*private:
 	int genliste(anadigramme *);
 	int genliste2(anadigramme *);
@@ -587,6 +587,14 @@ private:
 	int my_cntdigrams;
 	void insertChiffre2Digrams(char c1, char c2);
 	void insertChiffre2Digrams(playfair_letter* c1, playfair_letter* c2);
+
+private:
+	// flomar, 03/28/2010
+	// some pre-format-related settings
+	bool separateDoubleCharacters;
+	bool separateDoubleCharactersOnlyWithinPairs;
+	CString separator;
+
 }; //class CPlayfairAnalysis
 
 class playfair_error

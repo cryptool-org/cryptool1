@@ -43,7 +43,10 @@ class CDlgKeyPlayfair : public CDialog
 public:
 	~CDlgKeyPlayfair();
 	CDlgKeyPlayfair(const char *infile,const char *outfile,int,int,CWnd* pParent = NULL);   // Standardkonstruktor
-	bool getDec()  { return ( m_Dec ); }
+	bool getDec()  { return ( m_Dec ); };
+	bool getSeparateDoubleCharacters() { return (separateDoubleCharacters != 0); };
+	bool getSeparateDoubleCharactersOnlyWithinPairs() { return (separateDoubleCharactersOnlyWithinPairs != 0); };
+	CString getSeparator() { return separator; };
 	char *GetData();
 	int Display();
 
@@ -63,6 +66,9 @@ public:
 	CButton m_prec;
 	CString m_mat[6][6];
 	CButton m_matc[11];
+	int separateDoubleCharacters;
+	int separateDoubleCharactersOnlyWithinPairs;
+	CString separator;
 	//}}AFX_DATA
 
 
@@ -85,6 +91,7 @@ protected:
 	afx_msg void OnDecrypt();
 	afx_msg void OnEncrypt();
 	afx_msg void OnPasteKey();
+	afx_msg void OnChangeSeparator();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

@@ -55,6 +55,10 @@ CDlgKeyPlayfair::CDlgKeyPlayfair(const char *infile,const char *outfile,int r,in
 	//}}AFX_DATA_INIT
 
 	m_Dec = 0;
+
+	separateDoubleCharacters = 1;
+	separateDoubleCharactersOnlyWithinPairs = 1;
+	separator = "X";
 }
 
 CDlgKeyPlayfair::~CDlgKeyPlayfair()
@@ -123,6 +127,9 @@ void CDlgKeyPlayfair::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_PREFORM, m_preformat);
 	DDX_Control(pDX, IDC_PREFORM, m_prec);
 	DDX_Check(pDX, IDC_CHECK1, m_use);
+	DDX_Check(pDX, IDC_CHECK_SEPARATE_LETTERS, separateDoubleCharacters);
+	DDX_Check(pDX, IDC_CHECK_SEPARATE_LETTERS_ONLY_IN_PAIRS, separateDoubleCharactersOnlyWithinPairs);
+	DDX_Text(pDX, IDC_EDIT_SEPARATOR, separator);
 	//}}AFX_DATA_MAP
 }
 
@@ -132,10 +139,14 @@ BEGIN_MESSAGE_MAP(CDlgKeyPlayfair, CDialog)
 	ON_EN_UPDATE(IDC_KEYENTER, OnUpdateEdit1)
 	ON_BN_CLICKED(IDC_RADIO3, OnSechs)
 	ON_BN_CLICKED(IDC_RADIO4, OnSechs)
-	ON_BN_CLICKED(IDC_CHECK1, OnCheck)
 	ON_BN_CLICKED(IDC_BUTTON1, OnDecrypt)
 	ON_BN_CLICKED(IDC_BUTTON2, OnPasteKey)
 	ON_BN_CLICKED(IDOK, OnEncrypt)
+	ON_BN_CLICKED(IDC_CHECK1, OnCheck)
+	ON_BN_CLICKED(IDC_PREFORM, OnCheck)
+	ON_BN_CLICKED(IDC_CHECK_SEPARATE_LETTERS, OnCheck)
+	ON_BN_CLICKED(IDC_CHECK_SEPARATE_LETTERS_ONLY_IN_PAIRS, OnCheck)
+	ON_EN_CHANGE(IDC_EDIT_SEPARATOR, OnChangeSeparator)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -158,6 +169,7 @@ BOOL CDlgKeyPlayfair::OnInitDialog()
 	{
 		m_Paste.EnableWindow(FALSE);
 	}
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
@@ -170,6 +182,37 @@ void CDlgKeyPlayfair::OnCheck()
 {
 	UpdateData(TRUE);
 	m_Alg->PassUse(m_use);
+	
+	// flomar, 03/27/2010
+	// we're simulating a dependency matrix here with the following items:
+	//	(a) the pre-format checkbox
+	//	(b) the separate-letters checkbox (plus edit field)
+	//	(c) the separate-letters-only-within-pairs checkbox
+	// the following rules are implemented:
+	//	(1) (b) is only active when (a) is checked
+	//	(2) (c) is only active when (a) and (b) are checked
+
+	CWnd *windowCheckSeparator = GetDlgItem(IDC_CHECK_SEPARATE_LETTERS);
+	CWnd *windowEditSeparator = GetDlgItem(IDC_EDIT_SEPARATOR);
+	CWnd *windowCheckSeparatorOnlyWithinPairs = GetDlgItem(IDC_CHECK_SEPARATE_LETTERS_ONLY_IN_PAIRS);
+
+	if(windowCheckSeparator && windowEditSeparator && windowCheckSeparatorOnlyWithinPairs) {
+		// disable all windows by default
+		windowCheckSeparator->EnableWindow(false);
+		windowEditSeparator->EnableWindow(false);
+		windowCheckSeparatorOnlyWithinPairs->EnableWindow(false);
+		// enable the (a) windows if pre-format is checked (see above)
+		if(m_preformat) {
+			windowCheckSeparator->EnableWindow(true);
+			if(separateDoubleCharacters) {
+				windowEditSeparator->EnableWindow(true);
+				windowCheckSeparatorOnlyWithinPairs->EnableWindow(true);
+			}
+		}
+		// manually check the separator
+		OnChangeSeparator();
+	}
+
 	UpdateData(FALSE);
 	OnUpdateEdit1();
 }
@@ -287,4 +330,23 @@ void CDlgKeyPlayfair::OnPasteKey()
 	PasteKey(pc_str,m_text);
 	UpdateData(FALSE);	
 	OnChange();
+}
+
+void CDlgKeyPlayfair::OnChangeSeparator()
+{
+	UpdateData(TRUE);
+	// flomar, 03/27/2010
+	// valid separators are A-Z, and we go with "X" by default;
+	// this behavior is based on the old implementation in CDlgTextOptions
+	if(separator.GetLength() == 0) {
+		separator = "X";
+	}
+	if(separator.GetLength() > 1) {
+		separator.Delete(1, separator.GetLength() - 1);
+	}
+	// at this point we have exactly one character
+	if(separator[0] < 'A' || separator[0] > 'Z') {
+		separator = "X";
+	}
+	UpdateData(FALSE);
 }

@@ -65,8 +65,6 @@ public:
 	const CString &getAlphabet(); 
 	CString &refAlphabet(); 
 	void getAlphabetWithOptions(CString &AlphabetWithOptions);
-	CString getSeparator() { return separator; }
-	BOOL getSeparateLetters() { return separateLetters; };
 	BOOL getDistinguishUpperLowerCase() { return distinguishUpperLowerCase; };
 	BOOL getKeepCharactersNotPresentInAlphabetUnchanged() { return keepCharactersNotPresentInAlphabetUnchanged; };
 	BOOL getKeepUpperLowerCaseInformation() { return keepUpperLowerCaseInformation; };

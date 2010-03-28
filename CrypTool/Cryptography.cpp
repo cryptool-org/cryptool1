@@ -489,7 +489,7 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 	{
 		GetTmpName(outfile,"cry",".txt");
 		GetTmpName(preform,"cry",".txt");
-		KeyDialog.m_Alg->ApplyPlayfairPreformat(KeyDialog.getDec(),preform,outfile);
+		KeyDialog.m_Alg->ApplyPlayfairPreformat(KeyDialog.getDec(), preform, outfile, KeyDialog.getSeparateDoubleCharacters(), KeyDialog.getSeparateDoubleCharactersOnlyWithinPairs(), KeyDialog.getSeparator());
 		char tmpStr[128];
 
 		int i;

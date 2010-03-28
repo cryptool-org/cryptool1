@@ -45,8 +45,6 @@ void CDlgTextOptions::SetDefaultOptions()
 	digits = FALSE;
 	keepUpperLowerCaseInformation = FALSE;
 	umlauts = FALSE;
-	separator = _T("X");
-	separateLetters = TRUE;
 
 	keepUpperLowerCaseInformation = TRUE;
 	ignoreCase = 1;
@@ -85,9 +83,6 @@ void CDlgTextOptions::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_CHECK_DIGITS, digits);
 	DDX_Check(pDX, IDC_CHECK_KEEP_UPPER_LOWER_CASE_INFORMATION, keepUpperLowerCaseInformation);
 	DDX_Check(pDX, IDC_CHECK_UMLAUTS, umlauts);
-	DDX_Text(pDX, IDC_EDIT_SEPARATOR, separator);
-	DDV_MaxChars(pDX, separator, 1);
-	DDX_Check(pDX, IDC_CHECK_SEPARATE_LETTERS, separateLetters);
 	DDX_Text(pDX, IDC_EDIT_REFERENCE_FILE, referenceFile);
 	//}}AFX_DATA_MAP
 }
@@ -97,7 +92,6 @@ BEGIN_MESSAGE_MAP(CDlgTextOptions, CDialog)
 
 	//{{AFX_MSG_MAP(CDlgTextOptions)
 	ON_EN_UPDATE(IDC_EDIT_ALPHABET, OnUpdateEditAlphabet)
-	ON_EN_KILLFOCUS(IDC_EDIT_SEPARATOR, OnUpdateEditSeparator)
 	ON_BN_CLICKED(IDC_BUTTON_RESTORE_STANDARD, OnButtonRestoreStandard)
 	ON_BN_CLICKED(IDC_CHECK_DISTINGUISH_UPPER_LOWER_CASE, OnCheckDistinguishUpperLowerCase)
 	ON_BN_CLICKED(IDC_CHECK_UPPER_CASE, OnCheckUpperCase)
@@ -108,7 +102,6 @@ BEGIN_MESSAGE_MAP(CDlgTextOptions, CDialog)
 	ON_BN_CLICKED(IDC_CHECK_KEEP_UPPER_LOWER_CASE_INFORMATION, OnCheckKeepUpperLowerCaseInformation)
 	ON_BN_CLICKED(IDC_CHECK_UMLAUTS, OnCheckUmlauts)
 	ON_BN_CLICKED(IDC_BUTTON_SEARCH_REFERENCE_FILE, OnButtonSearchReferenceFile)
-	ON_BN_CLICKED(IDC_CHECK_SEPARATE_LETTERS, OnCheckPlayfair)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -142,15 +135,6 @@ void CDlgTextOptions::getAlphabetWithOptions(CString &AlphabetWithOptions)
 				AlphabetWithOptions += (char)(alphabet[i] - ('a'-'A'));
 		}
 	}
-}
-
-void CDlgTextOptions::OnUpdateEditSeparator() 
-{
-	UpdateData(TRUE);
-	separator.MakeUpper();
-	if(separator.IsEmpty()||separator[0]<'A'||separator[0]>'Z')
-		separator=_T("X");
-	UpdateData(FALSE);
 }
 
 void CDlgTextOptions::OnUpdateEditAlphabet() 
@@ -565,17 +549,6 @@ void CDlgTextOptions::OnCheckDigits()
 	}
 	UpdateData(FALSE);
 	updateAlphabetHeading();
-}
-
-void CDlgTextOptions::OnCheckPlayfair()
-{
-	UpdateData(true);
-
-	// enable/disable separator edit field
-	if(separateLetters) GetDlgItem(IDC_EDIT_SEPARATOR)->EnableWindow(true);
-	else GetDlgItem(IDC_EDIT_SEPARATOR)->EnableWindow(false);
-
-	UpdateData(false);
 }
 
 void CDlgTextOptions::OnCheckKeepUpperLowerCaseInformation()

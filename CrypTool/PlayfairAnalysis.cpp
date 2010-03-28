@@ -1374,15 +1374,24 @@ ApplyPlayfairPreformat() führt die Ver-/Entschlüsselung mit vorherigem
 umformatieren (wird in prename abgespeichert) durch und schreibt das 
 Ergebnis nach o. 
 */
-void CPlayfairAnalysis::ApplyPlayfairPreformat( bool DecEnc,char *prename,char *o)
+void CPlayfairAnalysis::ApplyPlayfairPreformat(bool DecEnc, char *prename, char *o, bool _separateDoubleCharacters, bool _separateDoubleCharactersOnlyWithinPairs, CString _separator)
 {
+	// fill a few member variables (we need those later on)
+	separateDoubleCharacters = _separateDoubleCharacters;
+	separateDoubleCharactersOnlyWithinPairs = _separateDoubleCharactersOnlyWithinPairs;
+	separator = _separator;
+
 	FILE *pre;
 	char *prebuf;
 	int i,j;
 	char old,c;
 	char ex,aex;
 	
-	ex=theApp.TextOptions.getSeparator()[0];            // Buchstabe zum einfügen
+	// we go with "X" as separator by default
+	ex = 'X';
+	// we override the separator if requested
+	if(separateDoubleCharacters) ex = separator[0];
+
 	aex=(ex=='Z')?'Y':ex+1;                      // alternative
 	if(mysize==5)
 	{
@@ -1404,12 +1413,30 @@ void CPlayfairAnalysis::ApplyPlayfairPreformat( bool DecEnc,char *prename,char *
 		Daher können immer noch  falsche Buchstaben erscheinen */
 		if(myisalpha2(c))
 		{
+#if 0
 			c=MyToUpper(c);
-			if(c==old&&theApp.TextOptions.getSeparateLetters())// soll getrennt werden
+			if(c==old&&separateDoubleCharacters)// soll getrennt werden
 				prebuf[j++]=(old==ex)?aex:ex;    // falls zwei X
 			prebuf[j++]=c;                       // ein Q einfügen
 			old=c;                               // sonst Doppelbuchstaben
-		}                                        // mit Xen trennen
+		                                       // mit Xen trennen
+#else
+			c = MyToUpper(c);
+			// check if there is a potential double-character hit
+			if(c == old) {
+				// next, check if we're supposed to separate double-characters at all
+				if(separateDoubleCharacters) {
+					// next, make sure we only separate the correct characters; especially 
+					// keep those double-characters in mind that don't form a pair
+					if(!separateDoubleCharactersOnlyWithinPairs || (separateDoubleCharactersOnlyWithinPairs && j%2)) {
+						prebuf[j++]=(old==ex)?aex:ex;
+					}
+				}
+			}
+			prebuf[j++]=c;
+			old=c;
+#endif
+		}
 	}
 	free(inbuf);
 	inbuflen=j;
@@ -1524,8 +1551,13 @@ bool CPlayfairAnalysis::DoCipher( bool withConvert, bool Dec, int len, char *sti
 				i++;
 			if(i<len)
 				ib2=MyToUpper(theinbuf[i]);
-			else
-				ib2=theinbuf[theinbuflen++]=theApp.TextOptions.getSeparator()[0];
+			else {
+				// flomar, 03/28/2010
+				// this is dirty: since we cannot know for sure if the
+				// separator is valid, we go with an "X" by default
+				if(separator.IsEmpty()) separator = "X";
+				ib2=theinbuf[theinbuflen++]=separator[0];
+			}
 		}
 		else
 			break;

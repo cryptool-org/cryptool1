@@ -2,7 +2,7 @@
 <HTML>
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Dialog Key Entry: Playfair</TITLE>
+<TITLE>Dialog Key entry: Playfair</TITLE>
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
@@ -30,7 +30,13 @@
 
 <P>The option <B>ignore duplicates within the key phrase</B> affects the manner in which the password is entered in the matrix. If this is enabled, double letters in the password are simply ignored, otherwise in each case the next letter in alphabet is used. The boxes below show the matrix generated from the input key.</P>
 
-<P>The <B>Pre-format text</B> option is used to determine whether the text should be confined to the alphabet used (depending on the size of the matrix). Under this option in the 5x5 matrix all J‚s are transformed into I‚s. In addition, as mentioned in the explanation for the <A href="hid_playfair_bin.html">Playfair encryption algorithm</A>, double letters are separated by the insertion of an X (a double X being separated by insertion of a Q). The text thus changed is displayed in addition to the encrypted text.</P>
+<P>The <B>Pre-format text</B> option is used to determine whether the text should be confined to the 
+alphabet used (depending on the size of the matrix). Under this option in the 5x5 matrix all J's are 
+transformed into I's. In addition, you can check the <B>Separate double characters</B> option to define 
+which separator is used to separate double characters. If you check the <B>Separate double characters 
+only within pairs</B> option, the implementation conforms to the relevant literature (only those double 
+characters are separated that form a pair). The changed text is displayed in addition to the encrypted 
+text.</P>
 
 <P>After you have entered the key, you can encrypt the document by clicking on the <B>Encrypt</B> button or decrypt the document by clicking <B>Decrypt</B>.</P>
 
