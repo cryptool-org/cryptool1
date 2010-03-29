@@ -40,6 +40,8 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
 
+	CString portsInformation;
+
 	DECLARE_MESSAGE_MAP()
 };
 

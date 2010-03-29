@@ -4504,19 +4504,7 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Close",IDOK,303,255,60,18
     LTEXT           "The CrypTool versions in English and German have been created by the CrypTool core team.",IDC_STATIC,7,7,297,8
-    GROUPBOX        "Polish Port",IDC_STATIC,7,30,356,55
-    GROUPBOX        "Serbian Port",IDC_STATIC,7,100,356,55
-    GROUPBOX        "Spanish Port",IDC_STATIC,7,170,356,55
-    LTEXT           "Initial Port:",IDC_STATIC,20,45,36,8
-    LTEXT           "Further Updates:",IDC_STATIC,20,65,56,8
-    LTEXT           "Warsaw University, Poland (http://www.ee.pw.edu.pl/),\nMr. Bartosz Sawicki and his students",IDC_STATIC,100,45,250,16
-    LTEXT           "Mr. Pawel Polewski",IDC_STATIC,100,65,250,16
-    LTEXT           "Initial Port:",IDC_STATIC,20,115,36,8
-    LTEXT           "Advanced School of Electrical Engineering, Belgrade, Serbia,\nProf. Dragan Pleskonjic, Mr. Bojan Dimitrovski and his fellow students",IDC_STATIC,100,115,250,16
-    LTEXT           "Initial Port:",IDC_STATIC,20,185,36,8
-    LTEXT           "Further Updates:",IDC_STATIC,20,205,56,8
-    LTEXT           "Madrid University, Spain (http://www.csic.es),\nMr. Gonzalo Alvarez Maranon and his students",IDC_STATIC,100,185,250,16
-    LTEXT           "Mr. Raphael Labaca Castro",IDC_STATIC,100,205,250,16
+    EDITTEXT        IDC_EDIT_PORTS_INFORMATION,7,20,356,225,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
 IDD_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_LANGUAGES DIALOGEX 0, 0, 230, 140
@@ -8427,6 +8415,16 @@ END
 STRINGTABLE 
 BEGIN
     IDR_OPENGLTYPE          "\nUnnamed\n\nOpenGL file (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nPliki OpenGL "
+    IDS_STRING_PORTS_HEADING_POLISH "i18n Polish port"
+    IDS_STRING_PORTS_INITIAL_WORK_POLISH 
+                            "i18n Initial port: Warsaw University, Poland (http://www.ee.pw.edu.pl/),\r\nDr. Bartosz Sawicki and his students"
+    IDS_STRING_PORTS_FURTHER_WORK_POLISH 
+                            "i18n Further Updates: Pawel Polweski"
+    IDS_STRING_PORTS_HEADING_SERBIAN "i18n Serbian port"
+    IDS_STRING_PORTS_INITIAL_WORK_SERBIAN 
+                            "i18n Initial port: Advanced School of Electrical Engineering, Belgrade, Serbia,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
+    IDS_STRING_PORTS_FURTHER_WORK_SERBIAN "i18n Further updates: -"
+    IDS_STRING_PORTS_HEADING_SPANISH "i18n Spanish port"
 END
 
 STRINGTABLE 
@@ -11050,6 +11048,14 @@ BEGIN
                             "Wyœwietla algorytmu Rijndael w wizualizacji przep³ywu"
     ID_ANALYSIS_VIGENERE_SCHROEDEL 
                             "Automatyczna analiza szyfrowania Vigenere (Schrödel)"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING_PORTS_INITIAL_WORK_SPANISH 
+                            "i18n Initial port: Madrid University, Spain (http://www.csic.es),\nDr. Gonzalo Alvarez Maranon and his students"
+    IDS_STRING_PORTS_FURTHER_WORK_SPANISH 
+                            "i18n Further updates: Raphael Labaca Castro"
 END
 
 #endif    // Polish resources
@@ -15578,19 +15584,7 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Close",IDOK,303,255,60,18
     LTEXT           "The CrypTool versions in English and German have been created by the CrypTool core team.",IDC_STATIC,7,7,297,8
-    GROUPBOX        "Polish Port",IDC_STATIC,7,30,356,55
-    GROUPBOX        "Serbian Port",IDC_STATIC,7,100,356,55
-    GROUPBOX        "Spanish Port",IDC_STATIC,7,170,356,55
-    LTEXT           "Initial Port:",IDC_STATIC,20,45,36,8
-    LTEXT           "Further Updates:",IDC_STATIC,20,65,56,8
-    LTEXT           "Warsaw University, Poland (http://www.ee.pw.edu.pl/),\nMr. Bartosz Sawicki and his students",IDC_STATIC,100,45,250,16
-    LTEXT           "Mr. Pawel Polewski",IDC_STATIC,100,65,250,16
-    LTEXT           "Initial Port:",IDC_STATIC,20,115,36,8
-    LTEXT           "Advanced School of Electrical Engineering, Belgrade, Serbia,\nProf. Dragan Pleskonjic, Mr. Bojan Dimitrovski and his fellow students",IDC_STATIC,100,115,250,16
-    LTEXT           "Initial Port:",IDC_STATIC,20,185,36,8
-    LTEXT           "Further Updates:",IDC_STATIC,20,205,56,8
-    LTEXT           "Madrid University, Spain (http://www.csic.es),\nMr. Gonzalo Alvarez Maranon and his students",IDC_STATIC,100,185,250,16
-    LTEXT           "Mr. Raphael Labaca Castro",IDC_STATIC,100,205,250,16
+    EDITTEXT        IDC_EDIT_PORTS_INFORMATION,7,20,356,225,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
 
@@ -19483,6 +19477,16 @@ END
 STRINGTABLE 
 BEGIN
     IDR_OPENGLTYPE          "\nNeimenovana\n\nOpenGL datoteka (*.ogl)\n.plt\n\nOpenGL Tip Datoteke\nOPENGL\nOpenGL Datoteke\n"
+    IDS_STRING_PORTS_HEADING_POLISH "i18n Polish port"
+    IDS_STRING_PORTS_INITIAL_WORK_POLISH 
+                            "i18n Initial port: Warsaw University, Poland (http://www.ee.pw.edu.pl/),\r\nDr. Bartosz Sawicki and his students"
+    IDS_STRING_PORTS_FURTHER_WORK_POLISH 
+                            "i18n Further Updates: Pawel Polweski"
+    IDS_STRING_PORTS_HEADING_SERBIAN "i18n Serbian port"
+    IDS_STRING_PORTS_INITIAL_WORK_SERBIAN 
+                            "i18n Initial port: Advanced School of Electrical Engineering, Belgrade, Serbia,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
+    IDS_STRING_PORTS_FURTHER_WORK_SERBIAN "i18n Further updates: -"
+    IDS_STRING_PORTS_HEADING_SPANISH "i18n Spanish port"
 END
 
 STRINGTABLE 
@@ -22094,6 +22098,14 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "karaktera"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING_PORTS_INITIAL_WORK_SPANISH 
+                            "i18n Initial port: Madrid University, Spain (http://www.csic.es),\nDr. Gonzalo Alvarez Maranon and his students"
+    IDS_STRING_PORTS_FURTHER_WORK_SPANISH 
+                            "i18n Further updates: Raphael Labaca Castro"
 END
 
 #endif    // Serbian (Latin) resources
@@ -26642,19 +26654,7 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Schließen",IDOK,303,255,60,18
     LTEXT           "Die Sprachversionen Deutsch und Englisch wurden vom CrypTool-Kernteam entwickelt.",IDC_STATIC,7,7,278,8
-    GROUPBOX        "Polnische Portierung",IDC_STATIC,7,30,356,55
-    GROUPBOX        "Serbische Portierung",IDC_STATIC,7,100,356,55
-    GROUPBOX        "Spanische Portierung",IDC_STATIC,7,170,356,55
-    LTEXT           "Erstportierung:",IDC_STATIC,20,45,50,8
-    LTEXT           "Weitere Updates:",IDC_STATIC,20,65,58,8
-    LTEXT           "Universität Warschau, Polen (http://www.ee.pw.edu.pl/),\nHr. Bartosz Sawicki und seine Studenten",IDC_STATIC,100,45,250,16
-    LTEXT           "Hr. Pawel Polewski",IDC_STATIC,100,65,250,16
-    LTEXT           "Erstportierung:",IDC_STATIC,20,115,50,8
-    LTEXT           "Advanced School of Electrical Engineering, Belgrad, Serbien,\nProf. Dragan Pleskonjic, Hr. Bojan Dimitrovski und seine Kommilitonen",IDC_STATIC,100,115,250,16
-    LTEXT           "Erstportierung:",IDC_STATIC,20,185,50,8
-    LTEXT           "Weitere Updates:",IDC_STATIC,20,205,58,8
-    LTEXT           "Universität Madrid, Spanien (http://www.csic.es),\nHr. Gonzalo Alvarez Maranon und seine Studenten",IDC_STATIC,100,185,250,16
-    LTEXT           "Hr. Raphael Labaca Castro",IDC_STATIC,100,205,250,16
+    EDITTEXT        IDC_EDIT_PORTS_INFORMATION,7,20,356,225,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
 
@@ -30157,9 +30157,6 @@ BEGIN
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 363
-        VERTGUIDE, 20
-        VERTGUIDE, 100
-        VERTGUIDE, 350
         TOPMARGIN, 7
         BOTTOMMARGIN, 273
     END
@@ -30406,6 +30403,15 @@ END
 STRINGTABLE 
 BEGIN
     IDR_OPENGLTYPE          "\nUnbenannt\n\nOpenGL Datei (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
+    IDS_STRING_PORTS_HEADING_POLISH "Polnische Portierung"
+    IDS_STRING_PORTS_INITIAL_WORK_POLISH 
+                            "Erstportierung: Universität Warschau, Polen (http://www.ee.pw.edu.pl),\r\nDr. Bartosz Sawicki und seine Studenten"
+    IDS_STRING_PORTS_FURTHER_WORK_POLISH "Weitere Updates: Pawel Polewski"
+    IDS_STRING_PORTS_HEADING_SERBIAN "Serbische Portierung"
+    IDS_STRING_PORTS_INITIAL_WORK_SERBIAN 
+                            "Erstportierung: Advanced School of Electrical Engineering, Belgrad, Serbien,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski und seine Kommilitonen"
+    IDS_STRING_PORTS_FURTHER_WORK_SERBIAN "Weitere Updates: -"
+    IDS_STRING_PORTS_HEADING_SPANISH "Spanische Portierung"
 END
 
 STRINGTABLE 
@@ -33075,6 +33081,14 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "Zeichen"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING_PORTS_INITIAL_WORK_SPANISH 
+                            "Erstportierung: Universität Madrid, Spanien (http://www.csic.es),\r\nDr. Gonzalo Alvarez Maranon und seine Studenten"
+    IDS_STRING_PORTS_FURTHER_WORK_SPANISH 
+                            "Weitere Updates: Raphael Labaca Castro"
 END
 
 #endif    // German (Germany) resources
@@ -37590,19 +37604,7 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Close",IDOK,303,255,60,18
     LTEXT           "The CrypTool versions in English and German have been created by the CrypTool core team.",IDC_STATIC,7,7,297,8
-    GROUPBOX        "Polish Port",IDC_STATIC,7,30,356,55
-    GROUPBOX        "Serbian Port",IDC_STATIC,7,100,356,55
-    GROUPBOX        "Spanish Port",IDC_STATIC,7,170,356,55
-    LTEXT           "Initial Port:",IDC_STATIC,20,45,36,8
-    LTEXT           "Further Updates:",IDC_STATIC,20,65,56,8
-    LTEXT           "Warsaw University, Poland (http://www.ee.pw.edu.pl/),\nMr. Bartosz Sawicki and his students",IDC_STATIC,100,45,250,16
-    LTEXT           "Mr. Pawel Polewski",IDC_STATIC,100,65,250,16
-    LTEXT           "Initial Port:",IDC_STATIC,20,115,36,8
-    LTEXT           "Advanced School of Electrical Engineering, Belgrade, Serbia,\nProf. Dragan Pleskonjic, Mr. Bojan Dimitrovski and his fellow students",IDC_STATIC,100,115,250,16
-    LTEXT           "Initial Port:",IDC_STATIC,20,185,36,8
-    LTEXT           "Further Updates:",IDC_STATIC,20,205,56,8
-    LTEXT           "Madrid University, Spain (http://www.csic.es),\nMr. Gonzalo Alvarez Maranon and his students",IDC_STATIC,100,185,250,16
-    LTEXT           "Mr. Raphael Labaca Castro",IDC_STATIC,100,205,250,16
+    EDITTEXT        IDC_EDIT_PORTS_INFORMATION,7,20,356,225,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
 
@@ -41521,6 +41523,15 @@ END
 STRINGTABLE 
 BEGIN
     IDR_OPENGLTYPE          "\nUnnamed\n\nOpenGL file (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
+    IDS_STRING_PORTS_HEADING_POLISH "Polish port"
+    IDS_STRING_PORTS_INITIAL_WORK_POLISH 
+                            "Initial port: Warsaw University, Poland (http://www.ee.pw.edu.pl/),\r\nDr. Bartosz Sawicki and his students"
+    IDS_STRING_PORTS_FURTHER_WORK_POLISH "Further Updates: Pawel Polweski"
+    IDS_STRING_PORTS_HEADING_SERBIAN "Serbian port"
+    IDS_STRING_PORTS_INITIAL_WORK_SERBIAN 
+                            "Initial port: Advanced School of Electrical Engineering, Belgrade, Serbia,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
+    IDS_STRING_PORTS_FURTHER_WORK_SERBIAN "Further updates: -"
+    IDS_STRING_PORTS_HEADING_SPANISH "Spanish port"
 END
 
 STRINGTABLE 
@@ -44127,6 +44138,14 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "characters"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING_PORTS_INITIAL_WORK_SPANISH 
+                            "Initial port: Madrid University, Spain (http://www.csic.es),\nDr. Gonzalo Alvarez Maranon and his students"
+    IDS_STRING_PORTS_FURTHER_WORK_SPANISH 
+                            "Further updates: Raphael Labaca Castro"
 END
 
 #endif    // English (U.K.) resources
@@ -48647,19 +48666,7 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Close",IDOK,303,255,60,18
     LTEXT           "The CrypTool versions in English and German have been created by the CrypTool core team.",IDC_STATIC,7,7,297,8
-    GROUPBOX        "Polish Port",IDC_STATIC,7,30,356,55
-    GROUPBOX        "Serbian Port",IDC_STATIC,7,100,356,55
-    GROUPBOX        "Spanish Port",IDC_STATIC,7,170,356,55
-    LTEXT           "Initial Port:",IDC_STATIC,20,45,36,8
-    LTEXT           "Further Updates:",IDC_STATIC,20,65,56,8
-    LTEXT           "Warsaw University, Poland (http://www.ee.pw.edu.pl/),\nMr. Bartosz Sawicki and his students",IDC_STATIC,100,45,250,16
-    LTEXT           "Mr. Pawel Polewski",IDC_STATIC,100,65,250,16
-    LTEXT           "Initial Port:",IDC_STATIC,20,115,36,8
-    LTEXT           "Advanced School of Electrical Engineering, Belgrade, Serbia,\nProf. Dragan Pleskonjic, Mr. Bojan Dimitrovski and his fellow students",IDC_STATIC,100,115,250,16
-    LTEXT           "Initial Port:",IDC_STATIC,20,185,36,8
-    LTEXT           "Further Updates:",IDC_STATIC,20,205,56,8
-    LTEXT           "Madrid University, Spain (http://www.csic.es),\nMr. Gonzalo Alvarez Maranon and his students",IDC_STATIC,100,185,250,16
-    LTEXT           "Mr. Raphael Labaca Castro",IDC_STATIC,100,205,250,16
+    EDITTEXT        IDC_EDIT_PORTS_INFORMATION,7,20,356,225,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
 
@@ -52527,6 +52534,16 @@ END
 STRINGTABLE 
 BEGIN
     IDR_OPENGLTYPE          "\nSin nombre\n\nFichero OpenGL (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
+    IDS_STRING_PORTS_HEADING_POLISH "i18n Polish port"
+    IDS_STRING_PORTS_INITIAL_WORK_POLISH 
+                            "i18n Initial port: Warsaw University, Poland (http://www.ee.pw.edu.pl/),\r\nDr. Bartosz Sawicki and his students"
+    IDS_STRING_PORTS_FURTHER_WORK_POLISH 
+                            "i18n Further Updates: Pawel Polweski"
+    IDS_STRING_PORTS_HEADING_SERBIAN "i18n Serbian port"
+    IDS_STRING_PORTS_INITIAL_WORK_SERBIAN 
+                            "i18n Initial port: Advanced School of Electrical Engineering, Belgrade, Serbia,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
+    IDS_STRING_PORTS_FURTHER_WORK_SERBIAN "i18n Further updates: -"
+    IDS_STRING_PORTS_HEADING_SPANISH "i18n Spanish port"
 END
 
 STRINGTABLE 
@@ -55209,6 +55226,14 @@ BEGIN
     IDS_SELECT_DOCUMENT     "[Por favor, seleccione un documento]"
     IDS_HEADERTEXT_KEY      "Clave"
     IDS_HEADERTEXT_READIN   "Leer"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING_PORTS_INITIAL_WORK_SPANISH 
+                            "i18n Initial port: Madrid University, Spain (http://www.csic.es),\nDr. Gonzalo Alvarez Maranon and his students"
+    IDS_STRING_PORTS_FURTHER_WORK_SPANISH 
+                            "i18n Further updates: Raphael Labaca Castro"
 END
 
 #endif    // Spanish resources
