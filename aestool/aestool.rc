@@ -1551,7 +1551,6 @@ LANGUAGE LANG_SPANISH, SUBLANG_SPANISH_MODERN
 // remains consistent on all systems.
 
 IDR_MAINFRAME           ICON                    "res\\aestool.ico"
-//IDR_MAINFRAME           ICON                    "res\\idr_main.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1757,12 +1756,6 @@ END
 AFX_IDB_MINIFRAME_MENU  BITMAP                  "res\\minifwnd.bmp"
 AFX_IDB_CHECKLISTBOX_NT BITMAP                  "res\\ntcheck.bmp"
 AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\95check.bmp"
-
-
-//AFX_IDB_CHECKLISTBOX_NT BITMAP                  "res\\afx_idb_.bmp"
-//26567                   BITMAP                  "res\\bmp26567.bmp"
-//AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\bmp00001.bmp"
-//AFX_IDB_MINIFRAME_MENU  BITMAP                  "res\\bmp00002.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //

@@ -8,8 +8,7 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -53978,8 +53977,8 @@ BEGIN
     IDS_ERR_ONOPENREADME    "¡No se pudo abrir el archivo Leeme!\nPor favor, compruebe que el archivo ""Readme-es.txt"" está en el mismo directorio que ""CrypTool.exe""."
     IDS_SIGATT_HARMLESS     "examples\\original.txt"
     IDS_SIGATT_DANGEROUS    "examples\\fake.txt"
-    IDS_SCRIPTPATH          "%sScript-es.pdf"
-    IDS_ERROPEN_SCRIPT      "¡No se puede abrir el archivo script!\n\nCompruebe que\n- el archivo ""Script-es.pdf"" está en el mismo directorio que ""CrypTool.exe"" y\n- Acrobat reader está instalado (www.adobe.com)."
+    IDS_SCRIPTPATH          "%sScript-en.pdf"
+    IDS_ERROPEN_SCRIPT      "¡No se puede abrir el archivo script!\n\nCompruebe que\n- el archivo ""Script-en.pdf"" está en el mismo directorio que ""CrypTool.exe"" y\n- Acrobat reader está instalado (www.adobe.com)."
     IDS_OPENHASHOFAFILE     "Hash de un fichero"
     IDS_PROGESS_COMPUTE_DIGEST "Calculando %s valor hash"
 END
@@ -54973,7 +54972,7 @@ STRINGTABLE
 BEGIN
     IDS_PATH_PRESENTATION   "%sCrypToolPresentation-en.pdf"
     IDS_ERROR_OPENING_PRESENTATION 
-                            "¡No se puede abrir la presentación!\n\n Por favor, compruebe\n si el archivo  ""CrypToolPresentation-es.pdf"" está en el mismo directorio que  ""CrypTool.exe"" y\n si Acrobat Reader está correctamente instalado (www.adobe.com)."
+                            "¡No se puede abrir la presentación!\n\n Por favor, compruebe\n si el archivo  ""CrypToolPresentation-en.pdf"" está en el mismo directorio que  ""CrypTool.exe"" y\n si Acrobat Reader está correctamente instalado (www.adobe.com)."
     IDS_PQM_ENTROPY_NOT_ALL_INPUT_PARAMETERS_SET 
                             "Asegúrese de haber especificado\n- la entropía deseada para la contraseña y\n- también el alfabeto."
     IDS_CANT_UNDO           "No se puede deshacer el último cambio en el texto.\n\n Libere algo de memoria y vuélvalo a intentar."

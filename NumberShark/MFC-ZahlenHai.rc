@@ -1566,12 +1566,12 @@ BEGIN
     LTEXT           "",IDC_ACCELERATORS,12,69,255,133
 END
 
-IDD_GAME_RULES DIALOGEX 0, 0, 535, 306
+IDD_GAME_RULES DIALOGEX 0, 0, 535, 273
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Reglas de Juego  / Descripción del Juego"
+CAPTION "Reglas de Juego / Descripción del Juego"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Volver al Juego",IDOK,240,283,54,14
+    DEFPUSHBUTTON   "Volver al Juego",IDOK,240,250,54,14
     CONTROL         "",IDC_RICHEDIT21,"RichEdit20A",ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY,7,7,521,267,WS_EX_TRANSPARENT
 END
 
@@ -1739,7 +1739,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 528
         TOPMARGIN, 7
-        BOTTOMMARGIN, 297
+        BOTTOMMARGIN, 264
     END
 
     IDD_GAME_SUMMARY, DIALOG
@@ -1806,22 +1806,6 @@ IDB_BITMAP15            BITMAP                  "bilder\\bitmap15.bmp"
 IDB_BITMAP16            BITMAP                  "bilder\\bitmap16.bmp"
 IDB_BITMAP17            BITMAP                  "bilder\\bitmap17.bmp"
 
-
-
-//IDB_BITMAP_REDO         BITMAP                  "c:\\Documents and Settings\\OIZ130\\My Documents\\Visual Studio 2008\\Projects\\new\\trunk\\NumberShark\\Bilder\\foreward-engl.bmp"
-//IDB_BITMAP_UNDO         BITMAP                  "c:\\Documents and Settings\\OIZ130\\My Documents\\Visual Studio 2008\\Projects\\new\\trunk\\NumberShark\\Bilder\\backward-engl.bmp"
-//IDB_BITMAP1             BITMAP                  "c:\\Documents and Settings\\OIZ130\\My Documents\\Visual Studio 2008\\Projects\\new\\trunk\\NumberShark\\Bilder\\shells-en.bmp"
-//IDB_BITMAP12            BITMAP                  "bilder\\bmp00001.bmp"
-//IDB_BITMAP13            BITMAP                  "bilder\\bmp00002.bmp"
-//IDB_BITMAP14            BITMAP                  "bilder\\bmp00003.bmp"
-//IDB_BITMAP15            BITMAP                  "bilder\\bmp00004.bmp"
-//IDB_BITMAP16            BITMAP                  "bilder\\bmp00005.bmp"
-//IDB_BITMAP17            BITMAP                  "bilder\\bmp00006.bmp"
-//IDB_BITMAP2             BITMAP                  "bilder\\bitmap2.bmp"
-//IDB_BITMAP3             BITMAP                  "bilder\\bitmap3.bmp"
-//IDB_BITMAP8             BITMAP                  "bilder\\bitmap8.bmp"
-//IDB_BITMAP9             BITMAP                  "bilder\\bitmap9.bmp"
-
 /////////////////////////////////////////////////////////////////////////////
 //
 // Icon
@@ -1829,9 +1813,7 @@ IDB_BITMAP17            BITMAP                  "bilder\\bitmap17.bmp"
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-
-//IDR_MAINFRAME           ICON                    "bilder\\idr_main.ico"
-IDR_MAINFRAME           ICON					  "Bilder\\NumberShark.ico"
+IDR_MAINFRAME           ICON                    "Bilder\\NumberShark.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1922,7 +1904,7 @@ BEGIN
     IDS_REG_TRUE            "true"
     IDS_SHARK_AGAINST       " contra"
     IDS_GAME_DATA           "GameData.txt"
-    IDS_HELP_FILE           "NumberShark-en.chm::/NumberShark.html"
+    IDS_HELP_FILE           "NumberShark-es.chm::/NumberShark.html"
     IDS_TITLE_VERSION       " - Versión 1.2"
 END
 
