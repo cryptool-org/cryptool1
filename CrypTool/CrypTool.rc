@@ -8,7 +8,9 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -40035,12 +40037,6 @@ END
 IDD_SOLITAIRE DLGINIT
 BEGIN
     IDC_Kartenanzahl, 0x403, 2, 0
-0x0030, 
-    IDC_Kartenanzahl, 0x403, 2, 0
-0x0031, 
-    IDC_Kartenanzahl, 0x403, 2, 0
-0x0032, 
-    IDC_Kartenanzahl, 0x403, 2, 0
 0x0033, 
     IDC_Kartenanzahl, 0x403, 2, 0
 0x0034, 
@@ -47486,7 +47482,7 @@ BEGIN
     PUSHBUTTON      "Editar polinomio",IDC_BUTTON_CHANGE,264,143,91,14,WS_DISABLED
     EDITTEXT        IDC_EDIT_POLYNOM,75,197,178,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT_MOD,75,216,178,12,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
-    PUSHBUTTON      "Acceptar parámetetros",IDC_BUTTON_UPDATE,270,214,85,15,WS_DISABLED
+    PUSHBUTTON      "Aceptar parámetetros",IDC_BUTTON_UPDATE,270,214,85,15,WS_DISABLED
     CONTROL         "",IDC_LIST_SHARES,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,257,357,96
     CONTROL         "Mostrar información al inicio.",IDC_CHECK_SHOWINTRO,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,382,105,10
@@ -48303,13 +48299,13 @@ END
 
 IDD_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_LANGUAGES DIALOGEX 0, 0, 230, 140
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "i18n Seleccionar idioma"
+CAPTION "Seleccionar idioma"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    LTEXT           "Wählen Sie mindestens eine Sprache aus, in der nach möglichen Schlüsselworten gesucht werden soll, und wählen Sie genau eine Sprache, in welcher der Ciphertext ursprünglich verfasst wurde.",IDC_STATIC,7,7,216,24
-    PUSHBUTTON      "OK",IDOK,7,115,216,18
-    LTEXT           "Sprache(n) für Schlüsselworte:",IDC_STATIC,7,39,97,8
-    LTEXT           "Sprache(n) für Ciphertext:",IDC_STATIC,118,39,97,8
+    LTEXT           "Elija al menos un idioma, en el cuál deben ser buscadas posibles palabras claves; y elija también el idioma en el cuál fue redactado inicialmente el texto cifrado.",IDC_STATIC,7,7,216,24
+    PUSHBUTTON      "Aceptar",IDOK,7,115,216,18
+    LTEXT           "Idioma(s) para palabras claves:",IDC_STATIC,7,39,98,8
+    LTEXT           "Idioma(s) para el Texto Cifrado:",IDC_STATIC,118,39,97,8
     LISTBOX         IDC_LIST_LANGUAGES_KEYWORD,7,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
     LISTBOX         IDC_LIST_LANGUAGES_CIPHERTEXT,118,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
 END
@@ -48319,20 +48315,20 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Acerca de CrypTool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Cerrar",IDOK,303,250,60,18,WS_GROUP
+    DEFPUSHBUTTON   "&Cerrar",IDOK,303,250,60,18,WS_GROUP
     CTEXT           "desarrollado por las universidades de Siegen y Darmstadt\ny muchos desarrolladores voluntarios del proyecto OpenSource.",IDC_STATIC,20,119,330,16
     CTEXT           "Copyright (C) 1998-2010 Deutsche Bank AG y Colaboradores\nDistribuído como Open-source bajo los términos de la Licencia Apache 2.0",IDC_STATIC,7,233,356,16
     CTEXT           "CrypTool es una extensa herramienta de e-learning gratuita sobre\ncriptografía y criptoanálisis, tanto clásico como moderno.\n\nEs un esfuerzo conjunto entre:",IDC_STATIC,20,35,330,32
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,44,74,105,37,WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,198,73,143,37,WS_EX_TRANSPARENT
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,71,356,44
-    CTEXT           "CrypTool se utliza en forma didáctica en escuelas y universidades alrededor del mundo, así como también, en empresas y organizaciones gubernamentales con el fin de concientizar a sus empleados.",IDC_STATIC,20,140,330,16
+    CTEXT           "CrypTool se utliza en forma didáctica en escuelas y universidades alrededor del mundo, así como también, en empresas y organizaciones gubernamentales con el fin de concientizar a sus empleados en aspectos relacionados a la seguridad infromática.",IDC_STATIC,20,139,330,24
     EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,213,178,145,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
     GROUPBOX        "Información de versión",IDC_STATIC,7,164,195,64
     GROUPBOX        "Información de contacto",IDC_STATIC,208,164,155,64
     EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,11,178,185,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "Colaboradores",ID_CONTRIBUTORS,7,250,60,18,WS_GROUP
-    PUSHBUTTON      "Ports",ID_PORTS,71,250,60,18,WS_GROUP
+    PUSHBUTTON      "C&olaboradores",ID_CONTRIBUTORS,7,250,60,18,WS_GROUP
+    PUSHBUTTON      "&Portabilidad",ID_PORTS,71,250,60,18,WS_GROUP
 END
 
 IDD_AUTHORS DIALOGEX 0, 0, 370, 275
@@ -48661,11 +48657,24 @@ END
 
 IDD_PORTS DIALOGEX 0, 0, 370, 280
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "i18n About CrypTool: Ports"
+CAPTION "Acerca de CrypTool: Portabilidad"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "Close",IDOK,303,255,60,18
-    LTEXT           "The CrypTool versions in English and German have been created by the CrypTool core team.",IDC_STATIC,7,7,297,8
+    DEFPUSHBUTTON   "Cerrar",IDOK,303,255,60,18
+    LTEXT           "Las versiones de CrypTool en inglés y en alemán fueron desarrolladas por el equipo de CrypTool. ",IDC_STATIC,7,7,312,8
+    GROUPBOX        "Versión en polaco",IDC_STATIC,7,30,356,55
+    GROUPBOX        "Versión en serbio",IDC_STATIC,7,100,356,55
+    GROUPBOX        "Versión en español",IDC_STATIC,7,170,356,55
+    LTEXT           "Versión inicial:",IDC_STATIC,20,45,46,8
+    LTEXT           "Nuevas actualizaciones:",IDC_STATIC,20,65,78,8
+    LTEXT           "Universidad de Varsovia, Polonia (http://www.ee.pw.edu.pl/);\nSr. Bartosz Sawicki y sus estudiantes.",IDC_STATIC,100,45,250,16
+    LTEXT           "Mr. Pawel Polewski",IDC_STATIC,100,65,250,16
+    LTEXT           "Versión inicial:",IDC_STATIC,20,115,46,8
+    LTEXT           "Advanced School of Electrical Engineering, Belgrado, Serbia.\nProf. Dragan Pleskonjic, Sr. Bojan Dimitrovski y sus estudiantes.",IDC_STATIC,100,115,250,16
+    LTEXT           "Versión inicial:",IDC_STATIC,20,185,46,8
+    LTEXT           "Nuevas actualizaciones:",IDC_STATIC,20,205,78,8
+    LTEXT           "Universidad de Madrid, España (http://www.csic.es),\nSr. Gonzalo Álvarez Marañón y sus estudiantes.",IDC_STATIC,100,185,250,16
+    LTEXT           "Sr. Raphael Labaca Castro",IDC_STATIC,100,205,250,16
     EDITTEXT        IDC_EDIT_PORTS_INFORMATION,7,20,356,225,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
@@ -48929,7 +48938,6 @@ BEGIN
             MENUITEM "Generar Números &Aleatorios...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Medir Calidad de Contraseña...", ID_PASSWORDQUALITYMETER
             MENUITEM "&Entropía de Contraseña...",  ID_PASSWORDENTROPY
-            MENUITEM "&Formato de  Documento de Texto...", ID_FORMAT_TEXT_DOCUMENT
         END
         MENUITEM SEPARATOR
         POPUP "Juegos &Educativos"
@@ -49277,7 +49285,6 @@ BEGIN
             MENUITEM "Generar &Números Aleatorios...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Medir Calidad de una Contaseña...", ID_PASSWORDQUALITYMETER
             MENUITEM "&Entropía de Contraseña...",  ID_PASSWORDENTROPY
-            MENUITEM "&Formato de Documento de Texto...", ID_FORMAT_TEXT_DOCUMENT
         END
         MENUITEM SEPARATOR
         POPUP "Juegos &Educativos"
@@ -49625,7 +49632,6 @@ BEGIN
             MENUITEM "&Generar Números Aleatorios...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Medir Calidad de Contraseña...", ID_PASSWORDQUALITYMETER
             MENUITEM "&Entropía de Contraseña...",  ID_PASSWORDENTROPY
-            MENUITEM "&Formato de Documento de Texto...", ID_FORMAT_TEXT_DOCUMENT
         END
         MENUITEM SEPARATOR
         POPUP "Juegos &Educativos"
@@ -49973,7 +49979,6 @@ BEGIN
             MENUITEM "Generar Números &Aleatorios...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Medir Calidad de Contraseña...", ID_PASSWORDQUALITYMETER
             MENUITEM "&Entropía de Contraseña...",  ID_PASSWORDENTROPY
-            MENUITEM "&Formato de Documento de Texto...", ID_FORMAT_TEXT_DOCUMENT
         END
         MENUITEM SEPARATOR
         POPUP "&Juegos Educativos"
@@ -50321,7 +50326,6 @@ BEGIN
             MENUITEM "Generar Números &Aleatorios...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Medir Calidad de Contraseña...", ID_PASSWORDQUALITYMETER
             MENUITEM "&Entropía de Contraseña...",  ID_PASSWORDENTROPY
-            MENUITEM "&Formato de Documento de Texto...", ID_FORMAT_TEXT_DOCUMENT
         END
         MENUITEM SEPARATOR
         POPUP "&Juegos Educativos"
@@ -51087,12 +51091,6 @@ END
 
 IDD_SOLITAIRE DLGINIT
 BEGIN
-    IDC_Kartenanzahl, 0x403, 2, 0
-0x0030, 
-    IDC_Kartenanzahl, 0x403, 2, 0
-0x0031, 
-    IDC_Kartenanzahl, 0x403, 2, 0
-0x0032, 
     IDC_Kartenanzahl, 0x403, 2, 0
 0x0033, 
     IDC_Kartenanzahl, 0x403, 2, 0
@@ -52526,24 +52524,24 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_NOT_SUCCESSFUL 
                             "\n\nLametablemente no se han encontrado resultados posibles.\n\nCompruebe que ha seleccionado el(los) idioma(s) adecuado(s) para la clave y el texto cifrado.\n\nQuizá debería considerar en disminuir el valor del umbral en la ventana Opciones de Análisis. "
     IDS_STRING_FILE_NOT_FOUND_BUT_ASK_FOR_MIGRATION_TO_DEFAULT_RESOURCES 
-                            "i18n A file required for the analysis could not be found.\n\nYet this file is part of your CrypTool installation.\n\nCrypTool is probably using out-dated Windows registry keys at the moment.\n\nFrom now on, do you want CrypTool to use the files required for the analysis (dictionary, digrams and trigrams) that have been rolled out with your current CrypTool installation?"
+                            "Un archivo requerido para el análisis no pudo ser encontrado.\n\nin embargo, el archivo existe en el directorio de instalación de CrypTool.\n\nEs probable que CrypTool esté usando una entrada desactualizada del Registro.\n\n¿Desea que en el futuro CrypTool utilice los archivos necesarios para el análisis (Diccionário, Digrama y Trigrama) del directorio de instalación?"
     IDS_STRING_LANGUAGE_CHOICE_REQUIREMENTS 
-                            "i18n Please choose AT LEAST ONE keyword language and EXACTLY ONE ciphertext language."
+                            "Por favor, seleccione AL MENOS un idioma para la palabra clave y UN SOLO idioma para el texto cifrado."
 END
 
 STRINGTABLE 
 BEGIN
     IDR_OPENGLTYPE          "\nSin nombre\n\nFichero OpenGL (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
-    IDS_STRING_PORTS_HEADING_POLISH "i18n Polish port"
+    IDS_STRING_PORTS_HEADING_POLISH "Versión en polaco"
     IDS_STRING_PORTS_INITIAL_WORK_POLISH 
-                            "i18n Initial port: Warsaw University, Poland (http://www.ee.pw.edu.pl/),\r\nDr. Bartosz Sawicki and his students"
+                            "Versión inicial:\r\nUniversidad de Varsovia, Polonia (http://www.ee.pw.edu.pl/);\r\nSr. Bartosz Sawicki y sus estudiantes."
     IDS_STRING_PORTS_FURTHER_WORK_POLISH 
-                            "i18n Further Updates: Pawel Polweski"
-    IDS_STRING_PORTS_HEADING_SERBIAN "i18n Serbian port"
+                            "\r\nNuevas actualizaciones: Sr. Pawel Polewski"
+    IDS_STRING_PORTS_HEADING_SERBIAN "Versión en serbio"
     IDS_STRING_PORTS_INITIAL_WORK_SERBIAN 
-                            "i18n Initial port: Advanced School of Electrical Engineering, Belgrade, Serbia,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
-    IDS_STRING_PORTS_FURTHER_WORK_SERBIAN "i18n Further updates: -"
-    IDS_STRING_PORTS_HEADING_SPANISH "i18n Spanish port"
+                            "Versión inicial:\r\nAdvanced School of Electrical Engineering, Belgrado, Serbia;\r\nProf. Dragan Pleskonjic, Sr. Bojan Dimitrovski y sus estudiantes."
+    IDS_STRING_PORTS_FURTHER_WORK_SERBIAN "\r\nNuevas actualizaciones: -"
+    IDS_STRING_PORTS_HEADING_SPANISH "Versión en español"
 END
 
 STRINGTABLE 
@@ -54708,7 +54706,7 @@ BEGIN
     IDS_INFO_TEXT_ENCRYPTION 
                             "Usted ha elegido la opción de cifrado en modo texto.\nEso significa que los caracteres que no pertenecen al alfabeto no serán cifrados (según la configuración de las opciones de texto, esos caracteres son eliminados o permanecen sin cambios)."
     IDS_INFO_BYNARY_ENCRYPTION 
-                            "Usted ha elegido realizar en cifrado en modo binario. Eso significa que Todos los caracteres serán cifrados y que el alfabeto seleccionado no tiene importancia."
+                            "Usted ha elegido realizar el cifrado en modo binario. Eso significa que todos los caracteres serán cifrados y que el alfabeto seleccionado no tiene importancia."
     IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED 
                             "TODO: Esta opción no está todavía implementada para el modo HEX."
     IDS_FINDANDREPLACE_TEXTNOTFOUND "¡No se ha encontrado el texto deseado!"
@@ -54724,7 +54722,7 @@ STRINGTABLE
 BEGIN
     IDS_HASHDEMO_STRING_SHA1 "SHA-1 (160 bits)"
     IDS_HASHDEMO_STRING_RIPEMD160 "RIPEMD-160 (160 bits)"
-    IDS_NUMBERSHARK_EXE     "Number Shark.exe"
+    IDS_NUMBERSHARK_EXE     "NumberShark.exe"
     IDS_STRING_ADFGVX_STRINGLENGTH 
                             "La entrada no contiene todas las letras \n'A' a 'Z' y todos los dígitos '0' a '9'."
     IDS_STRING_ADFGVX_STRINGINVALID 
@@ -55050,7 +55048,7 @@ BEGIN
     IDS_STRING_SCYTALE_ENCRYPTION_OF 
                             "Cifrado Escítala (Transposición simple) de <%s>, clave <%s>"
     IDS_STRING_SCYTALE_DECRYPTION_OF 
-                            "Desifrado Escítala (Transposición simple) de <%s>, clave <%s>"
+                            "Descifrado Escítala (Transposición simple) de <%s>, clave <%s>"
     IDS_FACTORS_FOUND       "Se encontraron %d factores en %s "
     IDS_SIMPLE_TRANSPOSITION_OFFSET_INVALID 
                             "El desplazamiento es inválido. El valor no debe ser menor a 0."
@@ -55231,9 +55229,9 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_PORTS_INITIAL_WORK_SPANISH 
-                            "i18n Initial port: Madrid University, Spain (http://www.csic.es),\nDr. Gonzalo Alvarez Maranon and his students"
+                            "Versión inicial:\r\nUniversidad de Madrid, España (http://www.csic.es);\r\nSr. Gonzalo Álvarez Marañón y sus estudiantes."
     IDS_STRING_PORTS_FURTHER_WORK_SPANISH 
-                            "i18n Further updates: Raphael Labaca Castro"
+                            "\r\nNuevas actualizaciones: Sr. Raphael Labaca Castro"
 END
 
 #endif    // Spanish resources
