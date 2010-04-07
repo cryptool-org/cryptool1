@@ -421,6 +421,428 @@ END
 
 
 /////////////////////////////////////////////////////////////////////////////
+// Serbian (Latin) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_SRL)
+#ifdef _WIN32
+LANGUAGE LANG_SERBIAN, SUBLANG_SERBIAN_LATIN
+#pragma code_page(1250)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\aestool.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+AFX_IDD_NEWTYPEDLG DIALOG  9, 26, 183, 70
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Novi"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "&Novi ",IDC_STATIC,6,5,123,8,NOT WS_GROUP
+    LISTBOX         AFX_IDC_LISTBOX,6,15,125,49,WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,137,6,40,14
+    PUSHBUTTON      "Otkaži",IDCANCEL,137,23,40,14
+    PUSHBUTTON      "&Pomoc",ID_HELP,137,43,40,14
+END
+
+IDD_SPLASH DIALOGEX 0, 0, 211, 122
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Upozorenje"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,47,101,50,14
+    PUSHBUTTON      "Otkaži",IDCANCEL,113,101,50,14
+    LTEXT           "Upravo ste pokrenuli izvršni kod koji Vam je verovatno ponuden od strane trecih lica.\nOva procedura obicno NIJE PREPORUCLJICA jer bi ste mogli da unesete štetan kod u Vaš kompjuter.",IDC_STATIC,7,7,197,35
+    LTEXT           "Generalno se savetuje da budete pažljivi kada pokrecete kod od trecih lica. Inace štete prouzrokovane virusima, trojancima itd. ne mogu biti kompletno uklonjene.",IDC_STATIC,7,45,197,40
+END
+
+IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 206
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "AES-Tool 2.5"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_KEY,26,59,266,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SRC,26,107,202,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
+    PUSHBUTTON      "Pretraga...",IDC_BUTTON_SRC,238,105,56,17
+    CONTROL         "Samoekstraktujuci i šifrovani",IDC_RADIO_EXE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,154,103,10
+    CONTROL         "Šifrovani",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,149,154,80,10
+    DEFPUSHBUTTON   "Za&šifruj",IDOK,17,182,51,18
+    PUSHBUTTON      "I&zlaz",IDCANCEL,174,182,54,18
+    PUSHBUTTON      "&Pomoc",IDC_BUTTON3,254,182,50,18
+    CONTROL         "Prikaži lozinke",IDC_RADIO_PSHOW,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,41,75,10
+    CONTROL         "Sakrij lozinki",IDC_RADIO_PHIDE,"Button",BS_AUTORADIOBUTTON,149,41,79,10
+    LTEXT           "Zašifruj datoteku",IDC_STATIC_TITLE,17,9,80,8
+    GROUPBOX        "Kljuc [najviše 64 heksadecimalne cifre (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",IDC_STATIC,17,28,287,54
+    GROUPBOX        "Ulazna datoteka",IDC_STATIC,17,93,287,39
+    GROUPBOX        "Izlazni format",IDC_STATIC,17,142,287,29
+END
+
+IDD_HELP DIALOGEX 0, 0, 500, 350
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Pomoc za AES-Tool 2.5"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,209,329,50,14
+    LTEXT           "AES-Tool je program za šifrovanje koji može da posluži za šifrovanje datoteka pomocu simetricnog slobodnog Rijndael algoritma (= AES).",IDC_STATIC,12,9,476,10
+    LTEXT           "Program može biti pozvan na tri razlicita nacina:",IDC_STATIC,12,21,476,11
+    LTEXT           "Ovi parametri su:",IDC_STATIC,24,42,464,10
+    LTEXT           "Kljuc:",IDC_STATIC,24,52,38,8
+    LTEXT           "Ulazna datoteka:",IDC_STATIC,24,70,38,8
+    LTEXT           "Izlazna datoteka:",IDC_STATIC,24,99,38,19
+    LTEXT           "Kljuc se unosi u heksadecimalnoj formi (karakteri od '0' do '9' i 'A' do 'F'). Maksimalna dužina kljuca je 256 bita ili 64 hex cifre. Preporucena minimalna dužina kljuca je 20 cifara.",IDC_STATIC,62,52,426,18
+    LTEXT           "Ulazna datoteka sadrži podatke za šifrovanje ili dešifrovanje. Ako je odabrana datoteka koja je šifrovana pomocu ovog programa, onda ce program podrazumevano biti podešen na režim za dešifrovanje. U suprotnom program ce ostati u režimu za dešifrovanje.",IDC_STATIC,62,70,426,16
+    LTEXT           "Izlazna datoteka i direktorijum mogu se ustanoviti pritiskom na dugme ""Šifruj""/""Dešifruj"". \nKada šifrujete, možete odabrati dva izlazna formata, pomocu ""radio dugmadi"":",IDC_STATIC,62,99,426,19
+    LTEXT           "'Samoekstraktujuca arhiva' je datoteka koja sadrži podatke i u isto vreme je program. Ovaj program ima istu funkcionalnost kao i AES-Tool i može da se koristi za deširfovanje podataka i cuvanje u datoteci (nakon što je unesena ispravna lozinka).",IDC_STATIC,69,117,419,19
+    LTEXT           " 'Šifrovana datoteka' sadrži samo šifrovane podatke. Tada je AES-Tool program potreban za dešifrovanje.",IDC_STATIC,69,134,419,11
+    LTEXT           "Drugi nacin da pozovete program je uz parametre sa komandne linije. Oni mogu biti odredeni ili pozicijom ili recju. Ako su svi",IDC_STATIC,24,148,425,8
+    LTEXT           "AESTool <Ulazna datoteka> <Izlazna datoteka> <kljuc>",IDC_STATIC,62,169,426,10
+    LTEXT           "AESTool -i <Ulazna datoteka> -o <Izlazna datoteka> -k <Kljuc>",IDC_STATIC,62,179,426,10
+    LTEXT           "Treca mogucnost za pozivanje programa je samoekstraltujuca arhiva. Ulazno ime datoteke ovde je vec podešeno od strane samoekstraktujuce arhive.",IDC_STATIC,24,220,464,15
+    LTEXT           "Sa normalnim pokretanjem klikom na ikonicu, svi neophodni parametri ce biti uneseni u dijalog kutiju.",IDC_STATIC,24,33,464,9
+    LTEXT           "1.",IDC_STATIC,12,33,12,9
+    LTEXT           "2.",IDC_STATIC,12,148,12,11
+    LTEXT           "3.",IDC_STATIC,12,220,12,11
+    RTEXT           "-",IDC_STATIC,56,118,8,19
+    RTEXT           "-",IDC_STATIC,56,137,8,11
+    LTEXT           "Program automatski ustanovljava ako je ulazna datoteka šifrovana i potom je dešifruje. U suprotnom, program je šifruje shodno tome.",IDC_STATIC,24,190,464,8
+    LTEXT           "parametri uneseni ne zahteva se akcija od korisnika, u suprotnom izlazi prozor i ostali podaci mogu biti uneseni interaktivno.",IDC_STATIC,24,156,426,8
+    LTEXT           "Izlazni kod pokazuje uspeh programa: 0: sve je OK; 1: došlo je do greške, bice prikazana na stderr.",IDC_STATIC,24,206,391,8
+    LTEXT           "Ekstenzija izlazne datoteke ustanovljuje format šifrovanja: .EXE: samoekstraktujuca datoteka, druge: obicna zašifrovana datoteka.",IDC_STATIC,24,198,464,9
+    LTEXT           "Imajte na umu da proverite poreklo pre pozivanja samoekstraktujucih datoteka.\nPreporucuje se da uvek imate ažuriran antivirus softver i softver operativnog sistema.",IDC_STATIC,12,278,476,18
+    LTEXT           "Takode možete odabrati datoteku i prevlacenjem (prevuci i spusti) Windows Explorer-a u polje ""Ulazna datoteka"".",IDC_STATIC,62,86,426,8
+    LTEXT           "Samoekstraktujuca arhiva (ekstenzija EXE) može biti najviše 4 GB velika, što znaci da datoteka koja treba da se zašifruje treba da bude nešto manja od 4 GB.\nIpak, ako napravite šifrovanu AES datoteku, datoteka koja treba da se zašifruje može da bude veca o?????????aa?\027?7?\027c:\\Docum??c",IDC_STATIC,12,248,476,16
+END
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Informacije o AES-Tool"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "AES-Tool Version 2.5",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2008",IDC_STATIC1,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,1,0,0
+ PRODUCTVERSION 2,1,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080904b0"
+        BEGIN
+            VALUE "FileDescription", "AES-Tool"
+            VALUE "FileVersion", "2.5"
+            VALUE "InternalName", "aestool"
+            VALUE "LegalCopyright", "Copyright (C) 2002-2008 Deutsche Bank AG"
+            VALUE "OriginalFilename", "aestool.exe"
+            VALUE "ProductName", "Application AES-Tool"
+            VALUE "ProductVersion", "2.5"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x809, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_SPLASH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 204
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 115
+    END
+
+    IDD_AESTOOL_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 313
+        VERTGUIDE, 17
+        VERTGUIDE, 26
+        VERTGUIDE, 228
+        VERTGUIDE, 294
+        VERTGUIDE, 304
+        TOPMARGIN, 7
+        HORZGUIDE, 46
+        HORZGUIDE, 88
+        HORZGUIDE, 153
+    END
+
+    IDD_HELP, DIALOG
+    BEGIN
+        LEFTMARGIN, 12
+        RIGHTMARGIN, 488
+        VERTGUIDE, 24
+        VERTGUIDE, 62
+        VERTGUIDE, 69
+        VERTGUIDE, 268
+        TOPMARGIN, 12
+        BOTTOMMARGIN, 343
+        HORZGUIDE, 22
+        HORZGUIDE, 33
+        HORZGUIDE, 42
+        HORZGUIDE, 52
+        HORZGUIDE, 70
+    END
+
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+AFX_IDC_CONTEXTHELP     CURSOR                  "res\\help.cur"
+AFX_IDC_SMALLARROWS     CURSOR                  "res\\sarrows.cur"
+AFX_IDC_HSPLITBAR       CURSOR                  "res\\splith.cur"
+AFX_IDC_VSPLITBAR       CURSOR                  "res\\splitv.cur"
+AFX_IDC_NODROPCRSR      CURSOR                  "res\\nodrop.cur"
+AFX_IDC_TRACKNWSE       CURSOR                  "res\\trcknwse.cur"
+AFX_IDC_TRACKNESW       CURSOR                  "res\\trcknesw.cur"
+AFX_IDC_TRACKNS         CURSOR                  "res\\trckns.cur"
+AFX_IDC_TRACKWE         CURSOR                  "res\\trckwe.cur"
+AFX_IDC_TRACK4WAY       CURSOR                  "res\\trck4way.cur"
+AFX_IDC_MOVE4WAY        CURSOR                  "res\\move4way.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+26567                   BITMAP                  "res\\3dcheck.bmp"
+AFX_IDB_MINIFRAME_MENU  BITMAP                  "res\\minifwnd.bmp"
+AFX_IDB_CHECKLISTBOX_NT BITMAP                  "res\\ntcheck.bmp"
+AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\95check.bmp"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "< Cannot change standard MFC resources! >\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_OPENFILE        "Otvori"
+    AFX_IDS_SAVEFILE        "Sacuvaj Kao"
+    AFX_IDS_ALLFILTER       "Sve Datoteke (*.*)"
+    AFX_IDS_UNTITLED        "Neimenovano"
+    AFX_IDS_UNNAMED_FILE    "neimenovana datoteka"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_HIDE            "&Sakrij"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_NO_ERROR_AVAILABLE "Nije dostupna poruka o grešci."
+    AFX_IDS_NOT_SUPPORTED_EXCEPTION "Pokušana je nepodržana operacija."
+    AFX_IDS_RESOURCE_EXCEPTION "Zahtevani resurs je nedostupan."
+    AFX_IDS_MEMORY_EXCEPTION "Nedovoljno memorije."
+    AFX_IDS_USER_EXCEPTION  "Došlo je do nepoznate greške."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_INVALID_FILENAME "Neispravno ime datoteke."
+    AFX_IDP_FAILED_TO_OPEN_DOC "Otvaranje dokumenta nije uspelo."
+    AFX_IDP_FAILED_TO_SAVE_DOC "Cuvanje dokumenta nije uspelo."
+    AFX_IDP_ASK_TO_SAVE     "Sacuvati promene u %1?"
+    AFX_IDP_FAILED_TO_CREATE_DOC "Nije uspelo stvaranje praznog dokumenta."
+    AFX_IDP_FILE_TOO_LARGE  "Datoteka je prevelika za otvaranje."
+    AFX_IDP_FAILED_TO_START_PRINT "Ne može se pokrenuti štampanje."
+    AFX_IDP_FAILED_TO_LAUNCH_HELP "Nije uspelo pokretanje pomoci."
+    AFX_IDP_INTERNAL_FAILURE "Interna greška aplikacije."
+    AFX_IDP_COMMAND_FAILURE "Komanda neuspela."
+    AFX_IDP_FAILED_MEMORY_ALLOC 
+                            "Nedovoljno memorije za izvršavanje operacije."
+    AFX_IDP_UNREG_DONE      "Unosi u sistemskom registru su uklonjeni i INI datoteka (ukoliko je postojala) je obrisana."
+    AFX_IDP_UNREG_FAILURE   "Nisu uklonjeni svi unosi u sistemskom registru (ili INI datoteka)."
+    AFX_IDP_DLL_LOAD_FAILED "Program zahteva datoteku %s, koja nije pronadena na sistemu."
+    AFX_IDP_DLL_BAD_VERSION "Ovaj program je povezan sa izlazom %s u datoteci %s. Ova mašina možda ima nekompatibilnu verziju %s."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_NOT_DOCOBJECT   "Datoteka nije podržana od strane   Document Object servera."
+    AFX_IDP_FAILED_TO_NOTIFY 
+                            "%1\nNemoguce registrovati dokument.\nDokument je možda vec otvoren."
+    AFX_IDP_GET_NOT_SUPPORTED "Nemoguce procitati write-only svojstvo."
+    AFX_IDP_SET_NOT_SUPPORTED "Nemoguce pisati na read-only svojstvo."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_FAILED_INVALID_FORMAT "Neocekivani format datoteke."
+    AFX_IDP_FAILED_INVALID_PATH 
+                            "%1\nNe mogu da pronadem ovu datoteku.\nMolim proverite da li je data ispravna putanja i ime datoteke."
+    AFX_IDP_FAILED_DISK_FULL "Odredišni disk pun."
+    AFX_IDP_FAILED_ACCESS_READ 
+                            "Nemoguce citati iz %1, on je otvoren od strane nekog drugog."
+    AFX_IDP_FAILED_ACCESS_WRITE 
+                            "Nemoguce pisati u %1, on je read-only ili otvoren od strane nekog drugog."
+    AFX_IDP_FAILED_IO_ERROR_READ 
+                            "Došlo je do neocekivane greške prilikom citanja iz %1."
+    AFX_IDP_FAILED_IO_ERROR_WRITE 
+                            "Došlo je do neocekivane greške prilikom pisanja u %1."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_PARSE_INT       "Molim unesite ceo broj."
+    AFX_IDP_PARSE_REAL      "Molim unesite broj."
+    AFX_IDP_PARSE_INT_RANGE "Molim unesite ceo broj izmedu %1 i %2."
+    AFX_IDP_PARSE_REAL_RANGE "Molim unesite broj izmedu %1 i %2."
+    AFX_IDP_PARSE_STRING_SIZE "Molim ne unosite više od %1 karaktera."
+    AFX_IDP_PARSE_RADIO_BUTTON "Molim odaberite dugme."
+    AFX_IDP_PARSE_BYTE      "Molim unesite ceo broj izmedu 0 i 255."
+    AFX_IDP_PARSE_UINT      "Molim unesite pozitivan ceo broj."
+    AFX_IDP_PARSE_DATETIME  "Molim unesite datum i/ili vreme."
+    AFX_IDP_PARSE_CURRENCY  "Molim unesite valutu."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_PASTELINKEDTYPE "Povezano %s"
+    AFX_IDS_UNKNOWNTYPE     "Nepoznat Tip"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_FILE_NONE       "Nije došlo do greške."
+    AFX_IDP_FILE_GENERIC    "Došlo je do greške prilikom pristupa %1."
+    AFX_IDP_FILE_NOT_FOUND  "%1 nije pronaden."
+    AFX_IDP_FILE_BAD_PATH   "%1 sadrži neispravnu putanju."
+    AFX_IDP_FILE_TOO_MANY_OPEN 
+                            "%1 ne može da se otvori pošto je otvoreno previše datoteka."
+    AFX_IDP_FILE_ACCESS_DENIED "Pristup za %1 je odbijen."
+    AFX_IDP_FILE_INVALID_FILE "Neispravan handle datoteke je asociran sa %1."
+    AFX_IDP_FILE_REMOVE_CURRENT 
+                            "%1 ne može da se ukloni pošto se nalazi u trenutnom direktorijumu."
+    AFX_IDP_FILE_DIR_FULL   "%1 ne može da se kreira zato što je direktorijum pun."
+    AFX_IDP_FILE_BAD_SEEK   "Pretraga nije uspela na %1"
+    AFX_IDP_FILE_HARD_IO    "Hardverska I/O greška je prijavljena prilikom pristupa %1."
+    AFX_IDP_FILE_SHARING    "Došlo je do prekršaja deljenja prilikom pristupa %1."
+    AFX_IDP_FILE_LOCKING    "Došlo je do prekršaja zakljucavanja prilikom pristupa %1."
+    AFX_IDP_FILE_DISKFULL   "Disk pun prilikom pristupa %1."
+    AFX_IDP_FILE_EOF        "Pokušan je pristup %1 pri njenom kraju."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_ARCH_NONE       "Nije došlo do greške."
+    AFX_IDP_ARCH_GENERIC    "Došlo je do greške prilikom pristupa %1."
+    AFX_IDP_ARCH_READONLY   "Pokušano je pisanje u citanje %1."
+    AFX_IDP_ARCH_ENDOFFILE  "Pokušan je pristup %1 pri njenom kraju."
+    AFX_IDP_ARCH_WRITEONLY  "Pokušano je citanje iz pisanja %1."
+    AFX_IDP_ARCH_BADINDEX   "%1 sadrži loš format."
+    AFX_IDP_ARCH_BADCLASS   "%1 sadrži neocekivan format."
+    AFX_IDP_ARCH_BADSCHEMA  "%1 sardži neisparvnu šemu."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_FAILED_MAPI_LOAD "Nemoguce ucitati sistem za podršku e-maila."
+    AFX_IDP_INVALID_MAPI_DLL "Mail sistem DLL nije ispravan."
+    AFX_IDP_FAILED_MAPI_SEND "Send Mail nije uspeo da pošalje poruku."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_OCC_SCALEUNITS_PIXELS "pikseli"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "Inf&ormacije o AES-Tool-u..."
+    IDS_STRING_DECRYPT      "Dešifruj datoteku"
+    IDS_STRING_ENCRYPT      "Šifruj datoteku"
+    IDS_STRING_DECERROR     "Greška prilikom šifrovanja: %s"
+    IDS_STRING_ENCOK        "Šifrovana datoteka %s je uspešno kreirana."
+    IDS_STRING_DECOK        "Dešifrovana datoteka %s je uspešno kreirana."
+    IDS_STRING_VERSCHLUESSELN "Zašifruj"
+    IDS_STRING_ENTSCHLUESSELN "Dešifruj"
+    IDS_STRING_FILEERROR    "Greška prilikom otvaranja %s: %s\n"
+    IDS_STRING_NOMEMORY     "Nedovoljno virtuelne memorije."
+    IDS_STRING_KEYERROR     "Pogrešan kljuc ili je datoteka %s neispravna."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING_ENCERROR     "Greška prilikom šifrovanja : %s"
+    IDS_STRING_VERSION      "Datoteka je šifrovana sa starijom verzijom AES-Tool-a. \nMolim koristite istu verziju za dešifrovanje."
+    IDS_STRING_CORRUPT      "Ova zašifrovana datoteka je neispravna."
+    IDS_STRING_INVALID_KEY  "Neispravan karakter u kljucu. Molim koristite samo 0-9,a-f,A-F."
+    IDS_STRING_KEY_TOO_LONG "Kljuc je predugacak. Maksimalan dužina AES kljuca je 256 bita (= 32 byte-a = 64 heksadecimalne cifre)."
+    IDS_STRING_AESTOOL      "AES-Tool 2.5"
+    IDS_STRING_AESTOOL_FILE "AES-Tool 2.5 [%s]"
+END
+
+#endif    // Serbian (Latin) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
 // German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
@@ -773,12 +1195,12 @@ BEGIN
     LTEXT           "The key is entered in hexadecimal form (characters '0' to '9' and 'A' to 'F'). The maximum key length is 256 bits or 64 hex digits. The recommended minimum key length is 20 digits.",IDC_STATIC,62,52,426,18
     LTEXT           "The input file contains the data to be encrypted or decrypted. If a file is chosen that was encrypted with this program, then the program will be automatically set to decryption mode. Otherwise the program will stay in encryption mode.",IDC_STATIC,62,70,426,16
     LTEXT           "The output file name and directory can be determined after pressing the ""Encrypt""/""Decrypt"" button. \nWhen encrypting you can select between two output formats via ""radio buttons"":",IDC_STATIC,62,99,426,19
-    LTEXT           "A 'self extracting archive' is a file containing data and at the same time it is a program. This program has the same func- tionality as AES-Tool and can be used to decrypt the data and store it in a file (after the correct password has been entered).",IDC_STATIC,69,117,419,19
+    LTEXT           "A 'self extracting archive' is a file containing data and at the same time it is a program. This program has the same functionality as AES-Tool and can be used to decrypt the data and store it in a file (after the correct password has been entered).",IDC_STATIC,69,117,419,19
     LTEXT           "An 'encrypted file' contains the encrypted data only. Then the AES-Tool program is required for decryption.",IDC_STATIC,69,134,419,11
     LTEXT           "The second way to invoke the program is with command line parameters. These can be specified either by position or by key word. If all",IDC_STATIC,24,148,425,8
     LTEXT           "AESTool <Input file> <Output file> <key>",IDC_STATIC,62,169,426,10
     LTEXT           "AESTool -i <Input file> -o <Output file> -k <Key>",IDC_STATIC,62,179,426,10
-    LTEXT           "The third possibility for program invocation is the self extracting archive. The input file name here is being preset by the self extracting archive.",IDC_STATIC,24,220,464,15
+    LTEXT           "The third possibility for program invocation is the self extracting archive. The output file name here is being preset by the self extracting archive.",IDC_STATIC,24,220,464,15
     LTEXT           "With a normal start by clicking the icon, all necessary parameters can be entered into a dialog box.",IDC_STATIC,24,33,464,9
     LTEXT           "1.",IDC_STATIC,12,33,12,9
     LTEXT           "2.",IDC_STATIC,12,148,12,11
@@ -1112,12 +1534,12 @@ END
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Serbian (RS) resources
+// Spanish resources
 
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_SRL)
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ESN)
 #ifdef _WIN32
-LANGUAGE LANG_SERBIAN, SUBLANG_SERBIAN_LATIN
-#pragma code_page(1250)
+LANGUAGE LANG_SPANISH, SUBLANG_SPANISH_MODERN
+#pragma code_page(1252)
 #endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
@@ -1127,133 +1549,103 @@ LANGUAGE LANG_SERBIAN, SUBLANG_SERBIAN_LATIN
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-IDR_MAINFRAME           ICON                    "res\\aestool.ico"
+IDR_MAINFRAME           ICON                    "res\\idr_main.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // Dialog
 //
 
-AFX_IDD_NEWTYPEDLG DIALOG  9, 26, 183, 70
-STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
-CAPTION "Novi"
-FONT 8, "MS Shell Dlg"
-BEGIN
-    LTEXT           "&Novi ",IDC_STATIC,6,5,123,8,NOT WS_GROUP
-    LISTBOX         AFX_IDC_LISTBOX,6,15,125,49,WS_VSCROLL | WS_TABSTOP
-    DEFPUSHBUTTON   "OK",IDOK,137,6,40,14
-    PUSHBUTTON      "Otkaži",IDCANCEL,137,23,40,14
-    PUSHBUTTON      "&Pomoc",ID_HELP,137,43,40,14
-END
-
-IDD_SPLASH DIALOGEX 0, 0, 211, 122
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Upozorenje"
+CAPTION "Acerca de AES-Tool"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,47,101,50,14
-    PUSHBUTTON      "Otkaži",IDCANCEL,113,101,50,14
-    LTEXT           "Upravo ste pokrenuli izvršni kod koji Vam je verovatno ponuden od strane trecih lica.\nOva procedura obicno NIJE PREPORUCLJICA jer bi ste mogli da unesete štetan kod u Vaš kompjuter.",
-                    IDC_STATIC,7,7,197,35
-    LTEXT           "Generalno se savetuje da budete pažljivi kada pokrecete kod od trecih lica. Inace štete prouzrokovane virusima, trojancima itd. ne mogu biti kompletno uklonjene.",
-                    IDC_STATIC,7,45,197,40
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,21,20
+    LTEXT           "AES-Tool 2.5.1",IDC_AES_TOOL_VERSION,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2010",IDC_STATIC1,40,25,119,8
+    DEFPUSHBUTTON   "&Aceptar",IDOK,178,7,50,14,WS_GROUP
 END
 
 IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 206
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
-    WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
-CAPTION "AES-Tool 2.5"
+CAPTION "AES-Tool 2.5.1"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT_KEY,26,59,266,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_SRC,26,107,202,12,ES_AUTOHSCROLL,
-                    WS_EX_ACCEPTFILES
-    PUSHBUTTON      "Pretraga...",IDC_BUTTON_SRC,238,105,56,17
-    CONTROL         "Samoekstraktujuci i šifrovani",IDC_RADIO_EXE,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,26,154,103,10
-    CONTROL         "Šifrovani",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,
-                    149,154,80,10
-    DEFPUSHBUTTON   "Za&šifruj",IDOK,17,182,51,18
-    PUSHBUTTON      "I&zlaz",IDCANCEL,174,182,54,18
-    PUSHBUTTON      "&Pomoc",IDC_BUTTON3,254,182,50,18
-    CONTROL         "Prikaži lozinke",IDC_RADIO_PSHOW,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,26,41,75,10
-    CONTROL         "Sakrij lozinki",IDC_RADIO_PHIDE,"Button",
-                    BS_AUTORADIOBUTTON,149,41,79,10
-    LTEXT           "Zašifruj datoteku",IDC_STATIC_TITLE,17,9,80,8
-    GROUPBOX        "Kljuc [najviše 64 heksadecimalne cifre (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",
-                    IDC_STATIC,17,28,287,54
-    GROUPBOX        "Ulazna datoteka",IDC_STATIC,17,93,287,39
-    GROUPBOX        "Izlazni format",IDC_STATIC,17,142,287,29
+    EDITTEXT        IDC_EDIT_SRC,26,107,202,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
+    PUSHBUTTON      "&Buscar",IDC_BUTTON_SRC,238,105,56,17
+    CONTROL         "Autoextraíble y Cifrado",IDC_RADIO_EXE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,154,103,10
+    CONTROL         "Cifrado",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,149,154,80,10
+    DEFPUSHBUTTON   "&Cifrar",IDOK,17,182,51,18
+    PUSHBUTTON      "&Salir",IDCANCEL,174,182,54,18
+    PUSHBUTTON      "&Ayuda",IDC_BUTTON3,254,182,50,18
+    CONTROL         "Mostrar clave",IDC_RADIO_PSHOW,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,41,75,10
+    CONTROL         "Ocultar clave",IDC_RADIO_PHIDE,"Button",BS_AUTORADIOBUTTON,149,41,79,10
+    LTEXT           "Cifrar un archivo",IDC_STATIC_TITLE,17,9,80,8
+    GROUPBOX        "Clave [Máximo 64 dígitos hexadecimales (0..9; A..F)]",IDC_STATIC,17,28,287,54
+    GROUPBOX        "Archivo de entrada",IDC_STATIC,17,93,287,39
+    GROUPBOX        "Formato de salida",IDC_STATIC,17,142,287,29
 END
 
 IDD_HELP DIALOGEX 0, 0, 500, 350
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Pomoc za AES-Tool 2.5"
+CAPTION "Ayuda para AES-Tool 2.5.1"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,209,329,50,14
-    LTEXT           "AES-Tool je program za šifrovanje koji može da posluži za šifrovanje datoteka pomocu simetricnog slobodnog Rijndael algoritma (= AES).",
-                    IDC_STATIC,12,9,476,10
-    LTEXT           "Program može biti pozvan na tri razlicita nacina:",
-                    IDC_STATIC,12,21,476,11
-    LTEXT           "Ovi parametri su:",IDC_STATIC,24,42,464,10
-    LTEXT           "Kljuc:",IDC_STATIC,24,52,38,8
-    LTEXT           "Ulazna datoteka:",IDC_STATIC,24,70,38,8
-    LTEXT           "Izlazna datoteka:",IDC_STATIC,24,99,38,19
-    LTEXT           "Kljuc se unosi u heksadecimalnoj formi (karakteri od '0' do '9' i 'A' do 'F'). Maksimalna dužina kljuca je 256 bita ili 64 hex cifre. Preporucena minimalna dužina kljuca je 20 cifara.",
-                    IDC_STATIC,62,52,426,18
-    LTEXT           "Ulazna datoteka sadrži podatke za šifrovanje ili dešifrovanje. Ako je odabrana datoteka koja je šifrovana pomocu ovog programa, onda ce program podrazumevano biti podešen na režim za dešifrovanje. U suprotnom program ce ostati u režimu za dešifrovanje.",
-                    IDC_STATIC,62,70,426,16
-    LTEXT           "Izlazna datoteka i direktorijum mogu se ustanoviti pritiskom na dugme ""Šifruj""/""Dešifruj"". \nKada šifrujete, možete odabrati dva izlazna formata, pomocu ""radio dugmadi"":",
-                    IDC_STATIC,62,99,426,19
-    LTEXT           "'Samoekstraktujuca arhiva' je datoteka koja sadrži podatke i u isto vreme je program. Ovaj program ima istu funkcionalnost kao i AES-Tool i može da se koristi za deširfovanje podataka i cuvanje u datoteci (nakon što je unesena ispravna lozinka).",
-                    IDC_STATIC,69,117,419,19
-    LTEXT           " 'Šifrovana datoteka' sadrži samo šifrovane podatke. Tada je AES-Tool program potreban za dešifrovanje.",
-                    IDC_STATIC,69,134,419,11
-    LTEXT           "Drugi nacin da pozovete program je uz parametre sa komandne linije. Oni mogu biti odredeni ili pozicijom ili recju. Ako su svi",
-                    IDC_STATIC,24,148,425,8
-    LTEXT           "AESTool <Ulazna datoteka> <Izlazna datoteka> <kljuc>",IDC_STATIC,62,
-                    169,426,10
-    LTEXT           "AESTool -i <Ulazna datoteka> -o <Izlazna datoteka> -k <Kljuc>",
-                    IDC_STATIC,62,179,426,10
-    LTEXT           "Treca mogucnost za pozivanje programa je samoekstraltujuca arhiva. Ulazno ime datoteke ovde je vec podešeno od strane samoekstraktujuce arhive.",
-                    IDC_STATIC,24,220,464,15
-    LTEXT           "Sa normalnim pokretanjem klikom na ikonicu, svi neophodni parametri ce biti uneseni u dijalog kutiju.",
-                    IDC_STATIC,24,33,464,9
+    DEFPUSHBUTTON   "Aceptar",IDOK,209,329,50,14
+    LTEXT           "AESTool es una herramienta de cifrado que es usada para cifrar archivos a través del algoritmo simétrico y de licencia libre Rijndael (= AES).",IDC_STATIC,12,9,476,10
+    LTEXT           "Esta herramienta puede ser invocada de tres formas:",IDC_STATIC,12,21,476,11
+    LTEXT           "Los parámetros son:",IDC_STATIC,24,42,464,10
+    LTEXT           "Clave:",IDC_STATIC,24,52,38,8
+    LTEXT           "Archivo de entrada:",IDC_STATIC,24,70,38,19
+    LTEXT           "Archivo de salida:",IDC_STATIC,24,99,38,19
+    LTEXT           "La Clave debe ser ingresada en formato hexadecimal (caracteres '0' al '9' y 'A' a la 'F' ). La longitud máxima de la clave es de 256 bits, o bien, 64 caracteres hexadecimales. Se recomienda que la longitud de la clave no sea menor a 20 caracteres. ",IDC_STATIC,62,52,426,18
+    LTEXT           "El archivo de entrada contiene la información necesaria para cifrar o descifrar. Si es seleccionado un archivo que fue previamente cifrado con esta herramienta, ésta pasará automáticamente al modo Descifrado, caso contrario, permanecerá en modo Cifrado.",IDC_STATIC,62,70,426,16
+    LTEXT           "El nombre y la ruta del archivo de salida se pueden determinar presionando el botón de Cifrado/Descifrado. Para el Cifrado, se puede mediante el botón de opción (o botón de radio), seleccionar el formato del Archivo de Salida:",IDC_STATIC,62,99,426,19
+    LTEXT           "Un  ""Autoextraíble"" es un archivo que contiene información, y al mismo tiempo, es un programa. Ese programa tiene la misma funcionalidad que la herramienta AESTool, por lo tanto, permite descifrar la información contenida y almacenarla en un archivo.",IDC_STATIC,69,117,419,19
+    LTEXT           "Un ""Archivo Cifrado"" contiene sólo los datos. Para volver a descifrarlo, es necesario este programa. ",IDC_STATIC,69,134,419,11
+    LTEXT           "La segunda forma de invocar esta herramienta es a través de parámetros en la línea de comandos, que pueden ser tanto una posición ",IDC_STATIC,24,148,426,8
+    LTEXT           "AESTool <Archivo de entrada> <Archivo de salida> <Clave>",IDC_STATIC,62,175,426,10
+    LTEXT           "AESTool -i <Archivo de entrada> -o <Archivo de salida> -k <Clave>",IDC_STATIC,62,185,426,10
+    LTEXT           "La tercera posibilidad es mediante el archivo autoextraíble. Aquí se determina el archivo de salida a través del contenido del archivo autoextraíble.",IDC_STATIC,24,227,464,15
+    LTEXT           "Simplemente haciendo click sobre la opción correspondiente puede ingresar directamente en un cuadro de diálogo los parámetros necesarios.",IDC_STATIC,24,33,464,9
     LTEXT           "1.",IDC_STATIC,12,33,12,9
     LTEXT           "2.",IDC_STATIC,12,148,12,11
-    LTEXT           "3.",IDC_STATIC,12,220,12,11
+    LTEXT           "3.",IDC_STATIC,12,227,12,11
     RTEXT           "-",IDC_STATIC,56,118,8,19
     RTEXT           "-",IDC_STATIC,56,137,8,11
-    LTEXT           "Program automatski ustanovljava ako je ulazna datoteka šifrovana i potom je dešifruje. U suprotnom, program je šifruje shodno tome.",
-                    IDC_STATIC,24,190,464,8
-    LTEXT           "parametri uneseni ne zahteva se akcija od korisnika, u suprotnom izlazi prozor i ostali podaci mogu biti uneseni interaktivno.",
-                    IDC_STATIC,24,156,426,8
-    LTEXT           "Izlazni kod pokazuje uspeh programa: 0: sve je OK; 1: došlo je do greške, bice prikazana na stderr.",
-                    IDC_STATIC,24,206,391,8
-    LTEXT           "Ekstenzija izlazne datoteke ustanovljuje format šifrovanja: .EXE: samoekstraktujuca datoteka, druge: obicna zašifrovana datoteka.",
-                    IDC_STATIC,24,198,464,9
-    LTEXT           "Imajte na umu da proverite poreklo pre pozivanja samoekstraktujucih datoteka.\nPreporucuje se da uvek imate ažuriran antivirus softver i softver operativnog sistema.",
-                    IDC_STATIC,12,278,476,18
-    LTEXT           "Takode možete odabrati datoteku i prevlacenjem (prevuci i spusti) Windows Explorer-a u polje ""Ulazna datoteka"".",
-                    IDC_STATIC,62,86,426,8
-    LTEXT           "Samoekstraktujuca arhiva (ekstenzija EXE) može biti najviše 4 GB velika, što znaci da datoteka koja treba da se zašifruje treba da bude nešto manja od 4 GB.\nIpak, ako napravite šifrovanu AES datoteku, datoteka koja treba da se zašifruje može da bude veca od 4 GB.",
-                    IDC_STATIC,12,248,476,16
+    LTEXT           "Se reconocerá automáticamente si el Archivo de entrada está cifrado para descifrarlo, caso contrario, la herramienta procederá a cifrarlo.",IDC_STATIC,24,197,464,8
+    LTEXT           "como una palabra clave. Una vez que todos los parámetros fueron ingresados a la línea de comandos, no se necesita ninguna otra interacción. De lo contrario, se abre una ventana y la información restante puede ser ingresada interactivamente.",IDC_STATIC,24,156,461,16
+    LTEXT           "El éxito de la operación se puede observar con el código de salida: 0: salida exitosa; 1: ha ocurrido un error.",IDC_STATIC,24,213,339,8
+    LTEXT           "La extensión del archivo de salida determina el formato de cifrado: .exe: archivo autoextraíble; otros: archivo cifrado convencional.",IDC_STATIC,24,205,464,9
+    LTEXT           "Es importante que antes de realizar la ejecución, haya comprobado que el archivo proviene de una fuente fiable.\nEs recomendable también mantener el Sistema Operativo y el Antivirus siempre actualizados. ",IDC_STATIC,12,285,476,18
+    LTEXT           "También es posible arrastrar el archivo desde el Explorador de Windows hacia el campo ""Archivo de Entrada"".",IDC_STATIC,62,86,426,8
+    LTEXT           "El tamaño de los archivos autoextraíbles (extensión EXE) puede ser de hasta 4 Gb, eso significa que el archivo a ser cifrado debe ser menor que 4 Gb.\nEn cambio, al crear un archivo AES, el archivo a ser cifrado puede sobrepasar el límite de los 4 Gb. ",IDC_STATIC,12,255,476,16
 END
 
-IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+IDD_SPLASH DIALOGEX 0, 0, 211, 122
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Informacije o AES-Tool"
+CAPTION "Advertencia"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-    LTEXT           "AES-Tool Version 2.5",IDC_STATIC,40,10,119,8,
-                    SS_NOPREFIX
-    LTEXT           "Copyright (C) 2008",IDC_STATIC1,40,25,119,8
-    DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
+    DEFPUSHBUTTON   "&Aceptar",IDOK,47,101,50,14
+    PUSHBUTTON      "&Cancelar",IDCANCEL,113,101,50,14
+    LTEXT           "Acaba de ejecutar un archivo que probablemente fue provisto por terceros.\nNormalmente este procedimiento NO ES RECOMENDABLE, ya que podría ejecutar código dañino en su PC.",IDC_STATIC,7,7,197,35
+    LTEXT           "Generalmente es aconsejable tener mucha precaución al ejecutar código de terceros en su ordenador para evitar posibles virus, troyanos y demás daños.",IDC_STATIC,7,45,197,40
+END
+
+AFX_IDD_NEWTYPEDLG DIALOGEX 9, 26, 183, 70
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Nuevo"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "&Nuevo",IDC_STATIC,6,5,123,8,NOT WS_GROUP
+    LISTBOX         AFX_IDC_LISTBOX,6,15,125,49,WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "&Aceptar",IDOK,137,6,40,14
+    PUSHBUTTON      "&Cancelar",IDCANCEL,137,23,40,14
+    PUSHBUTTON      "&Ayuda",ID_HELP,137,43,40,14
 END
 
 
@@ -1277,20 +1669,20 @@ VS_VERSION_INFO VERSIONINFO
 BEGIN
     BLOCK "StringFileInfo"
     BEGIN
-        BLOCK "080904b0"
+        BLOCK "0c0a04b0"
         BEGIN
             VALUE "FileDescription", "AES-Tool"
-            VALUE "FileVersion", "2.5"
+            VALUE "FileVersion", "2.5.1"
             VALUE "InternalName", "aestool"
             VALUE "LegalCopyright", "Copyright (C) 2002-2008 Deutsche Bank AG"
             VALUE "OriginalFilename", "aestool.exe"
-            VALUE "ProductName", "Application AES-Tool"
-            VALUE "ProductVersion", "2.5"
+            VALUE "ProductName", "Aplicación AES-Tool"
+            VALUE "ProductVersion", "2.5.1"
         END
     END
     BLOCK "VarFileInfo"
     BEGIN
-        VALUE "Translation", 0x809, 1200
+        VALUE "Translation", 0xc0a, 1200
     END
 END
 
@@ -1303,12 +1695,12 @@ END
 #ifdef APSTUDIO_INVOKED
 GUIDELINES DESIGNINFO 
 BEGIN
-    IDD_SPLASH, DIALOG
+    IDD_ABOUTBOX, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 204
+        RIGHTMARGIN, 228
         TOPMARGIN, 7
-        BOTTOMMARGIN, 115
+        BOTTOMMARGIN, 48
     END
 
     IDD_AESTOOL_DIALOG, DIALOG
@@ -1343,12 +1735,12 @@ BEGIN
         HORZGUIDE, 70
     END
 
-    IDD_ABOUTBOX, DIALOG
+    IDD_SPLASH, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 228
+        RIGHTMARGIN, 204
         TOPMARGIN, 7
-        BOTTOMMARGIN, 48
+        BOTTOMMARGIN, 115
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -1356,44 +1748,13 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 //
-// Cursor
-//
-
-AFX_IDC_CONTEXTHELP     CURSOR                  "res\\help.cur"
-AFX_IDC_SMALLARROWS     CURSOR                  "res\\sarrows.cur"
-AFX_IDC_HSPLITBAR       CURSOR                  "res\\splith.cur"
-AFX_IDC_VSPLITBAR       CURSOR                  "res\\splitv.cur"
-AFX_IDC_NODROPCRSR      CURSOR                  "res\\nodrop.cur"
-AFX_IDC_TRACKNWSE       CURSOR                  "res\\trcknwse.cur"
-AFX_IDC_TRACKNESW       CURSOR                  "res\\trcknesw.cur"
-AFX_IDC_TRACKNS         CURSOR                  "res\\trckns.cur"
-AFX_IDC_TRACKWE         CURSOR                  "res\\trckwe.cur"
-AFX_IDC_TRACK4WAY       CURSOR                  "res\\trck4way.cur"
-AFX_IDC_MOVE4WAY        CURSOR                  "res\\move4way.cur"
-
-/////////////////////////////////////////////////////////////////////////////
-//
 // Bitmap
 //
 
-26567                   BITMAP                  "res\\3dcheck.bmp"
-AFX_IDB_MINIFRAME_MENU  BITMAP                  "res\\minifwnd.bmp"
-AFX_IDB_CHECKLISTBOX_NT BITMAP                  "res\\ntcheck.bmp"
-AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\95check.bmp"
-
-#ifdef APSTUDIO_INVOKED
-/////////////////////////////////////////////////////////////////////////////
-//
-// TEXTINCLUDE
-//
-
-1 TEXTINCLUDE 
-BEGIN
-    "< Cannot change standard MFC resources! >\0"
-END
-
-#endif    // APSTUDIO_INVOKED
-
+AFX_IDB_CHECKLISTBOX_NT BITMAP                  "res\\afx_idb_.bmp"
+26567                   BITMAP                  "res\\bmp26567.bmp"
+AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\bmp00001.bmp"
+AFX_IDB_MINIFRAME_MENU  BITMAP                  "res\\bmp00002.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1402,164 +1763,170 @@ END
 
 STRINGTABLE 
 BEGIN
-    AFX_IDS_OPENFILE        "Otvori"
-    AFX_IDS_SAVEFILE        "Sacuvaj Kao"
-    AFX_IDS_ALLFILTER       "Sve Datoteke (*.*)"
-    AFX_IDS_UNTITLED        "Neimenovano"
-    AFX_IDS_UNNAMED_FILE    "neimenovana datoteka"
+    AFX_IDS_OPENFILE        "Abrir"
+    AFX_IDS_SAVEFILE        "Guardar como..."
+    AFX_IDS_ALLFILTER       "Todos los archivos (*.*)"
+    AFX_IDS_UNTITLED        "Sin Título"
+    AFX_IDS_UNNAMED_FILE    "un archivo sin nombre"
 END
 
 STRINGTABLE 
 BEGIN
-    AFX_IDS_HIDE            "&Sakrij"
+    AFX_IDS_HIDE            "&Ocultar"
 END
 
 STRINGTABLE 
 BEGIN
-    AFX_IDP_NO_ERROR_AVAILABLE "Nije dostupna poruka o grešci."
-    AFX_IDS_NOT_SUPPORTED_EXCEPTION "Pokušana je nepodržana operacija."
-    AFX_IDS_RESOURCE_EXCEPTION "Zahtevani resurs je nedostupan."
-    AFX_IDS_MEMORY_EXCEPTION "Nedovoljno memorije."
-    AFX_IDS_USER_EXCEPTION  "Došlo je do nepoznate greške."
+    AFX_IDP_NO_ERROR_AVAILABLE "No hay mensaje de error disponible."
+    AFX_IDS_NOT_SUPPORTED_EXCEPTION 
+                            "Se intentó realizar una operación no soportada. "
+    AFX_IDS_RESOURCE_EXCEPTION "Un recurso necesario no estaba disponible. "
+    AFX_IDS_MEMORY_EXCEPTION "Memotria agotada. "
+    AFX_IDS_USER_EXCEPTION  "Ocurrió un error desconocido. "
 END
 
 STRINGTABLE 
 BEGIN
-    AFX_IDP_INVALID_FILENAME "Neispravno ime datoteke."
-    AFX_IDP_FAILED_TO_OPEN_DOC "Otvaranje dokumenta nije uspelo."
-    AFX_IDP_FAILED_TO_SAVE_DOC "Cuvanje dokumenta nije uspelo."
-    AFX_IDP_ASK_TO_SAVE     "Sacuvati promene u %1?"
-    AFX_IDP_FAILED_TO_CREATE_DOC "Nije uspelo stvaranje praznog dokumenta."
-    AFX_IDP_FILE_TOO_LARGE  "Datoteka je prevelika za otvaranje."
-    AFX_IDP_FAILED_TO_START_PRINT "Ne može se pokrenuti štampanje."
-    AFX_IDP_FAILED_TO_LAUNCH_HELP "Nije uspelo pokretanje pomoci."
-    AFX_IDP_INTERNAL_FAILURE "Interna greška aplikacije."
-    AFX_IDP_COMMAND_FAILURE "Komanda neuspela."
-    AFX_IDP_FAILED_MEMORY_ALLOC "Nedovoljno memorije za izvršavanje operacije."
-    AFX_IDP_UNREG_DONE      "Unosi u sistemskom registru su uklonjeni i INI datoteka (ukoliko je postojala) je obrisana."
-    AFX_IDP_UNREG_FAILURE   "Nisu uklonjeni svi unosi u sistemskom registru (ili INI datoteka)."
-    AFX_IDP_DLL_LOAD_FAILED "Program zahteva datoteku %s, koja nije pronadena na sistemu."
-    AFX_IDP_DLL_BAD_VERSION "Ovaj program je povezan sa izlazom %s u datoteci %s. Ova mašina možda ima nekompatibilnu verziju %s."
+    AFX_IDP_INVALID_FILENAME "Nombre de archivo no válido."
+    AFX_IDP_FAILED_TO_OPEN_DOC "Error al abrir documento."
+    AFX_IDP_FAILED_TO_SAVE_DOC "Error al guardar documento."
+    AFX_IDP_ASK_TO_SAVE     "Guardar cambios en %1?"
+    AFX_IDP_FAILED_TO_CREATE_DOC "Error al crear un documento vacío. "
+    AFX_IDP_FILE_TOO_LARGE  "El archivo es demasiado largo para abrirlo. "
+    AFX_IDP_FAILED_TO_START_PRINT "No se pudo comenzar a imprimir. "
+    AFX_IDP_FAILED_TO_LAUNCH_HELP "Error al ejecutar la ayuda. "
+    AFX_IDP_INTERNAL_FAILURE "Error interno de la aplicación."
+    AFX_IDP_COMMAND_FAILURE "Error al ejecutar comando. "
+    AFX_IDP_FAILED_MEMORY_ALLOC 
+                            "Memoria insuficiente para ejecutar la operación."
+    AFX_IDP_UNREG_DONE      "Las entradas del registro del sistema han sido borradas y el archivo INI (en caso de existir) fue borrado."
+    AFX_IDP_UNREG_FAILURE   "No todos los registros del sistema (o archivo INI) fueron borradas. "
+    AFX_IDP_DLL_LOAD_FAILED "Este programa requiere el archivo %s, el cuál no ha sido encontrado. "
+    AFX_IDP_DLL_BAD_VERSION "Este programa está vinculado a una exportación perdida %s en el archivo %s. Este máquina probablemente tenga una versión de %s no compatible. "
 END
 
 STRINGTABLE 
 BEGIN
-    AFX_IDS_NOT_DOCOBJECT   "Datoteka nije podržana od strane	Document Object servera."
+    AFX_IDS_NOT_DOCOBJECT   "Este archivo no es soportado por un Servidor de Objetos de Documentos."
     AFX_IDP_FAILED_TO_NOTIFY 
-                            "%1\nNemoguce registrovati dokument.\nDokument je možda vec otvoren."
-    AFX_IDP_GET_NOT_SUPPORTED "Nemoguce procitati write-only svojstvo."
-    AFX_IDP_SET_NOT_SUPPORTED "Nemoguce pisati na read-only svojstvo."
+                            "%1\nNo es posible registrar el documento.\nEl mismo podría estar siendo usado por otra aplicación."
+    AFX_IDP_GET_NOT_SUPPORTED 
+                            "Noo es posible leer la propiedad de sólo escritura. "
+    AFX_IDP_SET_NOT_SUPPORTED 
+                            "No es posible escribir en la propiedad de sólo escritura. "
 END
 
 STRINGTABLE 
 BEGIN
-    AFX_IDP_FAILED_INVALID_FORMAT "Neocekivani format datoteke."
+    AFX_IDP_FAILED_INVALID_FORMAT "Formato de archivo no esperado."
     AFX_IDP_FAILED_INVALID_PATH 
-                            "%1\nNe mogu da pronadem ovu datoteku.\nMolim proverite da li je data ispravna putanja i ime datoteke."
-    AFX_IDP_FAILED_DISK_FULL "Odredišni disk pun."
+                            "%1\nNo se puede encontrar este archivo.\nPor favor, verifique si la ruta y el nombre dados son correctos. "
+    AFX_IDP_FAILED_DISK_FULL "El dispositivo de almacenamiento está lleno. "
     AFX_IDP_FAILED_ACCESS_READ 
-                            "Nemoguce citati iz %1, on je otvoren od strane nekog drugog."
+                            "No es posible leer %1, el archivo se encuentra abierto por otra apliación."
     AFX_IDP_FAILED_ACCESS_WRITE 
-                            "Nemoguce pisati u %1, on je read-only ili otvoren od strane nekog drugog."
-    AFX_IDP_FAILED_IO_ERROR_READ 
-                            "Došlo je do neocekivane greške prilikom citanja iz %1."
+                            "No es posible escribir sobre %1, el archivo es de sólo lectura, o bien, se encuentra abierto por otra aplicación."
+    AFX_IDP_FAILED_IO_ERROR_READ "Ha ocurrido un error inesperado al leer %1."
     AFX_IDP_FAILED_IO_ERROR_WRITE 
-                            "Došlo je do neocekivane greške prilikom pisanja u %1."
+                            "Ha ocurrido un error inesperado al escribir en %1."
 END
 
 STRINGTABLE 
 BEGIN
-    AFX_IDP_PARSE_INT       "Molim unesite ceo broj."
-    AFX_IDP_PARSE_REAL      "Molim unesite broj."
-    AFX_IDP_PARSE_INT_RANGE "Molim unesite ceo broj izmedu %1 i %2."
-    AFX_IDP_PARSE_REAL_RANGE "Molim unesite broj izmedu %1 i %2."
-    AFX_IDP_PARSE_STRING_SIZE "Molim ne unosite više od %1 karaktera."
-    AFX_IDP_PARSE_RADIO_BUTTON "Molim odaberite dugme."
-    AFX_IDP_PARSE_BYTE      "Molim unesite ceo broj izmedu 0 i 255."
-    AFX_IDP_PARSE_UINT      "Molim unesite pozitivan ceo broj."
-    AFX_IDP_PARSE_DATETIME  "Molim unesite datum i/ili vreme."
-    AFX_IDP_PARSE_CURRENCY  "Molim unesite valutu."
+    AFX_IDP_PARSE_INT       "Por favor, ingrese un número entero. "
+    AFX_IDP_PARSE_REAL      "Por favor, ingrese un número. "
+    AFX_IDP_PARSE_INT_RANGE "Por favor, ingrese un número entero entre %1 y %2."
+    AFX_IDP_PARSE_REAL_RANGE "Por favor, ingrese un número entre %1 y %2."
+    AFX_IDP_PARSE_STRING_SIZE "Por favor, no ingrese más de %1 caracteres. "
+    AFX_IDP_PARSE_RADIO_BUTTON "Por favor, seleccione un botón."
+    AFX_IDP_PARSE_BYTE      "Por favor, ingrese un número entero entre 0 y 255."
+    AFX_IDP_PARSE_UINT      "Por favor, ingrese un número entero positivo."
+    AFX_IDP_PARSE_DATETIME  "Por favor, ingrese la fecha y/o la hora. "
+    AFX_IDP_PARSE_CURRENCY  "Por favor, ingrese una moneda."
 END
 
 STRINGTABLE 
 BEGIN
-    AFX_IDS_PASTELINKEDTYPE "Povezano %s"
-    AFX_IDS_UNKNOWNTYPE     "Nepoznat Tip"
+    AFX_IDS_PASTELINKEDTYPE "Vinculado %s"
+    AFX_IDS_UNKNOWNTYPE     "Tipo desconocido"
 END
 
 STRINGTABLE 
 BEGIN
-    AFX_IDP_FILE_NONE       "Nije došlo do greške."
-    AFX_IDP_FILE_GENERIC    "Došlo je do greške prilikom pristupa %1."
-    AFX_IDP_FILE_NOT_FOUND  "%1 nije pronaden."
-    AFX_IDP_FILE_BAD_PATH   "%1 sadrži neispravnu putanju."
+    AFX_IDP_FILE_NONE       "No ocurrieron erroes. "
+    AFX_IDP_FILE_GENERIC    "Ha ocurrido un error desconocido al acceder a %1."
+    AFX_IDP_FILE_NOT_FOUND  "%1 no fue encontrado."
+    AFX_IDP_FILE_BAD_PATH   "%1 contiene una ruta inválida."
     AFX_IDP_FILE_TOO_MANY_OPEN 
-                            "%1 ne može da se otvori pošto je otvoreno previše datoteka."
-    AFX_IDP_FILE_ACCESS_DENIED "Pristup za %1 je odbijen."
-    AFX_IDP_FILE_INVALID_FILE "Neispravan handle datoteke je asociran sa %1."
+                            "%1 no puede ser abierto porque hay muchos archivos abiertos. "
+    AFX_IDP_FILE_ACCESS_DENIED "Acceso a %1 denegado."
+    AFX_IDP_FILE_INVALID_FILE 
+                            "Un manejo de archivo inválido fue asociado con %1."
     AFX_IDP_FILE_REMOVE_CURRENT 
-                            "%1 ne može da se ukloni pošto se nalazi u trenutnom direktorijumu."
-    AFX_IDP_FILE_DIR_FULL   "%1 ne može da se kreira zato što je direktorijum pun."
-    AFX_IDP_FILE_BAD_SEEK   "Pretraga nije uspela na %1"
-    AFX_IDP_FILE_HARD_IO    "Hardverska I/O greška je prijavljena prilikom pristupa %1."
-    AFX_IDP_FILE_SHARING    "Došlo je do prekršaja deljenja prilikom pristupa %1."
-    AFX_IDP_FILE_LOCKING    "Došlo je do prekršaja zakljucavanja prilikom pristupa %1."
-    AFX_IDP_FILE_DISKFULL   "Disk pun prilikom pristupa %1."
-    AFX_IDP_FILE_EOF        "Pokušan je pristup %1 pri njenom kraju."
+                            "%1 no puede ser removido porque es el directorio actual. "
+    AFX_IDP_FILE_DIR_FULL   "%1 no puede ser creado porque el directorio está lleno."
+    AFX_IDP_FILE_BAD_SEEK   "La búsqueda de %1 falló."
+    AFX_IDP_FILE_HARD_IO    "Fue reportado un error de hardware de E/S al acceder %1."
+    AFX_IDP_FILE_SHARING    "Ha ocurrido una violación de memoria compartida al acceder a %1."
+    AFX_IDP_FILE_LOCKING    "Ha ocurrido una violación de bloqueo al acceder a %1."
+    AFX_IDP_FILE_DISKFULL   "Disco lleno al acceder a %1."
+    AFX_IDP_FILE_EOF        "Se ha realizado un intento de acceder a %1 que excede su fin."
 END
 
 STRINGTABLE 
 BEGIN
-    AFX_IDP_ARCH_NONE       "Nije došlo do greške."
-    AFX_IDP_ARCH_GENERIC    "Došlo je do greške prilikom pristupa %1."
-    AFX_IDP_ARCH_READONLY   "Pokušano je pisanje u citanje %1."
-    AFX_IDP_ARCH_ENDOFFILE  "Pokušan je pristup %1 pri njenom kraju."
-    AFX_IDP_ARCH_WRITEONLY  "Pokušano je citanje iz pisanja %1."
-    AFX_IDP_ARCH_BADINDEX   "%1 sadrži loš format."
-    AFX_IDP_ARCH_BADCLASS   "%1 sadrži neocekivan format."
-    AFX_IDP_ARCH_BADSCHEMA  "%1 sardži neisparvnu šemu."
+    AFX_IDP_ARCH_NONE       "No han ocurrido errores. "
+    AFX_IDP_ARCH_GENERIC    "Ha ocurrido un error desconocido al acceder a %1."
+    AFX_IDP_ARCH_READONLY   "Se ha realizado un intento de escribir en la lectura de %1."
+    AFX_IDP_ARCH_ENDOFFILE  "Se ha realizado un intento de acceder a %1 que excede su fin. "
+    AFX_IDP_ARCH_WRITEONLY  "Se ha realizado un intento de leer en la escritura de %1."
+    AFX_IDP_ARCH_BADINDEX   "%1 tiene un formato erróneo."
+    AFX_IDP_ARCH_BADCLASS   "%1 contiene un objeto inesperado."
+    AFX_IDP_ARCH_BADSCHEMA  "%1 contiene un esquema incorrecto."
 END
 
 STRINGTABLE 
 BEGIN
-    AFX_IDP_FAILED_MAPI_LOAD "Nemoguce ucitati sistem za podršku e-maila."
-    AFX_IDP_INVALID_MAPI_DLL "Mail sistem DLL nije ispravan."
-    AFX_IDP_FAILED_MAPI_SEND "Send Mail nije uspeo da pošalje poruku."
+    AFX_IDP_FAILED_MAPI_LOAD 
+                            "No es posible cargar el soporte de sistema de correo."
+    AFX_IDP_INVALID_MAPI_DLL "El DLL del Sistema de Correo es inválido. "
+    AFX_IDP_FAILED_MAPI_SEND "Send Mail falló al enviar un mensaje."
 END
 
 STRINGTABLE 
 BEGIN
-    AFX_IDS_OCC_SCALEUNITS_PIXELS "pikseli"
+    AFX_IDS_OCC_SCALEUNITS_PIXELS "pixels"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_ABOUTBOX            "Inf&ormacije o AES-Tool-u..."
-    IDS_STRING_DECRYPT      "Dešifruj datoteku"
-    IDS_STRING_ENCRYPT      "Šifruj datoteku"
-    IDS_STRING_DECERROR     "Greška prilikom šifrovanja: %s"
-    IDS_STRING_ENCOK        "Šifrovana datoteka %s je uspešno kreirana."
-    IDS_STRING_DECOK        "Dešifrovana datoteka %s je uspešno kreirana."
-    IDS_STRING_VERSCHLUESSELN "Zašifruj"
-    IDS_STRING_ENTSCHLUESSELN "Dešifruj"
-    IDS_STRING_FILEERROR    "Greška prilikom otvaranja %s: %s\n"
-    IDS_STRING_NOMEMORY     "Nedovoljno virtuelne memorije."
-    IDS_STRING_KEYERROR     "Pogrešan kljuc ili je datoteka %s neispravna."
+    IDS_ABOUTBOX            "&Acerca de AES-Tool..."
+    IDS_STRING_DECRYPT      "Descifrar un archivo"
+    IDS_STRING_ENCRYPT      "Cifrar un archivo"
+    IDS_STRING_DECERROR     "Error al descifrar archivo: %s"
+    IDS_STRING_ENCOK        "El archivo cifrado %s se ha creado exitosamente."
+    IDS_STRING_DECOK        "El archivo descifrado %s se ha creado exitosamente."
+    IDS_STRING_VERSCHLUESSELN "Cifrar"
+    IDS_STRING_ENTSCHLUESSELN "Descifrar"
+    IDS_STRING_FILEERROR    "Error abriendo %s: %s\n"
+    IDS_STRING_NOMEMORY     "Memoria virtual agotada. "
+    IDS_STRING_KEYERROR     "Clave incorrecta o archivo %s dañado."
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_ENCERROR     "Greška prilikom šifrovanja : %s"
-    IDS_STRING_VERSION      "Datoteka je šifrovana sa starijom verzijom AES-Tool-a. \nMolim koristite istu verziju za dešifrovanje."
-    IDS_STRING_CORRUPT      "Ova zašifrovana datoteka je neispravna."
-    IDS_STRING_INVALID_KEY  "Neispravan karakter u kljucu. Molim koristite samo 0-9,a-f,A-F."
-    IDS_STRING_KEY_TOO_LONG "Kljuc je predugacak. Maksimalan dužina AES kljuca je 256 bita (= 32 byte-a = 64 heksadecimalne cifre)."
-    IDS_STRING_AESTOOL      "AES-Tool 2.5"
-    IDS_STRING_AESTOOL_FILE "AES-Tool 2.5 [%s]"
+    IDS_STRING_ENCERROR     "Error al cifrar archivo: %s"
+    IDS_STRING_VERSION      "Este archivo ha sido cifrado con una versión anterior de AES-Tool. \nPor favor, use la misma versión para descifrar. "
+    IDS_STRING_AES_TOOL_VERSION "AES-Tool 2.5.1"
+    IDS_STRING_CORRUPT      "El archivo cifrado está dañado. "
+    IDS_STRING_INVALID_KEY  "Caracter no válido. Por favor, use solamente: 0-9,a-f,A-F."
+    IDS_STRING_KEY_TOO_LONG "Clave demasiado larga. La longitud máxima permitida es: 256 bits (= 32 bytes = 64 hexadecimal digits)."
+    IDS_STRING_AES_TOOL_HELP_PREFIX "Ayuda para %s"
 END
 
-#endif    // Serbian (Latin) resources
+#endif    // Spanish resources
 /////////////////////////////////////////////////////////////////////////////
+
 
 
 #ifndef APSTUDIO_INVOKED

@@ -826,8 +826,8 @@
 			/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_DEBUG,AFX_RESOURCE_DLL,AFX_TARG_ENG"
-				Culture="2057"
+				PreprocessorDefinitions="_DEBUG,AFX_RESOURCE_DLL,AFX_TARG_ESN"
+				Culture="3082"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -2015,7 +2015,27 @@
 				>
 			</File>
 			<File
+				RelativePath=".\res\afx_idb_.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\res\bmp00001.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\res\bmp00002.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\res\bmp26567.bmp"
+				>
+			</File>
+			<File
 				RelativePath="res\help.cur"
+				>
+			</File>
+			<File
+				RelativePath=".\res\idr_main.ico"
 				>
 			</File>
 			<File
