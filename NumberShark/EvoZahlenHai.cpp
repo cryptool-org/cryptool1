@@ -468,7 +468,8 @@ char* EvoZahlenHai::itoa_fmt(unsigned long ul_num)
 }*/
 CString EvoZahlenHai::setSeperator(__int64 value)
 {
-	 CString valueStr="";
+
+	CString valueStr="";
 	 CString seperator="";
 	 char Buffer[100];
 	 seperator.LoadString(IDS_STRING_PT);

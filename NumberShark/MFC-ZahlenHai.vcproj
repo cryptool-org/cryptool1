@@ -738,8 +738,8 @@
 			/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_DEBUG,AFX_RESOURCE_DLL,AFX_TARG_ENG"
-				Culture="2057"
+				PreprocessorDefinitions="_DEBUG,AFX_RESOURCE_DLL,AFX_TARG_ESN"
+				Culture="3082"
 				AdditionalIncludeDirectories="$(IntDir)"
 			/>
 			<Tool
@@ -1134,6 +1134,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Bilder\bitmap1.bmp"
+				>
+			</File>
+			<File
 				RelativePath=".\Bilder\bitmap11.bmp"
 				>
 			</File>
@@ -1159,6 +1163,54 @@
 			</File>
 			<File
 				RelativePath=".\Bilder\bitmap17.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\bitmap2.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\bitmap3.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\bitmap8.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\bitmap9.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\bitmap_r.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\bitmap_u.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\bmp00001.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\bmp00002.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\bmp00003.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\bmp00004.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\bmp00005.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\bmp00006.bmp"
 				>
 			</File>
 			<File
@@ -1194,6 +1246,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Bilder\idr_main.ico"
+				>
+			</File>
+			<File
 				RelativePath=".\MFC-ZahlenHai.rc"
 				>
 			</File>
@@ -1210,11 +1266,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\res\NumberShark.ico"
+				RelativePath=".\Bilder\NumberShark.ico"
 				>
 			</File>
 			<File
-				RelativePath=".\Bilder\NumberShark.ico"
+				RelativePath=".\res\NumberShark.ico"
 				>
 			</File>
 			<File

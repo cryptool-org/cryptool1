@@ -909,7 +909,7 @@ BEGIN
     IDS_TOOL_TIP_TEXT       "%s\nÜbrige Teiler: %s\n%s "
     IDS_LOGFILE_MAXPOINTS   "\r\nMaximal mögliche Punkte für Dich:   "
     IDS_GAME_IDEA           "Grips-Spiel: Für ein oder mehrere Spieler ab 10 Jahre.\n\nSpielzeit: Für 20 Zahlen benötigt man nicht länger als 3 Minuten, bei 9.999 Zahlen kann man aber schon über ein Jahr brauchen."
-    IDS_PRIME               "(prim)"
+    IDS_PRIME               "(primo)"
     IDS_LOGFILE_LOCATION    "\r\nEine Zusammenfassung des Spiels wurde unter dem Namen %s \r\nin den Ordner %s geschrieben. "
 END
 
@@ -1507,6 +1507,493 @@ BEGIN
 END
 
 #endif    // English (U.K.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Spanish resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ESN)
+#ifdef _WIN32
+LANGUAGE LANG_SPANISH, SUBLANG_SPANISH_MODERN
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Aceca de Number Shark"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            128,IDC_STATIC,11,17,20,20
+    LTEXT           "Number Shark Version 1.2",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2010",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "Aceptar",IDOK,178,7,50,16,WS_GROUP
+END
+
+IDD_DIALOG1 DIALOGEX 0, 0, 282, 274
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Opciones de Juego"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Al Juego",IDOK,115,248,54,14
+    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,5,34,270,208
+    EDITTEXT        IDC_EDIT_NAME,75,76,161,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "Iniciar",IDC_BUTTON_MAX,220,130,35,25,BS_MULTILINE | NOT WS_VISIBLE
+    CONTROL         "  ",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | BS_MULTILINE,226,119,10,8
+    CONTROL         "",IDC_CHECK2,"Button",BS_AUTOCHECKBOX,228,166,8,8
+    CONTROL         "",IDC_CHECK3,"Button",BS_AUTOCHECKBOX,228,204,8,8
+    LTEXT           "",IDC_OPTION_REMEMBER,28,196,186,26
+    LTEXT           "Su Nombre:",IDC_STATIC2,29,79,44,8
+    LTEXT           "",IDC_OPTION_TOOLTIP,28,102,186,42
+    GROUPBOX        "",IDC_STATIC1,21,65,233,31
+    GROUPBOX        "",IDC_STATIC3,21,95,233,54
+    GROUPBOX        "",IDC_STATIC4,21,151,233,34
+    LTEXT           "",IDC_OPTION_GAME_START,29,161,186,18
+    GROUPBOX        "",IDC_STATIC5,21,188,233,38
+    LTEXT           "",IDC_STATIC_MAX_POINTS_TEXT,16,67,244,56,NOT WS_VISIBLE
+    CTEXT           "",IDC_OPTION_START,5,9,270,21
+    CONTROL         "",IDC_RADIO_MAX1,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_DISABLED,23,129,182,10
+    CONTROL         "",IDC_RADIO_MAX2,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_DISABLED,23,150,183,8
+    GROUPBOX        "",IDC_STATIC_MAXVALUE,9,57,260,130
+    LTEXT           "",IDC_DISCLAIMER_TEXT,14,144,257,35
+    LTEXT           "",IDC_INFO_TEXT,14,110,257,31
+    LTEXT           "",IDC_GAME_IDEA,14,69,257,35
+    LTEXT           "",IDC_ACCELERATORS,12,69,255,133
+END
+
+IDD_GAME_RULES DIALOGEX 0, 0, 535, 306
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Reglas de Juego  / Descripción del Juego"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Volver al Juego",IDOK,240,283,54,14
+    CONTROL         "",IDC_RICHEDIT21,"RichEdit20A",ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY,7,7,521,267,WS_EX_TRANSPARENT
+END
+
+IDD_GAME_SUMMARY DIALOGEX 0, 0, 358, 178
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Volver al juego",IDOK,145,68,62,14
+    CONTROL         "",IDC_RICHEDIT21,"RichEdit20A",ES_MULTILINE | ES_AUTOHSCROLL,7,12,344,51,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,11,108,335,31
+    CONTROL         "",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,12,148,335,10
+    GROUPBOX        "¿Guardar resultados como un resumen del Juego?",IDC_STATIC,7,92,344,79
+END
+
+IDD_MFCZAHLENHAI_DIALOG DIALOGEX 0, 0, 467, 379
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Number Shark"
+FONT 8, "Microsoft Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_TAB1,"SysTabControl32",TCS_RAGGEDRIGHT | WS_TABSTOP,10,187,372,119
+    EDITTEXT        IDC_EDIT1,104,333,48,14,ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "&OK",IDC_BUTTON_OK,161,333,25,14
+    CONTROL         "1",IDC_BUTTON01,"Button",BS_OWNERDRAW | WS_TABSTOP,16,207,31,27
+    CONTROL         "2",IDC_BUTTON02,"Button",BS_OWNERDRAW | WS_TABSTOP,53,207,31,27
+    CONTROL         "3",IDC_BUTTON03,"Button",BS_OWNERDRAW | WS_TABSTOP,89,207,31,27
+    CONTROL         "4",IDC_BUTTON04,"Button",BS_OWNERDRAW | WS_TABSTOP,125,207,31,27
+    CONTROL         "5",IDC_BUTTON05,"Button",BS_OWNERDRAW | WS_TABSTOP,161,207,31,27
+    CONTROL         "6",IDC_BUTTON06,"Button",BS_OWNERDRAW | WS_TABSTOP,197,207,31,27
+    CONTROL         "7",IDC_BUTTON07,"Button",BS_OWNERDRAW | WS_TABSTOP,233,207,31,27
+    CONTROL         "8",IDC_BUTTON08,"Button",BS_OWNERDRAW | WS_TABSTOP,269,207,31,27
+    CONTROL         "9",IDC_BUTTON09,"Button",BS_OWNERDRAW | WS_TABSTOP,306,207,31,27
+    CONTROL         "10",IDC_BUTTON10,"Button",BS_OWNERDRAW | WS_TABSTOP,344,207,31,27
+    CONTROL         "11",IDC_BUTTON11,"Button",BS_OWNERDRAW | WS_TABSTOP,16,240,31,27
+    CONTROL         "12",IDC_BUTTON12,"Button",BS_OWNERDRAW | WS_TABSTOP,53,240,31,27
+    CONTROL         "13",IDC_BUTTON13,"Button",BS_OWNERDRAW | WS_TABSTOP,89,240,31,27
+    CONTROL         "14",IDC_BUTTON14,"Button",BS_OWNERDRAW | WS_TABSTOP,125,240,31,27
+    CONTROL         "15",IDC_BUTTON15,"Button",BS_OWNERDRAW | WS_TABSTOP,161,240,31,27
+    CONTROL         "16",IDC_BUTTON16,"Button",BS_OWNERDRAW | WS_TABSTOP,197,240,31,27
+    CONTROL         "17",IDC_BUTTON17,"Button",BS_OWNERDRAW | WS_TABSTOP,233,240,31,27
+    CONTROL         "18",IDC_BUTTON18,"Button",BS_OWNERDRAW | WS_TABSTOP,269,240,31,27
+    CONTROL         "19",IDC_BUTTON19,"Button",BS_OWNERDRAW | WS_TABSTOP,306,240,31,27
+    CONTROL         "20",IDC_BUTTON20,"Button",BS_OWNERDRAW | WS_TABSTOP,344,240,31,27
+    CONTROL         "21",IDC_BUTTON21,"Button",BS_OWNERDRAW | WS_TABSTOP,16,272,31,27
+    CONTROL         "22",IDC_BUTTON22,"Button",BS_OWNERDRAW | WS_TABSTOP,53,272,31,27
+    CONTROL         "23",IDC_BUTTON23,"Button",BS_OWNERDRAW | WS_TABSTOP,89,272,31,27
+    CONTROL         "24",IDC_BUTTON24,"Button",BS_OWNERDRAW | WS_TABSTOP,125,272,31,27
+    CONTROL         "25",IDC_BUTTON25,"Button",BS_OWNERDRAW | WS_TABSTOP,161,272,31,27
+    CONTROL         "26",IDC_BUTTON26,"Button",BS_OWNERDRAW | WS_TABSTOP,197,272,31,27
+    CONTROL         "27",IDC_BUTTON27,"Button",BS_OWNERDRAW | WS_TABSTOP,233,272,31,27
+    CONTROL         "28",IDC_BUTTON28,"Button",BS_OWNERDRAW | WS_TABSTOP,269,272,31,27
+    CONTROL         "29",IDC_BUTTON29,"Button",BS_OWNERDRAW | WS_TABSTOP,306,272,31,27
+    CONTROL         "30",IDC_BUTTON30,"Button",BS_OWNERDRAW | WS_TABSTOP,344,272,31,27
+    PUSHBUTTON      "&Reglas de Juego",ID_BUTTON_RULES,398,16,59,22,BS_VCENTER | BS_MULTILINE
+    PUSHBUTTON      "&Ayuda",IDC_BUTTON_HELP,398,46,59,22
+    PUSHBUTTON      "Númer&os sin\ndivisores",IDC_BUTTON_REST,398,178,60,22,BS_MULTILINE | WS_DISABLED
+    PUSHBUTTON      "&Más opciones",IDC_BUTTON_OPTION,398,205,60,22,BS_MULTILINE
+    CONTROL         "",IDC_BUTTON_UNDO,"Button",BS_OWNERDRAW | BS_MULTILINE | WS_DISABLED | WS_TABSTOP,404,246,19,15,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_BUTTON_REDO,"Button",BS_OWNERDRAW | WS_DISABLED | WS_TABSTOP,434,246,19,15,WS_EX_TRANSPARENT
+    PUSHBUTTON      "&Nuevo Juego",IDC_BUTTON_STARTNEW,398,316,59,22,BS_MULTILINE
+    PUSHBUTTON      "&Salir",ID_BUTTON_END,398,345,59,22,BS_CENTER | BS_MULTILINE
+    LTEXT           "Número de mejillones de 1a:",IDC_STATIC,12,335,92,11
+    GROUPBOX        "Configuración de la partida",IDC_STATIC_EINSTELLUNGEN,4,318,382,54,0,WS_EX_TRANSPARENT
+    GROUPBOX        "",IDC_STATIC_BLOCK,4,174,382,139
+    LTEXT           "",IDC_STATIC_SUM,11,356,371,17,NOT WS_VISIBLE
+    GROUPBOX        "Transcurso del Juego [En la tabla, los números primos se marcarán con ""primo""]",IDC_STATIC_LISTE,4,6,381,161
+    CONTROL         "",IDC_LIST2,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,4,21,381,148,WS_EX_TRANSPARENT | WS_EX_CLIENTEDGE
+    LTEXT           "",IDC_LEDTEXT,4,320,381,52,NOT WS_VISIBLE
+    CONTROL         169,IDC_STATIC_HAI_LISTE,"Static",SS_BITMAP | SS_REALSIZEIMAGE,4,10,381,160
+    LTEXT           "",IDC_START_INFO,197,328,181,27,NOT WS_VISIBLE
+    GROUPBOX        "",IDC_STATIC,392,6,71,366
+    PUSHBUTTON      "&Finish",IDC_BUTTON_FINISH,375,367,10,6,NOT WS_VISIBLE
+    PUSHBUTTON      "Cam&biar Estilo",IDC_BUTTON_SWITCH_STYLE,398,72,59,14,NOT WS_VISIBLE
+    CTEXT           "Statisch",IDC_TIMER,398,148,59,14,SS_CENTERIMAGE
+    LTEXT           "Tiempo transcurrido:",IDC_STATIC,396,129,65,8
+    PUSHBUTTON      "&Cargar",IDC_BUTTON_LOAD,398,271,59,14,NOT WS_VISIBLE
+    PUSHBUTTON      "&Guardar",IDC_BUTTON_SAVE,398,294,59,14,NOT WS_VISIBLE
+END
+
+IDD_SEARCH_PROGRESS DIALOGEX 0, 0, 200, 110
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Progreso de Búsqueda"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LTEXT           "DYNAMICALLY_GENERATED",IDC_TEXT_SEARCH_PROGRESS_1,7,7,186,24
+    LTEXT           "Desafortunadamente no podemos predecir cuánto tiempo tomará la búsqueda, sin embargo ésta puede ser cancelada en cualquier momento.",IDC_STATIC,7,55,186,24
+    PUSHBUTTON      "Cancelar",IDCANCEL,75,87,50,16
+    CTEXT           "DYNAMICALLY_GENERATED",IDC_TEXT_SEARCH_PROGRESS_2,7,39,186,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 0,9,0,0
+ PRODUCTVERSION 0,9,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040704e4"
+        BEGIN
+            VALUE "Copyright (C) 2006", " (C) CrypTool Project 2010"
+            VALUE "FileDescription", "NumberShark es una herramienta didáctica para el aprendizado de números primos y factores."
+            VALUE "FileVersion", "1.2"
+            VALUE "InternalName", "NumberShark.exe"
+            VALUE "OriginalFilename", "NumberShark.exe"
+            VALUE "ProductName", "NumberShark"
+            VALUE "ProductVersion", "1.2"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x407, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 275
+        VERTGUIDE, 5
+        VERTGUIDE, 184
+        VERTGUIDE, 220
+        VERTGUIDE, 238
+        VERTGUIDE, 275
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 267
+        HORZGUIDE, 25
+        HORZGUIDE, 65
+        HORZGUIDE, 144
+    END
+
+    IDD_GAME_RULES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 528
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 297
+    END
+
+    IDD_GAME_SUMMARY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 351
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 171
+    END
+
+    IDD_MFCZAHLENHAI_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        RIGHTMARGIN, 464
+        VERTGUIDE, 4
+        VERTGUIDE, 197
+        VERTGUIDE, 295
+        VERTGUIDE, 296
+        VERTGUIDE, 382
+        VERTGUIDE, 385
+        VERTGUIDE, 398
+        VERTGUIDE, 457
+        VERTGUIDE, 463
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 373
+        HORZGUIDE, 24
+        HORZGUIDE, 44
+        HORZGUIDE, 261
+        HORZGUIDE, 288
+        HORZGUIDE, 294
+        HORZGUIDE, 320
+        HORZGUIDE, 326
+        HORZGUIDE, 353
+        HORZGUIDE, 371
+    END
+
+    IDD_SEARCH_PROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 193
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP_REDO         BITMAP                  "bilder\\bitmap_r.bmp"
+IDB_BITMAP_UNDO         BITMAP                  "bilder\\bitmap_u.bmp"
+IDB_BITMAP1             BITMAP                  "bilder\\bitmap1.bmp"
+IDB_BITMAP12            BITMAP                  "bilder\\bmp00001.bmp"
+IDB_BITMAP13            BITMAP                  "bilder\\bmp00002.bmp"
+IDB_BITMAP14            BITMAP                  "bilder\\bmp00003.bmp"
+IDB_BITMAP15            BITMAP                  "bilder\\bmp00004.bmp"
+IDB_BITMAP16            BITMAP                  "bilder\\bmp00005.bmp"
+IDB_BITMAP17            BITMAP                  "bilder\\bmp00006.bmp"
+IDB_BITMAP2             BITMAP                  "bilder\\bitmap2.bmp"
+IDB_BITMAP3             BITMAP                  "bilder\\bitmap3.bmp"
+IDB_BITMAP8             BITMAP                  "bilder\\bitmap8.bmp"
+IDB_BITMAP9             BITMAP                  "bilder\\bitmap9.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "bilder\\idr_main.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCELERATOR1 ACCELERATORS 
+BEGIN
+    "N",            ID_GIVE_REST,           VIRTKEY, SHIFT, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "&Acerca de Number Shark"
+    IDS_RULES               "Descripción:\r\n - Al comienzo del juego, debe decidir el tamaño del campo del mejillón, es decir, con que cantidad de números jugará.\r\n    Nombraremos al tamaño del campo del mejillón con la letra ""n"" y la llamaremos ""Cantidad de números elegibles"". La población de números comienza con 1\r\n    y va hasta el número que ha elegido como tamaño para el campo del mejillón. (sugerimos empezar con el número 20).\r\n    Luego, todos los números del campo del mejillón serán repartidos entre usted y la máquina (""Number Shark"").\r\n    Al comienzo del juego, predeterminadamente se establecen 20 números en el campo del mejillón. Puede elegir como número n, cualquier valor entre 1 y 9999.\r\n\r\nObjetivo del Juego:\r\n - Su Objetivo es que la suma de sus números sea mayor a la suma de los números que la máquina ha obtenido.\r\n\r\nReglas:\r\n - El primer turno siempre será suyo, es decir, usted comienza la primera ronda.\r\n - En la primera ronda podrá elegir culaquier número del campo del mejillón\r\n La máquina selecionará un número dentro de los divisores del número elegido, siempre y cuando, éste todavía esté disponible\r\n    (por Ej. 6 es divisible entre 1,2,3 y 6. Los divisores reales son 1, 2 y 3).\r\n - En todas las rondas siguientes podrá seleccionar únicamente números que aún no hayan sido elegidos antes (es decir, los mejillones azules).\r\n - CUIDADO: ¡La máquina no debe nunca quedar vacía! - Si elige un número que no tiene divisores, ella tomará su número y usted recibirá 0 puntos en esa ronda.\r\n\r\n"
+    IDS_PLAYER_WINS         "¡Felicitaciones, ha ganado la partida!\n\nSi busca un mayor desafío, intente un número mayor que %s.\n\nHa alcanzado %s Puntos. El puntaje máximo con %s números, hubiera sido %s."
+    IDS_VERSION_INFO        "Number Shark Version 1.2"
+    IDS_COMPUTER_WINS       "¡Esta vez ha ganado la máquina! :,-(\n\nEl resultado ha sido %s a %s a favor de ella.\n\n¡Vamos, intentalo nuevamente!"
+    IDS_DRAW                "¿Empate?\n\n¡Esto realmente no sucede muy a menudo!Usted y la máquina han obtenido, ambos %s puntos. "
+    IDS_MAX_POINTS_NEW      "Para calcular el máximo puntaje de %s puntos, este programa ha necesitado %s segundos y debió pasar por %s nodos.\n\nEl número primo más grande es el %s. Con ese número debería empezar a jugar para intentar alcanzar el máximo puntaje posible.\n\nPara alcanzar el máximo puntaje, debería elegir los números en el siguiente orden: %s."
+    IDS_MAX_POINTS_INFORMATION 
+                            "Para %s números, el máximo alcanzable de puntos es: %s.\n\nNosotros podemos mostrarle aquí enseguida el máximo puntaje, ya que ese valor ya ha sido calculado y almacenado en el programa.\n\nTruco: El mayor número primo para %s números es el %s. Con ese número debería empezar a jugar para intentar alcanzar el máximo puntaje posible.\n\n¿Le gustaría ver la combinación óptima para alcanzar el mejor puntaje?"
+    IDS_QUESTION            "¿Quiere que el programa calcule el puntaje máximo posible?"
+    IDS_WARNING             "%s números.. esto podría demorar.. \n\nUsando un algoritmo de Fuerza-bruta y un PC de 3GHz, para 20 números se necesitaron unas 8 horas, para 22 números el cálculo tomó 9 dias; y creemos que para 30 números podría llevar semanas enteras o incluso meses.\n\nSi ha obtenido resultados nuevos para %s números, nos alegraría que nos los enviara.\n\n¿Está seguro ahora que realmente desea realizar el cálculo?"
+    IDS_INVALID_INPUT       "¡En el juego Number Shark puede jugar sólo con números entre 1 y %s!"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_ZUG                 "Ronda"
+    IDS_SPIELER             "Sus\njugadas"
+    IDS_HAI                 "Jugadas de\nla máquina"
+    IDS_SPIELER_PUNKTE      "Su\npuntaje"
+    IDS_HAI_PUNKTE          "Puntaje de\nla máquina"
+    IDS_REST                "Números\nrestantes"
+    IDS_PLAYER_WINS_2       "¡Felicidades, ha ganado la partida!\n\nSi busca un desafío mayor, intente ahora con un número mayor que %s.\n\nUsted ha alcanzado %s puntos."
+    IDS_BUTTON_STARTNEW     "Comenzar un nuevo juego."
+    IDS_BUTTON_END          "Terminar el juego."
+    IDS_BUTTON_RULES        "Leer las reglas. "
+    IDS_BUTTON_OK           "Comenzar el juego con el número seleccionado de mejillones."
+    IDS_BUTTON_MAX_POINTS   "Calcular el máximo puntaje alcanzable con el conjunto de números seleccionado."
+    IDS_BUTTON_OPTION       "Mostrar las opciones de juego."
+    IDS_BUTTON_REST         "La máquina seleciona todos los números, a partir de los cuáles no podrá obtener más puntos.\nLos siguientes números podrían ser selecionados por la máquina: %s."
+    IDS_EDIT4               "Este valor contiene todos los números sumados. "
+    IDS_MAX_POINTS_HEADLINE "Máximo puntaje posible."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_DRAW_HEADLINE       "¡Empate!"
+    IDS_COMPUTER_WINS_HEADLINE "Usted no ha ganado."
+    IDS_PLAYER_WINS_HEADLINE "¡Ha ganado!"
+    IDS_LOGFILE_DATE        "¡Felicidades, ha ganado la partida!\n\nSi busca un mayor desafío, intente un número mayor que %s.\n\nHa alcanzado %s Puntos. El puntaje máximo con %s números, hubiera sido %s."
+    IDS_LOGFILE_NAME        "\r\n\r\nNombre del jugador:               "
+    IDS_LOGFILE_POINTS_PLAYER "\r\n\r\nPuntaje del jugador:             "
+    IDS_LOGFILE_POINTS_COMPUTER "\r\nPuntaje de la máquina:         "
+    IDS_LOGFILE_ROUNDS      "\r\nRondas requeridas:              "
+    IDS_VALID_INPUT_HEADLINE "El número ingresado es demasiado grande. "
+    IDS_RULES_HEADLINE      "Reglas de juego / Descripción del juego"
+    IDS_LOGFILE_HEADLINE    "\r\n\r\nEste archivo muestra para cada ronda, los números elegidos y el puntaje obtenido respectivamente.\r\nLa table contiene la misma información que la tabla de resultados que se muestra durante la partida.\r\n\r\n"
+    IDS_TOOL_TIP_TEXT       "%s\nDivisores restantes: %s\n%s"
+    IDS_LOGFILE_MAXPOINTS   "\r\nHighest possible score for you:"
+    IDS_GAME_IDEA           "Juego de ingenio: Para 20 números no se neceistan más de 3 minutos para resolverlo; para 9999 números se podría tardar más de un año."
+    IDS_PRIME               "(primo)"
+    IDS_LOGFILE_LOCATION    "\r\nUn resumen de la partida fue almacenado con el nombre %s \r\nen la carpeta %s."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_TOOL_TIP_TEXT_NO_FACTORS "%s\n¡No hay más divisores disponibles!\n%s"
+    IDS_FILE_NAME           "Resumen.txt"
+    IDS_PLAYER_WINS_OPTIMAL "¡Felicidades, ha ganado la partida!\nCon %s puntos, ha logrado el puntaje máximo para %s números.\n\nSi le gustaría probar un desafío mayor ahora, intente con un número mayor a %s."
+    IDS_SUM_TEXT            "Para %s números serán distribuídos un total de %s puntos entre usted y la máquina."
+    IDS_LOGFILE_NUMBERS     "\r\n\r\nConjunto de números:                 "
+    IDS_RULES_2             "Durante la partida los mejillones que se encuentran sobre los botones pueden hacerse visibles o invisibles a través de la siguiente combinación de teclas:\r\nSHIFT+ALT+C. Esto podría ayudarlo a leer mejor los números y el juego podría ser un poco más ágil.\r\n\r\nAyuda y consejos adicionales se encuentran en la Ayuda del juego. Ésta puede ser invocada en cualquier momento de la partida presionando la tecla F1.\r\n\r\nLa Ayuda contiene un manual de usuario, una explicación detallada de una partida (partida de prueba), información acerca de cómo fue desarrollado el juego,\r\nasí como también un desafío para usted, con el cuál nos puede ayudar a mejorar el juego.\r\n"
+    IDS_MAX_POINTS_INFORMATION2 
+                            "Para %s números el máximo puntaje posible es %s.\n\nNosotros podemos mostrarle aquí enseguida el máximo puntaje, ya que ese valor ha sido ya calculado y almacenado en el programa.\n\nLa combinación óptima sería: %s."
+    IDS_DISCLAIMER_TEXT     "Por favor, tome en cuenta la licencia y la información sobre exoneración de responsabilidad por cualquier eventual daño ocasionado por el uso de Number Shark.\r\n(C) Proyecto CrypTool 2010"
+    IDS_MAX_POINTS_HEADLINE2 "Puntaje máximo y combinación óptima"
+    IDS_INFO_TEXT           "El programa Number Shark fue creado como un agregado al proyecto libre y de código abierto CrypTool - http://www.cryptool.org/"
+    IDS_PRIME_INFO          "(primo)"
+    IDS_REG_TRUE            "true"
+    IDS_SHARK_AGAINST       " contra"
+    IDS_GAME_DATA           "GameData.txt"
+    IDS_HELP_FILE           "NumberShark-en.chm::/NumberShark.html"
+    IDS_TITLE_VERSION       " - Versión 1.2"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_NUMBER_SHARK        "Number Shark"
+    IDS_OPTIONS_HEAD_TEXT   "Para empezar ahora presione ""Enter"", o bien, haga click sobre el botón ""Al Juego""."
+    IDS_OPTIONS_TOOLTIPS    "Activar consejos para los mejillones\r\n[Si se detiene un instante sobre alguno de los mejillones azules (los que todavía no han sido seleccionados), se desplegará una pequeña ventana (Tooltip) que muestra los factores disponibles para ese número]."
+    IDS_OPTIONS_SHOW_DIALOG "Mostrar la ventana ""Opciones de juego"" la próxima vez que el programa inicie."
+    IDS_OPTIONS_SHOW_NUMBERS 
+                            "Volver a seleccionar la próxima vez el último número seleccionado de los números elegibles."
+    IDS_OPTIONS_MAX_POINTS  "Aquí puedes calcular al puntaje máximo posible para el valor seleccionado dentro del conjunto de %s números. Sin embargo, ese cálculo puede tardar mucho tiempo.\r\n\r\nPor eso, le mostramos a continuación los valores que ya han sido previamente calculados (sólo para los números entre 1 y 158)."
+    IDS_STRING_PT           "."
+    IDS_MAX_POINTS_OLD      "Para calcular el máximo puntaje posible de %d puntos sobre %d números, este programa ha necesitado %d segundos y ha pasado a través de %I64d nodos.\n\nEl número primo más alto es %d.Se recomienda comenzar con ese número para intentar alcanzar el máximo puntaje posible.\n\nDicho puntaje se puede lograr, entre otras, con la siguiente combinación: %s. "
+    IDS_TOOL_TIP_NUMBER     "Número: %s"
+    IDS_TOOL_TIP_ISFACTOR   "Es un factor de: %s"
+    IDS_START_INFO          "Ahora puede seleccionar uno de los mejillones para empezar el juego. "
+    IDS_LOG_LEAD            "\r\nGanando:                   "
+    IDS_LOG_BEHIND          "\r\nPerdiendo:                      "
+    IDS_SPRACHE             "ES"
+    IDS_LED_WIN             "¡Ha ganado!"
+    IDS_LED_LOST            "Ha perdido"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_LED_DRAW            "Empate"
+    IDS_ZUG2                "Ronda"
+    IDS_SPIELER2            "Su jugada"
+    IDS_HAI2                "Jugada de la máquina"
+    IDS_SPIELER_PUNKTE2     "Su puntaje"
+    IDS_HAI_PUNKTE2         "Puntaje de la máquina"
+    IDS_REST2               "Números restantes"
+    IDS_ISNOT_FACTOR        "No divide ningún otro número"
+    IDS_RADIO_EDIT1         "Sí\r\nas ""%s"" en la carpeta\r\n""%s"". "
+    IDS_RADIO_EDIT2         "No."
+    IDS_TAB_HEADER1         "¡Bienvenido!"
+    IDS_TAB_HEADER2         "General"
+    IDS_TAB_HEADER3         "Valores máximos"
+    IDS_TAB_RADIO1          "Calcular un nuevo valor de puntaje máximo."
+    IDS_TAB_RADIO2          "Mostrar el máximo puntaje posible."
+    IDS_SEARCH1             "BúsquedaNumberShark["
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_SEARCH2             " números].zha"
+    IDS_BUTTON_HELP         "Mostrar la ayuda para el juego."
+    IDS_WARNING_SHORT       "%s números.. esto podría demorar.\n\n¿Está seguro que realmente desea realizar el cálculo?"
+    IDS_MAX_POINTS_INFORMATION_NOVALUE 
+                            "Lamentablemente, el archivo %s no se ha podido cargar desde la ruta %s. El archivo se debe encontrar en la misma ruta que el juego Number Shark."
+    IDS_TOOL_TIP_UNDO       "Puede usar ""Deshacer"" para repetir rondas anteriores y eventualmente elegir otros números."
+    IDS_TOOL_TIP_REDO       "Con ""Rehacer"" puede adelantar tantas jugadas como haya retrocedido con ""Deshacer"". "
+    IDS_MAX_POINTS_NEW_2    "Para calcular el máximo puntaje posible de %d puntos sobre %d números, este programa ha necesitado %d segundos y ha pasado a través de %I64d nodos.\n\nEl número primo más alto es %d.Se recomienda comenzar con ese número para intentar alcanzar el máximo puntaje posible.\n\nDicho puntaje se puede lograr, entre otras, con la siguiente combinación: %s. "
+    IDS_SHELL_GROUP_BOX     "Mejillones  (Azules: libres; Grises: ya seleccionados)"
+    IDS_NORMAL_GROUP_BOX    "Mejillones"
+    IDS_NO_SEARCH           "El archivo""%s"" no pudo ser creado. Eso se debe probablemente a que usted no posee suficientes privilegios para acceder a la carpeta\r\n""%s"". El cálculo comenzará de todos formas, sin embargo no podrá continuar luego de una interrupción."
+    IDS_NO_SUMMARY          "El archivo""%s"" no pudo ser creado. Eso se debe probablemente a que usted no posee suficientes privilegios para acceder a la carpeta\r\n""%s""."
+    IDS_VALID_INPUT_HEADLINE_LOW "El número ingresado es muy pequeño."
+    IDS_LOGFILE_PLAYER_NUMBERS "\r\nLos número que ha seleccionado: "
+    IDS_SEPERATOR           ","
+    IDS_TAB_HEADER4         "Atajos"
+    IDS_ACC_CHANGE          "SHIFT+ALT+C: Quita el mejillón de los botones y los deja convencionales.\r\n\r\n"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_ACC_LOAD            "SHIFT+ALT+L: Carga un juego existente.\r\n\r\n"
+    IDS_ACC_SAVE            "SHIFT+ALT+S: Guarda una partida actual.\r\n\r\n"
+    IDS_PLAYER_WINS_OPTIMAL2 
+                            "¡Felicidades, ha ganado la partida!\non %s puntos, ha logrado un puntaje mayor al que nosotros mismos hemos logrado hasta ahora. Nuestro mejor resultado es %s puntos para %s números.\n\nPor favor, envíe el resumen a esslinger@fb5.uni-siegen.de."
+    IDS_PLAYER_WINS3        "¡Felicidades, ha ganado la partida!\n\nSi le gustaría probar un desafío mayor ahora, intente con un número mayor a %s.\n\nUsted ha alcanzado %s puntos, nosotros hasta ahora para un total de %s números hemos alcanzado como máximo %s puntos."
+    IDS_NUMBER_ONE          "¡Esta vez ha ganado la máquina! :,-(\n\nEl resultado ha sido %s a %s a favor de ella.\n\nNo puede ganar si solamente aparece el número '1' en el campo del mejillón.\n\n¡Vamos, intentalo nuevamente!"
+    IDS_LOAD_FAILED         "El archivo ""%s"" no pudo ser cargado."
+    IDS_ASK_FOR_USER_CANCELLATION "¿Desea interrumpir el cálculo?"
+    IDS_SELECT_SEARCH_ALGORITHM 
+                            "Number Shark utiliza dos algoritmos diferentes para la búsqueda del puntaje máximo: El inicialmente disponible Alogritmo de Fuerza-Bruta fue complementado con un Algoritmo de búsqueda regresiva.\n\nUsando un algoritmo de Fuerza-bruta y un PC de 3GHz, para 20 números se necesitaron unas 8 horas, para 22 números el cálculo tomó 9 dias; y creemos que para 30 números podría llevar semanas enteras o incluso meses.\n\nEl nuevo Algoritmo es significativamente más rápido.\n\n¿Desea utilizar el nuevo algoritmo?"
+    IDS_GAME_DATA_FILE_MISSING 
+                            "El archivo con los datos del juego (%s) no pudo ser encontrado. El archivo debe encontrarse en el mismo directorio donde se encuentra Number Shark.\n\nSin ese archivo no todas las funcionalidades del juego estarán disponibles."
+    IDS_BACKTRACKING_ALGORITHM_RESULT 
+                            "Para calcular el máximo puntaje de %s puntos, este programa ha necesitado %s segundos.\n\nEl número primo más grande es el %s. Con ese número debería empezar a jugar para intentar alcanzar el máximo puntaje posible.\n\nPara alcanzar el máximo puntaje, debería elegir los números en el siguiente orden: %s."
+    IDS_SEARCH_PROGRESS_TEXT_1 
+                            "Number Shark está utilizando un algoritmo %s para encontrar el mayor puntaje posible para %d números."
+    IDS_SEARCH_PROGRESS_TEXT_2 "Tiempo transcurrido: %d segundos"
+    IDS_ALGORITHM_BRUTE_FORCE "Fuerza-bruta"
+    IDS_ALGORITHM_BACK_TRACKING "Búsqueda-regresiva"
+END
+
+#endif    // Spanish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
