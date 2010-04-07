@@ -1549,7 +1549,9 @@ LANGUAGE LANG_SPANISH, SUBLANG_SPANISH_MODERN
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-IDR_MAINFRAME           ICON                    "res\\idr_main.ico"
+
+IDR_MAINFRAME           ICON                    "res\\aestool.ico"
+//IDR_MAINFRAME           ICON                    "res\\idr_main.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1751,10 +1753,16 @@ END
 // Bitmap
 //
 
-AFX_IDB_CHECKLISTBOX_NT BITMAP                  "res\\afx_idb_.bmp"
-26567                   BITMAP                  "res\\bmp26567.bmp"
-AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\bmp00001.bmp"
-AFX_IDB_MINIFRAME_MENU  BITMAP                  "res\\bmp00002.bmp"
+26567                   BITMAP                  "res\\3dcheck.bmp"
+AFX_IDB_MINIFRAME_MENU  BITMAP                  "res\\minifwnd.bmp"
+AFX_IDB_CHECKLISTBOX_NT BITMAP                  "res\\ntcheck.bmp"
+AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\95check.bmp"
+
+
+//AFX_IDB_CHECKLISTBOX_NT BITMAP                  "res\\afx_idb_.bmp"
+//26567                   BITMAP                  "res\\bmp26567.bmp"
+//AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\bmp00001.bmp"
+//AFX_IDB_MINIFRAME_MENU  BITMAP                  "res\\bmp00002.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //

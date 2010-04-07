@@ -9,7 +9,6 @@
 //
 #include "resource.h"
 #include "afxres.h"
-
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
@@ -53777,7 +53776,7 @@ BEGIN
                             "Su entrada no es una secuencia de números con base %i. \nPor favor, corrija los datos de entrada o cifre la entrada como texto."
     IDS_STRING_WARN_BEFOR_SKIPWS 
                             "¡La entrada contiene caracteres que no pertenecen al alfabeto!\nSi pulsa en 'Aceptar', sólo se cifrarán los caracteres del alfabeto (los otros caracteres se eliminarán de la entrada)."
-    IDS_STRING_HELPNAME     "CrypTool-de.chm"
+    IDS_STRING_HELPNAME     "CrypTool-es.chm"
     IDS_STRING_PLAYFAIR_ERRMSG121 
                             "En caso de pre-formateo, las letras duplicadas son separadas por la letra 'X'.\nPor favor, corríjalo."
     IDS_STRING_PLAYFAIR_ERRMSG122 
