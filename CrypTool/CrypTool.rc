@@ -46105,9 +46105,9 @@ BEGIN
     EDITTEXT        IDC_EDIT66,135,223,14,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT_SEPARATOR,206,42,15,12,ES_AUTOHSCROLL
     LTEXT           "Separador:",IDC_STATIC,155,44,45,10,0,WS_EX_RIGHT
-    CONTROL         "i18n Separate double characters",IDC_CHECK_SEPARATE_LETTERS,
+    CONTROL         "Separar caracteres dobles",IDC_CHECK_SEPARATE_LETTERS,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,43,125,10
-    CONTROL         "i18n Separate double characters only within pairs",IDC_CHECK_SEPARATE_LETTERS_ONLY_IN_PAIRS,
+    CONTROL         "Separar caracteres dobles sólo cuando pares",IDC_CHECK_SEPARATE_LETTERS_ONLY_IN_PAIRS,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,56,195,10
 END
 
@@ -46730,7 +46730,7 @@ END
 
 IDD_PASSWORD_GUIDELINES DIALOGEX 0, 0, 250, 185
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "i18n Pautas para Contraseñas"
+CAPTION "Pautas para Contraseñas"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Aceptar",IDOK,7,164,50,14
@@ -47105,7 +47105,7 @@ CAPTION "Demostración de RSA"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     PUSHBUTTON      "&Generar Números Primos...",IDC_BUTTON_PZ_GENERIEREN,284,82,88,18
-    EDITTEXT        IDC_EDIT1,100,82,172,23,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT1,100,82,172,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,100,99,172,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT5,100,168,172,12,ES_AUTOHSCROLL
     PUSHBUTTON      "&Actualizar Parámetros",IDC_BUTTON2,284,179,88,19
@@ -47113,7 +47113,7 @@ BEGIN
     CONTROL         "texto",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,53,225,32,8
     CONTROL         "números",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,89,225,40,8
     EDITTEXT        IDC_EDIT10,19,252,353,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT13,19,282,353,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT13,19,283,353,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT11,19,313,353,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT12,19,345,353,12,ES_AUTOHSCROLL | ES_READONLY
     PUSHBUTTON      "&Cifrar",IDC_BUTTON_VERSCHLUESSELN,10,374,71,18
@@ -48313,7 +48313,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Acerca de CrypTool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Cerrar",IDOK,303,250,60,18,WS_GROUP
+    DEFPUSHBUTTON   "&Cerrar",IDOK,303,252,60,18,WS_GROUP
     CTEXT           "desarrollado por las universidades de Siegen y Darmstadt\ny muchos desarrolladores voluntarios del proyecto OpenSource.",IDC_STATIC,20,119,330,16
     CTEXT           "Copyright (C) 1998-2010 Deutsche Bank AG y Colaboradores\nDistribuído como Open-source bajo los términos de la Licencia Apache 2.0",IDC_STATIC,7,233,356,16
     CTEXT           "CrypTool es una extensa herramienta de e-learning gratuita sobre\ncriptografía y criptoanálisis, tanto clásico como moderno.\n\nEs un esfuerzo conjunto entre:",IDC_STATIC,20,35,330,32
@@ -48325,8 +48325,8 @@ BEGIN
     GROUPBOX        "Información de versión",IDC_STATIC,7,164,195,64
     GROUPBOX        "Información de contacto",IDC_STATIC,208,164,155,64
     EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,11,178,185,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "C&olaboradores",ID_CONTRIBUTORS,7,250,60,18,WS_GROUP
-    PUSHBUTTON      "&Portabilidad",ID_PORTS,71,250,60,18,WS_GROUP
+    PUSHBUTTON      "C&olaboradores",ID_CONTRIBUTORS,7,252,60,18,WS_GROUP
+    PUSHBUTTON      "&Portabilidad",ID_PORTS,71,252,60,18,WS_GROUP
 END
 
 IDD_AUTHORS DIALOGEX 0, 0, 370, 275
@@ -48846,8 +48846,8 @@ BEGIN
             MENUITEM "&Mostrar/Exportar Claves...", ID_SHOW_ALL_EC_KEYS
         END
         MENUITEM "&Firmar Documento...",        ID_CRYPT_SIGN
-        MENUITEM "&Verificar Firma ...",        ID_CRYPT_VERIFY
-        MENUITEM "&Extraer Firma ...",          ID_CRYPT_EXTRACT
+        MENUITEM "&Verificar Firma...",         ID_CRYPT_VERIFY
+        MENUITEM "&Extraer Firma",              ID_CRYPT_EXTRACT
         MENUITEM "&Demostración de Firma (Generación de una Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
     END
     POPUP "Procedimientos &Indiv."
@@ -48972,7 +48972,7 @@ BEGIN
                 MENUITEM "&Sustitución",                ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&tario",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
-                MENUITEM "Su&ma de Bytes",              ID_ADD_AUTO
+                MENUITEM "&Suma de Bytes",              ID_ADD_AUTO
                 MENUITEM "&XOR",                        ID_XOR_AUTO
             END
             POPUP "&Texto Claro Conocido"
@@ -49832,7 +49832,7 @@ BEGIN
             MENUITEM "&Sustitución / Atbash...",    ID_CryptMono
             MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN
             MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
-            MENUITEM "Suma de B&ytes...",           ID_ADD_BIN
+            MENUITEM "&Suma de Bytes...",           ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
             MENUITEM "H&omofónico...",              ID_HOMOPHONE_ASC
@@ -49889,9 +49889,9 @@ BEGIN
         MENUITEM "&Firmar Documento...",        ID_CRYPT_SIGN
         MENUITEM "&Verificar Firma...",         ID_CRYPT_VERIFY
         MENUITEM "&Extraer Firma",              ID_CRYPT_EXTRACT
-        MENUITEM "Demostración de &Firma (Generación de una Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
+        MENUITEM "&Demostración de Firma (Generación de una Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
     END
-    POPUP "Procedimientos Indiv."
+    POPUP "Procedimientos &Indiv."
     BEGIN
         POPUP "&Hash"
         BEGIN
@@ -55052,7 +55052,7 @@ BEGIN
                             "El desplazamiento es inválido. El valor no debe ser menor a 0."
     IDS_STRING_FACTORIZATION_BRUTE_FORCE_LIMIT 
                             "El número no pudo ser factorizado usando el Cifrado de Fuerza Bruta, debido a que éste está implementado sólo para encontrar factores menores a %d."
-    IDS_CRYPT_SIMPLETRANSPOSITION "Transposición Simple"
+    IDS_CRYPT_SIMPLETRANSPOSITION "Transposición simple"
 END
 
 STRINGTABLE 
