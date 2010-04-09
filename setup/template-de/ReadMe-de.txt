@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.30 Beta 06 für Win32, Februar 2010
+    CrypTool, Version 1.4.30 Beta 07 für Win32, April 2010  xxxxxx
     (c) Contributors
         Dazu gehören z.B.
         Deutsche Bank AG, Frankfurt am Main,
@@ -237,7 +237,7 @@ a) Das Programm AES-Tool v 2.5 (entstanden im CrypTool-Projekt):
    Bei der Installation wird diesem Programm die Dateiendung "AES"
    zugeordnet.
 
-b) Das Lernspiel "Der Zahlenhai" v 1.1.6 (entstanden im CrypTool-Projekt):
+b) Das Lernspiel "Der Zahlenhai" (entstanden im CrypTool-Projekt):
    Dieses Lernspiel für Schüler bringt diesen den Umgang mit
    Teilern und Primfaktoren näher.
 
@@ -636,44 +636,44 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
   svn checkout http://www.cryptool.com/svn/CrypTool/trunk --username anonymous
 
 - Einen Eindruck von der Größe des CT1-Projekts liefert die folgende, im
-  Februar 2010 erstellte Statistik (anhand der Dateien für die deutsche,
-  englische und polnische Version):
+  April 2010 erstellte Statistik (anhand der Dateien für die deutsche,
+  englische, polnische und spanische Version):
 
     FILE SUMMARY (Anzahl der Dateien anhand ihrer Dateinamenserweiterung)
     ------------
-              4 .rc
-             36 .c
-            316 .cpp
-            371 .h
-             36 .java
-             12 .pl
-           1636 .html
-             47 .txt
-             39 .tex
-              4 .sage
-           2501 TOTAL
+              4 .rc files
+             36 .c files
+            317 .cpp files
+            376 .h files
+             36 .java files
+             12 .pl files
+           2740 .html files
+             45 .txt files
+             39 .tex files
+              4 .sage files
+           3609 TOTAL
+
   
     LINES OF CODE (LoC) SUMMARY
     ---------------------------
-         47.006 MFC resource code (rc)
-        247.889 C/C++ source code (c cpp h)
-          9.781 Java source code (java)
+         59.403 MFC resource code (rc)
+        262.025 C/C++ source code (c cpp h)
+          9.778 Java source code (java)
           1.888 Perl code (pl)
-         90.977 HTML code (html hpp)
-         10.500 Text files (txt)
-         34.463 LaTeX code (tex)
-           825 Sage code (sage)
-        443.329 TOTAL
+        158.610 HTML code (html hpp)
+         13.034 Text files (txt)
+         34,439 LaTeX code (tex)
+            825 Sage code (sage)
+        540.002 TOTAL
 
-    TOTAL: 443.329 Code-Zeilen (plus von 15,9 % gegenüber 382.244 bei v1.4.21)
+    TOTAL: 540.002 Code-Zeilen (plus von 41,2 % gegenüber 382.244 bei v1.4.21)
     - In den TOTAL-Wert gehen nur Sourcen ein, die innerhalb des
       CrypTool-Projektes entwickelt wurden oder dem CT-Projekt gewidmet wurden.
       Die Sourcen anderer Open-Source-Projekte, die innerhalb von CrypTool
       benutzt werden (wie OpenSSL, NTL, Scintilla) werden nicht gezählt.
       Ebensowenig werden automatisch erzeugte Dateien gezählt.
 
-
-   Snapshot zur Anzahl von Dateien und zur Anzahl der Source-Code-Zeilen
+  Snapshot zur Anzahl von Dateien und zur Anzahl der Source-Code-Zeilen
 
 
 - Details zum Compilieren, Linken und zur einheitlichen Entwicklung
@@ -815,6 +815,12 @@ c) Funktionale Änderungen / Erweiterungen:
 Dieses Kapitel listet die Erweiterungen und Bugfixes auf, die in
 CrypTool 1.4.30 seit CrypTool 1.4.21 hinzugefügt wurden.
 
+Die Version 1.4.30 kommt zeitgleich in Deutsch, Englisch, Polnisch und
+Spanisch. Eine serbische Version 1.4.30 wird folgen.
+Die polnische und spanische Version enthalten die Onlinehilfe in Englisch.
+Die spanische Version enthält zum erstenmal auch das AES-Tool und den Zahlenhai in
+Spanisch.
+
 a) Entwickler-relevante Änderungen (eher Programm-technisch):
 
 - Aufräumen des Source-Code, höhere Wiederverwendung,
@@ -908,7 +914,7 @@ c) Neue Funktionalität / Bedienung:
      Nun wird die richtige Schlüssellänge angezeigt und benutzt.
 
 
-- CrypTool merkt sich nun die Position un dGröße des Hauptfensters und nutzt
+- CrypTool merkt sich nun die Position und Größe des Hauptfensters und nutzt
   dies beim Neustart.
 
 - Bei allen DES-basierten Verfahren wird nun sowohl die effektiv genutzte als
@@ -974,6 +980,9 @@ c) Neue Funktionalität / Bedienung:
   - Noch viel schneller sind heuristische Methoden, wie sie in JCT
     implementiert sind. Diese finden meist nicht den optimalen Wert,
     aber einen sehr guten Wert.
+    Die besten bekannten Werte bis über n=300 werden nun auch im Spiel
+    mitgeliefert.
+    Alle bekannten Werte können in einer Tabelle angezeigt werden.
   - Wenn man die optionalen Werte berechnet, was sehr lange dauern kann,
     kann der Zahlenhai nun auf bisher schon berechnete Zwischenergebnisse
     aufsetzen. 
@@ -1035,7 +1044,7 @@ c) Neue Funktionalität / Bedienung:
   Tabelle angezeigt.
 
 - Weitere Ciphertext-Only-Analyse für Vigenère (nach Schrödel): Diese ist
-  effizient für sehr kurze Chiffrate, sofern das Passwort aus einem
+  effizient auch für sehr kurze Chiffrate, sofern das Passwort aus einem
   Wörterbuch stammt.
 xxxxxxxxxxxxxxxxxxxxx
 
@@ -1915,7 +1924,7 @@ Version   Datum         Größe des Windows-Setups  Plattenplatz  Freigabe
 1.4.10    Juli 2007      27,5 MB     26,7 MB         47 MB        DB
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
-1.4.30    März 2010      47,0 MB     46,1 MB         86 MB        DB   xxxxxxx
+1.4.30    Mai  2010      50,7 MB     49,8 MB         92 MB        DB   xxxxxxx
 
 Bemerkungen zu den Versionen:
 1.3.02   Viele neue Funktionen gegenüber 1.3.00.
@@ -1939,7 +1948,8 @@ Bemerkungen zu den Versionen:
 1.4.30-Beta03  März 2009  Erste öffentliche Beta von Version 1.4.30.
 1.4.30-Beta04  Sep. 2009  Zweite öffentliche Beta von Version 1.4.30.
 1.4.30-Beta05  Jan. 2010  Dritte öffentliche Beta von Version 1.4.30 (22.1.2010).
-1.4.30-Beta06  Feb. 2010  Vierte öffentliche Beta von Version 1.4.30 (26.2.2010).
+1.4.30-Beta06  Feb. 2010  Vierte öffentliche Beta von Version 1.4.30 (28.2.2010).
+1.4.30-Beta07  Apr. 2010  Fünfte öffentliche Beta von Version 1.4.30 (xx.x.2010).
 1.4.30   Viele Bugfixes und erweiterter Funktionsumfang i.Vgl. zu 1.4.21.
 
 
@@ -2839,7 +2849,7 @@ b) Java-CrypTool (JCrypTool, JCT):
      neuen Architektur-Konzepte umsetzbar sind.
      Milestone 2 (August 2008), 3 (Dezember 2008), 4 und 4a (Februar 2009)
      können auch schon von Endbenutzern sinnvoll verwendet werden.
-   - Meilenstein 6 wurde im November 2009 veröffentlicht.
+   - Meilenstein 6 wurde im November 2009 veröffentlicht. xxxxxxxxx
    - Weitere Entwickler, Architekten und Designer sind in diesem Projekt
      herzlich willkommen.
    - Für Einsteiger, aber auch für Experten.
@@ -2852,7 +2862,7 @@ c) CrypTool 2.0 (CT 2)
    - Komplett neu designtes CrypTool in C# mit dem .NET-Framework.
    - Nutzt strikt die Standards von Microsoft .NET (Aussehen wie Office 2007).
    - Nutzung von Windows Presentation Foundation (WPF) zur Gestaltung
-     von multimedialen Oberflächen (GUI).
+     von multimedialen Oberflächen (GUI) mit Vektorgraphiken.
    - Das gesamte Projekt lässt sich mit der kostenlosen VS2008-Express-
      Edition für C# erstellen.
    - Verfügbar sind die .NET Krypto-Provider, und Bibliotheken wie GMP und
