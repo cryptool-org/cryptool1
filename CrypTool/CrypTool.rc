@@ -8,7 +8,9 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -221,7 +223,7 @@ BEGIN
     CONTROL         "Klucz poœredni",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,158,31,76,10
     CONTROL         "D³ugoœæ klucz poœredniego",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,158,44,91,10
     CONTROL         "Autokorelacja",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,158,57,61,10
-    CONTROL         "[i18n] Poka¿ podstawow¹ analizê szyfru",IDC_CHECK4,
+    CONTROL         "Poka¿ podstawow¹ analizê szyfru",IDC_CHECK4,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,159,71,120,10
     GROUPBOX        "Cezar",IDC_STATIC,20,18,121,67
     GROUPBOX        "Vigenere, XOR, Dodawanie",IDC_STATIC,150,18,141,67
@@ -441,7 +443,7 @@ BEGIN
     GROUPBOX        "Informacje opublikowania",IDC_STATIC,7,164,195,64
     GROUPBOX        "Informacje kontaktowe",IDC_STATIC,208,164,155,64
     PUSHBUTTON      "Wspó³wykonawcy",ID_CONTRIBUTORS,7,250,66,18,WS_GROUP
-    PUSHBUTTON      "i18n Ports",ID_PORTS,85,250,60,18,WS_GROUP
+    PUSHBUTTON      "Portowania",ID_PORTS,85,250,60,18,WS_GROUP
 END
 
 IDD_SHOW_PROGRESS DIALOG  0, 0, 187, 105
@@ -1466,9 +1468,9 @@ BEGIN
     EDITTEXT        IDC_EDIT66,135,223,14,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT_SEPARATOR,206,42,15,12,ES_AUTOHSCROLL
     LTEXT           "Separatory:",IDC_STATIC,155,44,45,10,0,WS_EX_RIGHT
-    CONTROL         "i18n Separate double characters",IDC_CHECK_SEPARATE_LETTERS,
+    CONTROL         "Oddziel podwójne znaki",IDC_CHECK_SEPARATE_LETTERS,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,43,125,10
-    CONTROL         "i18n Separate double characters only within pairs",IDC_CHECK_SEPARATE_LETTERS_ONLY_IN_PAIRS,
+    CONTROL         "Oddziel podwójne znaki tylko w parach",IDC_CHECK_SEPARATE_LETTERS_ONLY_IN_PAIRS,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,56,195,10
 END
 
@@ -4299,7 +4301,7 @@ END
 
 IDD_PASSWORD_GUIDELINES DIALOGEX 0, 0, 250, 185
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "i18n Wytyczne dla has³a"
+CAPTION "Wytyczne dla has³a"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,164,50,14
@@ -4499,23 +4501,23 @@ END
 
 IDD_PORTS DIALOGEX 0, 0, 370, 280
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "i18n About CrypTool: Ports"
+CAPTION "O CrypTool: Portowania"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "Close",IDOK,303,255,60,18
-    LTEXT           "The CrypTool versions in English and German have been created by the CrypTool core team.",IDC_STATIC,7,7,297,8
+    DEFPUSHBUTTON   "Zamknij",IDOK,303,255,60,18
+    LTEXT           "CrypTool w wersji angielskiej i niemieckiej zosta?y stworzone przez zespó? podstawowy CrypTool.",IDC_STATIC,7,7,297,8
     EDITTEXT        IDC_EDIT_PORTS_INFORMATION,7,20,356,225,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
 IDD_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_LANGUAGES DIALOGEX 0, 0, 230, 140
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "i18n Choose languages"
+CAPTION "Wybierz j?zyki"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    LTEXT           "Please choose at least one language that is searched for possible keywords, and choose exactly one language in which the ciphertext was originally written.",IDC_STATIC,7,7,216,24
+    LTEXT           "Prosz? wybra? przynajmniej jeden j?zyk, w którym szuka? mo?liwych s?ów kluczowych i wybra? dok?adnie jeden j?zyk, w którym zosta? napisany szyfrogram.",IDC_STATIC,7,7,216,24
     PUSHBUTTON      "OK",IDOK,7,115,216,18
-    LTEXT           "Language(s) for keywords:",IDC_STATIC,7,39,84,8
-    LTEXT           "Language(s) for ciphertext:",IDC_STATIC,118,39,97,8
+    LTEXT           "J?zyk(i) do s?ów kluczowych:",IDC_STATIC,7,39,84,8
+    LTEXT           "J?zyk(i) do szyfrogramu:",IDC_STATIC,118,39,97,8
     LISTBOX         IDC_LIST_LANGUAGES_KEYWORD,7,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
     LISTBOX         IDC_LIST_LANGUAGES_CIPHERTEXT,118,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
 END
@@ -4779,7 +4781,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Cezar",                      ID_CAESAR_AUTO
                 MENUITEM "&Vigenere",                   ID_VIGENERE_AUTO
-                MENUITEM "[i18n] V&igenere (Analysis according to Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL
+                MENUITEM "V&igenere (Analiza w oparciu o Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&ADFGVX",                     ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 MENUITEM "&Zamiana",                    ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
@@ -5130,7 +5132,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Cezar",                      ID_CAESAR_AUTO
                 MENUITEM "&Vigenere",                   ID_VIGENERE_AUTO
-                MENUITEM "[i18n] V&igenere (Analysis according to Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL
+                MENUITEM "V&igenere (Analiza w oparciu o Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&ADFGVX",                     ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 MENUITEM "&Zamiana",                    ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
@@ -5481,7 +5483,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Cezar",                      ID_CAESAR_AUTO
                 MENUITEM "&Vigenere",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "[i18n] V&igenere (Analysis according to Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL
+                MENUITEM "V&igenere (Analiz w oparciu o Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&ADFGVX",                     ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Zamiana",                    ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
@@ -5832,7 +5834,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Cezar",                      ID_CAESAR_AUTO
                 MENUITEM "&Vigenere",                   ID_VIGENERE_AUTO
-                MENUITEM "[i18n] V&igenere (Analysis according to Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL
+                MENUITEM "V&igenere (Analiza w oparciu o Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&ADFGVX",                     ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 MENUITEM "&Zamiana",                    ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
@@ -6129,7 +6131,7 @@ BEGIN
         BEGIN
             MENUITEM "Demonstracja Diffie-Hellmana", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "Uwierzytelnianie w sieci",    ID_CHALLENGE_RESPONSE
-            MENUITEM "&Secure E-Mail with S/MIME...", ID_PROTOKOL_SMIME
+            MENUITEM "&Secure E-Mail za pomoc? S/MIME...", ID_PROTOKOL_SMIME
         END
         POPUP "Zastosowania ChTR"
         BEGIN
@@ -6210,7 +6212,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Cezar",                      ID_CAESAR_AUTO, GRAYED
                 MENUITEM "&Vigenere",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "[i18n] V&igenere (Analysis according to Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL
+                MENUITEM "V&igenere (Analiza w oparciu o Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&ADFGVX",                     ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Zamiana",                    ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
@@ -8390,11 +8392,11 @@ BEGIN
     IDS_STRING_MONOALPHABETIC_SUBSTITUTION_CHARACTERS_REMOVED_DURING_COPYANDPASTE 
                             "Nale¿y pamiêtaæ, ¿e podczas kopiowania z schowka zosta³y usuniête znaki, które nie s¹ czêœci¹ ustalonego alfabetu."
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_NOT_SUCCESSFUL 
-                            "[i18n] \n\nUnfortunately, there were no possible results found.\n\nMake sure you have chosen the correct language(s) for keyword and ciphertext.\n\nMaybe you should consider decreasing the threshold value in the analysis options dialog."
+                            " \n\nNiestety, nie znaleziono ¿adnych wyników.\n\nUpewnij siê, ¿e wybra³eœ w³aœciwy jêzyk(i) szyfrogramu oraz s³owa kluczowe.\n\nByæ mo¿e nale¿y rozwa¿yæ obni¿enie wartoœci progowych w oknie dialogowym Opcje analizy."
     IDS_STRING_FILE_NOT_FOUND_BUT_ASK_FOR_MIGRATION_TO_DEFAULT_RESOURCES 
-                            "[i18n] A file required for the analysis could not be found.\n\nYet this file is part of your CrypTool installation.\n\nCrypTool is probably using out-dated Windows registry keys at the moment.\n\nFrom now on, do you want CrypTool to use the files required for the analysis (dictionary, digrams and trigrams) that have been rolled out with your current CrypTool installation?"
+                            "Nie mo¿na odnaleŸæ plik niezbêdnego do analizy.\n\nPrzy instalacji CrypTool plik jest dostêpny.\n\nPrawdopodobnie CrypTool obecnie u¿ywa przestarza³y wpis z rejestru systemu Windows.\n\nCzy CrypTool w przysz³oœci ma u¿yæ potrzebne pliki do analizy (s³ownik, wykresy i trygramów) z aktualnej instalacji CrypTool?"
     IDS_STRING_LANGUAGE_CHOICE_REQUIREMENTS 
-                            "[i18n] Please choose AT LEAST ONE keyword language and EXACTLY ONE ciphertext language."
+                            " Wybierz CO NAJMNIEJ JEDEN jêzyk s³owa kluczowego i dok³adnie JEDEN jêzyk szyfrogramu."
 END
 
 STRINGTABLE 
@@ -8415,16 +8417,15 @@ END
 STRINGTABLE 
 BEGIN
     IDR_OPENGLTYPE          "\nUnnamed\n\nOpenGL file (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nPliki OpenGL "
-    IDS_STRING_PORTS_HEADING_POLISH "i18n Polish port"
+    IDS_STRING_PORTS_HEADING_POLISH "Polskie portowanie"
     IDS_STRING_PORTS_INITIAL_WORK_POLISH 
-                            "i18n Initial port: Warsaw University, Poland (http://www.ee.pw.edu.pl/),\r\nDr. Bartosz Sawicki and his students"
-    IDS_STRING_PORTS_FURTHER_WORK_POLISH 
-                            "i18n Further Updates: Pawel Polweski"
-    IDS_STRING_PORTS_HEADING_SERBIAN "i18n Serbian port"
+                            "Initialne portowanie: Warsaw University, Poland (http://www.ee.pw.edu.pl/),\r\nDr. Bartosz Sawicki z studentami"
+    IDS_STRING_PORTS_FURTHER_WORK_POLISH "Dalsze aktualizacje: Pawel Polweski"
+    IDS_STRING_PORTS_HEADING_SERBIAN "Serbskie portowanie"
     IDS_STRING_PORTS_INITIAL_WORK_SERBIAN 
-                            "i18n Initial port: Advanced School of Electrical Engineering, Belgrade, Serbia,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
-    IDS_STRING_PORTS_FURTHER_WORK_SERBIAN "i18n Further updates: -"
-    IDS_STRING_PORTS_HEADING_SPANISH "i18n Spanish port"
+                            "Initialne portowanie: Advanced School of Electrical Engineering, Belgrade, Serbia,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
+    IDS_STRING_PORTS_FURTHER_WORK_SERBIAN "Dalsze aktualizacje: -"
+    IDS_STRING_PORTS_HEADING_SPANISH "Hiszpañskie portowanie"
 END
 
 STRINGTABLE 
@@ -9059,7 +9060,7 @@ BEGIN
     IDS_STRING_QUANTITY     "Iloœæ"
     IDS_STRING_HOMOPHONE    "Homofon"
     IDS_STRING_LIST_OF_HOMOPHONES "Lista homofonów"
-    IDS_STRING_HOMOPHONE_NR "Nie."
+    IDS_STRING_HOMOPHONE_NR "Nr."
 END
 
 STRINGTABLE 
@@ -11053,9 +11054,9 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_PORTS_INITIAL_WORK_SPANISH 
-                            "i18n Initial port: Madrid University, Spain (http://www.csic.es),\nDr. Gonzalo Alvarez Maranon and his students"
+                            "Initialne portowanie: Madrid University, Spain (http://www.csic.es),\nDr. Gonzalo Alvarez Maranon and his students"
     IDS_STRING_PORTS_FURTHER_WORK_SPANISH 
-                            "i18n Further updates: Raphael Labaca Castro"
+                            "Dalsze aktualizacje: Raphael Labaca Castro"
 END
 
 #endif    // Polish resources
