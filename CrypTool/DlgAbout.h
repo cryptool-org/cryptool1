@@ -75,7 +75,7 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg BOOL OnInitDialog();
 	afx_msg void OnBnClickedContributors();
-	afx_msg void OnBnClickedPorts();
+	afx_msg void OnBnClickedTranslations();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 

@@ -28,7 +28,7 @@
 #include "CrypToolApp.h"
 #include "DlgAbout.h"
 #include "DlgAuthors.h"
-#include "DlgPorts.h"
+#include "DlgTranslations.h"
 
 // für NTL Bibliothek
 #include "..\libNTL\include\NTL\version.h"
@@ -83,7 +83,7 @@ BEGIN_MESSAGE_MAP(CDlgAbout, CDialog)
 	//{{AFX_MSG_MAP(CDlgAbout)
 	ON_WM_PAINT()
 	ON_BN_CLICKED(ID_CONTRIBUTORS, OnBnClickedContributors)
-	ON_BN_CLICKED(ID_PORTS, OnBnClickedPorts)
+	ON_BN_CLICKED(ID_TRANSLATIONS, OnBnClickedTranslations)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -97,10 +97,10 @@ void CDlgAbout::OnBnClickedContributors()
 	dlg.DoModal();
 }
 
-void CDlgAbout::OnBnClickedPorts()
+void CDlgAbout::OnBnClickedTranslations()
 {
-	// open ports dialog
-	CDlgPorts dlg;
+	// open translations dialog
+	CDlgTranslations dlg;
 	dlg.DoModal();
 }
 

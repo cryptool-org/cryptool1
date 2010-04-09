@@ -8,9 +8,7 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -223,8 +221,7 @@ BEGIN
     CONTROL         "Klucz poœredni",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,158,31,76,10
     CONTROL         "D³ugoœæ klucz poœredniego",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,158,44,91,10
     CONTROL         "Autokorelacja",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,158,57,61,10
-    CONTROL         "Poka¿ podstawow¹ analizê szyfru",IDC_CHECK4,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,159,71,120,10
+    CONTROL         "Poka¿ podstawow¹ analizê szyfru",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,159,71,120,10
     GROUPBOX        "Cezar",IDC_STATIC,20,18,121,67
     GROUPBOX        "Vigenere, XOR, Dodawanie",IDC_STATIC,150,18,141,67
     GROUPBOX        "Opcje wyjœciowe dla analizy automatycznej",IDC_STATIC,13,5,286,88
@@ -443,7 +440,7 @@ BEGIN
     GROUPBOX        "Informacje opublikowania",IDC_STATIC,7,164,195,64
     GROUPBOX        "Informacje kontaktowe",IDC_STATIC,208,164,155,64
     PUSHBUTTON      "Wspó³wykonawcy",ID_CONTRIBUTORS,7,250,66,18,WS_GROUP
-    PUSHBUTTON      "Portowania",ID_PORTS,85,250,60,18,WS_GROUP
+    PUSHBUTTON      "i18n Translations",ID_TRANSLATIONS,85,250,60,18,WS_GROUP
 END
 
 IDD_SHOW_PROGRESS DIALOG  0, 0, 187, 105
@@ -4499,14 +4496,14 @@ BEGIN
     PUSHBUTTON      "Anuluj analizê",IDC_BUTTON_CANCEL_ANALYSIS,7,175,110,18
 END
 
-IDD_PORTS DIALOGEX 0, 0, 370, 280
+IDD_TRANSLATIONS DIALOGEX 0, 0, 370, 280
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "O CrypTool: Portowania"
+CAPTION "i18n About CrypTool: Translations"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Zamknij",IDOK,303,255,60,18
     LTEXT           "CrypTool w wersji angielskiej i niemieckiej zosta?y stworzone przez zespó? podstawowy CrypTool.",IDC_STATIC,7,7,297,8
-    EDITTEXT        IDC_EDIT_PORTS_INFORMATION,7,20,356,225,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
+    EDITTEXT        IDC_EDIT_TRANSLATIONS_INFORMATION,7,20,356,225,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
 IDD_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_LANGUAGES DIALOGEX 0, 0, 230, 140
@@ -8186,7 +8183,7 @@ BEGIN
         BOTTOMMARGIN, 193
     END
 
-    IDD_PORTS, DIALOG
+    IDD_TRANSLATIONS, DIALOG
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 363
@@ -8417,15 +8414,16 @@ END
 STRINGTABLE 
 BEGIN
     IDR_OPENGLTYPE          "\nUnnamed\n\nOpenGL file (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nPliki OpenGL "
-    IDS_STRING_PORTS_HEADING_POLISH "Polskie portowanie"
-    IDS_STRING_PORTS_INITIAL_WORK_POLISH 
-                            "Initialne portowanie: Warsaw University, Poland (http://www.ee.pw.edu.pl/),\r\nDr. Bartosz Sawicki z studentami"
-    IDS_STRING_PORTS_FURTHER_WORK_POLISH "Dalsze aktualizacje: Pawel Polweski"
-    IDS_STRING_PORTS_HEADING_SERBIAN "Serbskie portowanie"
-    IDS_STRING_PORTS_INITIAL_WORK_SERBIAN 
-                            "Initialne portowanie: Advanced School of Electrical Engineering, Belgrade, Serbia,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
-    IDS_STRING_PORTS_FURTHER_WORK_SERBIAN "Dalsze aktualizacje: -"
-    IDS_STRING_PORTS_HEADING_SPANISH "Hiszpañskie portowanie"
+    IDS_STRING_TRANSLATIONS_HEADING_POLISH "i18n Polish translation"
+    IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
+                            "i18n Initial translation: Warsaw University, Poland (http://www.ee.pw.edu.pl/),\r\nDr. Bartosz Sawicki and his students"
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_POLISH 
+                            "i18n Further Updates: Pawel Polweski"
+    IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "i18n Serbian translation"
+    IDS_STRING_TRANSLATIONS_INITIAL_WORK_SERBIAN 
+                            "i18n Initial translation: Advanced School of Electrical Engineering, Belgrade, Serbia,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN "i18n Further updates: -"
+    IDS_STRING_TRANSLATIONS_HEADING_SPANISH "i18n Spanish translation"
 END
 
 STRINGTABLE 
@@ -11053,10 +11051,10 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_PORTS_INITIAL_WORK_SPANISH 
-                            "Initialne portowanie: Madrid University, Spain (http://www.csic.es),\nDr. Gonzalo Alvarez Maranon and his students"
-    IDS_STRING_PORTS_FURTHER_WORK_SPANISH 
-                            "Dalsze aktualizacje: Raphael Labaca Castro"
+    IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
+                            "i18n Initial translation: Madrid University, Spain (http://www.csic.es),\nDr. Gonzalo Alvarez Maranon and his students"
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
+                            "i18n Further updates: Raphael Labaca Castro"
 END
 
 #endif    // Polish resources
@@ -11495,7 +11493,7 @@ BEGIN
     GROUPBOX        "Kontakt informacije",IDC_STATIC,208,164,155,64
     EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,11,178,185,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
     PUSHBUTTON      "Saradnici",ID_CONTRIBUTORS,7,250,60,18,WS_GROUP
-    PUSHBUTTON      "i18n Ports",ID_PORTS,70,255,60,18,WS_GROUP
+    PUSHBUTTON      "i18n Translations",ID_TRANSLATIONS,70,255,60,18,WS_GROUP
 END
 
 IDD_SHOW_PROGRESS DIALOG  0, 0, 187, 105
@@ -15578,14 +15576,14 @@ BEGIN
     LISTBOX         IDC_LIST_LANGUAGES_CIPHERTEXT,118,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
 END
 
-IDD_PORTS DIALOGEX 0, 0, 370, 280
+IDD_TRANSLATIONS DIALOGEX 0, 0, 370, 280
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "i18n About CrypTool: Ports"
+CAPTION "i18n About CrypTool: Translations"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Close",IDOK,303,255,60,18
     LTEXT           "The CrypTool versions in English and German have been created by the CrypTool core team.",IDC_STATIC,7,7,297,8
-    EDITTEXT        IDC_EDIT_PORTS_INFORMATION,7,20,356,225,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
+    EDITTEXT        IDC_EDIT_TRANSLATIONS_INFORMATION,7,20,356,225,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
 
@@ -19230,7 +19228,7 @@ BEGIN
         BOTTOMMARGIN, 234
     END
 
-    IDD_PORTS, DIALOG
+    IDD_TRANSLATIONS, DIALOG
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 363
@@ -19478,16 +19476,16 @@ END
 STRINGTABLE 
 BEGIN
     IDR_OPENGLTYPE          "\nNeimenovana\n\nOpenGL datoteka (*.ogl)\n.plt\n\nOpenGL Tip Datoteke\nOPENGL\nOpenGL Datoteke\n"
-    IDS_STRING_PORTS_HEADING_POLISH "i18n Polish port"
-    IDS_STRING_PORTS_INITIAL_WORK_POLISH 
-                            "i18n Initial port: Warsaw University, Poland (http://www.ee.pw.edu.pl/),\r\nDr. Bartosz Sawicki and his students"
-    IDS_STRING_PORTS_FURTHER_WORK_POLISH 
+    IDS_STRING_TRANSLATIONS_HEADING_POLISH "i18n Polish translation"
+    IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
+                            "i18n Initial translation: Warsaw University, Poland (http://www.ee.pw.edu.pl/),\r\nDr. Bartosz Sawicki and his students"
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_POLISH 
                             "i18n Further Updates: Pawel Polweski"
-    IDS_STRING_PORTS_HEADING_SERBIAN "i18n Serbian port"
-    IDS_STRING_PORTS_INITIAL_WORK_SERBIAN 
-                            "i18n Initial port: Advanced School of Electrical Engineering, Belgrade, Serbia,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
-    IDS_STRING_PORTS_FURTHER_WORK_SERBIAN "i18n Further updates: -"
-    IDS_STRING_PORTS_HEADING_SPANISH "i18n Spanish port"
+    IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "i18n Serbian translation"
+    IDS_STRING_TRANSLATIONS_INITIAL_WORK_SERBIAN 
+                            "i18n Initial translation: Advanced School of Electrical Engineering, Belgrade, Serbia,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN "i18n Further updates: -"
+    IDS_STRING_TRANSLATIONS_HEADING_SPANISH "i18n Spanish translation"
 END
 
 STRINGTABLE 
@@ -22103,9 +22101,9 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_PORTS_INITIAL_WORK_SPANISH 
-                            "i18n Initial port: Madrid University, Spain (http://www.csic.es),\nDr. Gonzalo Alvarez Maranon and his students"
-    IDS_STRING_PORTS_FURTHER_WORK_SPANISH 
+    IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
+                            "i18n Initial translation: Madrid University, Spain (http://www.csic.es),\nDr. Gonzalo Alvarez Maranon and his students"
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
                             "i18n Further updates: Raphael Labaca Castro"
 END
 
@@ -25202,7 +25200,7 @@ BEGIN
     GROUPBOX        "Release-Informationen",IDC_STATIC,7,164,195,64
     GROUPBOX        "Kontakt-Informationen",IDC_STATIC,208,164,155,64
     PUSHBUTTON      "Mitwirkende",ID_CONTRIBUTORS,7,255,60,18,WS_GROUP
-    PUSHBUTTON      "Portierungen",ID_PORTS,70,255,60,18,WS_GROUP
+    PUSHBUTTON      "Übersetzungen",ID_TRANSLATIONS,70,255,60,18,WS_GROUP
 END
 
 IDD_HMAC DIALOGEX 0, 0, 532, 473
@@ -26648,14 +26646,14 @@ BEGIN
     CONTROL         "",IDC_KEY_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,39,351,149
 END
 
-IDD_PORTS DIALOGEX 0, 0, 370, 280
+IDD_TRANSLATIONS DIALOGEX 0, 0, 370, 280
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Über CrypTool: Portierungen"
+CAPTION "Über CrypTool: Übersetzungen"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Schließen",IDOK,303,255,60,18
     LTEXT           "Die Sprachversionen Deutsch und Englisch wurden vom CrypTool-Kernteam entwickelt.",IDC_STATIC,7,7,278,8
-    EDITTEXT        IDC_EDIT_PORTS_INFORMATION,7,20,356,225,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
+    EDITTEXT        IDC_EDIT_TRANSLATIONS_INFORMATION,7,20,356,225,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
 
@@ -30154,7 +30152,7 @@ BEGIN
         HORZGUIDE, 195
     END
 
-    IDD_PORTS, DIALOG
+    IDD_TRANSLATIONS, DIALOG
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 363
@@ -30404,15 +30402,16 @@ END
 STRINGTABLE 
 BEGIN
     IDR_OPENGLTYPE          "\nUnbenannt\n\nOpenGL Datei (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
-    IDS_STRING_PORTS_HEADING_POLISH "Polnische Portierung"
-    IDS_STRING_PORTS_INITIAL_WORK_POLISH 
-                            "Erstportierung: Universität Warschau, Polen (http://www.ee.pw.edu.pl),\r\nDr. Bartosz Sawicki und seine Studenten"
-    IDS_STRING_PORTS_FURTHER_WORK_POLISH "Weitere Updates: Pawel Polewski"
-    IDS_STRING_PORTS_HEADING_SERBIAN "Serbische Portierung"
-    IDS_STRING_PORTS_INITIAL_WORK_SERBIAN 
-                            "Erstportierung: Advanced School of Electrical Engineering, Belgrad, Serbien,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski und seine Kommilitonen"
-    IDS_STRING_PORTS_FURTHER_WORK_SERBIAN "Weitere Updates: -"
-    IDS_STRING_PORTS_HEADING_SPANISH "Spanische Portierung"
+    IDS_STRING_TRANSLATIONS_HEADING_POLISH "Polnische Übersetzung"
+    IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
+                            "Erstübersetzung: Universität Warschau, Polen (http://www.ee.pw.edu.pl),\r\nDr. Bartosz Sawicki und seine Studenten"
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_POLISH 
+                            "Weitere Updates: Pawel Polewski"
+    IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "Serbische Übersetzung"
+    IDS_STRING_TRANSLATIONS_INITIAL_WORK_SERBIAN 
+                            "Erstübersetzung: Advanced School of Electrical Engineering, Belgrad, Serbien,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski und seine Kommilitonen"
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN "Weitere Updates: -"
+    IDS_STRING_TRANSLATIONS_HEADING_SPANISH "Spanische Übersetzung"
 END
 
 STRINGTABLE 
@@ -33086,9 +33085,9 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_PORTS_INITIAL_WORK_SPANISH 
-                            "Erstportierung: Universität Madrid, Spanien (http://www.csic.es),\r\nDr. Gonzalo Alvarez Maranon und seine Studenten"
-    IDS_STRING_PORTS_FURTHER_WORK_SPANISH 
+    IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
+                            "Erstübersetzung: Universität Madrid, Spanien (http://www.csic.es),\r\nDr. Gonzalo Alvarez Maranon und seine Studenten"
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
                             "Weitere Updates: Raphael Labaca Castro"
 END
 
@@ -33524,7 +33523,7 @@ BEGIN
     GROUPBOX        "Contact information",IDC_STATIC,208,164,155,64
     EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,11,178,185,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
     PUSHBUTTON      "Contributors",ID_CONTRIBUTORS,7,255,60,18,WS_GROUP
-    PUSHBUTTON      "Ports",ID_PORTS,70,255,60,18,WS_GROUP
+    PUSHBUTTON      "Translations",ID_TRANSLATIONS,70,255,60,18,WS_GROUP
 END
 
 IDD_SHOW_PROGRESS DIALOG  0, 0, 187, 105
@@ -37598,14 +37597,14 @@ BEGIN
     LISTBOX         IDC_LIST_LANGUAGES_CIPHERTEXT,118,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
 END
 
-IDD_PORTS DIALOGEX 0, 0, 370, 280
+IDD_TRANSLATIONS DIALOGEX 0, 0, 370, 280
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "About CrypTool: Ports"
+CAPTION "About CrypTool: Translations"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Close",IDOK,303,255,60,18
     LTEXT           "The CrypTool versions in English and German have been created by the CrypTool core team.",IDC_STATIC,7,7,297,8
-    EDITTEXT        IDC_EDIT_PORTS_INFORMATION,7,20,356,225,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
+    EDITTEXT        IDC_EDIT_TRANSLATIONS_INFORMATION,7,20,356,225,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
 
@@ -41270,7 +41269,7 @@ BEGIN
         BOTTOMMARGIN, 133
     END
 
-    IDD_PORTS, DIALOG
+    IDD_TRANSLATIONS, DIALOG
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 363
@@ -41518,15 +41517,16 @@ END
 STRINGTABLE 
 BEGIN
     IDR_OPENGLTYPE          "\nUnnamed\n\nOpenGL file (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
-    IDS_STRING_PORTS_HEADING_POLISH "Polish port"
-    IDS_STRING_PORTS_INITIAL_WORK_POLISH 
-                            "Initial port: Warsaw University, Poland (http://www.ee.pw.edu.pl/),\r\nDr. Bartosz Sawicki and his students"
-    IDS_STRING_PORTS_FURTHER_WORK_POLISH "Further Updates: Pawel Polweski"
-    IDS_STRING_PORTS_HEADING_SERBIAN "Serbian port"
-    IDS_STRING_PORTS_INITIAL_WORK_SERBIAN 
-                            "Initial port: Advanced School of Electrical Engineering, Belgrade, Serbia,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
-    IDS_STRING_PORTS_FURTHER_WORK_SERBIAN "Further updates: -"
-    IDS_STRING_PORTS_HEADING_SPANISH "Spanish port"
+    IDS_STRING_TRANSLATIONS_HEADING_POLISH "Polish translation"
+    IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
+                            "Initial translation: Warsaw University, Poland (http://www.ee.pw.edu.pl/),\r\nDr. Bartosz Sawicki and his students"
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_POLISH 
+                            "Further Updates: Pawel Polweski"
+    IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "Serbian translation"
+    IDS_STRING_TRANSLATIONS_INITIAL_WORK_SERBIAN 
+                            "Initial translation: Advanced School of Electrical Engineering, Belgrade, Serbia,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN "Further updates: -"
+    IDS_STRING_TRANSLATIONS_HEADING_SPANISH "Spanish translation"
 END
 
 STRINGTABLE 
@@ -44137,9 +44137,9 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_PORTS_INITIAL_WORK_SPANISH 
-                            "Initial port: Madrid University, Spain (http://www.csic.es),\nDr. Gonzalo Alvarez Maranon and his students"
-    IDS_STRING_PORTS_FURTHER_WORK_SPANISH 
+    IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
+                            "Initial translation: Madrid University, Spain (http://www.csic.es),\nDr. Gonzalo Alvarez Maranon and his students"
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
                             "Further updates: Raphael Labaca Castro"
 END
 
@@ -48327,7 +48327,7 @@ BEGIN
     GROUPBOX        "Información de contacto",IDC_STATIC,208,164,155,64
     EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,11,178,185,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
     PUSHBUTTON      "C&olaboradores",ID_CONTRIBUTORS,7,252,60,18,WS_GROUP
-    PUSHBUTTON      "&Portabilidad",ID_PORTS,71,252,60,18,WS_GROUP
+    PUSHBUTTON      "i18n Translations",ID_TRANSLATIONS,71,252,60,18,WS_GROUP
 END
 
 IDD_AUTHORS DIALOGEX 0, 0, 370, 275
@@ -48654,9 +48654,9 @@ BEGIN
     GROUPBOX        "Manualmente",IDC_STATIC,140,182,70,30
 END
 
-IDD_PORTS DIALOGEX 0, 0, 370, 280
+IDD_TRANSLATIONS DIALOGEX 0, 0, 370, 280
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Acerca de CrypTool: Portabilidad"
+CAPTION "i18n About CrypTool: Translations"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Cerrar",IDOK,303,255,60,18
@@ -48674,7 +48674,7 @@ BEGIN
     LTEXT           "Nuevas actualizaciones:",IDC_STATIC,20,205,78,8
     LTEXT           "Universidad de Madrid, España (http://www.csic.es),\nSr. Gonzalo Álvarez Marañón y sus estudiantes.",IDC_STATIC,100,185,250,16
     LTEXT           "Sr. Raphael Labaca Castro",IDC_STATIC,100,205,250,16
-    EDITTEXT        IDC_EDIT_PORTS_INFORMATION,7,20,356,225,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
+    EDITTEXT        IDC_EDIT_TRANSLATIONS_INFORMATION,7,20,356,225,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
 
@@ -52323,7 +52323,7 @@ BEGIN
         HORZGUIDE, 322
     END
 
-    IDD_PORTS, DIALOG
+    IDD_TRANSLATIONS, DIALOG
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 363
@@ -52531,16 +52531,16 @@ END
 STRINGTABLE 
 BEGIN
     IDR_OPENGLTYPE          "\nSin nombre\n\nFichero OpenGL (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
-    IDS_STRING_PORTS_HEADING_POLISH "Versión en polaco"
-    IDS_STRING_PORTS_INITIAL_WORK_POLISH 
-                            "Versión inicial:\r\nUniversidad de Varsovia, Polonia (http://www.ee.pw.edu.pl/);\r\nSr. Bartosz Sawicki y sus estudiantes."
-    IDS_STRING_PORTS_FURTHER_WORK_POLISH 
-                            "\r\nNuevas actualizaciones: Sr. Pawel Polewski"
-    IDS_STRING_PORTS_HEADING_SERBIAN "Versión en serbio"
-    IDS_STRING_PORTS_INITIAL_WORK_SERBIAN 
-                            "Versión inicial:\r\nAdvanced School of Electrical Engineering, Belgrado, Serbia;\r\nProf. Dragan Pleskonjic, Sr. Bojan Dimitrovski y sus estudiantes."
-    IDS_STRING_PORTS_FURTHER_WORK_SERBIAN "\r\nNuevas actualizaciones: -"
-    IDS_STRING_PORTS_HEADING_SPANISH "Versión en español"
+    IDS_STRING_TRANSLATIONS_HEADING_POLISH "i18n Polish translation"
+    IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
+                            "i18n Initial translation: Warsaw University, Poland (http://www.ee.pw.edu.pl/),\r\nDr. Bartosz Sawicki and his students"
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_POLISH 
+                            "i18n Further Updates: Pawel Polweski"
+    IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "i18n Serbian translation"
+    IDS_STRING_TRANSLATIONS_INITIAL_WORK_SERBIAN 
+                            "i18n Initial translation: Advanced School of Electrical Engineering, Belgrade, Serbia,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN "i18n Further updates: -"
+    IDS_STRING_TRANSLATIONS_HEADING_SPANISH "i18n Spanish translation"
 END
 
 STRINGTABLE 
@@ -55227,10 +55227,10 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_PORTS_INITIAL_WORK_SPANISH 
-                            "Versión inicial:\r\nUniversidad de Madrid, España (http://www.csic.es);\r\nSr. Gonzalo Álvarez Marañón y sus estudiantes."
-    IDS_STRING_PORTS_FURTHER_WORK_SPANISH 
-                            "\r\nNuevas actualizaciones: Sr. Raphael Labaca Castro"
+    IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
+                            "i18n Initial translation: Madrid University, Spain (http://www.csic.es),\nDr. Gonzalo Alvarez Maranon and his students"
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
+                            "i18n Further updates: Raphael Labaca Castro"
 END
 
 #endif    // Spanish resources

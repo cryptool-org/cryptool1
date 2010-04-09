@@ -18,29 +18,29 @@
 
 **************************************************************************/
 
-#ifndef _DLGPORTS_H_
-#define _DLGPORTS_H_
+#ifndef _DLGTRANSLATIONS_H_
+#define _DLGTRANSLATIONS_H_
 
 #include "resource.h"
 
-// CDlgPorts dialog
+// CDlgTranslations dialog
 
-class CDlgPorts : public CDialog
+class CDlgTranslations : public CDialog
 {
-	DECLARE_DYNAMIC(CDlgPorts)
+	DECLARE_DYNAMIC(CDlgTranslations)
 
 public:
-	CDlgPorts(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CDlgPorts();
+	CDlgTranslations(CWnd* pParent = NULL);   // standard constructor
+	virtual ~CDlgTranslations();
 
 // Dialog Data
-	enum { IDD = IDD_PORTS };
+	enum { IDD = IDD_TRANSLATIONS };
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
 
-	CString portsInformation;
+	CString translationsInformation;
 
 	DECLARE_MESSAGE_MAP()
 };
