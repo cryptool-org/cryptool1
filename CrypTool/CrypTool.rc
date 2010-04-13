@@ -52531,16 +52531,17 @@ END
 STRINGTABLE 
 BEGIN
     IDR_OPENGLTYPE          "\nSin nombre\n\nFichero OpenGL (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
-	IDS_STRING_TRANSLATIONS_HEADING_POLISH "Versión en polaco:"
+    IDS_STRING_TRANSLATIONS_HEADING_POLISH "Versión en polaco:"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
                             "Versión inicial: Universidad de Varsovia, Polonia (http://www.ee.pw.edu.pl/);\r\nSr. Bartosz Sawicki y sus estudiantes."
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_POLISH 
                             "\r\nNuevas actualizaciones: Sr. Pawel Polweski"
-							IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "Versión en serbio:"
+    IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "Versión en serbio:"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SERBIAN 
                             "Versión inicial: Advanced School of Electrical Engineering, Belgrado, Serbia;\r\nProf. Dragan Pleskonjic, Sr. Bojan Dimitrovski y sus estudiantes."
-    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN "\r\nNuevas actualizaciones: -"
-	IDS_STRING_TRANSLATIONS_HEADING_SPANISH "Versión en español:"
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN 
+                            "\r\nNuevas actualizaciones: -"
+    IDS_STRING_TRANSLATIONS_HEADING_SPANISH "Versión en español:"
 END
 
 STRINGTABLE 
@@ -54374,7 +54375,7 @@ BEGIN
     IDS_STRING_ADFGVX_ERROR_2 "¡La matriz contiene caracteres repetidos!"
     IDS_STRING_ADFGVX_ERROR_3 "¡La matriz contiene caracteres inválidos!"
     IDS_STRING_ADFGVX_ERROR_4 
-                            "¡Se han eliminado los caracteres inválidos!\nSólo los caracteres de la 'A' a la 'Z' son válidos.\nLa nueva contraseña es:\n\n"
+                            "¡Se han eliminado los caracteres inválidos!\nSólo los caracteres de la 'A' a la 'Z' son válidos."
     IDS_STRING_ADFGVX_ERROR_5 "¡El texto tiene un número impar de caracteres!"
     IDS_STRING_ADFGVX_ERROR_6 "¡La longitud de la contraseña debe ser >0!"
     IDS_STRING_ADFGVX_ERROR_7 
@@ -54841,9 +54842,9 @@ BEGIN
     IDS_FINDANDREPLACE_NOREGULAREXPRESSIONS_IN_HEX 
                             "La búsqueda con expresiones regulares no es posible para datos hexadecimales."
     IDS_STRING_ADFGVX_OPTION_BACK 
-                            "- repita el proceso de entrada (y cambio la longitud de los bloques si fuera necesario)."
+                            "- repetir el proceso de entrada (y cambiar la longitud de los bloques si fuera necesario)."
     IDS_STRING_ADFGVX_OPTION_CONTINUE 
-                            "\n\nAhora puede, o bien\n- continuar el cifrado con la contraseña de transposición ordenada o\n"
+                            "\n\nAhora debe elegir entre:\n- continuar el cifrado con la contraseña de transposición ordenada o\n"
     IDS_CLIPBORD_COPY_ERROR "No se pudo copiar al portapapeles."
     IDS_CLIPBOARD_HEXCOPY   "Los datos seleccionados no pueden ser cortados sin cambios (por defecto) o en codificación hexadecimal.\nLa codificación hexadecimal se utiliza cuando se desea exportar caracteres no imprimibles a otra aplicación.\n\n¿Usar codificación hexadecimal?"
     IDS_CLIPBOARD_HEXPASTE  "El portapapeles sólo contiene caracteres hexadecimales que pueden insertarse decodificados (por defecto) o sin modificarlos.\n\n¿Decodificar los caracteres hexadecimales?"
