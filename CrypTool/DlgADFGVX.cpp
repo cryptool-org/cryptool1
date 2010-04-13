@@ -281,17 +281,10 @@ void CDlgADFGVX::OnBnClickedButtonEncrypt()
 		//redundant characters: redundant characters are removed, minLength/maxLength is adjusted
 		if (validPassword==7)
 		{
-			CString oldPassword=password;
-			password=cipher->CleansePassword(validPassword, password);
-			UpdateData(false);
-			//LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_7,pc_str,STR_LAENGE_STRING_TABLE);
-			//CString message=(CString)pc_str+(CString)(password);
-			//MessageBox(message);
-			pwdDouble=true;
-			restart=true;
-			OnEnChangeTextfieldPassword();
-
-			OnBnClickedButtonEncrypt();
+			// flomar, 04/12/2010
+			// contrary to our existing approach, we want to allow redundant characters in passwords;
+			// therefore we don't do anything here but call "Encrypt()"
+			Encrypt();
 		}
 
 		if (validPassword==0)
@@ -415,16 +408,10 @@ void CDlgADFGVX::OnBnClickedButtonDecrypt()
 		//redundant characters: redundant characters are removed, minLength/maxLength is adjusted
 		if (validPassword==7)
 		{
-			CString oldPassword=password;
-			password=cipher->CleansePassword(validPassword, password);
-			UpdateData(false);
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_7,pc_str,STR_LAENGE_STRING_TABLE);
-			CString message=(CString)pc_str+(CString)(password);
-			MessageBox(message);
-			restart=true;
-			OnEnChangeTextfieldPassword();
-
-			OnBnClickedButtonDecrypt();
+			// flomar, 04/12/2010
+			// contrary to our existing approach, we want to allow redundant characters in passwords;
+			// therefore we don't do anything here but call "Decrypt()"
+			Decrypt();
 		}
 
 		if (validPassword==0)
