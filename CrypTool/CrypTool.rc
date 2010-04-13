@@ -48327,7 +48327,7 @@ BEGIN
     GROUPBOX        "Información de contacto",IDC_STATIC,208,164,155,64
     EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,11,178,185,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
     PUSHBUTTON      "C&olaboradores",ID_CONTRIBUTORS,7,252,60,18,WS_GROUP
-    PUSHBUTTON      "i18n Translations",ID_TRANSLATIONS,71,252,60,18,WS_GROUP
+    PUSHBUTTON      "Traducciones",ID_TRANSLATIONS,71,252,60,18,WS_GROUP
 END
 
 IDD_AUTHORS DIALOGEX 0, 0, 370, 275
@@ -48656,7 +48656,7 @@ END
 
 IDD_TRANSLATIONS DIALOGEX 0, 0, 370, 280
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "i18n About CrypTool: Translations"
+CAPTION "Acerca de CrypTool: Traducciones"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Cerrar",IDOK,303,255,60,18
@@ -52531,16 +52531,16 @@ END
 STRINGTABLE 
 BEGIN
     IDR_OPENGLTYPE          "\nSin nombre\n\nFichero OpenGL (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
-    IDS_STRING_TRANSLATIONS_HEADING_POLISH "i18n Polish translation"
+	IDS_STRING_TRANSLATIONS_HEADING_POLISH "Versión en polaco:"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
-                            "i18n Initial translation: Warsaw University, Poland (http://www.ee.pw.edu.pl/),\r\nDr. Bartosz Sawicki and his students"
+                            "Versión inicial: Universidad de Varsovia, Polonia (http://www.ee.pw.edu.pl/);\r\nSr. Bartosz Sawicki y sus estudiantes."
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_POLISH 
-                            "i18n Further Updates: Pawel Polweski"
-    IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "i18n Serbian translation"
+                            "\r\nNuevas actualizaciones: Sr. Pawel Polweski"
+							IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "Versión en serbio:"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SERBIAN 
-                            "i18n Initial translation: Advanced School of Electrical Engineering, Belgrade, Serbia,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
-    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN "i18n Further updates: -"
-    IDS_STRING_TRANSLATIONS_HEADING_SPANISH "i18n Spanish translation"
+                            "Versión inicial: Advanced School of Electrical Engineering, Belgrado, Serbia;\r\nProf. Dragan Pleskonjic, Sr. Bojan Dimitrovski y sus estudiantes."
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN "\r\nNuevas actualizaciones: -"
+	IDS_STRING_TRANSLATIONS_HEADING_SPANISH "Versión en español:"
 END
 
 STRINGTABLE 
@@ -55228,9 +55228,9 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
-                            "i18n Initial translation: Madrid University, Spain (http://www.csic.es),\nDr. Gonzalo Alvarez Maranon and his students"
+                            "Versión inicial: Universidad de Madrid, España (http://www.csic.es);\r\nSr. Gonzalo Álvarez Marañón y sus estudiantes."
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
-                            "i18n Further updates: Raphael Labaca Castro"
+                            "\r\nNuevas actualizaciones: Sr. Raphael Labaca Castro"
 END
 
 #endif    // Spanish resources

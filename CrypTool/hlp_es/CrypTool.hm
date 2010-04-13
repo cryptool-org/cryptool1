@@ -20,8 +20,7 @@ HID_GENERATEPASSWORD                    0x107C6
 HID_TEXTOPTIONS                         0x107CC
 HID_MEASUREPASSWORDQUALITY              0x107CF
 HID_CONTRIBUTORS                        0x10809
-HID_CONTRIBUTORS2                       0x1080A
-HID_PORTS                               0x1080A
+HID_TRANSLATIONS                        0x1080B
 HID_CR_OVERVIEW                         0x12B7B
 HID_CR_USAGE                            0x12B7C
 HID_CR_SZ_PASSWORDS                     0x12B7D
@@ -296,7 +295,7 @@ HIDD_PLAYFAIR_ANALYSIS                  0x20066
 HIDD_ICG_RANDOMPARAMETER                0x20067
 HIDD_KEY                                0x2006D
 HIDD_RSA_DECRYPTION                     0x2006E
-HIDD_PORTS                              0x2006F
+HIDD_TRANSLATIONS                       0x2006F
 HIDD_KEY_SUBSTITUTION                   0x20070
 HIDD_SIGNATURE                          0x20071
 HIDD_DIALOG_PLOT_PARAM                  0x20075
