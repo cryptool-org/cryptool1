@@ -25,6 +25,8 @@
 #include "CrypToolApp.h"
 #include "DlgHashDemo.h"
 
+#include "HashingOperations.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -117,6 +119,8 @@ BOOL CDlgHashDemo::OnInitDialog()
 	m_strHashFunctionMD5.LoadString(IDS_HASHDEMO_STRING_MD5);
 	m_strHashFunctionSHA.LoadString(IDS_HASHDEMO_STRING_SHA);
 	m_strHashFunctionSHA1.LoadString(IDS_HASHDEMO_STRING_SHA1);
+	m_strHashFunctionSHA256.LoadString(IDS_HASHDEMO_STRING_SHA256);
+	m_strHashFunctionSHA512.LoadString(IDS_HASHDEMO_STRING_SHA512);
 	m_strHashFunctionRIPEMD160.LoadString(IDS_HASHDEMO_STRING_RIPEMD160);
 	// Die Combobox für die Auswahl der Hashfunktion wird gesetzt
 	m_comboCtrlSelectHashFunction.AddString(m_strHashFunctionMD2);
@@ -124,6 +128,8 @@ BOOL CDlgHashDemo::OnInitDialog()
 	m_comboCtrlSelectHashFunction.AddString(m_strHashFunctionMD5);
 	m_comboCtrlSelectHashFunction.AddString(m_strHashFunctionSHA);
 	m_comboCtrlSelectHashFunction.AddString(m_strHashFunctionSHA1);
+	m_comboCtrlSelectHashFunction.AddString(m_strHashFunctionSHA256);
+	m_comboCtrlSelectHashFunction.AddString(m_strHashFunctionSHA512);
 	m_comboCtrlSelectHashFunction.AddString(m_strHashFunctionRIPEMD160);
 
 	m_comboCtrlSelectHashFunction.SelectString(-1, m_strHashFunctionMD2);
@@ -490,9 +496,24 @@ void CDlgHashDemo::ComputeHash(OctetString *data, OctetString *hashValue)
 	{
 		theApp.SecudeLib.sec_hash_all(data,hashValue,theApp.SecudeLib.sha1_aid,NULL);
 	}
+	if (!strcmp(strSelectedHash, m_strHashFunctionSHA256) )
+	{
+		// flomar, 04/14/2010
+		// contrary to the approach above, we use OpenSSL (see HashingOperations) for SHA-256
+		HashingOperations hashingOperations(6);
+		hashingOperations.DoHash(data->octets, data->noctets, hashValue->octets);
+		hashValue->noctets = 32;
+	}
+	if (!strcmp(strSelectedHash, m_strHashFunctionSHA512) )
+	{
+		// flomar, 04/14/2010
+		// contrary to the approach above, we use OpenSSL (see HashingOperations) for SHA-512
+		HashingOperations hashingOperations(7);
+		hashingOperations.DoHash(data->octets, data->noctets, hashValue->octets);
+		hashValue->noctets = 64;
+	}
 	if (!strcmp(strSelectedHash, m_strHashFunctionRIPEMD160) )
 	{
 		theApp.SecudeLib.sec_hash_all(data,hashValue,theApp.SecudeLib.ripemd160_aid,NULL);
 	}
 }
-

@@ -520,7 +520,7 @@ END
 
 IDD_MANUAL_SUBST_ANALYSIS DIALOGEX 0, 0, 347, 319
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Analiza zast¹pienia: Manual Postprocessing"
+CAPTION "i18n Analiza zast¹pienia: Manual Post-Processing"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT1,40,46,14,12,ES_AUTOHSCROLL
@@ -1348,7 +1348,7 @@ END
 
 IDD_PLAYFAIR_ANALYSIS DIALOGEX 0, 0, 433, 356
 STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
-CAPTION "Analiza Playfair"
+CAPTION "i18n Analiza Playfair: Manual Post-Processing"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_MYTXT,7,307,418,15,ES_UPPERCASE | ES_AUTOHSCROLL
@@ -2280,28 +2280,28 @@ BEGIN
     PUSHBUTTON      "Poka¿ &certyfikat",IDC_SHOW_CERTIFICATE,233,227,72,18
 END
 
-IDD_HASH_DEMO DIALOGEX 0, 0, 328, 406
+IDD_HASH_DEMO DIALOGEX 0, 0, 338, 406
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Demonstracja funkcji haszuj¹cej"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     GROUPBOX        "Wybór funkcji mieszaj¹cej",IDC_STATIC,16,47,100,41
-    GROUPBOX        "Podstawa wartoœci hasz",IDC_STATIC,126,47,184,41
+    GROUPBOX        "Podstawa wartoœci hasz",IDC_STATIC,136,47,184,41
     CONTROL         "&dec",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | WS_GROUP,222,70,40,10
     CONTROL         "&hex",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,154,70,55,10
     CONTROL         "&bin",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,271,70,31,10
-    LTEXT           "Aktualny dokument (ta kopia oryginalnego pliku mo¿e byæ tutaj zmieniona)",IDC_STATIC,16,97,294,8,NOT WS_GROUP
-    EDITTEXT        IDC_EDIT_TEXT,16,109,294,113,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
+    LTEXT           "Aktualny dokument (ta kopia oryginalnego pliku mo¿e byæ tutaj zmieniona)",IDC_STATIC,16,97,304,8,NOT WS_GROUP
+    EDITTEXT        IDC_EDIT_TEXT,16,109,304,113,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
     LTEXT           "Wartoœæ hasz oryginalnego pliku",IDC_STATIC_TITEL,16,231,194,8
-    EDITTEXT        IDC_EDIT_ORIGHASH,16,241,294,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_ORIGHASH,16,241,304,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Wartoœæ hasz dla aktualnego pliku",IDC_STATIC,16,264,89,8
-    EDITTEXT        IDC_EDIT_AKTHASH,16,274,294,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_AKTHASH,16,274,304,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Ró¿nica pomiêdzy wartoœæiami hasz plików: oryginalnego i aktualnego",IDC_STATIC,16,296,252,8
-    PUSHBUTTON      "Wyjœcie",IDCANCEL,220,379,90,18
-    CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",TCS_RAGGEDRIGHT | TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | WS_TABSTOP,16,308,294,64
+    PUSHBUTTON      "Wyjœcie",IDCANCEL,230,379,90,18
+    CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",TCS_RAGGEDRIGHT | TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | WS_VSCROLL | WS_TABSTOP,16,308,304,64
     COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,23,67,88,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Wybierz funkcjê haszuj¹c¹ i potem zmieñ kopiê oryginalnego pliku (pole ""Aktualny dokument"") Poni¿ej mo¿esz zobaczyæ, jak wiele bitów wartoœci hasz zmieni³o siê po tym, jak dokona³eœ zmian w kopi.",IDC_STATIC,31,12,294,24
-    GROUPBOX        "Opis",IDC_STATIC,16,2,294,40
+    LTEXT           "Wybierz funkcjê haszuj¹c¹ i potem zmieñ kopiê oryginalnego pliku (pole ""Aktualny dokument"") Poni¿ej mo¿esz zobaczyæ, jak wiele bitów wartoœci hasz zmieni³o siê po tym, jak dokona³eœ zmian w kopi.",IDC_STATIC,31,12,279,24
+    GROUPBOX        "Opis",IDC_STATIC,16,2,304,40
     RTEXT           "-",IDC_STATIC,19,28,8,8,0,WS_EX_TRANSPARENT
     RTEXT           "-",IDC_STATIC,19,12,8,8
 END
@@ -7629,7 +7629,7 @@ BEGIN
     IDD_HASH_DEMO, DIALOG
     BEGIN
         VERTGUIDE, 16
-        VERTGUIDE, 310
+        VERTGUIDE, 320
         BOTTOMMARGIN, 397
         HORZGUIDE, 53
     END
@@ -8394,6 +8394,7 @@ BEGIN
                             "Nie mo¿na odnaleŸæ plik niezbêdnego do analizy.\n\nPrzy instalacji CrypTool plik jest dostêpny.\n\nPrawdopodobnie CrypTool obecnie u¿ywa przestarza³y wpis z rejestru systemu Windows.\n\nCzy CrypTool w przysz³oœci ma u¿yæ potrzebne pliki do analizy (s³ownik, wykresy i trygramów) z aktualnej instalacji CrypTool?"
     IDS_STRING_LANGUAGE_CHOICE_REQUIREMENTS 
                             " Wybierz CO NAJMNIEJ JEDEN jêzyk s³owa kluczowego i dok³adnie JEDEN jêzyk szyfrogramu."
+    IDS_HASHDEMO_STRING_SHA256 "SHA-256 (256 bits)"
 END
 
 STRINGTABLE 
@@ -11057,6 +11058,11 @@ BEGIN
                             "i18n Further updates: Raphael Labaca Castro"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bits)"
+END
+
 #endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -12402,7 +12408,7 @@ END
 
 IDD_PLAYFAIR_ANALYSIS DIALOGEX 0, 0, 433, 356
 STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
-CAPTION "Playfair Analiza"
+CAPTION "Playfair Analiza: Rucna Dodatna Obrada"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_MYTXT,6,307,418,15,ES_UPPERCASE | ES_AUTOHSCROLL
@@ -13339,28 +13345,28 @@ BEGIN
     PUSHBUTTON      "&Prikaži sertifikat",IDC_SHOW_CERTIFICATE,233,227,72,18
 END
 
-IDD_HASH_DEMO DIALOGEX 0, 0, 328, 401
+IDD_HASH_DEMO DIALOGEX 0, 0, 338, 401
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Heš Demonstracija"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     GROUPBOX        "Odabir heš funkcije",IDC_STATIC,16,47,100,41
-    GROUPBOX        "Osnova heš vrednosti",IDC_STATIC,126,47,184,41
+    GROUPBOX        "Osnova heš vrednosti",IDC_STATIC,136,47,184,41
     CONTROL         "&decimalno",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | WS_GROUP,222,70,40,10
     CONTROL         "&heksadecimalno",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,154,70,55,10
     CONTROL         "&binarno",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,271,70,31,10
-    LTEXT           "Aktuelni dokument (ova kopija originalne datoteke može biti modifikovana ovde)",IDC_STATIC,16,97,294,8,NOT WS_GROUP
-    EDITTEXT        IDC_EDIT_TEXT,16,109,294,113,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
+    LTEXT           "Aktuelni dokument (ova kopija originalne datoteke može biti modifikovana ovde)",IDC_STATIC,16,97,304,8,NOT WS_GROUP
+    EDITTEXT        IDC_EDIT_TEXT,16,109,304,113,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
     LTEXT           "Heš vrednost originalne datoteke",IDC_STATIC_TITEL,16,231,194,8
-    EDITTEXT        IDC_EDIT_ORIGHASH,16,241,294,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_ORIGHASH,16,241,304,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Heš vrednost aktuelne datoteke",IDC_STATIC,16,264,89,8
-    EDITTEXT        IDC_EDIT_AKTHASH,16,274,294,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_AKTHASH,16,274,304,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Razlika izmedu heš vrednosti originalne i aktuelne datoteke",IDC_STATIC,16,296,252,8
-    PUSHBUTTON      "I&zlaz",IDCANCEL,251,378,59,14
-    CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",TCS_RAGGEDRIGHT | TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | WS_TABSTOP,16,308,294,64
+    PUSHBUTTON      "I&zlaz",IDCANCEL,261,378,59,14
+    CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",TCS_RAGGEDRIGHT | TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | WS_VSCROLL | WS_TABSTOP,16,308,304,64
     COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,23,67,88,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Odaberite heš funkciju i zatim promenite kopiju originalne datoteke (pogledati polje ""Aktuelni dokument"").\nIspod se može videti koliko bit-ova heš vrednosti se menja kada uredujete.",IDC_STATIC,31,12,294,24
-    GROUPBOX        "Opis",IDC_STATIC,16,2,294,40
+    LTEXT           "Odaberite heš funkciju i zatim promenite kopiju originalne datoteke (pogledati polje ""Aktuelni dokument"").\nIspod se može videti koliko bit-ova heš vrednosti se menja kada uredujete.",IDC_STATIC,31,12,281,24
+    GROUPBOX        "Opis",IDC_STATIC,16,2,304,40
     RTEXT           "-",IDC_STATIC,19,28,8,8,0,WS_EX_TRANSPARENT
     RTEXT           "-",IDC_STATIC,19,12,8,8
 END
@@ -18698,7 +18704,7 @@ BEGIN
     IDD_HASH_DEMO, DIALOG
     BEGIN
         VERTGUIDE, 16
-        VERTGUIDE, 310
+        VERTGUIDE, 320
         BOTTOMMARGIN, 366
         HORZGUIDE, 53
     END
@@ -19456,6 +19462,7 @@ BEGIN
                             "Datoteka potrebna za analizu nije pronadena.\n\nIpak, ova datoteka je deo Vaše CrypTool instalacije.\n\nCrypTool verovatno trenutno koristi starije Windows kljuceve registra.\n\nOd sada, da li želite da CrypTool koristi datoteke koje su potrebne za analizu (recnik, digrami i trigrami) koje su izdate sa Vašom CrypTool instalacijom?"
     IDS_STRING_LANGUAGE_CHOICE_REQUIREMENTS 
                             "[i18n] Please choose AT LEAST ONE keyword language and EXACTLY ONE ciphertext language."
+    IDS_HASHDEMO_STRING_SHA256 "SHA-256 (256 bita)"
 END
 
 STRINGTABLE 
@@ -22107,6 +22114,11 @@ BEGIN
                             "i18n Further updates: Raphael Labaca Castro"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bita)"
+END
+
 #endif    // Serbian (Latin) resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -23431,7 +23443,7 @@ END
 
 IDD_PLAYFAIR_ANALYSIS DIALOGEX 0, 0, 433, 353
 STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
-CAPTION "Playfair-Analyse"
+CAPTION "Playfair-Analyse: Manuelle Nachbearbeitung"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     GROUPBOX        "Schlüsselmatrix",IDC_STATIC,6,32,134,196
@@ -24373,7 +24385,7 @@ BEGIN
     CTEXT           "Static",IDC_ENTROPY_INFO,7,34,195,23
 END
 
-IDD_HASH_DEMO DIALOGEX 0, 0, 328, 414
+IDD_HASH_DEMO DIALOGEX 0, 0, 338, 430
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hash-Demo"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
@@ -24381,20 +24393,20 @@ BEGIN
     CONTROL         "&dezimal",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | WS_GROUP,226,76,39,10
     CONTROL         "&hexadezimal",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,159,76,55,10
     CONTROL         "bi&när",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,268,76,31,10
-    EDITTEXT        IDC_EDIT_TEXT,16,115,294,113,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
-    EDITTEXT        IDC_EDIT_ORIGHASH,16,247,294,14,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT_AKTHASH,16,280,294,14,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",TCS_RAGGEDRIGHT | TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | WS_TABSTOP,16,314,294,64
-    PUSHBUTTON      "&Schließen",IDCANCEL,240,388,70,18
+    EDITTEXT        IDC_EDIT_TEXT,16,115,304,113,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
+    EDITTEXT        IDC_EDIT_ORIGHASH,16,247,304,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_AKTHASH,16,280,304,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",TCS_RAGGEDRIGHT | TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | WS_VSCROLL | WS_TABSTOP,16,314,304,80
+    PUSHBUTTON      "&Schließen",IDCANCEL,250,404,70,18
     GROUPBOX        "Auswahl der Hashfunktion",IDC_STATIC,16,57,118,41
-    GROUPBOX        "Darstellung der Hashwerte",IDC_STATIC,145,57,164,41
-    LTEXT           "Aktuelles Dokument (diese Kopie der Originaldatei können Sie hier ändern)",IDC_STATIC,16,103,294,8,NOT WS_GROUP
+    GROUPBOX        "Darstellung der Hashwerte",IDC_STATIC,145,57,175,41
+    LTEXT           "Aktuelles Dokument (diese Kopie der Originaldatei können Sie hier ändern)",IDC_STATIC,16,103,304,8,NOT WS_GROUP
     LTEXT           "Hashwert der Originaldatei",IDC_STATIC_TITEL,16,237,194,8
     LTEXT           "Hashwert der aktuellen Datei",IDC_STATIC,16,270,92,8
     LTEXT           "Unterschied zwischen dem Hashwert der Orignal- und dem Hashwert der aktuellen Datei",IDC_STATIC,16,302,285,8
     COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,27,74,88,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Wählen Sie ein Hashverfahren aus und editieren Sie dann unten die Kopie der Originaldatei (Textfeld ""Aktuelles Dokument"").\nGanz unten sehen Sie, wie viele Bits sich im Hashwert ändern, wenn Sie das Dokument editieren.",IDC_STATIC,28,12,280,34
-    GROUPBOX        "Beschreibung",IDC_STATIC,16,2,294,49
+    GROUPBOX        "Beschreibung",IDC_STATIC,16,2,304,49
     RTEXT           "-",IDC_STATIC,17,28,8,8,0,WS_EX_TRANSPARENT
     RTEXT           "-",IDC_STATIC,17,12,8,8
 END
@@ -29607,8 +29619,8 @@ BEGIN
     IDD_HASH_DEMO, DIALOG
     BEGIN
         VERTGUIDE, 16
-        VERTGUIDE, 310
-        BOTTOMMARGIN, 406
+        VERTGUIDE, 320
+        BOTTOMMARGIN, 422
     END
 
     IDD_STARTOPTIONS, DIALOG
@@ -30381,6 +30393,7 @@ BEGIN
                             "Eine für die Analyse notwendige Datei konnte nicht gefunden werden.\n\nIn Ihrer CrypTool-Installation ist die Datei aber vorhanden.\n\nVermutlich verwendet CrypTool im Moment veraltete Einträge aus der Windows-Registry.\n\nWollen Sie, dass CrypTool in Zukunft die für die Analyse notwendigen Dateien (Wörterbuch, Digramme und Trigramme) aus Ihrer aktuellen CrypTool-Installation verwendet?"
     IDS_STRING_LANGUAGE_CHOICE_REQUIREMENTS 
                             "Bitte wählen Sie MINDESTENS EINE Schlüsselwort-Sprache und GENAU EINE Geheimtext-Sprache aus."
+    IDS_HASHDEMO_STRING_SHA256 "SHA-256 (256 bits)"
 END
 
 STRINGTABLE 
@@ -32248,7 +32261,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_ADFGVX_ERROR_10 
-                            "Der vorliegende Text ist kein ADFGVX-Chiffretext!"
+                            "Der von Ihnen zum Entschlüsseln angegebene Text kann kein ADFGVX-Chiffrat sein!"
     IDS_STRING_ADFGVX_ERROR_11 
                             "Ungültiges Zeichen! Bitte nur 'A' bis 'Z' und '0' bis '9' eingeben!"
     IDS_STRING_ADFGVX_ERROR_2 "Matrix enthält doppelte Zeichen!"
@@ -32566,16 +32579,16 @@ BEGIN
                             "Der gewünschte Text wurde nicht gefunden!"
     IDS_FINDANDREPLACE_TEXTOCCURANCESREPLACED 
                             "Der gewünschte Text wurde %d mal ersetzt."
-    IDS_HASHDEMO_STRING_MD2 "MD2 (128 Bit)"
-    IDS_HASHDEMO_STRING_MD4 "MD4 (128 Bit)"
-    IDS_HASHDEMO_STRING_MD5 "MD5 (128 Bit)"
-    IDS_HASHDEMO_STRING_SHA "SHA (160 Bit)"
+    IDS_HASHDEMO_STRING_MD2 "MD2 (128 bits)"
+    IDS_HASHDEMO_STRING_MD4 "MD4 (128 bits)"
+    IDS_HASHDEMO_STRING_MD5 "MD5 (128 bits)"
+    IDS_HASHDEMO_STRING_SHA "SHA (160 bits)"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_HASHDEMO_STRING_SHA1 "SHA-1 (160 Bit)"
-    IDS_HASHDEMO_STRING_RIPEMD160 "RIPEMD-160 (160 Bit)"
+    IDS_HASHDEMO_STRING_SHA1 "SHA-1 (160 bits)"
+    IDS_HASHDEMO_STRING_RIPEMD160 "RIPEMD-160 (160 bits)"
     IDS_NUMBERSHARK_EXE     "Zahlenhai.exe"
     IDS_STRING_ADFGVX_STRINGLENGTH 
                             "In der Eingabe sind nicht alle Buchstaben\n'A' bis 'Z' und alle Ziffern '0' bis '9' enthalten."
@@ -33091,6 +33104,11 @@ BEGIN
                             "Weitere Updates: Raphael Labaca Castro"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bits)"
+END
+
 #endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -33603,7 +33621,7 @@ END
 
 IDD_MANUAL_SUBST_ANALYSIS DIALOGEX 0, 0, 347, 319
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Substitution Analysis: Manual Postprocessing"
+CAPTION "Substitution Analysis: Manual Post-Processing"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT1,40,46,14,12,ES_AUTOHSCROLL
@@ -34430,7 +34448,7 @@ END
 
 IDD_PLAYFAIR_ANALYSIS DIALOGEX 0, 0, 433, 356
 STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
-CAPTION "Playfair Analysis"
+CAPTION "Playfair Analysis: Manual Post-Processing"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_MYTXT,6,307,418,15,ES_UPPERCASE | ES_AUTOHSCROLL
@@ -35363,28 +35381,28 @@ BEGIN
     PUSHBUTTON      "&Show certificate",IDC_SHOW_CERTIFICATE,233,227,72,18
 END
 
-IDD_HASH_DEMO DIALOGEX 0, 0, 328, 403
+IDD_HASH_DEMO DIALOGEX 0, 0, 338, 403
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hash Demonstration"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     GROUPBOX        "Selection of hash function",IDC_STATIC,16,47,100,41
-    GROUPBOX        "Base of hash values",IDC_STATIC,126,47,184,41
+    GROUPBOX        "Base of hash values",IDC_STATIC,136,47,184,41
     CONTROL         "&decimal",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | WS_GROUP,222,70,40,10
     CONTROL         "&hexadecimal",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,154,70,55,10
     CONTROL         "&binary",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,271,70,31,10
-    LTEXT           "Actual document (this copy of the original file can be modified here)",IDC_STATIC,16,97,294,8,NOT WS_GROUP
-    EDITTEXT        IDC_EDIT_TEXT,16,109,294,113,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
+    LTEXT           "Actual document (this copy of the original file can be modified here)",IDC_STATIC,16,97,304,8,NOT WS_GROUP
+    EDITTEXT        IDC_EDIT_TEXT,16,109,304,113,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
     LTEXT           "Hash value of the original file",IDC_STATIC_TITEL,16,231,194,8
-    EDITTEXT        IDC_EDIT_ORIGHASH,16,241,294,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_ORIGHASH,16,241,304,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Hash value of the actual file",IDC_STATIC,16,264,89,8
-    EDITTEXT        IDC_EDIT_AKTHASH,16,274,294,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_AKTHASH,16,274,304,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Difference between the hash values of the original and of the actual file",IDC_STATIC,16,296,252,8
-    PUSHBUTTON      "&Close",IDCANCEL,227,379,83,16
-    CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",TCS_RAGGEDRIGHT | TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | WS_TABSTOP,16,308,294,64
+    PUSHBUTTON      "&Close",IDCANCEL,237,379,83,16
+    CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",TCS_RAGGEDRIGHT | TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | WS_VSCROLL | WS_TABSTOP,16,308,304,64
     COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,23,67,88,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Choose a hash function and then change the copy of the original file (see field ""Actual document"").\nBelow you can see how many bits of the hash value change when you edit.",IDC_STATIC,31,12,294,24
-    GROUPBOX        "Description",IDC_STATIC,16,2,294,40
+    LTEXT           "Choose a hash function and then change the copy of the original file (see field ""Actual document"").\nBelow you can see how many bits of the hash value change when you edit.",IDC_STATIC,31,12,282,24
+    GROUPBOX        "Description",IDC_STATIC,16,2,304,40
     RTEXT           "-",IDC_STATIC,19,28,8,8,0,WS_EX_TRANSPARENT
     RTEXT           "-",IDC_STATIC,19,12,8,8
 END
@@ -40708,7 +40726,7 @@ BEGIN
     IDD_HASH_DEMO, DIALOG
     BEGIN
         VERTGUIDE, 16
-        VERTGUIDE, 310
+        VERTGUIDE, 320
         BOTTOMMARGIN, 395
         HORZGUIDE, 53
     END
@@ -41497,6 +41515,7 @@ BEGIN
                             "A file required for the analysis could not be found.\n\nYet this file is part of your CrypTool installation.\n\nCrypTool is probably using out-dated Windows registry keys at the moment.\n\nFrom now on, do you want CrypTool to use the files required for the analysis (dictionary, digrams and trigrams) that have been rolled out with your current CrypTool installation?"
     IDS_STRING_LANGUAGE_CHOICE_REQUIREMENTS 
                             "Please choose AT LEAST ONE keyword language and EXACTLY ONE ciphertext language."
+    IDS_HASHDEMO_STRING_SHA256 "SHA-256 (256 bits)"
 END
 
 STRINGTABLE 
@@ -43314,7 +43333,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_ADFGVX_ERROR_10 
-                            "The text to be analysed is no ADFGVX-ciphertext!"
+                            "The text you specified to be analyzed cannot possibly be an AFXGVX ciphertext."
     IDS_STRING_ADFGVX_ERROR_11 
                             "Invalid character! Please enter characters from 'A' to 'Z' and '0' to '9' only!"
     IDS_STRING_ADFGVX_ERROR_2 "Matrix contains redundant characters!"
@@ -44141,6 +44160,11 @@ BEGIN
                             "Initial translation: Madrid University, Spain (http://www.csic.es),\nDr. Gonzalo Alvarez Maranon and his students"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
                             "Further updates: Raphael Labaca Castro"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bits)"
 END
 
 #endif    // English (U.K.) resources
@@ -45389,28 +45413,28 @@ BEGIN
     CONTROL         250,IDC_BITMAP_2,"Static",SS_BITMAP | NOT WS_VISIBLE,133,119,18,16
 END
 
-IDD_HASH_DEMO DIALOGEX 0, 0, 328, 401
+IDD_HASH_DEMO DIALOGEX 0, 0, 338, 401
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Demostración de Función Hash"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     GROUPBOX        "Selecione Función Hash",IDC_STATIC,16,47,100,41
-    GROUPBOX        "Representación del Resultado",IDC_STATIC,126,47,184,41
+    GROUPBOX        "Representación del Resultado",IDC_STATIC,136,47,184,41
     CONTROL         "&decimal",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | WS_GROUP,217,70,40,10
     CONTROL         "&hexadecimal",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,154,70,55,10
     CONTROL         "&binario",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,266,70,36,10
-    LTEXT           "Documento Actual (modifique aquí esta copia para ver los resultados)",IDC_STATIC,16,97,294,8,NOT WS_GROUP
-    EDITTEXT        IDC_EDIT_TEXT,16,109,294,113,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
+    LTEXT           "Documento Actual (modifique aquí esta copia para ver los resultados)",IDC_STATIC,16,97,304,8,NOT WS_GROUP
+    EDITTEXT        IDC_EDIT_TEXT,16,109,304,113,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
     LTEXT           "Valor Hash del documento original",IDC_STATIC_TITEL,16,231,194,8
-    EDITTEXT        IDC_EDIT_ORIGHASH,16,241,294,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_ORIGHASH,16,241,304,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Valor Hash del documento actual",IDC_STATIC,16,264,106,8
-    EDITTEXT        IDC_EDIT_AKTHASH,16,274,294,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_AKTHASH,16,274,304,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Diferencia entre los valores Hash del documento original y el actual",IDC_STATIC,16,296,252,8
-    PUSHBUTTON      "&Salir",IDCANCEL,251,378,59,14
-    CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",TCS_RAGGEDRIGHT | TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | WS_TABSTOP,16,308,294,64
+    PUSHBUTTON      "&Salir",IDCANCEL,261,378,59,14
+    CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",TCS_RAGGEDRIGHT | TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | WS_VSCROLL | WS_TABSTOP,16,308,304,64
     COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,23,67,88,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Elija una función hash y modifique la copia del mensaje original (en el cuadro 'Documento Actual')\nObserve las diferencias con respecto el resúmen original",IDC_STATIC,31,12,294,24
-    GROUPBOX        "Descripción",IDC_STATIC,16,2,294,40
+    GROUPBOX        "Descripción",IDC_STATIC,16,2,304,40
     RTEXT           "-",IDC_STATIC,19,28,8,8,0,WS_EX_TRANSPARENT
     RTEXT           "-",IDC_STATIC,19,12,8,8
 END
@@ -46852,7 +46876,7 @@ END
 
 IDD_PLAYFAIR_ANALYSIS DIALOGEX 0, 0, 432, 356
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Análisis Playfair"
+CAPTION "Análisis Playfair: Procesado Manual"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_MYTXT,7,307,418,15,ES_UPPERCASE | ES_AUTOHSCROLL
@@ -51609,7 +51633,7 @@ BEGIN
     IDD_HASH_DEMO, DIALOG
     BEGIN
         VERTGUIDE, 16
-        VERTGUIDE, 310
+        VERTGUIDE, 320
         BOTTOMMARGIN, 366
         HORZGUIDE, 53
     END
@@ -52526,6 +52550,7 @@ BEGIN
                             "Un archivo requerido para el análisis no pudo ser encontrado.\n\nin embargo, el archivo existe en el directorio de instalación de CrypTool.\n\nEs probable que CrypTool esté usando una entrada desactualizada del Registro.\n\n¿Desea que en el futuro CrypTool utilice los archivos necesarios para el análisis (Diccionário, Digrama y Trigrama) del directorio de instalación?"
     IDS_STRING_LANGUAGE_CHOICE_REQUIREMENTS 
                             "Por favor, seleccione AL MENOS un idioma para la palabra clave y UN SOLO idioma para el texto cifrado."
+    IDS_HASHDEMO_STRING_SHA256 "SHA-256 (256 bits)"
 END
 
 STRINGTABLE 
@@ -55232,6 +55257,11 @@ BEGIN
                             "Versión inicial: Universidad de Madrid, España (http://www.csic.es);\r\nSr. Gonzalo Álvarez Marañón y sus estudiantes."
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
                             "\r\nNuevas actualizaciones: Sr. Raphael Labaca Castro"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bits)"
 END
 
 #endif    // Spanish resources

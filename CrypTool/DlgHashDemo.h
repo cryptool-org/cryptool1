@@ -49,6 +49,8 @@ class CDlgHashDemo : public CDialog
 	CString m_strHashFunctionMD5;
 	CString m_strHashFunctionSHA;
 	CString m_strHashFunctionSHA1;
+	CString m_strHashFunctionSHA256;
+	CString m_strHashFunctionSHA512;
 	CString m_strHashFunctionRIPEMD160;
 
 public:
