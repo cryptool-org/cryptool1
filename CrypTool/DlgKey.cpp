@@ -222,17 +222,16 @@ BOOL CDlgKey::OnInitDialog()
 	m_EncryptionButton.EnableWindow(FALSE);
 	m_DecryptionButton.EnableWindow(FALSE);	
 
-	// flomar, 04/08/2009
-	// we're defaulting to Vigenere here (IDS_CRYPT_VIGENERE) because
-	// Vigenere is the only encryption algorithm where we're still using 
-	// this - basically deprecated - key input dialog; I don't know what 
-	// type of hack it was to determine whether there's a key to paste 
-	// or not, and I'm too busy to dig any deeper right now; whatever, 
-	// it didn't seem to work, so we're gonna go with this:
-	CString keyType; keyType.LoadString(IDS_CRYPT_VIGENERE);
-	CString keyToBePasted;
-	if(PasteKey((LPCTSTR)(keyType), keyToBePasted)) m_Paste.EnableWindow(TRUE);
-	else m_Paste.EnableWindow(FALSE);
+	CString Title;
+	Title=s_alternativeWindowText;
+	if ( IsKeyEmpty( Title ))
+	{
+		m_Paste.EnableWindow(TRUE);
+	}
+	else
+	{
+		m_Paste.EnableWindow(FALSE);
+	}
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
@@ -243,22 +242,24 @@ void CDlgKey::OnPasteKey()
 {
 	UpdateData(TRUE);
 
-	// flomar, 04/08/2010
-	// see comment above: it's just a quick fix
-	CString keyType; keyType.LoadString(IDS_CRYPT_VIGENERE);
-	CString keyToBePasted;
-	if(PasteKey((LPCTSTR)(keyType), keyToBePasted)) {
-		m_text = keyToBePasted;
-		m_EncryptionButton.EnableWindow(TRUE);
-		m_DecryptionButton.EnableWindow(TRUE);
+	CString Title, alphabet = theApp.TextOptions.getAlphabet();
+	Title=s_alternativeWindowText;
+	ExtractStrKeyType( strTitle, Title );
+	if ( PasteKey(strTitle,m_text) )
+	{
+		if (this->IsKeyInAlphabet(m_text, alphabet))
+		{
+			m_EncryptionButton.EnableWindow(TRUE);
+			m_DecryptionButton.EnableWindow(TRUE);
+		}
+		else
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_BAD_KEY,pc_str,255);
+			AfxMessageBox(pc_str,MB_ICONEXCLAMATION);
+			m_text.Empty();
+		}
 	}
-	else {
-		m_text = "";
-		m_EncryptionButton.EnableWindow(FALSE);
-		m_DecryptionButton.EnableWindow(FALSE);
-	}
-
-	UpdateData(false);
+	UpdateData(FALSE);
 }
 
 
