@@ -250,6 +250,7 @@ void VigenereAsc(const char *infile, const char *OldTitle)
     char outfile[1024];
     CDlgKey KeyDialog(MAX_VIGENERE);
 // == KeyDialog
+		SetDialogTitle( KeyDialog, IDS_STRING_KEY_INPUT_VIGENERE );
 	if(KeyDialog.Display()!=IDOK) 
 		return;
 
@@ -260,7 +261,6 @@ void VigenereAsc(const char *infile, const char *OldTitle)
 	LoadText( infile, text );
 	if ( !CheckTextSize( text ) ) 
 		return;
-	SetDialogTitle( KeyDialog, IDS_STRING_KEY_INPUT_VIGENERE );
 
 // == Encryption / Decryption
 	SHOW_HOUR_GLASS
