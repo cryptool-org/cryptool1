@@ -44864,7 +44864,7 @@ BEGIN
     EDITTEXT        IDC_CRT_TRANSFORMATION_EDITSOLVE6,12,301,271,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER | NOT WS_TABSTOP
     GROUPBOX        "Solución",IDC_STATIC,6,370,281,31
     PUSHBUTTON      "Generar",IDC_Generate1,228,175,48,14
-    GROUPBOX        "2. Introduzca los dos númeross:",IDC_STATIC,11,86,272,46
+    GROUPBOX        "2. Introduzca los dos números:",IDC_STATIC,11,86,272,46
     GROUPBOX        "3. Introduzca los módulos (deben ser primos entre sí):",IDC_STATIC,11,137,272,144
     GROUPBOX        "Intervalo representable (depende del tamaño de los módulos)",IDC_STATIC,6,291,283,29
     PUSHBUTTON      "&Reiniciar",IDC_CRT_TRANSFORMATION_BUTTONRESET2,113,406,66,16
@@ -45433,7 +45433,7 @@ BEGIN
     PUSHBUTTON      "&Salir",IDCANCEL,261,378,59,14
     CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",TCS_RAGGEDRIGHT | TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | WS_VSCROLL | WS_TABSTOP,16,308,304,64
     COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,23,67,88,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Elija una función hash y modifique la copia del mensaje original (en el cuadro 'Documento Actual')\nObserve las diferencias con respecto el resúmen original",IDC_STATIC,31,12,294,24
+    LTEXT           "Elija una función hash y modifique la copia del mensaje original (en cuadro 'Documento\nActual')\nObserve las diferencias con respecto el resúmen original",IDC_STATIC,31,12,294,24
     GROUPBOX        "Descripción",IDC_STATIC,16,2,304,40
     RTEXT           "-",IDC_STATIC,19,28,8,8,0,WS_EX_TRANSPARENT
     RTEXT           "-",IDC_STATIC,19,12,8,8
@@ -45942,7 +45942,7 @@ END
 
 IDD_KEY_HOMOPHONE DIALOGEX 0, 0, 394, 418
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Entrada de Clave: Sustitución Homofónica"
+CAPTION "Entrada de Clave: Cifrado Homofónico"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Ci&frar",IDOK,14,388,80,18
@@ -48898,7 +48898,7 @@ BEGIN
             MENUITEM "&Test de Primalidad...",      ID_PRIMENUMBER_TEST
             MENUITEM "Generar Números &Primos...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
             MENUITEM "&Factorización de un Número ...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
-            MENUITEM " Demonstración &RSA...",      ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
+            MENUITEM "Demonstración &RSA...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
             MENUITEM "Demostración de &Firma (Generación de una Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
             POPUP "Ataques a RSA basad&os en Celosía"
             BEGIN
@@ -53263,7 +53263,7 @@ BEGIN
     IDS_STRING_KEY_INPUT_VIGENERE "Entrada de Clave: Vigenère"
     IDS_STRING_COLUMN_FREQUENCY "Frecuencia"
     IDS_STRING_KEY_INPUT_XOR "Entrada de Clave: XOR byte a byte"
-    IDS_STRING_KEY_INPUT_ADD "Entrada de Clave: Suma byte a byte (ADD)"
+    IDS_STRING_KEY_INPUT_ADD "Entrada de Clave: Suma de bytes (ADD)"
     IDS_STRING_RSA_TUTORIAL_INPUT 
                             "Introduzca el mensaje para cifrar o descifrar en modo texto o hexadecimal."
 END
@@ -53618,7 +53618,7 @@ BEGIN
     IDS_STRING_EC_SEPERATOR " "
     IDS_PARAM_PERMUTATION   "Parámetro PERMUTACIÓN"
     IDS_PARAM_PLAYFAIR      " Parámetro PLAYFAIR"
-    IDS_PARAM_HOMOPHONE     "Parámetro HOMOPHONE"
+    IDS_PARAM_HOMOPHONE     "Parámetro HOMÓFONO"
     IDS_PARAM_RSA_DEMO      "Parámetro RSA-DEMO"
     IDS_STRING_RSA_TUTORIAL_INPUT_NUMBERS 
                             "Entrada del mensaje en el siguiente formato: número(1) # número(2) # ... # número(n)   (número de bases %i)."
@@ -53692,7 +53692,7 @@ BEGIN
     IDS_CRYPT_CAESAR        "Caesar"
     IDS_CRYPT_VIGENERE      "Vigenère"
     IDS_CRYPT_HILL          "Hill"
-    IDS_CRYPT_HOMOPHONE     "Homophone"
+    IDS_CRYPT_HOMOPHONE     "Homófono"
     IDS_CRYPT_SUBSTITUTION  "Sustitución"
     IDS_CRYPT_PLAYFAIR      "Playfair"
     IDS_CRYPT_ADDITION      "ADD"
@@ -54176,7 +54176,7 @@ STRINGTABLE
 BEGIN
     IDS_modeText_Start      "Bienvenido a la demostración del protocolo de Autenticación Desafío-Respuesta.\r\nPodrá analizar el protocolo en distintos escenarios.\r\nLos diferentes escenarios pueden ser seleccionados con los botones del lado izquierdo de la pantalla.\r\nPuede obtener más información acerca de su uso en la ayuda (F1). Quizás sea conveniente que le eche un vistazo antes de comenzar a utilizar la herramienta.\r\n\r\nContinúe pulsando sobre 'Introducción'."
     IDS_modeText_Einfuehrung 
-                            "Introducción: La red mostrada representa la estructura básica para los escenarios siguientes:\r\nLos cuadrados representan los ordenadores y a sus uruarios,\r\nlas líneas muestran las conexiones de red entre ellos.\r\nUsted representará el papel del atacante y su objetivo será obtener información para autenticarse ante el Servidor 1. Para conseguirlo, dispone de las acciones enlazar y romper enlace y atacar y eliminar estación atacada. Todas las acciones se realizan seleccionando la acción por medio de su botón y pulsando sobre la estación o el enlace que se desea alterar. Las conexiones entre el atacante y un router pueden ser establecidas con 'Enlazar' y pulsando sobre el router en cuestión. Pulsando sobre el botón 'Autenticar', comienza el protocolo de autenticación y los paquetes de datos son enviados entre los equipos implicados. Las estaciones atacadas envían una copia de todos los paquetes al atacante. Eligiendo 'Máscara', puede comenzar el ataque de 'Hombre En El Medio'.\r\nPara volver al estado inicial, pulse sobre 'Reiniciar Escenario'."
+                            "Introducción: La red mostrada representa la estructura básica para los escenarios siguientes:\r\nLos cuadrados representan los ordenadores y a sus usuarios, las líneas muestran las conexiones de red entre ellos.\r\nUsted representará el papel del atacante y su objetivo será obtener información para autenticarse ante el Servidor 1. Para conseguirlo, dispone de las acciones enlazar y romper enlace y atacar y eliminar estación atacada. Todas las acciones se realizan seleccionando la acción por medio de su botón y pulsando sobre la estación o el enlace que se desea alterar. Las conexiones entre el atacante y un router pueden ser establecidas con 'Enlazar' y pulsando sobre el router en cuestión. Pulsando sobre el botón 'Autenticar', comienza el protocolo de autenticación y los paquetes de datos son enviados entre los equipos implicados. Las estaciones atacadas envían una copia de todos los paquetes al atacante. Eligiendo 'Máscara', puede comenzar el ataque de 'Hombre En El Medio'.\r\nPara volver al estado inicial, pulse sobre 'Reiniciar Escenario'."
 END
 
 STRINGTABLE 
