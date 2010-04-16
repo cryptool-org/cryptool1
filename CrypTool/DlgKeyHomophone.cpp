@@ -281,7 +281,9 @@ BOOL CDlgKeyHomophone::OnInitDialog()
 		m_ctrlEncryptFormatCharacters.EnableWindow(FALSE);
 	}
 
-	if ( IsKeyEmpty( "Homophone" ))
+	CString SKeyID;
+	SKeyID.LoadStringA(IDS_CRYPT_HOMOPHONE);
+	if ( IsKeyEmpty( SKeyID ) )
 	{
 		m_Paste.EnableWindow(TRUE);
 	}
@@ -331,8 +333,10 @@ void CDlgKeyHomophone::OnLoadKey()
 	SHOW_HOUR_GLASS
 
 	UpdateData(TRUE);
-	
-	if ( FALSE == PasteKey("Homophone", m_KeyCStr ) )
+
+	CString SKeyID;
+	SKeyID.LoadStringA(IDS_CRYPT_HOMOPHONE);
+	if ( FALSE == PasteKey(SKeyID, m_KeyCStr ) )
 	{
 		m_KeyCtrl.SetSel(0,-1);
 		m_KeyCtrl.Paste();
