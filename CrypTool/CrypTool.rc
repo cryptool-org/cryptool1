@@ -23522,7 +23522,7 @@ BEGIN
     DEFPUSHBUTTON   "&Verschlüsseln",IDOK,10,308,66,20
     PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,93,308,66,20
     PUSHBUTTON      "&Abbrechen",IDCANCEL,176,308,52,20
-    CONTROL         "Vorformartierten Text anzeigen",IDC_PREFORM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,17,145,8
+    CONTROL         "Vorformatierten Text anzeigen",IDC_PREFORM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,17,145,8
     CONTROL         "Text auf eingestelltes Alphabet beschränken",IDC_CHECK_LIMIT_TEXT_TO_ALPHABET,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,31,181,8
     CONTROL         "&Doppelte Zeichen im Schlüssel ignorieren",IDC_CHECK1,

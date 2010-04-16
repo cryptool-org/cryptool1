@@ -36,6 +36,17 @@
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgKeyPlayfair 
 
+// flomar, 04/16/2010
+struct PlayfairOptions {
+	bool showPreformattedText;
+	bool limitTextToCurrentlyConfiguredAlphabet;
+	bool separateDoubleCharacters;
+	CString separator1;
+	CString separator2;
+	bool separateDoubleCharactersOnlyWithinPairs;
+	bool ignoreDuplicatesWithinTheKeyPhrase;
+};
+
 class CDlgKeyPlayfair : public CDialog
 {
 	CBitmapButton m_Paste;
@@ -44,9 +55,12 @@ public:
 	~CDlgKeyPlayfair();
 	CDlgKeyPlayfair(const char *infile,const char *outfile,int,int,CWnd* pParent = NULL);   // Standardkonstruktor
 	bool getDec()  { return ( m_Dec ); };
-	bool getSeparateDoubleCharacters() { return (separateDoubleCharacters != 0); };
-	bool getSeparateDoubleCharactersOnlyWithinPairs() { return (separateDoubleCharactersOnlyWithinPairs != 0); };
-	CString getSeparator() { return separator; };
+
+	// flomar, 04/16/2010
+	// return the options the Playfair encryption was executed with; these are all the options 
+	// that can be configured in the upper part of the dialog (see implementation for details)
+	PlayfairOptions getPlayfairOptions();
+
 	char *GetData();
 	int Display();
 
@@ -66,9 +80,11 @@ public:
 	CButton m_prec;
 	CString m_mat[6][6];
 	CButton m_matc[11];
+	int limitTextToAlphabet;
 	int separateDoubleCharacters;
 	int separateDoubleCharactersOnlyWithinPairs;
-	CString separator;
+	CString separator1;
+	CString separator2;
 	//}}AFX_DATA
 
 

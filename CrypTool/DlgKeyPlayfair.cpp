@@ -58,7 +58,8 @@ CDlgKeyPlayfair::CDlgKeyPlayfair(const char *infile,const char *outfile,int r,in
 
 	separateDoubleCharacters = 1;
 	separateDoubleCharactersOnlyWithinPairs = 1;
-	separator = "X";
+	separator1 = "X";
+	separator2 = "Y";
 }
 
 CDlgKeyPlayfair::~CDlgKeyPlayfair()
@@ -127,9 +128,11 @@ void CDlgKeyPlayfair::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_PREFORM, m_preformat);
 	DDX_Control(pDX, IDC_PREFORM, m_prec);
 	DDX_Check(pDX, IDC_CHECK1, m_use);
+	DDX_Check(pDX, IDC_CHECK_LIMIT_TEXT_TO_ALPHABET, limitTextToAlphabet);
 	DDX_Check(pDX, IDC_CHECK_SEPARATE_LETTERS, separateDoubleCharacters);
 	DDX_Check(pDX, IDC_CHECK_SEPARATE_LETTERS_ONLY_IN_PAIRS, separateDoubleCharactersOnlyWithinPairs);
-	DDX_Text(pDX, IDC_EDIT_SEPARATOR, separator);
+	DDX_Text(pDX, IDC_EDIT_SEPARATOR1, separator1);
+	DDX_Text(pDX, IDC_EDIT_SEPARATOR2, separator2);
 	//}}AFX_DATA_MAP
 }
 
@@ -144,9 +147,11 @@ BEGIN_MESSAGE_MAP(CDlgKeyPlayfair, CDialog)
 	ON_BN_CLICKED(IDOK, OnEncrypt)
 	ON_BN_CLICKED(IDC_CHECK1, OnCheck)
 	ON_BN_CLICKED(IDC_PREFORM, OnCheck)
+	ON_BN_CLICKED(IDC_CHECK_LIMIT_TEXT_TO_ALPHABET, OnCheck)
 	ON_BN_CLICKED(IDC_CHECK_SEPARATE_LETTERS, OnCheck)
 	ON_BN_CLICKED(IDC_CHECK_SEPARATE_LETTERS_ONLY_IN_PAIRS, OnCheck)
-	ON_EN_CHANGE(IDC_EDIT_SEPARATOR, OnChangeSeparator)
+	ON_EN_CHANGE(IDC_EDIT_SEPARATOR1, OnChangeSeparator)
+	ON_EN_CHANGE(IDC_EDIT_SEPARATOR2, OnChangeSeparator)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -335,18 +340,40 @@ void CDlgKeyPlayfair::OnPasteKey()
 void CDlgKeyPlayfair::OnChangeSeparator()
 {
 	UpdateData(TRUE);
-	// flomar, 03/27/2010
-	// valid separators are A-Z, and we go with "X" by default;
+	
+	// flomar, 04/16/2010
+	// valid separators are A-Z, and we go with "X" and "Y" by default;
 	// this behavior is based on the old implementation in CDlgTextOptions
-	if(separator.GetLength() == 0) {
-		separator = "X";
+	
+	if(separator1.GetLength() == 0) {
+		separator1 = "X";
 	}
-	if(separator.GetLength() > 1) {
-		separator.Delete(1, separator.GetLength() - 1);
+	if(separator1.GetLength() > 1) {
+		separator1.Delete(1, separator1.GetLength() - 1);
 	}
 	// at this point we have exactly one character
-	if(separator[0] < 'A' || separator[0] > 'Z') {
-		separator = "X";
+	if(separator1[0] < 'A' || separator1[0] > 'Z') {
+		separator1 = "X";
 	}
+
+	if(separator2.GetLength() == 0) {
+		separator2 = "Y";
+	}
+	if(separator2.GetLength() > 1) {
+		separator2.Delete(1, separator2.GetLength() - 1);
+	}
+	// at this point we have exactly one character
+	if(separator2[0] < 'A' || separator2[0] > 'Z') {
+		separator2 = "Y";
+	}
+
 	UpdateData(FALSE);
+}
+
+PlayfairOptions CDlgKeyPlayfair::getPlayfairOptions()
+{
+	PlayfairOptions playfairOptions;
+	// flomar, 04/16/2010
+	// TODO: go through the dialog and build the options structure
+	return playfairOptions;
 }
