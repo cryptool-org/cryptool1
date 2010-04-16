@@ -666,6 +666,7 @@
 #define IDC_EDIT162                     1182
 #define IDC_TITEL                       1183
 #define IDC_EDIT163                     1183
+#define IDC_CHECK_LIMIT_TEXT_TO_ALPHABET 1183
 #define IDC_CHECK9                      1184
 #define IDC_EDIT164                     1184
 #define IDC_MYTXT                       1185
@@ -1671,6 +1672,8 @@
 #define IDC_LIST_LANGUAGES_KEYWORD      2075
 #define IDC_LIST_LANGUAGES_CIPHERTEXT   2076
 #define IDC_EDIT_TRANSLATIONS_INFORMATION 2080
+#define IDC_EDIT_SEPARATOR1             2081
+#define IDC_EDIT_SEPARATOR2             2082
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -3318,7 +3321,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        885
 #define _APS_NEXT_COMMAND_VALUE         33397
-#define _APS_NEXT_CONTROL_VALUE         2081
+#define _APS_NEXT_CONTROL_VALUE         2082
 #define _APS_NEXT_SYMED_VALUE           114
 #endif
 #endif
