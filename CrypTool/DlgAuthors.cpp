@@ -45,7 +45,8 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // this is a static sha-1 hash value (used for integrity of the authors.txt file)
-static const CString authorsFileHash = "98613530bc7fbaa173ac0fad38cd880b9d3e8303";
+static const CString authorsFileHash = "023b46aa67c1e66fb60c4b6cc55a66da46fbfd52";
+
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgAuthors 
