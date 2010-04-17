@@ -434,15 +434,35 @@ typedef struct anadigramme
 
 int compdigram(struct digram *,struct digram *);
 */
+
+// flomar, 04/16/2010
+struct PlayfairOptions {
+	bool decryption;
+	bool showPreformattedText;
+	CString fileNamePreformattedText;
+	CString fileNameResultText;
+	bool limitTextToCurrentlyConfiguredAlphabet;
+	bool separateDoubleCharacters;
+	CString separator1;
+	CString separator2;
+	bool separateDoubleCharactersOnlyWithinPairs;
+	bool ignoreDuplicatesWithinTheKeyPhrase;
+};
+
 class CPlayfairAnalysis
 {
 public:
+	// flomar, 04/16/2010
+	// apply Playfair with the given options
+	void ApplyPlayfair(const PlayfairOptions playfairOptions);
+
+	// flomar, 04/16/2010
+	// these functions are deprecated; remove them if possible
+#if 0
 	void ApplyPlayfairToInput( bool ); //used in crypt.cpp
 	void ApplyPlayfairPreformat(bool, char*, char*, bool, bool, CString); //used in crypt.cpp
-/*private:
-	int genliste(anadigramme *);
-	int genliste2(anadigramme *);
-*/
+#endif
+
 public:
 	void CreateMatrixFromPass(); //used in DialogPlayfair.cpp
 	bool DoCipher( bool withConvert, bool Dec, int len, char *stipulation=NULL, int stiplen=0, char *theinbuf=NULL, int theinbuflen=0); 
@@ -594,6 +614,8 @@ private:
 	bool separateDoubleCharacters;
 	bool separateDoubleCharactersOnlyWithinPairs;
 	CString separator;
+	// flomar, 04/16/2010
+	char convertCharacterToPlayfair(const char _character);
 
 }; //class CPlayfairAnalysis
 

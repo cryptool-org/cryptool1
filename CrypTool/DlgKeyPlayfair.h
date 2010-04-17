@@ -37,15 +37,8 @@
 // Dialogfeld CDlgKeyPlayfair 
 
 // flomar, 04/16/2010
-struct PlayfairOptions {
-	bool showPreformattedText;
-	bool limitTextToCurrentlyConfiguredAlphabet;
-	bool separateDoubleCharacters;
-	CString separator1;
-	CString separator2;
-	bool separateDoubleCharactersOnlyWithinPairs;
-	bool ignoreDuplicatesWithinTheKeyPhrase;
-};
+// forward declaration
+struct PlayfairOptions;
 
 class CDlgKeyPlayfair : public CDialog
 {

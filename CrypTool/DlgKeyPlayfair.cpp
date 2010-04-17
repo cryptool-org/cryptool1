@@ -56,6 +56,7 @@ CDlgKeyPlayfair::CDlgKeyPlayfair(const char *infile,const char *outfile,int r,in
 
 	m_Dec = 0;
 
+	limitTextToAlphabet = 1;
 	separateDoubleCharacters = 1;
 	separateDoubleCharactersOnlyWithinPairs = 1;
 	separator1 = "X";
@@ -188,33 +189,31 @@ void CDlgKeyPlayfair::OnCheck()
 	UpdateData(TRUE);
 	m_Alg->PassUse(m_use);
 	
-	// flomar, 03/27/2010
-	// we're simulating a dependency matrix here with the following items:
-	//	(a) the pre-format checkbox
-	//	(b) the separate-letters checkbox (plus edit field)
-	//	(c) the separate-letters-only-within-pairs checkbox
-	// the following rules are implemented:
-	//	(1) (b) is only active when (a) is checked
-	//	(2) (c) is only active when (a) and (b) are checked
-
+	// flomar, 04/16/2010
 	CWnd *windowCheckSeparator = GetDlgItem(IDC_CHECK_SEPARATE_LETTERS);
-	CWnd *windowEditSeparator = GetDlgItem(IDC_EDIT_SEPARATOR);
+	CWnd *windowTextSeparator1 = GetDlgItem(IDC_STATIC_TEXT_SEPARATOR1);
+	CWnd *windowTextSeparator2 = GetDlgItem(IDC_STATIC_TEXT_SEPARATOR2);
+	CWnd *windowEditSeparator1 = GetDlgItem(IDC_EDIT_SEPARATOR1);
+	CWnd *windowEditSeparator2 = GetDlgItem(IDC_EDIT_SEPARATOR2);
 	CWnd *windowCheckSeparatorOnlyWithinPairs = GetDlgItem(IDC_CHECK_SEPARATE_LETTERS_ONLY_IN_PAIRS);
 
-	if(windowCheckSeparator && windowEditSeparator && windowCheckSeparatorOnlyWithinPairs) {
-		// disable all windows by default
-		windowCheckSeparator->EnableWindow(false);
-		windowEditSeparator->EnableWindow(false);
+	// don't do anything if there's an invalid window
+	if(windowCheckSeparator && windowTextSeparator1 && windowTextSeparator2 && windowEditSeparator1 && windowEditSeparator2 && windowCheckSeparatorOnlyWithinPairs) {
+		// disable all separator-related windows by default
+		windowTextSeparator1->EnableWindow(false);
+		windowTextSeparator2->EnableWindow(false);
+		windowEditSeparator1->EnableWindow(false);
+		windowEditSeparator2->EnableWindow(false);
 		windowCheckSeparatorOnlyWithinPairs->EnableWindow(false);
-		// enable the (a) windows if pre-format is checked (see above)
-		if(m_preformat) {
-			windowCheckSeparator->EnableWindow(true);
-			if(separateDoubleCharacters) {
-				windowEditSeparator->EnableWindow(true);
-				windowCheckSeparatorOnlyWithinPairs->EnableWindow(true);
-			}
+		// enable them if "separateDoubleCharacters" is set
+		if(separateDoubleCharacters) {
+			windowTextSeparator1->EnableWindow(true);
+			windowTextSeparator2->EnableWindow(true);
+			windowEditSeparator1->EnableWindow(true);
+			windowEditSeparator2->EnableWindow(true);
+			windowCheckSeparatorOnlyWithinPairs->EnableWindow(true);
 		}
-		// manually check the separator
+		// implicitly check the separator
 		OnChangeSeparator();
 	}
 
@@ -367,13 +366,32 @@ void CDlgKeyPlayfair::OnChangeSeparator()
 		separator2 = "Y";
 	}
 
+	// if both separators are equal, we go with X and Y
+	if(separator1 == separator2) {
+		separator1 = "X";
+		separator2 = "Y";
+	}
+
 	UpdateData(FALSE);
 }
 
 PlayfairOptions CDlgKeyPlayfair::getPlayfairOptions()
 {
+	// create a PlayfairOptions structure that is to be returned
 	PlayfairOptions playfairOptions;
-	// flomar, 04/16/2010
-	// TODO: go through the dialog and build the options structure
+	
+	playfairOptions.decryption = this->m_Dec;
+	playfairOptions.fileNamePreformattedText = "TODO";
+	playfairOptions.fileNameResultText = "TODO";
+	playfairOptions.ignoreDuplicatesWithinTheKeyPhrase = this->m_use;
+	playfairOptions.limitTextToCurrentlyConfiguredAlphabet = this->limitTextToAlphabet;
+	playfairOptions.separateDoubleCharacters = this->separateDoubleCharacters;
+	playfairOptions.separateDoubleCharactersOnlyWithinPairs = this->separateDoubleCharactersOnlyWithinPairs;
+	playfairOptions.separator1 = this->separator1;
+	playfairOptions.separator2 = this->separator2;
+	playfairOptions.showPreformattedText = this->m_preformat;
+
 	return playfairOptions;
 }
+
+

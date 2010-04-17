@@ -1369,6 +1369,76 @@ void CPlayfairAnalysis::CreateMatrixFromPass()
 	return;
 }
 
+void CPlayfairAnalysis::ApplyPlayfair(const PlayfairOptions playfairOptions)
+{
+	// allocate memory for the preformatted text (2*inbuflen)
+	int preformattedTextSize = inbuflen * 2;
+	char *preformattedText = new char[preformattedTextSize];
+	memset(preformattedText, 0, preformattedTextSize);
+
+	// go through all characters of the initial text and apply some Playfair 
+	// conversions; the result will be stored in "preformattedText"
+	char currentCharacter = 0;
+	char oldCharacter = 0;
+	int j = 0;
+	for(int i=0; i<inbuflen; i++) {
+		// apply some basic conversions (i.e. "J"->"I" and stuff)
+		currentCharacter = convertCharacterToPlayfair(inbuf[i]);
+		// continue if we don't have a valid Playfair character
+		if(!myisalpha2(currentCharacter)) continue;
+		// continue if we have a non-alphabet character (and opted to ignore them)
+		if(theApp.TextOptions.getAlphabet().Find(currentCharacter) == -1 && playfairOptions.limitTextToCurrentlyConfiguredAlphabet) continue;
+		// check if there is a potential double-character hit
+		if(currentCharacter == oldCharacter) {
+			// next, check if we're supposed to separate double-characters at all
+			if(playfairOptions.separateDoubleCharacters) {
+				// next, make sure we only separate the correct characters; especially 
+				// keep those double-characters in mind that don't form a pair
+				if(!playfairOptions.separateDoubleCharactersOnlyWithinPairs || (playfairOptions.separateDoubleCharactersOnlyWithinPairs && j%2)) {
+					preformattedText[j++] = (oldCharacter == playfairOptions.separator1[0]) ? playfairOptions.separator2[0] : playfairOptions.separator1[0];
+				}
+			}
+		}
+		// append the current character to the preformatted text
+		preformattedText[j++] = currentCharacter;
+		// store the old character for the next run
+		oldCharacter = currentCharacter;
+	}
+
+	// we're through with all characters; if we have an uneven amount 
+	// of characters in preformattedText, append a separator
+	if(j%2) {
+		if(preformattedText[j - 1] == playfairOptions.separator1[0])
+			preformattedText[j++] = playfairOptions.separator2[0];
+		else
+			preformattedText[j++] = playfairOptions.separator1[0];
+	}
+
+	// delete the old text and replace it with the pre-formatted text
+	delete []inbuf;
+	inbuflen = j;
+	inbuf = new char[inbuflen + 1];
+	memset(inbuf, 0, inbuflen + 1);
+	memcpy(inbuf, preformattedText, inbuflen);
+	delete []preformattedText;
+
+	// write pre-formatted text to file "fileNamePreformattedText"
+	FILE *pre;
+	pre=fopen((LPCTSTR)playfairOptions.fileNamePreformattedText, "wb");
+	fwrite(inbuf,1,inbuflen,pre);
+	fclose(pre);
+	
+	// execute the actual cipher
+	DoCipher(true, playfairOptions.decryption, inbuflen);
+
+	// write result text to file "fileNameResultText"
+	outfp=fopen((LPCTSTR)playfairOptions.fileNameResultText, "wb");
+	fwrite(outbuf,1,outbuflen,outfp);
+	fclose(outfp);
+}
+
+#if 0
+
 /*
 ApplyPlayfairPreformat() führt die Ver-/Entschlüsselung mit vorherigem 
 umformatieren (wird in prename abgespeichert) durch und schreibt das 
@@ -1499,6 +1569,8 @@ void CPlayfairAnalysis::ApplyPlayfairToInput( bool DecEnc)
 	fclose(outfp);
 	
 } 
+
+#endif
 
 /*
 	DoCipher() Den EingabeText verschlüsseln.
@@ -2662,3 +2734,44 @@ bool CPlayfairAnalysis::CreateMatrixfromLettergraph(char *stipulation, int len)
 	return (DoCipher (false, 1, MAXSHOWLETTER, stipulation, len));
 } // CreateMatrixfromLettergraph
 
+
+
+char CPlayfairAnalysis::convertCharacterToPlayfair(const char _character)
+{
+	char c = _character;
+
+	// if we have valid lower case letters, convert them to upper case
+	if(c>='a' && c<='z') c = c - 'a' + 'A';
+	// we replace "J" with "I" (Playfair convention)
+	if(c=='J') c = 'I';
+
+	// flomar, 04/16/2010
+	// some more conversions; but don't ask me, this is just copy&paste from the original implementation
+	if(c >= 'à' && c<='ý') c = c - 'à' + 'À';
+	switch(c) {
+	case 'À': case 'Á': case 'Â': case 'Ã': case 'Ä': case 'Å': case 'Æ': case '@':
+		return ('A');
+	case 'Ç': case '¢':
+		return ('C');
+	case 'Ð':
+		return ('D');
+	case 'È': case 'É': case 'Ê': case 'Ë': case '€':
+		return ('E');
+	case 'Ì': case 'Í': case 'Î': case 'Ï':
+		return ('I');
+	case 'Ñ':
+		return ('N');
+	case 'Ò': case 'Ó': case 'Ô': case 'Õ':  case 'Ö':   case 'Ø': case 'Œ':
+		return ('O');
+	case 'Š':
+		return ('S');
+	case 'Ù': case 'Ú': case 'Û': case 'Ü':
+		return ('U');
+	case 'ÿ': case 'Ÿ': case '¥': case 'Ý':
+		return ('Y');
+	case 'Ž':
+		return ('Z');
+	}
+
+	return c;
+}

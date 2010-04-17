@@ -485,16 +485,22 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 
 	if(KeyDialog.Display()!=IDOK) return;
 
-	if (KeyDialog.m_preformat&&!KeyDialog.getDec())
+	// flomar, 04/16/2010
+	// retrieve Playfair options
+	PlayfairOptions playfairOptions = KeyDialog.getPlayfairOptions();
+	// set file names for pre-formatted and result text
+	GetTmpName(outfile,"cry",".txt");
+	GetTmpName(preform,"cry",".txt");
+	playfairOptions.fileNamePreformattedText = preform;
+	playfairOptions.fileNameResultText = outfile;
+
+	// we want to show the pre-formatted text
+	if(playfairOptions.showPreformattedText)
 	{
-		GetTmpName(outfile,"cry",".txt");
-		GetTmpName(preform,"cry",".txt");
+		// apply Playfair with the desired options
+		KeyDialog.m_Alg->ApplyPlayfair(playfairOptions);
 
-		// flomar, 04/16/2010
-		// retrieve Playfair options
-		PlayfairOptions playfairOptions = KeyDialog.getPlayfairOptions();
-
-		KeyDialog.m_Alg->ApplyPlayfairPreformat(KeyDialog.getDec(), preform, outfile, playfairOptions.separateDoubleCharacters, playfairOptions.separateDoubleCharactersOnlyWithinPairs, playfairOptions.separator1);
+		// make sure the pre-formatted text is shown (see below...)
 		char tmpStr[128];
 
 		int i;
@@ -515,7 +521,7 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 		remove(outfile);
 		if(NewDoc)
 		{
-			if(KeyDialog.getDec())
+			if(playfairOptions.decryption)
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
 			else
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
@@ -525,10 +531,13 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 			NewDoc->SetData(2);
 	    }
 	}
+	// we don't want to show the pre-formatted text
 	else
 	{
-		KeyDialog.m_Alg->ApplyPlayfairToInput(KeyDialog.getDec());
-		OpenNewDoc( outfile, KeyDialog.GetData(), OldTitle, IDS_PLAYFAIR, KeyDialog.getDec() );
+		// apply Playfair with the desired options
+		KeyDialog.m_Alg->ApplyPlayfair(playfairOptions);
+		// show the new document
+		OpenNewDoc( outfile, KeyDialog.GetData(), OldTitle, IDS_PLAYFAIR, playfairOptions.decryption);
 	}
 	HIDE_HOUR_GLASS
 }
@@ -541,7 +550,10 @@ void PlayfairAnalyse(const char *infile, const char *OldTitle)
 
 	if(KeyDialog.Display()!=IDOK) return;
 
-	KeyDialog.getAlg()->ApplyPlayfairToInput(KeyDialog.getDec());
+	// flomar, 04/17/2010
+	// retrieve Playfair options? (see implementation for encryption/decryption)
+	// TODO
+	// KeyDialog.getAlg()->ApplyPlayfairToInput(KeyDialog.getDec());
 	OpenNewDoc( outfile, KeyDialog.GetData(), OldTitle, IDS_PLAYFAIR, KeyDialog.getDec() );
 	HIDE_HOUR_GLASS
 }
