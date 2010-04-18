@@ -354,6 +354,8 @@
 #define IDC_TB_INTERVALL_MIN            1018
 #define IDC_EDIT3                       1019
 #define IDC_TB_INTERVALL_MAX            1019
+#define IDC_CHECK16                     1019
+#define IDC_CHECK_MV                    1019
 #define IDC_EDIT4                       1020
 #define IDC_RB_AUS_SW_ZW                1020
 #define IDC_EDIT5                       1021
@@ -1672,6 +1674,9 @@
 #define IDC_LIST_LANGUAGES_KEYWORD      2075
 #define IDC_LIST_LANGUAGES_CIPHERTEXT   2076
 #define IDC_EDIT_TRANSLATIONS_INFORMATION 2080
+#define IDC_CHECK_VM                    2076
+#define IDC_CHECK_OFS0                  2077
+#define IDC_CHECK_OFS1                  2078
 #define IDC_EDIT_SEPARATOR1             2081
 #define IDC_EDIT_SEPARATOR2             2082
 #define IDC_STATIC_TEXT_SEPARATOR1      2083
