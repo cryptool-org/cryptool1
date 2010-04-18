@@ -8,11 +8,12 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -251,28 +252,29 @@ BEGIN
     PUSHBUTTON      "Przywróæ &domyœlne",IDC_BUTTON_RESTORE_STANDARD,101,326,99,18
 END
 
-IDD_HILL_ANALYSIS DIALOGEX 0, 0, 302, 361
+IDD_HILL_ANALYSIS DIALOGEX 0, 0, 320, 379
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analiza Hilla (Tekst Jawny)"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&Kontynuuj",IDOK,9,333,71,19
-    PUSHBUTTON      "&Anuluj",IDCANCEL,231,333,62,19
-    LTEXT           "Wymiar: analiza od",IDC_STATIC,19,310,83,8
-    COMBOBOX        IDC_DIM_VON,139,306,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    CTEXT           "do",IDC_STATIC,169,310,8,8
-    COMBOBOX        IDC_DIM_BIS,181,306,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,9,26,284,232
-    LTEXT           "Ta analiza Hilla jest analiz¹ Known-Plaintext, która z tekstu oryginalnego i z tekstu tajnego oblicza klucz Hilla.",IDC_LBL_INFOTEXT,9,5,284,17,0,WS_EX_TRANSPARENT
-    GROUPBOX        "Jakie odmiany szyfrowania Hilla maja zostac analizowane",IDC_STATIC,9,263,284,63
-    PUSHBUTTON      "&Opcje tekstu",IDC_BUTTON1,154,333,71,19
-    LTEXT           "Wariant mno¿enia",IDC_STATIC,20,276,58,8
-    CONTROL         "(wekt. wiersza)*(macierz)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,86,276,89,8
-    CONTROL         "(mac.)*(wektor kolumny)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,182,276,87,8
-    LTEXT           "Wartoœæ pierwszego znaku alfabetu",IDC_STATIC,20,293,119,8
-    CONTROL         "0",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,152,293,18,8
-    CONTROL         "1",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,182,293,19,8
-    COMBOBOX        IDC_FILE_SELECT,15,239,272,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "&Kontynuuj",IDOK,8,350,71,20
+    PUSHBUTTON      "&Anuluj",IDCANCEL,251,350,62,20
+    LTEXT           "Wymiar: analiza od",IDC_STATIC,19,324,83,8
+    COMBOBOX        IDC_DIM_VON,139,320,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "do",IDC_STATIC,172,324,8,8
+    COMBOBOX        IDC_DIM_BIS,188,320,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,8,26,305,211
+    LTEXT           "Ta analiza Hilla jest analiz¹ Known-Plaintext, która z tekstu oryginalnego i z tekstu tajnego oblicza klucz Hilla.",IDC_LBL_INFOTEXT,8,5,305,17,0,WS_EX_TRANSPARENT
+    PUSHBUTTON      "&Opcje tekstu",IDC_BUTTON1,92,350,71,20
+    COMBOBOX        IDC_FILE_SELECT,16,218,287,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Jakie odmiany szyfrowania Hilla maja zostac analizowane",IDC_STATIC,8,243,305,60
+    GROUPBOX        "Wariant mno¿enia",IDC_STATIC,16,256,147,40
+    CONTROL         "(wekt. wiersza)*(macierz)",IDC_CHECK_VM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,268,101,8
+    CONTROL         "(mac.)*(wektor kolumny)",IDC_CHECK_MV,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,282,101,8
+    GROUPBOX        "Wartoœæ pierwszego znaku alfabetu",IDC_STATIC,171,256,132,40
+    CONTROL         "0",IDC_CHECK_OFS0,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,268,20,10
+    CONTROL         "1",IDC_CHECK_OFS1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,281,20,10
+    GROUPBOX        "[i18n] Optionen",IDC_STATIC,8,307,305,34
 END
 
 IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 302, 252
@@ -3069,7 +3071,7 @@ BEGIN
     COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,83,222,159,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_COMBO_SELECT_HMAC_ALGORITHM,325,222,191,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "funkcjê haszuj¹c¹",IDC_STATIC,15,223,61,9
-    LTEXT           "Wariant-MAC",IDC_STATIC,258,225,63,9
+    LTEXT           "Wariant-HMAC",IDC_STATIC,258,225,63,9
     GROUPBOX        "Parametry i klucz HMAC",IDC_STATIC,7,208,518,76
 END
 
@@ -7302,14 +7304,13 @@ BEGIN
 
     IDD_HILL_ANALYSIS, DIALOG
     BEGIN
-        RIGHTMARGIN, 300
-        VERTGUIDE, 9
+        RIGHTMARGIN, 318
+        VERTGUIDE, 8
         VERTGUIDE, 19
-        VERTGUIDE, 293
-        BOTTOMMARGIN, 352
+        VERTGUIDE, 313
+        BOTTOMMARGIN, 370
         HORZGUIDE, 318
-        HORZGUIDE, 333
-        HORZGUIDE, 352
+        HORZGUIDE, 350
     END
 
     IDD_KEYASYM_GENERATION, DIALOG
@@ -11067,12 +11068,12 @@ BEGIN
     IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bits)"
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Serbian (Latin) resources
+// Serbisch (Lateinisch) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_SRL)
 #ifdef _WIN32
@@ -11313,28 +11314,29 @@ BEGIN
     LTEXT           "Prag:",IDC_STATIC,25,205,34,8
 END
 
-IDD_HILL_ANALYSIS DIALOGEX 0, 0, 302, 361
+IDD_HILL_ANALYSIS DIALOGEX 0, 0, 320, 378
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hill-ova Analiza (Poznati Obican tekst)"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "N&astavi",IDOK,9,335,71,18
-    PUSHBUTTON      "&Otkaži",IDCANCEL,231,335,62,18
-    LTEXT           "Pretraži kroz dimenzije od",IDC_STATIC,16,310,117,8
-    COMBOBOX        IDC_DIM_VON,139,306,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    CTEXT           "do",IDC_STATIC,169,310,9,8
-    COMBOBOX        IDC_DIM_BIS,182,306,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,9,26,284,233
-    LTEXT           "Ova Hill-ova analiza je analiza Poznatog otvorenog teksta. Na ulazu otvoreni tekst i šifrat izracunavaju Hill-ov kljuc",IDC_LBL_INFOTEXT,9,5,284,17,0,WS_EX_TRANSPARENT
-    GROUPBOX        "Hill varijante šifrovanja ",IDC_STATIC,9,263,284,63
-    PUSHBUTTON      "Opcije za tekst",IDC_BUTTON1,154,335,71,18
-    LTEXT           "Varijansa umnožavanja",IDC_STATIC,16,276,66,8
-    CONTROL         "(vektor vrste) * (matrica)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,86,276,87,8
-    CONTROL         "(matrica) * (vektor kolone)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,182,276,99,8
-    LTEXT           "Red prvog karaktera alfabeta:",IDC_STATIC,16,293,123,8
-    CONTROL         "0",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,152,293,18,8
-    CONTROL         "1",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,182,293,19,8
-    COMBOBOX        IDC_FILE_SELECT,15,239,272,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "N&astavi",IDOK,7,349,71,21
+    PUSHBUTTON      "&Otkaži",IDCANCEL,251,349,62,21
+    LTEXT           "Pretraži kroz dimenzije od",IDC_STATIC,16,324,117,8
+    COMBOBOX        IDC_DIM_VON,139,320,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "do",IDC_STATIC,172,324,9,8
+    COMBOBOX        IDC_DIM_BIS,187,320,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,26,306,211
+    LTEXT           "Ova Hill-ova analiza je analiza Poznatog otvorenog teksta. Na ulazu otvoreni tekst i šifrat izracunavaju Hill-ov kljuc",IDC_LBL_INFOTEXT,7,5,306,17,0,WS_EX_TRANSPARENT
+    PUSHBUTTON      "Opcije za tekst",IDC_BUTTON1,87,349,71,21
+    COMBOBOX        IDC_FILE_SELECT,15,217,289,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Hill varijante šifrovanja ",IDC_STATIC,8,243,304,60
+    GROUPBOX        "Varijansa umnožavanja",IDC_STATIC,16,256,147,40
+    CONTROL         "(vektor vrste) * (matrica)",IDC_CHECK_VM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,268,101,8
+    CONTROL         "(matrica) * (vektor kolone)",IDC_CHECK_MV,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,282,101,8
+    GROUPBOX        "Red prvog karaktera alfabeta:",IDC_STATIC,171,256,132,40
+    CONTROL         "0",IDC_CHECK_OFS0,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,268,20,10
+    CONTROL         "1",IDC_CHECK_OFS1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,281,20,10
+    GROUPBOX        "[i18n] Options",IDC_STATIC,8,307,304,34
 END
 
 IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 302, 252
@@ -14118,7 +14120,7 @@ BEGIN
     LTEXT           "Da biste izveli napad, klinite na ""Pocni"".",IDC_STATIC,15,83,178,9
 END
 
-IDD_HMAC DIALOGEX 0, 0, 325, 505
+IDD_HMAC DIALOGEX 0, 0, 532, 505
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Kôd Autentikacije Poruke sa Heš-Kljucem (HMAC)"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
@@ -14142,7 +14144,7 @@ BEGIN
     COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,65,221,175,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_COMBO_SELECT_HMAC_ALGORITHM,315,221,202,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Heš funkcija",IDC_STATIC,15,223,47,9
-    LTEXT           "MAC varijanta",IDC_STATIC,267,224,44,9
+    LTEXT           "HMAC varijanta",IDC_STATIC,267,224,44,9
     GROUPBOX        "HMAC parametar i kljuc",IDC_STATIC,7,209,518,76
 END
 
@@ -18380,14 +18382,14 @@ BEGIN
 
     IDD_HILL_ANALYSIS, DIALOG
     BEGIN
-        RIGHTMARGIN, 300
-        VERTGUIDE, 9
+        RIGHTMARGIN, 318
+        VERTGUIDE, 7
         VERTGUIDE, 16
-        VERTGUIDE, 293
-        BOTTOMMARGIN, 353
+        VERTGUIDE, 313
+        BOTTOMMARGIN, 370
         HORZGUIDE, 257
         HORZGUIDE, 318
-        HORZGUIDE, 335
+        HORZGUIDE, 349
     END
 
     IDD_KEYASYM_GENERATION, DIALOG
@@ -18952,7 +18954,7 @@ BEGIN
     IDD_HMAC, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 318
+        RIGHTMARGIN, 525
         VERTGUIDE, 15
         VERTGUIDE, 133
         VERTGUIDE, 310
@@ -22127,12 +22129,12 @@ BEGIN
     IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bita)"
 END
 
-#endif    // Serbian (Latin) resources
+#endif    // Serbisch (Lateinisch) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -22343,28 +22345,29 @@ BEGIN
     LTEXT           "Grenzwert:",IDC_STATIC,25,205,35,8
 END
 
-IDD_HILL_ANALYSIS DIALOGEX 0, 0, 302, 361
+IDD_HILL_ANALYSIS DIALOGEX 0, 0, 320, 377
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hill-Analyse (Known-Plaintext)"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "Schlüssel suchen",IDOK,9,335,76,18
-    PUSHBUTTON      "Schließen",IDCANCEL,231,335,62,18
-    COMBOBOX        IDC_DIM_VON,136,305,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_DIM_BIS,182,305,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Durchsuchen der Dimensionen von",IDC_STATIC,20,309,115,8
-    CTEXT           "bis",IDC_STATIC,163,309,18,8
-    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,9,25,284,234
-    LTEXT           "Diese Hill-Analyse ist eine Known-Plaintext-Analyse, mit deren Hilfe Sie aus dem Klartext und dem Geheimtext den Hill-Schlüssel berechnen können.",IDC_LBL_INFOTEXT,9,5,284,17,0,WS_EX_TRANSPARENT
-    GROUPBOX        "Welche Varianten der Hill-Verschlüsselung sollen analysiert werden",IDC_STATIC,9,263,284,63
-    PUSHBUTTON      "Textoptionen",IDC_BUTTON1,91,335,71,18
-    LTEXT           "Multiplikationsart",IDC_STATIC,20,276,53,8
-    CONTROL         "(Vektorreihe) x (Matrix)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,86,276,87,8
-    CONTROL         "(Matrix) x (Vektorspalte)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,182,276,87,8
-    LTEXT           "Wert des ersten Alphabetzeichens:",IDC_STATIC,20,292,119,8
-    CONTROL         "0",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,152,292,18,8
-    CONTROL         "1",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,182,292,19,8
-    COMBOBOX        IDC_FILE_SELECT,15,239,272,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "Schlüssel suchen",IDOK,8,349,76,20
+    PUSHBUTTON      "Schließen",IDCANCEL,254,349,62,20
+    COMBOBOX        IDC_DIM_VON,145,320,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_DIM_BIS,198,320,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Durchsuchen der Dimensionen von",IDC_STATIC,20,322,115,8
+    CTEXT           "bis",IDC_STATIC,176,323,18,8
+    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,8,25,305,211
+    LTEXT           "Dies ist eine Known-Plaintext-Analyse einer Hill-Chiffre. Mit dieser Analyse können Sie aus dem Klartext und dem Geheimtext den Hill-Schlüssel berechnen.",IDC_LBL_INFOTEXT,8,5,304,17,0,WS_EX_TRANSPARENT
+    GROUPBOX        "Welche Varianten der Hill-Verschlüsselung sollen analysiert werden",IDC_STATIC,8,243,304,60
+    PUSHBUTTON      "Textoptionen...",IDC_BUTTON1,90,349,71,20
+    COMBOBOX        IDC_FILE_SELECT,15,216,288,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Multiplikationsart",IDC_STATIC,16,256,147,40
+    CONTROL         "(Vektorreihe) x (Matrix)",IDC_CHECK_VM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,268,101,8
+    CONTROL         "(Matrix) x (Vektorspalte)",IDC_CHECK_MV,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,282,101,8
+    GROUPBOX        "Wert des ersten Alphabetzeichens",IDC_STATIC,171,256,132,40
+    CONTROL         "0",IDC_CHECK_OFS0,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,268,20,10
+    CONTROL         "1",IDC_CHECK_OFS1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,281,20,10
+    GROUPBOX        "Optionen",IDC_STATIC,8,307,304,34
 END
 
 IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 299, 254
@@ -25251,7 +25254,7 @@ BEGIN
     LTEXT           "Innerer Hashwert",IDC_STATIC,7,292,55,8
     EDITTEXT        IDC_SHOW_HASH,7,303,518,25,ES_MULTILINE | ES_READONLY
     LTEXT           "Hashfunktion",IDC_STATIC,15,223,44,9
-    LTEXT           "MAC-Variante",IDC_STATIC,258,224,54,9
+    LTEXT           "HMAC-Variante",IDC_STATIC,258,224,54,9
     GROUPBOX        "HMAC-Parameter und Schlüssel",IDC_STATIC,7,208,518,78
 END
 
@@ -25944,7 +25947,7 @@ END
 
 IDD_SOLITAIRE DIALOGEX 0, 0, 676, 433
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Solitaire Ver-/Entschlüsselung"
+CAPTION "Schlüsseleingabe / Schlüsselerzeugung: Solitaire"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     COMBOBOX        IDC_Kartenanzahl,136,130,30,204,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
@@ -26038,8 +26041,8 @@ BEGIN
     LTEXT           "Schlüsselstrom",IDC_STATIC,28,353,48,8
     LTEXT           "Schritt 2: Sie erzeugen den Schlüsselstrom (dies ist der eigentliche Solitaire-Algorithmus). Dabei wird das Kartendeck verändert.",IDC_STATIC,12,50,625,8
     LTEXT           "Die Anwendung des Solitaire-Verfahrens erfolgt in 3 Hauptschritten (die ersten beiden sind vorbereitende Schritte; im dritten Schritt wird die Verschlüsselung durchgeführt):",IDC_STATIC,11,26,550,8
-    LTEXT           "Schritt 3: Sie verschlüsseln den gewählten Text (dabei wird dieser zeichenweise mit den Zeichen des Schlüsselstroms XOR-verknüpft).",IDC_STATIC,12,66,593,9
-    LTEXT           "Wenn der gewählte Text schon einen mit Solitaire verschlüsselten Geheimtext darstellt, können Sie auch entschlüsseln.",IDC_STATIC,12,74,591,8
+    LTEXT           "Schritt 3: Sie verschlüsseln den vorher schon gewählten Text (dabei wird dieser zeichenweise mit den Zeichen des Schlüsselstroms XOR-verknüpft).",IDC_STATIC,12,66,593,9
+    LTEXT           "Wenn der gewählte Text schon einen mit Solitaire verschlüsselten Geheimtext darstellt, können Sie auch entschlüsseln.",IDC_STATIC,43,74,561,8
     LTEXT           "Es fehlen noch",IDC_STATIC,434,247,47,12
     LTEXT           "Schlüsselstromzeichen.",IDC_STATIC,434,259,82,11
     PUSHBUTTON      "Rest generieren",IDC_BUTTON69,585,252,60,14,WS_DISABLED
@@ -26051,7 +26054,7 @@ BEGIN
     LTEXT           "von",IDC_STATIC,512,247,13,8
     LTEXT           "Die verschiedenen Karten werden als Zahlen von 1 bis 54 dargestellt: Welche Karte welcher Zahl entspricht, sehen Sie in der Onlinehilfe (F1) unter ""Solitaire-Beschreibung"".",IDC_STATIC,11,18,549,8
     LTEXT           "Schritt 1: Sie erzeugen den Schlüssel (das gemischte Kartendeck) entweder selbst oder Sie laden einen Schlüssel (je nachdem, was Sie unten in der Gruppierung „1 b: Kartenreihenfolge festlegen“",IDC_STATIC,11,34,626,8
-    LTEXT           "Das Ergebnis der Schlüsselerzeugung ist das gemischte Kartendeck, das Sie unter dem Namen „Initialdeck“ in der Gruppierung „Ausgabe“ finden.",IDC_STATIC,12,42,521,8
+    LTEXT           "Das Ergebnis der Schlüsselerzeugung ist das gemischte Kartendeck, das Sie unter dem Namen „Initialdeck“ in der Gruppierung „Ausgabe“ finden.",IDC_STATIC,43,42,491,8
     LTEXT           "Gesamtzahl (incl. Joker):",IDC_STATIC,46,134,80,8
     GROUPBOX        "Karten mischen und Schlüsselstrom erzeugen",IDC_STATIC,7,88,662,320
     LTEXT           " Dessen aktuelle Reihenfolge finden Sie unter dem Namen „Ausgangsdeck“ unten in der Gruppierung „Ausgabe“.",IDC_STATIC,41,58,358,8
@@ -26061,7 +26064,7 @@ END
 
 IDD_SOLITAIRE_ANALYSE DIALOGEX 0, 0, 603, 414
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Solitaire Analyse"
+CAPTION "Solitaire-Analyse: Manuelle Bearbeitung"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Entschlüsseln",IDOK,5,395,68,14,WS_DISABLED
@@ -26136,8 +26139,8 @@ BEGIN
     EDITTEXT        IDC_EDIT3,17,345,551,30,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
     PUSHBUTTON      "Schlüsselstrom automatisch erzeugen",IDC_BUTTON4,18,327,132,14,WS_DISABLED
     GROUPBOX        "Beschreibung",IDC_STATIC,5,2,593,57
-    LTEXT           "Zur Entschlüsselung braucht der legitime Empfänger den Ciphertext und das Initialdeck. Wir nehmen an, der Angreifer hat ebenfalls den Ciphertext und das (vom Sender",IDC_STATIC,17,12,544,11
-    LTEXT           "Bei dieser Kryptoanalyse wird versucht, aus dem Ausgangsdeck das Initialdeck zu reproduzieren. Dies gelingt aufgrund der Irreversibilität der Schlüsselstromerzeugung",IDC_STATIC,17,28,573,8
+    LTEXT           "Zur Entschlüsselung braucht der legitime Empfänger den Ciphertext und das ""Initialdeck"". Wir nehmen an, der Angreifer hat neben dem Ciphertext aber nur das (vom Sender",IDC_STATIC,17,12,544,11
+    LTEXT           "Bei dieser Kryptoanalyse wird versucht, aus dem Ausgangsdeck das Initialdeck zu reproduzieren. Dies gelingt aufgrund der Irreversibilität der Schlüsselstromerzeugung",IDC_STATIC,17,28,580,8
     PUSHBUTTON      "Ausgangsdeck laden",IDC_BUTTON5,39,100,69,14
     PUSHBUTTON      "Nach Vorgabe",IDC_BUTTON6,38,140,70,14
     LTEXT           "Kartenanzahl:",IDC_STATIC,173,98,46,8,WS_DISABLED
@@ -26583,36 +26586,36 @@ BEGIN
     CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,138,123,22,20
 END
 
-IDD_AUTOMATED_PERM_ANALYSIS DIALOGEX 0, 0, 320, 362
+IDD_AUTOMATED_PERM_ANALYSIS DIALOGEX 0, 0, 320, 381
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analyse einer einstufigen Spaltentransposition (Known-Plaintext)"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     COMBOBOX        IDC_FILE_SELECT,14,218,292,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    CONTROL         "zeilenweise",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,267,52,10
-    CONTROL         "spaltenweise",IDC_CHECK13,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,283,54,10
-    CONTROL         "zeilenweise",IDC_CHECK11,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,267,52,10
-    CONTROL         "spaltenweise",IDC_CHECK14,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,283,54,10
-    CONTROL         "zeilenweise",IDC_CHECK12,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,267,52,10
-    CONTROL         "spaltenweise",IDC_CHECK15,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,283,54,10
-    EDITTEXT        IDC_EDIT_RANGE_FROM,250,265,42,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_RANGE_TO,250,281,42,12,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Schlüssel suchen",ID_BTN_BERECHNEN,7,335,75,17
-    PUSHBUTTON      "Schließen",IDCANCEL,248,335,65,17
-    CONTROL         "Binäre Daten",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,150,315,54,10
-    CONTROL         "Text",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,210,315,59,10
-    PUSHBUTTON      "Textoptionen...",IDC_BUTTON2,88,335,59,17
+    CONTROL         "zeilenweise",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,269,52,10
+    CONTROL         "spaltenweise",IDC_CHECK13,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,285,54,10
+    CONTROL         "zeilenweise",IDC_CHECK11,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,269,52,10
+    CONTROL         "spaltenweise",IDC_CHECK14,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,285,54,10
+    CONTROL         "zeilenweise",IDC_CHECK12,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,269,52,10
+    CONTROL         "spaltenweise",IDC_CHECK15,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,285,54,10
+    EDITTEXT        IDC_EDIT_RANGE_FROM,250,267,42,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_RANGE_TO,250,283,42,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&Schlüssel suchen",ID_BTN_BERECHNEN,7,348,75,23
+    PUSHBUTTON      "Schließen",IDCANCEL,248,348,65,23
+    CONTROL         "Binäre Daten",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,153,324,54,10
+    CONTROL         "Text",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,226,324,59,10
+    PUSHBUTTON      "Textoptionen...",IDC_BUTTON2,88,348,59,23
     CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,28,306,209
-    GROUPBOX        "Einlesen",IDC_GB_EINLESEN,14,254,67,43
-    GROUPBOX        "Permutieren",IDC_GB_PERMUTIEREN,87,254,66,43
-    GROUPBOX        "Auslesen",IDC_GB_AUSLESEN,157,254,66,43
-    GROUPBOX        "Welche Varianten des Permutationsverfahrens sollen analysiert werden?",IDC_GB_VERFAHREN,7,241,306,63
+    GROUPBOX        "Einlesen",IDC_GB_EINLESEN,14,256,67,43
+    GROUPBOX        "Permutieren",IDC_GB_PERMUTIEREN,87,256,66,43
+    GROUPBOX        "Auslesen",IDC_GB_AUSLESEN,157,256,66,43
+    GROUPBOX        "Welche Varianten des Permutationsverfahrens sollen analysiert werden?",IDC_GB_VERFAHREN,7,244,306,63
     LTEXT           "Dies ist eine Known-Plaintext-Analyse einer Permutations-Chiffre. Mit dieser Analyse können Sie aus dem Klartext und dem Geheimtext den Permutationsschlüssel berechnen.",IDC_LBL_INFOTEXT,7,8,306,15,0,WS_EX_TRANSPARENT
-    GROUPBOX        "Permutationsgröße",IDC_GB_AUSLESEN2,230,254,76,43
-    LTEXT           "von",IDC_STATIC,234,268,14,9
-    LTEXT           "bis",IDC_STATIC,234,284,14,9
-    GROUPBOX        "Optionen",IDC_STATIC,7,304,306,26
-    LTEXT           "Betrachte beide Eingabedokumente als:",IDC_STATIC,17,315,128,10
+    GROUPBOX        "Permutationsgröße",IDC_GB_AUSLESEN2,230,256,76,43
+    LTEXT           "von",IDC_STATIC,234,270,14,9
+    LTEXT           "bis",IDC_STATIC,234,286,14,9
+    GROUPBOX        "Optionen",IDC_STATIC,7,312,306,29
+    LTEXT           "Betrachte beide Eingabedokumente als:",IDC_STATIC,17,324,128,10
 END
 
 IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT DIALOGEX 0, 0, 242, 241
@@ -29460,15 +29463,16 @@ BEGIN
 
     IDD_HILL_ANALYSIS, DIALOG
     BEGIN
-        VERTGUIDE, 9
+        VERTGUIDE, 8
         VERTGUIDE, 225
-        VERTGUIDE, 282
-        VERTGUIDE, 293
-        BOTTOMMARGIN, 353
+        VERTGUIDE, 285
+        VERTGUIDE, 303
+        VERTGUIDE, 312
+        TOPMARGIN, 5
+        BOTTOMMARGIN, 369
         HORZGUIDE, 251
         HORZGUIDE, 284
-        HORZGUIDE, 317
-        HORZGUIDE, 335
+        HORZGUIDE, 349
     END
 
     IDD_SHOW_KEY_HILL5x5, DIALOG
@@ -30132,9 +30136,9 @@ BEGIN
         VERTGUIDE, 14
         VERTGUIDE, 306
         TOPMARGIN, 7
-        BOTTOMMARGIN, 352
+        BOTTOMMARGIN, 371
         HORZGUIDE, 218
-        HORZGUIDE, 335
+        HORZGUIDE, 348
     END
 
     IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT, DIALOG
@@ -33121,12 +33125,12 @@ BEGIN
     IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bits)"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -33365,28 +33369,29 @@ BEGIN
     LTEXT           "Threshold:",IDC_STATIC,25,205,34,8
 END
 
-IDD_HILL_ANALYSIS DIALOGEX 0, 0, 302, 361
+IDD_HILL_ANALYSIS DIALOGEX 0, 0, 320, 379
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hill Analysis (Known Plaintext)"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "C&ontinue",IDOK,9,335,71,18
-    PUSHBUTTON      "&Cancel",IDCANCEL,231,335,62,18
-    LTEXT           "Search through the dimensions from",IDC_STATIC,16,310,117,8
-    COMBOBOX        IDC_DIM_VON,139,306,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    CTEXT           "to",IDC_STATIC,169,310,9,8
-    COMBOBOX        IDC_DIM_BIS,182,306,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,9,26,284,231
-    LTEXT           "This Hill analysis is a Known Plaintext analysis. On the inputs plaintext and ciphertext it computes the Hill key.",IDC_LBL_INFOTEXT,9,5,284,17,0,WS_EX_TRANSPARENT
-    GROUPBOX        "Hill encryption variants ",IDC_STATIC,9,263,284,63
-    PUSHBUTTON      "Text options",IDC_BUTTON1,154,335,71,18
-    LTEXT           "Multiplication variant",IDC_STATIC,16,276,66,8
-    CONTROL         "(row vector) * (matrix)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,86,276,87,8
-    CONTROL         "(matrix) * (column vector)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,182,276,99,8
-    LTEXT           "Order of first character of the alphabet:",IDC_STATIC,16,293,123,8
-    CONTROL         "0",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,152,293,18,8
-    CONTROL         "1",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,182,293,19,8
-    COMBOBOX        IDC_FILE_SELECT,15,239,272,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "C&ontinue",IDOK,7,353,71,18
+    PUSHBUTTON      "&Cancel",IDCANCEL,231,353,62,18
+    LTEXT           "Search through the dimensions from",IDC_STATIC,16,324,117,8
+    COMBOBOX        IDC_DIM_VON,154,322,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "to",IDC_STATIC,188,324,9,8
+    COMBOBOX        IDC_DIM_BIS,206,322,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,26,305,211
+    LTEXT           "This Hill analysis is a Known Plaintext analysis. On the inputs plaintext and ciphertext it computes the Hill key.",IDC_LBL_INFOTEXT,7,5,286,17,0,WS_EX_TRANSPARENT
+    GROUPBOX        "Hill encryption variants ",IDC_STATIC,7,243,305,63
+    PUSHBUTTON      "Text options",IDC_BUTTON1,154,353,71,18
+    COMBOBOX        IDC_FILE_SELECT,15,217,289,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Multiplication variant",IDC_STATIC,16,256,147,40
+    CONTROL         "(row vector) * (matrix)",IDC_CHECK_VM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,268,101,8
+    CONTROL         "(matrix) * (column vector)",IDC_CHECK_MV,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,282,101,8
+    GROUPBOX        "Order of first character of the alphabet:",IDC_STATIC,171,256,132,40
+    CONTROL         "0",IDC_CHECK_OFS0,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,268,20,10
+    CONTROL         "1",IDC_CHECK_OFS1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,281,20,10
+    GROUPBOX        "Options",IDC_STATIC,8,308,304,37
 END
 
 IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 302, 252
@@ -36184,7 +36189,7 @@ BEGIN
     COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,65,221,175,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_COMBO_SELECT_HMAC_ALGORITHM,315,221,202,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Hash function",IDC_STATIC,15,223,47,9
-    LTEXT           "MAC variant",IDC_STATIC,267,224,44,9
+    LTEXT           "HMAC variant",IDC_STATIC,267,224,44,9
     GROUPBOX        "HMAC parameter and key",IDC_STATIC,7,209,518,76
 END
 
@@ -40405,14 +40410,15 @@ BEGIN
 
     IDD_HILL_ANALYSIS, DIALOG
     BEGIN
-        RIGHTMARGIN, 300
-        VERTGUIDE, 9
+        RIGHTMARGIN, 318
+        VERTGUIDE, 7
         VERTGUIDE, 16
         VERTGUIDE, 293
-        BOTTOMMARGIN, 353
+        VERTGUIDE, 312
+        BOTTOMMARGIN, 371
         HORZGUIDE, 257
         HORZGUIDE, 318
-        HORZGUIDE, 335
+        HORZGUIDE, 353
     END
 
     IDD_KEYASYM_GENERATION, DIALOG
@@ -44182,12 +44188,12 @@ BEGIN
     IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bits)"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Spanish resources
+// Spanisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ESN)
 #ifdef _WIN32
@@ -48392,28 +48398,29 @@ BEGIN
     CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_2,200,125,150,105
 END
 
-IDD_HILL_ANALYSIS DIALOGEX 0, 0, 302, 361
+IDD_HILL_ANALYSIS DIALOGEX 0, 0, 320, 376
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Análisis del Algoritmo Hill (Texto Claro Conocido)"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "C&ontinuar",IDOK,9,335,71,18
-    PUSHBUTTON      "&Cancelar",IDCANCEL,231,335,62,18
-    LTEXT           "Buscar en las dimensiones; desde",IDC_STATIC,16,310,107,8
-    COMBOBOX        IDC_DIM_VON,127,306,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    CTEXT           "hasta",IDC_STATIC,161,310,18,8
-    COMBOBOX        IDC_DIM_BIS,182,306,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,9,26,284,231
-    LTEXT           "El Análisis de Hill es un análisis de Texto Claro Conocido, con el cuál puede calcular la Clave de Hill a partir del texto claro y del texto cifrado.",IDC_LBL_INFOTEXT,9,5,284,17,0,WS_EX_TRANSPARENT
-    GROUPBOX        "¿Cuáles variantes del cifrado Hill deberían ser analizadas?",IDC_STATIC,9,263,284,63
-    PUSHBUTTON      "Opc&iones de Texto",IDC_BUTTON1,154,335,71,18
-    LTEXT           "Variante de multiplicación",IDC_STATIC,16,276,81,8
-    CONTROL         "(vector fila) * (matriz)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,103,276,87,8
-    CONTROL         "(matrix) * (vector columna)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,190,276,99,8
-    LTEXT           "Valor del primer caracter del alfabeto:",IDC_STATIC,16,293,123,8
-    CONTROL         "0",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,152,293,18,8
-    CONTROL         "1",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,182,293,19,8
-    COMBOBOX        IDC_FILE_SELECT,15,239,272,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "C&ontinuar",IDOK,7,349,71,19
+    PUSHBUTTON      "&Cancelar",IDCANCEL,251,349,62,19
+    LTEXT           "Buscar en las dimensiones; desde",IDC_STATIC,16,324,107,8
+    COMBOBOX        IDC_DIM_VON,127,320,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "hasta",IDC_STATIC,163,324,18,8
+    COMBOBOX        IDC_DIM_BIS,189,320,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,26,306,211
+    LTEXT           "El Análisis de Hill es un análisis de Texto Claro Conocido, con el cuál puede calcular la Clave de Hill a partir del texto claro y del texto cifrado.",IDC_LBL_INFOTEXT,7,5,306,17,0,WS_EX_TRANSPARENT
+    PUSHBUTTON      "Opc&iones de Texto",IDC_BUTTON1,93,349,71,19
+    COMBOBOX        IDC_FILE_SELECT,15,217,288,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "¿Cuáles variantes del cifrado Hill deberían ser analizadas?",IDC_STATIC,8,243,304,60
+    GROUPBOX        "Variante de multiplicación",IDC_STATIC,16,256,147,40
+    CONTROL         "(vector fila) * (matriz)",IDC_CHECK_VM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,268,101,8
+    CONTROL         "(matrix) * (vector columna)",IDC_CHECK_MV,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,282,101,8
+    GROUPBOX        "Valor del primer caracter del alfabeto:",IDC_STATIC,171,256,132,40
+    CONTROL         "0",IDC_CHECK_OFS0,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,268,20,10
+    CONTROL         "1",IDC_CHECK_OFS1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,281,20,10
+    GROUPBOX        "[i18n] Options",IDC_STATIC,8,307,304,34
 END
 
 IDD_HMAC DIALOGEX 0, 0, 532, 481
@@ -48440,7 +48447,7 @@ BEGIN
     COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,65,221,175,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_COMBO_SELECT_HMAC_ALGORITHM,315,221,202,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Función Hash:",IDC_STATIC,15,223,47,9
-    LTEXT           "Variante MAC:",IDC_STATIC,267,224,46,9
+    LTEXT           "Variante HMAC:",IDC_STATIC,260,224,53,9
     GROUPBOX        "Clave y parámetro HMAC ",IDC_STATIC,7,209,518,76
 END
 
@@ -52322,15 +52329,15 @@ BEGIN
 
     IDD_HILL_ANALYSIS, DIALOG
     BEGIN
-        RIGHTMARGIN, 300
-        VERTGUIDE, 9
+        RIGHTMARGIN, 318
+        VERTGUIDE, 7
         VERTGUIDE, 16
-        VERTGUIDE, 293
+        VERTGUIDE, 313
         TOPMARGIN, 5
-        BOTTOMMARGIN, 353
+        BOTTOMMARGIN, 368
         HORZGUIDE, 257
         HORZGUIDE, 318
-        HORZGUIDE, 335
+        HORZGUIDE, 349
     END
 
     IDD_HMAC, DIALOG
@@ -55283,7 +55290,7 @@ BEGIN
     IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bits)"
 END
 
-#endif    // Spanish resources
+#endif    // Spanisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 

@@ -83,11 +83,19 @@ public:
 	{ return setSourceFilename(filename, fn_activeDocument, s_activeDocument); }
 	afx_msg void OnBnClickedSearchKey();
 	afx_msg void OnBnClickedCancel();
-	int m_multDir;
-	int m_ofs;
+//	int m_multDir;
+//	int m_ofs;
 	afx_msg void OnBnClickedTextOptions();
 	afx_msg void OnCbnSelendokFileSelect();
 	CComboBox m_ctrlFileSelect;
+	int m_check_VM;
+	int m_check_MV;
+	int m_check_ofs_0;
+	int m_check_ofs_1;
+	afx_msg void OnBnClickedCheckVM();
+	afx_msg void OnBnClickedCheckMV();
+	afx_msg void OnBnClickedCheckOfs0();
+	afx_msg void OnBnClickedCheckOfs1();
 };
 
 
