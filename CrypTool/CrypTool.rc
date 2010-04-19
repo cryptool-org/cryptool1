@@ -8,12 +8,11 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -1427,7 +1426,7 @@ BEGIN
     CONTROL         "Tab. 6x6",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,169,194,47,10
     GROUPBOX        "Opcje",IDC_STATIC,10,7,218,112
     GROUPBOX        "Klucz Playfair",IDC_STATIC,10,125,218,178
-    LTEXT           "Krótka wersja klucza Playfair:",IDC_STATIC,24,140,114,11
+    LTEXT           "Krótka wersja klucza Playfair:",IDC_STATIC,24,140,114,8
     GROUPBOX        "Macierz kluczy",IDC_STATIC,24,174,137,120
     EDITTEXT        IDC_EDIT11,35,188,14,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT12,55,188,14,12,ES_AUTOHSCROLL | ES_READONLY
@@ -11068,12 +11067,12 @@ BEGIN
     IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bits)"
 END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Serbisch (Lateinisch) resources
+// Serbian (Latin) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_SRL)
 #ifdef _WIN32
@@ -12491,7 +12490,7 @@ BEGIN
     CONTROL         "&6x6 matrica",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,169,194,47,10
     GROUPBOX        "Opcije",IDC_STATIC,10,7,218,112
     GROUPBOX        "Playfair kljuc",IDC_STATIC,10,125,218,178
-    LTEXT           "Kraca verzija Playfair kljuca:",IDC_STATIC,24,140,114,11
+    LTEXT           "Kraca verzija Playfair kljuca:",IDC_STATIC,24,140,114,8
     GROUPBOX        "Kljucna matrica",IDC_STATIC,24,174,137,120
     EDITTEXT        IDC_EDIT11,35,188,14,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT12,55,188,14,12,ES_AUTOHSCROLL | ES_READONLY
@@ -22129,12 +22128,12 @@ BEGIN
     IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bita)"
 END
 
-#endif    // Serbisch (Lateinisch) resources
+#endif    // Serbian (Latin) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -23540,7 +23539,7 @@ BEGIN
     CONTROL         "&6x6 Matrix",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,169,194,48,10
     GROUPBOX        "Optionen",IDC_STATIC,10,7,218,112
     GROUPBOX        "Playfair-Schlüssel",IDC_STATIC,10,125,218,178
-    LTEXT           "Kurzform des Playfair-Schlüssels:",IDC_STATIC,24,140,114,11
+    LTEXT           "Kurzform des Playfair-Schlüssels:",IDC_STATIC,24,140,114,8
     GROUPBOX        "Schlüsselmatrix",IDC_STATIC,24,174,137,120
     EDITTEXT        IDC_EDIT11,35,188,14,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT12,55,188,14,12,ES_AUTOHSCROLL | ES_READONLY
@@ -33125,12 +33124,12 @@ BEGIN
     IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bits)"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -34542,7 +34541,7 @@ BEGIN
     CONTROL         "&6x6 matrix",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,169,194,47,10
     GROUPBOX        "Options",IDC_STATIC,10,7,218,112
     GROUPBOX        "Playfair key",IDC_STATIC,10,125,218,178
-    LTEXT           "Short version of the Playfair key:",IDC_STATIC,24,140,114,11
+    LTEXT           "Short version of the Playfair key:",IDC_STATIC,24,140,114,8
     GROUPBOX        "Key matrix",IDC_STATIC,24,174,137,120
     EDITTEXT        IDC_EDIT11,35,188,14,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT12,55,188,14,12,ES_AUTOHSCROLL | ES_READONLY
@@ -44188,12 +44187,12 @@ BEGIN
     IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bits)"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Spanisch resources
+// Spanish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ESN)
 #ifdef _WIN32
@@ -46110,7 +46109,7 @@ BEGIN
     CONTROL         "&6x6 matriz",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,169,194,47,10
     GROUPBOX        "Opciones",IDC_STATIC,10,7,218,112
     GROUPBOX        "Clave Playfair",IDC_STATIC,10,125,218,178
-    LTEXT           "Cadena/frase a utilizar como clave:",IDC_STATIC,24,140,114,11
+    LTEXT           "Cadena/frase a utilizar como clave:",IDC_STATIC,24,140,114,8
     GROUPBOX        "Matriz clave",IDC_STATIC,24,174,137,120
     EDITTEXT        IDC_EDIT11,35,188,14,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT12,55,188,14,12,ES_AUTOHSCROLL | ES_READONLY
@@ -55290,7 +55289,7 @@ BEGIN
     IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bits)"
 END
 
-#endif    // Spanisch resources
+#endif    // Spanish resources
 /////////////////////////////////////////////////////////////////////////////
 
 

@@ -475,11 +475,7 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 		return;
 	}
 	
-	int n=strlen(infile);
-	if ( strncmp(OldTitle+n-4,".txt",4) && theApp.TextOptions.getKeepCharactersNotPresentInAlphabetUnchanged() )
-		GetTmpName(outfile,"cry",".txt");
-	else
-		GetTmpName(outfile,"cry",".txt");
+	GetTmpName(outfile,"cry",".txt");
 
 	class CDlgKeyPlayfair KeyDialog(infile,outfile,theApp.TextOptions.getKeepCharactersNotPresentInAlphabetUnchanged(),theApp.TextOptions.getKeepUpperLowerCaseInformation());
 
@@ -494,6 +490,15 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 	playfairOptions.fileNamePreformattedText = preform;
 	playfairOptions.fileNameResultText = outfile;
 
+	// complete key as string (KEY, SEPARATOR1, SEPARATOR2)
+	CString stringCompleteKey;
+	stringCompleteKey.Append("KEY: ");
+	stringCompleteKey.Append(KeyDialog.GetData());
+	stringCompleteKey.Append(", SEPARATOR1: ");
+	stringCompleteKey.Append(playfairOptions.separator1);
+	stringCompleteKey.Append(", SEPARATOR2: ");
+	stringCompleteKey.Append(playfairOptions.separator2);
+
 	// we want to show the pre-formatted text
 	if(playfairOptions.showPreformattedText)
 	{
@@ -501,13 +506,7 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 		KeyDialog.m_Alg->ApplyPlayfair(playfairOptions);
 
 		// make sure the pre-formatted text is shown (see below...)
-		char tmpStr[128];
-
-		int i;
-		for (i=0; i<KeyDialog.m_text.GetLength(); i++ )
-			tmpStr[i] = KeyDialog.m_text.GetAt(i);
-		tmpStr[i]=0;
-		NewDoc = theApp.OpenDocumentFileNoMRU(preform, tmpStr /* KeyDialog.GetData()*/ );
+		NewDoc = theApp.OpenDocumentFileNoMRU(preform, stringCompleteKey);
 		remove(preform);
 		if(NewDoc)
 		{
@@ -517,7 +516,7 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 			NewDoc->SetData(2);
 		}
 
-		NewDoc = theApp.OpenDocumentFileNoMRU(outfile,KeyDialog.GetData());
+		NewDoc = theApp.OpenDocumentFileNoMRU(outfile,stringCompleteKey);
 		remove(outfile);
 		if(NewDoc)
 		{
@@ -526,7 +525,7 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 			else
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
 			LoadString(AfxGetInstanceHandle(),IDS_PLAYFAIR,pc_str,STR_LAENGE_STRING_TABLE);
-			MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,KeyDialog.GetData());
+			MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,stringCompleteKey);
 			NewDoc->SetTitle(title);
 			NewDoc->SetData(2);
 	    }
@@ -537,7 +536,7 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 		// apply Playfair with the desired options
 		KeyDialog.m_Alg->ApplyPlayfair(playfairOptions);
 		// show the new document
-		OpenNewDoc( outfile, KeyDialog.GetData(), OldTitle, IDS_PLAYFAIR, playfairOptions.decryption);
+		OpenNewDoc( outfile, stringCompleteKey, OldTitle, IDS_PLAYFAIR, playfairOptions.decryption);
 	}
 	HIDE_HOUR_GLASS
 }

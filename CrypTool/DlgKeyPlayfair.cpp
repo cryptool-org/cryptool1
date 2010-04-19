@@ -31,6 +31,7 @@
 #include "DlgKeyPlayfair.h"
 #include "PlayfairAnalysis.h"
 #include "KeyRepository.h"
+#include "CrypToolTools.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgKeyPlayfair 
@@ -329,9 +330,14 @@ void CDlgKeyPlayfair::OnEncrypt()
 void CDlgKeyPlayfair::OnPasteKey() 
 {
 	UpdateData(TRUE);
-	CString Title;
+	// retrieve complete Playfair key from the key store
+	CString stringCompleteKey;
 	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_PLAYFAIR,pc_str,STR_LAENGE_STRING_TABLE);
-	PasteKey(pc_str,m_text);
+	if(PasteKey(pc_str, stringCompleteKey)) {
+		m_text = extractValueFromStringByKey("KEY", stringCompleteKey);
+		separator1 = extractValueFromStringByKey("SEPARATOR1", stringCompleteKey);
+		separator2 = extractValueFromStringByKey("SEPARATOR2", stringCompleteKey);
+	}
 	UpdateData(FALSE);	
 	OnChange();
 }
