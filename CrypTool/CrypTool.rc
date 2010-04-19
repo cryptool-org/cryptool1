@@ -46162,13 +46162,13 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,45,125,10
     CONTROL         "Separar caracteres dobles sólo cuando pares",IDC_CHECK_SEPARATE_LETTERS_ONLY_IN_PAIRS,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,88,195,10
-    CONTROL         "i18n Show pre-formatted text",IDC_PREFORM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,17,141,8
-    CONTROL         "i18n Limit text to currently configured alphabet",IDC_CHECK_LIMIT_TEXT_TO_ALPHABET,
+    CONTROL         "Mostrar texto pre-formateado",IDC_PREFORM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,17,141,8
+    CONTROL         "Limitar texto al alfabeto actualmente configurado",IDC_CHECK_LIMIT_TEXT_TO_ALPHABET,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,31,181,8
     EDITTEXT        IDC_EDIT_SEPARATOR1,150,58,15,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_SEPARATOR2,150,72,15,12,ES_AUTOHSCROLL
-    LTEXT           "i18n First separator:",IDC_STATIC_TEXT_SEPARATOR1,50,60,95,8
-    LTEXT           "i18n Second separator:",IDC_STATIC_TEXT_SEPARATOR2,50,74,95,8
+    LTEXT           "Primer separador:",IDC_STATIC_TEXT_SEPARATOR1,50,60,95,8
+    LTEXT           "Segundo separador:",IDC_STATIC_TEXT_SEPARATOR2,50,74,95,8
     PUSHBUTTON      "Opciones de texto",ID_TEXTOPTIONS,142,308,65,20
 END
 
@@ -46258,10 +46258,10 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFR
 CAPTION "Análisis por Fuerza Bruta : Resultados"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    CONTROL         "",IDC_LIST4,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,45,420,131
+    CONTROL         "",IDC_LIST4,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,48,420,130
     DEFPUSHBUTTON   "&Aceptar Selección",IDOK,284,184,76,20
     PUSHBUTTON      "&Cancelar",IDCANCEL,374,184,53,20
-    LTEXT           "Static",IDC_HEADER,7,7,420,38
+    LTEXT           "Static",IDC_HEADER,7,7,420,40
 END
 
 IDD_MANUAL_SUBST_ANALYSIS DIALOGEX 0, 0, 342, 326
@@ -48431,7 +48431,7 @@ BEGIN
     GROUPBOX        "Valor del primer caracter del alfabeto:",IDC_STATIC,171,256,132,40
     CONTROL         "0",IDC_CHECK_OFS0,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,268,20,10
     CONTROL         "1",IDC_CHECK_OFS1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,281,20,10
-    GROUPBOX        "[i18n] Options",IDC_STATIC,8,307,304,34
+    GROUPBOX        "Opciones",IDC_STATIC,8,307,304,34
 END
 
 IDD_HMAC DIALOGEX 0, 0, 532, 481
