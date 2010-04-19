@@ -103,6 +103,8 @@ protected:
 	afx_msg void OnChangeSeparator();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnBnClickedTextoptions();
 };
 
 //{{AFX_INSERT_LOCATION}}

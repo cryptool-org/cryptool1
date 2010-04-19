@@ -155,6 +155,7 @@ BEGIN_MESSAGE_MAP(CDlgKeyPlayfair, CDialog)
 	ON_EN_CHANGE(IDC_EDIT_SEPARATOR1, OnChangeSeparator)
 	ON_EN_CHANGE(IDC_EDIT_SEPARATOR2, OnChangeSeparator)
 	//}}AFX_MSG_MAP
+	ON_BN_CLICKED(ID_TEXTOPTIONS, &CDlgKeyPlayfair::OnBnClickedTextoptions)
 END_MESSAGE_MAP()
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -400,4 +401,8 @@ PlayfairOptions CDlgKeyPlayfair::getPlayfairOptions()
 	return playfairOptions;
 }
 
-
+void CDlgKeyPlayfair::OnBnClickedTextoptions()
+{
+	// allow the user to change the CrypTool alphabet
+	theApp.TextOptions.DoModal();
+}
