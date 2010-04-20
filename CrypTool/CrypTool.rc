@@ -8426,7 +8426,7 @@ BEGIN
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
                             "i18n Initial translation: Warsaw University, Poland (http://www.ee.pw.edu.pl/),\r\nDr. Bartosz Sawicki and his students"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_POLISH 
-                            "i18n Further Updates: Pawel Polweski"
+                            "i18n Further Updates: Pawel Polewski"
     IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "i18n Serbian translation"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SERBIAN 
                             "i18n Initial translation: Advanced School of Electrical Engineering, Belgrade, Serbia,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
@@ -19501,7 +19501,7 @@ BEGIN
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
                             "i18n Initial translation: Warsaw University, Poland (http://www.ee.pw.edu.pl/),\r\nDr. Bartosz Sawicki and his students"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_POLISH 
-                            "i18n Further Updates: Pawel Polweski"
+                            "i18n Further Updates: Pawel Polewski"
     IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "i18n Serbian translation"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SERBIAN 
                             "i18n Initial translation: Advanced School of Electrical Engineering, Belgrade, Serbia,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
@@ -41571,7 +41571,7 @@ BEGIN
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
                             "Initial translation: Warsaw University, Poland (http://www.ee.pw.edu.pl/),\r\nDr. Bartosz Sawicki and his students"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_POLISH 
-                            "Further Updates: Pawel Polweski"
+                            "Further Updates: Pawel Polewski"
     IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "Serbian translation"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SERBIAN 
                             "Initial translation: Advanced School of Electrical Engineering, Belgrade, Serbia,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
@@ -48727,14 +48727,14 @@ BEGIN
     GROUPBOX        "Versión en español",IDC_STATIC,7,170,356,55
     LTEXT           "Versión inicial:",IDC_STATIC,20,45,46,8
     LTEXT           "Nuevas actualizaciones:",IDC_STATIC,20,65,78,8
-    LTEXT           "Universidad de Varsovia, Polonia (http://www.ee.pw.edu.pl/);\nSr. Bartosz Sawicki y sus estudiantes.",IDC_STATIC,100,45,250,16
-    LTEXT           "Mr. Pawel Polewski",IDC_STATIC,100,65,250,16
+    LTEXT           "Universidad de Varsovia, Polonia (http://www.ee.pw.edu.pl/);\nDr. Bartosz Sawicki y sus estudiantes.",IDC_STATIC,100,45,250,16
+    LTEXT           "Pawel Polewski",IDC_STATIC,100,65,250,16
     LTEXT           "Versión inicial:",IDC_STATIC,20,115,46,8
-    LTEXT           "Advanced School of Electrical Engineering, Belgrado, Serbia.\nProf. Dragan Pleskonjic, Sr. Bojan Dimitrovski y sus estudiantes.",IDC_STATIC,100,115,250,16
+    LTEXT           "Advanced School of Electrical Engineering, Belgrado, Serbia.\nProf. Dragan Pleskonjic, Bojan Dimitrovski y sus estudiantes.",IDC_STATIC,100,115,250,16
     LTEXT           "Versión inicial:",IDC_STATIC,20,185,46,8
     LTEXT           "Nuevas actualizaciones:",IDC_STATIC,20,205,78,8
-    LTEXT           "Universidad de Madrid, España (http://www.csic.es),\nSr. Gonzalo Álvarez Marañón y sus estudiantes.",IDC_STATIC,100,185,250,16
-    LTEXT           "Sr. Raphael Labaca-Castro",IDC_STATIC,100,205,250,16
+    LTEXT           "Universidad de Madrid, España (http://www.csic.es),\nDr. Gonzalo Álvarez Marañón y sus estudiantes.",IDC_STATIC,100,185,250,16
+    LTEXT           "Raphael Labaca-Castro",IDC_STATIC,100,205,250,16
     EDITTEXT        IDC_EDIT_TRANSLATIONS_INFORMATION,7,20,356,225,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
@@ -52596,12 +52596,12 @@ BEGIN
     IDR_OPENGLTYPE          "\nSin nombre\n\nFichero OpenGL (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
     IDS_STRING_TRANSLATIONS_HEADING_POLISH "Versión en polaco:"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
-                            "Versión inicial: Universidad de Varsovia, Polonia (http://www.ee.pw.edu.pl/);\r\nSr. Bartosz Sawicki y sus estudiantes."
+                            "Versión inicial: Universidad de Varsovia, Polonia (http://www.ee.pw.edu.pl/);\r\nDr. Bartosz Sawicki y sus estudiantes."
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_POLISH 
-                            "\r\nNuevas actualizaciones: Sr. Pawel Polweski"
+                            "\r\nNuevas actualizaciones: Pawel Polewski"
     IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "Versión en serbio:"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SERBIAN 
-                            "Versión inicial: Advanced School of Electrical Engineering, Belgrado, Serbia;\r\nProf. Dragan Pleskonjic, Sr. Bojan Dimitrovski y sus estudiantes."
+                            "Versión inicial: Advanced School of Electrical Engineering, Belgrado, Serbia;\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski y sus estudiantes."
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN 
                             "\r\nNuevas actualizaciones: -"
     IDS_STRING_TRANSLATIONS_HEADING_SPANISH "Versión en español:"
@@ -55292,9 +55292,9 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
-                            "Versión inicial: Universidad de Madrid, España (http://www.csic.es);\r\nSr. Gonzalo Álvarez Marañón y sus estudiantes."
+                            "Versión inicial: Universidad de Madrid, España (http://www.csic.es);\r\nDr. Gonzalo Álvarez Marañón y sus estudiantes."
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
-                            "\r\nNuevas actualizaciones: Sr. Raphael Labaca-Castro"
+                            "\r\nNuevas actualizaciones: Raphael Labaca-Castro"
 END
 
 STRINGTABLE 
