@@ -92,6 +92,9 @@ BOOL CDlgTranslations::OnInitDialog()
 		
 		translationsInformation.Append(heading);
 		translationsInformation.Append("\r\n");
+		// do some magic to underline the heading with "=" characters
+		for(int i=0; i<heading.GetLength()*2/3; i++)
+			translationsInformation.Append("=");
 		translationsInformation.Append("\r\n");
 		translationsInformation.Append(initialWork);
 		translationsInformation.Append("\r\n");

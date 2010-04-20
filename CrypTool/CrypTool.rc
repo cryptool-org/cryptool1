@@ -8,8 +8,7 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -8425,12 +8424,12 @@ BEGIN
     IDR_OPENGLTYPE          "\nUnnamed\n\nOpenGL file (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nPliki OpenGL "
     IDS_STRING_TRANSLATIONS_HEADING_POLISH "T³umaczenie na jêzyk polski"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
-                            "Wstêpne t³umaczenie: Uniwersytet Warszawski, Polska (http://www.ee.pw.edu.pl/),\r\nDr. Bartosz Sawicki wraz ze studentami"
+                            "Wstêpne t³umaczenie: Uniwersytet Warszawski, Polska (http://www.ee.pw.edu.pl),\r\nDr. Bartosz Sawicki wraz ze studentami"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_POLISH 
                             "Dalsze aktualizacje: Pawel Polewski"
     IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "T³umaczenie na jêzyk serbski"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SERBIAN 
-                            "Wstêpne t³umaczenie: Wy¿sza szko³a elektrotechniki, Belgrad, Serbia,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski wraz ze studentami"
+                            "Wstêpne t³umaczenie: Wy¿sza szko³a elektrotechniki, Belgrad, Serbia (http://www.viser.edu.rs),\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski wraz ze studentami"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN "Dalsze aktualizacje: -"
     IDS_STRING_TRANSLATIONS_HEADING_SPANISH "T³umaczenie na jêzyk hiszpañski"
 END
@@ -11061,7 +11060,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
-                            "Wstêpne t³umaczenie: Uniwersztet Madrid, Hiszpania (http://www.csic.es),\nDr. Gonzalo Alvarez Maranon wraz ze studentami"
+                            "Wstêpne t³umaczenie: Uniwersztet Madrid, Hiszpania (http://www.csic.es),\r\nDr. Gonzalo Alvarez Maranon wraz ze studentami"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
                             "Dalsze aktualizacje: Raphael Labaca-Castro"
 END
@@ -16119,7 +16118,7 @@ BEGIN
         END
         POPUP "&RSA Kriptosistem"
         BEGIN
-            MENUITEM "Test Prostih &Brojeva...",   ID_PRIMENUMBER_TEST
+            MENUITEM "Test Prostih &Brojeva...",    ID_PRIMENUMBER_TEST
             MENUITEM "Generiši &Proste Brojeve...", ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
             MENUITEM "&Razlaganje Broja...",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             MENUITEM "&RSA Demonstracija...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
@@ -19500,12 +19499,12 @@ BEGIN
     IDR_OPENGLTYPE          "\nNeimenovana\n\nOpenGL datoteka (*.ogl)\n.plt\n\nOpenGL Tip Datoteke\nOPENGL\nOpenGL Datoteke\n"
     IDS_STRING_TRANSLATIONS_HEADING_POLISH "i18n Polish translation"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
-                            "i18n Initial translation: Warsaw University, Poland (http://www.ee.pw.edu.pl/),\r\nDr. Bartosz Sawicki and his students"
+                            "i18n Initial translation: Warsaw University, Poland (http://www.ee.pw.edu.pl),\r\nDr. Bartosz Sawicki and his students"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_POLISH 
                             "i18n Further Updates: Pawel Polewski"
     IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "i18n Serbian translation"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SERBIAN 
-                            "i18n Initial translation: Advanced School of Electrical Engineering, Belgrade, Serbia,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
+                            "i18n Initial translation: Advanced School of Electrical Engineering, Belgrade, Serbia (http://www.viser.edu.rs),\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN "i18n Further updates: -"
     IDS_STRING_TRANSLATIONS_HEADING_SPANISH "i18n Spanish translation"
 END
@@ -22124,7 +22123,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
-                            "i18n Initial translation: Madrid University, Spain (http://www.csic.es),\nDr. Gonzalo Alvarez Maranon and his students"
+                            "i18n Initial translation: Madrid University, Spain (http://www.csic.es),\r\nDr. Gonzalo Alvarez Maranon and his students"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
                             "i18n Further updates: Raphael Labaca-Castro"
 END
@@ -30446,7 +30445,7 @@ BEGIN
                             "Weitere Updates: Pawel Polewski"
     IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "Serbische Übersetzung"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SERBIAN 
-                            "Erstübersetzung: Advanced School of Electrical Engineering, Belgrad, Serbien,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski und seine Kommilitonen"
+                            "Erstübersetzung: Advanced School of Electrical Engineering, Belgrad, Serbien (http://www.viser.edu.rs),\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski und seine Kommilitonen"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN "Weitere Updates: -"
     IDS_STRING_TRANSLATIONS_HEADING_SPANISH "Spanische Übersetzung"
 END
@@ -41570,12 +41569,12 @@ BEGIN
     IDR_OPENGLTYPE          "\nUnnamed\n\nOpenGL file (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
     IDS_STRING_TRANSLATIONS_HEADING_POLISH "Polish translation"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
-                            "Initial translation: Warsaw University, Poland (http://www.ee.pw.edu.pl/),\r\nDr. Bartosz Sawicki and his students"
+                            "Initial translation: Warsaw University, Poland (http://www.ee.pw.edu.pl),\r\nDr. Bartosz Sawicki and his students"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_POLISH 
                             "Further Updates: Pawel Polewski"
     IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "Serbian translation"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SERBIAN 
-                            "Initial translation: Advanced School of Electrical Engineering, Belgrade, Serbia,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
+                            "Initial translation: Advanced School of Electrical Engineering, Belgrade, Serbia (http://www.viser.edu.rs),\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN "Further updates: -"
     IDS_STRING_TRANSLATIONS_HEADING_SPANISH "Spanish translation"
 END
@@ -44189,7 +44188,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
-                            "Initial translation: Madrid University, Spain (http://www.csic.es),\nDr. Gonzalo Alvarez Maranon and his students"
+                            "Initial translation: Madrid University, Spain (http://www.csic.es),\r\nDr. Gonzalo Alvarez Maranon and his students"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
                             "Further updates: Raphael Labaca-Castro"
 END
@@ -48927,7 +48926,7 @@ BEGIN
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             MENUITEM SEPARATOR
             MENUITEM "&Valor Hash de un Archivo...", ID_HASH_OFAFILE
-            MENUITEM "&Demostración Hash...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
+            MENUITEM "&Demostración Hash...",       ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
             MENUITEM "Generación de una &Clave desde una Contraseña (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
             MENUITEM "&Generación de MACs...",      ID_GENERATE_MACS
         END
@@ -49313,7 +49312,7 @@ BEGIN
             MENUITEM SEPARATOR
             POPUP "&AES"
             BEGIN
-                MENUITEM "&Animación Rijndael...",     ID_FLASH_AESDEMO
+                MENUITEM "&Animación Rijndael...",      ID_FLASH_AESDEMO
                 MENUITEM "&Inspector Rijndael ...",     ID_FLASH_RIJNDAEL_INSPECTOR
                 MENUITEM "Visualización de flujo de &Rijndael", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
@@ -49394,7 +49393,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Sustitución...",             ID_ANALYZE_SUBST
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE, GRAYED
-                MENUITEM "Soli&tario...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
+                MENUITEM "Soli&tario...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
             END
         END
         POPUP "Cifrado Simétrico (&moderno)"
@@ -49621,9 +49620,9 @@ BEGIN
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "&Valor Hash de un Archivo...", ID_HASH_OFAFILE
-            MENUITEM "&Demostración Hash...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, GRAYED
+            MENUITEM "&Demostración Hash...",       ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, GRAYED
             MENUITEM "Generación de una &Clave desde una contraseña (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
-            MENUITEM "&Generación de MACs...",     ID_GENERATE_MACS, GRAYED
+            MENUITEM "&Generación de MACs...",      ID_GENERATE_MACS, GRAYED
         END
         POPUP "&RSA Criptosistema"
         BEGIN
@@ -49660,8 +49659,8 @@ BEGIN
             MENUITEM SEPARATOR
             POPUP "&AES"
             BEGIN
-                MENUITEM "&Animación Rijndael...",     ID_FLASH_AESDEMO
-                MENUITEM "&Inspector Rijndael...",     ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "&Animación Rijndael...",      ID_FLASH_AESDEMO
+                MENUITEM "&Inspector Rijndael...",      ID_FLASH_RIJNDAEL_INSPECTOR
                 MENUITEM "Visualización de flujo de &Rijndael", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
@@ -49783,7 +49782,7 @@ BEGIN
         END
         POPUP "&Análisis de Aleatoriedad"
         BEGIN
-            MENUITEM "Test de &Frecuencias",         ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
+            MENUITEM "Test de &Frecuencias",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
             MENUITEM "Test de &Poker",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
             MENUITEM "Test de &Rachas",             ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
             MENUITEM "Test de &Series",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
@@ -49968,7 +49967,7 @@ BEGIN
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             MENUITEM SEPARATOR
             MENUITEM "&Valor Hash de un Archivo...", ID_HASH_OFAFILE
-            MENUITEM "&Demostración Hash...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
+            MENUITEM "&Demostración Hash...",       ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
             MENUITEM "Generación de una &Clave desde una Contraseña (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
             MENUITEM "&Generación de MACs...",      ID_GENERATE_MACS
         END
@@ -50008,7 +50007,7 @@ BEGIN
             POPUP "&AES"
             BEGIN
                 MENUITEM "&Animación Rijndael...",      ID_FLASH_AESDEMO
-                MENUITEM "&Inspector Rijndael...",     ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "&Inspector Rijndael...",      ID_FLASH_RIJNDAEL_INSPECTOR
                 MENUITEM "Visualización de flujo de &Rijndael", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
@@ -50435,7 +50434,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Sustitución...",             ID_ANALYZE_SUBST
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE, GRAYED
-                MENUITEM "Soli&tario...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
+                MENUITEM "Soli&tario...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
             END
         END
         POPUP "Cifrado Simétrico (&moderno)"
@@ -52597,12 +52596,12 @@ BEGIN
     IDR_OPENGLTYPE          "\nSin nombre\n\nFichero OpenGL (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
     IDS_STRING_TRANSLATIONS_HEADING_POLISH "Versión en polaco:"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
-                            "Versión inicial: Universidad de Varsovia, Polonia (http://www.ee.pw.edu.pl/);\r\nDr. Bartosz Sawicki y sus estudiantes."
+                            "Versión inicial: Universidad de Varsovia, Polonia (http://www.ee.pw.edu.pl);\r\nDr. Bartosz Sawicki y sus estudiantes."
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_POLISH 
                             "\r\nNuevas actualizaciones: Pawel Polewski"
     IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "Versión en serbio:"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SERBIAN 
-                            "Versión inicial: Advanced School of Electrical Engineering, Belgrado, Serbia;\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski y sus estudiantes."
+                            "Versión inicial: Advanced School of Electrical Engineering, Belgrado, Serbia (http://www.viser.edu.rs);\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski y sus estudiantes."
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN 
                             "\r\nNuevas actualizaciones: -"
     IDS_STRING_TRANSLATIONS_HEADING_SPANISH "Versión en español:"
