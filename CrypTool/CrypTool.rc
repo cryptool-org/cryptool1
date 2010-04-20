@@ -11062,7 +11062,7 @@ BEGIN
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
                             "i18n Initial translation: Madrid University, Spain (http://www.csic.es),\nDr. Gonzalo Alvarez Maranon and his students"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
-                            "i18n Further updates: Raphael Labaca Castro"
+                            "i18n Further updates: Raphael Labaca-Castro"
 END
 
 STRINGTABLE 
@@ -22125,7 +22125,7 @@ BEGIN
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
                             "i18n Initial translation: Madrid University, Spain (http://www.csic.es),\nDr. Gonzalo Alvarez Maranon and his students"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
-                            "i18n Further updates: Raphael Labaca Castro"
+                            "i18n Further updates: Raphael Labaca-Castro"
 END
 
 STRINGTABLE 
@@ -33124,7 +33124,7 @@ BEGIN
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
                             "Erstübersetzung: Universität Madrid, Spanien (http://www.csic.es),\r\nDr. Gonzalo Alvarez Maranon und seine Studenten"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
-                            "Weitere Updates: Raphael Labaca Castro"
+                            "Weitere Updates: Raphael Labaca-Castro"
 END
 
 STRINGTABLE 
@@ -44190,7 +44190,7 @@ BEGIN
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
                             "Initial translation: Madrid University, Spain (http://www.csic.es),\nDr. Gonzalo Alvarez Maranon and his students"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
-                            "Further updates: Raphael Labaca Castro"
+                            "Further updates: Raphael Labaca-Castro"
 END
 
 STRINGTABLE 
@@ -48734,7 +48734,7 @@ BEGIN
     LTEXT           "Versión inicial:",IDC_STATIC,20,185,46,8
     LTEXT           "Nuevas actualizaciones:",IDC_STATIC,20,205,78,8
     LTEXT           "Universidad de Madrid, España (http://www.csic.es),\nSr. Gonzalo Álvarez Marañón y sus estudiantes.",IDC_STATIC,100,185,250,16
-    LTEXT           "Sr. Raphael Labaca Castro",IDC_STATIC,100,205,250,16
+    LTEXT           "Sr. Raphael Labaca-Castro",IDC_STATIC,100,205,250,16
     EDITTEXT        IDC_EDIT_TRANSLATIONS_INFORMATION,7,20,356,225,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
@@ -55294,7 +55294,7 @@ BEGIN
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
                             "Versión inicial: Universidad de Madrid, España (http://www.csic.es);\r\nSr. Gonzalo Álvarez Marañón y sus estudiantes."
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
-                            "\r\nNuevas actualizaciones: Sr. Raphael Labaca Castro"
+                            "\r\nNuevas actualizaciones: Sr. Raphael Labaca-Castro"
 END
 
 STRINGTABLE 
