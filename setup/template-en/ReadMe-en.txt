@@ -899,22 +899,29 @@ c) New functionality / Usability:
 - CrypTool now remembers its main window position and size and uses
   this when it is restarted.
 
-- For all DES based methods now the dialogs show both the effectively used
-  key length and the key length which the user has to enter.
-
 - Many small improvements in the masks (user interface), e.g. elapsed-time
   dialog for the AKS test; text in about box can be marked and copied; time
   and number of found factors are shown at once in the factorization dialog;
   menu "XOR" in analysis of ciphertext-only changed to "XOR / Vernam".
 
+- Contributors and translating organisations are now listed in own dialogs
+  (which can be called from the new About dialog).
+
+
+- Extensive enhancements of the online help.
+
 - External PDFs on the internet now can be opened directly within the online
   help.
+
+
+- For all DES based methods now the dialogs show both the effectively used
+  key length and the key length which the user has to enter.
 
 - All available 8 hash methods offered in the dialogs for:
   - Key generation from password (according to PKSC #5),
   - Generation of a hashed Message Authentication Code (HMAC),
-  - Generation of the hash value of a file.
-  Hash demonstration will follow (here are currently 6 method available).
+  - Generation of the hash value of a file, and in the
+  - Hash demonstration.
 
 - The HMAC dialog was newly designed.
 
@@ -940,29 +947,6 @@ c) New functionality / Usability:
   Additionally more hash methods are supported than described in the original
   standard.
 
-- Added the classic transposition ciphers scytale and rail fence (combined
-  in one dialog) including the view and insertion of the key via icon.
-
-- Solitaire encryption: Dialogs are improved, message is no longer limited
-  to 64 kB, the key streams created can be stored.
-
-- The permutation cipher now also can be applied to hex files.
-
-- The educational program/game "Number Shark" (in version 1.2) was
-  corrected and the online help was updated and enhanced.
-  Showing the optional solutions:
-  - Until now optimal results could be shown in two ways:
-    - Until n=158 they have been stored.
-    - For any number they could be calculated in a very slow brute-force
-      algorithm.
-  - Now they can be calculated much faster using a back-tracking algorithm
-    (39 numbers within around 1 minute; 40 numbers within around 5 minutes).
-  - Even much more faster are heuristic algorithms, like the ones implemented
-    in JCT. They normally don't find an optimal result, but a very good one.
-    Best known results up to over n=300 are also delivered with the game now.
-    All known values can be shown in a table now.
-  - If the Number Shark calculates optional results (which can last very long),
-    then you now can restart using stored pre-calculations. 
 
 - If the result in the dialog primality testing says, that the given number
   is NOT prime, then you can directly (via a new button) call the
@@ -976,11 +960,30 @@ c) New functionality / Usability:
 - Diffie-Hellman now creates the primes and the generator according
   to standards for secure generators.
 
-- The checkbox "Special characters" within the dialog "Text Options" now
-  offers some more characters by default.
+
+- Added the classic transposition ciphers scytale and rail fence (combined
+  in one dialog) including the view and insertion of the key via icon.
+
+- Solitaire encryption: Dialogs are improved, display of "A" and "B" for the
+  jockers instead of "53" and "54" (as in the original description),
+  message is no longer limited to 64 kB, the key streams created can be stored.
+  Solitaire's manual analysis (reconstruction of the initial deck) is improved.
+
+- The permutation cipher now can be applied to hex files too.
+
+- The way, how a permutation is created from a key word, is now the same with
+  all methods (double column transposition, ADFGVX).
+
+- Playfair encyrption offers further options (pre-formatting; differentiate
+  whether to insert separators only between pairs of double characters or
+  always when double characters follow each other in the plaintext).
+  This makes a difference when dealing with words like "BALLOON".
 
 - All specific options are now within the dialogs of the according methods.
   So we could get rid of the menu item "Further Options".
+
+- The checkbox "Special characters" within the dialog "Text Options" now
+  offers some more characters by default.
 
 - The alphabet set in the dialog "Text Options" now affects almost all
   classic ciphers: Therefore all adapted methods now have a button to
@@ -1000,14 +1003,30 @@ c) New functionality / Usability:
   This enhancement came especially because of many requests to offer more
   characters for the monoalphabetic substitution.
 
-- The way, how a permutation is created from a key word, is now the same with
-  all methods (double column transposition, ADFGVX).
 
 - A visualization for secure e-mail was added: The user can enter dynamically
   data which is signed or encrypted using the S/MIME protocol.
 
 - Another visualization for the AES algorithm was added: flow visualization,
   showing how the bits are changed round-by-round (compiled with Java 1.5).
+
+
+- The educational program/game "Number Shark" (in version 1.2) was
+  corrected and the online help was updated and enhanced.
+  Showing the optional solutions:
+  - Until now optimal results could be shown in two ways:
+    - Until n=158 they have been stored.
+    - For any number they could be calculated in a very slow brute-force
+      algorithm.
+  - Now they can be calculated much faster using a back-tracking algorithm
+    (39 numbers within around 1 minute; 40 numbers within around 5 minutes).
+  - Even much more faster are heuristic algorithms, like the ones implemented
+    in JCT. They normally don't find an optimal result, but a very good one.
+    Best known results up to almost n=400 are delivered with the game now.
+    All known values can be shown in a table now.
+  - If the Number Shark calculates optional results (which can last very long),
+    then you now can restart using stored pre-calculations. 
+
 
 - For the simple column transposition now a known-plaintext analysis
   is added to calculate the transposition key.

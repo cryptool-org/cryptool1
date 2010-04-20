@@ -447,7 +447,7 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
 
 - Viele klassische Verschlüsselungsverfahren: Und dazu teilweise manuell
   unterstützte, teilweise automatische Analysen (Known-Plaintext- und
-  Ciphertext-only-Angriff).
+  Ciphertext-Only-Angriff).
 
 - Codierungen wie Base64 und UU-Encode.
 
@@ -873,7 +873,7 @@ c) Neue Funktionalität / Bedienung:
    - Die ECC-AES-Hybrid-Ver-/Entschlüsselung läuft nun dank einer neuen
      cv act lib von cryptovision auch unter MS Vista.
    - Die auf dem CRT beruhende Secret-Sharing-Anwendung verbietet nun, dass
-     n=k (somit sind alle Shareholder notwendig). Ohne diese Einschränkung
+     n=k (denn so wären alle Shareholder notwendig). Ohne diese Einschränkung
      macht der Algorithmus das ganze Geheimnis dem ersten Teilnehmer bekannt.
    - RSA-Demo: Ein eingegebener Wert für e wird auch nach Aufruf des
      Optionen-Dialogs beibehalten.
@@ -891,7 +891,7 @@ c) Neue Funktionalität / Bedienung:
    - Korrektur bei der DESX/DESXL-Brute-Force-Analyse, die Schlüssel überging,
      wenn die obersten 128 Bit des Schlüssels durchsucht wurden (das Parity-
      Bit wird bei der Brute-Force-Analyse aus Performancegründen ignoriert;
-     diese geht aber nur beim DES-Key-Teil des Gesamtschlüssels).
+     dies geht aber nur beim DES-Key-Teil des Gesamtschlüssels).
    - Beim Angriff auf den Hashwert einer elektronischen Signatur wurde bisher
      die benötigte Schrittzahl falsch ausgegeben (immer ca. 4,x*10^18).
    - Absturz gefixt, der auftrat, wenn man in den Textoptionen als Alphabet
@@ -907,9 +907,9 @@ c) Neue Funktionalität / Bedienung:
      vergeben ist. Dies konnte dazu führen, dass beim Validieren das falsche
      Zertifikat benutzt wurde.
      Beides ist behoben: Die Nummern werden zufällig erzeugt und beim Import
-     weiterer Zertifikate werden die mit Nummern, die schon erzeugt wurden,
-     abgelehnt.
-   - Die Ciphertext-only-Analyse von XOR-Chiffraten ermittelte eine falsche
+     weiterer Zertifikate werden diejenigen mit Nummern, die schon erzeugt
+     wurden, abgelehnt.
+   - Die Ciphertext-Only-Analyse von XOR-Chiffraten ermittelte eine falsche
      Schlüssellänge, obwohl die angezeigte Autokorrelation korrekt war.
      Nun wird die richtige Schlüssellänge angezeigt und benutzt.
 
@@ -917,22 +917,29 @@ c) Neue Funktionalität / Bedienung:
 - CrypTool merkt sich nun die Position und Größe des Hauptfensters und nutzt
   dies beim Neustart.
 
-- Bei allen DES-basierten Verfahren wird nun sowohl die effektiv genutzte als
-  auch die einzugebende Schlüssellänge angezeigt.
-
 - Viele kleine Verbesserungen in den Masken, z.B. Elapsed-Time-Anzeige beim
-  AKS-Test; der Text in der Aboutbox kann markiert und kopiert werden;
+  AKS-Test; der Text in der About-Box kann markiert und kopiert werden;
   sofortige Anzeige der Zeit und der Anzahl der bisherigen Faktoren bei
   der Faktorisierung; im Menu zur Analyse von Ciphertext-Only-Verfahren
   steht nun "XOR / Vernam" statt nur "XOR".
 
+- Die Mitwirkenden und die Übersetzenden Organisationen werden nun in
+  eigenen Dialogen aufgeführt (aufrufbar aus dem neuen About-Dialog).
+
+
+- Umfangreiche Erweiterungen der Onlinehilfe.
+
 - Auch externe PDFs können nun direkt aus der Onlinehilfe aufgerufen werden.
+
+
+- Bei allen DES-basierten Verfahren wird nun sowohl die effektiv genutzte als
+  auch die einzugebende Schlüssellänge angezeigt.
 
 - Alle acht verfügbaren Hashverfahren werden nun angeboten in den Masken für:
   - Schlüssel aus Passwort generieren (nach PKSC #5),
   - Generieren eines Hashed Message Authentication Code (HMAC),
-  - Generieren des Hashwertes einer Datei.
-  Die Hash-Demo wird folgen (hier stehen bisher 6 Hashverfahren zur Auswahl).
+  - Generieren des Hashwertes einer Datei, und in der
+  - Hash-Demo.
 
 - Der HMAC-Dialog wurde neu entworfen.
 
@@ -958,34 +965,6 @@ c) Neue Funktionalität / Bedienung:
   Außerdem werden mehr Hashverfahren unterstützt, als der ursprüngliche
   Standard vorsieht.
 
-- Die klassischen Transpositions-Chiffren Skytale und Gartenzaun hinzugefügt
-  (angeboten innerhalb eines Dialogs) incl. Schlüssel anzeigen und
-  Schlüssel einfügen per Ikone.
-
-- Solitaire-Verschlüsselung: Maske verbessert, Message nicht mehr auf 64 kB
-  beschränkt, erzeugte Schlüsselströme können gespeichert werden.
-
-- Die Permutationsverschlüsselung kann nun auch auf Hexdateien angewandt
-  werden.
-
-- Das Lernprogramm/Lernspiel "Zahlenhai" (in der Version 1.2) wurde 
-  korrigiert und die Onlinehilfe aktualisiert und erweitert.
-  Ausgabe/Anzeige der optionalen Werte:
-  - Bisher konnte man die optionalen Werte auf zwei Arten anzeigen:
-    - Bis n=158 waren sie abgespeichert.
-    - Für beliebige Werte konnten sie mit einem sehr langsamen
-      Brute-Force-Verfahren berechnet werden.
-  - Nun können diese mit einem Backtracking-Verfahren deutlich schneller
-    berechnet werden (39 Zahlen in ca. 1 Minute; 40 Zahlen in ca. 5 Minuten).
-  - Noch viel schneller sind heuristische Methoden, wie sie in JCT
-    implementiert sind. Diese finden meist nicht den optimalen Wert,
-    aber einen sehr guten Wert.
-    Die besten bekannten Werte bis über n=300 werden nun auch im Spiel
-    mitgeliefert.
-    Alle bekannten Werte können in einer Tabelle angezeigt werden.
-  - Wenn man die optionalen Werte berechnet, was sehr lange dauern kann,
-    kann der Zahlenhai nun auf bisher schon berechnete Zwischenergebnisse
-    aufsetzen. 
 
 - Wenn sich im Dialog Primzahltest ergibt, dass die zu testende Zahl
   NICHT prim ist, kann per Button direkt zum Faktorisierungsdialog
@@ -999,11 +978,33 @@ c) Neue Funktionalität / Bedienung:
 - Bei Diffie-Hellman werden die Primzahlen und der Generator nun
   gemäß Standards für sichere Generatoren erzeugt.
 
-- Die Checkbox "Sonderzeichen" in der Dialogbox "Textoptionen" bietet nun
-  standardmäßig mehr Sonderzeichen an.
+
+- Die klassischen Transpositions-Chiffren Skytale und Gartenzaun hinzugefügt
+  (angeboten innerhalb eines Dialogs) incl. Schlüssel anzeigen und
+  Schlüssel einfügen per Ikone.
+
+- Solitaire-Verschlüsselung: Maske verbessert, Anzeige von "A" und "B" für die
+  Jocker statt "53" und "54" (wie im Original), Message nicht mehr auf 64 kB
+  beschränkt, erzeugte Schlüsselströme können gespeichert werden.
+  Die manuelle Solitaire-Analyse (Rekonstruktion des Initialdecks) wurde
+  verbessert.
+
+- Die Permutationsverschlüsselung kann nun auch auf Hexdateien angewandt
+  werden.
+
+- Die Art, wie aus einem Schlüsselwort eine Permutation erzeugt wird, ist
+  nun bei allen Verfahren (Doppelwürfel, ADFGVX) gleich.
+
+- Die Playfair-Verschlüsselung bietet nun weitere Optionen (Vorformatierung;
+  Unterscheidung, ob Trenner nur innerhalb von Paaren gleicher Buchstaben
+  oder immer beim Aufeinandertreffen gleicher Buchstaben eingefügt werden).
+  Dies wirkt sich z.B. bei Worten wie "BALLOON" aus.
 
 - Alle spezifischen Optionen befinden sich nun in den Dialogen der zugehörigen
   Methoden. Somit konnten wir den Menüeintrag "Weitere Optionen" entfernen.
+
+- Die Checkbox "Sonderzeichen" in der Dialogbox "Textoptionen" bietet nun
+  standardmäßig mehr Sonderzeichen an.
 
 - Das in den Textoptionen eingestellte Alphabet wirkt sich nun auf fast alle
   klassischen Chiffren aus: Deshalb haben alle angepassten Verfahren nun einen
@@ -1025,8 +1026,6 @@ c) Neue Funktionalität / Bedienung:
   Diese Neuerung kam zustande aufgrund vieler Anfragen, die insbesondere
   um Erweiterung des Alphabets für die monoalphabetische Substitution baten.
 
-- Die Art, wie aus einem Schlüsselwort eine Permutation erzeugt wird, ist
-  nun bei allen Verfahren (Doppelwürfel, ADFGVX) gleich.
 
 - Eine Visualisierung der Abläufe bei sicherer E-Mail kam hinzu: Der Benutzer
   kann Daten eingeben, die signiert oder verschlüsselt werden mit Hilfe des
@@ -1035,6 +1034,27 @@ c) Neue Funktionalität / Bedienung:
 - Eine weitere Visualisierung des AES-Algorithmus kam hinzu:
   Die Flussvisualisierung veranschaulicht die Veränderung der Bits
   in jeder Runde (compiliert mit Java 1.5).
+
+
+- Das Lernprogramm/Lernspiel "Zahlenhai" (in der Version 1.2) wurde 
+  korrigiert und die Onlinehilfe aktualisiert und erweitert.
+  Ausgabe/Anzeige der optionalen Werte:
+  - Bisher konnte man die optionalen Werte auf zwei Arten anzeigen:
+    - Bis n=158 waren sie abgespeichert.
+    - Für beliebige Werte konnten sie mit einem sehr langsamen
+      Brute-Force-Verfahren berechnet werden.
+  - Nun können diese mit einem Backtracking-Verfahren deutlich schneller
+    berechnet werden (39 Zahlen in ca. 1 Minute; 40 Zahlen in ca. 5 Minuten).
+  - Noch viel schneller sind heuristische Methoden, wie sie in JCT
+    implementiert sind. Diese finden meist nicht den optimalen Wert,
+    aber einen sehr guten Wert.
+    Die besten bekannten Werte bis fast n=400 werden nun auch im Spiel
+    mitgeliefert.
+    Alle bekannten Werte können nun in einer Tabelle angezeigt werden.
+  - Wenn man die optimalen Werte berechnet, was sehr lange dauern kann,
+    kann der Zahlenhai nun auf bisher schon berechnete Zwischenergebnisse
+    aufsetzen. 
+
 
 - Für die einfache Spaltentransposition ist eine Known-Plaintext-Analyse
   zum Finden des Transpositions-Schlüssels neu hinzugekommen.
@@ -2594,7 +2614,7 @@ A.2.1.2. Funktionalität: Analyse
    * homophone Verschlüsselung
    * Permutationen/Transpositionen
       - Known-Plaintext-Analyse der doppelten Spaltentransposition,
-      - Ciphertext-only-Analyse des Doppelwürfels
+      - Ciphertext-Only-Analyse des Doppelwürfels
    * Playfair-Verschlüsselung
       - C-Sourcen (Gunnar-Andresson) liegen uns vor.
 
