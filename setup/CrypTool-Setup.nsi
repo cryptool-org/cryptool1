@@ -11,7 +11,7 @@
   ;Name and file
   !define ProgramName "CrypTool"
   !define VersionInfo "1.4.30" ; no beta here to avoid line wrap in installer
-  !define VersionFile "1_4_30_beta_05"
+  !define VersionFile "1_4_30_beta_07"
   
   Name "${ProgramName} ${VersionInfo}"
   OutFile "SetupCrypTool_${VersionFile}_${LANGUAGE_STR}.exe"
@@ -151,6 +151,32 @@
    !define UNINSTALL_PROMPT2    "Taki katalog ju¿ istnieje. $\n$\nWybierz inny katalog, albo odinstaluj program z tego katalogu."
    !define UNINSTALL_CONFIRM	"Odinstalowanie programu oznacza skasowanie wszystkich plików w katalogu instalacyjnym (tak¿e wygenerowanych przez Ciebie kluczy asymetrycznych i zapisanych przyk³adów).$\n$\n Przerywaj¹c ten proces mo¿esz skopiowaæ te pliki w bezpieczne miejsce.$\n$\nCzy chcesz kontynuowaæ odinstalowywanie programu CrypTool?"
    !define UNINSTALL_RMPROGDIR_FAILED "Katalog programu nie mogl byc usuniety (w calosci).$\n$\nNalezy usunac go recznie."
+!else if ${LANGUAGE_STR} == 'es'
+   !insertmacro MUI_LANGUAGE "Spanish"
+   !define SCN_CRYPTOOL		"CrypTool"
+   !define SCL_CRYPTOOL		"CrypTool.exe"
+   !define SCN_CRYPTOOL_HELP    "CrypTool Help"
+   !define SCL_CRYPTOOL_HELP	"CrypTool-${LANGUAGE_STR}.chm"
+   !define SCN_NUMBERSHARK	"NumberShark"
+   !define SCL_NUMBERSHARK	"NumberShark.exe"
+   !define SCN_NUMBERSHARK_HELP "Number Shark Help"
+   !define SCL_NUMBERSHARK_HELP "NumberShark-${LANGUAGE_STR}.chm"
+   !define SCN_AES_TOOL		"AES-Tool"
+   !define SCL_AES_TOOL		"aestool.exe"
+   !define SCN_SCRIPT		"Script"
+   !define SCL_SCRIPT		"script-en.pdf"
+   !define SCN_PRESENTATION	"Presentation"
+   !define SCL_PRESENTATION	"CrypToolPresentation-en.pdf"
+   !define SCN_README		"ReadMe"
+   !define SCL_README 		"ReadMe-en.txt"
+   !define SCN_UNINSTALL	"Desinstalar"
+   !define SCL_UNINSTALL	"Uninstall.exe"
+   !define URL		"http://www.cryptool.es/"
+   !define UNINSTALL_PROMPT	"ya se encuentra instalado. $\n$\nHaga click en 'Aceptar' para desinstalar la \
+  versión anterior o 'Cancelar' para seleccionar otro directorio de instalación."
+   !define UNINSTALL_PROMPT2    "El directorio ya existe.$\n$\nPor favor, seleccione otro o desinstale el programa en el directorio actual."
+   !define UNINSTALL_CONFIRM	"La desinstalación eliminará todos los archivos en este directorio - incluso clave asimétricas que haya generado y archivos de ejemplo guardados.$\n$\nSi cancela ahora será capaz de exportar las claves generadas en su instalación actual de CrypTool.$\n$\n¿Está seguro que desea continuar con el proceso de desinstalación?"
+   !define UNINSTALL_RMPROGDIR_FAILED "El directorio del programa no pudo ser eliminado (completamente).$\n$\nPor favor, remover manualmente."
 !else
   !echo "ERROR: ...!"
   Abort ; EXIT

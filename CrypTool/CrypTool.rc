@@ -16119,7 +16119,7 @@ BEGIN
         END
         POPUP "&RSA Kriptosistem"
         BEGIN
-            MENUITEM "&Test Prostih &Brojeva...",   ID_PRIMENUMBER_TEST
+            MENUITEM "Test Prostih &Brojeva...",   ID_PRIMENUMBER_TEST
             MENUITEM "Generiši &Proste Brojeve...", ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
             MENUITEM "&Razlaganje Broja...",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             MENUITEM "&RSA Demonstracija...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
@@ -48926,18 +48926,18 @@ BEGIN
             MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             MENUITEM SEPARATOR
-            MENUITEM "Valor &Hash de un Archivo...", ID_HASH_OFAFILE
-            MENUITEM "&Demostración Hash ...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
+            MENUITEM "&Valor Hash de un Archivo...", ID_HASH_OFAFILE
+            MENUITEM "&Demostración Hash...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
             MENUITEM "Generación de una &Clave desde una Contraseña (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
             MENUITEM "&Generación de MACs...",      ID_GENERATE_MACS
         END
         POPUP "&RSA Criptosistema"
         BEGIN
             MENUITEM "&Test de Primalidad...",      ID_PRIMENUMBER_TEST
-            MENUITEM "Generar Números &Primos...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
-            MENUITEM "&Factorización de un Número ...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+            MENUITEM "&Generar Números Primos...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
+            MENUITEM "&Factorización de un Número...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             MENUITEM "Demonstración &RSA...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
-            MENUITEM "Demostración de &Firma (Generación de una Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "Demostración de &Firma (Generación de Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
             POPUP "Ataques a RSA basad&os en Celosía"
             BEGIN
                 MENUITEM "&Factorizando con una pista...", ID_RSA_FACTORHINT
@@ -48947,11 +48947,11 @@ BEGIN
         END
         POPUP "&Protocolos"
         BEGIN
-            MENUITEM "Demostración &Diffie-Hellman ...", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
+            MENUITEM "Demostración &Diffie-Hellman...", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "&Autenticación en una Red...", ID_CHALLENGE_RESPONSE
             MENUITEM "E-mail seguro con S/MIME",    ID_PROTOKOL_SMIME
         END
-        POPUP "Aplicación del &Teorema Chino de los Restos"
+        POPUP "&Aplicación del Teorema Chino de los Restos"
         BEGIN
             MENUITEM "&Astronomía y Movimiento Planetario...", ID_INDIV_CRT_PLANET
             MENUITEM "&Transformación Modular Progresiva y Regresiva...", ID_INDIV_CRT_DEMO
@@ -48988,7 +48988,7 @@ BEGIN
                     MENUITEM "UU &Codificar",               ID_ENCODE_UU
                     MENUITEM "UU &Descodificar",            ID_DECODE_UU
                 END
-                MENUITEM "Descodificar el Código ASN.&1 de un  Documento", ID_EINZELVERFAHREN_ASN1DECODIEREN
+                MENUITEM "Descodificar el Código ASN.&1 de un Documento", ID_EINZELVERFAHREN_ASN1DECODIEREN
             END
             MENUITEM SEPARATOR
             POPUP "&Comprimir"
@@ -48996,12 +48996,12 @@ BEGIN
                 MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
             END
-            MENUITEM "Generar Números &Aleatorios...", ID_ZUFALL_GENERATOREN
+            MENUITEM "&Generar Números Aleatorios...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Medir Calidad de Contraseña...", ID_PASSWORDQUALITYMETER
             MENUITEM "&Entropía de Contraseña...",  ID_PASSWORDENTROPY
         END
         MENUITEM SEPARATOR
-        POPUP "Juegos &Educativos"
+        POPUP "&Juegos Educativos"
         BEGIN
             MENUITEM "&Number Shark",               ID_NUMBERSHARK
         END
@@ -49009,7 +49009,7 @@ BEGIN
         POPUP "Teoría de &Números - Interactiva"
         BEGIN
             MENUITEM "&Aprendiendo Teoría de Números...", ID_INTERACTIVE_NUMBER_THEORY
-            MENUITEM "Suma de &Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
         END
     END
     POPUP "&Análisis"
@@ -49024,9 +49024,9 @@ BEGIN
             MENUITEM "&Periodicidad",               ID_ANALYSE_PERIOD
         END
         MENUITEM SEPARATOR
-        POPUP "Cifrado Simétrico (&clásico)"
+        POPUP "&Cifrado Simétrico (clásico)"
         BEGIN
-            POPUP "Sólo Texto &Cifrado"
+            POPUP "&Sólo Texto Cifrado"
             BEGIN
                 MENUITEM "&César",                      ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
@@ -49035,7 +49035,7 @@ BEGIN
                 MENUITEM "&Sustitución",                ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&tario",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
-                MENUITEM "&Suma de Bytes",              ID_ADD_AUTO
+                MENUITEM "Su&ma de Bytes",              ID_ADD_AUTO
                 MENUITEM "&XOR",                        ID_XOR_AUTO
             END
             POPUP "&Texto Claro Conocido"
@@ -49043,7 +49043,7 @@ BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO
                 MENUITEM "&Transposición de columna simple", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
-            POPUP "Análisis &Manual..."
+            POPUP "Análisis &Manual"
             BEGIN
                 MENUITEM "&Sustitución...",             ID_ANALYZE_SUBST
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
@@ -49077,7 +49077,7 @@ BEGIN
             MENUITEM "&Factorización de un Número...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             POPUP "Ataques a RSA basados en &Celosía"
             BEGIN
-                MENUITEM "&Factorizando con una pista...", ID_RSA_FACTORHINT
+                MENUITEM "&Factorizando con una Pista...", ID_RSA_FACTORHINT
                 MENUITEM "&Ataque de Texto Conocido...", ID_RSA_STEREOTYPED
                 MENUITEM "A&taque a Claves Secretas Cortas...", ID_RSA_BLOEMERMAY
             END
@@ -49122,7 +49122,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Leeme",                      ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
-        MENUITEM "&Presentacion",               ID_HELP_PRESENTATION
+        MENUITEM "&Presentación",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
         MENUITEM "&Acerca de  CrypTool",        ID_APP_ABOUT
     END
@@ -49284,12 +49284,12 @@ BEGIN
             MENUITEM "&Generar Números Primos...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
             MENUITEM "&Factorización de un Número...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             MENUITEM "Demostración &RSA ...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
-            MENUITEM "Demostración de &Firma (Generación de una Firma...", ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "Demostración de &Firma (Generación de Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
             POPUP "&Colección de Ataques basados en RSA"
             BEGIN
                 MENUITEM "&Factorizando con una Pista...", ID_RSA_FACTORHINT
                 MENUITEM "&Ataque de Texto Conocido...", ID_RSA_STEREOTYPED
-                MENUITEM "Ataque de &Claves Demasiaco Cortas...", ID_RSA_BLOEMERMAY
+                MENUITEM "Ataque de &Claves Demasiado Cortas...", ID_RSA_BLOEMERMAY
             END
         END
         POPUP "&Protocolos"
@@ -49313,7 +49313,7 @@ BEGIN
             MENUITEM SEPARATOR
             POPUP "&AES"
             BEGIN
-                MENUITEM " &Animación Rijndael...",     ID_FLASH_AESDEMO
+                MENUITEM "&Animación Rijndael...",     ID_FLASH_AESDEMO
                 MENUITEM "&Inspector Rijndael ...",     ID_FLASH_RIJNDAEL_INSPECTOR
                 MENUITEM "Visualización de flujo de &Rijndael", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
@@ -49335,7 +49335,7 @@ BEGIN
                     MENUITEM "UU &Codificar",               ID_ENCODE_UU
                     MENUITEM "UU &Descodificar",            ID_DECODE_UU, GRAYED
                 END
-                MENUITEM "Descodificar el Código  ASN.&1 de un  Documento", ID_EINZELVERFAHREN_ASN1DECODIEREN, GRAYED
+                MENUITEM "Descodificar el Código ASN.&1 de un Documento", ID_EINZELVERFAHREN_ASN1DECODIEREN, GRAYED
             END
             MENUITEM SEPARATOR
             POPUP "&Comprimir"
@@ -49343,12 +49343,12 @@ BEGIN
                 MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
-            MENUITEM "Generar &Números Aleatorios...", ID_ZUFALL_GENERATOREN
-            MENUITEM "&Medir Calidad de una Contaseña...", ID_PASSWORDQUALITYMETER
+            MENUITEM "&Generar Números Aleatorios...", ID_ZUFALL_GENERATOREN
+            MENUITEM "&Medir Calidad de Contraseña...", ID_PASSWORDQUALITYMETER
             MENUITEM "&Entropía de Contraseña...",  ID_PASSWORDENTROPY
         END
         MENUITEM SEPARATOR
-        POPUP "Juegos &Educativos"
+        POPUP "&Juegos Educativos"
         BEGIN
             MENUITEM "&Number Shark",               ID_NUMBERSHARK
         END
@@ -49356,7 +49356,7 @@ BEGIN
         POPUP "Teoría de &Números - Interactiva"
         BEGIN
             MENUITEM "&Aprendiendo Teoría de Números...", ID_INTERACTIVE_NUMBER_THEORY
-            MENUITEM "Suma de &Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
         END
     END
     POPUP "&Análisis"
@@ -49371,9 +49371,9 @@ BEGIN
             MENUITEM "&Periodicidad",               ID_ANALYSE_PERIOD, GRAYED
         END
         MENUITEM SEPARATOR
-        POPUP "Cifrado Simétrico (&clásico)"
+        POPUP "&Cifrado Simétrico (clásico)"
         BEGIN
-            POPUP "Sólo Texto &Cifrado"
+            POPUP "&Sólo Texto Cifrado"
             BEGIN
                 MENUITEM "&César",                      ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
@@ -49394,10 +49394,10 @@ BEGIN
             BEGIN
                 MENUITEM "&Sustitución...",             ID_ANALYZE_SUBST
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE, GRAYED
-                MENUITEM "Soli&tario",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
+                MENUITEM "Soli&tario...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
             END
         END
-        POPUP "Cifrado Simétrico (moderno)"
+        POPUP "Cifrado Simétrico (&moderno)"
         BEGIN
             MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA
             MENUITEM "RC&2...",                     ID_ANALYSE_RC2, GRAYED
@@ -49422,7 +49422,7 @@ BEGIN
         POPUP "Cifrado &Asimétrico"
         BEGIN
             MENUITEM "&Factorización de un Número...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
-            POPUP "&Colección de Ataques Basados en RSA"
+            POPUP "Ataques a RSA basados en &Celosía"
             BEGIN
                 MENUITEM "&Factorizando con una Pista...", ID_RSA_FACTORHINT
                 MENUITEM "&Ataque de Texto Conocido...", ID_RSA_STEREOTYPED
@@ -49620,10 +49620,10 @@ BEGIN
             MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512, GRAYED
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160, GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "Valor &Hash de un Archivo...", ID_HASH_OFAFILE
-            MENUITEM "&Demostración Hash ...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, GRAYED
+            MENUITEM "&Valor Hash de un Archivo...", ID_HASH_OFAFILE
+            MENUITEM "&Demostración Hash...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, GRAYED
             MENUITEM "Generación de una &Clave desde una contraseña (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
-            MENUITEM "&Generación de  MACs...",     ID_GENERATE_MACS, GRAYED
+            MENUITEM "&Generación de MACs...",     ID_GENERATE_MACS, GRAYED
         END
         POPUP "&RSA Criptosistema"
         BEGIN
@@ -49632,11 +49632,11 @@ BEGIN
             MENUITEM "&Factorización de un Número...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             MENUITEM "Demostración &RSA ...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
             MENUITEM "Demostración de &Firma (Generación de Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
-            POPUP "Colección de &Ataques basados en RSA"
+            POPUP "&Colección de Ataques basados en RSA"
             BEGIN
                 MENUITEM "&Factorizando con una Pista...", ID_RSA_FACTORHINT
                 MENUITEM "&Ataque de Texto Conocido...", ID_RSA_STEREOTYPED
-                MENUITEM "Ataque de Claves Demasiado &Cortas...", ID_RSA_BLOEMERMAY
+                MENUITEM "Ataque de &Claves Demasiado Cortas...", ID_RSA_BLOEMERMAY
             END
         END
         POPUP "&Protocolos"
@@ -49645,10 +49645,10 @@ BEGIN
             MENUITEM "&Autenticación en una Red...", ID_CHALLENGE_RESPONSE
             MENUITEM "E-mail seguro con S/MIME",    ID_PROTOKOL_SMIME
         END
-        POPUP "Aplicaciones del Teorema Chino de los Restos"
+        POPUP "&Aplicaciones del Teorema Chino de los Restos"
         BEGIN
-            MENUITEM "&Astronomía y Movimiento Planteario...", ID_INDIV_CRT_PLANET
-            MENUITEM "Transformación Modular Progresiva y Regresiva...", ID_INDIV_CRT_DEMO
+            MENUITEM "&Astronomía y Movimiento Planetario...", ID_INDIV_CRT_PLANET
+            MENUITEM "&Transformación Modular Progresiva y Regresiva...", ID_INDIV_CRT_DEMO
             MENUITEM "&Secreto Compartido por CRT...", ID_INDIV_CRT_SECRETSHARING
         END
         POPUP "&Visualización de Algoritmos"
@@ -49660,8 +49660,8 @@ BEGIN
             MENUITEM SEPARATOR
             POPUP "&AES"
             BEGIN
-                MENUITEM "&Animación Rijndael ...",     ID_FLASH_AESDEMO
-                MENUITEM "&Inspector Rijndael ...",     ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "&Animación Rijndael...",     ID_FLASH_AESDEMO
+                MENUITEM "&Inspector Rijndael...",     ID_FLASH_RIJNDAEL_INSPECTOR
                 MENUITEM "Visualización de flujo de &Rijndael", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
@@ -49695,15 +49695,15 @@ BEGIN
             MENUITEM "&Entropía de Contraseña...",  ID_PASSWORDENTROPY
         END
         MENUITEM SEPARATOR
-        POPUP "Juegos &Educativos"
+        POPUP "&Juegos Educativos"
         BEGIN
             MENUITEM "&Number Shark",               ID_NUMBERSHARK
         END
         MENUITEM SEPARATOR
-        POPUP "Teoría de &Números- Interactiva"
+        POPUP "Teoría de &Números - Interactiva"
         BEGIN
             MENUITEM "&Aprendiendo Teoría de Números...", ID_INTERACTIVE_NUMBER_THEORY
-            MENUITEM "Suma de &Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
         END
     END
     POPUP "&Análisis"
@@ -49718,7 +49718,7 @@ BEGIN
             MENUITEM "&Periodicidad",               ID_ANALYSE_PERIOD, GRAYED
         END
         MENUITEM SEPARATOR
-        POPUP "Cifrado Simétrico (clásico)"
+        POPUP "&Cifrado Simétrico (clásico)"
         BEGIN
             POPUP "&Sólo Texto Cifrado"
             BEGIN
@@ -49729,7 +49729,7 @@ BEGIN
                 MENUITEM "&Sustitución",                ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&tario",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
                 MENUITEM SEPARATOR
-                MENUITEM "&Suma de Bytes",              ID_ADD_AUTO, GRAYED
+                MENUITEM "Su&ma de Bytes",              ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
             END
             POPUP "&Texto Claro Conocido"
@@ -49744,7 +49744,7 @@ BEGIN
                 MENUITEM "Soli&tario...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
             END
         END
-        POPUP "Cifrado Simétrico (moderno)"
+        POPUP "Cifrado Simétrico (&moderno)"
         BEGIN
             MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA, GRAYED
             MENUITEM "RC&2...",                     ID_ANALYSE_RC2, GRAYED
@@ -49783,7 +49783,7 @@ BEGIN
         END
         POPUP "&Análisis de Aleatoriedad"
         BEGIN
-            MENUITEM "&Test de Frecuencia",         ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
+            MENUITEM "Test de &Frecuencias",         ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
             MENUITEM "Test de &Poker",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
             MENUITEM "Test de &Rachas",             ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
             MENUITEM "Test de &Series",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
@@ -49967,23 +49967,23 @@ BEGIN
             MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             MENUITEM SEPARATOR
-            MENUITEM "Valor &Hash de un Archivo...", ID_HASH_OFAFILE
-            MENUITEM "&Demostración Hash ...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
+            MENUITEM "&Valor Hash de un Archivo...", ID_HASH_OFAFILE
+            MENUITEM "&Demostración Hash...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
             MENUITEM "Generación de una &Clave desde una Contraseña (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
             MENUITEM "&Generación de MACs...",      ID_GENERATE_MACS
         END
         POPUP "&RSA Criptosistema"
         BEGIN
             MENUITEM "&Test de Primalidad...",      ID_PRIMENUMBER_TEST
-            MENUITEM "Generar Números &Primos...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
+            MENUITEM "&Generar Números Primos...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
             MENUITEM "&Factorización de un Número...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
-            MENUITEM "Demostración &RSA ...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
-            MENUITEM "Demostración de &Firma (Generación de una Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
-            POPUP "&Colección de Ataques basados en RSA"
+            MENUITEM "Demonstración &RSA...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
+            MENUITEM "Demostración de &Firma (Generación de Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
+            POPUP "Ataques a RSA basad&os en Celosía"
             BEGIN
-                MENUITEM "&Factorizando con una Pista...", ID_RSA_FACTORHINT
-                MENUITEM "&Ataque de Texto Conocido...", ID_RSA_STEREOTYPED
-                MENUITEM "Ataque de &Claves Demasiado Cortas...", ID_RSA_BLOEMERMAY
+                MENUITEM "&Factorizando con una pista...", ID_RSA_FACTORHINT
+                MENUITEM "&Ataque a Texto Conocido...", ID_RSA_STEREOTYPED
+                MENUITEM "Ataque a &Claves Secretas Cortas...", ID_RSA_BLOEMERMAY
             END
         END
         POPUP "&Protocolos"
@@ -49992,10 +49992,10 @@ BEGIN
             MENUITEM "&Autenticación en una Red...", ID_CHALLENGE_RESPONSE
             MENUITEM "E-mail seguro con S/MIME",    ID_PROTOKOL_SMIME
         END
-        POPUP "&Aplicaciones del Teorema Chino de los Restos"
+        POPUP "&Aplicación del Teorema Chino de los Restos"
         BEGIN
             MENUITEM "&Astronomía y Movimiento Planetario...", ID_INDIV_CRT_PLANET
-            MENUITEM "Transformación &Modular Progresiva y Regresiva...", ID_INDIV_CRT_DEMO
+            MENUITEM "&Transformación Modular Progresiva y Regresiva...", ID_INDIV_CRT_DEMO
             MENUITEM "&Secreto Compartido por CRT...", ID_INDIV_CRT_SECRETSHARING
         END
         POPUP "&Visualización de Algoritmos"
@@ -50008,7 +50008,7 @@ BEGIN
             POPUP "&AES"
             BEGIN
                 MENUITEM "&Animación Rijndael...",      ID_FLASH_AESDEMO
-                MENUITEM "&Inspector Rijndael ...",     ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "&Inspector Rijndael...",     ID_FLASH_RIJNDAEL_INSPECTOR
                 MENUITEM "Visualización de flujo de &Rijndael", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
@@ -50037,7 +50037,7 @@ BEGIN
                 MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
             END
-            MENUITEM "Generar Números &Aleatorios...", ID_ZUFALL_GENERATOREN
+            MENUITEM "&Generar Números Aleatorios...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Medir Calidad de Contraseña...", ID_PASSWORDQUALITYMETER
             MENUITEM "&Entropía de Contraseña...",  ID_PASSWORDENTROPY
         END
@@ -50065,9 +50065,9 @@ BEGIN
             MENUITEM "&Periodicidad",               ID_ANALYSE_PERIOD
         END
         MENUITEM SEPARATOR
-        POPUP "Cifrado Simétrico (&clásico)"
+        POPUP "&Cifrado Simétrico (clásico)"
         BEGIN
-            POPUP "Sólo Texto &Cifrado"
+            POPUP "&Sólo Texto Cifrado"
             BEGIN
                 MENUITEM "&César",                      ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
@@ -50076,7 +50076,7 @@ BEGIN
                 MENUITEM "&Sustitución",                ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&tario",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
-                MENUITEM "&Suma de Bytes",              ID_ADD_AUTO
+                MENUITEM "Su&ma de Bytes",              ID_ADD_AUTO
                 MENUITEM "&XOR",                        ID_XOR_AUTO
             END
             POPUP "&Texto Claro Conocido"
@@ -50116,13 +50116,13 @@ BEGIN
         POPUP "Cifrado &Asimétrico"
         BEGIN
             MENUITEM "&Factorización de un Número...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
-            POPUP "&Colección de Ataques basados en RSA..."
+            POPUP "&Colección de Ataques basados en RSA"
             BEGIN
                 MENUITEM "&Factorizando con una Pista...", ID_RSA_FACTORHINT
                 MENUITEM "&Ataque de Texto Conocido...", ID_RSA_STEREOTYPED
                 MENUITEM "Ataque de &Claves Demasiado Cortas...", ID_RSA_BLOEMERMAY
             END
-            MENUITEM "&Ataque de Canal Lateral...", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
+            MENUITEM "&Ataque del Canal Lateral...", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
         END
         POPUP "&Hash"
         BEGIN
@@ -50322,10 +50322,10 @@ BEGIN
         POPUP "&RSA Criptosistema"
         BEGIN
             MENUITEM "&Test de Primalidad...",      ID_PRIMENUMBER_TEST
-            MENUITEM "Generar Números &Primos...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
+            MENUITEM "&Generar Números Primos...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
             MENUITEM "&Factorización de un Número...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             MENUITEM "Demostración &RSA ...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
-            MENUITEM "Demostración de &Firma (Generación de una Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "Demostración de &Firma (Generación de Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
             POPUP "&Colección de Ataques basados en RSA"
             BEGIN
                 MENUITEM "&Factorizando con una Pista...", ID_RSA_FACTORHINT
@@ -50335,14 +50335,14 @@ BEGIN
         END
         POPUP "&Protocolos"
         BEGIN
-            MENUITEM "Demostración &Diffie-Hellman ...", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
+            MENUITEM "Demostración &Diffie-Hellman...", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "&Autenticación en una Red...", ID_CHALLENGE_RESPONSE
             MENUITEM "E-mail seguro con S/MIME",    65535
         END
-        POPUP "Aplicaciones del &Teorema Chino de los Restos"
+        POPUP "&Aplicaciones del Teorema Chino de los Restos"
         BEGIN
             MENUITEM "&Astronomía y Movimiento Planetario...", ID_INDIV_CRT_PLANET
-            MENUITEM "Transformación &Modular Progresiva y Regresiva...", ID_INDIV_CRT_DEMO
+            MENUITEM "&Transformación Modular Progresiva y Regresiva...", ID_INDIV_CRT_DEMO
             MENUITEM "&Secreto Compartido por CRT...", ID_INDIV_CRT_SECRETSHARING
         END
         POPUP "&Visualización de Algoritmos"
@@ -50397,7 +50397,7 @@ BEGIN
         POPUP "Teoría de &Números - Interactiva"
         BEGIN
             MENUITEM "&Aprendiendo Teoría de Números...", ID_INTERACTIVE_NUMBER_THEORY
-            MENUITEM "Suma de &Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
         END
     END
     POPUP "&Análisis"
@@ -50412,9 +50412,9 @@ BEGIN
             MENUITEM "&Periodicidad",               ID_ANALYSE_PERIOD, GRAYED
         END
         MENUITEM SEPARATOR
-        POPUP "Cifrado Simétrico (clásico)"
+        POPUP "&Cifrado Simétrico (clásico)"
         BEGIN
-            POPUP "Sólo Texto &Cifrado"
+            POPUP "&Sólo Texto Cifrado"
             BEGIN
                 MENUITEM "&César",                      ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
@@ -50423,7 +50423,7 @@ BEGIN
                 MENUITEM "&Sustitución",                ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&tario",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
                 MENUITEM SEPARATOR
-                MENUITEM "&Suma de Bytes",              ID_ADD_AUTO, GRAYED
+                MENUITEM "Su&ma de Bytes",              ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
             END
             POPUP "&Texto Claro Conocido"
@@ -50435,10 +50435,10 @@ BEGIN
             BEGIN
                 MENUITEM "&Sustitución...",             ID_ANALYZE_SUBST
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE, GRAYED
-                MENUITEM "Soli&tario",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
+                MENUITEM "Soli&tario...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
             END
         END
-        POPUP "Cifrado Simétrico (moderno)"
+        POPUP "Cifrado Simétrico (&moderno)"
         BEGIN
             MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA
             MENUITEM "RC&2...",                     ID_ANALYSE_RC2, GRAYED
@@ -50460,7 +50460,7 @@ BEGIN
                 MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL, GRAYED
             END
         END
-        POPUP "Cifrado Asimétrico"
+        POPUP "Cifrado &Asimétrico"
         BEGIN
             MENUITEM "&Factorización de un Número...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             POPUP "&Colección de Ataques basados en RSA"

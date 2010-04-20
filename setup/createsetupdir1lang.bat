@@ -3,9 +3,10 @@ if not exist template\nul goto errortemplate
 if x%1==xde goto ok
 if x%1==xen goto ok
 if x%1==xpl goto ok
+if x%1==xes goto ok
 
 echo Error: invalid or no argument
-echo Usage: setup1lang de  or  setup1lang en  or  setup1lang pl
+echo Usage: setup1lang [de, en, pl, es]
 goto end
 
 :ok 
@@ -18,6 +19,7 @@ xcopy /s/q template\*.* setup-%lang%\
 echo Copying template-%lang% ...
 xcopy /s/q template-%lang%\*.* setup-%lang%\
 if x%lang%==xpl xcopy /s/q template-en\*.* setup-%lang%\
+if x%lang%==xes xcopy /s/q template-en\*.* setup-%lang%\
 echo Copying ..\release_%lang%\*.exe ...
 copy ..\release_%lang%\*.exe setup-%lang%
 rem script-%lang%.pdf is now in template-%lang%

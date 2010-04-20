@@ -92,8 +92,8 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot; LANG=en OUTDIR=..\..\$(ConfigurationName)"
-				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a LANG=en OUTDIR=..\..\$(ConfigurationName)"
+				BuildCommandLine="nmake /f &quot;hlp_es.mak&quot; LANG=es OUTDIR=..\..\$(ConfigurationName)"
+				ReBuildCommandLine="nmake /f &quot;hlp_es.mak&quot; /a LANG=es OUTDIR=..\..\$(ConfigurationName)"
 				CleanCommandLine=""
 				Output="NumberShark-en.chm"
 				PreprocessorDefinitions=""

@@ -821,8 +821,8 @@
 			/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG,AFX_RESOURCE_DLL,AFX_TARG_ENG"
-				Culture="2057"
+				PreprocessorDefinitions="NDEBUG,AFX_RESOURCE_DLL,AFX_TARG_ESN"
+				Culture="3082"
 				AdditionalIncludeDirectories="$(IntDir)"
 			/>
 			<Tool
@@ -1266,11 +1266,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\res\NumberShark.ico"
+				RelativePath=".\Bilder\NumberShark.ico"
 				>
 			</File>
 			<File
-				RelativePath=".\Bilder\NumberShark.ico"
+				RelativePath=".\res\NumberShark.ico"
 				>
 			</File>
 			<File
@@ -1298,11 +1298,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Bilder\Zahlenhai.ico"
+				RelativePath=".\res\Zahlenhai.ico"
 				>
 			</File>
 			<File
-				RelativePath=".\res\Zahlenhai.ico"
+				RelativePath=".\Bilder\Zahlenhai.ico"
 				>
 			</File>
 			<File

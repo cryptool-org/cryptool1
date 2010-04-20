@@ -22,7 +22,7 @@
 <tr>
 <td>
 	<pre>==================================================================
-    CrypTool, Version 1.4.30 Beta 06 for Win32, February 2010
+    CrypTool, Version 1.4.30 Beta 07 for Win32, April 2010  xxxxxxx
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main,
@@ -31,7 +31,7 @@
         Freeware and Open Source according to Apache Licence 2.0
     www.cryptool.org
     Prof. Bernhard Esslinger
-    $Id: ReadMe-en.txt 2992 2010-02-25 21:52:32Z esslinger $
+    $Id: ReadMe-en.txt 3044 2010-04-09 19:56:40Z esslinger $
 ==================================================================
 
  1. .... <a href="#s1.">Brief description of the CrypTool package</a>
@@ -257,7 +257,7 @@ a) The program AES-Tool v 2.5 (developed within the CrypTool project):
    At the installation the file extension "AES" is associated with this
    program.
 
-b) The educational game "Number Shark" v 1.1.6 (by the CrypTool project):
+b) The educational game "Number Shark" (by the CrypTool project):
    This game helps pupils to get acquainted with divisors and prime
    factors.
 
@@ -644,44 +644,43 @@ The general properties and functions of CrypTool are:
   svn checkout http://www.cryptool.com/svn/CrypTool/trunk --username anonymous
 
 To get an impression of the size of the CT1 project here is a statistics created
-in February 2010 using the files for the English, German and Polish version.
+in April 2010 using the files for the English, German, Polish and Spanish version.
 
     FILE SUMMARY (number of files according to file extension)
     
-              4 .rc
-             36 .c
-            316 .cpp
-            371 .h
-             36 .java
-             12 .pl
-           1636 .html
-             47 .txt
-             39 .tex
-              4 .sage
-           2501 TOTAL
+              4 .rc files
+             36 .c files
+            317 .cpp files
+            376 .h files
+             36 .java files
+             12 .pl files
+           2740 .html files
+             45 .txt files
+             39 .tex files
+              4 .sage files
+           3609 TOTAL
 
   
     LINES OF CODE (LoC) SUMMARY
     
-         47,006 MFC resource code (rc)
-        247,889 C/C++ source code (c cpp h)
-          9,781 Java source code (java)
+         59,403 MFC resource code (rc)
+        262,025 C/C++ source code (c cpp h)
+          9,778 Java source code (java)
           1,888 Perl code (pl)
-         90,977 HTML code (html hpp)
-         10,500 Text files (txt)
-         34,463 LaTeX code (tex)
-           825 Sage code (sage)
-        443,329 TOTAL
+        158,610 HTML code (html hpp)
+         13,034 Text files (txt)
+         34,439 LaTeX code (tex)
+            825 Sage code (sage)
+        540,002 TOTAL
 
-    TOTAL: 443,329 lines of code (plus of 15.9 % from 382,244 with v1.4.21)
+    TOTAL: 540,002 lines of code (plus of 41.2 % from 382,244 with v1.4.21)
     - Here only code written within the CrypTool project or explicitly
       dedicated to the CrypTool project is counted. Any sources used
       within the CrypTool project coming from other open source projects
       like OpenSSL, NTL, Scintilla, ... are not counted here.
       Also any automatically created files are not counted.
 
-
-   Snapshot about the number of files and the number of lines of code
+  Snapshot about the number of files and the number of lines of code
 
 
 - Details about compilation, linking and about a consistent development
@@ -821,6 +820,12 @@ c) New functionality:
      
 This chapter lists the enhancements and bug fixes in CrypTool 1.4.30,
 which have been added since CrypTool 1.4.21.
+
+Version 1.4.30 will be released simultaneously in English, German, Polish and
+Spanish. A Serbian version 1.4.30 will follow.
+The Polish and Spanish versions contain the online help in English.
+The Spanish version contains for the first time also the AES-Tool and the
+Number Shark program in Spanish.
 
 a) Developer-relevant changes (more technically oriented):
 
@@ -968,7 +973,6 @@ c) New functionality / Usability:
 
 - The educational program/game "Number Shark" (in version 1.2) was
   corrected and the online help was updated and enhanced.
-
   Showing the optional solutions:
   - Until now optimal results could be shown in two ways:
     - Until n=158 they have been stored.
@@ -978,6 +982,8 @@ c) New functionality / Usability:
     (39 numbers within around 1 minute; 40 numbers within around 5 minutes).
   - Even much more faster are heuristic algorithms, like the ones implemented
     in JCT. They normally don't find an optimal result, but a very good one.
+    Best known results up to over n=300 are also delivered with the game now.
+    All known values can be shown in a table now.
   - If the Number Shark calculates optional results (which can last very long),
     then you now can restart using stored pre-calculations. 
 
@@ -1883,7 +1889,7 @@ Version   Date		Size of Windows Setup  Needed size  Released
 1.4.10    July 2007	26.7 MB	     27.5 MB	47 MB        DB
 1.4.20    July 2008	36.1 MB	     37.1 MB	73 MB        DB
 1.4.21    July 2008	36.1 MB	     37.1 MB	73 MB        DB
-1.4.30    Mar. 2010	46.1 MB      47.0 MB	85 MB        DB   xxxxxx
+1.4.30    May  2010	49.8 MB      50.7 MB	90 MB        DB   xxxxxx
 
 Remarks about the versions:
 1.3.02   Many new functions compared to 1.3.00.
@@ -1907,6 +1913,7 @@ Remarks about the versions:
 1.4.30-Beta04  Sep. 2009  Second public beta of version 1.4.30.
 1.4.30-Beta05  Jan. 2010  Third public beta of version 1.4.30.
 1.4.30-Beta06  Feb. 2010  Forth public beta of version 1.4.30.
+1.4.30-Beta07  Apr. 2010  Fifth public beta of version 1.4.30.
 1.4.30   Many bug fixes and enhanced functionality compared to 1.4.21.
 
 
@@ -2779,7 +2786,7 @@ b)  Java-CrypTool (JCrypTool, JCT):
      showing that the new architecture concepts work.
      Milestone 2 (August 2008), 3 (December 2008), 4 and 4a (February 2009)
      already offered enough functionality to be applied by end users.
-   - Milestone 6 was released in November 2009.
+   - Milestone 6 was released in November 2009. xxxxxxxxxxx
    - Further developers, architects and designers for this project are very
      welcome.
    - For newbies, but also for experts.
@@ -2791,7 +2798,7 @@ c) CrypTool 2.0 (CT 2)
    - Completely new designed CrypTool in C# using the .NET framework
    - Strictly using the standards from Microsoft .NET (looks like Office 2007).
    - Usage of Windows Presentation Foundation (WPF) to create multi media
-     GUIs.
+     GUIs using vector graphics.
    - The whole project can be build with the free VS2008 Express-Edition
      for C#.
    - Available are the .NET crypto provider, and libraries like GMP and

@@ -921,8 +921,8 @@
 			/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG,AFX_RESOURCE_DLL,AFX_TARG_ENG"
-				Culture="2057"
+				PreprocessorDefinitions="NDEBUG,AFX_RESOURCE_DLL,AFX_TARG_ESN"
+				Culture="3082"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
