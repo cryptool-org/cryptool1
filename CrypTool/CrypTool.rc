@@ -8,7 +8,8 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -273,7 +274,7 @@ BEGIN
     GROUPBOX        "Wartoœæ pierwszego znaku alfabetu",IDC_STATIC,171,256,132,40
     CONTROL         "0",IDC_CHECK_OFS0,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,268,20,10
     CONTROL         "1",IDC_CHECK_OFS1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,281,20,10
-    GROUPBOX        "[i18n] Optionen",IDC_STATIC,8,307,305,34
+    GROUPBOX        "Opcje",IDC_STATIC,8,307,305,34
 END
 
 IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 302, 252
@@ -441,7 +442,7 @@ BEGIN
     GROUPBOX        "Informacje opublikowania",IDC_STATIC,7,164,195,64
     GROUPBOX        "Informacje kontaktowe",IDC_STATIC,208,164,155,64
     PUSHBUTTON      "Wspó³wykonawcy",ID_CONTRIBUTORS,7,250,66,18,WS_GROUP
-    PUSHBUTTON      "i18n Translations",ID_TRANSLATIONS,85,250,60,18,WS_GROUP
+    PUSHBUTTON      "T?umaczenia",ID_TRANSLATIONS,85,250,60,18,WS_GROUP
 END
 
 IDD_SHOW_PROGRESS DIALOG  0, 0, 187, 105
@@ -521,7 +522,7 @@ END
 
 IDD_MANUAL_SUBST_ANALYSIS DIALOGEX 0, 0, 347, 319
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "i18n Analiza zast¹pienia: Manual Post-Processing"
+CAPTION "Analiza zast¹pienia: Manual Post-Processing"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT1,40,46,14,12,ES_AUTOHSCROLL
@@ -1349,7 +1350,7 @@ END
 
 IDD_PLAYFAIR_ANALYSIS DIALOGEX 0, 0, 433, 356
 STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
-CAPTION "i18n Analiza Playfair: Manual Post-Processing"
+CAPTION "Analiza Playfair: Manual Post-Processing"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_MYTXT,7,307,418,15,ES_UPPERCASE | ES_AUTOHSCROLL
@@ -1420,7 +1421,7 @@ BEGIN
     DEFPUSHBUTTON   "&Szyfruj",IDOK,10,308,60,20
     PUSHBUTTON      "&Deszyfruj",IDC_BUTTON1,73,308,60,20
     PUSHBUTTON      "&Anuluj",IDCANCEL,215,308,60,20
-    CONTROL         "i18n Show pre-formatted text",IDC_PREFORM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,17,141,8
+    CONTROL         "Poka? sformatowany tekst",IDC_PREFORM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,17,141,8
     CONTROL         "&Ignoruj duplikaty w kluczu",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,102,161,8
     CONTROL         "Tab. 5x5",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,169,182,47,10
     CONTROL         "Tab. 6x6",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,169,194,47,10
@@ -1468,12 +1469,12 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,45,125,10
     CONTROL         "Oddziel podwójne znaki tylko w parach",IDC_CHECK_SEPARATE_LETTERS_ONLY_IN_PAIRS,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,88,195,10
-    CONTROL         "i18n Limit text to currently configured alphabet",IDC_CHECK_LIMIT_TEXT_TO_ALPHABET,
+    CONTROL         "Ograniczy? tekst do obecnej konfiguracji alfabet",IDC_CHECK_LIMIT_TEXT_TO_ALPHABET,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,31,181,8
     EDITTEXT        IDC_EDIT_SEPARATOR1,150,58,15,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_SEPARATOR2,150,72,15,12,ES_AUTOHSCROLL
-    LTEXT           "i18n First separator:",IDC_STATIC_TEXT_SEPARATOR1,50,60,95,8
-    LTEXT           "i18n Second separator:",IDC_STATIC_TEXT_SEPARATOR2,50,74,95,8
+    LTEXT           "Pierwszy separator:",IDC_STATIC_TEXT_SEPARATOR1,50,60,95,8
+    LTEXT           "Drugi separator:",IDC_STATIC_TEXT_SEPARATOR2,50,74,95,8
     PUSHBUTTON      "Opcje tekstu",ID_TEXTOPTIONS,145,308,60,20
 END
 
@@ -4504,7 +4505,7 @@ END
 
 IDD_TRANSLATIONS DIALOGEX 0, 0, 370, 280
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "i18n About CrypTool: Translations"
+CAPTION "O CrypTool: T?umaczenia"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Zamknij",IDOK,303,255,60,18
@@ -8422,16 +8423,16 @@ END
 STRINGTABLE 
 BEGIN
     IDR_OPENGLTYPE          "\nUnnamed\n\nOpenGL file (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nPliki OpenGL "
-    IDS_STRING_TRANSLATIONS_HEADING_POLISH "i18n Polish translation"
+    IDS_STRING_TRANSLATIONS_HEADING_POLISH "T³umaczenie na jêzyk polski"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
-                            "i18n Initial translation: Warsaw University, Poland (http://www.ee.pw.edu.pl/),\r\nDr. Bartosz Sawicki and his students"
+                            "Wstêpne t³umaczenie: Uniwersytet Warszawski, Polska (http://www.ee.pw.edu.pl/),\r\nDr. Bartosz Sawicki wraz ze studentami"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_POLISH 
-                            "i18n Further Updates: Pawel Polewski"
-    IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "i18n Serbian translation"
+                            "Dalsze aktualizacje: Pawel Polewski"
+    IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "T³umaczenie na jêzyk serbski"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SERBIAN 
-                            "i18n Initial translation: Advanced School of Electrical Engineering, Belgrade, Serbia,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
-    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN "i18n Further updates: -"
-    IDS_STRING_TRANSLATIONS_HEADING_SPANISH "i18n Spanish translation"
+                            "Wstêpne t³umaczenie: Wy¿sza szko³a elektrotechniki, Belgrad, Serbia,\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski wraz ze studentami"
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN "Dalsze aktualizacje: -"
+    IDS_STRING_TRANSLATIONS_HEADING_SPANISH "T³umaczenie na jêzyk hiszpañski"
 END
 
 STRINGTABLE 
@@ -11060,9 +11061,9 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
-                            "i18n Initial translation: Madrid University, Spain (http://www.csic.es),\nDr. Gonzalo Alvarez Maranon and his students"
+                            "Wstêpne t³umaczenie: Uniwersztet Madrid, Hiszpania (http://www.csic.es),\nDr. Gonzalo Alvarez Maranon wraz ze studentami"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
-                            "i18n Further updates: Raphael Labaca-Castro"
+                            "Dalsze aktualizacje: Raphael Labaca-Castro"
 END
 
 STRINGTABLE 
