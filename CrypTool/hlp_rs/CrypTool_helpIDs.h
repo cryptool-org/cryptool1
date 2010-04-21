@@ -20,8 +20,7 @@
 #define HID_TEXTOPTIONS                         0x107CC
 #define HID_MEASUREPASSWORDQUALITY              0x107CF
 #define HID_CONTRIBUTORS                        0x10809
-#define HID_CONTRIBUTORS2                       0x1080A
-#define HID_PORTS                               0x1080A
+#define HID_TRANSLATIONS                        0x1080B
 #define HID_CR_OVERVIEW                         0x12B7B
 #define HID_CR_USAGE                            0x12B7C
 #define HID_CR_SZ_PASSWORDS                     0x12B7D
@@ -296,7 +295,7 @@
 #define HIDD_ICG_RANDOMPARAMETER                0x20067
 #define HIDD_KEY                                0x2006D
 #define HIDD_RSA_DECRYPTION                     0x2006E
-#define HIDD_PORTS                              0x2006F
+#define HIDD_TRANSLATIONS                       0x2006F
 #define HIDD_KEY_SUBSTITUTION                   0x20070
 #define HIDD_SIGNATURE                          0x20071
 #define HIDD_DIALOG_PLOT_PARAM                  0x20075
@@ -453,11 +452,8 @@
 #define HIDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_2	0x27809
 #define HIDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_3	0x2780A
 #define HIDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_1	0x2780B
-#define HIDD_SELECTCOPYENCODING1                0x2780C
 #define HIDD_SELECTPASTEDECODING                0x2780C
-#define HIDD_SELECTPASTEDECODING1               0x2780D
-#define HIDD_KEYS_LIST1                         0x2780D
-#define HIDD_VIGENERE_ANALYSIS_SCHROEDEL1       0x2780D
+#define HIDD_SOLITAIRE_ANALYSE_NEW              0x2780D
 #define HIDD_KEY_HEX_FIXED_LEN                  0x28269
 #define HIDD_CRT_SECRETSHARING_OPTIONS1         0x29430
  

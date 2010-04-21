@@ -5486,7 +5486,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Cezar",                      ID_CAESAR_AUTO
                 MENUITEM "&Vigenere",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "V&igenere (Analiz w oparciu o Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL
+                MENUITEM "V&igenere (Analiza w oparciu o Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&ADFGVX",                     ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Zamiana",                    ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
@@ -6134,7 +6134,7 @@ BEGIN
         BEGIN
             MENUITEM "Demonstracja Diffie-Hellmana", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "Uwierzytelnianie w sieci",    ID_CHALLENGE_RESPONSE
-            MENUITEM "&Secure E-Mail za pomoc? S/MIME...", ID_PROTOKOL_SMIME
+            MENUITEM "&Secure E-Mail with S/MIME...", ID_PROTOKOL_SMIME
         END
         POPUP "Zastosowania ChTR"
         BEGIN
@@ -16469,7 +16469,7 @@ BEGIN
         END
         POPUP "&RSA Kriptosistem"
         BEGIN
-            MENUITEM "&Test Prostih &Brojeva...",   ID_PRIMENUMBER_TEST
+            MENUITEM "Test Prostih &Brojeva...",   ID_PRIMENUMBER_TEST
             MENUITEM "Generiši &Proste Brojeve...", ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
             MENUITEM "&Razlaganje Broja...",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             MENUITEM "&RSA Demonstracija...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
@@ -48790,7 +48790,7 @@ BEGIN
         MENUITEM "&Guardar\tCtrl+S",            ID_FILE_SAVE
         MENUITEM "Guardar C&omo...",            ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Propiedades de &Documento...", ID_FILEPROPERTIES
+        MENUITEM "Propiedades del &Documento...", ID_FILEPROPERTIES
         MENUITEM "&Imprimir...\tCtrl+P",        ID_FILE_PRINT
         MENUITEM "Configurar Im&presora...",    ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -48811,9 +48811,9 @@ BEGIN
         MENUITEM "&Buscar/Reemplazar...\tStrg+F", ID_EDIT_FIND
         MENUITEM "Buscar &Siguiente\tF3",       ID_EDIT_FIND_NEXT
         MENUITEM SEPARATOR
-        MENUITEM "Seleccionar &Todo\tCtrl+A",   ID_EDIT_SELECT_ALL
+        MENUITEM "Seleccionar &Todo \tCtrl+A",   ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
-        MENUITEM "Mostrar Cla&ve...",           ID_SHOW_KEY
+        MENUITEM "&Mostrar Clave...",           ID_SHOW_KEY
         MENUITEM "&Ventana Padre",              ID_GOTO_VATER
     END
     POPUP "&Ver"
@@ -48835,9 +48835,13 @@ BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
         END
         MENUITEM "Formato de documento de texto", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -48853,7 +48857,7 @@ BEGIN
             MENUITEM "&Sustitución / Atbash...",    ID_CryptMono
             MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN
             MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
-            MENUITEM "&Suma de Bytes...",           ID_ADD_BIN
+            MENUITEM "Suma de &Bytes...",           ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
             MENUITEM "H&omofónico...",              ID_HOMOPHONE_ASC
@@ -49076,15 +49080,15 @@ BEGIN
             MENUITEM "&Factorización de un Número...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             POPUP "Ataques a RSA basados en &Celosía"
             BEGIN
-                MENUITEM "&Factorizando con una Pista...", ID_RSA_FACTORHINT
-                MENUITEM "&Ataque de Texto Conocido...", ID_RSA_STEREOTYPED
+                MENUITEM "&Factorizando con una pista...", ID_RSA_FACTORHINT
+                MENUITEM "&Ataque a Texto Conocido...", ID_RSA_STEREOTYPED
                 MENUITEM "A&taque a Claves Secretas Cortas...", ID_RSA_BLOEMERMAY
             END
             MENUITEM "Ataque del Canal &Lateral",   ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
         END
         POPUP "&Hash"
         BEGIN
-            MENUITEM "&Ataque en el Valor Hash de la Firma", ID_SIGNATUR_ATTACK
+            MENUITEM "&Ataque al Valor Hash de una Firma Digital", ID_SIGNATUR_ATTACK
         END
         POPUP "&Análisis de Aleatoriedad"
         BEGIN
@@ -49093,15 +49097,15 @@ BEGIN
             MENUITEM "Test de &Rachas",             ID_ANALYSE_ZUFALLSTESTS_RUNS
             MENUITEM "Test de &Series",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
             MENUITEM SEPARATOR
-            MENUITEM "Batería de Pruebas F&IPS PUB-140-1 ", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
+            MENUITEM "Batería de Pruebas F&IPS PUB-140-1", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
             MENUITEM SEPARATOR
-            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
+            MENUITEM "&Vitányi",                     ID_ANALYSE_VITANY
             MENUITEM "Visualización &3D...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
         END
     END
     POPUP "&Opciones"
     BEGIN
-        MENUITEM "&Plot ...",                   ID_OPTIONS_PLOT
+        MENUITEM "&Plot...",                   ID_OPTIONS_PLOT
         MENUITEM "&Análisis...",                ID_OPTIONS_ANALYSIS
         MENUITEM "&Texto...",                   ID_OPTTEXT
         MENUITEM "&Opciones de Inicio...",      ID_OPTIONS_STARTOPTIONS
@@ -49115,15 +49119,15 @@ BEGIN
     END
     POPUP "Ay&uda"
     BEGIN
-        MENUITEM "&Página de Inicio",           ID_HILFE_STARTSEITE
-        MENUITEM "Índ&ice",                     ID_HILFE_INDEX
+        MENUITEM "Página de &Inicio",           ID_HILFE_STARTSEITE
+        MENUITEM "Ín&dice",                     ID_HILFE_INDEX
         MENUITEM "&Escenarios (Tutoriales)",    ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Leeme",                      ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
         MENUITEM "&Presentación",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "&Acerca de  CrypTool",        ID_APP_ABOUT
+        MENUITEM "&Acerca de CrypTool",        ID_APP_ABOUT
     END
 END
 
@@ -49158,9 +49162,9 @@ BEGIN
         MENUITEM "&Buscar/Reemplazar...\tStrg+F", ID_EDIT_FIND, GRAYED
         MENUITEM "Buscar &Siguiente\tF3",       ID_EDIT_FIND_NEXT, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Seleccionar &Todo\tCtrl+A",   ID_EDIT_SELECT_ALL, GRAYED
+        MENUITEM "Seleccionar &Todo \tCtrl+A",   ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Mostrar C&lave...",           ID_SHOW_KEY, GRAYED
+        MENUITEM "&Mostrar Clave...",           ID_SHOW_KEY, GRAYED
         MENUITEM "&Ventana Padre",              ID_GOTO_VATER
     END
     POPUP "&Ver"
@@ -49182,9 +49186,13 @@ BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
         END
         MENUITEM "Formato de documento de texto", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -49192,7 +49200,7 @@ BEGIN
     END
     POPUP "&Cifrar/Descifrar"
     BEGIN
-        POPUP "Simétrico (&clasico)"
+        POPUP "Simétrico (&clásico)"
         BEGIN
             MENUITEM "César / &Rot-13...",          ID_ROT13CAESAR_ASC
             MENUITEM "&Vigenère...",                ID_VIGENERE_ASC, GRAYED
@@ -49282,13 +49290,13 @@ BEGIN
             MENUITEM "&Test de Primalidad...",      ID_PRIMENUMBER_TEST
             MENUITEM "&Generar Números Primos...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
             MENUITEM "&Factorización de un Número...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
-            MENUITEM "Demostración &RSA ...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
+            MENUITEM "Demonstración &RSA...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
             MENUITEM "Demostración de &Firma (Generación de Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
-            POPUP "&Colección de Ataques basados en RSA"
+            POPUP "Ataques a RSA basad&os en Celosía"
             BEGIN
-                MENUITEM "&Factorizando con una Pista...", ID_RSA_FACTORHINT
-                MENUITEM "&Ataque de Texto Conocido...", ID_RSA_STEREOTYPED
-                MENUITEM "Ataque de &Claves Demasiado Cortas...", ID_RSA_BLOEMERMAY
+                MENUITEM "&Factorizando con una pista...", ID_RSA_FACTORHINT
+                MENUITEM "&Ataque a Texto Conocido...", ID_RSA_STEREOTYPED
+                MENUITEM "Ataque a &Claves Secretas Cortas...", ID_RSA_BLOEMERMAY
             END
         END
         POPUP "&Protocolos"
@@ -49297,7 +49305,7 @@ BEGIN
             MENUITEM "&Autenticación en una Red...", ID_CHALLENGE_RESPONSE
             MENUITEM "E-mail seguro con S/MIME",    ID_PROTOKOL_SMIME
         END
-        POPUP "&Aplicaciones del Teorema Chino de los Restos"
+        POPUP "&Aplicación del Teorema Chino de los Restos"
         BEGIN
             MENUITEM "&Astronomía y Movimiento Planetario...", ID_INDIV_CRT_PLANET
             MENUITEM "&Transformación Modular Progresiva y Regresiva...", ID_INDIV_CRT_DEMO
@@ -49313,7 +49321,7 @@ BEGIN
             POPUP "&AES"
             BEGIN
                 MENUITEM "&Animación Rijndael...",      ID_FLASH_AESDEMO
-                MENUITEM "&Inspector Rijndael ...",     ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "&Inspector Rijndael...",     ID_FLASH_RIJNDAEL_INSPECTOR
                 MENUITEM "Visualización de flujo de &Rijndael", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
@@ -49423,27 +49431,27 @@ BEGIN
             MENUITEM "&Factorización de un Número...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             POPUP "Ataques a RSA basados en &Celosía"
             BEGIN
-                MENUITEM "&Factorizando con una Pista...", ID_RSA_FACTORHINT
-                MENUITEM "&Ataque de Texto Conocido...", ID_RSA_STEREOTYPED
-                MENUITEM "Ataque de &Claves Demasiado Cortas...", ID_RSA_BLOEMERMAY
+                MENUITEM "&Factorizando con una pista...", ID_RSA_FACTORHINT
+                MENUITEM "&Ataque a Texto Conocido...", ID_RSA_STEREOTYPED
+                MENUITEM "A&taque a Claves Secretas Cortas...", ID_RSA_BLOEMERMAY
             END
-            MENUITEM "&Artaque del Canal Lateral...", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
+            MENUITEM "Ataque del Canal &Lateral", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
         END
         POPUP "&Hash"
         BEGIN
-            MENUITEM "&Ataque al valor Hash de una Firma Digital...", ID_SIGNATUR_ATTACK
+            MENUITEM "&Ataque al Valor Hash de una Firma Digital", ID_SIGNATUR_ATTACK
         END
         POPUP "&Análisis de Aleatoriedad"
         BEGIN
-            MENUITEM "Test de &Frecuencia",         ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-            MENUITEM "Test de &Poker ",             ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
+            MENUITEM "Test de &Frecuencias",         ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "Test de &Poker",             ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
             MENUITEM "Test de &Rachas",             ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
-            MENUITEM "Test de Series",              ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
+            MENUITEM "Test de &Series",              ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "Batería de Pruebas F&IPS PUB-140-1 ", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
+            MENUITEM "Batería de Pruebas F&IPS PUB-140-1", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY, GRAYED
-            MENUITEM "Visualización &3D ...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION, GRAYED
+            MENUITEM "&Vitányi",                     ID_ANALYSE_VITANY, GRAYED
+            MENUITEM "Visualización &3D...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION, GRAYED
         END
     END
     POPUP "&Opciones"
@@ -49451,7 +49459,7 @@ BEGIN
         MENUITEM "&Plot...",                    ID_OPTIONS_PLOT
         MENUITEM "&Análisis...",                ID_OPTIONS_ANALYSIS
         MENUITEM "&Texto...",                   ID_OPTTEXT
-        MENUITEM "Opciones de &Inicio...",      ID_OPTIONS_STARTOPTIONS
+        MENUITEM "&Opciones de Inicio...",      ID_OPTIONS_STARTOPTIONS
     END
     POPUP "&Ventana"
     BEGIN
@@ -49464,7 +49472,7 @@ BEGIN
     BEGIN
         MENUITEM "Página de &Inicio",           ID_HILFE_STARTSEITE
         MENUITEM "Ín&dice",                     ID_HILFE_INDEX
-        MENUITEM "Es&cenarios(Tutoriales)",     ID_HILFE_SZENARIEN
+        MENUITEM "&Escenarios (Tutoriales)",     ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Leeme",                      ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
@@ -49484,9 +49492,9 @@ BEGIN
         MENUITEM "&Guardar\tCtrl+S",            ID_FILE_SAVE
         MENUITEM "Guardar C&omo...",            ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Propiedades de &Documento...", ID_FILEPROPERTIES, GRAYED
+        MENUITEM "Propiedades del &Documento...", ID_FILEPROPERTIES, GRAYED
         MENUITEM "&Imprimir...\tCtrl+P",        ID_FILE_PRINT
-        MENUITEM "Configurar im&presora...",    ID_FILE_PRINT_SETUP
+        MENUITEM "Configurar Im&presora...",    ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
         MENUITEM "Archivos Recientes",          ID_FILE_MRU_FILE1
         MENUITEM SEPARATOR
@@ -49505,9 +49513,9 @@ BEGIN
         MENUITEM "&Buscar/Reemplazar...\tStrg+F", ID_EDIT_FIND, GRAYED
         MENUITEM "Buscar &Siguiente\tF3",       ID_EDIT_FIND_NEXT, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Seleccionar Todo \tCtrl+A",   ID_EDIT_SELECT_ALL, GRAYED
+        MENUITEM "Seleccionar &Todo \tCtrl+A",   ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Mostrar &Clave...",           ID_SHOW_KEY, GRAYED
+        MENUITEM "&Mostrar Clave...",           ID_SHOW_KEY, GRAYED
         MENUITEM "&Ventana Padre",              ID_GOTO_VATER
     END
     POPUP "&Ver"
@@ -49523,15 +49531,19 @@ BEGIN
         MENUITEM "Al&fabeto",                   ID_VIEW_ALPHABET, GRAYED
         MENUITEM "&Fin de Línea",               ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "&Salto de Línea",             ID_VIEW_LINEWRAP, GRAYED
-        MENUITEM "Espacio en &Blanco",          ID_VIEW_WHITESPACE, GRAYED
+        MENUITEM "&Espacio en Blanco",          ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Fuente"
         BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
         END
         MENUITEM "Formato de documento de texto", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -49604,7 +49616,7 @@ BEGIN
         MENUITEM "&Firmar Documento...",        ID_CRYPT_SIGN, GRAYED
         MENUITEM "&Verificar Firma...",         ID_CRYPT_VERIFY, GRAYED
         MENUITEM "&Extraer Firma",              ID_CRYPT_EXTRACT, GRAYED
-        MENUITEM "Demostración de &Firma (Generación de una Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
+        MENUITEM "&Demostración de Firma (Generación de una Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
     END
     POPUP "Procedimientos &Indiv."
     BEGIN
@@ -49621,7 +49633,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&Valor Hash de un Archivo...", ID_HASH_OFAFILE
             MENUITEM "&Demostración Hash...",       ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, GRAYED
-            MENUITEM "Generación de una &Clave desde una contraseña (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
+            MENUITEM "Generación de una &Clave desde una Contraseña (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
             MENUITEM "&Generación de MACs...",      ID_GENERATE_MACS, GRAYED
         END
         POPUP "&RSA Criptosistema"
@@ -49629,13 +49641,13 @@ BEGIN
             MENUITEM "&Test de Primalidad...",      ID_PRIMENUMBER_TEST
             MENUITEM "&Generar Números Primos...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
             MENUITEM "&Factorización de un Número...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
-            MENUITEM "Demostración &RSA ...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
+            MENUITEM "Demonstración &RSA...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
             MENUITEM "Demostración de &Firma (Generación de Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
-            POPUP "&Colección de Ataques basados en RSA"
+            POPUP "Ataques a RSA basad&os en Celosía"
             BEGIN
-                MENUITEM "&Factorizando con una Pista...", ID_RSA_FACTORHINT
-                MENUITEM "&Ataque de Texto Conocido...", ID_RSA_STEREOTYPED
-                MENUITEM "Ataque de &Claves Demasiado Cortas...", ID_RSA_BLOEMERMAY
+                MENUITEM "&Factorizando con una pista...", ID_RSA_FACTORHINT
+                MENUITEM "&Ataque a Texto Conocido...", ID_RSA_STEREOTYPED
+                MENUITEM "Ataque a &Claves Secretas Cortas...", ID_RSA_BLOEMERMAY
             END
         END
         POPUP "&Protocolos"
@@ -49644,7 +49656,7 @@ BEGIN
             MENUITEM "&Autenticación en una Red...", ID_CHALLENGE_RESPONSE
             MENUITEM "E-mail seguro con S/MIME",    ID_PROTOKOL_SMIME
         END
-        POPUP "&Aplicaciones del Teorema Chino de los Restos"
+        POPUP "&Aplicación del Teorema Chino de los Restos"
         BEGIN
             MENUITEM "&Astronomía y Movimiento Planetario...", ID_INDIV_CRT_PLANET
             MENUITEM "&Transformación Modular Progresiva y Regresiva...", ID_INDIV_CRT_DEMO
@@ -49768,17 +49780,17 @@ BEGIN
         POPUP "Cifrado &Asimétrico"
         BEGIN
             MENUITEM "&Factorización de un Número...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
-            POPUP "&Colección de Ataques basados en RSA"
+            POPUP "Ataques a RSA basados en &Celosía"
             BEGIN
-                MENUITEM "&Factorizando con una Pista...", ID_RSA_FACTORHINT
-                MENUITEM "&Ataque de Texto Conocido...", ID_RSA_STEREOTYPED
-                MENUITEM "Ataque de &Claves Demasiado Cortas...", ID_RSA_BLOEMERMAY
+                MENUITEM "&Factorizando con una pista...", ID_RSA_FACTORHINT
+                MENUITEM "&Ataque a Texto Conocido...", ID_RSA_STEREOTYPED
+                MENUITEM "A&taque a Claves Secretas Cortas...", ID_RSA_BLOEMERMAY
             END
-            MENUITEM "&Ataque del Canal Lateral...", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
+            MENUITEM "Ataque del Canal &Lateral", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
         END
         POPUP "&Hash"
         BEGIN
-            MENUITEM "&Ataque al Valor Hash de una Firma Digital...", ID_SIGNATUR_ATTACK
+            MENUITEM "&Ataque al Valor Hash de una Firma Digital", ID_SIGNATUR_ATTACK
         END
         POPUP "&Análisis de Aleatoriedad"
         BEGIN
@@ -49787,10 +49799,10 @@ BEGIN
             MENUITEM "Test de &Rachas",             ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
             MENUITEM "Test de &Series",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "Batería de Pruebas F&IPS PUB-140-1 ", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
+            MENUITEM "Batería de Pruebas F&IPS PUB-140-1", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY, GRAYED
-            MENUITEM "Visualización &3D ...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION, GRAYED
+            MENUITEM "&Vitányi",                     ID_ANALYSE_VITANY, GRAYED
+            MENUITEM "Visualización &3D...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION, GRAYED
         END
     END
     POPUP "&Opciones"
@@ -49798,7 +49810,7 @@ BEGIN
         MENUITEM "&Plot...",                    ID_OPTIONS_PLOT
         MENUITEM "&Análisis...",                ID_OPTIONS_ANALYSIS
         MENUITEM "&Texto...",                   ID_OPTTEXT
-        MENUITEM "Opciones de &Inicio...",      ID_OPTIONS_STARTOPTIONS
+        MENUITEM "&Opciones de Inicio...",      ID_OPTIONS_STARTOPTIONS
     END
     POPUP "&Ventana"
     BEGIN
@@ -49811,7 +49823,7 @@ BEGIN
     BEGIN
         MENUITEM "Página de &Inicio",           ID_HILFE_STARTSEITE
         MENUITEM "Ín&dice",                     ID_HILFE_INDEX
-        MENUITEM "Es&cenarios (Tutoriales)",    ID_HILFE_SZENARIEN
+        MENUITEM "&Escenarios (Tutoriales)",    ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Leeme",                      ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
@@ -49831,7 +49843,7 @@ BEGIN
         MENUITEM "&Guardar\tCtrl+S",            ID_FILE_SAVE
         MENUITEM "Guardar C&omo...",            ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Propiedades de &Documento...", ID_FILEPROPERTIES
+        MENUITEM "Propiedades del &Documento...", ID_FILEPROPERTIES
         MENUITEM "&Imprimir...\tCtrl+P",        ID_FILE_PRINT
         MENUITEM "Configurar Im&presora...",    ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -49852,9 +49864,9 @@ BEGIN
         MENUITEM "&Buscar/Reemplazar...\tStrg+F", ID_EDIT_FIND
         MENUITEM "Buscar &Siguiente\tF3",       ID_EDIT_FIND_NEXT
         MENUITEM SEPARATOR
-        MENUITEM "Seleccionar &Todo\tCtrl+A",   ID_EDIT_SELECT_ALL
+        MENUITEM "Seleccionar &Todo \tCtrl+A",   ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
-        MENUITEM "Mostrar Cla&ve...",           ID_SHOW_KEY
+        MENUITEM "&Mostrar Clave...",           ID_SHOW_KEY
         MENUITEM "&Ventana Padre",              ID_GOTO_VATER
     END
     POPUP "&Ver"
@@ -49876,9 +49888,14 @@ BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+
         END
         MENUITEM "Formato de documento de texto", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -49894,7 +49911,7 @@ BEGIN
             MENUITEM "&Sustitución / Atbash...",    ID_CryptMono
             MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN
             MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
-            MENUITEM "&Suma de Bytes...",           ID_ADD_BIN
+            MENUITEM "Suma de &Bytes...",           ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
             MENUITEM "H&omofónico...",              ID_HOMOPHONE_ASC
@@ -50028,7 +50045,7 @@ BEGIN
                     MENUITEM "UU &Codificar",               ID_ENCODE_UU
                     MENUITEM "UU &Descodificar",            ID_DECODE_UU
                 END
-                MENUITEM "Descodificar el Código ASN.&1 de un  Documento", ID_EINZELVERFAHREN_ASN1DECODIEREN
+                MENUITEM "Descodificar el Código ASN.&1 de un Documento", ID_EINZELVERFAHREN_ASN1DECODIEREN
             END
             MENUITEM SEPARATOR
             POPUP "&Comprimir"
@@ -50115,17 +50132,17 @@ BEGIN
         POPUP "Cifrado &Asimétrico"
         BEGIN
             MENUITEM "&Factorización de un Número...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
-            POPUP "&Colección de Ataques basados en RSA"
+            POPUP "Ataques a RSA basados en &Celosía"
             BEGIN
-                MENUITEM "&Factorizando con una Pista...", ID_RSA_FACTORHINT
-                MENUITEM "&Ataque de Texto Conocido...", ID_RSA_STEREOTYPED
-                MENUITEM "Ataque de &Claves Demasiado Cortas...", ID_RSA_BLOEMERMAY
+                MENUITEM "&Factorizando con una pista...", ID_RSA_FACTORHINT
+                MENUITEM "&Ataque a Texto Conocido...", ID_RSA_STEREOTYPED
+                MENUITEM "A&taque a Claves Secretas Cortas...", ID_RSA_BLOEMERMAY
             END
-            MENUITEM "&Ataque del Canal Lateral...", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
+            MENUITEM "Ataque del Canal &Lateral", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
         END
         POPUP "&Hash"
         BEGIN
-            MENUITEM "&Ataque al Valor Hash de una Firma Digital...", ID_SIGNATUR_ATTACK
+            MENUITEM "&Ataque al Valor Hash de una Firma Digital", ID_SIGNATUR_ATTACK
         END
         POPUP "&Análisis de Aleatoriedad"
         BEGIN
@@ -50137,7 +50154,7 @@ BEGIN
             MENUITEM "Batería de Pruebas F&IPS PUB-140-1", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
             MENUITEM SEPARATOR
             MENUITEM "&Vitányi",                    ID_ANALYSE_VITANY
-            MENUITEM "Visualización &3D ...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "Visualización &3D...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
         END
     END
     POPUP "&Opciones"
@@ -50145,7 +50162,7 @@ BEGIN
         MENUITEM "&Plot...",                    ID_OPTIONS_PLOT
         MENUITEM "&Análisis...",                ID_OPTIONS_ANALYSIS
         MENUITEM "&Texto...",                   ID_OPTTEXT
-        MENUITEM "Opciones de &Inicio...",      ID_OPTIONS_STARTOPTIONS
+        MENUITEM "&Opciones de Inicio...",      ID_OPTIONS_STARTOPTIONS
     END
     POPUP "&Ventana"
     BEGIN
@@ -50158,13 +50175,13 @@ BEGIN
     BEGIN
         MENUITEM "Página de &Inicio",           ID_HILFE_STARTSEITE
         MENUITEM "Ín&dice",                     ID_HILFE_INDEX
-        MENUITEM "Es&cenarios (Tutoriales)",    ID_HILFE_SZENARIEN
+        MENUITEM "&Escenarios (Tutoriales)",    ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Leeme",                      ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
         MENUITEM "&Presentación",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "&Acerca de  CrypTool",        ID_APP_ABOUT
+        MENUITEM "&Acerca de CrypTool",        ID_APP_ABOUT
     END
 END
 
@@ -50178,7 +50195,7 @@ BEGIN
         MENUITEM "&Guardar\tCtrl+S",            ID_FILE_SAVE, GRAYED
         MENUITEM "Guardar C&omo...",            ID_FILE_SAVE_AS, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Propiedades de &Documento...", ID_FILEPROPERTIES, GRAYED
+        MENUITEM "Propiedades del &Documento...", ID_FILEPROPERTIES, GRAYED
         MENUITEM "&Imprimir...\tCtrl+P",        ID_FILE_PRINT, GRAYED
         MENUITEM "Configurar Im&presora...",    ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -50201,7 +50218,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "Seleccionar &Todo \tCtrl+A",  ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Mostrar &Clave...",           ID_SHOW_KEY, GRAYED
+        MENUITEM "&Mostrar Clave...",           ID_SHOW_KEY, GRAYED
         MENUITEM "&Ventana Padre",              ID_GOTO_VATER, GRAYED
     END
     POPUP "&Ver"
@@ -50223,9 +50240,13 @@ BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
         END
         MENUITEM "Formato de documento de texto", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -50298,7 +50319,7 @@ BEGIN
         MENUITEM "&Firmar Documento...",        ID_CRYPT_SIGN, GRAYED
         MENUITEM "&Verificar Firma...",         ID_CRYPT_VERIFY, GRAYED
         MENUITEM "&Extraer Firma",              ID_CRYPT_EXTRACT, GRAYED
-        MENUITEM "Demostración de &Firma (Generación de una Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
+        MENUITEM "&Demostración de Firma (Generación de una Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
     END
     POPUP "Procedimientos &Indiv."
     BEGIN
@@ -50313,8 +50334,8 @@ BEGIN
             MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512, GRAYED
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160, GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "Valor &Hash de un Archivo...", ID_HASH_OFAFILE
-            MENUITEM "&Demostración Hash ...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, GRAYED
+            MENUITEM "&Valor Hash de un Archivo...", ID_HASH_OFAFILE
+            MENUITEM "&Demostración Hash...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, GRAYED
             MENUITEM "Generación de una &Clave desde una Contraseña (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
             MENUITEM "&Generación de MACs...",      ID_GENERATE_MACS, GRAYED
         END
@@ -50323,22 +50344,22 @@ BEGIN
             MENUITEM "&Test de Primalidad...",      ID_PRIMENUMBER_TEST
             MENUITEM "&Generar Números Primos...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
             MENUITEM "&Factorización de un Número...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
-            MENUITEM "Demostración &RSA ...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
+            MENUITEM "Demonstración &RSA...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
             MENUITEM "Demostración de &Firma (Generación de Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
-            POPUP "&Colección de Ataques basados en RSA"
+            POPUP "Ataques a RSA basad&os en Celosía"
             BEGIN
-                MENUITEM "&Factorizando con una Pista...", ID_RSA_FACTORHINT
-                MENUITEM "&Ataque de Texto Conocido...", ID_RSA_STEREOTYPED
-                MENUITEM "Ataque de &Claves Demasiado Cortas...", ID_RSA_BLOEMERMAY
+                MENUITEM "&Factorizando con una pista...", ID_RSA_FACTORHINT
+                MENUITEM "&Ataque a Texto Conocido...", ID_RSA_STEREOTYPED
+                MENUITEM "Ataque a &Claves Secretas Cortas...", ID_RSA_BLOEMERMAY
             END
         END
         POPUP "&Protocolos"
         BEGIN
             MENUITEM "Demostración &Diffie-Hellman...", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "&Autenticación en una Red...", ID_CHALLENGE_RESPONSE
-            MENUITEM "E-mail seguro con S/MIME",    65535
+            MENUITEM "E-mail seguro con S/MIME",    ID_PROTOKOL_SMIME //65535
         END
-        POPUP "&Aplicaciones del Teorema Chino de los Restos"
+        POPUP "&Aplicación del Teorema Chino de los Restos"
         BEGIN
             MENUITEM "&Astronomía y Movimiento Planetario...", ID_INDIV_CRT_PLANET
             MENUITEM "&Transformación Modular Progresiva y Regresiva...", ID_INDIV_CRT_DEMO
@@ -50354,7 +50375,7 @@ BEGIN
             POPUP "&AES"
             BEGIN
                 MENUITEM "&Animación Rijndael...",      ID_FLASH_AESDEMO
-                MENUITEM "&Inspector Rijndael ...",     ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "&Inspector Rijndael...",     ID_FLASH_RIJNDAEL_INSPECTOR
                 MENUITEM "Visualización de flujo de &Rijndael", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
@@ -50375,7 +50396,7 @@ BEGIN
                     MENUITEM "UU &Codificar",               ID_ENCODE_UU
                     MENUITEM "UU &Descodificar",            ID_DECODE_UU, GRAYED
                 END
-                MENUITEM "Descodificar el Código ASN.&1 de un  Documento", ID_EINZELVERFAHREN_ASN1DECODIEREN, GRAYED
+                MENUITEM "Descodificar el Código ASN.&1 de un Documento", ID_EINZELVERFAHREN_ASN1DECODIEREN, GRAYED
             END
             MENUITEM SEPARATOR
             POPUP "&Comprimir"
@@ -50383,7 +50404,7 @@ BEGIN
                 MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
-            MENUITEM "Generar Números &Aleatorios...", ID_ZUFALL_GENERATOREN
+            MENUITEM "&Generar Números Aleatorios...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Medir Calidad de Contraseña...", ID_PASSWORDQUALITYMETER
             MENUITEM "&Entropía de Contraseña...",  ID_PASSWORDENTROPY
         END
@@ -50462,37 +50483,37 @@ BEGIN
         POPUP "Cifrado &Asimétrico"
         BEGIN
             MENUITEM "&Factorización de un Número...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
-            POPUP "&Colección de Ataques basados en RSA"
+            POPUP "Ataques a RSA basados en &Celosía"
             BEGIN
-                MENUITEM "&Factorizando con una Pista...", ID_RSA_FACTORHINT
-                MENUITEM "&Ataque de Texto Conocido...", ID_RSA_STEREOTYPED
-                MENUITEM "Ataque de &Claves Demasiado Cortas...", ID_RSA_BLOEMERMAY
+                MENUITEM "&Factorizando con una pista...", ID_RSA_FACTORHINT
+                MENUITEM "&Ataque a Texto Conocido...", ID_RSA_STEREOTYPED
+                MENUITEM "A&taque a Claves Secretas Cortas...", ID_RSA_BLOEMERMAY
             END
-            MENUITEM "&Ataque de Canal Lateral...", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
+            MENUITEM "Ataque del Canal &Lateral", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
         END
         POPUP "&Hash"
         BEGIN
-            MENUITEM "Ataque al Valor Hash de una Firma Digital...", ID_SIGNATUR_ATTACK
+            MENUITEM "&Ataque al Valor Hash de una Firma Digital", ID_SIGNATUR_ATTACK
         END
         POPUP "&Análisis de Aleatoriedad"
         BEGIN
-            MENUITEM "Test de &Frequencias",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "Test de &Frecuencias",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
             MENUITEM "Test de &Poker",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
             MENUITEM "Test de &Rachas",             ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
             MENUITEM "Test de &Series",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "Batería de Pruebas F&IPS PUB-140-1", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY, GRAYED
+            MENUITEM "&Vitányi",                     ID_ANALYSE_VITANY, GRAYED
             MENUITEM "Visualización &3D...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION, GRAYED
         END
     END
     POPUP "&Opciones"
     BEGIN
-        MENUITEM "&Plot ...",                   ID_OPTIONS_PLOT
+        MENUITEM "&Plot...",                   ID_OPTIONS_PLOT
         MENUITEM "&Análisis...",                ID_OPTIONS_ANALYSIS
         MENUITEM "&Texto...",                   ID_OPTTEXT
-        MENUITEM "Opciones de &Inicio...",      ID_OPTIONS_STARTOPTIONS
+        MENUITEM "&Opciones de Inicio...",      ID_OPTIONS_STARTOPTIONS
     END
     POPUP "&Ventana"
     BEGIN
@@ -50505,7 +50526,7 @@ BEGIN
     BEGIN
         MENUITEM "Página de &Inicio",           ID_HILFE_STARTSEITE
         MENUITEM "Ín&dice",                     ID_HILFE_INDEX
-        MENUITEM "Es&cenarios (Tutoriales)",    ID_HILFE_SZENARIEN
+        MENUITEM "&Escenarios (Tutoriales)",    ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Leeme",                      ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
