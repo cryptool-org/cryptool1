@@ -8424,7 +8424,7 @@ BEGIN
     IDR_OPENGLTYPE          "\nUnnamed\n\nOpenGL file (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nPliki OpenGL "
     IDS_STRING_TRANSLATIONS_HEADING_POLISH "T³umaczenie na jêzyk polski"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
-                            "Wstêpne t³umaczenie: Uniwersytet Warszawski, Polska (http://www.ee.pw.edu.pl),\r\nDr. Bartosz Sawicki wraz ze studentami"
+                            "Wstêpne t³umaczenie: Politechnika Warszawska, Polska (http://www.ee.pw.edu.pl),\r\nDr. Bartosz Sawicki wraz ze studentami"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_POLISH 
                             "Dalsze aktualizacje: Pawel Polewski"
     IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "T³umaczenie na jêzyk serbski"
