@@ -1423,11 +1423,13 @@ void CPlayfairAnalysis::ApplyPlayfair(const PlayfairOptions playfairOptions)
 	delete []preformattedText;
 
 	// write pre-formatted text to file "fileNamePreformattedText"
-	FILE *pre;
-	pre=fopen((LPCTSTR)playfairOptions.fileNamePreformattedText, "wb");
-	fwrite(inbuf,1,inbuflen,pre);
-	fclose(pre);
-	
+	if(!playfairOptions.fileNamePreformattedText.IsEmpty()) {
+		FILE *pre;
+		pre=fopen((LPCTSTR)playfairOptions.fileNamePreformattedText, "wb");
+		fwrite(inbuf,1,inbuflen,pre);
+		fclose(pre);
+	}
+
 	// execute the actual cipher
 	DoCipher(true, playfairOptions.decryption, inbuflen);
 

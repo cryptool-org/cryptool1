@@ -110,6 +110,10 @@ protected:
 //
 //
 
+// flomar, 04/22/2010
+// forward declaration
+struct PlayfairOptions;
+
 class CDlgPlayfairAnalysis : public CDialog
 {
 /******* Geändert Mark Santiago, Henrik Koy: Scroll Management */
@@ -156,6 +160,11 @@ public:
 	int                 m_ActualiseExpectedPlaintext;
 	//}}AFX_DATA
 
+	// flomar, 04/22/2010
+	// return the options the Playfair encryption was executed with; these are all the options 
+	// that can be configured in the upper part of the dialog (see implementation for details)
+	PlayfairOptions getPlayfairOptions();
+	class CPlayfairAnalysis *m_Alg;
 
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
@@ -183,7 +192,6 @@ private:
 	int size;
 	char digbuf[MAXSHOWLETTER+2];
 	CString m_mat[6][6];
-	class CPlayfairAnalysis *m_Alg;
 	class CChEdit	m_einfeld[6][6];
 	int m_sechs;
 	bool m_Dec;

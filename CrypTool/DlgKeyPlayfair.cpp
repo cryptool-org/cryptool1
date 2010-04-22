@@ -388,8 +388,8 @@ PlayfairOptions CDlgKeyPlayfair::getPlayfairOptions()
 	PlayfairOptions playfairOptions;
 	
 	playfairOptions.decryption = this->m_Dec;
-	playfairOptions.fileNamePreformattedText = "TODO";
-	playfairOptions.fileNameResultText = "TODO";
+	playfairOptions.fileNamePreformattedText = "";
+	playfairOptions.fileNameResultText = "";
 	playfairOptions.ignoreDuplicatesWithinTheKeyPhrase = this->m_use;
 	playfairOptions.limitTextToCurrentlyConfiguredAlphabet = this->limitTextToAlphabet;
 	playfairOptions.separateDoubleCharacters = this->separateDoubleCharacters;

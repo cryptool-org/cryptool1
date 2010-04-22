@@ -964,6 +964,25 @@ void CDlgPlayfairAnalysis::OnSize(UINT nType, int cx, int cy)
 	Invalidate();
 }
 
+PlayfairOptions CDlgPlayfairAnalysis::getPlayfairOptions()
+{
+	// create a PlayfairOptions structure that is to be returned
+	PlayfairOptions playfairOptions;
+	
+	playfairOptions.decryption = this->m_Dec;
+	playfairOptions.fileNamePreformattedText = "";
+	playfairOptions.fileNameResultText = "";
+	playfairOptions.ignoreDuplicatesWithinTheKeyPhrase = this->m_use;
+	// TODOplayfairOptions.limitTextToCurrentlyConfiguredAlphabet = this->limitTextToAlphabet;
+	// TODOplayfairOptions.separateDoubleCharacters = this->separateDoubleCharacters;
+	// TODOplayfairOptions.separateDoubleCharactersOnlyWithinPairs = this->separateDoubleCharactersOnlyWithinPairs;
+	// TODOplayfairOptions.separator1 = this->separator1;
+	// TODOplayfairOptions.separator2 = this->separator2;
+	// TODOplayfairOptions.showPreformattedText = this->m_preformat;
+
+	return playfairOptions;
+}
+
 
 
 

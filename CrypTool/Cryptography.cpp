@@ -549,11 +549,25 @@ void PlayfairAnalyse(const char *infile, const char *OldTitle)
 
 	if(KeyDialog.Display()!=IDOK) return;
 
-	// flomar, 04/17/2010
-	// retrieve Playfair options? (see implementation for encryption/decryption)
-	// TODO
-	// KeyDialog.getAlg()->ApplyPlayfairToInput(KeyDialog.getDec());
-	OpenNewDoc( outfile, KeyDialog.GetData(), OldTitle, IDS_PLAYFAIR, KeyDialog.getDec() );
+	// retrieve Playfair options
+	PlayfairOptions playfairOptions = KeyDialog.getPlayfairOptions();
+	// set file name for result text
+	GetTmpName(outfile,"cry",".txt");
+	playfairOptions.fileNameResultText = outfile;
+
+	// complete key as string (KEY, SEPARATOR1, SEPARATOR2)
+	CString stringCompleteKey;
+	stringCompleteKey.Append("KEY: ");
+	stringCompleteKey.Append(KeyDialog.GetData());
+	stringCompleteKey.Append(", SEPARATOR1: ");
+	stringCompleteKey.Append(playfairOptions.separator1);
+	stringCompleteKey.Append(", SEPARATOR2: ");
+	stringCompleteKey.Append(playfairOptions.separator2);
+
+	// apply Playfair with the desired options
+	KeyDialog.m_Alg->ApplyPlayfair(playfairOptions);
+	// show the new document
+	OpenNewDoc(outfile, stringCompleteKey, OldTitle, IDS_PLAYFAIR, playfairOptions.decryption);
 	HIDE_HOUR_GLASS
 }
 
