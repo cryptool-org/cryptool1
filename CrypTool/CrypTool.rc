@@ -8,7 +8,8 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -16469,7 +16470,7 @@ BEGIN
         END
         POPUP "&RSA Kriptosistem"
         BEGIN
-            MENUITEM "Test Prostih &Brojeva...",   ID_PRIMENUMBER_TEST
+            MENUITEM "Test Prostih &Brojeva...",    ID_PRIMENUMBER_TEST
             MENUITEM "Generiši &Proste Brojeve...", ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
             MENUITEM "&Razlaganje Broja...",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             MENUITEM "&RSA Demonstracija...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
@@ -48811,7 +48812,7 @@ BEGIN
         MENUITEM "&Buscar/Reemplazar...\tStrg+F", ID_EDIT_FIND
         MENUITEM "Buscar &Siguiente\tF3",       ID_EDIT_FIND_NEXT
         MENUITEM SEPARATOR
-        MENUITEM "Seleccionar &Todo \tCtrl+A",   ID_EDIT_SELECT_ALL
+        MENUITEM "Seleccionar &Todo \tCtrl+A",  ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
         MENUITEM "&Mostrar Clave...",           ID_SHOW_KEY
         MENUITEM "&Ventana Padre",              ID_GOTO_VATER
@@ -49099,13 +49100,13 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "Batería de Pruebas F&IPS PUB-140-1", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
             MENUITEM SEPARATOR
-            MENUITEM "&Vitányi",                     ID_ANALYSE_VITANY
+            MENUITEM "&Vitányi",                    ID_ANALYSE_VITANY
             MENUITEM "Visualización &3D...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
         END
     END
     POPUP "&Opciones"
     BEGIN
-        MENUITEM "&Plot...",                   ID_OPTIONS_PLOT
+        MENUITEM "&Plot...",                    ID_OPTIONS_PLOT
         MENUITEM "&Análisis...",                ID_OPTIONS_ANALYSIS
         MENUITEM "&Texto...",                   ID_OPTTEXT
         MENUITEM "&Opciones de Inicio...",      ID_OPTIONS_STARTOPTIONS
@@ -49127,7 +49128,7 @@ BEGIN
         MENUITEM "S&cript",                     ID_SCRIPT
         MENUITEM "&Presentación",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "&Acerca de CrypTool",        ID_APP_ABOUT
+        MENUITEM "&Acerca de CrypTool",         ID_APP_ABOUT
     END
 END
 
@@ -49162,7 +49163,7 @@ BEGIN
         MENUITEM "&Buscar/Reemplazar...\tStrg+F", ID_EDIT_FIND, GRAYED
         MENUITEM "Buscar &Siguiente\tF3",       ID_EDIT_FIND_NEXT, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Seleccionar &Todo \tCtrl+A",   ID_EDIT_SELECT_ALL, GRAYED
+        MENUITEM "Seleccionar &Todo \tCtrl+A",  ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Mostrar Clave...",           ID_SHOW_KEY, GRAYED
         MENUITEM "&Ventana Padre",              ID_GOTO_VATER
@@ -49321,7 +49322,7 @@ BEGIN
             POPUP "&AES"
             BEGIN
                 MENUITEM "&Animación Rijndael...",      ID_FLASH_AESDEMO
-                MENUITEM "&Inspector Rijndael...",     ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "&Inspector Rijndael...",      ID_FLASH_RIJNDAEL_INSPECTOR
                 MENUITEM "Visualización de flujo de &Rijndael", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
@@ -49435,7 +49436,7 @@ BEGIN
                 MENUITEM "&Ataque a Texto Conocido...", ID_RSA_STEREOTYPED
                 MENUITEM "A&taque a Claves Secretas Cortas...", ID_RSA_BLOEMERMAY
             END
-            MENUITEM "Ataque del Canal &Lateral", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
+            MENUITEM "Ataque del Canal &Lateral",   ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
         END
         POPUP "&Hash"
         BEGIN
@@ -49443,15 +49444,15 @@ BEGIN
         END
         POPUP "&Análisis de Aleatoriedad"
         BEGIN
-            MENUITEM "Test de &Frecuencias",         ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-            MENUITEM "Test de &Poker",             ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
+            MENUITEM "Test de &Frecuencias",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "Test de &Poker",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
             MENUITEM "Test de &Rachas",             ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
-            MENUITEM "Test de &Series",              ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
+            MENUITEM "Test de &Series",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "Batería de Pruebas F&IPS PUB-140-1", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "&Vitányi",                     ID_ANALYSE_VITANY, GRAYED
-            MENUITEM "Visualización &3D...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION, GRAYED
+            MENUITEM "&Vitányi",                    ID_ANALYSE_VITANY, GRAYED
+            MENUITEM "Visualización &3D...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION, GRAYED
         END
     END
     POPUP "&Opciones"
@@ -49472,7 +49473,7 @@ BEGIN
     BEGIN
         MENUITEM "Página de &Inicio",           ID_HILFE_STARTSEITE
         MENUITEM "Ín&dice",                     ID_HILFE_INDEX
-        MENUITEM "&Escenarios (Tutoriales)",     ID_HILFE_SZENARIEN
+        MENUITEM "&Escenarios (Tutoriales)",    ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Leeme",                      ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
@@ -49513,7 +49514,7 @@ BEGIN
         MENUITEM "&Buscar/Reemplazar...\tStrg+F", ID_EDIT_FIND, GRAYED
         MENUITEM "Buscar &Siguiente\tF3",       ID_EDIT_FIND_NEXT, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Seleccionar &Todo \tCtrl+A",   ID_EDIT_SELECT_ALL, GRAYED
+        MENUITEM "Seleccionar &Todo \tCtrl+A",  ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Mostrar Clave...",           ID_SHOW_KEY, GRAYED
         MENUITEM "&Ventana Padre",              ID_GOTO_VATER
@@ -49786,7 +49787,7 @@ BEGIN
                 MENUITEM "&Ataque a Texto Conocido...", ID_RSA_STEREOTYPED
                 MENUITEM "A&taque a Claves Secretas Cortas...", ID_RSA_BLOEMERMAY
             END
-            MENUITEM "Ataque del Canal &Lateral", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
+            MENUITEM "Ataque del Canal &Lateral",   ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
         END
         POPUP "&Hash"
         BEGIN
@@ -49801,8 +49802,8 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "Batería de Pruebas F&IPS PUB-140-1", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "&Vitányi",                     ID_ANALYSE_VITANY, GRAYED
-            MENUITEM "Visualización &3D...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION, GRAYED
+            MENUITEM "&Vitányi",                    ID_ANALYSE_VITANY, GRAYED
+            MENUITEM "Visualización &3D...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION, GRAYED
         END
     END
     POPUP "&Opciones"
@@ -49864,7 +49865,7 @@ BEGIN
         MENUITEM "&Buscar/Reemplazar...\tStrg+F", ID_EDIT_FIND
         MENUITEM "Buscar &Siguiente\tF3",       ID_EDIT_FIND_NEXT
         MENUITEM SEPARATOR
-        MENUITEM "Seleccionar &Todo \tCtrl+A",   ID_EDIT_SELECT_ALL
+        MENUITEM "Seleccionar &Todo \tCtrl+A",  ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
         MENUITEM "&Mostrar Clave...",           ID_SHOW_KEY
         MENUITEM "&Ventana Padre",              ID_GOTO_VATER
@@ -49895,7 +49896,6 @@ BEGIN
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
             MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
             MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
-
         END
         MENUITEM "Formato de documento de texto", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -50138,7 +50138,7 @@ BEGIN
                 MENUITEM "&Ataque a Texto Conocido...", ID_RSA_STEREOTYPED
                 MENUITEM "A&taque a Claves Secretas Cortas...", ID_RSA_BLOEMERMAY
             END
-            MENUITEM "Ataque del Canal &Lateral", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
+            MENUITEM "Ataque del Canal &Lateral",   ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
         END
         POPUP "&Hash"
         BEGIN
@@ -50154,7 +50154,7 @@ BEGIN
             MENUITEM "Batería de Pruebas F&IPS PUB-140-1", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
             MENUITEM SEPARATOR
             MENUITEM "&Vitányi",                    ID_ANALYSE_VITANY
-            MENUITEM "Visualización &3D...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "Visualización &3D...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
         END
     END
     POPUP "&Opciones"
@@ -50181,7 +50181,7 @@ BEGIN
         MENUITEM "S&cript",                     ID_SCRIPT
         MENUITEM "&Presentación",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "&Acerca de CrypTool",        ID_APP_ABOUT
+        MENUITEM "&Acerca de CrypTool",         ID_APP_ABOUT
     END
 END
 
@@ -50335,7 +50335,7 @@ BEGIN
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "&Valor Hash de un Archivo...", ID_HASH_OFAFILE
-            MENUITEM "&Demostración Hash...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, GRAYED
+            MENUITEM "&Demostración Hash...",       ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, GRAYED
             MENUITEM "Generación de una &Clave desde una Contraseña (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
             MENUITEM "&Generación de MACs...",      ID_GENERATE_MACS, GRAYED
         END
@@ -50357,7 +50357,7 @@ BEGIN
         BEGIN
             MENUITEM "Demostración &Diffie-Hellman...", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "&Autenticación en una Red...", ID_CHALLENGE_RESPONSE
-            MENUITEM "E-mail seguro con S/MIME",    ID_PROTOKOL_SMIME //65535
+            MENUITEM "E-mail seguro con S/MIME",    ID_PROTOKOL_SMIME
         END
         POPUP "&Aplicación del Teorema Chino de los Restos"
         BEGIN
@@ -50375,7 +50375,7 @@ BEGIN
             POPUP "&AES"
             BEGIN
                 MENUITEM "&Animación Rijndael...",      ID_FLASH_AESDEMO
-                MENUITEM "&Inspector Rijndael...",     ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "&Inspector Rijndael...",      ID_FLASH_RIJNDAEL_INSPECTOR
                 MENUITEM "Visualización de flujo de &Rijndael", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
@@ -50489,7 +50489,7 @@ BEGIN
                 MENUITEM "&Ataque a Texto Conocido...", ID_RSA_STEREOTYPED
                 MENUITEM "A&taque a Claves Secretas Cortas...", ID_RSA_BLOEMERMAY
             END
-            MENUITEM "Ataque del Canal &Lateral", ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
+            MENUITEM "Ataque del Canal &Lateral",   ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
         END
         POPUP "&Hash"
         BEGIN
@@ -50504,13 +50504,13 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "Batería de Pruebas F&IPS PUB-140-1", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "&Vitányi",                     ID_ANALYSE_VITANY, GRAYED
+            MENUITEM "&Vitányi",                    ID_ANALYSE_VITANY, GRAYED
             MENUITEM "Visualización &3D...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION, GRAYED
         END
     END
     POPUP "&Opciones"
     BEGIN
-        MENUITEM "&Plot...",                   ID_OPTIONS_PLOT
+        MENUITEM "&Plot...",                    ID_OPTIONS_PLOT
         MENUITEM "&Análisis...",                ID_OPTIONS_ANALYSIS
         MENUITEM "&Texto...",                   ID_OPTTEXT
         MENUITEM "&Opciones de Inicio...",      ID_OPTIONS_STARTOPTIONS
@@ -53861,7 +53861,7 @@ BEGIN
                             "Su entrada no es una secuencia de números con base %i. \nPor favor, corrija los datos de entrada o cifre la entrada como texto."
     IDS_STRING_WARN_BEFOR_SKIPWS 
                             "¡La entrada contiene caracteres que no pertenecen al alfabeto!\nSi pulsa en 'Aceptar', sólo se cifrarán los caracteres del alfabeto (los otros caracteres se eliminarán de la entrada)."
-    IDS_STRING_HELPNAME     "CrypTool-es.chm"
+    IDS_STRING_HELPNAME     "CrypTool-en.chm"
     IDS_STRING_PLAYFAIR_ERRMSG121 
                             "En caso de pre-formateo, las letras duplicadas son separadas por la letra 'X'.\nPor favor, corríjalo."
     IDS_STRING_PLAYFAIR_ERRMSG122 
