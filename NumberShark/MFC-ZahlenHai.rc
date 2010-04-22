@@ -1904,7 +1904,7 @@ BEGIN
     IDS_REG_TRUE            "true"
     IDS_SHARK_AGAINST       " contra"
     IDS_GAME_DATA           "GameData.txt"
-    IDS_HELP_FILE           "NumberShark-es.chm::/NumberShark.html"
+    IDS_HELP_FILE           "NumberShark-en.chm::/NumberShark.html"
     IDS_TITLE_VERSION       " - Versión 1.2"
 END
 
