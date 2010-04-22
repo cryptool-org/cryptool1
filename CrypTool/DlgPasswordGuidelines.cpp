@@ -27,6 +27,9 @@
 #include ".\dlgpasswordguidelines.h"
 #include "DialogeMessage.h"
 
+// our default special character set (see DlgTextOptions.cpp)
+extern char *defaultSpecialCharacters;
+
 CDlgPasswordGuidelines::CDlgPasswordGuidelines(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgPasswordGuidelines::IDD, pParent)
 {
@@ -75,7 +78,7 @@ BOOL CDlgPasswordGuidelines::OnInitDialog()
 		}
 		if(!CT_READ_REGISTRY(specialGroup, "SpecialGroup", buffer)) {
 			memset(specialGroup, 0, buffer+1);
-			memcpy(specialGroup, ".,:;!?()-+*/[]{}@_><#~=\\\"&%$§", 29);
+			memcpy(specialGroup, defaultSpecialCharacters, strlen(defaultSpecialCharacters));
 		}
 
 		CT_CLOSE_REGISTRY();
@@ -143,7 +146,7 @@ void CDlgPasswordGuidelines::OnBnClickedDefault()
 	stringMinimumLength = "8";
 	stringMinimumDigits = "1";
 	stringMinimumSpecial = "1";
-	stringSpecialGroup = "^°!\"§$%&/()=?´`\\<>|,;:.-_#\'+*~@";
+	stringSpecialGroup = defaultSpecialCharacters;
 
 	UpdateData(false);
 }

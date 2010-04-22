@@ -26,7 +26,7 @@
 #include "ScintillaDoc.h"
 #include "ScintillaView.h"
 
-// we will need this below
+// our CrypTool-wide special character set (not only used in this text options dialog)
 char *defaultSpecialCharacters = ".,:;!?()-+*/[]{}@_><#~=\\\"&%$§";
 
 // Verzeichnis, in dem CT gerade läuft (siehe CrypToolApp.cpp)
