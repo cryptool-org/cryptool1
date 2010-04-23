@@ -66,7 +66,7 @@ Denis Döll
 Pawel Polewski
 Alexander Klink
 Matthias Walthart
-Raphael Labaca-Castro
+Raphael Labaca Castro
 
 #
 # [REVIEW FEEDBACK]
