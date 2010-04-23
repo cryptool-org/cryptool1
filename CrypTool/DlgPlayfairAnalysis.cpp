@@ -970,15 +970,13 @@ PlayfairOptions CDlgPlayfairAnalysis::getPlayfairOptions()
 	PlayfairOptions playfairOptions;
 	
 	playfairOptions.decryption = this->m_Dec;
-	playfairOptions.fileNamePreformattedText = "";
-	playfairOptions.fileNameResultText = "";
-	playfairOptions.ignoreDuplicatesWithinTheKeyPhrase = this->m_use;
-	// TODOplayfairOptions.limitTextToCurrentlyConfiguredAlphabet = this->limitTextToAlphabet;
-	// TODOplayfairOptions.separateDoubleCharacters = this->separateDoubleCharacters;
-	// TODOplayfairOptions.separateDoubleCharactersOnlyWithinPairs = this->separateDoubleCharactersOnlyWithinPairs;
-	// TODOplayfairOptions.separator1 = this->separator1;
-	// TODOplayfairOptions.separator2 = this->separator2;
-	// TODOplayfairOptions.showPreformattedText = this->m_preformat;
+	playfairOptions.fileNameCleartext = "";
+	playfairOptions.fileNameCiphertext = "";
+	// TODO playfairOptions.separateDoubleCharacters = true;
+	// TODO playfairOptions.separator1 = "X";
+	// TODO playfairOptions.separator2 = "Y";
+	// TODO playfairOptions.separateDoubleCharactersOnlyWithinPairs = true;
+	playfairOptions.ignoreDoubleCharactersInKey = this->m_use;
 
 	return playfairOptions;
 }

@@ -428,8 +428,9 @@ void VernamBin(const char *infile, const char *OldTitle)
 
 void PlayfairBin(const char *infile, const char *OldTitle)
 {
- 	char outfile[128],preform[128],title[128];
-    CAppDocument *NewDoc;
+ 	char fileNameCleartext[128], fileNameCiphertext[128], title[128];
+	
+	CAppDocument *NewDoc;
 
 	// Überprüfen, ob die Eingabedatei mindestens zwei gültige Zeichen enthält,
 	// d.h. Zeichen, die im entsprechenden Alphabet vorkommen.
@@ -475,20 +476,20 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 		return;
 	}
 	
-	GetTmpName(outfile,"cry",".txt");
+	GetTmpName(fileNameCiphertext,"cry",".txt");
 
-	class CDlgKeyPlayfair KeyDialog(infile,outfile,theApp.TextOptions.getKeepCharactersNotPresentInAlphabetUnchanged(),theApp.TextOptions.getKeepUpperLowerCaseInformation());
+	class CDlgKeyPlayfair KeyDialog(infile,fileNameCiphertext,theApp.TextOptions.getKeepCharactersNotPresentInAlphabetUnchanged(),theApp.TextOptions.getKeepUpperLowerCaseInformation());
 
 	if(KeyDialog.Display()!=IDOK) return;
 
 	// flomar, 04/16/2010
 	// retrieve Playfair options
 	PlayfairOptions playfairOptions = KeyDialog.getPlayfairOptions();
-	// set file names for pre-formatted and result text
-	GetTmpName(outfile,"cry",".txt");
-	GetTmpName(preform,"cry",".txt");
-	playfairOptions.fileNamePreformattedText = preform;
-	playfairOptions.fileNameResultText = outfile;
+	// set file names for cleartext and ciphertext text
+	GetTmpName(fileNameCleartext,"cry",".txt");
+	GetTmpName(fileNameCiphertext,"cry",".txt");
+	playfairOptions.fileNameCleartext = fileNameCleartext;
+	playfairOptions.fileNameCiphertext = fileNameCiphertext;
 
 	// complete key as string (KEY, SEPARATOR1, SEPARATOR2)
 	CString stringCompleteKey;
@@ -499,45 +500,10 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 	stringCompleteKey.Append(", SEPARATOR2: ");
 	stringCompleteKey.Append(playfairOptions.separator2);
 
-	// we want to show the pre-formatted text
-	if(playfairOptions.showPreformattedText)
-	{
-		// apply Playfair with the desired options
-		KeyDialog.m_Alg->ApplyPlayfair(playfairOptions);
-
-		// make sure the pre-formatted text is shown (see below...)
-		NewDoc = theApp.OpenDocumentFileNoMRU(preform, stringCompleteKey);
-		remove(preform);
-		if(NewDoc)
-		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_PLAYFAIR_PREFORMAT,pc_str,STR_LAENGE_STRING_TABLE);
-			MakeNewName(title,sizeof(title),pc_str,OldTitle);
-			NewDoc->SetTitle(title);
-			NewDoc->SetData(2);
-		}
-
-		NewDoc = theApp.OpenDocumentFileNoMRU(outfile,stringCompleteKey);
-		remove(outfile);
-		if(NewDoc)
-		{
-			if(playfairOptions.decryption)
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-			else
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-			LoadString(AfxGetInstanceHandle(),IDS_PLAYFAIR,pc_str,STR_LAENGE_STRING_TABLE);
-			MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,stringCompleteKey);
-			NewDoc->SetTitle(title);
-			NewDoc->SetData(2);
-	    }
-	}
-	// we don't want to show the pre-formatted text
-	else
-	{
-		// apply Playfair with the desired options
-		KeyDialog.m_Alg->ApplyPlayfair(playfairOptions);
-		// show the new document
-		OpenNewDoc( outfile, stringCompleteKey, OldTitle, IDS_PLAYFAIR, playfairOptions.decryption);
-	}
+	// apply Playfair with the desired options
+	KeyDialog.m_Alg->ApplyPlayfair(playfairOptions);
+	// show the new document
+	OpenNewDoc(fileNameCiphertext, stringCompleteKey, OldTitle, IDS_PLAYFAIR, playfairOptions.decryption);
 	HIDE_HOUR_GLASS
 }
 
@@ -553,7 +519,7 @@ void PlayfairAnalyse(const char *infile, const char *OldTitle)
 	PlayfairOptions playfairOptions = KeyDialog.getPlayfairOptions();
 	// set file name for result text
 	GetTmpName(outfile,"cry",".txt");
-	playfairOptions.fileNameResultText = outfile;
+	playfairOptions.fileNameCiphertext = outfile;
 
 	// complete key as string (KEY, SEPARATOR1, SEPARATOR2)
 	CString stringCompleteKey;

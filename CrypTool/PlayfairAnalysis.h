@@ -438,15 +438,13 @@ int compdigram(struct digram *,struct digram *);
 // flomar, 04/16/2010
 struct PlayfairOptions {
 	bool decryption;
-	bool showPreformattedText;
-	CString fileNamePreformattedText;
-	CString fileNameResultText;
-	bool limitTextToCurrentlyConfiguredAlphabet;
+	CString fileNameCleartext;
+	CString fileNameCiphertext;
 	bool separateDoubleCharacters;
 	CString separator1;
 	CString separator2;
 	bool separateDoubleCharactersOnlyWithinPairs;
-	bool ignoreDuplicatesWithinTheKeyPhrase;
+	bool ignoreDoubleCharactersInKey;
 };
 
 class CPlayfairAnalysis
@@ -455,13 +453,6 @@ public:
 	// flomar, 04/16/2010
 	// apply Playfair with the given options
 	void ApplyPlayfair(const PlayfairOptions playfairOptions);
-
-	// flomar, 04/16/2010
-	// these functions are deprecated; remove them if possible
-#if 0
-	void ApplyPlayfairToInput( bool ); //used in crypt.cpp
-	void ApplyPlayfairPreformat(bool, char*, char*, bool, bool, CString); //used in crypt.cpp
-#endif
 
 public:
 	void CreateMatrixFromPass(); //used in DialogPlayfair.cpp

@@ -44,8 +44,6 @@ CDlgKeyPlayfair::CDlgKeyPlayfair(const char *infile,const char *outfile,int r,in
 	//{{AFX_DATA_INIT(CDlgKeyPlayfair)
 	m_Alg = new CPlayfairAnalysis("",0,infile,outfile,r,c,1);
 	m_sechs = 0;
-	m_preformat=1;
-	m_use=1;
 	for (i=0;i<m_Alg->getSize();i++)
 	{
 		for (j=0;j<m_Alg->getSize();j++)
@@ -55,13 +53,15 @@ CDlgKeyPlayfair::CDlgKeyPlayfair(const char *infile,const char *outfile,int r,in
 	}
 	//}}AFX_DATA_INIT
 
-	m_Dec = 0;
-
-	limitTextToAlphabet = 1;
-	separateDoubleCharacters = 1;
-	separateDoubleCharactersOnlyWithinPairs = 1;
+	// initialize Playfair options
+	decryption = false;
+	fileNameCleartext = infile;
+	fileNameCiphertext = outfile;
+	separateDoubleCharacters = true;
 	separator1 = "X";
 	separator2 = "Y";
+	separateDoubleCharactersOnlyWithinPairs = true;
+	ignoreDoubleCharactersInKey = true;
 }
 
 CDlgKeyPlayfair::~CDlgKeyPlayfair()
@@ -127,14 +127,11 @@ void CDlgKeyPlayfair::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT65, m_mat[5][4]);
 	DDX_Control(pDX, IDC_EDIT66, m_matc[10]);
 	DDX_Text(pDX, IDC_EDIT66, m_mat[5][5]);
-	DDX_Check(pDX, IDC_PREFORM, m_preformat);
-	DDX_Control(pDX, IDC_PREFORM, m_prec);
-	DDX_Check(pDX, IDC_CHECK1, m_use);
-	DDX_Check(pDX, IDC_CHECK_LIMIT_TEXT_TO_ALPHABET, limitTextToAlphabet);
-	DDX_Check(pDX, IDC_CHECK_SEPARATE_LETTERS, separateDoubleCharacters);
-	DDX_Check(pDX, IDC_CHECK_SEPARATE_LETTERS_ONLY_IN_PAIRS, separateDoubleCharactersOnlyWithinPairs);
+	DDX_Check(pDX, IDC_CHECK_SEPARATE_DOUBLE_CHARACTERS, separateDoubleCharacters);
 	DDX_Text(pDX, IDC_EDIT_SEPARATOR1, separator1);
 	DDX_Text(pDX, IDC_EDIT_SEPARATOR2, separator2);
+	DDX_Check(pDX, IDC_CHECK_SEPARATE_DOUBLE_CHARACTERS_ONLY_WITHIN_PAIRS, separateDoubleCharactersOnlyWithinPairs);
+	DDX_Check(pDX, IDC_CHECK_IGNORE_DOUBLE_CHARACTERS_IN_KEY, ignoreDoubleCharactersInKey);	
 	//}}AFX_DATA_MAP
 }
 
@@ -155,7 +152,6 @@ BEGIN_MESSAGE_MAP(CDlgKeyPlayfair, CDialog)
 	ON_EN_CHANGE(IDC_EDIT_SEPARATOR1, OnChangeSeparator)
 	ON_EN_CHANGE(IDC_EDIT_SEPARATOR2, OnChangeSeparator)
 	//}}AFX_MSG_MAP
-	ON_BN_CLICKED(ID_TEXTOPTIONS, &CDlgKeyPlayfair::OnBnClickedTextoptions)
 END_MESSAGE_MAP()
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -189,15 +185,15 @@ void CDlgKeyPlayfair::OnCheck()
 // Doppelte Zeichen ignorieren oder nicht
 {
 	UpdateData(TRUE);
-	m_Alg->PassUse(m_use);
+	m_Alg->PassUse(ignoreDoubleCharactersInKey);
 	
 	// flomar, 04/16/2010
-	CWnd *windowCheckSeparator = GetDlgItem(IDC_CHECK_SEPARATE_LETTERS);
+	CWnd *windowCheckSeparator = GetDlgItem(IDC_CHECK_SEPARATE_DOUBLE_CHARACTERS);
 	CWnd *windowTextSeparator1 = GetDlgItem(IDC_STATIC_TEXT_SEPARATOR1);
 	CWnd *windowTextSeparator2 = GetDlgItem(IDC_STATIC_TEXT_SEPARATOR2);
 	CWnd *windowEditSeparator1 = GetDlgItem(IDC_EDIT_SEPARATOR1);
 	CWnd *windowEditSeparator2 = GetDlgItem(IDC_EDIT_SEPARATOR2);
-	CWnd *windowCheckSeparatorOnlyWithinPairs = GetDlgItem(IDC_CHECK_SEPARATE_LETTERS_ONLY_IN_PAIRS);
+	CWnd *windowCheckSeparatorOnlyWithinPairs = GetDlgItem(IDC_CHECK_SEPARATE_DOUBLE_CHARACTERS_ONLY_WITHIN_PAIRS);
 
 	// don't do anything if there's an invalid window
 	if(windowCheckSeparator && windowTextSeparator1 && windowTextSeparator2 && windowEditSeparator1 && windowEditSeparator2 && windowCheckSeparatorOnlyWithinPairs) {
@@ -296,7 +292,7 @@ void CDlgKeyPlayfair::OnUpdateEdit1()
 		c = m_text[i];
 		if(!m_Alg->myisalpha2(c))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
 #pragma warning( disable : 4800 )
-			c = m_Alg->getAlphabet()->replaceInvalidLetter(m_preformat, c);
+			c = m_Alg->getAlphabet()->replaceInvalidLetter(true, c);
 		if(m_Alg->myisalpha2(c)) { // valid character
 			res += c;
 			k++;
@@ -317,14 +313,14 @@ void CDlgKeyPlayfair::OnUpdateEdit1()
 void CDlgKeyPlayfair::OnDecrypt() 
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-	m_Dec = 1;
+	decryption = true;
 	OnOK();
 }
 
 void CDlgKeyPlayfair::OnEncrypt() 
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-	m_Dec = 0;
+	decryption = false;
 	OnOK();
 }
 
@@ -384,25 +380,14 @@ void CDlgKeyPlayfair::OnChangeSeparator()
 
 PlayfairOptions CDlgKeyPlayfair::getPlayfairOptions()
 {
-	// create a PlayfairOptions structure that is to be returned
 	PlayfairOptions playfairOptions;
-	
-	playfairOptions.decryption = this->m_Dec;
-	playfairOptions.fileNamePreformattedText = "";
-	playfairOptions.fileNameResultText = "";
-	playfairOptions.ignoreDuplicatesWithinTheKeyPhrase = this->m_use;
-	playfairOptions.limitTextToCurrentlyConfiguredAlphabet = this->limitTextToAlphabet;
-	playfairOptions.separateDoubleCharacters = this->separateDoubleCharacters;
-	playfairOptions.separateDoubleCharactersOnlyWithinPairs = this->separateDoubleCharactersOnlyWithinPairs;
-	playfairOptions.separator1 = this->separator1;
-	playfairOptions.separator2 = this->separator2;
-	playfairOptions.showPreformattedText = this->m_preformat;
-
+	playfairOptions.decryption = decryption;
+	playfairOptions.fileNameCleartext = fileNameCleartext;
+	playfairOptions.fileNameCiphertext = fileNameCiphertext;
+	playfairOptions.separateDoubleCharacters = separateDoubleCharacters;
+	playfairOptions.separator1 = separator1;
+	playfairOptions.separator2 = separator2;
+	playfairOptions.separateDoubleCharactersOnlyWithinPairs = separateDoubleCharactersOnlyWithinPairs;
+	playfairOptions.ignoreDoubleCharactersInKey = ignoreDoubleCharactersInKey;
 	return playfairOptions;
-}
-
-void CDlgKeyPlayfair::OnBnClickedTextoptions()
-{
-	// allow the user to change the CrypTool alphabet
-	theApp.TextOptions.DoModal();
 }

@@ -1371,13 +1371,13 @@ void CPlayfairAnalysis::CreateMatrixFromPass()
 
 void CPlayfairAnalysis::ApplyPlayfair(const PlayfairOptions playfairOptions)
 {
-	// allocate memory for the preformatted text (2*inbuflen)
-	int preformattedTextSize = inbuflen * 2;
-	char *preformattedText = new char[preformattedTextSize];
-	memset(preformattedText, 0, preformattedTextSize);
+	// allocate memory for the ciphertext (2*inbuflen)
+	int ciphertextSize = inbuflen * 2;
+	char *ciphertext = new char[ciphertextSize];
+	memset(ciphertext, 0, ciphertextSize);
 
-	// go through all characters of the initial text and apply some Playfair 
-	// conversions; the result will be stored in "preformattedText"
+	// go through all characters of "inbuf" and apply some Playfair 
+	// conversions; the result will be stored in "ciphertext"
 	char currentCharacter = 0;
 	char oldCharacter = 0;
 	int j = 0;
@@ -1386,8 +1386,6 @@ void CPlayfairAnalysis::ApplyPlayfair(const PlayfairOptions playfairOptions)
 		currentCharacter = convertCharacterToPlayfair(inbuf[i]);
 		// continue if we don't have a valid Playfair character
 		if(!myisalpha2(currentCharacter)) continue;
-		// continue if we have a non-alphabet character (and opted to ignore them)
-		if(theApp.TextOptions.getAlphabet().Find(currentCharacter) == -1 && playfairOptions.limitTextToCurrentlyConfiguredAlphabet) continue;
 		// check if there is a potential double-character hit
 		if(currentCharacter == oldCharacter) {
 			// next, check if we're supposed to separate double-characters at all
@@ -1395,184 +1393,40 @@ void CPlayfairAnalysis::ApplyPlayfair(const PlayfairOptions playfairOptions)
 				// next, make sure we only separate the correct characters; especially 
 				// keep those double-characters in mind that don't form a pair
 				if(!playfairOptions.separateDoubleCharactersOnlyWithinPairs || (playfairOptions.separateDoubleCharactersOnlyWithinPairs && j%2)) {
-					preformattedText[j++] = (oldCharacter == playfairOptions.separator1[0]) ? playfairOptions.separator2[0] : playfairOptions.separator1[0];
+					ciphertext[j++] = (oldCharacter == playfairOptions.separator1[0]) ? playfairOptions.separator2[0] : playfairOptions.separator1[0];
 				}
 			}
 		}
 		// append the current character to the preformatted text
-		preformattedText[j++] = currentCharacter;
+		ciphertext[j++] = currentCharacter;
 		// store the old character for the next run
 		oldCharacter = currentCharacter;
 	}
 
-	// we're through with all characters; if we have an uneven amount 
-	// of characters in preformattedText, append a separator
+	// we're through with all characters; if we have an uneven 
+	// amount of characters in "ciphertext", append a separator
 	if(j%2) {
-		if(preformattedText[j - 1] == playfairOptions.separator1[0])
-			preformattedText[j++] = playfairOptions.separator2[0];
+		if(ciphertext[j - 1] == playfairOptions.separator1[0])
+			ciphertext[j++] = playfairOptions.separator2[0];
 		else
-			preformattedText[j++] = playfairOptions.separator1[0];
+			ciphertext[j++] = playfairOptions.separator1[0];
 	}
 
-	// delete the old text and replace it with the pre-formatted text
-	delete []inbuf;
+	// copy ciphertext to inbuf
+	free(inbuf);
 	inbuflen = j;
-	inbuf = new char[inbuflen + 1];
+	inbuf = (char*)(malloc(inbuflen + 1));
 	memset(inbuf, 0, inbuflen + 1);
-	memcpy(inbuf, preformattedText, inbuflen);
-	delete []preformattedText;
+	memcpy(inbuf, ciphertext, inbuflen);
 
-	// write pre-formatted text to file "fileNamePreformattedText"
-	if(!playfairOptions.fileNamePreformattedText.IsEmpty()) {
-		FILE *pre;
-		pre=fopen((LPCTSTR)playfairOptions.fileNamePreformattedText, "wb");
-		fwrite(inbuf,1,inbuflen,pre);
-		fclose(pre);
-	}
-
-	// execute the actual cipher
+	// execute the actual cipher (it works on "inbuf")
 	DoCipher(true, playfairOptions.decryption, inbuflen);
 
-	// write result text to file "fileNameResultText"
-	outfp=fopen((LPCTSTR)playfairOptions.fileNameResultText, "wb");
+	// write "outbuf" to file "fileNameCiphertext"
+	outfp=fopen((LPCTSTR)playfairOptions.fileNameCiphertext, "wb");
 	fwrite(outbuf,1,outbuflen,outfp);
 	fclose(outfp);
 }
-
-#if 0
-
-/*
-ApplyPlayfairPreformat() führt die Ver-/Entschlüsselung mit vorherigem 
-umformatieren (wird in prename abgespeichert) durch und schreibt das 
-Ergebnis nach o. 
-*/
-void CPlayfairAnalysis::ApplyPlayfairPreformat(bool DecEnc, char *prename, char *o, bool _separateDoubleCharacters, bool _separateDoubleCharactersOnlyWithinPairs, CString _separator)
-{
-	// fill a few member variables (we need those later on)
-	separateDoubleCharacters = _separateDoubleCharacters;
-	separateDoubleCharactersOnlyWithinPairs = _separateDoubleCharactersOnlyWithinPairs;
-	separator = _separator;
-
-	FILE *pre;
-	char *prebuf;
-	int i,j;
-	char old,c;
-	char ex,aex;
-	
-	// we go with "X" as separator by default
-	ex = 'X';
-	// we override the separator if requested
-	if(separateDoubleCharacters) ex = separator[0];
-
-	aex=(ex=='Z')?'Y':ex+1;                      // alternative
-	if(mysize==5)
-	{
-		if(ex=='J')
-			ex='I';
-		if(aex=='J')
-			aex='K';
-	}
-	prebuf=(char *)malloc(inbuflen*2);
-	old=0;
-	for (i=j=0;i<inbuflen;i++)
-	{
-		c=inbuf[i];
-/*		if (mysize==5&&(c=='J'||c=='j'))           // bei 5x5 Matrix 
-			c='I';                               // wird J zu I*/
-		if(!myisalpha2(c))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
-			c = myAlphabet->replaceInvalidLetter(true, c);
-		/* white spaces oder sonstige Buchstaben werden durch obige Routine nicht ersetzt.
-		Daher können immer noch  falsche Buchstaben erscheinen */
-		if(myisalpha2(c))
-		{
-#if 0
-			c=MyToUpper(c);
-			if(c==old&&separateDoubleCharacters)// soll getrennt werden
-				prebuf[j++]=(old==ex)?aex:ex;    // falls zwei X
-			prebuf[j++]=c;                       // ein Q einfügen
-			old=c;                               // sonst Doppelbuchstaben
-		                                       // mit Xen trennen
-#else
-			c = MyToUpper(c);
-			// check if there is a potential double-character hit
-			if(c == old) {
-				// next, check if we're supposed to separate double-characters at all
-				if(separateDoubleCharacters) {
-					// next, make sure we only separate the correct characters; especially 
-					// keep those double-characters in mind that don't form a pair
-					if(!separateDoubleCharactersOnlyWithinPairs || (separateDoubleCharactersOnlyWithinPairs && j%2)) {
-						prebuf[j++]=(old==ex)?aex:ex;
-					}
-				}
-			}
-			prebuf[j++]=c;
-			old=c;
-#endif
-		}
-	}
-	free(inbuf);
-	inbuflen=j;
-    inbuf=(char *)malloc(inbuflen+1);
-	strncpy(inbuf, prebuf, inbuflen);
-	inbuf[inbuflen] = 0;
-	free(prebuf);
-	
-	pre=fopen(prename,"wb");
-	fwrite(inbuf,1,inbuflen,pre);
-	fclose(pre);
-	
-	DoCipher(true, DecEnc,inbuflen);
-	
-	strcpy(outfile,o);
-	outfp=fopen(outfile,"wb");
-	fwrite(outbuf,1,outbuflen,outfp);
-	fclose(outfp);
-}
-
-/*
-ApplyPlayfairToInput():
-Apply PLAYFAIR to the input text.
-Danach bei Bedarf wieder vormatieren.
-TG: Diese Routine wird nur angesprungen, wenn im
-Dialog PlayfairKey die Option vorformatieren
-abgeschaltet ist.
-*/
-void CPlayfairAnalysis::ApplyPlayfairToInput( bool DecEnc)
-{
-	int i,j;
-	
-	DoCipher(false, DecEnc,inbuflen);
-	
-	if(!ReFormat)
-	{
-		outfp=fopen(outfile,"wb");
-		fwrite(outbuf,1,outbuflen,outfp);
-		fclose(outfp);
-		return;
-	}
-	for(i=j=0;i<inbuflen;i++)
-	{
-		if(!myisalpha2(inbuf[i]))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
-			inbuf[i] = myAlphabet->replaceInvalidLetter(false, inbuf[i]);
-		if(myisalpha2(inbuf[i]))
-		{
-			if(MyIsLower(inbuf[i])&&ConvertCase)
-				inbuf[i] = MyToLower(outbuf[j]);
-			else
-				inbuf[i] = outbuf[j];
-			j++;
-			if(j>=outbuflen)
-				break;
-		}
-	}
-	
-	outfp=fopen(outfile,"wb");
-	fwrite(inbuf,1,inbuflen,outfp);
-	fclose(outfp);
-	
-} 
-
-#endif
 
 /*
 	DoCipher() Den EingabeText verschlüsseln.

@@ -29,6 +29,7 @@
 // Copyright 1998-2001 Deutsche Bank AG, Frankfurt am Main
 //////////////////////////////////////////////////////////////////
 
+#include <PlayfairAnalysis.h>
 
 // Dlg_PlayfairKey.h : Header-Datei
 //
@@ -36,48 +37,39 @@
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgKeyPlayfair 
 
-// flomar, 04/16/2010
-// forward declaration
-struct PlayfairOptions;
-
 class CDlgKeyPlayfair : public CDialog
 {
 	CBitmapButton m_Paste;
 	// Konstruktion
+protected:
+	int decryption;
+	CString fileNameCleartext;
+	CString fileNameCiphertext;
+	int separateDoubleCharacters;
+	CString separator1;
+	CString separator2;
+	int separateDoubleCharactersOnlyWithinPairs;
+	int ignoreDoubleCharactersInKey;
 public:
 	~CDlgKeyPlayfair();
 	CDlgKeyPlayfair(const char *infile,const char *outfile,int,int,CWnd* pParent = NULL);   // Standardkonstruktor
-	bool getDec()  { return ( m_Dec ); };
-
-	// flomar, 04/16/2010
-	// return the options the Playfair encryption was executed with; these are all the options 
-	// that can be configured in the upper part of the dialog (see implementation for details)
-	PlayfairOptions getPlayfairOptions();
 
 	char *GetData();
 	int Display();
 
-	class CPlayfairAnalysis *m_Alg;
-private:
-	bool m_Dec;
-public:
+	CPlayfairAnalysis *m_Alg;
 
+public:
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgKeyPlayfair)
 	enum { IDD = IDD_KEY_PLAYFAIR };
-	int		m_use;
 	int		m_sechs;
 	CString m_text;
 	CEdit	m_text_ctl;
-	int		m_preformat;
-	CButton m_prec;
 	CString m_mat[6][6];
 	CButton m_matc[11];
-	int limitTextToAlphabet;
-	int separateDoubleCharacters;
-	int separateDoubleCharactersOnlyWithinPairs;
-	CString separator1;
-	CString separator2;
+
+	PlayfairOptions getPlayfairOptions();
 	//}}AFX_DATA
 
 
@@ -103,8 +95,6 @@ protected:
 	afx_msg void OnChangeSeparator();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
-public:
-	afx_msg void OnBnClickedTextoptions();
 };
 
 //{{AFX_INSERT_LOCATION}}
