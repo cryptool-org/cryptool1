@@ -11059,7 +11059,7 @@ BEGIN
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
                             "Wstêpne t³umaczenie: Uniwersztet Madrid, Hiszpania (http://www.csic.es),\r\nDr. Gonzalo Alvarez Maranon wraz ze studentami"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
-                            "Dalsze aktualizacje: Raphael Labaca-Castro"
+                            "Dalsze aktualizacje: Raphael Labaca Castro"
 END
 
 STRINGTABLE 
@@ -22119,7 +22119,7 @@ BEGIN
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
                             "i18n Initial translation: Madrid University, Spain (http://www.csic.es),\r\nDr. Gonzalo Alvarez Maranon and his students"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
-                            "i18n Further updates: Raphael Labaca-Castro"
+                            "i18n Further updates: Raphael Labaca Castro"
 END
 
 STRINGTABLE 
@@ -33114,7 +33114,7 @@ BEGIN
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
                             "Erstübersetzung: Universität Madrid, Spanien (http://www.csic.es),\r\nDr. Gonzalo Alvarez Maranon und seine Studenten"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
-                            "Weitere Updates: Raphael Labaca-Castro"
+                            "Weitere Updates: Raphael Labaca Castro"
 END
 
 STRINGTABLE 
@@ -44177,7 +44177,7 @@ BEGIN
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
                             "Initial translation: Madrid University, Spain (http://www.csic.es),\r\nDr. Gonzalo Alvarez Maranon and his students"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
-                            "Further updates: Raphael Labaca-Castro"
+                            "Further updates: Raphael Labaca Castro"
 END
 
 STRINGTABLE 
@@ -48717,7 +48717,7 @@ BEGIN
     LTEXT           "Versión inicial:",IDC_STATIC,20,185,46,8
     LTEXT           "Nuevas actualizaciones:",IDC_STATIC,20,205,78,8
     LTEXT           "Universidad de Madrid, España (http://www.csic.es),\nDr. Gonzalo Álvarez Marañón y sus estudiantes.",IDC_STATIC,100,185,250,16
-    LTEXT           "Raphael Labaca-Castro",IDC_STATIC,100,205,250,16
+    LTEXT           "Raphael Labaca Castro",IDC_STATIC,100,205,250,16
     EDITTEXT        IDC_EDIT_TRANSLATIONS_INFORMATION,7,20,356,225,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
@@ -48809,11 +48809,11 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Gráfico de Barras",          ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Al&fabeto",                   ID_VIEW_ALPHABET
+        MENUITEM "&Alfabeto",                   ID_VIEW_ALPHABET
         MENUITEM "&Fin de Línea",               ID_VIEW_ENDOFLINE
         MENUITEM "&Salto de Línea",             ID_VIEW_LINEWRAP
-        MENUITEM "&Espacio en Blanco",          ID_VIEW_WHITESPACE
-        POPUP "&Fuente"
+        MENUITEM "Es&pacio en Blanco",          ID_VIEW_WHITESPACE
+        POPUP "F&uente"
         BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
@@ -48826,7 +48826,7 @@ BEGIN
             MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
             MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
         END
-        MENUITEM "Formato de documento de texto", ID_FORMAT_TEXT_DOCUMENT
+        MENUITEM "Fo&rmato de documento de texto", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
         MENUITEM "&Mostrar cubo (dibujar bordes)", ID_POPUP_OPENGL_SHOW_BOX, GRAYED
     END
@@ -48908,8 +48908,8 @@ BEGIN
             MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5
             MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
-            MENUITEM "SHA-&256",                    ID_CRYPT_HASH_SHA256
-            MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512
+            MENUITEM "S&HA-256",                    ID_CRYPT_HASH_SHA256
+            MENUITEM "SH&A-512",                    ID_CRYPT_HASH_SHA512
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             MENUITEM SEPARATOR
             MENUITEM "&Valor Hash de un Archivo...", ID_HASH_OFAFILE
@@ -48923,7 +48923,7 @@ BEGIN
             MENUITEM "&Generar Números Primos...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
             MENUITEM "&Factorización de un Número...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             MENUITEM "Demonstración &RSA...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
-            MENUITEM "Demostración de &Firma (Generación de Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "&Demostración de Firma (Generación de Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
             POPUP "Ataques a RSA basad&os en Celosía"
             BEGIN
                 MENUITEM "&Factorizando con una pista...", ID_RSA_FACTORHINT
@@ -48935,7 +48935,7 @@ BEGIN
         BEGIN
             MENUITEM "Demostración &Diffie-Hellman...", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "&Autenticación en una Red...", ID_CHALLENGE_RESPONSE
-            MENUITEM "E-mail seguro con S/MIME",    ID_PROTOKOL_SMIME
+            MENUITEM "&E-mail seguro con S/MIME",    ID_PROTOKOL_SMIME
         END
         POPUP "&Aplicación del Teorema Chino de los Restos"
         BEGIN
@@ -48960,7 +48960,7 @@ BEGIN
         END
         MENUITEM "Demostración de &Secreto Compartido (Shamir)...", ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
         MENUITEM SEPARATOR
-        POPUP "&Herramientas"
+        POPUP "H&erramientas"
         BEGIN
             POPUP "Códig&os"
             BEGIN
@@ -48998,7 +48998,7 @@ BEGIN
             MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
         END
     END
-    POPUP "&Análisis"
+    POPUP "A&nálisis"
     BEGIN
         POPUP "&Herramientas para el Análisis"
         BEGIN
@@ -49069,11 +49069,11 @@ BEGIN
             END
             MENUITEM "Ataque del Canal &Lateral",   ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
         END
-        POPUP "&Hash"
+        POPUP "Ha&sh"
         BEGIN
             MENUITEM "&Ataque al Valor Hash de una Firma Digital", ID_SIGNATUR_ATTACK
         END
-        POPUP "&Análisis de Aleatoriedad"
+        POPUP "A&nálisis de Aleatoriedad"
         BEGIN
             MENUITEM "Test de &Frecuencias",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
             MENUITEM "Test de &Poker",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST
@@ -49093,12 +49093,12 @@ BEGIN
         MENUITEM "&Texto...",                   ID_OPTTEXT
         MENUITEM "&Opciones de Inicio...",      ID_OPTIONS_STARTOPTIONS
     END
-    POPUP "&Ventana"
+    POPUP "Ven&tana"
     BEGIN
         MENUITEM "&Cascada",                    ID_WINDOW_CASCADE
         MENUITEM "&Mosaico",                    ID_WINDOW_TILE_HORZ
         MENUITEM "&Ordenar Iconos",             ID_WINDOW_ARRANGE
-        MENUITEM "&Cerrar Todo",                ID_WINDOW_CLOSE_ALL
+        MENUITEM "Cerrar &Todo",                ID_WINDOW_CLOSE_ALL
     END
     POPUP "Ay&uda"
     BEGIN
@@ -49160,11 +49160,11 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Gráfico de Barras",          ID_PLOTBAR
         MENUITEM SEPARATOR
-        MENUITEM "Al&fabeto",                   ID_VIEW_ALPHABET, GRAYED
+        MENUITEM "&Alfabeto",                   ID_VIEW_ALPHABET, GRAYED
         MENUITEM "&Fin de Línea",               ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "&Salto de Línea",             ID_VIEW_LINEWRAP, GRAYED
-        MENUITEM "&Espacio en Blanco",          ID_VIEW_WHITESPACE, GRAYED
-        POPUP "&Fuente"
+        MENUITEM "Es&pacio en Blanco",          ID_VIEW_WHITESPACE, GRAYED
+        POPUP "F&uente"
         BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
@@ -49177,7 +49177,7 @@ BEGIN
             MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
             MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
         END
-        MENUITEM "Formato de documento de texto", ID_FORMAT_TEXT_DOCUMENT
+        MENUITEM "Fo&rmato de documento de texto", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
         MENUITEM "&Mostrar cubo (dibujar bordes)", ID_POPUP_OPENGL_SHOW_BOX, GRAYED
     END
@@ -49259,8 +49259,8 @@ BEGIN
             MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5, GRAYED
             MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA, GRAYED
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1, GRAYED
-            MENUITEM "SHA-&256",                    ID_CRYPT_HASH_SHA256, GRAYED
-            MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512, GRAYED
+            MENUITEM "S&HA-256",                    ID_CRYPT_HASH_SHA256, GRAYED
+            MENUITEM "SH&A-512",                    ID_CRYPT_HASH_SHA512, GRAYED
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "&Valor Hash de un Archivo...", ID_HASH_OFAFILE
@@ -49274,7 +49274,7 @@ BEGIN
             MENUITEM "&Generar Números Primos...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
             MENUITEM "&Factorización de un Número...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             MENUITEM "Demonstración &RSA...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
-            MENUITEM "Demostración de &Firma (Generación de Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "&Demostración de Firma (Generación de Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
             POPUP "Ataques a RSA basad&os en Celosía"
             BEGIN
                 MENUITEM "&Factorizando con una pista...", ID_RSA_FACTORHINT
@@ -49286,7 +49286,7 @@ BEGIN
         BEGIN
             MENUITEM "Demostración &Diffie-Hellman...", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "&Autenticación en una Red...", ID_CHALLENGE_RESPONSE
-            MENUITEM "E-mail seguro con S/MIME",    ID_PROTOKOL_SMIME
+            MENUITEM "&E-mail seguro con S/MIME",    ID_PROTOKOL_SMIME
         END
         POPUP "&Aplicación del Teorema Chino de los Restos"
         BEGIN
@@ -49311,7 +49311,7 @@ BEGIN
         END
         MENUITEM "Demostración de &Secreto Compartido (Shamir)...", ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
         MENUITEM SEPARATOR
-        POPUP "&Herramientas"
+        POPUP "H&erramientas"
         BEGIN
             POPUP "Códig&os"
             BEGIN
@@ -49349,7 +49349,7 @@ BEGIN
             MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
         END
     END
-    POPUP "&Análisis"
+    POPUP "A&nálisis"
     BEGIN
         POPUP "&Herramientas para el Análisis"
         BEGIN
@@ -49420,11 +49420,11 @@ BEGIN
             END
             MENUITEM "Ataque del Canal &Lateral",   ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
         END
-        POPUP "&Hash"
+        POPUP "Ha&sh"
         BEGIN
             MENUITEM "&Ataque al Valor Hash de una Firma Digital", ID_SIGNATUR_ATTACK
         END
-        POPUP "&Análisis de Aleatoriedad"
+        POPUP "A&nálisis de Aleatoriedad"
         BEGIN
             MENUITEM "Test de &Frecuencias",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
             MENUITEM "Test de &Poker",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
@@ -49444,12 +49444,12 @@ BEGIN
         MENUITEM "&Texto...",                   ID_OPTTEXT
         MENUITEM "&Opciones de Inicio...",      ID_OPTIONS_STARTOPTIONS
     END
-    POPUP "&Ventana"
+    POPUP "Ven&tana"
     BEGIN
         MENUITEM "&Cascada",                    ID_WINDOW_CASCADE
         MENUITEM "&Mosaico",                    ID_WINDOW_TILE_HORZ
         MENUITEM "&Ordenar Iconos",             ID_WINDOW_ARRANGE
-        MENUITEM "&Cerrar Todo",                ID_WINDOW_CLOSE_ALL
+        MENUITEM "Cerrar &Todo",                ID_WINDOW_CLOSE_ALL
     END
     POPUP "Ay&uda"
     BEGIN
@@ -49511,11 +49511,11 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Gráfico de Barras",          ID_PLOTBAR
         MENUITEM SEPARATOR
-        MENUITEM "Al&fabeto",                   ID_VIEW_ALPHABET, GRAYED
+        MENUITEM "&Alfabeto",                   ID_VIEW_ALPHABET, GRAYED
         MENUITEM "&Fin de Línea",               ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "&Salto de Línea",             ID_VIEW_LINEWRAP, GRAYED
-        MENUITEM "&Espacio en Blanco",          ID_VIEW_WHITESPACE, GRAYED
-        POPUP "&Fuente"
+        MENUITEM "Es&pacio en Blanco",          ID_VIEW_WHITESPACE, GRAYED
+        POPUP "F&uente"
         BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
@@ -49528,7 +49528,7 @@ BEGIN
             MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
             MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
         END
-        MENUITEM "Formato de documento de texto", ID_FORMAT_TEXT_DOCUMENT
+        MENUITEM "Fo&rmato de documento de texto", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
         MENUITEM "&Mostrar cubo (dibujar bordes)", ID_POPUP_OPENGL_SHOW_BOX
     END
@@ -49610,8 +49610,8 @@ BEGIN
             MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5, GRAYED
             MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA, GRAYED
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1, GRAYED
-            MENUITEM "SHA-&256",                    ID_CRYPT_HASH_SHA256, GRAYED
-            MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512, GRAYED
+            MENUITEM "S&HA-256",                    ID_CRYPT_HASH_SHA256, GRAYED
+            MENUITEM "SH&A-512",                    ID_CRYPT_HASH_SHA512, GRAYED
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "&Valor Hash de un Archivo...", ID_HASH_OFAFILE
@@ -49625,7 +49625,7 @@ BEGIN
             MENUITEM "&Generar Números Primos...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
             MENUITEM "&Factorización de un Número...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             MENUITEM "Demonstración &RSA...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
-            MENUITEM "Demostración de &Firma (Generación de Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "&Demostración de Firma (Generación de Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
             POPUP "Ataques a RSA basad&os en Celosía"
             BEGIN
                 MENUITEM "&Factorizando con una pista...", ID_RSA_FACTORHINT
@@ -49637,7 +49637,7 @@ BEGIN
         BEGIN
             MENUITEM "Demostración &Diffie-Hellman...", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "&Autenticación en una Red...", ID_CHALLENGE_RESPONSE
-            MENUITEM "E-mail seguro con S/MIME",    ID_PROTOKOL_SMIME
+            MENUITEM "&E-mail seguro con S/MIME",    ID_PROTOKOL_SMIME
         END
         POPUP "&Aplicación del Teorema Chino de los Restos"
         BEGIN
@@ -49662,7 +49662,7 @@ BEGIN
         END
         MENUITEM "Demostración de &Secreto Compartido (Shamir)...", ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
         MENUITEM SEPARATOR
-        POPUP "&Herramientas"
+        POPUP "H&erramientas"
         BEGIN
             POPUP "Códig&os"
             BEGIN
@@ -49700,7 +49700,7 @@ BEGIN
             MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
         END
     END
-    POPUP "&Análisis"
+    POPUP "A&nálisis"
     BEGIN
         POPUP "&Herramientas para el Análisis"
         BEGIN
@@ -49771,11 +49771,11 @@ BEGIN
             END
             MENUITEM "Ataque del Canal &Lateral",   ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
         END
-        POPUP "&Hash"
+        POPUP "Ha&sh"
         BEGIN
             MENUITEM "&Ataque al Valor Hash de una Firma Digital", ID_SIGNATUR_ATTACK
         END
-        POPUP "&Análisis de Aleatoriedad"
+        POPUP "A&nálisis de Aleatoriedad"
         BEGIN
             MENUITEM "Test de &Frecuencias",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
             MENUITEM "Test de &Poker",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
@@ -49795,12 +49795,12 @@ BEGIN
         MENUITEM "&Texto...",                   ID_OPTTEXT
         MENUITEM "&Opciones de Inicio...",      ID_OPTIONS_STARTOPTIONS
     END
-    POPUP "&Ventana"
+    POPUP "Ven&tana"
     BEGIN
         MENUITEM "&Cascada",                    ID_WINDOW_CASCADE
         MENUITEM "&Mosaico",                    ID_WINDOW_TILE_HORZ
         MENUITEM "&Ordenar Iconos",             ID_WINDOW_ARRANGE
-        MENUITEM "&Cerrar Todo",                ID_WINDOW_CLOSE_ALL
+        MENUITEM "Cerrar &Todo",                ID_WINDOW_CLOSE_ALL
     END
     POPUP "Ay&uda"
     BEGIN
@@ -49862,11 +49862,11 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Gráfico de Barras",          ID_PLOTBAR
         MENUITEM SEPARATOR
-        MENUITEM "Al&fabeto",                   ID_VIEW_ALPHABET
+        MENUITEM "&Alfabeto",                   ID_VIEW_ALPHABET
         MENUITEM "&Fin de Línea",               ID_VIEW_ENDOFLINE
         MENUITEM "&Salto de Línea",             ID_VIEW_LINEWRAP
-        MENUITEM "&Espacio en Blanco",          ID_VIEW_WHITESPACE
-        POPUP "&Fuente"
+        MENUITEM "Es&pacio en Blanco",          ID_VIEW_WHITESPACE
+        POPUP "F&uente"
         BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
@@ -49879,7 +49879,7 @@ BEGIN
             MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
             MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
         END
-        MENUITEM "Formato de documento de texto", ID_FORMAT_TEXT_DOCUMENT
+        MENUITEM "Fo&rmato de documento de texto", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
         MENUITEM "&Mostrar cubo (dibujar bordes)", ID_POPUP_OPENGL_SHOW_BOX
     END
@@ -49961,8 +49961,8 @@ BEGIN
             MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5
             MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
-            MENUITEM "SHA-&256",                    ID_CRYPT_HASH_SHA256
-            MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512
+            MENUITEM "S&HA-256",                    ID_CRYPT_HASH_SHA256
+            MENUITEM "SH&A-512",                    ID_CRYPT_HASH_SHA512
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             MENUITEM SEPARATOR
             MENUITEM "&Valor Hash de un Archivo...", ID_HASH_OFAFILE
@@ -49976,7 +49976,7 @@ BEGIN
             MENUITEM "&Generar Números Primos...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
             MENUITEM "&Factorización de un Número...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             MENUITEM "Demonstración &RSA...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
-            MENUITEM "Demostración de &Firma (Generación de Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "&Demostración de Firma (Generación de Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
             POPUP "Ataques a RSA basad&os en Celosía"
             BEGIN
                 MENUITEM "&Factorizando con una pista...", ID_RSA_FACTORHINT
@@ -49988,7 +49988,7 @@ BEGIN
         BEGIN
             MENUITEM "Demostración &Diffie-Hellman...", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "&Autenticación en una Red...", ID_CHALLENGE_RESPONSE
-            MENUITEM "E-mail seguro con S/MIME",    ID_PROTOKOL_SMIME
+            MENUITEM "&E-mail seguro con S/MIME",   ID_PROTOKOL_SMIME
         END
         POPUP "&Aplicación del Teorema Chino de los Restos"
         BEGIN
@@ -50013,7 +50013,7 @@ BEGIN
         END
         MENUITEM "Demostración de &Secreto Compartido (Shamir)...", ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
         MENUITEM SEPARATOR
-        POPUP "&Herramientas"
+        POPUP "H&erramientas"
         BEGIN
             POPUP "Códig&os"
             BEGIN
@@ -50051,7 +50051,7 @@ BEGIN
             MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
         END
     END
-    POPUP "&Análisis"
+    POPUP "A&nálisis"
     BEGIN
         POPUP "&Herramientas para el Análisis"
         BEGIN
@@ -50122,11 +50122,11 @@ BEGIN
             END
             MENUITEM "Ataque del Canal &Lateral",   ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
         END
-        POPUP "&Hash"
+        POPUP "Ha&sh"
         BEGIN
             MENUITEM "&Ataque al Valor Hash de una Firma Digital", ID_SIGNATUR_ATTACK
         END
-        POPUP "&Análisis de Aleatoriedad"
+        POPUP "A&nálisis de Aleatoriedad"
         BEGIN
             MENUITEM "Test de &Frecuencias",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
             MENUITEM "Test de &Poker",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST
@@ -50146,12 +50146,12 @@ BEGIN
         MENUITEM "&Texto...",                   ID_OPTTEXT
         MENUITEM "&Opciones de Inicio...",      ID_OPTIONS_STARTOPTIONS
     END
-    POPUP "&Ventana"
+    POPUP "Ven&tana"
     BEGIN
         MENUITEM "&Cascada",                    ID_WINDOW_CASCADE
         MENUITEM "&Mosaico",                    ID_WINDOW_TILE_HORZ
         MENUITEM "&Ordenar Iconos",             ID_WINDOW_ARRANGE
-        MENUITEM "&Cerrar Todo",                ID_WINDOW_CLOSE_ALL
+        MENUITEM "Cerrar &Todo",                ID_WINDOW_CLOSE_ALL
     END
     POPUP "Ay&uda"
     BEGIN
@@ -50213,11 +50213,11 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Gráfico de Barras",          ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Al&fabeto",                   ID_VIEW_ALPHABET, GRAYED
+        MENUITEM "&Alfabeto",                   ID_VIEW_ALPHABET, GRAYED
         MENUITEM "&Fin de Línea",               ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "&Salto de Línea",             ID_VIEW_LINEWRAP, GRAYED
-        MENUITEM "&Espacio en Blanco",          ID_VIEW_WHITESPACE, GRAYED
-        POPUP "&Fuente"
+        MENUITEM "Es&pacio en Blanco",          ID_VIEW_WHITESPACE, GRAYED
+        POPUP "F&uente"
         BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
@@ -50230,7 +50230,7 @@ BEGIN
             MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
             MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
         END
-        MENUITEM "Formato de documento de texto", ID_FORMAT_TEXT_DOCUMENT
+        MENUITEM "Fo&rmato de documento de texto", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
         MENUITEM "&Mostrar cubo (dibujar bordes)", ID_POPUP_OPENGL_SHOW_BOX, GRAYED
     END
@@ -50312,8 +50312,8 @@ BEGIN
             MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5, GRAYED
             MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA, GRAYED
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1, GRAYED
-            MENUITEM "SHA-&256",                    ID_CRYPT_HASH_SHA256, GRAYED
-            MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512, GRAYED
+            MENUITEM "S&HA-256",                    ID_CRYPT_HASH_SHA256, GRAYED
+            MENUITEM "SH&A-512",                    ID_CRYPT_HASH_SHA512, GRAYED
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "&Valor Hash de un Archivo...", ID_HASH_OFAFILE
@@ -50327,7 +50327,7 @@ BEGIN
             MENUITEM "&Generar Números Primos...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
             MENUITEM "&Factorización de un Número...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             MENUITEM "Demonstración &RSA...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
-            MENUITEM "Demostración de &Firma (Generación de Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
+            MENUITEM "&Demostración de Firma (Generación de Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
             POPUP "Ataques a RSA basad&os en Celosía"
             BEGIN
                 MENUITEM "&Factorizando con una pista...", ID_RSA_FACTORHINT
@@ -50339,7 +50339,7 @@ BEGIN
         BEGIN
             MENUITEM "Demostración &Diffie-Hellman...", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "&Autenticación en una Red...", ID_CHALLENGE_RESPONSE
-            MENUITEM "E-mail seguro con S/MIME",    ID_PROTOKOL_SMIME
+            MENUITEM "&E-mail seguro con S/MIME",    ID_PROTOKOL_SMIME
         END
         POPUP "&Aplicación del Teorema Chino de los Restos"
         BEGIN
@@ -50364,7 +50364,7 @@ BEGIN
         END
         MENUITEM "Demostración de &Secreto Compartido (Shamir)...", ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
         MENUITEM SEPARATOR
-        POPUP "&Herramientas"
+        POPUP "H&erramientas"
         BEGIN
             POPUP "Códig&os"
             BEGIN
@@ -50402,7 +50402,7 @@ BEGIN
             MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
         END
     END
-    POPUP "&Análisis"
+    POPUP "A&nálisis"
     BEGIN
         POPUP "&Herramientas para el Análisis"
         BEGIN
@@ -50473,11 +50473,11 @@ BEGIN
             END
             MENUITEM "Ataque del Canal &Lateral",   ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
         END
-        POPUP "&Hash"
+        POPUP "Ha&sh"
         BEGIN
             MENUITEM "&Ataque al Valor Hash de una Firma Digital", ID_SIGNATUR_ATTACK
         END
-        POPUP "&Análisis de Aleatoriedad"
+        POPUP "A&nálisis de Aleatoriedad"
         BEGIN
             MENUITEM "Test de &Frecuencias",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
             MENUITEM "Test de &Poker",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
@@ -50497,12 +50497,12 @@ BEGIN
         MENUITEM "&Texto...",                   ID_OPTTEXT
         MENUITEM "&Opciones de Inicio...",      ID_OPTIONS_STARTOPTIONS
     END
-    POPUP "&Ventana"
+    POPUP "Ven&tana"
     BEGIN
         MENUITEM "&Cascada",                    ID_WINDOW_CASCADE
         MENUITEM "&Mosaico",                    ID_WINDOW_TILE_HORZ, GRAYED
         MENUITEM "&Ordenar Iconos",             ID_WINDOW_ARRANGE, GRAYED
-        MENUITEM "&Cerrar Todo",                ID_WINDOW_CLOSE_ALL, GRAYED
+        MENUITEM "Cerrar &Todo",                ID_WINDOW_CLOSE_ALL, GRAYED
     END
     POPUP "Ay&uda"
     BEGIN
@@ -55298,7 +55298,7 @@ BEGIN
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
                             "Versión inicial: Universidad de Madrid, España (http://www.csic.es);\r\nDr. Gonzalo Álvarez Marañón y sus estudiantes."
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
-                            "\r\nNuevas actualizaciones: Raphael Labaca-Castro"
+                            "\r\nNuevas actualizaciones: Raphael Labaca Castro"
 END
 
 STRINGTABLE 
