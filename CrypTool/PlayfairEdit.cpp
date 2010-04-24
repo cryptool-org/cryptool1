@@ -93,29 +93,14 @@ void CPlayfairEdit::OnEditPaste()
 		CString P = _T("");
 		for ( int i=0; i<dataLen; i++ )
 		{
-			if ( m_TextWasPreformatted )
-			{ // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
-				if(!m_Alg->myisalpha2(p[i]))  
-					p[i] = m_Alg->getAlphabet()->replaceInvalidLetter(true, MyToUpper(p[i]));
-				if ( p[i] >= 32 && m_Alg->myisalpha2(p[i]) )
-				{
-					/*********** ToDo TrennZeichen + Zeichenweise Upcase: ********/
-					if ( P.GetLength() > 0 && P[P.GetLength()-1] == p[i] )
-						P += 'X';
-					P += p[i];
-				}
-			}
-			else
+			if ( p[i] >= 32 && m_Alg->myisalpha2(p[i]) )
 			{
-				if ( p[i] >= 32 && m_Alg->myisalpha2(p[i]) )
-				{
-					P += p[i];
-				}	
-				else  // Alles andere als ' ' kodieren
-				{
-					P += '*';
-				}
-			}
+				P += p[i];
+			}	
+			else  // Alles andere als ' ' kodieren
+			{
+				P += '*';
+			}	
 		}
 		// *** Check the Pasted String if it is a stream of numbers
 		int startc, endc;

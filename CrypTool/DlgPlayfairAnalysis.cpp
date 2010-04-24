@@ -67,7 +67,6 @@ CDlgPlayfairAnalysis::CDlgPlayfairAnalysis(const char *infile,const char *outfil
 	m_Dec                 = 1;
 	m_sechs               = 0;
 	m_iScroll             = 0;
-	m_TextWasPreformatted = 1;
 	m_ActualiseExpectedPlaintext = 1;
 	m_txtfeld.SetAlg(m_Alg);
 	//}}AFX_DATA_INIT
@@ -203,7 +202,6 @@ void CDlgPlayfairAnalysis::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_LIST, m_cipher);
 	DDV_MaxChars(pDX, m_cipher, MAXSHOWLETTER*10);
 	DDX_Check(pDX, IDC_CHECK1, m_use);
-	DDX_Check(pDX, IDC_CHECK2, m_TextWasPreformatted);
 	// DDX_Text(pDX, IDC_MYTXT, m_mytxt);
 	DDX_Control(pDX, IDC_SCROLLBAR1, m_ctrlScroll);
 	DDX_Scroll(pDX, IDC_SCROLLBAR1, m_iScroll);
@@ -220,7 +218,6 @@ void CDlgPlayfairAnalysis::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CDlgPlayfairAnalysis, CDialog)
 	//{{AFX_MSG_MAP(CDlgPlayfairAnalysis)
 	ON_BN_CLICKED(IDC_CHECK1, OnCheck)
-	ON_BN_CLICKED(IDC_CHECK2, OnCheckTextWasPreformatted)
 	ON_BN_CLICKED(IDC_RAD5, OnSechs)
 	ON_BN_CLICKED(IDC_RAD6, OnSechs)
 	ON_BN_CLICKED(IDC_BUTTON5, OnAnalyse)
@@ -260,36 +257,7 @@ void CDlgPlayfairAnalysis::OnManAnalyse()
 	while ((i<maxchars)&&(j<m_plaintext.GetLength())) 
 	{
 		char nChar = m_plaintext[j];
-		if ( m_TextWasPreformatted )
-		{
-			if (NULLELEMENT != nChar && !m_Alg->myisalpha2(nChar))  
-				nChar = m_Alg->getAlphabet()->replaceInvalidLetter(true, MyToUpper(nChar));
-			if ((NULLELEMENT==nChar) || (m_Alg->myisalpha2(nChar))) 
-			{
-				if ( i > 0 && NULLELEMENT != nChar && buf[i-1] == nChar )
-				{
-					Message(IDS_STRING_PLAYFAIR_ERRMSG121, MB_ICONEXCLAMATION);
-					m_txtfeld.SetSel(i,i);
-					return;
-				}
-				buf[i] = nChar; i++;
-			}
-			else 
-			{
-				if ((nChar=='j')||(nChar=='J')||(('0'<=nChar)&&(nChar<='9'))) 
-				{
-					Message(IDS_STRING_PLAYFAIR_WARNMSG003, MB_ICONEXCLAMATION);
-				}
-				else
-				{
-					Message(IDS_STRING_PLAYFAIR_ERRMSG122, MB_ICONEXCLAMATION);
-				}
-				m_txtfeld.SetSel(i, i+1);
-				return;
-			}
-		} 
-		else
-		{
+		
 			if (m_Alg->myisalpha2(nChar)) buf[i] = nChar;
 			else  
 			{
@@ -300,7 +268,7 @@ void CDlgPlayfairAnalysis::OnManAnalyse()
 				buf[i] = NULLELEMENT;
 			}
 			i++;
-		}
+
 		j++;
 	}
 
@@ -459,14 +427,6 @@ void CDlgPlayfairAnalysis::OnCheck()
 	m_Alg->SetPass("");
 }
 
-
-void CDlgPlayfairAnalysis::OnCheckTextWasPreformatted()
-{
-	UpdateData();
-	m_txtfeld.m_TextWasPreformatted = m_TextWasPreformatted;
-	UpdateData(FALSE);
-}
-
 /////////////////////////////////////////////////////////////////////////////
 //
 // 
@@ -558,7 +518,6 @@ void CDlgPlayfairAnalysis::InitListBox()
 			{
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_PLAYFAIR_WARNMSG002,pc_str,STR_LAENGE_STRING_TABLE);
 				UpdateData();
-				m_txtfeld.m_TextWasPreformatted = m_TextWasPreformatted = 0;
 				UpdateData(FALSE);
 			}
 			sprintf(s,pc_str);
@@ -599,7 +558,6 @@ BOOL CDlgPlayfairAnalysis::OnInitDialog()
 	m_listview.InsertColumn( 6, "Metrik", LVCFMT_LEFT, colWidth , 3); // 
 
 	m_bHScroll = FALSE;
-	m_txtfeld.m_TextWasPreformatted = m_TextWasPreformatted;
 	m_iPos = 0;
 
 	InitListBox();

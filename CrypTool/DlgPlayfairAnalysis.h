@@ -81,7 +81,7 @@ public:
 	void SetAlg(class CPlayfairAnalysis *alg) { m_Alg=alg; }
 // Attribute
 public:
-	int				m_TextWasPreformatted;
+	
 // Operationen
 public:
 
@@ -156,7 +156,6 @@ public:
 	CEdit               m_pwfeld;
 	CListCtrl           m_listview;
 	int					m_use;
-	int					m_TextWasPreformatted;
 	int                 m_ActualiseExpectedPlaintext;
 	//}}AFX_DATA
 
@@ -184,7 +183,6 @@ protected:
 	afx_msg void OnManAnalyse();
 	afx_msg void OnHScroll(UINT nSBCode, UINT nPos, CScrollBar *pScrollBar);
 	afx_msg void OnChangeEditPlaintext();
-	afx_msg void OnCheckTextWasPreformatted();
 	afx_msg void OnSynchronise();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
