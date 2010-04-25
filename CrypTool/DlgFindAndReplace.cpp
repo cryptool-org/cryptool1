@@ -152,14 +152,10 @@ void CDlgFindAndReplace::DoFindReplace(bool replace, bool all)
 	}
 	else if (pWndView->IsKindOf(RUNTIME_CLASS(CHexEditCtrlView)))
 	{
-		// prevent activation of search of regular expressions in hex edit
-		CString msg;
-		if(checkRegularExpressions)
-		{
-			msg.Format(IDS_FINDANDREPLACE_NOREGULAREXPRESSIONS_IN_HEX);
-			MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
-			return;
-		}
+		// flomar, 04/25/2010
+		// originally, we were preventing the execution of regular expressions here, 
+		// because that's not supported for hex; however, we're preventing regular 
+		// expressions now via the user interface (regex cannot be activated for hex)
 		DoFindReplaceHexEdit(pWndView->GetTopWindow(), replace, all);
 	} 
 }
@@ -476,8 +472,10 @@ BOOL CDlgFindAndReplace::OnInitDialog()
 	radioButtonControlText.SetCheck(1);
 	updateMode();
 	UpdateData(false);
+
 	return TRUE;
 }
+
 BOOL CDlgFindAndReplace::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 {
 	//CDialog::OnNotify(wParam, lParam, pResult);
@@ -533,6 +531,15 @@ void CDlgFindAndReplace::show()
 		Create(IDD_FIND_AND_REPLACE);
 		created = true;
 	}
+
+	// set focus to either the hex or the text input field
+	if(radioButtonControlText.GetCheck()) {
+		FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETFOCUS, true);
+	}
+	else {
+		hexEditControlFind.SetFocus();
+	}
+
 	ShowWindow(SW_SHOW);
 }
 void CDlgFindAndReplace::OnCancel() 
@@ -564,6 +571,8 @@ void CDlgFindAndReplace::updateMode()
 		GetDlgItem(IDC_EDIT_FIND_HEX)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_EDIT_REPLACE_HEX)->EnableWindow(false);
 		GetDlgItem(IDC_EDIT_REPLACE_HEX)->ShowWindow(SW_HIDE);
+		// enable regular expressions check box
+		GetDlgItem(IDC_CHECK_REGULAR_EXPRESSIONS)->EnableWindow(true);
 		// ****************************************************
 		// synchronize the input fields (copy from hex -> text)
 		CString temp;
@@ -604,6 +613,9 @@ void CDlgFindAndReplace::updateMode()
 		FromHandle(handleScintillaWindowFind)->ShowWindow(SW_HIDE);
 		FromHandle(handleScintillaWindowReplace)->EnableWindow(false);
 		FromHandle(handleScintillaWindowReplace)->ShowWindow(SW_HIDE);
+		// disable regular expressions check box and (important!) uncheck it
+		GetDlgItem(IDC_CHECK_REGULAR_EXPRESSIONS)->EnableWindow(false);
+		checkRegularExpressions = false;
 		// ****************************************************
 		// synchronize the input fields (copy from text -> hex)
 		CString temp;
@@ -656,5 +668,14 @@ void CDlgFindAndReplace::updateMode()
 		delete hex;
 		delete ascii;
 	}
+
+	// set focus to either the hex or the text input field
+	if(radioButtonControlText.GetCheck()) {
+		FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETFOCUS, true);
+	}
+	else {
+		hexEditControlFind.SetFocus();
+	}
+
 	UpdateData(false);
 }
