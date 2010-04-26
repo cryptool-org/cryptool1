@@ -8426,7 +8426,8 @@ BEGIN
     IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "T³umaczenie na jêzyk serbski"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SERBIAN 
                             "Wstêpne t³umaczenie: Wy¿sza szko³a elektrotechniki, Belgrad, Serbia (http://www.viser.edu.rs),\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski wraz ze studentami"
-    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN "Dalsze aktualizacje: -"
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN 
+                            "Dalsze aktualizacje: Bojan Dimitrovski"
     IDS_STRING_TRANSLATIONS_HEADING_SPANISH "T³umaczenie na jêzyk hiszpañski"
 END
 
@@ -19497,7 +19498,8 @@ BEGIN
     IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "i18n Serbian translation"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SERBIAN 
                             "i18n Initial translation: Advanced School of Electrical Engineering, Belgrade, Serbia (http://www.viser.edu.rs),\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
-    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN "i18n Further updates: -"
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN 
+                            "i18n Further updates: Bojan Dimitrovski"
     IDS_STRING_TRANSLATIONS_HEADING_SPANISH "i18n Spanish translation"
 END
 
@@ -30433,7 +30435,8 @@ BEGIN
     IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "Serbische Übersetzung"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SERBIAN 
                             "Erstübersetzung: Advanced School of Electrical Engineering, Belgrad, Serbien (http://www.viser.edu.rs),\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski und seine Kommilitonen"
-    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN "Weitere Updates: -"
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN 
+                            "Weitere Updates: Bojan Dimitrovski"
     IDS_STRING_TRANSLATIONS_HEADING_SPANISH "Spanische Übersetzung"
 END
 
@@ -41553,7 +41556,8 @@ BEGIN
     IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "Serbian translation"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SERBIAN 
                             "Initial translation: Advanced School of Electrical Engineering, Belgrade, Serbia (http://www.viser.edu.rs),\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
-    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN "Further updates: -"
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN 
+                            "Further updates: Bojan Dimitrovski"
     IDS_STRING_TRANSLATIONS_HEADING_SPANISH "Spanish translation"
 END
 
@@ -52597,7 +52601,7 @@ BEGIN
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SERBIAN 
                             "Versión inicial: Advanced School of Electrical Engineering, Belgrado, Serbia (http://www.viser.edu.rs);\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski y sus estudiantes."
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN 
-                            "\r\nNuevas actualizaciones: -"
+                            "\r\nNuevas actualizaciones: Bojan Dimitrovski"
     IDS_STRING_TRANSLATIONS_HEADING_SPANISH "Versión en español:"
 END
 
