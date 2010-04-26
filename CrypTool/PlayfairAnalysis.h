@@ -439,6 +439,7 @@ int compdigram(struct digram *,struct digram *);
 struct PlayfairOptions {
 	bool decryption;
 	CString fileNameCleartext;
+	CString fileNamePreformattedText;
 	CString fileNameCiphertext;
 	bool separateDoubleCharacters;
 	CString separator1;

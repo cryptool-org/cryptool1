@@ -1419,12 +1419,21 @@ void CPlayfairAnalysis::ApplyPlayfair(const PlayfairOptions playfairOptions)
 	memset(inbuf, 0, inbuflen + 1);
 	memcpy(inbuf, ciphertext, inbuflen);
 
+	// flomar, 04/26/2010
+	// write "inbuf" (atm: the preformatted text) to "fileNamePreformattedText" 
+	// if "fileNamePreformattedText" is set; otherwise, skip this section
+	if(playfairOptions.fileNamePreformattedText.GetLength() > 0) {
+		outfp = fopen((LPCTSTR)playfairOptions.fileNamePreformattedText, "wb");
+		fwrite(inbuf, 1, inbuflen, outfp);
+		fclose(outfp);
+	}
+
 	// execute the actual cipher (it works on "inbuf")
 	DoCipher(true, playfairOptions.decryption, inbuflen);
 
 	// write "outbuf" to file "fileNameCiphertext"
-	outfp=fopen((LPCTSTR)playfairOptions.fileNameCiphertext, "wb");
-	fwrite(outbuf,1,outbuflen,outfp);
+	outfp = fopen((LPCTSTR)playfairOptions.fileNameCiphertext, "wb");
+	fwrite(outbuf, 1, outbuflen, outfp);
 	fclose(outfp);
 }
 

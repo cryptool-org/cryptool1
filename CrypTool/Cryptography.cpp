@@ -428,7 +428,7 @@ void VernamBin(const char *infile, const char *OldTitle)
 
 void PlayfairBin(const char *infile, const char *OldTitle)
 {
- 	char fileNameCleartext[128], fileNameCiphertext[128], title[128];
+ 	char fileNameCleartext[128], fileNamePreformattedText[128], fileNameCiphertext[128], title[128];
 	
 	CAppDocument *NewDoc;
 
@@ -485,10 +485,12 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 	// flomar, 04/16/2010
 	// retrieve Playfair options
 	PlayfairOptions playfairOptions = KeyDialog.getPlayfairOptions();
-	// set file names for cleartext and ciphertext text
-	GetTmpName(fileNameCleartext,"cry",".txt");
-	GetTmpName(fileNameCiphertext,"cry",".txt");
+	// set file names for cleartext, preformatted text and ciphertext
+	GetTmpName(fileNameCleartext, "cry", ".txt");
+	GetTmpName(fileNamePreformattedText, "cry", ".txt");
+	GetTmpName(fileNameCiphertext, "cry", ".txt");
 	playfairOptions.fileNameCleartext = fileNameCleartext;
+	playfairOptions.fileNamePreformattedText = fileNamePreformattedText;
 	playfairOptions.fileNameCiphertext = fileNameCiphertext;
 
 	// complete key as string (KEY, SEPARATOR1, SEPARATOR2)
@@ -502,8 +504,14 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 
 	// apply Playfair with the desired options
 	KeyDialog.m_Alg->ApplyPlayfair(playfairOptions);
-	// show the new document
+
+	// show the preformatted text
+	CAppDocument *preformattedTextDocument = theApp.OpenDocumentFileNoMRU(playfairOptions.fileNamePreformattedText);
+	CString preformattedTextDocumentTitle; preformattedTextDocumentTitle.Format(IDS_STRING_PLAYFAIR_PREFORMAT, OldTitle);
+	preformattedTextDocument->SetTitle(preformattedTextDocumentTitle);
+	// show the ciphertext
 	OpenNewDoc(fileNameCiphertext, stringCompleteKey, OldTitle, IDS_PLAYFAIR, playfairOptions.decryption);
+	
 	HIDE_HOUR_GLASS
 }
 
