@@ -28,6 +28,7 @@
 #include "ScintillaView.h"
 #include "HexEditCtrlView.h"
 #include ".\dlgfindandreplace.h"
+
 // this function returns true if the input string (which is the output string also) 
 // could be converted from hex to ascii; in case the hex string contains a zero byte (00),
 // the string is cut off at that place and the function returns false
@@ -227,15 +228,18 @@ void CDlgFindAndReplace::DoFindReplaceScintilla(CWnd *pWnd, bool replace, bool a
 	pWindow->SetSearchflags(searchflags);
 	char *ttf = findString;
 	char *ttr = replaceString;
+
+	// store current cursor position (and selection) for future use
+	long pStart = pWindow->GetSelectionStart();
+	long pEnd   = pWindow->GetSelectionEnd();
+
 	// *** REPLACE (SINGLE REPLACE) ***
 	if (replace && !all)
 	{
-		long pStart = pWindow->GetSelectionStart();
-		long pEnd   = pWindow->GetSelectionEnd();
 		// forward search (and single replace)
 		if(!checkFindBackwards)
 		{
-            if ( pStart == pEnd && !pWindow->SearchForward(ttf) )
+			if ( pStart == pEnd && !pWindow->SearchForward(ttf) )
 			{
 				msg.Format(IDS_FINDANDREPLACE_TEXTNOTFOUND);
 				MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
@@ -291,19 +295,29 @@ void CDlgFindAndReplace::DoFindReplaceScintilla(CWnd *pWnd, bool replace, bool a
 		// forward search
 		if(!checkFindBackwards)
 		{
-            if(!pWindow->SearchForward(ttf)) { // FIXME: truncates at \0
-				msg.Format(IDS_FINDANDREPLACE_TEXTNOTFOUND);
-				MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
-				return;
+			if(!pWindow->SearchForward(ttf)) { // FIXME: truncates at \0
+				// flomar, 04/26/2010
+				// we should try searching from the beginning of the document (wrap-around search)
+				pWindow->SendMessage(SCI_SETSEL, 0, 0);
+				if(!pWindow->SearchForward(ttf)) {
+					msg.Format(IDS_FINDANDREPLACE_TEXTNOTFOUND);
+					MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
+					return;
+				}
 			}
 		}
 		// backward search
 		else
 		{
 			if(!pWindow->SearchBackward(ttf)) {
-				msg.Format(IDS_FINDANDREPLACE_TEXTNOTFOUND);
-				MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
-				return;
+				// flomar, 04/26/2010
+				// we should try searching from the end of the document (wrap-around search)
+				pWindow->SendMessage(SCI_SETSEL, -1, -1);
+				if(!pWindow->SearchBackward(ttf)) {
+					msg.Format(IDS_FINDANDREPLACE_TEXTNOTFOUND);
+					MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
+					return;
+				}
 			}
 		}
 	}
@@ -533,7 +547,7 @@ void CDlgFindAndReplace::show()
 
 	// set focus to either the hex or the text input field
 	if(radioButtonControlText.GetCheck()) {
-		FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETFOCUS, true);
+		::SetFocus(handleScintillaWindowFind);
 	}
 	else {
 		hexEditControlFind.SetFocus();
@@ -672,7 +686,7 @@ void CDlgFindAndReplace::updateMode()
 
 	// set focus to either the hex or the text input field
 	if(radioButtonControlText.GetCheck()) {
-		FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETFOCUS, true);
+		::SetFocus(handleScintillaWindowFind);
 	}
 	else {
 		hexEditControlFind.SetFocus();
