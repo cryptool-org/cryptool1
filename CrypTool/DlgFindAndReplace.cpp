@@ -416,7 +416,7 @@ BOOL CDlgFindAndReplace::OnInitDialog()
     handleScintillaWindowReplace = CreateWindowEx(WS_EX_CLIENTEDGE, "Scintilla", "", WS_CHILD | WS_VISIBLE | WS_TABSTOP | WS_CLIPCHILDREN, 71, 89, 300, 20, *this, NULL, NULL, NULL);
 	// initializations (partly taken from CScintillaWnd::Init, May 19th, 2008)
 	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETREADONLY, (WPARAM)FALSE);
-	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETREADONLY, (WPARAM)FALSE);
+	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETHSCROLLBAR, (WPARAM)FALSE);
 	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETMODEVENTMASK, (WPARAM)SC_MOD_INSERTTEXT|SC_MOD_DELETETEXT);
 	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETMODEVENTMASK, (WPARAM)SC_MOD_INSERTTEXT|SC_MOD_DELETETEXT);
 	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETEOLMODE, 0, 0);
@@ -442,7 +442,7 @@ BOOL CDlgFindAndReplace::OnInitDialog()
     FromHandle(handleScintillaWindowFind)->SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDEROPENMID, SC_MARK_EMPTY);
     FromHandle(handleScintillaWindowFind)->SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDERMIDTAIL, SC_MARK_EMPTY);
 	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_SETREADONLY, (WPARAM)FALSE);
-	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_SETREADONLY, (WPARAM)FALSE);
+	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_SETHSCROLLBAR, (WPARAM)FALSE);
 	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_SETMODEVENTMASK, (WPARAM)SC_MOD_INSERTTEXT|SC_MOD_DELETETEXT);
 	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_SETMODEVENTMASK, (WPARAM)SC_MOD_INSERTTEXT|SC_MOD_DELETETEXT);
 	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_SETEOLMODE, 0, 0);
@@ -467,7 +467,6 @@ BOOL CDlgFindAndReplace::OnInitDialog()
 	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDEREND, SC_MARK_EMPTY);
     FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDEROPENMID, SC_MARK_EMPTY);
     FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDERMIDTAIL, SC_MARK_EMPTY);
-        
 	// we're in text mode (not hex) by default
 	radioButtonControlText.SetCheck(1);
 	updateMode();
@@ -600,6 +599,7 @@ void CDlgFindAndReplace::updateMode()
 		FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_ADDTEXT, (WPARAM)asciiLength, (LPARAM)ascii);
 		// clean up memory
 		delete ascii;
+		::SetFocus(handleScintillaWindowFind);  
 	}
 	// we're in hex mode...
 	if(radioButtonControlHex.GetCheck()) {
@@ -667,6 +667,7 @@ void CDlgFindAndReplace::updateMode()
 		// clean up memory
 		delete hex;
 		delete ascii;
+		GetDlgItem(IDC_EDIT_FIND_HEX)->SetFocus();  
 	}
 
 	// set focus to either the hex or the text input field
