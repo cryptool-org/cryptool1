@@ -442,7 +442,7 @@ BEGIN
     IDS_REG_TRUE            "prawda"
     IDS_SHARK_AGAINST       "przeciwko"
     IDS_GAME_DATA           "GameData.txt"
-    IDS_HELP_FILE           "NumberShark-pl.chm::/NumberShark.html"
+    IDS_HELP_FILE           "NumberShark-en.chm::/NumberShark.html"
     IDS_TITLE_VERSION       "[i18n] - Wersja 1.0"
 END
 

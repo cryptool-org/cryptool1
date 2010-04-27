@@ -1,10 +1,12 @@
 @echo off
 set lang=%1
+set langsubstr=%1
 set nsi=CrypTool-Setup.nsi
 if x%1==xde goto langok
 if x%1==xen goto langok
 if x%1==xpl goto langok
 if x%1==xes goto langok
+if x%1==xrs goto langok
 echo Error: invalid or no argument
 echo Usage: %0 [de, en, pl, es] 
 goto end
@@ -19,8 +21,11 @@ echo Error: must be called in a %nsi% and setup-%lang%
 goto end
 
 :ok
+if x%1==xes set langsubstr=en
+if x%1==xpl set langsubstr=en
+if x%1==xrs set langsubstr=en
 
-makensis /DLANGUAGE_STR=%lang% %nsi%
+makensis /DLANGUAGE_STR=%lang% /DLANGUAGE_SUBST_STR=%langsubstr% %nsi%
 if not errorlevel 1 echo Created SetupCrypTool_%lang%.exe ...
 
 :end

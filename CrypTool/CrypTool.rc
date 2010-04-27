@@ -8,7 +8,8 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -9642,7 +9643,7 @@ BEGIN
                             "Twoje wejœcie nie jest sekwencj¹ liczb z podstaw¹ %i.\nPopraw wejœcie lub zaszyfruj wejœcie jako tekst."
     IDS_STRING_WARN_BEFOR_SKIPWS 
                             "Ci¹g wejœciowy zawiera znaki, których nie ma w aktualny alfabecie.\nJeœli klikniesz 'OK', tylko znaki z alfabetu zostan¹ zaszyfrowane (inne znaki zostan¹ usuniête z ci¹gu wejœciwego)."
-    IDS_STRING_HELPNAME     "CrypTool-pl.chm"
+    IDS_STRING_HELPNAME     "CrypTool-en.chm"
     IDS_STRING_PLAYFAIR_ERRMSG121 
                             "W razie pre-formatowania, podwójne litery s¹ separowane liter¹ 'X'.\nProszê poprawiæ."
     IDS_STRING_PLAYFAIR_ERRMSG122 

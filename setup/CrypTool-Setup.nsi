@@ -36,13 +36,13 @@
 ;Pages
 
   !insertmacro MUI_PAGE_WELCOME
-  !insertmacro MUI_PAGE_LICENSE "setup-${LANGUAGE_STR}\license-${LANGUAGE_STR}.rtf"
+  !insertmacro MUI_PAGE_LICENSE "setup-${LANGUAGE_STR}\license-${LANGUAGE_SUBST_STR}.rtf"
   !define MUI_PAGE_CUSTOMFUNCTION_LEAVE mui.DirectoryLeave
   !insertmacro MUI_PAGE_DIRECTORY
   !define MUI_FINISHPAGE_NOAUTOCLOSE
   !insertmacro MUI_PAGE_INSTFILES
   !define MUI_FINISHPAGE_RUN CrypTool.exe
-  !define MUI_FINISHPAGE_SHOWREADME ReadMe-${LANGUAGE_STR}.txt
+  !define MUI_FINISHPAGE_SHOWREADME ReadMe-${LANGUAGE_SUBST_STR}.txt
   !insertmacro MUI_PAGE_FINISH
 
   !insertmacro MUI_UNPAGE_WELCOME
@@ -130,19 +130,19 @@
    !define SCN_CRYPTOOL		"CrypTool"
    !define SCL_CRYPTOOL		"CrypTool.exe"
    !define SCN_CRYPTOOL_HELP    "CrypTool Help"
-   !define SCL_CRYPTOOL_HELP	"CrypTool-${LANGUAGE_STR}.chm"
+   !define SCL_CRYPTOOL_HELP	"CrypTool-${LANGUAGE_SUBST_STR}.chm"
    !define SCN_NUMBERSHARK	"NumberShark"
    !define SCL_NUMBERSHARK	"NumberShark.exe"
    !define SCN_NUMBERSHARK_HELP "NumberShark Help"
-   !define SCL_NUMBERSHARK_HELP "Numbershark_${LANGUAGE_STR}.chm"
+   !define SCL_NUMBERSHARK_HELP "Numbershark_${LANGUAGE_SUBST_STR}.chm"
    !define SCN_AES_TOOL		"AES-Tool"
    !define SCL_AES_TOOL		"aestool.exe"
    !define SCN_SCRIPT		"Script"
-   !define SCL_SCRIPT		"script-en.pdf"
+   !define SCL_SCRIPT		"script-${LANGUAGE_SUBST_STR}.pdf"
    !define SCN_PRESENTATION	"Presentation"
-   !define SCL_PRESENTATION	"CrypToolPresentation-en.pdf"
+   !define SCL_PRESENTATION	"CrypToolPresentation-${LANGUAGE_SUBST_STR}.pdf"
    !define SCN_README		"ReadMe"
-   !define SCL_README 		"ReadMe-en.txt"
+   !define SCL_README 		"ReadMe-${LANGUAGE_SUBST_STR}.txt"
    !define SCN_UNINSTALL	"Usunac"
    !define SCL_UNINSTALL	"Uninstall.exe"
    !define URL		"http://www.cryptool.pl/"
@@ -156,19 +156,19 @@
    !define SCN_CRYPTOOL		"CrypTool"
    !define SCL_CRYPTOOL		"CrypTool.exe"
    !define SCN_CRYPTOOL_HELP    "Ayuda de CrypTool"
-   !define SCL_CRYPTOOL_HELP	"CrypTool-${LANGUAGE_STR}.chm"
+   !define SCL_CRYPTOOL_HELP	"CrypTool-${LANGUAGE_SUBST_STR}.chm"
    !define SCN_NUMBERSHARK	"NumberShark"
    !define SCL_NUMBERSHARK	"NumberShark.exe"
    !define SCN_NUMBERSHARK_HELP "Ayuda de Number Shark"
-   !define SCL_NUMBERSHARK_HELP "NumberShark-${LANGUAGE_STR}.chm"
+   !define SCL_NUMBERSHARK_HELP "NumberShark-${LANGUAGE_SUBST_STR}.chm"
    !define SCN_AES_TOOL		"AES-Tool"
    !define SCL_AES_TOOL		"aestool.exe"
    !define SCN_SCRIPT		"Script"
-   !define SCL_SCRIPT		"script-en.pdf"
+   !define SCL_SCRIPT		"script-${LANGUAGE_SUBST_STR}.pdf"
    !define SCN_PRESENTATION	"Presentación"
-   !define SCL_PRESENTATION	"CrypToolPresentation-en.pdf"
+   !define SCL_PRESENTATION	"CrypToolPresentation-${LANGUAGE_SUBST_STR}.pdf"
    !define SCN_README		"Leeme"
-   !define SCL_README 		"ReadMe-en.txt"
+   !define SCL_README 		"ReadMe-${LANGUAGE_SUBST_STR}.txt"
    !define SCN_UNINSTALL	"Desinstalar"
    !define SCL_UNINSTALL	"Uninstall.exe"
    !define URL		"http://www.cryptool.es/"

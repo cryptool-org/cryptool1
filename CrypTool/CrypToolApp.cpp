@@ -1122,23 +1122,24 @@ void CCrypToolApp::WinHelpInternal( DWORD_PTR dwData, UINT nCmd)
 		deque<menuitem>::iterator it;
 		// calculate a unique id for current menu item (alinkid) from stack
 		for (it = m_menuItemStack.begin(); it != m_menuItemStack.end(); it++) {
-			TCHAR mi[sizeof alinkid] = "";
-			GetMenuString((*it).hmenu,(*it).index,mi,sizeof(mi)-1,MF_BYPOSITION);
+			WCHAR mi[sizeof alinkid] = L"";
+			TCHAR mo[sizeof alinkid];
+			GetMenuStringW((*it).hmenu,(*it).index,mi,sizeof(mi)-1,MF_BYPOSITION);
 			mi[sizeof mi - 1] = '\0';
 			int i = 0, j = 0;
-			TCHAR c;
+			WCHAR c;
 			// remove from mi
 			// - everything except alphanumerics
 			// - \t and everything following
 			while ((c = mi[j++]) && c != '\t')  //isalnum liefert auch true beim Umlaute
 				if ((c >= '0' && c <= '9') || (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-					mi[i++] = c;
+					mo[i++] = c;
 				//else don't copy c, don't increment i
-			mi[i] = '\0';
+			mo[i] = '\0';
 			int len = strlen(alinkid);
 			if (len > 0 && len < sizeof(alinkid))
 				alinkid[len++] = '_';
-			strncpy(alinkid+len,mi,sizeof(alinkid)-len);
+			strncpy(alinkid+len,mo,sizeof(alinkid)-len);
 			alinkid[sizeof(alinkid) - 1] = '\0';
 		}
 		// perpare help macro string
