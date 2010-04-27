@@ -18,27 +18,37 @@
 
 <h3>Dialog Schlüsseleingabe: Playfair</h3>
 
-<p>Sie erreichen diesen Dialog über den Menüeintrag <a href="menu_crypt.html">Ver-/Entschlüsseln</a> \ <a href="menu_crypt_symmetricclassic.html">Symmetrisch(klassisch)</a> \ <a href="HID_PLAYFAIR_BIN.html">Playfair</a>.</p>
+<p>Sie erreichen diesen Dialog über den Menüeintrag <a href="menu_crypt.html">Ver-/Entschlüsseln</a> \ 
+<a href="menu_crypt_symmetricclassic.html">Symmetrisch(klassisch)</a> \ 
+<a href="HID_PLAYFAIR_BIN.html">Playfair</a>.</p>
 
-<P>Mit den Radiobuttons <B>5x5 Matrix</B> und <B>6x6 Matrix</B> können Sie auswählen, ob der Playfair-Algorithmus mit einer 5x5 oder 6x6 Matrix arbeiten soll. Siehe dazu die Erklärung zum <A href="hid_playfair_bin.html">Playfair-Verschlüsselungsverfahren</A>.</P>
+<P><IMG SRC="images/playfairkeydialog.png" ALT="playfairkeydialog.png" BORDER="0"></P>
 
-<P>Falls Sie das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> mit dem eingegebenen <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsseln</A> wollen, klicken Sie den Knopf <B>Verschlüsseln</B>. Zum <A href="entschluesselung.html">Entschlüsseln</A> wählen Sie den Knopf <B>Entschlüsseln</B>.</P>
+<P>Die Option <B>Doppelbuchstaben trennen</B> bewirkt, dass zwei aufeinander folgende, identische Buchstaben 
+durch ein Trennzeichen voneinander gertrennt werden. Per Voreinstellung wird stets das erste Trennzeichen 
+verwendet. Sind die zu trennenden Buchstaben und das Trennzeichen aber identisch, wird das zweite Trennzeichen 
+verwendet (so wird zum Beispiel "AA" durch "AXA" und "XX" durch "XYX" ersetzt, wenn die Trennzeichen als "X" 
+und "Y" definiert sind).</P>
 
-<P>Mit dem Knopf <IMG SRC="images/iconinsertkey.gif" ALT="iconinsertkey.gif" BORDER=0> können Sie einen im <A href="hid_show_key.html"><B>Schlüsselspeicher</B></A> gespeicherten Schlüssel direkt einfügen (falls der Knopf blass dargestellt ist, steht kein Schlüssel zur Verfügung).</P>
+<P>Wenn Sie die Option <B>Doppelbuchstaben nur innerhalb von Paaren trennen</B> auswählen, werden 
+Doppelbuchstaben nur dann getrennt, wenn sie ein Paar bilden (zum Beispiel wird "HOFFEN" durch "HOFXFEN" 
+ersetzt, "AFFE" wird hingegen nicht verändert).</P>
 
-<P>In dem Feld Schlüssel können Sie ein gewünschtes Passwort eingeben. </P>
+<P>Die Option <B>Doppelte Zeichen im Schlüssel ignorieren</B> beeinflusst die Art und Weise, wie das 
+Passwort in die Matrix eingetragen wird. Ist sie aktiviert, werden doppelte Buchstaben im Passwort einfach 
+ignoriert. Andernfalls wird jeweils der nächste Buchstabe im Alphabet benutzt.</P>
 
-<P>Die Option <B>Doppelte Zeichen im Schlüssel ignorieren</B> beeinflusst die Art und Weise, wie das Passwort in die Matrix eingetragen wird. Ist sie aktiviert, werden doppelte Buchstaben im Passwort einfach ignoriert, andernfalls jeweils der nächste Buchstabe im Alphabet benutzt. Die unteren Kästen zeigen die aus dem eingegebenen Schlüssel erzeugte Matrix an.</P>
+<P>Im Feld <B>Kurzform des Playfair-Schlüssels</B> können Sie das gewünschte Passwort eingeben. Mit dem 
+Button <IMG SRC="images/iconinsertkey.gif" ALT="iconinsertkey.gif" BORDER=0> können Sie einen im 
+<A href="keystore.html">Schlüsselspeicher</A> gespeicherten Schlüssel direkt einfügen (falls der 
+Button blass dargestellt ist, steht kein Schlüssel zur Verfügung).</P>
 
-<P>Mit der Option <B>Text vorformatieren</B> können Sie bestimmen, ob der Text auf das benutzte Alphabet 
-(abhängig von der Größe der Matrix) beschränkt wird. Dabei werden auch für den Fall der 5x5 Matrix alle J 
-in I umgewandelt. Zusätzlich können Sie über die Option <B>Doppelbuchstaben trennen</B> entscheiden, mit 
-welchem Trennzeichen doppelte Buchstaben getrennt werden. Wenn Sie die Option <B>Doppelbuchstaben nur 
-innerhalb von Paaren trennen</B> auswählen, verhält sich die Implementierung konform zur einschlägigen 
-Literatur (Doppelbuchstaben werden nur innerhalb von Paaren getrennt). Der so veränderte Text wird 
-zusätzlich zum verschlüsselten Text angezeigt.</P>
+<P>Mit den Radiobuttons <B>5x5 Matrix</B> und <B>6x6 Matrix</B> können Sie auswählen, ob der 
+Playfair-Algorithmus mit einer 5x5 oder 6x6 Matrix arbeiten soll. Siehe dazu die Erklärung zum 
+<A href="hid_playfair_bin.html">Playfair-Verschlüsselungsverfahren</A>.</P>
 
-<P>Nachdem Sie den Schlüssel eingegeben haben, können Sie das Dokument ver-/entschlüsseln, indem Sie auf den Knopf <B>Verschlüsseln</B> oder <B>Entschlüsseln</B> klicken.</P>
+<P>Mit dem Button <B>Verschlüsseln</B> können Sie das aktuelle Dokument mit dem eingegebenen Schlüssel 
+verschlüsseln, mit dem Button <B>Entschlüsseln</B> können Sie es entschlüsseln.
 
 </BODY>
 </HTML>

@@ -505,10 +505,13 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 	// apply Playfair with the desired options
 	KeyDialog.m_Alg->ApplyPlayfair(playfairOptions);
 
-	// show the preformatted text
-	CAppDocument *preformattedTextDocument = theApp.OpenDocumentFileNoMRU(playfairOptions.fileNamePreformattedText);
-	CString preformattedTextDocumentTitle; preformattedTextDocumentTitle.Format(IDS_STRING_PLAYFAIR_PREFORMAT, OldTitle);
-	preformattedTextDocument->SetTitle(preformattedTextDocumentTitle);
+	// show the preformatted text (only if we were ENcrypting, not DEcrypting)
+	if(!playfairOptions.decryption) {
+		CAppDocument *preformattedTextDocument = theApp.OpenDocumentFileNoMRU(playfairOptions.fileNamePreformattedText);
+		CString preformattedTextDocumentTitle; preformattedTextDocumentTitle.Format(IDS_STRING_PLAYFAIR_PREFORMAT, OldTitle);
+		preformattedTextDocument->SetTitle(preformattedTextDocumentTitle);
+	}
+
 	// show the ciphertext
 	OpenNewDoc(fileNameCiphertext, stringCompleteKey, OldTitle, IDS_PLAYFAIR, playfairOptions.decryption);
 	
