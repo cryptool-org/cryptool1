@@ -26135,7 +26135,7 @@ BEGIN
     PUSHBUTTON      "Schlüsselstrom automatisch erzeugen",IDC_BUTTON4,18,327,132,14,WS_DISABLED
     GROUPBOX        "Beschreibung",IDC_STATIC,5,2,593,57
     LTEXT           "Zur Entschlüsselung braucht der legitime Empfänger den Ciphertext und das ""Initialdeck"". Wir nehmen an, der Angreifer hat neben dem Ciphertext aber nur das (vom Sender",IDC_STATIC,17,12,544,11
-    LTEXT           "Bei dieser Kryptoanalyse wird versucht, aus dem Ausgangsdeck das Initialdeck zu reproduzieren. Dies gelingt aufgrund der Irreversibilität der Schlüsselstromerzeugung",IDC_STATIC,17,28,580,8
+    LTEXT           "Bei dieser Kryptoanalyse wird versucht, aus dem Ausgangsdeck das Initialdeck zu reproduzieren. Dies gelingt aufgrund der unvollständige Reversibilität der",IDC_STATIC,17,28,580,8
     PUSHBUTTON      "Ausgangsdeck laden",IDC_BUTTON5,39,100,69,14
     PUSHBUTTON      "Nach Vorgabe",IDC_BUTTON6,38,140,70,14
     LTEXT           "Kartenanzahl:",IDC_STATIC,173,98,46,8,WS_DISABLED
@@ -26144,7 +26144,7 @@ BEGIN
     GROUPBOX        "3. Initialdeck erzeugen",IDC_STATIC,11,222,581,88
     GROUPBOX        "4. Schlüsselstromerzeugung",IDC_STATIC,11,314,581,67
     LTEXT           "Aus dem berechneten Initialdeck kann dann wieder der ursprüngliche Schlüsselstrom berechnet werden.",IDC_STATIC,17,44,333,8
-    LTEXT           "nicht immer eindeutig. Dann werden Sie gebeten, die Entscheidung zu treffen, wo der Joker einzusortieren ist.",IDC_STATIC,17,36,431,10
+    LTEXT           "Schlüsselstromerzeugung nicht immer eindeutig. Dann werden Sie gebeten, die Entscheidung zu treffen, wo der Joker einzusortieren ist.",IDC_STATIC,17,36,431,10
     GROUPBOX        "Initialdeck bestimmen und Schlüsselstrom erzeugen ",IDC_STATIC,5,64,593,324
     LTEXT           "durch die Verschlüsselung oder vom Empfänger durch die Entschlüsselung erzeugte) Ausgangsdeck.",IDC_STATIC,17,20,320,8
     GROUPBOX        "Einheitliche Entscheidung",IDC_STATIC,17,180,112,34

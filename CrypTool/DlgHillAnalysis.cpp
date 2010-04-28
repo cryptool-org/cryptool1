@@ -413,19 +413,19 @@ void CDlgHillAnaylsis::OnBnClickedSearchKey()
 	CString err_str = _T(""); 
 
 	if ( not_found && m_check_VM && m_check_ofs_0 ) {
-		ha.init( fn_plaintext, fn_ciphertext, von, bis, 0, 0 );
-		not_found = ha.analyze( err_str );
-	}
-	if ( not_found && m_check_VM && m_check_ofs_1 ) {
-		ha.init( fn_plaintext, fn_ciphertext, von, bis, 1, 0 );
-		not_found = ha.analyze( err_str );
-	}
-	if ( not_found && m_check_MV && m_check_ofs_0 ) {
 		ha.init( fn_plaintext, fn_ciphertext, von, bis, 0, 1 );
 		not_found = ha.analyze( err_str );
 	}
-	if ( not_found && m_check_MV && m_check_ofs_1 ) {
+	if ( not_found && m_check_VM && m_check_ofs_1 ) {
 		ha.init( fn_plaintext, fn_ciphertext, von, bis, 1, 1 );
+		not_found = ha.analyze( err_str );
+	}
+	if ( not_found && m_check_MV && m_check_ofs_0 ) {
+		ha.init( fn_plaintext, fn_ciphertext, von, bis, 0, 0 );
+		not_found = ha.analyze( err_str );
+	}
+	if ( not_found && m_check_MV && m_check_ofs_1 ) {
+		ha.init( fn_plaintext, fn_ciphertext, von, bis, 1, 0 );
 		not_found = ha.analyze( err_str );
 	}
 	HIDE_HOUR_GLASS
