@@ -17,46 +17,52 @@
 
 <h3>Playfair (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Symmetrisch (klassisch))</h3>
 
-		<P>Das Playfair-<!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselungsverfahren</A>
-			arbeitet nach einem Algorithmus von Charles Wheatstone (1854).</P>
-		<P>Man benötigt zunächst ein Schlüsselwort (im Weiteren wird das Wort "PEGASOS" 
-			verwendet). Dieses Schlüsselwort wird mit Hilfe des Dialogs <A href="hidd_key_playfair.html">
-				Schlüsseleingabe Playfair</A> in eine 5x5- oder 6x6-Matrix eingetragen.</P>
-		<P>Die übrigen Zellen der Matrix werden dann mit den restlichen Zeichen des 
-			Alphabets aufgefüllt. Schon eingesetzte Buchstaben werden dabei weggelassen, 
-			da jedes Zeichen des Alphabets nur einmal verwendet werden kann.</P>
-		<P>Im Fall der 5x5-Matrix wird im Alphabet das J weggelassen.</P>
-		<div class="indent">
-			<P><IMG SRC="images/playfairkeydialog.png" ALT="playfairkeydialog.png" BORDER="0"></P>
-		</div>
-		<P>Die Nachricht, die verschlüsselt werden soll, wird dann in Gruppen von je zwei 
-			Buchstaben (Digramme) aufgeschrieben. Wir benutzen:</P>
-		<div class="indent">
-			<P>AL LE SI ST HE RA US FL IE HE SO FO RT.</P>
-		</div>
-		<P>Zum Verschlüsseln nimmt man nun das erste Buchstabenpaar AL. Diese beiden 
-			Buchstaben bilden in der Tabelle die Endpunkte der Diagonalen eines Rechtecks 
-			(A-L von unten nach oben). Die Endpunkte der anderen Diagonalen (auch von unten 
-			nach oben gelesen) sind die Punkte P und M. Also wird das Buchstabenpaar AL 
-			durch das Paar PM ersetzt. Aus LE wird XR. Probleme gibt es bei dem Paar ST, da 
-			beide Buchstaben in der gleichen Zeile stehen. In diesem Fall nimmt man jeweils 
-			den Buchstaben rechts davon - TW. Steht links davon kein Buchstabe mehr, dann 
-			geht man einfach wieder an das Ende der Zeile. Stehen die Buchstaben eines 
-			Paares in der Tabelle übereinander wie beim Paar FL, so nimmt man jeweils die 
-			nächsten Buchstaben darunter - LY. Die verschlüsselte Botschaft lautet dann:</P>
-		<div class="indent">
-			<P>PM XR TH TW KB UP BA LY KC KB TP KP CP</P>
-		</div>
-		<P>Um die Sicherheit zu erhöhen, kann man vor dem Verschlüsseln 
-			Zeichenverdopplungen durch Einfügen von zum Beispiel X auflösen, da diese eine 
-			leichte Angriffsmöglichkeit bieten.</P>
-		<P>Durch die Verwendung von Zeichenpaaren ist das Brechen des Algorithmus schwieriger 
-		    im Vergleich zu Verfahren, die nur einzelne Zeichen verwenden. So ist zum Beispiel 
-		    eine Häufigkeitsanalyse weniger aussagekräftig und das Erstellen von Codebüchern 
-		    aufwändiger. Moderne Verfahren benutzen deshalb nicht nur zwei Zeichen pro Block, 
-		    sondern arbeiten wie etwa IDEA auf 64 Bit (also 8 Zeichen)-Blöcken.</P>
-		<P>Ein ausführliches <A href="szenarien_playfair.html">Beispiel</A> zum 
-			Playfair-Verschlüsselungsverfahren befindet sich im Kapitel <A href="hid_hilfe_szenarien.html">
-				Szenarien</A>.</P>
-	</BODY>
+<P>Das Playfair-<!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselungsverfahren</A> arbeitet nach 
+einem Algorithmus von Charles Wheatstone (1854). Das folgende Beispiel soll die Funktionsweise von Playfair 
+erläutern:</P>
+
+<P>Man benötigt zunächst ein Schlüsselwort (im Weiteren wird das Wort "PEGASOS" verwendet). Dieses 
+Schlüsselwort wird mit Hilfe des Dialogs <A href="hidd_key_playfair.html">Schlüsseleingabe Playfair</A> in 
+eine 5x5- oder 6x6-Matrix eingetragen.</P>
+
+<P>Die übrigen Zellen der Matrix werden dann mit den restlichen Zeichen des Alphabets aufgefüllt. Schon 
+eingesetzte Buchstaben werden dabei weggelassen, da jedes Zeichen des Alphabets nur einmal verwendet werden 
+kann.</P>
+
+<P>Im Fall der 5x5-Matrix wird im Alphabet das J weggelassen.</P>
+
+<P><IMG SRC="images/playfairkeydialog.png" ALT="playfairkeydialog.png" BORDER="0"></P>
+
+<P>Die Nachricht, die verschlüsselt werden soll, wird dann in Gruppen von je zwei Buchstaben (Digramme) 
+aufgeschrieben. Wir benutzen:</P>
+
+<div class="indent">
+<P>AL LE SI ST HE RA US FL IE HE SO FO RT.</P>
+</div>
+
+<P>Zum Verschlüsseln nimmt man nun das erste Buchstabenpaar AL. Diese beiden Buchstaben bilden in der 
+Tabelle die Endpunkte der Diagonalen eines Rechtecks (A-L von unten nach oben). Die Endpunkte der anderen 
+Diagonalen (auch von unten nach oben gelesen) sind die Punkte P und M. Also wird das Buchstabenpaar AL 
+durch das Paar PM ersetzt. Aus LE wird XR. Probleme gibt es bei dem Paar ST, da beide Buchstaben in der 
+gleichen Zeile stehen. In diesem Fall nimmt man jeweils den Buchstaben rechts davon - TW. Steht links davon 
+kein Buchstabe mehr, dann geht man einfach wieder an das Ende der Zeile. Stehen die Buchstaben eines Paares 
+in der Tabelle übereinander wie beim Paar FL, so nimmt man jeweils die nächsten Buchstaben darunter - LY. Die 
+verschlüsselte Botschaft lautet dann:</P>
+
+<div class="indent">
+<P>PM XR TH TW KB UP BA LY KC KB TP KP CP</P>
+</div>
+
+<P>Um die Sicherheit zu erhöhen, kann man vor dem Verschlüsseln Zeichenverdopplungen durch Einfügen von 
+zum Beispiel X auflösen, da diese eine leichte Angriffsmöglichkeit bieten.</P>
+
+<P>Durch die Verwendung von Zeichenpaaren ist das Brechen des Algorithmus schwieriger im Vergleich zu 
+Verfahren, die nur einzelne Zeichen verwenden. So ist zum Beispiel eine Häufigkeitsanalyse weniger 
+aussagekräftig und das Erstellen von Codebüchern aufwändiger. Moderne Verfahren benutzen deshalb nicht 
+nur zwei Zeichen pro Block, sondern arbeiten wie etwa IDEA auf 64 Bit (also 8 Zeichen)-Blöcken.</P>
+
+<P>Ein ausführliches <A href="szenarien_playfair.html">Beispiel</A> zum Playfair-Verschlüsselungsverfahren 
+befindet sich im Kapitel <A href="hid_hilfe_szenarien.html">Szenarien</A>.</P>
+
+</BODY>
 </HTML>

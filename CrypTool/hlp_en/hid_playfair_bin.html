@@ -18,7 +18,7 @@
 <h3>Playfair (Menu <A href="menu_crypt.html">Crypt/Decrypt</A> \ Symmetric (classic))</h3>
 
 <P>The Playfair <!--ZZZPOPUP--><A href="verschluesselung.html">encryption algorithm</A> is based on an 
-algorithm developed by Charles Wheatstone in 1854.</P>
+algorithm developed by Charles Wheatstone in 1854. The following example shows how Playfair operates:</P>
 
 <P>To start with, one requires an encryption key (as an example we will use the word "PEGASOS"). This 
 password is entered in a 5x5 or 6x6 matrix using the <A href="hidd_key_playfair.html">Playfair key entry</A> 
@@ -33,27 +33,37 @@ Any characters which already exist are omitted here.</P>
 <P><IMG SRC="images/playfairkeydialog.png" ALT="playfairkeydialog.png" BORDER="0"></P>
 </div>
 		
-<P>The message to be encrypted is then written down in groups of two characters each (digrams). For example, suppose the message to be encrypted is </P>
+<P>The message to be encrypted is then written down in groups of two characters each (digrams). For example, 
+suppose the message to be encrypted is:</P>
 
 <div class="indent">
-
 <P>AL LE SI ST HE RA US FL IE HE SO FO RT  (= " cover is broken flee immediately ").</P>
-
 </div>
 
-<P>To encrypt the message, first of all one takes the first pair of letters, AL. These two letters form the end points of one of the diagonals in a rectangle (A-L from bottom to top). The endpoints of the other diagonal (also read from bottom to top) are points P and M. The pair of letters AL is thus replaced by the pair PM. LE becomes XR. There are problems with the pair ST as both letters occur in the same row. In this case the letters immediately to the right of the original letters are used - TW. If there are no more letters to the left, then one simply proceeds to the end of the row. If the letters in a letter pair in the table are above each other, as is the case with the pair FL, then in each case one takes the next letters underneath - LY. The encrypted message now reads:</P>
+<P>To encrypt the message, first of all one takes the first pair of letters, AL. These two letters form the 
+end points of one of the diagonals in a rectangle (A-L from bottom to top). The endpoints of the other 
+diagonal (also read from bottom to top) are points P and M. The pair of letters AL is thus replaced by the 
+pair PM. LE becomes XR. There are problems with the pair ST as both letters occur in the same row. In this 
+case the letters immediately to the right of the original letters are used - TW. If there are no more letters 
+to the left, then one simply proceeds to the end of the row. If the letters in a letter pair in the table are 
+above each other, as is the case with the pair FL, then in each case one takes the next letters underneath - 
+LY. The encrypted message now reads:</P>
 
 <div class="indent">
-
 <P>M XR TH TW KB UP BA LY KC KB TP KP CP</P>
-
 </div>
 
-<P>To improve security, it is possible to eliminate any letter duplications prior to encryption by inserting, for example, the letter X, as pairs of identical letters provide attackers with a lot of useful information.</P>
+<P>To improve security, it is possible to eliminate any letter duplications prior to encryption by 
+inserting, for example, the letter X, as pairs of identical letters provide attackers with a lot of useful 
+information.</P>
 
-<P>Because letter pairs are used, the algorithm is more difficult to break than cryptosystems which only use individual letters. Thus, for example, a frequency analysis is less informative and the creation of code books is more long-winded. For this reason modern methods do not limit themselves to just two characters, but IDEA, for example, operates with 64-bit (i.e. 8-character) blocks.</P>
+<P>Because letter pairs are used, the algorithm is more difficult to break than cryptosystems which only use 
+individual letters. Thus, for example, a frequency analysis is less informative and the creation of code 
+books is more long-winded. For this reason modern methods do not limit themselves to just two characters, 
+but IDEA, for example, operates with 64-bit (i.e. 8-character) blocks.</P>
 
-<P>A detailed <A href="szenarien_playfair.html">example</A> of the Playfair encryption algorithm will be found in the <A href="hid_hilfe_szenarien.html">Examples</A> chapter.</P>
+<P>A detailed <A href="szenarien_playfair.html">example</A> of the Playfair encryption algorithm will be 
+found in the <A href="hid_hilfe_szenarien.html">Examples</A> chapter.</P>
 
 </BODY>
 </HTML>
