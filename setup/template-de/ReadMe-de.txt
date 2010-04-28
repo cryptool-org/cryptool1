@@ -70,16 +70,20 @@ weltweit daran.
 Zu jedem Programmteil gibt es reichhaltige Online-Hilfe, die auch
 ohne tiefes Kryptowissen verstanden werden kann.
 
-CrypTool existiert in den vier Sprachen Deutsch, Englisch, Polnisch
-und Spanisch. In Deutsch und Englisch ist das CrypTool-Paket komplett
-vorhanden.
-Die Spanische Programm-Version hat die gleiche Funktionalität
-[übersetzt sind im Moment das Programm selbst, also die
-Oberfläche (Menüs, Dialoge, ...) und die Onlinehilfe.
-Die der spanischen Version beigelegte PDF-Dokumentation ist
-noch in Englisch]. Ähnlich ist es bei der Polnischen Version.
+CrypTool existiert in den fünf Sprachen
+- Deutsch,
+- Englisch,
+- Polnisch,
+- Serbisch und
+- Spanisch.
 
-Weitere Sprachversionen (serbisch, russisch, ukrainisch, ...) sind in Arbeit.
+In Deutsch und Englisch ist das CrypTool-Paket komplett lokalisiert vorhanden.
+In allen anderen Sprach-Version hat das Programm wohl die gleiche Funktionalität
+[übersetzt und lokalisiert sind die Oberfläche (Menüs, Dialoge, ...)
+von CrypTool, AES-Tool und dem Zahlenhai], aber die Onlinehilfe, die Readme-Datei
+und die beigelegte PDF-Dokumentation sind dieselbe wie in der englischen Version.
+
+Weitere Sprachversionen (russisch, ukrainisch, ...) sind in Arbeit.
 
 Vorausgesetzt wird, dass der Benutzer mit Anwendungen in einer
 Windows-Umgebung umgehen kann.
@@ -96,7 +100,7 @@ Seit Mitte 2008 werden über 4000 CrypTool v1-Pakete pro Monat herunter
 geladen -- mit wachsender Tendenz (davon entfallen etwas über 1/2
 auf die englische Version).
 Anzahl Downloads der aktuellen Betas der Nachfolger-Versionen:
-               JCT: ca.  400 / Mt.
+               JCT: ca.  500 / Mt.
                CT2: ca.  400 / Mt.
 
 Ziel von CrypTool ist es, kryptographische Mechanismen anschaulich
@@ -396,16 +400,18 @@ Bedanken möchte ich mich auch bei
 - Herrn Bartosz Sawicki von der Universität Warschau, der mit seinem
   Team die erste polnische Version erstellte.
 - Herrn Dr. Gonzalo Alvarez von der Universität Madrid, der mit seinen
-  Kollegen die spanischen Versionen erstellte und erweiterte.
+  Kollegen die erste spanische Version erstellte.
+- Bojan Dimitrovski von der Universität Belgrad, der mit seinen
+  Kollegen die erste serbische Version erstellte
+
 
 
 1.4. Maintainer, Hosting, Webseite und Welcome
      -----------------------------------------
 Seit April 2008 hostet der Lehrstuhl für Verteilte Systeme,
 Fakultät für Ingenieurwissenschaften unter Prof. Dr. Torben Weis an der
-Universität Duisburg-Essen die deutsche, englische und spanische Webseite
-von CrypTool und das Subversion-Repository für die Programm-Sourcen der
-Nachfolger-Version CrypTool 2.
+Universität Duisburg-Essen die 5-sprachige Webseite von CrypTool und das
+Subversion-Repository für die Programm-Sourcen der Nachfolger-Version CrypTool 2.
 
 Der Lehrstuhl Sicherheit in der Informationstechnik, Fachbereich
 Informatik unter Frau Prof. Dr. Claudia Eckert an der TU Darmstadt
@@ -441,9 +447,6 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
 - E-Learning-Programm rund um das Thema Kryptographie und Kryptoanalyse.
 
 - Alles in einem Programmpaket und steuerbar unter einer Oberfläche.
-
-- Alles in CrypTool ist in Deutsch und Englisch verfügbar.
-  Das Programm selbst gibt es auch in Polnisch und Spanisch.
 
 - Viele klassische Verschlüsselungsverfahren: Und dazu teilweise manuell
   unterstützte, teilweise automatische Analysen (Known-Plaintext- und
@@ -636,8 +639,8 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
   svn checkout http://www.cryptool.com/svn/CrypTool/trunk --username anonymous
 
 - Einen Eindruck von der Größe des CT1-Projekts liefert die folgende, im
-  April 2010 erstellte Statistik (anhand der Dateien für die deutsche,
-  englische, polnische und spanische Version):
+  April 2010 erstellte Statistik (anhand der Dateien für die in 5 Sprachen
+  verfügbare Version 1.4.30):
 
     FILE SUMMARY (Anzahl der Dateien anhand ihrer Dateinamenserweiterung)
     ------------
@@ -664,7 +667,7 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
          13.034 Text files (txt)
          34,439 LaTeX code (tex)
             825 Sage code (sage)
-        540.002 TOTAL
+        540.002 TOTAL xxxxxxxxxx
 
     TOTAL: 540.002 Code-Zeilen (plus von 41,2 % gegenüber 382.244 bei v1.4.21)
     - In den TOTAL-Wert gehen nur Sourcen ein, die innerhalb des
@@ -815,10 +818,7 @@ c) Funktionale Änderungen / Erweiterungen:
 Dieses Kapitel listet die Erweiterungen und Bugfixes auf, die in
 CrypTool 1.4.30 seit CrypTool 1.4.21 hinzugefügt wurden.
 
-Die Version 1.4.30 kommt zeitgleich in Deutsch, Englisch, Polnisch und
-Spanisch. Eine serbische Version 1.4.30 wird folgen.
-Die polnische und spanische Version enthalten die Onlinehilfe in Englisch.
-Die spanische Version enthält zum erstenmal auch das AES-Tool und den Zahlenhai in
+Die Version 1.4.30 kommt zeitgleich in Deutsch, Englisch, Polnisch, Serbisch und
 Spanisch.
 
 a) Entwickler-relevante Änderungen (eher Programm-technisch):
@@ -834,6 +834,9 @@ a) Entwickler-relevante Änderungen (eher Programm-technisch):
   - OpenSSL 0.9.8k
   - GMP 4.1
   - Animal 2.3.21.
+
+- Quellcode und die Applikation CrypTool 1.x stehen nun unter der Lizenz
+  Apache 2.0 (siehe http://www.apache.org/licenses/LICENSE-2.0).
 
 
 b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
@@ -855,10 +858,12 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
   und CT2 verwiesen, die schon die jeweils aktuelle, stabile Beta zum Download
   anbieten.
 
-- Die zusätzliche Webseite CrypTool-Online ging live (www.cryptool-online.org).
+- Die zusätzliche Webseite "CrypTool-Online" ging live (www.cryptool-online.org).
 
-- Quellcode und die Applikation CrypTool 1.x stehen nun unter der Lizenz
-  Apache 2.0 (siehe http://www.apache.org/licenses/LICENSE-2.0).
+- Ein kurzes CrypTool-Video auf YouTube:
+   - Deutsch:  http://www.youtube.com/watch?v=of0C9Lx0vGs
+   - Englisch: http://www.youtube.com/watch?v=bLJKuW4UOuE
+   - Spanisch: http://www.youtube.com/watch?v=pTFdklPQiL4
 
 
 c) Neue Funktionalität / Bedienung:
@@ -1207,11 +1212,6 @@ auch unter Windows XP.
 Programm, Hilfesystem und Dokumentation sind mehrsprachig aus-
 gelegt (zur Zeit komplett englisch und deutsch).
 
-In der polnischen und der spanischer Version ist das Programm inklusive
-aller Masken und Menüs übersetzt. Die PDF-Dateien sind noch in Englisch.
-In der polnischen Version ist auch die umfangreiche Onlinehilfe übersetzt;
-in der spanischen Version liegt die englische Onlinehilfe bei.
-
 Für jede unterstützte Sprache gibt es bei CrypTool 1.4.30 ein eigenes
 Installationsprogramm (Setup).
 
@@ -1514,8 +1514,8 @@ b) Will der Benutzer in Mehrbenutzersystemen wie Windows XP aus CrypTool
 5. Liste der Dateien in der Auslieferung
    -------------------------------------
 CrypTool wird als komprimiertes, selbstextrahierendes Archiv in
-vier verschiedenen Sprachversionen verteilt: Deutsch, Englisch,
-Polnisch und Spanisch.
+fünf verschiedenen Sprachversionen verteilt: Deutsch, Englisch,
+Polnisch, Serbisch und Spanisch.
 
 Das selbstextrahierende Archiv in deutscher Sprache
            SetupCrypTool_1_4_30_de.exe
@@ -2178,19 +2178,21 @@ b) Auf der Professional Security Testers Warehouse (PST) postete
 
 
 c) Wikipedia:
-   - Englisch:
-     - http://en.wikipedia.org/wiki/CrypTool
-     - http://en.wikipedia.org/wiki/Cryptography
-     - http://en.wikipedia.org/wiki/Topics_in_Cryptography
    - Deutsch:
      - http://de.wikipedia.org/wiki/CrypTool
      - http://de.wikipedia.org/wiki/Kryptographie
      - http://de.wikipedia.org/wiki/Wikipedia:WikiProjekt_Kryptologie
-   - Spanisch:
-     - http://es.wikipedia.org/wiki/CrypTool
+   - Englisch:
+     - http://en.wikipedia.org/wiki/CrypTool
+     - http://en.wikipedia.org/wiki/Cryptography
+     - http://en.wikipedia.org/wiki/Topics_in_Cryptography
    - Polnisch:
      - http://pl.wikipedia.org/wiki/CrypTool
      - http://pl.wikipedia.org/wiki/Kryptografia
+   - Spanisch:
+     - http://es.wikipedia.org/wiki/CrypTool
+   - Serbian:
+     - http://sr.wikipedia.org/sr/CrypTool
    - Französisch:
      - http://fr.wikipedia.org/wiki/CrypTool
    - Thailändisch:
@@ -2865,11 +2867,7 @@ b) Java-CrypTool (JCrypTool, JCT):
    - Nutzt strikt die Standards von Eclipse 3.5.
    - Nutzung von SWT (und Jigloo) für die GUI.
    - Bouncy-Castle und FlexiProvider werden als Krypto-Provider benutzt.
-   - Meilenstein 1 (August 2007) war für Entwickler und zeigte, dass die
-     neuen Architektur-Konzepte umsetzbar sind.
-     Milestone 2 (August 2008), 3 (Dezember 2008), 4 und 4a (Februar 2009)
-     können auch schon von Endbenutzern sinnvoll verwendet werden.
-   - Meilenstein 6 wurde im November 2009 veröffentlicht. xxxxxxxxx
+   - Die aktuelle Beta kann auch schon von Endbenutzern sinnvoll verwendet werden.
    - Weitere Entwickler, Architekten und Designer sind in diesem Projekt
      herzlich willkommen.
    - Für Einsteiger, aber auch für Experten.
@@ -2887,8 +2885,7 @@ c) CrypTool 2.0 (CT 2)
      Edition für C# erstellen.
    - Verfügbar sind die .NET Krypto-Provider, und Bibliotheken wie GMP und
      Crypto++ per Wrapper.
-   - Die Alphaversion, veröffentlicht im April 2008, war für Entwickler.
-     Beta-Versionen (für Entwickler und Nutzer) werden seit Juli 2008
+   - Beta-Versionen (für Entwickler und Nutzer) werden seit Juli 2008
      regelmäßig veröffentlicht.
      Mit der Releaseversion von CT2 wird die Weiter-Entwicklung von CrypTool 1.x
      eingestellt werden.
@@ -2925,7 +2922,7 @@ Die neuen Versionen (siehe Kapitel A.2.2.1) sind:
 
 
 Funktionen, die schon in den jetzigen Betaversionen
-            (CT2 Beta 2 v2.0.3631  und  JCT1 RC1)
+            (CT2 Beta 2 v2.0.3631  und  JCT v1.0 RC2)
             implementiert und integriert sind:
 - CT2  Visuelle Programmierung (Komposition von Protokollen und Workflows)
 - CT2  Primzahlen-Visualisierungen
