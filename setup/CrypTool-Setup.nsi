@@ -36,7 +36,7 @@
 ;Pages
 
   !insertmacro MUI_PAGE_WELCOME
-  !insertmacro MUI_PAGE_LICENSE "setup-${LANGUAGE_STR}\license-${LANGUAGE_SUBST_STR}.rtf"
+  !insertmacro MUI_PAGE_LICENSE "setup-${LANGUAGE_STR}\license-${LANGUAGE_STR}.rtf"
   !define MUI_PAGE_CUSTOMFUNCTION_LEAVE mui.DirectoryLeave
   !insertmacro MUI_PAGE_DIRECTORY
   !define MUI_FINISHPAGE_NOAUTOCLOSE
@@ -134,7 +134,7 @@
    !define SCN_NUMBERSHARK	"NumberShark"
    !define SCL_NUMBERSHARK	"NumberShark.exe"
    !define SCN_NUMBERSHARK_HELP "NumberShark Help"
-   !define SCL_NUMBERSHARK_HELP "Numbershark_${LANGUAGE_SUBST_STR}.chm"
+   !define SCL_NUMBERSHARK_HELP "NumberShark-${LANGUAGE_SUBST_STR}.chm"
    !define SCN_AES_TOOL		"AES-Tool"
    !define SCL_AES_TOOL		"aestool.exe"
    !define SCN_SCRIPT		"Script"

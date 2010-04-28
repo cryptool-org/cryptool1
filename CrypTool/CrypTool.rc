@@ -3720,7 +3720,7 @@ BEGIN
     LTEXT           "na:",IDC_TEXT3,21,172,9,8
     GROUPBOX        "Wybierz wariant zamiany monoalfabetycznej",IDC_STATIC,14,9,288,60
     CONTROL         "Wpr. klucza: Pozosta³e znaki s¹ wyp. w porz¹dku rosn¹cym",IDC_RADIO1,
-                    "Button",BS_AUTORADIOBUTTON,21,25,206,10
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,21,25,206,10
     CONTROL         "Wpr. klucza: Pozosta³e znaki s¹ wyp. w porz¹dku malej¹cym",IDC_RADIO3,
                     "Button",BS_AUTORADIOBUTTON,21,38,210,10
     CONTROL         "Atbash (szyfrowanie u¿ywa ustalonych kluczy) ",IDC_RADIO2,
@@ -6949,12 +6949,6 @@ END
 
 IDD_SOLITAIRE DLGINIT
 BEGIN
-    IDC_Kartenanzahl, 0x403, 2, 0
-0x0030, 
-    IDC_Kartenanzahl, 0x403, 2, 0
-0x0031, 
-    IDC_Kartenanzahl, 0x403, 2, 0
-0x0032, 
     IDC_Kartenanzahl, 0x403, 2, 0
 0x0033, 
     IDC_Kartenanzahl, 0x403, 2, 0

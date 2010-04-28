@@ -4,6 +4,7 @@
 	Version="9,00"
 	Name="LibAnalyse"
 	ProjectGUID="{8C1D5DE7-80B6-4510-BB64-9F271F0E3C37}"
+	RootNamespace="LibAnalyse"
 	Keyword="MFCProj"
 	TargetFrameworkVersion="131072"
 	>

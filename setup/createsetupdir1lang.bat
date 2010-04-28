@@ -15,14 +15,13 @@ set lang_sub=%1 ;because the spanish and polish versions use english files
 if x%lang%==xes set lang_sub=en
 if x%lang%==xpl set lang_sub=en
 echo Create and populate setup-%lang% directory ...
-
 if exist setup-%lang%\nul rmdir /q/s setup-%lang%
 echo Copying template ...
 xcopy /s/q template\*.* setup-%lang%\
 echo Copying template-%lang% ...
 xcopy /s/q template-%lang%\*.* setup-%lang%\   
-if x%lang%==xpl xcopy /s/q template-en\*.* setup-%lang%\
-if x%lang%==xes xcopy /s/q template-en\*.* setup-%lang%\
+if x%lang%==xpl xcopy /s/q template-en\*.* setup-%lang%\ & del setup-%lang%\license-en.rtf 
+if x%lang%==xes xcopy /s/q template-en\*.* setup-%lang%\ & del setup-%lang%\license-en.rtf
 echo Copying ..\release_%lang%\*.exe ...
 copy ..\release_%lang%\*.exe setup-%lang%
 rem script-%lang%.pdf is now in template-%lang%

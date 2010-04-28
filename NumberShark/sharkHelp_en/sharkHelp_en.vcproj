@@ -4,6 +4,7 @@
 	Version="9,00"
 	Name="sharkHelp_en"
 	ProjectGUID="{068B2C5B-4AA8-459C-B0B9-0B0EE768B793}"
+	RootNamespace="sharkHelp_en"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="131072"
 	>
