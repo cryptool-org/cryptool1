@@ -1997,6 +1997,492 @@ END
 /////////////////////////////////////////////////////////////////////////////
 
 
+/////////////////////////////////////////////////////////////////////////////
+// Serbian (SER) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
+#ifdef _WIN32
+LANGUAGE LANG_SERBIAN, SUBLANG_SERBIAN_LATIN
+#pragma code_page(1250)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Informacije o igri Ajkula Brojeva"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            128,IDC_STATIC,11,17,20,20
+    LTEXT           "Ajkula Brojeva Verzija 1.2",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2010",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
+END
+
+IDD_GAME_RULES DIALOGEX 0, 0, 535, 306
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Pravila igre / opis igre"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Nazad",IDOK,242,283,50,14
+    CONTROL         "",IDC_RICHEDIT21,"RichEdit20A",ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY,7,7,521,267,WS_EX_TRANSPARENT
+END
+
+IDD_GAME_SUMMARY DIALOGEX 0, 0, 358, 178
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dijalog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Nazad na igru",IDOK,145,68,62,14
+    CONTROL         "",IDC_RICHEDIT21,"RichEdit20A",ES_MULTILINE | ES_AUTOHSCROLL,7,12,344,51,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,11,108,335,31
+    CONTROL         "",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,12,148,335,10
+    GROUPBOX        "Sacuvati igru kao pregled?",IDC_STATIC,7,92,344,79
+END
+
+IDD_DIALOG1 DIALOGEX 0, 0, 282, 274
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Opcije igre"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Na igru",IDOK,117,248,50,14
+    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,5,34,270,208
+    EDITTEXT        IDC_EDIT_NAME,75,76,161,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "Pocni",IDC_BUTTON_MAX,220,130,35,25,BS_MULTILINE | NOT WS_VISIBLE
+    CONTROL         "  ",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | BS_MULTILINE,226,119,10,8
+    CONTROL         "",IDC_CHECK2,"Button",BS_AUTOCHECKBOX,228,166,8,8
+    CONTROL         "",IDC_CHECK3,"Button",BS_AUTOCHECKBOX,228,204,8,8
+    LTEXT           "",IDC_OPTION_REMEMBER,28,196,186,26
+    LTEXT           "Vaše ime:",IDC_STATIC2,29,79,44,8
+    LTEXT           "",IDC_OPTION_TOOLTIP,28,102,186,42
+    GROUPBOX        "",IDC_STATIC1,21,65,233,31
+    GROUPBOX        "",IDC_STATIC3,21,95,233,54
+    GROUPBOX        "",IDC_STATIC4,21,151,233,34
+    LTEXT           "",IDC_OPTION_GAME_START,29,161,186,18
+    GROUPBOX        "",IDC_STATIC5,21,188,233,38
+    LTEXT           "",IDC_STATIC_MAX_POINTS_TEXT,16,67,244,56,NOT WS_VISIBLE
+    CTEXT           "",IDC_OPTION_START,5,9,270,21
+    CONTROL         "",IDC_RADIO_MAX1,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_DISABLED,23,129,182,10
+    CONTROL         "",IDC_RADIO_MAX2,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_DISABLED,23,150,183,8
+    GROUPBOX        "",IDC_STATIC_MAXVALUE,9,57,260,130
+    LTEXT           "",IDC_DISCLAIMER_TEXT,14,144,257,35
+    LTEXT           "",IDC_INFO_TEXT,14,110,257,31
+    LTEXT           "",IDC_GAME_IDEA,14,69,257,35
+    LTEXT           "",IDC_ACCELERATORS,12,69,255,133
+END
+
+IDD_MFCZAHLENHAI_DIALOG DIALOGEX 0, 0, 467, 379
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Ajkula Brojeva"
+FONT 8, "Microsoft Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_TAB1,"SysTabControl32",TCS_RAGGEDRIGHT | WS_TABSTOP,10,187,372,119
+    EDITTEXT        IDC_EDIT1,97,333,48,14,ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "&OK",IDC_BUTTON_OK,154,333,25,14
+    CONTROL         "1",IDC_BUTTON01,"Button",BS_OWNERDRAW | WS_TABSTOP,16,207,31,27
+    CONTROL         "2",IDC_BUTTON02,"Button",BS_OWNERDRAW | WS_TABSTOP,53,207,31,27
+    CONTROL         "3",IDC_BUTTON03,"Button",BS_OWNERDRAW | WS_TABSTOP,89,207,31,27
+    CONTROL         "4",IDC_BUTTON04,"Button",BS_OWNERDRAW | WS_TABSTOP,125,207,31,27
+    CONTROL         "5",IDC_BUTTON05,"Button",BS_OWNERDRAW | WS_TABSTOP,161,207,31,27
+    CONTROL         "6",IDC_BUTTON06,"Button",BS_OWNERDRAW | WS_TABSTOP,197,207,31,27
+    CONTROL         "7",IDC_BUTTON07,"Button",BS_OWNERDRAW | WS_TABSTOP,233,207,31,27
+    CONTROL         "8",IDC_BUTTON08,"Button",BS_OWNERDRAW | WS_TABSTOP,269,207,31,27
+    CONTROL         "9",IDC_BUTTON09,"Button",BS_OWNERDRAW | WS_TABSTOP,306,207,31,27
+    CONTROL         "10",IDC_BUTTON10,"Button",BS_OWNERDRAW | WS_TABSTOP,344,207,31,27
+    CONTROL         "11",IDC_BUTTON11,"Button",BS_OWNERDRAW | WS_TABSTOP,16,240,31,27
+    CONTROL         "12",IDC_BUTTON12,"Button",BS_OWNERDRAW | WS_TABSTOP,53,240,31,27
+    CONTROL         "13",IDC_BUTTON13,"Button",BS_OWNERDRAW | WS_TABSTOP,89,240,31,27
+    CONTROL         "14",IDC_BUTTON14,"Button",BS_OWNERDRAW | WS_TABSTOP,125,240,31,27
+    CONTROL         "15",IDC_BUTTON15,"Button",BS_OWNERDRAW | WS_TABSTOP,161,240,31,27
+    CONTROL         "16",IDC_BUTTON16,"Button",BS_OWNERDRAW | WS_TABSTOP,197,240,31,27
+    CONTROL         "17",IDC_BUTTON17,"Button",BS_OWNERDRAW | WS_TABSTOP,233,240,31,27
+    CONTROL         "18",IDC_BUTTON18,"Button",BS_OWNERDRAW | WS_TABSTOP,269,240,31,27
+    CONTROL         "19",IDC_BUTTON19,"Button",BS_OWNERDRAW | WS_TABSTOP,306,240,31,27
+    CONTROL         "20",IDC_BUTTON20,"Button",BS_OWNERDRAW | WS_TABSTOP,344,240,31,27
+    CONTROL         "21",IDC_BUTTON21,"Button",BS_OWNERDRAW | WS_TABSTOP,16,272,31,27
+    CONTROL         "22",IDC_BUTTON22,"Button",BS_OWNERDRAW | WS_TABSTOP,53,272,31,27
+    CONTROL         "23",IDC_BUTTON23,"Button",BS_OWNERDRAW | WS_TABSTOP,89,272,31,27
+    CONTROL         "24",IDC_BUTTON24,"Button",BS_OWNERDRAW | WS_TABSTOP,125,272,31,27
+    CONTROL         "25",IDC_BUTTON25,"Button",BS_OWNERDRAW | WS_TABSTOP,161,272,31,27
+    CONTROL         "26",IDC_BUTTON26,"Button",BS_OWNERDRAW | WS_TABSTOP,197,272,31,27
+    CONTROL         "27",IDC_BUTTON27,"Button",BS_OWNERDRAW | WS_TABSTOP,233,272,31,27
+    CONTROL         "28",IDC_BUTTON28,"Button",BS_OWNERDRAW | WS_TABSTOP,269,272,31,27
+    CONTROL         "29",IDC_BUTTON29,"Button",BS_OWNERDRAW | WS_TABSTOP,306,272,31,27
+    CONTROL         "30",IDC_BUTTON30,"Button",BS_OWNERDRAW | WS_TABSTOP,344,272,31,27
+    PUSHBUTTON      "&Pravila igre",ID_BUTTON_RULES,398,16,59,22,BS_VCENTER | BS_MULTILINE
+    PUSHBUTTON      "&Pomoc",IDC_BUTTON_HELP,398,46,59,22
+    PUSHBUTTON      "Hr&ana za ajkulu",IDC_BUTTON_REST,398,178,60,22,BS_MULTILINE | WS_DISABLED
+    PUSHBUTTON      "&Više opcija",IDC_BUTTON_OPTION,398,205,60,22,BS_MULTILINE
+    CONTROL         "",IDC_BUTTON_UNDO,"Button",BS_OWNERDRAW | BS_MULTILINE | WS_DISABLED | WS_TABSTOP,404,246,19,15,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_BUTTON_REDO,"Button",BS_OWNERDRAW | WS_DISABLED | WS_TABSTOP,434,246,19,15,WS_EX_TRANSPARENT
+    PUSHBUTTON      "&Nova igra",IDC_BUTTON_STARTNEW,398,316,59,22,BS_MULTILINE
+    PUSHBUTTON      "I&zlaz",ID_BUTTON_END,398,345,59,22,BS_CENTER | BS_MULTILINE
+    LTEXT           "Niz brojeva od 1 do:",IDC_STATIC,12,335,86,11
+    GROUPBOX        "Podešavanja za novu igru",IDC_STATIC_EINSTELLUNGEN,4,318,382,54,0,WS_EX_TRANSPARENT
+    GROUPBOX        "",IDC_STATIC_BLOCK,4,174,382,139
+    LTEXT           "",IDC_STATIC_SUM,11,356,371,17,NOT WS_VISIBLE
+    GROUPBOX        "Tok igre -  [ ""prost"" oznacava prost broj ]",IDC_STATIC_LISTE,4,6,381,161
+    CONTROL         "",IDC_LIST2,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,4,21,381,148,WS_EX_TRANSPARENT | WS_EX_CLIENTEDGE
+    LTEXT           "",IDC_LEDTEXT,4,320,381,52,NOT WS_VISIBLE
+    CONTROL         169,IDC_STATIC_HAI_LISTE,"Static",SS_BITMAP | SS_REALSIZEIMAGE,4,10,381,160
+    LTEXT           "",IDC_START_INFO,197,328,181,27,NOT WS_VISIBLE
+    GROUPBOX        "",IDC_STATIC,392,6,71,366
+    PUSHBUTTON      "&Završi",IDC_BUTTON_FINISH,375,367,10,6,NOT WS_VISIBLE
+    PUSHBUTTON      "&Promeni stil",IDC_BUTTON_SWITCH_STYLE,398,72,59,14,NOT WS_VISIBLE
+    CTEXT           "Statisch",IDC_TIMER,398,148,59,14,SS_CENTERIMAGE
+    LTEXT           "Proteklo vreme:",IDC_STATIC,398,129,43,8
+    PUSHBUTTON      "&Ucitaj",IDC_BUTTON_LOAD,398,271,59,14,NOT WS_VISIBLE
+    PUSHBUTTON      "&Sacuvaj",IDC_BUTTON_SAVE,398,294,59,14,NOT WS_VISIBLE
+END
+
+IDD_SEARCH_PROGRESS DIALOGEX 0, 0, 200, 110
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Napredak Pretrage"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LTEXT           "DYNAMICALLY_GENERATED",IDC_TEXT_SEARCH_PROGRESS_1,7,7,186,24
+    LTEXT           "Nažalost ne možemo da predvidimo koliko ce vremena biti potrebno, ali možete da otkažete pretragu bilo kada.",IDC_STATIC,7,55,186,24
+    PUSHBUTTON      "Otkaži",IDCANCEL,75,87,50,16
+    CTEXT           "DYNAMICALLY_GENERATED",IDC_TEXT_SEARCH_PROGRESS_2,7,39,186,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 0,9,0,0
+ PRODUCTVERSION 0,9,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040704e4"
+        BEGIN
+            VALUE "Copyright (C) 2006", " (C) CrypTool Project 2010"
+            VALUE "FileDescription", "Ajkula Brojeva je edukativna igra za usavršavanje znanja o ciniocima i prostim brojevima."
+            VALUE "FileVersion", "1.2"
+            VALUE "InternalName", "NumberShark.exe"
+            VALUE "OriginalFilename", "NumberShark.exe"
+            VALUE "ProductName", "NumberShark"
+            VALUE "ProductVersion", "1.2"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x407, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_GAME_RULES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 528
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 297
+    END
+
+    IDD_GAME_SUMMARY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 351
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 171
+    END
+
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 275
+        VERTGUIDE, 5
+        VERTGUIDE, 184
+        VERTGUIDE, 220
+        VERTGUIDE, 238
+        VERTGUIDE, 275
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 267
+        HORZGUIDE, 25
+        HORZGUIDE, 65
+        HORZGUIDE, 144
+    END
+
+    IDD_MFCZAHLENHAI_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        RIGHTMARGIN, 464
+        VERTGUIDE, 4
+        VERTGUIDE, 197
+        VERTGUIDE, 295
+        VERTGUIDE, 296
+        VERTGUIDE, 382
+        VERTGUIDE, 385
+        VERTGUIDE, 398
+        VERTGUIDE, 457
+        VERTGUIDE, 463
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 373
+        HORZGUIDE, 24
+        HORZGUIDE, 44
+        HORZGUIDE, 261
+        HORZGUIDE, 288
+        HORZGUIDE, 294
+        HORZGUIDE, 320
+        HORZGUIDE, 326
+        HORZGUIDE, 353
+        HORZGUIDE, 371
+    END
+
+    IDD_SEARCH_PROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 193
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP1             BITMAP                  "Bilder\\shells-en.bmp"
+IDB_BITMAP8             BITMAP                  "Bilder\\Hai04-vers5-engl.bmp"
+IDB_BITMAP_UNDO         BITMAP                  "bilder\\backward-engl.bmp"
+IDB_BITMAP2             BITMAP                  "Bilder\\hai01-engl.bmp"
+IDB_BITMAP_REDO         BITMAP                  "bilder\\foreward-engl.bmp"
+IDB_BITMAP9             BITMAP                  "Bilder\\shark-engl.bmp"
+IDB_BITMAP3             BITMAP                  "Bilder\\HaiAnAngel-engl.bmp"
+IDB_BITMAP12            BITMAP                  "bilder\\bitmap12.bmp"
+IDB_BITMAP13            BITMAP                  "bilder\\bitmap13.bmp"
+IDB_BITMAP14            BITMAP                  "bilder\\bitmap14.bmp"
+IDB_BITMAP15            BITMAP                  "bilder\\bitmap15.bmp"
+IDB_BITMAP16            BITMAP                  "bilder\\bitmap16.bmp"
+IDB_BITMAP17            BITMAP                  "bilder\\bitmap17.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "Bilder\\NumberShark.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCELERATOR1 ACCELERATORS 
+BEGIN
+    "N",            ID_GIVE_REST,           VIRTKEY, SHIFT, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "&Informacije o igri Ajkula Brojeva"
+    IDS_RULES               "Opis:\r\n - Na pocetku igre Ajkula Brojeva birate velicinu kvadrata školjke, ovo je kolicina brojeva sa kojom želite da igrate.\r\n    Velicinu kvadrata školjke imenujemo sa ""n"" i zovemo je ""skup odabirljivih brojeva"". Skup brojeva pocinje sa 1\r\n    i završava se brojem koji ste odabrali da bude velicina školjke (predlažemo broj 20 za pocetak).\r\n    Posle toga svi brojevi iz kvadrata školjke ce biti dati ili vama ili kompjuteru (""Number Shark"").\r\n    Možete procitati pravila o deljenju brojeva iz teksta ispod.\r\n - Podrazumevano, postoji 20 u kvadratu školjke. Kao ukupan broj možete odabrati bilo koji broj od 1 do 9999 for n.\r\n\r\nCilj igre:\r\n - Vaš cilj je da postignete veci rezultat nego sumu brojeva koji je pojela Ajkula Brojeva.\r\n\r\nPravila:\r\n - Uvek igrate prvi, npr. pocinjete prvu rundu.\r\n - U ovoj rundi možete odabrati bilo koji od n brojeva iz kvadrata školjke.\r - Ajkula Brojeva dobija svaki dostupan realni cinilac broja koji ste odabrali, ako vec nisu odabrani\r\n    (6 je npr. deljivo sa 1, 2, 3 i 6. Realni cinioci su 1, 2 i 3).\r\n - U svim sledecim rundama možete odabrati brojeve koje niste odabrali,\r\n    ili koje je pojela Ajkula Brojeva u prethodnim rundama (npr. samo plave školjke).\r\n - ALI: Ajkula Brojeva nikada ne može da preskoci!\r\n - Ako ste odabrali broj koji nema više cinilaca, onda Ajkula Brojeva dobija vaš odabrani broj i dobijate 0 u ovoj rundi.\r\n\r\n"
+    IDS_PLAYER_WINS         "Cestitamo, pobedili ste Ajkulu Brojeva!\n\n Ako tražite veci izazov, probajte veci broj od %s.\n\nDobili ste %s poena. Najviši moguci rezultat sa %s brojeva bi bio %s."
+    IDS_VERSION_INFO        "Ajkula Brojeva 1.2"
+    IDS_COMPUTER_WINS       "Ovaj put je Ajkula Brojeva pobedila :,-(\n\n Pojeva vas je sa %s do %s poena.\n\n Krenite -- Pokušajte opet!"
+    IDS_DRAW                "Nerešeno!?!\n\nOvo se dešava veoma retko!\n\nVi i Ajkula Brojeva imate po %s poena."
+    IDS_MAX_POINTS_NEW      "Za racunanje za %s brojeva najveci rezultat od %s poena, programu je trebalo %s sekundi. Morao je da prode %s cvorova.\n\nNajveci prost broj ovde je %s. Morate poceti igru sa ovim brojem da biste dostigli najviši rezultat.\n\nDa biste postigli najviši rezultat, možete odabrati brojeve u ovom redosledu: %s"
+    IDS_MAX_POINTS_INFORMATION 
+                            "Najveci dostižan rezultat sa %s brojeva je %s.\n\nMožemo da vam prikažemo najveci rezultat, jer je ova vrednost vec izracunata i smeštena u program.\n\nNagoveštaj: Najveci prost broj sa %s brojeva je %s. Morate poceti igru sa ovim brojem da biste dostigli najveci rezultat.\n\nŽelite li da vidite optimalan nacin za dobijanje ovog rezultata?"
+    IDS_QUESTION            "Da li želite da program izracuna najveci moguci rezultat?"
+    IDS_WARNING             "%s brojeva... Ovo ce dugo da traje.\n\nKorišcenjem algoritma brutalne sile, za 20 brojeva sa PC na 3 GHz morao je da racuna oko 9 hours, za 22 broja racunanje je trajalo 9 dana. I verujemo da bi za 30 brojeva bile potrebne nedelje ili meseci.\n\nAko dobijete neke nove rezultate za %s brojeva, bili bismo vam zahvalni ako biste ih nam poslali.\n\nDa li stvarno želite da obavite racunanje sada?"
+    IDS_INVALID_INPUT       "U igri Ajkula Brojeva možete igrati sa brojevima izmedu 1 i %s!"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_ZUG                 "Potez"
+    IDS_SPIELER             "Vaš\nizbor"
+    IDS_HAI                 "Izbor\nAjkule Brojeva"
+    IDS_SPIELER_PUNKTE      "Vaši\npoeni"
+    IDS_HAI_PUNKTE          "Poeni\nAjkule Brojeva"
+    IDS_REST                "Preostali\nbrojevi"
+    IDS_PLAYER_WINS_2       "Cestitamo, pobedili ste Ajkulu Brojeva!\n\n Ako tražite veci izazov, probajte veci broj od %s.\n\nDobili ste %s poena."
+    IDS_BUTTON_STARTNEW     "Pocni novu igru."
+    IDS_BUTTON_END          "Završi igru."
+    IDS_BUTTON_RULES        "Procitaj pravila."
+    IDS_BUTTON_OK           "Pocni igru sa odabranim skupom brojeva."
+    IDS_BUTTON_MAX_POINTS   "Izracunaj najveci moguci rezultat koji se može postici sa odabranim skupom."
+    IDS_BUTTON_OPTION       "Prikaži opcije igre."
+    IDS_BUTTON_REST         "Ajkula Brojeva jede sve brojeve od kojih više ne možete dobiti poene. Ajkula Brojeva je mogla da pojede ove brojeve odjednom: %s"
+    IDS_EDIT4               "Ova vrednost sadrži sve dodate brojeve."
+    IDS_MAX_POINTS_HEADLINE "Najveci moguci rezultat"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_DRAW_HEADLINE       "Nerešeno!"
+    IDS_COMPUTER_WINS_HEADLINE "Niste pobedili!"
+    IDS_PLAYER_WINS_HEADLINE "Pobedili ste!"
+    IDS_LOGFILE_DATE        "\r\n\r\nDatum/Vreme:                   "
+    IDS_LOGFILE_NAME        "\r\n\r\nIme igraca:               "
+    IDS_LOGFILE_POINTS_PLAYER "\r\n\r\nPoeni igraca:             "
+    IDS_LOGFILE_POINTS_COMPUTER "\r\nPoeni Ajkule Brojeva:         "
+    IDS_LOGFILE_ROUNDS      "\r\nZahtevano poteza:              "
+    IDS_VALID_INPUT_HEADLINE "Unešeni broj je preveliki!"
+    IDS_RULES_HEADLINE      "Pravila igre / opis igre"
+    IDS_LOGFILE_HEADLINE    "\r\n\r\nOva datoteka prikazuje svaki potez i poene oba igraca.\r\nGrafikon sadrži iste informacije kao i grafikon ""tok igre"" u dijalogu igre.\r\n\r\n"
+    IDS_TOOL_TIP_TEXT       "%s\nOvaj put bi pojeo: %s\n%s"
+    IDS_LOGFILE_MAXPOINTS   "\r\nNajviši moguci rezultat za vas:"
+    IDS_GAME_IDEA           "Ovo je zdravorazumska igra za jednog ili više igraca od 10. godine.\n\nVreme igre: Ne bi vam trebalo više od 3 minuta za 20 brojeva, ali za 9,999 brojeva bilo bi vam potrebno više od godine."
+    IDS_PRIME               "(prost broj)"
+    IDS_LOGFILE_LOCATION    "\r\nPregled igre je sacuvan kao %s u ovaj folder: %s\r\n\r\n"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_TOOL_TIP_TEXT_NO_FACTORS "%s\nNije ostalo više cinilaca!\n%s"
+    IDS_FILE_NAME           "Summary.txt"
+    IDS_PLAYER_WINS_OPTIMAL "Cestitamo, pobedili ste Ajkulu Brojeva!\n\nSa %s poena cak ste postigli i najviši moguci rezultat sa %s brojeva.\n\nAko tražite veci izazov, probajte veci broj od %s."
+    IDS_SUM_TEXT            "Sa %s brojeva: %s poena može biti ukupno dodeljeno vama i Ajkuli Brojeva."
+    IDS_LOGFILE_NUMBERS     "\r\n\r\nSkup brojeva:                 "
+    IDS_RULES_2             "U toku igre možete ukljuciti ili iskljuciti vidljivost školjki na dugnetu pritiskom na SHIFT+ALT+C na vašoj tastaturi.\r\nOvo vam može pomoci da procitate brojeve na dugmadima bolje i malo ubrzate igru.\r\n\r\nMožete dobiti dodatne informacije i pomoc pritiskom na dugme F1.\r\n\r\nOnline pomoc sadrži prirucnik za rukovanje, iskomentarisani primer toka igre, neke informacije o tome kako je program razvijan,\r\i izazov za vas, koji vam daje šansu da nam pomognete da poboljšamo igru.\r\n"
+    IDS_MAX_POINTS_INFORMATION2 
+                            "Za %s najviši dostižan rezultat je %s.\n\nMožemo da vam prikažemo najveci rezultat, jer je ova vrednost vec izracunata i smeštena u program.\n\nJedan nacin da postignete najveci moguci rezultat je: %s."
+    IDS_DISCLAIMER_TEXT     "Molimo imajte na umu uslove dozvole i informacije u vezi ne \r\nobavezivanja za bilo kakvu štetu koja nastane upotrebom Ajkule Brojeva.\r\n(C) CrypTool Projekat 2010"
+    IDS_MAX_POINTS_HEADLINE2 "Maksimalan broj poena na optimalan nacin"
+    IDS_INFO_TEXT           "Program Ajkula Brojeva napravljen je kao dodatak\r\nprojektu otvorenog softvera CrypTool: www.cryptool.com"
+    IDS_PRIME_INFO          "(prost broj)"
+    IDS_REG_TRUE            "tacno"
+    IDS_SHARK_AGAINST       " protiv "
+    IDS_GAME_DATA           "GameData.txt"
+    IDS_HELP_FILE           "NumberShark-en.chm::/NumberShark.html"
+    IDS_TITLE_VERSION       " - Verzija 1.2"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_NUMBER_SHARK        "Ajkula Brojeva"
+    IDS_OPTIONS_HEAD_TEXT   "Da biste poceli odmah samo pritisnite ""Enter"" ili pritisnite dugme  ""Na igru"" ."
+    IDS_OPTIONS_TOOLTIPS    "Aktivirajte alat za nagoveštaj za školjke\r\n[Ako postavite kursor miša malo duže na plave školjke (one sa još uvek aktivnim brojevima), mali prozor (nagoveštaj) se otvara i daje vam informacije, npr. cinioce još uvek dostupne za ovaj broj]."
+    IDS_OPTIONS_SHOW_DIALOG "Prikaži dijalog ""Opcije igre"" sledeci put pri pokretanju programa."
+    IDS_OPTIONS_SHOW_NUMBERS 
+                            "Zapamti zadnji ukupan broj skupa brojeva za sledece pokretanje programa."
+    IDS_OPTIONS_MAX_POINTS  "Ovde možete da izracunate najvecu mogucu vrednost za vaš odabrani skup brojeva od %s brojeva. Ali ovo ce malo da potraje.\r\n\r\nUmesto toga možemo odmah da vam pokažemo brojeve koji su vec izracunati (uskladišteno samo za brojeve od 1 do 158)."
+    IDS_STRING_PT           ","
+    IDS_MAX_POINTS_OLD      "Da biste izracunali za %d brojeva najeci rezultat od %d poena, programu je trebalo %d sekundi. Morao je da prode %I64d cvorova.\n\nNajviši prost broj ovde je %d. Morate poceti igru sa ovim brojem da biste mogli da postignete najveci moguci rezultat.\n\nDa biste postigli najveci moguci rezultat možete odabrati brojeve u ovom redosledu: %s"
+    IDS_TOOL_TIP_NUMBER     "Broj: %s"
+    IDS_TOOL_TIP_ISFACTOR   "Je cinilac: %s"
+    IDS_START_INFO          "Sad možete odabrati jednu od školjki da biste poceli igru."
+    IDS_LOG_LEAD            "\r\nVaše vodjstvo:                   "
+    IDS_LOG_BEHIND          "\r\nIza:                      "
+    IDS_SPRACHE             "SR"
+    IDS_LED_WIN             "Pobedili ste!"
+    IDS_LED_LOST            "Izgubili ste!"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_LED_DRAW            "NEREŠENO!"
+    IDS_ZUG2                "Potez"
+    IDS_SPIELER2            "Vaš izbor"
+    IDS_HAI2                "Izbor Ajkule Brojeva"
+    IDS_SPIELER_PUNKTE2     "Vaši poeni"
+    IDS_HAI_PUNKTE2         "Poeni Ajkule Brojeva"
+    IDS_REST2               "Preostali brojevi"
+    IDS_ISNOT_FACTOR        "Ne deli nijedan drugi broj."
+    IDS_RADIO_EDIT1         "Da\r\nkao ""%s"" u folderu\r\n""%s"". "
+    IDS_RADIO_EDIT2         "Ne."
+    IDS_TAB_HEADER1         "Dobrodošli"
+    IDS_TAB_HEADER2         "Standardno"
+    IDS_TAB_HEADER3         "Maksimalne vrednosti"
+    IDS_TAB_RADIO1          "Izracunati novu vrednost maksimalnih poena."
+    IDS_TAB_RADIO2          "Prikaži maksimalne moguce poene."
+    IDS_SEARCH1             "PretragaAjkuleBrojeva["
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_SEARCH2             " brojevi].zha"
+    IDS_BUTTON_HELP         "Prikazuje vam pomoc za igru Ajkula Brojeva."
+    IDS_WARNING_SHORT       "%s brojeva... Ovo ce trajati dugo.\n\nDa li stvarno želite da izvršite racunanje sada?"
+    IDS_MAX_POINTS_INFORMATION_NOVALUE 
+                            "Nažalost, datoteka %s u direktorijumu %s nije mogla da se ucita. Datoteka mora biti smeštena u istom folderu kao i Ajkula Brojeva."
+    IDS_TOOL_TIP_UNDO       "Sa ""Vrati"" možete ponoviti prethodne runde ako želite da odaberete druge brojeve."
+    IDS_TOOL_TIP_REDO       "Sa ""Ponovi"" možete ici unapred i igri onoliko koraka koliko ste koristili opciju ""Vrati""."
+    IDS_MAX_POINTS_NEW_2    "Za racunanje za %s brojeva najviši rezultat od %s poena, programu je trebalo %s sekundi. Morao je da prode kroz %s cvorova.\n\nNajveci prost broj ovde je %s. Morate poceti igru sa ovim brojem da biste mogli da postignete najveci moguci rezultat.\n\nDa biste postigli najveci moguci rezultat možete odabrati brojeve u ovom redosledu: %s"
+    IDS_SHELL_GROUP_BOX     "Kvadrat školjke  (plavo znaci: još slobodan za odabir;  crveno znaci: vec distribuiran i pojeden)"
+    IDS_NORMAL_GROUP_BOX    "Kvadrat školjke"
+    IDS_NO_SEARCH           "Nije moguce pisati u datoteku ""%s"". Verovatno nemate dovoljno prava nad ovim folderom\r\n""%s"".\r\n\r\nProracun ce svejedno biti pokrenut, ali nece moci da se nastavi posle prekida."
+    IDS_NO_SUMMARY          "Nije moguce pisati u datoteku ""%s"". Verovatno nemate dovoljno prava nad ovim folderom\r\n""%s"".\r\n\r\n"
+    IDS_VALID_INPUT_HEADLINE_LOW "Uneseni broj je premali."
+    IDS_LOGFILE_PLAYER_NUMBERS "\r\nVaši odabrani brojevi: "
+    IDS_SEPERATOR           ","
+    IDS_TAB_HEADER4         "Ubrzavaci"
+    IDS_ACC_CHANGE          "SHIFT+ALT+C: Menja stil dugmati u kvadratu školjki.\r\n\r\n"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_ACC_LOAD            "SHIFT+ALT+L: Ucitava postojecu igru.\r\n\r\n"
+    IDS_ACC_SAVE            "SHIFT+ALT+S: Cuva trenutnu igru.\r\n\r\n"
+    IDS_PLAYER_WINS_OPTIMAL2 
+                            "Cestitamo, pobedili ste Ajkulu Brojeva!\n\nSa %s cak ste postigli veci rezultat nego mi. Naš najbolji rezultat je %s poena sa %s brojeva.\n\nMolimo pošaljite pregled igre na esslinger@fb5.uni-siegen.de."
+    IDS_PLAYER_WINS3        "Cestitamo, pobedili ste Ajkulu Brojeva!\n\n Ako tražite veci izazov, probajte veci broj od %s.\n\nOsvojili ste %s poena. Do sada, najviši rezultat koji smo postigli sa %s brojeva je bio %s."
+    IDS_NUMBER_ONE          "Ovaj put je Ajkula Brojeva pobedila :,-(\n\nPobedila vas je sa %s do %s poena.\n\nNe možete da pobedite samo sa jednim brojem u kvadratu školjke.\n\n Krenite -- Pokušajte opet!"
+    IDS_LOAD_FAILED         "Datoteka ""%s"" ne može da se ucita."
+    IDS_ASK_FOR_USER_CANCELLATION "Da li želite da otkažete proracun?"
+    IDS_SELECT_SEARCH_ALGORITHM 
+                            "Ajkula Brojeva sadrži dva razlicita algoritma da ustanovi maksimalan broj poena: Prvobitno dostupan algoritam brutalne sile upotpunjen je sa novim algoritmom pracenja unazad.\n\nKorišcenjem algoritma brutalne sile, za 20 brojeva sa PC na 3 GHz morao je da racuna oko 9 hours, za 22 broja racunanje je trajalo 9 dana. I verujemo da bi za 30 brojeva bile potrebne nedelje ili meseci.\n\nNovi algoritam je znatno brži.\n\nDa li želite da koristite novi algoritam?"
+    IDS_GAME_DATA_FILE_MISSING 
+                            "Datoteka sa podacima o igri (%s) nije pronadena. Mora da bude u istom folderu kao i izvršna datoteka Ajkule Brojeva.\n\nBez datoteke o podacima igre neke funkcije ce biti nedostupne."
+    IDS_BACKTRACKING_ALGORITHM_RESULT 
+                            "Za racunanje za %s brojeva najviši rezultat od %s poena, programu je trebalo %s sekundi.\n\nNajveci prost broj ovde je bio %s. Trebalo bi da pocnete novu igru sa ovim brojem da biste postigli najveci moguci rezultat.\n\nDa biste postigli najveci moguci rezultat, možete odabrati brojeve u ovom redosledu: %s\n\n"
+    IDS_SEARCH_PROGRESS_TEXT_1 
+                            "Ajkula Brojeva koristi %s algoritam da pronade najveci moguci rezultat za %d brojeva."
+    IDS_SEARCH_PROGRESS_TEXT_2 "Proteklo vreme: %d sekundi"
+    IDS_ALGORITHM_BRUTE_FORCE "brutalna sila"
+    IDS_ALGORITHM_BACK_TRACKING "pracenje unazad"
+END
+
+#endif    // Serbian (SER) resources
+/////////////////////////////////////////////////////////////////////////////
+
 
 #ifndef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
