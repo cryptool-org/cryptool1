@@ -77,10 +77,11 @@ CrypTool is available in the five languages
 - Spanish.
 
 In English and German the CrypTool package is completely localized.
-In all other language versions the program has the same functionality
-[translated and localized are the GUI (menus, dialogs, ...) of CrypTool,
-AES-Tool and Number Shark], but the online help, the readme file and 
-the attached PDF documentation are the same as in the English version.
+In all other language versions the program has the same full functionality,
+but the online help, the readme file and the attached PDF documentation
+are not localized -- they are same as in the English version.
+[so translated and localized are the GUI (menus, dialogs, ...) of
+CrypTool, AES-Tool and Number Shark].
 
 Further language versions (Russian, Ukrainian, ...) are under progress.
 
@@ -627,7 +628,7 @@ The general properties and functions of CrypTool are:
   svn checkout http://www.cryptool.com/svn/CrypTool/trunk --username anonymous
 
 To get an impression of the size of the CT1 project here is a statistics created
-in April 2010 using the files for the version 1.4.30 (avalaible in 5 languages).
+in April 2010 using the files for the version 1.4.30 (available in 5 languages).
 
     FILE SUMMARY (number of files according to file extension)
     ------------
@@ -804,7 +805,7 @@ c) New functionality:
 This chapter lists the enhancements and bug fixes in CrypTool 1.4.30,
 which have been added since CrypTool 1.4.21.
 
-Version 1.4.30 will be released simultaneously in English, German, Polish,
+Version 1.4.30 was released simultaneously in English, German, Polish,
 Serbian and Spanish.
 
 a) Developer-relevant changes (more technically oriented):

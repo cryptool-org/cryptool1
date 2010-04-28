@@ -78,10 +78,11 @@ CrypTool existiert in den fünf Sprachen
 - Spanisch.
 
 In Deutsch und Englisch ist das CrypTool-Paket komplett lokalisiert vorhanden.
-In allen anderen Sprach-Version hat das Programm wohl die gleiche Funktionalität
-[übersetzt und lokalisiert sind die Oberfläche (Menüs, Dialoge, ...)
-von CrypTool, AES-Tool und dem Zahlenhai], aber die Onlinehilfe, die Readme-Datei
-und die beigelegte PDF-Dokumentation sind dieselbe wie in der englischen Version.
+In allen anderen Sprach-Versionen hat das Programm wohl die gleiche und
+volle Funktionalität, aber die Onlinehilfe, die Readme-Datei und die beigelegte
+PDF-Dokumentation sind nicht lokalisiert, sondern dieselbe wie in der englischen
+Version [übersetzt und lokalisiert sind also jeweils die Oberfläche (Menüs,
+Dialoge, ...) von CrypTool, AES-Tool und dem Zahlenhai].
 
 Weitere Sprachversionen (russisch, ukrainisch, ...) sind in Arbeit.
 
@@ -818,7 +819,7 @@ c) Funktionale Änderungen / Erweiterungen:
 Dieses Kapitel listet die Erweiterungen und Bugfixes auf, die in
 CrypTool 1.4.30 seit CrypTool 1.4.21 hinzugefügt wurden.
 
-Die Version 1.4.30 kommt zeitgleich in Deutsch, Englisch, Polnisch, Serbisch und
+Die Version 1.4.30 kam zeitgleich in Deutsch, Englisch, Polnisch, Serbisch und
 Spanisch.
 
 a) Entwickler-relevante Änderungen (eher Programm-technisch):
@@ -2191,7 +2192,7 @@ c) Wikipedia:
      - http://pl.wikipedia.org/wiki/Kryptografia
    - Spanisch:
      - http://es.wikipedia.org/wiki/CrypTool
-   - Serbian:
+   - Serbisch:
      - http://sr.wikipedia.org/sr/CrypTool
    - Französisch:
      - http://fr.wikipedia.org/wiki/CrypTool
