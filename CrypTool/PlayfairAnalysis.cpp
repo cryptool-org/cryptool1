@@ -1424,7 +1424,18 @@ void CPlayfairAnalysis::ApplyPlayfair(const PlayfairOptions playfairOptions)
 	// if "fileNamePreformattedText" is set; otherwise, skip this section
 	if(playfairOptions.fileNamePreformattedText.GetLength() > 0) {
 		outfp = fopen((LPCTSTR)playfairOptions.fileNamePreformattedText, "wb");
-		fwrite(inbuf, 1, inbuflen, outfp);
+		// flomar, 04/27/2010
+		// we divide pairs of characters with blanks (this is a requirement for the GUI)
+		int numberOfCharactersProcessed = 0;
+		for(int i=0; i<inbuflen; i++) {
+			// print out a character
+			fwrite(inbuf + numberOfCharactersProcessed, 1, 1, outfp);
+			numberOfCharactersProcessed++;
+			// print out a blank if necessary
+			if(numberOfCharactersProcessed != 0 && !(numberOfCharactersProcessed % 2)) {
+				fwrite(" ", 1, 1, outfp);
+			}
+		}
 		fclose(outfp);
 	}
 
@@ -1433,7 +1444,18 @@ void CPlayfairAnalysis::ApplyPlayfair(const PlayfairOptions playfairOptions)
 
 	// write "outbuf" to file "fileNameCiphertext"
 	outfp = fopen((LPCTSTR)playfairOptions.fileNameCiphertext, "wb");
-	fwrite(outbuf, 1, outbuflen, outfp);
+	// flomar, 04/27/2010
+	// we divide pairs of characters with blanks (this is a requirement for the GUI)
+	int numberOfCharactersProcessed = 0;
+	for(int i=0; i<outbuflen; i++) {
+		// print out a character
+		fwrite(outbuf + numberOfCharactersProcessed, 1, 1, outfp);
+		numberOfCharactersProcessed++;
+		// print out a blank if necessary
+		if(numberOfCharactersProcessed != 0 && !(numberOfCharactersProcessed % 2)) {
+			fwrite(" ", 1, 1, outfp);
+		}
+	}
 	fclose(outfp);
 }
 
