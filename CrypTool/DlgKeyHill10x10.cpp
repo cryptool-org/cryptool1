@@ -3042,9 +3042,9 @@ void CDlgKeyHill10x10::OnPasteKey()
 		AnzeigeDimensionSetzen(dim);
 		
 		CString str;
-		for(int i=0;i<5;i++)
+		for(int i=0;i<dim;i++)
 		{
-			for(int j=0;j<5;j++)
+			for(int j=0;j<dim;j++)
 			{
 				m_pFelder[i][j]->GetWindowText(str);
 				m_pAlphCode[i][j]->SetWindowText(getAlphCode(str));

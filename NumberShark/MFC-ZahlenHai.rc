@@ -156,12 +156,12 @@ END
 
 IDD_SEARCH_PROGRESS DIALOGEX 0, 0, 200, 110
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "[i18n] Search Progress"
+CAPTION "Szukaj postep"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     LTEXT           "DYNAMICALLY_GENERATED",IDC_TEXT_SEARCH_PROGRESS_1,7,7,186,24
-    LTEXT           "[i18n] Unfortunately we cannot predict how much time the search will take, but you can cancel the search at any time.",IDC_STATIC,7,55,186,24
-    PUSHBUTTON      "Cancel",IDCANCEL,75,87,50,16
+    LTEXT           "Niestety nie mozemy przewidziec ile czasu zajmie wyszukiwanie, mozna zrezygnowac z wyszukiwania w dowolnej chwili.",IDC_STATIC,7,55,186,24
+    PUSHBUTTON      "Anuluj",IDCANCEL,75,87,50,16
     CTEXT           "DYNAMICALLY_GENERATED",IDC_TEXT_SEARCH_PROGRESS_2,7,39,186,8
 END
 
@@ -188,12 +188,12 @@ BEGIN
     BEGIN
         BLOCK "040704e4"
         BEGIN
-            VALUE "Copyright (C) 2006", " (C) CrypTool Project 2010"
-            VALUE "FileDescription", "[i18n] Number Shark is an educational game to improve the knowledge of factors and prime numbers."
+            VALUE "Copyright (C) 2006", " (C) CrypTool Projekt 2010"
+            VALUE "FileDescription", "Number Shark jest gra edukacyjna na rzecz poprawy wiedzy na temat czynnikow i liczb pierwszych."
             VALUE "FileVersion", "1.2"
-            VALUE "InternalName", "[i18n] NumberShark.exe"
-            VALUE "OriginalFilename", "[i18n] NumberShark.exe"
-            VALUE "ProductName", "[i18n] NumberShark"
+            VALUE "InternalName", "NumberShark.exe"
+            VALUE "OriginalFilename", "NumberShark.exe"
+            VALUE "ProductName", "NumberShark"
             VALUE "ProductVersion", "1.2"
         END
     END
@@ -381,7 +381,7 @@ BEGIN
     IDS_MAX_POINTS_INFORMATION 
                             "Najwy¿szym osi¹galnym wynikiem na %s numerów jest %s \n\n\n\nMo¿emy pokazaæ Tobie najwy¿szy mo¿liwy wynik, poniewa¿ ta wartoœæ zosta³a ju¿ policzona i jest przechowywana przez program.\n\n\n\nPodpowiedŸ:\n\nNajwiêksza liczba pierwsza z %s liczbami to %s. \n\n\n\nCzy chcesz zobaczyæ drogê do osi¹gniêcia tego wyniku?"
     IDS_QUESTION            "\r\nCzy chesz aby program obliczy³ maksymalny mo¿liwy wynik? \r\n"
-    IDS_WARNING             "[i18n] %s numbers... This will take a long time.\r\n\r\nUsing a brute-force algorithm, for 20 numbers a 3 GHz PC had to calculate about 9 hours, for 22 numbers the calculation took about 9 days. And we think for 30 numbers it will take weeks or months.\r\n\r\nIf you get some new results for %s numbers, we would appreciate it if you could send them to us.\r\n\r\nDo you really want the calculation to be performed now?\r\n"
+    IDS_WARNING             "%s numery... Moze potrwac dlugo.\r\n\r\nZa pomoca algorytmu brute-force, na 20 numerow komputer z 3 GHz oliczal ok 9 godzin, do obliczenia 22 numerow trwalo okolo 9 dni. I sadzimy, ze obliczanie liczby 30 zajmie tygodnie lub miesiecy.\r\n\r\nJesli pojawia sie nowe wyniki dla numeru %s, bedziemy wdzieczni, jesli je do nas wyslesz.\r\n\r\nCzy na pewno chcesz wykonac obliczenia?\r\n"
     IDS_INVALID_INPUT       "Nie wprowadzaj liczby mniejszej ni¿ 1 lub wiêkszej ni¿ %s!"
 END
 
@@ -443,7 +443,7 @@ BEGIN
     IDS_SHARK_AGAINST       "przeciwko"
     IDS_GAME_DATA           "GameData.txt"
     IDS_HELP_FILE           "NumberShark-en.chm::/NumberShark.html"
-    IDS_TITLE_VERSION       "[i18n] - Wersja 1.0"
+    IDS_TITLE_VERSION       "Wersja 1.0"
 END
 
 STRINGTABLE 
@@ -518,18 +518,18 @@ BEGIN
     IDS_NUMBER_ONE          "Tym razem Number Shark wygra³ :-( \r\n\r\n Wynik gry %s do %s. \r\nNie mo¿esz wygraæ z tylko jedn¹ liczb¹ w oknie muszelek.\r\n Œmia³o - spróbuj ponownie! :-) \r\n\r\n"
     IDS_LOAD_FAILED         "Plik ""%s"" nie móg³ zostaæ za³adowany."
     IDS_ASK_FOR_USER_CANCELLATION 
-                            "[i18n] Do you want to cancel the calculation?"
+                            "Czy chcesz zrezygnowac z obliczen?"
     IDS_SELECT_SEARCH_ALGORITHM 
-                            "[i18n] The NumberShark contains two different algorithms to determine the maximum number of points possible: The originally available brute-force algorithm was complemented by a new back-tracking algorithm.\n\nUsing the brute-force algorithm, a 3 GHz PC had to calculate about 9 hours for 20 numbers. For 22 numbers the calculation took about 9 days. And we believe it will take weeks or months for 30 numbers.\n\nThe new algorithm is considerably faster.\n\nDo you want to use the new algorithm?"
+                            "NumberShark zawiera dwa rozne algorytmy deterministyczne maksymalnych mozliwych liczb punktow: pierwotnie dostepny algorytm brute-force uzupelniono o nowy algorytm back-tracking.\n\nZa pomoca algorytmu brute-force, komputer z 3 GHz musial obliczac okolo 9 godzin dla 20 numerow. Do obliczenia 22 numerow okolo 9 dni. I wierzymy, ze zajmie kilka tygodni lub miesiecy dla 30 numerow.\n\nNowy algorytm jest znacznie szybszy.\n\nCzy chcesz korzystac z nowych algorytmow?"
     IDS_GAME_DATA_FILE_MISSING 
-                            "[i18n] The game data file (%s) was not found. It needs to be placed in the same folder as the NumberShark executable.\n\nWithout the game data file some functions will remain unavailable."
+                            "Plik danych gry(%s) nie zostal odnaleziony. Nalezy umiescic w tym samym folderze, co plik wykonywalny NumberShark.\n\nBez danych z plikow gry niektore funkcje pozostana niedostepne."
     IDS_BACKTRACKING_ALGORITHM_RESULT 
-                            "[i18n] To calculate for %s numbers the highest score of %s points, the program needed %s seconds.\n\nThe highest prime number here is %s. You should start the game with this prime to be able to reach the maximum score.\n\nTo achieve the highest score, you can choose the numbers in this order: %s\n\n"
+                            "Do obliczenia liczby dla %s, najwyzszy wynik punktow %s, program potrzebuje %s sekund.\n\nNajwyzsza liczba pierwsza to %s. Nalezy uruchomic gre z liczba pierwsza aby byc w stanie osiagnac maksymalna liczbe punktow.\n\nAby osiagnac jak najwyzszy wynik, mozna wybrac numery w tej kolejnosci: %s\n\n"
     IDS_SEARCH_PROGRESS_TEXT_1 
-                            "[i18n] The NumberShark is using a %s algorithm to find the highest possible score for %d numbers."
-    IDS_SEARCH_PROGRESS_TEXT_2 "[i18n] Elapsed time: %d seconds"
-    IDS_ALGORITHM_BRUTE_FORCE "[i18n] brute-force"
-    IDS_ALGORITHM_BACK_TRACKING "[i18n] back-tracking"
+                            "NumberShark uzywa %s algorytm aby znalezc najwyzszy mozliwy wynik dla %d liczb."
+    IDS_SEARCH_PROGRESS_TEXT_2 "Miniony czas: %d sekundy"
+    IDS_ALGORITHM_BRUTE_FORCE "brute-force"
+    IDS_ALGORITHM_BACK_TRACKING "back-tracking"
 END
 
 #endif    // Polish resources

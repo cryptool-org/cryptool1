@@ -409,11 +409,11 @@ STRINGTABLE
 BEGIN
     IDS_STRING_ENCERROR     "B³¹d szyfrowania pliku: %s"
     IDS_STRING_VERSION      "Plik zosta³ zaszyfrowany wczeœniejsz¹ wersj¹ AES-Toola.\n Prosze u¿yæ tej samej wersji do odszyfrowania."
-    IDS_STRING_AES_TOOL_VERSION "[i18n] AES-Tool 2.5.1"
+    IDS_STRING_AES_TOOL_VERSION "AES-Tool 2.5.1"
     IDS_STRING_CORRUPT      "Zaszyfrowany plik jest zepsuty."
     IDS_STRING_INVALID_KEY  "Niepoprawny znak w kluczu. Proszê u¿yæ tylko znaków 0-9, a-f,A-F."
     IDS_STRING_KEY_TOO_LONG "Zbyt d³ugi klucz. Maksymalna d³ugoœæ klucza AES to 256 bitów (= 32 bajtów = 64 cyfr hex)."
-    IDS_STRING_AES_TOOL_HELP_PREFIX "[i18n] Help for %s"
+    IDS_STRING_AES_TOOL_HELP_PREFIX "Pomoc dla %s"
 END
 
 #endif    // Polish resources
