@@ -429,8 +429,6 @@ void VernamBin(const char *infile, const char *OldTitle)
 void PlayfairBin(const char *infile, const char *OldTitle)
 {
  	char fileNameCleartext[128], fileNamePreformattedText[128], fileNameCiphertext[128], title[128];
-	
-	CAppDocument *NewDoc;
 
 	// Überprüfen, ob die Eingabedatei mindestens zwei gültige Zeichen enthält,
 	// d.h. Zeichen, die im entsprechenden Alphabet vorkommen.
@@ -507,20 +505,26 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 
 	// show the preformatted text (only if we were ENcrypting, not DEcrypting)
 	if(!playfairOptions.decryption) {
-		CAppDocument *preformattedTextDocument = theApp.OpenDocumentFileNoMRU(playfairOptions.fileNamePreformattedText);
-		CString preformattedTextDocumentTitle; preformattedTextDocumentTitle.Format(IDS_STRING_PLAYFAIR_PREFORMAT, OldTitle);
+		CScintillaDoc *preformattedTextDocument = (CScintillaDoc*)(theApp.OpenDocumentFileNoMRU(playfairOptions.fileNamePreformattedText));
+		CString preformattedTextDocumentTitle;
+		preformattedTextDocumentTitle.Format(IDS_STRING_PLAYFAIR_PREFORMAT, OldTitle);
 		preformattedTextDocument->SetTitle(preformattedTextDocumentTitle);
+		preformattedTextDocument->activatePlayfairView();
 	}
 
-	// show the ciphertext
-	OpenNewDoc(fileNameCiphertext, stringCompleteKey, OldTitle, IDS_PLAYFAIR, playfairOptions.decryption);
+	// show the ciphertext (including key and full title)
+	CScintillaDoc *resultTextDocument = (CScintillaDoc*)(theApp.OpenDocumentFileNoMRU(playfairOptions.fileNameCiphertext, stringCompleteKey));
+	GetNewDocTitle(stringCompleteKey.GetBuffer(), OldTitle, IDS_PLAYFAIR, title, 128, playfairOptions.decryption);
+	CString resultTextDocumentTitle = title;
+	resultTextDocument->SetTitle(resultTextDocumentTitle);
+	resultTextDocument->activatePlayfairView();
 	
 	HIDE_HOUR_GLASS
 }
 
 void PlayfairAnalyse(const char *infile, const char *OldTitle)
 {
-	char outfile[128];
+	char outfile[128], title[128];
 	GetTmpName(outfile,"cry",".tmp");
 	class CDlgPlayfairAnalysis KeyDialog(infile,outfile,theApp.TextOptions.getKeepCharactersNotPresentInAlphabetUnchanged(),theApp.TextOptions.getKeepUpperLowerCaseInformation());
 
@@ -543,8 +547,14 @@ void PlayfairAnalyse(const char *infile, const char *OldTitle)
 
 	// apply Playfair with the desired options
 	KeyDialog.m_Alg->ApplyPlayfair(playfairOptions);
+
 	// show the new document
-	OpenNewDoc(outfile, stringCompleteKey, OldTitle, IDS_PLAYFAIR, playfairOptions.decryption);
+	CScintillaDoc *resultTextDocument = (CScintillaDoc*)(theApp.OpenDocumentFileNoMRU(outfile, stringCompleteKey));
+	GetNewDocTitle(stringCompleteKey.GetBuffer(), OldTitle, IDS_PLAYFAIR, title, 128, playfairOptions.decryption);
+	CString resultTextDocumentTitle = title;
+	resultTextDocument->SetTitle(resultTextDocumentTitle);
+	resultTextDocument->activatePlayfairView();
+
 	HIDE_HOUR_GLASS
 }
 

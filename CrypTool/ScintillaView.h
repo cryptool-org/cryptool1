@@ -176,6 +176,12 @@ public:
 	afx_msg void OnUpdateZeichenformatCourier16(CCmdUI *pCmdUI);
 	afx_msg void OnViewAlphabet();
 	afx_msg void OnUpdateViewAlphabet(CCmdUI *pCmdUI);
+
+public:
+	// flomar, 04/30/2010
+	// when this function is called, the document text is divided into blocks of 
+	// two characters (Playfair-like), and the blocks are separated by blanks
+	void activatePlayfairView();
 };
 
 #ifndef _DEBUG  // Testversion in ScintillaView.cpp

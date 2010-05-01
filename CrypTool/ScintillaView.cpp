@@ -1135,3 +1135,35 @@ void CScintillaView::RefreshAlphabet()
 	if (pActiveWindow->GetShowAlphabet())
 		pActiveWindow->SetShowAlphabet(true);
 }
+
+void CScintillaView::activatePlayfairView()
+{
+	// the old data (without separating blanks)
+	const unsigned long lengthOldData = m_wndScintilla.SendMessage(SCI_GETLENGTH);
+	char *oldData = new char[lengthOldData + 1];
+	memset(oldData, 0, lengthOldData + 1);
+	// the new data (including separating blanks)
+	CString newData;
+	// some tracking variables
+	unsigned long numberOfCharactersProcessed = 0;
+	unsigned long numberOfBlanksProcessed = 0;
+
+	// get old text from Scintilla window
+	m_wndScintilla.SendMessage(SCI_GETTEXT, (WPARAM)(lengthOldData + 1), (LPARAM)(oldData));
+
+	// insert a blank after every two characters
+	for(unsigned long i=0; i<lengthOldData; i++) {
+		newData.AppendChar(*(oldData + numberOfCharactersProcessed));
+		numberOfCharactersProcessed++;
+		if(numberOfCharactersProcessed != 0 && !(numberOfCharactersProcessed%2)) {
+			newData.AppendChar(' ');
+			numberOfBlanksProcessed++;
+		}
+	}
+
+	// remove trailing blanks
+	newData.TrimRight();
+
+	// set new text in Scintilla window
+	m_wndScintilla.SendMessage(SCI_SETTEXT, (WPARAM)(newData.GetLength()), (LPARAM)(newData.GetBuffer()));
+}

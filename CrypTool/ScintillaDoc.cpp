@@ -125,3 +125,10 @@ BOOL CScintillaDoc::OnSaveDocument(LPCTSTR lpszPathName)
 	return CDocument::OnSaveDocument(lpszPathName);
 }
 #endif
+
+void CScintillaDoc::activatePlayfairView()
+{
+	POSITION pos = GetFirstViewPosition();
+	CScintillaView *pView = (CScintillaView*)(GetNextView(pos));
+	pView->activatePlayfairView();
+}

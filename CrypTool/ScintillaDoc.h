@@ -73,6 +73,9 @@ protected:
 		//    Innerhalb dieser generierten Quelltextabschnitte NICHTS VERÄNDERN!
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
+public:
+	void activatePlayfairView();
 };
 
 /////////////////////////////////////////////////////////////////////////////
