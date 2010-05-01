@@ -17,68 +17,121 @@
 
 <h3>Dialog Analyse Playfair-Verschlüsselungsverfahren</h3>
 
-<P>Sie erreichen diesen Dialog über den Menüeintrag <a href="menu_analyze.html">Analyse</a> \ <a href="menu_analysis_symmetricclassic.html">Symmetrische Verschlüsselung (klassisch)</a> \ <a href="menu_analysis_symmetricclassic_manualanalysis.html">Manuelle Analyse</a> \ <a href="HID_PLAYFAIR_ANALYSE.html">Playfair</a>.</P>
+<P>Sie erreichen diesen Dialog über den Menüeintrag <a href="menu_analyze.html">Analyse</a> \ 
+<a href="menu_analysis_symmetricclassic.html">Symmetrische Verschlüsselung (klassisch)</a> \ 
+<a href="menu_analysis_symmetricclassic_manualanalysis.html">Manuelle Analyse</a> \ 
+<a href="HID_PLAYFAIR_ANALYSE.html">Playfair</a>.</P>
 
-<P>Die Analysehilfe zum Playfair-Algorithmus unterstützt die manuelle Analyse eines mit dem Playfair-Algorithmus verschlüsselten Textes. Vorausgesetzt wird, dass neben dem Chiffrat auch ein Teil des Klartextes bekannt ist. Mit diesen Informationen kann die Verschlüsselungsmatrix konstruiert werden.</P>
+<P>Die Analysehilfe zum Playfair-Algorithmus unterstützt die manuelle Analyse eines mit dem 
+Playfair-Algorithmus verschlüsselten Textes. Vorausgesetzt wird, dass neben dem Chiffrat auch ein Teil des 
+Klartextes bekannt ist. Mit diesen Informationen kann die Verschlüsselungsmatrix konstruiert werden.</P>
 
-<P>Anhand der Zwischenergebnisse können Sie die Matrix erraten oder sich von CrypTool eine Matrix vorschlagen lassen. Dabei können Sie das Ergebnis direkt verfolgen, die Matrix ggf. noch verbessern und schließlich eine Entschlüsselung versuchen.</P>
+<P>Anhand der Zwischenergebnisse können Sie die Matrix erraten oder sich von CrypTool eine Matrix vorschlagen 
+lassen. Dabei können Sie das Ergebnis direkt verfolgen, die Matrix ggf. noch verbessern und schließlich eine 
+Entschlüsselung versuchen.</P>
 
-<P>Mit dem Feld <B>Passwort</B> können Sie am schnellsten die Verschlüsselungsmatrix bearbeiten. Eine Eingabe im Feld Passwort wird, wie in <A href="hid_playfair_bin.html">Playfair-Verschlüsselungsverfahren</A> beschrieben, in die Matrix geschrieben. Eine Eingabe direkt in der Matrix vertauscht das eingegebene Zeichen mit dem im aktuellen Feld innerhalb der Matrix, falls das aktuelle Feld kein Sternchen mehr enthält.</P>
+<P>Mit dem Feld <B>Passwort</B> können Sie am schnellsten die Verschlüsselungsmatrix bearbeiten. Eine Eingabe 
+im Feld Passwort wird, wie in <A href="hid_playfair_bin.html">Playfair-Verschlüsselungsverfahren</A> 
+beschrieben, in die Matrix geschrieben. Eine Eingabe direkt in der Matrix vertauscht das eingegebene Zeichen 
+mit dem im aktuellen Feld innerhalb der Matrix, falls das aktuelle Feld kein Sternchen mehr enthält.</P>
 
-<P>Die gesetzte Option <B>Vermuteter Klartext anhand der Matrix aktualisieren</B> bedeutet, dass nach jeder Neuberechnung der Schlüsselmatrix das Ergebnis der aktuellen Entschlüsselung in das Eingabefeld <B>Vermuteter Klartext</B> geschrieben wird.</P>
+<P>Die gesetzte Option <B>Vermuteter Klartext anhand der Matrix aktualisieren</B> bedeutet, dass nach jeder 
+Neuberechnung der Schlüsselmatrix das Ergebnis der aktuellen Entschlüsselung in das Eingabefeld 
+<B>Vermuteter Klartext</B> geschrieben wird.</P>
 
-<P>Die Textfelder im Dialog <B>Analyseergebnis</B> zeigen die Wirkung der gewählten Matrix: </P>
-
-<UL>
-	<LI>Die erste Zeile enthält den Anfang des Chiffrats.</LI>
-
-	<LI>Die zweite Zeile entspricht Ihrer Klartextvorgabe im Feld ‚vermuteter Klartext‘, dabei werden bereits gefundene Digramme durchgehend ersetzt.</LI>
-
-	<LI>Die dritte Zeile ist das Analyseergebnis der Klartextvorgabe. Die Ausgabe wird mit Hilfe der oben angegebenen Verschlüsselungsmatrix aus dem Chiffretext bestimmt.</LI>
-</UL>
-
-<P>Die Bedingungen für die Matrix werden im großen Feld ‚Buchstabeninformationen‘ angezeigt. Diese Informationen errechnen sich aus dem Chiffrat und dem vermuteten Klartext. Sie wirken sich zunächst <B>nicht</B> auf die Matrix aus, sondern geben Ihnen eine Hilfe zum Erraten der richtigen Matrix. </P>
-
-<P>Sie erhalten nach Eingabe einer Klartextvorgabe in der Tabelle <B>Buchstabeninformationen</B> folgende Informationen zu den einzelnen Buchstaben: </P>
-
-<UL>
-	<LI><B>LROU:</B> Diese Spalte gibt an, welche Nachbarn der Buchstabe mit Sicherheit hat. Steht in der Zeile ‚H‘ die Kombination ‚S*V*‘, dann ist bekannt, dass links neben ‚H‘ der Buchstabe ‚S‘ in der Matrix stehen muss. Andernfalls kann keine Buchstabenmatrix aus dem Chiffrat mit dem Playfair-Verfahren Ihre Klartextvorgabe erfüllen. Entsprechend gilt, dass der Buchstabe ‚V‘ mit Sicherheit über dem Buchstaben ‚H‘ steht. Die beiden anderen Nachbarn sind bis dahin noch nicht genau bestimmt.</LI>
-
-	<LI><B>Nb?:</B> Die Buchstaben vor dem Trennzeichen ‚/‘ stehen entweder links oder über dem Buchstaben, entsprechend die aufgeführten Buchstaben nach dem Trennzeichen rechts oder darunter.</LI>
-
-	<LI><B>Horizontal:</B> Die aufgelisteten Buchstaben stehen in der Regel in derselben Zeile wie der Buchstabe. Folgt einem angenommenen ‚C‘ in der Zeile ‚H‘ das Ausrufezeichen, dann steht ‚C‘ mit Sicherheit in der Zeile von ‚H‘. Schwächer ist die Bedingung, wenn ein Punkt oben (‚C°‘) oder unten (‚C.‘) folgt. Bei ‚C°‘ steht ‚C‘ entweder in derselben Zeile oder genau über ‚H‘.</LI>
-
-	<LI><B>Vertikal:</B> Hier angegebenen Zeichen stehen sicher in derselben Spalte von jeweiligen Buchstaben.</LI>
-
-	<LI><B>row or col?:</B> enthält die schwächste dieser Bedingungen, dass ein Zeichen in derselben Zeile oder in derselben Spalte steht. </LI>
-</UL>
-
-<P><B>Tipp</B>: In der Regel stehen Buchstaben, die in der Liste von <B>row or col</B>, aber nicht in der Liste <B>Horizontal</B> aufgeführt sind, in der Spalte des jeweiligen Buchstabens.</P>
-
-<P>Beim Drücken des Schalters <B>Erzeuge Matrix</B> schlägt CrypTool Ihnen eine Matrix vor, die CrypTool selbst berechnet und die die Bedingungen der gefundenen Digramme erfüllt (so dass aus dem Chiffrat Ihre Klartextvorgabe generiert werden kann). Diese Matrix können Sie dann nach Belieben wieder abändern. Beachten Sie, dass Ihre vorab eingegebenen Änderungen an der Matrix (oder Ihre Eingaben im Textfeld Passwort) dadurch verloren gehen.</P>
-
-<P>Falls Ihre Klartextvorgabe nicht beim ersten Buchstaben beginnt oder Lücken enthält, können Sie durch Drücken der Leertaste Platzhalter (in der Eingabe erscheint das Symbol '*') eingeben. </P>
-
-<P>Da das Playfair-Verfahren Digramme verschlüsselt, ignoriert die Analyse alle Digramme die Sternchen in der Vorgabe enthalten. </P>
-
-<P>Die Klartextvorgabe kann inkonsistent sein. Das heißt die Klartexteingabe widerspricht dem Playfair-Verfahren (Beispiel: Ein 'A' wird niemals als 'A' chiffriert) oder die Klartexteingabe führt zur Berechnung von Digrammen der Form: AB wird nach WX verschlüsselt aber auch: AB wird nach UV verschlüsselt. In diesem Fall kann die Analyse keine Playfair-Matrix berechnen und Sie erhalten eine entsprechende Fehlermeldung:</P>
-
-<P>Die möglichen Vorgabefehler im einzelnen: </P>
+<P>Die Textfelder im Dialog <B>Analyseergebnis</B> zeigen die Wirkung der gewählten Matrix:</P>
 
 <UL>
-	<LI><B>Bei Playfair sind Klarbuchstabe und Chiffrezeichen immer verschieden.</B><BR>
-Der Playfair-Algorithmus ist so angelegt, dass es nicht passieren kann, dass ein Zeichen auf sich selbst abgebildet wird. Steht irgendwo in der Vorgabe ein Zeichen so, dass es im Chiffrat an derselben Position auftritt, dann erfolgt diese Fehlermeldung.<BR>
-<B>Beispiel:</B> Chiffre="ABCD", Vorgabe="QWCA" führt zu dieser Fehlermeldung, da "C" an Position 3 sowohl in der Chiffre als auch in der Vorgabe vorkommt.<BR>
-Daher ist diese Annahme falsch.</LI>
 
-	<LI><B>Fehler bei der Klartextanalyse! Eine der Listen ist übergelaufen.</B><BR>
-In der Tabelle Buchstabeninformationen sind jedem Buchstaben mehrere Listen zugeordnet, wobei die jeweilige maximale Listenlänge abhängig von der Dimension der Playfair-Schlüsselmatrix ist. Beispielsweise können bei einer 5x5 Matrix maximal 4 weitere Zeichen in derselben Zeile (Liste <B>Horizontal</B>) und 4 weitere Zeichen in derselben Spalte (Liste <B>Vertical</B>) stehen. Ergibt die Auswertung der Buchstabenpaare, dass bei einem Buchstaben plötzlich 5 Zeichen in derselben Zeile bzw. Spalte sicher stehen (sicher wird in der Liste durch ein Ausrufezeichen hinter den Buchstaben angezeigt), oder wenn in der Spalte <B>row or col</B> mehr als 9 Zeichen stehen, dann ist die Liste übergelaufen.</LI>
+<LI>Die erste Zeile enthält den Anfang des Chiffrats.</LI>
 
-	<LI><B>Fehler bei der Klartextanalyse! Einer der Nachbarn war schon sicher.</B><BR>
-Hier war ein Nachbar in der Spalte <B>Nb?</B> schon sicher ermittelt und die weitere Auswertung ergab, dass jetzt ein anderer Buchstabe an dieser Stelle stehen soll.</LI>
+<LI>Die zweite Zeile entspricht Ihrer Klartextvorgabe im Feld <b>vermuteter Klartext</b>, dabei werden 
+bereits gefundene Digramme durchgehend ersetzt.</LI>
+
+<LI>Die dritte Zeile ist das Analyseergebnis der Klartextvorgabe. Die Ausgabe wird mit Hilfe der oben 
+angegebenen Verschlüsselungsmatrix aus dem Chiffretext bestimmt.</LI>
+
 </UL>
 
-<P>Wird der Dialog mit <B>Ergebnis der Analyse ausgeben</B> beendet, wird die gewählte Matrix zum Ent-/Verschlüsseln des ganzen Textes benutzt.</P>
+<P>Die Bedingungen für die Matrix werden im großen Feld <b>Buchstabeninformationen</b> angezeigt. Diese 
+Informationen errechnen sich aus dem Chiffrat und dem vermuteten Klartext. Sie wirken sich zunächst 
+<B>nicht</B> auf die Matrix aus, sondern geben Ihnen eine Hilfe zum Erraten der richtigen Matrix.</P>
+
+<P>Sie erhalten nach Eingabe einer Klartextvorgabe in der Tabelle <B>Buchstabeninformationen</B> folgende 
+Informationen zu den einzelnen Buchstaben:</P>
+
+<UL>
+
+<LI><B>LROU:</B> Diese Spalte gibt an, welche Nachbarn der Buchstabe mit Sicherheit hat. Steht in der Zeile 
+‚H‘ die Kombination ‚S*V*‘, dann ist bekannt, dass links neben ‚H‘ der Buchstabe ‚S‘ in der Matrix stehen 
+muss. Andernfalls kann keine Buchstabenmatrix aus dem Chiffrat mit dem Playfair-Verfahren Ihre 
+Klartextvorgabe erfüllen. Entsprechend gilt, dass der Buchstabe ‚V‘ mit Sicherheit über dem Buchstaben 
+‚H‘ steht. Die beiden anderen Nachbarn sind bis dahin noch nicht genau bestimmt.</LI>
+
+<LI><B>Nb?:</B> Die Buchstaben vor dem Trennzeichen ‚/‘ stehen entweder links oder über dem Buchstaben, 
+entsprechend die aufgeführten Buchstaben nach dem Trennzeichen rechts oder darunter.</LI>
+
+<LI><B>Horizontal:</B> Die aufgelisteten Buchstaben stehen in der Regel in derselben Zeile wie der Buchstabe. 
+Folgt einem angenommenen ‚C‘ in der Zeile ‚H‘ das Ausrufezeichen, dann steht ‚C‘ mit Sicherheit in der Zeile 
+von ‚H‘. Schwächer ist die Bedingung, wenn ein Punkt oben (‚C°‘) oder unten (‚C.‘) folgt. Bei ‚C°‘ steht ‚C‘ 
+entweder in derselben Zeile oder genau über ‚H‘.</LI>
+
+<LI><B>Vertikal:</B> Hier angegebenen Zeichen stehen sicher in derselben Spalte von jeweiligen Buchstaben.</LI>
+
+<LI><B>row or col?:</B> enthält die schwächste dieser Bedingungen, dass ein Zeichen in derselben Zeile oder 
+in derselben Spalte steht. </LI>
+
+</UL>
+
+<P><B>Tipp</B>: In der Regel stehen Buchstaben, die in der Liste von <B>row or col</B>, aber nicht in der 
+Liste <B>Horizontal</B> aufgeführt sind, in der Spalte des jeweiligen Buchstabens.</P>
+
+<P>Beim Drücken des Schalters <B>Erzeuge Matrix</B> schlägt CrypTool Ihnen eine Matrix vor, die CrypTool 
+selbst berechnet und die die Bedingungen der gefundenen Digramme erfüllt (so dass aus dem Chiffrat Ihre 
+Klartextvorgabe generiert werden kann). Diese Matrix können Sie dann nach Belieben wieder abändern. Beachten 
+Sie, dass Ihre vorab eingegebenen Änderungen an der Matrix (oder Ihre Eingaben im Textfeld Passwort) dadurch 
+verloren gehen.</P>
+
+<P>Falls Ihre Klartextvorgabe nicht beim ersten Buchstaben beginnt oder Lücken enthält, können Sie durch 
+Drücken der Leertaste Platzhalter (in der Eingabe erscheint das Symbol '*') eingeben. </P>
+
+<P>Da das Playfair-Verfahren Digramme verschlüsselt, ignoriert die Analyse alle Digramme die Sternchen in der 
+Vorgabe enthalten. </P>
+
+<P>Die Klartextvorgabe kann inkonsistent sein. Das heißt die Klartexteingabe widerspricht dem 
+Playfair-Verfahren (Beispiel: Ein 'A' wird niemals als 'A' chiffriert) oder die Klartexteingabe führt zur 
+Berechnung von Digrammen der Form: AB wird nach WX verschlüsselt aber auch: AB wird nach UV verschlüsselt. 
+In diesem Fall kann die Analyse keine Playfair-Matrix berechnen und Sie erhalten eine entsprechende 
+Fehlermeldung:</P>
+
+<P>Die möglichen Vorgabefehler im einzelnen:</P>
+
+<UL>
+
+<LI><B>Bei Playfair sind Klarbuchstabe und Chiffrezeichen immer verschieden.</B><BR>Der Playfair-Algorithmus 
+ist so angelegt, dass es nicht passieren kann, dass ein Zeichen auf sich selbst abgebildet wird. Steht 
+irgendwo in der Vorgabe ein Zeichen so, dass es im Chiffrat an derselben Position auftritt, dann erfolgt 
+diese Fehlermeldung.<BR><B>Beispiel:</B> Chiffre="ABCD", Vorgabe="QWCA" führt zu dieser Fehlermeldung, da 
+"C" an Position 3 sowohl in der Chiffre als auch in der Vorgabe vorkommt.<BR>Daher ist diese Annahme 
+falsch.</LI>
+
+<LI><B>Fehler bei der Klartextanalyse! Eine der Listen ist übergelaufen.</B><BR>In der Tabelle 
+Buchstabeninformationen sind jedem Buchstaben mehrere Listen zugeordnet, wobei die jeweilige maximale 
+Listenlänge abhängig von der Dimension der Playfair-Schlüsselmatrix ist. Beispielsweise können bei einer 
+5x5 Matrix maximal 4 weitere Zeichen in derselben Zeile (Liste <B>Horizontal</B>) und 4 weitere Zeichen in 
+derselben Spalte (Liste <B>Vertical</B>) stehen. Ergibt die Auswertung der Buchstabenpaare, dass bei einem 
+Buchstaben plötzlich 5 Zeichen in derselben Zeile bzw. Spalte sicher stehen (sicher wird in der Liste durch 
+ein Ausrufezeichen hinter den Buchstaben angezeigt), oder wenn in der Spalte <B>row or col</B> mehr als 9 
+Zeichen stehen, dann ist die Liste übergelaufen.</LI>
+
+<LI><B>Fehler bei der Klartextanalyse! Einer der Nachbarn war schon sicher.</B><BR>Hier war ein Nachbar in 
+der Spalte <B>Nb?</B> schon sicher ermittelt und die weitere Auswertung ergab, dass jetzt ein anderer 
+Buchstabe an dieser Stelle stehen soll.</LI>
+
+</UL>
+
+<P>Wird der Dialog mit <B>Ergebnis der Analyse ausgeben</B> beendet, wird die gewählte Matrix zum 
+Ent-/Verschlüsseln des ganzen Textes benutzt.</P>
 
 </BODY>
 </HTML>

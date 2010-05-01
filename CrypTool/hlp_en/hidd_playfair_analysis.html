@@ -17,66 +17,110 @@
 
 <h3>Dialog Analysis of the Playfair encryption algorithm</h3>
 
-<P>You can reach this dialog via the menu entry <a href="menu_analyze.html">Analysis</a> \ <a href="menu_analysis_symmetricclassic.html">Symmetric Encryption (classic)</a> \ <a href="menu_analysis_symmetricclassic_manualanalysis.html">Manual Analysis</a> \ <a href="HID_PLAYFAIR_ANALYSE.html">Playfair</a>.</P>
+<P>You can reach this dialog via the menu entry <a href="menu_analyze.html">Analysis</a> \ 
+<a href="menu_analysis_symmetricclassic.html">Symmetric Encryption (classic)</a> \ 
+<a href="menu_analysis_symmetricclassic_manualanalysis.html">Manual Analysis</a> \ 
+<a href="HID_PLAYFAIR_ANALYSE.html">Playfair</a>.</P>
 
-<P>The analysis tool for the Playfair algorithm supports the manual analysis of a text encrypted with the Playfair algorithm. As a pre-condition, parts of the plaintext must be available in addition to the ciphertext. Based on this information the key matrix can be constructed.</P>
+<P>The analysis tool for the Playfair algorithm supports the manual analysis of a text encrypted with the 
+Playfair algorithm. As a pre-condition, parts of the plaintext must be available in addition to the 
+ciphertext. Based on this information the key matrix can be constructed.</P>
 
-<P>Using intermediate results the matrix can be guessed or CrypTool can be asked for a suggestion. You can watch the results closely, correct them if necessary and finally try a decryption. </P>
+<P>Using intermediate results the matrix can be guessed or CrypTool can be asked for a suggestion. You can 
+watch the results closely, correct them if necessary and finally try a decryption.</P>
 
-<P>The encryption matrix can be edited via the fields <B>Password</B> and <B>Matrix</B>. An entry in the <B>Password</B> field is written to the matrix, as described in <A href="hid_playfair_bin.html">Playfair encryption algorithm</A>. A character entered directly into the matrix exchanges the positions of the entered character with the character at the cursor, if the character at the cursor is not a star (‘*‚).</P>
+<P>The encryption matrix can be edited via the fields <B>Password</B> and <B>Matrix</B>. An entry in the 
+<B>Password</B> field is written to the matrix, as described in <A href="hid_playfair_bin.html">Playfair 
+encryption algorithm</A>. A character entered directly into the matrix exchanges the positions of the 
+entered character with the character at the cursor, if the character at the cursor is not a star (‘*‚).</P>
 
-<P>The activated option <B>Update expected plaintext using the key matrix</B> will make that after each re-computation of the key matrix the plaintext of the actualised decryption is displayed on the input line <B>expected plaintext</B>.</P>
+<P>If the option <B>Update expected plaintext using the key matrix</B> is activated, after each 
+re-computation of the key matrix the plaintext of the actualised decryption is displayed on the input line 
+<B>expected plaintext</B>.</P>
 
-<P>The text displayed in the box labelled <B>Analysis result</B> reflects the effect of the selected matrix. </P>
+<P>The text displayed in the box labelled <B>Analysis result</B> reflects the effect of the selected 
+matrix.</P>
 
 <UL>
-	<LI>The first row shows the beginning of the encrypted text. </LI>
 
-	<LI>The second row equals to your stipulation as entered in the field `Expected plaintext´ (di-gram mappings already determined are applied consistently). </LI>
+<LI>The first row shows the beginning of the encrypted text.</LI>
 
-	<LI>The third row displays the analysis result based on the stipulation. It is calculated from the encrypted text and the currently selected matrix.</LI>
+<LI>The second row equals to your stipulation as entered in the field <b>Expected plaintext</b> (di-gram 
+mappings already determined are applied consistently).</LI>
+
+<LI>The third row displays the analysis result based on the stipulation. It is calculated from the encrypted 
+text and the currently selected matrix.</LI>
+
 </UL>
 
-<P>The constraints for the matrix are shown in the field `Letter information´. This information is computed from the encrypted text and the assumed stipulation. They have <B>no </B>direct impact to the shown matrix, but give you some hints for suggesting the right encryption matrix.</P>
+<P>The constraints for the matrix are shown in the field <b>Letter information</b>. This information is 
+computed from the encrypted text and the assumed stipulation. They have <B>no</B> direct impact on the shown 
+matrix, but give you some hints for suggesting the right encryption matrix.</P>
 
-<P>The table <B>Letter information</B> displays the following information for all letters in the alphabet based on the content of the field `Expected plaintext´:</P>
+<P>The table <B>Letter information</B> displays the following information for all letters in the alphabet 
+based on the content of the field <b>Expected plaintext</b>:</P>
 
 <UL>
-	<LI><B>LROU:</B> These column shows which neighbours the letter has definitely. If there is the combination‘S*V*‚ in the row for letter ‘H‚, then it‚s sure that ‘S‚ stands on the left side of ‘H‚. Otherwise no matrix can match the ciphertext and stipulation. Correspondingly ‘V‚ is definitely over ‘H‚. The other neighbours are not determined yet.</LI>
 
-	<LI><B>Nb?:</B> The letters before the delimiter ‘/‚ stand left or above the letter, the letters behind the delimiter are on the right side or below of the letter.</LI>
+<LI><B>LROU:</B> These column shows which neighbours the letter has definitely. If there is the 
+combination 'S*V*'‚ in the row for letter 'H', then it's sure that 'S' stands on the left side of 'H'. 
+Otherwise no matrix can match the ciphertext and stipulation. Correspondingly, 'V' is definitely over 'H'. 
+The other neighbours are not determined yet.</LI>
 
-	<LI><B>Horizontal:</B> The listed letters are usually in the same row as the letter in the first column. If ‘!‚ follows, it‚s for sure. If ‘&deg;‚ follows the letter, then the letter is in the same row or it‚s the upper neighbour. If ‘.‚ follows, then the letter is in the row or below of the given letter.</LI>
+<LI><B>Nb?:</B> The letters before the delimiter '/' stand left or above the letter, the letters behind the 
+delimiter are on the right side or below of the letter.</LI>
 
-	<LI><B>Vertical:</B> It‚s sure that listed letters here are in the same column as the given letter.</LI>
+<LI><B>Horizontal:</B> The listed letters are usually in the same row as the letter in the first column. 
+If '!' follows, it's for sure. If '&deg;' follows the letter, then the letter is in the same row or it's the 
+upper neighbour. If '.' follows, then the letter is in the row or below of the given letter.</LI>
 
-	<LI><B>row or col?: </B>This is the weakest constraint, that a letter is in the same row or in the same column as the given letter.</LI>
+<LI><B>Vertical:</B> It's sure that listed letters here are in the same column as the given letter.</LI>
+
+<LI><B>row or col?: </B>This is the weakest constraint, that a letter is in the same row or in the same 
+column as the given letter.</LI>
+
 </UL>
 
-<P><B>Hint</B>: Normally letters which are listed in ‘row or col‚ but not in ‘horizontal‚ are often in the same column as the given letter.</P>
+<P><B>Hint</B>: Normally letters which are listed in <b>row or col</b> but not in <b>horizontal</b>‚ are 
+often in the same column as the given letter.</P>
 
-<P>Clicking the button `<B>Create matrix</B>´ suggest a matrix, which respects the constraints and therefore the stipulation based on the ciphertext. The resulting matrix can be modified. Please note that changes to the matrix get lost, if you click on the button.</P>
+<P>Clicking the button <B>Create matrix</B> suggest a matrix, which respects the constraints and therefore 
+the stipulation based on the ciphertext. The resulting matrix can be modified. Please note that changes to 
+the matrix get lost if you click on the button.</P>
 
-<P>In the case that your stipulation does not begin on the first position or contains gaps you can put in a placeholder (‘*‚) by typing the space bar. CrypTool ignores all di-grams which contains at least one star in the stipulation.</P>
+<P>In the case that your stipulation does not begin on the first position or contains gaps you can put in 
+a placeholder ('*') by typing the space bar. CrypTool ignores all di-grams which contains at least one star 
+in the stipulation.</P>
 
-<P>When you type the stipulation, CrypTool can detect inconsistencies during the calculation for the constraints. The most common error is to type the same letter into the stipulation as the letter occurring in the encrypted text on the same position. Using the Playfair algorithm you can‚t get a letter for encrypting for itself. (An ‘A‚ will never be encrypted to an ‘A‚.)</P>
+<P>When you type the stipulation, CrypTool can detect inconsistencies during the calculation for the 
+constraints. The most common error is to type the same letter into the stipulation as the letter occurring 
+in the encrypted text on the same position. Using the Playfair algorithm you can't get a letter for 
+encrypting for itself. (An 'A' will never be encrypted to an 'A'.)</P>
 
 <P>The possible stipulation errors are:</P>
 
 <UL>
-	<LI><B>Please notice: the Playfair cipher letter and plaintext letter are always different. <BR>
-</B>Because of the Playfair algorithm it can‚t be happen, that a letter stays the same. If there is somewhere in the stipulation a letter on the same position in the stipulation as in the encrypted text, this error message occurs. E.g. encrypted text ="ABCD" stipulation ="QWCA" leads to this error message because letter ,C‘ on position 3 occurs in both.<BR>
-Therefore, the assumption is wrong.</LI>
 
-<P><B><LI>Error on the plaintext analysis! At least one of the lists is overflown.</LI></B> <BR>
-The letter graph for the constrains contains several lists. By using a 5x5 matrix there could be only 4 letters in the same row of the key matrix. (Letters shown with an ‘!‘). If the calculation of the constrain comes to an result that 5 letters have to be in the same row, this list is exhausted. In the list 'row or col' this message occurs on the 9<SUP>th</SUP> letter.</P>
+<LI><B>The Playfair cipher letter and plaintext letter are always different.</B><BR>Because of the design of 
+the Playfair algorithm, a character can never be mapped onto itself. If there is somewhere in the stipulation 
+a letter on the same position in the stipulation as in the encrypted text, this error message occurs. E.g. 
+encrypted text 'ABCD' and stipulation 'QWCA' leads to this error message because letter 'C' on position 3 
+occurs in both.<BR>Therefore, the assumption is wrong.</LI>
 
-<P><B><LI>Error on the plaintext analysis ! At least one of the neighbours was assumed as correct.</LI></B> <BR>
-In this case one of the neighbours was already calculated and the following calculation has the result that another letter has to be on this place. </P>
+<LI><B>Error on the plaintext analysis! At least one of the lists is overflown.</B><BR>The letter graph for 
+the constrains contains several lists. By using a 5x5 matrix there could be only 4 letters in the same row 
+of the key matrix. (Letters shown with an '!'). If the calculation of the constrain comes to an result that 
+5 letters have to be in the same row, this list is exhausted. In the list <b>row or col</b> this message 
+occurs on the 9<SUP>th</SUP> letter.</LI>
+
+<LI><B>Error on the plaintext analysis! At least one of the neighbours was assumed as correct.</B><BR>
+In this case one of the neighbours was already calculated and the following calculation has the result that 
+another letter has to be on this place.</LI>
 
 </UL>
 
-<P>Finally, the Button <B>Output results of analysis</B> uses the current key matrix to decrypt the ciphertext and creates a new document window from the result. It also closes the dialog.</P>
+<P>Finally, the Button <B>Output results of analysis</B> uses the current key matrix to decrypt the 
+ciphertext and creates a new document window from the result. It also closes the dialog.</P>
 
 </BODY>
 </HTML>
