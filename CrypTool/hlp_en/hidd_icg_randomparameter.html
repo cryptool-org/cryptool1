@@ -29,11 +29,11 @@
 
 </div>
 
-<P>whereby X_[i] are whole numbers from the range 0,1,2, ..., P-1. It is customary to standardise the random numbers to the rational value range [0,1[, hence the output as rational numbers Z[i] := X_[i]/P.</P>
+<P>whereby X_[i] are whole numbers from the range 0,1,2, ..., P-1. It is customary to standardize the random numbers to the rational value range [0,1[, hence the output as rational numbers Z[i] := X_[i]/P.</P>
 
 <P>In CrypTool we observe only "coin throws" ("heads" are mapped to the 0 and "tails" to the 1). In the LCG the coin throw 0 is therefore represented by the event [Z_[i] &lt; 0.5] and the coin throw 1 by the event [0.5 &lt;= Z_[i] &lt; 1] ab. The sequence of coin throws is saved as a binary file (a sequence of 8 coin throws produces one random ASCII character).</P>
 
-<P>The parameters in the ICG are the numbers P, a, c of the modulo P inversion of the linear equation y = ax+c: modulus P is a prime number, the multiplier a: 0&lt;a&lt;N and the additive increment b: 1&lt;b&lt;N. Moreover, the LCG is initialised through the secret initial value or seed X_0.</P>
+<P>The parameters in the ICG are the numbers P, a, c of the modulo P inversion of the linear equation y = ax+c: modulus P is a prime number, the multiplier a: 0&lt;a&lt;N and the additive increment b: 1&lt;b&lt;N. Moreover, the LCG is initialized through the secret initial value or seed X_0.</P>
 
 <P>Select <B>Individual Procedures \ Generate Random Numbers</B> and activate the radio button <B>Inverse Congruence Generator (ICG)</B>. You can now specify the ICG parameters under "<B>Choose generator-specific parameters...</B>".</P>
 

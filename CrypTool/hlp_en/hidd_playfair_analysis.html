@@ -35,10 +35,10 @@ encryption algorithm</A>. A character entered directly into the matrix exchanges
 entered character with the character at the cursor, if the character at the cursor is not a star (‘*‚).</P>
 
 <P>If the option <B>Update expected plaintext using the key matrix</B> is activated, after each 
-re-computation of the key matrix the plaintext of the actualised decryption is displayed on the input line 
+re-computation of the key matrix the plaintext of the actualized decryption is displayed on the input line 
 <B>expected plaintext</B>.</P>
 
-<P>The text displayed in the box labelled <B>Analysis result</B> reflects the effect of the selected 
+<P>The text displayed in the box labeled <B>Analysis result</B> reflects the effect of the selected 
 matrix.</P>
 
 <UL>
@@ -62,17 +62,17 @@ based on the content of the field <b>Expected plaintext</b>:</P>
 
 <UL>
 
-<LI><B>LROU:</B> These column shows which neighbours the letter has definitely. If there is the 
+<LI><B>LROU:</B> These column shows which neighbors the letter has definitely. If there is the 
 combination 'S*V*'‚ in the row for letter 'H', then it's sure that 'S' stands on the left side of 'H'. 
 Otherwise no matrix can match the ciphertext and stipulation. Correspondingly, 'V' is definitely over 'H'. 
-The other neighbours are not determined yet.</LI>
+The other neighbors are not determined yet.</LI>
 
 <LI><B>Nb?:</B> The letters before the delimiter '/' stand left or above the letter, the letters behind the 
 delimiter are on the right side or below of the letter.</LI>
 
 <LI><B>Horizontal:</B> The listed letters are usually in the same row as the letter in the first column. 
 If '!' follows, it's for sure. If '&deg;' follows the letter, then the letter is in the same row or it's the 
-upper neighbour. If '.' follows, then the letter is in the row or below of the given letter.</LI>
+upper neighbor. If '.' follows, then the letter is in the row or below of the given letter.</LI>
 
 <LI><B>Vertical:</B> It's sure that listed letters here are in the same column as the given letter.</LI>
 
@@ -113,14 +113,15 @@ of the key matrix. (Letters shown with an '!'). If the calculation of the constr
 5 letters have to be in the same row, this list is exhausted. In the list <b>row or col</b> this message 
 occurs on the 9<SUP>th</SUP> letter.</LI>
 
-<LI><B>Error on the plaintext analysis! At least one of the neighbours was assumed as correct.</B><BR>
-In this case one of the neighbours was already calculated and the following calculation has the result that 
+<LI><B>Error on the plaintext analysis! At least one of the neighbors was assumed as correct.</B><BR>
+In this case one of the neighbors was already calculated and the following calculation has the result that 
 another letter has to be on this place.</LI>
 
 </UL>
 
-<P>Finally, the Button <B>Output results of analysis</B> uses the current key matrix to decrypt the 
-ciphertext and creates a new document window from the result. It also closes the dialog.</P>
+<P>If the dialog is closed via the button <B>Output results of analysis</B>, the current key matrix is 
+used to decrypt the ciphertext and the result is displayed in a new document.</P>
+
 
 </BODY>
 </HTML>

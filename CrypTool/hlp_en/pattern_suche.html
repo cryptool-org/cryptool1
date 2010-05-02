@@ -18,11 +18,11 @@
 
 <P>The analysis method described here is used when <a href="hid_analyze_subst.html">analyzing monoalphabetic ciphers</a>. It is based on most frequent words and works only for encrypted versions of English or German standard text, in which the spaces between words are retained in the <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> text (see dialog <A href="hidd_text_options.html">Text Options</A>).</P>
 
-<P>This section describes the analysis for English <!--ZZZPOPUP--><A href="klartext.html">plaintext</A>. However, the analysis works in exactly the same way for German plaintext, although in this case due to the statistical characteristics of the German language the baseline numbers are somewhat different. To avoid generalising too much in the description of the analysis procedure, only the analysis steps based on the statistical frequencies applicable to English plaintext is described.</P>
+<P>This section describes the analysis for English <!--ZZZPOPUP--><A href="klartext.html">plaintext</A>. However, the analysis works in exactly the same way for German plaintext, although in this case due to the statistical characteristics of the German language the baseline numbers are somewhat different. To avoid generalizing too much in the description of the analysis procedure, only the analysis steps based on the statistical frequencies applicable to English plaintext is described.</P>
 
 <P>The analysis for English plaintext is based on the fact that any word taken from an English standard text will have a 0.5 probability of being contained in the list of the 135 most common English words.</P>
 
-<P>The first step is to break down the text to be analysed into individual words. Every individual words is checked to see whether there is a word in the list of the 135 most common words which exhibits the same pattern.</P>
+<P>The first step is to break down the text to be analyzed into individual words. Every individual words is checked to see whether there is a word in the list of the 135 most common words which exhibits the same pattern.</P>
 
 <P>"Pattern" refers here to the pattern of letters, for example, letters 1 and 3 are the same, or all the others are different. Thus, the words "cat", "big", "the" and "are" all follow the same pattern (every word consists of three different letters), whereas the words "ally" and "fall" follow different patterns.</P>
 
