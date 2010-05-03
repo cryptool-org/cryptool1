@@ -2,6 +2,7 @@
 // Microsoft Visual C++ generated include file.
 // Used by MFC-ZahlenHai.rc
 //
+#define ID_SHOW_SEQUENCE                2
 #define IDOK2                           3
 #define ID_BUTTON_RULES                 3
 #define IDM_ABOUTBOX                    0x0010
@@ -160,11 +161,19 @@
 #define IDS_SELECT_SEARCH_ALGORITHM     215
 #define IDB_BITMAP17                    215
 #define IDS_GAME_DATA_FILE_MISSING      216
+#define IDD_SHOW_PRECALCULATED_SCORES   216
 #define IDS_BACKTRACKING_ALGORITHM_RESULT 217
 #define IDS_SEARCH_PROGRESS_TEXT_1      218
 #define IDS_SEARCH_PROGRESS_TEXT_2      219
 #define IDS_ALGORITHM_BRUTE_FORCE       220
 #define IDS_ALGORITHM_BACK_TRACKING     221
+#define IDS_HEADING_NUMBER              222
+#define IDS_HEADING_SCORE               223
+#define IDS_HEADING_PROVED              224
+#define IDS_PROVED_YES                  225
+#define IDS_PROVED_NO                   226
+#define IDS_SHOW_SEQUENCE_FOR_THIS_SPECIFIC_SCORE 227
+#define IDS_PRECALCULATED_SCORES_INTRO  228
 #define IDC_LIST2                       1001
 #define IDC_EDIT1                       1007
 #define IDC_BUTTON1                     1008
@@ -262,6 +271,8 @@
 #define IDC_ACCELERATORS                1174
 #define IDC_TEXT_SEARCH_PROGRESS_1      1175
 #define IDC_TEXT_SEARCH_PROGRESS_2      1176
+#define IDC_STATIC_INTRO                1178
+#define IDC_LIST_PRECALCULATED_SCORES   2069
 #define ID_OPTIONEN_TOOLTIPSANZEIGEN    32771
 #define ID_OPTIONEN_MAXIMALPUNKTEZAHL   32772
 #define ID_OPTIONEN_MITHAIBEGINNEN      32773
@@ -276,9 +287,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        216
+#define _APS_NEXT_RESOURCE_VALUE        217
 #define _APS_NEXT_COMMAND_VALUE         32788
-#define _APS_NEXT_CONTROL_VALUE         1177
+#define _APS_NEXT_CONTROL_VALUE         1179
 #define _APS_NEXT_SYMED_VALUE           175
 #endif
 #endif

@@ -40,6 +40,8 @@
 
 #include "zhl.h"
 
+#include "DlgShowPrecalculatedScores.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -1483,6 +1485,14 @@ void CMFCZahlenHaiDlg::addOnInformation()
 	{
 		if(optionen.showMax)
 		{
+			// flomar, 05/03/2010
+			CDlgShowPrecalculatedScores dlg(mapProved, mapBestKnown);
+			dlg.DoModal();
+			return;
+
+			// flomar, 05/03/2010
+			// TODO: remove the part below
+#if 0
 			CString answer;
 			answer.Format(IDS_MAX_POINTS_INFORMATION, sepUpperLimit, hai.setSeperator(maxPossiblePointsProven[upperLimit-1]), sepUpperLimit, hai.setSeperator(maxPrime(upperLimit)));
 			CString fileName;
@@ -1501,6 +1511,8 @@ void CMFCZahlenHaiDlg::addOnInformation()
 					answer.Format(IDS_MAX_POINTS_INFORMATION2, sepUpperLimit, hai.setSeperator(atoi(mapProved[upperLimit].score)), mapProved[upperLimit].sequence);
 				MessageBox(answer,headline, MB_ICONINFORMATION | MB_OK);
 			}
+#endif
+
 		}
 	}
 }

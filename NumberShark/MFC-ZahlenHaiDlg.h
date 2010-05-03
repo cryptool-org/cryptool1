@@ -211,4 +211,9 @@ protected:
 
 	// flomar, 02/23/2010
 	CDlgSearchProgress dialogSearchProgress;
+
+public:
+	// flomar, 05/03/2010
+	std::map<int, GameDataBlock> getMapProved() { return mapProved; };
+	std::map<int, GameDataBlock> getMapBestKnown() { return mapBestKnown; };
 };
