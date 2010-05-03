@@ -1166,4 +1166,7 @@ void CScintillaView::activatePlayfairView()
 
 	// set new text in Scintilla window
 	m_wndScintilla.SendMessage(SCI_SETTEXT, (WPARAM)(newData.GetLength()), (LPARAM)(newData.GetBuffer()));
+
+	// set font to Courier (size 10), so that pairs are smoothly aligned
+	setTextFont(10, "Courier");
 }
