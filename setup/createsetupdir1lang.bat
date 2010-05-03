@@ -2,35 +2,44 @@
 if not exist template\nul goto errortemplate
 if x%1==xde goto ok
 if x%1==xen goto ok
-if x%1==xpl goto ok
 if x%1==xes goto ok
+if x%1==xpl goto ok
+if x%1==xrs goto ok
 
 echo Error: invalid or no argument
-echo Usage: setup1lang [de, en, pl, es]
+echo Usage: setup1lang [de, en, es, pl, rs]
 goto end
 
 :ok 
 set lang=%1
-set lang_sub=%1 ;because the spanish and polish versions use english files
+set lang_sub=%lang%
+
+; all languages except de+en use some English (en) files 
 if x%lang%==xes set lang_sub=en
 if x%lang%==xpl set lang_sub=en
+if x%lang%==xrs set lang_sub=en
+
 echo Create and populate setup-%lang% directory ...
 if exist setup-%lang%\nul rmdir /q/s setup-%lang%
+
 echo Copying template ...
 xcopy /s/q template\*.* setup-%lang%\
+
 echo Copying template-%lang% ...
 xcopy /s/q template-%lang%\*.* setup-%lang%\   
-if x%lang%==xpl xcopy /s/q template-en\*.* setup-%lang%\ & del setup-%lang%\license-en.rtf 
-if x%lang%==xes xcopy /s/q template-en\*.* setup-%lang%\ & del setup-%lang%\license-en.rtf
+if x%lang%==xes xcopy /s/q template-en\*.* setup-%lang%\ & del setup-%lang%\license-en.rtf 
+if x%lang%==xpl xcopy /s/q template-en\*.* setup-%lang%\ & del setup-%lang%\license-en.rtf
+if x%lang%==xsr xcopy /s/q template-en\*.* setup-%lang%\ & del setup-%lang%\license-en.rtf
+
 echo Copying ..\release_%lang%\*.exe ...
 copy ..\release_%lang%\*.exe setup-%lang%
-rem script-%lang%.pdf is now in template-%lang%
-rem echo Copying ..\release_%lang%\CrypTool-%lang%.chm ...
-copy ..\release_%lang%\*-%lang_sub%.chm setup-%lang%
-rem echo Copying ..\script\%lang%\script-%lang%.pdf  ...
-rem copy ..\script\%lang%\script-%lang%.pdf setup-%lang%
+
+echo Copying ..\release_%lang_sub%\*-%lang_sub%.chm ...
+copy ..\release_%lang_sub%\*-%lang_sub%.chm setup-%lang%
+
 echo Copying ..\dialoguesisters\%lang_sub%\*.pdf setup-%lang%  ...
 copy ..\dialoguesisters\%lang_sub%\*.pdf setup-%lang%
+
 echo Copying ..\smimedemo\*.* setup-%lang%\smimedemo ...
 REM FIXME: SMIMEDEMO selective copying ...
 xcopy /s/q/i ..\smimedemo\font          setup-%lang%\smimedemo\font
