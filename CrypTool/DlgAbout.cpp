@@ -233,7 +233,7 @@ void CDlgAbout::determineLibraryVersions()
 
 	// GMP (dynamisch)
 	CString StrGMPWindowText;
-	StrGMPWindowText.Format("GMP %s", gmp_version);
+	StrGMPWindowText.Format("MPIR %s", mpir_version);
 	this->strVersionGMP = StrGMPWindowText;
 
 	// CRACKLIB (statisch)
