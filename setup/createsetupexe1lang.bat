@@ -8,7 +8,7 @@ if x%1==xpl goto langok
 if x%1==xes goto langok
 if x%1==xrs goto langok
 echo Error: invalid or no argument
-echo Usage: %0 [de, en, es, pl, sr] 
+echo Usage: %0 [de, en, es, pl, rs] 
 goto end
 
 :langok 

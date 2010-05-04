@@ -454,7 +454,7 @@ BEGIN
     IDS_OPTIONS_SHOW_DIALOG "Poka¿ ""Opcje gry"" podczas nastêpnego startu programu."
     IDS_OPTIONS_SHOW_NUMBERS 
                             "Pamiêtaj ostatni¹ ca³kowit¹ liczbê ze stosu liczb przy nastêpnym uruchomieniu programu. "
-    IDS_OPTIONS_MAX_POINTS  "Tutaj mo¿esz obliczyæ maksymaln¹ mo¿liwoœæ wartoœci dla stosu liczb %s liczb. Ale to chwilkê zajmie. \r\n\r\nZamiast tego mo¿emy pokazaæ Tobie wartoœci obliczone ju¿ wczeœniej."
+    IDS_OPTIONS_MAX_POINTS  "i18n Here you can calculate the maximum score for your selected number stack of %s numbers. But this might take a while...\r\n\r\nInstead, we could immediately show you the scores we have precalculated already."
     IDS_STRING_PT           ","
     IDS_MAX_POINTS_OLD      "Aby obliczyæ dla %s liczb najwiêksza sumê %s punktów\n\n program potrzebowa³ %s sekund. Musia³ przejœæ przez %s wêz³ów.\n\nNajwiêksz¹ liczb¹ pierwsz¹ tutaj jest %s. Powinieneœ rozpocz¹æ grê z t¹ liczb¹ pierwsz¹, aby osi¹gn¹æ maksymalny wynik.\n\n\n\nAby osi¹gn¹æ ten wynik, powinieneœ wybraæ liczby w tej kolejnoœci: %s.\n"
     IDS_TOOL_TIP_NUMBER     "Liczba: %s"
@@ -481,9 +481,9 @@ BEGIN
     IDS_RADIO_EDIT2         "Nie"
     IDS_TAB_HEADER1         "Witamy"
     IDS_TAB_HEADER2         "Standardowy"
-    IDS_TAB_HEADER3         "Maksymalne wartoœci"
-    IDS_TAB_RADIO1          "Oblicz now¹ maksymaln¹ wartoœæ punktow¹."
-    IDS_TAB_RADIO2          "i18n Show the precalculated points values."
+    IDS_TAB_HEADER3         "i18n Maximum score"
+    IDS_TAB_RADIO1          "i18n Calculate the maximum score."
+    IDS_TAB_RADIO2          "i18n Show the precalculated scores."
     IDS_SEARCH1             "NumberSharkSearch["
 END
 
@@ -529,6 +529,19 @@ BEGIN
     IDS_SEARCH_PROGRESS_TEXT_2 "Miniony czas: %d sekundy"
     IDS_ALGORITHM_BRUTE_FORCE "brute-force"
     IDS_ALGORITHM_BACK_TRACKING "back-tracking"
+    IDS_HEADING_NUMBER      "i18n Number"
+    IDS_HEADING_SCORE       "i18n Result"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_HEADING_PROVED      "i18n Proved?"
+    IDS_PROVED_YES          "i18n Yes"
+    IDS_PROVED_NO           "i18n No"
+    IDS_SHOW_SEQUENCE_FOR_THIS_SPECIFIC_SCORE 
+                            "i18n If you choose the number %s, one way to achieve %s points is the following sequence:\n\n%s."
+    IDS_PRECALCULATED_SCORES_INTRO 
+                            "i18n For numbers 1 through %d we know optimal ways. For the higher numbers %d through %d we show the best known results -- we don't know whether these results are optimal too."
 END
 
 #endif    // Polish resources
@@ -941,7 +954,7 @@ BEGIN
     IDS_OPTIONS_SHOW_DIALOG "Prikaži dijalog ""Opcije igre"" sledeci put pri pokretanju programa."
     IDS_OPTIONS_SHOW_NUMBERS 
                             "Zapamti zadnji ukupan broj skupa brojeva za sledece pokretanje programa."
-    IDS_OPTIONS_MAX_POINTS  "Ovde možete da izracunate najvecu mogucu vrednost za vaš odabrani skup brojeva od %s brojeva. Ali ovo ce malo da potraje.\r\n\r\nUmesto toga možemo odmah da vam pokažemo brojeve koji su vec izracunati."
+    IDS_OPTIONS_MAX_POINTS  "i18n Here you can calculate the maximum score for your selected number stack of %s numbers. But this might take a while...\r\n\r\nInstead, we could immediately show you the scores we have precalculated already."
     IDS_STRING_PT           ","
     IDS_MAX_POINTS_OLD      "Da biste izracunali za %d brojeva najeci rezultat od %d poena, programu je trebalo %d sekundi. Morao je da prode %I64d cvorova.\n\nNajviši prost broj ovde je %d. Morate poceti igru sa ovim brojem da biste mogli da postignete najveci moguci rezultat.\n\nDa biste postigli najveci moguci rezultat možete odabrati brojeve u ovom redosledu: %s"
     IDS_TOOL_TIP_NUMBER     "Broj: %s"
@@ -968,9 +981,9 @@ BEGIN
     IDS_RADIO_EDIT2         "Ne."
     IDS_TAB_HEADER1         "Dobrodošli"
     IDS_TAB_HEADER2         "Standardno"
-    IDS_TAB_HEADER3         "Maksimalne vrednosti"
-    IDS_TAB_RADIO1          "Izracunati novu vrednost maksimalnih poena."
-    IDS_TAB_RADIO2          "i18n Show the precalculated points values."
+    IDS_TAB_HEADER3         "i18n Maximum score"
+    IDS_TAB_RADIO1          "i18n Calculate the maximum score."
+    IDS_TAB_RADIO2          "i18n Show the precalculated scores."
     IDS_SEARCH1             "PretragaAjkuleBrojeva["
 END
 
@@ -1016,6 +1029,19 @@ BEGIN
     IDS_SEARCH_PROGRESS_TEXT_2 "Proteklo vreme: %d sekundi"
     IDS_ALGORITHM_BRUTE_FORCE "brutalna sila"
     IDS_ALGORITHM_BACK_TRACKING "pracenje unazad"
+    IDS_HEADING_NUMBER      "i18n Number"
+    IDS_HEADING_SCORE       "i18n Result"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_HEADING_PROVED      "i18n Proved?"
+    IDS_PROVED_YES          "i18n Yes"
+    IDS_PROVED_NO           "i18n No"
+    IDS_SHOW_SEQUENCE_FOR_THIS_SPECIFIC_SCORE 
+                            "i18n If you choose the number %s, one way to achieve %s points is the following sequence:\n\n%s."
+    IDS_PRECALCULATED_SCORES_INTRO 
+                            "i18n For numbers 1 through %d we know optimal ways. For the higher numbers %d through %d we show the best known results -- we don't know whether these results are optimal too."
 END
 
 #endif    // Serbian (Latin) resources
@@ -1447,7 +1473,7 @@ BEGIN
     IDS_OPTIONS_SHOW_DIALOG "Den Spieloptionen-Dialog beim nächsten Programmstart anzeigen."
     IDS_OPTIONS_SHOW_NUMBERS 
                             "Die zuletzt gewählte Anzahl der auswählbaren Zahlen im Zahlenvorrat beim nächsten Programmstart wieder eintragen."
-    IDS_OPTIONS_MAX_POINTS  "Hier kannst Du die maximal mögliche Punktzahl, und einen Weg dahin, für den eingestellten Zahlenvorrat von %s Zahlen berechnen.\r\nDies kann aber sehr lange dauern...\r\n\r\nOder aber Du lässt Dir schon bereits vorberechnete Werte anzeigen."
+    IDS_OPTIONS_MAX_POINTS  "Hier kannst Du die maximal mögliche Punktzahl, und einen Weg dahin, für den eingestellten Zahlenvorrat von %s Zahlen berechnen.\r\nDies könnte aber sehr lange dauern...\r\n\r\nStattdessen kannst Du Dir die Werte anzeigen lassen, die wir bereits vorberechnet haben."
     IDS_STRING_PT           "."
     IDS_MAX_POINTS_OLD      "Um bei %d Zahlen die maximal mögliche Punktzahl von %d Punkten zu berechnen, hat das Programm %d Sekunden benötigt und musste dabei %I64d Knoten durchlaufen.\n\nDie höchste Primzahl ist %d. Mit dieser Zahl musst Du das Spiel beginnen, um die maximal mögliche Punktzahl erreichen zu können.\n\nDie höchste Punktzahl kannst Du unter anderem mit folgender Zugfolge (Weg) erreichen: %s."
     IDS_TOOL_TIP_NUMBER     "Zahl: %s"
@@ -1474,8 +1500,8 @@ BEGIN
     IDS_RADIO_EDIT2         "Nein."
     IDS_TAB_HEADER1         "Willkommen"
     IDS_TAB_HEADER2         "Standard"
-    IDS_TAB_HEADER3         "Maximalwerte"
-    IDS_TAB_RADIO1          "Die maximal mögliche Punktzahl neu berechnen."
+    IDS_TAB_HEADER3         "Maximale Punktzahl"
+    IDS_TAB_RADIO1          "Die maximal mögliche Punktzahl berechnen."
     IDS_TAB_RADIO2          "Die vorberechneten Punktzahlen anzeigen."
     IDS_SEARCH1             "ZahlenHaiSuche["
 END
@@ -1534,7 +1560,7 @@ BEGIN
     IDS_SHOW_SEQUENCE_FOR_THIS_SPECIFIC_SCORE 
                             "Um mit der Zahl %s eine Punktzahl von %s zu erreichen, kannst Du zum Beispiel folgende Sequenz verwenden:\n\n%s."
     IDS_PRECALCULATED_SCORES_INTRO 
-                            "Für die Zahlen 1 bis %d haben wir optimale Wege vorberechnet. Ob die Ergebnisse für %d bis %d ebenfalls optimal sind, wissen wir nicht."
+                            "Für die Zahlen 1 bis %d kennen wir die optimalen Wege. Für die höheren Zahlen %d bis %d zeigen wir hier die besten uns bekannten Werte -- ob diese Werte auch optimal sind, wissen wir nicht."
 END
 
 #endif    // German (Germany) resources
@@ -1966,7 +1992,7 @@ BEGIN
     IDS_OPTIONS_SHOW_DIALOG "Show the ""Game options"" dialog at the next program start."
     IDS_OPTIONS_SHOW_NUMBERS 
                             "Remember the last total number of the number stack for the next program start."
-    IDS_OPTIONS_MAX_POINTS  "Here you can calculate the maximum possible value for your selected number stack of %s numbers. But this will take a while.\r\n\r\nInstead we can show you at once the values already being precalculated."
+    IDS_OPTIONS_MAX_POINTS  "Here you can calculate the maximum score for your selected number stack of %s numbers. But this might take a while...\r\n\r\nInstead, we could immediately show you the scores we have precalculated already."
     IDS_STRING_PT           ","
     IDS_MAX_POINTS_OLD      "To calculate for %d numbers the highest score of %d points, the program needed %d seconds. It had to pass through %I64d knots.\n\nThe highest prime number here is %d. You must start the game with this prime to be able to reach the maximum score.\n\nTo achieve the highest score you can choose the numbers in this order: %s"
     IDS_TOOL_TIP_NUMBER     "Number: %s"
@@ -1993,9 +2019,9 @@ BEGIN
     IDS_RADIO_EDIT2         "No."
     IDS_TAB_HEADER1         "Welcome"
     IDS_TAB_HEADER2         "Standard"
-    IDS_TAB_HEADER3         "Maximum values"
-    IDS_TAB_RADIO1          "Calculate a new maximum points value."
-    IDS_TAB_RADIO2          "Show the precalculated points values."
+    IDS_TAB_HEADER3         "Maximum score"
+    IDS_TAB_RADIO1          "Calculate the maximum score."
+    IDS_TAB_RADIO2          "Show the precalculated scores."
     IDS_SEARCH1             "NumberSharkSearch["
 END
 
@@ -2053,7 +2079,7 @@ BEGIN
     IDS_SHOW_SEQUENCE_FOR_THIS_SPECIFIC_SCORE 
                             "If you choose the number %s, one way to achieve %s points is the following sequence:\n\n%s."
     IDS_PRECALCULATED_SCORES_INTRO 
-                            "We have precalculated the optimal way for numbers 1 through %d. However, we don't know if the results for %d through %d are optimal as well."
+                            "For numbers 1 through %d we know optimal ways. For the higher numbers %d through %d we show the best known results -- we don't know whether these results are optimal too."
 END
 
 #endif    // English (U.K.) resources
@@ -2466,7 +2492,7 @@ BEGIN
     IDS_OPTIONS_SHOW_DIALOG "Mostrar la ventana ""Opciones de juego"" la próxima vez que el programa inicie."
     IDS_OPTIONS_SHOW_NUMBERS 
                             "Volver a seleccionar la próxima vez el último número seleccionado de los números elegibles."
-    IDS_OPTIONS_MAX_POINTS  "Aquí puedes calcular al puntaje máximo posible para el valor seleccionado dentro del conjunto de %s números. Sin embargo, ese cálculo puede tardar mucho tiempo.\r\n\r\nPor eso, le mostramos a continuación los valores que ya han sido previamente calculados."
+    IDS_OPTIONS_MAX_POINTS  "i18n Here you can calculate the maximum score for your selected number stack of %s numbers. But this might take a while...\r\n\r\nInstead, we could immediately show you the scores we have precalculated already."
     IDS_STRING_PT           "."
     IDS_MAX_POINTS_OLD      "Para calcular el máximo puntaje posible de %d puntos sobre %d números, este programa ha necesitado %d segundos y ha pasado a través de %I64d nodos.\n\nEl número primo más alto es %d.Se recomienda comenzar con ese número para intentar alcanzar el máximo puntaje posible.\n\nDicho puntaje se puede lograr, entre otras, con la siguiente combinación: %s. "
     IDS_TOOL_TIP_NUMBER     "Número: %s"
@@ -2493,9 +2519,9 @@ BEGIN
     IDS_RADIO_EDIT2         "No."
     IDS_TAB_HEADER1         "¡Bienvenido!"
     IDS_TAB_HEADER2         "General"
-    IDS_TAB_HEADER3         "Valores máximos"
-    IDS_TAB_RADIO1          "Calcular un nuevo valor de puntaje máximo."
-    IDS_TAB_RADIO2          "i18n Show the precalculated points values."
+    IDS_TAB_HEADER3         "i18n Maximum score"
+    IDS_TAB_RADIO1          "i18n Calculate the maximum score."
+    IDS_TAB_RADIO2          "i18n Show the precalculated scores."
     IDS_SEARCH1             "BúsquedaNumberShark["
 END
 
@@ -2541,6 +2567,19 @@ BEGIN
     IDS_SEARCH_PROGRESS_TEXT_2 "Tiempo transcurrido: %d segundos"
     IDS_ALGORITHM_BRUTE_FORCE "Fuerza-bruta"
     IDS_ALGORITHM_BACK_TRACKING "Búsqueda-regresiva"
+    IDS_HEADING_NUMBER      "i18n Number"
+    IDS_HEADING_SCORE       "i18n Result"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_HEADING_PROVED      "i18n Proved?"
+    IDS_PROVED_YES          "i18n Yes"
+    IDS_PROVED_NO           "i18n No"
+    IDS_SHOW_SEQUENCE_FOR_THIS_SPECIFIC_SCORE 
+                            "i18n If you choose the number %s, one way to achieve %s points is the following sequence:\n\n%s."
+    IDS_PRECALCULATED_SCORES_INTRO 
+                            "i18n For numbers 1 through %d we know optimal ways. For the higher numbers %d through %d we show the best known results -- we don't know whether these results are optimal too."
 END
 
 #endif    // Spanish resources
