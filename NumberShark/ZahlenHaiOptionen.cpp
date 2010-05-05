@@ -27,7 +27,8 @@
 #include "MFC-ZahlenHai.h"
 #include "MFC-ZahlenHaiDlg.h"
 #include "ZahlenHaiOptionen.h"
-#include ".\zahlenhaioptionen.h"
+#include "DlgShowPrecalculatedScores.h"
+#include "zhl.h"
 
 CMFCZahlenHaiDlg sharkMaxPoints;
 // ZahlenHaiOptionen-Dialogfeld
@@ -103,11 +104,7 @@ END_MESSAGE_MAP()
 
 void ZahlenHaiOptionen::OnBnClickedOk()
 {	
-	if(exitOptions==1)
-		OnOK();
-	else
-		OnOK();
-	// TODO: Fügen Sie hier Ihren Kontrollbehandlungscode für die Benachrichtigung ein.
+	OnOK();
 }
 
 void ZahlenHaiOptionen::OnBnClickedCheck1()
@@ -131,23 +128,8 @@ BOOL ZahlenHaiOptionen::OnInitDialog()
 	disclaimerText.Format(IDS_DISCLAIMER_TEXT);
 	infoText.Format(IDS_INFO_TEXT);
 	
-	exitOptions=0;
 	((CEdit*)GetDlgItem(IDC_EDIT_NAME))->SetFocus();
-	if(showButton==0)
-	{
-		((CEdit*)GetDlgItem(IDC_BUTTON_MAX))->EnableWindow(false);
-		((CEdit*)GetDlgItem(IDC_STATIC_MAX_POINTS_TEXT))->EnableWindow(false);
-		optionenUpperLimit=20;
-	}
-	else
-	{
-		if(showButton==1)
-		{
-			((CEdit*)GetDlgItem(IDC_BUTTON_MAX))->EnableWindow(true);
-			((CEdit*)GetDlgItem(IDC_STATIC_MAX_POINTS_TEXT))->EnableWindow(true);
-		}
-
-	}
+	
 	CString sepUpperLimit=sharkMaxPoints.hai.setSeperator(optionenUpperLimit);
 	optionenMaxP.Format(IDS_OPTIONS_MAX_POINTS,sepUpperLimit);
 	CDialog::OnInitDialog();
@@ -175,34 +157,12 @@ BOOL ZahlenHaiOptionen::OnInitDialog()
 	radioButtonText.LoadString(IDS_TAB_RADIO2);
 	radioButton2.SetWindowText(radioButtonText);
 
-	radioButton1.SetCheck(0);
+	optionenButtonMax.EnableWindow(true);
+	radioButton1.EnableWindow(true);
+	radioButton2.EnableWindow(true);
+
+	radioButton1.SetCheck(1);
 	radioButton2.SetCheck(0);
-	((CEdit*)GetDlgItem(IDC_BUTTON_MAX))->EnableWindow(false);
-	
-	if(controlUpperLimit==0)
-	{
-		radioButton1.EnableWindow(1);
-		radioButton2.EnableWindow(1);
-		radioButton2.SetCheck(1);
-		OnBnClickedRadioMax2();
-		((CEdit*)GetDlgItem(IDC_BUTTON_MAX))->EnableWindow(true);
-	}
-	else
-	{
-		if(controlUpperLimit==1)
-		{
-			radioButton1.EnableWindow(1);
-			radioButton1.SetCheck(1);
-			radioButton2.EnableWindow(0);
-			calculateMaxNew=1;
-			((CEdit*)GetDlgItem(IDC_BUTTON_MAX))->EnableWindow(true);
-		}
-		else
-		{
-			radioButton1.EnableWindow(0);
-			radioButton2.EnableWindow(0);
-		}
-	}
 
 	CString accTabText="";
 	CString accTabTextBuffer="";
@@ -246,9 +206,152 @@ void ZahlenHaiOptionen::OnBnClickedCheck3()
 }
 void ZahlenHaiOptionen::OnBnClickedButtonMax()
 {
-	exitOptions=1;
-	OnOK();
+	// flomar, 05/05/2010
+	if(radioButton1.GetCheck()) {
+		// at this point we want to recalculate the maximum score
+		calculateMaximumScore();
+	}
+	else {
+		// at this point we want to show the precalculated scores
+		CDlgShowPrecalculatedScores dlg(mapProved, mapBestKnown);
+		dlg.DoModal();
+	}
 }
+
+void ZahlenHaiOptionen::readGameData()
+{
+	// flomar, 02/22/2010
+	// complete re-write of this function along with a new file format for the game data file
+
+	// file handle
+  CStdioFile gameDataFile;
+	// file name
+	CString gameDataFileName;
+	gameDataFileName.LoadString(IDS_GAME_DATA);
+
+	// try to open the game data file
+	if(gameDataFile.Open(gameDataFileName, CFile::modeRead)) {
+		// we have two differenct sections ("proved" and "best known")
+		CString section;
+		// we read one line at a time
+		CString line;
+		// we go through all lines in the game data file
+		while(gameDataFile.ReadString(line)) {
+			// remove leading/trailing whitespaces
+			line.Trim();
+			// ignore empty lines and those starting with # (for comments)
+			if(line.Find("#") == 0 || line.GetLength() == 0) continue;
+			
+			// check if we need to change the section
+			if(line.Find("proved") == 0) {
+				section = "proved";
+				continue;
+			}
+			if(line.Find("best known") == 0) {
+				section = "best known";
+				continue;
+			}
+
+			// create a game data block
+			GameDataBlock gameDataBlock;
+			// extract the necessary information
+			gameDataBlock.limit = readGameDataBlock(line);
+			gameDataBlock.score = readGameDataBlock(line);
+			gameDataBlock.sequence = readGameDataBlock(line);
+			gameDataBlock.sequenceLength = readGameDataBlock(line);
+			gameDataBlock.leadingPrime = readGameDataBlock(line);
+
+			if(section == "proved") mapProved[atoi(gameDataBlock.limit)] = gameDataBlock;
+			if(section == "best known") mapBestKnown[atoi(gameDataBlock.limit)] = gameDataBlock;
+		}
+	}
+	// dump a warning message
+	else {
+		CString missingFileName; missingFileName.Format(IDS_GAME_DATA);
+		CString message; message.Format(IDS_GAME_DATA_FILE_MISSING, missingFileName);
+		CString title; title.Format(IDS_NUMBER_SHARK);
+		MessageBox(message, title, MB_ICONWARNING);
+		return;
+	}
+
+	// close file handle
+	gameDataFile.Close();
+}
+
+CString ZahlenHaiOptionen::readGameDataBlock(CString &data)
+{
+	// flomar, 02/22/2010
+	// this function takes the first block of data from the variable passed in, 
+	// cuts it off (note: variable is a reference!) and returns it; the data 
+	// parameter passed in is supposed to consist of "blocks of data" separated 
+	// by colons (see "GameData.txt for details)
+
+	// we will store the data block in this variable
+	CString dataBlock;
+
+	// find the first colon
+	int index = data.Find(":");
+
+	// ignore everything past this first colon (including the colon itself)
+	if(index != -1) {
+		// extract data block
+		dataBlock = data.Left(index);
+		// cut off data block from reference variable
+		data.Delete(0, index + 1);
+	}
+	// if there is no colon, we might be at the end of the data block
+	else {
+		// extract data block
+		dataBlock = data;
+		// delete reference variable
+		data.Empty();
+	}
+
+	// return the extracted data block
+	return dataBlock;
+}
+
+void ZahlenHaiOptionen::calculateMaximumScore()
+{
+	int upperLimit = hai.getUpperLimit();
+	CString sepUpperLimit = hai.setSeperator(upperLimit);
+
+	CString question;
+	question.LoadString(IDS_QUESTION);
+	CString headline;
+	headline.LoadString(IDS_MAX_POINTS_HEADLINE);
+
+	// store the desired upper limit
+	int tempUpperLimit = hai.getUpperLimit();
+
+	// flomar, 02/16/2010
+	// we have two options here to calculate the maximum number of possible points: 
+	// (a) the "old" brute-force algorithm or (b) the "new" back-tracking algorithm
+	CString selectSearchAlgorithm; selectSearchAlgorithm.Format(IDS_SELECT_SEARCH_ALGORITHM);
+
+	int selection = AfxMessageBox(selectSearchAlgorithm, MB_YESNOCANCEL|MB_ICONQUESTION);
+
+	// we go with the new back-tracking algorithm if the user pressed "YES"
+	if(selection == IDYES) {
+		// we're using a new approach that speeds up the search (see zhl.{cpp|h} for details) 
+		AfxBeginThread(zhl::maxPointsSearch, (LPVOID)((int)(tempUpperLimit)), THREAD_PRIORITY_BELOW_NORMAL);
+		// show the search progress dialog
+		CString algorithm; algorithm.Format(IDS_ALGORITHM_BACK_TRACKING);
+		dialogSearchProgress.show(clock(), algorithm, tempUpperLimit);
+	}
+	// we go with the old brute-force algorithm if the user pressed "NO"
+	else if(selection == IDNO) {
+		AfxBeginThread(maxPointsStatic, (LPVOID)((int)(tempUpperLimit)),THREAD_PRIORITY_BELOW_NORMAL);
+		// show the search progress dialog
+		CString algorithm; algorithm.Format(IDS_ALGORITHM_BRUTE_FORCE);
+		dialogSearchProgress.show(clock(), algorithm, tempUpperLimit);
+	}
+	else {
+		// simply return in case the user pushed the cancel button
+		return;
+	}
+}
+
 void ZahlenHaiOptionen::OnBnClickedRadioMax1()
 {
 	showMax=0;

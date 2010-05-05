@@ -61,7 +61,7 @@ BOOL CDlgShowPrecalculatedScores::OnInitDialog()
 	// display the dialog intro
 	int numberOfProvedScores = mapProved.size();
 	int numberOfBestKnownScores = mapBestKnown.size();
-	intro.Format(IDS_PRECALCULATED_SCORES_INTRO, numberOfProvedScores, numberOfProvedScores + 1, numberOfProvedScores + numberOfBestKnownScores);
+	intro.Format(IDS_PRECALCULATED_SCORES_INTRO, numberOfProvedScores, numberOfProvedScores + 1, numberOfProvedScores + numberOfBestKnownScores, numberOfProvedScores);
 
 	// clear the score list
 	controlListPrecalculatedScores.DeleteAllItems();
@@ -116,7 +116,12 @@ END_MESSAGE_MAP()
 void CDlgShowPrecalculatedScores::OnBnClickedShowSequence()
 {
 	int selection = controlListPrecalculatedScores.GetSelectionMark();
-	if(selection == -1) return;
+	if(selection == -1) {
+		CString message;
+		message.Format(IDS_NO_SCORE_SELECTED);
+		AfxMessageBox(message);
+		return;
+	}
 
 	// the indices for our maps are NOT ZERO-BASED, therefore we 
 	// need to increment "selection" to get the selected item

@@ -174,6 +174,7 @@
 #define IDS_PROVED_NO                   226
 #define IDS_SHOW_SEQUENCE_FOR_THIS_SPECIFIC_SCORE 227
 #define IDS_PRECALCULATED_SCORES_INTRO  228
+#define IDS_NO_SCORE_SELECTED           229
 #define IDC_LIST2                       1001
 #define IDC_EDIT1                       1007
 #define IDC_BUTTON1                     1008

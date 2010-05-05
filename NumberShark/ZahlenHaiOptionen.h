@@ -22,7 +22,26 @@
 #include "afxwin.h"
 #include "afxcmn.h"
 
-//#include "MFC-ZahlenHaiDlg.h"
+#include <map>
+
+#include "EvoZahlenHai.h"
+#include "DlgSearchProgress.h"
+
+// flomar, 05/05/2010
+// this is used for a much clearer code
+struct GameDataBlock {
+	CString limit;
+	CString score;
+	CString sequence;
+	CString sequenceLength;
+	CString leadingPrime;
+};
+
+enum SearchStatus {
+	RUNNING,
+	ABORTED,
+	DONE
+};
 
 // ZahlenHaiOptionen-Dialogfeld
 
@@ -69,9 +88,6 @@ public:
 	BOOL showOption;
     BOOL showStartNumber;
 	
-	int showButton;
-	int exitOptions;
-	int controlUpperLimit;
 	int calcUpperLimit;
 	int calculateMaxNew;
 	int showMax;
@@ -90,4 +106,29 @@ public:
 	CString disclaimerText;
 	CString infoText;
 	CStatic accControl;
+
+protected:
+	// flomar, 05/05/2010
+	// the following variables and functions are part of a major bug fix; due to 
+	// time constraints I decided to *NOT* completely re-write the relevant parts
+
+	std::map<int, GameDataBlock> mapProved;
+	std::map<int, GameDataBlock> mapBestKnown;
+
+	void calculateMaximumScore();
+
+	EvoZahlenHai hai;
+
+public:
+	void readGameData();
+	CString readGameDataBlock(CString &data);
+
+	CDlgSearchProgress dialogSearchProgress;
+
+	// access method, see above
+	void setEvoZahlenHai(EvoZahlenHai &_hai) { hai = _hai; };
+
+	// access methods only, see above
+	std::map<int, GameDataBlock> getMapProved() { return mapProved; };
+	std::map<int, GameDataBlock> getMapBestKnown() { return mapBestKnown; };
 };

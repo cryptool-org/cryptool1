@@ -38,8 +38,6 @@
 
 #include ".\mfc-zahlenhaidlg.h"
 
-#include "zhl.h"
-
 #include "DlgShowPrecalculatedScores.h"
 
 #ifdef _DEBUG
@@ -226,13 +224,26 @@ END_MESSAGE_MAP()
 
 
 BOOL CMFCZahlenHaiDlg::OnInitDialog()
-{	
-	readGameData();
-	startInfo.Format(IDS_START_INFO);
+{		
+	// read "GameData.txt"
+	optionen.readGameData();
 
-	optionen.controlUpperLimit=2;
+	startInfo.Format(IDS_START_INFO);
 	
+	// read some registry settings
 	int regUpperLimit=readRegistry();
+
+	//Beim Start des Spiels sind bereits 20 Buttons aktiv, so dass der Spieler direkt starten kann
+	hai.upperLimit=regUpperLimit;
+	numbers=regUpperLimit;
+	hai.init(hai.getUpperLimit());
+
+	optionen.setEvoZahlenHai(hai);
+
+	// show the options dialog (if desired)
+	if(optionen.showOption) {
+		optionen.DoModal();
+	}
 
 	//TTS_BALLOON verwandelt einen normalen ToolTip in einen abgerundeten ToolTip
 	toolTip.Create(this, TTS_NOPREFIX | TTS_BALLOON | TTS_ALWAYSTIP);
@@ -297,11 +308,6 @@ BOOL CMFCZahlenHaiDlg::OnInitDialog()
 	// wenn das Hauptfenster der Anwendung kein Dialogfeld ist
 	SetIcon(m_hIcon, TRUE);			// Großes Symbol verwenden
 	SetIcon(m_hIcon, FALSE);		// Kleines Symbol verwenden
-	
-	//Beim Start des Spiels sind bereits 20 Buttons aktiv, so dass der Spieler direkt starten kann
-	hai.upperLimit=regUpperLimit;
-	numbers=regUpperLimit;
-	hai.init(hai.getUpperLimit());
 
 	createUndoRedo();
 
@@ -1025,23 +1031,7 @@ void CMFCZahlenHaiDlg::OnStopTimer()
 //Weiter Spieloptionen
 void CMFCZahlenHaiDlg::OnBnClickedButtonOption()
 {
-	// flomar, 02/22/2010
-	//controlUpperLimit = 0 -> upperLimit <= limit up to which we already have hard-coded results
-	//controlUpperLimit = 1 -> upperLimit > limit up to which we already have hard-coded results
-	//controlUpperLimit = 2 -> just for the start of the game: no options can be chosen
-	optionen.calcUpperLimit=hai.getUpperLimit();
-	if(hai.getUpperLimit() <= sizeof(maxPossiblePointsProven)/sizeof(int))
-		optionen.controlUpperLimit=0;
-	else
-		optionen.controlUpperLimit=1;
-
-	optionen.showButton=1;
 	optionen.DoModal();
-
-	//Wenn der Optionen Dialog über den Button "Start" verlassen wird, wird der Wert exitOptions auf 1 gesetzt, so dass
-	//die maximale Punktezahl berechnet wird. Wenn man den Dialog normla verlässt ist dieser Wert 0
-	if(optionen.exitOptions==1)
-		addOnInformation();
 
 	updatePoints();
 	updateButtons();
@@ -1361,12 +1351,12 @@ void CMFCZahlenHaiDlg::writeLogFile()
 	{
      	CString logfileMaxPoints;
 		logfileMaxPoints.LoadString(IDS_LOGFILE_MAXPOINTS);
-		if(upperLimit <= mapProved.size())
-			file.WriteString(logfileMaxPoints + mapProved[upperLimit].score);
+		if(upperLimit <= optionen.getMapProved().size())
+			file.WriteString(logfileMaxPoints + optionen.getMapProved()[upperLimit].score);
 		else
 		{
-			if(upperLimit <= mapBestKnown.size())
-				file.WriteString(logfileMaxPoints + mapBestKnown[upperLimit].score);
+			if(upperLimit <= optionen.getMapBestKnown().size())
+				file.WriteString(logfileMaxPoints + optionen.getMapBestKnown()[upperLimit].score);
 		}
 	}
 
@@ -1440,14 +1430,14 @@ int CMFCZahlenHaiDlg::winner()
 			m_LedWinner.SetText(ledDraw);
 		}
 	}*/
-	if(upperLimit <= mapProved.size())
-		summary.uebergeben(this->hai, exePathSummary, summaryName, mapProved.size(), mapBestKnown.size(), atoi(mapProved[upperLimit].score));
+	if(upperLimit <= optionen.getMapProved().size())
+		summary.uebergeben(this->hai, exePathSummary, summaryName, optionen.getMapProved().size(), optionen.getMapBestKnown().size(), atoi(optionen.getMapProved()[upperLimit].score));
 	else
 	{
-		if(upperLimit <= mapBestKnown.size())
-			summary.uebergeben(this->hai, exePathSummary, summaryName, mapProved.size(), mapBestKnown.size(), atoi(mapBestKnown[upperLimit].score));
+		if(upperLimit <= optionen.getMapBestKnown().size())
+			summary.uebergeben(this->hai, exePathSummary, summaryName, optionen.getMapProved().size(), optionen.getMapBestKnown().size(), atoi(optionen.getMapBestKnown()[upperLimit].score));
 		else
-			summary.uebergeben(this->hai, exePathSummary, summaryName, mapProved.size(), mapBestKnown.size(), atoi(mapBestKnown[upperLimit].score));
+			summary.uebergeben(this->hai, exePathSummary, summaryName, optionen.getMapProved().size(), optionen.getMapBestKnown().size(), atoi(optionen.getMapBestKnown()[upperLimit].score));
 	}
 	summary.DoModal();
 	
@@ -1461,95 +1451,6 @@ int CMFCZahlenHaiDlg::winner()
 
 	return writeFile;
 	//Bei Messageboxes mit Antwortmöglichkeiten gibt die Funktion einen int Wert der Antwort zurück
-}
-
-// Wenn der Benutzer den Button "Maximale Punkte" drückt
-void CMFCZahlenHaiDlg::addOnInformation()
-{
-	int upperLimit = hai.getUpperLimit();
-	CString sepUpperLimit = hai.setSeperator(upperLimit);
-
-	CString question;
-	question.LoadString(IDS_QUESTION);
-	CString headline;
-	headline.LoadString(IDS_MAX_POINTS_HEADLINE);
-	
-	if(optionen.calculateMaxNew)
-	{
-		// flomar, 02/23/2010
-		// removed any warning messages in this area: this will 
-		// be handled in the search progress dialog
-		addOn();
-	}
-	else
-	{
-		if(optionen.showMax)
-		{
-			// flomar, 05/03/2010
-			CDlgShowPrecalculatedScores dlg(mapProved, mapBestKnown);
-			dlg.DoModal();
-			return;
-
-			// flomar, 05/03/2010
-			// TODO: remove the part below
-#if 0
-			CString answer;
-			answer.Format(IDS_MAX_POINTS_INFORMATION, sepUpperLimit, hai.setSeperator(maxPossiblePointsProven[upperLimit-1]), sepUpperLimit, hai.setSeperator(maxPrime(upperLimit)));
-			CString fileName;
-			fileName.LoadString(IDS_GAME_DATA);
-			CString directory;
-			char directoryBuffer[1024];
-			if(_getcwd(directoryBuffer, 1024) != NULL)
-				directory = directoryBuffer;
-			int r = MessageBox(answer,headline, MB_ICONINFORMATION | MB_YESNO);
-			//Gibt dem Spieler die Möglichkeit sich den optimalen Weg mit anzeigen zu lassen
-			if(r==IDYES)
-			{
-				if(mapProved.find(upperLimit) == mapProved.end())
-					answer.Format(IDS_MAX_POINTS_INFORMATION_NOVALUE, fileName, directory);
-				else
-					answer.Format(IDS_MAX_POINTS_INFORMATION2, sepUpperLimit, hai.setSeperator(atoi(mapProved[upperLimit].score)), mapProved[upperLimit].sequence);
-				MessageBox(answer,headline, MB_ICONINFORMATION | MB_OK);
-			}
-#endif
-
-		}
-	}
-}
-
-//Ausgabe von zusätzlichen Features wie maximal mögliche Punkte, durchlaufene Knoten, benötigte Zeit etc.
-//wird für die maxPoints benötigt
-void CMFCZahlenHaiDlg::addOn()
-{
-	// store the desired upper limit
-	int tempUpperLimit = hai.getUpperLimit();
-
-	// flomar, 02/16/2010
-	// we have two options here to calculate the maximum number of possible points: 
-	// (a) the "old" brute-force algorithm or (b) the "new" back-tracking algorithm
-	CString selectSearchAlgorithm; selectSearchAlgorithm.Format(IDS_SELECT_SEARCH_ALGORITHM);
-
-	int selection = AfxMessageBox(selectSearchAlgorithm, MB_YESNOCANCEL|MB_ICONQUESTION);
-
-	// we go with the new back-tracking algorithm if the user pressed "YES"
-	if(selection == IDYES) {
-		// we're using a new approach that speeds up the search (see zhl.{cpp|h} for details) 
-		AfxBeginThread(zhl::maxPointsSearch, (LPVOID)((int)(tempUpperLimit)), THREAD_PRIORITY_BELOW_NORMAL);
-		// show the search progress dialog
-		CString algorithm; algorithm.Format(IDS_ALGORITHM_BACK_TRACKING);
-		dialogSearchProgress.show(clock(), algorithm, tempUpperLimit);
-	}
-	// we go with the old brute-force algorithm if the user pressed "NO"
-	else if(selection == IDNO) {
-		AfxBeginThread(maxPointsStatic, (LPVOID)((int)(tempUpperLimit)),THREAD_PRIORITY_BELOW_NORMAL);
-		// show the search progress dialog
-		CString algorithm; algorithm.Format(IDS_ALGORITHM_BRUTE_FORCE);
-		dialogSearchProgress.show(clock(), algorithm, tempUpperLimit);
-	}
-	else {
-		// simply return in case the user pushed the cancel button
-		return;
-	}
 }
 
 //Wenn sich der Fokus über einem der Zahlenbuttons befindet und der Benutzer die Enter Taste drückt, wird dieser Button ausgewählt
@@ -1893,100 +1794,6 @@ void CMFCZahlenHaiDlg::nextFreeButtonBelow(int buttonID, int maxStepsLeft, int m
 	}
 }
 
-//Die Datei "Spieldaten.txt" enthält von allen bisher berechneten maximalen Punktzahlen die Ergebnisse
-//kommentieren
-void CMFCZahlenHaiDlg::readGameData()
-{
-	// flomar, 02/22/2010
-	// complete re-write of this function along with a new file format for the game data file
-
-	// file handle
-  CStdioFile gameDataFile;
-	// file name
-	CString gameDataFileName;
-	gameDataFileName.LoadString(IDS_GAME_DATA);
-
-	// try to open the game data file
-	if(gameDataFile.Open(gameDataFileName, CFile::modeRead)) {
-		// we have two differenct sections ("proved" and "best known")
-		CString section;
-		// we read one line at a time
-		CString line;
-		// we go through all lines in the game data file
-		while(gameDataFile.ReadString(line)) {
-			// remove leading/trailing whitespaces
-			line.Trim();
-			// ignore empty lines and those starting with # (for comments)
-			if(line.Find("#") == 0 || line.GetLength() == 0) continue;
-			
-			// check if we need to change the section
-			if(line.Find("proved") == 0) {
-				section = "proved";
-				continue;
-			}
-			if(line.Find("best known") == 0) {
-				section = "best known";
-				continue;
-			}
-
-			// create a game data block
-			GameDataBlock gameDataBlock;
-			// extract the necessary information
-			gameDataBlock.limit = readGameDataBlock(line);
-			gameDataBlock.score = readGameDataBlock(line);
-			gameDataBlock.sequence = readGameDataBlock(line);
-			gameDataBlock.sequenceLength = readGameDataBlock(line);
-			gameDataBlock.leadingPrime = readGameDataBlock(line);
-
-			if(section == "proved") mapProved[atoi(gameDataBlock.limit)] = gameDataBlock;
-			if(section == "best known") mapBestKnown[atoi(gameDataBlock.limit)] = gameDataBlock;
-		}
-	}
-	// dump a warning message
-	else {
-		CString missingFileName; missingFileName.Format(IDS_GAME_DATA);
-		CString message; message.Format(IDS_GAME_DATA_FILE_MISSING, missingFileName);
-		CString title; title.Format(IDS_NUMBER_SHARK);
-		MessageBox(message, title, MB_ICONWARNING);
-		return;
-	}
-
-	// close file handle
-	gameDataFile.Close();
-}
-
-CString CMFCZahlenHaiDlg::readGameDataBlock(CString &data)
-{
-	// flomar, 02/22/2010
-	// this function takes the first block of data from the variable passed in, 
-	// cuts it off (note: variable is a reference!) and returns it; the data 
-	// parameter passed in is supposed to consist of "blocks of data" separated 
-	// by colons (see "GameData.txt for details)
-
-	// we will store the data block in this variable
-	CString dataBlock;
-
-	// find the first colon
-	int index = data.Find(":");
-
-	// ignore everything past this first colon (including the colon itself)
-	if(index != -1) {
-		// extract data block
-		dataBlock = data.Left(index);
-		// cut off data block from reference variable
-		data.Delete(0, index + 1);
-	}
-	// if there is no colon, we might be at the end of the data block
-	else {
-		// extract data block
-		dataBlock = data;
-		// delete reference variable
-		data.Empty();
-	}
-
-	// return the extracted data block
-	return dataBlock;
-}
 void CMFCZahlenHaiDlg::WinHelp(DWORD dwData, UINT nCmd)
 {
 	execWinHelp();
@@ -2049,8 +1856,6 @@ int CMFCZahlenHaiDlg::readRegistry()
 		if(optionenSetting=="true")
 		{
 			optionen.showOption=true;
-			optionen.showButton=0;
-			optionen.DoModal();
 		}
 		else
 		{
@@ -2061,10 +1866,9 @@ int CMFCZahlenHaiDlg::readRegistry()
 	else
 	{
 		regUpperLimit=20;
-		optionen.showButton=0;
-		optionen.DoModal();
-		
 	}
+
+	optionen.optionenUpperLimit = regUpperLimit;
 
 	return regUpperLimit;
 

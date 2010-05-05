@@ -43,27 +43,6 @@
 #include "ColoredListCtrl.h"
 #include "digistatic.h"
 
-#include <map>
-#include "DlgSearchProgress.h"
-
-// flomar, 02/22/2010
-// this is used for a much clearer code
-struct GameDataBlock {
-	CString limit;
-	CString score;
-	CString sequence;
-	CString sequenceLength;
-	CString leadingPrime;
-};
-
-
-// flomar, 02/23/2010
-enum SearchStatus {
-	RUNNING,
-	ABORTED,
-	DONE
-};
-
 #define MAX_ZAHLENHAI_BUTTON 30
 #define MIN_ZAHLENHAI_BUTTON 1
 #define MAX_ZAHLENHAI_NUMBERS 9999
@@ -154,9 +133,6 @@ public:
 	void updateTab();
 	void updateToolTips();
 	void writeLogFile();
-	void addOnInformation();
-	void addOn();
-	void readGameData();
 	void writeRegistry();
 	void execWinHelp();
 	void createUndoRedo();
@@ -202,18 +178,4 @@ public:
 
 	afx_msg void OnBnClickedButtonLoad();
 	afx_msg void OnBnClickedButtonSave();
-
-protected:
-	// flomar, 02/22/2010
-	std::map<int, GameDataBlock> mapProved;
-	std::map<int, GameDataBlock> mapBestKnown;
-	CString readGameDataBlock(CString &data);
-
-	// flomar, 02/23/2010
-	CDlgSearchProgress dialogSearchProgress;
-
-public:
-	// flomar, 05/03/2010
-	std::map<int, GameDataBlock> getMapProved() { return mapProved; };
-	std::map<int, GameDataBlock> getMapBestKnown() { return mapBestKnown; };
 };

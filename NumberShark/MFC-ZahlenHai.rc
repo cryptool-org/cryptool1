@@ -535,13 +535,14 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_HEADING_PROVED      "i18n Proved?"
-    IDS_PROVED_YES          "i18n Yes"
-    IDS_PROVED_NO           "i18n No"
+    IDS_HEADING_PROVED      "i18n Result optimal?"
+    IDS_PROVED_YES          "i18n Proven"
+    IDS_PROVED_NO           "i18n Unknown"
     IDS_SHOW_SEQUENCE_FOR_THIS_SPECIFIC_SCORE 
                             "i18n If you choose the number %s, one way to achieve %s points is the following sequence:\n\n%s."
     IDS_PRECALCULATED_SCORES_INTRO 
-                            "i18n For numbers 1 through %d we know optimal ways. For the higher numbers %d through %d we show the best known results -- we don't know whether these results are optimal too."
+                            "i18n For numbers 1 through %d we know optimal ways to win.\r\nFor the higher numbers %d through %d we show the best known results already precalculated. However, we don't know whether these results from %d up are optimal."
+    IDS_NO_SCORE_SELECTED   "i18n Please select a result first."
 END
 
 #endif    // Polish resources
@@ -1035,13 +1036,14 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_HEADING_PROVED      "i18n Proved?"
-    IDS_PROVED_YES          "i18n Yes"
-    IDS_PROVED_NO           "i18n No"
+    IDS_HEADING_PROVED      "i18n Result optimal?"
+    IDS_PROVED_YES          "i18n Proven"
+    IDS_PROVED_NO           "i18n Unknown"
     IDS_SHOW_SEQUENCE_FOR_THIS_SPECIFIC_SCORE 
                             "i18n If you choose the number %s, one way to achieve %s points is the following sequence:\n\n%s."
     IDS_PRECALCULATED_SCORES_INTRO 
-                            "i18n For numbers 1 through %d we know optimal ways. For the higher numbers %d through %d we show the best known results -- we don't know whether these results are optimal too."
+                            "i18n For numbers 1 through %d we know optimal ways to win.\r\nFor the higher numbers %d through %d we show the best known results already precalculated. However, we don't know whether these results from %d up are optimal."
+    IDS_NO_SCORE_SELECTED   "i18n Please select a result first."
 END
 
 #endif    // Serbian (Latin) resources
@@ -1554,13 +1556,14 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_HEADING_PROVED      "Bewiesen?"
-    IDS_PROVED_YES          "Ja"
-    IDS_PROVED_NO           "Nein"
+    IDS_HEADING_PROVED      "Ergebnis optimal?"
+    IDS_PROVED_YES          "Bewiesen"
+    IDS_PROVED_NO           "Unbekannt"
     IDS_SHOW_SEQUENCE_FOR_THIS_SPECIFIC_SCORE 
                             "Um mit der Zahl %s eine Punktzahl von %s zu erreichen, kannst Du zum Beispiel folgende Sequenz verwenden:\n\n%s."
     IDS_PRECALCULATED_SCORES_INTRO 
-                            "Für die Zahlen 1 bis %d kennen wir die optimalen Wege. Für die höheren Zahlen %d bis %d zeigen wir hier die besten uns bekannten Werte -- ob diese Werte auch optimal sind, wissen wir nicht."
+                            "Für die Zahlen 1 bis %d kennen wir die optimalen Wege.\r\nFür die höheren Zahlen %d bis %d zeigen wir hier die besten vorberechneten Werte -- ob diese Werte oberhalb von %d auch optimal sind, wissen wir nicht."
+    IDS_NO_SCORE_SELECTED   "Bitte wählen Sie zuerst ein Ergebnis aus."
 END
 
 #endif    // German (Germany) resources
@@ -2073,13 +2076,14 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_HEADING_PROVED      "Proved?"
-    IDS_PROVED_YES          "Yes"
-    IDS_PROVED_NO           "No"
+    IDS_HEADING_PROVED      "Result optimal?"
+    IDS_PROVED_YES          "Proven"
+    IDS_PROVED_NO           "Unknown"
     IDS_SHOW_SEQUENCE_FOR_THIS_SPECIFIC_SCORE 
                             "If you choose the number %s, one way to achieve %s points is the following sequence:\n\n%s."
     IDS_PRECALCULATED_SCORES_INTRO 
-                            "For numbers 1 through %d we know optimal ways. For the higher numbers %d through %d we show the best known results -- we don't know whether these results are optimal too."
+                            "For numbers 1 through %d we know optimal ways to win.\r\nFor the higher numbers %d through %d we show the best known results already precalculated. However, we don't know whether these results from %d up are optimal."
+    IDS_NO_SCORE_SELECTED   "Please select a result first."
 END
 
 #endif    // English (U.K.) resources
@@ -2573,13 +2577,14 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_HEADING_PROVED      "i18n Proved?"
-    IDS_PROVED_YES          "i18n Yes"
-    IDS_PROVED_NO           "i18n No"
+    IDS_HEADING_PROVED      "i18n Result optimal?"
+    IDS_PROVED_YES          "i18n Proven"
+    IDS_PROVED_NO           "i18n Unknown"
     IDS_SHOW_SEQUENCE_FOR_THIS_SPECIFIC_SCORE 
                             "i18n If you choose the number %s, one way to achieve %s points is the following sequence:\n\n%s."
     IDS_PRECALCULATED_SCORES_INTRO 
-                            "i18n For numbers 1 through %d we know optimal ways. For the higher numbers %d through %d we show the best known results -- we don't know whether these results are optimal too."
+                            "i18n For numbers 1 through %d we know optimal ways to win.\r\nFor the higher numbers %d through %d we show the best known results already precalculated. However, we don't know whether these results from %d up are optimal."
+    IDS_NO_SCORE_SELECTED   "i18n Please select a result first."
 END
 
 #endif    // Spanish resources
