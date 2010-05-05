@@ -69,7 +69,9 @@ public:
 	void setModelTitleFormat(CProgressModel *model,UINT title, LPCTSTR format);
 	void setModelTitleFormat(CProgressModel *model,LPCTSTR title, LPCTSTR format);
 	void startClock();
-	CString m_days, m_years;
+	CString m_days;
+	CString m_years;
+	CString m_floatNumberSeparator;
 #ifdef debugprogress
 	FILE *debug;
 #endif

@@ -8,8 +8,7 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -11060,6 +11059,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bits)"
+    IDS_FLOAT_NUMBER_SEPARATOR ","
 END
 
 #endif    // Polish resources
@@ -22120,6 +22120,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bita)"
+    IDS_FLOAT_NUMBER_SEPARATOR ","
 END
 
 #endif    // Serbian (Latin) resources
@@ -33115,6 +33116,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bits)"
+    IDS_FLOAT_NUMBER_SEPARATOR ","
 END
 
 #endif    // German (Germany) resources
@@ -44173,6 +44175,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bits)"
+    IDS_FLOAT_NUMBER_SEPARATOR "."
 END
 
 #endif    // English (U.K.) resources
@@ -55293,6 +55296,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bits)"
+    IDS_FLOAT_NUMBER_SEPARATOR ","
 END
 
 #endif    // Spanish resources

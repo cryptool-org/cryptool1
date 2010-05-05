@@ -142,6 +142,7 @@ BOOL CDlgShowProgress::OnInitDialog()
 	CDialog::OnInitDialog();
 	m_days.LoadString(IDS_STRING_DAYS);
 	m_years.LoadString(IDS_STRING_YEARS);
+	m_floatNumberSeparator.LoadString(IDS_FLOAT_NUMBER_SEPARATOR);
 	m_Progress.SetRange(0,100);
 	SetWindowText(m_title);
 	m_text_ctl.SetWindowText("");
@@ -218,8 +219,16 @@ CString CDlgShowProgress::duration(double progress) const
 
 	} else if (rest < 3600.0*24.0*365.0) {
 		d.Format("%.1f %s",rest/(3600.0*24.0),m_days);
+		// flomar, 05/04/2010
+		// we want language-dependent separators (i.e. "," in DE, "." in EN); therefore we replace 
+		// all periods (".", default!) with the appropriate separator (IDS_FLOAT_NUMBER_SEPARATOR)
+		d.Replace('.', m_floatNumberSeparator[0]);
 	} else {
 		d.Format("%.2g %s",rest/(3600.0*24.0*365.0),m_years);
+		// flomar, 05/04/2010
+		// we want language-dependent separators (i.e. "," in DE, "." in EN); therefore we replace 
+		// all periods (".", default!) with the appropriate separator (IDS_FLOAT_NUMBER_SEPARATOR)
+		d.Replace('.', m_floatNumberSeparator[0]);
 	}
 #ifdef debugprogress
 	return raw + d;
