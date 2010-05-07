@@ -19,19 +19,25 @@
 
 <P>Sie erreichen diesen Dialog über den Menüeintrag <a href="menu_analyze.html">Analyse</a> \ <a href="menu_analysis_symmetricclassic.html">Symmetrische Verschlüsselung(klassisch)</a> \ <a href="menu_analysis_symmetricclassic_knownplaintext.html">Known Plaintext</a> \ <a href="HID_HILL_AUTO.html">Hill</a>.</P>
 
-<P>In den Dialog müssen die benötigten Daten zur automatische Analyse (<!--ZZZPOPUP--><A href="knownplaintextangriff.html">Known-Plaintext-Angriff</A>) für das <A href="hid_hill.html">Hill-Verschlüsselungsverfahren</A> eingegeben werden.</P>
+<P>Die automatische Analyse (<!--ZZZPOPUP--><A href="knownplaintextangriff.html">Known-Plaintext-Angriff</A>) für das <A href="hid_hill.html">Hill-Verschlüsselungsverfahren</A> benötigt folgende Daten.</P>
 
-<P>In diesen Dialog müssen Sie den <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> oder den <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> Text eingeben (in Abhängigkeit des Inhalts des aktiven Fensters vor dem Aufruf der Funktion <A href="hid_hill_auto.html">Analyse für Hill-Verschlüsselungsverfahren</A>).</P>
 
-<P>Wenn das aktive Fenster den <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> Text enthält, muss in dieses Fenster (in das Feld <B>Klartext oder verschlüsselter Text</B>) der <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> eingegeben werden und das Feld <B>Klartext im Eingabefeld</B> aktiviert sein; die Aktivierung geschieht durch einen Mausklick. Enthält das aktive Fenster vor dem Aufruf der Funktion hingegen den Klartext, so muss der verschlüsselte Text eingegeben werden und der Radiobutton<B> Verschlüsselter Text im Eingabefeld</B> aktiviert sein.</P>
+<OL>
+<LI><P><!--ZZZPOPUP--><A href="klartext.html">Klartext</A> und <!--ZZZPOPUP--><A href="verschluesselung.html">Geheimtext</A> als Textdateien.</P></LI>
 
-<P>Der Text kann selbstverständlich auch über die Zwischenablage von einem Fenster in diesen Dialog kopiert werden. Dadurch ersparen Sie sich das Merken und Abtippen längerer Texte. Nähere Informationen über das Kopieren von Texten über die Zwischenablage finden Sie in der <A href="afx_hidw_toolbar.html">Hilfe zur Symbolleiste</A> von <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>.</P>
+<LI><P>Multiplikationsart. Wurden die kodierten Klartext-Blöcke von links mit der Hill-Matrix [(Vektorreihe) x (Matrix)] oder von rechts mit der Hill-Matrix [(Matrix) x (Vektorspalte)] multipliziert.</P></LI>
 
-<P>Sie haben die Möglichkeit, die Dimension des zu suchenden <!--ZZZPOPUP--><A href="schluessel.html">Schlüssels</A> einzuschränken. Sofern Sie die Länge des Schlüssels kennen, können Sie das Programm anweisen, die Analyse nur für diese <!--ZZZPOPUP--><A href="schluessellaenge.html">Schlüssellänge</A> zu versuchen. Bei großen <!--ZZZPOPUP--><A href="dokument.html">Dokumenten</A> führt dies zu einer Zeitersparnis. Beachten Sie dabei aber, dass zum Beispiel ein Schlüssel der Dimension 3 nicht gefunden wird, wenn Sie die Dimension von 1 bis 2 einschränken.</P>
+<LI><P>Wert des ersten Alpahabetzeichens ('0' oder '1'). Wurden das konfigurierte Alphabet der Reihe nach in die Zahlen 0, 1, 2, 3, ... oder -- beginnend mit der '1' -- in die Zahlen 1, 2, 3, 4, ... kodiert.</P></LI>
+
+<LI><P>Mögliche Dimensionen der Hill-Matrix.
+Sie haben die Möglichkeit, die Dimension des zu suchenden <!--ZZZPOPUP--><A href="schluessel.html">Schlüssels</A> einzuschränken. Sofern Sie die Länge des Schlüssels kennen, können Sie das Programm anweisen, die Analyse nur für diese <!--ZZZPOPUP--><A href="schluessellaenge.html">Schlüssellänge</A> zu versuchen. Bei großen <!--ZZZPOPUP--><A href="dokument.html">Dokumenten</A> führt dies zu einer Zeitersparnis. Beachten Sie dabei aber, dass zum Beispiel ein Schlüssel der Dimension 3 nicht gefunden wird, wenn Sie die Dimension von 1 bis 2 einschränken. </P></LI>
+</OL>
 
 <P>Durch Betätigen des <B>Weiter</B>-Knopfes wird die Analyse gestartet; die Analyse wird nicht gestartet, wenn Sie den Dialog mit dem <B>Abbrechen</B>-Knopf beenden.</P>
 
-<P>Sofern der Schlüssel ermittelt werden konnte, wird er im Dialog <A href="hidd_show_key_hill5x5.html">Schlüssel für Hill Verschlüsselungsverfahren</A> ausgegeben, ansonsten erfolgt eine Meldung, dass der Schlüssel nicht gefunden werden konnte.</P>
+<P>Sofern ein Schlüssel ermittelt werden konnte, wird er im Dialog <A href="hidd_show_key_hill5x5.html">Schlüssel für Hill Verschlüsselungsverfahren</A> ausgegeben, ansonsten erfolgt eine Meldung, dass der Schlüssel nicht gefunden werden konnte. </P>
+
+<P>Bitte beachten Sie, dass für den aktuellen Klartext/Geheimtext es mehrere gültige Hill-Schlüssel geben kann. Es wird immer nur ein gefundener Schlüssel angezeigt. Wenn Sie weitere gültige Schlüssel suchen, dann deselktieren Sie Schritt für Schritt die Parameter der gefundenen Schlüssels und wiederholen die Analyse.</P> 
 
 </BODY>
 </HTML>
