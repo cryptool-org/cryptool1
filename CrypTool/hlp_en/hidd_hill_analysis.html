@@ -21,17 +21,24 @@
 
 <P>The data required for the automatic analysis (<!--ZZZPOPUP--><A href="knownplaintextangriff.html">Known Plaintext attack</A>) for the <A href="hid_hill.html">Hill encryption algorithm</A> must be entered in this dialog.</P>
 
-<P>Accordingly, you should enter either the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> or the <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> text, depending on the content of the active window prior to initiation of the <A href="hid_hill_auto.html">automatic analysis for the Hill encryption algorithm</A>.</P>
 
-<P>If the active window contains the <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> text, the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> must be entered into the dialog (in the <B>Plaintext or ciphertext</B> box) and the <B>Plaintext in input box</B> option must be selected. This is done by clicking with the mouse button. If on the other hand the window that was active prior to invoking the automatic analysis contained the plaintext, then the encrypted text must be entered and the <B>Ciphertext in input box</B> option must be selected.</P>
+<OL>
+<LI><P><!--ZZZPOPUP--><A href="klartext.html">Plaintext</A> and <!--ZZZPOPUP--><A href="verschluesselung.html">cyphertext</A> text files.</P></LI>
 
-<P>The text can of course also be copied to this dialog from another window via the clipboard. This saves having to remember and type out longer texts. Further information on copying text into the clipboard will be found via the help facility offered on the <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> <A href="afx_hidw_toolbar.html">toolbar</A>.</P>
+<LI><P>Multiplication type. Were the encoded plaintext blocks multiplied from the left side by the Hill matrix [(vector row) x (matrix)] or from the right side [(matrix) x (vector column)].</P></LI>
 
-<P>You have the option of limiting the dimension of the <!--ZZZPOPUP--><A href="schluessel.html">key</A> to be searched for. If you know the length of the key, then you can instruct the program to confine the analysis to this <!--ZZZPOPUP--><A href="schluessellaenge.html">key length</A>. This can save a lot of time, especially if the <!--ZZZPOPUP--><A href="dokument.html">document</A> is large. However, you should note that, for example, that this will mean that a key of dimension 3 will not be found if you limit the dimension to 1 or 2.</P>
+<LI><P>Encoding offset of first alphabet charcter ('0' or '1'). Consider if the set alphabet characters were encoded to the numbers 0, 1, 2, 3, ... or - starting with '1' - encoded to the numbers 1, 2, 3, 4, ... .</P></LI>
 
-<P>To start the analysis, click on Continue; to terminate the analysis click on Cancel.</P>
+<LI><P>Hill dimension range (from, to).
+You have the option of limiting the dimension of the <!--ZZZPOPUP--><A href="schluessel.html">key</A> to be searched for. If you know the length of the key, then you can instruct the program to confine the analysis to this <!--ZZZPOPUP--><A href="schluessellaenge.html">key length</A>. This can save a lot of time, especially if the <!--ZZZPOPUP--><A href="dokument.html">document</A> is large. However, you should note that, for example, that this will mean that a key of dimension 3 will not be found if you limit the dimension to 1 or 2.</P></LI>
+</OL>
 
-<P>If CrypTool has been able to work out the key it will be displayed in the <A href="hidd_key_hill5x5.html">Key for Hill cipher</A> ; otherwise a message stating that the key could not be found will appear.</P>
+<P>To start the analysis, click on Continue; to terminate the analysis click on Cancel.
+If CrypTool has been able to work out the key it will be displayed in the <A href="hidd_key_hill5x5.html">Key for Hill cipher</A> ; otherwise a message stating that the key could not be found will appear.</P>
+
+<P>Please note. For the actual selected plaintext/ciphertext there may exist more than one valid Hill key. But only one key will be shown. In case you need to find a different Hill key, you can start over the Hill analyses after youdid deselect the options of the previous found Hill key.
+</P>
+
 
 </BODY>
 </HTML>
