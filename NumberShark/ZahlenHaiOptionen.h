@@ -35,6 +35,12 @@ struct GameDataBlock {
 	CString sequence;
 	CString sequenceLength;
 	CString leadingPrime;
+	bool proved;
+
+	// default construction
+	GameDataBlock() {
+		proved = false;
+	};
 };
 
 enum SearchStatus {
@@ -112,8 +118,7 @@ protected:
 	// the following variables and functions are part of a major bug fix; due to 
 	// time constraints I decided to *NOT* completely re-write the relevant parts
 
-	std::map<int, GameDataBlock> mapProved;
-	std::map<int, GameDataBlock> mapBestKnown;
+	std::map<int, GameDataBlock> mapPrecalculatedScores;
 
 	void calculateMaximumScore();
 
@@ -129,6 +134,5 @@ public:
 	void setEvoZahlenHai(EvoZahlenHai &_hai) { hai = _hai; };
 
 	// access methods only, see above
-	std::map<int, GameDataBlock> getMapProved() { return mapProved; };
-	std::map<int, GameDataBlock> getMapBestKnown() { return mapBestKnown; };
+	std::map<int, GameDataBlock> getMapPrecalculatedScores() { return mapPrecalculatedScores; };
 };

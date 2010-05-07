@@ -1351,13 +1351,8 @@ void CMFCZahlenHaiDlg::writeLogFile()
 	{
      	CString logfileMaxPoints;
 		logfileMaxPoints.LoadString(IDS_LOGFILE_MAXPOINTS);
-		if(upperLimit <= optionen.getMapProved().size())
-			file.WriteString(logfileMaxPoints + optionen.getMapProved()[upperLimit].score);
-		else
-		{
-			if(upperLimit <= optionen.getMapBestKnown().size())
-				file.WriteString(logfileMaxPoints + optionen.getMapBestKnown()[upperLimit].score);
-		}
+		if(upperLimit <= optionen.getMapPrecalculatedScores().size())
+			file.WriteString(logfileMaxPoints + optionen.getMapPrecalculatedScores()[upperLimit].score);
 	}
 
 	file.Close();
@@ -1430,15 +1425,9 @@ int CMFCZahlenHaiDlg::winner()
 			m_LedWinner.SetText(ledDraw);
 		}
 	}*/
-	if(upperLimit <= optionen.getMapProved().size())
-		summary.uebergeben(this->hai, exePathSummary, summaryName, optionen.getMapProved().size(), optionen.getMapBestKnown().size(), atoi(optionen.getMapProved()[upperLimit].score));
-	else
-	{
-		if(upperLimit <= optionen.getMapBestKnown().size())
-			summary.uebergeben(this->hai, exePathSummary, summaryName, optionen.getMapProved().size(), optionen.getMapBestKnown().size(), atoi(optionen.getMapBestKnown()[upperLimit].score));
-		else
-			summary.uebergeben(this->hai, exePathSummary, summaryName, optionen.getMapProved().size(), optionen.getMapBestKnown().size(), atoi(optionen.getMapBestKnown()[upperLimit].score));
-	}
+	if(upperLimit <= optionen.getMapPrecalculatedScores().size())
+		summary.uebergeben(this->hai, exePathSummary, summaryName, optionen.getMapPrecalculatedScores().size(), optionen.getMapPrecalculatedScores().size(), atoi(optionen.getMapPrecalculatedScores()[upperLimit].score));
+	
 	summary.DoModal();
 	
 	int writeFile=1;

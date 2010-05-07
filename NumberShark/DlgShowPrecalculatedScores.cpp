@@ -24,6 +24,7 @@
 #include "stdafx.h"
 #include "MFC-ZahlenHai.h"
 #include "DlgShowPrecalculatedScores.h"
+#include "DlgShowPrecalculatedScoresInDetail.h"
 
 // CDlgShowPrecalculatedScores dialog
 
@@ -35,9 +36,8 @@ CDlgShowPrecalculatedScores::CDlgShowPrecalculatedScores(CWnd* pParent /*=NULL*/
 
 }
 
-CDlgShowPrecalculatedScores::CDlgShowPrecalculatedScores(std::map<int, GameDataBlock> _mapProved, std::map<int, GameDataBlock> _mapBestKnown, CWnd* pParent /*=NULL*/) :
-	mapProved(_mapProved),
-	mapBestKnown(_mapBestKnown),
+CDlgShowPrecalculatedScores::CDlgShowPrecalculatedScores(std::map<int, GameDataBlock> _mapPrecalculatedScores, CWnd* pParent /*=NULL*/) :
+	mapPrecalculatedScores(_mapPrecalculatedScores),
 	CDialog(CDlgShowPrecalculatedScores::IDD, pParent)
 {
 
@@ -58,9 +58,19 @@ BOOL CDlgShowPrecalculatedScores::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// display the dialog intro
-	int numberOfProvedScores = mapProved.size();
-	int numberOfBestKnownScores = mapBestKnown.size();
+	// display the dialog intro (we need the amount of proved and best-known scores)
+	int numberOfProvedScores = 0;
+	int numberOfBestKnownScores = 0;
+
+	for(mapPrecalculatedScoresIter=mapPrecalculatedScores.begin(); 
+			mapPrecalculatedScoresIter!=mapPrecalculatedScores.end(); 
+			mapPrecalculatedScoresIter++) {
+		if((*mapPrecalculatedScoresIter).second.proved)
+			numberOfProvedScores++;
+		else
+			numberOfBestKnownScores++;
+	}
+
 	intro.Format(IDS_PRECALCULATED_SCORES_INTRO, numberOfProvedScores, numberOfProvedScores + 1, numberOfProvedScores + numberOfBestKnownScores, numberOfProvedScores);
 
 	// clear the score list
@@ -77,27 +87,19 @@ BOOL CDlgShowPrecalculatedScores::OnInitDialog()
 	columnHeader.Format(IDS_HEADING_PROVED);
 	controlListPrecalculatedScores.InsertColumn(2, columnHeader, LVCFMT_LEFT, 110);
 
-	// insert proved scores
-	std::map<int, GameDataBlock>::iterator iterProved;
-	for(iterProved = mapProved.begin(); iterProved != mapProved.end(); iterProved++) {
+	// insert scores
+	for(mapPrecalculatedScoresIter=mapPrecalculatedScores.begin(); 
+			mapPrecalculatedScoresIter!=mapPrecalculatedScores.end(); 
+			mapPrecalculatedScoresIter++) {
 		int index = controlListPrecalculatedScores.GetItemCount();
 		controlListPrecalculatedScores.InsertItem(index, "ITEM");
-		controlListPrecalculatedScores.SetItemText(index, 0, (*iterProved).second.limit);
-		controlListPrecalculatedScores.SetItemText(index, 1, (*iterProved).second.score);
+		controlListPrecalculatedScores.SetItemText(index, 0, (*mapPrecalculatedScoresIter).second.limit);
+		controlListPrecalculatedScores.SetItemText(index, 1, (*mapPrecalculatedScoresIter).second.score);
 		CString proved;
-		proved.Format(IDS_PROVED_YES);
-		controlListPrecalculatedScores.SetItemText(index, 2, proved);
-	}
-
-	// insert best-known scores
-	std::map<int, GameDataBlock>::iterator iterBestKnown;
-	for(iterBestKnown = mapBestKnown.begin(); iterBestKnown != mapBestKnown.end(); iterBestKnown++) {
-		int index = controlListPrecalculatedScores.GetItemCount();
-		controlListPrecalculatedScores.InsertItem(index, "ITEM");
-		controlListPrecalculatedScores.SetItemText(index, 0, (*iterBestKnown).second.limit);
-		controlListPrecalculatedScores.SetItemText(index, 1, (*iterBestKnown).second.score);
-		CString proved;
-		proved.Format(IDS_PROVED_NO);
+		if((*mapPrecalculatedScoresIter).second.proved)
+			proved.Format(IDS_PROVED_YES);
+		else
+			proved.Format(IDS_PROVED_NO);
 		controlListPrecalculatedScores.SetItemText(index, 2, proved);
 	}
 
@@ -107,7 +109,7 @@ BOOL CDlgShowPrecalculatedScores::OnInitDialog()
 }
 
 BEGIN_MESSAGE_MAP(CDlgShowPrecalculatedScores, CDialog)
-	ON_BN_CLICKED(ID_SHOW_SEQUENCE, &CDlgShowPrecalculatedScores::OnBnClickedShowSequence)
+	ON_BN_CLICKED(ID_SHOW_DETAILS, OnBnClickedShowSequence)
 END_MESSAGE_MAP()
 
 
@@ -115,32 +117,7 @@ END_MESSAGE_MAP()
 
 void CDlgShowPrecalculatedScores::OnBnClickedShowSequence()
 {
-	int selection = controlListPrecalculatedScores.GetSelectionMark();
-	if(selection == -1) {
-		CString message;
-		message.Format(IDS_NO_SCORE_SELECTED);
-		AfxMessageBox(message);
-		return;
-	}
-
-	// the indices for our maps are NOT ZERO-BASED, therefore we 
-	// need to increment "selection" to get the selected item
-	selection++;
-
-	// temporary structure
-	GameDataBlock data;
-
-	// check if a "proved" score is selected
-	if(selection <= mapProved.size()) {
-		data = mapProved[selection];
-	}
-	// check if a "best-known" score is selected
-	else {
-		data = mapBestKnown[selection];
-	}
-
-	// show the "optimal way"
-	CString message;
-	message.Format(IDS_SHOW_SEQUENCE_FOR_THIS_SPECIFIC_SCORE, data.limit, data.score, data.sequence);
-	AfxMessageBox(message);
+	// TODO: show all results in a window (for copy-paste)
+	CDlgShowPrecalculatedScoresInDetail dlg(mapPrecalculatedScores);
+	dlg.DoModal();
 }

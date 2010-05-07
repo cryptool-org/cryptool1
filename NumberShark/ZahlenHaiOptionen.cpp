@@ -213,7 +213,7 @@ void ZahlenHaiOptionen::OnBnClickedButtonMax()
 	}
 	else {
 		// at this point we want to show the precalculated scores
-		CDlgShowPrecalculatedScores dlg(mapProved, mapBestKnown);
+		CDlgShowPrecalculatedScores dlg(mapPrecalculatedScores);
 		dlg.DoModal();
 	}
 }
@@ -260,9 +260,9 @@ void ZahlenHaiOptionen::readGameData()
 			gameDataBlock.sequence = readGameDataBlock(line);
 			gameDataBlock.sequenceLength = readGameDataBlock(line);
 			gameDataBlock.leadingPrime = readGameDataBlock(line);
+			gameDataBlock.proved = (section == "proved");
 
-			if(section == "proved") mapProved[atoi(gameDataBlock.limit)] = gameDataBlock;
-			if(section == "best known") mapBestKnown[atoi(gameDataBlock.limit)] = gameDataBlock;
+			mapPrecalculatedScores[atoi(gameDataBlock.limit.GetBuffer())] = gameDataBlock;
 		}
 	}
 	// dump a warning message

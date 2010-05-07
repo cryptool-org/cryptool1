@@ -18,25 +18,25 @@
 
 **************************************************************************/
 
-#ifndef _DLGSHOWPRECALCULATEDSCORES_H_
-#define _DLGSHOWPRECALCULATEDSCORES_H_
+#ifndef _DLGSHOWPRECALCULATEDSCORESINDETAIL_H_
+#define _DLGSHOWPRECALCULATEDSCORESINDETAIL_H_
 
 #include "afxwin.h"
 #include "MFC-ZahlenHaiDlg.h"
 
-// CDlgShowPrecalculatedScores dialog
+// CDlgShowPrecalculatedScoresInDetail dialog
 
-class CDlgShowPrecalculatedScores : public CDialog
+class CDlgShowPrecalculatedScoresInDetail : public CDialog
 {
-	DECLARE_DYNAMIC(CDlgShowPrecalculatedScores)
+	DECLARE_DYNAMIC(CDlgShowPrecalculatedScoresInDetail)
 
 public:
-	CDlgShowPrecalculatedScores(CWnd* pParent = NULL);   // standard constructor
-	CDlgShowPrecalculatedScores(std::map<int, GameDataBlock> _mapPrecalculatedScores, CWnd* pParent = NULL);
-	virtual ~CDlgShowPrecalculatedScores();
+	CDlgShowPrecalculatedScoresInDetail(CWnd* pParent = NULL);   // standard constructor
+	CDlgShowPrecalculatedScoresInDetail(std::map<int, GameDataBlock> _mapPrecalculatedScores, CWnd* pParent = NULL);
+	virtual ~CDlgShowPrecalculatedScoresInDetail();
 
 // Dialog Data
-	enum { IDD = IDD_SHOW_PRECALCULATED_SCORES };
+	enum { IDD = IDD_SHOW_PRECALCULATED_SCORES_IN_DETAIL };
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
@@ -44,18 +44,10 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 
-public:
-	afx_msg void OnBnClickedShowSequence();
-
-protected:
-	CString intro;
-
-	// flomar, 05/03/2010
-	// see MFC-ZahlenHailDlg.h for details
 	std::map<int, GameDataBlock> mapPrecalculatedScores;
 	std::map<int, GameDataBlock>::iterator mapPrecalculatedScoresIter;
 
-	CListCtrl controlListPrecalculatedScores;
+	CString textPrecalculatedScores;
 };
 
 #endif
