@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.30 Beta 07 for Win32, April 2010  xxxxxxx
+    CrypTool, Version 1.4.30 Beta 07 for Win32, May 2010  xxxxxxx
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main,
@@ -101,7 +101,7 @@ month -- with a growing trend (more than 1/2 of the current downloads
 request the English version).
 Number of downloads of the current betas of the successor versions:
                JCT: ca.  500 / month
-               CT2: ca.  400 / month
+               CT2: ca. 2000 / month
 
 The aim of CrypTool is to explain cryptographic mechanisms and to
 demonstrate the use and the limitations of individual mechanisms.
@@ -818,7 +818,7 @@ a) Developer-relevant changes (more technically oriented):
   - Scintilla 1.7.7
   - cv act library v. 1.4.6 (supporting Vista too)
   - OpenSSL 0.9.8k
-  - GMP 4.1
+  - MPIR 1.3.1 (derived from GMP version 4.2.1) instead of GMP 4.1
   - Animal 2.3.21.
 
 - Source code and application of CrypTool 1.x are now subject to the Apache
@@ -858,6 +858,8 @@ c) New functionality / Usability:
 - Bug fixes --> Thanks to the many attentive users!
    - Bug fixed in AKS which appeared with the numbers 2^8+1 and 2^16+1.
      The corrected version of AKS is slower.
+   - Bug fixed in AKS which broke CT when calculating the estimated time for
+     very big numbers. New version of GM/MPIR was necessary.
    - Bug fixed in further primality tests which appeared when the tested
      number had prime factors < 39.
    - In the dialog "Key generation from password (according to PKSC #5)"
@@ -1003,11 +1005,14 @@ c) New functionality / Usability:
         monoalphabetic substitution) and at 
   - the classic transposition methods (Scytale, transposition part of ADFGVX).
 
-  It is not available yet at: xxxxxxxxxxxxxxx
-  - Substitution part of ADFGVX
-  - Playfair
-  - Permutation
-  - Solitaire.
+  The Text Options button is intentionally not available in the key entry
+  dialogs for the following ciphers:
+  - Substitution part of ADFGVX (algorithm requires fixed alphabet)
+  - Playfair (algorithm requires fixed alphabet)
+  - Permutation (all data is permutated; preformat the document if wished 
+                 by yourself via the menu "View \ Format Text Document")
+  - Solitaire (algorithm requires fixed alphabet; turning all letter into
+               the 26 upper-case letters and deletes all other characters).
 
   This enhancement came especially because of many requests to offer more
   characters for the monoalphabetic substitution.
@@ -1031,8 +1036,8 @@ c) New functionality / Usability:
     (39 numbers within around 1 minute; 40 numbers within around 5 minutes).
   - Even much more faster are heuristic algorithms, like the ones implemented
     in JCT. They normally don't find an optimal result, but a very good one.
-    Best known results up to almost n=400 are delivered with the game now.
-    All known values can be shown in a table now.
+    Best known results up to n=404 are delivered with the game now.
+    All known values can be shown in a table.
   - If the Number Shark calculates optional results (which can last very long),
     then you now can restart using stored pre-calculations. 
 
@@ -1913,7 +1918,7 @@ Remarks about the versions:
 1.4.30-Beta04  Sep. 2009  Second public beta of version 1.4.30.
 1.4.30-Beta05  Jan. 2010  Third public beta of version 1.4.30.
 1.4.30-Beta06  Feb. 2010  Forth public beta of version 1.4.30.
-1.4.30-Beta07  Apr. 2010  Fifth public beta of version 1.4.30.
+1.4.30-Beta07  May  2010  Fifth public beta of version 1.4.30.
 1.4.30   Many bug fixes and enhanced functionality compared to 1.4.21.
 
 
@@ -2797,10 +2802,10 @@ c) CrypTool 2.0 (CT 2)
    - Strictly using the standards from Microsoft .NET (looks like Office 2007).
    - Usage of Windows Presentation Foundation (WPF) to create multi media
      GUIs using vector graphics.
-   - The whole project can be build with the free VS2008 Express-Edition
+   - The whole project can be build with the free VS2010 Express-Edition
      for C#.
-   - Available are the .NET crypto provider, and libraries like GMP and
-     Crypto++ via wrappers.
+   - Available are the .NET crypto provider, libraries like GMP, Crypto++
+     via wrappers and BouncyCastle for C#.
    - Beta versions (for developers and end users) are published regularly
      since July 2008.
      With the release version of CT2 the further development of CrypTool 1.x

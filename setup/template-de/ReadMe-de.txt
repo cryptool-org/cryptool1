@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.30 Beta 07 für Win32, April 2010  xxxxxx
+    CrypTool, Version 1.4.30 Beta 07 für Win32, Mai 2010  xxxxxx
     (c) Contributors
         Dazu gehören z.B.
         Deutsche Bank AG, Frankfurt am Main,
@@ -102,7 +102,7 @@ geladen -- mit wachsender Tendenz (davon entfallen etwas über 1/2
 auf die englische Version).
 Anzahl Downloads der aktuellen Betas der Nachfolger-Versionen:
                JCT: ca.  500 / Mt.
-               CT2: ca.  400 / Mt.
+               CT2: ca. 2000 / Mt.
 
 Ziel von CrypTool ist es, kryptographische Mechanismen anschaulich
 zu machen und die Verwendung und die Grenzen einzelner Verfahren
@@ -833,7 +833,7 @@ a) Entwickler-relevante Änderungen (eher Programm-technisch):
   - Scintilla 1.7.7
   - cv act library v. 1.4.6 (unterstützt auch Vista)
   - OpenSSL 0.9.8k
-  - GMP 4.1
+  - MPIR 1.3.1 (hergeleitet aus GMP-Version 4.2.1) statt GMP 4.1
   - Animal 2.3.21.
 
 - Quellcode und die Applikation CrypTool 1.x stehen nun unter der Lizenz
@@ -872,6 +872,9 @@ c) Neue Funktionalität / Bedienung:
 - Bugfixes  --> Danke an die vielen aufmerksamen Benutzer!
    - Fehler in AKS behoben, der mit den Eingaben 2^8+1 und 2^16+1 auftrat.
      Die korrekte Fassung von AKS braucht länger.
+   - Fehler in AKS behoben, der CT abstürzen ließ, wenn man die Zeitdauer für
+     sehr große Zahlen abschätzen ließ (Dauer über 1 Jahr, Stack-Überlauf in GMP).
+     Dazu war eine neue Version von GMP/MPIR notwendig.
    - Fehler behoben bei weiteren Primzahltests, wenn Primfaktoren < 39
      vorkamen.
    - In der Maske "Schlüssel aus Passwort generieren (nach PKSC #5)" werden
@@ -1023,11 +1026,16 @@ c) Neue Funktionalität / Bedienung:
   - den klassischen Transpositions-Verfahren
         (Skytale, Transpositions-Teil von ADFGVX).
 
-  Er ist noch nicht vorhanden bei: xxxxxxxxxxxxxxx
-  - Substitutions-Teil von ADFGVX
-  - Playfair
-  - Permutation
-  - Solitaire.
+  Der Textoptionen-Button ist absichtlich nicht verfügbar in den Schlüssel-
+  eingabe-Dialogen der folgenden Verschlüsselungsverfahren:
+  - Substitutions-Teil von ADFGVX (der Algorithmus erfordert ein festes Alphabet)
+  - Playfair (der Algorithmus erfordert ein festes Alphabet)
+  - Permutation (alle Daten werden permutiert; wenn gewünscht, kann das Dokument
+                 von Ihnen selbst vorab vorformatiert werden -- mit dem Menü
+                 "Ansicht \ Textdokument formatieren")
+  - Solitaire (der Algorithmus erfordert ein festes Alphabet; alle Buchstaben
+               werden in die 26 Großbuchstaben verwandelt und alle anderen
+               Zeichen gelöscht).
 
   Diese Neuerung kam zustande aufgrund vieler Anfragen, die insbesondere
   um Erweiterung des Alphabets für die monoalphabetische Substitution baten.
@@ -1054,9 +1062,9 @@ c) Neue Funktionalität / Bedienung:
   - Noch viel schneller sind heuristische Methoden, wie sie in JCT
     implementiert sind. Diese finden meist nicht den optimalen Wert,
     aber einen sehr guten Wert.
-    Die besten bekannten Werte bis fast n=400 werden nun auch im Spiel
+    Die besten bekannten Werte bis n=404 werden nun auch im Spiel
     mitgeliefert.
-    Alle bekannten Werte können nun in einer Tabelle angezeigt werden.
+    Alle bekannten Werte können in einer Tabelle angezeigt werden.
   - Wenn man die optimalen Werte berechnet, was sehr lange dauern kann,
     kann der Zahlenhai nun auf bisher schon berechnete Zwischenergebnisse
     aufsetzen. 
@@ -1970,7 +1978,7 @@ Bemerkungen zu den Versionen:
 1.4.30-Beta04  Sep. 2009  Zweite öffentliche Beta von Version 1.4.30.
 1.4.30-Beta05  Jan. 2010  Dritte öffentliche Beta von Version 1.4.30 (22.1.2010).
 1.4.30-Beta06  Feb. 2010  Vierte öffentliche Beta von Version 1.4.30 (28.2.2010).
-1.4.30-Beta07  Apr. 2010  Fünfte öffentliche Beta von Version 1.4.30 (xx.x.2010).
+1.4.30-Beta07  Mai  2010  Fünfte öffentliche Beta von Version 1.4.30 (xx.x.2010).
 1.4.30   Viele Bugfixes und erweiterter Funktionsumfang i.Vgl. zu 1.4.21.
 
 
@@ -2882,10 +2890,10 @@ c) CrypTool 2.0 (CT 2)
    - Nutzt strikt die Standards von Microsoft .NET (Aussehen wie Office 2007).
    - Nutzung von Windows Presentation Foundation (WPF) zur Gestaltung
      von multimedialen Oberflächen (GUI) mit Vektorgraphiken.
-   - Das gesamte Projekt lässt sich mit der kostenlosen VS2008-Express-
+   - Das gesamte Projekt lässt sich mit der kostenlosen VS2010-Express-
      Edition für C# erstellen.
-   - Verfügbar sind die .NET Krypto-Provider, und Bibliotheken wie GMP und
-     Crypto++ per Wrapper.
+   - Verfügbar sind die .NET Krypto-Provider, Bibliotheken wie GMP und
+     Crypto++ per Wrapper, und BouncyCastle für C#.
    - Beta-Versionen (für Entwickler und Nutzer) werden seit Juli 2008
      regelmäßig veröffentlicht.
      Mit der Releaseversion von CT2 wird die Weiter-Entwicklung von CrypTool 1.x
