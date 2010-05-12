@@ -210,11 +210,24 @@ void ZahlenHaiOptionen::OnBnClickedButtonMax()
 	if(radioButton1.GetCheck()) {
 		// at this point we want to recalculate the maximum score
 		calculateMaximumScore();
+		return;
 	}
 	else {
-		// at this point we want to show the precalculated scores
-		CDlgShowPrecalculatedScores dlg(mapPrecalculatedScores);
-		dlg.DoModal();
+		// at this point we want to show the precalculated scores;
+		// however, if our map is empty (meaning: no scores were found 
+		// in "GameData.txt"), we want to tell the user about it
+		if(mapPrecalculatedScores.empty()) {
+			CString missingFileName; missingFileName.Format(IDS_GAME_DATA);
+			CString message; message.Format(IDS_GAME_DATA_FILE_MISSING, missingFileName);
+			CString title; title.Format(IDS_NUMBER_SHARK);
+			MessageBox(message, title, MB_ICONWARNING);
+			return;
+		}
+		else {
+			CDlgShowPrecalculatedScores dlg(mapPrecalculatedScores);
+			dlg.DoModal();
+			return;
+		}
 	}
 }
 
