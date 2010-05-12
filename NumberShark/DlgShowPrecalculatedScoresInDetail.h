@@ -48,6 +48,13 @@ protected:
 	std::map<int, GameDataBlock>::iterator mapPrecalculatedScoresIter;
 
 	CString textPrecalculatedScores;
+
+protected:
+	// flomar, 05/12/2010
+	afx_msg void OnSize(UINT nType, int cx, int cy);
+	RECT initialRectDialog;
+	RECT initialRectEditScores;
+	RECT initialRectButtonClose;
 };
 
 #endif

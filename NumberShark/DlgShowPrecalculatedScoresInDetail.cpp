@@ -105,6 +105,11 @@ BOOL CDlgShowPrecalculatedScoresInDetail::OnInitDialog()
 
 	}
 
+	// read window rects at dialog initialization
+	GetWindowRect(&initialRectDialog);
+	GetDlgItem(IDC_EDIT_PRECALCULATED_SCORES)->GetWindowRect(&initialRectEditScores);
+	GetDlgItem(IDOK)->GetWindowRect(&initialRectButtonClose);
+
 	UpdateData(false);
 
 	return true;
@@ -113,7 +118,54 @@ BOOL CDlgShowPrecalculatedScoresInDetail::OnInitDialog()
 
 
 BEGIN_MESSAGE_MAP(CDlgShowPrecalculatedScoresInDetail, CDialog)
+	ON_WM_SIZE()
 END_MESSAGE_MAP()
 
 
 // CDlgShowPrecalculatedScoresInDetail message handlers
+
+void CDlgShowPrecalculatedScoresInDetail::OnSize(UINT nType, int cx, int cy)
+{
+	CWnd *windowEditScores = GetDlgItem(IDC_EDIT_PRECALCULATED_SCORES);
+	CWnd *windowButtonClose = GetDlgItem(IDOK);
+
+	// make sure we have valid pointers; if not, return
+	if(!windowEditScores || !windowButtonClose)
+		return;
+
+	// read the new dialog rect
+	RECT newRectDialog;
+	this->GetWindowRect(&newRectDialog);
+
+	// return if the new dialog rect is smaller then the initial one
+	int widthOld = initialRectDialog.right - initialRectDialog.left;
+	int widthNew = newRectDialog.right - newRectDialog.left;
+	int heightOld = initialRectDialog.bottom - initialRectDialog.top;
+	int heightNew = newRectDialog.bottom - newRectDialog.top;
+	if(widthNew < widthOld || heightNew < heightOld) {
+		this->MoveWindow(newRectDialog.left, newRectDialog.top, widthOld, heightOld);
+		return;
+	}
+
+	// compute new edit scores window rect
+	int marginRightList = initialRectDialog.right - initialRectEditScores.right;
+	int marginBottomList = initialRectDialog.bottom - initialRectEditScores.bottom;
+	int xList = initialRectEditScores.left - initialRectDialog.left;
+	int yList = initialRectEditScores.top - initialRectDialog.top;
+	int widthList = cx - xList - marginRightList;
+	int heightList = cy - yList - marginBottomList;
+	
+	// compute new close button window rect
+	int widthButtonClose = initialRectButtonClose.right - initialRectButtonClose.left;
+	int heightButtonClose = initialRectButtonClose.bottom - initialRectButtonClose.top;
+	int marginRightButtonClose = initialRectDialog.right - initialRectButtonClose.right;
+	int marginBottomButtonClose = initialRectDialog.bottom - initialRectButtonClose.bottom;
+	int xButtonClose = cx - widthButtonClose - marginRightButtonClose;
+	int yButtonClose = cy - heightButtonClose - marginBottomButtonClose;
+
+	// align dialog components
+	windowEditScores->MoveWindow(xList, yList, widthList, heightList);
+	windowButtonClose->MoveWindow(xButtonClose, yButtonClose, widthButtonClose, heightButtonClose);
+
+	Invalidate();
+}
