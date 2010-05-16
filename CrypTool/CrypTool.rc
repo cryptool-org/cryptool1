@@ -11060,6 +11060,12 @@ STRINGTABLE
 BEGIN
     IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bits)"
     IDS_FLOAT_NUMBER_SEPARATOR ","
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT_WITHLANGUAGE 
+                            "i18n Cleartext (assumed language: ""%s""):"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SELECTED_KEYWORD_LANGUAGES 
+                            "i18n Keyword language(s): %s"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SELECTED_CIPHERTEXT_LANGUAGE 
+                            "i18n Ciphertext language: %s"
 END
 
 #endif    // Polish resources
@@ -22121,6 +22127,12 @@ STRINGTABLE
 BEGIN
     IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bita)"
     IDS_FLOAT_NUMBER_SEPARATOR ","
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT_WITHLANGUAGE 
+                            "i18n Cleartext (assumed language: ""%s""):"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SELECTED_KEYWORD_LANGUAGES 
+                            "i18n Keyword language(s): %s"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SELECTED_CIPHERTEXT_LANGUAGE 
+                            "i18n Ciphertext language: %s"
 END
 
 #endif    // Serbian (Latin) resources
@@ -22162,9 +22174,9 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "Analyse starten",IDC_BUTTON_START_ANALYSIS,7,155,110,18
     CONTROL         "",IDC_LIST_POSSIBLE_RESULTS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,35,316,95
-    LTEXT           "Sobald Sie die Analyse starten, werden mögliche Lösungen in die nachstehende Liste eingetragen. Detaillierte Informationen können Sie sich anzeigen lassen, sobald die Analyse vollständig beendet wurde.",IDC_STATIC,7,7,316,24
+    LTEXT           "Sobald Sie die Analyse starten, werden mögliche Lösungen in die nachstehende Liste eingetragen. Detaillierte Informationen können Sie sich anzeigen lassen, wenn die Analyse vollständig beendet wurde.",IDC_STATIC,7,7,316,24
     PUSHBUTTON      "Schließen",IDCANCEL,213,175,110,18
-    PUSHBUTTON      "Analyseergebnisse anzeigen",IDC_BUTTON_SHOW_ANALYSIS_RESULTS,213,155,110,18
+    PUSHBUTTON      "Analyse-Ergebnisse anzeigen",IDC_BUTTON_SHOW_ANALYSIS_RESULTS,213,155,110,18
     CONTROL         "",IDC_PROGRESS_ANALYSIS,"msctls_progress32",WS_BORDER,7,135,316,14
     PUSHBUTTON      "Analyse abbrechen",IDC_BUTTON_CANCEL_ANALYSIS,7,175,110,18
 END
@@ -22174,10 +22186,10 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Sprachen auswählen"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    LTEXT           "Wählen Sie mindestens eine Sprache aus, in der nach möglichen Schlüsselworten gesucht werden soll, und wählen Sie genau eine Sprache, in welcher der Ciphertext ursprünglich verfasst wurde.",IDC_STATIC,7,7,216,24
+    LTEXT           "Wählen Sie mindestens eine Sprache aus, in der nach möglichen Schlüsselworten gesucht werden soll; und wählen Sie genau eine Sprache, in welcher der Geheimtext ursprünglich verfasst wurde.",IDC_STATIC,7,7,216,24
     PUSHBUTTON      "OK",IDOK,7,115,216,18
     LTEXT           "Sprache(n) für Schlüsselworte:",IDC_STATIC,7,39,97,8
-    LTEXT           "Sprache(n) für Ciphertext:",IDC_STATIC,118,39,97,8
+    LTEXT           "Sprache für Geheimtext:",IDC_STATIC,118,39,97,8
     LISTBOX         IDC_LIST_LANGUAGES_KEYWORD,7,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
     LISTBOX         IDC_LIST_LANGUAGES_CIPHERTEXT,118,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
 END
@@ -33117,6 +33129,12 @@ STRINGTABLE
 BEGIN
     IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bits)"
     IDS_FLOAT_NUMBER_SEPARATOR ","
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT_WITHLANGUAGE 
+                            "Klartext (vermutete Sprache: ""%s""):"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SELECTED_KEYWORD_LANGUAGES 
+                            "Sprache(n) für Schlüsselworte: %s"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SELECTED_CIPHERTEXT_LANGUAGE 
+                            "Sprache für Geheimtext: %s"
 END
 
 #endif    // German (Germany) resources
@@ -37621,7 +37639,7 @@ BEGIN
     LTEXT           "Please choose at least one language that is searched for possible keywords, and choose exactly one language in which the ciphertext was originally written.",IDC_STATIC,7,7,216,24
     PUSHBUTTON      "OK",IDOK,7,115,216,18
     LTEXT           "Language(s) for keywords:",IDC_STATIC,7,39,84,8
-    LTEXT           "Language(s) for ciphertext:",IDC_STATIC,118,39,97,8
+    LTEXT           "Language for ciphertext:",IDC_STATIC,118,39,97,8
     LISTBOX         IDC_LIST_LANGUAGES_KEYWORD,7,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
     LISTBOX         IDC_LIST_LANGUAGES_CIPHERTEXT,118,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
 END
@@ -44176,6 +44194,12 @@ STRINGTABLE
 BEGIN
     IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bits)"
     IDS_FLOAT_NUMBER_SEPARATOR "."
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT_WITHLANGUAGE 
+                            "Cleartext (assumed language: ""%s""):"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SELECTED_KEYWORD_LANGUAGES 
+                            "Keyword language(s): %s"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SELECTED_CIPHERTEXT_LANGUAGE 
+                            "Ciphertext language: %s"
 END
 
 #endif    // English (U.K.) resources
@@ -55297,6 +55321,12 @@ STRINGTABLE
 BEGIN
     IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bits)"
     IDS_FLOAT_NUMBER_SEPARATOR ","
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT_WITHLANGUAGE 
+                            "i18n Cleartext (assumed language: ""%s""):"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SELECTED_KEYWORD_LANGUAGES 
+                            "i18n Keyword language(s): %s"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SELECTED_CIPHERTEXT_LANGUAGE 
+                            "i18n Ciphertext language: %s"
 END
 
 #endif    // Spanish resources

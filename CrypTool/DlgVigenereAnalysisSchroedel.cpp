@@ -1013,6 +1013,16 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 	ciphertextLength.Format("%s %d %s", ciphertextLengthTag, ciphertext.GetLength(), unitCharacters);
 	output(ciphertextLength, true);
 
+	// dump the selected keyword language(s)
+	CString selectedKeywordLanguagesTag;
+	selectedKeywordLanguagesTag.Format(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SELECTED_KEYWORD_LANGUAGES, theDialog->getSelectedCiphertextLanguageAsString());
+	output(selectedKeywordLanguagesTag, true);
+
+	// dump the selected ciphertext language
+	CString selectedCiphertextLanguageTag;
+	selectedCiphertextLanguageTag.Format(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SELECTED_CIPHERTEXT_LANGUAGE, theDialog->getSelectedCiphertextLanguageAsString());
+	output(selectedCiphertextLanguageTag, true);
+
 	output("", true);
 
 	// dump the ciphertext (only once at the beginning of the result text)
@@ -1190,7 +1200,11 @@ int VigenereAnalysisSchroedel::chooseLanguages() {
 		memset(cTrigram, 0, sizeof(cTrigram));
 		memcpy(cDigram, dlg.selectedDigramTrigramSet.digrams, sizeof(cDigram));
 		memcpy(cTrigram, dlg.selectedDigramTrigramSet.trigrams, sizeof(cTrigram));
-	
+
+		// flomar, 05/15/2010
+		// update the selected languages
+		theDialog->updateSelectedLanguages(dlg.selectedKeywordLanguagesAsString, dlg.selectedCiphertextLanguageAsString);
+		
 		// indicate we're done without any errors
 		return 0;
 	}
@@ -1630,6 +1644,22 @@ void CDlgVigenereAnalysisSchroedel::addPossibleResult(const PossibleResult &_pos
 	controlListPossibleResults.SetItemText(0, 1, _possibleResult.cleartext);
 }
 
+void CDlgVigenereAnalysisSchroedel::updateSelectedLanguages(const CString &_selectedKeywordLanguages, const CString &_selectedCiphertextLanguage)
+{
+	selectedKeywordLanguagesAsString = _selectedKeywordLanguages;
+	selectedCiphertextLanguageAsString = _selectedCiphertextLanguage;
+
+	CString columnHeaderCleartext;
+	// if our language is empty, we go with the default column header (language assumption not displayed)
+	if(selectedCiphertextLanguageAsString.IsEmpty()) columnHeaderCleartext.Format(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT);
+	// if our language is set, we add the language assumption
+	else columnHeaderCleartext.Format(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT_WITHLANGUAGE, selectedCiphertextLanguageAsString);
+	// delete old column
+	controlListPossibleResults.DeleteColumn(1);
+	// add new column
+	controlListPossibleResults.InsertColumn(1, columnHeaderCleartext, LVCFMT_LEFT, 270);
+}
+
 void CDlgVigenereAnalysisSchroedel::OnBnClickedStartAnalysis()
 {
 	// create the analysis object (initializing the dialog as well as name and title of the infile)
@@ -1637,6 +1667,12 @@ void CDlgVigenereAnalysisSchroedel::OnBnClickedStartAnalysis()
 
 	// clear the list of possible results
 	controlListPossibleResults.DeleteAllItems();
+
+	// flomar, 05/15/2010
+	// go back to default headers (maybe the language changed during multiple analysis runs)
+	controlListPossibleResults.DeleteColumn(1);
+	CString columnHeaderCleartext; columnHeaderCleartext.LoadString(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT);
+	controlListPossibleResults.InsertColumn( 1, columnHeaderCleartext, LVCFMT_LEFT, 270);
 
 	// disable the "start analysis" button
 	GetDlgItem(IDC_BUTTON_START_ANALYSIS)->EnableWindow(false);
@@ -1828,7 +1864,7 @@ void CDlgVigenereAnalysisSchroedelChooseLanguages::OnOK()
 			// add the language to the result structure
 			CString selectedLanguage;
 			listBoxLanguagesCiphertext.GetText(i, selectedLanguage);
-			selectedDigramTrigramSet = mapDigramsTrigrams[(LPCTSTR)selectedLanguage];			
+			selectedDigramTrigramSet = mapDigramsTrigrams[(LPCTSTR)selectedLanguage]; 
 		}
 	}
 
@@ -1846,6 +1882,36 @@ void CDlgVigenereAnalysisSchroedelChooseLanguages::OnOK()
 		AfxMessageBox(message, MB_ICONINFORMATION);
 		return;
 	}
+
+	// flomar, 05/15/2010
+	CString selectedKeywordLanguages;
+	for(int i=0; i<listBoxLanguagesKeyword.GetCount(); i++) {
+		if(listBoxLanguagesKeyword.GetCheck(i)) {
+			// we have a keyword language here
+			CString selectedKeywordLanguage;
+			listBoxLanguagesKeyword.GetText(i, selectedKeywordLanguage);
+			// append the language to the string of existing languages
+			if(selectedKeywordLanguages.IsEmpty()) {
+				selectedKeywordLanguages.Append(selectedKeywordLanguage);
+			}
+			else {
+				selectedKeywordLanguages.Append(", ");
+				selectedKeywordLanguages.Append(selectedKeywordLanguage);
+			}
+		}
+	}
+
+	// flomar, 05/15/2010
+	CString selectedCiphertextLanguage;
+	for(int i=0; i<listBoxLanguagesCiphertext.GetCount(); i++) {
+		if(listBoxLanguagesCiphertext.GetCheck(i)) {
+			// we have a ciphertext language here
+			listBoxLanguagesCiphertext.GetText(i, selectedCiphertextLanguage); 
+		}
+	}
+
+	selectedKeywordLanguagesAsString = selectedKeywordLanguages;
+	selectedCiphertextLanguageAsString = selectedCiphertextLanguage;
 
 	// close the dialog
 	CDialog::OnOK();

@@ -203,6 +203,10 @@ public:
 	// add a possible result (done "from the outside" by the analysis object)
 	void addPossibleResult(const PossibleResult &_possibleResult);
 
+	// update the selected languages (set after CDlgVigenereAnalysisChooseLanguages is displayed)
+	void updateSelectedLanguages(const CString &_selectedKeywordLanguages, const CString &_selectedCiphertextLanguage);
+
+
 // Dialogfelddaten
 	enum { IDD = IDD_VIGENERE_ANALYSIS_SCHROEDEL };
 
@@ -225,6 +229,10 @@ private:
 	afx_msg void OnBnClickedShowAnalysisResults();
 	// the file holding the analysis results
 	CString resultFileName;
+	// all selected keyword languages as string
+	CString selectedKeywordLanguagesAsString;
+	// the selected ciphertext language as string
+	CString selectedCiphertextLanguageAsString;
 
 	// the control variable for the progress bar
 	CProgressCtrl controlProgressAnalysis;
@@ -234,6 +242,10 @@ private:
 	// parameters passed to the analysis object
 	CString infileName;
 	CString infileTitle;
+
+public:
+	CString getSelectedKeywordLanguagesAsString() { return selectedKeywordLanguagesAsString; };
+	CString getSelectedCiphertextLanguageAsString() { return selectedCiphertextLanguageAsString; };
 };
 
 // TODO
@@ -270,6 +282,10 @@ public:
 	std::list<std::string> selectedKeywordsList;
 	// the digram/trigram set of the selected language
 	DigramTrigramSet selectedDigramTrigramSet;
+	
+	// flomar, 05/15/2010
+	CString selectedKeywordLanguagesAsString;
+	CString selectedCiphertextLanguageAsString;
 };
 
 #endif
