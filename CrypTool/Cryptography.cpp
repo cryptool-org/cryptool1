@@ -3874,9 +3874,6 @@ UINT SymmetricBruteForce(PVOID p)
 	return r;
 }
 
-//
-// TODO due to lack of time: make sure dynamically allocated memory is freed 
-//
 // Rail Fence encryption (part of the simple transpositions dialog)
 // RETURN VALUES:		1 (success), -1 (invalid key), -2 (invalid file handle)
 int RailFenceEncryption(const char *infile, const char *oldTitle, int key, int offset, bool encrypt) {
@@ -3954,6 +3951,9 @@ int RailFenceEncryption(const char *infile, const char *oldTitle, int key, int o
 		// store the result in "cipherText"
 		memset(cipherText, 0, textLength + 1);
 		memcpy(cipherText, cipherTextTemp, textLength);
+
+		// free memory
+		delete[] cipherTextTemp;
 	}
 	// ******************
 	// *** DECRYPTION ***
@@ -3994,6 +3994,8 @@ int RailFenceEncryption(const char *infile, const char *oldTitle, int key, int o
 			memcpy(temp, cipherText + charactersProcessed, charactersInRow[i]);
 			rows[i].append(temp);
 			charactersProcessed += charactersInRow[i];
+			// free memory
+			delete[] temp;
 		}
 		// transform flattened out cipher text into clear text
 		int *charactersInRowProcessed = new int[key];
@@ -4018,6 +4020,11 @@ int RailFenceEncryption(const char *infile, const char *oldTitle, int key, int o
 		// "clearText" to "cipherText" although we were actually decrypting here
 		memset(cipherText, 0, textLength + 1);
 		memcpy(cipherText, clearText, strlen(clearText));
+
+		// free memory
+		delete[] rows; 
+		delete[] charactersInRow;
+		delete[] charactersInRowProcessed;
 	}
 
 	std::string cipherTextString = cipherText;
@@ -4092,9 +4099,6 @@ int RailFenceEncryption(const char *infile, const char *oldTitle, int key, int o
 	return 1;
 }
 
-//
-// TODO due to lack of time: make sure dynamically allocated memory is freed 
-//
 // Scytale encryption (part of the simple transpositions dialog)
 // RETURN VALUES:		1 (success), -1 (invalid key), -2 (invalid file handle)
 int ScytaleEncryption(const char *infile, const char *oldTitle, int key, int offset, bool encrypt) {
@@ -4186,6 +4190,9 @@ int ScytaleEncryption(const char *infile, const char *oldTitle, int key, int off
 			}
 		}
 
+		// free memory
+		delete[] rows;
+		delete[] charactersInRowProcessed;
 	}
 	// DECRYPTION
 	else {
@@ -4224,6 +4231,9 @@ int ScytaleEncryption(const char *infile, const char *oldTitle, int key, int off
 		// again, it's ugly that we're storing the result in cipherText instead of clearText 
 		// although we're executing a decryption; this will be fixed when there's more time
 
+		// free memory
+		delete[] rows;
+		delete[] charactersInRowProcessed;
 	}
 
 	std::string cipherTextString = cipherText;
