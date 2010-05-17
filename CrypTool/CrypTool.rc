@@ -23677,7 +23677,7 @@ BEGIN
     PUSHBUTTON      "&Verschlüsseln",IDC_BUTTON_VERSCHLUESSELN,10,373,71,18
     PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON_ENTSCHLUESSELN,100,373,73,18
     PUSHBUTTON      "&Schließen",IDC_ENDDIALOG,291,373,90,18
-    CONTROL         "Wählen Sie 2 Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul und phi(N) = (p-1)(q-1) ist die Eulersche Zahl. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird der geheime Schlüssel\nd = e^(-1) (mod  phi(N)) berechnet.",IDC_RADIO3,
+    CONTROL         "Wählen Sie 2 Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul, und phi(N) = (p-1)(q-1) ist die Eulersche Phi-Funktion. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird der geheime Schlüssel d = e^(-1) (mod  phi(N)) berechnet.",IDC_RADIO3,
                     "Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE | WS_GROUP,19,14,353,26
     CONTROL         "Zur Verschlüsselung von Daten oder zur Verifikation einer Signatur genügt es, dass Sie die öffentlichen RSA-Parameter angeben: den RSA-Modul N und den öffentlichen Schlüssel e. ",IDC_RADIO4,
                     "Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE,19,42,353,23
@@ -31664,7 +31664,7 @@ BEGIN
     IDS_STRING_RSADEMO_P_NOT_PRIME "Die Eingabe für p ist keine Primzahl !"
     IDS_STRING_RSADEMO_Q_NOT_PRIME "Die Eingabe für q ist keine Primzahl !"
     IDS_STRING_RSADEMO_MODUL_KLEIN 
-                            "Die Anzahl der Zeichen im Alphabet (hier %i Buchstaben) muss kleiner oder gleich der Größe des RSA-Moduls (hier N = %s) sein.\nBitte ändern Sie  in ""Optionen für Alphabet und Zahlensystem..."" das Alphabet oder wählen Sie größere Primzahlen."
+                            "Die Anzahl der Zeichen im Alphabet (hier %i Buchstaben) muss kleiner oder gleich der Größe des RSA-Moduls (hier N = %s) sein.\nBitte ändern Sie im Dialog ""Textoptionen"" das Alphabet oder wählen Sie größere Primzahlen."
     IDS_STRING_ERR_ONBLOCKLENGTH_NULL 
                             "Bitte ändern Sie das Alphabet, so dass die Anzahl der Zeichen im Alphabet (hier %i) kleiner oder gleich der Größe des RSA-Moduls (hier N = %s) ist."
     IDS_STRING_ERR_ONBLOCKLENGTH_1 "Bitte setzen Sie die Blocklänge auf 1."
@@ -33376,7 +33376,7 @@ BEGIN
     LTEXT           "Digram file:",IDC_STATIC,25,171,36,8
     LTEXT           "Trigram file:",IDC_STATIC,25,188,37,8
     CONTROL         "Extensive logging",IDC_CHECK_EXTENSIVE_LOGGING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,133,71,10
-    PUSHBUTTON      "&Restore standard",IDC_BUTTON_RESTORE_STANDARD,105,331,99,17
+    PUSHBUTTON      "&Restore default",IDC_BUTTON_RESTORE_STANDARD,105,331,99,17
     EDITTEXT        IDC_EDIT_ANALYSIS_THRESHOLD,86,204,25,14,ES_CENTER | ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
     LTEXT           "Threshold:",IDC_STATIC,25,205,34,8
 END
@@ -33589,7 +33589,7 @@ CAPTION "Text Options"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Apply",IDOK,7,235,65,18
-    PUSHBUTTON      "&Restore standard",IDC_BUTTON_RESTORE_STANDARD,86,235,100,18
+    PUSHBUTTON      "&Restore default",IDC_BUTTON_RESTORE_STANDARD,86,235,100,18
     CONTROL         "Keep characters not present in the alphabet unchanged",IDC_CHECK_KEEP_CHARACTERS_NOT_PRESENT_IN_ALPHABET_UNCHANGED,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,16,213,10
     CONTROL         "If possible: keep for encryption/decryption upper/lower case information",IDC_CHECK_KEEP_UPPER_LOWER_CASE_INFORMATION,
@@ -34694,8 +34694,8 @@ BEGIN
     EDITTEXT        IDC_EDIT12,19,345,353,12,ES_AUTOHSCROLL | ES_READONLY
     PUSHBUTTON      "&Encrypt",IDC_BUTTON_VERSCHLUESSELN,10,374,71,18
     PUSHBUTTON      "&Decrypt",IDC_BUTTON_ENTSCHLUESSELN,100,374,73,18
-    PUSHBUTTON      "&Close",IDC_ENDDIALOG,252,374,90,18
-    CONTROL         "Choose two prime numbers p and q. The number N = pq is the public RSA modulus and phi(N) = (p-1)(q-1) is the Euler number. Public key e is coprime to phi(N). The private key d = e^(-1) (mod phi(N)) is calculated from this.",IDC_RADIO3,
+    PUSHBUTTON      "&Close",IDC_ENDDIALOG,291,374,90,18
+    CONTROL         "Choose two prime numbers p and q. The number N = pq is the public RSA modulus, and phi(N) = (p-1)(q-1) is the Euler phi function. The public key e is coprime to phi(N). The private key d = e^(-1) (mod phi(N)) is calculated from this.",IDC_RADIO3,
                     "Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE | WS_GROUP,19,15,353,26
     CONTROL         "For the purpose of data encryption or certificate checking it is sufficient to enter the public RSA parameters: the RSA modulus N and the public key e.",IDC_RADIO4,
                     "Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE,19,43,353,19
@@ -41825,7 +41825,7 @@ BEGIN
     IDS_STRING_HILL         "Hill"
     IDS_STRING_AUTOCORRELATION "Autocorrelation"
     IDS_STRING_AUTOCORRELATION_OF "Autocorrelation of <%s>"
-    IDS_STRING_MSG_MATCHING_CHARACTERS "Number of characters that agree"
+    IDS_STRING_MSG_MATCHING_CHARACTERS "Number of matching characters"
     IDS_STRING_ASCII_HISTOGRAM_OF "ASCII Histogram of <%s> (%s characters)"
     IDS_STRING_VALUE        "Value"
     IDS_STRING_FREQUENCY    "Frequency (%)"
@@ -42756,9 +42756,9 @@ BEGIN
     IDS_STRING_RSADEMO_P_NOT_PRIME "The input for p is not a prime number !"
     IDS_STRING_RSADEMO_Q_NOT_PRIME "The input for q is not a prime number !"
     IDS_STRING_RSADEMO_MODUL_KLEIN 
-                            "The number of characters in the alphabet (here %i letters) must be smaller or equal to the size of the RSA Modul (here N = %s).\nPlease modify the alphabet in ""options for alphabet and number-system..."" or chooses larger prime nunmbers."
+                            "The number of characters in the alphabet (here %i letters) must be smaller or equal to the size of the RSA modul (here N = %s).\nPlease modify the alphabet in the ""Text Options"" dialog or choose larger prime numbers."
     IDS_STRING_ERR_ONBLOCKLENGTH_NULL 
-                            "Please modify the alphabet, in a way that the number of characters in the alphabet (here %i) is less or equal to the size of the RSA-modul (here N = %s)."
+                            "Please modify the alphabet in a way that the number of characters in the alphabet (here %i) is less or equal to the size of the RSA modul (here N = %s)."
     IDS_STRING_ERR_ONBLOCKLENGTH_1 "Please change the block length to 1."
     IDS_STRING_ERR_PRIME_ARE_EQUAL 
                             "The prime numbers p and q must be different!"
