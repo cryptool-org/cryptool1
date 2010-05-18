@@ -15,81 +15,144 @@
 	<PARAM NAME="Keyword" VALUE="Solitaire-Verschlüsselungsverfahren">
 </OBJECT>
 
+<H3>Solitaire (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Symmetrisch (klassisch))</H3>
 
-<H3>Solitaire (Beschreibung)(Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Symmetrisch (klassisch))</H3>
 <p>Die Beschreibung des zugehörigen Dialoges findet sich <a href="hidd_solitaire.html">hier</a>.</p>
-<P>Solitaire ist ein typisches symmetrisches Papier- und Bleistift-(Paper&Pencil-)<a href="verschluesselung.html">Verschlüsselungsverfahren</a>. Es wurde dadurch bekannt, dass Neal Stephenson diesen Algorithmus in seinem Roman <b>"Cryptonomicon"</b> benutzt hat.<br>Entwickelt wurde es von Bruce Schneier. Der Algorithmus weist eine hohe Sicherheit auf, sofern die <a href="hidd_solitaire.html">Schlüsselerzeugung</a> durch ein gut und zufällig gemischtes <a href="kartendeck.html">Kartenspiel</a> erfolgt und sofern jeder <a href="schluessel.html">Schlüssel</a> (dieses gemischte Initialdeck) nur ein einziges Mal verwendet wird.</p>
-<p>Der Schlüssel in diesem Verfahren ist das gemischte Kartendeck, das sowohl Sender wie Empfänger in einer identischen Mischreihenfolge haben müssen.<br>Der eigentliche Solitaire-Algorithmus beschreibt, wie sich aus dem Schlüssel (Initialdeck, Bridge-Kartenspiel) ein relativ zufälliger Schlüsselstrom erzeugt wird.<br>
-Dieser Schlüsselstrom wird dann zeichenweise entweder mit dem Klartext oder mit dem Ciphertext mittels einer einfachen Modulo-Operation verbunden (insofern basiert das Solitaire-Verfahren auf der Idee des One-Time-Pad, auch wenn der Schlüsselstrom natürlich nicht völlig zufällig ist).</P>
-<p>Das Solitaire-Verfahren nutzt Ideen aus dem Vernam-Verfahren (Klartext mit dem Schlüsselstrom XOR-verknüpfen) und den Stromchiffren (aus einem Initialwert wird der Schlüsselstrom erzeugt). Der Zufall liegt also ausschließlich in dem Initialdeck.
-</p>
-<p>
-Der eigentliche Solitaire-Algorithmus zur Schlüsselstromerzeugung besteht - wie unten genauer beschrieben ist - aus 5 Schritten: die ersten 4 Schritte permutieren das zuletzt erzeugte Abschlussdeck, wobei Schritt 1 und 2 nur jeweils die Karte des Jokers umsortiert, während in Schritt 3 und 4 ganze Kartenstapel vertauscht werden. Schritt 5 findet den Wert des nächsten Schlüsselstromzeichens, ändert aber nichts mehr an der Reihenfolge des aktuellen Abschlussdecks. Manchmal werden die zuletzt erreichten Kartenreihenfolgen auch als Zwischendecks bezeichnet und nur das letzte Zwischendeck wird Abschlussdeck genannt.<br>
-Im Standardfall enthalten Initial- und Abschlussdeck eine Permutation der Zahlenwerte 1 bis 54. Der Schlüsselstrom besteht „nur“ aus den Zahlen 1 bis 52 und hat die gleiche Länge wie die verschlüsselnde Datei.
 
-</p>
-<p><U><STRONG><a href="entschluesselung.html">Verschlüsseln</a>  mit Solitaire</STRONG></U></p>
+<P>Solitaire ist ein typisches symmetrisches Papier- und Bleistift-(Paper&Pencil-)
+<a href="verschluesselung.html">Verschlüsselungsverfahren</a>. Es wurde dadurch bekannt, dass Neal 
+Stephenson diesen Algorithmus in seinem Roman <b>"Cryptonomicon"</b> benutzt hat.</P>
 
-<p>Voraussetzung für die Verschlüsselung ist, dass ein Schlüsselstrom vorliegt, dessen Länge der Länge des Klartextes entspricht. Er besteht aus einer Folge von Zahlen zwischen 1 und 26.</p>
+<P>Entwickelt wurde es von Bruce Schneier. Der Algorithmus weist eine hohe Sicherheit auf, sofern die 
+<a href="hidd_solitaire.html">Schlüsselerzeugung</a> durch ein gut und zufällig gemischtes 
+<a href="kartendeck.html">Kartenspiel</a> erfolgt und sofern jeder <a href="schluessel.html">Schlüssel</a> 
+(dieses gemischte Initialdeck) nur ein einziges Mal verwendet wird.</p>
 
-<p>
-Der <a href="klartext.html">Klartext</a> wird zunächst in Gruppen mit jeweils fünf Buchstaben aufgeteilt (alle Nicht-Buchstabenzeichen werden weggelassen). Anschließend werden die einzelnen Klartextzeichen in Zahlenwerte zwischen 1 und 26 (A entspricht 1, B entspricht 2, C entspricht 3, … und Z entspricht 26) umgewandelt und anschließend <a href="modulo.html">modulo</a> 26 mit den Schlüsselstromzahlen addiert [Da das Ergebnis bei der Rechnung modulo 26 zwischen 0 und 25 (einschließlich) liegt, wird der Wert 0 als 26 interpretiert und damit Z zugeordnet.]. Der durch das Rückkonvertieren des neuen Zahlenstroms in einen Buchstabenstrom enstandene Text ist der <a href="chiffretext.html">Geheimtext</a>.
-</p>
+<p>Der Schlüssel in diesem Verfahren ist das gemischte Kartendeck, das sowohl Sender wie Empfänger in einer 
+identischen Mischreihenfolge haben müssen.<br>Der eigentliche Solitaire-Algorithmus beschreibt, wie sich aus 
+dem Schlüssel (Initialdeck, Bridge-Kartenspiel) ein relativ zufälliger Schlüsselstrom erzeugt wird.</p>
 
-<p><U><STRONG><a href="entschluesselung.html">Entschlüsseln</a> mit Solitaire</STRONG></U></p>
+<p>Dieser Schlüsselstrom wird dann zeichenweise entweder mit dem Klartext oder mit dem Ciphertext mittels 
+einer einfachen Modulo-Operation verbunden (insofern basiert das Solitaire-Verfahren auf der Idee des 
+One-Time-Pad, auch wenn der Schlüsselstrom natürlich nicht völlig zufällig ist).</P>
 
-<p>Da es sich bei Solitaire um ein symmetrisches Verschlüsselungsverfahren handelt, benutzt man sowohl zum Entschlüsseln als auch zum Verschlüsseln einen identischen <a href="schluessel.html">Schlüssel</a> bzw. Schlüsselstrom. </p>
+<p>Das Solitaire-Verfahren nutzt Ideen aus dem Vernam-Verfahren (Klartext mit dem Schlüsselstrom 
+XOR-verknüpfen) und den Stromchiffren (aus einem Initialwert wird der Schlüsselstrom erzeugt). Der Zufall 
+liegt also ausschließlich in dem Initialdeck.</p>
 
-<p>Zur Entschlüsselung wird auch der <a href="chiffretext.html">Geheimtext</a>  in Gruppen zu fünf Buchstaben (wie oben beim Klartext) aufgeteilt. Anschließend wird der Buchstabenstrom in einen Zahlenstrom umgewandelt. Zum Abschluss subtrahiert man <a href="modulo.html">modulo</a>  26 die Schlüsselstromzahlen von den Chiffretextzahlen. Der sich ergebende Zahlenstrom muss nur noch in einen Buchstabenstrom konvertiert werden, um den <a href="klartext.html">Klartext</a>  zu erhalten.  </p>
-<p><b>Bemerkung:</b><br>
-Es empfiehlt sich, dass der Empfänger immer ein Ersatz-Initialdeck dabei hat, denn bei der Schlüsselstromerzeugung ändert er das Initialdeck. Macht er dabei einen Fehler, ist er nicht mehr in der Lage ist, neu aufzusetzen. Und somit kann er die Nachricht nicht mehr entschlüsseln.
+<p>Der eigentliche Solitaire-Algorithmus zur Schlüsselstromerzeugung besteht - wie unten genauer beschrieben 
+ist - aus 5 Schritten: die ersten 4 Schritte permutieren das zuletzt erzeugte Abschlussdeck, wobei Schritt 
+1 und 2 nur jeweils die Karte des Jokers umsortiert, während in Schritt 3 und 4 ganze Kartenstapel vertauscht 
+werden. Schritt 5 findet den Wert des nächsten Schlüsselstromzeichens, ändert aber nichts mehr an der 
+Reihenfolge des aktuellen Abschlussdecks. Manchmal werden die zuletzt erreichten Kartenreihenfolgen auch als 
+Zwischendecks bezeichnet und nur das letzte Zwischendeck wird Abschlussdeck genannt.</p>
 
-</p>
+<p>Im Standardfall enthalten Initial- und Abschlussdeck eine Permutation der Zahlenwerte 1 bis 54. Der 
+Schlüsselstrom besteht „nur“ aus den Zahlen 1 bis 52 und hat die gleiche Länge wie die verschlüsselnde 
+Datei.</p>
 
-<p><U><STRONG>Initiale Schlüsselerzeugung</STRONG></U></p>
+<p><U><B>Verschlüsseln mit Solitaire</B></U></p>
 
-<p>Die Karten von Kreuz bekommen die Werte 1 für Ass, zwei für 2, bis zur 13 für König, die Farbe Karo die Werte 14 bis 26, Herz die Werte 27 bis 39 und Pik 40 bis 52. Der erzeugte Schlüsselstrom ist eine Sequenz von Zahlen zwischen 1 und 26, weil die Karten modulo 26 gerechnet werden. 
-</p>
+<p>Voraussetzung für die Verschlüsselung ist, dass ein Schlüsselstrom vorliegt, dessen Länge der Länge des 
+Klartextes entspricht. Er besteht aus einer Folge von Zahlen zwischen 1 und 26.</p>
 
+<p>Der <a href="klartext.html">Klartext</a> wird zunächst in Gruppen mit jeweils fünf Buchstaben aufgeteilt 
+(alle Nicht-Buchstabenzeichen werden weggelassen). Anschließend werden die einzelnen Klartextzeichen in 
+Zahlenwerte zwischen 1 und 26 (A entspricht 1, B entspricht 2, C entspricht 3, … und Z entspricht 26) 
+umgewandelt und anschließend <a href="modulo.html">modulo</a> 26 mit den Schlüsselstromzahlen addiert 
+[Da das Ergebnis bei der Rechnung modulo 26 zwischen 0 und 25 (einschließlich) liegt, wird der Wert 0 als 
+26 interpretiert und damit Z zugeordnet.]. Der durch das Rückkonvertieren des neuen Zahlenstroms in einen 
+Buchstabenstrom enstandene Text ist der <a href="chiffretext.html">Geheimtext</a>.</p>
 
-<p>Um das <a href="kartendeck.html">Kartenspiel</a> zu initialisieren (also um das Initialdeck zu erzeugen), werden von Schneier drei verschiedene Möglichkeiten beschrieben:</p>
-<p>1. Karten-Mischen:<br>
-Beim Mischen ist darauf zu achten, dass das Spiel nicht neu ist (da es sich dann schlecht mischen lässt) und dass die Karten ausreichend lang gemischt werden. Das zufällig gemischte <a href="kartendeck.html">Kartenspiel</a> dient nun als Schlüssel.  Der Empfänger braucht ein weiteres Kartenspiel, das genauso sortiert ist. </p>
-<p>
-2. Bridge-Reihenfolge:<br>
-Bei diesem Verfahren benutzen Empfänger und Sender ein vorher bestimmtes Medium, welches abgebildete Bridgekartenspiele zeigt, wie z.B. die Tageszeitung auf der Rätselseite oder  in einem ganz bestimmten Bridgebuch auf einer ganz bestimmten Seite. Die Kartenspiele werden nach diesem Bridge-Diagramm sortiert. Außerdem muss man vereinbaren, wie die Joker einsortiert werden.
-</p>
-<p>
-3. Passwort:<br>
-Sender und Empfänger nutzen ein Passwort, um das Initialdeck zu sortieren. Das <a href="kartendeck.html">Kartenspiel</a> ist in eine bestimmte Ausgangslage zu sortieren z.B. nach Kartenwert von 1-52, Joker A und Joker B. Jetzt wird der Solitaire-Algorithmus auf das Kartenspiel angewendet. Allerdings wird nicht der Schritt 5 durchgeführt sondern anstelle dessen wird Schritt 4 wiederholt. Hier benutzt man den Zählwert des Buchstabens des Passworts anstatt den Wert der letzten Karte. Beachte dabei, dass die oberen Karten direkt über die unterste Karte eingefügt werden. Dieser Vorgang wird für jeden Buchstaben des Passwortes wiederholt. Um eine gewisse Sicherheit zu gewähren, empfiehlt Schneier ein Passwort von mindestens 80 Buchstaben, was zu einem zusätzlichen hohen Zeitaufwand führt.</p>
-<p>
-Sender und Empfänger benötigen dann ein Bridgespiel, das exakt in derselben Weise gemischt vorliegt. Daraus wird dann auf beiden Seiten der Schlüsselstrom generiert. Es gibt 54! (54 Fakultät ist ca. 2*10^71) verschiedene Möglichkeiten, in welcher Reihenfolge die Karten nach dem Mischen angeordnet sein können.
-</p>
+<p><U><B>Entschlüsseln mit Solitaire</B></U></p>
 
-<p><U><STRONG><a href="hidd_solitaire.html">Schlüsselstromerzeugung</a></STRONG></U></p>
+<p>Da es sich bei Solitaire um ein symmetrisches Verschlüsselungsverfahren handelt, benutzt man sowohl zum 
+Entschlüsseln als auch zum Verschlüsseln einen identischen <a href="schluessel.html">Schlüssel</a> bzw. 
+Schlüsselstrom.</p>
 
-<p>Dies ist der eigentliche Algorithmus:<br> Man nehme das <a href="kartendeck.html">Kartenspiel</a> mit den Bildern nach oben in die Hand. Anschließend werden die folgenden fünf Schritte nacheinander so oft durchgeführt, wie der Klartext Zeichen besitzt.</p>
-</p><U>Schritt 1:</U><p>
-Finde Joker A und sortiere ihn eine Karte nach unten wieder ein. Sollte der Joker die letzte Karte sein, dann sortiere ihn unter die oberste Karte wieder ein. 
-</p><U>Schritt 2:</U><p>
-Finde den Joker B und sortiere ihn zwei Karten nach unten wieder ein. Sollte der Joker die letzte Karte sein, dann sortiere ihn unter die zwei obersten Karten wieder ein. Sollte der Joker die vorletzte Karte sein, so sortiere ihn unter die oberste Karte wieder ein. Nimm einfach an, das Kartenspiel sei eine Schleife.
-</p><U>Schritt 3:</U><p>
-Jetzt folgt ein dreigeteiltes Abheben, d.h. vertausche die Karten vor dem ersten Joker mit denen nach dem zweiten Joker. Hierbei spielt es keine Rolle, ob der erste Joker A oder B ist. Mit erstem Joker ist einfach der gemeint, der am nächsten an der obersten Karte liegt bzw. die oberste Karte ist. Die Joker werden nicht mitvertauscht. Sollte einer der Abschnitte keine Karten enthalten, so nimm einfach an das er leer sei und bewege ihn trotzdem. 
-</p><U>Schritt 4:</U></p>
-Führe ein Zählabheben wie folgt durch:<br>
-Bestimme den Wert u der untersten Karte (u ist der Kartenwert und kann Werte von 1-53 annehmen), und zähle von der obersten Karte dann u einzelne Karten nach unten. Hebe nach der Karte, bis zu der gezählt wurde, ab und lasse die unterste Karte zuunterst.
-</p><U>Schritt 5:</U></p>
-Finde die Ausgabekarte: <br>
-Zähle von oben so viele Karten ab wie der Wert der obersten Karte (zähle die oberste Karte als 1). Die Karte unter derjenigen, bis zu der gezählt wurde entspricht dem gesuchten Kartenwert. Sie wird nicht entfernt. Findest du einen Joker so schreibe nichts auf (im Folgenden <a href="nullrunde.html">Nullrunde</a> genannt), sondern beginne erneut bei Schritt 1.<br> 
-Der Wert (zwischen 1 und 52) der gefundenen Karte ergibt modulo 26 ein Schlüsselstromzeichen. Wenn noch nicht genügend Zeichen erzeugt wurden beginne erneut mit 1.
+<p>Zur Entschlüsselung wird auch der <a href="chiffretext.html">Geheimtext</a> in Gruppen zu fünf Buchstaben 
+(wie oben beim Klartext) aufgeteilt. Anschließend wird der Buchstabenstrom in einen Zahlenstrom umgewandelt. 
+Zum Abschluss subtrahiert man <a href="modulo.html">modulo</a>  26 die Schlüsselstromzahlen von den 
+Chiffretextzahlen. Der sich ergebende Zahlenstrom muss nur noch in einen Buchstabenstrom konvertiert 
+werden, um den <a href="klartext.html">Klartext</a> zu erhalten.</p>
 
+<p><b>Bemerkung</b>:</p>
 
-<p>Mit <a href="cryptool.html">CrypTool</a> ist es möglich,<br>
-<ul><li>nach dem Solitaire-Verfahren Texte zu ver- bzw. entschlüsseln, und</li>
-<li>eine halbautomatische Kryptoanalyse mit einem gefunden Kartendeck sowie vorhandenem Geheimtext durchzuführen (<a href=HID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE.html>siehe Solitaire-Analyse</a>).
-</li>
-</p>
+<P>Es empfiehlt sich, dass der Empfänger immer ein Ersatz-Initialdeck dabei hat, denn bei der 
+Schlüsselstromerzeugung ändert er das Initialdeck. Macht er dabei einen Fehler, ist er nicht mehr in der 
+Lage ist, neu aufzusetzen. Und somit kann er die Nachricht nicht mehr entschlüsseln.</p>
 
+<p><U><B>Initiale Schlüsselerzeugung</B></U></p>
+
+<p>Die Karten von Kreuz bekommen die Werte 1 für Ass, zwei für 2, bis zur 13 für König, die Farbe Karo die 
+Werte 14 bis 26, Herz die Werte 27 bis 39 und Pik 40 bis 52. Der erzeugte Schlüsselstrom ist eine Sequenz 
+von Zahlen zwischen 1 und 26, weil die Karten modulo 26 gerechnet werden.</p>
+
+<p>Um das <a href="kartendeck.html">Kartenspiel</a> zu initialisieren (also um das Initialdeck zu erzeugen), 
+werden von Schneier drei verschiedene Möglichkeiten beschrieben:</p>
+
+<p>1. Karten-Mischen:<br>Beim Mischen ist darauf zu achten, dass das Spiel nicht neu ist (da es sich dann 
+schlecht mischen lässt) und dass die Karten ausreichend lang gemischt werden. Das zufällig gemischte 
+<a href="kartendeck.html">Kartenspiel</a> dient nun als Schlüssel. Der Empfänger braucht ein weiteres 
+Kartenspiel, das genauso sortiert ist.</p>
+
+<p>2. Bridge-Reihenfolge:<br>Bei diesem Verfahren benutzen Empfänger und Sender ein vorher bestimmtes Medium, 
+welches abgebildete Bridgekartenspiele zeigt, wie z.B. die Tageszeitung auf der Rätselseite oder  in einem 
+ganz bestimmten Bridgebuch auf einer ganz bestimmten Seite. Die Kartenspiele werden nach diesem 
+Bridge-Diagramm sortiert. Außerdem muss man vereinbaren, wie die Joker einsortiert werden.</p>
+
+<p>3. Passwort:<br>Sender und Empfänger nutzen ein Passwort, um das Initialdeck zu sortieren. Das 
+<a href="kartendeck.html">Kartenspiel</a> ist in eine bestimmte Ausgangslage zu sortieren z.B. nach 
+Kartenwert von 1-52, Joker A und Joker B. Jetzt wird der Solitaire-Algorithmus auf das Kartenspiel 
+angewendet. Allerdings wird nicht der Schritt 5 durchgeführt sondern anstelle dessen wird Schritt 4 
+wiederholt. Hier benutzt man den Zählwert des Buchstabens des Passworts anstatt den Wert der letzten 
+Karte. Beachte dabei, dass die oberen Karten direkt über die unterste Karte eingefügt werden. Dieser 
+Vorgang wird für jeden Buchstaben des Passwortes wiederholt. Um eine gewisse Sicherheit zu gewähren, 
+empfiehlt Schneier ein Passwort von mindestens 80 Buchstaben, was zu einem zusätzlichen hohen Zeitaufwand 
+führt.</p>
+
+<p>Sender und Empfänger benötigen dann ein Bridgespiel, das exakt in derselben Weise gemischt vorliegt. 
+Daraus wird dann auf beiden Seiten der Schlüsselstrom generiert. Es gibt 54! (54 Fakultät ist ca. 2*10^71) 
+verschiedene Möglichkeiten, in welcher Reihenfolge die Karten nach dem Mischen angeordnet sein können.</p>
+
+<p><U><B>Schlüsselstromerzeugung</B></U></p>
+
+<p>Dies ist der eigentliche Algorithmus:<br>Man nehme das <a href="kartendeck.html">Kartenspiel</a> mit den 
+Bildern nach oben in die Hand. Anschließend werden die folgenden fünf Schritte nacheinander so oft 
+durchgeführt, wie der Klartext Zeichen besitzt.</p>
+
+<P><U>Schritt 1</U>: Finde Joker A und sortiere ihn eine Karte nach unten wieder ein. Sollte der Joker die 
+letzte Karte sein, dann sortiere ihn unter die oberste Karte wieder ein.</p>
+
+<P><U>Schritt 2</U>: Finde den Joker B und sortiere ihn zwei Karten nach unten wieder ein. Sollte der 
+Joker die letzte Karte sein, dann sortiere ihn unter die zwei obersten Karten wieder ein. Sollte der 
+Joker die vorletzte Karte sein, so sortiere ihn unter die oberste Karte wieder ein. Nimm einfach an, das 
+Kartenspiel sei eine Schleife.</p>
+
+<P><U>Schritt 3</U>: Jetzt folgt ein dreigeteiltes Abheben, d.h. vertausche die Karten vor dem ersten 
+Joker mit denen nach dem zweiten Joker. Hierbei spielt es keine Rolle, ob der erste Joker A oder B ist. 
+Mit erstem Joker ist einfach der gemeint, der am nächsten an der obersten Karte liegt bzw. die oberste Karte 
+ist. Die Joker werden nicht mitvertauscht. Sollte einer der Abschnitte keine Karten enthalten, so nimm 
+einfach an das er leer sei und bewege ihn trotzdem.</P>
+
+<P><U>Schritt 4</U>: Führe ein Zählabheben wie folgt durch:<br>Bestimme den Wert u der untersten Karte (u ist 
+der Kartenwert und kann Werte von 1-53 annehmen), und zähle von der obersten Karte dann u einzelne Karten 
+nach unten. Hebe nach der Karte, bis zu der gezählt wurde, ab und lasse die unterste Karte zuunterst.</P>
+
+<P><U>Schritt 5</U>: Finde die Ausgabekarte:<br>Zähle von oben so viele Karten ab wie der Wert der obersten 
+Karte (zähle die oberste Karte als 1). Die Karte unter derjenigen, bis zu der gezählt wurde entspricht dem 
+gesuchten Kartenwert. Sie wird nicht entfernt. Findest du einen Joker so schreibe nichts auf (im Folgenden 
+<a href="nullrunde.html">Nullrunde</a> genannt), sondern beginne erneut bei Schritt 1.<br>Der Wert (zwischen 
+1 und 52) der gefundenen Karte ergibt modulo 26 ein Schlüsselstromzeichen. Wenn noch nicht genügend Zeichen 
+erzeugt wurden beginne erneut mit 1.</P>
+
+<p>Mit <a href="cryptool.html">CrypTool</a> ist es möglich,</P>
+
+<ul>
+<li>nach dem Solitaire-Verfahren Texte zu ver- bzw. entschlüsseln und</li>
+<li>eine halbautomatische Kryptoanalyse mit einem gefunden Kartendeck sowie vorhandenem Geheimtext 
+durchzuführen (<a href=HID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE.html>siehe Solitaire-Analyse</a>).</li>
+</ul>
 
 </BODY>
 </HTML>

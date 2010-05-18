@@ -6,6 +6,8 @@
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
+<BODY>
+
 <!-- multiple keywords for CrypTool HTML help index -->
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
 	<PARAM NAME="Keyword" VALUE="Kartenspiel">
@@ -13,53 +15,68 @@
 	<PARAM NAME="Keyword" VALUE="Solitaire-Verschlüsselungsverfahren">
 </OBJECT>
 
-<BODY>
+<H3>Solitaire (Menü <A href="menu_analyze.html">Analyse</A> \ Symmetrische Verschl&uuml;sselung (klassisch) 
+\ Ciphertext-Only)</H3>
 
-<H3>Solitaire (Menü <A href="menu_analyze.html">Analyse</A> \ Symmetrische Verschl&uuml;sselung (klassisch) \ Ciphertext-Only)</H3>
+<P>Die Beschreibung des Solitaire-Analyse-Dialogs finden Sie <A href="hidd_Solitaire_Analyse.html">
+hier</A>.</P>
 
-<P>Die Beschreibung des Solitaire-Analyse-Dialogs finden Sie hier: <A href="hidd_Solitaire_Analyse.html">Solitaire-Analyse-Dialog</A><br></P>
+<P>Für das <A href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire-Verschlüsselungsverfahren</a> steht ein Angriff 
+(Angriffsszenario <A href="ciphertextonlyangriff.html">Ciphertext-only-Angriff</a>) in Form der 
+automatisierten bzw. halbautomatisierten Schlüsselsuche zur Verfügung. Hierfür ist es notwendig, 
+das <a href="kartendeck.html">Ausgangsdeck</a> sowie den zugehörigen 
+(<A href="chiffretext.html">Ciphertext</a>) zu kennen.</P>
 
+<P>Da der Algorithmus sehr stark reversibel ist, kann anhand der Umkehrung der einzelnen Schritte das 
+<a href="kartendeck.html">Ausgangsdeck</a> ermittelt und somit der symmetrische <A href="schluessel.html">
+Schl&uuml;ssel</a> erzeugt werden. Mit Hilfe dieses Schl&uuml;ssels kann der Ciphertext entschl&uuml;sselt 
+werden. Das Problem bei der Analyse besteht darin, dass der Algorithmus nicht hundertprozentig reversibel 
+ist und somit nicht jeder Schritt eindeutig r&uuml;ckg&auml;ngig gemacht werden kann. Schlägt man den 
+falschen Weg ein, so ist die weitere Analyse falsch.</P>
 
-<P>Für das <A href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire-Verschlüsselungsverfahren</a> steht ein Angriff (Angriffsszenario <A href="ciphertextonlyangriff.html">Ciphertext-only-Angriff</a>) in Form der automatisierten bzw. halbautomatisierten Schlüsselsuche zur Verfügung. Hierfür ist es notwendig, das <a href="kartendeck.html">Ausgangsdeck</a> sowie den zugehörigen (<A href="chiffretext.html">Ciphertext</a>) zu kennen.<br>
-Da der Algorithmus sehr stark reversibel ist, kann anhand der Umkehrung der einzelnen Schritte das <a href="kartendeck.html">Ausgangsdeck</a> ermittelt und somit der symmetrische <A href="schluessel.html">Schl&uuml;ssel</a> erzeugt werden. Mit Hilfe dieses Schl&uuml;ssels kann der Ciphertext entschl&uuml;sselt werden. Das Problem bei der Analyse besteht darin, dass der Algorithmus nicht hundertprozentig reversibel ist und somit nicht jeder Schritt eindeutig r&uuml;ckg&auml;ngig gemacht werden kann. Schlägt man den falschen Weg ein, so ist die weitere Analyse falsch.</P>
+<p>Die Analyse operiert in drei Schritten:</P>
 
-<p>Die Analyse operiert in drei Schritten:<br><br>
+<UL>
+<LI>1. Ermittlung des <a href="kartendeck.html">Initialdecks</a></LI>
+<LI>2. Erzeugung des Schlüsselstroms</LI>
+<LI>3. Entschlüsselung des Ciphertextes</LI>
+</UL>
 
-1. Ermittlung des <a href="kartendeck.html">Initialdecks</a><br>
-2. Erzeugung des Schlüsselstroms<br>
-3. Entschlüsselung des Ciphertextes
-</p><br>
+<p><b>1. Ermittlung des Initialdecks</b></p>
 
-<p>
-<big>1. Ermittlung des <a href="kartendeck.html">Initialdecks</a></big><br><br>
-Der Solitaire-Algorithmus wird für jedes Ciphertextzeichen  einmal rückwärts durchlaufen. Das bedeutet es wird mit Schritt 5 begonnen, dann folgt Schritt 4, Schritt 3, Schritt 2 und Schritt 1. Diese einzelnen Schritte werden entgegengesetzt zu Solitaire durchgeführt.<br><br> 
+<P>Der Solitaire-Algorithmus wird für jedes Ciphertextzeichen einmal rückwärts durchlaufen. Das bedeutet, 
+es wird mit Schritt 5 begonnen, dann folgen Schritt 4, Schritt 3, Schritt 2 und Schritt 1. Diese einzelnen 
+Schritte werden entgegengesetzt zu Solitaire durchgeführt.</P>
 
-Schritt 5:<br>
-Es wird kein Zeichen notiert. Es wird lediglich geprüft, ob eine <a href="nullrunde.html">Nullrunde</a> auftaucht. Ist dies der Fall, muss der Algorithmus ein zusätzliches Mal rückwärts durchlaufen werden.<br><br>
+<UL>
+<LI>Schritt 5:<br>Es wird kein Zeichen notiert. Es wird lediglich geprüft, ob eine 
+<a href="nullrunde.html">Nullrunde</a> auftaucht. Ist dies der Fall, muss der Algorithmus ein zusätzliches 
+Mal rückwärts durchlaufen werden.</LI>
+<LI>Schritt4:<br>Die Karten, die bei Schritt vier vor der letzten Karte einsortiert wurden, müssen wieder 
+an den Anfang gesetzt werden. Die Anzahl wird durch die letzte Karte angegeben.</LI>
+<LI>Schritt3:<br>Vertausche den Stapel vor dem ersten Joker mit dem Stapel hinter dem zweiten Joker.</LI>
+<LI>Schritt2:<br>Joker B wird zwei Karten vorher einsortiert.</LI>
+<LI>Schritt1:<br>Joker A wird eine Karte vorher einsortiert.</LI>
+</UL>
 
-Schritt4:<br>
-Die Karten, die bei Schritt vier vor der letzten Karte einsortiert wurden, müssen wieder an den Anfang gesetzt werden. Die Anzahl wird durch die letzte Karte angegeben.<br><br>
+<P>Nachdem der Algorithmus für jedes Ciphertextzeichen und jede <a href="nullrunde.html">Nullrunde</a> 
+rückwärts durchlaufen wurde, ist das Initialdeck erzeugt. Da Schritt 1 und 2 nicht immer eindeutig umgekehrt 
+werden kann, ist der Algorithmus nicht vollständig reversibel. Wird in den Schritten 1 bzw. 2 der Joker A 
+bzw. Joker B falsch einsortiert, so erhält man nach dem Entschlüsseln nicht den korrekten Klartext.</P>
 
-Schritt3:<br> 
-Vertausche den Stapel vor dem ersten Joker mit dem Stapel hinter dem zweiten Joker.<br><br>
+<p>Von hier an ist das Vorgehen analog zum Entschlüsseln mit Solitaire</p>
 
-Schritt2:<br>
-Joker B wird zwei Karten vorher einsortiert.<br><br>
+<p><b>2. Erzeugung des Schlüsselstroms</b></P>
 
-Schritt1:<br> 
-Joker A wird eine Karte vorher einsortiert.<br><br>
+<P>Auf das <a href="kartendeck.html">Initialdeck</a> wird nun für jedes Ciphertextzeichen und für jede 
+<a href="nullrunde.html">Nullrunde</a> einmal der Solitaire-Algorithmus angewendet 
+(<A href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire-Schl&uuml;sselstromerzeugung</a> ). Dadurch erhält man 
+den Schlüsselstrom, mit dem der Klartext verschlüsselt wurde.</p>
 
-Nachdem der Algorithmus für jedes Ciphertextzeichen und jede <a href="nullrunde.html">Nullrunde</a> rückwärts durchlaufen wurde, ist das Initialdeck erzeugt. Da Schritt 1 und 2 nicht immer eindeutig umgekehrt werden kann, ist der Algorithmus nicht vollständig reversibel. Wird in den Schritten 1 bzw. 2 der Joker A bzw. Joker B falsch einsortiert, so erhält man nach dem Entschlüsseln nicht den korrekten Klartext.
-</p>
+<p><b>3. Entschlüsselung des Ciphertextes</b></P>
 
-<p>Von hier an ist das Vorgehen analog zum Entschlüsseln mit Solitaire</p><br>
+<P>Der Ciphertext wird mit diesem Schlüsselstrom entschlüsselt (<A href="HID_SYMCLASSIC_SOLITAIRE.html">
+Solitaire-Beschreibung</a>).</p>
 
-<p><big>2. Erzeugung des Schlüsselstroms</big><br><br>
-Auf das <a href="kartendeck.html">Initialdeck</a> wird nun für jedes Ciphertextzeichen und für jede <a href="nullrunde.html">Nullrunde</a> einmal der Solitaire-Algorithmus angewendet (<A href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire-Schl&uuml;sselstromerzeugung</a> ). Dadurch erhält man den Schlüsselstrom, mit dem der Klartext verschlüsselt wurde.<br>
-</p>
-
-<p><big>3. <A href="entschluesselung.html">Entschlüsselung des Ciphertextes</a> </big><br><br>
-Der Ciphertext wird mit diesem Schlüsselstrom entschlüsselt (<A href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire-Beschreibung</a>).<br>
-</p>
 </BODY>
 </HTML>

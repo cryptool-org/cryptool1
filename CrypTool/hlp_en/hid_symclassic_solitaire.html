@@ -2,94 +2,145 @@
 <HTML>
 <HEAD>
 <meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
-<Title>Solitaire encryption and key generation (description)</Title>
+<Title>Solitaire Encryption Algorithm</Title>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 <BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Symmetric">
+	<PARAM NAME="Keyword" VALUE="Encryption">
 	<PARAM NAME="Keyword" VALUE="Card game">
-	<PARAM NAME="Keyword" VALUE="Solitaire">
 	<PARAM NAME="Keyword" VALUE="Solitaire encryption algorithm">
 </OBJECT>
- 
 
-<H3><P><A NAME="HID_SYMCLASSIC_SOLITAIRE.html"></A><B>Solitaire-Encryption and generation of the keystream (Menü <A href="menu_crypt.html">En- / Decrypt</A> / Symmetric (classical))</B></P></H3>
-<P>Solitaire is a typical symmetric Paper&Pencil-<a href="verschlverfahren.html">Encryption-algorithm</a>. It became known, because Neal Stephenson used it in his novel <b>"Cryptonomicon"</b>.<br>It is developped by Bruce Schneier. The algorithm gets its security from the inherent randomness in a good shuffled <a href="kartendeck.html">deck of cards</a> (<a href="hidd_solitaire.html">key generation</a>) and the aspect, that each <a href="schluessel.html">key</a> (this shuffled deck) is used once.</p>
+<H3>Solitaire (Menu <A href="menu_crypt.html">Crypt/Decrypt</A> \ Symmetric (classical))</H3>
 
-<p>The key at this procedure is the shuffled card deck, that the sender as well as the receiver must have in the identical order of cards.<br>The actual Solitaire algorithm describes the generation of a relative random keystream out of the key (initial deck, bridge suite).<br>
-Each keystream letter is XOR-added to each plaintext letter or ciphertext letter (so the Solitaire cipher is based on the idea of the One-Time-Pad, although the keystream is not completely random).</P>
+<p>Information about the associated dialog can be found <a href="hidd_solitaire.html">here</a>.</p>
 
-<p>The Solitaire cipher uses the ideas of the Vernam cipher (XOR-Addition of the plaintext with the keystream) and the stream ciphers (generation a keystream out of an initial value). The randomness is only guaranteed by the initial deck.
-</p>
+<P>Solitaire is a typical symmetric Paper&Pencil-<a href="verschlverfahren.html">Encryption-algorithm</a>. 
+It became known, because Neal Stephenson used it in his novel <b>"Cryptonomicon"</b>.</P>
 
-<p>
-The actual Solitaire algorithm to generate a keystream consists - as descripted below - of 5 steps: the first 4 steps permutate the last generated final deck. Step1 and step 2 modify only the position of the jokers, during step 3 and 4 change complete stacks of cards. Step 5 locates the value of the next keystream letter, but does not change the order of cards. Sometimes the order of cards, which appear during the procedure, are called temporary deck and only the last temporary deck is called final deck.<br>
-In standard the initial deck and final deck contain a permutation of the card values 1 to 54. The keystream contains values of 1 to 52 and has the same length as the plaintext.</p>
+<P>It was developed by Bruce Schneier. The algorithm gets its security from the inherent randomness in a 
+well-shuffled <a href="kartendeck.html">deck of cards</a> (<a href="hidd_solitaire.html">key generation</a>) 
+and the aspect, that each <a href="schluessel.html">key</a> (this shuffled deck) is used once.</p>
 
-<p><U><STRONG><a href="verschluesselung.html">Encryption</a>  with Solitaire</STRONG></U></p>
+<p>The key at this procedure is the shuffled card deck, that the sender as well as the receiver must have in 
+the identical order of cards.<br>The actual Solitaire algorithm describes the generation of a relative random 
+keystream out of the key (initial deck, bridge suite).<br>Each keystream letter is XOR-added to each 
+plaintext letter or ciphertext letter (so the Solitaire cipher is based on the idea of the One-Time-Pad, 
+although the keystream is not completely random).</P>
 
-<p>The precondition for encryption is the existence of a keystream, which length is the same as the length of the plaintext. It consists of a stream of numbers between 1 and 26.</p>
+<p>The Solitaire cipher uses the ideas of the Vernam cipher (XOR-Addition of the plaintext with the 
+keystream) and the stream ciphers (generation a keystream out of an initial value). The randomness is only 
+guaranteed by the initial deck.</p>
 
-<p>
-The <a href="klartext.html">plaintext</a> is splitted in groups of five letters (all non-letters are deleted). Then the plaintext letters are translated in values between 1 and 26 (A represents 1, B represents 2, C represents 3 und Z represents 26) and after that added <a href="modulo.html">modulo</a> 26 with the keystream [Because of the aspect that the result of the calculation modulo 26 is between 0 and 25 (inclusive), the value 0 is interpreted as 26 and represents the letter Z]. The text, which is arised through the re-convertation of the new number stream is the <a href="chiffretext.html">ciphertext</a>.
-</p>
+<p>The actual Solitaire algorithm to generate a keystream consists - as descripted below - of 5 steps: the 
+first 4 steps permutate the last generated final deck. Step1 and step 2 modify only the position of the 
+jokers, during step 3 and 4 change complete stacks of cards. Step 5 locates the value of the next keystream 
+letter, but does not change the order of cards. Sometimes the order of cards, which appear during the 
+procedure, are called temporary deck and only the last temporary deck is called final deck.<br>In standard 
+the initial deck and final deck contain a permutation of the card values 1 to 54. The keystream contains 
+values of 1 to 52 and has the same length as the plaintext.</p>
 
-<p><U><STRONG><a href="entschluesselung.html">Decryption</a> with Solitaire</STRONG></U></p>
+<p><U><B>Encryption with Solitaire</B></U></p>
 
-<p>Because Solitaire is a symmetric cipher, for encryption and for decryption the same <a href="schluessel.html">key</a> (keystream) is used. </p>
+<p>The precondition for encryption is the existence of a keystream, which length is the same as the length 
+of the plaintext. It consists of a stream of numbers between 1 and 26.</p>
 
-<p>For Decryption the <a href="chiffretext.html">ciphertext</a> is also splitted in groups of five letters (as at the encryption). After that the letter-keystreamis converted to a number-keystream. Then the keystream numbers are subtracted <a href="modulo.html">modulo</a> 26 of the ciphertext numbers. The new number keystream has to be converted into the letter stream and the <a href="klartext.html">plaintext</a> is decrypted.</p>
-<p><b>Annotation:</b><br>
-It is recommended, that the receiver has a substitute initial deck, because the initial deck is modified during the keystream generation.
-If he makes a mistake, he will not be able to restart the procedure. So the plaintext cannot be decrypted anymore.
-</p>
+<p>The <a href="klartext.html">plaintext</a> is splitted in groups of five letters (all non-letters are 
+deleted). Then the plaintext letters are translated in values between 1 and 26 (A represents 1, B represents 
+2, C represents 3 und Z represents 26) and after that added <a href="modulo.html">modulo</a> 26 with the 
+keystream [Because of the aspect that the result of the calculation modulo 26 is between 0 and 25 
+(inclusive), the value 0 is interpreted as 26 and represents the letter Z]. The text, which is arised 
+through the re-convertation of the new number stream is the <a href="chiffretext.html">ciphertext</a>.</p>
 
-<p><U><STRONG>Initial generation of keystream</STRONG></U></p>
+<p><U><B>Decryption with Solitaire</B></U></p>
 
-<p>
-The cards of club get the value 1 for ace, 2 for two, to 13 for the king, the cards of diamond the values 14 to 26, the cards of heart the values 27 to 39 and the cards of spade the values 40 to 52. The generated keystream is a sequence of numbers between 1 and 26, because of the calculation with modulo 26.
-</p>
+<p>Because Solitaire is a symmetric cipher, for encryption and for decryption the same 
+<a href="schluessel.html">key</a> (keystream) is used.</p>
 
+<p>For Decryption the <a href="chiffretext.html">ciphertext</a> is also splitted in groups of five letters 
+(as at the encryption). After that the letter-keystreamis converted to a number-keystream. Then the keystream 
+numbers are subtracted <a href="modulo.html">modulo</a> 26 of the ciphertext numbers. The new number 
+keystream has to be converted into the letter stream and the <a href="klartext.html">plaintext</a> is 
+decrypted.</p>
 
-<p>To initialize the <a href="kartendeck.html">card deck</a>, Schneier describes three differnent alternatives:</p>
-<p>1. Shuffle cards:<br>
-Use identically shuffled decks. A random key is the best. One of the communicants can shuffle up a random deck and then create another, identical deck. One goes to the sender and the other to the receiver. Most people are not good shufflers, so shuffle the deck at least six times. And both parties should keep an additional spare deck in the same keyed order, otherwise if you make a mistake you'll never be able to decrypt the message. Also remember that the key is at risk as long as it exists; the secret police could find the deck and copy down its order.
-</p>
-<p>
-2. Bridge suite order:<br>
-Use a bridge ordering. A description of a set of bridge hands that you might see in a newspaper or a bridge book. Agree on a way to take the bridge-hand diagram and convert it into an ordering of the deck. Then agree on a way to put the two jokers into the deck. (One obvious one is to put the A joker after the first card mentioned in the text, and the B joker after the second card mentioned in the text.)</p>
-<p>
-3. Password:<br>
-Use a password to order the deck. This method uses the Solitaire algorithm to create an initial deck ordering. Both the sender and receiver share a passphrase. Start with the deck in a fixed order; lowest card to highest card, in bridge suits, followed by the A and then the B joker. Perform the Solitaire operation, but instead of Step 5, do another count cut based on the first character of the password. In other words, do step 4 a second time. Remember to put the top cards just above the bottom card in the deck, as before.
-<p>
-The sender and the receiver need a bridge suite order, which is exactly the same. Then both sides generate the keystream. There are 54! (which is ca. 2*10^71) different possibilities, how the card deck can be ordered.</p>
-</p>
+<p><b>Remark</b>:</p>
 
-<p><U><STRONG><a href="hidd_solitaire.html">Keystream generation</a></STRONG></U></p>
+<P>It is recommended, that the receiver has a substitute initial deck, because the initial deck is modified 
+during the keystream generation. If he makes a mistake, he will not be able to restart the procedure. So the 
+plaintext cannot be decrypted anymore.</p>
 
-<p>The function of the algorithm is:<br> To initialize the deck, take the deck in your hand, face up. Then arrange the cards in the initial configuration that is the key. Then the following five steps are repeated as often as the lengt of the plaintext.</p>
-</p><U>Step 1:</U><p>
-Find the A joker. Move it one card down. (That is, swap it with the card beneath it.) If the joker is the bottom card of the deck, move it just below the top card.
-</p><U>Step 2:</U><p>
-Find the B joker. Move it two cards down. If the joker is the bottom card of the deck, move it just below the second card. If the joker is one up from the bottom card, move it just below the top card. (Basically, assume the deck is a loop...you get the idea.)
-</p><U>Step 3:</U><p>
-Perform a triple cut. That is, swap the cards above the first joker with the cards below the second joker.
-Here it plays no role, which joker is the first one. The first joker is the one, which is nearest to the top of the cards. The jokers are not swapped. If there are no cards in one of the three sections (either the jokers are adjacent, or one is on top or the bottom), just treat that section as empty and move it anyway. If the deck used to look like.
-</p><U>Step 4:</U></p>
-Perform a count cut:<br>
+<p><U><B>Initial generation of keystream</B></U></p>
 
-Look at the bottom card. The value of the bottom card is u (u is a value between 1 and 53), and count down from the top card that number (u). Cut after the card that you counted down to, leaving the bottom card on the bottom.
-</p><U>Step 5:</U></p>
-Find the output card. To do this, look at the top card. Count down that many cards. (Count the top card as number one.) 
+<p>The cards of club get the value 1 for ace, 2 for two, to 13 for the king, the cards of diamond the values 
+14 to 26, the cards of heart the values 27 to 39 and the cards of spade the values 40 to 52. The generated 
+keystream is a sequence of numbers between 1 and 26, because of the calculation with modulo 26.</p>
 
-The card after the one you counted to on is the output card. Don't remove it from the deck. If you hit a joker, don't write anything down (following called as <a href="nullrunde.html">zero round</a>) and start over again with step 1. This is the first output card. If not enough keystream letters are generated start with step 1.
+<p>To initialize the <a href="kartendeck.html">card deck</a>, Schneier describes three differnent 
+alternatives:</p>
 
-<p>With <a href="cryptool.html">CrypTool</a> it is possible,<br>
-<ul><li>to en-/decrypt messages with the Solitaire cipher, and</li>
-<li>to make a semi-automatical cryptanalysis with a found final deck and its found ciphertext. (<a href=HID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE.html>Solitaire analysis</a>).
-</li>
-</p>
+<p>1. Shuffle cards:<br>Use identically shuffled decks. A random key is the best. One of the communicants can 
+shuffle up a random deck and then create another, identical deck. One goes to the sender and the other to 
+the receiver. Most people are not good shufflers, so shuffle the deck at least six times. And both parties 
+should keep an additional spare deck in the same keyed order, otherwise if you make a mistake you'll never be 
+able to decrypt the message. Also remember that the key is at risk as long as it exists; the secret police 
+could find the deck and copy down its order.</p>
 
+<p>2. Bridge suite order:<br>Use a bridge ordering. A description of a set of bridge hands that you might 
+see in a newspaper or a bridge book. Agree on a way to take the bridge-hand diagram and convert it into an 
+ordering of the deck. Then agree on a way to put the two jokers into the deck. (One obvious one is to put the 
+A joker after the first card mentioned in the text, and the B joker after the second card mentioned in the 
+text.)</p>
+
+<p>3. Password:<br>Use a password to order the deck. This method uses the Solitaire algorithm to create an 
+initial deck ordering. Both the sender and receiver share a passphrase. Start with the deck in a fixed order; 
+lowest card to highest card, in bridge suits, followed by the A and then the B joker. Perform the Solitaire 
+operation, but instead of Step 5, do another count cut based on the first character of the password. In other 
+words, do step 4 a second time. Remember to put the top cards just above the bottom card in the deck, as 
+before.</p>
+
+<p>The sender and the receiver need a bridge suite order, which is exactly the same. Then both sides generate 
+the keystream. There are 54! (which is ca. 2*10^71) different possibilities, how the card deck can be 
+ordered.</p>
+
+<p><U><B>Keystream generation</B></U></p>
+
+<p>The function of the algorithm is:<br>To initialize the deck, take the deck in your hand, face up. Then 
+arrange the cards in the initial configuration that is the key. Then the following five steps are repeated 
+as often as the lengt of the plaintext.</p>
+
+<p><U>Step 1</U>: Find the A joker. Move it one card down. (That is, swap it with the card beneath it.) If 
+the joker is the bottom card of the deck, move it just below the top card.</p>
+
+<p><U>Step 2</U>: Find the B joker. Move it two cards down. If the joker is the bottom card of the deck, move 
+it just below the second card. If the joker is one up from the bottom card, move it just below the top card. 
+(Basically, assume the deck is a loop...you get the idea.)</p>
+
+<p><U>Step 3</U>: Perform a triple cut. That is, swap the cards above the first joker with the cards below 
+the second joker. Here it plays no role, which joker is the first one. The first joker is the one, which is 
+nearest to the top of the cards. The jokers are not swapped. If there are no cards in one of the three 
+sections (either the jokers are adjacent, or one is on top or the bottom), just treat that section as empty 
+and move it anyway. If the deck used to look like.</p>
+
+<p><U>Step 4</U>: Perform a count cut:<br>Look at the bottom card. The value of the bottom card is u (u is a 
+value between 1 and 53), and count down from the top card that number (u). Cut after the card that you 
+counted down to, leaving the bottom card on the bottom.</p>
+
+<p><U>Step 5</U>: Find the output card. To do this, look at the top card. Count down that many cards (Count 
+the top card as number one). The card after the one you counted to on is the output card. Don't remove it 
+from the deck. If you hit a joker, don't write anything down (following called as 
+<a href="nullrunde.html">zero round</a>) and start over again with step 1. This is the first output card. 
+If not enough keystream letters are generated start with step 1.</P>
+
+<p>With <a href="cryptool.html">CrypTool</a> it is possible,</p>
+
+<ul>
+<li>to en-/decrypt messages with the Solitaire cipher, and</li>
+<li>to make a semi-automatical cryptanalysis with a found final deck and its found ciphertext. 
+(<a href=HID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE.html>Solitaire analysis</a>).</li>
+</ul>
 
 </BODY>
 </HTML>

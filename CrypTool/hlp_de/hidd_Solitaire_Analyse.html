@@ -2,7 +2,8 @@
 <HTML>
 <HEAD>
 <meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
-<Title>Solitaire-Analyse (Dialogbedienung)</Title>
+<Title>Dialog Solitaire-Analyse</Title>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 <BODY>
  
@@ -10,82 +11,87 @@
 	<PARAM NAME="Keyword" VALUE="Kartenspiel">
 	<PARAM NAME="Keyword" VALUE="Analyse">
 	<PARAM NAME="Keyword" VALUE="Solitaire-Verschlüsselungsverfahren">
+	<PARAM NAME="Keyword" VALUE="Dialog (Übersicht aller Dialoge)">
 </OBJECT>
 
+<H3>Dialog Solitaire-Analyse</H3>
 
-<H3><P><A NAME="hidd_Solitaire_Analyse.html"></A><B>Dialog zur Solitaire-Analyse (Menü <A href="menu_analyze.html">Analyse</A>/ Symmetrische Verschl&uuml;sselung (klassisch))</B></P></H3>
+<IMG SRC="images/solitaireanalysisdialog.png" BORDER=0>
 
-<IMG SRC="images/Solianalyse1.gif" BORDER=0>
+<p>Dieser Dialog dient zur Analyse 
+(<a href="HID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE.html">Solitaire-Analyse</a>) eines mit dem 
+<a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire-Algorithmus</a> verschlüsselten 
+<A href="chiffretext.html">Ciphertextes</a>. Der Ciphertext muss zuvor als  Textdokument geladen werden. 
+Auch hier wird der Text auf 65.535 Zeichen beschränkt und der Rest des Textes wird abgeschnitten. Dann wird 
+anhand des gefundenen Ausgangsdecks ein <a href="kartendeck.html">Initialdeck</a> erzeugt. Mit Hilfe dieses 
+Initialdecks wird anschlie&szlig;end der Schl&uuml;sselstrom erzeugt, mit dem der 
+<A href="chiffretext.html">Ciphertext</a> entschl&uuml;sselt werden kann.<br>Bitte folgen Sie den 
+Nummerierungen der umrandeten Felder in diesem Dialog (Gruppierung 1 bis 4).</p>
 
-<p>
-Dieser Dialog dient zur Analyse (<a href="HID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE.html">Solitaire-Analyse</a>) eines mit dem <a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire-Algorithmus</a> verschlüsselten <A href="chiffretext.html">Ciphertextes</a>. Der Ciphertext muss zuvor als  Textdokument geladen werden. Auch hier wird der Text auf 65.535 Zeichen beschränkt und der Rest des Textes wird abgeschnitten. Dann wird anhand des gefundenen Ausgangsdecks ein <a href="kartendeck.html">Initialdeck</a> erzeugt. Mit Hilfe dieses Initialdecks wird anschlie&szlig;end der Schl&uuml;sselstrom erzeugt, mit dem  der <A href="chiffretext.html">Ciphertext</a> entschl&uuml;sselt werden kann.<br>
-Bitte folgen Sie den Nummerierungen der umrandeten Felder in diesem Dialog (Gruppierung 1 bis 4).
-</p>
+<p><b><u>Ermittlung des Initialdecks</u></b></p>
 
-<big>Ermittlung des Initialdecks</big><br><br>
+<p><B>Gruppierung 1: Parameter des gefundenen Decks</B></P>
 
-<p><B>Gruppierung 1: Parameter des gefundenen Decks</B><br>
-Bitte wählen Sie die Art und Weise aus, mit der Sie das "gefundene" <a href="kartendeck.html">Ausgangsdeck</a> bestimmen möchten. Dafür klicken Sie bitte einen der beiden Buttons <B>Ausgangsdeck laden </B>oder <B>Nach Vorgabe</B> an.<br>
+<P>Bitte wählen Sie die Art und Weise aus, mit der Sie das "gefundene" 
+<a href="kartendeck.html">Ausgangsdeck</a> bestimmen möchten. Dafür klicken Sie bitte einen der beiden 
+Buttons <B>Ausgangsdeck laden</B> oder <B>Nach Vorgabe</B> an.</p>
+
 <ul>
-<li><B>Ausgangsdeck laden</B></li><br>
-Sie laden ein zuvor bei der Verschlüsselung gespeichertes Ausgangsdeck.
-<li><B>Nach Vorgabe</B></li><br>
-Sie erzeugen in der Gruppierung "Nach Vorgabe" ein eigenes Ausgangsdeck. Außerdem kann die Kartenanzahl des gewünschten Kartendecks variiert werden.
+<li><B>Ausgangsdeck laden</B>: Sie laden ein zuvor bei der Verschlüsselung gespeichertes Ausgangsdeck.</li>
+<li><B>Nach Vorgabe</B>: Sie erzeugen in der Gruppierung "Nach Vorgabe" ein eigenes Ausgangsdeck. Außerdem 
+kann die Kartenanzahl des gewünschten Kartendecks variiert werden.</li>
+<li><B>Gruppierung: Nach Vorgabe</B>: Dieses Steuerelement wird aktiviert, sobald Sie in Gruppierung 1 
+"Nach Vorgabe" gewählt haben. Zuerst wählen Sie bitte die Anzahl der gewünschten Karten (<B>3-54</B>). 
+Anschließend definieren Sie das von Ihnen gewünschte Ausgangsdeck, indem Sie die einzelnen Buttons 
+(<B>1-54</B>) in der entsprechenden Reihenfolge anklicken. Unterläuft Ihnen ein Fehler, klicken Sie bitte 
+den <B>Reset</B>-Button und beginnen die Eingabe erneut. Während Sie die einzelnen Buttons anklicken, 
+können Sie ihr bisher erzeugtes Deck im Feld "Gefundenes Deck" sehen. Sobald Sie die von Ihnen gewünschte 
+Kartenanzahl erreicht haben, wird dieses Steuerelement deaktiviert und Gruppierung 2 aktiviert.</li>
 </ul>
-</p>
-<IMG SRC="images/Solianalyse2.gif" BORDER=0>
 
+<p><B>Gruppierung 2: Joker positionieren</B></p>
 
-<p><B>Gruppierung: Nach Vorgabe</B><br>
-Dieses Steuerelement wird aktiviert, sobald Sie in Gruppierung 1 "Nach Vorgabe" gewählt haben. Zuerst wählen Sie bitte die Anzahl der gewünschten Karten (<B>3-54</B>). Anschließend definieren Sie das von Ihnen gewünschte Ausgangsdeck, indem Sie die einzelnen Buttons (<B>1-54</B>) in der entsprechenden Reihenfolge anklicken. Unterläuft Ihnen ein Fehler, klicken Sie bitte den <B>Reset</B>-Button und beginnen die Eingabe erneut. Während Sie die einzelnen Buttons anklicken, können Sie ihr bisher erzeugtes Deck im Feld "Gefundenes Deck" sehen. Sobald Sie die von Ihnen gewünschte Kartenanzahl erreicht haben, wird dieses Steuerelement deaktiviert und Gruppierung 2 aktiviert.
-</p>
-<IMG SRC="images/Solianalyse3.gif" BORDER=0>
+<p>Aufgrund der Irreversibilit&auml;t von Solitaire muss an einigen Stellen bestimmt werden, ob Joker A bzw. 
+Joker B hinten oder vorne einsortiert werden sollen. Dieses Steuerelement gibt Ihnen die Möglichkeit zwischen 
+<B>Immer vorne</B>, <B>Immer hinten</B> und <B>Manuell</B> zu wählen.</P>
 
-<p><B>Gruppierung 2: Joker positionieren</B><br>
-Aufgrund der Irreversibilit&auml;t von Solitaire muss an einigen Stellen bestimmt werden, ob Joker A bzw. Joker B hinten oder vorne einsortiert werden sollen.
-Dieses Steuerelement gibt Ihnen die Möglichkeit zwischen <B>Immer vorne</B>, <B>Immer hinten</B> und <B>Manuell</B> zu wählen.
-<IMG SRC="images/Solianalyse5.gif" BORDER=0><br>
 <ul>
-<li><B>Immer vorne</B></li><br>
-Es wird versucht das Initialdeck zu ermitteln. Dabei werden die Joker bei einem Sonderfall immer vorne eingeordnet.
-<li><B>Immer hinten</B></li><br>
-Es wird versucht das Initialdeck zu ermitteln. Dabei werden die Joker bei einem Sonderfall immer hinten eingeordnet.
-<li><B>Manuell (=Starten)</B></li><br>
-
-Es wird versucht das Initialdeck zu ermitteln. Bei einem Sonderfall, wo es zwei Möglichkeiten gibt den Joker einzuordnen, wird der Benutzer um eine Entscheidung gebeten. Mit dem Button <B>Abbrechen</B> innerhalb der Nachricht kann zum Ausgangszustand zurückgekehrt weredn.<br>
-<IMG SRC="images/Solianalyse_message.gif" BORDER=0><br>
-Sowohl bei der manuellen als auch bei der automatischen Auswahl können falsche Wege gewählt werden, die zu einem falschen Klartext führen.</ul>
-</p>
-<p><B>Gruppierung 3: Initialdeck erzeugen</B><br>
-Diese Gruppierung dient zur Darstellung der einzelnen Zustände des Kartendecks.
-<ul>
-<li><B>Gefundenes Deck</B></li><br>
-Stellt das gefundene Kartendeck dar, welches entweder selbst eingegeben oder geladen wurde.
-<li><B>Zwischendeck</B></li><br>
-Stellt die verschiedenen Änderungen des Kartendecks während der Kryptoanalyse dar. 
-<li><B>Initialdeck</B></li><br>
-Bei einer erfolgreichen Kryptoanalyse eines mit Solitaire-verschlüsselten Textes wird hier das gleiche Kartendeck angezeigt, wie jenes, welches zur Schlüsselstromerzeugung bei der Verschlüsselung benutzt wurde.
+<li><B>Immer vorne</B>: Es wird versucht das Initialdeck zu ermitteln. Dabei werden die Joker bei einem 
+Sonderfall immer vorne eingeordnet.</li>
+<li><B>Immer hinten</B>: Es wird versucht das Initialdeck zu ermitteln. Dabei werden die Joker bei einem 
+Sonderfall immer hinten eingeordnet.</li>
+<li><B>Manuell (=Starten)</B>: Es wird versucht das Initialdeck zu ermitteln. Bei einem Sonderfall, wo es 
+zwei Möglichkeiten gibt, den Joker einzuordnen, wird der Benutzer um eine Entscheidung gebeten. Mit dem 
+Button <B>Abbrechen</B> innerhalb der Nachricht kann zum Ausgangszustand zurückgekehrt werden.</li>
 </ul>
-<IMG SRC="images/Solianalyse_ausgabe.gif" BORDER=0><br>
 
-<p><B>Gruppierung 4: Schlüsselstromerzeugung</B><br>
+<P>Sowohl bei der manuellen als auch bei der automatischen Auswahl können falsche Wege gewählt werden, die 
+zu einem falschen Klartext führen.</P>
 
-Aus dem ermittelten <a href="kartendeck.html">Initialdeck</a> kann nach dem Solitaire-Algorithmus mit dem Button <B>Schlüsselstrom automatisch erzeugen</B> der Schlüsselstrom erzeugt werden. Das Feld unter dem Button zeigt einen möglichen Schlüsselstrom an:<br> 
-<IMG SRC="images/Solianalyse_keystream.gif" BORDER=0><br>
-</p>
+<p><B>Gruppierung 3: Initialdeck erzeugen</B></p>
 
-<p>
-<p><B>Entschlüsseln</B><br>
-Wenn der Schl&uuml;sselstrom komplett erzeugt wurde, kann mit dem Button <B>Entschlüsseln</B> der Ciphertext entschlüsselt werden (vorausgesetzt das erzeugte Initialdeck ist identisch mit dem jenigen, welches zur Schlüsselstromerzeugung bei der Verschlüsselung diente).<br> 
-<IMG SRC="images/Solianalyse9.gif" BORDER=0><br>
-</p>
+<p>Diese Gruppierung dient zur Darstellung der einzelnen Zustände des Kartendecks.</P>
 
-<p><B>Abbrechen</B><br>
-<IMG SRC="images/Solianalyse10.gif" BORDER=0><br>
-Mit Hilfe dieses Buttons können Sie den Dialog jederzeit verlassen.
-</p>
+<ul>
+<li><B>Gefundenes Deck</B>: Stellt das gefundene Kartendeck dar, welches entweder selbst eingegeben oder 
+geladen wurde.</li>
+<li><B>Zwischendeck</B>: Stellt die verschiedenen Änderungen des Kartendecks während der Kryptoanalyse 
+dar.</li>
+<li><B>Initialdeck</B>: Bei einer erfolgreichen Kryptoanalyse eines mit Solitaire-verschlüsselten Textes 
+wird hier das gleiche Kartendeck angezeigt, wie jenes, welches zur Schlüsselstromerzeugung bei der 
+Verschlüsselung benutzt wurde.</li>
+</ul>
 
+<p><B>Gruppierung 4: Schlüsselstromerzeugung</B></p>
 
+<P>Aus dem ermittelten <a href="kartendeck.html">Initialdeck</a> kann nach dem Solitaire-Algorithmus mit dem 
+Button <B>Schlüsselstrom automatisch erzeugen</B> der Schlüsselstrom erzeugt werden.</p>
+ 
+<p>Wenn der Schl&uuml;sselstrom komplett erzeugt wurde, kann mit dem Button <B>Entschlüsseln</B> der 
+Ciphertext entschlüsselt werden (vorausgesetzt das erzeugte Initialdeck ist identisch mit dem jenigen, 
+welches zur Schlüsselstromerzeugung bei der Verschlüsselung diente).</p>
+
+<P>Mit Hilfe des Buttons <B>Abbrechen</B> können Sie den Dialog jederzeit verlassen.</p>
 
 </BODY>
 </HTML>
