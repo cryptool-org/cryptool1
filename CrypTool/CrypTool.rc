@@ -4606,7 +4606,7 @@ BEGIN
             MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX
             MENUITEM "Dodawanie bitów",             ID_ADD_BIN
             MENUITEM "&XOR",                        ID_XOR_BIN
-            MENUITEM "V&ernam",                     ID_VERNAM_BIN
+            MENUITEM "V&ernam / OTP",               ID_VERNAM_BIN
             MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC
             MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE
@@ -4957,7 +4957,7 @@ BEGIN
             MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX
             MENUITEM "Dodawanie bitów",             ID_ADD_BIN
             MENUITEM "&XOR",                        ID_XOR_BIN
-            MENUITEM "V&ernam",                     ID_VERNAM_BIN
+            MENUITEM "V&ernam / OTP",               ID_VERNAM_BIN
             MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC
             MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE
@@ -5308,7 +5308,7 @@ BEGIN
             MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX, GRAYED
             MENUITEM "Dodawanie bitów",             ID_ADD_BIN, GRAYED
             MENUITEM "&XOR",                        ID_XOR_BIN, GRAYED
-            MENUITEM "V&ernam",                     ID_VERNAM_BIN, GRAYED
+            MENUITEM "V&ernam / OTP",               ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION, GRAYED
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE, GRAYED
@@ -5659,7 +5659,7 @@ BEGIN
             MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX
             MENUITEM "Dodawanie bitów",             ID_ADD_BIN
             MENUITEM "&XOR",                        ID_XOR_BIN
-            MENUITEM "V&ernam",                     ID_VERNAM_BIN
+            MENUITEM "V&ernam / OTP",               ID_VERNAM_BIN
             MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC
             MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE
@@ -6037,7 +6037,7 @@ BEGIN
             MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX, GRAYED
             MENUITEM "Dodawanie bitów",             ID_ADD_BIN, GRAYED
             MENUITEM "&XOR",                        ID_XOR_BIN, GRAYED
-            MENUITEM "V&ernam",                     ID_VERNAM_BIN, GRAYED
+            MENUITEM "V&ernam / OTP",               ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION, GRAYED
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE, GRAYED
@@ -15683,7 +15683,7 @@ BEGIN
             MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX, GRAYED
             MENUITEM "Sabiranje B&yte-ova...",      ID_ADD_BIN, GRAYED
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
-            MENUITEM "V&ernam...",                  ID_VERNAM_BIN, GRAYED
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omofona...",                ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Zam&ena / Transpozicija...",  ID_PERMUTATION, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
@@ -16034,7 +16034,7 @@ BEGIN
             MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
             MENUITEM "Sabiranje B&yte-ova...",      ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
-            MENUITEM "V&ernam...",                  ID_VERNAM_BIN
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN
             MENUITEM "H&omofona...",                ID_HOMOPHONE_ASC
             MENUITEM "Zam&ena / Transpozicija...",  ID_PERMUTATION
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
@@ -16385,7 +16385,7 @@ BEGIN
             MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX, GRAYED
             MENUITEM "Sabiranje B&yte-ova...",      ID_ADD_BIN, GRAYED
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
-            MENUITEM "V&ernam...",                  ID_VERNAM_BIN, GRAYED
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omofona...",                ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Zam&ena / Transpozicija...",  ID_PERMUTATION, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
@@ -16736,7 +16736,7 @@ BEGIN
             MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
             MENUITEM "Sabiranje B&yte-ova...",      ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
-            MENUITEM "V&ernam...",                  ID_VERNAM_BIN
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN
             MENUITEM "H&omofona...",                ID_HOMOPHONE_ASC
             MENUITEM "Zam&ena / Transpozicija...",  ID_PERMUTATION
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
@@ -17114,7 +17114,7 @@ BEGIN
             MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX, GRAYED
             MENUITEM "Sabiranje B&yte-ova...",      ID_ADD_BIN, GRAYED
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
-            MENUITEM "V&ernam...",                  ID_VERNAM_BIN, GRAYED
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omofona...",                ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Zam&ena / Transpozicija...",  ID_PERMUTATION, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
@@ -26772,7 +26772,7 @@ BEGIN
             MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX, GRAYED
             MENUITEM "Byteweise A&ddition...",      ID_ADD_BIN, GRAYED
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
-            MENUITEM "V&ernam...",                  ID_VERNAM_BIN, GRAYED
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
@@ -27123,7 +27123,7 @@ BEGIN
             MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
             MENUITEM "Byteweise A&ddition...",      ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
-            MENUITEM "V&ernam...",                  ID_VERNAM_BIN
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
@@ -27474,7 +27474,7 @@ BEGIN
             MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
             MENUITEM "Byteweise A&ddition...",      ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
-            MENUITEM "V&ernam...",                  ID_VERNAM_BIN
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
@@ -27825,7 +27825,7 @@ BEGIN
             MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
             MENUITEM "Byteweise A&ddition...",      ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
-            MENUITEM "V&ernam...",                  ID_VERNAM_BIN
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
@@ -28203,7 +28203,7 @@ BEGIN
             MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX, GRAYED
             MENUITEM "Byteweise A&ddition...",      ID_ADD_BIN, GRAYED
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
-            MENUITEM "V&ernam...",                  ID_VERNAM_BIN, GRAYED
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
@@ -37741,7 +37741,7 @@ BEGIN
             MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX, GRAYED
             MENUITEM "Byte A&ddition...",           ID_ADD_BIN, GRAYED
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
-            MENUITEM "V&ernam...",                  ID_VERNAM_BIN, GRAYED
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
@@ -38092,7 +38092,7 @@ BEGIN
             MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
             MENUITEM "Byte A&ddition...",           ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
-            MENUITEM "V&ernam...",                  ID_VERNAM_BIN
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
@@ -38443,7 +38443,7 @@ BEGIN
             MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX, GRAYED
             MENUITEM "Byte A&ddition...",           ID_ADD_BIN, GRAYED
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
-            MENUITEM "V&ernam...",                  ID_VERNAM_BIN, GRAYED
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
@@ -38794,7 +38794,7 @@ BEGIN
             MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
             MENUITEM "Byte A&ddition...",           ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
-            MENUITEM "V&ernam...",                  ID_VERNAM_BIN
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
@@ -39172,7 +39172,7 @@ BEGIN
             MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX, GRAYED
             MENUITEM "Byte A&ddition...",           ID_ADD_BIN, GRAYED
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
-            MENUITEM "V&ernam...",                  ID_VERNAM_BIN, GRAYED
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
@@ -48860,7 +48860,7 @@ BEGIN
             MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
             MENUITEM "Suma de &Bytes...",           ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
-            MENUITEM "V&ernam...",                  ID_VERNAM_BIN
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN
             MENUITEM "H&omofónico...",              ID_HOMOPHONE_ASC
             MENUITEM "Per&mutación / Transposición...", ID_PERMUTATION
             MENUITEM "Soli&tario...",               ID_SYMCLASSIC_SOLITAIRE
@@ -49211,7 +49211,7 @@ BEGIN
             MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX, GRAYED
             MENUITEM "Suma de &Bytes...",           ID_ADD_BIN, GRAYED
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
-            MENUITEM "V&ernam...",                  ID_VERNAM_BIN, GRAYED
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omofónico...",              ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutación / Transposición...", ID_PERMUTATION, GRAYED
             MENUITEM "Soli&tario...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
@@ -49562,7 +49562,7 @@ BEGIN
             MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX, GRAYED
             MENUITEM "Suma de &Bytes...",           ID_ADD_BIN, GRAYED
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
-            MENUITEM "V&ernam...",                  ID_VERNAM_BIN, GRAYED
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omofónico...",              ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutación / Transposición...", ID_PERMUTATION, GRAYED
             MENUITEM "Soli&tario...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
@@ -49913,7 +49913,7 @@ BEGIN
             MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
             MENUITEM "Suma de &Bytes...",           ID_ADD_BIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
-            MENUITEM "V&ernam...",                  ID_VERNAM_BIN
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN
             MENUITEM "H&omofónico...",              ID_HOMOPHONE_ASC
             MENUITEM "Per&mutación / Transposición...", ID_PERMUTATION
             MENUITEM "Soli&tario...",               ID_SYMCLASSIC_SOLITAIRE
@@ -50264,7 +50264,7 @@ BEGIN
             MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX, GRAYED
             MENUITEM "Suma de &Bytes...",           ID_ADD_BIN, GRAYED
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
-            MENUITEM "V&ernam...",                  ID_VERNAM_BIN, GRAYED
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omofónico...",              ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutación / Transposición...", ID_PERMUTATION, GRAYED
             MENUITEM "Soli&tario...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED

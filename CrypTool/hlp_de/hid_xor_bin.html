@@ -20,7 +20,7 @@
 		<P>Der Schlüssel wird bitweise mit den Bits des <!--ZZZPOPUP--><A href="klartext.html">Klartextes</A>
 			mittels exklusivem Oder (XOR) verknüpft. Wie bei der <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselung</A>
 			mittels <A href="hid_vigenere_asc.html">Vigenère</A>, <A href="hid_add_bin.html">byteweiser 
-				Addition</A> und bei <A href="hid_vernam_bin.html">Vernam</A> wird auch hier 
+				Addition</A> und bei <A href="hid_vernam_bin.html">Vernam / OTP</A> wird auch hier 
 			der Schlüssel zyklisch verwendet.</P>
 		<P>Die <!--ZZZPOPUP--><A href="entschluesselung.html">Entschlüsselung</A> funktioniert 
 			auf die gleiche Weise, das heißt die Verknüpfung mittels exklusivem Oder muss 
@@ -75,8 +75,8 @@
 			Wahrheitswerte unterschiedlich sind, ansonsten FALSCH. Die XOR-Operation 
 			liefert dasselbe Ergebnis wie die Addition zweier Bits modulo 2.</P>
 		<p>Die Eingabemaske lässt nur 2048 Hex-Zeichen (1024 Bytes) zu.<br>
-			Längere Schlüssel können Sie über eine Datei eingeben: siehe <A href="hid_vernam_bin.html">
-				Vernam-Verfahren</A>.</p>
+			Längere Schlüssel können Sie über eine Datei eingeben: siehe 
+			<A href="hid_vernam_bin.html">Vernam-Verfahren</A>.</p>
 		<p><strong><u>Analyse</u></strong></p>
 		<P>Kennt man das am häufigsten vorkommende Zeichen im Klartext, so ist die 
 			automatische Ermittlung des Schlüssels (und somit auch des Klartextes) möglich 
