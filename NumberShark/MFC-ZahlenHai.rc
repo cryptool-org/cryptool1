@@ -165,6 +165,26 @@ BEGIN
     CTEXT           "DYNAMICALLY_GENERATED",IDC_TEXT_SEARCH_PROGRESS_2,7,39,186,8
 END
 
+IDD_SHOW_PRECALCULATED_SCORES_IN_DETAIL DIALOGEX 0, 0, 251, 200
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "i18n Show precalculated scores in detail"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,194,177,50,16
+    EDITTEXT        IDC_EDIT_PRECALCULATED_SCORES,7,7,237,160,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
+END
+
+IDD_SHOW_PRECALCULATED_SCORES DIALOGEX 0, 0, 250, 200
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "i18n Show precalculated scores"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,193,177,50,16
+    LTEXT           "DYNAMICALLY_GENERATED",IDC_STATIC_INTRO,7,7,236,32
+    DEFPUSHBUTTON   "Show details",ID_SHOW_DETAILS,7,177,100,16
+    CONTROL         "",IDC_LIST_PRECALCULATED_SCORES,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,45,236,125
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -284,6 +304,22 @@ BEGIN
         RIGHTMARGIN, 193
         TOPMARGIN, 7
         BOTTOMMARGIN, 103
+    END
+
+    IDD_SHOW_PRECALCULATED_SCORES_IN_DETAIL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 244
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
+    END
+
+    IDD_SHOW_PRECALCULATED_SCORES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 243
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -543,6 +579,8 @@ BEGIN
     IDS_PRECALCULATED_SCORES_INTRO 
                             "i18n For numbers 1 through %d we know optimal ways to win.\r\nFor the higher numbers %d through %d we show the best known results already precalculated. However, we don't know whether these results from %d up are optimal."
     IDS_NO_SCORE_SELECTED   "i18n Please select a result first."
+    IDS_HEADING_SEQUENCE_LENGTH "i18n Sequence length"
+    IDS_HEADING_SEQUENCE    "i18n Sequence"
 END
 
 #endif    // Polish resources
@@ -702,6 +740,26 @@ BEGIN
     CTEXT           "DYNAMICALLY_GENERATED",IDC_TEXT_SEARCH_PROGRESS_2,7,39,186,8
 END
 
+IDD_SHOW_PRECALCULATED_SCORES_IN_DETAIL DIALOGEX 0, 0, 251, 200
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "i18n Show precalculated scores in detail"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,194,177,50,16
+    EDITTEXT        IDC_EDIT_PRECALCULATED_SCORES,7,7,237,160,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
+END
+
+IDD_SHOW_PRECALCULATED_SCORES DIALOGEX 0, 0, 250, 200
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "i18n Show precalculated scores"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,193,177,50,16
+    LTEXT           "DYNAMICALLY_GENERATED",IDC_STATIC_INTRO,7,7,236,32
+    DEFPUSHBUTTON   "Show details",ID_SHOW_DETAILS,7,177,100,16
+    CONTROL         "",IDC_LIST_PRECALCULATED_SCORES,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,45,236,125
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -821,6 +879,22 @@ BEGIN
         RIGHTMARGIN, 193
         TOPMARGIN, 7
         BOTTOMMARGIN, 103
+    END
+
+    IDD_SHOW_PRECALCULATED_SCORES_IN_DETAIL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 244
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
+    END
+
+    IDD_SHOW_PRECALCULATED_SCORES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 243
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -1044,6 +1118,8 @@ BEGIN
     IDS_PRECALCULATED_SCORES_INTRO 
                             "i18n For numbers 1 through %d we know optimal ways to win.\r\nFor the higher numbers %d through %d we show the best known results already precalculated. However, we don't know whether these results from %d up are optimal."
     IDS_NO_SCORE_SELECTED   "i18n Please select a result first."
+    IDS_HEADING_SEQUENCE_LENGTH "i18n Sequence length"
+    IDS_HEADING_SEQUENCE    "i18n Sequence"
 END
 
 #endif    // Serbian (Latin) resources
@@ -2281,6 +2357,26 @@ BEGIN
     CTEXT           "DYNAMICALLY_GENERATED",IDC_TEXT_SEARCH_PROGRESS_2,7,39,186,8
 END
 
+IDD_SHOW_PRECALCULATED_SCORES_IN_DETAIL DIALOGEX 0, 0, 251, 200
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "i18n Show precalculated scores in detail"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,194,177,50,16
+    EDITTEXT        IDC_EDIT_PRECALCULATED_SCORES,7,7,237,160,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
+END
+
+IDD_SHOW_PRECALCULATED_SCORES DIALOGEX 0, 0, 250, 200
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "i18n Show precalculated scores"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,193,177,50,16
+    LTEXT           "DYNAMICALLY_GENERATED",IDC_STATIC_INTRO,7,7,236,32
+    DEFPUSHBUTTON   "Show details",ID_SHOW_DETAILS,7,177,100,16
+    CONTROL         "",IDC_LIST_PRECALCULATED_SCORES,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,45,236,125
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -2400,6 +2496,22 @@ BEGIN
         RIGHTMARGIN, 193
         TOPMARGIN, 7
         BOTTOMMARGIN, 103
+    END
+
+    IDD_SHOW_PRECALCULATED_SCORES_IN_DETAIL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 244
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
+    END
+
+    IDD_SHOW_PRECALCULATED_SCORES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 243
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -2623,6 +2735,8 @@ BEGIN
     IDS_PRECALCULATED_SCORES_INTRO 
                             "Conocemos el camino óptimo para los números del 1 al %d .\r\nLuego mostramos los mejores valores pre-calculados para los números entre %d y %d, sin embargo para estos últimos, no podemos asegurar que sean los valores óptimos. "
     IDS_NO_SCORE_SELECTED   "Por favor, seleccione un resultado primero. "
+    IDS_HEADING_SEQUENCE_LENGTH "i18n Sequence length"
+    IDS_HEADING_SEQUENCE    "i18n Sequence"
 END
 
 #endif    // Spanish resources
