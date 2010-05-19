@@ -8,7 +8,8 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -24257,7 +24258,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "RSA-Schlüssel generieren"
 FONT 8, "MS Sans Serif"
 BEGIN
-    LTEXT           "Wähle 2 Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul und phi(N) = (p-1)(q-1) ist die Eulersche Zahl. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird der geheime Schlüssel      d = e^(-1)  (mod  phi(N))  berechnet.",IDC_STATIC_TEXT,9,7,333,24
+    LTEXT           "Wähle 2 Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul und phi(N) = (p-1)(q-1) ist die Eulersche Phi-Funktion. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird der geheime Schlüssel      d = e^(-1)  (mod  phi(N))  berechnet.",IDC_STATIC_TEXT,9,7,333,24
     GROUPBOX        "Primzahleneingabe",IDC_STATIC_PRIME,9,36,333,48
     LTEXT           "Primzahl p",IDC_STATIC_PRIME1,19,49,75,8
     EDITTEXT        IDC_EDIT_PRIME_P,100,48,128,12,ES_AUTOHSCROLL
@@ -35336,7 +35337,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Generate RSA key"
 FONT 8, "MS Sans Serif"
 BEGIN
-    LTEXT           "Choose two prime numbers p and q. The number N = pq is the public RSA modulus and phi(N) = (p-1)(q-1) is the Euler number. Public key e is coprime to phi(N). The private key  d = e^(-1)  (mod  phi(N))  is calculated from this.",IDC_STATIC_TEXT,9,7,333,24
+    LTEXT           "Choose two prime numbers p and q. The number N = pq is the public RSA modulus and phi(N) = (p-1)(q-1) is the Euler phi function. Public key e is coprime to phi(N). The private key  d = e^(-1)  (mod  phi(N))  is calculated from this.",IDC_STATIC_TEXT,9,7,333,24
     GROUPBOX        "Prime number entry",IDC_STATIC_PRIME,9,33,333,48
     LTEXT           "Prime number p",IDC_STATIC_PRIME1,19,49,75,8
     EDITTEXT        IDC_EDIT_PRIME_P,100,48,128,12,ES_AUTOHSCROLL
@@ -44930,7 +44931,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Generación de una clave RSA"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    LTEXT           "Elija dos números primos p y q. El número N = pq es el módulo público RSA y phi(N) = (p-1)(q-1) es el número de Euler. La clave pública e es prima relativa con phi(N). La clave privada se calcula a partir de la pública como sigue: d = e^(-1)  (mod  phi(N))",IDC_STATIC_TEXT,9,7,333,24
+    LTEXT           "Elija dos números primos p y q. El número N = pq es el módulo público RSA y phi(N) = (p-1)(q-1) es la función phi de Euler. La clave pública e es prima relativa con phi(N). La clave privada se calcula a partir de la pública como sigue: d = e^(-1)  (mod  ph",IDC_STATIC_TEXT,9,7,333,24
     GROUPBOX        "Entrada de Números Primos",IDC_STATIC_PRIME,9,33,333,48
     LTEXT           "Número Primo  p",IDC_STATIC_PRIME1,19,49,75,8
     EDITTEXT        IDC_EDIT_PRIME_P,100,48,128,12,ES_AUTOHSCROLL
@@ -46459,7 +46460,7 @@ CAPTION "Opciones de Texto"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Aplicar",IDOK,7,235,65,18
-    PUSHBUTTON      "&Restaurar valores",IDC_BUTTON_RESTORE_STANDARD,86,235,100,18
+    PUSHBUTTON      "&Valores por defecto",IDC_BUTTON_RESTORE_STANDARD,86,235,100,18
     CONTROL         "Mantener caracteres no presentes en el alfabeto",IDC_CHECK_KEEP_CHARACTERS_NOT_PRESENT_IN_ALPHABET_UNCHANGED,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,16,213,10
     CONTROL         "Si es posible, mantener el formato de mayúsculas/minúsculas al cifrar/descifrar",IDC_CHECK_KEEP_UPPER_LOWER_CASE_INFORMATION,
@@ -46737,7 +46738,7 @@ BEGIN
     GROUPBOX        "Función Hash ",IDC_STATIC,11,7,247,105
     LTEXT           "Número de bits",IDC_STATIC,21,93,48,8
     EDITTEXT        IDC_EDIT1,96,91,20,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "&Restaurar Valores",IDC_BUTTON1,82,242,104,17
+    PUSHBUTTON      "&Valores por defecto",IDC_BUTTON1,82,242,104,17
     LTEXT           "",IDC_STATIC_SIG_ATT_BITLENGTH_RANGE,128,93,79,8
     LTEXT           "Determine el modo por el que los mensajes serán modificados durante el ataque.",IDC_STATIC,21,137,211,17
     LTEXT           "Elija una de las seis funciones hash y especifique el número de bits que deben coincidir entre los dos resultados para que el ataque sea considerado satisfactorio.",IDC_STATIC,21,22,211,25
@@ -47179,7 +47180,7 @@ BEGIN
     PUSHBUTTON      "&Cifrar",IDC_BUTTON_VERSCHLUESSELN,10,374,71,18
     PUSHBUTTON      "&Descifrar",IDC_BUTTON_ENTSCHLUESSELN,100,374,73,18
     PUSHBUTTON      "&Cerrar",IDC_ENDDIALOG,252,374,90,18
-    CONTROL         "Elija dos número primos p y q. El número N = pq es el módulo público RSA y phi(N) = (p-1)(q-1) es el número de Euler. La clave pública e es prima relativa a phi(N) y la clave privada d = e^(-1) (mod phi(N)).",IDC_RADIO3,
+    CONTROL         "Elija dos número primos p y q. El número N = pq es el módulo público RSA y phi(N) = (p-1)(q-1) es la función phi de Euler. La clave pública e es prima relativa a phi(N) y la clave privada d = e^(-1) (mod phi(N)).",IDC_RADIO3,
                     "Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE | WS_GROUP,19,15,353,26
     CONTROL         "Para cifrar datos o comprobar un certificado es suficiente con introducir los parámetros públicos de RSA: el módulo N y la clave pública e",IDC_RADIO4,
                     "Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE,19,43,353,19
@@ -48499,7 +48500,7 @@ BEGIN
     LTEXT           "Archivo de Digrama:",IDC_STATIC,18,171,65,8
     LTEXT           "Archivo de Trigrama:",IDC_STATIC,18,188,66,8
     CONTROL         "Logueo extensivo",IDC_CHECK_EXTENSIVE_LOGGING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,133,72,10
-    PUSHBUTTON      "&Restablecer Por defecto",IDC_BUTTON_RESTORE_STANDARD,105,331,99,17
+    PUSHBUTTON      "&Valores por defecto",IDC_BUTTON_RESTORE_STANDARD,105,331,99,17
     EDITTEXT        IDC_EDIT_ANALYSIS_THRESHOLD,86,204,25,14,ES_CENTER | ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
     LTEXT           "Umbral:",IDC_STATIC,18,205,25,8
 END
@@ -53834,7 +53835,7 @@ BEGIN
     IDS_STRING_RSADEMO_P_NOT_PRIME "¡La entrada para p no es un número primo!"
     IDS_STRING_RSADEMO_Q_NOT_PRIME "¡La entrada para q no es un número primo!"
     IDS_STRING_RSADEMO_MODUL_KLEIN 
-                            "El número de caracteres en el alfabeto (ahora %i letras) debe ser menor o igual al tamaño del módulo RSA (N = %s).\nPor favor, modifique el alfabeto en 'Opciones del alfabeto y sistema numérico...' o elija números primos más largos."
+                            "El número de caracteres en el alfabeto (ahora %i letras) debe ser menor o igual al tamaño del módulo RSA (N = %s).\nPor favor, modifique el alfabeto en 'Opciones deTexto' o elija números primos más largos."
     IDS_STRING_ERR_ONBLOCKLENGTH_NULL 
                             "Por favor, modifique el alfabeto de modo que el número de caracteres del mismo (ahora %i) sea menor o igual al tamaño del módulo RSA (N = %s)."
     IDS_STRING_ERR_ONBLOCKLENGTH_1 
@@ -55322,11 +55323,11 @@ BEGIN
     IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bits)"
     IDS_FLOAT_NUMBER_SEPARATOR ","
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT_WITHLANGUAGE 
-                            "i18n Cleartext (assumed language: ""%s""):"
+                            "Idioma del texto claro (Idioma asumido: ""%s""):"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SELECTED_KEYWORD_LANGUAGES 
-                            "i18n Keyword language(s): %s"
+                            "Idioma(s) de la(s) clave(s): %s"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SELECTED_CIPHERTEXT_LANGUAGE 
-                            "i18n Ciphertext language: %s"
+                            "Idioma del texto cifrado: %s"
 END
 
 #endif    // Spanish resources

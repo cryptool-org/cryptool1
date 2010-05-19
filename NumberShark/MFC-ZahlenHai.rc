@@ -2534,7 +2534,7 @@ BEGIN
     IDS_OPTIONS_SHOW_DIALOG "Mostrar la ventana ""Opciones de juego"" la próxima vez que el programa inicie."
     IDS_OPTIONS_SHOW_NUMBERS 
                             "Volver a seleccionar la próxima vez el último número seleccionado de los números elegibles."
-    IDS_OPTIONS_MAX_POINTS  "i18n Here you can calculate the maximum score for your selected number stack of %s numbers. But this might take a while...\r\n\r\nInstead, we could immediately show you the scores we have precalculated already."
+    IDS_OPTIONS_MAX_POINTS  "Aquí podrá calcular el máximo puntaje obtenible, y el camino a seguir para alcanzar el mismo, para un conjunto de %s números.\r\nDebido a que este cálculo podría tardar mucho tiempo, puede elegir directamente visualizar los valores que nosotros ya hemos calculado sin tener que someterse a una larga espera. "
     IDS_STRING_PT           "."
     IDS_MAX_POINTS_OLD      "Para calcular el máximo puntaje posible de %d puntos sobre %d números, este programa ha necesitado %d segundos y ha pasado a través de %I64d nodos.\n\nEl número primo más alto es %d.Se recomienda comenzar con ese número para intentar alcanzar el máximo puntaje posible.\n\nDicho puntaje se puede lograr, entre otras, con la siguiente combinación: %s. "
     IDS_TOOL_TIP_NUMBER     "Número: %s"
@@ -2561,9 +2561,9 @@ BEGIN
     IDS_RADIO_EDIT2         "No."
     IDS_TAB_HEADER1         "¡Bienvenido!"
     IDS_TAB_HEADER2         "General"
-    IDS_TAB_HEADER3         "i18n Maximum score"
-    IDS_TAB_RADIO1          "i18n Calculate the maximum score."
-    IDS_TAB_RADIO2          "i18n Show the precalculated scores."
+    IDS_TAB_HEADER3         "Puntaje máximo"
+    IDS_TAB_RADIO1          "Calcular el puntaje máximo."
+    IDS_TAB_RADIO2          "Mostrar los puntajes pre-calculados."
     IDS_SEARCH1             "BúsquedaNumberShark["
 END
 
@@ -2609,20 +2609,20 @@ BEGIN
     IDS_SEARCH_PROGRESS_TEXT_2 "Tiempo transcurrido: %d segundos"
     IDS_ALGORITHM_BRUTE_FORCE "Fuerza-bruta"
     IDS_ALGORITHM_BACK_TRACKING "Búsqueda-regresiva"
-    IDS_HEADING_NUMBER      "i18n Number"
-    IDS_HEADING_SCORE       "i18n Result"
+    IDS_HEADING_NUMBER      "Número"
+    IDS_HEADING_SCORE       "Restulado"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_HEADING_PROVED      "i18n Result optimal?"
-    IDS_PROVED_YES          "i18n Proven"
-    IDS_PROVED_NO           "i18n Unknown"
+    IDS_HEADING_PROVED      "¿Resultado óptimo?"
+    IDS_PROVED_YES          "Prueba"
+    IDS_PROVED_NO           "Desconocido"
     IDS_SHOW_SEQUENCE_FOR_THIS_SPECIFIC_SCORE 
-                            "i18n If you choose the number %s, one way to achieve %s points is the following sequence:\n\n%s."
+                            "Con el número %s, es posible obtener el puntaje de %s realizando la siguiente secuencia: \n\n%s."
     IDS_PRECALCULATED_SCORES_INTRO 
-                            "i18n For numbers 1 through %d we know optimal ways to win.\r\nFor the higher numbers %d through %d we show the best known results already precalculated. However, we don't know whether these results from %d up are optimal."
-    IDS_NO_SCORE_SELECTED   "i18n Please select a result first."
+                            "Conocemos el camino óptimo para los números del 1 al %d .\r\nLuego mostramos los mejores valores pre-calculados para los números entre %d y %d, sin embargo para estos últimos, no podemos asegurar que sean los valores óptimos. "
+    IDS_NO_SCORE_SELECTED   "Por favor, seleccione un resultado primero. "
 END
 
 #endif    // Spanish resources
