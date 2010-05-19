@@ -8,8 +8,7 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -23678,8 +23677,8 @@ BEGIN
     PUSHBUTTON      "&Verschlüsseln",IDC_BUTTON_VERSCHLUESSELN,10,373,71,18
     PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON_ENTSCHLUESSELN,100,373,73,18
     PUSHBUTTON      "&Schließen",IDC_ENDDIALOG,291,373,90,18
-    CONTROL         "Wählen Sie 2 Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul, und phi(N) = (p-1)(q-1) ist die Eulersche Phi-Funktion. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird der geheime Schlüssel d = e^(-1) (mod  phi(N)) berechnet.",IDC_RADIO3,
-                    "Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE | WS_GROUP,19,14,353,26
+    CONTROL         "Wählen Sie 2 Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul, und phi(N) = (p-1)(q-1) ist die Eulersche Phi-Funktion. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird der geheime ",IDC_RADIO3,
+                    "Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE | WS_GROUP,19,14,353,16
     CONTROL         "Zur Verschlüsselung von Daten oder zur Verifikation einer Signatur genügt es, dass Sie die öffentlichen RSA-Parameter angeben: den RSA-Modul N und den öffentlichen Schlüssel e. ",IDC_RADIO4,
                     "Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE,19,42,353,23
     EDITTEXT        IDC_EDIT3,100,135,176,12,ES_AUTOHSCROLL | NOT WS_TABSTOP
@@ -23704,6 +23703,7 @@ BEGIN
     EDITTEXT        IDC_HEADER3,19,334,353,10,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
     LTEXT           "Sie können mit Hilfe der Faktorisierung versuchen, den öffentlichen RSA-Modul N in seine Primfaktoren p und q zu faktorisieren.",IDC_RSA_MODE_FACTORISATION,19,85,257,30,NOT WS_VISIBLE
     PUSHBUTTON      "Button1",IDOK,204,377,37,15,NOT WS_VISIBLE
+    LTEXT           "Schlüssel d = e^(-1) (mod  phi(N)) berechnet.",IDC_STATIC,30,30,141,8
 END
 
 IDD_KEY_HOMOPHONE DIALOGEX 0, 0, 394, 402
@@ -24253,12 +24253,12 @@ BEGIN
     CONTROL         542,IDC_EMPTY2,"Static",SS_BITMAP,129,260,227,37
 END
 
-IDD_DEMO_RSAKEY_GENERATION DIALOG  0, 0, 351, 218
+IDD_DEMO_RSAKEY_GENERATION DIALOGEX 0, 0, 351, 218
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "RSA-Schlüssel generieren"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    LTEXT           "Wähle 2 Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul und phi(N) = (p-1)(q-1) ist die Eulersche Phi-Funktion. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird der geheime Schlüssel      d = e^(-1)  (mod  phi(N))  berechnet.",IDC_STATIC_TEXT,9,7,333,24
+    LTEXT           "Wählen Sie zwei Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul, und phi(N) = (p-1)(q-1) ist die Eulersche Phi-Funktion. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird ",IDC_STATIC_TEXT,9,7,333,16
     GROUPBOX        "Primzahleneingabe",IDC_STATIC_PRIME,9,36,333,48
     LTEXT           "Primzahl p",IDC_STATIC_PRIME1,19,49,75,8
     EDITTEXT        IDC_EDIT_PRIME_P,100,48,128,12,ES_AUTOHSCROLL
@@ -24282,6 +24282,7 @@ BEGIN
     EDITTEXT        IDC_EDIT_RSA_KEY_PRIVATE,100,168,128,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     PUSHBUTTON      "Abbrechen",IDCANCEL,280,193,62,19
     DEFPUSHBUTTON   "Schlüssel übernehmen",IDOK,9,193,106,19,WS_DISABLED
+    LTEXT           "der geheime Schlüssel d = e^(-1) (mod  phi(N)) berechnet.",IDC_STATIC,9,23,323,8
 END
 
 IDD_CERTIFICATE_GENERATION DIALOGEX 0, 0, 354, 269
