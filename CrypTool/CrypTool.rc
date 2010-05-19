@@ -645,18 +645,19 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "O CrypToolu:"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    CTEXT           "Osoby rozwijaj¹ce CrypToola:",IDC_STATIC,7,6,356,11,SS_CENTERIMAGE | WS_BORDER
-    CTEXT           "Bernhard Esslinger",IDC_STATIC,7,33,356,8
-    CTEXT           "Henrik Koy",IDC_STATIC,7,94,356,8,NOT WS_GROUP
-    CTEXT           "Peer Wichmann\nJoerg Cornelius Schneider",IDC_STATIC,7,59,356,17
-    GROUPBOX        "Pomys³, Sponsorzy, Wyzwania, Kierownictwo:",IDC_STATIC,7,23,356,23,BS_CENTER
-    GROUPBOX        "Projekt, wsparcie i architektura:",IDC_STATIC,7,49,356,31,BS_CENTER
-    GROUPBOX        "G³ówna osoba zajmuj¹ca siê wersjami 1.3 i 1.4",IDC_STATIC,7,83,356,24,BS_CENTER
+    CTEXT           "Osoby rozwijaj¹ce CrypToola:",IDC_STATIC,7,6,356,15,SS_CENTERIMAGE | WS_BORDER
+    CTEXT           "Bernhard Esslinger",IDC_STATIC,7,38,356,8
+    CTEXT           "Henrik Koy",IDC_STATIC,7,99,356,8,NOT WS_GROUP
+    CTEXT           "Peer Wichmann\nJoerg Cornelius Schneider",IDC_STATIC,7,64,356,17
+    GROUPBOX        "Pomys³, Sponsorzy, Wyzwania, Kierownictwo:",IDC_STATIC,7,28,356,23,BS_CENTER
+    GROUPBOX        "Projekt, wsparcie i architektura:",IDC_STATIC,7,54,356,31,BS_CENTER
+    GROUPBOX        "G³ówna osoba zajmuj¹ca siê wersjami 1.3 i 1.4",IDC_STATIC,7,88,356,32,BS_CENTER
     DEFPUSHBUTTON   "Close",IDOK,303,255,60,18
-    GROUPBOX        "Implementacja, Dokumentacja, Tlumaczenie",IDC_STATIC,7,115,175,125,BS_CENTER
-    GROUPBOX        "Recenzje i wsparcie",IDC_STATIC,188,115,175,125,BS_CENTER
-    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_1,20,125,150,105
-    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_2,200,125,150,105
+    GROUPBOX        "Implementacja, Dokumentacja, Tlumaczenie",IDC_STATIC,7,125,175,126,BS_CENTER
+    GROUPBOX        "Recenzje i wsparcie",IDC_STATIC,188,125,175,126,BS_CENTER
+    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_1,20,135,150,105
+    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_2,200,135,150,105
+    CTEXT           "Florian Marchal",IDC_STATIC,20,108,330,8,NOT WS_GROUP
 END
 
 IDD_SHOW_PUBLICKEY_EC DIALOG  0, 0, 399, 287
@@ -11704,23 +11705,24 @@ BEGIN
     EDITTEXT        IDC_EDIT3,8,6,176,14,ES_CENTER | ES_READONLY | NOT WS_BORDER
 END
 
-IDD_AUTHORS DIALOGEX 0, 0, 300, 320
+IDD_AUTHORS DIALOGEX 0, 0, 370, 280
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "O CrypTool-u: Doprinosioci"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,120,293,60,20
-    CTEXT           "Osobe Koje Doprinose CrypTool-u",IDC_STATIC,7,7,286,11,SS_CENTERIMAGE | WS_BORDER
-    CTEXT           "Bernhard Esslinger",IDC_STATIC,20,33,260,8
-    CTEXT           "Henrik Koy",IDC_STATIC,20,94,260,8,NOT WS_GROUP
-    CTEXT           "Peer Wichmann (do izdanja 1.2)\nJoerg Cornelius Schneider (od izdanja 1.3)",IDC_STATIC,20,59,260,16
-    GROUPBOX        " Ideje, Sponzorstvo, Izazovi, Pitanja i Odgovori, Vodstvo ",IDC_STATIC,7,23,286,22,BS_CENTER
-    GROUPBOX        " Dizajn, Podrška i Arhitektura",IDC_STATIC,7,49,286,30,BS_CENTER
-    GROUPBOX        " Glavna osoba koja se u celini pobrinula za verzije 1.3 i 1.4",IDC_STATIC,7,83,286,22,BS_CENTER
-    GROUPBOX        " Implementacija, Dokumentacija, Prevod ",IDC_STATIC,7,109,286,120,BS_CENTER
-    GROUPBOX        " Recenzija i Povratna Informacija",IDC_STATIC,7,234,286,50,BS_CENTER
-    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_1,20,125,150,105
-    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_2,200,125,150,105
+    DEFPUSHBUTTON   "OK",IDOK,303,255,60,18
+    CTEXT           "Osobe Koje Doprinose CrypTool-u",IDC_STATIC,7,7,356,15,SS_CENTERIMAGE | WS_BORDER
+    CTEXT           "Bernhard Esslinger",IDC_STATIC,20,38,330,8
+    CTEXT           "Henrik Koy",IDC_STATIC,20,99,330,8,NOT WS_GROUP
+    CTEXT           "Peer Wichmann (do izdanja 1.2)\nJoerg Cornelius Schneider (od izdanja 1.3)",IDC_STATIC,20,64,330,16
+    GROUPBOX        " Ideje, Sponzorstvo, Izazovi, Pitanja i Odgovori, Vodstvo ",IDC_STATIC,7,28,356,22,BS_CENTER
+    GROUPBOX        " Dizajn, Podrška i Arhitektura",IDC_STATIC,7,54,356,30,BS_CENTER
+    GROUPBOX        " Glavna osoba koja se u celini pobrinula za verzije 1.3 i 1.4",IDC_STATIC,7,88,356,32,BS_CENTER
+    GROUPBOX        " Implementacija, Dokumentacija, Prevod ",IDC_STATIC,7,125,175,126,BS_CENTER
+    GROUPBOX        " Recenzija i Povratna Informacija",IDC_STATIC,188,125,175,126,BS_CENTER
+    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_1,7,135,150,105
+    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_2,200,135,150,105
+    CTEXT           "Florian Marchal",IDC_STATIC,20,108,330,8,NOT WS_GROUP
 END
 
 IDD_SHOW_PUBLICKEY_EC DIALOG  0, 0, 399, 287
@@ -18437,7 +18439,9 @@ BEGIN
     IDD_AUTHORS, DIALOG
     BEGIN
         LEFTMARGIN, 7
+        RIGHTMARGIN, 363
         VERTGUIDE, 20
+        VERTGUIDE, 350
         TOPMARGIN, 7
         BOTTOMMARGIN, 273
     END
@@ -22755,11 +22759,12 @@ BEGIN
     CTEXT           "Henrik Koy",IDC_STATIC,20,99,330,8,NOT WS_GROUP
     GROUPBOX        " Idee, Sponsoring, Challenges, QA, Leitung",IDC_STATIC,7,28,356,22,BS_CENTER
     GROUPBOX        " Planung, Betreuung und Architektur",IDC_STATIC,7,54,356,30,BS_CENTER
-    GROUPBOX        " Kümmerer Version 1.3 und 1.4",IDC_STATIC,7,88,356,22,BS_CENTER
-    GROUPBOX        " Entwicklung, Dokumentation, Übersetzung ",IDC_STATIC,7,115,175,125,BS_CENTER
-    GROUPBOX        " Review und Feedback",IDC_STATIC,188,115,175,125,BS_CENTER
-    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_1,20,125,150,105
-    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_2,200,125,150,105
+    GROUPBOX        " Kümmerer Version 1.3 und 1.4",IDC_STATIC,7,88,356,32,BS_CENTER
+    GROUPBOX        " Entwicklung, Dokumentation, Übersetzung ",IDC_STATIC,7,125,175,126,BS_CENTER
+    GROUPBOX        " Review und Feedback",IDC_STATIC,188,125,175,126,BS_CENTER
+    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_1,20,135,150,105
+    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_2,200,135,150,105
+    CTEXT           "Florian Marchal",IDC_STATIC,20,108,330,8,NOT WS_GROUP
 END
 
 IDD_SHOW_PUBLICKEY_EC DIALOG  0, 0, 399, 287
@@ -33783,11 +33788,12 @@ BEGIN
     CTEXT           "Peer Wichmann (till release 1.2)\nJoerg Cornelius Schneider (from release 1.3)",IDC_STATIC,20,64,330,16
     GROUPBOX        " Idea, Sponsoring, Challenges, QA, Lead ",IDC_STATIC,7,28,356,22,BS_CENTER
     GROUPBOX        " Design, Support and Architecture",IDC_STATIC,7,54,356,30,BS_CENTER
-    GROUPBOX        " Main person taking overall care for version 1.3 and 1.4",IDC_STATIC,7,88,356,22,BS_CENTER
-    GROUPBOX        " Implementation, Documentation, Translation ",IDC_STATIC,7,115,175,129,BS_CENTER
-    GROUPBOX        " Review and Feedback",IDC_STATIC,188,115,175,129,BS_CENTER
-    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_1,20,125,150,105
-    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_2,200,125,150,105
+    GROUPBOX        " Main persons taking overall care for version 1.3 and 1.4",IDC_STATIC,7,88,356,32,BS_CENTER
+    GROUPBOX        " Implementation, Documentation, Translation ",IDC_STATIC,7,125,175,126,BS_CENTER
+    GROUPBOX        " Review and Feedback",IDC_STATIC,188,125,175,126,BS_CENTER
+    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_1,20,135,150,105
+    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_2,200,135,150,105
+    CTEXT           "Florian Marchal",IDC_STATIC,20,108,330,8,NOT WS_GROUP
 END
 
 IDD_SHOW_PUBLICKEY_EC DIALOG  0, 0, 399, 287
@@ -48391,23 +48397,24 @@ BEGIN
     PUSHBUTTON      "Traducciones",ID_TRANSLATIONS,71,252,60,18,WS_GROUP
 END
 
-IDD_AUTHORS DIALOGEX 0, 0, 370, 275
+IDD_AUTHORS DIALOGEX 0, 0, 370, 280
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Acerca de CrypTool: Colaboradores"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,155,250,60,18
+    DEFPUSHBUTTON   "OK",IDOK,303,255,60,18
     CTEXT           "Personas que colaboran con CrypTool:",IDC_STATIC,7,7,356,15,SS_CENTERIMAGE | WS_BORDER
     CTEXT           "Bernhard Esslinger",IDC_STATIC,20,38,330,8
     CTEXT           "Henrik Koy",IDC_STATIC,20,99,330,8,NOT WS_GROUP
     CTEXT           "Peer Wichmann (hasta la versión 1.2)\nJoerg Cornelius Schneider (desde la versión 1.3)",IDC_STATIC,20,64,330,16
     GROUPBOX        "Idea, Patrocinio, Desafíos, Aseg. Calidad y Dirección",IDC_STATIC,7,28,356,22,BS_CENTER
     GROUPBOX        " Diseño, Mantenimento y Arquitectura",IDC_STATIC,7,54,356,30,BS_CENTER
-    GROUPBOX        "Responsable principal desde las versiones 1.3 y 1.4",IDC_STATIC,7,88,356,22,BS_CENTER
-    GROUPBOX        " Implementación, Documentación, Traducción ",IDC_STATIC,7,115,175,129,BS_CENTER
-    GROUPBOX        "Revisiones y Observaciones",IDC_STATIC,188,115,175,129,BS_CENTER
-    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_1,20,125,150,105
-    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_2,200,125,150,105
+    GROUPBOX        "Responsable principal desde las versiones 1.3 y 1.4",IDC_STATIC,7,88,356,32,BS_CENTER
+    GROUPBOX        " Implementación, Documentación, Traducción ",IDC_STATIC,7,125,175,126,BS_CENTER
+    GROUPBOX        "Revisiones y Observaciones",IDC_STATIC,188,125,175,126,BS_CENTER
+    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_1,20,135,150,105
+    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_2,200,135,150,105
+    CTEXT           "Florian Marchal",IDC_STATIC,20,108,330,8,NOT WS_GROUP
 END
 
 IDD_HILL_ANALYSIS DIALOGEX 0, 0, 320, 376
@@ -52358,7 +52365,7 @@ BEGIN
         VERTGUIDE, 20
         VERTGUIDE, 350
         TOPMARGIN, 7
-        BOTTOMMARGIN, 268
+        BOTTOMMARGIN, 273
     END
 
     IDD_HILL_ANALYSIS, DIALOG

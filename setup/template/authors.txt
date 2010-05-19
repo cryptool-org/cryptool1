@@ -54,7 +54,6 @@ Richard Christensen
 Bartol Filipovic
 Jörg Hambamer
 Dennis Laupichler
-Florian Marchal
 Lowell Montgomery
 Daniel Saffran
 Christine Stötzel
@@ -67,6 +66,7 @@ Pawel Polewski
 Alexander Klink
 Matthias Walthart
 Raphael Labaca Castro
+Patrick Vacek
 
 #
 # [REVIEW FEEDBACK]
