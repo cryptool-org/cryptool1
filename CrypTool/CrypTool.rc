@@ -36308,7 +36308,7 @@ BEGIN
     COMBOBOX        IDC_MINLENGTH,22,42,33,240,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP,WS_EX_RIGHT
     COMBOBOX        IDC_MAXLENGTH,70,42,33,240,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP,WS_EX_RIGHT
     PUSHBUTTON      "Apply",IDC_BUTTON_FORCE,125,74,58,16,WS_DISABLED
-    PUSHBUTTON      "Analyse",IDC_NEXT_PERMUTATION,194,73,58,16
+    PUSHBUTTON      "Analyze",IDC_NEXT_PERMUTATION,194,73,58,16
     EDITTEXT        IDC_M00,34,132,12,12,ES_CENTER | ES_UPPERCASE | ES_AUTOHSCROLL
     EDITTEXT        IDC_M01,46,132,12,12,ES_CENTER | ES_UPPERCASE | ES_AUTOHSCROLL
     EDITTEXT        IDC_M02,58,132,12,12,ES_CENTER | ES_UPPERCASE | ES_AUTOHSCROLL
@@ -36384,16 +36384,16 @@ END
 
 IDD_ADFGVX_INTRO DIALOGEX 0, 0, 265, 209
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Introduction to analysing ADFGVX messages"
+CAPTION "Introduction to analyzing ADFGVX messages"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,208,188,50,14
     LTEXT           "The creation of an ADFGVX message is a two-step process: stage 1 ...s a polybius substitution, stage 2 transforms the result by column transposition (permutation). A ciphertext-only analysis of an ADFGVX message reverses those steps.",IDC_STATIC,7,7,251,35
     CONTROL         "Do not show this dialog again",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,190,109,10
-    LTEXT           "By clicking the button ""Analyse"" in the grouping ""Stage 2: transposition"", the search for a potential transposition password is started (each click of the button continues the search for the next valid password) and the five most",IDC_STATIC,7,44,251,26
+    LTEXT           "By clicking the button ""Analyze"" in the grouping ""Stage 2: transposition"", the search for a potential transposition password is started (each click of the button continues the search for the next valid password) and the five most",IDC_STATIC,7,44,251,26
     LTEXT           "When a transposition password is found, the analysisis continues in the grouping ""Stage1: substitution"". Now you can enter further characters into the substitution matrix manually. The result of the analysis is shown in the field ""Current solution"".",IDC_STATIC,8,91,251,35
     LTEXT           "common letters that were used to validate the password are entered into the substitution matrix. Thus, the first step of the analysis runs automatically.",IDC_STATIC,7,68,251,19
-    LTEXT           "The valid transposition passwords and the correspondent substitution matrixes are stored in the drop down box. Passwords are stored automatically, the matrix is added by clicking the button ""Update current solution"".",IDC_STATIC,8,130,251,39
+    LTEXT           "The valid transposition passwords and the correspondent substitution matrices are stored in the drop down box. Passwords are stored automatically, the matrix is added by clicking the button ""Update current solution"".",IDC_STATIC,8,130,251,39
 END
 
 IDD_CRT_ASTRONOMY DIALOGEX 0, 0, 506, 322
