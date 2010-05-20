@@ -11067,6 +11067,8 @@ BEGIN
                             "i18n Keyword language(s): %s"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SELECTED_CIPHERTEXT_LANGUAGE 
                             "i18n Ciphertext language: %s"
+    IDS_STRING_SUBSTITUTION_WARNING_NO_STANDARD_ALPHABET 
+                            "i18n The algorithms implemented in CrypTool to analyze the Substitution encryption operate on a static alphabet (A-Z).\n\nThe current document contains characters which are not part of this static alphabet.\n\nPlease note that the results of the analysis may therefore be incorrect."
 END
 
 #endif    // Polish resources
@@ -22137,6 +22139,8 @@ BEGIN
                             "i18n Keyword language(s): %s"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SELECTED_CIPHERTEXT_LANGUAGE 
                             "i18n Ciphertext language: %s"
+    IDS_STRING_SUBSTITUTION_WARNING_NO_STANDARD_ALPHABET 
+                            "i18n The algorithms implemented in CrypTool to analyze the Substitution encryption operate on a static alphabet (A-Z).\n\nThe current document contains characters which are not part of this static alphabet.\n\nPlease note that the results of the analysis may therefore be incorrect."
 END
 
 #endif    // Serbian (Latin) resources
@@ -33142,6 +33146,8 @@ BEGIN
                             "Sprache(n) für Schlüsselworte: %s"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SELECTED_CIPHERTEXT_LANGUAGE 
                             "Sprache für Geheimtext: %s"
+    IDS_STRING_SUBSTITUTION_WARNING_NO_STANDARD_ALPHABET 
+                            "Die in CrypTool implementierten Algorithmen für die Analyse der Substitutions-Verschlüsselung arbeiten auf einem statischen Alphabet (A-Z).\n\nDas aktuell ausgewählte Dokument enthält aber auch Zeichen, die nicht zu diesem statischen Alphabet gehören.\n\nDie Ergebnisse der Analyse können daher falsch sein."
 END
 
 #endif    // German (Germany) resources
@@ -44208,6 +44214,8 @@ BEGIN
                             "Keyword language(s): %s"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SELECTED_CIPHERTEXT_LANGUAGE 
                             "Ciphertext language: %s"
+    IDS_STRING_SUBSTITUTION_WARNING_NO_STANDARD_ALPHABET 
+                            "The algorithms implemented in CrypTool to analyze the Substitution encryption operate on a static alphabet (A-Z).\n\nThe current document contains characters which are not part of this static alphabet.\n\nPlease note that the results of the analysis may therefore be incorrect."
 END
 
 #endif    // English (U.K.) resources
@@ -55336,6 +55344,8 @@ BEGIN
                             "Idioma(s) de la(s) clave(s): %s"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SELECTED_CIPHERTEXT_LANGUAGE 
                             "Idioma del texto cifrado: %s"
+    IDS_STRING_SUBSTITUTION_WARNING_NO_STANDARD_ALPHABET 
+                            "i18n The algorithms implemented in CrypTool to analyze the Substitution encryption operate on a static alphabet (A-Z).\n\nThe current document contains characters which are not part of this static alphabet.\n\nPlease note that the results of the analysis may therefore be incorrect."
 END
 
 #endif    // Spanish resources

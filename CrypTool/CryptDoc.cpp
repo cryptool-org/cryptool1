@@ -946,13 +946,17 @@ void CCryptDoc::OnAnalyzeSubst()
 	// Überprüfung, ob Eingabedatei mindestens ein Zeichen enthält. 
 	CFile datei(ContentName, CFile::modeRead);
 	bool laenge_groesser_0 = FALSE;
+	// flomar, 05/20/2010
+	// we extend the "minimum file length" check with a "dangerous character" check;
+	// dangerous characters are those that are not part of the standard alphabet "A-Z"
+	bool dangerousCharacters = FALSE;
 	char c;
-	while(datei.Read(&c,1) && ! laenge_groesser_0)
+	while(datei.Read(&c,1) && (!laenge_groesser_0 || !dangerousCharacters))
 	{
 		if ( (('a' <= c) && (c <= 'z')) || (('A' <= c) && (c <= 'Z')) )
-		{
 			laenge_groesser_0 = TRUE;
-		}
+		if(c < 'A' || c > 'Z')
+			dangerousCharacters = TRUE;
 	}
 	datei.Close();
 	if (! laenge_groesser_0)
@@ -960,7 +964,16 @@ void CCryptDoc::OnAnalyzeSubst()
 		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
 		return;
 	}
+
+	// flomar, 05/20/2010
+	// (see above)
+	if(dangerousCharacters) {
+		CString message; message.Format(IDS_STRING_SUBSTITUTION_WARNING_NO_STANDARD_ALPHABET);
+		AfxMessageBox(message, MB_ICONINFORMATION);
+	}	
+
     UpdateContent();
+
 	AnalyseMonoManual(ContentName, GetTitle());	
 }
 
@@ -1661,13 +1674,17 @@ void CCryptDoc::OnCiphertextOnlySubstitution()
 	// Überprüfung, ob Eingabedatei mindestens ein Zeichen enthält. 
 	CFile datei(ContentName, CFile::modeRead);
 	bool laenge_groesser_0 = FALSE;
+	// flomar, 05/20/2010
+	// we extend the "minimum file length" check with a "dangerous character" check;
+	// dangerous characters are those that are not part of the standard alphabet "A-Z"
+	bool dangerousCharacters = FALSE;
 	char c;
-	while(datei.Read(&c,1) && ! laenge_groesser_0)
+	while(datei.Read(&c,1) && (!laenge_groesser_0 || !dangerousCharacters))
 	{
 		if ( (('a' <= c) && (c <= 'z')) || (('A' <= c) && (c <= 'Z')) )
-		{
 			laenge_groesser_0 = TRUE;
-		}
+		if(c < 'A' || c > 'Z')
+			dangerousCharacters = TRUE;
 	}
 	datei.Close();
 	if (! laenge_groesser_0)
@@ -1676,6 +1693,12 @@ void CCryptDoc::OnCiphertextOnlySubstitution()
 		return;
 	}
 
+	// flomar, 05/20/2010
+	// (see above)
+	if(dangerousCharacters) {
+		CString message; message.Format(IDS_STRING_SUBSTITUTION_WARNING_NO_STANDARD_ALPHABET);
+		AfxMessageBox(message, MB_ICONINFORMATION);
+	}
 
 	CryptPar *para;
 
