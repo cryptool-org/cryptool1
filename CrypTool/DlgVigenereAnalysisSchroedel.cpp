@@ -133,6 +133,11 @@ void VigenereAnalysisSchroedel::initialize() {
 	solveKey = "";
 	result = "";
 	resultDebug = "";
+
+	// flomar, 05/19/2010
+	// this fix drastically reduces memory usage on subsequent analysis runs
+	mapDigramsTrigrams.clear();
+	mapListsDictionaryWords.clear();
 }
 
 void VigenereAnalysisSchroedel::output(CString str, const bool _debug) {
