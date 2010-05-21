@@ -8,7 +8,8 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -24267,7 +24268,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "RSA-Schlüssel generieren"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    LTEXT           "Wählen Sie zwei Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul, und phi(N) = (p-1)(q-1) ist die Eulersche Phi-Funktion. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird ",IDC_STATIC_TEXT,9,7,333,16
+    LTEXT           "Wählen Sie zwei Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul, und phi(N) = (p-1)(q-1) ist die Eulersche Phi-Funktion. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird \r\nder geheime Schlüssel d = e^(-1) (mod  phi(N)) berechnet.",IDC_STATIC_TEXT,9,7,333,27
     GROUPBOX        "Primzahleneingabe",IDC_STATIC_PRIME,9,36,333,48
     LTEXT           "Primzahl p",IDC_STATIC_PRIME1,19,49,75,8
     EDITTEXT        IDC_EDIT_PRIME_P,100,48,128,12,ES_AUTOHSCROLL
@@ -24291,7 +24292,6 @@ BEGIN
     EDITTEXT        IDC_EDIT_RSA_KEY_PRIVATE,100,168,128,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     PUSHBUTTON      "Abbrechen",IDCANCEL,280,193,62,19
     DEFPUSHBUTTON   "Schlüssel übernehmen",IDOK,9,193,106,19,WS_DISABLED
-    LTEXT           "der geheime Schlüssel d = e^(-1) (mod  phi(N)) berechnet.",IDC_STATIC,9,23,323,8
 END
 
 IDD_CERTIFICATE_GENERATION DIALOGEX 0, 0, 354, 269
@@ -44946,7 +44946,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Generación de una clave RSA"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    LTEXT           "Elija dos números primos p y q. El número N = pq es el módulo público RSA y phi(N) = (p-1)(q-1) es la función phi de Euler. La clave pública e es prima relativa con phi(N). La clave privada se calcula a partir de la pública como sigue: d = e^(-1)  (mod  ph",IDC_STATIC_TEXT,9,7,333,24
+    LTEXT           "Elija dos números primos p y q. El número N = pq es el módulo público RSA y phi(N) = (p-1)(q-1) es la función phi de Euler. La clave pública e es prima relativa con phi(N). La clave privada se calcula a partir de la pública como sigue: d = e^(-1) (mod phi(N)).",IDC_STATIC_TEXT,9,7,333,24
     GROUPBOX        "Entrada de Números Primos",IDC_STATIC_PRIME,9,33,333,48
     LTEXT           "Número Primo  p",IDC_STATIC_PRIME1,19,49,75,8
     EDITTEXT        IDC_EDIT_PRIME_P,100,48,128,12,ES_AUTOHSCROLL
