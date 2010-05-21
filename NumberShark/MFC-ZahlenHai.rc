@@ -2359,21 +2359,21 @@ END
 
 IDD_SHOW_PRECALCULATED_SCORES_IN_DETAIL DIALOGEX 0, 0, 251, 200
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
-CAPTION "i18n Show precalculated scores in detail"
+CAPTION "Mostrar los puntajes pre-calculados en detalle"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Close",IDOK,194,177,50,16
+    DEFPUSHBUTTON   "Cerrar",IDOK,194,177,50,16
     EDITTEXT        IDC_EDIT_PRECALCULATED_SCORES,7,7,237,160,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
 END
 
 IDD_SHOW_PRECALCULATED_SCORES DIALOGEX 0, 0, 250, 200
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "i18n Show precalculated scores"
+CAPTION "Mostrar los puntajes pre-calculados"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Close",IDOK,193,177,50,16
+    DEFPUSHBUTTON   "Cerrar",IDOK,193,177,50,16
     LTEXT           "DYNAMICALLY_GENERATED",IDC_STATIC_INTRO,7,7,236,32
-    DEFPUSHBUTTON   "Show details",ID_SHOW_DETAILS,7,177,100,16
+    DEFPUSHBUTTON   "Mostrar detalles",ID_SHOW_DETAILS,7,177,100,16
     CONTROL         "",IDC_LIST_PRECALCULATED_SCORES,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,45,236,125
 END
 
@@ -2735,8 +2735,8 @@ BEGIN
     IDS_PRECALCULATED_SCORES_INTRO 
                             "Conocemos el camino óptimo para los números del 1 al %d .\r\nLuego mostramos los mejores valores pre-calculados para los números entre %d y %d, sin embargo para estos últimos, no podemos asegurar que sean los valores óptimos. "
     IDS_NO_SCORE_SELECTED   "Por favor, seleccione un resultado primero. "
-    IDS_HEADING_SEQUENCE_LENGTH "i18n Sequence length"
-    IDS_HEADING_SEQUENCE    "i18n Sequence"
+    IDS_HEADING_SEQUENCE_LENGTH "Tamaño de la secuencia"
+    IDS_HEADING_SEQUENCE    "Secuencia"
 END
 
 #endif    // Spanish resources
