@@ -391,6 +391,7 @@
 #define IDC_EDIT35                      1030
 #define IDC_GB_PERMUTATION              1030
 #define IDC_GB_AUSLESEN2                1030
+#define IDC_STATIC_TEXT2                1030
 #define IDC_CHECK3                      1031
 #define IDC_EDIT41                      1031
 #define IDC_LBL_FEST_INFO               1031
