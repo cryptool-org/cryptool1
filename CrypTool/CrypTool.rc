@@ -24268,7 +24268,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "RSA-Schlüssel generieren"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    LTEXT           "Wählen Sie zwei Primzahlen p und q. Die Zahl N = pq ist der öffentliche RSA-Modul, und phi(N) = (p-1)(q-1) ist die Eulersche Phi-Funktion. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird der geheime Schlüssel d = e^(-1) (mod phi(N)).",IDC_STATIC_TEXT,9,7,333,26
+    LTEXT           "Wählen Sie zwei Primzahlen p und q. Die Zahl N=pq ist der öffentliche RSA-Modul, und phi(N)=(p-1)(q-1) ist die Eulersche Phi-Funktion. Der öffentliche Schlüssel e ist teilerfremd zu phi(N). Daraus wird der geheime Schlüssel d=e^(-1)(mod phi(N)) berechnet.",IDC_STATIC_TEXT,9,7,333,26
     GROUPBOX        "Primzahleneingabe",IDC_STATIC_PRIME,9,36,333,48
     LTEXT           "Primzahl p",IDC_STATIC_PRIME1,19,49,75,8
     EDITTEXT        IDC_EDIT_PRIME_P,100,48,128,12,ES_AUTOHSCROLL
