@@ -41,6 +41,16 @@ struct GameDataBlock {
 	GameDataBlock() {
 		proved = false;
 	};
+
+	// construction
+	GameDataBlock(const CString &_limit, const CString &_score, const CString &_sequence, const CString &_sequenceLength, const CString &_leadingPrime, const bool &_proved) {
+		limit = _limit;
+		score = _score;
+		sequence = _sequence;
+		sequenceLength = _sequenceLength;
+		leadingPrime = _leadingPrime;
+		proved = _proved;
+	};
 };
 
 enum SearchStatus {
