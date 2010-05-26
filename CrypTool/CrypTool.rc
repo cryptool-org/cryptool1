@@ -8,8 +8,7 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -4136,15 +4135,15 @@ BEGIN
     PUSHBUTTON      "&Anuluj",IDC_PRIMETEST_BUTTON_CANCEL,250,241,102,20
     GROUPBOX        "",IDC_PRIMETEST_GROUPBOX_TEXT,7,4,345,62
     GROUPBOX        "Algorytmy testu pierwszoœci:",IDC_PRIMETEST_GROUPBOX_ALGO,7,72,345,73
-    LTEXT           "Istniej¹ rozmaite sposoby na sprawdzenie, czy badana liczba jest liczb¹ pierwsz¹.",IDC_PRIMETEST_LABEL_TEXT1,17,12,324,17
     GROUPBOX        "Test pierwszoœci liczby",IDC_PRIMETEST_GROUPBOX_RESULT,7,151,345,79
-    LTEXT           "Liczba do sprawdzenia",IDC_PRIMETEST_LABEL_NUMBER,17,191,50,8
-    LTEXT           "Wynik",IDC_PRIMETEST_LABEL_RESULT,17,211,21,8,SS_ENDELLIPSIS
-    LTEXT           "Zazwyczaj wykorzystywane s¹ metody probabilistyczne: s¹ one bardzo szybkie, ale mog¹ tylko z okreœlon¹ dok³adnoœci¹ oszacowaæ poziom prawdopodobieñstwa, czy liczba jest pierwsza.",IDC_PRIMETEST_LABEL_TEXT2,17,28,324,17
-    LTEXT           "Poza powy¿szymi istniej¹ równie¿ metody deterministyczne: dostarczony rezultat jest w 100% poprawny (z matematycznego punktu widzenia).",IDC_PRIMETEST_LABEL_TEXT3,17,44,324,19
-    CONTROL         250,IDC_STATIC_PRIM_RES,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,15,13
-    CONTROL         251,IDC_STATIC_PRIM_RES2,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,15,13
+    LTEXT           "i18n Number or formula to test:",IDC_PRIMETEST_LABEL_NUMBER,17,183,50,16
+    LTEXT           "Wynik:",IDC_PRIMETEST_LABEL_RESULT,17,211,33,8,SS_ENDELLIPSIS
+    LTEXT           "Poza powy¿szymi istniej¹ równie¿ metody deterministyczne: dostarczony rezultat jest w 100% poprawny (z matematycznego punktu widzenia).",IDC_PRIMETEST_LABEL_TEXT3,17,44,324,16
+    CONTROL         250,IDC_STATIC_PRIM_RES,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,18,16
+    CONTROL         251,IDC_STATIC_PRIM_RES2,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,18,16
     PUSHBUTTON      "&Rozk³ad na czynniki pierwsze",IDC_BUTTON_JUMP_TO_FACTORIZATION,112,241,112,20,WS_DISABLED
+    LTEXT           "Zazwyczaj wykorzystywane s¹ metody probabilistyczne: s¹ one bardzo szybkie, ale mog¹ tylko z okreœlon¹ dok³adnoœci¹ oszacowaæ poziom prawdopodobieñstwa, czy liczba jest pierwsza.",IDC_PRIMETEST_LABEL_TEXT2,17,24,324,16
+    LTEXT           "i18n There are many methods to check if a number is prime.",IDC_PRIMETEST_LABEL_TEXT1,17,12,324,8
 END
 
 IDD_ADFGVX_STRINGBOX DIALOGEX 0, 0, 179, 44
@@ -14095,7 +14094,7 @@ BEGIN
     PUSHBUTTON      "Zatvori Dijalog",IDC_BUTTONCLOSE,362,406,57,16
     LTEXT           "N:",IDC_STATIC,18,118,8,8
     LTEXT           "P:",IDC_STATIC,13,192,14,8
-    LTEXT           "Bitlength of P:",IDC_STATIC,312,171,46,8,0,WS_EX_RIGHT
+    LTEXT           "Bit length of P:",IDC_STATIC,312,171,46,8,0,WS_EX_RIGHT
     LTEXT           "p:",IDC_STATIC,17,378,8,8
     LTEXT           "q:",IDC_STATIC,218,378,8,8
     GROUPBOX        "Željene dužine bitova",IDC_STATIC,304,100,115,46
@@ -15215,15 +15214,15 @@ BEGIN
     PUSHBUTTON      "&Otkaži",IDC_PRIMETEST_BUTTON_CANCEL,252,240,100,20
     GROUPBOX        "",IDC_PRIMETEST_GROUPBOX_TEXT,7,4,345,62
     GROUPBOX        "Algoritmi za test prostog broja",IDC_PRIMETEST_GROUPBOX_ALGO,7,72,345,73
-    LTEXT           "Postoje razlicite metode da se proveri da li broj prost broj (matematicari takode kažu, da proverite da li je broj prost).",IDC_PRIMETEST_LABEL_TEXT1,17,12,324,17
     GROUPBOX        "Test prostog broja",IDC_PRIMETEST_GROUPBOX_RESULT,7,151,345,79
-    LTEXT           "Broj za testiranje",IDC_PRIMETEST_LABEL_NUMBER,17,191,50,8
-    LTEXT           "Rezultat",IDC_PRIMETEST_LABEL_RESULT,17,211,21,8,SS_ENDELLIPSIS
-    LTEXT           "Obicno se primenjuju metode verovatnoce: Oni su jako brzi, ali mogu da odrede samo sa izvesnom podesivo velikom verovatnocom, ako je broj prost.",IDC_PRIMETEST_LABEL_TEXT2,17,28,324,17
-    LTEXT           "Pored ovih postoje i deterministicke metode: Takav rezultat je 100 % tacan (sa matematickog aspekta).",IDC_PRIMETEST_LABEL_TEXT3,17,44,324,19
-    CONTROL         250,IDC_STATIC_PRIM_RES,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,15,13
-    CONTROL         251,IDC_STATIC_PRIM_RES2,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,15,13
+    LTEXT           "i18n Number or formula to test:",IDC_PRIMETEST_LABEL_NUMBER,17,183,50,16
+    LTEXT           "Rezultat:",IDC_PRIMETEST_LABEL_RESULT,17,211,33,8,SS_ENDELLIPSIS
+    LTEXT           "Obicno se primenjuju metode verovatnoce: Oni su jako brzi, ali mogu da odrede samo sa izvesnom podesivo velikom verovatnocom, ako je broj prost.",IDC_PRIMETEST_LABEL_TEXT2,17,24,324,16
+    LTEXT           "Pored ovih postoje i deterministicke metode: Takav rezultat je 100 % tacan (sa matematickog aspekta).",IDC_PRIMETEST_LABEL_TEXT3,17,44,324,16
+    CONTROL         250,IDC_STATIC_PRIM_RES,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,18,16
+    CONTROL         251,IDC_STATIC_PRIM_RES2,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,18,16
     PUSHBUTTON      "&Rastavi broj",IDC_BUTTON_JUMP_TO_FACTORIZATION,110,240,100,20,WS_DISABLED
+    LTEXT           "i18n There are many methods to check if a number is prime.",IDC_PRIMETEST_LABEL_TEXT1,17,12,324,8
 END
 
 IDD_ADFGVX_STRINGBOX DIALOGEX 0, 0, 179, 44
@@ -26344,12 +26343,12 @@ BEGIN
     PUSHBUTTON      "&Abbrechen",IDC_PRIMETEST_BUTTON_CANCEL,252,240,100,20
     GROUPBOX        "",IDC_PRIMETEST_GROUPBOX_TEXT,7,4,345,62
     GROUPBOX        "Algorithmen zum Primzahltest",IDC_PRIMETEST_GROUPBOX_ALGO,7,72,345,73
-    LTEXT           "Um zu testen, ob eine Zahl eine Primzahl ist, gibt es verschiedene Verfahren (Mathematiker sagen auch, man testet, ob die Zahl prim ist).",IDC_PRIMETEST_LABEL_TEXT1,17,12,324,17
+    LTEXT           "Es gibt viele Verfahren, um zu testen, ob eine Zahl eine Primzahl ist.",IDC_PRIMETEST_LABEL_TEXT1,17,12,324,8
     GROUPBOX        "Primzahltest",IDC_PRIMETEST_GROUPBOX_RESULT,7,151,345,79
-    LTEXT           "Zu testende Zahl",IDC_PRIMETEST_LABEL_NUMBER,17,191,55,8
-    LTEXT           "Ergebnis",IDC_PRIMETEST_LABEL_RESULT,17,211,29,8,SS_ENDELLIPSIS
-    LTEXT           "Am häufigsten werden die probabilistischen Verfahren verwendet: Sie sind sehr schnell, geben aber nur mit einer bestimmten (einstellbar kleinen) Wahrscheinlichkeit an, ob die Zahl prim ist.",IDC_PRIMETEST_LABEL_TEXT2,17,28,324,17
-    LTEXT           "Daneben gibt es noch deterministische Verfahren: Wenn diese ein Ergebnis liefern, ist es mit 100% Wahrscheinlichkeit korrekt (aus mathematischer Sicht).",IDC_PRIMETEST_LABEL_TEXT3,17,44,324,20
+    LTEXT           "Zu testende Zahl oder Formel:",IDC_PRIMETEST_LABEL_NUMBER,17,183,60,16
+    LTEXT           "Ergebnis:",IDC_PRIMETEST_LABEL_RESULT,17,211,33,8,SS_ENDELLIPSIS
+    LTEXT           "Am häufigsten werden die probabilistischen Verfahren verwendet: Sie sind sehr schnell, geben aber nur mit einer bestimmten (einstellbar kleinen) Wahrscheinlichkeit an, ob die Zahl prim ist.",IDC_PRIMETEST_LABEL_TEXT2,17,24,324,16
+    LTEXT           "Daneben gibt es noch deterministische Verfahren: Wenn diese ein Ergebnis liefern, ist es mit 100% Wahrscheinlichkeit korrekt (aus mathematischer Sicht).",IDC_PRIMETEST_LABEL_TEXT3,17,44,324,16
     CONTROL         250,IDC_STATIC_PRIM_RES,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,15,13
     CONTROL         251,IDC_STATIC_PRIM_RES2,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,15,13
     PUSHBUTTON      "Zahl &faktorisieren",IDC_BUTTON_JUMP_TO_FACTORIZATION,110,240,100,20,WS_DISABLED
@@ -34561,7 +34560,7 @@ BEGIN
     DEFPUSHBUTTON   "&Encrypt",IDOK,10,283,60,20
     PUSHBUTTON      "&Decrypt",IDC_BUTTON1,73,283,60,20
     PUSHBUTTON      "&Cancel",IDCANCEL,170,283,60,20
-    CONTROL         "&Ignore duplicates within the key",IDC_CHECK_IGNORE_DOUBLE_CHARACTERS_IN_KEY,
+    CONTROL         "&Ignore duplicate letters in the key phrase",IDC_CHECK_IGNORE_DOUBLE_CHARACTERS_IN_KEY,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,77,161,8
     CONTROL         "&5x5 matrix",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,169,156,47,10
     CONTROL         "&6x6 matrix",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,169,168,47,10
@@ -34605,9 +34604,9 @@ BEGIN
     EDITTEXT        IDC_EDIT64,95,247,14,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT65,115,247,14,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT66,135,247,14,12,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "Separate double characters",IDC_CHECK_SEPARATE_DOUBLE_CHARACTERS,
+    CONTROL         "Separate duplicate letters",IDC_CHECK_SEPARATE_DOUBLE_CHARACTERS,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,20,125,10
-    CONTROL         "Separate double characters only within pairs",IDC_CHECK_SEPARATE_DOUBLE_CHARACTERS_ONLY_WITHIN_PAIRS,
+    CONTROL         "Separate duplicate letters only within pairs",IDC_CHECK_SEPARATE_DOUBLE_CHARACTERS_ONLY_WITHIN_PAIRS,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,63,195,10
     EDITTEXT        IDC_EDIT_SEPARATOR1,150,33,15,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_SEPARATOR2,150,47,15,12,ES_AUTOHSCROLL
@@ -34709,9 +34708,9 @@ BEGIN
     PUSHBUTTON      "&Encrypt",IDC_BUTTON_VERSCHLUESSELN,10,374,71,18
     PUSHBUTTON      "&Decrypt",IDC_BUTTON_ENTSCHLUESSELN,100,374,73,18
     PUSHBUTTON      "&Close",IDC_ENDDIALOG,291,374,90,18
-    CONTROL         "Choose two prime numbers p and q. The number N = pq is the public RSA modulus, and phi(N) = (p-1)(q-1) is the Euler phi function. The public key e is coprime to phi(N). The private key d = e^(-1) (mod phi(N)) is calculated from this.",IDC_RADIO3,
+    CONTROL         "Choose two prime numbers p and q. The composite number N = pq is the public RSA modulus, and phi(N) = (p-1)(q-1) is the Euler totient. The public key e is freely chosen but must be coprime to the totient. The private key d is then calculated such that d = e^(-1) (mod phi(N)).",IDC_RADIO3,
                     "Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE | WS_GROUP,19,15,353,26
-    CONTROL         "For the purpose of data encryption or certificate checking it is sufficient to enter the public RSA parameters: the RSA modulus N and the public key e.",IDC_RADIO4,
+    CONTROL         "For data encryption or certification verification, you will only need the public RSA parameters: the modulus N and the public key e.",IDC_RADIO4,
                     "Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE,19,43,353,19
     EDITTEXT        IDC_EDIT3,100,132,172,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     EDITTEXT        IDC_EDIT4,100,149,172,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
@@ -34842,7 +34841,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "N-Gram List"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Determine list",IDC_BUTTON2,7,172,99,23
+    DEFPUSHBUTTON   "&Compute list",IDC_BUTTON2,7,172,99,23
     PUSHBUTTON      "&Save list",IDOK,7,200,99,24
     PUSHBUTTON      "&Close",IDCANCEL,7,229,99,24
     CONTROL         "&Histogram",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,22,53,10
@@ -35230,7 +35229,7 @@ BEGIN
     GROUPBOX        "Factorization (stepwise)",-1,13,118,340,64
     LTEXT           "On clicking the button ""Continue"" at first the number of the input field, and then the next composite number of the field ""Factorization result"" will be factorized into two factors.",-1,24,132,318,17
     GROUPBOX        "Factorization",-1,13,192,340,116
-    LTEXT           "The factorization is represented in the format <z1^a1 * z2^a2 *.... * zn^an>.\nComposite numbers are appearing in red color.",-1,24,208,318,19
+    LTEXT           "The factorization is represented in the format <z1^a1 * z2^a2 *.... * zn^an>.\nComposite numbers are highlighted in red.",-1,24,208,318,19
     LTEXT           "Last factorization through:",-1,24,230,83,14
     EDITTEXT        IDC_EDIT2,112,229,71,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Bearbeiten",IDS_STRING_BENOETIGTE_ZEIT_FAKT,191,231,151,14
@@ -35382,7 +35381,7 @@ CAPTION "Create Certificate and PSE"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     GROUPBOX        "Public RSA parameter",IDC_STATIC_RSA,7,7,340,64
-    LTEXT           "Bitlength:",IDC_STATIC_RSA0,15,19,75,8,NOT WS_GROUP
+    LTEXT           "Bit length:",IDC_STATIC_RSA0,15,19,75,8,NOT WS_GROUP
     EDITTEXT        IDC_EDIT_RSA_BITLENGTH,97,17,242,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     LTEXT           "RSA modulus N:",IDC_STATIC_RSA1,15,36,75,8
     EDITTEXT        IDC_EDIT_RSA_MODUL_N,97,34,242,12,ES_AUTOHSCROLL | ES_READONLY
@@ -36026,7 +36025,7 @@ BEGIN
     LTEXT           "The parameter h determines the Dimension of the Lattice and the maximal possible length of the unknown part.",IDC_STATIC,15,362,179,19
     LTEXT           "Solution:",IDC_STATIC,336,405,28,8
     PUSHBUTTON      "Show logfile",IDC_BUTTONLOG,292,431,66,14
-    LTEXT           "Desired bitlength of N:",IDC_STATIC5,16,80,72,8
+    LTEXT           "Desired bit length of N:",IDC_STATIC5,16,80,72,8
     LTEXT           "Start by providing the public key (enterit or let it be generated).",IDC_STATIC,14,38,196,8
     CONTROL         "The ciphertext and a part of the plaintext are known.",IDC_RADIOCHOICE,
                     "Button",BS_AUTORADIOBUTTON | BS_MULTILINE | WS_GROUP,16,144,494,14
@@ -36051,7 +36050,7 @@ BEGIN
     LTEXT           "Preview:",IDC_STATIC,15,325,28,12
     EDITTEXT        IDC_EDITPLAIN,13,279,242,35,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
     GROUPBOX        "Step 3: Part of the plaintext known to the attacker",IDC_STATIC,9,252,504,93
-    LTEXT           "Lenght of plaintext (max. possible):",IDC_PTLENGTH,86,227,111,8,NOT WS_VISIBLE
+    LTEXT           "Length of plaintext (max. possible):",IDC_PTLENGTH,86,227,111,8,NOT WS_VISIBLE
     EDITTEXT        IDC_EDITPLAINLENGTH,203,224,54,14,ES_AUTOHSCROLL | ES_NUMBER | NOT WS_VISIBLE
     LTEXT           "Plaintext",IDC_STATIC_PLAINTEXT,15,173,125,8,NOT WS_VISIBLE
     LTEXT           "Ciphertext",IDC_STATIC,265,173,84,8
@@ -36069,7 +36068,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     CONTROL         "In order to apply examples from the literature, first enter the public key (N,e). \nAfterwards enter the estimated value of delta. Alternatively you can enter d directly which is used to calculate delta.",IDC_RADIOCHOICE,
                     "Button",BS_AUTORADIOBUTTON | BS_MULTILINE | WS_GROUP,14,36,465,17
-    CONTROL         "In order to generate a random example enter the desired parameters delta and bitlength of N.\nBy clicking ""Generate random key"" the keys are generated.",IDC_RADIOCHOICE2,
+    CONTROL         "In order to generate a random example enter the desired parameters delta and bit length of N.\nBy clicking ""Generate random key"" the keys are generated.",IDC_RADIOCHOICE2,
                     "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,14,54,465,17
     EDITTEXT        IDC_EDITBITSOFN,62,114,57,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER | WS_GROUP
     EDITTEXT        IDC_EDITDELTA,155,114,40,14,ES_AUTOHSCROLL | ES_NUMBER
@@ -36102,7 +36101,7 @@ BEGIN
     LTEXT           "Maximal delta:",IDC_STATIC,25,271,59,9,0,WS_EX_RIGHT
     LTEXT           "m:",IDC_STATIC,25,214,59,8,0,WS_EX_RIGHT
     LTEXT           "t:",IDC_STATIC,25,235,59,8,0,WS_EX_RIGHT
-    LTEXT           "Bitlength of N:",IDC_STATIC,14,117,46,8
+    LTEXT           "Bit length of N:",IDC_STATIC,14,117,46,8
     LTEXT           "Determines the size of the lattice to reduce and the maximal size of delta. Should be at least 4.",IDC_STATIC,154,215,316,19
     LTEXT           "Is optimaly calculated as a function of m.",IDC_STATIC,154,236,168,8
     LTEXT           "Maximal size of delta for big N (N>1000 Bit).",IDC_STATIC,154,271,139,11
@@ -36131,9 +36130,9 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Factoring knowing a fraction of p"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    CONTROL         "In order to apply examples from the literature, you can enter the required parameters by yourself:\nthe value of N, the bitlength of p and the value of P.",IDC_RADIOCHOICE,
+    CONTROL         "In order to apply examples from the literature, you can enter the required parameters by yourself:\nthe value of N, the bit length of p and the value of P.",IDC_RADIOCHOICE,
                     "Button",BS_AUTORADIOBUTTON | BS_MULTILINE | WS_GROUP,15,45,398,16
-    CONTROL         "In order to generate on example enter the desired bitlengths of N, p and P.\nAfterwards click on ""Generate example"".  You can find tipps for appropriate parameters in the online help.",IDC_RADIOCHOICE2,
+    CONTROL         "In order to generate on example enter the desired bit lengths of N, p and P.\nAfterwards click on ""Generate example"".  You can find tipps for appropriate parameters in the online help.",IDC_RADIOCHOICE2,
                     "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,15,62,398,16
     EDITTEXT        IDC_EDITN,31,116,250,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_NUMBER | WS_GROUP
     EDITTEXT        IDC_EDITBITSOFP,365,127,48,14,ES_AUTOHSCROLL | ES_NUMBER | WS_GROUP
@@ -36162,13 +36161,13 @@ BEGIN
     PUSHBUTTON      "Close Dialog",IDC_BUTTONCLOSE,362,406,57,16
     LTEXT           "N:",IDC_STATIC,18,118,8,8
     LTEXT           "P:",IDC_STATIC,13,192,14,8
-    LTEXT           "Bitlength of P:",IDC_STATIC,312,171,46,8,0,WS_EX_RIGHT
+    LTEXT           "Bit length of P:",IDC_STATIC,312,171,46,8,0,WS_EX_RIGHT
     LTEXT           "p:",IDC_STATIC,17,378,8,8
     LTEXT           "q:",IDC_STATIC,218,378,8,8
-    GROUPBOX        "Desired bitlengths",IDC_STATIC,304,100,115,46
+    GROUPBOX        "Desired bit lengths",IDC_STATIC,304,100,115,46
     LTEXT           "This attack alows to factor an RSA-Modulus N, if a part of one of its factors p and q is known (we assume here, that a part of p is known). Let P be the known fraction of p.",IDC_STATIC,15,15,398,18
     GROUPBOX        "Step 1: Enter public key",IDC_STATIC,7,100,288,46
-    RTEXT           "Bitlength of N:",IDC_STATIC,310,112,48,8
+    RTEXT           "Bit length of N:",IDC_STATIC,310,112,48,8
     GROUPBOX        "Numerical base",IDC_STATIC,8,240,216,32,WS_GROUP
     GROUPBOX        "Step 3: Start attack",IDC_STATIC,8,280,411,118
     LTEXT           "Building lattice:",IDC_STATIC,17,291,61,8
@@ -36178,7 +36177,7 @@ BEGIN
     LTEXT           "Lattice-Dimension:",IDC_STATIC,208,308,70,8
     LTEXT           "Needed bits (n/4+1):",IDC_STATIC,207,291,67,8
     LTEXT           "Reductions:",IDC_STATIC,17,324,61,10
-    RTEXT           "Bitlength of p:",IDC_STATIC,310,129,48,8
+    RTEXT           "Bit length of p:",IDC_STATIC,310,129,48,8
     LTEXT           "Therefore P is the number that consists of the known fraction bits of p (at the beginning or at the end).",IDC_STATIC,15,34,377,8
     GROUPBOX        "Step 2: Enter P (known part of the prime number p)",IDC_STATIC,8,153,411,80
     LTEXT           "p:",IDC_STATIC,14,213,8,8
@@ -37281,15 +37280,15 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDC_PRIMETEST_BUTTON_CANCEL,252,240,100,20
     GROUPBOX        "",IDC_PRIMETEST_GROUPBOX_TEXT,7,4,345,62
     GROUPBOX        "Algorithms for prime number test",IDC_PRIMETEST_GROUPBOX_ALGO,7,72,345,73
-    LTEXT           "There are various methods to check if a number is a prime number (mathematicians also say, to check if a number is prime).",IDC_PRIMETEST_LABEL_TEXT1,17,12,324,17
+    LTEXT           "There are many methods to check if a number is prime.",IDC_PRIMETEST_LABEL_TEXT1,17,12,324,8
     GROUPBOX        "Prime number test",IDC_PRIMETEST_GROUPBOX_RESULT,7,151,345,79
-    LTEXT           "Number to test",IDC_PRIMETEST_LABEL_NUMBER,17,191,50,8
-    LTEXT           "Result",IDC_PRIMETEST_LABEL_RESULT,17,211,21,8,SS_ENDELLIPSIS
-    LTEXT           "Usually probabilistic methods are applied: They are very fast, but can only determine with a certain adjustable big probability if a number is prime.",IDC_PRIMETEST_LABEL_TEXT2,17,28,324,17
-    LTEXT           "Besides that there are also deterministic methods: A provided result is of 100 % correctness (from the mathematical point of view).",IDC_PRIMETEST_LABEL_TEXT3,17,44,324,19
-    CONTROL         250,IDC_STATIC_PRIM_RES,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,15,13
-    CONTROL         251,IDC_STATIC_PRIM_RES2,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,15,13
+    LTEXT           "Number or formula to test:",IDC_PRIMETEST_LABEL_NUMBER,17,183,50,16
+    LTEXT           "Result:",IDC_PRIMETEST_LABEL_RESULT,17,211,24,8,SS_ENDELLIPSIS
+    CONTROL         250,IDC_STATIC_PRIM_RES,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,18,16
+    CONTROL         251,IDC_STATIC_PRIM_RES2,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,18,16
     PUSHBUTTON      "&Factorize number",IDC_BUTTON_JUMP_TO_FACTORIZATION,110,240,100,20,WS_DISABLED
+    LTEXT           "Most of these are probabilistic, meaning that they can only determine primality to a given adjustable degree of certainty.",IDC_PRIMETEST_LABEL_TEXT2,17,24,324,16
+    LTEXT           "However, these methods are much faster than their counterpart, deterministic methods. Such methods return a 100% mathematically certain result.",IDC_PRIMETEST_LABEL_TEXT3,17,44,324,16
 END
 
 IDD_ADFGVX_STRINGBOX DIALOGEX 0, 0, 179, 44
@@ -41944,9 +41943,9 @@ BEGIN
                             "The Secude library could not be loaded.\nSome of the functions are therefore not available."
     IDS_STRING_ANALYSE_ON   "Brute-Force Analysis of %s"
     IDS_STRING_MSG_SEARCHING_COMPLETE 
-                            "%d bit brute-force search %%d%%%% completed.\nRemaining time: %%s"
+                            "%d-bit brute-force search %%d%%%% completed.\nRemaining time: %%s"
     IDS_STRING_MSG_AKS_TEST_COMPLETE 
-                            "%d bit AKS test %%d%%%% completed.\nRemaining time: %%s"
+                            "%d-bit AKS test %%d%%%% completed.\nRemaining time: %%s"
     IDS_STRING_MSG_AKS_TEST "AKS Test"
     IDS_STRING_AUTOMATIC_ANALYSE "%s Analysis of <%s>, key: <%s>"
     IDS_STRING_MSG_SIGNED_MESSAGE_TO_BIG 
@@ -42620,7 +42619,7 @@ BEGIN
     IDS_PARAM_HOMOPHONE     "Parameter HOMOPHONE"
     IDS_PARAM_RSA_DEMO      "Parameter RSA-DEMO"
     IDS_STRING_RSA_TUTORIAL_INPUT_NUMBERS 
-                            "Input of the message in the following format:  number(1) # number(2) # ... # number(n) (number of basis %i)."
+                            "Input of the message in the following format:  number(1) # number(2) # ... # number(n) (number in base %i)."
     IDS_RSADEMO_OBTAINED_SIGNATURE 
                             "The decryption (RSA exponentation with the public key e) obtains the following %s hash value:"
     IDS_RSADEMO_COMPARE_HASHVALUES 
@@ -42705,7 +42704,7 @@ BEGIN
     IDS_STRING_MSG_PERM     "Input of the permutation"
     IDS_STRING_MSG_PERM_ZERO_INVALID_INPUT 
                             "The permutation key must not contain zeros. Please correct your input in the first input field!"
-    IDS_NUMBER_RSA_MODUL    "The RSA modulus N has been successfully factorized into the primes p and q!\nYou can now perform the RSA operation with the secret key d:\nFor this purpose just click the button Decrypt."
+    IDS_NUMBER_RSA_MODUL    "The RSA modulus N has been successfully factorized into the primes p and q!\nYou can now perform the RSA operation with the secret key d:\nPlease click the Decrypt button to continue."
     IDS_NUMBER_NOT_FACTORIZED "The integer N is not factorized until yet."
     IDS_NUMBER_NOT_RSA_MODUL 
                             "The integer N is not an RSA modulus:\n- either N has been factorized into more than two numbers\n- or N = p^2 is a quadratic number.\n\nPlease correct the input of N."
@@ -42792,7 +42791,7 @@ BEGIN
                             "The letter 'J' and the digits '0', .., '9' does not belong t a 5 x 5 Playfair matrix alphabet.\nYou may continue the analysis on a 6 x 6 Playfair matrix."
     IDS_NGRAMLIST_TOLONG    "The number of Rows is bounded by 5,000!\nPlease enter a number between 1 and 5,000."
     IDS_STRING_ERROR_NO_NUMBER_STREAM 
-                            "Your input is not a sequence of number with basis %i. \nPlease correct your input or encrypt the input as text."
+                            "Your input is not a sequence of numbers in base %i. \nPlease correct your input or encrypt the input as text."
     IDS_STRING_WARN_BEFOR_SKIPWS 
                             "The input does contain characters which are not in the alphabet set!\nIf you click OK, only characters of the alphabet will be encrypted (the other characters will be erased from the input)."
     IDS_STRING_HELPNAME     "CrypTool-en.chm"
@@ -42841,7 +42840,7 @@ BEGIN
     IDS_RAND_GEN_PARAM      "%s random generator"
     IDS_STRING_BIG_NUMBER   "The demostration supports only positive integers of bit length smaller than 8192. These are decimal numbers with at most 2467 digits."
     IDS_STRING_BIG_RSA_MODUL 
-                            "The demonstartion supports only positve integers of bit length smaller than 8192.\nThe Bitlength of the actually generated RSA modul exceeds 8192.\nPlease select primes p and q, wherby the RSA modul N = p*q is smaller than 2^8192."
+                            "The demonstartion supports only positve integers of bit length smaller than 8192.\nThe bit length of the actually generated RSA modul exceeds 8192.\nPlease select primes p and q, wherby the RSA modul N = p*q is smaller than 2^8192."
     IDS_STRING_INPUT_FALSE  "Please enter into this field an integer or an expression, that\nevaluates to an integer!\nExamples: 123, 2^15+1, (2^17-5)^2."
     IDS_STRING_FAKTORISATION_NOT_NULL_OR_ONE 
                             "Please enter a positive integer greater than 1."
@@ -42871,7 +42870,7 @@ BEGIN
                             "The file size must be at least one character!"
     IDS_STRING_Hashdemo_DateilaengeZuLang 
                             "The file size in this demonstration is limited to %d characters.\nEverything beyond that will be ignored. "
-    IDS_BITLENGTH           "Length in bit:          %i\r\n"
+    IDS_BITLENGTH           "Length in bits:         %i\r\n"
     IDS_CONTENT_CERT        "Certificate of signer (added to signature for examination)"
     IDS_CONTENT_SIGN        " %s signature of <%s>"
     IDS_BITLENGTH_MODN      "Bit length of N:         %i\r\n"
@@ -43138,7 +43137,7 @@ BEGIN
     IDS_SCA_REPORT_HEADINGATTACKCYCLE 
                             "\n\nIV. BEGINNING OF THE ATTACK CYCLE\n\n"
     IDS_SCA_REPORT_TRUDYREPEATSMODIFICATION 
-                            "\nTrudy repeats this step %d times, whereas the step count depends on the bitlength of the used session key (step count = bitlength + 2)."
+                            "\nTrudy repeats this step %d times, whereas the step count depends on the bit length of the used session key (step count = bit length + 2)."
     IDS_SCA_E_TIMER_NOT_AVAILABLE "There is no timer available!"
     IDS_SCA_SESSIONKEYISNULL 
                             "The encrypted session key is NULL! Thus the side-channel attack is not possible!"
@@ -43299,19 +43298,19 @@ END
 STRINGTABLE 
 BEGIN
     IDS_RSA_BM_MAXDELTA     "The value for delta you entered is bigger than the maximal possible. Increase m to alow bigger delta values."
-    IDS_RSA_BM_NTOOSMALL    "Please enter for ""Bitlength of N"" a number greater than 5."
+    IDS_RSA_BM_NTOOSMALL    "Please enter for ""Bit length of N"" a number greater than 5."
     IDS_RSA_BM_DELTARANGE   "Please enter for ""delta"" a value between 0 and 0.29."
     IDS_RSA_BM_NOEXAMPLE    "For the given parameters no example could be generated."
     IDS_RSA_BM_NOSOLUTION   "No solution found."
-    IDS_RSA_FH_WRONGN       "Please enter for ""Bitlength of N"" a number greater than 10."
-    IDS_RSA_FH_WRONGP       "Please enter for ""Bitlenght of P"" a number greater than 6 and less than ""Bitlength of N""."
+    IDS_RSA_FH_WRONGN       "Please enter for ""Bit length of N"" a number greater than 10."
+    IDS_RSA_FH_WRONGP       "Please enter for ""Bit length of P"" a number greater than 6 and less than ""Bit length of N""."
     IDS_RSA_FH_CANCEL       "Attack canceled."
     IDS_RSA_FH_SUCCESS      "Attack successfull."
     IDS_RSA_FH_NOSUCCESS    "Attack not successfull."
-    IDS_RSA_FH_ENTERP       "Please enter the bitlength of p."
-    IDS_RSA_FH_BITSOFP      "The provided bitlenght of p (%d) is less than the bitlength of then known part P (%d).\r\nPlease set the ""Bitlength of p"" so, that the (Bitlength of P) is <= (Bitlength of p)."
+    IDS_RSA_FH_ENTERP       "Please enter the bit length of p."
+    IDS_RSA_FH_BITSOFP      "The provided bit length of p (%d) is less than the bit length of the known part P (%d).\r\nPlease set the ""Bit length of p"" so, that the (Bit length of P) is <= (Bit length of p)."
     IDS_RSA_FH_CHOOSEN      "Please choose a N."
-    IDS_RSA_FH_ATLEASTKNOWN "%d Bits of p are known.\r\nAt least (""Bitlength of N""/4)+1=%d of the bits of p have to be known."
+    IDS_RSA_FH_ATLEASTKNOWN "%d bits of p are known.\r\nAt least (""Bit length of N""/4)+1=%d of the bits of p have to be known."
     IDS_RSA_SM_FULLPLAIN    "The provided known part of the plaintext is the full plaintext."
     IDS_RSA_SM_UNKNOWNTOOBIG 
                             "The unknown part of the plaintext is to big.\r\nTry increasing the parameter h to increase the maxmal length."
@@ -43321,7 +43320,7 @@ STRINGTABLE
 BEGIN
     IDS_RSA_SM_SUCCESS      "Attack successfull."
     IDS_RSA_SM_NOSUCCESS    "No solution found."
-    IDS_RSA_SM_WRONGN       "Please enter for ""Bitlength of N"" a number greater than 10."
+    IDS_RSA_SM_WRONGN       "Please enter for ""Bit length of N"" a number greater than 10."
     IDS_RSA_SM_PLEASEHIGHLIGHT "Please highlight a part of the plaintext."
     IDS_RSA_SM_ALLKNOWN     "Since you did not highlight anything, the attacker knows the full plaintext."
     IDS_RSA_SM_MAXCHAR      "With the given RSA-modulus a maximum of %d Characters can be encrypted in one block."
@@ -44112,8 +44111,8 @@ BEGIN
     ID_PA_ERROR_DIFFERNT_HISTOGRAMS 
                             "The histograms of the documents do not match."
     ID_PA_KEYFOUND          "At least one permutation key was found. The shortest one will be displayed."
-    IDS_BL_ATLEAST2         "Please select a bitlength between 2 and 16384."
-    IDS_BL_TOOLARGE         "Please select a bitlength between 2 and 16384."
+    IDS_BL_ATLEAST2         "Please select a bit length between 2 and 16384."
+    IDS_BL_TOOLARGE         "Please select a bit length between 2 and 16384."
     IDS_DH_NO_SAVE_PRIME    "No safe prime number!"
     IDS_SELECT_PLAINTEXT    "Please select a plaintext document."
     IDS_SELECT_CIPHERTEXT   "Please select a ciphertext document."
@@ -47007,12 +47006,12 @@ BEGIN
     PUSHBUTTON      "&Cancelar",IDC_PRIMETEST_BUTTON_CANCEL,252,240,100,20
     GROUPBOX        "",IDC_PRIMETEST_GROUPBOX_TEXT,7,4,345,62
     GROUPBOX        "Algoritmos para el test de primalidad",IDC_PRIMETEST_GROUPBOX_ALGO,7,72,345,73
-    LTEXT           "Existen varios métodos para comprobar si un número es primo o no.",IDC_PRIMETEST_LABEL_TEXT1,17,12,324,17
+    LTEXT           "Existen varios métodos para comprobar si un número es primo o no.",IDC_PRIMETEST_LABEL_TEXT1,17,12,324,8
     GROUPBOX        "Test de Primalidad",IDC_PRIMETEST_GROUPBOX_RESULT,7,151,345,79
-    LTEXT           "Número a analizar",IDC_PRIMETEST_LABEL_NUMBER,17,191,58,8
-    LTEXT           "Resultado",IDC_PRIMETEST_LABEL_RESULT,17,211,33,8,SS_ENDELLIPSIS
-    LTEXT           "Normalmente se aplican métodos probabilísticos: son muy rápidos pero realmente sólo pueden determinar con una cierta precisión (el error cometido es mínimo) si el número es primo.",IDC_PRIMETEST_LABEL_TEXT2,17,23,324,17
-    LTEXT           "No obstante, existen otro métodos deterministas que proporcionan un resultado 100% fiable (desde el punto de vista matemático).",IDC_PRIMETEST_LABEL_TEXT3,17,44,324,19
+    LTEXT           "i18n Number or formula to test:",IDC_PRIMETEST_LABEL_NUMBER,17,183,58,16
+    LTEXT           "Resultado:",IDC_PRIMETEST_LABEL_RESULT,17,211,36,8,SS_ENDELLIPSIS
+    LTEXT           "Normalmente se aplican métodos probabilísticos: son muy rápidos pero realmente sólo pueden determinar con una cierta precisión (el error cometido es mínimo) si el número es primo.",IDC_PRIMETEST_LABEL_TEXT2,17,24,324,16
+    LTEXT           "No obstante, existen otro métodos deterministas que proporcionan un resultado 100% fiable (desde el punto de vista matemático).",IDC_PRIMETEST_LABEL_TEXT3,17,44,324,16
     CONTROL         250,IDC_STATIC_PRIM_RES,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,15,13
     CONTROL         251,IDC_STATIC_PRIM_RES2,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,15,13
     PUSHBUTTON      "&Factorizar número",IDC_BUTTON_JUMP_TO_FACTORIZATION,110,240,100,20,WS_DISABLED
