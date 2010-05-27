@@ -669,10 +669,22 @@ BOOL CCrypToolApp::InitInstance()
 
 
 	SecudeStatus = SecudeLib.GetStatus();
-	if(SecudeStatus!=2) { // secude und Ticket verfuegbar ?
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ON_SECUDE_DLL,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_NOTE,pc_str1,STR_LAENGE_STRING_TABLE);
-		MessageBox(NULL,pc_str,pc_str1,MB_ICONWARNING|MB_OK);
+
+	// flomar, 05/27/2010
+	// the existing error handling mechanism makes no difference between a missing 
+	// Secude dll and a missing Secude ticket; since this caused a lot of trouble during 
+	// debug time, we extend the error handling
+	if(SecudeStatus == 1) {
+		CString message; message.Format(IDS_STRING_SECUDE_TICKET_MISSING);
+		CString title; title.Format(IDS_STRING_NOTE);
+		MessageBox(NULL, message, title, MB_ICONWARNING|MB_OK);
+	}
+	else {
+   if(SecudeStatus!=2) {
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ON_SECUDE_DLL,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_NOTE,pc_str1,STR_LAENGE_STRING_TABLE);
+			MessageBox(NULL,pc_str,pc_str1,MB_ICONWARNING|MB_OK);
+		}
 	}
 
 	// Secude ptr fuer EC-Lib setzen

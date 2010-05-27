@@ -11069,6 +11069,8 @@ BEGIN
                             "i18n Ciphertext language: %s"
     IDS_STRING_SUBSTITUTION_WARNING_NO_STANDARD_ALPHABET 
                             "i18n The algorithms implemented in CrypTool to analyze the Substitution encryption operate on a static alphabet (A-Z).\n\nThe current document contains characters which are not part of this static alphabet.\n\nPlease note that the results of the analysis may therefore be incorrect."
+    IDS_STRING_SECUDE_TICKET_MISSING 
+                            "i18n The Secude ticket could not be found."
 END
 
 #endif    // Polish resources
@@ -22141,6 +22143,8 @@ BEGIN
                             "i18n Ciphertext language: %s"
     IDS_STRING_SUBSTITUTION_WARNING_NO_STANDARD_ALPHABET 
                             "i18n The algorithms implemented in CrypTool to analyze the Substitution encryption operate on a static alphabet (A-Z).\n\nThe current document contains characters which are not part of this static alphabet.\n\nPlease note that the results of the analysis may therefore be incorrect."
+    IDS_STRING_SECUDE_TICKET_MISSING 
+                            "i18n The Secude ticket could not be found."
 END
 
 #endif    // Serbian (Latin) resources
@@ -33147,6 +33151,8 @@ BEGIN
                             "Sprache für Geheimtext: %s"
     IDS_STRING_SUBSTITUTION_WARNING_NO_STANDARD_ALPHABET 
                             "Die in CrypTool implementierten Algorithmen für die Analyse der Substitutions-Verschlüsselung arbeiten auf einem statischen Alphabet (A-Z).\n\nDas aktuell ausgewählte Dokument enthält aber auch Zeichen, die nicht zu diesem statischen Alphabet gehören.\n\nDie Ergebnisse der Analyse können daher falsch sein."
+    IDS_STRING_SECUDE_TICKET_MISSING 
+                            "Das Secude-Ticket konnte nicht gefunden werden."
 END
 
 #endif    // German (Germany) resources
@@ -36458,7 +36464,7 @@ BEGIN
     GROUPBOX        "Simultaneous congruences / linear modular equations",IDC_STATIC,7,46,258,167
     LTEXT           "x",IDC_STATIC,16,59,8,8
     GROUPBOX        "",IDC_STATIC,7,3,491,39
-    LTEXT           "The Chinese Remainder Theorem (CRT) can be used to solve systems of linear modular equations. Enter up to 9 equations x = a[i] mod m[i]\r\n(i=1, ..., 9) below. Such a system of equations can be used to determine the number of days until certain planets become aligned.",IDC_STATIC,13,12,477,17
+    LTEXT           "The Chinese Remainder Theorem (CRT) can be used to solve systems of linear modular equations. Enter up to 9 equations x = a[i] mod m[i]",IDC_STATIC,13,12,477,8
     LTEXT           "x",IDC_STATIC,16,77,8,8
     LTEXT           "x",IDC_STATIC,16,92,8,8
     LTEXT           "x",IDC_STATIC,16,111,8,8
@@ -36478,6 +36484,7 @@ BEGIN
     CONTROL         830,IDC_STATIC,"Static",SS_BITMAP,25,181,5,4
     CONTROL         830,IDC_STATIC,"Static",SS_BITMAP,25,196,5,4
     CONTROL         "",IDC_GIF_CRT_ASTRONOMY,"Static",SS_BLACKRECT,288,60,20,20
+    LTEXT           "(i=1, ..., 9) below. Such a system of equations can be used to determine the number of days until certain planets become aligned.",IDC_STATIC,13,20,477,16
 END
 
 IDD_CRT_SECRETSHARING DIALOGEX 0, 0, 386, 423
@@ -44209,6 +44216,7 @@ BEGIN
                             "Ciphertext language: %s"
     IDS_STRING_SUBSTITUTION_WARNING_NO_STANDARD_ALPHABET 
                             "The algorithms implemented in CrypTool to analyze the Substitution encryption operate on a static alphabet (A-Z).\n\nThe current document contains characters which are not part of this static alphabet.\n\nPlease note that the results of the analysis may therefore be incorrect."
+    IDS_STRING_SECUDE_TICKET_MISSING "The Secude ticket could not be found."
 END
 
 #endif    // English (U.K.) resources
@@ -55339,6 +55347,8 @@ BEGIN
                             "Idioma del texto cifrado: %s"
     IDS_STRING_SUBSTITUTION_WARNING_NO_STANDARD_ALPHABET 
                             "i18n The algorithms implemented in CrypTool to analyze the Substitution encryption operate on a static alphabet (A-Z).\n\nThe current document contains characters which are not part of this static alphabet.\n\nPlease note that the results of the analysis may therefore be incorrect."
+    IDS_STRING_SECUDE_TICKET_MISSING 
+                            "i18n The Secude ticket could not be found."
 END
 
 #endif    // Spanish resources
