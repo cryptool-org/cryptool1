@@ -34708,8 +34708,8 @@ BEGIN
     PUSHBUTTON      "&Encrypt",IDC_BUTTON_VERSCHLUESSELN,10,374,71,18
     PUSHBUTTON      "&Decrypt",IDC_BUTTON_ENTSCHLUESSELN,100,374,73,18
     PUSHBUTTON      "&Close",IDC_ENDDIALOG,291,374,90,18
-    CONTROL         "Choose two prime numbers p and q. The composite number N = pq is the public RSA modulus, and phi(N) = (p-1)(q-1) is the Euler totient. The public key e is freely chosen but must be coprime to the totient. The private key d is then calculated such that d = e^(-1) (mod phi(N)).",IDC_RADIO3,
-                    "Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE | WS_GROUP,19,15,353,26
+    CONTROL         "Choose two prime numbers p and q. The composite number N = pq is the public RSA modulus, and phi(N) = (p-1)(q-1) is the Euler totient. The public key e is freely chosen but must be coprime to the totient. The private ",IDC_RADIO3,
+                    "Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE | WS_GROUP,19,15,353,16
     CONTROL         "For data encryption or certification verification, you will only need the public RSA parameters: the modulus N and the public key e.",IDC_RADIO4,
                     "Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE,19,43,353,19
     EDITTEXT        IDC_EDIT3,100,132,172,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
@@ -34734,6 +34734,7 @@ BEGIN
     LTEXT           "Input as",IDC_STATIC,19,225,31,8
     LTEXT           "You may try to factorize the public RSA modulus N into its primes p and q.",IDC_RSA_MODE_FACTORISATION,19,81,257,30,NOT WS_VISIBLE
     PUSHBUTTON      "Button1",IDOK,204,377,37,15,NOT WS_VISIBLE
+    LTEXT           "key d is then calculated such that d = e^(-1) (mod phi(N)).",IDC_STATIC,30,31,181,8
 END
 
 IDD_KEY_HOMOPHONE DIALOGEX 0, 0, 394, 418
@@ -34987,9 +34988,9 @@ BEGIN
     LTEXT           "Block length in characters:",IDC_STATIC,18,192,86,8
     EDITTEXT        IDC_EDIT3,135,192,141,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
     GROUPBOX        "Number system",IDC_STATIC,7,213,277,53
-    LTEXT           "The numbers for RSA encryption and decryption will be represented in the following number system",IDC_STATIC,19,226,233,18
+    LTEXT           "The numbers for encryption and decryption will be represented in the following radix:",IDC_STATIC,19,226,233,18
     GROUPBOX        "Block length",IDC_STATIC,7,149,277,59
-    LTEXT           "The number of characters that are encrypted with each RSA operation.\r\nThe maximum size is subject to the length of the RSA modul N in bit, the number of characters in the alphabet and the method used for the coding.",IDC_STATIC,18,161,258,29
+    LTEXT           "The number of characters that are encrypted with each RSA operation.\r\nThe maximum size of a block is limited by the bit length of the modulus N, the number of characters in the alphabet, and the encoding method.",IDC_STATIC,18,161,258,29
 END
 
 IDD_PERIODICITY_ANALYSIS DIALOGEX 0, 0, 382, 266
@@ -35690,13 +35691,13 @@ BEGIN
     EDITTEXT        IDC_FILE_DANGEROUS,27,163,205,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Browse ...",IDC_BROWSE_DANGEROUS,248,161,50,17
     PUSHBUTTON      "&Options ...",IDC_OPTIONS,150,280,56,17
-    LTEXT           "The attack implemented here tries to find two different messages which translate to the same hash value.",IDC_STATIC,19,13,270,20
-    LTEXT           "The attacker assumes that his victim will digitally sign the ""harmless"" message due to its non vicious content.",IDC_STATIC,28,69,272,22
-    LTEXT           "In case of a successful attack the attacker can argue that his victim has digitally signed the ""dangerous"" instead of the ""harmless"" message.",IDC_STATIC,27,138,271,17
-    LTEXT           "By clicking ""Start search"" you initiate the attack which searches for two modifications of the messages above which translate to the same hash value.",IDC_STATIC,28,207,270,17
+    LTEXT           "This attack attempts to find two different messages that hash to the same value.",IDC_STATIC,19,13,270,20
+    LTEXT           "The attacker assumes that his victim will digitally sign the ""harmless"" message due to its non-malicious content.",IDC_STATIC,28,69,272,22
+    LTEXT           "If the attack is successful, the attacker can argue that the victim has digitally signed the ""dangerous"" instead of the ""harmless"" message.",IDC_STATIC,27,138,271,17
+    LTEXT           "Click ""Start search"" to initiate the attack. The program will search for modifications of the two messages that hash to the same value.",IDC_STATIC,28,207,270,17
     GROUPBOX        "Start search / Set options",IDC_STATIC,18,192,291,113
-    LTEXT           "In the ""Options"" you can set the hash function, the number of bits of the hash values that have to match and the method of modifying the messages.",IDC_STATIC,28,248,270,27
-    LTEXT           "The semantics of the messages do not vary throughout the attack as only unprintable or formatting characters are used  to modify them.",IDC_STATIC,28,226,270,19
+    LTEXT           "In the ""Options"" you can select the hash function, the required minimum number of matching bits, and the message modification method.",IDC_STATIC,28,248,270,27
+    LTEXT           "The message will not appear to change, since only unprintable characters will be used to modify them.",IDC_STATIC,28,226,270,19
     PUSHBUTTON      "Use default messages",IDC_BUTTON_USEDEFAULTMESSAGES,18,35,291,14
 END
 
@@ -41838,7 +41839,7 @@ BEGIN
     IDS_STRING_HILL         "Hill"
     IDS_STRING_AUTOCORRELATION "Autocorrelation"
     IDS_STRING_AUTOCORRELATION_OF "Autocorrelation of <%s>"
-    IDS_STRING_MSG_MATCHING_CHARACTERS "Number of matching characters"
+    IDS_STRING_MSG_MATCHING_CHARACTERS "Number of characters that match"
     IDS_STRING_ASCII_HISTOGRAM_OF "ASCII Histogram of <%s> (%s characters)"
     IDS_STRING_VALUE        "Value"
     IDS_STRING_FREQUENCY    "Frequency (%)"
@@ -43982,7 +43983,7 @@ BEGIN
                             "The entered transposition password was corrected:\n\n"
     IDS_STRING_ABOUT_CONTACT_INFORMATION 
                             "esslinger@fb5.uni-siegen.de\r\njoerg-cornelius.schneider@db.com\r\nhenrik.koy@db.com\r\n\r\nInternet: http://www.cryptool.com"
-    IDS_BIT_FMT             "%d bit%s"
+    IDS_BIT_FMT             "%d bits%s"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION 
                             "In the given value range [%s, %s], %d prime numbers were found."
 END
@@ -43997,7 +43998,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_BIT_EFFECTIVE_FMT   " (%d bit effective)"
+    IDS_BIT_EFFECTIVE_FMT   " (effectively %d bits)"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_TITLE 
                             "Generating a set of prime numbers"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_TEXT 
