@@ -33310,8 +33310,7 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,98,329,166,9
     GROUPBOX        "Description",IDC_STATIC,5,4,352,64
     LTEXT           "The Hill cipher is a polygraphic substitution cipher based on linear algebra.",IDC_STATIC,11,17,321,8
-    LTEXT           "This was the first polygraphic cipher, in which it was practical to operate on a group of letters containing",IDC_STATIC,11,28,326,8
-    LTEXT           "more than three letters.",IDC_STATIC,11,39,314,8
+    LTEXT           "This was the first polygraphic cipher in which it was practical to operate on more than three letters at once.",IDC_STATIC,11,33,338,8
     LTEXT           "The length of the group of cleartext letters is the size of the quadratic matrix.",IDC_STATIC,11,50,316,8
     GROUPBOX        "Information for encryption",IDC_STATIC_HILL_ALPH,5,74,352,35
     EDITTEXT        IDC_EDIT3,12,87,338,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
@@ -33405,7 +33404,7 @@ BEGIN
     CTEXT           "to",IDC_STATIC,188,324,9,8
     COMBOBOX        IDC_DIM_BIS,206,322,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,26,305,211
-    LTEXT           "This Hill analysis is a Known Plaintext analysis. On the inputs plaintext and ciphertext it computes the Hill key.",IDC_LBL_INFOTEXT,7,5,286,17,0,WS_EX_TRANSPARENT
+    LTEXT           "This is a known-plaintext analysis of Hill encryption. If the plaintext is available along with the ciphertext, the Hill key can be recomputed.",IDC_LBL_INFOTEXT,7,5,286,17,0,WS_EX_TRANSPARENT
     GROUPBOX        "Hill encryption variants ",IDC_STATIC,7,243,305,63
     PUSHBUTTON      "Text options",IDC_BUTTON1,154,353,71,18
     COMBOBOX        IDC_FILE_SELECT,15,217,289,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
@@ -33604,7 +33603,7 @@ BEGIN
     PUSHBUTTON      "&Restore default",IDC_BUTTON_RESTORE_STANDARD,86,235,100,18
     CONTROL         "Keep characters not present in the alphabet unchanged",IDC_CHECK_KEEP_CHARACTERS_NOT_PRESENT_IN_ALPHABET_UNCHANGED,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,16,213,10
-    CONTROL         "If possible: keep for encryption/decryption upper/lower case information",IDC_CHECK_KEEP_UPPER_LOWER_CASE_INFORMATION,
+    CONTROL         "If possible, retain case information for encryption/decryption",IDC_CHECK_KEEP_UPPER_LOWER_CASE_INFORMATION,
                     "Button",BS_AUTOCHECKBOX | BS_TOP | BS_MULTILINE | WS_TABSTOP,20,52,235,16
     CONTROL         "Distinguish between uppercase and lowercase",IDC_CHECK_DISTINGUISH_UPPER_LOWER_CASE,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,71,175,10
@@ -34627,8 +34626,8 @@ BEGIN
     LTEXT           "Example:",IDC_STATIC,10,33,29,8
     LTEXT           "Key length:",IDC_STATIC,10,82,36,8
     LTEXT           "Hint:",IDC_STATIC,10,57,22,8
-    LTEXT           "The search time will be in the order of minutes to hours  if you use not more than 6 asterisks (*) (= 24 bit).",IDC_STATIC,42,57,225,18
-    LTEXT           "Enter <00 ** AB ** ... **>  to search all keys starting with a zero byte, followed by an unknown byte, the byte <AB> and an unknown tail.",IDC_STATIC,42,33,225,18
+    LTEXT           "The search time will be in the order of minutes to hours if you use 6 or fewer asterisks (leaving a 24-bit search space).",IDC_STATIC,42,57,225,18
+    LTEXT           "Enter <00 ** AB ** ... **>  to search all keys starting with a zero byte, followed by an unknown byte, the byte <AB>, and an unknown tail.",IDC_STATIC,42,33,225,18
     DEFPUSHBUTTON   "Analysis &Options",IDOK2,104,131,68,17
 END
 
@@ -35429,23 +35428,23 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hash Demonstration"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    GROUPBOX        "Selection of hash function",IDC_STATIC,16,47,100,41
-    GROUPBOX        "Base of hash values",IDC_STATIC,136,47,184,41
+    GROUPBOX        "Selection of hash function",IDC_STATIC,12,47,100,41
+    GROUPBOX        "Base of hash values",IDC_STATIC,142,47,184,41
     CONTROL         "&decimal",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | WS_GROUP,222,70,40,10
     CONTROL         "&hexadecimal",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,154,70,55,10
     CONTROL         "&binary",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,271,70,31,10
-    LTEXT           "Actual document (this copy of the original file can be modified here)",IDC_STATIC,16,97,304,8,NOT WS_GROUP
-    EDITTEXT        IDC_EDIT_TEXT,16,109,304,113,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
-    LTEXT           "Hash value of the original file",IDC_STATIC_TITEL,16,231,194,8
-    EDITTEXT        IDC_EDIT_ORIGHASH,16,241,304,14,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "Hash value of the actual file",IDC_STATIC,16,264,89,8
-    EDITTEXT        IDC_EDIT_AKTHASH,16,274,304,14,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "Difference between the hash values of the original and of the actual file",IDC_STATIC,16,296,252,8
-    PUSHBUTTON      "&Close",IDCANCEL,237,379,83,16
-    CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",TCS_RAGGEDRIGHT | TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | WS_VSCROLL | WS_TABSTOP,16,308,304,64
+    LTEXT           "Modified document (copied from the original file)",IDC_STATIC,12,97,314,8,NOT WS_GROUP
+    EDITTEXT        IDC_EDIT_TEXT,12,109,314,113,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
+    LTEXT           "Hash value of the original file",IDC_STATIC_TITEL,12,231,194,8
+    EDITTEXT        IDC_EDIT_ORIGHASH,12,241,314,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Hash value of the modified file",IDC_STATIC,12,264,96,8
+    EDITTEXT        IDC_EDIT_AKTHASH,12,274,314,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Difference between the hash values of the original and of the modified file",IDC_STATIC,12,296,252,8
+    PUSHBUTTON      "&Close",IDCANCEL,243,379,83,16
+    CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",TCS_RAGGEDRIGHT | TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | WS_VSCROLL | WS_TABSTOP,12,308,314,64
     COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,23,67,88,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Choose a hash function and then change the copy of the original file (see field ""Actual document"").\nBelow you can see how many bits of the hash value change when you edit.",IDC_STATIC,31,12,282,24
-    GROUPBOX        "Description",IDC_STATIC,16,2,304,40
+    LTEXT           "Choose a hash function and then change the copy of the original file (see field ""Actual document"").\nYou can see below how many bits of the hash value change when you edit the document.",IDC_STATIC,31,12,289,24
+    GROUPBOX        "Description",IDC_STATIC,12,2,314,40
     RTEXT           "-",IDC_STATIC,19,28,8,8,0,WS_EX_TRANSPARENT
     RTEXT           "-",IDC_STATIC,19,12,8,8
 END
@@ -35701,10 +35700,10 @@ BEGIN
     PUSHBUTTON      "Use default messages",IDC_BUTTON_USEDEFAULTMESSAGES,18,35,291,14
 END
 
-IDD_OPTIONS_SIGNATURE_ATTACK DIALOG  0, 0, 269, 274
+IDD_OPTIONS_SIGNATURE_ATTACK DIALOGEX 0, 0, 269, 274
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Options for the attack on the hash value of the digital signature"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&Apply",IDOK,11,242,61,17
     PUSHBUTTON      "&Cancel",IDCANCEL,203,242,55,17
@@ -35720,10 +35719,10 @@ BEGIN
     GROUPBOX        "Hash function",IDC_STATIC,11,7,247,105
     LTEXT           "Significant bit length",IDC_STATIC,21,93,64,8
     EDITTEXT        IDC_EDIT1,96,91,20,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "&Reset to standard",IDC_BUTTON1,82,242,104,17
+    PUSHBUTTON      "&Restore defaults",IDC_BUTTON1,82,242,104,17
     LTEXT           "",IDC_STATIC_SIG_ATT_BITLENGTH_RANGE,128,93,79,8
     LTEXT           "Determine the way messages are modified throughout the attack.",IDC_STATIC,21,137,211,17
-    LTEXT           "Choose one of the six hash functions, and set the number of bits that have to match between the hash values of the two different messages so that the attack is considered to be successful.",IDC_STATIC,21,22,211,25
+    LTEXT           "Choose a hash function and the minimum required number of matching bits for the attack to be considered successful.",IDC_STATIC,21,22,211,25
     CONTROL         "&Insert blanks",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | WS_GROUP,21,161,56,10
     CONTROL         "A&ttach characters",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,21,197,77,10
     CONTROL         "&Printable characters (demonstration)",IDC_RADIO9,
@@ -35819,9 +35818,9 @@ BEGIN
     PUSHBUTTON      "Authenticate client",IDC_AUTHENTICATE_CLIENT_BUTTON,104,51,60,21,BS_MULTILINE
     PUSHBUTTON      "Authenticate attacker",IDC_AUTHENTICATE_ATTACKER_BUTTON,130,172,68,22,BS_MULTILINE
     CONTROL         "Mask",IDC_CHECK_MASK,"Button",BS_AUTOCHECKBOX | BS_PUSHLIKE | WS_TABSTOP,130,196,68,16
-    PUSHBUTTON      "Help for scenario",IDC_SCENARIO_HELP_BUTTON,445,223,66,16
+    PUSHBUTTON      "Scenario help",IDC_SCENARIO_HELP_BUTTON,445,223,66,16
     PUSHBUTTON      "Reset scenario",IDC_RESET_BUTTON,92,221,88,17
-    GROUPBOX        "Range of scenarios",IDC_CR_SCENARIO_CHOOSE,1,74,83,158,BS_CENTER
+    GROUPBOX        "Scenarios",IDC_CR_SCENARIO_CHOOSE,1,74,83,158,BS_CENTER
     GROUPBOX        "Actions",IDC_CR_ACTIONS_ATTACKER,463,53,44,111,BS_CENTER
 END
 
@@ -35840,8 +35839,7 @@ END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE DIALOGEX 0, 0, 650, 385
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION 
-"Side-Channel Attack against the hybrid encryption protocol (Textbook-RSA)"
+CAPTION "Side-Channel Attack on the Hybrid Encryption Protocol (Textbook RSA)"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     CONTROL         "IDB_SCA_BUTTON1_R_",IDC_INTRODUCTION,"Button",BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,10,20,100,30
@@ -35857,7 +35855,7 @@ BEGIN
     GROUPBOX        "Alice [Client]",IDC_ALICEFRAME,161,7,138,101
     GROUPBOX        "Bob [Server]",IDC_BOBFRAME,512,7,130,101
     GROUPBOX        "Trudy [Attacker]",IDC_TRUDYFRAME,335,232,138,125
-    GROUPBOX        "Attack step by step",IDC_CONTROLFRAME,7,7,140,350
+    GROUPBOX        "Step-by-step attack",IDC_CONTROLFRAME,7,7,140,350
     CONTROL         "",IDC_LIGHTS,"Static",SS_BLACKRECT,489,52,20,20
     CONTROL         "",IDC_ABARROW,"Static",SS_BLACKRECT,186,121,20,20
     CONTROL         "Progress1",IDC_PROGRESS_ATTACK,"msctls_progress32",PBS_SMOOTH | WS_BORDER,339,341,130,12
@@ -36067,9 +36065,9 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Attack on small secret exponents (according to Bloemer / May)"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    CONTROL         "In order to apply examples from the literature, first enter the public key (N,e). \nAfterwards enter the estimated value of delta. Alternatively you can enter d directly which is used to calculate delta.",IDC_RADIOCHOICE,
+    CONTROL         "To apply examples from the literature, first enter the public key (N,e).\r\nThen enter the estimated value of delta. Alternatively, you can directly enter d to calculate delta.",IDC_RADIOCHOICE,
                     "Button",BS_AUTORADIOBUTTON | BS_MULTILINE | WS_GROUP,14,36,465,17
-    CONTROL         "In order to generate a random example enter the desired parameters delta and bit length of N.\nBy clicking ""Generate random key"" the keys are generated.",IDC_RADIOCHOICE2,
+    CONTROL         "To generate random values, enter the desired delta and bit length of N.\r\nThen click on ""Generate random RSA key"".",IDC_RADIOCHOICE2,
                     "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,14,54,465,17
     EDITTEXT        IDC_EDITBITSOFN,62,114,57,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER | WS_GROUP
     EDITTEXT        IDC_EDITDELTA,155,114,40,14,ES_AUTOHSCROLL | ES_NUMBER
@@ -36099,15 +36097,14 @@ BEGIN
     LTEXT           "delta:",IDC_STATIC,133,115,21,8
     GROUPBOX        "Step 1: Enter key parameters and key",IDC_STATIC,7,98,477,98
     GROUPBOX        "Step 2: Enter attack parameters for the lattice base reduction",IDC_STATIC,7,203,477,93
-    LTEXT           "Maximal delta:",IDC_STATIC,25,271,59,9,0,WS_EX_RIGHT
     LTEXT           "m:",IDC_STATIC,25,214,59,8,0,WS_EX_RIGHT
     LTEXT           "t:",IDC_STATIC,25,235,59,8,0,WS_EX_RIGHT
     LTEXT           "Bit length of N:",IDC_STATIC,14,117,46,8
     LTEXT           "Determines the size of the lattice to reduce and the maximal size of delta. Should be at least 4.",IDC_STATIC,154,215,316,19
-    LTEXT           "Is optimaly calculated as a function of m.",IDC_STATIC,154,236,168,8
-    LTEXT           "Maximal size of delta for big N (N>1000 Bit).",IDC_STATIC,154,271,139,11
+    LTEXT           "Optimally calculated as a function of m.",IDC_STATIC,154,236,168,8
+    LTEXT           "Maximum size of delta for large N (N>1000 Bit).",IDC_STATIC,154,271,160,11
     LTEXT           "Lattice dimension:",IDC_STATIC,24,253,60,8,0,WS_EX_RIGHT
-    LTEXT           "Size of the lattice to reduce. Has major impact on the runtime.",IDC_STATIC,154,254,238,8
+    LTEXT           "Size of the lattice to reduce. Impacts the running time significantly.",IDC_STATIC,154,254,238,8
     GROUPBOX        "Description",IDC_STATIC,7,7,477,84
     LTEXT           "This attack allows to factor an RSA modulus N, in case the secret key d is chosen too small compared to N.\nThe number delta=log(d)/log(N) is called ""size of d"". The attack is feasible for delta < 0.290.",IDC_STATIC,15,17,455,18
     GROUPBOX        "Step 3: Start attack",IDC_STATIC,7,303,477,123
@@ -36122,8 +36119,8 @@ BEGIN
     LTEXT           "q:",IDC_STATIC,257,405,8,8
     LTEXT           "d:",IDC_STATIC,14,176,8,8
     LTEXT           "Then click ""Start"".",IDC_STATIC,14,78,70,8
-    LTEXT           "Maximal delta:",IDC_STATIC,25,271,59,9,0,WS_EX_RIGHT
     LTEXT           "Maximal size of delta for big N (N>1000 Bit).",IDC_STATIC,154,271,294,11
+    LTEXT           "Maximum delta:",IDC_STATIC,25,271,59,9,0,WS_EX_RIGHT
 END
 
 IDD_RSAFACTORHINT DIALOGEX 0, 0, 427, 430
@@ -36404,8 +36401,7 @@ END
 
 IDD_CRT_ASTRONOMY DIALOGEX 0, 0, 506, 322
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION 
-"Example of use: Visualization of the Chinese Remainder Theorem in Astronomy - Planetary motion"
+CAPTION "Planetary Motion and the Chinese Remainder Theorem"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_CRT_ASTRONOMY_EDITA0,35,56,101,15,ES_NUMBER
@@ -36440,10 +36436,10 @@ BEGIN
     LTEXT           "mod",IDC_STATIC,139,59,14,10
     EDITTEXT        IDC_CRT_ASTRONOMY_EDITSOLVE,13,229,244,15,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER | NOT WS_TABSTOP
     GROUPBOX        "Solution",IDC_STATIC,7,217,258,33
-    GROUPBOX        "Example of use in astronomy/ visualization fix",IDC_STATIC,275,46,223,271
+    GROUPBOX        "Astronomical visualization",IDC_STATIC,275,46,223,271
     LTEXT           "The period of the planets mercury and earth around the sun is 88 and 365 days. Up to reaching a certain radius vector s (red), it takes",IDC_STATIC,283,164,176,26
     LTEXT           "Is it possible, that mercury and earth are once both on this radius vector s?",IDC_STATIC,283,205,211,18
-    LTEXT           "In which time interval (days) does this incident repeat itself?",IDC_STATIC,283,283,204,10
+    LTEXT           "In what time interval (in days) will this incident repeat itself?",IDC_STATIC,283,283,204,10
     EDITTEXT        IDC_CRT_ASTRONOMY_EDITREPEAT,283,293,207,15,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER | NOT WS_TABSTOP
     GROUPBOX        "Choose a planet",IDC_STATIC,283,223,207,54
     CONTROL         "Mercury",IDC_CRT_ASTRONOMY_CHECKMERCURY,"Button",BS_AUTOCHECKBOX,307,234,37,12
@@ -36459,10 +36455,10 @@ BEGIN
     EDITTEXT        IDC_CRT_ASTRONOMY_EDITAEARTH,353,190,55,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     LTEXT           "and",IDC_STATIC,339,191,14,9
     LTEXT           "days.",IDC_STATIC,410,191,18,11
-    GROUPBOX        "Simultaneous congruences/ modular linear equation systems",IDC_STATIC,7,46,258,167
+    GROUPBOX        "Simultaneous congruences / linear modular equations",IDC_STATIC,7,46,258,167
     LTEXT           "x",IDC_STATIC,16,59,8,8
     GROUPBOX        "",IDC_STATIC,7,3,491,39
-    LTEXT           "By using the Chinese Remainder Theorem (CRT) you are able to solve linear modular equation systems. You can enter up to 9 equations x = a[i] mod m[i] (i=1, ..., 9) below and compute a solution.",IDC_STATIC,13,12,477,16
+    LTEXT           "The Chinese Remainder Theorem (CRT) can be used to solve systems of linear modular equations. Enter up to 9 equations x = a[i] mod m[i]\r\n(i=1, ..., 9) below. Such a system of equations can be used to determine the number of days until certain planets become aligned.",IDC_STATIC,13,12,477,17
     LTEXT           "x",IDC_STATIC,16,77,8,8
     LTEXT           "x",IDC_STATIC,16,92,8,8
     LTEXT           "x",IDC_STATIC,16,111,8,8
@@ -36482,8 +36478,6 @@ BEGIN
     CONTROL         830,IDC_STATIC,"Static",SS_BITMAP,25,181,5,4
     CONTROL         830,IDC_STATIC,"Static",SS_BITMAP,25,196,5,4
     CONTROL         "",IDC_GIF_CRT_ASTRONOMY,"Static",SS_BLACKRECT,288,60,20,20
-    LTEXT           "aligned.",IDC_STATIC,13,28,26,8
-    LTEXT           "One can use such equation systems to determine the number of days until certain planets become",IDC_STATIC,166,20,314,8
 END
 
 IDD_CRT_SECRETSHARING DIALOGEX 0, 0, 386, 423
@@ -36542,10 +36536,10 @@ BEGIN
     CONTROL         "",IDC_CRT_Anim,"Static",SS_BLACKRECT,198,255,174,101
     RTEXT           "6:",IDC_STATIC6,8,344,9,12,WS_DISABLED
     RTEXT           "7:",IDC_STATIC7,8,363,9,12,WS_DISABLED
-    LTEXT           "To generate and distribute the secret, click on the 'Calculate' button. By clicking the button 'Options', you're able to vary the range of values which the identifiers are taken from and the number of parties, that are involved.",IDC_STATIC,12,27,364,16
+    LTEXT           "Click the ""Calculate"" button to generate and distribute the secret. Click on ""Options"" to change the number of involved parties and the range of values for the identifiers.",IDC_STATIC,12,27,364,16
     GROUPBOX        "",IDC_STATIC,6,3,375,70
-    LTEXT           "After calculating: If you provide the minimum number of keys by clicking the '+/-' buttons in the lowest groupbox, this program will try to rebuild the secret after clicking 'Rebuild secret'.",IDC_STATIC,12,51,362,16
-    LTEXT           "Secret Sharing by CRT permits distributing a secret on n keys, so that the original secret can be reconstructed, if an arbitrary subset of k<=n key owners come together. ",IDC_STATIC,12,11,360,16
+    LTEXT           "Once the secret has been distributed, use the ""+/-"" buttons to add or remove participating parties. You can try to rebuild the secret if enough parties are present by clicking ""Rebuild secret"".",IDC_STATIC,12,51,362,16
+    LTEXT           "Secret sharing with the Chinese Remainder Theorem (CRT) allows a secret to be divided among n keys, such that the secret can be reconstructed if a given subset k<=n share their keys with each other.",IDC_STATIC,12,11,360,16
     LTEXT           "DYNAMISCH",IDC_REKOHELP,11,242,361,11
     LTEXT           "Distribute keys:",IDC_CRT_Calculation,314,92,62,11
 END
@@ -36608,10 +36602,10 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,295,7,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,295,40,50,14
     CTEXT           "-",IDC_STATIC,240,35,8,8
-    LTEXT           "Set a closed interval for the prime identifiers that have to be generated :",IDC_CRT_SECRETSHARING_OPT_T2,20,31,174,18
+    LTEXT           "Closed interval in which the prime identifiers will be generated:",IDC_CRT_SECRETSHARING_OPT_T2,20,31,174,18
     LTEXT           "Parties needed (k):",IDC_STATIC,132,16,62,8
     LTEXT           "Number of parties (n):",IDC_STATIC,19,16,73,9
-    GROUPBOX        "Necessary indications for generating the n keys",IDC_STATIC,8,3,284,51
+    GROUPBOX        "Required values",IDC_STATIC,8,3,284,51
 END
 
 IDD_CRT_TRANSFORMATION DIALOGEX 0, 0, 557, 428
@@ -37201,12 +37195,11 @@ BEGIN
     LTEXT           "Polynomial f(x)",IDC_STATIC_POLYNOM,12,198,46,8
     LTEXT           "Participants' values, calculated from chosen parameters:",IDC_STATIC,7,246,178,8
     LTEXT           "By means of a (t, n) Shamir scheme a secret S can be distributed among n persons. Afterwards, t persons (t <= n) will be able to reconstruct the original secret by combining their individual secrets (shares).",IDC_STATIC,7,7,357,18
-    LTEXT           "To set up such a scheme, a polynomial f(x) of degree at most t-1 [with t-1 coefficients a(i) chosen at random] and a random prime p have to be generated.",IDC_STATIC,7,23,357,16
-    LTEXT           "For further details please check the CrypTool online help by pressing F1.",IDC_STATIC,7,47,357,8
-    LTEXT           "Please select these participants who are to reconstruct the secret, from the list above by checking the boxes.",IDC_STATIC,7,357,357,19
+    LTEXT           "To set up such a scheme, a polynomial f(x) of degree at most t-1 [with t-1 coefficients a(i) chosen at random] and a random prime p must be generated.",IDC_STATIC,7,23,357,16
+    LTEXT           "Please check the appropriate boxes to select the participants who will attempt to reconstruct the secret.",IDC_STATIC,7,357,357,19
     LTEXT           "Prime p",IDC_STATIC_MOD,11,218,24,8
     LTEXT           "All computations take place in the discrete space GF(p) ",IDC_STATIC,12,179,176,8
-    LTEXT           "Each participant receives a randomly chosen public value x and his share, the corresponding secret value y=f(x).",IDC_STATIC,7,39,354,8
+    LTEXT           "Each participant receives a randomly chosen public value x and his or her share, the corresponding secret value y=f(x). For further details please check the CrypTool online help by pressing F1.",IDC_STATIC,7,39,355,16
 END
 
 IDD_SECRETSHARING_REVEAL DIALOGEX 0, 0, 360, 210
@@ -37533,7 +37526,7 @@ BEGIN
     CONTROL         "Rail Fence",IDC_RADIO_RAIL_FENCE,"Button",BS_AUTORADIOBUTTON,20,80,110,10
     EDITTEXT        IDC_EDIT_KEY,110,116,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
     GROUPBOX        "Description",IDC_STATIC,7,7,271,41
-    LTEXT           "Transpositions scramble the order of the letters in the cleartext. Two well-known, classic variants are the Scytale and the Rail Fence encryption.",IDC_STATIC,20,20,245,16
+    LTEXT           "Transpositions scramble the order of the letters in the cleartext. Two well-known classical variants are known as Scytale and Rail Fence.",IDC_STATIC,20,20,245,16
     GROUPBOX        "Choose the transposition variant",IDC_STATIC,7,55,160,40
     GROUPBOX        "Choose the key",IDC_STATIC,7,105,160,45
     LTEXT           "Key:",IDC_SIMPLE_TRANSPOSITION_KEY,20,118,80,8
@@ -40766,8 +40759,8 @@ BEGIN
 
     IDD_HASH_DEMO, DIALOG
     BEGIN
-        VERTGUIDE, 16
-        VERTGUIDE, 320
+        VERTGUIDE, 12
+        VERTGUIDE, 326
         BOTTOMMARGIN, 395
         HORZGUIDE, 53
     END
@@ -43086,7 +43079,7 @@ BEGIN
     IDS_STRING_SIG_ATT_DOCUMENT_TITLE_DANGEROUS "Dangerous message: "
     IDS_STRING_SIG_ATT_DOCUMENT_TITLE_HARMLESS "Harmless message: "
     IDS_STRING_SIG_ATT_PROGRESS_CYCLE_START 
-                            "Run %d\nCollision search (%d bit)\nProgress: %%d%%%%  remaining time: %%s"
+                            "Run %d\nCollision search (%d bits)\nProgress: %%d%%%%  Remaining time: %%s"
     ID_LOAD_README          "Opens the CrypTool readme file"
 END
 
@@ -43171,7 +43164,7 @@ BEGIN
     IDS_modeText_Passwoerter 
                             "Password: In this scenario the client authenticates himself by means of a password that he and server 1 know.\r\n\r\nYour job is to authenticate yourself as attacker at server 1 so that he expects you to be the client."
     IDS_modeText_Einmalpasswoerter 
-                            "One-time passwords: In order to avoid the attack of the password scenario, the client and server 1 have agreed to change the password after each authentication taken place. Therefor they have created a list of one-time passwords they know both. After authentication with a current password, this one will be marked as used and cannot be used again. For the next authentication another one-time password of the list must be used.\r\n\r\nAgain, your exercise is to authenticate yourself as attacker at server 1 so that it expects you to be the client."
+                            "One-time passwords: To avoid the password scenario attack, the client and server 1 have agreed to change their password after every authentication. They have therefore created a list of one-time passwords that they both know. After using a password, it is marked as used and then never reused.\r\n\r\nYour exercise is to play the role of an attacker feigning the legitimate client to become authenticated by server 1."
     IDS_modeText_ChallengeResponseSymmetrisch 
                             "Challenge Response (with symmetric encryption): After the attack at the one-time-passwords client and servers use symmetric encryption by means of a secrect key now. In order to minimize the organisational effort, not each pair of client and server get an own key, but all confidential parties get a common secret key. For authentication the server sends a random number, called Challenge, to the client. By the use of encryption the client generates the response and sends it back to the server. The server decrypts the response and checks whether the decrypted response conforms with the sent one. If that is the case, authentication is successful; otherwise the client is rejected. The server can trust the client, because no outsider knows the secret key and therefor can not generate the correct Response.\r\n\r\nBut maybe something has been overlooked by them...you can find more hints in the online help."
     IDS_modeText_ChallengeResponseAsymmetrisch 
@@ -43478,7 +43471,7 @@ BEGIN
     IDS_CRT_SECRETSHARINGGROUPBOX2 
                             "Rebuilding the secret with a minimum of k = %d keys"
     IDS_CRT_SECRETSHARINGGROUPBOX3 
-                            "Choose those from these n = %d identifiers, whose keys shall be used to rebuild the secret:"
+                            "Choose which of the n = %d identifiers will participate in rebuilding the secret."
     IDS_CRT_SECRETSHARINGHELP1 
                             "You have enterd %d as number of parties.\r\nPlease enter 2 as minimum for this parameter.\r\n"
     IDS_CRT_SECRETSHARINGHELP2 
