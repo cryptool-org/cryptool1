@@ -8,7 +8,8 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -10758,7 +10759,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_ECCDemo_PATH        ".\\ECCDemo\\"
-    IDS_ECCDemo_EXECUTABLE  "java.exe"
+    IDS_ECCDemo_EXECUTABLE  "eccdemo.jar"
     IDS_ECCDemo_FILE        " -jar eccdemo.jar"
 END
 
@@ -47010,7 +47011,7 @@ BEGIN
     GROUPBOX        "Algoritmos para el test de primalidad",IDC_PRIMETEST_GROUPBOX_ALGO,7,72,345,73
     LTEXT           "Existen varios métodos para comprobar si un número es primo o no.",IDC_PRIMETEST_LABEL_TEXT1,17,12,324,8
     GROUPBOX        "Test de Primalidad",IDC_PRIMETEST_GROUPBOX_RESULT,7,151,345,79
-    LTEXT           "i18n Number or formula to test:",IDC_PRIMETEST_LABEL_NUMBER,17,183,58,16
+    LTEXT           "Número o fórmula a probar:",IDC_PRIMETEST_LABEL_NUMBER,17,183,58,16
     LTEXT           "Resultado:",IDC_PRIMETEST_LABEL_RESULT,17,211,36,8,SS_ENDELLIPSIS
     LTEXT           "Normalmente se aplican métodos probabilísticos: son muy rápidos pero realmente sólo pueden determinar con una cierta precisión (el error cometido es mínimo) si el número es primo.",IDC_PRIMETEST_LABEL_TEXT2,17,24,324,16
     LTEXT           "No obstante, existen otro métodos deterministas que proporcionan un resultado 100% fiable (desde el punto de vista matemático).",IDC_PRIMETEST_LABEL_TEXT3,17,44,324,16
@@ -55010,7 +55011,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_ECCDemo_PATH        ".\\ECCDemo\\"
-    IDS_ECCDemo_EXECUTABLE  "java.exe"
+    IDS_ECCDemo_EXECUTABLE  "eccdemo.jar"
     IDS_ECCDemo_FILE        " -jar eccdemo.jar"
 END
 
@@ -55346,9 +55347,9 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SELECTED_CIPHERTEXT_LANGUAGE 
                             "Idioma del texto cifrado: %s"
     IDS_STRING_SUBSTITUTION_WARNING_NO_STANDARD_ALPHABET 
-                            "i18n The algorithms implemented in CrypTool to analyze the Substitution encryption operate on a static alphabet (A-Z).\n\nThe current document contains characters which are not part of this static alphabet.\n\nPlease note that the results of the analysis may therefore be incorrect."
+                            "Los algoritmmos implementados en CrypTool para analizar el Cifrado de Sustitución operan en un alfabeto estático (A-Z).\n\nEl documento actual contiene caracteres que no son parte de dicho alfabeto.\n\nPor lo tanto, tome en cuenta que el resultado puede no ser correcto."
     IDS_STRING_SECUDE_TICKET_MISSING 
-                            "i18n The Secude ticket could not be found."
+                            "El Ticket Secude no pudo ser encontrado."
 END
 
 #endif    // Spanish resources
