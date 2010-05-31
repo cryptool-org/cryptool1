@@ -70,11 +70,7 @@ static long GetWindowTextAsLong(CWnd *wnd)
 
 void CDlgOptionsAnalysis::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
-	pDX->PrepareCtrl(IDC_EDIT_ENTROPY_WINDOW); // this is needed to set the focus to IDC_EDIT_ENTROPY_WINDOW if the following check fails
-	// we do DDV_MinMaxLong before DDX_Text to prevent MFC from change the value of m_BFEntropyWindow to something
-	// outside the valid range. This value would be kept even on pressing Cancel
-	DDV_MinMaxLong(pDX, GetWindowTextAsLong(GetDlgItem(IDC_EDIT_ENTROPY_WINDOW)), 32, 4096); 
+	CDialog::DoDataExchange(pDX); 
 	//{{AFX_DATA_MAP(CDlgOptionsAnalysis)
 	DDX_Check(pDX, IDC_CHECK1, m_CKey);
 	DDX_Check(pDX, IDC_CHECK2, m_CKorr);
@@ -93,7 +89,6 @@ void CDlgOptionsAnalysis::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_DIGRAMS_FILE, m_VigenereAnalysisSchroedelDigramsFile);
 	DDX_Text(pDX, IDC_EDIT_TRIGRAMS_FILE, m_VigenereAnalysisSchroedelTrigramsFile);
 	//}}AFX_DATA_MAP
-	//DDV_MinMaxLong(pDX, m_BFEntropyWindow, 32, 4096); // see remark above
 	DDX_Radio(pDX, IDC_RADIO1, i_alphabetOptions);
 }
 
@@ -120,10 +115,25 @@ BOOL CDlgOptionsAnalysis::OnInitDialog()
 
 void CDlgOptionsAnalysis::OnOK()
 {
-	CDialog::OnOK();
+	UpdateData(true);
 
+	// flomar, 05/31/2010
+	// we moved the check for valid values from MFC-based macros into this 
+	// function, because for some reason MFC displayed error messages twice;
+	// we call CDialog::OnOK() only if values are within the valid range
+	const unsigned int minimumNumberOfCharactersForEntropyTest = 1;
+	const unsigned int maximumNumberOfCharactersForEntropyTest = 4096;
+	if(m_BFEntropyWindow < minimumNumberOfCharactersForEntropyTest || m_BFEntropyWindow > maximumNumberOfCharactersForEntropyTest) {
+		CString message;
+		message.Format(IDS_STRING_VALID_RANGE_OF_CHARACTERS_FOR_ENTROPY_TEST, minimumNumberOfCharactersForEntropyTest, maximumNumberOfCharactersForEntropyTest);
+		AfxMessageBox(message, MB_ICONINFORMATION);
+		return;
+	}
+	
 	// try to write settings for Vigenere analysis by Schroedel to registry
 	writeSettingsVigenereAnalysisSchroedel();
+
+	CDialog::OnOK();
 }
 
 void CDlgOptionsAnalysis::OnButtonSearchDictionaryFile()

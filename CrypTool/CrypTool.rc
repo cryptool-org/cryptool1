@@ -11071,6 +11071,8 @@ BEGIN
                             "i18n The algorithms implemented in CrypTool to analyze the Substitution encryption operate on a static alphabet (A-Z).\n\nThe current document contains characters which are not part of this static alphabet.\n\nPlease note that the results of the analysis may therefore be incorrect."
     IDS_STRING_SECUDE_TICKET_MISSING 
                             "i18n The Secude ticket could not be found."
+    IDS_STRING_VALID_RANGE_OF_CHARACTERS_FOR_ENTROPY_TEST 
+                            "[i18n] The number of bytes for the entropy test has to lie between %d and %d."
 END
 
 #endif    // Polish resources
@@ -22145,6 +22147,8 @@ BEGIN
                             "i18n The algorithms implemented in CrypTool to analyze the Substitution encryption operate on a static alphabet (A-Z).\n\nThe current document contains characters which are not part of this static alphabet.\n\nPlease note that the results of the analysis may therefore be incorrect."
     IDS_STRING_SECUDE_TICKET_MISSING 
                             "i18n The Secude ticket could not be found."
+    IDS_STRING_VALID_RANGE_OF_CHARACTERS_FOR_ENTROPY_TEST 
+                            "[i18n] The number of bytes for the entropy test has to lie between %d and %d."
 END
 
 #endif    // Serbian (Latin) resources
@@ -33153,6 +33157,8 @@ BEGIN
                             "Die in CrypTool implementierten Algorithmen für die Analyse der Substitutions-Verschlüsselung arbeiten auf einem statischen Alphabet (A-Z).\n\nDas aktuell ausgewählte Dokument enthält aber auch Zeichen, die nicht zu diesem statischen Alphabet gehören.\n\nDie Ergebnisse der Analyse können daher falsch sein."
     IDS_STRING_SECUDE_TICKET_MISSING 
                             "Das Secude-Ticket konnte nicht gefunden werden."
+    IDS_STRING_VALID_RANGE_OF_CHARACTERS_FOR_ENTROPY_TEST 
+                            "Die Anzahl an Bytes für den Entropietest muss zwischen %d und %d liegen."
 END
 
 #endif    // German (Germany) resources
@@ -43957,7 +43963,7 @@ STRINGTABLE
 BEGIN
     IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT "row*column matrix*vector product"
     IDS_LISTBRUTEFORCECANDIDATES_HEADER 
-                            "After a brute-force analysis of the given ciphertext decrypted with all possible keys in the selected key space, the entropy value of each possible decryption was calculated. This list contains the decrypted messages with the lowest entropy values. It is possible that the decryption with the smallest entropy is not the correct decryption, especially for very short ciphertexts. You can choose here which candidate you believe to be the correct decryption (note that only the first %d characters are displayed)."
+                            "After a brute-force analysis of the given ciphertext decrypted with all possible keys in the selected key space, the entropy value of each possible decryption was calculated. This list contains the decrypted messages with the lowest entropy values. It is possible that the decryption with the smallest entropy is not the correct decryption, especially for very short ciphertexts. You can choose here which candidate you believe to be the correct decryption (note that only the first %d characters are decrypted and displayed)."
 END
 
 STRINGTABLE 
@@ -44217,6 +44223,8 @@ BEGIN
     IDS_STRING_SUBSTITUTION_WARNING_NO_STANDARD_ALPHABET 
                             "The algorithms implemented in CrypTool to analyze the Substitution encryption operate on a static alphabet (A-Z).\n\nThe current document contains characters which are not part of this static alphabet.\n\nPlease note that the results of the analysis may therefore be incorrect."
     IDS_STRING_SECUDE_TICKET_MISSING "The Secude ticket could not be found."
+    IDS_STRING_VALID_RANGE_OF_CHARACTERS_FOR_ENTROPY_TEST 
+                            "The number of bytes for the entropy test has to lie between %d and %d."
 END
 
 #endif    // English (U.K.) resources
@@ -55349,6 +55357,8 @@ BEGIN
                             "Los algoritmmos implementados en CrypTool para analizar el Cifrado de Sustitución operan en un alfabeto estático (A-Z).\n\nEl documento actual contiene caracteres que no son parte de dicho alfabeto.\n\nPor lo tanto, tome en cuenta que el resultado puede no ser correcto."
     IDS_STRING_SECUDE_TICKET_MISSING 
                             "El Ticket Secude no pudo ser encontrado."
+    IDS_STRING_VALID_RANGE_OF_CHARACTERS_FOR_ENTROPY_TEST 
+                            "[i18n] The number of bytes for the entropy test has to lie between %d and %d."
 END
 
 #endif    // Spanish resources
