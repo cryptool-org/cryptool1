@@ -8,8 +8,7 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -34716,7 +34715,7 @@ BEGIN
     PUSHBUTTON      "&Close",IDC_ENDDIALOG,291,374,90,18
     CONTROL         "Choose two prime numbers p and q. The composite number N = pq is the public RSA modulus, and phi(N) = (p-1)(q-1) is the Euler totient. The public key e is freely chosen but must be coprime to the totient. The private ",IDC_RADIO3,
                     "Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE | WS_GROUP,19,15,353,16
-    CONTROL         "For data encryption or certification verification, you will only need the public RSA parameters: the modulus N and the public key e.",IDC_RADIO4,
+    CONTROL         "For data encryption or certificate verification, you will only need the public RSA parameters: the modulus N and the public key e.",IDC_RADIO4,
                     "Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE,19,43,353,19
     EDITTEXT        IDC_EDIT3,100,132,172,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     EDITTEXT        IDC_EDIT4,100,149,172,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
@@ -36107,7 +36106,7 @@ BEGIN
     LTEXT           "m:",IDC_STATIC,25,214,59,8,0,WS_EX_RIGHT
     LTEXT           "t:",IDC_STATIC,25,235,59,8,0,WS_EX_RIGHT
     LTEXT           "Bit length of N:",IDC_STATIC,14,117,46,8
-    LTEXT           "Determines the size of the lattice to reduce and the maximal size of delta. Should be at least 4.",IDC_STATIC,154,215,316,19
+    LTEXT           "Determines the size of the lattice to reduce and the maximum size of delta. Should be at least 4.",IDC_STATIC,154,215,316,19
     LTEXT           "Optimally calculated as a function of m.",IDC_STATIC,154,236,168,8
     LTEXT           "Maximum size of delta for large N (N>1000 Bit).",IDC_STATIC,154,271,160,11
     LTEXT           "Lattice dimension:",IDC_STATIC,24,253,60,8,0,WS_EX_RIGHT
@@ -43958,7 +43957,7 @@ STRINGTABLE
 BEGIN
     IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT "row*column matrix*vector product"
     IDS_LISTBRUTEFORCECANDIDATES_HEADER 
-                            "The brute-force analysis decrypted the first %d characters of the given ciphertext -- using step-by-step all possible keys out of the selected key space -- and then calculated for each decrypted message the entropy value. The following list contains the decrypted messages with the lowest entropy values.\nEspecially in case of very short ciphertexts it could be, that there are wrong candidates with a small entropy value. Therefore you have the opportunity to manually select the candidate with the correct decryption."
+                            "After a brute-force analysis of the given ciphertext decrypted with all possible keys in the selected key space, the entropy value of each possible decryption was calculated. This list contains the decrypted messages with the lowest entropy values. It is possible that the decryption with the smallest entropy is not the correct decryption, especially for very short ciphertexts. You can choose here which candidate you believe to be the correct decryption (note that only the first %d characters are displayed)."
 END
 
 STRINGTABLE 
