@@ -53,12 +53,12 @@ ENGLISH File # &File
 ENGLISH Edit # &Edit
 ENGLISH View # &View
 ENGLISH View_Font # &View|&Font
-ENGLISH CryptDecrypt # &Crypt/Decrypt
-ENGLISH CryptDecrypt_Symmetricclassic # &Crypt/Decrypt|Symmetric (&classic)
-ENGLISH CryptDecrypt_Symmetricmodern # &Crypt/Decrypt|Symmetric (&modern)
-ENGLISH CryptDecrypt_Symmetricmodern_FurtherAlgorithms # &Crypt/Decrypt|Symmetric (&modern)|&Further Algorithms
-ENGLISH CryptDecrypt_Asymmetric # &Crypt/Decrypt|&Asymmetric
-ENGLISH CryptDecrypt_Hybrid # &Crypt/Decrypt|&Hybrid
+ENGLISH EncryptDecrypt # En&crypt/Decrypt
+ENGLISH EncryptDecrypt_Symmetricclassic # En&crypt/Decrypt|Symmetric (&classic)
+ENGLISH EncryptDecrypt_Symmetricmodern # En&crypt/Decrypt|Symmetric (&modern)
+ENGLISH EncryptDecrypt_Symmetricmodern_FurtherAlgorithms # En&crypt/Decrypt|Symmetric (&modern)|&Further Algorithms
+ENGLISH EncryptDecrypt_Asymmetric # En&crypt/Decrypt|&Asymmetric
+ENGLISH EncryptDecrypt_Hybrid # En&crypt/Decrypt|&Hybrid
 ENGLISH DigitalSignaturesPKI # Digital Signatures/&PKI
 ENGLISH DigitalSignaturesPKI_PKI # Digital Signatures/&PKI|&PKI
 ENGLISH IndivProcedures # &Indiv. Procedures

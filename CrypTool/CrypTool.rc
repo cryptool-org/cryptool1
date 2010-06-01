@@ -11072,7 +11072,7 @@ BEGIN
     IDS_STRING_SECUDE_TICKET_MISSING 
                             "i18n The Secude ticket could not be found."
     IDS_STRING_VALID_RANGE_OF_CHARACTERS_FOR_ENTROPY_TEST 
-                            "[i18n] The number of bytes for the entropy test has to lie between %d and %d."
+                            "[i18n] Please define the number of bytes for the entropy test by entering an integer between %d and %d."
 END
 
 #endif    // Polish resources
@@ -22148,7 +22148,7 @@ BEGIN
     IDS_STRING_SECUDE_TICKET_MISSING 
                             "i18n The Secude ticket could not be found."
     IDS_STRING_VALID_RANGE_OF_CHARACTERS_FOR_ENTROPY_TEST 
-                            "[i18n] The number of bytes for the entropy test has to lie between %d and %d."
+                            "[i18n] Please define the number of bytes for the entropy test by entering an integer between %d and %d."
 END
 
 #endif    // Serbian (Latin) resources
@@ -37747,7 +37747,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "Show B&ox (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX, GRAYED
     END
-    POPUP "&Crypt/Decrypt"
+    POPUP "En&crypt/Decrypt"
     BEGIN
         POPUP "Symmetric (&classic)"
         BEGIN
@@ -38098,7 +38098,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "Show B&ox (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
     END
-    POPUP "&Crypt/Decrypt"
+    POPUP "En&crypt/Decrypt"
     BEGIN
         POPUP "Symmetric (&classic)"
         BEGIN
@@ -38449,7 +38449,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "Show B&ox (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX, GRAYED
     END
-    POPUP "&Crypt/Decrypt"
+    POPUP "En&crypt/Decrypt"
     BEGIN
         POPUP "Symmetric (&classic)"
         BEGIN
@@ -38800,7 +38800,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "Show B&ox (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
     END
-    POPUP "&Crypt/Decrypt"
+    POPUP "En&crypt/Decrypt"
     BEGIN
         POPUP "Symmetric (&classic)"
         BEGIN
@@ -39178,7 +39178,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "Show B&ox (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
     END
-    POPUP "&Crypt/Decrypt"
+    POPUP "En&crypt/Decrypt"
     BEGIN
         POPUP "Symmetric (&classic)"
         BEGIN
@@ -43963,7 +43963,7 @@ STRINGTABLE
 BEGIN
     IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT "row*column matrix*vector product"
     IDS_LISTBRUTEFORCECANDIDATES_HEADER 
-                            "After a brute-force analysis of the given ciphertext decrypted with all possible keys in the selected key space, the entropy value of each possible decryption was calculated. This list contains the decrypted messages with the lowest entropy values. It is possible that the decryption with the smallest entropy is not the correct decryption, especially for very short ciphertexts. You can choose here which candidate you believe to be the correct decryption (note that only the first %d characters are decrypted and displayed)."
+                            "After a brute-force analysis of the given ciphertext decrypted with all possible keys in the selected key space, the entropy value of each decryption was calculated. This list contains the decrypted messages with the lowest entropy values. It is possible that the decryption with the smallest entropy is not the correct decryption, especially for very short ciphertexts. You can choose here which candidate you believe to be the correct decryption (note that only the first %d characters are decrypted and displayed)."
 END
 
 STRINGTABLE 
@@ -44224,7 +44224,7 @@ BEGIN
                             "The algorithms implemented in CrypTool to analyze the Substitution encryption operate on a static alphabet (A-Z).\n\nThe current document contains characters which are not part of this static alphabet.\n\nPlease note that the results of the analysis may therefore be incorrect."
     IDS_STRING_SECUDE_TICKET_MISSING "The Secude ticket could not be found."
     IDS_STRING_VALID_RANGE_OF_CHARACTERS_FOR_ENTROPY_TEST 
-                            "The number of bytes for the entropy test has to lie between %d and %d."
+                            "Please define the number of bytes for the entropy test by entering an integer between %d and %d."
 END
 
 #endif    // English (U.K.) resources
@@ -55358,7 +55358,7 @@ BEGIN
     IDS_STRING_SECUDE_TICKET_MISSING 
                             "El Ticket Secude no pudo ser encontrado."
     IDS_STRING_VALID_RANGE_OF_CHARACTERS_FOR_ENTROPY_TEST 
-                            "[i18n] The number of bytes for the entropy test has to lie between %d and %d."
+                            "[i18n] Please define the number of bytes for the entropy test by entering an integer between %d and %d."
 END
 
 #endif    // Spanish resources
