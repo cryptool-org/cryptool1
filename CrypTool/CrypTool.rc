@@ -4136,14 +4136,14 @@ BEGIN
     GROUPBOX        "",IDC_PRIMETEST_GROUPBOX_TEXT,7,4,345,62
     GROUPBOX        "Algorytmy testu pierwszoœci:",IDC_PRIMETEST_GROUPBOX_ALGO,7,72,345,73
     GROUPBOX        "Test pierwszoœci liczby",IDC_PRIMETEST_GROUPBOX_RESULT,7,151,345,79
-    LTEXT           "i18n Number or formula to test:",IDC_PRIMETEST_LABEL_NUMBER,17,183,50,16
+    LTEXT           "Liczby lub formuly do testu:",IDC_PRIMETEST_LABEL_NUMBER,17,183,50,16
     LTEXT           "Wynik:",IDC_PRIMETEST_LABEL_RESULT,17,211,33,8,SS_ENDELLIPSIS
     LTEXT           "Poza powy¿szymi istniej¹ równie¿ metody deterministyczne: dostarczony rezultat jest w 100% poprawny (z matematycznego punktu widzenia).",IDC_PRIMETEST_LABEL_TEXT3,17,44,324,16
     CONTROL         250,IDC_STATIC_PRIM_RES,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,18,16
     CONTROL         251,IDC_STATIC_PRIM_RES2,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,18,16
     PUSHBUTTON      "&Rozk³ad na czynniki pierwsze",IDC_BUTTON_JUMP_TO_FACTORIZATION,112,241,112,20,WS_DISABLED
     LTEXT           "Zazwyczaj wykorzystywane s¹ metody probabilistyczne: s¹ one bardzo szybkie, ale mog¹ tylko z okreœlon¹ dok³adnoœci¹ oszacowaæ poziom prawdopodobieñstwa, czy liczba jest pierwsza.",IDC_PRIMETEST_LABEL_TEXT2,17,24,324,16
-    LTEXT           "i18n There are many methods to check if a number is prime.",IDC_PRIMETEST_LABEL_TEXT1,17,12,324,8
+    LTEXT           "Istnieje wiele metod, aby sprawdzic, czy liczba jest pierwsza.",IDC_PRIMETEST_LABEL_TEXT1,17,12,324,8
 END
 
 IDD_ADFGVX_STRINGBOX DIALOGEX 0, 0, 179, 44
@@ -11062,17 +11062,17 @@ BEGIN
     IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bits)"
     IDS_FLOAT_NUMBER_SEPARATOR ","
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT_WITHLANGUAGE 
-                            "i18n Cleartext (assumed language: ""%s""):"
+                            "Tekst zwykly (Zakladowo jêzyk: ""%s""):"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SELECTED_KEYWORD_LANGUAGES 
-                            "i18n Keyword language(s): %s"
+                            "Jêzyk slowa kluczowego: %s"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SELECTED_CIPHERTEXT_LANGUAGE 
-                            "i18n Ciphertext language: %s"
+                            "Jêzyk szyfrogramu: %s"
     IDS_STRING_SUBSTITUTION_WARNING_NO_STANDARD_ALPHABET 
-                            "i18n The algorithms implemented in CrypTool to analyze the Substitution encryption operate on a static alphabet (A-Z).\n\nThe current document contains characters which are not part of this static alphabet.\n\nPlease note that the results of the analysis may therefore be incorrect."
+                            "Algorytmy realizowane w CrypTool do analizowania szyfrowania zastêpstwa dzialajcy na statycznym alfabetcie (A-Z).\n\nNiniejszy dokument zawiera znaki, które nie sa czêscia tego statycznego alfabetu.\n\nNalezy pamiêtac, ze wyniki analizy moga byc blêdne."
     IDS_STRING_SECUDE_TICKET_MISSING 
-                            "i18n The Secude ticket could not be found."
+                            "Nie mozna znalesc ticket Secude."
     IDS_STRING_VALID_RANGE_OF_CHARACTERS_FOR_ENTROPY_TEST 
-                            "[i18n] Please define the number of bytes for the entropy test by entering an integer between %d and %d."
+                            "Proszê okreslic liczbê bajtów dla testu entropii wpisujac liczbê calkowita miêdzy %d i %d."
 END
 
 #endif    // Polish resources

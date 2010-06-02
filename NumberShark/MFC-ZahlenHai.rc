@@ -167,7 +167,7 @@ END
 
 IDD_SHOW_PRECALCULATED_SCORES_IN_DETAIL DIALOGEX 0, 0, 251, 200
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
-CAPTION "i18n Show precalculated scores in detail"
+CAPTION "Pokaz wczesniej obliczone wyniki szczególowe"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Close",IDOK,194,177,50,16
@@ -176,7 +176,7 @@ END
 
 IDD_SHOW_PRECALCULATED_SCORES DIALOGEX 0, 0, 250, 200
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "i18n Show precalculated scores"
+CAPTION "Pokaz wczesniej obliczone wyniki."
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Close",IDOK,193,177,50,16
@@ -490,7 +490,7 @@ BEGIN
     IDS_OPTIONS_SHOW_DIALOG "Poka¿ ""Opcje gry"" podczas nastêpnego startu programu."
     IDS_OPTIONS_SHOW_NUMBERS 
                             "Pamiêtaj ostatni¹ ca³kowit¹ liczbê ze stosu liczb przy nastêpnym uruchomieniu programu. "
-    IDS_OPTIONS_MAX_POINTS  "i18n Here you can calculate the maximum score for your selected number stack of %s numbers. But this might take a while...\r\n\r\nInstead, we could immediately show you the scores we have precalculated already."
+    IDS_OPTIONS_MAX_POINTS  "Tutaj mozesz obliczyc maksymalny wynik do zdobycia dla wybranego numeru stosu liczb s%. Ale moze to chwile potrwac ...\r\n\r\Zamiast tego, mozemy natychmiast pokazac wyniki ktore zostaly obliczone wczesniej."
     IDS_STRING_PT           ","
     IDS_MAX_POINTS_OLD      "Aby obliczyæ dla %s liczb najwiêksza sumê %s punktów\n\n program potrzebowa³ %s sekund. Musia³ przejœæ przez %s wêz³ów.\n\nNajwiêksz¹ liczb¹ pierwsz¹ tutaj jest %s. Powinieneœ rozpocz¹æ grê z t¹ liczb¹ pierwsz¹, aby osi¹gn¹æ maksymalny wynik.\n\n\n\nAby osi¹gn¹æ ten wynik, powinieneœ wybraæ liczby w tej kolejnoœci: %s.\n"
     IDS_TOOL_TIP_NUMBER     "Liczba: %s"
@@ -517,9 +517,9 @@ BEGIN
     IDS_RADIO_EDIT2         "Nie"
     IDS_TAB_HEADER1         "Witamy"
     IDS_TAB_HEADER2         "Standardowy"
-    IDS_TAB_HEADER3         "i18n Maximum score"
-    IDS_TAB_RADIO1          "i18n Calculate the maximum score."
-    IDS_TAB_RADIO2          "i18n Show the precalculated scores."
+    IDS_TAB_HEADER3         "Wynik maksymalny"
+    IDS_TAB_RADIO1          "Obliczenie maksymalnego wyniku."
+    IDS_TAB_RADIO2          "Pokaz wczesniej obliczone wyniki"
     IDS_SEARCH1             "NumberSharkSearch["
 END
 
@@ -565,22 +565,22 @@ BEGIN
     IDS_SEARCH_PROGRESS_TEXT_2 "Miniony czas: %d sekundy"
     IDS_ALGORITHM_BRUTE_FORCE "brute-force"
     IDS_ALGORITHM_BACK_TRACKING "back-tracking"
-    IDS_HEADING_NUMBER      "i18n Number"
-    IDS_HEADING_SCORE       "i18n Result"
+    IDS_HEADING_NUMBER      "Numer"
+    IDS_HEADING_SCORE       "Wynik"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_HEADING_PROVED      "i18n Result optimal?"
-    IDS_PROVED_YES          "i18n Proven"
-    IDS_PROVED_NO           "i18n Unknown"
+    IDS_HEADING_PROVED      "Optymalny rezultat?"
+    IDS_PROVED_YES          "Sprawdzony"
+    IDS_PROVED_NO           "Nieznany"
     IDS_SHOW_SEQUENCE_FOR_THIS_SPECIFIC_SCORE 
-                            "i18n If you choose the number %s, one way to achieve %s points is the following sequence:\n\n%s."
+                            "Jesli wybierzesz numer %s, jednym ze sposobów osiagniecia %s punktów nastepujacej kolejnosci:\n\n%s."
     IDS_PRECALCULATED_SCORES_INTRO 
-                            "i18n For numbers 1 through %d we know optimal ways to win.\r\nFor the higher numbers %d through %d we show the best known results already precalculated. However, we don't know whether these results from %d up are optimal."
-    IDS_NO_SCORE_SELECTED   "i18n Please select a result first."
-    IDS_HEADING_SEQUENCE_LENGTH "i18n Sequence length"
-    IDS_HEADING_SEQUENCE    "i18n Sequence"
+                            "Przy numerach od 1 do %d znamy najlepszych sposobów, aby wygrac.\r\nDla wiekszych liczb %d do %d pokazujemy najlepsze wyniki znane juz wczesniej. Jednak nie wiemy, czy te wyniki od %d w gore sa optymalne."
+    IDS_NO_SCORE_SELECTED   "Wpierw wybierz wynik."
+    IDS_HEADING_SEQUENCE_LENGTH "Dlugosc sekwencji"
+    IDS_HEADING_SEQUENCE    "Sekwencja"
 END
 
 #endif    // Polish resources
