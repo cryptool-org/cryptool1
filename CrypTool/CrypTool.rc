@@ -124,6 +124,8 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Wprowadzenie klucza: Hill"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
+    CONTROL         "Znaki alfabetu",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,95,132,79,10
+    CONTROL         "Wart. liczbowe",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON,95,146,63,10
     EDITTEXT        IDC_EDIT11,21,180,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT12,41,180,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT13,61,180,16,12,ES_CENTER
@@ -150,32 +152,6 @@ BEGIN
     EDITTEXT        IDC_EDIT54,81,249,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT55,101,249,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT36,134,180,16,12,ES_CENTER | ES_NUMBER
-    DEFPUSHBUTTON   "&Szyfruj",IDOK,5,352,63,19
-    PUSHBUTTON      "&Deszyfruj",IDC_BUTTON5,75,352,60,19
-    PUSHBUTTON      "&Anuluj",IDCANCEL,300,352,58,19
-    GROUPBOX        "Macierz kluczy Hilla",IDC_STATIC,15,168,109,100
-    GROUPBOX        "Rozmiar",IDC_STATIC,254,180,104,139
-    CONTROL         "&1 x 1",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,277,198,31,10
-    CONTROL         "&2 x 2",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,277,216,31,10
-    CONTROL         "&3 x 3",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,277,234,31,10
-    CONTROL         "&4 x 4",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,277,252,31,10
-    CONTROL         "&5 x 5",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,277,270,31,10
-    PUSHBUTTON      "&Klucz losowy",IDC_BUTTON3,73,287,81,18
-    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,158,288,22,20
-    PUSHBUTTON      "&D³u¿szy klucz",IDC_BUTTON4,267,295,59,18
-    EDITTEXT        IDC_EDIT1,329,177,19,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
-    CONTROL         "Detale wyjœciowe macierzy kluczy Hilla",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,98,329,166,9
-    GROUPBOX        "Opis",IDC_STATIC,5,4,352,64
-    LTEXT           "Szyfr Hilla jest poligraficznym szyfrem zamiany opartym na algebrze liniowej.",IDC_STATIC,11,17,321,8
-    LTEXT           "By³ pierwszym szyfrem poligraficznym, w którym praktyczne by³o operowanie na grupach liter zawieraj¹cych ",IDC_STATIC,11,28,326,8
-    LTEXT           "wiêcej ni¿ trzy znaki.",IDC_STATIC,11,39,314,8
-    LTEXT           "D³ugoœæ grupy liter tekstu jawnego jest rozmiarem macierzy kwadratowej.",IDC_STATIC,11,50,316,8
-    GROUPBOX        "Informacje o szyfrowaniu",IDC_STATIC_HILL_ALPH,5,74,352,35
-    EDITTEXT        IDC_EDIT3,12,87,338,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
-    CONTROL         "Znaki alfabetu",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,95,132,79,10
-    CONTROL         "Wart. liczbowe",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON,95,146,63,10
-    GROUPBOX        "Macierz kluczy Hilla",IDC_STATIC,5,115,243,204
     EDITTEXT        IDC_EDIT37,154,180,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT38,174,180,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT40,194,180,16,12,ES_CENTER | ES_NUMBER
@@ -200,12 +176,36 @@ BEGIN
     EDITTEXT        IDC_EDIT69,174,249,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT65,194,249,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT66,214,249,16,12,ES_CENTER | ES_NUMBER
-    GROUPBOX        "Wartoœci liczbowe",IDC_STATIC,128,168,109,100
-    GROUPBOX        "Wariant mno¿enia",IDC_STATIC,254,115,103,50
+    PUSHBUTTON      "&Klucz losowy",IDC_BUTTON3,73,287,81,18
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,158,288,22,20
     CONTROL         "(wekt. wiersza)*(macierz)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,262,128,93,10
     CONTROL         "(mac.)*(wektor kolumny)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,262,145,93,10
+    CONTROL         "&1 x 1",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,277,198,31,10
+    CONTROL         "&2 x 2",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,277,216,31,10
+    CONTROL         "&3 x 3",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,277,234,31,10
+    CONTROL         "&4 x 4",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,277,252,31,10
+    CONTROL         "&5 x 5",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,277,270,31,10
+    PUSHBUTTON      "&D³u¿szy klucz",IDC_BUTTON4,267,295,59,18
+    CONTROL         "Detale wyjœciowe macierzy kluczy Hilla",IDC_CHECK1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,98,329,166,9
+    DEFPUSHBUTTON   "&Szyfruj",IDOK,5,352,63,19
+    PUSHBUTTON      "&Deszyfruj",IDC_BUTTON5,75,352,60,19
     PUSHBUTTON      "Opcje Hilla",IDC_BUTTON1,155,352,60,19
     PUSHBUTTON      "&Opcje tekstu",IDC_BUTTON_TEXTOPTIONS,225,352,60,19
+    PUSHBUTTON      "&Anuluj",IDCANCEL,300,352,58,19
+    GROUPBOX        "Macierz kluczy Hilla",IDC_STATIC,15,168,109,100
+    GROUPBOX        "Rozmiar",IDC_STATIC,254,180,104,139
+    EDITTEXT        IDC_EDIT1,329,177,19,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
+    GROUPBOX        "Opis",IDC_STATIC,5,4,352,64
+    LTEXT           "Szyfr Hilla jest poligraficznym szyfrem zamiany opartym na algebrze liniowej.",IDC_STATIC,11,17,321,8
+    LTEXT           "By³ pierwszym szyfrem poligraficznym, w którym praktyczne by³o operowanie na grupach liter zawieraj¹cych ",IDC_STATIC,11,28,326,8
+    LTEXT           "wiêcej ni¿ trzy znaki.",IDC_STATIC,11,39,314,8
+    LTEXT           "D³ugoœæ grupy liter tekstu jawnego jest rozmiarem macierzy kwadratowej.",IDC_STATIC,11,50,316,8
+    GROUPBOX        "Informacje o szyfrowaniu",IDC_STATIC_HILL_ALPH,5,74,352,35
+    EDITTEXT        IDC_EDIT3,12,87,338,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    GROUPBOX        "Macierz kluczy Hilla",IDC_STATIC,5,115,243,204
+    GROUPBOX        "Wartoœci liczbowe",IDC_STATIC,128,168,109,100
+    GROUPBOX        "Wariant mno¿enia",IDC_STATIC,254,115,103,50
 END
 
 IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 354
@@ -11193,6 +11193,8 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Unos Kljuca: Hill"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
+    CONTROL         "Karakteri alfabeta",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,95,132,79,10
+    CONTROL         "Brojne vrednosti",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON,95,146,63,10
     EDITTEXT        IDC_EDIT11,21,180,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT12,41,180,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT13,61,180,16,12,ES_CENTER
@@ -11219,32 +11221,6 @@ BEGIN
     EDITTEXT        IDC_EDIT54,81,249,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT55,101,249,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT36,134,180,16,12,ES_CENTER | ES_NUMBER
-    DEFPUSHBUTTON   "&Zašifruj",IDOK,5,352,63,19
-    PUSHBUTTON      "&Dešifruj",IDC_BUTTON5,75,352,60,19
-    PUSHBUTTON      "&Otkaži",IDCANCEL,300,352,58,19
-    GROUPBOX        "Karakteri alfabeta",IDC_STATIC,15,168,109,100
-    GROUPBOX        "Velicina matrice",IDC_STATIC,254,180,104,139
-    CONTROL         "&1 x 1",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,277,198,31,10
-    CONTROL         "&2 x 2",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,277,216,31,10
-    CONTROL         "&3 x 3",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,277,234,31,10
-    CONTROL         "&4 x 4",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,277,252,31,10
-    CONTROL         "&5 x 5",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,277,270,31,10
-    PUSHBUTTON      "Generiši &nasumicni kljuc",IDC_BUTTON3,73,287,81,18
-    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,158,288,22,20
-    PUSHBUTTON      "&Veca matrica",IDC_BUTTON4,267,295,59,18
-    EDITTEXT        IDC_EDIT1,329,177,19,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
-    CONTROL         "Prikaži detalje i pojedinacne korake Hill-ove šifre",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,98,329,166,9
-    GROUPBOX        "Opis",IDC_STATIC,5,4,352,64
-    LTEXT           "Hill-ova šifra je poligraficka zamenska šifra zasnovana na linearnoj algebri.",IDC_STATIC,11,17,321,8
-    LTEXT           "Ovo je bila prva poligraficka šifra, sa kojom je bilo prakticno manipulisati nad grupom slova koja sadrži",IDC_STATIC,11,28,326,8
-    LTEXT           "više od tri slova.",IDC_STATIC,11,39,314,8
-    LTEXT           "Dužina grupe slova otvoreni tekst je velicina kvadratne matrice.",IDC_STATIC,11,50,316,8
-    GROUPBOX        "Informacija za šifrovanje",IDC_STATIC_HILL_ALPH,5,74,352,35
-    EDITTEXT        IDC_EDIT3,12,87,338,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
-    CONTROL         "Karakteri alfabeta",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,95,132,79,10
-    CONTROL         "Brojne vrednosti",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON,95,146,63,10
-    GROUPBOX        "Hill-ova kljucna matrica",IDC_STATIC,5,115,243,204
     EDITTEXT        IDC_EDIT37,154,180,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT38,174,180,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT40,194,180,16,12,ES_CENTER | ES_NUMBER
@@ -11269,12 +11245,36 @@ BEGIN
     EDITTEXT        IDC_EDIT69,174,249,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT65,194,249,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT66,214,249,16,12,ES_CENTER | ES_NUMBER
-    GROUPBOX        "Brojne vrednosti",IDC_STATIC,128,168,109,100
-    GROUPBOX        "Varijansa umnožavanja",IDC_STATIC,254,115,103,50
+    PUSHBUTTON      "Generiši &nasumicni kljuc",IDC_BUTTON3,73,287,81,18
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,158,288,22,20
     CONTROL         "(vektor reda) * (matrica)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,262,128,82,10
     CONTROL         "(matrica) * (vektor kolone)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,262,145,93,10
+    CONTROL         "&1 x 1",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,277,198,31,10
+    CONTROL         "&2 x 2",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,277,216,31,10
+    CONTROL         "&3 x 3",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,277,234,31,10
+    CONTROL         "&4 x 4",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,277,252,31,10
+    CONTROL         "&5 x 5",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,277,270,31,10
+    PUSHBUTTON      "&Veca matrica",IDC_BUTTON4,267,295,59,18
+    CONTROL         "Prikaži detalje i pojedinacne korake Hill-ove šifre",IDC_CHECK1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,98,329,166,9
+    DEFPUSHBUTTON   "&Zašifruj",IDOK,5,352,63,19
+    PUSHBUTTON      "&Dešifruj",IDC_BUTTON5,75,352,60,19
     PUSHBUTTON      "Hill-ove opcije",IDC_BUTTON1,155,352,60,19
     PUSHBUTTON      "&Opcije za tekst",IDC_BUTTON_TEXTOPTIONS,225,352,60,19
+    PUSHBUTTON      "&Otkaži",IDCANCEL,300,352,58,19
+    GROUPBOX        "Karakteri alfabeta",IDC_STATIC,15,168,109,100
+    GROUPBOX        "Velicina matrice",IDC_STATIC,254,180,104,139
+    EDITTEXT        IDC_EDIT1,329,177,19,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
+    GROUPBOX        "Opis",IDC_STATIC,5,4,352,64
+    LTEXT           "Hill-ova šifra je poligraficka zamenska šifra zasnovana na linearnoj algebri.",IDC_STATIC,11,17,321,8
+    LTEXT           "Ovo je bila prva poligraficka šifra, sa kojom je bilo prakticno manipulisati nad grupom slova koja sadrži",IDC_STATIC,11,28,326,8
+    LTEXT           "više od tri slova.",IDC_STATIC,11,39,314,8
+    LTEXT           "Dužina grupe slova otvoreni tekst je velicina kvadratne matrice.",IDC_STATIC,11,50,316,8
+    GROUPBOX        "Informacija za šifrovanje",IDC_STATIC_HILL_ALPH,5,74,352,35
+    EDITTEXT        IDC_EDIT3,12,87,338,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    GROUPBOX        "Hill-ova kljucna matrica",IDC_STATIC,5,115,243,204
+    GROUPBOX        "Brojne vrednosti",IDC_STATIC,128,168,109,100
+    GROUPBOX        "Varijansa umnožavanja",IDC_STATIC,254,115,103,50
 END
 
 IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 306
@@ -22231,6 +22231,8 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe: Hill"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
+    CONTROL         "Alphabetzeichen",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON | WS_GROUP,92,214,69,10
+    CONTROL         "Zahlenwerte",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON,92,231,55,10
     EDITTEXT        IDC_EDIT11,21,264,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT12,41,264,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT13,61,264,16,12,ES_CENTER
@@ -22257,22 +22259,6 @@ BEGIN
     EDITTEXT        IDC_EDIT54,81,331,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT55,101,331,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT36,135,263,16,12,ES_CENTER | ES_NUMBER
-    GROUPBOX        "Alphabetzeichen",IDC_STATIC,14,251,110,101
-    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,5,419,63,19
-    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON5,75,419,60,19
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,300,419,53,19
-    CONTROL         "&1 x 1",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,277,274,31,10
-    CONTROL         "&2 x 2",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,277,292,31,10
-    CONTROL         "&3 x 3",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,277,310,31,10
-    CONTROL         "&4 x 4",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,277,328,31,10
-    CONTROL         "&5 x 5",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,277,346,31,10
-    PUSHBUTTON      "&Zufälligen Schlüssel erzeugen",IDC_BUTTON3,62,369,106,18
-    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,171,371,22,20
-    PUSHBUTTON      "&Größere Matrix",IDC_BUTTON4,264,371,70,18
-    GROUPBOX        "Dimension",IDC_STATIC,254,252,99,142
-    EDITTEXT        IDC_EDIT1,317,250,19,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE | NOT WS_TABSTOP
-    CONTROL         "Details und Zwischenschritte der Hill-Verschlüsselung ausgeben",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,73,398,229,9
     EDITTEXT        IDC_EDIT37,155,263,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT38,175,263,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT40,195,263,16,12,ES_CENTER | ES_NUMBER
@@ -22297,13 +22283,31 @@ BEGIN
     EDITTEXT        IDC_EDIT69,175,332,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT65,195,332,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT66,215,332,16,12,ES_CENTER | ES_NUMBER
+    PUSHBUTTON      "&Zufälligen Schlüssel erzeugen",IDC_BUTTON3,62,369,106,18
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,171,371,22,20
+    CONTROL         "(Vektorreihe) * (Matrix)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,261,209,85,10
+    CONTROL         "(Matrix) * (Vektorspalte)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,261,222,89,10
+    CONTROL         "&1 x 1",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,277,274,31,10
+    CONTROL         "&2 x 2",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,277,292,31,10
+    CONTROL         "&3 x 3",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,277,310,31,10
+    CONTROL         "&4 x 4",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,277,328,31,10
+    CONTROL         "&5 x 5",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,277,346,31,10
+    PUSHBUTTON      "&Größere Matrix",IDC_BUTTON4,264,371,70,18
+    CONTROL         "Details und Zwischenschritte der Hill-Verschlüsselung ausgeben",IDC_CHECK1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,73,398,229,9
+    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,5,419,63,19
+    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON5,75,419,60,19
+    PUSHBUTTON      "Hill-Optionen",IDC_BUTTON1,155,419,60,19
+    PUSHBUTTON      "&Textoptionen",IDC_BUTTON_TEXTOPTIONS,225,419,60,19
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,300,419,53,19
+    GROUPBOX        "Alphabetzeichen",IDC_STATIC,14,251,110,101
+    GROUPBOX        "Dimension",IDC_STATIC,254,252,99,142
+    EDITTEXT        IDC_EDIT1,317,250,19,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE | NOT WS_TABSTOP
     GROUPBOX        "Zahlenwerte",IDC_STATIC,129,251,109,100
     GROUPBOX        "Informationen zur Verschlüsselung",IDC_STATIC_HILL_ALPH,6,153,347,35
     EDITTEXT        IDC_EDIT3,12,166,323,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     GROUPBOX        "Beschreibung",IDC_STATIC,6,4,347,142
     GROUPBOX        "Hill-Schlüsselmatrix",IDC_STATIC,5,196,243,198
-    CONTROL         "Alphabetzeichen",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON | WS_GROUP,92,214,69,10
-    CONTROL         "Zahlenwerte",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON,92,231,55,10
     LTEXT           "Der Klartextblock wird also als Zeilen- oder Spaltenvektor benutzt.",IDC_STATIC,15,75,208,8
     LTEXT           "Dabei wird die Schlüsselmatrix linear von links oder von rechts mit Klartextblöcken multipliziert.",IDC_STATIC,15,65,294,8
     LTEXT           "Bei der Verschlüsselung werden nur die Zahlenwerte der Alphabetzeichen verwendet:",IDC_STATIC,15,55,315,8
@@ -22312,16 +22316,12 @@ BEGIN
     LTEXT           "Dies war die erste polygraphische Substitutionsverschlüsselung, bei der man die Einzeloperationen auch",IDC_STATIC,15,25,328,8
     LTEXT           "Die Hill-Chiffre ist eine polygraphische Substitutionsverschlüsselung, die auf Linearer Algebra basiert.",IDC_STATIC,15,15,321,8
     GROUPBOX        "Multiplikationsart",IDC_STATIC,254,196,99,41
-    CONTROL         "(Vektorreihe) * (Matrix)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,261,209,85,10
-    CONTROL         "(Matrix) * (Vektorspalte)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,261,222,89,10
     LTEXT           "Die Schlüsselmatrix können Sie entweder mit Zeichen des Alphabets oder mit Zahlenwerten füllen. Die",IDC_STATIC,15,85,322,8
     LTEXT           "jeweils andere Matrixansicht wird sofort synchron aktualisiert. Dabei hat das erste Alphabetzeichen den",IDC_STATIC,15,95,323,8
     LTEXT           "Wert 1. Um das Chiffrat wieder entschlüsseln zu können, müssen die Zahlenwerte der Matrix so gewählt",IDC_STATIC,15,105,326,8
     LTEXT           "sein, das die Matrix invertierbar ist.",IDC_STATIC,15,115,108,8
     LTEXT           "Sie können sich die Schlüsselmatrix auch per Buttonklick so mit zufälligen Werten füllen lassen, dass die",IDC_STATIC,15,125,328,8
     LTEXT           "Invertierbarkeit erfüllt ist.",IDC_STATIC,15,135,77,8
-    PUSHBUTTON      "Hill-Optionen",IDC_BUTTON1,155,419,60,19
-    PUSHBUTTON      "&Textoptionen",IDC_BUTTON_TEXTOPTIONS,225,419,60,19
 END
 
 IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 355
@@ -33278,6 +33278,8 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry: Hill"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
+    CONTROL         "Alphabet characters",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,95,132,79,10
+    CONTROL         "Number values",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON,95,146,63,10
     EDITTEXT        IDC_EDIT11,21,180,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT12,41,180,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT13,61,180,16,12,ES_CENTER
@@ -33304,31 +33306,6 @@ BEGIN
     EDITTEXT        IDC_EDIT54,81,249,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT55,101,249,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT36,134,180,16,12,ES_CENTER | ES_NUMBER
-    DEFPUSHBUTTON   "&Encrypt",IDOK,5,352,63,19
-    PUSHBUTTON      "&Decrypt",IDC_BUTTON5,75,352,60,19
-    PUSHBUTTON      "&Cancel",IDCANCEL,300,352,58,19
-    GROUPBOX        "Alphabet characters",IDC_STATIC,15,168,109,100
-    GROUPBOX        "Size of matrix",IDC_STATIC,254,180,104,139
-    CONTROL         "&1 x 1",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,277,198,31,10
-    CONTROL         "&2 x 2",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,277,216,31,10
-    CONTROL         "&3 x 3",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,277,234,31,10
-    CONTROL         "&4 x 4",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,277,252,31,10
-    CONTROL         "&5 x 5",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,277,270,31,10
-    PUSHBUTTON      "Generate &random key",IDC_BUTTON3,73,287,81,18
-    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,158,288,22,20
-    PUSHBUTTON      "&Larger matrix",IDC_BUTTON4,267,295,59,18
-    EDITTEXT        IDC_EDIT1,329,177,19,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
-    CONTROL         "Show details and single steps of the Hill cipher",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,98,329,166,9
-    GROUPBOX        "Description",IDC_STATIC,5,4,352,64
-    LTEXT           "The Hill cipher is a polygraphic substitution cipher based on linear algebra.",IDC_STATIC,11,17,321,8
-    LTEXT           "This was the first polygraphic cipher in which it was practical to operate on more than three letters at once.",IDC_STATIC,11,33,338,8
-    LTEXT           "The length of the group of cleartext letters is the size of the quadratic matrix.",IDC_STATIC,11,50,316,8
-    GROUPBOX        "Information for encryption",IDC_STATIC_HILL_ALPH,5,74,352,35
-    EDITTEXT        IDC_EDIT3,12,87,338,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
-    CONTROL         "Alphabet characters",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,95,132,79,10
-    CONTROL         "Number values",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON,95,146,63,10
-    GROUPBOX        "Hill key matrix",IDC_STATIC,5,115,243,204
     EDITTEXT        IDC_EDIT37,154,180,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT38,174,180,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT40,194,180,16,12,ES_CENTER | ES_NUMBER
@@ -33353,12 +33330,35 @@ BEGIN
     EDITTEXT        IDC_EDIT69,174,249,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT65,194,249,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT66,214,249,16,12,ES_CENTER | ES_NUMBER
-    GROUPBOX        "Number values",IDC_STATIC,128,168,109,100
-    GROUPBOX        "Multiplication variant",IDC_STATIC,254,115,103,50
+    PUSHBUTTON      "Generate &random key",IDC_BUTTON3,73,287,81,18
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,158,288,22,20
     CONTROL         "(row vector) * (matrix)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,262,128,82,10
     CONTROL         "(matrix) * (column vector)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,262,145,93,10
+    CONTROL         "&1 x 1",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,277,198,31,10
+    CONTROL         "&2 x 2",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,277,216,31,10
+    CONTROL         "&3 x 3",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,277,234,31,10
+    CONTROL         "&4 x 4",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,277,252,31,10
+    CONTROL         "&5 x 5",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,277,270,31,10
+    PUSHBUTTON      "&Larger matrix",IDC_BUTTON4,267,295,59,18
+    CONTROL         "Show details and single steps of the Hill cipher",IDC_CHECK1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,98,329,166,9
+    DEFPUSHBUTTON   "&Encrypt",IDOK,5,352,63,19
+    PUSHBUTTON      "&Decrypt",IDC_BUTTON5,75,352,60,19
     PUSHBUTTON      "Hill options",IDC_BUTTON1,155,352,60,19
     PUSHBUTTON      "&Text options",IDC_BUTTON_TEXTOPTIONS,225,352,60,19
+    PUSHBUTTON      "&Cancel",IDCANCEL,300,352,58,19
+    GROUPBOX        "Alphabet characters",IDC_STATIC,15,168,109,100
+    GROUPBOX        "Size of matrix",IDC_STATIC,254,180,104,139
+    EDITTEXT        IDC_EDIT1,329,177,19,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
+    GROUPBOX        "Description",IDC_STATIC,5,4,352,64
+    LTEXT           "The Hill cipher is a polygraphic substitution cipher based on linear algebra.",IDC_STATIC,11,17,321,8
+    LTEXT           "This was the first polygraphic cipher in which it was practical to operate on more than three letters at once.",IDC_STATIC,11,33,338,8
+    LTEXT           "The length of the group of cleartext letters is the size of the quadratic matrix.",IDC_STATIC,11,50,316,8
+    GROUPBOX        "Information for encryption",IDC_STATIC_HILL_ALPH,5,74,352,35
+    EDITTEXT        IDC_EDIT3,12,87,338,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    GROUPBOX        "Hill key matrix",IDC_STATIC,5,115,243,204
+    GROUPBOX        "Number values",IDC_STATIC,128,168,109,100
+    GROUPBOX        "Multiplication variant",IDC_STATIC,254,115,103,50
 END
 
 IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 355
@@ -45917,6 +45917,8 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Entrada de Clave: Algoritmo de Hill"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
+    CONTROL         "Caracteres del Alfabeto",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,95,132,89,10
+    CONTROL         "Valores Numéricos",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON,95,146,75,10
     EDITTEXT        IDC_EDIT11,21,180,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT12,41,180,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT13,61,180,16,12,ES_CENTER
@@ -45943,31 +45945,6 @@ BEGIN
     EDITTEXT        IDC_EDIT54,81,249,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT55,101,249,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT36,134,180,16,12,ES_CENTER | ES_NUMBER
-    DEFPUSHBUTTON   "Ci&frar",IDOK,5,352,63,19
-    PUSHBUTTON      "&Descifrar",IDC_BUTTON5,75,352,60,19
-    PUSHBUTTON      "&Cancelar",IDCANCEL,300,352,58,19
-    GROUPBOX        "Caracteres del Alfabeto",-1,15,168,109,100
-    GROUPBOX        "Tamaño de la Matriz",-1,254,180,104,139
-    CONTROL         "&1 x 1",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,277,198,31,10
-    CONTROL         "&2 x 2",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,277,216,31,10
-    CONTROL         "&3 x 3",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,277,234,31,10
-    CONTROL         "&4 x 4",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,277,252,31,10
-    CONTROL         "&5 x 5",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,277,270,31,10
-    PUSHBUTTON      "Generar Clave &Aleatoria",IDC_BUTTON3,73,287,81,18
-    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,158,288,22,20
-    PUSHBUTTON      "Matriz más &Grande",IDC_BUTTON4,267,295,67,18
-    EDITTEXT        IDC_EDIT1,329,177,19,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
-    CONTROL         "Mostrar detalles y pasos del proceso de cifrado Hill",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,98,329,166,9
-    GROUPBOX        "Descripción",-1,5,4,352,69
-    LTEXT           "El cifrado de Hill es un cifrado por sustitución polialfabético basado en álgebra lineal.",-1,11,17,321,8
-    LTEXT           "Fue el primer sistema criptográfico polialfabético que era práctico para trabajar con más de tres símbolos simultáneamente.",-1,11,28,341,20
-    LTEXT           "Se divide el texto en bloques de d elementos que son tratados como vectores d-dimensionales. La clave es una matriz aleatoria d x d inversible en Z_26",-1,10,49,316,18
-    GROUPBOX        "Información para cifrar",IDC_STATIC_HILL_ALPH,4,77,352,35
-    EDITTEXT        IDC_EDIT3,12,87,338,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
-    CONTROL         "Caracteres del Alfabeto",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,95,132,89,10
-    CONTROL         "Valores Numéricos",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON,95,146,75,10
-    GROUPBOX        "Matriz Clave",-1,5,115,243,204
     EDITTEXT        IDC_EDIT37,154,180,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT38,174,180,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT40,194,180,16,12,ES_CENTER | ES_NUMBER
@@ -45992,12 +45969,35 @@ BEGIN
     EDITTEXT        IDC_EDIT69,174,249,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT65,194,249,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT66,214,249,16,12,ES_CENTER | ES_NUMBER
-    GROUPBOX        "Valores Numéricos",-1,128,168,109,100
-    GROUPBOX        "Variantes",-1,254,115,103,50
+    PUSHBUTTON      "Generar Clave &Aleatoria",IDC_BUTTON3,73,287,81,18
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,158,288,22,20
     CONTROL         "(vector fila) * (matriz)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,257,129,79,10
     CONTROL         "(matriz) * (vector columna )",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,257,145,99,10
+    CONTROL         "&1 x 1",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,277,198,31,10
+    CONTROL         "&2 x 2",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,277,216,31,10
+    CONTROL         "&3 x 3",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,277,234,31,10
+    CONTROL         "&4 x 4",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,277,252,31,10
+    CONTROL         "&5 x 5",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,277,270,31,10
+    PUSHBUTTON      "Matriz más &Grande",IDC_BUTTON4,267,295,67,18
+    CONTROL         "Mostrar detalles y pasos del proceso de cifrado Hill",IDC_CHECK1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,98,329,166,9
+    DEFPUSHBUTTON   "Ci&frar",IDOK,5,352,63,19
+    PUSHBUTTON      "&Descifrar",IDC_BUTTON5,75,352,60,19
     PUSHBUTTON      "Opciones Hill",IDC_BUTTON1,155,352,60,19
     PUSHBUTTON      "Opciones de &Texto",IDC_BUTTON_TEXTOPTIONS,225,352,64,19
+    PUSHBUTTON      "&Cancelar",IDCANCEL,300,352,58,19
+    GROUPBOX        "Caracteres del Alfabeto",-1,15,168,109,100
+    GROUPBOX        "Tamaño de la Matriz",-1,254,180,104,139
+    EDITTEXT        IDC_EDIT1,329,177,19,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
+    GROUPBOX        "Descripción",-1,5,4,352,69
+    LTEXT           "El cifrado de Hill es un cifrado por sustitución polialfabético basado en álgebra lineal.",-1,11,17,321,8
+    LTEXT           "Fue el primer sistema criptográfico polialfabético que era práctico para trabajar con más de tres símbolos simultáneamente.",-1,11,28,341,20
+    LTEXT           "Se divide el texto en bloques de d elementos que son tratados como vectores d-dimensionales. La clave es una matriz aleatoria d x d inversible en Z_26",-1,10,49,316,18
+    GROUPBOX        "Información para cifrar",IDC_STATIC_HILL_ALPH,4,77,352,35
+    EDITTEXT        IDC_EDIT3,12,87,338,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    GROUPBOX        "Matriz Clave",-1,5,115,243,204
+    GROUPBOX        "Valores Numéricos",-1,128,168,109,100
+    GROUPBOX        "Variantes",-1,254,115,103,50
 END
 
 IDD_KEY_HOMOPHONE DIALOGEX 0, 0, 394, 418
