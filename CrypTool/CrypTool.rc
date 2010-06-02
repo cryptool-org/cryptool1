@@ -55358,7 +55358,7 @@ BEGIN
     IDS_STRING_SECUDE_TICKET_MISSING 
                             "El Ticket Secude no pudo ser encontrado."
     IDS_STRING_VALID_RANGE_OF_CHARACTERS_FOR_ENTROPY_TEST 
-                            "[i18n] Please define the number of bytes for the entropy test by entering an integer between %d and %d."
+                            "Por favor, defina el número de bytes para el test de entropía. Ingrese un número entero entre %d y %d."
 END
 
 #endif    // Spanish resources
