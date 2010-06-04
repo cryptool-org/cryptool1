@@ -397,67 +397,33 @@ BOOL CCrypToolApp::InitInstance()
 	// Es soll zunächst der (komplette) Pfad der Anwendung herausgefunden werden.
 	// Hierzu muß unterschieden werden, ob die Anwendung von der Kommandozeile oder
 	// aus dem Explorer (oder einer ähnlichen Anwendung) heraus aufgerufen wird.
-	
 	CString Pfad2=GetCommandLine();
 	
-	// AfxMessageBox (Pfad2);
-
+	if (Pfad2[0] == '"') {
+		int pos = 0;
+		Pfad2 = Pfad2.Tokenize("\"", pos);
+	} else {
+		int pos = 0;
+		Pfad2 = Pfad2.Tokenize(" ", pos);
+	}
 	if (Pfad2.Find("\\")==-1){  // Es liegt noch kein kompletter Pfad vor
 		// Pfad2.Find(":\\") wurde geändert in Pfad2.Find("\\"), da bei Programmaufrufen
 		// über das Netz ein falscher Pfad angegeben wurde.
 		// Setze den Pfad aus GetCommandLine() und GetCurrentDirectory zusammen
-		char* Pfad3=(char*)malloc(100);
-		GetCurrentDirectory(99,Pfad3);
-		CString Pfad4=(CString)Pfad3;
-	
-		// AfxMessageBox (Pfad3);
-
-		free (Pfad3);
+		CString Pfad3;
+		TCHAR tmp[4096] = { 0 };
+		GetCurrentDirectory(sizeof(tmp)-1, tmp);
+		Pfad3 = tmp;
 		// Setze den Pfad zusammen
-		Pfad2=Pfad4+"\\"+Pfad2;
-
-		// AfxMessageBox (Pfad2);
-
-		// Schneide das führende Hochkomma (") weg
-		Pfad2=Pfad2.Left(Pfad2.ReverseFind(92)+1);
-
-		// AfxMessageBox (Pfad2);
-
+		Pfad2=Pfad3+ "\\" + Pfad2;
 	}
-	else{						// GetCommandLine hat bereits den kompletten Pfad geliefert
-		// Schneide den Anwendungsnamen weg (nur der Pfad interessiert uns)
-		Pfad2=Pfad2.Left(Pfad2.ReverseFind(92)+1);
-
-		// AfxMessageBox (Pfad2);
-
-		// Schneide das führende Hochkomma (") weg
-		Pfad2.SetAt(0,' ');
-		Pfad2.TrimLeft();
-	
-		// AfxMessageBox (Pfad2);
-
-	}
-
-	// Umwandeln der Baskslashes in Slashes
-	for (int i=0;i<Pfad2.GetLength();i++){
-		if (Pfad2[i]==92){
-			Pfad2.SetAt(i,47);}
-	}
-
-	// AfxMessageBox (Pfad2);
-	
-	//Die beiden folgenden Zeilen müssen für die endgültige Toolkit-Version (andere
-	//Verzeichnisstruktur) herausgenommen werden!!!
-	//Pfad2=Pfad2.Left(Pfad2.ReverseFind(92));
-	//Pfad2=Pfad2.Left(Pfad2.ReverseFind(92));
+	// Schneide den Anwendungsnamen weg (nur der Pfad interessiert uns)
+	Pfad2=Pfad2.Left(Pfad2.ReverseFind('\\')+1);
 
 	//Kopieren des Inhalts von CString Pfad2 nach char *Pfad
 	LPTSTR help1 = new TCHAR[Pfad2.GetLength()+1];
 	
-	Pfad2.Replace("/","\\"); //change Slashes to ensure Vista compatibility
-	
 	_tcscpy(help1, Pfad2);
-
 	
 	Pfad=help1;
 	TextOptions.SetDefaultOptions();
@@ -783,13 +749,17 @@ BOOL CCrypToolApp::InitInstance()
 
 ///////////////// LOCAL REGISTRY SETTINGS
 	// OPEN SAMPLE FILE
-	if(flagOpenSampleFile)
+	if(flagOpenSampleFile || !cmdInfo.m_strFileName.IsEmpty())
 	{
 		FILE *f;
 		CString filename = Pfad, help;
 
-		help.LoadString(IDS_STRING_SAMPLE_FILE);
-		filename = filename + help;
+		if (!cmdInfo.m_strFileName.IsEmpty())
+			filename = cmdInfo.m_strFileName;
+		else {
+			help.LoadString(IDS_STRING_SAMPLE_FILE);
+			filename = filename + help;
+		}
 		if(f = fopen(filename, "r"))	// öffnet die Beispiel-Datei, sofern sie gefunden wurde
 		{
 			fclose(f);
