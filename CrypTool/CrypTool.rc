@@ -1479,7 +1479,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analiza Brutalnej Si³y"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    COMBOBOX        IDC_KEY_LEN,56,78,96,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_KEY_LEN,56,78,110,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,10,97,257,24,ES_MULTILINE
     DEFPUSHBUTTON   "&Start",IDOK,10,131,68,17
     PUSHBUTTON      "&Anuluj",IDCANCEL,199,131,68,17
@@ -2288,7 +2288,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Demonstracja funkcji haszuj¹cej"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    GROUPBOX        "Wybór funkcji mieszaj¹cej",IDC_STATIC,16,47,100,41
+    GROUPBOX        "Wybór funkcji mieszaj¹cej",IDC_STATIC,16,47,115,41
     GROUPBOX        "Podstawa wartoœci hasz",IDC_STATIC,136,47,184,41
     CONTROL         "&dec",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | WS_GROUP,222,70,40,10
     CONTROL         "&hex",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,154,70,55,10
@@ -2302,7 +2302,7 @@ BEGIN
     LTEXT           "Ró¿nica pomiêdzy wartoœæiami hasz plików: oryginalnego i aktualnego",IDC_STATIC,16,296,252,8
     PUSHBUTTON      "Wyjœcie",IDCANCEL,230,379,90,18
     CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",TCS_RAGGEDRIGHT | TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | WS_VSCROLL | WS_TABSTOP,16,308,304,64
-    COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,23,67,88,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,23,67,100,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Wybierz funkcjê haszuj¹c¹ i potem zmieñ kopiê oryginalnego pliku (pole ""Aktualny dokument"") Poni¿ej mo¿esz zobaczyæ, jak wiele bitów wartoœci hasz zmieni³o siê po tym, jak dokona³eœ zmian w kopi.",IDC_STATIC,31,12,279,24
     GROUPBOX        "Opis",IDC_STATIC,16,2,304,40
     RTEXT           "-",IDC_STATIC,19,28,8,8,0,WS_EX_TRANSPARENT
@@ -2387,7 +2387,7 @@ BEGIN
     DEFPUSHBUTTON   "&Szyfruj",IDC_ENCRYPT,10,79,58,19
     PUSHBUTTON      "&Deszyfruj",IDC_DECRYPT,126,79,57,19
     PUSHBUTTON      "&Anuluj",IDCANCEL,245,79,55,19
-    COMBOBOX        IDC_KEY_LEN,51,24,95,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_KEY_LEN,51,24,110,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "WprowadŸ klucz u¿ywaj¹c wartoœci hexsadecymalnych  (09, AF).",IDC_MESSAGE,10,10,290,9
     LTEXT           "D³ugoœæ klucza:",IDC_STATIC,10,28,36,8
 END
@@ -11069,8 +11069,7 @@ BEGIN
                             "Jêzyk szyfrogramu: %s"
     IDS_STRING_SUBSTITUTION_WARNING_NO_STANDARD_ALPHABET 
                             "Algorytmy realizowane w CrypTool do analizowania szyfrowania zastêpstwa dzialajcy na statycznym alfabetcie (A-Z).\n\nNiniejszy dokument zawiera znaki, które nie sa czêscia tego statycznego alfabetu.\n\nNalezy pamiêtac, ze wyniki analizy moga byc blêdne."
-    IDS_STRING_SECUDE_TICKET_MISSING 
-                            "Nie mozna znalesc ticket Secude."
+    IDS_STRING_SECUDE_TICKET_MISSING "Nie mozna znalesc ticket Secude."
     IDS_STRING_VALID_RANGE_OF_CHARACTERS_FOR_ENTROPY_TEST 
                             "Proszê okreslic liczbê bajtów dla testu entropii wpisujac liczbê calkowita miêdzy %d i %d."
 END
@@ -12551,7 +12550,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analiza Brutalne Sile"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    COMBOBOX        IDC_KEY_LEN,56,78,96,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_KEY_LEN,56,78,110,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,10,97,257,24,ES_MULTILINE
     DEFPUSHBUTTON   "&Pocni",IDOK,10,131,68,17
     PUSHBUTTON      "&Otkaži",IDCANCEL,199,131,68,17
@@ -13364,7 +13363,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Heš Demonstracija"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    GROUPBOX        "Odabir heš funkcije",IDC_STATIC,16,47,100,41
+    GROUPBOX        "Odabir heš funkcije",IDC_STATIC,16,47,115,41
     GROUPBOX        "Osnova heš vrednosti",IDC_STATIC,136,47,184,41
     CONTROL         "&decimalno",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | WS_GROUP,222,70,40,10
     CONTROL         "&heksadecimalno",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,154,70,55,10
@@ -13378,7 +13377,7 @@ BEGIN
     LTEXT           "Razlika izmedu heš vrednosti originalne i aktuelne datoteke",IDC_STATIC,16,296,252,8
     PUSHBUTTON      "I&zlaz",IDCANCEL,261,378,59,14
     CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",TCS_RAGGEDRIGHT | TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | WS_VSCROLL | WS_TABSTOP,16,308,304,64
-    COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,23,67,88,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,23,67,100,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Odaberite heš funkciju i zatim promenite kopiju originalne datoteke (pogledati polje ""Aktuelni dokument"").\nIspod se može videti koliko bit-ova heš vrednosti se menja kada uredujete.",IDC_STATIC,31,12,281,24
     GROUPBOX        "Opis",IDC_STATIC,16,2,304,40
     RTEXT           "-",IDC_STATIC,19,28,8,8,0,WS_EX_TRANSPARENT
@@ -13463,7 +13462,7 @@ BEGIN
     DEFPUSHBUTTON   "&Zašifruj",IDC_ENCRYPT,10,79,58,19
     PUSHBUTTON      "&Dešifruj",IDC_DECRYPT,126,79,57,19
     PUSHBUTTON      "&Otkaži",IDCANCEL,245,79,55,19
-    COMBOBOX        IDC_KEY_LEN,51,24,96,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_KEY_LEN,51,24,110,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Unesite kljuc pomocu heksadecimalnih karaktera (0..9, A..F).",IDC_MESSAGE,10,10,290,9
     LTEXT           "Dužina kljuca:",IDC_STATIC,10,28,36,8
 END
@@ -23606,7 +23605,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Brute-Force-Analyse"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    COMBOBOX        IDC_KEY_LEN,69,82,92,82,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_KEY_LEN,69,82,110,82,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,10,100,257,24,ES_MULTILINE
     DEFPUSHBUTTON   "&Starten",IDOK,10,133,68,17
     PUSHBUTTON      "&Abbrechen",IDCANCEL,199,133,68,17
@@ -24433,13 +24432,13 @@ BEGIN
     EDITTEXT        IDC_EDIT_AKTHASH,16,280,304,14,ES_AUTOHSCROLL | ES_READONLY
     CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",TCS_RAGGEDRIGHT | TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | WS_VSCROLL | WS_TABSTOP,16,314,304,80
     PUSHBUTTON      "&Schließen",IDCANCEL,250,404,70,18
-    GROUPBOX        "Auswahl der Hashfunktion",IDC_STATIC,16,57,118,41
+    GROUPBOX        "Auswahl der Hashfunktion",IDC_STATIC,16,57,120,41
     GROUPBOX        "Darstellung der Hashwerte",IDC_STATIC,145,57,175,41
     LTEXT           "Aktuelles Dokument (diese Kopie der Originaldatei können Sie hier ändern)",IDC_STATIC,16,103,304,8,NOT WS_GROUP
     LTEXT           "Hashwert der Originaldatei",IDC_STATIC_TITEL,16,237,194,8
     LTEXT           "Hashwert der aktuellen Datei",IDC_STATIC,16,270,92,8
     LTEXT           "Unterschied zwischen dem Hashwert der Orignal- und dem Hashwert der aktuellen Datei",IDC_STATIC,16,302,285,8
-    COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,27,74,88,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,27,74,100,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Wählen Sie ein Hashverfahren aus und editieren Sie dann unten die Kopie der Originaldatei (Textfeld ""Aktuelles Dokument"").\nGanz unten sehen Sie, wie viele Bits sich im Hashwert ändern, wenn Sie das Dokument editieren.",IDC_STATIC,28,12,280,34
     GROUPBOX        "Beschreibung",IDC_STATIC,16,2,304,49
     RTEXT           "-",IDC_STATIC,17,28,8,8,0,WS_EX_TRANSPARENT
@@ -24489,7 +24488,7 @@ BEGIN
     DEFPUSHBUTTON   "&Verschlüsseln",IDC_ENCRYPT,10,82,58,19
     PUSHBUTTON      "&Entschlüsseln",IDC_DECRYPT,126,82,57,19
     PUSHBUTTON      "&Abbrechen",IDCANCEL,242,82,55,19
-    COMBOBOX        IDC_KEY_LEN,64,24,92,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_KEY_LEN,64,24,110,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Geben Sie den Schlüssel mit Hexadezimalzeichen (0..9, A..F) ein.",IDC_MESSAGE,10,10,287,9
     LTEXT           "Schlüssellänge:",IDC_STATIC,10,28,50,8
 END
@@ -34630,7 +34629,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Brute-Force Analysis"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    COMBOBOX        IDC_KEY_LEN,56,78,96,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_KEY_LEN,56,78,110,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,10,97,257,24,ES_MULTILINE
     DEFPUSHBUTTON   "&Start",IDOK,10,131,68,17
     PUSHBUTTON      "&Cancel",IDCANCEL,199,131,68,17
@@ -35239,7 +35238,7 @@ BEGIN
     GROUPBOX        "Input",-1,166,6,187,107
     LTEXT           "Enter the number to be factorized:",-1,177,34,165,8
     GROUPBOX        "Factorization (stepwise)",-1,13,118,340,64
-    LTEXT           "On clicking the button ""Continue"" at first the number of the input field, and then the next composite number of the field ""Factorization result"" will be factorized into two factors.",-1,24,132,318,17
+    LTEXT           "Click ""Continue"" to factor the input number. If the result (shown below) can be factored further, click the button again to execute the factorization.",-1,24,132,318,17
     GROUPBOX        "Factorization",-1,13,192,340,116
     LTEXT           "The factorization is represented in the format <z1^a1 * z2^a2 *.... * zn^an>.\nComposite numbers are highlighted in red.",-1,24,208,318,19
     LTEXT           "Last factorization through:",-1,24,230,83,14
@@ -35440,7 +35439,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hash Demonstration"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    GROUPBOX        "Selection of hash function",IDC_STATIC,12,47,100,41
+    GROUPBOX        "Selection of hash function",IDC_STATIC,12,47,120,41
     GROUPBOX        "Base of hash values",IDC_STATIC,142,47,184,41
     CONTROL         "&decimal",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | WS_GROUP,222,70,40,10
     CONTROL         "&hexadecimal",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,154,70,55,10
@@ -35454,7 +35453,7 @@ BEGIN
     LTEXT           "Difference between the hash values of the original and of the modified file",IDC_STATIC,12,296,252,8
     PUSHBUTTON      "&Close",IDCANCEL,243,379,83,16
     CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",TCS_RAGGEDRIGHT | TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | WS_VSCROLL | WS_TABSTOP,12,308,314,64
-    COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,23,67,88,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,23,67,100,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Choose a hash function and then change the copy of the original file (see field ""Actual document"").\nYou can see below how many bits of the hash value change when you edit the document.",IDC_STATIC,31,12,289,24
     GROUPBOX        "Description",IDC_STATIC,12,2,314,40
     RTEXT           "-",IDC_STATIC,19,28,8,8,0,WS_EX_TRANSPARENT
@@ -35539,7 +35538,7 @@ BEGIN
     DEFPUSHBUTTON   "&Encrypt",IDC_ENCRYPT,10,79,58,19
     PUSHBUTTON      "&Decrypt",IDC_DECRYPT,126,79,57,19
     PUSHBUTTON      "&Cancel",IDCANCEL,245,79,55,19
-    COMBOBOX        IDC_KEY_LEN,51,24,96,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_KEY_LEN,51,24,110,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Enter the key using hexadecimal characters (0..9, A..F).",IDC_MESSAGE,10,10,290,9
     LTEXT           "Key length:",IDC_STATIC,10,28,36,8
 END
@@ -36081,7 +36080,7 @@ BEGIN
                     "Button",BS_AUTORADIOBUTTON | BS_MULTILINE | WS_GROUP,14,36,465,17
     CONTROL         "To generate random values, enter the desired delta and bit length of N.\r\nThen click on ""Generate random RSA key"".",IDC_RADIOCHOICE2,
                     "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,14,54,465,17
-    EDITTEXT        IDC_EDITBITSOFN,62,114,57,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER | WS_GROUP
+    EDITTEXT        IDC_EDITBITSOFN,69,114,50,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER | WS_GROUP
     EDITTEXT        IDC_EDITDELTA,155,114,40,14,ES_AUTOHSCROLL | ES_NUMBER
     PUSHBUTTON      "Set default key parameters",IDC_BUTTONDEFAULT,273,114,104,14,WS_DISABLED
     EDITTEXT        IDC_EDITN,25,137,352,14,ES_AUTOHSCROLL | ES_NUMBER
@@ -36111,14 +36110,14 @@ BEGIN
     GROUPBOX        "Step 2: Enter attack parameters for the lattice base reduction",IDC_STATIC,7,203,477,93
     LTEXT           "m:",IDC_STATIC,25,214,59,8,0,WS_EX_RIGHT
     LTEXT           "t:",IDC_STATIC,25,235,59,8,0,WS_EX_RIGHT
-    LTEXT           "Bit length of N:",IDC_STATIC,14,117,46,8
+    LTEXT           "Bit length of N:",IDC_STATIC,14,117,50,8
     LTEXT           "Determines the size of the lattice to reduce and the maximum size of delta. Should be at least 4.",IDC_STATIC,154,215,316,19
     LTEXT           "Optimally calculated as a function of m.",IDC_STATIC,154,236,168,8
     LTEXT           "Maximum size of delta for large N (N>1000 Bit).",IDC_STATIC,154,271,160,11
     LTEXT           "Lattice dimension:",IDC_STATIC,24,253,60,8,0,WS_EX_RIGHT
     LTEXT           "Size of the lattice to reduce. Impacts the running time significantly.",IDC_STATIC,154,254,238,8
     GROUPBOX        "Description",IDC_STATIC,7,7,477,84
-    LTEXT           "This attack allows to factor an RSA modulus N, in case the secret key d is chosen too small compared to N.\nThe number delta=log(d)/log(N) is called ""size of d"". The attack is feasible for delta < 0.290.",IDC_STATIC,15,17,455,18
+    LTEXT           "This attack factors an RSA modulus N if the secret key d is too small compared to N.\nThe number delta=log(d)/log(N) is called ""size of d"". The attack is feasible for delta < 0.290.",IDC_STATIC,15,17,455,18
     GROUPBOX        "Step 3: Start attack",IDC_STATIC,7,303,477,123
     LTEXT           "Building lattice:",IDC_STATIC,19,319,65,8,0,WS_EX_RIGHT
     LTEXT           "Reducing lattice:",IDC_STATIC,22,336,62,8,0,WS_EX_RIGHT
@@ -36131,7 +36130,6 @@ BEGIN
     LTEXT           "q:",IDC_STATIC,257,405,8,8
     LTEXT           "d:",IDC_STATIC,14,176,8,8
     LTEXT           "Then click ""Start"".",IDC_STATIC,14,78,70,8
-    LTEXT           "Maximal size of delta for big N (N>1000 Bit).",IDC_STATIC,154,271,294,11
     LTEXT           "Maximum delta:",IDC_STATIC,25,271,59,9,0,WS_EX_RIGHT
 END
 
@@ -43828,7 +43826,7 @@ BEGIN
     IDS_STRING_TEST_RUNS_NICHT_BESTANDEN "Runs test failed!"
     IDS_QUADRATIC_SIEVE     "Quadratic sieve"
     IDS_STRING_TEST_RUNS_BESTANDEN "Runs test passed!"
-    IDS_HILL_CASE           "Used alphabet (%d characters)"
+    IDS_HILL_CASE           "Selected alphabet (%d characters)"
     IDS_ROT13_CAESAR_TOO_LARGE_KEY 
                             "The input is larger than the alphabet length.\nSet the value automaticly to 1?"
     IDS_PQM_PASSWORD_IS_COMPLIANT "- Yes\r\n"
@@ -44562,7 +44560,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Análisis por Fuerza Bruta"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    COMBOBOX        IDC_KEY_LEN,77,80,30,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_KEY_LEN,77,80,110,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,10,97,257,24,ES_MULTILINE
     DEFPUSHBUTTON   "&Comenzar",IDOK,10,131,68,17
     PUSHBUTTON      "&Cancelar",IDCANCEL,199,131,68,17
@@ -44572,7 +44570,6 @@ BEGIN
     LTEXT           "Nota:",IDC_STATIC,10,63,22,8
     LTEXT           "El tiempo de búsqueda variará entre minutos y horas si no se usan más de 6 asteriscos <*> (= 24 bit).",IDC_STATIC,42,62,225,18
     LTEXT           "Introduzca <00 ** AB ** ... **>  para buscar todas las claves que comiencen por un cero seguido de un caracter desconocido y después el carácter <AB>.",IDC_STATIC,42,35,225,27
-    LTEXT           "bit",IDC_STATIC,110,81,8,8
     DEFPUSHBUTTON   "Opciones de &Análisis",IDOK2,104,131,74,17
 END
 
@@ -45478,7 +45475,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Demostración de Función Hash"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    GROUPBOX        "Selecione Función Hash",IDC_STATIC,16,47,100,41
+    GROUPBOX        "Selecione Función Hash",IDC_STATIC,16,47,115,41
     GROUPBOX        "Representación del Resultado",IDC_STATIC,136,47,184,41
     CONTROL         "&decimal",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | WS_GROUP,217,70,40,10
     CONTROL         "&hexadecimal",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,154,70,55,10
@@ -45492,7 +45489,7 @@ BEGIN
     LTEXT           "Diferencia entre los valores Hash del documento original y el actual",IDC_STATIC,16,296,252,8
     PUSHBUTTON      "&Salir",IDCANCEL,261,378,59,14
     CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",TCS_RAGGEDRIGHT | TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | WS_VSCROLL | WS_TABSTOP,16,308,304,64
-    COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,23,67,88,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,23,67,100,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Elija una función hash y modifique la copia del mensaje original (en cuadro 'Documento\nActual')\nObserve las diferencias con respecto el resúmen original",IDC_STATIC,31,12,294,24
     GROUPBOX        "Descripción",IDC_STATIC,16,2,304,40
     RTEXT           "-",IDC_STATIC,19,28,8,8,0,WS_EX_TRANSPARENT
@@ -45663,10 +45660,9 @@ BEGIN
     DEFPUSHBUTTON   "Ci&frar",IDC_ENCRYPT,10,79,58,19
     PUSHBUTTON      "&Descifrar",IDC_DECRYPT,126,79,57,19
     PUSHBUTTON      "&Cancelar",IDCANCEL,245,79,55,19
-    COMBOBOX        IDC_KEY_LEN,82,25,30,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_KEY_LEN,82,25,110,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Introduzca la clave utilizando caracteres hexadecimales  (0..9, A..F).",IDC_MESSAGE,10,10,290,9
     LTEXT           "Longitud de la clave:",IDC_STATIC,10,28,67,8
-    LTEXT           "bit",IDC_STATIC,112,28,8,8
 END
 
 IDD_KEY_HILL_10X10 DIALOGEX 0, 0, 546, 401
