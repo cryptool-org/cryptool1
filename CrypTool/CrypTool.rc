@@ -4607,7 +4607,7 @@ BEGIN
             MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX
             MENUITEM "Dodawanie bitów",             ID_ADD_BIN
             MENUITEM "&XOR",                        ID_XOR_BIN
-            MENUITEM "V&ernam / OTP",               ID_VERNAM_BIN
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN
             MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC
             MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE
@@ -4958,7 +4958,7 @@ BEGIN
             MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX
             MENUITEM "Dodawanie bitów",             ID_ADD_BIN
             MENUITEM "&XOR",                        ID_XOR_BIN
-            MENUITEM "V&ernam / OTP",               ID_VERNAM_BIN
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN
             MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC
             MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE
@@ -5309,7 +5309,7 @@ BEGIN
             MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX, GRAYED
             MENUITEM "Dodawanie bitów",             ID_ADD_BIN, GRAYED
             MENUITEM "&XOR",                        ID_XOR_BIN, GRAYED
-            MENUITEM "V&ernam / OTP",               ID_VERNAM_BIN, GRAYED
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION, GRAYED
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE, GRAYED
@@ -5660,7 +5660,7 @@ BEGIN
             MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX
             MENUITEM "Dodawanie bitów",             ID_ADD_BIN
             MENUITEM "&XOR",                        ID_XOR_BIN
-            MENUITEM "V&ernam / OTP",               ID_VERNAM_BIN
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN
             MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC
             MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE
@@ -6038,7 +6038,7 @@ BEGIN
             MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX, GRAYED
             MENUITEM "Dodawanie bitów",             ID_ADD_BIN, GRAYED
             MENUITEM "&XOR",                        ID_XOR_BIN, GRAYED
-            MENUITEM "V&ernam / OTP",               ID_VERNAM_BIN, GRAYED
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION, GRAYED
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE, GRAYED
