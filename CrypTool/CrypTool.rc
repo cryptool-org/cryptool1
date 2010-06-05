@@ -36447,8 +36447,8 @@ BEGIN
     EDITTEXT        IDC_CRT_ASTRONOMY_EDITSOLVE,13,229,244,15,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER | NOT WS_TABSTOP
     GROUPBOX        "Solution",IDC_STATIC,7,217,258,33
     GROUPBOX        "Astronomical visualization",IDC_STATIC,275,46,223,271
-    LTEXT           "The period of the planets mercury and earth around the sun is 88 and 365 days. Up to reaching a certain radius vector s (red), it takes",IDC_STATIC,283,164,176,26
-    LTEXT           "Is it possible, that mercury and earth are once both on this radius vector s?",IDC_STATIC,283,205,211,18
+    LTEXT           "The periods of the planets Mercury and Earth around the Sun are 88 and 365 days, respectively. If it will take the planets ",IDC_STATIC,283,164,176,26
+    LTEXT           "respectively, to reach a given radius vector s (in red), is it possible that the planets will ever lie simultaneously on s?",IDC_STATIC,283,205,211,18
     LTEXT           "In what time interval (in days) will this incident repeat itself?",IDC_STATIC,283,283,204,10
     EDITTEXT        IDC_CRT_ASTRONOMY_EDITREPEAT,283,293,207,15,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER | NOT WS_TABSTOP
     GROUPBOX        "Choose a planet",IDC_STATIC,283,223,207,54
@@ -36464,7 +36464,7 @@ BEGIN
     EDITTEXT        IDC_CRT_ASTRONOMY_EDITAMERCURY,283,190,53,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     EDITTEXT        IDC_CRT_ASTRONOMY_EDITAEARTH,353,190,55,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     LTEXT           "and",IDC_STATIC,339,191,14,9
-    LTEXT           "days.",IDC_STATIC,410,191,18,11
+    LTEXT           "days,",IDC_STATIC,410,191,18,11
     GROUPBOX        "Simultaneous congruences / linear modular equations",IDC_STATIC,7,46,258,167
     LTEXT           "x",IDC_STATIC,16,59,8,8
     GROUPBOX        "",IDC_STATIC,7,3,491,39
