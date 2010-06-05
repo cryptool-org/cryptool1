@@ -11289,7 +11289,7 @@ BEGIN
     CONTROL         "Izvedeni kljuc",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,55,76,10
     CONTROL         "Dužina izvedenog kljuca",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,77,91,10
     CONTROL         "Autokorelacija",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,100,61,10
-    CONTROL         "[i18n] Prikaži analizu osnovnih cifara",IDC_CHECK4,
+    CONTROL         "Prikaži analizu osnovnih cifara",IDC_CHECK4,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,156,122,120,10
     GROUPBOX        "Caesar",IDC_STATIC,20,35,118,105
     GROUPBOX        "Vigenère, XOR, Adicija",IDC_STATIC,150,35,136,105
@@ -11342,7 +11342,7 @@ BEGIN
     GROUPBOX        "Red prvog karaktera alfabeta:",IDC_STATIC,171,256,132,40
     CONTROL         "0",IDC_CHECK_OFS0,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,268,20,10
     CONTROL         "1",IDC_CHECK_OFS1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,281,20,10
-    GROUPBOX        "[i18n] Options",IDC_STATIC,8,307,304,34
+    GROUPBOX        "Opcije",IDC_STATIC,8,307,304,34
 END
 
 IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 302, 252
@@ -11511,7 +11511,7 @@ BEGIN
     GROUPBOX        "Kontakt informacije",IDC_STATIC,208,164,155,64
     EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,11,178,185,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
     PUSHBUTTON      "Saradnici",ID_CONTRIBUTORS,7,250,60,18,WS_GROUP
-    PUSHBUTTON      "i18n Translations",ID_TRANSLATIONS,70,255,60,18,WS_GROUP
+    PUSHBUTTON      "Prevodi",ID_TRANSLATIONS,70,255,60,18,WS_GROUP
 END
 
 IDD_SHOW_PROGRESS DIALOG  0, 0, 187, 105
@@ -12535,14 +12535,14 @@ BEGIN
     EDITTEXT        IDC_EDIT64,95,247,14,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT65,115,247,14,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT66,135,247,14,12,ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "i18n Separate double characters",IDC_CHECK_SEPARATE_DOUBLE_CHARACTERS,
+    CONTROL         "Odvojeni dupli karakteri",IDC_CHECK_SEPARATE_DOUBLE_CHARACTERS,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,20,125,10
-    CONTROL         "i18n Separate double characters only within pairs",IDC_CHECK_SEPARATE_DOUBLE_CHARACTERS_ONLY_WITHIN_PAIRS,
+    CONTROL         "Odvojeni dupli karakteri samo u parovima",IDC_CHECK_SEPARATE_DOUBLE_CHARACTERS_ONLY_WITHIN_PAIRS,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,63,195,10
     EDITTEXT        IDC_EDIT_SEPARATOR1,150,33,15,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_SEPARATOR2,150,47,15,12,ES_AUTOHSCROLL
-    LTEXT           "i18n First separator:",IDC_STATIC_TEXT_SEPARATOR1,50,35,95,8
-    LTEXT           "i18n Second separator:",IDC_STATIC_TEXT_SEPARATOR2,50,49,95,8
+    LTEXT           "Prvi separator:",IDC_STATIC_TEXT_SEPARATOR1,50,35,95,8
+    LTEXT           "Drugi separator:",IDC_STATIC_TEXT_SEPARATOR2,50,49,95,8
 END
 
 IDD_BRUTEFORCE DIALOGEX 0, 0, 277, 158
@@ -15218,14 +15218,14 @@ BEGIN
     GROUPBOX        "",IDC_PRIMETEST_GROUPBOX_TEXT,7,4,345,62
     GROUPBOX        "Algoritmi za test prostog broja",IDC_PRIMETEST_GROUPBOX_ALGO,7,72,345,73
     GROUPBOX        "Test prostog broja",IDC_PRIMETEST_GROUPBOX_RESULT,7,151,345,79
-    LTEXT           "i18n Number or formula to test:",IDC_PRIMETEST_LABEL_NUMBER,17,183,50,16
+    LTEXT           "Broj ili formula za testiranje:",IDC_PRIMETEST_LABEL_NUMBER,17,183,50,16
     LTEXT           "Rezultat:",IDC_PRIMETEST_LABEL_RESULT,17,211,33,8,SS_ENDELLIPSIS
     LTEXT           "Obicno se primenjuju metode verovatnoce: Oni su jako brzi, ali mogu da odrede samo sa izvesnom podesivo velikom verovatnocom, ako je broj prost.",IDC_PRIMETEST_LABEL_TEXT2,17,24,324,16
     LTEXT           "Pored ovih postoje i deterministicke metode: Takav rezultat je 100 % tacan (sa matematickog aspekta).",IDC_PRIMETEST_LABEL_TEXT3,17,44,324,16
     CONTROL         250,IDC_STATIC_PRIM_RES,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,18,16
     CONTROL         251,IDC_STATIC_PRIM_RES2,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,18,16
     PUSHBUTTON      "&Rastavi broj",IDC_BUTTON_JUMP_TO_FACTORIZATION,110,240,100,20,WS_DISABLED
-    LTEXT           "i18n There are many methods to check if a number is prime.",IDC_PRIMETEST_LABEL_TEXT1,17,12,324,8
+    LTEXT           "Postoje mnoge metode da se proveri da li je broj prost.",IDC_PRIMETEST_LABEL_TEXT1,17,12,324,8
 END
 
 IDD_ADFGVX_STRINGBOX DIALOGEX 0, 0, 179, 44
@@ -15383,7 +15383,7 @@ END
 
 IDD_PASSWORD_GUIDELINES DIALOGEX 0, 0, 250, 185
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "i18n Smernice Lozinke"
+CAPTION "Smernice Lozinke"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,164,50,14
@@ -15597,11 +15597,11 @@ END
 
 IDD_TRANSLATIONS DIALOGEX 0, 0, 370, 280
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "i18n About CrypTool: Translations"
+CAPTION "O CrypTool-u: Prevodi"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "Close",IDOK,303,255,60,18
-    LTEXT           "The CrypTool versions in English and German have been created by the CrypTool core team.",IDC_STATIC,7,7,297,8
+    DEFPUSHBUTTON   "Zatvori",IDOK,303,255,60,18
+    LTEXT           "CrypTool verzije na Nemackom i Engleskom su kreirane od strane CrypTool jezgrenog tima.",IDC_STATIC,7,7,297,8
     EDITTEXT        IDC_EDIT_TRANSLATIONS_INFORMATION,7,20,356,225,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
@@ -19478,7 +19478,7 @@ BEGIN
     IDS_STRING_FILE_NOT_FOUND_BUT_ASK_FOR_MIGRATION_TO_DEFAULT_RESOURCES 
                             "Datoteka potrebna za analizu nije pronadena.\n\nIpak, ova datoteka je deo Vaše CrypTool instalacije.\n\nCrypTool verovatno trenutno koristi starije Windows kljuceve registra.\n\nOd sada, da li želite da CrypTool koristi datoteke koje su potrebne za analizu (recnik, digrami i trigrami) koje su izdate sa Vašom CrypTool instalacijom?"
     IDS_STRING_LANGUAGE_CHOICE_REQUIREMENTS 
-                            "[i18n] Please choose AT LEAST ONE keyword language and EXACTLY ONE ciphertext language."
+                            "Molim odaberite NAJMANJE JEDNU kljucnu rec jezika i TACNO JEDAN šifrat jezika."
     IDS_HASHDEMO_STRING_SHA256 "SHA-256 (256 bita)"
 END
 
@@ -19500,17 +19500,17 @@ END
 STRINGTABLE 
 BEGIN
     IDR_OPENGLTYPE          "\nNeimenovana\n\nOpenGL datoteka (*.ogl)\n.plt\n\nOpenGL Tip Datoteke\nOPENGL\nOpenGL Datoteke\n"
-    IDS_STRING_TRANSLATIONS_HEADING_POLISH "i18n Polish translation"
+    IDS_STRING_TRANSLATIONS_HEADING_POLISH "Poljski prevod"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
-                            "i18n Initial translation: Warsaw University, Poland (http://www.ee.pw.edu.pl),\r\nDr. Bartosz Sawicki and his students"
+                            "Inicijalni prevod: Warsaw Univerzitet, Poljska (http://www.ee.pw.edu.pl),\r\nDr. Bartosz Sawicki i njegovi studenti"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_POLISH 
-                            "i18n Further Updates: Pawel Polewski"
-    IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "i18n Serbian translation"
+                            "Dalja ažuriranja: Pawel Polewski"
+    IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "Srpski prevod"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SERBIAN 
-                            "i18n Initial translation: Advanced School of Electrical Engineering, Belgrade, Serbia (http://www.viser.edu.rs),\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
+                            "Inicijalni prevod: Visoka Škola Elektrotehnike i Racunarstva Strukovnih Studija, Beograd (http://www.viser.edu.rs),\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN 
-                            "i18n Further updates: Bojan Dimitrovski"
-    IDS_STRING_TRANSLATIONS_HEADING_SPANISH "i18n Spanish translation"
+                            "Dalja ažuriranja: Bojan Dimitrovski"
+    IDS_STRING_TRANSLATIONS_HEADING_SPANISH "Španski prevod"
 END
 
 STRINGTABLE 
@@ -22127,9 +22127,9 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
-                            "i18n Initial translation: Madrid University, Spain (http://www.csic.es),\r\nDr. Gonzalo Alvarez Maranon and his students"
+                            "Inicijalni prevod: Madrid Univerzitet, Španija (http://www.csic.es),\r\nDr. Gonzalo Alvarez Maranon i njegovi studenti"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
-                            "i18n Further updates: Raphael Labaca Castro"
+                            "Dalja ažuriranja: Raphael Labaca Castro"
 END
 
 STRINGTABLE 
@@ -22137,17 +22137,17 @@ BEGIN
     IDS_HASHDEMO_STRING_SHA512 "SHA-512 (512 bita)"
     IDS_FLOAT_NUMBER_SEPARATOR ","
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT_WITHLANGUAGE 
-                            "i18n Cleartext (assumed language: ""%s""):"
+                            "Otvoreni tekst (pretpostavljeni jezik: ""%s""):"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SELECTED_KEYWORD_LANGUAGES 
-                            "i18n Keyword language(s): %s"
+                            "Jezik(ci) kljucne reci: %s"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SELECTED_CIPHERTEXT_LANGUAGE 
-                            "i18n Ciphertext language: %s"
+                            "Jezik šifrata: %s"
     IDS_STRING_SUBSTITUTION_WARNING_NO_STANDARD_ALPHABET 
-                            "i18n The algorithms implemented in CrypTool to analyze the Substitution encryption operate on a static alphabet (A-Z).\n\nThe current document contains characters which are not part of this static alphabet.\n\nPlease note that the results of the analysis may therefore be incorrect."
+                            "Algoritmi implementirani u CrypTool za analizu Zamenske šifre rade sa statickim alfabetom (A-Z).\n\nTrenutni dokument sadrži karaktere koji nisu deo ovog statickog alfabeta.\n\nMolimo imajte na umu da bi rezultati analize stoga možda bili netacni."
     IDS_STRING_SECUDE_TICKET_MISSING 
-                            "i18n The Secude ticket could not be found."
+                            "Secude tiket nije pronaden."
     IDS_STRING_VALID_RANGE_OF_CHARACTERS_FOR_ENTROPY_TEST 
-                            "[i18n] Please define the number of bytes for the entropy test by entering an integer between %d and %d."
+                            "Molim definišite broj bajtova entropije teksta unošenjem celog broja izmedu %d i %d."
 END
 
 #endif    // Serbian (Latin) resources
