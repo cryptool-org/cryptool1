@@ -37988,7 +37988,7 @@ BEGIN
         BEGIN
             MENUITEM "&Attack on the Hash Value of the Digital Signature...", ID_SIGNATUR_ATTACK
         END
-        POPUP "&Analyse Randomness"
+        POPUP "&Analyze Randomness"
         BEGIN
             MENUITEM "&Frequency Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
             MENUITEM "&Poker Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
@@ -38339,7 +38339,7 @@ BEGIN
         BEGIN
             MENUITEM "&Attack on the Hash Value of the Digital Signature...", ID_SIGNATUR_ATTACK
         END
-        POPUP "&Analyse Randomness"
+        POPUP "&Analyze Randomness"
         BEGIN
             MENUITEM "&Frequency Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
             MENUITEM "&Poker Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
@@ -38690,7 +38690,7 @@ BEGIN
         BEGIN
             MENUITEM "&Attack on the Hash Value of the Digital Signature...", ID_SIGNATUR_ATTACK
         END
-        POPUP "&Analyse Randomness"
+        POPUP "&Analyze Randomness"
         BEGIN
             MENUITEM "&Frequency Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
             MENUITEM "&Poker Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
@@ -39041,7 +39041,7 @@ BEGIN
         BEGIN
             MENUITEM "&Attack on the Hash Value of the Digital Signature...", ID_SIGNATUR_ATTACK
         END
-        POPUP "&Analyse Randomness"
+        POPUP "&Analyze Randomness"
         BEGIN
             MENUITEM "&Frequency Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
             MENUITEM "&Poker Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
@@ -39419,7 +39419,7 @@ BEGIN
         BEGIN
             MENUITEM "&Attack on the Hash Value of the Digital Signature...", ID_SIGNATUR_ATTACK
         END
-        POPUP "&Analyse Randomness"
+        POPUP "&Analyze Randomness"
         BEGIN
             MENUITEM "&Frequency Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
             MENUITEM "&Poker Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
