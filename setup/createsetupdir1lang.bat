@@ -14,7 +14,7 @@ goto end
 set lang=%1
 set lang_sub=%lang%
 
-; all languages except de+en use some English (en) files 
+rem all languages except de+en use some English (en) files 
 if x%lang%==xes set lang_sub=en
 if x%lang%==xpl set lang_sub=en
 if x%lang%==xrs set lang_sub=en
