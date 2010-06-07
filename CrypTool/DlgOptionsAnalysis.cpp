@@ -121,7 +121,7 @@ void CDlgOptionsAnalysis::OnOK()
 	// we moved the check for valid values from MFC-based macros into this 
 	// function, because for some reason MFC displayed error messages twice;
 	// we call CDialog::OnOK() only if values are within the valid range
-	const unsigned int minimumNumberOfCharactersForEntropyTest = 1;
+	const unsigned int minimumNumberOfCharactersForEntropyTest = 2;
 	const unsigned int maximumNumberOfCharactersForEntropyTest = 4096;
 	if(m_BFEntropyWindow < minimumNumberOfCharactersForEntropyTest || m_BFEntropyWindow > maximumNumberOfCharactersForEntropyTest) {
 		CString message;
