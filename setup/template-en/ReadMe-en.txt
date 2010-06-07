@@ -1905,9 +1905,9 @@ Version                 English      German    needed       by
 1.3.04    July 2003      8.1 MB       8.6 MB    -            DB
 1.3.05    Aug. 2003      8.2 MB       8.6 MB    -            DB
 1.4.00    July 2006     18.2 MB      18.4 MB    -            DB
-1.4.10    July 2007     26.7 MB	     27.5 MB    47 MB        DB
-1.4.20    July 2008     36.1 MB	     37.1 MB    73 MB        DB
-1.4.21    July 2008     36.1 MB	     37.1 MB    73 MB        DB
+1.4.10    July 2007     26.7 MB      27.5 MB    47 MB        DB
+1.4.20    July 2008     36.1 MB      37.1 MB    73 MB        DB
+1.4.21    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.30    June 2010     49.8 MB      50.7 MB    90 MB        DB   xxxxxx
 
 Remarks about the versions:
