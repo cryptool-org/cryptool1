@@ -78,16 +78,16 @@ CrypTool is available in the five languages
 
 In all language versions the program has the same full functionality --
 translated and localized are the GUI (menus, dialogs, etc.) of the programs
-CrypTool, AES-Tool and Number Shark,
+CrypTool, AES-Tool and Number Shark.
 
 Here is a list of the remaining components of the CrypTool package, which
-could not be localized for alle language versions:
+could not be localized for all language versions:
                         DE     EN    ES     PL    RS    
 Online help (html)      yes    yes   no     no    no
 Readme file (txt)       yes    yes   no     no    no
 CT script (pdf)         yes    yes   no     no    no
 CT presentation (pdf)   yes    yes   yes    no    no
-Elsner-Stories (pdf)    yes    yes   no     no    no
+Elsner stories (pdf)    yes    yes   no     no    no
 
 In English and German the CrypTool package is completely localized.
 If a component isn't available for a special language version, then
@@ -639,8 +639,7 @@ The general properties and functions of CrypTool are:
   svn checkout http://www.cryptool.com/svn/CrypTool/trunk --username anonymous
 
 - To get an impression of the size of the CT1 project here is a statistics
-  created in June 2010 using the files for the version 1.4.30
-  (available in 5 languages).
+  created in June 2010 using the files of version 1.4.30 beta 07.
 
     FILE SUMMARY (number of files according to file extension)
     ------------
@@ -1894,22 +1893,22 @@ your computer is untouched.
 6. Brief history of the released main versions of CrypTool
    -------------------------------------------------------
 
-Release   Date		Size of Windows Setup  Needed size  Released
-Version                 English      German    ca. on disc  by 
-1.0.01    Oct. 1999	 -            1.3 MB    -            DB
-1.1.01    May  2000	 -            2.3 MB	-            DB
-1.2.00    Aug. 2000	 -            2.8 MB	-            DB
-1.2.02    Dec. 2000	 -            3.2 MB	-            DB
-1.3.00    Jan. 2002	 4.7 MB       4.9 MB	-            DB
-1.3.02    June 2002	 6.4 MB       6.9 MB	-            DB
-1.3.03    Sep. 2002	 6.5 MB       6.9 MB	-            DB
-1.3.04    July 2003	 8.1 MB       8.6 MB	-            DB
-1.3.05    Aug. 2003	 8.2 MB       8.6 MB	-            DB
-1.4.00    July 2006	18.2 MB      18.4 MB	-            DB
-1.4.10    July 2007	26.7 MB	     27.5 MB	47 MB        DB
-1.4.20    July 2008	36.1 MB	     37.1 MB	73 MB        DB
-1.4.21    July 2008	36.1 MB	     37.1 MB	73 MB        DB
-1.4.30    June 2010	49.8 MB      50.7 MB	90 MB        DB   xxxxxx
+Release   Date		Size of Windows Setup  Disc space   Released
+Version                 English      German    needed       by 
+1.0.01    Oct. 1999      -            1.3 MB    -            DB
+1.1.01    May  2000      -            2.3 MB    -            DB
+1.2.00    Aug. 2000      -            2.8 MB    -            DB
+1.2.02    Dec. 2000      -            3.2 MB    -            DB
+1.3.00    Jan. 2002      4.7 MB       4.9 MB    -            DB
+1.3.02    June 2002      6.4 MB       6.9 MB    -            DB
+1.3.03    Sep. 2002      6.5 MB       6.9 MB    -            DB
+1.3.04    July 2003      8.1 MB       8.6 MB    -            DB
+1.3.05    Aug. 2003      8.2 MB       8.6 MB    -            DB
+1.4.00    July 2006     18.2 MB      18.4 MB    -            DB
+1.4.10    July 2007     26.7 MB	     27.5 MB    47 MB        DB
+1.4.20    July 2008     36.1 MB	     37.1 MB    73 MB        DB
+1.4.21    July 2008     36.1 MB	     37.1 MB    73 MB        DB
+1.4.30    June 2010     49.8 MB      50.7 MB    90 MB        DB   xxxxxx
 
 Remarks about the versions:
 1.3.02   Many new functions compared to 1.3.00.
@@ -1933,7 +1932,7 @@ Remarks about the versions:
 1.4.30-Beta04  Sep. 2009  Second public beta of version 1.4.30.
 1.4.30-Beta05  Jan. 2010  Third public beta of version 1.4.30.
 1.4.30-Beta06  Feb. 2010  Forth public beta of version 1.4.30.
-1.4.30-Beta07  Juni 2010  Fifth public beta of version 1.4.30.
+1.4.30-Beta07  June 2010  Fifth public beta of version 1.4.30.
 1.4.30   Many bug fixes and enhanced functionality compared to 1.4.21.
 
 

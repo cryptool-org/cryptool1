@@ -651,8 +651,8 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
   svn checkout http://www.cryptool.com/svn/CrypTool/trunk --username anonymous
 
 - Einen Eindruck von der Größe des CT1-Projekts liefert die folgende, im
-  Juni 2010 erstellte Statistik (anhand der Dateien für die in 5 Sprachen
-  verfügbare Version 1.4.30):
+  Juni 2010 erstellte Statistik (anhand der Dateien für die Version 1.4.30
+  Beta 07):
 
     FILE SUMMARY (Anzahl der Dateien anhand ihrer Dateinamenserweiterung)
     ------------
@@ -1016,7 +1016,7 @@ c) Neue Funktionalität / Bedienung:
 - Die Art, wie aus einem Schlüsselwort eine Permutation erzeugt wird, ist
   nun bei allen Verfahren (Doppelwürfel, ADFGVX) gleich.
 
-- Die Hill-Verschlüsselung biete mehr Optionen.
+- Die Hill-Verschlüsselung bietet nun weitere Optionen.
 
 - Die Playfair-Verschlüsselung bietet nun weitere Optionen (Vorformatierung;
   Unterscheidung, ob Trenner nur innerhalb von Paaren gleicher Buchstaben
