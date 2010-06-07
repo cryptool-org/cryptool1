@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.30 Beta 07 für Win32, Mai 2010  xxxxxx
+    CrypTool, Version 1.4.30 Beta 07 für Win32, Juni 2010  xxxxxx
     (c) Contributors
         Dazu gehören z.B.
         Deutsche Bank AG, Frankfurt am Main,
@@ -77,12 +77,23 @@ CrypTool existiert in den fünf Sprachen
 - Serbisch und
 - Spanisch.
 
-In Deutsch und Englisch ist das CrypTool-Paket komplett lokalisiert vorhanden.
-In allen anderen Sprach-Versionen hat das Programm wohl die gleiche und
-volle Funktionalität, aber die Onlinehilfe, die Readme-Datei und die beigelegte
-PDF-Dokumentation sind nicht lokalisiert, sondern dieselbe wie in der englischen
-Version [übersetzt und lokalisiert sind also jeweils die Oberfläche (Menüs,
-Dialoge, ...) von CrypTool, AES-Tool und dem Zahlenhai].
+In allen Sprach-Versionen hat das Programm die gleiche und volle
+Funktionalität -- übersetzt und lokalisiert sind also jeweils die
+Oberfläche (Menüs, Dialoge, etc.) der Programme CrypTool, AES-Tool
+und Zahlenhai.
+
+Hier eine Auflistung der restlichen Komponenten des CrypTool-Paketes,
+die nicht in allen Sprachversionen lokalisiert werden konnten:
+                        DE     EN    ES     PL    RS    
+Onlinehilfe (html)      ja     ja    nein   nein  nein
+Readme-Datei (txt)      ja     ja    nein   nein  nein
+CT-Skript (pdf)         ja     ja    nein   nein  nein
+CT-Präsentation (pdf)   ja     ja    ja     nein  nein
+Elsner-Stories (pdf)    ja     ja    nein   nein  nein
+
+Im Deutschen und Englischen liegen alle Komponenten übersetzt vor.
+Wenn etwas in einer Sprachversion nicht vorliegt, wird die englische
+Komponente beigelegt.
 
 Weitere Sprachversionen (russisch, ukrainisch, ...) sind in Arbeit.
 
@@ -97,7 +108,7 @@ finden Sie unter den Internet-Adressen (keine Registrierung nötig):
                 http://www.CrypTool.org
                 http://www.CrypTool.pl
 
-Seit Mitte 2008 werden über 4000 CrypTool v1-Pakete pro Monat herunter
+Seit Anfang 2010 werden über 6000 CrypTool v1-Pakete pro Monat herunter
 geladen -- mit wachsender Tendenz (davon entfallen etwas über 1/2
 auf die englische Version).
 Anzahl Downloads der aktuellen Betas der Nachfolger-Versionen:
@@ -186,13 +197,13 @@ eingesetzt wird:
   Mitarbeiter-Sensibilisierung für IT-Sicherheit.
 
 - Die meisten der kryptographischen Basisalgorithmen stammen aus:
-  - der Industrie-bewährten Secude-Bibliothek (http://www.secude.com/),
+  - der Secude-Bibliothek (http://www.secude.com/),
   - der Miracl-Bibliothek von Shamus Software (http://indigo.ie/~mscott/),
   - der OpenSSL-Bibliothek (http://www.openssl.org/),
   - der NTL-Zahlentheorie-Bibliothek von Victor Shoup
         (http://www.shoup.net/ntl/),
-  - der GMP-Bibliothek für beliebig genaue Arithmetik
-        (http://www.swox.com/gmp/) und
+  - der MPIR-Bibliothek für beliebig genaue Arithmetik (entstanden aus GMP)
+        (www.mpir.org) und
   - der cv act library der cv cryptovision GmbH (www.cryptovision.com).
  
   Die aktuell benutzten Versionen der inkludierten Bibliotheken finden
@@ -392,7 +403,7 @@ besondere Bedingungen gelten:
 
 Ebenso herzlich danken möchten wir den Open-Source-Entwicklern, die uns
 mit ihrem Code Anregungen gaben oder deren Code wir nutzen dürfen, z.B.
-- die Bibliotheken OpenSSL, GMP und NTL,
+- die Bibliotheken OpenSSL, GMP/MPIR und NTL,
 - die Installations-Software NSIS (http://nsis.sourceforge.net/Main_Page),
 - die Texteditor-Software Scintilla (http://scintilla.sourceforge.net),
 - das Hex-Control (www.codeguru.com/Cpp/controls/controls/article.php/c5287).
@@ -640,37 +651,37 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
   svn checkout http://www.cryptool.com/svn/CrypTool/trunk --username anonymous
 
 - Einen Eindruck von der Größe des CT1-Projekts liefert die folgende, im
-  April 2010 erstellte Statistik (anhand der Dateien für die in 5 Sprachen
+  Juni 2010 erstellte Statistik (anhand der Dateien für die in 5 Sprachen
   verfügbare Version 1.4.30):
 
     FILE SUMMARY (Anzahl der Dateien anhand ihrer Dateinamenserweiterung)
     ------------
               4 .rc files
              36 .c files
-            317 .cpp files
-            376 .h files
+            319 .cpp files
+            373 .h files
              36 .java files
              12 .pl files
-           2740 .html files
+           1136 .html files
              45 .txt files
              39 .tex files
               4 .sage files
-           3609 TOTAL
+           2004 TOTAL
 
   
     LINES OF CODE (LoC) SUMMARY
     ---------------------------
-         59.403 MFC resource code (rc)
-        262.025 C/C++ source code (c cpp h)
+         60.272 MFC resource code (rc)
+        262.565 C/C++ source code (c cpp h)
           9.778 Java source code (java)
-          1.888 Perl code (pl)
-        158.610 HTML code (html hpp)
-         13.034 Text files (txt)
-         34,439 LaTeX code (tex)
+          2.044 Perl code (pl)
+         64.113 HTML code (html hpp)
+         10.596 Text files (txt)
+         34.454 LaTeX code (tex)
             825 Sage code (sage)
-        540.002 TOTAL xxxxxxxxxx
+        444.647 TOTAL xxxxxxxxxx
 
-    TOTAL: 540.002 Code-Zeilen (plus von 41,2 % gegenüber 382.244 bei v1.4.21)
+    TOTAL: 444.647 Code-Zeilen (plus von 16,3 % gegenüber 382.244 bei v1.4.21)
     - In den TOTAL-Wert gehen nur Sourcen ein, die innerhalb des
       CrypTool-Projektes entwickelt wurden oder dem CT-Projekt gewidmet wurden.
       Die Sourcen anderer Open-Source-Projekte, die innerhalb von CrypTool
@@ -873,8 +884,9 @@ c) Neue Funktionalität / Bedienung:
    - Fehler in AKS behoben, der mit den Eingaben 2^8+1 und 2^16+1 auftrat.
      Die korrekte Fassung von AKS braucht länger.
    - Fehler in AKS behoben, der CT abstürzen ließ, wenn man die Zeitdauer für
-     sehr große Zahlen abschätzen ließ (Dauer über 1 Jahr, Stack-Überlauf in GMP).
-     Dazu war eine neue Version von GMP/MPIR notwendig.
+     sehr große Zahlen abschätzen ließ (Dauer über 1 Jahr, Stack-Überlauf
+     in GMP). Dazu wurde MPIR anstatt einer älteren Windows-Version der
+     GMP-Bibliothek eingesetzt.
    - Fehler behoben bei weiteren Primzahltests, wenn Primfaktoren < 39
      vorkamen.
    - In der Maske "Schlüssel aus Passwort generieren (nach PKSC #5)" werden
@@ -1003,6 +1015,8 @@ c) Neue Funktionalität / Bedienung:
 
 - Die Art, wie aus einem Schlüsselwort eine Permutation erzeugt wird, ist
   nun bei allen Verfahren (Doppelwürfel, ADFGVX) gleich.
+
+- Die Hill-Verschlüsselung biete mehr Optionen.
 
 - Die Playfair-Verschlüsselung bietet nun weitere Optionen (Vorformatierung;
   Unterscheidung, ob Trenner nur innerhalb von Paaren gleicher Buchstaben
@@ -1938,8 +1952,8 @@ sind, dass Ihr Rechner unberührt ist.
 6. Kurze Historie der freigegebenen Hauptversionen
    -----------------------------------------------
 
-Version   Datum         Größe des Windows-Setups  Plattenplatz  Freigabe
-                         Deutsch    Englisch      Bedarf        durch
+Release-  Datum         Größe des Windows-Setups  Plattenplatz  Freigabe
+Version                  Deutsch    Englisch      Bedarf        durch
 1.0.01    Okt. 1999       1,3 MB      -              -            DB
 1.1.01    Mai  2000       2,3 MB      -              -            DB
 1.2.00    Aug. 2000       2,8 MB      -              -            DB
@@ -1953,7 +1967,7 @@ Version   Datum         Größe des Windows-Setups  Plattenplatz  Freigabe
 1.4.10    Juli 2007      27,5 MB     26,7 MB         47 MB        DB
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
-1.4.30    Mai  2010      50,7 MB     49,8 MB         92 MB        DB   xxxxxxx
+1.4.30    Juni 2010      50,7 MB     49,8 MB         92 MB        DB   xxxxxxx
 
 Bemerkungen zu den Versionen:
 1.3.02   Viele neue Funktionen gegenüber 1.3.00.
@@ -1978,7 +1992,7 @@ Bemerkungen zu den Versionen:
 1.4.30-Beta04  Sep. 2009  Zweite öffentliche Beta von Version 1.4.30.
 1.4.30-Beta05  Jan. 2010  Dritte öffentliche Beta von Version 1.4.30 (22.1.2010).
 1.4.30-Beta06  Feb. 2010  Vierte öffentliche Beta von Version 1.4.30 (28.2.2010).
-1.4.30-Beta07  Mai  2010  Fünfte öffentliche Beta von Version 1.4.30 (xx.x.2010).
+1.4.30-Beta07  Juni 2010  Fünfte öffentliche Beta von Version 1.4.30 (xx.x.2010).
 1.4.30   Viele Bugfixes und erweiterter Funktionsumfang i.Vgl. zu 1.4.21.
 
 
@@ -2892,7 +2906,7 @@ c) CrypTool 2.0 (CT 2)
      von multimedialen Oberflächen (GUI) mit Vektorgraphiken.
    - Das gesamte Projekt lässt sich mit der kostenlosen VS2010-Express-
      Edition für C# erstellen.
-   - Verfügbar sind die .NET Krypto-Provider, Bibliotheken wie GMP und
+   - Verfügbar sind die .NET Krypto-Provider, Bibliotheken wie GMP/MPIR und
      Crypto++ per Wrapper, und BouncyCastle für C#.
    - Beta-Versionen (für Entwickler und Nutzer) werden seit Juli 2008
      regelmäßig veröffentlicht.
@@ -2909,7 +2923,7 @@ c) CrypTool 2.0 (CT 2)
    Eine Portierung von CrypTool 1.4.x nach Linux mit Hilfe von GCC 4.x und
    Qt 4.x war außerhalb des eigentlichen CrypTool-Projektes von Einzelpersonen
    begonnen worden, aber mangels Zeit nicht/wenig fortgesetzt worden.
-   - Die Bibliotheken von Secude, Miracl, NTL, OpenSSL und GMP stehen
+   - Die Bibliotheken von Secude, Miracl, NTL, OpenSSL und GMP/MPIR stehen
      zur Verfügung.
    - Gesamtaufgabe in sinnvolle Teile zerlegt:
        - Oberfläche: Hier liegt die Hauptarbeit.
