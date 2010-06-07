@@ -166,7 +166,7 @@
    !define SCN_SCRIPT		"Script"
    !define SCL_SCRIPT		"script-${LANGUAGE_SUBST_STR}.pdf"
    !define SCN_PRESENTATION	"Presentación"
-   !define SCL_PRESENTATION	"CrypToolPresentation-${LANGUAGE_SUBST_STR}.pdf"
+   !define SCL_PRESENTATION	"CrypToolPresentation-${LANGUAGE_STR}.pdf"
    !define SCN_README		"Leeme"
    !define SCL_README 		"ReadMe-${LANGUAGE_SUBST_STR}.txt"
    !define SCN_UNINSTALL	"Desinstalar"

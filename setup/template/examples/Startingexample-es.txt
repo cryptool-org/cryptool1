@@ -6,7 +6,7 @@ Este fichero de texto tiene la intención de orientarle con sus primeros pasos en
 
 1) Lo primero que se recomienda es que lea la ayuda incluida, que le proporcionará una idea general de todas las funciones disponibles con esta aplicación. A la página inicial de la ayuda se puede acceder a través del menú "Ayuda > Página de Inicio" o buscando "Starting page" en el índice de la ayuda, al que puede acceder pulsando la tecla F1.
 
-2) Un posible segundo paso sería cifrar un fichero con un algoritmo de cifrado simétrico clásico (como por el ejemplo el algoritmo Caesar). Esto lo haría a través del menú "Cifrar/Descifrar > Simétrico (clásico)". Puede encontrar guías y manuales de todos los algoritmos en la ayuda.
+2) Un posible segundo paso sería cifrar un fichero con un algoritmo de cifrado simétrico clásico (como por el ejemplo el algoritmo César). Esto lo haría a través del menú "Cifrar/Descifrar > Simétrico (clásico)". Puede encontrar guías y manuales de todos los algoritmos en la ayuda.
 
 3) Existen varios ejemplos (tutoriales) que le pueden ayudar a comprender cualquier cosa que no entienda sobre criptografía. Estos tutoriales los puede localizar a través del menú "Ayuda > Escenarios (Tutoriales)".
 
@@ -14,7 +14,9 @@ Este fichero de texto tiene la intención de orientarle con sus primeros pasos en
 - Navegando a través de los menús. Pulsando F1 obtendrá ayuda acerca de la opción que esté seleccionando en ese instante.
 - Leyendo el fichero Léeme (menú "Ayuda > Léeme").
 - Viendo las presentaciones incluidas (consulte la sección "Documentation" de la página inicial de la ayuda).
-- Consultando la página web: www.iec.csic.es/cryptool.
+- Consultando la página web: www.cryptool.es
 
-Abril 2010
+¡Gracias por utilizar CrypTool!
+
+Junio 2010
 El Equipo de CrypTool

@@ -91,7 +91,7 @@ ENGLISH Analysis_AsymmetricEncryption_LatticeBasedAttacksonRSA # &Analysis|&Asym
 ENGLISH Analysis_AsymmetricEncryption # &Analysis|&Asymmetric Encryption
 ENGLISH Analysis_AsymmetricEncryption_LatticeBasedAttacksonRSA # &Analysis|&Asymmetric Encryption|&Lattice Based Attacks on RSA
 ENGLISH Analysis_Hash # &Analysis|&Hash
-ENGLISH Analysis_AnalyseRandomness # &Analysis|&Analyse Randomness
+ENGLISH Analysis_AnalyzeRandomness # &Analysis|&Analyze Randomness
 ENGLISH Options # &Options
 ENGLISH Window # &Window
 ENGLISH Help # &Help

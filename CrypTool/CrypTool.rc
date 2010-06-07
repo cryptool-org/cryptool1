@@ -8,7 +8,8 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -11289,8 +11290,7 @@ BEGIN
     CONTROL         "Izvedeni kljuc",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,55,76,10
     CONTROL         "Dužina izvedenog kljuca",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,77,91,10
     CONTROL         "Autokorelacija",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,100,61,10
-    CONTROL         "Prikaži analizu osnovnih cifara",IDC_CHECK4,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,156,122,120,10
+    CONTROL         "Prikaži analizu osnovnih cifara",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,156,122,120,10
     GROUPBOX        "Caesar",IDC_STATIC,20,35,118,105
     GROUPBOX        "Vigenère, XOR, Adicija",IDC_STATIC,150,35,136,105
     GROUPBOX        "Opcije izlaza za automatsku analizu",IDC_STATIC,13,16,280,132
@@ -22144,8 +22144,7 @@ BEGIN
                             "Jezik šifrata: %s"
     IDS_STRING_SUBSTITUTION_WARNING_NO_STANDARD_ALPHABET 
                             "Algoritmi implementirani u CrypTool za analizu Zamenske šifre rade sa statickim alfabetom (A-Z).\n\nTrenutni dokument sadrži karaktere koji nisu deo ovog statickog alfabeta.\n\nMolimo imajte na umu da bi rezultati analize stoga možda bili netacni."
-    IDS_STRING_SECUDE_TICKET_MISSING 
-                            "Secude tiket nije pronaden."
+    IDS_STRING_SECUDE_TICKET_MISSING "Secude tiket nije pronaden."
     IDS_STRING_VALID_RANGE_OF_CHARACTERS_FOR_ENTROPY_TEST 
                             "Molim definišite broj bajtova entropije teksta unošenjem celog broja izmedu %d i %d."
 END
@@ -54960,7 +54959,7 @@ BEGIN
                             "No se encuentra el fichero de referencia para las aplicaciones estadísticas.\nPor favor, especifique el nombre del fichero en las Opciones del Texto."
     IDS_STATISTICAL_REFERENCE_FILE_STILL_MISSING 
                             "¡Atención! Todavía no ha especificado un fichero de referencia válido para las aplicaciones estadísticas."
-    IDS_RIJNDAEL_INSPECTOR_EXEC_STR "Rijndael-Inspector.exe"
+    IDS_RIJNDAEL_INSPECTOR_EXEC_STR "Rijndael-Inspector-es.exe"
     IDS_ERROR_OPEN_FLASHAESDEMO 
                             "La demostración AES no se puede abrir.\nAsegúrese de que está instalada correctamente en el directorio de CrypTool\n(""%s"")."
 END
@@ -55077,7 +55076,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_PATH_PRESENTATION   "%sCrypToolPresentation-en.pdf"
+    IDS_PATH_PRESENTATION   "%sCrypToolPresentation-es.pdf"
     IDS_ERROR_OPENING_PRESENTATION 
                             "¡No se puede abrir la presentación!\n\n Por favor, compruebe\n si el archivo  ""CrypToolPresentation-en.pdf"" está en el mismo directorio que  ""CrypTool.exe"" y\n si Acrobat Reader está correctamente instalado (www.adobe.com)."
     IDS_PQM_ENTROPY_NOT_ALL_INPUT_PARAMETERS_SET 
