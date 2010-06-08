@@ -8,8 +8,7 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -33539,7 +33538,7 @@ END
 
 IDD_RSA_ENCRYPTION DIALOGEX 0, 0, 392, 271
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "RSA encryption"
+CAPTION "RSA Encryption"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,20,377,190
@@ -34643,7 +34642,7 @@ END
 
 IDD_SHOW_KEY_PARAMETER DIALOGEX 0, 0, 317, 156
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Public parameters"
+CAPTION "Public Parameters"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&Apply",IDOK,12,126,72,17
@@ -35143,10 +35142,10 @@ BEGIN
     CONTROL         250,IDC_ERFOLG_RUN,"Static",SS_BITMAP,137,199,18,16
 END
 
-IDD_FIPS_PUB_140_1 DIALOG  0, 0, 197, 239
+IDD_FIPS_PUB_140_1 DIALOGEX 0, 0, 197, 239
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "FIPS-PUB-140-1 Test battery"
-FONT 8, "MS Sans Serif"
+CAPTION "FIPS-PUB-140-1 Test Battery"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "&Start testbattery",IDC_BATTERIETEST,7,212,84,19
     DEFPUSHBUTTON   "&Close",IDOK,114,212,76,19
@@ -35290,7 +35289,7 @@ END
 
 IDD_SELECT_HASHFUNCTION DIALOGEX 0, 0, 131, 155
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Select a hash function"
+CAPTION "Select a Hash Function"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,130,50,18
@@ -35306,10 +35305,10 @@ BEGIN
     GROUPBOX        "Hash function",IDC_STATIC,7,3,117,120
 END
 
-IDD_FACTORISATION_LIST DIALOG  0, 0, 383, 346
+IDD_FACTORISATION_LIST DIALOGEX 0, 0, 383, 346
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Details for the current factorization"
-FONT 8, "MS Sans Serif"
+CAPTION "Details for the Current Factorization"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&Close",IDOK,326,319,50,20
     PUSHBUTTON      "&Save list into main window",IDCANCEL,190,319,98,20
@@ -35329,7 +35328,7 @@ END
 
 IDD_SIGNATURE_DEMO DIALOGEX 0, 0, 496, 428
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Step by step signature generation"
+CAPTION "Step by Step Signature Generation"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     CONTROL         "OPENDOC_R_",IDC_SELECT_DOCUMENT,"Button",BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,17,15,50,28
@@ -35354,10 +35353,10 @@ BEGIN
     CONTROL         "OK_G_",IDOK,"Button",BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,354,260,50,28
 END
 
-IDD_DEMO_RSAKEY_GENERATION DIALOG  0, 0, 351, 218
+IDD_DEMO_RSAKEY_GENERATION DIALOGEX 0, 0, 351, 218
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Generate RSA key"
-FONT 8, "MS Sans Serif"
+CAPTION "Generate RSA Key"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     LTEXT           "Choose two prime numbers p and q. The number N = pq is the public RSA modulus and phi(N) = (p-1)(q-1) is the Euler phi function. Public key e is coprime to phi(N). The private key  d = e^(-1)  (mod  phi(N))  is calculated from this.",IDC_STATIC_TEXT,9,7,333,24
     GROUPBOX        "Prime number entry",IDC_STATIC_PRIME,9,33,333,48
@@ -35553,10 +35552,10 @@ BEGIN
     LTEXT           "Static",IDC_HEADING,7,7,186,16
 END
 
-IDD_ASN1_PSE_PIN_PROMPT DIALOG  0, 0, 229, 81
+IDD_ASN1_PSE_PIN_PROMPT DIALOGEX 0, 0, 229, 81
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "PIN request"
-FONT 8, "MS Sans Serif"
+CAPTION "PIN Request"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT1,94,35,66,14,ES_PASSWORD | ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&OK",IDOK,7,60,50,14
@@ -35662,10 +35661,10 @@ BEGIN
     LTEXT           "Static",IDC_HEADING,7,7,186,16
 END
 
-IDD_DIFFIEHELLMAN_KEY DIALOG  0, 0, 424, 295
+IDD_DIFFIEHELLMAN_KEY DIALOGEX 0, 0, 424, 295
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Key Details - Secret and common key of Alice and Bob"
-FONT 8, "MS Sans Serif"
+CAPTION "Key Details - Secret and Common Key of Alice and Bob"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,274,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,367,274,50,14
@@ -35712,7 +35711,7 @@ END
 
 IDD_OPTIONS_SIGNATURE_ATTACK DIALOGEX 0, 0, 269, 274
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Options for the attack on the hash value of the digital signature"
+CAPTION "Options for the Attack on the Hash Value of the Digital Signature"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&Apply",IDOK,11,242,61,17
@@ -35740,10 +35739,10 @@ BEGIN
     CONTROL         "&Unprintable characters",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON,115,213,103,10
 END
 
-IDD_STATISTICS_SIGNATURE_ATTACK DIALOG  0, 0, 338, 329
+IDD_STATISTICS_SIGNATURE_ATTACK DIALOGEX 0, 0, 338, 329
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Statistics of the attack"
-FONT 8, "MS Sans Serif"
+CAPTION "Statistics of the Attack"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,225,304,91,17
     GROUPBOX        "Assumed efforts",IDC_STATIC,11,4,318,66
@@ -36001,7 +36000,7 @@ END
 
 IDD_RSASTEREOTYPED DIALOGEX 0, 0, 521, 450
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Attack on stereotyped messages"
+CAPTION "Attack on Stereotyped Messages"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDITN,25,102,395,14,ES_AUTOHSCROLL | ES_NUMBER | WS_GROUP
@@ -36072,7 +36071,7 @@ END
 
 IDD_RSABLOEMERMAY DIALOGEX 0, 0, 491, 451
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Attack on small secret exponents (according to Bloemer / May)"
+CAPTION "Attack on Small Secret Exponents (according to Bloemer / May)"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     CONTROL         "To apply examples from the literature, first enter the public key (N,e).\r\nThen enter the estimated value of delta. Alternatively, you can directly enter d to calculate delta.",IDC_RADIOCHOICE,
@@ -36134,7 +36133,7 @@ END
 
 IDD_RSAFACTORHINT DIALOGEX 0, 0, 427, 430
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Factoring knowing a fraction of p"
+CAPTION "Factoring Knowing a Fraction of p"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     CONTROL         "In order to apply examples from the literature, you can enter the required parameters by yourself:\nthe value of N, the bit length of p and the value of P.",IDC_RADIOCHOICE,
@@ -36314,7 +36313,7 @@ END
 
 IDD_ADFGVX_MANUAL DIALOGEX 0, 0, 269, 351
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Semiautomatic Analysis of the ADFGVX cipher"
+CAPTION "Semiautomatic Analysis of the ADFGVX Cipher"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     COMBOBOX        IDC_MINLENGTH,22,42,33,240,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP,WS_EX_RIGHT
@@ -36396,7 +36395,7 @@ END
 
 IDD_ADFGVX_INTRO DIALOGEX 0, 0, 265, 209
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Introduction to analyzing ADFGVX messages"
+CAPTION "Introduction to Analyzing ADFGVX Messages"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,208,188,50,14
@@ -36556,7 +36555,7 @@ END
 
 IDD_CRT_SECRETSHARING_FACTS DIALOGEX 0, 0, 373, 242
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Secret Sharing by CRT: calculation method: how to get a password"
+CAPTION "Secret Sharing by CRT: Calculation Method: How to Get a Password"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     EDITTEXT        IDC_CRT_FACT4,190,107,176,12,ES_MULTILINE | ES_READONLY
@@ -36578,7 +36577,7 @@ END
 
 IDD_CRT_SECRETSHARING_INFO DIALOGEX 0, 0, 233, 188
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Sharing a Secret using the CRT"
+CAPTION "Sharing a Secret Using the CRT"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,91,151,50,14
@@ -36602,7 +36601,7 @@ END
 
 IDD_CRT_SECRETSHARING_OPTIONS DIALOGEX 0, 0, 352, 65
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Secret Sharing by CRT: controlling the basic conditions"
+CAPTION "Secret Sharing by CRT: Controlling the Basic Conditions"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     EDITTEXT        IDC_CRT_SECRETSHARINGEDIT1,94,14,20,15,ES_NUMBER
@@ -36621,7 +36620,7 @@ END
 IDD_CRT_TRANSFORMATION DIALOGEX 0, 0, 557, 428
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION 
-"Visualization of the transformation from number notation into the modular representation with the CRT"
+"Visualization of the Transformation from Number Notation into the Modular Representation with the CRT"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_CRT_TRANSFORMATION_EDITA0,43,96,232,14,ES_NUMBER
@@ -36706,7 +36705,7 @@ END
 
 IDD_AUTO_SUBSTITUTION_ANALYSIS DIALOGEX 0, 0, 394, 321
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Automatic substitution analysis by digram frequency"
+CAPTION "Automatic Substitution Analysis by Digram Frequency"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Accept substitution",IDOK,7,300,86,14
@@ -36800,7 +36799,7 @@ END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_1 DIALOGEX 0, 0, 275, 190
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
-CAPTION "Continue with side-channel attack"
+CAPTION "Continue with Side-Channel Attack"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "You hybrid encrypt a document.",IDC_RADIO_CHOICE_1,
@@ -36816,7 +36815,7 @@ END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_2 DIALOGEX 0, 0, 275, 190
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
-CAPTION "Continue with side-channel attack"
+CAPTION "Continue with Side-Channel Attack"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "You hybrid encrypt the opened document.",IDC_RADIO_CHOICE_1,
@@ -36834,7 +36833,7 @@ END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_3 DIALOGEX 0, 0, 275, 190
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
-CAPTION "Continue with side-channel attack"
+CAPTION "Continue with Side-Channel Attack"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "You use the opened document.",IDC_RADIO_CHOICE_1,"Button",BS_AUTORADIOBUTTON | BS_LEFT | BS_TOP | BS_MULTILINE | WS_TABSTOP,25,40,243,10
@@ -37017,7 +37016,7 @@ END
 
 IDD_SOLITAIRE_ANALYSE DIALOGEX 0, 0, 603, 414
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Solitaire analysis"
+CAPTION "Solitaire Analysis"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Decrypt",IDOK,5,395,68,14,WS_DISABLED
@@ -37179,7 +37178,7 @@ END
 
 IDD_SECRETSHARING_SETUP DIALOGEX 0, 0, 371, 423
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Secret Sharing: Initializing the threshold scheme"
+CAPTION "Secret Sharing: Initializing the Threshold Scheme"
 FONT 8, "MS Sans Serif", 400, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT_SECRET,162,79,91,12,ES_AUTOHSCROLL
@@ -37214,7 +37213,7 @@ END
 
 IDD_SECRETSHARING_REVEAL DIALOGEX 0, 0, 360, 210
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
-CAPTION "Secret Sharing: Reconstructing the secret"
+CAPTION "Secret Sharing: Reconstructing the Secret"
 FONT 8, "MS Sans Serif", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,282,189,71,14
@@ -37241,7 +37240,7 @@ END
 
 IDD_SECRETSHARING_PARAMETER DIALOGEX 0, 0, 322, 220
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Secret Sharing: Displaying and editing polynomial parameters"
+CAPTION "Secret Sharing: Displaying and Editing Polynomial Parameters"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     PUSHBUTTON      "Cancel",IDCANCEL,7,199,75,14
@@ -37297,7 +37296,7 @@ END
 
 IDD_ADFGVX_STRINGBOX DIALOGEX 0, 0, 179, 44
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Substitution password"
+CAPTION "Substitution Password"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT1,7,7,165,13,ES_UPPERCASE | ES_AUTOHSCROLL | ES_WANTRETURN
@@ -37326,10 +37325,10 @@ BEGIN
     EDITTEXT        IDC_EDIT2,175,94,15,14,ES_CENTER | ES_AUTOHSCROLL
 END
 
-IDD_ENTROPY_INFO DIALOG  0, 0, 209, 90
+IDD_ENTROPY_INFO DIALOGEX 0, 0, 209, 90
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Entropie"
-FONT 8, "MS Sans Serif"
+CAPTION "Entropy"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,82,67,50,16
     LTEXT           "Static",IDC_ALPHABET_INFO,7,7,195,22
@@ -37549,7 +37548,7 @@ END
 
 IDD_AUTOMATED_PERM_ANALYSIS DIALOGEX 0, 0, 320, 362
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Analysis of a simple column transposition (Known Plaintext)"
+CAPTION "Analysis of a Simple Column Transposition (Known Plaintext)"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Search key",ID_BTN_BERECHNEN,7,338,75,17
@@ -37608,7 +37607,7 @@ END
 
 IDD_GENERATE_SAVE_PRIME DIALOGEX 0, 0, 379, 147
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Generate a safe prime"
+CAPTION "Generate a Safe Prime"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Accept prime",IDOK,113,118,87,22
@@ -37650,7 +37649,7 @@ END
 
 IDD_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_LANGUAGES DIALOGEX 0, 0, 230, 140
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Choose languages"
+CAPTION "Choose Languages"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     LTEXT           "Please choose at least one language that is searched for possible keywords, and choose exactly one language in which the ciphertext was originally written.",IDC_STATIC,7,7,216,24
