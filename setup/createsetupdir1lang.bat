@@ -29,7 +29,7 @@ echo Copying template-%lang% ...
 xcopy /s/q template-%lang%\*.* setup-%lang%\   
 if x%lang%==xes xcopy /s/q template-en\*.* setup-%lang%\ & del setup-%lang%\license-en.rtf & del setup-%lang%\CrypToolPresentation-en.pdf & del setup-%lang%\Rijndael-Inspector.exe
 if x%lang%==xpl xcopy /s/q template-en\*.* setup-%lang%\ & del setup-%lang%\license-en.rtf
-if x%lang%==xsr xcopy /s/q template-en\*.* setup-%lang%\ & del setup-%lang%\license-en.rtf
+if x%lang%==xrs xcopy /s/q template-en\*.* setup-%lang%\ 
 
 echo Copying ..\release_%lang%\*.exe ...
 copy ..\release_%lang%\*.exe setup-%lang%
