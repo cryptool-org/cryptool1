@@ -8,8 +8,7 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -8371,8 +8370,8 @@ STRINGTABLE
 BEGIN
     IDR_MAINFRAME           "CrypTool 1.4.30"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
-    IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nPliki HEX\n"
-    IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nPliki ASCII\n"
+    IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
+    IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
     IDR_PLOTTYPE            "\nUnnamed\n\nPLOT file (*.plt)\n.plt\n\nPlot File Type\nPLOT\nPlot Files"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERKEY "Klucz:"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT 
@@ -19456,10 +19455,10 @@ END
 STRINGTABLE 
 BEGIN
     IDR_MAINFRAME           "CrypTool 1.4.30"
-    IDR_TEXTTYPE            "\nNeimenovani\nTEKST dokument\nTekst datoteka (*.txt)\n.txt\nTip Tekst Datoteke\nTEKST Tip Datoteke\nTEKST\nTekst Datoteke\n"
-    IDR_HEXTYPE             "\nNeimenovana\n\nBinarna datoteka (*.hex)\n.hex\n\nHEX Tip Datoteke\nHEX\nHex Datoteke\n"
-    IDR_ASCTYPE             "\nNeimenovana\n\nASCII datoteka (*.asc)\n.asc\n\nASCII Tip Datoteke\nASCII\nASCII Datoteke\n"
-    IDR_PLOTTYPE            "\nNeimenovana\n\nPLOT datoteka (*.plt)\n.plt\n\nPlot Tip Datoteke\nPLOT\nPlot Datoteke\n"
+    IDR_TEXTTYPE            "\nNeimenovani\nTEKST dokument\nTekst datoteka (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
+    IDR_HEXTYPE             "\nNeimenovana\n\nBinarna datoteka (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
+    IDR_ASCTYPE             "\nNeimenovana\n\nASCII datoteka (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
+    IDR_PLOTTYPE            "\nNeimenovana\n\nPLOT datoteka (*.plt)\n.plt\n\nPlot File Type\nPLOT\nPlot Files\n"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERKEY "Kljuc:"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT 
                             "Otvoreni tekst:"
@@ -30407,10 +30406,10 @@ END
 STRINGTABLE 
 BEGIN
     IDR_MAINFRAME           "CrypTool 1.4.30"
-    IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Datei (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
-    IDR_HEXTYPE             "\nUnbenannt\n\nBinäre Datei (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
-    IDR_ASCTYPE             "\nUnbenannt\n\nASCII-Datei (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
-    IDR_PLOTTYPE            "\nUnbenannt\n\nPlot Datei (*.plt)\n.plt\n\nPlot File Type\nPLOTT\nPlot Files\n"
+    IDR_TEXTTYPE            "\nUnbenannt\nTEXT-Dokument\nText-Datei (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
+    IDR_HEXTYPE             "\nUnbenannt\n\nBinär-Datei (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
+    IDR_ASCTYPE             "\nUnbenannt\n\nASCII-Datei (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
+    IDR_PLOTTYPE            "\nUnbenannt\n\nPlot-Datei (*.plt)\n.plt\n\nPlot File Type\nPLOT\nPlot Files\n"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERKEY "Schlüssel:"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT "Klartext:"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_COMPLETE 
