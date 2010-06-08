@@ -8,7 +8,8 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -55032,7 +55033,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_AESDEMO_EXEC_STR    "Rijndael-Animation.exe"
+    IDS_AESDEMO_EXEC_STR    "Rijndael-Animation-es.exe"
     IDS_INTERACTIVE_NUMBER_THEORY_EXEC "NT.exe"
     IDS_ERROPEN_INTERACTIVE_NUMBER_THEORY 
                             "No se puede abrir la herramienta de aprendizaje de teoría de número.\n\nPor favor, compruebe que NT.exe está instalado en el directorio de CrypTool\n(""%s"")."
