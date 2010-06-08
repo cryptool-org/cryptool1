@@ -11,10 +11,11 @@
 			VIEWASTEXT>
 			<PARAM NAME="Keyword" VALUE="Miracl">
 			<PARAM NAME="Keyword" VALUE="MPIR">
+			<PARAM NAME="Keyword" VALUE="GMP">
 			<PARAM NAME="Keyword" VALUE="OpenSSL">
-	<PARAM NAME="Keyword" VALUE="NTL">
-	<PARAM NAME="Keyword" VALUE="Secude">
-	<PARAM NAME="Keyword" VALUE="Crypto libraries">
+	        <PARAM NAME="Keyword" VALUE="NTL">
+	        <PARAM NAME="Keyword" VALUE="Secude">
+	        <PARAM NAME="Keyword" VALUE="Crypto libraries">
 		</OBJECT>
 		<h3>Used Crypto libraries</h3>
 		<P>CrypTool contains an extensive collection of cryptographic algorithms and 
@@ -35,7 +36,7 @@
 			[e.g. for lattice based reduction],<br><br>
 			<li>
 				the <b>M</b>ultiple <b>P</b>recision <b>I</b>ntegers and <B>R</B>ationals 
-				library MPIR (version 1.3.1) (<a href="http://mpir.org" target="_blank">http://mpir.org</a>
+				library MPIR (version 1.3.1) (<a href="http://mpir.org" target="_blank">http://mpir.org</a>)
 				[e.g. for AKS] and<br><br></li>
 			<li>
 				the cv act library (version 1.3.0) by cv cryptovision Gmbh (<A href="http://www.cryptovision.com/" target="_blank">http://www.cryptovision.com</A>) for ECC methods.<br><br>
@@ -45,5 +46,20 @@
 		<P>The currently used version of the included libraries can be seen within the 
 			<a href="hidd_about.html">About CrypTool</b> dialog (see Menu <A href="menu_help.html">Help</A>).
 		</P>
-	</BODY>
+
+<P><B>Remark (May 2010)</B>:</P>
+
+<P>So far, the open source project delivering the accepted multi precision integer library GMP 
+(<a href="http://gmplib.org" target="_blank">http://gmplib.org</a>) did not supply a Windows 
+version. Until CrypTool 1.4.21 we used a port of the GMP library by Brian Gladman (<a 
+href="http://gladman.plushost.co.uk/oldsite/computing/gmp4win.php)" 
+target="_blank">http://gladman.plushost.co.uk/oldsite/computing/gmp4win.php</a>).</P>
+
+<P>The MPIR project (<a href="http://www.mpir.org" target="_blank">http://www.mpir.org</a>) 
+now consistently creates multi precision integer libraries for Windows which are compatible 
+with GMP and which can be compiled with Microsoft development environments.</P>
+
+<P>MPIR is based on GMP 4.2.1 (which was licensed under LPGL v2.1+).</P>
+		
+</BODY>
 </HTML>
