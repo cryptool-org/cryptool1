@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="9,00"
+	Version="9.00"
 	Name="hlp_de"
 	ProjectGUID="{B835E875-5E34-46B9-B507-D0462C92D87A}"
 	RootNamespace="hlp_de"
@@ -41,52 +41,6 @@
 		</Configuration>
 		<Configuration
 			Name="Debug_de|Win32"
-			OutputDirectory="$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="0"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
-			UseOfMFC="0"
-			ATLMinimizesCRunTimeLibraryUsage="false"
-			>
-			<Tool
-				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot; LANG=de OUTDIR=..\..\$(ConfigurationName)"
-				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a LANG=de OUTDIR=..\..\$(ConfigurationName)"
-				CleanCommandLine=""
-				Output="CrypTool-de.chm"
-				PreprocessorDefinitions=""
-				IncludeSearchPath=""
-				ForcedIncludes=""
-				AssemblySearchPath=""
-				ForcedUsingAssemblies=""
-				CompileAsManaged=""
-			/>
-		</Configuration>
-		<Configuration
-			Name="debug_es|Win32"
-			OutputDirectory="$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="0"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
-			UseOfMFC="0"
-			ATLMinimizesCRunTimeLibraryUsage="false"
-			>
-			<Tool
-				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot; LANG=de OUTDIR=..\..\$(ConfigurationName)"
-				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a LANG=de OUTDIR=..\..\$(ConfigurationName)"
-				CleanCommandLine=""
-				Output="CrypTool-de.chm"
-				PreprocessorDefinitions=""
-				IncludeSearchPath=""
-				ForcedIncludes=""
-				AssemblySearchPath=""
-				ForcedUsingAssemblies=""
-				CompileAsManaged=""
-			/>
-		</Configuration>
-		<Configuration
-			Name="Release_es|Win32"
 			OutputDirectory="$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="0"

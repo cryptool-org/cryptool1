@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="9,00"
+	Version="9.00"
 	Name="sharkHelp_en"
 	ProjectGUID="{068B2C5B-4AA8-459C-B0B9-0B0EE768B793}"
 	RootNamespace="sharkHelp_en"
@@ -41,50 +41,6 @@
 		<Configuration
 			Name="Release_en|Win32"
 			OutputDirectory="..\$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="0"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
-			CharacterSet="2"
-			>
-			<Tool
-				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot; LANG=en OUTDIR=..\..\$(ConfigurationName)"
-				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a LANG=en OUTDIR=..\..\$(ConfigurationName)"
-				CleanCommandLine=""
-				Output="NumberShark-en.chm"
-				PreprocessorDefinitions=""
-				IncludeSearchPath=""
-				ForcedIncludes=""
-				AssemblySearchPath=""
-				ForcedUsingAssemblies=""
-				CompileAsManaged=""
-			/>
-		</Configuration>
-		<Configuration
-			Name="debug_es|Win32"
-			OutputDirectory="$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="0"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
-			CharacterSet="2"
-			>
-			<Tool
-				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot; LANG=en OUTDIR=..\..\$(ConfigurationName)"
-				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a LANG=en OUTDIR=..\..\$(ConfigurationName)"
-				CleanCommandLine=""
-				Output="NumberShark-en.chm"
-				PreprocessorDefinitions=""
-				IncludeSearchPath=""
-				ForcedIncludes=""
-				AssemblySearchPath=""
-				ForcedUsingAssemblies=""
-				CompileAsManaged=""
-			/>
-		</Configuration>
-		<Configuration
-			Name="Release_es|Win32"
-			OutputDirectory="$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="0"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
