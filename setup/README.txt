@@ -14,6 +14,10 @@ for one language only:
 for one language only:
 	createsetupexe1lang.bat de
 
+4. Create a subversion tag:
+	cd trunk
+	svn copy . https://www.cryptool.org/svn/CrypTool/tags/CrypTool_1_4_30_beta_07
+
 NOTE:
 1. After every last minute update of the readme a build is required to update the 
    readme in the online help.
