@@ -490,7 +490,7 @@ BEGIN
     IDS_OPTIONS_SHOW_DIALOG "Poka¿ ""Opcje gry"" podczas nastêpnego startu programu."
     IDS_OPTIONS_SHOW_NUMBERS 
                             "Pamiêtaj ostatni¹ ca³kowit¹ liczbê ze stosu liczb przy nastêpnym uruchomieniu programu. "
-    IDS_OPTIONS_MAX_POINTS  "Tutaj mozesz obliczyc maksymalny wynik do zdobycia dla wybranego numeru stosu liczb s%. Ale moze to chwile potrwac ...\r\n\r\Zamiast tego, mozemy natychmiast pokazac wyniki ktore zostaly obliczone wczesniej."
+    IDS_OPTIONS_MAX_POINTS  "Tutaj mozesz obliczyc maksymalny wynik do zdobycia dla wybranego numeru stosu liczb %s. Ale moze to chwile potrwac ...\r\n\r\\Zamiast tego, mozemy natychmiast pokazac wyniki ktore zostaly obliczone wczesniej."
     IDS_STRING_PT           ","
     IDS_MAX_POINTS_OLD      "Aby obliczyæ dla %s liczb najwiêksza sumê %s punktów\n\n program potrzebowa³ %s sekund. Musia³ przejœæ przez %s wêz³ów.\n\nNajwiêksz¹ liczb¹ pierwsz¹ tutaj jest %s. Powinieneœ rozpocz¹æ grê z t¹ liczb¹ pierwsz¹, aby osi¹gn¹æ maksymalny wynik.\n\n\n\nAby osi¹gn¹æ ten wynik, powinieneœ wybraæ liczby w tej kolejnoœci: %s.\n"
     IDS_TOOL_TIP_NUMBER     "Liczba: %s"
