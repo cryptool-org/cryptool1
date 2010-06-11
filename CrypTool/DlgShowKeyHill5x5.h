@@ -186,6 +186,7 @@ protected:
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 public:
+	CEdit m_ctrlAlphabetOffset;
 };
 
 //{{AFX_INSERT_LOCATION}}

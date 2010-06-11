@@ -34,6 +34,7 @@ DlgHillOptions::DlgHillOptions(CWnd* pParent /*=NULL*/)
 	: CDialog(DlgHillOptions::IDD, pParent)
 	, m_FirstCharFromAlph(_T(""))
 	, m_ownCharForPadding(_T(""))
+	, m_alphabetOffset(0)
 {
 }
 
@@ -51,11 +52,11 @@ BOOL DlgHillOptions::OnInitDialog()
 {
 	m_FirstCharFromAlph = theApp.TextOptions.getAlphabet()[0];
 
-	firstPosNull = 1;
+	m_alphabetOffset = 0;
 	useFirstCharFromAlph = 1;
 	if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ, IDS_REGISTRY_SETTINGS, "Hill") == ERROR_SUCCESS)
 	{
-		CT_READ_REGISTRY_DEFAULT(firstPosNull, "OrdChrOffset", firstPosNull);
+		CT_READ_REGISTRY_DEFAULT(m_alphabetOffset, "OrdChrOffset", m_alphabetOffset);
 		CT_READ_REGISTRY_DEFAULT(useFirstCharFromAlph, "PaddingDefaultChr", useFirstCharFromAlph);
 
 		CString strAlph = theApp.TextOptions.getAlphabet();
@@ -77,11 +78,7 @@ BOOL DlgHillOptions::OnInitDialog()
 		CT_CLOSE_REGISTRY();
 	}
 
-	if(firstPosNull == 1)
-		CheckRadioButton(IDC_RADIO3, IDC_RADIO4, IDC_RADIO3);
-	if(firstPosNull == 0)
-		CheckRadioButton(IDC_RADIO3, IDC_RADIO4, IDC_RADIO4);
-
+	CheckRadioButton( IDC_RADIO3, IDC_RADIO4, ( m_alphabetOffset ) ? IDC_RADIO4 : IDC_RADIO3 );
 	if(useFirstCharFromAlph == 1)
 	{
 		CheckRadioButton(IDC_RADIO1, IDC_RADIO2, IDC_RADIO1);
@@ -120,7 +117,7 @@ void DlgHillOptions::OnOK()
 
 	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "Hill" ) == ERROR_SUCCESS )
 	{
-		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "OrdChrOffset");
+		CT_WRITE_REGISTRY(unsigned long(m_alphabetOffset), "OrdChrOffset");
 		CT_WRITE_REGISTRY(unsigned long(useFirstCharFromAlph), "PaddingDefaultChr");
 		CT_WRITE_REGISTRY(m_ownCharForPadding,"PaddingOwnChr");
 		CT_CLOSE_REGISTRY();
@@ -138,13 +135,13 @@ void DlgHillOptions::OnBnClickedCancel()
 void DlgHillOptions::EnableFirstPosNull()
 {
 	UpdateData(true);
-	firstPosNull = 1;
+	m_alphabetOffset = 0;
 	UpdateData(false);
 }
 void DlgHillOptions::DisableFirstPosNull()
 {
 	UpdateData(true);
-	firstPosNull = 0;
+	m_alphabetOffset = 1;
 	UpdateData(false);
 }
 

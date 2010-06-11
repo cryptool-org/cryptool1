@@ -31,6 +31,8 @@
 #include "Cryptography.h"
 #include "afxwin.h"
 
+#define DIM_DLG_HILL_5x5	5
+
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgKeyHill5x5 
 
@@ -45,106 +47,73 @@ protected:
 private:
 };
 
+enum HillEditType { HILL_CHAR_MATRIX, HILL_NUM_MATRIX };
+enum HillMultType { VECTOR_MATRIX, MATRIX_VECTOR };
+
+
+class CDlgKeyHillBaseFunctions {
+    CHiEdit           **HillNumMat;
+	CEdit             **HillAlphMat;
+	CSquareMatrixModN  *HillMat;
+
+	// HILL parameter
+	unsigned long   alphabetOffset;
+	unsigned long   max_dim, dim;
+	HillEditType    matType;
+	HillMultType    multType; 
+	unsigned long   cryptMode;
+
+	friend class CDlgKeyHill5x5;
+	friend class CDlgKeyHill10x10;
+
+	// Select Matrix
+	void setMatFont();
+	void activateMatrix     ( CEdit **mat );
+	void deactivateMatrix   ( CEdit **mat ); 
+	void selectActMatrix    ( );
+	void selectHillDimension( unsigned long new_dim );
+	void selectMatType      ( HillEditType new_type );
+	void selectMultType     ( HillMultType new_type );
+
+	void syncNumAlph ( unsigned long i, unsigned long j );
+	void syncAlphNum ( unsigned long i, unsigned long j );
+	void formatNum   ( unsigned long i, unsigned long j );
+
+	int  validEntries();
+	int  isInvertable();
+
+	void pasteKey();
+	void copyKey();
+	void readRegistry();
+	void writeRegistry();
+	void randomKey();
+	void SetHillMatrix ( CSquareMatrixModN *mat );
+	void loadHillMatrix( CSquareMatrixModN& mat );
+
+public:
+	int ord( const char ch );
+	CDlgKeyHillBaseFunctions(unsigned long p_keyRange);
+	~CDlgKeyHillBaseFunctions();
+};
+
+
 class CDlgKeyHill5x5 : public CDialog
 {
-	CBitmapButton m_Paste;
+	CDlgKeyHillBaseFunctions *m_HillBase;
+	CBitmapButton             m_Paste;
+	BOOL	m_Verbose;
+	CEdit	m_FeldUnsichtbar;
+	CString m_pHillAlphInfo;
+	unsigned long m_alphabetOffset;
 
 // Konstruktion
 public:
-	int		m_decrypt;
-	unsigned long	alphCode;
-	unsigned long firstPosNull;
-	CSquareMatrixModN * mat;
-	void UpdateFeld (CEdit*feld);
-	void UpdateAlphCode(CEdit *feld);
-	void MatrixEinlesen(CSquareMatrixModN& mat, int dim);
-	void MatrixAnzeigen(CSquareMatrixModN& mat);
-	bool NaechsterEintrag(int& i, int& j) ;
-	int AlleFelderKorrekt(int);
-	void AnzeigeDimensionSetzen(int);
-	int dim;
-	int Display();
-	class CHiEdit* m_pFelder[HILL_MAX_DIM][HILL_MAX_DIM];
-
-	class CHiEdit* m_pAlphCode[HILL_MAX_DIM][HILL_MAX_DIM];
-
-	CString getAlphCode(CString alphChar);
-	CString getAlphChar(CString alphPos);
-	void setFeldAlph(CEdit *feld,CEdit *feldAlph);
-	void setFeldAlphCode(CEdit *feld,CEdit *feldAlph);
-	void setDoublePos(CEdit *feld);
-
-	void OnHillOptions();
-	BOOL getFirstPosNull();
-
-	CString getDimMessage();
-
 	CDlgKeyHill5x5(CWnd* pParent = NULL);   // Standardkonstruktor
 	~CDlgKeyHill5x5();
-
-	CHillEncryption *getHillKlasse() { return hillklasse; };
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgKeyHill5x5)
 	enum { IDD = IDD_KEY_HILL5X5 };
-	BOOL	m_Verbose;
-	CEdit	m_FeldUnsichtbar;
-	class CHiEdit	m_Feld11;
-	class CHiEdit	m_Feld12;
-	class CHiEdit	m_Feld13;
-	class CHiEdit	m_Feld14;
-	class CHiEdit	m_Feld15;
-	class CHiEdit	m_Feld21;
-	class CHiEdit	m_Feld22;
-	class CHiEdit	m_Feld23;
-	class CHiEdit	m_Feld24;
-	class CHiEdit	m_Feld25;
-	class CHiEdit	m_Feld31;
-	class CHiEdit	m_Feld32;
-	class CHiEdit	m_Feld33;
-	class CHiEdit	m_Feld34;
-	class CHiEdit	m_Feld35;
-	class CHiEdit	m_Feld41;
-	class CHiEdit	m_Feld42;
-	class CHiEdit	m_Feld43;
-	class CHiEdit	m_Feld44;
-	class CHiEdit	m_Feld45;
-	class CHiEdit	m_Feld51;
-	class CHiEdit	m_Feld52;
-	class CHiEdit	m_Feld53;
-	class CHiEdit	m_Feld54;
-	class CHiEdit	m_Feld55;
-	//}}AFX_DATA
-
-	CHiEdit m_Feld36;
-	CHiEdit m_Feld37;
-	CHiEdit m_Feld38;
-	CHiEdit m_Feld40;
-	CHiEdit m_Feld46;
-	CHiEdit m_Feld47;
-	CHiEdit m_Feld48;
-	CHiEdit m_Feld49;
-	CHiEdit m_Feld50;
-	CHiEdit m_Feld111;
-	CHiEdit m_Feld57;
-	CHiEdit m_Feld58;
-	CHiEdit m_Feld59;
-	CHiEdit m_Feld56;
-	CHiEdit m_Feld115;
-	CHiEdit m_Feld60;
-	CHiEdit m_Feld61;
-	CHiEdit m_Feld62;
-	CHiEdit m_Feld116;
-	CHiEdit m_Feld117;
-	CHiEdit m_Feld63;
-	CHiEdit m_Feld64;
-	CHiEdit m_Feld69;
-	CHiEdit m_Feld65;
-	CHiEdit m_Feld66;
-
-
-// Überschreibungen
-	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
 	//{{AFX_VIRTUAL(CDlgKeyHill5x5)
 	protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
@@ -152,22 +121,15 @@ public:
 
 // Implementierung
 protected:
+	// helper functions
+	void radioSetMultType( unsigned long ID );
+	void radioSetHillDim ( unsigned long ID );
+	void radioSetMatType ( unsigned long ID );
+	void displayAlphabet();
 
 	CFont cf;
-	CHillEncryption *hillklasse;
-
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgKeyHill5x5)
-	virtual void OnOK();
-	virtual void OnDecrypt();
-	virtual BOOL OnInitDialog();
-	afx_msg void OnVerbose();
-	afx_msg void OnPasteKey();
-	afx_msg void OnDimension1();
-	afx_msg void OnDimension2();
-	afx_msg void OnDimension3();
-	afx_msg void OnDimension4();
-	afx_msg void OnDimension5();
 	afx_msg void OnUpdateMat11();
 	afx_msg void OnUpdateMat12();
 	afx_msg void OnUpdateMat13();
@@ -194,7 +156,6 @@ protected:
 	afx_msg void OnUpdateMat54();
 	afx_msg void OnUpdateMat55();
 
-
 	afx_msg void OnUpdateMat36();
 	afx_msg void OnUpdateMat37();
 	afx_msg void OnUpdateMat38();
@@ -220,10 +181,6 @@ protected:
 	afx_msg void OnUpdateMat69();
 	afx_msg void OnUpdateMat65();
 	afx_msg void OnUpdateMat66();
-	afx_msg void OnEnableAlphCode();
-	afx_msg void OnDisableAlphCode();
-	afx_msg void OnRowVectorMatrix();
-	afx_msg void OnMatrixColumnVector();
 
 	afx_msg void OnExitMat36();
 	afx_msg void OnExitMat37();
@@ -251,16 +208,34 @@ protected:
 	afx_msg void OnExitMat65();
 	afx_msg void OnExitMat66();
 
+	void SetDimension( unsigned long d );
+	afx_msg void OnDimension1();
+	afx_msg void OnDimension2();
+	afx_msg void OnDimension3();
+	afx_msg void OnDimension4();
+	afx_msg void OnDimension5();	
 
+	afx_msg void OnEnableAlphCode();
+	afx_msg void OnDisableAlphCode();
 
+	afx_msg void OnRowVectorMatrix();
+	afx_msg void OnMatrixColumnVector();
+
+	void         DoCrypt( unsigned long mode );
+	virtual void OnOK();
+	virtual void OnDecrypt();
+
+	virtual BOOL OnInitDialog();
+	afx_msg void OnVerbose();
+	afx_msg void OnPasteKey();
 	afx_msg void OnZufaelligerSchluessel();
 	afx_msg void OnGroessereSchluessel();
-
 	afx_msg void OnTextOptions();
+	afx_msg void OnHillOptions();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 public:
-	CString m_pHillAlphInfo;
+
 };
 
 //{{AFX_INSERT_LOCATION}}

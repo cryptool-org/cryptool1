@@ -203,10 +203,12 @@ BEGIN
     LTEXT           "wiêcej ni¿ trzy znaki.",IDC_STATIC,11,39,314,8
     LTEXT           "D³ugoœæ grupy liter tekstu jawnego jest rozmiarem macierzy kwadratowej.",IDC_STATIC,11,50,316,8
     GROUPBOX        "Informacje o szyfrowaniu",IDC_STATIC_HILL_ALPH,5,74,352,35
-    EDITTEXT        IDC_EDIT3,12,87,338,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT3,12,87,237,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     GROUPBOX        "Macierz kluczy Hilla",IDC_STATIC,5,115,243,204
     GROUPBOX        "Wartoœci liczbowe",IDC_STATIC,128,168,109,100
     GROUPBOX        "Wariant mno¿enia",IDC_STATIC,254,115,103,50
+    RTEXT           "Wartoœæ pierwszego znaku alfabetu",IDC_STATIC,259,86,67,19
+    EDITTEXT        IDC_EDIT2,332,87,16,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
 
 IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 354
@@ -1071,7 +1073,7 @@ BEGIN
     LTEXT           "By³ pierwszym szyfrem poligraficznym, w którym praktyczne by³o operowanie na grupach liter zawieraj¹cych wiêcej ni¿ trzy litery.",IDC_STATIC,11,27,399,8
     LTEXT           "D³ugoœæ grupy liter tekstu jawnego jest wymiarem macierzy kwadratowej.",IDC_STATIC,11,37,516,8
     GROUPBOX        "Informacje o szyfrowaniu.",IDC_STATIC_HILL_ALPH,5,63,537,35
-    EDITTEXT        IDC_EDIT3,12,76,521,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT3,12,76,424,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     CONTROL         "Znaki alfabetu",IDC_RADIO21,"Button",BS_AUTORADIOBUTTON | WS_GROUP,191,118,79,10
     CONTROL         "Wart. liczbowe",IDC_RADIO22,"Button",BS_AUTORADIOBUTTON,191,131,63,10
     GROUPBOX        "Wariant mno¿enia",IDC_STATIC,441,107,101,41
@@ -1180,6 +1182,8 @@ BEGIN
     GROUPBOX        "Wartoœci liczbowe",IDC_STATIC,223,149,210,166
     PUSHBUTTON      "Opcje Hilla",IDC_BUTTON69,195,376,60,19
     PUSHBUTTON      "&Opcje tekstu",IDC_BUTTON_TEXTOPTIONS,265,376,74,20
+    RTEXT           "Wartoœæ pierwszego znaku alfabetu",IDC_STATIC,445,75,67,19
+    EDITTEXT        IDC_EDIT2,518,76,16,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
 
 IDD_SHOW_KEY DIALOG  0, 0, 277, 89
@@ -11271,10 +11275,12 @@ BEGIN
     LTEXT           "više od tri slova.",IDC_STATIC,11,39,314,8
     LTEXT           "Dužina grupe slova otvoreni tekst je velicina kvadratne matrice.",IDC_STATIC,11,50,316,8
     GROUPBOX        "Informacija za šifrovanje",IDC_STATIC_HILL_ALPH,5,74,352,35
-    EDITTEXT        IDC_EDIT3,12,87,338,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT3,12,87,236,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     GROUPBOX        "Hill-ova kljucna matrica",IDC_STATIC,5,115,243,204
     GROUPBOX        "Brojne vrednosti",IDC_STATIC,128,168,109,100
     GROUPBOX        "Varijansa umnožavanja",IDC_STATIC,254,115,103,50
+    RTEXT           "Vrednost prvog karaktera alfabeta",IDC_STATIC,259,86,67,19
+    EDITTEXT        IDC_EDIT2,332,87,16,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
 
 IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 306
@@ -12140,7 +12146,7 @@ BEGIN
     LTEXT           "Ovo je bila prva poligraficka šifra, sa kojom je bilo prakticno manipulisati nad grupom slova koja sadrži više od tri slova.",IDC_STATIC,11,27,399,8
     LTEXT           "Dužina grupe slova otvoreni tekst je velicina kvadratne matrice.",IDC_STATIC,11,37,516,8
     GROUPBOX        "Informacije o šifrovanju",IDC_STATIC_HILL_ALPH,5,63,537,35
-    EDITTEXT        IDC_EDIT3,12,76,521,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT3,12,76,427,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     CONTROL         "Znaci alfabeta",IDC_RADIO21,"Button",BS_AUTORADIOBUTTON | WS_GROUP,191,118,79,10
     CONTROL         "Brojne vrednosti",IDC_RADIO22,"Button",BS_AUTORADIOBUTTON,191,131,63,10
     GROUPBOX        "Varijansa umnožavanja",IDC_STATIC,441,107,101,41
@@ -12249,6 +12255,8 @@ BEGIN
     GROUPBOX        "Brojne vrednosti",IDC_STATIC,223,149,210,166
     PUSHBUTTON      "Hill-ove opcije",IDC_BUTTON69,195,376,60,19
     PUSHBUTTON      "&Opcije za tekst",IDC_BUTTON_TEXTOPTIONS,265,376,74,20
+    RTEXT           "Vrednost prvog karaktera alfabeta",IDC_STATIC,445,75,67,19
+    EDITTEXT        IDC_EDIT2,518,76,16,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
 
 IDD_SHOW_KEY DIALOG  0, 0, 277, 89
@@ -22303,7 +22311,7 @@ BEGIN
     EDITTEXT        IDC_EDIT1,317,250,19,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE | NOT WS_TABSTOP
     GROUPBOX        "Zahlenwerte",IDC_STATIC,129,251,109,100
     GROUPBOX        "Informationen zur Verschlüsselung",IDC_STATIC_HILL_ALPH,6,153,347,35
-    EDITTEXT        IDC_EDIT3,12,166,323,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT3,12,166,237,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     GROUPBOX        "Beschreibung",IDC_STATIC,6,4,347,142
     GROUPBOX        "Hill-Schlüsselmatrix",IDC_STATIC,5,196,243,198
     LTEXT           "Der Klartextblock wird also als Zeilen- oder Spaltenvektor benutzt.",IDC_STATIC,15,75,208,8
@@ -22320,6 +22328,8 @@ BEGIN
     LTEXT           "sein, das die Matrix invertierbar ist.",IDC_STATIC,15,115,108,8
     LTEXT           "Sie können sich die Schlüsselmatrix auch per Buttonklick so mit zufälligen Werten füllen lassen, dass die",IDC_STATIC,15,125,328,8
     LTEXT           "Invertierbarkeit erfüllt ist.",IDC_STATIC,15,135,77,8
+    RTEXT           "Wert des ersten Alphabetzeichens",IDC_STATIC,258,165,67,19
+    EDITTEXT        IDC_EDIT2,331,166,16,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
 
 IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 355
@@ -23288,7 +23298,7 @@ BEGIN
     EDITTEXT        IDC_EDIT1011,411,334,16,12,ES_CENTER | ES_NUMBER
     GROUPBOX        "Zahlenwerte",IDC_STATIC,223,187,210,166
     GROUPBOX        "Informationen zur Verschlüsselung",IDC_STATIC_HILL_ALPH,5,100,535,35
-    EDITTEXT        IDC_EDIT3,12,113,520,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT3,12,113,426,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     GROUPBOX        "Hill-Schlüsselmatrix",IDC_STATIC,5,144,433,241
     CONTROL         "Alphabetzeichen",IDC_RADIO21,"Button",BS_AUTORADIOBUTTON | WS_GROUP,194,155,69,10
     CONTROL         "Zahlenwerte",IDC_RADIO22,"Button",BS_AUTORADIOBUTTON,194,169,55,10
@@ -23301,6 +23311,8 @@ BEGIN
     LTEXT           "invertierbar ist. Sie können sich die Schlüsselmatrix auch per Buttonklick so mit zufälligen Werten füllen lassen, dass die Invertierbarkeit erfüllt ist.",IDC_STATIC,11,77,516,8
     PUSHBUTTON      "Hill-Optionen",IDC_BUTTON69,185,412,60,19
     PUSHBUTTON      "&Textoptionen",IDC_BUTTON_TEXTOPTIONS,255,412,74,20
+    RTEXT           "Wert des ersten Alphabetzeichens",IDC_STATIC,445,112,67,19
+    EDITTEXT        IDC_EDIT2,518,113,16,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
 
 IDD_SHOW_KEY DIALOG  0, 0, 284, 87
@@ -33353,10 +33365,12 @@ BEGIN
     LTEXT           "This was the first polygraphic cipher in which it was practical to operate on more than three letters at once.",IDC_STATIC,11,33,338,8
     LTEXT           "The length of the group of cleartext letters is the size of the quadratic matrix.",IDC_STATIC,11,50,316,8
     GROUPBOX        "Information for encryption",IDC_STATIC_HILL_ALPH,5,74,352,35
-    EDITTEXT        IDC_EDIT3,12,87,338,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT3,12,87,236,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     GROUPBOX        "Hill key matrix",IDC_STATIC,5,115,243,204
     GROUPBOX        "Number values",IDC_STATIC,128,168,109,100
     GROUPBOX        "Multiplication variant",IDC_STATIC,254,115,103,50
+    RTEXT           "Value of the first alphabet character",IDC_STATIC,259,86,67,19
+    EDITTEXT        IDC_EDIT2,332,87,16,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
 
 IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 355
@@ -34088,7 +34102,7 @@ BEGIN
 END
 
 IDD_KEY_HILL_10X10 DIALOGEX 0, 0, 546, 401
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry: Hill"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
@@ -34219,7 +34233,7 @@ BEGIN
     LTEXT           "This was the first polygraphic cipher, in which it was practical to operate on a group of letters containing more than three letters.",IDC_STATIC,11,27,399,8
     LTEXT           "The length of the group of cleartext letters is the size of the quadratic matrix.",IDC_STATIC,11,37,516,8
     GROUPBOX        "Information for encryption",IDC_STATIC_HILL_ALPH,5,63,537,35
-    EDITTEXT        IDC_EDIT3,12,76,521,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT3,12,76,426,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     CONTROL         "Alphabet characters",IDC_RADIO21,"Button",BS_AUTORADIOBUTTON | WS_GROUP,191,118,79,10
     CONTROL         "Number values",IDC_RADIO22,"Button",BS_AUTORADIOBUTTON,191,131,63,10
     GROUPBOX        "Multiplication variant",IDC_STATIC,441,107,101,41
@@ -34328,6 +34342,8 @@ BEGIN
     GROUPBOX        "Number values",IDC_STATIC,223,149,210,166
     PUSHBUTTON      "Hill options",IDC_BUTTON69,195,376,60,19
     PUSHBUTTON      "&Text options",IDC_BUTTON_TEXTOPTIONS,265,376,74,20
+    RTEXT           "Value of the first alphabet character",IDC_STATIC,445,75,67,19
+    EDITTEXT        IDC_EDIT2,518,76,16,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
 
 IDD_SHOW_KEY DIALOG  0, 0, 277, 89
@@ -45796,7 +45812,7 @@ BEGIN
     LTEXT           "Fue el primer sistema criptográfico polialfabético que era práctico para trabajar con más de tres símbolos simultáneamente.",IDC_STATIC,11,27,384,8
     LTEXT           "Se divide el texto en bloques de d elementos que son tratados como vectores d-dimensionales. La clave es una matriz aleatoria d x d inversible en Z_26",IDC_STATIC,11,37,516,8
     GROUPBOX        "Información para cifrar",IDC_STATIC_HILL_ALPH,5,63,537,35
-    EDITTEXT        IDC_EDIT3,12,76,521,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT3,12,76,426,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     CONTROL         "Caracteres del Alfabeto",IDC_RADIO21,"Button",BS_AUTORADIOBUTTON | WS_GROUP,191,118,89,10
     CONTROL         "Valores Numéricos",IDC_RADIO22,"Button",BS_AUTORADIOBUTTON,191,131,75,10
     GROUPBOX        "Variantes",IDC_STATIC,441,107,101,41
@@ -45905,6 +45921,8 @@ BEGIN
     GROUPBOX        "Valores Numéricos",IDC_STATIC,223,149,210,166
     PUSHBUTTON      "Opciones Hill",IDC_BUTTON69,195,376,60,19
     PUSHBUTTON      "Opciones de&Texto",IDC_BUTTON_TEXTOPTIONS,265,376,74,20
+    RTEXT           "El primer caracter del alfabeto",IDC_STATIC,451,75,61,19
+    EDITTEXT        IDC_EDIT2,518,76,16,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
 
 IDD_KEY_HILL5X5 DIALOGEX 0, 0, 364, 379
@@ -45981,18 +45999,20 @@ BEGIN
     PUSHBUTTON      "Opciones Hill",IDC_BUTTON1,155,352,60,19
     PUSHBUTTON      "Opciones de &Texto",IDC_BUTTON_TEXTOPTIONS,225,352,64,19
     PUSHBUTTON      "&Cancelar",IDCANCEL,300,352,58,19
-    GROUPBOX        "Caracteres del Alfabeto",-1,15,168,109,100
-    GROUPBOX        "Tamaño de la Matriz",-1,254,180,104,139
+    GROUPBOX        "Caracteres del Alfabeto",IDC_STATIC,15,168,109,100
+    GROUPBOX        "Tamaño de la Matriz",IDC_STATIC,254,180,104,139
     EDITTEXT        IDC_EDIT1,329,177,19,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
-    GROUPBOX        "Descripción",-1,5,4,352,69
-    LTEXT           "El cifrado de Hill es un cifrado por sustitución polialfabético basado en álgebra lineal.",-1,11,17,321,8
-    LTEXT           "Fue el primer sistema criptográfico polialfabético que era práctico para trabajar con más de tres símbolos simultáneamente.",-1,11,28,341,20
-    LTEXT           "Se divide el texto en bloques de d elementos que son tratados como vectores d-dimensionales. La clave es una matriz aleatoria d x d inversible en Z_26",-1,10,49,316,18
+    GROUPBOX        "Descripción",IDC_STATIC,5,4,352,69
+    LTEXT           "El cifrado de Hill es un cifrado por sustitución polialfabético basado en álgebra lineal.",IDC_STATIC,11,17,321,8
+    LTEXT           "Fue el primer sistema criptográfico polialfabético que era práctico para trabajar con más de tres símbolos simultáneamente.",IDC_STATIC,11,28,341,20
+    LTEXT           "Se divide el texto en bloques de d elementos que son tratados como vectores d-dimensionales. La clave es una matriz aleatoria d x d inversible en Z_26",IDC_STATIC,10,49,316,18
     GROUPBOX        "Información para cifrar",IDC_STATIC_HILL_ALPH,4,77,352,35
-    EDITTEXT        IDC_EDIT3,12,87,338,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
-    GROUPBOX        "Matriz Clave",-1,5,115,243,204
-    GROUPBOX        "Valores Numéricos",-1,128,168,109,100
-    GROUPBOX        "Variantes",-1,254,115,103,50
+    EDITTEXT        IDC_EDIT3,12,89,236,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    GROUPBOX        "Matriz Clave",IDC_STATIC,5,115,243,204
+    GROUPBOX        "Valores Numéricos",IDC_STATIC,128,168,109,100
+    GROUPBOX        "Variantes",IDC_STATIC,254,115,103,50
+    RTEXT           "El primer caracter del alfabeto",IDC_STATIC,265,88,61,19
+    EDITTEXT        IDC_EDIT2,332,89,16,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
 
 IDD_KEY_HOMOPHONE DIALOGEX 0, 0, 394, 418

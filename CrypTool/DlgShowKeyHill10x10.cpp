@@ -871,8 +871,9 @@ void CDlgShowKeyHill10x10::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT1012, m_ControlAlphFeld1012);
 	DDX_Radio  (pDX, IDC_RADIO1,   m_decrypt);
 	DDX_Text   (pDX, IDC_EDIT2,    m_alphabetOffset);
-	DDX_Radio  (pDX, IDC_RADIO25,   i_multDirection);
+	DDX_Radio  (pDX, IDC_RADIO25, i_multDirection);
 	//}}AFX_DATA_MAP
+	DDX_Control(pDX, IDC_EDIT2, m_ctrlAlphabetOffset);
 }
 
 
@@ -1198,6 +1199,8 @@ BOOL CDlgShowKeyHill10x10::OnInitDialog()
 		}
 	}
 
+	m_ctrlAlphabetOffset.EnableWindow(FALSE);
+
 	UpdateData();
 
 	return TRUE;  // return TRUE unless you set the focus to a control
@@ -1228,7 +1231,7 @@ void CDlgShowKeyHill10x10::MatrixAnzeigen(CSquareMatrixModN& mat, int dim, CHill
 		}
 	}
 	i_multDirection  = (iHillMultiplicationType) ? 0 : 1;
-	m_alphabetOffset = (hillklasse.firstPosNull) ? 0 : 1;
+	m_alphabetOffset = hillklasse.m_alphabetOffset;
 }
 
 
@@ -1348,7 +1351,7 @@ CString CDlgShowKeyHill10x10::getAlphCode(CString alphChar)
 	{
 		if(theApp.TextOptions.getAlphabet()[i] == alphChar)
 		{
-			str.Format("%d",i+1);
+			str.Format("%d",i+m_alphabetOffset);
 			
 			if(str.GetLength() == 1)
 				str.Insert(0,"0");

@@ -48,12 +48,11 @@ static char THIS_FILE[] = __FILE__;
 CDlgKeyHill10x10::CDlgKeyHill10x10(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgKeyHill10x10::IDD, pParent)
 	, m_pHillAlphInfo(_T(""))
+	, m_alphabetOffset(0)
 {
 	hillklasse = new CHillEncryption((const char*)theApp.TextOptions.getAlphabet());
 	m_decrypt = 0;
-	//{{AFX_DATA_INIT(CDlgKeyHill10x10)
 	m_Verbose = FALSE;
-	//}}AFX_DATA_INIT
 }
 
 
@@ -66,7 +65,6 @@ CDlgKeyHill10x10::~CDlgKeyHill10x10()
 void CDlgKeyHill10x10::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	//{{AFX_DATA_MAP(CDlgKeyHill10x10)
 	DDX_Check(pDX, IDC_CHECK1, m_Verbose);
 	DDX_Control(pDX, IDC_EDIT1, m_FeldUnsichtbar);
 	DDX_Control(pDX, IDC_EDIT11, m_Feld11);
@@ -169,9 +167,6 @@ void CDlgKeyHill10x10::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT108, m_Feld108);
 	DDX_Control(pDX, IDC_EDIT109, m_Feld109);
 	DDX_Control(pDX, IDC_EDIT1010, m_Feld1010);
-	//}}AFX_DATA_MAP
-
-
 	DDX_Control(pDX, IDC_EDIT40, m_Feld40);
 	DDX_Control(pDX, IDC_EDIT50, m_Feld50);
 	DDX_Control(pDX, IDC_EDIT20, m_Feld20);
@@ -272,8 +267,9 @@ void CDlgKeyHill10x10::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT209, m_Feld209);
 	DDX_Control(pDX, IDC_EDIT212, m_Feld212);
 	DDX_Control(pDX, IDC_EDIT1011, m_Feld1011);
-
 	DDX_Text(pDX, IDC_EDIT3, m_pHillAlphInfo);
+	DDX_Text(pDX, IDC_EDIT2, m_alphabetOffset);
+	DDV_MinMaxInt(pDX, m_alphabetOffset, 0, 1);
 }
 
 
@@ -607,7 +603,7 @@ BEGIN_MESSAGE_MAP(CDlgKeyHill10x10, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_TEXTOPTIONS, OnTextOptions)
 
 	//}}AFX_MSG_MAP
-	ON_BN_CLICKED(IDC_BUTTON69, OnBnClickedButton69)
+	ON_BN_CLICKED(IDC_BUTTON69, OnHillOptions)
 	END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -2107,7 +2103,7 @@ void CDlgKeyHill10x10::OnOK()
 	UpdateData(true);
 	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "Hill" ) == ERROR_SUCCESS )
 	{
-		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "OrdChrOffset");
+		CT_WRITE_REGISTRY(unsigned long(m_alphabetOffset), "OrdChrOffset");
 		CT_WRITE_REGISTRY(unsigned long(alphCode), "EditKeyChrMatrix");
 		CT_CLOSE_REGISTRY();
 	}
@@ -2162,7 +2158,7 @@ void CDlgKeyHill10x10::OnDecrypt()
 	UpdateData(true);
 	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "Hill" ) == ERROR_SUCCESS )
 	{
-		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "OrdChrOffset");
+		CT_WRITE_REGISTRY(unsigned long(m_alphabetOffset), "OrdChrOffset");
 		CT_WRITE_REGISTRY(unsigned long(alphCode), "EditKeyChrMatrix");
 		CT_CLOSE_REGISTRY();
 	}
@@ -2235,11 +2231,11 @@ BOOL CDlgKeyHill10x10::OnInitDialog()
 	GetDlgItem(IDC_STATIC_HILL_ALPH)->SetWindowText(l_str);
 
 	alphCode = 0;
-	firstPosNull = 1;
+	m_alphabetOffset = 0;
 	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "Hill") == ERROR_SUCCESS)
 	{
 		
-		CT_READ_REGISTRY_DEFAULT(firstPosNull, "OrdChrOffset", firstPosNull);
+		CT_READ_REGISTRY_DEFAULT(m_alphabetOffset, "OrdChrOffset", m_alphabetOffset);
 		CT_READ_REGISTRY_DEFAULT(alphCode,"EditKeyChrMatrix",alphCode);
 		
 		UpdateData(false);
@@ -3104,7 +3100,7 @@ void CDlgKeyHill10x10::OnKleinereSchluessel()
 	UpdateData(true);
 	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "Hill" ) == ERROR_SUCCESS )
 	{
-		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "OrdChrOffset");
+		CT_WRITE_REGISTRY(unsigned long(m_alphabetOffset), "OrdChrOffset");
 		CT_WRITE_REGISTRY(unsigned long(alphCode), "EditKeyChrMatrix");
 		CT_CLOSE_REGISTRY();
 	}
@@ -3123,6 +3119,7 @@ void CDlgKeyHill10x10::OnKleinereSchluessel()
 
 	CDialog::OnOK();
 }
+
 CString CDlgKeyHill10x10::getAlphCode(CString alphChar)
 {
 	CString str;
@@ -3130,7 +3127,7 @@ CString CDlgKeyHill10x10::getAlphCode(CString alphChar)
 	{
 		if(theApp.TextOptions.getAlphabet()[i] == alphChar)
 		{
-			str.Format("%d",i+1);
+			str.Format("%d",i + m_alphabetOffset);
 			if(str.GetLength() == 1)
 				str.Insert(0,"0");
 			return str;
@@ -3138,15 +3135,16 @@ CString CDlgKeyHill10x10::getAlphCode(CString alphChar)
 	}
 	return "";
 }
+
 CString CDlgKeyHill10x10::getAlphChar(CString alphPos)
 {
-		int pos = _ttoi(alphPos);
-		pos--;
-		if(pos < 0 || pos > theApp.TextOptions.getAlphabet().GetLength())
-			return "";
-		else
-			return theApp.TextOptions.getAlphabet().Mid(pos,1);
+	int pos = _ttoi(alphPos) - m_alphabetOffset;
+	if(pos < 0 || pos > theApp.TextOptions.getAlphabet().GetLength())
+		return "";
+	else
+		return theApp.TextOptions.getAlphabet().Mid(pos,1);
 }
+
 void CDlgKeyHill10x10::setFeldAlphCode(CEdit *feld,CEdit *feldAlph)
 {
 	if(!alphCode)
@@ -3173,7 +3171,7 @@ void CDlgKeyHill10x10::setDoublePos(CEdit *feld)
 
 	if(cs.GetLength() == 1)
 	{
-		if(_ttoi(cs) < 1 || _ttoi(cs) > theApp.TextOptions.getAlphabet().GetLength())
+		if(_ttoi(cs) < m_alphabetOffset || _ttoi(cs) > theApp.TextOptions.getAlphabet().GetLength())
 		{
 			cs.Empty();
 			feld->SetWindowText(cs);
@@ -3186,19 +3184,39 @@ void CDlgKeyHill10x10::setDoublePos(CEdit *feld)
 		PrevDlgCtrl(); //because Tab and UpdateFeld makes both NextDlgCtrl
 	}
 }
+
 void CDlgKeyHill10x10::OnRowVectorMatrix()
 {
 	iHillMultiplicationType = 1;
 }
+
 void CDlgKeyHill10x10::OnMatrixColumnVector()
 {
 	iHillMultiplicationType = 0;
 }
-void CDlgKeyHill10x10::OnBnClickedButton69()
+
+void CDlgKeyHill10x10::OnHillOptions()
 {
 	DlgHillOptions hillOpt;
-	hillOpt.DoModal();
+	if ( IDOK != hillOpt.DoModal() )
+		return;
+
+	m_alphabetOffset = hillOpt.m_alphabetOffset;
+	delete hillklasse;
+	hillklasse = new CHillEncryption((const char*)theApp.TextOptions.getAlphabet());
+
+	CString str;
+	for(int i=0;i<10;i++)
+	{
+		for(int j=0;j<10;j++)
+		{
+			m_pFelder[i][j]->GetWindowText(str);
+			m_pAlphCode[i][j]->SetWindowText(getAlphCode(str));
+		}
+	}
+	UpdateData(false);
 }
+
 CString CDlgKeyHill10x10::getDimMessage()
 {
 	int iHillKeyDim = dim;
@@ -3232,17 +3250,11 @@ CString CDlgKeyHill10x10::getDimMessage()
 
 void CDlgKeyHill10x10::OnTextOptions()
 {
-	if(theApp.TextOptions.DoModal() != IDOK) return;
-
-	//if(hillklasse) delete hillklasse;
-	hillklasse = new CHillEncryption((const char*)theApp.TextOptions.getAlphabet());
-	
-	int len = theApp.TextOptions.getAlphabet().GetLength();
-	LoadString(AfxGetInstanceHandle(),IDS_HILL_CASE,pc_str,STR_LAENGE_STRING_TABLE);
-	char l_str[1024];
-	sprintf(l_str,pc_str,len);
-	GetDlgItem(IDC_STATIC_HILL_ALPH)->SetWindowText(l_str);
-
+	if(theApp.TextOptions.DoModal() != IDOK) 
+		return;
+	CString cs;
+	cs.FormatMessageA( IDS_HILL_CASE, theApp.TextOptions.getAlphabet().GetLength() );
+	GetDlgItem(IDC_STATIC_HILL_ALPH)->SetWindowText(cs);
 	m_pHillAlphInfo = theApp.TextOptions.getAlphabet();
 	
 	UpdateData(false);

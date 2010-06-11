@@ -649,6 +649,7 @@ void Hill(const char *infile, const char *OldTitle)
 
 		if (iHillSchluesselFensterGroesse == HILL_SCHLUESSEL_KLEIN)
 		{
+#if 0 // FIXME
 			hillein = new CDlgKeyHill5x5();
 			hillklasse = hillein->getHillKlasse();
 			iLocalRc = hillein->Display();
@@ -665,6 +666,7 @@ void Hill(const char *infile, const char *OldTitle)
 				hillein = NULL;
 				hillklasse = NULL;
 			}
+#endif
 		}
 		else // iHillSchluesselFensterGroesse = HILL_SCHLUESSEL_GROSS
 		{
@@ -766,7 +768,7 @@ void Hill(const char *infile, const char *OldTitle)
 	}
 	else
 	{
-		iDimension = hillein->dim;
+		// FIXME: iDimension = hillein->dim;
 	}
 
 	if ((iAnz % iDimension) != 0)
@@ -840,10 +842,12 @@ void Hill(const char *infile, const char *OldTitle)
 	}
 	else
 	{
+#if 0 // FIXME
 		i_m_decrypt = hillein->m_decrypt;
 		i_m_Verbose = hillein->m_Verbose;
 		matrix = new CSquareMatrixModN(hillein->mat->get_dim(),hillklasse->get_modul());
 		(*matrix) = (*(hillein->mat));
+#endif
 	}
 
 	if (i_m_decrypt) // Entschluesseln
@@ -901,7 +905,7 @@ void Hill(const char *infile, const char *OldTitle)
 	{
 		char strInfo[4];
 		strcat(schluessel, HILLSTR_ALPHABETOFFSET);
-		sprintf(strInfo, " %i ", (hillklasse->firstPosNull) ? 0 : 1);
+		sprintf(strInfo, " %i ", hillklasse->m_alphabetOffset);
 		strcat(schluessel, strInfo);
 		strcat(schluessel, HILLSTR_MULTVARIANT);
 		sprintf(strInfo, " %i ", (iHillMultiplicationType) ? 0 : 1 );

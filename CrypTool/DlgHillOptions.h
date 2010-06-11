@@ -31,7 +31,7 @@ public:
 	DlgHillOptions(CWnd* pParent = NULL);   // standard constructor
 	virtual ~DlgHillOptions();
 
-	unsigned long firstPosNull;
+	unsigned long m_alphabetOffset;
 	unsigned long useFirstCharFromAlph;
 
 	bool isInAlph(CString strChar);

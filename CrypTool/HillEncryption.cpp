@@ -54,16 +54,9 @@ void CHillEncryption::anlegen_mat (void)
 // Speicher fuer Matrizen freigeben
 void CHillEncryption::freigeben_mat (void)
 {
-	if (enc_mat)
-	{
-		delete enc_mat;
-	}
+	delete enc_mat;
 	enc_mat = 0;
-	
-	if (dec_mat)
-	{
-		delete dec_mat;
-	}
+	delete dec_mat;
 	dec_mat = 0;
 }
 
@@ -89,7 +82,7 @@ void CHillEncryption::init_zahlen_zeichen (const char* erlaubte_zeichen)
 	}
 
 	// jetzt die Felder, die gefuellt werden muessen, fuellen
-	if(firstPosNull)
+	if(!m_alphabetOffset)
 	{
 		for (i=0; i<modul; i++)
 		{
@@ -167,14 +160,18 @@ void CHillEncryption::init_zahlen_zeichen (const char* erlaubte_zeichen)
 // Konstruktor 
 // Dimension muss spaeter mittels Methode set_dim() gesetzt werden
 // (Die Dimension wird standardmaessig auf 1 gesetzt.)
-CHillEncryption::CHillEncryption(const char* erlaubte_zeichen)
+CHillEncryption::CHillEncryption(const char* erlaubte_zeichen) :
+	enc_mat(0),
+	dec_mat(0),
+	plaintext(0),
+	ciphertext(0)
 {
 		//read from registry
-	firstPosNull = 1;
+	m_alphabetOffset = 0;
 
 	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "Hill") == ERROR_SUCCESS)
 	{
-		CT_READ_REGISTRY_DEFAULT(firstPosNull, "OrdChrOffset", firstPosNull);
+		CT_READ_REGISTRY_DEFAULT(m_alphabetOffset, "OrdChrOffset", m_alphabetOffset);
 		CT_CLOSE_REGISTRY();
 	}
 	init_zahlen_zeichen(erlaubte_zeichen);
@@ -182,22 +179,22 @@ CHillEncryption::CHillEncryption(const char* erlaubte_zeichen)
 	iaLinearKombination1 = new int[modul];
 	iaLinearKombination2 = new int[modul];
 	iaFaktoren = new int[modul];
-	enc_mat = 0;
-	dec_mat = 0;
-	plaintext = 0;
-	ciphertext = 0;
 	set_dim(1);
 }
 
 // Konstruktor mit Dimension
-CHillEncryption::CHillEncryption(const char* erlaubte_zeichen, int d)
+CHillEncryption::CHillEncryption(const char* erlaubte_zeichen, int d) :
+	enc_mat(0),
+	dec_mat(0),
+	plaintext(0),
+	ciphertext(0)
 {
 		//read from registry
-	firstPosNull = 1;
+	m_alphabetOffset = 1;
 
 	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "Hill") == ERROR_SUCCESS)
 	{
-		CT_READ_REGISTRY_DEFAULT(firstPosNull, "OrdChrOffset", firstPosNull);
+		CT_READ_REGISTRY_DEFAULT(m_alphabetOffset, "OrdChrOffset", m_alphabetOffset);
 		CT_CLOSE_REGISTRY();
 	}
 	init_zahlen_zeichen(erlaubte_zeichen);
@@ -205,10 +202,6 @@ CHillEncryption::CHillEncryption(const char* erlaubte_zeichen, int d)
 	iaLinearKombination1 = new int[modul];
 	iaLinearKombination2 = new int[modul];
 	iaFaktoren = new int[modul];
-	enc_mat = 0;
-	dec_mat = 0;
-	plaintext = 0;
-	ciphertext = 0;
 	ASSERT ( (1 <= d) && (d <= HILL_MAX_DIM_GROSS) );
 	set_dim (d);
 }
@@ -216,17 +209,9 @@ CHillEncryption::CHillEncryption(const char* erlaubte_zeichen, int d)
 CHillEncryption::~CHillEncryption()
 {
 	freigeben_mat ();
-	
-	if (plaintext)
-	{
-		delete[] plaintext;
-	}
-	
-	if (ciphertext)
-	{
-		delete[] ciphertext;
-	}
 
+	delete[] plaintext;
+	delete[] ciphertext;
 	delete[] laPositionVektor;
 	delete[] iaLinearKombination1;
 	delete[] iaLinearKombination2;
@@ -646,8 +631,8 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 	int floor_rows = modul / 4;
 	int remainder = modul % 4;
 
-	int iShiftPos = 0;
-	if(!firstPosNull)iShiftPos = 1;
+	// int iShiftPos = 0;
+	// if(!firstPosNull)iShiftPos = 1;
 
 	tmpStr = _T("");
 	for (int i=0; i<=floor_rows; i++)
@@ -660,12 +645,12 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 		{
 			if (i == floor_rows && j >= remainder) break;
 
-			if(!firstPosNull)
+			if(m_alphabetOffset)
 				tmpStr = tmpStr + (char)my_int_to_char((ndx + 1)%modul) + ' ' + CString(" --> ")  + '\t';	
 			else
 				tmpStr = tmpStr + (char)my_int_to_char(ndx) + ' ' + CString(" -->") + '\t';
 				
-			my_sprintf(num, ndx+iShiftPos);
+			my_sprintf(num, ndx+m_alphabetOffset);
 
 			tmpStr += CString(num) + ' ';
 		    tmpStr += '\t';
@@ -679,7 +664,7 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 	tmpStr.Format(_T("%d"), theApp.TextOptions.getAlphabet().GetLength() );
 	MatOut.Replace("%ALPHABET_SIZE%", tmpStr);
 
-	if(firstPosNull)
+	if(!m_alphabetOffset)
 		MatOut.Replace("%ALPHABET_CODING_OFFSET%", _T("0"));
 	else
 		MatOut.Replace("%ALPHABET_CODING_OFFSET%", _T("1"));
@@ -1623,12 +1608,5 @@ void CHillEncryption::BerechneFaktoren(int i, long lAnzahlBloecke)
 }
 int CHillEncryption::getPositionOfCharForOutput(int iPos)
 {
-
-	if(!firstPosNull)
-	{
-		if(iPos == 0)
-			iPos = modul;
-	}
-	
-	return iPos;
+	return ( m_alphabetOffset && !iPos ) ? modul : iPos;
 }

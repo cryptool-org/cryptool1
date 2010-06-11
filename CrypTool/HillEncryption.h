@@ -56,7 +56,6 @@
 #define HILL_LIN_KOMB_INIT   -1		// wie SQ_MAT_LIN_KOMB_INIT aus sq_mat.h
 #define HILL_LIN_KOMB_NEU    -2		// wie SQ_MAT_LIN_KOMB_NEU aus sq_mat.h
 
-
 class CHillEncryption
 {
 
@@ -111,8 +110,7 @@ private:
 	int modul;
 	
 	// Matrizen zum Ver- und Entschluesseln
-	CSquareMatrixModN *dec_mat,
-		*enc_mat;
+	CSquareMatrixModN *dec_mat,	*enc_mat;
 	
 	// Speicher fuer Matrizen anlegen bzw. freigeben
 	void anlegen_mat (void);
@@ -141,8 +139,7 @@ public:
 	// Abbildung [erlaubte Zeichen] <-> [0..modul-1]
 	int				my_char_to_int (char) const;
 	char			my_int_to_char (int) const;
-	unsigned long	firstPosNull;  //if firstPosNull==1 - >A=0 else A=1
-
+	unsigned long	m_alphabetOffset;  
 	// Darf dieses Zeichen benutzt werden ?
 	BOOL ist_erlaubtes_zeichen (char) const;
 	

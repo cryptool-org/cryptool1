@@ -40,7 +40,6 @@ class CDlgKeyHill10x10 : public CDialog
 public:
 	int		m_decrypt;
 	unsigned long alphCode;
-	unsigned long firstPosNull;
 	CSquareMatrixModN * mat;
 	void UpdateFeld (CEdit*feld);
 	void UpdateAlphCode(CEdit*feld);
@@ -625,7 +624,8 @@ protected:
 public:
 	CString m_pHillAlphInfo;
 	afx_msg void OnBnClickedOk();
-	afx_msg void OnBnClickedButton69();
+	afx_msg void OnHillOptions();
+	unsigned long m_alphabetOffset;
 };
 
 //{{AFX_INSERT_LOCATION}}
