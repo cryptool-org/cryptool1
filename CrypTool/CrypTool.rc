@@ -8,7 +8,8 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -1565,9 +1566,9 @@ BEGIN
     EDITTEXT        IDC_EDIT13,19,282,353,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT11,19,313,353,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT12,19,345,353,12,ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "&Szyfruj",IDC_BUTTON_VERSCHLUESSELN,10,374,71,18
-    PUSHBUTTON      "&Deszyfruj",IDC_BUTTON_ENTSCHLUESSELN,100,374,73,18
-    PUSHBUTTON      "&Zamknij",IDC_ENDDIALOG,252,374,90,18
+    PUSHBUTTON      "&Szyfruj",IDC_BUTTON_VERSCHLUESSELN,10,373,71,18
+    PUSHBUTTON      "&Deszyfruj",IDC_BUTTON_ENTSCHLUESSELN,100,373,73,18
+    PUSHBUTTON      "&Zamknij",IDC_ENDDIALOG,291,373,90,18
     CONTROL         "Wybierz dwie liczby p i q. Liczba N = p*q jest modulusem publicznym RSA a phi(N) = (p-1)(q-1) jest liczb¹ Eulera. Klucz publiczny e jest wzglêdnie pierwszy do phi(N). Obliczony zostaje klucz prywatny d = e^(-1) (mod phi(N)).",IDC_RADIO3,
                     "Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE | WS_GROUP,19,15,353,26
     CONTROL         "Dla potrzeb szyfrowania danych lub sprawdzania certyfikatów jest wystarczaj¹ce wprowadzenie parametrów publicznych RSA:  modulusa i klucza publicznego e.",IDC_RADIO4,
@@ -4561,7 +4562,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "Zaznacz &wszystko \t Ctrl + A", ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
-        MENUITEM "Poka¿ &klucz...",                ID_SHOW_KEY
+        MENUITEM "Poka¿ &klucz...",             ID_SHOW_KEY
         MENUITEM "Okno &g³ówne",                ID_GOTO_VATER
     END
     POPUP "&Widok"
@@ -4782,9 +4783,9 @@ BEGIN
                 MENUITEM "&Cezar",                      ID_CAESAR_AUTO
                 MENUITEM "&Vigenere",                   ID_VIGENERE_AUTO
                 MENUITEM "V&igenere (Analiza w oparciu o Schroedel)...", ID_ANALYSIS_VIGENERE_SCHROEDEL
-                MENUITEM "&ADFGVX...",                     ID_ANALYSE_SYMMCLASSIC_ADFGVX
-                MENUITEM "&Zamiana...",                    ID_CIPHERTEXT_ONLY_SUBSTITUTION
-                MENUITEM "Soli&taire...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "&Zamiana...",                 ID_CIPHERTEXT_ONLY_SUBSTITUTION
+                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
                 MENUITEM "Dodawanie",                   ID_ADD_AUTO
                 MENUITEM "&XOR",                        ID_XOR_AUTO
@@ -4840,10 +4841,10 @@ BEGIN
         END
         POPUP "&Analiza losowoœci"
         BEGIN
-            MENUITEM "Test &czêstotliwoœci...",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-            MENUITEM "Test &pokerowy...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST
-            MENUITEM "Test &serii...",                 ID_ANALYSE_ZUFALLSTESTS_RUNS
-            MENUITEM "Test &dwubitowy...",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+            MENUITEM "Test &czêstotliwoœci...",     ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "Test &pokerowy...",           ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+            MENUITEM "Test &serii...",              ID_ANALYSE_ZUFALLSTESTS_RUNS
+            MENUITEM "Test &dwubitowy...",          ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
             MENUITEM SEPARATOR
             MENUITEM "Seria testów F&IPS PUB-140-1", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
             MENUITEM SEPARATOR
@@ -4875,7 +4876,7 @@ BEGIN
         MENUITEM "Skrypt",                      ID_SCRIPT
         MENUITEM "&Prezentacja",                ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "O CrypToolu...",                 ID_APP_ABOUT
+        MENUITEM "O CrypToolu...",              ID_APP_ABOUT
     END
 END
 
@@ -4912,7 +4913,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "Zaznacz &wszystko \t Ctrl + A", ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
-        MENUITEM "Poka¿ &klucz...",                ID_SHOW_KEY
+        MENUITEM "Poka¿ &klucz...",             ID_SHOW_KEY
         MENUITEM "Okno &g³ówne",                ID_GOTO_VATER
     END
     POPUP "&Widok"
@@ -5133,9 +5134,9 @@ BEGIN
                 MENUITEM "&Cezar",                      ID_CAESAR_AUTO
                 MENUITEM "&Vigenere",                   ID_VIGENERE_AUTO
                 MENUITEM "V&igenere (Analiza w oparciu o Schroedel)...", ID_ANALYSIS_VIGENERE_SCHROEDEL
-                MENUITEM "&ADFGVX...",                     ID_ANALYSE_SYMMCLASSIC_ADFGVX
-                MENUITEM "&Zamiana...",                    ID_CIPHERTEXT_ONLY_SUBSTITUTION
-                MENUITEM "Soli&taire...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "&Zamiana...",                 ID_CIPHERTEXT_ONLY_SUBSTITUTION
+                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
                 MENUITEM "Dodawanie",                   ID_ADD_AUTO
                 MENUITEM "&XOR",                        ID_XOR_AUTO
@@ -5191,10 +5192,10 @@ BEGIN
         END
         POPUP "&Analiza losowoœci"
         BEGIN
-            MENUITEM "Test &czêstotliwoœci...",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-            MENUITEM "Test &pokerowy...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST
-            MENUITEM "Test &serii...",                 ID_ANALYSE_ZUFALLSTESTS_RUNS
-            MENUITEM "Test &dwubitowy...",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+            MENUITEM "Test &czêstotliwoœci...",     ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "Test &pokerowy...",           ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+            MENUITEM "Test &serii...",              ID_ANALYSE_ZUFALLSTESTS_RUNS
+            MENUITEM "Test &dwubitowy...",          ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
             MENUITEM SEPARATOR
             MENUITEM "Seria testów F&IPS PUB-140-1", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
             MENUITEM SEPARATOR
@@ -5226,7 +5227,7 @@ BEGIN
         MENUITEM "Skrypt",                      ID_SCRIPT
         MENUITEM "&Prezentacja",                ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "O CrypToolu...",                 ID_APP_ABOUT
+        MENUITEM "O CrypToolu...",              ID_APP_ABOUT
     END
 END
 
@@ -5263,7 +5264,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "Zaznacz &wszystko \t Ctrl + A", ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Poka¿ &klucz...",                ID_SHOW_KEY, GRAYED
+        MENUITEM "Poka¿ &klucz...",             ID_SHOW_KEY, GRAYED
         MENUITEM "Okno &g³ówne",                ID_GOTO_VATER, GRAYED
     END
     POPUP "&Widok"
@@ -5484,9 +5485,9 @@ BEGIN
                 MENUITEM "&Cezar",                      ID_CAESAR_AUTO
                 MENUITEM "&Vigenere",                   ID_VIGENERE_AUTO, GRAYED
                 MENUITEM "V&igenere (Analiza w oparciu o Schroedel)...", ID_ANALYSIS_VIGENERE_SCHROEDEL
-                MENUITEM "&ADFGVX...",                     ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
-                MENUITEM "&Zamiana...",                    ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
-                MENUITEM "Soli&taire...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
+                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
+                MENUITEM "&Zamiana...",                 ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
+                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "Dodawanie",                   ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
@@ -5542,10 +5543,10 @@ BEGIN
         END
         POPUP "&Analiza losowoœci"
         BEGIN
-            MENUITEM "Test &czêstotliwoœci...",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-            MENUITEM "Test &pokerowy...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
-            MENUITEM "Test &serii...",                 ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
-            MENUITEM "Test &dwubitowy...",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
+            MENUITEM "Test &czêstotliwoœci...",     ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "Test &pokerowy...",           ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
+            MENUITEM "Test &serii...",              ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
+            MENUITEM "Test &dwubitowy...",          ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "Seria testów F&IPS PUB-140-1", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
@@ -5577,7 +5578,7 @@ BEGIN
         MENUITEM "Skrypt",                      ID_SCRIPT
         MENUITEM "&Prezentacja",                ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "O CrypToolu...",                 ID_APP_ABOUT
+        MENUITEM "O CrypToolu...",              ID_APP_ABOUT
     END
 END
 
@@ -5614,7 +5615,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "Zaznacz &wszystko \t Ctrl + A", ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
-        MENUITEM "Poka¿ &klucz...",                ID_SHOW_KEY
+        MENUITEM "Poka¿ &klucz...",             ID_SHOW_KEY
         MENUITEM "Okno &g³ówne",                ID_GOTO_VATER
     END
     POPUP "&Widok"
@@ -5835,9 +5836,9 @@ BEGIN
                 MENUITEM "&Cezar",                      ID_CAESAR_AUTO
                 MENUITEM "&Vigenere",                   ID_VIGENERE_AUTO
                 MENUITEM "V&igenere (Analiza w oparciu o Schroedel)...", ID_ANALYSIS_VIGENERE_SCHROEDEL
-                MENUITEM "&ADFGVX...",                     ID_ANALYSE_SYMMCLASSIC_ADFGVX
-                MENUITEM "&Zamiana...",                    ID_CIPHERTEXT_ONLY_SUBSTITUTION
-                MENUITEM "Soli&taire...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "&Zamiana...",                 ID_CIPHERTEXT_ONLY_SUBSTITUTION
+                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
                 MENUITEM "Dodawanie",                   ID_ADD_AUTO
                 MENUITEM "&XOR",                        ID_XOR_AUTO
@@ -5893,10 +5894,10 @@ BEGIN
         END
         POPUP "&Analiza losowoœci"
         BEGIN
-            MENUITEM "Test &czêstotliwoœci...",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-            MENUITEM "Test &pokerowy...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST
-            MENUITEM "Test &serii...",                 ID_ANALYSE_ZUFALLSTESTS_RUNS
-            MENUITEM "Test &dwubitowy...",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+            MENUITEM "Test &czêstotliwoœci...",     ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "Test &pokerowy...",           ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+            MENUITEM "Test &serii...",              ID_ANALYSE_ZUFALLSTESTS_RUNS
+            MENUITEM "Test &dwubitowy...",          ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
             MENUITEM SEPARATOR
             MENUITEM "Seria testów F&IPS PUB-140-1", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
             MENUITEM SEPARATOR
@@ -5928,7 +5929,7 @@ BEGIN
         MENUITEM "Skrypt",                      ID_SCRIPT
         MENUITEM "&Prezentacja",                ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "O CrypToolu...",                 ID_APP_ABOUT
+        MENUITEM "O CrypToolu...",              ID_APP_ABOUT
     END
 END
 
@@ -5946,7 +5947,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "Zaznacz &wszystko",           ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
-        MENUITEM "Poka¿ klucz...",                 ID_SHOW_KEY
+        MENUITEM "Poka¿ klucz...",              ID_SHOW_KEY
         MENUITEM "&Uporz¹dkuj okna",            ID_GOTO_VATER
     END
 END
@@ -5992,7 +5993,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "Zaznacz &wszystko \t Ctrl + A", ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Poka¿ &klucz...",                ID_SHOW_KEY, GRAYED
+        MENUITEM "Poka¿ &klucz...",             ID_SHOW_KEY, GRAYED
         MENUITEM "Okno &g³ówne",                ID_GOTO_VATER
     END
     POPUP "&Widok"
@@ -6213,9 +6214,9 @@ BEGIN
                 MENUITEM "&Cezar",                      ID_CAESAR_AUTO, GRAYED
                 MENUITEM "&Vigenere",                   ID_VIGENERE_AUTO, GRAYED
                 MENUITEM "V&igenere (Analiza w oparciu o Schroedel)...", ID_ANALYSIS_VIGENERE_SCHROEDEL
-                MENUITEM "&ADFGVX...",                     ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
-                MENUITEM "&Zamiana...",                    ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
-                MENUITEM "Soli&taire...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
+                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
+                MENUITEM "&Zamiana...",                 ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
+                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "Dodawanie",                   ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
@@ -6271,10 +6272,10 @@ BEGIN
         END
         POPUP "&Analiza losowoœci"
         BEGIN
-            MENUITEM "Test &czêstotliwoœci...",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
-            MENUITEM "Test &pokerowy...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
-            MENUITEM "Test &serii...",                 ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
-            MENUITEM "Test &dwubitowy...",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
+            MENUITEM "Test &czêstotliwoœci...",     ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
+            MENUITEM "Test &pokerowy...",           ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
+            MENUITEM "Test &serii...",              ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
+            MENUITEM "Test &dwubitowy...",          ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "Seria testów F&IPS PUB-140-1", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
@@ -6306,7 +6307,7 @@ BEGIN
         MENUITEM "Skrypt",                      ID_SCRIPT
         MENUITEM "&Prezentacja",                ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "O CrypToolu...",                 ID_APP_ABOUT
+        MENUITEM "O CrypToolu...",              ID_APP_ABOUT
     END
 END
 
@@ -15865,8 +15866,8 @@ BEGIN
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
                 MENUITEM "V&igenère (Analiza prema Schroedelu)...", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
-                MENUITEM "&Zamena...",                     ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
-                MENUITEM "Soli&taire...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
+                MENUITEM "&Zamena...",                  ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
+                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "Sabiranje B&yte-ova",         ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR / Vernam",               ID_XOR_AUTO
@@ -15922,10 +15923,10 @@ BEGIN
         END
         POPUP "&Analiziraj Nasumicnost"
         BEGIN
-            MENUITEM "&Test Ucestanosti...",           ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
-            MENUITEM "&Poker Test...",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
-            MENUITEM "&Runs Test...",                  ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
-            MENUITEM "&Serijski Test...",              ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
+            MENUITEM "&Test Ucestanosti...",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
+            MENUITEM "&Poker Test...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
+            MENUITEM "&Runs Test...",               ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
+            MENUITEM "&Serijski Test...",           ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Baterija Test", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
@@ -15957,7 +15958,7 @@ BEGIN
         MENUITEM "S&kripta",                    ID_SCRIPT
         MENUITEM "&Prezentacija",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "&O CrypTool-u...",               ID_APP_ABOUT
+        MENUITEM "&O CrypTool-u...",            ID_APP_ABOUT
     END
 END
 
@@ -16216,8 +16217,8 @@ BEGIN
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 MENUITEM "V&igenère (Analiza prema Schroedelu)...", ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
-                MENUITEM "&Zamena...",                     ID_CIPHERTEXT_ONLY_SUBSTITUTION
-                MENUITEM "Soli&taire...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "&Zamena...",                  ID_CIPHERTEXT_ONLY_SUBSTITUTION
+                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
                 MENUITEM "Sabiranje B&yte-ova",         ID_ADD_AUTO
                 MENUITEM "&XOR / Vernam",               ID_XOR_AUTO
@@ -16273,10 +16274,10 @@ BEGIN
         END
         POPUP "&Analiziraj Nasumicnost"
         BEGIN
-            MENUITEM "&Test Ucestanosti...",           ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-            MENUITEM "&Poker Test...",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
-            MENUITEM "&Runs Test...",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
-            MENUITEM "&Serijski Test...",              ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+            MENUITEM "&Test Ucestanosti...",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "&Poker Test...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+            MENUITEM "&Runs Test...",               ID_ANALYSE_ZUFALLSTESTS_RUNS
+            MENUITEM "&Serijski Test...",           ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Baterija Test", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
             MENUITEM SEPARATOR
@@ -16308,7 +16309,7 @@ BEGIN
         MENUITEM "S&kripta",                    ID_SCRIPT
         MENUITEM "&Prezentacija",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "&O CrypTool-u...",               ID_APP_ABOUT
+        MENUITEM "&O CrypTool-u...",            ID_APP_ABOUT
     END
 END
 
@@ -16567,8 +16568,8 @@ BEGIN
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
                 MENUITEM "V&igenère (Analiza prema Schroedelu)...", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
-                MENUITEM "&Zamena...",                     ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
-                MENUITEM "Soli&taire...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
+                MENUITEM "&Zamena...",                  ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
+                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "Sabiranje B&yte-ova",         ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR / Vernam",               ID_XOR_AUTO
@@ -16624,10 +16625,10 @@ BEGIN
         END
         POPUP "&Analiziraj Nasumicnost"
         BEGIN
-            MENUITEM "&Test Ucestanosti...",           ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-            MENUITEM "&Poker Test...",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
-            MENUITEM "&Runs Test...",                  ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
-            MENUITEM "&Serijski Test...",              ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
+            MENUITEM "&Test Ucestanosti...",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "&Poker Test...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
+            MENUITEM "&Runs Test...",               ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
+            MENUITEM "&Serijski Test...",           ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Baterija Test", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
@@ -16659,7 +16660,7 @@ BEGIN
         MENUITEM "S&kripta",                    ID_SCRIPT
         MENUITEM "&Prezentacija",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "&O CrypTool-u...",               ID_APP_ABOUT
+        MENUITEM "&O CrypTool-u...",            ID_APP_ABOUT
     END
 END
 
@@ -16918,8 +16919,8 @@ BEGIN
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 MENUITEM "V&igenère (Analiza prema Schroedelu)...", ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
-                MENUITEM "&Zamena...",                     ID_CIPHERTEXT_ONLY_SUBSTITUTION
-                MENUITEM "Soli&taire...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "&Zamena...",                  ID_CIPHERTEXT_ONLY_SUBSTITUTION
+                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
                 MENUITEM "Sabiranje B&yte-ova",         ID_ADD_AUTO
                 MENUITEM "&XOR / Vernam",               ID_XOR_AUTO
@@ -16975,10 +16976,10 @@ BEGIN
         END
         POPUP "&Analiziraj Nasumicnost"
         BEGIN
-            MENUITEM "&Test Ucestanosti...",           ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-            MENUITEM "&Poker Test...",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
-            MENUITEM "&Runs Test...",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
-            MENUITEM "&Serijski Test...",              ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+            MENUITEM "&Test Ucestanosti...",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "&Poker Test...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+            MENUITEM "&Runs Test...",               ID_ANALYSE_ZUFALLSTESTS_RUNS
+            MENUITEM "&Serijski Test...",           ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Baterija Test", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
             MENUITEM SEPARATOR
@@ -17010,7 +17011,7 @@ BEGIN
         MENUITEM "S&kripta",                    ID_SCRIPT
         MENUITEM "&Prezentacija",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "&O CrypTool-u...",               ID_APP_ABOUT
+        MENUITEM "&O CrypTool-u...",            ID_APP_ABOUT
     END
 END
 
@@ -17028,7 +17029,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "Izaberi &Sve",                ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
-        MENUITEM "Prikaži Kl&juc...",              ID_SHOW_KEY
+        MENUITEM "Prikaži Kl&juc...",           ID_SHOW_KEY
         MENUITEM "&Roditelj Prozor",            ID_GOTO_VATER
     END
 END
@@ -17296,8 +17297,8 @@ BEGIN
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
                 MENUITEM "V&igenère (Analiza prema Schroedelu)...", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
-                MENUITEM "&Zamena...",                     ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
-                MENUITEM "Soli&taire...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
+                MENUITEM "&Zamena...",                  ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
+                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "Sabiranje B&yte-ova",         ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR / Vernam",               ID_XOR_AUTO
@@ -17353,10 +17354,10 @@ BEGIN
         END
         POPUP "&Analiziraj Nasumicnost"
         BEGIN
-            MENUITEM "&Test Ucestanosti...",           ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
-            MENUITEM "&Poker Test...",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
-            MENUITEM "&Runs Test...",                  ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
-            MENUITEM "&Serijski Test...",              ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
+            MENUITEM "&Test Ucestanosti...",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
+            MENUITEM "&Poker Test...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
+            MENUITEM "&Runs Test...",               ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
+            MENUITEM "&Serijski Test...",           ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Baterija Test", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
@@ -17388,7 +17389,7 @@ BEGIN
         MENUITEM "S&kripta",                    ID_SCRIPT
         MENUITEM "&Prezentacija",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "&O CrypTool-u...",               ID_APP_ABOUT
+        MENUITEM "&O CrypTool-u...",            ID_APP_ABOUT
     END
 END
 
@@ -26739,7 +26740,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren\tStrg+A",    ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Schlüssel an&zeigen...",         ID_SHOW_KEY, GRAYED
+        MENUITEM "Schlüssel an&zeigen...",      ID_SHOW_KEY, GRAYED
         MENUITEM "&Übergeordnetes Fenster",     ID_GOTO_VATER
     END
     POPUP "&Ansicht"
@@ -26961,8 +26962,8 @@ BEGIN
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
                 MENUITEM "V&igenère (Analyse nach Schrödel)...", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
-                MENUITEM "&Substitution...",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
-                MENUITEM "Soli&taire...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
+                MENUITEM "&Substitution...",            ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
+                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "Byteweise A&ddition",         ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR / Vernam",               ID_XOR_AUTO
@@ -27018,10 +27019,10 @@ BEGIN
         END
         POPUP "&Zufallsanalyse"
         BEGIN
-            MENUITEM "&Frequency-Test...",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
-            MENUITEM "&Poker-Test...",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
-            MENUITEM "&Runs-Test...",                  ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
-            MENUITEM "&Serial-Test...",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
+            MENUITEM "&Frequency-Test...",          ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
+            MENUITEM "&Poker-Test...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
+            MENUITEM "&Runs-Test...",               ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
+            MENUITEM "&Serial-Test...",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Testbatterie", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
@@ -27053,7 +27054,7 @@ BEGIN
         MENUITEM "S&kript",                     ID_SCRIPT
         MENUITEM "&Präsentation",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "&Über CrypTool...",              ID_APP_ABOUT
+        MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
 END
 
@@ -27090,7 +27091,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren\tStrg+A",    ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
-        MENUITEM "Schlüssel an&zeigen...",         ID_SHOW_KEY
+        MENUITEM "Schlüssel an&zeigen...",      ID_SHOW_KEY
         MENUITEM "&Übergeordnetes Fenster",     ID_GOTO_VATER
     END
     POPUP "&Ansicht"
@@ -27312,8 +27313,8 @@ BEGIN
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 MENUITEM "V&igenère (Analyse nach Schrödel)...", ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
-                MENUITEM "&Substitution...",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
-                MENUITEM "Soli&taire...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "&Substitution...",            ID_CIPHERTEXT_ONLY_SUBSTITUTION
+                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
                 MENUITEM "Byteweise A&ddition",         ID_ADD_AUTO
                 MENUITEM "&XOR / Vernam",               ID_XOR_AUTO
@@ -27369,10 +27370,10 @@ BEGIN
         END
         POPUP "&Zufallsanalyse"
         BEGIN
-            MENUITEM "&Frequency-Test...",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-            MENUITEM "&Poker-Test...",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
-            MENUITEM "&Runs-Test...",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
-            MENUITEM "&Serial-Test...",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+            MENUITEM "&Frequency-Test...",          ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "&Poker-Test...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+            MENUITEM "&Runs-Test...",               ID_ANALYSE_ZUFALLSTESTS_RUNS
+            MENUITEM "&Serial-Test...",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Testbatterie", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
             MENUITEM SEPARATOR
@@ -27404,7 +27405,7 @@ BEGIN
         MENUITEM "S&kript",                     ID_SCRIPT
         MENUITEM "&Präsentation",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "&Über CrypTool...",              ID_APP_ABOUT
+        MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
 END
 
@@ -27441,7 +27442,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren\tStrg+A",    ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
-        MENUITEM "Schlüssel an&zeigen...",         ID_SHOW_KEY
+        MENUITEM "Schlüssel an&zeigen...",      ID_SHOW_KEY
         MENUITEM "&Übergeordnetes Fenster",     ID_GOTO_VATER
     END
     POPUP "&Ansicht"
@@ -27663,8 +27664,8 @@ BEGIN
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 MENUITEM "V&igenère (Analyse nach Schrödel)...", ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
-                MENUITEM "&Substitution...",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
-                MENUITEM "Soli&taire...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "&Substitution...",            ID_CIPHERTEXT_ONLY_SUBSTITUTION
+                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
                 MENUITEM "Byteweise A&ddition",         ID_ADD_AUTO
                 MENUITEM "&XOR / Vernam",               ID_XOR_AUTO
@@ -27720,10 +27721,10 @@ BEGIN
         END
         POPUP "&Zufallsanalyse"
         BEGIN
-            MENUITEM "&Frequency-Test...",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-            MENUITEM "&Poker-Test...",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
-            MENUITEM "&Runs-Test...",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
-            MENUITEM "&Serial-Test...",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+            MENUITEM "&Frequency-Test...",          ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "&Poker-Test...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+            MENUITEM "&Runs-Test...",               ID_ANALYSE_ZUFALLSTESTS_RUNS
+            MENUITEM "&Serial-Test...",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Testbatterie", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
             MENUITEM SEPARATOR
@@ -27755,7 +27756,7 @@ BEGIN
         MENUITEM "S&kript",                     ID_SCRIPT
         MENUITEM "&Präsentation",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "&Über CrypTool...",              ID_APP_ABOUT
+        MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
 END
 
@@ -27792,7 +27793,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren\tStrg+A",    ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
-        MENUITEM "Schlüssel an&zeigen...",         ID_SHOW_KEY
+        MENUITEM "Schlüssel an&zeigen...",      ID_SHOW_KEY
         MENUITEM "&Übergeordnetes Fenster",     ID_GOTO_VATER
     END
     POPUP "&Ansicht"
@@ -28014,8 +28015,8 @@ BEGIN
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 MENUITEM "V&igenère (Analyse nach Schrödel)...", ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
-                MENUITEM "&Substitution...",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
-                MENUITEM "Soli&taire...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "&Substitution...",            ID_CIPHERTEXT_ONLY_SUBSTITUTION
+                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
                 MENUITEM "Byteweise A&ddition",         ID_ADD_AUTO
                 MENUITEM "&XOR / Vernam",               ID_XOR_AUTO
@@ -28071,10 +28072,10 @@ BEGIN
         END
         POPUP "&Zufallsanalyse"
         BEGIN
-            MENUITEM "&Frequency-Test...",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-            MENUITEM "&Poker-Test...",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
-            MENUITEM "&Runs-Test...",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
-            MENUITEM "&Serial-Test...",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+            MENUITEM "&Frequency-Test...",          ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "&Poker-Test...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+            MENUITEM "&Runs-Test...",               ID_ANALYSE_ZUFALLSTESTS_RUNS
+            MENUITEM "&Serial-Test...",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Testbatterie", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
             MENUITEM SEPARATOR
@@ -28106,7 +28107,7 @@ BEGIN
         MENUITEM "S&kript",                     ID_SCRIPT
         MENUITEM "&Präsentation",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "&Über CrypTool...",              ID_APP_ABOUT
+        MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
 END
 
@@ -28124,7 +28125,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren",            ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
-        MENUITEM "Schlüssel an&zeigen...",         ID_SHOW_KEY
+        MENUITEM "Schlüssel an&zeigen...",      ID_SHOW_KEY
         MENUITEM "&Übergeordnetes Fenster",     ID_GOTO_VATER
     END
 END
@@ -28170,7 +28171,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren\tStrg+A",    ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Schlüssel an&zeigen...",         ID_SHOW_KEY, GRAYED
+        MENUITEM "Schlüssel an&zeigen...",      ID_SHOW_KEY, GRAYED
         MENUITEM "&Übergeordnetes Fenster",     ID_GOTO_VATER
     END
     POPUP "&Ansicht"
@@ -28392,8 +28393,8 @@ BEGIN
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
                 MENUITEM "V&igenère (Analyse nach Schrödel)...", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
-                MENUITEM "&Substitution...",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
-                MENUITEM "Soli&taire...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
+                MENUITEM "&Substitution...",            ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
+                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "Byteweise A&ddition",         ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR / Vernam",               ID_XOR_AUTO
@@ -28449,10 +28450,10 @@ BEGIN
         END
         POPUP "&Zufallsanalyse"
         BEGIN
-            MENUITEM "&Frequency-Test...",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
-            MENUITEM "&Poker-Test...",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
-            MENUITEM "&Runs-Test...",                  ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
-            MENUITEM "&Serial-Test...",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
+            MENUITEM "&Frequency-Test...",          ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
+            MENUITEM "&Poker-Test...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
+            MENUITEM "&Runs-Test...",               ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
+            MENUITEM "&Serial-Test...",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Testbatterie", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
@@ -28484,7 +28485,7 @@ BEGIN
         MENUITEM "S&kript",                     ID_SCRIPT
         MENUITEM "&Präsentation",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "&Über CrypTool...",              ID_APP_ABOUT
+        MENUITEM "&Über CrypTool...",           ID_APP_ABOUT
     END
 END
 
@@ -37931,8 +37932,8 @@ BEGIN
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
                 MENUITEM "V&igenère (Analysis according to Schroedel)...", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
-                MENUITEM "&Substitution...",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
-                MENUITEM "Soli&taire...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
+                MENUITEM "&Substitution...",            ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
+                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "Byte A&ddition",              ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR / Vernam",               ID_XOR_AUTO
@@ -37988,10 +37989,10 @@ BEGIN
         END
         POPUP "&Analyze Randomness"
         BEGIN
-            MENUITEM "&Frequency Test...",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
-            MENUITEM "&Poker Test...",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
-            MENUITEM "&Runs Test...",                  ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
-            MENUITEM "&Serial Test...",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
+            MENUITEM "&Frequency Test...",          ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
+            MENUITEM "&Poker Test...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
+            MENUITEM "&Runs Test...",               ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
+            MENUITEM "&Serial Test...",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Test Battery", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
@@ -38023,7 +38024,7 @@ BEGIN
         MENUITEM "S&cript",                     ID_SCRIPT
         MENUITEM "&Presentation",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "&About CrypTool...",             ID_APP_ABOUT
+        MENUITEM "&About CrypTool...",          ID_APP_ABOUT
     END
 END
 
@@ -38282,8 +38283,8 @@ BEGIN
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 MENUITEM "V&igenère (Analysis according to Schroedel)...", ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
-                MENUITEM "&Substitution...",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
-                MENUITEM "Soli&taire...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "&Substitution...",            ID_CIPHERTEXT_ONLY_SUBSTITUTION
+                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
                 MENUITEM "Byte A&ddition",              ID_ADD_AUTO
                 MENUITEM "&XOR / Vernam",               ID_XOR_AUTO
@@ -38339,10 +38340,10 @@ BEGIN
         END
         POPUP "&Analyze Randomness"
         BEGIN
-            MENUITEM "&Frequency Test...",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-            MENUITEM "&Poker Test...",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
-            MENUITEM "&Runs Test...",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
-            MENUITEM "&Serial Test...",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+            MENUITEM "&Frequency Test...",          ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "&Poker Test...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+            MENUITEM "&Runs Test...",               ID_ANALYSE_ZUFALLSTESTS_RUNS
+            MENUITEM "&Serial Test...",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Test Battery", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
             MENUITEM SEPARATOR
@@ -38374,7 +38375,7 @@ BEGIN
         MENUITEM "S&cript",                     ID_SCRIPT
         MENUITEM "&Presentation",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "&About CrypTool...",             ID_APP_ABOUT
+        MENUITEM "&About CrypTool...",          ID_APP_ABOUT
     END
 END
 
@@ -38633,8 +38634,8 @@ BEGIN
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
                 MENUITEM "V&igenère (Analysis according to Schroedel)...", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
-                MENUITEM "&Substitution...",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
-                MENUITEM "Soli&taire...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
+                MENUITEM "&Substitution...",            ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
+                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "Byte A&ddition",              ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR / Vernam",               ID_XOR_AUTO
@@ -38690,10 +38691,10 @@ BEGIN
         END
         POPUP "&Analyze Randomness"
         BEGIN
-            MENUITEM "&Frequency Test...",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-            MENUITEM "&Poker Test...",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
-            MENUITEM "&Runs Test...",                  ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
-            MENUITEM "&Serial Test...",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
+            MENUITEM "&Frequency Test...",          ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "&Poker Test...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
+            MENUITEM "&Runs Test...",               ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
+            MENUITEM "&Serial Test...",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Test Battery", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
@@ -38725,7 +38726,7 @@ BEGIN
         MENUITEM "S&cript",                     ID_SCRIPT
         MENUITEM "&Presentation",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "&About CrypTool...",             ID_APP_ABOUT
+        MENUITEM "&About CrypTool...",          ID_APP_ABOUT
     END
 END
 
@@ -38984,8 +38985,8 @@ BEGIN
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 MENUITEM "V&igenère (Analysis according to Schroedel)...", ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
-                MENUITEM "&Substitution...",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
-                MENUITEM "Soli&taire...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "&Substitution...",            ID_CIPHERTEXT_ONLY_SUBSTITUTION
+                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
                 MENUITEM "Byte A&ddition",              ID_ADD_AUTO
                 MENUITEM "&XOR / Vernam",               ID_XOR_AUTO
@@ -39041,10 +39042,10 @@ BEGIN
         END
         POPUP "&Analyze Randomness"
         BEGIN
-            MENUITEM "&Frequency Test...",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-            MENUITEM "&Poker Test...",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
-            MENUITEM "&Runs Test...",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
-            MENUITEM "&Serial Test...",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+            MENUITEM "&Frequency Test...",          ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "&Poker Test...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+            MENUITEM "&Runs Test...",               ID_ANALYSE_ZUFALLSTESTS_RUNS
+            MENUITEM "&Serial Test...",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Test Battery", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
             MENUITEM SEPARATOR
@@ -39076,7 +39077,7 @@ BEGIN
         MENUITEM "S&cript",                     ID_SCRIPT
         MENUITEM "&Presentation",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "&About CrypTool...",             ID_APP_ABOUT
+        MENUITEM "&About CrypTool...",          ID_APP_ABOUT
     END
 END
 
@@ -39094,7 +39095,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren",            ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
-        MENUITEM "Schlüssel an&zeigen...",         ID_SHOW_KEY
+        MENUITEM "Schlüssel an&zeigen...",      ID_SHOW_KEY
         MENUITEM "&Übergeordnetes Fenster",     ID_GOTO_VATER
     END
 END
@@ -39362,8 +39363,8 @@ BEGIN
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
                 MENUITEM "V&igenère (Analysis according to Schroedel)...", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
-                MENUITEM "&Substitution...",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
-                MENUITEM "Soli&taire...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
+                MENUITEM "&Substitution...",            ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
+                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "Byte A&ddition",              ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR / Vernam",               ID_XOR_AUTO
@@ -39419,10 +39420,10 @@ BEGIN
         END
         POPUP "&Analyze Randomness"
         BEGIN
-            MENUITEM "&Frequency Test...",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
-            MENUITEM "&Poker Test...",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
-            MENUITEM "&Runs Test...",                  ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
-            MENUITEM "&Serial Test...",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
+            MENUITEM "&Frequency Test...",          ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
+            MENUITEM "&Poker Test...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
+            MENUITEM "&Runs Test...",               ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
+            MENUITEM "&Serial Test...",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Test Battery", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
@@ -39454,7 +39455,7 @@ BEGIN
         MENUITEM "S&cript",                     ID_SCRIPT
         MENUITEM "&Presentation",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "&About CrypTool...",             ID_APP_ABOUT
+        MENUITEM "&About CrypTool...",          ID_APP_ABOUT
     END
 END
 
@@ -47195,9 +47196,9 @@ BEGIN
     EDITTEXT        IDC_EDIT13,19,283,353,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT11,19,313,353,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT12,19,345,353,12,ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "&Cifrar",IDC_BUTTON_VERSCHLUESSELN,10,374,71,18
-    PUSHBUTTON      "&Descifrar",IDC_BUTTON_ENTSCHLUESSELN,100,374,73,18
-    PUSHBUTTON      "&Cerrar",IDC_ENDDIALOG,252,374,90,18
+    PUSHBUTTON      "&Cifrar",IDC_BUTTON_VERSCHLUESSELN,10,373,71,18
+    PUSHBUTTON      "&Descifrar",IDC_BUTTON_ENTSCHLUESSELN,100,373,73,18
+    PUSHBUTTON      "&Cerrar",IDC_ENDDIALOG,291,373,90,18
     CONTROL         "Elija dos número primos p y q. El número N = pq es el módulo público RSA y phi(N) = (p-1)(q-1) es la función phi de Euler. La clave pública e es prima relativa a phi(N) y la clave privada d = e^(-1) (mod phi(N)).",IDC_RADIO3,
                     "Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE | WS_GROUP,19,15,353,26
     CONTROL         "Para cifrar datos o comprobar un certificado es suficiente con introducir los parámetros públicos de RSA: el módulo N y la clave pública e",IDC_RADIO4,
@@ -48794,7 +48795,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Seleccionar Todo",           ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
-        MENUITEM "Mostar cla&ve...",               ID_SHOW_KEY
+        MENUITEM "Mostar cla&ve...",            ID_SHOW_KEY
         MENUITEM "&Ventana Padre",              ID_GOTO_VATER
     END
 END
@@ -49052,10 +49053,10 @@ BEGIN
             BEGIN
                 MENUITEM "&César",                      ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "V&igenère según Schroedel...",   ID_ANALYSIS_VIGENERE_SCHROEDEL
+                MENUITEM "V&igenère según Schroedel...", ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
-                MENUITEM "&Sustitución...",                ID_CIPHERTEXT_ONLY_SUBSTITUTION
-                MENUITEM "Soli&tario...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "&Sustitución...",             ID_CIPHERTEXT_ONLY_SUBSTITUTION
+                MENUITEM "Soli&tario...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
                 MENUITEM "Su&ma de Bytes",              ID_ADD_AUTO
                 MENUITEM "&XOR",                        ID_XOR_AUTO
@@ -49111,10 +49112,10 @@ BEGIN
         END
         POPUP "A&nálisis de Aleatoriedad"
         BEGIN
-            MENUITEM "Test de &Frecuencias...",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-            MENUITEM "Test de &Poker...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST
-            MENUITEM "Test de &Rachas...",             ID_ANALYSE_ZUFALLSTESTS_RUNS
-            MENUITEM "Test de &Series...",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+            MENUITEM "Test de &Frecuencias...",     ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "Test de &Poker...",           ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+            MENUITEM "Test de &Rachas...",          ID_ANALYSE_ZUFALLSTESTS_RUNS
+            MENUITEM "Test de &Series...",          ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
             MENUITEM SEPARATOR
             MENUITEM "Batería de Pruebas F&IPS PUB-140-1", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
             MENUITEM SEPARATOR
@@ -49146,7 +49147,7 @@ BEGIN
         MENUITEM "S&cript",                     ID_SCRIPT
         MENUITEM "&Presentación",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "&Acerca de CrypTool...",         ID_APP_ABOUT
+        MENUITEM "&Acerca de CrypTool...",      ID_APP_ABOUT
     END
 END
 
@@ -49403,10 +49404,10 @@ BEGIN
             BEGIN
                 MENUITEM "&César",                      ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "V&igenère según Schroedel...",   ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère según Schroedel...", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
-                MENUITEM "&Sustitución...",                ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
-                MENUITEM "Soli&tario...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
+                MENUITEM "&Sustitución...",             ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
+                MENUITEM "Soli&tario...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "Su&ma de Bytes",              ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
@@ -49462,10 +49463,10 @@ BEGIN
         END
         POPUP "A&nálisis de Aleatoriedad"
         BEGIN
-            MENUITEM "Test de &Frecuencias...",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-            MENUITEM "Test de &Poker...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
-            MENUITEM "Test de &Rachas...",             ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
-            MENUITEM "Test de &Series...",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
+            MENUITEM "Test de &Frecuencias...",     ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "Test de &Poker...",           ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
+            MENUITEM "Test de &Rachas...",          ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
+            MENUITEM "Test de &Series...",          ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "Batería de Pruebas F&IPS PUB-140-1", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
@@ -49497,7 +49498,7 @@ BEGIN
         MENUITEM "S&cript",                     ID_SCRIPT
         MENUITEM "&Presentación",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "&Acerca de CrypTool...",         ID_APP_ABOUT
+        MENUITEM "&Acerca de CrypTool...",      ID_APP_ABOUT
     END
 END
 
@@ -49754,10 +49755,10 @@ BEGIN
             BEGIN
                 MENUITEM "&César",                      ID_CAESAR_AUTO, GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "V&igenère según Schroedel...",   ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère según Schroedel...", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
-                MENUITEM "&Sustitución...",                ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
-                MENUITEM "Soli&tario...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
+                MENUITEM "&Sustitución...",             ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
+                MENUITEM "Soli&tario...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "Su&ma de Bytes",              ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
@@ -49813,10 +49814,10 @@ BEGIN
         END
         POPUP "A&nálisis de Aleatoriedad"
         BEGIN
-            MENUITEM "Test de &Frecuencias...",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
-            MENUITEM "Test de &Poker...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
-            MENUITEM "Test de &Rachas...",             ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
-            MENUITEM "Test de &Series...",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
+            MENUITEM "Test de &Frecuencias...",     ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
+            MENUITEM "Test de &Poker...",           ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
+            MENUITEM "Test de &Rachas...",          ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
+            MENUITEM "Test de &Series...",          ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "Batería de Pruebas F&IPS PUB-140-1", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
@@ -49848,7 +49849,7 @@ BEGIN
         MENUITEM "S&cript",                     ID_SCRIPT
         MENUITEM "&Presentación",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "&Acerca de CrypTool...",         ID_APP_ABOUT
+        MENUITEM "&Acerca de CrypTool...",      ID_APP_ABOUT
     END
 END
 
@@ -50105,10 +50106,10 @@ BEGIN
             BEGIN
                 MENUITEM "&César",                      ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "V&igenère según Schroedel...",   ID_ANALYSIS_VIGENERE_SCHROEDEL
+                MENUITEM "V&igenère según Schroedel...", ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
-                MENUITEM "&Sustitución...",                ID_CIPHERTEXT_ONLY_SUBSTITUTION
-                MENUITEM "Soli&tario...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "&Sustitución...",             ID_CIPHERTEXT_ONLY_SUBSTITUTION
+                MENUITEM "Soli&tario...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
                 MENUITEM "Su&ma de Bytes",              ID_ADD_AUTO
                 MENUITEM "&XOR",                        ID_XOR_AUTO
@@ -50164,10 +50165,10 @@ BEGIN
         END
         POPUP "A&nálisis de Aleatoriedad"
         BEGIN
-            MENUITEM "Test de &Frecuencias...",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-            MENUITEM "Test de &Poker...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST
-            MENUITEM "Test de &Rachas...",             ID_ANALYSE_ZUFALLSTESTS_RUNS
-            MENUITEM "Test de &Series...",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+            MENUITEM "Test de &Frecuencias...",     ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "Test de &Poker...",           ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+            MENUITEM "Test de &Rachas...",          ID_ANALYSE_ZUFALLSTESTS_RUNS
+            MENUITEM "Test de &Series...",          ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
             MENUITEM SEPARATOR
             MENUITEM "Batería de Pruebas F&IPS PUB-140-1", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
             MENUITEM SEPARATOR
@@ -50199,7 +50200,7 @@ BEGIN
         MENUITEM "S&cript",                     ID_SCRIPT
         MENUITEM "&Presentación",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "&Acerca de CrypTool...",         ID_APP_ABOUT
+        MENUITEM "&Acerca de CrypTool...",      ID_APP_ABOUT
     END
 END
 
@@ -50456,10 +50457,10 @@ BEGIN
             BEGIN
                 MENUITEM "&César",                      ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "V&igenère según Schroedel...",   ID_ANALYSIS_VIGENERE_SCHROEDEL
+                MENUITEM "V&igenère según Schroedel...", ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
-                MENUITEM "&Sustitución...",                ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
-                MENUITEM "Soli&tario...",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
+                MENUITEM "&Sustitución...",             ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
+                MENUITEM "Soli&tario...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "Su&ma de Bytes",              ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
@@ -50515,10 +50516,10 @@ BEGIN
         END
         POPUP "A&nálisis de Aleatoriedad"
         BEGIN
-            MENUITEM "Test de &Frecuencias...",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-            MENUITEM "Test de &Poker...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
-            MENUITEM "Test de &Rachas...",             ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
-            MENUITEM "Test de &Series...",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
+            MENUITEM "Test de &Frecuencias...",     ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "Test de &Poker...",           ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
+            MENUITEM "Test de &Rachas...",          ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
+            MENUITEM "Test de &Series...",          ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "Batería de Pruebas F&IPS PUB-140-1", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
@@ -50550,7 +50551,7 @@ BEGIN
         MENUITEM "S&cript",                     ID_SCRIPT
         MENUITEM "&Presentación",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
-        MENUITEM "&Acerca de CrypTool...",         ID_APP_ABOUT
+        MENUITEM "&Acerca de CrypTool...",      ID_APP_ABOUT
     END
 END
 
