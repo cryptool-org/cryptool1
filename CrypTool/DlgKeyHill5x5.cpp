@@ -34,373 +34,6 @@
 #include "CrypToolTools.h"
 #include "assert.h"
 
-/////////////////////////////////////////////////////////////////////////////
-//
-CDlgKeyHillBaseFunctions::CDlgKeyHillBaseFunctions(unsigned long keyRange) :
-	HillMat(0),
-	alphabetOffset(0),
-	max_dim(keyRange),
-	dim(1),
-	matType(HILL_CHAR_MATRIX), 
-	multType(VECTOR_MATRIX),
-	cryptMode(0)
-{
-	HillNumMat  = new CHiEdit*[max_dim+1];
-	HillAlphMat = new CEdit*  [max_dim];
-	for ( unsigned long i=0; i<keyRange; i++ )
-	{
-		HillNumMat[i]  = new CHiEdit[max_dim];
-		HillAlphMat[i] = new CEdit[max_dim];
-	}
-}
-
-CDlgKeyHillBaseFunctions::~CDlgKeyHillBaseFunctions()
-{
-	for ( unsigned long i=0; i<max_dim; i++ )
-	{
-		delete []HillNumMat[i];
-		delete []HillAlphMat[i];
-	}
-	delete []HillNumMat;
-	delete []HillAlphMat;
-}
-
-int CDlgKeyHillBaseFunctions::ord( const char ch )
-{
-	for(int i=0;i<theApp.TextOptions.getAlphabet().GetLength();i++)
-		if( theApp.TextOptions.getAlphabet()[i] == ch ) return i + alphabetOffset;
-
-	return -1;
-}
-
-void CDlgKeyHillBaseFunctions::syncAlphNum( unsigned long i, unsigned long j )
-{
-	if( matType == HILL_CHAR_MATRIX )
-	{
-		CString cs;
-		HillAlphMat[i][j].GetWindowText(cs);
-
-		// QUICK FIX: if user supplied MORE THAN ON CHARACTER, for example by using 
-		// the copy/paste mechanism, throw away all characters except the first one
-		if(cs.GetLength() > 1) {
-			cs.Delete(1, cs.GetLength() - 1);
-		}
-
-		if (cs.GetLength() == 1 )
-		{
-			if ( ord(cs[0]) >= 0 )
-			{
-				CString str;
-				str.Format("%02d", ord(cs[0]) );
-				HillNumMat[i][j].SetWindowText(str);
-				// FIXME NextDlgCtrl();
-			}
-			else if ( theApp.TextOptions.getIgnoreCase() 
-				      && MyIsLower(cs[0]) &&  ord(MyToUpper(cs[0])) >= 0 )
-			{
-				cs.SetAt(0,MyToUpper(cs[0]));
-			}
-			else
-			{
-				cs.Empty();
-			}
-			HillAlphMat[i][j].SetWindowText( cs );
-		}
-	}
-}
-
-void CDlgKeyHillBaseFunctions::formatNum( unsigned long i, unsigned long j )
-{
-	CString cs;
-	HillNumMat[i][j].GetWindowText(cs);
-	if(cs.GetLength() == 1)
-	{
-		int ord = _ttoi(cs);
-		if( ord < (int)alphabetOffset || ord > theApp.TextOptions.getAlphabet().GetLength() + (int)alphabetOffset )
-		{
-			cs.Empty();
-			HillNumMat[i][j].SetWindowText(cs);
-		}
-		else
-		{
-			cs.Insert(0,"0");
-			HillNumMat[i][j].SetWindowText(cs);
-		}
-		// FIXME PrevDlgCtrl(); //because Tab and UpdateFeld makes both NextDlgCtrl
-	}
-}
-
-void CDlgKeyHillBaseFunctions::syncNumAlph( unsigned long i, unsigned long j )
-{
-	if( matType == HILL_NUM_MATRIX )
-	{
-		CString cs;
-		HillNumMat[i][j].GetWindowText(cs);
-
-		if(cs.GetLength() == 2)
-		{
-			int ord = _ttoi(cs); 
-			if( ord < (int)alphabetOffset || ord > theApp.TextOptions.getAlphabet().GetLength() + (int)alphabetOffset )
-			{
-				cs.Empty();
-				HillNumMat[i][j].SetWindowText(cs);
-			}
-			else
-			{
-				HillAlphMat[i][j].SetWindowText( CString(theApp.TextOptions.getAlphabet()[ord - alphabetOffset]) ); 
-				// FIXME NextDlgCtrl();
-			}
-		}
-	}
-}
-
-int CDlgKeyHillBaseFunctions::validEntries()
-{
-	ASSERT ((1 <= dim) && (dim <= HILL_MAX_DIM));
-
-	unsigned long i, j;
-	CString cs;
-	for (i=0; i<dim; i++)
-		for (j=0; j<dim; j++)
-		{
-			HillAlphMat[i][j].GetWindowText(cs);
-			if ( (cs.GetLength() != 1) || 0 > ord(cs[0]) )
-			{
-				CString msg;
-				msg.LoadStringA( IDS_HILL_BAD_KEY_NONVALID_CHAR );
-				cs.LoadStringA ( IDS_STRING_ASYMKEY_ERR_INPUT_UNCOMPLETED );
-				// FIXME: MessageBox(msg, cs, MB_ICONWARNING|MB_OK);
-
-				return FALSE;
-			}
-		}
-
-	return TRUE;
-}
-
-int  CDlgKeyHillBaseFunctions::isInvertable()
-{
-	if ( !validEntries() )
-		return 0;
-
-	unsigned long modul = theApp.TextOptions.getAlphabet().GetLength();
-	CSquareMatrixModN *mat, *mat_inv;
-
-	mat		= new CSquareMatrixModN( dim, modul );
-	mat_inv	= new CSquareMatrixModN( dim, modul );
-
-	SetHillMatrix( mat );
-
-	int invertable = mat->invert(mat_inv);
-	if ( !invertable )
-	{
-		CString msg, cs;
-		cs.FormatMessageA( "%dx%d", dim, dim );
-		msg.FormatMessageA( IDS_HILL_BAD_KEY_INV, cs, modul);
-		cs.LoadStringA( IDS_HILL_BAD_KEY );
-		// FIXME MessageBox(msg, cs, MB_ICONWARNING|MB_OK);
-	}
-
-	delete mat;
-	delete mat_inv;
-
-	return invertable;
-}
-
-void CDlgKeyHillBaseFunctions::loadHillMatrix(CSquareMatrixModN& mat)
-{
-	ASSERT ((1 <= dim) && (dim <= HILL_MAX_DIM) && (mat.get_dim() == dim) );
-	unsigned long modul = theApp.TextOptions.getAlphabet().GetLength();
-
-	CString cs;
-	unsigned long i, j;
-	for (i=0; i<dim; i++)
-		for (j=0; j<dim; j++)
-		{
-			HillAlphMat[i][j].GetWindowText(cs);
-			ASSERT( 0 >= ord( cs[0] ) );
-			mat(i,j) = ord(cs[0]);
-		}
-}
-
-void CDlgKeyHillBaseFunctions::activateMatrix  ( CEdit **mat )
-{
-	unsigned long i, j;
-	for ( i=0; i<dim; i++ )
-		for ( j=0; j<dim; j++ )
-			mat[i][j].EnableWindow( TRUE );
-}
-
-void CDlgKeyHillBaseFunctions::deactivateMatrix( CEdit **mat )
-{
-	unsigned long i, j;
-	for ( i=0; i<max_dim; i++ )
-		for ( j=0; j<max_dim; j++ )
-			mat[i][j].EnableWindow( FALSE );
-}
-
-void CDlgKeyHillBaseFunctions::selectActMatrix ()
-{
-	deactivateMatrix( (CEdit**)HillNumMat );
-	deactivateMatrix( HillAlphMat );
-	if ( matType == HILL_CHAR_MATRIX ) // Alphabet
-	{
-		 activateMatrix( HillAlphMat );
-		 HillAlphMat[0][0].SetFocus();
-		 HillAlphMat[0][0].SetSel(0, -1);
-	}
-	else
-	{
-		 activateMatrix( HillAlphMat );
-		 HillNumMat[0][0].SetFocus();
-		 HillNumMat[0][0].SetSel(0, -1);
-	}
-}
-
-void CDlgKeyHillBaseFunctions::selectHillDimension( unsigned long new_dim )
-{
-	assert( 1 <= new_dim && new_dim <= max_dim );
-	dim = new_dim;
-	selectActMatrix();
-}
-
-void CDlgKeyHillBaseFunctions::selectMatType( HillEditType new_type )
-{
-	matType = new_type;
-	selectActMatrix();
-}
-
-void CDlgKeyHillBaseFunctions::selectMultType( HillMultType new_type )
-{
-	multType = new_type;
-}
-
-void CDlgKeyHillBaseFunctions::setMatFont()
-{
-	CFont cf;
-	cf.CreatePointFont(80,"Courier");
-	unsigned long i, j;
-	for ( i=0; i<max_dim; i++)
-	{
-		for ( j=0; j<max_dim; j++)
-		{
-			HillAlphMat[i][j].SetFont(&cf);
-			HillNumMat[i][j].SetFont(&cf);
-		}
-	}
-}
-
-void CDlgKeyHillBaseFunctions::pasteKey()
-{
-	CString cs;
-	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_HILL,pc_str,STR_LAENGE_STRING_TABLE);
-
-	if ( PasteKey(pc_str,cs) )
-	{
-		int l = 0, laenge = cs.Find(HILLSTR_ALPHABETOFFSET);
-		unsigned long i = 0, j, _dim = 0;
-
-		while (l<laenge) if ( 0 <= ord( cs[l++] ) ) i++;
-		if ( i <= max_dim*max_dim )
-		{	
-			i = j = l = 0;
- 			while (l < laenge)
- 			{
-				if ( 0 <= ord(cs[l]) )
-					HillAlphMat[i][j++].SetWindowTextA( CString(cs[l]) );
-				else 
-				{
-					assert( i < _dim );			// FIXME
-					assert( cs[l] == '\n' );	// FIXME 
-					if ( _dim > 0 ) 
-					{
-						if ( _dim != j )
-							assert( 0 );		// FIXME 
-					}
-					else
-					{
-						if ( j > max_dim )
-							assert( 0 );		// FIXME 
-						_dim = j;
-					}
-					i++;
-					j = 0;
-				}
-				l++;
- 			}
-			dim = _dim;
-
-			laenge += strlen(HILLSTR_ALPHABETOFFSET) +1;
-			alphabetOffset = unsigned long(cs.GetAt(laenge) - '0');
-			laenge = cs.Find(HILLSTR_MULTVARIANT);
-			ASSERT(laenge > 0);
-			laenge += strlen(HILLSTR_MULTVARIANT) +1;
-			multType = (cs.GetAt(laenge) == '0') ? VECTOR_MATRIX : MATRIX_VECTOR;
-		}
- 		else
-		{  
-			// FIXME -- Message ... the stored Hill Key ...
-		}
-	}
-}
-
-void CDlgKeyHillBaseFunctions::copyKey()
-{
-
-}
-
-void CDlgKeyHillBaseFunctions::SetHillMatrix( CSquareMatrixModN *mat )
-{
-	unsigned long i, j;
-	for ( i=0; i<max_dim; i++ )
-		for ( j=0; j<max_dim; j++ )
-			if ( i<dim && j<dim )
-			{  // FIXME 
-				HillAlphMat[i][j].SetWindowTextA( CString( char('A' + (*mat)(i,j) - alphabetOffset)) );
-				syncAlphNum(i,j);
-			}
-			else
-			{
-				HillAlphMat[i][j].SetWindowTextA( _T("") );
-				HillNumMat[i][j].SetWindowTextA(_T(""));
-			}
-}
-
-void CDlgKeyHillBaseFunctions::randomKey()
-{
-	CSquareMatrixModN mat( dim, theApp.TextOptions.getAlphabet().GetLength() );
-	if (mat.zufaellige_invertierbare_matrix())
-		SetHillMatrix( &mat );
-	else
-	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ON_WRONG_ALPHABET,pc_str,STR_LAENGE_STRING_TABLE);
-		// FIXME: MessageBox(pc_str, NULL, MB_ICONERROR|MB_OK);
-	}
-}
-
-void CDlgKeyHillBaseFunctions::readRegistry()
-{
-	unsigned long _matType = (unsigned long)HILL_CHAR_MATRIX;
-	alphabetOffset = 0;
-	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "Hill") == ERROR_SUCCESS)
-	{
-		CT_READ_REGISTRY_DEFAULT(alphabetOffset, "OrdChrOffset", alphabetOffset);
-		CT_READ_REGISTRY_DEFAULT(_matType,"EditKeyChrMatrix", _matType);
-		matType = (HillEditType)_matType;
-		CT_CLOSE_REGISTRY();
-	}
-
-}
-
-void CDlgKeyHillBaseFunctions::writeRegistry()
-{
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "Hill" ) == ERROR_SUCCESS )
-	{
-		CT_WRITE_REGISTRY(unsigned long(alphabetOffset), "OrdChrOffset");
-		CT_WRITE_REGISTRY(unsigned long(matType),		 "EditKeyChrMatrix");
-		CT_CLOSE_REGISTRY();
-	}
-}
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgKeyHill5x5 
@@ -415,6 +48,12 @@ CDlgKeyHill5x5::CDlgKeyHill5x5(CWnd* pParent /*=NULL*/)
 
 CDlgKeyHill5x5::~CDlgKeyHill5x5()
 {
+}
+
+void CDlgKeyHill5x5::init( CKeyHillBase *Hillbase )
+{
+   assert( Hillbase && Hillbase->key_range >= 5 );
+   m_HillBase = Hillbase;
 }
 
 void CDlgKeyHill5x5::DoDataExchange(CDataExchange* pDX)
@@ -477,8 +116,8 @@ void CDlgKeyHill5x5::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_CHECK1, m_Verbose);
 	DDX_Control(pDX, IDC_EDIT1, m_FeldUnsichtbar);
 	DDX_Text(pDX, IDC_EDIT3, m_pHillAlphInfo);
-	DDX_Text(pDX, IDC_EDIT2, m_alphabetOffset);
-	DDV_MinMaxInt(pDX, m_alphabetOffset, 0, 1);
+	DDX_Text(pDX, IDC_EDIT2, m_HillBase->alphabetOffset );
+	DDV_MinMaxInt(pDX, m_HillBase->alphabetOffset, 0, 1);
 }
 
 
@@ -571,9 +210,9 @@ BEGIN_MESSAGE_MAP(CDlgKeyHill5x5, CDialog)
 	ON_BN_CLICKED(IDC_RADIO4, OnDimension4)
 	ON_BN_CLICKED(IDC_RADIO5, OnDimension5)
 
-	ON_BN_CLICKED(IDC_RADIO6, OnDisableAlphCode)
-	ON_BN_CLICKED(IDC_RADIO7, OnEnableAlphCode)
-	ON_BN_CLICKED(IDC_RADIO8, OnRowVectorMatrix)
+	ON_BN_CLICKED(IDC_RADIO6, OnEnableAlphCode)
+	ON_BN_CLICKED(IDC_RADIO7, OnDisableAlphCode)
+   ON_BN_CLICKED(IDC_RADIO8, OnRowVectorMatrix)
 	ON_BN_CLICKED(IDC_RADIO9, OnMatrixColumnVector)
 
 	ON_BN_CLICKED(IDC_BUTTON3, OnZufaelligerSchluessel)
@@ -673,9 +312,9 @@ void CDlgKeyHill5x5::OnExitMat65()  { m_HillBase->formatNum(4,3); }
 void CDlgKeyHill5x5::OnExitMat66()  { m_HillBase->formatNum(4,4); }
 
 // HILL parameter
-void CDlgKeyHill5x5::SetDimension( unsigned long d)
+void CDlgKeyHill5x5::SetDimension( unsigned long d )
 {
-	const unsigned long HillDimID[] = { 0, IDC_RADIO1, IDC_RADIO2, IDC_RADIO3, IDC_RADIO3, IDC_RADIO4, IDC_RADIO5 };
+	const unsigned long HillDimID[] = { 0, IDC_RADIO1, IDC_RADIO2, IDC_RADIO3, IDC_RADIO4, IDC_RADIO5 };
 	m_HillBase->selectHillDimension( d ); radioSetHillDim(HillDimID[d]);
 }
 void CDlgKeyHill5x5::OnDimension1() { SetDimension(1); }
@@ -696,7 +335,7 @@ void CDlgKeyHill5x5::radioSetMatType ( unsigned long ID ) {	CheckRadioButton(IDC
 void CDlgKeyHill5x5::displayAlphabet() 
 { 
 	CString sc;
-	sc.FormatMessageA( IDS_HILL_CASE, theApp.TextOptions.getAlphabet().GetLength() );
+	sc.Format( IDS_HILL_CASE, theApp.TextOptions.getAlphabet().GetLength() );
 	GetDlgItem(IDC_STATIC_HILL_ALPH)->SetWindowText(sc);
 	m_pHillAlphInfo = theApp.TextOptions.getAlphabet();
 	UpdateData( FALSE );
@@ -710,11 +349,19 @@ BOOL CDlgKeyHill5x5::OnInitDialog()
 	m_HillBase->readRegistry();
 	m_HillBase->setMatFont();
 
-	radioSetMultType( m_HillBase->multType );
-	radioSetMatType ( m_HillBase->matType  );
-	radioSetHillDim ( m_HillBase->dim      );
+   if ( m_HillBase->multType == MATRIX_VECTOR ) 
+   	radioSetMultType( IDC_RADIO8 );
+   else
+   	radioSetMultType( IDC_RADIO9 );
+
+   if ( m_HillBase->matType == HILL_CHAR_MATRIX )
+	   radioSetMatType ( IDC_RADIO6 );
+   else
+	   radioSetMatType ( IDC_RADIO7 );
+
 	displayAlphabet();
-	SetDimension( m_HillBase->dim );
+
+   SetDimension( m_HillBase->dim );
 
 	CString cs;
 	cs.LoadStringA(IDS_CRYPT_HILL);

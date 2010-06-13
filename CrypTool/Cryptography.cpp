@@ -561,6 +561,13 @@ void PlayfairAnalyse(const char *infile, const char *OldTitle)
 
 void Hill(const char *infile, const char *OldTitle)
 {
+   CKeyHillBase hillbase( HILL_RANGE );
+   if ( IDOK == hillbase.run() )
+   {
+
+   }
+
+#if 0
 	// Es muss mindestens ein Zeichen im Alphabet zu verschlüsseln sein
 	if ( !CheckAlphabet( 2 ) ) return;
 
@@ -978,6 +985,7 @@ void Hill(const char *infile, const char *OldTitle)
 	free(csEingabeDatei);
 	
 	HIDE_HOUR_GLASS
+#endif
 }
 
 

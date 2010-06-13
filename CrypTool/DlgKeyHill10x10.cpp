@@ -49,6 +49,7 @@ CDlgKeyHill10x10::CDlgKeyHill10x10(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgKeyHill10x10::IDD, pParent)
 	, m_pHillAlphInfo(_T(""))
 	, m_alphabetOffset(0)
+   , mat(0)
 {
 	hillklasse = new CHillEncryption((const char*)theApp.TextOptions.getAlphabet());
 	m_decrypt = 0;
@@ -59,7 +60,7 @@ CDlgKeyHill10x10::CDlgKeyHill10x10(CWnd* pParent /*=NULL*/)
 CDlgKeyHill10x10::~CDlgKeyHill10x10()
 {
 	if(hillklasse) delete hillklasse;
-	if(mat) delete mat;
+ 	if(mat) delete mat;
 }
 
 void CDlgKeyHill10x10::DoDataExchange(CDataExchange* pDX)
@@ -2066,7 +2067,10 @@ void CDlgKeyHill10x10::UpdateFeld(CEdit *feld)
 		}
 	}
 	}
-}void CDlgKeyHill10x10::UpdateAlphCode(CEdit *feld)
+}
+
+
+void CDlgKeyHill10x10::UpdateAlphCode(CEdit *feld)
 {
 	if(alphCode)
 	{

@@ -26,90 +26,25 @@
 
 // HillEingabe.h : Header-Datei
 //
-
+#include "afxwin.h"
 #include "HillEncryption.h"
 #include "Cryptography.h"
-#include "afxwin.h"
-
-#define DIM_DLG_HILL_5x5	5
-
-/////////////////////////////////////////////////////////////////////////////
-// Dialogfeld CDlgKeyHill5x5 
-
-class CHiEdit : public CEdit
-{
-protected:
-	//{{AFX_MSG(CHiEdit)
-	afx_msg void OnLButtonUp(UINT, CPoint);
-	//}}AFX_MSG
-
-	DECLARE_MESSAGE_MAP()
-private:
-};
-
-enum HillEditType { HILL_CHAR_MATRIX, HILL_NUM_MATRIX };
-enum HillMultType { VECTOR_MATRIX, MATRIX_VECTOR };
-
-
-class CDlgKeyHillBaseFunctions {
-    CHiEdit           **HillNumMat;
-	CEdit             **HillAlphMat;
-	CSquareMatrixModN  *HillMat;
-
-	// HILL parameter
-	unsigned long   alphabetOffset;
-	unsigned long   max_dim, dim;
-	HillEditType    matType;
-	HillMultType    multType; 
-	unsigned long   cryptMode;
-
-	friend class CDlgKeyHill5x5;
-	friend class CDlgKeyHill10x10;
-
-	// Select Matrix
-	void setMatFont();
-	void activateMatrix     ( CEdit **mat );
-	void deactivateMatrix   ( CEdit **mat ); 
-	void selectActMatrix    ( );
-	void selectHillDimension( unsigned long new_dim );
-	void selectMatType      ( HillEditType new_type );
-	void selectMultType     ( HillMultType new_type );
-
-	void syncNumAlph ( unsigned long i, unsigned long j );
-	void syncAlphNum ( unsigned long i, unsigned long j );
-	void formatNum   ( unsigned long i, unsigned long j );
-
-	int  validEntries();
-	int  isInvertable();
-
-	void pasteKey();
-	void copyKey();
-	void readRegistry();
-	void writeRegistry();
-	void randomKey();
-	void SetHillMatrix ( CSquareMatrixModN *mat );
-	void loadHillMatrix( CSquareMatrixModN& mat );
-
-public:
-	int ord( const char ch );
-	CDlgKeyHillBaseFunctions(unsigned long p_keyRange);
-	~CDlgKeyHillBaseFunctions();
-};
+#include "KeyHillBase.h"
 
 
 class CDlgKeyHill5x5 : public CDialog
 {
-	CDlgKeyHillBaseFunctions *m_HillBase;
-	CBitmapButton             m_Paste;
-	BOOL	m_Verbose;
-	CEdit	m_FeldUnsichtbar;
-	CString m_pHillAlphInfo;
-	unsigned long m_alphabetOffset;
+	CKeyHillBase  *m_HillBase;
+	CBitmapButton  m_Paste;
+	BOOL	         m_Verbose;
+	CEdit	         m_FeldUnsichtbar;
+	CString        m_pHillAlphInfo;
 
 // Konstruktion
 public:
 	CDlgKeyHill5x5(CWnd* pParent = NULL);   // Standardkonstruktor
 	~CDlgKeyHill5x5();
+   void init( CKeyHillBase *Hillbase );
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgKeyHill5x5)
