@@ -378,12 +378,15 @@ void CKeyHillBase::copyKey()
 void CKeyHillBase::SetHillMatrix( CSquareMatrixModN *mat )
 {
 	unsigned long i, j;
+	CString cs;
+
 	for ( i=0; i<max_dim; i++ )
 		for ( j=0; j<max_dim; j++ )
 			if ( i<dim && j<dim )
 			{  // FIXME 
 				HillAlphMat[i][j].SetWindowTextA( CString( char('A' + (*mat)(i,j) - alphabetOffset)) );
-				syncAlphNum(i,j);
+				cs.Format( "%02d", (*mat)(i,j) );
+				HillNumMat[i][j].SetWindowTextA( cs );
 			}
 			else
 			{
@@ -396,7 +399,9 @@ void CKeyHillBase::randomKey()
 {
 	CSquareMatrixModN mat( dim, theApp.TextOptions.getAlphabet().GetLength() );
 	if (mat.zufaellige_invertierbare_matrix())
+	{
 		SetHillMatrix( &mat );
+	}
 	else
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_ON_WRONG_ALPHABET,pc_str,STR_LAENGE_STRING_TABLE);
