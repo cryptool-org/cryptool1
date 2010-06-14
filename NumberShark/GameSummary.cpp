@@ -66,7 +66,7 @@ int finishPointsPlayer, finishPointsComputer,finishUpperLimit,finishProofed,fini
 CString radioExePath="";
 CString radioSummaryName="";
 
-void CGameSummary::uebergeben(EvoZahlenHai &hai, CString exePath, CString summaryName, int proofed2, int bestKnown2, int bestValue)
+void CGameSummary::init(EvoZahlenHai &hai, CString exePath, CString summaryName, int proofed2, int bestKnown2, int bestValue)
 {
 	finishPointsPlayer= hai.getPointsPlayer();
 	finishPointsComputer=hai.getPointsComputer();

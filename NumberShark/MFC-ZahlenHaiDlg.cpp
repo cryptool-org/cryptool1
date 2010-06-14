@@ -1399,34 +1399,15 @@ int CMFCZahlenHaiDlg::winner()
 	((CEdit*)GetDlgItem(IDC_EDIT1))->ShowWindow(0);
 	((CEdit*)GetDlgItem(IDC_BUTTON_OK))->ShowWindow(0);
 	((CEdit*)GetDlgItem(IDC_STATIC_EINSTELLUNGEN))->ShowWindow(0);
-	//((CEdit*)GetDlgItem(IDC_BUTTON_UNDO))->EnableWindow(false);
 	((CEdit*)GetDlgItem(IDC_BUTTON_REDO))->EnableWindow(false);
 
-	//m_LedWinner.ShowWindow(1);
-
-	/*if(pointsPlayer>pointsComputer)
-	{
-		//CString ledWinner="";
-		//ledWinner.LoadString(IDS_LED_WIN);
-		//m_LedWinner.SetText(ledWinner);
-	}
+	// flomar, 06/14/2010
+	// properly initialize game summary (passing the following parameters 
+	// with an empty map caused problems during game evaluation) 
+	if(optionen.getMapPrecalculatedScores().size() > 0)
+		summary.init(this->hai, exePathSummary, summaryName, optionen.getMapPrecalculatedScores().size(), optionen.getMapPrecalculatedScores().size(), atoi(optionen.getMapPrecalculatedScores()[upperLimit].score));
 	else
-	{
-		if(pointsPlayer<pointsComputer)
-		{
-			CString ledLoser="";
-			ledLoser.LoadString(IDS_LED_LOST);
-			m_LedWinner.SetText(ledLoser);
-		}
-		else
-		{
-			CString ledDraw="";
-			ledDraw.LoadString(IDS_LED_DRAW);
-			m_LedWinner.SetText(ledDraw);
-		}
-	}*/
-	if(upperLimit <= optionen.getMapPrecalculatedScores().size())
-		summary.uebergeben(this->hai, exePathSummary, summaryName, optionen.getMapPrecalculatedScores().size(), optionen.getMapPrecalculatedScores().size(), atoi(optionen.getMapPrecalculatedScores()[upperLimit].score));
+		summary.init(this->hai, exePathSummary, summaryName);
 	
 	summary.DoModal();
 	

@@ -46,7 +46,7 @@ public:
 	afx_msg void OnBnClickedOk();
 	afx_msg void OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized);
 	void gameAnalyse();
-	void uebergeben(EvoZahlenHai &hai, CString exePath, CString summaryName,int proofed2, int bestKnown2, int bestValue);
+	void init(EvoZahlenHai &hai, CString exePath, CString summaryName, int proofed2 = 0, int bestKnown2 = 0, int bestValue = 0);
 	CButton radioEdit1;
 	CButton radioEdit2;
 	int radio1;
