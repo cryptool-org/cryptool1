@@ -20,4 +20,4 @@ Dalsze poznawanie mozliwosci programu mozliwe jest na wiele sposobów:
 - poprzez przejrzenie prezentacji mozliwosci programu (zobacz rozdzial "Dokumentacja" na stronie startowej pomocy).
 - poprzez odwiedzenie strony www.cryptool.pl.
 
-Kwiecien 2010
+Czerwiec 2010
