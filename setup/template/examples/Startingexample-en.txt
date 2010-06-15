@@ -18,5 +18,5 @@ Press F1 to start the online help everywhere in CrypTool.
 - Viewing the included colorful presentation (This presentation can be found on several ways: e.g. in the "Help" menu of this application, or via the "Documentation" section found at the "Starting" page of the online help).
 - Viewing the webpage www.cryptool.org.
 
-April 2010
+June 2010
 The CrypTool team
