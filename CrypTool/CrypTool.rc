@@ -8,8 +8,7 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -2024,14 +2023,14 @@ BEGIN
     CONTROL         250,IDC_BMP_FIPS_HAK,"Static",SS_BITMAP,163,177,18,16
 END
 
-IDD_TIPPS_AND_TRICKS DIALOGEX 0, 0, 255, 210
+IDD_TIPPS_AND_TRICKS DIALOGEX 0, 0, 281, 218
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Jak zacz¹æ"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Zamknij",IDOK,195,189,50,14
-    CONTROL         "&Nie pokazuj wiêcej tego okna",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,190,114,13
-    CONTROL         259,IDB_BITMAP5,"Static",SS_BITMAP | SS_REALSIZEIMAGE,8,8,239,174,WS_EX_TRANSPARENT
+    DEFPUSHBUTTON   "&Zamknij",IDOK,224,197,50,14
+    CONTROL         "&Nie pokazuj wiêcej tego okna",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,201,114,8
+    CONTROL         259,IDB_BITMAP5,"Static",SS_BITMAP | SS_REALSIZEIMAGE,7,7,267,185,WS_EX_TRANSPARENT
 END
 
 IDD_PROGRESS_FACTORISATION DIALOG  0, 0, 220, 178
@@ -6383,7 +6382,7 @@ KEYU                    BITMAP                  "res\\KEYU.bmp"
 KEYD                    BITMAP                  "res\\KEYD.bmp"
 KEYX                    BITMAP                  "res\\KEYX.bmp"
 KEYF                    BITMAP                  "res\\KEYF.bmp"
-IDB_BITMAP5             BITMAP                  "res\\DerEinstiegCrypTool_pl.bmp"
+IDB_BITMAP5             BITMAP                  "res\\CrypToolStartLogo-pl.bmp"
 IDB_BITMAP_ARROW        BITMAP                  "res\\bitmap7.bmp"
 IDB_BITMAP_ARRDOWN      BITMAP                  "res\\bmp00006.bmp"
 IDB_BITMAP_ARR_DOWN     BITMAP                  "res\\PfeilUnten.bmp"
@@ -7517,6 +7516,12 @@ BEGIN
         BOTTOMMARGIN, 295
         HORZGUIDE, 275
         HORZGUIDE, 288
+    END
+
+    IDD_TIPPS_AND_TRICKS, DIALOG
+    BEGIN
+        RIGHTMARGIN, 255
+        BOTTOMMARGIN, 210
     END
 
     IDD_PROGRESS_FACTORISATION, DIALOG
@@ -13102,14 +13107,14 @@ BEGIN
     CONTROL         250,IDC_BMP_FIPS_HAK,"Static",SS_BITMAP,163,177,18,16
 END
 
-IDD_TIPPS_AND_TRICKS DIALOGEX 0, 0, 255, 210
+IDD_TIPPS_AND_TRICKS DIALOGEX 0, 0, 281, 218
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Kako Poceti"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Zatvori",IDOK,195,189,50,14
-    CONTROL         "&Ne prikazuj ovaj dijalog ponovo",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,190,114,13
-    CONTROL         259,IDB_BITMAP5,"Static",SS_BITMAP | SS_REALSIZEIMAGE,8,8,239,174,WS_EX_TRANSPARENT
+    DEFPUSHBUTTON   "&Zatvori",IDOK,224,197,50,14
+    CONTROL         "&Ne prikazuj ovaj dijalog ponovo",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,201,114,8
+    CONTROL         259,IDB_BITMAP5,"Static",SS_BITMAP | SS_REALSIZEIMAGE,7,7,267,185,WS_EX_TRANSPARENT
 END
 
 IDD_PROGRESS_FACTORISATION DIALOG  0, 0, 220, 178
@@ -17469,7 +17474,7 @@ KEYU                    BITMAP                  "res\\KEYU.bmp"
 KEYD                    BITMAP                  "res\\KEYD.bmp"
 KEYX                    BITMAP                  "res\\KEYX.bmp"
 KEYF                    BITMAP                  "res\\KEYF.bmp"
-IDB_BITMAP5             BITMAP                  "res\\DerEinstiegInCrypTool.bmp"
+IDB_BITMAP5             BITMAP                  "res\\CrypToolStartLogo-rs.bmp"
 IDB_BITMAP_ARROW        BITMAP                  "res\\bitmap7.bmp"
 IDB_BITMAP_ARRDOWN      BITMAP                  "res\\bmp00006.bmp"
 IDB_BITMAP_ARR_DOWN     BITMAP                  "res\\PfeilUnten.bmp"
@@ -24186,15 +24191,15 @@ BEGIN
     CONTROL         250,IDC_BMP_FIPS_HAK,"Static",SS_BITMAP,163,177,18,16
 END
 
-IDD_TIPPS_AND_TRICKS DIALOGEX 0, 0, 249, 210
+IDD_TIPPS_AND_TRICKS DIALOGEX 0, 0, 281, 218
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Wie Sie starten"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Schließen",IDOK,195,189,50,14
+    DEFPUSHBUTTON   "&Schließen",IDOK,224,197,50,14
     CONTROL         "&Diesen Dialog in Zukunft nicht mehr anzeigen",IDC_CHECK2,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,190,160,13
-    CONTROL         259,IDB_BITMAP5,"Static",SS_BITMAP | SS_REALSIZEIMAGE,8,8,239,174,WS_EX_TRANSPARENT
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,201,160,8
+    CONTROL         259,IDB_BITMAP5,"Static",SS_BITMAP | SS_REALSIZEIMAGE,7,7,267,185,WS_EX_TRANSPARENT
 END
 
 IDD_PROGRESS_FACTORISATION DIALOG  0, 0, 222, 178
@@ -28565,7 +28570,7 @@ PASTED                  BITMAP                  "res\\EditPastebmp.bmp"
 PASTEX                  BITMAP                  "res\\bitmap6.bmp"
 PASTEF                  BITMAP                  "res\\bmp00001.bmp"
 PASTETEST               BITMAP                  "res\\bmp00002.bmp"
-IDB_BITMAP5             BITMAP                  "res\\DerEinstiegInCrypTool_de.bmp"
+IDB_BITMAP5             BITMAP                  "res\\CrypToolStartLogo-de.bmp"
 KEYU                    BITMAP                  "res\\KEYU.bmp"
 KEYD                    BITMAP                  "res\\KEYD.bmp"
 KEYX                    BITMAP                  "res\\KEYX.bmp"
@@ -29649,6 +29654,11 @@ BEGIN
     BEGIN
         VERTGUIDE, 18
         BOTTOMMARGIN, 295
+    END
+
+    IDD_TIPPS_AND_TRICKS, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 211
     END
 
     IDD_CERTIFICATE_GENERATION, DIALOG
@@ -35187,14 +35197,14 @@ BEGIN
     CONTROL         250,IDC_BMP_FIPS_HAK,"Static",SS_BITMAP,163,177,18,16
 END
 
-IDD_TIPPS_AND_TRICKS DIALOGEX 0, 0, 255, 210
+IDD_TIPPS_AND_TRICKS DIALOGEX 0, 0, 281, 218
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "How to Start"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Close",IDOK,195,189,50,14
-    CONTROL         "&Don't show this dialog again",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,190,114,13
-    CONTROL         259,IDB_BITMAP5,"Static",SS_BITMAP | SS_REALSIZEIMAGE,8,8,239,174,WS_EX_TRANSPARENT
+    DEFPUSHBUTTON   "&Close",IDOK,224,197,50,14
+    CONTROL         "&Don't show this dialog again",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,201,114,8
+    CONTROL         259,IDB_BITMAP5,"Static",SS_BITMAP | SS_REALSIZEIMAGE,7,7,267,185,WS_EX_TRANSPARENT
 END
 
 IDD_PROGRESS_FACTORISATION DIALOG  0, 0, 220, 178
@@ -39543,7 +39553,7 @@ KEYU                    BITMAP                  "res\\KEYU.bmp"
 KEYD                    BITMAP                  "res\\KEYD.bmp"
 KEYX                    BITMAP                  "res\\KEYX.bmp"
 KEYF                    BITMAP                  "res\\KEYF.bmp"
-IDB_BITMAP5             BITMAP                  "res\\DerEinstiegInCrypTool.bmp"
+IDB_BITMAP5             BITMAP                  "res\\CrypToolStartLogo-en.bmp"
 IDB_BITMAP_ARROW        BITMAP                  "res\\bitmap7.bmp"
 IDB_BITMAP_ARRDOWN      BITMAP                  "res\\bmp00006.bmp"
 IDB_BITMAP_ARR_DOWN     BITMAP                  "res\\PfeilUnten.bmp"
@@ -40672,6 +40682,12 @@ BEGIN
         BOTTOMMARGIN, 295
         HORZGUIDE, 275
         HORZGUIDE, 288
+    END
+
+    IDD_TIPPS_AND_TRICKS, DIALOG
+    BEGIN
+        RIGHTMARGIN, 255
+        BOTTOMMARGIN, 210
     END
 
     IDD_PROGRESS_FACTORISATION, DIALOG
@@ -46483,14 +46499,14 @@ BEGIN
     EDITTEXT        IDC_EDIT7,5,292,200,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
 END
 
-IDD_TIPPS_AND_TRICKS DIALOGEX 0, 0, 255, 210
+IDD_TIPPS_AND_TRICKS DIALOGEX 0, 0, 281, 218
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Cómo empezar"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Cerrar",IDOK,195,189,50,14
-    CONTROL         "&No volver a mostrar este aviso",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,190,114,13
-    CONTROL         259,IDB_BITMAP5,"Static",SS_BITMAP | SS_REALSIZEIMAGE,8,8,239,174,WS_EX_TRANSPARENT
+    DEFPUSHBUTTON   "&Cerrar",IDOK,224,197,50,14
+    CONTROL         "&No volver a mostrar este aviso",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,201,114,8
+    CONTROL         259,IDB_BITMAP5,"Static",SS_BITMAP | SS_REALSIZEIMAGE,7,7,267,185,WS_EX_TRANSPARENT
 END
 
 IDD_TEXT_OPTIONS DIALOGEX 0, 0, 272, 260
@@ -50634,7 +50650,7 @@ KEYU                    BITMAP                  "res\\KEYU.bmp"
 KEYD                    BITMAP                  "res\\KEYD.bmp"
 KEYX                    BITMAP                  "res\\KEYX.bmp"
 KEYF                    BITMAP                  "res\\KEYF.bmp"
-IDB_BITMAP5             BITMAP                  "res\\DerEinstiegInCrypTool.bmp"
+IDB_BITMAP5             BITMAP                  "res\\CrypToolStartLogo-es.bmp"
 IDB_BITMAP_ARROW        BITMAP                  "res\\bitmap7.bmp"
 IDB_BITMAP_ARRDOWN      BITMAP                  "res\\bmp00006.bmp"
 IDB_BITMAP_ARR_DOWN     BITMAP                  "res\\PfeilUnten.bmp"
