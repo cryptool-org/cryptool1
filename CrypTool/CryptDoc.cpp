@@ -32,9 +32,6 @@
 #include "CrypToolTools.h"
 #include "uucode.h"
 
-#include "DlgShowKeyHill5x5.h"
-#include "DlgShowKeyHill10x10.h"
-
 #include "DlgVigenereAnalysisSchroedel.h"
 
 #include "Cryptography.h"
@@ -70,6 +67,7 @@
 #include "DlgFormatTextDocument.h"
 #include "DlgSimpleTranspositions.h"
 #include "DlgAutomatedPermAnalysis.h"
+#include "keyHillBase.h"
 
 extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis;
 
@@ -869,7 +867,7 @@ void CCryptDoc::OnXorAuto()
 	CryptPar *para;
 
 	para = (CryptPar *) malloc(sizeof(CryptPar));
-    UpdateContent();
+   UpdateContent();
 	memset(para,0,sizeof(CryptPar));
 	para->infile = ContentName;
 	para->OldTitle = GetTitle();
@@ -880,7 +878,7 @@ void CCryptDoc::OnXorAuto()
 
 void CCryptDoc::OnHill() 
 {
-    UpdateContent();
+   UpdateContent();
 	Hill(ContentName, GetTitle());	
 }
 
@@ -1789,27 +1787,8 @@ void CCryptDoc::OnShowKey()
 		}
 		else if ( ((CAppDocument*)this)->iSchluesselTyp == SCHLUESSEL_QUADRATISCH )
 		{
-			// Hill Verfahren: 
-			// Format des Schluessels: Zeilenweise, durch jeweils ein Leerzeichen getrennt
-			// HILL_MAX_DIM=5: 5x5 hat also 25+4=29 Zeichen
-			int p_keyend = Key.Find(HILLSTR_ALPHABETOFFSET);
-			ASSERT(p_keyend > 0);
-			if (p_keyend <= HILL_MAX_DIM*HILL_MAX_DIM+(HILL_MAX_DIM-1))
-			{
-				CDlgShowKeyHill5x5 AusgabeFenster;
-				AusgabeFenster.SchluesselAnzeigen(Key);				
-				// Es wird immer der Schluessel zum Verschluesseln angezeigt
-				AusgabeFenster.m_decrypt = FALSE;
-				AusgabeFenster.DoModal();
-			}
-			else
-			{
-				CDlgShowKeyHill10x10 AusgabeFenster;
-				AusgabeFenster.SchluesselAnzeigen(Key);				
-				// Es wird immer der Schluessel zum Verschluesseln angezeigt
-				AusgabeFenster.m_decrypt = FALSE;
-				AusgabeFenster.DoModal();
-			}
+         CKeyHillBase keyHill;
+         keyHill.run_showKey( Key );
 		}
 		else
 		{

@@ -25,9 +25,8 @@
 #include "CrypToolApp.h"
 #include "DlgFileProperties.h"
 #include "DlgShowKey.h"
-#include "DlgShowKeyHill10x10.h"
-#include "DlgShowKeyHill5x5.h"
 #include "CrypToolTools.h"
+#include "keyHillBase.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -98,26 +97,9 @@ void CDlgFileProperties::OnShowKey()
 	}
 	else if ( m_keyType == SCHLUESSEL_QUADRATISCH )
 	{
-		// Hill Verfahren: 
-		// Format des Schluessels: Zeilenweise, durch jeweils ein Leerzeichen getrennt
-		// HILL_MAX_DIM=5: 5x5 hat also 25+4=29 Zeichen
-		if (m_key.GetLength() <= HILL_MAX_DIM*HILL_MAX_DIM+(HILL_MAX_DIM-1))
-		{
-			CDlgShowKeyHill5x5 AusgabeFenster;
-			AusgabeFenster.SchluesselAnzeigen(m_key);				
-			// Es wird immer der Schluessel zum Verschluesseln angezeigt
-			AusgabeFenster.m_decrypt = FALSE;
-			AusgabeFenster.DoModal();
-		}
-		else
-		{
-			CDlgShowKeyHill10x10 AusgabeFenster;
-			AusgabeFenster.SchluesselAnzeigen(m_key);				
-			// Es wird immer der Schluessel zum Verschluesseln angezeigt
-			AusgabeFenster.m_decrypt = FALSE;
-			AusgabeFenster.DoModal();
-		}
-	}
+      CKeyHillBase keyHill;
+      keyHill.run_showKey( m_key );
+   }
 	else
 	{
 		ASSERT(false);

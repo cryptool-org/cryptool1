@@ -42,7 +42,6 @@ CDlgKeyHill5x5::CDlgKeyHill5x5(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgKeyHill5x5::IDD, pParent)
 	, m_HillBase(0) // FIXME
 	, m_pHillAlphInfo(_T(""))
-	, m_Verbose(FALSE)
 {
 }
 
@@ -113,11 +112,10 @@ void CDlgKeyHill5x5::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT65,  m_HillBase->HillNumMat[4][3] );
 	DDX_Control(pDX, IDC_EDIT66,  m_HillBase->HillNumMat[4][4] );
 
-	DDX_Check(pDX, IDC_CHECK1, m_Verbose);
-	DDX_Control(pDX, IDC_EDIT1, m_FeldUnsichtbar);
+   DDX_Check(pDX, IDC_CHECK1, m_HillBase->verbose);
 	DDX_Text(pDX, IDC_EDIT3, m_pHillAlphInfo);
-	DDX_Text(pDX, IDC_EDIT2, m_HillBase->alphabetOffset );
-	DDV_MinMaxInt(pDX, m_HillBase->alphabetOffset, 0, 1);
+   DDX_Text(pDX, IDC_EDIT2, m_HillBase->HillOptions.m_alphabetOffset );
+   DDV_MinMaxInt(pDX, m_HillBase->HillOptions.m_alphabetOffset, 0, 1);
 }
 
 
@@ -220,9 +218,6 @@ BEGIN_MESSAGE_MAP(CDlgKeyHill5x5, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON5, OnDecrypt)
 	ON_BN_CLICKED(IDC_BUTTON2, OnPasteKey)
 	ON_BN_CLICKED(IDC_BUTTON1, OnHillOptions)
-
-	ON_BN_CLICKED(IDC_CHECK1, OnVerbose)
-
 	ON_BN_CLICKED(IDC_BUTTON_TEXTOPTIONS, OnTextOptions)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
@@ -344,9 +339,7 @@ void CDlgKeyHill5x5::displayAlphabet()
 BOOL CDlgKeyHill5x5::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
-	m_Verbose = bGlobVerbose;
 
-	m_HillBase->readRegistry();
 	m_HillBase->setMatFont();
 
    if ( m_HillBase->multType == MATRIX_VECTOR ) 
@@ -381,12 +374,11 @@ void CDlgKeyHill5x5::DoCrypt( unsigned long mode )
 		// FIXME: Set FOCUS
 		return;
 	}
-	m_HillBase->writeRegistry();
 	m_HillBase->cryptMode = mode;
 	CDialog::OnOK();
 }
 
-void CDlgKeyHill5x5::OnOK()		  { DoCrypt(0); }
+void CDlgKeyHill5x5::OnOK()		 { DoCrypt(0); }
 void CDlgKeyHill5x5::OnDecrypt()  { DoCrypt(1); }
 void CDlgKeyHill5x5::OnPasteKey() 
 {	
@@ -401,27 +393,18 @@ void CDlgKeyHill5x5::OnZufaelligerSchluessel()
 
 void CDlgKeyHill5x5::OnGroessereSchluessel() 
 {
-	m_HillBase->writeRegistry();
-	m_HillBase->cryptMode = 3; // FIXME CHANGE DIMENSION
-	m_HillBase->max_dim   = 10;
-
+	m_HillBase->currDlg = DLG_HILL_10x10; 
+   m_HillBase->max_dim = DIM_DLG_HILL_10x10;
 	CDialog::OnOK();	
 }
 
 void CDlgKeyHill5x5::OnHillOptions()
 {
-	DlgHillOptions hillOpt;
-	if ( IDOK != hillOpt.DoModal() )
-		return;
-
-	m_HillBase->alphabetOffset = hillOpt.m_alphabetOffset;
-
-}
-
-void CDlgKeyHill5x5::OnVerbose()
-{
-	CButton* pCheck = (CButton*)GetDlgItem(IDC_CHECK1);
-	m_Verbose = pCheck->GetCheck();
+	if ( IDOK == m_HillBase->HillOptions.DoModal() )
+   {
+      displayAlphabet();
+      m_HillBase->syncAlphNum();
+   }
 }
 
 void CDlgKeyHill5x5::OnTextOptions()
@@ -429,17 +412,5 @@ void CDlgKeyHill5x5::OnTextOptions()
 	if(theApp.TextOptions.DoModal() != IDOK) 
 		return;
 	displayAlphabet();
+   m_HillBase->syncAlphNum();
 }
-
-
-BEGIN_MESSAGE_MAP(CHiEdit, CEdit)
-	//{{AFX_MSG_MAP(CHiEdit)
-	ON_WM_LBUTTONUP()
-	//}}AFX_MSG_MAP
-END_MESSAGE_MAP()
-
-void CHiEdit::OnLButtonUp(UINT nFlags, CPoint point )
-{
-	CEdit::OnLButtonUp(nFlags,point);
-	SetSel(0, -1);
-} 

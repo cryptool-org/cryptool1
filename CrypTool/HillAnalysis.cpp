@@ -5,8 +5,7 @@
 #include "FileTools.h"
 #include "DialogeMessage.h"
 #include "DlgTextOptions.h"
-#include "DlgShowKeyHill5x5.h"
-#include "DlgShowKeyHill10x10.h"
+#include "keyHillBase.h"
 #include "assert.h"
 
 
@@ -122,22 +121,10 @@ int CHillAnalysis::analyze(CString &err_str)
 		if (hill_rc == HILL_OK_LAENGE_UNTERSCHIEDLICH)
 			Message(IDS_STRING_MSG_DATALENGTH_MISMATCH,MB_ICONINFORMATION);
 
-		if (mat->get_dim() <= 5)
-		{	
-			CDlgShowKeyHill5x5 dlg;		
-			dlg.MatrixAnzeigen(*mat, mat->get_dim(), hillklasse);
-			dlg.m_decrypt = FALSE;
-			dlg.DoModal();
-		}
-		else
-		{
-			CDlgShowKeyHill10x10 dlg;
-			dlg.MatrixAnzeigen(*mat, mat->get_dim(), hillklasse);
-			dlg.m_decrypt = FALSE;
-			dlg.DoModal();
-		}
-		delete mat;
+      CKeyHillBase keyHill;
+      keyHill.run_showKey(mat, alphabet_offset, mul_direction );
 
+      delete mat;
 		return 0;
 	}
 	else

@@ -22,6 +22,7 @@
 
 #include "afxwin.h"
 #include "SquareMatrixModN.h"
+#include "DlgHillOptions.h"
 
 #define DIM_DLG_HILL_5x5	5
 #define DIM_DLG_HILL_10x10	10
@@ -52,16 +53,20 @@ class CKeyHillBase {
 	CEdit             **HillAlphMat;
 	CSquareMatrixModN  *HillMat;
    CDialog            *currentDialog;
+   DlgHillOptions      HillOptions;
 
 	// HILL parameter
-	unsigned long   alphabetOffset;
-	unsigned long   max_dim, dim, key_range;
-	HillEditType    matType;
-	HillMultType    multType; 
-	unsigned long   cryptMode;
+	unsigned long  max_dim, dim, key_range;
+	HillEditType   matType;
+	HillMultType   multType; 
+	unsigned long  cryptMode;
+   int            currDlg;
+   BOOL           verbose;
 
 	friend class CDlgKeyHill5x5;
 	friend class CDlgKeyHill10x10;
+   friend class CDlgShowKeyHill5x5;
+   friend class CDlgShowKeyHill10x10;
 
 	// Select Matrix
 	void setMatFont();
@@ -74,6 +79,7 @@ class CKeyHillBase {
 
 	void syncNumAlph ( unsigned long i, unsigned long j );
 	void syncAlphNum ( unsigned long i, unsigned long j );
+   void syncAlphNum ();
 	void formatNum   ( unsigned long i, unsigned long j );
 
 	int  validEntries();
@@ -84,13 +90,16 @@ class CKeyHillBase {
 	void readRegistry();
 	void writeRegistry();
 	void randomKey();
-	void SetHillMatrix ( CSquareMatrixModN *mat );
-	void loadHillMatrix( CSquareMatrixModN& mat );
+	void SetHillMatrix( CSquareMatrixModN *mat );
+	CSquareMatrixModN* GetHillMatrix();
 
 public:
-	int ord( const char ch );
-	CKeyHillBase(unsigned long p_keyRange);
+	int  ord( const char ch );
+   char chr( int u );
+	CKeyHillBase(unsigned long p_keyRange = HILL_RANGE);
 	~CKeyHillBase();
-   int run( int currDlg = DLG_HILL_5x5 ); 
+   int run(); 
+   int run_showKey( CString &keyStr  ); 
+   int run_showKey( CSquareMatrixModN *mat, int alphabet_offset, int mult_direction );
 };
 

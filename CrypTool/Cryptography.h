@@ -38,9 +38,9 @@ typedef struct {
 	int			keylenmin;  // valid key lengths [bit]:
 	int			keylenmax;  // { x | x = keylenmin + n*keylenstep, n >= 0, x <= keylenmax }
 	int			keylenstep; 
-	char		*key;
+	char		  *key;
 	int			flags;
-	void		*result;
+	void		  *result;
 } CryptPar;
 
 typedef struct  {

@@ -27,285 +27,45 @@
 // HillEingabeGross.h : Header-Datei
 //
 
-#include "HillEncryption.h"
-#include "Cryptography.h"
+#include "afxwin.h"
+#include "KeyHillBase.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgKeyHill10x10 
 
 class CDlgKeyHill10x10 : public CDialog
 {
-	CBitmapButton m_Paste;
-// Konstruktion
+	CKeyHillBase  *m_HillBase;
+	CBitmapButton  m_Paste;
+	CString        m_pHillAlphInfo;
+
+   CFont cf;
+
 public:
-	int		m_decrypt;
-	unsigned long alphCode;
-	CSquareMatrixModN * mat;
-	void UpdateFeld (CEdit*feld);
-	void UpdateAlphCode(CEdit*feld);
-	void MatrixEinlesen(CSquareMatrixModN& mat, int dim);
-	void MatrixAnzeigen(CSquareMatrixModN& mat);
-	bool NaechsterEintrag(int& i, int& j) ;
-	int AlleFelderKorrekt(int);
-	void AnzeigeDimensionSetzen(int);
-	int dim;
-	int Display();
-	CHiEdit* m_pFelder[HILL_MAX_DIM_GROSS][HILL_MAX_DIM_GROSS];
-	CHiEdit* m_pAlphCode[HILL_MAX_DIM_GROSS][HILL_MAX_DIM_GROSS];
-
-	CString getAlphCode(CString alphChar);
-	CString getAlphChar(CString alphPos);
-	void setFeldAlph(CEdit *feld,CEdit *feldAlph);
-	void setFeldAlphCode(CEdit *feld,CEdit *feldAlph);
-	void setDoublePos(CEdit *feld);
-
 	CString getDimMessage();
 
 	CDlgKeyHill10x10(CWnd* pParent = NULL);   // Standardkonstruktor
 	~CDlgKeyHill10x10();
+   void init( CKeyHillBase *Hillbase );
 
-	CHillEncryption *getHillKlasse() { return hillklasse; };
-
-// Dialogfelddaten
-	//{{AFX_DATA(CDlgKeyHill10x10)
+   //{{AFX_DATA(CDlgKeyHill10x10)
 	enum { IDD = IDD_KEY_HILL_10X10 };
-	BOOL	m_Verbose;
-	CEdit	m_FeldUnsichtbar;
-	class CHiEdit	m_Feld11;
-	class CHiEdit	m_Feld12;
-	class CHiEdit	m_Feld13;
-	class CHiEdit	m_Feld14;
-	class CHiEdit	m_Feld15;
-	class CHiEdit	m_Feld16;
-	class CHiEdit	m_Feld17;
-	class CHiEdit	m_Feld18;
-	class CHiEdit	m_Feld19;
-	class CHiEdit	m_Feld110;
-	class CHiEdit	m_Feld21;
-	class CHiEdit	m_Feld22;
-	class CHiEdit	m_Feld23;
-	class CHiEdit	m_Feld24;
-	class CHiEdit	m_Feld25;
-	class CHiEdit	m_Feld26;
-	class CHiEdit	m_Feld27;
-	class CHiEdit	m_Feld28;
-	class CHiEdit	m_Feld29;
-	class CHiEdit	m_Feld210;
-	class CHiEdit	m_Feld31;
-	class CHiEdit	m_Feld32;
-	class CHiEdit	m_Feld33;
-	class CHiEdit	m_Feld34;
-	class CHiEdit	m_Feld35;
-	class CHiEdit	m_Feld36;
-	class CHiEdit	m_Feld37;
-	class CHiEdit	m_Feld38;
-	class CHiEdit	m_Feld39;
-	class CHiEdit	m_Feld310;
-	class CHiEdit	m_Feld41;
-	class CHiEdit	m_Feld42;
-	class CHiEdit	m_Feld43;
-	class CHiEdit	m_Feld44;
-	class CHiEdit	m_Feld45;
-	class CHiEdit	m_Feld46;
-	class CHiEdit	m_Feld47;
-	class CHiEdit	m_Feld48;
-	class CHiEdit	m_Feld49;
-	class CHiEdit	m_Feld410;
-	class CHiEdit	m_Feld51;
-	class CHiEdit	m_Feld52;
-	class CHiEdit	m_Feld53;
-	class CHiEdit	m_Feld54;
-	class CHiEdit	m_Feld55;
-	class CHiEdit	m_Feld56;
-	class CHiEdit	m_Feld57;
-	class CHiEdit	m_Feld58;
-	class CHiEdit	m_Feld59;
-	class CHiEdit	m_Feld510;
-	class CHiEdit	m_Feld61;
-	class CHiEdit	m_Feld62;
-	class CHiEdit	m_Feld63;
-	class CHiEdit	m_Feld64;
-	class CHiEdit	m_Feld65;
-	class CHiEdit	m_Feld66;
-	class CHiEdit	m_Feld67;
-	class CHiEdit	m_Feld68;
-	class CHiEdit	m_Feld69;
-	class CHiEdit	m_Feld610;
-	class CHiEdit	m_Feld71;
-	class CHiEdit	m_Feld72;
-	class CHiEdit	m_Feld73;
-	class CHiEdit	m_Feld74;
-	class CHiEdit	m_Feld75;
-	class CHiEdit	m_Feld76;
-	class CHiEdit	m_Feld77;
-	class CHiEdit	m_Feld78;
-	class CHiEdit	m_Feld79;
-	class CHiEdit	m_Feld710;
-	class CHiEdit	m_Feld81;
-	class CHiEdit	m_Feld82;
-	class CHiEdit	m_Feld83;
-	class CHiEdit	m_Feld84;
-	class CHiEdit	m_Feld85;
-	class CHiEdit	m_Feld86;
-	class CHiEdit	m_Feld87;
-	class CHiEdit	m_Feld88;
-	class CHiEdit	m_Feld89;
-	class CHiEdit	m_Feld810;
-	class CHiEdit	m_Feld91;
-	class CHiEdit	m_Feld92;
-	class CHiEdit	m_Feld93;
-	class CHiEdit	m_Feld94;
-	class CHiEdit	m_Feld95;
-	class CHiEdit	m_Feld96;
-	class CHiEdit	m_Feld97;
-	class CHiEdit	m_Feld98;
-	class CHiEdit	m_Feld99;
-	class CHiEdit	m_Feld910;
-	class CHiEdit	m_Feld101;
-	class CHiEdit	m_Feld102;
-	class CHiEdit	m_Feld103;
-	class CHiEdit	m_Feld104;
-	class CHiEdit	m_Feld105;
-	class CHiEdit	m_Feld106;
-	class CHiEdit	m_Feld107;
-	class CHiEdit	m_Feld108;
-	class CHiEdit	m_Feld109;
-	class CHiEdit	m_Feld1010;
 	//}}AFX_DATA
 
-	class CHiEdit m_Feld40;
-	class CHiEdit m_Feld50;
-	class CHiEdit m_Feld20;
-	class CHiEdit m_Feld90;
-	class CHiEdit m_Feld100;
-	class CHiEdit m_Feld117;
-	class CHiEdit m_Feld118;
-	class CHiEdit m_Feld119;
-	class CHiEdit m_Feld60;
-	class CHiEdit m_Feld125;
-	class CHiEdit m_Feld127;
-	class CHiEdit m_Feld134;
-	class CHiEdit m_Feld135;
-	class CHiEdit m_Feld136;
-	class CHiEdit m_Feld70;
-	class CHiEdit m_Feld137;
-	class CHiEdit m_Feld138;
-	class CHiEdit m_Feld139;
-	class CHiEdit m_Feld80;
-	class CHiEdit m_Feld211;
-	class CHiEdit m_Feld140;
-	class CHiEdit m_Feld141;
-	class CHiEdit m_Feld142;
-	class CHiEdit m_Feld143;
-	class CHiEdit m_Feld144;
-	class CHiEdit m_Feld145;
-	class CHiEdit m_Feld146;
-	class CHiEdit m_Feld147;
-	class CHiEdit m_Feld148;
-	class CHiEdit m_Feld311;
-	class CHiEdit m_Feld149;
-	class CHiEdit m_Feld150;
-	class CHiEdit m_Feld151;
-	class CHiEdit m_Feld152;
-	class CHiEdit m_Feld153;
-	class CHiEdit m_Feld154;
-	class CHiEdit m_Feld155;
-	class CHiEdit m_Feld156;
-	class CHiEdit m_Feld157;
-	class CHiEdit m_Feld411;
-	class CHiEdit m_Feld158;
-	class CHiEdit m_Feld159;
-	class CHiEdit m_Feld113;
-	class CHiEdit m_Feld160;
-	class CHiEdit m_Feld161;
-	class CHiEdit m_Feld162;
-	class CHiEdit m_Feld163;
-	class CHiEdit m_Feld164;
-	class CHiEdit m_Feld165;
-	class CHiEdit m_Feld511;
-	class CHiEdit m_Feld166;
-	class CHiEdit m_Feld167;
-	class CHiEdit m_Feld168;
-	class CHiEdit m_Feld169;
-	class CHiEdit m_Feld170;
-	class CHiEdit m_Feld171;
-	class CHiEdit m_Feld172;
-	class CHiEdit m_Feld173;
-	class CHiEdit m_Feld174;
-	class CHiEdit m_Feld611;
-	class CHiEdit m_Feld175;
-	class CHiEdit m_Feld176;
-	class CHiEdit m_Feld177;
-	class CHiEdit m_Feld178;
-	class CHiEdit m_Feld179;
-	class CHiEdit m_Feld180;
-	class CHiEdit m_Feld181;
-	class CHiEdit m_Feld182;
-	class CHiEdit m_Feld183;
-	class CHiEdit m_Feld711;
-	class CHiEdit m_Feld184;
-	class CHiEdit m_Feld185;
-	class CHiEdit m_Feld186;
-	class CHiEdit m_Feld187;
-	class CHiEdit m_Feld188;
-	class CHiEdit m_Feld189;
-	class CHiEdit m_Feld190;
-	class CHiEdit m_Feld191;
-	class CHiEdit m_Feld192;
-	class CHiEdit m_Feld811;
-	class CHiEdit m_Feld193;
-	class CHiEdit m_Feld194;
-	class CHiEdit m_Feld195;
-	class CHiEdit m_Feld196;
-	class CHiEdit m_Feld197;
-	class CHiEdit m_Feld198;
-	class CHiEdit m_Feld199;
-	class CHiEdit m_Feld200;
-	class CHiEdit m_Feld201;
-	class CHiEdit m_Feld911;
-	class CHiEdit m_Feld202;
-	class CHiEdit m_Feld203;
-	class CHiEdit m_Feld204;
-	class CHiEdit m_Feld205;
-	class CHiEdit m_Feld206;
-	class CHiEdit m_Feld207;
-	class CHiEdit m_Feld208;
-	class CHiEdit m_Feld209;
-	class CHiEdit m_Feld212;
-	class CHiEdit m_Feld1011;
-
-
-
-
-// Überschreibungen
-	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
-	//{{AFX_VIRTUAL(CDlgKeyHill10x10)
+   //{{AFX_VIRTUAL(CDlgKeyHill10x10)
 	protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
 	//}}AFX_VIRTUAL
 
 // Implementierung
 protected:
+// helper functions
+	void radioSetMultType( unsigned long ID );
+	void radioSetHillDim ( unsigned long ID );
+	void radioSetMatType ( unsigned long ID );
+	void displayAlphabet();
 
-	CFont cf;
-	CHillEncryption *hillklasse;
-
-	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgKeyHill10x10)
-	virtual void OnOK();
-	virtual void OnDecrypt();
-	afx_msg void OnPasteKey();
-	virtual BOOL OnInitDialog();
-	afx_msg void OnDimension1();
-	afx_msg void OnDimension2();
-	afx_msg void OnDimension3();
-	afx_msg void OnDimension4();
-	afx_msg void OnDimension5();
-	afx_msg void OnDimension6();
-	afx_msg void OnDimension7();
-	afx_msg void OnDimension8();
-	afx_msg void OnDimension9();
-	afx_msg void OnDimension10();
 	afx_msg	void OnUpdateMat11();
 	afx_msg	void OnUpdateMat12();
 	afx_msg	void OnUpdateMat13();
@@ -406,10 +166,6 @@ protected:
 	afx_msg	void OnUpdateMat108();
 	afx_msg	void OnUpdateMat109();
 	afx_msg	void OnUpdateMat1010();
-	afx_msg void OnZufaelligerSchluessel();
-	afx_msg void OnKleinereSchluessel();
-	afx_msg void OnRowVectorMatrix();
-	afx_msg void OnMatrixColumnVector();
 
 	afx_msg	void OnUpdateMat40();
 	afx_msg	void OnUpdateMat50();
@@ -512,10 +268,6 @@ protected:
 	afx_msg	void OnUpdateMat212();
 	afx_msg	void OnUpdateMat1011();
 
-	afx_msg void OnEnableAlphCode();
-	afx_msg void OnDisableAlphCode();
-
-
 	afx_msg void OnExitMat40();
 	afx_msg void OnExitMat50();
 	afx_msg void OnExitMat20();
@@ -617,15 +369,38 @@ protected:
 	afx_msg void OnExitMat212();
 	afx_msg void OnExitMat1011();
 
-	afx_msg void OnTextOptions();
+	void SetDimension( unsigned long d );
+	afx_msg void OnDimension1();
+	afx_msg void OnDimension2();
+	afx_msg void OnDimension3();
+	afx_msg void OnDimension4();
+	afx_msg void OnDimension5();	
+	afx_msg void OnDimension6();
+	afx_msg void OnDimension7();
+	afx_msg void OnDimension8();
+	afx_msg void OnDimension9();
+	afx_msg void OnDimension10();	
 
+	afx_msg void OnEnableAlphCode();
+	afx_msg void OnDisableAlphCode();
+
+	afx_msg void OnRowVectorMatrix();
+	afx_msg void OnMatrixColumnVector();
+
+	void         DoCrypt( unsigned long mode );
+	virtual void OnOK();
+	virtual void OnDecrypt();
+
+	virtual BOOL OnInitDialog();
+	afx_msg void OnPasteKey();
+	afx_msg void OnZufaelligerSchluessel();
+	afx_msg void OnKleinereSchluessel();
+	afx_msg void OnTextOptions();
+	afx_msg void OnHillOptions();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
 public:
-	CString m_pHillAlphInfo;
-	afx_msg void OnBnClickedOk();
-	afx_msg void OnHillOptions();
-	unsigned long m_alphabetOffset;
 };
 
 //{{AFX_INSERT_LOCATION}}

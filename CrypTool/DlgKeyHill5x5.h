@@ -27,18 +27,15 @@
 // HillEingabe.h : Header-Datei
 //
 #include "afxwin.h"
-#include "HillEncryption.h"
-#include "Cryptography.h"
 #include "KeyHillBase.h"
-
 
 class CDlgKeyHill5x5 : public CDialog
 {
 	CKeyHillBase  *m_HillBase;
 	CBitmapButton  m_Paste;
-	BOOL	         m_Verbose;
-	CEdit	         m_FeldUnsichtbar;
 	CString        m_pHillAlphInfo;
+
+   CFont cf;
 
 // Konstruktion
 public:
@@ -62,7 +59,6 @@ protected:
 	void radioSetMatType ( unsigned long ID );
 	void displayAlphabet();
 
-	CFont cf;
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgKeyHill5x5)
 	afx_msg void OnUpdateMat11();
@@ -161,7 +157,6 @@ protected:
 	virtual void OnDecrypt();
 
 	virtual BOOL OnInitDialog();
-	afx_msg void OnVerbose();
 	afx_msg void OnPasteKey();
 	afx_msg void OnZufaelligerSchluessel();
 	afx_msg void OnGroessereSchluessel();
