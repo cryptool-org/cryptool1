@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
+
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -13,7 +14,7 @@
    height="297mm"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.46"
+   inkscape:version="0.47 r22583"
    sodipodi:docname="CrypToolStartLogo.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    inkscape:export-filename="/Users/flomar/Desktop/CrypToolStartLogo-de.png"
@@ -153,6 +154,55 @@
        inkscape:vp_y="0 : 1000 : 0"
        inkscape:vp_x="0 : 0.5 : 1"
        sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3038"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3282"
+       inkscape:persp3d-origin="283.5 : 10.228347 : 1"
+       inkscape:vp_z="567 : 15.34252 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 15.34252 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3306"
+       inkscape:persp3d-origin="283.5 : 10.228347 : 1"
+       inkscape:vp_z="567 : 15.34252 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 15.34252 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3514"
+       inkscape:persp3d-origin="283.5 : 10.228347 : 1"
+       inkscape:vp_z="567 : 15.34252 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 15.34252 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3530"
+       inkscape:persp3d-origin="283.5 : 10.228347 : 1"
+       inkscape:vp_z="567 : 15.34252 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 15.34252 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3546"
+       inkscape:persp3d-origin="283.5 : 10.228347 : 1"
+       inkscape:vp_z="567 : 15.34252 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 15.34252 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3562"
+       inkscape:persp3d-origin="283.5 : 9.6732279 : 1"
+       inkscape:vp_z="567 : 14.509842 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 14.509842 : 1"
+       sodipodi:type="inkscape:persp3d" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -162,15 +212,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="-679.69419"
-     inkscape:cy="632.3083"
+     inkscape:cx="-494.46706"
+     inkscape:cy="654.34757"
      inkscape:document-units="px"
-     inkscape:current-layer="layer3"
+     inkscape:current-layer="layer5"
      showgrid="false"
      inkscape:window-width="1280"
-     inkscape:window-height="878"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-height="968"
+     inkscape:window-x="-4"
+     inkscape:window-y="-4"
      inkscape:snap-grids="true"
      inkscape:snap-to-guides="false"
      inkscape:window-maximized="1" />
@@ -199,7 +249,7 @@
          height="598"
          width="798"
          id="rect2503"
-         style="fill:url(#linearGradient3632);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="fill:url(#linearGradient3632);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
       <text
          xml:space="preserve"
          style="font-size:20px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
@@ -454,7 +504,7 @@
            sodipodi:role="line">C4 5F DD 42 B7 40 E2 0B 8E F0 AD 0E 45 74 62 AF 61 2F D6 83 4F 2C</tspan></text>
       <path
          id="rect3324"
-         d="M -862.4375,143.375 L -862.4375,643.375 L -222.4375,643.375 L -222.4375,143.375 L -862.4375,143.375 z"
+         d="m -862.4375,143.375 0,500 640,0 0,-500 -640,0 z"
          style="fill:url(#linearGradient3577);fill-opacity:1;fill-rule:nonzero;stroke:none" />
       <rect
          style="opacity:0.4730878;fill:url(#linearGradient3632);fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -473,7 +523,7 @@
      sodipodi:insensitive="true">
     <text
        xml:space="preserve"
-       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;font-family:Bitstream Vera Sans"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Bitstream Vera Sans"
        x="-844.62488"
        y="208.27234"
        id="text3729"><tspan
@@ -722,15 +772,113 @@
      sodipodi:insensitive="true">
     <text
        xml:space="preserve"
-       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Bitstream Vera Sans"
-       x="-843.10046"
-       y="193.3905"
-       id="text2615"><tspan
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Bitstream Vera Sans;-inkscape-font-specification:Arial"
+       x="-866.97821"
+       y="189.24765"
+       id="text3390-2"><tspan
          sodipodi:role="line"
-         x="-843.10046"
-         y="193.3905"
+         x="-866.97821"
+         y="189.24765"
          style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial"
-         id="tspan2651">TODO</tspan></text>
+         id="tspan3450-1"><tspan
+   style="font-weight:bold;-inkscape-font-specification:Arial Bold"
+   id="tspan3158">CrypTool</tspan> jest programem wspomagayacym nauke</tspan><tspan
+         sodipodi:role="line"
+         x="-866.97821"
+         y="224.24765"
+         style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial"
+         id="tspan3115">kryptologii i ulatwiajacym zrozumienie zasad </tspan><tspan
+         sodipodi:role="line"
+         x="-866.97821"
+         y="259.24765"
+         style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial"
+         id="tspan3119">dzialania wspólczesnych zabezpieczeń </tspan><tspan
+         sodipodi:role="line"
+         x="-866.97821"
+         y="294.24765"
+         style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial"
+         id="tspan3124">informatycznych.</tspan><tspan
+         sodipodi:role="line"
+         x="-866.97821"
+         y="329.24765"
+         style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial"
+         id="tspan3420-6" /><tspan
+         sodipodi:role="line"
+         x="-866.97821"
+         y="364.24765"
+         style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial"
+         id="tspan3400-89">Naciśnij <tspan
+   style="font-weight:bold;-inkscape-font-specification:Arial Bold"
+   id="tspan3135">F1</tspan>, aby przenieść sie do interaktywnego</tspan><tspan
+         sodipodi:role="line"
+         x="-866.97821"
+         y="399.24765"
+         style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial"
+         id="tspan3143">systemu pomocy, który wprowadzi Cie w środowisko</tspan><tspan
+         sodipodi:role="line"
+         x="-866.97821"
+         y="434.24765"
+         style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial"
+         id="tspan3145">programu <tspan
+   style="font-weight:bold;-inkscape-font-specification:Arial Bold"
+   id="tspan3156">CrypTool</tspan>.</tspan><tspan
+         sodipodi:role="line"
+         x="-866.97821"
+         y="469.24765"
+         style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial"
+         id="tspan3147" /><tspan
+         sodipodi:role="line"
+         x="-866.97821"
+         y="504.24765"
+         style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial"
+         id="tspan3476-1" /><tspan
+         sodipodi:role="line"
+         x="-866.97821"
+         y="539.24768"
+         style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial"
+         id="tspan3478-2">          Milej zabawy! </tspan></text>
+    <g
+       id="1"
+       transform="translate(-329.07857,346.78197)">
+      <text
+         style="font-size:13.80000019px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Arial"
+         y="12.723065"
+         x="0"
+         xml:space="preserve"
+         id="2" />
+      <text
+         style="font-size:13.80000019px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+         y="12.723065"
+         x="7.6500001"
+         xml:space="preserve"
+         id="3"> </text>
+    </g>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3288"
+       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Agency FB;-inkscape-font-specification:Agency FB"><flowRegion
+         id="flowRegion3290"><rect
+           id="rect3292"
+           width="64.285713"
+           height="28.571428"
+           x="-564.28571"
+           y="280.93362" /></flowRegion><flowPara
+         id="flowPara3294"></flowPara></flowRoot>    <g
+       id="1-9"
+       transform="translate(-507.65,296.78197)">
+      <text
+         style="font-size:13.80000019px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Arial"
+         y="12.723065"
+         x="0"
+         xml:space="preserve"
+         id="2-8" />
+      <text
+         style="font-size:13.80000019px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+         y="12.723065"
+         x="7.6500001"
+         xml:space="preserve"
+         id="3-6"> </text>
+    </g>
   </g>
   <g
      inkscape:groupmode="layer"
