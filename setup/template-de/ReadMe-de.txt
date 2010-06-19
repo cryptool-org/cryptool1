@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.30 Beta 07 für Win32, Juni 2010  xxxxxx
+    CrypTool, Version 1.4.30 Beta 08 für Win32, Juni 2010  xxxxxx
     (c) Contributors
         Dazu gehören z.B.
         Deutsche Bank AG, Frankfurt am Main,
@@ -658,30 +658,30 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
     ------------
               4 .rc files
              36 .c files
-            319 .cpp files
-            373 .h files
+            320 .cpp files
+            374 .h files
              36 .java files
              12 .pl files
            1136 .html files
-             45 .txt files
+             44 .txt files
              39 .tex files
               4 .sage files
-           2004 TOTAL
+           2005 TOTAL
 
   
     LINES OF CODE (LoC) SUMMARY
     ---------------------------
-         60.272 MFC resource code (rc)
-        262.565 C/C++ source code (c cpp h)
+         60.290 MFC resource code (rc)
+        256.940 C/C++ source code (c cpp h)
           9.778 Java source code (java)
           2.044 Perl code (pl)
-         64.113 HTML code (html hpp)
-         10.596 Text files (txt)
+         64.171 HTML code (html hpp)
+          7.735 Text files (txt)
          34.454 LaTeX code (tex)
             825 Sage code (sage)
-        444.647 TOTAL xxxxxxxxxx
+        436.237 TOTAL
 
-    TOTAL: 444.647 Code-Zeilen (plus von 16,3 % gegenüber 382.244 bei v1.4.21)
+    TOTAL: 436.237 Code-Zeilen (plus von 14,1 % gegenüber 382.244 bei v1.4.21)
     - In den TOTAL-Wert gehen nur Sourcen ein, die innerhalb des
       CrypTool-Projektes entwickelt wurden oder dem CT-Projekt gewidmet wurden.
       Die Sourcen anderer Open-Source-Projekte, die innerhalb von CrypTool
@@ -830,13 +830,16 @@ c) Funktionale Änderungen / Erweiterungen:
 Dieses Kapitel listet die Erweiterungen und Bugfixes auf, die in
 CrypTool 1.4.30 seit CrypTool 1.4.21 hinzugefügt wurden.
 
-Die Version 1.4.30 kam zeitgleich in Deutsch, Englisch, Polnisch, Serbisch und
-Spanisch.
+Die Version 1.4.30 wurde zeitgleich in Deutsch, Englisch, Polnisch, Serbisch und
+Spanisch released.
 
 a) Entwickler-relevante Änderungen (eher Programm-technisch):
 
 - Aufräumen des Source-Code, höhere Wiederverwendung,
   Beseitigen vieler Warnungen.
+  Z.B. wurde die Hill-Verschlüsselung samt GUI neu geschrieben. Dabei wurden
+  rund 6000 Zeilen C++-Code eingespart und dennoch Funktionalität und
+  Performance verbessert!
 
 - Nun mit VS2008 compiliert.
 
@@ -870,7 +873,17 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
   und CT2 verwiesen, die schon die jeweils aktuelle, stabile Beta zum Download
   anbieten.
 
-- Die zusätzliche Webseite "CrypTool-Online" ging live (www.cryptool-online.org).
+- Die folgenden zusätzlichen, ebenfalls zur CrypTool-Familie gehörenden
+  Webseiten gingen live:
+  - www.cryptool-online.org   "CrypTool-Online" führt verschiedene Kryptoverfahren
+                              direkt im Browser aus.
+  - www.cryptool.mobil.org    "CrypTool-Mobil" führt verschiedene Kryptoverfahren
+                              in Smartphones aus.
+  - www.cryptoportal.org      "Lehrerportal" mit Unterrichtsmaterial und
+                              Links
+  - http://www.mysterytwisterc3.org  Ein internationaler Krypto-Wettbewerb
+                                     mit Aufgaben verschiedener
+                                     Schwierigkeitsgrade.
 
 - Ein kurzes CrypTool-Video auf YouTube:
    - Deutsch:  http://www.youtube.com/watch?v=of0C9Lx0vGs
@@ -951,6 +964,10 @@ c) Neue Funktionalität / Bedienung:
 - Umfangreiche Erweiterungen der Onlinehilfe.
 
 - Auch externe PDFs können nun direkt aus der Onlinehilfe aufgerufen werden.
+
+- Im Tutorial zu XOR und Psion in der Präsentation gab es bisher nur eine
+  verschlüsselte Datei (erstellt aus einem deutschen Klartext). Nun gibt es
+  auch eine Datei mit einem verschlüsselten englischen Klartext: psion-en-enc.hex
 
 
 - Bei allen DES-basierten Verfahren wird nun sowohl die effektiv genutzte als
@@ -1036,7 +1053,7 @@ c) Neue Funktionalität / Bedienung:
 
   Der Textoptionen-Button ist vorhanden bei
   - den klassischen Substitutions-Verfahren
-        (Caesar, Vigenère, monoalphabetische Substitution) und bei 
+        (Caesar, Vigenère, monoalphabetische Substitution, Hill) und bei 
   - den klassischen Transpositions-Verfahren
         (Skytale, Transpositions-Teil von ADFGVX).
 
@@ -1083,11 +1100,14 @@ c) Neue Funktionalität / Bedienung:
     kann der Zahlenhai nun auf bisher schon berechnete Zwischenergebnisse
     aufsetzen. 
 
+- Das Lernprogramm "Zahlentheorie" wurde etwas korrigiert und liegt nun
+  in der Version vom 2009-11-08 bei.
+
 
 - Für die einfache Spaltentransposition ist eine Known-Plaintext-Analyse
   zum Finden des Transpositions-Schlüssels neu hinzugekommen.
-  Diese Known-Plaintext-Analyse wurde zusammen mit der bisherigen
-  Known-Plaintext-Analyse für Hill besser integriert.
+  Diese Known-Plaintext-Analyse wurde -- zusammen mit der bisherigen
+  Known-Plaintext-Analyse für Hill -- besser integriert.
   Alle gefundenen Schlüssel der Transpositions-Analyse werden in einer
   Tabelle angezeigt.
 
@@ -1630,7 +1650,8 @@ examples\CrypTool-de.txt
 
         \Playfair-enc-de.txt
         \probetext-de.txt
-        \psion-enc.hex
+        \psion-de-enc.hex ... Verschlüsselte Datei vom Tutorial in Deutsch
+        \psion-en-enc.hex ... Verschlüsselte Datei vom Tutorial in Englisch
         \vernam.txt
 
         \Original.txt ..... "Harmlose" Beispieldatei für die 
@@ -1953,7 +1974,7 @@ sind, dass Ihr Rechner unberührt ist.
    -----------------------------------------------
 
 Release-  Datum         Größe des Windows-Setups  Plattenplatz  Freigabe
-Version                  Deutsch    Englisch      Bedarf        durch
+Version                  Deutsch    Englisch      Bedarf DE      durch
 1.0.01    Okt. 1999       1,3 MB      -              -            DB
 1.1.01    Mai  2000       2,3 MB      -              -            DB
 1.2.00    Aug. 2000       2,8 MB      -              -            DB
@@ -1967,7 +1988,7 @@ Version                  Deutsch    Englisch      Bedarf        durch
 1.4.10    Juli 2007      27,5 MB     26,7 MB         47 MB        DB
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
-1.4.30    Juni 2010      50,7 MB     49,8 MB         92 MB        DB   xxxxxxx
+1.4.30    Juni 2010      51,6 MB     50,9 MB         93 MB        DB   xxxxxxx
 
 Bemerkungen zu den Versionen:
 1.3.02   Viele neue Funktionen gegenüber 1.3.00.
@@ -1992,8 +2013,9 @@ Bemerkungen zu den Versionen:
 1.4.30-Beta04  Sep. 2009  Zweite öffentliche Beta von Version 1.4.30.
 1.4.30-Beta05  Jan. 2010  Dritte öffentliche Beta von Version 1.4.30 (22.1.2010).
 1.4.30-Beta06  Feb. 2010  Vierte öffentliche Beta von Version 1.4.30 (28.2.2010).
-1.4.30-Beta07  Juni 2010  Fünfte öffentliche Beta von Version 1.4.30 (xx.x.2010).
-1.4.30   Viele Bugfixes und erweiterter Funktionsumfang i.Vgl. zu 1.4.21.
+1.4.30-Beta07  Juni 2010  Fünfte öffentliche Beta von Version 1.4.30 (09.6.2010).
+1.4.30-Beta08  Juni 2010  Sechste öffentliche Beta von Version 1.4.30 (xx.6.2010).
+1.4.30   Viele Bugfixes und erweiterter Funktionsumfang i.Vgl. zu v1.4.21.
 
 
 

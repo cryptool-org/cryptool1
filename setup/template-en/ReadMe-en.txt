@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.30 Beta 07 for Win32, June 2010  xxxxxxx
+    CrypTool, Version 1.4.30 Beta 08 for Win32, June 2010  xxxxxxx
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main,
@@ -645,30 +645,30 @@ The general properties and functions of CrypTool are:
     ------------
               4 .rc files
              36 .c files
-            319 .cpp files
-            373 .h files
+            320 .cpp files
+            374 .h files
              36 .java files
              12 .pl files
            1136 .html files
-             45 .txt files
+             44 .txt files
              39 .tex files
               4 .sage files
-           2004 TOTAL
+           2005 TOTAL
 
   
     LINES OF CODE (LoC) SUMMARY
     ---------------------------
-         60,272 MFC resource code (rc)
-        262,565 C/C++ source code (c cpp h)
+         60,290 MFC resource code (rc)
+        256,940 C/C++ source code (c cpp h)
           9,778 Java source code (java)
           2,044 Perl code (pl)
-         64,113 HTML code (html hpp)
-         10,596 Text files (txt)
+         64,171 HTML code (html hpp)
+           7,735 Text files (txt)
          34,454 LaTeX code (tex)
             825 Sage code (sage)
-        444,647 TOTAL              xxxxxxxxxx
+        436,237 TOTAL
 
-    TOTAL: 444,647 lines of code (plus of 16.3 % from 382,244 with v1.4.21)
+    TOTAL: 436,237 lines of code (plus of 14.1 % from 382,244 with v1.4.21)
     - Here only code written within the CrypTool project or explicitly
       dedicated to the CrypTool project is counted. Any sources used
       within the CrypTool project coming from other open source projects
@@ -822,6 +822,9 @@ Serbian and Spanish.
 a) Developer-relevant changes (more technically oriented):
 
 - Clearance of source code, better re-usage, many warnings eliminated.
+  E.g. the Hill encryption including the GUI was written completely new.
+  Doing so around 6000 lines of C++ code could be saved, nevertheless
+  functionality and performance were improved!
 
 - Now compiled with VS2008.
 
@@ -856,7 +859,16 @@ b) Changes within the user documentation / on the websites:
   versions JCT1 and CT2, which already offer their current and stable
   betas for download.
 
-- The additional website "CrypTool-Online" went live (www.cryptool-online.org).
+- The following additional websites also belonging to the CrypTool family
+  of website went life:
+  - www.cryptool-online.org   "CrypTool-Online" runs various crypto functions
+                              directly within a browser.
+  - www.cryptool.mobil.org    "CrypTool-Mobil" runs various crypto functions
+                              directly within a smartphone.
+  - www.cryptoportal.org      A teacher's portal with material for the lessons
+                              and links (currently only in German)
+  - http://www.mysterytwisterc3.org  An international crypto challenge contest
+                                     with tasks of different levels.
 
 - A short video with CrypTool is on YouTube:
    - German:  http://www.youtube.com/watch?v=of0C9Lx0vGs
@@ -936,6 +948,9 @@ c) New functionality / Usability:
 - External PDFs on the internet now can be opened directly within the online
   help.
 
+- The XOR/Psion tutorial in the presentation used a encrypted file (created
+  from a German cleartext). Now there is also a file with an encrypted English
+  cleartext: psion-en-enc.hex
 
 - For all DES based methods now the dialogs show both the effectively used
   key length and the key length which the user has to enter.
@@ -1014,12 +1029,12 @@ c) New functionality / Usability:
   classic ciphers: Therefore all adapted methods now have a button to
   directly call the Text Options dialog fom the Key Entry dialog.
 
-  The Text Options button is enabled at
+  The "Text options" button is enabled at
   - the classic substitution methods (Caesar, Vigenère,
-        monoalphabetic substitution) and at 
+        monoalphabetic substitution, Hill) and at 
   - the classic transposition methods (Scytale, transposition part of ADFGVX).
 
-  The Text Options button is intentionally not available in the key entry
+  The "Text options" button is intentionally not available in the key entry
   dialogs for the following ciphers:
   - Substitution part of ADFGVX (algorithm requires fixed alphabet)
   - Playfair (algorithm requires fixed alphabet)
@@ -1055,12 +1070,15 @@ c) New functionality / Usability:
   - If the Number Shark calculates optional results (which can last very long),
     then you now can restart using stored pre-calculations. 
 
+- The educational program "Number Theory" got some few corrections and is
+  now included in the version from 2010-06-19.
+
 
 - For the simple column transposition now a known-plaintext analysis
   is added to calculate the transposition key.
-  This known-plaintext analysis is now better integrated together with the
+  This known-plaintext analysis is now better integrated -- together with the
   previous known-plaintext analysis for the Hill cipher.
-  All found keys in the transposition analysis are now shown in a table.
+  All keys found by the transposition analysis are now shown in a table.
 
 - Further ciphertext-only analysis for Vigenère (according to Schroedel):
   This is effective for very short cryptograms if the password comes from
@@ -1574,7 +1592,8 @@ examples\CrypTool-en.txt
 
         \Playfair-enc-de.txt
         \probetext-de.txt
-        \psion-enc.hex
+        \psion-en-enc.hex ... Encrypted file from the tutorial English
+        \psion-de-enc.hex ... Encrypted file from the tutorial German
         \vernam.txt
 
         \original.txt ..... "Harmless" sample for the hash collision
@@ -1894,7 +1913,7 @@ your computer is untouched.
    -------------------------------------------------------
 
 Release   Date		Size of Windows Setup  Disc space   Released
-Version                 English      German    needed       by 
+Version                 English      German    needed EN     by 
 1.0.01    Oct. 1999      -            1.3 MB    -            DB
 1.1.01    May  2000      -            2.3 MB    -            DB
 1.2.00    Aug. 2000      -            2.8 MB    -            DB
@@ -1908,7 +1927,7 @@ Version                 English      German    needed       by
 1.4.10    July 2007     26.7 MB      27.5 MB    47 MB        DB
 1.4.20    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.21    July 2008     36.1 MB      37.1 MB    73 MB        DB
-1.4.30    June 2010     49.8 MB      50.7 MB    90 MB        DB   xxxxxx
+1.4.30    June 2010     50.9 MB      51.6 MB    92 MB        DB   xxxxxx
 
 Remarks about the versions:
 1.3.02   Many new functions compared to 1.3.00.
@@ -1933,7 +1952,15 @@ Remarks about the versions:
 1.4.30-Beta05  Jan. 2010  Third public beta of version 1.4.30.
 1.4.30-Beta06  Feb. 2010  Forth public beta of version 1.4.30.
 1.4.30-Beta07  June 2010  Fifth public beta of version 1.4.30.
-1.4.30   Many bug fixes and enhanced functionality compared to 1.4.21.
+1.4.30-Beta08  June 2010  Fifth public beta of version 1.4.30.
+1.4.30   Many bug fixes and enhanced functionality compared to v1.4.21.
+         Disc space needed for the different language versions of 1.4.30:
+         EN: 92.0 MB
+         DE: 93.3 MB
+         PL: 95.9 MB
+         RS: xx.x MB  xxxxxxxxx
+         SP: 92.0 MB
+
 
 
 
