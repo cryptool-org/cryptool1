@@ -316,6 +316,7 @@ define modp(p1[], p2[], ziel, quot) {		# ziel = Rest von p1[] / p2[]
 
   n1 = p1[0]
   n2 = p2[0]
+  n1start = n1							# aufheben
 
   if (modulp) if (h=euklid( p2[n2+1], modulp) > 1) return -1 	# nicht invertierbar mod modulp
   if (quot) for (i=0; i<=n2+1; i++) quot[i] = 0			# init Quotient
@@ -356,9 +357,9 @@ define modp(p1[], p2[], ziel, quot) {		# ziel = Rest von p1[] / p2[]
   }
   p1[0] = n1
 
-  if (quot) quot[0] = grad(quot[], n2+1)	# Quotient fertig      
+  if (quot) quot[0] = grad(quot[], n1start-n2+1)	# Quotient fertig      
   h = smodp(p1[], modulp)
-  h = copyp(aus[], ziel)			# Rest
+  h = copyp(aus[], ziel)				# Rest
   # print "\nRest:   "; h = showp(p1[])
 
 }

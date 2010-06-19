@@ -101,29 +101,30 @@ define euklid1 (a, b) {		# Euklid berechnet ggT
 
 define euklid (a, b) {		# Euklid mit Vielfachsummen-Berechnung
 
-  auto vora, vorb, x, x0, x1, y, y0, y1, q, r	# global: quotient, koeff_x, koeff_y
+  auto vora, vorb, x0, x1, x2, y0, y1, y2, r	# global: quotient, koeff_x, koeff_y
 
   vora = sig(a)
   vorb = sig(b)
   a = abs(a)
   b = abs(b)
   x0 = 1
-  x1 = 0
   y0 = 0
+  x1 = 0
   y1 = 1
 
   while (b != 0) {
   
     r = mod(a, b)
-    q = quotient
     a = b
     b = r
-    x = x1
-    y = y1
-    x1 = x0 - q * x1
-    y1 = y0 - q * y1
-    x0 = x
-    y0 = y
+
+    x2 = x0 - quotient * x1
+    y2 = y0 - quotient * y1
+
+    x0 = x1
+    y0 = y1
+    x1 = x2
+    y1 = y2
   }
   koeff_x = x0 * vora		# Koeffizient bei a
   koeff_y = y0 * vorb		# Koeffizient bei b

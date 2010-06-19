@@ -50,7 +50,7 @@ define quadsieb (n) {
 
     if (z >= ziel) {				# genug Kongruenzen
 
-      b = b + 1					# für Faktor -1
+      b = b + 1						# für Faktor -1
       q = smatrix( s[], z, b, n, m)		# Matrix der Kongruenzen
       if (q < -1) return 0			# Fehler
       if (q > 1) return q			# Teiler
@@ -66,12 +66,12 @@ define quadsieb (n) {
 
       a = 2^(z - s - r)
       for (i=1; i<=s; i++) s1[index[z-i]] = 0	# gesperrte Variablen auf 0 setzen
-      for (i=1; i<a; i++) {			# verschiedene Belegungen versuchen
+      for (i=1; i<a; i++) {				# verschiedene Belegungen versuchen
         h = belegung(r, s, z, i)
         h = baue_xy( z, s[], s1[], n, m)
         if (h>1 && h<n) return h/1		# Teiler
       }
-      z = 0					# mehr Kongruenzen nötig
+      z = 0						# mehr Kongruenzen nötig
     }
     ziel = 2*ziel				# mehr Primzahlen benutzen
   }
@@ -83,7 +83,7 @@ define quadsieb (n) {
 define sieb (ziel, b, platz, n, m) {
 
   auto p, h, i, j, z, z0, z1, z2, z3, offset, cnt, lim, slot[], dslot[]
-  # global: 	maxp, prims[], sieb1[], sieb2[], s[], sb[]
+  # global: 	maxp, prims[], sieb1[], sieb2[], s[], sbig[]
   # global: 	big[], sh[], next[], back[], dbig[], dsh[], dnext[], dback[]
   # quadsieb: 	ip, basis[], p1, p2, i2
 
@@ -215,7 +215,7 @@ define sieb_mit_p (p, platz, offset, n, m) {
 
 define collect_s(ziel, platz, z, offset, q) {	# s-Werte auflesen
 
-  auto s, h, p, i,hh,q2,q3,q4, di[], dh[], ih, pp	# global: sieb[], s[], sb[]
+  auto s, h, p, i, q2,q3,q4, di[], dh[], ih, pp	# global: sieb[], s[], sbig[]
 
   q2 = q*q+1
   q3 = q2*q+1
@@ -225,7 +225,7 @@ define collect_s(ziel, platz, z, offset, q) {	# s-Werte auflesen
   for (s=0; s<platz && z<ziel; s++) {
 
     if (p = abs(sieb1[s]) == 1) {
-      sb[z] = 0
+      sbig[z] = 0
       s[z++] = s+offset
     } else if (p < q2) {
       z = big(p, s+offset, z, 0)	# Bigprimes (aus {q..q2})
@@ -263,7 +263,7 @@ define collect_s(ziel, platz, z, offset, q) {	# s-Werte auflesen
     }
 
     if (p = abs(sieb2[s]) == 1) {
-      sb[z] = 0
+      sbig[z] = 0
       s[z++] = s-offset-platz
     } else if (p < q2) {
       z = big(p, s-offset-platz, z, 0)	# Bigprimes (aus {q..q2})
@@ -326,8 +326,8 @@ define smatrix (s[], z, b, n, m) {	# Zeilen als Zahlen kodiert
       f = s[i]
     } else {
       f = (s[i]+m)^2 - n
-      if (sb[i]) {			# Bigprime
-        h = (sb[i]+m)^2 - n
+      if (sbig[i]) {			# Bigprime
+        h = (sbig[i]+m)^2 - n
         f = f*h
       }
     }
@@ -349,14 +349,14 @@ define smatrix (s[], z, b, n, m) {	# Zeilen als Zahlen kodiert
         c = c + 1
       }
     }
-    if (f > 1 && !sb[i]) {print "s[",i,"] nicht glatt\n"; return -2}
+    if (f > 1 && !sbig[i]) {print "s[",i,"] nicht glatt\n"; return -2}
     if (q) {
       print "s[",i,"] bildet ein Quadrat"
       if (scale(s[i])) {
-        h = sb[i]/1
+        h = sbig[i]/1
       } else {
         h = s[i] + m
-        if (sb[i]) h = h * (sb[i] + m)
+        if (sbig[i]) h = h * (sbig[i] + m)
       }
       if ( h = euklid1( sqrt(ff)-h, n) > 1 && h < n ) {print "\n"; return h/1}
       print " - nutzlos\n"
@@ -573,7 +573,7 @@ define belegung (r, s, z, num) {
 
 define baue_xy (z, s[], s1[], n, m) {
 
-  auto h, i, f, neg	#, global: x, y, sb[]
+  auto h, i, f, neg	#, global: x, y, sbig[]
 
   x = 1
   y = 1
@@ -581,14 +581,14 @@ define baue_xy (z, s[], s1[], n, m) {
     if (s1[i]) {
       if (scale(s[i])) {			# "Domino"-Kreis
         f = s[i]
-        x = mod( x*sb[i], n)
+        x = mod( x*sbig[i], n)
       } else {
         f = (m+s[i])^2-n
         x = mod( x*(m+s[i]), n)
 
-        if (sb[i]) {				# Bigprime
-          f = f * ((m+sb[i])^2 - n)
-          x = mod( x*(m+sb[i]), n)
+        if (sbig[i]) {				# Bigprime
+          f = f * ((m+sbig[i])^2 - n)
+          x = mod( x*(m+sbig[i]), n)
         }
       }
       if (f < 0) neg = neg + 1
@@ -608,60 +608,57 @@ define baue_xy (z, s[], s1[], n, m) {
 
 define big(p, s, z, fix) {	# paart s-Werte, die die gleiche Bigprime bilden
 
-  auto h, i, end, back, b, n, bi, ni	# global: s[], sb[], big[], sh[], next[], back[]
-					# sieb: z1, slot[]
+  auto h, i, end, back, b, n, bi, ni	# global: s[], sbig[], big[], sh[], next[], back[]
+										# sieb: z1, slot[]
 
-  end = big[0]
-  i = mod(p/10, 65535)
+  end = big[0]			# big[] enthält die Bigprimes, big[0] ist ihre Anzahl.
+  i = mod(p/10, 65535)	# Hashfunktion
 
   ### p suchen:
 
-  if (slot[i]) {		# Kollision
+  if (slot[i]) {		# Kollision (Mehrere Bigprimes im selben Slot, d.h. haben den gleichen Hashwert)
 
-    i = slot[i]
-    back = i			# zeigt auf erstes Element im slot
+    i = slot[i]			# Index in big[], Adresse der ersten Bigprime im Slot
 
-    while (1) {  		# durchhangeln (bis break)
+    while (1) {  		# durchhangeln (bis return oder break)
 
       if (big[i] == p) {	# gleiche Bigprime gefunden: s-Paar speichern, Liste verkürzen
 
         if (fix) return i	# Lesemodus: p gefunden
 
-        if (!s) {
-          s [z] = s		# 1tes s
-          sb[z] = sh[i]		# 2tes s
-        } else {
-          sb [z] = s		# 1tes s
-          s [z] = sh[i]		# 2tes s
-        }
-        z  = z + 1		# eine Kongruenz (spätere Matrix-Spalte) mehr
-        z1 = z1 + 1		# ein s-Paar mehr
+		# s-Werte "draußen" speichern:
+        s[z] = sh[i]	# altes s
+        sbig[z] = s		# neues s (darf nicht 0 sein - smatrix(), ist es auch nicht)
 
-        i = delete(i)
-        return z
+        h = delete(i)	# Bigprime aus der Liste löschen
+		
+        z1 = z1 + 1		# ein Bigprime-Paar mehr
+        return z + 1	# eine Kongruenz (spätere Matrix-Spalte) mehr
+
       }
-      back = i			# zeigt (gleich) auf Vorgänger im slot
-      if (i=next[i] == 0) break
+      back = i			# künftigen Vorgänger im Slot merken
+      if (i=next[i] == 0) break	# nächstes im Slot
     }
-    if (fix) return 0		# Lesemodus: p nicht gefunden
+	
+    if (fix) return 0	# Lesemodus: p nicht gefunden
     if (end >= 65535) return z	# Array big[] voll
     next[back] = ++end
 
-  } else {			# erstes Element im slot
+  } else {				# erstes Element im slot
 
-    if (fix) return 0		# Lesemodus: p nicht gefunden
+    if (fix) return 0	# Lesemodus: p nicht gefunden
     if (end >= 65535) return z	# Array big[] voll
     slot[i] = ++end
-    back = -i			# <= 0: kein Vorgänger im slot
+    back = -i			# <= 0: kein Vorgänger im Slot
   }
 
   ### p nicht gefunden: einfügen
 
-  next[end] = 0
-  back[end] = back
   big[0] = end			# Liste ist gewachsen
-  big[end] = p
-  sh [end] = s
+  big[end] = p			# neue Bigprime p am Ende von big[] eingefügt
+  sh [end] = s			# s-Wert zu p
+  next[end] = 0			# p hat noch keinen Nachfolger im Slot.
+  back[end] = back		# p kann einen Vorgänger im Slot haben.
 
   return z
 }
@@ -685,10 +682,10 @@ define delete (i) {		# verkürzt Liste der Bigprimes
     b = back[end]
 
     if (n) back[n] = i		# end-Nachfolger zeigt auf i
-    if (b > 0) {		# end-Vorgänger zeigt auf i
-      next[b] = i
+    if (b > 0) {
+      next[b] = i		# end-Vorgänger zeigt auf i
     } else {
-      slot[-b] = i
+      slot[-b] = i		# Slot-Anfang zeigt auf i
     }
 
     next[i] = n
@@ -699,14 +696,14 @@ define delete (i) {		# verkürzt Liste der Bigprimes
   }
 
   if (ni) back[ni] = bi		# i-Nachfolger zeigt vor i
-  if (bi > 0) {			# i-Vorgänger zeigt hinter i
-    next[bi] = ni
+  if (bi > 0) {	
+    next[bi] = ni		# i-Vorgänger zeigt hinter i
   } else {
-    slot[-bi] = ni
+    slot[-bi] = ni		# Slot-Anfang zeigt hinter i
   }
 
   big[0] = end - 1		# Liste ist geschrumpft
-
+print "big[0]: ", end-1, "\n"
   return i
 }
 
@@ -730,7 +727,7 @@ define snake1 (p, q, s, z) {	# suche Schlange p px ... yq q
 
     ### test ###	# beteiligte Knoten speichern (wie bei Kreis)
     h = sh[ih] + m        
-    sb[z] = sb[z] * h
+    sbig[z] = sbig[z] * h
     s [z] = s [z] * (h*h - n)
 
     ih = delete(ih)		# p aus big[] löschen (q wurde "unten")
@@ -749,7 +746,7 @@ define snake1 (p, q, s, z) {	# suche Schlange p px ... yq q
 
 define dbig(p, q, s, z, p0) {	# sammelt Double-Bigprimes ("Dominos"), sucht Kreise und Schlangen
 
-  auto h, i, j, k, end, back, qq, p1, p2	# global: s[], sb[], dbig[], dsh[], dnext[], dback[]
+  auto h, i, j, k, end, back, qq, p1, p2	# global: s[], sbig[], dbig[], dsh[], dnext[], dback[]
 						# sieb: dslot[], z2, z3, n, m		# s: di[], dh[], ih, p0
   #print "dbig "
 
@@ -803,7 +800,7 @@ define dbig(p, q, s, z, p0) {	# sammelt Double-Bigprimes ("Dominos"), sucht Krei
         p1 = p1 * h
         p2 = p2 * (h*h - n)
       }
-      sb[z] = p1
+      sbig[z] = p1
       s [z] = p2 + 0.0		# (scale = 1 als Marke)
 
       ### Liste verkürzen (wegen di[] erst jetzt)
@@ -860,7 +857,7 @@ define dbig(p, q, s, z, p0) {	# sammelt Double-Bigprimes ("Dominos"), sucht Krei
             if (!i) break
             if (i%2) {j=i+1} else {j=i-1}
           }
-          sb[z] = p1
+          sbig[z] = p1
           s [z] = p2 + 0.0	# (scale = 1 als Marke)
           print "\n"
 
