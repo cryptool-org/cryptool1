@@ -46,6 +46,7 @@ static char THIS_FILE[] = __FILE__;
 CDlgShowKeyHill5x5::CDlgShowKeyHill5x5(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgShowKeyHill5x5::IDD, pParent)
    , m_HillBase(0)
+   , m_pHillAlphInfo( _T("") )
 {
 }
 
@@ -109,7 +110,8 @@ void CDlgShowKeyHill5x5::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT65,  m_HillBase->HillNumMat[4][3] );
 	DDX_Control(pDX, IDC_EDIT66,  m_HillBase->HillNumMat[4][4] );
 
-   DDX_Text( pDX, IDC_EDIT2,  m_HillBase->HillOptions.m_alphabetOffset );
+   DDX_Text( pDX, IDC_EDIT2, m_HillBase->HillOptions.m_alphabetOffset );
+	DDX_Text( pDX, IDC_EDIT3, m_pHillAlphInfo );
 }
 
 
@@ -128,19 +130,69 @@ END_MESSAGE_MAP()
 BOOL CDlgShowKeyHill5x5::OnInitDialog() 
 {
    CDialog::OnInitDialog();
+
+   m_HillBase->setMatFont();
+   m_HillBase->SetHillMatrix();
+
+   if ( m_HillBase->multType == MATRIX_VECTOR ) 
+      CheckRadioButton( IDC_RADIO8, IDC_RADIO9, IDC_RADIO9 );
+   else
+      CheckRadioButton( IDC_RADIO8, IDC_RADIO9, IDC_RADIO8 );
+
+   GetDlgItem( IDC_RADIO8 )->EnableWindow( FALSE );
+   GetDlgItem( IDC_RADIO9 )->EnableWindow( FALSE );
+
+   CheckRadioButton( IDC_RADIO1, IDC_RADIO2, IDC_RADIO1 );
+   displayAlphabet();
+   m_pHillAlphInfo = theApp.TextOptions.getAlphabet();
+   UpdateData(FALSE);
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
 
+void CDlgShowKeyHill5x5::init( CKeyHillBase *Hillbase )
+{
+   assert( Hillbase && Hillbase->key_range >= 5 );
+   m_HillBase = Hillbase;
+}
+
+void CDlgShowKeyHill5x5::displayAlphabet() 
+{ 
+	CString sc;
+	sc.Format( IDS_HILL_CASE, theApp.TextOptions.getAlphabet().GetLength() );
+	GetDlgItem(IDC_STATIC_HILL_ALPH)->SetWindowText(sc);
+	UpdateData( FALSE );
+}
+
 void CDlgShowKeyHill5x5::OnCopyKey() 
 {
+   m_HillBase->copyKey();
 }
 
 void CDlgShowKeyHill5x5::OnKey()
 {
+   if ( m_ShowInvKey )
+   {
+      if ( m_HillBase->invertMatrix() )
+         m_ShowInvKey = FALSE;
+      else
+      {
+         // FIXME 
+      }
+   }
 }
 
 void CDlgShowKeyHill5x5::OnInvKey()
 {
+   if ( !m_ShowInvKey )
+   {
+      if ( m_HillBase->invertMatrix() )
+         m_ShowInvKey = TRUE;
+      else
+      {
+         // FIXME 
+      }
+   }
 }
 

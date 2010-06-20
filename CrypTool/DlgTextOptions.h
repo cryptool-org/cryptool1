@@ -63,6 +63,7 @@ public:
 	CString getTitle() { return title; }
 	CString getReferenceFile() { return referenceFile; }
 	const CString &getAlphabet(); 
+   int            setAlphabet( CString &new_alphabet );
 	CString &refAlphabet(); 
 	void getAlphabetWithOptions(CString &AlphabetWithOptions);
 	BOOL getDistinguishUpperLowerCase() { return distinguishUpperLowerCase; };

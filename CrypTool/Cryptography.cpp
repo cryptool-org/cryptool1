@@ -564,428 +564,87 @@ void Hill(const char *infile, const char *OldTitle)
    CKeyHillBase hillbase( HILL_RANGE );
    if ( IDOK == hillbase.run() )
    {
+      char *cbuffer;
+      int   lbuffer;
+      if ( !readSource( infile, cbuffer, lbuffer, TRUE ) )
+      {
+         if ( !lbuffer )
+         {
+		      Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
+		      return;
+         }
 
+         SHOW_HOUR_GLASS
+
+         CHillEncryption he( (const char*)theApp.TextOptions.getAlphabet(), hillbase.dim );
+         if ( !hillbase.cryptMode ) // encrypt
+         {
+            he.set_enc_mat( *hillbase.HillMat );
+            he.set_plaintext( cbuffer );
+            delete []cbuffer;
+
+            he.verschluesseln();
+
+      		cbuffer = new char[he.get_laenge_cipher()+1];
+		      he.get_ciphertext(cbuffer);
+         }
+         else
+         {
+		      CSquareMatrixModN inv_mat( hillbase.dim, he.get_modul());
+            ASSERT( hillbase.HillMat->invert( &inv_mat ) );
+
+            he.set_dec_mat( inv_mat );
+            he.set_ciphertext( cbuffer );
+            delete []cbuffer;
+
+            he.entschluesseln();
+
+      		cbuffer = new char[he.get_laenge_plain()+1];
+		      he.get_plaintext(cbuffer);
+         }
+
+         // ENCODE KEY TO STR
+         CString cs_keystr;
+         hillbase.keyToStr( cs_keystr );
+
+	      // STORE OUTPUT
+         char outfile[1024];
+	      GetTmpName(outfile,"cry",".txt");
+         ofstream out(outfile);
+	      out << cbuffer;
+	      out.close();
+	      delete []cbuffer;
+
+	      // Ver- bzw. Entschluesselte Daten aus Hill-Klasse auslesen und in neuem Fenster anzeigen
+         // und danach die temporaere Datei wieder loeschen
+	      Reformat(infile, outfile, FALSE);
+         OpenNewDoc( outfile, cs_keystr, OldTitle, IDS_STRING_HILL, hillbase.cryptMode, SCHLUESSEL_QUADRATISCH );
+
+         if ( hillbase.verbose )
+	      {
+		      GetTmpName(outfile,"cry",".txt");
+		      ofstream verboseOut(outfile);
+
+            CString out;
+		      he.OutputHillmatrix(out);
+		      verboseOut << out.GetBuffer(0);
+		      verboseOut.close();
+
+		      CAppDocument *NewDoc;
+		      NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
+		      remove(outfile);
+		      if (NewDoc) {
+			      char title[128]; 
+			      GetNewDocTitle(cs_keystr, OldTitle, IDS_STRING_HILL_DETAILS, title, 128, hillbase.cryptMode, SCHLUESSEL_QUADRATISCH );
+			      NewDoc->SetTitle(title);
+			      CView* CView_hilf = ((CMDIFrameWnd*)theApp.m_pMainWnd)->MDIGetActive()->GetActiveView();
+			      ((CScintillaView*)CView_hilf)->OnViewFontCourier10();
+		      }
+	      }
+
+   	   HIDE_HOUR_GLASS
+      }
    }
-
-#if 0
-	// Es muss mindestens ein Zeichen im Alphabet zu verschlüsseln sein
-	if ( !CheckAlphabet( 2 ) ) return;
-
-	// Die Hillklasse wird zur Ueberpruefung der erlaubten Zeichen benoetigt
-	CHillEncryption *hillklasse;
-	hillklasse = new CHillEncryption((const char*)theApp.TextOptions.getAlphabet());
-
-    char outfile[128];
-
-	// Überprüfung, ob Eingabedatei mindestens ein Zeichen enthält. 
-	CFile datei(infile, CFile::modeRead);
-
-	sNotInFileChars = ""; //clear because of not wrong counting past userinput
-
-	iClearTextAlphCharCount = 0;
-	iClearTextNotAlphCharCount = 0;
-
-	long infile_zeichen_anz = 0;
-	char c;
-	while(datei.Read(&c,1))
-	{
-		// Falls Gross-/Kleinschreibung ignoriert werden soll,
-		// muessen auch die Kleinbuchstaben mitgezaehlt werden.
-		if ( hillklasse->ist_erlaubtes_zeichen(c) ||
-			 ( (theApp.TextOptions.getIgnoreCase()) && (MyIsLower(c)) && 
-			   (hillklasse->ist_erlaubtes_zeichen(MyToUpper(c))) ) )
-		{
-			infile_zeichen_anz++;
-		}
-		else
-		{
-			iClearTextNotAlphCharCount++;
-
-			if(sNotInFileChars.GetLength() < 3) //to show only first 3 chars in hill details
-				sNotInFileChars += (CString)c; //if not exists in alph
-
-		}
-		iClearTextAlphCharCount++;
-	}
-	datei.Close();
-
-
-	if (! infile_zeichen_anz)
-	{
-		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
-		return;
-	}
-
-	// Fenster am Bildschirm anzeigen, falls abgebrochen, nichts mehr machen.
-
-	bool bRcWeiter = false; // true, wenn der Dialog nicht mit Klick zum Wechsel
-							// in Fenster mit groesseren bzw. kleineren Schluesseln
-							// beendet worden ist. 
-							// false, wenn mit OK oder Abbrechen beendet
-	int iLocalRc;
-
-    CDlgKeyHill5x5* hillein = NULL;
-    CDlgKeyHill10x10* hilleingross = NULL;
-
-	delete hillklasse;
-	hillklasse = NULL;
-
-	// Fenter jetzt anzeigen 
-	// Es kann beliebig oft vom Fenster mit Schluesseln bis Dimension 5 x 5 zum 
-	// Fenster mit Schluesseln mit Dimension bis 10 x 10 gewechselt werden.
-	// Ein Wechsel der Dimension wird an der Variablen iHillSchluesselFensterGroesse
-	// erkannt. Wenn sie nicht mehr den gleichen Wert wie vor dem Anzeigen des
-	// Fensters hat, so muss das entsprechende andere Fenster angezeigt werden.
-	// Die Klassen fuer die Dialoge und die Klasse fuer das Hill-Verfahren
-	// werden immer neu angelegt und nach Benutzung wirde freigegeben. 
-	// Wenn ok betaetigt worden ist, werden die Klassen noch gebraucht und 
-	// erst am Ende der Funktion freigegeben.
-
-	// Falls beim letzten Aufruf das Fenster für grosse Schluessel angezeigt worden ist,
-	// dort aber ein kleiner Schluessel (<= 5 x 5) eingegeben worden ist,
-	// dann oeffnen wir wieder das Fenster fuer kleine Schluessel
-	if (iHillSchluesselDim <= HILL_MAX_DIM)
-	{
-		iHillSchluesselFensterGroesse = HILL_SCHLUESSEL_KLEIN;
-	}
-
-	while (! bRcWeiter)
-	{
-		ASSERT ( (iHillSchluesselFensterGroesse == HILL_SCHLUESSEL_KLEIN) ||
-				 (iHillSchluesselFensterGroesse == HILL_SCHLUESSEL_GROSS) );
-
-		if (iHillSchluesselFensterGroesse == HILL_SCHLUESSEL_KLEIN)
-		{
-#if 0 // FIXME
-			hillein = new CDlgKeyHill5x5();
-			hillklasse = hillein->getHillKlasse();
-			iLocalRc = hillein->Display();
-
-			// Falls nicht auf "Groessere Schluessel" geklickt wurde
-			if (iHillSchluesselFensterGroesse == HILL_SCHLUESSEL_KLEIN)
-			{
-				bRcWeiter = true;
-			}
-			else
-			{
-				// Die Maske Groessere Schluessel muss geoeffnet werden
-				delete hillein;
-				hillein = NULL;
-				hillklasse = NULL;
-			}
-#endif
-		}
-		else // iHillSchluesselFensterGroesse = HILL_SCHLUESSEL_GROSS
-		{
-			hilleingross = new CDlgKeyHill10x10();
-			hillklasse = hilleingross->getHillKlasse();
-			iLocalRc = hilleingross->Display();
-
-			// Falls nicht auf "Kleinere Schluessel" geklickt wurde
-			if (iHillSchluesselFensterGroesse == HILL_SCHLUESSEL_GROSS)
-			{
-				bRcWeiter = true;
-			}
-			else
-			{
-				// Die Maske Kleinere Schluessel muss geoeffnet werden
-				delete hilleingross;
-				hilleingross = NULL;
-				hillklasse = NULL;
-			}
-		}
-	}
-
-	// Wurde der Dialog abgebrochen -> Vor der Rueckkehr speicher freigeben
-	if(iLocalRc != IDOK)
-	{
-		if (iHillSchluesselFensterGroesse == HILL_SCHLUESSEL_GROSS)
-		{
-			ASSERT (hilleingross != NULL);
-			delete hilleingross;
-		}
-		else
-		{
-			ASSERT (hillein != NULL);
-			delete hillein;
-		}
-
-		return;
-	}
-
-	SHOW_HOUR_GLASS
-
-	// Falls nicht abgebrochen, ist eine invertierbare Matrix 
-	// als Schluessel eingegeben worden -> Verschluesseln bzw. Entschluesseln
-
-
-	// Mit der Aenderung, dass es moeglich ist, das Format bei den klassischen 
-	// Verfahren beizubehalten (siehe Funktionen Reformat bzw. ForceReformat), 
-	// ergab sich das Problem, dass beim Hill-Verfahren eventuell am Ende mit dem 
-	// Fuellzeichen aufgefuellt werden muss, damit die Laenge des Textes durch die
-	// Dimension des Schluessels ohne Rest teilbar ist. Dieses wurde aber in der 
-	// Funktion Force Reformat nicht beruecksichtigt, so dass der letzte Block - 
-	// falls aufgefuellt wurde - nicht korrekt entschluesselt wird und der Angriff
-	// auch nicht funktioniert. 
-	// Daher wurde die Eingabedatei mit dem Fuellzeichen zu einem Vielfachen der 
-	// Dimension der Schluesselmatrix aufgefuellt.
-	// BEGINN der Aenderung 
-	FILE *fp;
-	long i;
-	int iAnz = 0, iNeueX = 0, iDateiLaenge;
-	char *csEingabeDatei;
-
-	// Dateilaenge ermitteln und Dateiinhalt in Feld einlesen
-	fp = fopen(infile,"r+b");
-
-	fseek(fp, 0, SEEK_END);
-	iDateiLaenge = ftell(fp);
-	fseek(fp, 0, SEEK_SET);
-	csEingabeDatei = (char *) malloc(iDateiLaenge+1);
-	fread(csEingabeDatei, 1, iDateiLaenge, fp);
-
-	// Falls Gross-/Kleinschreibung ignoriert werden soll:
-	// Es werden alle Kleinbuchstaben in Grossbuchstaben umgewandelt
-	if(theApp.TextOptions.getIgnoreCase())
-	{
-		MyToUpper(csEingabeDatei);
-	}
-
-	// Die Anzahl der erlaubten Zeichen in der Eingabe zaehlen:
-	for (i=0; i<iDateiLaenge; i++)
-	{
-		// Kleinbuchstaben wurden schon zu Grossbuchstaben konvertiert, sofern erforderlich;
-		// deshalb muss dies hier nicht mehr beruecksichtigt werden.
-		if ( hillklasse->ist_erlaubtes_zeichen(csEingabeDatei[i]) )
-		{
-			iAnz++;
-		}
-	}
-
-	free(csEingabeDatei);
-
-	// Anzahl der aufzufuellenden Zeichen berechnen und sofern ein Auffuellen erforderlich ist,
-	// die entsprechende Anzahl (iNeueX) Zeichen ans Dateiende schreiben.
-
-	int iDimension;
-
-	if (iHillSchluesselFensterGroesse == HILL_SCHLUESSEL_GROSS)
-	{
-		iDimension = hilleingross->dim;
-	}
-	else
-	{
-		// FIXME: iDimension = hillein->dim;
-	}
-
-	if ((iAnz % iDimension) != 0)
-	{
-		// iNeueX = kleinste Anzahl der aufzufuellenden Zeichen, damit die Laenge der Daten
-		//         ein Vielfaches der Schluesseldimension ist.
-		// Aenderung:
-		// Es wird nicht mit 'X' aufgefuellt, sondern mit dem ASCII-maessig kleinsten 
-		// Zeichen in den zu beruecksichtigenden Zeichen.
-		iNeueX = (iDimension-(iAnz%iDimension));
-	
-		csEingabeDatei = (char *) malloc(iNeueX);
-		for (i=0; i<iNeueX; i++)
-		{
-			csEingabeDatei[i] = hillklasse->get_fuellzeichen();
-		}
-
-		fseek(fp, 0, SEEK_END);
-		fwrite(csEingabeDatei, 1, iNeueX, fp);
-		
-		free(csEingabeDatei);
-	}
-	// ENDE der Aenderung
-
-	// Werte in die Klasse CHillEncryption einlesen
-	hillklasse->set_dim(iDimension);
-
-	// aus dem Text nur Buchstaben uebernehmen und in Grossbuchstaben konvertieren
-	// den konvertierten Text ueber eine Datei in einen String einlesen
-	char *str;
-	str = new char[iDateiLaenge+iNeueX+1];
-	long str_laenge = 0;
-
-	fseek(fp, 0, SEEK_SET);
-	csEingabeDatei = (char *) malloc(iDateiLaenge+iNeueX+1);
-	fread(csEingabeDatei, 1, iDateiLaenge, fp);
-	fclose(fp);
-
-	// Die erlaubten Zeichen aus der Eingabe uebernehmen:
-	for (i=0; i<iDateiLaenge+iNeueX; i++)
-	{
-		// Falls Gross-/Kleinschreibung ignoriert werden soll,
-		// muessen die Kleinbuchstaben in Grossbuchstaben konvertiert werden.
-		if ( hillklasse->ist_erlaubtes_zeichen(csEingabeDatei[i]) )
-		{
-			str[str_laenge++] = csEingabeDatei[i];
-		}
-		else if	( (theApp.TextOptions.getIgnoreCase()) && (MyIsLower(csEingabeDatei[i])) && 
-				   (hillklasse->ist_erlaubtes_zeichen(MyToUpper(csEingabeDatei[i]))) )
-		{
-			str[str_laenge++] = MyToUpper(csEingabeDatei[i]);
-		}
-	}
-	str[str_laenge] = '\0';
-	free(csEingabeDatei);
-
-	// Variable zur Ausgabe des Schlüssels in der Titelleiste
-	char schluessel[(HILL_MAX_DIM_GROSS+1)*HILL_MAX_DIM_GROSS+1 
-		+ sizeof(HILLSTR_ALPHABETOFFSET) + sizeof(HILLSTR_MULTVARIANT) + 8];
-	
-	int  i_m_decrypt;
-	BOOL i_m_Verbose;
-	CSquareMatrixModN *matrix;
-
-	if (iHillSchluesselFensterGroesse == HILL_SCHLUESSEL_GROSS)
-	{
-		i_m_decrypt = hilleingross->m_decrypt;
-		i_m_Verbose = hilleingross->m_Verbose;
-		matrix = new CSquareMatrixModN(hilleingross->mat->get_dim(),hillklasse->get_modul());
-		(*matrix) = (*(hilleingross->mat));
-	}
-	else
-	{
-#if 0 // FIXME
-		i_m_decrypt = hillein->m_decrypt;
-		i_m_Verbose = hillein->m_Verbose;
-		matrix = new CSquareMatrixModN(hillein->mat->get_dim(),hillklasse->get_modul());
-		(*matrix) = (*(hillein->mat));
-#endif
-	}
-
-	if (i_m_decrypt) // Entschluesseln
-	{
-		// Zuerst Matrix invertieren
-		// Die Eingabe einer nicht invertierbaren Matrix wird abgelehnt 
-		// (in der Eingabe: Hilleingabe.cpp, Funktion: CDlgKeyHill5x5::OnOK()) !
-		CSquareMatrixModN inv_mat(matrix->get_dim(),hillklasse->get_modul());
-		BOOL b = matrix->invert(&inv_mat);
-		ASSERT(b);
-
-		// Schlüssel zur Ausgabe in der Titelleiste speichern
-		for (i=0; i<iDimension; i++)
-		{
-			for (int j=0; j<iDimension; j++)
-			{
-				schluessel[i*(iDimension+1)+j] = hillklasse->my_int_to_char((*matrix)(i,j));
-			}
-			schluessel[i*(iDimension+1)+iDimension] = ' ';
-		}
-		schluessel[(iDimension+1)*iDimension-1] = '\0';
-
-		hillklasse->set_dec_mat(inv_mat);
-		hillklasse->set_ciphertext(str);
-		delete[] str;
-
-		hillklasse->entschluesseln();
-		
-		str = new char[hillklasse->get_laenge_plain()+1];
-		hillklasse->get_plaintext(str);
-	}
-	else // Verschluesseln
-	{
-		// Schlüssel zur Ausgabe in der Titelleiste speichern
-		for (i=0; i<iDimension; i++)
-		{
-			for (int j=0; j<iDimension; j++)
-			{
-				schluessel[i*(iDimension+1)+j] = hillklasse->my_int_to_char((*matrix)(i,j));
-			}
-			schluessel[i*(iDimension+1)+iDimension] = ' ';
-		}
-		schluessel[(iDimension+1)*iDimension-1] = '\0';
-
-		hillklasse->set_enc_mat(*matrix);
-		hillklasse->set_plaintext(str);
-		delete[] str;
-
-		hillklasse->verschluesseln();
-
-		str = new char[hillklasse->get_laenge_cipher()+1];
-		hillklasse->get_ciphertext(str);
-	}
-
-	{
-		char strInfo[4];
-		strcat(schluessel, HILLSTR_ALPHABETOFFSET);
-		sprintf(strInfo, " %i ", hillklasse->m_alphabetOffset);
-		strcat(schluessel, strInfo);
-		strcat(schluessel, HILLSTR_MULTVARIANT);
-		sprintf(strInfo, " %i ", (iHillMultiplicationType) ? 0 : 1 );
-		strcat(schluessel, strInfo);
-	}
-
-
-	// Ver- bzw. Entschluesselten Text in temporaere Datei schreiben
-	GetTmpName(outfile,"cry",".txt");
-    ofstream out(outfile);
-	out << str;
-	out.close();
-	delete[] str;
-
-	// Ver- bzw. Entschluesselte Daten aus Hill-Klasse auslesen und in neuem Fenster anzeigen
-    // und danach die temporaere Datei wieder loeschen
-	Reformat(infile, outfile, FALSE);
-	OpenNewDoc( outfile, schluessel, OldTitle, IDS_STRING_HILL, i_m_decrypt, SCHLUESSEL_QUADRATISCH );
-
-	if ( i_m_Verbose )
-	{
-		GetTmpName(outfile,"cry",".txt");
-		ofstream verboseOut(outfile);
-		CString out;
-		hillklasse->OutputHillmatrix(out);
-		verboseOut << out.GetBuffer(0);
-		verboseOut.close();
-
-
-		CAppDocument *NewDoc;
-		NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
-		remove(outfile);
-		if (NewDoc) {
-			char title[128]; 
-			// LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_ANALYSIS_OF,pc_str,STR_LAENGE_STRING_TABLE);
-			GetNewDocTitle(schluessel, OldTitle, IDS_STRING_HILL_DETAILS, title, 128, i_m_decrypt, SCHLUESSEL_QUADRATISCH );
-			NewDoc->SetTitle(title);
-			CView* CView_hilf = ((CMDIFrameWnd*)theApp.m_pMainWnd)->MDIGetActive()->GetActiveView();
-			((CScintillaView*)CView_hilf)->OnViewFontCourier10();
-		}
-	}
-
-
-	delete matrix;
-
-	if (iHillSchluesselFensterGroesse == HILL_SCHLUESSEL_GROSS)
-	{
-		ASSERT (hilleingross != NULL);
-		delete hilleingross;
-	}
-	else
-	{
-		ASSERT (hillein != NULL);
-		delete hillein;
-	}
-
-	// Nun muessen die in die Eingabedatei geschriebenen Zeichen wieder entfernt werden,
-	// da sonst bei Verschluesselung der gleichen Datei mit Schluesseln verschiedener 
-	// Dimensionen immer wieder aufgefuellt wird und damit am Ende immer mehr Fuellzeichen
-	// stehen. Dies fuehrt auch zu Problemen bei der Analyse einer vorher verschluesselten 
-	// Datei, da beide Texte Fuellzeichen enthalten und somit der Schluessel zwar gefunden
-	// werden kann, jedoch bei Entsachluesseln des / der letzten Bloecke ein Fehler auftritt
-	// und somit der Schluessel wegen eines Widerspruches als nicht gefunden erkannt wird.
-	csEingabeDatei = (char *) malloc(iDateiLaenge+iNeueX+1);
-	fp = fopen(infile,"r+b");
-	fread(csEingabeDatei, 1, iDateiLaenge+iNeueX, fp);
-	fp = freopen(infile,"wb",fp);
-	fwrite(csEingabeDatei, 1, iDateiLaenge, fp);
-	fclose(fp);
-	free(csEingabeDatei);
-	
-	HIDE_HOUR_GLASS
-#endif
 }
 
 
@@ -1551,10 +1210,7 @@ void HistogramBin(const char *infile, const char *OldTitle)
 
 int AnalyseMonoManual(const char *infile, const char *OldTitle)
 {
-	// char *common[135]; // FIXME: not used?! 
-	// int Grenze; // FIXME: not used?!
-	//Eingabedatei=infile;
-	int vore[26], nache[26], i; //  anfang[26], ende[26], j; // FIXME: not used ?!
+	int vore[26], nache[26], i;   
 	for (i=0; i<26; i++){
 		nache[i]=0;
 		vore[i]=0;

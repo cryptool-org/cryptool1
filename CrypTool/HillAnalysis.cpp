@@ -122,7 +122,7 @@ int CHillAnalysis::analyze(CString &err_str)
 			Message(IDS_STRING_MSG_DATALENGTH_MISMATCH,MB_ICONINFORMATION);
 
       CKeyHillBase keyHill;
-      keyHill.run_showKey(mat, alphabet_offset, mul_direction );
+      keyHill.run_showKey( mat, alphabet_offset, mul_direction );
 
       delete mat;
 		return 0;

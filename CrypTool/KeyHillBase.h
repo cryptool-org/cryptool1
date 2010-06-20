@@ -31,6 +31,11 @@
 #define DLG_HILL_10x10     0x20
 #define HILL_RANGE         10
 
+#define HILLSTR_ALPHABET         ", ALPHABET: "
+#define HILLSTR_ALPHABETOFFSET   ", ALPHABET_OFFSET:"
+#define HILLSTR_MULTVARIANT      "MULTIPLICATION_VARIANT:"
+
+
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgKeyHill5x5 
 
@@ -67,6 +72,7 @@ class CKeyHillBase {
 	friend class CDlgKeyHill10x10;
    friend class CDlgShowKeyHill5x5;
    friend class CDlgShowKeyHill10x10;
+   friend void  Hill(const char *infile, const char *OldTitle);
 
 	// Select Matrix
 	void setMatFont();
@@ -76,6 +82,7 @@ class CKeyHillBase {
 	void selectHillDimension( unsigned long new_dim );
 	void selectMatType      ( HillEditType new_type );
 	void selectMultType     ( HillMultType new_type );
+   int  invertMatrix();
 
 	void syncNumAlph ( unsigned long i, unsigned long j );
 	void syncAlphNum ( unsigned long i, unsigned long j );
@@ -85,16 +92,18 @@ class CKeyHillBase {
 	int  validEntries();
 	int  isInvertable();
 
+   void keyToStr( CString &cs );
+   void strToKey( CString &cs, CString *alphabet = NULL );
 	void pasteKey();
 	void copyKey();
 	void readRegistry();
 	void writeRegistry();
 	void randomKey();
-	void SetHillMatrix( CSquareMatrixModN *mat );
-	CSquareMatrixModN* GetHillMatrix();
+	void SetHillMatrix();
+	void GetHillMatrix();
 
 public:
-	int  ord( const char ch );
+	int  ord( const char ch, CString * alphabet = NULL );
    char chr( int u );
 	CKeyHillBase(unsigned long p_keyRange = HILL_RANGE);
 	~CKeyHillBase();

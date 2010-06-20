@@ -278,17 +278,17 @@ BEGIN
     GROUPBOX        "Opcje",IDC_STATIC,8,307,305,34
 END
 
-IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 302, 252
+IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 302, 298
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Macierz Kluczy Hilla "
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    PUSHBUTTON      "&Kopiuj tekst",IDC_BUTTON1,9,227,52,19
-    DEFPUSHBUTTON   "&Zamknij",IDOK,239,227,52,19
+    PUSHBUTTON      "&Kopiuj tekst",IDC_BUTTON1,9,273,52,19
+    DEFPUSHBUTTON   "&Zamknij",IDOK,239,273,52,19
     CONTROL         "&Macierz kluczy Hilla (szyfrowanie)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,25,188,132,8
     CONTROL         "&Odwrotna macierz klucz Hilla (deszyfrowanie)",IDC_RADIO2,
                     "Button",BS_AUTORADIOBUTTON,25,204,124,8
-    GROUPBOX        "Macierz kluczy Hilla",IDC_STATIC,9,52,281,168
+    GROUPBOX        "Macierz kluczy Hilla",IDC_STATIC,9,52,285,168
     EDITTEXT        IDC_EDIT11,35,78,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT12,55,78,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT13,75,78,16,12,ES_CENTER | ES_READONLY
@@ -341,11 +341,13 @@ BEGIN
     EDITTEXT        IDC_EDIT65,228,159,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT66,248,159,16,12,ES_CENTER | ES_READONLY
     GROUPBOX        "Wartoœci liczbowe",IDC_STATIC,156,64,119,118
-    GROUPBOX        "Multiplikationsart",IDC_STATIC,10,6,133,41
-    CONTROL         "(wektor wiersza) * (macierz)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,19,85,10
-    CONTROL         "(macierz) * (wektor kolumny)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,29,32,89,10
-    GROUPBOX        "Wartoœæ pierwszego znaku alfabetu",IDC_STATIC,154,7,135,40
-    EDITTEXT        IDC_EDIT2,165,23,50,14,ES_AUTOHSCROLL
+    GROUPBOX        "Multiplikationsart",IDC_STATIC,9,225,285,41
+    CONTROL         "(wektor wiersza) * (macierz)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,238,125,10
+    CONTROL         "(macierz) * (wektor kolumny)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,26,251,108,10
+    GROUPBOX        "Informacje o szyfrowaniu",IDC_STATIC_HILL_ALPH,9,6,285,41
+    EDITTEXT        IDC_EDIT3,15,23,187,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "Wartoœæ pierwszego znaku alfabetu",IDC_STATIC,204,22,67,19
+    EDITTEXT        IDC_EDIT2,274,23,13,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
 
 IDD_KEYASYM_GENERATION DIALOGEX 0, 0, 419, 338
@@ -717,17 +719,17 @@ BEGIN
     LTEXT           "Statyczne",IDC_EDIT_KEY_OFFSET_REMARK,15,54,155,50
 END
 
-IDD_SHOW_KEY_HILL10x10 DIALOGEX 0, 0, 523, 337
+IDD_SHOW_KEY_HILL10x10 DIALOGEX 0, 0, 523, 389
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Macierz kluczy Hilla"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    PUSHBUTTON      "&Kopiuj klucz",IDC_BUTTON1,9,309,96,20
-    DEFPUSHBUTTON   "&Zamknij",IDOK,415,309,96,20
-    CONTROL         "Macierz  Hilla (szyfrowanie)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,30,18,143,8
+    PUSHBUTTON      "&Kopiuj klucz",IDC_BUTTON1,9,361,96,20
+    DEFPUSHBUTTON   "&Zamknij",IDOK,415,361,96,20
+    CONTROL         "Macierz  Hilla (szyfrowanie)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,47,309,143,8
     CONTROL         "&Odwrotna macierz klucz Hilla (deszyfrowanie)",IDC_RADIO2,
-                    "Button",BS_AUTORADIOBUTTON,30,32,182,8
-    GROUPBOX        "Macierz klucz Hilla",IDC_STATIC,11,56,501,245
+                    "Button",BS_AUTORADIOBUTTON,47,323,182,8
+    GROUPBOX        "Macierz klucz Hilla",IDC_STATIC,11,56,501,293
     EDITTEXT        IDC_EDIT11,43,84,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT12,63,84,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT13,83,84,16,12,ES_CENTER | ES_READONLY
@@ -930,12 +932,14 @@ BEGIN
     EDITTEXT        IDC_EDIT200,440,265,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT1012,460,265,16,12,ES_CENTER | ES_READONLY
     GROUPBOX        "Wartoœci liczbowe",IDC_STATIC,266,68,225,222
-    GROUPBOX        "Reprezentacja macierzowa",IDC_STATIC,12,6,210,42
-    GROUPBOX        "Wariant mnozenia",IDC_STATIC,233,7,132,41
-    CONTROL         "(wektor wiersza) * (macierz)",IDC_RADIO25,"Button",BS_AUTORADIOBUTTON | WS_GROUP,251,20,82,10
-    CONTROL         "(macierz) * (wektor kolumny)",IDC_RADIO26,"Button",BS_AUTORADIOBUTTON,251,33,93,10
-    GROUPBOX        "Wartoœæ pierwszego znaku alfabetu",IDC_STATIC,376,7,135,40
-    EDITTEXT        IDC_EDIT2,387,23,50,14,ES_AUTOHSCROLL
+    GROUPBOX        "Reprezentacja macierzowa",IDC_STATIC,29,297,210,42
+    GROUPBOX        "Wariant mnozenia",IDC_STATIC,379,7,132,41
+    CONTROL         "(wektor wiersza) * (macierz)",IDC_RADIO25,"Button",BS_AUTORADIOBUTTON | WS_GROUP,397,20,82,10
+    CONTROL         "(macierz) * (wektor kolumny)",IDC_RADIO26,"Button",BS_AUTORADIOBUTTON,397,33,93,10
+    GROUPBOX        "Informacje o szyfrowaniu",IDC_STATIC_HILL_ALPH,12,7,359,41
+    EDITTEXT        IDC_EDIT3,21,22,237,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "Wartoœæ pierwszego znaku alfabetu",IDC_STATIC,268,21,67,19
+    EDITTEXT        IDC_EDIT2,341,22,16,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
 
 IDD_KEY_HILL_10X10 DIALOGEX 0, 0, 546, 401
@@ -7305,6 +7309,13 @@ BEGIN
         HORZGUIDE, 350
     END
 
+    IDD_SHOW_KEY_HILL5x5, DIALOG
+    BEGIN
+        VERTGUIDE, 9
+        VERTGUIDE, 294
+        BOTTOMMARGIN, 292
+    END
+
     IDD_KEYASYM_GENERATION, DIALOG
     BEGIN
         RIGHTMARGIN, 397
@@ -7364,6 +7375,13 @@ BEGIN
         VERTGUIDE, 170
         BOTTOMMARGIN, 74
         HORZGUIDE, 138
+    END
+
+    IDD_SHOW_KEY_HILL10x10, DIALOG
+    BEGIN
+        VERTGUIDE, 511
+        BOTTOMMARGIN, 381
+        HORZGUIDE, 48
     END
 
     IDD_KEY_HILL_10X10, DIALOG
@@ -11352,18 +11370,18 @@ BEGIN
     GROUPBOX        "Opcije",IDC_STATIC,8,307,304,34
 END
 
-IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 302, 252
+IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 302, 300
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hill-ova kljucna matrica"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    PUSHBUTTON      "Kopiraj &kljuc",IDC_BUTTON1,9,227,52,19
-    DEFPUSHBUTTON   "&Zatvori",IDOK,239,227,52,19
+    PUSHBUTTON      "Kopiraj &kljuc",IDC_BUTTON1,9,275,52,19
+    DEFPUSHBUTTON   "&Zatvori",IDOK,239,275,52,19
     CONTROL         "&Hill-ova kljucna matrica (šifrovanje)",IDC_RADIO1,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,36,190,132,8
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,29,190,132,8
     CONTROL         "&Inverzna Hill-ova kljucna matrica (dešifrovanje)",IDC_RADIO2,
-                    "Button",BS_AUTORADIOBUTTON,36,205,124,8
-    GROUPBOX        "Hill-ova kljucna matrica",IDC_STATIC,9,55,281,166
+                    "Button",BS_AUTORADIOBUTTON,29,205,124,8
+    GROUPBOX        "Hill-ova kljucna matrica",IDC_STATIC,9,55,284,166
     EDITTEXT        IDC_EDIT11,35,80,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT12,55,80,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT13,75,80,16,12,ES_CENTER | ES_READONLY
@@ -11416,11 +11434,13 @@ BEGIN
     EDITTEXT        IDC_EDIT65,228,161,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT66,248,161,16,12,ES_CENTER | ES_READONLY
     GROUPBOX        "Brojne vrednosti",IDC_STATIC,156,66,119,118
-    GROUPBOX        "Varijansa množenja",IDC_STATIC,10,6,133,41
-    CONTROL         "(vektor reda) * (matrix)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,19,82,10
-    CONTROL         "(matrica) * (vektor kolone)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,29,32,93,10
-    GROUPBOX        "Vrenost prvog karaktera alfabeta",IDC_STATIC,154,7,135,40
-    EDITTEXT        IDC_EDIT2,165,23,50,14,ES_AUTOHSCROLL
+    GROUPBOX        "Varijansa množenja",IDC_STATIC,9,227,284,41
+    CONTROL         "(vektor reda) * (matrix)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,240,82,10
+    CONTROL         "(matrica) * (vektor kolone)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,29,253,93,10
+    GROUPBOX        "Informacija za šifrovanje",IDC_STATIC_HILL_ALPH,9,8,284,38
+    EDITTEXT        IDC_EDIT3,17,22,187,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "Vrednost prvog karaktera alfabeta",IDC_STATIC,209,21,59,19
+    EDITTEXT        IDC_EDIT2,271,22,12,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
 
 IDD_KEYASYM_GENERATION DIALOGEX 0, 0, 419, 338
@@ -11792,17 +11812,17 @@ BEGIN
     LTEXT           "Staticni",IDC_EDIT_KEY_OFFSET_REMARK,15,54,155,50
 END
 
-IDD_SHOW_KEY_HILL10x10 DIALOGEX 0, 0, 523, 337
+IDD_SHOW_KEY_HILL10x10 DIALOGEX 0, 0, 523, 387
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hill-ova Kljucna Matrica"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    PUSHBUTTON      "Kopiraj &kljuc",IDC_BUTTON1,9,309,96,20
-    DEFPUSHBUTTON   "&Zatvori",IDOK,415,309,96,20
-    CONTROL         "&Hill-ova kljucna matrica (zašifruj)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,31,19,143,8
+    PUSHBUTTON      "Kopiraj &kljuc",IDC_BUTTON1,9,359,96,20
+    DEFPUSHBUTTON   "&Zatvori",IDOK,415,359,96,20
+    CONTROL         "&Hill-ova kljucna matrica (zašifruj)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,47,309,143,8
     CONTROL         "&Inverzna Hill-ova kljucna matrica (dešifruj)",IDC_RADIO2,
-                    "Button",BS_AUTORADIOBUTTON,31,33,150,8
-    GROUPBOX        "Hill-ova kljucna matrica",IDC_STATIC,10,54,501,250
+                    "Button",BS_AUTORADIOBUTTON,47,323,150,8
+    GROUPBOX        "Hill-ova kljucna matrica",IDC_STATIC,10,54,501,295
     EDITTEXT        IDC_EDIT11,42,83,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT12,62,83,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT13,82,83,16,12,ES_CENTER | ES_READONLY
@@ -12005,12 +12025,14 @@ BEGIN
     EDITTEXT        IDC_EDIT200,439,259,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT1012,459,259,16,12,ES_CENTER | ES_READONLY
     GROUPBOX        "Brojne vrednosti",IDC_STATIC,265,67,225,222
-    GROUPBOX        "Reprezentacija matrice",IDC_STATIC,12,6,210,42
-    GROUPBOX        "Varijansa množenja",IDC_STATIC,232,7,132,41
-    CONTROL         "(vektor reda) * (matrica)",IDC_RADIO25,"Button",BS_AUTORADIOBUTTON | WS_GROUP,250,20,82,10
-    CONTROL         "(matrica) * (vektor kolone)",IDC_RADIO26,"Button",BS_AUTORADIOBUTTON,250,33,93,10
-    GROUPBOX        "Vrednost prvog karaktera alfabeta",IDC_STATIC,375,7,135,40
-    EDITTEXT        IDC_EDIT2,386,23,50,14,ES_AUTOHSCROLL
+    GROUPBOX        "Reprezentacija matrice",IDC_STATIC,27,296,210,42
+    GROUPBOX        "Varijansa množenja",IDC_STATIC,379,7,132,41
+    CONTROL         "(vektor reda) * (matrica)",IDC_RADIO25,"Button",BS_AUTORADIOBUTTON | WS_GROUP,397,20,82,10
+    CONTROL         "(matrica) * (vektor kolone)",IDC_RADIO26,"Button",BS_AUTORADIOBUTTON,397,33,93,10
+    GROUPBOX        "Informacija za šifrovanje",IDC_STATIC_HILL_ALPH,11,7,359,41
+    EDITTEXT        IDC_EDIT3,20,22,255,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "Vrednost prvog karaktera alfabeta",IDC_STATIC,279,21,60,19
+    EDITTEXT        IDC_EDIT2,345,22,16,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
 
 IDD_KEY_HILL_10X10 DIALOGEX 0, 0, 546, 401
@@ -18401,6 +18423,13 @@ BEGIN
         HORZGUIDE, 349
     END
 
+    IDD_SHOW_KEY_HILL5x5, DIALOG
+    BEGIN
+        VERTGUIDE, 9
+        VERTGUIDE, 293
+        BOTTOMMARGIN, 294
+    END
+
     IDD_KEYASYM_GENERATION, DIALOG
     BEGIN
         RIGHTMARGIN, 397
@@ -18464,6 +18493,13 @@ BEGIN
         VERTGUIDE, 170
         BOTTOMMARGIN, 74
         HORZGUIDE, 138
+    END
+
+    IDD_SHOW_KEY_HILL10x10, DIALOG
+    BEGIN
+        VERTGUIDE, 511
+        BOTTOMMARGIN, 379
+        HORZGUIDE, 48
     END
 
     IDD_KEY_HILL_10X10, DIALOG
@@ -22397,13 +22433,13 @@ BEGIN
     GROUPBOX        "Optionen",IDC_STATIC,8,307,304,34
 END
 
-IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 299, 254
+IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 299, 297
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hill-Schlüsselmatrix"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    PUSHBUTTON      "Schlüssel &kopieren",IDC_BUTTON1,9,224,68,19
-    DEFPUSHBUTTON   "&Schließen",IDOK,217,224,68,19
+    PUSHBUTTON      "Schlüssel &kopieren",IDC_BUTTON1,9,267,68,19
+    DEFPUSHBUTTON   "&Schließen",IDOK,217,267,68,19
     CONTROL         "&Hill-Schlüsselmatrix (Verschlüsseln)",IDC_RADIO1,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,29,183,132,8
     CONTROL         "&Inverse Hill-Schlüsselmatrix (Entschlüsseln)",IDC_RADIO2,
@@ -22461,11 +22497,13 @@ BEGIN
     EDITTEXT        IDC_EDIT65,224,153,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT66,244,153,16,12,ES_CENTER | ES_READONLY
     GROUPBOX        "Zahlenwerte",IDC_STATIC,154,61,116,115
-    GROUPBOX        "Multiplikationsart",IDC_STATIC,10,6,133,41
-    CONTROL         "(Vektorreihe) * (Matrix)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,19,85,10
-    CONTROL         "(Matrix) * (Vektorspalte)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,29,32,89,10
-    GROUPBOX        "Wert des ersten Alphabetzeichens",IDC_STATIC,154,7,135,40
-    EDITTEXT        IDC_EDIT2,165,23,50,14,ES_AUTOHSCROLL
+    GROUPBOX        "Multiplikationsart",IDC_STATIC,9,218,280,41
+    CONTROL         "(Vektorreihe) * (Matrix)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,231,85,10
+    CONTROL         "(Matrix) * (Vektorspalte)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,29,244,89,10
+    GROUPBOX        "Informationen zur Verschlüsselung",IDC_STATIC_HILL_ALPH,9,9,280,35
+    EDITTEXT        IDC_EDIT3,16,22,183,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "Wert des ersten Alphabetzeichens",IDC_STATIC,202,21,60,19
+    EDITTEXT        IDC_EDIT2,266,22,13,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
 
 IDD_KEYASYM_GENERATION DIALOGEX 0, 0, 420, 338
@@ -22839,18 +22877,18 @@ BEGIN
     LTEXT           "Statisch",IDC_EDIT_KEY_OFFSET_REMARK,15,54,155,50
 END
 
-IDD_SHOW_KEY_HILL10x10 DIALOGEX 0, 0, 528, 351
+IDD_SHOW_KEY_HILL10x10 DIALOGEX 0, 0, 528, 387
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hill-Schlüsselmatrix"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    PUSHBUTTON      "Schlüssel &kopieren",IDC_BUTTON1,11,322,108,20
-    DEFPUSHBUTTON   "&Schließen",IDOK,405,322,108,20
+    PUSHBUTTON      "Schlüssel &kopieren",IDC_BUTTON1,11,358,108,20
+    DEFPUSHBUTTON   "&Schließen",IDOK,405,358,108,20
     CONTROL         "&Hill-Schlüsselmatrix (Verschlüsseln)",IDC_RADIO1,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,40,19,143,8
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,61,314,143,8
     CONTROL         "&Inverse Hill-Schlüsselmatrix (Entschlüsseln)",IDC_RADIO2,
-                    "Button",BS_AUTORADIOBUTTON,40,32,150,8
-    GROUPBOX        "Hill-Schlüsselmatrix",IDC_STATIC,13,57,502,252
+                    "Button",BS_AUTORADIOBUTTON,61,327,150,8
+    GROUPBOX        "Hill-Schlüsselmatrix",IDC_STATIC,13,57,502,292
     EDITTEXT        IDC_EDIT11,47,91,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT12,67,91,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT13,87,91,16,12,ES_CENTER | ES_READONLY
@@ -23053,12 +23091,14 @@ BEGIN
     EDITTEXT        IDC_EDIT200,443,271,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT1012,463,271,16,12,ES_CENTER | ES_READONLY
     GROUPBOX        "Zahlenwerte",IDC_STATIC,269,74,222,222
-    GROUPBOX        "Multiplikationsart",IDC_STATIC,234,6,133,41
-    CONTROL         "(Vektorreihe) * (Matrix)",IDC_RADIO25,"Button",BS_AUTORADIOBUTTON | WS_GROUP,253,19,85,10
-    CONTROL         "(Matrix) * (Vektorspalte)",IDC_RADIO26,"Button",BS_AUTORADIOBUTTON,253,32,89,10
-    GROUPBOX        "Wert des ersten Alphabetzeichens",IDC_STATIC,378,7,137,40
-    EDITTEXT        IDC_EDIT2,389,23,50,14,ES_AUTOHSCROLL
-    GROUPBOX        "Matrixdarstellung",IDC_STATIC,13,6,210,42
+    GROUPBOX        "Multiplikationsart",IDC_STATIC,382,8,133,41
+    CONTROL         "(Vektorreihe) * (Matrix)",IDC_RADIO25,"Button",BS_AUTORADIOBUTTON | WS_GROUP,401,19,85,10
+    CONTROL         "(Matrix) * (Vektorspalte)",IDC_RADIO26,"Button",BS_AUTORADIOBUTTON,401,32,89,10
+    GROUPBOX        "Matrixdarstellung",IDC_STATIC,34,301,210,42
+    GROUPBOX        "Informationen zur Verschlüsselung",IDC_STATIC_HILL_ALPH,13,8,360,41
+    EDITTEXT        IDC_EDIT3,23,24,256,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "Wert des ersten Alphabetzeichens",IDC_STATIC,283,23,60,19
+    EDITTEXT        IDC_EDIT2,347,24,13,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
 
 IDD_KEY_HILL_10X10 DIALOGEX 0, 0, 545, 436
@@ -29502,8 +29542,9 @@ BEGIN
     IDD_SHOW_KEY_HILL5x5, DIALOG
     BEGIN
         RIGHTMARGIN, 296
+        VERTGUIDE, 9
         VERTGUIDE, 289
-        HORZGUIDE, 243
+        BOTTOMMARGIN, 286
     END
 
     IDD_KEYASYM_GENERATION, DIALOG
@@ -29556,7 +29597,8 @@ BEGIN
     BEGIN
         VERTGUIDE, 13
         VERTGUIDE, 515
-        HORZGUIDE, 47
+        BOTTOMMARGIN, 378
+        HORZGUIDE, 49
     END
 
     IDD_KEY_HILL_10X10, DIALOG
@@ -33439,13 +33481,13 @@ BEGIN
     GROUPBOX        "Options",IDC_STATIC,8,308,304,37
 END
 
-IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 302, 252
+IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 302, 295
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hill Key Matrix"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    PUSHBUTTON      "Copy &key",IDC_BUTTON1,9,227,52,19
-    DEFPUSHBUTTON   "&Close",IDOK,239,227,52,19
+    PUSHBUTTON      "Copy &key",IDC_BUTTON1,9,270,52,19
+    DEFPUSHBUTTON   "&Close",IDOK,239,270,52,19
     CONTROL         "&Hill key matrix (encrypt)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,24,188,132,8
     CONTROL         "&Inverse Hill key matrix (decrypt)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,24,203,124,8
     GROUPBOX        "Hill key matrix",IDC_STATIC,9,52,281,165
@@ -33501,11 +33543,13 @@ BEGIN
     EDITTEXT        IDC_EDIT65,228,160,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT66,248,160,16,12,ES_CENTER | ES_READONLY
     GROUPBOX        "Number values",IDC_STATIC,156,65,119,118
-    GROUPBOX        "Multiplication variant",IDC_STATIC,10,6,133,41
-    CONTROL         "(row vector) * (matrix)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,19,82,10
-    CONTROL         "(matrix) * (column vector)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,29,32,93,10
-    GROUPBOX        "Value of the first alphabet char",IDC_STATIC,154,7,135,40
-    EDITTEXT        IDC_EDIT2,165,23,50,14,ES_AUTOHSCROLL
+    GROUPBOX        "Multiplication variant",IDC_STATIC,10,222,280,41
+    CONTROL         "(row vector) * (matrix)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,235,82,10
+    CONTROL         "(matrix) * (column vector)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,29,248,93,10
+    GROUPBOX        "Information for encryption",IDC_STATIC_HILL_ALPH,10,9,280,35
+    EDITTEXT        IDC_EDIT3,19,22,187,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "Value of the first alphabet character",IDC_STATIC,208,22,60,19
+    EDITTEXT        IDC_EDIT2,270,23,13,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
 
 IDD_KEYASYM_GENERATION DIALOGEX 0, 0, 419, 338
@@ -33877,16 +33921,16 @@ BEGIN
     LTEXT           "Statisch",IDC_EDIT_KEY_OFFSET_REMARK,15,54,155,50
 END
 
-IDD_SHOW_KEY_HILL10x10 DIALOGEX 0, 0, 523, 337
+IDD_SHOW_KEY_HILL10x10 DIALOGEX 0, 0, 523, 386
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hill Key Matrix"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    PUSHBUTTON      "Copy &key",IDC_BUTTON1,9,309,96,20
-    DEFPUSHBUTTON   "&Close",IDOK,415,309,96,20
-    CONTROL         "&Hill key matrix (encrypt)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,31,19,143,8
-    CONTROL         "&Inverse Hill key matrix (decrypt)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,31,33,150,8
-    GROUPBOX        "Hill key matrix",IDC_STATIC,12,54,499,247
+    PUSHBUTTON      "Copy &key",IDC_BUTTON1,9,358,96,20
+    DEFPUSHBUTTON   "&Close",IDOK,415,358,96,20
+    CONTROL         "&Hill key matrix (encrypt)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,47,309,143,8
+    CONTROL         "&Inverse Hill key matrix (decrypt)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,47,323,150,8
+    GROUPBOX        "Hill key matrix",IDC_STATIC,12,54,499,292
     EDITTEXT        IDC_EDIT11,42,83,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT12,62,83,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT13,82,83,16,12,ES_CENTER | ES_READONLY
@@ -34089,12 +34133,14 @@ BEGIN
     EDITTEXT        IDC_EDIT200,439,264,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT1012,459,264,16,12,ES_CENTER | ES_READONLY
     GROUPBOX        "Number values",IDC_STATIC,265,67,225,222
-    GROUPBOX        "Matrix representation",IDC_STATIC,12,6,210,42
-    GROUPBOX        "Multiplication variant",IDC_STATIC,232,7,132,41
-    CONTROL         "(row vector) * (matrix)",IDC_RADIO25,"Button",BS_AUTORADIOBUTTON | WS_GROUP,250,20,82,10
-    CONTROL         "(matrix) * (column vector)",IDC_RADIO26,"Button",BS_AUTORADIOBUTTON,250,33,93,10
-    GROUPBOX        "Value of the first alphabet char",IDC_STATIC,375,7,135,40
-    EDITTEXT        IDC_EDIT2,386,23,50,14,ES_AUTOHSCROLL
+    GROUPBOX        "Matrix representation",IDC_STATIC,28,296,210,42
+    GROUPBOX        "Multiplication variant",IDC_STATIC,372,7,140,41
+    CONTROL         "(row vector) * (matrix)",IDC_RADIO25,"Button",BS_AUTORADIOBUTTON | WS_GROUP,398,20,82,10
+    CONTROL         "(matrix) * (column vector)",IDC_RADIO26,"Button",BS_AUTORADIOBUTTON,398,33,93,10
+    GROUPBOX        "Information for encryption",IDC_STATIC_HILL_ALPH,12,7,352,42
+    EDITTEXT        IDC_EDIT3,19,24,236,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "Value of the first alphabet character",IDC_STATIC,266,23,67,19
+    EDITTEXT        IDC_EDIT2,339,24,16,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
 
 IDD_KEY_HILL_10X10 DIALOGEX 0, 0, 546, 401
@@ -40458,6 +40504,13 @@ BEGIN
         HORZGUIDE, 353
     END
 
+    IDD_SHOW_KEY_HILL5x5, DIALOG
+    BEGIN
+        VERTGUIDE, 10
+        VERTGUIDE, 290
+        BOTTOMMARGIN, 289
+    END
+
     IDD_KEYASYM_GENERATION, DIALOG
     BEGIN
         RIGHTMARGIN, 397
@@ -40523,6 +40576,13 @@ BEGIN
         VERTGUIDE, 170
         BOTTOMMARGIN, 74
         HORZGUIDE, 138
+    END
+
+    IDD_SHOW_KEY_HILL10x10, DIALOG
+    BEGIN
+        VERTGUIDE, 511
+        BOTTOMMARGIN, 378
+        HORZGUIDE, 48
     END
 
     IDD_KEY_HILL_10X10, DIALOG
@@ -47658,17 +47718,17 @@ BEGIN
     EDITTEXT        IDC_EDIT1,10,25,257,24,ES_MULTILINE | ES_READONLY
 END
 
-IDD_SHOW_KEY_HILL10x10 DIALOGEX 0, 0, 528, 351
+IDD_SHOW_KEY_HILL10x10 DIALOGEX 0, 0, 528, 398
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Matriz de Clave de Hill"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    PUSHBUTTON      "Copiar &clave",IDC_BUTTON1,9,316,96,20
-    DEFPUSHBUTTON   "&Cerrar",IDOK,415,316,96,20
-    CONTROL         "Matriz de Clave de &Hill (cifrar)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,31,19,143,8
+    PUSHBUTTON      "Copiar &clave",IDC_BUTTON1,9,364,96,20
+    DEFPUSHBUTTON   "&Cerrar",IDOK,415,364,96,20
+    CONTROL         "Matriz de Clave de &Hill (cifrar)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,47,311,143,8
     CONTROL         "Matriz de Clave de Hill &Inversa (descifrar)",IDC_RADIO2,
-                    "Button",BS_AUTORADIOBUTTON,31,33,150,8
-    GROUPBOX        "Matriz de Clave de Hill",IDC_STATIC,12,52,501,251
+                    "Button",BS_AUTORADIOBUTTON,47,325,150,8
+    GROUPBOX        "Matriz de Clave de Hill",IDC_STATIC,12,52,501,296
     EDITTEXT        IDC_EDIT11,42,85,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT12,62,85,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT13,82,85,16,12,ES_CENTER | ES_READONLY
@@ -47871,21 +47931,23 @@ BEGIN
     EDITTEXT        IDC_EDIT200,439,266,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT1012,459,266,16,12,ES_CENTER | ES_READONLY
     GROUPBOX        "Valores Numéricos",IDC_STATIC,265,69,225,222
-    GROUPBOX        "Representación de la matriz",IDC_STATIC,12,6,210,42
-    GROUPBOX        "Variante de Multiplicación",IDC_STATIC,232,7,132,41
-    CONTROL         "(vector fila) * (matriz)",IDC_RADIO25,"Button",BS_AUTORADIOBUTTON | WS_GROUP,250,20,79,10
-    CONTROL         "(matriz) * (vector columna)",IDC_RADIO26,"Button",BS_AUTORADIOBUTTON,250,33,97,10
-    GROUPBOX        "Valor del primer caracter del Alfabeto",IDC_STATIC,375,7,135,40
-    EDITTEXT        IDC_EDIT2,386,23,50,14,ES_AUTOHSCROLL
+    GROUPBOX        "Representación de la matriz",IDC_STATIC,28,298,210,42
+    GROUPBOX        "Variante de Multiplicación",IDC_STATIC,379,7,132,41
+    CONTROL         "(vector fila) * (matriz)",IDC_RADIO25,"Button",BS_AUTORADIOBUTTON | WS_GROUP,397,20,79,10
+    CONTROL         "(matriz) * (vector columna)",IDC_RADIO26,"Button",BS_AUTORADIOBUTTON,397,33,97,10
+    GROUPBOX        "Información para cifrar",IDC_STATIC_HILL_ALPH,12,7,360,41
+    EDITTEXT        IDC_EDIT3,20,23,260,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "El primer caracter del alfabeto",IDC_STATIC,281,22,61,19
+    EDITTEXT        IDC_EDIT2,348,23,16,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
 
-IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 302, 252
+IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 302, 302
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Matriz de Clave de Hill"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    PUSHBUTTON      "Copiar &clave",IDC_BUTTON1,9,227,52,19
-    DEFPUSHBUTTON   "&Cerrar",IDOK,239,227,52,19
+    PUSHBUTTON      "Copiar &clave",IDC_BUTTON1,9,277,52,19
+    DEFPUSHBUTTON   "&Cerrar",IDOK,239,277,52,19
     GROUPBOX        "Matriz de Clave de Hill",IDC_STATIC,9,52,281,165
     EDITTEXT        IDC_EDIT11,35,82,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT12,55,82,16,12,ES_CENTER | ES_READONLY
@@ -47942,11 +48004,13 @@ BEGIN
     CONTROL         "Matriz de clave &Hill (cifrado)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,24,188,132,8
     CONTROL         "Matriz &Inversa de clave Hill (descifrado)",IDC_RADIO2,
                     "Button",BS_AUTORADIOBUTTON,24,203,137,8
-    GROUPBOX        "Variante de Multiplicación",IDC_STATIC,10,6,133,41
-    CONTROL         "(vector fila) * (matriz)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,19,79,10
-    CONTROL         "(matriz) * (vector columna)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,29,32,97,10
-    GROUPBOX        "Valor del primer caracter del Alfabeto",IDC_STATIC,154,7,135,40
-    EDITTEXT        IDC_EDIT2,165,23,50,14,ES_AUTOHSCROLL
+    GROUPBOX        "Variante de Multiplicación",IDC_STATIC,9,226,281,41
+    CONTROL         "(vector fila) * (matriz)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,239,79,10
+    CONTROL         "(matriz) * (vector columna)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,29,252,97,10
+    GROUPBOX        "Información para cifrar",IDC_STATIC_HILL_ALPH,9,8,281,38
+    EDITTEXT        IDC_EDIT3,17,23,190,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "El primer caracter del alfabeto",IDC_STATIC,211,22,57,19
+    EDITTEXT        IDC_EDIT2,272,23,11,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
 
 IDD_SHOW_KEY_PARAMETER DIALOGEX 0, 0, 317, 156
@@ -52165,8 +52229,17 @@ BEGIN
     IDD_SHOW_KEY_HILL10x10, DIALOG
     BEGIN
         RIGHTMARGIN, 523
-        BOTTOMMARGIN, 337
-        HORZGUIDE, 316
+        VERTGUIDE, 511
+        BOTTOMMARGIN, 384
+        HORZGUIDE, 48
+        HORZGUIDE, 364
+    END
+
+    IDD_SHOW_KEY_HILL5x5, DIALOG
+    BEGIN
+        VERTGUIDE, 9
+        VERTGUIDE, 290
+        BOTTOMMARGIN, 296
     END
 
     IDD_SHOW_PROGRESS, DIALOG

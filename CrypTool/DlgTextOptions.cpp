@@ -117,6 +117,27 @@ const CString &CDlgTextOptions::getAlphabet()
 	return alphabet;
 }
 
+int CDlgTextOptions::setAlphabet( CString &new_alphabet )
+{
+   int i, j, l = strlen( ALLOWED_CHARS );
+
+   // ALLOWED CHARS
+   for ( i=0; i<new_alphabet.GetLength(); i++ )
+   {
+      char c = new_alphabet[i]; 
+      for ( j=0; j<l; j++ )
+         if ( c == ALLOWED_CHARS[j] )
+            break;
+      if ( j == l )
+         return 0;
+   }
+
+   alphabet = new_alphabet;
+   updateCheckState();
+   return 1;
+}
+
+
 CString &CDlgTextOptions::refAlphabet()
 {
 	return alphabet;
@@ -179,6 +200,7 @@ void CDlgTextOptions::OnUpdateEditAlphabet()
 	}
 	controlEditAlphabet.GetSel(SS, SE);
 	updateCheckState();
+   UpdateData(FALSE);
 	controlEditAlphabet.SetSel(SS, SE);
 	updateAlphabetHeading();
 }
@@ -189,6 +211,7 @@ void CDlgTextOptions::OnButtonRestoreStandard()
 	SetDefaultOptions();
 	UpdateData(FALSE);
 	updateCheckState();
+   UpdateData(FALSE);
 	updateAlphabetHeading();
 }
 
@@ -204,6 +227,7 @@ BOOL CDlgTextOptions::OnInitDialog()
 	oldReferenceFile = referenceFile;
 
 	updateCheckState();
+   UpdateData(FALSE);
 
 	controlEditReferenceFile.SetFocus();
 	controlEditReferenceFile.SetSel(0,-1);
@@ -249,7 +273,8 @@ void CDlgTextOptions::OnCheckDistinguishUpperLowerCase()
 		keepUpperLowerCaseInformation = FALSE;
 	}
 	updateCheckState();
-	updateAlphabetHeading();
+   UpdateData(FALSE);
+   updateAlphabetHeading();
 }
 
 void CDlgTextOptions::OnOK() 
@@ -306,7 +331,8 @@ void CDlgTextOptions::OnCheckUpperCase()
 	UpdateData(FALSE);
 
 	updateCheckState();
-	updateAlphabetHeading();
+   UpdateData(FALSE);
+   updateAlphabetHeading();
 }
 
 
@@ -340,7 +366,8 @@ void CDlgTextOptions::OnCheckLowerCase()
 	UpdateData(FALSE);
 
 	updateCheckState();
-	updateAlphabetHeading();
+   UpdateData(FALSE);
+   updateAlphabetHeading();
 }
 
 void CDlgTextOptions::OnCheckUmlauts()
@@ -525,7 +552,7 @@ void CDlgTextOptions::updateCheckState()
 			break;
 	}
 
-	UpdateData(FALSE);
+	// UpdateData(FALSE);
 }
 
 void CDlgTextOptions::OnCheckDigits()

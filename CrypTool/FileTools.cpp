@@ -428,6 +428,9 @@ BOOL ForceReformat(const char *reffile, const char *newfile, BOOL FixedAlphabet)
 
 	fn = fopen(newfile,"wb");
 	fwrite(bufr, 1, lr, fn);
+   // FIXME HK: PADDING SITUATION
+   if ( p < ln )
+      fwrite( &bufn[p], 1, ln -p, fn ); 
 	fclose(fn);
 	free(bufr);
 	free(bufn);

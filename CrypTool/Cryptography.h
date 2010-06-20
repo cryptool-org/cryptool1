@@ -61,9 +61,6 @@ typedef struct  {
 #define CRYPT_PARITY_DES				1
 #define CRYPT_PARITY_DESX				2
 
-#define HILLSTR_ALPHABETOFFSET ", ALPHABET_OFFSET:"
-#define HILLSTR_MULTVARIANT    "MULTIPLICATION_VARIANT:"
-
 void CaesarAsc(const char *infile, const char *OldTitle);	
 void VigenereAsc(const char *infile, const char *OldTitle);	
 void XorBin(const char *infile, const char *OldTitle);	

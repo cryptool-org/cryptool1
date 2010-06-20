@@ -37,6 +37,7 @@ class CDlgShowKeyHill5x5 : public CDialog
 {
 	CKeyHillBase  *m_HillBase;
    BOOL           m_ShowInvKey;
+	CString        m_pHillAlphInfo;
 
 // Konstruktion
 public:
@@ -52,11 +53,12 @@ public:
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
 	//{{AFX_VIRTUAL(CDlgShowKeyHill5x5)
-	protected:
+protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
 	//}}AFX_VIRTUAL
 
 // Implementierung
+	void displayAlphabet();
 protected:
 
 	// Generierte Nachrichtenzuordnungsfunktionen

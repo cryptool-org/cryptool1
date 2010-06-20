@@ -37,6 +37,7 @@ class CDlgShowKeyHill10x10 : public CDialog
 {
 	CKeyHillBase  *m_HillBase;
    BOOL           m_ShowInvKey;
+	CString        m_pHillAlphInfo;
 
 // Konstruktion
 public:
@@ -58,6 +59,7 @@ protected:
 	//}}AFX_VIRTUAL
 
 // Implementierung
+	void displayAlphabet();
 protected:
 
 // Generierte Nachrichtenzuordnungsfunktionen

@@ -993,6 +993,8 @@ void CDlgKeyHill10x10::DoCrypt( unsigned long mode )
 		return;
 	}
 	m_HillBase->cryptMode = mode;
+   m_HillBase->GetHillMatrix();
+   m_HillBase->currDlg = 0;
 	CDialog::OnOK();
 }
 

@@ -46,6 +46,7 @@ static char THIS_FILE[] = __FILE__;
 CDlgShowKeyHill10x10::CDlgShowKeyHill10x10(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgShowKeyHill10x10::IDD, pParent)
    , m_HillBase(0)
+   , m_pHillAlphInfo( _T("") )
 {
 }
 
@@ -259,6 +260,7 @@ void CDlgShowKeyHill10x10::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT1012,m_HillBase->HillNumMat[9][9]);
 
    DDX_Text( pDX, IDC_EDIT2,  m_HillBase->HillOptions.m_alphabetOffset );
+	DDX_Text( pDX, IDC_EDIT3, m_pHillAlphInfo );
 }
 
 
@@ -276,19 +278,71 @@ END_MESSAGE_MAP()
 BOOL CDlgShowKeyHill10x10::OnInitDialog() 
 {
    CDialog::OnInitDialog();
+
+   m_HillBase->setMatFont();
+   m_HillBase->SetHillMatrix();
+
+   if ( m_HillBase->multType == MATRIX_VECTOR ) 
+      CheckRadioButton( IDC_RADIO8, IDC_RADIO9, IDC_RADIO9 );
+   else
+      CheckRadioButton( IDC_RADIO8, IDC_RADIO9, IDC_RADIO8 );
+
+   GetDlgItem( IDC_RADIO8 )->EnableWindow( FALSE );
+   GetDlgItem( IDC_RADIO9 )->EnableWindow( FALSE );
+
+   CheckRadioButton( IDC_RADIO1, IDC_RADIO2, IDC_RADIO1 );
+   displayAlphabet();
+   m_pHillAlphInfo = theApp.TextOptions.getAlphabet();
+   UpdateData(FALSE);
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
 
+void CDlgShowKeyHill10x10::init( CKeyHillBase *Hillbase )
+{
+   assert( Hillbase && Hillbase->key_range >= 5 );
+   m_HillBase = Hillbase;
+}
+
+
+void CDlgShowKeyHill10x10::displayAlphabet() 
+{ 
+	CString sc;
+	sc.Format( IDS_HILL_CASE, theApp.TextOptions.getAlphabet().GetLength() );
+	GetDlgItem(IDC_STATIC_HILL_ALPH)->SetWindowText(sc);
+	UpdateData( FALSE );
+}
+
+
 void CDlgShowKeyHill10x10::OnCopyKey() 
 {
+   m_HillBase->copyKey();
 }
 
 void CDlgShowKeyHill10x10::OnKey()
 {
+   if ( m_ShowInvKey )
+   {
+      if ( m_HillBase->invertMatrix() )
+         m_ShowInvKey = FALSE;
+      else
+      {
+         // FIXME 
+      }
+   }
 }
 
 void CDlgShowKeyHill10x10::OnInvKey()
 {
+   if ( !m_ShowInvKey )
+   {
+      if ( m_HillBase->invertMatrix() )
+         m_ShowInvKey = TRUE;
+      else
+      {
+         // FIXME 
+      }
+   }
 }
 

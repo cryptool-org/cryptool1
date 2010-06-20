@@ -347,8 +347,6 @@ BOOL CDlgHillAnaylsis::OnInitDialog()
 
 void CDlgHillAnaylsis::OnSelchangeDimVon() 
 {
-	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-	
 	von = m_DimensionVon.GetCurSel() + 1;
 	if (von > bis)
 	{
@@ -359,8 +357,6 @@ void CDlgHillAnaylsis::OnSelchangeDimVon()
 
 void CDlgHillAnaylsis::OnSelchangeDimBis() 
 {
-	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-	
 	bis = m_DimensionBis.GetCurSel() + 1;
 	if (bis < von)
 	{
@@ -371,7 +367,6 @@ void CDlgHillAnaylsis::OnSelchangeDimBis()
 
 void CDlgHillAnaylsis::OnTcnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult)
 {
-	// TODO: Fügen Sie hier Ihren Kontrollbehandlungscode für die Benachrichtigung ein.
 	m_edTab = m_TC_textspace.GetCurSel();
 
 	switch ( m_edTab ) {
@@ -433,21 +428,6 @@ void CDlgHillAnaylsis::OnBnClickedSearchKey()
 	{
 		AfxMessageBox(err_str.GetBuffer(0), MB_ICONSTOP);		
 	}
-
-#if 0 // FIXME 
-	ha.init( fn_plaintext, fn_ciphertext, von, bis, m_ofs, m_multDir);
-
-	UpdateData(FALSE);
-	SHOW_HOUR_GLASS
-	CString err_str = _T(""); 
-	int err_code = ha.analyze(err_str);
-	HIDE_HOUR_GLASS
-
-	if ( err_code )
-	{
-		AfxMessageBox(err_str.GetBuffer(0), MB_ICONSTOP);		
-	}
-#endif 
 }
 
 void CDlgHillAnaylsis::OnBnClickedCancel()

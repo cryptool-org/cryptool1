@@ -375,6 +375,8 @@ void CDlgKeyHill5x5::DoCrypt( unsigned long mode )
 		return;
 	}
 	m_HillBase->cryptMode = mode;
+   m_HillBase->GetHillMatrix();
+   m_HillBase->currDlg = 0;
 	CDialog::OnOK();
 }
 
@@ -395,6 +397,7 @@ void CDlgKeyHill5x5::OnGroessereSchluessel()
 {
 	m_HillBase->currDlg = DLG_HILL_10x10; 
    m_HillBase->max_dim = DIM_DLG_HILL_10x10;
+   m_HillBase->GetHillMatrix();
 	CDialog::OnOK();	
 }
 
