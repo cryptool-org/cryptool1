@@ -110,12 +110,14 @@ private:
 	// Diese Felder haben alle die Laenge dim; der Speicher wird im Konstruktor 
 	// angefordert und im Destruktor wieder freigegeben.
 	int *iaHilfsfeld_hilfsmat,	// Zeilenvektor linke Seite
-		*iaHilfsfeld_mat1;		// Zeilenvektor rechte Seite
+		 *iaHilfsfeld_mat1;		// Zeilenvektor rechte Seite
 
 	// Hilfsfunktion fuer die Invertierung mittels Gauss-Jordan Verfahren
 	// zum Berechnen der Faktoren fuer die Linearkombination 
 	void BerechneFaktoren(int) const;
-	
+   void destroy();
+
+
 public:
 	// Konstruktor mit Parameter: Dimension, Modul
 	CSquareMatrixModN(int, int);
@@ -159,6 +161,9 @@ public:
 	// Berechnung einer zufaelligen invertierbaren Matrix der entsprechenden Dimension
 	// Rueckgabewert: TRUE, falls eine invertirbare Matrix existiert.
 	BOOL zufaellige_invertierbare_matrix (void);
+
+   BOOL initialize( int, int );
+   BOOL is_initialized() { return (dim > 0); }
 };
 
 #endif

@@ -47,10 +47,33 @@ using namespace std;
 
 #include <stdlib.h>
 
-CSquareMatrixModN::CSquareMatrixModN(int dimension, int alphabetgroesse)
+CSquareMatrixModN::CSquareMatrixModN(int dimension, int alphabetgroesse) :
+   mat(0),
+   dim(0),
+   modul(0),
+   feldbreite(0)
 {
+   initialize( dimension, alphabetgroesse );
+}
+
+BOOL CSquareMatrixModN::initialize( int dimension, int alphabetgroesse )
+{
+   if ( dim )
+   {
+      destroy();
+   }
+
+   if ( dimension < 0 ) 
+      dimension = 0;
+   if ( alphabetgroesse < 1 )
+      alphabetgroesse = 1;
+
 	dim = dimension;
 	modul = alphabetgroesse;
+
+   if ( dim <= 0 )
+      return FALSE;
+
 	if (modul < 10)
 	{
 		feldbreite = 2;
@@ -131,9 +154,11 @@ CSquareMatrixModN::CSquareMatrixModN(int dimension, int alphabetgroesse)
 	}
 	TRACE("\n");
 #endif
+
+   return TRUE;
 }
 
-CSquareMatrixModN::~CSquareMatrixModN()
+void  CSquareMatrixModN::destroy()
 {
 	for (int i=0; i<dim; i++)
 	{
@@ -143,13 +168,21 @@ CSquareMatrixModN::~CSquareMatrixModN()
 	delete[] mat;
 	delete[] inverse_elemente;
 	
-   	delete[] iaZeileVektor;
+   delete[] iaZeileVektor;
 	delete[] iaLinearKombination1;
 	delete[] iaLinearKombination2;
 	delete[] iaFaktoren;
 	
 	delete[] iaHilfsfeld_hilfsmat;
 	delete[] iaHilfsfeld_mat1;
+
+   dim = 0;
+}
+
+CSquareMatrixModN::~CSquareMatrixModN()
+{
+   if ( dim )
+      destroy();
 }
 
 // Konvertierung eines Eintrages in den Bereich [0:modul-1]
@@ -167,12 +200,8 @@ long CSquareMatrixModN::convert_long (long zahl) const
 void CSquareMatrixModN::convert_mod ()
 {
 	for (int i=0; i<dim; i++)
-	{
 		for (int j=0; j<dim; j++)
-		{
 			mat[i][j] = convert_long(mat[i][j]);
-		}
-	}
 }
 
 // Operator, der einen Eintrag der Matrix liefert

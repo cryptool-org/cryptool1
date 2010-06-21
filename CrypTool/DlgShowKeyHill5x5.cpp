@@ -110,7 +110,7 @@ void CDlgShowKeyHill5x5::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT65,  m_HillBase->HillNumMat[4][3] );
 	DDX_Control(pDX, IDC_EDIT66,  m_HillBase->HillNumMat[4][4] );
 
-   DDX_Text( pDX, IDC_EDIT2, m_HillBase->HillOptions.m_alphabetOffset );
+   DDX_Text( pDX, IDC_EDIT2, m_HillBase->HillOptions.m_offset );
 	DDX_Text( pDX, IDC_EDIT3, m_pHillAlphInfo );
 }
 

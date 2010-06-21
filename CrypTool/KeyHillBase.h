@@ -56,7 +56,7 @@ enum HillMultType { VECTOR_MATRIX, MATRIX_VECTOR };
 class CKeyHillBase {
    CHiEdit           **HillNumMat;
 	CEdit             **HillAlphMat;
-	CSquareMatrixModN  *HillMat;
+	CSquareMatrixModN   HillMat;
    CDialog            *currentDialog;
    DlgHillOptions      HillOptions;
 
@@ -101,6 +101,9 @@ class CKeyHillBase {
 	void randomKey();
 	void SetHillMatrix();
 	void GetHillMatrix();
+   void Clear();
+   int  SetTextOptions();
+   int  SetHillOptions();
 
 public:
 	int  ord( const char ch, CString * alphabet = NULL );

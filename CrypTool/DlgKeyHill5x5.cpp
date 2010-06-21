@@ -114,8 +114,8 @@ void CDlgKeyHill5x5::DoDataExchange(CDataExchange* pDX)
 
    DDX_Check(pDX, IDC_CHECK1, m_HillBase->verbose);
 	DDX_Text(pDX, IDC_EDIT3, m_pHillAlphInfo);
-   DDX_Text(pDX, IDC_EDIT2, m_HillBase->HillOptions.m_alphabetOffset );
-   DDV_MinMaxInt(pDX, m_HillBase->HillOptions.m_alphabetOffset, 0, 1);
+   DDX_Text(pDX, IDC_EDIT2, m_HillBase->HillOptions.m_offset );
+   DDV_MinMaxInt(pDX, m_HillBase->HillOptions.m_offset, 0, 1);
 }
 
 
@@ -356,6 +356,9 @@ BOOL CDlgKeyHill5x5::OnInitDialog()
 
    SetDimension( m_HillBase->dim );
 
+   if ( m_HillBase->HillMat.is_initialized() )
+      m_HillBase->SetHillMatrix();
+
 	CString cs;
 	cs.LoadStringA(IDS_CRYPT_HILL);
 	VERIFY(m_Paste.AutoLoad(IDC_BUTTON2,this));
@@ -385,6 +388,7 @@ void CDlgKeyHill5x5::OnDecrypt()  { DoCrypt(1); }
 void CDlgKeyHill5x5::OnPasteKey() 
 {	
 	m_HillBase->pasteKey(); 
+   SetDimension( m_HillBase->dim );
 }
 
 void CDlgKeyHill5x5::OnZufaelligerSchluessel() 
@@ -403,17 +407,11 @@ void CDlgKeyHill5x5::OnGroessereSchluessel()
 
 void CDlgKeyHill5x5::OnHillOptions()
 {
-	if ( IDOK == m_HillBase->HillOptions.DoModal() )
-   {
-      displayAlphabet();
-      m_HillBase->syncAlphNum();
-   }
+   m_HillBase->SetHillOptions();
 }
 
 void CDlgKeyHill5x5::OnTextOptions()
 {
-	if(theApp.TextOptions.DoModal() != IDOK) 
-		return;
-	displayAlphabet();
-   m_HillBase->syncAlphNum();
+   if ( m_HillBase->SetTextOptions() )
+	   displayAlphabet();
 }

@@ -273,8 +273,8 @@ void CDlgKeyHill10x10::DoDataExchange(CDataExchange* pDX)
 
    DDX_Check(pDX, IDC_CHECK1, m_HillBase->verbose);
 	DDX_Text(pDX, IDC_EDIT3, m_pHillAlphInfo);
-   DDX_Text(pDX, IDC_EDIT2, m_HillBase->HillOptions.m_alphabetOffset );
-   DDV_MinMaxInt(pDX, m_HillBase->HillOptions.m_alphabetOffset, 0, 1);
+   DDX_Text(pDX, IDC_EDIT2, m_HillBase->HillOptions.m_offset );
+   DDV_MinMaxInt(pDX, m_HillBase->HillOptions.m_offset, 0, 1);
 }
 
 BEGIN_MESSAGE_MAP(CDlgKeyHill10x10, CDialog)
@@ -972,8 +972,10 @@ BOOL CDlgKeyHill10x10::OnInitDialog()
 	   radioSetMatType ( IDC_RADIO22 );
 
 	displayAlphabet();
-
    SetDimension( m_HillBase->dim );
+
+   if ( m_HillBase->HillMat.is_initialized() )
+      m_HillBase->SetHillMatrix();
 
 	CString cs;
 	cs.LoadStringA(IDS_CRYPT_HILL);
@@ -1003,6 +1005,7 @@ void CDlgKeyHill10x10::OnDecrypt() { DoCrypt(1); }
 void CDlgKeyHill10x10::OnPasteKey() 
 {	
 	m_HillBase->pasteKey(); 
+   SetDimension( m_HillBase->dim );
 }
 
 void CDlgKeyHill10x10::OnZufaelligerSchluessel() 
@@ -1015,22 +1018,17 @@ void CDlgKeyHill10x10::OnKleinereSchluessel()
 {
 	m_HillBase->currDlg = DLG_HILL_5x5; 
    m_HillBase->max_dim = DIM_DLG_HILL_5x5;
-	CDialog::OnOK();	
+   m_HillBase->GetHillMatrix();
+   CDialog::OnOK();	
 }
 
 void CDlgKeyHill10x10::OnHillOptions()
 {
-	if ( IDOK == m_HillBase->HillOptions.DoModal() )
-   {
-      displayAlphabet();
-      m_HillBase->syncAlphNum();
-   }
+   m_HillBase->SetHillOptions();
 }
 
 void CDlgKeyHill10x10::OnTextOptions()
 {
-	if(theApp.TextOptions.DoModal() != IDOK) 
-		return;
-	displayAlphabet();
-   m_HillBase->syncAlphNum();
+   if ( m_HillBase->SetTextOptions() )
+	   displayAlphabet();
 }

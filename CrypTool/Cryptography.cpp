@@ -579,7 +579,7 @@ void Hill(const char *infile, const char *OldTitle)
          CHillEncryption he( (const char*)theApp.TextOptions.getAlphabet(), hillbase.dim );
          if ( !hillbase.cryptMode ) // encrypt
          {
-            he.set_enc_mat( *hillbase.HillMat );
+            he.set_enc_mat( hillbase.HillMat );
             he.set_plaintext( cbuffer );
             delete []cbuffer;
 
@@ -591,7 +591,7 @@ void Hill(const char *infile, const char *OldTitle)
          else
          {
 		      CSquareMatrixModN inv_mat( hillbase.dim, he.get_modul());
-            ASSERT( hillbase.HillMat->invert( &inv_mat ) );
+            ASSERT( hillbase.HillMat.invert( &inv_mat ) );
 
             he.set_dec_mat( inv_mat );
             he.set_ciphertext( cbuffer );
@@ -3702,11 +3702,14 @@ int RailFenceEncryption(const char *infile, const char *oldTitle, int key, int o
 
 	// now, after encryption/decryption, restore characters that were not to be touched
 	CString finalCipherTextString;
-	if(theApp.TextOptions.getKeepCharactersNotPresentInAlphabetUnchanged() == true) {
-		for(int i=0, j=0; i<originalBufferString.length() && j<cipherTextString.length(); i++) {
+	if ( theApp.TextOptions.getKeepCharactersNotPresentInAlphabetUnchanged() ) 
+   {
+		for (unsigned int i=0, j=0; i<originalBufferString.length() && j<cipherTextString.length(); i++) 
+      {
 			// if we do have a character here that was NOT part of the alphabet, leave it 
 			// alone and store it in the finalCipherTextString variable
-			if(theApp.TextOptions.getAlphabet().Find(originalBufferString[i]) == -1) {
+			if(theApp.TextOptions.getAlphabet().Find(originalBufferString[i]) == -1) 
+         {
 				finalCipherTextString.Append((CString)originalBufferString.c_str()[i]);
 			}
 			else {
@@ -3911,14 +3914,18 @@ int ScytaleEncryption(const char *infile, const char *oldTitle, int key, int off
 
 	// now, after encryption/decryption, restore characters that were not to be touched
 	CString finalCipherTextString;
-	if(theApp.TextOptions.getKeepCharactersNotPresentInAlphabetUnchanged() == true) {
-		for(int i=0, j=0; i<originalBufferString.length() && j<cipherTextString.length(); i++) {
+	if ( theApp.TextOptions.getKeepCharactersNotPresentInAlphabetUnchanged() ) 
+   {
+		for ( unsigned int i=0, j=0; i<originalBufferString.length() && j<cipherTextString.length(); i++ ) 
+      {
 			// if we do have a character here that was NOT part of the alphabet, leave it 
 			// alone and store it in the finalCipherTextString variable
-			if(theApp.TextOptions.getAlphabet().Find(originalBufferString[i]) == -1) {
+			if(theApp.TextOptions.getAlphabet().Find(originalBufferString[i]) == -1) 
+         {
 				finalCipherTextString.Append((CString)originalBufferString.c_str()[i]);
 			}
-			else {
+			else 
+         {
 				finalCipherTextString.Append((CString)cipherTextString.c_str()[j++]);
 			}
 		}

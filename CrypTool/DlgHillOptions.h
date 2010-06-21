@@ -30,9 +30,7 @@ class DlgHillOptions : public CDialog
 	DlgHillOptions(CWnd* pParent = NULL);   // standard constructor
 	virtual ~DlgHillOptions();
 
-	unsigned long m_alphabetOffset;
 	unsigned long useFirstCharFromAlph;
-	CString       m_FirstCharFromAlph;
 	CString       m_ownCharForPadding;
 
    void readRegistry();
@@ -46,17 +44,14 @@ class DlgHillOptions : public CDialog
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
-   void EnableFirstPosNull();
-	void DisableFirstPosNull();
-	bool isInAlph(CString strChar);
 
 	DECLARE_MESSAGE_MAP()
 
 	BOOL OnInitDialog();
-	void OnOK();
    afx_msg void OnBnClickedOk();
-	afx_msg void OnBnClickedCancel();
 	afx_msg void OnBnClickedRadio1();
 	afx_msg void OnBnClickedRadio2();
 	afx_msg void OnEnChangeEdit2();
+public:
+   int m_offset;
 };

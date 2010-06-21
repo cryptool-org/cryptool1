@@ -94,7 +94,7 @@ private:
 	BOOL separateLetters;
 	BOOL ignoreCase;
 	// tri-state variables associated with the check boxes
-	int	upperCase;
+	int upperCase;
 	int lowerCase;
 	int punctuation;
 	int digits;

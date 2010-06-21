@@ -28,13 +28,27 @@
 #include "CrypToolTools.h"
 
 // DlgHillOptions dialog
+void DlgHillOptions::DoDataExchange(CDataExchange* pDX)
+{
+   CDialog::DoDataExchange(pDX);
+   DDX_Text(pDX, IDC_EDIT2, m_ownCharForPadding);
+   DDX_Radio(pDX, IDC_RADIO3, m_offset);
+}
+
+BEGIN_MESSAGE_MAP(DlgHillOptions, CDialog)
+	ON_BN_CLICKED(IDOK,        OnBnClickedOk)
+	ON_BN_CLICKED(IDC_RADIO1,  OnBnClickedRadio1)
+	ON_BN_CLICKED(IDC_RADIO2,  OnBnClickedRadio2)
+	ON_EN_CHANGE (IDC_EDIT2,   OnEnChangeEdit2)
+END_MESSAGE_MAP()
+
+
 
 IMPLEMENT_DYNAMIC(DlgHillOptions, CDialog)
 DlgHillOptions::DlgHillOptions(CWnd* pParent /*=NULL*/)
 	: CDialog(DlgHillOptions::IDD, pParent)
-	, m_FirstCharFromAlph(_T(""))
 	, m_ownCharForPadding(_T(""))
-	, m_alphabetOffset(0)
+   , m_offset(0)
 {
 }
 
@@ -44,25 +58,23 @@ DlgHillOptions::~DlgHillOptions()
 
 void DlgHillOptions::readRegistry()
 {
-	m_FirstCharFromAlph  = theApp.TextOptions.getAlphabet()[0];
-	m_alphabetOffset     = 0;
+	m_offset             = 0;
 	useFirstCharFromAlph = 1;
 
    if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ, IDS_REGISTRY_SETTINGS, "Hill") == ERROR_SUCCESS)
 	{
-		CT_READ_REGISTRY_DEFAULT(m_alphabetOffset, "OrdChrOffset", m_alphabetOffset);
-		CT_READ_REGISTRY_DEFAULT(useFirstCharFromAlph, "PaddingDefaultChr", useFirstCharFromAlph);
+      unsigned long m_alphabetOffset;
+		CT_READ_REGISTRY_DEFAULT(m_alphabetOffset, "OrdChrOffset", 0);
+      m_offset = (int)m_alphabetOffset;
+		CT_READ_REGISTRY_DEFAULT(useFirstCharFromAlph, "PaddingDefaultChr", 1);
 
-		CString strAlph = theApp.TextOptions.getAlphabet();
-		if ( strAlph.GetLength() )
-		{
-			unsigned long u_length = 2; 
-			char cFirstCharFromAlph[3];
-			cFirstCharFromAlph[1] = '\0';
-			cFirstCharFromAlph[0] = strAlph.GetAt(0);
-			CT_READ_REGISTRY_DEFAULT(cFirstCharFromAlph,"PaddingOwnChr",cFirstCharFromAlph, u_length);
-			m_ownCharForPadding = cFirstCharFromAlph;
-		}
+      if ( theApp.TextOptions.getAlphabet().GetLength() )
+      {
+	      unsigned long u_length = 2; 
+	      char cFirstCharFromAlph[3];
+	      CT_READ_REGISTRY_DEFAULT(cFirstCharFromAlph,"PaddingOwnChr",theApp.TextOptions.getAlphabet().Mid(0,1).GetBuffer(), u_length);
+	      m_ownCharForPadding = cFirstCharFromAlph;
+      }
 		else
 		{
 			m_ownCharForPadding = _T("A");
@@ -75,24 +87,19 @@ void DlgHillOptions::writeRegistry()
 {
 	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "Hill" ) == ERROR_SUCCESS )
 	{
-		CT_WRITE_REGISTRY(unsigned long(m_alphabetOffset), "OrdChrOffset");
+		CT_WRITE_REGISTRY(unsigned long(m_offset), "OrdChrOffset");
 		CT_WRITE_REGISTRY(unsigned long(useFirstCharFromAlph), "PaddingDefaultChr");
 		CT_WRITE_REGISTRY(m_ownCharForPadding,"PaddingOwnChr");
 		CT_CLOSE_REGISTRY();
 	}
 }
 
-void DlgHillOptions::DoDataExchange(CDataExchange* pDX)
-{
-	CDialog::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_EDIT1, m_FirstCharFromAlph);
-	DDX_Text(pDX, IDC_EDIT2, m_ownCharForPadding);
-}
-
 BOOL DlgHillOptions::OnInitDialog()
 {
    readRegistry();
-	CheckRadioButton( IDC_RADIO3, IDC_RADIO4, ( m_alphabetOffset ) ? IDC_RADIO4 : IDC_RADIO3 );
+	CheckRadioButton( IDC_RADIO3, IDC_RADIO4, ( m_offset ) ? IDC_RADIO4 : IDC_RADIO3 );
+   GetDlgItem( IDC_EDIT1 )->SetWindowTextA( theApp.TextOptions.getAlphabet().Mid(0,1) );
+
 	if(useFirstCharFromAlph == 1)
 	{
 		CheckRadioButton(IDC_RADIO1, IDC_RADIO2, IDC_RADIO1);
@@ -107,95 +114,41 @@ BOOL DlgHillOptions::OnInitDialog()
 	return TRUE;
 }
 
-BEGIN_MESSAGE_MAP(DlgHillOptions, CDialog)
-	ON_BN_CLICKED(IDOK, OnBnClickedOk)
-	ON_BN_CLICKED(IDCANCEL, OnBnClickedCancel)
-	ON_BN_CLICKED(IDC_RADIO3, EnableFirstPosNull)
-	ON_BN_CLICKED(IDC_RADIO4, DisableFirstPosNull)
-	ON_BN_CLICKED(IDC_RADIO1, OnBnClickedRadio1)
-	ON_BN_CLICKED(IDC_RADIO2, OnBnClickedRadio2)
-	ON_EN_CHANGE(IDC_EDIT2, OnEnChangeEdit2)
-END_MESSAGE_MAP()
-
-
-// DlgHillOptions message handlers
-
 void DlgHillOptions::OnBnClickedOk()
 {
-	OnOK();
-}
-
-void DlgHillOptions::OnOK()
-{
-	UpdateData(true);
    writeRegistry();
-	UpdateData(false);
-	CDialog::OnOK();
-}
-
-void DlgHillOptions::OnBnClickedCancel()
-{
-	OnCancel();
-}
-void DlgHillOptions::EnableFirstPosNull()
-{
-	UpdateData(true);
-	m_alphabetOffset = 0;
-	UpdateData(false);
-}
-void DlgHillOptions::DisableFirstPosNull()
-{
-	UpdateData(true);
-	m_alphabetOffset = 1;
-	UpdateData(false);
+   OnOK();
 }
 
 void DlgHillOptions::OnBnClickedRadio1()
 {
-	UpdateData(true);
    useFirstCharFromAlph = 1;
-	UpdateData(false);
 	GetDlgItem(IDC_EDIT2)->EnableWindow(FALSE);
 }
 
 void DlgHillOptions::OnBnClickedRadio2()
 {
-	UpdateData(true);
 	useFirstCharFromAlph = 0;
-	UpdateData(false);
 	GetDlgItem(IDC_EDIT2)->EnableWindow(TRUE);
 	GetDlgItem(IDC_EDIT2)->SetFocus();
 }
 
 void DlgHillOptions::OnEnChangeEdit2()
 {
-	UpdateData(true);
-	if(isInAlph(m_ownCharForPadding))
-	{
-		if(m_ownCharForPadding.GetLength() == 1)
-		{
-			MyToUpper(m_ownCharForPadding);
-		}
-		else
-		{
-			MyToUpper(m_ownCharForPadding);
-			m_ownCharForPadding = m_ownCharForPadding[0];
-		}
-	}
-	else
-	{
-		m_ownCharForPadding.Empty();
-	}
-	UpdateData(false);
+	UpdateData( TRUE );
+
+   if ( m_ownCharForPadding.GetLength() > 1 )
+      m_ownCharForPadding.Delete(1, m_ownCharForPadding.GetLength() - 1);
+   char c = MyToUpper(m_ownCharForPadding[0]);
+   for ( int i = 0; i<theApp.TextOptions.getAlphabet().GetLength(); i++)
+      if ( c == theApp.TextOptions.getAlphabet()[i] )
+      {
+         c = 0;
+         break;
+      }
+   if ( c )
+      m_ownCharForPadding = _T("");
+
+   UpdateData( FALSE );
 }
 
-bool DlgHillOptions::isInAlph(CString strChar)
-{
-	MyToUpper(strChar);
-	for(int i=0; i<theApp.TextOptions.getAlphabet().GetLength();i++)
-		if(strChar == theApp.TextOptions.getAlphabet()[i])
-			return true;
-
-   return 
-      false;
-}
