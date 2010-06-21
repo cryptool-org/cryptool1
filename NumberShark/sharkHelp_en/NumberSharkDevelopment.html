@@ -58,6 +58,7 @@ Now you can play with maximum 9999 numbers. This border is set in the source cod
 
 <p><IMG SRC="Pictures_en/Dlg_limit_en.png" ALT=Dlg_limit_en.png" BORDER=0 width="91%"></p>
 
+
 <p><b><u>2. Maximum possible points</u></b></p>
 
 <p>During the test phase, we asked ourselves how many points a player can score. To answer this 
@@ -155,19 +156,24 @@ from the users of the website <a href="http://www.codeproject.com"
 target="_blank">http://www.codeproject.com</a>. 
 
 
+
 <p><a name="TODOLIST"></a><b><u>7. TODOs</u> - How the program can be improved</b></p>
 
 <p>Of course the program is not completed yet. More ideas are:
 <ol type=1>
 	<li>A big task is to make the algorithm for the maximum possible points and the best way to achieve them faster (see <a href="NumberSharkChallenge.html">challenge</a>).<br>
-	A first big progress was made with the backtracking algorithm, that was provided by Dr. Jens Liebehenschel 
-	(metio GmbH).</li>
+	A first big progress was made with the backtracking algorithm
+	[this performs an exhaustive search -- by excluding as much as
+	possible (partial) solutions]. This one was provided by Dr. Jens
+       	Liebehenschel (metio GmbH).</li>
 	<li>And there are many ways to make the game look more like a game for kids.</li>
 	<li>If the mouse pointer moves over a shell that is still active, the blue ones, it should change it appearance to a hand for example.</li>
 	<li>The numbers disappear in the shells (shells need to be animated).</li>
 	<li>A color selection similar to Paint where the player can change the text colors for example.</li>
 	<li>A slider control to select the size of the shell square (already implemented in JavaCrypTool).</li>
-	<li>Show a high score list for all users.</li>
+	<li>Show a high score list for all users (this is available with
+	    CrypTool Online at the link  <a href="http://www.cryptool-online.org/index.php/en/highlights/taxman"
+		target="_blank">http://cryptool-online.org/index.php/en/highlights/taxman</a>).</li>
 	<li>The player should have the possibility to decide buttons he wants to see on the shell square (20, 30 or 40).</li>
 	<li>Because the width of the rows can be changed manually, in the game progress list, there need to be a way to set them back to their default width.</li>
 	<li>One more idea is to switch the roles of the player and the Number Shark.</li>
@@ -181,9 +187,20 @@ target="_blank">http://www.codeproject.com</a>.
 		<li>read the already achieved values out of the *.zha file</li>
 	</ol>
 	</li>
-	<li>A save and load function would also be a good idea (already implemented for the brute-force algorithm).</li>
-	<li>Port the Number Shark to WPF and make the dialogs sizable (docking).</li>
-	<LI>Implement a function that distributes the shark food numbers without any user interaction.</LI>
+	<li>A save and load function would also be a good idea (already
+            implemented for the brute-force algorithm). Document for
+	    developers how the restart using intermediate calculated results
+	    has to be implemented.</li>
+	<li>Make the background white within the dialog box
+	    "Game rules / game description" (this is not the online help)
+	    and enlarge the font of the capitals.</li>
+        <li>Within the dialog box "Game options" below the tab "Welcome":
+            centralize horizontally the line with "savvy game" and enlarge
+            the font.</li>
+	 <li>Port the Number Shark to WPF and make the dialogs sizable
+	    (docking).</li>
+	 <LI>Implement a function that distributes the shark food numbers
+	    without any user interaction.</LI>
 </ol>
 </p>
 

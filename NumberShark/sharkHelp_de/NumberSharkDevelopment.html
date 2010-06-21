@@ -60,6 +60,7 @@ Dadurch wurde die maximal m&ouml;gliche Anzahl an Zahlen auf 9999 erh&ouml;ht. D
 
 <p><IMG SRC="Pictures_de/Dlg_limit_de.png" ALT="Dlg_limit_de.png" BORDER=0 width="91%"></p>
 
+
 <p><b><u>2. Maximal erreichbare Punktzahl ausgeben</u></b></p>
 
 <p>W&auml;hrend des Testens kam mehrfach die Frage auf, wie viel Punkte der Spieler maximal erreichen 
@@ -161,19 +162,22 @@ von <a href="http://www.codeproject.com"
 target="_blank">http://www.codeproject.com</a> zurückgegriffen.</p> 
 
 
+
 <p><a name="TODOLIST"></a><b><u>7. TODOs</u> - Wie man das Programm weiter verbessern kann.</b></p>
 
 <p>Das Zahlenhai-Programm kann nat&uuml;rlich noch weiterentwickelt werden. Vorschl&auml;ge f&uuml;r eine Version 2.0 sind:
 <ol type =1>
 	<li>Eine gro&szlig;e Aufgabe, die sich noch stellt, ist es, schnellere M&ouml;glichkeiten zu finden, die maximal m&ouml;gliche (optimale) Punktzahl und den Weg dahin zu berechnen (siehe <a href="NumberSharkChallenge.html">Challenge</a>).<br/>
-	Ein erster großer Fortschritt wurde mit dem Back-Tracking-Algorithmus erzielt. Der Back-Tracking-Algorithmus 
+	Ein erster großer Fortschritt wurde mit dem Back-Tracking-Algorithmus erzielt [dabei wird im Prinzip auch eine vollständige Suche durchgeführt -- mit Ausschluss möglichst vieler (Teil-)Lösungen]. Dieser Back-Tracking-Algorithmus 
 	wurde uns freundlicherweise von Herrn Dr. Jens Liebehenschel, metio GmbH, zur Verfügung gestellt.</li>
 	<li>Au&szlig;erdem gibt es viele M&ouml;glichkeiten, das Programm bunter und spielerischer aussehen zu lassen.</li>
 	<li>Wenn sich der Mauszeiger über einer noch auswählbaren blauen Muschel befindet, also einer blauen, dann soll sich er sich zum Beispiel in eine Hand verwandeln.</li>
 	<li>Eine animierte Muschel schluckt die Zahlen, wenn sie an den Zahlenhai gehen.</li>
 	<li>Eine Farbauswahlpalette, &auml;hnlich MS Paint, in die Optionen integrieren (Optionen-Reiter Farbe).</li>
 	<li>Sliderbox zur Auswahl der Zahlenvorratsgr&ouml;&szlig;e (in JavaCrypTool bereits implementiert).</li>
-	<li>Eine Highscore-Tabelle anzeigen.</li>
+	<li>Eine Highscore-Tabelle anzeigen (dies gibt es in CrypTool-Online
+	unter <a href="http://cryptool-online.org/index.php/de/highlights/taxman"
+		target="_blank">http://cryptool-online.org/index.php/de/highlights/taxman</a>).</li>
 	<li>Es soll m&ouml;glich sein, dass sich der Spieler aussuchen kann, wie viele Buttons er auf einmal im Tab-Control sehen m&ouml;chte (20, 30 oder 40).</li>
 	<li>Da sich die Spalten der Spielverlaufstabelle nicht automatisch ihrem Inhalt anpassen, sondern der Benutzer dies selber machen muss, soll es auch eine M&ouml;glichkeit f&uuml;r den Benutzer geben, die Spalten wieder auf ihre Ursprungsbreite zur&uuml;ck zu setzen.</li>
 	<li>Eine weitere Spielm&ouml;glichkeit f&uuml;r das Programm w&auml;re, dass Spieler und Zahlenhai die Rollen tauschen.</li>
@@ -187,10 +191,17 @@ target="_blank">http://www.codeproject.com</a> zurückgegriffen.</p>
 		<li>man aus der Datei *.zha die besten, bisher gefundenen Werte auslesen k&ouml;nnen.</li>
 	</ol>
 	</li>
-	<li>Zwischen-/Spielstand speichern und wieder aufsetzen (erledigt für den Brute-Force-Algorithmus).</li>
-	<li>Auf WPF portieren und dann die Dialogbox in der Höhe größenveränderbar machen (Andocken der Controls).</li>
-	<LI>Eine Funktion implementieren, die die Haifutterzahlen immer sofort verteilt, ohne dass der Benutzer 
-	eingreifen muss.</LI>
+	<li>Zwischen-/Spielstand speichern und wieder aufsetzen (erledigt für
+            den Brute-Force-Algorithmus). Dokumentieren für Entwickler, wie das
+	    Wiederaufsetzen zu implementieren ist.</li>
+	<li>In der Dialogbox "Spielregeln/Spielbeschreibung" (nicht Onlinehilfe)
+	    den Hintergrund weiß und die Überschriften größer machen.</li>
+        <li>In der Dialogbox "Spieloptionen" unter dem Reiter "Willkommen"
+	    die Zeile "Grips-Spiel" zentrieren und größerer Font.</li>
+	<li>Auf WPF portieren und dann die Dialogbox in der Höhe
+            größenveränderbar machen (Andocken der Controls).</li>
+        <LI>Eine Funktion implementieren, die die Haifutterzahlen immer sofort
+	    verteilt, ohne dass der Benutzer eingreifen muss.</LI>
 </ol>
 </p>
 
