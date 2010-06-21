@@ -4,6 +4,7 @@ Compiled file=NumberShark-de.chm
 Contents file=NumberShark.hhc
 Default topic=NumberShark.html
 Display compile progress=No
+Full-text search=Yes
 Index file=NumberShark.hhk
 Language=0x407 Deutsch (Deutschland)
 Title=Hilfe zum Zahlenhai

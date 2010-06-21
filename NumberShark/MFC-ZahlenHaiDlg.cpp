@@ -82,13 +82,6 @@ listenHeader columnheader[NUM_COLUMNS]={
 	{IDS_REST,LVCFMT_RIGHT,55}
 };
 
-// flomar, 02/22/2010
-// these arrays holds the maximum points possible for each upper limit (zero-based index); 
-// the first map holds PROVEN values, while the second map holds BEST-KNOWN values;
-// however, we only default to those hard-wired arrays if we cannot read from "GameData.txt" 
-int maxPossiblePointsProven[] = { 1, 2, 3, 7, 9, 15, 17, 21, 30, 40, 44, 50, 52, 66, 81, 89, 93, 111, 113, 124, 144, 166, 170, 182, 198, 224, 251, 279, 285, 301, 303, 319, 352, 386, 418, 442, 448, 486, 503, 525, 529, 571, 573, 617, 660, 706, 710, 734, 758, 808, 833, 885, 891, 940, 981, 1017, 1040, 1098, 1104, 1137, 1139, 1201, 1264, 1296, 1328, 1394, 1400, 1468, 1499, 1566, 1570, 1642, 1644, 1718, 1793, 1869, 1914, 1991, 1997, 2041, 2105, 2187, 2191, 2263, 2309, 2395, 2436, 2496, 2502, 2552, 2588, 2680, 2715, 2809, 2853, 2901, 2909, 3007, 3106, 3164, 3168, 3270, 3272, 3332, 3434, 3540, 3544, 3652, 3654, 3764, 3813, 3925, 3929, 4043, 4101, 4217, 4334, 4452, 4506, 4593, 4689, 4811, 4860, 4984, 5109, 5191, 5205, 5301, 5348, 5478, 5482, 5572, 5620, 5754, 5844, 5928, 5934, 6072, 6074, 6164, 6219, 6361, 6427, 6523, 6599, 6745, 6892, 7040, 7050, 7137, 7139, 7223, 7376, 7530, 7598, 7688, 7694, 7852 };
-int maxPossiblePointsBestKnown[] = { 7902, 8005, 8071, 8233, 8239, 8403, 8568, 8734, 8738, 8906, 8954, 9124 };
-
 // flomar, 02/23/2010
 SearchStatus searchStatus;
 
@@ -1347,11 +1340,11 @@ void CMFCZahlenHaiDlg::writeLogFile()
 	int upperLimit=hai.getUpperLimit();
 	//Wenn die maximale Punktezahl für die gewählte Zahl schonmal berechnet wurde, wird das errechnete Ergebnis
 	//auch mit in der Zusammenfassung angegeben
-	if(upperLimit <= sizeof(maxPossiblePointsProven)/sizeof(int))
-	{
+
+
+	if(upperLimit <= optionen.getMapPrecalculatedScores().size()) {
      	CString logfileMaxPoints;
-		logfileMaxPoints.LoadString(IDS_LOGFILE_MAXPOINTS);
-		if(upperLimit <= optionen.getMapPrecalculatedScores().size())
+			logfileMaxPoints.LoadString(IDS_LOGFILE_MAXPOINTS);
 			file.WriteString(logfileMaxPoints + optionen.getMapPrecalculatedScores()[upperLimit].score);
 	}
 
@@ -1439,8 +1432,6 @@ void CMFCZahlenHaiDlg::enterWasPressed()
 			OnBnClickedButtonOk();
 			if(numbers >= 1 && numbers <= MAX_ZAHLENHAI_NUMBERS)
 			{
-				//Der Focus wird auf den Button mit der Zahl 1 gelegt
-				arrayButtonControl[0].SetFocus();
 				((CEdit*)GetDlgItem(IDC_EDIT1))->EnableWindow(false);
 			}
 		}
