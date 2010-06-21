@@ -401,7 +401,7 @@ void CDlgAutomatedPermAnalysis::OnBnClickedCompute()
 		upperLimit = analysis.get_size();
 	}
 	if ( upperLimit > MAX_PERM_LENGTH )
-		upperLimit == MAX_PERM_LENGTH;
+		upperLimit = MAX_PERM_LENGTH;
 	m_editRangeTo.Format(_T("%d"), upperLimit);
 
 	UpdateData(FALSE);
