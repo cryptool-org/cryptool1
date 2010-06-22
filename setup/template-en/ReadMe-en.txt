@@ -826,6 +826,9 @@ a) Developer-relevant changes (more technically oriented):
   Doing so around 6000 lines of C++ code could be saved, nevertheless
   functionality and performance were improved!
 
+- The welcome screen was created newly, so that the texts of different
+  languages can be combined with the background more easily.
+
 - Now compiled with VS2008.
 
 - Update of used libraries and other software to the following versions:
@@ -1012,7 +1015,8 @@ c) New functionality / Usability:
 - The way, how a permutation is created from a key word, is now the same with
   all methods (double column transposition, ADFGVX).
 
-- The Hill cipher supports further options.
+- The Hill cipher supports further options, and all key parameters and all
+  according options are saved in the key store (registry).
 
 - Playfair encyrption offers further options (pre-formatting; differentiate
   whether to insert separators only between pairs of double characters or
@@ -1037,7 +1041,7 @@ c) New functionality / Usability:
   The "Text options" button is intentionally not available in the key entry
   dialogs for the following ciphers:
   - Substitution part of ADFGVX (algorithm requires fixed alphabet)
-  - Playfair (algorithm requires fixed alphabet)
+  - Playfair (the algorithm determines via the matrix the alphabet)
   - Permutation (all data is permutated; preformat the document if wished 
                  by yourself via the menu "View \ Format Text Document")
   - Solitaire (algorithm requires fixed alphabet; turning all letter into

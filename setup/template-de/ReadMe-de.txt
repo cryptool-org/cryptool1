@@ -841,6 +841,9 @@ a) Entwickler-relevante Änderungen (eher Programm-technisch):
   rund 6000 Zeilen C++-Code eingespart und dennoch Funktionalität und
   Performance verbessert!
 
+- Das Begrüßungsfenster wurde neu erstellt, so dass leichter die Texte
+  verschiedener Sprachen darüber gelegt werden können.
+
 - Nun mit VS2008 compiliert.
 
 - Update der Bibliotheken und genutzten Fremdsoftware auf ff. Versionen:
@@ -1033,7 +1036,9 @@ c) Neue Funktionalität / Bedienung:
 - Die Art, wie aus einem Schlüsselwort eine Permutation erzeugt wird, ist
   nun bei allen Verfahren (Doppelwürfel, ADFGVX) gleich.
 
-- Die Hill-Verschlüsselung bietet nun weitere Optionen.
+- Die Hill-Verschlüsselung bietet nun weitere Optionen, und alle Schlüssel-
+  parameter (Hill-Optionen) werden mit im Schlüsselspeicher (Registry)
+  abgelegt.
 
 - Die Playfair-Verschlüsselung bietet nun weitere Optionen (Vorformatierung;
   Unterscheidung, ob Trenner nur innerhalb von Paaren gleicher Buchstaben
@@ -1060,7 +1065,7 @@ c) Neue Funktionalität / Bedienung:
   Der Textoptionen-Button ist absichtlich nicht verfügbar in den Schlüssel-
   eingabe-Dialogen der folgenden Verschlüsselungsverfahren:
   - Substitutions-Teil von ADFGVX (der Algorithmus erfordert ein festes Alphabet)
-  - Playfair (der Algorithmus erfordert ein festes Alphabet)
+  - Playfair (der Algorithmus legt über die Matrix auch das Alphabet fest)
   - Permutation (alle Daten werden permutiert; wenn gewünscht, kann das Dokument
                  von Ihnen selbst vorab vorformatiert werden -- mit dem Menü
                  "Ansicht \ Textdokument formatieren")

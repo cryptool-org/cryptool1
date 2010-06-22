@@ -17,25 +17,32 @@
 
 <h3>Playfair (Menu <A href="menu_crypt.html">Encrypt/Decrypt</A> \ Symmetric (classic))</h3>
 
-<P>The Playfair <!--ZZZPOPUP--><A href="verschluesselung.html">encryption algorithm</A> is based on an 
-algorithm developed by Charles Wheatstone in 1854. The following example shows how Playfair operates:</P>
+<P>The Playfair <!--ZZZPOPUP--><A href="verschluesselung.html">encryption algorithm</A> is based on an algorithm developed by Charles Wheatstone in 1854.
+The following example shows how Playfair operates:</P>
 
-<P>To start with, one requires an encryption key (as an example we will use the word "PEGASOS"). This 
-password is entered in a 5x5 or 6x6 matrix using the <A href="hidd_key_playfair.html">Playfair key entry</A> 
-dialog, as illustrated below.</P>
+<P>To start with, one requires an encryption key (as an example we will use the
+word "PEGASOS"). This password is entered in a 5x5 or 6x6 matrix using the
+<A href="hidd_key_playfair.html">Playfair key entry</A> dialog, as illustrated
+below.</P>
 
-<P>The remaining cells in the matrix are then filled in with the alphabetic letters that are left over. 
-Any characters which already exist are omitted here.</P>
+<P>The remaining cells in the matrix are then filled in with the alphabetic
+letters that are left over. Any characters which already exist are omitted
+here.</P>
 
-<P>The Playfair alphabet consists of 26 letters (A to Z). In a 5x5 matrix, the J is left out. In a 6x6 
-matrix, the original alphabet is extended with digits (0 to 9).</P>
+<P>The Playfair alphabet consists of 26 letters (A to Z). In a 5x5 matrix,
+the J is left out. In a 6x6 matrix, the original alphabet is extended with
+digits (0 to 9).</P>
 
 <div class="indent">
 <P><IMG SRC="images/playfairkeydialog.png" ALT="playfairkeydialog.png" BORDER="0"></P>
 </div>
 		
-<P>The message to be encrypted is then written down in groups of two characters each (digrams). For example, 
-suppose the message to be encrypted is:</P>
+<P>First, the message to be encrypted is pre-formatted: The lower-case
+letters are converted to capital letters and non-alphabet characters
+are removed.</P>
+		
+<P>Then, the result is written down in blocks of two characters each (digrams).
+For example, suppose the message to be encrypted is:</P>
 
 <div class="indent">
 <P>AL LE SI ST HE RA US FL IE HE SO FO RT  (= " cover is broken flee immediately ").</P>
