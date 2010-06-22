@@ -252,12 +252,15 @@ BOOL CMFCZahlenHaiDlg::OnInitDialog()
 	haiBild4.LoadBitmap(IDB_BITMAP3);
 
 	// flomar, 03/04/2010
-	comicBackgroundBitmaps[0].LoadBitmap(IDB_BITMAP12);
-	comicBackgroundBitmaps[1].LoadBitmap(IDB_BITMAP13);
-	comicBackgroundBitmaps[2].LoadBitmap(IDB_BITMAP14);
-	comicBackgroundBitmaps[3].LoadBitmap(IDB_BITMAP15);
-	comicBackgroundBitmaps[4].LoadBitmap(IDB_BITMAP16);
-	comicBackgroundBitmaps[5].LoadBitmap(IDB_BITMAP17);
+	comicBackgroundBitmaps[0].LoadBitmap(IDB_BITMAP_NUMBERSHARK_01);
+	comicBackgroundBitmaps[1].LoadBitmap(IDB_BITMAP_NUMBERSHARK_02);
+	comicBackgroundBitmaps[2].LoadBitmap(IDB_BITMAP_NUMBERSHARK_03);
+	comicBackgroundBitmaps[3].LoadBitmap(IDB_BITMAP_NUMBERSHARK_04);
+	comicBackgroundBitmaps[4].LoadBitmap(IDB_BITMAP_NUMBERSHARK_05);
+	comicBackgroundBitmaps[5].LoadBitmap(IDB_BITMAP_NUMBERSHARK_06);
+	comicBackgroundBitmaps[6].LoadBitmap(IDB_BITMAP_NUMBERSHARK_07);
+	comicBackgroundBitmaps[7].LoadBitmap(IDB_BITMAP_NUMBERSHARK_08);
+	comicBackgroundBitmaps[8].LoadBitmap(IDB_BITMAP_NUMBERSHARK_09);
 
 	shellBoxText.LoadString(IDS_SHELL_GROUP_BOX);
 	seperator.LoadString(IDS_SEPERATOR);
@@ -911,7 +914,10 @@ void CMFCZahlenHaiDlg::OnBnClickedButtonStartnew()
 		case 7:haiListe.SetBitmap(comicBackgroundBitmaps[3]);break;
 		case 8:haiListe.SetBitmap(comicBackgroundBitmaps[4]);break;
 		case 9:haiListe.SetBitmap(comicBackgroundBitmaps[5]);break;
-		case 10:haiListe.SetBitmap(haiBild);newGameCount=0;break;
+		case 10:haiListe.SetBitmap(comicBackgroundBitmaps[6]);break;
+		case 11:haiListe.SetBitmap(comicBackgroundBitmaps[7]);break;
+		case 12:haiListe.SetBitmap(comicBackgroundBitmaps[8]);break;
+		case 13:haiListe.SetBitmap(haiBild);newGameCount=0;break;
     }
 	
 	OnStopTimer();

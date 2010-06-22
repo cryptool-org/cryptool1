@@ -1318,11 +1318,47 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Bilder\Zahlenhai.ico"
+				>
+			</File>
+			<File
 				RelativePath=".\res\Zahlenhai.ico"
 				>
 			</File>
 			<File
-				RelativePath=".\Bilder\Zahlenhai.ico"
+				RelativePath=".\Bilder\Zahlenhai01.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\Zahlenhai02.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\Zahlenhai03.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\Zahlenhai04.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\Zahlenhai05.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\Zahlenhai06.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\Zahlenhai07.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\Zahlenhai08.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Bilder\Zahlenhai09.bmp"
 				>
 			</File>
 			<File

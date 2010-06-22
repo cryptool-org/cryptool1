@@ -32,7 +32,7 @@ CAPTION "Informacje o grze NumberShark"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            128,IDC_STATIC,11,17,20,20
-    LTEXT           "Number Shark Wersja 1.2",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Number Shark Wersja 1.2.1",IDC_STATIC,40,10,119,8,SS_NOPREFIX
     LTEXT           "Copyright (C) 2010",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
 END
@@ -210,11 +210,11 @@ BEGIN
         BEGIN
             VALUE "Copyright (C) 2006", " (C) CrypTool Projekt 2010"
             VALUE "FileDescription", "Number Shark jest gra edukacyjna na rzecz poprawy wiedzy na temat czynnikow i liczb pierwszych."
-            VALUE "FileVersion", "1.2"
+            VALUE "FileVersion", "1.2.1"
             VALUE "InternalName", "NumberShark.exe"
             VALUE "OriginalFilename", "NumberShark.exe"
             VALUE "ProductName", "NumberShark"
-            VALUE "ProductVersion", "1.2"
+            VALUE "ProductVersion", "1.2.1"
         END
     END
     BLOCK "VarFileInfo"
@@ -337,12 +337,15 @@ IDB_BITMAP2             BITMAP                  "Bilder\\hai01-engl.bmp"
 IDB_BITMAP_REDO         BITMAP                  "bilder\\foreward-engl.bmp"
 IDB_BITMAP9             BITMAP                  "Bilder\\shark-engl.bmp"
 IDB_BITMAP3             BITMAP                  "Bilder\\HaiAnAngel-engl.bmp"
-IDB_BITMAP12            BITMAP                  "bilder\\bitmap12.bmp"
-IDB_BITMAP13            BITMAP                  "bilder\\bitmap13.bmp"
-IDB_BITMAP14            BITMAP                  "bilder\\bitmap14.bmp"
-IDB_BITMAP15            BITMAP                  "bilder\\bitmap15.bmp"
-IDB_BITMAP16            BITMAP                  "bilder\\bitmap16.bmp"
-IDB_BITMAP17            BITMAP                  "bilder\\bitmap17.bmp"
+IDB_BITMAP_NUMBERSHARK_01 BITMAP                  "bilder\\Zahlenhai01.bmp"
+IDB_BITMAP_NUMBERSHARK_02 BITMAP                  "bilder\\Zahlenhai02.bmp"
+IDB_BITMAP_NUMBERSHARK_03 BITMAP                  "bilder\\Zahlenhai03.bmp"
+IDB_BITMAP_NUMBERSHARK_04 BITMAP                  "bilder\\Zahlenhai04.bmp"
+IDB_BITMAP_NUMBERSHARK_05 BITMAP                  "bilder\\Zahlenhai05.bmp"
+IDB_BITMAP_NUMBERSHARK_06 BITMAP                  "bilder\\Zahlenhai06.bmp"
+IDB_BITMAP_NUMBERSHARK_07 BITMAP                  "bilder\\Zahlenhai07.bmp"
+IDB_BITMAP_NUMBERSHARK_08 BITMAP                  "bilder\\Zahlenhai08.bmp"
+IDB_BITMAP_NUMBERSHARK_09 BITMAP                  "bilder\\Zahlenhai09.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -410,7 +413,7 @@ BEGIN
     IDS_ABOUTBOX            "&Informacje o Number Shark"
     IDS_RULES               "Opis gry:\n - Na pocz¹tku gry Number Shark mo¿esz wybraæ rozmiar ""shell square"", czyli iloœci liczb, z którymi chcesz zagraæ.\n\n Rozmiar ""shell square"" - n nazywamy ""liczb¹ wybieralnych liczb"". Pula liczb zaczyna siê o 1 \n i koñczy liczb¹, któr¹ wybra³eœ jako rozmiar ""shell square"" (na pocz¹tek sugerujemy liczbê 20).\n\n Po tym wszystkie liczby z ""shell square"" zostan¹ podane albo Tobie albo komputerowi (""Number Shark"").\n\n Mo¿esz przeczytaæ zasady tego, jak dzielone s¹ liczby  w poni¿szym tekœcie\n\nCel gry:\nTwoim celem jest osi¹gn¹æ wiêkszy wynik ni¿ suma liczb, które zosta³y zjedzone przez Number Sharka.\n\nZasady gry:\n - Pierwszy ruch zawsze nale¿y do Ciebie: zawsze Ty rozpoczynasz pierwsz¹ rundê.\n - W tej rundzie mo¿esz wybraæ ka¿d¹ z n liczb z shell square.\n - Number Shark pobiera ka¿dy dostêpny czynnik rzeczywisty liczby wybranej przez Ciebie, jeœli nie zosta³ \n jeszcze wybrany. (na przyk³ad: 6 jest podzielne przez 1,2,3 i 6. Rzeczywistym czynnikiem jest 1,2 i 3).\n - We wszystkich nastêpnych rundach mo¿esz wybraæ tylko liczby, które nie zosta³y ju¿ przez Ciebie wybrane,\n    lub zosta³y zjedzone przez Number Sharka w poprzednich rundach (np.: tylko niebieskie muszelki)\n -ALE: Number Shark mo¿e nigdy siê nie pomyliæ!\n -Jeœli wybierzesz liczbê, która nie ma ju¿ dostêpnych czynników, wówczas Number Shark po³yka Twoj¹ liczbê,\n a Ty otrzymujesz 0 punktów za bie¿¹c¹ rundê."
     IDS_PLAYER_WINS         "Gratulacje, wygra³eœ z Number Sharkiem!\n\n\n\n Jeœli poszukujesz wiêkszego wyzwania, spróbuj liczbê wiêksz¹ ni¿ %s. \n\n\n\nOsi¹gn¹³eœ %s punktów. Najwiêkszy mo¿liwy wynik z %s liczbami wyniós³by %s."
-    IDS_VERSION_INFO        "Number Shark Wersja 1.2"
+    IDS_VERSION_INFO        "Number Shark Wersja 1.2.1"
     IDS_COMPUTER_WINS       "Tym razem Number Shark wygra³:-( \r\n\r\n Wygra³ z Tob¹ %s do %s. \r\n\r\n Spróbuj jeszcze raz! \r\n\r\n"
     IDS_DRAW                "Remis!?!\r\n\r\n To zdarza siê bardzo rzadko! \r\n\r\n Ty i Number Shark macie po % punktów."
     IDS_MAX_POINTS_NEW      "Aby obliczyæ dla %s liczb najwiêkszy wynik z %s punktów \n\n program potrzebowa³ %s sekund. Musia³ przejœæ przez%s wêz³ów. \n\n Najwiêksza liczba pierwsza to %s. Powinieneœ rozpocz¹æ grê od tej w³aœnie liczby, aby osi¹gn¹æ maksymalny wynik.\n\n\n\n To achieve the highest score, you can choose the numbers in this order: %s Aby osi¹gn¹æ najwiêkszy wynik, mo¿esz wybraæ liczby w tej kolejnoœci: %s.\n\n\n\nProszê wys³aæ swoje nowo obliczone wartoœci na esslinger@fb5.uni-siegen.de, aby zintegrowaæ je z gr¹."
@@ -533,7 +536,7 @@ BEGIN
     IDS_TOOL_TIP_UNDO       "Poprzez ""Cofnij"" mo¿esz powtórzyæ poprzednie rundy jeœli chcesz wybraæ inne liczby."
     IDS_TOOL_TIP_REDO       "Poprzez ""Ponów"" mo¿esz przejœæ naprzód tyle kroków ile poszed³eœ wstecz w grze poprzez ""Cofnij"""
     IDS_MAX_POINTS_NEW_2    "Aby obliczyæ dla %s liczb najwiêksza sumê %s punktów\n\n program potrzebowa³ %s sekund. Musia³ przejœæ przez %s wêz³ów.\n\nNajwiêksz¹ liczb¹ pierwsz¹ tutaj jest %s. Powinieneœ rozpocz¹æ grê z t¹ liczb¹ pierwsz¹, aby osi¹gn¹æ maksymalny wynik.\n\n\n\nAby osi¹gn¹æ ten wynik, powinieneœ wybraæ liczby w tej kolejnoœci: %s."
-    IDS_SHELL_GROUP_BOX     "Shell square (niebieski oznacza: mo¿na wybraæ; czerwony: ju¿ u¿yty)"
+    IDS_SHELL_GROUP_BOX     "i18n Shell square (blue means ""still free to choose""; gray means ""already distributed and eaten up"")"
     IDS_NORMAL_GROUP_BOX    "Shell square"
     IDS_NO_SEARCH           "Plik ""%s"" nie móg³ zostaæ zapisany. Prawdopodobnie nie posiadasz wystarczaj¹cych praw dla folderu.\r\n""%s"".\r\n\r\n Obliczenia rozpoczn¹ siê mimo to, ale nie bêd¹ mog³y byæ kontynuowane po przerwie."
     IDS_NO_SUMMARY          "Plik ""%s"" nie móg³ zostaæ zapisany. Prawdopodobnie nie posiadasz wystarczaj¹cych praw do folderu \r\n""%s"".\r\n"
@@ -607,7 +610,7 @@ CAPTION "Informacije o igri Ajkula Brojeva"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            128,IDC_STATIC,11,17,20,20
-    LTEXT           "Ajkula Brojeva Verzija 1.2",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Ajkula Brojeva Verzija 1.2.1",IDC_STATIC,40,10,119,8,SS_NOPREFIX
     LTEXT           "Copyright (C) 2010",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
 END
@@ -785,11 +788,11 @@ BEGIN
         BEGIN
             VALUE "Copyright (C) 2006", " (C) CrypTool Project 2010"
             VALUE "FileDescription", "Ajkula Brojeva je edukativna igra za usavršavanje znanja o ciniocima i prostim brojevima."
-            VALUE "FileVersion", "1.2"
+            VALUE "FileVersion", "1.2.1"
             VALUE "InternalName", "NumberShark.exe"
             VALUE "OriginalFilename", "NumberShark.exe"
             VALUE "ProductName", "NumberShark"
-            VALUE "ProductVersion", "1.2"
+            VALUE "ProductVersion", "1.2.1"
         END
     END
     BLOCK "VarFileInfo"
@@ -912,12 +915,15 @@ IDB_BITMAP2             BITMAP                  "Bilder\\hai01-engl.bmp"
 IDB_BITMAP_REDO         BITMAP                  "bilder\\foreward-engl.bmp"
 IDB_BITMAP9             BITMAP                  "Bilder\\shark-engl.bmp"
 IDB_BITMAP3             BITMAP                  "Bilder\\HaiAnAngel-engl.bmp"
-IDB_BITMAP12            BITMAP                  "bilder\\bitmap12.bmp"
-IDB_BITMAP13            BITMAP                  "bilder\\bitmap13.bmp"
-IDB_BITMAP14            BITMAP                  "bilder\\bitmap14.bmp"
-IDB_BITMAP15            BITMAP                  "bilder\\bitmap15.bmp"
-IDB_BITMAP16            BITMAP                  "bilder\\bitmap16.bmp"
-IDB_BITMAP17            BITMAP                  "bilder\\bitmap17.bmp"
+IDB_BITMAP_NUMBERSHARK_01 BITMAP                  "bilder\\Zahlenhai01.bmp"
+IDB_BITMAP_NUMBERSHARK_02 BITMAP                  "bilder\\Zahlenhai02.bmp"
+IDB_BITMAP_NUMBERSHARK_03 BITMAP                  "bilder\\Zahlenhai03.bmp"
+IDB_BITMAP_NUMBERSHARK_04 BITMAP                  "bilder\\Zahlenhai04.bmp"
+IDB_BITMAP_NUMBERSHARK_05 BITMAP                  "bilder\\Zahlenhai05.bmp"
+IDB_BITMAP_NUMBERSHARK_06 BITMAP                  "bilder\\Zahlenhai06.bmp"
+IDB_BITMAP_NUMBERSHARK_07 BITMAP                  "bilder\\Zahlenhai07.bmp"
+IDB_BITMAP_NUMBERSHARK_08 BITMAP                  "bilder\\Zahlenhai08.bmp"
+IDB_BITMAP_NUMBERSHARK_09 BITMAP                  "bilder\\Zahlenhai09.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -949,7 +955,7 @@ BEGIN
     IDS_ABOUTBOX            "&Informacije o igri Ajkula Brojeva"
     IDS_RULES               "Opis:\r\n - Na pocetku igre Ajkula Brojeva birate velicinu kvadrata školjke, ovo je kolicina brojeva sa kojom želite da igrate.\r\n    Velicinu kvadrata školjke imenujemo sa ""n"" i zovemo je ""skup odabirljivih brojeva"". Skup brojeva pocinje sa 1\r\n    i završava se brojem koji ste odabrali da bude velicina školjke (predlažemo broj 20 za pocetak).\r\n    Posle toga svi brojevi iz kvadrata školjke ce biti dati ili vama ili kompjuteru (""Number Shark"").\r\n    Možete procitati pravila o deljenju brojeva iz teksta ispod.\r\n - Podrazumevano, postoji 20 u kvadratu školjke. Kao ukupan broj možete odabrati bilo koji broj od 1 do 9999 for n.\r\n\r\nCilj igre:\r\n - Vaš cilj je da postignete veci rezultat nego sumu brojeva koji je pojela Ajkula Brojeva.\r\n\r\nPravila:\r\n - Uvek igrate prvi, npr. pocinjete prvu rundu.\r\n - U ovoj rundi možete odabrati bilo koji od n brojeva iz kvadrata školjke.\r - Ajkula Brojeva dobija svaki dostupan realni cinilac broja koji ste odabrali, ako vec nisu odabrani\r\n    (6 je npr. deljivo sa 1, 2, 3 i 6. Realni cinioci su 1, 2 i 3).\r\n - U svim sledecim rundama možete odabrati brojeve koje niste odabrali,\r\n    ili koje je pojela Ajkula Brojeva u prethodnim rundama (npr. samo plave školjke).\r\n - ALI: Ajkula Brojeva nikada ne može da preskoci!\r\n - Ako ste odabrali broj koji nema više cinilaca, onda Ajkula Brojeva dobija vaš odabrani broj i dobijate 0 u ovoj rundi.\r\n\r\n"
     IDS_PLAYER_WINS         "Cestitamo, pobedili ste Ajkulu Brojeva!\n\n Ako tražite veci izazov, probajte veci broj od %s.\n\nDobili ste %s poena. Najviši moguci rezultat sa %s brojeva bi bio %s."
-    IDS_VERSION_INFO        "Ajkula Brojeva 1.2"
+    IDS_VERSION_INFO        "Ajkula Brojeva 1.2.1"
     IDS_COMPUTER_WINS       "Ovaj put je Ajkula Brojeva pobedila :,-(\n\n Pojeva vas je sa %s do %s poena.\n\n Krenite -- Pokušajte opet!"
     IDS_DRAW                "Nerešeno!?!\n\nOvo se dešava veoma retko!\n\nVi i Ajkula Brojeva imate po %s poena."
     IDS_MAX_POINTS_NEW      "Za racunanje za %s brojeva najveci rezultat od %s poena, programu je trebalo %s sekundi. Morao je da prode %s cvorova.\n\nNajveci prost broj ovde je %s. Morate poceti igru sa ovim brojem da biste dostigli najviši rezultat.\n\nDa biste postigli najviši rezultat, možete odabrati brojeve u ovom redosledu: %s"
@@ -1018,7 +1024,7 @@ BEGIN
     IDS_SHARK_AGAINST       " protiv "
     IDS_GAME_DATA           "GameData.txt"
     IDS_HELP_FILE           "NumberShark-en.chm::/NumberShark.html"
-    IDS_TITLE_VERSION       " - Verzija 1.2"
+    IDS_TITLE_VERSION       " - Verzija 1.2.1"
 END
 
 STRINGTABLE 
@@ -1072,7 +1078,7 @@ BEGIN
     IDS_TOOL_TIP_UNDO       "Sa ""Vrati"" možete ponoviti prethodne runde ako želite da odaberete druge brojeve."
     IDS_TOOL_TIP_REDO       "Sa ""Ponovi"" možete ici unapred i igri onoliko koraka koliko ste koristili opciju ""Vrati""."
     IDS_MAX_POINTS_NEW_2    "Za racunanje za %s brojeva najviši rezultat od %s poena, programu je trebalo %s sekundi. Morao je da prode kroz %s cvorova.\n\nNajveci prost broj ovde je %s. Morate poceti igru sa ovim brojem da biste mogli da postignete najveci moguci rezultat.\n\nDa biste postigli najveci moguci rezultat možete odabrati brojeve u ovom redosledu: %s"
-    IDS_SHELL_GROUP_BOX     "Kvadrat školjke  (plavo znaci: još slobodan za odabir;  crveno znaci: vec distribuiran i pojeden)"
+    IDS_SHELL_GROUP_BOX     "i18n Shell square (blue means ""still free to choose""; gray means ""already distributed and eaten up"")"
     IDS_NORMAL_GROUP_BOX    "Kvadrat školjke"
     IDS_NO_SEARCH           "Nije moguce pisati u datoteku ""%s"". Verovatno nemate dovoljno prava nad ovim folderom\r\n""%s"".\r\n\r\nProracun ce svejedno biti pokrenut, ali nece moci da se nastavi posle prekida."
     IDS_NO_SUMMARY          "Nije moguce pisati u datoteku ""%s"". Verovatno nemate dovoljno prava nad ovim folderom\r\n""%s"".\r\n\r\n"
@@ -1146,7 +1152,7 @@ CAPTION "Info über den Zahlenhai"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            128,IDC_STATIC,11,17,20,20
-    LTEXT           "ZahlenHai Version 1.2",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "ZahlenHai Version 1.2.1",IDC_STATIC,40,10,119,8,SS_NOPREFIX
     LTEXT           "Copyright (C) 2010",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
 END
@@ -1324,11 +1330,11 @@ BEGIN
         BEGIN
             VALUE "Copyright (C) 2006", " (C) CrypTool-Projekt 2010"
             VALUE "FileDescription", "Der Zahlenhai ist ein Lernspiel für den spielerischen Umgang mit Teilern und Primzahlen."
-            VALUE "FileVersion", "1.2"
+            VALUE "FileVersion", "1.2.1"
             VALUE "InternalName", "Zahlenhai.exe"
             VALUE "OriginalFilename", "Zahlenhai.exe"
             VALUE "ProductName", "Zahlenhai"
-            VALUE "ProductVersion", "1.2"
+            VALUE "ProductVersion", "1.2.1"
         END
     END
     BLOCK "VarFileInfo"
@@ -1451,12 +1457,15 @@ IDB_BITMAP2             BITMAP                  "Bilder\\hai01.bmp"
 IDB_BITMAP_REDO         BITMAP                  "Bilder\\foreward.bmp"
 IDB_BITMAP9             BITMAP                  "Bilder\\shark.bmp"
 IDB_BITMAP3             BITMAP                  "Bilder\\HaiAnAngel.bmp"
-IDB_BITMAP12            BITMAP                  "bilder\\bitmap12.bmp"
-IDB_BITMAP13            BITMAP                  "bilder\\bitmap13.bmp"
-IDB_BITMAP14            BITMAP                  "bilder\\bitmap14.bmp"
-IDB_BITMAP15            BITMAP                  "bilder\\bitmap15.bmp"
-IDB_BITMAP16            BITMAP                  "bilder\\bitmap16.bmp"
-IDB_BITMAP17            BITMAP                  "bilder\\bitmap17.bmp"
+IDB_BITMAP_NUMBERSHARK_01 BITMAP                  "bilder\\Zahlenhai01.bmp"
+IDB_BITMAP_NUMBERSHARK_02 BITMAP                  "bilder\\Zahlenhai02.bmp"
+IDB_BITMAP_NUMBERSHARK_03 BITMAP                  "bilder\\Zahlenhai03.bmp"
+IDB_BITMAP_NUMBERSHARK_04 BITMAP                  "bilder\\Zahlenhai04.bmp"
+IDB_BITMAP_NUMBERSHARK_05 BITMAP                  "bilder\\Zahlenhai05.bmp"
+IDB_BITMAP_NUMBERSHARK_06 BITMAP                  "bilder\\Zahlenhai06.bmp"
+IDB_BITMAP_NUMBERSHARK_07 BITMAP                  "bilder\\Zahlenhai07.bmp"
+IDB_BITMAP_NUMBERSHARK_08 BITMAP                  "bilder\\Zahlenhai08.bmp"
+IDB_BITMAP_NUMBERSHARK_09 BITMAP                  "bilder\\Zahlenhai09.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1488,7 +1497,7 @@ BEGIN
     IDS_ABOUTBOX            "&Info über den Zahlenhai..."
     IDS_RULES               "Beschreibung:\r\n - Im Zahlenhai-Spiel entscheidet man sich zu Beginn für die Größe des Muschelfeldes, also mit wie viel Zahlen man spielen möchte.\r\n    Diese Größe des Muschelfeldes bezeichnen wir mit ""n"" und nennen sie die ""Anzahl der auswählbaren Zahlen"". Der Zahlenvorrat beginnt bei 1\r\n    und geht bis zu der Zahl, die Du als Größe für das Muschelfeld ausgewählt hast (vorgeschlagen ist zu Beginn die Zahl 20).\r\n    Danach werden alle Zahlen aus dem Zahlenvorrat nach den Regeln, die Du weiter unten findest, zwischen Dir und dem Computer (""Zahlenhai"") aufgeteilt.\r\n - Standardmäßig sind beim Start des Spiels 20 Zahlen in dem Muschelfeld eingestellt. Du kannst als Gesamtzahl n jede Zahl von 1 bis 9999 wählen.\r\n\r\nZiel:\r\n - Dein Ziel ist es, dass die Summe Deiner Zahlen größer ist als die Summe aller Zahlen, die der Zahlenhai gefressen hat.\r\n\r\nRegeln:\r\n - Du hast immer den ersten Zug, d.h. Du beginnst die erste Runde.\r\n - In der ersten Runde kannst Du Dir eine beliebige Zahl aus dem Zahlenvorrat auswählen\r\n   (der Zahlenvorrat umfasst n Zahlen und wird im Muschelfeld angezeigt).\r\n - Immer bekommt der Zahlenhai von der ausgewählten Zahl alle echten Teiler, sofern diese noch nicht ausgewählt wurden\r\n   (6 ist zum Beispiel teilbar durch 1,2,3,6. Die echten Teiler sind 1,2,3).\r\n - In allen darauf folgenden Runden kannst Du nur Zahlen wählen, die Du vorher noch nicht gewählt hast und die\r\n    noch nicht vom Zahlenhai gefressen wurden (also nur die blauen Muscheln).\r\n - ABER: Der Zahlenhai darf nie leer ausgehen!\r\n - Wählst Du eine Zahl, deren Teiler alle schon verteilt wurden, so bekommt der Zahlenhai die gewählte Zahl\r\n    und Du erhältst 0 Punkte in dieser Runde.\r\n\r\n"
     IDS_PLAYER_WINS         "Glückwunsch, Du hast gegen den Zahlenhai gewonnen!\n\nWenn Du eine größere Herausforderung suchst, dann nimm eine höhere Zahl als %s.\n\nDu hast %s Punkte erreicht. Maximal wären bei %s Zahlen %s Punkte möglich gewesen."
-    IDS_VERSION_INFO        "Zahlenhai Version 1.2"
+    IDS_VERSION_INFO        "Zahlenhai Version 1.2.1"
     IDS_COMPUTER_WINS       "Diesmal hat der Zahlenhai gewonnen! :,-(\n\nEr hat Dich mit %s zu %s Punkten geschlagen.\n\nLos! Versuch es gleich nochmal!"
     IDS_DRAW                "Unentschieden!?!\n\nDas kommt nur sehr selten vor!\n\nDu und der Zahlenhai haben jeweils %s Punkte."
     IDS_MAX_POINTS_NEW      "Um bei %s Zahlen die maximal mögliche Punktzahl von %s Punkten zu berechnen, hat das Programm %s Sekunden benötigt und musste dabei %s Knoten durchlaufen.\n\nDie höchste Primzahl ist %s. Mit dieser Zahl musst Du das Spiel beginnen, um die maximal mögliche Punktzahl erreichen zu können.\n\nDie höchste Punktzahl kannst Du unter anderem mit folgender Zugfolge (Weg) erreichen: %s."
@@ -1557,7 +1566,7 @@ BEGIN
     IDS_SHARK_AGAINST       " gegen "
     IDS_GAME_DATA           "GameData.txt"
     IDS_HELP_FILE           "NumberShark-de.chm::/NumberShark.html"
-    IDS_TITLE_VERSION       " - Version 1.2"
+    IDS_TITLE_VERSION       " - Version 1.2.1"
 END
 
 STRINGTABLE 
@@ -1611,7 +1620,7 @@ BEGIN
     IDS_TOOL_TIP_UNDO       "Undo/Backward:\nÜber den ""Rückwärts-"" Knopf kannst Du deine letzten Züge rückgängig machen\nund einen neuen Weg ausprobieren, um die höchste Punktzahl zu erreichen."
     IDS_TOOL_TIP_REDO       "Redo/Foreward:\nÜber den ""Vorwärts"" Knopf kannst Du deine rückgängig gemachten Züge solange wieder vorwärts gehen,\nsolange du keine Änderung im Spielverlauf vornimmst."
     IDS_MAX_POINTS_NEW_2    "Um bei %s Zahlen die maximal mögliche Punktzahl von %s Punkten zu berechnen, hat das Programm %s Sekunden benötigt und musste dabei %s Knoten durchlaufen.\n\nDie höchste Primzahl ist %s. Mit dieser Zahl musst Du das Spiel beginnen, um die maximal mögliche Punktzahl erreichen zu können.\n\nDie höchste Punktzahl kannst Du unter anderem mit folgender Zugfolge (Weg) erreichen: %s."
-    IDS_SHELL_GROUP_BOX     "Muschelfeld (blau bedeutet: frei wählbar; rot bedeutet: schon vergeben)"
+    IDS_SHELL_GROUP_BOX     "Muschelfeld (blau bedeutet ""frei wählbar""; grau bedeutet ""schon vergeben"")"
     IDS_NORMAL_GROUP_BOX    "Muschelfeld"
     IDS_NO_SEARCH           "Die Datei ""%s"" konnte nicht erstellt werden, da Du wahrscheinlich nicht genügend Zugriffsrechte in dem Ordner\r\n""%s"" hast.\r\n\r\nDie Berechnung wird trotzdem gestartet, kann aber nach einer Unterbrechnung nicht wieder aufgesetzt werden."
     IDS_NO_SUMMARY          "Die Datei ""%s"" konnte nicht erstellt werden, da Du wahrscheinlich nicht genügend Zugriffsrechte in dem Ordner\r\n""%s"" hast.\r\n"
@@ -1685,7 +1694,7 @@ CAPTION "Information about the Number Shark"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            128,IDC_STATIC,11,17,20,20
-    LTEXT           "Number Shark Version 1.2",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Number Shark Version 1.2.1",IDC_STATIC,40,10,119,8,SS_NOPREFIX
     LTEXT           "Copyright (C) 2010",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
 END
@@ -1863,11 +1872,11 @@ BEGIN
         BEGIN
             VALUE "Copyright (C) 2006", " (C) CrypTool Project 2010"
             VALUE "FileDescription", "Number Shark is an educational game to improve the knowledge of factors and prime numbers."
-            VALUE "FileVersion", "1.2"
+            VALUE "FileVersion", "1.2.1"
             VALUE "InternalName", "NumberShark.exe"
             VALUE "OriginalFilename", "NumberShark.exe"
             VALUE "ProductName", "NumberShark"
-            VALUE "ProductVersion", "1.2"
+            VALUE "ProductVersion", "1.2.1"
         END
     END
     BLOCK "VarFileInfo"
@@ -1990,12 +1999,15 @@ IDB_BITMAP2             BITMAP                  "Bilder\\hai01-engl.bmp"
 IDB_BITMAP_REDO         BITMAP                  "bilder\\foreward-engl.bmp"
 IDB_BITMAP9             BITMAP                  "Bilder\\shark-engl.bmp"
 IDB_BITMAP3             BITMAP                  "Bilder\\HaiAnAngel-engl.bmp"
-IDB_BITMAP12            BITMAP                  "bilder\\bitmap12.bmp"
-IDB_BITMAP13            BITMAP                  "bilder\\bitmap13.bmp"
-IDB_BITMAP14            BITMAP                  "bilder\\bitmap14.bmp"
-IDB_BITMAP15            BITMAP                  "bilder\\bitmap15.bmp"
-IDB_BITMAP16            BITMAP                  "bilder\\bitmap16.bmp"
-IDB_BITMAP17            BITMAP                  "bilder\\bitmap17.bmp"
+IDB_BITMAP_NUMBERSHARK_01 BITMAP                  "bilder\\Zahlenhai01.bmp"
+IDB_BITMAP_NUMBERSHARK_02 BITMAP                  "bilder\\Zahlenhai02.bmp"
+IDB_BITMAP_NUMBERSHARK_03 BITMAP                  "bilder\\Zahlenhai03.bmp"
+IDB_BITMAP_NUMBERSHARK_04 BITMAP                  "bilder\\Zahlenhai04.bmp"
+IDB_BITMAP_NUMBERSHARK_05 BITMAP                  "bilder\\Zahlenhai05.bmp"
+IDB_BITMAP_NUMBERSHARK_06 BITMAP                  "bilder\\Zahlenhai06.bmp"
+IDB_BITMAP_NUMBERSHARK_07 BITMAP                  "bilder\\Zahlenhai07.bmp"
+IDB_BITMAP_NUMBERSHARK_08 BITMAP                  "bilder\\Zahlenhai08.bmp"
+IDB_BITMAP_NUMBERSHARK_09 BITMAP                  "bilder\\Zahlenhai09.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -2027,7 +2039,7 @@ BEGIN
     IDS_ABOUTBOX            "&Information about the Number Shark"
     IDS_RULES               "Description:\r\n - At the beginning of the Number Shark game you choose the size of the shell square, this is the amount of numbers you want to play with.\r\n    We name the size of the shell square with ""n"" and call it the ""count of selectable numbers"". The pool of numbers starts with 1\r\n    and ends with the number which you have chosen for the size of the shell square (we suggest the number 20 for the beginning).\r\n    After that all numbers from the shell square will be given to either you or the computer (""Number Shark"").\r\n    You can read the rules of how the numbers are divided below in the text.\r\n - By default, there are 20 numbers in the shell square. As total number you can select every number from 1 to 9999 for n.\r\n\r\nGoal of the game:\r\n - It is your goal to achieve a higher score than the sum of the numbers that were eaten by the Number Shark.\r\n\r\nRules:\r\n - You always have the first turn, i.e. you are starting the first round.\r\n - In this round you can choose any of the n numbers from the shell square.\r - The Number Shark gets every available real factor of the number selected by you, if they have not been chosen yet\r\n    (6 for example is divisible by 1, 2, 3 and 6. The real factors are 1, 2 and 3).\r\n - In all subsequent rounds you can only choose numbers which have not been chosen by you,\r\n    or were eaten by the Number Shark in previous rounds (i.e. only the blue shells).\r\n - BUT: The Number Shark may never miss out!\r\n - If you choose a number which has no more factors, then the Number Shark gets your chosen number and you get 0 points in this round.\r\n\r\n"
     IDS_PLAYER_WINS         "Congratulation, you have won against the Number Shark!\n\n If you are looking for a bigger challenge, then try a higher number than %s.\n\nYou achieved %s points. The highest possible score with %s numbers would have been %s."
-    IDS_VERSION_INFO        "Number Shark Version 1.2"
+    IDS_VERSION_INFO        "Number Shark Version 1.2.1"
     IDS_COMPUTER_WINS       "This time the Number Shark won :,-(\n\n It has beaten you with %s to %s points.\n\n Go -- Try again!"
     IDS_DRAW                "Draw!?!\n\nThis happens only very seldom!\n\nYou and the Number Shark have %s points each."
     IDS_MAX_POINTS_NEW      "To calculate for %s numbers the highest score of %s points, the program needed %s seconds. It had to pass through %s knots.\n\nThe highest prime number here is %s. You must start the game with this prime to be able to reach the maximum score.\n\nTo achieve the highest score, you can choose the numbers in this order: %s"
@@ -2096,7 +2108,7 @@ BEGIN
     IDS_SHARK_AGAINST       " against "
     IDS_GAME_DATA           "GameData.txt"
     IDS_HELP_FILE           "NumberShark-en.chm::/NumberShark.html"
-    IDS_TITLE_VERSION       " - Version 1.2"
+    IDS_TITLE_VERSION       " - Version 1.2.1"
 END
 
 STRINGTABLE 
@@ -2150,7 +2162,7 @@ BEGIN
     IDS_TOOL_TIP_UNDO       "With ""Undo"" you can repeat previous rounds if you want to choose other numbers."
     IDS_TOOL_TIP_REDO       "With ""Redo"" you can go forward through the game as many steps as you went back in the game via ""Undo""."
     IDS_MAX_POINTS_NEW_2    "To calculate for %s numbers the highest score of %s points, the program needed %s seconds. It had to pass through %s knots.\n\nThe highest prime number here is %s. You must start the game with this prime to be able to reach the maximum score.\n\nTo achieve the highest score, you can choose the numbers in this order: %s"
-    IDS_SHELL_GROUP_BOX     "Shell square  (blue means: still free to choose;  red means: already distributed and eaten up)"
+    IDS_SHELL_GROUP_BOX     "Shell square (blue means ""still free to choose""; gray means ""already distributed and eaten up"")"
     IDS_NORMAL_GROUP_BOX    "Shell square"
     IDS_NO_SEARCH           "The file ""%s"" could not be written. Probably you do not have enough rights in the folder\r\n""%s"".\r\n\r\nThe calculation will be started anyway, but can't be continued after a break. "
     IDS_NO_SUMMARY          "The file ""%s"" could not be written. Probably you do not have enough rights in the folder\r\n""%s"".\r\n"
@@ -2224,7 +2236,7 @@ CAPTION "Aceca de Number Shark"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            128,IDC_STATIC,11,17,20,20
-    LTEXT           "Number Shark Version 1.2",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Number Shark Version 1.2.1",IDC_STATIC,40,10,119,8,SS_NOPREFIX
     LTEXT           "Copyright (C) 2010",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "Aceptar",IDOK,178,7,50,16,WS_GROUP
 END
@@ -2402,11 +2414,11 @@ BEGIN
         BEGIN
             VALUE "Copyright (C) 2006", " (C) CrypTool Project 2010"
             VALUE "FileDescription", "NumberShark es una herramienta didáctica para el aprendizado de números primos y factores."
-            VALUE "FileVersion", "1.2"
+            VALUE "FileVersion", "1.2.1"
             VALUE "InternalName", "NumberShark.exe"
             VALUE "OriginalFilename", "NumberShark.exe"
             VALUE "ProductName", "NumberShark"
-            VALUE "ProductVersion", "1.2"
+            VALUE "ProductVersion", "1.2.1"
         END
     END
     BLOCK "VarFileInfo"
@@ -2529,12 +2541,15 @@ IDB_BITMAP2             BITMAP                  "Bilder\\hai01-engl.bmp"
 IDB_BITMAP_REDO         BITMAP                  "bilder\\foreward-engl.bmp"
 IDB_BITMAP9             BITMAP                  "Bilder\\shark-engl.bmp"
 IDB_BITMAP3             BITMAP                  "Bilder\\HaiAnAngel-engl.bmp"
-IDB_BITMAP12            BITMAP                  "bilder\\bitmap12.bmp"
-IDB_BITMAP13            BITMAP                  "bilder\\bitmap13.bmp"
-IDB_BITMAP14            BITMAP                  "bilder\\bitmap14.bmp"
-IDB_BITMAP15            BITMAP                  "bilder\\bitmap15.bmp"
-IDB_BITMAP16            BITMAP                  "bilder\\bitmap16.bmp"
-IDB_BITMAP17            BITMAP                  "bilder\\bitmap17.bmp"
+IDB_BITMAP_NUMBERSHARK_01 BITMAP                  "bilder\\Zahlenhai01.bmp"
+IDB_BITMAP_NUMBERSHARK_02 BITMAP                  "bilder\\Zahlenhai02.bmp"
+IDB_BITMAP_NUMBERSHARK_03 BITMAP                  "bilder\\Zahlenhai03.bmp"
+IDB_BITMAP_NUMBERSHARK_04 BITMAP                  "bilder\\Zahlenhai04.bmp"
+IDB_BITMAP_NUMBERSHARK_05 BITMAP                  "bilder\\Zahlenhai05.bmp"
+IDB_BITMAP_NUMBERSHARK_06 BITMAP                  "bilder\\Zahlenhai06.bmp"
+IDB_BITMAP_NUMBERSHARK_07 BITMAP                  "bilder\\Zahlenhai07.bmp"
+IDB_BITMAP_NUMBERSHARK_08 BITMAP                  "bilder\\Zahlenhai08.bmp"
+IDB_BITMAP_NUMBERSHARK_09 BITMAP                  "bilder\\Zahlenhai09.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -2566,7 +2581,7 @@ BEGIN
     IDS_ABOUTBOX            "&Acerca de Number Shark"
     IDS_RULES               "Descripción:\r\n - Al comienzo del juego, debe decidir el tamaño del campo del mejillón, es decir, con que cantidad de números jugará.\r\n    Nombraremos al tamaño del campo del mejillón con la letra ""n"" y la llamaremos ""Cantidad de números elegibles"". La población de números comienza con 1\r\n    y va hasta el número que ha elegido como tamaño para el campo del mejillón. (sugerimos empezar con el número 20).\r\n    Luego, todos los números del campo del mejillón serán repartidos entre usted y la máquina (""Number Shark"").\r\n    Al comienzo del juego, predeterminadamente se establecen 20 números en el campo del mejillón. Puede elegir como número n, cualquier valor entre 1 y 9999.\r\n\r\nObjetivo del Juego:\r\n - Su Objetivo es que la suma de sus números sea mayor a la suma de los números que la máquina ha obtenido.\r\n\r\nReglas:\r\n - El primer turno siempre será suyo, es decir, usted comienza la primera ronda.\r\n - En la primera ronda podrá elegir culaquier número del campo del mejillón\r\n La máquina selecionará un número dentro de los divisores del número elegido, siempre y cuando, éste todavía esté disponible\r\n    (por Ej. 6 es divisible entre 1,2,3 y 6. Los divisores reales son 1, 2 y 3).\r\n - En todas las rondas siguientes podrá seleccionar únicamente números que aún no hayan sido elegidos antes (es decir, los mejillones azules).\r\n - CUIDADO: ¡La máquina no debe nunca quedar vacía! - Si elige un número que no tiene divisores, ella tomará su número y usted recibirá 0 puntos en esa ronda.\r\n\r\n"
     IDS_PLAYER_WINS         "¡Felicitaciones, ha ganado la partida!\n\nSi busca un mayor desafío, intente un número mayor que %s.\n\nHa alcanzado %s Puntos. El puntaje máximo con %s números, hubiera sido %s."
-    IDS_VERSION_INFO        "Number Shark Version 1.2"
+    IDS_VERSION_INFO        "Number Shark Version 1.2.1"
     IDS_COMPUTER_WINS       "¡Esta vez ha ganado la máquina! :,-(\n\nEl resultado ha sido %s a %s a favor de ella.\n\n¡Vamos, intentalo nuevamente!"
     IDS_DRAW                "¿Empate?\n\n¡Esto realmente no sucede muy a menudo!Usted y la máquina han obtenido, ambos %s puntos. "
     IDS_MAX_POINTS_NEW      "Para calcular el máximo puntaje de %s puntos, este programa ha necesitado %s segundos y debió pasar por %s nodos.\n\nEl número primo más grande es el %s. Con ese número debería empezar a jugar para intentar alcanzar el máximo puntaje posible.\n\nPara alcanzar el máximo puntaje, debería elegir los números en el siguiente orden: %s."
@@ -2635,7 +2650,7 @@ BEGIN
     IDS_SHARK_AGAINST       " contra"
     IDS_GAME_DATA           "GameData.txt"
     IDS_HELP_FILE           "NumberShark-en.chm::/NumberShark.html"
-    IDS_TITLE_VERSION       " - Versión 1.2"
+    IDS_TITLE_VERSION       " - Versión 1.2.1"
 END
 
 STRINGTABLE 
@@ -2689,7 +2704,7 @@ BEGIN
     IDS_TOOL_TIP_UNDO       "Puede usar ""Deshacer"" para repetir rondas anteriores y eventualmente elegir otros números."
     IDS_TOOL_TIP_REDO       "Con ""Rehacer"" puede adelantar tantas jugadas como haya retrocedido con ""Deshacer"". "
     IDS_MAX_POINTS_NEW_2    "Para calcular el máximo puntaje posible de %d puntos sobre %d números, este programa ha necesitado %d segundos y ha pasado a través de %I64d nodos.\n\nEl número primo más alto es %d.Se recomienda comenzar con ese número para intentar alcanzar el máximo puntaje posible.\n\nDicho puntaje se puede lograr, entre otras, con la siguiente combinación: %s. "
-    IDS_SHELL_GROUP_BOX     "Mejillones  (Azules: libres; Grises: ya seleccionados)"
+    IDS_SHELL_GROUP_BOX     "i18n Shell square (blue means ""still free to choose""; gray means ""already distributed and eaten up"")"
     IDS_NORMAL_GROUP_BOX    "Mejillones"
     IDS_NO_SEARCH           "El archivo""%s"" no pudo ser creado. Eso se debe probablemente a que usted no posee suficientes privilegios para acceder a la carpeta\r\n""%s"". El cálculo comenzará de todos formas, sin embargo no podrá continuar luego de una interrupción."
     IDS_NO_SUMMARY          "El archivo""%s"" no pudo ser creado. Eso se debe probablemente a que usted no posee suficientes privilegios para acceder a la carpeta\r\n""%s""."

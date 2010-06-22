@@ -149,17 +149,11 @@
 #define IDS_ACC_LOAD                    208
 #define IDS_ACC_SAVE                    209
 #define IDS_PLAYER_WINS_OPTIMAL2        210
-#define IDB_BITMAP12                    210
 #define IDS_PLAYER_WINS3                211
-#define IDB_BITMAP13                    211
 #define IDS_NUMBER_ONE                  212
-#define IDB_BITMAP14                    212
 #define IDS_LOAD_FAILED                 213
-#define IDB_BITMAP15                    213
 #define IDS_ASK_FOR_USER_CANCELLATION   214
-#define IDB_BITMAP16                    214
 #define IDS_SELECT_SEARCH_ALGORITHM     215
-#define IDB_BITMAP17                    215
 #define IDS_GAME_DATA_FILE_MISSING      216
 #define IDD_SHOW_PRECALCULATED_SCORES   216
 #define IDS_BACKTRACKING_ALGORITHM_RESULT 217
@@ -178,6 +172,15 @@
 #define IDS_NO_SCORE_SELECTED           229
 #define IDS_HEADING_SEQUENCE_LENGTH     230
 #define IDS_HEADING_SEQUENCE            231
+#define IDB_BITMAP_NUMBERSHARK_01				232
+#define IDB_BITMAP_NUMBERSHARK_02				233
+#define IDB_BITMAP_NUMBERSHARK_03				234
+#define IDB_BITMAP_NUMBERSHARK_04				235
+#define IDB_BITMAP_NUMBERSHARK_05				236
+#define IDB_BITMAP_NUMBERSHARK_06				237
+#define IDB_BITMAP_NUMBERSHARK_07				238
+#define IDB_BITMAP_NUMBERSHARK_08				239
+#define IDB_BITMAP_NUMBERSHARK_09				240
 #define IDC_LIST2                       1001
 #define IDC_EDIT1                       1007
 #define IDC_BUTTON1                     1008
@@ -293,7 +296,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        233
+#define _APS_NEXT_RESOURCE_VALUE        241
 #define _APS_NEXT_COMMAND_VALUE         32788
 #define _APS_NEXT_CONTROL_VALUE         1181
 #define _APS_NEXT_SYMED_VALUE           175
