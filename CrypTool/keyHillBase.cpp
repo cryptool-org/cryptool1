@@ -259,7 +259,7 @@ void CKeyHillBase::syncNumAlph( unsigned long i, unsigned long j )
 
 int CKeyHillBase::validEntries()
 {
-	ASSERT ((1 <= dim) && (dim <= HILL_MAX_DIM));
+	ASSERT ((1 <= dim) && (dim <= max_dim));
 
 	unsigned long i, j;
 	CString cs;
@@ -439,8 +439,6 @@ int CKeyHillBase::SetHillOptions()
 {
 	if ( HillOptions.DoModal() != IDOK )
       return 0;
-
-   // FIXME HK
    return 1;
 }
 
@@ -470,7 +468,7 @@ void CKeyHillBase::keyToStr( CString &cs )
    cs += _T(HILLSTR_MULTVARIANT) + ts;
 }
 
-void CKeyHillBase::strToKey( CString &cs, CString *alphabet )
+int CKeyHillBase::strToKey( CString &cs, CString *alphabet )
 {
 	int l = 0, laenge;
 	unsigned long i = 0, j, _dim = 0;
@@ -524,7 +522,13 @@ void CKeyHillBase::strToKey( CString &cs, CString *alphabet )
 		}
 		dim = _dim;
    }
+   else
+   {
+      currentDialog->MessageBox("FIXME HK: ERROR");
+      return 0;
+   }
    assert( dim <= max_dim );
+   return 1;
 }
 
 void CKeyHillBase::pasteKey()
@@ -533,8 +537,12 @@ void CKeyHillBase::pasteKey()
 	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_HILL,pc_str,STR_LAENGE_STRING_TABLE);
 
 	if ( PasteKey(pc_str,cs) )
-      strToKey( cs );
-   SetHillMatrix();
+   {
+     if ( strToKey( cs ) )
+        SetHillMatrix();
+     else
+        Clear();
+   }
 }
 
 void CKeyHillBase::copyKey()

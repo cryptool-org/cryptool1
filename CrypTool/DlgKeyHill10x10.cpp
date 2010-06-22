@@ -594,8 +594,8 @@ BEGIN_MESSAGE_MAP(CDlgKeyHill10x10, CDialog)
 	ON_BN_CLICKED(IDC_RADIO9, OnDimension9)
 	ON_BN_CLICKED(IDC_RADIO10, OnDimension10)
 
-	ON_BN_CLICKED(IDC_RADIO21, OnDisableAlphCode)
-	ON_BN_CLICKED(IDC_RADIO22, OnEnableAlphCode)
+	ON_BN_CLICKED(IDC_RADIO21, OnEnableAlphCode)
+	ON_BN_CLICKED(IDC_RADIO22, OnDisableAlphCode)
 	ON_BN_CLICKED(IDC_RADIO23, OnRowVectorMatrix)
 	ON_BN_CLICKED(IDC_RADIO24, OnMatrixColumnVector)
 
@@ -1025,6 +1025,7 @@ void CDlgKeyHill10x10::OnKleinereSchluessel()
 void CDlgKeyHill10x10::OnHillOptions()
 {
    m_HillBase->SetHillOptions();
+   UpdateData(FALSE);
 }
 
 void CDlgKeyHill10x10::OnTextOptions()

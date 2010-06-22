@@ -31,6 +31,7 @@ class DlgHillOptions : public CDialog
 	virtual ~DlgHillOptions();
 
 	unsigned long useFirstCharFromAlph;
+   unsigned long m_offset;
 	CString       m_ownCharForPadding;
 
    void readRegistry();
@@ -53,5 +54,6 @@ protected:
 	afx_msg void OnBnClickedRadio2();
 	afx_msg void OnEnChangeEdit2();
 public:
-   int m_offset;
+   afx_msg void OnBnClickedOffset0();
+   afx_msg void OnBnClickedOffset1();
 };

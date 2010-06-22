@@ -93,7 +93,7 @@ class CKeyHillBase {
 	int  isInvertable();
 
    void keyToStr( CString &cs );
-   void strToKey( CString &cs, CString *alphabet = NULL );
+   int  strToKey( CString &cs, CString *alphabet = NULL );
 	void pasteKey();
 	void copyKey();
 	void readRegistry();

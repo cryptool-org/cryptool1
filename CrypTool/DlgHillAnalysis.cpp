@@ -400,6 +400,28 @@ void CDlgHillAnaylsis::OnBnClickedSearchKey()
 	m_edTab = 1; SaveFile();
 	m_edTab = tmp;
 
+   __int64 fsp, fsc;
+   getFileSize( fn_plaintext, fsp );
+   getFileSize( fn_ciphertext, fsc );
+   if ( !fsp )
+   {
+      CString cs1, cs2;
+      cs1.LoadStringA(IDS_RSA_MKPZ_PLAINTEXT);
+      cs2.LoadStringA(IDS_SIGDEMO_FILE_EMPTY);
+      cs1 += ": " + cs2;
+      AfxMessageBox(cs1, MB_ICONSTOP);
+      return;
+   }
+   if ( !fsc )
+   {
+      CString cs1, cs2;
+      cs1.LoadStringA(IDS_RSA_MKPZ_CIPHERTEXT);
+      cs2.LoadStringA(IDS_SIGDEMO_FILE_EMPTY);
+      cs1 += ": " + cs2;
+      AfxMessageBox(cs1, MB_ICONSTOP);
+      return;
+   }
+
 	CHillAnalysis ha;
 
 	UpdateData(FALSE);

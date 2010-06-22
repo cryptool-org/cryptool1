@@ -32,7 +32,6 @@ void DlgHillOptions::DoDataExchange(CDataExchange* pDX)
 {
    CDialog::DoDataExchange(pDX);
    DDX_Text(pDX, IDC_EDIT2, m_ownCharForPadding);
-   DDX_Radio(pDX, IDC_RADIO3, m_offset);
 }
 
 BEGIN_MESSAGE_MAP(DlgHillOptions, CDialog)
@@ -40,6 +39,8 @@ BEGIN_MESSAGE_MAP(DlgHillOptions, CDialog)
 	ON_BN_CLICKED(IDC_RADIO1,  OnBnClickedRadio1)
 	ON_BN_CLICKED(IDC_RADIO2,  OnBnClickedRadio2)
 	ON_EN_CHANGE (IDC_EDIT2,   OnEnChangeEdit2)
+   ON_BN_CLICKED(IDC_RADIO3, &DlgHillOptions::OnBnClickedOffset0)
+   ON_BN_CLICKED(IDC_RADIO4, &DlgHillOptions::OnBnClickedOffset1)
 END_MESSAGE_MAP()
 
 
@@ -63,9 +64,7 @@ void DlgHillOptions::readRegistry()
 
    if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ, IDS_REGISTRY_SETTINGS, "Hill") == ERROR_SUCCESS)
 	{
-      unsigned long m_alphabetOffset;
-		CT_READ_REGISTRY_DEFAULT(m_alphabetOffset, "OrdChrOffset", 0);
-      m_offset = (int)m_alphabetOffset;
+		CT_READ_REGISTRY_DEFAULT(m_offset, "OrdChrOffset", 0);
 		CT_READ_REGISTRY_DEFAULT(useFirstCharFromAlph, "PaddingDefaultChr", 1);
 
       if ( theApp.TextOptions.getAlphabet().GetLength() )
@@ -97,6 +96,7 @@ void DlgHillOptions::writeRegistry()
 BOOL DlgHillOptions::OnInitDialog()
 {
    readRegistry();
+   UpdateData(FALSE);
 	CheckRadioButton( IDC_RADIO3, IDC_RADIO4, ( m_offset ) ? IDC_RADIO4 : IDC_RADIO3 );
    GetDlgItem( IDC_EDIT1 )->SetWindowTextA( theApp.TextOptions.getAlphabet().Mid(0,1) );
 
@@ -135,6 +135,7 @@ void DlgHillOptions::OnBnClickedRadio2()
 
 void DlgHillOptions::OnEnChangeEdit2()
 {
+   int found = 0;
 	UpdateData( TRUE );
 
    if ( m_ownCharForPadding.GetLength() > 1 )
@@ -143,12 +144,24 @@ void DlgHillOptions::OnEnChangeEdit2()
    for ( int i = 0; i<theApp.TextOptions.getAlphabet().GetLength(); i++)
       if ( c == theApp.TextOptions.getAlphabet()[i] )
       {
-         c = 0;
+         found++;
          break;
       }
-   if ( c )
+   if ( found )
       m_ownCharForPadding = _T("");
+   else
+      m_ownCharForPadding = CString( c );
 
    UpdateData( FALSE );
 }
 
+
+void DlgHillOptions::OnBnClickedOffset0()
+{
+   m_offset = 0;
+}
+
+void DlgHillOptions::OnBnClickedOffset1()
+{
+   m_offset = 1;
+}

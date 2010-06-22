@@ -408,6 +408,7 @@ void CDlgKeyHill5x5::OnGroessereSchluessel()
 void CDlgKeyHill5x5::OnHillOptions()
 {
    m_HillBase->SetHillOptions();
+   UpdateData(FALSE);
 }
 
 void CDlgKeyHill5x5::OnTextOptions()
