@@ -968,6 +968,10 @@ void CMFCZahlenHaiDlg::OnBnClickedButtonOk()
 {
 	//Daten werden aktualisiert
 	UpdateData(true);
+
+	// re-init the NumberShark object ("hai") if necessary
+	hai.init(numbers);
+	optionen.setEvoZahlenHai(hai);
 	
 	//Kontrolle ob die Zahl, die der Spieler eingegeben hat, nicht kleiner als 0 und nicht größer als 9999 ist.
 	//Lässt sich beliebig erweitern. MAX_ZAHLENHAI_NUMBERS in der MFC-ZahlenHaiDlg.h muss nur geändert werden
@@ -1433,9 +1437,9 @@ void CMFCZahlenHaiDlg::enterWasPressed()
         //Wenn in dem Edit Feld Enter gedrückt wird, wird die Zahl gleich ausgewählt
 		if(buttonID == IDC_EDIT1)
 		{
-			
 			//OK-Button wurde gedrückt
 			OnBnClickedButtonOk();
+	
 			if(numbers >= 1 && numbers <= MAX_ZAHLENHAI_NUMBERS)
 			{
 				((CEdit*)GetDlgItem(IDC_EDIT1))->EnableWindow(false);
