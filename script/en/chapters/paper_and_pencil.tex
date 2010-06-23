@@ -21,7 +21,7 @@
 
 \chapter{Paper and Pencil Encryption Methods}
 \label{Kapitel_PaperandPencil}
-(Christine St\"otzel, April 2004; Updates: B.+C. Esslinger, June 2005; Updates Minh Van Nguyen and B. Esslinger, November 2009)
+(Christine St\"otzel, April 2004; Updates: B.+C. Esslinger, June 2005; Updates Minh Van Nguyen and B. Esslinger, November 2009 and June 2010)
 \index{Paper and pencil methods}
 
 \begin{center}
@@ -2093,15 +2093,39 @@ The Hill~\cite{pp:Hill1929,pp:Hill1931} or matrix cipher is more
 mathematically sophisticated than other ciphers mentioned in this
 chapter. The encryption/decryption key of this cipher is an invertible
 square matrix, and the plaintext/ciphertext is processed also as a matrix.
-The encryption and decryption processes use matrix operations. The Hill
-cipher is implemented in the Sage class
+The encryption and decryption processes use matrix operations modulo 26.
+The Hill cipher is implemented in the Sage class
 \begin{center}
 \verb!sage.crypto.classical.HillCryptosystem!
 \end{center}
 
-In the following example our plaintext/ciphertext space is the
+\noindent In the following example our plaintext/ciphertext space is the
 capital letters of the English alphabet. In the Hill cipher, each
 letter of this alphabet is assigned a unique integer modulo 26.
+The size of matrix (also called its dimension) is not restricted by the cipher.
+
+\noindent {\bf Remark:} Comparing the Hill implementation in CrypTool v1.4.30
+and in Sage v4.2.1:
+\begin{itemize}
+  \item Sage offers fast commandline operations; CrypTool offers
+        its functionality within a GUI.
+  \item Sage offers any dimension; CrypTool is restricted
+        to a matrix size between 1 and 10.
+  \item Sage always sets the first alphabet character to 0; and it
+        uses the multiplication variant plaintext row vector * key matrix:
+        C = P*M.
+  \item CrypTool offers to choose also 1 as value for the first alphabet
+        character; and it offers to use a reverse multiplication variant too.
+\end{itemize}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[scale=0.45]{figures/PaP_Fig_Hill-Cipher-CT-Dialog.png}
+\caption{Hill dialog in CrypTool with the operations and options available\vspace{1ex}} 
+\label{PaP_Fig_Hill-Cipher-CT-Dialog}
+\end{center}
+\end{figure}
+
 
 \begin{sagecode}
 \begin{Verbatim}%

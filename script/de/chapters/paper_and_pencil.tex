@@ -8,7 +8,7 @@
 
 \chapter{Papier- und Bleistift-Verschlüsselungsverfahren}
 \label{Kapitel_PaperandPencil}
-(Christine Stötzel, April 2004; Updates B.+C. Esslinger, Juni 2005; Updates Minh Van Nguyen und B. Esslinger, November 2009)
+(Christine Stötzel, April 2004; Updates B.+C. Esslinger, Juni 2005; Updates Minh Van Nguyen und B. Esslinger, November 2009 und Juni 2010)
 \index{Papier- und Bleistiftverfahren}
 
 \begin{center}
@@ -2215,20 +2215,45 @@ True
 \newpage
 \subsection{Hill-Verschlüsselung}
 
-Das Hill~\cite{pp:Hill1929,pp:Hill1931}- oder Matrix-Verschlüsselung genannte
-Verfahren ist mathematisch anspruchsvoller als die Verfahren in den bisherigen
-Programmbeispielen dieses Kapitels. Der Ver-/Entschlüsselungs-Schlüssel dieses
-Verfahrens ist eine invertierbare quadratische Matrix, und der Klar-/Geheimtext
-wird ebenfalls als Matrix verarbeitet. Die Ver- und Entschlüsselungsprozesse
-nutzen Matrizen-Operationen. Die Hill-Verschlüsselung ist implementiert in der
-folgenden Sage-Klasse
+Die Hill~\cite{pp:Hill1929,pp:Hill1931}- oder Matrix-Verschlüsselung
+ist mathematisch anspruchsvoller als die Verfahren in den bisherigen
+Programmbeispielen dieses Kapitels. Der Schlüssel dieses
+Verfahrens ist eine invertierbare quadratische Matrix. Auch der Klar-/Geheimtext
+wird als Matrix verarbeitet. Die Ver- und Entschlüsselungsprozesse
+nutzen Matrizen-Operationen modulo 26. Die Hill-Verschlüsselung ist
+implementiert in der Sage-Klasse
 \begin{center}
 \verb!sage.crypto.classical.HillCryptosystem!
 \end{center}
 
-Im folgenden Beispiel besteht der Klar-/Geheimtext-Zeichenraum wieder aus
-den Großbuchstaben des lateinischen Alphabets. Im Hill-Verfahren wird
+\noindent Im folgenden Beispiel besteht der Klar-/Geheimtext-Zeichenraum wieder
+aus den Großbuchstaben des lateinischen Alphabets. Im Hill-Verfahren wird
 jedem Alphabet-Zeichen eine eindeutige natürliche Zahl modulo 26 zugewiesen.
+Die Größe der Matrix (auch Matrix-Dimension genannt) ist vom Hill-Verfahren
+selbst nicht beschränkt.
+
+\noindent {\bf Bemerkung:} Vergleich der Hill-Implementierung in CrypTool v1.4.30
+und in Sage v4.2.1:
+\begin{itemize}
+  \item Sage bietet schnelle Operationen auf der Kommandozeile;
+        CrypTool stellt seine Funktionalität nur in einer GUI zur Verfügung.
+  \item Sage bietet jede Matrix-Dimension an; CrypTool ist beschränkt auf die
+        Werte 1 bis 10.
+  \item Sage weist dem ersten Alphabet-Zeichen immer den Wert 0 zu; und Sage
+        benutzt die Multiplikationsvariante
+        Klartext-Zeilenvektor * Schlüsselmatrix: C = P*M.
+  \item CrypTool erlaubt die Wahl zwischen 0 und 1 für das erste
+        Alphabet-Zeichen; und es bietet auch die umgekehrte
+        Multiplikationsvariante.
+\end{itemize}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[scale=0.4]{figures/PaP_Fig_Hill-Cipher-CT-Dialog.png}
+\caption{Hill-Dialog in CrypTool mit den verfügbaren Operationen und Optionen\vspace{1ex}} 
+\label{PaP_Fig_Hill-Cipher-CT-Dialog}
+\end{center}
+\end{figure}
 
 \begin{sagecode}
 \begin{Verbatim}%
