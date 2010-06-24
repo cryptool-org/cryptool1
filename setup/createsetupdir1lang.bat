@@ -55,6 +55,7 @@ xcopy /q ..\smimedemo\*.* setup-%lang%\smimedemo
 echo Copying ..\AES_flow_visualisation\*.* setup-%lang%
 xcopy /q ..\AES_flow_visualisation\AES_Flussvisualisierung.jar setup-%lang%
 xcopy /q ..\AES_flow_visualisation\rijndael-poster-de.pdf setup-%lang%
+xcopy /q ..\CrypTool\hlp_%lang_sub%\images\enigma_screenshot1.png setup-%lang%
 
 cd setup-%lang%
 
