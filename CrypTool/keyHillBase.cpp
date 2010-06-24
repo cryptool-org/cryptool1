@@ -71,6 +71,8 @@ void CKeyHillBase::SetHillMatrix()
 	unsigned long i, j;
 	CString cs;
 
+	ASSERT( HillMat.is_initialized() );
+
 	for ( i=0; i<max_dim; i++ )
 		for ( j=0; j<max_dim; j++ )
 			if ( i<dim && j<dim )

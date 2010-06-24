@@ -46,6 +46,7 @@ static char THIS_FILE[] = __FILE__;
 #define MODE_ALPHABET       1
 #define MODE_DLG_OF_SISTERS 2
 #define MODE_HEX_DUMP       3
+#define MODE_HEX_DUMP_INV	4
 #define RSA_DEMO_DECRYPT    64
 #define RSA_DEMO_ENCRYPT    128
 
@@ -1382,11 +1383,12 @@ BOOL CDlgRSADemo::CheckIfNumberStream()
 bool CDlgRSADemo::CheckIfSignature()
 {
 	char buffer[MAX_BIT_LENGTH+1];
-	int size = decode(m_edit_RSA_step_1, buffer, sizeof(buffer), 0, GetBase(), 0, NULL);
 	int i, flag = 0;
-
 	OctetString hash;
 	hash.noctets=0;
+
+	
+	int size = decode(m_edit_RSA_step_1, buffer, sizeof(buffer), 0, GetBase(), 0, NULL);
 
 	if ( 0 > m_edit_RSA_step_1.Find('#') && size > 30 ) 
 	{
@@ -1506,24 +1508,21 @@ void CDlgRSADemo::EncryptNumbers()
 		return;
 	}
 
-	if ( !CheckIfSignature() )
+	if ( !DlgOptions->m_RSAVariant )
 	{
-		if ( !DlgOptions->m_RSAVariant )
+				
+		if ( !DlgOptions->m_TextOptions )
 		{
-					
-			if ( !DlgOptions->m_TextOptions )
-			{
-				ReSegmentation( MODE_ASCII | RSA_DEMO_ENCRYPT );
-			}
-			else
-			{
-				ReSegmentation( MODE_ALPHABET | RSA_DEMO_ENCRYPT );
-			}
+			ReSegmentation( MODE_ASCII | RSA_DEMO_ENCRYPT );
 		}
 		else
-		{  
-			ReSegmentation( MODE_DLG_OF_SISTERS | RSA_DEMO_ENCRYPT );
+		{
+			ReSegmentation( MODE_ALPHABET | RSA_DEMO_ENCRYPT );
 		}
+	}
+	else
+	{  
+		ReSegmentation( MODE_DLG_OF_SISTERS | RSA_DEMO_ENCRYPT );
 	}
 }
 
@@ -1535,6 +1534,24 @@ void CDlgRSADemo::EncryptNumbers()
 
 void CDlgRSADemo::OnButtonEncrypt() 
 {
+	int maybeHexDump = IsHexDump( m_edit_RSA_input );
+
+	if ( CheckRSASignature )
+	{ 
+		SHOW_HOUR_GLASS
+
+		CString cs_valNum;
+		ASSERT( maybeHexDump );
+		if ( !HexDumpToNumstr( m_edit_RSA_input, cs_valNum, GetBase(), m_edit_N, 10  ) )
+			ASSERT( FALSE );
+		RSA->Encrypt( cs_valNum, m_edit_RSA_step_1, GetBase() );
+		CheckIfSignature();
+		UpdateData( FALSE );
+
+		HIDE_HOUR_GLASS
+		return;
+	}
+
 	CheckIfNumberStream();
 
 	SHOW_HOUR_GLASS

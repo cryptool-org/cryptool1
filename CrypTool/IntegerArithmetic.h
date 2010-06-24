@@ -107,6 +107,7 @@ BOOL EvalFormula(CString &CStrExpr, int &ndx, BOOL EvalNumber = FALSE);
 double BitLength(CString &number, int base = 10);
 int  IsNumberStream( CString &CStr, int numberBase, CString Modul, int flagList = 0 );
 BOOL IsHexDump( CString &CStr );
+BOOL HexDumpToNumstr( CString &CSHexDump, CString &CSOutNum, int base_outnum, CString &CSModul, int base_modul );
 BOOL CStringFormulaToBig(CString &CStrNumber, Big &t);
 int  StringToBig( const char* StrNumber, Big &t, int base );
 int  CStringToBig( CString &CStrNumber, Big &t, int base );

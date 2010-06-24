@@ -33,7 +33,7 @@
 //////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
-
+#include "CrypToolApp.h"
 #include "SquareMatrixModN.h"
 
 #if !defined(_MSC_VER) || _MSC_VER <= 1200
@@ -369,6 +369,19 @@ BOOL CSquareMatrixModN::invert(CSquareMatrixModN *mat1) const
 	}
 	TRACE("\n");
 #endif
+
+	if ( theApp.beginLog() )
+	{
+		theApp.log() << "\n C_SQUARE_MOD_N HILL MATRIX \n";
+		theApp.log() << "DIM: " << 	dim << std::endl;
+		for ( int i=0; i<dim; i++ )
+		{
+			for ( int j=0; j<dim; j++ )
+				theApp.log() << mat[i][j] << " ";
+			theApp.log() << std::endl;
+		}
+		theApp.endLog();
+	}
 	
 	// Falls die Matrix mat1 andere Dimension hat, FALSE zurueckgeben
 	if (mat1->get_dim() != dim)

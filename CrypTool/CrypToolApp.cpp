@@ -210,6 +210,28 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_COMMAND(ID_HILL_AUTO, &CCrypToolApp::OnHillAuto)
 END_MESSAGE_MAP()
 
+//////////////// LOGGING //////////////////////////////////
+BOOL CCrypToolApp::beginLog()
+{
+	if ( !cs_logFileName.GetLength() )
+		return FALSE;
+	os_logFile.open( cs_logFileName, std::ios_base::app );
+	if ( !os_logFile.is_open() )
+		return FALSE;
+	return TRUE;
+}
+
+std::ofstream &CCrypToolApp::log()
+{
+	return os_logFile;
+}
+
+void CCrypToolApp::endLog()
+{
+	if ( os_logFile.is_open() )
+		os_logFile.close();
+}
+
 
 
 int copy_files(const char *from, const char *to)
@@ -445,6 +467,15 @@ BOOL CCrypToolApp::InitInstance()
 	LPTSTR help4 = new TCHAR[PseV.GetLength()+1];
 	_tcscpy(help4, PseV);
 	PseVerzeichnis=help4;
+
+	cs_logFileName = _T("");
+	if ( ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "Logging") )
+	{
+		char			buffer[1024];
+		unsigned long	len = 1023;
+		CT_READ_REGISTRY_DEFAULT(  buffer, "LogFileName", "", len );
+		cs_logFileName = buffer;
+	}
 
 	if ( ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "UserKeyStore") )
 	{

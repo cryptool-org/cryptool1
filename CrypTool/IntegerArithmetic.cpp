@@ -486,6 +486,35 @@ int CStringToBig( CString &CStrNumber, Big &t, int base )
 	return StringToBig( CStrNumber.GetBuffer( CStrNumber.GetLength()+1), t, base );
 }
 
+BOOL HexDumpToNumstr( CString &CSHexDump, CString &CSOutNum, int base_outnum, CString &CSModul, int base_modul  )
+{
+	Big b_num, b_modul;
+	int i = 0;
+
+	CSOutNum = CSHexDump;
+	CStringToBig( CSModul, b_modul, base_modul );
+	do {
+		if ( CSOutNum[i] == ' ' )
+			CSOutNum.Delete(i);
+		else
+		{
+			if ( CSOutNum[i] == '#' )
+				break;
+			if ( !IsNumber( CSOutNum[i], 16 ) )
+				return FALSE;
+			i++;
+		}
+	} while ( i < CSOutNum.GetLength() );
+	
+	CStringToBig( CSOutNum, b_num, 16 );
+	if ( b_modul > 1 && b_num >= b_modul )
+		return FALSE;
+	
+	BigToCString( b_num, CSOutNum, base_outnum );
+	return TRUE;
+}
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////
 // Dekodiert eine als char* repräsentierte Zahl in eine Folge von Zeichen aus dem Buchstaben-
 // Vorrat des des übergebenen Alphabetes und speichert das bestimmte Wort in der Variablen

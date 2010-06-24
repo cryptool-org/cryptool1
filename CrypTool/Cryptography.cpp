@@ -566,8 +566,16 @@ void Hill(const char *infile, const char *OldTitle)
    {
       char *cbuffer;
       int   lbuffer;
+
       if ( !readSource( infile, cbuffer, lbuffer, TRUE ) )
       {
+		  /*
+		 if ( theApp.beginLog() )
+		 {
+			theApp.log() << std::endl << cbuffer << std::endl;
+			theApp.endLog();
+		 }
+		 */
          if ( !lbuffer )
          {
 		      Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
@@ -586,21 +594,39 @@ void Hill(const char *infile, const char *OldTitle)
             he.verschluesseln();
 
       		cbuffer = new char[he.get_laenge_cipher()+1];
-		      he.get_ciphertext(cbuffer);
+		    he.get_ciphertext(cbuffer);
          }
          else
          {
-		      CSquareMatrixModN inv_mat( hillbase.dim, he.get_modul());
-            ASSERT( hillbase.HillMat.invert( &inv_mat ) );
+		    CSquareMatrixModN *inv_mat;
+			inv_mat = new CSquareMatrixModN( hillbase.dim, he.get_modul());
+			 if ( theApp.beginLog() )
+			{
+				theApp.log() << "\n HILL MATRIX \n";
+				theApp.log() << hillbase.HillMat << std::endl;
+				theApp.endLog();
+			}
+			ASSERT( hillbase.HillMat.invert( inv_mat ) );
 
-            he.set_dec_mat( inv_mat );
+			if ( 0 && theApp.beginLog() )
+			{
+				theApp.log() << "\n INVERSE HILL MATRIX \n";
+				theApp.log() << "DIM: " << 	inv_mat->get_dim() << std::endl;
+				theApp.log() << *inv_mat;
+				theApp.endLog();
+			}
+
+
+            he.set_dec_mat( *inv_mat );
             he.set_ciphertext( cbuffer );
             delete []cbuffer;
 
             he.entschluesseln();
 
       		cbuffer = new char[he.get_laenge_plain()+1];
-		      he.get_plaintext(cbuffer);
+		    he.get_plaintext(cbuffer);
+
+			delete inv_mat;
          }
 
          // ENCODE KEY TO STR
@@ -615,9 +641,9 @@ void Hill(const char *infile, const char *OldTitle)
 	      out.close();
 	      delete []cbuffer;
 
-	      // Ver- bzw. Entschluesselte Daten aus Hill-Klasse auslesen und in neuem Fenster anzeigen
+	     // Ver- bzw. Entschluesselte Daten aus Hill-Klasse auslesen und in neuem Fenster anzeigen
          // und danach die temporaere Datei wieder loeschen
-	      Reformat(infile, outfile, FALSE);
+	     Reformat(infile, outfile, FALSE);
          OpenNewDoc( outfile, cs_keystr, OldTitle, IDS_STRING_HILL, hillbase.cryptMode, SCHLUESSEL_QUADRATISCH );
 
          if ( hillbase.verbose )

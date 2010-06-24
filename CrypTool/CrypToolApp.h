@@ -53,7 +53,7 @@
 #include "DlgSignatureDemo.h"
 #include "DlgFindAndReplace.h"
 #include <atlbase.h>   // Registry
-
+#include <fstream>
 
 #include "HillEncryption.h"
 
@@ -194,6 +194,13 @@ public:
 	#endif
 
 	CRegKey localRegistry;
+
+	// logging
+	CString  cs_logFileName;
+	std::ofstream os_logFile;
+	BOOL     beginLog();
+	std::ofstream &log();
+	void     endLog();
 
 private:
 	void callHtmlHelp(UINT uCommand, DWORD dwData);

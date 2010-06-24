@@ -377,9 +377,9 @@ void CDlgKeyHill5x5::DoCrypt( unsigned long mode )
 		// FIXME: Set FOCUS
 		return;
 	}
-	m_HillBase->cryptMode = mode;
-   m_HillBase->GetHillMatrix();
-   m_HillBase->currDlg = 0;
+    m_HillBase->cryptMode = mode;
+    m_HillBase->GetHillMatrix();
+    m_HillBase->currDlg = 0;
 	CDialog::OnOK();
 }
 
@@ -387,7 +387,7 @@ void CDlgKeyHill5x5::OnOK()		 { DoCrypt(0); }
 void CDlgKeyHill5x5::OnDecrypt()  { DoCrypt(1); }
 void CDlgKeyHill5x5::OnPasteKey() 
 {	
-	m_HillBase->pasteKey(); 
+   m_HillBase->pasteKey(); 
    SetDimension( m_HillBase->dim );
 }
 
@@ -399,10 +399,10 @@ void CDlgKeyHill5x5::OnZufaelligerSchluessel()
 
 void CDlgKeyHill5x5::OnGroessereSchluessel() 
 {
-	m_HillBase->currDlg = DLG_HILL_10x10; 
+   m_HillBase->currDlg = DLG_HILL_10x10; 
    m_HillBase->max_dim = DIM_DLG_HILL_10x10;
    m_HillBase->GetHillMatrix();
-	CDialog::OnOK();	
+   CDialog::OnOK();	
 }
 
 void CDlgKeyHill5x5::OnHillOptions()
