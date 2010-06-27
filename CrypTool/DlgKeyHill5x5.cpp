@@ -356,7 +356,7 @@ BOOL CDlgKeyHill5x5::OnInitDialog()
 
    SetDimension( m_HillBase->dim );
 
-   if ( m_HillBase->HillMat.is_initialized() )
+   if ( m_HillBase->HillMat->is_initialized() )
       m_HillBase->SetHillMatrix();
 
 	CString cs;
@@ -377,14 +377,27 @@ void CDlgKeyHill5x5::DoCrypt( unsigned long mode )
 		// FIXME: Set FOCUS
 		return;
 	}
-    m_HillBase->cryptMode = mode;
-    m_HillBase->GetHillMatrix();
-    m_HillBase->currDlg = 0;
-	CDialog::OnOK();
+
+   if ( mode == 1 ) // Decrypt
+   {
+      m_HillBase->invertMatrix();
+   }
+   m_HillBase->cryptMode = mode;
+   m_HillBase->GetHillMatrix();
+   m_HillBase->currDlg = 0;
+   CDialog::OnOK();
 }
 
-void CDlgKeyHill5x5::OnOK()		 { DoCrypt(0); }
-void CDlgKeyHill5x5::OnDecrypt()  { DoCrypt(1); }
+void CDlgKeyHill5x5::OnOK()		 
+{ 
+   DoCrypt(0); 
+}
+
+void CDlgKeyHill5x5::OnDecrypt()  
+{ 
+   DoCrypt(1); 
+}
+
 void CDlgKeyHill5x5::OnPasteKey() 
 {	
    m_HillBase->pasteKey(); 

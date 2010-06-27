@@ -142,6 +142,7 @@ BOOL CDlgShowKeyHill5x5::OnInitDialog()
    GetDlgItem( IDC_RADIO8 )->EnableWindow( FALSE );
    GetDlgItem( IDC_RADIO9 )->EnableWindow( FALSE );
 
+   m_ShowInvKey = FALSE;
    CheckRadioButton( IDC_RADIO1, IDC_RADIO2, IDC_RADIO1 );
    displayAlphabet();
    m_pHillAlphInfo = theApp.TextOptions.getAlphabet();

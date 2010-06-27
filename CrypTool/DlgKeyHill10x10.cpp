@@ -974,7 +974,7 @@ BOOL CDlgKeyHill10x10::OnInitDialog()
 	displayAlphabet();
    SetDimension( m_HillBase->dim );
 
-   if ( m_HillBase->HillMat.is_initialized() )
+   if ( m_HillBase->HillMat->is_initialized() )
       m_HillBase->SetHillMatrix();
 
 	CString cs;
@@ -994,6 +994,11 @@ void CDlgKeyHill10x10::DoCrypt( unsigned long mode )
 		// FIXME: Set FOCUS
 		return;
 	}
+
+   if ( mode == 1 ) // Decrypt
+   {
+      m_HillBase->invertMatrix();
+   }
 	m_HillBase->cryptMode = mode;
    m_HillBase->GetHillMatrix();
    m_HillBase->currDlg = 0;

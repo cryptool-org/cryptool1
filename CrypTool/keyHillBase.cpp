@@ -33,7 +33,7 @@
 /////////////////////////////////////////////////////////////////////////////
 //
 CKeyHillBase::CKeyHillBase(unsigned long p_keyRange) :
-   HillMat(0, 0), 
+   HillMat(0), 
 	max_dim(p_keyRange),
    key_range(p_keyRange),
 	dim(1),
@@ -50,6 +50,7 @@ CKeyHillBase::CKeyHillBase(unsigned long p_keyRange) :
 		HillNumMat[i]  = new CHiEdit[key_range];
 		HillAlphMat[i] = new CEdit[key_range];
 	}
+   HillMat = new CSquareMatrixModN(0,0);
 }
 
 CKeyHillBase::~CKeyHillBase()
@@ -61,6 +62,7 @@ CKeyHillBase::~CKeyHillBase()
 	}
 	delete []HillNumMat;
 	delete []HillAlphMat;
+   delete HillMat;
 }
 
 ///////////////////////////////////////////////////
@@ -71,17 +73,17 @@ void CKeyHillBase::SetHillMatrix()
 	unsigned long i, j;
 	CString cs;
 
-	ASSERT( HillMat.is_initialized() );
+	ASSERT( HillMat->is_initialized() );
 
 	for ( i=0; i<max_dim; i++ )
 		for ( j=0; j<max_dim; j++ )
 			if ( i<dim && j<dim )
          { 
-            char c = chr( HillMat(i,j) );
+            char c = chr( (*HillMat)(i,j) );
             if ( c >= 0 )
             {
 				   HillAlphMat[i][j].SetWindowTextA( CString(c) );
-				   cs.Format( "%02d", HillMat(i,j) );
+				   cs.Format( "%02d", (*HillMat)(i,j) );
 				   HillNumMat[i][j].SetWindowTextA( cs );
             }
             else // ERROR
@@ -99,7 +101,7 @@ void CKeyHillBase::GetHillMatrix()
 	ASSERT ((1 <= dim) && (dim <= HILL_RANGE));
 	unsigned long modul = theApp.TextOptions.getAlphabet().GetLength();
 
-   HillMat.initialize( dim, modul );
+   HillMat->initialize( dim, modul );
 	CString cs;
 	unsigned long i, j;
 	for (i=0; i<dim; i++)
@@ -107,7 +109,7 @@ void CKeyHillBase::GetHillMatrix()
 		{
 			HillAlphMat[i][j].GetWindowText(cs);
 			ASSERT( ord( cs[0] >= 0 ) );
-         HillMat(i,j) = ord(cs[0]);
+         (*HillMat)(i,j) = ord(cs[0]);
 		}
 }
 
@@ -296,7 +298,7 @@ int  CKeyHillBase::isInvertable()
 
 	GetHillMatrix();
 
-   int invertable = HillMat.invert(mat_inv);
+   int invertable = HillMat->invert(mat_inv);
 	if ( !invertable )
 	{
 		CString msg, cs;
@@ -317,13 +319,13 @@ int  CKeyHillBase::invertMatrix()
 	mat_inv	= new CSquareMatrixModN( dim, modul );
 
    GetHillMatrix();
-   if ( !HillMat.invert(mat_inv) )
+   if ( !HillMat->invert(mat_inv) )
       return 0;
 
    unsigned int i, j;
    for ( i=0; i<dim; i++ )
       for ( j=0; j<dim; j++ )
-         HillMat(i,j) = (*mat_inv)(i, j);
+         (*HillMat)(i,j) = (*mat_inv)(i, j);
 
    SetHillMatrix();
    
@@ -333,9 +335,9 @@ int  CKeyHillBase::invertMatrix()
 
 void CKeyHillBase::randomKey()
 {
-   HillMat.initialize( dim, theApp.TextOptions.getAlphabet().GetLength() );
+   HillMat->initialize( dim, theApp.TextOptions.getAlphabet().GetLength() );
 
-   if (HillMat.zufaellige_invertierbare_matrix())
+   if (HillMat->zufaellige_invertierbare_matrix())
 	{
 		SetHillMatrix();
 	}
@@ -351,7 +353,7 @@ void CKeyHillBase::randomKey()
 ////////////////////////////////////////////////////
 void CKeyHillBase::Clear()
 {
-   HillMat.initialize(0, 1);
+   HillMat->initialize(0, 1);
 	unsigned long i, j;
 	for ( i=0; i<max_dim; i++ )
 		for ( j=0; j<max_dim; j++ )
@@ -452,14 +454,14 @@ void CKeyHillBase::keyToStr( CString &cs )
    CString ts;
    cs = _T("");
 
-   if ( !HillMat.is_initialized() )
+   if ( !HillMat->is_initialized() )
       GetHillMatrix();
 
    unsigned long i, j;
    for (i=0; i<dim; i++)
    {
 	   for (j=0; j<dim; j++)
-         cs += CString( chr( HillMat(i,j) ) );
+         cs += CString( chr( (*HillMat)(i,j) ) );
       cs += _T(" ");
    }
    
@@ -491,7 +493,7 @@ int CKeyHillBase::strToKey( CString &cs, CString *alphabet )
 	laenge += strlen(HILLSTR_MULTVARIANT) +1;
 	multType = (cs.GetAt(laenge) == '0') ? VECTOR_MATRIX : MATRIX_VECTOR;
 
-   HillMat.initialize( max_dim, modul );
+   HillMat->initialize( max_dim, modul );
    laenge = cs.Find(HILLSTR_ALPHABET);
 
 	while (l<laenge) if ( 0 <= ord( cs[l++] ) ) i++;
@@ -501,7 +503,7 @@ int CKeyHillBase::strToKey( CString &cs, CString *alphabet )
 		while (l < laenge)
 		{
 			if ( 0 <= ord(cs[l]) )
-            HillMat(i, j++) = ord( cs[l], alphabet );
+            (*HillMat)(i, j++) = ord( cs[l], alphabet );
 			else 
 			{
 				assert( !_dim || i < _dim );	
@@ -672,10 +674,10 @@ int CKeyHillBase::run_showKey( CSquareMatrixModN *mat, int alphabet_offset, int 
 
    dim = mat->get_dim();
 
-   HillMat.initialize( dim, theApp.TextOptions.getAlphabet().GetLength() );
+   HillMat->initialize( dim, theApp.TextOptions.getAlphabet().GetLength() );
    for ( i=0; i<dim; i++ )
       for ( j=0; j<dim; j++ )
-         HillMat(i,j) = (*mat)(i,j);
+         (*HillMat)(i,j) = (*mat)(i,j);
    multType = (HillMultType)mult_direction;
 
    if ( dim <= DIM_DLG_HILL_5x5 )
