@@ -8,12 +8,11 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -4527,6 +4526,15 @@ BEGIN
     LISTBOX         IDC_LIST_LANGUAGES_CIPHERTEXT,118,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
 END
 
+IDD_COMPUTE_MERSENNE_NUMBERS DIALOGEX 0, 0, 300, 150
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "i18n Compute Mersenne Numbers"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,230,125,60,18,WS_GROUP
+    PUSHBUTTON      "Compute",IDC_BUTTON_COMPUTE,7,125,60,18
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -4766,6 +4774,7 @@ BEGIN
         BEGIN
             MENUITEM "Narzêdzie edukacyjne teorii liczb", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "i18n Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "&Kryptoanaliza"
@@ -5117,6 +5126,7 @@ BEGIN
         BEGIN
             MENUITEM "Narzêdzie edukacyjne teorii liczb", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "i18n Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "&Kryptoanaliza"
@@ -5468,6 +5478,7 @@ BEGIN
         BEGIN
             MENUITEM "Narzêdzie edukacyjne teorii liczb", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "i18n Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "&Kryptoanaliza"
@@ -5819,6 +5830,7 @@ BEGIN
         BEGIN
             MENUITEM "Narzêdzie edukacyjne teorii liczb", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "i18n Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "&Kryptoanaliza"
@@ -6197,6 +6209,7 @@ BEGIN
         BEGIN
             MENUITEM "Narzêdzie edukacyjne teorii liczb", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "i18n Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "&Kryptoanaliza"
@@ -8220,6 +8233,14 @@ BEGIN
         RIGHTMARGIN, 223
         TOPMARGIN, 7
         BOTTOMMARGIN, 133
+    END
+
+    IDD_COMPUTE_MERSENNE_NUMBERS, DIALOG
+    BEGIN
+        VERTGUIDE, 7
+        VERTGUIDE, 290
+        HORZGUIDE, 7
+        HORZGUIDE, 143
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -10536,6 +10557,29 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_REGISTRY_SETTINGS   "Software\\CrypTool\\Settings"
+    IDS_REGISTRY_SETTINGS_OPTIONS "Software\\CrypTool\\Settings\\Options"
+    IDS_ERROR_LOAD_LOCAL_PSE_CAPTION "B³¹d ³adowania kluczy PSE!"
+    IDS_ERROR_LOAD_LOCAL_PSE_MESSAGE 
+                            "Proszê usun¹æ katalog\n% s\n, a nastêpnie ponownie uruchomiæ CrypTool!   "
+    IDS_PSE_FILESTRUCT_CORRUPTED 
+                            "Proszê usun¹æ katalog\n% s\n, a nastêpnie ponownie uruchomiæ CrypTool!   "
+    IDS_PSE_FILESTRUCT_ORIG_CORRUPTED 
+                            "Oryginalny keystore CrypToola jest uszkodzony, zapoznaj siê ze œcie¿k¹ \n% s.\n Powinieneœ zainstalowaæ CrypTool ponownie."
+    IDS_PSE_FILESTRUCT_COULD_NOT_CREATE_DIRECTORY 
+                            "Œcie¿ka keystore mo¿e nie byæ utworzona.\nNale¿y sprawdziæ prawa dostêpu do\n%s ."
+    IDS_PSE_FILESTRUCT_COULD_NOT_COPY_PSE 
+                            "Œcie¿ka keystore mo¿e nie byæ skopiowana.\nNale¿y sprawdziæ prawa dostêpu do\n%s."
+    IDS_PSE_FILESTRUCT_NO_APPLICATION_DATA_PATH 
+                            "Zmienna œrodowiskowa APPDATA nie istnieje.\nProszê zdefiniowaæ tê zmienn¹."
+    IDS_PSE_FILES_READONLY  "Istnieje tylko mo¿liwoœæ odczytu pliki keystore.\nNale¿y sprawdziæ prawa dostêpu do\n%s."
+    IDS_PSE_FILESTRUCT_TRY_TO_REWRITE_PSE 
+                            "Œcie¿ka user key file structure\n%s\nwydaje siê byæ uszkodzona!\n\nCzy CrypTool ma spróbowaæ ponownie napisaæ ten plik struktury?\nProszê wybraæ przycisk OK w celu ponownego zapisu lub Anuluj, jeœli problem ma byæ rozwi¹zany rêcznie.\n\nUwaga: W przypadnu ponownego zapisu stare klucze juz siê nie nadaj¹!\nW celu uzyskania dalszych informacji prosimy zapoznaæ siê z readme CrypTool."
+    ID_COMPUTE_MERSENNE_NUMBERS "i18n Computes Mersenne numbers and shows up-to-date GIMPS results"
+END
+
+STRINGTABLE 
+BEGIN
     ID_FLASH_AESDEMO        "Wizualizacja algorytmu AES przy u¿yciu technologii Flash."
     ID_PASSWORDQUALITYMETER "Okreœlenie jakoœci has³a."
     ID_INTERACTIVE_NUMBER_THEORY 
@@ -10906,28 +10950,6 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_REGISTRY_SETTINGS   "Software\\CrypTool\\Settings"
-    IDS_REGISTRY_SETTINGS_OPTIONS "Software\\CrypTool\\Settings\\Options"
-    IDS_ERROR_LOAD_LOCAL_PSE_CAPTION "B³¹d ³adowania kluczy PSE!"
-    IDS_ERROR_LOAD_LOCAL_PSE_MESSAGE 
-                            "Proszê usun¹æ katalog\n% s\n, a nastêpnie ponownie uruchomiæ CrypTool!   "
-    IDS_PSE_FILESTRUCT_CORRUPTED 
-                            "Proszê usun¹æ katalog\n% s\n, a nastêpnie ponownie uruchomiæ CrypTool!   "
-    IDS_PSE_FILESTRUCT_ORIG_CORRUPTED 
-                            "Oryginalny keystore CrypToola jest uszkodzony, zapoznaj siê ze œcie¿k¹ \n% s.\n Powinieneœ zainstalowaæ CrypTool ponownie."
-    IDS_PSE_FILESTRUCT_COULD_NOT_CREATE_DIRECTORY 
-                            "Œcie¿ka keystore mo¿e nie byæ utworzona.\nNale¿y sprawdziæ prawa dostêpu do\n%s ."
-    IDS_PSE_FILESTRUCT_COULD_NOT_COPY_PSE 
-                            "Œcie¿ka keystore mo¿e nie byæ skopiowana.\nNale¿y sprawdziæ prawa dostêpu do\n%s."
-    IDS_PSE_FILESTRUCT_NO_APPLICATION_DATA_PATH 
-                            "Zmienna œrodowiskowa APPDATA nie istnieje.\nProszê zdefiniowaæ tê zmienn¹."
-    IDS_PSE_FILES_READONLY  "Istnieje tylko mo¿liwoœæ odczytu pliki keystore.\nNale¿y sprawdziæ prawa dostêpu do\n%s."
-    IDS_PSE_FILESTRUCT_TRY_TO_REWRITE_PSE 
-                            "Œcie¿ka user key file structure\n%s\nwydaje siê byæ uszkodzona!\n\nCzy CrypTool ma spróbowaæ ponownie napisaæ ten plik struktury?\nProszê wybraæ przycisk OK w celu ponownego zapisu lub Anuluj, jeœli problem ma byæ rozwi¹zany rêcznie.\n\nUwaga: W przypadnu ponownego zapisu stare klucze juz siê nie nadaj¹!\nW celu uzyskania dalszych informacji prosimy zapoznaæ siê z readme CrypTool."
-END
-
-STRINGTABLE 
-BEGIN
     IDS_SIGATT_STAT_FAKE_FILE "Nieprawid³owa nazwa pliku: %s"
     IDS_PQMERROR_NO_SPECIALCHARACTERS 
                             "Lista specjalnych znaków jest pusta!\nProszê podaæ kilka znaków specjalnych lub zmniejszyæ minimaln¹ liczbê znaków specjalnych do 0"
@@ -11099,12 +11121,12 @@ BEGIN
                             "Proszê okreslic liczbê bajtów dla testu entropii wpisujac liczbê calkowita miêdzy %d i %d."
 END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Serbisch (Lateinisch) resources
+// Serbian (Latin) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_SRL)
 #ifdef _WIN32
@@ -15633,6 +15655,15 @@ BEGIN
     EDITTEXT        IDC_EDIT_TRANSLATIONS_INFORMATION,7,20,356,225,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
+IDD_COMPUTE_MERSENNE_NUMBERS DIALOGEX 0, 0, 300, 150
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "i18n Compute Mersenne Numbers"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,230,125,60,18,WS_GROUP
+    PUSHBUTTON      "Compute",IDC_BUTTON_COMPUTE,7,125,60,18
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -15872,6 +15903,7 @@ BEGIN
         BEGIN
             MENUITEM "&Alatka za Ucenje Teorije Brojeva...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Sabiranje Tacaka na Eliptickoj Krivoj...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "i18n Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "&Analiza"
@@ -16223,6 +16255,7 @@ BEGIN
         BEGIN
             MENUITEM "&Alatka za Ucenje Teorije Brojeva...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Sabiranje Tacaka na Eliptickoj Krivoj...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "i18n Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "&Analiza"
@@ -16574,6 +16607,7 @@ BEGIN
         BEGIN
             MENUITEM "&Alatka za Ucenje Teorije Brojeva...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Sabiranje Tacaka na Eliptickoj Krivoj...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "i18n Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "&Analiza"
@@ -16925,6 +16959,7 @@ BEGIN
         BEGIN
             MENUITEM "&Alatka za Ucenje Teorije Brojeva...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Sabiranje Tacaka na Eliptickoj Krivoj...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "i18n Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "&Analiza"
@@ -17303,6 +17338,7 @@ BEGIN
         BEGIN
             MENUITEM "&Alatka za Ucenje Teorije Brojeva...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Sabiranje Tacaka na Eliptickoj Krivoj...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "i18n Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "&Analiza"
@@ -19299,6 +19335,14 @@ BEGIN
         RIGHTMARGIN, 363
         TOPMARGIN, 7
         BOTTOMMARGIN, 273
+    END
+
+    IDD_COMPUTE_MERSENNE_NUMBERS, DIALOG
+    BEGIN
+        VERTGUIDE, 7
+        VERTGUIDE, 290
+        HORZGUIDE, 7
+        HORZGUIDE, 143
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -21624,6 +21668,30 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_REGISTRY_SETTINGS   "Software\\CrypTool\\Settings"
+    IDS_REGISTRY_SETTINGS_OPTIONS "Software\\CrypTool\\Settings\\Options"
+    IDS_ERROR_LOAD_LOCAL_PSE_CAPTION 
+                            "Greška prilikom ucitavanja PSE kljuceva!"
+    IDS_ERROR_LOAD_LOCAL_PSE_MESSAGE 
+                            "Molim uklonite direktorijum\n%s\ni potom restartujte CrypTool!   "
+    IDS_PSE_FILESTRUCT_CORRUPTED 
+                            "Molim uklonite direktorijum\n%s\ni potom restartujte CrypTool.   "
+    IDS_PSE_FILESTRUCT_ORIG_CORRUPTED 
+                            "Originalno CrypTool skladište kljuceva je ošteceno, molim pregledajte putanju\n%s .\nMožda cete morati da reinstalirate CrypTool."
+    IDS_PSE_FILESTRUCT_COULD_NOT_CREATE_DIRECTORY 
+                            "Putanja skladišta kljuceva ne može da se kreira.\nMolim proverite prava pristupa\n%s ."
+    IDS_PSE_FILESTRUCT_COULD_NOT_COPY_PSE 
+                            "Skladište kljuceva ne može da se korpira.\nMolim proverite prava pristupa\n%s."
+    IDS_PSE_FILESTRUCT_NO_APPLICATION_DATA_PATH 
+                            "Varijabla okruženja APPDATA ne postoji.\nMolim definišite ovu varijablu."
+    IDS_PSE_FILES_READONLY  "Datoteke skladišta kljuceva su samo citljive.\nMolim proverite prava pristupa\n%s."
+    IDS_PSE_FILESTRUCT_TRY_TO_REWRITE_PSE 
+                            "Korisnicka struktura datoteke kljuca na putanji\n%s\nizgleda da je oštecena!\n\nDa li da CrypTool pokuša da prepiše ovu strukturu datoteke?\nMolim odaberite OK za prepisivanje ili Otkaži ako želite da rešite ovaj probelm rucno.\n\nImajte na umu: U slucaju prepisivanja, stari kljucevi nisu više upotrebljivi!\nZa dalje informacije pogledajte CrypTool procitaj-me."
+    ID_COMPUTE_MERSENNE_NUMBERS "i18n Computes Mersenne numbers and shows up-to-date GIMPS results"
+END
+
+STRINGTABLE 
+BEGIN
     ID_FLASH_AESDEMO        "Vizualizuje AES algoritam šifrovanja korišcenjem Flash-a sa fiksnim podacima"
     ID_PASSWORDQUALITYMETER "Meri kvalitet lozinki"
     ID_INTERACTIVE_NUMBER_THEORY 
@@ -21993,29 +22061,6 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_REGISTRY_SETTINGS   "Software\\CrypTool\\Settings"
-    IDS_REGISTRY_SETTINGS_OPTIONS "Software\\CrypTool\\Settings\\Options"
-    IDS_ERROR_LOAD_LOCAL_PSE_CAPTION 
-                            "Greška prilikom ucitavanja PSE kljuceva!"
-    IDS_ERROR_LOAD_LOCAL_PSE_MESSAGE 
-                            "Molim uklonite direktorijum\n%s\ni potom restartujte CrypTool!   "
-    IDS_PSE_FILESTRUCT_CORRUPTED 
-                            "Molim uklonite direktorijum\n%s\ni potom restartujte CrypTool.   "
-    IDS_PSE_FILESTRUCT_ORIG_CORRUPTED 
-                            "Originalno CrypTool skladište kljuceva je ošteceno, molim pregledajte putanju\n%s .\nMožda cete morati da reinstalirate CrypTool."
-    IDS_PSE_FILESTRUCT_COULD_NOT_CREATE_DIRECTORY 
-                            "Putanja skladišta kljuceva ne može da se kreira.\nMolim proverite prava pristupa\n%s ."
-    IDS_PSE_FILESTRUCT_COULD_NOT_COPY_PSE 
-                            "Skladište kljuceva ne može da se korpira.\nMolim proverite prava pristupa\n%s."
-    IDS_PSE_FILESTRUCT_NO_APPLICATION_DATA_PATH 
-                            "Varijabla okruženja APPDATA ne postoji.\nMolim definišite ovu varijablu."
-    IDS_PSE_FILES_READONLY  "Datoteke skladišta kljuceva su samo citljive.\nMolim proverite prava pristupa\n%s."
-    IDS_PSE_FILESTRUCT_TRY_TO_REWRITE_PSE 
-                            "Korisnicka struktura datoteke kljuca na putanji\n%s\nizgleda da je oštecena!\n\nDa li da CrypTool pokuša da prepiše ovu strukturu datoteke?\nMolim odaberite OK za prepisivanje ili Otkaži ako želite da rešite ovaj probelm rucno.\n\nImajte na umu: U slucaju prepisivanja, stari kljucevi nisu više upotrebljivi!\nZa dalje informacije pogledajte CrypTool procitaj-me."
-END
-
-STRINGTABLE 
-BEGIN
     IDS_SIGATT_STAT_FAKE_FILE "Ime datoteke lažno: %s"
     IDS_PQMERROR_NO_SPECIALCHARACTERS 
                             "Lista specijalnih karaktera je prazna!\nMolim obezbedite neke specijalne karaktere ili smanjite broj specijalnih karaktera na nulu."
@@ -22191,12 +22236,12 @@ BEGIN
                             "Molim definišite broj bajtova entropije teksta unošenjem celog broja izmedu %d i %d."
 END
 
-#endif    // Serbisch (Lateinisch) resources
+#endif    // Serbian (Latin) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -22790,6 +22835,15 @@ BEGIN
     LTEXT           "Geben Sie den PIN-Code ein:",IDC_STATIC,11,112,98,12
     EDITTEXT        IDC_EDIT2,8,27,176,73,ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY | ES_WANTRETURN | WS_VSCROLL
     EDITTEXT        IDC_EDIT3,8,6,176,14,ES_CENTER | ES_READONLY | NOT WS_BORDER
+END
+
+IDD_COMPUTE_MERSENNE_NUMBERS DIALOGEX 0, 0, 300, 150
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Mersenne-Zahlen berechnen"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Schließen",IDOK,230,125,60,18,WS_GROUP
+    PUSHBUTTON      "Berechnen",IDC_BUTTON_COMPUTE,7,125,60,18
 END
 
 IDD_AUTHORS DIALOGEX 0, 0, 370, 280
@@ -26973,6 +27027,7 @@ BEGIN
         BEGIN
             MENUITEM "&Lernprogramm für Zahlentheorie...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Punktaddition auf Elliptischen Kurven...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "&Mersenne-Zahlen berechnen...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "A&nalyse"
@@ -27324,6 +27379,7 @@ BEGIN
         BEGIN
             MENUITEM "&Lernprogramm für Zahlentheorie...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Punktaddition auf Elliptischen Kurven...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "&Mersenne-Zahlen berechnen...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "A&nalyse"
@@ -27675,6 +27731,7 @@ BEGIN
         BEGIN
             MENUITEM "&Lernprogramm für Zahlentheorie...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Punktaddition auf Elliptischen Kurven...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "&Mersenne-Zahlen berechnen...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "A&nalyse"
@@ -28026,6 +28083,7 @@ BEGIN
         BEGIN
             MENUITEM "&Lernprogramm für Zahlentheorie...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Punktaddition auf Elliptischen Kurven...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "&Mersenne-Zahlen berechnen...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "A&nalyse"
@@ -28404,6 +28462,7 @@ BEGIN
         BEGIN
             MENUITEM "&Lernprogramm für Zahlentheorie...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Punktaddition auf Elliptischen Kurven...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "&Mersenne-Zahlen berechnen...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "A&nalyse"
@@ -29559,6 +29618,14 @@ BEGIN
         LEFTMARGIN, 10
         RIGHTMARGIN, 278
         BOTTOMMARGIN, 77
+    END
+
+    IDD_COMPUTE_MERSENNE_NUMBERS, DIALOG
+    BEGIN
+        VERTGUIDE, 7
+        VERTGUIDE, 290
+        HORZGUIDE, 7
+        HORZGUIDE, 143
     END
 
     IDD_AUTHORS, DIALOG
@@ -32736,6 +32803,29 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_REGISTRY_SETTINGS   "Software\\CrypTool\\Settings"
+    IDS_REGISTRY_SETTINGS_OPTIONS "Software\\CrypTool\\Settings\\Options"
+    IDS_ERROR_LOAD_LOCAL_PSE_CAPTION "Fehler beim Laden der-PSE Schlüssel!"
+    IDS_ERROR_LOAD_LOCAL_PSE_MESSAGE 
+                            "Bitte löschen Sie das Verzeichnis\n%s\nund starten Sie CrypTool neu!   "
+    IDS_PSE_FILESTRUCT_CORRUPTED 
+                            "Bitte löschen Sie das Verzeichnis\n%s\nund starten Sie CrypTool neu!   "
+    IDS_PSE_FILESTRUCT_ORIG_CORRUPTED 
+                            "Der CrypTool-Schlüsselspeicher unter dem Verzeichnis\n%s\nist beschädigt. Ggf. müssen Sie CrypTool neu installieren!"
+    IDS_PSE_FILESTRUCT_COULD_NOT_CREATE_DIRECTORY 
+                            "Die Verzeichnisse für den Schlüsselspeicher können nicht erzeugt werden.\nBitte überprüfen Sie die Zugriffsrechte im Verzeichnis\n%s."
+    IDS_PSE_FILESTRUCT_COULD_NOT_COPY_PSE 
+                            "Der Schlüsselspeicher kann nicht kopiert werden.\nBitte überprüfen Sie die Zugriffsrechte im Verzeichnis\n%s."
+    IDS_PSE_FILESTRUCT_NO_APPLICATION_DATA_PATH 
+                            "Die Umgebungsvariable APPDATA existiert nicht.\nBitte definieren Sie diese Variable."
+    IDS_PSE_FILES_READONLY  "Die Dateien im Schlüsselspeicher können nicht geschrieben werden.\nBitte überprüfen Sie die Zugriffsrechte im Verzeichnis\n%s."
+    IDS_PSE_FILESTRUCT_TRY_TO_REWRITE_PSE 
+                            "Die Dateistruktur Ihrer Benutzer-Schlüssel im Pfad \n%s\nscheint fehlerhaft zu sein!\n\nSoll CrypTool versuchen, die Datenstruktur neu zu schreiben?\nBitte wählen Sie OK für das Neu-Schreiben oder Abbruch, wenn Sie das Problem manuell lösen wollen.\n\nBitte beachten Sie, dass beim Neu-Schreiben bisherige Schlüssel nicht mehr nutzbar sind!\nWeitere Informationen zum Schlüsselspeicher finden Sie im CrypTool-Readme."
+    ID_COMPUTE_MERSENNE_NUMBERS "Berechnet Mersenne-Zahlen und zeigt aktuelle GIMPS-Ergebnisse an"
+END
+
+STRINGTABLE 
+BEGIN
     ID_FLASH_AESDEMO        "Visualisiert den AES-Algorithmus mittels Flash mit fest vorgegebenen Daten"
     ID_PASSWORDQUALITYMETER "Misst die Qualität von Passwörtern"
     ID_INTERACTIVE_NUMBER_THEORY 
@@ -33003,28 +33093,6 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_REGISTRY_SETTINGS   "Software\\CrypTool\\Settings"
-    IDS_REGISTRY_SETTINGS_OPTIONS "Software\\CrypTool\\Settings\\Options"
-    IDS_ERROR_LOAD_LOCAL_PSE_CAPTION "Fehler beim Laden der-PSE Schlüssel!"
-    IDS_ERROR_LOAD_LOCAL_PSE_MESSAGE 
-                            "Bitte löschen Sie das Verzeichnis\n%s\nund starten Sie CrypTool neu!   "
-    IDS_PSE_FILESTRUCT_CORRUPTED 
-                            "Bitte löschen Sie das Verzeichnis\n%s\nund starten Sie CrypTool neu!   "
-    IDS_PSE_FILESTRUCT_ORIG_CORRUPTED 
-                            "Der CrypTool-Schlüsselspeicher unter dem Verzeichnis\n%s\nist beschädigt. Ggf. müssen Sie CrypTool neu installieren!"
-    IDS_PSE_FILESTRUCT_COULD_NOT_CREATE_DIRECTORY 
-                            "Die Verzeichnisse für den Schlüsselspeicher können nicht erzeugt werden.\nBitte überprüfen Sie die Zugriffsrechte im Verzeichnis\n%s."
-    IDS_PSE_FILESTRUCT_COULD_NOT_COPY_PSE 
-                            "Der Schlüsselspeicher kann nicht kopiert werden.\nBitte überprüfen Sie die Zugriffsrechte im Verzeichnis\n%s."
-    IDS_PSE_FILESTRUCT_NO_APPLICATION_DATA_PATH 
-                            "Die Umgebungsvariable APPDATA existiert nicht.\nBitte definieren Sie diese Variable."
-    IDS_PSE_FILES_READONLY  "Die Dateien im Schlüsselspeicher können nicht geschrieben werden.\nBitte überprüfen Sie die Zugriffsrechte im Verzeichnis\n%s."
-    IDS_PSE_FILESTRUCT_TRY_TO_REWRITE_PSE 
-                            "Die Dateistruktur Ihrer Benutzer-Schlüssel im Pfad \n%s\nscheint fehlerhaft zu sein!\n\nSoll CrypTool versuchen, die Datenstruktur neu zu schreiben?\nBitte wählen Sie OK für das Neu-Schreiben oder Abbruch, wenn Sie das Problem manuell lösen wollen.\n\nBitte beachten Sie, dass beim Neu-Schreiben bisherige Schlüssel nicht mehr nutzbar sind!\nWeitere Informationen zum Schlüsselspeicher finden Sie im CrypTool-Readme."
-END
-
-STRINGTABLE 
-BEGIN
     IDS_SIGATT_STAT_FAKE_FILE "Dateiname Fälschung: %s"
     IDS_PQMERROR_NO_SPECIALCHARACTERS 
                             "Die Liste der Sonderzeichen ist leer!\nBitte geben Sie Sonderzeichen an, oder verringern Sie die Minimalzahl der Sonderzeichen auf Null."
@@ -33202,12 +33270,12 @@ BEGIN
                             "Die Anzahl an Bytes für den Entropietest muss zwischen %d und %d liegen."
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -37716,6 +37784,15 @@ BEGIN
     EDITTEXT        IDC_EDIT_TRANSLATIONS_INFORMATION,7,20,356,225,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
+IDD_COMPUTE_MERSENNE_NUMBERS DIALOGEX 0, 0, 300, 150
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Compute Mersenne Numbers"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,230,125,60,18,WS_GROUP
+    PUSHBUTTON      "Compute",IDC_BUTTON_COMPUTE,7,125,60,18
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -37955,6 +38032,7 @@ BEGIN
         BEGIN
             MENUITEM "&Learning Tool for Number Theory...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Point Addition on Elliptic Curves...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "&Analysis"
@@ -38306,6 +38384,7 @@ BEGIN
         BEGIN
             MENUITEM "&Learning Tool for Number Theory...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Point Addition on Elliptic Curves...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "&Analysis"
@@ -38657,6 +38736,7 @@ BEGIN
         BEGIN
             MENUITEM "&Learning Tool for Number Theory...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Point Addition on Elliptic Curves...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "&Analysis"
@@ -39008,6 +39088,7 @@ BEGIN
         BEGIN
             MENUITEM "&Learning Tool for Number Theory...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Point Addition on Elliptic Curves...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "&Analysis"
@@ -39386,6 +39467,7 @@ BEGIN
         BEGIN
             MENUITEM "&Learning Tool for Number Theory...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Point Addition on Elliptic Curves...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "&Analysis"
@@ -41402,6 +41484,14 @@ BEGIN
         RIGHTMARGIN, 363
         TOPMARGIN, 7
         BOTTOMMARGIN, 273
+    END
+
+    IDD_COMPUTE_MERSENNE_NUMBERS, DIALOG
+    BEGIN
+        VERTGUIDE, 7
+        VERTGUIDE, 290
+        HORZGUIDE, 7
+        HORZGUIDE, 143
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -43728,6 +43818,29 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_REGISTRY_SETTINGS   "Software\\CrypTool\\Settings"
+    IDS_REGISTRY_SETTINGS_OPTIONS "Software\\CrypTool\\Settings\\Options"
+    IDS_ERROR_LOAD_LOCAL_PSE_CAPTION "Error on loading PSE keys!"
+    IDS_ERROR_LOAD_LOCAL_PSE_MESSAGE 
+                            "Please remove the directory\n%s\nand then restart CrypTool!   "
+    IDS_PSE_FILESTRUCT_CORRUPTED 
+                            "Please remove the directory\n%s\nand then restart CrypTool.   "
+    IDS_PSE_FILESTRUCT_ORIG_CORRUPTED 
+                            "The original CrypTool keystore is corrupted please review the path\n%s .\nYou may reinstall CrypTool."
+    IDS_PSE_FILESTRUCT_COULD_NOT_CREATE_DIRECTORY 
+                            "The keystore path could not be created.\nPlease check the access right of\n%s ."
+    IDS_PSE_FILESTRUCT_COULD_NOT_COPY_PSE 
+                            "The keystore files could not be copied.\nPlease check the access rights of\n%s."
+    IDS_PSE_FILESTRUCT_NO_APPLICATION_DATA_PATH 
+                            "The environment variable APPDATA does not exist.\nPlease define this variable."
+    IDS_PSE_FILES_READONLY  "The keystore files are read only.\nPlease check the access rights of\n%s."
+    IDS_PSE_FILESTRUCT_TRY_TO_REWRITE_PSE 
+                            "The user key file structure at the path\n%s\nseems to be corrupted!\n\nShould CrypTool try to re-write this file structure?\nPlease select OK for re-write or Cancel if you try to resolve this problem manually.\n\nPlease note: In case of re-write old keys are not usable anymore!\nFor further information please refer to the CrypTool readme."
+    ID_COMPUTE_MERSENNE_NUMBERS "Computes Mersenne numbers and shows up-to-date GIMPS results"
+END
+
+STRINGTABLE 
+BEGIN
     ID_FLASH_AESDEMO        "Visualizes the AES encryption algorithm using Flash with fixed data"
     ID_PASSWORDQUALITYMETER "Measures the quality of passwords"
     ID_INTERACTIVE_NUMBER_THEORY 
@@ -44095,28 +44208,6 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_REGISTRY_SETTINGS   "Software\\CrypTool\\Settings"
-    IDS_REGISTRY_SETTINGS_OPTIONS "Software\\CrypTool\\Settings\\Options"
-    IDS_ERROR_LOAD_LOCAL_PSE_CAPTION "Error on loading PSE keys!"
-    IDS_ERROR_LOAD_LOCAL_PSE_MESSAGE 
-                            "Please remove the directory\n%s\nand then restart CrypTool!   "
-    IDS_PSE_FILESTRUCT_CORRUPTED 
-                            "Please remove the directory\n%s\nand then restart CrypTool.   "
-    IDS_PSE_FILESTRUCT_ORIG_CORRUPTED 
-                            "The original CrypTool keystore is corrupted please review the path\n%s .\nYou may reinstall CrypTool."
-    IDS_PSE_FILESTRUCT_COULD_NOT_CREATE_DIRECTORY 
-                            "The keystore path could not be created.\nPlease check the access right of\n%s ."
-    IDS_PSE_FILESTRUCT_COULD_NOT_COPY_PSE 
-                            "The keystore files could not be copied.\nPlease check the access rights of\n%s."
-    IDS_PSE_FILESTRUCT_NO_APPLICATION_DATA_PATH 
-                            "The environment variable APPDATA does not exist.\nPlease define this variable."
-    IDS_PSE_FILES_READONLY  "The keystore files are read only.\nPlease check the access rights of\n%s."
-    IDS_PSE_FILESTRUCT_TRY_TO_REWRITE_PSE 
-                            "The user key file structure at the path\n%s\nseems to be corrupted!\n\nShould CrypTool try to re-write this file structure?\nPlease select OK for re-write or Cancel if you try to resolve this problem manually.\n\nPlease note: In case of re-write old keys are not usable anymore!\nFor further information please refer to the CrypTool readme."
-END
-
-STRINGTABLE 
-BEGIN
     IDS_SIGATT_STAT_FAKE_FILE "Filename fake: %s"
     IDS_PQMERROR_NO_SPECIALCHARACTERS 
                             "The special character list is empty!\nPlease provide some special characters or reduce the minimal number of special characters to zero."
@@ -44289,12 +44380,12 @@ BEGIN
                             "Please define the number of bytes for the entropy test by entering an integer between %d and %d."
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Spanisch resources
+// Spanish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ESN)
 #ifdef _WIN32
@@ -48827,6 +48918,15 @@ BEGIN
     EDITTEXT        IDC_EDIT_TRANSLATIONS_INFORMATION,7,20,356,225,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
+IDD_COMPUTE_MERSENNE_NUMBERS DIALOGEX 0, 0, 300, 150
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "i18n Compute Mersenne Numbers"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,230,125,60,18,WS_GROUP
+    PUSHBUTTON      "Compute",IDC_BUTTON_COMPUTE,7,125,60,18
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -49102,6 +49202,7 @@ BEGIN
         BEGIN
             MENUITEM "&Aprendiendo Teoría de Números...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "i18n Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "A&nálisis"
@@ -49453,6 +49554,7 @@ BEGIN
         BEGIN
             MENUITEM "&Aprendiendo Teoría de Números...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "i18n Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "A&nálisis"
@@ -49804,6 +49906,7 @@ BEGIN
         BEGIN
             MENUITEM "&Aprendiendo Teoría de Números...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "i18n Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "A&nálisis"
@@ -50155,6 +50258,7 @@ BEGIN
         BEGIN
             MENUITEM "&Aprendiendo Teoría de Números...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "i18n Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "A&nálisis"
@@ -50506,6 +50610,7 @@ BEGIN
         BEGIN
             MENUITEM "&Aprendiendo Teoría de Números...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+            MENUITEM "i18n Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "A&nálisis"
@@ -52511,6 +52616,14 @@ BEGIN
         RIGHTMARGIN, 363
         TOPMARGIN, 7
         BOTTOMMARGIN, 273
+    END
+
+    IDD_COMPUTE_MERSENNE_NUMBERS, DIALOG
+    BEGIN
+        VERTGUIDE, 7
+        VERTGUIDE, 290
+        HORZGUIDE, 7
+        HORZGUIDE, 143
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -54844,6 +54957,29 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_REGISTRY_SETTINGS   "Software\\CrypTool\\Settings"
+    IDS_REGISTRY_SETTINGS_OPTIONS "Software\\CrypTool\\Settings\\Options"
+    IDS_ERROR_LOAD_LOCAL_PSE_CAPTION "¡Error al cargar las claves PSE!"
+    IDS_ERROR_LOAD_LOCAL_PSE_MESSAGE 
+                            "¡Por favor, elimine el directorio \n%s\n y después reinicie CryptTool!"
+    IDS_PSE_FILESTRUCT_CORRUPTED 
+                            "Por favor, elimine el directorio \n%s\n y después reinicie CryptTool"
+    IDS_PSE_FILESTRUCT_ORIG_CORRUPTED 
+                            "El almacén de claves original de CrypTool está corrupto, por favor, revise la ruta \n%s. \n Debe reinstalar CrypTool."
+    IDS_PSE_FILESTRUCT_COULD_NOT_CREATE_DIRECTORY 
+                            "No se puede crear la ruta del almacén de claves.\nPor favor, compruebe el acceso a \n%s ."
+    IDS_PSE_FILESTRUCT_COULD_NOT_COPY_PSE 
+                            "Los archivos del almacén de claves no pueden copiarse.\nPor favor, compruebe el acceso a \n%s."
+    IDS_PSE_FILESTRUCT_NO_APPLICATION_DATA_PATH 
+                            "La variable de entorno APPDATA no existe.\nPor favor, defina esta variable."
+    IDS_PSE_FILES_READONLY  "Los archivos del almacen de claves sólo tienen permisos de lectura.\nPor favor, compruebe el acceso a \n%s."
+    IDS_PSE_FILESTRUCT_TRY_TO_REWRITE_PSE 
+                            "La estructura de archivos de clave del usuario en la ruta\n%s\n ¡parece estar corrupta!\n\n¿CrypTool debería reescribir esta estructura de archivos?\n Seleccione OK para reescribir o Cancelar si quiere resolver este problema manualmente.\n\nNota: En el caso de reescribir, ¡las claves anteriores no podrán volver a ser utilizadas!\n Para más información diríjase al archivo Leeme de CrypTool."
+    ID_COMPUTE_MERSENNE_NUMBERS "i18n Computes Mersenne numbers and shows up-to-date GIMPS results"
+END
+
+STRINGTABLE 
+BEGIN
     ID_FLASH_AESDEMO        "Visualiza el proceso de cifrado con el algoritmo AES usando Flash con datos fijos"
     ID_PASSWORDQUALITYMETER "Mide la calidad de una contraseña"
     ID_INTERACTIVE_NUMBER_THEORY 
@@ -55191,28 +55327,6 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_REGISTRY_SETTINGS   "Software\\CrypTool\\Settings"
-    IDS_REGISTRY_SETTINGS_OPTIONS "Software\\CrypTool\\Settings\\Options"
-    IDS_ERROR_LOAD_LOCAL_PSE_CAPTION "¡Error al cargar las claves PSE!"
-    IDS_ERROR_LOAD_LOCAL_PSE_MESSAGE 
-                            "¡Por favor, elimine el directorio \n%s\n y después reinicie CryptTool!"
-    IDS_PSE_FILESTRUCT_CORRUPTED 
-                            "Por favor, elimine el directorio \n%s\n y después reinicie CryptTool"
-    IDS_PSE_FILESTRUCT_ORIG_CORRUPTED 
-                            "El almacén de claves original de CrypTool está corrupto, por favor, revise la ruta \n%s. \n Debe reinstalar CrypTool."
-    IDS_PSE_FILESTRUCT_COULD_NOT_CREATE_DIRECTORY 
-                            "No se puede crear la ruta del almacén de claves.\nPor favor, compruebe el acceso a \n%s ."
-    IDS_PSE_FILESTRUCT_COULD_NOT_COPY_PSE 
-                            "Los archivos del almacén de claves no pueden copiarse.\nPor favor, compruebe el acceso a \n%s."
-    IDS_PSE_FILESTRUCT_NO_APPLICATION_DATA_PATH 
-                            "La variable de entorno APPDATA no existe.\nPor favor, defina esta variable."
-    IDS_PSE_FILES_READONLY  "Los archivos del almacen de claves sólo tienen permisos de lectura.\nPor favor, compruebe el acceso a \n%s."
-    IDS_PSE_FILESTRUCT_TRY_TO_REWRITE_PSE 
-                            "La estructura de archivos de clave del usuario en la ruta\n%s\n ¡parece estar corrupta!\n\n¿CrypTool debería reescribir esta estructura de archivos?\n Seleccione OK para reescribir o Cancelar si quiere resolver este problema manualmente.\n\nNota: En el caso de reescribir, ¡las claves anteriores no podrán volver a ser utilizadas!\n Para más información diríjase al archivo Leeme de CrypTool."
-END
-
-STRINGTABLE 
-BEGIN
     IDS_BIT_EFFECTIVE_FMT   " (%d Bit Efectivo)"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_TITLE 
                             "Generando un conjunto de números primos."
@@ -55435,7 +55549,7 @@ BEGIN
                             "Por favor, defina el número de bytes para el test de entropía. Ingrese un número entero entre %d y %d."
 END
 
-#endif    // Spanisch resources
+#endif    // Spanish resources
 /////////////////////////////////////////////////////////////////////////////
 
 

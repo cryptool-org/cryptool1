@@ -569,6 +569,8 @@ uu.html
 verschluesselung.html
 visualizations.html
 zufall.html
+hid_compute_mersenne_numbers.html
+hidd_compute_mersenne_numbers.html
 
 [ALIAS]
 #include CrypTool_Alias.h

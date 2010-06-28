@@ -85,6 +85,7 @@
 #include "DlgAutomatedPermAnalysis.h"
 #include "HillEncryption.h"
 #include "DlgHillAnalysis.h"
+#include "DlgComputeMersenneNumbers.h"
 
 // #if !defined(_MSC_VER) || _MSC_VER <= 1200
 #include "RSABloemerMayDlg.h"
@@ -200,6 +201,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_COMMAND(ID_PRIMENUMBER_TEST, OnPrimenumberTest)
 	ON_COMMAND(ID_AES_SELFEXTRACT, OnAesSelfextract)
 	ON_COMMAND(ID_INDIV_POINTADDITIONONELLIPTICCURVES, OnIndivPointadditiononellipticcurves)
+	ON_COMMAND(ID_COMPUTE_MERSENNE_NUMBERS, OnComputeMersenneNumbers)
 	ON_COMMAND(ID_FLASH_AESDEMO, OnFlashAesdemo)
 	ON_COMMAND(ID_FLASH_RIJNDAEL_INSPECTOR, OnFlashRijndaelInspector)
 	ON_COMMAND(ID_FLASH_ENIGMADEMO, OnFlashEnigmademo)
@@ -1540,6 +1542,12 @@ void CCrypToolApp::OnIndivPointadditiononellipticcurves()
 	javaProgramCompleteCall.LoadStringA(IDS_ECCDemo_FILE);
 
 	ShellExecuteJava(javaProgram, javaProgramCompleteCall, javaExecPath);
+}
+
+void CCrypToolApp::OnComputeMersenneNumbers()
+{
+	CDlgComputeMersenneNumbers dlg;
+	dlg.DoModal();
 }
 
 void CCrypToolApp::OnFlashAesdemo()
