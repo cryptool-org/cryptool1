@@ -442,7 +442,7 @@ long c_solitaire::crypt( solitaire_action encrypt, const char *f_in, const char 
 						break;
 					case 'Ü':
 					case 'ü':
-						c  = get_char('O');
+						c  = get_char('U');
 						c2 = get_char('E');
 						break;
 					case 'ß':
