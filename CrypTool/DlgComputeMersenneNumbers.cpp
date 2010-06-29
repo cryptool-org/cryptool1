@@ -22,6 +22,11 @@
 #include "CrypToolApp.h"
 #include "DlgComputeMersenneNumbers.h"
 
+// include apfloat and utility headers
+#include "../apfloat241/ap.h"
+#include "../apfloat241/apint.h"
+#include <sstream>
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -57,5 +62,24 @@ END_MESSAGE_MAP()
 
 void CDlgComputeMersenneNumbers::OnBnClickedButtonCompute()
 {
-	AfxMessageBox("TODO");
+	// ...
+	// flomar, 06/29/2010
+	// for now, this is just a dummy implementation
+	// ...
+
+	apbase(10);
+
+	apint base = 2;
+	unsigned long exponent = 10;
+  
+	time_t b = time(0);
+	apint mersenneNumber = pow(base, exponent);
+	double timeNeeded = difftime(time(0), b);
+
+	// convert apint to something readable
+	std::ostringstream outbuffer;
+	std::string buffer;
+
+	outbuffer << mersenneNumber;
+	buffer = outbuffer.str();
 }
