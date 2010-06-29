@@ -34,9 +34,12 @@
 		<P>Der letzte Block besteht unter Umständen aus zu wenigen Zeichen: In diesem Fall wird auf
 			die Länge der Matrixdimension aufgefüllt -- und zwar standardmäßig mit den kleinsten
 			Zeichen des benutzten Alphabets (das muss nicht das Zeichen mit dem kleinsten <A href="ascii.html">ASCII
-			</A>-Wert sein, z.B. wenn das Alphabet folgendermaßen definiert ist: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789").</P>
-		<P>Mathematisch gesehen beruht das Hill-Verschlüsselungsverfahren auf der 
-			Matrizenmultiplikation mit der Matrix A=(a[i,j]) für i und j zwischen 1 und n. 
+			</A>-Wert sein, z.B. wenn das Alphabet folgendermaßen definiert ist: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"). Der dafür genutzte Buchstabe kann im Dialog <a href="hidd_hill_options.html">Weitere Hill-Optionen</a> eingestellt werden.</P>
+			
+		<P>Bei der Verschlüsselung werden nur die Zahlenwerte der Alphabetzeichen verwendet. 
+		   Mathematisch gesehen beruht das Hill-Verschlüsselungsverfahren auf der 
+			Matrizenmultiplikation mit der Matrix A=(a[i,j]) für i und j zwischen 1 und n, mit n als 
+			Matrixdimension. 
 			Dabei werden sowohl der Klartext und der verschlüsselte Text als auch der 
 			Schlüssel als Zahlen interpretiert (zum Beispiel A=0, B=1, C=2, ...); die 
 			Interpretation hängt von der Reihenfolge der zu verschlüsselnden Zeichen im 
@@ -45,20 +48,23 @@
 			v[1] ... v[n] aus einem Block des Klartextes k[1] ... k[n] durch die folgende 
 			Formel:</P>
 		<P>v[j] = Summe für i von 1 bis n von k[i] * a[i,j], für j zwischen 1 und n.</P>
-		<P>Ist ein Klartext mit der Matrix A verschlüsselt, so wird der verschlüsselte Text 
+		<P>Dabei wird die Schlüsselmatrix linear von links oder von rechts mit Klartextblöcken multipliziert.
+           Der Klartextblock wird also als Zeilen- oder als Spaltenvektor benutzt. 
+           Die Multiplikationsart können Sie einstellen.		   
+		    Ist ein Klartext mit der Matrix A verschlüsselt, so wird der verschlüsselte Text 
 			mit der inversen Matrix zur Verschlüsselungsmatrix A <!--ZZZPOPUP--><A href="modulo.html">modulo</A>
 			Anzahl der zu verschlüsselnden Zeichen <!--ZZZPOPUP--><A href="entschluesselung.html">entschlüsselt</A>.
 		</P>
 		<P>Daher sind auch nicht alle Kombinationen beliebiger Zeichen als Schlüssel zu 
-			verwenden. Es macht keinen Sinn, eine nicht invertierbare Matrix (eine Matrix, 
+			verwenden: Es macht keinen Sinn, eine nicht invertierbare Matrix (eine Matrix, 
 			zu der die inverse Matrix nicht existiert) als Schlüssel zuzulassen, da eine 
 			Entschlüsselung dann nicht möglich ist. Daher weist das Programm einen solchen 
-			Schlüssel zurück. Da es speziell bei Schlüsseln größerer Dimension schwierig 
-			ist, einen Schlüssel zu erraten, der einer invertierbaren Matrix entspricht 
-			(siehe dazu die Tabelle unten), gibt es die Möglichkeit, über den Knopf <B>Zufälliger 
-				Schlüssel</B> im Dialog <A href="hidd_key_hill5x5.html">Schlüssel für Hill 
-				Verschlüsselungsverfahren</A> einen Schlüssel erzeugen zu lassen, der einer 
-			invertierbaren Matrix entspricht.</P>
+			Schlüssel zurück. Speziell bei Schlüsseln größerer Dimension ist es schwierig, 
+			einen Schlüssel zu erraten, der einer invertierbaren Matrix entspricht 
+			(siehe dazu die Tabelle unten). Daher gibt es die Möglichkeit, über den Knopf <B>Zufälligen 
+				Schlüssel erzeugen</B> im Dialog <A href="hidd_key_hill5x5.html">Schlüssel für Hill 
+				Verschlüsselungsverfahren</A> eine Matrix erzeugen zu lassen, die 
+			invertiert werden kann.</P>
 		<P>Das Hill-Verschlüsselungsverfahren ist also eine lineare Transformation des 
 			Klartextes. Daher ist es möglich, den Schlüssel über einen <!--ZZZPOPUP--><A href="knownplaintextangriff.html">Known-Plaintext-Angriff</A>
 			zu ermitteln. In <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> ist ein <A href="hid_hill_auto.html">
@@ -67,8 +73,9 @@
 		<P>Ein <A href="szenarien_hill.html">Beispiel</A> zum Hill 
 			Verschlüsselungsverfahren und zum <!--ZZZPOPUP--><A href="knownplaintextangriff.html">Known-Plaintext-Angriff</A>
 			befindet sich im Kapitel <A href="hid_hilfe_szenarien.html">Szenarien</A>.</P>
-		<P>Empirische Ermittlung der Anzahl von invertierbaren Matrizen <!--ZZZPOPUP--><A href="modulo.html">modulo</A>
-			verschiedener Zahlen:</P>
+			
+		</BR></BR>	
+		<P><U>Empirische Ermittlung der Anzahl von invertierbaren Matrizen <!--ZZZPOPUP--><A href="modulo.html">modulo</A> verschiedener Zahlen:</U></P>
 		<P>Beispiele für verschiedene Anzahl zu verschlüsselnder Zeichen:</P>
 		<P>Modul 10: Es werden nur Ziffern verschlüsselt.</P>
 		<P>Modul 26: Es werden nur Groß- oder Kleinbuchstaben verschlüsselt.</P>

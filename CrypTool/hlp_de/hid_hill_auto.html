@@ -41,6 +41,7 @@
 			26 (Anzahl der Buchstaben) berechnet werden: Inverse(K) * V = A. Ist K nicht 
 			invertierbar, so wird eine andere mögliche Kombination von Blöcken ausprobiert.
 		</P>
+		<P></P>
 		<P><U>Beispiel zum Suchen einer Kombination von Blöcken:</U></P>
 		<TABLE cols="2" width="0*" class="pad10">
 			<TR VALIGN="top">
@@ -136,13 +137,16 @@
 		<P>Im Kapitel <A href="hid_hilfe_szenarien.html">Szenarien</A> befindet sich ein <A href="szenarien_hill.html">
 				Beispiel</A> zum <A href="angriffe.html">Angriff</A> auf das 
 			Verschlüsselungsverfahren.</P>
+		<P></P>
 		<P><U>Voraussetzungen an das Dokument für einen erfolgreichen Angriff:</U></P>
-		<P>Der Schlüssel wird immer gefunden, falls das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A></P>
-		<P>nicht zu kurz ist (mindestens jedoch so viele Zeichen enthält, wie der Schlüssel 
-			Zeichen besitzt).</P>
-		<P>nicht aus ein- und derselben Zeichenfolge (oder Zeichenfolgen, deren Zeichen den 
-			gleichen Abstand voneinander haben) besteht.</P>
-		<P>Die zweite Bedingung besagt, dass zum Beispiel für Klartext ABAB der Schlüssel 
+		   <P>Der Schlüssel wird immer gefunden, falls das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A>
+		   <UL>
+		   <LI>nicht zu kurz ist (mindestens jedoch so viele Zeichen enthält, wie der Schlüssel 
+			Zeichen besitzt, also Klartextlänge >= n x n).</LI>
+		<LI>nicht aus ein- und derselben Zeichenfolge (oder Zeichenfolgen, deren Zeichen den 
+			gleichen Abstand voneinander haben) besteht.</LI>
+		</UL></P>
+		   <P>Die zweite Bedingung besagt, dass zum Beispiel für Klartext ABAB der Schlüssel 
 			unter Umständen nicht ermittelt werden kann. Dies gilt auch für den Klartext 
 			ABCD, da der Abstand der Buchstaben des ersten Blockes (AB) genauso groß wie 
 			der Abstand der Buchstaben des zweiten Blockes (CD) ist, nämlich ein Zeichen.</P>
@@ -150,6 +154,6 @@
 			Klartext aus Wörtern einer natürlichen Sprache besteht, zum Beispiel dem Wort 
 			"HILLCIPHER".</P>
 		<P>Der Schlüssel kann unter Umständen dennoch gefunden werden, wenn ein kurzer 
-			Text, der die zweite Bedingung erfüllt, vorliegt.</P>
+			Text vorliegt, der die zweite Bedingung erfüllt, aber die erste nicht.</P>
 	</BODY>
 </HTML>

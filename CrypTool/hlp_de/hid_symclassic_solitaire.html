@@ -32,7 +32,7 @@ Stephenson diesen Algorithmus in seinem Roman <b>"Cryptonomicon"</b> benutzt hat
 identischen Mischreihenfolge haben müssen.<br>Der eigentliche Solitaire-Algorithmus beschreibt, wie sich aus 
 dem Schlüssel (Initialdeck, Bridge-Kartenspiel) ein relativ zufälliger Schlüsselstrom erzeugt wird.</p>
 
-<p>Dieser Schlüsselstrom wird dann zeichenweise entweder mit dem Klartext oder mit dem Ciphertext mittels 
+<p>Dieser Schlüsselstrom wird dann zeichenweise entweder mit dem Klartext oder mit dem Geheimtext mittels 
 einer einfachen Modulo-Operation verbunden (insofern basiert das Solitaire-Verfahren auf der Idee des 
 One-Time-Pad, auch wenn der Schlüsselstrom natürlich nicht völlig zufällig ist).</P>
 
@@ -42,12 +42,12 @@ liegt also ausschließlich in dem Initialdeck.</p>
 
 <p>Der eigentliche Solitaire-Algorithmus zur Schlüsselstromerzeugung besteht - wie unten genauer beschrieben 
 ist - aus 5 Schritten: die ersten 4 Schritte permutieren das zuletzt erzeugte Abschlussdeck, wobei Schritt 
-1 und 2 nur jeweils die Karte des Jokers umsortiert, während in Schritt 3 und 4 ganze Kartenstapel vertauscht 
+1 und 2 nur jeweils die Karte des Jokers umsortieren, während in Schritt 3 und 4 ganze Karten-Teilstapel vertauscht 
 werden. Schritt 5 findet den Wert des nächsten Schlüsselstromzeichens, ändert aber nichts mehr an der 
 Reihenfolge des aktuellen Abschlussdecks. Manchmal werden die zuletzt erreichten Kartenreihenfolgen auch als 
 Zwischendecks bezeichnet und nur das letzte Zwischendeck wird Abschlussdeck genannt.</p>
 
-<p>Im Standardfall enthalten Initial- und Abschlussdeck eine Permutation der Zahlenwerte 1 bis 54. Der 
+<p>Im Standardfall enthalten Initial- und Abschlussdeck eine Permutation der Zahlenwerte 1 bis 54, wobei 53 als 'A' und 54 als 'B' dargestellt wird für die beiden <I>Jocker</I>. Der 
 Schlüsselstrom besteht „nur“ aus den Zahlen 1 bis 52 und hat die gleiche Länge wie die verschlüsselnde 
 Datei.</p>
 
@@ -96,7 +96,7 @@ schlecht mischen lässt) und dass die Karten ausreichend lang gemischt werden. Da
 <a href="kartendeck.html">Kartenspiel</a> dient nun als Schlüssel. Der Empfänger braucht ein weiteres 
 Kartenspiel, das genauso sortiert ist.</p>
 
-<p>2. Bridge-Reihenfolge:<br>Bei diesem Verfahren benutzen Empfänger und Sender ein vorher bestimmtes Medium, 
+<p>2. Bridge-Reihenfolge (hier <I>Nach Vorgabe</I> genannt):<br>Bei diesem Verfahren benutzen Empfänger und Sender ein vorher bestimmtes Medium, 
 welches abgebildete Bridgekartenspiele zeigt, wie z.B. die Tageszeitung auf der Rätselseite oder  in einem 
 ganz bestimmten Bridgebuch auf einer ganz bestimmten Seite. Die Kartenspiele werden nach diesem 
 Bridge-Diagramm sortiert. Außerdem muss man vereinbaren, wie die Joker einsortiert werden.</p>
