@@ -23,6 +23,9 @@
 
 #include "afxwin.h"
 
+// this is the timer ID for the dialog's timer
+#define COMPUTE_MERSENNE_NUMBERS_TIMER_ID	9999
+
 class CDlgComputeMersenneNumbers : public CDialog
 {
 	DECLARE_DYNAMIC(CDlgComputeMersenneNumbers)
@@ -36,10 +39,37 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	virtual void OnTimer(UINT nIDEvent);
+	virtual BOOL OnInitDialog();
 
 	DECLARE_MESSAGE_MAP()
+
+protected:
+	// the thread that computes the numbers
+	CWinThread *computationThread;
+
+	// start and end of computation
+	time_t timeComputationStart;
+	time_t timeComputationEnd;
+
+	// data displayed in the dialog
+	CString stringBase;
+	CString stringExponent;
+	CString stringResult;
+
+	// we need these to enable/disable the buttons
+	CWnd *buttonStart;
+	CWnd *buttonCancel;
+
 public:
-	afx_msg void OnBnClickedButtonCompute();
+	void setTimeComputationStart(const time_t _time) { timeComputationStart = _time; };
+	void setTimeComputationEnd(const time_t _time) { timeComputationEnd = _time; };
+	void setResult(const CString _result) { stringResult = _result; };
+
+public:
+	afx_msg void OnBnClickedStartComputation();
+	afx_msg void OnBnClickedCancelComputation();
+	afx_msg void OnBnClickedClose();
 };
 
 #endif
