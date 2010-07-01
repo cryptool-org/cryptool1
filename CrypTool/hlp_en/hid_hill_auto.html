@@ -21,7 +21,7 @@
 <P>As mentioned above, both the plaintext and the encrypted text must be known to the automatic analysis function. One of the texts must be available in the active window prior to calling the function for automatic analysis of the Hill encryption algorithm, and the other text must be entered in the <A href="hidd_hill_analysis.html">Hill cipher Analysis</A> dialog.</P>
 
 <P>The analysis functions as follows: <U>CrypTool</U> assumes that the key has the dimension<CODE> n</CODE> x<CODE> n</CODE> (from the range chosen in the <A href="hidd_hill_analysis.html">Hill cipher Analysis</A> dialog. The plaintext and the encrypted text are now divided into blocks of length<CODE> n</CODE>. The matrices<CODE> K</CODE> (plaintext) and<CODE> V</CODE> (encrypted text) are constructed from<CODE> n</CODE> blocks of plaintext and the corresponding blocks of the encrypted text. Clearly,<CODE> V</CODE> =<CODE> K</CODE> *<CODE> A</CODE>, where<CODE> A</CODE> is the key. If<CODE> K</CODE> is invertible, then the key can be calculated through simple matrix multiplication <!--ZZZPOPUP--><A href="modulo.html">modulo</A> 26 (number of letters): inverse(<CODE>K</CODE>) *<CODE> V</CODE> =<CODE> A</CODE>. If<CODE> K</CODE> is not invertible, then another possible combination of blocks is tried out. </P>
-
+</BR>
 <P><U>Example of searching a combination of blocks</U></P>
 
 <TABLE cols=2 width="0*" class="pad10">
@@ -122,19 +122,20 @@
 
 <P>In the <A href="hid_hilfe_szenarien.html">Examples</A> chapter there is an <A href="szenarien_hill.html">example</A> of an <A href="angriffe.html">attack</A> on the encryption algorithm.</P>
 
+</BR>
 <P><U>Conditions which the document must satisfy for a successful attack</U></P>
 
 <P>The key will normally be found if the <!--ZZZPOPUP--><A href="dokument.html">document</A></P>
-
-<P>is not too short (though it must contain at least as many characters as the length of the key),</P>
-
-<P>and does not consist of one and the same sequence of characters (or character sequences whose characters are the same distance apart).</P>
+<UL>
+	<LI>is not too short (though it must contain at least as many characters as the length of the key),</LI>
+	<LI>and does not consist of one and the same sequence of characters (or character sequences whose characters are the same distance apart).</LI>
+</UL>
 
 <P>The second condition means that, for example, it may not be possible to work out the key for plaintext<CODE> ABAB</CODE>. This is true also for the plaintext sequence<CODE> ABCD</CODE>, as the distance between the letters in the first block (<CODE>AB</CODE>) is the same length as the distance between the letters in the second block (<CODE>CD</CODE>), i.e. one character.</P>
 
 <P>The two above conditions are normally satisfied if the plaintext consists of words from a natural language, for example, the word "HILLCIPHER".</P>
 
-<P>However, it may occasionally still be possible to find the key even with a short text as long as it satisfies the second condition.</P>
+<P>However, it may occasionally still be possible to find the key even with a short text as long it satisfies the second condition, but not the first one.</P>
 
 </BODY>
 </HTML>

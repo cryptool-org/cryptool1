@@ -7,11 +7,13 @@
 </HEAD>
 
 <!-- multiple keywords for CrypTool HTML help index -->
-<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
-	<PARAM NAME="Keyword" VALUE="Schlüssel">
-	<PARAM NAME="Keyword" VALUE="Dialog (Übersicht aller Dialoge)">
-	<PARAM NAME="Keyword" VALUE="Hill-Verschlüsselungsverfahren">
-	<PARAM NAME="Keyword" VALUE="Verschlüsselung">
+<OBJECT TYPE="application/x-oleobject" 
+CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT 
+ID="Object1">
+    <PARAM NAME="Keyword" VALUE="Schlüssel">
+    <PARAM NAME="Keyword" VALUE="Dialog (Übersicht aller Dialoge)">
+    <PARAM NAME="Keyword" VALUE="Hill-Verschlüsselungsverfahren">
+    <PARAM NAME="Keyword" VALUE="Verschlüsselung">
 </OBJECT>
 
 <BODY>
@@ -22,12 +24,27 @@
 
 <P>In diesem Dialog wird der <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> für das <A href="hid_hill.html">Hill-Verschlüsselungsverfahren</A> eingegeben.</P>
 
-<P>Nachdem Sie im Feld <B>Dimension</B> die Größe des Schlüssels ausgewählt und den Schlüssel eingegeben haben, können Sie das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsseln</A>, indem Sie auf den Knopf <B>Verschlüsseln</B> klicken oder die <B>Eingabetaste</B> betätigen. Wenn Sie das Dokument <!--ZZZPOPUP--><A href="entschluesselung.html">entschlüsseln</A> wollen, wählen Sie den Knopf <B>Entschlüsseln</B>.</P>
+<P>Nachdem Sie im Feld <B>Dimension</B> die Größe des Schlüssels ausgewählt und den Schlüssel eingegeben haben, können Sie das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsseln</A>, indem Sie auf den Knopf <B>Verschlüsseln</B> klicken oder die <B>Eingabetaste</B> betätigen.  Wenn Sie das Dokument <!--ZZZPOPUP--><A href="entschluesselung.html">entschlüsseln</A> wollen, wählen Sie den Knopf <B>Entschlüsseln</B>.</P>
 
 <P>Mit dem Knopf <IMG SRC="images/iconinsertkey.gif" ALT="iconinsertkey.gif" BORDER=0> können Sie einen im <A href="hid_show_key.html"><B>Schlüsselspeicher</B></A> gespeicherten Schlüssel direkt einfügen (falls der Knopf blass dargestellt ist, steht für dieses Verfahren kein Schlüssel im Schlüsselspeicher).</P>
 
-<P>Es kann vorkommen, dass der eingegebene Schlüssel nicht zu verwenden ist:<br>Dies ist der Fall, wenn die dem Schlüssel entsprechende Matrix nicht invertierbar ist. Siehe dazu die Erklärung zum <A href="hid_hill.html">Hill-Verschlüsselungsverfahren</A>. In diesem Fall erscheint ein Meldungsfenster "Schlüssel nicht zu verwenden". Dann muss ein anderer Schlüssel gewählt werden.</P>
+<P>Alternativ können Sie die Schlüsselmatrix selbst entweder mit Zeichen des Alphabets oder mit Zahlenwerten füllen. Die jeweils andere Matrixansicht wird sofort synchron aktualisiert. Dabei hat das erste Alphabetzeichen den Wert 0 oder 1. Um den Geheimtext wieder entschlüsseln zu können, müssen die Zahlenwerte der Matrix so gewählt sein, dass die Matrix invertierbar ist.</BR> 
+Sie können sich die Schlüsselmatrix auch per Buttonklick mit zufälligen Werten füllen lassen. Es werden so lange zufälligen Eingaben gewählt, biss die resultierende Matrix invertierbar ist.  </P>
 
-<P>Das benutzte Alphabet können Sie über den Button <B>Textoptionen</B> einstellen.</P>
+<P>Es kann vorkommen, dass der eingegebene Schlüssel nicht zu verwenden ist:<br>Dies ist der Fall, wenn die dem Schlüssel entsprechende Matrix nicht invertierbar ist. Siehe dazu die Erklärung zum <A href="hid_hill.html">Hill-Verschlüsselungsverfahren</A>. In diesem Fall erscheint ein Meldungsfenster "Schlüssel nicht zu verwenden". Dann muss ein anderer Schlüssel gewählt werden.</P> 
+
+<P>Das benutzte Alphabet können Sie über den Button <B>Textoptionen</B> 
+einstellen.</P>
+
+<P>Über den Button <a href="hidd_hill_options.html">Weitere 
+Hill-Optionen</a> können Sie
+<UL>
+<LI>definieren, ob das erste Alphabetzeichen den Wert 0 oder 1 hat,</LI>
+<LI>definieren, mit welchem Zeichen ein Klartext aufgefüllt wird, dessen Länge kein Vielfaches der Matrixdimension ist.</LI>
+</UL>
+</P>
+
 </BODY>
 </HTML>
+
+
