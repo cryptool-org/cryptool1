@@ -23,8 +23,8 @@
 #include "DlgComputeMersenneNumbers.h"
 
 // include apfloat and utility headers
-#include "../apfloat241/ap.h"
-#include "../apfloat241/apint.h"
+#include "ap.h"
+#include "apint.h"
 #include <sstream>
 
 #ifdef _DEBUG

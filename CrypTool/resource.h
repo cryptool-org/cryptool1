@@ -3343,6 +3343,7 @@
 #define IDS_SOLITAIRE_ZULANG            62199
 #define IDS_SOLITAIRE_COULD_NOT_LOAD_DECK 62200
 #define IDS_SOLITAIRE_PASSWORD_NEEDS_26_CARDS 62201
+#define IDS_HILL_CHOOSE_HILL10x10       62202
 
 // Next default values for new objects
 // 

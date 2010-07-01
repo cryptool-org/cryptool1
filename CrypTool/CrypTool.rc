@@ -8,11 +8,12 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -8467,6 +8468,8 @@ BEGIN
     IDS_SOLITAIRE_COULD_NOT_LOAD_DECK "Nie mo¿na za³adowaæ talie Solitaire."
     IDS_SOLITAIRE_PASSWORD_NEEDS_26_CARDS 
                             "Inicja³ has³a wymaga co najmniej 26 kart. Liczba kart wzros³a do tego numeru."
+    IDS_HILL_CHOOSE_HILL10x10 
+                            "[I18n]The dimension of the stored key is greater than 5.\nPlease select the button ""Larger Matrix"" before you paste tise key."
 END
 
 STRINGTABLE 
@@ -11139,12 +11142,12 @@ BEGIN
                             "i18n The computation was canceled."
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Serbian (Latin) resources
+// Serbisch (Lateinisch) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_SRL)
 #ifdef _WIN32
@@ -19612,6 +19615,8 @@ BEGIN
     IDS_SOLITAIRE_COULD_NOT_LOAD_DECK "Nije moguce ucitati Solitaire špil."
     IDS_SOLITAIRE_PASSWORD_NEEDS_26_CARDS 
                             "Inicijalizacija lozinke zahteva najmanje 26 karata. Broj karata je uvecan na ovaj broj."
+    IDS_HILL_CHOOSE_HILL10x10 
+                            "[I18n]The dimension of the stored key is greater than 5.\nPlease select the button ""Larger Matrix"" before you paste tise key."
 END
 
 STRINGTABLE 
@@ -22272,12 +22277,12 @@ BEGIN
                             "i18n The computation was canceled."
 END
 
-#endif    // Serbian (Latin) resources
+#endif    // Serbisch (Lateinisch) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -30605,6 +30610,8 @@ BEGIN
                             "Das Solitaire-Deck konnte nicht geladen werden."
     IDS_SOLITAIRE_PASSWORD_NEEDS_26_CARDS 
                             "Bei einer Passwortinitialisierung werden mindestens 26 Karten benötigt. Deshalb wurde die Anzahl der Karten auf diese Zahl erhöht."
+    IDS_HILL_CHOOSE_HILL10x10 
+                            "Der im Zwischenspeicher gesicherte Schlüssel hat eine Dimension größer als 5.\nBitte wählen Sie zunächst ""Größere Matrix"", bevor Sie den Schlüssel einfügen."
 END
 
 STRINGTABLE 
@@ -33323,12 +33330,12 @@ BEGIN
                             "Die Berechnung wurde abgebrochen."
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -41796,6 +41803,8 @@ BEGIN
     IDS_SOLITAIRE_COULD_NOT_LOAD_DECK "Could not load the Solitaire deck."
     IDS_SOLITAIRE_PASSWORD_NEEDS_26_CARDS 
                             "A password init requires at least 26 cards. The number of cards has been increased to this number."
+    IDS_HILL_CHOOSE_HILL10x10 
+                            "The dimension of the stored key is greater than 5.\nPlease select the button ""Larger Matrix"" before you paste tise key."
 END
 
 STRINGTABLE 
@@ -44449,12 +44458,12 @@ BEGIN
     IDS_MERSENNE_NUMBER_COMPUTATION_CANCELLED "The computation was canceled."
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Spanish resources
+// Spanisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ESN)
 #ifdef _WIN32
@@ -55514,6 +55523,8 @@ BEGIN
     IDS_SOLITAIRE_COULD_NOT_LOAD_DECK "No se pudo cargar el mazo de Solitario"
     IDS_SOLITAIRE_PASSWORD_NEEDS_26_CARDS 
                             "Para una correcta inicialización de clave se necesitan al menos 26 cartas. Por eso se ha incrementado el número de cartas a ese número."
+    IDS_HILL_CHOOSE_HILL10x10 
+                            "[I18n]The dimension of the stored key is greater than 5.\nPlease select the button ""Larger Matrix"" before you paste tise key."
 END
 
 STRINGTABLE 
@@ -55636,7 +55647,7 @@ BEGIN
                             "i18n The computation was canceled."
 END
 
-#endif    // Spanish resources
+#endif    // Spanisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 

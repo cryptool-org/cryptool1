@@ -15,115 +15,100 @@
 </OBJECT>
 
 
-<H3><P><A NAME="HIDD_SOLITAIRE.html"></A><B>Solitaire encryption and key generation (dialog usage)(Menü <A href="menu_crypt.html">En- / Decrypt</A> / Symmetric (classic))</B></P></H3>
-
+<H3><P><A NAME="HIDD_SOLITAIRE.html"></A><B>Using the dialog window of the Solitaire algorithm (Menu <A href="menu_crypt.html">En- / Decrypt</A> / Symmetric (classic))</B></P></H3> 
 
 <IMG SRC="images/Solitaire_Dialog.gif" BORDER=0>
 
-
-<p>This dialog serves to generate a keystream with the Solitaire algorithm.</p>
-<p>This keystream can be used for encryption of a plaintext as well as for decryption of a Solitaire ciphertext. These procedures differ only in that you click either the <B>Encrypt</B> or the <B>Decrypt</B> button. The plaintext or the ciphertext have to be opened in CrypTool as a document, before you start this dialog.
-</p>
-<p>
-<B>Note.</B>CrypTool has the possibility to absolve an automatical or semi-automatical cryptanalysis (<a href="HID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE.html">Solitaire analysis</a>) on a ciphertext, which is encrypted with Solitaire.
-</p>
+<p>This dialog window generates a keystream according to the Solitaire algorithm.</p>
+<p>This keystream can be used for encryption of a plaintext as well as for decryption of a Solitaire ciphertext. After opening a plaintext or ciphertext in CrypTool as a document, select the <B>Encrypt</B> or <B>Decrypt</B> button as appropriate.  </p>
+<p> <B>Note:</B>CrypTool features a (<a href="HID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE.html">partially automated cryptanalysis of Solitaire ciphertexts.</a></p>
 
 <p><U>1) Key Generation</U></p>
-<p>Please follow the numbers of the frames (groupings) in this dialog (1. to 3.). If you want to correct something in a previous frame, please restart with frame 1.
-</p>
+<p>Please follow the frames sequentially from 1 to 3. If you want to change something in an earlier frame, you must restart from the first frame.</p>
 
 
 <p><B>Grouping 1 a: Number of cards (classic: 52 +2)</B><br>
-Please choose the number of cards for passing through the <a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire algorithm</a>.<br>
-Usually 54 cards are used (52 + 2 jokers). This number of cards is also recommended by the developper of the algorithm Bruce Schneier and is the default value.<br>
-Also it is possible to use less than 54 cards (not less than 3 = 1 + 2 jokers).
-</p>
+Choose the number of cards to be used in the <a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire algorithm</a>.<br>
+Usually 54 cards are used (the normal deck of 52 plus the two jokers). This is recommended by the algorithm's developer, Bruce Schneier, and is thus the default value.<br>
+The minimum allowed value is three, so that at least one regular card accompanies the two jokers. </p>
+
 <IMG SRC="images/Solitaire_Kartenanzahl.gif" BORDER=0>
 
 
 
-<p><B>Grouping 1b: Defining the cards' order</B><br>
-Please choose the prefered <a href="kartendeck.html">initial deck</a>. There are six different possibilities. The "Ascending" order is the default value.
-</p>
+<p><B>Grouping 1b: Defining the cards order</B><br>
+Choose the preferred <a href="kartendeck.html">initial deck</a>. There are six available options. Ascending order is selected by default.</p>
 <p>
 <ul>
 <li><U>Ascending:</U> sorts the cards in ascending order (starting with the lowest).</li>
 <li><U>Descending:</U> sorts the cards in descending order (starting with the highest).</li>
-<li><U>Shuffle:</U> shuffles the cards with a random function(can be repeated).</li>
-<li><U>Own Choice:</U> You choose the position of the cards by yourself (then continue with grouping "Optional -> Own Choice").</li>
-<li><U>Load Initialdeck:</U> You load the initial deck.</li>
-<li><U>Load Finaldeck:</U> You load the final deck.</li>
+<li><U>Shuffle:</U> randomly shuffles the cards (can be repeated as desired).</li>
+<li><U>Manual Entry:</U> choose the order of the cards manually in the optional "Manual Entry" frame.</li>
+<li><U>Load Initialdeck:</U> load the most recently saved initial deck.</li>
+<li><U>Load Finaldeck:</U> load the most recently saved final deck.</li>
 </ul>
 </p>
-<p>
-For decryption in this grouping the same initial deck has to be chosen as the one, which was used for encryption.
-</p>
+<p> To decrypt successfully, you must use the same initial deck as was used to encrypt.  </p>
 
 <IMG SRC="images/Solitaire_Art.gif" BORDER=0>
 
-<p><B>Grouping: "Optional: Enter password"</B><br>
-After choosing the order of cards in grouping 1 b., you can modifiy the initial deck through a password. Enter the password (max 1024 letters), other signs are depressed. Is your password entered correctly, click the Button <B>Modify the initial deck</B> and the password modifies the card order. You can also click the button more than once. For each time the password will be modifiy the card deck once more.<br>
-For decryption you have to enter the same password and to click the Button <B>Modify the initial deck</B>as often, as for the encryption.<br>
-For Example: If you enter the password "<I>test</I>" and click the Button <B>Modify the initial deck</B> twice it has the same result as you enter the password "<I>testtest</I>" and click the Button <B>Modify the initial deck</B> once.  
-</p>
+<p><B>Optional Frame: Enter password</B><br>
+After choosing a card order in Frame 1b, you can modify the initial deck by using a password. The password can be up to 1024 characters, and non-alphabetic characters are not allowed. After entering the password, click on <B>Modify the initial deck</B>. You can click the button multiple times to modify the deck further.<BR>
+To decrypt, you must use the same password and click <B>Modify the initial deck</B> as often as was done to encrypt.<BR>
+For example, if you enter the password "test" and click Modify the initial deck twice, it will have the same effect as if you used the password "testtest" just once.  </p>
 
 <IMG SRC="images/Solitaire_Passwort.gif" BORDER=0>
 
 
-<p><B>Grouping: "Optional: Own Choice"</B><br>
-This grouping is only activated, if you chose "Own Choice" in grouping 1 b.. Please construct your prefered initial deck by clicking the Buttons <B>1-54</B> in your wished order. if you make a mistake, please click the <B>Reset</B>-Button and restart your enter. The values on the buttons represents the card values, as you can see in the <a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire description</a>. While you are constructing your initial deck, you can see the current <a href="kartendeck.html">deck</a> in the output field "Initial deck" in the grouping "Output of the different states of the card deck and of the generated keystream". When you reach the number of cards, which you chose in 1 a., this grouping becomes deactivated.
-</p>
+<p><B>Optional Frame: Manual entry</B><br>
+This frame is only activated if you have chosen "Manual entry" in Frame 1b. Construct your preferred initial deck by clicking the buttons 1-54 in the desired order. If you make a mistake, press <B>Reset</B> to start over. The button values represent the card values as described in the <a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire description</a>. While constructing the initial deck, you can see the current <a href="kartendeck.html">deck</a> under "Initial deck" in the output frame. Once you have selected the appropriate number of cards as chosen in Frame 1a, this frame will be deactivated.</p>
+
+
 <IMG SRC="images/Solitaire_Vorgabe.gif" BORDER=0>
 
 <p><U>2) Keystream Generation</U>:</p>
 <p><B>Grouping 2: Generating the keystream (automatically or manually)</B><br>
-This grouping gives two alternatives for generating the keystream.
+This frame offers two alternatives for generating the keystream.
 </p>
 <IMG SRC="images/Solitaire_schluesselerzeugung.gif" BORDER=0>
 <p>
-<ul><li><B>Automatical</B></li><br>
-This button starts all 5 steps of the Solitaire algorithm to generate the keystream automatically as often, as the number of plaintext letters.<br>
-After that you can see the "final deck" in the grouping "Output of the different states of the card deck and of the generated keystream". This output represents the order of the <a href="kartendeck.html">card deck</a> after generating the keystream.<br>
-The field "keystream" shows the keystream, which is used for en-/decryption.<br><br>
+<ul><li><B>Automatic</B></li><br>
+This button automatically runs all five steps of the Solitaire algorithm as often as necessary for the plaintext or ciphertext.<br>
+After that, you can see the final deck in the output frame, representing the order of the card deck after generating the keystream.<br>
+<br>
 <li><B>Manual</B></li><br>
-This button gives the possibility to pass through the Solitaire algorithm manually. After clicking this button, the grouping 2 a. becomes active and you can do the algorithm step by step.
+This button allows you to operate the Solitaire algorithm manually. After selecting this button, Frame 2a will become active.
 </ul>
-<B>Note.</B> If you chose in grouping 1b. "Own Choice", these two buttons become active, when the initial deck is completed. That means if each active button in grouping "Own Choice" is clicked.
-</p>
+<B>Note:</B>Note: If you selected "Manual Entry" in Frame 1b, these buttons will only be active after completion of the initial deck.</p>
 
 <p><B>Grouping 2 a:  Manual steps of the Solitaire algorithm</B><br>
-This grouping becomes active if you clicked in grouping 2 the <B>Manual</B> button. If you want to do in the same way, the actual Solitaire algorithm does, click the buttons (Step 1 bis Step 5) in ascending order. Until enough keystream letters are generated. After each step you can see the modification of the <a href="kartendeck.html">card deck</a> in the output field "Final deck". A new keystream letter is only generated in step 5.<br><br>
-</p>
+This frame will be active if you selected the <B>Manual</B> button in Frame 2. To follow the steps of the actual Solitaire algorithm, click the buttons from step 1 to 5 in ascending order and repeat the process until each keystream characters have been generated. After each step you can see the modification of the deck in the "Final deck" output field. New keystream characters are generated only in step 5.</p>
+<br><br> 
+
 <IMG SRC="images/Solitaire_schritte.gif" BORDER=0>
-<p>
-<B>Note.</B> Consists your plaintext for example 100 letters and you generated only 15 keystream letters yet (manually), you can click the Button <B>Generate rest</B>. So the last keystream letters (here: 100-15) are generated  automatically. In the small text field beside the button <B>Step 5</B> you can see the number of created keystream letters and the number of needed keystream letters.<br>
-After generating a keystream, with the same number of letters as the plaintext/ciphertext (max 65.535), the buttons <B>Encrypt</B>, <B>Decrypt</B> and the 3 <B>Save</B> buttons becomes active.
-</p>
+
+<p> <B>Note:</B>Use the Generate remaining characters button if you decide during the process that you no longer want to carry out the process manually. In the small text field near the <B>Step 5</B> button, you can see the number of generated and necessary keystream characters.<br>
+After a keystream with the same number of characters as the plaintext or ciphertext has been generated (within this dialog window at max 65,535 characters will be shown), the <B>Encrypt</B>, <B>Decrypt</B>, and <B>Save</B> buttons will become active.</p>
 
 
 <p><B>Save</B><br>
 <ul>
-<li>If you click the upper <B>Save</B> button, the current initial deck is saved to the textfile "<I>StoredLastInitialdeck.txt</I>" into the CrypTool folder on your hard disk.</li>
-<li>If you click the <B>Save</B> button in the middle, the current final deck is saved to the textfile "<I>StoredLastFinaldeck.txt</I>" into the CrypTool folder on your hard disk.</li>
-<li>If you click the beneath <B>Save</B> button, the keystream is saved to the textfile "<I>StoredLastKeystream.txt</I>" into the CrypTool folder on your hard disk.</li>
+<li>If you click the upper <B>Save</B> button, the current initial deck is saved to the document "<I>StoredLastInitialdeck.txt</I>" into the CrypTool folder on your hard disk.</li>
+<li>If you click the middle <B>Save</B> button, the current final deck is saved to the document "<I>StoredLastFinaldeck.txt</I>" into the CrypTool folder on your hard disk.</li>
+<li>If you click the lower <B>Save</B> button, the keystream is saved to the document "<I>StoredLastKeystream.txt</I>" into the CrypTool folder on your hard disk.</li>
 </ul>
 </p>
 
 
 <p><U>3) Encryption or Decryption using the Solitaire Keystream</U>:</p>
 <p><B>Encrypt</B><br>
-If you click this button the ciphertext is generated by using the keystream and the plaintext.
-</p>
+Click this button to generate the ciphertext from the plaintext.  </p>
 
 <p><B>Decrypt</B><br>
-If you click this button the plaintext is generated by using the keystream and the ciphertext.
-</p>
-<p>
-After clicking these buttons <B>Encrypt</B> / <B>Decrypt</B> you leave the dialog and the created ciphertext or the created plaintext appears in a new file in the CrypTool main window.
-</p>
+Click this button to obtain the ciphertext from the plaintext. </p>
+<p> Clicking the Encrypt or Decrypt button will automatically close the dialog window and display the newly created file in the CrypTool main window.</p>
 <p><B>Cancel</B><br>
-With this button you can leave the dialog always.
-</p>
+Click this button to exit the dialog window.</p>
 </BODY>
 </HTML>
 
