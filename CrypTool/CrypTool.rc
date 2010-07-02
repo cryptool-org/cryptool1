@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -10868,7 +10868,7 @@ BEGIN
     IDS_INTERACTIVE_NUMBER_THEORY_EXEC "NT.exe"
     IDS_ERROPEN_INTERACTIVE_NUMBER_THEORY 
                             "Narzêdzie edukacyjne o teorii liczb nie mog³o zostaæ otwarte.\n\n Proszê sprawdziæ, czy NT.exe jest zainstalowane w katalogu programu CrypTool\n(""%s"")."
-    IDS_ENIGMA_FLASH        "Enigma_en.exe"
+    IDS_ENIGMA_FLASH        "Enigma_pl.exe"
     IDS_ERROPEN_ENIGMA_FLASH 
                             "Demo Enigmy nie mog³o zostaæ otwarte. \n\nProszê sprawdziæ, czy Enigma_en.exe jest zainstalowany w katalogu CrypTool'a\\N(""%s"")."
     IDS_NO_ITEM_SELECTED    "Proszê wybraæ kandydata do deszyfrowania lub wybraæ ""Anuluj"" w dialogu z wynikami \n analizy metod¹ brutalnej si³y, jeœli atak okaza³ siê niepomyœlny."
@@ -11142,12 +11142,12 @@ BEGIN
                             "i18n The computation was canceled."
 END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Serbisch (Lateinisch) resources
+// Serbian (Latin) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_SRL)
 #ifdef _WIN32
@@ -22277,12 +22277,12 @@ BEGIN
                             "i18n The computation was canceled."
 END
 
-#endif    // Serbisch (Lateinisch) resources
+#endif    // Serbian (Latin) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -33330,12 +33330,12 @@ BEGIN
                             "Die Berechnung wurde abgebrochen."
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -44458,12 +44458,12 @@ BEGIN
     IDS_MERSENNE_NUMBER_COMPUTATION_CANCELLED "The computation was canceled."
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Spanisch resources
+// Spanish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ESN)
 #ifdef _WIN32
@@ -48998,22 +48998,22 @@ END
 
 IDD_COMPUTE_MERSENNE_NUMBERS DIALOGEX 0, 0, 300, 130
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "i18n Compute Mersenne Numbers"
+CAPTION "Calcular números de Mersenne"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT_BASE,91,7,40,14,ES_AUTOHSCROLL | ES_NUMBER
     EDITTEXT        IDC_EDIT_EXPONENT,91,25,199,14,ES_AUTOHSCROLL | ES_NUMBER
     EDITTEXT        IDC_EDIT_RESULT,91,45,199,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "Berechnung starten",IDC_BUTTON_START_COMPUTATION,7,84,85,18
-    PUSHBUTTON      "Berechnung abbrechen",IDC_BUTTON_CANCEL_COMPUTATION,7,105,85,18
-    PUSHBUTTON      "Ergebnis in Datei schreiben",IDC_BUTTON_WRITE_RESULT_TO_FILE,190,83,100,18,WS_GROUP
-    DEFPUSHBUTTON   "Schließen",IDCANCEL,190,105,100,18,WS_GROUP
+    PUSHBUTTON      "&Iniciar cálculo",IDC_BUTTON_START_COMPUTATION,7,84,85,18
+    PUSHBUTTON      "&Detener cálculo",IDC_BUTTON_CANCEL_COMPUTATION,7,105,85,18
+    PUSHBUTTON      "&Guardar resultados",IDC_BUTTON_WRITE_RESULT_TO_FILE,190,83,100,18,WS_GROUP
+    DEFPUSHBUTTON   "&Cerrar",IDCANCEL,190,105,100,18,WS_GROUP
     LTEXT           "Base b:",IDC_STATIC,61,9,25,8
-    LTEXT           "Exponent e:",IDC_STATIC,47,27,39,8
-    LTEXT           "Result b^e - 1:",IDC_STATIC,39,47,47,8
-    LTEXT           "Result length:",IDC_STATIC,42,67,44,8
+    LTEXT           "Exponente e:",IDC_STATIC,43,27,43,8
+    LTEXT           "Resultado b^e - 1:",IDC_STATIC,27,47,59,8
+    LTEXT           "Tamaño del resultado:",IDC_STATIC,15,67,71,8
     EDITTEXT        IDC_EDIT_RESULT_LENGTH,91,65,40,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
-    LTEXT           "(number of decimals)",IDC_STATIC,135,67,66,8
+    LTEXT           "(número de decimales)",IDC_STATIC,135,67,72,8
 END
 
 
@@ -49291,7 +49291,7 @@ BEGIN
         BEGIN
             MENUITEM "&Aprendiendo Teoría de Números...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
-            MENUITEM "i18n Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "Calcular números de &Mersenne...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "A&nálisis"
@@ -49643,7 +49643,7 @@ BEGIN
         BEGIN
             MENUITEM "&Aprendiendo Teoría de Números...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
-            MENUITEM "i18n Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "Calcular números de &Mersenne...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "A&nálisis"
@@ -49995,7 +49995,7 @@ BEGIN
         BEGIN
             MENUITEM "&Aprendiendo Teoría de Números...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
-            MENUITEM "i18n Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "Calcular números de &Mersenne...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "A&nálisis"
@@ -50347,7 +50347,7 @@ BEGIN
         BEGIN
             MENUITEM "&Aprendiendo Teoría de Números...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
-            MENUITEM "i18n Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "Calcular números de &Mersenne...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "A&nálisis"
@@ -50699,7 +50699,7 @@ BEGIN
         BEGIN
             MENUITEM "&Aprendiendo Teoría de Números...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
-            MENUITEM "i18n Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "Calcular números de &Mersenne...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "A&nálisis"
@@ -55067,7 +55067,7 @@ BEGIN
     IDS_PSE_FILESTRUCT_TRY_TO_REWRITE_PSE 
                             "La estructura de archivos de clave del usuario en la ruta\n%s\n ¡parece estar corrupta!\n\n¿CrypTool debería reescribir esta estructura de archivos?\n Seleccione OK para reescribir o Cancelar si quiere resolver este problema manualmente.\n\nNota: En el caso de reescribir, ¡las claves anteriores no podrán volver a ser utilizadas!\n Para más información diríjase al archivo Leeme de CrypTool."
     ID_COMPUTE_MERSENNE_NUMBERS 
-                            "i18n Computes Mersenne numbers and shows up-to-date GIMPS results"
+                            "Calcula números de Mersenne y muestra resultados GIMPS actualizados."
 END
 
 STRINGTABLE 
@@ -55524,7 +55524,7 @@ BEGIN
     IDS_SOLITAIRE_PASSWORD_NEEDS_26_CARDS 
                             "Para una correcta inicialización de clave se necesitan al menos 26 cartas. Por eso se ha incrementado el número de cartas a ese número."
     IDS_HILL_CHOOSE_HILL10x10 
-                            "[I18n]The dimension of the stored key is greater than 5.\nPlease select the button ""Larger Matrix"" before you paste tise key."
+                            "La dimensión de la clave almacenada es mayor a 5.\nPor favor, presione el botón ""Matriz mayor"" antes de pegar su clave."
 END
 
 STRINGTABLE 
@@ -55641,13 +55641,11 @@ BEGIN
                             "El Ticket Secude no pudo ser encontrado."
     IDS_STRING_VALID_RANGE_OF_CHARACTERS_FOR_ENTROPY_TEST 
                             "Por favor, defina el número de bytes para el test de entropía. Ingrese un número entero entre %d y %d."
-    IDS_MERSENNE_NUMBER_COMPUTATION_RUNNING 
-                            "i18n The computation is running..."
-    IDS_MERSENNE_NUMBER_COMPUTATION_CANCELLED 
-                            "i18n The computation was canceled."
+    IDS_MERSENNE_NUMBER_COMPUTATION_RUNNING "Se está realizando el cálculo..."
+    IDS_MERSENNE_NUMBER_COMPUTATION_CANCELLED "El cálculo fue cancelado."
 END
 
-#endif    // Spanisch resources
+#endif    // Spanish resources
 /////////////////////////////////////////////////////////////////////////////
 
 

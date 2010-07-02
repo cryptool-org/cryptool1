@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta name="description" content="Simulation of the encryption system Enigma implemented in Flash 5">
+<meta name="author" content="Frank Spiess">
+<meta name="keywords" content="enigma simulation flash">
+<TITLE>Pomoc do symulacji Enigmy</TITLE>
+</head>
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#000080" alink="#008000">
+<!-- removed for better view
+<style>
+BODY
+{scrollbar-base-color:b0b0b0;scrollbar-face-color:#b0b0b0;scrollbar-highlight-color:#FFff00;scrollbar-shadow-color:CCFF00;scrollbar-dark-shadow-color:ffffcc;scrollbar-arrow-color:669966}
+.question {color:ffffcc}
+.header {color:ffffcc}
+.highlight {font-weight:bold}
+</style>
+-->
+
+<b>Historia:</b><br>Wirnik maszyny "Enigma" zostal stworzony w 1923 roku przez niemieckiego wynalawce Artura Scherbiusa. Powinna byc uzywana do szyfrowania wiadomosci w gospodarce. W latach 30. ubieglego wieku, niemieckie wojsko odkrylo Enigme, dodalo tzw. poklad wtyczki i zmodyfikowalo polaczenia wirnika. W II wojnie swiatowej  niemiecka machineria wojenna uzywala okolo 200.000 takich systemów szyfrowania w celu zapewnienia wymiany informacji tajnych.
+<hr>
+<b>Uklad i funkcja:</b><br>Enigma sklada sie glównie z klawiatury, plugboardu, trzech wirnikow (tzw. rolki) i tzw reflektorow, który mial przekierowac pradu elektryczny. Maszyna oryginalna ustawiala kazda litere wprowadzana przez klawiature do litery szyfrowanej ktora zostala na nowo skonfigurowana w stale zamknieteym ukladzie.
+<hr>
+<b>Uklad graficzny elementów:</b><br>Uklad trzech wirników zostala przeprowadzona tak jak w prawdziwej enigmie: jako pierwszy wirnik ("wirnik szybki", który zmienia sie z kazda pozycje), jest zwany prawy. Cyfry rzymskie, który znajduja sie na srodku kazdego wirnika, pokazuja który z 5 wirników (I, II, III, IV lub V) jest uzywany. Polaczenie kazdego wirnika odpowiada oryginalnym Enigma.
+<br>
+<hr>
+<b>Wymagania systemowe:</b><br>Potrzebny jest szybki komputer, rozdzielczosc 800x600 pikseli, glebokosc true-color i Flash plug-in (wersja 7 lub wyzsza).
+<br>
+<hr>
+<b>Krótki przyklad:</b><br>Otwórz okno maszyny, nalezy kliknac na pole tekstowe "Wejscie"  i wpisz "c" na klawiaturze. Plugboard pisze C jako C natomiast podkresla polaczenie na <b><font color=#ff0000>czerwono</font></b>.Prad elektryczny nastepnie przenosi sie do wirnika po prawej stronie, czyli na swoja litere A. A jest zwiazana z B. Obecnie wchodzi na srodek wirnika, który laczy G z R. Trzeci (po lewej) wirnik mapy V z I. Teraz reflecor laczy B z R. Wtedy wraca po <b><font color=#669900>zielonym</font></b> przewodzie przez wirniki z powrotem do plugboarda, gdzie Q prowadzi do Q. W rezultacie mamy do szyfrowanie C do Q.
+<br>
+Jesli teraz wpiszesz ponownie "c", widac ze w tym przypadku resultat jest G! To dlatego, ze z prawej strony wirnik porusza sie o jeden krok(litere) w lewo.<br>Szczególny przypadek: w przypadku, gdy prawy wirnik porusza sie z V do W, drugi rotor równiez zmienia stanowisko o jeden krok. Odnosi sie to do polowy wirnikow. Reasumujac, wirniki zachowuja sie jak przebieg.
+<hr>
+<b>Jak moge szyfrowac tekst?:</b><br>Najpierw trzeba uzupelnic klucz. W tym przypadku <b>klucz</b> sklada sie z dwóch czesci, pierwsza zdecydoje, która para liter powinna byc wymieniana w plugboardzie, np. A do B oraz F do X. Po drugie, nalezy wybrac na poczatku wprowadzania tekstu ustawienia wirnika, np. F-E-S. Kliknij przycisk "RESET", który ustawia cala maszyne w "stanu wyjsciowy". Teraz mozesz zaszyfrowac pierwszy tekst.
+Teraz przeciagnij male zólte kólko pod A do B i przycisnij myszke. Wymieniles A i B. Prosze wymien F i X w ten sam sposób.
+<br>
+Wymiana ustawienia wirnika za pomoca przycisków "<" lub ">" powyzej kazdego wirnika. Kazde klikniecie myszki przestawia wirnik o jedna pozycje do przodu we wskazanym kierunku.
+Teraz wpisz klucz w "Welcome". "Output" powinien pokazac szyfrogram "DBRZNUP". Z wyjatkiem liczby liter, zaszyfrowany tekst wyglada zupelnie inaczej.
+<br>
+<img src="enigma_screenshot1_pl.png" alt="enigma_screenshot1_pl.png" width="91%">
+<hr>
+<b>Jak moge odszyfrowac tekst?:</b><br>Nalezy wspomniec, ze mamy tutaj do czynienia z systemu szyfrowania symetrycznego. Szyfrowanie symetryczne oznacza, ze do szyfrowania i deszyfrowania potrzeba dokladnie ten sam klucz. Aby to udowodnic w naszym przykladzie, zachowaj na uwadze tekst tajny "DBRZNUP", wyczysc zawartosc wiersza "Input:" i wprowadz powyzszy tekst szyfrowy. Resultat jest "WELCOME", który jest tekstem jawnym.
+<br>
+<hr>
+<b>Ograniczenia modelu:</b><br>
+
+Dla tych sposród was, którzy chca wiedziec nieco wiecej na temat Enigmy, nie chce ukryc pewne tu wprowadzone uproszczenia. Pierwotna Enigma pozwolila na zmiane ustawienia tak zwanego pierscienia, który zawieral zmiany w alfabecie o maksymalnie 25 liter.<br>
+W koncu byl czwarty wirnik Enigmy, który zostal opracowany pod koniec II wojny swiatowej w celu jeszcze lepszej ochrony wiadomosci U-Bootow.
+<hr>
+<b>Linki:</b><br>W zakresie szczególowo nastepujace
+<a href="http://homepages.tesco.net/~andycarlson/enigma/enigma_j.html" target=mainframe>Enigmasimulation</a> bardzo zalecane (tutaj zamiast Java wykorzystano Flash). Mozesz porównac kod dwuch innych symulatorow. Nalezy pamietac, ze w "Advanced Settings" applet w reflektor z "C" do "B" musi odpowiadac konfiguracji mojej symulacji Flash. Reflektor "C" jest uzywany jedynie do czterech wirnikach Enigmy, które równiez moga byc symulowane z tym apletem.
+<br>
+Innym bardzo interesujacy jest Jima Orama <a href="http://www.enigma-replica.com" target=manframe>www.enigma-replica.com</a>, gdzie mozna zobaczyc postep Jima w odbudowie czterech wirników Enigmy (M4).
+</body>
+</html>
