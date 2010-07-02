@@ -1,0 +1,4 @@
+340,342d339
+< // flomar, 07/02/2010: hack of the day
+< void startApfloatComputation();
+< void cancelApfloatComputation();

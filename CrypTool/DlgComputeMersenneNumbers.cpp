@@ -178,6 +178,9 @@ void CDlgComputeMersenneNumbers::OnBnClickedStartComputation()
 	buttonCancel->EnableWindow(true);
 	buttonWriteResultToFile->EnableWindow(false);
 
+	// flomar, 07/02/2010: hack of the day
+	startApfloatComputation();
+
 	// start the computation thread
 	computationThread = AfxBeginThread(computeMersenneNumber, (PVOID)(&mersenneComputationParameters));
 
@@ -186,8 +189,8 @@ void CDlgComputeMersenneNumbers::OnBnClickedStartComputation()
 
 void CDlgComputeMersenneNumbers::OnBnClickedCancelComputation()
 {
-	// TODO
-	computationThread->SuspendThread();
+	// flomar, 07/02/2010: hack of the day
+	cancelApfloatComputation();
 
 	// display some information for the user
 	stringResult.Format(IDS_MERSENNE_NUMBER_COMPUTATION_CANCELLED);

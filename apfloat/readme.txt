@@ -18,12 +18,16 @@ Find the "OPTS" parameter, and replace the option "/GX" with "/EHsc", according 
 
 Furthermore, add the option "/MTd" if you want to build a DEBUG library, and "/MT" if you want to build a RELEASE library, respectively.
 
-5) Go into the "apfloat" directory and call "NMAKE" to compile the library.
+5) In order to make apfloat satisfy our CrypTool needs, apply the following patches:
+* apint.h.patch
+* apifunc.cpp.patch
 
-6) When done building the libraries, put the debug library into "trunk/apfloat/apfloatd.lib" and the release library into "trunk/apfloat/apfloat.lib".
+6) Now you're ready to build. Go into the "apfloat" directory and call "NMAKE" to compile the library.
+
+7) When done building the libraries, put the debug library into "trunk/apfloat/apfloatd.lib" and the release library into "trunk/apfloat/apfloat.lib".
 
 
 I hope this helped. Send an email to florian@marchal.de if you run into any problems.
 
-Florian Marchal, 06/30/2010
+Florian Marchal, 07/02/2010
 

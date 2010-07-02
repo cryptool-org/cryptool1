@@ -1,0 +1,29 @@
+5,13d4
+< // flomar, 07/02/2010: hack of the day
+< bool cancel;
+< void startApfloatComputation() {
+< 	cancel = false;
+< }
+< void cancelApfloatComputation() {
+< 	cancel = true;
+< }
+< 
+28,29d18
+< // flomar, 07/02/2010
+< if(cancel) return -1;
+36,37d24
+< // flomar, 07/02/2010
+< if(cancel) return -1;
+42,44c29
+<     while (b2pow--) {
+< // flomar, 07/02/2010
+< if(cancel) return -1;
+---
+>     while (b2pow--)
+46,48c31,32
+< 	}
+<     
+< 	return r;
+---
+> 
+>     return r;
