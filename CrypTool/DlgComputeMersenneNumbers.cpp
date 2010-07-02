@@ -21,6 +21,7 @@
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "DlgComputeMersenneNumbers.h"
+#include "FileTools.h"
 
 // include apfloat and utility headers
 #include "ap.h"
@@ -205,7 +206,18 @@ void CDlgComputeMersenneNumbers::OnBnClickedCancelComputation()
 
 void CDlgComputeMersenneNumbers::OnBnClickedWriteResultToFile()
 {
-	// TODO
+	// create temporary file name
+	char *filename = new char[CRYPTOOL_PATH_LENGTH];
+	GetTmpName(filename, "cry", ".txt");
+
+	ofstream Outfile;
+	Outfile.open(filename, std::ios::out | std::ios::trunc);
+	Outfile << stringResult;
+	Outfile.close();
+
+	CAppDocument *NewDoc = theApp.OpenDocumentFileNoMRU(filename);
+
+	delete filename;	
 }
 
 void CDlgComputeMersenneNumbers::OnTimer(UINT nIDEvent)
