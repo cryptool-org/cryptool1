@@ -56,10 +56,12 @@ protected:
 	CString stringBase;
 	CString stringExponent;
 	CString stringResult;
+	CString stringResultLength;
 
 	// we need these to enable/disable the buttons
 	CWnd *buttonStart;
 	CWnd *buttonCancel;
+	CWnd *buttonWriteResultToFile;
 
 public:
 	void setTimeComputationStart(const time_t _time) { timeComputationStart = _time; };
@@ -69,6 +71,7 @@ public:
 public:
 	afx_msg void OnBnClickedStartComputation();
 	afx_msg void OnBnClickedCancelComputation();
+	afx_msg void OnBnClickedWriteResultToFile();
 	afx_msg void OnBnClickedClose();
 };
 
