@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.30 Beta 08 für Win32, Juni 2010  xxxxxx
+    CrypTool, Version 1.4.30 Beta 08 für Win32, Juli 2010  xxxxxx
     (c) Contributors
         Dazu gehören z.B.
         Deutsche Bank AG, Frankfurt am Main,
@@ -202,6 +202,7 @@ eingesetzt wird:
   - der OpenSSL-Bibliothek (http://www.openssl.org/),
   - der NTL-Zahlentheorie-Bibliothek von Victor Shoup
         (http://www.shoup.net/ntl/),
+  -der APFLOAT-Bibliothek von Mikko Tommila (http://www.apfloat.org/apfloat),
   - der MPIR-Bibliothek für beliebig genaue Arithmetik (entstanden aus GMP)
         (www.mpir.org) und
   - der cv act library der cv cryptovision GmbH (www.cryptovision.com).
@@ -403,7 +404,7 @@ besondere Bedingungen gelten:
 
 Ebenso herzlich danken möchten wir den Open-Source-Entwicklern, die uns
 mit ihrem Code Anregungen gaben oder deren Code wir nutzen dürfen, z.B.
-- die Bibliotheken OpenSSL, GMP/MPIR und NTL,
+- die Bibliotheken OpenSSL, GMP/MPIR, APFLOAT und NTL,
 - die Installations-Software NSIS (http://nsis.sourceforge.net/Main_Page),
 - die Texteditor-Software Scintilla (http://scintilla.sourceforge.net),
 - das Hex-Control (www.codeguru.com/Cpp/controls/controls/article.php/c5287).
@@ -851,6 +852,7 @@ a) Entwickler-relevante Änderungen (eher Programm-technisch):
   - cv act library v. 1.4.6 (unterstützt auch Vista)
   - OpenSSL 0.9.8k
   - MPIR 1.3.1 (hergeleitet aus GMP-Version 4.2.1) statt GMP 4.1
+  - APFLOAT 2.41
   - Animal 2.3.21.
 
 - Quellcode und die Applikation CrypTool 1.x stehen nun unter der Lizenz
@@ -960,7 +962,7 @@ c) Neue Funktionalität / Bedienung:
   der Faktorisierung; im Menu zur Analyse von Ciphertext-Only-Verfahren
   steht nun "XOR / Vernam" statt nur "XOR".
 
-- Die Mitwirkenden und die Übersetzenden Organisationen werden nun in
+- Die Mitwirkenden und die übersetzenden Organisationen werden nun in
   eigenen Dialogen aufgeführt (aufrufbar aus dem neuen About-Dialog).
 
 
@@ -1018,6 +1020,10 @@ c) Neue Funktionalität / Bedienung:
 
 - Bei Diffie-Hellman werden die Primzahlen und der Generator nun
   gemäß Standards für sichere Generatoren erzeugt.
+
+- Neu hinzugekommen ist die schnelle Berechnung von Ganzzahl-Potenzen.
+  Diese benutzt die Bibliothek APFLOAT und kann zur Ausgaben aller
+  Stellen der aktuellen Primzahlrekorde (Mersennezahlen) benutzt werden.
 
 
 - Die klassischen Transpositions-Chiffren Skytale und Gartenzaun hinzugefügt
@@ -1313,7 +1319,7 @@ Installationsprogramm (Setup).
 
 - SMIME FlashVideo-Bug
   > Fehlerbeschreibung:
-    Flashvideos mit der Endung ".flv" werden nach öffnen einer
+    Flashvideos mit der Endung ".flv" werden nach dem Öffnen einer
     CrypTool-Flash-Animation (z.B. S/MIME oder Rijndael) nicht mehr
     mit dem Standardplayer, sondern mit dem CrypTool-Player für
     Flashanimationen geöffnet.
@@ -1993,7 +1999,7 @@ Version                  Deutsch    Englisch      Bedarf DE      durch
 1.4.10    Juli 2007      27,5 MB     26,7 MB         47 MB        DB
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
-1.4.30    Juni 2010      51,6 MB     50,9 MB         93 MB        DB   xxxxxxx
+1.4.30    Juli 2010      51,6 MB     50,9 MB         93 MB        DB   xxxxxxx
 
 Bemerkungen zu den Versionen:
 1.3.02   Viele neue Funktionen gegenüber 1.3.00.
@@ -2019,8 +2025,14 @@ Bemerkungen zu den Versionen:
 1.4.30-Beta05  Jan. 2010  Dritte öffentliche Beta von Version 1.4.30 (22.1.2010).
 1.4.30-Beta06  Feb. 2010  Vierte öffentliche Beta von Version 1.4.30 (28.2.2010).
 1.4.30-Beta07  Juni 2010  Fünfte öffentliche Beta von Version 1.4.30 (09.6.2010).
-1.4.30-Beta08  Juni 2010  Sechste öffentliche Beta von Version 1.4.30 (xx.6.2010).
+1.4.30-Beta08  Juli 2010  Sechste öffentliche Beta von Version 1.4.30 (xx.7.2010).
 1.4.30   Viele Bugfixes und erweiterter Funktionsumfang i.Vgl. zu v1.4.21.
+         Plattenplatz-Bedarf der verschiedenen Sprachversionen von 1.4.30:
+         EN:  93.4 MB
+         DE:  94.8 MB
+         PL: 100.0 MB
+         RS:  xx.x MB  xxxxxxxxx
+         SP:  94.4 MB
 
 
 

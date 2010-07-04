@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.30 Beta 08 for Win32, June 2010  xxxxxxx
+    CrypTool, Version 1.4.30 Beta 08 for Win32, July 2010  xxxxxxx
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main,
@@ -201,6 +201,7 @@ CrypTool is a demonstration primarily used for training purposes:
   - the OpenSSL library (http://www.openssl.org/),
   - the NTL number theory library of Victor Shoup
         (http://www.shoup.net/ntl/),
+  - the APFLOAT library of Mikko Tommila (http://www.apfloat.org/apfloat),
   - the MPIR library for arbitrary precision arithmetic (derived from GMP)
         (www.mpir.org) and
   - the cv act library of cv cryptovision Ltd (www.cryptovision.com).
@@ -397,7 +398,7 @@ for their input:
 
 Also we want to cordially thank the open source developers, who
 encouraged us with their code or who build code we can use, e.g.
-- the libraries OpenSSL, GMP/MPIR and NTL,
+- the libraries OpenSSL, GMP/MPIR, APFLOAT and NTL,
 - the installation software NSIS (http://nsis.sourceforge.net/Main_Page),
 - the text editor software Scintilla (http://scintilla.sourceforge.net),
 - the Hex Control (www.codeguru.com/Cpp/controls/controls/article.php/c5287).
@@ -836,6 +837,7 @@ a) Developer-relevant changes (more technically oriented):
   - cv act library v. 1.4.6 (supporting Vista too)
   - OpenSSL 0.9.8k
   - MPIR 1.3.1 (derived from GMP version 4.2.1) instead of GMP 4.1
+  - APFLOAT 2.41
   - Animal 2.3.21.
 
 - Source code and application of CrypTool 1.x are now subject to the Apache
@@ -1000,6 +1002,10 @@ c) New functionality / Usability:
 
 - Diffie-Hellman now creates the primes and the generator according
   to standards for secure generators.
+
+- New is the fast calcalation of integer powers.
+  This uses the library APFLOAT and it can be used to calculate and store
+  all digits of the current prime number records (Mersenne numbers).
 
 
 - Added the classic transposition ciphers scytale and rail fence (combined
@@ -1931,7 +1937,7 @@ Version                 English      German    needed EN     by
 1.4.10    July 2007     26.7 MB      27.5 MB    47 MB        DB
 1.4.20    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.21    July 2008     36.1 MB      37.1 MB    73 MB        DB
-1.4.30    June 2010     50.9 MB      51.6 MB    92 MB        DB   xxxxxx
+1.4.30    July 2010     50.9 MB      51.6 MB    92 MB        DB   xxxxxx
 
 Remarks about the versions:
 1.3.02   Many new functions compared to 1.3.00.
@@ -1956,14 +1962,14 @@ Remarks about the versions:
 1.4.30-Beta05  Jan. 2010  Third public beta of version 1.4.30.
 1.4.30-Beta06  Feb. 2010  Forth public beta of version 1.4.30.
 1.4.30-Beta07  June 2010  Fifth public beta of version 1.4.30.
-1.4.30-Beta08  June 2010  Fifth public beta of version 1.4.30.
+1.4.30-Beta08  July 2010  Fifth public beta of version 1.4.30.
 1.4.30   Many bug fixes and enhanced functionality compared to v1.4.21.
          Disc space needed for the different language versions of 1.4.30:
-         EN: 92.0 MB
-         DE: 93.3 MB
-         PL: 95.9 MB
-         RS: xx.x MB  xxxxxxxxx
-         SP: 92.0 MB
+         EN:  93.4 MB
+         DE:  94.8 MB
+         PL: 100.0 MB
+         RS:  xx.x MB  xxxxxxxxx
+         SP:  94.4 MB
 
 
 
