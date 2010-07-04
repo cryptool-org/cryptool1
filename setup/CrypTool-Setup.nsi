@@ -190,7 +190,7 @@
    !define SCN_AES_TOOL		"AES-Tool"
    !define SCL_AES_TOOL		"aestool.exe"
    !define SCN_SCRIPT		"Script"
-   !define SCL_SCRIPT		"script-${LANGUAGE_STR}.pdf"
+   !define SCL_SCRIPT		"script-${LANGUAGE_SUBST_STR}.pdf"
    !define SCN_PRESENTATION	"Presentation"
    !define SCL_PRESENTATION	"CrypToolPresentation-${LANGUAGE_SUBST_STR}.pdf"
    !define SCN_README		"ReadMe"
