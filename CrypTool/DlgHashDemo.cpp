@@ -24,8 +24,8 @@
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "DlgHashDemo.h"
-
 #include "HashingOperations.h"
+#include "CrypToolTools.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -392,7 +392,8 @@ void CDlgHashDemo::SetRed()
 
 		b += "\n\\par ";
 		CString ratio;
-		ratio.Format(IDS_HASH_DEMO_PERCENT,(100.0*one)/(one+zero), one, (one+zero));
+		CString percentage = createStringNumberWithDigitGrouping((100.0*one)/(one+zero));
+		ratio.Format(IDS_HASH_DEMO_PERCENT, percentage, one, (one+zero));
 		b += ratio;
 				
 		CString sequence;
