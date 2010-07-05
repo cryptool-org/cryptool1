@@ -202,7 +202,7 @@ eingesetzt wird:
   - der OpenSSL-Bibliothek (http://www.openssl.org/),
   - der NTL-Zahlentheorie-Bibliothek von Victor Shoup
         (http://www.shoup.net/ntl/),
-  -der APFLOAT-Bibliothek von Mikko Tommila (http://www.apfloat.org/apfloat),
+  - der APFLOAT-Bibliothek von Mikko Tommila (http://www.apfloat.org/apfloat),
   - der MPIR-Bibliothek für beliebig genaue Arithmetik (entstanden aus GMP)
         (www.mpir.org) und
   - der cv act library der cv cryptovision GmbH (www.cryptovision.com).
@@ -652,37 +652,37 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
   svn checkout http://www.cryptool.com/svn/CrypTool/trunk --username anonymous
 
 - Einen Eindruck von der Größe des CT1-Projekts liefert die folgende, im
-  Juni 2010 erstellte Statistik (anhand der Dateien für die Version 1.4.30
-  Beta 07):
+  Juli 2010 erstellte Statistik (anhand der Dateien für die Version 1.4.30
+  Beta 08):
 
     FILE SUMMARY (Anzahl der Dateien anhand ihrer Dateinamenserweiterung)
     ------------
               4 .rc files
              36 .c files
-            320 .cpp files
-            374 .h files
+            321 .cpp files
+            375 .h files
              36 .java files
              12 .pl files
-           1136 .html files
+          1.142 .html files
              44 .txt files
              39 .tex files
               4 .sage files
-           2005 TOTAL
+          2.013 TOTAL
 
   
     LINES OF CODE (LoC) SUMMARY
     ---------------------------
-         60.290 MFC resource code (rc)
-        256.940 C/C++ source code (c cpp h)
+         60.575 MFC resource code (rc)
+        257.675 C/C++ source code (c cpp h)
           9.778 Java source code (java)
           2.044 Perl code (pl)
-         64.171 HTML code (html hpp)
-          7.735 Text files (txt)
-         34.454 LaTeX code (tex)
+         64.561 HTML code (html hpp)
+          7.811 Text files (txt)
+         34.503 LaTeX code (tex)
             825 Sage code (sage)
-        436.237 TOTAL
+        437.772 TOTAL
 
-    TOTAL: 436.237 Code-Zeilen (plus von 14,1 % gegenüber 382.244 bei v1.4.21)
+    TOTAL: 437.772 Code-Zeilen (plus von 14,5 % gegenüber 382.244 bei v1.4.21)
     - In den TOTAL-Wert gehen nur Sourcen ein, die innerhalb des
       CrypTool-Projektes entwickelt wurden oder dem CT-Projekt gewidmet wurden.
       Die Sourcen anderer Open-Source-Projekte, die innerhalb von CrypTool
@@ -1022,8 +1022,8 @@ c) Neue Funktionalität / Bedienung:
   gemäß Standards für sichere Generatoren erzeugt.
 
 - Neu hinzugekommen ist die schnelle Berechnung von Ganzzahl-Potenzen.
-  Diese benutzt die Bibliothek APFLOAT und kann zur Ausgaben aller
-  Stellen der aktuellen Primzahlrekorde (Mersennezahlen) benutzt werden.
+  Für diese Berechnung wird die Bibliothek APFLOAT benutzt. Damit kann man
+  alle Stellen der aktuellen Primzahlrekorde (Mersennezahlen) ausgeben.
 
 
 - Die klassischen Transpositions-Chiffren Skytale und Gartenzaun hinzugefügt

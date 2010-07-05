@@ -5,7 +5,7 @@
         Deutsche Bank AG, Frankfurt/Main,
         the Universities of Siegen, Darmstadt, Bochum and Duisburg-Essen.
         1998-2010
-        Freeware and Open Source according to Apache Licence 2.0
+        Freeware and Open Source according to Apache License 2.0
     www.cryptool.org
     Prof. Bernhard Esslinger
     $Id$
@@ -250,7 +250,7 @@ a) The program AES-Tool v 2.5 (developed within the CrypTool project):
    AES-encrypted.
    This encryption tool can be called both as a Windows application
    and as a command line tool (e.g. called from within a batch file).
-   At the installation the file extension "AES" is associated with this
+   At the installation the file extension, "AES" is associated with this
    program.
 
 b) The educational game "Number Shark" (by the CrypTool project):
@@ -640,36 +640,36 @@ The general properties and functions of CrypTool are:
   svn checkout http://www.cryptool.com/svn/CrypTool/trunk --username anonymous
 
 - To get an impression of the size of the CT1 project here is a statistics
-  created in June 2010 using the files of version 1.4.30 beta 07.
+  created in July 2010 using the files of version 1.4.30 beta 08.
 
     FILE SUMMARY (number of files according to file extension)
     ------------
               4 .rc files
              36 .c files
-            320 .cpp files
-            374 .h files
+            321 .cpp files
+            375 .h files
              36 .java files
              12 .pl files
-           1136 .html files
+          1.142 .html files
              44 .txt files
              39 .tex files
               4 .sage files
-           2005 TOTAL
+          2.013 TOTAL
 
   
     LINES OF CODE (LoC) SUMMARY
     ---------------------------
-         60,290 MFC resource code (rc)
-        256,940 C/C++ source code (c cpp h)
+         60,575 MFC resource code (rc)
+        257,675 C/C++ source code (c cpp h)
           9,778 Java source code (java)
           2,044 Perl code (pl)
-         64,171 HTML code (html hpp)
-           7,735 Text files (txt)
-         34,454 LaTeX code (tex)
+         64,561 HTML code (html hpp)
+          7,811 Text files (txt)
+         34,503 LaTeX code (tex)
             825 Sage code (sage)
-        436,237 TOTAL
+        437,772 TOTAL
 
-    TOTAL: 436,237 lines of code (plus of 14.1 % from 382,244 with v1.4.21)
+    TOTAL: 437,772 lines of code (plus of 14.5 % from 382,244 with v1.4.21)
     - Here only code written within the CrypTool project or explicitly
       dedicated to the CrypTool project is counted. Any sources used
       within the CrypTool project coming from other open source projects
@@ -944,7 +944,7 @@ c) New functionality / Usability:
   and number of found factors are shown at once in the factorization dialog;
   menu "XOR" in analysis of ciphertext-only changed to "XOR / Vernam".
 
-- Contributors and translating organisations are now listed in own dialogs
+- Contributors and translating organizations are now listed in own dialogs
   (which can be called from the new About dialog).
 
 
@@ -1003,16 +1003,16 @@ c) New functionality / Usability:
 - Diffie-Hellman now creates the primes and the generator according
   to standards for secure generators.
 
-- New is the fast calcalation of integer powers.
+- New is the fast calculation of integer powers.
   This uses the library APFLOAT and it can be used to calculate and store
   all digits of the current prime number records (Mersenne numbers).
 
 
-- Added the classic transposition ciphers scytale and rail fence (combined
+- Added the classic transposition ciphers Scytale and rail fence (combined
   in one dialog) including the view and insertion of the key via icon.
 
 - Solitaire encryption: Dialogs are improved, display of "A" and "B" for the
-  jockers instead of "53" and "54" (as in the original description),
+  jokers instead of "53" and "54" (as in the original description),
   message is no longer limited to 64 kB, the key streams created can be stored.
   Solitaire's manual analysis (reconstruction of the initial deck) is improved.
 
@@ -1024,7 +1024,7 @@ c) New functionality / Usability:
 - The Hill cipher supports further options, and all key parameters and all
   according options are saved in the key store (registry).
 
-- Playfair encyrption offers further options (pre-formatting; differentiate
+- Playfair encryption offers further options (pre-formatting; differentiate
   whether to insert separators only between pairs of double characters or
   always when double characters follow each other in the plaintext).
   This makes a difference when dealing with words like "BALLOON".
@@ -1037,7 +1037,7 @@ c) New functionality / Usability:
 
 - The alphabet set in the dialog "Text Options" now affects almost all
   classic ciphers: Therefore all adapted methods now have a button to
-  directly call the Text Options dialog fom the Key Entry dialog.
+  directly call the Text Options dialog from the Key Entry dialog.
 
   The "Text options" button is enabled at
   - the classic substitution methods (Caesar, Vigenère,
@@ -1048,7 +1048,7 @@ c) New functionality / Usability:
   dialogs for the following ciphers:
   - Substitution part of ADFGVX (algorithm requires fixed alphabet)
   - Playfair (the algorithm determines via the matrix the alphabet)
-  - Permutation (all data is permutated; preformat the document if wished 
+  - Permutation (all data is permutated; pre-format the document if wished 
                  by yourself via the menu "View \ Format Text Document")
   - Solitaire (algorithm requires fixed alphabet; turning all letter into
                the 26 upper-case letters and deletes all other characters).
@@ -1276,9 +1276,9 @@ program (setup).
 - Hash values of external files, which are not loaded into the internal
   editor, can be calculated for files of any size. 
 
-- SMIME FlashVideo bug
+- SMIME Flash Video bug
   > Error description:
-    Flashvideos of the type ".flv" are opened with the CrypTool
+    Flash videos of the type ".flv" are opened with the CrypTool
     player for flash animations after CrypTool was started and
     a flash animation (like  S/MIME or Rijndael) was opened.
   > Solution:
@@ -2186,7 +2186,7 @@ c) Wikipedia:
      - http://pl.wikipedia.org/wiki/Kryptografia
    - Spanish:
      - http://es.wikipedia.org/wiki/CrypTool
-   - Serbisch:
+   - Serbian:
      - http://sr.wikipedia.org/sr/CrypTool
    - French:
      - http://fr.wikipedia.org/wiki/CrypTool
@@ -2787,9 +2787,9 @@ A.2.1.4. User interface / Visualizations
 
 - Make all dialogs thread-safe, so the user can cancel long-running
   transactions, without stopping the whole program via the task manager.
-  This is already implemented in the factorisation dialog.
+  This is already implemented in the factorization dialog.
   This is especially meaningful for cryptanalysis (it would be necessary
-  for the known-plaintext analysis of the single-column transpostion):
+  for the known-plaintext analysis of the single-column transposition):
   If the upper bound of the permutation length is not limited, it takes
   a felt eternity if the upper bound is >900. Here we limited the length of
   the permutation to 100 for consistency reasons, because our implementation
