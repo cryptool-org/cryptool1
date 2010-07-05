@@ -20838,7 +20838,7 @@ BEGIN
                             "Vaš unos nije sekvenca brojeva sa osnovom %i. \nMolim ispravite Vaš unos ili šifrujte unos kao tekst."
     IDS_STRING_WARN_BEFOR_SKIPWS 
                             "Unos sadrži karaktere koji nisu u setu alfabeta!\nAko kliknete OK, samo karakteri alfabeta ce biti šifrovani (drugi karakteri ce biti obrisani iz unosa)."
-    IDS_STRING_HELPNAME     "CrypTool-rs.chm"
+    IDS_STRING_HELPNAME     "CrypTool-en.chm"
     IDS_STRING_PLAYFAIR_ERRMSG121 
                             "U slucaju preformatiranja, duplirana slova su zamenjena slovom 'X'.\nMolim ispravite."
     IDS_STRING_PLAYFAIR_ERRMSG122 
