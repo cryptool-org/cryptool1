@@ -58,6 +58,8 @@ public:
 	CString strVersionGMP;
 	// Versionsstring der Cracklib Bibliothek
 	CString strVersionCracklib;
+	// Versionsstring der apfloat Bibliothek
+	CString strVersionApfloat;
 	//}}AFX_DATA
 	
 	// Überschreibungen

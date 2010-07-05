@@ -150,14 +150,16 @@ BOOL CDlgAbout::OnInitDialog()
 		// construct release information
 		CString stringReleaseInformation;
 		stringReleaseInformation.Format(IDS_CRYPTOOL_RELEASE_INFORMATION, stringCrypToolVersion, buildDate, buildVersion);
-		stringReleaseInformation.Append(strVersionSecude1); stringReleaseInformation.Append(", ");
-		stringReleaseInformation.Append(strVersionMiracl); stringReleaseInformation.Append(", ");
-		stringReleaseInformation.Append(strVersionOpenSSL); stringReleaseInformation.Append(", ");
-		stringReleaseInformation.Append(strVersionNTL); stringReleaseInformation.Append(", ");
-		stringReleaseInformation.Append(strVersionScintilla); stringReleaseInformation.Append(", ");
+		stringReleaseInformation.Append(strVersionApfloat); stringReleaseInformation.Append(", ");
+		stringReleaseInformation.Append(strVersionCracklib); stringReleaseInformation.Append(", ");
 		stringReleaseInformation.Append(strVersionCryptovision); stringReleaseInformation.Append(", ");
 		stringReleaseInformation.Append(strVersionGMP); stringReleaseInformation.Append(", ");
-		stringReleaseInformation.Append(strVersionCracklib); stringReleaseInformation.Append(".");
+		stringReleaseInformation.Append(strVersionMiracl); stringReleaseInformation.Append(", ");
+		stringReleaseInformation.Append(strVersionNTL); stringReleaseInformation.Append(", ");
+		stringReleaseInformation.Append(strVersionOpenSSL); stringReleaseInformation.Append(", ");
+		stringReleaseInformation.Append(strVersionSecude1); stringReleaseInformation.Append(", ");
+		stringReleaseInformation.Append(strVersionScintilla); stringReleaseInformation.Append(".");
+		
 		// display information
 		windowReleaseInformation->SetWindowText(stringReleaseInformation);
 	}
@@ -243,4 +245,8 @@ void CDlgAbout::determineLibraryVersions()
 	// CRYPTOVISION (statisch)
 	this->strVersionCryptovision = "1.3.0";
 	this->strVersionCryptovision.Insert(0, "cv cryptovision (tm) cv act library ");
+
+	// APFLOAT (statisch)
+	this->strVersionApfloat = "2.41";
+	this->strVersionApfloat.Insert(0, "apfloat ");
 }

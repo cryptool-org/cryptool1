@@ -59,6 +59,8 @@ protected:
 	CString stringResultLength;
 
 	// we need these to enable/disable the buttons
+	CWnd *editBase;
+	CWnd *editExponent;
 	CWnd *buttonStart;
 	CWnd *buttonCancel;
 	CWnd *buttonWriteResultToFile;
@@ -72,7 +74,8 @@ public:
 	afx_msg void OnBnClickedStartComputation();
 	afx_msg void OnBnClickedCancelComputation();
 	afx_msg void OnBnClickedWriteResultToFile();
-	afx_msg void OnBnClickedClose();
+	afx_msg void OnChangeEditBase();
+	afx_msg void OnChangeEditExponent();
 };
 
 #endif

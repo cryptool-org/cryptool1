@@ -8468,7 +8468,7 @@ BEGIN
     IDS_SOLITAIRE_PASSWORD_NEEDS_26_CARDS 
                             "Inicja³ has³a wymaga co najmniej 26 kart. Liczba kart wzros³a do tego numeru."
     IDS_HILL_CHOOSE_HILL10x10 
-                            "[I18n]The dimension of the stored key is greater than 5.\nPlease select the button ""Larger Matrix"" before you paste tise key."
+                            "[i18n]The dimension of the stored key is greater than 5.\nPlease select the button ""Larger Matrix"" before you paste tise key."
 END
 
 STRINGTABLE 
@@ -11139,6 +11139,8 @@ BEGIN
                             "i18n The computation is running..."
     IDS_MERSENNE_NUMBER_COMPUTATION_CANCELLED 
                             "i18n The computation was canceled."
+    IDS_MERSENNE_NUMBER_COMPUTATION_TIME_NEEDED 
+                            "[i18n]Elapsed time for the computation of the Mersenne number: %.0f seconds"
 END
 
 #endif    // Polish resources
@@ -22270,10 +22272,10 @@ BEGIN
     IDS_STRING_SECUDE_TICKET_MISSING "Secude tiket nije pronaden."
     IDS_STRING_VALID_RANGE_OF_CHARACTERS_FOR_ENTROPY_TEST 
                             "Molim definišite broj bajtova entropije teksta unošenjem celog broja izmedu %d i %d."
-    IDS_MERSENNE_NUMBER_COMPUTATION_RUNNING 
-                            "Racunanje je u toku..."
-    IDS_MERSENNE_NUMBER_COMPUTATION_CANCELLED 
-                            "Racunanje je otkazano."
+    IDS_MERSENNE_NUMBER_COMPUTATION_RUNNING "Racunanje je u toku..."
+    IDS_MERSENNE_NUMBER_COMPUTATION_CANCELLED "Racunanje je otkazano."
+    IDS_MERSENNE_NUMBER_COMPUTATION_TIME_NEEDED 
+                            "[i18n] Elapsed time for the computation of the Mersenne number: %.0f seconds"
 END
 
 #endif    // Serbian (Latin) resources
@@ -33327,6 +33329,8 @@ BEGIN
     IDS_MERSENNE_NUMBER_COMPUTATION_RUNNING "Die Berechnung läuft..."
     IDS_MERSENNE_NUMBER_COMPUTATION_CANCELLED 
                             "Die Berechnung wurde abgebrochen."
+    IDS_MERSENNE_NUMBER_COMPUTATION_TIME_NEEDED 
+                            "Benötigte Zeit für die Berechnung der Mersenne-Zahl: %.0f Sekunden"
 END
 
 #endif    // German (Germany) resources
@@ -44455,6 +44459,8 @@ BEGIN
                             "Please define the number of bytes for the entropy test by entering an integer between %d and %d."
     IDS_MERSENNE_NUMBER_COMPUTATION_RUNNING "The computation is running..."
     IDS_MERSENNE_NUMBER_COMPUTATION_CANCELLED "The computation was canceled."
+    IDS_MERSENNE_NUMBER_COMPUTATION_TIME_NEEDED 
+                            "Elapsed time for the computation of the Mersenne number: %.0f seconds"
 END
 
 #endif    // English (U.K.) resources
@@ -55523,7 +55529,7 @@ BEGIN
     IDS_SOLITAIRE_PASSWORD_NEEDS_26_CARDS 
                             "Para una correcta inicialización de clave se necesitan al menos 26 cartas. Por eso se ha incrementado el número de cartas a ese número."
     IDS_HILL_CHOOSE_HILL10x10 
-                            "La dimensión de la clave almacenada es mayor a 5.\nPor favor, presione el botón ""Matriz mayor"" antes de pegar su clave."
+                            "[i18n] Elapsed time for the computation of the Mersenne number: %.0f seconds"
 END
 
 STRINGTABLE 
@@ -55642,6 +55648,8 @@ BEGIN
                             "Por favor, defina el número de bytes para el test de entropía. Ingrese un número entero entre %d y %d."
     IDS_MERSENNE_NUMBER_COMPUTATION_RUNNING "Se está realizando el cálculo..."
     IDS_MERSENNE_NUMBER_COMPUTATION_CANCELLED "El cálculo fue cancelado."
+    IDS_MERSENNE_NUMBER_COMPUTATION_TIME_NEEDED 
+                            "Elapsed time for the computation of the Mersenne number: %.0f seconds"
 END
 
 #endif    // Spanish resources

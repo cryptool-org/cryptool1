@@ -63,6 +63,8 @@ BEGIN_MESSAGE_MAP(CDlgComputeMersenneNumbers, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_CANCEL_COMPUTATION, &CDlgComputeMersenneNumbers::OnBnClickedCancelComputation)
 	ON_BN_CLICKED(IDC_BUTTON_WRITE_RESULT_TO_FILE, &CDlgComputeMersenneNumbers::OnBnClickedWriteResultToFile)
 	ON_WM_TIMER()
+	ON_EN_CHANGE(IDC_EDIT_BASE, &CDlgComputeMersenneNumbers::OnChangeEditBase)
+	ON_EN_CHANGE(IDC_EDIT_EXPONENT, &CDlgComputeMersenneNumbers::OnChangeEditExponent)
 END_MESSAGE_MAP()
 
 // CDlgComputeMersenneNumbers message handlers
@@ -72,15 +74,21 @@ BOOL CDlgComputeMersenneNumbers::OnInitDialog()
 	CDialog::OnInitDialog();
 
 	// get window handles to our buttons for enabling/disabling
+	editBase = GetDlgItem(IDC_EDIT_BASE);
+	editExponent = GetDlgItem(IDC_EDIT_EXPONENT);
 	buttonStart = GetDlgItem(IDC_BUTTON_START_COMPUTATION);
 	buttonCancel = GetDlgItem(IDC_BUTTON_CANCEL_COMPUTATION);
 	buttonWriteResultToFile = GetDlgItem(IDC_BUTTON_WRITE_RESULT_TO_FILE);
 
+	assert(editBase);
+	assert(editExponent);
 	assert(buttonStart);
 	assert(buttonCancel);
 	assert(buttonWriteResultToFile);
 
 	// enable/disable buttons
+	editBase->EnableWindow(true);
+	editExponent->EnableWindow(true);
 	buttonStart->EnableWindow(true);
 	buttonCancel->EnableWindow(false);
 	buttonWriteResultToFile->EnableWindow(false);
@@ -175,6 +183,8 @@ void CDlgComputeMersenneNumbers::OnBnClickedStartComputation()
 	SetTimer(COMPUTE_MERSENNE_NUMBERS_TIMER_ID, 10, NULL);
 
 	// enable/disable buttons
+	editBase->EnableWindow(false);
+	editExponent->EnableWindow(false);
 	buttonStart->EnableWindow(false);
 	buttonCancel->EnableWindow(true);
 	buttonWriteResultToFile->EnableWindow(false);
@@ -197,6 +207,8 @@ void CDlgComputeMersenneNumbers::OnBnClickedCancelComputation()
 	stringResult.Format(IDS_MERSENNE_NUMBER_COMPUTATION_CANCELLED);
 
 	// enable/disable buttons
+	editBase->EnableWindow(true);
+	editExponent->EnableWindow(true);
 	buttonStart->EnableWindow(true);
 	buttonCancel->EnableWindow(false);
 	buttonWriteResultToFile->EnableWindow(false);
@@ -220,6 +232,28 @@ void CDlgComputeMersenneNumbers::OnBnClickedWriteResultToFile()
 	delete filename;	
 }
 
+void CDlgComputeMersenneNumbers::OnChangeEditBase()
+{
+	UpdateData(true);
+
+	// clear result fields
+	stringResult = "";
+	stringResultLength = "";
+
+	UpdateData(false);
+}
+
+void CDlgComputeMersenneNumbers::OnChangeEditExponent()
+{
+	UpdateData(true);
+
+	// clear result fields
+	stringResult = "";
+	stringResultLength = "";
+
+	UpdateData(false);
+}
+
 void CDlgComputeMersenneNumbers::OnTimer(UINT nIDEvent)
 {
 	// only process timer events that match our ID
@@ -237,15 +271,24 @@ void CDlgComputeMersenneNumbers::OnTimer(UINT nIDEvent)
 		KillTimer(COMPUTE_MERSENNE_NUMBERS_TIMER_ID);
 
 		// enable/disable buttons
+		editBase->EnableWindow(true);
+		editExponent->EnableWindow(true);
 		buttonStart->EnableWindow(true);
 		buttonCancel->EnableWindow(false);
 		buttonWriteResultToFile->EnableWindow(false);
-
+		
 		if(stringResult != stringComputationCanceled) {
 			// we really do have a result (no cancellation), enable the write result to file button
 			buttonWriteResultToFile->EnableWindow(true);
 			// also update the result length
 			stringResultLength.Format("%d", stringResult.GetLength());
+			// display the amount of time needed for the calculation (if it's longer than a sec)
+			double timeNeeded = difftime(timeComputationEnd, timeComputationStart);
+			if(timeNeeded > 1.0f) {
+				CString stringTimeNeeded;
+				stringTimeNeeded.Format(IDS_MERSENNE_NUMBER_COMPUTATION_TIME_NEEDED, timeNeeded);
+				AfxMessageBox(stringTimeNeeded);
+			}
 		}
 	}
 
