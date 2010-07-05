@@ -351,3 +351,166 @@ CString adaptKeyToAlphabet(const CString _key) {
 
 	return key;
 }
+
+// flomar, 07/05/2010
+// the following set of functions (signature: createStringNumberWithDigitGrouping) 
+// adds digit groupings to a specific number with regards to the current language; 
+// for example, in German the number "-23000" is converted to "-23.000", 
+// whereas in English the the number "-52039.99" would lead to "-52,039.99"; 
+// if we cannot successfully convert (for some reason), we return the number 
+// that was passed in as argument without any changes
+
+// this function goes into the resource file and retrieves the 
+// correct integral number separator for the current language
+char getIntegralNumberSeparator() {
+	// get separator from resource file (language-dependent)
+	CString stringIntegralNumberSeparator;
+	stringIntegralNumberSeparator.Format(IDS_INTEGRAL_NUMBER_SEPARATOR);
+	char integralNumberSeparator = stringIntegralNumberSeparator[0];
+	return integralNumberSeparator;
+}
+
+// this function goes into the resource file and retrieves the 
+// correct fractional number separator for the current language
+char getFractionalNumberSeparator() {
+	// get separator from resource file (language-dependent)
+	CString stringFranctionalNumberSeparator;
+	stringFranctionalNumberSeparator.Format(IDS_FRACTIONAL_NUMBER_SEPARATOR);
+	char franctionalNumberSeparator = stringFranctionalNumberSeparator[0];
+	return franctionalNumberSeparator;
+}
+
+// overloaded method: int
+CString createStringNumberWithDigitGrouping(const int &_number) {
+	CString stringNumber;
+	// convert number to string
+	stringNumber.Format("%d", _number);
+	// add digit grouping and return result
+	return createStringNumberWithDigitGrouping(stringNumber);
+}
+
+// overloaded method: unsigned int
+CString createStringNumberWithDigitGrouping(const unsigned int &_number) {
+	CString stringNumber;
+	// convert number to string
+	stringNumber.Format("%d", _number);
+	// add digit grouping and return result
+	return createStringNumberWithDigitGrouping(stringNumber);
+}
+
+// overloaded method: long
+CString createStringNumberWithDigitGrouping(const long &_number) {
+	CString stringNumber;
+	// convert number to string
+	stringNumber.Format("%d", _number);
+	// add digit grouping and return result
+	return createStringNumberWithDigitGrouping(stringNumber);
+}
+
+// overloaded method: unsigned long
+CString createStringNumberWithDigitGrouping(const unsigned long &_number) {
+	CString stringNumber;
+	// convert number to string
+	stringNumber.Format("%d", _number);
+	// add digit grouping and return result
+	return createStringNumberWithDigitGrouping(stringNumber);
+}
+
+// overloaded method: float (with extra parameter for amount of decimal places)
+CString createStringNumberWithDigitGrouping(const float &_number, const unsigned int &_numberOfDecimalPlaces) {
+	CString stringNumber;
+	// create format string (for decimal places)
+	CString stringFormat; stringFormat.Format("%d", _numberOfDecimalPlaces);
+	stringFormat.Insert(0, "%.");
+	stringFormat.Append("f");
+	// convert number to string
+	stringNumber.Format(stringFormat, _number);
+	// add digit grouping and return result
+	return createStringNumberWithDigitGrouping(stringNumber);
+}
+
+// overloaded method: double (with extra parameter for amount of decimal places)
+CString createStringNumberWithDigitGrouping(const double &_number, const unsigned int &_numberOfDecimalPlaces) {
+	CString stringNumber;
+	// create format string (for decimal places)
+	CString stringFormat; stringFormat.Format("%d", _numberOfDecimalPlaces);
+	stringFormat.Insert(0, "%.");
+	stringFormat.Append("f");
+	// convert number to string
+	stringNumber.Format(stringFormat, _number);
+	// add digit grouping and return result
+	return createStringNumberWithDigitGrouping(stringNumber);
+}
+
+// ATTENTION: to avoid confusion, this function should not be called 
+// from anywhere but from within the overloaded functions defined above
+CString createStringNumberWithDigitGrouping(const CString &_number) {
+	CString stringNumber;
+
+	// we expect a number to be formatted as follows:
+	//  (1) optional minus sign
+	//  (2) integral part
+	//  (3) optional colon
+	//  (4) optional fractional part
+	// what we'll do now is extract the separate parts of the number string, 
+	// and then put them back together to form a number with digit groupings
+
+	CString stringMinusSign;
+	CString stringIntegralPart;
+	CString stringColon;
+	CString stringFractionalPart;
+
+	for(int i=0; i<_number.GetLength(); i++) {
+		char character = _number[i];
+		// (1) try to get the minus sign
+		if(i == 0 && character == '-') {
+			stringMinusSign = "-";
+		}
+		// (2) try to get the integral part
+		else if(stringColon.GetLength() == 0 && character >= '0' && character <= '9') {
+			stringIntegralPart.AppendChar(character);
+		}
+		// (3) try to get the colon
+		else if(character == '.') {
+			stringColon = ".";
+		}
+		// (4) try to get the fractional part
+		else if(stringColon.GetLength() > 0 && character >= '0' && character <= '9') {
+			stringFractionalPart.AppendChar(character);
+		}
+		else {
+			// obviously something strange happened, thus we return the original number
+			return _number;
+		}
+	}
+
+	// determine amount of integral separators needed
+	int amountOfIntegralSeparatorsNeeded = (stringIntegralPart.GetLength() - 1) / 3;
+	int amountOfIntegralSeparatorsAdded = 0;
+
+	// get the integral separator (language-dependent)
+	char integralSeparator = getIntegralNumberSeparator();
+
+	// insert integral separators
+	for(int i=0; i<amountOfIntegralSeparatorsNeeded; i++) {
+		int insertPosition = stringIntegralPart.GetLength() - (i+1) * 3 - amountOfIntegralSeparatorsAdded;
+		stringIntegralPart.Insert(insertPosition, integralSeparator);
+		amountOfIntegralSeparatorsAdded++;
+	}
+
+	// get the fractional separator (language-dependent)
+	char fractionalSeparator = getFractionalNumberSeparator();
+	if(stringColon.GetLength() > 0) {
+		stringColon = "";
+		stringColon.AppendChar(fractionalSeparator);
+	}
+
+	// we're through with the preliminary stuff, now we put together the result
+	stringNumber = "";
+	stringNumber.Append(stringMinusSign);
+	stringNumber.Append(stringIntegralPart);
+	stringNumber.Append(stringColon);
+	stringNumber.Append(stringFractionalPart);
+
+	return stringNumber;
+}

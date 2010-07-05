@@ -68,7 +68,9 @@
 #define IDD_TEXT_OPTIONS                154
 #define IDS_MERSENNE_NUMBER_COMPUTATION_TIME_NEEDED 154
 #define IDD_KEYLENGTH                   155
+#define IDS_INTEGRAL_NUMBER_SEPARATOR   155
 #define IDD_BIN_KEYLENGTH               156
+#define IDS_FRACTIONAL_NUMBER_SEPARATOR 156
 #define IDD_KEY_ANALYSIS                157
 #define IDD_SHOW_PARAMETER_KEY_EC       160
 #define IDD_KEY_ASYM                    162

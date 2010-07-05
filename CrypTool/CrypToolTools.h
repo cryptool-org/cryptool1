@@ -56,6 +56,15 @@ void ShellExecuteJava(CString &_javaProgram, CString &_javaProgramCompleteCall, 
 // see implementation
 CString adaptKeyToAlphabet(const CString _key);
 
+// see implementation(s)
+CString createStringNumberWithDigitGrouping(const int &_number);
+CString createStringNumberWithDigitGrouping(const unsigned int &_number);
+CString createStringNumberWithDigitGrouping(const long &_number);
+CString createStringNumberWithDigitGrouping(const unsigned long &_number);
+CString createStringNumberWithDigitGrouping(const float &_number, const unsigned int &_numberOfDecimalPlaces = 2);
+CString createStringNumberWithDigitGrouping(const double &_number, const unsigned int &_numberOfDecimalPlaces = 2);
+CString createStringNumberWithDigitGrouping(const CString &_number);
+
 #endif
 
 

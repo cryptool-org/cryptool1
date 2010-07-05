@@ -11141,6 +11141,8 @@ BEGIN
                             "i18n The computation was canceled."
     IDS_MERSENNE_NUMBER_COMPUTATION_TIME_NEEDED 
                             "[i18n]Elapsed time for the computation of the Mersenne number: %.0f seconds"
+    IDS_INTEGRAL_NUMBER_SEPARATOR "."
+    IDS_FRACTIONAL_NUMBER_SEPARATOR ","
 END
 
 #endif    // Polish resources
@@ -22276,6 +22278,8 @@ BEGIN
     IDS_MERSENNE_NUMBER_COMPUTATION_CANCELLED "Racunanje je otkazano."
     IDS_MERSENNE_NUMBER_COMPUTATION_TIME_NEEDED 
                             "[i18n] Elapsed time for the computation of the Mersenne number: %.0f seconds"
+    IDS_INTEGRAL_NUMBER_SEPARATOR "."
+    IDS_FRACTIONAL_NUMBER_SEPARATOR ","
 END
 
 #endif    // Serbian (Latin) resources
@@ -33331,6 +33335,8 @@ BEGIN
                             "Die Berechnung wurde abgebrochen."
     IDS_MERSENNE_NUMBER_COMPUTATION_TIME_NEEDED 
                             "Benötigte Zeit für die Berechnung der Mersenne-Zahl: %.0f Sekunden"
+    IDS_INTEGRAL_NUMBER_SEPARATOR "."
+    IDS_FRACTIONAL_NUMBER_SEPARATOR ","
 END
 
 #endif    // German (Germany) resources
@@ -44461,6 +44467,8 @@ BEGIN
     IDS_MERSENNE_NUMBER_COMPUTATION_CANCELLED "The computation was canceled."
     IDS_MERSENNE_NUMBER_COMPUTATION_TIME_NEEDED 
                             "Elapsed time for the computation of the Mersenne number: %.0f seconds"
+    IDS_INTEGRAL_NUMBER_SEPARATOR ","
+    IDS_FRACTIONAL_NUMBER_SEPARATOR "."
 END
 
 #endif    // English (U.K.) resources
@@ -55650,6 +55658,8 @@ BEGIN
     IDS_MERSENNE_NUMBER_COMPUTATION_CANCELLED "El cálculo fue cancelado."
     IDS_MERSENNE_NUMBER_COMPUTATION_TIME_NEEDED 
                             "Elapsed time for the computation of the Mersenne number: %.0f seconds"
+    IDS_INTEGRAL_NUMBER_SEPARATOR "."
+    IDS_FRACTIONAL_NUMBER_SEPARATOR ","
 END
 
 #endif    // Spanish resources
