@@ -80,6 +80,9 @@ void DlgHillOptions::readRegistry()
 		}
 		CT_CLOSE_REGISTRY();
 	}
+
+   if ( m_ownCharForPadding.GetLength() != 1 )
+      m_ownCharForPadding = theApp.TextOptions.getAlphabet().Mid(0,1);
 }
 
 void DlgHillOptions::writeRegistry()
@@ -116,6 +119,11 @@ BOOL DlgHillOptions::OnInitDialog()
 
 void DlgHillOptions::OnBnClickedOk()
 {
+   if ( !m_ownCharForPadding.GetLength() )
+   {
+      // FIXME HK --> NOTIFICATION
+      m_ownCharForPadding = theApp.TextOptions.getAlphabet().Mid(0,1);
+   }
    writeRegistry();
    OnOK();
 }
@@ -147,7 +155,7 @@ void DlgHillOptions::OnEnChangeEdit2()
          found++;
          break;
       }
-   if ( found )
+   if ( !found )
       m_ownCharForPadding = _T("");
    else
       m_ownCharForPadding = CString( c );
