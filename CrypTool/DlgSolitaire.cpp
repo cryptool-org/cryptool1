@@ -53,6 +53,7 @@ CDlgSolitaire::CDlgSolitaire(const char* _infile, CWnd* pParent /*=NULL*/)
 {
 	infile = new char[strlen(_infile) +1];
 	strcpy(infile, _infile);
+   vorgabe_p = new CButton[55];
 }
 
 CDlgSolitaire::~CDlgSolitaire()
@@ -60,6 +61,7 @@ CDlgSolitaire::~CDlgSolitaire()
 	delete []infile;
 	delete []in_buffer;
 	delete []key_stream;
+   delete []vorgabe_p;
 }
 
 bool CDlgSolitaire::load_infile()
@@ -125,60 +127,60 @@ void CDlgSolitaire::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 
 	DDX_Text(pDX, IDC_EDIT1, InitialDeck);
-	DDX_Control(pDX, IDC_BUTTON9, vorgabe1);
-	DDX_Control(pDX, IDC_BUTTON10, vorgabe2);
-	DDX_Control(pDX, IDC_BUTTON11, vorgabe3);
-	DDX_Control(pDX, IDC_BUTTON12, vorgabe4);
-	DDX_Control(pDX, IDC_BUTTON13, vorgabe5);
-	DDX_Control(pDX, IDC_BUTTON14, vorgabe6);
-	DDX_Control(pDX, IDC_BUTTON15, vorgabe7);
-	DDX_Control(pDX, IDC_BUTTON16, vorgabe8);
-	DDX_Control(pDX, IDC_BUTTON17, vorgabe9);
-	DDX_Control(pDX, IDC_BUTTON18, vorgabe10);
-	DDX_Control(pDX, IDC_BUTTON19, vorgabe11);
-	DDX_Control(pDX, IDC_BUTTON20, vorgabe12);
-	DDX_Control(pDX, IDC_BUTTON21, vorgabe13);
-	DDX_Control(pDX, IDC_BUTTON22, vorgabe14);
-	DDX_Control(pDX, IDC_BUTTON23, vorgabe15);
-	DDX_Control(pDX, IDC_BUTTON24, vorgabe16);
-	DDX_Control(pDX, IDC_BUTTON25, vorgabe17);
-	DDX_Control(pDX, IDC_BUTTON26, vorgabe18);
-	DDX_Control(pDX, IDC_BUTTON27, vorgabe19);
-	DDX_Control(pDX, IDC_BUTTON28, vorgabe20);
-	DDX_Control(pDX, IDC_BUTTON29, vorgabe21);
-	DDX_Control(pDX, IDC_BUTTON30, vorgabe22);
-	DDX_Control(pDX, IDC_BUTTON31, vorgabe23);
-	DDX_Control(pDX, IDC_BUTTON32, vorgabe24);
-	DDX_Control(pDX, IDC_BUTTON33, vorgabe25);
-	DDX_Control(pDX, IDC_BUTTON34, vorgabe26);
-	DDX_Control(pDX, IDC_BUTTON35, vorgabe27);
-	DDX_Control(pDX, IDC_BUTTON36, vorgabe28);
-	DDX_Control(pDX, IDC_BUTTON37, vorgabe29);
-	DDX_Control(pDX, IDC_BUTTON38, vorgabe30);
-	DDX_Control(pDX, IDC_BUTTON39, vorgabe31);
-	DDX_Control(pDX, IDC_BUTTON40, vorgabe32);
-	DDX_Control(pDX, IDC_BUTTON41, vorgabe33);
-	DDX_Control(pDX, IDC_BUTTON42, vorgabe34);
-	DDX_Control(pDX, IDC_BUTTON43, vorgabe35);
-	DDX_Control(pDX, IDC_BUTTON44, vorgabe36);
-	DDX_Control(pDX, IDC_BUTTON45, vorgabe37);
-	DDX_Control(pDX, IDC_BUTTON46, vorgabe38);
-	DDX_Control(pDX, IDC_BUTTON47, vorgabe39);
-	DDX_Control(pDX, IDC_BUTTON48, vorgabe40);
-	DDX_Control(pDX, IDC_BUTTON49, vorgabe41);
-	DDX_Control(pDX, IDC_BUTTON50, vorgabe42);
-	DDX_Control(pDX, IDC_BUTTON51, vorgabe43);
-	DDX_Control(pDX, IDC_BUTTON52, vorgabe44);
-	DDX_Control(pDX, IDC_BUTTON53, vorgabe45);
-	DDX_Control(pDX, IDC_BUTTON54, vorgabe46);
-	DDX_Control(pDX, IDC_BUTTON55, vorgabe47);
-	DDX_Control(pDX, IDC_BUTTON56, vorgabe48);
-	DDX_Control(pDX, IDC_BUTTON57, vorgabe49);
-	DDX_Control(pDX, IDC_BUTTON58, vorgabe50);
-	DDX_Control(pDX, IDC_BUTTON59, vorgabe51);
-	DDX_Control(pDX, IDC_BUTTON60, vorgabe52);
-	DDX_Control(pDX, IDC_BUTTON61, vorgabe53);
-	DDX_Control(pDX, IDC_BUTTON62, vorgabe54);
+	DDX_Control(pDX, IDC_BUTTON9, vorgabe_p[1]);
+	DDX_Control(pDX, IDC_BUTTON10, vorgabe_p[2]);
+	DDX_Control(pDX, IDC_BUTTON11, vorgabe_p[3]);
+	DDX_Control(pDX, IDC_BUTTON12, vorgabe_p[4]);
+	DDX_Control(pDX, IDC_BUTTON13, vorgabe_p[5]);
+	DDX_Control(pDX, IDC_BUTTON14, vorgabe_p[6]);
+	DDX_Control(pDX, IDC_BUTTON15, vorgabe_p[7]);
+	DDX_Control(pDX, IDC_BUTTON16, vorgabe_p[8]);
+	DDX_Control(pDX, IDC_BUTTON17, vorgabe_p[9]);
+	DDX_Control(pDX, IDC_BUTTON18, vorgabe_p[10]);
+	DDX_Control(pDX, IDC_BUTTON19, vorgabe_p[11]);
+	DDX_Control(pDX, IDC_BUTTON20, vorgabe_p[12]);
+	DDX_Control(pDX, IDC_BUTTON21, vorgabe_p[13]);
+	DDX_Control(pDX, IDC_BUTTON22, vorgabe_p[14]);
+	DDX_Control(pDX, IDC_BUTTON23, vorgabe_p[15]);
+	DDX_Control(pDX, IDC_BUTTON24, vorgabe_p[16]);
+	DDX_Control(pDX, IDC_BUTTON25, vorgabe_p[17]);
+	DDX_Control(pDX, IDC_BUTTON26, vorgabe_p[18]);
+	DDX_Control(pDX, IDC_BUTTON27, vorgabe_p[19]);
+	DDX_Control(pDX, IDC_BUTTON28, vorgabe_p[20]);
+	DDX_Control(pDX, IDC_BUTTON29, vorgabe_p[21]);
+	DDX_Control(pDX, IDC_BUTTON30, vorgabe_p[22]);
+	DDX_Control(pDX, IDC_BUTTON31, vorgabe_p[23]);
+	DDX_Control(pDX, IDC_BUTTON32, vorgabe_p[24]);
+	DDX_Control(pDX, IDC_BUTTON33, vorgabe_p[25]);
+	DDX_Control(pDX, IDC_BUTTON34, vorgabe_p[26]);
+	DDX_Control(pDX, IDC_BUTTON35, vorgabe_p[27]);
+	DDX_Control(pDX, IDC_BUTTON36, vorgabe_p[28]);
+	DDX_Control(pDX, IDC_BUTTON37, vorgabe_p[29]);
+	DDX_Control(pDX, IDC_BUTTON38, vorgabe_p[30]);
+	DDX_Control(pDX, IDC_BUTTON39, vorgabe_p[31]);
+	DDX_Control(pDX, IDC_BUTTON40, vorgabe_p[32]);
+	DDX_Control(pDX, IDC_BUTTON41, vorgabe_p[33]);
+	DDX_Control(pDX, IDC_BUTTON42, vorgabe_p[34]);
+	DDX_Control(pDX, IDC_BUTTON43, vorgabe_p[35]);
+	DDX_Control(pDX, IDC_BUTTON44, vorgabe_p[36]);
+	DDX_Control(pDX, IDC_BUTTON45, vorgabe_p[37]);
+	DDX_Control(pDX, IDC_BUTTON46, vorgabe_p[38]);
+	DDX_Control(pDX, IDC_BUTTON47, vorgabe_p[39]);
+	DDX_Control(pDX, IDC_BUTTON48, vorgabe_p[40]);
+	DDX_Control(pDX, IDC_BUTTON49, vorgabe_p[41]);
+	DDX_Control(pDX, IDC_BUTTON50, vorgabe_p[42]);
+	DDX_Control(pDX, IDC_BUTTON51, vorgabe_p[43]);
+	DDX_Control(pDX, IDC_BUTTON52, vorgabe_p[44]);
+	DDX_Control(pDX, IDC_BUTTON53, vorgabe_p[45]);
+	DDX_Control(pDX, IDC_BUTTON54, vorgabe_p[46]);
+	DDX_Control(pDX, IDC_BUTTON55, vorgabe_p[47]);
+	DDX_Control(pDX, IDC_BUTTON56, vorgabe_p[48]);
+	DDX_Control(pDX, IDC_BUTTON57, vorgabe_p[49]);
+	DDX_Control(pDX, IDC_BUTTON58, vorgabe_p[50]);
+	DDX_Control(pDX, IDC_BUTTON59, vorgabe_p[51]);
+	DDX_Control(pDX, IDC_BUTTON60, vorgabe_p[52]);
+	DDX_Control(pDX, IDC_BUTTON61, vorgabe_p[53]);
+	DDX_Control(pDX, IDC_BUTTON62, vorgabe_p[54]);
 	DDX_Control(pDX, IDC_EDIT4, m_passwort);
 	DDX_Text(pDX, IDC_EDIT4, m_passwort1);
 	DDV_MaxChars(pDX, m_passwort1, 1024);
@@ -442,64 +444,22 @@ BEGIN_MESSAGE_MAP(CDlgSolitaire, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON72, OnBnSaveKeyStream)
 END_MESSAGE_MAP()
 
-
 void CDlgSolitaire::enableVorgabe(bool art)
 {
 	long cards = m_ctrlSelKartenanzahl.GetCurSel()+3;
-	vorgabe1.EnableWindow ((art && cards >= 1));
-	vorgabe2.EnableWindow ((art && cards >= 2));
-	vorgabe3.EnableWindow ((art && cards >= 3));
-	vorgabe4.EnableWindow ((art && cards >= 4));
-	vorgabe5.EnableWindow ((art && cards >= 5));
-	vorgabe6.EnableWindow ((art && cards >= 6));
-	vorgabe7.EnableWindow ((art && cards >= 7));
-	vorgabe8.EnableWindow ((art && cards >= 8));
-	vorgabe9.EnableWindow ((art && cards >= 9));
-	vorgabe10.EnableWindow((art && cards >= 10));
-	vorgabe11.EnableWindow((art && cards >= 11));
-	vorgabe12.EnableWindow((art && cards >= 12));
-	vorgabe13.EnableWindow((art && cards >= 13));
-	vorgabe14.EnableWindow((art && cards >= 14));
-	vorgabe15.EnableWindow((art && cards >= 15));
-	vorgabe16.EnableWindow((art && cards >= 16));
-	vorgabe17.EnableWindow((art && cards >= 17));
-	vorgabe18.EnableWindow((art && cards >= 18));
-	vorgabe19.EnableWindow((art && cards >= 19));
-	vorgabe20.EnableWindow((art && cards >= 20));
-	vorgabe21.EnableWindow((art && cards >= 21));
-	vorgabe22.EnableWindow((art && cards >= 22));
-	vorgabe23.EnableWindow((art && cards >= 23));
-	vorgabe24.EnableWindow((art && cards >= 24));
-	vorgabe25.EnableWindow((art && cards >= 25));
-	vorgabe26.EnableWindow((art && cards >= 26));
-	vorgabe27.EnableWindow((art && cards >= 27));
-	vorgabe28.EnableWindow((art && cards >= 28));
-	vorgabe29.EnableWindow((art && cards >= 29));
-	vorgabe30.EnableWindow((art && cards >= 30));
-	vorgabe31.EnableWindow((art && cards >= 31));
-	vorgabe32.EnableWindow((art && cards >= 32));
-	vorgabe33.EnableWindow((art && cards >= 33));
-	vorgabe34.EnableWindow((art && cards >= 34));
-	vorgabe35.EnableWindow((art && cards >= 35));
-	vorgabe36.EnableWindow((art && cards >= 36));
-	vorgabe37.EnableWindow((art && cards >= 37));
-	vorgabe38.EnableWindow((art && cards >= 38));
-	vorgabe39.EnableWindow((art && cards >= 39));
-	vorgabe40.EnableWindow((art && cards >= 40));
-	vorgabe41.EnableWindow((art && cards >= 41));
-	vorgabe42.EnableWindow((art && cards >= 42));
-	vorgabe43.EnableWindow((art && cards >= 43));
-	vorgabe44.EnableWindow((art && cards >= 44));
-	vorgabe45.EnableWindow((art && cards >= 45));
-	vorgabe46.EnableWindow((art && cards >= 46));
-	vorgabe47.EnableWindow((art && cards >= 47));
-	vorgabe48.EnableWindow((art && cards >= 48));
-	vorgabe49.EnableWindow((art && cards >= 49));
-	vorgabe50.EnableWindow((art && cards >= 50));
-	vorgabe51.EnableWindow((art && cards >= 51));
-	vorgabe52.EnableWindow((art && cards >= 52));
-	vorgabe53.EnableWindow((art && cards >= 53));
-	vorgabe54.EnableWindow((art && cards >= 54));
+   for ( long i=1; i<55; i++ )
+   {
+      vorgabe_p[i].EnableWindow ((art && cards >= i ));
+     	vorgabe_p[i].ShowWindow     ((cards >= i ));
+      if      ( cards-1 == i ) vorgabe_p[i].SetWindowText( _T("A"));
+      else if ( cards   == i ) vorgabe_p[i].SetWindowText( _T("B"));
+      else {
+         CString cs;
+         cs.Format( "%d", i );
+         vorgabe_p[i].SetWindowText(cs);
+      }
+   }
+
 	m_reset_button.EnableWindow(art);
 
 	if ( art )
@@ -672,60 +632,60 @@ void CDlgSolitaire::DoCard( int k, CButton &button )
 }
 
 
-void CDlgSolitaire::OnBnClickedButton9()  {	DoCard(1,  vorgabe1); }
-void CDlgSolitaire::OnBnClickedButton10() {	DoCard(2,  vorgabe2); }
-void CDlgSolitaire::OnBnClickedButton11() { DoCard(3,  vorgabe3); }
-void CDlgSolitaire::OnBnClickedButton12() {	DoCard(4,  vorgabe4); }
-void CDlgSolitaire::OnBnClickedButton13() {	DoCard(5,  vorgabe5); }
-void CDlgSolitaire::OnBnClickedButton14() {	DoCard(6,  vorgabe6); }
-void CDlgSolitaire::OnBnClickedButton15() { DoCard(7,  vorgabe7); }
-void CDlgSolitaire::OnBnClickedButton16() {	DoCard(8,  vorgabe8); }
-void CDlgSolitaire::OnBnClickedButton17() { DoCard(9,  vorgabe9); }
-void CDlgSolitaire::OnBnClickedButton18() { DoCard(10, vorgabe10); }
-void CDlgSolitaire::OnBnClickedButton19() {	DoCard(11, vorgabe11); }
-void CDlgSolitaire::OnBnClickedButton20() { DoCard(12, vorgabe12); }
-void CDlgSolitaire::OnBnClickedButton21() {	DoCard(13, vorgabe13); }
-void CDlgSolitaire::OnBnClickedButton22() {	DoCard(14, vorgabe14); }
-void CDlgSolitaire::OnBnClickedButton23() { DoCard(15, vorgabe15); }
-void CDlgSolitaire::OnBnClickedButton24() {	DoCard(16, vorgabe16); }
-void CDlgSolitaire::OnBnClickedButton25() {	DoCard(17, vorgabe17); }
-void CDlgSolitaire::OnBnClickedButton26() {	DoCard(18, vorgabe18); }
-void CDlgSolitaire::OnBnClickedButton27() {	DoCard(19, vorgabe19); }
-void CDlgSolitaire::OnBnClickedButton28() { DoCard(20, vorgabe20); }
-void CDlgSolitaire::OnBnClickedButton29() {	DoCard(21, vorgabe21); }
-void CDlgSolitaire::OnBnClickedButton30() {	DoCard(22, vorgabe22); }
-void CDlgSolitaire::OnBnClickedButton31() {	DoCard(23, vorgabe23); }
-void CDlgSolitaire::OnBnClickedButton32() {	DoCard(24, vorgabe24); }
-void CDlgSolitaire::OnBnClickedButton33() {	DoCard(25, vorgabe25); }
-void CDlgSolitaire::OnBnClickedButton34() {	DoCard(26, vorgabe26); }
-void CDlgSolitaire::OnBnClickedButton35() {	DoCard(27, vorgabe27); }
-void CDlgSolitaire::OnBnClickedButton36() {	DoCard(28, vorgabe28); }
-void CDlgSolitaire::OnBnClickedButton37() {	DoCard(29, vorgabe29); }
-void CDlgSolitaire::OnBnClickedButton38() {	DoCard(30, vorgabe30); }
-void CDlgSolitaire::OnBnClickedButton39() { DoCard(31, vorgabe31); }
-void CDlgSolitaire::OnBnClickedButton40() {	DoCard(32, vorgabe32); }
-void CDlgSolitaire::OnBnClickedButton41() {	DoCard(33, vorgabe33); }
-void CDlgSolitaire::OnBnClickedButton42() {	DoCard(34, vorgabe34); }
-void CDlgSolitaire::OnBnClickedButton43() { DoCard(35, vorgabe35); }
-void CDlgSolitaire::OnBnClickedButton44() {	DoCard(36, vorgabe36); }
-void CDlgSolitaire::OnBnClickedButton45() {	DoCard(37, vorgabe37); }
-void CDlgSolitaire::OnBnClickedButton46() {	DoCard(38, vorgabe38); }
-void CDlgSolitaire::OnBnClickedButton47() {	DoCard(39, vorgabe39); }
-void CDlgSolitaire::OnBnClickedButton48() {	DoCard(40, vorgabe40); }
-void CDlgSolitaire::OnBnClickedButton49() {	DoCard(41, vorgabe41); }
-void CDlgSolitaire::OnBnClickedButton50() {	DoCard(42, vorgabe42); }
-void CDlgSolitaire::OnBnClickedButton51() {	DoCard(43, vorgabe43); }
-void CDlgSolitaire::OnBnClickedButton52() {	DoCard(44, vorgabe44); }
-void CDlgSolitaire::OnBnClickedButton53() {	DoCard(45, vorgabe45); }
-void CDlgSolitaire::OnBnClickedButton54() {	DoCard(46, vorgabe46); }
-void CDlgSolitaire::OnBnClickedButton55() {	DoCard(47, vorgabe47); }
-void CDlgSolitaire::OnBnClickedButton56() {	DoCard(48, vorgabe48); }
-void CDlgSolitaire::OnBnClickedButton57() {	DoCard(49, vorgabe49); }
-void CDlgSolitaire::OnBnClickedButton58() {	DoCard(50, vorgabe50); }
-void CDlgSolitaire::OnBnClickedButton59() {	DoCard(51, vorgabe51); }
-void CDlgSolitaire::OnBnClickedButton60() {	DoCard(52, vorgabe52); }
-void CDlgSolitaire::OnBnClickedButton61() {	DoCard(53, vorgabe53); }
-void CDlgSolitaire::OnBnClickedButton62() {	DoCard(54, vorgabe54); }
+void CDlgSolitaire::OnBnClickedButton9()  {	DoCard(1,  vorgabe_p[1]); }
+void CDlgSolitaire::OnBnClickedButton10() {	DoCard(2,  vorgabe_p[2]); }
+void CDlgSolitaire::OnBnClickedButton11() { DoCard(3,  vorgabe_p[3]); }
+void CDlgSolitaire::OnBnClickedButton12() {	DoCard(4,  vorgabe_p[4]); }
+void CDlgSolitaire::OnBnClickedButton13() {	DoCard(5,  vorgabe_p[5]); }
+void CDlgSolitaire::OnBnClickedButton14() {	DoCard(6,  vorgabe_p[6]); }
+void CDlgSolitaire::OnBnClickedButton15() { DoCard(7,  vorgabe_p[7]); }
+void CDlgSolitaire::OnBnClickedButton16() {	DoCard(8,  vorgabe_p[8]); }
+void CDlgSolitaire::OnBnClickedButton17() { DoCard(9,  vorgabe_p[9]); }
+void CDlgSolitaire::OnBnClickedButton18() { DoCard(10, vorgabe_p[10]); }
+void CDlgSolitaire::OnBnClickedButton19() {	DoCard(11, vorgabe_p[11]); }
+void CDlgSolitaire::OnBnClickedButton20() { DoCard(12, vorgabe_p[12]); }
+void CDlgSolitaire::OnBnClickedButton21() {	DoCard(13, vorgabe_p[13]); }
+void CDlgSolitaire::OnBnClickedButton22() {	DoCard(14, vorgabe_p[14]); }
+void CDlgSolitaire::OnBnClickedButton23() { DoCard(15, vorgabe_p[15]); }
+void CDlgSolitaire::OnBnClickedButton24() {	DoCard(16, vorgabe_p[16]); }
+void CDlgSolitaire::OnBnClickedButton25() {	DoCard(17, vorgabe_p[17]); }
+void CDlgSolitaire::OnBnClickedButton26() {	DoCard(18, vorgabe_p[18]); }
+void CDlgSolitaire::OnBnClickedButton27() {	DoCard(19, vorgabe_p[19]); }
+void CDlgSolitaire::OnBnClickedButton28() { DoCard(20, vorgabe_p[20]); }
+void CDlgSolitaire::OnBnClickedButton29() {	DoCard(21, vorgabe_p[21]); }
+void CDlgSolitaire::OnBnClickedButton30() {	DoCard(22, vorgabe_p[22]); }
+void CDlgSolitaire::OnBnClickedButton31() {	DoCard(23, vorgabe_p[23]); }
+void CDlgSolitaire::OnBnClickedButton32() {	DoCard(24, vorgabe_p[24]); }
+void CDlgSolitaire::OnBnClickedButton33() {	DoCard(25, vorgabe_p[25]); }
+void CDlgSolitaire::OnBnClickedButton34() {	DoCard(26, vorgabe_p[26]); }
+void CDlgSolitaire::OnBnClickedButton35() {	DoCard(27, vorgabe_p[27]); }
+void CDlgSolitaire::OnBnClickedButton36() {	DoCard(28, vorgabe_p[28]); }
+void CDlgSolitaire::OnBnClickedButton37() {	DoCard(29, vorgabe_p[29]); }
+void CDlgSolitaire::OnBnClickedButton38() {	DoCard(30, vorgabe_p[30]); }
+void CDlgSolitaire::OnBnClickedButton39() { DoCard(31, vorgabe_p[31]); }
+void CDlgSolitaire::OnBnClickedButton40() {	DoCard(32, vorgabe_p[32]); }
+void CDlgSolitaire::OnBnClickedButton41() {	DoCard(33, vorgabe_p[33]); }
+void CDlgSolitaire::OnBnClickedButton42() {	DoCard(34, vorgabe_p[34]); }
+void CDlgSolitaire::OnBnClickedButton43() { DoCard(35, vorgabe_p[35]); }
+void CDlgSolitaire::OnBnClickedButton44() {	DoCard(36, vorgabe_p[36]); }
+void CDlgSolitaire::OnBnClickedButton45() {	DoCard(37, vorgabe_p[37]); }
+void CDlgSolitaire::OnBnClickedButton46() {	DoCard(38, vorgabe_p[38]); }
+void CDlgSolitaire::OnBnClickedButton47() {	DoCard(39, vorgabe_p[39]); }
+void CDlgSolitaire::OnBnClickedButton48() {	DoCard(40, vorgabe_p[40]); }
+void CDlgSolitaire::OnBnClickedButton49() {	DoCard(41, vorgabe_p[41]); }
+void CDlgSolitaire::OnBnClickedButton50() {	DoCard(42, vorgabe_p[42]); }
+void CDlgSolitaire::OnBnClickedButton51() {	DoCard(43, vorgabe_p[43]); }
+void CDlgSolitaire::OnBnClickedButton52() {	DoCard(44, vorgabe_p[44]); }
+void CDlgSolitaire::OnBnClickedButton53() {	DoCard(45, vorgabe_p[45]); }
+void CDlgSolitaire::OnBnClickedButton54() {	DoCard(46, vorgabe_p[46]); }
+void CDlgSolitaire::OnBnClickedButton55() {	DoCard(47, vorgabe_p[47]); }
+void CDlgSolitaire::OnBnClickedButton56() {	DoCard(48, vorgabe_p[48]); }
+void CDlgSolitaire::OnBnClickedButton57() {	DoCard(49, vorgabe_p[49]); }
+void CDlgSolitaire::OnBnClickedButton58() {	DoCard(50, vorgabe_p[50]); }
+void CDlgSolitaire::OnBnClickedButton59() {	DoCard(51, vorgabe_p[51]); }
+void CDlgSolitaire::OnBnClickedButton60() {	DoCard(52, vorgabe_p[52]); }
+void CDlgSolitaire::OnBnClickedButton61() {	DoCard(53, vorgabe_p[53]); }
+void CDlgSolitaire::OnBnClickedButton62() {	DoCard(54, vorgabe_p[54]); }
 
 
 /*nach Vorgabe-Buttons 9-62*/

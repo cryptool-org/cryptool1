@@ -131,6 +131,7 @@ public:
 	afx_msg void OnBnClickedButton59();
 	afx_msg void OnBnClickedButton60();
 	afx_msg void OnBnClickedButton62();
+#if 0
 	CButton vorgabe1;
 	CButton vorgabe2;
 	CButton vorgabe3;
@@ -185,6 +186,7 @@ public:
 	CButton vorgabe52;
 	CButton vorgabe53;
 	CButton vorgabe54;
+#endif
 	afx_msg void OnResetCardSettings();
 	afx_msg void OnEnChangePassword();
 	CEdit m_passwort;
@@ -226,4 +228,6 @@ public:
 	CButton m_keystream_save_button;
 	CComboBox m_ctrlComboSelCards;
 	CComboBox m_ctrlSelKartenanzahl;
+
+   CButton *vorgabe_p;
 };

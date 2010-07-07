@@ -8,11 +8,12 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -11145,12 +11146,12 @@ BEGIN
     IDS_FRACTIONAL_NUMBER_SEPARATOR ","
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Serbian (Latin) resources
+// Serbisch (Lateinisch) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_SRL)
 #ifdef _WIN32
@@ -22282,12 +22283,12 @@ BEGIN
     IDS_FRACTIONAL_NUMBER_SEPARATOR ","
 END
 
-#endif    // Serbian (Latin) resources
+#endif    // Serbisch (Lateinisch) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -26215,11 +26216,11 @@ BEGIN
     EDITTEXT        IDC_EDIT6,524,247,40,12,ES_CENTER | ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT WS_BORDER
     LTEXT           "von",IDC_STATIC,512,247,13,8
     LTEXT           "Die verschiedenen Karten werden als Zahlen von 1 bis 52 und den Buchstaben A und B dargestellt: Welche Karte welcher Zahl entspricht, sehen Sie in der Onlinehilfe (F1) unter ""Solitaire-Beschreibung"".",IDC_STATIC,11,18,643,8
-    LTEXT           "Schritt 1: Sie erzeugen den Schlüssel (das gemischte Kartendeck) entweder selbst oder Sie laden einen Schlüssel (je nachdem, was Sie unten in der Gruppierung „1 b: Kartenreihenfolge festlegen“",IDC_STATIC,11,34,626,8
-    LTEXT           "Das Ergebnis der Schlüsselerzeugung ist das gemischte Kartendeck, das Sie unter dem Namen „Initial-Deck“ in der Gruppierung „Ausgabe“ finden.",IDC_STATIC,43,42,491,8
+    LTEXT           "Schritt 1: Sie erzeugen den Schlüssel (das gemischte Kartendeck) entweder selbst oder Sie laden einen Schlüssel (je nachdem, was Sie unten in der Gruppierung ""1 b: Kartenreihenfolge festlegen""",IDC_STATIC,11,34,626,8
+    LTEXT           "Das Ergebnis der Schlüsselerzeugung ist das gemischte Kartendeck, das Sie unter dem Namen ""Initial-Deck"" in der Gruppierung ""Ausgabe"" finden.",IDC_STATIC,43,42,491,8
     LTEXT           "Gesamtzahl (incl. Joker):",IDC_STATIC,46,134,80,8
     GROUPBOX        "Karten mischen und Schlüsselstrom erzeugen",IDC_STATIC,7,88,662,320
-    LTEXT           " Dessen aktuelle Reihenfolge finden Sie unter dem Namen „End-Deck“ unten in der Gruppierung „Ausgabe“.",IDC_STATIC,41,58,342,8
+    LTEXT           " Dessen aktuelle Reihenfolge finden Sie unter dem Namen ""End-Deck"" unten in der Gruppierung ""Ausgabe"".",IDC_STATIC,41,58,342,8
     PUSHBUTTON      "Speichern",IDC_BUTTON72,585,371,42,14,WS_DISABLED
     LTEXT           "eingeben.",IDC_STATIC,635,34,32,8
 END
@@ -32771,16 +32772,16 @@ STRINGTABLE
 BEGIN
     IDS_HEADERTEXT_PERMUTATION "Permutation"
     IDS_HEADERTEXT_READOUT  "Auslesen"
-    IDS_HEADER_PERMKEYLIST  "Es wurde mindestens ein Permutationsschlüssel gefunden. Die Schlüssel werden in der Liste angezeigt.\nSie können die aktuelle Auswahl in den Schlüsselspeicher kopieren."
+    IDS_HEADER_PERMKEYLIST  "Es wurde mindestens ein Permutationsschlüssel gefunden. Die Schlüssel werden in der Liste angezeigt. Sie können eine Zeile Auswählen und den damit ausgewählten Schlüssel in den Schlüsselspeicher kopieren."
     IDS_NOKEYSELECTED       "Bitte wählen Sie einen Schlüssel aus der Liste."
     IDS_ACTIVE              "(Aktiv) "
     IDS_PERMKEY_COPIED_AND_TIPPS 
-                            "Der von Ihnen gewählte Schlüssel wurde in den Schlüsselspeicher geladen. Sie können diesen Schlüssel bei der Permutationsverschlüsselung nutzen (siehe Menü: Ver-/Entschlüsseln \\ Symmetrish (klassisch) \\ Permutation / Transposition).\n\nDazu klicken Sie im Dialog für die Permutationsverschlüsselung auf das Schlüsselsymbol. "
+                            "Der von Ihnen gewählte Schlüssel wurde in den Schlüsselspeicher geladen.\nSie können diesen Schlüssel bei der Permutationsverschlüsselung nutzen (siehe Menü: Ver-/Entschlüsseln \\ Symmetrisch (klassisch) \\ Permutation / Transposition).\n\nUm den gespeicherten Schlüssel für die Permutations-Verschlüsselung zu benutzen, klicken Sie dann unten im Schlüsseleingabe-Dialog auf die Ikone zum Schlüsseleinfügen."
     IDS_DIALOGHEADER_PERMKEY_LIST "Liste der gefundenen Permutationsschlüssel"
     IDS_INFO_TEXT_ENCRYPTION 
-                            "Die Verschlüsselung erfolgt im Text-Modus.\nD.h. Zeichen, die nicht zum gewählten Alphabet gehören, werden nicht verschlüsselt (abhängig von den Textoptionen werden diese Zeichen entfernt oder beibehalten)."
+                            "Die Verschlüsselung erfolgt im Text-Modus.\nZeichen, die nicht zum gewählten Alphabet gehören, werden nicht verschlüsselt\n(abhängig von den Textoptionen werden diese Zeichen entfernt oder beibehalten)."
     IDS_INFO_BYNARY_ENCRYPTION 
-                            "Die Verschlüsselung erfolgt im Binär-Modus. Alle Zeichen unabhängig vom eingestellten Text-Alphabet werden verschlüsselt."
+                            "Die Verschlüsselung erfolgt im Binär-Modus.\nAlle Zeichen unabhängig vom eingestellten Text-Alphabet werden verschlüsselt."
     IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED 
                             "TODO: Funktionalität für HEX-Modus noch nicht implementiert!"
     IDS_FINDANDREPLACE_TEXTNOTFOUND 
@@ -33220,7 +33221,7 @@ BEGIN
     ID_PA_ERROR_DIFFERNT_DOCUMENT_SIZES 
                             "Die Dokumentgrößen stimmen nicht überein."
     ID_PA_ERROR_DIFFERNT_HISTOGRAMS 
-                            "Die Histogramme (Häfigkeitsverteilung der gültigen Alphabetzeichen) der Dokumente stimmen nicht überein.\n\nD.h. der Geheimtext kann nicht das Ergebnis einer Permutations-Verschlüsselung des Klartextes sein."
+                            "Die Histogramme (Häufigkeitsverteilung der gültigen Alphabetzeichen) der Dokumente stimmen nicht überein.\nDer Geheimtext kann nicht das Ergebnis einer Permutations-Verschlüsselung im ausgewählten Modus (Textmodus bzw. Binärmodus) sein.\nSie können diese Option umschalten und es nochmal probieren."
     ID_PA_KEYFOUND          "Es wurde mindestens ein Permutationsschlüssel gefunden.\nDer kürzeste Schlüssel wird angezeigt."
     IDS_BL_ATLEAST2         "Bitte wählen Sie als Bitlänge eine Zahl zwischen 2 und 16384."
     IDS_BL_TOOLARGE         "Bitte wählen Sie als Bitlänge eine Zahl zwischen 2 und 16384."
@@ -33339,12 +33340,12 @@ BEGIN
     IDS_FRACTIONAL_NUMBER_SEPARATOR ","
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -43967,7 +43968,7 @@ BEGIN
                             "The selected key has been copied to the key storage. You may use this permutation key for document encryption or ciphertext decryption (See menu: Crypt/Decrypt \\ Symmetric (classic) \\ Permutation / Transposition).\n\nUsing the Permutation encryption dialog you may click on the key symbol to paste the stored key."
     IDS_DIALOGHEADER_PERMKEY_LIST "List of recovered permutation keys."
     IDS_INFO_TEXT_ENCRYPTION 
-                            "You chose the option to do the encryption in text mode.\nThis means that characters, which don't belong to the alphabet, are not encrypted (according to the Text option settings these characters are either taken away or are kept unchanged)."
+                            "You chose the option to do the encryption in text mode.\nThis means that characters, which don't belong to the alphabet, are not encrypted\n(according to the text option settings these characters are either taken away or are kept unchanged)."
     IDS_INFO_BYNARY_ENCRYPTION 
                             "You chose the option to do the encryption in binary mode. This means that all characters are encrypted and the chosen text alphabet doesn't matter."
     IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED 
@@ -44471,12 +44472,12 @@ BEGIN
     IDS_FRACTIONAL_NUMBER_SEPARATOR "."
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Spanish resources
+// Spanisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ESN)
 #ifdef _WIN32
@@ -55662,7 +55663,7 @@ BEGIN
     IDS_FRACTIONAL_NUMBER_SEPARATOR ","
 END
 
-#endif    // Spanish resources
+#endif    // Spanisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
