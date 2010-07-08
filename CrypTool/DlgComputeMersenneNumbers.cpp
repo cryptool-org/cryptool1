@@ -52,10 +52,10 @@ CDlgComputeMersenneNumbers::~CDlgComputeMersenneNumbers()
 void CDlgComputeMersenneNumbers::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_EDIT_BASE, stringBase);
-	DDX_Text(pDX, IDC_EDIT_EXPONENT, stringExponent);
-	DDX_Text(pDX, IDC_EDIT_RESULT, stringResult);
-	DDX_Text(pDX, IDC_EDIT_RESULT_LENGTH, stringResultLength);
+	DDX_Control(pDX, IDC_EDIT_BASE, numberEditBase);
+	DDX_Control(pDX, IDC_EDIT_EXPONENT, numberEditExponent);
+	DDX_Control(pDX, IDC_EDIT_RESULT, numberEditResult);
+	DDX_Control(pDX, IDC_EDIT_RESULT_LENGTH, numberEditResultLength);
 }
 
 BEGIN_MESSAGE_MAP(CDlgComputeMersenneNumbers, CDialog)
@@ -74,27 +74,26 @@ BOOL CDlgComputeMersenneNumbers::OnInitDialog()
 	CDialog::OnInitDialog();
 
 	// get window handles to our buttons for enabling/disabling
-	editBase = GetDlgItem(IDC_EDIT_BASE);
-	editExponent = GetDlgItem(IDC_EDIT_EXPONENT);
 	buttonStart = GetDlgItem(IDC_BUTTON_START_COMPUTATION);
 	buttonCancel = GetDlgItem(IDC_BUTTON_CANCEL_COMPUTATION);
 	buttonWriteResultToFile = GetDlgItem(IDC_BUTTON_WRITE_RESULT_TO_FILE);
 
-	assert(editBase);
-	assert(editExponent);
 	assert(buttonStart);
 	assert(buttonCancel);
 	assert(buttonWriteResultToFile);
 
 	// enable/disable buttons
-	editBase->EnableWindow(true);
-	editExponent->EnableWindow(true);
+	numberEditBase.EnableWindow(true);
+	numberEditExponent.EnableWindow(true);
 	buttonStart->EnableWindow(true);
 	buttonCancel->EnableWindow(false);
 	buttonWriteResultToFile->EnableWindow(false);
+	numberEditResult.EnableWindow(false);
+	numberEditResultLength.EnableWindow(false);
 
 	// we go with base 2 by default
-	stringBase = "2";
+	numberEditBase.setText("2");
+	numberEditExponent.setText("");
 
 	UpdateData(false);
 
@@ -131,7 +130,10 @@ UINT computeMersenneNumber(PVOID _parameters)
 
 	// write the result back to the dialog
 	dialog->setResult(buffer.c_str());
-
+	dialog->setDone(true);
+	dialog->setCanceled(false);
+	dialog->setRunning(false);
+	
 	// implicitly end this thread
 	AfxEndThread(0);
 
@@ -142,49 +144,26 @@ void CDlgComputeMersenneNumbers::OnBnClickedStartComputation()
 {
 	UpdateData(true);
 
-	// verification of "base" parameter
-	if(stringBase.GetLength() == 0) {
-		// TODO: throw error
-		AfxMessageBox("TODO: no empty!");
-		return;
-	}
-	for(int i=0; i<stringBase.GetLength(); i++) {
-		if(stringBase[i] < '0' || stringBase[i] > '9') {
-			// TODO: throw error
-			AfxMessageBox("TODO: digits only!");
-			return;
-		}
-	}
-
-	// verification of "exponent" parameter
-	if(stringExponent.GetLength() == 0) {
-		// TODO: throw error
-		AfxMessageBox("TODO: no empty!");
-		return;
-	}
-	for(int i=0; i<stringExponent.GetLength(); i++) {
-		if(stringExponent[i] < '0' || stringExponent[i] > '9') {
-			// TODO: throw error
-			AfxMessageBox("TODO: digits only!");
-			return;
-		}
-	}
-
 	// assign dialog object, base and exponent
 	mersenneComputationParameters.dialog = this;
-	mersenneComputationParameters.base = (char*)(LPCTSTR)(stringBase);
-	mersenneComputationParameters.exponent = strtoul((LPCTSTR)(stringExponent), NULL, 10);
+	mersenneComputationParameters.base = (char*)(LPCTSTR)(numberEditBase.getNumberAsCString());
+	mersenneComputationParameters.exponent = strtoul((LPCTSTR)(numberEditExponent.getNumberAsCString()), NULL, 10);
 
-	// indicate that computation is running, and reset result length
-	stringResult.Format(IDS_MERSENNE_NUMBER_COMPUTATION_RUNNING);
-	stringResultLength = "";
+	// set some flags
+	running = true;
+	canceled = false;
+	done = false;
+
+	// indicate to the user that we're running
+	CString stringInfo; stringInfo.Format(IDS_MERSENNE_NUMBER_COMPUTATION_RUNNING);
+	numberEditResult.setText(stringInfo);
 
 	// activate the timer (calls OnTimer every 10 ms)
 	SetTimer(COMPUTE_MERSENNE_NUMBERS_TIMER_ID, 10, NULL);
 
 	// enable/disable buttons
-	editBase->EnableWindow(false);
-	editExponent->EnableWindow(false);
+	numberEditBase.EnableWindow(false);
+	numberEditExponent.EnableWindow(false);
 	buttonStart->EnableWindow(false);
 	buttonCancel->EnableWindow(true);
 	buttonWriteResultToFile->EnableWindow(false);
@@ -203,12 +182,18 @@ void CDlgComputeMersenneNumbers::OnBnClickedCancelComputation()
 	// flomar, 07/02/2010: hack of the day
 	cancelApfloatComputation();
 
-	// display some information for the user
-	stringResult.Format(IDS_MERSENNE_NUMBER_COMPUTATION_CANCELLED);
+	// set some flags
+	running = false;
+	canceled = true;
+	done = false;
+
+	// indicate to the user that the computation was canceled
+	CString stringInfo; stringInfo.Format(IDS_MERSENNE_NUMBER_COMPUTATION_CANCELLED);
+	numberEditResult.setText(stringInfo);
 
 	// enable/disable buttons
-	editBase->EnableWindow(true);
-	editExponent->EnableWindow(true);
+	numberEditBase.EnableWindow(true);
+	numberEditExponent.EnableWindow(true);
 	buttonStart->EnableWindow(true);
 	buttonCancel->EnableWindow(false);
 	buttonWriteResultToFile->EnableWindow(false);
@@ -224,7 +209,7 @@ void CDlgComputeMersenneNumbers::OnBnClickedWriteResultToFile()
 
 	ofstream Outfile;
 	Outfile.open(filename, std::ios::out | std::ios::trunc);
-	Outfile << stringResult;
+	Outfile << numberEditResult.getNumberAsCString();
 	Outfile.close();
 
 	CAppDocument *NewDoc = theApp.OpenDocumentFileNoMRU(filename);
@@ -237,8 +222,8 @@ void CDlgComputeMersenneNumbers::OnChangeEditBase()
 	UpdateData(true);
 
 	// clear result fields
-	stringResult = "";
-	stringResultLength = "";
+	numberEditResult.setText("");
+	numberEditResultLength.setText("");
 
 	UpdateData(false);
 }
@@ -248,8 +233,8 @@ void CDlgComputeMersenneNumbers::OnChangeEditExponent()
 	UpdateData(true);
 
 	// clear result fields
-	stringResult = "";
-	stringResultLength = "";
+	numberEditResult.setText("");
+	numberEditResultLength.setText("");
 
 	UpdateData(false);
 }
@@ -262,26 +247,23 @@ void CDlgComputeMersenneNumbers::OnTimer(UINT nIDEvent)
 		return;
 	}
 
-	// this is quick and dirty... but it's working
-	CString stringComputationRunning; stringComputationRunning.Format(IDS_MERSENNE_NUMBER_COMPUTATION_RUNNING);
-	CString stringComputationCanceled; stringComputationCanceled.Format(IDS_MERSENNE_NUMBER_COMPUTATION_CANCELLED);
-
-	if(stringResult != stringComputationRunning) {
+	if(!running) {
 		// obviously, we have a result, so kill our timer
 		KillTimer(COMPUTE_MERSENNE_NUMBERS_TIMER_ID);
 
 		// enable/disable buttons
-		editBase->EnableWindow(true);
-		editExponent->EnableWindow(true);
+		numberEditBase.EnableWindow(true);
+		numberEditExponent.EnableWindow(true);
 		buttonStart->EnableWindow(true);
 		buttonCancel->EnableWindow(false);
 		buttonWriteResultToFile->EnableWindow(false);
 		
-		if(stringResult != stringComputationCanceled) {
+		if(done) {
 			// we really do have a result (no cancellation), enable the write result to file button
 			buttonWriteResultToFile->EnableWindow(true);
 			// also update the result length
-			stringResultLength.Format("%d", stringResult.GetLength());
+			CString stringResultLength; stringResultLength.Format("%d", numberEditResult.getNumberAsCString().GetLength());
+			numberEditResultLength.setNumber(stringResultLength);
 			// display the amount of time needed for the calculation (if it's longer than a sec)
 			double timeNeeded = difftime(timeComputationEnd, timeComputationStart);
 			if(timeNeeded > 1.0f) {

@@ -57,6 +57,8 @@ void ShellExecuteJava(CString &_javaProgram, CString &_javaProgramCompleteCall, 
 CString adaptKeyToAlphabet(const CString _key);
 
 // see implementation(s)
+char getIntegralNumberSeparator();
+char getFractionalNumberSeparator();
 CString createStringNumberWithDigitGrouping(const int &_number);
 CString createStringNumberWithDigitGrouping(const unsigned int &_number);
 CString createStringNumberWithDigitGrouping(const long &_number);

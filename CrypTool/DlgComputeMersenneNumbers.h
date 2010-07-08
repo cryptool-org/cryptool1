@@ -22,6 +22,7 @@
 #define _DLGCOMPUTEMERSENNENUMBERS_
 
 #include "afxwin.h"
+#include "NumberEdit.h"
 
 // this is the timer ID for the dialog's timer
 #define COMPUTE_MERSENNE_NUMBERS_TIMER_ID	9999
@@ -48,29 +49,40 @@ protected:
 	// the thread that computes the numbers
 	CWinThread *computationThread;
 
+	// some status flags
+	bool running;
+	bool canceled;
+	bool done;
+
+public:
+	// this is used from the extern thread to control the computation
+	void setRunning(bool _running) { running = _running; };
+	void setCanceled(bool _canceled) { canceled = _canceled; };
+	void setDone(bool _done) { done = _done; };
+
+protected:
+
 	// start and end of computation
 	time_t timeComputationStart;
 	time_t timeComputationEnd;
 
-	// data displayed in the dialog
-	CString stringBase;
-	CString stringExponent;
-	CString stringResult;
-	CString stringResultLength;
-
 	// we need these to enable/disable the buttons
-	CWnd *editBase;
-	CWnd *editExponent;
+	CNumberEdit numberEditBase;
+	CNumberEdit numberEditExponent;
+	CNumberEdit numberEditResult;
+	CNumberEdit numberEditResultLength;
 	CWnd *buttonStart;
 	CWnd *buttonCancel;
-	CWnd *buttonWriteResultToFile;
+	CWnd *buttonWriteResultToFile;	
 
 public:
+	// some random functions
 	void setTimeComputationStart(const time_t _time) { timeComputationStart = _time; };
 	void setTimeComputationEnd(const time_t _time) { timeComputationEnd = _time; };
-	void setResult(const CString _result) { stringResult = _result; };
+	void setResult(const CString _result) { numberEditResult.setNumber(_result); };
 
 public:
+	// message handlers
 	afx_msg void OnBnClickedStartComputation();
 	afx_msg void OnBnClickedCancelComputation();
 	afx_msg void OnBnClickedWriteResultToFile();
