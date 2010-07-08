@@ -29,7 +29,7 @@ Each character in the keystream is added modulo 26 (ADD) to each character of th
 <p>The Solitaire cipher is based on the Vernam cipher (in which the plaintext is ADDed with the keystream) and the stream cipher (in which a keystream is generated from an initial value). Randomness can only be guaranteed in the initial deck.</p>
 
 <p>The keystream generation algorithm consists of five steps, of which the first four permute the deck. The first two steps just move the jokers around, and steps 3 and 4 swap sections of the deck. Step 5 locates the value of the next keystream letter, but does not change the order of cards. The interim card orderings are called temporary decks and the last variation is called the final deck.<br>
-In normal operation, the initial deck and final deck each contain a permutation of the card values 1 to 54. The keystream contains values from1 to 52 and has the same length as the plaintext.</p>
+In normal operation, the initial deck and final deck each contain a permutation of the card values 1 to 54. The keystream contains values from 1 to 52 and has the same length as the plaintext.</p>
 
 <p><U><B>Encryption with Solitaire</B></U></p>
 

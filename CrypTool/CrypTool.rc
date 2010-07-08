@@ -9,6 +9,7 @@
 //
 #include "resource.h"
 #include "afxres.h"
+
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
@@ -4529,22 +4530,22 @@ END
 
 IDD_COMPUTE_MERSENNE_NUMBERS DIALOGEX 0, 0, 300, 130
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "i18n Compute Mersenne Numbers"
+CAPTION "Obliczenie liczby Mersenne"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT_BASE,91,7,40,14,ES_AUTOHSCROLL | ES_NUMBER
     EDITTEXT        IDC_EDIT_EXPONENT,91,25,199,14,ES_AUTOHSCROLL | ES_NUMBER
     EDITTEXT        IDC_EDIT_RESULT,91,45,199,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "Start computation",IDC_BUTTON_START_COMPUTATION,7,84,85,18
-    PUSHBUTTON      "Cancel computation",IDC_BUTTON_CANCEL_COMPUTATION,7,105,85,18
-    PUSHBUTTON      "Write result to file",IDC_BUTTON_WRITE_RESULT_TO_FILE,190,83,100,18,WS_GROUP
-    DEFPUSHBUTTON   "Close",IDCANCEL,190,105,100,18,WS_GROUP
-    LTEXT           "Base b:",IDC_STATIC,61,9,25,8
-    LTEXT           "Exponent e:",IDC_STATIC,47,27,39,8
-    LTEXT           "Result b^e - 1:",IDC_STATIC,39,47,47,8
-    LTEXT           "Result length:",IDC_STATIC,42,67,44,8
+    PUSHBUTTON      "Zacznij obliczenie",IDC_BUTTON_START_COMPUTATION,7,84,85,18
+    PUSHBUTTON      "Anuluj obliczenie",IDC_BUTTON_CANCEL_COMPUTATION,7,105,85,18
+    PUSHBUTTON      "Zapisz wynik do pliku",IDC_BUTTON_WRITE_RESULT_TO_FILE,190,83,100,18,WS_GROUP
+    DEFPUSHBUTTON   "Zamknij",IDCANCEL,190,105,100,18,WS_GROUP
+    LTEXT           "Baza b",IDC_STATIC,63,9,23,8
+    LTEXT           "Wykladnik e",IDC_STATIC,46,27,40,8
+    LTEXT           "Wynik b^e - 1",IDC_STATIC,41,47,45,8
+    LTEXT           "[i18n] Result length:",IDC_STATIC,42,67,44,8
     EDITTEXT        IDC_EDIT_RESULT_LENGTH,91,65,40,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
-    LTEXT           "(number of decimals)",IDC_STATIC,135,67,66,8
+    LTEXT           "[i18n] (number of decimals)",IDC_STATIC,135,67,66,8
 END
 
 
@@ -8469,7 +8470,7 @@ BEGIN
     IDS_SOLITAIRE_PASSWORD_NEEDS_26_CARDS 
                             "Inicja³ has³a wymaga co najmniej 26 kart. Liczba kart wzros³a do tego numeru."
     IDS_HILL_CHOOSE_HILL10x10 
-                            "[i18n]The dimension of the stored key is greater than 5.\nPlease select the button ""Larger Matrix"" before you paste tise key."
+                            "[I18n]The dimension of the stored key is greater than 5.\nPlease select the button ""Larger Matrix"" before you paste this key."
 END
 
 STRINGTABLE 
@@ -10592,7 +10593,7 @@ BEGIN
     IDS_PSE_FILESTRUCT_TRY_TO_REWRITE_PSE 
                             "Œcie¿ka user key file structure\n%s\nwydaje siê byæ uszkodzona!\n\nCzy CrypTool ma spróbowaæ ponownie napisaæ ten plik struktury?\nProszê wybraæ przycisk OK w celu ponownego zapisu lub Anuluj, jeœli problem ma byæ rozwi¹zany rêcznie.\n\nUwaga: W przypadnu ponownego zapisu stare klucze juz siê nie nadaj¹!\nW celu uzyskania dalszych informacji prosimy zapoznaæ siê z readme CrypTool."
     ID_COMPUTE_MERSENNE_NUMBERS 
-                            "i18n Computes Mersenne numbers and shows up-to-date GIMPS results"
+                            "Obliczenie liczby Mersenne i pokazuj wyniki GIMPS na biezaco"
 END
 
 STRINGTABLE 
@@ -11136,10 +11137,8 @@ BEGIN
     IDS_STRING_SECUDE_TICKET_MISSING "Nie mozna znalesc ticket Secude."
     IDS_STRING_VALID_RANGE_OF_CHARACTERS_FOR_ENTROPY_TEST 
                             "Proszê okreslic liczbê bajtów dla testu entropii wpisujac liczbê calkowita miêdzy %d i %d."
-    IDS_MERSENNE_NUMBER_COMPUTATION_RUNNING 
-                            "i18n The computation is running..."
-    IDS_MERSENNE_NUMBER_COMPUTATION_CANCELLED 
-                            "i18n The computation was canceled."
+    IDS_MERSENNE_NUMBER_COMPUTATION_RUNNING "Trwa obliczenie..."
+    IDS_MERSENNE_NUMBER_COMPUTATION_CANCELLED "Obliczenie zostalo odwo³ane."
     IDS_MERSENNE_NUMBER_COMPUTATION_TIME_NEEDED 
                             "[i18n]Elapsed time for the computation of the Mersenne number: %.0f seconds"
     IDS_INTEGRAL_NUMBER_SEPARATOR "."
@@ -22164,9 +22163,9 @@ BEGIN
                             "AES vizualizacija toka ne može da se otvori! Molim proverite da li je datoteka AES_Flussvisualisierung.jar instalirana u CrypTool maticnom direktorijumu\n(""%s"")."
     IDS_PA_KEYFOUND         "Ein Permutationsschlüssel wurde bestimmt."
     ID_PA_ERROR_DIFFERNT_DOCUMENT_SIZES 
-                            "Die Dokumentgrößen stimmen nicht überein."
+                            "[i18n] Die Dokumentgrößen stimmen nicht überein."
     ID_PA_ERROR_DIFFERNT_HISTOGRAMS 
-                            "Die Histogramme der Dokumente stimmen nicht überein."
+                            "[i18n] Die Histogramme der Dokumente stimmen nicht überein."
     ID_PA_KEYFOUND          "Najmanje jedan kljuc permutacije je pronaden. Najkraci ce biti prikazan."
     IDS_BL_ATLEAST2         "Molim odaberite dužinu bita izmedu 2 i 16384."
     IDS_BL_TOOLARGE         "Molim odaberite dužinu bita izmedu 2 i 16384."
@@ -32772,7 +32771,7 @@ STRINGTABLE
 BEGIN
     IDS_HEADERTEXT_PERMUTATION "Permutation"
     IDS_HEADERTEXT_READOUT  "Auslesen"
-    IDS_HEADER_PERMKEYLIST  "Es wurde mindestens ein Permutationsschlüssel gefunden. Die Schlüssel werden in der Liste angezeigt. Sie können eine Zeile Auswählen und den damit ausgewählten Schlüssel in den Schlüsselspeicher kopieren."
+    IDS_HEADER_PERMKEYLIST  "Es wurde mindestens ein Permutationsschlüssel gefunden. Die Schlüssel werden in der Liste angezeigt. Sie können eine Zeile auswählen und den damit ausgewählten Schlüssel in den Schlüsselspeicher kopieren."
     IDS_NOKEYSELECTED       "Bitte wählen Sie einen Schlüssel aus der Liste."
     IDS_ACTIVE              "(Aktiv) "
     IDS_PERMKEY_COPIED_AND_TIPPS 
@@ -33221,7 +33220,7 @@ BEGIN
     ID_PA_ERROR_DIFFERNT_DOCUMENT_SIZES 
                             "Die Dokumentgrößen stimmen nicht überein."
     ID_PA_ERROR_DIFFERNT_HISTOGRAMS 
-                            "Die Histogramme (Häufigkeitsverteilung der gültigen Alphabetzeichen) der Dokumente stimmen nicht überein.\nDer Geheimtext kann nicht das Ergebnis einer Permutations-Verschlüsselung im ausgewählten Modus (Textmodus bzw. Binärmodus) sein.\nSie können diese Option umschalten und es nochmal probieren."
+                            "Die Histogramme (Häufigkeitsverteilung der gültigen Alphabetzeichen) der Dokumente stimmen nicht überein.\nDer Geheimtext kann nicht das Ergebnis einer Permutations-Verschlüsselung im ausgewählten Modus (Textmodus bzw. Binärmodus) sein.\nSie können diesen Modus umschalten und es nochmal probieren."
     ID_PA_KEYFOUND          "Es wurde mindestens ein Permutationsschlüssel gefunden.\nDer kürzeste Schlüssel wird angezeigt."
     IDS_BL_ATLEAST2         "Bitte wählen Sie als Bitlänge eine Zahl zwischen 2 und 16384."
     IDS_BL_TOOLARGE         "Bitte wählen Sie als Bitlänge eine Zahl zwischen 2 und 16384."
@@ -41814,7 +41813,7 @@ BEGIN
     IDS_SOLITAIRE_PASSWORD_NEEDS_26_CARDS 
                             "A password init requires at least 26 cards. The number of cards has been increased to this number."
     IDS_HILL_CHOOSE_HILL10x10 
-                            "The dimension of the stored key is greater than 5.\nPlease select the button ""Larger Matrix"" before you paste tise key."
+                            "The dimension of the stored key is greater than 5.\nPlease select the button ""Larger Matrix"" before you paste this key."
 END
 
 STRINGTABLE 
@@ -43965,7 +43964,7 @@ BEGIN
     IDS_NOKEYSELECTED       "Please select a key from the list"
     IDS_ACTIVE              "(Active) "
     IDS_PERMKEY_COPIED_AND_TIPPS 
-                            "The selected key has been copied to the key storage. You may use this permutation key for document encryption or ciphertext decryption (See menu: Crypt/Decrypt \\ Symmetric (classic) \\ Permutation / Transposition).\n\nUsing the Permutation encryption dialog you may click on the key symbol to paste the stored key."
+                            "The selected key has been copied to the key storage. You may use this permutation key for document encryption or ciphertext decryption (See menu: Encrypt/Decrypt \\ Symmetric (classic) \\ Permutation / Transposition).\n\nUsing the Permutation encryption dialog you may click on the key symbol to paste the stored key."
     IDS_DIALOGHEADER_PERMKEY_LIST "List of recovered permutation keys."
     IDS_INFO_TEXT_ENCRYPTION 
                             "You chose the option to do the encryption in text mode.\nThis means that characters, which don't belong to the alphabet, are not encrypted\n(according to the text option settings these characters are either taken away or are kept unchanged)."
