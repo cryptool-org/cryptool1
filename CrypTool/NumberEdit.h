@@ -33,8 +33,17 @@ public:
 	CNumberEdit();
 	virtual ~CNumberEdit();
 
-	// this returns the pure number as CString (without digit groupings)
+	// this returns the pure number as CString (without digit groupings); it may contain 
+	// a sign, an integral part, a fractional separator, and the fractional part; however, 
+	// this function does not return a string that is compliant to the current language-- 
+	// the fractional separator is ALWAYS a colon (".") due to the C++ language constraints
 	CString getNumberAsCString();
+
+	// see function above; in contrast, this function always uses the language-dependent 
+	// fractional separator; so keep this in mind: using this function for computing rather 
+	// than mere displaying may yield unexpected (WRONG!) results-- you have been warned; 
+	// the parameter "withDigitGroupings" indicates if there should be integral separators
+	CString getNumberAsCStringLanguageDependent(const bool &_withDigitGroupings = false);
 
 	// this sets the number (and implicitly formats it properly)
 	void setNumber(const CString &_number);

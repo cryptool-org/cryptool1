@@ -179,8 +179,19 @@ LRESULT CNumberEdit::OnPaste(WPARAM wparam, LPARAM lparam) {
 
 CString CNumberEdit::getNumberAsCString() {
 	CString result;
-	// we go through our string number and remove everything but [0-9+-] and the fractional separator
-	CString validCharacters = "0123456789+-";
+	CString validCharacters = "+-0123456789.";
+	for(int i=0; i<stringNumber.GetLength(); i++) {
+		if(validCharacters.Find(stringNumber[i]) != -1) {
+			result.AppendChar(stringNumber[i]);
+		}
+	}
+	return result;
+}
+
+CString CNumberEdit::getNumberAsCStringLanguageDependent(const bool &_withDigitGroupings) {
+	CString result;
+	CString validCharacters = "+-0123456789";
+	validCharacters.AppendChar(theIntegralSeparator);
 	validCharacters.AppendChar(theFractionalSeparator);
 	for(int i=0; i<stringNumber.GetLength(); i++) {
 		if(validCharacters.Find(stringNumber[i]) != -1) {
