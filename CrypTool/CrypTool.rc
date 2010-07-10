@@ -20551,7 +20551,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_DLG_KEY_ASYM_TITLE  "Javni parametri: "
-    IDS_STRING_SAMPLE_FILE  "/examples/startingexample-en.txt"
+    IDS_STRING_SAMPLE_FILE  "/examples/startingexample-rs.txt"
     IDS_ASN1_NO_VALID_ASN1_FILE 
                             "Datoteka koju ste odabrali nije validna ASN.1 širfovana datoteka!"
     IDS_ASN1_NO_VALID_PIN   "PIN koji ste uneli je netacan!"
