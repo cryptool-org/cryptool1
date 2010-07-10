@@ -1,0 +1,22 @@
+﻿CrypTool (Početni primer za CrypTool verzije familije 1.x)
+
+CrypTool je sveobuhvatan besplatan obrazovni program o kriptografiji i kriptoanalizi
+koji nudi obimnu online pomoć i mnoge vizualizacije.
+
+Ovo je tekstualna datoteka, kreirana u cilju da Vam pomogne pri Vašim prvim koracima sa CrypTool-om.
+
+1) Kao Vaš prvi korak, preporučljivo je da pročitate online pomoć, ona će Vam pružiti koristan pregled svih funkcija koje su dostupne uz ovu aplikaciju. Početnoj strani online pomoći možete pristupiti putem menija "Pomoć -> Početna strana" u gornjem desnom delu ekrana ili koristeći ključnu reč "Početna strana" unutar indeksa online pomoći.
+Pritisnite F1 da biste pokrenuli online pomoć bilo gde u CrypTool-u.
+
+2) Mogući sledeći korak bi bio šifrovanje datoteke pomoću Caesar algoritma. Ovo može biti učinjeno putem menija "Šifrovanje/DeŠifrovanje -> Simetrično (Klasično)".
+
+3) Postoji nekoliko primera (tutorijala) isporučenih uz online pomoć koji nude lak način za razumevanje kriptologije. Ovi primeri mogu biti pronađeni putem menija "Pomoć -> Scenarija (Tutorijali)".
+
+4) Takođe možete razviti svoje znanje: 
+- Navigacijom kroz menije. Možete pritisnuti F1 na bilo koju stavku menija za dobijanje daljih informacija.
+- Čitanjem Pročitaj me datoteke (pogledajte meni "Pomoć -> Pročitaj").
+- Čitanjem uključene šarenolike prezentacije (Ova prezentacija se može pronaći na više načina: npr. u meniju "Pomoć" ove aplikacije, ili putem sekcije "Dokumentacija" koja se nalazi na "Početnoj" strani online pomoći).
+- Pregledom web stranice www.cryptool.org.
+
+Jul 2010
+CrypTool tim
