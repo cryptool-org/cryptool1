@@ -37,7 +37,9 @@ CNumberEdit::CNumberEdit() {
 	theIntegralSeparator = getIntegralNumberSeparator();
 	theFractionalSeparator = getFractionalNumberSeparator();
 	// do we want to show integral separators?
-	showIntegralSeparators = true;
+	showIntegralSeparators = false;
+	// do we want to show fractional separators?
+	showFractionalSeparators = false;
 }
 
 CNumberEdit::~CNumberEdit() {
@@ -57,9 +59,11 @@ void CNumberEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) {
 	}
 
 	// we react to a specific set of characters only: signs [+-], digits [0-9], 
-	// and fractional separators (i.e. [,] in German, and [.] in English)
+	// and fractional separators (if the flag "showFractionalSeparators" is set)
 	CString validCharacters = "+-0123456789";
-	validCharacters.AppendChar(theFractionalSeparator);
+	if(showFractionalSeparators) {
+		validCharacters.AppendChar(theFractionalSeparator);
+	}
 	validCharacters.AppendChar(VK_BACK);
 	validCharacters.AppendChar(VK_DELETE);
 	if(validCharacters.Find(nChar) == -1) {
@@ -69,8 +73,8 @@ void CNumberEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) {
 	// get the current selection
 	GetSel(selectionStart, selectionEnd);
 
-	// deletion through BACK key
-	if(nChar == VK_BACK) {
+	// deletion through BACK or DELETE key
+	if(nChar == VK_BACK || nChar == VK_DELETE) {
 		if(selectionStart == selectionEnd) {
 			stringNumber.Delete(selectionStart - 1, 1);
 			SetWindowText(stringNumber);
@@ -100,7 +104,7 @@ void CNumberEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) {
 		SetSel(selectionStart + 1, selectionStart + 1);
 	}
 	// FRACTIONAL SEPARATOR
-	if(nChar == theFractionalSeparator && stringNumber.Find(theFractionalSeparator) == -1) {
+	if(nChar == theFractionalSeparator && stringNumber.Find(theFractionalSeparator) == -1 && showFractionalSeparators) {
 		stringNumber.Delete(selectionStart, selectionEnd - selectionStart);
 		stringNumber.Insert(selectionStart, nChar);
 		SetWindowText(stringNumber);
@@ -179,23 +183,58 @@ LRESULT CNumberEdit::OnPaste(WPARAM wparam, LPARAM lparam) {
 
 CString CNumberEdit::getNumberAsCString() {
 	CString result;
-	CString validCharacters = "+-0123456789.";
+	CString validCharacters = "+-0123456789";
+	validCharacters.AppendChar(theFractionalSeparator);
 	for(int i=0; i<stringNumber.GetLength(); i++) {
-		if(validCharacters.Find(stringNumber[i]) != -1) {
-			result.AppendChar(stringNumber[i]);
+		char character = stringNumber[i];
+		if(validCharacters.Find(character) == -1) {
+			continue;
+		}
+		// special treatment for the fractional separator: if "showFractionalSeparators" 
+		// is not set, we bail out and return the integral part of the number only; if the 
+		// option is set, we make sure to use a colon (".") instead of the language-dependent
+		// separator configured in the resource file
+		if(character == theFractionalSeparator) {
+			if(showFractionalSeparators) {
+				result.AppendChar('.');
+			}
+			else {
+				// we bail out
+				return result;
+			}
+		}
+		else {
+			result.AppendChar(character);
 		}
 	}
 	return result;
 }
 
-CString CNumberEdit::getNumberAsCStringLanguageDependent(const bool &_withDigitGroupings) {
+CString CNumberEdit::getNumberAsCStringLanguageDependent() {
 	CString result;
 	CString validCharacters = "+-0123456789";
 	validCharacters.AppendChar(theIntegralSeparator);
 	validCharacters.AppendChar(theFractionalSeparator);
 	for(int i=0; i<stringNumber.GetLength(); i++) {
-		if(validCharacters.Find(stringNumber[i]) != -1) {
-			result.AppendChar(stringNumber[i]);
+		char character = stringNumber[i];
+		if(validCharacters.Find(character) == -1) {
+			continue;
+		}
+		// special treatment for the fractional separator: if "showFractionalSeparators" 
+		// is not set, we bail out and return the integral part of the number only; if the 
+		// option is set, we make sure to use the language-dependent separator configured 
+		// in the resource file
+		if(character == theFractionalSeparator) {
+			if(showFractionalSeparators) {
+				result.AppendChar(theFractionalSeparator);
+			}
+			else {
+				// we bail out
+				return result;
+			}
+		}
+		else {
+			result.AppendChar(character);
 		}
 	}
 	return result;
@@ -204,14 +243,17 @@ CString CNumberEdit::getNumberAsCStringLanguageDependent(const bool &_withDigitG
 void CNumberEdit::setNumber(const CString &_number) {
 	CString result;
 	// we go through our string number and remove everything but valid characters, 
-	// which are signs [+-], the ten digits [0-9], and the fractional separator 
-	char fractionalSeparator = getFractionalNumberSeparator();
+	// which are signs [+-], the ten digits [0-9], and the fractional separator (if 
+	// configured); if the fractional separator is not configured, only the integral 
+	// part of the number passed in is assigned (i.e. "12.50" will be "12")
 	CString validCharacters = "+-0123456789";
-	validCharacters.AppendChar(fractionalSeparator);
+	validCharacters.AppendChar(theFractionalSeparator);
 	for(int i=0; i<_number.GetLength(); i++) {
-		if(validCharacters.Find(_number[i]) != -1) {
-			result.AppendChar(_number[i]);
+		char character = _number[i];
+		if(validCharacters.Find(character) == -1) {
+			continue;
 		}
+		result.AppendChar(character);
 	}
 	stringNumber = result;
 	SetWindowText(stringNumber);
@@ -271,9 +313,9 @@ void CNumberEdit::adjustNumberFormat() {
 	// re-build string number
 	if(stringNumberSign.GetLength() > 0)
 		stringNumber.Insert(0, stringNumberSign);
-	if(stringNumberFractionalSeparator.GetLength() > 0)
+	if(showFractionalSeparators && stringNumberFractionalSeparator.GetLength() > 0) 
 		stringNumber.AppendChar(theFractionalSeparator);
-	if(stringNumberFractionalPart.GetLength() > 0)
+	if(showFractionalSeparators && stringNumberFractionalPart.GetLength() > 0)
 		stringNumber.Append(stringNumberFractionalPart);
 
 	// display string number
@@ -282,7 +324,14 @@ void CNumberEdit::adjustNumberFormat() {
 	// update selection
 	if(showIntegralSeparators) {
 		int offset = amountOfIntegralSeparatorsEnd - amountOfIntegralSeparatorsStart;
-		SetSel(selectionStart + offset, selectionEnd + offset);
+		// prevent memory leaks
+		int selectionStartNew = selectionStart + offset;
+		int selectionEndNew = selectionEnd + offset;
+		if(selectionStartNew < 0) selectionStartNew = 0;
+		if(selectionStartNew > stringNumber.GetLength()) selectionStartNew = stringNumber.GetLength();
+		if(selectionEndNew < 0) selectionEndNew = 0;
+		if(selectionEndNew > stringNumber.GetLength()) selectionEndNew = stringNumber.GetLength();
+		SetSel(selectionStartNew, selectionEndNew);
 	}
 	else {
 		SetSel(selectionStart, selectionStart);
