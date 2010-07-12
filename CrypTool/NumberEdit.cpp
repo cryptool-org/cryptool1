@@ -40,6 +40,8 @@ CNumberEdit::CNumberEdit() {
 	showIntegralSeparators = false;
 	// do we want to show fractional separators?
 	showFractionalSeparators = false;
+	// do we want to allow modification of the number?
+	readOnly = false;
 }
 
 CNumberEdit::~CNumberEdit() {
@@ -54,7 +56,7 @@ END_MESSAGE_MAP()
 
 void CNumberEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) {
 	// we don't want the user to alter disabled edit fields
-	if(!IsWindowEnabled()) {
+	if(readOnly) {
 		return;
 	}
 

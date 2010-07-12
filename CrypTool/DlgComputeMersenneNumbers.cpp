@@ -83,17 +83,15 @@ BOOL CDlgComputeMersenneNumbers::OnInitDialog()
 	assert(buttonWriteResultToFile);
 
 	// enable/disable buttons
-	numberEditBase.EnableWindow(true);
 	numberEditBase.setShowIntegralSeparators(true);
-	numberEditExponent.EnableWindow(true);
 	numberEditExponent.setShowIntegralSeparators(true);
 	buttonStart->EnableWindow(true);
 	buttonCancel->EnableWindow(false);
 	buttonWriteResultToFile->EnableWindow(false);
-	numberEditResult.EnableWindow(false);
 	numberEditResult.setShowIntegralSeparators(true);
-	numberEditResultLength.EnableWindow(false);
+	numberEditResult.setReadOnly(true);
 	numberEditResultLength.setShowIntegralSeparators(true);
+	numberEditResultLength.setReadOnly(true);
 
 	// we go with base 2 by default
 	numberEditBase.setText("2");

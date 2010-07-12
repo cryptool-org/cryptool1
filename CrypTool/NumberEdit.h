@@ -54,6 +54,9 @@ public:
 	// enable/disable integral behavior; if the parameter is "false", the string number is 
 	// interpreted as integer; if the paraemeter is "true", it is treated as fractional number
 	void setShowFractionalSeparators(const bool &_show) { showFractionalSeparators = _show; };
+	
+	// enable/disable read only functionality
+	void setReadOnly(const bool &_readOnly) { readOnly = _readOnly; };
 
 protected:
 	afx_msg void OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);
@@ -77,6 +80,9 @@ private:
 	// some internal stuff for formatting the string number
 	bool showIntegralSeparators;
 	bool showFractionalSeparators;
+	bool readOnly;
+
+	// this function updates the string number
 	void adjustNumberFormat();
 };
 
