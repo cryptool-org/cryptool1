@@ -8,7 +8,8 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -49009,22 +49010,22 @@ END
 
 IDD_COMPUTE_MERSENNE_NUMBERS DIALOGEX 0, 0, 300, 130
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "i18n Compute Mersenne Numbers"
+CAPTION "Calcular números de Mersenne"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT_BASE,91,7,40,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_EXPONENT,91,25,199,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_RESULT,91,45,199,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "Start computation",IDC_BUTTON_START_COMPUTATION,7,84,85,18
-    PUSHBUTTON      "Cancel computation",IDC_BUTTON_CANCEL_COMPUTATION,7,105,85,18
-    PUSHBUTTON      "Write result to file",IDC_BUTTON_WRITE_RESULT_TO_FILE,190,83,100,18,WS_GROUP
-    DEFPUSHBUTTON   "Close",IDCANCEL,190,105,100,18,WS_GROUP
+    PUSHBUTTON      "&Iniciar cálculo",IDC_BUTTON_START_COMPUTATION,7,84,85,18
+    PUSHBUTTON      "C&ancelar cálculo",IDC_BUTTON_CANCEL_COMPUTATION,7,105,85,18
+    PUSHBUTTON      "&Escribir resultado",IDC_BUTTON_WRITE_RESULT_TO_FILE,190,83,100,18,WS_GROUP
+    DEFPUSHBUTTON   "&Cerrar",IDCANCEL,190,105,100,18,WS_GROUP
     LTEXT           "Base b:",IDC_STATIC,61,9,25,8
-    LTEXT           "Exponent e:",IDC_STATIC,47,27,39,8
-    LTEXT           "Result b^e - 1:",IDC_STATIC,39,47,47,8
-    LTEXT           "Result length:",IDC_STATIC,42,67,44,8
+    LTEXT           "Exponente e:",IDC_STATIC,43,27,43,8
+    LTEXT           "Resultado b^e - 1:",IDC_STATIC,29,47,62,8
+    LTEXT           "Tamaño del resultado:",IDC_STATIC,15,67,71,8
     EDITTEXT        IDC_EDIT_RESULT_LENGTH,91,65,40,14,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "(number of decimals)",IDC_STATIC,135,67,66,8
+    LTEXT           "(número de cifras)",IDC_STATIC,135,67,74,8
 END
 
 
@@ -55535,7 +55536,7 @@ BEGIN
     IDS_SOLITAIRE_PASSWORD_NEEDS_26_CARDS 
                             "Para una correcta inicialización de clave se necesitan al menos 26 cartas. Por eso se ha incrementado el número de cartas a ese número."
     IDS_HILL_CHOOSE_HILL10x10 
-                            "[i18n] Elapsed time for the computation of the Mersenne number: %.0f seconds"
+                            "Tiempo transcurrido para el cálculo del número de Mersenne: %.0f segundos"
 END
 
 STRINGTABLE 
