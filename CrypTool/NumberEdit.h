@@ -61,7 +61,13 @@ public:
 protected:
 	afx_msg void OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
-	afx_msg LRESULT OnPaste(WPARAM wparam, LPARAM lparam);
+	afx_msg BOOL PreTranslateMessage(MSG* pMsg);
+
+	// functions for copy/paste and other stuff
+	void onEditCut();
+	void onEditCopy();
+	void onEditPaste();
+	void onEditSelectAll();
 
 	DECLARE_MESSAGE_MAP()
 

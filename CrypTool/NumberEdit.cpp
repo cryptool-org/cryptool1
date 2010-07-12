@@ -51,7 +51,10 @@ CNumberEdit::~CNumberEdit() {
 BEGIN_MESSAGE_MAP(CNumberEdit, CEdit)
 	ON_WM_CHAR()
 	ON_WM_KEYDOWN()
-	ON_MESSAGE(WM_PASTE, OnPaste)
+	ON_COMMAND(ID_EDIT_CUT, onEditCut)
+	ON_COMMAND(ID_EDIT_COPY, onEditCopy)
+	ON_COMMAND(ID_EDIT_PASTE, onEditPaste)
+	ON_COMMAND(ID_EDIT_SELECT_ALL, onEditSelectAll)
 END_MESSAGE_MAP()
 
 void CNumberEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) {
@@ -133,9 +136,45 @@ void CNumberEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags) {
 	Invalidate(TRUE);
 }
 
-LRESULT CNumberEdit::OnPaste(WPARAM wparam, LPARAM lparam) {
-	CString clipboardText;
+BOOL CNumberEdit::PreTranslateMessage(MSG* pMsg) 
+{
+	if(pMsg->message == WM_KEYDOWN) {
+		bool bIsShift = (GetKeyState(VK_SHIFT) & 0x80000000) == 0x80000000;
+		bool bIsControl = (GetKeyState(VK_CONTROL) & 0x80000000) == 0x80000000;
+		bool bIsAlt = (GetKeyState(VK_MENU) & 0x80000000) == 0x80000000;
+		
+		WPARAM key = pMsg->wParam;
 
+		if(bIsControl) {
+			switch(key) {			
+			case 'X': // ctrl + x: cut
+				onEditCut();
+				return TRUE;
+			case 'C': // ctrl + c: copy
+				onEditCopy();
+				return TRUE;
+			case 'V': // ctrl + v: paste
+				onEditPaste();
+				return TRUE;
+			case 'A': // ctrl + a: select all
+				onEditSelectAll();
+				return TRUE;
+			}
+		} 
+	}
+	return CWnd::PreTranslateMessage(pMsg);
+}
+
+void CNumberEdit::onEditCut() {
+	AfxMessageBox("TODO: implement onEditCut");
+}
+
+void CNumberEdit::onEditCopy() {
+	AfxMessageBox("TODO: implement onEditCopy");
+}
+
+void CNumberEdit::onEditPaste() {
+	CString clipboardText;
 	// at first we try to get the contents of the clipboard
   if(::IsClipboardFormatAvailable(CF_TEXT)) {
     // open the clipboard to get clipboard text
@@ -178,9 +217,12 @@ LRESULT CNumberEdit::OnPaste(WPARAM wparam, LPARAM lparam) {
 	// assign new string number
 	stringNumber = newStringNumber;
 	// adjust the number format (in particular, insert integral separators)
-	adjustNumberFormat();
-	
-	return 0;
+	adjustNumberFormat();	
+}
+
+void CNumberEdit::onEditSelectAll() {
+	// select all characters of the string number
+	SetSel(0, stringNumber.GetLength());
 }
 
 CString CNumberEdit::getNumberAsCString() {
