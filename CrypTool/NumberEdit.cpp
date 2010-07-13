@@ -166,11 +166,35 @@ BOOL CNumberEdit::PreTranslateMessage(MSG* pMsg)
 }
 
 void CNumberEdit::onEditCut() {
-	AfxMessageBox("TODO: implement onEditCut");
+	// do the same as for onEditCopy
+	onEditCopy();
+	// but don't forget to erase the current selection
+	stringNumber.Delete(selectionStart, selectionEnd - selectionStart);
+	// update the string number
+	adjustNumberFormat();
 }
 
 void CNumberEdit::onEditCopy() {
-	AfxMessageBox("TODO: implement onEditCopy");
+	// get current selection
+	GetSel(selectionStart, selectionEnd);
+	// return if there is nothing selected, or if start > end (the latter should never happen)
+	if(selectionStart == selectionEnd || selectionStart > selectionEnd) return;
+	// create a temporary string containing the current selection
+	CString selection;
+	selection.Append(stringNumber.GetBuffer() + selectionStart, selectionEnd - selectionStart);
+	// do the copy-paste-stuff (compare CHexEditBase for details, I'm too lazy ATM)
+	HGLOBAL hMem = ::GlobalAlloc(GMEM_MOVEABLE|GMEM_DDESHARE|GMEM_ZEROINIT, selection.GetLength() + 1);
+	if(!hMem) return;
+	BYTE *pPtr = (BYTE*)::GlobalLock(hMem);
+	memcpy(pPtr, selection.GetBuffer(), selection.GetLength());
+	::GlobalUnlock(hMem);
+	if(!OpenClipboard()) return;
+	if(!EmptyClipboard()) return;
+	if(!SetClipboardData(CF_TEXT, hMem)) {
+		CloseClipboard();
+		return;
+	}
+	CloseClipboard();
 }
 
 void CNumberEdit::onEditPaste() {
