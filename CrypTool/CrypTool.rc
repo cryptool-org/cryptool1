@@ -8,8 +8,7 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -26384,7 +26383,7 @@ BEGIN
     CONTROL         "",IDC_LIST_SHARES,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_NOLABELWRAP | WS_BORDER | WS_TABSTOP,7,253,357,96
     CONTROL         "Informationsdialog zu Beginn anzeigen",IDC_CHECK_SHOWINTRO,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,380,137,10
-    PUSHBUTTON      "Abbrechen",IDCANCEL,7,402,86,14
+    PUSHBUTTON      "Schließen",IDCANCEL,7,402,86,14
     DEFPUSHBUTTON   "Rekonstruktion",IDOK,279,402,85,14,WS_DISABLED
     LTEXT           "Geheimnis S mit S >= 0",IDC_STATIC,12,84,74,8
     GROUPBOX        "Geheimnis und Steuerparameter wählen (ganze Zahlen)",IDC_STATIC_PARAMETER,7,68,357,69
@@ -37376,7 +37375,7 @@ BEGIN
     CONTROL         "",IDC_LIST_SHARES,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,257,357,96
     CONTROL         "Show information dialog at startup",IDC_CHECK_SHOWINTRO,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,382,122,10
-    PUSHBUTTON      "Cancel",IDCANCEL,7,402,86,14
+    PUSHBUTTON      "Close",IDCANCEL,7,402,86,14
     DEFPUSHBUTTON   "Reconstruction",IDOK,279,402,85,14,WS_DISABLED
     GROUPBOX        "Choose your secret and the parameters (whole numbers) to set up a scheme",IDC_STATIC_PARAMETER,7,64,357,71
     LTEXT           "Secret S with S >= 0",IDC_STATIC,13,81,66,8

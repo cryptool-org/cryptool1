@@ -107,11 +107,10 @@ BOOL CDlgSecretSharingSetup::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	unsigned long noIntro = FALSE;
-
+	unsigned long intro = FALSE;
 	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "SecretSharing" ) == ERROR_SUCCESS )
 	{
-		CT_READ_REGISTRY_DEFAULT(noIntro, "Intro", noIntro);
+		CT_READ_REGISTRY_DEFAULT(intro, "ShowIntroShamir", intro);
 		CT_CLOSE_REGISTRY();
 	}
 	else
@@ -119,7 +118,7 @@ BOOL CDlgSecretSharingSetup::OnInitDialog()
 		// FIXME
 	}
 
-	if(!noIntro)
+	if(intro)
 	{
 		CDlgSecretSharingIntro dlg; //Einführung anzeigen
 		dlg.DoModal();
@@ -576,8 +575,14 @@ void CDlgSecretSharingSetup::OnButtonChange()
 void CDlgSecretSharingSetup::OnButtonClickedCheckShowintro()
 {
 	UpdateData(true);
-	this->m_show_intro ? theApp.WriteProfileInt("Settings", "SS_Intro", 1) : theApp.WriteProfileInt("Settings", "SS_Intro", 0);
 
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "SecretSharing" ) == ERROR_SUCCESS ) {
+		CT_WRITE_REGISTRY(m_show_intro, "ShowIntroShamir");
+		CT_CLOSE_REGISTRY();
+	}
+	else {
+		// FIXME	
+	}
 }
 
 

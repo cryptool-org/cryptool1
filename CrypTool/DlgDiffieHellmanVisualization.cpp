@@ -466,20 +466,19 @@ BOOL CDlgDiffieHellmanVisualization::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "DiffieHellman" ) == ERROR_SUCCESS )
-	{
-		UpdateData(true);
-
-		unsigned long u_noInfo = TRUE;
-		CT_READ_REGISTRY(u_noInfo, "ShowIntroDialog");
-		if ( u_noInfo )
-		{
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "DiffieHellman" ) == ERROR_SUCCESS ) {
+		// flomar, 07/15/2010
+		// make sure we're correctly writing the user choice back to the registry
+		unsigned long showIntroDialog = TRUE;
+		CT_READ_REGISTRY(showIntroDialog, "ShowIntroDialog");
+		if(showIntroDialog) {
 			CDlgDiffieHellmanIntro dlg;
-			dlg.m_Check_NoShow = u_noInfo;
-			dlg.DoModal();			
-			u_noInfo = !dlg.m_Check_NoShow;
+			dlg.DoModal();
+			if(dlg.m_Check_NoShow == TRUE) {
+				showIntroDialog = FALSE;
+				CT_WRITE_REGISTRY(showIntroDialog, "ShowIntroDialog");
+			}
 		}
-		m_bShowIntroDialog = u_noInfo;
 
 		unsigned long u_showInfoDialogues = TRUE;
 		CT_READ_REGISTRY_DEFAULT(u_showInfoDialogues, "ShowInfo", u_showInfoDialogues);

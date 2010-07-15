@@ -68,7 +68,7 @@ void CDlgSecretSharingIntro::OnOk()
 
 	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "SecretSharing" ) == ERROR_SUCCESS )
 	{
-		CT_WRITE_REGISTRY(unsigned long(this->m_hide_intro), "ShowIntro");
+		CT_WRITE_REGISTRY(unsigned long(!m_hide_intro), "ShowIntroShamir");
 		CT_CLOSE_REGISTRY();
 	}
 	else

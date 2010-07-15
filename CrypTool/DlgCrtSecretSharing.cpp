@@ -158,23 +158,22 @@ BOOL CDlgCrtSecretSharing::OnInitDialog()
 
 	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "CrtSecretSharing" ) == ERROR_SUCCESS )
 	{
-		unsigned long u_Info = FALSE;
-		CT_READ_REGISTRY(u_Info, "ShowIntro");
-		if ( u_Info )
-		{
-			DlgCrtSecretSharing_Info newdialog;
-			newdialog.m_checkInfo = u_Info;
-			newdialog.DoModal();
-			u_Info=newdialog.m_checkInfo;
+		// flomar, 07/15/2010
+		// make sure we're correctly writing the user choice back to the registry
+		unsigned long showIntroDialog = TRUE;
+		CT_READ_REGISTRY(showIntroDialog, "ShowIntroDialog");
+		if(showIntroDialog) {
+			DlgCrtSecretSharing_Info dlg;
+			dlg.DoModal();
+			if(dlg.m_checkInfo == FALSE) {
+				showIntroDialog = FALSE;
+				CT_WRITE_REGISTRY(showIntroDialog, "ShowIntroDialog");
+			}
 		}
-
-		UpdateData();
-		m_Info = u_Info;
-		UpdateData(false);
-
-		CT_WRITE_REGISTRY(u_Info, "ShowIntro" );
-
 		CT_CLOSE_REGISTRY();
+
+		m_Info = showIntroDialog;
+		UpdateData(false);
 	}
 	else
 	{
@@ -1660,10 +1659,12 @@ void CDlgCrtSecretSharing::OnBnClickedSecretsharingEnd()
 {
 	UpdateData();
 	UpdateData(false);
-	if ( theApp.localRegistry.Open(HKEY_CURRENT_USER, "Software\\CrypTool\\Settings",KEY_WRITE) == ERROR_SUCCESS )
+
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "CrtSecretSharing" ) == ERROR_SUCCESS )
 	{
-		theApp.localRegistry.SetValue((unsigned long)m_Info, "CRT_IntroDialogue" );
-		theApp.localRegistry.Close();
+		unsigned long showIntroDialog = m_Info;
+		CT_WRITE_REGISTRY(showIntroDialog, "ShowIntroDialog");
+		CT_CLOSE_REGISTRY();
 	}
 	else
 	{
