@@ -41,6 +41,7 @@
 #include "DlgShowKeyParameter.h"
 #include "s_ecconv.h"
 #include "IntegerArithmetic.h"
+#include "CrypToolTools.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -330,39 +331,37 @@ void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym()
 	if(this->isSCABehaviourActivated)
 	{
 		CString keyword;
-		// hole Schlüsselwort
-		if ( theApp.localRegistry.Open(HKEY_CURRENT_USER, "Software\\CrypTool\\Settings",KEY_READ) == ERROR_SUCCESS )
-		{
+		
+		// retrieve keyword from registry (if unsuccessful, go with "Alice" by default)
+		if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ, IDS_REGISTRY_SETTINGS, "SideChannelAttack") == ERROR_SUCCESS) {
 			unsigned long	u_length = 1024;
 			char			c_SCA_keyWord[1025];
-
-
-			// Wie lautet das Schlüsselwort für den Seitenkanalangriff? (Default: Alice)
-			if (ERROR_SUCCESS == theApp.localRegistry.QueryValue(c_SCA_keyWord, "SCA_Keyword", &u_length) )			
+			if(CT_READ_REGISTRY(c_SCA_keyWord, "Keyword", u_length))
 				keyword = c_SCA_keyWord;
 			else
 				keyword = "Alice";
-			UpdateData(FALSE);
-			theApp.localRegistry.Close();
-
+			CT_CLOSE_REGISTRY();
 		}
-		else
-		{
-			// FIXME
-		}
-
+		
 		bool keywordFound = false;
 
+		// flomar, 07/15/2010
+		// the latest bug fix: we read in BINARY mode instead of TEXT mode, and we're using 
+		// "memcmp" instead of a normal string find; this way we can deal with binary zeros
+		CFile infile;
+		infile.Open(m_strPathSelDoc, CFile::modeRead | CFile::typeBinary);
 		const int bufsize = 1024;
 		char buf[bufsize];
-		std::ifstream infile(this->m_strPathSelDoc);
-		while(infile.getline(buf, bufsize))
-		{
-			// Schlüsselwort enthalten?
-			if(CString(buf).Find(keyword) != -1)
-				keywordFound = true;
+		unsigned int numberOfBytesRead = 0;
+		while((numberOfBytesRead = infile.Read(buf, bufsize)) && !keywordFound) {
+			for(int i=0; i<=(numberOfBytesRead - keyword.GetLength()); i++) {
+				if(memcmp(buf + i, keyword.GetBuffer(), keyword.GetLength()) == 0) {
+					keywordFound = true;
+				}
+			}
 		}
-		infile.close();
+		infile.Close();
+
 
 		if(!keywordFound)
 		{

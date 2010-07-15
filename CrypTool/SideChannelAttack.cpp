@@ -248,8 +248,15 @@ bool SCA_Server::wasDecryptionSuccessful(OctetString *decryptedCipherText)
 		// FIXME
 	}
 
-	if(strTemp.find(keyword) != -1)
-		return true;
+	// flomar, 07/15/2010
+	// previously, we were doing a normal string search here; this is ok as long 
+	// as we're dealing with documents that don't contain binary zeros; now we're 
+	// using "memcmp" to be able to deal with binary zeros
+	for(unsigned int i=0; i<=(decryptedCipherText->noctets - strlen(keyword)); i++) {
+		if(memcmp(temp + i, keyword, strlen(keyword)) == 0) {
+			return true;
+		}
+	}
 	return false;
 	
 	/*
