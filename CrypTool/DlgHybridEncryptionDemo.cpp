@@ -350,17 +350,20 @@ void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym()
 		// "memcmp" instead of a normal string find; this way we can deal with binary zeros
 		CFile infile;
 		infile.Open(m_strPathSelDoc, CFile::modeRead | CFile::typeBinary);
-		const int bufsize = 1024;
-		char buf[bufsize];
+		// by default we're using a buffer size of 1024 bytes; but since keywords will not be 
+		// found if the size of the buffer is too small, we adjust the buffer size if necessary
+		int bufsize = keyword.GetLength() > 10 ? keyword.GetLength() + 1 : 10;
+		char *buf = new char[bufsize];
 		unsigned int numberOfBytesRead = 0;
 		while((numberOfBytesRead = infile.Read(buf, bufsize)) && !keywordFound) {
-			for(int i=0; i<=(numberOfBytesRead - keyword.GetLength()); i++) {
+			for(unsigned int i=0; i<=(numberOfBytesRead - keyword.GetLength()); i++) {
 				if(memcmp(buf + i, keyword.GetBuffer(), keyword.GetLength()) == 0) {
 					keywordFound = true;
 				}
 			}
 		}
 		infile.Close();
+		delete buf;
 
 
 		if(!keywordFound)
