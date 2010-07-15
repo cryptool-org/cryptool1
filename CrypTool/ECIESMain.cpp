@@ -798,45 +798,26 @@ int readEncFile(const CString &ifile, CString &sName, CString &sVorname, CString
 
 	CString message,tag;
 	message=reinterpret_cast<char*>(&input[0]);
-	/* alt: mit sender-key und name
-	//Sender
-	LoadString(AfxGetInstanceHandle(),IDS_ECIES_HEADER_01,pc_str,STR_LAENGE_STRING_TABLE);
-	tag=pc_str;
-	int sNameTag=message.Find(tag);
-	int sNameStart=sNameTag+tag.GetLength();
-	int sNameEnd=message.Find(',',sNameStart);
 
-	int& sVornameTag=sNameEnd;
-	int sVornameStart=sVornameTag+2;
-	LoadString(AfxGetInstanceHandle(),IDS_ECIES_HEADER_02,pc_str,STR_LAENGE_STRING_TABLE);
-	tag=pc_str;
-	int sVornameEnd=message.Find(tag,sVornameStart);
-	
-	//Receiver
-	int& rNameTag=sVornameEnd;
-	int rNameStart=rNameTag+tag.GetLength();
-	int rNameEnd=message.Find(',',rNameStart);
-
-	int& rVornameTag=rNameEnd;
-	int rVornameStart=rVornameTag+2;
-	LoadString(AfxGetInstanceHandle(),IDS_ECIES_HEADER_03,pc_str,STR_LAENGE_STRING_TABLE);
-	tag=pc_str;
-	int rVornameEnd=message.Find(tag,rVornameStart);
-	*/
-
-	//neu: nur receiver-key
 	//Receiver
 	LoadString(AfxGetInstanceHandle(),IDS_ECIES_HEADER_02,pc_str,STR_LAENGE_STRING_TABLE);
 	tag=pc_str;
 	int rNameTag=message.Find(tag);
+	if (rNameTag == -1)
+		return 1; //corrupt header
+
 	int rNameStart=rNameTag+tag.GetLength();
 	int rNameEnd=message.Find(',',rNameStart);
+	if (rNameEnd == -1)
+		return 1; //corrupt header
 
 	int& rVornameTag=rNameEnd;
 	int rVornameStart=rVornameTag+2;
 	LoadString(AfxGetInstanceHandle(),IDS_ECIES_HEADER_03,pc_str,STR_LAENGE_STRING_TABLE);
 	tag=pc_str;
 	int rVornameEnd=message.Find(tag,rVornameStart);
+	if (rVornameEnd == -1)
+		return 1; //corrupt header
 	
 	//curveR
 	int& curveRTag=rVornameEnd;
@@ -844,6 +825,8 @@ int readEncFile(const CString &ifile, CString &sName, CString &sVorname, CString
 	LoadString(AfxGetInstanceHandle(),IDS_ECIES_HEADER_04,pc_str,STR_LAENGE_STRING_TABLE);
 	tag=pc_str;
 	int curveREnd=message.Find(tag,rVornameStart);
+	if (curveREnd == -1)
+		return 1; //corrupt header
 
 	//AES-KeyLength
 	int& keyLengthTag=curveREnd;
@@ -851,6 +834,8 @@ int readEncFile(const CString &ifile, CString &sName, CString &sVorname, CString
 	LoadString(AfxGetInstanceHandle(),IDS_ECIES_HEADER_05,pc_str,STR_LAENGE_STRING_TABLE);
 	tag=pc_str;
 	int keyLengthEnd=message.Find(tag,keyLengthStart);
+	if (keyLengthEnd == -1)
+		return 1; //corrupt header
 	int keylength=atoi(message.Mid(keyLengthStart,(keyLengthEnd-keyLengthStart)));
 
 	//ciphertext length
@@ -859,6 +844,9 @@ int readEncFile(const CString &ifile, CString &sName, CString &sVorname, CString
 	LoadString(AfxGetInstanceHandle(),IDS_ECIES_HEADER_06,pc_str,STR_LAENGE_STRING_TABLE);
 	tag=pc_str;
 	int ctLengthEnd=message.Find(tag,ctLengthStart);
+	if (ctLengthEnd == -1)
+		return 1; //corrupt header
+
 	int ctLength=atoi(message.Mid(ctLengthStart,(ctLengthEnd-ctLengthStart)));
 
 	//AES-Key
@@ -887,9 +875,6 @@ int readEncFile(const CString &ifile, CString &sName, CString &sVorname, CString
 
 	encryptedSessionKey=key;
 	ciphertext=ctext;
-	if(/*sNameTag==-1||sVornameTag==-1||*/rNameTag==-1||rVornameTag==-1||curveRTag==-1||keyLengthTag==-1||ctLengthTag==-1||keyTag==-1)
-		//corrupt header
-		return 1;
 	if(keylength!=(int)encryptedSessionKey.size())
 		//corrupt encrypted sessionkey
 		return 2;
