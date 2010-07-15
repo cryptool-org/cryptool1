@@ -26,7 +26,7 @@ class Texte
 	String titel, text1,text2,text3,text4,text5,text6,text7;
 	String text8,text9,text10,text11,text12,text13,text14;
 	String text15,text16,text17;
-	String labelSpace,buttonFr, buttonFp, buttonLog, buttonDelete;
+	String labelSpace,buttonFr, buttonFp, buttonLog, buttonDelete, buttonExit;
 	String p1, p2, p3, p4, p5;
 	String q1,q2,q3;
 	String rp1, rp2,rp3,rp4,rp5,rp6;
@@ -52,50 +52,51 @@ class Texte
 	{
 		if(sprache==0)//deutsch
 		{
-			Texte.frameTitleFr="ECC-Demo 1.1: Punktaddition auf Elliptischen Kurven über den reellen Zahlenraum R";
-			Texte.frameTitleFp="ECC-Demo 1.1: Punktaddition auf Elliptischen Kurven über diskreten Gruppen Fp";
+			Texte.frameTitleFr="ECC-Demo 1.1: Punktaddition auf Elliptischen Kurven \u00FCber den reellen Zahlenraum R";
+			Texte.frameTitleFp="ECC-Demo 1.1: Punktaddition auf Elliptischen Kurven \u00FCber diskreten Gruppen Fp";
 			//long title with authors
-			//this.frameTitle="Punktaddition auf Elliptischen Kurven                                                                                           © D.Laupichler, M.Kraft 2005";
+			//this.frameTitle="Punktaddition auf Elliptischen Kurven                                                                                           ? D.Laupichler, M.Kraft 2005";
 			this.helpButton="Hilfe";
 			Texte.pointsText="Punkte:";
-			this.labelSpace="Wählen Sie den Zahlenraum";
+			this.labelSpace="W\u00E4hlen Sie den Zahlenraum";
 			this.buttonFr="Reeller Zahlenraum R";
-			this.buttonFp="Diskrete Gruppe über Fp";
+			this.buttonFp="Diskrete Gruppe \u00FCber Fp";
 			this.buttonLog="Log-Datei";
-			this.buttonDelete="Lösche Punkte";
+			this.buttonDelete="L\u00F6sche Punkte";
+			this.buttonExit="Beenden";
 			this.titel="_______________________________________";
 			this.text1="Dieses Programm visualisiert verschiedene";
-			this.text2="Elliptische Kurven und ermöglicht es,";
-			this.text3="Punktadditionen auf diesen durchzuführen.";
-			this.text4="Die Kurven können entweder über dem Zahlenraum";
-			this.text5="der reellen Zahlen oder über der diskreten Gruppe";
-			this.text6="über Primzahlen zwischen 3 und 97 erzeugt werden.";
-			this.text7="Die Kurvenparameter a und b können Sie mit";
-			this.text8="den Reglern verändern.";
+			this.text2="Elliptische Kurven und erm\u00F6glicht es,";
+			this.text3="Punktadditionen auf diesen durchzuf\u00FChren.";
+			this.text4="Die Kurven k\u00F6nnen entweder \u00FCber dem Zahlenraum";
+			this.text5="der reellen Zahlen oder \u00FCber der diskreten Gruppe";
+			this.text6="\u00FCber Primzahlen zwischen 3 und 97 erzeugt werden.";
+			this.text7="Die Kurvenparameter a und b k\u00F6nnen Sie mit";
+			this.text8="den Reglern ver\u00E4ndern.";
 			this.text9="";
-			this.text10="Nachdem Sie eine Kurve ausgewählt haben,";
+			this.text10="Nachdem Sie eine Kurve ausgew\u00E4hlt haben,";
 			this.text11="legen Sie durch Klick mit der linken Maustaste";
 			this.text12="einen Punkt auf der Kurve fest! In der Grafik";
 			this.text13="wird Ihnen jeweils der Punkt rot angezeigt, der";
-			this.text14="Ihrem Mauszeiger am nächsten ist.";
+			this.text14="Ihrem Mauszeiger am n\u00E4chsten ist.";
 			this.text15="";
 			this.text16="";
 			this.text17="";
 			
 			this.p1="Sie haben einen Punkt P auf der Kurve";
-			this.p2="ausgewählt. Sie können nun den Punkt";
+			this.p2="ausgew\u00E4hlt. Sie k\u00F6nnen nun den Punkt";
 			this.p3="mit dem Button '2*P' zu sich selbst addieren,";
-			this.p4="oder einen weiteren Punkt auswählen.";
+			this.p4="oder einen weiteren Punkt ausw\u00E4hlen.";
 			
 			this.q1="Sie haben jetzt einen Punkt P und einen Punkt Q";
-			this.q2="auf der Kurve gewählt. Mit dem Button 'P+Q'";
-			this.q3="können Sie die beiden Punkte addieren.";
+			this.q2="auf der Kurve gew\u00E4hlt. Mit dem Button 'P+Q'";
+			this.q3="k\u00F6nnen Sie die beiden Punkte addieren.";
 			
 			this.rp1="Die Tangente an den Punkt P schneidet die";
 			this.rp2="Kurve im Punkt -R. Die Spiegelung von -R an der";
 			this.rp3="x-Achse ist der Punkt R.";
 			this.rp4="R ist das Ergebnis der Punktaddition von P.";
-			this.rp5="Durch erneutes Drücken des Buttons können Sie";
+			this.rp5="Durch erneutes Dr\u00FCcken des Buttons k\u00F6nnen Sie";
 			this.rp6="die Punktaddition mit dem Punkt P fortsetzen.";
 			
 			this.rpq1="Die Gerade durch die Punkte P und Q schneidet";
@@ -114,33 +115,33 @@ class Texte
 			//finite number space
 			this.frp1="Die Verdopplung des Punktes P ergibt den";
 			this.frp2="Punkt R.";
-			this.frp3="Durch erneutes Drücken des Buttons können Sie";
+			this.frp3="Durch erneutes Dr\u00FCcken des Buttons k\u00F6nnen Sie";
 			this.frp4="die Punktaddition mit dem Punkt P fortsetzen.";
-			this.frp5="Eine Erläuterung des mathematischen Verfahrens";
+			this.frp5="Eine Erl\u00E4uterung des mathematischen Verfahrens";
 			this.frp6="finden Sie in der Hilfe zu dieser Demo.";
 			
 			this.frpq1="Die Addition der Punkte P und Q ergibt den";
 			this.frpq2="Punkt R.";
-			this.frpq3="Eine Erläuterung des mathematischen Verfahrens";
+			this.frpq3="Eine Erl\u00E4uterung des mathematischen Verfahrens";
 			this.frpq4="finden Sie in der Hilfe zu dieser Demo.";
 			
 			this.frAus2PNaN1="Das Ergebnis der Verdopplung des Punktes P";
 			this.frAus2PNaN2="ist der Punkt im Unendlichen O, welcher sich";
-			this.frAus2PNaN3="nicht im Koordinatensystem darstellen lässt.";
+			this.frAus2PNaN3="nicht im Koordinatensystem darstellen l\u00E4sst.";
 			
 			this.frAusPQNaN1="Das Ergebnis der Addition der Punkte P und Q";
 			this.frAusPQNaN2="ist der Punkt im Unendlichen O, welcher sich";
-			this.frAusPQNaN3="nicht im Koordinatensystem darstellen lässt.";
+			this.frAusPQNaN3="nicht im Koordinatensystem darstellen l\u00E4sst.";
 			
 			this.graph1=" mit ";
-			this.graph2=" über ";
+			this.graph2=" \u00FCber ";
 			this.graph3=" Punkten.";
 			
 			//log file
 			this.logTitle="Log-Datei: Punktaddition auf Elliptischen Kurven";
 			this.logFrNumberSpace="----- Berechnung im reellen Zahlenraum R -----\n\n";
 			this.logFpNumberSpace="----- Berechnung in der diskreten Gruppe Fp mit p = ";
-			this.logCurve="Gewählte Kurve:\n";
+			this.logCurve="Gew\u00E4hlte Kurve:\n";
 			
 			this.helpTitle="Hilfe";
 			
@@ -151,7 +152,7 @@ class Texte
 			Texte.frameTitleFr="ECC Demonstration 1.1: Point addition on elliptic curves over the real number space R";
 			Texte.frameTitleFp="ECC Demonstration 1.1: Point addition on elliptic curves over discrete groups of prime numbers";	
 			//long title with authors
-			//this.frameTitle="Point addition over elliptic curves                                                                                             © D.Laupichler, M.Kraft 2005";
+			//this.frameTitle="Point addition over elliptic curves                                                                                             ? D.Laupichler, M.Kraft 2005";
 			this.helpButton="Help";
 			Texte.pointsText="Points:";
 			this.labelSpace="Choose the number space";
@@ -159,6 +160,7 @@ class Texte
 			this.buttonFp="Discrete group over Fp";
 			this.buttonLog="Logfile";
 			this.buttonDelete="Delete points";
+			this.buttonExit="Quit";
 			this.titel="_______________________________________";
 			this.text1="This program allows you to generate various";
 			this.text2="elliptic curves and to carry out point additions";

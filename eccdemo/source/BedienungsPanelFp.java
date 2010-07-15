@@ -39,6 +39,7 @@ public class BedienungsPanelFp extends Panel implements AdjustmentListener, Acti
 	protected Button ButtonPQ;
 	protected Button ButtonDelete;
 	protected Button ButtonLog;
+	protected Button ButtonExit;
 	protected DecimalFormat df;
 	protected String a_string;
 	protected String b_string;
@@ -82,20 +83,18 @@ public class BedienungsPanelFp extends Panel implements AdjustmentListener, Acti
         ButtonLog = new Button(eccframe.text.buttonLog);
         ButtonLog.setEnabled(true);
         ButtonLog.addActionListener(this);
+        ButtonExit = new Button(eccframe.text.buttonExit);
+        ButtonExit.setEnabled(true);
+        ButtonExit.addActionListener(this);
         
-        //Größe und Ausrichtung anpassen
+        //Gr??e und Ausrichtung anpassen
         LabelA.setAlignment(Label.RIGHT);
-        ScrollbarA.setSize(new Dimension(90,20));
+        ScrollbarA.setPreferredSize(new Dimension(100,15));
         LabelB.setAlignment(Label.RIGHT);
-        ScrollbarB.setSize(new Dimension(90,20));
+        ScrollbarB.setPreferredSize(new Dimension(100,15));
         LabelC.setAlignment(Label.RIGHT);
-        ScrollbarC.setSize(new Dimension(90,20));
+        ScrollbarC.setPreferredSize(new Dimension(100,15));
                 
-        ButtonP.setSize(new Dimension(90,20));
-        ButtonPQ.setSize(new Dimension(90,20));
-        ButtonDelete.setSize(new Dimension(90,20));
-        ButtonLog.setSize(new Dimension(90,20));   
-
         add(LabelA);
         add(ScrollbarA);
     	add(LabelB);
@@ -106,8 +105,9 @@ public class BedienungsPanelFp extends Panel implements AdjustmentListener, Acti
         add(ButtonPQ);
         add(ButtonDelete);
         add(ButtonLog);
+        add(ButtonExit);
+        
         startLogDatei();
-
     }
 
 
@@ -151,11 +151,14 @@ public class BedienungsPanelFp extends Panel implements AdjustmentListener, Acti
         
         if(obj == ButtonDelete) 
         { 
-        // Funktion Punkte löschen
+        // Funktion Punkte l?schen
         ButtonDeleteClicked();
         }
         else
-        
+        if(obj == ButtonExit){
+        System.exit(0);
+        }
+        else
         if(obj == ButtonP) 
         {
         
