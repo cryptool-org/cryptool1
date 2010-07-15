@@ -10433,7 +10433,7 @@ BEGIN
     IDS_CRT_SECRETSHARING_REK3 
                             "Nie podano kluczy\n\n\n\n----- Rekonstrukcja nie powiod³a siê-----\n\n\n\n"
     IDS_CRT_SECRETSHARING_REK4 
-                            "Proszê czekaæ, klucze s¹ do siebie dopasowywane."
+                            "i18n The keys are joined together.\r\n\r\nAfter clicking OK, the resulting secret will be shown."
     IDS_CRT_SECRETSHARING_REK5 "U¿ywam %d hase³ do identyfikatorów."
     IDS_CRT_SECRETSHARING_REK6 
                             "Wprowadzi³eœ %d kluczy.\r\n Dla obliczeñ potrzebnych jest co najmniej %d poprawnych kluczy.\r\n"
@@ -21566,7 +21566,8 @@ BEGIN
                             "Molim unesite najmanje %d tacnih kljuceva u 'Rekonstruisanje tajne' - grupu kutija"
     IDS_CRT_SECRETSHARING_REK3 
                             "Nisu uneti kljucevi.\r\n\r\n----- Rekonstrukcija nije uspela -----\r\n\r\n"
-    IDS_CRT_SECRETSHARING_REK4 "Molim sacekajte, dok se kljucevi uklope."
+    IDS_CRT_SECRETSHARING_REK4 
+                            "i18n The keys are joined together.\r\n\r\nAfter clicking OK, the resulting secret will be shown."
     IDS_CRT_SECRETSHARING_REK5 "Korišcenje %d lozinki do identifikatora    "
     IDS_CRT_SECRETSHARING_REK6 
                             "Uneli ste %d kljuceva.\r\nNajmanje %d tacnih kljuceva je potrebno za definitivno izracunavanje.\r\nSa datim kljucevima, preostaje %s mogucnosti."
@@ -32617,7 +32618,7 @@ BEGIN
     IDS_CRT_SECRETSHARING_REK3 
                             "Kein Schlüssel angegeben.\r\n\r\n----- Rekonstuktion gescheitert -----\r\n\r\n"
     IDS_CRT_SECRETSHARING_REK4 
-                            "Bitte warten, Schlüssel werden zusammengefügt!"
+                            "Die Schlüssel werden zusammengefügt.\r\n\r\nNachdem Sie OK klicken, bekommen Sie das Ergebnis (Geheimnis) angezeigt."
     IDS_CRT_SECRETSHARING_REK5 "Benutze Passwörter zu den %d Kennungen  "
     IDS_CRT_SECRETSHARING_REK6 
                             "Sie haben %d Schlüssel eingegeben. Es werden aber mindestens %d richtige Schlüssel für eine eindeutige \r\nBerechnung benötigt. Mit diesen Schlüsseln bleiben %s Möglichkeiten offen."
@@ -43764,7 +43765,8 @@ BEGIN
                             "Please enter at least %d correct keys into the 'Rebuilding the secret' - groupbox"
     IDS_CRT_SECRETSHARING_REK3 
                             "No keys entered.\r\n\r\n----- Reconstuction failed -----\r\n\r\n"
-    IDS_CRT_SECRETSHARING_REK4 "Please wait, while keys are fit together."
+    IDS_CRT_SECRETSHARING_REK4 
+                            "The keys are joined together.\r\n\r\nAfter clicking OK, the resulting secret will be shown."
     IDS_CRT_SECRETSHARING_REK5 "Using the %d passwords to identifiers    "
     IDS_CRT_SECRETSHARING_REK6 
                             "You've entered %d keys.\r\nAt least %d correct keys are needed for a definite calculation.\r\nWith the given keys, there are %s possibilities remaining."
@@ -54916,7 +54918,7 @@ BEGIN
     IDS_CRT_SECRETSHARING_REK3 
                             "No se han introducido claves.\r\n\r\n----- La reconstucción falló -----\r\n\r\n"
     IDS_CRT_SECRETSHARING_REK4 
-                            "Por favor espere hasta que las llaves aparezcan juntas."
+                            "i18n The keys are joined together.\r\n\r\nAfter clicking OK, the resulting secret will be shown."
     IDS_CRT_SECRETSHARING_REK5 
                             "Usando las %d contraseñas como identificadores    "
     IDS_CRT_SECRETSHARING_REK6 
