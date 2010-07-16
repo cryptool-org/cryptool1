@@ -346,17 +346,19 @@ void CDlgSecretSharingSetup::OnUpdateEditParticipants()
 //generiert ein Polynom vom Grad t-1
 void CDlgSecretSharingSetup::GeneratePoly(long *co)
 {
-	char expo[2], tmp[2];
+	char expo[11], tmp[11];
 	m_polynom = m_secret;
 	for (int i=0; i<t-1; i++)
 	{
-		sprintf(tmp, "%i", co[i]);
+		int n = _snprintf(tmp, sizeof(tmp), "%i", co[i]);
+		ASSERT(n < sizeof(tmp));
 		m_polynom += '+';
 		m_polynom += tmp;
 		m_polynom += 'x';
 		if (i>0)
 		{
-			sprintf(expo, "%i", i+1);
+			n = _snprintf(expo, sizeof(expo), "%i", i+1);
+			ASSERT(n < sizeof(expo));
 			m_polynom += '^';
 			m_polynom += expo;
 		}
