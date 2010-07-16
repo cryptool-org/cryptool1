@@ -3664,7 +3664,7 @@ BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,169,50,14
     PUSHBUTTON      "&Anuluj",IDCANCEL,218,169,50,14
     LTEXT           "Masz dwie mo¿liwoœci kontynuowania ataku side-channel:",-1,7,23,261,8
-    LTEXT           "Prosze wybraæ jedn¹ z opcji podanych poni¿ej:",-1,7,105,261,8
+    LTEXT           "Prosze wybraæ jedn¹ z opcji podanych poni¿ej.",-1,7,105,261,8
     LTEXT           "W tym momencie ¿aden dokument nie jest otwarty.",-1,7,7,261,8
 END
 
@@ -3683,7 +3683,7 @@ BEGIN
     PUSHBUTTON      "&Anuluj",IDCANCEL,218,169,50,14
     LTEXT           "Dokument jest ju¿ otwarty",-1,7,7,261,8
     LTEXT           "Masz trzy mo¿liwoœci kontynuacji ataku: ",-1,7,23,261,8
-    LTEXT           "Proszê wybraæ jedn¹ z poni¿szych:",-1,7,105,261,8
+    LTEXT           "Proszê wybraæ jedn¹ z poni¿szych.",-1,7,105,261,8
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_3 DIALOGEX 0, 0, 275, 190
@@ -3699,7 +3699,7 @@ BEGIN
     PUSHBUTTON      "Anuluj",IDCANCEL,218,169,50,14
     LTEXT           "Dokument zaszyfrowany hybrydowo jest ju¿ otwarty.",-1,7,7,261,8
     LTEXT           "Masz trzy mo¿liwoœci kontynuowanie ataku side-channel:",-1,7,23,261,8
-    LTEXT           "Proszê wybierz jedn¹ z poni¿szych:",-1,7,105,261,8
+    LTEXT           "Proszê wybierz jedn¹ z poni¿szych.",-1,7,105,261,8
     CONTROL         "U¿ywasz dokumentu dostarczonego z CrypToolem, który zosta³ ju¿ zaszyfrowany. Dziêki temu omijasz proces szyforwania.",IDC_RADIO_CHOICE_3,
                     "Button",BS_AUTORADIOBUTTON | BS_LEFT | BS_TOP | BS_MULTILINE | WS_GROUP | WS_TABSTOP,25,70,235,24
 END
@@ -14848,7 +14848,7 @@ BEGIN
     PUSHBUTTON      "&Otkaži",IDCANCEL,218,169,50,14
     LTEXT           "Hibridno šifrovani dokument je vec otvoren.",-1,7,7,261,8
     LTEXT           "Imate tri opcije za nastavak napada sporednog kanala:",-1,7,23,261,8
-    LTEXT           "Molimo odaberite jednu od opcija odozgo",-1,7,105,261,8
+    LTEXT           "Molimo odaberite jednu od opcija odozgo.",-1,7,105,261,8
     CONTROL         "Koristite dokument integrisan u CrypTool koji je zašifrovan za vec postojeceg korisnika Boba. Tako preskacete proces hibridnog šifrovanja.",IDC_RADIO_CHOICE_3,
                     "Button",BS_AUTORADIOBUTTON | BS_LEFT | BS_TOP | BS_MULTILINE | WS_GROUP | WS_TABSTOP,25,70,235,24
 END
