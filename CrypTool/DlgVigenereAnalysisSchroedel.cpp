@@ -344,6 +344,11 @@ int VigenereAnalysisSchroedel::readTriDigrams() {
 
 int VigenereAnalysisSchroedel::firstChar() {
 	
+	// this is the official start of the analysis; originally, we had this line in 
+	// "readCiphertext"; but since we're having user interaction AFTER that, we're 
+	// putting the official start in this function here to not fudge the time needed 
+	time(&timeAnalysisStart);
+
 	// watch out for user cancellation
 	if(canceled) return -1;
 
@@ -1218,9 +1223,6 @@ int VigenereAnalysisSchroedel::chooseLanguages() {
 }
 
 int VigenereAnalysisSchroedel::readCiphertext() {
-
-	// this is the official start of the analysis
-	time(&timeAnalysisStart);
 
 	// watch out for user cancellation
 	if(canceled) return -1;
