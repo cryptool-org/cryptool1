@@ -26009,11 +26009,11 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
 CAPTION "Fortfahren mit Seitenkanalangriff"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    CONTROL         "Sie hybridverschlüsseln das geöffnete Dokument oder",IDC_RADIO_CHOICE_1,
+    CONTROL         "Das geöffnete Dokument selbst hybridverschlüsseln oder",IDC_RADIO_CHOICE_1,
                     "Button",BS_AUTORADIOBUTTON | BS_LEFT | BS_TOP | BS_MULTILINE | WS_GROUP | WS_TABSTOP,25,40,243,10
-    CONTROL         "Sie hybridverschlüsseln ein anderes Dokument oder",IDC_RADIO_CHOICE_2,
+    CONTROL         "Ein anderes Dokument selbst hybridverschlüsseln oder",IDC_RADIO_CHOICE_2,
                     "Button",BS_AUTORADIOBUTTON | BS_LEFT | BS_TOP | BS_MULTILINE | WS_GROUP | WS_TABSTOP,25,55,243,10
-    CONTROL         "Sie verwenden ein in CrypTool integriertes Dokument, das für den bereits angelegten Benutzer Bob verschlüsselt worden ist. Dadurch überspringen Sie den Vorgang der Hybridverschlüsselung.",IDC_RADIO_CHOICE_3,
+    CONTROL         "Ein in CrypTool integriertes Dokument verwenden, das für den bereits angelegten Benutzer Bob verschlüsselt worden ist. Dadurch überspringen Sie den Vorgang der Hybridverschlüsselung.",IDC_RADIO_CHOICE_3,
                     "Button",BS_AUTORADIOBUTTON | BS_LEFT | BS_TOP | BS_MULTILINE | WS_GROUP | WS_TABSTOP,25,70,235,30
     DEFPUSHBUTTON   "&OK",IDOK,7,169,50,14
     PUSHBUTTON      "&Abbrechen",IDCANCEL,218,169,50,14
@@ -26027,28 +26027,28 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
 CAPTION "Fortfahren mit Seitenkanalangriff"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    CONTROL         "Sie verwenden das geöffnete Dokument oder",IDC_RADIO_CHOICE_1,
+    CONTROL         "Das geöffnete Dokument verwenden oder",IDC_RADIO_CHOICE_1,
                     "Button",BS_AUTORADIOBUTTON | BS_LEFT | BS_TOP | BS_MULTILINE | WS_GROUP | WS_TABSTOP,25,40,243,10
-    CONTROL         "Sie hybridverschlüsseln ein anderes Dokument oder",IDC_RADIO_CHOICE_2,
+    CONTROL         "Ein anderes Dokument selbst hybridverschlüsseln oder",IDC_RADIO_CHOICE_2,
                     "Button",BS_AUTORADIOBUTTON | BS_LEFT | BS_TOP | BS_MULTILINE | WS_GROUP | WS_TABSTOP,25,55,243,10
     DEFPUSHBUTTON   "&OK",IDOK,7,169,50,14
     PUSHBUTTON      "&Abbrechen",IDCANCEL,218,169,50,14
     LTEXT           "Es ist bereits ein hybridverschlüsseltes Dokument geöffnet.",IDC_STATIC,7,7,261,8
     LTEXT           "Sie haben daher drei Möglichkeiten, mit dem Seitenkanalangriff fortzufahren:",IDC_STATIC,7,23,261,8
     LTEXT           "Bitte wählen Sie eine der möglichen Optionen aus.",IDC_STATIC,7,105,261,8
-    CONTROL         "Sie verwenden ein in CrypTool integriertes Dokument, das für den bereits angelegten Benutzer Bob verschlüsselt worden ist. Dadurch überspringen Sie den Vorgang der Hybridverschlüsselung.",IDC_RADIO_CHOICE_3,
+    CONTROL         "Ein in CrypTool integriertes Dokument verwenden, das für den bereits angelegten Benutzer Bob verschlüsselt worden ist. Dadurch überspringen Sie den Vorgang der Hybridverschlüsselung.",IDC_RADIO_CHOICE_3,
                     "Button",BS_AUTORADIOBUTTON | BS_LEFT | BS_TOP | BS_MULTILINE | WS_GROUP | WS_TABSTOP,25,70,235,30
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_1 DIALOG  0, 0, 275, 190
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_1 DIALOGEX 0, 0, 275, 190
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
 CAPTION "Fortfahren mit Seitenkanalangriff"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    CONTROL         "Sie hybridverschlüsseln ein Dokument oder",IDC_RADIO_CHOICE_1,
+    CONTROL         "Ein Dokument selbst hybridverschlüsseln oder",IDC_RADIO_CHOICE_1,
                     "Button",BS_AUTORADIOBUTTON | BS_LEFT | BS_TOP | BS_MULTILINE | WS_GROUP | WS_TABSTOP,25,40,243,10
-    CONTROL         "Sie verwenden ein in CrypTool integriertes Dokument, das für einen bereits existenten Benutzer verschlüsselt worden ist. Dadurch überspringen Sie den Vorgang der Hybridverschlüsselung.",IDC_RADIO_CHOICE_2,
-                    "Button",BS_AUTORADIOBUTTON | BS_LEFT | BS_TOP | BS_MULTILINE | WS_GROUP | WS_TABSTOP,25,55,243,30
+    CONTROL         "Ein in CrypTool integriertes Dokument verwenden, das für den bereits angelegten Benutzer Bob verschlüsselt worden ist. Dadurch überspringen Sie den Vorgang der Hybridverschlüsselung.",IDC_RADIO_CHOICE_2,
+                    "Button",BS_AUTORADIOBUTTON | BS_LEFT | BS_TOP | BS_MULTILINE | WS_GROUP | WS_TABSTOP,25,55,235,30
     DEFPUSHBUTTON   "&OK",IDOK,7,169,50,14
     PUSHBUTTON      "&Abbrechen",IDCANCEL,218,169,50,14
     LTEXT           "Sie haben zwei Möglichkeiten, mit dem Seitenkanalangriff fortzufahren:",-1,7,23,261,8

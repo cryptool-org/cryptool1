@@ -344,9 +344,6 @@ void CDlgRot13Caesar::onUpdateGUI()
 		controlButtonEncryption.EnableWindow(FALSE);
 		controlButtonDecryption.EnableWindow(FALSE);
 	}
-	
-	// display the text options button only if we're not in hex mode
-	GetDlgItem(IDC_BUTTON_TxtOpt)->EnableWindow(!bHexEnabled);
 
 	UpdateData(FALSE);
 }
