@@ -71,9 +71,9 @@ BOOL CListResults::OnInitDialog()
 	resultListCtrl.SetExtendedStyle( LVS_EX_FULLROWSELECT );
 	ColumnText.LoadString(IDS_STRING_TITLE_ENTROPY);
 	resultListCtrl.InsertColumn(1, ColumnText.GetBuffer(), LVCFMT_LEFT, 60, 1);
-	ColumnText.LoadString(IDS_DECRYPTION_HEADER);
-	resultListCtrl.InsertColumn(2, ColumnText.GetBuffer(), LVCFMT_LEFT, 200, 2);
 	ColumnText.LoadString(IDS_DECRYPTION_HEADER_HEX_DUMP);
+	resultListCtrl.InsertColumn(2, ColumnText.GetBuffer(), LVCFMT_LEFT, 200, 2);
+	ColumnText.LoadString(IDS_DECRYPTION_HEADER);
 	resultListCtrl.InsertColumn(3, ColumnText.GetBuffer(), LVCFMT_LEFT, 200, 3);
 	ColumnText.LoadString(IDS_HEADERTEXT_KEY);
 	resultListCtrl.InsertColumn(4, ColumnText.GetBuffer(), LVCFMT_LEFT, 140, 4);
