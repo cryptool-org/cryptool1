@@ -33,10 +33,23 @@
 You have the option of limiting the dimension of the <!--ZZZPOPUP--><A href="schluessel.html">key</A> to be searched for. If you know the length of the key, then you can instruct the program to confine the analysis to this <!--ZZZPOPUP--><A href="schluessellaenge.html">key length</A>. This can save a lot of time, especially if the <!--ZZZPOPUP--><A href="dokument.html">document</A> is large. However, you should note that, for example, that this will mean that a key of dimension 3 will not be found if you limit the dimension to 1 or 2.</P></LI>
 </OL>
 
-<P>To start the analysis, click on Continue; to terminate the analysis click on Cancel.
-If CrypTool has been able to work out the key it will be displayed in the <A href="hidd_key_hill5x5.html">Key for Hill cipher</A> ; otherwise a message stating that the key could not be found will appear.</P>
+<P>To start the analysis, click on Continue; to terminate the analysis click on Cancel.</P>
 
-<P>Please note. For the actual selected plaintext/ciphertext there may exist more than one valid Hill key. But only one key will be shown. In case you need to find a different Hill key, you can start over the Hill analyses after youdid deselect the options of the previous found Hill key.
+<P> If CrypTool has been able to work out the key it will be displayed in the
+<A href="hidd_key_hill5x5.html">Hill Key Matrix</A> ; otherwise a message
+stating that the key could not be found will appear.</P>
+
+<P><b>Remark 1: Uniqueness of the analysis</b><br>
+	For the selected plaintext/ciphertext pair there may exist more than one valid Hill key.
+	But only one key will be shown. In case you need to find a different Hill key,
+	you can start the Hill analysis again after you deselected step-by-step
+	the parameters of the previous found Hill key.
+</P> 
+
+<p><b>Remark 2: Example for deselecting a parameter</b><br>
+	We assume CrypTool found as key <B>TO LM</B>, and the first alphabet character has the
+	value 1.  You now can reduce in the options the parameter "Value of the first character
+	of the alphabet" to the value 0, and get the key <B>SN MN</B>.
 </P>
 
 

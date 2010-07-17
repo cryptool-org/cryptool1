@@ -35,9 +35,21 @@ Sie haben die Möglichkeit, die Dimension des zu suchenden <!--ZZZPOPUP--><A href
 
 <P>Durch Betätigen des <B>Weiter</B>-Knopfes wird die Analyse gestartet; die Analyse wird nicht gestartet, wenn Sie den Dialog mit dem <B>Abbrechen</B>-Knopf beenden.</P>
 
-<P>Sofern ein Schlüssel ermittelt werden konnte, wird er im Dialog <A href="hidd_show_key_hill5x5.html">Schlüssel für Hill Verschlüsselungsverfahren</A> ausgegeben, ansonsten erfolgt eine Meldung, dass der Schlüssel nicht gefunden werden konnte. </P>
+<P>Sofern ein Schlüssel ermittelt werden konnte, wird er im Dialog
+<A href="hidd_show_key_hill5x5.html">Hill-Schlüsselmatrix</A> ausgegeben,
+ansonsten erfolgt eine Meldung, dass der Schlüssel nicht gefunden werden konnte. </P>
 
-<P>Bitte beachten Sie, dass für den aktuellen Klartext/Geheimtext es mehrere gültige Hill-Schlüssel geben kann. Es wird immer nur ein gefundener Schlüssel angezeigt. Wenn Sie weitere gültige Schlüssel suchen, dann deselktieren Sie Schritt für Schritt die Parameter der gefundenen Schlüssels und wiederholen die Analyse.</P> 
+<P><b>Bemerkung 1: Eindeutigkeit der Analyse</b><br>
+	Für das Klartext/Geheimtext-Paar kann es mehrere gültige Hill-Schlüssel geben kann.
+	Es wird immer nur ein gefundener Schlüssel angezeigt. Wenn Sie weitere gültige Schlüssel
+	suchen, dann deselektieren Sie Schritt-für-Schritt die Parameter der gefundenen
+       	Schlüssel und wiederholen die Analyse.</P> 
+
+<p><b>Bemerkung 2: Beispiel für das Deselektieren der Parameter</b><br>
+	Als Schlüssel wird <B>TO LM</B> gefunden, wobei das erste Alphabetzeichen
+	den Wert 1 hat. Sie können nun in den Optionen den Parameter "Wert des
+	ersten Alphabetzeichens" auf den Wert 0 beschränken und erhalten den Schlüssel <B>SN MN</B>.
+</P>
 
 </BODY>
 </HTML>

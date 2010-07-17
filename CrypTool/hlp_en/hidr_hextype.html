@@ -15,7 +15,7 @@
 		<h3>Window for hexadecimal input and output</h3>
 		<P>This window type is used to display <!--ZZZPOPUP--><A href="dokument.html">documents</A>
 			which contain at least one non-displayable special character.</P>
-		<P>According to the <A href="menu_edit.html">Edit</A>&nbsp;menu, characters can be 
+		<P>According to the <A href="menu_edit.html">Edit</A>&nbsp;menu, characters can e.g. be 
 			overwritten, removed or inserted.</P>
 		<P><U>The window for hexadecimal input and output is designed as follows:</U></P>
 		<P>The first column contains a serial hexadecimal number of the position of the 
@@ -34,17 +34,54 @@
 			characters are displayed in a <A href="hidr_texttype.html">window for textual 
 				input and output</A>.
 		</P>
-		<P>It is possible to force the display to take the form of a <A href="hidr_texttype.html">
-				window for textual input and output</A> by selecting the menu option <A href="menu_view.html">
-				View</A> \ <a href="hid_totxt.html">Show as Text</a>.<br>
-				Note: This results in 
-			loss of all characters behind the first ascii character 'NULL' (this text format character 
-			indicates the end of file) if the text file is stored. This character is shown as 'NUL'.</P>
+		<P>It is possible to force the display to take the form of a
+		<A href="hidr_texttype.html">window for textual input and output</A> by
+		selecting the menu option <A href="menu_view.html">View</A> \
+	       	<a href="hid_totxt.html">Show as Text</a>.<br>
+		Note: This results in 
+		loss of all characters behind the first ascii character 'NULL'
+		(this text format character indicates the end of file) if the
+		text file is stored. This character is shown as 'NUL'.</P>
+
 		<P><b>Remark 1:</b><br>
 			The values (decimal and hexadecimal) of the different ASCII characters can 
 			be found in the <a href="ascii.html">ASCII table</a>.</P>
 			
 		<P><b>Remark 2:</b><br>
-		In order to overwrite chracters with Ctrl-V (Paste) you first have to highlight the chracters.</p>
+		In order to overwrite chracters with Ctrl-V (Paste) you first have
+		to highlight the chracters.</p>
+
+		<p><b>Remark 3: Search</b><br><br>
+			a) You can search in two ways: In both, text modus and hex modus, only complete
+			ASCII characters or strings can be searched.<br><br>
+			
+			b) Within hex modus you can look for both capital and small letters.<br><br>
+			
+			c) Using tab and shift-tab allows you to toggle the cursor between text and hex
+			view.
+			So you can see which ASCII character at the right side complies to
+			which pair of hex characters at the left (at the left only the
+			according right hex character of the pair is marked).<br><br>
+
+			d) The editor starts its search from the last character of a marked area
+			until the end of the file.<br><br>
+
+			If you search only for one ASCII character then the marked one will be found first.
+			If you search for a text string built by more than one character and if
+			exactly such a string is marked in the editor, then the search is started behind
+			the string!<br><br>
+
+			If you want to search through the whole file, please set the cursor to the
+		       	beginning of the file; or you could consider to use backwards search.<br><br>
+		</P>
+
+		<p><b>Remark 4: Fonts</b><br>
+			Within the <A href="hidr_texttype.html">window for textual input and output</A>
+			the used font can be changed via the menu item <a href="menu_view.html">View</a> \
+		       	<a href="menu_view_font.html">Font</a>.
+			Within the hex window the font is fixed.
+		</P>
+
+
 	</BODY>
 </HTML>

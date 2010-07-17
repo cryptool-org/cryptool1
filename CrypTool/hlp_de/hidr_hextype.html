@@ -17,7 +17,7 @@
 		<P>Mit diesem Fenstertyp werden <A href="dokument.html">Dokumente</A> in 
 			Hexadezimaldarstellung angezeigt. Dokumente können auch leer sein.</P>
 		<P>Die Bearbeitungsmöglichkeiten (siehe Menü<A href="menu_edit.html"> <B>Bearbeiten</B></A>) 
-			erlauben, Zeichen zu überschreiben, zu entfernen und einzufügen.</P>
+			erlauben z.B., Zeichen zu überschreiben, zu entfernen und einzufügen.</P>
 		<P><U>Das Fenster für hexadezimale Ein-/Ausgaben ist wie folgt aufgebaut:</U></P>
 		<P>In der ersten Spalte befindet sich eine fortlaufende hexadezimale Nummerierung 
 			der Position der in den anderen beiden Spalten angezeigten Zeichen.</P>
@@ -35,15 +35,52 @@
 			normalerweise in einem <A href="hidr_texttype.html">Fenster für Text Ein-/Ausgaben</A>
 			angezeigt.
 		</P>
-		<P>Die Darstellung in einem <A href="hidr_texttype.html">Fenster für Text-Ein-/Ausgaben</A>
-			kann durch den Menüeintrag <A href="menu_view.html">Ansicht</A> \ <a href="hid_totxt.html">
-				Als Text anzeigen</a> erzwungen werden.<br>Beachte: Dies bewirkt, dass alle Zeichen nach dem ersten ASCII-Zeichen 'NULL' (= 
-			Text-Formatzeichen für das Dateiende) verloren gehen, sofern die Datei als Textdatei gespeichert wird. Die ASCII-Null wird als 'NUL' angezeigt.</P>
+		<P>Die Darstellung in einem 
+		<A href="hidr_texttype.html">Fenster für Text-Ein-/Ausgaben</A>
+		kann durch den Menüeintrag <A href="menu_view.html">Ansicht</A> \
+		<a href="hid_totxt.html">Als Text anzeigen</a> erzwungen werden.<br>
+		Beachte: Dies bewirkt, dass alle Zeichen nach dem ersten ASCII-Zeichen
+		'NULL' (= Text-Formatzeichen für das Dateiende) verloren gehen,
+		sofern die Datei als Textdatei gespeichert wird. Die ASCII-Null
+		wird als 'NUL' angezeigt.</P>
+
 		<P><b>Bemerkung 1:</b><br>
 			Die Zahlenwerte (dezimal und hexadezimal) der verschiedenen ASCII-Zeichen 
 			finden Sie in der <a href="ascii.html">ASCII-Tabelle</a>.</P>
-			<p><b>Bemerkung 2:</b><br>
+
+		<p><b>Bemerkung 2:</b><br>
 			Um Zeichen mit Steuerung-V (Einfügen) zu überschreiben, müssen diese vorher 
 			markiert werden.</P>
+
+		<p><b>Bemerkung 3: Suche</b><br><br>
+			a) Die Suche hat zwei Modi: Sowohl im Textmodus wie im Hexmodus können
+	       		immer nur ganze ASCII-Zeichen oder Strings gesucht werden.<br><br>
+			
+			b) Auch im Hexmodus kann man sowohl nach den Groß- und Kleinbuchstaben suchen.<br><br>
+			
+			c) Mit Tab und Shift-Tab kann man den Cursor zwischen Text- und Hex-Anzeige
+		       	hin- und herspringen lassen.
+			So kann man sehen, welches ASCII-Zeichen rechts welchem Hexzeichenpaar links
+			entspricht (markiert wird links nur das zugehörige rechte Hexzeichen des Paares).<br><br>
+
+			d) Der Editor sucht ab dem letzten Zeichen des markierten
+		       	Bereiches bis zum Ende der Datei.<br><br>
+
+			Sucht man nur nach einem ASCII-Zeichen wird das markierte als erstes gefunden.
+			Sucht man nach einen Textstring aus mehr als einem Zeichen und ist genau dieser
+			Textstring auch gerade im Editor markiert, wird die Suche aber erst danach begonnen!<br><br>
+
+			Will man die gesamte Datei durchsuchen, muss man den Cursor auf den Dateianfang
+		       	setzen, oder man kann auch eine Rückwärtssuche durchführen.<br><br>
+		</P>
+
+		<p><b>Bemerkung 4: Fonts</b><br>
+			Im <A href="hidr_texttype.html">Fenster für Text-Ein-/Ausgaben</A>
+			kann man den Font mit dem Menüeintrag <a href="menu_view.html">Ansicht</a> \
+			<a href="menu_view_font.html">Schriftart</a> ändern.
+			Im Hexfenster ist der Font fest.
+		</P>
+
+
 	</BODY>
 </HTML>
