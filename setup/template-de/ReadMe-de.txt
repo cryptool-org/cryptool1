@@ -1120,6 +1120,7 @@ c) Neue Funktionalität / Bedienung:
   - Wenn man die optimalen Werte berechnet, was sehr lange dauern kann,
     kann der Zahlenhai nun auf bisher schon berechnete Zwischenergebnisse
     aufsetzen. 
+  - Weitere Hintergrundbilder wurden hinzugefügt.
 
 - Das Lernprogramm "Zahlentheorie" wurde etwas korrigiert und liegt nun
   in der Version vom 2009-11-08 bei.
@@ -3016,6 +3017,7 @@ Funktionen, die schon in den jetzigen Betaversionen
 - JCT  Multi-partite Schlüsselvereinbarung
 - JCT  Analyse von Transpositions-Chiffren mit dem ACO-Algorithmus
 - JCT  Visualisierung von Zero-Knowledge-Beweisen
+- JCT  Visualisierung des SETUP-Angriffes auf die RSA-Schlüsselerzeugung (Kleptographie)
 - JCT  Mächtige Action-History und Kaskadierungs-Unterstützung
 
 

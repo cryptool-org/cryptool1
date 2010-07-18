@@ -1089,6 +1089,7 @@ c) New functionality / Usability:
     All known values can be shown in a table.
   - If the Number Shark calculates optional results (which can last very long),
     then you now can restart using stored pre-calculations. 
+  - Further background pictures have been added.
 
 - The educational program "Number Theory" got some few corrections and is
   now included in the version from 2010-06-19.
@@ -2925,6 +2926,7 @@ Features already implemented and integrated in the current beta versions
 - JCT  Multi-partite key exchange
 - JCT  Analysis of transposition ciphers using the ACO algorithm
 - JCT  Visualization of zero-knowledge proofs
+- JCT  Visualization of the SETUP attack against RSA key generation (Kleptography)
 - JCT  Powerful action history and cascading possibility
 
 
