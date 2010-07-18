@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.30 Beta 08 for Win32, July 2010  xxxxxxx
+    CrypTool, Version 1.4.30 Beta 09 for Win32, July 2010  xxxxxxx
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main,
@@ -895,6 +895,11 @@ c) New functionality / Usability:
      now hash values with leading zeros are presented correctly.
    - The ECC-AES hybrid encryption and decryption now also runs under
      MS Vista (thanks to a new cv act lib from cryptovision).
+     Additionally, now a coorect erro message pops up, if one tries to
+     decrypt an unencrypted text.
+   - DH Demonstration: In earlier versions a crash happened when a digits
+     (e.g. 2) were appended to an automatically created generator.
+     This is fixed now.
    - The Secret Sharing application using the CRT now disallows, that
      n=k (so all share holders are necessary) in order to avoid that the
      algorithm then would make the whole secret evident to the first
@@ -908,7 +913,8 @@ c) New functionality / Usability:
      - The point in infinity is now added in the overall number of points.
      - The log window now is amodal, resizable and the content is more
        well-arranged.
-     - The version number now is 1.1 and it is shown in the title.
+     - The sliders are broader now, so its easier to adjust the parameters.
+     - The version number now is 1.1.1 and it is shown in the title.
    - Fix for DESX/DESXL: Now the effective bit length is displayed in
      encryption and brute force dialogs.
    - Fix for DESX/DESXL brute force analysis, which skipped keys when
@@ -953,7 +959,7 @@ c) New functionality / Usability:
 - External PDFs on the internet now can be opened directly within the online
   help.
 
-- The XOR/Psion tutorial in the presentation used a encrypted file (created
+- The XOR/Psion tutorial in the presentation used an encrypted file (created
   from a German cleartext). Now there is also a file with an encrypted English
   cleartext: psion-en-enc.hex
 
@@ -989,6 +995,10 @@ c) New functionality / Usability:
 - Within the PKCS #5 dialog now at most 100,000 iterations can be calculated.
   Additionally more hash methods are supported than described in the original
   standard.
+
+- Enhancement of the brute-force analysis for symmetric ciphers:
+  Another column was added to also show the key which goes with the
+  current columns of entropy of cleartext, cleartext and ciphertext.
 
 
 - If the result in the dialog primality testing says, that the given number

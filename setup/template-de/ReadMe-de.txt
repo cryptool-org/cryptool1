@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.30 Beta 08 für Win32, Juli 2010  xxxxxx
+    CrypTool, Version 1.4.30 Beta 09 für Win32, Juli 2010  xxxxxx
     (c) Contributors
         Dazu gehören z.B.
         Deutsche Bank AG, Frankfurt am Main,
@@ -911,6 +911,10 @@ c) Neue Funktionalität / Bedienung:
      nun auch die Hashwerte mit führenden Nullen korrekt angezeigt.
    - Die ECC-AES-Hybrid-Ver-/Entschlüsselung läuft nun dank einer neuen
      cv act lib von cryptovision auch unter MS Vista.
+     Außerdem kommt hier nun beim Versuch, einen nicht verschlüsselten Text
+     zu entschlüsseln, kommt nun eine korrekte Fehlermeldung.
+   - DH-Demo: Wenn man automatisch erzeugte Generatoren danach änderte (z.B.
+     die Ziffer 2 anfügen) kam es in früheren Versionen zum Absturz. Ist behoben.
    - Die auf dem CRT beruhende Secret-Sharing-Anwendung verbietet nun, dass
      n=k (denn so wären alle Shareholder notwendig). Ohne diese Einschränkung
      macht der Algorithmus das ganze Geheimnis dem ersten Teilnehmer bekannt.
@@ -924,7 +928,8 @@ c) Neue Funktionalität / Bedienung:
      - Der Punkt im Unendlichen wird zur Gesamtzahl der Punkte hinzugezählt.
      - Das Log-Fenster ist nun amodal, größenveränderlich und der Inhalt
        ist übersichtlicher gestaltet.
-     - Die Versionsnummer wurde auf 1.1 erhöht und wird nun im Titel angezeigt.
+     - Die Slider sind nun breiter, so dass man die Parameter besser justieren kann.
+     - Die Versionsnummer wurde auf 1.1.1 erhöht und wird nun im Titel angezeigt.
    - Korrektur bei DESX/DESXL: Nun wird die effektive Bitlänge in den
      Dialogen zur Verschlüsselung und zur Brute-Force-Analyse angezeigt.
    - Korrektur bei der DESX/DESXL-Brute-Force-Analyse, die Schlüssel überging,
@@ -1007,6 +1012,11 @@ c) Neue Funktionalität / Bedienung:
 - Beim PKCS #5-Dialog können nun bis zu 100.000 Iterationen eingestellt werden.
   Außerdem werden mehr Hashverfahren unterstützt, als der ursprüngliche
   Standard vorsieht.
+
+- Erweiterung der Brute-Force-Analyse symmetrischer Verfahren:
+  Eine weitere Spalte wurde ergänzt, die den Schlüssel zeigt, der zu
+  den Werten der bisherigen Spalten Entropie des Klartextes, Klartext
+  und Geheimtext passt.
 
 
 - Wenn sich im Dialog Primzahltest ergibt, dass die zu testende Zahl
@@ -2022,10 +2032,10 @@ Bemerkungen zu den Versionen:
          frischen Windows-Umgebungen (ohne Office) enthalten ist.
 1.4.30-Beta03  März 2009  Erste öffentliche Beta von Version 1.4.30.
 1.4.30-Beta04  Sep. 2009  Zweite öffentliche Beta von Version 1.4.30.
-1.4.30-Beta05  Jan. 2010  Dritte öffentliche Beta von Version 1.4.30 (22.1.2010).
-1.4.30-Beta06  Feb. 2010  Vierte öffentliche Beta von Version 1.4.30 (28.2.2010).
-1.4.30-Beta07  Juni 2010  Fünfte öffentliche Beta von Version 1.4.30 (09.6.2010).
-1.4.30-Beta08  Juli 2010  Sechste öffentliche Beta von Version 1.4.30 (xx.7.2010).
+1.4.30-Beta05  Jan. 2010  Dritte öffentliche Beta von Version 1.4.30 (22.01.2010).
+1.4.30-Beta06  Feb. 2010  Vierte öffentliche Beta von Version 1.4.30 (28.02.2010).
+1.4.30-Beta07  Juni 2010  Fünfte öffentliche Beta von Version 1.4.30 (09.06.2010).
+1.4.30-Beta08  Juli 2010  Sechste öffentliche Beta von Version 1.4.30 (08.07.2010).
 1.4.30   Viele Bugfixes und erweiterter Funktionsumfang i.Vgl. zu v1.4.21.
          Plattenplatz-Bedarf der verschiedenen Sprachversionen von 1.4.30:
          EN:  93.4 MB
