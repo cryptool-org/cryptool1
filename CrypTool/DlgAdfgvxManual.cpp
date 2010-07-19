@@ -325,15 +325,10 @@ void CDlgAdfgvxManual::OnBnClickedButtonForce()
 		//redundant characters: redundant characters are removed, minLength/maxLength is adjusted; recheck
 		if (validPassword==7)
 		{
-			CString oldPassword=password;
-			password=cipher->CleansePassword(validPassword, password);
-			minLength=password.GetLength()-1;
-			maxLength=minLength;
-			UpdateData(false);
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_7,pc_str,STR_LAENGE_STRING_TABLE);
-			CString message=(CString)pc_str+(CString)(password);
-			MessageBox(message);
-			OnBnClickedButtonForce();
+			// flomar, 07/20/2010
+			// we no longer want to remove redundant characters, because we want to be 
+			// consistent with our approach on the encryption side (no redundancy removal); 
+			// with that said, we don't do anything here
 		}
 
 		//password ok
@@ -416,16 +411,10 @@ void CDlgAdfgvxManual::OnBnClickedNextPermutation()
 	//redundant characters: redundant characters are removed, minLength/maxLength is adjusted; recheck
 	if (validPassword==7)
 	{
-		CString oldPassword=password;
-		password=cipher->CleansePassword(validPassword, password);
-		minLength=password.GetLength()-1;
-		if (maxLength==(oldPassword.GetLength()-1))
-			maxLength=minLength;
-		UpdateData(false);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_7,pc_str,STR_LAENGE_STRING_TABLE);
-		CString message=(CString)pc_str+(CString)(password);
-		MessageBox(message);
-		OnBnClickedNextPermutation();
+		// flomar, 07/20/2010
+		// we no longer want to remove redundant characters, because we want to be 
+		// consistent with our approach on the encryption side (no redundancy removal); 
+		// with that said, we don't do anything here
 	}
 
 	//password ok
