@@ -1051,11 +1051,11 @@ BOOL GeneratePrimes::PrimalityKnownAfterTrialDivision(const Big& p)
 			23 == p || 29 == p || 31 == p || 37 == p) {
 		return TRUE; // primality of p is known (p is a prime)
 	}
-	if (1 == p || 0 == p % 2  || 0 == p % 3  || 0 == p % 5  || 0 == p % 7 ||
+	if (p <= 1 || 0 == p % 2  || 0 == p % 3  || 0 == p % 5  || 0 == p % 7 ||
 			 0 == p % 11 || 0 == p % 13 || 0 == p % 17 || 0 == p % 19 ||
 			 0 == p % 23 || 0 == p % 29 || 0 == p % 31 || 0 == p % 37 ) {
-		Error |= GP_ERROR_NOPRIME; // p is composite
-		return TRUE; // primality of p is known (p is composite)
+		Error |= GP_ERROR_NOPRIME; // p is not prime
+		return TRUE; // primality of p is known (p is not prime)
 	}
 	return (p <= 37*37); // primality of p is known if it is smaller the the square of the largest factor tested
 }
