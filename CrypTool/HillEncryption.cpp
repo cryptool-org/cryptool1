@@ -86,31 +86,19 @@ void CHillEncryption::init_zahlen_zeichen (const char* erlaubte_zeichen)
 	{
 		for (i=0; i<modul; i++)
 		{
-			//if(!firstPosNull)
-			//	zeichen[i] = erlaubte_zeichen[(i-1) % modul];
-			//else
-				zeichen[i] = erlaubte_zeichen[i];
-
+			zeichen[i] = erlaubte_zeichen[i];
 			// Dieses ASSERT fuehrt zum Abbruch, falls Zeichen im String doppelt vorkommen
 			ASSERT (zahlen[(unsigned char)erlaubte_zeichen[i]] == -1);
-
-			//if(!firstPosNull)
-			//	zahlen[(unsigned char)erlaubte_zeichen[i]] = (i+1) % modul;
-			//else
-				zahlen[(unsigned char)erlaubte_zeichen[i]] = i;
+			zahlen[(unsigned char)erlaubte_zeichen[i]] = i;
 		}
 	}
 	else
 	{
 		for (i=0; i<modul; i++)
 		{
-			
 			zeichen[i] = erlaubte_zeichen[(i+modul-1)%modul];
-
 			// Dieses ASSERT fuehrt zum Abbruch, falls Zeichen im String doppelt vorkommen
 			ASSERT (zahlen[(unsigned char)erlaubte_zeichen[i]] == -1);
-
-			
 			zahlen[(unsigned char)erlaubte_zeichen[i]] = (i+1) % modul;
 		}
 	
@@ -120,8 +108,6 @@ void CHillEncryption::init_zahlen_zeichen (const char* erlaubte_zeichen)
 	// wir benutzen hier unsigned Vergleiche, damit das Leerzeichen dann
 	// das Fuellzeichen wird, wenn es im Alphabet vorhanden ist und keine
 	// Steuerzeichen (0x00-0x1f) im Alphabet vorhanden sind.
-	
-	
 	ASSERT(modul >= 1);
 	//read from registry
 	unsigned long useFirstCharFromAlph = 1;
@@ -143,13 +129,12 @@ void CHillEncryption::init_zahlen_zeichen (const char* erlaubte_zeichen)
 	}
 
 	CString strCharForPadding;
-	if(useFirstCharFromAlph == 1)
+   if ( useFirstCharFromAlph || 0 > CString(erlaubte_zeichen).Find( strOwnCharForPadding[0] ) )
 		strCharForPadding = zeichen[0];
-	if(useFirstCharFromAlph == 0)
+   else
 		strCharForPadding = strOwnCharForPadding;
 	
 	fuellzeichen = *(LPCTSTR)strCharForPadding;
-
 }
 
 

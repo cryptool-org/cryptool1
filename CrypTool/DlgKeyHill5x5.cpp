@@ -406,7 +406,9 @@ void CDlgKeyHill5x5::OnPasteKey()
 
 void CDlgKeyHill5x5::OnZufaelligerSchluessel() 
 {
+   UpdateData(FALSE);
 	m_HillBase->randomKey();
+   UpdateData(TRUE);
 }
 
 

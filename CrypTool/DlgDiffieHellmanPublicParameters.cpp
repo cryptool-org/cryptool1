@@ -192,6 +192,10 @@ int CDlgDiffieHellmanPublicParameters::checkGenerator()
 			// if P is a save prime we just have to check G^2 != 1 mod P and G^Q != 1 mop P
 			SqrMod(r, G, P);
 			f |= ( r == 1 );
+
+         if ( G >= P || G <= 1 || P <= 1 )
+				return IDS_DH_PP_GENERATOR_INVALID; // FIXME: more explicit error message
+
 			PowerMod(r, G, Q, P);
 			f |= ( r == 1 );
 			if ( f )

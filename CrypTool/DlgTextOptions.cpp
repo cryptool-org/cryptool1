@@ -446,8 +446,8 @@ void CDlgTextOptions::OnCheckLowerCase()
 void CDlgTextOptions::OnCheckUmlauts()
 {
 	if ( !umlauts ) {
+      if ( upperCase || !lowerCase ) complete_alphabet( alphabet, UPPERCASE_UMLAUTS );
       if ( lowerCase ) complete_alphabet( alphabet, LOWERCASE_UMLAUTS );
-      if ( upperCase ) complete_alphabet( alphabet, UPPERCASE_UMLAUTS );
 	}
 	else {
       remove_charset( alphabet, LOWERCASE_UMLAUTS );
@@ -456,7 +456,7 @@ void CDlgTextOptions::OnCheckUmlauts()
    umlauts = !umlauts;
 
    UpdateData(FALSE);
-	updateAlphabetHeading();
+   OnUpdateEditAlphabet();
 }
 
 void CDlgTextOptions::OnCheckSpace()

@@ -79,10 +79,10 @@ void CKeyHillBase::SetHillMatrix()
 		for ( j=0; j<max_dim; j++ )
 			if ( i<dim && j<dim )
          { 
-            char c = chr( (*HillMat)(i,j) );
-            if ( c >= 0 )
+            int c = chr( (*HillMat)(i,j) );
+            if ( c > -128 )
             {
-				   HillAlphMat[i][j].SetWindowTextA( CString(c) );
+				   HillAlphMat[i][j].SetWindowTextA( CString((char)c) );
 				   cs.Format( "%02d", (*HillMat)(i,j) );
 				   HillNumMat[i][j].SetWindowTextA( cs );
             }
@@ -136,11 +136,11 @@ int CKeyHillBase::ord( const char ch, CString * alphabet )
 	return -1;
 }
 
-char CKeyHillBase::chr( int u )
+int CKeyHillBase::chr( int u )
 {
    int modul = theApp.TextOptions.getAlphabet().GetLength();
-   if ( u < 0 || u >= modul )
-      return -1; // ERROR
+   if ( u >= modul )
+      return -128; // ERROR
 
    if ( u >= (int)HillOptions.m_offset ) 
       u -= HillOptions.m_offset;
@@ -249,12 +249,12 @@ void CKeyHillBase::syncNumAlph( unsigned long i, unsigned long j )
 
 		if(cs.GetLength() == 2)
 		{
-         char c = chr( _ttoi(cs) );
-			if( c < 0 )
+         int c = chr( _ttoi(cs) );
+         if( c <= -128 ) // ERROR
 				HillNumMat[i][j].SetWindowText(_T(""));
 			else
 			{
-				HillAlphMat[i][j].SetWindowText( CString(c) ); 
+				HillAlphMat[i][j].SetWindowText( CString((char)c) ); 
 				currentDialog->NextDlgCtrl();
 			}
 		}
@@ -461,7 +461,7 @@ void CKeyHillBase::keyToStr( CString &cs )
    for (i=0; i<dim; i++)
    {
 	   for (j=0; j<dim; j++)
-         cs += CString( chr( (*HillMat)(i,j) ) );
+         cs += CString( (char)chr( (*HillMat)(i,j) ) );
       cs += _T(" ");
    }
    

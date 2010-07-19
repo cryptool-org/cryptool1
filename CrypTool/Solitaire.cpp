@@ -1275,16 +1275,24 @@ void Deck::inideckspeichern()
 {
 	FILE * pFile;
 	pFile=fopen("StoredLastInitialdeck.txt","w+");
-	// erste Zeile in Textdatei gibt die Kartenanzahl wieder
-	fprintf( pFile, "%d", anzahl);	
-	fprintf( pFile, "%s", "\n");
-		
-	for (char c=0;c<anzahl;c++)
-	{	
-		fprintf( pFile, "%d", tempini[c]);
-		fprintf( pFile, "%s", "\n");
-	}
-	fclose (pFile);
+
+   if ( pFile )
+   {
+	   // erste Zeile in Textdatei gibt die Kartenanzahl wieder
+	   fprintf( pFile, "%d", anzahl);	
+	   fprintf( pFile, "%s", "\n");
+   		
+	   for (char c=0;c<anzahl;c++)
+	   {	
+		   fprintf( pFile, "%d", tempini[c]);
+		   fprintf( pFile, "%s", "\n");
+	   }
+	   fclose (pFile);
+   }
+   else
+   { 
+      // FIXME ERROR
+   }
 }
 
 void Deck::deck2tempini()
@@ -1321,15 +1329,22 @@ void Deck::abschlussdeckspeichern()
 {
 	FILE * pFile;
 	pFile=fopen("StoredLastFinaldeck.txt","w+");
-	// erste Zeile in Textdatei gibt die Kartenanzahl wieder
-	fprintf( pFile, "%d", anzahl);	
-	fprintf( pFile, "%s", "\n");
-	for (char c=0;c<anzahl;c++)
-	{	
-		fprintf( pFile, "%d", deck[c]);
-		fprintf( pFile, "%s", "\n");
-	}
-	fclose (pFile);
+   if ( pFile )
+   {
+	   // erste Zeile in Textdatei gibt die Kartenanzahl wieder
+	   fprintf( pFile, "%d", anzahl);	
+	   fprintf( pFile, "%s", "\n");
+	   for (char c=0;c<anzahl;c++)
+	   {	
+		   fprintf( pFile, "%d", deck[c]);
+		   fprintf( pFile, "%s", "\n");
+	   }
+	   fclose (pFile);
+   }
+   else
+   {
+      // FIXME ERROR MESSAGE
+   }
 }
 
 void Deck::inideckladen()
@@ -1340,17 +1355,23 @@ void Deck::inideckladen()
 	FILE * loadFile;
 	loadFile = fopen( "StoredLastInitialdeck.txt", "r+" );
 	
-	rewind (loadFile);
-	
-	fscanf(loadFile, "%d\n", &anzahl);
-
-	for ( i=0;i<anzahl;i++)
-	{
-		fscanf(loadFile, "%d\n", &load[i]);
-	}
-	//memcpy(deck,(char)load,54);
-	for( i=0;i<54; i++)
-		deck[i]=(char)load[i];
+   if ( loadFile )
+   {
+	   rewind (loadFile);
+	   fscanf(loadFile, "%d\n", &anzahl);
+	   for ( i=0;i<anzahl;i++)
+	   {
+		   fscanf(loadFile, "%d\n", &load[i]);
+	   }
+	   //memcpy(deck,(char)load,54);
+	   for( i=0;i<54; i++)
+		   deck[i]=(char)load[i];
+      fclose( loadFile );
+   }
+   else
+   {
+      // FIXME ERROR MESSAGE
+   }
 }
 
 void Deck::abschlussdeckladen()
@@ -1360,16 +1381,21 @@ void Deck::abschlussdeckladen()
 	
 	FILE * loadFile;
 	loadFile = fopen( "StoredLastFinaldeck.txt", "r+" );
-	
-	rewind (loadFile);
-	
-	fscanf(loadFile, "%d\n", &anzahl);
-
-	for ( i=0;i<anzahl;i++)
-		fscanf(loadFile, "%d\n", &load[i]);
-	//memcpy(deck,(char)load,54);
-	for( i=0;i<54; i++)
-		deck[i]=(char)load[i];
+   if ( loadFile )
+   {
+	   rewind (loadFile);
+	   fscanf(loadFile, "%d\n", &anzahl);
+	   for ( i=0;i<anzahl;i++)
+		   fscanf(loadFile, "%d\n", &load[i]);
+	   //memcpy(deck,(char)load,54);
+	   for( i=0;i<54; i++)
+		   deck[i]=(char)load[i];
+      fclose( loadFile );
+   }
+   else
+   {
+      // FIXME ERROR MESSAGE
+   }
 }
 
 
@@ -1585,12 +1611,19 @@ void Deck::keyspeichern()
 	FILE * pFile;
 	char buffer[BUFSIZ];
 	pFile=fopen("StoredLastKeystream.txt","w+");
-	CString keysave = getKey();
-	setbuf (pFile , buffer);
-	
-	fputs (keysave,pFile);
-	fflush (pFile);
-	fclose (pFile);
+   if ( pFile )
+   {
+	   CString keysave = getKey();
+	   setbuf (pFile , buffer);
+   	
+	   fputs (keysave,pFile);
+	   fflush (pFile);
+	   fclose (pFile);
+   }
+   else
+   {
+      // FIXME ERROR MESSAGE
+   }
 }
 
 /*Dies ist die Laden Funktion.Sie kann aufgerufen 
@@ -1603,14 +1636,21 @@ void Deck::keyladen()
 	
 	FILE * loadFile;
 	loadFile = fopen( "StoredLastKeystream.txt", "r+" );
-	
-	rewind (loadFile);
-	
-	for ( i=0;i<plaintext.GetLength();i++)
-		fscanf(loadFile, "%d\n", &load[i]);
-	
-	for( i=0;i<plaintext.GetLength(); i++)
-		key[i]=(char)load[i];
+   if ( loadFile )
+   {
+	   rewind (loadFile);
+   	
+	   for ( i=0;i<plaintext.GetLength();i++)
+		   fscanf(loadFile, "%d\n", &load[i]);
+   	
+	   for( i=0;i<plaintext.GetLength(); i++)
+		   key[i]=(char)load[i];
+      fclose( loadFile );
+   }
+   else
+   {
+      // FIXME: ERROR MESSAGE
+   }
 }
 				
 #endif

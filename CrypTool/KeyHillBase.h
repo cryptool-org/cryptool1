@@ -105,9 +105,10 @@ class CKeyHillBase {
    int  SetTextOptions();
    int  SetHillOptions();
 
+	int ord( const char ch, CString * alphabet = NULL );
+   int chr( int u );
+
 public:
-	int  ord( const char ch, CString * alphabet = NULL );
-   char chr( int u );
 	CKeyHillBase(unsigned long p_keyRange = HILL_RANGE);
 	~CKeyHillBase();
    int run(); 
