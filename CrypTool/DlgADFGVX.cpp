@@ -1280,49 +1280,50 @@ void CDlgADFGVX::OnBnClickedCheckBlockStage1()
 
 void CDlgADFGVX::OnBnClickedButtonStringbox()
 {
-	
-	DlgAdfgvxStringBox stringbox= new DlgAdfgvxStringBox();
-	stringbox.DoModal();
+	// let the user enter a password string
+	DlgAdfgvxStringBox dlg;
+	dlg.DoModal();
 
-	CString pwd=stringbox.GetInput();
-	int result=0;
-	if (pwd.GetLength()>0)
-	{
-		result=cipher->CheckStringBox(pwd);
-				
-		switch(result)
-		{
-			//wrong string length
-			case 1: 
-				{
-					LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_STRINGLENGTH,pc_str,STR_LAENGE_STRING_TABLE);
-					MessageBox(pc_str);
-					break;
-				}
-			//invalid characters contained
-			case 2:	
-				{
-					LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_STRINGINVALID,pc_str,STR_LAENGE_STRING_TABLE);
-					MessageBox(pc_str);
-					break;
-				}
-			//redundant characters
-			case 3: 
-				{
-					LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_STRINGREDUNDANT,pc_str,STR_LAENGE_STRING_TABLE);
-					MessageBox(pc_str);
-					break;
-				}
-			case 0: 
-				{
-					int counter=0;
-					for(int row=0;row<6;row++)
-						for (int col=0;col<6;col++)
-							this->matrix[row][col]=pwd.GetAt(counter++);
-					break;
-				}
+	// retrieve the entered password string
+	CString password = dlg.GetInput();
+
+	// now, if the password is completely empty, we don't do anything else
+	if(password.IsEmpty()) {
+		return;
+	}
+
+	// otherwise, we change the password so that it is valid; that is we remove 
+	// redundant characters and then, if the password is still shorter than 36 
+	// characters, we fill up the string with the remaining characters; the valid 
+	// password string will be contained in "validPassword"
+	const CString validAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+	CString validPassword;
+	for(int i=0; i<password.GetLength(); i++) {
+		// get the current character
+		char character = password[i];
+		// convert the character to upper case if necessary
+		if(character >= 'a' && character <= 'z') {
+			character -= 32;
 		}
-		delete stringbox;
+		// append character to password only if it's not already part of the password
+		if(validPassword.Find(character) == -1) {
+			validPassword.AppendChar(character);
+		}
+	}
+	// we do have a valid password now (no redundancy); however, if the password is 
+	// shorter than 36 characters, we need to fill it up with the remaining characters
+	for(int i=0; i<validAlphabet.GetLength(); i++) {
+		// get the current character
+		char character = validAlphabet[i];
+		// fill the password with characters not taken yet
+		if(validPassword.Find(character) == -1) {
+			validPassword.AppendChar(character);
+		}
+	}
+
+	// at this point apply the (changed) password so that it's visible in the matrix
+	for(int i=0; i<validPassword.GetLength(); i++) {
+		matrix[i/6][i%6] = validPassword[i];
 	}
 
 	//synchronize data with textfields
