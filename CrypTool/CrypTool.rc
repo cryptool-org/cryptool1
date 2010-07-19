@@ -8468,7 +8468,7 @@ BEGIN
     IDS_SOLITAIRE_PASSWORD_NEEDS_26_CARDS 
                             "Inicja³ has³a wymaga co najmniej 26 kart. Liczba kart wzros³a do tego numeru."
     IDS_HILL_CHOOSE_HILL10x10 
-                            "[I18n]The dimension of the stored key is greater than 5.\nPlease select the button ""Larger Matrix"" before you paste this key."
+                            "[i18n]The dimension of the stored key is greater than 5.\nPlease select the button ""Larger Matrix"" before you paste this key."
 END
 
 STRINGTABLE 
@@ -11141,6 +11141,8 @@ BEGIN
                             "[i18n]Elapsed time for the computation of the Mersenne number: %.0f seconds"
     IDS_INTEGRAL_NUMBER_SEPARATOR "."
     IDS_FRACTIONAL_NUMBER_SEPARATOR ","
+    IDS_STRING_ADFGVX_NO_CHARACTERS_IN_PASSWORD 
+                            "[i18n] You did not enter any characters, thus the substitution matrix was not changed."
 END
 
 #endif    // Polish resources
@@ -22279,6 +22281,8 @@ BEGIN
                             "[i18n] Elapsed time for the computation of the Mersenne number: %.0f seconds"
     IDS_INTEGRAL_NUMBER_SEPARATOR "."
     IDS_FRACTIONAL_NUMBER_SEPARATOR ","
+    IDS_STRING_ADFGVX_NO_CHARACTERS_IN_PASSWORD 
+                            "[i18n] You did not enter any characters, thus the substitution matrix was not changed."
 END
 
 #endif    // Serbian (Latin) resources
@@ -33336,6 +33340,8 @@ BEGIN
                             "Benötigte Zeit für die Berechnung der Mersenne-Zahl: %.0f Sekunden"
     IDS_INTEGRAL_NUMBER_SEPARATOR "."
     IDS_FRACTIONAL_NUMBER_SEPARATOR ","
+    IDS_STRING_ADFGVX_NO_CHARACTERS_IN_PASSWORD 
+                            "Sie haben keine Zeichen eingegeben, d.h. die Substitutionsmatrix wurde nicht verändert."
 END
 
 #endif    // German (Germany) resources
@@ -44469,6 +44475,8 @@ BEGIN
                             "Elapsed time for the computation of the Mersenne number: %.0f seconds"
     IDS_INTEGRAL_NUMBER_SEPARATOR ","
     IDS_FRACTIONAL_NUMBER_SEPARATOR "."
+    IDS_STRING_ADFGVX_NO_CHARACTERS_IN_PASSWORD 
+                            "You did not enter any characters, thus the substitution matrix was not changed."
 END
 
 #endif    // English (U.K.) resources
@@ -55660,6 +55668,8 @@ BEGIN
                             "Elapsed time for the computation of the Mersenne number: %.0f seconds"
     IDS_INTEGRAL_NUMBER_SEPARATOR "."
     IDS_FRACTIONAL_NUMBER_SEPARATOR ","
+    IDS_STRING_ADFGVX_NO_CHARACTERS_IN_PASSWORD 
+                            "[i18n] You did not enter any characters, thus the substitution matrix was not changed."
 END
 
 #endif    // Spanish resources

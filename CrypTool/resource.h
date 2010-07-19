@@ -72,6 +72,7 @@
 #define IDD_BIN_KEYLENGTH               156
 #define IDS_FRACTIONAL_NUMBER_SEPARATOR 156
 #define IDD_KEY_ANALYSIS                157
+#define IDS_STRING_ADFGVX_NO_CHARACTERS_IN_PASSWORD 158
 #define IDD_SHOW_PARAMETER_KEY_EC       160
 #define IDD_KEY_ASYM                    162
 #define IDD_PIN_ACCESS                  165

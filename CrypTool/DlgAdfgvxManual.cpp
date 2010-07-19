@@ -842,7 +842,11 @@ void CDlgAdfgvxManual::OnBnClickedButtonStringbox()
 	CString password = dlg.GetInput();
 
 	// now, if the password is completely empty, we don't do anything else
+	// but display the user an information dialog that nothing has changed
 	if(password.IsEmpty()) {
+		CString message;
+		message.LoadString(IDS_STRING_ADFGVX_NO_CHARACTERS_IN_PASSWORD);
+		AfxMessageBox(message);
 		return;
 	}
 
