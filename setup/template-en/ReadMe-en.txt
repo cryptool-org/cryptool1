@@ -271,7 +271,7 @@ c) The animation program ANIMAL (see http://www.algoanim.info/Animal2):
 
 d) As well as ANIMAL the following programs are stand-alone Java applications
    (JAR files). To run them JRE 1.5 is required (see chapter 3.2).
-   - ECC demonstration v 1.1
+   - ECC demonstration v 1.1.1
    - AES flow visualization
    - The Control Center of the S/MIME demonstration (according to given
      parameters it creates an XML file, which is used to control the called
@@ -575,8 +575,7 @@ The general properties and functions of CrypTool are:
   the key-entry dialogs for Caesar, monoalphabetic substitution, Vigenère,
   Scytale, permutation and homophones.
 
-- CrypTool can be installed and used without having administrator access
-  rights.
+- CrypTool can be used without having administrator access rights.
   Different users at the same PC can have different settings.
   See chapters 3.2 and 4.4 for details.
 
@@ -866,11 +865,12 @@ b) Changes within the user documentation / on the websites:
 
 - The following additional websites also belonging to the CrypTool family
   of website went life:
-  - www.cryptool-online.org   "CrypTool-Online" runs various crypto functions
+  - www.cryptool-online.org  "CrypTool-Online" runs various crypto functions
                               directly within a browser.
-  - www.cryptool.mobil.org    "CrypTool-Mobil" runs various crypto functions
+  - www.m.cryptool.org       "CrypTool-Mobil" runs various crypto functions
                               directly within a smartphone.
-  - www.cryptoportal.org      A teacher's portal with material for the lessons
+                              This maybe helpful for geocaching.
+  - www.cryptoportal.org     A teacher's portal with material for the lessons
                               and links (currently only in German)
   - http://www.mysterytwisterc3.org  An international crypto challenge contest
                                      with tasks of different levels.
@@ -1016,6 +1016,9 @@ c) New functionality / Usability:
 - New is the fast calculation of integer powers.
   This uses the library APFLOAT and it can be used to calculate and store
   all digits of the current prime number records (Mersenne numbers).
+  In this dialog for the input of integers the thousands separators used
+  in digit grouping (commas) are set automatically. This is more user friendly
+  for eventually very big exponents.
 
 
 - Added the classic transposition ciphers Scytale and rail fence (combined
@@ -1043,7 +1046,8 @@ c) New functionality / Usability:
   So we could get rid of the menu item "Further Options".
 
 - The checkbox "Special characters" within the dialog "Text Options" now
-  offers some more characters by default.
+  offers some more characters by default. Maximum are 98 characters for
+  the classic ciphers.
 
 - The alphabet set in the dialog "Text Options" now affects almost all
   classic ciphers: Therefore all adapted methods now have a button to
@@ -1151,7 +1155,8 @@ as "well" as in productive applications.
 3.2. Win32 environment, rights for installation and usage, Java-Runtime
      ------------------------------------------------------------------
 CrypTool requires a Win32 environment.
-CrypTool 1.4.30 is supported to run under Windows XP and Windows Vista.
+CrypTool 1.4.30 is supported to run under Windows XP, Windows Vista
+and Windows 7.
 
 Some functions [ANIMAL, ECC demonstration -- see chapter 1.2, part (3)]
 require an installed Java Runtime Environment JRE (version >=1.5).
@@ -1160,13 +1165,16 @@ The computer equipment should have at least a 300 MHz CPU, 256 MByte RAM,
 and 100 MByte free space on the hard drive (low requirements).
 
 Different language versions (localizations) can be used in parallel at one
-computer.
+computer (must be installed in different directories).
 
 Different users using the same PC can have different settings (because these
 settings are stored in the user-specific area of the Windows registry).
 
-CrypTool doesn't need administrator access rights - neither for the
-installation nor for the usage:
+CrypTool can be used without having administrator access rights.
+
+The installation of CrypTool can be done without having administrator
+access rights under Windows XP and Windows Vista, but Windows 7 requires
+these rights.
 - During the installation process persistent data is stored at the following
   places, so the installing person needs to have write access for:
   - the CrypTool directory,
@@ -1176,9 +1184,10 @@ installation nor for the usage:
   - files within the user-specific TEMP directory (for storing temporary files),
   - the user-specific area of the Windows registry (to store user settings).
 
-Remark 1: Where the TEMP directory of Windows is, can be seen by
-entering %TEMP% in the Windows Explorer. The value can also be seen
-and adjusted under Windows XP via "System --> System properties 
+Remark 1:
+Where the TEMP directory of Windows is, can be seen by entering %TEMP%
+in the Windows Explorer. The value can also be seen and adjusted under
+Windows XP via "System --> System properties 
 --> Tab Enhanced --> Environment variables".
 Or by entering "echo %TEMP%" at the command line prompt.
 
@@ -1948,7 +1957,7 @@ Version                 English      German    needed EN     by
 1.4.10    July 2007     26.7 MB      27.5 MB    47 MB        DB
 1.4.20    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.21    July 2008     36.1 MB      37.1 MB    73 MB        DB
-1.4.30    July 2010     50.9 MB      51.6 MB    92 MB        DB   xxxxxx
+1.4.30    July 2010     51.4 MB      52.1 MB    93 MB        DB   xxxxxx
 
 Remarks about the versions:
 1.3.02   Many new functions compared to 1.3.00.

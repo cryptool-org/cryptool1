@@ -272,7 +272,7 @@ c) Das Animationsprogramm ANIMAL (siehe http://www.algoanim.info/Animal2):
 
 d) Ebenso wie ANIMAL sind die ff. Programme eigenständige Java-Anwendungen
    (JAR-Dateien). Hierzu wird jeweils JRE 1.5 benötigt (siehe Kapitel 3.2).
-   - ECC-Demo v 1.1
+   - ECC-Demo v 1.1.1
    - AES-Flussvisualisierung
    - Das Control-Center zur Steuerung der S/MIME-Demo (diese erstellt anhand
      der Parameter eine XML-Datei, die zur Steuerung der aufgerufenen
@@ -586,7 +586,7 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
   in den Schlüsseleingabe-Masken für Caesar, monoalphabetische Substitution,
   Vigenère, Skytale, Permutation und Homophone.
 
-- CrypTool kann man ohne Administratorrechte installieren und ausführen.
+- CrypTool kann man ohne Administratorrechte ausführen.
   Verschiedene Benutzer können am gleichen PC jeweils verschiedene
   Einstellungen haben. Details siehe Kapitel 3.2 und 4.4.
 
@@ -880,11 +880,12 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
 
 - Die folgenden zusätzlichen, ebenfalls zur CrypTool-Familie gehörenden
   Webseiten gingen live:
-  - www.cryptool-online.org   "CrypTool-Online" führt verschiedene Kryptoverfahren
+  - www.cryptool-online.org  "CrypTool-Online" führt verschiedene Kryptoverfahren
                               direkt im Browser aus.
-  - www.cryptool.mobil.org    "CrypTool-Mobil" führt verschiedene Kryptoverfahren
+  - www.m.cryptool.org       "CrypTool-Mobil" führt verschiedene Kryptoverfahren
                               in Smartphones aus.
-  - www.cryptoportal.org      "Lehrerportal" mit Unterrichtsmaterial und
+                              Das kann fürs Geocachen nützlich sein.
+  - www.cryptoportal.org     "Lehrerportal" mit Unterrichtsmaterial und
                               Links
   - http://www.mysterytwisterc3.org  Ein internationaler Krypto-Wettbewerb
                                      mit Aufgaben verschiedener
@@ -928,7 +929,8 @@ c) Neue Funktionalität / Bedienung:
      - Der Punkt im Unendlichen wird zur Gesamtzahl der Punkte hinzugezählt.
      - Das Log-Fenster ist nun amodal, größenveränderlich und der Inhalt
        ist übersichtlicher gestaltet.
-     - Die Slider sind nun breiter, so dass man die Parameter besser justieren kann.
+     - Die Slider sind nun breiter, so dass man die Parameter besser justieren
+       kann.
      - Die Versionsnummer wurde auf 1.1.1 erhöht und wird nun im Titel angezeigt.
    - Korrektur bei DESX/DESXL: Nun wird die effektive Bitlänge in den
      Dialogen zur Verschlüsselung und zur Brute-Force-Analyse angezeigt.
@@ -1033,7 +1035,10 @@ c) Neue Funktionalität / Bedienung:
 
 - Neu hinzugekommen ist die schnelle Berechnung von Ganzzahl-Potenzen.
   Für diese Berechnung wird die Bibliothek APFLOAT benutzt. Damit kann man
-  alle Stellen der aktuellen Primzahlrekorde (Mersennezahlen) ausgeben.
+  alle Stellen der aktuellen Primzahlrekorde (Mersenne-Zahlen) ausgeben.
+  In diesem Dialog werden bei der Eingabe von Ganzzahlen die Tausendertrenner
+  (Punkte) automatisch gesetzt. Das ist bei evtl. sehr langen Exponenten
+  Benutzer-freundlicher.
 
 
 - Die klassischen Transpositions-Chiffren Skytale und Gartenzaun hinzugefügt
@@ -1065,7 +1070,8 @@ c) Neue Funktionalität / Bedienung:
   Methoden. Somit konnten wir den Menüeintrag "Weitere Optionen" entfernen.
 
 - Die Checkbox "Sonderzeichen" in der Dialogbox "Textoptionen" bietet nun
-  standardmäßig mehr Sonderzeichen an.
+  standardmäßig mehr Sonderzeichen an. Maximal kann das Alphabet für die
+  klassischen Verfahren nun 98 Zeichen umfassen.
 
 - Das in den Textoptionen eingestellte Alphabet wirkt sich nun auf fast alle
   klassischen Chiffren aus: Deshalb haben alle angepassten Verfahren nun einen
@@ -1184,8 +1190,8 @@ kommerziellen Anwendungen.
 3.2. Win32-Umgebung, Rechte bei Installation und Betrieb, Java-Runtime
      -----------------------------------------------------------------
 CrypTool erfordert eine Win32-Umgebung.
-CrypTool 1.4.30 ist geschrieben für die Betriebssysteme Windows XP
-und Windows Vista.
+CrypTool 1.4.30 ist geschrieben für die Betriebssysteme Windows XP,
+Windows Vista und Windows 7.
 
 Einige Funktionen [ANIMAL, ECC-Demo -- siehe Kapitel 1.2, Teil (3)]
 erfordern zusätzlich eine Java Runtime-Umgebung JRE (Version >= 1.5). 
@@ -1194,14 +1200,16 @@ Die minimale Rechnerausstattung liegt bei 300 MHz CPU, 256 MByte RAM,
 100 MByte Festplattenplatz (geringe Anforderungen).
 
 Verschiedene Sprachversionen von CrypTool kann man parallel auf einem
-Rechner installieren.
+Rechner installieren (in unterschiedlichen Verzeichnissen).
 
 Verschiedene Benutzer können am gleichen PC jeweils verschiedene
 Einstellungen haben (da persistente Einstellungen im Nutzer-lokalen Teil
 der Registry abgelegt werden).
 
-Weder für die Installation noch für die Benutzung sind Administrator-
-Rechte notwendig:
+CrypTool kann man ohne Administratorrechte ausführen.
+
+Zur Installation braucht man unter Windows XP und Windows Vista ebenfalls
+keine Administratorrechte, aber unter Windows 7 sind diese nötig.
 - Bei der Installation werden persistente Daten an ff. Stellen abgelegt, für
   die der Installierende Schreibrechte haben muss:
   - für das CrypTool-Verzeichnis,
@@ -1212,9 +1220,10 @@ Rechte notwendig:
     Dateien),
   - Einstellungen in seinem Benutzer-spezifischen Teil der Registry.
 
-Anmerkung 1: Wo das TEMP-Verzeichnis von Windows liegt, kann man sehen,
-wenn man in Windows-Explorer %TEMP% eingibt. Den Wert kann man unter
-Windows XP auch ansehen und anpassen per "System --> Systemeigenschaften
+Anmerkung 1:
+Wo das TEMP-Verzeichnis von Windows liegt, kann man sehen, wenn man im
+Windows-Explorer %TEMP% eingibt. Den Wert kann man unter Windows XP auch
+ansehen und anpassen per "System --> Systemeigenschaften
 --> Reiter Erweitert --> Umgebungsvariablen".
 Oder indem man auf der Kommandozeile "echo %TEMP%" eingibt.
 
@@ -1225,6 +1234,7 @@ a) Programm-Verzeichnis:
    sein.
    Für die zwei Unterverzeichnisse des Installationsverzeichnisses ("pse"
    und "examples") erhalten alle Benutzter der Gruppe "Users" Schreibrechte.
+
 b) Windows-Registry:
    Um die Datei-Endungen .aes etc. für das Programm AES-Tool zu reservieren
    muss der folgende Teil der Registry während der Installation beschreibbar
@@ -2010,7 +2020,7 @@ Version                  Deutsch    Englisch      Bedarf DE      durch
 1.4.10    Juli 2007      27,5 MB     26,7 MB         47 MB        DB
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
-1.4.30    Juli 2010      51,6 MB     50,9 MB         93 MB        DB   xxxxxxx
+1.4.30    Juli 2010      52,1 MB     51,4 MB         95 MB        DB   xxxxxxx
 
 Bemerkungen zu den Versionen:
 1.3.02   Viele neue Funktionen gegenüber 1.3.00.
@@ -2036,7 +2046,7 @@ Bemerkungen zu den Versionen:
 1.4.30-Beta05  Jan. 2010  Dritte öffentliche Beta von Version 1.4.30 (22.01.2010).
 1.4.30-Beta06  Feb. 2010  Vierte öffentliche Beta von Version 1.4.30 (28.02.2010).
 1.4.30-Beta07  Juni 2010  Fünfte öffentliche Beta von Version 1.4.30 (09.06.2010).
-1.4.30-Beta08  Juli 2010  Sechste öffentliche Beta von Version 1.4.30 (08.07.2010).
+1.4.30-Beta08  Juli 2010  Sechste öffentliche Beta von Version 1.4.30 (09.07.2010).
 1.4.30   Viele Bugfixes und erweiterter Funktionsumfang i.Vgl. zu v1.4.21.
          Plattenplatz-Bedarf der verschiedenen Sprachversionen von 1.4.30:
          EN:  93.4 MB
