@@ -274,82 +274,17 @@ void CDlgADFGVX::OnBnClickedButtonEncrypt()
 			restart=true;
 			
 			OnBnClickedButtonEncrypt();
-		}	
-
-		//redundant characters: redundant characters are removed, minLength/maxLength is adjusted
-		if (validPassword==7)
-		{
-			// flomar, 04/12/2010
-			// contrary to our existing approach, we want to allow redundant characters in passwords;
-			// therefore we don't do anything here but call "Encrypt()"
-			Encrypt();
 		}
 
-		if (validPassword==0)
-		{
-			if(restart)
-			{
-				CString message="";
-
-				// special case: the password is empty because ALL characters were invalid
-				if(editTranspositionPassword.getText().GetLength() == 0) {
-					// notify user that the password was contained invalid characters only
-					LoadString(AfxGetInstanceHandle(), IDS_STRING_ADFGVX_PASSWORD_EMPTY_REPEAT_INPUT_PROCESS, pc_str, STR_LAENGE_STRING_TABLE);
-					MessageBox(pc_str, "CrypTool", MB_OK);
-				}
-				// else: notify user that the password was corrected
-				else {
-					LoadString(AfxGetInstanceHandle(), IDS_STRING_ADFGVX_PASSWORD_CORRECTED, pc_str, STR_LAENGE_STRING_TABLE);
-					message.Append(pc_str);
-
-					if(pwdInvalid)
-					{
-						LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_4,pc_str,STR_LAENGE_STRING_TABLE);
-						message.Append(pc_str);
-					}
-					if(pwdDouble)
-					{
-						if(pwdInvalid) message.Append("\n");
-						LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_7,pc_str,STR_LAENGE_STRING_TABLE);
-						message.Append(pc_str);
-					}
-					
-					LoadString (AfxGetInstanceHandle(), IDS_STRING_ADFGVX_NEWPWD, pc_str, STR_LAENGE_STRING_TABLE);
-					message.Append(pc_str);
-					message.Append(editTranspositionPassword.getText());
-
-					// append user option 1: continue encryption with shortened password
-					LoadString(AfxGetInstanceHandle(), IDS_STRING_ADFGVX_OPTION_CONTINUE, pc_str, STR_LAENGE_STRING_TABLE);
-					message.Append(pc_str);
-					// append user option 2: go back to input process and alter block length if necessary
-					LoadString(AfxGetInstanceHandle(), IDS_STRING_ADFGVX_OPTION_BACK, pc_str, STR_LAENGE_STRING_TABLE);
-					message.Append(pc_str);	
-				
-					// show option dialog to user
-					CDlgADFGVXShortenedPassword dlg(message);
-					int userChoice = dlg.DoModal();
-					
-					if(userChoice == IDOK)
-					{
-											// continue encryption with shortened password...
-						Encrypt();
-						return;
-					}
-				}
-
-				// else: actually, do nothing and go back to input process...
-				restart=false;
-				pwdInvalid=false;
-				pwdDouble=false;
-
-				// set the focus onto the password input field
-				CWnd *window = GetDlgItem(IDC_TEXTFIELD_PASSWORD);
-				if(window) {
-					window->SetFocus();
-				}
-			}
-			else
-                Encrypt();
+		// flomar, 07/20/2010
+		// previously, we we're doing a lot of checks here and reacting to two 
+		// possible return values for "validPassword"; since we're using a completely 
+		// different approach now to remain consistent with the currently configured 
+		// alphabet (see class CAlphabetTextEdit), these checks became obsolete; 
+		// so if "validPassword" says "valid password" (0) or "redundancy error" (7), 
+		// we can call "Encrypt" regardless
+		if(validPassword == 0 || validPassword == 7) {
+			Encrypt();
 		}
 	}
 }
@@ -402,26 +337,15 @@ void CDlgADFGVX::OnBnClickedButtonDecrypt()
 			OnBnClickedButtonDecrypt();
 		}	
 
-		//redundant characters: redundant characters are removed, minLength/maxLength is adjusted
-		if (validPassword==7)
-		{
-			// flomar, 04/12/2010
-			// contrary to our existing approach, we want to allow redundant characters in passwords;
-			// therefore we don't do anything here but call "Decrypt()"
+		// flomar, 07/20/2010
+		// previously, we we're doing a lot of checks here and reacting to two 
+		// possible return values for "validPassword"; since we're using a completely 
+		// different approach now to remain consistent with the currently configured 
+		// alphabet (see class CAlphabetTextEdit), these checks became obsolete; 
+		// so if "validPassword" says "valid password" (0) or "redundancy error" (7), 
+		// we can call "Decrypt" regardless
+		if(validPassword == 0 || validPassword == 7) {
 			Decrypt();
-		}
-
-		if (validPassword==0)
-		{
-			if(restart)
-			{
-				LoadString (AfxGetInstanceHandle(), IDS_STRING_ADFGVX_RESTART, pc_str, STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);
-				restart=false;
-				
-			}
-			else
-                Decrypt();
 		}
 	}
 }

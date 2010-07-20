@@ -319,7 +319,6 @@
 #define IDR_GIF_PQM_QUALITY_AVERAGE     864
 #define IDR_GIF_PQM_QUALITY_HIGH        865
 #define IDR_GIF_PQM_QUALITY_GREAT       866
-#define IDD_ADFGVX_SHORTENED_PASSWORD   867
 #define IDD_LIST_RESULTS                868
 #define IDD_PASSWORD_GUIDELINES         869
 #define IDD_PASSWORDENTROPY             871
@@ -1570,7 +1569,6 @@
 #define IDC_EDIT_ORIGINAL_MESSAGE       1974
 #define IDC_LIST4                       1975
 #define IDC_HEADER                      1976
-#define IDC_TEXT_INFO                   1977
 #define IDC_EDIT_PASSWORD_RESISTANCE    1978
 #define ID_CONFIGURE_PASSWORD_GUIDELINES 1979
 #define IDC_EDIT_PASSWORD_LENGTH        1980
