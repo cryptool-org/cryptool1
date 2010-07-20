@@ -23,6 +23,7 @@
 #include "adfgvx.h"
 #include "afxwin.h"
 #include <string>
+#include <AlphabetTextEdit.h>
 
 // CDlgAdfgvxManual-Dialogfeld
 using namespace std;
@@ -99,8 +100,7 @@ protected:
 	afx_msg void OnBnClickedResetMatrix();
 	afx_msg void OnBnClickedResubstitute();
 	afx_msg void OnBnClickedInsertKey();
-	afx_msg void OnCbnEditchangePasswordBox();
-	afx_msg void OnCbnSelchangePasswordBox();
+	afx_msg void OnChangedTranspositionPassword();
 	//}}AFX_MSG
 
 	DECLARE_MESSAGE_MAP()
@@ -121,10 +121,6 @@ private:
 	CString numberedPassword;
 	bool analysed;
 	int validCiphertext;
-	CString pwdList[50];
-	void CDlgAdfgvxManual::PwdEnqueue(CString pwd);
-	CComboBox pwdListBox;
-	CString password;
 	CButton buttonResub;
 	CButton buttonResetMatrix;
 	CButton buttonStringBox;
@@ -135,6 +131,8 @@ private:
 	int counter;
 	CButton buttonOutput;
 	afx_msg void OnBnClickedMatrixStandard();
+	afx_msg void OnBnClickedButtonTextOptions();
+	CAlphabetTextEdit editTranspositionPassword;
 
 public:
 	friend static CDlgAdfgvxManual::UINT StaticThread(LPVOID param);
