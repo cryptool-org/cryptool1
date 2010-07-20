@@ -22,6 +22,7 @@
 #include "afxwin.h"
 #include "adfgvx.h"
 #include <string>
+#include "AlphabetTextEdit.h"
 
 // CDlgADFGVX-Dialogfeld
 
@@ -37,7 +38,6 @@ protected:
 private:
 	adfgvx* cipher;
 	//variables from textfields and controls of the dialog
-	CString password;
 	CString pwdString;
 	CString matrix[6][6];
 	CBitmapButton buttonInsertKey;
@@ -105,9 +105,9 @@ private:
 	afx_msg void OnEnChangeM53();
 	afx_msg void OnEnChangeM54();
 	afx_msg void OnEnChangeM55();
+	afx_msg void OnChangedTranspositionPassword();
 	afx_msg void OnBnClickedCancel();
 	afx_msg void OnBnClickedErasematrix();
-	afx_msg void OnEnChangeTextfieldPassword();
 	afx_msg void OnBnClickedCheckBlockStage2();
 	afx_msg void OnBnClickedCheckBlockStage1();
 	BOOL CDlgADFGVX::OnInitDialog();
@@ -119,6 +119,7 @@ private:
 	BOOL boxOutput1;
 	CEdit editBlockLength2;
 	CEdit editBlockLength1;
+	CAlphabetTextEdit editTranspositionPassword;
 	BOOL boxNewLine2;
 	BOOL boxNewLine1;
 

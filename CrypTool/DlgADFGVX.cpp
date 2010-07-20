@@ -38,7 +38,6 @@
 IMPLEMENT_DYNAMIC(CDlgADFGVX, CDialog)
 CDlgADFGVX::CDlgADFGVX(char* infile, CString oldTitle, CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgADFGVX::IDD, pParent)
-	, password(_T(""))
 	, printStage1(FALSE)
 	, blockSizeStage1(2)
 	, blockSizeStage2(5)
@@ -65,8 +64,6 @@ CDlgADFGVX::~CDlgADFGVX()
 void CDlgADFGVX::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_TEXTFIELD_PASSWORD, password);
-	//DDV_MaxChars(pDX, password, 26);
 	DDX_Text(pDX, IDC_M00, matrix[0][0]);
 	DDV_MaxChars(pDX, matrix[0][0], 1);
 	DDX_Text(pDX, IDC_M01, matrix[0][1]);
@@ -156,6 +153,8 @@ void CDlgADFGVX::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT_BLOCKSIZE_STAGE1, editBlockLength1);
 	DDX_Check(pDX, IDC_CHECK_NEWLINE_STAGE2, boxNewLine2);
 	DDX_Check(pDX, IDC_CHECK_NEWLINE_STAGE1, boxNewLine1);
+
+	DDX_Control(pDX, IDC_TEXTFIELD_PASSWORD, editTranspositionPassword);
 }
 
 BEGIN_MESSAGE_MAP(CDlgADFGVX, CDialog)
@@ -201,7 +200,7 @@ BEGIN_MESSAGE_MAP(CDlgADFGVX, CDialog)
 	ON_EN_CHANGE(IDC_M53, OnEnChangeM53)
 	ON_EN_CHANGE(IDC_M54, OnEnChangeM54)
 	ON_EN_CHANGE(IDC_M55, OnEnChangeM55)
-	ON_EN_CHANGE(IDC_TEXTFIELD_PASSWORD, OnEnChangeTextfieldPassword)
+	ON_EN_CHANGE(IDC_TEXTFIELD_PASSWORD, OnChangedTranspositionPassword)
 	ON_BN_CLICKED(IDC_CHECK_OUTPUT, OnBnClickedCheckOutputStage1)
 	ON_BN_CLICKED(IDC_ERASEMATRIX, OnBnClickedErasematrix)
 	ON_BN_CLICKED(IDC_CHECK_BLOCK_STAGE2, OnBnClickedCheckBlockStage2)
@@ -247,7 +246,7 @@ void CDlgADFGVX::OnBnClickedButtonEncrypt()
 	}
 	if ((blockSizeStage1<1)|(blockSizeStage1>26))
 	{
-		blockSizeStage1=password.GetLength();
+		blockSizeStage1=editTranspositionPassword.getText().GetLength();
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_BLOCKLENGTH_STAGE1,pc_str,STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str);
 		validBlocksizes=false;
@@ -256,7 +255,7 @@ void CDlgADFGVX::OnBnClickedButtonEncrypt()
 	if(validBlocksizes)
 	{
 		//validate the transposition-password
-		int validPassword=cipher->CheckPassword(1, 1, password);
+		int validPassword=cipher->CheckPassword(1, 1, editTranspositionPassword.getText());
 		
 		//passwordLength<1
 		if (validPassword==6)
@@ -268,13 +267,12 @@ void CDlgADFGVX::OnBnClickedButtonEncrypt()
 		//invalid characters are removed; recheck
 		if (validPassword==4)
 		{
-			CString oldPassword=password;
-			password=cipher->CleansePassword(validPassword, password);
+			CString oldPassword=editTranspositionPassword.getText();
+			editTranspositionPassword.setText(cipher->CleansePassword(validPassword, editTranspositionPassword.getText()));
 			UpdateData(false);
 			pwdInvalid=true;
 			restart=true;
-			OnEnChangeTextfieldPassword();
-
+			
 			OnBnClickedButtonEncrypt();
 		}	
 
@@ -294,7 +292,7 @@ void CDlgADFGVX::OnBnClickedButtonEncrypt()
 				CString message="";
 
 				// special case: the password is empty because ALL characters were invalid
-				if(password.GetLength() == 0) {
+				if(editTranspositionPassword.getText().GetLength() == 0) {
 					// notify user that the password was contained invalid characters only
 					LoadString(AfxGetInstanceHandle(), IDS_STRING_ADFGVX_PASSWORD_EMPTY_REPEAT_INPUT_PROCESS, pc_str, STR_LAENGE_STRING_TABLE);
 					MessageBox(pc_str, "CrypTool", MB_OK);
@@ -318,7 +316,7 @@ void CDlgADFGVX::OnBnClickedButtonEncrypt()
 					
 					LoadString (AfxGetInstanceHandle(), IDS_STRING_ADFGVX_NEWPWD, pc_str, STR_LAENGE_STRING_TABLE);
 					message.Append(pc_str);
-					message.Append(password);
+					message.Append(editTranspositionPassword.getText());
 
 					// append user option 1: continue encryption with shortened password
 					LoadString(AfxGetInstanceHandle(), IDS_STRING_ADFGVX_OPTION_CONTINUE, pc_str, STR_LAENGE_STRING_TABLE);
@@ -372,7 +370,7 @@ void CDlgADFGVX::OnBnClickedButtonDecrypt()
 	}
 	if ((blockSizeStage1<0)|(blockSizeStage1>26))
 	{
-		blockSizeStage1=password.GetLength();
+		blockSizeStage1=editTranspositionPassword.getText().GetLength();
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_BLOCKLENGTH_STAGE1,pc_str,STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str);
 		validBlocksizes=false;
@@ -381,7 +379,7 @@ void CDlgADFGVX::OnBnClickedButtonDecrypt()
 	if(validBlocksizes)
 	{
 		//validate the transposition-password
-		int validPassword=cipher->CheckPassword(1, 1, password);
+		int validPassword=cipher->CheckPassword(1, 1, editTranspositionPassword.getText());
 		
 		//passwordLength<1
 		if (validPassword==6)
@@ -393,15 +391,14 @@ void CDlgADFGVX::OnBnClickedButtonDecrypt()
 		//invalid characters are removed; recheck
 		if (validPassword==4)
 		{
-			CString oldPassword=password;
-			password=cipher->CleansePassword(validPassword, password);
+			CString oldPassword=editTranspositionPassword.getText();
+			editTranspositionPassword.setText(cipher->CleansePassword(validPassword, editTranspositionPassword.getText()));
 			UpdateData(false);
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_4,pc_str,STR_LAENGE_STRING_TABLE);
-			CString message=(CString)pc_str+(CString)(password);
+			CString message=(CString)pc_str+(CString)(editTranspositionPassword.getText());
 			MessageBox(message);
 			restart=true;
-			OnEnChangeTextfieldPassword();
-
+			
 			OnBnClickedButtonDecrypt();
 		}	
 
@@ -437,7 +434,7 @@ void CDlgADFGVX::OnBnClickedButtonInsertKey()
 	//second one the serialized matrix
 	int split = key.Find(',');
 	//set password variable for dialog
-	password = key.Left(split);
+	editTranspositionPassword.setText(key.Left(split));
 	//set matrix variables for dialog
 	for (int row=0;row<6;row++)
 		for(int col=0;col<6;col++)
@@ -448,7 +445,7 @@ void CDlgADFGVX::OnBnClickedButtonInsertKey()
 	//check whether en- or decryption is possible
 	CheckProgress();
 	UpdateData(true);
-	numberedPassword=cipher->LettersToNumbers(this->password);
+	numberedPassword=cipher->LettersToNumbers(editTranspositionPassword.getText());
 	UpdateData(false);
 }
 void CDlgADFGVX::OnBnClickedMatrixShuffle()
@@ -985,7 +982,7 @@ void CDlgADFGVX::Decrypt()
 		char stage1[256];
 		//saves the password and serialized matrix 
 		CString pwdString;
-		pwdString += password;
+		pwdString += editTranspositionPassword.getText();
 		pwdString += ", ";
 		//get filename of temporary file
 		GetTmpName(outfile,"cry",".txt");
@@ -1003,7 +1000,7 @@ void CDlgADFGVX::Decrypt()
 		if(boxBlockOutput1==false)
 			blockSizeStage1=0;
 
-		int rtn = cipher->decrypt(this->infile, outfile, password, blockSizeStage2, 
+		int rtn = cipher->decrypt(this->infile, outfile, editTranspositionPassword.getText(), blockSizeStage2, 
 			(BOOL)(newLineStage2), (BOOL)(printStage1), blockSizeStage1, (BOOL)(newLineStage1), stage1);
 		//if no error occured
 		if (rtn == 0)
@@ -1037,7 +1034,7 @@ void CDlgADFGVX::Encrypt()
 		char stage1[256];
 		//saves the password and serialized matrix 
 		CString pwdString;
-		pwdString += password;
+		pwdString += editTranspositionPassword.getText();
 		pwdString += ", ";
 		//get filename of temporary file
 		GetTmpName(outfile,"cry",".txt");
@@ -1056,7 +1053,7 @@ void CDlgADFGVX::Encrypt()
 			blockSizeStage1=0;
 
 		//execute encryption function 
-		int rtn = cipher->encrypt(this->infile, outfile, password, blockSizeStage2, 
+		int rtn = cipher->encrypt(this->infile, outfile, editTranspositionPassword.getText(), blockSizeStage2, 
 			(BOOL)(newLineStage2), (BOOL)(printStage1), blockSizeStage1, (BOOL)(newLineStage1), stage1);
 		//handle error or show result
 
@@ -1086,17 +1083,6 @@ void CDlgADFGVX::Encrypt()
 			MessageBox("Unbekannter Fehler");
 		HIDE_HOUR_GLASS
 }
-
-void CDlgADFGVX::OnEnChangeTextfieldPassword()
-{
-	//check whether en- or decryption is possible
-	CheckProgress();
-	UpdateData(true);
-	numberedPassword=cipher->LettersToNumbers(this->password);
-	UpdateData(false);
-}
-
-
 
 //function to check if the input is a valid character & if there are double characters in the matrix
 CString CDlgADFGVX::CheckInput(CString oldEntry, CString input)
@@ -1171,7 +1157,7 @@ void CDlgADFGVX::CheckProgress()
 	UpdateData(true);
 	//the password is only checked in length for it is annyoing if the password is corrected while typing.
 	//so: passwordcorrection only when leaving the dialog
-	if (this->password.GetLength()>0)
+	if (editTranspositionPassword.getText().GetLength()>0)
 		validPassword=true;
 
 	//it's unnecessary to check all parameters, if the one fails, the others can be postponed
@@ -1266,7 +1252,7 @@ void CDlgADFGVX::OnBnClickedCheckBlockStage1()
 	{
 		editBlockLength1.EnableWindow(true);
 		GetDlgItem(IDC_CHECK_NEWLINE_STAGE1)->EnableWindow(true);
-		blockSizeStage1=password.GetLength();
+		blockSizeStage1=editTranspositionPassword.getText().GetLength();
 	}
 	else
 	{
@@ -1341,4 +1327,15 @@ void CDlgADFGVX::OnBnClickedButtonTextOptions()
 {
 	// let the user modify the CrypTool alphabet from within the ADFGVX dialog
 	theApp.TextOptions.DoModal();
+	// update the transposition password (so that it complies to the text options)
+	editTranspositionPassword.updateText();
+	UpdateData(false);
+}
+
+void CDlgADFGVX::OnChangedTranspositionPassword()
+{
+	// update the numbered password
+	numberedPassword=cipher->LettersToNumbers(editTranspositionPassword.getText());
+	UpdateData(false);
+	CheckProgress();
 }
