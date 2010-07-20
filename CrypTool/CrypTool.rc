@@ -3733,28 +3733,6 @@ BEGIN
     PUSHBUTTON      "Opcje &tekstu",IDC_BUTTON_TEXTOPTIONS,167,202,55,22
 END
 
-IDD_VISUALIZE_PHASE_SPACE DIALOGEX 0, 0, 388, 273
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Wizualizacja 3D binarnych danych"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
-BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,283,247,45,20
-    PUSHBUTTON      "Przerwij",IDCANCEL,336,247,45,20
-    GROUPBOX        "Gêstoœæ",IDC_RENDER_DENSITY,283,7,46,87
-    CONTROL         "Auto",IDC_RENDER_DENSITY_AUTO,"Button",BS_AUTORADIOBUTTON,289,16,33,15
-    CONTROL         "31",IDC_RENDER_DENSITY_31,"Button",BS_AUTORADIOBUTTON,289,27,31,18
-    CONTROL         "63",IDC_RENDER_DENSITY_63,"Button",BS_AUTORADIOBUTTON,289,41,31,18
-    CONTROL         "127",IDC_RENDER_DENSITY_127,"Button",BS_AUTORADIOBUTTON,289,55,31,18
-    CONTROL         "255",IDC_RENDER_DENSITY_255,"Button",BS_AUTORADIOBUTTON,289,70,31,18
-    GROUPBOX        "Rozmiar s³owa",IDC_RENDER_WORDSIZE,334,7,47,86
-    CONTROL         "1 Bajt",IDC_RENDER_WORDLEN_1,"Button",BS_AUTORADIOBUTTON,339,15,36,18
-    CONTROL         "2 Bajty",IDC_RENDER_WORDLEN_2,"Button",BS_AUTORADIOBUTTON,339,29,35,18
-    CONTROL         "4 Bajty",IDC_RENDER_WORDLEN_4,"Button",BS_AUTORADIOBUTTON,339,42,35,18
-    GROUPBOX        "Przesuniêcie",IDC_RENDER_SHIFT,283,97,46,48
-    CONTROL         "1/2",IDC_RENDER_SHIFT_HALF,"Button",BS_AUTORADIOBUTTON,289,107,36,18
-    CONTROL         "0",IDC_RENDER_SHIFT_0,"Button",BS_AUTORADIOBUTTON,289,121,35,18
-END
-
 IDD_SOLITAIRE DIALOGEX 0, 0, 681, 444
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Generowanie strumienia kluczy Solitaire"
@@ -14867,28 +14845,6 @@ BEGIN
     PUSHBUTTON      "&Opcije teksta",IDC_BUTTON_TEXTOPTIONS,165,205,55,19
 END
 
-IDD_VISUALIZE_PHASE_SPACE DIALOGEX 0, 0, 388, 273
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "3D Vizualizacija Binarnih Podataka"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
-BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,283,247,45,20
-    PUSHBUTTON      "&Otkaži",IDCANCEL,336,247,45,20
-    GROUPBOX        "Gustina",IDC_RENDER_DENSITY,283,7,46,87
-    CONTROL         "Auto",IDC_RENDER_DENSITY_AUTO,"Button",BS_AUTORADIOBUTTON,289,16,33,15
-    CONTROL         "31",IDC_RENDER_DENSITY_31,"Button",BS_AUTORADIOBUTTON,289,27,31,18
-    CONTROL         "63",IDC_RENDER_DENSITY_63,"Button",BS_AUTORADIOBUTTON,289,41,31,18
-    CONTROL         "127",IDC_RENDER_DENSITY_127,"Button",BS_AUTORADIOBUTTON,289,55,31,18
-    CONTROL         "255",IDC_RENDER_DENSITY_255,"Button",BS_AUTORADIOBUTTON,289,70,31,18
-    GROUPBOX        "Velicina Reci",IDC_RENDER_WORDSIZE,334,7,47,86
-    CONTROL         "1 Byte",IDC_RENDER_WORDLEN_1,"Button",BS_AUTORADIOBUTTON,339,15,36,18
-    CONTROL         "2 Byte-a",IDC_RENDER_WORDLEN_2,"Button",BS_AUTORADIOBUTTON,339,29,35,18
-    CONTROL         "4 Byte-a",IDC_RENDER_WORDLEN_4,"Button",BS_AUTORADIOBUTTON,339,42,35,18
-    GROUPBOX        "Pomeraj",IDC_RENDER_SHIFT,283,97,46,48
-    CONTROL         "1/2",IDC_RENDER_SHIFT_HALF,"Button",BS_AUTORADIOBUTTON,289,107,36,18
-    CONTROL         "0",IDC_RENDER_SHIFT_0,"Button",BS_AUTORADIOBUTTON,289,121,35,18
-END
-
 IDD_SOLITAIRE DIALOGEX 0, 0, 676, 433
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Solitaire Šifrovanje/Dešifrovanje"
@@ -21740,7 +21696,7 @@ BEGIN
     IDS_ACTIVE              "(Aktivan) "
     IDS_PERMKEY_COPIED_AND_TIPPS 
                             "Odabrani kljuc je kopiran u skladište kljuceva. Možete koristiti ovaj kljuc permutacije za šifrovanje dokumenata ili dešifrovanje šifrata (Pogledajte meni: Šifruj/Dešifruj \\ Simetricno (klasicno) \\ Permutacija / Transpozicija).\n\nKorišcenjem dijaloga za šifrovanje Permutacijom možete kliknuti na simbol kljuca da nalepite uskladišten kljuc."
-    IDS_DIALOGHEADER_PERMKEY_LIST "Lista oporavljenih kljuceva permutacije."
+    IDS_DIALOGHEADER_PERMKEY_LIST "Lista oporavljenih kljuceva permutacije"
     IDS_INFO_TEXT_ENCRYPTION 
                             "Odabrali ste opciju da šifrujete u tekstualnom režimu.\nOvo znaci da karakteri, koji ne pripadaju alfabetu, nisu šifrovani (prema podešavanjima za opcije Teksta ovi karakteri su ili uklonjeni ili nepromenjeni)."
     IDS_INFO_BYNARY_ENCRYPTION 
@@ -26053,28 +26009,6 @@ BEGIN
                     "Button",BS_AUTORADIOBUTTON,21,51,225,10
     GROUPBOX        "Schlüsseleingabe",IDC_STATIC,14,73,288,40
     PUSHBUTTON      "&Textoptionen",IDC_BUTTON_TEXTOPTIONS,165,205,57,19
-END
-
-IDD_VISUALIZE_PHASE_SPACE DIALOG  0, 0, 388, 273
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "3D-Visualisierung von Binärdaten"
-FONT 8, "MS Sans Serif"
-BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,283,247,45,20
-    PUSHBUTTON      "Abbrechen",IDCANCEL,336,247,45,20
-    GROUPBOX        "Density",IDC_RENDER_DENSITY,283,7,46,87
-    CONTROL         "Auto",IDC_RENDER_DENSITY_AUTO,"Button",BS_AUTORADIOBUTTON,289,16,33,15
-    CONTROL         "31",IDC_RENDER_DENSITY_31,"Button",BS_AUTORADIOBUTTON,289,27,31,18
-    CONTROL         "63",IDC_RENDER_DENSITY_63,"Button",BS_AUTORADIOBUTTON,289,41,31,18
-    CONTROL         "127",IDC_RENDER_DENSITY_127,"Button",BS_AUTORADIOBUTTON,289,55,31,18
-    CONTROL         "255",IDC_RENDER_DENSITY_255,"Button",BS_AUTORADIOBUTTON,289,70,31,18
-    GROUPBOX        "Word Size",IDC_RENDER_WORDSIZE,334,7,47,86
-    CONTROL         "1 Byte",IDC_RENDER_WORDLEN_1,"Button",BS_AUTORADIOBUTTON,339,15,36,18
-    CONTROL         "2 Byte",IDC_RENDER_WORDLEN_2,"Button",BS_AUTORADIOBUTTON,339,29,35,18
-    CONTROL         "4 Byte",IDC_RENDER_WORDLEN_4,"Button",BS_AUTORADIOBUTTON,339,42,35,18
-    GROUPBOX        "Shift",IDC_RENDER_SHIFT,283,97,46,48
-    CONTROL         "1/2",IDC_RENDER_SHIFT_HALF,"Button",BS_AUTORADIOBUTTON,289,107,36,18
-    CONTROL         "0",IDC_RENDER_SHIFT_0,"Button",BS_AUTORADIOBUTTON,289,121,35,18
 END
 
 IDD_SOLITAIRE DIALOGEX 0, 0, 676, 433
@@ -37014,28 +36948,6 @@ BEGIN
     PUSHBUTTON      "&Text options",IDC_BUTTON_TEXTOPTIONS,165,205,57,19
 END
 
-IDD_VISUALIZE_PHASE_SPACE DIALOGEX 0, 0, 388, 273
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "3D Visualization of Binary Data"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
-BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,283,247,45,20
-    PUSHBUTTON      "&Cancel",IDCANCEL,336,247,45,20
-    GROUPBOX        "Density",IDC_RENDER_DENSITY,283,7,46,87
-    CONTROL         "Auto",IDC_RENDER_DENSITY_AUTO,"Button",BS_AUTORADIOBUTTON,289,16,33,15
-    CONTROL         "31",IDC_RENDER_DENSITY_31,"Button",BS_AUTORADIOBUTTON,289,27,31,18
-    CONTROL         "63",IDC_RENDER_DENSITY_63,"Button",BS_AUTORADIOBUTTON,289,41,31,18
-    CONTROL         "127",IDC_RENDER_DENSITY_127,"Button",BS_AUTORADIOBUTTON,289,55,31,18
-    CONTROL         "255",IDC_RENDER_DENSITY_255,"Button",BS_AUTORADIOBUTTON,289,70,31,18
-    GROUPBOX        "Word Size",IDC_RENDER_WORDSIZE,334,7,47,86
-    CONTROL         "1 Byte",IDC_RENDER_WORDLEN_1,"Button",BS_AUTORADIOBUTTON,339,15,36,18
-    CONTROL         "2 Byte",IDC_RENDER_WORDLEN_2,"Button",BS_AUTORADIOBUTTON,339,29,35,18
-    CONTROL         "4 Byte",IDC_RENDER_WORDLEN_4,"Button",BS_AUTORADIOBUTTON,339,42,35,18
-    GROUPBOX        "Shift",IDC_RENDER_SHIFT,283,97,46,48
-    CONTROL         "1/2",IDC_RENDER_SHIFT_HALF,"Button",BS_AUTORADIOBUTTON,289,107,36,18
-    CONTROL         "0",IDC_RENDER_SHIFT_0,"Button",BS_AUTORADIOBUTTON,289,121,35,18
-END
-
 IDD_SOLITAIRE DIALOGEX 0, 0, 676, 433
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Solitaire De-/Encryption"
@@ -43903,7 +43815,7 @@ BEGIN
     IDS_ACTIVE              "(Active) "
     IDS_PERMKEY_COPIED_AND_TIPPS 
                             "The selected key has been copied to the key storage. You may use this permutation key for document encryption or ciphertext decryption (See menu: Encrypt/Decrypt \\ Symmetric (classic) \\ Permutation / Transposition).\n\nUsing the Permutation encryption dialog you may click on the key symbol to paste the stored key."
-    IDS_DIALOGHEADER_PERMKEY_LIST "List of recovered permutation keys."
+    IDS_DIALOGHEADER_PERMKEY_LIST "List of recovered permutation keys"
     IDS_INFO_TEXT_ENCRYPTION 
                             "You chose the option to do the encryption in text mode.\nThis means that characters, which don't belong to the alphabet, are not encrypted\n(according to the text option settings these characters are either taken away or are kept unchanged)."
     IDS_INFO_BYNARY_ENCRYPTION 
@@ -46565,28 +46477,6 @@ BEGIN
     PUSHBUTTON      "&Cancelar",IDCANCEL,178,64,67,19
     LTEXT           "En el Generador de Números Aleatorios X^2 (mod N) es necesario especificar el módulo N.\nPuede obtener más información pulsando la tecla F1.",IDC_STATIC,10,3,235,32
     LTEXT           "Módulo N = ",IDC_STATIC,10,41,42,8
-END
-
-IDD_VISUALIZE_PHASE_SPACE DIALOGEX 0, 0, 388, 273
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Visualización 3D a partir de datos Binarios"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
-BEGIN
-    DEFPUSHBUTTON   "&Aceptar",IDOK,283,247,45,20
-    PUSHBUTTON      "&Cancelar",IDCANCEL,336,247,45,20
-    GROUPBOX        "Densidad",IDC_RENDER_DENSITY,283,7,46,87
-    CONTROL         "Auto",IDC_RENDER_DENSITY_AUTO,"Button",BS_AUTORADIOBUTTON,289,16,33,15
-    CONTROL         "31",IDC_RENDER_DENSITY_31,"Button",BS_AUTORADIOBUTTON,289,27,31,18
-    CONTROL         "63",IDC_RENDER_DENSITY_63,"Button",BS_AUTORADIOBUTTON,289,41,31,18
-    CONTROL         "127",IDC_RENDER_DENSITY_127,"Button",BS_AUTORADIOBUTTON,289,55,31,18
-    CONTROL         "255",IDC_RENDER_DENSITY_255,"Button",BS_AUTORADIOBUTTON,289,70,31,18
-    GROUPBOX        "Tamaño",IDC_RENDER_WORDSIZE,334,7,47,86
-    CONTROL         "1 Byte",IDC_RENDER_WORDLEN_1,"Button",BS_AUTORADIOBUTTON,339,15,36,18
-    CONTROL         "2 Byte",IDC_RENDER_WORDLEN_2,"Button",BS_AUTORADIOBUTTON,339,29,35,18
-    CONTROL         "4 Byte",IDC_RENDER_WORDLEN_4,"Button",BS_AUTORADIOBUTTON,339,42,35,18
-    GROUPBOX        "Cambio",IDC_RENDER_SHIFT,283,97,46,48
-    CONTROL         "1/2",IDC_RENDER_SHIFT_HALF,"Button",BS_AUTORADIOBUTTON,289,107,36,18
-    CONTROL         "0",IDC_RENDER_SHIFT_0,"Button",BS_AUTORADIOBUTTON,289,121,35,18
 END
 
 IDD_VERIFY_SIGNATURE DIALOGEX 0, 0, 387, 366
@@ -55049,7 +54939,7 @@ BEGIN
     IDS_ACTIVE              "(Activo) "
     IDS_PERMKEY_COPIED_AND_TIPPS 
                             "La clave seleccionada fue copiada al almacén de claves. Puede usar esta clave de permutación para cifrar documentos o descifrar texto cifrado (Vea menú: Cifrar/Descifrar \\ Simétrico (clásico) \\ Permutación/Transposición.\n\nUsando la ventana de Cifrado de Permutación, al hacer un click sobre el ícono de la llave podrá pegar la clave almacenada."
-    IDS_DIALOGHEADER_PERMKEY_LIST "Lista de clave de permutación reuperadas."
+    IDS_DIALOGHEADER_PERMKEY_LIST "Lista de clave de permutación reuperadas"
     IDS_INFO_TEXT_ENCRYPTION 
                             "Usted ha elegido la opción de cifrado en modo texto.\nEso significa que los caracteres que no pertenecen al alfabeto no serán cifrados (según la configuración de las opciones de texto, esos caracteres son eliminados o permanecen sin cambios)."
     IDS_INFO_BYNARY_ENCRYPTION 
