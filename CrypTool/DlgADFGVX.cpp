@@ -31,7 +31,6 @@
 #include "CrypToolTools.h"
 #include "KeyRepository.h"
 #include "DialogeMessage.h"
-#include "DlgADFGVXShortenedPassword.h"
 
 // CDlgADFGVX-Dialogfeld
 
