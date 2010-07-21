@@ -124,22 +124,19 @@ public:
 	void schritt4revers();
 	void analysevorne();
 	void analysehinten();
-	void inideckspeichern();
-	void abschlussdeckspeichern();
-	void inideckladen();
-	void abschlussdeckladen();
 	void passwortinzahlen(CString pw);
 	void pass2deck(int laenge);
 	void schritt5fuerpasswort(int count);
 	char umwandelninbuch(int k);
-	int umwandelninzahl(char k);
+	int  umwandelninzahl(char k);
 	void verschluesseln(CString plaintext);
 	void readPlaintext(const char* ifile);
 	void writeCiphertext(const char* ofile);
 	void writeplaintext(const char* ofile);
 	void entschluesseln(CString ciphertext);
-	void keyspeichern();
-	void keyladen();
+
+   int writedeck( const char *deck_label );
+   int readdeck ( const char *deck_label );
 };
 
 #endif 

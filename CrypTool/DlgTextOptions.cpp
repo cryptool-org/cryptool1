@@ -310,8 +310,8 @@ void CDlgTextOptions::OnUpdateEditAlphabet()
       if ( 0 <= LOWERCASE_UMLAUTS.Find( alphabet[i] ) ) { lowerCase = 1; umlauts = 1; }
    }
 
-   // Set distinguishUpperLowerCase = TRUE -- if (lowerCase && upperCase)
-	if( !distinguishUpperLowerCase && (lowerCase && upperCase) ) 
+   // Set distinguishUpperLowerCase = TRUE -- if (lowerCase)
+	if( !distinguishUpperLowerCase && (lowerCase) ) 
    {
 		distinguishUpperLowerCase     = TRUE;
 		keepUpperLowerCaseInformation = FALSE;
@@ -497,13 +497,18 @@ void CDlgTextOptions::OnCheckDigits()
 
 void CDlgTextOptions::updateCheckState()
 {
-   CString allUmlauts;
+   int lowercase_umlauts, uppercase_umlauts;
+   lowercase_umlauts = check_charset( alphabet, LOWERCASE_UMLAUTS );
+   uppercase_umlauts = check_charset( alphabet, UPPERCASE_UMLAUTS );
+
+   upperCase   = check_charset( alphabet, (lowercase_umlauts) ? UPPERCASE_CHARS + UPPERCASE_UMLAUTS : UPPERCASE_CHARS );
+   lowerCase   = check_charset( alphabet, (uppercase_umlauts) ? LOWERCASE_CHARS + LOWERCASE_UMLAUTS : LOWERCASE_CHARS );
+
+   CString allUmlauts(_T(""));
    if(upperCase) allUmlauts.Append(UPPERCASE_UMLAUTS);
    if(lowerCase) allUmlauts.Append(LOWERCASE_UMLAUTS);
    umlauts     = check_charset( alphabet, allUmlauts );
 
-   upperCase   = check_charset( alphabet, (umlauts) ? UPPERCASE_CHARS + UPPERCASE_UMLAUTS : UPPERCASE_CHARS );
-   lowerCase   = check_charset( alphabet, (umlauts) ? LOWERCASE_CHARS + LOWERCASE_UMLAUTS : LOWERCASE_CHARS );
    space       = check_charset( alphabet, _T(" "));
    punctuation = check_charset( alphabet, SPECIAL_CHARS );
    digits      = check_charset( alphabet, DIGIT_CHARS );

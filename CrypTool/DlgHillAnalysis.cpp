@@ -46,8 +46,6 @@ static char THIS_FILE[] = __FILE__;
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgHillAnaylsis 
-
-
 CDlgHillAnaylsis::CDlgHillAnaylsis(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgHillAnaylsis::IDD, pParent)
 	, m_edTab(0)
@@ -59,8 +57,6 @@ CDlgHillAnaylsis::CDlgHillAnaylsis(CWnd* pParent /*=NULL*/)
 	, fn_ciphertext(0)
 	, m_check_VM(1)
 	, m_check_MV(1)
-	, m_check_ofs_0(1)
-	, m_check_ofs_1(1)
 {
 }
 
@@ -71,7 +67,6 @@ CDlgHillAnaylsis::~CDlgHillAnaylsis()
 	delete []fn_ciphertext;
 }
 
-
 void CDlgHillAnaylsis::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -81,10 +76,7 @@ void CDlgHillAnaylsis::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_FILE_SELECT, m_ctrlFileSelect);
 	DDX_Check(pDX, IDC_CHECK_VM,   m_check_VM);
 	DDX_Check(pDX, IDC_CHECK_MV,   m_check_MV);
-	DDX_Check(pDX, IDC_CHECK_OFS0, m_check_ofs_0);
-	DDX_Check(pDX, IDC_CHECK_OFS1, m_check_ofs_1);
 }
-
 
 BEGIN_MESSAGE_MAP(CDlgHillAnaylsis, CDialog)
 	ON_CBN_SELCHANGE(IDC_DIM_VON, OnSelchangeDimVon)
@@ -96,13 +88,10 @@ BEGIN_MESSAGE_MAP(CDlgHillAnaylsis, CDialog)
 	ON_CBN_SELENDOK(IDC_FILE_SELECT, &CDlgHillAnaylsis::OnCbnSelendokFileSelect)
 	ON_BN_CLICKED(IDC_CHECK_VM, &CDlgHillAnaylsis::OnBnClickedCheckVM)
 	ON_BN_CLICKED(IDC_CHECK_MV, &CDlgHillAnaylsis::OnBnClickedCheckMV)
-	ON_BN_CLICKED(IDC_CHECK_OFS0, &CDlgHillAnaylsis::OnBnClickedCheckOfs0)
-	ON_BN_CLICKED(IDC_CHECK_OFS1, &CDlgHillAnaylsis::OnBnClickedCheckOfs1)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // Behandlungsroutinen für Nachrichten CDlgHillAnaylsis 
-
 void CDlgHillAnaylsis::initSCEdit()
 {
 	// Initialize Edit Window
@@ -251,9 +240,6 @@ void CDlgHillAnaylsis::SaveFile()
 	}
 }
 
-
-
-
 BOOL CDlgHillAnaylsis::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
@@ -272,23 +258,19 @@ BOOL CDlgHillAnaylsis::OnInitDialog()
 		m_DimensionBis.AddString(cs);
 	}
 
-	m_check_MV = m_check_VM = m_check_ofs_0 = m_check_ofs_1 = 1;
+	m_check_MV = m_check_VM = 1;
 
 	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "HillAnalysis") == ERROR_SUCCESS)
 	{
-		unsigned long ul_MV, ul_VM, ul_o0, ul_o1, ul_dimFrom, ul_dimTo;
+		unsigned long ul_MV, ul_VM, ul_dimFrom, ul_dimTo;
 		CT_READ_REGISTRY_DEFAULT(ul_MV,      "try_mult_dir_matr_vec",    1);
 		CT_READ_REGISTRY_DEFAULT(ul_VM,      "try_mult_dir_vec_matr",    1);
-		CT_READ_REGISTRY_DEFAULT(ul_o0,      "try_alphabetOffset_0",     1);
-		CT_READ_REGISTRY_DEFAULT(ul_o1,      "try_alphabetOffset_1",     1);
 		CT_READ_REGISTRY_DEFAULT(ul_dimFrom, "dimensionFrom",            1);
 		CT_READ_REGISTRY_DEFAULT(ul_dimTo,   "dimensionTo",              10);
 
 		UpdateData();
 		m_check_MV = ul_MV;
 		m_check_VM = ul_VM;
-		m_check_ofs_0 = ul_o0;
-		m_check_ofs_1 = ul_o1;
 		m_DimensionVon.SetCurSel(ul_dimFrom -1);
 		m_DimensionBis.SetCurSel(ul_dimTo   -1);
 		UpdateData(FALSE);
@@ -429,20 +411,12 @@ void CDlgHillAnaylsis::OnBnClickedSearchKey()
 	long not_found = 1;
 	CString err_str = _T(""); 
 
-	if ( not_found && m_check_VM && m_check_ofs_0 ) {
-		ha.init( fn_plaintext, fn_ciphertext, von, bis, 0, 1 );
+	if ( not_found && m_check_VM ) {
+		ha.init( fn_plaintext, fn_ciphertext, von, bis, 1 );
 		not_found = ha.analyze( err_str );
 	}
-	if ( not_found && m_check_VM && m_check_ofs_1 ) {
-		ha.init( fn_plaintext, fn_ciphertext, von, bis, 1, 1 );
-		not_found = ha.analyze( err_str );
-	}
-	if ( not_found && m_check_MV && m_check_ofs_0 ) {
-		ha.init( fn_plaintext, fn_ciphertext, von, bis, 0, 0 );
-		not_found = ha.analyze( err_str );
-	}
-	if ( not_found && m_check_MV && m_check_ofs_1 ) {
-		ha.init( fn_plaintext, fn_ciphertext, von, bis, 1, 0 );
+	if ( not_found && m_check_MV ) {
+		ha.init( fn_plaintext, fn_ciphertext, von, bis, 0 );
 		not_found = ha.analyze( err_str );
 	}
 	HIDE_HOUR_GLASS
@@ -459,8 +433,6 @@ void CDlgHillAnaylsis::OnBnClickedCancel()
 	{
 		CT_WRITE_REGISTRY((unsigned long)m_check_MV,    "try_mult_dir_matr_vec");
 		CT_WRITE_REGISTRY((unsigned long)m_check_VM,    "try_mult_dir_vec_matr");
-		CT_WRITE_REGISTRY((unsigned long)m_check_ofs_0, "try_alphabetOffset_0");
-		CT_WRITE_REGISTRY((unsigned long)m_check_ofs_1, "try_alphabetOffset_1");
 		CT_WRITE_REGISTRY((unsigned long)m_DimensionVon.GetCurSel() + 1, "dimensionFrom");
 		CT_WRITE_REGISTRY((unsigned long)m_DimensionBis.GetCurSel() + 1, "dimensionTo");
 		CT_CLOSE_REGISTRY();
@@ -528,19 +500,5 @@ void CDlgHillAnaylsis::OnBnClickedCheckMV()
 {
 	UpdateData();
 	if ( !m_check_MV && !m_check_VM ) m_check_VM = 1; 
-	UpdateData(FALSE);
-}
-
-void CDlgHillAnaylsis::OnBnClickedCheckOfs0()
-{
-	UpdateData();
-	if ( !m_check_ofs_0 && !m_check_ofs_1 ) m_check_ofs_1 = 1; 
-	UpdateData(FALSE);
-}
-
-void CDlgHillAnaylsis::OnBnClickedCheckOfs1()
-{
-	UpdateData();
-	if ( !m_check_ofs_1 && !m_check_ofs_0 ) m_check_ofs_0 = 1; 
 	UpdateData(FALSE);
 }

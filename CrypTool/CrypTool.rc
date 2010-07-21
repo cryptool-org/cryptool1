@@ -8,11 +8,12 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -268,12 +269,9 @@ BEGIN
     PUSHBUTTON      "&Opcje tekstu",IDC_BUTTON1,92,350,71,20
     COMBOBOX        IDC_FILE_SELECT,16,218,287,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     GROUPBOX        "Jakie odmiany szyfrowania Hilla maja zostac analizowane",IDC_STATIC,8,243,305,60
-    GROUPBOX        "Wariant mno¿enia",IDC_STATIC,16,256,147,40
+    GROUPBOX        "Wariant mno¿enia",IDC_STATIC,16,256,287,40
     CONTROL         "(wekt. wiersza)*(macierz)",IDC_CHECK_VM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,268,101,8
     CONTROL         "(mac.)*(wektor kolumny)",IDC_CHECK_MV,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,282,101,8
-    GROUPBOX        "Wartoœæ pierwszego znaku alfabetu",IDC_STATIC,171,256,132,40
-    CONTROL         "0",IDC_CHECK_OFS0,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,268,20,10
-    CONTROL         "1",IDC_CHECK_OFS1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,281,20,10
     GROUPBOX        "Opcje",IDC_STATIC,8,307,305,34
 END
 
@@ -314,39 +312,42 @@ BEGIN
     EDITTEXT        IDC_EDIT54,95,158,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT55,115,158,16,12,ES_CENTER | ES_READONLY
     GROUPBOX        "Znaki alfabetu",IDC_STATIC,24,64,119,118
-    EDITTEXT        IDC_EDIT36,168,79,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT37,188,79,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT38,208,79,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT40,228,79,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT46,248,79,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT47,168,99,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT48,188,99,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT49,208,99,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT50,228,99,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT111,248,99,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT57,168,119,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT58,188,119,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT59,208,119,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT56,228,119,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT115,248,119,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT60,168,139,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT61,188,139,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT62,208,139,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT116,228,139,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT117,248,139,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT63,168,159,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT64,188,159,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT69,208,159,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT65,228,159,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT66,248,159,16,12,ES_CENTER | ES_READONLY
-    GROUPBOX        "Wartoœci liczbowe",IDC_STATIC,156,64,119,118
-    GROUPBOX        "Multiplikationsart",IDC_STATIC,9,225,285,41
-    CONTROL         "(wektor wiersza) * (macierz)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,238,125,10
+    EDITTEXT        IDC_EDIT36,171,79,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT37,191,79,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT38,211,79,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT40,231,79,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT46,251,79,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT47,171,99,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT48,191,99,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT49,211,99,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT50,231,99,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT111,251,99,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT57,171,119,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT58,191,119,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT59,211,119,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT56,231,119,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT115,251,119,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT60,171,139,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT61,191,139,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT62,211,139,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT116,231,139,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT117,251,139,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT63,171,159,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT64,191,159,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT69,211,159,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT65,231,159,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT66,251,159,16,12,ES_CENTER | ES_READONLY
+    GROUPBOX        "Wartoœci liczbowe",IDC_STATIC,157,64,124,118
+    GROUPBOX        "Multiplikationsart",IDC_STATIC,9,225,134,41
+    CONTROL         "(wektor wiersza) * (macierz)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,238,109,10
     CONTROL         "(macierz) * (wektor kolumny)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,26,251,108,10
     GROUPBOX        "Informacje o szyfrowaniu",IDC_STATIC_HILL_ALPH,9,6,285,41
     EDITTEXT        IDC_EDIT3,15,23,187,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     RTEXT           "Wartoœæ pierwszego znaku alfabetu",IDC_STATIC,204,22,67,19
     EDITTEXT        IDC_EDIT2,274,23,13,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
+    GROUPBOX        "Wartoœæ pierwszego znaku alfabetu",IDC_STATIC,157,225,125,41
+    CONTROL         "0 (n.p.: ""A""=0)",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,167,238,65,10
+    CONTROL         "1 (n.p.: ""A""=1)",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,167,252,69,10
 END
 
 IDD_KEYASYM_GENERATION DIALOGEX 0, 0, 419, 338
@@ -725,9 +726,9 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "&Kopiuj klucz",IDC_BUTTON1,9,361,96,20
     DEFPUSHBUTTON   "&Zamknij",IDOK,415,361,96,20
-    CONTROL         "Macierz  Hilla (szyfrowanie)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,47,309,143,8
+    CONTROL         "Macierz  Hilla (szyfrowanie)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,45,309,143,8
     CONTROL         "&Odwrotna macierz klucz Hilla (deszyfrowanie)",IDC_RADIO2,
-                    "Button",BS_AUTORADIOBUTTON,47,323,182,8
+                    "Button",BS_AUTORADIOBUTTON,45,323,182,8
     GROUPBOX        "Macierz klucz Hilla",IDC_STATIC,11,56,501,293
     EDITTEXT        IDC_EDIT11,43,84,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT12,63,84,16,12,ES_CENTER | ES_READONLY
@@ -931,7 +932,7 @@ BEGIN
     EDITTEXT        IDC_EDIT200,440,265,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT1012,460,265,16,12,ES_CENTER | ES_READONLY
     GROUPBOX        "Wartoœci liczbowe",IDC_STATIC,266,68,225,222
-    GROUPBOX        "Reprezentacja macierzowa",IDC_STATIC,29,297,210,42
+    GROUPBOX        "Reprezentacja macierzowa",IDC_STATIC,29,297,225,42
     GROUPBOX        "Wariant mnozenia",IDC_STATIC,379,7,132,41
     CONTROL         "(wektor wiersza) * (macierz)",IDC_RADIO25,"Button",BS_AUTORADIOBUTTON | WS_GROUP,397,20,82,10
     CONTROL         "(macierz) * (wektor kolumny)",IDC_RADIO26,"Button",BS_AUTORADIOBUTTON,397,33,93,10
@@ -939,6 +940,9 @@ BEGIN
     EDITTEXT        IDC_EDIT3,21,22,237,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     RTEXT           "Wartoœæ pierwszego znaku alfabetu",IDC_STATIC,268,21,67,19
     EDITTEXT        IDC_EDIT2,341,22,16,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
+    GROUPBOX        "Wartoœæ pierwszego znaku alfabetu",IDC_STATIC,266,297,224,42
+    CONTROL         "0 (n.p.: ""A""=0)",IDC_RADIO27,"Button",BS_AUTORADIOBUTTON | WS_GROUP,281,310,65,10
+    CONTROL         "1 (n.p.: ""A""=1)",IDC_RADIO28,"Button",BS_AUTORADIOBUTTON,281,324,69,10
 END
 
 IDD_KEY_HILL_10X10 DIALOGEX 0, 0, 546, 401
@@ -7296,6 +7300,7 @@ BEGIN
         RIGHTMARGIN, 318
         VERTGUIDE, 8
         VERTGUIDE, 19
+        VERTGUIDE, 303
         VERTGUIDE, 313
         BOTTOMMARGIN, 370
         HORZGUIDE, 318
@@ -7305,8 +7310,13 @@ BEGIN
     IDD_SHOW_KEY_HILL5x5, DIALOG
     BEGIN
         VERTGUIDE, 9
+        VERTGUIDE, 143
+        VERTGUIDE, 157
+        VERTGUIDE, 281
         VERTGUIDE, 294
         BOTTOMMARGIN, 292
+        HORZGUIDE, 225
+        HORZGUIDE, 266
     END
 
     IDD_KEYASYM_GENERATION, DIALOG
@@ -7372,9 +7382,14 @@ BEGIN
 
     IDD_SHOW_KEY_HILL10x10, DIALOG
     BEGIN
+        VERTGUIDE, 254
+        VERTGUIDE, 266
+        VERTGUIDE, 490
         VERTGUIDE, 511
         BOTTOMMARGIN, 381
         HORZGUIDE, 48
+        HORZGUIDE, 297
+        HORZGUIDE, 339
     END
 
     IDD_KEY_HILL_10X10, DIALOG
@@ -11106,12 +11121,12 @@ BEGIN
                             "[i18n] You did not enter any characters, thus the substitution matrix was not changed."
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Serbian (Latin) resources
+// Serbisch (Lateinisch) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_SRL)
 #ifdef _WIN32
@@ -11368,12 +11383,9 @@ BEGIN
     PUSHBUTTON      "Opcije za tekst",IDC_BUTTON1,87,349,71,21
     COMBOBOX        IDC_FILE_SELECT,15,217,289,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     GROUPBOX        "Hill varijante šifrovanja ",IDC_STATIC,8,243,304,60
-    GROUPBOX        "Varijansa umnožavanja",IDC_STATIC,16,256,147,40
+    GROUPBOX        "Varijansa umnožavanja",IDC_STATIC,16,256,288,40
     CONTROL         "(vektor vrste) * (matrica)",IDC_CHECK_VM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,268,101,8
     CONTROL         "(matrica) * (vektor kolone)",IDC_CHECK_MV,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,282,101,8
-    GROUPBOX        "Red prvog karaktera alfabeta:",IDC_STATIC,171,256,132,40
-    CONTROL         "0",IDC_CHECK_OFS0,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,268,20,10
-    CONTROL         "1",IDC_CHECK_OFS1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,281,20,10
     GROUPBOX        "Opcije",IDC_STATIC,8,307,304,34
 END
 
@@ -11441,13 +11453,16 @@ BEGIN
     EDITTEXT        IDC_EDIT65,228,161,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT66,248,161,16,12,ES_CENTER | ES_READONLY
     GROUPBOX        "Brojne vrednosti",IDC_STATIC,156,66,119,118
-    GROUPBOX        "Varijansa množenja",IDC_STATIC,9,227,284,41
+    GROUPBOX        "Varijansa množenja",IDC_STATIC,9,227,134,41
     CONTROL         "(vektor reda) * (matrix)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,240,82,10
     CONTROL         "(matrica) * (vektor kolone)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,29,253,93,10
     GROUPBOX        "Informacija za šifrovanje",IDC_STATIC_HILL_ALPH,9,8,284,38
     EDITTEXT        IDC_EDIT3,17,22,187,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     RTEXT           "Vrednost prvog karaktera alfabeta",IDC_STATIC,209,21,59,19
     EDITTEXT        IDC_EDIT2,271,22,12,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
+    GROUPBOX        "Vrednost prvog karaktera alfabeta",IDC_STATIC,158,227,135,41
+    CONTROL         "0 (npr. ""A""=0)",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,167,240,65,10
+    CONTROL         "1 (npr. ""A""=1)",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,167,254,69,10
 END
 
 IDD_KEYASYM_GENERATION DIALOGEX 0, 0, 419, 338
@@ -11826,9 +11841,9 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "Kopiraj &kljuc",IDC_BUTTON1,9,359,96,20
     DEFPUSHBUTTON   "&Zatvori",IDOK,415,359,96,20
-    CONTROL         "&Hill-ova kljucna matrica (zašifruj)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,47,309,143,8
+    CONTROL         "&Hill-ova kljucna matrica (zašifruj)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,44,309,143,8
     CONTROL         "&Inverzna Hill-ova kljucna matrica (dešifruj)",IDC_RADIO2,
-                    "Button",BS_AUTORADIOBUTTON,47,323,150,8
+                    "Button",BS_AUTORADIOBUTTON,44,323,150,8
     GROUPBOX        "Hill-ova kljucna matrica",IDC_STATIC,10,54,501,295
     EDITTEXT        IDC_EDIT11,42,83,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT12,62,83,16,12,ES_CENTER | ES_READONLY
@@ -12032,7 +12047,7 @@ BEGIN
     EDITTEXT        IDC_EDIT200,439,259,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT1012,459,259,16,12,ES_CENTER | ES_READONLY
     GROUPBOX        "Brojne vrednosti",IDC_STATIC,265,67,225,222
-    GROUPBOX        "Reprezentacija matrice",IDC_STATIC,27,296,210,42
+    GROUPBOX        "Reprezentacija matrice",IDC_STATIC,27,296,226,42
     GROUPBOX        "Varijansa množenja",IDC_STATIC,379,7,132,41
     CONTROL         "(vektor reda) * (matrica)",IDC_RADIO25,"Button",BS_AUTORADIOBUTTON | WS_GROUP,397,20,82,10
     CONTROL         "(matrica) * (vektor kolone)",IDC_RADIO26,"Button",BS_AUTORADIOBUTTON,397,33,93,10
@@ -12040,6 +12055,9 @@ BEGIN
     EDITTEXT        IDC_EDIT3,20,22,255,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     RTEXT           "Vrednost prvog karaktera alfabeta",IDC_STATIC,279,21,60,19
     EDITTEXT        IDC_EDIT2,345,22,16,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
+    GROUPBOX        "Vrednost prvog karaktera alfabeta",IDC_STATIC,265,296,225,42
+    CONTROL         "0 (npr. ""A""=0)",IDC_RADIO27,"Button",BS_AUTORADIOBUTTON | WS_GROUP,279,308,65,10
+    CONTROL         "1 (npr. ""A""=1)",IDC_RADIO28,"Button",BS_AUTORADIOBUTTON,279,322,69,10
 END
 
 IDD_KEY_HILL_10X10 DIALOGEX 0, 0, 546, 401
@@ -18417,6 +18435,7 @@ BEGIN
         RIGHTMARGIN, 318
         VERTGUIDE, 7
         VERTGUIDE, 16
+        VERTGUIDE, 304
         VERTGUIDE, 313
         BOTTOMMARGIN, 370
         HORZGUIDE, 257
@@ -18427,8 +18446,12 @@ BEGIN
     IDD_SHOW_KEY_HILL5x5, DIALOG
     BEGIN
         VERTGUIDE, 9
+        VERTGUIDE, 143
+        VERTGUIDE, 156
         VERTGUIDE, 293
         BOTTOMMARGIN, 294
+        HORZGUIDE, 227
+        HORZGUIDE, 268
     END
 
     IDD_KEYASYM_GENERATION, DIALOG
@@ -18498,9 +18521,13 @@ BEGIN
 
     IDD_SHOW_KEY_HILL10x10, DIALOG
     BEGIN
+        VERTGUIDE, 253
+        VERTGUIDE, 265
         VERTGUIDE, 511
         BOTTOMMARGIN, 379
         HORZGUIDE, 48
+        HORZGUIDE, 296
+        HORZGUIDE, 338
     END
 
     IDD_KEY_HILL_10X10, DIALOG
@@ -22207,12 +22234,12 @@ BEGIN
                             "[i18n] You did not enter any characters, thus the substitution matrix was not changed."
 END
 
-#endif    // Serbian (Latin) resources
+#endif    // Serbisch (Lateinisch) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -22431,12 +22458,9 @@ BEGIN
     GROUPBOX        "Welche Varianten der Hill-Verschlüsselung sollen analysiert werden",IDC_STATIC,8,243,304,60
     PUSHBUTTON      "Textoptionen...",IDC_BUTTON1,90,349,71,20
     COMBOBOX        IDC_FILE_SELECT,15,216,288,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    GROUPBOX        "Multiplikationsart",IDC_STATIC,16,256,147,40
+    GROUPBOX        "Multiplikationsart",IDC_STATIC,16,256,287,40
     CONTROL         "(Vektorreihe) x (Matrix)",IDC_CHECK_VM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,268,101,8
     CONTROL         "(Matrix) x (Vektorspalte)",IDC_CHECK_MV,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,282,101,8
-    GROUPBOX        "Wert des ersten Alphabetzeichens",IDC_STATIC,171,256,132,40
-    CONTROL         "0",IDC_CHECK_OFS0,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,268,20,10
-    CONTROL         "1",IDC_CHECK_OFS1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,281,20,10
     GROUPBOX        "Optionen",IDC_STATIC,8,307,304,34
 END
 
@@ -22504,13 +22528,16 @@ BEGIN
     EDITTEXT        IDC_EDIT65,224,153,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT66,244,153,16,12,ES_CENTER | ES_READONLY
     GROUPBOX        "Zahlenwerte",IDC_STATIC,154,61,116,115
-    GROUPBOX        "Multiplikationsart",IDC_STATIC,9,218,280,41
+    GROUPBOX        "Multiplikationsart",IDC_STATIC,9,218,135,41
     CONTROL         "(Vektorreihe) * (Matrix)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,231,85,10
     CONTROL         "(Matrix) * (Vektorspalte)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,29,244,89,10
     GROUPBOX        "Informationen zur Verschlüsselung",IDC_STATIC_HILL_ALPH,9,9,280,35
     EDITTEXT        IDC_EDIT3,16,22,183,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     RTEXT           "Wert des ersten Alphabetzeichens",IDC_STATIC,202,21,60,19
     EDITTEXT        IDC_EDIT2,266,22,13,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
+    GROUPBOX        "Wert des ersten Alphabetzeichens",IDC_STATIC,154,218,135,41
+    CONTROL         "0 (z.B. ""A""=0)",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,163,231,65,10
+    CONTROL         "1 (z.B. ""A""=1)",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,163,245,69,10
 END
 
 IDD_KEYASYM_GENERATION DIALOGEX 0, 0, 420, 338
@@ -22912,9 +22939,9 @@ BEGIN
     PUSHBUTTON      "Schlüssel &kopieren",IDC_BUTTON1,11,358,108,20
     DEFPUSHBUTTON   "&Schließen",IDOK,405,358,108,20
     CONTROL         "&Hill-Schlüsselmatrix (Verschlüsseln)",IDC_RADIO1,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,61,314,143,8
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,47,314,143,8
     CONTROL         "&Inverse Hill-Schlüsselmatrix (Entschlüsseln)",IDC_RADIO2,
-                    "Button",BS_AUTORADIOBUTTON,61,327,150,8
+                    "Button",BS_AUTORADIOBUTTON,47,327,150,8
     GROUPBOX        "Hill-Schlüsselmatrix",IDC_STATIC,13,57,502,292
     EDITTEXT        IDC_EDIT11,47,91,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT12,67,91,16,12,ES_CENTER | ES_READONLY
@@ -23121,11 +23148,14 @@ BEGIN
     GROUPBOX        "Multiplikationsart",IDC_STATIC,382,8,133,41
     CONTROL         "(Vektorreihe) * (Matrix)",IDC_RADIO25,"Button",BS_AUTORADIOBUTTON | WS_GROUP,401,19,85,10
     CONTROL         "(Matrix) * (Vektorspalte)",IDC_RADIO26,"Button",BS_AUTORADIOBUTTON,401,32,89,10
-    GROUPBOX        "Matrixdarstellung",IDC_STATIC,34,301,210,42
+    GROUPBOX        "Matrixdarstellung",IDC_STATIC,34,301,210,41
     GROUPBOX        "Informationen zur Verschlüsselung",IDC_STATIC_HILL_ALPH,13,8,360,41
     EDITTEXT        IDC_EDIT3,23,24,256,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     RTEXT           "Wert des ersten Alphabetzeichens",IDC_STATIC,283,23,60,19
     EDITTEXT        IDC_EDIT2,347,24,13,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
+    GROUPBOX        "Wert des ersten Alphabetzeichens",IDC_STATIC,270,301,245,41
+    CONTROL         "0 (z.B. ""A""=0)",IDC_RADIO27,"Button",BS_AUTORADIOBUTTON | WS_GROUP,284,313,65,10
+    CONTROL         "1 (z.B. ""A""=1)",IDC_RADIO28,"Button",BS_AUTORADIOBUTTON,284,327,69,10
 END
 
 IDD_KEY_HILL_10X10 DIALOGEX 0, 0, 545, 436
@@ -29540,8 +29570,11 @@ BEGIN
     BEGIN
         RIGHTMARGIN, 296
         VERTGUIDE, 9
+        VERTGUIDE, 144
+        VERTGUIDE, 154
         VERTGUIDE, 289
         BOTTOMMARGIN, 286
+        HORZGUIDE, 259
     END
 
     IDD_KEYASYM_GENERATION, DIALOG
@@ -29603,9 +29636,12 @@ BEGIN
     IDD_SHOW_KEY_HILL10x10, DIALOG
     BEGIN
         VERTGUIDE, 13
+        VERTGUIDE, 256
+        VERTGUIDE, 269
         VERTGUIDE, 515
         BOTTOMMARGIN, 378
         HORZGUIDE, 49
+        HORZGUIDE, 342
     END
 
     IDD_KEY_HILL_10X10, DIALOG
@@ -33227,12 +33263,12 @@ BEGIN
                             "Sie haben keine Zeichen eingegeben, d.h. die Substitutionsmatrix wurde nicht verändert."
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -33486,12 +33522,9 @@ BEGIN
     GROUPBOX        "Hill encryption variants ",IDC_STATIC,7,243,305,63
     PUSHBUTTON      "Text options",IDC_BUTTON1,154,353,71,18
     COMBOBOX        IDC_FILE_SELECT,15,217,289,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    GROUPBOX        "Multiplication variant",IDC_STATIC,16,256,147,40
+    GROUPBOX        "Multiplication variant",IDC_STATIC,16,256,287,40
     CONTROL         "(row vector) * (matrix)",IDC_CHECK_VM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,268,101,8
     CONTROL         "(matrix) * (column vector)",IDC_CHECK_MV,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,282,101,8
-    GROUPBOX        "Order of first character of the alphabet:",IDC_STATIC,171,256,132,40
-    CONTROL         "0",IDC_CHECK_OFS0,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,268,20,10
-    CONTROL         "1",IDC_CHECK_OFS1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,281,20,10
     GROUPBOX        "Options",IDC_STATIC,8,308,304,37
 END
 
@@ -33531,39 +33564,42 @@ BEGIN
     EDITTEXT        IDC_EDIT54,95,159,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT55,115,159,16,12,ES_CENTER | ES_READONLY
     GROUPBOX        "Alphabet characters",IDC_STATIC,24,65,119,118
-    EDITTEXT        IDC_EDIT36,168,80,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT37,188,80,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT38,208,80,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT40,228,80,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT46,248,80,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT47,168,100,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT48,188,100,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT49,208,100,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT50,228,100,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT111,248,100,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT57,168,120,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT58,188,120,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT59,208,120,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT56,228,120,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT115,248,120,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT60,168,140,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT61,188,140,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT62,208,140,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT116,228,140,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT117,248,140,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT63,168,160,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT64,188,160,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT69,208,160,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT65,228,160,16,12,ES_CENTER | ES_READONLY
-    EDITTEXT        IDC_EDIT66,248,160,16,12,ES_CENTER | ES_READONLY
-    GROUPBOX        "Number values",IDC_STATIC,156,65,119,118
-    GROUPBOX        "Multiplication variant",IDC_STATIC,10,222,280,41
-    CONTROL         "(row vector) * (matrix)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,235,82,10
-    CONTROL         "(matrix) * (column vector)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,29,248,93,10
+    EDITTEXT        IDC_EDIT36,171,80,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT37,191,80,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT38,211,80,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT40,231,80,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT46,251,80,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT47,171,100,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT48,191,100,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT49,211,100,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT50,231,100,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT111,251,100,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT57,171,120,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT58,191,120,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT59,211,120,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT56,231,120,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT115,251,120,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT60,171,140,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT61,191,140,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT62,211,140,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT116,231,140,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT117,251,140,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT63,171,160,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT64,191,160,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT69,211,160,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT65,231,160,16,12,ES_CENTER | ES_READONLY
+    EDITTEXT        IDC_EDIT66,251,160,16,12,ES_CENTER | ES_READONLY
+    GROUPBOX        "Number values",IDC_STATIC,156,65,125,118
+    GROUPBOX        "Multiplication variant",IDC_STATIC,10,222,133,41
+    CONTROL         "(row vector) * (matrix)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,25,235,82,10
+    CONTROL         "(matrix) * (column vector)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,25,248,93,10
     GROUPBOX        "Information for encryption",IDC_STATIC_HILL_ALPH,10,9,280,35
     EDITTEXT        IDC_EDIT3,19,22,187,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     RTEXT           "Value of the first alphabet character",IDC_STATIC,208,22,60,19
     EDITTEXT        IDC_EDIT2,270,23,13,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
+    GROUPBOX        "Value of the first alphabet character",IDC_STATIC,156,222,125,41
+    CONTROL         "0 (e.g. ""A""=0)",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,166,235,65,10
+    CONTROL         "1 (e.g. ""A""=1)",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,166,249,69,10
 END
 
 IDD_KEYASYM_GENERATION DIALOGEX 0, 0, 419, 338
@@ -33942,8 +33978,8 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "Copy &key",IDC_BUTTON1,9,358,96,20
     DEFPUSHBUTTON   "&Close",IDOK,415,358,96,20
-    CONTROL         "&Hill key matrix (encrypt)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,47,309,143,8
-    CONTROL         "&Inverse Hill key matrix (decrypt)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,47,323,150,8
+    CONTROL         "&Hill key matrix (encrypt)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,44,309,143,8
+    CONTROL         "&Inverse Hill key matrix (decrypt)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,44,323,150,8
     GROUPBOX        "Hill key matrix",IDC_STATIC,12,54,499,292
     EDITTEXT        IDC_EDIT11,42,83,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT12,62,83,16,12,ES_CENTER | ES_READONLY
@@ -34147,7 +34183,7 @@ BEGIN
     EDITTEXT        IDC_EDIT200,439,264,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT1012,459,264,16,12,ES_CENTER | ES_READONLY
     GROUPBOX        "Number values",IDC_STATIC,265,67,225,222
-    GROUPBOX        "Matrix representation",IDC_STATIC,28,296,210,42
+    GROUPBOX        "Matrix representation",IDC_STATIC,28,296,225,42
     GROUPBOX        "Multiplication variant",IDC_STATIC,372,7,140,41
     CONTROL         "(row vector) * (matrix)",IDC_RADIO25,"Button",BS_AUTORADIOBUTTON | WS_GROUP,398,20,82,10
     CONTROL         "(matrix) * (column vector)",IDC_RADIO26,"Button",BS_AUTORADIOBUTTON,398,33,93,10
@@ -34155,6 +34191,9 @@ BEGIN
     EDITTEXT        IDC_EDIT3,19,24,236,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     RTEXT           "Value of the first alphabet character",IDC_STATIC,266,23,67,19
     EDITTEXT        IDC_EDIT2,339,24,16,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
+    GROUPBOX        "Value of the first alphabet character",IDC_STATIC,266,296,224,42
+    CONTROL         "0 (e.g. ""A""=0)",IDC_RADIO27,"Button",BS_AUTORADIOBUTTON | WS_GROUP,281,309,65,10
+    CONTROL         "1 (e.g. ""A""=1)",IDC_RADIO28,"Button",BS_AUTORADIOBUTTON,281,323,69,10
 END
 
 IDD_KEY_HILL_10X10 DIALOGEX 0, 0, 546, 401
@@ -40504,6 +40543,7 @@ BEGIN
         VERTGUIDE, 7
         VERTGUIDE, 16
         VERTGUIDE, 293
+        VERTGUIDE, 303
         VERTGUIDE, 312
         BOTTOMMARGIN, 371
         HORZGUIDE, 257
@@ -40514,8 +40554,13 @@ BEGIN
     IDD_SHOW_KEY_HILL5x5, DIALOG
     BEGIN
         VERTGUIDE, 10
+        VERTGUIDE, 143
+        VERTGUIDE, 156
+        VERTGUIDE, 281
         VERTGUIDE, 290
         BOTTOMMARGIN, 289
+        HORZGUIDE, 222
+        HORZGUIDE, 263
     END
 
     IDD_KEYASYM_GENERATION, DIALOG
@@ -40587,9 +40632,14 @@ BEGIN
 
     IDD_SHOW_KEY_HILL10x10, DIALOG
     BEGIN
+        VERTGUIDE, 253
+        VERTGUIDE, 266
+        VERTGUIDE, 490
         VERTGUIDE, 511
         BOTTOMMARGIN, 378
         HORZGUIDE, 48
+        HORZGUIDE, 296
+        HORZGUIDE, 338
     END
 
     IDD_KEY_HILL_10X10, DIALOG
@@ -44323,12 +44373,12 @@ BEGIN
                             "You did not enter any characters, thus the substitution matrix was not changed."
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Spanish resources
+// Spanisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ESN)
 #ifdef _WIN32
@@ -47716,9 +47766,9 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "Copiar &clave",IDC_BUTTON1,9,364,96,20
     DEFPUSHBUTTON   "&Cerrar",IDOK,415,364,96,20
-    CONTROL         "Matriz de Clave de &Hill (cifrar)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,47,311,143,8
+    CONTROL         "Matriz de Clave de &Hill (cifrar)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,43,311,143,8
     CONTROL         "Matriz de Clave de Hill &Inversa (descifrar)",IDC_RADIO2,
-                    "Button",BS_AUTORADIOBUTTON,47,325,150,8
+                    "Button",BS_AUTORADIOBUTTON,43,325,150,8
     GROUPBOX        "Matriz de Clave de Hill",IDC_STATIC,12,52,501,296
     EDITTEXT        IDC_EDIT11,42,85,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT12,62,85,16,12,ES_CENTER | ES_READONLY
@@ -47922,7 +47972,7 @@ BEGIN
     EDITTEXT        IDC_EDIT200,439,266,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT1012,459,266,16,12,ES_CENTER | ES_READONLY
     GROUPBOX        "Valores Numéricos",IDC_STATIC,265,69,225,222
-    GROUPBOX        "Representación de la matriz",IDC_STATIC,28,298,210,42
+    GROUPBOX        "Representación de la matriz",IDC_STATIC,28,299,225,41
     GROUPBOX        "Variante de Multiplicación",IDC_STATIC,379,7,132,41
     CONTROL         "(vector fila) * (matriz)",IDC_RADIO25,"Button",BS_AUTORADIOBUTTON | WS_GROUP,397,20,79,10
     CONTROL         "(matriz) * (vector columna)",IDC_RADIO26,"Button",BS_AUTORADIOBUTTON,397,33,97,10
@@ -47930,6 +47980,9 @@ BEGIN
     EDITTEXT        IDC_EDIT3,20,23,260,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     RTEXT           "El primer caracter del alfabeto",IDC_STATIC,281,22,61,19
     EDITTEXT        IDC_EDIT2,348,23,16,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
+    GROUPBOX        "El primer caracter del alfabeto",IDC_STATIC,265,299,225,41
+    CONTROL         "0 (p.e. ""A""=0)",IDC_RADIO27,"Button",BS_AUTORADIOBUTTON | WS_GROUP,279,312,65,10
+    CONTROL         "1 (p.e. ""A""=1)",IDC_RADIO28,"Button",BS_AUTORADIOBUTTON,279,326,69,10
 END
 
 IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 302, 302
@@ -47995,13 +48048,16 @@ BEGIN
     CONTROL         "Matriz de clave &Hill (cifrado)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,24,188,132,8
     CONTROL         "Matriz &Inversa de clave Hill (descifrado)",IDC_RADIO2,
                     "Button",BS_AUTORADIOBUTTON,24,203,137,8
-    GROUPBOX        "Variante de Multiplicación",IDC_STATIC,9,226,281,41
+    GROUPBOX        "Variante de Multiplicación",IDC_STATIC,9,226,134,41
     CONTROL         "(vector fila) * (matriz)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,239,79,10
     CONTROL         "(matriz) * (vector columna)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,29,252,97,10
     GROUPBOX        "Información para cifrar",IDC_STATIC_HILL_ALPH,9,8,281,38
     EDITTEXT        IDC_EDIT3,17,23,190,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     RTEXT           "El primer caracter del alfabeto",IDC_STATIC,211,22,57,19
     EDITTEXT        IDC_EDIT2,272,23,11,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
+    GROUPBOX        "El primer caracter del alfabeto",IDC_STATIC,156,226,135,41
+    CONTROL         "0 (p.e. ""A""=0)",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,165,239,65,10
+    CONTROL         "1 (p.e. ""A""=1)",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,165,253,69,10
 END
 
 IDD_SHOW_KEY_PARAMETER DIALOGEX 0, 0, 317, 156
@@ -48517,12 +48573,9 @@ BEGIN
     PUSHBUTTON      "Opc&iones de Texto",IDC_BUTTON1,93,349,71,19
     COMBOBOX        IDC_FILE_SELECT,15,217,288,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     GROUPBOX        "¿Cuáles variantes del cifrado Hill deberían ser analizadas?",IDC_STATIC,8,243,304,60
-    GROUPBOX        "Variante de multiplicación",IDC_STATIC,16,256,147,40
+    GROUPBOX        "Variante de multiplicación",IDC_STATIC,16,256,287,40
     CONTROL         "(vector fila) * (matriz)",IDC_CHECK_VM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,268,101,8
     CONTROL         "(matrix) * (vector columna)",IDC_CHECK_MV,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,282,101,8
-    GROUPBOX        "Valor del primer caracter del alfabeto:",IDC_STATIC,171,256,132,40
-    CONTROL         "0",IDC_CHECK_OFS0,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,268,20,10
-    CONTROL         "1",IDC_CHECK_OFS1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,281,20,10
     GROUPBOX        "Opciones",IDC_STATIC,8,307,304,34
 END
 
@@ -52237,17 +52290,25 @@ BEGIN
     IDD_SHOW_KEY_HILL10x10, DIALOG
     BEGIN
         RIGHTMARGIN, 523
+        VERTGUIDE, 253
+        VERTGUIDE, 265
+        VERTGUIDE, 490
         VERTGUIDE, 511
         BOTTOMMARGIN, 384
         HORZGUIDE, 48
+        HORZGUIDE, 299
+        HORZGUIDE, 340
         HORZGUIDE, 364
     END
 
     IDD_SHOW_KEY_HILL5x5, DIALOG
     BEGIN
         VERTGUIDE, 9
+        VERTGUIDE, 143
+        VERTGUIDE, 156
         VERTGUIDE, 290
         BOTTOMMARGIN, 296
+        HORZGUIDE, 267
     END
 
     IDD_SHOW_PROGRESS, DIALOG
@@ -55477,7 +55538,7 @@ BEGIN
                             "[i18n] You did not enter any characters, thus the substitution matrix was not changed."
 END
 
-#endif    // Spanish resources
+#endif    // Spanisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 

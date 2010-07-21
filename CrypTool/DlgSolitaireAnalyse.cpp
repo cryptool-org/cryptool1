@@ -54,6 +54,7 @@ CDlgSolitaireAnalyse::CDlgSolitaireAnalyse(char* infile, CString oldTitle,CWnd* 
 
 CDlgSolitaireAnalyse::~CDlgSolitaireAnalyse()
 {
+   delete myD;
 }
 
 void CDlgSolitaireAnalyse::DoDataExchange(CDataExchange* pDX)
@@ -132,17 +133,6 @@ void CDlgSolitaireAnalyse::DoDataExchange(CDataExchange* pDX)
 BOOL CDlgSolitaireAnalyse::OnInitDialog()
 {
 	CDialog::OnInitDialog();
-	/*
-	myD->readPlaintext(infile);
-	if ((myD->plaintext=="")||(myD->plaintext.GetLength()>15000))
-	{
-		LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_1,pc_str,STR_LAENGE_STRING_TABLE);
-		MessageBox(pc_str);
-		this->EndDialog(1);
-		
-	}
-	*/
-	
 	
 	// Leere Nachricht ist nicht erlaubt
 	myD->readPlaintext(infile);
@@ -224,13 +214,11 @@ BEGIN_MESSAGE_MAP(CDlgSolitaireAnalyse, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON1, OnBnClickedButton1)
 	ON_BN_CLICKED(IDC_BUTTON2, OnBnClickedButton2)
 	ON_BN_CLICKED(IDC_BUTTON3, OnBnClickedButton3)
-//	ON_BN_CLICKED(IDC_BUTTON4, OnBnClickedButton4)
-//	ON_BN_CLICKED(IDC_BUTTON5, OnBnClickedButton5)
-ON_EN_CHANGE(IDC_EDIT132, OnEnChangeEdit132)
-ON_BN_CLICKED(IDC_BUTTON4, OnBnClickedButton4)
-ON_BN_CLICKED(IDOK, OnBnClickedOk)
-ON_BN_CLICKED(IDC_BUTTON5, OnBnClickedButton5)
-ON_BN_CLICKED(IDC_BUTTON6, OnBnClickedButton6)
+   ON_EN_CHANGE(IDC_EDIT132, OnEnChangeEdit132)
+   ON_BN_CLICKED(IDC_BUTTON4, OnBnClickedButton4)
+   ON_BN_CLICKED(IDOK, OnBnClickedOk)
+   ON_BN_CLICKED(IDC_BUTTON5, OnBnClickedButton5)
+   ON_BN_CLICKED(IDC_BUTTON6, OnBnClickedButton6)
 END_MESSAGE_MAP()
 
 
@@ -722,7 +710,7 @@ void CDlgSolitaireAnalyse::OnBnClickedOk()
 void CDlgSolitaireAnalyse::OnBnClickedButton5()
 {
 	UpdateData(true);	
-	myD->abschlussdeckladen();
+   myD->readdeck( "LastFinaldeck" );
 	kartenanzahl=myD->anzahl-3;
 	kartenanzahlneu=kartenanzahl+3;
 	gefundenesDeck=myD->getDeck();

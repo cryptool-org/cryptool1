@@ -773,10 +773,13 @@
 #define IDC_RADIO26                     1226
 #define IDC_BUTTON_VER_ENT_SCHLUESSELN  1227
 #define IDC_EDIT203                     1227
+#define IDC_RADIO27                     1227
 #define IDC_EDIT_TEXTOPTIONEN_REFERENZDATEI 1228
 #define IDC_EDIT204                     1228
+#define IDC_RADIO28                     1228
 #define IDC_BUTTON_TEXTOPTIONEN_SUCHE_REFERENZDATEI 1229
 #define IDC_EDIT205                     1229
+#define IDC_RADIO29                     1229
 #define IDC_EDIT206                     1230
 #define IDC_EDIT207                     1231
 #define IDC_EDIT208                     1232

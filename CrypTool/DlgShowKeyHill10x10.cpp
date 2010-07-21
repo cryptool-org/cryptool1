@@ -268,6 +268,8 @@ BEGIN_MESSAGE_MAP(CDlgShowKeyHill10x10, CDialog)
 	//{{AFX_MSG_MAP(CDlgShowKeyHill10x10)
 	ON_BN_CLICKED(IDC_RADIO1,  OnKey)
 	ON_BN_CLICKED(IDC_RADIO2,  OnInvKey)
+	ON_BN_CLICKED(IDC_RADIO3,  OnOfs0)
+	ON_BN_CLICKED(IDC_RADIO4,  OnOfs1)
 	ON_BN_CLICKED(IDC_BUTTON1, OnCopyKey)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
@@ -281,11 +283,17 @@ BOOL CDlgShowKeyHill10x10::OnInitDialog()
 
    m_HillBase->setMatFont();
    m_HillBase->SetHillMatrix();
+   m_HillBase->matType = HILL_NUM_MATRIX;
 
    if ( m_HillBase->multType == MATRIX_VECTOR ) 
-      CheckRadioButton( IDC_RADIO8, IDC_RADIO9, IDC_RADIO9 );
-   else
       CheckRadioButton( IDC_RADIO8, IDC_RADIO9, IDC_RADIO8 );
+   else
+      CheckRadioButton( IDC_RADIO8, IDC_RADIO9, IDC_RADIO9 );
+
+   if ( m_HillBase->HillOptions.m_offset )
+      CheckRadioButton( IDC_RADIO3, IDC_RADIO4, IDC_RADIO4 );
+   else
+      CheckRadioButton( IDC_RADIO3, IDC_RADIO4, IDC_RADIO3 );
 
    GetDlgItem( IDC_RADIO8 )->EnableWindow( FALSE );
    GetDlgItem( IDC_RADIO9 )->EnableWindow( FALSE );
@@ -347,3 +355,16 @@ void CDlgShowKeyHill10x10::OnInvKey()
    }
 }
 
+void CDlgShowKeyHill10x10::OnOfs0()
+{
+   m_HillBase->HillOptions.m_offset = 0;
+   m_HillBase->syncNumAlph();
+   UpdateData( FALSE );
+}
+
+void CDlgShowKeyHill10x10::OnOfs1()
+{
+   m_HillBase->HillOptions.m_offset = 1;
+   m_HillBase->syncNumAlph();
+   UpdateData( FALSE );
+}

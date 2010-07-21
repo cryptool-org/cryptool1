@@ -90,12 +90,8 @@ public:
 	CComboBox m_ctrlFileSelect;
 	int m_check_VM;
 	int m_check_MV;
-	int m_check_ofs_0;
-	int m_check_ofs_1;
 	afx_msg void OnBnClickedCheckVM();
 	afx_msg void OnBnClickedCheckMV();
-	afx_msg void OnBnClickedCheckOfs0();
-	afx_msg void OnBnClickedCheckOfs1();
 };
 
 

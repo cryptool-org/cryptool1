@@ -1011,6 +1011,7 @@ void CDlgKeyHill10x10::OnPasteKey()
 {	
 	m_HillBase->pasteKey(); 
    SetDimension( m_HillBase->dim );
+   UpdateData(FALSE);
 }
 
 void CDlgKeyHill10x10::OnZufaelligerSchluessel() 

@@ -242,7 +242,7 @@ void CKeyHillBase::formatNum( unsigned long i, unsigned long j )
 ////////////////////////////////////////////
 void CKeyHillBase::syncNumAlph( unsigned long i, unsigned long j )
 {
-	if( matType == HILL_NUM_MATRIX )
+	if ( matType == HILL_NUM_MATRIX )
 	{
 		CString cs;
 		HillNumMat[i][j].GetWindowText(cs);
@@ -259,6 +259,29 @@ void CKeyHillBase::syncNumAlph( unsigned long i, unsigned long j )
 			}
 		}
 	}
+}
+
+void CKeyHillBase::syncNumAlph ()
+{
+   if ( matType == HILL_NUM_MATRIX )
+   {
+      unsigned long i, j;
+      for ( i=0; i<dim; i++ )
+         for ( j=0; j<dim; j++ )
+         {
+		      CString cs;
+		      HillNumMat[i][j].GetWindowText(cs);
+
+		      if(cs.GetLength() == 2)
+		      {
+               int c = chr( _ttoi(cs) );
+               if( c <= -128 ) // ERROR
+				      HillNumMat[i][j].SetWindowText(_T(""));
+			      else
+				      HillAlphMat[i][j].SetWindowText( CString((char)c) ); 
+		      }
+         }
+   }
 }
 
 int CKeyHillBase::validEntries()
@@ -443,6 +466,11 @@ int CKeyHillBase::SetHillOptions()
 {
 	if ( HillOptions.DoModal() != IDOK )
       return 0;
+   if ( matType == HILL_NUM_MATRIX )
+      syncNumAlph();
+   else
+      syncAlphNum();
+      
    return 1;
 }
 
@@ -543,7 +571,9 @@ void CKeyHillBase::pasteKey()
 	if ( PasteKey(pc_str,cs) )
    {
      if ( strToKey( cs ) )
+     {
         SetHillMatrix();
+     }
      else
         Clear();
    }
@@ -663,7 +693,7 @@ int CKeyHillBase::run_showKey( CString &keyStr )
    return IDCANCEL;
 }
 
-int CKeyHillBase::run_showKey( CSquareMatrixModN *mat, int alphabet_offset, int mult_direction )
+int CKeyHillBase::run_showKey( CSquareMatrixModN *mat, int mult_direction )
 {
    unsigned long i, j;
    CDlgShowKeyHill5x5   dlgShowKeyHill5x5;
@@ -679,6 +709,7 @@ int CKeyHillBase::run_showKey( CSquareMatrixModN *mat, int alphabet_offset, int 
       for ( j=0; j<dim; j++ )
          (*HillMat)(i,j) = (*mat)(i,j);
    multType = (HillMultType)mult_direction;
+   HillOptions.m_offset = 0;
 
    if ( dim <= DIM_DLG_HILL_5x5 )
    {

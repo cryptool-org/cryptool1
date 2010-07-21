@@ -14,7 +14,6 @@ CHillAnalysis::CHillAnalysis(void)
 , fn_cipher(0)
 , dim_from(1)
 , dim_to(10)
-, alphabet_offset(0)
 , mul_direction(0)
 {
 }
@@ -26,7 +25,7 @@ CHillAnalysis::~CHillAnalysis(void)
 }
 
 
-int CHillAnalysis::init(const char *fn_Plain, const char *fn_Cipher, int dim_From, int dim_To, int alphabet_Offset, int mul_Direction)
+int CHillAnalysis::init(const char *fn_Plain, const char *fn_Cipher, int dim_From, int dim_To, int mul_Direction)
 {
 	delete []fn_cipher; 
 	fn_cipher = new char[strlen(fn_Cipher)+1]; 
@@ -45,7 +44,6 @@ int CHillAnalysis::init(const char *fn_Plain, const char *fn_Cipher, int dim_Fro
 	assert ( dim_To >= dim_From && dim_To <= 10 );
 	dim_to   = dim_To;
 
-	alphabet_offset = alphabet_Offset;
 	mul_direction = mul_Direction;
 
 	return 0;
@@ -97,14 +95,6 @@ int CHillAnalysis::analyze(CString &err_str)
 // Evaluate Results
 	if ( HILL_OK == hill_rc || HILL_OK_LAENGE_UNTERSCHIEDLICH == hill_rc )
 	{ // SUCCESS ...
-		if ( alphabet_offset )
-		{
-			int i, j;
-			for (i=0; i<mat->get_dim(); i++)
-				for (j=0; j<mat->get_dim(); j++)
-					mat->operator ()(i, j) = (mat->operator ()(i,j) +1) % mat->get_mod();
-		}
-
 		if ( mul_direction )
 		{ // transpose
 			long t;
@@ -122,7 +112,7 @@ int CHillAnalysis::analyze(CString &err_str)
 			Message(IDS_STRING_MSG_DATALENGTH_MISMATCH,MB_ICONINFORMATION);
 
       CKeyHillBase keyHill;
-      keyHill.run_showKey( mat, alphabet_offset, mul_direction );
+      keyHill.run_showKey( mat, mul_direction );
 
       delete mat;
 		return 0;

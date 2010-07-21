@@ -21,6 +21,8 @@
 #include "Solitaire.h"
 #include "assert.h"
 #include <fstream>
+#include "CrypToolTools.h"
+
 
 using namespace std;
 
@@ -1271,30 +1273,8 @@ void Deck::schritt4revers()
 
 }
 
-void Deck::inideckspeichern()
-{
-	FILE * pFile;
-	pFile=fopen("StoredLastInitialdeck.txt","w+");
-
-   if ( pFile )
-   {
-	   // erste Zeile in Textdatei gibt die Kartenanzahl wieder
-	   fprintf( pFile, "%d", anzahl);	
-	   fprintf( pFile, "%s", "\n");
-   		
-	   for (char c=0;c<anzahl;c++)
-	   {	
-		   fprintf( pFile, "%d", tempini[c]);
-		   fprintf( pFile, "%s", "\n");
-	   }
-	   fclose (pFile);
-   }
-   else
-   { 
-      // FIXME ERROR
-   }
-}
-
+//////////////////////////////////////////////////////////
+// ANALYSE
 void Deck::deck2tempini()
 {
 	memcpy(tempini,deck,54);
@@ -1325,79 +1305,55 @@ void Deck::keyUmrechnen()
 	}
 }
 
-void Deck::abschlussdeckspeichern()
+////////////////////////////////////////////////////////////////////////////
+// STORE DECK TO REGISTRY
+int Deck::writedeck( const char *deck_label )
 {
-	FILE * pFile;
-	pFile=fopen("StoredLastFinaldeck.txt","w+");
-   if ( pFile )
-   {
-	   // erste Zeile in Textdatei gibt die Kartenanzahl wieder
-	   fprintf( pFile, "%d", anzahl);	
-	   fprintf( pFile, "%s", "\n");
-	   for (char c=0;c<anzahl;c++)
-	   {	
-		   fprintf( pFile, "%d", deck[c]);
-		   fprintf( pFile, "%s", "\n");
-	   }
-	   fclose (pFile);
+	if ( ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS(KEY_WRITE, IDS_REGISTRY_SETTINGS, "Solitaire") )
+	{
+      CString Deck;
+      Deck.Format("%d ", anzahl);
+      for ( size_t i=0; i<anzahl; i++ )
+      {
+         char strnum[4];
+         sprintf( strnum, "%2d ", deck[i] );
+         Deck = Deck + CString( strnum );
+      }
+      CT_WRITE_REGISTRY( Deck, deck_label );
+      CT_CLOSE_REGISTRY();
+      return 1;
    }
-   else
-   {
-      // FIXME ERROR MESSAGE
-   }
+   return 0;
 }
 
-void Deck::inideckladen()
+int Deck::readdeck( const char *deck_label )
 {
-	int load[54];
-	int i;
-	
-	FILE * loadFile;
-	loadFile = fopen( "StoredLastInitialdeck.txt", "r+" );
-	
-   if ( loadFile )
-   {
-	   rewind (loadFile);
-	   fscanf(loadFile, "%d\n", &anzahl);
-	   for ( i=0;i<anzahl;i++)
-	   {
-		   fscanf(loadFile, "%d\n", &load[i]);
-	   }
-	   //memcpy(deck,(char)load,54);
-	   for( i=0;i<54; i++)
-		   deck[i]=(char)load[i];
-      fclose( loadFile );
+   const char default_deck[] = "54 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54";
+
+   char           str_deck[166];
+   unsigned long  str_len = 165, i, j, error = 0;
+
+   if ( ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "Solitaire") )
+	{
+      error = !CT_READ_REGISTRY_DEFAULT( (char*)str_deck, deck_label, default_deck, str_len );
+      CT_CLOSE_REGISTRY();
    }
    else
-   {
-      // FIXME ERROR MESSAGE
-   }
-}
+      error = 1;
 
-void Deck::abschlussdeckladen()
-{
-	int load[54];
-	int i;
-	
-	FILE * loadFile;
-	loadFile = fopen( "StoredLastFinaldeck.txt", "r+" );
-   if ( loadFile )
-   {
-	   rewind (loadFile);
-	   fscanf(loadFile, "%d\n", &anzahl);
-	   for ( i=0;i<anzahl;i++)
-		   fscanf(loadFile, "%d\n", &load[i]);
-	   //memcpy(deck,(char)load,54);
-	   for( i=0;i<54; i++)
-		   deck[i]=(char)load[i];
-      fclose( loadFile );
-   }
-   else
-   {
-      // FIXME ERROR MESSAGE
-   }
-}
+   if ( error ) 
+      strcpy( str_deck, default_deck );
 
+   anzahl = atoi( str_deck );
+   for ( i=j=0; j<anzahl; j++ )
+   {
+      while( str_deck[i] >= '0' && str_deck[i] <= '9' ) i++;
+      while( str_deck[i] == ' ' ) i++;
+      deck[j] = atoi(&str_deck[i]);
+   }
+
+   return !error;
+}
 
 void Deck::passwortinzahlen(CString pw)
 {	
@@ -1464,7 +1420,7 @@ void Deck::verschluesseln(CString plaintext)
 	
 	this->plaintext=plaintext;
 	char ueber;
-    ciphertext="";
+   ciphertext="";
 
 	for (int c=0;c<plaintext.GetLength();c++)
 	{			
@@ -1488,7 +1444,6 @@ void Deck::verschluesseln(CString plaintext)
 		this->ciphertext+=Wert;
 	}
 }
-	
 	
 int Deck::umwandelninzahl(char k)
 {
@@ -1517,8 +1472,8 @@ void Deck::readPlaintext(const char* ifile)
 	{
 		switch (ch)
 		{
-			case 'Ä': {ststr += "ae"; break;}
-			case 'ä': {ststr += "AE"; break;}
+			case 'Ä': { ststr += "ae"; break;}
+			case 'ä': { ststr += "AE"; break;}
 			case 'Ö': { ststr += "oe"; break; }
 			case 'ö': { ststr += "OE"; break; }
 			case 'Ü': { ststr += "ue"; break; }
@@ -1534,7 +1489,6 @@ void Deck::readPlaintext(const char* ifile)
 				}
 		}
 	}
-
 	this->plaintext =ststr;
 	input.close();
 }
@@ -1601,56 +1555,6 @@ void Deck::entschluesseln(CString ciphertext)
 		Wert.Format("%c",ueber);
 		this->plaintext+=Wert;
 	}
-}
-
-/*Dies ist die Speichern Funktion, welche vom Speichern-Button
-  aufgerufen wird. Sie speichert den erzeugten Schlüsselstrom in
-  der Textdatei "StoredLastKeystream.txt".*/
-void Deck::keyspeichern()
-{
-	FILE * pFile;
-	char buffer[BUFSIZ];
-	pFile=fopen("StoredLastKeystream.txt","w+");
-   if ( pFile )
-   {
-	   CString keysave = getKey();
-	   setbuf (pFile , buffer);
-   	
-	   fputs (keysave,pFile);
-	   fflush (pFile);
-	   fclose (pFile);
-   }
-   else
-   {
-      // FIXME ERROR MESSAGE
-   }
-}
-
-/*Dies ist die Laden Funktion.Sie kann aufgerufen 
-werden um den zuletzt gespeicherten Schlüssel 
-aus der Textdatei "StoredLastKeystream.txt" zu laden.*/
-void Deck::keyladen()
-{
-	int load[USHRT_MAX];
-	int i;
-	
-	FILE * loadFile;
-	loadFile = fopen( "StoredLastKeystream.txt", "r+" );
-   if ( loadFile )
-   {
-	   rewind (loadFile);
-   	
-	   for ( i=0;i<plaintext.GetLength();i++)
-		   fscanf(loadFile, "%d\n", &load[i]);
-   	
-	   for( i=0;i<plaintext.GetLength(); i++)
-		   key[i]=(char)load[i];
-      fclose( loadFile );
-   }
-   else
-   {
-      // FIXME: ERROR MESSAGE
-   }
 }
 				
 #endif

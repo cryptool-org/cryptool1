@@ -402,13 +402,12 @@ void CDlgKeyHill5x5::OnPasteKey()
 {	
    m_HillBase->pasteKey(); 
    SetDimension( m_HillBase->dim );
+   UpdateData(FALSE);
 }
 
 void CDlgKeyHill5x5::OnZufaelligerSchluessel() 
 {
-   UpdateData(FALSE);
 	m_HillBase->randomKey();
-   UpdateData(TRUE);
 }
 
 

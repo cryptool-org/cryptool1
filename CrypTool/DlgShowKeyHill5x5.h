@@ -67,6 +67,8 @@ protected:
    afx_msg void OnCopyKey();
    afx_msg void OnKey();
    afx_msg void OnInvKey();
+   afx_msg void OnOfs0();
+   afx_msg void OnOfs1();
 	//}}AFX_MSG
 
    DECLARE_MESSAGE_MAP()

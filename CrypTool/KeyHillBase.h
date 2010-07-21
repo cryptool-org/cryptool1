@@ -85,6 +85,7 @@ class CKeyHillBase {
    int  invertMatrix();
 
 	void syncNumAlph ( unsigned long i, unsigned long j );
+   void syncNumAlph ();
 	void syncAlphNum ( unsigned long i, unsigned long j );
    void syncAlphNum ();
 	void formatNum   ( unsigned long i, unsigned long j );
@@ -113,6 +114,6 @@ public:
 	~CKeyHillBase();
    int run(); 
    int run_showKey( CString &keyStr  ); 
-   int run_showKey( CSquareMatrixModN *mat, int alphabet_offset, int mult_direction );
+   int run_showKey( CSquareMatrixModN *mat, int mult_direction );
 };
 
