@@ -8,8 +8,7 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -11296,7 +11295,7 @@ BEGIN
     EDITTEXT        IDC_EDIT66,214,249,16,12,ES_CENTER | ES_NUMBER
     PUSHBUTTON      "Generiši &nasumicni kljuc",IDC_BUTTON3,73,287,81,18
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,158,288,22,20
-    CONTROL         "(vektor reda) * (matrica)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,262,128,82,10
+    CONTROL         "(vektor reda) * (matrica)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,262,128,88,10
     CONTROL         "(matrica) * (vektor kolone)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,262,145,93,10
     CONTROL         "&1 x 1",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,277,198,31,10
     CONTROL         "&2 x 2",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,277,216,31,10
@@ -11327,47 +11326,47 @@ BEGIN
     EDITTEXT        IDC_EDIT2,332,87,16,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
 
-IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 306
+IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 355
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Opcije Analize"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&Primeni",IDOK,13,278,65,18
-    PUSHBUTTON      "&Otkaži",IDCANCEL,227,278,66,18
-    CONTROL         "Izvedeni kljuc",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,55,76,10
-    CONTROL         "Korelacija",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,77,48,10
-    CONTROL         "Histogrami",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,101,57,10
-    CONTROL         "Izvedeni kljuc",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,55,76,10
-    CONTROL         "Dužina izvedenog kljuca",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,77,91,10
-    CONTROL         "Autokorelacija",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,100,61,10
-    CONTROL         "Prikaži analizu osnovnih cifara",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,156,122,120,10
-    GROUPBOX        "Caesar",IDC_STATIC,20,35,118,105
-    GROUPBOX        "Vigenère, XOR, Adicija",IDC_STATIC,150,35,136,105
-    GROUPBOX        "Opcije izlaza za automatsku analizu",IDC_STATIC,13,16,280,132
-    GROUPBOX        "Opcije za napade brutalne sile protiv modernih simetricnih algoritama",IDC_STATIC,13,160,280,109
-    LTEXT           "Broj byte-ova za test entropije:",IDC_STATIC,28,191,118,8
-    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,150,188,30,14,ES_AUTOHSCROLL | ES_NUMBER
-    LTEXT           "Alfabet za ocekivani otvoreni tekst:",IDC_STATIC,29,212,118,8
-    CONTROL         "Svih 256 karaktera",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,224,245,10
-    CONTROL         "Štampajuci karakteri (ascii 32 - 256)",IDC_RADIO2,
-                    "Button",BS_AUTORADIOBUTTON,29,235,245,10
-    CONTROL         "Karakteri definisani kao u menu-ju: Opcije \\ Opcije za tekst",IDC_RADIO3,
-                    "Button",BS_AUTORADIOBUTTON,29,245,245,11
-    LTEXT           "Pogledajte menu: Analiza \\ Simetricno Šifrovanje (moderno)",IDC_STATIC,19,170,258,8
-    GROUPBOX        "Opcije za Vigenère analizu prema Schroedelu",IDC_STATIC,7,117,292,106
-    PUSHBUTTON      "&Pretraga...",IDC_BUTTON_SEARCH_DICTIONARY_FILE,236,153,55,14
-    EDITTEXT        IDC_EDIT_DICTIONARY_FILE,85,153,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
-    EDITTEXT        IDC_EDIT_DIGRAMS_FILE,85,170,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
-    EDITTEXT        IDC_EDIT_TRIGRAMS_FILE,85,187,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
-    PUSHBUTTON      "&Pretraga...",IDC_BUTTON_SEARCH_DIGRAMS_FILE,236,170,55,14
-    PUSHBUTTON      "&Pretraga...",IDC_BUTTON_SEARCH_TRIGRAMS_FILE,236,187,55,14
-    LTEXT           "Recnik:",IDC_STATIC,25,154,34,8
-    LTEXT           "Datoteka digrama:",IDC_STATIC,25,171,36,8
-    LTEXT           "Datoteka trigrama:",IDC_STATIC,25,188,37,8
-    CONTROL         "Produženo logovanje",IDC_CHECK_EXTENSIVE_LOGGING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,133,71,10
-    PUSHBUTTON      "&Vrati standard",IDC_BUTTON_RESTORE_STANDARD,105,331,99,17
-    EDITTEXT        IDC_EDIT_ANALYSIS_THRESHOLD,86,204,25,14,ES_CENTER | ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
-    LTEXT           "Prag:",IDC_STATIC,25,205,34,8
+    DEFPUSHBUTTON   "&Primeni",IDOK,0,334,65,16
+    PUSHBUTTON      "&Otkaži",IDCANCEL,227,334,65,16
+    CONTROL         "Izvedeni kljuè",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,42,76,10
+    CONTROL         "Korelacija",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,57,48,10
+    CONTROL         "Histogrami",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,72,57,10
+    CONTROL         "Izvedeni kljuè",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,148,42,76,10
+    CONTROL         "Dužina izvedenog kljuèa",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,148,57,91,10
+    CONTROL         "Autokorelacija",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,148,72,61,10
+    CONTROL         "Prikaži dalje rezultate analize",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,149,87,120,10
+    GROUPBOX        "Caesar",IDC_STATIC,8,22,120,80
+    GROUPBOX        "Vigenere, XOR, Adicija",IDC_STATIC,138,22,146,80
+    GROUPBOX        "Izlazne opcije za automatsku analizu",IDC_STATIC,0,9,292,102
+    GROUPBOX        "Opcije za napad brutalnom silom protiv modernih simetriènih algoritama",IDC_STATIC,0,234,292,92
+    LTEXT           "Broj byte-ova šifrata dokumenta upotrebljenog za test entropije:",IDC_STATIC,20,261,220,8
+    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,243,259,30,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Alfabet za oèekivani otvoren tekst",IDC_STATIC,20,278,118,8
+    CONTROL         "Svih 256 karaktera",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,289,245,10
+    CONTROL         "Štampajuæi karakteri (ascii 32 - 256)",IDC_RADIO2,
+                    "Button",BS_AUTORADIOBUTTON,20,300,245,10
+    CONTROL         "Karakteri definisani u meniju: Opcije \\ Opcije Teksta",IDC_RADIO3,
+                    "Button",BS_AUTORADIOBUTTON,20,310,245,11
+    LTEXT           "Pogledajte meni: Analiza \\ Simetrièno šifrovanje (moderno)",IDC_STATIC,7,244,258,8
+    GROUPBOX        "Opcije za Vigenere analizu prema Schroedel-u",IDC_STATIC,0,119,292,106
+    PUSHBUTTON      "&Pretraga...",IDC_BUTTON_SEARCH_DICTIONARY_FILE,229,155,55,14
+    EDITTEXT        IDC_EDIT_DICTIONARY_FILE,78,155,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_DIGRAMS_FILE,78,172,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_TRIGRAMS_FILE,78,189,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
+    PUSHBUTTON      "&Pretraga...",IDC_BUTTON_SEARCH_DIGRAMS_FILE,229,172,55,14
+    PUSHBUTTON      "&Pretraga...",IDC_BUTTON_SEARCH_TRIGRAMS_FILE,229,189,55,14
+    LTEXT           "Reènik:",IDC_STATIC,18,156,24,8
+    LTEXT           "Digram datoteka:",IDC_STATIC,18,173,55,8
+    LTEXT           "Trigram datoteka:",IDC_STATIC,18,190,56,8
+    CONTROL         "Produženo logovanje",IDC_CHECK_EXTENSIVE_LOGGING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,135,81,10
+    PUSHBUTTON      "&Vrati podrazumevano",IDC_BUTTON_RESTORE_STANDARD,98,333,99,17
+    EDITTEXT        IDC_EDIT_ANALYSIS_THRESHOLD,79,206,25,14,ES_CENTER | ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
+    LTEXT           "Prag:",IDC_STATIC,18,207,18,8
 END
 
 IDD_HILL_ANALYSIS DIALOGEX 0, 0, 320, 378
@@ -11386,7 +11385,7 @@ BEGIN
     PUSHBUTTON      "Opcije za tekst",IDC_BUTTON1,87,349,71,21
     COMBOBOX        IDC_FILE_SELECT,15,217,289,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     GROUPBOX        "Hill varijante šifrovanja ",IDC_STATIC,8,243,304,60
-    GROUPBOX        "Varijansa umnožavanja",IDC_STATIC,16,256,288,40
+    GROUPBOX        "Varijansa umnožavanja",IDC_STATIC,16,256,287,40
     CONTROL         "(vektor vrste) * (matrica)",IDC_CHECK_VM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,268,101,8
     CONTROL         "(matrica) * (vektor kolone)",IDC_CHECK_MV,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,282,101,8
     GROUPBOX        "Opcije",IDC_STATIC,8,307,304,34
@@ -11402,7 +11401,7 @@ BEGIN
     CONTROL         "&Hill-ova kljucna matrica (šifrovanje)",IDC_RADIO1,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,29,190,132,8
     CONTROL         "&Inverzna Hill-ova kljucna matrica (dešifrovanje)",IDC_RADIO2,
-                    "Button",BS_AUTORADIOBUTTON,29,205,124,8
+                    "Button",BS_AUTORADIOBUTTON,29,205,160,8
     GROUPBOX        "Hill-ova kljucna matrica",IDC_STATIC,9,55,284,166
     EDITTEXT        IDC_EDIT11,35,80,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT12,55,80,16,12,ES_CENTER | ES_READONLY
@@ -11456,16 +11455,16 @@ BEGIN
     EDITTEXT        IDC_EDIT65,228,161,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT66,248,161,16,12,ES_CENTER | ES_READONLY
     GROUPBOX        "Brojne vrednosti",IDC_STATIC,156,66,119,118
-    GROUPBOX        "Varijansa množenja",IDC_STATIC,9,227,134,41
-    CONTROL         "(vektor reda) * (matrix)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,240,82,10
+    GROUPBOX        "Varijansa množenja",IDC_STATIC,9,227,132,41
+    CONTROL         "(vektor reda) * (matrica)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,240,82,10
     CONTROL         "(matrica) * (vektor kolone)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,29,253,93,10
     GROUPBOX        "Informacija za šifrovanje",IDC_STATIC_HILL_ALPH,9,8,284,38
     EDITTEXT        IDC_EDIT3,17,22,187,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     RTEXT           "Vrednost prvog karaktera alfabeta",IDC_STATIC,209,21,59,19
     EDITTEXT        IDC_EDIT2,271,22,12,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
-    GROUPBOX        "Vrednost prvog karaktera alfabeta",IDC_STATIC,158,227,135,41
-    CONTROL         "0 (npr. ""A""=0)",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,167,240,65,10
-    CONTROL         "1 (npr. ""A""=1)",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,167,254,69,10
+    GROUPBOX        "i18n Value of the first alphabet character",IDC_STATIC,156,222,125,41
+    CONTROL         "i18n 0 (e.g. ""A""=0)",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,166,235,65,10
+    CONTROL         "i18n 1 (e.g. ""A""=1)",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,166,249,69,10
 END
 
 IDD_KEYASYM_GENERATION DIALOGEX 0, 0, 419, 338
@@ -11489,7 +11488,7 @@ BEGIN
     CONTROL         "&Oktalni",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,283,61,12
     CONTROL         "&Decimalni",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,98,283,61,12
     CONTROL         "&Heksadecimalni",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,170,283,61,12
-    PUSHBUTTON      "PKCS #12 &Uvoz",IDC_BUTTON_P12IMPORT,154,310,86,19
+    PUSHBUTTON      "PKCS #12 &Uvoz",IDC_BUTTON_P12IMPORT,144,310,86,19
     PUSHBUTTON      "&Zatvori",IDCANCEL,337,310,72,19
     GROUPBOX        "Algoritam",IDC_STATIC,10,4,205,145
     LTEXT           "Dužina bita RSA modula:",IDC_KEYASYM_TEXTRSA,33,40,108,8
@@ -11505,7 +11504,7 @@ BEGIN
     GROUPBOX        "Korisnicki podaci",IDC_STATIC,224,4,185,145
     LTEXT           "",IDC_STATIC_PARAM_DESCRIPTION,10,157,400,8
     EDITTEXT        IDC_EDIT_LV,363,268,39,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
-    PUSHBUTTON      "Prikaži par kljuceva...",IDC_BUTTON1,215,310,96,19
+    PUSHBUTTON      "Prikaži par kljuceva...",IDC_BUTTON1,236,310,96,19
 END
 
 IDD_RSA_ENCRYPTION DIALOGEX 0, 0, 392, 271
@@ -11521,17 +11520,17 @@ BEGIN
     LTEXT           "Napomena: Ovde su prikazana samo imena, koja imaju RSA kljuc.",IDC_STATIC,7,217,365,8
 END
 
-IDD_KEY_SUBSTITUTION DIALOG  0, 0, 245, 79
+IDD_KEY_SUBSTITUTION DIALOGEX 0, 0, 245, 79
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Unos Kljuca: Monoalfabetska Zamena"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT1,13,24,192,12,ES_UPPERCASE | ES_AUTOHSCROLL
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,209,23,22,20
     DEFPUSHBUTTON   "&Zašifruj",IDOK,13,49,61,20
     PUSHBUTTON      "&Dešifruj",IDC_BUTTON1,94,49,63,20
     PUSHBUTTON      "&Otkaži",IDCANCEL,177,49,55,20
-    LTEXT           "Unesi ime (najviše 26 razlicitih karaktera)",IDC_STATIC,13,11,214,8
+    LTEXT           "Unesite ime (najviše 26 razlicitih karaktera)",IDC_STATIC,13,11,214,8
 END
 
 IDD_SHOW_CERTIFICATE DIALOG  0, 0, 382, 213
@@ -11544,25 +11543,25 @@ BEGIN
     EDITTEXT        IDC_EDIT2,10,180,35,12,ES_READONLY | WS_DISABLED | NOT WS_BORDER
 END
 
-IDD_ABOUT DIALOGEX 34, 22, 242, 445
+IDD_ABOUT DIALOGEX 34, 22, 387, 294
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "O CrypTool-u"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Zatvori",IDOK,76,419,90,19,WS_GROUP
-    CTEXT           "Univerziteti Siegen i Darmstadt razvili su zajedno \nprojekat otvorenog koda, zahvaljujuci mnogim programerima dobrovoljcima.",IDC_STATIC,0,130,242,17
-    CTEXT           "Copyright (C) 1998-2010 Deutsche Bank AG i Saradnici\nDistribuirano kao open-source pod uslovima Apache License 2.0",IDC_STATIC,7,233,356,16
-    CTEXT           "CrypTool je besplatan i sveobuhvatan program za e-ucenje\nklasicne i savremene kriptografije i kriptoanalize.\n\nU zajednickoj saradnji sa sponzorima",IDC_STATIC,20,35,330,32
-    CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,44,74,105,37,WS_EX_TRANSPARENT
-    CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,198,73,143,37,WS_EX_TRANSPARENT
-    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,71,356,44
-    CTEXT           "CrypTool se koristi širom sveta za edukaciju u školama, univerzitetima, i za edukaciju i širenje svesti zaposlenih u kompanijama i vladinim organizacijama.",IDC_STATIC,3,185,236,24
-    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,213,178,145,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    GROUPBOX        "Informacije o verziji",IDC_STATIC,7,164,195,64
-    GROUPBOX        "Kontakt informacije",IDC_STATIC,208,164,155,64
-    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,11,178,185,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "Saradnici",ID_CONTRIBUTORS,7,250,60,18,WS_GROUP
-    PUSHBUTTON      "Prevodi",ID_TRANSLATIONS,70,255,60,18,WS_GROUP
+    DEFPUSHBUTTON   "Zatvori",IDOK,312,263,60,18,WS_GROUP
+    CTEXT           "univerziteti Siegen i Darmstadt razvili su ga kao\nkao projekat otvorenog koda zahvaljujuæi mnogim programerima dobrovoljcima.",IDC_STATIC,29,127,330,16
+    CTEXT           "Copyright (C) 1998-2010 Deutsche Bank AG i Saradnici\nDistribuirano kao otvoreni kod pod uslovima Apache 2.0 Licence",IDC_STATIC,16,242,356,16
+    CTEXT           "CrypTool je besplatan i sveobuhvatni program za e-uèenje \nklasiène i savremene kriptografije i kriptoanalize.\n\nU zajednièkom naporu sa sponzorima",IDC_STATIC,29,44,330,32
+    CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,53,82,105,37,WS_EX_TRANSPARENT
+    CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,207,82,143,37,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,16,79,356,44
+    CTEXT           "CrypTool se koristi širom sveta u obrazovanju u školama i na univerzitetima, i za obrazovanje i podizanje svesti zaposlenih u kompanijama i vladinim organizacijama.",IDC_STATIC,29,149,330,16
+    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,223,186,145,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Informacije o izdanju",IDC_STATIC,17,173,195,64
+    GROUPBOX        "Kontakt informacije",IDC_STATIC,217,173,155,64
+    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,21,186,185,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Saradnici",ID_CONTRIBUTORS,17,263,60,18,WS_GROUP
+    PUSHBUTTON      "Prevodi",ID_TRANSLATIONS,79,263,60,18,WS_GROUP
 END
 
 IDD_SHOW_PROGRESS DIALOG  0, 0, 187, 105
@@ -11590,8 +11589,8 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,71,175,10
     CONTROL         "Velikim slovima",IDC_CHECK_UPPER_CASE,"Button",BS_AUTO3STATE | WS_TABSTOP,20,106,69,10
     CONTROL         "Razmak",IDC_CHECK_SPACE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,121,55,10
-    CONTROL         "Specijalni karakteri",IDC_CHECK_PUNCTUATION,"Button",BS_AUTO3STATE | WS_TABSTOP,105,121,71,10
-    CONTROL         "Malim slovima",IDC_CHECK_LOWER_CASE,"Button",BS_AUTO3STATE | WS_TABSTOP,105,106,69,10
+    CONTROL         "Specijalni karakteri",IDC_CHECK_PUNCTUATION,"Button",BS_AUTO3STATE | WS_TABSTOP,105,106,71,10
+    CONTROL         "Malim slovima",IDC_CHECK_LOWER_CASE,"Button",BS_AUTO3STATE | WS_TABSTOP,105,121,69,10
     EDITTEXT        IDC_EDIT_ALPHABET,20,161,237,13,ES_AUTOHSCROLL
     PUSHBUTTON      "&Pronadi...",IDC_BUTTON_SEARCH_REFERENCE_FILE,202,205,55,14
     CONTROL         "Brojevima",IDC_CHECK_DIGITS,"Button",BS_AUTO3STATE | WS_TABSTOP,20,136,49,10
@@ -11709,23 +11708,23 @@ BEGIN
     CONTROL         "REDO_",IDC_REDO_,"Button",BS_OWNERDRAW | WS_DISABLED | WS_TABSTOP,312,127,22,20
 END
 
-IDD_SHOW_PARAMETER_KEY_EC DIALOG  0, 0, 419, 330
+IDD_SHOW_PARAMETER_KEY_EC DIALOGEX 0, 0, 419, 330
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Generisanje Asimetricnog Kljuca (Elipticke krive)"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&Primeni",IDOK,8,304,66,19
     PUSHBUTTON      "Generiši &novi par kljuceva",IDC_BUTTON1,135,304,125,19
     CONTROL         "&Oktalno",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,17,272,37,12
     CONTROL         "&Decimalno",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,64,272,45,12
-    CONTROL         "&Heksadecimalno",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,115,272,61,12
+    CONTROL         "&Heksadecimalno",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,115,272,66,12
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,15,403,127
     CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,142,403,61
     CONTROL         "List3",IDC_LIST3,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,8,202,403,50
     PUSHBUTTON      "&Zatvori",IDCANCEL,343,304,68,19
     EDITTEXT        IDC_EDIT1,8,3,380,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
     GROUPBOX        "Osnova za predstavljanje brojeva",IDC_STATIC,8,261,175,32
-    LTEXT           "Ako želite da koristite prikazani par kljuceva, kliknite na ""Primeni"".\nAko želite da koristite drugi par kljuceva, kliknite na ""Generiši novi par kljuceva"" pushbutton.",IDC_STATIC,205,265,201,26
+    LTEXT           "Ako želite da koristite prikazani par kljuceva, kliknite na ""Primeni"".\nAko želite da koristite drugi par kljuceva, kliknite na ""Generiši novi par kljuceva"".",IDC_STATIC,205,263,201,33
 END
 
 IDD_KEY_ASYM DIALOGEX 0, 0, 389, 301
@@ -11773,7 +11772,7 @@ BEGIN
     CTEXT           "Peer Wichmann (do izdanja 1.2)\nJoerg Cornelius Schneider (od izdanja 1.3)",IDC_STATIC,20,64,330,16
     GROUPBOX        " Ideje, Sponzorstvo, Izazovi, Pitanja i Odgovori, Vodstvo ",IDC_STATIC,7,28,356,22,BS_CENTER
     GROUPBOX        " Dizajn, Podrška i Arhitektura",IDC_STATIC,7,54,356,30,BS_CENTER
-    GROUPBOX        " Glavna osoba koja se u celini pobrinula za verzije 1.3 i 1.4",IDC_STATIC,7,88,356,32,BS_CENTER
+    GROUPBOX        "Glavne osobe koje se u celini pobrinule za verzije 1.3 i 1.4",IDC_STATIC,7,88,356,32,BS_CENTER
     GROUPBOX        " Implementacija, Dokumentacija, Prevod ",IDC_STATIC,7,125,175,126,BS_CENTER
     GROUPBOX        " Recenzija i Povratna Informacija",IDC_STATIC,188,125,175,126,BS_CENTER
     CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_1,7,135,150,105
@@ -11781,15 +11780,15 @@ BEGIN
     CTEXT           "Florian Marchal",IDC_STATIC,20,108,330,8,NOT WS_GROUP
 END
 
-IDD_SHOW_PUBLICKEY_EC DIALOG  0, 0, 399, 287
+IDD_SHOW_PUBLICKEY_EC DIALOGEX 0, 0, 399, 287
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Javni Kljuc (Asimetricni)"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&Nazad",IDOK,321,260,73,19
     CONTROL         "&Oktalno",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,67,260,61,12
     CONTROL         "&Decimalno",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,139,260,61,12
-    CONTROL         "&Heksadecimalno",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,211,260,61,12
+    CONTROL         "&Heksadecimalno",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,211,260,69,12
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,6,66,388,128
     CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,6,192,388,53
     GROUPBOX        "Osnova za predstavljanje brojeva",IDC_STATIC,51,250,231,29
@@ -11802,14 +11801,14 @@ BEGIN
     EDITTEXT        IDC_EDIT1,6,52,388,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
 END
 
-IDD_SHOW_PRIVATEKEY_EC DIALOG  0, 0, 401, 322
+IDD_SHOW_PRIVATEKEY_EC DIALOGEX 0, 0, 401, 322
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Javni i Privatni Kljucevi (Asimetricni)"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "&Oktalno",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,68,292,61,12
     CONTROL         "&Decimalno",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,140,292,61,12
-    CONTROL         "&Heksadecimalno",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,212,292,61,12
+    CONTROL         "&Heksadecimalno",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,212,292,66,12
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,5,62,390,126
     CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,5,186,390,51
     CONTROL         "List3",IDC_LIST3,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,5,235,390,39
@@ -11844,9 +11843,9 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "Kopiraj &kljuc",IDC_BUTTON1,9,359,96,20
     DEFPUSHBUTTON   "&Zatvori",IDOK,415,359,96,20
-    CONTROL         "&Hill-ova kljucna matrica (zašifruj)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,44,309,143,8
+    CONTROL         "&Hill-ova kljucna matrica (zašifruj)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,47,309,143,8
     CONTROL         "&Inverzna Hill-ova kljucna matrica (dešifruj)",IDC_RADIO2,
-                    "Button",BS_AUTORADIOBUTTON,44,323,150,8
+                    "Button",BS_AUTORADIOBUTTON,47,323,150,8
     GROUPBOX        "Hill-ova kljucna matrica",IDC_STATIC,10,54,501,295
     EDITTEXT        IDC_EDIT11,42,83,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT12,62,83,16,12,ES_CENTER | ES_READONLY
@@ -12050,17 +12049,17 @@ BEGIN
     EDITTEXT        IDC_EDIT200,439,259,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT1012,459,259,16,12,ES_CENTER | ES_READONLY
     GROUPBOX        "Brojne vrednosti",IDC_STATIC,265,67,225,222
-    GROUPBOX        "Reprezentacija matrice",IDC_STATIC,27,296,226,42
+    GROUPBOX        "Reprezentacija matrice",IDC_STATIC,27,296,210,42
     GROUPBOX        "Varijansa množenja",IDC_STATIC,379,7,132,41
-    CONTROL         "(vektor reda) * (matrica)",IDC_RADIO25,"Button",BS_AUTORADIOBUTTON | WS_GROUP,397,20,82,10
+    CONTROL         "(vektor reda) * (matrica)",IDC_RADIO25,"Button",BS_AUTORADIOBUTTON | WS_GROUP,397,20,89,10
     CONTROL         "(matrica) * (vektor kolone)",IDC_RADIO26,"Button",BS_AUTORADIOBUTTON,397,33,93,10
     GROUPBOX        "Informacija za šifrovanje",IDC_STATIC_HILL_ALPH,11,7,359,41
     EDITTEXT        IDC_EDIT3,20,22,255,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     RTEXT           "Vrednost prvog karaktera alfabeta",IDC_STATIC,279,21,60,19
     EDITTEXT        IDC_EDIT2,345,22,16,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
-    GROUPBOX        "Vrednost prvog karaktera alfabeta",IDC_STATIC,265,296,225,42
-    CONTROL         "0 (npr. ""A""=0)",IDC_RADIO27,"Button",BS_AUTORADIOBUTTON | WS_GROUP,279,308,65,10
-    CONTROL         "1 (npr. ""A""=1)",IDC_RADIO28,"Button",BS_AUTORADIOBUTTON,279,322,69,10
+    GROUPBOX        "i18n Value of the first alphabet character",IDC_STATIC,266,296,224,42
+    CONTROL         "i18n 0 (e.g. ""A""=0)",IDC_RADIO27,"Button",BS_AUTORADIOBUTTON | WS_GROUP,281,309,65,10
+    CONTROL         "i18n 1 (e.g. ""A""=1)",IDC_RADIO28,"Button",BS_AUTORADIOBUTTON,281,323,69,10
 END
 
 IDD_KEY_HILL_10X10 DIALOGEX 0, 0, 546, 401
@@ -12198,7 +12197,7 @@ BEGIN
     CONTROL         "Znaci alfabeta",IDC_RADIO21,"Button",BS_AUTORADIOBUTTON | WS_GROUP,191,118,79,10
     CONTROL         "Brojne vrednosti",IDC_RADIO22,"Button",BS_AUTORADIOBUTTON,191,131,63,10
     GROUPBOX        "Varijansa umnožavanja",IDC_STATIC,441,107,101,41
-    CONTROL         "(vektor reda) * (matrica)",IDC_RADIO23,"Button",BS_AUTORADIOBUTTON | WS_GROUP,449,120,82,10
+    CONTROL         "(vektor reda) * (matrica)",IDC_RADIO23,"Button",BS_AUTORADIOBUTTON | WS_GROUP,449,120,88,10
     CONTROL         "(matrica) * (vektor kolone)",IDC_RADIO24,"Button",BS_AUTORADIOBUTTON,449,133,90,10
     GROUPBOX        "Hill-ova kljucna matrica",IDC_STATIC,5,107,433,241
     EDITTEXT        IDC_EDIT50,251,161,16,12,ES_CENTER | ES_NUMBER
@@ -12363,10 +12362,10 @@ BEGIN
     CONTROL         "Prikaži srednje rezultate",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,141,324,170,8
 END
 
-IDD_VERIFY_SIGNATURE DIALOG  0, 0, 387, 366
+IDD_VERIFY_SIGNATURE DIALOGEX 0, 0, 387, 366
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Provera Potpisa"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,17,373,173
     DEFPUSHBUTTON   "&Proveri potpis",IDOK,11,340,90,19
@@ -12391,8 +12390,8 @@ BEGIN
     CONTROL         "Prikaži vreme provere",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | BS_LEFT | BS_TOP | BS_MULTILINE | WS_TABSTOP,18,301,97,19
     CONTROL         "Prikaži srednje rezultate",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,321,100,10
     GROUPBOX        "Format predstavljanja:",IDC_STATIC,132,306,160,27
-    CONTROL         "&Afine koordinate",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,143,318,57,10
-    CONTROL         "&Projektivne koordinate",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,218,318,70,10
+    CONTROL         "&Afine koordinate",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,138,318,67,10
+    CONTROL         "&Projektivne koordinate",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,205,318,83,10
 END
 
 IDD_RSA_DECRYPTION DIALOG  0, 0, 382, 268
@@ -12433,10 +12432,10 @@ BEGIN
     DEFPUSHBUTTON   "&Zatvori",IDOK,300,321,80,17
     EDITTEXT        IDC_EDIT4,12,64,368,86,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
     CONTROL         "Hex premeštanje (heksadecimalno i ASCII):",IDC_RADIO1,
-                    "Button",BS_AUTORADIOBUTTON | BS_LEFTTEXT | WS_GROUP,242,176,123,11
-    CONTROL         "&Oktalno",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,54,177,33,8
-    CONTROL         "&Decimalno",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,91,177,41,8
-    CONTROL         "&Heksadecimalno",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,136,177,56,8
+                    "Button",BS_AUTORADIOBUTTON | BS_LEFTTEXT | WS_GROUP,223,176,145,11
+    CONTROL         "&Oktalno",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,54,177,37,8
+    CONTROL         "&Decimalno",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,94,177,46,8
+    CONTROL         "&Heksadecimalno",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,144,177,69,8
     EDITTEXT        IDC_EDIT10,7,3,100,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
     EDITTEXT        IDC_EDIT11,7,18,100,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
     EDITTEXT        IDC_EDIT12,7,33,100,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
@@ -12453,21 +12452,21 @@ BEGIN
     DEFPUSHBUTTON   "&Proveri",ID_EXTRACT_SIGNATURE_VERIFY,7,321,80,17
 END
 
-IDD_VERIFY_ECSIGNATURE_STEPBYSTEP DIALOG  0, 0, 392, 330
+IDD_VERIFY_ECSIGNATURE_STEPBYSTEP DIALOGEX 0, 0, 392, 330
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Provera Potpisa - Korak Po Korak"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "Zatvori &prozor",IDOK,7,305,78,19
     PUSHBUTTON      "&Otkaži",IDCANCEL,207,305,68,19
     PUSHBUTTON      "N&astavi >",IDC_BUTTON_CONTINUE,332,305,53,19
-    EDITTEXT        IDC_EDIT2,5,18,380,62,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
-    EDITTEXT        IDC_EDIT4,5,98,380,53,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
+    EDITTEXT        IDC_EDIT2,5,19,380,62,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
+    EDITTEXT        IDC_EDIT4,5,99,380,53,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
     EDITTEXT        IDC_EDIT6,5,185,380,102,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
-    CONTROL         "Okt&alno",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,171,164,33,10
-    CONTROL         "&Decimalno",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,217,164,41,10
-    CONTROL         "&Heksadecimalno",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,271,164,56,10
-    CONTROL         "Ok&teti",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,340,164,37,10
+    CONTROL         "Okt&alno",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,171,165,40,10
+    CONTROL         "&Decimalno",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,217,165,49,10
+    CONTROL         "&Heksadecimalno",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,271,165,68,10
+    CONTROL         "Ok&teti",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,340,165,37,10
     EDITTEXT        IDC_EDIT1,5,6,380,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
     EDITTEXT        IDC_EDIT3,5,86,110,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
     GROUPBOX        "Osnova za predstavljanje potpisa",IDC_STATIC,160,156,225,20,BS_CENTER
@@ -12532,7 +12531,7 @@ BEGIN
     LTEXT           "Rezultati analize: Sledeca tri reda sadrže šifrovani tekst, unos ili rezultate analize ucestalosti, nadenog otvoreni tekst.",IDC_STATIC,7,235,407,8
     LTEXT           "Ocekivan otvoreni tekst:",IDC_STATIC,7,297,85,8
     SCROLLBAR       IDC_SCROLLBAR1,6,281,418,11
-    PUSHBUTTON      "&Sinhronizuj rezultate analize / Ocekivanog otvoreni tekst",IDC_BUTTON6,138,330,170,18
+    PUSHBUTTON      "&Sinhronizuj rezultate analize / Ocekivanog otvoreni tekst",IDC_BUTTON6,138,330,184,18
     CONTROL         "Ažiuriraj ocekivani otvoreni tekst pomocu kljucne matrice",IDC_CHECK4,
                     "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,16,188,105,16
 END
@@ -12601,21 +12600,21 @@ BEGIN
     LTEXT           "Drugi separator:",IDC_STATIC_TEXT_SEPARATOR2,50,49,95,8
 END
 
-IDD_BRUTEFORCE DIALOGEX 0, 0, 277, 158
+IDD_BRUTEFORCE DIALOGEX 0, 0, 294, 158
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analiza Brutalne Sile"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    COMBOBOX        IDC_KEY_LEN,56,78,110,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    EDITTEXT        IDC_EDIT1,10,97,257,24,ES_MULTILINE
+    COMBOBOX        IDC_KEY_LEN,56,80,110,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT1,10,99,274,24,ES_MULTILINE
     DEFPUSHBUTTON   "&Pocni",IDOK,10,131,68,17
-    PUSHBUTTON      "&Otkaži",IDCANCEL,199,131,68,17
-    LTEXT           "Prostor za pretragu može biti ogranicen kako bi umanjio vreme pretrage. Da biste ovo uradili, unesite poznate delove heksadecimalne notacije, nepoznate unosite kao <*>.",IDC_STATIC,10,10,257,16
+    PUSHBUTTON      "&Otkaži",IDCANCEL,216,131,68,17
+    LTEXT           "Prostor za pretragu može biti ogranicen kako bi umanjio vreme pretrage. Da biste ovo uradili, unesite poznate delove heksadecimalne notacije, nepoznate unosite kao <*>.",IDC_STATIC,10,10,274,23
     LTEXT           "Primer:",IDC_STATIC,10,33,29,8
-    LTEXT           "Dužina kljuca:",IDC_STATIC,10,82,36,8
-    LTEXT           "Nagoveštaj:",IDC_STATIC,10,57,22,8
-    LTEXT           "Vreme pretrage ce biti reda minuta do sati ukoliko ne koristite više od 6 asteriksa (*) (= 24 bita).",IDC_STATIC,42,57,225,18
-    LTEXT           "Unesite <00 ** AB ** ... **>  da biste pretražili sve kljuceve koji pocinju nultim byte-om, koga sledi nepoznati byte, byte <AB> i nepoznati sledbenik.",IDC_STATIC,42,33,225,18
+    LTEXT           "Dužina kljuca:",IDC_STATIC,10,84,36,8
+    LTEXT           "Nagoveštaj:",IDC_STATIC,10,59,41,14
+    LTEXT           "Vreme pretrage ce biti reda minuta do sati ukoliko ne koristite više od 6 asteriksa (*) (= 24 bita).",IDC_STATIC,59,59,225,18
+    LTEXT           "Unesite <00 ** AB ** ... **>  da biste pretražili sve kljuceve koji pocinju nultim byte-om, koga sledi nepoznati byte, byte <AB> i nepoznati sledbenik.",IDC_STATIC,59,33,225,24
     DEFPUSHBUTTON   "&Opcije Analize",IDOK2,104,131,68,17
 END
 
@@ -12626,9 +12625,9 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&Primeni",IDOK,12,126,72,17
     PUSHBUTTON      "&Nazad",IDCANCEL,255,126,50,17
-    CONTROL         "&Oktalno",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,99,31,12
-    CONTROL         "&Decimalno",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,69,99,40,12
-    CONTROL         "&Heksadecimalno",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,121,99,61,12
+    CONTROL         "&Oktalno",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,99,37,12
+    CONTROL         "&Decimalno",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,69,99,49,12
+    CONTROL         "&Heksadecimalno",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,121,99,65,12
     CONTROL         "List2",IDC_LIST,"SysListView32",LVS_REPORT | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,12,26,293,57
     GROUPBOX        "Osnova za predstavljanje brojeva",IDC_STATIC,12,89,175,26
     EDITTEXT        IDC_TITEL,15,6,285,16,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
@@ -12645,9 +12644,9 @@ BEGIN
     EDITTEXT        IDC_EDIT2,63,202,81,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT3,224,183,81,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT4,224,202,81,12,ES_AUTOHSCROLL
-    CONTROL         "&Miller-Rabin-ov Test",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,23,113,69,10
-    CONTROL         "&Solovay-Strassen-ov Test",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,23,128,87,10
-    CONTROL         "&Fermat-ov Test",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,143,53,10
+    CONTROL         "&Miller-Rabin-ov Test",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,23,113,83,10
+    CONTROL         "&Solovay-Strassen-ov Test",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,23,128,100,10
+    CONTROL         "&Fermat-ov Test",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,143,62,10
     CONTROL         "&Za unošenje nezavisno jedan od drugog",IDC_RADIO4,
                     "Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE | WS_GROUP,184,113,121,18
     CONTROL         "&Oba su jednaka (unesite samo jedan)",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,184,135,118,10
@@ -12668,9 +12667,9 @@ BEGIN
     LTEXT           "Rezultat",IDC_STATIC,179,225,35,10
     GROUPBOX        "Kolicina prostih brojeva za generisanje",IDC_STATIC,11,36,302,55
     CONTROL         "Generiši dva prosta broja nasumicno unutar opsega vrednosti",IDC_RADIO6,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,23,49,205,10
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,23,49,204,10
     CONTROL         "Generiši sve proste brojeve unutar postavljenog opsega vrednosti za p",IDC_RADIO7,
-                    "Button",BS_AUTORADIOBUTTON,23,62,175,10
+                    "Button",BS_AUTORADIOBUTTON,23,62,232,10
     EDITTEXT        IDC_EDIT_SEPARATOR,156,73,16,12,ES_CENTER | ES_AUTOHSCROLL | WS_DISABLED
     LTEXT           "Separator za prikazivanje prostih brojeva:",IDC_STATIC,34,75,121,8
 END
@@ -12732,9 +12731,9 @@ BEGIN
     PUSHBUTTON      "&Dešifruj",IDC_BUTTON1,147,388,79,18
     EDITTEXT        IDC_EDIT1,67,15,25,12,ES_AUTOHSCROLL
     PUSHBUTTON      "&Ažuriraj",IDC_BUTTON3,109,15,53,12
-    CONTROL         "&Heksadecimalno",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | WS_GROUP,25,280,56,8
+    CONTROL         "&Heksadecimalno",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | WS_GROUP,25,280,68,8
     CONTROL         "&Decimalno",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,97,280,63,8
-    CONTROL         "Ukljuci formatizovanje",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,296,17,72,8
+    CONTROL         "Ukljuci formatizovanje",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,296,17,86,8
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,14,63,368,198
     PUSHBUTTON      "&Generiši nasumicni kljuc",IDC_ERZEUGEN,14,363,109,17
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,147,363,149,17
@@ -12745,7 +12744,7 @@ BEGIN
     LTEXT           "Ukupno brojeva:",IDC_STATIC,27,17,40,8
     LTEXT           "Dužina bita:",IDC_STATIC,27,32,30,8
     EDITTEXT        IDC_EDIT5,67,30,25,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "bitova",IDC_STATIC,98,33,18,9
+    LTEXT           "bitova",IDC_STATIC,98,33,29,9
     GROUPBOX        "Display of homophones",IDC_STATIC,14,268,368,27
     GROUPBOX        "Opcije šifrovanja",IDC_STATIC,184,4,198,42
     LTEXT           "sa šifrovanjem",IDC_STATIC,308,27,54,8
@@ -12761,7 +12760,7 @@ BEGIN
     CONTROL         "Tekst",IDC_RADIO_TEXT_INPUT,"Button",BS_AUTORADIOBUTTON | WS_GROUP,192,32,30,8
     CONTROL         "Binarni podaci",IDC_RADIO_BINARY_INPUT,"Button",BS_AUTORADIOBUTTON,224,32,57,8
     LTEXT           "Uzeti u obzir unos dokumenta kao",IDC_STATIC,192,18,100,11
-    PUSHBUTTON      "Opcije za tekst",IDC_BUTTON_TEXTOPTIONS,221,388,72,18
+    PUSHBUTTON      "Opcije za tekst",IDC_BUTTON_TEXTOPTIONS,241,388,72,18
 END
 
 IDD_EC_GENERATION DIALOGEX 0, 0, 404, 353
@@ -12776,9 +12775,9 @@ BEGIN
     DEFPUSHBUTTON   "&Generiši elipticku krivu",IDC_BUTTON_GEN,29,126,101,20
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,29,180,347,85
     PUSHBUTTON      "&Smesti elipticku krivu",IDC_BUTTON_ACCEPT,29,320,101,20
-    CONTROL         "&Oktalno",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,40,287,33,8
-    CONTROL         "&Decimalno",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,81,287,41,8
-    CONTROL         "&Heksadecimalno",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,129,287,56,8
+    CONTROL         "&Oktalno",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,34,287,37,8
+    CONTROL         "&Decimalno",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,76,287,47,8
+    CONTROL         "&Heksadecimalno",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,123,287,65,8
     GROUPBOX        "Metoda",IDC_STATIC,14,3,116,53
     GROUPBOX        "Inicijalizuj nasumicni generator",IDC_STATIC,141,3,251,53
     LTEXT           "Izracunavanje elipticke krive koristi funkciju pseudo nasumicnih \nbrojeva. Molim unesite nasumicno 'seme'.",IDC_STATIC,155,16,221,16
@@ -12832,15 +12831,15 @@ BEGIN
     PUSHBUTTON      "&Sacuvaj listu",IDOK,7,200,99,24
     PUSHBUTTON      "&Zatvori",IDCANCEL,7,229,99,24
     CONTROL         "&Histogram",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,22,53,10
-    CONTROL         "&Dijagram",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,20,36,56,10
+    CONTROL         "&Digram",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,20,36,56,10
     CONTROL         "&Trigram",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,20,49,45,10
     CONTROL         "",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,20,64,8,8
     EDITTEXT        IDC_EDIT2,31,62,13,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
-    EDITTEXT        IDC_EDIT1,66,87,27,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT1,66,83,27,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,115,23,228,230
     GROUPBOX        "Selekcija",IDC_STATIC,7,3,99,122
-    LTEXT           "Prikaz",IDC_STATIC,20,88,44,8
-    LTEXT           "najucestalijih N-gram-ova (dozvoljene vrednosti: 1-5000)",IDC_STATIC,20,101,80,20
+    LTEXT           "Prikaz",IDC_STATIC,20,84,44,8
+    LTEXT           "najucestalijih N-gram-ova (dozvoljene vrednosti: 1-5000)",IDC_STATIC,20,98,80,24
     LTEXT           "-gram",IDC_STATIC,45,64,25,8
     PUSHBUTTON      "&Opcije za tekst",IDC_BUTTON_TEXTOPTIONS,7,129,99,23
 END
@@ -12855,9 +12854,9 @@ BEGIN
     CONTROL         "&X^2 (mod N)  generator nasumicnih brojeva",IDC_RADIO2,
                     "Button",BS_AUTORADIOBUTTON,18,74,158,8
     CONTROL         "&Generator Linearne Podudarnosti (GLP)",IDC_RADIO3,
-                    "Button",BS_AUTORADIOBUTTON,18,89,129,8
+                    "Button",BS_AUTORADIOBUTTON,18,89,137,8
     CONTROL         "&Generator Inverzne Podudarnosti (GIP)",IDC_RADIO4,
-                    "Button",BS_AUTORADIOBUTTON,18,104,127,8
+                    "Button",BS_AUTORADIOBUTTON,18,104,135,8
     EDITTEXT        IDC_EDIT1,40,140,207,12,ES_AUTOHSCROLL
     PUSHBUTTON      "Odaberite generatorski-specificne &parametre ...",IDC_BUTTON1,18,158,155,18
     EDITTEXT        IDC_EDIT2,110,200,40,12,ES_AUTOHSCROLL
@@ -12920,17 +12919,17 @@ BEGIN
     PUSHBUTTON      "Otkaži",IDCANCEL,46,74,40,14
 END
 
-AFX_IDD_PREVIEW_TOOLBAR DIALOG  0, 0, 330, 16
-STYLE DS_SETFONT | DS_3DLOOK | WS_CHILD
-FONT 8, "MS Shell Dlg"
+AFX_IDD_PREVIEW_TOOLBAR DIALOGEX 0, 0, 356, 16
+STYLE DS_SETFONT | DS_3DLOOK | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "&Štampaj...",AFX_ID_PREVIEW_PRINT,2,2,44,12
-    PUSHBUTTON      "&Sledeca Strana",AFX_ID_PREVIEW_NEXT,48,2,44,12
-    PUSHBUTTON      "Pre&thodna Strana",AFX_ID_PREVIEW_PREV,94,2,44,12
-    PUSHBUTTON      "",AFX_ID_PREVIEW_NUMPAGE,140,2,44,12
-    PUSHBUTTON      "&Zumiraj",AFX_ID_PREVIEW_ZOOMIN,186,2,44,12
-    PUSHBUTTON      "&Odzumiraj",AFX_ID_PREVIEW_ZOOMOUT,232,2,44,12
-    PUSHBUTTON      "&Zatvori",AFX_ID_PREVIEW_CLOSE,278,2,44,12
+    PUSHBUTTON      "&Sledeca Strana",AFX_ID_PREVIEW_NEXT,48,2,56,12
+    PUSHBUTTON      "Pre&thodna Strana",AFX_ID_PREVIEW_PREV,106,2,64,12
+    PUSHBUTTON      "",AFX_ID_PREVIEW_NUMPAGE,171,2,44,12
+    PUSHBUTTON      "&Zumiraj",AFX_ID_PREVIEW_ZOOMIN,217,2,44,12
+    PUSHBUTTON      "&Odzumiraj",AFX_ID_PREVIEW_ZOOMOUT,263,2,44,12
+    PUSHBUTTON      "&Zatvori",AFX_ID_PREVIEW_CLOSE,309,2,44,12
 END
 
 IDD_LCG_RANDOMPARAMETER DIALOG  0, 0, 253, 129
@@ -12964,16 +12963,16 @@ BEGIN
     CONTROL         "b-ad&ic",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,19,128,43,8
     CONTROL         "B&rojni sistem",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON,89,128,69,8
     EDITTEXT        IDC_EDIT2,109,190,19,13,ES_AUTOHSCROLL
-    CONTROL         "&Decimalno",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,249,39,10
+    CONTROL         "&Decimalno",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,249,46,10
     CONTROL         "&Binarno",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,89,249,35,10
-    CONTROL         "&Oktalno",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,153,249,33,10
-    CONTROL         "&Heksadecimalno",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,218,250,57,10
+    CONTROL         "&Oktalno",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,153,249,39,10
+    CONTROL         "&Heksadecimalno",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,211,249,63,10
     PUSHBUTTON      "&Otkaži",IDCANCEL,234,274,50,18
     GROUPBOX        "Opcije alfabeta",IDC_STATIC,7,5,277,65
     LTEXT           "Izmeni",IDC_EDIT_ANZAHL_ZEICHEN,145,25,121,11
-    GROUPBOX        "RSA varijansa",IDC_STATIC,7,76,277,31
+    GROUPBOX        "RSA varijanta",IDC_STATIC,7,76,277,31
     GROUPBOX        "Metod za kodiranje bloka u brojeve",IDC_STATIC,7,113,277,30
-    LTEXT           "Dužina bloka u karakterima:",IDC_STATIC,18,192,86,8
+    LTEXT           "Dužina bloka u karakterima:",IDC_STATIC,18,192,91,8
     EDITTEXT        IDC_EDIT3,135,192,141,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
     GROUPBOX        "Brojni sistem",IDC_STATIC,7,213,277,53
     LTEXT           "Brojevi za RSA šifrovanje i dešifrovanje bice predstavljeni sledecim brojnim sistemom",IDC_STATIC,19,226,233,18
@@ -13007,8 +13006,8 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,267,234,10
     CONTROL         "Prikaži srednji dijalog sa inverznom permutacijom",IDC_CHECK2,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,281,185,10
-    CONTROL         "Binarni podaci",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,135,297,51,10
-    CONTROL         "Tekst",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,188,297,28,10
+    CONTROL         "Binarni podaci",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,135,297,58,10
+    CONTROL         "Tekst",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,194,297,28,10
     DEFPUSHBUTTON   "&Zašifruj",IDOK,11,318,58,19,WS_DISABLED
     PUSHBUTTON      "&Dešifruj",IDC_BUTTON1,86,318,57,19,WS_DISABLED
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,162,317,22,20
@@ -13041,10 +13040,10 @@ BEGIN
     LTEXT           "Smatrati ulazni dokument kao",IDC_STATIC,23,297,110,10
 END
 
-IDD_ICG_RANDOMPARAMETER DIALOG  0, 0, 294, 150
+IDD_ICG_RANDOMPARAMETER DIALOGEX 0, 0, 294, 150
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Generator Inverzne Podudarnosti (GIP)"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,10,121,73,20
     PUSHBUTTON      "&Otkaži",IDCANCEL,207,121,78,20
@@ -13055,11 +13054,11 @@ BEGIN
     EDITTEXT        IDC_EDIT1,59,61,126,12,ES_AUTOHSCROLL
     LTEXT           "c = ",IDC_STATIC_GPC,44,78,15,10,SS_NOTIFY
     EDITTEXT        IDC_EDIT2,59,77,126,12,ES_AUTOHSCROLL
-    LTEXT           "prost broj P = ",IDC_STATIC_GPP,25,95,31,10,SS_NOTIFY
+    LTEXT           "prost broj P = ",IDC_STATIC_GPP,19,95,39,10,SS_NOTIFY
     EDITTEXT        IDC_EDIT3,59,94,126,12,ES_AUTOHSCROLL
-    LTEXT           "Dužina&bit-a prostog broja P:",IDC_STATIC_GPL,198,58,76,8,SS_NOTIFY
+    LTEXT           "Dužina& bit-a prostog broja P:",IDC_STATIC_GPL,198,52,82,16,SS_NOTIFY
     EDITTEXT        IDC_EDIT4,198,68,49,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "&generiši prost broj",IDC_PRIMBUTTON,198,87,79,20,BS_MULTILINE
+    PUSHBUTTON      "&Generiši prost broj",IDC_PRIMBUTTON,198,87,79,20,BS_MULTILINE
 END
 
 IDD_FRQ_TEST DIALOGEX 0, 0, 250, 178
@@ -13069,7 +13068,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     COMBOBOX        IDC_COMBO_ALPHA,101,18,45,44,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_TUPELCOMBO,206,18,27,60,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
-    CONTROL         "Podrazumevani ofset i test dužine",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,39,106,11
+    CONTROL         "Podrazumevani ofset i test dužine",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,39,118,11
     CONTROL         "Koristi nasumicno odabrane sekcije iz datoteke",IDC_CHECK2,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,52,159,10
     EDITTEXT        IDC_EDIT1,41,68,60,12,ES_AUTOHSCROLL
@@ -13095,13 +13094,13 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "Izvrši testove",IDC_TESTBUTTON,8,275,67,18
     COMBOBOX        IDC_COMBO1,110,19,52,46,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
-    CONTROL         "Podrazumevani parametri run testa",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,39,104,10
+    CONTROL         "Podrazumevani parametri run testa",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,39,121,10
     CONTROL         "Koristi nasumicno odabrane sekcije iz datoteke",IDC_CHECK3,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,51,170,13
     EDITTEXT        IDC_EDIT2,58,70,54,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT5,58,89,54,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT4,161,70,55,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT6,87,144,63,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT6,92,144,63,12,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Zatvori",IDOK,143,275,83,18
     GROUPBOX        "Runs parametri",IDC_STATIC,8,7,218,104
     LTEXT           "Nivo znacaja alfa: ",IDC_STATIC,18,21,80,8
@@ -13109,8 +13108,8 @@ BEGIN
     LTEXT           "Dužina:",IDC_STATIC,133,72,25,8
     LTEXT           "Run dužina:",IDC_STATIC,18,91,38,8
     GROUPBOX        "Dugacki run parametri",IDC_STATIC,8,115,218,50
-    CONTROL         "Podrazumevani dugacki runs parametri",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,127,110,10
-    LTEXT           "Maksimalna run length:",IDC_STATIC,18,145,62,8
+    CONTROL         "Podrazumevani dugacki runs parametri",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,127,138,10
+    LTEXT           "Maksimalna run dužina:",IDC_STATIC,18,145,73,12
     GROUPBOX        "Status testa",IDC_STATIC,8,168,218,100
     LTEXT           "Staticki",IDC_INFO_STATIC_RUN,18,179,128,17
     LTEXT           "\nMolim odaberite ""Izvrši testove""",IDC_RUN_ERGEBNIS,18,203,101,12
@@ -13204,7 +13203,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT1,177,49,165,14,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Nastavi",IDC_BUTTON_Faktorisieren,24,156,77,16
-    PUSHBUTTON      "Kompletno &razlaganje u proste brojeve",IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,224,156,118,16,NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "Kompletno &razlaganje u proste brojeve",IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,214,156,128,16,NOT WS_VISIBLE | WS_DISABLED
     PUSHBUTTON      "&Zatvori",IDC_BUTTON_cancel,259,313,94,18
     GROUPBOX        "Algoritmi za razlaganje",-1,13,6,140,107
     CONTROL         "Brutalna-sila",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,23,51,10
@@ -13287,13 +13286,13 @@ BEGIN
     GROUPBOX        "Heš funkcija",IDC_STATIC,7,3,117,120
 END
 
-IDD_FACTORISATION_LIST DIALOG  0, 0, 383, 346
+IDD_FACTORISATION_LIST DIALOGEX 0, 0, 383, 346
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Detalji za trenutno razlaganje na proste cinioce"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&Zatvori",IDOK,326,319,50,20
-    PUSHBUTTON      "&Sacuvaj listu na glavnom prozoru",IDCANCEL,190,319,98,20
+    PUSHBUTTON      "&Sacuvaj listu na glavnom prozoru",IDCANCEL,173,319,115,20
     LTEXT           "Ulazni broj:",IDC_STATIC,7,7,47,10
     EDITTEXT        IDC_EDIT1,7,19,369,12,ES_AUTOHSCROLL | ES_READONLY
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,7,41,368,155
@@ -13421,9 +13420,9 @@ FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     GROUPBOX        "Odabir heš funkcije",IDC_STATIC,16,47,115,41
     GROUPBOX        "Osnova heš vrednosti",IDC_STATIC,136,47,184,41
-    CONTROL         "&decimalno",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | WS_GROUP,222,70,40,10
-    CONTROL         "&heksadecimalno",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,154,70,55,10
-    CONTROL         "&binarno",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,271,70,31,10
+    CONTROL         "&decimalno",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | WS_GROUP,222,70,46,10
+    CONTROL         "&heksadecimalno",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,154,70,62,10
+    CONTROL         "&binarno",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,271,70,37,10
     LTEXT           "Aktuelni dokument (ova kopija originalne datoteke može biti modifikovana ovde)",IDC_STATIC,16,97,304,8,NOT WS_GROUP
     EDITTEXT        IDC_EDIT_TEXT,16,109,304,113,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
     LTEXT           "Heš vrednost originalne datoteke",IDC_STATIC_TITEL,16,231,194,8
@@ -13489,7 +13488,7 @@ BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,12,61,50,18
     PUSHBUTTON      "&Otkaži",IDCANCEL,215,61,50,18
     CONTROL         "Prikaži dijalog ""Kako poceti"" prilikom pokretanja CrypTool-a.",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,15,185,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,15,200,10
     CONTROL         "Otvori primer tekstualne datoteke automatski prilikom pokretanja CrypTool-a.",IDC_CHECK2,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,36,212,10
 END
@@ -13523,14 +13522,14 @@ BEGIN
     LTEXT           "Dužina kljuca:",IDC_STATIC,10,28,36,8
 END
 
-IDD_DIFFIEHELLMAN_EXCHANGESHAREDKEYS DIALOG  0, 0, 200, 101
+IDD_DIFFIEHELLMAN_EXCHANGESHAREDKEYS DIALOGEX 0, 0, 200, 101
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Razmeni Deljene Kljuceve"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
     PUSHBUTTON      "&Otkaži",IDCANCEL,143,80,50,14
-    LTEXT           "Pre nego što Alisa i Bob mogu da izracunaju njihov kljuc sesije, njihovi prethodno izracunati deljeni kljucevi moraju biti razmenjeni. Molimo razmenite kljuceve klikom na dugme 'OK'.",IDC_STATIC,7,37,186,24,NOT WS_GROUP
+    LTEXT           "Pre nego što Alisa i Bob mogu da izracunaju njihov kljuc sesije, njihovi prethodno izracunati deljeni kljucevi moraju biti razmenjeni. Molimo razmenite kljuceve klikom na dugme 'OK'.",IDC_STATIC,7,37,186,35,NOT WS_GROUP
     LTEXT           "Staticki",IDC_HEADING,7,7,186,16
 END
 
@@ -13643,10 +13642,10 @@ BEGIN
     LTEXT           "Staticki",IDC_HEADING,7,7,186,16
 END
 
-IDD_DIFFIEHELLMAN_KEY DIALOG  0, 0, 424, 295
+IDD_DIFFIEHELLMAN_KEY DIALOGEX 0, 0, 424, 295
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Detalji Kljuca - Tajni i zajednicki kljuc za Alisu i Boba"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,274,50,14
     PUSHBUTTON      "&Otkaži",IDCANCEL,367,274,50,14
@@ -13691,10 +13690,10 @@ BEGIN
     PUSHBUTTON      "Koristi podrazumevane poruke",IDC_BUTTON_USEDEFAULTMESSAGES,18,35,291,14
 END
 
-IDD_OPTIONS_SIGNATURE_ATTACK DIALOG  0, 0, 269, 274
+IDD_OPTIONS_SIGNATURE_ATTACK DIALOGEX 0, 0, 269, 274
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Opcije za napad na heš vrednosti digitalnog potpisa"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&Primeni",IDOK,11,242,61,17
     PUSHBUTTON      "&Otkaži",IDCANCEL,203,242,55,17
@@ -13714,17 +13713,17 @@ BEGIN
     LTEXT           "",IDC_STATIC_SIG_ATT_BITLENGTH_RANGE,128,93,79,8
     LTEXT           "Ustanovi nacin na koji su poruke modifikovane tokom napada.",IDC_STATIC,21,137,211,17
     LTEXT           "Odaberite jednu od šest heš funkcija, i podesite broj bitova koji trebaju da se poklapaju izmedu heš vrednosti dve razlicite poruke kako bi se napad smatrao uspešnim.",IDC_STATIC,21,22,211,25
-    CONTROL         "&Ubaci praznine",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | WS_GROUP,21,161,56,10
+    CONTROL         "&Ubaci praznine",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | WS_GROUP,21,161,68,10
     CONTROL         "Z&akaci karaktere",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,21,197,77,10
     CONTROL         "&Štampajuci karakteri (demonstracija)",IDC_RADIO9,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,115,197,139,10
     CONTROL         "&Ne-štampajuci karakteri",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON,115,213,103,10
 END
 
-IDD_STATISTICS_SIGNATURE_ATTACK DIALOG  0, 0, 338, 329
+IDD_STATISTICS_SIGNATURE_ATTACK DIALOGEX 0, 0, 338, 329
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Statistike napada"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "&Otkaži",IDCANCEL,225,304,91,17
     GROUPBOX        "Pretpostavljeni napori",IDC_STATIC,11,4,318,66
@@ -13735,7 +13734,7 @@ BEGIN
     EDITTEXT        IDC_EXPECTED_STEPS,92,43,94,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Vreme proracuna",IDC_STATIC,24,91,50,8
     EDITTEXT        IDC_EFFECTIVE_TIME,92,89,224,14,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "Koraka zahtevano",IDC_STATIC,24,113,57,12
+    LTEXT           "Koraka zahtevano",IDC_STATIC,24,113,63,12
     EDITTEXT        IDC_TOTAL_STEPS,92,111,94,14,ES_AUTOHSCROLL | ES_READONLY
     CONTROL         "List2",IDC_LIST_OF_RUNS,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,24,173,292,69
     LTEXT           "Koraka zahtevano sortirano po iteraciji",IDC_STATIC,24,162,200,8
@@ -13756,9 +13755,9 @@ BEGIN
     PUSHBUTTON      "&Oktaži",IDCANCEL,231,183,50,17
     LTEXT           "Heš vrednost",IDC_STATIC,29,22,37,8
     EDITTEXT        IDC_HASHVALUE,79,20,191,14,ES_AUTOHSCROLL
-    LTEXT           "Dužina\nznacajnog bita",IDC_STATIC,29,43,43,18
+    LTEXT           "Dužina\nznacajnog bita",IDC_STATIC,29,43,51,18
     EDITTEXT        IDC_SIGBIT,79,44,40,14,ES_AUTOHSCROLL
-    CONTROL         "&Ubaci praznine",IDC_METHOD,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,88,56,10
+    CONTROL         "&Ubaci praznine",IDC_METHOD,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,88,60,10
     CONTROL         "&Zakaci karaktere",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,29,123,72,10
     CONTROL         "Ispred &kraja linije",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,135,88,81,10
     CONTROL         "&Duple Praznine",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,135,104,62,10
@@ -13770,7 +13769,7 @@ BEGIN
     LTEXT           "Parnost heš vrednosti",IDC_STATIC,151,46,74,8
     EDITTEXT        IDC_PARITY,230,44,40,14,ES_AUTOHSCROLL | ES_READONLY
     COMBOBOX        IDC_COMBO1,136,153,28,111,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Pokreni",IDC_STATIC,171,155,14,8
+    LTEXT           "Pokreni",IDC_STATIC,171,155,30,8
 END
 
 IDD_DIFFIEHELLMAN_FINALINFO DIALOG  0, 0, 260, 145
@@ -13860,17 +13859,17 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,553,368,90,10
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_ALICE DIALOG  0, 0, 375, 250
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_ALICE DIALOGEX 0, 0, 375, 250
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Trenutni Alisin Status"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,149,229,50,14
     CONTROL         761,IDC_ALICE,"Static",SS_BITMAP | WS_BORDER,7,7,68,63
     EDITTEXT        IDC_EDIT_ORIGINALSESSIONKEY,7,100,361,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Nasumicno odabran kljuc sesije:",IDC_STATIC,7,85,141,8,SS_CENTERIMAGE
     LISTBOX         IDC_LIST_TASKS,80,18,288,52,NOT LBS_NOTIFY | LBS_NOINTEGRALHEIGHT | LBS_NOSEL
-    LTEXT           "Akcioni log:",IDC_STATIC,80,7,34,8
+    LTEXT           "Akcioni log:",IDC_STATIC,80,7,44,8
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_BOB DIALOGEX 0, 0, 375, 260
@@ -13883,7 +13882,7 @@ BEGIN
     CONTROL         762,IDC_BOB,"Static",SS_BITMAP | WS_BORDER,7,7,68,63
     LTEXT           "Primljeni kljucevi sesije i rezultati dešifrovanja:",IDC_STATIC,7,117,146,8
     LISTBOX         IDC_LIST_TASKS,80,18,288,52,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Akcioni log:",IDC_STATIC,80,7,34,8
+    LTEXT           "Akcioni log:",IDC_STATIC,80,7,45,8
     LTEXT           "Zapravo, Bob ne može da odluci da li je poruku primio od Alise ili Trudi. Ipak, ako mu se da odredena kljucna rec, Bob može da odluci da je poruka poslata od Alise. Molimo zadajte kljucnu rec ispod:",IDC_STATIC,7,79,361,16
     LTEXT           "Kljucna rec:",IDC_STATIC,7,99,30,8
     EDITTEXT        IDC_EDIT_KEYWORD,55,98,50,12,ES_AUTOHSCROLL
@@ -13947,7 +13946,7 @@ BEGIN
     EDITTEXT        IDC_PIN,87,74,50,14,ES_PASSWORD | ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&OK",IDOK,7,103,50,14
     PUSHBUTTON      "&Otkaži",IDCANCEL,169,103,50,14
-    LTEXT           "Molimo unesite PIN za Bobov privatni kljuc:",IDC_STATIC,7,55,134,8
+    LTEXT           "Molimo unesite PIN za Bobov privatni kljuc:",IDC_STATIC,7,55,139,8
     LTEXT           "Bobu je potreban njegov privatni kljuc da bi dešifrovao primljenu poruku. Privatni kljuc je zašticen PIN-om kako bo se sprecile zloupotrebe od strane trecih lica (Bobov PIN: 1234).",IDC_STATIC,7,23,212,24
     LTEXT           "Bob je primio hibridno šifrovanu poruku od Alise.",IDC_STATIC,7,7,174,8
 END
@@ -13963,20 +13962,20 @@ BEGIN
     LTEXT           "Možete generisati izveštaj unutar novog prozora klikom na dugme OK.",IDC_STATIC,7,31,226,16
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_TRUDY DIALOG  0, 0, 375, 350
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_TRUDY DIALOGEX 0, 0, 375, 350
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Trenutni Trudin Status"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,149,329,50,14
     CONTROL         760,IDC_TRUDY,"Static",SS_BITMAP | WS_BORDER,7,7,68,63
     CONTROL         "List1",IDC_LIST_MODIFIEDSESSIONKEYS,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,7,140,361,55
     EDITTEXT        IDC_EDIT_DETERMINEDSESSIONKEY,7,225,361,14,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "Dešifrovani kljuc sesije (izracunat od strane Trudi, zasnovan na Bobovim odgovorima):",IDC_STATIC,7,210,229,8
+    LTEXT           "Dešifrovani kljuc sesije (izracunat od strane Trudi, zasnovan na Bobovim odgovorima):",IDC_STATIC,7,210,269,9
     LTEXT           "Modifikovani i šifrovani kljucevi sesije:",IDC_STATIC,7,125,119,8
     LISTBOX         IDC_LIST_TASKS,80,18,288,52,NOT LBS_NOTIFY | LBS_NOINTEGRALHEIGHT | LBS_NOSEL
-    LTEXT           "Akcioni log:",IDC_STATIC,80,7,34,8
-    LTEXT           "Poruka (izracunata od strane Trudi korišcenjem dešifrovanog kljuca sesije):",IDC_STATIC,7,250,202,8
+    LTEXT           "Akcioni log:",IDC_STATIC,80,7,53,8
+    LTEXT           "Poruka (izracunata od strane Trudi korišcenjem dešifrovanog kljuca sesije):",IDC_STATIC,7,250,211,8
     EDITTEXT        IDC_EDIT_COMPUTEDMESSAGE,7,265,361,51,ES_MULTILINE | ES_READONLY | WS_VSCROLL
     EDITTEXT        IDC_EDIT_INTERCEPTEDENCRYPTEDSESSIONKEY,7,100,361,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Presretnut, šifrovan kljuc sesije:",IDC_STATIC,7,85,113,8
@@ -14018,16 +14017,16 @@ BEGIN
     LTEXT           "Rešenje:",IDC_STATIC,336,405,28,8
     PUSHBUTTON      "Prikaži log datoteku",IDC_BUTTONLOG,292,431,66,14
     LTEXT           "Željena dužina bita N:",IDC_STATIC5,16,80,72,8
-    LTEXT           "Pocnite zadavanjem javnog kljuca (unesite ga ili pustite da bude generisan).",IDC_STATIC,14,38,196,8
+    LTEXT           "Pocnite zadavanjem javnog kljuca (unesite ga ili pustite da bude generisan).",IDC_STATIC,14,38,241,8
     CONTROL         "Šifrovani tekst i deo otvoreni tekst su poznati.",IDC_RADIOCHOICE,
                     "Button",BS_AUTORADIOBUTTON | BS_MULTILINE | WS_GROUP,16,144,494,14
     CONTROL         "Generišite šifrat zadavanjem otvoreni tekst i njegovim šifrovanjem.",IDC_RADIOCHOICE2,
-                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,16,158,210,10
+                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,16,157,238,13
     EDITTEXT        IDC_EDITPLAINFULL,15,183,242,35,ES_MULTILINE | ES_READONLY | ES_WANTRETURN | NOT WS_VISIBLE | WS_VSCROLL
     PUSHBUTTON      "Zašifruj",IDC_BUTTONENCRYPT,15,224,52,14,NOT WS_VISIBLE | WS_DISABLED
     EDITTEXT        IDC_EDITCIPHER,265,183,239,35,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
-    CONTROL         "Decimalno",IDC_RADIONUMBER,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,364,226,39,10
-    CONTROL         "Heksadecimalno",IDC_RADIOHEX,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,414,226,57,10
+    CONTROL         "Decimalno",IDC_RADIONUMBER,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,364,226,46,10
+    CONTROL         "Heksadecimalno",IDC_RADIOHEX,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,414,226,63,10
     EDITTEXT        IDC_EDITPOS,309,300,39,14,ES_AUTOHSCROLL | ES_NUMBER | WS_GROUP
     CONTROL         "Spin1",IDC_SPINPOS,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,342,300,11,14
     EDITTEXT        IDC_EDITLENGTH,403,300,39,14,ES_AUTOHSCROLL | ES_NUMBER
@@ -14038,7 +14037,7 @@ BEGIN
     GROUPBOX        "Korak 2: Unapred zadati otvoreni tekst i šifrat",IDC_STATIC,9,133,504,112
     LTEXT           "Pozicija:",IDC_STATIC,273,302,28,12
     LTEXT           "Dužina:",IDC_STATIC,373,302,25,12
-    LTEXT           "Maksimalna dužina nepoznatog dela:",IDC_STATIC,273,325,105,12
+    LTEXT           "Maksimalna dužina nepoznatog dela:",IDC_STATIC,273,325,105,18
     LTEXT           "Pregled:",IDC_STATIC,15,325,28,12
     EDITTEXT        IDC_EDITPLAIN,13,279,242,35,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
     GROUPBOX        "Korak 3: Deo otvoreni tekst poznatog napadacu",IDC_STATIC,9,252,504,93
@@ -14064,7 +14063,7 @@ BEGIN
                     "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,14,54,465,17
     EDITTEXT        IDC_EDITBITSOFN,62,114,57,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER | WS_GROUP
     EDITTEXT        IDC_EDITDELTA,155,114,40,14,ES_AUTOHSCROLL | ES_NUMBER
-    PUSHBUTTON      "Podesi podrazumevane parametre kljuca",IDC_BUTTONDEFAULT,273,114,104,14,WS_DISABLED
+    PUSHBUTTON      "Podesi podrazumevane parametre kljuca",IDC_BUTTONDEFAULT,244,114,133,14,WS_DISABLED
     EDITTEXT        IDC_EDITN,25,137,352,14,ES_AUTOHSCROLL | ES_NUMBER
     EDITTEXT        IDC_EDITE,25,155,352,14,ES_AUTOHSCROLL | ES_NUMBER
     EDITTEXT        IDC_EDITD,25,173,352,14,ES_AUTOHSCROLL | ES_NUMBER
@@ -14129,11 +14128,11 @@ BEGIN
     EDITTEXT        IDC_EDITN,31,116,250,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_NUMBER | WS_GROUP
     EDITTEXT        IDC_EDITBITSOFP,365,127,48,14,ES_AUTOHSCROLL | ES_NUMBER | WS_GROUP
     EDITTEXT        IDC_EDITBITSOFN,365,109,48,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
-    CONTROL         "Decimalno",IDC_RADIONUMBER,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,13,252,41,10
-    CONTROL         "Heksadecimalno",IDC_RADIOHEX,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,96,252,57,10
+    CONTROL         "Decimalno",IDC_RADIONUMBER,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,13,252,49,10
+    CONTROL         "Heksadecimalno",IDC_RADIOHEX,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,96,252,65,10
     CONTROL         "Binarno",IDC_RADIOBIN,"Button",BS_AUTORADIOBUTTON,182,251,35,10
     CONTROL         "najznacajniji bitovi",IDC_RADIOMSB,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,14,170,77,10
-    CONTROL         "najmanje znacajni bitovi",IDC_RADIOLSB,"Button",BS_AUTORADIOBUTTON,96,170,77,10
+    CONTROL         "najmanje znacajni bitovi",IDC_RADIOLSB,"Button",BS_AUTORADIOBUTTON,96,170,86,10
     EDITTEXT        IDC_EDITB,365,168,48,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER | WS_GROUP
     PUSHBUTTON      "Podesi podrazumevane parametre",IDC_BUTTONDEFAULT,262,250,83,14,WS_DISABLED
     PUSHBUTTON      "Generiši primer",IDC_R,350,250,63,14,WS_DISABLED
@@ -14191,14 +14190,14 @@ BEGIN
     PUSHBUTTON      "Zatvori",IDCANCEL,435,454,90,20
     LTEXT           "Unesite Vaš kljuc (k)",IDC_STATIC,15,245,103,8
     LTEXT           "Unesite drugi kljuc (k')",IDC_STATIC,15,266,72,8
-    LTEXT           "HMAC generisan iz kljuca i poruke",IDC_STATIC,7,400,128,8
+    LTEXT           "HMAC generisan iz kljuca i poruke",IDC_STATIC,7,400,112,8
     LTEXT           "Unos za spoljnu heš funkciju (zavisi od HMAC varijante odabrane iznad)",IDC_STATIC,7,335,518,8
     LTEXT           "Putem HMAC-a primalac poruke je u stanju da proveri njen integritet i autenticnost njenog pošaljioca. Prema tome, obe strane koriste deljenu tajnu (simetricni kljuc).",IDC_STATIC,15,20,501,16
     LTEXT           "Za kreiranje HMAC-a, primenjuje se kriptografska heš funkcija na kombinaciju poruke m i tajnog kljuca k. Prema varijaciji odabranoj ispod, dva razlicita kljuca k i k' mogu biti upotrebljena.",IDC_STATIC,15,38,501,17
     GROUPBOX        "Opis",IDC_STATIC,7,7,518,52
     EDITTEXT        IDC_EDIT_ORIGINAL_MESSAGE,15,79,501,120,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL
     GROUPBOX        "Poruka",IDC_STATIC,7,66,518,140
-    LTEXT           "Unutrašnja heš vrednost:",IDC_STATIC,7,291,56,9
+    LTEXT           "Unutrašnja heš vrednost:",IDC_STATIC,7,291,87,9
     EDITTEXT        IDC_SHOW_HASH,7,303,518,25,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
     COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,65,221,175,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_COMBO_SELECT_HMAC_ALGORITHM,315,221,202,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
@@ -14367,8 +14366,8 @@ BEGIN
     LTEXT           "Trenutno rešenje",IDC_STATIC,7,243,52,8
     EDITTEXT        IDC_EDIT_REMCHARS,125,144,127,20,ES_MULTILINE | ES_READONLY | NOT WS_TABSTOP
     LTEXT           "Još uvek nedodeljeni karakteri",IDC_STATIC_REMCHARS,125,136,91,8
-    LTEXT           "minimalno",IDC_STATIC,26,31,24,8
-    LTEXT           "maksimalno",IDC_STATIC,74,31,26,8
+    LTEXT           "minimalno",IDC_STATIC,26,31,31,8
+    LTEXT           "maksimalno",IDC_STATIC,74,31,36,8
     EDITTEXT        IDC_TEXTFIELD_NUMBEREDPASSWORD,125,55,127,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Redosled kolone",IDC_STATIC_NUMBEREDPASSWORD,125,44,57,8
     PUSHBUTTON      "Obriši unose matrice",IDC_RESET_MATRIX,135,168,100,14
@@ -14376,8 +14375,8 @@ BEGIN
     PUSHBUTTON      "Prikaži trenutno rešenje",IDC_RESUBSTITUTE,135,221,100,14
     PUSHBUTTON      "Unesite Niz",IDC_BUTTON_STRINGBOX,135,203,100,14,BS_MULTILINE
     CONTROL         "Paste",IDC_INSERT_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,15,330,36,16
-    EDITTEXT        IDC_EDIT_PASSWORD,125,26,121,12,ES_AUTOHSCROLL
     PUSHBUTTON      "Opcije teksta",IDC_BUTTON_TEXT_OPTIONS,15,74,98,16
+    EDITTEXT        IDC_EDIT_PASSWORD,125,26,121,12,ES_AUTOHSCROLL
 END
 
 IDD_ADFGVX_INTRO DIALOGEX 0, 0, 265, 209
@@ -14434,7 +14433,7 @@ BEGIN
     GROUPBOX        "Rešenje",IDC_STATIC,7,217,258,33
     GROUPBOX        "Primer upotrebe u astronomiji/ vizualizacija",IDC_STATIC,275,46,223,271
     LTEXT           "Periodi planeta Merkur i Zemlje oko Sunca su 88 i 365 dana. Do dostizanja odredenog radijus vektora s (crveno), potrebno je",IDC_STATIC,283,164,176,26
-    LTEXT           "Da li je moguce, da Merkur i Zemlja se jednom obe nadu na ovom radijus vektoru s?",IDC_STATIC,283,205,211,18
+    LTEXT           "Da li je moguce, da se Merkur i Zemlja jednom obe nadu na ovom radijus vektoru s?",IDC_STATIC,283,205,211,18
     LTEXT           "U kom vremenskom intervalu (dani) se ovaj dogadaj ponavlja?",IDC_STATIC,283,283,204,10
     EDITTEXT        IDC_CRT_ASTRONOMY_EDITREPEAT,283,293,207,15,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER | NOT WS_TABSTOP
     GROUPBOX        "Odaberite planetu",IDC_STATIC,283,223,207,54
@@ -14474,7 +14473,7 @@ BEGIN
     CONTROL         830,IDC_STATIC,"Static",SS_BITMAP,25,181,5,4
     CONTROL         830,IDC_STATIC,"Static",SS_BITMAP,25,196,5,4
     CONTROL         "",IDC_GIF_CRT_ASTRONOMY,"Static",SS_BLACKRECT,288,60,20,20
-    LTEXT           "izravnane.",IDC_STATIC,13,28,26,8
+    LTEXT           "izravnane.",IDC_STATIC,13,28,48,8
     LTEXT           "Ovakvi sistemi jednacina mogu se koristiti za pronalaženje broja dana kada ce odredene planete postati",IDC_STATIC,166,20,314,8
 END
 
@@ -14491,10 +14490,10 @@ BEGIN
     EDITTEXT        IDC_CRT_SECRETSHARINGEDIT9b,12,188,143,14,ES_AUTOHSCROLL | ES_READONLY,WS_EX_RIGHT
     EDITTEXT        IDC_CRT_SECRETSHARINGEDIT9c,12,205,143,14,ES_AUTOHSCROLL | ES_READONLY,WS_EX_RIGHT
     CONTROL         "automatski",IDC_CRT_Radio_AUT,"Button",BS_AUTORADIOBUTTON | WS_GROUP,314,107,60,8
-    DEFPUSHBUTTON   "&Izracunaj",IDC_SECRETSHARING_BUTTON1,317,155,50,15
-    PUSHBUTTON      "&Opcije",IDC_BUTTON4,317,173,50,15
-    PUSHBUTTON      "Koraci &racunanja",IDC_SECRETSHARING_FACTS,317,191,50,15,WS_DISABLED
-    PUSHBUTTON      "&Resetuj",IDC_SECRETSHARING_BUTTON2,317,208,50,15,WS_DISABLED
+    DEFPUSHBUTTON   "&Izracunaj",IDC_SECRETSHARING_BUTTON1,317,155,59,15
+    PUSHBUTTON      "&Opcije",IDC_BUTTON4,317,173,59,15
+    PUSHBUTTON      "Koraci &racunanja",IDC_SECRETSHARING_FACTS,317,191,59,15,WS_DISABLED
+    PUSHBUTTON      "&Resetuj",IDC_SECRETSHARING_BUTTON2,317,208,59,15,WS_DISABLED
     PUSHBUTTON      "+ / -",IDC_SECRETSHARING_ADD1,22,256,19,13,WS_DISABLED
     EDITTEXT        IDC_CRT_SECRETSHARINGEDIT16,48,255,143,15,ES_NUMBER | WS_DISABLED,WS_EX_RIGHT
     PUSHBUTTON      "+ / -",IDC_SECRETSHARING_ADD2,22,273,19,13,WS_DISABLED
@@ -14509,9 +14508,9 @@ BEGIN
     EDITTEXT        IDC_CRT_SECRETSHARINGEDIT21,48,342,143,14,ES_AUTOHSCROLL | WS_DISABLED,WS_EX_RIGHT
     PUSHBUTTON      "+ / -",IDC_SECRETSHARING_ADD7,21,360,20,14,WS_DISABLED
     EDITTEXT        IDC_CRT_SECRETSHARINGEDIT22,48,360,143,14,ES_AUTOHSCROLL | WS_DISABLED,WS_EX_RIGHT
-    PUSHBUTTON      "Ponovo izgradi &tajnu",IDC_BUTTON1,253,360,59,15,WS_DISABLED
+    PUSHBUTTON      "Ponovo izgradi &tajnu",IDC_BUTTON1,253,360,71,15,WS_DISABLED
     CONTROL         "Prikaži uvod pri sledecem pokretanju",IDC_CRT_SHOWDIALOG,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,387,102,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,387,128,10
     PUSHBUTTON      "&Pomoc",IDOK,75,403,50,15
     PUSHBUTTON      "&Log datoteka",IDC_SECRETSHARING_LOG,170,402,50,14,WS_DISABLED
     PUSHBUTTON      "&Izlaz",IDC_SECRETSHARING_ALGO,258,401,50,15
@@ -14540,7 +14539,7 @@ BEGIN
     LTEXT           "Nakon izracunavanja: Ako obezbedite minimalan broj kljuceva klikom na '+/-' dugmad u najnižoj grupi, ovaj program ce pokušati da ponovo izgradi tajnu nakon klika na 'Ponovo izgradi tajnu'.",IDC_STATIC,12,51,362,16
     LTEXT           "Deljenje tajne putem CRT-a dozvoljava distribuciju tajne na n kljuceva, tako da originalna tajna može biti rekonstruisana, ako se proizvoljan podskup od k<=n vlasnika kljuceva približi. ",IDC_STATIC,12,11,360,16
     LTEXT           "DYNAMISCH",IDC_REKOHELP,11,242,361,11
-    LTEXT           "Distribuiraj kljuceve:",IDC_CRT_Calculation,314,92,62,11
+    LTEXT           "Distribuiraj kljuceve:",IDC_CRT_Calculation,314,92,65,11
 END
 
 IDD_CRT_SECRETSHARING_FACTS DIALOGEX 0, 0, 373, 242
@@ -14833,7 +14832,7 @@ BEGIN
     PUSHBUTTON      "&Otkaži",IDCANCEL,218,169,50,14
     LTEXT           "Hibridno šifrovani dokument je vec otvoren.",-1,7,7,261,8
     LTEXT           "Imate tri opcije za nastavak napada sporednog kanala:",-1,7,23,261,8
-    LTEXT           "Molimo odaberite jednu od opcija odozgo.",-1,7,105,261,8
+    LTEXT           "Molimo odaberite jednu od opcija odozgo",-1,7,105,261,8
     CONTROL         "Koristite dokument integrisan u CrypTool koji je zašifrovan za vec postojeceg korisnika Boba. Tako preskacete proces hibridnog šifrovanja.",IDC_RADIO_CHOICE_3,
                     "Button",BS_AUTORADIOBUTTON | BS_LEFT | BS_TOP | BS_MULTILINE | WS_GROUP | WS_TABSTOP,25,70,235,24
 END
@@ -14858,10 +14857,10 @@ BEGIN
     LTEXT           "do:",IDC_TEXT3,21,172,9,8
     GROUPBOX        "Odaberite varijanu monoalfabetske zamene",IDC_STATIC,14,9,288,60
     CONTROL         "Unos kljuca: Preostali karakteri se popunjavaju u rastucem redosledu",IDC_RADIO1,
-                    "Button",BS_AUTORADIOBUTTON,21,25,206,10
+                    "Button",BS_AUTORADIOBUTTON,21,25,230,10
     CONTROL         "Unos kljuca: Preostali karakteri se popunjavaju u opadajucem redosledu",IDC_RADIO3,
-                    "Button",BS_AUTORADIOBUTTON,21,38,210,10
-    CONTROL         "Atbash (šifrovanje koristi fiksni kljuc)",IDC_RADIO2,
+                    "Button",BS_AUTORADIOBUTTON,21,38,244,10
+    CONTROL         "Atbaš (šifrovanje koristi fiksni kljuc)",IDC_RADIO2,
                     "Button",BS_AUTORADIOBUTTON,21,51,229,10
     PUSHBUTTON      "&Opcije teksta",IDC_BUTTON_TEXTOPTIONS,165,205,55,19
 END
@@ -14962,13 +14961,13 @@ BEGIN
     LTEXT           "Tok kljuca",IDC_STATIC,28,353,35,8
     LTEXT           "Korak 2: Možete da generišete tok kljuca (Ovo je aktuelni Solitaire algoritam). Ovaj proces menja špil karata.",IDC_STATIC,12,50,625,10
     LTEXT           "Primena Solitaire šifre se svodi na 3 koraka (prvi i drugi su pripremni koraci; u trecem koraku izvršava se šifrovanje):",IDC_STATIC,12,26,508,8
-    LTEXT           "Korak 3: Možete šifrovati odabrani tekst (Cineci to, svako slovo otvorenog teksta se XOR-uje svakom slovu toka kljuca).",IDC_STATIC,12,66,593,9
+    LTEXT           "Korak 3: Možete šifrovati odabrani tekst (Cineci to, svako slovo otvorenog teksta se XOR-uje svakom slovu toka kljuca).",IDC_STATIC,12,67,593,9
     LTEXT           "U slucaju da je odabran tekst vec šifrovan sa Solitaireom, možete ga i dešifrovati",IDC_STATIC,12,74,591,8
-    LTEXT           "I dalje su Vam potrebna",IDC_STATIC,434,247,47,12
-    LTEXT           "slova toka kljuca.",IDC_STATIC,434,259,82,11
+    LTEXT           "I dalje su Vam potrebna",IDC_STATIC,434,247,47,17
+    LTEXT           "slova toka kljuca.",IDC_STATIC,434,263,82,11
     PUSHBUTTON      "Generiši ostalo",IDC_BUTTON69,585,252,60,14,WS_DISABLED
     PUSHBUTTON      "Razlicito mešanje",IDC_BUTTON70,135,186,66,14
-    PUSHBUTTON      "Generisanje inicijalnog stanja",IDC_BUTTON71,326,415,88,14
+    PUSHBUTTON      "Generisanje inicijalnog stanja",IDC_BUTTON71,326,415,104,14
     LTEXT           "Inicijalni špil se može modifikovati pomocu lozinke.\nMožete procitati više o funkcionalnosti lozinki u online pomoci.",IDC_STATIC,460,125,179,24
     EDITTEXT        IDC_EDIT5,481,247,26,14,ES_CENTER | ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT WS_BORDER
     EDITTEXT        IDC_EDIT6,523,247,40,12,ES_CENTER | ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT WS_BORDER
@@ -15051,11 +15050,11 @@ BEGIN
     PUSHBUTTON      "1",IDC_BUTTON9,170,116,18,14,WS_DISABLED
     PUSHBUTTON      "Resetuj",IDC_BUTTON63,500,130,50,14,WS_DISABLED
     EDITTEXT        IDC_EDIT1,15,241,552,14,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT2,15,288,552,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT2,15,289,552,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Pronadeni špil",IDC_STATIC,17,232,38,8
-    LTEXT           "Inicijalni špil",IDC_STATIC,17,278,35,8
-    EDITTEXT        IDC_EDIT132,15,264,552,14,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "Privremeni špil",IDC_STATIC,17,255,52,8
+    LTEXT           "Inicijalni špil",IDC_STATIC,17,280,35,8
+    EDITTEXT        IDC_EDIT132,15,265,552,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Privremeni špil",IDC_STATIC,17,256,52,8
     EDITTEXT        IDC_EDIT3,17,345,551,30,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
     PUSHBUTTON      "Automatsko generisanje toka kljuca",IDC_BUTTON4,18,327,132,14,WS_DISABLED
     GROUPBOX        "Opis",IDC_STATIC,5,2,593,57
@@ -15071,7 +15070,7 @@ BEGIN
     LTEXT           "Onda originalni tok kljuca može da se generiše iz inicijalnog špila. ",IDC_STATIC,17,44,251,8
     LTEXT           "na jednistven nacin. Potom cete biti upitani za odluku, gde smestiti jokera.",IDC_STATIC,17,36,431,10
     GROUPBOX        "Ustanovljavanje inicijalnog špila i generisanje toka kljuca",IDC_STATIC,5,64,593,324
-    LTEXT           "generisanog od strane pošaljioca (kroz šifrovanje) ili od strane primaoca (kroz dešifrovanje). ",IDC_STATIC,17,20,282,8
+    LTEXT           "generisanog od strane pošaljioca (kroz šifrovanje) ili od strane primaoca (kroz dešifrovanje). ",IDC_STATIC,17,20,300,8
     GROUPBOX        "Uvek ista odluka",IDC_STATIC,15,182,118,30
     GROUPBOX        "Rucno",IDC_STATIC,140,182,70,30
 END
@@ -15090,7 +15089,7 @@ BEGIN
     RTEXT           "Gustina:",IDC_STATIC,15,40,47,8
     CONTROL         "",IDC_SLIDER_SHIFT,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,111,56,106,14
     RTEXT           "Pomeraj:",IDC_STATIC,15,59,47,11
-    LTEXT           "Dužina reci (u byte-ovima):",IDC_STATIC,35,99,73,10,0,WS_EX_RIGHT
+    LTEXT           "Dužina reci (u byte-ovima):",IDC_STATIC,35,99,89,10,0,WS_EX_RIGHT
     GROUPBOX        "Parametri analize",IDC_STATIC,7,86,216,30
     CONTROL         "1",IDC_RADIO_WORDSIZE_1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,138,99,20,10
     CONTROL         "2",IDC_RADIO_WORDSIZE_2,"Button",BS_AUTORADIOBUTTON,167,99,20,10
@@ -15113,10 +15112,10 @@ BEGIN
     PUSHBUTTON      "Otkaži",IDCANCEL,266,100,50,14
     LTEXT           "Pronadi:",IDC_STATIC,7,35,40,12
     LTEXT           "Zameni:",IDC_STATIC,7,55,40,12
-    CONTROL         "Velika i mala slova",IDC_CHECK_CASE_SENSITIVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,84,62,10
+    CONTROL         "Velika i mala slova",IDC_CHECK_CASE_SENSITIVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,84,72,10
     CONTROL         "Pronadi unazad",IDC_CHECK_FIND_BACKWARDS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,94,101,10
     CONTROL         "Regularni izrazi (samo tekstualni prikaz)",IDC_CHECK_REGULAR_EXPRESSIONS,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,104,133,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,104,144,10
     EDITTEXT        IDC_EDIT_FIND_HEX,47,35,200,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_REPLACE_HEX,47,55,200,12,ES_AUTOHSCROLL
     CONTROL         "Tekst",IDC_RADIO_TEXT_MODE,"Button",BS_AUTORADIOBUTTON,84,15,31,10
@@ -15152,7 +15151,7 @@ BEGIN
     EDITTEXT        IDC_EDIT_SECRET,162,79,91,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_PARTICIPANTS,162,97,91,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_THRESHOLD,162,115,91,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Podesi podrazumevane parametre",IDC_BUTTON_EXAMPLE,266,78,89,14
+    PUSHBUTTON      "Podrazumevani parametri",IDC_BUTTON_EXAMPLE,265,78,90,14
     PUSHBUTTON      "Opcije",IDC_BUTTON_OPT,265,96,90,14
     PUSHBUTTON      "Generiši polinom",IDC_BUTTON_GENERATE,162,143,90,14,WS_DISABLED
     PUSHBUTTON      "Uredi parametre polinoma",IDC_BUTTON_CHANGE,264,143,91,14,WS_DISABLED
@@ -15161,7 +15160,7 @@ BEGIN
     PUSHBUTTON      "Prihvati parametre",IDC_BUTTON_UPDATE,270,214,85,15,WS_DISABLED
     CONTROL         "",IDC_LIST_SHARES,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,257,357,96
     CONTROL         "Prikaži informacijski dijalog pri pokretanju",IDC_CHECK_SHOWINTRO,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,382,122,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,382,146,10
     PUSHBUTTON      "Otkaži",IDCANCEL,7,402,86,14
     DEFPUSHBUTTON   "Rekonstrukcija",IDOK,279,402,85,14,WS_DISABLED
     GROUPBOX        "Odaberite Vašu tajnu i parametre (cele brojeve) da biste podesili šemu",IDC_STATIC_PARAMETER,7,64,357,71
@@ -15176,7 +15175,7 @@ BEGIN
     LTEXT           "Za dalje detalje molimo proverite CrypTool online pomoc pritiskom na dugme F1.",IDC_STATIC,7,47,357,8
     LTEXT           "Molimo odaberite ucesnike koji ce rekonstruisati tajnu, iz liste iznad, cekiranjem kutija.",IDC_STATIC,7,357,357,19
     LTEXT           "Prost broj p",IDC_STATIC_MOD,11,218,24,8
-    LTEXT           "Svi proracuni se odvijaju u diskretnom prostoru GF(p) ",IDC_STATIC,12,179,176,8
+    LTEXT           "Svi proracuni se odvijaju u diskretnom prostoru GF(p) ",IDC_STATIC,12,179,169,8
     LTEXT           "Svaki ucesnik prima nasumicno odabranu javnu vrednost x i njegov udeo, odgovarajucu tajnu vrednost y=f(x).",IDC_STATIC,7,39,354,8
 END
 
@@ -15215,7 +15214,7 @@ BEGIN
     PUSHBUTTON      "Otkaži",IDCANCEL,7,199,75,14
     DEFPUSHBUTTON   "Generiši polinom",IDB_GENERATENEW,125,199,74,14
     LTEXT           "Svi proracuni (t, n) Shamir-ove šeme se odvijaju u diskretnom prostoru GF(p).\np je prost broj koji mora biti veci od tajne S kao i od broja ucesnika n.",IDC_STATIC,13,60,294,25
-    LTEXT           "Unesite pogodan prost broj",IDC_STATIC,14,83,70,8
+    LTEXT           "Unesite pogodan prost broj",IDC_STATIC,14,83,100,8
     EDITTEXT        IDC_EDIT_MYPRIME,162,80,146,14,ES_AUTOHSCROLL
     LTEXT           "Polinom f(x) stepena t-1 je nacrtan nad GF(p): Koristi se za izracunavanje udela ucesnika. Posredstvom ovog polinoma i generisanih udela, tajna može biti rekonstruisana.",IDC_STATIC,14,115,293,24
     LTEXT           "Unesite t-1 koeficijenata (odvojenih zarezom; npr. 3, 6, 19, ako je p>=19)",IDC_STATIC,14,154,293,8
@@ -15242,9 +15241,9 @@ BEGIN
     DEFPUSHBUTTON   "T&estiraj broj",IDC_PRIMETEST_BUTTON_TEST,7,240,100,20
     CONTROL         "&Miller-Rabin-ov test",IDC_PRIMETEST_RADIO_MILLERRABIN,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,17,84,71,10
-    CONTROL         "&Fermat-ov test",IDC_PRIMETEST_RADIO_FERMAT,"Button",BS_AUTORADIOBUTTON,17,98,56,10
+    CONTROL         "&Fermat-ov test",IDC_PRIMETEST_RADIO_FERMAT,"Button",BS_AUTORADIOBUTTON,17,98,63,10
     CONTROL         "&Solovay-Strassen-ov test",IDC_PRIMETEST_RADIO_SOLOVAY,
-                    "Button",BS_AUTORADIOBUTTON,17,112,89,10
+                    "Button",BS_AUTORADIOBUTTON,17,112,99,10
     CONTROL         "A&KS test (deterministicka procedura)",IDC_PRIMETEST_RADIO_AKS,
                     "Button",BS_AUTORADIOBUTTON,17,126,171,10
     PUSHBUTTON      "&Ucitaj brojeve iz datoteke",IDC_PRIMETEST_BUTTON_LOADNUMBER,235,162,106,20
@@ -15255,7 +15254,7 @@ BEGIN
     GROUPBOX        "Test prostog broja",IDC_PRIMETEST_GROUPBOX_RESULT,7,151,345,79
     LTEXT           "Broj ili formula za testiranje:",IDC_PRIMETEST_LABEL_NUMBER,17,183,50,16
     LTEXT           "Rezultat:",IDC_PRIMETEST_LABEL_RESULT,17,211,33,8,SS_ENDELLIPSIS
-    LTEXT           "Obicno se primenjuju metode verovatnoce: Oni su jako brzi, ali mogu da odrede samo sa izvesnom podesivo velikom verovatnocom, ako je broj prost.",IDC_PRIMETEST_LABEL_TEXT2,17,24,324,16
+    LTEXT           "Obicno se primenjuju metode verovatnoce: One su jako brze, ali mogu da odrede samo sa izvesnom podesivo velikom verovatnocom, ako je broj prost.",IDC_PRIMETEST_LABEL_TEXT2,17,24,324,16
     LTEXT           "Pored ovih postoje i deterministicke metode: Takav rezultat je 100 % tacan (sa matematickog aspekta).",IDC_PRIMETEST_LABEL_TEXT3,17,44,324,16
     CONTROL         250,IDC_STATIC_PRIM_RES,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,18,16
     CONTROL         251,IDC_STATIC_PRIM_RES2,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,18,16
@@ -15285,12 +15284,12 @@ BEGIN
     GROUPBOX        "Opcije za interpretaciju karaktera alfabeta",IDC_STATIC,7,7,297,45
     GROUPBOX        "Karakteri u upotrebi za razmak otvoreni tekst (ako je potrebno)",IDC_STATIC,7,59,297,72
     CONTROL         "Upotrebi prvi karakter alfabeta (podrazumevani)",IDC_RADIO1,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,18,78,157,10
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,18,78,166,10
     CONTROL         "Unesite karakter razmaka sami",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,98,144,10
     DEFPUSHBUTTON   "OK",IDOK,193,140,50,14
     PUSHBUTTON      "Otkaži",IDCANCEL,254,140,50,14
-    EDITTEXT        IDC_EDIT1,175,76,15,14,ES_CENTER | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT2,175,94,15,14,ES_CENTER | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT1,186,76,15,14,ES_CENTER | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT2,186,94,15,14,ES_CENTER | ES_AUTOHSCROLL
 END
 
 IDD_ENTROPY_INFO DIALOG  0, 0, 209, 90
@@ -15351,12 +15350,12 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,96,96,50,19
     PUSHBUTTON      "Otkaži",IDCANCEL,162,96,50,19
-    CONTROL         "bez dešifrovanja",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,60,55,10
-    CONTROL         "hex dešifrovanje",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,72,59,10
+    CONTROL         "bez dešifrovanja",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,60,65,10
+    CONTROL         "hex dešifrovanje",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,72,70,10
     GROUPBOX        "Odaberite dešifrovanje",IDC_STATIC,7,47,205,42
     DEFPUSHBUTTON   "OK",IDOK2,96,96,50,19
     PUSHBUTTON      "Otkaži",IDCANCEL3,162,96,50,19
-    LTEXT           "klipbord sadrži samo heksadecimalne karaktere.\n\nOni mogu biti ubaceni kao dešifrovani (podrazumevano) ili nepromenjeni.",IDC_STATIC,7,7,205,32
+    LTEXT           "Klipbord sadrži samo heksadecimalne karaktere.\n\nOni mogu biti ubaceni kao dešifrovani (podrazumevano) ili nepromenjeni.",IDC_STATIC,7,7,205,32
 END
 
 IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 325, 385
@@ -15426,7 +15425,7 @@ BEGIN
     LTEXT           "karakteri",IDC_STATIC,115,99,45,8
     LTEXT           "karakteri",IDC_STATIC,115,118,46,8
     EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL_GROUP,90,135,140,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Podrazumevano",ID_DEFAULT,100,164,50,14
+    PUSHBUTTON      "Podrazumevano",ID_DEFAULT,100,164,59,14
 END
 
 IDD_PASSWORDENTROPY DIALOGEX 0, 0, 420, 260
@@ -15450,11 +15449,11 @@ BEGIN
     LTEXT           "Entropija:",IDC_STATIC,56,74,29,8
     EDITTEXT        IDC_EDIT_PASSWORDBITLENGTH,90,72,30,14,ES_RIGHT | ES_AUTOHSCROLL
     LTEXT           "karakteri",IDC_STATIC,125,192,35,8
-    LTEXT           "bitovi",IDC_STATIC,125,74,9,8
+    LTEXT           "bitova",IDC_STATIC,125,74,20,8
     PUSHBUTTON      "Opcije teksta",ID_TEXTOPTIONS,191,110,209,14
     LTEXT           "Ovaj dijalog racuna nasumicnu lozinku.",IDC_STATIC,20,20,380,8
     CONTROL         "Ne koristiti karaktere koji se lako mešaju (napisani prenos)",IDC_CHECK_USENONCONFUSABLECHARACTERS_WRITTENTRANSMISSION,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,129,190,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,129,197,10
     CONTROL         "Ne kotistiti karaktere koji se lako mešaju (telefonski prenos)",IDC_CHECK_USENONCONFUSABLECHARACTERS_TELEPHONICTRANSMISSION,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,145,200,10
     CONTROL         "Kotistiti alfabet za WLAN lozinke (64 karaktera)",IDC_CHECK_USEWLANALPHABET,
@@ -15506,35 +15505,35 @@ BEGIN
     CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,138,123,22,20
 END
 
-IDD_AUTOMATED_PERM_ANALYSIS DIALOGEX 0, 0, 320, 362
+IDD_AUTOMATED_PERM_ANALYSIS DIALOGEX 0, 0, 341, 362
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analiza jednostavne transpozicije kolone (Poznati Cisti Tekst)"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Pretraži kljuc",ID_BTN_BERECHNEN,7,338,75,17
-    CONTROL         "Linija po linija",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,267,51,10
-    CONTROL         "Kolona po kolona",IDC_CHECK13,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,283,54,10
-    CONTROL         "Linija po linija",IDC_CHECK11,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,267,51,10
-    CONTROL         "Kolona po kolona",IDC_CHECK14,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,283,54,10
-    CONTROL         "Linija po linija",IDC_CHECK12,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,267,51,10
-    CONTROL         "Kolona po kolona",IDC_CHECK15,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,283,54,10
-    EDITTEXT        IDC_EDIT_RANGE_FROM,250,265,42,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_RANGE_TO,250,281,42,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Zatvori",IDCANCEL,248,338,65,17
-    GROUPBOX        "Unos",IDC_GB_EINLESEN,15,254,67,43
-    GROUPBOX        "Permutacija",IDC_GB_PERMUTIEREN,87,254,66,43
-    GROUPBOX        "Izlaz",IDC_GB_AUSLESEN,157,254,66,43
-    GROUPBOX        "Koja varijanta permutacione procedure treba da se analizira?",IDC_GB_VERFAHREN,7,241,306,63
-    LTEXT           "Ova analiza permutacije je analiza poznatog otvoreni tekst, koji ce Vam pomoci da iz otvorenog i šifrata izracunate kljuc permutacije.",IDC_LBL_INFOTEXT,7,8,306,15,0,WS_EX_TRANSPARENT
-    GROUPBOX        "Velicina permutacije",IDC_GB_AUSLESEN2,228,254,76,43
-    LTEXT           "od",IDC_STATIC,234,268,14,9
-    LTEXT           "do",IDC_STATIC,234,284,14,9
-    GROUPBOX        "Opcije",IDC_STATIC,7,304,306,26
-    CONTROL         "binarni podaci",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,129,315,51,10
-    CONTROL         "tekst",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,182,315,59,10
+    CONTROL         "Linija po linija",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,267,56,10
+    CONTROL         "Kolona po kolona",IDC_CHECK13,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,283,67,10
+    CONTROL         "Linija po linija",IDC_CHECK11,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,99,267,60,10
+    CONTROL         "Kolona po kolona",IDC_CHECK14,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,99,283,70,10
+    CONTROL         "Linija po linija",IDC_CHECK12,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,177,267,58,10
+    CONTROL         "Kolona po kolona",IDC_CHECK15,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,177,283,64,10
+    EDITTEXT        IDC_EDIT_RANGE_FROM,272,265,42,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_RANGE_TO,272,281,42,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Zatvori",IDCANCEL,269,338,65,17
+    GROUPBOX        "Unos",IDC_GB_EINLESEN,15,254,75,43
+    GROUPBOX        "Permutacija",IDC_GB_PERMUTIEREN,95,254,73,43
+    GROUPBOX        "Izlaz",IDC_GB_AUSLESEN,172,254,73,43
+    GROUPBOX        "Koja varijanta permutacione procedure treba da se analizira?",IDC_GB_VERFAHREN,7,241,327,63
+    LTEXT           "Ova analiza permutacije je analiza poznatog otvoreni tekst, koji ce Vam pomoci da iz otvorenog i šifrata izracunate kljuc permutacije.",IDC_LBL_INFOTEXT,7,8,327,15,0,WS_EX_TRANSPARENT
+    GROUPBOX        "Velicina permutacije",IDC_GB_AUSLESEN2,250,254,76,43
+    LTEXT           "od",IDC_STATIC,258,268,14,9
+    LTEXT           "do",IDC_STATIC,258,284,14,9
+    GROUPBOX        "Opcije",IDC_STATIC,7,304,327,26
+    CONTROL         "binarni podaci",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,127,315,57,10
+    CONTROL         "tekst",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,187,315,59,10
     LTEXT           "Smatrati unos dokumenta kao",IDC_STATIC,17,315,110,10
     PUSHBUTTON      "Opcije za tekst",IDC_BUTTON2,101,338,59,17
-    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,31,306,205
+    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,31,327,205
     COMBOBOX        IDC_FILE_SELECT,14,218,292,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
 END
 
@@ -15579,7 +15578,7 @@ BEGIN
     EDITTEXT        IDC_EDIT2,50,88,315,12,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Dužina bita",IDC_STATIC,14,67,29,8
     LTEXT           "Prost broj",IDC_STATIC,14,90,29,8
-    LTEXT           "Sigurni prosti brojevi su važni za kriptosisteme bazirane na diskretnom logaritmu, kao što je Diffie-Hellman metoda.",IDC_STATIC,14,31,351,13
+    LTEXT           "Sigurni prosti brojevi su važni za kriptosisteme bazirane na diskretnom logaritmu, kao što je Diffie-Hellman metoda.",IDC_STATIC,14,31,351,16
 END
 
 IDD_KEYS_LIST DIALOGEX 0, 0, 365, 221
@@ -15638,10 +15637,10 @@ BEGIN
     EDITTEXT        IDC_EDIT_BASE,91,7,40,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_EXPONENT,91,25,199,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_RESULT,91,45,199,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    DEFPUSHBUTTON   "Pocni racunanje",IDC_BUTTON_START_COMPUTATION,7,84,85,18
+    PUSHBUTTON      "Pocni racunanje",IDC_BUTTON_START_COMPUTATION,7,84,85,18
     PUSHBUTTON      "Otkaži racunanje",IDC_BUTTON_CANCEL_COMPUTATION,7,105,85,18
     PUSHBUTTON      "Upiši rezultate u datoteku",IDC_BUTTON_WRITE_RESULT_TO_FILE,190,83,100,18,WS_GROUP
-    PUSHBUTTON      "Zatvori",IDCANCEL,190,105,100,18,WS_GROUP
+    DEFPUSHBUTTON   "Zatvori",IDCANCEL,190,105,100,18,WS_GROUP
     LTEXT           "Osnova b:",IDC_STATIC,61,9,25,8
     LTEXT           "Ekponent e:",IDC_STATIC,47,27,39,8
     LTEXT           "Rezultat b^e - 1:",IDC_STATIC,39,47,47,8
@@ -18322,11 +18321,6 @@ BEGIN
 0x3335, "\000" 
     IDC_Kartenanzahl, 0x403, 3, 0
 0x3435, "\000" 
-    1074, 0x403, 11, 0
-0x7361, 0x6520, 0x746e, 0x7265, 0x6465, "\000" 
-    1074, 0x403, 22, 0
-0x6f6c, 0x6461, 0x7320, 0x7661, 0x6465, 0x6620, 0x6e69, 0x6c61, 0x6420, 
-0x6365, 0x006b, 
     0
 END
 
@@ -18427,7 +18421,7 @@ BEGIN
         VERTGUIDE, 20
         VERTGUIDE, 150
         VERTGUIDE, 286
-        BOTTOMMARGIN, 296
+        BOTTOMMARGIN, 345
         HORZGUIDE, 87
         HORZGUIDE, 110
         HORZGUIDE, 201
@@ -18438,7 +18432,6 @@ BEGIN
         RIGHTMARGIN, 318
         VERTGUIDE, 7
         VERTGUIDE, 16
-        VERTGUIDE, 304
         VERTGUIDE, 313
         BOTTOMMARGIN, 370
         HORZGUIDE, 257
@@ -18449,12 +18442,8 @@ BEGIN
     IDD_SHOW_KEY_HILL5x5, DIALOG
     BEGIN
         VERTGUIDE, 9
-        VERTGUIDE, 143
-        VERTGUIDE, 156
         VERTGUIDE, 293
         BOTTOMMARGIN, 294
-        HORZGUIDE, 227
-        HORZGUIDE, 268
     END
 
     IDD_KEYASYM_GENERATION, DIALOG
@@ -18469,10 +18458,11 @@ BEGIN
 
     IDD_ABOUT, DIALOG
     BEGIN
+        RIGHTMARGIN, 372
         VERTGUIDE, 7
-        VERTGUIDE, 235
+        VERTGUIDE, 381
         TOPMARGIN, 1
-        BOTTOMMARGIN, 438
+        BOTTOMMARGIN, 287
     END
 
     IDD_SHOW_PROGRESS, DIALOG
@@ -18484,10 +18474,7 @@ BEGIN
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 265
-        VERTGUIDE, 105
         BOTTOMMARGIN, 253
-        HORZGUIDE, 116
-        HORZGUIDE, 131
     END
 
     IDD_KEY_ANALYSIS, DIALOG
@@ -18527,13 +18514,9 @@ BEGIN
 
     IDD_SHOW_KEY_HILL10x10, DIALOG
     BEGIN
-        VERTGUIDE, 253
-        VERTGUIDE, 265
         VERTGUIDE, 511
         BOTTOMMARGIN, 379
         HORZGUIDE, 48
-        HORZGUIDE, 296
-        HORZGUIDE, 338
     END
 
     IDD_KEY_HILL_10X10, DIALOG
@@ -18577,7 +18560,7 @@ BEGIN
     IDD_BRUTEFORCE, DIALOG
     BEGIN
         LEFTMARGIN, 10
-        RIGHTMARGIN, 267
+        RIGHTMARGIN, 284
         TOPMARGIN, 10
         BOTTOMMARGIN, 148
     END
@@ -19304,7 +19287,7 @@ BEGIN
     IDD_AUTOMATED_PERM_ANALYSIS, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 313
+        RIGHTMARGIN, 334
         TOPMARGIN, 7
         BOTTOMMARGIN, 355
         HORZGUIDE, 338
@@ -21523,8 +21506,7 @@ BEGIN
                             "Molim unesite najmanje %d tacnih kljuceva u 'Rekonstruisanje tajne' - grupu kutija"
     IDS_CRT_SECRETSHARING_REK3 
                             "Nisu uneti kljucevi.\r\n\r\n----- Rekonstrukcija nije uspela -----\r\n\r\n"
-    IDS_CRT_SECRETSHARING_REK4 
-                            "i18n The keys are joined together.\r\n\r\nAfter clicking OK, the resulting secret will be shown."
+    IDS_CRT_SECRETSHARING_REK4 "Molim sacekajte, dok se kljucevi uklope."
     IDS_CRT_SECRETSHARING_REK5 "Korišcenje %d lozinki do identifikatora    "
     IDS_CRT_SECRETSHARING_REK6 
                             "Uneli ste %d kljuceva.\r\nNajmanje %d tacnih kljuceva je potrebno za definitivno izracunavanje.\r\nSa datim kljucevima, preostaje %s mogucnosti."
@@ -21729,7 +21711,7 @@ BEGIN
     IDS_ACTIVE              "(Aktivan) "
     IDS_PERMKEY_COPIED_AND_TIPPS 
                             "Odabrani kljuc je kopiran u skladište kljuceva. Možete koristiti ovaj kljuc permutacije za šifrovanje dokumenata ili dešifrovanje šifrata (Pogledajte meni: Šifruj/Dešifruj \\ Simetricno (klasicno) \\ Permutacija / Transpozicija).\n\nKorišcenjem dijaloga za šifrovanje Permutacijom možete kliknuti na simbol kljuca da nalepite uskladišten kljuc."
-    IDS_DIALOGHEADER_PERMKEY_LIST "Lista oporavljenih kljuceva permutacije"
+    IDS_DIALOGHEADER_PERMKEY_LIST "Lista oporavljenih kljuceva permutacije."
     IDS_INFO_TEXT_ENCRYPTION 
                             "Odabrali ste opciju da šifrujete u tekstualnom režimu.\nOvo znaci da karakteri, koji ne pripadaju alfabetu, nisu šifrovani (prema podešavanjima za opcije Teksta ovi karakteri su ili uklonjeni ili nepromenjeni)."
     IDS_INFO_BYNARY_ENCRYPTION 
