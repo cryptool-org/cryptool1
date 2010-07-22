@@ -62,62 +62,12 @@ void CNumberEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) {
 	if(readOnly) {
 		return;
 	}
-
-	// we react to a specific set of characters only: signs [+-], digits [0-9], 
-	// and fractional separators (if the flag "showFractionalSeparators" is set)
-	CString validCharacters = "+-0123456789";
-	if(showFractionalSeparators) {
-		validCharacters.AppendChar(theFractionalSeparator);
-	}
-	validCharacters.AppendChar(VK_BACK);
-	validCharacters.AppendChar(VK_DELETE);
-	if(validCharacters.Find(nChar) == -1) {
-		return;
-	}
-
 	// get the current selection
 	GetSel(selectionStart, selectionEnd);
-
-	// deletion through BACK or DELETE key
-	if(nChar == VK_BACK || nChar == VK_DELETE) {
-		if(selectionStart == selectionEnd) {
-			stringNumber.Delete(selectionStart - 1, 1);
-			SetWindowText(stringNumber);
-			SetSel(selectionStart - 1, selectionStart - 1);
-		}
-		else {
-			stringNumber.Delete(selectionStart, selectionEnd - selectionStart);
-			SetWindowText(stringNumber);
-			SetSel(selectionStart, selectionStart);
-		}
-	}
-
-	// SIGNS
-	if(nChar == '+' || nChar == '-') {
-		if(selectionStart == 0) {
-			stringNumber.Delete(selectionStart, selectionEnd - selectionStart);
-			stringNumber.Insert(selectionStart, nChar);
-			SetWindowText(stringNumber);
-			SetSel(selectionStart + 1, selectionStart + 1);
-		}	
-	}
-	// NUMBERS
-	if(nChar >= '0' && nChar <= '9') {
-		stringNumber.Delete(selectionStart, selectionEnd - selectionStart);
-		stringNumber.Insert(selectionStart, nChar);
-		SetWindowText(stringNumber);
-		SetSel(selectionStart + 1, selectionStart + 1);
-	}
-	// FRACTIONAL SEPARATOR
-	if(nChar == theFractionalSeparator && stringNumber.Find(theFractionalSeparator) == -1 && showFractionalSeparators) {
-		stringNumber.Delete(selectionStart, selectionEnd - selectionStart);
-		stringNumber.Insert(selectionStart, nChar);
-		SetWindowText(stringNumber);
-		SetSel(selectionStart + 1, selectionStart + 1);
-	}
-
-	// adjust the number format (in particular, insert integral separators)
-	adjustNumberFormat();
+	// prepare insertion through update function
+	CString text; text.AppendChar(nChar);
+	// update number
+	updateNumber(selectionStart, selectionEnd, text);
 }
 
 void CNumberEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags) {
@@ -127,7 +77,26 @@ void CNumberEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags) {
 	case VK_RIGHT:
 	case VK_UP:
 	case VK_DOWN:
+		// cursor movement within edit field
 		CEdit::OnKeyDown(nChar, nRepCnt, nFlags);
+		break;
+	case VK_BACK:
+	case VK_DELETE:
+		if(readOnly) {
+			break;
+		}
+		// deletion through BACK or DELETE key
+		GetSel(selectionStart, selectionEnd);
+		if(selectionStart == selectionEnd) {
+			stringNumber.Delete(selectionStart - 1, 1);
+			SetWindowText(stringNumber);
+			updateNumber(selectionStart - 1, selectionStart - 1); 
+		}
+		else {
+			stringNumber.Delete(selectionStart, selectionEnd - selectionStart);
+			SetWindowText(stringNumber);
+			updateNumber(selectionStart, selectionStart);
+		}
 		break;
 	default:
 		break;
@@ -168,10 +137,14 @@ BOOL CNumberEdit::PreTranslateMessage(MSG* pMsg)
 void CNumberEdit::onEditCut() {
 	// do the same as for onEditCopy
 	onEditCopy();
+	// but don't do anything else if we're in read only mode
+	if(readOnly) {
+		return;
+	}
 	// but don't forget to erase the current selection
 	stringNumber.Delete(selectionStart, selectionEnd - selectionStart);
 	// update the string number
-	adjustNumberFormat();
+	updateNumber(selectionStart, selectionStart);
 }
 
 void CNumberEdit::onEditCopy() {
@@ -198,6 +171,10 @@ void CNumberEdit::onEditCopy() {
 }
 
 void CNumberEdit::onEditPaste() {
+	// don't do anything if we're in read only mode
+	if(readOnly) {
+		return;
+	}
 	CString clipboardText;
 	// at first we try to get the contents of the clipboard
   if(::IsClipboardFormatAvailable(CF_TEXT)) {
@@ -224,24 +201,10 @@ void CNumberEdit::onEditPaste() {
 		}
 	}
 
-	// replace existing selection (don't replace text that was not selected)
-	CString oldText;
-	GetWindowText(oldText);
-	
-	int selectionStart = 0;
-	int selectionEnd = 0;
-	this->GetSel(selectionStart, selectionEnd);
-
-	// create new string number (with the pasted contents from the clipboard)
-	CString newStringNumber;
-	newStringNumber.Append(stringNumber.GetBuffer(), selectionStart);
-	newStringNumber.Append(clipboardText);
-	newStringNumber.Append(stringNumber.GetBuffer() + selectionEnd, stringNumber.GetLength() - selectionEnd);
-
-	// assign new string number
-	stringNumber = newStringNumber;
-	// adjust the number format (in particular, insert integral separators)
-	adjustNumberFormat();	
+	// get current selection
+	GetSel(selectionStart, selectionEnd);
+	// update the number (in particular, insert integral separators)
+	updateNumber(selectionStart, selectionEnd, clipboardText);
 }
 
 void CNumberEdit::onEditSelectAll() {
@@ -335,73 +298,124 @@ void CNumberEdit::setText(const CString &_text) {
 	SetWindowText(stringNumber);
 }
 
-void CNumberEdit::adjustNumberFormat() {
-	// get the current selection
-	GetSel(selectionStart, selectionEnd);
+void CNumberEdit::updateNumber(const int &_selectionStart, const int &_selectionEnd, const CString &_text) {
 
-	// chop leading sign (if necessary), and store it for later use
-	CString stringNumberSign;
-	if(stringNumber[0] == '+' || stringNumber[0] == '-') {
-		stringNumberSign.AppendChar(stringNumber[0]);
-		stringNumber.Delete(0, 1);
+	// first, we make a copy of the existing string number
+	CString oldStringNumber = stringNumber;
+
+	// then we store the last selection
+	int selectionStart = _selectionStart;
+	int selectionEnd = _selectionEnd;
+
+	// we also store the amount of integral separators IN FRONT OF the current selection;
+	// this will come handy later on when we try to determine the correct cursor position
+	int amountOfIntegralSeparatorsInFrontOfCurrentSelection = 0;
+	for(int i=0; i<stringNumber.GetLength() && i<selectionStart; i++) {
+		if(stringNumber[i] == theIntegralSeparator) {
+			amountOfIntegralSeparatorsInFrontOfCurrentSelection++;
+		}
 	}
 
-	// chop trailing fractional part (if necessary), and store it for later use
+	// delete the current selection
+	stringNumber.Delete(selectionStart, selectionEnd - selectionStart);
+
+	// then we clear the text to be inserted (if there is any) of all invalid characters
+	if(_text.GetLength()) {
+		CString text = _text;
+		CString validText;
+		for(int i=0; i<text.GetLength(); i++) {
+			char character = text[i];
+
+			if(character >= '0' && character <= '9') {
+				validText.AppendChar(character);
+			}
+			if((character == '+' || character == '-') && selectionStart == 0 && i == 0) {
+				validText.AppendChar(character);
+			}
+			if(character == theFractionalSeparator && validText.Find(theFractionalSeparator) == -1 && showFractionalSeparators) {
+				validText.AppendChar(character);
+			}
+		}
+
+		// now we insert the valid text into the existing string number; however, there's 
+		// some special case we need to handle: if "validText" contains fractional separators, 
+		// first we remove all frational separators from "stringNumber"; for each removal, 
+		// "selectionStart" and "selectionEnd" are adjusted accordingly
+		if(showFractionalSeparators) {
+			if(validText.Find(theFractionalSeparator) != -1) {
+				int amountOfSeparatorsRemoved = stringNumber.Remove(theFractionalSeparator);
+				selectionStart -= amountOfSeparatorsRemoved;
+				selectionEnd = selectionStart;
+			}
+		}
+
+		// enter the valid text
+		stringNumber.Insert(selectionStart, validText);	
+
+		// update the selection (place it right behind what we just inserted)
+		selectionStart += validText.GetLength();
+		selectionEnd = selectionStart;
+	}
+
+	// at this point we probably have a not properly formatted string number; so we 
+	// try to transform it into something that's valid in our context: we allow an 
+	// optional leading sign [+-], an integral part [0-9], an optional fractional 
+	// separator [depends on resource file], and an optional fractional part [0-9]
+	CString stringNumberSign;
+	CString stringNumberIntegralPart;
 	CString stringNumberFractionalSeparator;
 	CString stringNumberFractionalPart;
-	int i = stringNumber.Find(theFractionalSeparator);
-	if(i != -1) {
-		stringNumberFractionalPart = stringNumber;
-		stringNumberFractionalPart.Delete(0, i + 1);
-		stringNumber.Delete(i, stringNumber.GetLength() - i);
-		stringNumberFractionalSeparator.AppendChar(theFractionalSeparator);
-	}
 
-	// determine the amount of integral separators BEFORE reformatting
-	int amountOfIntegralSeparatorsStart = 0;
 	for(int i=0; i<stringNumber.GetLength(); i++) {
-		if(stringNumber[i] == theIntegralSeparator) {
-			amountOfIntegralSeparatorsStart++;
+		// get the current character
+		char character = stringNumber[i];
+		// SIGN
+		if(i == 0 && (character == '+' || character == '-') && stringNumberSign.GetLength() == 0) {
+			stringNumberSign.AppendChar(character);
+		}
+		// INTEGRAL PART
+		if(character >= '0' && character <= '9' && stringNumberFractionalSeparator.GetLength() == 0) {
+			stringNumberIntegralPart.AppendChar(character);
+		}
+		// FRACTIONAL SEPARATOR
+		if(character == theFractionalSeparator && stringNumberFractionalSeparator.GetLength() == 0) {
+			stringNumberFractionalSeparator.AppendChar(character);
+		}
+		// FRACTIONAL PART
+		if(character >= '0' && character <= '9' && stringNumberFractionalSeparator.GetLength() == 1) {
+			stringNumberFractionalPart.AppendChar(character);
 		}
 	}
 
-	// remove all existing integral separators
-	stringNumber.Remove(theIntegralSeparator);
-
-	// determine the amount of integral separators we need
-	int amountOfIntegralSeparatorsEnd = (stringNumber.GetLength() - 1) / 3;
-
-	// insert integral separators (if desired)
+	// at this point we should have a properly formatted string number;
+	// but the integral separators are still missing (if we want to display them)
 	if(showIntegralSeparators) {
-		for(int i=0; i<amountOfIntegralSeparatorsEnd; i++) {
-			stringNumber.Insert(stringNumber.GetLength() - 3*(i+1) - i, theIntegralSeparator);
+		// determine the amount of integral separators we need
+		int amountOfIntegralSeparators = (stringNumberIntegralPart.GetLength() - 1) / 3;
+		// insert integral separators
+		for(int i=0; i<amountOfIntegralSeparators; i++) {
+			stringNumberIntegralPart.Insert(stringNumberIntegralPart.GetLength() - 3*(i+1) - i, theIntegralSeparator);
 		}
+		// correct the selection (see above at beginning of function)
+		int amountOfIntegralSeparatorsInsertedInFrontOfCurrentSelection = 0;
+		for(int i=0; i<stringNumberIntegralPart.GetLength(); i++) {
+			if(stringNumberIntegralPart[i] == theIntegralSeparator && i < selectionStart) {
+				amountOfIntegralSeparatorsInsertedInFrontOfCurrentSelection++;
+			}
+		}
+		int offset = amountOfIntegralSeparatorsInsertedInFrontOfCurrentSelection - amountOfIntegralSeparatorsInFrontOfCurrentSelection;
+		selectionStart += offset;
+		selectionEnd = selectionStart;
 	}
+
+	// build the new string number out of its parts
+	stringNumber = "";
+	stringNumber.Append(stringNumberSign);
+	stringNumber.Append(stringNumberIntegralPart);
+	stringNumber.Append(stringNumberFractionalSeparator);
+	stringNumber.Append(stringNumberFractionalPart);
 	
-	// re-build string number
-	if(stringNumberSign.GetLength() > 0)
-		stringNumber.Insert(0, stringNumberSign);
-	if(showFractionalSeparators && stringNumberFractionalSeparator.GetLength() > 0) 
-		stringNumber.AppendChar(theFractionalSeparator);
-	if(showFractionalSeparators && stringNumberFractionalPart.GetLength() > 0)
-		stringNumber.Append(stringNumberFractionalPart);
+	SetWindowText(stringNumber);
 
-	// display string number
-	SetWindowText(stringNumber);	
-
-	// update selection
-	if(showIntegralSeparators) {
-		int offset = amountOfIntegralSeparatorsEnd - amountOfIntegralSeparatorsStart;
-		// prevent memory leaks
-		int selectionStartNew = selectionStart + offset;
-		int selectionEndNew = selectionEnd + offset;
-		if(selectionStartNew < 0) selectionStartNew = 0;
-		if(selectionStartNew > stringNumber.GetLength()) selectionStartNew = stringNumber.GetLength();
-		if(selectionEndNew < 0) selectionEndNew = 0;
-		if(selectionEndNew > stringNumber.GetLength()) selectionEndNew = stringNumber.GetLength();
-		SetSel(selectionStartNew, selectionEndNew);
-	}
-	else {
-		SetSel(selectionStart, selectionStart);
-	}
+	SetSel(selectionStart, selectionEnd);
 }

@@ -88,8 +88,8 @@ private:
 	bool showFractionalSeparators;
 	bool readOnly;
 
-	// this function updates the string number
-	void adjustNumberFormat();
+	// this internal function updates the string number, i.e. to remove invalid characters
+	void updateNumber(const int &_selectionStart = 0, const int &_selectionEnd = 0, const CString &_text = ""); 
 };
 
 #endif
