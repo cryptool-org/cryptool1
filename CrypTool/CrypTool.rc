@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -472,8 +472,8 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,71,175,10
     CONTROL         "Wielkie litery",IDC_CHECK_UPPER_CASE,"Button",BS_AUTO3STATE | WS_TABSTOP,20,106,69,10
     CONTROL         "Spacje",IDC_CHECK_SPACE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,121,55,10
-    CONTROL         "Interpunkcja",IDC_CHECK_PUNCTUATION,"Button",BS_AUTO3STATE | WS_TABSTOP,105,106,55,10
-    CONTROL         "Ma³e litery",IDC_CHECK_LOWER_CASE,"Button",BS_AUTO3STATE | WS_TABSTOP,105,121,69,10
+    CONTROL         "Interpunkcja",IDC_CHECK_PUNCTUATION,"Button",BS_AUTO3STATE | WS_TABSTOP,105,121,55,10
+    CONTROL         "Ma³e litery",IDC_CHECK_LOWER_CASE,"Button",BS_AUTO3STATE | WS_TABSTOP,105,106,86,10
     EDITTEXT        IDC_EDIT_ALPHABET,20,161,237,13,ES_AUTOHSCROLL
     PUSHBUTTON      "&ZnajdŸ",IDC_BUTTON_SEARCH_REFERENCE_FILE,202,205,55,14
     CONTROL         "Cyfry arabskie",IDC_CHECK_DIGITS,"Button",BS_AUTO3STATE | WS_TABSTOP,20,136,49,10
@@ -7345,7 +7345,10 @@ BEGIN
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 265
+        VERTGUIDE, 105
         BOTTOMMARGIN, 253
+        HORZGUIDE, 106
+        HORZGUIDE, 121
     END
 
     IDD_KEY_ANALYSIS, DIALOG
@@ -11121,12 +11124,12 @@ BEGIN
                             "[i18n] You did not enter any characters, thus the substitution matrix was not changed."
 END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Serbisch (Lateinisch) resources
+// Serbian (Latin) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_SRL)
 #ifdef _WIN32
@@ -11587,8 +11590,8 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,71,175,10
     CONTROL         "Velikim slovima",IDC_CHECK_UPPER_CASE,"Button",BS_AUTO3STATE | WS_TABSTOP,20,106,69,10
     CONTROL         "Razmak",IDC_CHECK_SPACE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,121,55,10
-    CONTROL         "Specijalni karakteri",IDC_CHECK_PUNCTUATION,"Button",BS_AUTO3STATE | WS_TABSTOP,105,106,71,10
-    CONTROL         "Malim slovima",IDC_CHECK_LOWER_CASE,"Button",BS_AUTO3STATE | WS_TABSTOP,105,121,69,10
+    CONTROL         "Specijalni karakteri",IDC_CHECK_PUNCTUATION,"Button",BS_AUTO3STATE | WS_TABSTOP,105,121,71,10
+    CONTROL         "Malim slovima",IDC_CHECK_LOWER_CASE,"Button",BS_AUTO3STATE | WS_TABSTOP,105,106,69,10
     EDITTEXT        IDC_EDIT_ALPHABET,20,161,237,13,ES_AUTOHSCROLL
     PUSHBUTTON      "&Pronadi...",IDC_BUTTON_SEARCH_REFERENCE_FILE,202,205,55,14
     CONTROL         "Brojevima",IDC_CHECK_DIGITS,"Button",BS_AUTO3STATE | WS_TABSTOP,20,136,49,10
@@ -18481,7 +18484,10 @@ BEGIN
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 265
+        VERTGUIDE, 105
         BOTTOMMARGIN, 253
+        HORZGUIDE, 116
+        HORZGUIDE, 131
     END
 
     IDD_KEY_ANALYSIS, DIALOG
@@ -22234,12 +22240,12 @@ BEGIN
                             "[i18n] You did not enter any characters, thus the substitution matrix was not changed."
 END
 
-#endif    // Serbisch (Lateinisch) resources
+#endif    // Serbian (Latin) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -22665,8 +22671,8 @@ BEGIN
     CONTROL         "Großbuchstaben",IDC_CHECK_UPPER_CASE,"Button",BS_AUTO3STATE | WS_TABSTOP,20,107,69,10
     CONTROL         "Leerzeichen",IDC_CHECK_SPACE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,122,55,10
     CONTROL         "Ziffern",IDC_CHECK_DIGITS,"Button",BS_AUTO3STATE | WS_TABSTOP,20,137,36,10
-    CONTROL         "Sonderzeichen",IDC_CHECK_PUNCTUATION,"Button",BS_AUTO3STATE | WS_TABSTOP,105,107,63,10
-    CONTROL         "Kleinbuchstaben",IDC_CHECK_LOWER_CASE,"Button",BS_AUTO3STATE | WS_TABSTOP,105,122,69,10
+    CONTROL         "Sonderzeichen",IDC_CHECK_PUNCTUATION,"Button",BS_AUTO3STATE | WS_TABSTOP,105,122,63,10
+    CONTROL         "Kleinbuchstaben",IDC_CHECK_LOWER_CASE,"Button",BS_AUTO3STATE | WS_TABSTOP,105,107,69,10
     EDITTEXT        IDC_EDIT_ALPHABET,20,162,237,13,ES_AUTOHSCROLL
     PUSHBUTTON      "&Suchen ...",IDC_BUTTON_SEARCH_REFERENCE_FILE,202,206,55,14
     PUSHBUTTON      "&Abbrechen",IDCANCEL,200,235,65,18
@@ -23148,7 +23154,7 @@ BEGIN
     GROUPBOX        "Multiplikationsart",IDC_STATIC,382,8,133,41
     CONTROL         "(Vektorreihe) * (Matrix)",IDC_RADIO25,"Button",BS_AUTORADIOBUTTON | WS_GROUP,401,19,85,10
     CONTROL         "(Matrix) * (Vektorspalte)",IDC_RADIO26,"Button",BS_AUTORADIOBUTTON,401,32,89,10
-    GROUPBOX        "Matrixdarstellung",IDC_STATIC,34,301,210,41
+    GROUPBOX        "Matrixdarstellung",IDC_STATIC,34,301,222,41
     GROUPBOX        "Informationen zur Verschlüsselung",IDC_STATIC_HILL_ALPH,13,8,360,41
     EDITTEXT        IDC_EDIT3,23,24,256,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     RTEXT           "Wert des ersten Alphabetzeichens",IDC_STATIC,283,23,60,19
@@ -26149,13 +26155,13 @@ BEGIN
     EDITTEXT        IDC_EDIT6,524,247,40,12,ES_CENTER | ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT WS_BORDER
     LTEXT           "von",IDC_STATIC,512,247,13,8
     LTEXT           "Die verschiedenen Karten werden als Zahlen von 1 bis 52 und den Buchstaben A und B dargestellt: Welche Karte welcher Zahl entspricht, sehen Sie in der Onlinehilfe (F1) unter ""Solitaire-Beschreibung"".",IDC_STATIC,11,18,643,8
-    LTEXT           "Schritt 1: Sie erzeugen den Schlüssel (das gemischte Kartendeck) entweder selbst oder Sie laden einen Schlüssel (je nachdem, was Sie unten in der Gruppierung ""1 b: Kartenreihenfolge festlegen""",IDC_STATIC,11,34,626,8
+    LTEXT           "Schritt 1: Sie erzeugen den Schlüssel (das gemischte Kartendeck) entweder selbst oder Sie laden den Schlüssel (je nachdem, was Sie unten in der Gruppierung ""1 b: Kartenreihenfolge festlegen""",IDC_STATIC,11,34,619,8
     LTEXT           "Das Ergebnis der Schlüsselerzeugung ist das gemischte Kartendeck, das Sie unter dem Namen ""Initial-Deck"" in der Gruppierung ""Ausgabe"" finden.",IDC_STATIC,43,42,491,8
     LTEXT           "Gesamtzahl (incl. Joker):",IDC_STATIC,46,134,80,8
     GROUPBOX        "Karten mischen und Schlüsselstrom erzeugen",IDC_STATIC,7,88,662,320
     LTEXT           " Dessen aktuelle Reihenfolge finden Sie unter dem Namen ""End-Deck"" unten in der Gruppierung ""Ausgabe"".",IDC_STATIC,41,58,342,8
     PUSHBUTTON      "Speichern",IDC_BUTTON72,585,371,42,14,WS_DISABLED
-    LTEXT           "eingeben.",IDC_STATIC,635,34,32,8
+    LTEXT           "eingeben).",IDC_STATIC,631,34,35,8
 END
 
 IDD_SOLITAIRE_ANALYSE DIALOGEX 0, 0, 603, 414
@@ -29594,7 +29600,10 @@ BEGIN
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 265
+        VERTGUIDE, 105
         BOTTOMMARGIN, 253
+        HORZGUIDE, 117
+        HORZGUIDE, 132
     END
 
     IDD_KEY_ANALYSIS, DIALOG
@@ -30081,7 +30090,6 @@ BEGIN
     BEGIN
         VERTGUIDE, 6
         VERTGUIDE, 585
-        VERTGUIDE, 627
         HORZGUIDE, 199
         HORZGUIDE, 301
         HORZGUIDE, 320
@@ -33263,12 +33271,12 @@ BEGIN
                             "Sie haben keine Zeichen eingegeben, d.h. die Substitutionsmatrix wurde nicht verändert."
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -33724,8 +33732,8 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,71,175,10
     CONTROL         "Uppercase letters",IDC_CHECK_UPPER_CASE,"Button",BS_AUTO3STATE | WS_TABSTOP,20,106,69,10
     CONTROL         "Space",IDC_CHECK_SPACE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,121,55,10
-    CONTROL         "Special characters",IDC_CHECK_PUNCTUATION,"Button",BS_AUTO3STATE | WS_TABSTOP,105,106,71,10
-    CONTROL         "Lowercase letters",IDC_CHECK_LOWER_CASE,"Button",BS_AUTO3STATE | WS_TABSTOP,105,121,69,10
+    CONTROL         "Special characters",IDC_CHECK_PUNCTUATION,"Button",BS_AUTO3STATE | WS_TABSTOP,105,121,71,10
+    CONTROL         "Lowercase letters",IDC_CHECK_LOWER_CASE,"Button",BS_AUTO3STATE | WS_TABSTOP,105,106,69,10
     EDITTEXT        IDC_EDIT_ALPHABET,20,161,237,13,ES_AUTOHSCROLL
     PUSHBUTTON      "&Find...",IDC_BUTTON_SEARCH_REFERENCE_FILE,202,205,55,14
     CONTROL         "Numerals",IDC_CHECK_DIGITS,"Button",BS_AUTO3STATE | WS_TABSTOP,20,136,49,10
@@ -37099,7 +37107,7 @@ BEGIN
     LTEXT           "The result of generating the key is the shuffled card deck, which can be seen at ""Initial deck"" in the grouping ""Output"".",IDC_STATIC,37,42,521,8
     LTEXT           "Total number of cards\n(incl. joker):",IDC_STATIC,48,127,82,16
     GROUPBOX        "Shuffling cards and generating keystream",IDC_STATIC,7,88,662,320
-    LTEXT           "Its actual card order can be found at ""final deck"" in the grouping ""Output"".",IDC_STATIC,38,58,239,8
+    LTEXT           "Its actual card order can be found at ""Final deck"" in the grouping ""Output"".",IDC_STATIC,38,58,240,8
     PUSHBUTTON      "Save",IDC_BUTTON72,578,372,37,14,WS_DISABLED
 END
 
@@ -40592,7 +40600,10 @@ BEGIN
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 265
+        VERTGUIDE, 105
         BOTTOMMARGIN, 253
+        HORZGUIDE, 116
+        HORZGUIDE, 131
     END
 
     IDD_KEY_ANALYSIS, DIALOG
@@ -44373,12 +44384,12 @@ BEGIN
                             "You did not enter any characters, thus the substitution matrix was not changed."
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Spanisch resources
+// Spanish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ESN)
 #ifdef _WIN32
@@ -46608,8 +46619,8 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,71,175,10
     CONTROL         "Letras Mayúsculas",IDC_CHECK_UPPER_CASE,"Button",BS_AUTO3STATE | WS_TABSTOP,20,106,73,10
     CONTROL         "Espacios",IDC_CHECK_SPACE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,121,55,10
-    CONTROL         "Puntuación",IDC_CHECK_PUNCTUATION,"Button",BS_AUTO3STATE | WS_TABSTOP,105,106,55,10
-    CONTROL         "Letras Minúsculas",IDC_CHECK_LOWER_CASE,"Button",BS_AUTO3STATE | WS_TABSTOP,105,121,69,10
+    CONTROL         "Puntuación",IDC_CHECK_PUNCTUATION,"Button",BS_AUTO3STATE | WS_TABSTOP,105,121,55,10
+    CONTROL         "Letras Minúsculas",IDC_CHECK_LOWER_CASE,"Button",BS_AUTO3STATE | WS_TABSTOP,105,106,69,10
     EDITTEXT        IDC_EDIT_ALPHABET,20,161,237,13,ES_AUTOHSCROLL
     PUSHBUTTON      "&Examinar...",IDC_BUTTON_SEARCH_REFERENCE_FILE,202,205,55,14
     CONTROL         "Números",IDC_CHECK_DIGITS,"Button",BS_AUTO3STATE | WS_TABSTOP,20,136,49,10
@@ -52012,7 +52023,10 @@ BEGIN
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 265
+        VERTGUIDE, 105
         BOTTOMMARGIN, 253
+        HORZGUIDE, 116
+        HORZGUIDE, 131
     END
 
     IDD_STATISTICS_SIGNATURE_ATTACK, DIALOG
@@ -55538,7 +55552,7 @@ BEGIN
                             "[i18n] You did not enter any characters, thus the substitution matrix was not changed."
 END
 
-#endif    // Spanisch resources
+#endif    // Spanish resources
 /////////////////////////////////////////////////////////////////////////////
 
 

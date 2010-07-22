@@ -400,9 +400,10 @@ void CDlgTextOptions::OnCheckKeepUpperLowerCaseInformation()
 	// if both check boxes are selected, print an information message
 	if(keepUpperLowerCaseInformation && distinguishUpperLowerCase) {
 		Message(IDS_TEXTOPTIONS_KEEP_UPPERCASE_LOWERCASE, MB_ICONINFORMATION);
-		this->distinguishUpperLowerCase = false;
-		this->keepUpperLowerCaseInformation = true;
-		UpdateData(false);
+		distinguishUpperLowerCase = false;
+		keepUpperLowerCaseInformation = true;
+		UpdateData(FALSE);
+		OnCheckDistinguishUpperLowerCase();
 	}
 
 	updateAlphabetHeading();
@@ -501,8 +502,10 @@ void CDlgTextOptions::updateCheckState()
    lowercase_umlauts = check_charset( alphabet, LOWERCASE_UMLAUTS );
    uppercase_umlauts = check_charset( alphabet, UPPERCASE_UMLAUTS );
 
-   upperCase   = check_charset( alphabet, (lowercase_umlauts) ? UPPERCASE_CHARS + UPPERCASE_UMLAUTS : UPPERCASE_CHARS );
-   lowerCase   = check_charset( alphabet, (uppercase_umlauts) ? LOWERCASE_CHARS + LOWERCASE_UMLAUTS : LOWERCASE_CHARS );
+   upperCase   = check_charset( alphabet, (uppercase_umlauts) ? UPPERCASE_CHARS + UPPERCASE_UMLAUTS : UPPERCASE_CHARS );
+   lowerCase   = check_charset( alphabet, (lowercase_umlauts) ? LOWERCASE_CHARS + LOWERCASE_UMLAUTS : LOWERCASE_CHARS );
+//   upperCase   = check_charset( alphabet, UPPERCASE_CHARS );
+//   lowerCase   = check_charset( alphabet, LOWERCASE_CHARS );
 
    CString allUmlauts(_T(""));
    if(upperCase) allUmlauts.Append(UPPERCASE_UMLAUTS);

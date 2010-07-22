@@ -108,6 +108,7 @@ bool CDlgSolitaire::load_infile()
 		}
 		key_stream_size = 0;
 	
+#if 0
 		if ( !i_file.eof() )
 		{ 
 			LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_ZULANG,pc_str,STR_LAENGE_STRING_TABLE);
@@ -115,6 +116,7 @@ bool CDlgSolitaire::load_infile()
 			s_title.LoadStringA(IDS_TITLE_SOLITAIRE);
 			MessageBox(pc_str,s_title);
 		}
+#endif
 		i_file.close();
 		return true;
 	}
@@ -861,7 +863,6 @@ void CDlgSolitaire::OnBnNewShuffle()
 
 void CDlgSolitaire::OnBnSaveKeyStream()
 {
-	CString str_keyStream;
-	m_keystream_save_button.GetWindowTextA(str_keyStream);
-	saveDeck(str_keyStream, "key-stream.txt");
+	UpdateData( TRUE );
+	saveDeck(key_edit, "key-stream.txt");
 }

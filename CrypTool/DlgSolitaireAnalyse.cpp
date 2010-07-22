@@ -142,7 +142,8 @@ BOOL CDlgSolitaireAnalyse::OnInitDialog()
 		MessageBox(pc_str);	
 		this->EndDialog(1);
 	}
-	
+
+#if 0
 	// schneidet die Zeichen nach 65.535 ab.
 	if(myD->plaintext.GetLength()>65535)
 	{
@@ -150,7 +151,7 @@ BOOL CDlgSolitaireAnalyse::OnInitDialog()
 		LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_ZULANG,pc_str,STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str,"Solitaire Analyse");
 	}
-	
+#endif 	
 	return TRUE;  // Geben Sie TRUE zurück, außer ein Steuerelement soll den Fokus erhalten
 }
 
