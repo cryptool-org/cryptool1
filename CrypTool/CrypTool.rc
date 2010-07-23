@@ -11040,8 +11040,6 @@ BEGIN
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DIGRAMS_FILE "Wybierz plik Digramm"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_TRIGRAMS_FILE 
                             "Wybierz plik Trigramm"
-    IDS_STRING_VIGENERE_ANALYSIS_DIGRAM_FACTOR_STRING 
-                            "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SUGGEST_RESULT 
                             "Analiza zidentyfikowana ""% s"" jako potencjalny klucz.\n\nZ tego klucza wynika nastêpuj¹cy tekst jawny: ""%s"".\n\nCzy przerwaæ analizê?"
     IDS_HASHDEMO_STRING_SHA_256 "SHA-256 (256 bits)"
@@ -22147,8 +22145,6 @@ BEGIN
                             "Odaberite digram datoteku"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_TRIGRAMS_FILE 
                             "Odaberite trigram datoteku"
-    IDS_STRING_VIGENERE_ANALYSIS_DIGRAM_FACTOR_STRING 
-                            "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SUGGEST_RESULT 
                             "Analiza uzima u obzir ""%s"" kao moguci kljuc.\n\nRezultujuci cisti tekst glasi: ""%s"".\n\nDa li želite da obustavite analizu?"
     IDS_HASHDEMO_STRING_SHA_256 "SHA-256 (256 bita)"
@@ -33176,8 +33172,6 @@ BEGIN
                             "Digramm-Datei auswählen"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_TRIGRAMS_FILE 
                             "Trigramm-Datei auswählen"
-    IDS_STRING_VIGENERE_ANALYSIS_DIGRAM_FACTOR_STRING 
-                            "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SUGGEST_RESULT 
                             "Die Analyse hat ""%s"" als möglichen Schlüssel ermittelt.\n\nAus diesem Schlüssel resultiert folgender Klartext: ""%s"".\n\nWollen Sie die Analyse abbrechen?"
     IDS_HASHDEMO_STRING_SHA_256 "SHA-256 (256 bits)"
@@ -44289,8 +44283,6 @@ BEGIN
                             "Choose dictionary file"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DIGRAMS_FILE "Choose digram file"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_TRIGRAMS_FILE "Choose trigram file"
-    IDS_STRING_VIGENERE_ANALYSIS_DIGRAM_FACTOR_STRING 
-                            "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SUGGEST_RESULT 
                             "The analysis considers ""%s"" as possible key.\n\nThe resulting cleartext reads: ""%s"".\n\nDo you want to abort the analysis?"
     IDS_HASHDEMO_STRING_SHA_256 "SHA-256 (256 bits)"
@@ -55384,8 +55376,6 @@ BEGIN
                             "Seleccionar archivo de digrama"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_TRIGRAMS_FILE 
                             "Seleccionar archivo de trigrama"
-    IDS_STRING_VIGENERE_ANALYSIS_DIGRAM_FACTOR_STRING 
-                            "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SUGGEST_RESULT 
                             "El análisis correspondiente ha considerado a ""%s"" como una posible clave.\n\nCuyo texto claro resulta: ""%s"".\n\n¿Desea interrumpir el análisis?"
     IDS_HASHDEMO_STRING_SHA_256 "SHA-256 (256 bits)"

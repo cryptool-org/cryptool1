@@ -476,6 +476,12 @@ int VigenereAnalysisSchroedel::secondChar() {
 	Remain2 = 0;
 	Remain3 = 0;
 
+	// flomar, 07/23/2010
+	// some areas should be passed in English only, otherwise we get weird results 
+	// in German for example; note that we're looking for the code "1031"-- which 
+	// is the language code in the English part of our resource file
+	bool englishGB = ((int)(GetThreadLocale())) == 1031;
+
 	for(int n=1; n<3; n++) {
 		actChar = ciphertext[n];
 
@@ -507,14 +513,20 @@ int VigenereAnalysisSchroedel::secondChar() {
 						kDigramFactor = cDigram[cPosAlphabet.Find(sKey)][cPosAlphabet.Find(fKey)];
 
 						if(tDigramFactor == 0) {
-							if(sText == 'A') tDigramFactor = 20;
-							if(sText == 'I') tDigramFactor = 20;
+							// flomar, 07/23/2010: see above
+							if(englishGB) {
+								if(sText == 'A') tDigramFactor = 20;
+								if(sText == 'I') tDigramFactor = 20;
+							}
 							if(cDigramFactorString.Find(sText + fText) != -1) tDigramFactor = 100;
 						}
 
 						if(kDigramFactor == 0) {
-							if(sKey == 'A') kDigramFactor = 20;
-							if(sKey == 'I') kDigramFactor = 20;
+							// flomar, 07/23/2010: see above
+							if(englishGB) {
+								if(sKey == 'A') kDigramFactor = 20;
+								if(sKey == 'I') kDigramFactor = 20;
+							}
 							if(cDigramFactorString.Find(sKey + fKey) != -1) kDigramFactor = 100;
 						}
 					}
@@ -524,21 +536,27 @@ int VigenereAnalysisSchroedel::secondChar() {
 						kDigramFactor = cTrigram[cPosAlphabet.Find(sKey[0])][cPosAlphabet.Find(sKey[1])][cPosAlphabet.Find(fKey)];
 			
 						if(tDigramFactor == 0) {
-							if(sText[0] == 'A') {
-								if(cDigramFactorString.Find(sText[1] + fText) != -1) tDigramFactor = 100;
-							}
-							if(sText[0] == 'I') {
-								if(cDigramFactorString.Find(sText[1] + fText) != -1) tDigramFactor = 100;
+							// flomar, 07/23/2010: see above
+							if(englishGB) {
+								if(sText[0] == 'A') {
+									if(cDigramFactorString.Find(sText[1] + fText) != -1) tDigramFactor = 100;
+								}
+								if(sText[0] == 'I') {
+									if(cDigramFactorString.Find(sText[1] + fText) != -1) tDigramFactor = 100;
+								}
 							}
 							if(cDigramFactorString.Find(sKey[1] + fKey) != -1) kDigramFactor = 100;
 						}
 
 						if(kDigramFactor == 0) {
-							if(sKey[0] == 'A') {
-								if(cDigramFactorString.Find(sKey[1] + fKey) != -1) kDigramFactor = 100;
-							}
-							if(sKey[0] == 'I') {
-								if(cDigramFactorString.Find(sKey[1] + fKey) != -1) kDigramFactor = 100;
+							// flomar, 07/23/2010: see above
+							if(englishGB) {
+								if(sKey[0] == 'A') {
+									if(cDigramFactorString.Find(sKey[1] + fKey) != -1) kDigramFactor = 100;
+								}
+								if(sKey[0] == 'I') {
+									if(cDigramFactorString.Find(sKey[1] + fKey) != -1) kDigramFactor = 100;
+								}
 							}
 						}	
 					}
