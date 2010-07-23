@@ -30,13 +30,20 @@ Since ADFGVX is a two-step cascade cipher, the key consists of two parts: the su
 The <b>substitution matrix</b> is filled with each letter from 'A' to 'Z' and each digit from '0' to '9', other entries are not allowed. On repeated entry of an existing character, a dialog box is displayed, giving the user the possibility to erase the old entry or to undo the change.</p>
 <p>The button <b>Standard matrix</b> fills the substitution matrix with all characters in order, the button <b>Random matrix</b> fills it with a random order of all characters. Clicking the button <b>Erase matrix</b> and confirming the pop-up-dialog will erase the substitution matrix. This is a comfortable way to enter examples from literature or other sources.</p>
 <p>The button <b>Enter string</b> allows to enter the characters of the transposition matrix as a string (this string must contain all alphabet characters once). This is helpful if you want to reproduce samples from the literature.</p>
-<p>
-<b>Step 2: Transposition</b></p>
+
+
+<p><b>Step 2: Transposition</b></p>
 <p>
 The text field <b>Transposition password</b> can contain any string of characters. Redundant or invalid characters will be removed before de- or encryption. Below the text field, the current sequence of the transposition columns is displayed.</p>
-<p>Clicking the <b>Insert key</b> icon inserts an ADFGVX key that was previously copied to the internal key store (if the button is inactive, there is no ADFGVX key available).</p>
-<p>
-<b>Output options</b></p>
+
+<p>Clicking on the <b>insert key icon</b>
+<IMG SRC="images/iconinsertkey.gif" ALT="iconinsertkey.gif" BORDER=0>
+inserts an ADFGVX key that was previously copied 
+to the <a href="keystore.html">internal key storage</a> (if the button is 
+inactive/gray, there is no ADFGVX key available).</p>
+
+
+<p><b>Output options</b></p>
 <p>
 By checking the box <b>Separate output blocks by blanks</b> and entering a value in the according input field for <b>block length</b>, it is possible to display the ciphertext in groups of 1 to 26 characters. The default value "5" is determined by the historical circumstances: During WW1 the ADFGVX-code was transmitted via morse code; the morse signals were sent in groups of five letters.<br>
 The check box <b>New line after each block</b> starts a new line of text after each group of letters.</p>
