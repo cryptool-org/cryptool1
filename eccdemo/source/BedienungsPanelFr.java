@@ -46,6 +46,7 @@ public class BedienungsPanelFr extends Panel implements AdjustmentListener, Acti
     protected Label LabelA;
     protected Label LabelB;
     protected Label LabelC;
+    protected Label Space;
 	protected Button ButtonP;
 	protected Button ButtonPQ;
 	protected Button ButtonDelete;
@@ -57,6 +58,7 @@ public class BedienungsPanelFr extends Panel implements AdjustmentListener, Acti
         /** Creates a new instance of BedienungsPanelFr */
     public BedienungsPanelFr(ECCFrame eccframe) 
     {		
+//    	setLayout(new GridLayout(1, 10));
     	
         this.eccframe=eccframe;	
         
@@ -77,6 +79,7 @@ public class BedienungsPanelFr extends Panel implements AdjustmentListener, Acti
     	LabelA = new Label("a = "+ a_string);
     	LabelB = new Label("b = "+ b_string);
         LabelC = new Label("Zoom:");
+        Space = new Label();
         Color lila=new Color(148,3,148);
 		Font fontgross = new Font("Times New Roman",1,12);
 		LabelA.setForeground(Color.red);
@@ -100,13 +103,14 @@ public class BedienungsPanelFr extends Panel implements AdjustmentListener, Acti
         ButtonExit.setEnabled(true);
         ButtonExit.addActionListener(this);
         
-        //Gr??e und Ausrichtung anpassen
-        LabelA.setAlignment(Label.RIGHT);
+        //Gr??e und Ausrichtung anpasse
+        LabelA.setAlignment(Label.LEFT);
         ScrollbarA.setPreferredSize(new Dimension(100,15));
-        LabelB.setAlignment(Label.RIGHT);
+        LabelB.setAlignment(Label.LEFT);
         ScrollbarB.setPreferredSize(new Dimension(100,15));
-        LabelC.setAlignment(Label.RIGHT);
+        LabelC.setAlignment(Label.LEFT);
         ScrollbarC.setPreferredSize(new Dimension(100,15));
+        Space.setPreferredSize(new Dimension(30,15)); 
         
         add(LabelA);
         add(ScrollbarA);
@@ -114,6 +118,7 @@ public class BedienungsPanelFr extends Panel implements AdjustmentListener, Acti
         add(ScrollbarB);
         add(LabelC);
         add(ScrollbarC);
+        add(Space);
         add(ButtonP);
         add(ButtonPQ);
         add(ButtonDelete);

@@ -35,6 +35,7 @@ public class BedienungsPanelFp extends Panel implements AdjustmentListener, Acti
     protected Label LabelA;
     protected Label LabelB;
     protected Label LabelC;
+    protected Label Space;
 	protected Button ButtonP;
 	protected Button ButtonPQ;
 	protected Button ButtonDelete;
@@ -69,7 +70,7 @@ public class BedienungsPanelFp extends Panel implements AdjustmentListener, Acti
 		LabelB.setForeground(lila);
      	LabelB.setFont(fontgross);  
      	LabelC.setFont(fontgross); 
-
+     	Space = new Label();
     	     
         ButtonP = new Button(" "+(eccframe.np+1)+" * P ");
         ButtonP.setEnabled(false);
@@ -94,6 +95,7 @@ public class BedienungsPanelFp extends Panel implements AdjustmentListener, Acti
         ScrollbarB.setPreferredSize(new Dimension(100,15));
         LabelC.setAlignment(Label.RIGHT);
         ScrollbarC.setPreferredSize(new Dimension(100,15));
+        Space.setPreferredSize(new Dimension(66,15)); 
                 
         add(LabelA);
         add(ScrollbarA);
@@ -101,6 +103,7 @@ public class BedienungsPanelFp extends Panel implements AdjustmentListener, Acti
         add(ScrollbarB);
         add(LabelC);
         add(ScrollbarC);
+        add(Space);
         add(ButtonP);
         add(ButtonPQ);
         add(ButtonDelete);

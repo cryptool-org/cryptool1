@@ -34,7 +34,7 @@ public class ECCFrame extends Frame //implements KeyListener
 	/*****  DEFINITIONEN   *****/
  	 
  	//0=deutsch, 1=englisch
-    protected static int sprache=0;
+    protected static int sprache=1;
     
     //0=Fr, 1=Fp
     protected static int raum=0;
@@ -50,22 +50,22 @@ public class ECCFrame extends Frame //implements KeyListener
     
     
     protected int [] c={6,8,11,12,22,24,33,44,66,88}; 
-    protected int amin;	// Werte für Panel a
+    protected int amin;	// Werte f?r Panel a
     protected int amax;
-    protected int bmin;	// Werte für Panel b
+    protected int bmin;	// Werte f?r Panel b
     protected int bmax;
    
     protected int px;			// x-Pixelkoordinate Punkt P
 	protected int py;			// y-Pixelkoordinate Punkt P
 	protected double dpx;		// double-Wert von px
 	protected double dpy;		// double-Wert von py
-	protected boolean pset;// Wurde ein Punkt P gewählt?false=nein;
+	protected boolean pset;// Wurde ein Punkt P gew?hlt?false=nein;
   
     protected int qx;			// x-Pixelkoordinate Punkt Q
 	protected int qy;			// y-Pixelkoordinate Punkt Q
 	protected double dqx;		// double-Wert von qx
 	protected double dqy;		// double-Wert von qy
-	protected boolean qset; 	// Wurde ein Punkt Q gewählt?false=nein;
+	protected boolean qset; 	// Wurde ein Punkt Q gew?hlt?false=nein;
 	
 	protected int rx;			// x-Pixelkoordinate Punkt R
 	protected int ry;			// y-Pixelkoordinate Punkt R
@@ -79,7 +79,7 @@ public class ECCFrame extends Frame //implements KeyListener
 	protected int ay;			// y-Pixelkoordinate AuswahlPunkt A
 	protected double dax;		// double-Wert von ax
 	protected double day;		// double-Wert von ay
-	protected boolean aset; 	// Wurde ein AuswahlPunkt gewählt, aber noch nicht mit
+	protected boolean aset; 	// Wurde ein AuswahlPunkt gew?hlt, aber noch nicht mit
     										// Maus geklickt
     protected int maxwert;    //standardwerte= maxwert=15, pixelPro=15
    
@@ -87,7 +87,7 @@ public class ECCFrame extends Frame //implements KeyListener
     protected int zeichenfenster; /// Pixel des Zeichenfensters
     protected int pixelProZelle;
     
-    protected int canvasGroesse;//grösse +1, damit immer genau eine mitte existiert; immer quadratisch
+    protected int canvasGroesse;//gr?sse +1, damit immer genau eine mitte existiert; immer quadratisch
     
 
     protected int frameBreite;
@@ -143,7 +143,9 @@ public class ECCFrame extends Frame //implements KeyListener
         
 		//Fr
     	if(raum==0)
-     		makeFr(false);
+     		makeFr(false);else
+        		eccframe.setTitle("ECC Demonstration 1.1.1: Point addition on elliptic curves over the real number space R");
+    	
      		
      	if(raum==1)
      		makeFp(false);
@@ -165,10 +167,7 @@ public class ECCFrame extends Frame //implements KeyListener
     {
     	eccframe=new ECCFrame(sprache,raum);
     	
-    	if (sprache==0)
-    		eccframe.setTitle("ECC-Demo 1.1: Punktaddition auf Elliptischen Kurven über den reellen Zahlenraum R");
-    	else
-    		eccframe.setTitle("ECC Demonstration 1.1: Point addition on elliptic curves over the real number space R");
+    	eccframe.setTitle(Texte.frameTitleFr);
     	eccframe.setLocation(50,50);
     }
 
@@ -178,13 +177,13 @@ public class ECCFrame extends Frame //implements KeyListener
 		 py=0;			// y-Pixelkoordinate Punkt P
 		 dpx=0;		// double-Wert von px
 		 dpy=0;		// double-Wert von py
-		 pset=false;// Wurde ein Punkt P gewählt?false=nein;
+		 pset=false;// Wurde ein Punkt P gew?hlt?false=nein;
 	  
 	     qx=0;			// x-Pixelkoordinate Punkt Q
 		 qy=0;			// y-Pixelkoordinate Punkt Q
 		 dqx=0;		// double-Wert von qx
 		 dqy=0;		// double-Wert von qy
-		 qset=false; 	// Wurde ein Punkt Q gewählt?false=nein;
+		 qset=false; 	// Wurde ein Punkt Q gew?hlt?false=nein;
 		
 		 rx=0;			// x-Pixelkoordinate Punkt R
 		 ry=0;			// y-Pixelkoordinate Punkt R
@@ -198,7 +197,7 @@ public class ECCFrame extends Frame //implements KeyListener
 		 ay=0;			// y-Pixelkoordinate AuswahlPunkt A
 		 dax=0;		// double-Wert von ax
 		 day=0;		// double-Wert von ay
-		 aset=false; 	// Wurde ein AuswahlPunkt gewählt, aber noch nicht mit
+		 aset=false; 	// Wurde ein AuswahlPunkt gew?hlt, aber noch nicht mit
 	    										// Maus geklickt
 	   
 	   	 abstand=25;
@@ -219,7 +218,7 @@ public class ECCFrame extends Frame //implements KeyListener
      		bmax=50;
 	        maxwert=c[cIndex];    //standardwerte= maxwert=15, pixelPro=15
 	        pixelProZelle=264/this.maxwert;//anzahl sollte gerade sein, damit das raster genau auf den achsen liegt
-	        canvasGroesse=(11*2*24)+1;//grösse +1, damit immer genau eine mitte existiert; immer quadratisch
+	        canvasGroesse=(11*2*24)+1;//gr?sse +1, damit immer genau eine mitte existiert; immer quadratisch
 			frameBreite=900;//canvasGroesse+300;
 	        frameHoehe=650;//canvasGroesse+100;
 	        // Grafikbereich wird erzeugt
