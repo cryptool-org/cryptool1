@@ -25691,14 +25691,14 @@ BEGIN
     RTEXT           "6:",IDC_STATIC6,8,344,9,12,WS_DISABLED
     RTEXT           "7:",IDC_STATIC7,8,362,9,12,WS_DISABLED
     LTEXT           "Um das Geheimnis erzeugen und verteilen zu lassen, klicken Sie auf 'Berechnen'. Über einen Klick auf 'Optionen' können Sie den Wertebereich, aus dem die Schlüssel erzeugt werden, und die Anzahl der Parteien verändern.",IDC_STATIC,12,35,364,16
-    LTEXT           "Secret Sharing erlaubt es, ein Geheimnis so auf n Schlüssel zu verteilen, dass das ursprüngliche Geheimnis wieder rekonstriert werden kann, wenn später eine beliebige Teilmenge von k<n Schlüsselinhabern zusammenkommt.",IDC_STATIC,12,11,360,24
+    LTEXT           "Secret-Sharing erlaubt es, ein Geheimnis so auf n Schlüssel zu verteilen, dass das ursprüngliche Geheimnis wieder rekonstriert werden kann, wenn später eine beliebige Teilmenge von k<n Schlüsselinhabern zusammenkommt.",IDC_STATIC,12,11,360,24
     LTEXT           "DYNAMISCH",IDC_REKOHELP,11,242,361,11
     LTEXT           " Verteilung erfolgt:",IDC_CRT_Calculation,314,92,62,11
 END
 
 IDD_CRT_SECRETSHARING_OPTIONS DIALOGEX 0, 0, 352, 65
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
-CAPTION "Secret Sharing mittels CRT: Optionen festlegen"
+CAPTION "Secret-Sharing mittels CRT: Optionen festlegen"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     EDITTEXT        IDC_CRT_SECRETSHARINGEDIT1,94,14,20,15,ES_NUMBER
@@ -25717,7 +25717,7 @@ END
 IDD_CRT_SECRETSHARING_FACTS DIALOGEX 0, 0, 373, 242
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION 
-"Secret Sharing mittels CRT: Zwischenrechnung - Von der Kennung zum Passwort"
+"Secret-Sharing mittels CRT: Zwischenrechnung - Von der Kennung zum Passwort"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     EDITTEXT        IDC_CRT_FACT4,190,107,176,12,ES_MULTILINE | ES_NUMBER
@@ -25749,7 +25749,7 @@ END
 
 IDD_CRT_SECRETSHARING_INFO DIALOGEX 0, 0, 233, 188
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Verteilte Geheimnisse: Secret Sharing mittels CRT"
+CAPTION "Verteilte Geheimnisse: Secret-Sharing mittels CRT"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,91,151,50,14
@@ -26287,7 +26287,7 @@ END
 
 IDD_SECRETSHARING_SETUP DIALOGEX 0, 0, 371, 423
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Secret Sharing: Aufsetzen eines Schwellenwertschemas"
+CAPTION "Secret-Sharing-Demo: Aufsetzen eines Schwellenwertschemas"
 FONT 8, "MS Sans Serif", 400, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT_SECRET,162,82,92,12,ES_AUTOHSCROLL
@@ -26322,7 +26322,7 @@ END
 
 IDD_SECRETSHARING_INTRO DIALOGEX 0, 0, 297, 266
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
-CAPTION "Einleitung Secret Sharing Demo"
+CAPTION "Einleitung Secret-Sharing-Demo"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,113,237,50,14
@@ -26342,7 +26342,7 @@ END
 
 IDD_SECRETSHARING_REVEAL DIALOGEX 0, 0, 360, 210
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
-CAPTION "Secret Sharing: Rekonstruktion des Geheimnisses"
+CAPTION "Secret-Sharing: Rekonstruktion des Geheimnisses"
 FONT 8, "MS Sans Serif", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,282,189,71,14
@@ -26356,7 +26356,7 @@ END
 
 IDD_SECRETSHARING_OPTIONS DIALOGEX 0, 0, 200, 87
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Secret Sharing: Optionen"
+CAPTION "Secret-Sharing: Optionen"
 FONT 8, "MS Sans Serif", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,66,66,50,14
@@ -26369,7 +26369,7 @@ END
 
 IDD_SECRETSHARING_PARAMETER DIALOGEX 0, 0, 322, 222
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Secret Sharing: Polynomparameter anzeigen und ändern"
+CAPTION "Secret-Sharing: Polynomparameter anzeigen und ändern"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     PUSHBUTTON      "Abbrechen",IDCANCEL,7,201,75,14
@@ -26937,7 +26937,7 @@ BEGIN
         BEGIN
             MENUITEM "&Astronomie und Planetenbewegung...", ID_INDIV_CRT_PLANET
             MENUITEM "&Modulare Hin- und Rücktransformation...", ID_INDIV_CRT_DEMO
-            MENUITEM "&Secret Sharing mittels CRT...", ID_INDIV_CRT_SECRETSHARING
+            MENUITEM "&Secret-Sharing mittels CRT...", ID_INDIV_CRT_SECRETSHARING
         END
         POPUP "&Visualisierung von Algorithmen"
         BEGIN
@@ -27289,7 +27289,7 @@ BEGIN
         BEGIN
             MENUITEM "&Astronomie und Planetenbewegung...", ID_INDIV_CRT_PLANET
             MENUITEM "&Modulare Hin- und Rücktransformation...", ID_INDIV_CRT_DEMO
-            MENUITEM "&Secret Sharing mittels CRT...", ID_INDIV_CRT_SECRETSHARING
+            MENUITEM "&Secret-Sharing mittels CRT...", ID_INDIV_CRT_SECRETSHARING
         END
         POPUP "&Visualisierung von Algorithmen"
         BEGIN
@@ -27641,7 +27641,7 @@ BEGIN
         BEGIN
             MENUITEM "&Astronomie und Planetenbewegung...", ID_INDIV_CRT_PLANET
             MENUITEM "&Modulare Hin- und Rücktransformation...", ID_INDIV_CRT_DEMO
-            MENUITEM "&Secret Sharing mittels CRT...", ID_INDIV_CRT_SECRETSHARING
+            MENUITEM "&Secret-Sharing mittels CRT...", ID_INDIV_CRT_SECRETSHARING
         END
         POPUP "&Visualisierung von Algorithmen"
         BEGIN
@@ -27993,7 +27993,7 @@ BEGIN
         BEGIN
             MENUITEM "&Astronomie und Planetenbewegung...", ID_INDIV_CRT_PLANET
             MENUITEM "&Modulare Hin- und Rücktransformation...", ID_INDIV_CRT_DEMO
-            MENUITEM "&Secret Sharing mittels CRT...", ID_INDIV_CRT_SECRETSHARING
+            MENUITEM "&Secret-Sharing mittels CRT...", ID_INDIV_CRT_SECRETSHARING
         END
         POPUP "&Visualisierung von Algorithmen"
         BEGIN
@@ -28372,7 +28372,7 @@ BEGIN
         BEGIN
             MENUITEM "&Astronomie und Planetenbewegung...", ID_INDIV_CRT_PLANET
             MENUITEM "&Modulare Hin- und Rücktransformation...", ID_INDIV_CRT_DEMO
-            MENUITEM "&Secret Sharing mittels CRT...", ID_INDIV_CRT_SECRETSHARING
+            MENUITEM "&Secret-Sharing mittels CRT...", ID_INDIV_CRT_SECRETSHARING
         END
         POPUP "&Visualisierung von Algorithmen"
         BEGIN
@@ -32475,7 +32475,7 @@ BEGIN
     IDS_CRT_TRANSFORMATION_EQUALPRIMES 
                             "Beim zufälligen Generieren der Primzahlen für die benötigten %d Moduln sind Primzahlen doppelt aufgetreten.\r\nFür die Anwendung des Chinesischen Restsatzes müssen die Module jedoch alle verschieden sein.\r\nBitte drücken Sie (evtl. mehrfach) erneut den Button 'Generieren' oder vergrößern Sie das Intervall für den Wertebereich der Primzahlen.\r\n"
     IDS_CRT_SECRETSHARINGTITLE 
-                            "Secret Sharing mittels CRT: Ein Geheimnis mit %d von %d Schlüsseln rekonstruieren"
+                            "Secret-Sharing mittels CRT: Ein Geheimnis mit %d von %d Schlüsseln rekonstruieren"
     IDS_CRT_SECRETSHARINGGROUPBOX1 
                             "Konstruktion und Verteilung des Geheimnisses auf n = %d Schlüssel"
     IDS_CRT_SECRETSHARINGGROUPBOX2 
@@ -32571,7 +32571,7 @@ BEGIN
     IDS_CRT_SECRETSHARING_MAN3 "Bitte ausreichend Kennungen angeben."
     IDS_CRT_SECRETSHARING_FACTS3 "Bitte beachten Sie die Nebenbedingungen."
     IDS_CRT_SECRETSHARING_LOGTITLE 
-                            "Secret Sharing mittels CRT: Log-Datei anzeigen"
+                            "Secret-Sharing mittels CRT: Log-Datei anzeigen"
     IDS_CRT_SECRETSHARING_LOGWRITTEN 
                             "Log-Datei wurde erfolgreich in das CrypTool-Hauptfenter geschrieben."
     ID_EINZELVERFAHREN_SECRETSHARINGDEMO 
@@ -32799,7 +32799,7 @@ BEGIN
     ID_FLASH_AESDEMO        "Visualisiert den AES-Algorithmus mittels Flash mit fest vorgegebenen Daten"
     ID_PASSWORDQUALITYMETER "Misst die Qualität von Passwörtern"
     ID_INTERACTIVE_NUMBER_THEORY 
-                            "Visualisiert die Zahlentheorie durch ein interaktives Lernprogramm"
+                            "Visualisiert Teile der elementaren Zahlentheorie durch ein interaktives Lernprogramm"
     ID_FLASH_ENIGMADEMO     "Visualisiert die Enigma-Maschine mittels Flash"
     ID_FLASH_RIJNDAEL_INSPECTOR 
                             "Zeigt die AES-Zwischenergebnisse nach jedem Schritt in jeder Runde für frei wählbare Daten an"
@@ -37235,7 +37235,7 @@ CAPTION "Introduction Secret Sharing Demonstration"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,113,230,50,14
-    LTEXT           "Welcome to the visualization of the Shamir Secret-Sharing Scheme!",IDC_STATIC,7,7,238,8
+    LTEXT           "Welcome to the visualization of the Shamir secret-sharing scheme!",IDC_STATIC,7,7,238,8
     LTEXT           "The protocol deals with the following problem:",IDC_STATIC,7,22,177,8
     LTEXT           "A secret value is to be distributed among n persons so that a single person has no information about this value. At least t out of n persons have to cooperate to succeed in reconstructing the secret.",IDC_STATIC,7,39,267,27
     LTEXT           "Therefore, this method is called a (t,n)-threshold scheme.",IDC_STATIC,7,70,222,8
@@ -37251,7 +37251,7 @@ END
 
 IDD_SECRETSHARING_SETUP DIALOGEX 0, 0, 371, 423
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Secret Sharing: Initializing the Threshold Scheme"
+CAPTION "Secret Sharing Demonstration: Initializing the Threshold Scheme"
 FONT 8, "MS Sans Serif", 400, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT_SECRET,162,79,91,12,ES_AUTOHSCROLL
@@ -43816,7 +43816,7 @@ BEGIN
     ID_FLASH_AESDEMO        "Visualizes the AES encryption algorithm using Flash with fixed data"
     ID_PASSWORDQUALITYMETER "Measures the quality of passwords"
     ID_INTERACTIVE_NUMBER_THEORY 
-                            "Visualizes number theory using an interactive learning tool"
+                            "Visualizes parts of the elementary number theory using an interactive learning tool"
     ID_FLASH_ENIGMADEMO     "Visualizes the Enigma machine using Flash"
     ID_FLASH_RIJNDAEL_INSPECTOR 
                             "Shows the AES intermediate results after each step in each round for arbitrary data"
@@ -44025,7 +44025,7 @@ BEGIN
     IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS 
                             "\r\nDictionary words [%d]: "
     IDS_SECRETSHARINGSHAMIR_LOG_HEADING 
-                            "Log file for Shamir's Secret-Sharing Scheme"
+                            "Log file for Shamir's secret-sharing scheme"
     IDS_CAESAR_ANALYSIS_REMARK 
                             "Because of the key offset which was used during encryption, there are two keys possible: For a key offset of 1 the key is '%s', for a key offset of 0 the key is '%s'."
     IDS_STRING_INVALID_VERNAM_KEY 
