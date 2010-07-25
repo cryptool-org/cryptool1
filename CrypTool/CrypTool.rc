@@ -22761,7 +22761,7 @@ BEGIN
     LTEXT           "y:",IDC_STATIC,160,108,8,8
     LTEXT           "z:",IDC_STATIC,201,108,8,8
     LTEXT           "Aktueller Zwischenstand:",IDC_STATIC,15,155,307,8
-    LTEXT           "In diesem Dialog sind Zeichen des Chiffretextes klein geschrieben und Zeichen des Klartextes groß geschrieben (Beispiel: a -->C bedeutet, dass das Zeichen 'a' in den Buchstaben 'C' entschlüsselt wird).",IDC_STATIC,13,6,321,16
+    LTEXT           "In diesem Dialog sind Zeichen des Geheimtextes klein geschrieben und Zeichen des Klartextes groß geschrieben (Beispiel: a -->C bedeutet, dass das Zeichen 'a' in den Buchstaben 'C' entschlüsselt wird).",IDC_STATIC,13,6,321,16
     LTEXT           "Jede Änderung in der Substitutionsliste wird in der unteren Anzeige der Entschlüsselung angezeigt. Der aktuelle Zwischenstand der Entschlüsselung hilft Ihnen, weitere Substitutionen zu bestimmen.",IDC_STATIC,13,23,321,17
     PUSHBUTTON      "Schlüssel &kopieren",IDC_BUTTON1,149,291,80,21
     CONTROL         "REDO_",IDC_REDO_,"Button",BS_OWNERDRAW | WS_DISABLED | WS_TABSTOP,312,128,22,20
@@ -25123,7 +25123,7 @@ BEGIN
     GROUPBOX        "Schritt 1: Öffentlichen Schlüssel (N,e) eingeben oder zufällig erzeugen",IDC_STATIC,7,55,503,70
     LTEXT           "N:",IDC_STATIC,18,98,8,8
     LTEXT           "e:",IDC_STATIC,451,98,8,8
-    GROUPBOX        "Schritt 2: Klartext und Chiffretext vorgeben",IDC_STATIC,7,132,504,112
+    GROUPBOX        "Schritt 2: Klartext und Geheimtext vorgeben",IDC_STATIC,7,132,504,112
     GROUPBOX        "Schritt 4: Angriffsparameter vorgeben",IDC_STATIC,7,353,187,71
     LTEXT           "Position:",IDC_STATIC,264,303,28,8
     LTEXT           "Länge:",IDC_STATIC,357,303,23,8
@@ -25153,12 +25153,12 @@ BEGIN
     EDITTEXT        IDC_EDITPLAINLENGTH,201,224,54,14,ES_AUTOHSCROLL | ES_NUMBER | NOT WS_VISIBLE
     LTEXT           "Starten Sie, indem Sie einen öffentlichen Schlüssel vorgeben (selbst eingeben oder erzeugen lassen).",IDC_STATIC,13,36,494,10
     LTEXT           "Klartext",IDC_STATIC_PLAINTEXT,13,171,125,8,NOT WS_VISIBLE
-    LTEXT           "Chiffretext",IDC_STATIC,263,171,84,8
+    LTEXT           "Geheimtext",IDC_STATIC,263,171,84,8
     LTEXT           "Geben sie hier den Teil des Klartextes ein, der dem Angreifer bekannt ist.",IDC_STATIC_ENTER_KNOWN,13,264,230,8
     LTEXT           "Hier werden die Einstellungen zur Anfangsposition und Länge des unbekannten Teils gemacht. Geben Sie diese über die Eingabefelder ein oder markieren Sie sie einen Teil des Klartextes aus Schritt 2 mit der Maus und klicken ""Beschneiden"".",IDC_STATIC_ENTER_POS,263,262,236,31,NOT WS_VISIBLE
     LTEXT           "Hier werden die Einstellungen zur Anfangsposition und Länge des unbekannten Teils gemacht. Geben Sie diese über die Eingabefelder ein.",IDC_STATIC_HIGHLIGHT_POS,263,262,239,37
     LTEXT           "Hier wird der Teil des Klartextes angezeigt, der dem Angreifer bekannt ist.",IDC_STATIC_SHOW_KNOWN,13,262,239,10,NOT WS_VISIBLE
-    LTEXT           "Darstellung des Chiffretextes:",IDC_STATIC,267,227,92,8
+    LTEXT           "Darstellung des Geheimtextes:",IDC_STATIC,267,227,92,8
 END
 
 IDD_RSABLOEMERMAY DIALOGEX 0, 0, 491, 457
@@ -25438,10 +25438,10 @@ BEGIN
     CONTROL         "Zusätzlicher Zeilenumbruch nach jedem Block",IDC_CHECK_NEWLINE_STAGE1,
                     "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,27,411,159,10
     PUSHBUTTON      "Matrix leeren",IDC_ERASEMATRIX,136,132,53,20
-    GROUPBOX        "Endergebnis: Ciphertext nach Stufe 2",IDC_BOX_OUT_STAGE2,16,335,233,36
+    GROUPBOX        "Endergebnis: Chiffrat nach Stufe 2",IDC_BOX_OUT_STAGE2,16,335,233,36
     CONTROL         "Leerzeichen zwischen den Blöcken",IDC_CHECK_BLOCK_STAGE2,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,345,125,10
-    GROUPBOX        "Zwischenergebnis: Ciphertext nach Stufe 1",IDC_STATIC,16,375,233,51
+    GROUPBOX        "Zwischenergebnis: Chiffrat nach Stufe 1",IDC_STATIC,16,375,233,51
     CONTROL         "Leerzeichen zwischen den Blöcken",IDC_CHECK_BLOCK_STAGE1,
                     "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,27,396,125,10
     PUSHBUTTON      "Zeichenkette eingeben",IDC_BUTTON_STRINGBOX,196,132,53,20,BS_MULTILINE
@@ -25840,14 +25840,14 @@ BEGIN
                     "Button",BS_AUTORADIOBUTTON,18,19,256,17
     CONTROL         "Verfahren 2 basierend auf der Erkennung der häufigsten Wörter einer Sprache",IDC_ALG_WORD,
                     "Button",BS_AUTORADIOBUTTON,18,103,264,15
-    LTEXT           "Die Analyse basiert auf einer Liste mit den häufigsten Wörtern der jeweiligen Sprache. Die Wörter des Ciphertextes werden (ihrem Muster nach) mit den Wörtern in der Liste verglichen.",IDC_STATIC,30,118,265,28
+    LTEXT           "Die Analyse basiert auf einer Liste mit den häufigsten Wörtern der jeweiligen Sprache. Die Wörter des Chiffrats werden (ihrem Muster nach) mit den Wörtern in der Liste verglichen.",IDC_STATIC,30,118,265,28
     GROUPBOX        "Bitte wählen Sie zwischen folgenden Algorithmen aus:",IDC_STATIC,7,5,304,210,WS_GROUP
     LTEXT           "Der Algorithmus analysiert die Häufigkeit einzelner Digramme im verschlüsselten Text und versucht, anhand einer Standardverteilung den Schlüssel zu erraten.",IDC_STATIC,30,35,251,21
     LTEXT           "Dieses Verfahren eignet sich am besten für die Analyse längerer Texte.\nEine automatische Spracherkennung ist eingebaut. Das Verfahren arbeitet auch auf verschlüsselten Texten, die keine Leerzeichen enthalten.",IDC_STATIC,30,55,251,33
-    LTEXT           "Quelle: Thomas Jakobsen ""A Fast Method for the Cryptanalysis of Substitution Ciphers"", Cryptologia 19:3, 1995",IDC_STATIC,30,85,251,19
+    LTEXT           "Quelle: Thomas Jakobsen ""A Fast Method for Cryptanalysis of Substitution Ciphers"", Cryptologia 19:3, 1995",IDC_STATIC,30,85,251,19
     LTEXT           "Bei jeder möglichen Zuordnung ergibt sich daraus eine (partielle) Substitution. Durch einen Suchbaum wird diejenige Substitution ermittelt, die mit den meisten partiellen Substitutionen verträglich ist.",IDC_STATIC,29,145,265,26
     LTEXT           "Quelle: George W. Hart ""To Decode Short Cryptograms"", Communications of the ACM, Sept 1994, Vol 37, No.4",IDC_STATIC,30,191,265,18
-    LTEXT           "Dieses Verfahren arbeitet mit deutschen und englischen Standardtexten. Die Leerzeichen müssen im Ciphertext an den richtigen Stellen enthalten sein.",IDC_STATIC,30,171,265,19
+    LTEXT           "Dieses Verfahren arbeitet mit deutschen und englischen Standardtexten. Die Leerzeichen müssen im Chiffrat an den richtigen Stellen enthalten sein.",IDC_STATIC,30,171,265,19
 END
 
 IDD_AUTO_SUBSTITUTION_ANALYSIS DIALOGEX 0, 0, 394, 321
@@ -26039,7 +26039,7 @@ BEGIN
     GROUPBOX        "1 b: Kartenreihenfolge festlegen",IDC_STATIC,20,166,195,49
     GROUPBOX        "Passworteingabe",IDC_STATIC,233,120,414,31
     EDITTEXT        IDC_EDIT4,241,130,132,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Initialdeck modifizieren",IDC_BUTTON1,375,130,79,14
+    PUSHBUTTON      "Initial-Deck modifizieren",IDC_BUTTON1,375,130,79,14
     LTEXT           "Initial-Deck (schon gemischtes Kartenspiel; repräsentiert den Zustand des Kartenspiels, bevor der Algorithmus zur Schlüsselstromerzeugung das erste Mal angewendet wird)",IDC_STATIC,29,298,552,8
     LTEXT           "End-Deck (repräsentiert den Zustand des Kartenspiels direkt nach dem Erzeugen des letzten Schlüsselstromzeichens)",IDC_STATIC,29,326,374,8
     GROUPBOX        "Manuelle Einzelschritte des Solitaire-Algorithmus",IDC_STATIC,234,236,422,38
@@ -26128,11 +26128,11 @@ BEGIN
     PUSHBUTTON      "Rest generieren",IDC_BUTTON69,585,252,60,14,WS_DISABLED
     PUSHBUTTON      "Andere Mischung",IDC_BUTTON70,136,185,66,14
     PUSHBUTTON      "Initialzustand herstellen",IDC_BUTTON71,326,415,88,14
-    LTEXT           "Das Initial-Deck wird durch ein Passwort bestimmt. Wie das funktioniert ist in der Onlinehilfe (F1) beschrieben.",IDC_STATIC,459,128,179,19
+    LTEXT           "Das Initial-Deck wird durch ein Passwort bestimmt. Wie das funktioniert ist in der Online-Hilfe (F1) beschrieben.",IDC_STATIC,459,128,179,19
     EDITTEXT        IDC_EDIT5,480,247,29,14,ES_CENTER | ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT WS_BORDER
     EDITTEXT        IDC_EDIT6,524,247,40,12,ES_CENTER | ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT WS_BORDER
     LTEXT           "von",IDC_STATIC,512,247,13,8
-    LTEXT           "Die verschiedenen Karten werden als Zahlen von 1 bis 52 und den Buchstaben A und B dargestellt: Welche Karte welcher Zahl entspricht, sehen Sie in der Onlinehilfe (F1) unter ""Solitaire-Beschreibung"".",IDC_STATIC,11,18,643,8
+    LTEXT           "Die verschiedenen Karten werden als Zahlen von 1 bis 52 und den Buchstaben A und B dargestellt: Welche Karte welcher Zahl entspricht, sehen Sie in der Online-Hilfe (F1) unter ""Solitaire-Beschreibung"".",IDC_STATIC,11,18,643,8
     LTEXT           "Schritt 1: Sie erzeugen den Schlüssel (das gemischte Kartendeck) entweder selbst oder Sie laden den Schlüssel (je nachdem, was Sie unten in der Gruppierung ""1 b: Kartenreihenfolge festlegen""",IDC_STATIC,11,34,619,8
     LTEXT           "Das Ergebnis der Schlüsselerzeugung ist das gemischte Kartendeck, das Sie unter dem Namen ""Initial-Deck"" in der Gruppierung ""Ausgabe"" finden.",IDC_STATIC,43,42,491,8
     LTEXT           "Gesamtzahl (incl. Joker):",IDC_STATIC,46,134,80,8
@@ -26212,26 +26212,26 @@ BEGIN
     PUSHBUTTON      "Reset",IDC_BUTTON63,500,130,50,14,WS_DISABLED
     EDITTEXT        IDC_EDIT1,15,241,552,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT2,15,288,552,14,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "Gefundenes Deck",IDC_STATIC,17,232,57,8
-    LTEXT           "Initialdeck",IDC_STATIC,17,278,33,8
+    LTEXT           "Gefundenes Deck (= End-Deck)",IDC_STATIC,17,232,57,8
+    LTEXT           "Initial-Deck",IDC_STATIC,17,278,33,8
     EDITTEXT        IDC_EDIT132,15,264,552,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Zwischendeck",IDC_STATIC,17,255,45,8
     EDITTEXT        IDC_EDIT3,17,345,551,30,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
     PUSHBUTTON      "Schlüsselstrom automatisch erzeugen",IDC_BUTTON4,18,327,132,14,WS_DISABLED
     GROUPBOX        "Beschreibung",IDC_STATIC,5,2,593,57
-    LTEXT           "Zur Entschlüsselung braucht der legitime Empfänger den Ciphertext und das ""Initialdeck"". Wir nehmen an, der Angreifer hat neben dem Ciphertext aber nur das (vom Sender",IDC_STATIC,17,12,544,11
-    LTEXT           "Bei dieser Kryptoanalyse wird versucht, aus dem Ausgangsdeck das Initialdeck zu reproduzieren. Dies gelingt aufgrund der unvollständige Reversibilität der",IDC_STATIC,17,28,580,8
-    PUSHBUTTON      "Ausgangsdeck laden",IDC_BUTTON5,39,100,69,14
+    LTEXT           "Der legitime Empfänger braucht zur Entschlüsselung den Geheimtext und das ""Initial-Deck"". Wir nehmen an, der Angreifer hat neben dem Geheimtext aber nur das",IDC_STATIC,17,12,544,11
+    LTEXT           "Bei dieser Kryptoanalyse wird versucht, aus dem End-Deck das Initial-Deck zu reproduzieren. Dies gelingt aufgrund der unvollständigen Reversibilität der",IDC_STATIC,17,28,580,8
+    PUSHBUTTON      "End-Deck laden",IDC_BUTTON5,39,100,69,14
     PUSHBUTTON      "Nach Vorgabe",IDC_BUTTON6,38,140,70,14
     LTEXT           "Kartenanzahl:",IDC_STATIC,173,98,46,8,WS_DISABLED
     GROUPBOX        "Nach Vorgabe",IDC_STATIC,166,80,403,85,WS_DISABLED
-    LTEXT           "Aufgrund der Irreversibilität von Solitaire müssen an bestimmten Stellen der Rückwärtsrechnung\nEntscheidungen des Benutzers getroffen werden, wo der entsprechende Joker einzuordnen ist.  ",IDC_STATIC,229,191,354,18
-    GROUPBOX        "3. Initialdeck erzeugen",IDC_STATIC,11,222,581,88
-    GROUPBOX        "4. Schlüsselstromerzeugung",IDC_STATIC,11,314,581,67
-    LTEXT           "Aus dem berechneten Initialdeck kann dann wieder der ursprüngliche Schlüsselstrom berechnet werden.",IDC_STATIC,17,44,333,8
-    LTEXT           "Schlüsselstromerzeugung nicht immer eindeutig. Dann werden Sie gebeten, die Entscheidung zu treffen, wo der Joker einzusortieren ist.",IDC_STATIC,17,36,431,10
-    GROUPBOX        "Initialdeck bestimmen und Schlüsselstrom erzeugen ",IDC_STATIC,5,64,593,324
-    LTEXT           "durch die Verschlüsselung oder vom Empfänger durch die Entschlüsselung erzeugte) Ausgangsdeck.",IDC_STATIC,17,20,320,8
+    LTEXT           "Aufgrund der Irreversibilität von Solitaire müssen an bestimmten Stellen der Rückwärtsrechnung\nEntscheidungen getroffen werden, wo der entsprechende Joker einzuordnen ist.  ",IDC_STATIC,229,191,354,18
+    GROUPBOX        "3. Initial-Deck erzeugen",IDC_STATIC,11,222,581,88
+    GROUPBOX        "4. Schlüsselstrom erzeugen",IDC_STATIC,11,314,581,67
+    LTEXT           "Aus dem berechneten Initial-Deck kann dann wieder der nötige Schlüsselstrom berechnet werden.",IDC_STATIC,17,44,333,8
+    LTEXT           "Schlüsselstrom-Erzeugung nicht immer eindeutig. Deshalb müssen Sie entscheiden, wo der Joker einzusortieren ist.",IDC_STATIC,17,36,431,10
+    GROUPBOX        "Initial-Deck bestimmen und Schlüsselstrom erzeugen ",IDC_STATIC,5,64,593,324
+    LTEXT           "(vom Sender bei der Verschlüsselung, oder vom Empfänger bei der Entschlüsselung erzeugte) End-Deck.",IDC_STATIC,17,20,320,8
     GROUPBOX        "Einheitliche Entscheidung",IDC_STATIC,17,180,112,34
     GROUPBOX        "Manuell",IDC_STATIC,145,181,73,33
 END
@@ -30501,7 +30501,7 @@ BEGIN
     IDS_STRING_MONOALPHABETIC_SUBSTITUTION_CHARACTERS_REMOVED_DURING_COPYANDPASTE 
                             "Beachten Sie bitte, dass beim Einfügen aus der Zwischenablage Zeichen entfernt wurden, die nicht Teil des aktuell eingestellten Alphabets sind."
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_NOT_SUCCESSFUL 
-                            "\n\nEs wurden leider keine möglichen Lösungen gefunden.\n\nÜberprüfen Sie, ob Sie die richtige(n) Sprache(n) für Schlüsselwort und Ciphertext ausgewählt haben.\n\nVielleicht sollten Sie auch in Erwägung ziehen, den Grenzwert im Dialog Analyseoptionen zu verkleinern."
+                            "\n\nEs wurden leider keine möglichen Lösungen gefunden.\n\nÜberprüfen Sie, ob Sie die richtige(n) Sprache(n) für Schlüsselwort und Geheimtext ausgewählt haben.\n\nVielleicht sollten Sie auch in Erwägung ziehen, den Grenzwert im Dialog Analyseoptionen zu verkleinern."
     IDS_STRING_FILE_NOT_FOUND_BUT_ASK_FOR_MIGRATION_TO_DEFAULT_RESOURCES 
                             "Eine für die Analyse notwendige Datei konnte nicht gefunden werden.\n\nIn Ihrer CrypTool-Installation ist die Datei aber vorhanden.\n\nVermutlich verwendet CrypTool im Moment veraltete Einträge aus der Windows-Registry.\n\nWollen Sie, dass CrypTool in Zukunft die für die Analyse notwendigen Dateien (Wörterbuch, Digramme und Trigramme) aus Ihrer aktuellen CrypTool-Installation verwendet?"
     IDS_STRING_LANGUAGE_CHOICE_REQUIREMENTS 
@@ -30935,7 +30935,7 @@ BEGIN
     IDS_STRING_ADFGVX_BLOCKLENGTH_STAGE2 
                             "Blocklänge Stufe 2:\nBitte als Blocklänge nur Werte zwischen 1 und 26 eingeben!"
     IDS_STRING_ADFGVX_BLOCK_NOTIFY 
-                            "Bei der Entschlüsselung wird nur der Ciphertext Stufe 1 in Blöcken ausgegeben."
+                            "Bei der Entschlüsselung wird nur das Chiffrat von Stufe 1 in Blöcken ausgegeben."
     IDS_STRING_ADFGVX_CHAR_EXISTS_1A "Der Buchstabe '"
     IDS_STRING_ADFGVX_CHAR_EXISTS_1B "Die Ziffer '"
     IDS_STRING_ADFGVX_CHAR_EXISTS_2 
@@ -31114,9 +31114,9 @@ BEGIN
     IDS_STRING_HYBRID_ENC_KEY "    Verschlüsselter Sessionkey:    "
     IDS_STRING_HYBRID_SYM_METHOD "    Symmetrisches Verfahren:    "
     IDS_STRING_HYBRID_ASYM_METHOD "    Asymmetrisches Verfahren:    "
-    IDS_STRING_HYBRID_CIPHERTEXT "    Chiffretext:    "
+    IDS_STRING_HYBRID_CIPHERTEXT "    Geheimtext:    "
     IDS_STRING_ZERT_DATEN   "Hier werden Ihre Zertifikatsdaten angezeigt."
-    IDS_STRING_HYBRID_DEC_STEP "Schrittweise Hybridentschlüsselung:"
+    IDS_STRING_HYBRID_DEC_STEP "Schrittweise Hybrid-Entschlüsselung:"
     IDS_STRING_HYBRID_ENC_SYM_KEY 
                             "Zufällig gewählter symmetrischer Sessionkey:"
     IDS_STRING_HYBRID_DEC_MSG2 
@@ -31229,10 +31229,10 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_RSA_MKPZ_CIPHERTEXT "Chiffretext"
+    IDS_RSA_MKPZ_CIPHERTEXT "Geheimtext"
     IDS_STRING_CHOOSE_REF_FILENAME "Wähle Referenzdatei"
     IDS_STRING_MSG_CMP_CIPHER_REFERENCE 
-                            "Vergleiche Chiffretext mit der Referenzdatei %s."
+                            "Vergleiche Geheimtext mit der Referenzdatei %s."
     IDS_STRING_KEYINPUT_AES_CANDIDATE "Schlüsseleingabe: %s (AES-Kandidat)"
     IDS_STRING_KEYINPUT_SYMMETRIC "Schlüsseleingabe: %s"
     IDS_STRING_KEYINPUT_AES_RIJNDAEL "Schlüsseleingabe: Rijndael (AES)"
@@ -31303,7 +31303,7 @@ BEGIN
     IDS_STRING_RSA_TUTORIAL_CODING 
                             "Zahlendarstellung der Eingabe zur Basis %i."
     IDS_STRING_RSA_TUTORIAL_ENCRYPTION 
-                            "Verschlüsselung in den Chiffretext c[i] = m[i]^e (mod N)."
+                            "Verschlüsselung in den Geheimtext c[i] = m[i]^e (mod N)."
     IDS_STRING_RSA_TUTORIAL_DECRYPTION 
                             "Entschlüsselung in den Klartext m[i] = c[i]^d (mod N)"
     IDS_STRING_RSATUT_MAXBLOCKLENGTH "(Maximale Blocklänge %i Zeichen)"
@@ -31313,7 +31313,7 @@ BEGIN
     IDS_STRING_RSATUT_PLAINTEXTNUMBERS 
                             "Zahlendarstellung des Klartextes zur Basis %i ."
     IDS_STRING_RSATUT_CIPHERTEXTNUMBERS 
-                            "Chiffretext in Zahlendarstellung zur Basis %i . "
+                            "Geheimtext in Zahlendarstellung zur Basis %i . "
     IDS_STRING_PA_FILENAME  "PeriodenAnalyse.txt"
     IDS_STRING_PA_OFFSET    "Offset"
     IDS_STRING_PA_PCNT      "Periodenzahl"
@@ -32835,7 +32835,7 @@ BEGIN
     IDS_RSA_BM_CHECKN       "Bitte überprüfe den Wert des RSA-Moduls N"
     IDS_RSA_BM_CHECKE       "Bitte überprüfe den Wert des öffentlichen Exponenten e"
     IDS_RSA_BM_CHECKD       "Bitte überprüfe den Wert der Schätzung des geheimen Exponenten d"
-    IDS_HILL_DUMP           "Hill-Ver-/Entschlüsselung:\n\nDiese Detailbeschreibung der Hill-Verschlüsselung hat folgende Teile: \n 1. Alphabet-Codierung in Zahlen\n 2. Verschlüsselungsparameter und Eigenschaften\n 3. Hill-Verschlüsselung\n 4. Hill-Entschlüsselung\n \nDiese Log-Datei zeigt alle Ver-/Entschlüsselungs-Berechnungen mit der gegenwärtigen Hill Schlüssel-Matrix und den ersten Zeichen der gewählten Nachricht.\n\n\n1. Alphabet-Codierung in Zahlen:\n\nDas aktuell im Menü ""Optionen / Textoptionen"" gewählte Alphabet und dessen Codierung in Zahlen lautet:\n \n%ALPHABET_MAPPING%\n \nDas aktuelle Alphabet besteht aus %ALPHABET_SIZE% Zeichen. Der erste Alphabetbuchstabe hat den Zahlenwert %ALPHABET_CODING_OFFSET%.\n\n\n2. Verschlüsselungsparameter und Eigenschaften:\n\nDie Ver- und Entschlüsselung ist unten beispielhaft durchgerechnet für die %HILL_DIMENSION% ersten Buchstaben aus dem Klartext, die zum Alphabet gehören.\n\nHier die Parameter der ausgewählten Hill-Verschlüsselung:\n  o Zur Ver- bzw. Entschlüsselung wird die Hill-Matrix mit einem %HILL_MULTIPLICATION_TYPE% multipliziert.\n  o Die gewählte Hill-Matrix hat die Dimension %HILL_DIMENSION%x%HILL_DIMENSION%.\n  o Der Klartext besteht aus %HILL_PLAINTEXT_SIZE% Buchstaben. Davon sind %HILL_NON_ALPHABET_CHARS% Nichtalphabetzeichen (Nichtalphabetzeichen werden ignoriert). Wenn das Alphabet nur Großbuchstaben enthält, werden die entsprechenden Kleinbuchstaben aber ebenfalls verschlüsselt; nicht umgekehrt.  Die Ver- und Entschlüsselung ist unten beispielhaft durchgerechnet für die %HILL_DIMENSION% ersten Buchstaben aus dem Klartext, die zum Alphabet gehören.\n \n\n3. Hill-Verschlüsselung:\n\nDie gewählte Hill-Matrix zum Verschlüsseln ist:\n \n%HILL_ENCRYPTION_TEXTMATRIX%\n \nDiese Matrix codiert in Zahlen:\n \n%HILL_ENCRYPTION_INTMATRIX%\n \nVerschlüsselung des Klartextes: ""%PLAINTEXT%"": \nKlartext(engl. Plaintext)-Vektor P codiert in Zahlen: %HILL_PLAINTEXT_VECTOR%\n \nBerechnung der Hill-Chiffrierung durch das %HILL_VECTOR_MATRIX_MULTTYPE% (der Vektor P[n] ist ein %HILL_VECTORTYPE%): \n%HILL_ENCRYPTION%\n \nDer Hill-Chiffretext lautet: ""%CIPHERTEXT%"". \n\n\n4. Hill-Entschlüsselung:\n\nDie inverse Hill-Matrix zum Entschlüsseln ist: \n%HILL_DECRYPTION_TEXTMATRIX%\n \nDiese Matrix codiert in Zahlen: \n%HILL_DECRYPTION_INTMATRIX%\n \nEntschlüsselung des Chiffretextes: ""%CIPHERTEXT%"": \nChiffretext-Vektor C codiert in Zahlen: \n%HILL_CIPHERTEXT_VECTOR%\n \nBerechnung der Hill-Dechiffrierung durch das %HILL_VECTOR_MATRIX_MULTTYPE% (der Vektor C[n] ist ein %HILL_VECTORTYPE%): \n%HILL_DECRYPTION%\n \nDer Hill-Klartext lautet: ""%PLAINTEXT%"". \n\n\n"
+    IDS_HILL_DUMP           "Hill-Ver-/Entschlüsselung:\n\nDiese Detailbeschreibung der Hill-Verschlüsselung hat folgende Teile: \n 1. Alphabet-Codierung in Zahlen\n 2. Verschlüsselungsparameter und Eigenschaften\n 3. Hill-Verschlüsselung\n 4. Hill-Entschlüsselung\n \nDiese Log-Datei zeigt alle Ver-/Entschlüsselungs-Berechnungen mit der gegenwärtigen Hill Schlüssel-Matrix und den ersten Zeichen der gewählten Nachricht.\n\n\n1. Alphabet-Codierung in Zahlen:\n\nDas aktuell im Menü ""Optionen / Textoptionen"" gewählte Alphabet und dessen Codierung in Zahlen lautet:\n \n%ALPHABET_MAPPING%\n \nDas aktuelle Alphabet besteht aus %ALPHABET_SIZE% Zeichen. Der erste Alphabetbuchstabe hat den Zahlenwert %ALPHABET_CODING_OFFSET%.\n\n\n2. Verschlüsselungsparameter und Eigenschaften:\n\nDie Ver- und Entschlüsselung ist unten beispielhaft durchgerechnet für die %HILL_DIMENSION% ersten Buchstaben aus dem Klartext, die zum Alphabet gehören.\n\nHier die Parameter der ausgewählten Hill-Verschlüsselung:\n  o Zur Ver- bzw. Entschlüsselung wird die Hill-Matrix mit einem %HILL_MULTIPLICATION_TYPE% multipliziert.\n  o Die gewählte Hill-Matrix hat die Dimension %HILL_DIMENSION%x%HILL_DIMENSION%.\n  o Der Klartext besteht aus %HILL_PLAINTEXT_SIZE% Buchstaben. Davon sind %HILL_NON_ALPHABET_CHARS% Nichtalphabetzeichen (Nichtalphabetzeichen werden ignoriert). Wenn das Alphabet nur Großbuchstaben enthält, werden die entsprechenden Kleinbuchstaben aber ebenfalls verschlüsselt; nicht umgekehrt.  Die Ver- und Entschlüsselung ist unten beispielhaft durchgerechnet für die %HILL_DIMENSION% ersten Buchstaben aus dem Klartext, die zum Alphabet gehören.\n \n\n3. Hill-Verschlüsselung:\n\nDie gewählte Hill-Matrix zum Verschlüsseln ist:\n \n%HILL_ENCRYPTION_TEXTMATRIX%\n \nDiese Matrix codiert in Zahlen:\n \n%HILL_ENCRYPTION_INTMATRIX%\n \nVerschlüsselung des Klartextes: ""%PLAINTEXT%"": \nKlartext(engl. Plaintext)-Vektor P codiert in Zahlen: %HILL_PLAINTEXT_VECTOR%\n \nBerechnung der Hill-Chiffrierung durch das %HILL_VECTOR_MATRIX_MULTTYPE% (der Vektor P[n] ist ein %HILL_VECTORTYPE%): \n%HILL_ENCRYPTION%\n \nDer Hill-Geheimtext lautet: ""%CIPHERTEXT%"". \n\n\n4. Hill-Entschlüsselung:\n\nDie inverse Hill-Matrix zum Entschlüsseln ist: \n%HILL_DECRYPTION_TEXTMATRIX%\n \nDiese Matrix codiert in Zahlen: \n%HILL_DECRYPTION_INTMATRIX%\n \nEntschlüsselung des Geheimtextes: ""%CIPHERTEXT%"": \nGeheimtext-Vektor C codiert in Zahlen: \n%HILL_CIPHERTEXT_VECTOR%\n \nBerechnung der Hill-Dechiffrierung durch das %HILL_VECTOR_MATRIX_MULTTYPE% (der Vektor C[n] ist ein %HILL_VECTORTYPE%): \n%HILL_DECRYPTION%\n \nDer Hill-Klartext lautet: ""%PLAINTEXT%"". \n\n\n"
     IDS_HILL_MULTIPLICATION_TYPE_LEFT "Zeilenvektor von links"
     IDS_HILL_MULTIPLICATION_TYPE_RIGHT "Spaltenvektor von rechts"
     IDS_HILL_VECTORTYPE_ROW "Zeilenvektor"
@@ -32937,11 +32937,11 @@ BEGIN
     IDS_ECIES_HEADER_02     "Empfaenger:"
     IDS_ECIES_HEADER_03     "|Kurvenidentifikation:"
     IDS_ECIES_HEADER_04     "|Laenge des ECIES-verschluesselten AES-Sessionkeys:"
-    IDS_ECIES_HEADER_05     "Byte|Laenge des Ciphertextes:"
-    IDS_ECIES_HEADER_07     "|AES-Ciphertext:"
-    IDS_ERROPEN_ECCDemo     "Die ECCDemo kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob ECCDemo installiert wurde."
+    IDS_ECIES_HEADER_05     "Byte|Laenge des Geheimtextes:"
+    IDS_ECIES_HEADER_07     "|AES-Geheimtext:"
+    IDS_ERROPEN_ECCDemo     "Die ECC-Demo kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob die ECC-Demo installiert wurde."
     IDS_ECIES_DIFFERING_CURVES 
-                            "Sender und Empfänger müssen die gleiche elliptische Kurve verwenden.\n\n Bitte wählen Sie einen Empfängerschlüssel mit dem Kurvenarameter %s!"
+                            "Sender und Empfänger müssen die gleiche elliptische Kurve verwenden.\n\n Bitte wählen Sie einen Empfängerschlüssel mit dem Kurvenparameter %s!"
 END
 
 STRINGTABLE 
@@ -32960,9 +32960,9 @@ BEGIN
     IDS_ECIES_HEADER_06     "Byte|ECIES-verschluesselter AES-Sessionkey:"
     IDS_ECIES_DEC_ERROR_01  "Die Entschlüsselung war nicht erfolgreich.\nDie Datei hat ein falsches Format, eventuell ist der Header beschädigt."
     IDS_ECIES_DEC_ERROR_02  "Die Entschlüsselung war nicht erfolgreich,da der AES-Sessionkey beschädigt ist."
-    IDS_ECIES_DEC_ERROR_03  "Die Entschlüsselung war nicht erfolgreich, da der AES-Ciphertext beschädigt ist."
-    IDS_ECIES_DEC_ERROR_42  "Die Enschlüsselung war nicht erfolgreich.\nEs wurde ein falscher Schlüssel zum Entschlüsseln benutzt."
-    IDS_ECIES_DEC_ERROR_05  "Der AES-Ciphertext konnte nicht mit dem AES-Sessionkey entschlüsselt werden.\nEventuell ist einer der beiden oder beide beschädigt."
+    IDS_ECIES_DEC_ERROR_03  "Die Entschlüsselung war nicht erfolgreich, da der AES-Geheimtext beschädigt ist."
+    IDS_ECIES_DEC_ERROR_42  "Die Entschlüsselung war nicht erfolgreich.\nEs wurde ein falscher Schlüssel zum Entschlüsseln benutzt."
+    IDS_ECIES_DEC_ERROR_05  "Der AES-Geheimtext konnte nicht mit dem AES-Sessionkey entschlüsselt werden.\nEventuell ist einer der beiden oder beide beschädigt."
 END
 
 STRINGTABLE 
@@ -33073,8 +33073,8 @@ BEGIN
     IDS_PA_COULDNOTOPEN_CIPHERFILE 
                             "Die Geheimtextdatei konnte nicht geöffnet werden."
     IDS_PA_FILESIZES_DIFFERENT 
-                            "Klartext und Chiffretextdatei haben unterschiedliche Größen."
-    IDS_PA_EMPTYFILE        "Beide Dateien (Klartext und Chiffretextdatei) sind leer. "
+                            "Klartext- und Geheimtextdatei haben unterschiedliche Größen."
+    IDS_PA_EMPTYFILE        "Beide Dateien (Klartext- und Geheimtextdatei) sind leer. "
     IDS_PA_LIMITRANGE_ERROR "Bitte überprüfen Sie die Eingabe des Suchraums für die Permutationsgröße:\r\nDie untere Grenze (von) muss kleiner oder gleich die der oberen Grenze (bis) sein."
     IDS_PA_DIRECTION_ERROR  "Sollte nie auftreten."
     ID_PA_NOKEYFOUND        "Es wurde kein Permutationsschlüssel gefunden."
@@ -33186,12 +33186,12 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_TAG_REMOVE_DUPLICATES 
                             "%d entfernte Duplikate:"
     IDS_STRING_VIGENERE_ANALYSIS_TAG_1ST_CHARACTER_OF_CIPHER 
-                            "1. Zeichen des Ciphertexts: "
+                            "1. Zeichen des Geheimtexts: "
     IDS_STRING_VIGENERE_ANALYSIS_TAG_2ND_CHARACTER_OF_CIPHER 
-                            "2. Zeichen des Ciphertexts: "
+                            "2. Zeichen des Geheimtexts: "
     IDS_STRING_VIGENERE_ANALYSIS_TAG_3RD_CHARACTER_OF_CIPHER 
-                            "3. Zeichen des Ciphertexts: "
-    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_CIPHERTEXT "Lade Ciphertext..."
+                            "3. Zeichen des Geheimtexts: "
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_CIPHERTEXT "Lade Geheimtext..."
     IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_DICTIONARY "Lade Wörterbuch..."
     IDS_STRING_VIGENERE_ANALYSIS_TAG_POSSIBLE_PAIRS "%d mögliche Paare:"
     IDS_STRING_VIGENERE_ANALYSIS_TAG_COUNT "Anzahl: "
@@ -36793,7 +36793,7 @@ BEGIN
     GROUPBOX        "Please choose between the following algorithms:",IDC_STATIC,7,5,304,210,WS_GROUP
     LTEXT           "This method analyses the frequency of digrams in the cyphertext and guesses the key based on a standard digram distribution.",IDC_STATIC,30,35,251,19
     LTEXT           "The method is suited best for longer texts.\nAutomatic language recognition is included. Processing of texts that do not contain space characters is also possible.",IDC_STATIC,30,54,251,29
-    LTEXT           "Source: Thomas Jakobsen ""A Fast Method for the Cryptanalysis of Substitution Ciphers"", Cryptologia 19:3, 1995",IDC_STATIC,30,83,251,19
+    LTEXT           "Source: Thomas Jakobsen ""A Fast Method for Cryptanalysis of Substitution Ciphers"", Cryptologia 19:3, 1995",IDC_STATIC,30,83,251,19
     LTEXT           "Using a search tree the substitution compatible with the most partial substitutions is determined. This method can process German and English standard texts. Space characters must be preserved on correct positions in the ciphertext.",IDC_STATIC,29,159,265,27
     LTEXT           "Source: George W. Hart ""To Decode Short Cryptograms"", Communications of the ACM, Sept 1994, Vol 37, No.4",IDC_STATIC,30,188,265,21
 END
@@ -37164,7 +37164,7 @@ BEGIN
     EDITTEXT        IDC_EDIT3,17,345,551,30,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
     PUSHBUTTON      "Automatic generating of the keystream",IDC_BUTTON4,18,327,132,14,WS_DISABLED
     GROUPBOX        "Description",IDC_STATIC,5,2,593,57
-    LTEXT           "The legitimate receiver needs for encryption the ciphertext and the initial deck. We suppose, the attacker has also the ciphertext and the final deck ",IDC_STATIC,17,12,544,9
+    LTEXT           "The legitimate receiver needs for encryption the ciphertext and the initial deck. We suppose, the attacker got beside the ciphertext only the final deck ",IDC_STATIC,17,12,544,9
     LTEXT           "This cryptanalysis tries to reproduce the initial deck from the final deck. Because of the irreversibility of the keystream generation this reverse production succeeds not always",IDC_STATIC,17,28,573,9
     PUSHBUTTON      "Load final deck",IDC_BUTTON5,39,100,69,14
     PUSHBUTTON      "Own choice",IDC_BUTTON6,38,140,70,14
@@ -41586,9 +41586,9 @@ STRINGTABLE
 BEGIN
     ID_APP_ABOUT            "Displays program information about CrypTool (sponsors, authors, contacts, copyright, ...)\nAbout CrypTool"
     ID_APP_EXIT             "Exits the application after asking whether the opened files should be saved"
-    ID_HELP_INDEX           "Shows the content of the online Help"
-    ID_HELP_USING           "Give hints, how to use the online Help"
-    ID_CONTEXT_HELP         "Help on the icons, menus and online\nHelp"
+    ID_HELP_INDEX           "Shows the content of the online help"
+    ID_HELP_USING           "Give hints, how to use the online help"
+    ID_CONTEXT_HELP         "Help on the icons, menus and online\nhelp"
     ID_HELP                 "Help on the selected task or the selected action"
 END
 
@@ -44661,7 +44661,7 @@ BEGIN
     GROUPBOX        "Elija uno de entre los siguientes algoritmos:",IDC_STATIC,7,5,304,210,WS_GROUP
     LTEXT           "Este método analiza la frecuencia de los pares de caracteres en el texto cifrado y determina la clave basándose en una distribución estándar de pares de caracteres.",IDC_STATIC,30,35,251,25
     LTEXT           "Los mejores resultados obtenidos por este método se consiguen con textos largos.\nEstá incluido el reconocimiento del idioma del mensaje y se permite analizar textos de los que se haya eliminado el caracter del espacio.\n",IDC_STATIC,30,60,251,34
-    LTEXT           "Fuente: Thomas Jakobsen ""A Fast Method for the Cryptanalysis of Substitution Ciphers"", Cryptologia 19:3, 1995",IDC_STATIC,29,97,251,20
+    LTEXT           "Fuente: Thomas Jakobsen ""A Fast Method for Cryptanalysis of Substitution Ciphers"", Cryptologia 19:3, 1995",IDC_STATIC,29,97,251,20
     LTEXT           "Usando un árbol de búsqueda, se determina la sustitución que es compatible con un mayor número de las sustituciones parciales encontradas. Este método puede procesar textos en Alemán e Inglés en los que se haya respetado el caracter del espacio.",IDC_STATIC,29,159,265,37
     LTEXT           "Fuente: George W. Hart ""To Decode Short Cryptograms"", Communications of the ACM, Sept 1994, Vol 37, No.4",IDC_STATIC,30,193,265,19
 END
