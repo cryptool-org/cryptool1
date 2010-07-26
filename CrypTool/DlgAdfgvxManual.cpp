@@ -105,7 +105,6 @@ BOOL CDlgAdfgvxManual::OnInitDialog()
 			
 		UpdateData(false);
 
-		buttonResub.EnableWindow(false);
 		buttonResetMatrix.EnableWindow(false);
 		buttonStdMatrix.EnableWindow(false);
 		buttonStringBox.EnableWindow(false);
@@ -200,7 +199,6 @@ void CDlgAdfgvxManual::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_REMAINING_SOL, remaining);
 	DDX_Text(pDX, IDC_EDIT_REMCHARS, remChars);
 	DDX_CBIndex(pDX, IDC_MINLENGTH, minLength);
-	DDX_Control(pDX, IDC_RESUBSTITUTE, buttonResub);
 	DDX_Control(pDX, IDC_RESET_MATRIX, buttonResetMatrix);
 	DDX_Control(pDX, IDOK, buttonOutput);
 	DDX_Control(pDX, IDC_BUTTON_STRINGBOX, buttonStringBox);
@@ -254,7 +252,6 @@ BEGIN_MESSAGE_MAP(CDlgAdfgvxManual, CDialog)
 	ON_CBN_SELCHANGE(IDC_MINLENGTH, OnCbnSelchangeMinlength)
 	ON_BN_CLICKED(IDC_BUTTON_FORCE, OnBnClickedButtonForce)
 	ON_BN_CLICKED(IDC_RESET_MATRIX, OnBnClickedResetMatrix)
-	ON_BN_CLICKED(IDC_RESUBSTITUTE, OnBnClickedResubstitute)
 	//}}AFX_MSG_MAP
 	ON_BN_CLICKED(IDC_MATRIX_STANDARD, OnBnClickedMatrixStandard)
 	ON_BN_CLICKED(IDC_BUTTON_STRINGBOX, OnBnClickedButtonStringbox)
@@ -329,7 +326,6 @@ void CDlgAdfgvxManual::OnBnClickedButtonForce()
 	}
 	
 	analysed=true;
-	buttonResub.EnableWindow(true);
 	buttonResetMatrix.EnableWindow(true);
 	buttonStdMatrix.EnableWindow(true);
 	buttonStringBox.EnableWindow(true);
@@ -345,7 +341,6 @@ void CDlgAdfgvxManual::OnBnClickedNextPermutation()
 {
 	UpdateData(true);
 	analysed=false;
-	buttonResub.EnableWindow(false);
 	buttonResetMatrix.EnableWindow(false);
 	buttonStdMatrix.EnableWindow(false);
 	buttonStringBox.EnableWindow(false);
@@ -403,7 +398,6 @@ void CDlgAdfgvxManual::OnBnClickedNextPermutation()
 	if (editTranspositionPassword.getText().GetLength()>0)
 	{
 		analysed=true;
-		buttonResub.EnableWindow(true);
 		buttonResetMatrix.EnableWindow(true);
 		buttonStdMatrix.EnableWindow(true);
 		buttonStringBox.EnableWindow(true);
@@ -630,7 +624,6 @@ void CDlgAdfgvxManual::OnCbnSelchangeMinlength()
 			//set blank password
 			editTranspositionPassword.setText("");
 			analysed=false;
-			buttonResub.EnableWindow(false);
 			buttonResetMatrix.EnableWindow(false);
 			buttonStdMatrix.EnableWindow(false);
 			buttonStringBox.EnableWindow(false);
@@ -662,7 +655,6 @@ void CDlgAdfgvxManual::OnCbnSelchangeMaxlength()
 	{		
 		editTranspositionPassword.setText("");
 		analysed=false;
-		buttonResub.EnableWindow(false);
 		buttonResetMatrix.EnableWindow(false);
 		buttonStdMatrix.EnableWindow(false);
 		buttonStringBox.EnableWindow(false);
@@ -687,7 +679,6 @@ void CDlgAdfgvxManual::OnCbnSelchangeMaxlength()
 void CDlgAdfgvxManual::OnChangedTranspositionPassword() {
 	UpdateData(TRUE);
 	analysed=false;
-	buttonResub.EnableWindow(false);
 	buttonResetMatrix.EnableWindow(false);
 	buttonStdMatrix.EnableWindow(false);
 	buttonStringBox.EnableWindow(false);
@@ -797,7 +788,6 @@ void CDlgAdfgvxManual::OnBnClickedButtonStringbox()
 	}
 
 	//synchronize data with textfields
-	UpdateData(false);
 	Resubstitute();
 }
 
@@ -808,11 +798,6 @@ void CDlgAdfgvxManual::OnBnClickedButtonTextOptions()
 	// update the transposition password (so that it complies to the text options)
 	editTranspositionPassword.updateText();
 	UpdateData(false);
-}
-
-void CDlgAdfgvxManual::OnBnClickedResubstitute()
-{
-	Resubstitute();
 }
 
 void CDlgAdfgvxManual::OnBnClickedInsertKey()
@@ -835,7 +820,6 @@ void CDlgAdfgvxManual::OnBnClickedInsertKey()
 	else
 	{
 		analysed=true;
-		buttonResub.EnableWindow(true);
 		buttonResetMatrix.EnableWindow(true);
 		buttonStdMatrix.EnableWindow(true);
 		buttonStringBox.EnableWindow(true);
@@ -871,6 +855,7 @@ void CDlgAdfgvxManual::OnEnChangeM00()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -892,6 +877,7 @@ void CDlgAdfgvxManual::OnEnChangeM01()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -913,6 +899,7 @@ void CDlgAdfgvxManual::OnEnChangeM02()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -934,6 +921,7 @@ void CDlgAdfgvxManual::OnEnChangeM03()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -955,6 +943,7 @@ void CDlgAdfgvxManual::OnEnChangeM04()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -976,6 +965,7 @@ void CDlgAdfgvxManual::OnEnChangeM05()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -997,6 +987,7 @@ void CDlgAdfgvxManual::OnEnChangeM10()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1018,6 +1009,7 @@ void CDlgAdfgvxManual::OnEnChangeM11()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1039,6 +1031,7 @@ void CDlgAdfgvxManual::OnEnChangeM12()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1060,6 +1053,7 @@ void CDlgAdfgvxManual::OnEnChangeM13()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1081,6 +1075,7 @@ void CDlgAdfgvxManual::OnEnChangeM14()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1102,6 +1097,7 @@ void CDlgAdfgvxManual::OnEnChangeM15()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1123,6 +1119,7 @@ void CDlgAdfgvxManual::OnEnChangeM20()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1144,6 +1141,7 @@ void CDlgAdfgvxManual::OnEnChangeM21()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1165,6 +1163,7 @@ void CDlgAdfgvxManual::OnEnChangeM22()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1186,6 +1185,7 @@ void CDlgAdfgvxManual::OnEnChangeM23()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1207,6 +1207,7 @@ void CDlgAdfgvxManual::OnEnChangeM24()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1228,6 +1229,7 @@ void CDlgAdfgvxManual::OnEnChangeM25()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1249,6 +1251,7 @@ void CDlgAdfgvxManual::OnEnChangeM30()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1270,6 +1273,7 @@ void CDlgAdfgvxManual::OnEnChangeM31()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1291,6 +1295,7 @@ void CDlgAdfgvxManual::OnEnChangeM32()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1312,6 +1317,7 @@ void CDlgAdfgvxManual::OnEnChangeM33()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1333,6 +1339,7 @@ void CDlgAdfgvxManual::OnEnChangeM34()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1354,6 +1361,7 @@ void CDlgAdfgvxManual::OnEnChangeM35()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1375,6 +1383,7 @@ void CDlgAdfgvxManual::OnEnChangeM40()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1396,6 +1405,7 @@ void CDlgAdfgvxManual::OnEnChangeM41()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1417,6 +1427,7 @@ void CDlgAdfgvxManual::OnEnChangeM42()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1438,6 +1449,7 @@ void CDlgAdfgvxManual::OnEnChangeM43()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1459,6 +1471,7 @@ void CDlgAdfgvxManual::OnEnChangeM44()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1480,6 +1493,7 @@ void CDlgAdfgvxManual::OnEnChangeM45()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1501,6 +1515,7 @@ void CDlgAdfgvxManual::OnEnChangeM50()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1522,6 +1537,7 @@ void CDlgAdfgvxManual::OnEnChangeM51()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1543,6 +1559,7 @@ void CDlgAdfgvxManual::OnEnChangeM52()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1564,6 +1581,7 @@ void CDlgAdfgvxManual::OnEnChangeM53()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1585,6 +1603,7 @@ void CDlgAdfgvxManual::OnEnChangeM54()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 
@@ -1606,6 +1625,7 @@ void CDlgAdfgvxManual::OnEnChangeM55()
 		UpdateRemChars();
 		//Resubstitute();
 		CDialog::NextDlgCtrl();
+		Resubstitute();
 	}
 }
 

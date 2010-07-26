@@ -98,7 +98,6 @@ protected:
 	afx_msg void OnCbnSelchangeMinlength();
 	afx_msg void OnBnClickedButtonForce();
 	afx_msg void OnBnClickedResetMatrix();
-	afx_msg void OnBnClickedResubstitute();
 	afx_msg void OnBnClickedInsertKey();
 	afx_msg void OnChangedTranspositionPassword();
 	//}}AFX_MSG
@@ -121,7 +120,6 @@ private:
 	CString numberedPassword;
 	bool analysed;
 	int validCiphertext;
-	CButton buttonResub;
 	CButton buttonResetMatrix;
 	CButton buttonStringBox;
 	CButton buttonStdMatrix;
