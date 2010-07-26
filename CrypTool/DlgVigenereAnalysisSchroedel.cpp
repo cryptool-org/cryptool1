@@ -870,7 +870,8 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 					CString cTextStr; cTextStr.AppendChar(cText[l]);
 					CString cKeyStr; cKeyStr.AppendChar(cKey[o]);
 					CString cCipherStr; cCipherStr.AppendChar(cipher[3]);
-					if(encryptText(cTextStr, cKeyStr) == cCipherStr) {
+
+					if(encryptChar(cText[l], cKey[o]) == cipher[3]) {
 						rKey = "";
 						rText = "";
 						for(xDict=0; xDict<dictCount; xDict++) {
@@ -1285,6 +1286,19 @@ int VigenereAnalysisSchroedel::readCiphertext() {
 	progress = 0.01;
 
 	return 0;
+}
+
+char VigenereAnalysisSchroedel::encryptChar(const char &_char, const char &_key) {
+	char result = '\0';
+	int index;
+	for(int i=0; i<26; i++) {
+		if(_key == vigenere[i][0]) {
+			if((index = klartext.Find(_char)) > -1) {
+				return vigenere[i][index];
+			}
+		}
+	}
+	return result;
 }
 
 CString VigenereAnalysisSchroedel::encryptText(CString text, CString key) {

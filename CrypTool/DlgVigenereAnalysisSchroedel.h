@@ -172,6 +172,7 @@ protected:
 
 	// some helper functions
 	CString encryptText(CString text, CString key);
+	char encryptChar(const char &_char, const char &_key);
 	CString decryptText(CString text, CString key);
 	int rateString(CString str, CString key);
 	CString fillLeft(CString was, int wie);
