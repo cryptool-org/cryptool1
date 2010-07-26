@@ -40,6 +40,8 @@ CNumberEdit::CNumberEdit() {
 	showIntegralSeparators = false;
 	// do we want to show fractional separators?
 	showFractionalSeparators = false;
+	// do we want to show a sign?
+	showSign = false;
 	// do we want to allow modification of the number?
 	readOnly = false;
 }
@@ -279,9 +281,7 @@ CString CNumberEdit::getNumberAsCStringLanguageDependent() {
 void CNumberEdit::setNumber(const CString &_number) {
 	CString result;
 	// we go through our string number and remove everything but valid characters, 
-	// which are signs [+-], the ten digits [0-9], and the fractional separator (if 
-	// configured); if the fractional separator is not configured, only the integral 
-	// part of the number passed in is assigned (i.e. "12.50" will be "12")
+	// which are signs [+-], the ten digits [0-9], and the fractional separator
 	CString validCharacters = "+-0123456789";
 	validCharacters.AppendChar(theFractionalSeparator);
 	for(int i=0; i<_number.GetLength(); i++) {
@@ -334,7 +334,7 @@ void CNumberEdit::updateNumber(const int &_selectionStart, const int &_selection
 			if(character >= '0' && character <= '9') {
 				validText.AppendChar(character);
 			}
-			if((character == '+' || character == '-') && selectionStart == 0 && i == 0) {
+			if((character == '+' || character == '-') && selectionStart == 0 && i == 0 && showSign) {
 				validText.AppendChar(character);
 			}
 			if(character == theFractionalSeparator && validText.Find(theFractionalSeparator) == -1 && showFractionalSeparators) {
@@ -375,7 +375,7 @@ void CNumberEdit::updateNumber(const int &_selectionStart, const int &_selection
 		// get the current character
 		char character = stringNumber[i];
 		// SIGN
-		if(i == 0 && (character == '+' || character == '-') && stringNumberSign.GetLength() == 0) {
+		if(i == 0 && (character == '+' || character == '-') && stringNumberSign.GetLength() == 0 && showSign) {
 			stringNumberSign.AppendChar(character);
 		}
 		// INTEGRAL PART

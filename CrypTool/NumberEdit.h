@@ -84,6 +84,7 @@ private:
 	int selectionEnd;
 
 	// some internal stuff for formatting the string number
+	bool showSign;
 	bool showIntegralSeparators;
 	bool showFractionalSeparators;
 	bool readOnly;
