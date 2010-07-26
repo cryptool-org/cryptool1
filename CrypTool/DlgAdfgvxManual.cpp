@@ -260,6 +260,7 @@ BEGIN_MESSAGE_MAP(CDlgAdfgvxManual, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_STRINGBOX, OnBnClickedButtonStringbox)
 	ON_EN_CHANGE(IDC_EDIT_PASSWORD, OnChangedTranspositionPassword)
 	ON_BN_CLICKED(IDC_BUTTON_TEXT_OPTIONS, OnBnClickedButtonTextOptions)
+	ON_BN_CLICKED(IDC_INSERT_KEY, OnBnClickedInsertKey)
 END_MESSAGE_MAP()
 
 

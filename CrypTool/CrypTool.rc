@@ -25438,10 +25438,10 @@ BEGIN
     CONTROL         "Zusätzlicher Zeilenumbruch nach jedem Block",IDC_CHECK_NEWLINE_STAGE1,
                     "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,27,411,159,10
     PUSHBUTTON      "Matrix leeren",IDC_ERASEMATRIX,136,132,53,20
-    GROUPBOX        "Endergebnis: Chiffrat nach Stufe 2",IDC_BOX_OUT_STAGE2,16,335,233,36
+    GROUPBOX        "Endergebnis: Geheimtext nach Stufe 2",IDC_BOX_OUT_STAGE2,16,335,233,36
     CONTROL         "Leerzeichen zwischen den Blöcken",IDC_CHECK_BLOCK_STAGE2,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,345,125,10
-    GROUPBOX        "Zwischenergebnis: Chiffrat nach Stufe 1",IDC_STATIC,16,375,233,51
+    GROUPBOX        "Zwischenergebnis: Geheimtext nach Stufe 1",IDC_STATIC,16,375,233,51
     CONTROL         "Leerzeichen zwischen den Blöcken",IDC_CHECK_BLOCK_STAGE1,
                     "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,27,396,125,10
     PUSHBUTTON      "Zeichenkette eingeben",IDC_BUTTON_STRINGBOX,196,132,53,20,BS_MULTILINE
