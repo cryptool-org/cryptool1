@@ -2314,24 +2314,14 @@ UINT AnaSubst(PVOID p) {
 	if (Dialogbox.DoModal()==IDCANCEL){		// "Cancel" angeklickt
 		// Belegten Speicherplatz freigeben
 		free(current);
-		// Den allokierten Platz für die Felder Cipher und PatSet wieder freigeben
-		for (i=0; i<100; i++){
-			for (j=0; j<100; j++){
-				if (Cipher [i][j]!=NULL)   free (Cipher[i][j]);
-			}
-			for (j=0; j<50; j++){
-				if (PatSet [i][j]!=NULL)   free (PatSet[i][j]);
-			}
-		}
 		// Den allokierten Speicherplatz von Permu und MaxPermu freigeben
 		for (i=0; i<26; i++){
 			free (Permu[i]);
 			free (MaxPermu[i]);
 		}
 
-		return 0;}
-	
-
+		return 0;
+	}
 
 	// Entschlüsseln und Ausgabe des Textes
 	char outfile[1024], title[1024];
@@ -2392,15 +2382,6 @@ UINT AnaSubst(PVOID p) {
 	remove(outfile2);
 
 	free(current);
-	// Den allokierten Platz für die Felder Cipher und PatSet wieder freigeben
-	for (i=0; i<100; i++){
-		for (j=0; j<100; j++){
-			if (Cipher [i][j]!=NULL)   free (Cipher[i][j]);
-		}
-		for (j=0; j<50; j++){
-			if (PatSet [i][j]!=NULL)   free (PatSet[i][j]);
-		}
-	}
 
 
 	// Den allokierten Speicherplatz von Permu und MaxPermu freigeben

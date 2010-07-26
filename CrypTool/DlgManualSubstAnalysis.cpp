@@ -623,52 +623,45 @@ void CDlgManualSubstAnalysis::OnChange(int Feldnummer){
 
 void CDlgManualSubstAnalysis::OnCopyKey() 
 {
-	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	// get the user input (now placed in char array "Eingabe") 
 	holeDaten();
-/*
-    char KeyToStore[27] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    char Reverse[27]    = "**************************";
 
-
-	int i,j;
-
-	for (i=0; i<26; i++)
-	{
-		if ((Eingabe[i]>='a')&&(Eingabe[i]<='z'))
-			Eingabe[i] -= 32;
-		if ( Eingabe[i] != '*' )
-			Reverse[int(Eingabe[i]-'A')] = char(i)+'A';
-	}
-
-	for (i=0; i<26; i++)
-	{
-		if ( Reverse[i] != '*' )
-		{
-			for (j=0; j<26; j++)
-			{
-				if (KeyToStore[j] == Reverse[i])
-				{
-					if ( j != i )
-					{
-						char ch = KeyToStore[i];
-						KeyToStore[i] = KeyToStore[j];
-						KeyToStore[j] = ch;
-					}
-				}
-			}
+	// create the key: first, we copy all valid characters from "Eingabe" into "theKey"; 
+	// invalid characters are ignored and blanks are added to "theKey" instead; second, 
+	// we fill "theKey" with the remaining characters in "theAlphabet" (the ones not taken)
+	CString theAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	CString theKey;
+	
+	// step one
+	for(int i=0; i<26; i++) {
+		char character = Eingabe[i];
+		// some initial conversion [a-z] => [A-Z]
+		if(character >= 'a' && character <= 'z') {
+			character -= 32;
+		}
+		// append character to key, and remove character from alphabet
+		if(character >= 'A' && character <= 'Z') {
+			theKey.AppendChar(character);
+			theAlphabet.Remove(character);
+		}
+		// append a blank
+		else {
+			theKey.AppendChar(' ');
 		}
 	}
-*/
-    char KeyToStore[27] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	for (int i=0; i<26; i++)
-	{
-		if ((Eingabe[i]>='a')&&(Eingabe[i]<='z'))
-			Eingabe[i] -= 32;
-		KeyToStore[i] = Eingabe[i];
+
+	// step two
+	for(int i=0; i<26; i++) {
+		if(theKey[i] == ' ') {
+			theKey.Delete(i);
+			theKey.Insert(i, theAlphabet[0]);
+			theAlphabet.Remove(theAlphabet[0]);
+		}
 	}
 
-	LoadString (AfxGetInstanceHandle(), IDS_ANALYSIS_SUBSTITUTION, pc_str, STR_LAENGE_STRING_TABLE);
-	CopyKey(pc_str, CString(KeyToStore)); 
+	// copy substitution key to internal keystore (note: IDS_CRYPT_SUBSTITUTION)
+	LoadString (AfxGetInstanceHandle(), IDS_CRYPT_SUBSTITUTION, pc_str, STR_LAENGE_STRING_TABLE);
+	CopyKey(pc_str, theKey); 
 }
 
 
