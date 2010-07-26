@@ -22,9 +22,11 @@
 
 <p>In this dialog, the key for the <!--ZZZPOPUP--><A href="hid_encrypt_adfgvx.html">ADFGVX encryption algorithm</A> is entered.</p>
 <p>
-Since ADFGVX is a two-step cascade cipher, the key consists of two parts: first the substitution key and secondly the transposition key (also called transposition passowrd). Accordingly, the key entry dialog is divided into two sections.</font></p>
+Since ADFGVX is a two-step cascade cipher, the key consists of two parts: first the substitution key and secondly the transposition key (also called transposition password). Accordingly, the key entry dialog is divided into two sections.</font></p>
 <p><font face="Arial">
 <img border="0" src="images/adfgvx_key.png"></font></p>
+
+
 <p><font face="Arial"><b>Step 1: Substitution</b></p>
 <p>
 The <b>substitution matrix</b> is filled with each letter from 'A' to 'Z' and each digit from '0' to '9', other entries are not allowed. On repeated entry of an existing character, a dialog box is displayed, giving the user the possibility to erase the old entry or to undo the change.</p>
@@ -36,8 +38,9 @@ The <b>substitution matrix</b> is filled with each letter from 'A' to 'Z' and ea
 <p>
 The text field <b>Transposition password</b> can contain any string of characters. Redundant or invalid characters will be removed before de- or encryption. Below the text field, the current sequence of the transposition columns is displayed.</p>
 
-<p>Clicking on the <b>insert key icon</b>
-<IMG SRC="images/iconinsertkey.gif" ALT="iconinsertkey.gif" BORDER=0>
+
+<br><p>Clicking on the icon
+<IMG SRC="images/iconinsertkey.gif" ALT="iconinsertkey.gif" BORDER=0> <b>Insert key</b>
 inserts an ADFGVX key that was previously copied 
 to the <a href="keystore.html">internal key storage</a> (if the button is 
 inactive/gray, there is no ADFGVX key available).</p>
@@ -45,12 +48,12 @@ inactive/gray, there is no ADFGVX key available).</p>
 
 <p><b>Output options</b></p>
 <p>
-By checking the box <b>Separate output blocks by blanks</b> and entering a value in the according input field for <b>block length</b>, it is possible to display the ciphertext in groups of 1 to 26 characters. The default value "5" is determined by the historical circumstances: During WW1 the ADFGVX-code was transmitted via morse code; the morse signals were sent in groups of five letters.<br>
+By checking the box <b>Separate output blocks by blanks</b> and entering a value in the according input field for <b>block length</b>, it is possible to display the ciphertext in groups of 1 to 26 characters. The default value "5" is determined by the historical circumstances: During WW1 the ADFGVX code was transmitted via morse code; the morse signals were sent in groups of five letters.<br>
 The check box <b>New line after each block</b> starts a new line of text after each group of letters.</p>
 <p>
-The box <b>Print out intermediate result</b> causes the unpermutated but substituted text to be written to a separate document window. This output can be formatted in the same way as the final ciphertext. By default, the block length is adjusted to the transposition password length.</p>
+The box <b>Print out intermediate result</b> causes the non-permutated but substituted text to be written to a separate document window. This output can be formatted in the same way as the final ciphertext. By default, the block length is adjusted to the transposition password length.</p>
 <p>
-To enhance the readablility of the ADFGVX-bigrams in step 1, a grouping of two letters is recommended. If you want a better understanding of the column transposition, you should set the grouping of both steps to the current password length and activate the <i>new line</i> option of step 1. You will discover that the text of step 1 read by columns from top to bottom is identical to the final ciphertext read by the line.</p>
+To enhance the readability of the ADFGVX-bigrams in step 1, a grouping of two letters is recommended. If you want a better understanding of the column transposition, you should set the grouping of both steps to the current password length and activate the <i>new line</i> option of step 1. You will discover that the text of step 1 read by columns from top to bottom is identical to the final ciphertext read by the line.</p>
 <p>
 If both parts of the ADFGVX key are entered correctly, the button <b>Encrypt</b> is activated. You can now encrypt the document with the ADFGVX encoding method.<br>If the document is already an ADFGVX encrypted text, the button <b>Decrypt</b> is activated as well and you can decipher the message.</p>
 </body>
