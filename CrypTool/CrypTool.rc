@@ -25542,7 +25542,7 @@ BEGIN
     CONTROL         "Diesen Dialog in Zukunft nicht mehr anzeigen",IDC_CHECK1,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,190,159,10
     LTEXT           "Wenn Sie in der Gruppierung ""Stufe 2: Transposition"" auf ""Analysieren"" drücken, wird für die zweite Stufe eine mögliche Passwort-Permutation gesucht (bei jedem Drücken wird versucht, ein weiteres gültiges",IDC_STATIC,7,46,251,26
-    LTEXT           "Danach können Sie in der Gruppierung ""Stufe 1: Substitution"" weitere Einträge von Hand in die die Substitutionsmatrix eintragen. Das entsprechende Zwischenergebnis wird in dem Feld ""Aktuelle Lösung"" angezeigt.",IDC_STATIC,8,100,251,25
+    LTEXT           "Danach können Sie in der Gruppierung ""Stufe 1: Substitution"" weitere Einträge von Hand in die Substitutionsmatrix eintragen. Das entsprechende Zwischenergebnis wird in dem Feld ""Aktuelle Lösung"" angezeigt.",IDC_STATIC,8,100,251,25
     LTEXT           "Passwort zu finden) und die sich daraus schon zwingend ergebenden Zuordnungen werden in der Substitutionsmatrix eingetragen. Der erste Analyseschritt (Transpositionsanalyse) funktioniert also automatisch.",IDC_STATIC,7,70,251,26
     LTEXT           "Die gefundenen Transpositionspasswörter und die jeweilige Substitutionsmatrix werden im Dropdownfeld gespeichert. Die Speicherung der Passwörter erfolgt automatisch, die Matrix wird durch Klick auf den Knopf ""Aktuelle Lösung anzeigen"" hinzugefügt.",IDC_STATIC,8,129,251,39
 END
@@ -36482,7 +36482,7 @@ BEGIN
     PUSHBUTTON      "Erase matrix entries",IDC_RESET_MATRIX,135,168,100,14
     PUSHBUTTON      "Standard matrix",IDC_MATRIX_STANDARD,135,185,100,14
     PUSHBUTTON      "Show current solution",IDC_RESUBSTITUTE,135,221,100,14
-    PUSHBUTTON      "Enter String",IDC_BUTTON_STRINGBOX,135,203,100,14,BS_MULTILINE
+    PUSHBUTTON      "Enter string",IDC_BUTTON_STRINGBOX,135,203,100,14,BS_MULTILINE
     CONTROL         "Paste",IDC_INSERT_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,15,330,36,16
     EDITTEXT        IDC_EDIT_PASSWORD,125,26,121,12,ES_AUTOHSCROLL
     PUSHBUTTON      "Text options",IDC_BUTTON_TEXT_OPTIONS,15,74,98,16
@@ -36494,10 +36494,10 @@ CAPTION "Introduction to Analyzing ADFGVX Messages"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,208,188,50,14
-    LTEXT           "The creation of an ADFGVX message is a two-step process: stage 1 ...s a polybius substitution, stage 2 transforms the result by column transposition (permutation). A ciphertext-only analysis of an ADFGVX message reverses those steps.",IDC_STATIC,7,7,251,35
+    LTEXT           "The creation of an ADFGVX message is a two-step process: Step 1 performs a Polybius substitution, step 2 transforms the result by a column transposition (permutation). A ciphertext-only analysis of an ADFGVX message reverses those steps.",IDC_STATIC,7,7,251,35
     CONTROL         "Do not show this dialog again",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,190,109,10
-    LTEXT           "By clicking the button ""Analyze"" in the grouping ""Stage 2: transposition"", the search for a potential transposition password is started (each click of the button continues the search for the next valid password) and the five most",IDC_STATIC,7,44,251,26
-    LTEXT           "When a transposition password is found, the analysisis continues in the grouping ""Stage1: substitution"". Now you can enter further characters into the substitution matrix manually. The result of the analysis is shown in the field ""Current solution"".",IDC_STATIC,8,91,251,35
+    LTEXT           "By clicking the button ""Analyze"" in the grouping ""Step 2: Transposition"", the search for a potential transposition password is started (each click of the button continues the search for the next valid password) and the five most",IDC_STATIC,7,44,251,26
+    LTEXT           "When a transposition password is found, the analysis continues in the grouping ""Step 1: Substitution"". Now you can enter further characters into the substitution matrix manually. The result of the analysis is shown in the field ""Current solution"".",IDC_STATIC,8,91,251,35
     LTEXT           "common letters that were used to validate the password are entered into the substitution matrix. Thus, the first step of the analysis runs automatically.",IDC_STATIC,7,68,251,19
     LTEXT           "The valid transposition passwords and the correspondent substitution matrices are stored in the drop down box. Passwords are stored automatically, the matrix is added by clicking the button ""Update current solution"".",IDC_STATIC,8,130,251,39
 END
@@ -43516,7 +43516,7 @@ BEGIN
                             "The sequence of the characters in the transposition password is not uniquely defined.\nThe redundant characters in the password have been removed!"
     IDS_STRING_ADFGVX_ERROR_8 "Please analyse transposition first!"
     IDS_STRING_ADFGVX_ERROR_9 
-                            "No valid permutation was found while analysing the transposition phase.\n This may have two reasons:\n\n1. The relative frequency of the letters is atypical for the English or German language.\n this often occurs when analysing short messages.\n\n2. The transposition password is not within the boundaries of the analysis.\nYou should shift the boundaries of the possible password length."
+                            "No valid permutation was found while analyzing the transposition phase.\nThis may have two reasons:\n\n1. The relative frequency of the letters is atypical for the English or German language.\nThis often occurs when analyzing short messages.\n\n2. The transposition password is not within the selected boundaries of the analysis.\nYou should change the boundaries for the evaluated password length."
     IDS_STRING_ADFGVX_ERROR_9B 
                             "The analysis has reached the upper boundary of the search area.\nNo further passwords have been found.\n\nYou can choose any detected possible transposition password from the dropdown list."
     IDS_STRING_ADFGVX_RESTART 
