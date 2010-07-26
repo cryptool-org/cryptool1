@@ -25,6 +25,10 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
+#define CM_SELECT_ALL											9997	
+#define CM_TOGGLE_INTEGRAL_SEPARATORS			9998
+#define CM_TOGGLE_FRACTIONAL_SEPARATORS		9999
+
 // TODO
 class CNumberEdit : public CEdit
 {
@@ -62,6 +66,8 @@ protected:
 	afx_msg void OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg BOOL PreTranslateMessage(MSG* pMsg);
+	afx_msg BOOL OnCommand(WPARAM wParam, LPARAM lParam);
+	afx_msg void OnContextMenu(CWnd *pWnd, CPoint pos);
 
 	// functions for copy/paste and other stuff
 	void onEditCut();

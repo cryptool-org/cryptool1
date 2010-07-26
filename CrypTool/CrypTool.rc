@@ -11117,8 +11117,21 @@ BEGIN
                             "[i18n]Elapsed time for the computation of the Mersenne number: %.0f seconds"
     IDS_INTEGRAL_NUMBER_SEPARATOR "."
     IDS_FRACTIONAL_NUMBER_SEPARATOR ","
+    IDS_CONTROL_SELECT_ALL  "[i18n] Select all"
     IDS_STRING_ADFGVX_NO_CHARACTERS_IN_PASSWORD 
                             "[i18n] You did not enter any characters, thus the substitution matrix was not changed."
+    IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_ON 
+                            "[i18n] Show integral separators"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_OFF 
+                            "[i18n] Hide integral separators"
+    IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_ON 
+                            "[i18n] Show fractional separators"
+    IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_OFF 
+                            "[i18n] Hide fractional separators"
 END
 
 #endif    // Polish resources
@@ -22214,8 +22227,21 @@ BEGIN
                             "[i18n] Elapsed time for the computation of the Mersenne number: %.0f seconds"
     IDS_INTEGRAL_NUMBER_SEPARATOR "."
     IDS_FRACTIONAL_NUMBER_SEPARATOR ","
+    IDS_CONTROL_SELECT_ALL  "[i18n] Select all"
     IDS_STRING_ADFGVX_NO_CHARACTERS_IN_PASSWORD 
                             "[i18n] You did not enter any characters, thus the substitution matrix was not changed."
+    IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_ON 
+                            "[i18n] Show integral separators"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_OFF 
+                            "[i18n] Hide integral separators"
+    IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_ON 
+                            "[i18n] Show fractional separators"
+    IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_OFF 
+                            "[i18n] Hide fractional separators"
 END
 
 #endif    // Serbian (Latin) resources
@@ -33163,7 +33189,7 @@ BEGIN
                             "Länge des analysierten Geheimtexts:"
     IDS_AUTHORS_FILE_CORRUPTED 
                             "Die Datei authors.txt wurde seit der Installation von CrypTool verändert."
-    IDS_CRYPTOOL_RELEASE_INFORMATION "%s (%s, %s), kompiliert mit "
+    IDS_CRYPTOOL_RELEASE_INFORMATION "%s (%s, %s),\r\nkompiliert mit "
     IDS_STRING_FILE_COULD_NOT_BE_OPENED 
                             "Die folgende Datei konnte nicht geöffnet werden:\n"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DICTIONARY_FILE 
@@ -33243,8 +33269,21 @@ BEGIN
                             "Benötigte Zeit für die Berechnung der Mersenne-Zahl: %.0f Sekunden"
     IDS_INTEGRAL_NUMBER_SEPARATOR "."
     IDS_FRACTIONAL_NUMBER_SEPARATOR ","
+    IDS_CONTROL_SELECT_ALL  "Alles auswählen"
     IDS_STRING_ADFGVX_NO_CHARACTERS_IN_PASSWORD 
                             "Sie haben keine Zeichen eingegeben, d.h. die Substitutionsmatrix wurde nicht verändert."
+    IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_ON 
+                            "Integral-Trennzeichen einschalten"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_OFF 
+                            "Integral-Trennzeichen ausschalten"
+    IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_ON 
+                            "Dezimal-Trennzeichen einschalten"
+    IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_OFF 
+                            "Dezimal-Trennzeichen ausschalten"
 END
 
 #endif    // German (Germany) resources
@@ -33669,7 +33708,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Close",IDOK,303,255,60,18,WS_GROUP
     CTEXT           "the universities Siegen and Darmstadt developed it within an\nopen source project thanks to the help of many voluntary developers.",IDC_STATIC,20,119,330,16
-    CTEXT           "Copyright (C) 1998-2010 Deutsche Bank AG and Contributors\nDistributed as open-source under the terms of the Apache License 2.0",IDC_STATIC,7,233,356,16
+    CTEXT           "Copyright (C) 1998-2010 Deutsche Bank AG and Contributors\nDistributed as open source under the terms of the Apache License 2.0",IDC_STATIC,7,233,356,16
     CTEXT           "CrypTool is a free and comprehensive e-learning program about\nclassic and contemporary cryptography and cryptanalysis.\n\nIn a joint effort with the sponsors",IDC_STATIC,20,35,330,32
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,44,74,105,37,WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,198,73,143,37,WS_EX_TRANSPARENT
@@ -44276,7 +44315,7 @@ BEGIN
                             "Length of analyzed ciphertext:"
     IDS_AUTHORS_FILE_CORRUPTED 
                             "The file authors.txt was changed after CrypTool was installed."
-    IDS_CRYPTOOL_RELEASE_INFORMATION "%s (%s, %s), compiled with "
+    IDS_CRYPTOOL_RELEASE_INFORMATION "%s (%s, %s),\r\ncompiled with "
     IDS_STRING_FILE_COULD_NOT_BE_OPENED 
                             "The following file could not be opened:\n"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DICTIONARY_FILE 
@@ -44354,8 +44393,17 @@ BEGIN
                             "Elapsed time for the computation of the Mersenne number: %.0f seconds"
     IDS_INTEGRAL_NUMBER_SEPARATOR ","
     IDS_FRACTIONAL_NUMBER_SEPARATOR "."
+    IDS_CONTROL_SELECT_ALL  "Select all"
     IDS_STRING_ADFGVX_NO_CHARACTERS_IN_PASSWORD 
                             "You did not enter any characters, thus the substitution matrix was not changed."
+    IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_ON "Show integral separators"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_OFF "Hide integral separators"
+    IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_ON "Show fractional separators"
+    IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_OFF "Hide fractional separators"
 END
 
 #endif    // English (U.K.) resources
@@ -55520,8 +55568,21 @@ BEGIN
                             "Elapsed time for the computation of the Mersenne number: %.0f seconds"
     IDS_INTEGRAL_NUMBER_SEPARATOR "."
     IDS_FRACTIONAL_NUMBER_SEPARATOR ","
+    IDS_CONTROL_SELECT_ALL  "[i18n] Select all"
     IDS_STRING_ADFGVX_NO_CHARACTERS_IN_PASSWORD 
                             "[i18n] You did not enter any characters, thus the substitution matrix was not changed."
+    IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_ON 
+                            "[i18n] Show integral separators"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_OFF 
+                            "[i18n] Hide integral separators"
+    IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_ON 
+                            "[i18n] Show fractional separators"
+    IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_OFF 
+                            "[i18n] Hide fractional separators"
 END
 
 #endif    // Spanish resources

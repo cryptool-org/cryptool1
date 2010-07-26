@@ -57,6 +57,7 @@ BEGIN_MESSAGE_MAP(CNumberEdit, CEdit)
 	ON_COMMAND(ID_EDIT_COPY, onEditCopy)
 	ON_COMMAND(ID_EDIT_PASTE, onEditPaste)
 	ON_COMMAND(ID_EDIT_SELECT_ALL, onEditSelectAll)
+	ON_WM_CONTEXTMENU()
 END_MESSAGE_MAP()
 
 void CNumberEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) {
@@ -139,6 +140,81 @@ BOOL CNumberEdit::PreTranslateMessage(MSG* pMsg)
 		} 
 	}
 	return CWnd::PreTranslateMessage(pMsg);
+}
+
+BOOL CNumberEdit::OnCommand(WPARAM wParam, LPARAM lParam)
+{
+    switch (LOWORD(wParam))
+    {
+    case WM_CUT:
+			onEditCut();
+			return TRUE;
+    case WM_COPY:
+			onEditCopy();
+			return TRUE;
+    case WM_PASTE:
+			onEditPaste();
+			return TRUE;
+		case CM_SELECT_ALL:
+			onEditSelectAll();
+			return TRUE;
+		case CM_TOGGLE_INTEGRAL_SEPARATORS:
+			showIntegralSeparators = !showIntegralSeparators;
+			updateNumber();
+			return TRUE;
+		case CM_TOGGLE_FRACTIONAL_SEPARATORS:
+			showFractionalSeparators = !showFractionalSeparators;
+			updateNumber();
+			return TRUE;
+    default:
+        return CEdit::OnCommand(wParam, lParam);
+    }
+}
+
+
+void CNumberEdit::OnContextMenu(CWnd *pWnd, CPoint pos) {
+	SetFocus();
+	CMenu menu;
+	menu.CreatePopupMenu();
+  BOOL bReadOnly = GetStyle() & ES_READONLY;
+  
+	CString menuText;
+
+	menuText.LoadString(IDS_CONTROL_CUT);
+	menu.InsertMenu(0, MF_BYPOSITION, WM_CUT, menuText);
+
+	menuText.LoadString(IDS_CONTROL_COPY);
+	menu.InsertMenu(1, MF_BYPOSITION, WM_COPY, menuText);
+
+	menuText.LoadString(IDS_CONTROL_PASTE);
+	menu.InsertMenu(2, MF_BYPOSITION, WM_PASTE, menuText);
+
+	menuText.LoadString(IDS_CONTROL_SELECT_ALL);
+	menu.InsertMenu(3, MF_BYPOSITION, CM_SELECT_ALL, menuText);
+
+	menu.InsertMenu(4, MF_BYPOSITION | MF_SEPARATOR);
+
+	// we have two different menu entries, one for each state: on/off
+	if(showIntegralSeparators) {
+		menuText.LoadString(IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_OFF);
+		menu.InsertMenu(5, MF_BYPOSITION, CM_TOGGLE_INTEGRAL_SEPARATORS, menuText);
+	}
+	else {
+		menuText.LoadString(IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_ON);
+		menu.InsertMenu(5, MF_BYPOSITION, CM_TOGGLE_INTEGRAL_SEPARATORS, menuText);
+	}
+
+	// we have two different menu entries, one for each state: on/off
+	if(showFractionalSeparators) {
+		menuText.LoadString(IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_OFF);
+		menu.InsertMenu(6, MF_BYPOSITION, CM_TOGGLE_FRACTIONAL_SEPARATORS, menuText);
+	}
+	else {
+		menuText.LoadString(IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_ON);
+		menu.InsertMenu(6, MF_BYPOSITION, CM_TOGGLE_FRACTIONAL_SEPARATORS, menuText);
+	}
+
+	menu.TrackPopupMenu(TPM_LEFTALIGN | TPM_LEFTBUTTON | TPM_RIGHTBUTTON, pos.x, pos.y, this);
 }
 
 void CNumberEdit::onEditCut() {
@@ -417,9 +493,11 @@ void CNumberEdit::updateNumber(const int &_selectionStart, const int &_selection
 	stringNumber = "";
 	stringNumber.Append(stringNumberSign);
 	stringNumber.Append(stringNumberIntegralPart);
-	stringNumber.Append(stringNumberFractionalSeparator);
-	stringNumber.Append(stringNumberFractionalPart);
-	
+	if(showFractionalSeparators) {
+		stringNumber.Append(stringNumberFractionalSeparator);
+		stringNumber.Append(stringNumberFractionalPart);
+	}
+
 	SetWindowText(stringNumber);
 
 	SetSel(selectionStart, selectionEnd);
