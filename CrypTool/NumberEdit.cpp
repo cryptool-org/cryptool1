@@ -77,6 +77,11 @@ void CNumberEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags) {
 	case VK_RIGHT:
 	case VK_UP:
 	case VK_DOWN:
+	case VK_PRIOR:
+	case VK_NEXT:
+	case VK_HOME:
+	case VK_END:
+	case VK_TAB:
 		// cursor movement within edit field
 		CEdit::OnKeyDown(nChar, nRepCnt, nFlags);
 		break;
