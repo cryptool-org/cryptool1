@@ -95,6 +95,10 @@ private:
 	bool showFractionalSeparators;
 	bool readOnly;
 
+	// this additional flag prevents the "showFractionalSeparators" option to be displayed in the 
+	// context menu for pure INTEGER fields; i.e. we use this behavior in the Mersenne dialog (no decimals)
+	bool decimal;
+
 	// this internal function updates the string number, i.e. to remove invalid characters
 	void updateNumber(const int &_selectionStart = 0, const int &_selectionEnd = 0, const CString &_text = ""); 
 };

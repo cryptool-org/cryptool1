@@ -42,6 +42,8 @@ CNumberEdit::CNumberEdit() {
 	showFractionalSeparators = false;
 	// do we want to show a sign?
 	showSign = false;
+	// do we have a decimal? (this overrides "showFractionalSeparators" menu option)
+	decimal = false;
 	// do we want to allow modification of the number?
 	readOnly = false;
 }
@@ -207,11 +209,23 @@ void CNumberEdit::OnContextMenu(CWnd *pWnd, CPoint pos) {
 	// we have two different menu entries, one for each state: on/off
 	if(showFractionalSeparators) {
 		menuText.LoadString(IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_OFF);
-		menu.InsertMenu(6, MF_BYPOSITION, CM_TOGGLE_FRACTIONAL_SEPARATORS, menuText);
+		// we gray out the fractional separator option for non decimals (integers)
+		if(decimal) {
+			menu.InsertMenu(6, MF_BYPOSITION, CM_TOGGLE_FRACTIONAL_SEPARATORS, menuText);
+		}
+		else {
+			menu.InsertMenu(6, MF_BYPOSITION|MF_GRAYED, CM_TOGGLE_FRACTIONAL_SEPARATORS, menuText);
+		}
 	}
 	else {
 		menuText.LoadString(IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_ON);
-		menu.InsertMenu(6, MF_BYPOSITION, CM_TOGGLE_FRACTIONAL_SEPARATORS, menuText);
+		// we gray out the fractional separator option for non decimals (integers)
+		if(decimal) {
+			menu.InsertMenu(6, MF_BYPOSITION, CM_TOGGLE_FRACTIONAL_SEPARATORS, menuText);
+		}
+		else {
+			menu.InsertMenu(6, MF_BYPOSITION|MF_GRAYED, CM_TOGGLE_FRACTIONAL_SEPARATORS, menuText);
+		}
 	}
 
 	menu.TrackPopupMenu(TPM_LEFTALIGN | TPM_LEFTBUTTON | TPM_RIGHTBUTTON, pos.x, pos.y, this);

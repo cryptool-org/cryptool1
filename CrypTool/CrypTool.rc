@@ -8,12 +8,11 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -4506,6 +4505,7 @@ BEGIN
     EDITTEXT        IDC_EDIT_BASE,91,7,40,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_EXPONENT,91,25,199,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_RESULT,91,45,199,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_RESULT_LENGTH,91,65,40,14,ES_AUTOHSCROLL | ES_READONLY
     DEFPUSHBUTTON   "Zacznij obliczenie",IDC_BUTTON_START_COMPUTATION,7,84,85,18
     PUSHBUTTON      "Anuluj obliczenie",IDC_BUTTON_CANCEL_COMPUTATION,7,105,85,18
     PUSHBUTTON      "Zapisz wynik do pliku",IDC_BUTTON_WRITE_RESULT_TO_FILE,190,83,100,18,WS_GROUP
@@ -4514,7 +4514,6 @@ BEGIN
     LTEXT           "Wykladnik e",IDC_STATIC,46,27,40,8
     LTEXT           "Wynik b^e - 1",IDC_STATIC,41,47,45,8
     LTEXT           "[i18n] Result length:",IDC_STATIC,42,67,44,8
-    EDITTEXT        IDC_EDIT_RESULT_LENGTH,91,65,40,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "[i18n] (number of decimals)",IDC_STATIC,135,67,66,8
 END
 
@@ -11135,12 +11134,12 @@ BEGIN
     IDS_STRING_PASTE_KEY_FROM_KEY_STORE "[i18n] Paste key"
 END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Serbisch (Lateinisch) resources
+// Serbian (Latin) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_SRL)
 #ifdef _WIN32
@@ -15648,6 +15647,7 @@ BEGIN
     EDITTEXT        IDC_EDIT_BASE,91,7,40,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_EXPONENT,91,25,199,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_RESULT,91,45,199,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_RESULT_LENGTH,91,65,40,14,ES_AUTOHSCROLL | ES_READONLY
     PUSHBUTTON      "Pocni racunanje",IDC_BUTTON_START_COMPUTATION,7,84,85,18
     PUSHBUTTON      "Otkaži racunanje",IDC_BUTTON_CANCEL_COMPUTATION,7,105,85,18
     PUSHBUTTON      "Upiši rezultate u datoteku",IDC_BUTTON_WRITE_RESULT_TO_FILE,190,83,100,18,WS_GROUP
@@ -15656,7 +15656,6 @@ BEGIN
     LTEXT           "Ekponent e:",IDC_STATIC,47,27,39,8
     LTEXT           "Rezultat b^e - 1:",IDC_STATIC,39,47,47,8
     LTEXT           "Dužina rezultata:",IDC_STATIC,42,67,44,8
-    EDITTEXT        IDC_EDIT_RESULT_LENGTH,91,65,40,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "(broj decimala)",IDC_STATIC,135,67,66,8
 END
 
@@ -22245,12 +22244,12 @@ BEGIN
     IDS_STRING_PASTE_KEY_FROM_KEY_STORE "[i18n] Paste key"
 END
 
-#endif    // Serbisch (Lateinisch) resources
+#endif    // Serbian (Latin) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -22854,6 +22853,7 @@ BEGIN
     EDITTEXT        IDC_EDIT_BASE,91,7,40,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_EXPONENT,91,25,199,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_RESULT,91,45,199,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_RESULT_LENGTH,91,65,40,14,ES_AUTOHSCROLL | ES_READONLY
     DEFPUSHBUTTON   "Berechnung starten",IDC_BUTTON_START_COMPUTATION,7,84,85,18
     PUSHBUTTON      "Berechnung abbrechen",IDC_BUTTON_CANCEL_COMPUTATION,7,105,85,18
     PUSHBUTTON      "Ergebnis in Datei schreiben",IDC_BUTTON_WRITE_RESULT_TO_FILE,190,83,100,18,WS_GROUP
@@ -22862,7 +22862,6 @@ BEGIN
     LTEXT           "Exponent e:",IDC_STATIC,47,27,39,8
     LTEXT           "Ergebnis b^e - 1:",IDC_STATIC,32,47,54,8
     LTEXT           "Ergebnislänge:",IDC_STATIC,38,67,48,8
-    EDITTEXT        IDC_EDIT_RESULT_LENGTH,91,65,40,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "(Anzahl der Dezimalstellen)",IDC_STATIC,135,67,85,8
 END
 
@@ -33288,12 +33287,12 @@ BEGIN
     IDS_STRING_PASTE_KEY_FROM_KEY_STORE "Schlüssel einfügen"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -37781,6 +37780,7 @@ BEGIN
     EDITTEXT        IDC_EDIT_BASE,91,7,40,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_EXPONENT,91,25,199,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_RESULT,91,45,199,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_RESULT_LENGTH,91,65,40,14,ES_AUTOHSCROLL | ES_READONLY
     DEFPUSHBUTTON   "Start computation",IDC_BUTTON_START_COMPUTATION,7,84,85,18
     PUSHBUTTON      "Cancel computation",IDC_BUTTON_CANCEL_COMPUTATION,7,105,85,18
     PUSHBUTTON      "Write result to file",IDC_BUTTON_WRITE_RESULT_TO_FILE,190,83,100,18,WS_GROUP
@@ -37789,7 +37789,6 @@ BEGIN
     LTEXT           "Exponent e:",IDC_STATIC,47,27,39,8
     LTEXT           "Result b^e - 1:",IDC_STATIC,39,47,47,8
     LTEXT           "Result length:",IDC_STATIC,42,67,44,8
-    EDITTEXT        IDC_EDIT_RESULT_LENGTH,91,65,40,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "(number of decimals)",IDC_STATIC,135,67,66,8
 END
 
@@ -44408,12 +44407,12 @@ BEGIN
     IDS_STRING_PASTE_KEY_FROM_KEY_STORE "Paste key"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Spanisch resources
+// Spanish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ESN)
 #ifdef _WIN32
@@ -48925,6 +48924,7 @@ BEGIN
     EDITTEXT        IDC_EDIT_BASE,91,7,40,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_EXPONENT,91,25,199,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_RESULT,91,45,199,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_RESULT_LENGTH,91,65,40,14,ES_AUTOHSCROLL | ES_READONLY
     DEFPUSHBUTTON   "&Iniciar cálculo",IDC_BUTTON_START_COMPUTATION,7,84,85,18
     PUSHBUTTON      "C&ancelar cálculo",IDC_BUTTON_CANCEL_COMPUTATION,7,105,85,18
     PUSHBUTTON      "&Escribir resultado",IDC_BUTTON_WRITE_RESULT_TO_FILE,190,83,100,18,WS_GROUP
@@ -48933,7 +48933,6 @@ BEGIN
     LTEXT           "Exponente e:",IDC_STATIC,43,27,43,8
     LTEXT           "Resultado b^e - 1:",IDC_STATIC,29,47,62,8
     LTEXT           "Tamaño del resultado:",IDC_STATIC,15,67,71,8
-    EDITTEXT        IDC_EDIT_RESULT_LENGTH,91,65,40,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "(número de cifras)",IDC_STATIC,135,67,74,8
 END
 
@@ -55587,7 +55586,7 @@ BEGIN
     IDS_STRING_PASTE_KEY_FROM_KEY_STORE "[i18n] Paste key"
 END
 
-#endif    // Spanisch resources
+#endif    // Spanish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
