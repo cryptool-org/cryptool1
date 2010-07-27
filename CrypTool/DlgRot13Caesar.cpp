@@ -120,6 +120,11 @@ BOOL CDlgRot13Caesar::OnInitDialog()
 	strDefaultKey += charDefaultKey;
 	controlEditAlphabeticKey.SetWindowText(strDefaultKey);
 
+	// add tool tip to the paste button
+	CString buttonPasteText;
+	buttonPasteText.LoadString(IDS_STRING_PASTE_KEY_FROM_KEY_STORE);
+	controlBitmapButtonPaste.SetToolTipText(&buttonPasteText);
+
 	// update the graphical user interface (main update function)
 	onUpdateGUI();
 

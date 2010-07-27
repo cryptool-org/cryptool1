@@ -24,6 +24,7 @@
 #include "afxwin.h"
 #include <string>
 #include <AlphabetTextEdit.h>
+#include "ToolTipButton.h"
 
 // CDlgAdfgvxManual-Dialogfeld
 using namespace std;
@@ -123,7 +124,7 @@ private:
 	CButton buttonResetMatrix;
 	CButton buttonStringBox;
 	CButton buttonStdMatrix;
-	CBitmapButton c_insertKey;
+	CToolTipButton c_insertKey;
 	bool iGotOne;
 	CString subKey;
 	int counter;

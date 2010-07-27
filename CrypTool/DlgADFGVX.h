@@ -23,6 +23,7 @@
 #include "adfgvx.h"
 #include <string>
 #include "AlphabetTextEdit.h"
+#include "ToolTipButton.h"
 
 // CDlgADFGVX-Dialogfeld
 
@@ -40,7 +41,7 @@ private:
 	//variables from textfields and controls of the dialog
 	CString pwdString;
 	CString matrix[6][6];
-	CBitmapButton buttonInsertKey;
+	CToolTipButton buttonInsertKey;
 	void CDlgADFGVX::OnOK();
 	void CDlgADFGVX::Decrypt();
 	void CDlgADFGVX::Encrypt();

@@ -90,6 +90,11 @@ BOOL CDlgMonSubst::OnInitDialog()
 	typeOfEncryption = pc_str;
 	VERIFY(m_Paste.AutoLoad(IDC_PASTE_KEY,this));
 
+	// add tool tip to the paste button
+	CString buttonPasteText;
+	buttonPasteText.LoadString(IDS_STRING_PASTE_KEY_FROM_KEY_STORE);
+	m_Paste.SetToolTipText(&buttonPasteText);
+
 	CheckRadioButton(IDC_RADIO1, IDC_RADIO3, IDC_RADIO1);
 
 	VERIFY(m_font.CreatePointFont(100,"Courier New"));

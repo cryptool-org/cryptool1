@@ -27,6 +27,7 @@
 // DlgKeyHexFixedLen.h : Header-Datei
 //
 #include "HexEdit.h"
+#include "ToolTipButton.h"
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgKeyHexFixedLen 
 
@@ -59,7 +60,7 @@ public:
 
 // Implementierung
 protected:
-	CBitmapButton m_paste_key;
+	CToolTipButton m_paste_key;
 	CString m_title; // must be set via Init(...) on InitDialog
 	int m_keylenmin, m_keylenmax, m_keylenstep; // must be set via Init(...) on InitDialog
 	CFont m_font; // font for m_key_ctl

@@ -213,6 +213,11 @@ BOOL CDlgADFGVX::OnInitDialog()
 	CDialog::OnInitDialog();
 	VERIFY(buttonInsertKey.AutoLoad(IDC_BUTTON_INSERT_KEY,this));
 
+	// add tool tip to the paste button
+	CString buttonPasteText;
+	buttonPasteText.LoadString(IDS_STRING_PASTE_KEY_FROM_KEY_STORE);
+	buttonInsertKey.SetToolTipText(&buttonPasteText);
+
 	this->GetDlgItem(IDC_BUTTON_ENCRYPT)->EnableWindow(false);
 	this->GetDlgItem(IDC_BUTTON_DECRYPT)->EnableWindow(false);
 

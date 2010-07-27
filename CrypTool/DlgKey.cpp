@@ -214,6 +214,11 @@ BOOL CDlgKey::OnInitDialog()
 
 	// TODO: Zusätzliche Initialisierung hier einfügen
 	VERIFY(m_Paste.AutoLoad(IDC_BUTTON2,this));
+
+	// add tool tip to the paste button
+	CString buttonPasteText;
+	buttonPasteText.LoadString(IDS_STRING_PASTE_KEY_FROM_KEY_STORE);
+	m_Paste.SetToolTipText(&buttonPasteText);
 	
 
 

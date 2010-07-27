@@ -346,6 +346,11 @@ BOOL CDlgKeyPermutation::OnInitDialog()
 		m_Paste.EnableWindow(FALSE);
 	}
 
+	// add tool tip to the paste button
+	CString buttonPasteText;
+	buttonPasteText.LoadString(IDS_STRING_PASTE_KEY_FROM_KEY_STORE);
+	m_Paste.SetToolTipText(&buttonPasteText);
+
 	if (ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS	(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "Permutation"))
 	{
 		unsigned long u_showPermutations = 1;

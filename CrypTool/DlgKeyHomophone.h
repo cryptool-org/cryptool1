@@ -24,6 +24,8 @@
 #include "HomophoneEncryption.h"	// Hinzugefügt von der Klassenansicht
 #include "KeyParameterHomophone.h"	// Hinzugefügt von der Klassenansicht
 #include "afxwin.h"
+#include "ToolTipButton.h"
+
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
@@ -107,7 +109,7 @@ protected:
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
-	CBitmapButton m_Paste;
+	CToolTipButton m_Paste;
 	void Init_ListBox();
 	BOOL InputTypeIsChanged;
 public:

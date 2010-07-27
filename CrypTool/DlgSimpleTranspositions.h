@@ -23,6 +23,7 @@
 
 #include "afxwin.h"
 #include "KeyRepository.h"
+#include "ToolTipButton.h"
 
 // this struct implements the "new" Caesar key with the added key offset
 struct SimpleTranspositionKey {
@@ -84,7 +85,7 @@ protected:
 	CBitmap bitmapRailFence;
 
 	// bitmap button for pasting keys from the key store
-	CBitmapButton controlBitmapButtonPaste;
+	CToolTipButton controlBitmapButtonPaste;
 	// this function checks if there's a valid key in the key store
 	SimpleTranspositionKey checkPasteKeyVariant(int SID);
 

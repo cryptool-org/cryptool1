@@ -30,6 +30,7 @@
 #include "Cryptography.h"
 #include "DlgKeyPermutationInfo.h"
 #include "afxwin.h"
+#include "ToolTipButton.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgKeyPermutation 
@@ -43,7 +44,7 @@
 
 class CDlgKeyPermutation : public CDialog
 {
-	CBitmapButton m_Paste;
+	CToolTipButton m_Paste;
 	// Konstruktion
 public:
 	int MakePermInt(CString *Pin, int p[], int pinv[]);

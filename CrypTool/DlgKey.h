@@ -25,6 +25,8 @@
 //
 
 #include "KeyRepository.h"
+#include "ToolTipButton.h"
+
 #define MAX_VIGENERE	1024
 
 /////////////////////////////////////////////////////////////////////////////
@@ -33,7 +35,7 @@
 class CDlgKey : public CDialog
 {
 // Construction
-	CBitmapButton m_Paste;
+	CToolTipButton m_Paste;
 
 public:
 	char strTitle[KEYDATA_HASHSTRING_LENGTH];

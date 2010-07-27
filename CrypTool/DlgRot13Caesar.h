@@ -43,6 +43,7 @@
 // Dialogfeld CDlgRot13Caesar 
 
 #include "DlgTextOptions.h"
+#include "ToolTipButton.h"
 
 // this struct implements the "new" Caesar key with the added key offset
 struct CaesarKey {
@@ -110,8 +111,8 @@ private:
 	CEdit controlEditMessageROT13;
 	// edit field for displaying information regarding the alphabet size
 	CEdit controlEditShowAlphabetSizeAndMapping;
-	// bitmap button for pasting keys from the key store
-	CBitmapButton controlBitmapButtonPaste;
+	// tool tip button for pasting keys from the key store
+	CToolTipButton controlBitmapButtonPaste;
 	// radio button to change to Caesar mode
 	CButton controlRadioButtonCaesar;
 	// radio button to change to ROT13 mode

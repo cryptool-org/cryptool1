@@ -364,6 +364,11 @@ BOOL CDlgSolitaire::OnInitDialog()
 	else
 		m_Paste.EnableWindow(FALSE);
 
+	// add tool tip to the paste button
+	CString buttonPasteText;
+	buttonPasteText.LoadString(IDS_STRING_PASTE_KEY_FROM_KEY_STORE);
+	m_Paste.SetToolTipText(&buttonPasteText);
+
 	return TRUE;  // Geben Sie TRUE zurück, außer ein Steuerelement soll den Fokus erhalten
 }
 

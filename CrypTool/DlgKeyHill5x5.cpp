@@ -364,6 +364,11 @@ BOOL CDlgKeyHill5x5::OnInitDialog()
 	VERIFY(m_Paste.AutoLoad(IDC_BUTTON2,this));
 	m_Paste.EnableWindow( IsKeyEmpty(cs) );
 
+	// add tool tip to the paste button
+	CString buttonPasteText;
+	buttonPasteText.LoadString(IDS_STRING_PASTE_KEY_FROM_KEY_STORE);
+	m_Paste.SetToolTipText(&buttonPasteText);
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }

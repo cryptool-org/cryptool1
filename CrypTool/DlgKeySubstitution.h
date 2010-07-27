@@ -25,6 +25,8 @@
 #ifndef AFX_DLGMONO_H__D7708DFF_AEAD_11D2_8D42_00C04F795E36__INCLUDED_
 #define AFX_DLGMONO_H__D7708DFF_AEAD_11D2_8D42_00C04F795E36__INCLUDED_
 
+#include "ToolTipButton.h"
+
 // DlgMono.h : Header-Datei
 //
 
@@ -35,7 +37,7 @@
 
 class CDlgKeySubstitution : public CDialog
 {
-	CBitmapButton m_Paste;
+	CToolTipButton m_Paste;
 
 	// Konstruktion
 public:

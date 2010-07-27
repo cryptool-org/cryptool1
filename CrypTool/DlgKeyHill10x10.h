@@ -29,6 +29,7 @@
 
 #include "afxwin.h"
 #include "KeyHillBase.h"
+#include "ToolTipButton.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgKeyHill10x10 
@@ -36,7 +37,7 @@
 class CDlgKeyHill10x10 : public CDialog
 {
 	CKeyHillBase  *m_HillBase;
-	CBitmapButton  m_Paste;
+	CToolTipButton m_Paste;
 	CString        m_pHillAlphInfo;
 
    CFont cf;

@@ -30,6 +30,7 @@
 //////////////////////////////////////////////////////////////////
 
 #include <PlayfairAnalysis.h>
+#include "ToolTipButton.h"
 
 // Dlg_PlayfairKey.h : Header-Datei
 //
@@ -39,7 +40,7 @@
 
 class CDlgKeyPlayfair : public CDialog
 {
-	CBitmapButton m_Paste;
+	CToolTipButton m_Paste;
 	// Konstruktion
 protected:
 	int decryption;

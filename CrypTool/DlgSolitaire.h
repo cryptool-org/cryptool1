@@ -23,6 +23,7 @@
 
 #include "Solitaire.h"
 #include "afxwin.h"
+#include "ToolTipButton.h"
 
 // CDlgSolitaire-Dialogfeld
 
@@ -157,7 +158,7 @@ public:
 	afx_msg void OnPasteKey();
 	CButton verschl;
 	CButton entschl;
-	CBitmapButton m_Paste;
+	CToolTipButton m_Paste;
 
 	int edit_zaehler_value;
 	CButton m_rest_generate;

@@ -28,13 +28,15 @@
 // DlgMonSubst.h : Header-Datei
 //
 
+#include "ToolTipButton.h"
+
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgMonSubst 
 
 class CDlgMonSubst : public CDialog
 {
 // Konstruktion
-	CBitmapButton m_Paste;
+	CToolTipButton m_Paste;
 	CFont m_font;
 
 public:

@@ -68,6 +68,11 @@ BOOL CDlgAdfgvxManual::OnInitDialog()
 {	
 	CDialog::OnInitDialog();
 	VERIFY(c_insertKey.AutoLoad(IDC_INSERT_KEY, this));
+
+	// add tool tip to the paste button
+	CString buttonPasteText;
+	buttonPasteText.LoadString(IDS_STRING_PASTE_KEY_FROM_KEY_STORE);
+	c_insertKey.SetToolTipText(&buttonPasteText);
 	
 	this->validCipherText=this->cipher->readCiphertext(this->infile);
 	if ((validCipherText==4)|(validCipherText==5))

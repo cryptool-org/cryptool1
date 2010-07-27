@@ -28,11 +28,12 @@
 //
 #include "afxwin.h"
 #include "KeyHillBase.h"
+#include "ToolTipButton.h"
 
 class CDlgKeyHill5x5 : public CDialog
 {
 	CKeyHillBase  *m_HillBase;
-	CBitmapButton  m_Paste;
+	CToolTipButton m_Paste;
 	CString        m_pHillAlphInfo;
 
    CFont cf;

@@ -11131,6 +11131,7 @@ BEGIN
                             "[i18n] Show decimal separators"
     IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_OFF 
                             "[i18n] Hide decimal separators"
+    IDS_STRING_PASTE_KEY_FROM_KEY_STORE "[i18n] Paste key"
 END
 
 #endif    // Polish resources
@@ -22240,6 +22241,7 @@ BEGIN
                             "[i18n] Show decimal separators"
     IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_OFF 
                             "[i18n] Hide decimal separators"
+    IDS_STRING_PASTE_KEY_FROM_KEY_STORE "[i18n] Paste key"
 END
 
 #endif    // Serbian (Latin) resources
@@ -33269,18 +33271,15 @@ BEGIN
     IDS_CONTROL_SELECT_ALL  "Alles auswählen"
     IDS_STRING_ADFGVX_NO_CHARACTERS_IN_PASSWORD 
                             "Sie haben keine Zeichen eingegeben, d.h. die Substitutionsmatrix wurde nicht verändert."
-    IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_ON 
-                            "Tausendertrenner einschalten"
+    IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_ON "Tausendertrenner einschalten"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_OFF 
-                            "Tausendertrenner ausschalten"
-    IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_ON 
-                            "Dezimaltrenner einschalten"
-    IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_OFF 
-                            "Dezimaltrenner ausschalten"
+    IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_OFF "Tausendertrenner ausschalten"
+    IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_ON "Dezimaltrenner einschalten"
+    IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_OFF "Dezimaltrenner ausschalten"
+    IDS_STRING_PASTE_KEY_FROM_KEY_STORE "Schlüssel einfügen"
 END
 
 #endif    // German (Germany) resources
@@ -44400,6 +44399,7 @@ BEGIN
     IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_OFF "Hide thousands separators"
     IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_ON "Show decimal separators"
     IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_OFF "Hide decimal separators"
+    IDS_STRING_PASTE_KEY_FROM_KEY_STORE "Paste key"
 END
 
 #endif    // English (U.K.) resources
@@ -55578,6 +55578,7 @@ BEGIN
                             "[i18n] Show decimal separators"
     IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_OFF 
                             "[i18n] Hide decimal separators"
+    IDS_STRING_PASTE_KEY_FROM_KEY_STORE "[i18n] Paste key"
 END
 
 #endif    // Spanish resources

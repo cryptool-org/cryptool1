@@ -80,6 +80,11 @@ BOOL CDlgSimpleTranspositions::OnInitDialog()
 	// some assertions for debug mode
 	VERIFY(controlBitmapButtonPaste.AutoLoad(IDC_PASTE_KEY,this));
 
+	// add tool tip to the paste button
+	CString buttonPasteText;
+	buttonPasteText.LoadString(IDS_STRING_PASTE_KEY_FROM_KEY_STORE);
+	controlBitmapButtonPaste.SetToolTipText(&buttonPasteText);
+
 	// load stored settings (key and offset) from registry
 	loadSettings();
 
