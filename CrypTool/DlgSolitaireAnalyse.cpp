@@ -142,16 +142,6 @@ BOOL CDlgSolitaireAnalyse::OnInitDialog()
 		MessageBox(pc_str);	
 		this->EndDialog(1);
 	}
-
-#if 0
-	// schneidet die Zeichen nach 65.535 ab.
-	if(myD->plaintext.GetLength()>65535)
-	{
-		myD->plaintext.Delete(65535,myD->plaintext.GetLength()-65535);
-		LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_ZULANG,pc_str,STR_LAENGE_STRING_TABLE);
-		MessageBox(pc_str,"Solitaire Analyse");
-	}
-#endif 	
 	return TRUE;  // Geben Sie TRUE zurück, außer ein Steuerelement soll den Fokus erhalten
 }
 
@@ -228,25 +218,6 @@ END_MESSAGE_MAP()
 void CDlgSolitaireAnalyse::OnCbnSelchangeKartenanzahl()
 {
 	UpdateData(true);
-
-	/* neu
-	zaehler=0;
-		enablebut(true);
-		vorgabesetzen();
-		gefundenesDeck="";
-		zwischendeck="";
-		Initialdeck="";
-		schluesselstrom="";
-		hinten.EnableWindow(false);
-		vorne.EnableWindow(false);
-		waehlen.EnableWindow(false);
-		entschluesseln.EnableWindow(false);
-		schluesselerzeugen.EnableWindow(false);
-		zwischendeck="";	
-		UpdateData(false);
-		
-	bis hier*/ 
-
 	kartenanzahlneu=kartenanzahl+3;
 
 	enablebut(true);
@@ -665,12 +636,6 @@ void CDlgSolitaireAnalyse::OnBnClickedButton3()
 
 void CDlgSolitaireAnalyse::OnEnChangeEdit132()
 {
-	// TODO:  Falls dies ein RICHEDIT-Steuerelement ist, wird das Kontrollelement
-	// diese Benachrichtigung nicht senden, es sei denn, Sie setzen den CDialog::OnInitDialog() außer Kraft.
-	// Funktion und Aufruf CRichEditCtrl().SetEventMask()
-	// mit dem ENM_CHANGE-Flag ORed in der Eingabe.
-
-	// TODO:  Fügen Sie hier Ihren Code für die Kontrollbenachrichtigungsbehandlung ein.
 }
 
 void CDlgSolitaireAnalyse::OnBnClickedButton4()
@@ -710,8 +675,25 @@ void CDlgSolitaireAnalyse::OnBnClickedOk()
 
 void CDlgSolitaireAnalyse::OnBnClickedButton5()
 {
-	UpdateData(true);	
-   myD->readdeck( "LastFinaldeck" );
+	UpdateData(true);
+   CString csErr;
+   int res = myD->loaddeck( "*.txt" );
+
+   switch ( res ) {
+      case 0:
+         return;
+      case 1:
+         break;
+      case -1:
+         csErr.LoadStringA(IDS_SOLITAIRE_COULD_NOT_LOAD_DECK);
+         MessageBox( csErr );
+         return;
+      case -2:
+         csErr.LoadStringA(IDS_SOLITAIRE_COULD_NOT_LOAD_DECK);
+         MessageBox( csErr );
+         return;
+   };
+//   myD->readdeck( "LastFinaldeck" );
 	kartenanzahl=myD->anzahl-3;
 	kartenanzahlneu=kartenanzahl+3;
 	gefundenesDeck=myD->getDeck();

@@ -1355,6 +1355,56 @@ int Deck::readdeck( const char *deck_label )
    return !error;
 }
 
+int Deck::loaddeck( const char *default_filename )
+{
+	DWORD   dwFlags(OFN_HIDEREADONLY | OFN_PATHMUSTEXIST);
+	CFileDialog dlg(TRUE, 0, CString(default_filename), dwFlags, _T("*.txt"));
+	if ( IDOK == dlg.DoModal() )
+	{
+		CString pathStr = dlg.GetPathName();
+		ifstream fin;
+		fin.open( pathStr, ios::in );
+      
+
+		if ( fin.is_open() )
+		{
+         int i = 0, max = 0, A = 0, B = 0;
+         char tmp_deck[54];
+         for ( i=0; i<54; i++) tmp_deck[i] = 0;
+         for ( i=0; !fin.eof(); i++ )
+         {
+            char id_str[5];
+            int  j;
+            fin.getline( id_str, 4, ',' );
+            if ( id_str[0] == 'A' )       { A = i; j = 1; }
+            else if ( id_str[0] == 'B' )  { B = i; j = 1; }
+            else
+            {
+               j = atoi(id_str);
+               if ( 1 > j || j > 52 || tmp_deck[i] )
+                  return -2;
+               if ( j > max ) max = j;
+            }
+            tmp_deck[i] = j;
+         }
+			fin.close();
+         if ( max != i-2 || !A || !B )
+            return -2;
+         anzahl = max +2;
+         for ( i=0; i<anzahl; i++ )
+         {
+            if ( A == i )      deck[i] = anzahl-1;
+            else if ( B == i ) deck[i] = anzahl;
+            else               deck[i] = tmp_deck[i];
+         }
+         return 1;
+		}
+      else
+         return -1;
+	}
+   return 0;
+}
+
 void Deck::passwortinzahlen(CString pw)
 {	
 	for (int c=0 ;c<pw.GetLength(); c++)

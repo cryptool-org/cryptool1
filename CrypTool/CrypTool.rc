@@ -26245,8 +26245,8 @@ BEGIN
     EDITTEXT        IDC_EDIT3,17,345,551,30,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
     PUSHBUTTON      "Schlüsselstrom automatisch erzeugen",IDC_BUTTON4,18,327,132,14,WS_DISABLED
     GROUPBOX        "Beschreibung",IDC_STATIC,5,2,593,57
-    LTEXT           "Der legitime Empfänger braucht zur Entschlüsselung den Geheimtext und das ""Initial-Deck"". Wir nehmen an, der Angreifer hat neben dem Geheimtext aber nur das",IDC_STATIC,17,12,544,11
-    LTEXT           "Bei dieser Kryptoanalyse wird versucht, aus dem End-Deck das Initial-Deck zu reproduzieren. Dies gelingt aufgrund der unvollständigen Reversibilität der",IDC_STATIC,17,28,580,8
+    LTEXT           "Der legitime Empfänger braucht zur Entschlüsselung den Geheimtext und das ""Initial-Deck"". Wir nehmen an, der Angreifer hat neben dem Geheimtext aber nur das",IDC_STATIC,17,12,576,11
+    LTEXT           "Bei dieser Kryptoanalyse wird versucht, aus dem End-Deck das Initial-Deck zu reproduzieren. Dies gelingt aufgrund der unvollständigen Reversibilität der",IDC_STATIC,17,28,576,8
     PUSHBUTTON      "End-Deck laden",IDC_BUTTON5,39,100,69,14
     PUSHBUTTON      "Nach Vorgabe",IDC_BUTTON6,38,140,70,14
     LTEXT           "Kartenanzahl:",IDC_STATIC,173,98,46,8,WS_DISABLED
@@ -26254,10 +26254,10 @@ BEGIN
     LTEXT           "Aufgrund der Irreversibilität von Solitaire müssen an bestimmten Stellen der Rückwärtsrechnung\nEntscheidungen getroffen werden, wo der entsprechende Joker einzuordnen ist.  ",IDC_STATIC,229,191,354,18
     GROUPBOX        "3. Initial-Deck erzeugen",IDC_STATIC,11,222,581,88
     GROUPBOX        "4. Schlüsselstrom erzeugen",IDC_STATIC,11,314,581,67
-    LTEXT           "Aus dem berechneten Initial-Deck kann dann wieder der nötige Schlüsselstrom berechnet werden.",IDC_STATIC,17,44,333,8
-    LTEXT           "Schlüsselstrom-Erzeugung nicht immer eindeutig. Deshalb müssen Sie entscheiden, wo der Joker einzusortieren ist.",IDC_STATIC,17,36,431,10
+    LTEXT           "Aus dem berechneten Initial-Deck kann dann wieder der nötige Schlüsselstrom berechnet werden.",IDC_STATIC,17,44,576,8
+    LTEXT           "Schlüsselstrom-Erzeugung nicht immer eindeutig. Deshalb müssen Sie entscheiden, wo der Joker einzusortieren ist.",IDC_STATIC,17,36,576,10
     GROUPBOX        "Initial-Deck bestimmen und Schlüsselstrom erzeugen ",IDC_STATIC,5,64,593,324
-    LTEXT           "(vom Sender bei der Verschlüsselung, oder vom Empfänger bei der Entschlüsselung erzeugte) End-Deck.",IDC_STATIC,17,20,320,8
+    LTEXT           "(vom Sender bei der Verschlüsselung, oder vom Empfänger bei der Entschlüsselung erzeugte) End-Deck.",IDC_STATIC,17,20,523,8
     GROUPBOX        "Einheitliche Entscheidung",IDC_STATIC,17,180,112,34
     GROUPBOX        "Manuell",IDC_STATIC,145,181,73,33
 END
@@ -30097,6 +30097,11 @@ BEGIN
         HORZGUIDE, 199
         HORZGUIDE, 301
         HORZGUIDE, 320
+    END
+
+    IDD_SOLITAIRE_ANALYSE, DIALOG
+    BEGIN
+        VERTGUIDE, 593
     END
 
     IDD_SET_VISOPT, DIALOG

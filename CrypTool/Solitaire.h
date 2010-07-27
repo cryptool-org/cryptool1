@@ -137,6 +137,7 @@ public:
 
    int writedeck( const char *deck_label );
    int readdeck ( const char *deck_label );
+   int loaddeck( const char *default_filename );
 };
 
 #endif 
