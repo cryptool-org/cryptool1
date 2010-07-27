@@ -31,6 +31,8 @@
 #define DLG_HILL_10x10     0x20
 #define HILL_RANGE         10
 
+#define HILLSTR_DIM              "DIM "
+#define HILLSTR_KEY              "KEY: "
 #define HILLSTR_ALPHABET         ", ALPHABET: "
 #define HILLSTR_ALPHABETOFFSET   ", ALPHABET_OFFSET:"
 #define HILLSTR_MULTVARIANT      "MULTIPLICATION_VARIANT:"

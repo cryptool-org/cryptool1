@@ -485,6 +485,8 @@ void CKeyHillBase::keyToStr( CString &cs )
    if ( !HillMat->is_initialized() )
       GetHillMatrix();
 
+   cs.Format("%s%i, %s", _T(HILLSTR_DIM), dim, _T(HILLSTR_KEY));
+
    unsigned long i, j;
    for (i=0; i<dim; i++)
    {
@@ -521,45 +523,20 @@ int CKeyHillBase::strToKey( CString &cs, CString *alphabet )
 	laenge += strlen(HILLSTR_MULTVARIANT) +1;
 	multType = (cs.GetAt(laenge) == '0') ? VECTOR_MATRIX : MATRIX_VECTOR;
 
-   HillMat->initialize( max_dim, modul );
-   laenge = cs.Find(HILLSTR_ALPHABET);
-
-	while (l<laenge) if ( 0 <= ord( cs[l++] ) ) i++;
-	if ( i <= max_dim*max_dim )
-	{	
-		i = j = l = 0;
-		while (l < laenge)
-		{
-			if ( 0 <= ord(cs[l]) )
-            (*HillMat)(i, j++) = ord( cs[l], alphabet );
-			else 
-			{
-				assert( !_dim || i < _dim );	
-				assert( cs[l] == ' ' );	
-				if ( _dim > 0 ) 
-				{
-					if ( _dim != j )
-						assert( 0 );		
-				}
-				else
-				{
-					if ( j > max_dim )
-						assert( 0 );		
-					_dim = j;
-				}
-				i++;
-				j = 0;
-			}
-			l++;
-		}
-		dim = _dim;
-   }
-   else
-   {
-      currentDialog->MessageBox("FIXME HK: ERROR");
-      return 0;
-   }
+   laenge = strlen( HILLSTR_DIM );
+   dim    = _ttoi(cs.Mid(laenge));
+   l      = cs.Find( HILLSTR_KEY ) + strlen(HILLSTR_KEY);
    assert( dim <= max_dim );
+
+   HillMat->initialize( max_dim, modul );
+   for ( i=0; i<dim; i++ )
+   {
+      for ( j=0; j<dim; j++ )
+         if ( 0 <= ord( cs[l] ) )
+            (*HillMat)(i, j) = ord( cs[l++], alphabet );
+      l++;
+   }
+
    return 1;
 }
 

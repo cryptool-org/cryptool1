@@ -8,11 +8,12 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -933,8 +934,8 @@ BEGIN
     GROUPBOX        "Wartoœci liczbowe",IDC_STATIC,266,68,225,222
     GROUPBOX        "Reprezentacja macierzowa",IDC_STATIC,29,297,225,42
     GROUPBOX        "Wariant mnozenia",IDC_STATIC,379,7,132,41
-    CONTROL         "(wektor wiersza) * (macierz)",IDC_RADIO25,"Button",BS_AUTORADIOBUTTON | WS_GROUP,397,20,82,10
-    CONTROL         "(macierz) * (wektor kolumny)",IDC_RADIO26,"Button",BS_AUTORADIOBUTTON,397,33,93,10
+    CONTROL         "(wektor wiersza) * (macierz)",IDC_RADIO25,"Button",BS_AUTORADIOBUTTON | WS_GROUP,397,20,106,10
+    CONTROL         "(macierz) * (wektor kolumny)",IDC_RADIO26,"Button",BS_AUTORADIOBUTTON,397,33,106,10
     GROUPBOX        "Informacje o szyfrowaniu",IDC_STATIC_HILL_ALPH,12,7,359,41
     EDITTEXT        IDC_EDIT3,21,22,237,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     RTEXT           "Wartoœæ pierwszego znaku alfabetu",IDC_STATIC,268,21,67,19
@@ -11134,12 +11135,12 @@ BEGIN
     IDS_STRING_PASTE_KEY_FROM_KEY_STORE "[i18n] Paste key"
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Serbian (Latin) resources
+// Serbisch (Lateinisch) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_SRL)
 #ifdef _WIN32
@@ -22244,12 +22245,12 @@ BEGIN
     IDS_STRING_PASTE_KEY_FROM_KEY_STORE "[i18n] Paste key"
 END
 
-#endif    // Serbian (Latin) resources
+#endif    // Serbisch (Lateinisch) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -33282,12 +33283,12 @@ BEGIN
     IDS_STRING_PASTE_KEY_FROM_KEY_STORE "Schlüssel einfügen"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -44402,12 +44403,12 @@ BEGIN
     IDS_STRING_PASTE_KEY_FROM_KEY_STORE "Paste key"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Spanish resources
+// Spanisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ESN)
 #ifdef _WIN32
@@ -55581,7 +55582,7 @@ BEGIN
     IDS_STRING_PASTE_KEY_FROM_KEY_STORE "[i18n] Paste key"
 END
 
-#endif    // Spanish resources
+#endif    // Spanisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
