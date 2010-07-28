@@ -30850,7 +30850,7 @@ BEGIN
                             "Geben Sie den Schlüssel ein.\nSchlüssellänge maximal %d Zeichen!"
     IDS_STRING_ERR_ZIP      "ZIP-Fehler"
     IDS_STRING_MSG_ZIP_COMPRESSION_OF "ZIP-Kompression von <%s>"
-    IDS_STRING_ERR_ZIP_FILE "Das von Ihnen eingegebene Geheimnis S ist 1. Das gewählte Geheimnis sollte größer als 1 sein.\nDas Verfahren ist mit diesem Geheimnis nicht sicher, da der ausgehandelte geheime und gemeinsame Schlüssel erratbar ist!\nVergleichen Sie bitte am Ende der Demoden geheimen und gemeinsamen Schlüssel mit dem öffentlichen Generator g bzw. den öffentlichen Teilschlüsseln."
+    IDS_STRING_ERR_ZIP_FILE "Fehler in der ZIP-Datei"
     IDS_STRING_MSG_ZIP_DECOMPRESSION_OF "ZIP-Dekompression von <%s>"
     IDS_STRING_MSG_MAX_INPUT_LENGTH_BYTE "Eingabe maximal %d Bytes"
     IDS_STRING_DES_ECB      "DES (ECB)"
@@ -39210,18 +39210,18 @@ IDR_CONTEXT_MENU MENU
 BEGIN
     POPUP " "
     BEGIN
-        MENUITEM "&Rückgängig",                 ID_EDIT_UNDO
-        MENUITEM "&Wiederherstellen",           ID_EDIT_REDO
+        MENUITEM "Undo",                        ID_EDIT_UNDO
+        MENUITEM "Redo",                        ID_EDIT_REDO
         MENUITEM SEPARATOR
-        MENUITEM "&Ausschneiden",               ID_EDIT_CUT
-        MENUITEM "&Kopieren",                   ID_EDIT_COPY
-        MENUITEM "Ein&fügen",                   ID_EDIT_PASTE
-        MENUITEM "&Löschen",                    ID_EDIT_CLEAR
+        MENUITEM "Cut",                         ID_EDIT_CUT
+        MENUITEM "Copy",                        ID_EDIT_COPY
+        MENUITEM "Paste",                       ID_EDIT_PASTE
+        MENUITEM "Delete",                      ID_EDIT_CLEAR
         MENUITEM SEPARATOR
-        MENUITEM "Alles &markieren",            ID_EDIT_SELECT_ALL
+        MENUITEM "Select All",                  ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
-        MENUITEM "Schlüssel an&zeigen...",      ID_SHOW_KEY
-        MENUITEM "&Übergeordnetes Fenster",     ID_GOTO_VATER
+        MENUITEM "Show Key...",                 ID_SHOW_KEY
+        MENUITEM "Parent Window",               ID_GOTO_VATER
     END
 END
 
