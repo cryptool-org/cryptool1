@@ -24998,7 +24998,7 @@ BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,69,50,14
     PUSHBUTTON      "&Abbrechen",IDCANCEL,183,69,50,14
     LTEXT           "Um die durchgeführten Schritte dieses Seitenkanalangriffs besser zu verstehen, kann ein Bericht erzeugt werden, der die Einzelschritte protokolliert.",IDC_STATIC,7,7,226,24
-    LTEXT           "Mit einem Klick auf OK können Sie sich einen solchen Bereicht erzeugen und in einem neuen Fenster anzeigen lassen.",IDC_STATIC,7,39,226,16
+    LTEXT           "Mit einem Klick auf OK können Sie sich einen solchen Bericht erzeugen und in einem neuen Fenster anzeigen lassen.",IDC_STATIC,7,39,226,16
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_MESSAGETRANSMISSION DIALOG  0, 0, 240, 70
@@ -25447,7 +25447,7 @@ BEGIN
     CTEXT           "X",IDC_STATIC,28,102,11,10
     GROUPBOX        "Substitutionsmatrix",IDC_STATIC,16,18,113,108
     GROUPBOX        "Stufe 2: Transposition",IDC_STATIC,7,166,251,125
-    LTEXT           "Die Substitutionsmatrix ersetzt jeden Klartext- buchstaben durch ein Paar aus den Buchstaben A,D,F,G,V und X.\n\nDie Matrix muss jeden Buchstaben A-Z sowie jede Ziffer 0-9 genau einmal enthalten.",IDC_STATIC,149,30,90,90
+    LTEXT           "Die Substitutionsmatrix ersetzt jeden Klartext-Buchstaben durch ein Paar aus den Buchstaben A,D,F,G,V und X.\n\nDie Matrix muss jeden Buchstaben A-Z sowie jede Ziffer 0-9 genau einmal enthalten.",IDC_STATIC,149,30,90,90
     GROUPBOX        "",IDC_STATIC,136,18,113,108
     GROUPBOX        "Stufe 1: Substitution",IDC_STATIC,7,7,251,153
     LTEXT           "Transpositionspasswort",IDC_STATIC,16,208,76,8
@@ -25716,7 +25716,7 @@ BEGIN
     RTEXT           "6:",IDC_STATIC6,8,344,9,12,WS_DISABLED
     RTEXT           "7:",IDC_STATIC7,8,362,9,12,WS_DISABLED
     LTEXT           "Um das Geheimnis erzeugen und verteilen zu lassen, klicken Sie auf 'Berechnen'. Über einen Klick auf 'Optionen' können Sie den Wertebereich, aus dem die Schlüssel erzeugt werden, und die Anzahl der Parteien verändern.",IDC_STATIC,12,35,364,16
-    LTEXT           "Secret-Sharing erlaubt es, ein Geheimnis so auf n Schlüssel zu verteilen, dass das ursprüngliche Geheimnis wieder rekonstriert werden kann, wenn später eine beliebige Teilmenge von k<n Schlüsselinhabern zusammenkommt.",IDC_STATIC,12,11,360,24
+    LTEXT           "Secret-Sharing erlaubt es, ein Geheimnis so auf n Schlüssel zu verteilen, dass das ursprüngliche Geheimnis wieder rekonstruiert werden kann, wenn später eine beliebige Teilmenge von k<n Schlüsselinhabern zusammenkommt.",IDC_STATIC,12,11,360,24
     LTEXT           "DYNAMISCH",IDC_REKOHELP,11,242,361,11
     LTEXT           " Verteilung erfolgt:",IDC_CRT_Calculation,314,92,62,11
 END
@@ -25842,7 +25842,7 @@ BEGIN
     LTEXT           "Nach Auswahl der mathematischen Operation, der Eingabe der Zahlen A und B sowie der höchstens 5 Moduln kann die Berechnung über den Button\r\n""Lösen"" gestartet werden.",IDC_STATIC,15,19,485,18
     LTEXT           "Wertebereich der Primzahlen innerhalb des Intervalls:",IDC_GENERATEAUTOM1,17,163,175,8
     LTEXT           "Untergrenze:",IDC_GENERATEAUTOM3,16,176,43,8
-    LTEXT           "Obergenze:",IDC_GENERATEAUTOM4,114,176,38,8
+    LTEXT           "Obergrenze:",IDC_GENERATEAUTOM4,114,176,38,8
     LTEXT           "Anzahl:",IDC_GENERATEAUTOM2,232,163,25,9
     CONTROL         "Moduln selbst eingeben",IDC_GENERATERADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,16,148,100,10
     CONTROL         "Prime Moduln generieren lassen ",IDC_GENERATERADIO2,
@@ -26333,11 +26333,11 @@ BEGIN
     LTEXT           "Geheimnis S mit S >= 0",IDC_STATIC,12,84,74,8
     GROUPBOX        "Geheimnis und Steuerparameter wählen (ganze Zahlen)",IDC_STATIC_PARAMETER,7,68,357,69
     LTEXT           "Anzahl der Teilnehmer n mit n > 0",IDC_STATIC_PARTICIPANTS,12,102,106,8
-    LTEXT           "Schwellenwert (Mindestanzah) t mit t > 0",IDC_STATIC_THRESHOLD,11,120,128,8
+    LTEXT           "Schwellenwert (Mindestanzahl) t mit t > 0",IDC_STATIC_THRESHOLD,11,120,128,8
     LTEXT           "Polynom f(x)",IDC_STATIC_POLYNOM,12,195,39,8
     LTEXT           "Aus den Parametern berechnete Werte der Teilnehmer:",IDC_STATIC,7,242,175,8
     LTEXT           "Mit dem (t, n)-Schwellenwertschema nach Shamir ist es möglich, ein Geheimnis S auf n Personen aufzuteilen. Danach sind t Personen (t <= n) in der Lage, mit ihren Teilgeheimnissen (Shares) das ursprüngliche Geheimnis wiederherzustellen.",IDC_STATIC,7,7,357,25
-    LTEXT           "Dazu werden ein Polynom f(x) vom Grad t-1 [also mit t-1 zufälligen Koeffizienten a(i)] und eine zufällige Primahl p erzeugt. Jedem Teilnehmer werden dann ein zufällig gewählter, öffentlicher Wert x  und ein geheimer Wert y=f(x) [sein Share] zugewiesen.",IDC_STATIC,7,30,357,26
+    LTEXT           "Dazu werden ein Polynom f(x) vom Grad t-1 [also mit t-1 zufälligen Koeffizienten a(i)] und eine zufällige Primzahl p erzeugt. Jedem Teilnehmer werden dann ein zufällig gewählter, öffentlicher Wert x  und ein geheimer Wert y=f(x) [sein Share] zugewiesen.",IDC_STATIC,7,30,357,26
     LTEXT           "Weitere Details erhalten Sie in der Online-Hilfe, indem Sie F1 drücken.",IDC_STATIC,7,54,357,8
     LTEXT           "Bitte wählen Sie die Teilnehmer, die das Geheimnis wiederherstellen sollen, aus der Liste aus, indem Sie die entsprechenden Checkboxen ankreuzen.",IDC_STATIC,7,353,357,19
     LTEXT           "Primzahl p",IDC_STATIC_MOD,12,214,33,8
@@ -30943,7 +30943,7 @@ BEGIN
     IDS_STRING_MSG_AKS_TEST "AKS Test"
     IDS_STRING_AUTOMATIC_ANALYSE "%s-Analyse von <%s>, Schlüssel <%s>"
     IDS_STRING_MSG_SIGNED_MESSAGE_TO_BIG 
-                            "Die signierte Nachricht ist sehr gross. Sie kann nicht in dem Hex-Editor von CrypTool angezeigt werden.\nDeshalb wurde die Nachricht in der temporären Datei '%s' zwischengespeichert."
+                            "Die signierte Nachricht ist sehr groß. Sie kann nicht in dem Hex-Editor von CrypTool angezeigt werden.\nDeshalb wurde die Nachricht in der temporären Datei '%s' zwischengespeichert."
     IDS_STRING_SIGNATURE_ORIGINATOR "Signaturerzeuger:"
     IDS_STRING_SIGNATURE_DATE "%s; erzeugt am %s"
     IDS_STRING_SIGNATURE_HASH_FUNCTION "%s mit Hashfunktion %s"
@@ -31100,7 +31100,7 @@ BEGIN
     IDS_STRING_PUBLIC_EC_KEY 
                             "Öffentlicher Schlüssel W=(Wx,Wy) (W ist ein Punkt auf der Elliptischen Kurve) des Signaturerzeugers:"
     IDS_STRING_SIGNATURE_MESSAGE_SIZE_2 
-                            "Größe der signierenten Nachricht M: %d Byte"
+                            "Größe der signierten Nachricht M: %d Byte"
     IDS_STRING_EC_BITLENGTH_CD "Bitlänge von c + Bitlänge von d = %d Bit"
     IDS_STRING_EC_SIGNATURE_VALIDITY_TEST 
                             "Falls c oder d nicht im Intervall [1, r-1] ist die Signatur ungültig:"
@@ -31609,7 +31609,7 @@ BEGIN
     ID_AES_SELFEXTRACT      "Ruft das eigenständige Programm AES-Tool auf, das die Verschlüsselung einer beliebigen Datei in ein selbstextrahierendes Archiv ermöglicht"
     ID_HASH_OFAFILE         "Bestimmt den Hashwert (Auswahl aus verschiedenen Hashverfahren MDx, SHA-x, RIPEMD-x) der selektierten Datei"
     ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO 
-                            "Demonstriert die ""Fingerabruck""-Eigenschaft von kryptographischen Hashfunktionen"
+                            "Demonstriert die ""Fingerabdruck""-Eigenschaft von kryptographischen Hashfunktionen"
     ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG 
                             "Visualisiert wie die Hybrid-Verschlüsselung funktioniert"
     ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG 
@@ -31694,7 +31694,7 @@ BEGIN
     IDS_STRING_FAKTORISATION_VERFAHREN 
                             "Sie müssen mindestens einen Faktorisierungsalgorithmus wählen."
     IDS_STRING_FAKTORISATION_FALSCHE_EINGABE 
-                            "Die Eingabe ist keine positve ganze Zahl."
+                            "Die Eingabe ist keine positive ganze Zahl."
     IDS_STRING_FAKTORISATION_ABORTED 
                             "Die Faktorisierung wurde vorzeitig beendet.\nDie jetzige Zerlegung enthält noch mindestens einen zusammengesetzten Faktor."
     IDS_STRING_FAKTORISATION_ABORT_MSG "abgebrochen"
