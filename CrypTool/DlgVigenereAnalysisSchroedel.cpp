@@ -129,8 +129,6 @@ void VigenereAnalysisSchroedel::initialize() {
 		solvers[i][2] = "";
 		solvers[i][3] = "";
 	}
-	solveText = "";
-	solveKey = "";
 	result = "";
 	resultDebug = "";
 
@@ -866,10 +864,6 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 					
 					// watch out for user cancellation
 					if(canceled) return -1;
-					
-					CString cTextStr; cTextStr.AppendChar(cText[l]);
-					CString cKeyStr; cKeyStr.AppendChar(cKey[o]);
-					CString cCipherStr; cCipherStr.AppendChar(cipher[3]);
 
 					if(encryptChar(cText[l], cKey[o]) == cipher[3]) {
 						rKey = "";
@@ -883,7 +877,16 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 								if(dict[xDict].Find(key + cKey[o]) == 0 || dict[xDict].Find(text + cText[l]) == 0) {
 									decryptedText = decryptText(ciphertext, dict[xDict]);
 									theRate = rateString(decryptedText, dict[xDict]);
-									if(theRate >= decryptedText.GetLength() * 0.01) {
+									//
+									// ATTENTION: the "analysisThreshold" variable can be configured via the 
+									// CrypTool analysis options dialog. The LOWER the the threshold, the MORE 
+									// possible solutions will be found (this was introduced due to problems with 
+									// German texts). See Schroedel's paper for details, although a variable 
+									// threshold was not part of his code.
+									//
+									// TODO: make sure the user cannot use unreasonable values to mess up anything
+									//
+									if(theRate >= decryptedText.GetLength() * 0.25 + analysisThreshold) {
 										
 										// watch out for user cancellation
 										if(canceled) return -1;
@@ -922,35 +925,14 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 										
 										if(maxRating < theRate) maxRating = theRate;
 
-										// ATTENTION: the "analysisThreshold" variable can be configured via the 
-										// CrypTool analysis options dialog. The LOWER the the threshold, the MORE 
-										// possible solutions will be found (this was introduced due to problems with 
-										// German texts). See Schroedel's paper for details, although a variable 
-										// threshold was not part of his code.
-										//
-										// TODO: make sure the user cannot use unreasonable values to mess up anything
-										//
-										if(theRate >= analysisThreshold) {
-											PossibleResult possibleResult;
-											possibleResult.key = dict[xDict];
-											possibleResult.cleartext = decryptText(ciphertext, dict[xDict]);
-											possibleResult.rating = theRate;
-											// at this point we have a possible result, store it in the list for possible results
-											listPossibleResults.push_back(possibleResult);
-											// also, pass it through to the analysis dialog (if it exists)
-											if(theDialog) theDialog->addPossibleResult(possibleResult);
-#if 0
-											// suggest the possible result to the user (including the first 50 characters of 
-											// the corresponing cleartext) and cancel the analysis if the user decides to
-											CString formatString;
-											formatString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SUGGEST_RESULT);
-											CString suggestion;
-											suggestion.Format(formatString, possibleResult.key, possibleResult.cleartext.Left(50));
-											if(AfxMessageBox(suggestion, MB_YESNO) == IDYES) {
-												found = true;
-											}
-#endif
-										}
+										PossibleResult possibleResult;
+										possibleResult.key = dict[xDict];
+										possibleResult.cleartext = decryptText(ciphertext, dict[xDict]);
+										possibleResult.rating = theRate;
+										// at this point we have a possible result, store it in the list for possible results
+										listPossibleResults.push_back(possibleResult);
+										// also, pass it through to the analysis dialog (if it exists)
+										if(theDialog) theDialog->addPossibleResult(possibleResult);
 									}
 								}
 							}
@@ -982,8 +964,6 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 
 			if(solveRating < atoi(solvers[i][2].GetBuffer())) {
 				solveRating = atoi(solvers[i][2].GetBuffer());
-				solveKey = solvers[i][0];
-				solveText = solvers[i][1];
 			}
 			if(maxRating == atoi(solvers[i][2])) {
 				//output(solvers[i][3] + " " + solvers[i][0] + " / " + solvers[i][1]);
@@ -994,15 +974,6 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 		for(int i=0; i<cPairs; i++) {
 			key = pairs[i][0];
 			text = pairs[i][1];
-		}
-
-		for(int i=0; i<x; i++) {
-			if(solvers[i][0] == ciphertext) {
-				solveKey = solvers[i][0];
-			}
-			if(solvers[i][1] == ciphertext) {
-				solveKey = solvers[i][1];
-			}
 		}
     output("");
 	}
@@ -1196,7 +1167,7 @@ int VigenereAnalysisSchroedel::readDict() {
 					continue;
 			}
 			// add this word to the analysis dictionary
-			if(!currentLanguage.empty()) {
+			if(!currentLanguage.empty() && s.GetLength() > 0) {
 				mapListsDictionaryWords[currentLanguage].push_back(s.GetBuffer());
 			}
 		}
@@ -1301,33 +1272,6 @@ char VigenereAnalysisSchroedel::encryptChar(const char &_char, const char &_key)
 	return result;
 }
 
-CString VigenereAnalysisSchroedel::encryptText(CString text, CString key) {
-
-	while(text.Find(' ') > 0) {
-		text.Delete(0, 1);
-	}
-
-	while(key.GetLength() < text.GetLength()) {
-		key = key + key;
-	}
-	key.Delete(text.GetLength(), key.GetLength() - text.GetLength());
-
-	CString encryptedText;
-
-	for(int i=0; i<text.GetLength(); i++) {
-		for(int o=0; o<26; o++) {
-			if(key[i] == vigenere[o][0]) {
-				// make sure we don't run into segmentation faults when the find process was not successful
-				if(klartext.Find(text[i]) != -1) {
-					encryptedText.AppendChar(vigenere[o][klartext.Find(text[i])]);
-				}
-			}
-		}
-	}
-
-	return encryptedText;
-}
-
 CString VigenereAnalysisSchroedel::decryptText(CString text, CString key) {
 
 	while(key.GetLength() < text.GetLength()) {
@@ -1352,98 +1296,29 @@ CString VigenereAnalysisSchroedel::decryptText(CString text, CString key) {
 }
 
 int VigenereAnalysisSchroedel::rateString(CString str, CString key) {
-
-	CString s, tmp, start;
-
-	int o = 0;
-	int z = 0;
-
-	int check[1000];
-	CString words[1000];
-	CString match[100][5];
-
 	// check the first 100 characters only
-	if(str.GetLength() > 100) {
-		str = str.Left(100);
-	}
-
-	// find all words matching somehow
-	for(int i=0; i<1000; i++) {
-		words[i] = "";
-		check[i] = 0;
-	}
-
+	const CString theString = str.Left(100);
+	const CString theKey = key;
+	// try to find dictionary words in the string
+	std::map<CString, int> mapWordsFound;
+	int index = 0;
 	for(int i=0; i<dictCount; i++) {
-		s = dict[i];
-		if(str.Find(s) > -1) {
-			words[o++] = s;
+		int offset = 0;
+		while((index = theString.Find(dict[i], offset)) != -1) {
+			mapWordsFound[dict[i]]++;
+			offset = index + dict[i].GetLength();
 		}
 	}
+	// get the current rating
+	int currentRating = mapWordsFound.size();
 
-	for(int i=0; i<o; i++) {
-		tmp = str;
-		do {
-			if(tmp.Find(words[i]) > -1) {
-				z = tmp.Find(words[i]);
-				for(int l=0; l<words[i].GetLength(); l++) {
-					// + l - 1 entfernt
-					check[tmp.Find(words[i]) + l]++;
-				}
-				for(int l=0; l<words[i].GetLength(); l++) {
-					// + l - 1 entfernt (2x)
-					tmp.Delete(z + l, 1);
-					tmp.Insert(z + l, '~');
-				}
-			}
-		}
-		while(tmp.Find(words[i]) > 0);
-	}
-
-	for(int i=0; i<o; i++) {
-		s = s + (char)(13) + words[i];
-	}
-
-	// number of words
-	o = 0;
-	start = "";
-	subRate = 0;
-
-	for(int i=0; i<str.GetLength(); i++) {
-		subRate = subRate + check[i];
-		
-		if(check[i] > 0) {
-			CString iStr; iStr.Format("%d", check[i]);
-			start.Append(iStr);
-		}
-		else {
-			start.Append(" ");
-		}
-
-		if(check[i] == 0) {
-			o -= 2;
-		}
-		if(check[i] > 0) {
-			o += 1;
-		}
-	
-	}
-
-	if(o > maxRating) {
-		solveRating = 0;
-		solveText = "";
-		solveKey = "";
-		solveCount = 0;
-	}
-
-	if(o >= maxRating) {
+	// check if we have a new rating
+	if(currentRating > maxRating) {
 		solveCount++;
-		maxRating = o;
-		solveRating = o;
-		solveText = str;
-		solveKey = key;
+		maxRating = solveRating = currentRating;
 	}
-
-	return o;
+	// return the current rating
+	return currentRating;
 }
 
 CString VigenereAnalysisSchroedel::fillLeft(CString was, int wie) {
@@ -1526,7 +1401,7 @@ void VigenereAnalysisSchroedel::readSettingsFromRegistry() {
 
 		// apply settings from registry
 		analysisThreshold = u_analysisThreshold;
-		debug = (BOOL)u_extensiveLogging;
+		debug = (bool)(u_extensiveLogging != 0);
 		pathToDictionary = (CString)c_dictionaryFile;
 		pathToDigrams = (CString)c_digramsFile;
 		pathToTrigrams = (CString)c_trigramsFile;

@@ -166,15 +166,13 @@ protected:
 	CString dict[MAX_NUMBER_OF_DICT_WORDS];
 	int solveCount, maxRating, dictCount;
 	int solveRating;
-	CString solveText, solveKey;
 	int subRate;
 	int cipherPos, aktPos, Pos2, Pos3, Remain2, Remain3;
 
-	// some helper functions
-	CString encryptText(CString text, CString key);
 	char encryptChar(const char &_char, const char &_key);
 	CString decryptText(CString text, CString key);
 	int rateString(CString str, CString key);
+
 	CString fillLeft(CString was, int wie);
 	
 	// some helper variables
