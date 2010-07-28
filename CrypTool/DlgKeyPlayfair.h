@@ -35,6 +35,9 @@
 // Dlg_PlayfairKey.h : Header-Datei
 //
 
+#define STR_OPT_SEPERATE_DUPLICATE_ONLY_WITHIN_PAIRS ", OPT_SEPERATE_DUPLICATE_ONLY_WITHIN_PAIRS"
+#define STR_OPT_IGNORE_DUPLICATE_LETTERS_IN_KEY		 ", OPT_IGNORE_DUPLICATE_LETTERS_IN_KEY"
+
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgKeyPlayfair 
 

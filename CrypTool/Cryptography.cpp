@@ -499,6 +499,8 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 	stringCompleteKey.Append(playfairOptions.separator1);
 	stringCompleteKey.Append(", SEPARATOR2: ");
 	stringCompleteKey.Append(playfairOptions.separator2);
+	if ( playfairOptions.ignoreDoubleCharactersInKey )				stringCompleteKey.Append(STR_OPT_IGNORE_DUPLICATE_LETTERS_IN_KEY);
+	if ( playfairOptions.separateDoubleCharactersOnlyWithinPairs )	stringCompleteKey.Append(STR_OPT_SEPERATE_DUPLICATE_ONLY_WITHIN_PAIRS);
 
 	// apply Playfair with the desired options
 	KeyDialog.m_Alg->ApplyPlayfair(playfairOptions);

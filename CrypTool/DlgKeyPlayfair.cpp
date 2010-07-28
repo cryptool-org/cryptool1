@@ -339,6 +339,11 @@ void CDlgKeyPlayfair::OnPasteKey()
 		m_text = extractValueFromStringByKey("KEY", stringCompleteKey);
 		separator1 = extractValueFromStringByKey("SEPARATOR1", stringCompleteKey);
 		separator2 = extractValueFromStringByKey("SEPARATOR2", stringCompleteKey);
+		if ( stringCompleteKey.Find( STR_OPT_SEPERATE_DUPLICATE_ONLY_WITHIN_PAIRS ) )
+			separateDoubleCharactersOnlyWithinPairs = 1;
+		if ( stringCompleteKey.Find( STR_OPT_IGNORE_DUPLICATE_LETTERS_IN_KEY ) )
+			ignoreDoubleCharactersInKey = 1;
+
 	}
 	UpdateData(FALSE);	
 	OnChange();
