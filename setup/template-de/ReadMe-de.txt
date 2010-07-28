@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.30 für Win32, Juli 2010  xxxxxx
+    CrypTool, Version 1.4.30 für Win32, August 2010
     (c) Contributors
         Dazu gehören z.B.
         Deutsche Bank AG, Frankfurt am Main,
@@ -2032,7 +2032,7 @@ Version                  Deutsch    Englisch      Bedarf DE      durch
 1.4.10    Juli 2007      27,5 MB     26,7 MB         47 MB        DB
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
-1.4.30    Juli 2010      52,1 MB     51,4 MB         95 MB        DB   xxxxxxx
+1.4.30    Aug. 2010      52,1 MB     51,5 MB         95 MB        DB
 
 Bemerkungen zu den Versionen:
 1.3.02   Viele neue Funktionen gegenüber 1.3.00.
@@ -3026,7 +3026,9 @@ Funktionen, die schon in den jetzigen Betaversionen
                          mittels der PC/SC-Schnittstelle in Windows)
 - CT2  Massenmustersuche
 - CT2  Toolbox zum Erzeugen und Analysieren von Strom-Chiffren
+- CT2  Framework zum Verteilen kryptoanalytischer Berechnungen
 - CT2  Cube Attack gegen symmetrische Chiffren (I. Dinur und A. Shamir)
+- CT2  Vigenère-Autokey-Verschlüsselung und verteilte Analyse dazu
 
 - JCT  Adaptive Navigationsleiste, wahlweise als Baum oder Palette,
        mit Filter
@@ -3047,11 +3049,12 @@ Funktionen, die für die Release-Versionen der Nachfolger-Projekte geplant sind:
 - CT2  Virtuelle Kreditkartennummern (VCC) und Prüfziffern
 - CT2  Bleichenbacher Angriff, Erweiterungen von Kühn
 - CT2  NIST Zufalls-Testsuite
-- CT2  GNFS
+- CT2  GNFS (General number field sieve)
 - CT2  Alphabete auch für die klassischen Verfahren ausdehnen auf 256 Zeichen
 - CT2  SOA-Security (SOAP-Nachrichten nach WS-Security zwischen den Beteiligten)
 - CT2  Framework zum Bau und zur Analyse von LFSR-Stromchiffren
 
+- JCT  Homomorphic Encryption
 - JCT  PGP-S/MIME Interoperabilität
 - JCT  Visualisierung eines Quantum-Schlüsselaustausch-Protokolls (BB84)
 - JCT  Commandline-Funktionalität

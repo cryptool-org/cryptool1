@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.30 for Win32, July 2010  xxxxxxx
+    CrypTool, Version 1.4.30 for Win32, August 2010
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main,
@@ -1969,7 +1969,7 @@ Version                 English      German    needed EN     by
 1.4.10    July 2007     26.7 MB      27.5 MB    47 MB        DB
 1.4.20    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.21    July 2008     36.1 MB      37.1 MB    73 MB        DB
-1.4.30    July 2010     51.4 MB      52.1 MB    94 MB        DB   xxxxxx
+1.4.30    Aug. 2010     51.5 MB      52.1 MB    94 MB        DB
 
 Remarks about the versions:
 1.3.02   Many new functions compared to 1.3.00.
@@ -2934,7 +2934,9 @@ Features already implemented and integrated in the current beta versions
                          the PC/SC interface in Windows)
 - CT2  Mass pattern search
 - CT2  Toolbox for creating and analyzing stream ciphers
+- CT2  Framework for distributing cryptanalytic calculations
 - CT2  Cube attack on symmetric ciphers (I. Dinur and A. Shamir)
+- CT2  Encryption of and distributed analysis against Vigenère autokey
 
 - JCT  Adaptive navigation pane, optionally as tree or palette,
        with filtering
@@ -2955,11 +2957,12 @@ Features planned for the release version of the successor projects:
 - CT2  Virtual Credit Card Numbers (VCC) and check sums
 - CT2  Bleichenbacher attack, enhancements by Kuehn
 - CT2  NIST Random number test suite
-- CT2  GNFS
+- CT2  GNFS (General number field sieve)
 - CT2  Extend the alphabets of the classic ciphers to 256 characters
 - CT2  SOA-Security (SOAP messages according WS Security between the participants)
 - CT2  Framework to create and analyze LFSR stream ciphers
 
+- JCT  Homomorphic Encryption
 - JCT  PGP-S/MIME interoperability
 - JCT  Visualization of Quantum Key Agreement, BB84 protocol
 - JCT  Commandline functionality
