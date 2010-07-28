@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.30 Beta 09 for Win32, July 2010  xxxxxxx
+    CrypTool, Version 1.4.30 for Win32, July 2010  xxxxxxx
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main,
@@ -689,7 +689,7 @@ The general properties and functions of CrypTool are:
   the GUI, which is still used in CT 1.x.
   Additionally there was a need to change from VS2003 to VS2008, because
   some libraries could only be compiled with VS2008 in a way, that they run
-  well under both Windows XP and Vista.
+  well under both Windows XP and Windows Vista.
   Compiling all versions (4 languages, each in debug and release mode)
   lasts about 2 h on a modern PC.
 
@@ -833,7 +833,7 @@ a) Developer-relevant changes (more technically oriented):
 
 - Update of used libraries and other software to the following versions:
   - Scintilla 1.7.7
-  - cv act library v. 1.4.6 (supporting Vista too)
+  - cv act library v. 1.4.6 (supporting Windows Vista too)
   - OpenSSL 0.9.8k
   - MPIR 1.3.1 (derived from GMP version 4.2.1) instead of GMP 4.1
   - APFLOAT 2.41
@@ -880,6 +880,10 @@ b) Changes within the user documentation / on the websites:
    - English: http://www.youtube.com/watch?v=bLJKuW4UOuE
    - Spanish: http://www.youtube.com/watch?v=pTFdklPQiL4
 
+- At the CrypTool website, section presentations, now there is an interactive
+  introduction into the basics of RSA (as PPT and as Flash):
+  http://cryptool.com/index.php/en/documentation-topmenu-75.html
+
 
 c) New functionality / Usability:
 
@@ -894,8 +898,8 @@ c) New functionality / Usability:
    - In the dialog "Key generation from password (according to PKSC #5)"
      now hash values with leading zeros are presented correctly.
    - The ECC-AES hybrid encryption and decryption now also runs under
-     MS Vista (thanks to a new cv act lib from cryptovision).
-     Additionally, now a coorect erro message pops up, if one tries to
+     Windows Vista (thanks to a new cv act lib from cryptovision).
+     Additionally, now a correct error message pops up, if one tries to
      decrypt an unencrypted text.
    - DH Demonstration: In earlier versions a crash happened when a digits
      (e.g. 2) were appended to an automatically created generator.
@@ -945,6 +949,10 @@ c) New functionality / Usability:
 - CrypTool now remembers its main window position and size and uses
   this when it is restarted.
 
+- User convenience: Especially helpful for new users who did not use online
+  help and asked about the meaning of the icon the icon used to paste keys
+  from the internal key store into several modal dialogs now carries a tool tip.
+
 - Many small improvements in the masks (user interface), e.g. elapsed-time
   dialog for the AKS test; text in about box can be marked and copied; time
   and number of found factors are shown at once in the factorization dialog;
@@ -952,7 +960,6 @@ c) New functionality / Usability:
 
 - Contributors and translating organizations are now listed in own dialogs
   (which can be called from the new About dialog).
-
 
 - Extensive enhancements of the online help.
 
@@ -1170,19 +1177,24 @@ computer (must be installed in different directories).
 Different users using the same PC can have different settings (because these
 settings are stored in the user-specific area of the Windows registry).
 
-CrypTool can be used without having administrator access rights.
+Usage of CrypTool:
+ - CrypTool can be used without having administrator access rights.
+ - Explanation:
+   When using the CrypTool application you need write access for:
+    - files within the CrypTool directory PSE (for the PKI key management),
+    - files within the user-specific TEMP directory (for storing temporary files),
+    - the user-specific area of the Windows registry (to store user settings).
 
-The installation of CrypTool can be done without having administrator
-access rights under Windows XP and Windows Vista, but Windows 7 requires
-these rights.
-- During the installation process persistent data is stored at the following
-  places, so the installing person needs to have write access for:
-  - the CrypTool directory,
-  - the user-specific area in the Windows registry.
-- During using the CrypTool application you need write access for:
-  - files within the CrypTool directory PSE (for the PKI key management),
-  - files within the user-specific TEMP directory (for storing temporary files),
-  - the user-specific area of the Windows registry (to store user settings).
+Installation of CrypTool:
+ - Under Windows XP this can be done without having administrator
+   access rights; but under Windows Vista and Windows 7 these rights
+   are required.
+ - Explanation:
+   During the installation process persistent data is stored at the following
+   places, so the installing person needs to have write access for:
+    - the CrypTool directory,
+    - the user-specific area in the Windows registry.
+
 
 Remark 1:
 Where the TEMP directory of Windows is, can be seen by entering %TEMP%
@@ -1957,7 +1969,7 @@ Version                 English      German    needed EN     by
 1.4.10    July 2007     26.7 MB      27.5 MB    47 MB        DB
 1.4.20    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.21    July 2008     36.1 MB      37.1 MB    73 MB        DB
-1.4.30    July 2010     51.4 MB      52.1 MB    93 MB        DB   xxxxxx
+1.4.30    July 2010     51.4 MB      52.1 MB    94 MB        DB   xxxxxx
 
 Remarks about the versions:
 1.3.02   Many new functions compared to 1.3.00.
@@ -1985,8 +1997,8 @@ Remarks about the versions:
 1.4.30-Beta08  July 2010  Fifth public beta of version 1.4.30.
 1.4.30   Many bug fixes and enhanced functionality compared to v1.4.21.
          Disc space needed for the different language versions of 1.4.30:
-         EN:  93.4 MB
-         DE:  94.8 MB
+         EN:  93.7 MB
+         DE:  94.7 MB
          PL: 100.0 MB
          RS:  xx.x MB  xxxxxxxxx
          SP:  94.4 MB

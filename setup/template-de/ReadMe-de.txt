@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.30 Beta 09 für Win32, Juli 2010  xxxxxx
+    CrypTool, Version 1.4.30 für Win32, Juli 2010  xxxxxx
     (c) Contributors
         Dazu gehören z.B.
         Deutsche Bank AG, Frankfurt am Main,
@@ -703,7 +703,7 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
   im Gegensatz zur Standard-Edition nicht unterstützt.
   Der Wechsel von VS2003 auf VS2008 war auch deshalb erforderlich, weil nur
   damit manche Bibliotheken so compiliert werden konnten, dass sie sowohl
-  unter Vista als auch XP korrekt liefen.
+  unter Windows Vista als auch Windows XP korrekt liefen.
   Eine Komplettcompilierung aller 4 Sprachversionen (jeweils Debug und Release)
   dauert auf einem modernen PC rund 2 h.
 
@@ -849,7 +849,7 @@ a) Entwickler-relevante Änderungen (eher Programm-technisch):
 
 - Update der Bibliotheken und genutzten Fremdsoftware auf ff. Versionen:
   - Scintilla 1.7.7
-  - cv act library v. 1.4.6 (unterstützt auch Vista)
+  - cv act library v. 1.4.6 (unterstützt auch Windows Vista)
   - OpenSSL 0.9.8k
   - MPIR 1.3.1 (hergeleitet aus GMP-Version 4.2.1) statt GMP 4.1
   - APFLOAT 2.41
@@ -896,6 +896,10 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
    - Englisch: http://www.youtube.com/watch?v=bLJKuW4UOuE
    - Spanisch: http://www.youtube.com/watch?v=pTFdklPQiL4
 
+- Auf der CrypTool-Webseite gibt es unter den Präsentation nun eine interaktive
+  Einführung in die Grundlagen von RSA (als PPT und als Flash):
+  http://cryptool.com/index.php/de/documentation-topmenu-75.html
+
 
 c) Neue Funktionalität / Bedienung:
 
@@ -911,9 +915,9 @@ c) Neue Funktionalität / Bedienung:
    - In der Maske "Schlüssel aus Passwort generieren (nach PKSC #5)" werden
      nun auch die Hashwerte mit führenden Nullen korrekt angezeigt.
    - Die ECC-AES-Hybrid-Ver-/Entschlüsselung läuft nun dank einer neuen
-     cv act lib von cryptovision auch unter MS Vista.
+     cv act lib von cryptovision auch unter Windows Vista.
      Außerdem kommt hier nun beim Versuch, einen nicht verschlüsselten Text
-     zu entschlüsseln, kommt nun eine korrekte Fehlermeldung.
+     zu entschlüsseln, eine korrekte Fehlermeldung.
    - DH-Demo: Wenn man automatisch erzeugte Generatoren danach änderte (z.B.
      die Ziffer 2 anfügen) kam es in früheren Versionen zum Absturz. Ist behoben.
    - Die auf dem CRT beruhende Secret-Sharing-Anwendung verbietet nun, dass
@@ -963,6 +967,11 @@ c) Neue Funktionalität / Bedienung:
 - CrypTool merkt sich nun die Position und Größe des Hauptfensters und nutzt
   dies beim Neustart.
 
+- Benutzerfreundlichkeit: Insbesondere für neue Benutzer, die die Onlinehilfe
+  nicht aufriefen, aber nach der Bedeutung der Ikone fragten, hat die Ikone
+  zum Einfügen von Schlüsseln aus dem internen Schlüsselspeicher in mehreren
+  modalen Dialogboxen nun einen Tool-Tipp.
+
 - Viele kleine Verbesserungen in den Masken, z.B. Elapsed-Time-Anzeige beim
   AKS-Test; der Text in der About-Box kann markiert und kopiert werden;
   sofortige Anzeige der Zeit und der Anzahl der bisherigen Faktoren bei
@@ -971,7 +980,6 @@ c) Neue Funktionalität / Bedienung:
 
 - Die Mitwirkenden und die übersetzenden Organisationen werden nun in
   eigenen Dialogen aufgeführt (aufrufbar aus dem neuen About-Dialog).
-
 
 - Umfangreiche Erweiterungen der Onlinehilfe.
 
@@ -1140,7 +1148,7 @@ c) Neue Funktionalität / Bedienung:
   Tabelle angezeigt.
 
 - Weitere Ciphertext-Only-Analyse für Vigenère (nach Schrödel): Diese ist
-  effizient auch für sehr kurze Chiffrate, sofern das Passwort aus einem
+  effizient für sehr kurze Chiffrate, sofern das Passwort aus einem
   Wörterbuch stammt.
 xxxxxxxxxxxxxxxxxxxxx
 
@@ -1206,19 +1214,23 @@ Verschiedene Benutzer können am gleichen PC jeweils verschiedene
 Einstellungen haben (da persistente Einstellungen im Nutzer-lokalen Teil
 der Registry abgelegt werden).
 
-CrypTool kann man ohne Administratorrechte ausführen.
+Ausführen von CrypTool:
+ - CrypTool kann man ohne Administratorrechte ausführen.
+ - Erläuterung:
+   Bei der Benutzung braucht man Schreibrechte für:
+    - Dateien im CrypTool-Verzeichnis PSE (für das PKI-Schlüsselmanagement),
+    - Dateien im Nutzer-spezifischen TEMP-Verzeichnis (zur Ablage temporärer
+      Dateien),
+    - Einstellungen im Benutzer-spezifischen Teil der Registry.
 
-Zur Installation braucht man unter Windows XP und Windows Vista ebenfalls
-keine Administratorrechte, aber unter Windows 7 sind diese nötig.
-- Bei der Installation werden persistente Daten an ff. Stellen abgelegt, für
-  die der Installierende Schreibrechte haben muss:
-  - für das CrypTool-Verzeichnis,
-  - für den Benutzer-spezifischen Bereich der Windows-Registry.
-- Bei der Benutzung braucht man Schreibrechte für:
-  - Dateien im CrypTool-Verzeichnis PSE (für das PKI-Schlüsselmanagement),
-  - Dateien im Nutzer-spezifischen TEMP-Verzeichnis (zur Ablage temporärer
-    Dateien),
-  - Einstellungen in seinem Benutzer-spezifischen Teil der Registry.
+Installation von CrypTool:
+ - Unter Windows XP braucht man dazu keine Administratorrechte;
+   aber unter Windows Vista und Windows 7 sind Administratorrechte nötig.
+ - Erläuterung:
+   Bei der Installation werden persistente Daten an ff. Stellen abgelegt,
+   für die der Installierende Schreibrechte haben muss:
+    - für das CrypTool-Verzeichnis,
+    - für den Benutzer-spezifischen Bereich der Windows-Registry.
 
 Anmerkung 1:
 Wo das TEMP-Verzeichnis von Windows liegt, kann man sehen, wenn man im
@@ -2049,8 +2061,8 @@ Bemerkungen zu den Versionen:
 1.4.30-Beta08  Juli 2010  Sechste öffentliche Beta von Version 1.4.30 (09.07.2010).
 1.4.30   Viele Bugfixes und erweiterter Funktionsumfang i.Vgl. zu v1.4.21.
          Plattenplatz-Bedarf der verschiedenen Sprachversionen von 1.4.30:
-         EN:  93.4 MB
-         DE:  94.8 MB
+         EN:  93.7 MB
+         DE:  94.7 MB
          PL: 100.0 MB
          RS:  xx.x MB  xxxxxxxxx
          SP:  94.4 MB
