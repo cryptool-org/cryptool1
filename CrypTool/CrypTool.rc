@@ -13351,7 +13351,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Generisanje RSA kljuca"
 FONT 8, "MS Sans Serif"
 BEGIN
-    LTEXT           "Odaberite dva prosta broja p i q. Broj N = pq je javni RSA moduo i phi(N) = (p-1)(q-1) je Euler-ov broj. Javni kljuc e je prost broj broju phi(N). Privatni kljuc  d = e^(-1)  (mod  phi(N))  se izracunava iz ovog.",IDC_STATIC_TEXT,9,7,333,24
+    LTEXT           "Odaberite dva prosta broja p i q. Broj N = pq je javni RSA moduo i phi(N) = (p-1)(q-1) je Euler-ov broj. Javni kljuc e je prost broj broju phi(N). Privatni kljuc  d = e^(-1)  (mod phi(N))  se izracunava iz ovog.",IDC_STATIC_TEXT,9,7,333,24
     GROUPBOX        "Unos prostih brojeva",IDC_STATIC_PRIME,9,33,333,48
     LTEXT           "Prost broj p",IDC_STATIC_PRIME1,19,49,75,8
     EDITTEXT        IDC_EDIT_PRIME_P,100,48,128,12,ES_AUTOHSCROLL
@@ -22577,7 +22577,7 @@ BEGIN
     LTEXT           "Bitlänge des RSA-Moduls:",IDC_KEYASYM_TEXTRSA,33,40,108,8
     LTEXT           "Bitlänge der DSA-Primzahl:",IDC_KEYASYM_TEXTDSA,33,74,103,8
     LTEXT           "Bezeichner (Bitlänge und Kurvenparameter):",IDC_KEYASYM_TEXTEC,33,110,87,17,NOT WS_GROUP
-    LTEXT           "Das erzeugte Schlüsselpaar wird in einer ver- schlüsselten Datei (PSE) abgelegt. Durch Ihren PIN-Code wird das Schlüsselpaar geschützt:",IDC_STATIC,237,17,152,26
+    LTEXT           "Das erzeugte Schlüsselpaar wird in einer verschlüsselten Datei (PSE) abgelegt. Durch Ihren PIN-Code wird das Schlüsselpaar geschützt:",IDC_STATIC,237,17,152,26
     LTEXT           "Vorname:",IDC_STATIC,240,66,50,8
     LTEXT           "Schlüsselkennung:\n(Optional)",IDC_STATIC,240,89,64,20
     LTEXT           "PIN-Code:",IDC_STATIC,240,110,50,8
@@ -22931,7 +22931,7 @@ END
 
 IDD_CAESAR_ANALYSIS DIALOGEX 0, 0, 185, 145
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Automatische Caesaranalyse"
+CAPTION "Automatische Caesar-Analyse"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&Entschlüsseln",IDOK,7,121,58,17
@@ -23457,7 +23457,7 @@ BEGIN
     LTEXT           "Problemklasse ""Diskreter Logarithmus"":",IDC_STATIC,175,49,189,10
     LTEXT           "Problemklasse ""Elliptische Kurven Diskreter Logarithmus"":",IDC_STATIC,175,78,189,10
     GROUPBOX        "Punkt-Repräsentation",IDC_STATIC,267,90,105,40,BS_LEFT
-    LTEXT           "Wählen Sie zum Signieren  Ihren privaten Schlüssel:",IDC_STATIC,11,147,364,8
+    LTEXT           "Wählen Sie zum Signieren Ihren privaten Schlüssel:",IDC_STATIC,11,147,364,8
     GROUPBOX        "Aufgelistete Schlüsseltypen:",IDC_STATIC,11,270,106,68
     CONTROL         "RSA Schlüssel",IDC_CHECK_RSA_KEYS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,28,286,66,10
     CONTROL         "DSA Schlüssel",IDC_CHECK_DSA_KEYS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,28,301,66,10
@@ -23640,7 +23640,7 @@ BEGIN
     LTEXT           "Analyseergebnis: Die folgenden drei Zeilen enthalten Chiffrat, Eingabe bzw. Ergebnis der Häufigkeitsanalyse, ermittelter Klartext.",IDC_STATIC,6,233,419,8
     LTEXT           "Vermuteter Klartext:",IDC_STATIC,6,295,63,8
     SCROLLBAR       IDC_SCROLLBAR1,6,279,419,11
-    PUSHBUTTON      "&Synchronisiere  Analyseergebnis / Vermuteter Klartext",IDC_BUTTON6,132,328,180,19
+    PUSHBUTTON      "&Synchronisiere Analyseergebnis / Vermuteter Klartext",IDC_BUTTON6,132,328,180,19
     CONTROL         "Vermuteten Klartext anhand der Matrix aktualisieren",IDC_CHECK4,
                     "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,15,181,115,17
 END
@@ -23718,7 +23718,7 @@ BEGIN
     EDITTEXT        IDC_EDIT1,10,100,257,24,ES_MULTILINE
     DEFPUSHBUTTON   "&Starten",IDOK,10,133,68,17
     PUSHBUTTON      "&Abbrechen",IDCANCEL,199,133,68,17
-    LTEXT           "Sie könnnen den Suchraum einschränken, um die Suchzeit zu verkürzen. Geben Sie dazu bekannte Teile des Schlüssels hexadezimal ein, unbekannte mit <*>.",IDC_STATIC,10,10,257,17
+    LTEXT           "Sie können den Suchraum einschränken, um die Suchzeit zu verkürzen. Geben Sie dazu bekannte Teile des Schlüssels hexadezimal ein, unbekannte mit <*>.",IDC_STATIC,10,10,257,17
     LTEXT           "Beispiel:",IDC_STATIC,10,33,30,8
     LTEXT           "Schlüssellänge:",IDC_STATIC,10,86,50,8
     LTEXT           "Tipp:",IDC_STATIC,10,60,22,8
@@ -23828,7 +23828,7 @@ BEGIN
     EDITTEXT        IDC_HEADER3,19,334,353,10,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
     LTEXT           "Sie können mit Hilfe der Faktorisierung versuchen, den öffentlichen RSA-Modul N in seine Primfaktoren p und q zu faktorisieren.",IDC_RSA_MODE_FACTORISATION,19,85,257,30,NOT WS_VISIBLE
     PUSHBUTTON      "Button1",IDOK,204,377,37,15,NOT WS_VISIBLE
-    LTEXT           "Schlüssel d = e^(-1) (mod  phi(N)) berechnet.",IDC_STATIC,30,30,141,8
+    LTEXT           "Schlüssel d = e^(-1) (mod phi(N)) berechnet.",IDC_STATIC,30,30,141,8
 END
 
 IDD_KEY_HOMOPHONE DIALOGEX 0, 0, 394, 402
@@ -23893,7 +23893,7 @@ BEGIN
     LTEXT           "Die Berechnung der Elliptischen Kurve verwendet eine Zufallsfunktion. Sie können für den Zufall die ""Saat"" setzen.",IDC_STATIC,155,16,221,16
     LTEXT           "Saat",IDC_STATIC,155,38,16,8
     GROUPBOX        "Primzahl",IDC_STATIC,14,65,378,51
-    LTEXT           "Geben Sie eine Zahl ein (Beispiele: 24877, 2^{17-1}-1). \nFalls die eingegebene Zahl keine Primzahl ist, wird diese Zahl durch die nächst größere Primzahl ersetzt.",IDC_STATIC,29,77,347,18
+    LTEXT           "Geben Sie eine Zahl ein (Beispiele: 24877, 2^{17-1}-1). \nFalls die eingegebene Zahl keine Primzahl ist, wird diese Zahl durch die nächst-größere Primzahl ersetzt.",IDC_STATIC,29,77,347,18
     GROUPBOX        "Parameter der Elliptischen Kurve",IDC_STATIC,14,156,378,154
     LTEXT           "Domain-Parameter der erzeugten Elliptischen Kurve",IDC_STATIC,29,169,172,8
     GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,29,272,160,28
@@ -24048,11 +24048,11 @@ BEGIN
     EDITTEXT        IDC_EDIT1,95,38,148,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,95,55,148,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT3,95,73,148,12,ES_AUTOHSCROLL
-    LTEXT           "Der lineare Kongruenzgenerator hat als Parameter a und b der Geraden ax + b und den Modul N.\nWeitere Informationen erhalten Sie mit der Taste ""F1"".",IDC_STATIC,11,9,232,25
+    LTEXT           "Der lineare Kongruenzgenerator hat drei Parameter: a und b von der Geraden ax + b, und den Modul N.\nWeitere Informationen erhalten Sie mit der Taste ""F1"".",IDC_STATIC,11,9,232,25
     LTEXT           "Geraden-Parameter:",IDC_STATIC,11,39,64,10
     LTEXT           "a =",IDC_STATIC,82,39,11,8
     LTEXT           "b =",IDC_STATIC,81,56,10,8
-    LTEXT           "Modul  N =",IDC_STATIC,57,74,35,8
+    LTEXT           "Modul N =",IDC_STATIC,57,74,35,8
 END
 
 IDD_FACTORISATION_DEMO DIALOGEX 0, 0, 366, 338
@@ -24403,7 +24403,7 @@ BEGIN
     LTEXT           "Öffentlicher Schlüssel e",IDC_STATIC_RSA3,19,152,75,8,NOT WS_GROUP
     EDITTEXT        IDC_EDIT_RSA_KEY_PUBLIC,100,151,128,12,ES_AUTOHSCROLL | WS_DISABLED
     LTEXT           "Static",IDC_CHECK_PUBLIC,238,153,98,8
-    LTEXT           "Geheimer Schlüssel    d",IDC_STATIC_RSA4,19,169,75,8,NOT WS_GROUP
+    LTEXT           "Geheimer Schlüssel d",IDC_STATIC_RSA4,19,169,75,8,NOT WS_GROUP
     EDITTEXT        IDC_EDIT_RSA_KEY_PRIVATE,100,168,128,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     PUSHBUTTON      "Abbrechen",IDCANCEL,280,193,62,19
     DEFPUSHBUTTON   "Schlüssel übernehmen",IDOK,9,193,106,19,WS_DISABLED
@@ -25758,7 +25758,7 @@ BEGIN
     EDITTEXT        IDC_CRT_FACT3,6,107,175,12,ES_MULTILINE | ES_READONLY
     LTEXT           "4. Geheimnis (s) ist eine Zufallszahl zwischen 0 und w:",IDC_STATIC,190,97,176,8
     LTEXT           "5. Multiplikator (a) mit 0 <= a <= (min[k] / w):",IDC_STATIC,6,126,149,8
-    LTEXT           "6. Die Zahl  (s' = a*w+s) ist Basis für die Ermittlung der Passwörter: ",IDC_STATIC,6,173,222,8
+    LTEXT           "6. Die Zahl (s' = a*w+s) ist Basis für die Ermittlung der Passwörter: ",IDC_STATIC,6,173,222,8
     EDITTEXT        IDC_CRT_FACT6,6,184,360,30,ES_MULTILINE | ES_READONLY
     LTEXT           "7. Passwort_i wird nun durch (s' mod Kennung_i) ermittelt.",IDC_STATIC,6,223,229,10
 END
@@ -26251,7 +26251,7 @@ BEGIN
     PUSHBUTTON      "Nach Vorgabe",IDC_BUTTON6,38,140,70,14
     LTEXT           "Kartenanzahl:",IDC_STATIC,173,98,46,8,WS_DISABLED
     GROUPBOX        "Nach Vorgabe",IDC_STATIC,166,80,403,85,WS_DISABLED
-    LTEXT           "Aufgrund der Irreversibilität von Solitaire müssen an bestimmten Stellen der Rückwärtsrechnung\nEntscheidungen getroffen werden, wo der entsprechende Joker einzuordnen ist.  ",IDC_STATIC,229,191,354,18
+    LTEXT           "Aufgrund der Irreversibilität von Solitaire müssen an bestimmten Stellen der Rückwärtsrechnung\nEntscheidungen getroffen werden, wo der entsprechende Joker einzuordnen ist.",IDC_STATIC,229,191,354,18
     GROUPBOX        "3. Initial-Deck erzeugen",IDC_STATIC,11,222,581,88
     GROUPBOX        "4. Schlüsselstrom erzeugen",IDC_STATIC,11,314,581,67
     LTEXT           "Aus dem berechneten Initial-Deck kann dann wieder der nötige Schlüsselstrom berechnet werden.",IDC_STATIC,17,44,576,8
@@ -26465,7 +26465,7 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,141,126,50,14
     PUSHBUTTON      "Abbrechen",IDCANCEL,199,126,50,14
-    GROUPBOX        "Optionen zur Interpretation des Alphabetszeichens",IDC_STATIC,6,7,243,45
+    GROUPBOX        "Optionen zur Interpretation des Alphabetzeichens",IDC_STATIC,6,7,243,45
     CONTROL         "Wert des ersten Alphabetzeichens = 0 (z.B. ""A""=0)",IDC_RADIO3,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,18,22,179,10
     CONTROL         "Wert des ersten Alphabetzeichens = 1 (z.B. ""A""=1)",IDC_RADIO4,
@@ -26562,7 +26562,7 @@ BEGIN
     LTEXT           "100 % (128 Bits)",IDC_QUALITY_PGP,205,188,55,8
     CONTROL         "",IDC_PICTURE_QUALITY,"Static",SS_BLACKFRAME,272,175,25,25
     LTEXT           "Hier sind verschiedene Beispiele für Passwort-Qualitätsmesser aufgeführt, die Ihnen dabei helfen, die Sicherheit Ihres Passworts einzuschätzen.",IDC_STATIC,20,44,285,16
-    GROUPBOX        "Resistenz gegen Wörterbuch-Attacken  (bewertet nur die ersten 32 Zeichen)",IDC_STATIC,7,235,311,123
+    GROUPBOX        "Resistenz gegen Wörterbuch-Attacken (bewertet nur die ersten 32 Zeichen)",IDC_STATIC,7,235,311,123
     EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,247,285,103,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
     DEFPUSHBUTTON   "Passwort-Richtlinien",ID_CONFIGURE_PASSWORD_GUIDELINES,110,364,80,14
     CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",PBS_SMOOTH | WS_BORDER,68,206,130,8
@@ -30875,7 +30875,7 @@ BEGIN
     IDS_STRING_ERR_EC_FILE_UNSPECIFIED_CURVE_ID 
                             "In der Datei '%s' wird die Elliptische Kurve mit der Bezeichnung '%s' als Vorauswahl definiert.\nAllerdings ist eine Kurve mit dieser Bezeichnung nicht in der CURVE_ID_LIST spezifiziert!\nDaher gibt es keine Vorauswahl für den Elliptische Kurven ID."
     IDS_STRING_ERR_EC_FILE_READING 
-                            "Die Parameter für die Elliptische Kurve mit der ID-Kennung '%s'\nwurden aus der Datei '%s' eingelesen.\nAllerdings trat ein Fehler beim umwandeln der Strings in die Langzahlrepräsenation auf.\nDie gewählte Kurve kann daher NICHT initialisiert werden."
+                            "Die Parameter für die Elliptische Kurve mit der ID-Kennung '%s'\nwurden aus der Datei '%s' eingelesen.\nAllerdings trat beim Umwandeln der Strings in die Langzahlrepräsentation ein Fehler auf.\nDie gewählte Kurve kann daher NICHT initialisiert werden."
     IDS_STRING_ERR_EC_GEN_EC_KEY_PAIR 
                             "Fehler in der Methode CDlgEcKeysCreat::GenEcKeyPair().\nDer Aufruf von GenEcKeyPair() konnte nicht erfolgreich ausgeführt werden.\nEs kann kein Schlüsselpaar für die gewählte Kurve erzeugt werden."
     IDS_STRING_ERR_ON_KEY_GENERATION 
@@ -30940,7 +30940,7 @@ BEGIN
     IDS_STRING_MSG_SEARCHING_COMPLETE 
                             "Vollständige %d Bit-Suche zu %%d%%%% erledigt.\nRestzeit: %%s"
     IDS_STRING_MSG_AKS_TEST_COMPLETE 
-                            "%d  Bit AKS-Test zu %%d%%%% erledigt.\nRestzeit: %%s"
+                            "%d Bit AKS-Test zu %%d%%%% erledigt.\nRestzeit: %%s"
     IDS_STRING_MSG_AKS_TEST "AKS Test"
     IDS_STRING_AUTOMATIC_ANALYSE "%s-Analyse von <%s>, Schlüssel <%s>"
     IDS_STRING_MSG_SIGNED_MESSAGE_TO_BIG 
@@ -31311,7 +31311,7 @@ BEGIN
     IDS_STRING_NGRAM_LIST2  "Zeichenfolge"
     IDS_STRING_NGRAM_LIST3  "Häufigkeit in %"
     IDS_STRING_RAND_SECUDE  "Für den Pseudo-Zufallsgenerator der Firma Secude benötigen Sie keine weiteren Parameter.\r\nWeitere Informationen erhalten Sie in der Online-Hilfe (Taste ""F1"")."
-    IDS_SEEK_NEXT_PRIME     "Suche nächst größere Primzahl!"
+    IDS_SEEK_NEXT_PRIME     "Suche nächst-größere Primzahl!"
     IDS_HEADING_EMPTY_ECDOMAINPARAMETER 
                             "Hier werden die Domain-Parameter der spezifizierten Elliptischen Kurve angezeigt."
     IDS_TEXTOPTIONS_KEEP_UPPERCASE_LOWERCASE 
@@ -31643,7 +31643,7 @@ BEGIN
     IDS_RSADEMO_OBTAINED_SIGNATURE 
                             "Die Entschlüsselung (RSA-Exponentiation mit dem öffentlichen Schlüssel e) bestimmt den %s-Hashwert:"
     IDS_RSADEMO_COMPARE_HASHVALUES 
-                            "Die Nachricht hat den folgenden Hashwert. Dies entspricht %sdem entschlüsselten Hashwert oben.   %s"
+                            "Die Nachricht hat den folgenden Hashwert. Dies entspricht %s dem entschlüsselten Hashwert oben.   %s"
 END
 
 STRINGTABLE 
@@ -31798,7 +31798,7 @@ BEGIN
                             "Die Primzahlen p und q müssen verschieden sein!"
     IDS_STRING_ANZAHL_ZEICHEN "Anzahl Zeichen:        %i"
     IDS_STRING_BENOETIGTE_ZEIT_FAKT "Insgesamt benötigte Zeit:   %s"
-    IDS_STRING_PSEOPENERROR "Die PSE '%s' konnte nicht geöffnet werden.\n\nError code: %s"
+    IDS_STRING_PSEOPENERROR "Die PSE '%s' konnte nicht geöffnet werden.\n\nFehler-Code: %s"
     IDS_STRING_P12_CREAT_FAILED 
                             "PKCS#12-Struktur konnte nicht erzeugt werden."
     IDS_STRING_INPUT_PSEPIN "Bitte geben Sie die PSE-PIN ein."
@@ -31818,7 +31818,7 @@ BEGIN
                             "Die Eingabe enthält Zeichen, die nicht im eingestellten Alphabet enthalten sind!\nWenn Sie OK wählen, werden nur die im Alphabet enthaltenen Zeichen verschlüsselt (alle anderen Zeichen werden aus der Eingabe gelöscht)."
     IDS_STRING_HELPNAME     "CrypTool-de.chm"
     IDS_STRING_PLAYFAIR_ERRMSG121 
-                            "Bei der Playfairverschlüsselung mit Vorforamtierung werden doppelte Zeichen durch ein 'X' getrennt.\nBitte korrigieren"
+                            "Bei der Playfairverschlüsselung mit Vorformatierung werden doppelte Zeichen durch ein 'X' getrennt.\nBitte korrigieren."
     IDS_STRING_PLAYFAIR_ERRMSG122 
                             "Das Zeichen gehört nicht zum Alphabet der Playfairverschlüsselung.\nBitte korrigieren."
     IDS_STRING_FMT_HRS      " %2i:%02.2i:%02.2i Stunden."
@@ -32024,7 +32024,7 @@ STRINGTABLE
 BEGIN
     IDS_RSADEMO_VERIFY      "Verifizieren"
     IDS_RSADEMO_NOT         "nicht "
-    IDS_ANALYSIS_SUBSTITUTION "Substitution analysis"
+    IDS_ANALYSIS_SUBSTITUTION "Substitutionsanalyse"
     IDS_RSADEMO_NUMBERS_BIGGER_THAN_N 
                             "Mindestens eine Zahl der Eingabe ist größer oder gleich als die Größe des RSA-Moduls N\n(die RSA-Exponentiation ist für Zahlen größer oder gleich N nicht eindeutig)!\n\nBitte überprüfen Sie die Eingabe."
     IDS_NORSAKEY_AVAILABLE  "Es steht kein RSA-Schlüssel zur Verfügung!\nSie können sich im folgenden Dialog einen neuen erzeugen."
@@ -32127,7 +32127,7 @@ BEGIN
     IDS_SCA_PSE_WRONG_PIN   "Die von Ihnen eingegebene PIN ist falsch!"
     IDS_SCA_PSE_PIN_EXTRACTION_ERROR 
                             "Bei der Verifikation der PIN ist ein Fehler aufgetreten!"
-    IDS_SCA_PSE_IS_NEEDED   "Ohne Eingabe der PIN könne Sie die Visualisierung nicht fortsetzen!"
+    IDS_SCA_PSE_IS_NEEDED   "Ohne Eingabe der PIN können Sie die Visualisierung nicht fortsetzen!"
     IDS_SCA_PSE_OTHER_ERROR "Es ist ein interner Fehler aufgetreten!"
     IDS_SCA_SERVER_ANSWER   "Entschlüsselung:"
     IDS_SCA_SERVER_RECEIVEDSESSIONKEYHEX 
@@ -32233,7 +32233,7 @@ BEGIN
     IDS_SCA_REPORT_TRUDYINTERCEPTEDMESSAGE 
                             "Trudy fängt die hybridverschlüsselte Datei ab und isoliert den darin enthaltenen, verschlüsselten Sessionkey S:\n"
     IDS_SCA_REPORT_TRUDYMODIFIEDSESSIONKEYS 
-                            "Sie schickt eine exaktes Abbild der ursprünglichen, verschlüsselten Nachricht an Bob und ergänzt dieses mit dem (mit dem Public-Key von Bob verschlüsselten) Sessionkey S'. Im Vergleich zur Nachricht, die Alice sandte, tauscht sie also lediglich den verschlüsselten Sessionkey aus [ENC(S, PubKeyBob) wird durch ENC(S', PubKeyBob) ersetzt]."
+                            "Sie schickt ein exaktes Abbild der ursprünglichen, verschlüsselten Nachricht an Bob und ergänzt dieses mit dem (mit dem Public-Key von Bob verschlüsselten) Sessionkey S'. Im Vergleich zur Nachricht, die Alice sandte, tauscht sie also lediglich den verschlüsselten Sessionkey aus [ENC(S, PubKeyBob) wird durch ENC(S', PubKeyBob) ersetzt]."
     IDS_SCA_REPORT_HEADINGPREPARATIONS "I. TREFFEN NÖTIGER VORBEREITUNGEN\n\n"
 END
 
@@ -32357,7 +32357,7 @@ BEGIN
     IDS_RSA_SM_WRONGN       "Geben Sie bitte für ""Bitlänge von N"" eine ganze Zahl größer als 10 ein."
     IDS_RSA_SM_PLEASEHIGHLIGHT "Bitte markieren Sie einen Teil des Textes."
     IDS_RSA_SM_ALLKNOWN     "Da Sie nichts markiert haben, kennt der Angreifer schon den gesamten Klartext."
-    IDS_RSA_SM_MAXCHAR      "Mit dem eingegebenen RSA-Modulus können maximal %d Zeichen mit einem Block verschlüsselt werden."
+    IDS_RSA_SM_MAXCHAR      "Mit dem eingegebenen RSA-Modul können maximal %d Zeichen mit einem Block verschlüsselt werden."
     IDS_STRING_PROGRESS     "%d%% erledigt\n%s Restzeit"
 END
 
@@ -32446,9 +32446,9 @@ BEGIN
     IDS_BASE64_FILE_OPEN_ERROR "Fehler beim Öffnen der Datei: <%s>"
     IDS_BASE64_FILE_WRITE_ERROR "Fehler beim schreiben in die Datei: %s"
     IDS_BASE64_DECODE_PREMATURE_END 
-                            "Es wurde ein ""="" gefunden vor Ende des Textes.Stelle:%u \nDie Decodierung wurde abgebrochen!"
+                            "Es wurde ein ""="" gefunden vor Ende des Textes. Stelle:%u \nDie Decodierung wurde abgebrochen!"
     IDS_BASE64_DECODE_MISSING_CHARS 
-                            "Fehlerhafter Base64-Code.Der letzte Block ist nicht vollständig (nur %u Byte statt 4 Byte). Damitist die Decodierung nicht mehr eindeutig."
+                            "Fehlerhafter Base64-Code.Der letzte Block ist nicht vollständig (nur %u Byte statt 4 Byte). Damit ist die Decodierung nicht mehr eindeutig."
     IDS_STRING_MSG_BASE64DEC_OF "Base64 Decodierung von <%s>"
     IDS_STRING_MSG_BASE64ENC_OF "Base64 Codierung von <%s>"
     IDS_BYTES               "Bytes"
@@ -32545,9 +32545,9 @@ BEGIN
     IDS_CRT_SECRETSHARING_FINISH 
                             "\r\n----- Berechnung der Kennungen und Passwörter abgeschlossen -----\r\n\r\n"
     IDS_CRT_SECRETSHARING_EQUALPRIMES 
-                            "Bei der zufälligen Erzeugung der Primzahlen für die %d Kennungen sind Primzahlen doppelt aufgetreten.\r\nFür die Anwendung des Chinesischen Restsatzes müssen die Kennungen jedoch alle verschieden sein.\r\nBitte drücken Sie (evtl. mehrfach) erneut den Button 'Berechnen' oder erhöhen Sie den Wertebereich im Optionendialog.\r\n"
+                            "Bei der zufälligen Erzeugung der Primzahlen für die %d Kennungen sind Primzahlen doppelt aufgetreten.\r\nFür die Anwendung des Chinesischen Restsatzes müssen die Kennungen jedoch alle verschieden sein.\r\nBitte drücken Sie (evtl. mehrfach) erneut den Button 'Berechnen' oder erhöhen Sie den Wertebereich im Optionen-Dialog.\r\n"
     IDS_CRT_SECRETSHARING_GENERATEPRIME 
-                            "Die Demonstration unterstützt nur Primzahlen der Bitlänge kleiner 109.\r\nDas sind Zahlen mit höchstens 33 Dezimalstellen.\r\nBitte verringern Sie den Wertebereich im Optionendialog."
+                            "Die Demonstration unterstützt nur Primzahlen der Bitlänge kleiner 109.\r\nDas sind Zahlen mit höchstens 33 Dezimalstellen.\r\nBitte verringern Sie den Wertebereich im Optionen-Dialog."
     IDS_CRT_SECRETSHARING_REK1 "----- Rekonstruktion beginnt -----\r\n\r\n"
 END
 
@@ -32556,7 +32556,7 @@ BEGIN
     IDS_CRT_SECRETSHARING_REK2 
                             "Bitte geben Sie in der Gruppierung 'Rekonstruktion des Geheimnisses' mindestens %d richtige Schlüssel ein!"
     IDS_CRT_SECRETSHARING_REK3 
-                            "Kein Schlüssel angegeben.\r\n\r\n----- Rekonstuktion gescheitert -----\r\n\r\n"
+                            "Kein Schlüssel angegeben.\r\n\r\n----- Rekonstruktion gescheitert -----\r\n\r\n"
     IDS_CRT_SECRETSHARING_REK4 
                             "Die Schlüssel werden zusammengefügt.\r\n\r\nNachdem Sie OK klicken, bekommen Sie das Ergebnis (Geheimnis) angezeigt."
     IDS_CRT_SECRETSHARING_REK5 "Benutze Passwörter zu den %d Kennungen  "
@@ -32604,7 +32604,7 @@ BEGIN
     IDS_CRT_SECRETSHARING_LOGTITLE 
                             "Secret-Sharing mittels CRT: Log-Datei anzeigen"
     IDS_CRT_SECRETSHARING_LOGWRITTEN 
-                            "Log-Datei wurde erfolgreich in das CrypTool-Hauptfenter geschrieben."
+                            "Die Log-Datei wurde erfolgreich in das CrypTool-Hauptfenster geschrieben."
     ID_EINZELVERFAHREN_SECRETSHARINGDEMO 
                             "Visualisiert das (t, n)-Schwellenwertverfahren nach Shamir"
     IDS_STRING_MEMBER       "Teilnehmer"
@@ -32866,7 +32866,7 @@ BEGIN
     IDS_RSA_BM_CHECKN       "Bitte überprüfe den Wert des RSA-Moduls N"
     IDS_RSA_BM_CHECKE       "Bitte überprüfe den Wert des öffentlichen Exponenten e"
     IDS_RSA_BM_CHECKD       "Bitte überprüfe den Wert der Schätzung des geheimen Exponenten d"
-    IDS_HILL_DUMP           "Hill-Ver-/Entschlüsselung:\n\nDiese Detailbeschreibung der Hill-Verschlüsselung hat folgende Teile: \n 1. Alphabet-Codierung in Zahlen\n 2. Verschlüsselungsparameter und Eigenschaften\n 3. Hill-Verschlüsselung\n 4. Hill-Entschlüsselung\n \nDiese Log-Datei zeigt alle Ver-/Entschlüsselungs-Berechnungen mit der gegenwärtigen Hill Schlüssel-Matrix und den ersten Zeichen der gewählten Nachricht.\n\n\n1. Alphabet-Codierung in Zahlen:\n\nDas aktuell im Menü ""Optionen / Textoptionen"" gewählte Alphabet und dessen Codierung in Zahlen lautet:\n \n%ALPHABET_MAPPING%\n \nDas aktuelle Alphabet besteht aus %ALPHABET_SIZE% Zeichen. Der erste Alphabetbuchstabe hat den Zahlenwert %ALPHABET_CODING_OFFSET%.\n\n\n2. Verschlüsselungsparameter und Eigenschaften:\n\nDie Ver- und Entschlüsselung ist unten beispielhaft durchgerechnet für die %HILL_DIMENSION% ersten Buchstaben aus dem Klartext, die zum Alphabet gehören.\n\nHier die Parameter der ausgewählten Hill-Verschlüsselung:\n  o Zur Ver- bzw. Entschlüsselung wird die Hill-Matrix mit einem %HILL_MULTIPLICATION_TYPE% multipliziert.\n  o Die gewählte Hill-Matrix hat die Dimension %HILL_DIMENSION%x%HILL_DIMENSION%.\n  o Der Klartext besteht aus %HILL_PLAINTEXT_SIZE% Buchstaben. Davon sind %HILL_NON_ALPHABET_CHARS% Nichtalphabetzeichen (Nichtalphabetzeichen werden ignoriert). Wenn das Alphabet nur Großbuchstaben enthält, werden die entsprechenden Kleinbuchstaben aber ebenfalls verschlüsselt; nicht umgekehrt.  Die Ver- und Entschlüsselung ist unten beispielhaft durchgerechnet für die %HILL_DIMENSION% ersten Buchstaben aus dem Klartext, die zum Alphabet gehören.\n \n\n3. Hill-Verschlüsselung:\n\nDie gewählte Hill-Matrix zum Verschlüsseln ist:\n \n%HILL_ENCRYPTION_TEXTMATRIX%\n \nDiese Matrix codiert in Zahlen:\n \n%HILL_ENCRYPTION_INTMATRIX%\n \nVerschlüsselung des Klartextes: ""%PLAINTEXT%"": \nKlartext(engl. Plaintext)-Vektor P codiert in Zahlen: %HILL_PLAINTEXT_VECTOR%\n \nBerechnung der Hill-Chiffrierung durch das %HILL_VECTOR_MATRIX_MULTTYPE% (der Vektor P[n] ist ein %HILL_VECTORTYPE%): \n%HILL_ENCRYPTION%\n \nDer Hill-Geheimtext lautet: ""%CIPHERTEXT%"". \n\n\n4. Hill-Entschlüsselung:\n\nDie inverse Hill-Matrix zum Entschlüsseln ist: \n%HILL_DECRYPTION_TEXTMATRIX%\n \nDiese Matrix codiert in Zahlen: \n%HILL_DECRYPTION_INTMATRIX%\n \nEntschlüsselung des Geheimtextes: ""%CIPHERTEXT%"": \nGeheimtext-Vektor C codiert in Zahlen: \n%HILL_CIPHERTEXT_VECTOR%\n \nBerechnung der Hill-Dechiffrierung durch das %HILL_VECTOR_MATRIX_MULTTYPE% (der Vektor C[n] ist ein %HILL_VECTORTYPE%): \n%HILL_DECRYPTION%\n \nDer Hill-Klartext lautet: ""%PLAINTEXT%"". \n\n\n"
+    IDS_HILL_DUMP           "Hill-Ver-/Entschlüsselung:\n\nDiese Detailbeschreibung der Hill-Verschlüsselung hat folgende Teile: \n 1. Alphabet-Codierung in Zahlen\n 2. Verschlüsselungsparameter und Eigenschaften\n 3. Hill-Verschlüsselung\n 4. Hill-Entschlüsselung\n \nDiese Log-Datei zeigt alle Ver-/Entschlüsselungs-Berechnungen mit der gegenwärtigen Hill Schlüssel-Matrix und den ersten Zeichen der gewählten Nachricht.\n\n\n1. Alphabet-Codierung in Zahlen:\n\nDas aktuell im Menü ""Optionen / Textoptionen"" gewählte Alphabet und dessen Codierung in Zahlen lautet:\n \n%ALPHABET_MAPPING%\n \nDas aktuelle Alphabet besteht aus %ALPHABET_SIZE% Zeichen. Der erste Alphabet-Buchstabe hat den Zahlenwert %ALPHABET_CODING_OFFSET%.\n\n\n2. Verschlüsselungsparameter und Eigenschaften:\n\nDie Ver- und Entschlüsselung ist unten beispielhaft durchgerechnet für die %HILL_DIMENSION% ersten Buchstaben aus dem Klartext, die zum Alphabet gehören.\n\nHier die Parameter der ausgewählten Hill-Verschlüsselung:\n  o Zur Ver- bzw. Entschlüsselung wird die Hill-Matrix mit einem %HILL_MULTIPLICATION_TYPE% multipliziert.\n  o Die gewählte Hill-Matrix hat die Dimension %HILL_DIMENSION%x%HILL_DIMENSION%.\n  o Der Klartext besteht aus %HILL_PLAINTEXT_SIZE% Buchstaben. Davon sind %HILL_NON_ALPHABET_CHARS% Nichtalphabetzeichen (Nichtalphabetzeichen werden ignoriert). Wenn das Alphabet nur Großbuchstaben enthält, werden die entsprechenden Kleinbuchstaben aber ebenfalls verschlüsselt; nicht umgekehrt.  Die Ver- und Entschlüsselung ist unten beispielhaft durchgerechnet für die %HILL_DIMENSION% ersten Buchstaben aus dem Klartext, die zum Alphabet gehören.\n \n\n3. Hill-Verschlüsselung:\n\nDie gewählte Hill-Matrix zum Verschlüsseln ist:\n \n%HILL_ENCRYPTION_TEXTMATRIX%\n \nDiese Matrix codiert in Zahlen:\n \n%HILL_ENCRYPTION_INTMATRIX%\n \nVerschlüsselung des Klartextes: ""%PLAINTEXT%"": \nKlartext(engl. Plaintext)-Vektor P codiert in Zahlen: %HILL_PLAINTEXT_VECTOR%\n \nBerechnung der Hill-Chiffrierung durch das %HILL_VECTOR_MATRIX_MULTTYPE% (der Vektor P[n] ist ein %HILL_VECTORTYPE%): \n%HILL_ENCRYPTION%\n \nDer Hill-Geheimtext lautet: ""%CIPHERTEXT%"". \n\n\n4. Hill-Entschlüsselung:\n\nDie inverse Hill-Matrix zum Entschlüsseln ist: \n%HILL_DECRYPTION_TEXTMATRIX%\n \nDiese Matrix codiert in Zahlen: \n%HILL_DECRYPTION_INTMATRIX%\n \nEntschlüsselung des Geheimtextes: ""%CIPHERTEXT%"": \nGeheimtext-Vektor C codiert in Zahlen: \n%HILL_CIPHERTEXT_VECTOR%\n \nBerechnung der Hill-Dechiffrierung durch das %HILL_VECTOR_MATRIX_MULTTYPE% (der Vektor C[n] ist ein %HILL_VECTORTYPE%): \n%HILL_DECRYPTION%\n \nDer Hill-Klartext lautet: ""%PLAINTEXT%"". \n\n\n"
     IDS_HILL_MULTIPLICATION_TYPE_LEFT "Zeilenvektor von links"
     IDS_HILL_MULTIPLICATION_TYPE_RIGHT "Spaltenvektor von rechts"
     IDS_HILL_VECTORTYPE_ROW "Zeilenvektor"
@@ -32912,7 +32912,7 @@ STRINGTABLE
 BEGIN
     IDS_FINDANDREPLACE_NOREGULAREXPRESSIONS_IN_HEX 
                             "Die Suche nach regulären Ausdrücken ist für hexadezimale Daten nicht verfügbar."
-    IDS_STRING_ADFGVX_OPTION_BACK "- den Eigabevorgang erneut vornehmen."
+    IDS_STRING_ADFGVX_OPTION_BACK "- den Eingabevorgang erneut vornehmen."
     IDS_STRING_ADFGVX_OPTION_CONTINUE 
                             "\n\nSie können nun entweder\n- mit dem verkürzten Transpositionspasswort die Verschlüsselung fortsetzen oder\n"
     IDS_CLIPBORD_COPY_ERROR "Fehler beim Kopieren in die Zwischenablage."
@@ -32965,10 +32965,10 @@ BEGIN
     IDS_ECIES_ENC_TIME      "Für die ECC-AES-Verschlüsselung benötigte Zeit: %s Sekunden."
     IDS_ECIES_DEC_TIME      "Für die ECC-AES-Entschlüsselung benötigte Zeit: %s Sekunden."
     IDS_ECIES_HEADER_01     "Sender:"
-    IDS_ECIES_HEADER_02     "Empfaenger:"
+    IDS_ECIES_HEADER_02     "Empfänger:"
     IDS_ECIES_HEADER_03     "|Kurvenidentifikation:"
-    IDS_ECIES_HEADER_04     "|Laenge des ECIES-verschluesselten AES-Sessionkeys:"
-    IDS_ECIES_HEADER_05     "Byte|Laenge des Geheimtextes:"
+    IDS_ECIES_HEADER_04     "|Länge des ECIES-verschlüsselten AES-Sessionkeys:"
+    IDS_ECIES_HEADER_05     "Byte|Länge des Geheimtextes:"
     IDS_ECIES_HEADER_07     "|AES-Geheimtext:"
     IDS_ERROPEN_ECCDemo     "Die ECC-Demo kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob die ECC-Demo installiert wurde."
     IDS_ECIES_DIFFERING_CURVES 
@@ -32988,9 +32988,9 @@ BEGIN
     IDS_ECIES_ENC_ERROR_12  "Der Senderschlüssel ist fehlerhaft!"
     IDS_ECIES_ENC_ERROR_21  "Der Empfängerschlüssel benutzt keine elliptische Kurve nach ANSI-Standard!"
     IDS_ECIES_ENC_ERROR_22  "Der Empfängerschlüssel ist fehlerhaft!"
-    IDS_ECIES_HEADER_06     "Byte|ECIES-verschluesselter AES-Sessionkey:"
+    IDS_ECIES_HEADER_06     "Byte|ECIES-verschlüsselter AES-Sessionkey:"
     IDS_ECIES_DEC_ERROR_01  "Die Entschlüsselung war nicht erfolgreich.\nDie Datei hat ein falsches Format, eventuell ist der Header beschädigt."
-    IDS_ECIES_DEC_ERROR_02  "Die Entschlüsselung war nicht erfolgreich,da der AES-Sessionkey beschädigt ist."
+    IDS_ECIES_DEC_ERROR_02  "Die Entschlüsselung war nicht erfolgreich, da der AES-Sessionkey beschädigt ist."
     IDS_ECIES_DEC_ERROR_03  "Die Entschlüsselung war nicht erfolgreich, da der AES-Geheimtext beschädigt ist."
     IDS_ECIES_DEC_ERROR_42  "Die Entschlüsselung war nicht erfolgreich.\nEs wurde ein falscher Schlüssel zum Entschlüsseln benutzt."
     IDS_ECIES_DEC_ERROR_05  "Der AES-Geheimtext konnte nicht mit dem AES-Sessionkey entschlüsselt werden.\nEventuell ist einer der beiden oder beide beschädigt."
@@ -33001,14 +33001,14 @@ BEGIN
     IDS_AESDEMO_EXEC_STR    "Rijndael-Animation.exe"
     IDS_INTERACTIVE_NUMBER_THEORY_EXEC "ZT.exe"
     IDS_ERROPEN_INTERACTIVE_NUMBER_THEORY 
-                            "Das Lerntool zur Zahlentheorie kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob das Programm ZT.exe im CrypTool Heimatverzeichnis installiert wurde\n(""%s"")."
+                            "Das Lernprogramm zur Zahlentheorie kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob das Programm ZT.exe im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
     IDS_ENIGMA_FLASH        "Enigma_de.exe"
     IDS_ERROPEN_ENIGMA_FLASH 
                             "Die Enigma Flash-Demonstration kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob das Programm Enigma_de.exe im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
-    IDS_NO_ITEM_SELECTED    "Bitte selektieren Sie einen Entschlüsselungskandidaten, oder\nwählen Sie ""Abbrechen"" in der Maske mit den Analyseergebnissen, wenn der Angriff nicht erfolgreich war."
+    IDS_NO_ITEM_SELECTED    "Bitte selektieren Sie einen Entschlüsselungskandidaten, oder\nwählen Sie ""Abbrechen"" in der Maske mit den Analyse-Ergebnissen, wenn der Angriff nicht erfolgreich war."
     IDS_DECRYPTION_HEADER   "Entschlüsselung"
     IDS_DECRYPTION_HEADER_HEX_DUMP "Entschlüsselung: Hex-Dump"
-    IDS_ERR_ON_OPEN_INFILE  "Fehler: kann Eingabedatei nicht öffenen!%n%1"
+    IDS_ERR_ON_OPEN_INFILE  "Fehler: kann Eingabedatei nicht öffnen!%n%1"
     IDS_ERR_ON_OPEN_OUTFILE "Fehler: kann Ausgabedatei nicht öffnen!%n%1"
     IDS_ERR_ON_ALLOC_MEMORY "Fehler: kann Speicher nicht allokieren!%n%1"
     IDS_ERR_ON_SYMCRYPT     "Fehler: bei der symmetrischen Ver- oder Entschlüsselung!%n%1"
@@ -33036,7 +33036,7 @@ BEGIN
                             "Bitte stellen Sie sicher, dass Sie\n- die gewünschte Passwort-Entropie und\n- das gewünschte Passwort-Alphabet\nangegeben haben."
     IDS_CANT_UNDO           "Die letzte Änderung konnte nicht rückgängig gemacht werden.\n\nGeben Sie Speicher frei und versuchen Sie es erneut."
     IDS_CANT_REDO           "Die zuletzt rückgängig gemachte Änderung konnte nicht wiederhergestellt werden.\n\nGeben Sie Speicher frei und versuchen Sie es erneut."
-    IDS_CANT_SAVE_UNDO      "Konnt keine Informationen speichern, um die Textänderung später rückgängig machen zu können."
+    IDS_CANT_SAVE_UNDO      "Es konnt keine Information gespeichert werden, um die Textänderung später rückgängig machen zu können."
     IDS_FIND_AND_REPLACE_NULL_BYTE_IN_FIND_STRING 
                             "Das eingegebene Suchmuster enthält ein Null-Byte.\nBeachten Sie, dass die Suche nach Null-Bytes nur in Hex-Dokumenten möglich ist."
     IDS_FIND_AND_REPLACE_NULL_BYTE_IN_REPLACE_STRING 
@@ -33119,7 +33119,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_ASYMKEY_ERR_CERT_SERIAL_EXISTS 
-                            "Das Zertfikat kann nicht importiert werden, da bereits eines mit der gleichen Seriennummber vorhanden ist."
+                            "Das Zertifikat kann nicht importiert werden, da bereits eines mit der gleichen Seriennummer vorhanden ist."
     IDS_STRING_ADFGVX_PASSWORD_EMPTY_REPEAT_INPUT_PROCESS 
                             "Das Passwort enthält keine gültigen Zeichen. Bitte wiederholen Sie die Eingabe."
     IDS_STRING_JAVA_JRE_NOT_INSTALLED 
@@ -34684,7 +34684,7 @@ BEGIN
     EDITTEXT        IDC_LIST,6,243,418,36,ES_MULTILINE | ES_UPPERCASE | ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN
     LTEXT           "Password:",IDC_STATIC,6,3,32,8
     LTEXT           "Letter information",IDC_STATIC,147,3,187,8
-    PUSHBUTTON      "&Generate matix",IDC_BUTTON5,38,201,72,19
+    PUSHBUTTON      "&Generate matrix",IDC_BUTTON5,38,201,72,19
     LTEXT           "Analysis result: The following three rows contain ciphertext, input or result of the frequency analysis, found plaintext.",IDC_STATIC,6,233,407,8
     LTEXT           "Expected plaintext:",IDC_STATIC,7,295,85,8
     SCROLLBAR       IDC_SCROLLBAR1,6,281,418,11
@@ -34766,7 +34766,7 @@ BEGIN
     EDITTEXT        IDC_EDIT1,10,97,257,24,ES_MULTILINE
     DEFPUSHBUTTON   "&Start",IDOK,10,131,68,17
     PUSHBUTTON      "&Cancel",IDCANCEL,199,131,68,17
-    LTEXT           "The search space can be limited in order to reduce the search time. To do this enter known parts of the key in hexadecimal notation, unknown as <*>.",IDC_STATIC,10,10,257,16
+    LTEXT           "The search space can be limited in order to reduce the search time. To do this, enter known parts of the key in hexadecimal notation, unknown as <*>.",IDC_STATIC,10,10,257,16
     LTEXT           "Example:",IDC_STATIC,10,33,29,8
     LTEXT           "Key length:",IDC_STATIC,10,82,36,8
     LTEXT           "Hint:",IDC_STATIC,10,57,22,8
@@ -35212,7 +35212,7 @@ BEGIN
     EDITTEXT        IDC_EDIT2,59,77,126,12,ES_AUTOHSCROLL
     LTEXT           "prime P = ",IDC_STATIC_GPP,25,95,31,10,SS_NOTIFY
     EDITTEXT        IDC_EDIT3,59,94,126,12,ES_AUTOHSCROLL
-    LTEXT           "Bit&length of the prime P:",IDC_STATIC_GPL,198,58,76,8,SS_NOTIFY
+    LTEXT           "Bit &length of the prime P:",IDC_STATIC_GPL,198,58,76,8,SS_NOTIFY
     EDITTEXT        IDC_EDIT4,198,68,49,14,ES_AUTOHSCROLL
     PUSHBUTTON      "&generate prime",IDC_PRIMBUTTON,198,87,79,20,BS_MULTILINE
 END
@@ -35450,7 +35450,7 @@ BEGIN
     LTEXT           "Input number:",IDC_STATIC,7,7,47,10
     EDITTEXT        IDC_EDIT1,7,19,369,12,ES_AUTOHSCROLL | ES_READONLY
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,7,41,368,155
-    GROUPBOX        "Information on the selected factorization (select by doubleclick on the row)",IDC_STATIC,7,205,369,108
+    GROUPBOX        "Information on the selected factorization (select by double-click on the row)",IDC_STATIC,7,205,369,108
     LTEXT           "Factorized number:",IDC_STATIC,18,218,73,8
     EDITTEXT        IDC_EDIT2,18,229,348,12,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "First factor:",IDC_STATIC,18,248,57,8
@@ -35493,7 +35493,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Generate RSA Key"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    LTEXT           "Choose two prime numbers p and q. The number N = pq is the public RSA modulus and phi(N) = (p-1)(q-1) is the Euler phi function. Public key e is coprime to phi(N). The private key  d = e^(-1)  (mod  phi(N))  is calculated from this.",IDC_STATIC_TEXT,9,7,333,24
+    LTEXT           "Choose two prime numbers p and q. The number N = pq is the public RSA modulus and phi(N) = (p-1)(q-1) is the Euler phi function. Public key e is coprime to phi(N). The private key  d = e^(-1)  (mod phi(N))  is calculated from this.",IDC_STATIC_TEXT,9,7,333,24
     GROUPBOX        "Prime number entry",IDC_STATIC_PRIME,9,33,333,48
     LTEXT           "Prime number p",IDC_STATIC_PRIME1,19,49,75,8
     EDITTEXT        IDC_EDIT_PRIME_P,100,48,128,12,ES_AUTOHSCROLL
@@ -35707,7 +35707,7 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,80,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,143,80,50,14
-    LTEXT           "After clicking the 'OK' button you will be promted for the public parameters of the Diffie-Hellman key exchange protocol, that is the prime module (p) and the generator (g).",IDC_STATIC,7,37,186,24,NOT WS_GROUP
+    LTEXT           "After clicking the 'OK' button you will be prompted for the public parameters of the Diffie-Hellman key exchange protocol, that is the prime module (p) and the generator (g).",IDC_STATIC,7,37,186,24,NOT WS_GROUP
     LTEXT           "Static",IDC_HEADING,7,7,186,16
 END
 
@@ -35914,7 +35914,7 @@ BEGIN
     CONTROL         "&Insert blanks",IDC_METHOD,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,88,56,10
     CONTROL         "&Attach characters",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,29,123,72,10
     CONTROL         "In front of &end of line",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,135,88,81,10
-    CONTROL         "&Double Blanks",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,135,104,62,10
+    CONTROL         "&Double blanks",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,135,104,62,10
     CONTROL         "&Printable characters (demonstration)",IDC_RADIO3,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,135,123,129,10
     CONTROL         "&Unprintable characters",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,135,139,87,10
@@ -35976,7 +35976,7 @@ BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,127,50,14
     LTEXT           "Trudy intercepted the message that Alice sent to Bob.",IDC_STATIC,7,7,226,8
     LTEXT           "Having intercepted the encrypted message does not mean that Alice is able to understand it, because she does not know the private key of Bob.",IDC_STATIC,7,23,226,24
-    LTEXT           "But Bob's private key is necessary to compute the secret session key out of the encrypted message. Because Trudy doesn't know Bob's private key, she starts a side-channel attack against the implemented protocol.",IDC_STATIC,7,55,226,32
+    LTEXT           "But Bob's private key is necessary to compute the secret session key out of the encrypted message. Because Trudy doesn't know Bob's private key she starts a side-channel attack against the implemented protocol.",IDC_STATIC,7,55,226,32
     PUSHBUTTON      "&Cancel",IDCANCEL,183,127,50,14
     LTEXT           "Please click the OK button to start Trudy's attack cycle against Bob's server.",IDC_STATIC,7,95,226,16
 END
@@ -36167,7 +36167,7 @@ BEGIN
     EDITTEXT        IDC_EDITREDUCTIONS,377,384,66,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "The parameter h determines the Dimension of the Lattice and the maximal possible length of the unknown part.",IDC_STATIC,15,362,179,19
     LTEXT           "Solution:",IDC_STATIC,336,405,28,8
-    PUSHBUTTON      "Show logfile",IDC_BUTTONLOG,292,431,66,14
+    PUSHBUTTON      "Show log file",IDC_BUTTONLOG,292,431,66,14
     LTEXT           "Desired bit length of N:",IDC_STATIC5,16,80,72,8
     LTEXT           "Start by providing the public key (enter it or let it be generated).",IDC_STATIC,14,38,196,8
     CONTROL         "The ciphertext and a part of the plaintext are known.",IDC_RADIOCHOICE,
@@ -36298,8 +36298,8 @@ BEGIN
     PUSHBUTTON      "Cancel",IDCANCELATTACK,365,305,48,14,WS_DISABLED
     EDITTEXT        IDC_EDITFACTORP,28,375,180,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDITFACTORQ,235,375,178,14,ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "Show Logfile",IDC_BUTTONLOG,272,406,66,16
-    PUSHBUTTON      "Close Dialog",IDC_BUTTONCLOSE,362,406,57,16
+    PUSHBUTTON      "Show log file",IDC_BUTTONLOG,272,406,66,16
+    PUSHBUTTON      "Close dialog",IDC_BUTTONCLOSE,362,406,57,16
     LTEXT           "N:",IDC_STATIC,18,118,8,8
     LTEXT           "P:",IDC_STATIC,13,192,14,8
     LTEXT           "Bit length of P:",IDC_STATIC,312,171,46,8,0,WS_EX_RIGHT
@@ -36315,7 +36315,7 @@ BEGIN
     LTEXT           "Reducing lattice:",IDC_STATIC,17,308,61,8
     LTEXT           "Overall time:",IDC_STATIC,17,340,61,10
     LTEXT           "Found solution:",IDC_STATIC,17,364,83,8
-    LTEXT           "Lattice-Dimension:",IDC_STATIC,208,308,70,8
+    LTEXT           "Lattice dimension:",IDC_STATIC,208,308,70,8
     LTEXT           "Needed bits (n/4+1):",IDC_STATIC,207,291,67,8
     LTEXT           "Reductions:",IDC_STATIC,17,324,61,10
     RTEXT           "Bit length of p:",IDC_STATIC,310,129,48,8
@@ -36831,7 +36831,7 @@ BEGIN
                     "Button",BS_AUTORADIOBUTTON,18,117,256,15
     LTEXT           "This method is based on a list of the most frequent words of a particular language. The words of the ciphertext are compared (according to their pattern) with the words of the list.",IDC_STATIC,30,132,265,28
     GROUPBOX        "Please choose between the following algorithms:",IDC_STATIC,7,5,304,210,WS_GROUP
-    LTEXT           "This method analyses the frequency of digrams in the cyphertext and guesses the key based on a standard digram distribution.",IDC_STATIC,30,35,251,19
+    LTEXT           "This method analyses the frequency of digrams in the ciphertext and guesses the key based on a standard digram distribution.",IDC_STATIC,30,35,251,19
     LTEXT           "The method is suited best for longer texts.\nAutomatic language recognition is included. Processing of texts that do not contain space characters is also possible.",IDC_STATIC,30,54,251,29
     LTEXT           "Source: Thomas Jakobsen ""A Fast Method for Cryptanalysis of Substitution Ciphers"", Cryptologia 19:3, 1995",IDC_STATIC,30,83,251,19
     LTEXT           "Using a search tree the substitution compatible with the most partial substitutions is determined. This method can process German and English standard texts. Space characters must be preserved on correct positions in the ciphertext.",IDC_STATIC,29,159,265,27
@@ -36998,7 +36998,7 @@ BEGIN
     GROUPBOX        "Key Input",IDC_STATIC,14,76,288,37
     LTEXT           "Key",IDC_STATIC,21,94,36,11
     GROUPBOX        "Information on the substitution encryption",IDC_STATIC,14,120,288,74
-    LTEXT           "The alphabet (26  characters) will be mapped ",IDC_ALPHABET_HEADING,21,134,145,8
+    LTEXT           "The alphabet (26 characters) will be mapped ",IDC_ALPHABET_HEADING,21,134,145,8
     LTEXT           "from:",IDC_TEXT2,21,151,16,8
     LTEXT           "to:",IDC_TEXT3,21,172,9,8
     GROUPBOX        "Choose variant of the monoalphabetic substitution",IDC_STATIC,14,9,288,60
@@ -37362,7 +37362,7 @@ BEGIN
     LTEXT           "Enter a suitable prime",IDC_STATIC,14,83,70,8
     EDITTEXT        IDC_EDIT_MYPRIME,162,80,146,14,ES_AUTOHSCROLL
     LTEXT           "A polynomial f(x) of degree t-1 is constructed over GF(p): It is used to compute the participants' shares. By means of this polynomial and the generated shares, the secret can be reconstructed.",IDC_STATIC,14,115,293,24
-    LTEXT           "Enter t-1 coefficients (separated by commata; e.g. 3, 6, 19, if p>=19)",IDC_STATIC,14,154,293,8
+    LTEXT           "Enter t-1 coefficients (separated by commas; e.g. 3, 6, 19, if p>=19)",IDC_STATIC,14,154,293,8
     EDITTEXT        IDC_EDIT_MYCOEFF,13,166,295,14,ES_AUTOHSCROLL
     GROUPBOX        "Entering or changing polynomial parameters",IDC_STATIC,7,47,308,141
     GROUPBOX        "Displaying secret and control parameters",IDC_STATIC,7,7,308,35
@@ -41588,7 +41588,7 @@ BEGIN
     IDS_STRING_MSG_PERM_NUM_2_BIG 
                             "The maximum number of elements of this permutation is %i!"
     IDS_STRING_MSG_PERM_DUPLICATE 
-                            "The value %d is a doublette. Please correct!"
+                            "The value %d is a duplicate. Please correct!"
     IDS_STRING_MSG_PERM_MISSING 
                             "The value %d is missing for the permutation. Please correct!"
 END
@@ -41850,7 +41850,7 @@ BEGIN
     ID_ANALYSE_DESCBC       "Automatic brute-force analysis of a document encrypted using the DES CBC algorithm"
     ID_ANALYSE_TRIPLEDESECB "Automatic brute-force analysis of a document encrypted using the Triple DES ECB algorithm"
     ID_ANALYSE_TRIPLEDESCBC "Automatic brute-force analysis of a document encrypted using the Triple DES CBC algorithm"
-    ID_ANALYSE_AES_RC6      "Automatic brute-force analysis of a dcoument encrypted using the RC6 algorithm"
+    ID_ANALYSE_AES_RC6      "Automatic brute-force analysis of a document encrypted using the RC6 algorithm"
     ID_ANALYSE_AES_RIJNDAEL "Automatic brute-force analysis of a document encrypted using the Rijndael (AES) algorithm"
     ID_ANALYSE_AES_SERPENT  "Automatic brute-force analysis of a document encrypted using the Serpent algorithm"
     ID_ANALYSE_AES_TWOFISH  "Automatic brute-force analysis of a document encrypted using the Twofish algorithm"
@@ -42052,7 +42052,7 @@ BEGIN
     IDS_STRING_ERR_EC_FILE_UNSPECIFIED_CURVE_ID 
                             "In file '%s' the elliptic curve with the designation '%s' is defined as the default choice.\nHowever, no curve with this designation has been specified in the CURVE_ID_LIST.\nTherefore there is no default entry for the elliptic curve ID."
     IDS_STRING_ERR_EC_FILE_READING 
-                            "The parameters for the elliptic curve with the ID code '%s'\nhave been read from file '%s'.\nHowever, an error occurred during conversion of the strings to long number representation.\nThe selected curve CANNOT therefore be initialised."
+                            "The parameters for the elliptic curve with the ID code '%s'\nhave been read from file '%s'.\nHowever, an error occurred during conversion of the strings to long number representation.\nThe selected curve CANNOT therefore be initialized."
     IDS_STRING_ERR_EC_GEN_EC_KEY_PAIR 
                             "Error in the method CDlgEcKeysCreat::GenEcKeyPair().\nIt was not possible to call GenEcKeyPair().\nIt is not possible to generate a key pair for the selected curve."
     IDS_STRING_ERR_ON_KEY_GENERATION 
@@ -42973,7 +42973,7 @@ BEGIN
     IDS_STRING_FMT_DAYS     " %4i days, %02.2i:%02.2i:%02.2i hours."
     IDS_STRING_FMT_SEC      " %2i.%03.3i seconds."
     IDS_STRING_RSADEMO_MODUL_KLEIN_NUM 
-                            "The RSA encryption of numbers into text is incorrect, since the number of characters in the alphabet (here %i) is larger than the size of the RSA Modul (here N=%s).\nPlease modify the alphabet in ""options for alphabet and number-system..."" or chooses larger prime nunmbers."
+                            "The RSA encryption of numbers into text is incorrect, since the number of characters in the alphabet (here %i) is larger than the size of the RSA modul (here N=%s).\nPlease modify the alphabet in ""options for alphabet and number-system..."" or chooses larger prime numbers."
     IDS_CRYPT_RSADEMO_HEADER_ENTERPRIME "Prime number entry"
     IDS_CRYPT_RSADEMO_HEADER_GENERATEPRIMES "Generate prime numbers..."
     IDS_CRYPT_RSADEMO_HEADER_FACTORISERSAMODUL "Factorization attack"
@@ -42994,7 +42994,7 @@ BEGIN
     IDS_STRING_PLAYFAIR_NOMATRIX "No matching matrix was found."
     IDS_STRING_ERROR        "Error"
     IDS_STRING_PLAYFAIR_WARNMSG001 
-                            "Due to the occurrence of the letter 'J' within the ciphertext, it could be assumed, that the ciphertext was encrypted by a 6 x 6 playfair key matrix."
+                            "Due to the occurrence of the letter 'J' within the ciphertext, it could be assumed, that the ciphertext was encrypted by a 6 x 6 Playfair key matrix."
 END
 
 STRINGTABLE 
@@ -43345,7 +43345,7 @@ BEGIN
     IDS_modeText_ChallengeResponseAsymmetrisch 
                             "Challenge Response (with asymmetric encryption): This time the Challenge Response procedure is performed with asymmetric (public key) encryption. Each participant holds his own pair of keys, consisting of a public key that everyone knows and a secret one that only the owner knows. Again, for authentication the server sends a challenge to the client, who signs it with his secret key and then sends the result back to the server. Now everyone, knowing the client´s public key, including the server, can verify the response: this means that the challenge was signed with the client´s private key.\r\n\r\nEven so the attacker perhaps can authenticate himself as client at server 1 by a trick."
     IDS_modeText_WechselseitigeAuthentifikation 
-                            "Mutual Authentication: This scenario is based upon asymmetric encryption, too. But this time it is used synchronous in both directions. Viz the server sends a challenge to the client, which the client signs and returns to the server with his own challenge. Now the server can verify by the use of the client´s public key that the signed challenge (response from the client) can only derive from the client, because he is the only one with the according private key. To prove his own identity, the server signs the client´s challenge by the use of his private key and returns this to the client. Now, the client can verify the origin of the server´s response by means of the server´s public key. Thus both can be sure to know to whom they talk and basing on that establish a secure (encrypted) channel by exchanging an asymmetrical encrypted session key. Thus an attack at the level of protocols gets impossible. You can give all previous solutions a try, but you won´t be able to crack that protocol. But please take attacks to crack the encryption or the physical and logical connections into account. Attacking cryptographical methods can be tried with CrypTool. For more information according attacks to the physical or logical operations please see the online help."
+                            "Mutual Authentication: This scenario is based upon asymmetric encryption, too. But this time it is used synchronous in both directions. Viz the server sends a challenge to the client, which the client signs and returns to the server with his own challenge. Now the server can verify by the use of the client´s public key that the signed challenge (response from the client) can only derive from the client, because he is the only one with the according private key. To prove his own identity, the server signs the client´s challenge by the use of his private key and returns this to the client. Now, the client can verify the origin of the server´s response by means of the server´s public key. Thus both can be sure to know to whom they talk and basing on that establish a secure (encrypted) channel by exchanging an asymmetrical encrypted session key. Thus an attack at the level of protocols gets impossible. You can give all previous solutions a try, but you won´t be able to crack that protocol. But please take attacks to crack the encryption or the physical and logical connections into account. Attacking cryptographic methods can be tried with CrypTool. For more information according attacks to the physical or logical operations please see the online help."
     IDS_dataCaption_Passwort "Password: "
     IDS_dataCaption_Einmalpasswort "Current password: "
     IDS_dataCaption_geheimerSchluesselClient "Private Key (Client): "
@@ -43474,8 +43474,8 @@ BEGIN
     IDS_RSA_FH_WRONGN       "Please enter for ""Bit length of N"" a number greater than 10."
     IDS_RSA_FH_WRONGP       "Please enter for ""Bit length of P"" a number greater than 6 and less than ""Bit length of N""."
     IDS_RSA_FH_CANCEL       "Attack canceled."
-    IDS_RSA_FH_SUCCESS      "Attack successfull."
-    IDS_RSA_FH_NOSUCCESS    "Attack not successfull."
+    IDS_RSA_FH_SUCCESS      "Attack successful."
+    IDS_RSA_FH_NOSUCCESS    "Attack not successful."
     IDS_RSA_FH_ENTERP       "Please enter the bit length of p."
     IDS_RSA_FH_BITSOFP      "The provided bit length of p (%d) is less than the bit length of the known part P (%d).\r\nPlease set the ""Bit length of p"" so, that the (Bit length of P) is <= (Bit length of p)."
     IDS_RSA_FH_CHOOSEN      "Please choose a N."
@@ -43487,7 +43487,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_RSA_SM_SUCCESS      "Attack successfull."
+    IDS_RSA_SM_SUCCESS      "Attack successful."
     IDS_RSA_SM_NOSUCCESS    "No solution found."
     IDS_RSA_SM_WRONGN       "Please enter for ""Bit length of N"" a number greater than 10."
     IDS_RSA_SM_PLEASEHIGHLIGHT "Please highlight a part of the plaintext."
@@ -43580,9 +43580,9 @@ BEGIN
     IDS_BASE64_FILE_OPEN_ERROR "Error while opening %s!"
     IDS_BASE64_FILE_WRITE_ERROR "Error while writing to %s!"
     IDS_BASE64_DECODE_PREMATURE_END 
-                            "Base64 termination char '=' was encountered too early.Location:%u. Decoding aborted!"
+                            "Base64 termination char '=' was encountered too early. Location:%u. Decoding aborted!"
     IDS_BASE64_DECODE_MISSING_CHARS 
-                            "Bade base64 block.No clear decoding of the last chars possible!"
+                            "Bade base64 block. No clear decoding of the last chars possible!"
     IDS_STRING_MSG_BASE64DEC_OF "Base64 decoding of <%s>"
     IDS_STRING_MSG_BASE64ENC_OF "Base64 encoding of <%s>"
     IDS_BYTES               "bytes"
@@ -43652,7 +43652,7 @@ BEGIN
     IDS_CRT_SECRETSHARINGHELP2 
                             "You have entered %d as number of parties.\r\nPlease choose 7 as maximum.\r\n"
     IDS_CRT_SECRETSHARINGHELP3 
-                            "You have entered %d as the number of parties needed.\r\nThis number mustn't be bigger the the over all number of parties.\r\n"
+                            "You have entered %d as the number of parties needed.\r\nThis number mustn't be bigger than the over all number of parties.\r\n"
     IDS_CRT_SECRETSHARINGHELP4 
                             "Please enter a minimum of 2 for the number of parties needed.\r\n"
     IDS_CRT_SECRETSHARINGHELP5 
@@ -43736,7 +43736,7 @@ BEGIN
     IDS_CRT_SECRETSHARING_FACTS3 "Please notice the formal restrictions."
     IDS_CRT_SECRETSHARING_LOGTITLE "Secret Sharing by CRT: show log-file"
     IDS_CRT_SECRETSHARING_LOGWRITTEN 
-                            "Logfile successfully written to the main window."
+                            "Log file successfully written to the main window."
     ID_EINZELVERFAHREN_SECRETSHARINGDEMO 
                             "Visualizes the Shamir (t, n) threshold scheme"
     IDS_STRING_MEMBER       "Participant"
@@ -43975,7 +43975,7 @@ BEGIN
     IDS_RSA_BM_CHECKN       "Please check the value of the RSA modulus N"
     IDS_RSA_BM_CHECKE       "Please check the value of the public exponent e"
     IDS_RSA_BM_CHECKD       "Please check the estimated value of the secret exponent d"
-    IDS_HILL_DUMP           "Hill En-/Decryption:\n\nThis detailed description of the Hill encryption / decryption consists of the following parts: \n 1. Encoding the alphabet characters to numbers\n 2. Encryption parameters end properties\n 3. Hill encryption\n 4. Hill decryption\n \nThis logfile text shows all calculations done with the current Hill key matrix and the beginning characters of the used message.\n\n\n1. Encoding the Alphabet Characters to Numbers\n\nThe actually selected alphabet and it's encoding to numbers as of Menu ""Options / Textoptions"" is:\n \n%ALPHABET_MAPPING%\n \nThe actual alphabet consists of %ALPHABET_SIZE% characters. The first alphabet character is encoded to the number %ALPHABET_CODING_OFFSET%.\n\n\n2. Encryption Parameters and Properties\n\nThis example describes the Hill encryption of the %HILL_DIMENSION% first characters of the input plaintext. Only characters from the current alphabet are encrypted.\n \nHere are the required parameter information for the selected Hill encryption: \n  o For the Hill encryption and decryption the Hill matrix is multiplied by a %HILL_MULTIPLICATION_TYPE%. \n  o The selected Hill matrix is of dimension %HILL_DIMENSION%x%HILL_DIMENSION%. \n  o The plaintext consists of %HILL_PLAINTEXT_SIZE% characters. Thereof are %HILL_NON_ALPHABET_CHARS% non-alphabet characters (non-alphabet characters are ignored.) In case the selected alphabet consists only of capital characters non capital characters are encrypted too but this is not true for the other direction.  Below the Hill encryption and decryption is demonstrated on the example of the %HILL_DIMENSION% first alphabet characters from the given plaintext.\n \n\n3. Hill Encryption\n\nSelected Hill matrix for encryption:\n \n%HILL_ENCRYPTION_TEXTMATRIX%\n \nThis matrix encoded to numbers:\n \n%HILL_ENCRYPTION_INTMATRIX%\n \nEncryption of the plaintext: ""%PLAINTEXT%"": \nThis plaintext vector P is below encoded to numbers: %HILL_PLAINTEXT_VECTOR%\n \nComputation of the Hill encryption by the %HILL_VECTOR_MATRIX_MULTTYPE% (the vector P[n] is a %HILL_VECTORTYPE%): \n%HILL_ENCRYPTION%\n \nThe Hill ciphertext is: ""%CIPHERTEXT%"". \n\n\n4. Hill decryption\n\nThe inverted Hill matrix for decryption: \n%HILL_DECRYPTION_TEXTMATRIX%\n \nThis matrix encoded to numbers: \n%HILL_DECRYPTION_INTMATRIX%\n \nDecryption of the ciphertext: ""%CIPHERTEXT%"": \nCiphertext vector C decoded to numbers: \n%HILL_CIPHERTEXT_VECTOR%\n \nComputation of the Hill decryption by the %HILL_VECTOR_MATRIX_MULTTYPE% (the vector C[n] is a %HILL_VECTORTYPE%): \n%HILL_DECRYPTION%\n \nThe Hill plaintext is: ""%PLAINTEXT%"". \n\n\n"
+    IDS_HILL_DUMP           "Hill En-/Decryption:\n\nThis detailed description of the Hill encryption / decryption consists of the following parts: \n 1. Encoding the alphabet characters to numbers\n 2. Encryption parameters end properties\n 3. Hill encryption\n 4. Hill decryption\n \nThis log file text shows all calculations done with the current Hill key matrix and the beginning characters of the used message.\n\n\n1. Encoding the Alphabet Characters to Numbers\n\nThe actually selected alphabet and it's encoding to numbers as of Menu ""Options / Textoptions"" is:\n \n%ALPHABET_MAPPING%\n \nThe actual alphabet consists of %ALPHABET_SIZE% characters. The first alphabet character is encoded to the number %ALPHABET_CODING_OFFSET%.\n\n\n2. Encryption Parameters and Properties\n\nThis example describes the Hill encryption of the %HILL_DIMENSION% first characters of the input plaintext. Only characters from the current alphabet are encrypted.\n \nHere are the required parameter information for the selected Hill encryption: \n  o For the Hill encryption and decryption the Hill matrix is multiplied by a %HILL_MULTIPLICATION_TYPE%. \n  o The selected Hill matrix is of dimension %HILL_DIMENSION%x%HILL_DIMENSION%. \n  o The plaintext consists of %HILL_PLAINTEXT_SIZE% characters. Thereof are %HILL_NON_ALPHABET_CHARS% non-alphabet characters (non-alphabet characters are ignored.) In case the selected alphabet consists only of capital characters non capital characters are encrypted too but this is not true for the other direction.  Below the Hill encryption and decryption is demonstrated on the example of the %HILL_DIMENSION% first alphabet characters from the given plaintext.\n \n\n3. Hill Encryption\n\nSelected Hill matrix for encryption:\n \n%HILL_ENCRYPTION_TEXTMATRIX%\n \nThis matrix encoded to numbers:\n \n%HILL_ENCRYPTION_INTMATRIX%\n \nEncryption of the plaintext: ""%PLAINTEXT%"": \nThis plaintext vector P is below encoded to numbers: %HILL_PLAINTEXT_VECTOR%\n \nComputation of the Hill encryption by the %HILL_VECTOR_MATRIX_MULTTYPE% (the vector P[n] is a %HILL_VECTORTYPE%): \n%HILL_ENCRYPTION%\n \nThe Hill ciphertext is: ""%CIPHERTEXT%"". \n\n\n4. Hill decryption\n\nThe inverted Hill matrix for decryption: \n%HILL_DECRYPTION_TEXTMATRIX%\n \nThis matrix encoded to numbers: \n%HILL_DECRYPTION_INTMATRIX%\n \nDecryption of the ciphertext: ""%CIPHERTEXT%"": \nCiphertext vector C decoded to numbers: \n%HILL_CIPHERTEXT_VECTOR%\n \nComputation of the Hill decryption by the %HILL_VECTOR_MATRIX_MULTTYPE% (the vector C[n] is a %HILL_VECTORTYPE%): \n%HILL_DECRYPTION%\n \nThe Hill plaintext is: ""%PLAINTEXT%"". \n\n\n"
     IDS_HILL_MULTIPLICATION_TYPE_LEFT "row vector from left"
     IDS_HILL_MULTIPLICATION_TYPE_RIGHT "column vector from right"
     IDS_HILL_VECTORTYPE_ROW "row vector"
