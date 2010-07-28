@@ -8,7 +8,8 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -45586,7 +45587,7 @@ BEGIN
     CONTROL         251,IDC_BMP_MONO_KRE,"Static",SS_BITMAP,163,84,18,16
     CONTROL         251,IDC_BMP_POKER_KRE,"Static",SS_BITMAP,163,109,18,16
     CONTROL         251,IDC_BMP_RUN_KRE,"Static",SS_BITMAP,163,134,18,16
-    LTEXT           "FIPS-PUB-140-1 Testbattery result:",IDC_TEXT_BATTERIE,17,182,123,11
+    LTEXT           "Resultado de la batería de pruebas FIPS-PUB-140-1:",IDC_TEXT_BATTERIE,17,182,123,11
     CONTROL         251,IDC_BMP_FIPS_KRE,"Static",SS_BITMAP,163,177,18,16
     CONTROL         250,IDC_BMP_LONG_HAK,"Static",SS_BITMAP,163,59,18,16
     CONTROL         250,IDC_BMP_MONO_HAK,"Static",SS_BITMAP,163,84,18,16
@@ -53654,7 +53655,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    AFX_IDP_NO_ERROR_AVAILABLE "No error message is available."
+    AFX_IDP_NO_ERROR_AVAILABLE "No hay un mensaje de error disponible."
     AFX_IDS_NOT_SUPPORTED_EXCEPTION "Se intentó una operación no soportada."
     AFX_IDS_RESOURCE_EXCEPTION "No está disponible un recurso necesario."
     AFX_IDS_MEMORY_EXCEPTION "Fuera de memoria."
@@ -54379,7 +54380,7 @@ BEGIN
     IDS_STRING_SIG_ATT_FLOYD_CANCELED 
                             "La búsqueda del par de mensajes fue cancelada."
     IDS_STRING_SIG_ATT_FLOYD_RUNNING "Buscando un par de mensajes..."
-    IDS_STRING_SIG_ATT_BITLENGTH_RANGE "(Co-dominio: 1 - %d)"
+    IDS_STRING_SIG_ATT_BITLENGTH_RANGE "(Codominio: 1 - %d)"
     IDS_STRING_SIG_ATT_DOCUMENT_TITLE_DANGEROUS "Mensaje Peligroso: "
     IDS_STRING_SIG_ATT_DOCUMENT_TITLE_HARMLESS "Mensaje Inofensivo: "
     IDS_STRING_SIG_ATT_PROGRESS_CYCLE_START 
@@ -54828,7 +54829,7 @@ BEGIN
     IDS_CRT_SECRETSHARING_REK3 
                             "No se han introducido claves.\r\n\r\n----- La reconstucción falló -----\r\n\r\n"
     IDS_CRT_SECRETSHARING_REK4 
-                            "i18n The keys are joined together.\r\n\r\nAfter clicking OK, the resulting secret will be shown."
+                            "Las claves están unidas.\r\n\r\nPresione OK para mostrar el secreto resultante."
     IDS_CRT_SECRETSHARING_REK5 
                             "Usando las %d contraseñas como identificadores    "
     IDS_CRT_SECRETSHARING_REK6 
@@ -54846,7 +54847,7 @@ BEGIN
                             "El texto de entrada es demasiado corto para producir resultados fiables.\nComo el experimento muestra, el algoritmo de Jakobsen necesita al menos 300 caracteres. \nSi el análisis automático falla, puede intentar analizar este texto cifrado manualmente."
     IDS_MONO_SUBST_AUTO_STAT_ANALYSIS_IS_RUNNING 
                             "El análisis estático del texto se está ejecutando. Por favor, espere..."
-    IDS_MONO_SUBST_AUTO_FILE_CONTENT_ERROR "Error in the statistic file: \n"
+    IDS_MONO_SUBST_AUTO_FILE_CONTENT_ERROR "Error en el archivo estático: \n"
     IDS_MONO_SUBST_AUTO_LANG_DE "Alemán"
     IDS_MONO_SUBST_AUTO_LANG_EN "Inglés"
 END
@@ -55565,25 +55566,23 @@ BEGIN
     IDS_MERSENNE_NUMBER_COMPUTATION_RUNNING "Se está realizando el cálculo..."
     IDS_MERSENNE_NUMBER_COMPUTATION_CANCELLED "El cálculo fue cancelado."
     IDS_MERSENNE_NUMBER_COMPUTATION_TIME_NEEDED 
-                            "Elapsed time for the computation of the Mersenne number: %.0f seconds"
+                            "Tiempo transcurrido durante el cálculo del número de Mersenne: %.0f segundos"
     IDS_INTEGRAL_NUMBER_SEPARATOR "."
     IDS_FRACTIONAL_NUMBER_SEPARATOR ","
-    IDS_CONTROL_SELECT_ALL  "[i18n] Select all"
+    IDS_CONTROL_SELECT_ALL  "Seleccionar todo"
     IDS_STRING_ADFGVX_NO_CHARACTERS_IN_PASSWORD 
-                            "[i18n] You did not enter any characters, thus the substitution matrix was not changed."
-    IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_ON 
-                            "[i18n] Show thousands separators"
+                            "No ha ingresado ningún carácter, por eso la matriz de sustitución no fue modificada."
+    IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_ON "Mostrar separador de miles"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_OFF 
-                            "[i18n] Hide thousands separators"
+    IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_OFF "Ocultar separador de miles"
     IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_ON 
-                            "[i18n] Show decimal separators"
+                            "Mostrar separador de decimales"
     IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_OFF 
-                            "[i18n] Hide decimal separators"
-    IDS_STRING_PASTE_KEY_FROM_KEY_STORE "[i18n] Paste key"
+                            "Ocultar separador de decimales"
+    IDS_STRING_PASTE_KEY_FROM_KEY_STORE "Pegar clave"
 END
 
 #endif    // Spanish resources
