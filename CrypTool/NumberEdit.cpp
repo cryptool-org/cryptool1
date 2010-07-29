@@ -416,10 +416,9 @@ void CNumberEdit::updateNumber(const int &_selectionStart, const int &_selection
 
 	// then we clear the text to be inserted (if there is any) of all invalid characters
 	if(_text.GetLength()) {
-		CString text = _text;
 		CString validText;
-		for(int i=0; i<text.GetLength(); i++) {
-			char character = text[i];
+		for(int i=0; i<_text.GetLength(); i++) {
+			char character = _text[i];
 
 			if(character >= '0' && character <= '9') {
 				validText.AppendChar(character);
@@ -487,10 +486,31 @@ void CNumberEdit::updateNumber(const int &_selectionStart, const int &_selection
 	if(showIntegralSeparators) {
 		// determine the amount of integral separators we need
 		int amountOfIntegralSeparators = (stringNumberIntegralPart.GetLength() - 1) / 3;
+
+		// flomar, 07/29/2010
+		// the insertion of integral separators was VERY SLOW, probably due to the CString "insert" 
+		// implementation; the following code does the same thing as prior to the change, just faster
+
 		// insert integral separators
-		for(int i=0; i<amountOfIntegralSeparators; i++) {
-			stringNumberIntegralPart.Insert(stringNumberIntegralPart.GetLength() - 3*(i+1) - i, theIntegralSeparator);
+		const int charIntegralPartLength = stringNumberIntegralPart.GetLength() + amountOfIntegralSeparators;
+		char *charIntegralPart = new char[charIntegralPartLength + 1];
+		memset(charIntegralPart, 0, charIntegralPartLength + 1);
+		int nextSeparatorIndex = stringNumberIntegralPart.GetLength() % 3;
+		if(nextSeparatorIndex == 0) {
+			nextSeparatorIndex = 3;
 		}
+		for(int i=0, ii=0; i<charIntegralPartLength; i++) {
+			if(i == nextSeparatorIndex) {
+				charIntegralPart[i] = theIntegralSeparator;
+				nextSeparatorIndex = i+4;
+			}
+			else {
+				charIntegralPart[i] = stringNumberIntegralPart[ii++];
+			}
+		}
+		stringNumberIntegralPart = charIntegralPart;
+		delete charIntegralPart;
+
 		// correct the selection (see above at beginning of function)
 		int amountOfIntegralSeparatorsInsertedInFrontOfCurrentSelection = 0;
 		for(int i=0; i<stringNumberIntegralPart.GetLength(); i++) {

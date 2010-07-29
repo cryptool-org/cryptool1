@@ -261,11 +261,6 @@ void CDlgComputeMersenneNumbers::OnTimer(UINT nIDEvent)
 		buttonWriteResultToFile->EnableWindow(false);
 		
 		if(done) {
-			// we really do have a result (no cancellation), enable the write result to file button
-			buttonWriteResultToFile->EnableWindow(true);
-			// also update the result length
-			CString stringResultLength; stringResultLength.Format("%d", numberEditResult.getNumberAsCString().GetLength());
-			numberEditResultLength.setNumber(stringResultLength);
 			// display the amount of time needed for the calculation (if it's longer than a sec)
 			double timeNeeded = difftime(timeComputationEnd, timeComputationStart);
 			if(timeNeeded > 1.0f) {
@@ -273,6 +268,16 @@ void CDlgComputeMersenneNumbers::OnTimer(UINT nIDEvent)
 				stringTimeNeeded.Format(IDS_MERSENNE_NUMBER_COMPUTATION_TIME_NEEDED, timeNeeded);
 				AfxMessageBox(stringTimeNeeded);
 			}
+			// we really do have a result (no cancellation), enable the write result to file button
+			buttonWriteResultToFile->EnableWindow(true);
+			// also update the result and result length
+			CString stringResultLength; stringResultLength.Format("%d", numberEditResult.getNumberAsCString().GetLength());
+			numberEditResultLength.setNumber(stringResultLength);
+			numberEditResult.updateNumber();
+			numberEditResultLength.updateNumber();
+			// and set selection to beginning of edit fields
+			numberEditResult.SetSel(0, 0);
+			numberEditResultLength.SetSel(0, 0);
 		}
 	}
 
