@@ -394,14 +394,9 @@ void CNumberEdit::setText(const CString &_text) {
 }
 
 void CNumberEdit::updateNumber(const int &_selectionStart, const int &_selectionEnd, const CString &_text) {
-
-	// first, we make a copy of the existing string number
-	CString oldStringNumber = stringNumber;
-
-	// then we store the last selection
+	// we store the last selection
 	int selectionStart = _selectionStart;
 	int selectionEnd = _selectionEnd;
-
 	// we also store the amount of integral separators IN FRONT OF the current selection;
 	// this will come handy later on when we try to determine the correct cursor position
 	int amountOfIntegralSeparatorsInFrontOfCurrentSelection = 0;
@@ -410,7 +405,6 @@ void CNumberEdit::updateNumber(const int &_selectionStart, const int &_selection
 			amountOfIntegralSeparatorsInFrontOfCurrentSelection++;
 		}
 	}
-
 	// delete the current selection
 	stringNumber.Delete(selectionStart, selectionEnd - selectionStart);
 

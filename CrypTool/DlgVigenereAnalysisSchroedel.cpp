@@ -793,7 +793,6 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 	// watch out for user cancellation
 	if(canceled) return -1;
 
-	CString s;
 	CString key, text, cipher;
 	CString cKey, cText;
 	CString rKey, rText;
@@ -839,20 +838,18 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 
 			// watch out for user cancellation
 			if(canceled) return -1;
-
-			s = dict[xDict];
 			
-			if(s.Find(key) == 0) {
-				if(s.GetLength() > key.GetLength()) {
-					if(cKey.Find(s[3]) == -1) {
-						cKey = cKey + s[3];
+			if(dict[xDict].Find(key) == 0) {
+				if(dict[xDict].GetLength() > key.GetLength()) {
+					if(cKey.Find(dict[xDict][3]) == -1) {
+						cKey = cKey + dict[xDict][3];
 					}
 				}
 			}
-			if(s.Find(text) == 0) {
-				if(s.GetLength() > text.GetLength()) {
-					if(cText.Find(s[3]) == -1) {
-						cText = cText + s[3];
+			if(dict[xDict].Find(text) == 0) {
+				if(dict[xDict].GetLength() > text.GetLength()) {
+					if(cText.Find(dict[xDict][3]) == -1) {
+						cText = cText + dict[xDict][3];
 					}
 				}
 			}
@@ -1249,7 +1246,16 @@ int VigenereAnalysisSchroedel::readCiphertext() {
 
 	// remove all blanks prior to analysis
 	ciphertext.Remove(' ');
+	// convert ciphertext to upper case
 	ciphertext.MakeUpper();
+	// remove all non-alphabet characters (since our analysis works on [A-Z] only anyway)
+	CString cleanedCiphertext;
+	for(int i=0; i<ciphertext.GetLength(); i++) {
+		if(ciphertext[i] >= 'A' && ciphertext[i] <= 'Z') {	
+			cleanedCiphertext.AppendChar(ciphertext[i]);
+		}
+	}
+	ciphertext = cleanedCiphertext;
 
 	// if necessary, indicate that the ciphertext is shorter than three characters
 	if(ciphertext.GetLength() < 3) return -1;
@@ -1273,7 +1279,6 @@ char VigenereAnalysisSchroedel::encryptChar(const char &_char, const char &_key)
 }
 
 CString VigenereAnalysisSchroedel::decryptText(CString text, CString key) {
-
 	while(key.GetLength() < text.GetLength()) {
 		key = key + key;
 	}
@@ -1309,6 +1314,7 @@ int VigenereAnalysisSchroedel::rateString(CString str, CString key) {
 			offset = index + dict[i].GetLength();
 		}
 	}
+
 	// get the current rating
 	int currentRating = mapWordsFound.size();
 
