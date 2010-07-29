@@ -1088,23 +1088,23 @@ BEGIN
     IDS_STRING_DECRYPT      "Entschlüsseln einer Datei"
     IDS_STRING_ENCRYPT      "Verschlüsseln einer Datei"
     IDS_STRING_DECERROR     "Fehler beim Entschlüsseln: %s"
-    IDS_STRING_ENCOK        "Die verschüsselte Datei %s wurde erfolgreich erstellt."
+    IDS_STRING_ENCOK        "Die verschlüsselte Datei %s wurde erfolgreich erstellt."
     IDS_STRING_DECOK        "Die entschlüsselte Datei %s wurde erfolgreich erstellt."
     IDS_STRING_VERSCHLUESSELN "Verschlüsseln"
     IDS_STRING_ENTSCHLUESSELN "Entschlüsseln"
     IDS_STRING_FILEERROR    "Fehler beim Öffnen von %s: %s\n"
-    IDS_STRING_NOMEMORY     "Nicht genügend virueller Speicher vorhanden."
+    IDS_STRING_NOMEMORY     "Nicht genügend virtueller Speicher vorhanden."
     IDS_STRING_KEYERROR     "Falscher Schlüssel oder Datei %s beschädigt."
 END
 
 STRINGTABLE 
 BEGIN
     IDS_STRING_ENCERROR     "Fehler beim Verschlüsseln: %s"
-    IDS_STRING_VERSION      "Diese Datei wurde mit einer älteren Version von AES-Tool verschlüsselt.\nBitte verwenden sie diese auch zum Entschlüsseln."
+    IDS_STRING_VERSION      "Diese Datei wurde mit einer älteren Version von AES-Tool verschlüsselt.\nBitte verwenden Sie diese auch zum Entschlüsseln."
     IDS_STRING_AES_TOOL_VERSION "AES-Tool 2.5.1"
     IDS_STRING_CORRUPT      "Diese verschlüsselte Datei ist beschädigt."
     IDS_STRING_INVALID_KEY  "Ungültiges Zeichen im Schlüssel. Erlaubt sind: 0-9,a-f,A-F"
-    IDS_STRING_KEY_TOO_LONG "Der angegebene Schlüssel ist zu lang. Die maximale Länge für AES Schlüssel beträgt 256 Bit (= 32 Byte = 64 Hexadezimalziffern)."
+    IDS_STRING_KEY_TOO_LONG "Der angegebene Schlüssel ist zu lang. Die maximale Länge für AES-Schlüssel beträgt 256 Bit (= 32 Byte = 64 Hexadezimalziffern)."
     IDS_STRING_AES_TOOL_HELP_PREFIX "Hilfe zu %s"
 END
 
@@ -1186,7 +1186,7 @@ CAPTION "Help for AES-Tool 2.5.1"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,209,329,50,14
-    LTEXT           "AES-Tool is an encryption program that can be used to encrypt files using the symmetric and licence-free Rijndael algorithm (= AES).",IDC_STATIC,12,9,476,10
+    LTEXT           "AES-Tool is an encryption program that can be used to encrypt files using the symmetric and license-free Rijndael algorithm (= AES).",IDC_STATIC,12,9,476,10
     LTEXT           "The program can be invoked in three different ways:",IDC_STATIC,12,21,476,11
     LTEXT           "These parameters are:",IDC_STATIC,24,42,464,10
     LTEXT           "Key:",IDC_STATIC,24,52,38,8
