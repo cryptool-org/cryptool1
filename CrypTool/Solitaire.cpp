@@ -1370,22 +1370,31 @@ int Deck::loaddeck( const char *default_filename )
 		{
          int i = 0, max = 0, A = 0, B = 0;
          char tmp_deck[54];
-         for ( i=0; i<54; i++) tmp_deck[i] = 0;
          for ( i=0; !fin.eof(); i++ )
          {
-            char id_str[5];
-            int  j;
+            char id_str[4];
+            int  id_card;
+
+            if ( i >= 54 ) // max 54 cards
+               return -2;
+
             fin.getline( id_str, 4, ',' );
-            if ( id_str[0] == 'A' )       { A = i; j = 1; }
-            else if ( id_str[0] == 'B' )  { B = i; j = 1; }
-            else
-            {
-               j = atoi(id_str);
-               if ( 1 > j || j > 52 || tmp_deck[i] )
+            if ( !fin.gcount() )
+               return -2;
+
+            if ( id_str[0] == 'A' )       { A = i; id_card = 53; }
+            else if ( id_str[0] == 'B' )  { B = i; id_card = 54; }
+            else {
+               id_card = atoi(id_str);
+               if ( id_card > 52 || 1 > id_card )
                   return -2;
-               if ( j > max ) max = j;
+               for (int j=0; j<i; j++)
+                  if ( id_card == tmp_deck[j] )
+                     return -2;
+               if ( id_card > max ) max = id_card;
             }
-            tmp_deck[i] = j;
+
+            tmp_deck[i] = id_card;
          }
 			fin.close();
          if ( max != i-2 || !A || !B )
