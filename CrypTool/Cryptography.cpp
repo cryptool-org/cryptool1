@@ -1411,7 +1411,7 @@ void Mono(const char *infile, const char *OldTitle) {
 		// check if the current character is part of the alphabet
 		if(alphabet.Find(sourceBuffer[i]) != -1) {
 			// apply the encryption
-			targetBuffer[targetBufferLength++] = alphabet[key.Find(sourceBuffer[i])];
+			targetBuffer[targetBufferLength++] = key[alphabet.Find(sourceBuffer[i])];
 		}
 		else {
 			// if the option below is not set, we discard non-alphabet characters
@@ -1424,21 +1424,21 @@ void Mono(const char *infile, const char *OldTitle) {
 					if(lowerAlphabet.Find(sourceBuffer[i]) != -1) {
 						if(theApp.TextOptions.getKeepUpperLowerCaseInformation()) {
 							// interpret the character as upper case, then process it and implicitly convert it back to lower case
-							targetBuffer[targetBufferLength++] = tolower(alphabet[key.Find(toupper(sourceBuffer[i]))]);
+							targetBuffer[targetBufferLength++] = tolower(key[alphabet.Find(toupper(sourceBuffer[i]))]);
 						}	
 						else {
 							// just like above, but we don't convert back
-							targetBuffer[targetBufferLength++] = alphabet[key.Find(toupper(sourceBuffer[i]))];
+							targetBuffer[targetBufferLength++] = key[alphabet.Find(toupper(sourceBuffer[i]))];
 						}	
 					}
 					else if(upperAlphabet.Find(sourceBuffer[i]) != -1) {
 						if(theApp.TextOptions.getKeepUpperLowerCaseInformation()) {
 							// interpret the character as lower case, then process it and implicitly convert it back to upper case
-							targetBuffer[targetBufferLength++] = toupper(alphabet[key.Find(tolower(sourceBuffer[i]))]);
+							targetBuffer[targetBufferLength++] = toupper(key[alphabet.Find(tolower(sourceBuffer[i]))]);
 						}	
 						else {
 							// just like above, but we don't convert back
-							targetBuffer[targetBufferLength++] = alphabet[key.Find(tolower(sourceBuffer[i]))];
+							targetBuffer[targetBufferLength++] = key[alphabet.Find(tolower(sourceBuffer[i]))];
 						}
 					}
 					else {
