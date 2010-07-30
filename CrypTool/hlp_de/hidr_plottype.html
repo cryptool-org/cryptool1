@@ -1,36 +1,46 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
 	<HEAD>
-		<TITLE>Ausgabe des Histogramms</TITLE>
+		<TITLE>Fenstertyp: Plottyp</TITLE>
 		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 		<!-- multiple keywords for CrypTool HTML help index -->
 	</HEAD>
-	<BODY>
-		<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
-			VIEWASTEXT>
-			<PARAM NAME="Keyword" VALUE="Fenster">
-			<PARAM NAME="Keyword" VALUE="Histogramm">
-			<PARAM NAME="Keyword" VALUE="Grafikoptionen">
-		</OBJECT>
-		<h3>Ausgabe des Histogramms</h3>
-		<P>Sie erreichen diesen Dialog über den Menüeintrag <a href="menu_analyze.html">Analyse</a>
-			\ <a href="menu_analysis_tools.html">Werkzeuge zur Analyse</a> \ <a href="HID_HISTOGRAM.html">
-				Histogramm</a>.</P>
-		<P>Weitere Informationen zu der Bedeutung des Histogramms befinden sich unter <A href="hid_histogram.html">
-				Histogramm des Dokuments anzeigen</A>.</P>
-		<P>In diesem Fenster wird das <!--ZZZPOPUP--><A href="histogramm.html">Histogramm</A>
-			eines Text- oder Hex-<!--ZZZPOPUP--><A href="dokument.html">Dokuments</A> ausgegeben. 
-			Beim Öffnen des Fensters wird ein Balkendiagramm ausgegeben.</P>
-		<P><IMG SRC="images/histo_linie.gif" ALT="histo_linie.gif" BORDER="0"></P>
-		<P>Die Anzeige kann mit dem Befehl <A href="hid_plotbar.html">Balkendiagramm</A> auch 
-			als Kurvendiagramm erfolgen.</P>
-		<P><IMG SRC="images/histo_balken.gif" ALT="histo_balken.gif" BORDER="0"></P>
-		<P>In beiden Diagrammtypen kann die Linienstärke über den Befehl <A href="hid_options_plot.html">
-				Linienstärke</A> eingestellt werden.</P>
-		<P>In beiden obigen Diagrammen ist das Histogramm eines <!--ZZZPOPUP--> Text-<A href="dokument.html">Dokuments</A>
-			abgebildet. Man sieht zum Beispiel, dass das häufigste Zeichen ein "E" ist, das 
-			zweit häufigste ein "N".</P>
-		<P>&nbsp;</P>
-	</BODY>
+
+<BODY>
+	<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+		VIEWASTEXT>
+		<PARAM NAME="Keyword" VALUE="Fenster">
+		<PARAM NAME="Keyword" VALUE="Fenstertyp">
+		<PARAM NAME="Keyword" VALUE="Histogramm">
+		<PARAM NAME="Keyword" VALUE="Grafikoptionen">
+	</OBJECT>
+
+	<h3>Fenstertyp Plot (im CrypTool-Hauptfenster)</h3>
+
+	<P>Im CrypTool-Hauptfenster können 4 verschiedene Fenstertypen dargestellt
+	werden:</P>
+	<UL>
+        <li><B>Text (Dokumente)</B></li>
+	<li><B>Hex (Dokumente)</B></li>
+	<li><B>Plot (Grafiken)</B></li>
+        <li><B>OpenGL (Grafiken)</B></li>
+	</UL>
+
+	<P>Der Fenstertyp <B>Plot</B> wird benutzt z.B. für:</P>
+	<UL>
+	<li><a href="HID_HISTOGRAM.html">Histogramme</a></li>
+	<li><a href="HID_FLOATING.html">Gleitende Häufigkeit</a></li>
+	<li><a href="HID_AUTO.html">Autokorrelation</a></li>
+	<li><a href="HID_ANALYSE_VITANY.html">Vitányi-Analyse</a></li>
+	</UL>
+
+
+	<P><b>Bemerkung: Aktive / Ausgegraute Menüs</b><br>
+	Ist ein Fenster vom Typ <B>Plot</B> selektiert, sind die meisten End-Menüpunkte
+       	ausgegraut, da man diese sinnvollerweise nur auf Dokumente anwenden kann
+       	(z.B. ver- und entschlüsseln).</P>
+
+
+</BODY>
 </HTML>
