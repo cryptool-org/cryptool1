@@ -202,6 +202,7 @@ bool SCA_Server::receiveHybridEncryptedFile(HybridEncryptedFileInfo &_hi)
 	bool success = wasDecryptionSuccessful(&decryptedCipherText);
 	// Antwort des Servers und zugehörigen entschlüsselten Session Key
 	// für eventuelle spätere Verwendung (Report usw.) speichern
+	ASSERT(numberOfReceptions < significantBits + 3);
 	formerSessionKeys[numberOfReceptions].octets = new char[SCA_MAX_LENGTH_OCTETSTRING];
 	if(!formerSessionKeys[numberOfReceptions].octets) throw SCA_Error(E_SCA_MEMORY_ALLOCATION);
 	formerSessionKeys[numberOfReceptions].noctets = 0;
@@ -243,10 +244,8 @@ bool SCA_Server::wasDecryptionSuccessful(OctetString *decryptedCipherText)
 		CT_READ_REGISTRY_DEFAULT(keyword, "Keyword", keyword, u_keyword_maxLength);
 		CT_CLOSE_REGISTRY();
 	}
-	else
-	{
-		// FIXME
-	}
+	ASSERT(strlen(keyword) != 0); // memcmp would always return true if keyword were empty
+	// in this case we would never leave step 2 of nextHybridEncryptedFile
 
 	// flomar, 07/15/2010
 	// previously, we were doing a normal string search here; this is ok as long 
@@ -273,7 +272,7 @@ bool SCA_Server::wasDecryptionSuccessful(OctetString *decryptedCipherText)
 int SCA_Server::getNumberOfPositiveResponses()
 {
 	int successful = 0;
-
+	ASSERT(numberOfReceptions <= significantBits + 3);
 	for(int i=0;i<numberOfReceptions;i++)
 		if(formerResponses[i]) successful++;
 
@@ -514,6 +513,7 @@ HybridEncryptedFileInfo SCA_Attacker::nextHybridEncryptedFile()
 		convertBigNumberToOctetString(newChallenge, &modifiedSessionKey, outNoctets);
 
 		// berechnete MODIFIZIERTE Challenge zu statistischen Zwecken speichern
+		ASSERT(numberOfModifications < significantBits+2);
 		this->formerlyModifiedSessionKeys[numberOfModifications].octets = new char[SCA_MAX_LENGTH_OCTETSTRING];
 		if(!formerlyModifiedSessionKeys[numberOfModifications].octets) throw SCA_Error(E_SCA_MEMORY_ALLOCATION);
 		this->formerlyModifiedSessionKeys[numberOfModifications].noctets = 0;
@@ -561,6 +561,7 @@ HybridEncryptedFileInfo SCA_Attacker::nextHybridEncryptedFile()
 			convertBigNumberToOctetString(newChallenge, &modifiedSessionKey, outNoctets);
 
 			// berechnete MODIFIZIERTE Challenge zu statistischen Zwecken speichern
+			ASSERT(numberOfModifications < significantBits+2);
 			this->formerlyModifiedSessionKeys[numberOfModifications].octets = new char[SCA_MAX_LENGTH_OCTETSTRING];
 			if(!formerlyModifiedSessionKeys[numberOfModifications].octets) throw SCA_Error(E_SCA_MEMORY_ALLOCATION);
 			this->formerlyModifiedSessionKeys[numberOfModifications].noctets = 0;
@@ -628,6 +629,7 @@ void SCA_Attacker::processServerResponse(bool response)
 		if(response)
 		{
 			algVars.z = (algVars.z * 2);
+			ASSERT(algVars.b2 >= 0);
 			algVars.b2 = (algVars.b2 - 1);
 			return;
 		}
