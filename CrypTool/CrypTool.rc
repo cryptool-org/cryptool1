@@ -4514,8 +4514,8 @@ BEGIN
     LTEXT           "Baza b",IDC_STATIC,63,9,23,8
     LTEXT           "Wykladnik e",IDC_STATIC,46,27,40,8
     LTEXT           "Wynik b^e - 1",IDC_STATIC,41,47,45,8
-    LTEXT           "[i18n] Result length:",IDC_STATIC,42,67,44,8
-    LTEXT           "[i18n] (number of decimals)",IDC_STATIC,135,67,66,8
+    LTEXT           "Dlugosc wyniku:",IDC_STATIC,42,67,44,8
+    LTEXT           "(Liczba miejsc po przecinku)",IDC_STATIC,135,67,66,8
 END
 
 
@@ -4757,7 +4757,7 @@ BEGIN
         BEGIN
             MENUITEM "Narzêdzie edukacyjne teorii liczb", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", ID_INDIV_POINTADDITIONONELLIPTICCURVES
-            MENUITEM "i18n Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "Obliczyc liczby &Mersenne’a...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "&Kryptoanaliza"
@@ -5109,7 +5109,7 @@ BEGIN
         BEGIN
             MENUITEM "Narzêdzie edukacyjne teorii liczb", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", ID_INDIV_POINTADDITIONONELLIPTICCURVES
-            MENUITEM "i18n Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "Obliczyc liczby &Mersenne’a...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "&Kryptoanaliza"
@@ -5461,7 +5461,7 @@ BEGIN
         BEGIN
             MENUITEM "Narzêdzie edukacyjne teorii liczb", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", ID_INDIV_POINTADDITIONONELLIPTICCURVES
-            MENUITEM "i18n Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "Obliczyc liczby &Mersenne’a...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "&Kryptoanaliza"
@@ -5813,7 +5813,7 @@ BEGIN
         BEGIN
             MENUITEM "Narzêdzie edukacyjne teorii liczb", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", ID_INDIV_POINTADDITIONONELLIPTICCURVES
-            MENUITEM "i18n Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "Obliczyc liczby &Mersenne’a...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "&Kryptoanaliza"
@@ -6192,7 +6192,7 @@ BEGIN
         BEGIN
             MENUITEM "Narzêdzie edukacyjne teorii liczb", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", ID_INDIV_POINTADDITIONONELLIPTICCURVES
-            MENUITEM "i18n Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "Obliczyc liczby &Mersenne’a...", ID_COMPUTE_MERSENNE_NUMBERS
         END
     END
     POPUP "&Kryptoanaliza"
@@ -8446,7 +8446,7 @@ BEGIN
     IDS_SOLITAIRE_PASSWORD_NEEDS_26_CARDS 
                             "Inicja³ has³a wymaga co najmniej 26 kart. Liczba kart wzros³a do tego numeru."
     IDS_HILL_CHOOSE_HILL10x10 
-                            "[i18n]The dimension of the stored key is greater than 5.\nPlease select the button ""Larger Matrix"" before you paste this key."
+                            "Wymiar przechowanego klucza jest wiekszy niz 5.\nProsze wybierz "" Wieksza Matrix "" zanim wklejisz ten klucz."
 END
 
 STRINGTABLE 
@@ -10411,7 +10411,7 @@ BEGIN
     IDS_CRT_SECRETSHARING_REK3 
                             "Nie podano kluczy\n\n\n\n----- Rekonstrukcja nie powiod³a siê-----\n\n\n\n"
     IDS_CRT_SECRETSHARING_REK4 
-                            "i18n The keys are joined together.\r\n\r\nAfter clicking OK, the resulting secret will be shown."
+                            "Klawisze sa polaczone.\r\n\r\nPo kliknieciu OK, pokaze sie tajny wynik"
     IDS_CRT_SECRETSHARING_REK5 "U¿ywam %d hase³ do identyfikatorów."
     IDS_CRT_SECRETSHARING_REK6 
                             "Wprowadzi³eœ %d kluczy.\r\n Dla obliczeñ potrzebnych jest co najmniej %d poprawnych kluczy.\r\n"
@@ -11114,25 +11114,25 @@ BEGIN
     IDS_MERSENNE_NUMBER_COMPUTATION_RUNNING "Trwa obliczenie..."
     IDS_MERSENNE_NUMBER_COMPUTATION_CANCELLED "Obliczenie zostalo odwo³ane."
     IDS_MERSENNE_NUMBER_COMPUTATION_TIME_NEEDED 
-                            "[i18n]Elapsed time for the computation of the Mersenne number: %.0f seconds"
+                            "Czas, który uplynal przy obliczaniu liczby Mersenne'a: %.0f Sekund"
     IDS_INTEGRAL_NUMBER_SEPARATOR "."
     IDS_FRACTIONAL_NUMBER_SEPARATOR ","
-    IDS_CONTROL_SELECT_ALL  "[i18n] Select all"
+    IDS_CONTROL_SELECT_ALL  "Wybierz wszystko"
     IDS_STRING_ADFGVX_NO_CHARACTERS_IN_PASSWORD 
-                            "[i18n] You did not enter any characters, thus the substitution matrix was not changed."
+                            "Nie wprowadzono zadnych znaków, tym samym macierz substytucji nie ulegla zmianie."
     IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_ON 
-                            "[i18n] Show thousands separators"
+                            "Pokaz separatory tysiecy"
 END
 
 STRINGTABLE 
 BEGIN
     IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_OFF 
-                            "[i18n] Hide thousands separators"
+                            "Ukryj separatory tysiecy"
     IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_ON 
-                            "[i18n] Show decimal separators"
+                            "Pokaz separatory dziesietnych"
     IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_OFF 
-                            "[i18n] Hide decimal separators"
-    IDS_STRING_PASTE_KEY_FROM_KEY_STORE "[i18n] Paste key"
+                            "Ukryj separatory dziesietnych"
+    IDS_STRING_PASTE_KEY_FROM_KEY_STORE "Wklej klucz"
 END
 
 #endif    // Polish resources
