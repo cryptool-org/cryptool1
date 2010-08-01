@@ -962,6 +962,8 @@ c) Neue Funktionalität / Bedienung:
    - Die Ciphertext-Only-Analyse von XOR-Chiffraten ermittelte eine falsche
      Schlüssellänge, obwohl die angezeigte Autokorrelation korrekt war.
      Nun wird die richtige Schlüssellänge angezeigt und benutzt.
+   - Korrektur etlicher Rechtschreibfehler in der CrypTool-Onlinehilfe, den
+     Ressourcen von CrypTool, AES-Tool und Zahlenhai, und den Animal AML-Dateien.
 
 
 - CrypTool merkt sich nun die Position und Größe des Hauptfensters und nutzt
@@ -970,7 +972,7 @@ c) Neue Funktionalität / Bedienung:
 - Benutzerfreundlichkeit: Insbesondere für neue Benutzer, die die Onlinehilfe
   nicht aufriefen, aber nach der Bedeutung der Ikone fragten, hat die Ikone
   zum Einfügen von Schlüsseln aus dem internen Schlüsselspeicher in mehreren
-  modalen Dialogboxen nun einen Tool-Tipp.
+  modalen Dialogboxen nun einen Tool-Tipp ("Schlüssel einfügen").
 
 - Viele kleine Verbesserungen in den Masken, z.B. Elapsed-Time-Anzeige beim
   AKS-Test; der Text in der About-Box kann markiert und kopiert werden;
@@ -2064,7 +2066,7 @@ Bemerkungen zu den Versionen:
          EN:  93.7 MB
          DE:  94.7 MB
          PL: 100.0 MB
-         RS:  xx.x MB  xxxxxxxxx
+         RS:  93.7 MB  xxxxxxxxx
          SP:  94.4 MB
 
 

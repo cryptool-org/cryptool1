@@ -944,6 +944,9 @@ c) New functionality / Usability:
    - The ciphertext-only analysis of XOR ciphertexts calculated a wrong
      key length despite the shown autocorrelation was correct.
      Now the correct key length is shown and used.
+   - Correction of quite a few typos within the CrypTool online help, the
+     resource files of  CrypTool, AES-Tool and NumberShark, and the Animal
+     AML files.
 
 
 - CrypTool now remembers its main window position and size and uses
@@ -951,7 +954,8 @@ c) New functionality / Usability:
 
 - User convenience: Especially helpful for new users who did not use online
   help and asked about the meaning of the icon the icon used to paste keys
-  from the internal key store into several modal dialogs now carries a tool tip.
+  from the internal key store into several modal dialogs now carries a tool
+  tip ("Paste key").
 
 - Many small improvements in the masks (user interface), e.g. elapsed-time
   dialog for the AKS test; text in about box can be marked and copied; time
@@ -2000,7 +2004,7 @@ Remarks about the versions:
          EN:  93.7 MB
          DE:  94.7 MB
          PL: 100.0 MB
-         RS:  xx.x MB  xxxxxxxxx
+         RS:  93,7 MB  xxxxxxxxx
          SP:  94.4 MB
 
 
