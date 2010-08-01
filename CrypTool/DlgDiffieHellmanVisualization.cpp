@@ -287,7 +287,7 @@ void CDlgDiffieHellmanVisualization::OnButtonalice1()
 	CDlgDiffieHellmanSecretInput *dlg;
 
 	if(Alice->HasSecret()) dlg = new CDlgDiffieHellmanSecretInput("Alice", Alice->GetStrSecret(), Alice->GetPrime());
-	else dlg = new CDlgDiffieHellmanSecretInput("Alice",this->Alice->GetPrime());
+	else dlg = new CDlgDiffieHellmanSecretInput("Alice", this->Alice->GetPrime());
 	
 	if(dlg->DoModal() == IDCANCEL) return;
 

@@ -339,7 +339,7 @@ void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym()
 			if(CT_READ_REGISTRY(c_SCA_keyWord, "Keyword", u_length))
 				keyword = c_SCA_keyWord;
 			else
-				keyword = "Alice";
+            keyword.LoadStringA( IDS_SCA_KEYWORD );
 			CT_CLOSE_REGISTRY();
 		}
 		

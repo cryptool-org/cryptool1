@@ -449,9 +449,11 @@ void CDlgSideChannelAttackVisualizationHE::OnPreparations()
 			// nötiges Verzeichnisprefix anhängen und somit vollständigen Namen ermitteln
 			CString certFilenamePrefixed = (CString)PseVerzeichnis+((CString)"/") + certFilename;
 			certFilename = certFilenamePrefixed;
-			// Öffentlicher Schlüssel (e,N) von Bob
-			char publicKeyTemp[1000];
-			char modulusTemp[1000];
+
+         // Öffentlicher Schlüssel (e,N) von Bob
+         char *publicKeyTemp = new char[4097]; // FIXME HK: MEMORY FOR HEX STRING REPRESENTATION UP to 16K RSA MODULI
+         char *modulusTemp   = new char[4097];
+
 			// Schlüssel von Bob ohne PIN holen (kommt im HEX-Format)
 			getPublicKey(certInfo.firstname, certInfo.lastname, certInfo.time, publicKeyTemp, modulusTemp);
 			// Konvertierung in Dezimalformat
@@ -467,6 +469,9 @@ void CDlgSideChannelAttackVisualizationHE::OnPreparations()
 			// öffentlichen Schlüssel (e UND n) setzen
 			serverPublicKey = publicKeyTemp;
 			serverModulus = modulusTemp;
+
+         delete []publicKeyTemp;
+         delete []modulusTemp;
 			
 			// RESET
 			scaClient->cancelTransmission();
@@ -757,17 +762,15 @@ void CDlgSideChannelAttackVisualizationHE::OnAttackcycle()
 					if (ERROR_SUCCESS == theApp.localRegistry.QueryValue(c_SCA_keyWord, "SCA_Keyword", &u_length) )			
 						keyword = c_SCA_keyWord;
 					else
-						keyword = "Alice";
+						keyword.LoadStringA( IDS_SCA_KEYWORD );
 				}
 				// if we can't access the registry, we default to the keyword "Alice"
 				else {
-					keyword = "Alice";
+					keyword.LoadStringA( IDS_SCA_KEYWORD );
 				}
 				// now let the user know why the attack probably failed
 				LoadString(AfxGetInstanceHandle(), IDS_SCA_ATTACK_FAILED_BECAUSE_OF_MISSING_KEYWORD, pc_str, STR_LAENGE_STRING_TABLE);
-				char *message = new char[strlen(pc_str) + keyword.GetLength() + 1];
-				memset(message, 0, strlen(pc_str) + keyword.GetLength() + 1);
-				sprintf(message, pc_str, keyword.GetBuffer());
+            CString message;
 				MessageBox(message, "CrypTool");
 			}
 			// notify user that the attack was successful
@@ -1024,6 +1027,7 @@ void CDlgSideChannelAttackVisualizationHE::setABArrow(int _mode)
 
 void CDlgSideChannelAttackVisualizationHE::OnClose() 
 {
+//   _CrtDumpMemoryLeaks();
 	EndDialog(0);	
 }
 
@@ -1134,17 +1138,15 @@ void CDlgSideChannelAttackVisualizationHE::OnButtonNextsinglestep()
 						if (ERROR_SUCCESS == theApp.localRegistry.QueryValue(c_SCA_keyWord, "SCA_Keyword", &u_length) )			
 							keyword = c_SCA_keyWord;
 						else
-							keyword = "Alice";
+   						keyword.LoadStringA( IDS_SCA_KEYWORD );
 					}
 					// if we can't access the registry, we default to the keyword "Alice"
 					else {
-						keyword = "Alice";
+						keyword.LoadStringA( IDS_SCA_KEYWORD );
 					}
 					// now let the user know why the attack probably failed
-					LoadString(AfxGetInstanceHandle(), IDS_SCA_ATTACK_FAILED_BECAUSE_OF_MISSING_KEYWORD, pc_str, STR_LAENGE_STRING_TABLE);
-					char *message = new char[strlen(pc_str) + keyword.GetLength() + 1];
-					memset(message, 0, strlen(pc_str) + keyword.GetLength() + 1);
-					sprintf(message, pc_str, keyword.GetBuffer());
+               CString message;
+               message.FormatMessage( IDS_SCA_ATTACK_FAILED_BECAUSE_OF_MISSING_KEYWORD, keyword.GetBuffer() );
 					MessageBox(message, "CrypTool");
 				}
 				// notify user that the attack was successful
@@ -1206,17 +1208,15 @@ void CDlgSideChannelAttackVisualizationHE::OnButtonAllremainingsteps()
 				if (ERROR_SUCCESS == theApp.localRegistry.QueryValue(c_SCA_keyWord, "SCA_Keyword", &u_length) )			
 					keyword = c_SCA_keyWord;
 				else
-					keyword = "Alice";
+					keyword.LoadStringA( IDS_SCA_KEYWORD );
 			}
 			// if we can't access the registry, we default to the keyword "Alice"
 			else {
-				keyword = "Alice";
+				keyword.LoadStringA( IDS_SCA_KEYWORD );
 			}
 			// now let the user know why the attack probably failed
-			LoadString(AfxGetInstanceHandle(), IDS_SCA_ATTACK_FAILED_BECAUSE_OF_MISSING_KEYWORD, pc_str, STR_LAENGE_STRING_TABLE);
-			char *message = new char[strlen(pc_str) + keyword.GetLength() + 1];
-			memset(message, 0, strlen(pc_str) + keyword.GetLength() + 1);
-			sprintf(message, pc_str, keyword.GetBuffer());
+         CString message;
+         message.FormatMessage( IDS_SCA_ATTACK_FAILED_BECAUSE_OF_MISSING_KEYWORD, keyword.GetBuffer() );
 			MessageBox(message, "CrypTool");
 		}
 		// notify user that the attack was successful

@@ -79,3 +79,10 @@
 #include "libanalyse\analyse.h"
 #include <afxdhtml.h>
 
+
+// #ifdef _DEBUG
+#define _CRTDBG_MAP_ALLOC
+#include <stdlib.h>
+#include <crtdbg.h>
+#define _INC_MALLOC
+// #endif

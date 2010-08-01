@@ -87,6 +87,8 @@ void HybridEncryptedFileInfo::operator=(HybridEncryptedFileInfo &_hi)
 	cipherText.noctets = _hi.cipherText.noctets;
 }
 
+//////////////////////////////////////////////////////////////////////////
+//  SIDE CHANNEL ATTACK -- SERVER
 SCA_Server::SCA_Server()
 {
 	// Einstellung aus .ini-Datei holen (Signifikante Bitlänge!!!)
@@ -136,16 +138,17 @@ SCA_Server::SCA_Server()
 SCA_Server::~SCA_Server()
 {
 	// Speicher aufräumen
-	if(decryptedSessionKey.octets) delete this->decryptedSessionKey.octets;
-	if(decryptedCipherText.octets) delete this->decryptedCipherText.octets;
+	if(decryptedSessionKey.octets) delete []decryptedSessionKey.octets;
+	if(decryptedCipherText.octets) delete []decryptedCipherText.octets;
 	
 	for(int i=0;i<significantBits+3;i++)
 	{
-		if(formerSessionKeys[i].octets) delete formerSessionKeys[i].octets;
+		if(formerSessionKeys[i].octets) delete []formerSessionKeys[i].octets;
 		formerSessionKeys[i].octets = 0;
 	}
+   delete []formerSessionKeys;
 
-	if(formerResponses) delete formerResponses;
+	if(formerResponses) delete []formerResponses;
 }
 
 void SCA_Server::setPublicKey(std::string _e)
@@ -231,19 +234,27 @@ bool SCA_Server::wasDecryptionSuccessful(OctetString *decryptedCipherText)
 	
 	// Diese Funktion sucht nach dem Schlüsselwort innerhalb des übergebenen OctetStrings
 	// und gibt basierend auf dem Erfolg der Suche TRUE oder FALSE zurück (Ampel GRÜN/ROT)
+
+   bool result = false;
+
 	char *temp = new char[decryptedCipherText->noctets+1];
 	if(!temp) throw SCA_Error(E_SCA_MEMORY_ALLOCATION);
 	memcpy(temp, decryptedCipherText->octets, decryptedCipherText->noctets);
 	memcpy(temp + decryptedCipherText->noctets, "\0", 1);
 	std::string strTemp = temp;
 
-	char keyword[STR_LAENGE_STRING_TABLE+1] = "Alice";
+	char keyword[STR_LAENGE_STRING_TABLE+1];
+   LoadString(AfxGetInstanceHandle(), IDS_SCA_KEYWORD, keyword, STR_LAENGE_STRING_TABLE);
 	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "SideChannelAttack" ) == ERROR_SUCCESS )
 	{
 		unsigned long u_keyword_maxLength = STR_LAENGE_STRING_TABLE;
-		CT_READ_REGISTRY_DEFAULT(keyword, "Keyword", keyword, u_keyword_maxLength);
+		CT_READ_REGISTRY_DEFAULT(keyword, "Keyword", keyword, u_keyword_maxLength );
 		CT_CLOSE_REGISTRY();
 	}
+
+   if ( !strlen(keyword) ) 
+      LoadString(AfxGetInstanceHandle(), IDS_SCA_KEYWORD, keyword, STR_LAENGE_STRING_TABLE);
+
 	ASSERT(strlen(keyword) != 0); // memcmp would always return true if keyword were empty
 	// in this case we would never leave step 2 of nextHybridEncryptedFile
 
@@ -253,10 +264,14 @@ bool SCA_Server::wasDecryptionSuccessful(OctetString *decryptedCipherText)
 	// using "memcmp" to be able to deal with binary zeros
 	for(unsigned int i=0; i<=(decryptedCipherText->noctets - strlen(keyword)); i++) {
 		if(memcmp(temp + i, keyword, strlen(keyword)) == 0) {
-			return true;
+         result = true;
+         break;
 		}
 	}
-	return false;
+
+   delete []temp;
+
+	return result;
 	
 	/*
 	// Entropie des entschlüsselten Dokuments prüfen und somit entscheiden,
@@ -316,6 +331,8 @@ void SCA_Server::cancelAttackerReceptions()
 	numberOfReceptions = 1;	
 }
 
+//////////////////////////////////////////////////////////////////////////
+//  SIDE CHANNEL ATTACK -- CLIENT
 SCA_Client::SCA_Client()
 {
 	this->sessionKey = "";
@@ -366,6 +383,8 @@ void SCA_Client::cancelTransmission()
 	statusInfo.hasTransmittedMessage = false;
 }
 
+//////////////////////////////////////////////////////////////////////////
+//  SIDE CHANNEL ATTACK -- ATTACKER
 SCA_Attacker::SCA_Attacker()
 {
 	// Einstellung aus .ini-Datei holen (Signifikante Bitlänge!!!)
@@ -387,7 +406,7 @@ SCA_Attacker::SCA_Attacker()
 	if(!significantBits) throw SCA_Error(E_SCA_INTERNAL_ERROR);
 	
 	// Speicher reservieren
-	formerlyModifiedSessionKeys = new OctetString[significantBits+2];
+	formerlyModifiedSessionKeys = new OctetString[significantBits+2]; 
 	if(!formerlyModifiedSessionKeys) throw SCA_Error(E_SCA_MEMORY_ALLOCATION);
 	formerResponses = new bool[significantBits+2];
 	if(!formerResponses) throw SCA_Error(E_SCA_MEMORY_ALLOCATION);
@@ -428,12 +447,15 @@ SCA_Attacker::~SCA_Attacker()
 	{
 		if(formerlyModifiedSessionKeys[i].octets) delete formerlyModifiedSessionKeys[i].octets;
 	}
+   delete []formerlyModifiedSessionKeys;
 
-	if(formerResponses) delete formerResponses;
+	if(formerResponses) delete []formerResponses;
 
 	this->hi.free();
 
 	originalHybEncFileInfo.free();
+
+  // _CrtDumpMemoryLeaks();
 }
 
 void SCA_Attacker::setTargetPublicKey(std::string e, std::string n)
@@ -523,6 +545,8 @@ HybridEncryptedFileInfo SCA_Attacker::nextHybridEncryptedFile()
 
 		// der "alte" Session Key wird durch den "neuen" <newSessionKey> ersetzt
 		hi = originalHybEncFileInfo;
+      if ( hi.sessionKeyEncrypted.octets )   // FIXME HK: MEMORY LEAK PREVENTION
+         delete []hi.sessionKeyEncrypted.octets;
 		hi.sessionKeyEncrypted = modifiedSessionKey;
 		
 		return hi;
@@ -573,6 +597,8 @@ HybridEncryptedFileInfo SCA_Attacker::nextHybridEncryptedFile()
 
 			// der "alte" Session Key wird durch den "neuen" <newSessionKey> ersetzt
 			hi = originalHybEncFileInfo;
+         if ( hi.sessionKeyEncrypted.octets )  // FIXME HK: prevent memory leak
+            delete []hi.sessionKeyEncrypted.octets;
 			hi.sessionKeyEncrypted = modifiedSessionKey;
 
 			return hi;
@@ -601,11 +627,11 @@ HybridEncryptedFileInfo SCA_Attacker::nextHybridEncryptedFile()
 		std::string strResult;
 
 		// Das Geheimnis müsste nun erraten sein!
-		char *t = new char[2000];
+		char *t = new char[80]; // FIXME HK enough MEMORY FOR 256 +3 BIT SECRETS
 		if(!t) throw SCA_Error(E_SCA_MEMORY_ALLOCATION);
 		t << finalChallenge;
 		strResult = t;
-		delete t;
+		delete []t;
 
 		// ENDE DES ANGRIFFS
 		attackIsDone(strResult);
@@ -805,7 +831,7 @@ void convertBigNumberToOctetString(Big bigIn, OctetString *binaryOut, int outnoc
 	
 	
 	// Speicher für Rückgabestruktur anfordern
-	binaryOut->octets = new char[1000];
+	binaryOut->octets = new char[2048]; // FIXME HK: ENOUGH MEMORY FOR 16K NUMBERS
 	if(!binaryOut->octets) throw SCA_Error(E_SCA_MEMORY_ALLOCATION);
 	binaryOut->noctets = 0;
 
@@ -825,6 +851,7 @@ void convertBigNumberToOctetString(Big bigIn, OctetString *binaryOut, int outnoc
 		
 		tmp = (unsigned char)number;
 				
+      ASSERT( binaryOut->noctets < 2048 );
 		// Octet-String um EIN WEITERES ZEICHEN erweitern
 		binaryOut->octets[binaryOut->noctets++] = tmp;
 	}
@@ -832,7 +859,7 @@ void convertBigNumberToOctetString(Big bigIn, OctetString *binaryOut, int outnoc
 	// neuen Octet-String erstellen
 	OctetString *copy = new OctetString;
 	if(!copy) throw SCA_Error(E_SCA_MEMORY_ALLOCATION);
-	copy->octets = new char[1000];
+	copy->octets = new char[2048]; // FIXME HK: ENOUGH MEMORY FOR 16K NUMBERS
 	if(!copy->octets) throw SCA_Error(E_SCA_MEMORY_ALLOCATION);
 	copy->noctets = 0;
 
@@ -854,7 +881,7 @@ void convertBigNumberToOctetString(Big bigIn, OctetString *binaryOut, int outnoc
 	}
 
 	// Speicher freigeben
-	delete copy->octets;
+	delete []copy->octets;
 	delete copy;
 
 	return;
@@ -896,7 +923,7 @@ void convertOctetStringToHexString(const OctetString *binaryIn, char *hexOut)
 
 double determineEntropy(const char *data)
 {
-	char tempfile[100];
+	char tempfile[1024];
 	GetTmpName(tempfile, "cry", ".tmp");
 
 	ofstream outfile(tempfile);
@@ -936,10 +963,11 @@ void decryptMessageAES(OctetString *cipherTextIn, OctetString *key, OctetString 
 	// nur die signifikanten Bits zurück in die Variable <key> schreiben
 	memcpy(key->octets, lsbKey, sigBits/8);
 	// Speicher freigeben
-	delete lsbKey;
-	key->noctets = sigBits/8;
+	delete []lsbKey;
+
+   key->noctets = sigBits/8;
 	// Speicher reservieren
-	char decryptedSessionKeyHEX[1000];
+	char decryptedSessionKeyHEX[65]; // FIXME HK: ENOUGH BUFFER FOR A 256 BIT AES KEY IN HEX-STR REPRESENTATION
 	// entschlüsselten Session Key in HEXFORMAT umwandeln
 	convertOctetStringToHexString(key, decryptedSessionKeyHEX);
 	// Länge des Session Keys ermitteln (in BYTE)
@@ -970,8 +998,8 @@ void decryptMessageAES(OctetString *cipherTextIn, OctetString *key, OctetString 
 	memcpy(clearTextOut->octets, clearText, dataLength);
 	clearTextOut->noctets = dataLength;
 	// Speicher freigeben
-	delete cipherText;
-	delete clearText;
+	delete []cipherText;
+	delete []clearText;
 }
 
 // Diese Funktion entschlüsselt den in der HI-Struktur enthaltenen RSA-VERSCHLÜSSELTEN SESSION KEY und legt 
@@ -1304,15 +1332,19 @@ void extractHybridEncryptedFileInformation(const char *receivedFile, hybEncInfo 
 
 	// Speicher freigeben und zurückkehren
 	theApp.SecudeLib.aux_free_OctetString(&infile);	
-	delete cipherText->octets;
+
+   delete []encryptedSessionKey->octets;
+   delete encryptedSessionKey;
+	delete []cipherText->octets;
 	delete cipherText;
 }
 
 void generateSCAReport(SCA_Client *_alice, SCA_Server *_bob, SCA_Attacker *_trudy, const char *filename)
 {
-	char temp[2000];
 	OctetString tempOctetString;
-	char protocolString[10000];
+	char *temp = new char[4097]; // FIXME HK: HEX REPRESENTATION OF UP TO 16K RSA KEY PARAMETER
+	char *protocolString = new char[16000];
+
 	*protocolString = (unsigned char)0;
 
 	// *** PREPARATIONS ***
@@ -1388,9 +1420,19 @@ void generateSCAReport(SCA_Client *_alice, SCA_Server *_bob, SCA_Attacker *_trud
 
 	// *** DATEN IN AUSGABEDATEI SCHREIBEN ***
 	ofstream outfile(filename);
-	if(!outfile) throw SCA_Error(E_SCA_INTERNAL_ERROR);
-	outfile.write(protocolString, strlen(protocolString));
-	outfile.close();
+   bool error = !outfile;
+
+   if ( !error )
+   {
+	   outfile.write(protocolString, strlen(protocolString));
+	   outfile.close();
+   }
+   delete []temp;
+   delete []protocolString;
+
+   if( error ){
+      throw SCA_Error(E_SCA_INTERNAL_ERROR);
+   }
 }
 
 // Diese Funktion überprüft, ob der übergebene OctetString ein NULLSCHLÜSSEL ist,
@@ -1428,7 +1470,7 @@ void getPublicKey(const char *_f, const char *_l, const char *_t, char *publicKe
 	if (PseHandle==NULL)
 	{
 		// Freigeben von dynamisch angelegtem Speicher
-		delete string3;
+		delete []string3;
 		return;
 	}	
 
@@ -1439,7 +1481,7 @@ void getPublicKey(const char *_f, const char *_l, const char *_t, char *publicKe
 	{
 		// Freigeben von dynamisch angelegtem Speicher
 		theApp.SecudeLib.af_close (PseHandle);
-		delete string3;
+		delete []string3;
 		return;
 	}	
 
@@ -1452,7 +1494,7 @@ void getPublicKey(const char *_f, const char *_l, const char *_t, char *publicKe
 		// Freigeben von dynamisch angelegtem Speicher
 		theApp.SecudeLib.aux_free_SET_OF_IssuedCertificate (&Liste);
 		theApp.SecudeLib.af_close (PseHandle);
-		delete string3;
+		delete []string3;
 		return;
 	}
 
@@ -1491,4 +1533,6 @@ void getPublicKey(const char *_f, const char *_l, const char *_t, char *publicKe
 	}
 	// nicht die ersten beiden Stellen (0x) mit kopieren
 	strcpy(publicKeyHEX, pc_str+2);
+
+   delete []string3;
 }

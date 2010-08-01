@@ -40,12 +40,13 @@ char* double_fmt(double d_num, char *c_buffer, int prec = 2);
 
 unsigned long CT_OPEN_REGISTRY_SETTINGS	(unsigned long MODE_ACCESS, int ID_REGISTRY_PATH, const char *SUB_FOLDER = 0);
 void CT_CLOSE_REGISTRY();
-BOOL CT_READ_REGISTRY			(unsigned long &value,		const char *ID);
-BOOL CT_READ_REGISTRY			(char *value,		const char *ID,		unsigned long &length);
-BOOL CT_READ_REGISTRY_DEFAULT	(unsigned long &value,		const char *ID, const unsigned long default_value);
-BOOL CT_READ_REGISTRY_DEFAULT	(char *value,				const char *ID, const char *default_value,	unsigned long &length);
+BOOL CT_READ_REGISTRY			(unsigned long &value,		 const char *ID);
+BOOL CT_READ_REGISTRY			(char *value,               const char *ID, unsigned long &length);
+BOOL CT_READ_REGISTRY_DEFAULT	(unsigned long &value,		 const char *ID, const unsigned long default_value);
+BOOL CT_READ_REGISTRY_DEFAULT	(char *value,               const char *ID, 
+                               const char *default_value, unsigned long &length ); 
 BOOL CT_WRITE_REGISTRY			(const unsigned long value, const char *ID);
-BOOL CT_WRITE_REGISTRY			(const char *value,			const char *ID);
+BOOL CT_WRITE_REGISTRY			(const char *value,         const char *ID);
 
 // see implementation
 CString extractValueFromStringByKey(CString _key, CString _string);

@@ -707,8 +707,8 @@ BOOL CPSEDemo::TestAccess()
 
 void CPSEDemo::getRSAPrivateKey(CString &privatekey)
 {
-	char temp[1000];
-
-	temp << d;
-	privatekey = temp;
+   char *privateKeyTemp = new char[4934]; // FIXME HK: MEMORY FOR DECIMAL STRING REPRESENTATION UP to 16K RSA MODULI
+	privateKeyTemp << d;
+	privatekey = privateKeyTemp;
+   delete []privateKeyTemp;
 }

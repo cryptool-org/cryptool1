@@ -1623,6 +1623,8 @@ void CCryptDoc::OnEinzelverfahrenSidechannelattackOnHybridencryption()
 	dlg.setInitFileTitle(GetTitle());
 		
 	dlg.DoModal();
+
+   // _CrtDumpMemoryLeaks();
 }
 
 void CCryptDoc::OnFileProperties() 

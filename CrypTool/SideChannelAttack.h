@@ -59,19 +59,19 @@ extern char* CaPseDatei;
 extern char* CaPseVerzeichnis, *PseVerzeichnis;
 
 // Speicher für Schlüssel im Big-Format (in Byte)
-#define SCA_MAXIMUM_KEY_LENGTH_IN_BYTE								310		
+#define SCA_MAXIMUM_KEY_LENGTH_IN_BYTE								310*16
 // Zu allokierender Speicher für OctetStrings (in Byte)
-#define SCA_MAX_LENGTH_OCTETSTRING									2048
+#define SCA_MAX_LENGTH_OCTETSTRING									2048*16
 // s.u.
-#define SCA_MAX_LENGTH_RECEIVERSTRING								256
+#define SCA_MAX_LENGTH_RECEIVERSTRING								256*16
 #define SCA_MAX_LENGTH_RECEIVERFIRSTNAME							48
-#define SCA_MAX_LENGTH_RECEIVERLASTNAME								48
+#define SCA_MAX_LENGTH_RECEIVERLASTNAME					      48
 #define SCA_MAX_LENGTH_RECEIVERKEYTYPE								24
 #define SCA_MAX_LENGTH_RECEIVERIDSTAMP								24
 #define SCA_MAX_LENGTH_RECEIVERKEYID								24
-#define SCA_MAX_LENGTH_SESSIONKEYLENGTH								256
+#define SCA_MAX_LENGTH_SESSIONKEYLENGTH							256*16
 #define SCA_MAX_LENGTH_SYMMETRICMETHOD								24
-#define SCA_MAX_LENGTH_ASYMMETRICMETHOD								24
+#define SCA_MAX_LENGTH_ASYMMETRICMETHOD							24
 
 // Struktur für hybridverschlüsselte Datei
 struct HybridEncryptedFileInfo

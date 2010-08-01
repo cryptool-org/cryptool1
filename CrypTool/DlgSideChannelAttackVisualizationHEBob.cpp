@@ -73,9 +73,12 @@ BOOL CDlgSideChannelAttackVisualizationHEBob::OnInitDialog()
 	// load the keyword from the registry
 	if(CT_OPEN_REGISTRY_SETTINGS( KEY_READ, IDS_REGISTRY_SETTINGS, "SideChannelAttack" ) == ERROR_SUCCESS ) {
 		unsigned long u_length = 1024;
-		char c_SCA_keyWord[1025] = "Alice";
-		CT_READ_REGISTRY(c_SCA_keyWord, "Keyword", u_length);
+		char c_SCA_keyWord[1025];
+      LoadString(AfxGetInstanceHandle(), IDS_SCA_KEYWORD, c_SCA_keyWord, STR_LAENGE_STRING_TABLE);
+      CT_READ_REGISTRY_DEFAULT( c_SCA_keyWord, "Keyword", c_SCA_keyWord, u_length );
 		keyword = c_SCA_keyWord;
+      if ( !keyword.GetLength() ) 
+			keyword.LoadStringA( IDS_SCA_KEYWORD );
 		CT_CLOSE_REGISTRY();
 		UpdateData(FALSE);
 	}
@@ -164,8 +167,8 @@ void CDlgSideChannelAttackVisualizationHEBob::updateDisplay()
 	char number[5];
 	OctetString *o;
 	bool b;
-	char hexstring[1000];
-	char boolstring[1000];
+	char hexstring[65];   // FIXME HK: BUFFER FOR UP TO 256 BIT AES KEYS 
+	char boolstring[128]; // "sucessful" || "not sucessful"
 
 	for(int i=0; i<bob->getNumberOfReceptions(); i++)
 	{
@@ -195,7 +198,8 @@ void CDlgSideChannelAttackVisualizationHEBob::OnOK()
 
 	// store the keyword in the registry
 	if(CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "SideChannelAttack" ) == ERROR_SUCCESS ) {
-		if(keyword == "") keyword = "Alice";	
+		if(keyword == "") 
+			keyword.LoadStringA( IDS_SCA_KEYWORD );
 		CT_WRITE_REGISTRY(keyword, "Keyword");
 		CT_CLOSE_REGISTRY();
 	}

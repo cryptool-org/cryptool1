@@ -232,9 +232,9 @@ BOOL CT_READ_REGISTRY_DEFAULT	(unsigned long &value, const char *ID, const unsig
 	return TRUE;	
 }
 
-BOOL CT_READ_REGISTRY_DEFAULT	(char *value, const char *ID, const char *default_value, unsigned long &length)
+BOOL CT_READ_REGISTRY_DEFAULT	(char *value, const char *ID, const char *default_value, unsigned long &length )
 {
-	if (ERROR_SUCCESS != theApp.localRegistry.QueryValue(value, ID, &length))
+	if (ERROR_SUCCESS != theApp.localRegistry.QueryValue(value, ID, &length ) )
 	{
 		strncpy(value, default_value, length-1);
 		value[length-1]='\0';
