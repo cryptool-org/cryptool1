@@ -178,7 +178,6 @@ void CNumberEdit::OnContextMenu(CWnd *pWnd, CPoint pos) {
 	SetFocus();
 	CMenu menu;
 	menu.CreatePopupMenu();
-  BOOL bReadOnly = GetStyle() & ES_READONLY;
   
 	CString menuText;
 

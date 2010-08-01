@@ -8,8 +8,7 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -11120,19 +11119,22 @@ BEGIN
     IDS_CONTROL_SELECT_ALL  "Wybierz wszystko"
     IDS_STRING_ADFGVX_NO_CHARACTERS_IN_PASSWORD 
                             "Nie wprowadzono zadnych znaków, tym samym macierz substytucji nie ulegla zmianie."
-    IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_ON 
-                            "Pokaz separatory tysiecy"
+    IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_ON "Pokaz separatory tysiecy"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_OFF 
-                            "Ukryj separatory tysiecy"
+    IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_OFF "Ukryj separatory tysiecy"
     IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_ON 
                             "Pokaz separatory dziesietnych"
     IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_OFF 
                             "Ukryj separatory dziesietnych"
     IDS_STRING_PASTE_KEY_FROM_KEY_STORE "Wklej klucz"
+    IDS_CONTEXT_MENU_OPENGL_PROPERTIES "[i18n] Properties..."
+    IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES 
+                            "[i18n] Show cube's borderlines"
+    IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES 
+                            "[i18n] Hide cube's borderlines"
 END
 
 #endif    // Polish resources
@@ -22243,6 +22245,11 @@ BEGIN
     IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_OFF 
                             "[i18n] Hide decimal separators"
     IDS_STRING_PASTE_KEY_FROM_KEY_STORE "[i18n] Paste key"
+    IDS_CONTEXT_MENU_OPENGL_PROPERTIES "[i18n] Properties..."
+    IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES 
+                            "[i18n] Show cube's borderlines"
+    IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES 
+                            "[i18n] Hide cube's borderlines"
 END
 
 #endif    // Serbian (Latin) resources
@@ -33286,6 +33293,9 @@ BEGIN
     IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_ON "Dezimaltrenner einschalten"
     IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_OFF "Dezimaltrenner ausschalten"
     IDS_STRING_PASTE_KEY_FROM_KEY_STORE "Schlüssel einfügen"
+    IDS_CONTEXT_MENU_OPENGL_PROPERTIES "Eigenschaften..."
+    IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES "Würfelkanten anzeigen"
+    IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES "Würfelkanten nicht anzeigen"
 END
 
 #endif    // German (Germany) resources
@@ -44406,6 +44416,9 @@ BEGIN
     IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_ON "Show decimal separators"
     IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_OFF "Hide decimal separators"
     IDS_STRING_PASTE_KEY_FROM_KEY_STORE "Paste key"
+    IDS_CONTEXT_MENU_OPENGL_PROPERTIES "Properties..."
+    IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES "Show cube's borderlines"
+    IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES "Hide cube's borderlines"
 END
 
 #endif    // English (U.K.) resources
@@ -55583,6 +55596,11 @@ BEGIN
     IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_OFF 
                             "Ocultar separador de decimales"
     IDS_STRING_PASTE_KEY_FROM_KEY_STORE "Pegar clave"
+    IDS_CONTEXT_MENU_OPENGL_PROPERTIES "[i18n] Properties..."
+    IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES 
+                            "[i18n] Show cube's borderlines"
+    IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES 
+                            "[i18n] Hide cube's borderlines"
 END
 
 #endif    // Spanish resources

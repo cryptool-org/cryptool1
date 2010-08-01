@@ -248,9 +248,20 @@ BOOL COpenGLView::PreCreateWindow(CREATESTRUCT& cs)
 	return TRUE;
 }
 
-
-
-
+BOOL COpenGLView::OnCommand(WPARAM wParam, LPARAM lParam)
+{
+    switch (LOWORD(wParam))
+    {
+    case CM_OPENGL_PROPERTIES:
+			OnPopupOpenglEigenschaften();
+			return TRUE;
+    case CM_OPENGL_TOGGLE_BORDER_LINES:
+			OnPopupOpenglShowBox();
+			return TRUE;
+    default:
+			return CView::OnCommand(wParam, lParam);
+    }
+}
 
 #ifdef _DEBUG
 
@@ -292,20 +303,30 @@ void COpenGLView::OnSize(UINT nType, int cx, int cy)
 
 void COpenGLView::OnContextMenu(CWnd* pWnd, CPoint point) 
 {
+	// we're MANUALLY building the context menu here, because static resources 
+	// don't allow dynamic menu content (more precisely: I don't know how to do it...)
 
-   CPoint local = point;
-   ScreenToClient(&local);
+	CMenu menu;
+	menu.CreatePopupMenu();
+	CString menuText;
 
-      CMenu menu;
-      if (menu.LoadMenu(IDR_CONTEXT_MENU_OPENGL))
-      {
-         CMenu* pPopup = menu.GetSubMenu(0);
-         ASSERT(pPopup != NULL);
+	// first menu entry
+	menuText.LoadString(IDS_CONTEXT_MENU_OPENGL_PROPERTIES);
+	menu.InsertMenu(0, MF_BYPOSITION, CM_OPENGL_PROPERTIES, menuText);
 
-         pPopup->TrackPopupMenu(TPM_LEFTALIGN | TPM_RIGHTBUTTON,
-            point.x, point.y,
-            AfxGetMainWnd()); // Verwenden Sie das Hauptfenster für die Befehle
-      }
+	// second menu entry (depending on the "isBoundingBoxVisible" function)
+	if(m_pVolumeRenderer) {
+		if(m_pVolumeRenderer->isBoundingBoxVisible()) {
+			menuText.LoadString(IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES);
+		}
+		else {
+			menuText.LoadString(IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES);
+		}
+		menu.InsertMenu(1, MF_BYPOSITION, CM_OPENGL_TOGGLE_BORDER_LINES, menuText);
+	}
+
+	// build the context menu
+	menu.TrackPopupMenu(TPM_LEFTALIGN | TPM_LEFTBUTTON | TPM_RIGHTBUTTON, point.x, point.y, this);
 }
 
 void COpenGLView::OnPopupOpenglShowBox() 

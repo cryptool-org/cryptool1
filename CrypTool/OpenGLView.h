@@ -31,6 +31,9 @@
 #include "OpenGLDoc.h"
 #include "cryptoolapp.h"
 
+// we need those defines for our dynamic context menu
+#define CM_OPENGL_PROPERTIES						7777
+#define CM_OPENGL_TOGGLE_BORDER_LINES		7778
 
 /////////////////////////////////////////////////////////////////////////////
 // Ansicht COpenGLView 
@@ -73,6 +76,7 @@ public:
 	protected:
 	virtual void OnDraw(CDC* pDC);      // Überschrieben zum Zeichnen dieser Ansicht
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
+	virtual BOOL OnCommand(WPARAM wParam, LPARAM lParam);
 	//}}AFX_VIRTUAL
 
 // Implementierung
