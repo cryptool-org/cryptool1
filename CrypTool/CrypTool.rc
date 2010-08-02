@@ -11131,11 +11131,9 @@ BEGIN
     IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_OFF 
                             "Ukryj separatory dziesietnych"
     IDS_STRING_PASTE_KEY_FROM_KEY_STORE "Wklej klucz"
-    IDS_CONTEXT_MENU_OPENGL_PROPERTIES "[i18n] Properties..."
-    IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES 
-                            "[i18n] Show cube's borderlines"
-    IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES 
-                            "[i18n] Hide cube's borderlines"
+    IDS_CONTEXT_MENU_OPENGL_PROPERTIES "Funkcje..."
+    IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES "Pokaz granice kostki"
+    IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES "Ukryj granice kostki"
 END
 
 #endif    // Polish resources
