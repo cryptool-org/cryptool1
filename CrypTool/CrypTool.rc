@@ -8,11 +8,12 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -11136,12 +11137,12 @@ BEGIN
     IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES "Ukryj granice kostki"
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Serbian (Latin) resources
+// Serbisch (Lateinisch) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_SRL)
 #ifdef _WIN32
@@ -22252,12 +22253,12 @@ BEGIN
                             "[i18n] Hide cube's borderlines"
 END
 
-#endif    // Serbian (Latin) resources
+#endif    // Serbisch (Lateinisch) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -33299,12 +33300,12 @@ BEGIN
     IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES "Würfelkanten nicht anzeigen"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -36164,7 +36165,7 @@ BEGIN
     GROUPBOX        "Step 4. Set attack parameters",IDC_STATIC,9,352,187,71
     LTEXT           "h:",IDC_STATIC,15,387,8,8
     GROUPBOX        "Description",IDC_STATIC,8,7,505,44
-    LTEXT           "If a RSA-encrypted message is intercepted and the major part of the plaintext belonging to it is known, this attack allows to find the remaining part of the plaintext, provided the public exponent e is small (e.g. 3).",IDC_STATIC,14,18,494,16
+    LTEXT           "If a RSA-encrypted message is intercepted and the major part of the plaintext belonging to it is known, this attack allows to find the remaining part of the plaintext, provided the public exponent e is small (e.g. 3).",IDC_STATIC,14,18,490,16
     GROUPBOX        "Step 5. Perform the attack",IDC_STATIC,203,352,310,71
     LTEXT           "Lattice dimension:",IDC_STATIC,15,405,58,8
     EDITTEXT        IDC_EDITDIM,96,403,30,14,ES_AUTOHSCROLL | ES_READONLY
@@ -36180,7 +36181,7 @@ BEGIN
     LTEXT           "Solution:",IDC_STATIC,336,405,28,8
     PUSHBUTTON      "Show log file",IDC_BUTTONLOG,292,431,66,14
     LTEXT           "Desired bit length of N:",IDC_STATIC5,16,80,72,8
-    LTEXT           "Start by providing the public key (enter it or let it be generated).",IDC_STATIC,14,38,196,8
+    LTEXT           "Start by providing the public key (enter it or let it be generated).",IDC_STATIC,14,38,490,8
     CONTROL         "The ciphertext and a part of the plaintext are known.",IDC_RADIOCHOICE,
                     "Button",BS_AUTORADIOBUTTON | BS_MULTILINE | WS_GROUP,16,144,494,14
     CONTROL         "Generate the ciphertext by giving a plaintext and encrypting it.",IDC_RADIOCHOICE2,
@@ -44423,12 +44424,12 @@ BEGIN
     IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES "Hide cube's borderlines"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Spanish resources
+// Spanisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ESN)
 #ifdef _WIN32
@@ -55606,7 +55607,7 @@ BEGIN
                             "[i18n] Hide cube's borderlines"
 END
 
-#endif    // Spanish resources
+#endif    // Spanisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 

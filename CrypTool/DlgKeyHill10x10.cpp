@@ -1022,6 +1022,7 @@ void CDlgKeyHill10x10::OnPasteKey()
 void CDlgKeyHill10x10::OnZufaelligerSchluessel() 
 {
 	m_HillBase->randomKey();
+   GetDlgItem(IDOK)->SetFocus();
 }
 
 
