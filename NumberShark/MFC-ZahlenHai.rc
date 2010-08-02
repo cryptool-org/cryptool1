@@ -2169,7 +2169,7 @@ BEGIN
     IDS_VALID_INPUT_HEADLINE_LOW "The entered number is to low."
     IDS_LOGFILE_PLAYER_NUMBERS "\r\nYour chosen numbers: "
     IDS_SEPERATOR           ","
-    IDS_TAB_HEADER4         "Accelerators"
+    IDS_TAB_HEADER4         "Shortcuts"
     IDS_ACC_CHANGE          "SHIFT+ALT+C: Changes the style of the buttons in the shell square.\r\n\r\n"
 END
 

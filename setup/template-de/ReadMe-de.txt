@@ -687,7 +687,7 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
       CrypTool-Projektes entwickelt wurden oder dem CT-Projekt gewidmet wurden.
       Die Sourcen anderer Open-Source-Projekte, die innerhalb von CrypTool
       benutzt werden (wie OpenSSL, NTL, Scintilla) werden nicht gezählt.
-      Ebensowenig werden automatisch erzeugte Dateien gezählt.
+      Ebenso wenig werden automatisch erzeugte Dateien gezählt.
 
   Snapshot zur Anzahl von Dateien und zur Anzahl der Source-Code-Zeilen
 
@@ -704,7 +704,7 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
   Der Wechsel von VS2003 auf VS2008 war auch deshalb erforderlich, weil nur
   damit manche Bibliotheken so compiliert werden konnten, dass sie sowohl
   unter Windows Vista als auch Windows XP korrekt liefen.
-  Eine Komplettcompilierung aller 4 Sprachversionen (jeweils Debug und Release)
+  Eine Komplett-Compilierung aller 4 Sprachversionen (jeweils Debug und Release)
   dauert auf einem modernen PC rund 2 h.
 
 
@@ -919,7 +919,12 @@ c) Neue Funktionalität / Bedienung:
      Außerdem kommt hier nun beim Versuch, einen nicht verschlüsselten Text
      zu entschlüsseln, eine korrekte Fehlermeldung.
    - DH-Demo: Wenn man automatisch erzeugte Generatoren danach änderte (z.B.
-     die Ziffer 2 anfügen) kam es in früheren Versionen zum Absturz. Ist behoben.
+     die Ziffer 2 anfügen) kam es in früheren Versionen zum Absturz.
+     Ist behoben.
+   - Seitenkanalangriff auf das Hybridverschlüsselungsprotokoll (Textbook-RSA):
+     Wenn man mit RSA-Modulen arbeitete, die länger als 1024 Bit waren, kam es 
+     zum Absturz, wenn man den Angriffszyklus startete.
+     Ist behoben.
    - Die auf dem CRT beruhende Secret-Sharing-Anwendung verbietet nun, dass
      n=k (denn so wären alle Shareholder notwendig). Ohne diese Einschränkung
      macht der Algorithmus das ganze Geheimnis dem ersten Teilnehmer bekannt.
@@ -1118,7 +1123,7 @@ c) Neue Funktionalität / Bedienung:
   in jeder Runde (compiliert mit Java 1.5).
 
 
-- Das Lernprogramm/Lernspiel "Zahlenhai" (in der Version 1.2) wurde 
+- Das Lernprogramm/Lernspiel "Zahlenhai" (in der Version 1.2.1) wurde 
   korrigiert und die Onlinehilfe aktualisiert und erweitert.
   Ausgabe/Anzeige der optionalen Werte:
   - Bisher konnte man die optionalen Werte auf zwei Arten anzeigen:
@@ -1149,10 +1154,10 @@ c) Neue Funktionalität / Bedienung:
   Alle gefundenen Schlüssel der Transpositions-Analyse werden in einer
   Tabelle angezeigt.
 
-- Weitere Ciphertext-Only-Analyse für Vigenère (nach Schrödel): Diese ist
-  effizient für sehr kurze Chiffrate, sofern das Passwort aus einem
+- Weitere Ciphertext-Only-Analyse für Vigenère (nach Schrödel): Diese
+  ist effizient für sehr kurze Chiffrate, sofern das Passwort aus einem
   Wörterbuch stammt.
-xxxxxxxxxxxxxxxxxxxxx
+
 
 
 
@@ -2348,7 +2353,7 @@ Vollständig mit Source-Code verfügbar sind:
 - http://www.kryptosproject.org/          (alt)
   http://kryptosproject.sourceforge.net/  (neu)
   Kryptos ist Open-Source-Projekt, das an der George Mason University begann.
-  Krytos ist eine Kryptographie-Lernsoftware mit einer statischen
+  Kryptos ist eine Kryptographie-Lernsoftware mit einer statischen
   Oberfläche, aber vielen modernen Algorithmen, die dynamisch aus
   verschiedenen Bibliotheken kommen können.
   Kryptos hat keine Kryptoanalyse-Funktionen.
@@ -2490,10 +2495,6 @@ A. Anhang
    ------
 
 A.1. .... CrypTool unter Linux mit Wine
-A.1.1. .... CrypTool installieren
-A.1.2. .... Wine-Konfiguration
-A.1.3. .... CrypTool ausführen
-
 A.2. .... Neue Funktionen, Roadmap, Nachfolger-Projekte mit Java/Eclipse und C#/.NET
 A.2.1. .... Mögliche Punkte für eine Weiterentwicklung -- Ideen, Anfragen
 A.2.1.1. .... Funktionalität: Algorithmen / Verfahren
@@ -2508,70 +2509,11 @@ A.2.2.2. .... Funktionen, geplant für die Nachfolger-Projekte CT2 und JCT1
 
 A.1. CrypTool unter Linux mit Wine
      -----------------------------
+Bei einem kurzen Test mit Wine 1.2 unter Ubuntu lief CrypTool 1.4.30.
+
 Wir unternehmen keine Anstrengungen, Wine zu unterstützen.
 Stattdessen läuft die plattformunabhängige Version JCT auch unter Linux
 (siehe Kapitel 3.5).
-
-Die folgenden Hinweise basieren auf Tests mit Wine 0.9.9.
-
-Es wird nicht empfohlen, CrypTool 1.x unter Wine zu nutzen, da viele
-Dinge dort nur teilweise richtig funktionieren.
-
-A.1.1. CrypTool installieren
-       ---------------------
-Im letzten Schritt der Installation gibt es die Option,
-CrypTool gleich zu starten. Dies funktioniert unter Wine nicht.
-Bitte starten Sie CrypTool wie unten beschrieben.
-
-
-A.1.2. Wine-Konfiguration
-       ------------------
-CrypTool funktioniert nicht mit der in Wine eingebauten Version
-von riched32.dll. Wenn Sie unter CrypTool eine Datei öffnen und
-die falsche Version von riched32.dll benutzt wird, erscheint ein
-leeres Fenster.
-Wahrscheinlich taucht das Problem nicht auf, wenn Wine eine
-existierende Windows-Partition benutzen kann.
-Wenn Sie Wine ohne Windows benutzen, können Sie das Problem mit
-folgenden Schritten lösen:
- - Installieren Sie CrypTool unter Wine.
- - Besorgen Sie sich riched32.dll (z.B. Version 5.0.1458.47)
-   und kopieren Sie die Datei in das Installationsverzeichnis
-   von CrypTool. Eventuell müssen sie analog mit weiteren DLLs
-   verfahren, die von riched32.dll benutzt werden. Beachten Sie
-   bitte die Fehlerausgaben von Wine.
- - Konfigurieren Sie Wine so, dass es diese Datei nutzt.
-   In der Standard-Konfiguration ist das so.
-   Funktioniert das bei Ihnen nicht, schreiben Sie folgende Zeile
-   in die [DllOverrides]-Sektion der Wine-Konfigurationsdatei:
-   "riched32" = "native,builtin"
-
-
-A.1.3. CrypTool ausführen
-       ------------------
-
-A.1.3.1. Starten
-         -------
-Um CrypTool zu starten, wechseln Sie in das Verzeichnis, in das
-es installiert wurde, und starten es mit:
-
-$ wine CrypTool
-
-Wenn Sie vor dem Aufruf nicht in das Installationsverzeichnis
-von CrypTool wechseln, findet CrypTool einige wichtige Dateien
-nicht.
-
-
-A.1.3.2. Bugs und Workarounds
-         --------------------
-* Die Online-Hilfe kann nicht mit F1 aus CrypTool heraus
-  aufgerufen werden.
-  Mit der folgenden Kommandozeile können Sie die Online-Hilfe
-  anzeigen:
-
-  $ wine winhlp32 CrypTool.hlp
-
-
 
 
 
@@ -2962,7 +2904,7 @@ b) Java-CrypTool (JCrypTool, JCT):
    - Komplett neu designtes CrypTool in Java mit Eclipse/RCP.
    - Plattform-unabhängig.
    - Nutzt strikt die Standards von Eclipse 3.5.
-   - Nutzung von SWT (und Jigloo) für die GUI.
+   - Nutzung von SWT für die GUI.
    - Bouncy-Castle und FlexiProvider werden als Krypto-Provider benutzt.
    - Die aktuelle Beta kann auch schon von Endbenutzern sinnvoll verwendet werden.
    - Weitere Entwickler, Architekten und Designer sind in diesem Projekt

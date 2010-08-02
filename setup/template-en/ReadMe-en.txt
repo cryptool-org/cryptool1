@@ -48,7 +48,7 @@
  8.3. .... Further freeware projects (Crank, CAP, CryptoStudio, etc)
  8.4. .... Awards
 A. .... Appendix
-A.1. .... Hints for using CrypTool on Linux with Wine
+A.1. .... Using CrypTool on Linux with Wine
 A.2. .... New features, Roadmap, Successor projects using Java/Eclipse and C#/.NET
 
 
@@ -117,7 +117,7 @@ Number of downloads of the current betas of the successor versions:
 The aim of CrypTool is to explain cryptographic mechanisms and to
 demonstrate the use and the limitations of individual mechanisms.
 CrypTool has implemented almost all state-of-the-art crypto
-functions and allows you to learn about and use, modern and
+functions and allows you to learn about, and use modern and
 classic cryptography within the same environment in a "playful"
 manner.
 
@@ -408,7 +408,7 @@ I also want to thank
   the first Polish version.
 - Dr. Gonzalo Alvarez from the University of Madrid, who did with his
   colleagues the first Spanish version.
-- Bojan Dimitrovski from the University of Belgrad, who did with his
+- Bojan Dimitrovski from the University of Belgrade, who did with his
   colleagues the first Serbian version.
 
 
@@ -904,6 +904,10 @@ c) New functionality / Usability:
    - DH Demonstration: In earlier versions a crash happened when a digits
      (e.g. 2) were appended to an automatically created generator.
      This is fixed now.
+   - Side-channel attack on the hybrid encryption protocol "Textbook RSA":
+     In earlier versions a crash happened when a RSA modulus was used
+     longer than 1024 bits when starting the attack cycle.
+     This is fixed now.
    - The Secret Sharing application using the CRT now disallows, that
      n=k (so all share holders are necessary) in order to avoid that the
      algorithm then would make the whole secret evident to the first
@@ -1089,7 +1093,7 @@ c) New functionality / Usability:
   showing how the bits are changed round-by-round (compiled with Java 1.5).
 
 
-- The educational program/game "Number Shark" (in version 1.2) was
+- The educational program/game "Number Shark" (in version 1.2.1) was
   corrected and the online help was updated and enhanced.
   Showing the optional solutions:
   - Until now optimal results could be shown in two ways:
@@ -1119,7 +1123,7 @@ c) New functionality / Usability:
 - Further ciphertext-only analysis for Vigenère (according to Schroedel):
   This is effective for very short cryptograms if the password comes from
   a dictionary.
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
 
 
 
@@ -1457,7 +1461,7 @@ directory in which CrypTool should be installed:
 If he does not have these rights, the installation program stops.
 
 Therefore as a normal user without admin access rights, you should specify as
-target directory a so called "local directory" (instead of "C:\Programme").
+target directory a so called "local directory" (instead of "C:\Program Files").
 "Local" and accessible for any user could be e.g.: %ALLUSERSPROFILE%
 (The default of the English Windows XP is: 
 "C:\Documents and Settings\All Users").
@@ -2419,11 +2423,7 @@ CrypTool was honored with the following awards (see web page):
 A. Appendix
    --------
 
-A.1. .... Hints for using CrypTool on Linux with Wine
-A.1.1. .... Installing CrypTool
-A.1.2. .... Wine configuration
-A.1.3. .... Running CrypTool
-
+A.1. .... Using CrypTool on Linux with Wine
 A.2. .... Future features, Roadmap, Successor projects using Java/Eclipse and C#/.NET
 A.2.1. .... Possible areas for further development -- ideas, requests
 A.2.1.1. .... Functionality: Algorithms / Methods
@@ -2436,69 +2436,13 @@ A.2.2.2. .... Features, planned for the successor projects CT2 and JCT1
 
 
 
-A.1. Hints for using CrypTool on Linux with Wine
-     -------------------------------------------
+A.1. Using CrypTool on Linux with Wine
+     ---------------------------------
+In a short test under Ubuntu with Wine 1.2 CrypTool 1.4.30 worked.
+
 Generally we do not aim to support Wine.
-Instead of that the platform independent version JCT also run under Linux
+Instead of that the platform independent version JCT also runs under Linux
 (see chapter 3.5).
-
-The following hints are based on tests with Wine 0.9.9.
-
-We do not recommend to use CrypTool 1.x under Wine, because too many
-things there only work partly.
-
-A.1.1. Installing CrypTool
-       -------------------
-In the last step of the installation wizard the user has the
-option to start CrypTool. This does not work under Wine. Please
-start CrypTool as described below.
-
-
-A.1.2. Wine configuration
-       ------------------
-CrypTool does not work with the version of riched32.dll built into
-Wine. Try to open a file. It will show up empty if the wrong
-version of riched32.dll is used. The problem will probably not
-occur if Wine is configured to use an existing Windows partition.
-If you use Wine without Windows perform the following steps to fix
-the problem:
- - Install CrypTool.
- - Get hold of riched32.dll (we are using version 5.0.1458.47)
-   and copy it in the CrypTool installation directory.
-   Possibly you have to perform the same procedure with other DLLs
-   used by riched32.dll.
-   Their names are listed in Wine's error output.
- - Configure Wine to use it.
-   In the standard configuration this works.
-   If it does not add the following line in the [DllOverrides]
-   section of the Wine configuration file:
-   "riched32" = "native,builtin"
-
-
-A.1.3. Running CrypTool
-       ----------------
-
-A.1.3.1. Starting
-         --------
-To start CrypTool change to the directory where it was installed
-and start it with:
-
-$ wine CrypTool
-
-If you do not change to the installation directory CrypTool will
-not find some important files.
-
-
-A.1.3.2. Bugs and workarounds
-         --------------------
-* The online help cannot be invoked with F1.
-  Use the following line to display the online help:
-
-  $ wine winhlp32 CrypTool.hlp
-
-
-
-
 
 
 
@@ -2874,7 +2818,7 @@ b)  Java-CrypTool (JCrypTool, JCT):
    - Completely new designed CrypTool in Java using Eclipse/RCP.
    - Platform independent.
    - Strictly using the standards from Eclipse 3.5.
-   - Usage SWT (and Jigloo) for the GUI.
+   - Usage SWT for the GUI.
    - Bouncy Castle and FlexiProvider are used as crypto providers.
    - Current beta already offers functionality to be applied by end users.
    - Further developers, architects and designers for this project are very
