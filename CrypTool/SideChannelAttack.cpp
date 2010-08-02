@@ -74,18 +74,35 @@ void HybridEncryptedFileInfo::operator=(HybridEncryptedFileInfo &_hi)
 	strncpy(symmetricMethod, _hi.symmetricMethod, SCA_MAX_LENGTH_SYMMETRICMETHOD);
 	strncpy(asymmetricMethod, _hi.asymmetricMethod, SCA_MAX_LENGTH_ASYMMETRICMETHOD);
 
-	if(sessionKeyEncrypted.octets) delete sessionKeyEncrypted.octets;
+	if(sessionKeyEncrypted.octets) delete []sessionKeyEncrypted.octets;
 	sessionKeyEncrypted.octets = new char[_hi.sessionKeyEncrypted.noctets];
 	if(!sessionKeyEncrypted.octets) throw SCA_Error(E_SCA_MEMORY_ALLOCATION);
 	memcpy(sessionKeyEncrypted.octets, _hi.sessionKeyEncrypted.octets, _hi.sessionKeyEncrypted.noctets);
 	sessionKeyEncrypted.noctets = _hi.sessionKeyEncrypted.noctets;
 
-	if(cipherText.octets) delete cipherText.octets;
+	if(cipherText.octets) delete []cipherText.octets;
 	cipherText.octets = new char[_hi.cipherText.noctets];
 	if(!cipherText.octets) throw SCA_Error(E_SCA_MEMORY_ALLOCATION);
 	memcpy(cipherText.octets, _hi.cipherText.octets, _hi.cipherText.noctets);
 	cipherText.noctets = _hi.cipherText.noctets;
 }
+
+c_scaBigNumberSettings::c_scaBigNumberSettings()
+{
+	m_old_mip = get_mip();
+	mirsys(MAX_BIT_LENGTH/32+128,0);
+	mip = get_mip();
+	set_io_buffer_size(MAX_BIT_LENGTH + 1);
+	set_mip(m_old_mip);
+}
+
+c_scaBigNumberSettings::~c_scaBigNumberSettings()
+{
+	set_mip(mip);
+	mirexit();
+	set_mip(m_old_mip);
+}
+
 
 //////////////////////////////////////////////////////////////////////////
 //  SIDE CHANNEL ATTACK -- SERVER
@@ -342,6 +359,11 @@ SCA_Client::SCA_Client()
 	statusInfo.isHybEncFileDefined = false;
 	statusInfo.hasCreatedMessage = false;
 	statusInfo.hasTransmittedMessage = false;
+}
+
+SCA_Client::~SCA_Client()
+{
+   hi.free();
 }
 
 void SCA_Client::useExistingHybEncFile(HybridEncryptedFileInfo &_hi)
@@ -1510,29 +1532,12 @@ void getPublicKey(const char *_f, const char *_l, const char *_t, char *publicKe
 
 	KeyBits *ki;
 	ki=theApp.SecudeLib.d_KeyBits(&(Schluessel.key->subjectkey));
-	int mlen = ki->part1.noctets;
-	unsigned char* buf = (unsigned char*) ki->part1.octets;
-	sprintf(pc_str,"0x");
 
-	int i;
-	for (i=0;i<mlen;i++)
-	{
-		sprintf(pc_str+2+(2*i),"%02X",buf[i]);
+   for ( size_t i=0; i<ki->part1.noctets; i++ )
+      sprintf( modulusHEX   + (2*i), "%02X", (unsigned char)ki->part1.octets[i] );
 
-	}
-	// nicht die ersten beiden Stellen (0x) mit kopieren
-	strcpy(modulusHEX, pc_str+2);
-
-	int mlen2 = ki->part2.noctets;
-	unsigned char* buf2 = (unsigned char*) ki->part2.octets;
-	sprintf(pc_str,"0x");
-	for (i=0;i<mlen2;i++)
-	{
-		sprintf(pc_str+2+(2*i),"%02X",buf2[i]);
-
-	}
-	// nicht die ersten beiden Stellen (0x) mit kopieren
-	strcpy(publicKeyHEX, pc_str+2);
+   for ( size_t i=0; i<ki->part2.noctets; i++ )
+      sprintf( publicKeyHEX + (2*i), "%02X", (unsigned char)ki->part2.octets[i] );
 
    delete []string3;
 }

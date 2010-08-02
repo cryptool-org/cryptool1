@@ -123,6 +123,7 @@ public:
 	SCA_Client *getSCAClient() { return scaClient; };
 	SCA_Attacker *getSCAAttacker() { return scaAttacker; };
 
+   c_scaBigNumberSettings scaBigNumberSettings; // FIXME HK: Ensure enough memory for Big numbers
 
 // Konstruktion
 public:

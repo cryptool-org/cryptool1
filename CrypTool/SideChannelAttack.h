@@ -102,6 +102,16 @@ struct SessionKeyReception
 	bool success;
 };
 
+class c_scaBigNumberSettings  
+{
+public:
+	miracl *m_old_mip;
+	miracl *mip;
+	c_scaBigNumberSettings();
+	virtual ~c_scaBigNumberSettings();
+};
+
+
 void convertOctetStringToBigNumber(const OctetString*, Big&);
 void convertBigNumberToOctetString(Big, OctetString*, int outnoctets = 0);
 bool convertBigTo32BitLong(const Big, long&);
@@ -207,6 +217,7 @@ class SCA_Client
 
 public:
 	SCA_Client();
+   ~SCA_Client();
 	
 	// Zugriffsfunktionen
 	HybridEncryptedFileInfo &getHybEncFile() { return hi; };

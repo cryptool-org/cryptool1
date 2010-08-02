@@ -46,7 +46,7 @@ extern char* CaPseVerzeichnis, *PseVerzeichnis;
 // Dialogfeld CDlgSideChannelAttackVisualizationHE 
 
 CDlgSideChannelAttackVisualizationHE::CDlgSideChannelAttackVisualizationHE(CWnd* pParent /*=NULL*/)
-	: CDialog(CDlgSideChannelAttackVisualizationHE::IDD, pParent)
+	: CDialog(CDlgSideChannelAttackVisualizationHE::IDD, pParent), scaBigNumberSettings()
 {
 	//{{AFX_DATA_INIT(CDlgSideChannelAttackVisualizationHE)
 	m_bShowInfoDialogues = FALSE;
