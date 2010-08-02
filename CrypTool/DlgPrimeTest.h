@@ -55,6 +55,8 @@ public:
   afx_msg void OnEnChangePrimetestEditNumber();
   afx_msg void OnBnClickedButtonJumpToFactorization();
 
+	void setNumber(const CString &_number);
+
   virtual BOOL OnInitDialog();
 
   virtual double getProgress();

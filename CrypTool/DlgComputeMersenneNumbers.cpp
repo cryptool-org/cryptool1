@@ -22,6 +22,7 @@
 #include "CrypToolApp.h"
 #include "DlgComputeMersenneNumbers.h"
 #include "FileTools.h"
+#include "DlgPrimeTest.h"
 
 // include apfloat and utility headers
 #include "ap.h"
@@ -61,6 +62,7 @@ void CDlgComputeMersenneNumbers::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CDlgComputeMersenneNumbers, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_START_COMPUTATION, &CDlgComputeMersenneNumbers::OnBnClickedStartComputation)
 	ON_BN_CLICKED(IDC_BUTTON_CANCEL_COMPUTATION, &CDlgComputeMersenneNumbers::OnBnClickedCancelComputation)
+	ON_BN_CLICKED(IDC_BUTTON_PRIME_TEST, &CDlgComputeMersenneNumbers::OnBnClickedPrimeNumberTest)
 	ON_BN_CLICKED(IDC_BUTTON_WRITE_RESULT_TO_FILE, &CDlgComputeMersenneNumbers::OnBnClickedWriteResultToFile)
 	ON_WM_TIMER()
 	ON_EN_CHANGE(IDC_EDIT_BASE, &CDlgComputeMersenneNumbers::OnChangeEditBase)
@@ -76,10 +78,12 @@ BOOL CDlgComputeMersenneNumbers::OnInitDialog()
 	// get window handles to our buttons for enabling/disabling
 	buttonStart = GetDlgItem(IDC_BUTTON_START_COMPUTATION);
 	buttonCancel = GetDlgItem(IDC_BUTTON_CANCEL_COMPUTATION);
+	buttonPrimeNumberTest = GetDlgItem(IDC_BUTTON_PRIME_TEST);
 	buttonWriteResultToFile = GetDlgItem(IDC_BUTTON_WRITE_RESULT_TO_FILE);
 
 	assert(buttonStart);
 	assert(buttonCancel);
+	assert(buttonPrimeNumberTest);
 	assert(buttonWriteResultToFile);
 
 	// enable/disable buttons
@@ -87,10 +91,9 @@ BOOL CDlgComputeMersenneNumbers::OnInitDialog()
 	numberEditExponent.setShowIntegralSeparators(true);
 	buttonStart->EnableWindow(true);
 	buttonCancel->EnableWindow(false);
+	buttonPrimeNumberTest->EnableWindow(false);
 	buttonWriteResultToFile->EnableWindow(false);
-	numberEditResult.setShowIntegralSeparators(true);
 	numberEditResult.setReadOnly(true);
-	numberEditResultLength.setShowIntegralSeparators(true);
 	numberEditResultLength.setReadOnly(true);
 
 	// we go with base 2 by default
@@ -168,6 +171,7 @@ void CDlgComputeMersenneNumbers::OnBnClickedStartComputation()
 	numberEditExponent.EnableWindow(false);
 	buttonStart->EnableWindow(false);
 	buttonCancel->EnableWindow(true);
+	buttonPrimeNumberTest->EnableWindow(false);
 	buttonWriteResultToFile->EnableWindow(false);
 
 	// flomar, 07/02/2010: hack of the day
@@ -198,9 +202,17 @@ void CDlgComputeMersenneNumbers::OnBnClickedCancelComputation()
 	numberEditExponent.EnableWindow(true);
 	buttonStart->EnableWindow(true);
 	buttonCancel->EnableWindow(false);
+	buttonPrimeNumberTest->EnableWindow(false);
 	buttonWriteResultToFile->EnableWindow(false);
 
 	UpdateData(false);
+}
+
+void CDlgComputeMersenneNumbers::OnBnClickedPrimeNumberTest()
+{
+	CDlgPrimeTest dialog;
+	dialog.setNumber(numberEditResult.getNumberAsCString());
+	dialog.DoModal();
 }
 
 void CDlgComputeMersenneNumbers::OnBnClickedWriteResultToFile()
@@ -227,6 +239,10 @@ void CDlgComputeMersenneNumbers::OnChangeEditBase()
 	numberEditResult.setText("");
 	numberEditResultLength.setText("");
 
+	// disable some buttons
+	buttonPrimeNumberTest->EnableWindow(false);
+	buttonWriteResultToFile->EnableWindow(false);
+
 	UpdateData(false);
 }
 
@@ -237,6 +253,10 @@ void CDlgComputeMersenneNumbers::OnChangeEditExponent()
 	// clear result fields
 	numberEditResult.setText("");
 	numberEditResultLength.setText("");
+
+	// disable some buttons
+	buttonPrimeNumberTest->EnableWindow(false);
+	buttonWriteResultToFile->EnableWindow(false);
 
 	UpdateData(false);
 }
@@ -258,6 +278,7 @@ void CDlgComputeMersenneNumbers::OnTimer(UINT nIDEvent)
 		numberEditExponent.EnableWindow(true);
 		buttonStart->EnableWindow(true);
 		buttonCancel->EnableWindow(false);
+		buttonPrimeNumberTest->EnableWindow(false);
 		buttonWriteResultToFile->EnableWindow(false);
 		
 		if(done) {
@@ -269,6 +290,7 @@ void CDlgComputeMersenneNumbers::OnTimer(UINT nIDEvent)
 				AfxMessageBox(stringTimeNeeded);
 			}
 			// we really do have a result (no cancellation), enable the write result to file button
+			buttonPrimeNumberTest->EnableWindow(true);
 			buttonWriteResultToFile->EnableWindow(true);
 			// also update the result and result length
 			CString stringResultLength; stringResultLength.Format("%d", numberEditResult.getNumberAsCString().GetLength());

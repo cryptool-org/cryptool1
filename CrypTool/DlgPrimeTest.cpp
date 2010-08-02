@@ -447,7 +447,7 @@ BOOL CDlgPrimeTest::OnInitDialog()
 {
   CDialog::OnInitDialog();
 
-  //m_Result.SetReadOnly(TRUE); // Doesn't look good with gray background!
+	UpdateData(false);
 
   return TRUE;  // return TRUE unless you set the focus to a control
   // AUSNAHME: OCX-Eigenschaftenseite muss FALSE zurückgeben.
@@ -499,4 +499,10 @@ void CDlgPrimeTest::OnBnClickedButtonJumpToFactorization()
   dlg.m_CompositeNoStr = this->m_editNumber;
   AfxInitRichEdit();
   dlg.DoModal();
+}
+
+void CDlgPrimeTest::setNumber(const CString &_number)
+{
+	// set new number
+	m_editNumber = _number;
 }

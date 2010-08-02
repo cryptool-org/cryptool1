@@ -73,6 +73,7 @@ protected:
 	CNumberEdit numberEditResultLength;
 	CWnd *buttonStart;
 	CWnd *buttonCancel;
+	CWnd *buttonPrimeNumberTest;
 	CWnd *buttonWriteResultToFile;	
 
 public:
@@ -85,6 +86,7 @@ public:
 	// message handlers
 	afx_msg void OnBnClickedStartComputation();
 	afx_msg void OnBnClickedCancelComputation();
+	afx_msg void OnBnClickedPrimeNumberTest();
 	afx_msg void OnBnClickedWriteResultToFile();
 	afx_msg void OnChangeEditBase();
 	afx_msg void OnChangeEditExponent();
