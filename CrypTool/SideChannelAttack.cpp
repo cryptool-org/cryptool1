@@ -678,7 +678,12 @@ void SCA_Attacker::processServerResponse(bool response)
 		{
 			algVars.z = (algVars.z * 2);
 			ASSERT(algVars.b2 >= 0);
-			algVars.b2 = (algVars.b2 - 1);
+         if ( algVars.b2 == 0 )
+         {
+            currentStep = 3;
+         }
+         else
+			   algVars.b2 = (algVars.b2 - 1);
 			return;
 		}
 	

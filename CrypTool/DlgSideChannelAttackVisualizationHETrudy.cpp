@@ -240,6 +240,8 @@ void CDlgSideChannelAttackVisualizationHETrudy::updateDisplay()
 		memcpy(tempBuffer, clearText.octets, clearText.noctets);
 		m_ComputedMessage = tempBuffer;
 		delete tempBuffer;
+      delete []o.octets;
+      delete []clearText.octets;
 	}
 	else
 	{
