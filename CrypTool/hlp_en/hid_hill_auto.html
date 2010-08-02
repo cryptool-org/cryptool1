@@ -22,6 +22,7 @@
 
 <P>The analysis functions as follows: <U>CrypTool</U> assumes that the key has the dimension<CODE> n</CODE> x<CODE> n</CODE> (from the range chosen in the <A href="hidd_hill_analysis.html">Hill cipher Analysis</A> dialog. The plaintext and the encrypted text are now divided into blocks of length<CODE> n</CODE>. The matrices<CODE> K</CODE> (plaintext) and<CODE> V</CODE> (encrypted text) are constructed from<CODE> n</CODE> blocks of plaintext and the corresponding blocks of the encrypted text. Clearly,<CODE> V</CODE> =<CODE> K</CODE> *<CODE> A</CODE>, where<CODE> A</CODE> is the key. If<CODE> K</CODE> is invertible, then the key can be calculated through simple matrix multiplication <!--ZZZPOPUP--><A href="modulo.html">modulo</A> 26 (number of letters): inverse(<CODE>K</CODE>) *<CODE> V</CODE> =<CODE> A</CODE>. If<CODE> K</CODE> is not invertible, then another possible combination of blocks is tried out. </P>
 </BR>
+
 <P><U>Example of searching a combination of blocks</U></P>
 
 <TABLE cols=2 width="0*" class="pad10">

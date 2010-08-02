@@ -690,7 +690,7 @@ The general properties and functions of CrypTool are:
   Additionally there was a need to change from VS2003 to VS2008, because
   some libraries could only be compiled with VS2008 in a way, that they run
   well under both Windows XP and Windows Vista.
-  Compiling all versions (4 languages, each in debug and release mode)
+  Compiling all versions (5 languages, each in debug and release mode)
   lasts about 2 h on a modern PC.
 
 

@@ -36210,8 +36210,8 @@ BEGIN
     LTEXT           "Plaintext",IDC_STATIC_PLAINTEXT,15,173,125,8,NOT WS_VISIBLE
     LTEXT           "Ciphertext",IDC_STATIC,265,173,84,8
     LTEXT           "Enter the part of the plaintext known to the attacker.",IDC_STATIC_ENTER_KNOWN,15,263,165,10
-    LTEXT           "Here settings cencerning the offset and length of the unknown are made.",IDC_STATIC_ENTER_POS,265,263,236,26,NOT WS_VISIBLE
-    LTEXT           "Here settings cencerning the offset and length of the unknown are made. Enter them in the textboxes or highlight a part of the plaintext from step 2 and click ""Cut"".",IDC_STATIC_HIGHLIGHT_POS,265,263,239,37
+    LTEXT           "Here settings concerning the offset and length of the unknown are made.",IDC_STATIC_ENTER_POS,265,263,236,26,NOT WS_VISIBLE
+    LTEXT           "Here settings concerning the offset and length of the unknown are made. Enter them in the textboxes or highlight a part of the plaintext from step 2 and click ""Cut"".",IDC_STATIC_HIGHLIGHT_POS,265,263,239,37
     LTEXT           "This is the part of the plaintext known to the attacker.",IDC_STATIC_SHOW_KNOWN,15,263,241,10,NOT WS_VISIBLE
     LTEXT           "Presentation of the cipher:",IDC_STATIC,269,226,87,8
 END
@@ -36318,7 +36318,7 @@ BEGIN
     LTEXT           "p:",IDC_STATIC,17,378,8,8
     LTEXT           "q:",IDC_STATIC,218,378,8,8
     GROUPBOX        "Desired bit lengths",IDC_STATIC,304,100,115,46
-    LTEXT           "This attack allows to factor an RSA Modulus N, if a part of one of its factors p and q is known (we assume here, that a part of p is known). Let P be the known fraction of p.",IDC_STATIC,15,15,398,18
+    LTEXT           "This attack allows to factor an RSA modulus N, if a part of one of its factors p and q is known (we assume here, that a part of p is known). Let P be the known fraction of p.",IDC_STATIC,15,15,398,18
     GROUPBOX        "Step 1: Enter public key",IDC_STATIC,7,100,288,46
     RTEXT           "Bit length of N:",IDC_STATIC,310,112,48,8
     GROUPBOX        "Numerical base",IDC_STATIC,8,240,216,32,WS_GROUP

@@ -704,7 +704,7 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
   Der Wechsel von VS2003 auf VS2008 war auch deshalb erforderlich, weil nur
   damit manche Bibliotheken so compiliert werden konnten, dass sie sowohl
   unter Windows Vista als auch Windows XP korrekt liefen.
-  Eine Komplett-Compilierung aller 4 Sprachversionen (jeweils Debug und Release)
+  Eine Komplett-Compilierung aller 5 Sprachversionen (jeweils Debug und Release)
   dauert auf einem modernen PC rund 2 h.
 
 
