@@ -36158,15 +36158,15 @@ BEGIN
     EDITTEXT        IDC_EDITH,96,384,30,14,ES_AUTOHSCROLL | ES_NUMBER
     EDITTEXT        IDC_EDITSOLUTION,377,402,127,14,ES_AUTOHSCROLL | ES_READONLY
     DEFPUSHBUTTON   "Close dialog",IDOK,453,431,51,14
-    GROUPBOX        "Step 1: Enter the Public key (N,e) or generate by a random experiment",IDC_STATIC,9,58,504,68
+    GROUPBOX        "Step 1: Enter the public key (N,e) or generate N randomly",IDC_STATIC,9,58,504,68
     LTEXT           "N:",IDC_STATIC,15,104,8,8
     LTEXT           "e:",IDC_STATIC,437,104,8,8
-    GROUPBOX        "Step 4. Set attack-parameters",IDC_STATIC,9,352,187,71
+    GROUPBOX        "Step 4. Set attack parameters",IDC_STATIC,9,352,187,71
     LTEXT           "h:",IDC_STATIC,15,387,8,8
     GROUPBOX        "Description",IDC_STATIC,8,7,505,44
     LTEXT           "If a RSA-encrypted message is intercepted and the major part of the plaintext belonging to it is known, this attack allows to find the remaining part of the plaintext, provided the public exponent e is small (e.g. 3).",IDC_STATIC,14,18,494,16
     GROUPBOX        "Step 5. Perform the attack",IDC_STATIC,203,352,310,71
-    LTEXT           "Lattice-dimension:",IDC_STATIC,15,405,58,8
+    LTEXT           "Lattice dimension:",IDC_STATIC,15,405,58,8
     EDITTEXT        IDC_EDITDIM,96,403,30,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDITLATTICETIME,264,365,66,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDITREDUCETIME,264,384,66,14,ES_AUTOHSCROLL | ES_READONLY
@@ -36176,7 +36176,7 @@ BEGIN
     LTEXT           "Overall time:",IDC_STATIC,209,405,40,8
     LTEXT           "Reductions:",IDC_STATIC,336,387,39,8
     EDITTEXT        IDC_EDITREDUCTIONS,377,384,66,14,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "The parameter h determines the Dimension of the Lattice and the maximal possible length of the unknown part.",IDC_STATIC,15,362,179,19
+    LTEXT           "The parameter h determines the dimension of the lattice and the maximal possible length of the unknown part.",IDC_STATIC,15,362,179,19
     LTEXT           "Solution:",IDC_STATIC,336,405,28,8
     PUSHBUTTON      "Show log file",IDC_BUTTONLOG,292,431,66,14
     LTEXT           "Desired bit length of N:",IDC_STATIC5,16,80,72,8
@@ -36317,7 +36317,7 @@ BEGIN
     LTEXT           "p:",IDC_STATIC,17,378,8,8
     LTEXT           "q:",IDC_STATIC,218,378,8,8
     GROUPBOX        "Desired bit lengths",IDC_STATIC,304,100,115,46
-    LTEXT           "This attack allows to factor an RSA-Modulus N, if a part of one of its factors p and q is known (we assume here, that a part of p is known). Let P be the known fraction of p.",IDC_STATIC,15,15,398,18
+    LTEXT           "This attack allows to factor an RSA Modulus N, if a part of one of its factors p and q is known (we assume here, that a part of p is known). Let P be the known fraction of p.",IDC_STATIC,15,15,398,18
     GROUPBOX        "Step 1: Enter public key",IDC_STATIC,7,100,288,46
     RTEXT           "Bit length of N:",IDC_STATIC,310,112,48,8
     GROUPBOX        "Numerical base",IDC_STATIC,8,240,216,32,WS_GROUP
