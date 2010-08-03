@@ -55600,11 +55600,11 @@ BEGIN
     IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_OFF 
                             "Ocultar separador de decimales"
     IDS_STRING_PASTE_KEY_FROM_KEY_STORE "Pegar clave"
-    IDS_CONTEXT_MENU_OPENGL_PROPERTIES "[i18n] Properties..."
+    IDS_CONTEXT_MENU_OPENGL_PROPERTIES "Propiedades..."
     IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES 
-                            "[i18n] Show cube's borderlines"
+                            "Mostrar bordes del cubo"
     IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES 
-                            "[i18n] Hide cube's borderlines"
+                            "Ocultar bordes del cubo"
 END
 
 #endif    // Spanish resources
