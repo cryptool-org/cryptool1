@@ -11,7 +11,7 @@
   ;Name and file
   !define ProgramName "CrypTool"
   !define VersionInfo "1.4.30" ; no beta here to avoid line wrap in installer
-  !define VersionFile "1_4_30_beta_08"
+  !define VersionFile "1_4_30" ; _beta_0x
   
   Name "${ProgramName} ${VersionInfo}"
   OutFile "SetupCrypTool_${VersionFile}_${LANGUAGE_STR}.exe"
