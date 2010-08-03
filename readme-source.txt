@@ -56,9 +56,9 @@ Menü[Menu] -> Extras[Tools] -> Optionen[Options]:
 Building CrypTool and AES-Tool:
 At Menü[Menu] Erstellen[Build] -> Aktive Konfiguration festlegen[choose configuration] 
 the following configurations are defined:
-- CrypTool Win32 (Debug) 
+- CrypTool Win32 (Debug_{de|en})     // depending on the favoured language (German or English)
 - CrypTool Win32 Release_{de|en}     // depending on the favoured language (German or English)
-- aestool Win32 (Debug)	
+- aestool Win32 (Debug_{de|en})      // depending on the favoured language (German or English)	
 - aestool Win32 Release_aes_{de|en}  // depending on the favoured language (German or English)
 
 Online help:
