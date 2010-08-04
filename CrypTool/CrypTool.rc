@@ -8,8 +8,7 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -11476,9 +11475,9 @@ BEGIN
     EDITTEXT        IDC_EDIT3,17,22,187,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     RTEXT           "Vrednost prvog karaktera alfabeta",IDC_STATIC,209,21,59,19
     EDITTEXT        IDC_EDIT2,271,22,12,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
-    GROUPBOX        "i18n Value of the first alphabet character",IDC_STATIC,156,222,125,41
-    CONTROL         "i18n 0 (e.g. ""A""=0)",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,166,235,65,10
-    CONTROL         "i18n 1 (e.g. ""A""=1)",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,166,249,69,10
+    GROUPBOX        "Vrednost prvog karaktera alfabeta",IDC_STATIC,156,222,125,41
+    CONTROL         "0 (npr. ""A""=0)",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,166,235,65,10
+    CONTROL         "1 (npr. ""A""=1)",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,166,249,69,10
 END
 
 IDD_KEYASYM_GENERATION DIALOGEX 0, 0, 419, 338
@@ -12071,9 +12070,9 @@ BEGIN
     EDITTEXT        IDC_EDIT3,20,22,255,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     RTEXT           "Vrednost prvog karaktera alfabeta",IDC_STATIC,279,21,60,19
     EDITTEXT        IDC_EDIT2,345,22,16,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
-    GROUPBOX        "i18n Value of the first alphabet character",IDC_STATIC,266,296,224,42
-    CONTROL         "i18n 0 (e.g. ""A""=0)",IDC_RADIO27,"Button",BS_AUTORADIOBUTTON | WS_GROUP,281,309,65,10
-    CONTROL         "i18n 1 (e.g. ""A""=1)",IDC_RADIO28,"Button",BS_AUTORADIOBUTTON,281,323,69,10
+    GROUPBOX        "Vrednost prvog karaktera alfabeta",IDC_STATIC,266,296,224,42
+    CONTROL         "0 (npr. ""A""=0)",IDC_RADIO27,"Button",BS_AUTORADIOBUTTON | WS_GROUP,281,309,65,10
+    CONTROL         "1 (npr. ""A""=1)",IDC_RADIO28,"Button",BS_AUTORADIOBUTTON,281,323,69,10
 END
 
 IDD_KEY_HILL_10X10 DIALOGEX 0, 0, 546, 401
@@ -15644,15 +15643,15 @@ END
 
 IDD_COMPUTE_MERSENNE_NUMBERS DIALOGEX 0, 0, 300, 150
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Racunanje Mersenne-ovih Brojeva"
+CAPTION "d"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT_BASE,91,7,40,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_EXPONENT,91,25,202,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_RESULT,91,45,202,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT_RESULT_LENGTH,91,65,40,14,ES_AUTOHSCROLL | ES_READONLY
-    DEFPUSHBUTTON   "Pocni racunanje",IDC_BUTTON_START_COMPUTATION,7,105,85,18
-    PUSHBUTTON      "Otkaži racunanje",IDC_BUTTON_CANCEL_COMPUTATION,7,125,85,18
+    DEFPUSHBUTTON   "Pocni racunanje",IDC_BUTTON_START_COMPUTATION,7,105,79,18
+    PUSHBUTTON      "Otkaži racunanje",IDC_BUTTON_CANCEL_COMPUTATION,7,125,79,18
     PUSHBUTTON      "Test prostog broja",IDC_BUTTON_PRIME_TEST,193,85,100,18
     PUSHBUTTON      "Upiši rezultate u datoteku",IDC_BUTTON_WRITE_RESULT_TO_FILE,193,105,100,18,WS_GROUP
     PUSHBUTTON      "Zatvori",IDCANCEL,193,125,100,18,WS_GROUP
@@ -22114,10 +22113,8 @@ BEGIN
     IDS_ERR_AES_FLOWVISUALIZATION 
                             "AES vizualizacija toka ne može da se otvori! Molim proverite da li je datoteka AES_Flussvisualisierung.jar instalirana u CrypTool maticnom direktorijumu\n(""%s"")."
     IDS_PA_KEYFOUND         "Ein Permutationsschlüssel wurde bestimmt."
-    ID_PA_ERROR_DIFFERNT_DOCUMENT_SIZES 
-                            "[i18n] Die Dokumentgrößen stimmen nicht überein."
-    ID_PA_ERROR_DIFFERNT_HISTOGRAMS 
-                            "[i18n] Die Histogramme der Dokumente stimmen nicht überein."
+    ID_PA_ERROR_DIFFERNT_DOCUMENT_SIZES "Velicine dokumenata ne odgovaraju."
+    ID_PA_ERROR_DIFFERNT_HISTOGRAMS "Histogrami dokumenata se ne poklapaju."
     ID_PA_KEYFOUND          "Najmanje jedan kljuc permutacije je pronaden. Najkraci ce biti prikazan."
     IDS_BL_ATLEAST2         "Molim odaberite dužinu bita izmedu 2 i 16384."
     IDS_BL_TOOLARGE         "Molim odaberite dužinu bita izmedu 2 i 16384."
@@ -22227,30 +22224,26 @@ BEGIN
     IDS_MERSENNE_NUMBER_COMPUTATION_RUNNING "Racunanje je u toku..."
     IDS_MERSENNE_NUMBER_COMPUTATION_CANCELLED "Racunanje je otkazano."
     IDS_MERSENNE_NUMBER_COMPUTATION_TIME_NEEDED 
-                            "[i18n] Elapsed time for the computation of the Mersenne number: %.0f seconds"
+                            "Proteklo vreme za racunanje Mersenne-ovih brojeva: %.0f sekundi"
     IDS_INTEGRAL_NUMBER_SEPARATOR "."
     IDS_FRACTIONAL_NUMBER_SEPARATOR ","
-    IDS_CONTROL_SELECT_ALL  "[i18n] Select all"
+    IDS_CONTROL_SELECT_ALL  "Odaberi sve"
     IDS_STRING_ADFGVX_NO_CHARACTERS_IN_PASSWORD 
-                            "[i18n] You did not enter any characters, thus the substitution matrix was not changed."
+                            "Niste odabrali nijedan karakter, stoga zamenska matrica nije promenjena."
     IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_ON 
-                            "[i18n] Show thousands separators"
+                            "Prikaži separatore za hiljadite delove"
 END
 
 STRINGTABLE 
 BEGIN
     IDS_CONTROL_TOGGLE_INTEGRAL_SEPARATORS_OFF 
-                            "[i18n] Hide thousands separators"
-    IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_ON 
-                            "[i18n] Show decimal separators"
-    IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_OFF 
-                            "[i18n] Hide decimal separators"
-    IDS_STRING_PASTE_KEY_FROM_KEY_STORE "[i18n] Paste key"
-    IDS_CONTEXT_MENU_OPENGL_PROPERTIES "[i18n] Properties..."
-    IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES 
-                            "[i18n] Show cube's borderlines"
-    IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES 
-                            "[i18n] Hide cube's borderlines"
+                            "Sakrij separatore za hiljadite delove"
+    IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_ON "Prikaži decimalne separatore"
+    IDS_CONTROL_TOGGLE_FRACTIONAL_SEPARATORS_OFF "Sakrij decimalne separatore"
+    IDS_STRING_PASTE_KEY_FROM_KEY_STORE "Nalepi kljuc"
+    IDS_CONTEXT_MENU_OPENGL_PROPERTIES "Svojstva..."
+    IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES "Prikaži granice kocke"
+    IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES "Sakrij granice kocke"
 END
 
 #endif    // Serbian (Latin) resources
@@ -55601,10 +55594,8 @@ BEGIN
                             "Ocultar separador de decimales"
     IDS_STRING_PASTE_KEY_FROM_KEY_STORE "Pegar clave"
     IDS_CONTEXT_MENU_OPENGL_PROPERTIES "Propiedades..."
-    IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES 
-                            "Mostrar bordes del cubo"
-    IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES 
-                            "Ocultar bordes del cubo"
+    IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES "Mostrar bordes del cubo"
+    IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES "Ocultar bordes del cubo"
 END
 
 #endif    // Spanish resources
