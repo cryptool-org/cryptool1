@@ -54675,9 +54675,9 @@ BEGIN
     IDS_ERROPEN_ANIM        "No se ha podido encontrar la herramienta 'Animal'. Por favor, compruebe que todos los archivos necesarios fueron instalados con CrypTool."
     IDS_ANIMAL_PATH         "animal\\"
     IDS_ANIMAL_EXECUTABLE   "animal.bat"
-    IDS_ANIMAL_FILE_CAESAR  "anims\\caesar_en.aml"
+    IDS_ANIMAL_FILE_CAESAR  "anims\\caesar_es.aml"
     IDS_ANIMAL_FILE_VIGENERE "anims\\vigenere_en.aml"
-    IDS_ANIMAL_FILE_NIHILIST "anims\\nihilist_en.aml"
+    IDS_ANIMAL_FILE_NIHILIST "anims\\nihilist_es.aml"
     IDS_ANIMAL_FILE_DES     "anims\\des_en.aml"
     IDS_SCA_HYBRIDENCRYPTEDFILE_DEFAULT_PSEFILE 
                             "examples/letterFromAliceToBob-ENCRYPTED-en.hex"
