@@ -99,11 +99,15 @@ public:
 	virtual void OnViewFontArial12();
 	virtual void OnViewFontArial14();
 	virtual void OnViewFontArial16();
+	virtual void OnViewFontArial18();
+	virtual void OnViewFontArial20();
 	virtual void OnViewFontCourier08();
 	virtual void OnViewFontCourier10();
 	virtual void OnViewFontCourier12();
 	virtual void OnViewFontCourier14();
 	virtual void OnViewFontCourier16();
+	virtual void OnViewFontCourier18();
+	virtual void OnViewFontCourier20();
 
 	protected:
 	virtual BOOL OnPreparePrinting(CPrintInfo* pInfo);
@@ -169,11 +173,15 @@ public:
 	afx_msg void OnUpdateZeichenformatArial12(CCmdUI *pCmdUI);
 	afx_msg void OnUpdateZeichenformatArial14(CCmdUI *pCmdUI);
 	afx_msg void OnUpdateZeichenformatArial16(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateZeichenformatArial18(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateZeichenformatArial20(CCmdUI *pCmdUI);
 	afx_msg void OnUpdateZeichenformatCourier08(CCmdUI *pCmdUI);
 	afx_msg void OnUpdateZeichenformatCourier10(CCmdUI *pCmdUI);
 	afx_msg void OnUpdateZeichenformatCourier12(CCmdUI *pCmdUI);
 	afx_msg void OnUpdateZeichenformatCourier14(CCmdUI *pCmdUI);
 	afx_msg void OnUpdateZeichenformatCourier16(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateZeichenformatCourier18(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateZeichenformatCourier20(CCmdUI *pCmdUI);
 	afx_msg void OnViewAlphabet();
 	afx_msg void OnUpdateViewAlphabet(CCmdUI *pCmdUI);
 

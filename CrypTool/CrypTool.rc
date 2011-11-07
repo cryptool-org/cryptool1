@@ -4581,11 +4581,15 @@ BEGIN
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
             MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Arial 18",                    ID_ZEICHENFORMAT_ARIAL18
+            MENUITEM "Arial 20",                    ID_ZEICHENFORMAT_ARIAL20
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
             MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
             MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+            MENUITEM "Courier 18",                  ID_ZEICHENFORMAT_COURIER18
+            MENUITEM "Courier 20",                  ID_ZEICHENFORMAT_COURIER20
         END
         MENUITEM "&Sformatowaæ dokument",       ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -4933,11 +4937,15 @@ BEGIN
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
             MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Arial 18",                    ID_ZEICHENFORMAT_ARIAL18
+            MENUITEM "Arial 20",                    ID_ZEICHENFORMAT_ARIAL20
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
             MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
             MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+            MENUITEM "Courier 18",                  ID_ZEICHENFORMAT_COURIER18
+            MENUITEM "Courier 20",                  ID_ZEICHENFORMAT_COURIER20
         END
         MENUITEM "&Sformatowaæ dokument",       ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -5285,11 +5293,15 @@ BEGIN
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
             MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Arial 18",                    ID_ZEICHENFORMAT_ARIAL18
+            MENUITEM "Arial 20",                    ID_ZEICHENFORMAT_ARIAL20
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
             MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
             MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+            MENUITEM "Courier 18",                  ID_ZEICHENFORMAT_COURIER18
+            MENUITEM "Courier 20",                  ID_ZEICHENFORMAT_COURIER20
         END
         MENUITEM "&Sformatowaæ dokument",       ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -5637,11 +5649,15 @@ BEGIN
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
             MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Arial 18",                    ID_ZEICHENFORMAT_ARIAL18
+            MENUITEM "Arial 20",                    ID_ZEICHENFORMAT_ARIAL20
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
             MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
             MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+            MENUITEM "Courier 18",                  ID_ZEICHENFORMAT_COURIER18
+            MENUITEM "Courier 20",                  ID_ZEICHENFORMAT_COURIER20
         END
         MENUITEM "&Sformatowaæ dokument",       ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -6016,11 +6032,15 @@ BEGIN
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
             MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Arial 18",                    ID_ZEICHENFORMAT_ARIAL18
+            MENUITEM "Arial 20",                    ID_ZEICHENFORMAT_ARIAL20
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
             MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
             MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+            MENUITEM "Courier 18",                  ID_ZEICHENFORMAT_COURIER18
+            MENUITEM "Courier 20",                  ID_ZEICHENFORMAT_COURIER20
         END
         MENUITEM "&Sformatowaæ dokument",       ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -15720,16 +15740,20 @@ BEGIN
         MENUITEM "&Beline",                     ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14, GRAYED
-            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
-            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14, GRAYED
-            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16, GRAYED
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Arial 18",                    ID_ZEICHENFORMAT_ARIAL18
+            MENUITEM "Arial 20",                    ID_ZEICHENFORMAT_ARIAL20
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+            MENUITEM "Courier 18",                  ID_ZEICHENFORMAT_COURIER18
+            MENUITEM "Courier 20",                  ID_ZEICHENFORMAT_COURIER20
         END
         MENUITEM "&Formatizovanje Tekstualnog Dokumenta...", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -16077,11 +16101,15 @@ BEGIN
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
             MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Arial 18",                    ID_ZEICHENFORMAT_ARIAL18
+            MENUITEM "Arial 20",                    ID_ZEICHENFORMAT_ARIAL20
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
             MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
             MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+            MENUITEM "Courier 18",                  ID_ZEICHENFORMAT_COURIER18
+            MENUITEM "Courier 20",                  ID_ZEICHENFORMAT_COURIER20
         END
         MENUITEM "&Formatizovanje Tekstualnog Dokumenta...", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -16378,12 +16406,12 @@ BEGIN
     BEGIN
         MENUITEM "&Nova\tCtrl+N",               ID_FILE_NEW
         MENUITEM "&Otvori...\tCtrl+O",          ID_FILE_OPEN
-        MENUITEM "&Zatvori\tCtrl+F4",           ID_FILE_CLOSE, GRAYED
-        MENUITEM "&Sacuvaj\tCtrl+S",            ID_FILE_SAVE, GRAYED
-        MENUITEM "Sacuvaj &kao...",             ID_FILE_SAVE_AS, GRAYED
+        MENUITEM "&Zatvori\tCtrl+F4",           ID_FILE_CLOSE
+        MENUITEM "&Sacuvaj\tCtrl+S",            ID_FILE_SAVE
+        MENUITEM "Sacuvaj &kao...",             ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "&Svojstva Dokumenta...",      ID_FILEPROPERTIES, GRAYED
-        MENUITEM "&Štampaj...\tCtrl+P",         ID_FILE_PRINT, GRAYED
+        MENUITEM "&Svojstva Dokumenta...",      ID_FILEPROPERTIES
+        MENUITEM "&Štampaj...\tCtrl+P",         ID_FILE_PRINT
         MENUITEM "P&odešavanje Štampe...",      ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
         MENUITEM "Nedavne Datoteke",            ID_FILE_MRU_FILE1
@@ -16395,89 +16423,93 @@ BEGIN
         MENUITEM "&Vrati\tCtrl+Z",              ID_EDIT_UNDO
         MENUITEM "&Ponovi\tCtrl+Y",             ID_EDIT_REDO
         MENUITEM SEPARATOR
-        MENUITEM "Isec&i\tCtrl+X",              ID_EDIT_CUT, GRAYED
-        MENUITEM "&Kopiraj\tCtrl+C",            ID_EDIT_COPY, GRAYED
-        MENUITEM "&Nalepi\tCtrl+V",             ID_EDIT_PASTE, GRAYED
-        MENUITEM "&Obriši\tDel",                ID_EDIT_CLEAR, GRAYED
+        MENUITEM "Isec&i\tCtrl+X",              ID_EDIT_CUT
+        MENUITEM "&Kopiraj\tCtrl+C",            ID_EDIT_COPY
+        MENUITEM "&Nalepi\tCtrl+V",             ID_EDIT_PASTE
+        MENUITEM "&Obriši\tDel",                ID_EDIT_CLEAR
         MENUITEM SEPARATOR
-        MENUITEM "&Nadi/Zameni...\tStrg+F",     ID_EDIT_FIND, GRAYED
-        MENUITEM "Nadi &Sledeci\tF3",           ID_EDIT_FIND_NEXT, GRAYED
+        MENUITEM "&Nadi/Zameni...\tStrg+F",     ID_EDIT_FIND
+        MENUITEM "Nadi &Sledeci\tF3",           ID_EDIT_FIND_NEXT
         MENUITEM SEPARATOR
-        MENUITEM "Odaberi &Sve\tCtrl+A",        ID_EDIT_SELECT_ALL, GRAYED
+        MENUITEM "Odaberi &Sve\tCtrl+A",        ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
-        MENUITEM "Prikaži &Kljuc...",           ID_SHOW_KEY, GRAYED
-        MENUITEM "&Roditelj Prozor",            ID_GOTO_VATER, GRAYED
+        MENUITEM "Prikaži &Kljuc...",           ID_SHOW_KEY
+        MENUITEM "&Roditelj Prozor",            ID_GOTO_VATER
     END
     POPUP "&Pogled"
     BEGIN
         MENUITEM "&Traka sa alatkama",          ID_VIEW_TOOLBAR
         MENUITEM "&Traka sa statusom",          ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
-        MENUITEM "Prikaži &kao Tekst",          ID_TOTXT, GRAYED
-        MENUITEM "Prikaži kao &HexDump ",       ID_TOHEX, GRAYED
+        MENUITEM "Prikaži &kao Tekst",          ID_TOTXT
+        MENUITEM "Prikaži kao &HexDump ",       ID_TOHEX
         MENUITEM SEPARATOR
-        MENUITEM "&Traka sa grafikonom",        ID_PLOTBAR, GRAYED
+        MENUITEM "&Traka sa grafikonom",        ID_PLOTBAR
         MENUITEM SEPARATOR
-        MENUITEM "Al&fabet",                    ID_VIEW_ALPHABET, GRAYED
-        MENUITEM "&Kraj Linije",                ID_VIEW_ENDOFLINE, GRAYED
-        MENUITEM "Prelom Lin&ije",              ID_VIEW_LINEWRAP, GRAYED
-        MENUITEM "&Beline",                     ID_VIEW_WHITESPACE, GRAYED
+        MENUITEM "Al&fabet",                    ID_VIEW_ALPHABET
+        MENUITEM "&Kraj Linije",                ID_VIEW_ENDOFLINE
+        MENUITEM "Prelom Lin&ije",              ID_VIEW_LINEWRAP
+        MENUITEM "&Beline",                     ID_VIEW_WHITESPACE
         POPUP "&Font"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14, GRAYED
-            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
-            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14, GRAYED
-            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16, GRAYED
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Arial 18",                    ID_ZEICHENFORMAT_ARIAL18
+            MENUITEM "Arial 20",                    ID_ZEICHENFORMAT_ARIAL20
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+            MENUITEM "Courier 18",                  ID_ZEICHENFORMAT_COURIER18
+            MENUITEM "Courier 20",                  ID_ZEICHENFORMAT_COURIER20
         END
         MENUITEM "&Formatizovanje Tekstualnog Dokumenta...", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
-        MENUITEM "Prikaži K&utiju (kocke u granicama)", ID_POPUP_OPENGL_SHOW_BOX, GRAYED
+        MENUITEM "Prikaži K&utiju (kocke u granicama)", ID_POPUP_OPENGL_SHOW_BOX
     END
     POPUP "&Šifrovanje/Dešifrovanje"
     BEGIN
         POPUP "Simetricno (&klasicno)"
         BEGIN
             MENUITEM "Caesar / &Rot-13...",         ID_ROT13CAESAR_ASC
-            MENUITEM "&Vigenère...",                ID_VIGENERE_ASC, GRAYED
-            MENUITEM "&Hill...",                    ID_HILL, GRAYED
-            MENUITEM "&Zamena / Atbash...",         ID_CryptMono, GRAYED
-            MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN, GRAYED
-            MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX, GRAYED
-            MENUITEM "Sabiranje B&yte-ova...",      ID_ADD_BIN, GRAYED
-            MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
-            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN, GRAYED
-            MENUITEM "H&omofona...",                ID_HOMOPHONE_ASC, GRAYED
-            MENUITEM "Zam&ena / Transpozicija...",  ID_PERMUTATION, GRAYED
-            MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
+            MENUITEM "&Vigenère...",                ID_VIGENERE_ASC
+            MENUITEM "&Hill...",                    ID_HILL
+            MENUITEM "&Zamena / Atbash...",         ID_CryptMono
+            MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN
+            MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
+            MENUITEM "Sabiranje B&yte-ova...",      ID_ADD_BIN
+            MENUITEM "&XOR...",                     ID_XOR_BIN
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN
+            MENUITEM "H&omofona...",                ID_HOMOPHONE_ASC
+            MENUITEM "Zam&ena / Transpozicija...",  ID_PERMUTATION
+            MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
             MENUITEM "Scytale / Rail Fence...",     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Simetricno (&moderno)"
         BEGIN
             MENUITEM "&IDEA...",                    ID_CRYPT_IDEA
-            MENUITEM "RC&2...",                     ID_CRYPT_RC2, GRAYED
-            MENUITEM "RC&4...",                     ID_CRYPT_RC4, GRAYED
-            MENUITEM "&DES (ECB)...",               ID_CRYPT_DES_DESECB, GRAYED
-            MENUITEM "D&ES (CBC)...",               ID_CRYPT_DES_DESCBC, GRAYED
-            MENUITEM "&Trostruki DES (ECB)...",     ID_CRYPT_3DES_ECB, GRAYED
-            MENUITEM "T&rostruki DES (CBC)...",     ID_CRYPT_3DES_CBC, GRAYED
-            MENUITEM "Rijndael (&AES)...\tShift + Strg + R", ID_CRYPT_AES_RIJNDAEL, GRAYED
+            MENUITEM "RC&2...",                     ID_CRYPT_RC2
+            MENUITEM "RC&4...",                     ID_CRYPT_RC4
+            MENUITEM "&DES (ECB)...",               ID_CRYPT_DES_DESECB
+            MENUITEM "D&ES (CBC)...",               ID_CRYPT_DES_DESCBC
+            MENUITEM "&Trostruki DES (ECB)...",     ID_CRYPT_3DES_ECB
+            MENUITEM "T&rostruki DES (CBC)...",     ID_CRYPT_3DES_CBC
+            MENUITEM "Rijndael (&AES)...\tShift + Strg + R", ID_CRYPT_AES_RIJNDAEL
             MENUITEM SEPARATOR
             POPUP "&Dalji Algoritmi"
             BEGIN
                 MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
-                MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6, GRAYED
-                MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT, GRAYED
-                MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH, GRAYED
+                MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
+                MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
+                MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
                 MENUITEM SEPARATOR
-                MENUITEM "DES&X...",                    ID_CRYPT_DESX, GRAYED
-                MENUITEM "&DESL...",                    ID_CRYPT_DESL, GRAYED
-                MENUITEM "DESX&L...",                   ID_CRYPT_DESXL, GRAYED
+                MENUITEM "DES&X...",                    ID_CRYPT_DESX
+                MENUITEM "&DESL...",                    ID_CRYPT_DESL
+                MENUITEM "DESX&L...",                   ID_CRYPT_DESXL
             END
             MENUITEM SEPARATOR
             MENUITEM "&AES (samoekstraktujuci)...", ID_AES_SELFEXTRACT
@@ -16485,15 +16517,15 @@ BEGIN
         POPUP "&Asimetricno"
         BEGIN
             MENUITEM "RSA &Šifrovanje...",          ID_CRYPT_RsaEnc
-            MENUITEM "RSA &Dešifrovanje...",        ID_CRYPT_RsaDec, GRAYED
+            MENUITEM "RSA &Dešifrovanje...",        ID_CRYPT_RsaDec
             MENUITEM "RSA &Demonstracija...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
         END
         POPUP "&Hibridno"
         BEGIN
             MENUITEM "RSA-AES &Šifrovanje...",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
-            MENUITEM "RSA-AES &Dešifrovanje...",    ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG, GRAYED
+            MENUITEM "RSA-AES &Dešifrovanje...",    ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
             MENUITEM "ECC-AES Š&ifrovanje...",      ID_HYBRID_ECCENC
-            MENUITEM "ECC-AES De&šifrovanje...",    ID_HYBRID_ECCDEC, GRAYED
+            MENUITEM "ECC-AES De&šifrovanje...",    ID_HYBRID_ECCDEC
         END
     END
     POPUP "Digitalni Potpisi/&PKI"
@@ -16503,9 +16535,9 @@ BEGIN
             MENUITEM "&Generiši/Uvezi Kljuceve...", ID_CRYPT_KeyGen
             MENUITEM "&Prikaži/Izvezi Kljuceve...", ID_SHOW_ALL_EC_KEYS
         END
-        MENUITEM "&Potpiši Dokument...",        ID_CRYPT_SIGN, GRAYED
-        MENUITEM "&Proveri Potpis...",          ID_CRYPT_VERIFY, GRAYED
-        MENUITEM "&Ekstraktuj Potpis",          ID_CRYPT_EXTRACT, GRAYED
+        MENUITEM "&Potpiši Dokument...",        ID_CRYPT_SIGN
+        MENUITEM "&Proveri Potpis...",          ID_CRYPT_VERIFY
+        MENUITEM "&Ekstraktuj Potpis",          ID_CRYPT_EXTRACT
         MENUITEM "&Demonstracija Potpisa (Generisanje Potpisa)...", ID_EINZELVERFAHREN_SIGN_DOC
     END
     POPUP "&Individualne Procedure"
@@ -16513,18 +16545,18 @@ BEGIN
         POPUP "&Heš"
         BEGIN
             MENUITEM "MD&2",                        ID_CRYPT_HASH_MD2
-            MENUITEM "MD&4",                        ID_CRYPT_HASH_MD4, GRAYED
-            MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5, GRAYED
-            MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA, GRAYED
-            MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1, GRAYED
-            MENUITEM "SHA-&256",                    ID_CRYPT_HASH_SHA256, GRAYED
-            MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512, GRAYED
-            MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160, GRAYED
+            MENUITEM "MD&4",                        ID_CRYPT_HASH_MD4
+            MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5
+            MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
+            MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
+            MENUITEM "SHA-&256",                    ID_CRYPT_HASH_SHA256
+            MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512
+            MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             MENUITEM SEPARATOR
             MENUITEM "Heš Vrednost Datoteke...",    ID_HASH_OFAFILE
-            MENUITEM "Heš &Demonstracija...",       ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, GRAYED
+            MENUITEM "Heš &Demonstracija...",       ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
             MENUITEM "&Generisanje Kljuca iz Lozinke (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
-            MENUITEM "&Generisanje HMAC-ova...",    ID_GENERATE_MACS, GRAYED
+            MENUITEM "&Generisanje HMAC-ova...",    ID_GENERATE_MACS
         END
         POPUP "&RSA Kriptosistem"
         BEGIN
@@ -16576,20 +16608,20 @@ BEGIN
                 POPUP "&Base64 Šifrovanje/Dešifrovanje"
                 BEGIN
                     MENUITEM "Base64 &Šifrovanje",          ID_ENCODE_BASE64
-                    MENUITEM "Base64 &Dešifrovanje",        ID_DECODE_BASE64, GRAYED
+                    MENUITEM "Base64 &Dešifrovanje",        ID_DECODE_BASE64
                 END
                 POPUP "&UU Šifrovanje/Dešifrovanje"
                 BEGIN
                     MENUITEM "UU &Šifrovanje",              ID_ENCODE_UU
-                    MENUITEM "UU &Dešifrovanje",            ID_DECODE_UU, GRAYED
+                    MENUITEM "UU &Dešifrovanje",            ID_DECODE_UU
                 END
-                MENUITEM "Dekôdiraj ASN.&1 Kôd Dokumenta", ID_EINZELVERFAHREN_ASN1DECODIEREN, GRAYED
+                MENUITEM "Dekôdiraj ASN.&1 Kôd Dokumenta", ID_EINZELVERFAHREN_ASN1DECODIEREN
             END
             MENUITEM SEPARATOR
             POPUP "&Komprimuj"
             BEGIN
                 MENUITEM "&Zipuj \tShift + Strg + Z",   ID_ZIP
-                MENUITEM "&Odzipuj \tShift + Strg + U", ID_UNZIP, GRAYED
+                MENUITEM "&Odzipuj \tShift + Strg + U", ID_UNZIP
             END
             MENUITEM "Generiši Nasumicne &Brojeve...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Merac Kvaliteta Lozinke...", ID_PASSWORDQUALITYMETER
@@ -16613,11 +16645,11 @@ BEGIN
         POPUP "&Alatke za Analizu"
         BEGIN
             MENUITEM "&Entropija",                  ID_ENTROPY
-            MENUITEM "&Pokretna Ucestanost",        ID_FLOATING, GRAYED
-            MENUITEM "&Histogram",                  ID_HISTOGRAM, GRAYED
-            MENUITEM "&N-Gram...",                  ID_ANALYSE_NGRAM, GRAYED
-            MENUITEM "&Autokorelacija",             ID_AUTO, GRAYED
-            MENUITEM "&Periodicnost",               ID_ANALYSE_PERIOD, GRAYED
+            MENUITEM "&Pokretna Ucestanost",        ID_FLOATING
+            MENUITEM "&Histogram",                  ID_HISTOGRAM
+            MENUITEM "&N-Gram...",                  ID_ANALYSE_NGRAM
+            MENUITEM "&Autokorelacija",             ID_AUTO
+            MENUITEM "&Periodicnost",               ID_ANALYSE_PERIOD
         END
         MENUITEM SEPARATOR
         POPUP "Simetricno Šifrovanje (klasicno)"
@@ -16625,13 +16657,13 @@ BEGIN
             POPUP "&Samo Šifrovan Tekst"
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
-                MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "V&igenère (Analiza prema Schroedelu)...", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
-                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
-                MENUITEM "&Zamena...",                  ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
-                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
+                MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
+                MENUITEM "V&igenère (Analiza prema Schroedelu)...", ID_ANALYSIS_VIGENERE_SCHROEDEL
+                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "&Zamena...",                  ID_CIPHERTEXT_ONLY_SUBSTITUTION
+                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
-                MENUITEM "Sabiranje B&yte-ova",         ID_ADD_AUTO, GRAYED
+                MENUITEM "Sabiranje B&yte-ova",         ID_ADD_AUTO
                 MENUITEM "&XOR / Vernam",               ID_XOR_AUTO
             END
             POPUP "Poznati &Obican Tekst"
@@ -16642,30 +16674,30 @@ BEGIN
             POPUP "&Rucna Analiza"
             BEGIN
                 MENUITEM "&Zamena...",                  ID_ANALYZE_SUBST
-                MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE, GRAYED
-                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
+                MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
+                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
             END
         END
         POPUP "Simetricno Šifrovanje (moderno)"
         BEGIN
             MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA
-            MENUITEM "RC&2...",                     ID_ANALYSE_RC2, GRAYED
-            MENUITEM "RC&4...",                     ID_ANALYSE_RC4, GRAYED
-            MENUITEM "&DES (ECB)...",               ID_ANALYSE_DESECB, GRAYED
-            MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC, GRAYED
-            MENUITEM "&Trostruki DES (ECB)...",     ID_ANALYSE_TRIPLEDESECB, GRAYED
-            MENUITEM "T&rostruki DES (CBC)...",     ID_ANALYSE_TRIPLEDESCBC, GRAYED
-            MENUITEM "Rijndael (&AES)...",          ID_ANALYSE_AES_RIJNDAEL, GRAYED
+            MENUITEM "RC&2...",                     ID_ANALYSE_RC2
+            MENUITEM "RC&4...",                     ID_ANALYSE_RC4
+            MENUITEM "&DES (ECB)...",               ID_ANALYSE_DESECB
+            MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
+            MENUITEM "&Trostruki DES (ECB)...",     ID_ANALYSE_TRIPLEDESECB
+            MENUITEM "T&rostruki DES (CBC)...",     ID_ANALYSE_TRIPLEDESCBC
+            MENUITEM "Rijndael (&AES)...",          ID_ANALYSE_AES_RIJNDAEL
             POPUP "&Dalji Algoritmi"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
-                MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6, GRAYED
-                MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT, GRAYED
-                MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH, GRAYED
+                MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
+                MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
+                MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
                 MENUITEM SEPARATOR
-                MENUITEM "DES&X...",                    ID_ANALYSE_DESX, GRAYED
-                MENUITEM "&DESL...",                    ID_ANALYSE_DESL, GRAYED
-                MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL, GRAYED
+                MENUITEM "DES&X...",                    ID_ANALYSE_DESX
+                MENUITEM "&DESL...",                    ID_ANALYSE_DESL
+                MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL
             END
         END
         POPUP "&Asimetricno Šifrovanje"
@@ -16686,14 +16718,14 @@ BEGIN
         POPUP "&Analiziraj Nasumicnost"
         BEGIN
             MENUITEM "&Test Ucestanosti...",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-            MENUITEM "&Poker Test...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
-            MENUITEM "&Runs Test...",               ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
-            MENUITEM "&Serijski Test...",           ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
+            MENUITEM "&Poker Test...",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+            MENUITEM "&Runs Test...",               ID_ANALYSE_ZUFALLSTESTS_RUNS
+            MENUITEM "&Serijski Test...",           ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
             MENUITEM SEPARATOR
-            MENUITEM "F&IPS PUB-140-1 Baterija Test", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
+            MENUITEM "F&IPS PUB-140-1 Baterija Test", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
             MENUITEM SEPARATOR
-            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY, GRAYED
-            MENUITEM "&3D Vizualizacija...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION, GRAYED
+            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
+            MENUITEM "&3D Vizualizacija...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
         END
     END
     POPUP "&Opcije"
@@ -16706,9 +16738,9 @@ BEGIN
     POPUP "&Prozor"
     BEGIN
         MENUITEM "&Kaskadno",                   ID_WINDOW_CASCADE
-        MENUITEM "&Rašireno",                   ID_WINDOW_TILE_HORZ, GRAYED
-        MENUITEM "&Uredi Ikone",                ID_WINDOW_ARRANGE, GRAYED
-        MENUITEM "&Zatvori Sve",                ID_WINDOW_CLOSE_ALL, GRAYED
+        MENUITEM "&Rašireno",                   ID_WINDOW_TILE_HORZ
+        MENUITEM "&Uredi Ikone",                ID_WINDOW_ARRANGE
+        MENUITEM "&Zatvori Sve",                ID_WINDOW_CLOSE_ALL
     END
     POPUP "&Pomoc"
     BEGIN
@@ -16781,11 +16813,15 @@ BEGIN
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
             MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Arial 18",                    ID_ZEICHENFORMAT_ARIAL18
+            MENUITEM "Arial 20",                    ID_ZEICHENFORMAT_ARIAL20
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
             MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
             MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+            MENUITEM "Courier 18",                  ID_ZEICHENFORMAT_COURIER18
+            MENUITEM "Courier 20",                  ID_ZEICHENFORMAT_COURIER20
         END
         MENUITEM "&Formatizovanje Tekstualnog Dokumenta...", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -17155,16 +17191,20 @@ BEGIN
         MENUITEM "&Beline",                     ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14, GRAYED
-            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
-            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14, GRAYED
-            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16, GRAYED
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Arial 18",                    ID_ZEICHENFORMAT_ARIAL18
+            MENUITEM "Arial 20",                    ID_ZEICHENFORMAT_ARIAL20
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+            MENUITEM "Courier 18",                  ID_ZEICHENFORMAT_COURIER18
+            MENUITEM "Courier 20",                  ID_ZEICHENFORMAT_COURIER20
         END
         MENUITEM "&Formatizovanje Tekstualnog Dokumenta...", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -26839,16 +26879,20 @@ BEGIN
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
         POPUP "S&chriftart"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14, GRAYED
-            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
-            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14, GRAYED
-            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16, GRAYED
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Arial 18",                    ID_ZEICHENFORMAT_ARIAL18
+            MENUITEM "Arial 20",                    ID_ZEICHENFORMAT_ARIAL20
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+            MENUITEM "Courier 18",                  ID_ZEICHENFORMAT_COURIER18
+            MENUITEM "Courier 20",                  ID_ZEICHENFORMAT_COURIER20
         END
         MENUITEM "&Textdokument formatieren...", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -27196,11 +27240,15 @@ BEGIN
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
             MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Arial 18",                    ID_ZEICHENFORMAT_ARIAL18
+            MENUITEM "Arial 20",                    ID_ZEICHENFORMAT_ARIAL20
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
             MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
             MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+            MENUITEM "Courier 18",                  ID_ZEICHENFORMAT_COURIER18
+            MENUITEM "Courier 20",                  ID_ZEICHENFORMAT_COURIER20
         END
         MENUITEM "&Textdokument formatieren...", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -27548,11 +27596,15 @@ BEGIN
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
             MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Arial 18",                    ID_ZEICHENFORMAT_ARIAL18
+            MENUITEM "Arial 20",                    ID_ZEICHENFORMAT_ARIAL20
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
             MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
             MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+            MENUITEM "Courier 18",                  ID_ZEICHENFORMAT_COURIER18
+            MENUITEM "Courier 20",                  ID_ZEICHENFORMAT_COURIER20
         END
         MENUITEM "&Textdokument formatieren...", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -27900,11 +27952,15 @@ BEGIN
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
             MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Arial 18",                    ID_ZEICHENFORMAT_ARIAL18
+            MENUITEM "Arial 20",                    ID_ZEICHENFORMAT_ARIAL20
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
             MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
             MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+            MENUITEM "Courier 18",                  ID_ZEICHENFORMAT_COURIER18
+            MENUITEM "Courier 20",                  ID_ZEICHENFORMAT_COURIER20
         END
         MENUITEM "&Textdokument formatieren...", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -28274,16 +28330,20 @@ BEGIN
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
         POPUP "S&chriftart"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14, GRAYED
-            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
-            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14, GRAYED
-            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16, GRAYED
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Arial 18",                    ID_ZEICHENFORMAT_ARIAL18
+            MENUITEM "Arial 20",                    ID_ZEICHENFORMAT_ARIAL20
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+            MENUITEM "Courier 18",                  ID_ZEICHENFORMAT_COURIER18
+            MENUITEM "Courier 20",                  ID_ZEICHENFORMAT_COURIER20
         END
         MENUITEM "&Textdokument formatieren...", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -37857,16 +37917,20 @@ BEGIN
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14, GRAYED
-            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
-            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14, GRAYED
-            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16, GRAYED
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Arial 18",                    ID_ZEICHENFORMAT_ARIAL18
+            MENUITEM "Arial 20",                    ID_ZEICHENFORMAT_ARIAL20
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+            MENUITEM "Courier 18",                  ID_ZEICHENFORMAT_COURIER18
+            MENUITEM "Courier 20",                  ID_ZEICHENFORMAT_COURIER20
         END
         MENUITEM "&Format Text Document...",    ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -38214,11 +38278,15 @@ BEGIN
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
             MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Arial 18",                    ID_ZEICHENFORMAT_ARIAL18
+            MENUITEM "Arial 20",                    ID_ZEICHENFORMAT_ARIAL20
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
             MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
             MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+            MENUITEM "Courier 18",                  ID_ZEICHENFORMAT_COURIER18
+            MENUITEM "Courier 20",                  ID_ZEICHENFORMAT_COURIER20
         END
         MENUITEM "&Format Text Document...",    ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -38561,16 +38629,20 @@ BEGIN
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14, GRAYED
-            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
-            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14, GRAYED
-            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16, GRAYED
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Arial 18",                    ID_ZEICHENFORMAT_ARIAL18
+            MENUITEM "Arial 20",                    ID_ZEICHENFORMAT_ARIAL20
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+            MENUITEM "Courier 18",                  ID_ZEICHENFORMAT_COURIER18
+            MENUITEM "Courier 20",                  ID_ZEICHENFORMAT_COURIER20
         END
         MENUITEM "&Format Text Document...",    ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -38918,11 +38990,15 @@ BEGIN
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
             MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Arial 18",                    ID_ZEICHENFORMAT_ARIAL18
+            MENUITEM "Arial 20",                    ID_ZEICHENFORMAT_ARIAL20
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
             MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
             MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+            MENUITEM "Courier 18",                  ID_ZEICHENFORMAT_COURIER18
+            MENUITEM "Courier 20",                  ID_ZEICHENFORMAT_COURIER20
         END
         MENUITEM "&Format Text Document...",    ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -39292,16 +39368,20 @@ BEGIN
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14, GRAYED
-            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
-            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14, GRAYED
-            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16, GRAYED
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Arial 18",                    ID_ZEICHENFORMAT_ARIAL18
+            MENUITEM "Arial 20",                    ID_ZEICHENFORMAT_ARIAL20
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+            MENUITEM "Courier 18",                  ID_ZEICHENFORMAT_COURIER18
+            MENUITEM "Courier 20",                  ID_ZEICHENFORMAT_COURIER20
         END
         MENUITEM "&Format Text Document...",    ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -49046,11 +49126,15 @@ BEGIN
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
             MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Arial 18",                    ID_ZEICHENFORMAT_ARIAL18
+            MENUITEM "Arial 20",                    ID_ZEICHENFORMAT_ARIAL20
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
             MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
             MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+            MENUITEM "Courier 18",                  ID_ZEICHENFORMAT_COURIER18
+            MENUITEM "Courier 20",                  ID_ZEICHENFORMAT_COURIER20
         END
         MENUITEM "Fo&rmato de documento de texto", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -49394,15 +49478,19 @@ BEGIN
         POPUP "F&uente"
         BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
             MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Arial 18",                    ID_ZEICHENFORMAT_ARIAL18
+            MENUITEM "Arial 20",                    ID_ZEICHENFORMAT_ARIAL20
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
             MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
             MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+            MENUITEM "Courier 18",                  ID_ZEICHENFORMAT_COURIER18
+            MENUITEM "Courier 20",                  ID_ZEICHENFORMAT_COURIER20
         END
         MENUITEM "Fo&rmato de documento de texto", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -49703,7 +49791,7 @@ BEGIN
         MENUITEM "&Guardar\tCtrl+S",            ID_FILE_SAVE
         MENUITEM "Guardar C&omo...",            ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Propiedades del &Documento...", ID_FILEPROPERTIES, GRAYED
+        MENUITEM "Propiedades del &Documento...", ID_FILEPROPERTIES
         MENUITEM "&Imprimir...\tCtrl+P",        ID_FILE_PRINT
         MENUITEM "Configurar Im&presora...",    ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -49713,20 +49801,20 @@ BEGIN
     END
     POPUP "&Edición"
     BEGIN
-        MENUITEM "&Deshacer\tCtrl+Z",           ID_EDIT_UNDO, GRAYED
+        MENUITEM "&Deshacer\tCtrl+Z",           ID_EDIT_UNDO
         MENUITEM "&Rehacer\tCtrl+Y",            ID_EDIT_REDO
         MENUITEM SEPARATOR
-        MENUITEM "Cor&tar\tCtrl+X",             ID_EDIT_CUT, GRAYED
-        MENUITEM "&Copiar\tCtrl+C",             ID_EDIT_COPY, GRAYED
-        MENUITEM "&Pegar\tCtrl+V",              ID_EDIT_PASTE, GRAYED
-        MENUITEM "&Eliminar\tDel",              ID_EDIT_CLEAR, GRAYED
+        MENUITEM "Cor&tar\tCtrl+X",             ID_EDIT_CUT
+        MENUITEM "&Copiar\tCtrl+C",             ID_EDIT_COPY
+        MENUITEM "&Pegar\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM "&Eliminar\tDel",              ID_EDIT_CLEAR
         MENUITEM SEPARATOR
-        MENUITEM "&Buscar/Reemplazar...\tStrg+F", ID_EDIT_FIND, GRAYED
-        MENUITEM "Buscar &Siguiente\tF3",       ID_EDIT_FIND_NEXT, GRAYED
+        MENUITEM "&Buscar/Reemplazar...\tStrg+F", ID_EDIT_FIND
+        MENUITEM "Buscar &Siguiente\tF3",       ID_EDIT_FIND_NEXT
         MENUITEM SEPARATOR
-        MENUITEM "Seleccionar &Todo \tCtrl+A",  ID_EDIT_SELECT_ALL, GRAYED
+        MENUITEM "Seleccionar &Todo \tCtrl+A",  ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
-        MENUITEM "&Mostrar Clave...",           ID_SHOW_KEY, GRAYED
+        MENUITEM "&Mostrar Clave...",           ID_SHOW_KEY
         MENUITEM "&Ventana Padre",              ID_GOTO_VATER
     END
     POPUP "&Ver"
@@ -49734,27 +49822,31 @@ BEGIN
         MENUITEM "Barra de &Herramientas",      ID_VIEW_TOOLBAR
         MENUITEM "Barra de &Estado",            ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
-        MENUITEM "Mostrar como &Texto",         ID_TOTXT, GRAYED
-        MENUITEM "Mostrar como código He&xadecimal", ID_TOHEX, GRAYED
+        MENUITEM "Mostrar como &Texto",         ID_TOTXT
+        MENUITEM "Mostrar como código He&xadecimal", ID_TOHEX
         MENUITEM SEPARATOR
         MENUITEM "&Gráfico de Barras",          ID_PLOTBAR
         MENUITEM SEPARATOR
-        MENUITEM "&Alfabeto",                   ID_VIEW_ALPHABET, GRAYED
-        MENUITEM "&Fin de Línea",               ID_VIEW_ENDOFLINE, GRAYED
-        MENUITEM "&Salto de Línea",             ID_VIEW_LINEWRAP, GRAYED
-        MENUITEM "Es&pacio en Blanco",          ID_VIEW_WHITESPACE, GRAYED
+        MENUITEM "&Alfabeto",                   ID_VIEW_ALPHABET
+        MENUITEM "&Fin de Línea",               ID_VIEW_ENDOFLINE
+        MENUITEM "&Salto de Línea",             ID_VIEW_LINEWRAP
+        MENUITEM "Es&pacio en Blanco",          ID_VIEW_WHITESPACE
         POPUP "F&uente"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
             MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Arial 18",                    ID_ZEICHENFORMAT_ARIAL18
+            MENUITEM "Arial 20",                    ID_ZEICHENFORMAT_ARIAL20
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
             MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
             MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+            MENUITEM "Courier 18",                  ID_ZEICHENFORMAT_COURIER18
+            MENUITEM "Courier 20",                  ID_ZEICHENFORMAT_COURIER20
         END
         MENUITEM "Fo&rmato de documento de texto", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -49764,57 +49856,57 @@ BEGIN
     BEGIN
         POPUP "Simétrico (&clásico)"
         BEGIN
-            MENUITEM "César / &Rot-13...",          ID_ROT13CAESAR_ASC, GRAYED
-            MENUITEM "&Vigenère...",                ID_VIGENERE_ASC, GRAYED
-            MENUITEM "&Hill...",                    ID_HILL, GRAYED
-            MENUITEM "&Sustitución / Atbash...",    ID_CryptMono, GRAYED
-            MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN, GRAYED
-            MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX, GRAYED
-            MENUITEM "Suma de &Bytes...",           ID_ADD_BIN, GRAYED
-            MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
-            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN, GRAYED
-            MENUITEM "H&omofónico...",              ID_HOMOPHONE_ASC, GRAYED
-            MENUITEM "Per&mutación / Transposición...", ID_PERMUTATION, GRAYED
-            MENUITEM "Soli&tario...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
+            MENUITEM "César / &Rot-13...",          ID_ROT13CAESAR_ASC
+            MENUITEM "&Vigenère...",                ID_VIGENERE_ASC
+            MENUITEM "&Hill...",                    ID_HILL
+            MENUITEM "&Sustitución / Atbash...",    ID_CryptMono
+            MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN
+            MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
+            MENUITEM "Suma de &Bytes...",           ID_ADD_BIN
+            MENUITEM "&XOR...",                     ID_XOR_BIN
+            MENUITEM "V&ernam / OTP...",            ID_VERNAM_BIN
+            MENUITEM "H&omofónico...",              ID_HOMOPHONE_ASC
+            MENUITEM "Per&mutación / Transposición...", ID_PERMUTATION
+            MENUITEM "Soli&tario...",               ID_SYMCLASSIC_SOLITAIRE
             MENUITEM "Escítala / Rail &Fence",      ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Simétrico (&moderno)"
         BEGIN
-            MENUITEM "&IDEA...",                    ID_CRYPT_IDEA, GRAYED
-            MENUITEM "RC&2...",                     ID_CRYPT_RC2, GRAYED
-            MENUITEM "RC&4...",                     ID_CRYPT_RC4, GRAYED
-            MENUITEM "&DES (ECB)...",               ID_CRYPT_DES_DESECB, GRAYED
-            MENUITEM "D&ES (CBC)...",               ID_CRYPT_DES_DESCBC, GRAYED
-            MENUITEM "&Triple DES (ECB)...",        ID_CRYPT_3DES_ECB, GRAYED
-            MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC, GRAYED
-            MENUITEM "Rijndael (&AES)...\tShift + Strg + R", ID_CRYPT_AES_RIJNDAEL, GRAYED
+            MENUITEM "&IDEA...",                    ID_CRYPT_IDEA
+            MENUITEM "RC&2...",                     ID_CRYPT_RC2
+            MENUITEM "RC&4...",                     ID_CRYPT_RC4
+            MENUITEM "&DES (ECB)...",               ID_CRYPT_DES_DESECB
+            MENUITEM "D&ES (CBC)...",               ID_CRYPT_DES_DESCBC
+            MENUITEM "&Triple DES (ECB)...",        ID_CRYPT_3DES_ECB
+            MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
+            MENUITEM "Rijndael (&AES)...\tShift + Strg + R", ID_CRYPT_AES_RIJNDAEL
             MENUITEM SEPARATOR
             POPUP "&Otros Algoritmos"
             BEGIN
-                MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS, GRAYED
-                MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6, GRAYED
-                MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT, GRAYED
-                MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH, GRAYED
+                MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
+                MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
+                MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
+                MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
                 MENUITEM SEPARATOR
-                MENUITEM "DES&X...",                    ID_CRYPT_DESX, GRAYED
-                MENUITEM "&DESL...",                    ID_CRYPT_DESL, GRAYED
-                MENUITEM "DESX&L...",                   ID_CRYPT_DESXL, GRAYED
+                MENUITEM "DES&X...",                    ID_CRYPT_DESX
+                MENUITEM "&DESL...",                    ID_CRYPT_DESL
+                MENUITEM "DESX&L...",                   ID_CRYPT_DESXL
             END
             MENUITEM SEPARATOR
             MENUITEM "&AES (autoextracción)...",    ID_AES_SELFEXTRACT
         END
         POPUP "&Asimétrico"
         BEGIN
-            MENUITEM "RSA &Cifrar...",              ID_CRYPT_RsaEnc, GRAYED
-            MENUITEM "RSA &Descifrar...",           ID_CRYPT_RsaDec, GRAYED
+            MENUITEM "RSA &Cifrar...",              ID_CRYPT_RsaEnc
+            MENUITEM "RSA &Descifrar...",           ID_CRYPT_RsaDec
             MENUITEM "RSA &Demostración...",        ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
         END
         POPUP "&Híbrido"
         BEGIN
             MENUITEM "RSA-AES &Cifrar...",          ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
-            MENUITEM "RSA-AES &Descifrar...",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG, GRAYED
+            MENUITEM "RSA-AES &Descifrar...",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
             MENUITEM "ECC-AES Ci&frar...",          ID_HYBRID_ECCENC
-            MENUITEM "ECC-AES De&scifrar...",       ID_HYBRID_ECCDEC, GRAYED
+            MENUITEM "ECC-AES De&scifrar...",       ID_HYBRID_ECCDEC
         END
     END
     POPUP "Firma Digital/&PKI"
@@ -49824,28 +49916,28 @@ BEGIN
             MENUITEM "&Generar/Importar Claves...", ID_CRYPT_KeyGen
             MENUITEM "&Mostrar/Exportar Claves...", ID_SHOW_ALL_EC_KEYS
         END
-        MENUITEM "&Firmar Documento...",        ID_CRYPT_SIGN, GRAYED
-        MENUITEM "&Verificar Firma...",         ID_CRYPT_VERIFY, GRAYED
-        MENUITEM "&Extraer Firma",              ID_CRYPT_EXTRACT, GRAYED
+        MENUITEM "&Firmar Documento...",        ID_CRYPT_SIGN
+        MENUITEM "&Verificar Firma...",         ID_CRYPT_VERIFY
+        MENUITEM "&Extraer Firma",              ID_CRYPT_EXTRACT
         MENUITEM "&Demostración de Firma (Generación de una Firma)...", ID_EINZELVERFAHREN_SIGN_DOC
     END
     POPUP "Procedimientos &Indiv."
     BEGIN
         POPUP "&Hash"
         BEGIN
-            MENUITEM "MD&2",                        ID_CRYPT_HASH_MD2, GRAYED
-            MENUITEM "MD&4",                        ID_CRYPT_HASH_MD4, GRAYED
-            MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5, GRAYED
-            MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA, GRAYED
-            MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1, GRAYED
-            MENUITEM "S&HA-256",                    ID_CRYPT_HASH_SHA256, GRAYED
-            MENUITEM "SH&A-512",                    ID_CRYPT_HASH_SHA512, GRAYED
-            MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160, GRAYED
+            MENUITEM "MD&2",                        ID_CRYPT_HASH_MD2
+            MENUITEM "MD&4",                        ID_CRYPT_HASH_MD4
+            MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5
+            MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
+            MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
+            MENUITEM "S&HA-256",                    ID_CRYPT_HASH_SHA256
+            MENUITEM "SH&A-512",                    ID_CRYPT_HASH_SHA512
+            MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             MENUITEM SEPARATOR
             MENUITEM "&Valor Hash de un Archivo...", ID_HASH_OFAFILE
-            MENUITEM "&Demostración Hash...",       ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, GRAYED
+            MENUITEM "&Demostración Hash...",       ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
             MENUITEM "Generación de una &Clave desde una Contraseña (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
-            MENUITEM "&Generación de MACs...",      ID_GENERATE_MACS, GRAYED
+            MENUITEM "&Generación de MACs...",      ID_GENERATE_MACS
         END
         POPUP "&RSA Criptosistema"
         BEGIN
@@ -49896,21 +49988,21 @@ BEGIN
             BEGIN
                 POPUP "&Base64 Codificar/Descodificar"
                 BEGIN
-                    MENUITEM "Base64 &Codificar",           ID_ENCODE_BASE64, GRAYED
-                    MENUITEM "Base64 &Descodificar",        ID_DECODE_BASE64, GRAYED
+                    MENUITEM "Base64 &Codificar",           ID_ENCODE_BASE64
+                    MENUITEM "Base64 &Descodificar",        ID_DECODE_BASE64
                 END
                 POPUP "&UU Codificar/Descodificar"
                 BEGIN
-                    MENUITEM "UU &Codificar",               ID_ENCODE_UU, GRAYED
-                    MENUITEM "UU &Descodificar",            ID_DECODE_UU, GRAYED
+                    MENUITEM "UU &Codificar",               ID_ENCODE_UU
+                    MENUITEM "UU &Descodificar",            ID_DECODE_UU
                 END
-                MENUITEM "Descodificar el Código ASN.&1 de un Documento", ID_EINZELVERFAHREN_ASN1DECODIEREN, GRAYED
+                MENUITEM "Descodificar el Código ASN.&1 de un Documento", ID_EINZELVERFAHREN_ASN1DECODIEREN
             END
             MENUITEM SEPARATOR
             POPUP "&Comprimir"
             BEGIN
-                MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP, GRAYED
-                MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
+                MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
+                MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
             END
             MENUITEM "&Generar Números Aleatorios...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Medir Calidad de Contraseña...", ID_PASSWORDQUALITYMETER
@@ -49933,60 +50025,60 @@ BEGIN
     BEGIN
         POPUP "&Herramientas para el Análisis"
         BEGIN
-            MENUITEM "&Entropía",                   ID_ENTROPY, GRAYED
-            MENUITEM "&Frecuencia Real",            ID_FLOATING, GRAYED
-            MENUITEM "&Histograma",                 ID_HISTOGRAM, GRAYED
-            MENUITEM "&N-Grama...",                 ID_ANALYSE_NGRAM, GRAYED
-            MENUITEM "&Autocorrelación",            ID_AUTO, GRAYED
-            MENUITEM "&Periodicidad",               ID_ANALYSE_PERIOD, GRAYED
+            MENUITEM "&Entropía",                   ID_ENTROPY
+            MENUITEM "&Frecuencia Real",            ID_FLOATING
+            MENUITEM "&Histograma",                 ID_HISTOGRAM
+            MENUITEM "&N-Grama...",                 ID_ANALYSE_NGRAM
+            MENUITEM "&Autocorrelación",            ID_AUTO
+            MENUITEM "&Periodicidad",               ID_ANALYSE_PERIOD
         END
         MENUITEM SEPARATOR
         POPUP "&Cifrado Simétrico (clásico)"
         BEGIN
             POPUP "&Sólo Texto Cifrado"
             BEGIN
-                MENUITEM "&César",                      ID_CAESAR_AUTO, GRAYED
-                MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "V&igenère según Schroedel...", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
-                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
-                MENUITEM "&Sustitución...",             ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
-                MENUITEM "Soli&tario...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
+                MENUITEM "&César",                      ID_CAESAR_AUTO
+                MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
+                MENUITEM "V&igenère según Schroedel...", ID_ANALYSIS_VIGENERE_SCHROEDEL
+                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "&Sustitución...",             ID_CIPHERTEXT_ONLY_SUBSTITUTION
+                MENUITEM "Soli&tario...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
-                MENUITEM "Su&ma de Bytes",              ID_ADD_AUTO, GRAYED
-                MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
+                MENUITEM "Su&ma de Bytes",              ID_ADD_AUTO
+                MENUITEM "&XOR",                        ID_XOR_AUTO
             END
             POPUP "&Texto Claro Conocido"
             BEGIN
-                MENUITEM "H&ill...",                    ID_HILL_AUTO, GRAYED
+                MENUITEM "H&ill...",                    ID_HILL_AUTO
                 MENUITEM "&Transposición de columna simple", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "Análisis &Manual"
             BEGIN
-                MENUITEM "&Sustitución...",             ID_ANALYZE_SUBST, GRAYED
-                MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE, GRAYED
-                MENUITEM "Soli&tario...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
+                MENUITEM "&Sustitución...",             ID_ANALYZE_SUBST
+                MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
+                MENUITEM "Soli&tario...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
             END
         END
         POPUP "Cifrado Simétrico (&moderno)"
         BEGIN
-            MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA, GRAYED
-            MENUITEM "RC&2...",                     ID_ANALYSE_RC2, GRAYED
-            MENUITEM "RC&4...",                     ID_ANALYSE_RC4, GRAYED
-            MENUITEM "&DES (ECB)...",               ID_ANALYSE_DESECB, GRAYED
-            MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC, GRAYED
-            MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB, GRAYED
-            MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC, GRAYED
-            MENUITEM "Rijndael (&AES)...",          ID_ANALYSE_AES_RIJNDAEL, GRAYED
+            MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA
+            MENUITEM "RC&2...",                     ID_ANALYSE_RC2
+            MENUITEM "RC&4...",                     ID_ANALYSE_RC4
+            MENUITEM "&DES (ECB)...",               ID_ANALYSE_DESECB
+            MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
+            MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
+            MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
+            MENUITEM "Rijndael (&AES)...",          ID_ANALYSE_AES_RIJNDAEL
             POPUP "&Otros Algoritmos"
             BEGIN
-                MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS, GRAYED
-                MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6, GRAYED
-                MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT, GRAYED
-                MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH, GRAYED
+                MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
+                MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
+                MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
+                MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
                 MENUITEM SEPARATOR
-                MENUITEM "DES&X...",                    ID_ANALYSE_DESX, GRAYED
-                MENUITEM "&DESL...",                    ID_ANALYSE_DESL, GRAYED
-                MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL, GRAYED
+                MENUITEM "DES&X...",                    ID_ANALYSE_DESX
+                MENUITEM "&DESL...",                    ID_ANALYSE_DESL
+                MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL
             END
         END
         POPUP "Cifrado &Asimétrico"
@@ -50006,15 +50098,15 @@ BEGIN
         END
         POPUP "A&nálisis de Aleatoriedad"
         BEGIN
-            MENUITEM "Test de &Frecuencias...",     ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
-            MENUITEM "Test de &Poker...",           ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
-            MENUITEM "Test de &Rachas...",          ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
-            MENUITEM "Test de &Series...",          ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
+            MENUITEM "Test de &Frecuencias...",     ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "Test de &Poker...",           ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+            MENUITEM "Test de &Rachas...",          ID_ANALYSE_ZUFALLSTESTS_RUNS
+            MENUITEM "Test de &Series...",          ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
             MENUITEM SEPARATOR
-            MENUITEM "Batería de Pruebas F&IPS PUB-140-1", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
+            MENUITEM "Batería de Pruebas F&IPS PUB-140-1", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
             MENUITEM SEPARATOR
-            MENUITEM "&Vitányi",                    ID_ANALYSE_VITANY, GRAYED
-            MENUITEM "Visualización &3D...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION, GRAYED
+            MENUITEM "&Vitányi",                    ID_ANALYSE_VITANY
+            MENUITEM "Visualización &3D...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
         END
     END
     POPUP "&Opciones"
@@ -50102,11 +50194,15 @@ BEGIN
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
             MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Arial 18",                    ID_ZEICHENFORMAT_ARIAL18
+            MENUITEM "Arial 20",                    ID_ZEICHENFORMAT_ARIAL20
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
             MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
             MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+            MENUITEM "Courier 18",                  ID_ZEICHENFORMAT_COURIER18
+            MENUITEM "Courier 20",                  ID_ZEICHENFORMAT_COURIER20
         END
         MENUITEM "Fo&rmato de documento de texto", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -50450,15 +50546,19 @@ BEGIN
         POPUP "F&uente"
         BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
             MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Arial 18",                    ID_ZEICHENFORMAT_ARIAL18
+            MENUITEM "Arial 20",                    ID_ZEICHENFORMAT_ARIAL20
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
             MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
             MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
+            MENUITEM "Courier 18",                  ID_ZEICHENFORMAT_COURIER18
+            MENUITEM "Courier 20",                  ID_ZEICHENFORMAT_COURIER20
         END
         MENUITEM "Fo&rmato de documento de texto", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -55612,4 +55712,3 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
-
