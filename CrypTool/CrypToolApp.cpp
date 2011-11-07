@@ -1672,6 +1672,18 @@ void CCrypToolApp::loadMainWindowPositionFromRegistry()
 		if(mainWindowPositionX == 0 && mainWindowPositionY == 0 && mainWindowWidth == 0 && mainWindowHeight == 0)
 			return;
 
+		// flomar, 11/07/2011: when the window was positioned outside of the visible desktop area 
+		// (in other words "dragged off the screen") on application exit, the registry values could 
+		// get messed up due to overflows-- we fix this with a simple security check for values 
+		// smaller than zero or larger than the respective screen width and height
+		const int threshold = 10;
+		RECT screenRect;
+		GetWindowRect(GetDesktopWindow(), &screenRect);
+		if(mainWindowPositionX < 0 || mainWindowPositionX >= ((screenRect.right - screenRect.left) - threshold))
+			mainWindowPositionX = 0;
+		if(mainWindowPositionY < 0 || mainWindowPositionY >= ((screenRect.bottom - screenRect.top) - threshold))
+			mainWindowPositionY = 0;
+
 		// we return if the pointer to our main window is invalid
 		if(!m_pMainWnd)
 			return;
@@ -1689,8 +1701,8 @@ void CCrypToolApp::loadMainWindowPositionFromRegistry()
 
 void CCrypToolApp::saveMainWindowPositionToRegistry()
 {
-	unsigned long mainWindowPositionX = 0;
-	unsigned long mainWindowPositionY = 0;
+	int mainWindowPositionX = 0;
+	int mainWindowPositionY = 0;
 	unsigned long mainWindowWidth = 0;
 	unsigned long mainWindowHeight = 0;
 
@@ -1711,9 +1723,21 @@ void CCrypToolApp::saveMainWindowPositionToRegistry()
 		mainWindowWidth = rect.right - rect.left;
 		mainWindowHeight = rect.bottom - rect.top;
 
+		// flomar, 11/07/2011: when the window was positioned outside of the visible desktop area 
+		// (in other words "dragged off the screen") on application exit, the registry values could 
+		// get messed up due to overflows-- we fix this with a simple security check for values 
+		// smaller than zero or larger than the respective screen width and height
+		const int threshold = 10;
+		RECT screenRect;
+		GetWindowRect(GetDesktopWindow(), &screenRect);
+		if(mainWindowPositionX < 0 || mainWindowPositionX >= ((screenRect.right - screenRect.left) - threshold))
+			mainWindowPositionX = 0;
+		if(mainWindowPositionY < 0 || mainWindowPositionY >= ((screenRect.bottom - screenRect.top) - threshold))
+			mainWindowPositionY = 0;
+
 		// store window dimensions in the registry
-		CT_WRITE_REGISTRY(mainWindowPositionX, "MainWindowPositionX");
-		CT_WRITE_REGISTRY(mainWindowPositionY, "MainWindowPositionY");
+		CT_WRITE_REGISTRY((unsigned long)mainWindowPositionX, "MainWindowPositionX");
+		CT_WRITE_REGISTRY((unsigned long)mainWindowPositionY, "MainWindowPositionY");
 		CT_WRITE_REGISTRY(mainWindowWidth, "MainWindowWidth");
 		CT_WRITE_REGISTRY(mainWindowHeight, "MainWindowHeight");
 
