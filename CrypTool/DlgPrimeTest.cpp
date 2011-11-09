@@ -430,6 +430,24 @@ void CDlgPrimeTest::OnBnClickedPrimetestButtonLoadnumber()
     str.Remove(0x0d);
     str.Remove(0x20);
     free(buffer);
+
+		// flomar, 11/09/2011: furthermore, remove all non-digit characters  and then check if we 
+		// are below the 8192kbit threshold (or a decimal length of 2467, see IDS_STRING_BIG_NUMBER);
+		// I don't want to invoke the BigNumber class at this point, as this would be too much of an 
+		// overkill for simply displaying a warning message (which would be displayed by subsequent 
+		// calls later on anyway) a tad earlier just for user convenience
+		CString strTemp = "";
+		for(int i=0; i<str.GetLength(); i++) {
+			char character = str[i];
+			if(character >= '0' && character <= '9') {
+				strTemp.AppendChar(character);
+			}
+		}
+		str = strTemp;
+		if(str.GetLength() > 2467) {
+			Message(IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION);
+			str.Truncate(2467);
+		}
     
     UpdateData(true);
     SetDlgItemText(IDC_PRIMETEST_EDIT_NUMBER, str);

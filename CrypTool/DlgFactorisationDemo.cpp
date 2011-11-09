@@ -104,6 +104,7 @@ BEGIN_MESSAGE_MAP(CDlgFactorisationDemo, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION, OnButtonVollstaendigFaktorisation)
 	ON_EN_UPDATE(IDC_EDIT1, OnUpdateEditEingabe)
 	ON_BN_CLICKED(IDC_BUTTON1, OnShowFactorisationDetails)
+	ON_BN_CLICKED(IDC_BUTTON_LOAD_NUMBER, OnBnClickedLoadNumber)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -992,6 +993,87 @@ void CDlgFactorisationDemo::OnShowFactorisationDetails()
 		}
 		NewDoc->SetTitle(line);
 		// Message(STR_LAENGE_STRING_TABLE, MB_ICONINFORMATION);
+	}
+}
+
+void CDlgFactorisationDemo::OnBnClickedLoadNumber()
+{
+  // TODO: Fügen Sie hier Ihren Kontrollbehandlungscode für die Benachrichtigung ein.
+	//SEQUENCE_OF_Extension *thisextension = NULL;
+	CFile file;	
+  char *buffer = 0;
+  CFileException e;
+
+	// pop up file selector box
+	CFileDialog Dlg(TRUE, ".*", NULL, OFN_HIDEREADONLY,"All Files (*.*)|*.*||", this);
+	
+  if(IDCANCEL == Dlg.DoModal())
+  {
+    return;
+  }
+
+  // Get path name to prime number file
+  CString p_file = Dlg.GetPathName();
+  
+  try {
+
+    // read input file
+    if(!file.Open(p_file,CFile::modeRead | CFile::typeBinary, &e )) 
+    {
+      // Unable to open file
+      Message(IDS_STRING_FILEOPENERROR, MB_ICONEXCLAMATION);
+	    return;
+    }
+
+	  ASSERT(file.GetLength() < ULONG_MAX);
+	  unsigned long fileLength = (unsigned long)file.GetLength();
+  	
+    // Create buffer
+	  buffer = (char *) calloc(fileLength + 1,sizeof(char));
+	  if (!buffer) 
+    {
+      Message(AFX_IDP_FAILED_MEMORY_ALLOC, MB_ICONEXCLAMATION);
+		  return;
+	  }
+
+	  // load Sourcedata
+    file.Read(buffer, fileLength);
+    file.Close();
+
+    // Save sourcedata in string and remove whitespaces
+    CString str = buffer;
+    str.Remove('\n');
+    str.Remove(0x0d);
+    str.Remove(0x20);
+    free(buffer);
+
+		// flomar, 11/09/2011: furthermore, remove all non-digit characters  and then check if we 
+		// are below the 8192kbit threshold (or a decimal length of 2467, see IDS_STRING_BIG_NUMBER);
+		// I don't want to invoke the BigNumber class at this point, as this would be too much of an 
+		// overkill for simply displaying a warning message (which would be displayed by subsequent 
+		// calls later on anyway) a tad earlier just for user convenience
+		CString strTemp = "";
+		for(int i=0; i<str.GetLength(); i++) {
+			char character = str[i];
+			if(character >= '0' && character <= '9') {
+				strTemp.AppendChar(character);
+			}
+		}
+		str = strTemp;
+		if(str.GetLength() > 2467) {
+			Message(IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION);
+			str.Truncate(2467);
+		}
+    
+    UpdateData(true);
+    SetDlgItemText(IDC_EDIT1, str);
+    UpdateData(false);
+
+  } catch (CFileException *e) 
+  {
+    e->Delete();
+		if (buffer)	free(buffer);
+ 		return;
 	}
 }
 

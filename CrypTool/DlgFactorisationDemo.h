@@ -116,6 +116,7 @@ protected:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnUpdateEditEingabe();
 	afx_msg void OnShowFactorisationDetails();
+	afx_msg void OnBnClickedLoadNumber();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
