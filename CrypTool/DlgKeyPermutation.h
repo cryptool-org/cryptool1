@@ -99,10 +99,17 @@ protected:
 	afx_msg void OnPasteKey();
 	afx_msg void OnChangeEdit1();
 	afx_msg void OnChangeEdit2();
+	afx_msg void OnRadioButtonBinaryData();
+	afx_msg void OnRadioButtonText();
+	afx_msg void OnTextOptions();
 	virtual BOOL OnInitDialog();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+public:
+	void setInputFilename(CString _inputFilename);
 private:
+	bool doesInputComplyWithAlphabet();
+	CString inputFilename;
 
 	// Required because of BACK-Button from CDlgKeyPermutationInfo !!!
 	int  readKeyParam(CString &buffer); // TRUE, if Parameters were found

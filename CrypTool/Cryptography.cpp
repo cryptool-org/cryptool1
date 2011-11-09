@@ -2910,6 +2910,7 @@ void DoInvPerm(char *dest, char *src, int len, int *p, int plen, int Zin, int Zo
 void Permutation(const char *infileName, const char *OldTitle, BOOL TEXTMODE)
 {
 	CDlgKeyPermutation Perm;
+	Perm.setInputFilename(infileName);
 	Perm.m_DataType = ( TEXTMODE ) ? 0 : 1;
     if (Perm.DoModal()==IDOK)
 	{

@@ -1874,7 +1874,7 @@ BEGIN
     LTEXT           "- liczba, jak czêsto powtarza siê cykl",-1,7,37,310,10
 END
 
-IDD_KEY_PERMUTATION DIALOGEX 0, 0, 280, 348
+IDD_KEY_PERMUTATION DIALOGEX 0, 0, 280, 360
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Wprowadzenie klucza: Permutacja / Transpozycja"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
@@ -1885,12 +1885,13 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,267,234,10
     CONTROL         "Pokazuj poœredni dialog permutacji odwrotnej",IDC_CHECK2,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,281,185,10
-    CONTROL         "Dane binarne",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,135,297,58,10
-    CONTROL         "Tekst",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,196,297,59,10
-    DEFPUSHBUTTON   "&Szyfruj",IDOK,11,317,58,19,WS_DISABLED
-    PUSHBUTTON      "&Deszyfruj",IDC_BUTTON1,86,317,57,19,WS_DISABLED
-    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,162,316,22,20
-    PUSHBUTTON      "&Anuluj",IDCANCEL,213,317,55,19
+    CONTROL         "Dane binarne",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,23,311,58,10
+    CONTROL         "Tekst",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,84,311,59,10
+    PUSHBUTTON      "Opcje tekstu",IDC_BUTTON_TxtOpt,140,299,58,19
+    DEFPUSHBUTTON   "&Szyfruj",IDOK,11,331,57,19,WS_DISABLED
+    PUSHBUTTON      "&Deszyfruj",IDC_BUTTON1,71,331,57,19,WS_DISABLED
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,140,333,22,17
+    PUSHBUTTON      "&Anuluj",IDCANCEL,213,331,55,19
     CONTROL         "Wejœcie",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,94,86,44,10
     CONTROL         "Wejœcie",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,94,103,44,10
     CONTROL         "Permutacja",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON | WS_GROUP,138,86,42,10
@@ -1915,8 +1916,8 @@ BEGIN
     RTEXT           "kolumna po kolumnie",IDC_STATIC,26,226,59,8
     RTEXT           "linia po linii:",IDC_STATIC,26,87,59,8
     RTEXT           "kolumna po kolumnie:",IDC_STATIC,26,103,59,8
-    GROUPBOX        "Opcje",IDC_STATIC,12,254,256,57
-    LTEXT           "Rozwaz dokument wejsciowy",IDC_STATIC,23,297,103,10
+    GROUPBOX        "Opcje",IDC_STATIC,12,254,256,70
+    LTEXT           "Rozwaz dokument wejsciowy",IDC_STATIC,23,299,103,10
 END
 
 IDD_ICG_RANDOMPARAMETER DIALOG  0, 0, 294, 150
@@ -7530,10 +7531,9 @@ BEGIN
         VERTGUIDE, 23
         VERTGUIDE, 257
         VERTGUIDE, 268
-        BOTTOMMARGIN, 336
+        BOTTOMMARGIN, 350
         HORZGUIDE, 254
         HORZGUIDE, 273
-        HORZGUIDE, 336
     END
 
     IDD_ICG_RANDOMPARAMETER, DIALOG
@@ -13028,7 +13028,7 @@ BEGIN
     LTEXT           "- broj, koliko cesto se ciklus pojavljuje",-1,7,37,310,10
 END
 
-IDD_KEY_PERMUTATION DIALOGEX 0, 0, 280, 350
+IDD_KEY_PERMUTATION DIALOGEX 0, 0, 280, 360
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Unos Kljuca: Razmena / Transpozicija"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
@@ -13039,12 +13039,13 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,267,234,10
     CONTROL         "Prikaži srednji dijalog sa inverznom permutacijom",IDC_CHECK2,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,281,185,10
-    CONTROL         "Binarni podaci",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,135,297,58,10
-    CONTROL         "Tekst",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,194,297,28,10
-    DEFPUSHBUTTON   "&Zašifruj",IDOK,11,318,58,19,WS_DISABLED
-    PUSHBUTTON      "&Dešifruj",IDC_BUTTON1,86,318,57,19,WS_DISABLED
-    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,162,317,22,20
-    PUSHBUTTON      "&Otkaži",IDCANCEL,213,318,55,19
+    CONTROL         "Binarni podaci",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,23,311,58,10
+    CONTROL         "Tekst",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,82,311,28,10
+    PUSHBUTTON      "Opcije teksta",IDC_BUTTON_TxtOpt,140,299,58,19
+    DEFPUSHBUTTON   "&Zašifruj",IDOK,11,331,57,19,WS_DISABLED
+    PUSHBUTTON      "&Dešifruj",IDC_BUTTON1,71,331,57,19,WS_DISABLED
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,140,333,22,17
+    PUSHBUTTON      "&Otkaži",IDCANCEL,213,331,55,19
     CONTROL         "Ulaz",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,94,86,44,10
     CONTROL         "Ulaz",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,94,103,44,10
     CONTROL         "Razmena",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON | WS_GROUP,138,86,42,10
@@ -13069,8 +13070,8 @@ BEGIN
     RTEXT           "kolona po kolona:",IDC_STATIC,26,226,59,8
     RTEXT           "linija po linija:",IDC_STATIC,26,87,59,8
     RTEXT           "kolona po kolona:",IDC_STATIC,26,103,59,8
-    GROUPBOX        "Opcije",IDC_STATIC,12,254,256,57
-    LTEXT           "Smatrati ulazni dokument kao",IDC_STATIC,23,297,110,10
+    GROUPBOX        "Opcije",IDC_STATIC,12,254,256,70
+    LTEXT           "Smatrati ulazni dokument kao",IDC_STATIC,23,299,110,10
 END
 
 IDD_ICG_RANDOMPARAMETER DIALOGEX 0, 0, 294, 150
@@ -18688,10 +18689,9 @@ BEGIN
         VERTGUIDE, 23
         VERTGUIDE, 257
         VERTGUIDE, 268
-        BOTTOMMARGIN, 342
+        BOTTOMMARGIN, 350
         HORZGUIDE, 254
         HORZGUIDE, 273
-        HORZGUIDE, 337
     END
 
     IDD_ICG_RANDOMPARAMETER, DIALOG
@@ -24173,7 +24173,7 @@ BEGIN
     LTEXT           "- die Anzahl, wie häufig die Periode vorkommt",-1,7,37,310,8
 END
 
-IDD_KEY_PERMUTATION DIALOGEX 0, 0, 280, 348
+IDD_KEY_PERMUTATION DIALOGEX 0, 0, 280, 360
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe: Permutation / Transposition"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
@@ -24184,12 +24184,13 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,267,149,10
     CONTROL         "Zwischendialog mit der inversen Permutation anzeigen",IDC_CHECK2,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,281,187,10
-    CONTROL         "Binäre Daten",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,135,297,57,10
-    CONTROL         "Text",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,194,297,37,10
-    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,12,319,57,19,WS_DISABLED
-    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,88,319,57,19,WS_DISABLED
-    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,165,319,26,20
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,211,319,57,19
+    CONTROL         "Binäre Daten",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,23,311,57,10
+    CONTROL         "Text",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,82,311,37,10
+    PUSHBUTTON      "Textoptionen",IDC_BUTTON_TxtOpt,140,299,57,19
+    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,12,331,57,19,WS_DISABLED
+    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,71,331,57,19,WS_DISABLED
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,140,333,26,17
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,211,331,57,19
     CONTROL         "einlesen",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,76,88,48,8
     CONTROL         "einlesen",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,76,104,48,8
     CONTROL         "permutieren",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON | WS_GROUP,124,88,56,8
@@ -24214,8 +24215,8 @@ BEGIN
     RTEXT           "Spaltenweise",IDC_STATIC,23,104,47,8
     RTEXT           "Zeilenweise",IDC_STATIC,23,211,47,8
     RTEXT           "Spaltenweise",IDC_STATIC,23,227,47,8
-    GROUPBOX        "Optionen",IDC_STATIC,12,254,256,58
-    LTEXT           "Betrachte Eingabedokument als:",IDC_STATIC,23,297,110,10
+    GROUPBOX        "Optionen",IDC_STATIC,12,254,256,70
+    LTEXT           "Betrachte Eingabedokument als",IDC_STATIC,23,299,110,10
 END
 
 IDD_ICG_RANDOMPARAMETER DIALOG  0, 0, 294, 150
@@ -29798,8 +29799,8 @@ BEGIN
 
     IDD_KEY_PERMUTATION, DIALOG
     BEGIN
-        VERTGUIDE, 23
-        HORZGUIDE, 338
+        LEFTMARGIN, 12
+        BOTTOMMARGIN, 350
     END
 
     IDD_RUNS_TEST, DIALOG
@@ -35216,7 +35217,7 @@ BEGIN
     LTEXT           "- the number, how often the cycle appears",-1,7,37,310,10
 END
 
-IDD_KEY_PERMUTATION DIALOGEX 0, 0, 280, 350
+IDD_KEY_PERMUTATION DIALOGEX 0, 0, 280, 360
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry: Permutation / Transposition"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
@@ -35227,12 +35228,13 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,267,234,10
     CONTROL         "Show intermediate dialog with the inverse permutation",IDC_CHECK2,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,281,185,10
-    CONTROL         "Binary data",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,135,297,51,10
-    CONTROL         "Text",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,188,297,28,10
-    DEFPUSHBUTTON   "&Encrypt",IDOK,11,319,58,19,WS_DISABLED
-    PUSHBUTTON      "&Decrypt",IDC_BUTTON1,86,319,57,19,WS_DISABLED
-    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,162,319,26,20
-    PUSHBUTTON      "&Cancel",IDCANCEL,213,319,55,19
+    CONTROL         "Binary data",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,23,311,51,10
+    CONTROL         "Text",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,76,311,28,10
+    PUSHBUTTON      "Text options",IDC_BUTTON_TxtOpt,140,299,58,19
+    DEFPUSHBUTTON   "&Encrypt",IDOK,12,331,57,19,WS_DISABLED
+    PUSHBUTTON      "&Decrypt",IDC_BUTTON1,71,331,57,19,WS_DISABLED
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,140,333,26,17
+    PUSHBUTTON      "&Cancel",IDCANCEL,213,331,55,19
     CONTROL         "Input",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,94,86,44,10
     CONTROL         "Input",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,94,103,44,10
     CONTROL         "Permute",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON | WS_GROUP,138,86,42,10
@@ -35257,8 +35259,8 @@ BEGIN
     RTEXT           "column by column:",IDC_STATIC,26,226,59,8
     RTEXT           "line by line:",IDC_STATIC,26,87,59,8
     RTEXT           "column by column:",IDC_STATIC,26,103,59,8
-    GROUPBOX        "Options",IDC_STATIC,12,254,256,57
-    LTEXT           "Consider input document as",IDC_STATIC,23,297,110,10
+    GROUPBOX        "Options",IDC_STATIC,12,254,256,70
+    LTEXT           "Consider input document as",IDC_STATIC,23,299,110,10
 END
 
 IDD_ICG_RANDOMPARAMETER DIALOG  0, 0, 294, 150
@@ -40866,10 +40868,9 @@ BEGIN
         VERTGUIDE, 23
         VERTGUIDE, 257
         VERTGUIDE, 268
-        BOTTOMMARGIN, 342
+        BOTTOMMARGIN, 350
         HORZGUIDE, 254
         HORZGUIDE, 273
-        HORZGUIDE, 337
     END
 
     IDD_ICG_RANDOMPARAMETER, DIALOG
@@ -46328,18 +46329,24 @@ BEGIN
     PUSHBUTTON      "&Opciones de Texto",IDC_BUTTON_TEXTOPTIONS,163,205,67,19
 END
 
-IDD_KEY_PERMUTATION DIALOGEX 0, 0, 280, 350
+IDD_KEY_PERMUTATION DIALOGEX 0, 0, 280, 370
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Entrada de Clave: Permutación / Transposición"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT1,23,39,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,23,161,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "Ci&frar",IDOK,11,319,57,19,WS_DISABLED
-    PUSHBUTTON      "&Descifrar",IDC_BUTTON1,86,319,57,19,WS_DISABLED
-    PUSHBUTTON      "&Cancelar",IDCANCEL,211,319,57,19
     CONTROL         "Aplicar las permutaciones inversas respectivas",IDC_CHECK1,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,267,234,10
+    CONTROL         "Mostrar ventana intermedia con la permutación inversa",IDC_CHECK2,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,281,188,10
+    CONTROL         "Binario",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,23,311,50,10
+    CONTROL         "Texto",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,80,311,30,10
+    PUSHBUTTON      "Opciones de Texto",IDC_BUTTON_TxtOpt,140,299,75,19
+    DEFPUSHBUTTON   "Ci&frar",IDOK,11,341,57,19,WS_DISABLED
+    PUSHBUTTON      "&Descifrar",IDC_BUTTON1,71,341,57,19,WS_DISABLED
+    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,140,343,26,17
+    PUSHBUTTON      "&Cancelar",IDCANCEL,211,341,57,19
     CONTROL         "Entrada",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,94,86,44,10
     CONTROL         "Entrada",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,94,103,44,10
     CONTROL         "Permuta",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON | WS_GROUP,138,86,42,10
@@ -46352,7 +46359,6 @@ BEGIN
     CONTROL         "Permuta",IDC_RADIO13,"Button",BS_AUTORADIOBUTTON,138,226,42,10
     CONTROL         "Salida",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | WS_GROUP,187,210,47,10
     CONTROL         "Salida",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,187,226,47,10
-    CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,162,319,26,20
     EDITTEXT        IDC_EDIT3,23,68,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | ES_READONLY
     GROUPBOX        "1º Permutación (transposición de columnas simple)",IDC_STATIC,12,13,256,108
     LTEXT           "Clave (letras consecutivas o números separados por comas)",IDC_STATIC,23,29,234,8
@@ -46365,12 +46371,8 @@ BEGIN
     RTEXT           "Columna por Columna :",IDC_STATIC,12,225,74,8
     RTEXT           "Línea por Línea:",IDC_STATIC,26,87,59,8
     RTEXT           "Columna por Columna :",IDC_STATIC,12,102,78,8
-    GROUPBOX        "Opciones",IDC_STATIC,12,254,256,43
-    CONTROL         "Mostrar ventana intermedia con la permutación inversa",IDC_CHECK2,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,281,188,10
-    CONTROL         "Binario",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,135,297,50,10
-    CONTROL         "Texto",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,192,297,30,10
-    LTEXT           "Documento de entrada",IDC_STATIC,23,297,89,10
+    GROUPBOX        "Opciones",IDC_STATIC,12,254,256,70
+    LTEXT           "Documento de entrada",IDC_STATIC,23,299,89,10
 END
 
 IDD_KEY_PERMUTATION_INFO DIALOGEX 0, 0, 317, 194
@@ -52089,10 +52091,9 @@ BEGIN
         VERTGUIDE, 23
         VERTGUIDE, 257
         VERTGUIDE, 268
-        BOTTOMMARGIN, 336
+        BOTTOMMARGIN, 360
         HORZGUIDE, 254
         HORZGUIDE, 273
-        HORZGUIDE, 329
     END
 
     IDD_KEY_PLAYFAIR, DIALOG
@@ -55712,3 +55713,4 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
+

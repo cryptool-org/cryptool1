@@ -93,8 +93,11 @@ BEGIN_MESSAGE_MAP(CDlgKeyPermutation, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON1, OnDecrypt)
 	ON_BN_CLICKED(IDOK, OnEncrypt)
 	ON_BN_CLICKED(IDC_BUTTON2, OnPasteKey)
+	ON_BN_CLICKED(IDC_BUTTON_TxtOpt, OnTextOptions)
 	ON_EN_CHANGE(IDC_EDIT1, OnChangeEdit1)
 	ON_EN_CHANGE(IDC_EDIT2, OnChangeEdit2)
+	ON_BN_CLICKED(IDC_RADIO9, OnRadioButtonBinaryData)
+	ON_BN_CLICKED(IDC_RADIO14, OnRadioButtonText)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -155,10 +158,12 @@ void CDlgKeyPermutation::OnDecrypt()
 
 	if ( !(chk_showPermutations.GetCheck() && IDOK != ShowPermutations()) )
 	{
-		if ( m_DataType )
-			Message( IDS_INFO_TEXT_ENCRYPTION, MB_ICONINFORMATION );
-		else
-			Message( IDS_INFO_BYNARY_ENCRYPTION, MB_ICONINFORMATION );
+		// flomar, 11/09/2011: no longer display an information message in binary mode; display the 
+		// information message in text mode only if the input text contains non-alphabet characters
+		if(m_DataType && !doesInputComplyWithAlphabet()) {
+			Message(IDS_INFO_TEXT_ENCRYPTION, MB_ICONINFORMATION);
+		}
+
 		strKeyParam();
 		writeRegistry();
 		OnOK();
@@ -191,14 +196,47 @@ void CDlgKeyPermutation::OnEncrypt()
 
 	if ( !(chk_showPermutations.GetCheck() && IDOK != ShowPermutations()) )
 	{
-		if ( m_DataType )
-			Message( IDS_INFO_TEXT_ENCRYPTION, MB_ICONINFORMATION );
-		else
-			Message( IDS_INFO_BYNARY_ENCRYPTION, MB_ICONINFORMATION );
+		// flomar, 11/09/2011: no longer display an information message in binary mode; display the 
+		// information message in text mode only if the input text contains non-alphabet characters
+		if(m_DataType && !doesInputComplyWithAlphabet()) {
+			Message(IDS_INFO_TEXT_ENCRYPTION, MB_ICONINFORMATION);
+		}
+
 		strKeyParam();
 		writeRegistry();
 		OnOK();
 	}
+}
+
+void CDlgKeyPermutation::setInputFilename(CString _inputFilename) {
+	inputFilename = _inputFilename;
+}
+
+bool CDlgKeyPermutation::doesInputComplyWithAlphabet() {
+	CFile file;
+	file.Open(inputFilename, CFile::modeRead);
+	ULONGLONG m_fileSize = file.GetLength();	
+	file.Close();
+	int lSrc = 0;
+	char *mSrc = 0;
+	FILE *fstrm;
+	if(fstrm = fopen(inputFilename, "rb")) {
+		lSrc = (int)m_fileSize;
+		mSrc = (char*)malloc( lSrc+1 );
+		fread(mSrc, sizeof(char), (size_t)m_fileSize, fstrm );
+		mSrc[lSrc] = '\0';
+		fclose(fstrm);
+		CString alphabet = theApp.TextOptions.getAlphabet();
+		for(int i=0; i<lSrc; i++) {
+			if(alphabet.Find(mSrc[i]) == -1) {
+				return false;
+			}
+		}
+	}
+	else {
+		return false;
+	}
+	return true;
 }
 
 int CDlgKeyPermutation::MakePerm( CString *Pin, int p[], int pinv[])
@@ -293,6 +331,21 @@ void CDlgKeyPermutation::OnChangeEdit2()
 	UpdateData(FALSE);
 }
 
+void CDlgKeyPermutation::OnRadioButtonBinaryData()
+{
+	GetDlgItem(IDC_BUTTON_TxtOpt)->EnableWindow(false);
+}
+
+void CDlgKeyPermutation::OnRadioButtonText()
+{
+	GetDlgItem(IDC_BUTTON_TxtOpt)->EnableWindow(true);
+}
+
+void CDlgKeyPermutation::OnTextOptions()
+{
+	theApp.TextOptions.DoModal();
+}
+
 BOOL CDlgKeyPermutation::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
@@ -362,6 +415,10 @@ BOOL CDlgKeyPermutation::OnInitDialog()
 	{
 		// FIXME
 	}
+
+	// enable/disable the text options button depending on the data type 
+	// (enabled for text, disabled for binary)
+	GetDlgItem(IDC_BUTTON_TxtOpt)->EnableWindow(m_DataType != 0);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
