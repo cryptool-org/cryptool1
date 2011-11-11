@@ -1,6 +1,14 @@
+;--------------------------------
+; some pre-include definitions (these *NEED* to be placed before any includes)
+!define MULTIUSER_EXECUTIONLEVEL Highest
+!define MULTIUSER_MUI
+
 ;Include Modern UI
 
-  !include "MUI.nsh"
+  !include MultiUser.nsh
+  !include MUI2.nsh
+  !include "winver.nsh"
+  !include "LogicLib.nsh"
   !include "WordFunc.nsh"
   !insertmacro WordFind
   !insertmacro un.WordFind
@@ -23,6 +31,9 @@
 
   Var ShortCutName
   
+  Var IsAdministrator
+  Var IsAllUsersInstallation
+  
 ;--------------------------------
 ;Interface Settings
 
@@ -37,6 +48,10 @@
 
   !insertmacro MUI_PAGE_WELCOME
   !insertmacro MUI_PAGE_LICENSE "setup-${LANGUAGE_STR}\license-${LANGUAGE_STR}.rtf"
+  !define MUI_PAGE_CUSTOMFUNCTION_PRE SkipPageIfNotIsAdministrator
+  !insertmacro MULTIUSER_PAGE_INSTALLMODE
+  Page custom DetermineIsAllUsersInstallationPage
+  !define MUI_PAGE_CUSTOMFUNCTION_PRE PrePageDirectory
   !define MUI_PAGE_CUSTOMFUNCTION_LEAVE mui.DirectoryLeave
   !insertmacro MUI_PAGE_DIRECTORY
   !define MUI_FINISHPAGE_NOAUTOCLOSE
@@ -209,175 +224,200 @@
 !endif
 
 ;--------------------------------
-;Installer Sections
+; Installer Section
 
 Section "CrypTool" 
-; FileSystem:
-; 	$INSTDIR == ...\$ShortCutName ; $ShortCutName is set in mui.DirectoryLeave 
-; 	$SMPROGRAM\$ShortCutName ; in %allusersprofile% if writable, otherwise in the %userprofile%
-; Registry:
-;	HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName
-;	HKCR\aes
-;	HKCR\AESToolFile
-
-  SetOutPath "$INSTDIR"
-
-  ${WordFind} $INSTDIR "\" "-1*}" $ShortCutName  ; FIXME '\' at the string end
-
-  ;Files to install
-  File /r setup-${LANGUAGE_STR}\*.*
-
-  ;Allow all users to write into pse and examples directory
-  ExecWait 'cacls "$INSTDIR\pse"  /t /e /g USERS:w' 
-  ExecWait 'cacls "$INSTDIR\examples"  /t /e /g USERS:w' 
-
-  SetShellVarContext all
-  ClearErrors
-  Call populateStartMenu
-  IfErrors 0 startMenuDone
-  ;SetShellVarContext all does not work -> try current
-  RMDir /r "$SMPROGRAMS\$ShortCutName"
-  SetShellVarContext current
-  Call populateStartMenu
-startMenuDone:
-
-  ;File association for AES tool
-  WriteRegStr HKCR ".aes" "" "AESToolFile"
-  WriteRegStr HKCR "AESToolFile" "" "AES Tool File"
-  WriteRegStr HKCR "AESToolFile\DefaultIcon" "" "$INSTDIR\aestool.exe,0"
-  WriteRegStr HKCR "AESToolFile\shell" "" "open"
-  WriteRegStr HKCR "AESToolFile\shell\open\command" "" '$INSTDIR\aestool.exe "%1"'
-  ; open with:
-  WriteRegStr HKCR "Applications\aestool.exe\shell\open\command" "" '$INSTDIR\aestool.exe "%1"'
-
-  ; Add CrypTool to "Add or Remove Programs" in appwiz.cpl
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName" \
-                 "DisplayName" "$ShortCutName ${VersionInfo}"
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName" \
-                 "DisplayVersion" "${VersionInfo}"
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName" \
-                 "URLUpdateInfo" "${URL}"
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName" \
-                 "UninstallString" "$INSTDIR\uninstall.exe"
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName" \
-                 "DisplayIcon" "$INSTDIR\CrypTool.exe,0"  
-
-  !insertmacro RegUpdate NoTipps Options\StartingOptions NoTipps
-  !insertmacro RegUpdate SampleTextFile Options\StartingOptions SampleTextFile
-  !insertmacro RegUpdate ADFGVX_IntroDialogue Cryptool\Settings\ADFGVX ShowIntro
-  !insertmacro RegUpdate CRT_IntroDialogue Cryptool\Settings\CrtSecretSharing ShowIntro
-  !insertmacro RegUpdate firstPosNull Cryptool\Settings\Hill OrdChrOffset
-  !insertmacro RegUpdate useFirstCharFromAlph Cryptool\Settings\Hill PaddingDefaultChr
-  !insertmacro RegUpdate ownCharForPadding Cryptool\Settings\Hill PaddingOwnChr
-  !insertmacro RegUpdate alphCode Cryptool\Settings\Hill EditKeyChrMatrix
-  !insertmacro RegUpdate DH_IntroDialogue Cryptool\Settings\DiffieHellman ShowIntro
-  !insertmacro RegUpdate DH_InfoDialogue Crytool\Settings\DiffieHellman ShowInfo
-  !insertmacro RegUpdate SignatureAttackHashAlgorithmID Cryptool\Settings\SignatureAttack HashAlgorithmID
-  !insertmacro RegUpdate SignatureAttackSignificantBitLength Cryptool\Settings\SignatureAttack SignificantBitLength
-  !insertmacro RegUpdate SignatureAttackModificationMethod Cryptool\Settings\SignatureAttack ModificationMethod
-  !insertmacro RegUpdate SignatureAttackCheck1 Cryptool\Settings\SignatureAttack ModfiyBlankEOL
-  !insertmacro RegUpdate SignatureAttackCheck3 Cryptool\Settings\SignatureAttack ModifyDoubleBlank
-  !insertmacro RegUpdate SignatureAttackAttMethod Cryptool\Settings\SignatureAttack ModifyCharSet
-  !insertmacro RegUpdate SignatureAttackTestMode Cryptool\Settings\SignatureAttack PerformTestRun
-  !insertmacro RegUpdate SignificantBitLengthMIN Cryptool\Settings\SignatureAttack SignificantBitLengthMin
-  !insertmacro RegUpdate SignificantBitLengthMAX Cryptool\Settings\SignatureAttack SignificantBitLengthMax
-  !insertmacro RegUpdate SignificantBitLengthJump Cryptool\Settings\SignatureAttack SignificantBitLengthJump
-  !insertmacro RegUpdate HashAlgorithmIDMIN Cryptool\Settings\SignatureAttack HashAlgorithmIDMin
-  !insertmacro RegUpdate HashAlgorithmIDMAX Cryptool\Settings\SignatureAttack HashAlgorithmIDMax
-  !insertmacro RegUpdate Attempts Cryptool\Settings\SignatureAttack Attempts
-  !insertmacro RegUpdate AttemptsMAX Cryptool\Settings\SignatureAttack AttemptsMax 
-  !insertmacro RegUpdate SignatureAttackHarmlessFile Cryptool\Settings\SignatureAttack HarmlessFile
-  !insertmacro RegUpdate SignatureAttackDangerousFile Cryptool\Settings\SignatureAttack DangerousFile
-  !insertmacro RegUpdate PQM_GL_MinimumLength Cryptool\Settings\PasswordGuidelines MinimumLength
-  !insertmacro RegUpdate PQM_GL_MinimumDigits Cryptool\Settings\PasswordGuidelines MinimumDigits 
-  !insertmacro RegUpdate PQM_GL_MinimumSpecial Cryptool\Settings\PasswordGuidelines MinimumSpecial
-  !insertmacro RegUpdate PQM_GL_SpecialGroup Cryptool\Settings\PasswordGuidelines SpecialGroup
-  !insertmacro RegUpdate RANDOM_GENERATOR_DATASIZE Cryptool\Settings\RandomGenerator GenerateBytes
-  !insertmacro RegUpdate RANDOM_GENERATOR_ICG_N Cryptool\Settings\RandomGenerator ParamICG_N
-  !insertmacro RegUpdate RANDOM_GENERATOR_ICG_P1 Cryptool\Settings\RandomGenerator ParamICG_P1
-  !insertmacro RegUpdate RANDOM_GENERATOR_ICG_P2 Cryptool\Settings\RandomGenerator ParamICG_P2
-  !insertmacro RegUpdate RANDOM_GENERATOR_OUTPUT_INTERNALSTATE Cryptool\Settings\RandomGenerator ShowInternalRandState
-  !insertmacro RegUpdate RANDOM_GENERATOR_SEED Cryptool\Settings\RandomGenerator RandSeed
-  !insertmacro RegUpdate RANDOM_GENERATOR_TYPE_ID Cryptool\Settings\RandomGenerator SelGenerator
-  !insertmacro RegUpdate RANDOM_GENERATOR_LCG_P1 Cryptool\Settings\RandomGenerator ParamLCG_P1
-  !insertmacro RegUpdate RANDOM_GENERATOR_LCG_P2 Cryptool\Settings\RandomGenerator ParamLCG_P2
-  !insertmacro RegUpdate RANDOM_GENERATOR_LCG_N Cryptool\Settings\RandomGenerator ParamLCG_N
-  !insertmacro RegUpdate RANDOM_GENERATOR_X2MODN_N Cryptool\Settings\RandomGenerator ParamX2MODN_N
-  !insertmacro RegUpdate SecretSharing_Intro CrypTool\Settings\SecretSharing ShowIntro
-  !insertmacro RegUpdate HybridEncryptionSCASignificantBits Cryptool\Settings\SideChannelAttack BitlengthSecret
-  !insertmacro RegUpdate SCA_Keyword Cryptool\Settings\SideChannelAttack Keyword
-  !insertmacro RegUpdate CreateReport_Top Cryptool\Settings\SizingDialog CreateReportTop
-  !insertmacro RegUpdate CreateReport_Left Cryptool\Settings\SizingDialog CreateReportLeft
-  !insertmacro RegUpdate CreateReport_Bottom Cryptool\Settings\SizingDialog CreateReportBottom
-  !insertmacro RegUpdate CreateReport_Right Cryptool\Settings\SizingDialog CreateReportRight
-  !insertmacro RegUpdate ShowPermutationKey Cryptool\Settings\Permutation ShowPermutationKey
-
-  ;Create uninstaller
-  WriteUninstaller "$INSTDIR\Uninstall.exe"
-
+	; set the installation folder (set by the user via GUI)
+	SetOutPath $INSTDIR
+	; set the files to be installed
+	File /r setup-${LANGUAGE_STR}\*.*
+	; allow all users to write into pse and examples directory
+	ExecWait 'cacls "$INSTDIR\pse"  /t /e /g USERS:w' 
+	ExecWait 'cacls "$INSTDIR\examples"  /t /e /g USERS:w' 
+	; determine the shortcut name
+	${WordFind} $INSTDIR "\" "-1*}" $ShortCutName  ; FIXME '\' at the string end
+	; populate the start menu
+	Call populateStartMenu
+	; set file association for AES tool
+	WriteRegStr HKCR ".aes" "" "AESToolFile"
+	WriteRegStr HKCR "AESToolFile" "" "AES Tool File"
+	WriteRegStr HKCR "AESToolFile\DefaultIcon" "" "$INSTDIR\aestool.exe,0"
+	WriteRegStr HKCR "AESToolFile\shell" "" "open"
+	WriteRegStr HKCR "AESToolFile\shell\open\command" "" '$INSTDIR\aestool.exe "%1"'
+	; open with:
+	WriteRegStr HKCR "Applications\aestool.exe\shell\open\command" "" '$INSTDIR\aestool.exe "%1"'
+	; add CrypTool to "Add or Remove Programs" in appwiz.cpl
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName" \
+				 "DisplayName" "$ShortCutName ${VersionInfo}"
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName" \
+				 "DisplayVersion" "${VersionInfo}"
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName" \
+				 "URLUpdateInfo" "${URL}"
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName" \
+				 "UninstallString" "$INSTDIR\uninstall.exe"
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName" \
+				 "DisplayIcon" "$INSTDIR\CrypTool.exe,0"  
+	; some registry updates
+	!insertmacro RegUpdate NoTipps Options\StartingOptions NoTipps
+	!insertmacro RegUpdate SampleTextFile Options\StartingOptions SampleTextFile
+	!insertmacro RegUpdate ADFGVX_IntroDialogue Cryptool\Settings\ADFGVX ShowIntro
+	!insertmacro RegUpdate CRT_IntroDialogue Cryptool\Settings\CrtSecretSharing ShowIntro
+	!insertmacro RegUpdate firstPosNull Cryptool\Settings\Hill OrdChrOffset
+	!insertmacro RegUpdate useFirstCharFromAlph Cryptool\Settings\Hill PaddingDefaultChr
+	!insertmacro RegUpdate ownCharForPadding Cryptool\Settings\Hill PaddingOwnChr
+	!insertmacro RegUpdate alphCode Cryptool\Settings\Hill EditKeyChrMatrix
+	!insertmacro RegUpdate DH_IntroDialogue Cryptool\Settings\DiffieHellman ShowIntro
+	!insertmacro RegUpdate DH_InfoDialogue Crytool\Settings\DiffieHellman ShowInfo
+	!insertmacro RegUpdate SignatureAttackHashAlgorithmID Cryptool\Settings\SignatureAttack HashAlgorithmID
+	!insertmacro RegUpdate SignatureAttackSignificantBitLength Cryptool\Settings\SignatureAttack SignificantBitLength
+	!insertmacro RegUpdate SignatureAttackModificationMethod Cryptool\Settings\SignatureAttack ModificationMethod
+	!insertmacro RegUpdate SignatureAttackCheck1 Cryptool\Settings\SignatureAttack ModfiyBlankEOL
+	!insertmacro RegUpdate SignatureAttackCheck3 Cryptool\Settings\SignatureAttack ModifyDoubleBlank
+	!insertmacro RegUpdate SignatureAttackAttMethod Cryptool\Settings\SignatureAttack ModifyCharSet
+	!insertmacro RegUpdate SignatureAttackTestMode Cryptool\Settings\SignatureAttack PerformTestRun
+	!insertmacro RegUpdate SignificantBitLengthMIN Cryptool\Settings\SignatureAttack SignificantBitLengthMin
+	!insertmacro RegUpdate SignificantBitLengthMAX Cryptool\Settings\SignatureAttack SignificantBitLengthMax
+	!insertmacro RegUpdate SignificantBitLengthJump Cryptool\Settings\SignatureAttack SignificantBitLengthJump
+	!insertmacro RegUpdate HashAlgorithmIDMIN Cryptool\Settings\SignatureAttack HashAlgorithmIDMin
+	!insertmacro RegUpdate HashAlgorithmIDMAX Cryptool\Settings\SignatureAttack HashAlgorithmIDMax
+	!insertmacro RegUpdate Attempts Cryptool\Settings\SignatureAttack Attempts
+	!insertmacro RegUpdate AttemptsMAX Cryptool\Settings\SignatureAttack AttemptsMax 
+	!insertmacro RegUpdate SignatureAttackHarmlessFile Cryptool\Settings\SignatureAttack HarmlessFile
+	!insertmacro RegUpdate SignatureAttackDangerousFile Cryptool\Settings\SignatureAttack DangerousFile
+	!insertmacro RegUpdate PQM_GL_MinimumLength Cryptool\Settings\PasswordGuidelines MinimumLength
+	!insertmacro RegUpdate PQM_GL_MinimumDigits Cryptool\Settings\PasswordGuidelines MinimumDigits 
+	!insertmacro RegUpdate PQM_GL_MinimumSpecial Cryptool\Settings\PasswordGuidelines MinimumSpecial
+	!insertmacro RegUpdate PQM_GL_SpecialGroup Cryptool\Settings\PasswordGuidelines SpecialGroup
+	!insertmacro RegUpdate RANDOM_GENERATOR_DATASIZE Cryptool\Settings\RandomGenerator GenerateBytes
+	!insertmacro RegUpdate RANDOM_GENERATOR_ICG_N Cryptool\Settings\RandomGenerator ParamICG_N
+	!insertmacro RegUpdate RANDOM_GENERATOR_ICG_P1 Cryptool\Settings\RandomGenerator ParamICG_P1
+	!insertmacro RegUpdate RANDOM_GENERATOR_ICG_P2 Cryptool\Settings\RandomGenerator ParamICG_P2
+	!insertmacro RegUpdate RANDOM_GENERATOR_OUTPUT_INTERNALSTATE Cryptool\Settings\RandomGenerator ShowInternalRandState
+	!insertmacro RegUpdate RANDOM_GENERATOR_SEED Cryptool\Settings\RandomGenerator RandSeed
+	!insertmacro RegUpdate RANDOM_GENERATOR_TYPE_ID Cryptool\Settings\RandomGenerator SelGenerator
+	!insertmacro RegUpdate RANDOM_GENERATOR_LCG_P1 Cryptool\Settings\RandomGenerator ParamLCG_P1
+	!insertmacro RegUpdate RANDOM_GENERATOR_LCG_P2 Cryptool\Settings\RandomGenerator ParamLCG_P2
+	!insertmacro RegUpdate RANDOM_GENERATOR_LCG_N Cryptool\Settings\RandomGenerator ParamLCG_N
+	!insertmacro RegUpdate RANDOM_GENERATOR_X2MODN_N Cryptool\Settings\RandomGenerator ParamX2MODN_N
+	!insertmacro RegUpdate SecretSharing_Intro CrypTool\Settings\SecretSharing ShowIntro
+	!insertmacro RegUpdate HybridEncryptionSCASignificantBits Cryptool\Settings\SideChannelAttack BitlengthSecret
+	!insertmacro RegUpdate SCA_Keyword Cryptool\Settings\SideChannelAttack Keyword
+	!insertmacro RegUpdate CreateReport_Top Cryptool\Settings\SizingDialog CreateReportTop
+	!insertmacro RegUpdate CreateReport_Left Cryptool\Settings\SizingDialog CreateReportLeft
+	!insertmacro RegUpdate CreateReport_Bottom Cryptool\Settings\SizingDialog CreateReportBottom
+	!insertmacro RegUpdate CreateReport_Right Cryptool\Settings\SizingDialog CreateReportRight
+	!insertmacro RegUpdate ShowPermutationKey Cryptool\Settings\Permutation ShowPermutationKey
+	; write the uninstaller
+	WriteUninstaller "$INSTDIR\Uninstall.exe"
 SectionEnd
 
 ;--------------------------------
-;Descriptions
-
-  ;Language strings
-  ; LangString DESC_SecInst ${LANG_POLISH} "Install section."
-
-  ;Assign language strings to sections
-  ; !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
-  ; !insertmacro MUI_DESCRIPTION_TEXT ${SecInst} $(DESC_SecInst)
-  ; !insertmacro MUI_FUNCTION_DESCRIPTION_END
-
-;--------------------------------
-;Uninstaller Section
+; Uninstaller Section
 
 Section "Uninstall"
-  
-; *******************
-  
-  ${un.WordFind} $INSTDIR "\" "-1*}" $ShortCutName
-
-  ; flomar, 02/10/2010
-  ; To avoid errors, we don't want to delete the old installation 
-  ; directory if it doesn't exist (due to user removal, for example)
-  IfFileExists "$INSTDIR" rmdir rmdirDone
+	; determine the short cut name
+	${un.WordFind} $INSTDIR "\" "-1*}" $ShortCutName
+	; to avoid errors, we don't want to delete the old installation 
+	; directory if it doesn't exist (due to user removal, for example)
+	IfFileExists "$INSTDIR" rmdir rmdirDone
 rmdir:
-  ClearErrors
-  RMDir /r "$INSTDIR"
-  IfErrors 0 rmdirDone
-  MessageBox MB_OK|MB_ICONEXCLAMATION "${UNINSTALL_RMPROGDIR_FAILED}"
+	ClearErrors
+	RMDir /r "$INSTDIR"
+	IfErrors 0 rmdirDone
+	MessageBox MB_OK|MB_ICONEXCLAMATION "${UNINSTALL_RMPROGDIR_FAILED}"
 rmdirDone:
-  StrCmp $ShortCutName "" failSafe 0
-
-  SetShellVarContext all
-  IfFileExists $SMPROGRAMS\$ShortCutName\*.* 0 rmdirSMCurrent
-  ClearErrors
-  RMDir /r "$SMPROGRAMS\$ShortCutName" 
-  IfErrors 0 rmdirSMDone
+	StrCmp $ShortCutName "" failSafe 0
+	SetShellVarContext all
+	IfFileExists $SMPROGRAMS\$ShortCutName\*.* 0 rmdirSMCurrent
+	ClearErrors
+	RMDir /r "$SMPROGRAMS\$ShortCutName" 
+	IfErrors 0 rmdirSMDone
 rmdirSMCurrent:
-  SetShellVarContext current
-  RMDir /r "$SMPROGRAMS\$ShortCutName" 
+	SetShellVarContext current
+	RMDir /r "$SMPROGRAMS\$ShortCutName" 
 rmdirSMDone:
-  ; Remove CrypTool to "Add or Remove Programs" in appwiz.cpl
-  DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName"
+	; Remove CrypTool to "Add or Remove Programs" in appwiz.cpl
+	DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName"
 failSafe:
-  DeleteRegKey HKCR ".aes"
-  DeleteRegKey HKCR "AESToolFile" 
-  DeleteRegKey HKCR "Applications\aestool.exe"
+	DeleteRegKey HKCR ".aes"
+	DeleteRegKey HKCR "AESToolFile" 
+	DeleteRegKey HKCR "Applications\aestool.exe"
 SectionEnd
 
+Function .onInit
+	; initialize multi-user plugin
+	!insertmacro MULTIUSER_INIT	
+	; check whether user is an administrator
+	Call DetermineIsAdministrator
+FunctionEnd
+
+Function un.onInit
+	; initialize multi-user plugin
+	!insertmacro MULTIUSER_UNINIT
+FunctionEnd
+
+; determine whether user is an administrator
+Function DetermineIsAdministrator
+    userInfo::getAccountType
+    pop $0
+	strCmp $0 "Admin" +3
+	StrCpy $IsAdministrator "No"
+    return
+    StrCpy $IsAdministrator "Yes"
+FunctionEnd
+
+; determine if we have an all-users installation (called after the installation mode page)
+Function DetermineIsAllUsersInstallationPage
+	StrCpy $IsAllUsersInstallation "No"
+	StrCmp $MultiUser.InstallMode "CurrentUser" +2
+	StrCpy $IsAllUsersInstallation "Yes"
+FunctionEnd
+
+; at this point we have the variables "IsAdministrator" and "IsAllUsersInstallation" set;
+; depending on those two variables and the operating system at hand we decide where to put 
+; our installation folder ($INSTDIR); the trick is that we choose user-writable directories 
+; so that even non-admin users can install for all users
+Function PrePageDirectory
+	; default initialization (unchanged for admins)
+	StrCpy $INSTDIR "$PROGRAMFILES\${ProgramName}"
+	; check if we need to alter the default installation folder
+	${If} $IsAdministrator == "No"
+		${If} $IsAllUsersInstallation == "Yes"
+			${If} ${IsWinXP}
+				ExpandEnvStrings $0 "%ALLUSERSPROFILE%"
+			${ElseIf} ${IsWinVista}
+				ExpandEnvStrings $0 "%PROGRAMDATA%"
+			${ElseIf} ${IsWin7}
+				ExpandEnvStrings $0 "%PROGRAMDATA%"
+			${Else}
+				ExpandEnvStrings $0 "%PROGRAMDATA%"
+			${EndIf}
+			StrCpy $INSTDIR "$0\${ProgramName}"
+		${Else}
+			StrCpy $INSTDIR "$LOCALAPPDATA\${ProgramName}"
+		${EndIf}
+	${EndIf}
+FunctionEnd
+
+; this function is called to manually "skip" the installation mode page for non-privileged users
+Function SkipPageIfNotIsAdministrator
+	StrCmp $IsAdministrator "No" +1 +2
+	Abort
+FunctionEnd
+
 Function mui.DirectoryLeave
-  
-  ${WordFind} $INSTDIR "\" "-1*}" $ShortCutName
-  ReadRegStr $R0 HKLM \
-  "Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName" \
-  "UninstallString"
-  StrCmp $R0 "" done
- 
-  MessageBox MB_OKCANCEL|MB_ICONEXCLAMATION \
-  "$ShortCutName ${UNINSTALL_PROMPT}" \
-  IDOK uninst
-  Abort
+	; determine the short cut name
+	${WordFind} $INSTDIR "\" "-1*}" $ShortCutName	
+	
+	ReadRegStr $R0 HKLM \
+	"Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName" \
+	"UninstallString"
+	StrCmp $R0 "" done
+
+	MessageBox MB_OKCANCEL|MB_ICONEXCLAMATION \
+	"$ShortCutName ${UNINSTALL_PROMPT}" \
+	IDOK uninst
+	Abort
   
 ;Run the uninstaller
 uninst:
@@ -426,15 +466,23 @@ continue:
 FunctionEnd
 
 Function populateStartMenu
-  CreateDirectory "$SMPROGRAMS\$ShortCutName"
-  CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_CRYPTOOL}.lnk" 	 "$INSTDIR\${SCL_CRYPTOOL}"
-  CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_CRYPTOOL_HELP}.lnk" 	 "$INSTDIR\${SCL_CRYPTOOL_HELP}"	
-  CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_NUMBERSHARK}.lnk" 	 "$INSTDIR\${SCL_NUMBERSHARK}"		
-  CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_NUMBERSHARK_HELP}.lnk" "$INSTDIR\${SCL_NUMBERSHARK_HELP}"
-  CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_AES_TOOL}.lnk" 	 "$INSTDIR\${SCL_AES_TOOL}"		
-  CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_SCRIPT}.lnk" 		 "$INSTDIR\${SCL_SCRIPT}"		
-  CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_PRESENTATION}.lnk" 	 "$INSTDIR\${SCL_PRESENTATION}"		
-  CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_README}.lnk" 		 "$INSTDIR\${SCL_README}"		
-  CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_UNINSTALL}.lnk" 	 "$INSTDIR\${SCL_UNINSTALL}"		
+	; determine shell var context (the interpretation of $SMPROGRAMS with regards to user privilege
+	${If} $IsAdministrator == "Yes"
+		SetShellVarContext all
+	${Else}
+		SetShellVarContext current
+	${EndIf}
+	
+	; create and populate start menu
+	CreateDirectory "$SMPROGRAMS\$ShortCutName"
+	CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_CRYPTOOL}.lnk" 	 "$INSTDIR\${SCL_CRYPTOOL}"
+	CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_CRYPTOOL_HELP}.lnk" 	 "$INSTDIR\${SCL_CRYPTOOL_HELP}"	
+	CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_NUMBERSHARK}.lnk" 	 "$INSTDIR\${SCL_NUMBERSHARK}"		
+	CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_NUMBERSHARK_HELP}.lnk" "$INSTDIR\${SCL_NUMBERSHARK_HELP}"
+	CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_AES_TOOL}.lnk" 	 "$INSTDIR\${SCL_AES_TOOL}"		
+	CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_SCRIPT}.lnk" 		 "$INSTDIR\${SCL_SCRIPT}"		
+	CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_PRESENTATION}.lnk" 	 "$INSTDIR\${SCL_PRESENTATION}"		
+	CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_README}.lnk" 		 "$INSTDIR\${SCL_README}"		
+	CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_UNINSTALL}.lnk" 	 "$INSTDIR\${SCL_UNINSTALL}"		
 FunctionEnd
 
