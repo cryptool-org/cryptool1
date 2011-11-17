@@ -48,6 +48,14 @@
 
   !insertmacro MUI_PAGE_WELCOME
   !insertmacro MUI_PAGE_LICENSE "setup-${LANGUAGE_STR}\license-${LANGUAGE_STR}.rtf"
+  ; we need a custom welcome text for the multi-user page in German, otherwise parts of the standard text get cut off
+  !if ${LANGUAGE_STR} == 'de' 
+	!define MULTIUSER_INSTALLMODEPAGE_TEXT_TOP "Wählen Sie aus, ob Sie ${ProgramName} ${VersionInfo} nur für sich selbst oder für alle Benutzer dieses Systems installieren wollen. Klicken Sie auf Weiter, um fortzufahren."
+  !endif
+  ; we add a custom welcome text for English too, since that's the only way to stay consistent regardless of changes in NSIS
+  !if ${LANGUAGE_STR} == 'en' 
+	!define MULTIUSER_INSTALLMODEPAGE_TEXT_TOP "Select whether you want to install ${ProgramName} ${VersionInfo} for yourself only or for all users of this computer. Click Next to continue."
+  !endif
   !define MUI_PAGE_CUSTOMFUNCTION_PRE SkipPageIfNotIsAdministrator
   !insertmacro MULTIUSER_PAGE_INSTALLMODE
   Page custom DetermineIsAllUsersInstallationPage
