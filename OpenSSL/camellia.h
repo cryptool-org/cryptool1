@@ -1,9 +1,6 @@
-/* crypto/ui/ui.h -*- mode:C; c-file-style: "eay" -*- */
-/* Written by Richard Levitte (richard@levitte.org) for the OpenSSL
- * project 2001.
- */
+/* crypto/camellia/camellia.h -*- mode:C; c-file-style: "eay" -*- */
 /* ====================================================================
- * Copyright (c) 2001 The OpenSSL Project.  All rights reserved.
+ * Copyright (c) 2006 The OpenSSL Project.  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -50,34 +47,80 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  * ====================================================================
  *
- * This product includes cryptographic software written by Eric Young
- * (eay@cryptsoft.com).  This product includes software written by Tim
- * Hudson (tjh@cryptsoft.com).
- *
  */
 
-#ifndef HEADER_UI_COMPAT_H
-#define HEADER_UI_COMPAT_H
+#ifndef HEADER_CAMELLIA_H
+#define HEADER_CAMELLIA_H
 
 #include <openssl/opensslconf.h>
-#include <openssl/ui.h>
+
+#ifdef OPENSSL_NO_CAMELLIA
+#error CAMELLIA is disabled.
+#endif
+
+#include <stddef.h>
+
+#define CAMELLIA_ENCRYPT	1
+#define CAMELLIA_DECRYPT	0
+
+/* Because array size can't be a const in C, the following two are macros.
+   Both sizes are in bytes. */
 
 #ifdef  __cplusplus
 extern "C" {
 #endif
 
-/* The following functions were previously part of the DES section,
-   and are provided here for backward compatibility reasons. */
+/* This should be a hidden type, but EVP requires that the size be known */
 
-#define des_read_pw_string(b,l,p,v) \
-	_ossl_old_des_read_pw_string((b),(l),(p),(v))
-#define des_read_pw(b,bf,s,p,v) \
-	_ossl_old_des_read_pw((b),(bf),(s),(p),(v))
+#define CAMELLIA_BLOCK_SIZE 16
+#define CAMELLIA_TABLE_BYTE_LEN 272
+#define CAMELLIA_TABLE_WORD_LEN (CAMELLIA_TABLE_BYTE_LEN / 4)
 
-int _ossl_old_des_read_pw_string(char *buf,int length,const char *prompt,int verify);
-int _ossl_old_des_read_pw(char *buf,char *buff,int size,const char *prompt,int verify);
+typedef unsigned int KEY_TABLE_TYPE[CAMELLIA_TABLE_WORD_LEN]; /* to match with WORD */
+
+struct camellia_key_st 
+	{
+	union	{
+		double d;	/* ensures 64-bit align */
+		KEY_TABLE_TYPE rd_key;
+		} u;
+	int grand_rounds;
+	};
+typedef struct camellia_key_st CAMELLIA_KEY;
+
+int Camellia_set_key(const unsigned char *userKey, const int bits,
+	CAMELLIA_KEY *key);
+
+void Camellia_encrypt(const unsigned char *in, unsigned char *out,
+	const CAMELLIA_KEY *key);
+void Camellia_decrypt(const unsigned char *in, unsigned char *out,
+	const CAMELLIA_KEY *key);
+
+void Camellia_ecb_encrypt(const unsigned char *in, unsigned char *out,
+	const CAMELLIA_KEY *key, const int enc);
+void Camellia_cbc_encrypt(const unsigned char *in, unsigned char *out,
+	size_t length, const CAMELLIA_KEY *key,
+	unsigned char *ivec, const int enc);
+void Camellia_cfb128_encrypt(const unsigned char *in, unsigned char *out,
+	size_t length, const CAMELLIA_KEY *key,
+	unsigned char *ivec, int *num, const int enc);
+void Camellia_cfb1_encrypt(const unsigned char *in, unsigned char *out,
+	size_t length, const CAMELLIA_KEY *key,
+	unsigned char *ivec, int *num, const int enc);
+void Camellia_cfb8_encrypt(const unsigned char *in, unsigned char *out,
+	size_t length, const CAMELLIA_KEY *key,
+	unsigned char *ivec, int *num, const int enc);
+void Camellia_ofb128_encrypt(const unsigned char *in, unsigned char *out,
+	size_t length, const CAMELLIA_KEY *key,
+	unsigned char *ivec, int *num);
+void Camellia_ctr128_encrypt(const unsigned char *in, unsigned char *out,
+	size_t length, const CAMELLIA_KEY *key,
+	unsigned char ivec[CAMELLIA_BLOCK_SIZE],
+	unsigned char ecount_buf[CAMELLIA_BLOCK_SIZE],
+	unsigned int *num);
 
 #ifdef  __cplusplus
 }
 #endif
-#endif
+
+#endif /* !HEADER_Camellia_H */

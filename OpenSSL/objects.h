@@ -5,21 +5,21 @@
  * This package is an SSL implementation written
  * by Eric Young (eay@cryptsoft.com).
  * The implementation was written so as to conform with Netscapes SSL.
- *
+ * 
  * This library is free for commercial and non-commercial use as long as
  * the following conditions are aheared to.  The following conditions
  * apply to all code found in this distribution, be it the RC4, RSA,
  * lhash, DES, etc., code; not just the SSL code.  The SSL documentation
  * included with this distribution is covered by the same copyright terms
  * except that the holder is Tim Hudson (tjh@cryptsoft.com).
- *
+ * 
  * Copyright remains Eric Young's, and as such any Copyright notices in
  * the code are not to be removed.
  * If this package is used in a product, Eric Young should be given attribution
  * as the author of the parts of the library used.
  * This can be in the form of a textual message at program startup or
  * in documentation (online or textual) provided with the package.
- *
+ * 
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
  * are met:
@@ -34,10 +34,10 @@
  *     Eric Young (eay@cryptsoft.com)"
  *    The word 'cryptographic' can be left out if the rouines from the library
  *    being used are not cryptographic related :-).
- * 4. If you include any Windows specific code (or a derivative thereof) from
+ * 4. If you include any Windows specific code (or a derivative thereof) from 
  *    the apps directory (application code) you must include an acknowledgement:
  *    "This product includes software written by Tim Hudson (tjh@cryptsoft.com)"
- *
+ * 
  * THIS SOFTWARE IS PROVIDED BY ERIC YOUNG ``AS IS'' AND
  * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
@@ -49,7 +49,7 @@
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
- *
+ * 
  * The licence and distribution terms for any publically available version or
  * derivative of this code cannot be changed.  i.e. this code cannot simply be
  * copied and put under another distribution licence
@@ -387,7 +387,7 @@
 #define SN_pbeWithSHA1AndRC2_CBC	"PBE-SHA1-RC2-64"
 #define LN_pbeWithSHA1AndRC2_CBC	"pbeWithSHA1AndRC2-CBC"
 #define NID_pbeWithSHA1AndRC2_CBC	68
-#define OBJ_pbeWithSHA1AndRC2_CBC	OBJ_pkcs,5L,11L
+#define OBJ_pbeWithSHA1AndRC2_CBC	OBJ_pkcs,5L,11L 
 
 /* proposed by microsoft to RSA as pbeWithSHA1AndRC4: it is now
  * defined explicitly in PKCS#5 v2.0 as id-PBKDF2 which is something
@@ -395,7 +395,7 @@
  */
 #define LN_id_pbkdf2			"PBKDF2"
 #define NID_id_pbkdf2			69
-#define OBJ_id_pbkdf2			OBJ_pkcs,5L,12L
+#define OBJ_id_pbkdf2			OBJ_pkcs,5L,12L 
 
 #define SN_dsaWithSHA1_2		"DSA-SHA1-old"
 #define LN_dsaWithSHA1_2		"dsaWithSHA1-old"
@@ -1011,16 +1011,105 @@ int		OBJ_txt2nid(const char *s);
 int		OBJ_ln2nid(const char *s);
 int		OBJ_sn2nid(const char *s);
 int		OBJ_cmp(const ASN1_OBJECT *a,const ASN1_OBJECT *b);
-const char *	OBJ_bsearch(const char *key,const char *base,int num,int size,
-	int (*cmp)(const void *, const void *));
-const char *	OBJ_bsearch_ex(const char *key,const char *base,int num,
-	int size, int (*cmp)(const void *, const void *), int flags);
+const void *	OBJ_bsearch_(const void *key,const void *base,int num,int size,
+			     int (*cmp)(const void *, const void *));
+const void *	OBJ_bsearch_ex_(const void *key,const void *base,int num,
+				int size,
+				int (*cmp)(const void *, const void *),
+				int flags);
+
+#define _DECLARE_OBJ_BSEARCH_CMP_FN(scope, type1, type2, nm)	\
+  static int nm##_cmp_BSEARCH_CMP_FN(const void *, const void *); \
+  static int nm##_cmp(type1 const *, type2 const *); \
+  scope type2 * OBJ_bsearch_##nm(type1 *key, type2 const *base, int num)
+
+#define DECLARE_OBJ_BSEARCH_CMP_FN(type1, type2, cmp)	\
+  _DECLARE_OBJ_BSEARCH_CMP_FN(static, type1, type2, cmp)
+#define DECLARE_OBJ_BSEARCH_GLOBAL_CMP_FN(type1, type2, nm)	\
+  type2 * OBJ_bsearch_##nm(type1 *key, type2 const *base, int num)
+
+/*
+ * Unsolved problem: if a type is actually a pointer type, like
+ * nid_triple is, then its impossible to get a const where you need
+ * it. Consider:
+ *
+ * typedef int nid_triple[3];
+ * const void *a_;
+ * const nid_triple const *a = a_;
+ *
+ * The assignement discards a const because what you really want is:
+ *
+ * const int const * const *a = a_;
+ *
+ * But if you do that, you lose the fact that a is an array of 3 ints,
+ * which breaks comparison functions.
+ *
+ * Thus we end up having to cast, sadly, or unpack the
+ * declarations. Or, as I finally did in this case, delcare nid_triple
+ * to be a struct, which it should have been in the first place.
+ *
+ * Ben, August 2008.
+ *
+ * Also, strictly speaking not all types need be const, but handling
+ * the non-constness means a lot of complication, and in practice
+ * comparison routines do always not touch their arguments.
+ */
+
+#define IMPLEMENT_OBJ_BSEARCH_CMP_FN(type1, type2, nm)	\
+  static int nm##_cmp_BSEARCH_CMP_FN(const void *a_, const void *b_)	\
+      { \
+      type1 const *a = a_; \
+      type2 const *b = b_; \
+      return nm##_cmp(a,b); \
+      } \
+  static type2 *OBJ_bsearch_##nm(type1 *key, type2 const *base, int num) \
+      { \
+      return (type2 *)OBJ_bsearch_(key, base, num, sizeof(type2), \
+					nm##_cmp_BSEARCH_CMP_FN); \
+      } \
+      extern void dummy_prototype(void)
+
+#define IMPLEMENT_OBJ_BSEARCH_GLOBAL_CMP_FN(type1, type2, nm)	\
+  static int nm##_cmp_BSEARCH_CMP_FN(const void *a_, const void *b_)	\
+      { \
+      type1 const *a = a_; \
+      type2 const *b = b_; \
+      return nm##_cmp(a,b); \
+      } \
+  type2 *OBJ_bsearch_##nm(type1 *key, type2 const *base, int num) \
+      { \
+      return (type2 *)OBJ_bsearch_(key, base, num, sizeof(type2), \
+					nm##_cmp_BSEARCH_CMP_FN); \
+      } \
+      extern void dummy_prototype(void)
+
+#define OBJ_bsearch(type1,key,type2,base,num,cmp)			       \
+  ((type2 *)OBJ_bsearch_(CHECKED_PTR_OF(type1,key),CHECKED_PTR_OF(type2,base), \
+			 num,sizeof(type2),				\
+			 ((void)CHECKED_PTR_OF(type1,cmp##_type_1),	\
+			  (void)CHECKED_PTR_OF(type2,cmp##_type_2),	\
+			  cmp##_BSEARCH_CMP_FN)))
+
+#define OBJ_bsearch_ex(type1,key,type2,base,num,cmp,flags)			\
+  ((type2 *)OBJ_bsearch_ex_(CHECKED_PTR_OF(type1,key),CHECKED_PTR_OF(type2,base), \
+			 num,sizeof(type2),				\
+			 ((void)CHECKED_PTR_OF(type1,cmp##_type_1),	\
+			  (void)type_2=CHECKED_PTR_OF(type2,cmp##_type_2), \
+			  cmp##_BSEARCH_CMP_FN)),flags)
 
 int		OBJ_new_nid(int num);
 int		OBJ_add_object(const ASN1_OBJECT *obj);
 int		OBJ_create(const char *oid,const char *sn,const char *ln);
 void		OBJ_cleanup(void );
 int		OBJ_create_objects(BIO *in);
+
+int OBJ_find_sigid_algs(int signid, int *pdig_nid, int *ppkey_nid);
+int OBJ_find_sigid_by_algs(int *psignid, int dig_nid, int pkey_nid);
+int OBJ_add_sigid(int signid, int dig_id, int pkey_id);
+void OBJ_sigid_free(void);
+
+extern int obj_cleanup_defer;
+void check_defer(int nid);
 
 /* BEGIN ERROR CODES */
 /* The following lines are auto generated by the script mkerr.pl. Any changes

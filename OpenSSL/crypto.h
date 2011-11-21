@@ -1,13 +1,13 @@
 /* crypto/crypto.h */
 /* ====================================================================
- * Copyright (c) 1998-2003 The OpenSSL Project.  All rights reserved.
+ * Copyright (c) 1998-2006 The OpenSSL Project.  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
  * are met:
  *
  * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
+ *    notice, this list of conditions and the following disclaimer. 
  *
  * 2. Redistributions in binary form must reproduce the above copyright
  *    notice, this list of conditions and the following disclaimer in
@@ -58,21 +58,21 @@
  * This package is an SSL implementation written
  * by Eric Young (eay@cryptsoft.com).
  * The implementation was written so as to conform with Netscapes SSL.
- *
+ * 
  * This library is free for commercial and non-commercial use as long as
  * the following conditions are aheared to.  The following conditions
  * apply to all code found in this distribution, be it the RC4, RSA,
  * lhash, DES, etc., code; not just the SSL code.  The SSL documentation
  * included with this distribution is covered by the same copyright terms
  * except that the holder is Tim Hudson (tjh@cryptsoft.com).
- *
+ * 
  * Copyright remains Eric Young's, and as such any Copyright notices in
  * the code are not to be removed.
  * If this package is used in a product, Eric Young should be given attribution
  * as the author of the parts of the library used.
  * This can be in the form of a textual message at program startup or
  * in documentation (online or textual) provided with the package.
- *
+ * 
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
  * are met:
@@ -87,10 +87,10 @@
  *     Eric Young (eay@cryptsoft.com)"
  *    The word 'cryptographic' can be left out if the rouines from the library
  *    being used are not cryptographic related :-).
- * 4. If you include any Windows specific code (or a derivative thereof) from
+ * 4. If you include any Windows specific code (or a derivative thereof) from 
  *    the apps directory (application code) you must include an acknowledgement:
  *    "This product includes software written by Tim Hudson (tjh@cryptsoft.com)"
- *
+ * 
  * THIS SOFTWARE IS PROVIDED BY ERIC YOUNG ``AS IS'' AND
  * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
@@ -102,7 +102,7 @@
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
- *
+ * 
  * The licence and distribution terms for any publically available version or
  * derivative of this code cannot be changed.  i.e. this code cannot simply be
  * copied and put under another distribution licence
@@ -110,7 +110,7 @@
  */
 /* ====================================================================
  * Copyright 2002 Sun Microsystems, Inc. ALL RIGHTS RESERVED.
- * ECDH support in OpenSSL originally developed by
+ * ECDH support in OpenSSL originally developed by 
  * SUN MICROSYSTEMS, INC., and contributed to the OpenSSL project.
  */
 
@@ -163,7 +163,7 @@ typedef int CRYPTO_EX_new(void *parent, void *ptr, CRYPTO_EX_DATA *ad,
 typedef void CRYPTO_EX_free(void *parent, void *ptr, CRYPTO_EX_DATA *ad,
 					int idx, long argl, void *argp);
 /* Called when we need to dup an object */
-typedef int CRYPTO_EX_dup(CRYPTO_EX_DATA *to, CRYPTO_EX_DATA *from, void *from_d,
+typedef int CRYPTO_EX_dup(CRYPTO_EX_DATA *to, CRYPTO_EX_DATA *from, void *from_d, 
 					int idx, long argl, void *argp);
 #endif
 
@@ -219,7 +219,9 @@ typedef struct openssl_item_st
 #define CRYPTO_LOCK_EC_PRE_COMP		36
 #define CRYPTO_LOCK_STORE		37
 #define CRYPTO_LOCK_COMP		38
-#define CRYPTO_NUM_LOCKS		39
+#define CRYPTO_LOCK_FIPS		39
+#define CRYPTO_LOCK_FIPS2		40
+#define CRYPTO_NUM_LOCKS		41
 
 #define CRYPTO_LOCK		1
 #define CRYPTO_UNLOCK		2
@@ -282,9 +284,10 @@ typedef struct bio_st BIO_dummy;
 
 struct crypto_ex_data_st
 	{
-	STACK *sk;
+	STACK_OF(void) *sk;
 	int dummy; /* gcc is screwing up this data structure :-( */
 	};
+DECLARE_STACK_OF(void)
 
 /* This stuff is basically class callback functions
  * The current classes are SSL_CTX, SSL, SSL_SESSION, and a few more */
@@ -363,6 +366,7 @@ int CRYPTO_is_mem_check_on(void);
 #define is_MemCheck_on() CRYPTO_is_mem_check_on()
 
 #define OPENSSL_malloc(num)	CRYPTO_malloc((int)num,__FILE__,__LINE__)
+#define OPENSSL_strdup(str)	CRYPTO_strdup((str),__FILE__,__LINE__)
 #define OPENSSL_realloc(addr,num) \
 	CRYPTO_realloc((char *)addr,(int)num,__FILE__,__LINE__)
 #define OPENSSL_realloc_clean(addr,old_num,num) \
@@ -420,9 +424,28 @@ void CRYPTO_set_add_lock_callback(int (*func)(int *num,int mount,int type,
 					      const char *file, int line));
 int (*CRYPTO_get_add_lock_callback(void))(int *num,int mount,int type,
 					  const char *file,int line);
+
+/* Don't use this structure directly. */
+typedef struct crypto_threadid_st
+	{
+	void *ptr;
+	unsigned long val;
+	} CRYPTO_THREADID;
+/* Only use CRYPTO_THREADID_set_[numeric|pointer]() within callbacks */
+void CRYPTO_THREADID_set_numeric(CRYPTO_THREADID *id, unsigned long val);
+void CRYPTO_THREADID_set_pointer(CRYPTO_THREADID *id, void *ptr);
+int CRYPTO_THREADID_set_callback(void (*threadid_func)(CRYPTO_THREADID *));
+void (*CRYPTO_THREADID_get_callback(void))(CRYPTO_THREADID *);
+void CRYPTO_THREADID_current(CRYPTO_THREADID *id);
+int CRYPTO_THREADID_cmp(const CRYPTO_THREADID *a, const CRYPTO_THREADID *b);
+void CRYPTO_THREADID_cpy(CRYPTO_THREADID *dest, const CRYPTO_THREADID *src);
+unsigned long CRYPTO_THREADID_hash(const CRYPTO_THREADID *id);
+#ifndef OPENSSL_NO_DEPRECATED
 void CRYPTO_set_id_callback(unsigned long (*func)(void));
 unsigned long (*CRYPTO_get_id_callback(void))(void);
 unsigned long CRYPTO_thread_id(void);
+#endif
+
 const char *CRYPTO_get_lock_name(int type);
 int CRYPTO_add_lock(int *pointer,int amount,int type, const char *file,
 		    int line);
@@ -467,6 +490,7 @@ void CRYPTO_get_mem_debug_functions(void (**m)(void *,int,const char *,int,int),
 void *CRYPTO_malloc_locked(int num, const char *file, int line);
 void CRYPTO_free_locked(void *);
 void *CRYPTO_malloc(int num, const char *file, int line);
+char *CRYPTO_strdup(const char *str, const char *file, int line);
 void CRYPTO_free(void *);
 void *CRYPTO_realloc(void *addr,int num, const char *file, int line);
 void *CRYPTO_realloc_clean(void *addr,int old_num,int num,const char *file,
@@ -521,6 +545,7 @@ void OpenSSLDie(const char *file,int line,const char *assertion);
 
 unsigned long *OPENSSL_ia32cap_loc(void);
 #define OPENSSL_ia32cap (*(OPENSSL_ia32cap_loc()))
+int OPENSSL_isservice(void);
 
 /* BEGIN ERROR CODES */
 /* The following lines are auto generated by the script mkerr.pl. Any changes

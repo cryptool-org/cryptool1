@@ -1,7 +1,7 @@
 /* ssl/dtls1.h */
-/*
+/* 
  * DTLS implementation written by Nagendra Modadugu
- * (nagendra@cs.stanford.edu) for the OpenSSL project 2005.
+ * (nagendra@cs.stanford.edu) for the OpenSSL project 2005.  
  */
 /* ====================================================================
  * Copyright (c) 1999-2005 The OpenSSL Project.  All rights reserved.
@@ -11,7 +11,7 @@
  * are met:
  *
  * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
+ *    notice, this list of conditions and the following disclaimer. 
  *
  * 2. Redistributions in binary form must reproduce the above copyright
  *    notice, this list of conditions and the following disclaimer in
@@ -57,11 +57,23 @@
  *
  */
 
-#ifndef HEADER_DTLS1_H
-#define HEADER_DTLS1_H
+#ifndef HEADER_DTLS1_H 
+#define HEADER_DTLS1_H 
 
 #include <openssl/buffer.h>
 #include <openssl/pqueue.h>
+#ifdef OPENSSL_SYS_VMS
+#include <resource.h>
+#include <sys/timeb.h>
+#endif
+#ifdef OPENSSL_SYS_WIN32
+/* Needed for struct timeval */
+#include <winsock.h>
+#elif defined(OPENSSL_SYS_NETWARE) && !defined(_WINSOCK2API_)
+#include <sys/timeval.h>
+#else
+#include <sys/time.h>
+#endif
 
 #ifdef  __cplusplus
 extern "C" {
@@ -70,10 +82,13 @@ extern "C" {
 #define DTLS1_VERSION			0xFEFF
 #define DTLS1_BAD_VER			0x0100
 
+#if 0
+/* this alert description is not specified anywhere... */
 #define DTLS1_AD_MISSING_HANDSHAKE_MESSAGE    110
+#endif
 
 /* lengths of messages */
-#define DTLS1_COOKIE_LENGTH                     32
+#define DTLS1_COOKIE_LENGTH                     256
 
 #define DTLS1_RT_HEADER_LENGTH                  13
 
@@ -84,15 +99,34 @@ extern "C" {
 
 #define DTLS1_CCS_HEADER_LENGTH                  1
 
+#ifdef DTLS1_AD_MISSING_HANDSHAKE_MESSAGE
 #define DTLS1_AL_HEADER_LENGTH                   7
+#else
+#define DTLS1_AL_HEADER_LENGTH                   2
+#endif
 
 
 typedef struct dtls1_bitmap_st
 	{
-	PQ_64BIT map;
-	unsigned long length;     /* sizeof the bitmap in bits */
-	PQ_64BIT max_seq_num;  /* max record number seen so far */
+	unsigned long map;		/* track 32 packets on 32-bit systems
+					   and 64 - on 64-bit systems */
+	unsigned char max_seq_num[8];	/* max record number seen so far,
+					   64-bit value in big-endian
+					   encoding */
 	} DTLS1_BITMAP;
+
+struct dtls1_retransmit_state
+	{
+	EVP_CIPHER_CTX *enc_write_ctx;	/* cryptographic state */
+	EVP_MD_CTX *write_hash;			/* used for mac generation */
+#ifndef OPENSSL_NO_COMP
+	COMP_CTX *compress;				/* compression */
+#else
+	char *compress;	
+#endif
+	SSL_SESSION *session;
+	unsigned short epoch;
+	};
 
 struct hm_header_st
 	{
@@ -102,6 +136,7 @@ struct hm_header_st
 	unsigned long frag_off;
 	unsigned long frag_len;
 	unsigned int is_ccs;
+	struct dtls1_retransmit_state saved_retransmit_state;
 	};
 
 struct ccs_header_st
@@ -114,10 +149,10 @@ struct dtls1_timeout_st
 	{
 	/* Number of read timeouts so far */
 	unsigned int read_timeouts;
-
+	
 	/* Number of write timeouts so far */
 	unsigned int write_timeouts;
-
+	
 	/* Number of alerts received so far */
 	unsigned int num_alerts;
 	};
@@ -132,6 +167,7 @@ typedef struct hm_fragment_st
 	{
 	struct hm_header_st msg_header;
 	unsigned char *fragment;
+	unsigned char *reassembly;
 	} hm_fragment;
 
 typedef struct dtls1_state_st
@@ -141,10 +177,10 @@ typedef struct dtls1_state_st
 	unsigned char rcvd_cookie[DTLS1_COOKIE_LENGTH];
 	unsigned int cookie_len;
 
-	/*
+	/* 
 	 * The current data and handshake epoch.  This is initially
 	 * undefined, and starts at zero once the initial handshake is
-	 * completed
+	 * completed 
 	 */
 	unsigned short r_epoch;
 	unsigned short w_epoch;
@@ -161,6 +197,9 @@ typedef struct dtls1_state_st
 
 	unsigned short handshake_read_seq;
 
+	/* save last sequence number for retransmissions */
+	unsigned char last_write_sequence[8];
+
 	/* Received handshake records (processed and unprocessed) */
 	record_pqueue unprocessed_rcds;
 	record_pqueue processed_rcds;
@@ -171,12 +210,28 @@ typedef struct dtls1_state_st
 	/* Buffered (sent) handshake records */
 	pqueue sent_messages;
 
-	unsigned int mtu; /* max wire packet size */
+	/* Buffered application records.
+	 * Only for records between CCS and Finished
+	 * to prevent either protocol violation or
+	 * unnecessary message loss.
+	 */
+	record_pqueue buffered_app_data;
+
+	/* Is set when listening for new connections with dtls1_listen() */
+	unsigned int listen;
+
+	unsigned int mtu; /* max DTLS packet size */
 
 	struct hm_header_st w_msg_hdr;
 	struct hm_header_st r_msg_hdr;
 
 	struct dtls1_timeout_st timeout;
+
+	/* Indicates when the last handshake msg sent will timeout */
+	struct timeval next_timeout;
+
+	/* Timeout duration */
+	unsigned short timeout_duration;
 
 	/* storage for Alert/Handshake protocol data received but not
 	 * yet processed by ssl3_read_bytes: */
@@ -186,6 +241,7 @@ typedef struct dtls1_state_st
 	unsigned int handshake_fragment_len;
 
 	unsigned int retransmitting;
+	unsigned int change_cipher_spec_ok;
 
 	} DTLS1_STATE;
 
