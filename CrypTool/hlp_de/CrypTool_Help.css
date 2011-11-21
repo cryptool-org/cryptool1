@@ -16,6 +16,8 @@ h4 {font-family:Arial;bold;font-size:11pt;}
 
 
 div.indent {margin-left:40pt} /* wird verwendet, um beliebige Blocke einzuruecken */
+div.monospace { font-family: Courier; font-size: 11pt; }
+
 p.tindent {text-indent:-40pt;margin-left:40pt;} /* wird verwendet, um Einrueckung nach Zeilenumbruechen zu realisieren */
 p.paddedleft { padding-left: 10pt; }
 
