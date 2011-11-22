@@ -18,12 +18,12 @@
 
   ;Name and file
   !define ProgramName "CrypTool"
-  !define VersionInfo "1.4.30" ; no beta here to avoid line wrap in installer
-  !define VersionFile "1_4_30" ; _beta_0x
+  !define VersionInfo "1.4.31" ; no beta here to avoid line wrap in installer
+  !define VersionFile "1_4_31" ; _beta_0x
   
   Name "${ProgramName} ${VersionInfo}"
   OutFile "SetupCrypTool_${VersionFile}_${LANGUAGE_STR}.exe"
-  BrandingText "(c) 1998-2010 Contributors"
+  BrandingText "(c) 1998-2012 Contributors"
 ;  Icon "..\CrypTool\res\idr_main.ico" ; does not work for some reason
 
   ;Default installation folder
