@@ -434,7 +434,7 @@ BEGIN
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,44,74,105,37,WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,198,73,143,37,WS_EX_TRANSPARENT
     CTEXT           "rozwinêto z Uniwersytetem Siegen i Darmstadt, jak i za pomoc¹ wielu ochotników projekt open-source.",IDC_STATIC,20,119,330,16
-    CTEXT           "Copyright (C) 1998-2010 Deutsche Bank AG i wspó³pracowników\nprzy Open Source  na podstawie Apache-Lizenz 2.0",IDC_STATIC,7,233,356,16
+    CTEXT           "Copyright (C) 1998-2012 Deutsche Bank AG i wspó³pracowników\nprzy Open Source  na podstawie Apache-Lizenz 2.0",IDC_STATIC,7,233,356,16
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,71,356,44
     CTEXT           "CrypTool jest darmowym i kompleksowym programem edukacyjnym\nklasycznej i wspó³czesnej kryptografii / kryptoanalizy.\n\nWraz ze sponsorami",IDC_STATIC,20,35,330,32
     CTEXT           "CrypTool jest stosowane na ca³ym œwiecie do nauczania w szko³ach i na uniwersytetach oraz do szkolenia i podnoszenie œwiadomoœci pracowników firm i agencji rz¹dowych.",IDC_STATIC,20,140,330,16,WS_TABSTOP
@@ -6367,12 +6367,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
-            VALUE "FileVersion", "1.4.30"
+            VALUE "FileVersion", "1.4.31"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Copyright © 1998-2010"
+            VALUE "LegalCopyright", "Copyright © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "1.4.30"
+            VALUE "ProductVersion", "1.4.31"
         END
     END
     BLOCK "VarFileInfo"
@@ -8426,7 +8426,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.30"
+    IDR_MAINFRAME           "CrypTool 1.4.31"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -11584,7 +11584,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Zatvori",IDOK,312,263,60,18,WS_GROUP
     CTEXT           "univerziteti Siegen i Darmstadt razvili su ga kao\nkao projekat otvorenog koda zahvaljujuæi mnogim programerima dobrovoljcima.",IDC_STATIC,29,127,330,16
-    CTEXT           "Copyright (C) 1998-2010 Deutsche Bank AG i Saradnici\nDistribuirano kao otvoreni kod pod uslovima Apache 2.0 Licence",IDC_STATIC,16,242,356,16
+    CTEXT           "Copyright (C) 1998-2012 Deutsche Bank AG i Saradnici\nDistribuirano kao otvoreni kod pod uslovima Apache 2.0 Licence",IDC_STATIC,16,242,356,16
     CTEXT           "CrypTool je besplatan i sveobuhvatni program za e-uèenje \nklasiène i savremene kriptografije i kriptoanalize.\n\nU zajednièkom naporu sa sponzorima",IDC_STATIC,29,44,330,32
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,53,82,105,37,WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,207,82,143,37,WS_EX_TRANSPARENT
@@ -17532,12 +17532,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
-            VALUE "FileVersion", "1.4.30"
+            VALUE "FileVersion", "1.4.31"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Copyright © 1998-2010"
+            VALUE "LegalCopyright", "Copyright © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "1.4.30"
+            VALUE "ProductVersion", "1.4.31"
         END
     END
     BLOCK "VarFileInfo"
@@ -19571,7 +19571,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.30"
+    IDR_MAINFRAME           "CrypTool 1.4.31"
     IDR_TEXTTYPE            "\nNeimenovani\nTEKST dokument\nTekst datoteka (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nNeimenovana\n\nBinarna datoteka (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nNeimenovana\n\nASCII datoteka (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -25392,7 +25392,7 @@ BEGIN
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,44,74,105,37,WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,198,73,143,37,WS_EX_TRANSPARENT
     CTEXT           "haben es die Universitäten Siegen und Darmstadt\nund viele freiwillige Entwickler in einem Open-Source-Projekt entwickelt.",IDC_STATIC,20,119,330,16
-    CTEXT           "Copyright (C) 1998-2010 Deutsche Bank AG und Mitwirkende\nOpen-Source anhand der Apache-Lizenz 2.0",IDC_STATIC,7,233,356,16
+    CTEXT           "Copyright (C) 1998-2012 Deutsche Bank AG und Mitwirkende\nOpen-Source anhand der Apache-Lizenz 2.0",IDC_STATIC,7,233,356,16
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,71,356,44
     CTEXT           "CrypTool ist ein kostenloses und umfangreiches Lernprogramm\nzu klassischer und moderner Kryptographie/Kryptoanalyse.\n\nGemeinsam mit den Sponsoren",IDC_STATIC,20,35,330,32
     CTEXT           "CrypTool wird weltweit zur Lehre an Schulen und Hochschulen, und zur Ausbildung und Mitarbeiter-Awareness in Firmen und Behörden eingesetzt.",IDC_STATIC,20,140,330,16,WS_TABSTOP
@@ -28672,12 +28672,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.de"
-            VALUE "FileVersion", "1.4.30"
+            VALUE "FileVersion", "1.4.31"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Copyright © 1998-2010"
+            VALUE "LegalCopyright", "Copyright © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "1.4.30"
+            VALUE "ProductVersion", "1.4.31"
         END
     END
     BLOCK "VarFileInfo"
@@ -30580,7 +30580,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.30"
+    IDR_MAINFRAME           "CrypTool 1.4.31"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT-Dokument\nText-Datei (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnbenannt\n\nBinär-Datei (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnbenannt\n\nASCII-Datei (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -33779,7 +33779,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Close",IDOK,303,255,60,18,WS_GROUP
     CTEXT           "the universities Siegen and Darmstadt developed it within an\nopen source project thanks to the help of many voluntary developers.",IDC_STATIC,20,119,330,16
-    CTEXT           "Copyright (C) 1998-2010 Deutsche Bank AG and Contributors\nDistributed as open source under the terms of the Apache License 2.0",IDC_STATIC,7,233,356,16
+    CTEXT           "Copyright (C) 1998-2012 Deutsche Bank AG and Contributors\nDistributed as open source under the terms of the Apache License 2.0",IDC_STATIC,7,233,356,16
     CTEXT           "CrypTool is a free and comprehensive e-learning program about\nclassic and contemporary cryptography and cryptanalysis.\n\nIn a joint effort with the sponsors",IDC_STATIC,20,35,330,32
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,44,74,105,37,WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,198,73,143,37,WS_EX_TRANSPARENT
@@ -39712,12 +39712,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
-            VALUE "FileVersion", "1.4.30"
+            VALUE "FileVersion", "1.4.31"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Copyright © 1998-2010"
+            VALUE "LegalCopyright", "Copyright © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "1.4.30"
+            VALUE "ProductVersion", "1.4.31"
         END
     END
     BLOCK "VarFileInfo"
@@ -41790,7 +41790,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.30"
+    IDR_MAINFRAME           "CrypTool 1.4.31"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -48653,7 +48653,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Cerrar",IDOK,303,252,60,18,WS_GROUP
     CTEXT           "desarrollado por las universidades de Siegen y Darmstadt\ny muchos desarrolladores voluntarios del proyecto OpenSource.",IDC_STATIC,20,119,330,16
-    CTEXT           "Copyright (C) 1998-2010 Deutsche Bank AG y Colaboradores\nDistribuído como Open-source bajo los términos de la Licencia Apache 2.0",IDC_STATIC,7,233,356,16
+    CTEXT           "Copyright (C) 1998-2012 Deutsche Bank AG y Colaboradores\nDistribuído como Open-source bajo los términos de la Licencia Apache 2.0",IDC_STATIC,7,233,356,16
     CTEXT           "CrypTool es una extensa herramienta de e-learning gratuita sobre\ncriptografía y criptoanálisis, tanto clásico como moderno.\n\nEs un esfuerzo conjunto entre:",IDC_STATIC,20,35,330,32
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,44,74,105,37,WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,198,73,143,37,WS_EX_TRANSPARENT
@@ -50881,12 +50881,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
-            VALUE "FileVersion", "1.4.30"
+            VALUE "FileVersion", "1.4.31"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Copyright © 1998-2010"
+            VALUE "LegalCopyright", "Copyright © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "1.4.30"
+            VALUE "ProductVersion", "1.4.31"
         END
     END
     BLOCK "VarFileInfo"
@@ -52928,7 +52928,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.30"
+    IDR_MAINFRAME           "CrypTool 1.4.31"
     IDR_TEXTTYPE            "\nSin nombre\nDocumento de texto\nFichero de texto (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nSin nombre\n\nFichero binario (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nSin nombre\n\nFichero ASCII (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
