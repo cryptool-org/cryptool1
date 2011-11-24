@@ -107,7 +107,7 @@ END
 IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 205
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
-CAPTION "[i18n] AES-Tool 2.6"
+CAPTION "[i18n][POLISH] AES-Tool 2.6"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT_KEY_HEX,26,67,266,12,ES_AUTOHSCROLL
@@ -154,7 +154,7 @@ BEGIN
             VALUE "FileDescription", "AES-Tool"
             VALUE "FileVersion", "2.6"
             VALUE "InternalName", "aestool"
-            VALUE "LegalCopyright", "Copyright (C) 2002-2008 Deutsche Bank AG"
+            VALUE "LegalCopyright", "Copyright (C) 2002-2012 Deutsche Bank AG"
             VALUE "OriginalFilename", "aestool.exe"
             VALUE "ProductName", "Application AES-Tool"
             VALUE "ProductVersion", "2.6"
@@ -253,31 +253,31 @@ AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\95check.bmp"
 
 STRINGTABLE 
 BEGIN
-    IDS_ABOUTBOX            "Inf&ormation about AES-Tool..."
-    IDS_STRING_DECRYPT      "Decrypt a file"
-    IDS_STRING_ENCRYPT      "Encrypt a file"
-    IDS_STRING_DECERROR     "File decryption error: %s"
-    IDS_STRING_ENCOK        "The encrypted file %s has been successfully created."
-    IDS_STRING_DECOK        "The decrypted file %s has been successfully created."
-    IDS_STRING_VERSCHLUESSELN "Encrypt"
-    IDS_STRING_ENTSCHLUESSELN "Decrypt"
-    IDS_STRING_FILEERROR    "Error opening %s: %s\n"
-    IDS_STRING_NOMEMORY     "Out of virtual memory."
-    IDS_STRING_KEYERROR     "Wrong key or file %s corrupt."
+    IDS_ABOUTBOX            "[i18n][POLISH] Inf&ormation about AES-Tool..."
+    IDS_STRING_DECRYPT      "[i18n][POLISH] Decrypt a file"
+    IDS_STRING_ENCRYPT      "[i18n][POLISH] Encrypt a file"
+    IDS_STRING_DECERROR     "[i18n][POLISH] File decryption error: %s"
+    IDS_STRING_ENCOK        "[i18n][POLISH] The encrypted file %s has been successfully created."
+    IDS_STRING_DECOK        "[i18n][POLISH] The decrypted file %s has been successfully created."
+    IDS_STRING_VERSCHLUESSELN "[i18n][POLISH] Encrypt"
+    IDS_STRING_ENTSCHLUESSELN "[i18n][POLISH] Decrypt"
+    IDS_STRING_FILEERROR    "[i18n][POLISH] Error opening %s: %s\n"
+    IDS_STRING_NOMEMORY     "[i18n][POLISH] Out of virtual memory."
+    IDS_STRING_KEYERROR     "[i18n][POLISH] Wrong key or file %s corrupt."
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_ENCERROR     "File encryption error: %s"
-    IDS_STRING_VERSION      "This file has been encrypted with an older version of AES-Tool. \nPlease use the same version for decrypting."
-    IDS_STRING_AES_TOOL_VERSION "AES-Tool 2.6"
-    IDS_STRING_CORRUPT      "This encrypted file is corrupt."
-    IDS_STRING_INVALID_KEY  "Invalid character in key. Please use only 0-9,a-f,A-F."
-    IDS_STRING_KEY_TOO_LONG "Key too long. Maximum AES key length is 256 bits (= 32 bytes = 64 hexadecimal digits)."
+    IDS_STRING_ENCERROR     "[i18n][POLISH] File encryption error: %s"
+    IDS_STRING_VERSION      "[i18n][POLISH] This file has been encrypted with an older version of AES-Tool. \nPlease use the same version for decrypting."
+    IDS_STRING_AES_TOOL_VERSION "[i18n][POLISH] AES-Tool 2.6"
+    IDS_STRING_CORRUPT      "[i18n][POLISH] This encrypted file is corrupt."
+    IDS_STRING_INVALID_KEY  "[i18n][POLISH] Invalid character in key. Please use only 0-9,a-f,A-F."
+    IDS_STRING_KEY_TOO_LONG "[i18n][POLISH] Key too long. Maximum AES key length is 256 bits (= 32 bytes = 64 hexadecimal digits)."
     IDS_STRING_KEY_HEADER_HEX 
-                            "Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]"
-    IDS_STRING_KEY_HEADER_ASCII "Key [at most 32 characters]"
-    IDS_STRING_AES_TOOL_HELP_PREFIX "Help for %s"
+                            "[i18n][POLISH] Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]"
+    IDS_STRING_KEY_HEADER_ASCII "[i18n][POLISH] Key [at most 32 characters]"
+    IDS_STRING_AES_TOOL_HELP_PREFIX "[i18n][POLISH] Help for %s"
 END
 
 #endif    // Polish resources
@@ -373,14 +373,14 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
     LTEXT           "AES-Tool Version 2.6",IDC_STATIC,40,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2008",IDC_STATIC1,40,25,119,8
+    LTEXT           "Copyright (C) 2012",IDC_STATIC1,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
 END
 
 IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 205
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
-CAPTION "[i18n] AES-Tool 2.6"
+CAPTION "[i18n][SERBIAN] AES-Tool 2.6"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT_KEY_HEX,26,67,266,12,ES_AUTOHSCROLL
@@ -427,7 +427,7 @@ BEGIN
             VALUE "FileDescription", "AES-Tool"
             VALUE "FileVersion", "2.6"
             VALUE "InternalName", "aestool"
-            VALUE "LegalCopyright", "Copyright (C) 2002-2008 Deutsche Bank AG"
+            VALUE "LegalCopyright", "Copyright (C) 2002-2012 Deutsche Bank AG"
             VALUE "OriginalFilename", "aestool.exe"
             VALUE "ProductName", "Application AES-Tool"
             VALUE "ProductVersion", "2.6"
@@ -540,31 +540,31 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_ABOUTBOX            "Inf&ormation about AES-Tool..."
-    IDS_STRING_DECRYPT      "Decrypt a file"
-    IDS_STRING_ENCRYPT      "Encrypt a file"
-    IDS_STRING_DECERROR     "File decryption error: %s"
-    IDS_STRING_ENCOK        "The encrypted file %s has been successfully created."
-    IDS_STRING_DECOK        "The decrypted file %s has been successfully created."
-    IDS_STRING_VERSCHLUESSELN "Encrypt"
-    IDS_STRING_ENTSCHLUESSELN "Decrypt"
-    IDS_STRING_FILEERROR    "Error opening %s: %s\n"
-    IDS_STRING_NOMEMORY     "Out of virtual memory."
-    IDS_STRING_KEYERROR     "Wrong key or file %s corrupt."
+    IDS_ABOUTBOX            "[i18n][SERBIAN] Inf&ormation about AES-Tool..."
+    IDS_STRING_DECRYPT      "[i18n][SERBIAN] Decrypt a file"
+    IDS_STRING_ENCRYPT      "[i18n][SERBIAN] Encrypt a file"
+    IDS_STRING_DECERROR     "[i18n][SERBIAN] File decryption error: %s"
+    IDS_STRING_ENCOK        "[i18n][SERBIAN] The encrypted file %s has been successfully created."
+    IDS_STRING_DECOK        "[i18n][SERBIAN] The decrypted file %s has been successfully created."
+    IDS_STRING_VERSCHLUESSELN "[i18n][SERBIAN] Encrypt"
+    IDS_STRING_ENTSCHLUESSELN "[i18n][SERBIAN] Decrypt"
+    IDS_STRING_FILEERROR    "[i18n][SERBIAN] Error opening %s: %s\n"
+    IDS_STRING_NOMEMORY     "[i18n][SERBIAN] Out of virtual memory."
+    IDS_STRING_KEYERROR     "[i18n][SERBIAN] Wrong key or file %s corrupt."
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_ENCERROR     "File encryption error: %s"
-    IDS_STRING_VERSION      "This file has been encrypted with an older version of AES-Tool. \nPlease use the same version for decrypting."
-    IDS_STRING_AES_TOOL_VERSION "AES-Tool 2.6"
-    IDS_STRING_CORRUPT      "This encrypted file is corrupt."
-    IDS_STRING_INVALID_KEY  "Invalid character in key. Please use only 0-9,a-f,A-F."
-    IDS_STRING_KEY_TOO_LONG "Key too long. Maximum AES key length is 256 bits (= 32 bytes = 64 hexadecimal digits)."
+    IDS_STRING_ENCERROR     "[i18n][SERBIAN] File encryption error: %s"
+    IDS_STRING_VERSION      "[i18n][SERBIAN] This file has been encrypted with an older version of AES-Tool. \nPlease use the same version for decrypting."
+    IDS_STRING_AES_TOOL_VERSION "[i18n][SERBIAN] AES-Tool 2.6"
+    IDS_STRING_CORRUPT      "[i18n][SERBIAN] This encrypted file is corrupt."
+    IDS_STRING_INVALID_KEY  "[i18n][SERBIAN] Invalid character in key. Please use only 0-9,a-f,A-F."
+    IDS_STRING_KEY_TOO_LONG "[i18n][SERBIAN] Key too long. Maximum AES key length is 256 bits (= 32 bytes = 64 hexadecimal digits)."
     IDS_STRING_KEY_HEADER_HEX 
-                            "Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]"
-    IDS_STRING_KEY_HEADER_ASCII "Key [at most 32 characters]"
-    IDS_STRING_AES_TOOL_HELP_PREFIX "Help for %s"
+                            "[i18n][SERBIAN] Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]"
+    IDS_STRING_KEY_HEADER_ASCII "[i18n][SERBIAN] Key [at most 32 characters]"
+    IDS_STRING_AES_TOOL_HELP_PREFIX "[i18n][SERBIAN] Help for %s"
 END
 
 #endif    // Serbian (Latin) resources
@@ -703,7 +703,7 @@ BEGIN
             VALUE "FileDescription", "AES-Tool"
             VALUE "FileVersion", "2.6"
             VALUE "InternalName", "aestool"
-            VALUE "LegalCopyright", "Copyright (C) 2002-2008 Deutsche Bank AG"
+            VALUE "LegalCopyright", "Copyright (C) 2002-2012 Deutsche Bank AG"
             VALUE "OriginalFilename", "aestool.exe"
             VALUE "ProductName", "Anwendung AES-Tool"
             VALUE "ProductVersion", "2.6"
@@ -970,7 +970,7 @@ BEGIN
             VALUE "FileDescription", "AES-Tool"
             VALUE "FileVersion", "2.6"
             VALUE "InternalName", "aestool"
-            VALUE "LegalCopyright", "Copyright (C) 2002-2008 Deutsche Bank AG"
+            VALUE "LegalCopyright", "Copyright (C) 2002-2012 Deutsche Bank AG"
             VALUE "OriginalFilename", "aestool.exe"
             VALUE "ProductName", "Application AES-Tool"
             VALUE "ProductVersion", "2.6"
@@ -1222,7 +1222,7 @@ END
 IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 205
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
-CAPTION "[i18n] AES-Tool 2.6"
+CAPTION "[i18n][SPANISH] AES-Tool 2.6"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT_KEY_HEX,26,67,266,12,ES_AUTOHSCROLL
@@ -1269,7 +1269,7 @@ BEGIN
             VALUE "FileDescription", "AES-Tool"
             VALUE "FileVersion", "2.6"
             VALUE "InternalName", "aestool"
-            VALUE "LegalCopyright", "Copyright (C) 2002-2008 Deutsche Bank AG"
+            VALUE "LegalCopyright", "Copyright (C) 2002-2012 Deutsche Bank AG"
             VALUE "OriginalFilename", "aestool.exe"
             VALUE "ProductName", "Aplicación AES-Tool"
             VALUE "ProductVersion", "2.6"
@@ -1351,31 +1351,31 @@ AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\95check.bmp"
 
 STRINGTABLE 
 BEGIN
-    IDS_ABOUTBOX            "Inf&ormation about AES-Tool..."
-    IDS_STRING_DECRYPT      "Decrypt a file"
-    IDS_STRING_ENCRYPT      "Encrypt a file"
-    IDS_STRING_DECERROR     "File decryption error: %s"
-    IDS_STRING_ENCOK        "The encrypted file %s has been successfully created."
-    IDS_STRING_DECOK        "The decrypted file %s has been successfully created."
-    IDS_STRING_VERSCHLUESSELN "Encrypt"
-    IDS_STRING_ENTSCHLUESSELN "Decrypt"
-    IDS_STRING_FILEERROR    "Error opening %s: %s\n"
-    IDS_STRING_NOMEMORY     "Out of virtual memory."
-    IDS_STRING_KEYERROR     "Wrong key or file %s corrupt."
+    IDS_ABOUTBOX            "[i18n][SPANISH] Inf&ormation about AES-Tool..."
+    IDS_STRING_DECRYPT      "[i18n][SPANISH] Decrypt a file"
+    IDS_STRING_ENCRYPT      "[i18n][SPANISH] Encrypt a file"
+    IDS_STRING_DECERROR     "[i18n][SPANISH] File decryption error: %s"
+    IDS_STRING_ENCOK        "[i18n][SPANISH] The encrypted file %s has been successfully created."
+    IDS_STRING_DECOK        "[i18n][SPANISH] The decrypted file %s has been successfully created."
+    IDS_STRING_VERSCHLUESSELN "[i18n][SPANISH] Encrypt"
+    IDS_STRING_ENTSCHLUESSELN "[i18n][SPANISH] Decrypt"
+    IDS_STRING_FILEERROR    "[i18n][SPANISH] Error opening %s: %s\n"
+    IDS_STRING_NOMEMORY     "[i18n][SPANISH] Out of virtual memory."
+    IDS_STRING_KEYERROR     "[i18n][SPANISH] Wrong key or file %s corrupt."
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_ENCERROR     "File encryption error: %s"
-    IDS_STRING_VERSION      "This file has been encrypted with an older version of AES-Tool. \nPlease use the same version for decrypting."
-    IDS_STRING_AES_TOOL_VERSION "AES-Tool 2.6"
-    IDS_STRING_CORRUPT      "This encrypted file is corrupt."
-    IDS_STRING_INVALID_KEY  "Invalid character in key. Please use only 0-9,a-f,A-F."
-    IDS_STRING_KEY_TOO_LONG "Key too long. Maximum AES key length is 256 bits (= 32 bytes = 64 hexadecimal digits)."
+    IDS_STRING_ENCERROR     "[i18n][SPANISH] File encryption error: %s"
+    IDS_STRING_VERSION      "[i18n][SPANISH] This file has been encrypted with an older version of AES-Tool. \nPlease use the same version for decrypting."
+    IDS_STRING_AES_TOOL_VERSION "[i18n][SPANISH] AES-Tool 2.6"
+    IDS_STRING_CORRUPT      "[i18n][SPANISH] This encrypted file is corrupt."
+    IDS_STRING_INVALID_KEY  "[i18n][SPANISH] Invalid character in key. Please use only 0-9,a-f,A-F."
+    IDS_STRING_KEY_TOO_LONG "[i18n][SPANISH] Key too long. Maximum AES key length is 256 bits (= 32 bytes = 64 hexadecimal digits)."
     IDS_STRING_KEY_HEADER_HEX 
-                            "Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]"
-    IDS_STRING_KEY_HEADER_ASCII "Key [at most 32 characters]"
-    IDS_STRING_AES_TOOL_HELP_PREFIX "Help for %s"
+                            "[i18n][SPANISH] Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]"
+    IDS_STRING_KEY_HEADER_ASCII "[i18n][SPANISH] Key [at most 32 characters]"
+    IDS_STRING_AES_TOOL_HELP_PREFIX "[i18n][SPANISH] Help for %s"
 END
 
 #endif    // Spanish resources
