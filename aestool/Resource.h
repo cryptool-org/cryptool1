@@ -22,11 +22,13 @@
 #define IDS_STRING_ENCERROR             112
 #define IDS_STRING_VERSION              113
 #define IDS_STRING_AES_TOOL_VERSION     114
+#define IDS_STRING_AESTOOL              114
 #define IDS_STRING_CORRUPT              115
 #define IDS_STRING_INVALID_KEY          116
 #define IDS_STRING_KEY_TOO_LONG         117
-#define IDS_STRING_AESTOOL              118
+#define IDS_STRING_KEY_HEADER_HEX       118
 #define IDS_STRING_AESTOOL_FILE         119
+#define IDS_STRING_KEY_HEADER_ASCII     119
 #define IDS_STRING_AES_TOOL_HELP_PREFIX 120
 #define IDR_MAINFRAME                   128
 #define IDD_SPLASH                      129
@@ -43,17 +45,20 @@
 #define IDC_RADIO_EXE                   1011
 #define IDC_RADIO_AES                   1012
 #define IDC_BUTTON3                     1013
-#define IDC_RADIO_PSHOW                 1014
-#define IDC_RADIO_PHIDE                 1015
 #define IDC_AES_TOOL_VERSION            1015
+#define IDC_CHECK_SHOW_PASSWORD         1016
+#define IDC_CHECK_ENTER_PASSWORD_AS_HEX 1017
+#define IDC_KEY_HEADER                  1018
+#define IDC_EDIT_KEY_HEX                1019
+#define IDC_EDIT_KEY_ASCII              1020
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        131
+#define _APS_NEXT_RESOURCE_VALUE        130
 #define _APS_NEXT_COMMAND_VALUE         40001
-#define _APS_NEXT_CONTROL_VALUE         1016
+#define _APS_NEXT_CONTROL_VALUE         1020
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

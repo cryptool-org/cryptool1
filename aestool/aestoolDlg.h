@@ -64,10 +64,18 @@ public:
 	CButton	m_CRadioExe;
 	CButton	m_CRadioAes;
 	CEditDropFilename	m_CEditSrc;
+	
+	// this is our control for HEX input
 	CHexEdit	m_CHEditKey;
+	// this is our control for ASCII input
+	CEdit m_EditKey;
+	// this is our memory for ASCII input
+	char m_KeyAscii[32];
+
 	CButton	m_CButtonSrc;
 	int		m_RadioFormat;
-	int		m_PWShowHide;
+	int m_checkShowPassword;
+	int m_checkEnterPasswordAsHex;
 	//}}AFX_DATA
 
 	// Vom Klassenassistenten generierte Überladungen virtueller Funktionen
@@ -93,8 +101,8 @@ protected:
 	afx_msg void OnHelp();
 	afx_msg void EnDisableOK();;
 	afx_msg void OnChangeSrc();
-	afx_msg void OnRadioPWShow();
-	afx_msg void OnRadioPWHide();
+	afx_msg void OnCheckShowPassword();
+	afx_msg void OnCheckEnterPasswordAsHex();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

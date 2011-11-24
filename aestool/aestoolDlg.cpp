@@ -106,7 +106,8 @@ CAestoolDlg::CAestoolDlg(CString key,CString in,CString out,CWnd* pParent /*=NUL
 {
 	//{{AFX_DATA_INIT(CAestoolDlg)
 	m_Format = -1;
-	m_PWShowHide = 0;
+	m_checkShowPassword = 1;
+	m_checkEnterPasswordAsHex = 1;
 	//}}AFX_DATA_INIT
 	// Beachten Sie, dass LoadIcon unter Win32 keinen nachfolgenden DestroyIcon-Aufruf benötigt
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -124,10 +125,12 @@ void CAestoolDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_RADIO_EXE, m_CRadioExe);
 	DDX_Control(pDX, IDC_RADIO_AES, m_CRadioAes);
 	DDX_Control(pDX, IDC_EDIT_SRC, m_CEditSrc);
-	DDX_Control(pDX, IDC_EDIT_KEY, m_CHEditKey);
+	DDX_Control(pDX, IDC_EDIT_KEY_HEX, m_CHEditKey);
+	DDX_Control(pDX, IDC_EDIT_KEY_ASCII, m_EditKey);
 	DDX_Control(pDX, IDC_BUTTON_SRC, m_CButtonSrc);
-	DDX_Radio(pDX, IDC_RADIO_PSHOW, m_PWShowHide);
 	DDX_Radio(pDX, IDC_RADIO_EXE, m_Format);
+	DDX_Check(pDX, IDC_CHECK_SHOW_PASSWORD, m_checkShowPassword);
+	DDX_Check(pDX, IDC_CHECK_ENTER_PASSWORD_AS_HEX, m_checkEnterPasswordAsHex);
 	//}}AFX_DATA_MAP
 }
 
@@ -139,10 +142,11 @@ BEGIN_MESSAGE_MAP(CAestoolDlg, CDialog)
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BUTTON_SRC, OnSucheSrc)
 	ON_BN_CLICKED(IDC_BUTTON3, OnHelp)
-	ON_EN_CHANGE(IDC_EDIT_KEY, EnDisableOK)
+	ON_EN_CHANGE(IDC_EDIT_KEY_HEX, EnDisableOK)
+	ON_EN_CHANGE(IDC_EDIT_KEY_ASCII, EnDisableOK)
 	ON_EN_CHANGE(IDC_EDIT_SRC, OnChangeSrc)
-	ON_BN_CLICKED(IDC_RADIO_PSHOW, OnRadioPWShow)
-	ON_BN_CLICKED(IDC_RADIO_PHIDE, OnRadioPWHide)
+	ON_BN_CLICKED(IDC_CHECK_SHOW_PASSWORD, OnCheckShowPassword)
+	ON_BN_CLICKED(IDC_CHECK_ENTER_PASSWORD_AS_HEX, OnCheckEnterPasswordAsHex)
 	ON_BN_CLICKED(IDC_RADIO_EXE, OnRadioFormat)
 	ON_BN_CLICKED(IDC_RADIO_AES, OnRadioFormat)
 	//}}AFX_MSG_MAP
@@ -158,6 +162,10 @@ BOOL CAestoolDlg::OnInitDialog()
 	// set the default dialog title (i.e. "AES-Tool 2.5.1")
 	this->SetWindowText(CAestoolApp::getAESToolVersionString());
 
+	// call the event handlers for both check boxes to make sure the UI is adjusted accordingly
+	OnCheckShowPassword();
+	OnCheckEnterPasswordAsHex();
+	
 	// Hinzufügen des Menübefehls "Info..." zum Systemmenü.
 
 	// IDM_ABOUTBOX muss sich im Bereich der Systembefehle befinden.
@@ -186,8 +194,13 @@ BOOL CAestoolDlg::OnInitDialog()
 	
 	m_CButtonOK.EnableWindow(FALSE);
 
+	// initialize key field
 	m_CHEditKey.SetWindowText(m_CMD_inKey);
-	m_CHEditKey.SetLimitText(95);
+	// limit key field (HEX)
+	m_CHEditKey.SetLimitText(64);
+	// limit key field (ASCII)
+	m_EditKey.SetLimitText(32);
+
 	// EXEFile bestimmen
 	GetModuleFileName(GetModuleHandle(NULL), EXEName.GetBuffer(512), 511);
 	EXEName.ReleaseBuffer();
@@ -276,21 +289,63 @@ void CAestoolDlg::OnSucheSrc()
 	m_CEditSrc.SetWindowText(Dlg.GetPathName());
 	int curPos = Dlg.GetPathName().GetLength();
 	m_CEditSrc.SetSel(curPos, curPos);
-	if (m_CHEditKey.BinLen == 0)
-		m_CHEditKey.SetFocus();
-	else 
-		m_CButtonOK.SetFocus();
-	//OnChangeSrc() does the real work
+
+	// ASCII
+	if(m_checkEnterPasswordAsHex == 0) {
+		if(m_EditKey.GetWindowTextLength() > 0) {
+			m_CButtonOK.SetFocus();
+		}
+		else {
+			m_EditKey.SetFocus();
+		}
+	}
+	// HEX
+	else {
+		if(m_CHEditKey.GetWindowTextLength() > 0) {
+			m_CButtonOK.SetFocus();
+		}
+		else {
+			m_CHEditKey.SetFocus();
+		}
+	}
 }
 
 void CAestoolDlg::OnOK() 
 {
-	
-	UpdateData(TRUE); // fetch m_Format
+	UpdateData(TRUE);
+
+	// the key (void pointer and length)
+	void *keyData = 0;
+	int keyLength = 0;
+
+	// flomar, 11/24/2011: changes due to the new ASCII edit field; handle HEX 
+	// and ASCII separately (not just here, but everywhere in this dialog), and 
+	// then set the "keyData" and "keyLength" (see above) for encryption/decryption	
+
+	// ASCII
+	if(m_checkEnterPasswordAsHex == 0) {
+		// null the key
+		memset(m_KeyAscii, 0, 32);
+		// get the user input
+		CString keyTemp; m_EditKey.GetWindowText(keyTemp);
+		// copy (the first) 32 bytes from user input into our key
+		memcpy(m_KeyAscii, keyTemp.GetBuffer(), (keyTemp.GetLength() > 32 ? 32 : keyTemp.GetLength()));
+		// set key data and key length
+
+		keyData = m_KeyAscii;
+		keyLength = m_EditKey.GetWindowTextLength();
+
+	}
+	// HEX
+	else {													
+		// set key data and key length
+		keyData = m_CHEditKey.BinData;
+		keyLength = m_CHEditKey.BinLen;
+	}
 
 	InfoBlock infoblock;
 	if (m_SrcInfo.isEncrypted())
-		switch (infoblock.decrypt(m_SrcInfo,m_CHEditKey.BinData,m_CHEditKey.BinLen)) {
+		switch (infoblock.decrypt(m_SrcInfo,keyData,keyLength)) {
 		case InfoBlock::CORRUPT:
 			char stringBuffer[2048+1];
 			char stringErrorMessage[2048+1];
@@ -299,7 +354,8 @@ void CAestoolDlg::OnOK()
 			LoadString(AfxGetInstanceHandle(), IDS_STRING_KEYERROR, stringBuffer, 2048);
 			sprintf(stringErrorMessage, stringBuffer, m_SrcInfo.getName().GetBuffer());
 			AfxMessageBox(stringErrorMessage, MB_OK);
-			m_CHEditKey.SetSel(0,-1); m_CHEditKey.SetFocus();
+			if(m_checkEnterPasswordAsHex == 0) { m_EditKey.SetSel(0, -1); m_EditKey.SetFocus(); }
+			else { m_CHEditKey.SetSel(0,-1); m_CHEditKey.SetFocus(); }
 			return;
 		case InfoBlock::NOMEM:
 			AfxMessageBox(IDS_STRING_NOMEMORY,MB_OK);
@@ -326,24 +382,22 @@ void CAestoolDlg::OnOK()
 	CString text = dstname;
 	bool success;
 	unsigned id;
+	
 	if(m_SrcInfo.isEncrypted()) {
-		success = AesToolDecrypt(m_CHEditKey.BinData,m_CHEditKey.BinLen,
-								 m_SrcInfo,dstname,text);
+		success = AesToolDecrypt(keyData, keyLength, m_SrcInfo, dstname, text);
 		id = success ? IDS_STRING_DECOK : IDS_STRING_DECERROR;
-	} else {
-		success = AesToolEncrypt(m_CHEditKey.BinData,m_CHEditKey.BinLen,
-								 m_SrcInfo,dstname,
-								 (m_Format == 0 ? (LPCTSTR)EXEName : 0),
-								 text);
+	}
+	else {
+		success = AesToolEncrypt(keyData, keyLength, m_SrcInfo, dstname, (m_Format == 0 ? (LPCTSTR)EXEName : 0), text);
 		id = success ? IDS_STRING_ENCOK : IDS_STRING_ENCERROR;
 	}
-	CString msg;
-	msg.Format(id,text);
 
 	// flomar, 02/11/2010
 	// the default behavior of afx message boxes is misleading in this particular instance: we want 
 	// a simple "notification icon" in case of a successful encryption/decryption, otherwise we go 
 	// with the "warning sign" (which is the default behavior)
+	CString msg;
+	msg.Format(id,text);
 	if(success) AfxMessageBox(msg, MB_OK|MB_ICONINFORMATION);
 	else AfxMessageBox(msg, MB_OK);
 }
@@ -362,9 +416,23 @@ void CAestoolDlg::OnHelp()
 
 void CAestoolDlg::EnDisableOK()
 {
-	bool enable = 
-		m_CHEditKey.GetWindowTextLength() > 0 &&
-		m_SrcInfo.exists();
+	// we enable the encrypt button only if...
+	//  a) we're in HEX mode and m_CHEditKey is not empty, AND m_SrcInfo exists
+	//  b) we're in ASCII mode and m_EditKey is not empty, AND m_SrcInfo exists
+	bool enable = false;
+	// check for ASCII mode
+	if(m_checkEnterPasswordAsHex == 0) {
+		if(m_EditKey.GetWindowTextLength() > 0 && m_SrcInfo.exists()) {
+			enable = true;
+		}
+	}
+	// check for HEX mode
+	else {
+		if(m_CHEditKey.GetWindowTextLength() > 0 && m_SrcInfo.exists()) {
+			enable = true;
+		}
+	}
+	// enable or disable the encrypt button
 	m_CButtonOK.EnableWindow(enable);
 }
 
@@ -408,23 +476,46 @@ void CAestoolDlg::OnChangeSrc()	// wird aufgerufen, wenn der Benutzer die Quelld
 	m_CRadioAes.EnableWindow(!encrypted);
 }
 
-void CAestoolDlg::OnRadioPWShow() 
+void CAestoolDlg::OnCheckShowPassword() 
 {
-	m_CHEditKey.SetPasswordChar(0);
-	m_CHEditKey.Invalidate();
-	// set the focus to the password field
-	m_CHEditKey.SetFocus();
-
-}
-
-void CAestoolDlg::OnRadioPWHide() 
-{
-	m_CHEditKey.SetPasswordChar('*');
+	UpdateData(true);
+	if(m_checkShowPassword == 0) m_CHEditKey.SetPasswordChar('*');
+	else m_CHEditKey.SetPasswordChar(0);
 	m_CHEditKey.Invalidate();
 	// set the focus to the password field
 	m_CHEditKey.SetFocus();
 }
 
+void CAestoolDlg::OnCheckEnterPasswordAsHex()
+{
+	UpdateData(true);
+
+	// set the key header (either HEX or ASCII) according to "m_checkEnterPasswordAsHex"
+	CString stringKeyHeader;
+	if(m_checkEnterPasswordAsHex == 0) stringKeyHeader.LoadString(IDS_STRING_KEY_HEADER_ASCII);
+	else stringKeyHeader.LoadString(IDS_STRING_KEY_HEADER_HEX);
+	CWnd *windowKeyHeader = GetDlgItem(IDC_KEY_HEADER);
+	if(windowKeyHeader != 0) windowKeyHeader->SetWindowTextA(stringKeyHeader);
+	
+	// show/hide HEX or ASCII edit field
+	CWnd *windowEditHex = GetDlgItem(IDC_EDIT_KEY_HEX);
+	CWnd *windowEditAscii = GetDlgItem(IDC_EDIT_KEY_ASCII);
+	if(m_checkEnterPasswordAsHex == 0) {	
+		if(windowEditHex != 0) windowEditHex->ShowWindow(SW_HIDE);
+		if(windowEditAscii != 0) windowEditAscii->ShowWindow(SW_SHOW);
+		// set the focus to the ASCII password field
+		m_EditKey.SetFocus();
+	}
+	else {
+		if(windowEditHex != 0) windowEditHex->ShowWindow(SW_SHOW);
+		if(windowEditAscii != 0) windowEditAscii->ShowWindow(SW_HIDE);
+		// set the focus to the HEX password field
+		m_CHEditKey.SetFocus();
+	}
+	
+	// make sure the encrypt button is updated
+	EnDisableOK();
+}
 
 CString CAestoolDlg::defaultDstName(SrcInfo *si, InfoBlock *ib,bool selfextracting /* = true*/)
 // ib has to be defined only if si->isEncrypted()
