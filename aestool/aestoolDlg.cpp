@@ -31,6 +31,7 @@
 #include "help.h"
 #include "direct.h"
 #include <stdio.h>
+#include <vector>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -108,6 +109,7 @@ CAestoolDlg::CAestoolDlg(CString key,CString in,CString out,CWnd* pParent /*=NUL
 	m_Format = -1;
 	m_checkShowPassword = 1;
 	m_checkEnterPasswordAsHex = 1;
+	m_checkSecurelyDeleteSourceFileAfterEncryption = 0;
 	//}}AFX_DATA_INIT
 	// Beachten Sie, dass LoadIcon unter Win32 keinen nachfolgenden DestroyIcon-Aufruf benötigt
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -131,6 +133,7 @@ void CAestoolDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Radio(pDX, IDC_RADIO_EXE, m_Format);
 	DDX_Check(pDX, IDC_CHECK_SHOW_PASSWORD, m_checkShowPassword);
 	DDX_Check(pDX, IDC_CHECK_ENTER_PASSWORD_AS_HEX, m_checkEnterPasswordAsHex);
+	DDX_Check(pDX, IDC_CHECK_SECURELY_DELETE_SOURCE_FILE_AFTER_ENCRYPTION, m_checkSecurelyDeleteSourceFileAfterEncryption);
 	//}}AFX_DATA_MAP
 }
 
@@ -390,6 +393,10 @@ void CAestoolDlg::OnOK()
 	else {
 		success = AesToolEncrypt(keyData, keyLength, m_SrcInfo, dstname, (m_Format == 0 ? (LPCTSTR)EXEName : 0), text);
 		id = success ? IDS_STRING_ENCOK : IDS_STRING_ENCERROR;
+		// flomar, 11/25/2011: in case we have a successful encryption and the 
+		// appropriate check box is checked, we try to securely delete the source file
+		if(success && m_checkSecurelyDeleteSourceFileAfterEncryption != 0)
+			securelyDeleteSourceFile();
 	}
 
 	// flomar, 02/11/2010
@@ -401,7 +408,6 @@ void CAestoolDlg::OnOK()
 	if(success) AfxMessageBox(msg, MB_OK|MB_ICONINFORMATION);
 	else AfxMessageBox(msg, MB_OK);
 }
-
 
 void CAestoolDlg::OnRadioFormat() 
 {
@@ -434,6 +440,16 @@ void CAestoolDlg::EnDisableOK()
 	}
 	// enable or disable the encrypt button
 	m_CButtonOK.EnableWindow(enable);
+}
+
+void CAestoolDlg::EnDisableCheckSecurelyDeleteSourceFileAfterEncryption()
+{
+	// enable/disable checkbox for securely deleting source file after encryption
+	CWnd *window = GetDlgItem(IDC_CHECK_SECURELY_DELETE_SOURCE_FILE_AFTER_ENCRYPTION);
+	if(!window) return;
+	// find out whether the source file at hand is encrypted
+	bool encrypted = m_SrcInfo.isEncrypted();
+	window->EnableWindow(!encrypted);
 }
 
 void CAestoolDlg::OnChangeSrc()	// wird aufgerufen, wenn der Benutzer die Quelldatei von Hand
@@ -474,6 +490,9 @@ void CAestoolDlg::OnChangeSrc()	// wird aufgerufen, wenn der Benutzer die Quelld
 	// enable/disable direction radio buttons
 	m_CRadioExe.EnableWindow(!encrypted);
 	m_CRadioAes.EnableWindow(!encrypted);
+
+	// also, make sure the check box for securely deleting the source file is enabled/disabled
+	EnDisableCheckSecurelyDeleteSourceFileAfterEncryption();
 }
 
 void CAestoolDlg::OnCheckShowPassword() 
@@ -558,6 +577,50 @@ CString CAestoolDlg::defaultDstName(SrcInfo *si, InfoBlock *ib,bool selfextracti
 	return dstname;
 }			
 
+void CAestoolDlg::securelyDeleteSourceFile()
+{
+	// flomar, 11/25/2011: this function is supposed to "securely delete" the source file after encryption; 
+	// however, I'm going with a very basic approach as I simply overwrite the source file a couple of times 
+	// with different patterns before finally deleting it; for a more sophisticated solution you might want 
+	// to check out Eraser (http://www.heidi.ie/eraser/)
 
+	// this is a list of bytes that define which bytes the source file is overwritten with in 
+	// each pass; don't ask me why I chose this exact compilation, it just looks neat
+	std::vector<int> listPatterns;
+	listPatterns.push_back(0x00);
+	listPatterns.push_back(0xF0);
+	listPatterns.push_back(0x0F);
+	listPatterns.push_back(0xFF);
 
-
+	// the buffer is used to copy chunks of data to the source file
+	const size_t BUFFERSIZE = 4096;
+	char buffer[BUFFERSIZE];
+	// try to open the source file exclusively
+	CFile file;
+	if(file.Open(m_SrcInfo.getName().GetBuffer(), CFile::typeBinary | CFile::modeWrite | CFile::shareExclusive)) {
+		// overwrite the file using the list of patterns above
+		const ULONGLONG length = file.GetLength();
+		for(unsigned int p=0; p<listPatterns.size(); p++) {
+			memset(buffer, listPatterns[p], BUFFERSIZE);
+			file.SeekToBegin();
+			ULONGLONG numberOfBytesWritten = 0;
+			ULONGLONG numberOfBytesToBeWritten = BUFFERSIZE;
+			while(numberOfBytesWritten < length) {
+				if(numberOfBytesWritten + numberOfBytesToBeWritten > length) {
+					numberOfBytesToBeWritten = length - numberOfBytesWritten;
+				}
+				file.Write(&buffer, (size_t)numberOfBytesToBeWritten);
+				numberOfBytesWritten += numberOfBytesToBeWritten;
+			}
+			file.Flush();
+		}
+		file.Close();
+		// don't forget to actually remove the file
+		CFile::Remove(m_SrcInfo.getName());
+	}
+	else {
+		CString message;
+		message.Format(IDS_STRING_FILE_DELETION_FAILED, m_SrcInfo.getName());
+		MessageBox(message, "CrypTool", MB_OK);
+	}
+}

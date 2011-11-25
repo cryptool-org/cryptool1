@@ -30,6 +30,7 @@
 #define IDS_STRING_AESTOOL_FILE         119
 #define IDS_STRING_KEY_HEADER_ASCII     119
 #define IDS_STRING_AES_TOOL_HELP_PREFIX 120
+#define IDS_STRING_FILE_DELETION_FAILED 121
 #define IDR_MAINFRAME                   128
 #define IDD_SPLASH                      129
 #define IDD_HELP                        130
@@ -51,6 +52,7 @@
 #define IDC_KEY_HEADER                  1018
 #define IDC_EDIT_KEY_HEX                1019
 #define IDC_EDIT_KEY_ASCII              1020
+#define IDC_CHECK_SECURELY_DELETE_SOURCE_FILE_AFTER_ENCRYPTION 1022
 
 // Next default values for new objects
 // 
@@ -58,7 +60,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        130
 #define _APS_NEXT_COMMAND_VALUE         40001
-#define _APS_NEXT_CONTROL_VALUE         1020
+#define _APS_NEXT_CONTROL_VALUE         1023
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

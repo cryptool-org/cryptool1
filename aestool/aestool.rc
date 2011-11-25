@@ -99,21 +99,23 @@ CAPTION "[i18n][POLISH] AES-Tool 2.6"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT_KEY_HEX,26,67,266,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_SRC,26,107,200,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
-    PUSHBUTTON      "Search...",IDC_BUTTON_SRC,232,104,60,18
-    CONTROL         "Selfextracting and encrypted",IDC_RADIO_EXE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,154,103,10
-    CONTROL         "Encrypted",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,170,154,80,10
+    EDITTEXT        IDC_EDIT_SRC,26,105,200,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
+    PUSHBUTTON      "Search...",IDC_BUTTON_SRC,232,102,60,18
+    CONTROL         "Selfextracting and encrypted",IDC_RADIO_EXE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,155,103,10
+    CONTROL         "Encrypted",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,170,155,80,10
     DEFPUSHBUTTON   "Encrypt",IDOK,15,180,60,18
     PUSHBUTTON      "Exit",IDCANCEL,184,180,60,18
     PUSHBUTTON      "Help",IDC_BUTTON3,245,180,60,18
     LTEXT           "Encrypt a file",IDC_STATIC_TITLE,17,9,80,8
     GROUPBOX        "Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",IDC_KEY_HEADER,15,28,290,58
-    GROUPBOX        "Input file",IDC_STATIC,15,94,290,38
-    GROUPBOX        "Output format",IDC_STATIC,15,142,290,30
-    EDITTEXT        IDC_EDIT_KEY_ASCII,26,67,266,12,ES_AUTOHSCROLL
+    GROUPBOX        "Input file",IDC_STATIC,15,92,290,45
+    GROUPBOX        "Output format",IDC_STATIC,15,143,290,30
     CONTROL         "Show entered key",IDC_CHECK_SHOW_PASSWORD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,42,73,10
     CONTROL         "Enter key as hex",IDC_CHECK_ENTER_PASSWORD_AS_HEX,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,53,69,10
+    EDITTEXT        IDC_EDIT_KEY_ASCII,26,67,266,12,ES_AUTOHSCROLL
+    CONTROL         "Securely delete input file after encryption",IDC_CHECK_SECURELY_DELETE_SOURCE_FILE_AFTER_ENCRYPTION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,121,143,10
 END
 
 
@@ -266,6 +268,8 @@ BEGIN
                             "[i18n][POLISH] Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]"
     IDS_STRING_KEY_HEADER_ASCII "[i18n][POLISH] Key [at most 32 characters]"
     IDS_STRING_AES_TOOL_HELP_PREFIX "[i18n][POLISH] Help for %s"
+    IDS_STRING_FILE_DELETION_FAILED 
+                            "[i18n][POLISH] The file %s could not be deleted."
 END
 
 #endif    // Polish resources
@@ -360,21 +364,23 @@ CAPTION "[i18n][SERBIAN] AES-Tool 2.6"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT_KEY_HEX,26,67,266,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_SRC,26,107,200,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
-    PUSHBUTTON      "Search...",IDC_BUTTON_SRC,232,104,60,18
-    CONTROL         "Selfextracting and encrypted",IDC_RADIO_EXE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,154,103,10
-    CONTROL         "Encrypted",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,170,154,80,10
+    EDITTEXT        IDC_EDIT_SRC,26,105,200,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
+    PUSHBUTTON      "Search...",IDC_BUTTON_SRC,232,102,60,18
+    CONTROL         "Selfextracting and encrypted",IDC_RADIO_EXE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,155,103,10
+    CONTROL         "Encrypted",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,170,155,80,10
     DEFPUSHBUTTON   "Encrypt",IDOK,15,180,60,18
     PUSHBUTTON      "Exit",IDCANCEL,184,180,60,18
     PUSHBUTTON      "Help",IDC_BUTTON3,245,180,60,18
     LTEXT           "Encrypt a file",IDC_STATIC_TITLE,17,9,80,8
     GROUPBOX        "Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",IDC_KEY_HEADER,15,28,290,58
-    GROUPBOX        "Input file",IDC_STATIC,15,94,290,38
-    GROUPBOX        "Output format",IDC_STATIC,15,142,290,30
-    EDITTEXT        IDC_EDIT_KEY_ASCII,26,67,266,12,ES_AUTOHSCROLL
+    GROUPBOX        "Input file",IDC_STATIC,15,92,290,45
+    GROUPBOX        "Output format",IDC_STATIC,15,143,290,30
     CONTROL         "Show entered key",IDC_CHECK_SHOW_PASSWORD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,42,73,10
     CONTROL         "Enter key as hex",IDC_CHECK_ENTER_PASSWORD_AS_HEX,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,53,69,10
+    EDITTEXT        IDC_EDIT_KEY_ASCII,26,67,266,12,ES_AUTOHSCROLL
+    CONTROL         "Securely delete input file after encryption",IDC_CHECK_SECURELY_DELETE_SOURCE_FILE_AFTER_ENCRYPTION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,121,143,10
 END
 
 
@@ -541,6 +547,8 @@ BEGIN
                             "[i18n][SERBIAN] Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]"
     IDS_STRING_KEY_HEADER_ASCII "[i18n][SERBIAN] Key [at most 32 characters]"
     IDS_STRING_AES_TOOL_HELP_PREFIX "[i18n][SERBIAN] Help for %s"
+    IDS_STRING_FILE_DELETION_FAILED 
+                            "[i18n][SERBIAN] The file %s could not be deleted."
 END
 
 #endif    // Serbian (Latin) resources
@@ -588,23 +596,25 @@ CAPTION "AES-Tool 2.6"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT_KEY_HEX,26,67,266,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_SRC,26,107,200,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
-    PUSHBUTTON      "Durchsuchen...",IDC_BUTTON_SRC,232,104,60,18
+    EDITTEXT        IDC_EDIT_SRC,26,105,200,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
+    PUSHBUTTON      "Durchsuchen...",IDC_BUTTON_SRC,232,102,60,18
     CONTROL         "Selbstextrahierend und verschlüsselt",IDC_RADIO_EXE,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,26,154,131,10
-    CONTROL         "Verschlüsselt",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,170,154,57,10
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,26,155,131,10
+    CONTROL         "Verschlüsselt",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,170,155,57,10
     DEFPUSHBUTTON   "Verschlüsseln",IDOK,15,180,62,18
     PUSHBUTTON      "Beenden",IDCANCEL,184,180,60,18
     PUSHBUTTON      "Hilfe",IDC_BUTTON3,245,180,60,18
     LTEXT           "Verschlüsseln einer Datei",IDC_STATIC_TITLE,15,9,80,8
     GROUPBOX        "Schlüssel [maximal 64 Hexzeichen (0, 1, ..., 8, 9, A, B, C, D, E, F)]",IDC_KEY_HEADER,15,28,290,58
-    GROUPBOX        "Eingabedatei",IDC_STATIC,15,94,290,38
-    GROUPBOX        "Ausgabeformat",IDC_STATIC,15,142,290,30
+    GROUPBOX        "Eingabedatei",IDC_STATIC,15,92,290,45
+    GROUPBOX        "Ausgabeformat",IDC_STATIC,15,143,290,30
     CONTROL         "Eingegebenen Schlüssel anzeigen",IDC_CHECK_SHOW_PASSWORD,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,42,125,10
     CONTROL         "Schlüssel hexadezimal eingeben",IDC_CHECK_ENTER_PASSWORD_AS_HEX,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,53,118,10
     EDITTEXT        IDC_EDIT_KEY_ASCII,26,67,266,12,ES_AUTOHSCROLL
+    CONTROL         "Sicheres Löschen der Eingabedatei nach Verschlüsselung",IDC_CHECK_SECURELY_DELETE_SOURCE_FILE_AFTER_ENCRYPTION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,121,199,10
 END
 
 IDD_SPLASH DIALOGEX 0, 0, 211, 122
@@ -798,6 +808,8 @@ BEGIN
                             "Schlüssel [maximal 64 Hexzeichen (0, 1, ..., 8, 9, A, B, C, D, E, F)]"
     IDS_STRING_KEY_HEADER_ASCII "Schlüssel [maximal 32 Zeichen]"
     IDS_STRING_AES_TOOL_HELP_PREFIX "Hilfe zu %s"
+    IDS_STRING_FILE_DELETION_FAILED 
+                            "Die Datei %s konnte nicht gelöscht werden."
 END
 
 #endif    // German (Germany) resources
@@ -845,21 +857,23 @@ CAPTION "AES-Tool 2.6"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT_KEY_HEX,26,67,266,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_SRC,26,107,200,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
-    PUSHBUTTON      "Search...",IDC_BUTTON_SRC,232,104,60,18
-    CONTROL         "Selfextracting and encrypted",IDC_RADIO_EXE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,154,103,10
-    CONTROL         "Encrypted",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,170,154,80,10
+    EDITTEXT        IDC_EDIT_SRC,26,105,200,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
+    PUSHBUTTON      "Search...",IDC_BUTTON_SRC,232,102,60,18
+    CONTROL         "Selfextracting and encrypted",IDC_RADIO_EXE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,155,103,10
+    CONTROL         "Encrypted",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,170,155,80,10
     DEFPUSHBUTTON   "Encrypt",IDOK,15,180,60,18
     PUSHBUTTON      "Exit",IDCANCEL,184,180,60,18
     PUSHBUTTON      "Help",IDC_BUTTON3,245,180,60,18
     LTEXT           "Encrypt a file",IDC_STATIC_TITLE,17,9,80,8
     GROUPBOX        "Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",IDC_KEY_HEADER,15,28,290,58
-    GROUPBOX        "Input file",IDC_STATIC,15,94,290,38
-    GROUPBOX        "Output format",IDC_STATIC,15,142,290,30
+    GROUPBOX        "Input file",IDC_STATIC,15,92,290,45
+    GROUPBOX        "Output format",IDC_STATIC,15,143,290,30
     CONTROL         "Show entered key",IDC_CHECK_SHOW_PASSWORD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,42,73,10
     CONTROL         "Enter key as hex",IDC_CHECK_ENTER_PASSWORD_AS_HEX,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,53,69,10
     EDITTEXT        IDC_EDIT_KEY_ASCII,26,67,266,12,ES_AUTOHSCROLL
+    CONTROL         "Securely delete input file after encryption",IDC_CHECK_SECURELY_DELETE_SOURCE_FILE_AFTER_ENCRYPTION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,121,143,10
 END
 
 IDD_HELP DIALOGEX 0, 0, 500, 350
@@ -1085,6 +1099,7 @@ BEGIN
                             "Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]"
     IDS_STRING_KEY_HEADER_ASCII "Key [at most 32 characters]"
     IDS_STRING_AES_TOOL_HELP_PREFIX "Help for %s"
+    IDS_STRING_FILE_DELETION_FAILED "The file %s could not be deleted."
 END
 
 #endif    // English (U.K.) resources
@@ -1179,21 +1194,23 @@ CAPTION "[i18n][SPANISH] AES-Tool 2.6"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT_KEY_HEX,26,67,266,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_SRC,26,107,200,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
-    PUSHBUTTON      "Search...",IDC_BUTTON_SRC,232,104,60,18
-    CONTROL         "Selfextracting and encrypted",IDC_RADIO_EXE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,154,103,10
-    CONTROL         "Encrypted",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,170,154,80,10
+    EDITTEXT        IDC_EDIT_SRC,26,105,200,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
+    PUSHBUTTON      "Search...",IDC_BUTTON_SRC,232,102,60,18
+    CONTROL         "Selfextracting and encrypted",IDC_RADIO_EXE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,155,103,10
+    CONTROL         "Encrypted",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,170,155,80,10
     DEFPUSHBUTTON   "Encrypt",IDOK,15,180,60,18
     PUSHBUTTON      "Exit",IDCANCEL,184,180,60,18
     PUSHBUTTON      "Help",IDC_BUTTON3,245,180,60,18
     LTEXT           "Encrypt a file",IDC_STATIC_TITLE,17,9,80,8
     GROUPBOX        "Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",IDC_KEY_HEADER,15,28,290,58
-    GROUPBOX        "Input file",IDC_STATIC,15,94,290,38
-    GROUPBOX        "Output format",IDC_STATIC,15,142,290,30
-    EDITTEXT        IDC_EDIT_KEY_ASCII,26,67,266,12,ES_AUTOHSCROLL
+    GROUPBOX        "Input file",IDC_STATIC,15,92,290,45
+    GROUPBOX        "Output format",IDC_STATIC,15,143,290,30
     CONTROL         "Show entered key",IDC_CHECK_SHOW_PASSWORD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,42,73,10
     CONTROL         "Enter key as hex",IDC_CHECK_ENTER_PASSWORD_AS_HEX,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,53,69,10
+    EDITTEXT        IDC_EDIT_KEY_ASCII,26,67,266,12,ES_AUTOHSCROLL
+    CONTROL         "Securely delete input file after encryption",IDC_CHECK_SECURELY_DELETE_SOURCE_FILE_AFTER_ENCRYPTION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,121,143,10
 END
 
 
@@ -1329,6 +1346,8 @@ BEGIN
                             "[i18n][SPANISH] Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]"
     IDS_STRING_KEY_HEADER_ASCII "[i18n][SPANISH] Key [at most 32 characters]"
     IDS_STRING_AES_TOOL_HELP_PREFIX "[i18n][SPANISH] Help for %s"
+    IDS_STRING_FILE_DELETION_FAILED 
+                            "[i18n][SPANISH] The file %s could not be deleted."
 END
 
 #endif    // Spanish resources

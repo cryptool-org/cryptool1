@@ -76,6 +76,7 @@ public:
 	int		m_RadioFormat;
 	int m_checkShowPassword;
 	int m_checkEnterPasswordAsHex;
+	int m_checkSecurelyDeleteSourceFileAfterEncryption;
 	//}}AFX_DATA
 
 	// Vom Klassenassistenten generierte Überladungen virtueller Funktionen
@@ -99,12 +100,15 @@ protected:
 	virtual void OnOK();
 	afx_msg void OnRadioFormat();
 	afx_msg void OnHelp();
-	afx_msg void EnDisableOK();;
+	afx_msg void EnDisableOK();
+	afx_msg void EnDisableCheckSecurelyDeleteSourceFileAfterEncryption();
 	afx_msg void OnChangeSrc();
 	afx_msg void OnCheckShowPassword();
 	afx_msg void OnCheckEnterPasswordAsHex();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
+	void securelyDeleteSourceFile();
 };
 
 //{{AFX_INSERT_LOCATION}}
