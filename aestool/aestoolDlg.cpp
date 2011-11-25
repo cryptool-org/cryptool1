@@ -479,11 +479,27 @@ void CAestoolDlg::OnChangeSrc()	// wird aufgerufen, wenn der Benutzer die Quelld
 void CAestoolDlg::OnCheckShowPassword() 
 {
 	UpdateData(true);
-	if(m_checkShowPassword == 0) m_CHEditKey.SetPasswordChar('*');
-	else m_CHEditKey.SetPasswordChar(0);
-	m_CHEditKey.Invalidate();
+	
+	if(m_checkShowPassword == 0) {
+		m_CHEditKey.SetPasswordChar('*');
+		m_CHEditKey.Invalidate();
+		m_EditKey.SetPasswordChar('*');
+		m_EditKey.Invalidate();
+	}
+	else {
+		m_CHEditKey.SetPasswordChar(0);
+		m_CHEditKey.Invalidate();
+		m_EditKey.SetPasswordChar(0);
+		m_EditKey.Invalidate();
+	}
+
 	// set the focus to the password field
-	m_CHEditKey.SetFocus();
+	if(m_checkEnterPasswordAsHex == 0) {
+		m_EditKey.SetFocus();
+	}
+	else {
+		m_CHEditKey.SetFocus();
+	}
 }
 
 void CAestoolDlg::OnCheckEnterPasswordAsHex()
