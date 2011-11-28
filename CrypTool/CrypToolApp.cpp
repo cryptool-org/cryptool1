@@ -1656,10 +1656,15 @@ void CCrypToolApp::OnHillAuto()
 
 void CCrypToolApp::loadMainWindowPositionFromRegistry()
 {
+	// initialize some variables
 	unsigned long mainWindowPositionX = 0;
 	unsigned long mainWindowPositionY = 0;
 	unsigned long mainWindowWidth = 0;
 	unsigned long mainWindowHeight = 0;
+
+	// get the current screen coordinates ("the desktop size")
+	RECT screenRect;
+	GetWindowRect(GetDesktopWindow(), &screenRect);
 
 	// try to load the main window position from the previous launch
 	if(ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS_OPTIONS, "StartingOptions")) {
@@ -1667,32 +1672,33 @@ void CCrypToolApp::loadMainWindowPositionFromRegistry()
 		CT_READ_REGISTRY_DEFAULT(mainWindowPositionY, "MainWindowPositionY", mainWindowPositionY);
 		CT_READ_REGISTRY_DEFAULT(mainWindowWidth, "MainWindowWidth", mainWindowWidth);
 		CT_READ_REGISTRY_DEFAULT(mainWindowHeight, "MainWindowHeight", mainWindowHeight);
+		CT_CLOSE_REGISTRY();
 
-		// now, if ALL values are zero, something went wrong and we return without moving the window
-		if(mainWindowPositionX == 0 && mainWindowPositionY == 0 && mainWindowWidth == 0 && mainWindowHeight == 0)
-			return;
-
-		// flomar, 11/07/2011: when the window was positioned outside of the visible desktop area 
-		// (in other words "dragged off the screen") on application exit, the registry values could 
-		// get messed up due to overflows-- we fix this with a simple security check for values 
-		// smaller than zero or larger than the respective screen width and height
-		const int threshold = 10;
-		RECT screenRect;
-		GetWindowRect(GetDesktopWindow(), &screenRect);
-		if(mainWindowPositionX < 0 || mainWindowPositionX >= ((screenRect.right - screenRect.left) - threshold))
+		// if ALL values are zero, something went wrong and we open the window with 1/4 of the screen size
+		if(mainWindowPositionX == 0 && mainWindowPositionY == 0 && mainWindowWidth == 0 && mainWindowHeight == 0) {
 			mainWindowPositionX = 0;
-		if(mainWindowPositionY < 0 || mainWindowPositionY >= ((screenRect.bottom - screenRect.top) - threshold))
 			mainWindowPositionY = 0;
+			mainWindowWidth = (screenRect.right - screenRect.left) / 2;
+			mainWindowHeight = (screenRect.bottom - screenRect.top) / 2;
+		}
+		else {
+			// flomar, 11/07/2011: when the window was positioned outside of the visible desktop area 
+			// (in other words "dragged off the screen") on application exit, the registry values could 
+			// get messed up due to overflows-- we fix this with a simple security check for values 
+			// smaller than zero or larger than the respective screen width and height
+			const int threshold = 10;
+			if(mainWindowPositionX < 0 || mainWindowPositionX >= ((screenRect.right - screenRect.left) - threshold))
+				mainWindowPositionX = 0;
+			if(mainWindowPositionY < 0 || mainWindowPositionY >= ((screenRect.bottom - screenRect.top) - threshold))
+				mainWindowPositionY = 0;
+		}
 
 		// we return if the pointer to our main window is invalid
 		if(!m_pMainWnd)
 			return;
 
 		// now align the main window
-		m_pMainWnd->SetWindowPos(0, mainWindowPositionX, mainWindowPositionY, mainWindowWidth, mainWindowHeight, 0);
-
-		// close the registry
-		CT_CLOSE_REGISTRY();
+		m_pMainWnd->SetWindowPos(0, mainWindowPositionX, mainWindowPositionY, mainWindowWidth, mainWindowHeight, 0);		
 	}
 	else {
 		// FIXME
@@ -1701,6 +1707,7 @@ void CCrypToolApp::loadMainWindowPositionFromRegistry()
 
 void CCrypToolApp::saveMainWindowPositionToRegistry()
 {
+	// initialize some variables
 	int mainWindowPositionX = 0;
 	int mainWindowPositionY = 0;
 	unsigned long mainWindowWidth = 0;
@@ -1710,13 +1717,15 @@ void CCrypToolApp::saveMainWindowPositionToRegistry()
 	if(ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS_OPTIONS, "StartingOptions")) {
 
 		// we return if the pointer to our main window is invalid
-		if(!m_pMainWnd)
+		if(!m_pMainWnd) {
+			CT_CLOSE_REGISTRY();
 			return;
-
+		}
+		
 		// retrieve the main window rect
 		CRect rect;
-		this->m_pMainWnd->GetWindowRect(&rect);
-
+		m_pMainWnd->GetWindowRect(&rect);
+		
 		// calculate window dimensions
 		mainWindowPositionX = rect.left;
 		mainWindowPositionY = rect.top;
@@ -1740,7 +1749,6 @@ void CCrypToolApp::saveMainWindowPositionToRegistry()
 		CT_WRITE_REGISTRY((unsigned long)mainWindowPositionY, "MainWindowPositionY");
 		CT_WRITE_REGISTRY(mainWindowWidth, "MainWindowWidth");
 		CT_WRITE_REGISTRY(mainWindowHeight, "MainWindowHeight");
-
 		CT_CLOSE_REGISTRY();
 	}
 	else {

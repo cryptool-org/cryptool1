@@ -14,7 +14,7 @@ Language=0x407 Deutsch (Deutschland)
 Title=CrypTool Hilfe
 
 [WINDOWS]
-MainWindow="Hilfe zu CrypTool 1.4.30","cryptool.hhc","CrypTool.hhk","hidd_tipps_and_tricks.html","hidd_tipps_and_tricks.html",,,,,0x62520,,0x307e,[403,268,1106,863],,,,,,,0
+MainWindow="Hilfe zu CrypTool 1.4.31","cryptool.hhc","CrypTool.hhk","hidd_tipps_and_tricks.html","hidd_tipps_and_tricks.html",,,,,0x62520,,0x307e,[403,268,1106,863],,,,,,,0
 
 
 [FILES]
