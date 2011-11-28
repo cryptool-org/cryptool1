@@ -19,32 +19,25 @@
 
 <h3>AES (selbstextrahierend) (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Symmetrisch (modern))</h3>
 
-		<P>Über das eigenständige, zum Paket CrypTool gehörende Programm <B>AES-Tool</B> kann aus 
-			einem Dokument ein selbstextrahierendes Archiv erstellt werden. Das Archiv ist 
-			mit dem Algorithmus AES (Rijndael) verschlüsselt.</P>
-		<P>Wird diese Option in CrypTool ausgewählt, so öffnet sich das Hauptfenster von 
-			AES-Tool.</P>
+<P>Über das eigenständige, zum Paket CrypTool gehörende Programm <B>AES-Tool</B> kann aus einem Dokument ein selbstextrahierendes Archiv erstellt werden. Das Archiv ist mit dem Algorithmus AES (Rijndael) verschlüsselt.</P>
+
+<P>Wird diese Option in CrypTool ausgewählt, so öffnet sich das Hauptfenster von AES-Tool.</P>
 			
-			<img src="images/aesscreenshot.gif" alt="aesscreenshot.gif">
-			
-			<p>Hier kann dann einerseits der Schlüssel in hexadezimaler Form 
-			eingegeben werden. Andererseits ist es möglich, die Ausgabedatei festzulegen.
-		</P>
-		<P>Bei der Ausgabedatei kann unterschieden werden zwischen einer Ausgabe als 
-			verschlüsselte Datei oder als selbstextrahierendes Archiv.
-		</P>
-		<P>Bei der verschlüsselten Datei muss der Empfänger ebenfalls über AES-Tool 
-			verfügen. Das selbstextrahierende Archiv stellt diese Anforderung nicht, dafür 
-			enthält es den kompletten ausführbaren Code und erzeugt damit im Vergleich zur 
-			verschlüsselten Datei eine erheblich größere Ausgabedatei.</P>
-		<P>AES-Tool dient zum Austausch verschlüsselter Daten mit anderen Benutzern. Es 
-			enthält keine Verwaltungskomponente für <a href="schluessel.html">Schlüssel</a>. Diese müssen daher wie bei 
-			allen symmetrischen Verfahren zwischen den Benutzern auf einem sicheren Weg 
-			extra ausgetauscht werden.</P>
-		<P>Das AES-Tool kann auch als eigenständiges Programm (ohne CrypTool) verwendet 
-			werden. <A href="hidd_tipps_and_tricks.html#licence_terms">Lizenzbestimmung und der 
-				Haftungsausschluss</A> sind die gleichen wie beim CrypTool-Paket.</P>
-		<P><B>Bemerkung 1</B>:</P>
+<img src="images/aesscreenshot.gif" alt="aesscreenshot.gif">
+
+<P>Die Funktionalität von AES-Tool ist in drei Bereiche unterteilt:</P>
+
+<UL>
+<LI>Die Gruppierung <B>Schlüssel</B>: Hier können Sie den Schlüssel eingeben. Über die Checkbox <I>Eingegebenen Schlüssel anzeigen</I> können Sie steuern, ob der Schlüssel bei der Eingabe sichtbar ist oder nicht. Mit der Checkbox <I>Schlüssel hexadezimal eingeben</I> legen Sie fest, wie der Schlüssel eingegeben wird (hexadezimal oder als Text).</LI>
+<LI>Die Gruppierung <B>Eingabedatei</B>: Hier können Sie die Eingabedatei festlegen. Wenn Sie die Checkbox <I>Sicheres Löschen der Eingabedatei nach Verschlüsselung</I> markieren, wird die Eingabedatei unwiederbringlich gelöscht. Beachten Sie, dass dieser Vorgang in Abhängigkeit der Größe der zu verschlüsselnden Datei eine lange Zeit in Anspruch nehmen kann, da die Eingabedatei mehrfach überschrieben wird, bevor sie gelöscht wird.</LI>
+<LI>Die Gruppierung <B>Ausgabeformat</B>: Hier können Sie zwischen zwei Formaten für die Ausgabedatei wählen: <I>Selbstextrahierund und verschlüsselt</I> oder <I>Verschlüsselt</I>. Bei einer selbstextrahierenden und verschlüsselten Datei wird der komplette AES-Tool-Programmcode in das Archiv integriert, und so kann das Archiv deutlich größer sein als die Eingabedatei. Während eine verschlüsselte Datei (ohne den AES-Tool-Programmcode) kleiner ist als ein selbstexrahierendes Archiv, braucht der Empfänger ebenfalls AES-Tool zum Entschlüsseln der Datei.</LI>
+</UL>
+
+<P>AES-Tool dient zum Austausch verschlüsselter Daten mit anderen Benutzern. Es enthält keine Verwaltungskomponente für <a href="schluessel.html">Schlüssel</a>. Diese müssen daher wie bei allen symmetrischen Verfahren zwischen den Benutzern auf einem sicheren Weg extra ausgetauscht werden.</P>
+
+<P>Das AES-Tool kann auch als eigenständiges Programm (ohne CrypTool) verwendet werden. <A href="hidd_tipps_and_tricks.html#licence_terms">Lizenzbestimmung und der Haftungsausschluss</A> sind die gleichen wie beim CrypTool-Paket.</P>
+
+	<P><B>Bemerkung 1</B>:</P>
 		<P>Mit dem AES-Tool verschlüsselte Dokumente können in CrypTool <B>nicht</B> über 
 			Menü <B>Ver-/Entschlüsseln \ Symmetrisch \ <A href="hid_crypt_aes_rijndael.html">Rijndael</A></B>
 			entschlüsselt werden.</P>
