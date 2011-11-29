@@ -19,7 +19,7 @@
 
 <h3>AES (self-extracting) (Menu <a href="menu_crypt.html">Encrypt/Decrypt</a> \ Symmetric Encryption (modern))</h3>
 
-<P>Included in the package CrypTool is the separate encryption utility <B>AES-Tool</B>. Using this tool it is possible to convert documents into self-extracting archives. These archives are encrypted using the AES algorithm (Rijndael).</P>
+<P>Included in the package CrypTool is the separate encryption utility <B>AES-Tool</B>. Using this tool it is possible to convert documents into self-extracting archives. These archives are encrypted using the AES algorithm (Rijndael) in CBC mode.</P>
 
 <P>If this option is selected the main window of AES-Tool is opened.</P>
 
@@ -39,9 +39,7 @@
 
 <P><B>Remark 1</B>:</P>
 
-<P>Documents encrypted using the AES-Tool <B>cannot</B> be decrypted via the <A href="menu_crypt.html">Encrypt/Decrypt</A> \ Symmetric \ <A href="hid_crypt_aes_rijndael.html">Rijndael</A> menu.</P>
-
-<P>Accordingly documents encrypted using CrypTool via the <A href="menu_crypt.html">Encrypt/Decrypt</A> \ Symmetric \ <A href="hid_crypt_aes_rijndael.html">Rijndael</A> menu cannot be decrypted with the AES-Tool.</P>
+<P>Documents encrypted using AES-Tool <B>cannot</B> be decrypted via the <A href="menu_crypt.html">Encrypt/Decrypt</A> \ Symmetric \ <A href="hid_crypt_aes_rijndael.html">Rijndael</A> menu. Accordingly, documents encrypted using CrypTool via the <A href="menu_crypt.html">Encrypt/Decrypt</A> \ Symmetric \ <A href="hid_crypt_aes_rijndael.html">Rijndael</A> menu cannot be decrypted with AES-Tool. That is because CrypTool and AES-Tool use different file formats: Files encrypted with AES-Tool may contain extra information in addition to the payload, i.e. the code for the embedded executable.</P>
 
 <P><B>Remark 2</B>:</P>
 

@@ -19,7 +19,7 @@
 
 <h3>AES (selbstextrahierend) (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Symmetrisch (modern))</h3>
 
-<P>Über das eigenständige, zum Paket CrypTool gehörende Programm <B>AES-Tool</B> kann aus einem Dokument ein selbstextrahierendes Archiv erstellt werden. Das Archiv ist mit dem Algorithmus AES (Rijndael) verschlüsselt.</P>
+<P>Über das eigenständige, zum Paket CrypTool gehörende Programm <B>AES-Tool</B> kann aus einem Dokument ein selbstextrahierendes Archiv erstellt werden. Das Archiv wird mit dem Algorithmus AES (Rijndael) im CBC-Modus verschlüsselt.</P>
 
 <P>Wird diese Option in CrypTool ausgewählt, so öffnet sich das Hauptfenster von AES-Tool.</P>
 			
@@ -37,14 +37,9 @@
 
 <P>Das AES-Tool kann auch als eigenständiges Programm (ohne CrypTool) verwendet werden. <A href="hidd_tipps_and_tricks.html#licence_terms">Lizenzbestimmung und der Haftungsausschluss</A> sind die gleichen wie beim CrypTool-Paket.</P>
 
-	<P><B>Bemerkung 1</B>:</P>
-		<P>Mit dem AES-Tool verschlüsselte Dokumente können in CrypTool <B>nicht</B> über 
-			Menü <B>Ver-/Entschlüsseln \ Symmetrisch \ <A href="hid_crypt_aes_rijndael.html">Rijndael</A></B>
-			entschlüsselt werden.</P>
-		<P>Das gleiche gilt im umgekehrten Sinne, d.h. man kann mit dem AES-Tool keine 
-			Dokumente entschlüsseln, die in CrypTool über Menü <B>Ver-/Entschlüsseln \ 
-				Symmetrisch \ <A href="hid_crypt_aes_rijndael.html">Rijndael</A></B> verschlüsselt 
-			wurden.</P>
+<P><B>Bemerkung 1</B>:</P>
+
+<P>Mit dem AES-Tool verschlüsselte Dokumente können in CrypTool <B>nicht</B> über das Menü Ver-/Entschlüsseln \ Symmetrisch \ <A href="hid_crypt_aes_rijndael.html">Rijndael</A> entschlüsselt werden. Das gleiche gilt im umgekehrten Sinne, d.h. man kann mit dem AES-Tool keine Dokumente entschlüsseln, die in CrypTool über Menü <B>Ver-/Entschlüsseln \ Symmetrisch \ <A href="hid_crypt_aes_rijndael.html">Rijndael</A></B> verschlüsselt wurden. Das liegt daran, dass CrypTool und AES-Tool verschiedene Dateiformate nutzen: Eine mit dem AES-Tool verschlüsselte Datei enthält unter Umständen zusätzliche Daten neben der Nutzlast, zum Beispiel den eingebetteten AES-Tool-Programmcode.</P>
 		<P><B>Bemerkung 2</B>:</P>
 		<P>Falls AES-Tool aus CrypTool heraus aufgerufen wird, wird im AES-Tool Hauptfenster das Feld <B>Eingabedatei</B> automatisch mit einem 
 			Pfad der Form C:\TEMP\cry7.org vorbelegt (statt C:\TEMP wird der Inhalt der 
