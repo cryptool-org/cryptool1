@@ -42,6 +42,7 @@
   !define MUI_UNWELCOMEFINISHPAGE_BITMAP CrypTool.bmp
   !define MUI_HEADERIMAGE
   !define MUI_HEADERIMAGE_BITMAP CrypToolH.bmp
+  !define MUI_ICON "..\CrypTool\res\idr_main.ico"
 
 ;--------------------------------
 ;Pages
