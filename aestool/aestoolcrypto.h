@@ -132,4 +132,15 @@ bool AesToolEncrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 // exename == 0: AES format
 // exename != 0: Name of the file to output before encrypted data
 
+// **************************************************************************************************
+// flomar, 11/29/2011: implementation of PKCS#5-esque (PBKDF2) passwords using SHA256 through OpenSSL
+//
+// the actual password derivation function
+void createPKCS5Password(const char *password,
+												 const char *salt,
+												 const unsigned int iterations,
+												 unsigned char **derivedPassword,
+												 unsigned int *derivedPasswordLength);
+// **************************************************************************************************
+
 #endif

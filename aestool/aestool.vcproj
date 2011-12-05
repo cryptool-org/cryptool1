@@ -51,6 +51,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="1"
 				InlineFunctionExpansion="1"
+				AdditionalIncludeDirectories="..\OpenSSL"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
 				StringPooling="true"
 				RuntimeLibrary="0"
@@ -77,6 +78,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="..\OpenSSL\libeay32.lib"
 				OutputFile="..\$(ConfigurationName)\$(ProjectName).exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
@@ -144,6 +146,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="..\OpenSSL"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
@@ -171,6 +174,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="..\OpenSSL\libeay32.lib"
 				OutputFile="..\$(ConfigurationName)\$(ProjectName).exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
@@ -239,6 +243,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="..\OpenSSL"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
@@ -266,6 +271,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="..\OpenSSL\libeay32.lib"
 				OutputFile="..\$(ConfigurationName)\$(ProjectName).exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
@@ -334,6 +340,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="..\OpenSSL"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
@@ -362,6 +369,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="..\OpenSSL\libeay32.lib"
 				OutputFile="..\$(ConfigurationName)\$(ProjectName).exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
@@ -431,6 +439,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="1"
 				InlineFunctionExpansion="1"
+				AdditionalIncludeDirectories="..\OpenSSL"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
 				StringPooling="true"
 				RuntimeLibrary="0"
@@ -457,6 +466,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="..\OpenSSL\libeay32.lib"
 				OutputFile="..\$(ConfigurationName)\$(ProjectName).exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
@@ -525,6 +535,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="1"
 				InlineFunctionExpansion="1"
+				AdditionalIncludeDirectories="..\OpenSSL"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
 				StringPooling="true"
 				RuntimeLibrary="0"
@@ -551,6 +562,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="..\OpenSSL\libeay32.lib"
 				OutputFile="..\$(ConfigurationName)\$(ProjectName).exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
@@ -619,6 +631,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="1"
 				InlineFunctionExpansion="1"
+				AdditionalIncludeDirectories="..\OpenSSL"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
 				StringPooling="true"
 				RuntimeLibrary="0"
@@ -645,6 +658,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="..\OpenSSL\libeay32.lib"
 				OutputFile="..\$(ConfigurationName)\$(ProjectName).exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
@@ -712,6 +726,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="..\OpenSSL"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
@@ -739,6 +754,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="..\OpenSSL\libeay32.lib"
 				OutputFile="..\$(ConfigurationName)\$(ProjectName).exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
@@ -807,6 +823,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="..\OpenSSL"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
@@ -834,6 +851,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="..\OpenSSL\libeay32.lib"
 				OutputFile="..\$(ConfigurationName)\$(ProjectName).exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
@@ -903,6 +921,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="1"
 				InlineFunctionExpansion="1"
+				AdditionalIncludeDirectories="..\OpenSSL"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
 				StringPooling="true"
 				RuntimeLibrary="0"
@@ -929,6 +948,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="..\OpenSSL\libeay32.lib"
 				OutputFile="..\$(ConfigurationName)\$(ProjectName).exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"

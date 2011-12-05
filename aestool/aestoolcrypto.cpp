@@ -394,3 +394,44 @@ int InfoBlock::encryptwrite(CFile &file,const void *key,int keylen,const void *i
 return 0;
 
 }
+
+// **************************************************************************************************
+// flomar, 11/29/2011: implementation of PKCS#5-esque (PBKDF2) passwords using SHA256 through OpenSSL
+namespace __SSL {
+	#include "..\OpenSSL\sha.h"
+}
+void createPKCS5Password(const char *password, const char *salt, const unsigned int iterations, unsigned char **derivedPassword, unsigned int *derivedPasswordLength) {
+	// some constants for the password creation
+	const unsigned int passwordLength = strlen(password);
+	const unsigned int saltLength = strlen(salt);
+	// set the correct length for the derived password (SHA256 equals 32 bytes)
+	*derivedPasswordLength = 32;
+	// allocate memory for derived password
+	*derivedPassword = new unsigned char[*derivedPasswordLength];
+	// hash password, salt, and block index
+	__SSL::SHA256_CTX ctx;
+	__SSL::SHA256_Init(&ctx);
+	__SSL::SHA256_Update(&ctx, password, passwordLength);
+	__SSL::SHA256_Update(&ctx, salt, saltLength);
+	for(unsigned int i=0; i<4; i++) {
+		// the block index is constant at "1" for our implementation
+		const unsigned int blockIndex = 1;
+		unsigned char byte = (unsigned char)(blockIndex >> ((3-i)*8));
+		__SSL::SHA256_Update(&ctx, &byte, 1);
+	}
+	__SSL::SHA256_Final(*derivedPassword, &ctx);
+	// execute the desired number of iterations (see input parameter "iterations")
+	unsigned char *temp = new unsigned char[*derivedPasswordLength];
+	for(unsigned int iteration=1; iteration<iterations; iteration++) {
+			__SSL::SHA256_CTX ctx;
+			__SSL::SHA256_Init(&ctx);
+			__SSL::SHA256_Update(&ctx, password, passwordLength);
+			__SSL::SHA256_Update(&ctx, *derivedPassword, *derivedPasswordLength);
+			__SSL::SHA256_Final(temp, &ctx);
+			for(unsigned int i=0; i<*derivedPasswordLength; i++) {
+				(*derivedPassword)[i] ^= temp[i];
+			}
+	}
+	delete[] temp;
+}
+// **************************************************************************************************

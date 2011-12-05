@@ -327,17 +327,13 @@ void CAestoolDlg::OnOK()
 
 	// ASCII
 	if(m_checkEnterPasswordAsHex == 0) {
-		// null the key
-		memset(m_KeyAscii, 0, 32);
-		// get the user input
+		// get the user input (the ASCII password)
 		CString keyTemp; m_EditKey.GetWindowText(keyTemp);
-		// copy (the first) 32 bytes from user input into our key
-		memcpy(m_KeyAscii, keyTemp.GetBuffer(), (keyTemp.GetLength() > 32 ? 32 : keyTemp.GetLength()));
-		// set key data and key length
-
-		keyData = m_KeyAscii;
-		keyLength = m_EditKey.GetWindowTextLength();
-
+		// apply our PKCS#5 password derivation function	
+		createPKCS5Password(keyTemp.GetBuffer(), "theNotSoRandomCrypToolSalt", 10000, &m_derivedPassword, &m_derivedPasswordLength);
+		// set key data and (fixed) key length
+		keyData = m_derivedPassword;
+		keyLength = m_derivedPasswordLength;
 	}
 	// HEX
 	else {													

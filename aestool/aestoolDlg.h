@@ -69,8 +69,9 @@ public:
 	CHexEdit	m_CHEditKey;
 	// this is our control for ASCII input
 	CEdit m_EditKey;
-	// this is our memory for ASCII input
-	char m_KeyAscii[32];
+	// this is our memory for ASCII input (the derived password is stored here after PKCS#5-application)
+	unsigned char *m_derivedPassword;
+	unsigned int m_derivedPasswordLength;
 
 	CButton	m_CButtonSrc;
 	int		m_RadioFormat;
