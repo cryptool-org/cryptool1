@@ -638,30 +638,31 @@ BEGIN
     LTEXT           "Das Programm kann auf drei verschiedene Arten aufgerufen werden:",IDC_STATIC,12,29,476,12
     LTEXT           "Die Parameter sind:",IDC_STATIC,24,50,464,8
     LTEXT           "Schlüssel:",IDC_STATIC,24,59,48,8
-    LTEXT           "Eingabedatei:",IDC_STATIC,24,77,48,8
-    LTEXT           "Ausgabedatei:",IDC_STATIC,24,111,48,8
-    LTEXT           "Der Schlüssel kann entweder durch HEX- oder ASCII-Zeichen eingegeben werden. Die maximale Schlüssellänge beträgt 256 Bit\n(64 HEX- oder 32 ASCII-Zeichen). Der Schlüssel sollte größer als 88 Bit sein (22 HEX- oder 11 ASCII-Zeichen).",IDC_STATIC,72,59,416,16
-    LTEXT           "Die Eingabedatei enthält die zu ver- bzw. entschlüsselnden Daten. Wird eine Datei mit Endung .AES ausgewählt (die mit diesem Programm verschlüsselte Daten enthält), so wird das Programm automatisch auf Entschlüsseln eingestellt.",IDC_STATIC,72,77,416,16
-    LTEXT           "Name und Verzeichnis der Ausgabedatei kann nach Drücken des Ver-/Entschlüsseln-Buttons gewählt werden. Beim Verschlüsseln kann man per Radiobutton festlegen, welches Format die Ausgabedatei haben soll:",IDC_STATIC,72,111,416,16
-    LTEXT           "Ein ""Selbstextrahierendes Archiv"" stellt eine Datei dar, die sowohl die Daten enthält als auch gleichzeitig ein Programm ist. Dieses Programm hat die gleiche Funktionalität wie AES-Tool und erlaubt es, die enthalten Daten zu entschlüsseln",IDC_STATIC,80,128,408,16
-    LTEXT           "Eine ""verschlüsselte Datei"" enthält nur die Daten. Um diese dann wieder zu entschlüsseln, benötigt man dieses Programm.",IDC_STATIC,80,153,408,8
-    LTEXT           "Die zweite Möglichkeit des Aufrufs ist mit Kommandozeilenparametern. Diese können entweder über die Position oder über Schlüsselworte",IDC_STATIC,24,166,464,8
-    LTEXT           "AESTool <Quelldatei> <Zieldatei> <Schlüssel>",IDC_STATIC,72,193,416,9
-    LTEXT           "AESTool -i <Quelldatei> -o <Zieldatei> -k <Schlüssel>",IDC_STATIC,72,202,416,10
-    LTEXT           "Die dritte Aufrufform ist über das oben angesprochene selbstextrahierende Archiv. Hierbei ist die Ausgangsdatei durch den Inhalt des selbstextrahierenden Archivs vorbestimmt.",IDC_STATIC,24,240,464,20
+    LTEXT           "Eingabedatei:",IDC_STATIC,24,85,48,8
+    LTEXT           "Ausgabedatei:",IDC_STATIC,24,119,48,8
+    LTEXT           "Der Schlüssel kann entweder durch HEX- oder ASCII-Zeichen eingegeben werden (siehe Checkbox ""Schlüssel hexadezimal eingeben""). Im HEX-Modus beträgt die maximale Schlüssellänge 256 Bit (64 HEX-Zeichen), im ASCII-Modus wird der Schlüssel",IDC_STATIC,72,59,416,16
+    LTEXT           "Die Eingabedatei enthält die zu ver- bzw. entschlüsselnden Daten. Wird eine Datei mit Endung .AES ausgewählt (die mit diesem Programm verschlüsselte Daten enthält), so wird das Programm automatisch auf Entschlüsseln eingestellt.",IDC_STATIC,72,85,416,16
+    LTEXT           "Name und Verzeichnis der Ausgabedatei kann nach Drücken des Ver-/Entschlüsseln-Buttons gewählt werden. Beim Verschlüsseln kann man per Radiobutton festlegen, welches Format die Ausgabedatei haben soll:",IDC_STATIC,72,119,416,16
+    LTEXT           "Ein ""Selbstextrahierendes Archiv"" stellt eine Datei dar, die sowohl die Daten enthält als auch gleichzeitig ein Programm ist. Dieses Programm hat die gleiche Funktionalität wie AES-Tool und erlaubt es, die enthalten Daten zu entschlüsseln",IDC_STATIC,80,136,408,16
+    LTEXT           "Eine ""verschlüsselte Datei"" enthält nur die Daten. Um diese dann wieder zu entschlüsseln, benötigt man dieses Programm.",IDC_STATIC,80,161,408,8
+    LTEXT           "Die zweite Möglichkeit des Aufrufs ist mit Kommandozeilenparametern. Diese können entweder über die Position oder über Schlüsselworte",IDC_STATIC,24,174,464,8
+    LTEXT           "AESTool <Quelldatei> <Zieldatei> <Schlüssel>",IDC_STATIC,72,201,416,9
+    LTEXT           "AESTool -i <Quelldatei> -o <Zieldatei> -k <Schlüssel>",IDC_STATIC,72,210,416,10
+    LTEXT           "Die dritte Aufrufform ist über das oben angesprochene selbstextrahierende Archiv. Hierbei ist die Ausgangsdatei durch den Inhalt des selbstextrahierenden Archivs vorbestimmt.",IDC_STATIC,24,248,464,20
     LTEXT           "Beim normalen Start durch ""Anklicken"" können die benötigten Parameter direkt auf einer Bildschirmmaske eingegeben werden.",IDC_STATIC,24,41,464,9
-    LTEXT           "2.",IDC_STATIC,12,166,12,14
+    LTEXT           "2.",IDC_STATIC,12,174,12,14
     LTEXT           "1.",IDC_STATIC,12,41,12,9
-    LTEXT           "3.",IDC_STATIC,12,240,12,14
-    LTEXT           "-",IDC_STATIC,72,128,8,16
-    LTEXT           "-",IDC_STATIC,72,153,8,14
-    LTEXT           "Dabei wird automatisch erkannt, ob die Quelldatei verschlüsselt ist und entsprechend ver- bzw. entschlüsselt.\nDie Endung der Zieldatei steuert das Ausgabeformat: .EXE: selbstextrahierendes Archiv, andere: normale verschlüsselte Datei.",IDC_STATIC,24,211,464,16
-    LTEXT           "und in einer Datei abzulegen (nachdem der korrekte Schlüssel eingegeben worden ist).",IDC_STATIC,79,144,274,8
-    LTEXT           "angegeben werden. Wenn alle Parameter auf der Kommandozeile angegeben werden, ist keine weitere Interaktion nötig (sinnvoll für Batchläufe). Ansonsten öffnet sich ein Fenster, in das die restlichen Parameter interaktiv eingegeben werden können.",IDC_STATIC,24,175,464,17
-    LTEXT           "Der Erfolg der Operation kann am Exitcode abgelesen werden: 0: alles OK; 1: Ein Fehler ist aufgetreten, Fehlermeldung auf stderr.",IDC_STATIC,24,228,407,8
-    LTEXT           "Selbstextrahierende Archive (Endung EXE) können maximal 4 GB groß sein, d.h. die zu verschlüsselnde Datei muss etwas kleiner als 4 GB sein.\nErzeugen Sie dagegen eine verschlüsselte AES-Datei, kann die zu verschlüsselnde Datei auch größer als 4 GB sein.",IDC_STATIC,12,268,476,21
+    LTEXT           "3.",IDC_STATIC,12,248,12,14
+    LTEXT           "-",IDC_STATIC,72,136,8,16
+    LTEXT           "-",IDC_STATIC,72,161,8,14
+    LTEXT           "Dabei wird automatisch erkannt, ob die Quelldatei verschlüsselt ist und entsprechend ver- bzw. entschlüsselt.\nDie Endung der Zieldatei steuert das Ausgabeformat: .EXE: selbstextrahierendes Archiv, andere: normale verschlüsselte Datei.",IDC_STATIC,24,219,464,16
+    LTEXT           "und in einer Datei abzulegen (nachdem der korrekte Schlüssel eingegeben worden ist).",IDC_STATIC,79,152,274,8
+    LTEXT           "angegeben werden. Wenn alle Parameter auf der Kommandozeile angegeben werden, ist keine weitere Interaktion nötig (sinnvoll für Batchläufe). Ansonsten öffnet sich ein Fenster, in das die restlichen Parameter interaktiv eingegeben werden können.",IDC_STATIC,24,183,464,17
+    LTEXT           "Der Erfolg der Operation kann am Exitcode abgelesen werden: 0: alles OK; 1: Ein Fehler ist aufgetreten, Fehlermeldung auf stderr.",IDC_STATIC,24,236,407,8
+    LTEXT           "Selbstextrahierende Archive (Endung EXE) können maximal 4 GB groß sein, d.h. die zu verschlüsselnde Datei muss etwas kleiner als 4 GB sein.\nErzeugen Sie dagegen eine verschlüsselte AES-Datei, kann die zu verschlüsselnde Datei auch größer als 4 GB sein.",IDC_STATIC,12,276,476,21
     LTEXT           "Bitte beachten Sie, dass Sie vor dem Aufruf von ausführbaren Archiven deren Herkunft prüfen sollten.\nEs ist empfehlenswert, Antiviren- und Betriebssystem-Software aktuell zu halten.",IDC_STATIC,12,296,476,18
-    LTEXT           "Die zu bearbeitende Datei kann auch mit der Maus per Drag-and-Drop aus dem Windows-Explorer in das Feld ""Eingabedatei"" gezogen werden.",IDC_STATIC,72,93,416,16
+    LTEXT           "Die Eingabedatei kann auch mit der Maus per Drag-and-Drop aus dem Windows-Explorer in das Feld ""Eingabedatei"" gezogen werden, und bei Bedarf wird sie nach der Verschlüsselung sicher gelöscht.",IDC_STATIC,72,101,416,16
+    LTEXT           "mittels PKCS#5 (SHA256) aus dem Passwort abgeleitet.",IDC_STATIC,72,75,176,8
 END
 
 
@@ -887,29 +888,29 @@ BEGIN
     LTEXT           "These parameters are:",IDC_STATIC,24,42,464,10
     LTEXT           "Key:",IDC_STATIC,24,52,38,8
     LTEXT           "Input file:",IDC_STATIC,24,70,38,8
-    LTEXT           "Output file:",IDC_STATIC,24,99,38,19
-    LTEXT           "The key can be entered in either HEX or ASCII characters. The maximum key length is 256 bits (64 HEX or 32 ASCII characters).\nThe key length should be bigger than 88 bits (22 HEX or 11 ASCII characters).",IDC_STATIC,62,52,426,18
+    LTEXT           "Output file:",IDC_STATIC,24,107,38,19
+    LTEXT           "The key can be entered as either HEX or ASCII characters (see check box ""Enter key as hex""). In hex mode the maximum key length is 256 bits (64 HEX characters), in ASCII mode the key is derived from the password with regards to PKCS#5 (SHA256).",IDC_STATIC,62,52,426,18
     LTEXT           "The input file contains the data to be encrypted or decrypted. If a file is chosen that was encrypted with this program, then the program will be automatically set to decryption mode. Otherwise the program will stay in encryption mode.",IDC_STATIC,62,70,426,16
-    LTEXT           "The output file name and directory can be determined after pressing the ""Encrypt""/""Decrypt"" button. \nWhen encrypting you can select between two output formats via ""radio buttons"":",IDC_STATIC,62,99,426,19
-    LTEXT           "A 'self extracting archive' is a file containing data and at the same time it is a program. This program has the same functionality as AES-Tool and can be used to decrypt the data and store it in a file (after the correct password has been entered).",IDC_STATIC,69,117,419,19
-    LTEXT           "An 'encrypted file' contains the encrypted data only. Then the AES-Tool program is required for decryption.",IDC_STATIC,69,134,419,11
-    LTEXT           "The second way to invoke the program is with command line parameters. These can be specified either by position or by key word. If all",IDC_STATIC,24,148,425,8
-    LTEXT           "AESTool <Input file> <Output file> <key>",IDC_STATIC,62,169,426,10
-    LTEXT           "AESTool -i <Input file> -o <Output file> -k <Key>",IDC_STATIC,62,179,426,10
-    LTEXT           "The third possibility for program invocation is the self extracting archive. The output file name here is being preset by the self extracting archive.",IDC_STATIC,24,220,464,15
+    LTEXT           "The output file name and directory can be determined after pressing the ""Encrypt""/""Decrypt"" button. \nWhen encrypting you can select between two output formats via ""radio buttons"":",IDC_STATIC,62,107,426,19
+    LTEXT           "A 'self extracting archive' is a file containing data and at the same time it is a program. This program has the same functionality as AES-Tool and can be used to decrypt the data and store it in a file (after the correct password has been entered).",IDC_STATIC,69,125,419,19
+    LTEXT           "An 'encrypted file' contains the encrypted data only. Then the AES-Tool program is required for decryption.",IDC_STATIC,69,142,419,11
+    LTEXT           "The second way to invoke the program is with command line parameters. These can be specified either by position or by key word. If all",IDC_STATIC,24,156,425,8
+    LTEXT           "AESTool <Input file> <Output file> <key>",IDC_STATIC,62,177,426,10
+    LTEXT           "AESTool -i <Input file> -o <Output file> -k <Key>",IDC_STATIC,62,187,426,10
+    LTEXT           "The third possibility for program invocation is the self extracting archive. The output file name here is being preset by the self extracting archive.",IDC_STATIC,24,228,464,15
     LTEXT           "With a normal start by clicking the icon, all necessary parameters can be entered into a dialog box.",IDC_STATIC,24,33,464,9
     LTEXT           "1.",IDC_STATIC,12,33,12,9
-    LTEXT           "2.",IDC_STATIC,12,148,12,11
-    LTEXT           "3.",IDC_STATIC,12,220,12,11
-    RTEXT           "-",IDC_STATIC,56,118,8,19
-    RTEXT           "-",IDC_STATIC,56,137,8,11
-    LTEXT           "The program determines automatically if the input file is encrypted and then decrypts it. Otherwise the program encrypts it accordingly.",IDC_STATIC,24,190,464,8
-    LTEXT           "parameters are entered no user interaction is required, otherwise a window pops up and the remaining data can be entered interactively.",IDC_STATIC,24,156,426,8
-    LTEXT           "The exit code reflects the program's success: 0: everything OK; 1: an error occurred, an error message is displayed on stderr.",IDC_STATIC,24,206,391,8
-    LTEXT           "The output file's extension determines the encryption format: .EXE: self extracting archive, others: ordinary encrypted file.",IDC_STATIC,24,198,464,9
-    LTEXT           "Please note to check the origin before calling self extracting archives.\nIt is recommendable to always keep antivirus and operating system software up to date.",IDC_STATIC,12,278,476,18
-    LTEXT           "You also select the file to be used with the mouse (drag and drop) by dragging it from the Windows Explorer into the field ""Input file"".",IDC_STATIC,62,86,426,8
-    LTEXT           "Self extracting archives (extension EXE) can be 4 GB large at most, that means the file to be encrypted must be a bit smaller than 4 GB.\nHowever, if you create an encrypted AES file, the file to be encrypted can be larger than 4 GB.",IDC_STATIC,12,248,476,16
+    LTEXT           "2.",IDC_STATIC,12,156,12,11
+    LTEXT           "3.",IDC_STATIC,12,228,12,11
+    RTEXT           "-",IDC_STATIC,56,126,8,19
+    RTEXT           "-",IDC_STATIC,56,145,8,11
+    LTEXT           "The program determines automatically if the input file is encrypted and then decrypts it. Otherwise the program encrypts it accordingly.",IDC_STATIC,24,198,464,8
+    LTEXT           "parameters are entered no user interaction is required, otherwise a window pops up and the remaining data can be entered interactively.",IDC_STATIC,24,164,426,8
+    LTEXT           "The exit code reflects the program's success: 0: everything OK; 1: an error occurred, an error message is displayed on stderr.",IDC_STATIC,24,214,391,8
+    LTEXT           "The output file's extension determines the encryption format: .EXE: self extracting archive, others: ordinary encrypted file.",IDC_STATIC,24,206,464,9
+    LTEXT           "Please note to check the origin before calling self extracting archives.\nIt is recommendable to always keep antivirus and operating system software up to date.",IDC_STATIC,12,286,476,18
+    LTEXT           "You can also select the input file with the mouse (drag and drop) by dragging it from the Windows Explorer into the field ""Input file"", and you can choose to delete it after encryption if necessary.",IDC_STATIC,62,86,426,16
+    LTEXT           "Self extracting archives (extension EXE) can be 4 GB large at most, that means the file to be encrypted must be a bit smaller than 4 GB.\nHowever, if you create an encrypted AES file, the file to be encrypted can be larger than 4 GB.",IDC_STATIC,12,256,476,16
 END
 
 IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
