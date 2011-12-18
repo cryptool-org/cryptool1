@@ -116,6 +116,13 @@ CAestoolDlg::CAestoolDlg(CString key,CString in,CString out,CWnd* pParent /*=NUL
 	m_Format = 0;
 	if (!out.IsEmpty())
 		m_Format = out.Right(4).CompareNoCase(".exe") == 0 ? 0 : 1;
+	m_derivedPassword = 0;
+	m_derivedPasswordLength = 0;
+}
+
+CAestoolDlg::~CAestoolDlg()
+{
+	delete[] m_derivedPassword;
 }
 
 void CAestoolDlg::DoDataExchange(CDataExchange* pDX)
@@ -329,7 +336,7 @@ void CAestoolDlg::OnOK()
 	if(m_checkEnterPasswordAsHex == 0) {
 		// get the user input (the ASCII password)
 		CString keyTemp; m_EditKey.GetWindowText(keyTemp);
-		// apply our PKCS#5 password derivation function	
+		// apply our PKCS#5 password derivation function (with a FIXED salt, as a random salt would cause a lot of trouble in terms of backwards compatibility)
 		createPKCS5Password(keyTemp.GetBuffer(), "theNotSoRandomCrypToolSalt", 10000, &m_derivedPassword, &m_derivedPasswordLength);
 		// set key data and (fixed) key length
 		keyData = m_derivedPassword;

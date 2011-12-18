@@ -400,6 +400,7 @@ return 0;
 namespace __SSL {
 	#include "..\OpenSSL\sha.h"
 }
+
 void createPKCS5Password(const char *password, const char *salt, const unsigned int iterations, unsigned char **derivedPassword, unsigned int *derivedPasswordLength) {
 	// some constants for the password creation
 	const unsigned int passwordLength = strlen(password);
@@ -433,5 +434,49 @@ void createPKCS5Password(const char *password, const char *salt, const unsigned 
 			}
 	}
 	delete[] temp;
+}
+
+void computeHMACSHA256(unsigned char *key, const unsigned int keyLength, unsigned char *message, const unsigned int messageLength, unsigned char **hmac, unsigned int *hmacLength) {
+	const unsigned int blockSize = 64;
+	// the local key we're working on
+	unsigned char localKey[blockSize];
+	// hash key if it's too long
+	if(keyLength > blockSize) {
+		__SSL::SHA256(key, keyLength, localKey);
+	}
+	// pad key if it's too short
+	if(keyLength < blockSize) {
+		memcpy(localKey, key, keyLength);
+		memcpy(localKey + keyLength, 0, blockSize - keyLength);
+	}
+	// otherwise simply copy key to localKey
+	if(keyLength == blockSize) {
+		memcpy(localKey, key, keyLength);
+	}
+	// create inner and outer key pads for SHA256 (32 bytes)
+	unsigned char outerKeyPad[32];
+	memset(outerKeyPad, 92, 32);				// 92 == 0x5c
+	unsigned char innerKeyPad[32];
+	memset(innerKeyPad, 54, 32);				// 54 == 0x36
+	// apply local key
+	for(unsigned int i=0; i<32; i++) {
+		outerKeyPad[i] ^= localKey[i];
+		innerKeyPad[i] ^= localKey[i];
+	}
+	// compute HMAC
+	unsigned char innerHash[32];
+	unsigned char outerHash[32];
+	__SSL::SHA256_CTX ctxOuter;
+	__SSL::SHA256_Init(&ctxOuter);
+	__SSL::SHA256_Update(&ctxOuter, outerKeyPad, 32);
+	__SSL::SHA256_CTX ctxInner;
+	__SSL::SHA256_Update(&ctxInner, innerKeyPad, 32);
+	__SSL::SHA256_Update(&ctxInner, message, messageLength);
+	__SSL::SHA256_Final(innerHash, &ctxInner);
+	__SSL::SHA256_Update(&ctxOuter, innerHash, 32);
+	__SSL::SHA256_Final(outerHash, &ctxOuter);
+	// set output variables
+	memcpy(*hmac, outerHash, 32);
+	*hmacLength = 32;
 }
 // **************************************************************************************************

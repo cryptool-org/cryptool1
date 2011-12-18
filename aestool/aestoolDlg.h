@@ -55,6 +55,7 @@ public:
 	int m_Format; // EXE or AES, controlled by radio button, see OnRadioFormat
 	CString EXEName;
 	CAestoolDlg(CString key,CString in,CString out,CWnd* pParent = NULL);
+	~CAestoolDlg();
 
 // Dialogfelddaten
 	//{{AFX_DATA(CAestoolDlg)

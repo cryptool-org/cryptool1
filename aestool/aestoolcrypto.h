@@ -141,6 +141,13 @@ void createPKCS5Password(const char *password,
 												 const unsigned int iterations,
 												 unsigned char **derivedPassword,
 												 unsigned int *derivedPasswordLength);
+// this function computes an SHA256 HMAC
+void computeHMACSHA256(unsigned char *key,
+											 const unsigned int keyLength,
+											 unsigned char *message,
+											 const unsigned int messageLength,
+											 unsigned char **hmac,
+											 unsigned int *hmacLength);
 // **************************************************************************************************
 
 #endif
