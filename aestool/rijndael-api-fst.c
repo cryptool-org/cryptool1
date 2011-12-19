@@ -24,7 +24,7 @@ int makeKeyRijndael(keyInstanceRijndael *key, BYTE direction, int keyLen, char *
 	}
 
 	if ( keyMaterial ) {
-		strncpy(key->keyMaterial, keyMaterial, keyLen/4);
+		strncpy_s(key->keyMaterial, MAX_KEY_SIZE+1, keyMaterial, keyLen/4);
 	}
 
 	ROUNDS = keyLen/32 + 6;

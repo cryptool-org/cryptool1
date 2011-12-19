@@ -116,11 +116,6 @@ BOOL CAestoolApp::InitInstance()
 //	Enable3dControlsStatic();	// Diese Funktion bei statischen MFC-Anbindungen aufrufen
 //#endif
 
-	// flomar, 12/18/2011: we'll use this variable to implement dynamic memory allocation 
-	// for the GUI dialog, since assigning a local variable to m_pMainWnd sometimes leads 
-	// to assertions (at least in debug mode)
-	CAestoolDlg *dlg = 0;
-
 	m_pszAppName = _strdup("AES-Tool");
 
 	ScanCMDLine(m_lpCmdLine);
@@ -181,13 +176,10 @@ BOOL CAestoolApp::InitInstance()
 		// gui mode
 		FreeConsole(); // close extra console window (does nothing if started from dos box)
 
-		dlg = new CAestoolDlg(m_CMD_inKey,m_CMD_inName,m_CMD_outName);
-		m_pMainWnd = dlg;
-		dlg->DoModal();
+		CAestoolDlg dlg(m_CMD_inKey,m_CMD_inName,m_CMD_outName);
+		m_pMainWnd = &dlg;
+		dlg.DoModal();
 	}
-
-	// flomar, 12/18/2011: free dynamically allocated memory (see 12/18/2011 comment above)
-	if(dlg != 0) delete dlg;
 
 	// Da das Dialogfeld geschlossen wurde, FALSE zurückliefern, so dass wir die
 	//  Anwendung verlassen, anstatt das Nachrichtensystem der Anwendung zu starten.

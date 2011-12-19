@@ -468,7 +468,7 @@ void CAestoolDlg::OnChangeSrc()	// wird aufgerufen, wenn der Benutzer die Quelld
 	// if the name is not empty, we append the name in brackets
 	if(!name.IsEmpty()) text.Append(" [" + name + "]");
 	free((void*)theApp.m_pszAppName);
-	theApp.m_pszAppName = strdup(text);
+	theApp.m_pszAppName = _strdup(text);
 
 	switch (m_SrcInfo.setName(name)) {
 	case SrcInfo::VERSION:
