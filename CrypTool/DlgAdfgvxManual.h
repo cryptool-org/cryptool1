@@ -105,6 +105,8 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 private:
+  //set the 5 most common letters from the reference text
+  void SetFrequenciesFromReference();
 	adfgvx* cipher;
 	CString matrix[6][6];
 	CString plaintext;

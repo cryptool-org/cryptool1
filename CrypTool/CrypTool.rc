@@ -25604,19 +25604,18 @@ BEGIN
     PUSHBUTTON      "Textoptionen",IDC_BUTTON_TEXT_OPTIONS,15,74,98,16
 END
 
-IDD_ADFGVX_INTRO DIALOGEX 0, 0, 265, 209
+IDD_ADFGVX_INTRO DIALOGEX 0, 0, 265, 158
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Einführung in die Analyse von ADFGVX-Nachrichten"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,208,188,50,14
+    DEFPUSHBUTTON   "OK",IDOK,208,136,50,14
     LTEXT           "Ein ADFGVX-Chiffrat wird in 2 Stufen erstellt: Stufe 1 führt eine Polybius-Substitution durch, Stufe 2 wendet auf das Ergebnis eine Spalten-Transposition (Permutation) an. Die Ciphertext-only-Analyse eines ADFGVX-Chiffrats geht diese Schritte umgekehrt an.",IDC_STATIC,7,7,251,35
     CONTROL         "Diesen Dialog in Zukunft nicht mehr anzeigen",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,190,159,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,138,159,10
     LTEXT           "Wenn Sie in der Gruppierung ""Stufe 2: Transposition"" auf ""Analysieren"" drücken, wird für die zweite Stufe eine mögliche Passwort-Permutation gesucht (bei jedem Drücken wird versucht, ein weiteres gültiges",IDC_STATIC,7,46,251,26
     LTEXT           "Danach können Sie in der Gruppierung ""Stufe 1: Substitution"" weitere Einträge von Hand in die Substitutionsmatrix eintragen. Das entsprechende Zwischenergebnis wird in dem Feld ""Aktuelle Lösung"" angezeigt.",IDC_STATIC,8,100,251,25
     LTEXT           "Passwort zu finden) und die sich daraus schon zwingend ergebenden Zuordnungen werden in der Substitutionsmatrix eingetragen. Der erste Analyseschritt (Transpositionsanalyse) funktioniert also automatisch.",IDC_STATIC,7,70,251,26
-    LTEXT           "Die gefundenen Transpositionspasswörter und die jeweilige Substitutionsmatrix werden im Dropdownfeld gespeichert. Die Speicherung der Passwörter erfolgt automatisch, die Matrix wird durch Klick auf den Knopf ""Aktuelle Lösung anzeigen"" hinzugefügt.",IDC_STATIC,8,129,251,39
 END
 
 IDD_CRT_ASTRONOMY DIALOGEX 0, 0, 506, 322
@@ -32474,7 +32473,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_ADFGVX_ERROR_10 
-                            "Der von Ihnen zum Entschlüsseln angegebene Text kann kein ADFGVX-Chiffrat sein!"
+                            "Der von Ihnen zum Entschlüsseln angegebene Text ist kein gültiges ADFGVX-Chiffrat."
     IDS_STRING_ADFGVX_ERROR_11 
                             "Ungültiges Zeichen! Bitte nur 'A' bis 'Z' und '0' bis '9' eingeben!"
     IDS_STRING_ADFGVX_ERROR_2 "Matrix enthält doppelte Zeichen!"
@@ -32490,7 +32489,7 @@ BEGIN
     IDS_STRING_ADFGVX_ERROR_9 
                             "Bei der Analyse des Transpositionsschrittes wurde keine gültige Permutation gefunden.\nDies kann zwei Gründe haben:\n\n1. Die Häufigkeitsverteilung der Buchstaben ist untypisch für deutsche oder englische Texte.\nDies tritt oft bei kurzen Nachrichten auf.\n\n2. Das verwendete Transpositionspasswort liegt nicht im Suchbereich der Analyse.\nSie sollten den Bereich der Passwortlänge verschieben."
     IDS_STRING_ADFGVX_ERROR_9B 
-                            "Die Analyse hat die obere Grenze des Suchbereichs erreicht.\nEs wurden keine weiteren Passwörter gefunden.\n\nDie bereits entdeckten möglichen Transpositionspasswörter können in der Liste ausgewählt werden. "
+                            "Die Analyse hat die obere Grenze des Suchbereichs erreicht.\nEs wurden keine weiteren Passwörter gefunden."
     IDS_STRING_ADFGVX_RESTART 
                             "\n\nBitte starten Sie den Vorgang erneut und passen Sie\ngegebenenfalls die Blocklängen an die neue Passwortlänge an!"
     IDS_CRYPT_ADFGVX        "ADFGVX"
@@ -36599,18 +36598,17 @@ BEGIN
     PUSHBUTTON      "Text options",IDC_BUTTON_TEXT_OPTIONS,15,74,98,16
 END
 
-IDD_ADFGVX_INTRO DIALOGEX 0, 0, 265, 209
+IDD_ADFGVX_INTRO DIALOGEX 0, 0, 265, 157
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Introduction to Analyzing ADFGVX Messages"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,208,188,50,14
+    DEFPUSHBUTTON   "OK",IDOK,208,134,50,14
     LTEXT           "The creation of an ADFGVX message is a two-step process: Step 1 performs a Polybius substitution, step 2 transforms the result by a column transposition (permutation). A ciphertext-only analysis of an ADFGVX message reverses those steps.",IDC_STATIC,7,7,251,35
-    CONTROL         "Do not show this dialog again",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,190,109,10
+    CONTROL         "Do not show this dialog again",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,136,109,10
     LTEXT           "By clicking the button ""Analyze"" in the grouping ""Step 2: Transposition"", the search for a potential transposition password is started (each click of the button continues the search for the next valid password) and the five most",IDC_STATIC,7,44,251,26
     LTEXT           "When a transposition password is found, the analysis continues in the grouping ""Step 1: Substitution"". Now you can enter further characters into the substitution matrix manually. The result of the analysis is shown in the field ""Current solution"".",IDC_STATIC,8,91,251,35
     LTEXT           "common letters that were used to validate the password are entered into the substitution matrix. Thus, the first step of the analysis runs automatically.",IDC_STATIC,7,68,251,19
-    LTEXT           "The valid transposition passwords and the correspondent substitution matrices are stored in the drop down box. Passwords are stored automatically, the matrix is added by clicking the button ""Update current solution"".",IDC_STATIC,8,130,251,39
 END
 
 IDD_CRT_ASTRONOMY DIALOGEX 0, 0, 506, 322
@@ -43634,7 +43632,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_ADFGVX_ERROR_10 
-                            "The text you specified to be analyzed cannot possibly be an AFXGVX ciphertext."
+                            "The input text is not a valid AFXGVX ciphertext."
     IDS_STRING_ADFGVX_ERROR_11 
                             "Invalid character! Please enter characters from 'A' to 'Z' and '0' to '9' only!"
     IDS_STRING_ADFGVX_ERROR_2 "Matrix contains redundant characters!"
@@ -43649,7 +43647,7 @@ BEGIN
     IDS_STRING_ADFGVX_ERROR_9 
                             "No valid permutation was found while analyzing the transposition phase.\nThis may have two reasons:\n\n1. The relative frequency of the letters is atypical for the English or German language.\nThis often occurs when analyzing short messages.\n\n2. The transposition password is not within the selected boundaries of the analysis.\nYou should change the boundaries for the evaluated password length."
     IDS_STRING_ADFGVX_ERROR_9B 
-                            "The analysis has reached the upper boundary of the search area.\nNo further passwords have been found.\n\nYou can choose any detected possible transposition password from the dropdown list."
+                            "The analysis has reached the upper boundary of the search area.\nNo further passwords have been found."
     IDS_STRING_ADFGVX_RESTART 
                             "\n\nPlease restart the process and adjust the\nblock length values to the new password length if necessary!"
     IDS_CRYPT_ADFGVX        "ADFGVX"

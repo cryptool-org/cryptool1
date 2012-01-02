@@ -78,17 +78,12 @@
 				Transpositionsschlüssel gestartet, sie beginnt bei der unteren Grenze oder dem 
 				aktuellen Passwort und läuft so lange, bis sie eine mögliche Lösung gefunden 
 				hat oder die obere Grenze des Suchbereiches erreicht wird.<br>
-				In der aktuellen Implementierung wird zur Erkennung einer möglichen Lösung nach 
-				einem ADFGVX-Bigramm mit einer relativen Häufigkeit von 16% gesucht, was in 
-				deutschen und englischen Texten dem Buchstaben 'E' entspricht. Trotz dieses 
-				sehr einfachen Kriteriums treten (abgesehen von den Fällen <A href="hid_analyse_symmclassic_adfgvx.html#Spaltenverschiebung">
+				In der aktuellen Implementierung wird zur Erkennung einer möglichen Lösung nach einem ADFGVX-Bigramm gesucht, dessen relative Häufigkeit in etwa gleich der des häufigsten Buchstabens im Referenztext der CrypTool-Textoptionen ist. Trotz dieses sehr einfachen Kriteriums treten (abgesehen von den Fällen <A href="hid_analyse_symmclassic_adfgvx.html#Spaltenverschiebung">
 					paarweiser Spaltenverschiebung</A>) praktisch keine Fehlalarme auf.<br>
 				<br>
 				<b>Stufe 1: Substitutionsschlüssel suchen</b><br>
 				<br>
-				Ist eine mögliche Lösung gefunden, hält die Suche an und die Buchstaben 'E', 
-				'N', 'R' und 'S' werden in der Substitutionsmatrix an den vermuteten Positionen 
-				eingetragen.
+				Ist eine mögliche Lösung gefunden, hält die Suche an. Die Substitutionsmatrix wird anhand des Histogramms des in den Textoptionen gewählten Referenztextes gefüllt.
 				<br>
 				<br>
 				Die <b>Aktuelle Lösung</b> der Analyse wird im unteren Fenster angezeigt. 
@@ -110,7 +105,7 @@
 				Substitutionsmatrix. Der Knopf <b>Standardmatrix</b> füllt die Matrix in 
 				alphabetischer Reihenfolge mit den Buchstaben A-Z und den Ziffern 0-9.<br>
 				<br>
-				Das Feld <b>Aktuelle Lösung</b> zeigt die momentane Lösung des Ciphertextes - 
+				Das Feld <b>Aktuelle Lösung</b> zeigt die derzeitige Lösung des Ciphertextes - 
 				basierend auf aktuellem Transpositionspasswort und Substitutionsmatrix. Es wird 
 				nicht dynamisch aktualisiert, der derzeitige Stand der Analyse wird durch Druck 
 				auf den Knopf <b>Aktuelle Lösung anzeigen</b> berechnet.<br>

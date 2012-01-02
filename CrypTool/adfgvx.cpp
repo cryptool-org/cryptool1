@@ -28,6 +28,7 @@
 using namespace std;
 // necessary to access the CrypTool alphabet
 #include "CrypToolApp.h"
+#include "libanalyse\NGram.h"
 
 adfgvx::adfgvx () {
 	codeMatrix[0][0] = 'A';
@@ -73,6 +74,8 @@ adfgvx::adfgvx () {
 
 	this->subChars[0]=0;
 	this->subChars[1]=0;
+  //default: german letter frequency, 5 topmost letters only, highest frequency: E == 16%
+  SetFrequencyTable("ENISR",16);
 }
 
 int adfgvx::valueOf (char ch) {
@@ -604,7 +607,7 @@ int adfgvx::decrypt(const char* ifile, const char* ofile, const char* pass, int 
 	//re-substitute charactes in permMatrix and write to string plaintext
 	this->resubstitution();
 	
-	if(printStage1>0)
+	if(printStage1)
 		this->writeStage1(stage1, blockSizeStage1, newLineStage1);
 
 	//write string plaintext to outfile
@@ -691,19 +694,21 @@ bool adfgvx::goodenough(bool forcePassword = false)
 	std::sort(this->countBigrammVector.begin(), this->countBigrammVector.end(), frequencySort);
 	cblist::iterator countBigrammIterator;
 	countBigrammIterator = countBigrammVector.begin();
-	if (!forcePassword && countBigrammIterator->frequency < 16)
+	if (!forcePassword && countBigrammIterator->frequency < m_iHighestFrequency)
 		return false;
-	else {
+	else
+  {
+    //fill the matrix with asterisks
 		for (int row=0;row<6;row++)
 			for(int col=0;col<6;col++)
 				this->codeMatrix[row][col] = '*';
-		this->codeMatrix [countBigrammIterator->index / 6][countBigrammIterator->index % 6] = 'E';
-		countBigrammIterator++;
-		this->codeMatrix [countBigrammIterator->index / 6][countBigrammIterator->index % 6] = 'N';
-		countBigrammIterator++;
-		this->codeMatrix [countBigrammIterator->index / 6][countBigrammIterator->index % 6] = 'S';
-		countBigrammIterator++;
-		this->codeMatrix [countBigrammIterator->index / 6][countBigrammIterator->index % 6] = 'R';
+
+    //insert characters into the substitution matrix until the frequency table is empty
+    for(int i=0;m_szFrequency[i]&&i<sizeof(m_szFrequency);i++)
+    {
+      this->codeMatrix [countBigrammIterator->index / 6][countBigrammIterator->index % 6] = m_szFrequency[i];
+		  countBigrammIterator++;      
+    }
 		return true;
 	}
 }
@@ -854,3 +859,9 @@ int adfgvx::CheckStringBox(CString input)
 }
 
 	
+void adfgvx::SetFrequencyTable(char* szFrequency, int iHighestFrequency)
+{
+  memset(m_szFrequency,0,sizeof(m_szFrequency));
+  memcpy(m_szFrequency,szFrequency,min(sizeof(m_szFrequency),strlen(szFrequency)));
+  m_iHighestFrequency = iHighestFrequency;
+}

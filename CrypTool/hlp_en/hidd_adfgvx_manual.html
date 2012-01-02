@@ -74,17 +74,17 @@
 				transposition key is started, beginning at the lower boundary or the current 
 				password and stopping when it finds a possible password or reaching the upper 
 				boundary.<br>
-				For determining a posible solution, the current implementation searches for an 
-				ADFGVX bigram with a relative frequency of 16%, representing the letter 'E' in 
-				English and German texts. Despite of this very crude criterion, there is almost 
+				For determining a possible solution, the current implementation searches for the  
+				ADFGVX bigram with the highest relative frequency, matching it to the equivalent 
+				character from the reference text selected in CrypTool text options. 
+				In spite of this very crude criterion, there is almost 
 				no occurrance of false alarms (disregarding the cases of pair wise <A href="hid_analyse_symmclassic_adfgvx.html#column_shift">
 					column shifts</A>).<br>
 				<br>
 				<b>Step 1: Finding the Substitution Key</b><br>
 				<br>
-				If a possible solution is found, the search stops and the letters 'E', 'N', 'R' 
-				and 'S' are entered into the substitution matrix at their most probable 
-				positions.<br>
+				If a possible solution is found, the search stops and the substitution matrix is 
+				filled, using a histogram generated from the reference text selected in the text options dialog<br>
 				<br>
 				The <b>Current solution</b> of the analysis is displayed at the bottom of the 
 				dialog, small letters indicate the parts that are already resubstituted, 

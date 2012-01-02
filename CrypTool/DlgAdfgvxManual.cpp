@@ -60,8 +60,6 @@ CDlgAdfgvxManual::CDlgAdfgvxManual(char* infile, CString oldTitle, CWnd* pParent
 		for(int col=0;col<6;col++)
 			this->matrix[row][col] = '*';
 	
-	
-	
 }
 
 BOOL CDlgAdfgvxManual::OnInitDialog()
@@ -102,6 +100,10 @@ BOOL CDlgAdfgvxManual::OnInitDialog()
 		}
 		
 		UpdateData(false);
+
+    //set 5 most common letters based on reference text
+    SetFrequenciesFromReference();
+
 		//if clipboard has key from adfgvx-typ, enable paste button
 		if (IsKeyEmpty("ADFGVX Chiffre"))
 			c_insertKey.EnableWindow(true);
@@ -419,7 +421,6 @@ void CDlgAdfgvxManual::OnBnClickedNextPermutation()
 void CDlgAdfgvxManual::Permutate()
 {
 		SHOW_HOUR_GLASS
-		
 		//store the old password in case we need it later (...no further passwords found)
 		CString oldPassword=editTranspositionPassword.getText();
 
@@ -545,7 +546,6 @@ void CDlgAdfgvxManual::UpdateRemChars()
 	remaining=countStars;
 	while(countStars>1)
 		remaining=remaining*(--countStars);
-	UpdateData(false);
 }
 
 //function to resubstitute the ciphertext according to the current substitution matrix
@@ -802,6 +802,8 @@ void CDlgAdfgvxManual::OnBnClickedButtonTextOptions()
 	theApp.TextOptions.DoModal();
 	// update the transposition password (so that it complies to the text options)
 	editTranspositionPassword.updateText();
+  //set the 5 most common letters according to the current reference text
+  SetFrequenciesFromReference();
 	UpdateData(false);
 }
 
@@ -838,6 +840,72 @@ void CDlgAdfgvxManual::OnBnClickedInsertKey()
 	UpdateData(false);
 	
 	Resubstitute();
+}
+
+void CDlgAdfgvxManual::SetFrequenciesFromReference()
+{
+  
+  //set ADFGVX text options
+  AppConverter adfgvxConv;
+  CString csAdfgvxAlph = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  //if requested by the user, analyse number frequency as well
+  if(-1 != theApp.TextOptions.getAlphabet().Find("0123456789"))
+    csAdfgvxAlph.Append("0123456789");
+
+  adfgvxConv.SetAlphabet(csAdfgvxAlph.GetBuffer(257), TRUE);
+
+  //read reference text
+  SymbolArray text(adfgvxConv);
+  if(!text.Read(theApp.TextOptions.getReferenceFile()))
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_ERRON_OPEN_REFERENCE_FILE,pc_str,STR_LAENGE_STRING_TABLE);
+		AfxMessageBox(pc_str, MB_ICONINFORMATION);
+		return;
+	}
+
+  //calculate histogram
+  NGram distr(text);
+  int iPosTable[36];
+  memset(iPosTable,-1,sizeof(iPosTable));
+  int rows = min(36,distr.GetRows());
+
+  for(int r=0;r<rows;r++)
+    iPosTable[r]=distr.GetCount(r);
+
+  //make char array one larger for string terminator
+  char szFreqTable[37];
+  memset(szFreqTable,0,sizeof(szFreqTable));
+  //look for highest value and append to frequency string
+  for(int i=0;i<rows;i++)
+  {
+    int max = 0;
+    int iBestPos = -1;
+    for(int j=0;j<rows;j++)
+    {
+      if( (iPosTable[j] > 0) 
+          &&(iPosTable[j] > max))
+      {
+        //store in table only if character exists in reference text
+        iBestPos = j;
+        max = iPosTable[j];
+      }
+    }
+    if(iBestPos > -1)
+    {
+      //convert position to char and store in frequency string
+      if(iBestPos < 26)
+        szFreqTable[i] = 'A' + iBestPos;
+      else
+        szFreqTable[i] = '0' + iBestPos - 26;
+      
+      //remove value from the table
+      iPosTable[iBestPos] = -1;
+    }
+  }
+  //get highest value for detection of correct transposition
+  int iHighestFreqency = (int)(distr.GetMax()*100) - 1;
+  //set frequency table for ADFGVX substitution matrix
+  cipher->SetFrequencyTable(szFreqTable, iHighestFreqency);
 }
 
 //******************************************************************************

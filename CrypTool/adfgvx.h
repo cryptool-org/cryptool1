@@ -67,7 +67,9 @@ private:
 	pmlist::iterator permMatrixIterator;
 	int adfgvx::valueOf (char ch);
 	CString lastPasswordFound;
-	
+  char m_szFrequency[36];
+	int m_iHighestFrequency;
+
 public:
 
 	cblist countBigrammVector;
@@ -110,6 +112,7 @@ public:
 	CString adfgvx::nextPassword(int minlength, int maxlength, CString start);
 	bool adfgvx::goodenough(bool forcePassword);
 	void adfgvx::ForcePassword(CString pwd);
+  void adfgvx::SetFrequencyTable(char* szFrequency, int iHighestFrequency);
 	
 	//***** INPUT VALIDATION *****//
 	int adfgvx::CheckPassword(int minLength, int maxLength, CString password);
