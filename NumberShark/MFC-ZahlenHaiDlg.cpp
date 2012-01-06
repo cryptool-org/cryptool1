@@ -118,7 +118,6 @@ CMFCZahlenHaiDlg::CMFCZahlenHaiDlg(CWnd* pParent /*=NULL*/)
 	, pointsPlayer(0)
 	, pointsComputer(0)
 	, sumOfAllNumbers(0)
-	, startInfo(_T(""))
 	, undoRedo(0)
 	, shellBoxText(_T(""))
 {
@@ -135,7 +134,6 @@ void CMFCZahlenHaiDlg::DoDataExchange(CDataExchange* pDX)
 
 	DDX_Text(pDX, IDC_EDIT1, numbers);
 	DDX_Text(pDX, IDC_STATIC_SUM, sumText);
-	DDX_Text(pDX, IDC_START_INFO, startInfo);
 
 	DDX_Control(pDX, IDC_LIST2, ListControl);
 	DDX_Control(pDX, IDC_TAB1, tabControl);
@@ -220,8 +218,6 @@ BOOL CMFCZahlenHaiDlg::OnInitDialog()
 {		
 	// read "GameData.txt"
 	optionen.readGameData();
-
-	startInfo.Format(IDS_START_INFO);
 	
 	// read some registry settings
 	int regUpperLimit=readRegistry();
@@ -350,7 +346,6 @@ BOOL CMFCZahlenHaiDlg::OnInitDialog()
 	tabControl.SetExtendedStyle(dwExStyle | TCS_EX_FLATSEPARATORS);
 
 	((CEdit*)GetDlgItem(IDC_BUTTON_REST))->EnableWindow(false);
-	((CEdit*)GetDlgItem(IDC_START_INFO))->ShowWindow(1);
 	((CEdit*)GetDlgItem(IDC_STATIC_SUM))->ShowWindow(true);
 
 	//LoadBitmap(Bitmap ID,state of the Button, size...)
@@ -936,7 +931,6 @@ void CMFCZahlenHaiDlg::OnBnClickedButtonStartnew()
 	((CEdit*)GetDlgItem(IDC_EDIT1))->ShowWindow(1);
 	((CEdit*)GetDlgItem(IDC_BUTTON_OK))->ShowWindow(1);
 	((CEdit*)GetDlgItem(IDC_STATIC_EINSTELLUNGEN))->ShowWindow(1);
-	((CEdit*)GetDlgItem(IDC_START_INFO))->ShowWindow(1);
 
 	((CEdit*)GetDlgItem(IDC_EDIT1))->SetReadOnly(false);
 	((CEdit*)GetDlgItem(IDC_BUTTON_OK))->EnableWindow(true);
@@ -991,6 +985,14 @@ void CMFCZahlenHaiDlg::OnBnClickedButtonOk()
 		MessageBox(input,headline ,MB_ICONWARNING);
 		return;
 	}
+
+	// flomar, 01/06/2012: at this point we tell the user that he can start the actual game;
+	// the previous "solution" was sort of ambiguous, as the "you start now" information text 
+	// was already displayed before the game had even started; instead, displaying a message 
+	// box as soon as the game really DOES start makes more sense to me
+	CString messageBoxHeader;	messageBoxHeader.LoadString(IDS_NUMBER_SHARK);
+	CString messageBoxText;		messageBoxText.LoadString(IDS_START_INFO);
+	MessageBox(messageBoxText, messageBoxHeader, MB_ICONINFORMATION);
 
 	//Speicher für numbers wird alokiert und pointsplayer, sowie pointscomputer werden 0 gesetzt
 	hai.init(numbers);
@@ -1093,7 +1095,6 @@ void CMFCZahlenHaiDlg::OnBnClickedButton(unsigned int nID)
 		((CEdit*)GetDlgItem(IDC_STATIC_LISTE))->ShowWindow(1);
 		((CEdit*)GetDlgItem(IDC_BUTTON1))->EnableWindow(false);
 	    ((CEdit*)GetDlgItem(IDC_EDIT1))->EnableWindow(false);
-	    ((CEdit*)GetDlgItem(IDC_START_INFO))->ShowWindow(false);
 
 		((CEdit*)GetDlgItem(IDC_BUTTON_OK))->ShowWindow(false);
 		((CEdit*)GetDlgItem(IDC_EDIT1))->ShowWindow(false);
@@ -2191,7 +2192,6 @@ void CMFCZahlenHaiDlg::readSaveGame()
 				
 		((CEdit*)GetDlgItem(IDC_STATIC_LISTE))->ShowWindow(1);
 		((CEdit*)GetDlgItem(IDC_BUTTON_UNDO))->EnableWindow(true);
-		((CEdit*)GetDlgItem(IDC_START_INFO))->ShowWindow(0);
 		((CEdit*)GetDlgItem(IDC_STATIC_EINSTELLUNGEN))->ShowWindow(0);
 		
 		m_LedText.ShowWindow(1);
