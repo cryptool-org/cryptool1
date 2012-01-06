@@ -962,10 +962,6 @@ void CMFCZahlenHaiDlg::OnBnClickedButtonOk()
 {
 	//Daten werden aktualisiert
 	UpdateData(true);
-
-	// re-init the NumberShark object ("hai") if necessary
-	hai.init(numbers);
-	optionen.setEvoZahlenHai(hai);
 	
 	//Kontrolle ob die Zahl, die der Spieler eingegeben hat, nicht kleiner als 0 und nicht größer als 9999 ist.
 	//Lässt sich beliebig erweitern. MAX_ZAHLENHAI_NUMBERS in der MFC-ZahlenHaiDlg.h muss nur geändert werden
@@ -977,14 +973,21 @@ void CMFCZahlenHaiDlg::OnBnClickedButtonOk()
 		if(numbers > MAX_ZAHLENHAI_NUMBERS)
 		{
 			headline.LoadString(IDS_VALID_INPUT_HEADLINE);
+			numbers = 9999;
 		}
 		if(numbers < 1)
 		{
 			headline.LoadString(IDS_VALID_INPUT_HEADLINE_LOW);
+			numbers = 1;
 		}
-		MessageBox(input,headline ,MB_ICONWARNING);
+		MessageBox(input, headline, MB_ICONWARNING);
+		UpdateData(false);
 		return;
 	}
+
+	// flomar, 01/06/2012: init the NumberShark object ("hai")
+	hai.init(numbers);
+	optionen.setEvoZahlenHai(hai);
 
 	// flomar, 01/06/2012: at this point we tell the user that he can start the actual game;
 	// the previous "solution" was sort of ambiguous, as the "you start now" information text 
@@ -993,9 +996,6 @@ void CMFCZahlenHaiDlg::OnBnClickedButtonOk()
 	CString messageBoxHeader;	messageBoxHeader.LoadString(IDS_NUMBER_SHARK);
 	CString messageBoxText;		messageBoxText.LoadString(IDS_START_INFO);
 	MessageBox(messageBoxText, messageBoxHeader, MB_ICONINFORMATION);
-
-	//Speicher für numbers wird alokiert und pointsplayer, sowie pointscomputer werden 0 gesetzt
-	hai.init(numbers);
 	
 	//Anzeige der Buttons, sowie der Punktestände werden zurückgesetzt
 	updateTab();
@@ -1441,10 +1441,6 @@ void CMFCZahlenHaiDlg::enterWasPressed()
 			//OK-Button wurde gedrückt
 			OnBnClickedButtonOk();
 	
-			if(numbers >= 1 && numbers <= MAX_ZAHLENHAI_NUMBERS)
-			{
-				((CEdit*)GetDlgItem(IDC_EDIT1))->EnableWindow(false);
-			}
 		}
 		//Aktivierung der Enter Taste auf allen Buttons
 		else
