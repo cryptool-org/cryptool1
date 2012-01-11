@@ -337,12 +337,12 @@ $P=\sum_{i_1,\dots,i_n\in\N_0} a_{i_1\dots i_n} x_1^{i_1}\dots x_n^{i_n}$ mit Ko
 \end{equation}
 Dabei sind die Variablen $x_1,x_2,x_3$ sowie die Parameter $a_1,\dots,a_4,a_6$ Elemente eines gegebenen Kör"pers $K$. Körper und Parameter müssen so gewählt werden, dass die Kurve bestimmte, für die Kryptographie relevante Eigenschaften besitzt. Der zugrunde liegende Körper $K$ kann einfach die bekannte Menge der reellen Zahlen oder auch ein endlicher Körper sein (vgl. letzter Abschnitt).
 Damit sich eine sinnvolle Kurve ergibt, müssen die Parameter so gewählt sein, dass die folgenden Nebenbedingungen gelten
-$$ {\partial F\over\partial x_1}\ne 0, \quad {\partial F\over\partial x_2}\ne 0, \quad
-{\partial F\over\partial x_3}\ne 0 .
+$$ \frac{\partial F}{\partial x_1}\ne 0, \quad \frac{\partial F}{\partial x_2}\ne 0, \quad
+\frac{\partial F}{\partial x_3}\ne 0 .
 $$
 Ferner betrachten wir Punkte, die sich nur durch eine Vervielfachung jeder Komponente ergeben, als identisch, denn mit $(x_1,x_2,x_3)$ erfüllt stets auch $\alpha (x_1,x_2,x_3)$ die Ausgangsgleichung. Formal betrachten wir daher Äquivalenzklassen von Punkten $(x_1,x_2,x_3)$, wobei wir zwei Punkte als gleich ansehen, wenn sie durch Multiplikation mit einer Konstante $\alpha$ auseinander hervorgehen.
 \\ Setzt man in der Ausgangsgleichung $x_3=0$, so wird diese zu $-x_1^3=0$, also $x_1=0$. Folglich ist die Äquivalenzklasse, die das Element $(0,1,0)$ enthält, die einzige Punkt mit $x_3=0$. Für alle anderen Lösungspunkte können wir die Transformation
-$$ K\times K\times (K\setminus\{0\})\ni (x_1,x_2,x_3) \mapsto (x,y):=\left( {x_1\over x_3}, {x_2\over x_3}\right) \in K\times K
+$$ K\times K\times (K\setminus\{0\})\ni (x_1,x_2,x_3) \mapsto (x,y):=\left( \frac{x_1}{x_3}, \frac{x_2}{x_3}\right) \in K\times K
 $$
 vornehmen, die die Anzahl der Variablen von drei auf zwei reduziert. 
 Die Ausgangsgleichung $F(x_1,x_2,x_3)=0$ war so gewählt, dass sich auf
@@ -410,8 +410,8 @@ Um mit Elliptischen Kurven arbeiten zu können, definiert man eine Verknüpfung (m
 $$ x_3:=-x_1-x_2+\lambda^2 \, , \qquad y_3:=-y_1+\lambda (x_1-x_3)
 $$
 mit dem Hilfsquotienten
-$$ \lambda:=\left\{ \begin{array}{cl} {y_1-y_2\over x_1-x_2} & {\rm falls~} P_1\ne P_2, \\
-                                     {3x_1^2+a\over 2y_1} & {\rm falls~} P_1=P_2. \end{array} \right.
+$$ \lambda:=\left\{ \begin{array}{cl} \frac{y_1-y_2}{x_1-x_2} & {\rm falls~} P_1\ne P_2, \\
+                                     \frac{3x_1^2+a}{2y_1} & {\rm falls~} P_1=P_2. \end{array} \right.
 $$
 \end{enumerate}
 Hieraus folgt insbesondere für $P=(x,y)\in E$, dass gilt $-P=(x,-y)$.
@@ -424,8 +424,8 @@ Hieraus folgt insbesondere für $P=(x,y)\in E$, dass gilt $-P=(x,-y)$.
 $$ x_3:=-x_1+x_2+\lambda+\lambda^2+a \, , \qquad y_3:=y_1+x_3+\lambda (x_1+x_3)
 $$
 mit
-$$ \lambda:=\left\{ \begin{array}{cl} {y_1+y_2\over x_1+x_2} & {\rm falls~} P_1\ne P_2, \\
-                                   x_1+{y_1\over x_1} & {\rm falls~} P_1=P_2. \end{array}\right.
+$$ \lambda:=\left\{ \begin{array}{cl} \frac{y_1+y_2}{x_1+x_2} & {\rm falls~} P_1\ne P_2, \\
+                                   x_1+\frac{y_1}{x_1} & {\rm falls~} P_1=P_2. \end{array}\right.
 $$
 \end{enumerate}
 Hieraus folgt insbesondere für $P=(x,y)\in E$, dass gilt $-P=(x,x+y)$. (Beachte: $-(-P)=(x,x+(x+y))=(x,2x+y)=(x,y)$, da der zugrunde liegende Körper Charakteristik $2$ hat.)\footnote{Eine Animation der Punktaddition auf Elliptischen Kurven 
@@ -466,7 +466,7 @@ $$ mP := \underbrace{P+P+\dots+P}_{\hbox{$m$ mal}}
 $$
 bilden. Diese Operation ist aus kryptographischer Sicht deshalb besonders interessant, weil man einerseits um $mP$ zu berechnen im allgemeinen nur $\log m$ Additionen durchführen muss --- man bildet einfach $P$, $2P$, $2^2P$, $2^3P$, \dots, schreibt $m$ binär und addiert schließlich entsprechend der Binärdarstellung von $m$ auf --- es andererseits sehr aufwa"ndig zu sein scheint, zu gegebenen Punkten $P$ und $Q=mP$ auf $E$ die Zahl $m$ zu bestimmen. Natürlich kann man die Folge $P,2P,3P,4P,5P,\dots$ bilden und jeweils mit $Q$ vergleichen. Hierzu benötigt man jedoch $m$ Additionen.
 
-Bisher ist noch kein Algorithmus bekannt, der effizient $m$ aus $P$ und $Q$ berechnet. Die bisher besten Verfahren liegen z.B. im Fall $GF(p)$ in der Größenordnung $\sqrt{q}$, wobei $q$ ein (großer) Primfaktor von $p-1$ ist; $m$ selbst sollte in diesem Fall zwischen $1$ und $q$ liegen, so dass man für die Muliplikation $mP$ maximal $\log q$ Schritte benötigt. Der Quotient ${\sqrt{q}\over\log q}$ strebt jedoch (schnell) gegen $+\infty$.
+Bisher ist noch kein Algorithmus bekannt, der effizient $m$ aus $P$ und $Q$ berechnet. Die bisher besten Verfahren liegen z.B. im Fall $GF(p)$ in der Größenordnung $\sqrt{q}$, wobei $q$ ein (großer) Primfaktor von $p-1$ ist; $m$ selbst sollte in diesem Fall zwischen $1$ und $q$ liegen, so dass man für die Muliplikation $mP$ maximal $\log q$ Schritte benötigt. Der Quotient $\frac{\sqrt{q}}{\log q}$ strebt jedoch (schnell) gegen $+\infty$.
 
 Sind die Parameter hinreichend groß (ist zum Beispiel $p$ prim und
 mehr als $160$ Bit lang) ist der Computer ohne weiteres in der Lage, sehr schnell (in wenigen

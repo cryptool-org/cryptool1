@@ -2,9 +2,12 @@
 % ............................................................................
 %                 TEXT DER 2. SEITE
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 % --------------------------------------------------------------------------
+% HACK to fix warning "destination with the same identifier .. has already been used, ...":
+\makeatletter \renewcommand{\thepage}{~\csname @roman\endcsname \c@page~} \makeatother
 \clearpage\phantomsection
+% HACK to fix warning "destination with the same identifier .. has already been used, ...":
+\makeatletter \renewcommand{\thepage}{\csname @roman\endcsname \c@page} \makeatother
 \addcontentsline{toc}{chapter}{Überblick}
 \chapter*{Überblick über den Inhalt des CrypTool-Skripts}
 

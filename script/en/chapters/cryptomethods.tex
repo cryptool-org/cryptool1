@@ -9,6 +9,8 @@
 %
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+% HACK to fix warning "destination with the same identifier .. has already been used, ...":
+\makeatletter \renewcommand{\thepage}{~\csname @arabic\endcsname \c@page~} \makeatother
 \hypertarget{Kapitel_1}{}
 \chapter{Encryption Procedures}
 \label{Label_Kapitel_1}
@@ -111,6 +113,8 @@ can be found within the online help of CrypTool\index{CrypTool}%
   }.
 
 
+% HACK to fix warning "destination with the same identifier .. has already been used, ...":
+\makeatletter \renewcommand{\thepage}{\csname @arabic\endcsname \c@page} \makeatother
 % --------------------------------------------------------------------------
 \subsection{New results about cryptanalysis of AES}
 \label{NeueAES-Analyse}

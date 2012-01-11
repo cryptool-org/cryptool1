@@ -313,12 +313,12 @@ $P=\sum_{i_1,\dots,i_n\in\N_0} a_{i_1\dots i_n} x_1^{i_1}\dots x_n^{i_n}$ with c
 \end{equation}
 are especially useful. The variables $x_1,x_2,x_3$ and parameters $a_1,\dots,a_4,a_6$ are elements of a given field $K$, which has certain properties that are make it useful from the cryptographic point of view. The underlying field $K$ might be the well known field of real numbers or some finite field (see last section).
 In order to obtain a cure that is useful for cryptography, the parameters have to be chosen in a way that the following conditions hold
-$$ {\partial F\over\partial x_1}\ne 0, \quad {\partial F\over\partial x_2}\ne 0, \quad
-{\partial F\over\partial x_3}\ne 0 .
+$$ \frac{\partial F}{\partial x_1}\ne 0, \quad \frac{\partial F}{\partial x_2}\ne 0, \quad
+\frac{\partial F}{\partial x_3}\ne 0 .
 $$
 We identify points on the curve that can be derived from each over by multiplying each component with some scalar. This makes sense since $(x_1,x_2,x_3)$ solves (\ref{eccbasisgleichung}) if and only if $\alpha (x_1,x_2,x_3)$ ($\alpha\ne 0$) does. Formally, this means that we consider classes of equivalent points instead of single points, where points are called equivalent if one is the scalar multiple of the other one.
 \\ If we put $x_3=0$ in the basic equation (\ref{eccbasisgleichung}), then this equation collapses to $-x_1^3=0$, leading to $x_1=0$. Thus, the equivalence class which includes the element $(0,1,0)$ is the only one that contains a point with $x_3=0$. For all points on the curve that are not equivalent to $(0,1,0)$, we may apply the following transformation
-$$ K\times K\times (K\setminus\{0\})\ni (x_1,x_2,x_3) \mapsto (x,y):=\left( {x_1\over x_3}, {x_2\over x_3}\right) \in K\times K \, ,
+$$ K\times K\times (K\setminus\{0\})\ni (x_1,x_2,x_3) \mapsto (x,y):=\left( \frac{x_1}{x_3}, \frac{x_2}{x_3}\right) \in K\times K \, ,
 $$
 which reduces the number of variables to two instead of three. We note that the
 basic equation (\ref{eccbasisgleichung}) $F(x_1,x_2,x_3)=0$  was chosen in a
@@ -377,8 +377,8 @@ In order to work with elliptic curves in practice, we define an operation (often
 $$ x_3:=-x_1-x_2+\lambda^2 \, , \qquad y_3:=-y_1+\lambda (x_1-x_3)
 $$
 with the auxiliary quotient
-$$ \lambda:=\left\{ \begin{array}{cl} {y_1-y_2\over x_1-x_2} & {\rm if~} P_1\ne P_2, \\
-                                     {3x_1^2+a\over 2y_1} & {\rm if~} P_1=P_2. \end{array} \right.
+$$ \lambda:=\left\{ \begin{array}{cl} \frac{y_1-y_2}{x_1-x_2} & {\rm if~} P_1\ne P_2, \\
+                                     \frac{3x_1^2+a}{2y_1} & {\rm if~} P_1=P_2. \end{array} \right.
 $$
 \end{enumerate}
 In particular, we obtain $-P=(x,-y)$ for $P=(x,y)\in E$.
@@ -391,8 +391,8 @@ If we deal with a curve over the field $GF(2^n)$, we define the operation $+$ in
 $$ x_3:=-x_1+x_2+\lambda+\lambda^2+a \, , \qquad y_3:=y_1+x_3+\lambda (x_1+x_3)
 $$
 with auxiliary quotient
-$$ \lambda:=\left\{ \begin{array}{cl} {y_1+y_2\over x_1+x_2} & {\rm if~} P_1\ne P_2, \\
-                                   x_1+{y_1\over x_1} & {\rm if~} P_1=P_2. \end{array}\right.
+$$ \lambda:=\left\{ \begin{array}{cl} \frac{y_1+y_2}{x_1+x_2} & {\rm if~} P_1\ne P_2, \\
+                                   x_1+\frac{y_1}{x_1} & {\rm if~} P_1=P_2. \end{array}\right.
 $$
 \end{enumerate}
 In particular, we obtain $-P=(x,-y)$ for $P=(x,y)\in E$.
@@ -433,7 +433,7 @@ $$ mP := \underbrace{P+P+\dots+P}_{\hbox{$m$ times}} \, .
 $$
 Looking on this operation from the cryptographic point of view, it turns out to be very interesting by the following reason: On the one hand one needs only $\log m$ operations to calculate $mP$ --- one simply has to calculate $P$, $2P$, $2^2P$, $2^3P$, \dots, write $m$ in a binary form and finally add all these multiples $2^kP$ of $P$ with respect to the binary representation of $m$ --- on the other hand it seems to be very hard to find $m$ given $P$ and $Q=mP$ on $E$. Of course, we may simply calculate $P,2P,3P,4P,5P,\dots$ and compare each of them with $Q$. But this will take as much as $m$ operations.
 
-Yet there is no algorithm known that efficiently derives $m$ given $P$ and $G$. The best algorithms known so far need about $\sqrt{q}$ operations where $q$ is the (largest) prime factor of $p-1$, in case the underlying field is $GF(p)$; here $m$ should be between $1$ and $q$ liegen so that one needs at most $\log q$ operations to calculate $mP$. However, the quotient ${\sqrt{q}\over\log q}$ tends to $+\infty$ very fast for large $q$.
+Yet there is no algorithm known that efficiently derives $m$ given $P$ and $G$. The best algorithms known so far need about $\sqrt{q}$ operations where $q$ is the (largest) prime factor of $p-1$, in case the underlying field is $GF(p)$; here $m$ should be between $1$ and $q$ liegen so that one needs at most $\log q$ operations to calculate $mP$. However, the quotient $\frac{\sqrt{q}}{\log q}$ tends to $+\infty$ very fast for large $q$.
 
 If we choose the parameters sufficiently large (for example, let $p$ be prime and at least $160$ bits long), an computer will easily be able to calculate $mP$ (in less than a second). The {\it inverse problem} however, to derive $m$ from $mP$ and $P$, can (still) not be solved in reasonable time.
 

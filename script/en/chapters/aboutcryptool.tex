@@ -4,7 +4,11 @@
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 % --------------------------------------------------------------------------
+% HACK to fix warning "destination with the same identifier .. has already been used, ...":
+\makeatletter \renewcommand{\thepage}{~\csname @roman\endcsname \c@page~} \makeatother
 \clearpage\phantomsection
+% HACK to fix warning "destination with the same identifier .. has already been used, ...":
+\makeatletter \renewcommand{\thepage}{\csname @roman\endcsname \c@page} \makeatother
 \addcontentsline{toc}{chapter}{Overview}
 \chapter*{Overview about the Content of the CrypTool Script}  
 

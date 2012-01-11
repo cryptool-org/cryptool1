@@ -2,7 +2,8 @@
 % ............................................................................
 %             V E R S C H L U E S S E L U N G S V E R F A H R E N
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+% HACK to fix warning "destination with the same identifier .. has already been used, ...":
+\makeatletter \renewcommand{\thepage}{~\csname @arabic\endcsname \c@page~} \makeatother
 \hypertarget{Kapitel_1}{}
 \chapter{Verschlüsselungsverfahren}
 \label{Label_Kapitel_1}
@@ -116,6 +117,8 @@ Sie in der CrypTool-Online-Hilfe\index{CrypTool}%
   }.
 
 
+% HACK to fix warning "destination with the same identifier .. has already been used, ...":
+\makeatletter \renewcommand{\thepage}{\csname @arabic\endcsname \c@page} \makeatother
 % --------------------------------------------------------------------------
 \subsection{Neue Ergebnisse zur Kryptoanalyse von AES}
 \label{NeueAES-Analyse}
