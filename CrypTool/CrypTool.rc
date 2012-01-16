@@ -32782,9 +32782,9 @@ BEGIN
                             "Der von Ihnen gewählte Schlüssel wurde in den Schlüsselspeicher geladen.\nSie können diesen Schlüssel bei der Permutationsverschlüsselung nutzen (siehe Menü: Ver-/Entschlüsseln \\ Symmetrisch (klassisch) \\ Permutation / Transposition).\n\nUm den gespeicherten Schlüssel für die Permutations-Verschlüsselung zu benutzen, klicken Sie dann unten im Schlüsseleingabe-Dialog auf die Ikone zum Schlüsseleinfügen."
     IDS_DIALOGHEADER_PERMKEY_LIST "Liste der gefundenen Permutationsschlüssel"
     IDS_INFO_TEXT_ENCRYPTION 
-                            "Die Verschlüsselung erfolgt im Text-Modus.\nZeichen, die nicht zum gewählten Alphabet gehören, werden nicht verschlüsselt\n(abhängig von den Textoptionen werden diese Zeichen entfernt oder beibehalten)."
+                            "Die Verschlüsselung erfolgt im Text-Modus. Zeichen, die nicht zum gewählten Alphabet gehören, werden nicht verschlüsselt (abhängig von den Textoptionen werden diese Zeichen entfernt oder beibehalten)."
     IDS_INFO_BYNARY_ENCRYPTION 
-                            "Die Verschlüsselung erfolgt im Binär-Modus.\nAlle Zeichen unabhängig vom eingestellten Text-Alphabet werden verschlüsselt."
+                            "Die Verschlüsselung erfolgt im Binär-Modus. Alle Zeichen unabhängig vom eingestellten Text-Alphabet werden verschlüsselt."
     IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED 
                             "TODO: Funktionalität für HEX-Modus noch nicht implementiert!"
     IDS_FINDANDREPLACE_TEXTNOTFOUND 
@@ -43983,7 +43983,7 @@ BEGIN
                             "The selected key has been copied to the key storage. You may use this permutation key for document encryption or ciphertext decryption (See menu: Encrypt/Decrypt \\ Symmetric (classic) \\ Permutation / Transposition).\n\nUsing the Permutation encryption dialog you may click on the key symbol to paste the stored key."
     IDS_DIALOGHEADER_PERMKEY_LIST "List of recovered permutation keys"
     IDS_INFO_TEXT_ENCRYPTION 
-                            "You chose the option to do the encryption in text mode.\nThis means that characters, which don't belong to the alphabet, are not encrypted\n(according to the text option settings these characters are either taken away or are kept unchanged)."
+                            "You chose the option to do the encryption in text mode. This means that characters which don't belong to the alphabet are not encrypted (according to the text options these characters are either taken away or are kept unchanged)."
     IDS_INFO_BYNARY_ENCRYPTION 
                             "You chose the option to do the encryption in binary mode. This means that all characters are encrypted and the chosen text alphabet doesn't matter."
     IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED 
