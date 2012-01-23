@@ -198,7 +198,7 @@ static char *pwd_chr_families[] = {
 };
 
 // this function checks a password for compliance
-int checkPasswordForCompliance(char *password) {
+int checkPasswordForCompliance(char *password, int &pwLength, int &pwLengthMinimum, int &pwDigits, int &pwDigitsMinimum, int &pwSpecials, int &pwSpecialsMinimum) {
 	// by default, every password is compliant
 	int complianceCheckResult = IDS_PWD_POLICY_COMPLIANT;
 	// stick to default values in case there are no registry entries
@@ -263,6 +263,14 @@ int checkPasswordForCompliance(char *password) {
 	if (strlen(password) < minimumLength) complianceCheckResult |= IDS_PWD_POLICY_TOOSHORT;
 	if( _number < minimumDigits ) complianceCheckResult |= IDS_PWD_POLICY_TOOFEWDIGITS;
 	if( _special < minimumSpecial ) complianceCheckResult |= IDS_PWD_POLICY_TOOFEWSPECIALCHARACTERS;
+
+	// flomar, 01/22/2012: fill the parameters (see signature) for future use
+	pwLength = (int)strlen(password);
+	pwLengthMinimum = (int)minimumLength;
+	pwDigits = (int)_number;
+	pwDigitsMinimum = (int)minimumDigits;
+	pwSpecials = (int)_special;
+	pwSpecialsMinimum = (int)minimumSpecial;
 
 	return complianceCheckResult;
 }
@@ -572,7 +580,17 @@ char *checkPassword(char *password, char *path, int hidePassword, double *determ
     }
     dict_size = PW_WORDS(pwp);
 
-	int complianceCheckResult = checkPasswordForCompliance(pwtrunced);
+
+	// flomar, 01/22/2012: save a few parameters for future use (extended GUI)
+	int pwLength = 0;
+	int pwLengthMinimum = 0;
+	int pwDigits = 0;
+	int pwDigitsMinimum = 0;
+	int pwSpecials = 0;
+	int pwSpecialsMinimum = 0;
+
+	int complianceCheckResult = checkPasswordForCompliance(pwtrunced, pwLength, pwLengthMinimum, pwDigits, pwDigitsMinimum, pwSpecials, pwSpecialsMinimum);
+	
 	LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_COMPLIANT, pc_str, STR_LAENGE_STRING_TABLE);
 	strcat(str_fnds, pc_str);
 
@@ -584,20 +602,23 @@ char *checkPassword(char *password, char *path, int hidePassword, double *determ
 	}
 	// password does not seem to be compliant
 	else {
-        if(complianceCheckResult & IDS_PWD_POLICY_TOOSHORT) {
+    if(complianceCheckResult & IDS_PWD_POLICY_TOOSHORT) {
 			// password is TOO SHORT
-			LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT, pc_str, STR_LAENGE_STRING_TABLE);
-			strcat(str_fnds, pc_str);
+			CString warningMessage;
+			warningMessage.Format(IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT, pwLength, pwLengthMinimum);
+			strcat(str_fnds, warningMessage.GetBuffer());
 		}
 		if(complianceCheckResult & IDS_PWD_POLICY_TOOFEWDIGITS) {
 			// password contains TOO FEW DIGITS
-			LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_DIGITS, pc_str, STR_LAENGE_STRING_TABLE);
-			strcat(str_fnds, pc_str);
+			CString warningMessage;
+			warningMessage.Format(IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_DIGITS, pwDigits, pwDigitsMinimum);
+			strcat(str_fnds, warningMessage.GetBuffer());
 		}
 		if(complianceCheckResult & IDS_PWD_POLICY_TOOFEWSPECIALCHARACTERS) {
 			// password contains TOO FEW SPECIAL CHARACTERS
-			LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS, pc_str, STR_LAENGE_STRING_TABLE);
-			strcat(str_fnds, pc_str);
+			CString warningMessage;
+			warningMessage.Format(IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS, pwSpecials, pwSpecialsMinimum);
+			strcat(str_fnds, warningMessage.GetBuffer());
 		}
 	}
 

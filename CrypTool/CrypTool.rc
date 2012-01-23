@@ -10810,7 +10810,7 @@ BEGIN
     IDS_PQM_NO_CRACKLIB_DICTIONARY 
                             "Nie mo¿na otworzyæ s³ownika cracklib: \n%s \r\n Proszê sprawdziæ, czy podany plik istnieje: \n%s.hwm\n%s.pwd\n%s.pwi"
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT 
-                            "- Nie (has³o jest za krótkie)\r\n"
+                            "- Nie (has³o jest za krótkie: %d/%d)\r\n"
     IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS 
                             "\r\nS³owa ze s³ownika [%d]:"
     IDS_SECRETSHARINGSHAMIR_LOG_HEADING 
@@ -10933,9 +10933,9 @@ END
 STRINGTABLE 
 BEGIN
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_DIGITS 
-                            "- Nie (has³o zawiera zbyt ma³o cyfr)\r\n"
+                            "- Nie (has³o zawiera zbyt ma³o cyfr: %d/%d)\r\n"
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS 
-                            "- Nie (has³o zawiera zbyt ma³o znaków specjalnych)\r\n"
+                            "- Nie (has³o zawiera zbyt ma³o znaków specjalnych: %d/%d)\r\n"
 END
 
 STRINGTABLE 
@@ -21935,7 +21935,7 @@ BEGIN
     IDS_PQM_NO_CRACKLIB_DICTIONARY 
                             "Ne može da se otvori cracklib recnik:\n%s\r\nMolimo proverite da li sledece datoteke postoje:\r\n%s.hwm\r\n%s.pwd\r\n%s.pwi"
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT 
-                            "- Ne (Lozinka previše kratka)\r\n"
+                            "- Ne (Lozinka previše kratka: %d/%d)\r\n"
     IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS "\r\nRecnicke reci [%d]: "
     IDS_SECRETSHARINGSHAMIR_LOG_HEADING 
                             "Log datoteka za Shamir-ovu Šemu Deljenja Tajne"
@@ -22058,9 +22058,9 @@ END
 STRINGTABLE 
 BEGIN
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_DIGITS 
-                            "- Ne (Lozinka sadrži malo cifara)\r\n"
+                            "- Ne (Lozinka sadrži malo cifara: %d/%d)\r\n"
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS 
-                            "- Ne (Lozinka sadrži malo specijalnih karaktera)\r\n"
+                            "- Ne (Lozinka sadrži malo specijalnih karaktera: %d/%d)\r\n"
 END
 
 STRINGTABLE 
@@ -33011,7 +33011,7 @@ BEGIN
     IDS_PQM_NO_CRACKLIB_DICTIONARY 
                             "Das Öffnen des cracklib-Wörterbuchs an folgender Stelle schlug fehl:\r\n%s\r\nBitte stellen Sie sicher, dass die folgenden Dateien vorhanden sind:\r\n%s.hwm\r\n%s.pwd\r\n%s.pwi"
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT 
-                            "- Nein (Passwort ist zu kurz)\r\n"
+                            "- Nein (Passwort ist zu kurz: %d/%d)\r\n"
     IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS 
                             "\r\nWörterbuch-Einträge [%d]: "
     IDS_SECRETSHARINGSHAMIR_LOG_HEADING 
@@ -33123,9 +33123,9 @@ END
 STRINGTABLE 
 BEGIN
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_DIGITS 
-                            "- Nein (Passwort enthält zu wenig Ziffern)\r\n"
+                            "- Nein (Passwort enthält zu wenig Ziffern: %d/%d)\r\n"
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS 
-                            "- Nein (Passwort enthält zu wenig Sonderzeichen)\r\n"
+                            "- Nein (Passwort enthält zu wenig Sonderzeichen: %d/%d)\r\n"
 END
 
 STRINGTABLE 
@@ -44150,7 +44150,7 @@ BEGIN
     IDS_PQM_NO_CRACKLIB_DICTIONARY 
                             "Could not open the cracklib dictionary:\n%s\r\nPlease make sure the following files exist:\r\n%s.hwm\r\n%s.pwd\r\n%s.pwi"
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT 
-                            "- No (Password is too short)\r\n"
+                            "- No (Password is too short: %d/%d)\r\n"
     IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS 
                             "\r\nDictionary words [%d]: "
     IDS_SECRETSHARINGSHAMIR_LOG_HEADING 
@@ -44273,9 +44273,9 @@ END
 STRINGTABLE 
 BEGIN
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_DIGITS 
-                            "- No (Password contains too few digits)\r\n"
+                            "- No (Password contains too few digits: %d/%d)\r\n"
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS 
-                            "- No (Password contains too few special characters)\r\n"
+                            "- No (Password contains too few special characters: %d/%d)\r\n"
 END
 
 STRINGTABLE 
@@ -55326,7 +55326,7 @@ BEGIN
     IDS_PQM_NO_CRACKLIB_DICTIONARY 
                             "No se ha podido abrir el diccionario ""cracklib"": \n%s\r\n Asegúrese de que el siguiente archivo existe :t:\r\n%s.hwm\r\n%s.pwd\r\n%s.pwi"
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT 
-                            "- No (Contraseña demasiado corta)\r\n"
+                            "- No (Contraseña demasiado corta: %d/%d)\r\n"
     IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS 
                             "\r\nPalabras del diccionario [%d]: "
     IDS_SECRETSHARINGSHAMIR_LOG_HEADING 
@@ -55450,9 +55450,9 @@ END
 STRINGTABLE 
 BEGIN
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_DIGITS 
-                            "- No (La contraseña contiene demasiado pocos dígitos)\r\n"
+                            "- No (La contraseña contiene demasiado pocos dígitos: %d/%d)\r\n"
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS 
-                            "- No (La contraseña contiene demasiado pocos caracteres especiales)\r\n"
+                            "- No (La contraseña contiene demasiado pocos caracteres especiales: %d/%d)\r\n"
 END
 
 STRINGTABLE 

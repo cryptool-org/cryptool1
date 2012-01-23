@@ -108,10 +108,12 @@ char *checkPasswordAgainstSequences(char *password);
 char *checkPasswordAgainstKeyboardSequences(char *password);
 // this function checks a password against a cracklib dictionary
 char *checkPasswordAgainstCracklibDictionary(char *password, PWDICT *pwp, unsigned long int notfound);
-// this function checks a password for compliance
-int checkPasswordForCompliance(char *password);
 // this function checks a password's charset
 int checkPasswordCharset(char *password);
+
+// this function checks a password for compliance
+// flomar, 01/22/2012: additional parameters 2 to 4 for extended GUI
+int checkPasswordForCompliance(char *password, int &pwLength, int &pwLengthMinimum, int &pwDigits, int &pwDigitsMinimum, int &pwSpecials, int &pwSpecialsMinimum);
 
 // this is the main password checking function; it returns 0 if the given path 
 // for the cracklib dictionary is invalid; if the last two parameters are specified,
