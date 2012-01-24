@@ -26606,7 +26606,7 @@ BEGIN
     LTEXT           "100 %",IDC_QUALITY_MOZILLA,205,174,55,8
     LTEXT           "100 % (128 Bits)",IDC_QUALITY_PGP,205,188,55,8
     CONTROL         "",IDC_PICTURE_QUALITY,"Static",SS_BLACKFRAME,272,175,25,25
-    LTEXT           "Hier sind verschiedene Beispiele für Passwort-Qualitätsmesser aufgeführt, die Ihnen dabei helfen, die Sicherheit Ihres Passworts einzuschätzen.",IDC_STATIC,20,44,285,16
+    LTEXT           "Unten finden Sie vier implementierte Hypothesen für Passwort-Qualitätsmesser, mit denen Sie die Sicherheit Ihres Passwortes einschätzen können.",IDC_STATIC,20,44,285,16
     GROUPBOX        "Resistenz gegen Wörterbuch-Attacken (bewertet nur die ersten 32 Zeichen)",IDC_STATIC,7,235,311,123
     EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,247,285,103,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
     DEFPUSHBUTTON   "Passwort-Richtlinien",ID_CONFIGURE_PASSWORD_GUIDELINES,110,364,80,14
@@ -37597,7 +37597,7 @@ BEGIN
     CONTROL         "",IDC_PICTURE_QUALITY,"Static",SS_BLACKFRAME,272,175,25,25
     GROUPBOX        "Description",IDC_STATIC,7,7,311,60
     LTEXT           "It is not possible to exactly determine and quantify the security of passwords. But it is possible to estimate the security of passwords based on certain assumptions.",IDC_STATIC,20,20,285,24
-    LTEXT           "Here you can see different examples for password quality meters, helping you to estimate the security of your password.",IDC_STATIC,20,44,285,16
+    LTEXT           "Below you can see four implementations of password quality meters, helping you to estimate the security of your password.",IDC_STATIC,20,44,285,16
     GROUPBOX        "Resistance against dictionary attacks (evaluates only the first 32 characters)",IDC_STATIC,7,235,311,123
     EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,247,285,103,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
     DEFPUSHBUTTON   "Password guidelines",ID_CONFIGURE_PASSWORD_GUIDELINES,110,364,80,14
