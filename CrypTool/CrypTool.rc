@@ -4260,7 +4260,7 @@ BEGIN
     CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",PBS_SMOOTH | WS_BORDER,68,206,130,8
     LTEXT           "CrypTool:",IDC_STATIC,29,206,32,8
     LTEXT           "100 % (128 bit)",IDC_QUALITY_CRYPTOOL,205,206,55,8
-    LTEXT           "(Miernik jakoœci has³a CrypToola sprawdza tylko pierwsze 32 znaki)",IDC_STATIC,68,216,237,8
+    LTEXT           "(Miernik jakoœci has³a CrypToola sprawdza tylko pierwsze 32 znaki)",IDC_QUALITY_CRYPTOOL_COMMENT,68,216,237,8
     LTEXT           "D³ugoœæ has³a:",IDC_STATIC,223,124,56,9
     EDITTEXT        IDC_EDIT1,280,123,25,12,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
@@ -10812,7 +10812,7 @@ BEGIN
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT 
                             "- Nie (has³o jest za krótkie: %d/%d)\r\n"
     IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS 
-                            "\r\nS³owa ze s³ownika [%d]:"
+                            "\r\nS³owa ze s³ownika [%s]:"
     IDS_SECRETSHARINGSHAMIR_LOG_HEADING 
                             "Plik log dla demonstracji dzielenia tajemnic Shamira"
     IDS_CAESAR_ANALYSIS_REMARK 
@@ -15424,7 +15424,7 @@ BEGIN
     CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",PBS_SMOOTH | WS_BORDER,68,206,130,8
     LTEXT           "CrypTool:",IDC_STATIC,29,206,32,8
     LTEXT           "100 % (128 bit)",IDC_QUALITY_CRYPTOOL,205,206,55,8
-    LTEXT           "(CrypTool-PQM metod procenjuje samo prvih 32 karaktera)",IDC_STATIC,68,216,237,8
+    LTEXT           "(CrypTool-PQM metod procenjuje samo prvih 32 karaktera)",IDC_QUALITY_CRYPTOOL_COMMENT,68,216,237,8
     LTEXT           "Dužina lozinke:",IDC_STATIC,223,124,56,9
     EDITTEXT        IDC_EDIT1,280,123,25,12,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
@@ -21936,7 +21936,7 @@ BEGIN
                             "Ne može da se otvori cracklib recnik:\n%s\r\nMolimo proverite da li sledece datoteke postoje:\r\n%s.hwm\r\n%s.pwd\r\n%s.pwi"
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT 
                             "- Ne (Lozinka previše kratka: %d/%d)\r\n"
-    IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS "\r\nRecnicke reci [%d]: "
+    IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS "\r\nRecnicke reci [%s]: "
     IDS_SECRETSHARINGSHAMIR_LOG_HEADING 
                             "Log datoteka za Shamir-ovu Šemu Deljenja Tajne"
     IDS_CAESAR_ANALYSIS_REMARK 
@@ -26615,7 +26615,7 @@ BEGIN
     LTEXT           "100 % (128 Bits)",IDC_QUALITY_CRYPTOOL,205,206,55,8
     LTEXT           "Passwortlänge:",IDC_STATIC,229,124,50,9
     EDITTEXT        IDC_EDIT1,280,123,25,12,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
-    LTEXT           "(Die CrypTool-PQM-Methode bewertet nur die ersten 32 Zeichen)",IDC_STATIC,68,216,237,8
+    LTEXT           "(Die CrypTool-PQM-Methode bewertet nur die ersten 32 Zeichen)",IDC_QUALITY_CRYPTOOL_COMMENT,68,216,237,8
 END
 
 IDD_LIST_RESULTS DIALOGEX 0, 0, 435, 220
@@ -33013,7 +33013,7 @@ BEGIN
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT 
                             "- Nein (Passwort ist zu kurz: %d/%d)\r\n"
     IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS 
-                            "\r\nWörterbuch-Einträge [%d]: "
+                            "\r\nWörterbuch-Einträge [%s]: "
     IDS_SECRETSHARINGSHAMIR_LOG_HEADING 
                             "Protokolldatei für das Secret-Sharing-Verfahren nach Shamir"
     IDS_CAESAR_ANALYSIS_REMARK 
@@ -37604,7 +37604,7 @@ BEGIN
     CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",PBS_SMOOTH | WS_BORDER,68,206,130,8
     LTEXT           "CrypTool:",IDC_STATIC,29,206,32,8
     LTEXT           "100 % (128 bit)",IDC_QUALITY_CRYPTOOL,205,206,55,8
-    LTEXT           "(The CrypTool-PQM method evaluates only the first 32 characters)",IDC_STATIC,68,216,237,8
+    LTEXT           "(The CrypTool-PQM method evaluates only the first 32 characters)",IDC_QUALITY_CRYPTOOL_COMMENT,68,216,237,8
     LTEXT           "Password length:",IDC_STATIC,223,124,56,9
     EDITTEXT        IDC_EDIT1,280,123,25,12,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
@@ -44152,7 +44152,7 @@ BEGIN
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT 
                             "- No (Password is too short: %d/%d)\r\n"
     IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS 
-                            "\r\nDictionary words [%d]: "
+                            "\r\nDictionary words [%s]: "
     IDS_SECRETSHARINGSHAMIR_LOG_HEADING 
                             "Log file for Shamir's secret-sharing scheme"
     IDS_CAESAR_ANALYSIS_REMARK 
@@ -47145,7 +47145,7 @@ BEGIN
     CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",PBS_SMOOTH | WS_BORDER,68,206,130,8
     LTEXT           "CrypTool:",IDC_STATIC,29,206,32,8
     LTEXT           "100 % (128 bit)",IDC_QUALITY_CRYPTOOL,205,206,55,8
-    LTEXT           "(El método de CrypTool-PQM sólo evalúa los 32 primeros caracteres)",IDC_STATIC,68,216,237,8
+    LTEXT           "(El método de CrypTool-PQM sólo evalúa los 32 primeros caracteres)",IDC_QUALITY_CRYPTOOL_COMMENT,68,216,237,8
     LTEXT           "Long. de Contraseña:",IDC_STATIC,223,124,56,9
     EDITTEXT        IDC_EDIT1,280,123,25,12,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
@@ -55328,7 +55328,7 @@ BEGIN
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT 
                             "- No (Contraseña demasiado corta: %d/%d)\r\n"
     IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS 
-                            "\r\nPalabras del diccionario [%d]: "
+                            "\r\nPalabras del diccionario [%s]: "
     IDS_SECRETSHARINGSHAMIR_LOG_HEADING 
                             "Fichero Log para el proyecto de Secreto-Compartido de Shamir"
     IDS_CAESAR_ANALYSIS_REMARK 

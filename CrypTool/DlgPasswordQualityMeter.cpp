@@ -226,6 +226,14 @@ void CDlgPasswordQualityMeter::UpdateUserInterface()
 		this->controlPictureQuality.Load(MAKEINTRESOURCE(IDR_GIF_PQM_QUALITY_GREAT), _T("GIF"));
 	this->controlPictureQuality.Draw();
 
+	// flomar, 01/24/2012: we want to dynamically show/hide the comment about 
+	// the restriction of CrypTool's password evaluation to 32 characters 
+	// (hidden as long as the password is <=32 characters long, shown otherwise)
+	CWnd *windowCrypToolQualityComment = GetDlgItem(IDC_QUALITY_CRYPTOOL_COMMENT);
+	if(windowCrypToolQualityComment) {
+		windowCrypToolQualityComment->ShowWindow(password.GetLength() <= 32 ? SW_HIDE : SW_SHOW);
+	}
+
 	UpdateData(false);
 }
 

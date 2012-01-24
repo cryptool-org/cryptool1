@@ -773,7 +773,9 @@ char *checkPassword(char *password, char *path, int hidePassword, double *determ
 	// flomar, 03/24/2010
 	// we add the dict size to the line that displays dictionary hits (extern feature request)
 	CString reconstructionDictionaryWords;
-	reconstructionDictionaryWords.Format(IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS, dict_size);
+	// flomar, 01/24/2012: add integral separators (i.e. '1999' -> '1.999')
+	CString stringDictSize = createStringNumberWithDigitGrouping(dict_size);
+	reconstructionDictionaryWords.Format(IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS, stringDictSize);
 	strcat(str_fnds, (LPCTSTR)(reconstructionDictionaryWords));
 	get_pwd_substrings( pwd_len, closure_matrix, DICT_WORDS, password, hidePassword, str_fnds, word_list, word_listSize);
 
