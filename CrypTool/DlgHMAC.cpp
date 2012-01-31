@@ -283,49 +283,64 @@ void CDlgHMAC::calculateMACAndUpdateGUI()
 				m_str_outer_input = m_key + m_originalMessage + m_secondkey;
 				break;//zwei Schlüssel
 		case 4: 
-				{ 
+				{
+					// flomar, 01/31/2012: the old RFC2104 implementation assumed a block size of 
+					// 64 bytes; that's fine for all the hash functions we use in this dialog except 
+					// SHA512, which operates with 128 bytes; the old implementation with SHA512 did 
+					// not produce the expected test vectors (see http://tools.ietf.org/html/rfc4231);
+					// thanks to peter.brand@haw-hamburg.de for noticing and reporting this bug
+
+					// determine the block size (see above, m_alg==6 is SHA512)
+					const int blockSize = (m_alg == 6) ? 128 : 64;
+
 					if (m_key == "") keyEmpty(IDS_STRING_MAC_Double); 
 					// acoording RFC 2104
-					unsigned char k_ipad[64];
-					unsigned char k_opad[64];
-					unsigned char keyData[64];
+					unsigned char *k_ipad = new unsigned char[blockSize];
+					unsigned char *k_opad = new unsigned char[blockSize];
+					unsigned char *keyData = new unsigned char[blockSize];
 					int keyLen;
-					if ( m_key.GetLength() > 64 )
+					if ( m_key.GetLength() > blockSize )
 						hash(m_key, (char*)keyData, keyLen);
 					else
 					{
 						keyLen = m_key.GetLength();
 						memcpy(keyData, m_key.GetBuffer(), keyLen);
 					}
-					memset(k_ipad, '\0', 64);
-					memset(k_opad, '\0', 64);
+					memset(k_ipad, '\0', blockSize);
+					memset(k_opad, '\0', blockSize);
 					memcpy(k_ipad, keyData, keyLen);
 					memcpy(k_opad, keyData, keyLen);
-					for (int i=0; i<64; i++) { 
+					for (int i=0; i<blockSize; i++) { 
 						k_ipad[i] ^= 0x36;
 						k_opad[i] ^= 0x5c;
 					}
 
-					char digest[64];
+					char *digest = new char[blockSize];
 					int  digest_length;
 
 					// inner hashing
 					HashingOperations hashOp(hashIDmapping[m_alg]);
 					hashOp.chunkHashInit();
-					hashOp.chunkHashUpdate(k_ipad, 64);
+					hashOp.chunkHashUpdate(k_ipad, blockSize);
 					hashOp.chunkHashUpdate(m_originalMessage.GetBuffer(), m_originalMessage.GetLength());
 					hashOp.chunkHashFinal(digest);
 					digest_length = hashSize[m_alg];
 					m_innerHash = hex_dump( digest, digest_length );
-					m_str_outer_input = hex_dump((char*)k_opad, 64) + hex_dump( digest, digest_length );
+					m_str_outer_input = hex_dump((char*)k_opad, blockSize) + hex_dump( digest, digest_length );
 
 					// outer hashing
 					hashOp.chunkHashInit();
-					hashOp.chunkHashUpdate(k_opad, 64);				
+					hashOp.chunkHashUpdate(k_opad, blockSize);				
 					hashOp.chunkHashUpdate(digest, digest_length);				
 					hashOp.chunkHashFinal(digest);
 
 					m_str_mac = hex_dump( digest, digest_length );
+
+					// free memory
+					delete[] k_ipad;
+					delete[] k_opad;
+					delete[] keyData;
+					delete[] digest;
 				}
 				break;//doppelte Ausführung der Hashfunktion
 	}
