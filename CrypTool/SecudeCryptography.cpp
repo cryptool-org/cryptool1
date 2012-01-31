@@ -351,7 +351,7 @@ UINT CHashRunnable::run()
 	if(aid == 0) {
 
 		// SHA-256
-		if(AlgTitel == "SHA-256") {
+		if(CString(AlgTitel) == "SHA-256") {
 			char messageDigest[32+1];
 			memset(messageDigest, 0, 32+1);
 			FILE *in = fopen(infile,"rb");
@@ -397,7 +397,7 @@ UINT CHashRunnable::run()
 			delete this;
 		}
 		// SHA-512
-		if(AlgTitel == "SHA-512") {
+		if(CString(AlgTitel) == "SHA-512") {
 			char messageDigest[64+1];
 			memset(messageDigest, 0, 64+1);
 			FILE *in = fopen(infile,"rb");
