@@ -1704,6 +1704,7 @@
 #define IDC_BUTTON_LOAD_NUMBER          2096
 #define IDC_BUTTON_PRIME_TEST           2097
 #define IDC_QUALITY_CRYPTOOL_COMMENT    2098
+#define IDC_EDIT_MODUL                  2099
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -3358,7 +3359,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        885
 #define _APS_NEXT_COMMAND_VALUE         33396
-#define _APS_NEXT_CONTROL_VALUE         2099
+#define _APS_NEXT_CONTROL_VALUE         2100
 #define _APS_NEXT_SYMED_VALUE           114
 #endif
 #endif

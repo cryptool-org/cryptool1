@@ -345,8 +345,7 @@ void CDlgKeyAsym::OnShowPubParamButton()
 			sprintf(temphex+2+(2*i),"%02X",buf[i]);	
 		}
 		string_to_ln(temphex,temp);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_MODUL,pc_str,STR_LAENGE_STRING_TABLE);
-		dlg.addentry(pc_str,temp);
+		dlg.setModul(temp);
 
 		int mlen2 = ki->part2.noctets;
 		unsigned char* buf2 = (unsigned char*) ki->part2.octets;
@@ -356,8 +355,7 @@ void CDlgKeyAsym::OnShowPubParamButton()
 			sprintf(temphex+2+(2*i),"%02X",buf2[i]);
 		}
 		string_to_ln(temphex,temp);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_EXPONENT,pc_str,STR_LAENGE_STRING_TABLE);
-		dlg.addentry(pc_str,temp);
+		dlg.setExponent(temp);
 		
 		dlg.DoModal();
 		UpdateData(false);	

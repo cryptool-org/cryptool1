@@ -44,16 +44,23 @@ public:
 	bool disableOkButton;
 	CDlgShowKeyParameter(CWnd* pParent = NULL);   // Standardkonstruktor
 
-	int m_entries;
+	// flomar, 02/14/2012: new interface for setting modul and exponent
+	CString m_modul;
+	CString m_exponent;
+	void setModul(L_NUMBER *_modul) {
+		memcpy(m_data[0].data,_modul,MAXLGTH*sizeof(L_NUMBER));
+	}
+	void setExponent(L_NUMBER *_exponent) {
+		memcpy(m_data[1].data,_exponent,MAXLGTH*sizeof(L_NUMBER));
+	}
+
 	struct param m_data[10];
-	void addentry(char *,L_NUMBER *);
 	void settitel(char *);
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgShowKeyParameter)
 	enum { IDD = IDD_SHOW_KEY_PARAMETER };
 	CButton	m_ctrlOK;
-	CListCtrl	m_listctrl;
 	int		m_radio;
 	CString	m_titel;
 	//}}AFX_DATA
@@ -68,7 +75,6 @@ public:
 
 // Implementierung
 protected:
-	void UpdateListBox();
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgShowKeyParameter)
 	afx_msg void OnUpdate();
