@@ -1510,11 +1510,10 @@ BEGIN
     CONTROL         "&Dec",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,69,99,40,12
     CONTROL         "&Hex",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,121,99,61,12
     GROUPBOX        "System liczbowy",IDC_STATIC,12,89,175,26
-    EDITTEXT        IDC_TITEL,15,6,285,16,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
-    EDITTEXT        IDC_EDIT_MODUL,60,29,245,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT_EXPONENT,60,47,245,14,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "Modulus:",IDC_STATIC,13,48,30,8
-    LTEXT           "Wyk³adnik:",IDC_STATIC,13,30,38,8
+    LTEXT           "Modulus:",IDC_STATIC,13,52,30,8
+    LTEXT           "Wyk³adnik:",IDC_STATIC,13,16,38,8
+    EDITTEXT        IDC_EDIT_EXPONENT,60,50,245,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_MODUL,60,14,245,28,ES_MULTILINE | ES_READONLY
 END
 
 IDD_PRIMES_GENERATOR_DEMO DIALOGEX 0, 0, 326, 287
@@ -9069,7 +9068,7 @@ BEGIN
     IDS_STRING_HYBRID_DEC_MSG9 
                             "Ci¹g, który poda³eœ nie jest prawid³owo hybrydowo zaszyfrowanym plikiem!\nNie mo¿e zostaæ rozszyfrowany.\n"
     IDS_STRING_HYBRID_DEC_MSG10 "Wybra³eœ niew³aœciwy Certyfikat!"
-    IDS_STRING_HYBRID_ENC_PUBLIC_KEY_OF "Klucz publiczny dla:"
+    IDS_STRING_HYBRID_ENC_PUBLIC_KEY_OF "Klucz publiczny dla: "
     IDS_STRING_ZERT_DATEN2  "Dane Twojego certyfikatu:"
     IDS_STRING_HYBRID_LENGTH_ENC_KEY 
                             "     D³ugoœæ zaszyfrowanego  klucza sesyjnego:    "
@@ -12666,11 +12665,10 @@ BEGIN
     CONTROL         "&Decimalno",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,69,99,49,12
     CONTROL         "&Heksadecimalno",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,121,99,65,12
     GROUPBOX        "Osnova za predstavljanje brojeva",IDC_STATIC,12,89,175,26
-    EDITTEXT        IDC_TITEL,15,6,285,16,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
-    EDITTEXT        IDC_EDIT_MODUL,60,29,245,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT_EXPONENT,60,47,245,14,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "Moduo:",IDC_STATIC,13,48,25,8
-    LTEXT           "Eksponent:",IDC_STATIC,13,30,37,8
+    LTEXT           "Moduo:",IDC_STATIC,13,52,25,8
+    LTEXT           "Eksponent:",IDC_STATIC,13,16,37,8
+    EDITTEXT        IDC_EDIT_EXPONENT,60,50,245,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_MODUL,60,14,245,28,ES_MULTILINE | ES_READONLY
 END
 
 IDD_PRIMES_GENERATOR_DEMO DIALOGEX 0, 0, 326, 280
@@ -20213,7 +20211,7 @@ BEGIN
     IDS_STRING_HYBRID_DEC_MSG9 
                             "Vaš unos nije validna hibridno šifrovana datoteka!\r\nNe može biti dešifrovana.\r\n"
     IDS_STRING_HYBRID_DEC_MSG10 "Odabrali ste pogrešan Sertifikat!"
-    IDS_STRING_HYBRID_ENC_PUBLIC_KEY_OF "Javni kljuc od:"
+    IDS_STRING_HYBRID_ENC_PUBLIC_KEY_OF "Javni kljuc od: "
     IDS_STRING_ZERT_DATEN2  "Podaci Vašeg Sertifikata:"
     IDS_STRING_HYBRID_LENGTH_ENC_KEY 
                             "     Dužina šifrovanog kljuca sesije:    "
@@ -23788,11 +23786,10 @@ BEGIN
     CONTROL         "&Dezimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,69,99,40,12
     CONTROL         "&Hexadezimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,121,99,61,12
     GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,12,89,175,26
-    EDITTEXT        IDC_EDIT_MODUL,60,29,245,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT_EXPONENT,60,47,245,14,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "Modul:",IDC_STATIC,13,48,22,8
-    LTEXT           "Exponent:",IDC_STATIC,13,30,33,8
-    EDITTEXT        IDC_TITEL,15,6,285,16,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
+    EDITTEXT        IDC_EDIT_EXPONENT,60,50,245,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Modul:",IDC_STATIC,13,52,22,8
+    LTEXT           "Exponent:",IDC_STATIC,13,16,33,8
+    EDITTEXT        IDC_EDIT_MODUL,60,14,245,28,ES_MULTILINE | ES_READONLY
 END
 
 IDD_PRIMES_GENERATOR_DEMO DIALOGEX 0, 0, 326, 279
@@ -29758,6 +29755,11 @@ BEGIN
         HORZGUIDE, 150
     END
 
+    IDD_SHOW_KEY_PARAMETER, DIALOG
+    BEGIN
+        VERTGUIDE, 305
+    END
+
     IDD_PRIMES_GENERATOR_DEMO, DIALOG
     BEGIN
         VERTGUIDE, 11
@@ -31245,7 +31247,7 @@ BEGIN
     IDS_STRING_HYBRID_DEC_MSG9 
                             "Die Eingabe ist keine hybridverschlüsselte Datei!\r\nSie kann deshalb nicht entschlüsselt werden."
     IDS_STRING_HYBRID_DEC_MSG10 "Sie haben das falsche Zertifikat gewählt!"
-    IDS_STRING_HYBRID_ENC_PUBLIC_KEY_OF "Öffentlicher Schlüssel von:"
+    IDS_STRING_HYBRID_ENC_PUBLIC_KEY_OF "Öffentlicher Schlüssel von: "
     IDS_STRING_ZERT_DATEN2  "Ihre Zertifikatsdaten:"
     IDS_STRING_HYBRID_LENGTH_ENC_KEY 
                             "     Länge des verschlüsselten Session-Key:    "
@@ -34863,11 +34865,10 @@ BEGIN
     CONTROL         "&Decimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,69,99,40,12
     CONTROL         "&Hexadecimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,121,99,61,12
     GROUPBOX        "Base for presentation of numbers",IDC_STATIC,12,89,175,26
-    EDITTEXT        IDC_TITEL,15,6,285,16,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
-    EDITTEXT        IDC_EDIT_MODUL,60,29,245,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT_EXPONENT,60,47,245,14,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "Modulus:",IDC_STATIC,13,48,30,8
-    LTEXT           "Exponent:",IDC_STATIC,13,30,33,8
+    LTEXT           "Modulus:",IDC_STATIC,13,52,30,8
+    LTEXT           "Exponent:",IDC_STATIC,13,16,33,8
+    EDITTEXT        IDC_EDIT_EXPONENT,60,50,245,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_MODUL,60,14,245,28,ES_MULTILINE | ES_READONLY
 END
 
 IDD_PRIMES_GENERATOR_DEMO DIALOGEX 0, 0, 326, 279
@@ -42439,7 +42440,7 @@ BEGIN
     IDS_STRING_HYBRID_DEC_MSG9 
                             "Your input is not a valid hybrid encrypted file!\r\nIt could not be decrypted.\r\n"
     IDS_STRING_HYBRID_DEC_MSG10 "You have selected the wrong Certificate!"
-    IDS_STRING_HYBRID_ENC_PUBLIC_KEY_OF "Public key of:"
+    IDS_STRING_HYBRID_ENC_PUBLIC_KEY_OF "Public key of: "
     IDS_STRING_ZERT_DATEN2  "Your Certificate Data:"
     IDS_STRING_HYBRID_LENGTH_ENC_KEY 
                             "     Length of encrypted session key:    "
@@ -48211,11 +48212,10 @@ BEGIN
     CONTROL         "&Decimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,69,99,40,12
     CONTROL         "&Hexadecimal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,121,99,61,12
     GROUPBOX        "Base para la representación numérica",IDC_STATIC,12,89,175,26
-    EDITTEXT        IDC_TITEL,15,6,285,16,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
-    EDITTEXT        IDC_EDIT_MODUL,60,29,245,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT_EXPONENT,60,47,245,14,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "Módulo:",IDC_STATIC,13,48,26,8
-    LTEXT           "Exponente:",IDC_STATIC,13,30,37,8
+    LTEXT           "Módulo:",IDC_STATIC,13,52,26,8
+    LTEXT           "Exponente:",IDC_STATIC,13,16,37,8
+    EDITTEXT        IDC_EDIT_EXPONENT,60,50,245,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_MODUL,60,14,245,28,ES_MULTILINE | ES_READONLY
 END
 
 IDD_SHOW_PARAMETER_KEY_EC DIALOGEX 0, 0, 419, 330
@@ -53575,7 +53575,7 @@ BEGIN
     IDS_STRING_HYBRID_DEC_MSG9 
                             "¡Su entrada no es un archivo cifrado híbridamente válido!\r\nEl archivo no será descifrado.\r\n"
     IDS_STRING_HYBRID_DEC_MSG10 "¡Ha seleccionado un certificado incorrecto!"
-    IDS_STRING_HYBRID_ENC_PUBLIC_KEY_OF "Clave pública de:"
+    IDS_STRING_HYBRID_ENC_PUBLIC_KEY_OF "Clave pública de: "
     IDS_STRING_ZERT_DATEN2  "Sus datos del Certifcado:"
     IDS_STRING_HYBRID_LENGTH_ENC_KEY 
                             "     Longitud de la clave de sesión cifrada:    "

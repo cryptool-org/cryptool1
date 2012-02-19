@@ -323,14 +323,18 @@ void CDlgKeyAsym::OnShowPubParamButton()
 		Schluessel.key_size=NULL;
 		Schluessel.private_key=NULL;
 
+		// create a modified "show key parameter" dialog title
+		CString dlgTitle;
+		dlgTitle.LoadString(IDS_DLG_KEY_ASYM_TITLE);
+		dlgTitle += Firstname;
+		dlgTitle += " ";
+		dlgTitle += Name;
+		// use the newly created dialog title
 		CDlgShowKeyParameter dlg;
-
-		LoadString(AfxGetInstanceHandle(), IDS_DLG_KEY_ASYM_TITLE, pc_str, STR_LAENGE_STRING_TABLE);
-		dlg.m_Title = pc_str;
-		dlg.m_Title+= Firstname;
-		dlg.m_Title+= " ";
-		dlg.m_Title+= Name;
+		dlg.setDialogTitle(dlgTitle);
+		// disable the OK button by default
 		dlg.disableOkButton = true;
+
 		KeyBits *ki;
 		ki=theApp.SecudeLib.d_KeyBits(&(Schluessel.key->subjectkey));
 		int mlen = ki->part1.noctets;

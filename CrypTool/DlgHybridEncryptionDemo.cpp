@@ -783,15 +783,18 @@ void CDlgHybridEncryptionDemo::OnButtonShowAsymKey()
 	Schluessel.key_size=NULL;
 	Schluessel.private_key=NULL;
 
+	// create a modified "show key parameter" dialog title
+	CString dlgTitle;
+	dlgTitle.LoadString(IDS_STRING_HYBRID_ENC_PUBLIC_KEY_OF);
+	dlgTitle += rsaDlg.Firstname;
+	dlgTitle += " ";
+	dlgTitle += rsaDlg.Name;
+	// use the newly created dialog title
 	CDlgShowKeyParameter dlg;
-	dlg.m_Title.LoadString(IDS_STRING_HYBRID_ENC_PUBLIC_KEY_OF);
-	dlg.m_Title+=" ";
-	dlg.m_Title+= rsaDlg.Name;
-	dlg.m_Title+=" ";
-	dlg.m_Title+= rsaDlg.Firstname;
-
-	
+	dlg.setDialogTitle(dlgTitle);
+	// disable the OK button by default
 	dlg.disableOkButton = true;
+
 	KeyBits *ki;
 	ki=theApp.SecudeLib.d_KeyBits(&(Schluessel.key->subjectkey));
 	int mlen = ki->part1.noctets;

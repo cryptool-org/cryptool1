@@ -40,13 +40,18 @@ class CDlgShowKeyParameter : public CDialog
 {
 // Konstruktion
 public:
-	CString m_Title;
 	bool disableOkButton;
 	CDlgShowKeyParameter(CWnd* pParent = NULL);   // Standardkonstruktor
 
-	// flomar, 02/14/2012: new interface for setting modul and exponent
+protected:
+	// flomar, 02/14/2012: new interface for setting dialog title, modul and exponent
+	CString m_title;
 	CString m_modul;
 	CString m_exponent;
+public:
+	void setDialogTitle(CString _title) {
+		m_title = _title;
+	}
 	void setModul(L_NUMBER *_modul) {
 		memcpy(m_data[0].data,_modul,MAXLGTH*sizeof(L_NUMBER));
 	}
@@ -55,14 +60,12 @@ public:
 	}
 
 	struct param m_data[10];
-	void settitel(char *);
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgShowKeyParameter)
 	enum { IDD = IDD_SHOW_KEY_PARAMETER };
 	CButton	m_ctrlOK;
 	int		m_radio;
-	CString	m_titel;
 	//}}AFX_DATA
 
 

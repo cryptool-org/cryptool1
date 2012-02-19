@@ -36,7 +36,6 @@ CDlgShowKeyParameter::CDlgShowKeyParameter(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(CDlgShowKeyParameter)
 	m_radio = 1;
-	m_titel = _T("");
 	//}}AFX_DATA_INIT
 	disableOkButton = false;
 }
@@ -48,8 +47,6 @@ void CDlgShowKeyParameter::DoDataExchange(CDataExchange* pDX)
 	//{{AFX_DATA_MAP(CDlgShowKeyParameter)
 	DDX_Control(pDX, IDOK, m_ctrlOK);
 	DDX_Radio(pDX, IDC_RADIO1, m_radio);
-	DDX_Text(pDX, IDC_TITEL, m_titel);
-	DDV_MaxChars(pDX, m_titel, 100);
 	DDX_Text(pDX, IDC_EDIT_MODUL, m_modul);
 	DDX_Text(pDX, IDC_EDIT_EXPONENT, m_exponent);
 	//}}AFX_DATA_MAP
@@ -100,23 +97,15 @@ void CDlgShowKeyParameter::OnUpdate()
 	UpdateData(FALSE);
 }
 
-void CDlgShowKeyParameter::settitel(char *a)
-{
-	m_titel=a;
-}
-
 BOOL CDlgShowKeyParameter::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
 	
-	//disableOKButton wird in CDlgHybridEncryptionDemo auf true gesetzt.
-	//dieser Abschnitt modifiziert den Dialog für die Anzeige bei der
-	//Hybridverschlüsselung
-    if(disableOkButton)
-	{
-		CDlgHybridEncryptionDemo dlg;
+	if(disableOkButton) {
+		// disable the OK button if desired
 		m_ctrlOK.ShowWindow(false);
-		SetWindowText(m_Title);
+		// and use the custom dialog title (if defined)
+		if(m_title.GetLength() > 0) SetWindowText(m_title);
 	}
 
 	disableOkButton = false;
