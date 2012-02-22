@@ -548,6 +548,11 @@ int CScintillaView::OnCreate(
       LocalFree( lpMsgBuf );
       return -1;
    }
+
+	 // flomar, 02/22/2012: disable the built-in Scintilla popup menu,
+	 // and use an i18n-ed custom context menu in CCrypToolView instead
+	 m_wndScintilla.SendMessage(SCI_USEPOPUP, 0, 0);
+
 	return 0;
 }
 

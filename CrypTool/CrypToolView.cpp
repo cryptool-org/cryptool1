@@ -135,10 +135,15 @@ void CCrypToolView::OnContextMenu(CWnd* pWnd, CPoint point)
 	}
 
 	// Befindet sich kein Text im Fenster ?
-	if (GetWindowTextLength() == 0)
+	// flomar, 02/22/2012: the old implementation ("GetWindowTextLength") would always 
+	// return zero for Scintilla documents; we use the Scintilla messaging API now to 
+	// determine if a document is really empty or not
+	CWnd *pActiveWindow = this->GetTopWindow();
+	if(pActiveWindow)
 	{
-		// Alles markieren deaktivieren
-		KontextMenu.EnableMenuItem(ID_EDIT_SELECT_ALL, MF_GRAYED);
+		if(pActiveWindow->SendMessage(SCI_GETLENGTH) == 0) {
+			KontextMenu.EnableMenuItem(ID_EDIT_SELECT_ALL, MF_GRAYED);
+		}
 	}
 
 	// Existiert das Vaterfenster nicht (mehr) ?
