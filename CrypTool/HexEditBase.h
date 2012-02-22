@@ -60,6 +60,9 @@ class CHexEditAction;
 /////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
 
+// forward declaration
+class CHexEditBaseView;
+
 class CHexEditBase : public CWnd
 {
 public:
@@ -113,7 +116,12 @@ public:
 	void callOnEditCopy() { OnEditCopy(); }
 	void callOnEditPaste() { OnEditPaste(); }
 	void callOnEditClear() { OnEditClear(); }
-	void callOnEditSelectAll() { OnEditSelectAll(); };
+	void callOnEditSelectAll() { OnEditSelectAll(); }
+
+protected:
+	CHexEditBaseView *view;
+public:
+	void setView(CHexEditBaseView *_view) { view = _view; }
 
 protected:
 	bool PrepareReplace(UINT pos, UINT oldlen, UINT newlen); // Prepare replacing [pos, pos+oldlen] with new content of newlen bytes
@@ -184,7 +192,8 @@ protected:
 	COLORREF m_tSelectedFousBkgCol;	
 	CString m_cContextCut;
 	CString m_cContextCopy;
-	CString m_cContextPaste;	
+	CString m_cContextPaste;
+	CString m_cContextToTxt;
 	CFont m_cFont;	
 	CRect m_cDragRect;
 	CPoint m_cMouseRepPoint;
@@ -257,6 +266,7 @@ protected:
 	afx_msg void OnEditPaste();
 	afx_msg void OnEditClear();
 	afx_msg void OnEditSelectAll();
+	afx_msg void OnToTxt();
 	//}}AFX_MSG
 	DECLARE_DYNCREATE(CHexEditBase)
 	DECLARE_MESSAGE_MAP()
@@ -296,6 +306,9 @@ protected:
 	afx_msg void OnSize(UINT nType, int cx, int cy);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+public:
+	// this function is re-implemented in CHexEditCtrlView
+	virtual void showAsText() { }
 };
 
 

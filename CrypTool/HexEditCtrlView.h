@@ -88,6 +88,9 @@ protected:
 	afx_msg void OnEntropy();
 	afx_msg void OnHistogram();
 	afx_msg void OnTotxt();
+
+public:
+	virtual void showAsText() { OnTotxt(); }
 };
 
 #ifndef _DEBUG  // debug version in HexEditCtrlView.cpp

@@ -206,6 +206,7 @@ BEGIN_MESSAGE_MAP(CHexEditBase, CWnd)
 	ON_COMMAND(ID_EDIT_PASTE, OnEditPaste)
 	ON_COMMAND(ID_EDIT_CLEAR, OnEditClear)
 	ON_COMMAND(ID_EDIT_SELECT_ALL, OnEditSelectAll)
+	ON_COMMAND(ID_TOTXT, OnToTxt)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -259,6 +260,7 @@ CHexEditBase::CHexEditBase() :
 	m_cContextCut("Cut"),
 	m_cContextCopy("Copy"),
 	m_cContextPaste("Paste"),
+	m_cContextToTxt("ToTxt"),
 	m_undo(0),
 	m_redo(0)
 
@@ -290,6 +292,9 @@ CHexEditBase::CHexEditBase() :
 #endif
 #ifdef IDS_CONTROL_PASTE
 	m_cContextPaste.LoadString(IDS_CONTROL_PASTE);
+#endif
+#ifdef IDS_CONTROL_TOTXT
+	m_cContextToTxt.LoadString(IDS_CONTROL_TOTXT);
 #endif
 
 	// register windows-class
@@ -1944,6 +1949,10 @@ void CHexEditBase::OnContextMenu(CWnd*, CPoint cPoint)
 		cSource.IsDataAvailable(m_nBinDataClipboardFormat);
 	cMenu.AppendMenu(clipboardDataAvailable && !m_bReadOnly ? MF_STRING : MF_GRAYED|MF_DISABLED|MF_STRING, 
 		ID_EDIT_PASTE, (LPCSTR)m_cContextPaste);
+
+	// menu item: show as text
+	cMenu.AppendMenu(MF_STRING, ID_TOTXT, (LPCSTR)m_cContextToTxt);
+
 	cSource.Release();
 	OnExtendContextMenu(cMenu);
 	cMenu.TrackPopupMenu(TPM_LEFTALIGN, cPoint.x, cPoint.y, this, CRect(0,0,100,100));
@@ -2283,6 +2292,13 @@ void CHexEditBase::OnEditSelectAll()
 	if(m_nLength > 0) {
 		SetSelection(0, m_nLength-1, false, true);
 	}
+}
+
+void CHexEditBase::OnToTxt()
+{
+	// tell the view to switch to text mode
+	if(view)
+		view->showAsText();
 }
 
 void CHexEditBase::ReInitialize()
@@ -2820,6 +2836,10 @@ int CHexEditBaseView::OnCreate(LPCREATESTRUCT pCreateStruc)
 		this, IDC_HEXEDITBASEVIEW_HEXCONTROL, NULL)) {
 		return -1;
 	}	
+
+	// initialize hex edit base with this view
+	m_cHexEdit.setView(this);
+
 	return 0;
 }
 

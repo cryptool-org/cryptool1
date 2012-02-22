@@ -86,7 +86,9 @@
 #define IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES 165
 #define IDD_AUTHORS                     166
 #define IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES 166
+#define IDS_CONTROL_TOTXT               167
 #define IDD_SHOW_PUBLICKEY_EC           168
+#define IDS_CONTROL_TOHEX               169
 #define IDD_SHOW_PRIVATEKEY_EC          170
 #define IDD_VERIFY_SIGNATURE            172
 #define IDD_SHOW_KEY_HILL5x5            173

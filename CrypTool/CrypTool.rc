@@ -11157,6 +11157,8 @@ BEGIN
     IDS_CONTEXT_MENU_OPENGL_PROPERTIES "Funkcje..."
     IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES "Pokaz granice kostki"
     IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES "Ukryj granice kostki"
+    IDS_CONTROL_TOTXT       "Jako tekst"
+    IDS_CONTROL_TOHEX       "Heksadecymalnie"
 END
 
 #endif    // Polish resources
@@ -22290,6 +22292,8 @@ BEGIN
     IDS_CONTEXT_MENU_OPENGL_PROPERTIES "Svojstva..."
     IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES "Prikaži granice kocke"
     IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES "Sakrij granice kocke"
+    IDS_CONTROL_TOTXT       "Prikaži kao Tekst"
+    IDS_CONTROL_TOHEX       "Prikaži kao HexDump"
 END
 
 #endif    // Serbian (Latin) resources
@@ -33365,6 +33369,8 @@ BEGIN
     IDS_CONTEXT_MENU_OPENGL_PROPERTIES "Eigenschaften..."
     IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES "Würfelkanten anzeigen"
     IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES "Würfelkanten nicht anzeigen"
+    IDS_CONTROL_TOTXT       "Als Text anzeigen"
+    IDS_CONTROL_TOHEX       "Als HexDump anzeigen"
 END
 
 #endif    // German (Germany) resources
@@ -44511,6 +44517,8 @@ BEGIN
     IDS_CONTEXT_MENU_OPENGL_PROPERTIES "Properties..."
     IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES "Show cube's borderlines"
     IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES "Hide cube's borderlines"
+    IDS_CONTROL_TOTXT       "Show as Text"
+    IDS_CONTROL_TOHEX       "Show as HexDump"
 END
 
 #endif    // English (U.K.) resources
@@ -55715,6 +55723,8 @@ BEGIN
     IDS_CONTEXT_MENU_OPENGL_PROPERTIES "Propiedades..."
     IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES "Mostrar bordes del cubo"
     IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES "Ocultar bordes del cubo"
+    IDS_CONTROL_TOTXT       "Mostrar como código Texto"
+    IDS_CONTROL_TOHEX       "Mostrar como código Hexadecimal"
 END
 
 #endif    // Spanish resources
