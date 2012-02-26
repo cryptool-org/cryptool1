@@ -4180,11 +4180,11 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Kopiuj/wklej zakodowane"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,96,96,50,19
+    DEFPUSHBUTTON   "OK",IDOK,7,96,50,19
     PUSHBUTTON      "Anuluj",IDCANCEL,162,96,50,19
     LTEXT           "Zaznaczone dane mo¿esz przenieœæ do schowka jako zakodowane lub bez zmiany.\n Jeœli tekst ma zostaæ przeniesiony do innych aplikacji i zaznaczone zosta³y znaki niedrukowalne - wybierz kodowanie.",IDC_STATIC,7,7,205,36
-    CONTROL         "bez kodowania",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,59,65,10
-    CONTROL         "kodowanie hex",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,71,69,10
+    CONTROL         "Bez kodowania",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,60,65,10
+    CONTROL         "Kodowanie hex",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,72,69,10
     GROUPBOX        "Wybierz kodowanie",IDC_STATIC,7,47,205,42
 END
 
@@ -4221,13 +4221,11 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Odkoduj i wklej"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,96,96,50,19
+    DEFPUSHBUTTON   "OK",IDOK,7,96,50,19
     PUSHBUTTON      "Anuluj",IDCANCEL,162,96,50,19
-    CONTROL         "bez dekodow.",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,60,55,10
-    CONTROL         "hex",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,72,59,10
+    CONTROL         "Bez dekodow.",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,60,55,10
+    CONTROL         "Hex",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,72,59,10
     GROUPBOX        "Wybierz dekodowanie",IDC_STATIC,7,47,205,42
-    DEFPUSHBUTTON   "OK",IDOK2,96,96,50,19
-    PUSHBUTTON      "Anuluj",IDCANCEL3,162,96,50,19
     LTEXT           "Schowek zawiera jedynie znaki heksadecymalne. \n\n Mog¹ zostaæ umieszczone zdekodowane (domyœlnie) lub bez zmiany.",IDC_STATIC,7,7,205,32
 END
 
@@ -8096,8 +8094,6 @@ BEGIN
         VERTGUIDE, 18
         TOPMARGIN, 7
         BOTTOMMARGIN, 115
-        HORZGUIDE, 54
-        HORZGUIDE, 89
         HORZGUIDE, 96
     END
 
@@ -8108,8 +8104,6 @@ BEGIN
         VERTGUIDE, 18
         TOPMARGIN, 7
         BOTTOMMARGIN, 115
-        HORZGUIDE, 54
-        HORZGUIDE, 89
         HORZGUIDE, 96
     END
 
@@ -15350,11 +15344,11 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Šifrovan Kopiraj/Iseci"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,96,96,50,19
+    DEFPUSHBUTTON   "OK",IDOK,7,96,50,19
     PUSHBUTTON      "Otkaži",IDCANCEL,162,96,50,19
     LTEXT           "Oznaceni podaci koje možete preneti šifrovane ili nepromenjene na klipbord.\nAko tekst treba da bude prebacen u druge aplikacije i ne-štampajuci karakteri su oznaceni, onda odaberite šifrovanje.",IDC_STATIC,7,7,205,36
-    CONTROL         "bez šifrovanja",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,59,65,10
-    CONTROL         "hex šifrovanje",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,71,69,10
+    CONTROL         "Bez šifrovanja",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,60,65,10
+    CONTROL         "Hex šifrovanje",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,72,69,10
     GROUPBOX        "Odaberite šifrovanje",IDC_STATIC,7,47,205,42
 END
 
@@ -15391,13 +15385,11 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Dešifrovano Lepljenje"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,96,96,50,19
+    DEFPUSHBUTTON   "OK",IDOK,7,96,50,19
     PUSHBUTTON      "Otkaži",IDCANCEL,162,96,50,19
-    CONTROL         "bez dešifrovanja",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,60,65,10
-    CONTROL         "hex dešifrovanje",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,72,70,10
+    CONTROL         "Bez dešifrovanja",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,60,65,10
+    CONTROL         "Hex dešifrovanje",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,72,71,10
     GROUPBOX        "Odaberite dešifrovanje",IDC_STATIC,7,47,205,42
-    DEFPUSHBUTTON   "OK",IDOK2,96,96,50,19
-    PUSHBUTTON      "Otkaži",IDCANCEL3,162,96,50,19
     LTEXT           "Klipbord sadrži samo heksadecimalne karaktere.\n\nOni mogu biti ubaceni kao dešifrovani (podrazumevano) ili nepromenjeni.",IDC_STATIC,7,7,205,32
 END
 
@@ -19248,8 +19240,6 @@ BEGIN
         VERTGUIDE, 18
         TOPMARGIN, 7
         BOTTOMMARGIN, 115
-        HORZGUIDE, 54
-        HORZGUIDE, 89
         HORZGUIDE, 96
     END
 
@@ -19260,8 +19250,6 @@ BEGIN
         VERTGUIDE, 18
         TOPMARGIN, 7
         BOTTOMMARGIN, 115
-        HORZGUIDE, 54
-        HORZGUIDE, 89
         HORZGUIDE, 96
     END
 
@@ -26542,11 +26530,11 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Codiert kopieren/ausschneiden "
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,96,96,50,19
+    DEFPUSHBUTTON   "OK",IDOK,7,96,50,19
     PUSHBUTTON      "Abbrechen",IDCANCEL,162,96,50,19
     LTEXT           "Die markierten Daten können unverändert oder codiert in die Zwischenablage übernommen werden.\nEine Codierung ist z.B. erforderlich, wenn Sie nicht-druckbare Daten in andere Anwendungen exportieren wollen.",IDC_STATIC,7,7,205,36
-    CONTROL         "keine Codierung",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,59,67,10
-    CONTROL         "Hex Codierung",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,71,63,10
+    CONTROL         "Keine Codierung",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,60,68,10
+    CONTROL         "Hex-Codierung",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,72,64,10
     GROUPBOX        "Auswahl der Codierung",IDC_STATIC,7,47,205,42
 END
 
@@ -26585,13 +26573,11 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Decodiert einfügen"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,96,96,50,19
+    DEFPUSHBUTTON   "OK",IDOK,7,96,50,19
     PUSHBUTTON      "Abbrechen",IDCANCEL,162,96,50,19
-    CONTROL         "keine Decodierung",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,60,75,10
-    CONTROL         "Hex Decodierung",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,72,71,10
+    CONTROL         "Keine Decodierung",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,60,75,10
+    CONTROL         "Hex-Decodierung",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,72,71,10
     GROUPBOX        "Auswahl der Decodierung",IDC_STATIC,7,47,205,42
-    DEFPUSHBUTTON   "OK",IDOK2,96,96,50,19
-    PUSHBUTTON      "Abbrechen",IDCANCEL3,162,96,50,19
     LTEXT           "Die Zwischenablage enthält ausschließlich Hexadezimal-Zeichen.\n\nDiese können entweder decodiert oder unverändert eingefügt werden.",IDC_STATIC,7,7,205,32
 END
 
@@ -30245,8 +30231,6 @@ BEGIN
         VERTGUIDE, 18
         TOPMARGIN, 7
         BOTTOMMARGIN, 115
-        HORZGUIDE, 54
-        HORZGUIDE, 89
         HORZGUIDE, 96
     END
 
@@ -30257,8 +30241,6 @@ BEGIN
         VERTGUIDE, 18
         TOPMARGIN, 7
         BOTTOMMARGIN, 115
-        HORZGUIDE, 54
-        HORZGUIDE, 89
         HORZGUIDE, 96
     END
 
@@ -37547,11 +37529,11 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Encoded Copy/Cut"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,96,96,50,19
+    DEFPUSHBUTTON   "OK",IDOK,7,96,50,19
     PUSHBUTTON      "Cancel",IDCANCEL,162,96,50,19
     LTEXT           "The marked data you may transfer encoded or unchanged into the clipboard.\nIf the text is to be transferred to other applications and non printable characters are marked then choose encoding.",IDC_STATIC,7,7,205,36
-    CONTROL         "no encoding",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,59,65,10
-    CONTROL         "hex encoding",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,71,69,10
+    CONTROL         "No encoding",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,60,65,10
+    CONTROL         "Hex encoding",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,72,69,10
     GROUPBOX        "Select encoding",IDC_STATIC,7,47,205,42
 END
 
@@ -37588,13 +37570,11 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Decoded Paste"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,96,96,50,19
+    DEFPUSHBUTTON   "OK",IDOK,7,96,50,19
     PUSHBUTTON      "Cancel",IDCANCEL,162,96,50,19
-    CONTROL         "no decoding",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,60,55,10
-    CONTROL         "hex decoding",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,72,59,10
+    CONTROL         "No decoding",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,60,55,10
+    CONTROL         "Hex decoding",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,72,59,10
     GROUPBOX        "Select decoding",IDC_STATIC,7,47,205,42
-    DEFPUSHBUTTON   "OK",IDOK2,96,96,50,19
-    PUSHBUTTON      "Cancel",IDCANCEL3,162,96,50,19
     LTEXT           "The clipboard contains hexadecimal characters only.\n\nThey can be inserted decoded (default) or unchanged.",IDC_STATIC,7,7,205,32
 END
 
@@ -41447,8 +41427,6 @@ BEGIN
         VERTGUIDE, 18
         TOPMARGIN, 7
         BOTTOMMARGIN, 115
-        HORZGUIDE, 54
-        HORZGUIDE, 89
         HORZGUIDE, 96
     END
 
@@ -41459,8 +41437,6 @@ BEGIN
         VERTGUIDE, 18
         TOPMARGIN, 7
         BOTTOMMARGIN, 115
-        HORZGUIDE, 54
-        HORZGUIDE, 89
         HORZGUIDE, 96
     END
 
@@ -48386,11 +48362,11 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Copiar/Cortar Texto Codificado"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Aceptar",IDOK,96,96,50,19
+    DEFPUSHBUTTON   "Aceptar",IDOK,7,96,50,19
     PUSHBUTTON      "Cancelar",IDCANCEL,162,96,50,19
     LTEXT           "El texto seleccionado será enviado al portapapeles codificado o sin cambios.\nSi el texto debe ser utilizado en otras aplicaciones o contiene caracteres no imprimibles seleccione codificarlo.",IDC_STATIC,7,7,205,36
-    CONTROL         "sin codificar",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,59,65,10
-    CONTROL         "codificación hexadecimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,71,114,10
+    CONTROL         "Sin codificar",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,60,65,10
+    CONTROL         "Codificación hexadecimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,72,114,10
     GROUPBOX        "Seleccione Codificación",IDC_STATIC,7,47,205,42
 END
 
@@ -48399,13 +48375,11 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Pegar Texto Descodificado"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Aceptar",IDOK,96,96,50,19
+    DEFPUSHBUTTON   "Aceptar",IDOK,7,96,50,19
     PUSHBUTTON      "Cancelar",IDCANCEL,162,96,50,19
-    CONTROL         "sin decodificación",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,60,75,10
-    CONTROL         "decodificación hexadecimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,72,105,10
+    CONTROL         "Sin decodificación",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,60,75,10
+    CONTROL         "Decodificación hexadecimal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,72,105,10
     GROUPBOX        "Seleccione Decodificación",IDC_STATIC,7,47,205,42
-    DEFPUSHBUTTON   "OK",IDOK2,96,96,50,19
-    PUSHBUTTON      "Cancel",IDCANCEL3,162,96,50,19
     LTEXT           "El portapapeles sólo contiene caracteres hexadecimales.\n\nPuede insertarlos decodificados (por defecto) o sin cambios.",IDC_STATIC,7,7,205,32
 END
 
@@ -52542,8 +52516,6 @@ BEGIN
         VERTGUIDE, 18
         TOPMARGIN, 7
         BOTTOMMARGIN, 115
-        HORZGUIDE, 54
-        HORZGUIDE, 89
         HORZGUIDE, 96
     END
 
@@ -52554,8 +52526,6 @@ BEGIN
         VERTGUIDE, 18
         TOPMARGIN, 7
         BOTTOMMARGIN, 115
-        HORZGUIDE, 54
-        HORZGUIDE, 89
         HORZGUIDE, 96
     END
 
