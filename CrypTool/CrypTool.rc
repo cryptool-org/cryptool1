@@ -10922,7 +10922,7 @@ BEGIN
     IDS_STRING_ADFGVX_PASSWORD_CORRECTED 
                             "Wprowadzone has³o transpozycji zosta³ rozwi¹zany:\n\n"
     IDS_STRING_ABOUT_CONTACT_INFORMATION 
-                            "esslinger@fb5.uni-siegen.de\r\njoerg-cornelius.schneider@db.com\r\nhenrik.koy@db.com\r\n\r\nInternet: http://www.cryptool.org"
+                            "esslinger@fb5.uni-siegen.de\r\nesslinger@cryptool.org\r\njoerg-cornelius.schneider@db.com\r\nhenrik.koy@db.com\r\nInternet: http://www.cryptool.org"
     IDS_BIT_FMT             "%d bit%s"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION 
                             "W podanym zakresie wartoœci [%s, %s] %d znaleziono liczby pierwsze."
@@ -22047,7 +22047,7 @@ BEGIN
     IDS_STRING_ADFGVX_PASSWORD_CORRECTED 
                             "Uneta lozinka transpozicije je ispravljena:\n\n"
     IDS_STRING_ABOUT_CONTACT_INFORMATION 
-                            "esslinger@fb5.uni-siegen.de\r\njoerg-cornelius.schneider@db.com\r\nhenrik.koy@db.com\r\n\r\nInternet: http://www.cryptool.org"
+                            "esslinger@fb5.uni-siegen.de\r\nesslinger@cryptool.org\r\njoerg-cornelius.schneider@db.com\r\nhenrik.koy@db.com\r\nInternet: http://www.cryptool.org"
     IDS_BIT_FMT             "%d bit%s"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION 
                             "U datom opsegu vrednosti [%s, %s], %d prostih brojeva je pronadeno."
@@ -33117,7 +33117,7 @@ BEGIN
     IDS_STRING_ADFGVX_PASSWORD_CORRECTED 
                             "Das eingegebene Transpositionspasswort wurde korrigiert:\n\n"
     IDS_STRING_ABOUT_CONTACT_INFORMATION 
-                            "esslinger@fb5.uni-siegen.de\r\njoerg-cornelius.schneider@db.com\r\nhenrik.koy@db.com\r\n\r\nInternet: http://www.cryptool.de"
+                            "esslinger@fb5.uni-siegen.de\r\nesslinger@cryptool.org\r\njoerg-cornelius.schneider@db.com\r\nhenrik.koy@db.com\r\nInternet: http://www.cryptool.de"
     IDS_BIT_FMT             "%d Bit%s"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION 
                             "Im ausgewählten Wertebereich [%s, %s] wurden %d Primzahlen gefunden."
@@ -44267,7 +44267,7 @@ BEGIN
     IDS_STRING_ADFGVX_PASSWORD_CORRECTED 
                             "The entered transposition password was corrected:\n\n"
     IDS_STRING_ABOUT_CONTACT_INFORMATION 
-                            "esslinger@fb5.uni-siegen.de\r\njoerg-cornelius.schneider@db.com\r\nhenrik.koy@db.com\r\n\r\nInternet: http://www.cryptool.org"
+                            "esslinger@fb5.uni-siegen.de\r\nesslinger@cryptool.org\r\njoerg-cornelius.schneider@db.com\r\nhenrik.koy@db.com\r\nInternet: http://www.cryptool.org"
     IDS_BIT_FMT             "%d bits%s"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION 
                             "In the given value range [%s, %s], %d prime numbers were found."
@@ -55444,7 +55444,7 @@ BEGIN
     IDS_STRING_ADFGVX_PASSWORD_CORRECTED 
                             "La Clave de Transposición ingresada fue corregida:\n\n"
     IDS_STRING_ABOUT_CONTACT_INFORMATION 
-                            "esslinger@fb5.uni-siegen.de\r\njoerg-cornelius.schneider@db.com\r\nhenrik.koy@db.com\r\n\r\nInternet: http://www.cryptool.org"
+                            "esslinger@fb5.uni-siegen.de\r\nesslinger@cryptool.org\r\njoerg-cornelius.schneider@db.com\r\nhenrik.koy@db.com\r\nInternet: http://www.cryptool.org"
     IDS_BIT_FMT             "%d bit%s"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION 
                             "Se encontraron %d números primos en el rango elegido [%s, %s]."
