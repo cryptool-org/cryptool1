@@ -299,6 +299,13 @@ int CHexEdit::SetAscii(CString c)
 }
 LRESULT CHexEdit::OnPaste(WPARAM wparam, LPARAM lparam)
 {
+	// flomar, 03/01/2012: both calls, this leading call to 'preproc' as well as 
+	// the trailing call to 'postproc' (see below) are necessary to provide 
+	// error-free copy/paste functionality
+	char *b;
+	int s1, e1;
+	preproc(&b,&s1, &e1, 0);
+	
 	CString clipboardText;
 
 	// at first we try to get the contents of the clipboard
@@ -341,6 +348,9 @@ LRESULT CHexEdit::OnPaste(WPARAM wparam, LPARAM lparam)
 
 	// set the new window text
 	SetWindowTextA(newText);
+
+	// flomar, 03/01/2012: see comment avove (call to 'preproc')
+	postproc(b, s1, e1);
 	
 	return 0;
 }
