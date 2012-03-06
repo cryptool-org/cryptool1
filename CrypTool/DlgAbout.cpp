@@ -126,7 +126,7 @@ BOOL CDlgAbout::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// get CrypTool version for dialog heading
+	// get CrypTool version for dialog heading (including SVN revision)
 	LoadString(AfxGetInstanceHandle(),IDR_MAINFRAME,pc_str,STR_LAENGE_STRING_TABLE);
 	stringCrypToolVersion = pc_str;
 	// create font
@@ -143,13 +143,15 @@ BOOL CDlgAbout::OnInitDialog()
 
 	if(windowReleaseInformation) {
 		// get build information
+		CString buildSvnRevision;
+		buildSvnRevision.Format(theApp.getSvnRevision());
 		CString buildDate;
-		buildDate.Format("%d-%02d-%02d",YEAR, MONTH + 1, DAY);
+		buildDate.Format(theApp.getBuildTime());
 		CString buildVersion;
 		buildVersion.Format("MSC %d.%02d",_MSC_VER/100,_MSC_VER%100);
 		// construct release information
 		CString stringReleaseInformation;
-		stringReleaseInformation.Format(IDS_CRYPTOOL_RELEASE_INFORMATION, stringCrypToolVersion, buildDate, buildVersion);
+		stringReleaseInformation.Format(IDS_CRYPTOOL_RELEASE_INFORMATION, stringCrypToolVersion, buildSvnRevision, buildDate, buildVersion);
 		stringReleaseInformation.Append(strVersionApfloat); stringReleaseInformation.Append(", ");
 		stringReleaseInformation.Append(strVersionCracklib); stringReleaseInformation.Append(", ");
 		stringReleaseInformation.Append(strVersionCryptovision); stringReleaseInformation.Append(", ");

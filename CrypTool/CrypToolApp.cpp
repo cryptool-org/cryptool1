@@ -97,6 +97,11 @@
 
 #pragma warning(disable : 4996)
 
+// flomar, 03/04/2012: don't touch the two lines below, they're automatically adjusted during build time
+#define CRYPTOOL_BUILD_TIME "[BUILD TIME]"
+#define CRYPTOOL_SVN_REVISION "[SVN REVISION]"
+// flomar, 03/04/2012: don't touch the two lines above, they're automatically adjusted during build time
+
 // globale Variablen fuer Zugriff auf Stringtable
 // Deklariert in CrypTool.h
 char pc_str[STR_LAENGE_STRING_TABLE];
@@ -1652,6 +1657,14 @@ void CCrypToolApp::OnHillAuto()
 	{
 		// DO SOMETHING???		
 	}
+}
+
+CString CCrypToolApp::getBuildTime() {
+	return CString(CRYPTOOL_BUILD_TIME);
+}
+
+CString CCrypToolApp::getSvnRevision() {
+	return CString(CRYPTOOL_SVN_REVISION);
 }
 
 void CCrypToolApp::loadMainWindowPositionFromRegistry()

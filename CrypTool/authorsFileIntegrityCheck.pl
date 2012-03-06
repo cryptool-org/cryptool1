@@ -15,6 +15,8 @@
 use strict;
 use Digest::SHA1  qw(sha1_hex);
 
+print "Checking integrity of \"authors.txt\" file...\n";
+
 # this is a temporary variable
 my @lineArray;
 # this variable indicates if the hash value was replaced

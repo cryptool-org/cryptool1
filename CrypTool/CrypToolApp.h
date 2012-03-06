@@ -152,6 +152,11 @@ class CCrypToolApp : public CWinApp
 	DECLARE_MESSAGE_MAP()
 
 public:
+	// flomar, 03/04/2012
+	CString getBuildTime();
+	CString getSvnRevision();
+
+public:
 	// flomar, 02/16/2010
 	void loadMainWindowPositionFromRegistry();
 	void saveMainWindowPositionToRegistry();

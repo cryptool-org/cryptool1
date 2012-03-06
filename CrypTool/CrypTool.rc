@@ -11051,7 +11051,7 @@ BEGIN
                             "D³ugoœæ analizowanego tekstu szyfrowego:"
     IDS_AUTHORS_FILE_CORRUPTED 
                             "Plik authors.txt zosta³ zmodyfikowany od instalacji CrypTool."
-    IDS_CRYPTOOL_RELEASE_INFORMATION "%s (%s, %s), skompilowany z"
+    IDS_CRYPTOOL_RELEASE_INFORMATION "%s (r%s, %s, %s), skompilowany z"
     IDS_STRING_FILE_COULD_NOT_BE_OPENED 
                             "Nastêpuj¹cy plik nie móg³ zostaæ otwarty:\n"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DICTIONARY_FILE 
@@ -22189,7 +22189,7 @@ BEGIN
                             "Dužina analiziranog šifrata:"
     IDS_AUTHORS_FILE_CORRUPTED 
                             "Datoteka authors.txt je promenjena nakon što je CrypTool instaliran."
-    IDS_CRYPTOOL_RELEASE_INFORMATION "%s (%s, %s), kompajliran sa "
+    IDS_CRYPTOOL_RELEASE_INFORMATION "%s (r%s, %s, %s), kompajliran sa "
     IDS_STRING_FILE_COULD_NOT_BE_OPENED 
                             "Sledeca datoteka nije mogla da se otvori:\n"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DICTIONARY_FILE 
@@ -33262,7 +33262,7 @@ BEGIN
                             "Länge des analysierten Geheimtexts:"
     IDS_AUTHORS_FILE_CORRUPTED 
                             "Die Datei authors.txt wurde seit der Installation von CrypTool verändert."
-    IDS_CRYPTOOL_RELEASE_INFORMATION "%s (%s, %s),\r\nkompiliert mit "
+    IDS_CRYPTOOL_RELEASE_INFORMATION "%s (r%s, %s, %s),\r\nkompiliert mit "
     IDS_STRING_FILE_COULD_NOT_BE_OPENED 
                             "Die folgende Datei konnte nicht geöffnet werden:\n"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DICTIONARY_FILE 
@@ -44408,7 +44408,7 @@ BEGIN
                             "Length of analyzed ciphertext:"
     IDS_AUTHORS_FILE_CORRUPTED 
                             "The file authors.txt was changed after CrypTool was installed."
-    IDS_CRYPTOOL_RELEASE_INFORMATION "%s (%s, %s),\r\ncompiled with "
+    IDS_CRYPTOOL_RELEASE_INFORMATION "%s (r%s, %s, %s),\r\ncompiled with "
     IDS_STRING_FILE_COULD_NOT_BE_OPENED 
                             "The following file could not be opened:\n"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DICTIONARY_FILE 
@@ -55533,7 +55533,7 @@ BEGIN
                             "Longitud del Texto Cifrado analizado:"
     IDS_AUTHORS_FILE_CORRUPTED 
                             "El archivo authors.txt fue modificado luego de la instalación de CrypTool."
-    IDS_CRYPTOOL_RELEASE_INFORMATION "%s (%s, %s), compilado con"
+    IDS_CRYPTOOL_RELEASE_INFORMATION "%s (r%s, %s, %s), compilado con"
     IDS_STRING_FILE_COULD_NOT_BE_OPENED 
                             "El siguiente archivo no pudo ser abierto:\n"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DICTIONARY_FILE 
