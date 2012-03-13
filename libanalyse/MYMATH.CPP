@@ -72,12 +72,12 @@ long gcd(long x, long y)
 {
 	long a = abs(x);
 	long b = abs(y);
-	if (b>a) swap(a,b);
+	if (b>a) std::swap(a,b);
 	for(;;)	{
 		if (b == 0)	return a;
 		if (b == 1) return b;
 		// (a,b)=(b,a%b)
-		a=a%b; swap(a,b);
+		a=a%b; std::swap(a,b);
 	} /* for */
 }
 

@@ -282,11 +282,13 @@ protected:
 	8 steht für SHA-512
 */
 
-
-void hash (char* infile, const char *OldTitle, int alg)
-{
-	CHashRunnable *runnable = new CHashRunnable(infile,OldTitle,alg);
-	runnable->startthread();
+// flomar, 03/13/2012: see declaration for detailed comment
+namespace Secude {
+	void hash (char* infile, const char *OldTitle, int alg)
+	{
+		CHashRunnable *runnable = new CHashRunnable(infile,OldTitle,alg);
+		runnable->startthread();
+	}
 }
 
 double CHashRunnable::getProgress()

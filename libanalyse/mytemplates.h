@@ -32,27 +32,10 @@
 #ifndef _MYTEMPLATES_H
 #define _MYTEMPLATES_H 1
 
+// flomar, 03/13/2012: we're going with the STL instead of custom 
+// templates; unlike VS2008, for some reason VS2010 didn't like them
+#include <xutility>
 
-// Diese Datei definiert einige oft benoetigte Templates:
-// swap, min, max, abs
-// Vergleiche mit '<' und '=='
-// operator+,... mit +=,...
-
-// templates for swap, min and max, abs
-template <class T> inline void swap(T& a, T& b) { T tmp = a; a = b; b = tmp; }
-#if !defined(_MSC_VER) || _MSC_VER <= 1200
-template <class T> inline T min(T a, T b) {return ( a < b ) ? a : b;}
-template <class T> inline T max(T a, T b) {return ( a > b ) ? a : b;}
-template <class T> inline T min(T a, T b, T c) {return min(min(a,b),c);}
-template <class T> inline T max(T a, T b, T c) {return max(max(a,b),c);}
-#endif
-//template <class T> inline T abs(T a) {return ( a >= (T)0 ) ? a : -a;} //roger 05.04.2001
-
-//template <class T> inline const T& min(const T& a, const T& b) { return (b < a) ? b : a; }
-//template <class T> inline const T& max(const T& a, const T& b) { return (b > a) ? b : a; }
-
-
-// templates that define all comparations using '<' and '=='
 ///////////////////////////////////////////////////////////////////////////////////////
 // Beginn Aenderung Jens Liebehenschel, 30.12.1998
 ///////////////////////////////////////////////////////////////////////////////////////

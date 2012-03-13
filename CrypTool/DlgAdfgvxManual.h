@@ -136,7 +136,6 @@ private:
 	CAlphabetTextEdit editTranspositionPassword;
 
 public:
-	friend static CDlgAdfgvxManual::UINT StaticThread(LPVOID param);
 	BOOL CDlgAdfgvxManual::OnInitDialog();
 	void CDlgAdfgvxManual::Permutate();
 

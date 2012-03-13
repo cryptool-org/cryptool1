@@ -51,7 +51,10 @@ public:
 	char *decrypt(char *key_hex);
 };
 
-void hash (char* infile, const char *OldTitle, int AlgId);
-
+// flomar, 03/13/2012: in order to avoid namespace clashes
+// in VS2010, this function is wrapped into its own namespace
+namespace Secude {
+	void hash (char* infile, const char *OldTitle, int AlgId);
+}
 
 

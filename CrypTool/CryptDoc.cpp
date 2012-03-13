@@ -631,49 +631,49 @@ void CCryptDoc::OnCryptDesDesecb()
 void CCryptDoc::OnCryptHashMd2() 
 {
     UpdateContent();
-	hash(ContentName, GetTitle(),1);
+		Secude::hash(ContentName, GetTitle(),1);
 }
 
 void CCryptDoc::OnCryptHashMd4() 
 {
     UpdateContent();
-	hash(ContentName, GetTitle(),2);
+		Secude::hash(ContentName, GetTitle(),2);
 }
 
 void CCryptDoc::OnCryptHashMd5() 
 {
     UpdateContent();
-	hash(ContentName, GetTitle(),3);	
+		Secude::hash(ContentName, GetTitle(),3);	
 }
 
 void CCryptDoc::OnCryptHashSha() 
 {
     UpdateContent();
-	hash(ContentName, GetTitle(),4);
+		Secude::hash(ContentName, GetTitle(),4);
 }
 
 void CCryptDoc::OnCryptHashSha1() 
 {
     UpdateContent();
-	hash(ContentName, GetTitle(),5);
+		Secude::hash(ContentName, GetTitle(),5);
 }
 
 void CCryptDoc::OnCryptHashRipemd160() 
 {
     UpdateContent();
-	hash(ContentName, GetTitle(),6);
+		Secude::hash(ContentName, GetTitle(),6);
 }
 
 void CCryptDoc::OnCryptHashSha256()
 {
-	UpdateContent();
-	hash(ContentName, GetTitle(), 7);
+		UpdateContent();
+		Secude::hash(ContentName, GetTitle(), 7);
 }
 
 void CCryptDoc::OnCryptHashSha512()
 {
-	UpdateContent();
-	hash(ContentName, GetTitle(), 8);
+		UpdateContent();
+		Secude::hash(ContentName, GetTitle(), 8);
 }
 
 BOOL CAscDoc::OnSaveDocument(LPCTSTR lpszPathName) 

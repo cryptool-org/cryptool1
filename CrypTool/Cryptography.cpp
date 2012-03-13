@@ -3067,7 +3067,7 @@ void HashOfAFile()
 	CDlgSelectHashFunction Dlg;
 	if ( Dlg.DoModal() == IDOK )
 	{
-		hash(fname, ftitle, Dlg.m_selectedHashFunction+1 );
+		Secude::hash(fname, ftitle, Dlg.m_selectedHashFunction+1 );
 	}
 }
 
