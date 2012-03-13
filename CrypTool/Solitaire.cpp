@@ -195,13 +195,13 @@ bool c_solitaire::set_deck( CString &str )
 		}
 		if ( d < 1 || d > 54 || check[d] || ++ndx > 54 )
 			return false;
-		check[d]  = ndx;
-		deck[ndx] = d;
+		check[d]  = (unsigned char)ndx;
+		deck[ndx] = (unsigned char)d;
 	}
 	if ( ndx == max +2 && check[53] && check[54] )
 	{
-		deck[check[53]] = ++max;
-		deck[check[54]] = ++max;
+		deck[check[53]] = (unsigned char)++max;
+		deck[check[54]] = (unsigned char)++max;
 	}
 	if ( ndx == max )
 	{
@@ -243,14 +243,14 @@ bool c_solitaire::add_passphrase( char *pass )
 		return false;
 
 	long i;
-	for ( i=0; i<strlen(pass); i++ )
+	for ( i=0; i<(long)strlen(pass); i++ )
 	{
 		if ( pass[i] >= 'a' && pass[i] <= 'z' ) pass[i] -= ('a' - 'A');
 		if ( pass[i] <  'A' || pass[i] > 'Z' ) 
 			return false;
 	}
 
-	for ( i=0; i<strlen(pass); i++)
+	for ( i=0; i<(long)strlen(pass); i++)
 	{
 		set_inner_state(0);
 		s1_swap_JA();
@@ -1313,7 +1313,7 @@ int Deck::writedeck( const char *deck_label )
 	{
       CString Deck;
       Deck.Format("%d ", anzahl);
-      for ( size_t i=0; i<anzahl; i++ )
+      for ( size_t i=0; i<(size_t)anzahl; i++ )
       {
          char strnum[4];
          sprintf( strnum, "%2d ", deck[i] );
@@ -1345,7 +1345,7 @@ int Deck::readdeck( const char *deck_label )
       strcpy( str_deck, default_deck );
 
    anzahl = atoi( str_deck );
-   for ( i=j=0; j<anzahl; j++ )
+   for ( i=j=0; j<(unsigned long)anzahl; j++ )
    {
       while( str_deck[i] >= '0' && str_deck[i] <= '9' ) i++;
       while( str_deck[i] == ' ' ) i++;

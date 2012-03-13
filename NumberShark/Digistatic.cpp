@@ -49,7 +49,7 @@
 #include "stdafx.h"
 #include "Digistatic.h"
 #include "Curvefit.h"
-#include "MEMDC.H"
+#include "MemDC.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -991,7 +991,7 @@ void CDigiStatic::OnPaint()
 
 	CPaintDC dc(this); // device context for painting
 	dc.SetBkColor(m_BackColor);
-	CMemDC MemDC(&dc, &rect, m_bTransparent);
+	NumberShark::CMemDC MemDC(&dc, &rect, m_bTransparent);
 
 	CBrush hBrushOff, hBrushOn;
 	hBrushOff.CreateSolidBrush(m_OffColor);

@@ -47,7 +47,7 @@ if($mode eq "PRE") {
 	# determine the current SVN revision
 	my $line = `svnversion .`;
 	chomp($line);
-	if($line =~ m{ \d+ : (\d+) .* }xms) {
+	if($line =~ m{ \d+ : (\d+) .* }xms or $line =~ m{ (\d+) .* }xms) {
 		$svnRevision = $1;
 	}
 

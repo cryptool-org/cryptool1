@@ -24,6 +24,7 @@
 #include "stdafx.h"
 #include "WBButton.h"
 #include "AutoFont.h"
+#include "MemDC.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -73,7 +74,7 @@ void CWBButton::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
     xdc.Attach( lpDrawItemStruct->hDC );
     CRect rc;
     GetClientRect(rc);
-    CMemDC dc(&xdc,rc);
+		NumberShark::CMemDC dc(&xdc,rc);
     
     UINT state = lpDrawItemStruct->itemState ;
     bool IsDisable = false;

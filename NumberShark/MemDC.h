@@ -43,6 +43,8 @@
 // This class implements a memory Device Context which allows
 // flicker free drawing.
 
+namespace NumberShark {
+
 class CMemDC : public CDC {
 private:	
 	CBitmap		m_bitmap;		// Offscreen bitmap
@@ -131,5 +133,7 @@ public:
 		return this;
 	}
 };
+
+}
 
 #endif
