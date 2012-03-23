@@ -1,7 +1,7 @@
 BUILD INSTRUCTIONS FOR APFLOAT (2.41)
 =====================================
 
-1) You need a Microsoft IDE. VS2008 works without problems, VS2010 is a bit tricky (we'll get to that later).
+1) You need a Microsoft IDE, VS2008 and VS2010 were successfully tested.
 
 2) Download the following packages from "http://apfloat.org":
 * the apfloat base package (i.e. "apf241.zip")
@@ -13,10 +13,8 @@ BUILD INSTRUCTIONS FOR APFLOAT (2.41)
 NOTE: Follow the instructions on the apfloat site; it is important HOW and IN WHICH ORDER you extract the ZIP files, see option "-o" of your ZIP program.
 
 4) Open the file "apfloat/makefile" and make changes as follows:
-
-Find the "OPTS" parameter, and replace the option "/GX" with "/EHsc", according to MS this option is deprecated.
-
-Furthermore, add the option "/MTd" if you want to build a DEBUG library, and "/MT" if you want to build a RELEASE library, respectively.
+*Find the "OPTS" parameter, and replace the option "/GX" with "/EHsc", according to MS this option is deprecated.
+*Furthermore, add the option "/MTd" if you want to build a DEBUG library, and "/MT" if you want to build a RELEASE library, respectively.
 
 5) In order to make apfloat satisfy our CrypTool needs, apply the following patches:
 * apint.h.patch
