@@ -52,7 +52,7 @@
 				AdditionalOptions="/MP"
 				Optimization="2"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\libNTL\include;&quot;.\dialogue-buttons&quot;;..\ChallengeResponse;..;..\Secude;..\Libec\include;.\;..\libmiracl\include;..\OpenSSL;..\scintilla\include;..\libVolRen;..\libgmp;..\libCVact\include;..\apfloat\apfloat-vs2008"
+				AdditionalIncludeDirectories="..\libNTL\include;&quot;.\dialogue-buttons&quot;;..\ChallengeResponse;..;..\Secude;..\Libec\include;.\;..\libmiracl\include;..\OpenSSL;..\scintilla\include;..\libVolRen;..\libgmp;..\libCVact\libCVact-vs2008..\apfloat\apfloat-vs2008"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;NO_SMARTCARD"
 				StringPooling="true"
 				RuntimeLibrary="0"
@@ -80,7 +80,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib ..\OpenSSL\libeay32.lib ..\libNTL\Release\libNTL.lib htmlhelp.lib opengl32.lib ..\libgmp\Release\mpir.lib ..\libCVact\actvcmt.lib ..\cracklib-2.7\cracklib_Win32\Release\cracklib_Win32.lib ..\apfloat\apfloat-vs2008\apfloat.lib"
+				AdditionalDependencies="..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib ..\OpenSSL\libeay32.lib ..\libNTL\Release\libNTL.lib htmlhelp.lib opengl32.lib ..\libgmp\Release\mpir.lib ..\libCVact\libCVact-vs2008\actvcmt.lib ..\cracklib-2.7\cracklib_Win32\Release\cracklib_Win32.lib ..\apfloat\apfloat-vs2008\apfloat.lib"
 				OutputFile="../$(ConfigurationName)/$(ProjectName).exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
@@ -151,7 +151,7 @@
 				AdditionalOptions="/MP"
 				Optimization="2"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\libNTL\include;&quot;.\dialogue-buttons&quot;;..\ChallengeResponse;..;..\Secude;..\Libec\include;.\;..\libmiracl\include;..\OpenSSL;..\scintilla\include;..\libVolRen;..\libgmp;..\libCVact\include;..\apfloat\apfloat-vs2008"
+				AdditionalIncludeDirectories="..\libNTL\include;&quot;.\dialogue-buttons&quot;;..\ChallengeResponse;..;..\Secude;..\Libec\include;.\;..\libmiracl\include;..\OpenSSL;..\scintilla\include;..\libVolRen;..\libgmp;..\libCVact\libCVact-vs2008..\apfloat\apfloat-vs2008"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;NO_SMARTCARD"
 				StringPooling="true"
 				RuntimeLibrary="0"
@@ -179,7 +179,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib ..\OpenSSL\libeay32.lib ..\libNTL\Release\libNTL.lib htmlhelp.lib opengl32.lib ..\libgmp\Release\mpir.lib ..\libCVact\actvcmt.lib ..\cracklib-2.7\cracklib_Win32\Release\cracklib_Win32.lib ..\apfloat\apfloat-vs2008\apfloat.lib"
+				AdditionalDependencies="..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib ..\OpenSSL\libeay32.lib ..\libNTL\Release\libNTL.lib htmlhelp.lib opengl32.lib ..\libgmp\Release\mpir.lib ..\libCVact\libCVact-vs2008\actvcmt.lib ..\cracklib-2.7\cracklib_Win32\Release\cracklib_Win32.lib ..\apfloat\apfloat-vs2008\apfloat.lib"
 				OutputFile="../$(ConfigurationName)/$(ProjectName).exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
@@ -249,7 +249,7 @@
 				AdditionalOptions="/MP"
 				Optimization="2"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\libNTL\include;&quot;.\dialogue-buttons&quot;;..\ChallengeResponse;..;..\Secude;..\Libec\include;.\;..\libmiracl\include;..\OpenSSL;..\scintilla\include;..\libVolRen;..\libgmp;..\libCVact\include;..\apfloat\apfloat-vs2008"
+				AdditionalIncludeDirectories="..\libNTL\include;&quot;.\dialogue-buttons&quot;;..\ChallengeResponse;..;..\Secude;..\Libec\include;.\;..\libmiracl\include;..\OpenSSL;..\scintilla\include;..\libVolRen;..\libgmp;..\libCVact\libCVact-vs2008..\apfloat\apfloat-vs2008"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;NO_SMARTCARD"
 				StringPooling="true"
 				RuntimeLibrary="0"
@@ -277,7 +277,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib ..\OpenSSL\libeay32.lib ..\libNTL\Release\libNTL.lib htmlhelp.lib opengl32.lib ..\libgmp\Release\mpir.lib ..\libCVact\actvcmt.lib ..\cracklib-2.7\cracklib_Win32\Release\cracklib_Win32.lib ..\apfloat\apfloat-vs2008\apfloat.lib"
+				AdditionalDependencies="..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib ..\OpenSSL\libeay32.lib ..\libNTL\Release\libNTL.lib htmlhelp.lib opengl32.lib ..\libgmp\Release\mpir.lib ..\libCVact\libCVact-vs2008\actvcmt.lib ..\cracklib-2.7\cracklib_Win32\Release\cracklib_Win32.lib ..\apfloat\apfloat-vs2008\apfloat.lib"
 				OutputFile="../$(ConfigurationName)/$(ProjectName).exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
@@ -349,7 +349,7 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/MP"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\libNTL\include;&quot;.\dialogue-buttons&quot;;..\ChallengeResponse;..;..\Secude;..\Libec\include;.\;..\libmiracl\include;..\OpenSSL;..\scintilla\include;..\libVolRen;..\libgmp;..\libCVact\include;..\apfloat\apfloat-vs2008"
+				AdditionalIncludeDirectories="..\libNTL\include;&quot;.\dialogue-buttons&quot;;..\ChallengeResponse;..;..\Secude;..\Libec\include;.\;..\libmiracl\include;..\OpenSSL;..\scintilla\include;..\libVolRen;..\libgmp;..\libCVact\libCVact-vs2008..\apfloat\apfloat-vs2008"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;NO_SMARTCARD"
 				RuntimeLibrary="1"
 				DefaultCharIsUnsigned="false"
@@ -377,7 +377,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib ..\OpenSSL\libeay32.lib ..\libNtl\Debug\LibNTL.lib htmlhelp.lib opengl32.lib ..\libgmp\Debug\mpir.lib ..\libCVact\actvcmtd.lib ..\cracklib-2.7\cracklib_Win32\Debug\cracklib_Win32.lib ..\apfloat\apfloat-vs2008\apfloatd.lib"
+				AdditionalDependencies="..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib ..\OpenSSL\libeay32.lib ..\libNtl\Debug\LibNTL.lib htmlhelp.lib opengl32.lib ..\libgmp\Debug\mpir.lib ..\libCVact\libCVact-vs2008\actvcmtd.lib ..\cracklib-2.7\cracklib_Win32\Debug\cracklib_Win32.lib ..\apfloat\apfloat-vs2008\apfloatd.lib"
 				OutputFile="../$(ConfigurationName)/$(ProjectName).exe"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
@@ -452,7 +452,7 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/MP"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\libNTL\include;&quot;.\dialogue-buttons&quot;;..\ChallengeResponse;..;..\Secude;..\Libec\include;.\;..\libmiracl\include;..\OpenSSL;..\scintilla\include;..\libVolRen;..\libgmp;..\libCVact\include;..\apfloat\apfloat-vs2008"
+				AdditionalIncludeDirectories="..\libNTL\include;&quot;.\dialogue-buttons&quot;;..\ChallengeResponse;..;..\Secude;..\Libec\include;.\;..\libmiracl\include;..\OpenSSL;..\scintilla\include;..\libVolRen;..\libgmp;..\libCVact\libCVact-vs2008..\apfloat\apfloat-vs2008"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;NO_SMARTCARD"
 				RuntimeLibrary="1"
 				PrecompiledHeaderFile=".\Debug/CrypTool.pch"
@@ -478,7 +478,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib ..\OpenSSL\libeay32.lib ..\libNtl\Debug\LibNTL.lib htmlhelp.lib opengl32.lib ..\libgmp\Debug\mpir.lib ..\libCVact\actvcmtd.lib ..\cracklib-2.7\cracklib_Win32\Debug\cracklib_Win32.lib ..\apfloat\apfloat-vs2008\apfloatd.lib"
+				AdditionalDependencies="..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib ..\OpenSSL\libeay32.lib ..\libNtl\Debug\LibNTL.lib htmlhelp.lib opengl32.lib ..\libgmp\Debug\mpir.lib ..\libCVact\libCVact-vs2008\actvcmtd.lib ..\cracklib-2.7\cracklib_Win32\Debug\cracklib_Win32.lib ..\apfloat\apfloat-vs2008\apfloatd.lib"
 				OutputFile="../$(ConfigurationName)/$(ProjectName).exe"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
@@ -551,7 +551,7 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/MP"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\libNTL\include;&quot;.\dialogue-buttons&quot;;..\ChallengeResponse;..;..\Secude;..\Libec\include;.\;..\libmiracl\include;..\OpenSSL;..\scintilla\include;..\libVolRen;..\libgmp;..\libCVact\include;..\apfloat\apfloat-vs2008"
+				AdditionalIncludeDirectories="..\libNTL\include;&quot;.\dialogue-buttons&quot;;..\ChallengeResponse;..;..\Secude;..\Libec\include;.\;..\libmiracl\include;..\OpenSSL;..\scintilla\include;..\libVolRen;..\libgmp;..\libCVact\libCVact-vs2008..\apfloat\apfloat-vs2008"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;NO_SMARTCARD"
 				RuntimeLibrary="1"
 				PrecompiledHeaderFile=".\Debug/CrypTool.pch"
@@ -577,7 +577,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib ..\OpenSSL\libeay32.lib ..\libNtl\Debug\LibNTL.lib htmlhelp.lib opengl32.lib ..\libgmp\Debug\mpir.lib ..\libCVact\actvcmtd.lib ..\cracklib-2.7\cracklib_Win32\Debug\cracklib_Win32.lib ..\apfloat\apfloat-vs2008\apfloatd.lib"
+				AdditionalDependencies="..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib ..\OpenSSL\libeay32.lib ..\libNtl\Debug\LibNTL.lib htmlhelp.lib opengl32.lib ..\libgmp\Debug\mpir.lib ..\libCVact\libCVact-vs2008\actvcmtd.lib ..\cracklib-2.7\cracklib_Win32\Debug\cracklib_Win32.lib ..\apfloat\apfloat-vs2008\apfloatd.lib"
 				OutputFile="../$(ConfigurationName)/$(ProjectName).exe"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
@@ -650,7 +650,7 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/MP"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\libNTL\include;&quot;.\dialogue-buttons&quot;;..\ChallengeResponse;..;..\Secude;..\Libec\include;.\;..\libmiracl\include;..\OpenSSL;..\scintilla\include;..\libVolRen;..\libgmp;..\libCVact\include;..\apfloat\apfloat-vs2008"
+				AdditionalIncludeDirectories="..\libNTL\include;&quot;.\dialogue-buttons&quot;;..\ChallengeResponse;..;..\Secude;..\Libec\include;.\;..\libmiracl\include;..\OpenSSL;..\scintilla\include;..\libVolRen;..\libgmp;..\libCVact\libCVact-vs2008..\apfloat\apfloat-vs2008"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;NO_SMARTCARD"
 				RuntimeLibrary="1"
 				PrecompiledHeaderFile=".\Debug/CrypTool.pch"
@@ -676,7 +676,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib ..\OpenSSL\libeay32.lib ..\libNtl\Debug\LibNTL.lib htmlhelp.lib opengl32.lib ..\libgmp\Debug\mpir.lib ..\libCVact\actvcmtd.lib ..\cracklib-2.7\cracklib_Win32\Debug\cracklib_Win32.lib ..\apfloat\apfloat-vs2008\apfloatd.lib"
+				AdditionalDependencies="..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib ..\OpenSSL\libeay32.lib ..\libNtl\Debug\LibNTL.lib htmlhelp.lib opengl32.lib ..\libgmp\Debug\mpir.lib ..\libCVact\libCVact-vs2008\actvcmtd.lib ..\cracklib-2.7\cracklib_Win32\Debug\cracklib_Win32.lib ..\apfloat\apfloat-vs2008\apfloatd.lib"
 				OutputFile="../$(ConfigurationName)/$(ProjectName).exe"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
@@ -750,7 +750,7 @@
 				AdditionalOptions="/MP"
 				Optimization="2"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\libNTL\include;&quot;.\dialogue-buttons&quot;;..\ChallengeResponse;..;..\Secude;..\Libec\include;.\;..\libmiracl\include;..\OpenSSL;..\scintilla\include;..\libVolRen;..\libgmp;..\libCVact\include;..\apfloat\apfloat-vs2008"
+				AdditionalIncludeDirectories="..\libNTL\include;&quot;.\dialogue-buttons&quot;;..\ChallengeResponse;..;..\Secude;..\Libec\include;.\;..\libmiracl\include;..\OpenSSL;..\scintilla\include;..\libVolRen;..\libgmp;..\libCVact\libCVact-vs2008..\apfloat\apfloat-vs2008"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;NO_SMARTCARD"
 				StringPooling="true"
 				RuntimeLibrary="0"
@@ -778,7 +778,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib ..\OpenSSL\libeay32.lib ..\libNTL\Release\libNTL.lib htmlhelp.lib opengl32.lib ..\libgmp\Release\mpir.lib ..\libCVact\actvcmt.lib ..\cracklib-2.7\cracklib_Win32\Release\cracklib_Win32.lib ..\apfloat\apfloat-vs2008\apfloat.lib"
+				AdditionalDependencies="..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib ..\OpenSSL\libeay32.lib ..\libNTL\Release\libNTL.lib htmlhelp.lib opengl32.lib ..\libgmp\Release\mpir.lib ..\libCVact\libCVact-vs2008\actvcmt.lib ..\cracklib-2.7\cracklib_Win32\Release\cracklib_Win32.lib ..\apfloat\apfloat-vs2008\apfloat.lib"
 				OutputFile="../$(ConfigurationName)/$(ProjectName).exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
@@ -848,7 +848,7 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/MP"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\libNTL\include;&quot;.\dialogue-buttons&quot;;..\ChallengeResponse;..;..\Secude;..\Libec\include;.\;..\libmiracl\include;..\OpenSSL;..\scintilla\include;..\libVolRen;..\libgmp;..\libCVact\include;..\apfloat\apfloat-vs2008"
+				AdditionalIncludeDirectories="..\libNTL\include;&quot;.\dialogue-buttons&quot;;..\ChallengeResponse;..;..\Secude;..\Libec\include;.\;..\libmiracl\include;..\OpenSSL;..\scintilla\include;..\libVolRen;..\libgmp;..\libCVact\libCVact-vs2008..\apfloat\apfloat-vs2008"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;NO_SMARTCARD"
 				RuntimeLibrary="1"
 				PrecompiledHeaderFile=".\Debug/CrypTool.pch"
@@ -874,7 +874,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib ..\OpenSSL\libeay32.lib ..\libNtl\Debug\LibNTL.lib htmlhelp.lib opengl32.lib ..\libgmp\Debug\mpir.lib ..\libCVact\actvcmtd.lib ..\cracklib-2.7\cracklib_Win32\Debug\cracklib_Win32.lib ..\apfloat\apfloat-vs2008\apfloatd.lib"
+				AdditionalDependencies="..\LibAnalyse\Debug\LibAnalyse.lib ..\Libec\Lib\EcBibV2D.lib ..\libmiracl\Debug\LibMiracl.lib ..\OpenSSL\libeay32.lib ..\libNtl\Debug\LibNTL.lib htmlhelp.lib opengl32.lib ..\libgmp\Debug\mpir.lib ..\libCVact\libCVact-vs2008\actvcmtd.lib ..\cracklib-2.7\cracklib_Win32\Debug\cracklib_Win32.lib ..\apfloat\apfloat-vs2008\apfloatd.lib"
 				OutputFile="../$(ConfigurationName)/$(ProjectName).exe"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
@@ -949,7 +949,7 @@
 				AdditionalOptions="/MP"
 				Optimization="2"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\libNTL\include;&quot;.\dialogue-buttons&quot;;..\ChallengeResponse;..;..\Secude;..\Libec\include;.\;..\libmiracl\include;..\OpenSSL;..\scintilla\include;..\libVolRen;..\libgmp;..\libCVact\include;..\apfloat\apfloat-vs2008"
+				AdditionalIncludeDirectories="..\libNTL\include;&quot;.\dialogue-buttons&quot;;..\ChallengeResponse;..;..\Secude;..\Libec\include;.\;..\libmiracl\include;..\OpenSSL;..\scintilla\include;..\libVolRen;..\libgmp;..\libCVact\libCVact-vs2008..\apfloat\apfloat-vs2008"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;NO_SMARTCARD"
 				StringPooling="true"
 				RuntimeLibrary="0"
@@ -977,7 +977,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib ..\OpenSSL\libeay32.lib ..\libNTL\Release\libNTL.lib htmlhelp.lib opengl32.lib ..\libgmp\Release\mpir.lib ..\libCVact\actvcmt.lib ..\cracklib-2.7\cracklib_Win32\Release\cracklib_Win32.lib ..\apfloat\apfloat-vs2008\apfloat.lib"
+				AdditionalDependencies="..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib ..\OpenSSL\libeay32.lib ..\libNTL\Release\libNTL.lib htmlhelp.lib opengl32.lib ..\libgmp\Release\mpir.lib ..\libCVact\libCVact-vs2008\actvcmt.lib ..\cracklib-2.7\cracklib_Win32\Release\cracklib_Win32.lib ..\apfloat\apfloat-vs2008\apfloat.lib"
 				OutputFile="../$(ConfigurationName)/$(ProjectName).exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
