@@ -1,7 +1,7 @@
 BUILD INSTRUCTIONS FOR APFLOAT (2.41)
 =====================================
 
-1) You need a Microsoft IDE. I was using MS Visual Studio 2008, other releases should work similar.
+1) You need a Microsoft IDE. VS2008 works without problems, VS2010 is a bit tricky (we'll get to that later).
 
 2) Download the following packages from "http://apfloat.org":
 * the apfloat base package (i.e. "apf241.zip")
@@ -24,10 +24,14 @@ Furthermore, add the option "/MTd" if you want to build a DEBUG library, and "/M
 
 6) Now you're ready to build. Go into the "apfloat" directory and call "NMAKE" to compile the library.
 
-7) When done building the libraries, put the debug library into "trunk/apfloat/apfloatd.lib" and the release library into "trunk/apfloat/apfloat.lib".
+7) When done building the libraries, put the libraries into the following locations:
+* trunk/apfloat/apfloat-vs2008/apfloatd.lib (VS2008, debug)
+* trunk/apfloat/apfloat-vs2008/apfloat.lib (VS2008, release)
+* trunk/apfloat/apfloat-vs2010/apfloatd.lib (VS2010, debug)
+* trunk/apfloat/apfloat-vs2010/apfloat.lib (VS2010, release)
 
 
-I hope this helped. Send an email to florian@marchal.de if you run into any problems.
+I hope this helped. Send an email to florian(at)marchal(dot)de if you run into any problems.
 
-Florian Marchal, 07/02/2010
+Florian Marchal, 03/22/2012
 
