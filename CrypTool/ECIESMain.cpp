@@ -26,6 +26,7 @@
 #include "actTools.h"
 #include "actDate.h"
 #include "actIRNGAlg.h"
+#include "actException.h"
 #endif
 
 #include "stdafx.h"
@@ -533,7 +534,8 @@ int encrypt(act::Blob &encBlob, const CString &sName, const CString &sVorname, c
 	
 	//symmetrische Datenverschlüsselung
 	act::Blob plaintext,ciphertext,sessionKey;
-	act::file2blob(ifile, plaintext);
+	// flomar
+	//act::file2blob(ifile, plaintext);
 	encryptData(plaintext, sessionKey, ciphertext);
 	
 	//sessionkey wird ECIES-verschlüsselt
@@ -794,8 +796,9 @@ act::Blob writeEncFile(const CString &ofile, const CString &sName, const CString
 int readEncFile(const CString &ifile, CString &sName, CString &sVorname, CString &rName, CString &rVorname, CString curveR, act::Blob &encryptedSessionKey, act::Blob &ciphertext)
 {
 	act::Blob input;
-	act::file2blob(ifile,input);
-
+	// flomar
+	//act::file2blob(ifile,input);
+	
 	CString message,tag;
 	message=reinterpret_cast<char*>(&input[0]);
 
@@ -888,7 +891,9 @@ void newWindow(const bool &plain, const act::Blob &output, const char* &OldTitle
 {
 	char outfile[128];
 	GetTmpName(outfile,"cry",".tmp");
-	act::blob2file(outfile,output);
+	// flomar
+	//act::blob2file(outfile,output);
+	
 	OpenNewDoc(outfile,ReceiverName+", "+ReceiverFirstname+", "+ReceiverKeyType,OldTitle,IDS_ECIES_CRYPT,plain,0);
 }
 #endif
