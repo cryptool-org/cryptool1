@@ -798,7 +798,6 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 	CString rKey, rText;
 
 	int x = 0;
-	int theRate = 0;
 
 	bool found = false;
 
@@ -873,60 +872,44 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 							if(dict[xDict].GetLength() <= ciphertext.GetLength()) {
 								if(dict[xDict].Find(key + cKey[o]) == 0 || dict[xDict].Find(text + cText[l]) == 0) {
 									decryptedText = decryptText(ciphertext, dict[xDict]);
-									theRate = rateString(decryptedText, dict[xDict]);
-									//
-									// ATTENTION: the "analysisThreshold" variable can be configured via the 
-									// CrypTool analysis options dialog. The LOWER the the threshold, the MORE 
-									// possible solutions will be found (this was introduced due to problems with 
-									// German texts). See Schroedel's paper for details, although a variable 
-									// threshold was not part of his code.
-									//
-									// TODO: make sure the user cannot use unreasonable values to mess up anything
-									//
-									if(theRate >= decryptedText.GetLength() * 0.25 + analysisThreshold) {
-										
-										// watch out for user cancellation
-										if(canceled) return -1;
 
-										CString strTheRate; strTheRate.Format("%d", theRate);
-										CString strTheSubRate; strTheSubRate = "0";
+									// watch out for user cancellation
+									if(canceled) return -1;
 
-										CString outputStr;
-										outputStr += "-----> [";
-										outputStr.AppendChar(cKey[o]);
-										outputStr += "]+[";
-										outputStr.AppendChar(cText[l]);
-										outputStr += "]=";
-										outputStr.AppendChar(cipher[3]);
-										outputStr += " => ";
-										outputStr.Append(key);
-										outputStr.AppendChar(cKey[o]);
-										outputStr += " / ";
-										outputStr.Append(text);
-										outputStr.AppendChar(cText[l]);
-										outputStr += " => ";
-										outputStr.Append(dict[xDict]);
-										outputStr += " <=> ";
-										outputStr.Append(decryptText(ciphertext, dict[xDict]));
-										outputStr += " (";
-										outputStr.Append(strTheRate);
-										outputStr += ")";
+									CString outputStr;
+									outputStr += "-----> [";
+									outputStr.AppendChar(cKey[o]);
+									outputStr += "]+[";
+									outputStr.AppendChar(cText[l]);
+									outputStr += "]=";
+									outputStr.AppendChar(cipher[3]);
+									outputStr += " => ";
+									outputStr.Append(key);
+									outputStr.AppendChar(cKey[o]);
+									outputStr += " / ";
+									outputStr.Append(text);
+									outputStr.AppendChar(cText[l]);
+									outputStr += " => ";
+									outputStr.Append(dict[xDict]);
+									outputStr += " <=> ";
+									outputStr.Append(decryptText(ciphertext, dict[xDict]));
 
-										output(outputStr);
-
-										solvers[x][0] = dict[xDict];
-										solvers[x][1] = decryptText(ciphertext, dict[xDict]);
-										solvers[x][2] = strTheRate;
-                    solvers[x][3] = strTheSubRate;
-										x++;
-										
-										if(maxRating < theRate) maxRating = theRate;
-
-										PossibleResult possibleResult;
-										possibleResult.key = dict[xDict];
-										possibleResult.cleartext = decryptText(ciphertext, dict[xDict]);
-										possibleResult.rating = theRate;
-										// at this point we have a possible result, store it in the list for possible results
+									PossibleResult possibleResult;
+									possibleResult.key = dict[xDict];
+									possibleResult.cleartext = decryptText(ciphertext, dict[xDict]);
+									
+									// add the possible result to our list of results
+									CString stringPossibleResult;
+									for(int dictindex=0; dictindex<dictCount; dictindex++) {
+										if(possibleResult.cleartext.Find(dict[dictindex]) != -1) {
+											if(dict[dictindex].GetLength() > stringPossibleResult.GetLength()) {
+												stringPossibleResult = dict[dictindex];
+											}
+										}
+									}
+									// if we didn't find a dictionary word, don't consider the result
+									if(stringPossibleResult.GetLength() > 0) {
+										possibleResult.cleartext = stringPossibleResult;
 										listPossibleResults.push_back(possibleResult);
 										// also, pass it through to the analysis dialog (if it exists)
 										if(theDialog) theDialog->addPossibleResult(possibleResult);
@@ -951,21 +934,9 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 		outputString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_TAG_CHECKING_FOR_RATINGS);
 		output(outputString);
 
-		CString strLength; strLength.Format("%d", ciphertext.GetLength());
-		CString strCipher; strCipher = ciphertext;
-		CString strRating; strRating.Format("%d", maxRating);
-		for(int i=0; i<x; i++) {
-
-			// watch out for user cancellation
-			if(canceled) return -1;
-
-			if(solveRating < atoi(solvers[i][2].GetBuffer())) {
-				solveRating = atoi(solvers[i][2].GetBuffer());
-			}
-			if(maxRating == atoi(solvers[i][2])) {
-				//output(solvers[i][3] + " " + solvers[i][0] + " / " + solvers[i][1]);
-				output(solvers[i][0] + " / " + solvers[i][1]);
-			}
+		// list ALL possible results (not just one)
+		for(std::list<PossibleResult>::iterator i=listPossibleResults.begin(); i!=listPossibleResults.end(); i++) {
+			output((*i).key + "/" + (*i).cleartext);
 		}
 
 		for(int i=0; i<cPairs; i++) {
@@ -1030,7 +1001,8 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 
 	output("", true);
 
-	// TODO: sort list after scoring
+	// sort list with possible results (see header file for details of PossibleResult::sort)
+	listPossibleResults.sort();
 
 	if(listPossibleResults.size() == 0) {
 		CString message;
@@ -1061,7 +1033,6 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 			possibleKeyTag.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_POSSIBLE_KEY_TAG);
 			output(stringPossibleResultIndex + ". " + possibleKeyTag, true);
 			output((*iter).key, true);
-			output("", true);
 			CString foundCleartextTag;
 			foundCleartextTag.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_FOUND_CLEARTEXT_TAG);
 			output(foundCleartextTag, true);
@@ -1298,40 +1269,6 @@ CString VigenereAnalysisSchroedel::decryptText(CString text, CString key) {
 	}
 
 	return decryptedText;
-}
-
-int VigenereAnalysisSchroedel::rateString(CString str, CString key) {
-	// check the first 100 characters only
-	const CString theString = str.Left(100);
-	const CString theKey = key;
-	// try to find dictionary words in the string
-	std::map<CString, int> mapWordsFound;
-	int index = 0;
-	for(int i=0; i<dictCount; i++) {
-		int offset = 0;
-		while((index = theString.Find(dict[i], offset)) != -1) {
-			mapWordsFound[dict[i]]++;
-			offset = index + dict[i].GetLength();
-		}
-	}
-
-	// get the current rating
-	int currentRating = mapWordsFound.size();
-
-	// check if we have a new rating
-	if(currentRating > maxRating) {
-		solveCount++;
-		maxRating = solveRating = currentRating;
-	}
-	// return the current rating
-	return currentRating;
-}
-
-CString VigenereAnalysisSchroedel::fillLeft(CString was, int wie) {
-	while(was.GetLength() < wie) {
-		was.Insert(0, ' ');
-	}
-	return was;
 }
 
 void VigenereAnalysisSchroedel::writeResultFile(const bool _debug) {

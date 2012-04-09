@@ -36,11 +36,18 @@ class CDlgVigenereAnalysisSchroedel;
 class CDlgVigenereAnalysisSchroedelChooseKeywordLanguages;
 class CDlgVigenereAnalysisSchroedelChooseCiphertextLanguage;
 
-// this struct contains a possible result (key, cleartext, rating)
+// this struct contains a possible result (key, cleartext)
 struct PossibleResult {
 	CString key;
 	CString cleartext;
-	int rating;
+
+	// flomar, 04/08/2012: we abandon the 'rating' concept of former versions as 
+	// it wasn't very reliable; instead, we present ALL possible solutions to the 
+	// user; the order depends on the combined length of 'key' and 'cleartext', 
+	// as longer dictionary words likely create more meaningful solutions
+	bool operator<(const PossibleResult &_result) {
+		return (key.GetLength() + cleartext.GetLength() > _result.key.GetLength() + _result.cleartext.GetLength());
+	}
 };
 
 // this struct represents a set of digrams and trigrams
@@ -171,10 +178,7 @@ protected:
 
 	char encryptChar(const char &_char, const char &_key);
 	CString decryptText(CString text, CString key);
-	int rateString(CString str, CString key);
-
-	CString fillLeft(CString was, int wie);
-	
+		
 	// some helper variables
 	CString outputString;
 	CString formatString;
