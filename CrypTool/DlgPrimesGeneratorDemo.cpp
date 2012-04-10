@@ -31,6 +31,7 @@
 #include "DialogeMessage.h"
 #include "FileTools.h"
 #include "CrypToolTools.h"
+#include "IntegerArithmetic.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -569,6 +570,41 @@ void CDlgPrimesGeneratorDemo::OnUpdateEdit()
 	m_edit5 = "";
 	m_edit6 = "";
 	UpdateData(false);
+
+	// flomar, 04/10/2012: remove invalid characters from formula(s)
+	int selectionStart;
+	int selectionEnd;
+	// m_edit1
+	m_control_edit1.GetSel(selectionStart, selectionEnd);
+	removeInvalidCharactersFromFormula(m_edit1, selectionStart, selectionEnd);
+	UpdateData(false);
+	m_control_edit1.SetSel(selectionStart, selectionEnd);
+	// m_edit2
+	m_control_edit2.GetSel(selectionStart, selectionEnd);
+	removeInvalidCharactersFromFormula(m_edit2, selectionStart, selectionEnd);
+	UpdateData(false);
+	m_control_edit2.SetSel(selectionStart, selectionEnd);
+	// m_edit3
+	m_control_edit3.GetSel(selectionStart, selectionEnd);
+	removeInvalidCharactersFromFormula(m_edit3, selectionStart, selectionEnd);
+	UpdateData(false);
+	m_control_edit3.SetSel(selectionStart, selectionEnd);
+	// m_edit4
+	m_control_edit4.GetSel(selectionStart, selectionEnd);
+	removeInvalidCharactersFromFormula(m_edit4, selectionStart, selectionEnd);
+	UpdateData(false);
+	m_control_edit4.SetSel(selectionStart, selectionEnd);
+	// m_edit5
+	m_control_edit5.GetSel(selectionStart, selectionEnd);
+	removeInvalidCharactersFromFormula(m_edit5, selectionStart, selectionEnd);
+	UpdateData(false);
+	m_control_edit5.SetSel(selectionStart, selectionEnd);
+	// m_edit6
+	m_control_edit6.GetSel(selectionStart, selectionEnd);
+	removeInvalidCharactersFromFormula(m_edit6, selectionStart, selectionEnd);
+	UpdateData(false);
+	m_control_edit6.SetSel(selectionStart, selectionEnd);
+
 
 	// if the "both are equal" checkbox is marked, copy from P to Q
 	if(m_radio4)

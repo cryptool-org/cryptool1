@@ -2981,3 +2981,20 @@ bool IsDecimalNumber(CString expression)
 
 	return true;
 }
+
+// see declaration for details
+void removeInvalidCharactersFromFormula(CString &_formula, int &_selectionStart, int &_selectionEnd)
+{
+	const CString validCharacters = "0123456789-+*^()";
+	CString validFormula;
+	for(int i=0; i<_formula.GetLength(); i++) {
+		if(validCharacters.Find(_formula[i]) != -1) {
+			validFormula.AppendChar(_formula[i]);
+		}
+		else {
+			_selectionStart--;
+			_selectionEnd--;
+		}
+	}
+	_formula = validFormula;
+}

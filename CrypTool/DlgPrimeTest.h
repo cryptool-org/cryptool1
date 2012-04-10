@@ -48,7 +48,7 @@ protected:
   PrimeTestAKS *pAKS;	// pointer to AKS object during thread execution
   void UpdateResultField(int result, CString text);
 public:
-  afx_msg void OnBnClickedPrimetestButtonTest();
+	afx_msg void OnBnClickedPrimetestButtonTest();
   afx_msg void OnBnClickedPrimetestButtonCancel();
   afx_msg void OnBnClickedPrimetestButtonLoadnumber();
   afx_msg void OnBnClickedPrimetestRadio();
@@ -63,7 +63,7 @@ public:
   void runAKS();
 
   CEdit m_Result;               // member field for CEditResult
-  CEdit m_control_editName;     
+  CEdit m_control_editNumber;     
   CString m_editNumber;         // member field for CEditNumber
   CButton m_control_buttonJumpToFactorization;
   int m_radio;                  // member field for CRadio

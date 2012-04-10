@@ -31,6 +31,7 @@
 #include "PrimeTest.h"
 #include "PrimeTestAKS.h"
 #include "PrimePolynom.h"
+#include "IntegerArithmetic.h"
 
 
 // CDlgPrimeTest-Dialogfeld
@@ -117,9 +118,9 @@ void CDlgPrimeTest::DoDataExchange(CDataExchange* pDX)
   CDialog::DoDataExchange(pDX);
   DDX_Control(pDX, IDC_PRIMETEST_EDIT_RESULT, m_Result);
   DDX_Radio(pDX, IDC_PRIMETEST_RADIO_MILLERRABIN, m_algo);
-  DDX_Control(pDX, IDC_PRIMETEST_EDIT_NUMBER, m_control_editName);
-  DDX_Control(pDX, IDC_PRIMETEST_EDIT_NUMBER, m_control_editName);
-  DDX_Text(pDX, IDC_PRIMETEST_EDIT_NUMBER, m_editNumber);
+  DDX_Control(pDX, IDC_PRIMETEST_EDIT_NUMBER, m_control_editNumber);
+  DDX_Control(pDX, IDC_PRIMETEST_EDIT_NUMBER, m_control_editNumber);
+	DDX_Text(pDX, IDC_PRIMETEST_EDIT_NUMBER, m_editNumber);
   DDX_Control(pDX, IDC_STATIC_PRIM_RES, m_picPrime);
   DDX_Control(pDX, IDC_STATIC_PRIM_RES2, m_picNotPrime);
   DDX_Control(pDX, IDC_BUTTON_JUMP_TO_FACTORIZATION, m_control_buttonJumpToFactorization);
@@ -127,7 +128,7 @@ void CDlgPrimeTest::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CDlgPrimeTest, CDialog)
-  ON_BN_CLICKED(IDC_PRIMETEST_BUTTON_TEST, OnBnClickedPrimetestButtonTest)
+	ON_BN_CLICKED(IDC_PRIMETEST_BUTTON_TEST, OnBnClickedPrimetestButtonTest)
   ON_BN_CLICKED(IDC_PRIMETEST_BUTTON_CANCEL, OnBnClickedPrimetestButtonCancel)
   ON_BN_CLICKED(IDC_PRIMETEST_BUTTON_LOADNUMBER, OnBnClickedPrimetestButtonLoadnumber)
   ON_EN_CHANGE(IDC_PRIMETEST_EDIT_NUMBER, OnEnChangePrimetestEditNumber)
@@ -175,8 +176,8 @@ void CDlgPrimeTest::OnBnClickedPrimetestButtonTest()
     if (error == 0)
 	  {
 		  //Fehler in der Eingabe, von Parser abgefangen
-		  m_control_editName.SetSel(0,m_editNumber.GetLength());
-		  m_control_editName.SetFocus();
+		  m_control_editNumber.SetSel(0,m_editNumber.GetLength());
+		  m_control_editNumber.SetFocus();
 		  Message( IDS_STRING_INPUT_FALSE, MB_ICONSTOP );
 		  return;
 	  }
@@ -186,8 +187,8 @@ void CDlgPrimeTest::OnBnClickedPrimetestButtonTest()
     if(evaluate::CEvalIntExpr( numBig, m_editNumber.GetBuffer( m_editNumber.GetLength()+1) ) == false)
     {
 		  // Zahl zu gross
-		  m_control_editName.SetSel(0,m_editNumber.GetLength());
-		  m_control_editName.SetFocus();
+		  m_control_editNumber.SetSel(0,m_editNumber.GetLength());
+		  m_control_editNumber.SetFocus();
 		  Message( IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION );
 		  return;
     }
@@ -320,8 +321,8 @@ void CDlgPrimeTest::UpdateResultField(int result, CString text)
         m_control_buttonJumpToFactorization.EnableWindow(true);
 
 				// set the focus/cursor begind (!) the number to be tested
-				m_control_editName.SetSel(-1, -1);
-				m_control_editName.SetFocus();
+				m_control_editNumber.SetSel(-1, -1);
+				m_control_editNumber.SetFocus();
     break;
     case(1):    // prim
         LoadString(AfxGetInstanceHandle(),IDS_STRING_PRIMETEST_RESULT_PRIME,pc_str,STR_LAENGE_STRING_TABLE);
@@ -333,8 +334,8 @@ void CDlgPrimeTest::UpdateResultField(int result, CString text)
         m_picNotPrime.ShowWindow(FALSE);
 
 				// set the focus/cursor begind (!) the number to be tested
-				m_control_editName.SetSel(-1, -1);
-				m_control_editName.SetFocus();
+				m_control_editNumber.SetSel(-1, -1);
+				m_control_editNumber.SetFocus();
     break;
     case(2):    // vermutlich
         LoadString(AfxGetInstanceHandle(),IDS_STRING_PRIMETEST_RESULT_PROBABLEPRIME,pc_str,STR_LAENGE_STRING_TABLE);
@@ -346,8 +347,8 @@ void CDlgPrimeTest::UpdateResultField(int result, CString text)
         m_picNotPrime.ShowWindow(FALSE);
 
 				// set the focus/cursor begind (!) the number to be tested
-				m_control_editName.SetSel(-1, -1);
-				m_control_editName.SetFocus();
+				m_control_editNumber.SetSel(-1, -1);
+				m_control_editNumber.SetFocus();
     break;
     case(3):    // cancel
         LoadString(AfxGetInstanceHandle(),IDS_STRING_PRIMETEST_RESULT_CANCEL,pc_str,STR_LAENGE_STRING_TABLE);
@@ -479,6 +480,14 @@ void CDlgPrimeTest::OnEnChangePrimetestEditNumber()
   // mit dem ENM_CHANGE-Flag ORed in der Eingabe.
 
   UpdateData(true);
+
+	// flomar, 04/10/2012: remove invalid characters from formula
+	int selectionStart;
+	int selectionEnd;
+	m_control_editNumber.GetSel(selectionStart, selectionEnd);
+	removeInvalidCharactersFromFormula(m_editNumber, selectionStart, selectionEnd);
+	UpdateData(false);
+	m_control_editNumber.SetSel(selectionStart, selectionEnd);
 
   // Clear result field
   SetDlgItemText(IDC_PRIMETEST_EDIT_RESULT, "");

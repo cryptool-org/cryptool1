@@ -22,6 +22,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#ifndef _INTEGERARITHMETIC_H_
+#define _INTEGERARITHMETIC_H_
+
 #if !defined(AFX_CRYPTOLOGYUSINGMIRACL_H__7EFC6C40_6316_11D5_BB4A_000777640932__INCLUDED_)
 #define AFX_CRYPTOLOGYUSINGMIRACL_H__7EFC6C40_6316_11D5_BB4A_000777640932__INCLUDED_
 
@@ -100,6 +103,13 @@ extern volatile long ExitFactorisationCode;
 #define VALID_FORMULA "0..9^+-*/()"
 #define NUMBER_SEPARATOR " \r\n#,;:"
 #define SEPARATOR     " # "
+
+// flomar, 04/10/2012: this function removes invalid characters from a formula;
+// we consider the following characters valid: "0123456789+-*^", note that "/" 
+// is not valid because of the current problems we have avoiding divisions by 
+// zero in dialogs that feature "Big"-based numbers; this function won't break
+// any interfaces as it's only used in a few specific places
+void removeInvalidCharactersFromFormula(CString &_formula, int &_selectionStart, int &_selectionEnd);
 
 BOOL GetNumber( CString &number, CString &Formula, int base, int &ndx );
 BOOL CheckFormula(CString &Formula, int base, CString &UpnFormula, int &ndx);
@@ -410,3 +420,5 @@ public:
 };
 
 #endif // !defined(AFX_CRYPTOLOGYUSINGMIRACL_H__7EFC6C40_6316_11D5_BB4A_000777640932__INCLUDED_)
+
+#endif
