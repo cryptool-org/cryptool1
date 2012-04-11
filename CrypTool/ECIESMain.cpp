@@ -39,6 +39,8 @@
 #include "s_ecFp.h" // elliptic curve stuff
 #include "s_ecconv.h"
 #include <time.h>
+#include <fstream>
+#include <iostream>
 
 #include "DialogeMessage.h" // ## Später Ersetzen durch Tools.h
 
@@ -168,6 +170,12 @@ void ECCEnc(char* infile, const char *OldTitle){
 			LoadString(AfxGetInstanceHandle(),IDS_ECIES_ENC_ERROR_22,pc_str,STR_LAENGE_STRING_TABLE);
 			AfxMessageBox(pc_str);
 		}
+    //could not open file
+    else if(error==66)
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_FILEOPENERROR,pc_str,STR_LAENGE_STRING_TABLE);
+			AfxMessageBox(pc_str);
+		}
 		
 	}
 #endif
@@ -290,6 +298,12 @@ void ECCDec(char* infile, const char *OldTitle)
 		else if(error==5)
 		{
 			LoadString(AfxGetInstanceHandle(),IDS_ECIES_DEC_ERROR_05,pc_str,STR_LAENGE_STRING_TABLE);
+			AfxMessageBox(pc_str);
+		}
+    //could not open file
+    else if(error==66)
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_FILEOPENERROR,pc_str,STR_LAENGE_STRING_TABLE);
 			AfxMessageBox(pc_str);
 		}
 		else if(error==0)
@@ -534,10 +548,23 @@ int encrypt(act::Blob &encBlob, const CString &sName, const CString &sVorname, c
 	
 	//symmetrische Datenverschlüsselung
 	act::Blob plaintext,ciphertext,sessionKey;
-	// flomar
 	//act::file2blob(ifile, plaintext);
+  
+  CFile file;
+  if(!file.Open(ifile, CFile::modeRead))
+    return 66;
+
+  int len = (int)file.GetLength();
+  BYTE* ucMessage = (BYTE*)calloc(len,1);
+  file.Read(ucMessage, len);
+  for(int i=0;i<len;i++)
+    plaintext.append(1, ucMessage[i]);
+
+  free(ucMessage);
+
+
 	encryptData(plaintext, sessionKey, ciphertext);
-	
+
 	//sessionkey wird ECIES-verschlüsselt
 	act::Blob encryptedSessionKey;
 	encryptSessionKey(pubRecECIES,privSendECIES,sessionKey,encryptedSessionKey);
@@ -608,7 +635,8 @@ int importKey(act::Key& key, const CString kurve, const char* x, const char* y, 
 
 
 		//wenn ein privater Schlüssel existiert, werden die öffentlichen Parameter aus diesem generiert
-		if(s!="")
+		//if(s!="")
+    if(strlen(s))
 			key.SetParam(act::PRIVATEKEY, s);
 		else
 		{
@@ -622,8 +650,8 @@ int importKey(act::Key& key, const CString kurve, const char* x, const char* y, 
 
 	}
 
-	catch (act::InvalidKeyException & e)
-	{
+	catch(act::InvalidKeyException & e)
+  {
 		return 2;
 	}
 	catch(act::Exception & e)
@@ -795,87 +823,94 @@ act::Blob writeEncFile(const CString &ofile, const CString &sName, const CString
 }
 int readEncFile(const CString &ifile, CString &sName, CString &sVorname, CString &rName, CString &rVorname, CString curveR, act::Blob &encryptedSessionKey, act::Blob &ciphertext)
 {
-	act::Blob input;
-	// flomar
-	//act::file2blob(ifile,input);
-	
-	CString message,tag;
-	message=reinterpret_cast<char*>(&input[0]);
+  
+  CFile file;
+  if(!file.Open(ifile, CFile::modeRead))
+    return 66;
 
+  int len = (int)file.GetLength();
+  BYTE* ucMessage = (BYTE*)calloc(len,1);
+  file.Read(ucMessage, len);
+
+  CString csMessage(ucMessage);
+  CString csTag;
 	//Receiver
 	LoadString(AfxGetInstanceHandle(),IDS_ECIES_HEADER_02,pc_str,STR_LAENGE_STRING_TABLE);
-	tag=pc_str;
-	int rNameTag=message.Find(tag);
+	csTag=pc_str;
+	int rNameTag=csMessage.Find(csTag);
 	if (rNameTag == -1)
 		return 1; //corrupt header
 
-	int rNameStart=rNameTag+tag.GetLength();
-	int rNameEnd=message.Find(',',rNameStart);
+	int rNameStart=rNameTag+csTag.GetLength();
+	int rNameEnd=csMessage.Find(',',rNameStart);
 	if (rNameEnd == -1)
 		return 1; //corrupt header
 
 	int& rVornameTag=rNameEnd;
 	int rVornameStart=rVornameTag+2;
 	LoadString(AfxGetInstanceHandle(),IDS_ECIES_HEADER_03,pc_str,STR_LAENGE_STRING_TABLE);
-	tag=pc_str;
-	int rVornameEnd=message.Find(tag,rVornameStart);
+	csTag=pc_str;
+	int rVornameEnd=csMessage.Find(csTag,rVornameStart);
 	if (rVornameEnd == -1)
 		return 1; //corrupt header
 	
 	//curveR
 	int& curveRTag=rVornameEnd;
-	int curveRStart=curveRTag+tag.GetLength();
+	int curveRStart=curveRTag+csTag.GetLength();
 	LoadString(AfxGetInstanceHandle(),IDS_ECIES_HEADER_04,pc_str,STR_LAENGE_STRING_TABLE);
-	tag=pc_str;
-	int curveREnd=message.Find(tag,rVornameStart);
+	csTag=pc_str;
+	int curveREnd=csMessage.Find(csTag,rVornameStart);
 	if (curveREnd == -1)
 		return 1; //corrupt header
 
 	//AES-KeyLength
 	int& keyLengthTag=curveREnd;
-	int keyLengthStart=keyLengthTag+tag.GetLength();
+	int keyLengthStart=keyLengthTag+csTag.GetLength();
 	LoadString(AfxGetInstanceHandle(),IDS_ECIES_HEADER_05,pc_str,STR_LAENGE_STRING_TABLE);
-	tag=pc_str;
-	int keyLengthEnd=message.Find(tag,keyLengthStart);
+	csTag=pc_str;
+	int keyLengthEnd=csMessage.Find(csTag,keyLengthStart);
 	if (keyLengthEnd == -1)
 		return 1; //corrupt header
-	int keylength=atoi(message.Mid(keyLengthStart,(keyLengthEnd-keyLengthStart)));
+	int keylength=atoi(csMessage.Mid(keyLengthStart,(keyLengthEnd-keyLengthStart)));
 
 	//ciphertext length
 	int& ctLengthTag=keyLengthEnd;
-	int ctLengthStart=ctLengthTag+tag.GetLength();
+	int ctLengthStart=ctLengthTag+csTag.GetLength();
 	LoadString(AfxGetInstanceHandle(),IDS_ECIES_HEADER_06,pc_str,STR_LAENGE_STRING_TABLE);
-	tag=pc_str;
-	int ctLengthEnd=message.Find(tag,ctLengthStart);
+	csTag=pc_str;
+	int ctLengthEnd=csMessage.Find(csTag,ctLengthStart);
 	if (ctLengthEnd == -1)
 		return 1; //corrupt header
 
-	int ctLength=atoi(message.Mid(ctLengthStart,(ctLengthEnd-ctLengthStart)));
+	int ctLength=atoi(csMessage.Mid(ctLengthStart,(ctLengthEnd-ctLengthStart)));
 
 	//AES-Key
 	int& keyTag=ctLengthEnd;
-	int keyStart=keyTag+tag.GetLength();
+	int keyStart=keyTag+csTag.GetLength();
 	int keyEnd=keyStart+keylength;
 
 	//Ciphertext
 	LoadString(AfxGetInstanceHandle(),IDS_ECIES_HEADER_07,pc_str,STR_LAENGE_STRING_TABLE);
-	tag=pc_str;
-	int ctStart=keyEnd+tag.GetLength();
+	csTag=pc_str;
+	int ctStart=keyEnd+csTag.GetLength();
 	
 
-	message=message.Left(ctLengthEnd);
-	//sName=message.Mid(sNameStart,(sNameEnd-sNameStart));
-	//sVorname=message.Mid(sVornameStart,(sVornameEnd-sVornameStart));
-	rName=message.Mid(rNameStart,(rNameEnd-rNameStart));
-	rVorname=message.Mid(rVornameStart,(rVornameEnd-rVornameStart));
-	curveR=message.Mid(curveRStart,(curveREnd-curveRStart));
+	csMessage=csMessage.Left(ctLengthEnd);
+	//sName=csMessage.Mid(sNameStart,(sNameEnd-sNameStart));
+	//sVorname=csMessage.Mid(sVornameStart,(sVornameEnd-sVornameStart));
+	rName=csMessage.Mid(rNameStart,(rNameEnd-rNameStart));
+	rVorname=csMessage.Mid(rVornameStart,(rVornameEnd-rVornameStart));
+	curveR=csMessage.Mid(curveRStart,(curveREnd-curveRStart));
 
-	act::Blob key;
-	key.insert(key.begin(),&input[keyStart],&input[keyEnd]);
+  act::Blob key;
+  for(int i=0;i<keylength;i++)
+    key.push_back(ucMessage[keyStart+i]);
 
-	act::Blob ctext;
-	ctext.insert(ctext.begin(),&input[ctStart],&input[input.size()]);
+  act::Blob ctext;
+  for(int i=0;i<ctLength;i++)
+    ctext.push_back(ucMessage[ctStart+i]);
 
+  free(ucMessage);
 	encryptedSessionKey=key;
 	ciphertext=ctext;
 	if(keylength!=(int)encryptedSessionKey.size())
@@ -891,9 +926,23 @@ void newWindow(const bool &plain, const act::Blob &output, const char* &OldTitle
 {
 	char outfile[128];
 	GetTmpName(outfile,"cry",".tmp");
-	// flomar
 	//act::blob2file(outfile,output);
-	
+
+  int len = output.size();
+  BYTE* ucMessage = (BYTE*)calloc(len,1);
+  for(int i=0;i<len;i++)
+    ucMessage[i] = output[i];
+
+  // write output
+  std::ofstream fileOut;
+  fileOut.open(outfile, ios_base::trunc);
+  if(fileOut) {
+	  fileOut.write((const char*)ucMessage, len);
+	  fileOut.close();
+  }
+
+  free(ucMessage);
+
 	OpenNewDoc(outfile,ReceiverName+", "+ReceiverFirstname+", "+ReceiverKeyType,OldTitle,IDS_ECIES_CRYPT,plain,0);
 }
 #endif
