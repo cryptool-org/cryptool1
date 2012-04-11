@@ -534,8 +534,16 @@ int encrypt(act::Blob &encBlob, const CString &sName, const CString &sVorname, c
 	
 	//symmetrische Datenverschlüsselung
 	act::Blob plaintext,ciphertext,sessionKey;
-	// flomar
-	//act::file2blob(ifile, plaintext);
+
+	// flomar, 04/11/2012: we're using libcvact 1.4.6 with VS2008, and libcvact 1.4.18 with VS2010;
+	// unfortunately the functions "act::file2blob" and "act::blob2file" are no longer supported by
+	// the new version, therefore we're using a compiler-dependent fix (BTW, thanks to M. Kraft)
+#if _MSC_VER > 1500
+	// TODO
+#else
+	act::file2blob(ifile, plaintext);
+#endif
+
 	encryptData(plaintext, sessionKey, ciphertext);
 	
 	//sessionkey wird ECIES-verschlüsselt
@@ -608,7 +616,7 @@ int importKey(act::Key& key, const CString kurve, const char* x, const char* y, 
 
 
 		//wenn ein privater Schlüssel existiert, werden die öffentlichen Parameter aus diesem generiert
-		if(s!="")
+		if(CString(s) != "")
 			key.SetParam(act::PRIVATEKEY, s);
 		else
 		{
@@ -796,8 +804,15 @@ act::Blob writeEncFile(const CString &ofile, const CString &sName, const CString
 int readEncFile(const CString &ifile, CString &sName, CString &sVorname, CString &rName, CString &rVorname, CString curveR, act::Blob &encryptedSessionKey, act::Blob &ciphertext)
 {
 	act::Blob input;
-	// flomar
-	//act::file2blob(ifile,input);
+
+	// flomar, 04/11/2012: we're using libcvact 1.4.6 with VS2008, and libcvact 1.4.18 with VS2010;
+	// unfortunately the functions "act::file2blob" and "act::blob2file" are no longer supported by
+	// the new version, therefore we're using a compiler-dependent fix (BTW, thanks to M. Kraft)
+#if _MSC_VER > 1500
+	// TODO
+#else
+	act::file2blob(ifile, input);
+#endif
 	
 	CString message,tag;
 	message=reinterpret_cast<char*>(&input[0]);
@@ -891,8 +906,15 @@ void newWindow(const bool &plain, const act::Blob &output, const char* &OldTitle
 {
 	char outfile[128];
 	GetTmpName(outfile,"cry",".tmp");
-	// flomar
-	//act::blob2file(outfile,output);
+
+	// flomar, 04/11/2012: we're using libcvact 1.4.6 with VS2008, and libcvact 1.4.18 with VS2010;
+	// unfortunately the functions "act::file2blob" and "act::blob2file" are no longer supported by
+	// the new version, therefore we're using a compiler-dependent fix (BTW, thanks to M. Kraft)
+#if _MSC_VER > 1500
+	// TODO
+#else
+	act::blob2file(outfile, output);
+#endif
 	
 	OpenNewDoc(outfile,ReceiverName+", "+ReceiverFirstname+", "+ReceiverKeyType,OldTitle,IDS_ECIES_CRYPT,plain,0);
 }
