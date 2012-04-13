@@ -1312,9 +1312,6 @@ void VigenereAnalysisSchroedel::readSettingsFromRegistry() {
 	// now try to read settings from the registry
 	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "VigenereAnalysisSchroedel" ) == ERROR_SUCCESS )
 	{
-		unsigned long u_analysisThreshold = 0;
-		CT_READ_REGISTRY_DEFAULT(u_analysisThreshold, "AnalysisThreshold", 10);
-
 		unsigned long u_extensiveLogging = 0;
 		CT_READ_REGISTRY_DEFAULT(u_extensiveLogging, "ExtensiveLogging", 0);
 
@@ -1343,7 +1340,6 @@ void VigenereAnalysisSchroedel::readSettingsFromRegistry() {
 		CT_READ_REGISTRY_DEFAULT(c_trigramsFile, "TrigramsFile", c_trigramsFileDefault, bufferSize);
 
 		// apply settings from registry
-		analysisThreshold = u_analysisThreshold;
 		debug = (bool)(u_extensiveLogging != 0);
 		pathToDictionary = (CString)c_dictionaryFile;
 		pathToDigrams = (CString)c_digramsFile;

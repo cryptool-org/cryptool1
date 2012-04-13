@@ -52,7 +52,6 @@ CDlgOptionsAnalysis::CDlgOptionsAnalysis(CWnd* pParent /*=NULL*/)
 	m_VKorr = TRUE;
 	m_VBase = FALSE;
 	m_BFEntropyWindow = 128;
-	m_VigenereAnalysisSchroedelAnalysisThreshold = 10;
 	m_VigenereAnalysisSchroedelExtensiveLogging = FALSE;
 	m_VigenereAnalysisSchroedelDictionaryFile = "";
 	m_VigenereAnalysisSchroedelDigramsFile = "";
@@ -80,7 +79,6 @@ void CDlgOptionsAnalysis::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_CHECK8, m_VKorr);
 	DDX_Check(pDX, IDC_CHECK4, m_VBase);
 	DDX_Text(pDX, IDC_EDIT_ENTROPY_WINDOW, m_BFEntropyWindow);
-	DDX_Text(pDX, IDC_EDIT_ANALYSIS_THRESHOLD, m_VigenereAnalysisSchroedelAnalysisThreshold);
 	DDX_Check(pDX, IDC_CHECK_EXTENSIVE_LOGGING, m_VigenereAnalysisSchroedelExtensiveLogging);
 	DDX_Control(pDX, IDC_EDIT_DICTIONARY_FILE, controlEditDictionaryFile);
 	DDX_Control(pDX, IDC_EDIT_DIGRAMS_FILE, controlEditDigramsFile);
@@ -228,10 +226,7 @@ void CDlgOptionsAnalysis::readSettingsVigenereAnalysisSchroedel()
 	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "VigenereAnalysisSchroedel" ) == ERROR_SUCCESS )
 	{
 		UpdateData(true);
-
-		unsigned long u_analysisThreshold = 0;
-		CT_READ_REGISTRY_DEFAULT(u_analysisThreshold, "AnalysisThreshold", 10);
-
+		
 		unsigned long u_extensiveLogging = 0;
 		CT_READ_REGISTRY_DEFAULT(u_extensiveLogging, "ExtensiveLogging", 0);
 
@@ -265,7 +260,6 @@ void CDlgOptionsAnalysis::readSettingsVigenereAnalysisSchroedel()
 		bufferSize = maxBufferSize - 1;
 		CT_READ_REGISTRY_DEFAULT(c_trigramsFile, "TrigramsFile", c_trigramsFileDefault, bufferSize);
 
-		m_VigenereAnalysisSchroedelAnalysisThreshold = u_analysisThreshold;
 		m_VigenereAnalysisSchroedelExtensiveLogging = (BOOL)u_extensiveLogging;
 		m_VigenereAnalysisSchroedelDictionaryFile = (CString)c_dictionaryFile;
 		m_VigenereAnalysisSchroedelDigramsFile = (CString)c_digramsFile;
@@ -281,7 +275,6 @@ void CDlgOptionsAnalysis::writeSettingsVigenereAnalysisSchroedel()
 	{
 		UpdateData(true);
 	
-		CT_WRITE_REGISTRY((unsigned long)m_VigenereAnalysisSchroedelAnalysisThreshold, "AnalysisThreshold");
 		CT_WRITE_REGISTRY((unsigned long)m_VigenereAnalysisSchroedelExtensiveLogging, "ExtensiveLogging");
 		CT_WRITE_REGISTRY(m_VigenereAnalysisSchroedelDictionaryFile, "DictionaryFile");
 		CT_WRITE_REGISTRY(m_VigenereAnalysisSchroedelDigramsFile, "DigramsFile");
@@ -304,7 +297,6 @@ void CDlgOptionsAnalysis::OnBnClickedButtonRestoreStandard()
 	i_alphabetOptions = 0;
 
 	// settings for new Vigenere (Schroedel) analysis
-	m_VigenereAnalysisSchroedelAnalysisThreshold = 10;
 	m_VigenereAnalysisSchroedelExtensiveLogging = false;
 	// get settings from resource file
 	CString pathToDefaultDictionaryFile;

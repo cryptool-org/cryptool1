@@ -247,8 +247,6 @@ BEGIN
     LTEXT           "Plik Trigramm:",IDC_STATIC,25,169,45,8
     CONTROL         "Protokó³ szczegó³owy ",IDC_CHECK_EXTENSIVE_LOGGING,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,117,89,10
-    EDITTEXT        IDC_EDIT_ANALYSIS_THRESHOLD,86,185,25,14,ES_AUTOHSCROLL | ES_NUMBER | NOT WS_BORDER,WS_EX_STATICEDGE
-    LTEXT           "Limit:",IDC_STATIC,25,186,17,8
     PUSHBUTTON      "Przywróæ &domyœlne",IDC_BUTTON_RESTORE_STANDARD,101,326,99,18
 END
 
@@ -8424,7 +8422,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.31 Beta 03"
+    IDR_MAINFRAME           "CrypTool 1.4.31 Beta 04"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -11399,8 +11397,6 @@ BEGIN
     LTEXT           "Trigram datoteka:",IDC_STATIC,18,190,56,8
     CONTROL         "Produženo logovanje",IDC_CHECK_EXTENSIVE_LOGGING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,135,81,10
     PUSHBUTTON      "&Vrati podrazumevano",IDC_BUTTON_RESTORE_STANDARD,98,333,99,17
-    EDITTEXT        IDC_EDIT_ANALYSIS_THRESHOLD,79,206,25,14,ES_CENTER | ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
-    LTEXT           "Prag:",IDC_STATIC,18,207,18,8
 END
 
 IDD_HILL_ANALYSIS DIALOGEX 0, 0, 320, 378
@@ -19569,7 +19565,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.31 Beta 03"
+    IDR_MAINFRAME           "CrypTool 1.4.31 Beta 04"
     IDR_TEXTTYPE            "\nNeimenovani\nTEKST dokument\nTekst datoteka (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nNeimenovana\n\nBinarna datoteka (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nNeimenovana\n\nASCII datoteka (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -22453,13 +22449,13 @@ BEGIN
     EDITTEXT        IDC_EDIT2,331,78,16,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
 
-IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 355
+IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 339
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analyseoptionen"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&Übernehmen",IDOK,7,332,65,16
-    PUSHBUTTON      "Abbrechen",IDCANCEL,234,332,65,16
+    DEFPUSHBUTTON   "&Übernehmen",IDOK,7,316,65,16
+    PUSHBUTTON      "Abbrechen",IDCANCEL,234,316,65,16
     CONTROL         "Ermittelter Schlüssel",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,40,76,10
     CONTROL         "Korrelation",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,55,48,10
     CONTROL         "Histogramme",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,70,57,10
@@ -22469,17 +22465,17 @@ BEGIN
     CONTROL         "Weitere Analyse-Werte ausgeben",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,85,122,10
     GROUPBOX        "Caesar",IDC_STATIC,15,20,120,80
     GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,145,20,146,80
-    GROUPBOX        "Optionen für Brute-Force Angriffe gegen moderne symmetrische Algorithmen",IDC_STATIC,7,232,292,92
-    LTEXT           "Anzahl der Bytes aus dem Geheimtextdokument für den Entropietest:",IDC_STATIC,27,259,220,8
-    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,250,257,30,14,ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Optionen für Brute-Force Angriffe gegen moderne symmetrische Algorithmen",IDC_STATIC,7,216,292,92
+    LTEXT           "Anzahl der Bytes aus dem Geheimtextdokument für den Entropietest:",IDC_STATIC,27,243,220,8
+    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,250,241,30,14,ES_AUTOHSCROLL | ES_NUMBER
     GROUPBOX        "Umfang der Ausgabe bei der automatischen Analyse",IDC_STATIC,7,7,292,102
-    LTEXT           "Zeichensatz für den zu erwartenden Klartext",IDC_STATIC,27,276,210,8
-    CONTROL         "Alle 256 Zeichen",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,27,287,245,10
-    CONTROL         "Druckbare Zeichen (ASCII 32 - 256)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,27,298,245,10
+    LTEXT           "Zeichensatz für den zu erwartenden Klartext",IDC_STATIC,27,260,210,8
+    CONTROL         "Alle 256 Zeichen",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,27,271,245,10
+    CONTROL         "Druckbare Zeichen (ASCII 32 - 256)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,27,282,245,10
     CONTROL         "Zeichensatz, wie in Menü: Optionen \\ Textoptionen definiert",IDC_RADIO3,
-                    "Button",BS_AUTORADIOBUTTON,27,308,245,11
-    LTEXT           "Siehe Menü: Analyse \\ Symmetrische Verschlüsselung (modern)",IDC_STATIC,14,242,258,8
-    GROUPBOX        "Optionen für die Vigenère-Analyse nach Schrödel",IDC_STATIC,7,117,292,106
+                    "Button",BS_AUTORADIOBUTTON,27,292,245,11
+    LTEXT           "Siehe Menü: Analyse \\ Symmetrische Verschlüsselung (modern)",IDC_STATIC,14,226,258,8
+    GROUPBOX        "Optionen für die Vigenère-Analyse nach Schrödel",IDC_STATIC,7,117,292,90
     PUSHBUTTON      "&Suchen...",IDC_BUTTON_SEARCH_DICTIONARY_FILE,236,153,55,14
     EDITTEXT        IDC_EDIT_DICTIONARY_FILE,85,153,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
     EDITTEXT        IDC_EDIT_DIGRAMS_FILE,85,170,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
@@ -22491,9 +22487,7 @@ BEGIN
     LTEXT           "Trigramm-Datei:",IDC_STATIC,25,188,50,8
     CONTROL         "Ausführliche Protokollierung",IDC_CHECK_EXTENSIVE_LOGGING,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,133,103,10
-    PUSHBUTTON      "Standard &wiederherstellen",IDC_BUTTON_RESTORE_STANDARD,105,331,99,17
-    EDITTEXT        IDC_EDIT_ANALYSIS_THRESHOLD,86,204,25,14,ES_AUTOHSCROLL | ES_NUMBER | NOT WS_BORDER,WS_EX_STATICEDGE
-    LTEXT           "Grenzwert:",IDC_STATIC,25,205,35,8
+    PUSHBUTTON      "Standard &wiederherstellen",IDC_BUTTON_RESTORE_STANDARD,105,315,99,17
 END
 
 IDD_HILL_ANALYSIS DIALOGEX 0, 0, 320, 377
@@ -29626,7 +29620,7 @@ BEGIN
         VERTGUIDE, 15
         VERTGUIDE, 291
         TOPMARGIN, 7
-        BOTTOMMARGIN, 348
+        BOTTOMMARGIN, 332
     END
 
     IDD_HILL_ANALYSIS, DIALOG
@@ -30582,7 +30576,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.31 Beta 03"
+    IDR_MAINFRAME           "CrypTool 1.4.31 Beta 04"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT-Dokument\nText-Datei (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnbenannt\n\nBinär-Datei (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnbenannt\n\nASCII-Datei (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -33561,13 +33555,13 @@ BEGIN
     EDITTEXT        IDC_EDIT2,332,72,16,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
 END
 
-IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 355
+IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 339
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analysis Options"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&Apply",IDOK,7,332,65,16
-    PUSHBUTTON      "&Cancel",IDCANCEL,234,332,65,16
+    DEFPUSHBUTTON   "&Apply",IDOK,7,316,65,16
+    PUSHBUTTON      "&Cancel",IDCANCEL,234,316,65,16
     CONTROL         "Derived key",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,40,76,10
     CONTROL         "Correlation",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,55,48,10
     CONTROL         "Histograms",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,70,57,10
@@ -33578,17 +33572,17 @@ BEGIN
     GROUPBOX        "Caesar",IDC_STATIC,15,20,120,80
     GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,145,20,146,80
     GROUPBOX        "Output options for automatic analysis",IDC_STATIC,7,7,292,102
-    GROUPBOX        "Options for brute-force attacks against modern symmetric algorithms",IDC_STATIC,7,232,292,92
-    LTEXT           "Number of bytes of the ciphertext document used for the entropy test:",IDC_STATIC,27,259,220,8
-    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,250,257,30,14,ES_AUTOHSCROLL | ES_NUMBER
-    LTEXT           "Alphabet for the expected cleartext:",IDC_STATIC,27,276,118,8
-    CONTROL         "All 256 characters",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,27,287,245,10
+    GROUPBOX        "Options for brute-force attacks against modern symmetric algorithms",IDC_STATIC,7,216,292,92
+    LTEXT           "Number of bytes of the ciphertext document used for the entropy test:",IDC_STATIC,27,243,220,8
+    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,250,241,30,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Alphabet for the expected cleartext:",IDC_STATIC,27,260,118,8
+    CONTROL         "All 256 characters",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,27,271,245,10
     CONTROL         "Printable characters (ascii 32 - 256)",IDC_RADIO2,
-                    "Button",BS_AUTORADIOBUTTON,27,298,245,10
+                    "Button",BS_AUTORADIOBUTTON,27,282,245,10
     CONTROL         "Characters as defined in menu: Options \\ Text Options",IDC_RADIO3,
-                    "Button",BS_AUTORADIOBUTTON,27,308,245,11
-    LTEXT           "See menu: Analysis \\ Symmetric Encryption (modern)",IDC_STATIC,14,242,258,8
-    GROUPBOX        "Options for the Vigenère analysis according to Schroedel",IDC_STATIC,7,117,292,106
+                    "Button",BS_AUTORADIOBUTTON,27,292,245,11
+    LTEXT           "See menu: Analysis \\ Symmetric Encryption (modern)",IDC_STATIC,14,226,258,8
+    GROUPBOX        "Options for the Vigenère analysis according to Schroedel",IDC_STATIC,7,117,292,90
     PUSHBUTTON      "&Search...",IDC_BUTTON_SEARCH_DICTIONARY_FILE,236,153,55,14
     EDITTEXT        IDC_EDIT_DICTIONARY_FILE,85,153,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
     EDITTEXT        IDC_EDIT_DIGRAMS_FILE,85,170,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
@@ -33599,9 +33593,7 @@ BEGIN
     LTEXT           "Digram file:",IDC_STATIC,25,171,36,8
     LTEXT           "Trigram file:",IDC_STATIC,25,188,37,8
     CONTROL         "Extensive logging",IDC_CHECK_EXTENSIVE_LOGGING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,133,71,10
-    PUSHBUTTON      "&Restore default",IDC_BUTTON_RESTORE_STANDARD,105,331,99,17
-    EDITTEXT        IDC_EDIT_ANALYSIS_THRESHOLD,86,204,25,14,ES_CENTER | ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
-    LTEXT           "Threshold:",IDC_STATIC,25,205,34,8
+    PUSHBUTTON      "&Restore default",IDC_BUTTON_RESTORE_STANDARD,105,315,99,17
 END
 
 IDD_HILL_ANALYSIS DIALOGEX 0, 0, 320, 379
@@ -40655,7 +40647,7 @@ BEGIN
         VERTGUIDE, 15
         VERTGUIDE, 291
         TOPMARGIN, 7
-        BOTTOMMARGIN, 348
+        BOTTOMMARGIN, 332
     END
 
     IDD_HILL_ANALYSIS, DIALOG
@@ -41791,7 +41783,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.31 Beta 03"
+    IDR_MAINFRAME           "CrypTool 1.4.31 Beta 04"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -48779,8 +48771,6 @@ BEGIN
     LTEXT           "Archivo de Trigrama:",IDC_STATIC,18,188,66,8
     CONTROL         "Logueo extensivo",IDC_CHECK_EXTENSIVE_LOGGING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,133,72,10
     PUSHBUTTON      "&Valores por defecto",IDC_BUTTON_RESTORE_STANDARD,105,331,99,17
-    EDITTEXT        IDC_EDIT_ANALYSIS_THRESHOLD,86,204,25,14,ES_CENTER | ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
-    LTEXT           "Umbral:",IDC_STATIC,18,205,25,8
 END
 
 IDD_SOLITAIRE DIALOGEX 0, 0, 676, 433
@@ -52929,7 +52919,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.31 Beta 03"
+    IDR_MAINFRAME           "CrypTool 1.4.31 Beta 04"
     IDR_TEXTTYPE            "\nSin nombre\nDocumento de texto\nFichero de texto (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nSin nombre\n\nFichero binario (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nSin nombre\n\nFichero ASCII (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"

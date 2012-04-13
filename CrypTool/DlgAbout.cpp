@@ -245,8 +245,16 @@ void CDlgAbout::determineLibraryVersions()
 	this->strVersionCracklib.Insert(0, "cracklib ");
 
 	// CRYPTOVISION (statisch)
-	this->strVersionCryptovision = "1.3.0";
+	// flomar, 04/13/2012: we're using libcvact 1.4.6 with VS2008, and libcvact 1.4.18 with VS2010;
+	// as long as we lack a more sophisticated solution to determine library versions we stick to 
+	// the following workaround
+#if _MSC_VER > 1500
+	this->strVersionCryptovision = "1.4.18";
 	this->strVersionCryptovision.Insert(0, "cv cryptovision (tm) cv act library ");
+#else
+	this->strVersionCryptovision = "1.4.6";
+	this->strVersionCryptovision.Insert(0, "cv cryptovision (tm) cv act library ");
+#endif
 
 	// APFLOAT (statisch)
 	this->strVersionApfloat = "2.41";

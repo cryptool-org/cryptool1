@@ -114,9 +114,6 @@ protected:
 	// appends a string to the result file (setting the flag overrides the class-wide debug flag)
 	void output(CString str, const bool _debug = false);
 
-	// this treshold is used to determine if a result might be considered correct
-	int analysisThreshold;
-
 	// this is used for timing purposes
 	time_t timeAnalysisStart;
 	time_t timeAnalysisEnd;
