@@ -633,6 +633,7 @@ UINT singleThreadGenerateMultiplePrimeNumbers(PVOID argument)
 	// see which algorithm was chosen for prime generation
 	int chosenAlgorithm = dlg->m_radio1;
 	// we consider only the first choice for the value range (m_edit1, m_edit2)
+	Big value;
 	Big valueRangeStart;
 	Big valueRangeEnd;
 	// TODO: error checking
@@ -640,11 +641,21 @@ UINT singleThreadGenerateMultiplePrimeNumbers(PVOID argument)
 		return 0;
 	if(!evaluate::CEvalIntExpr(valueRangeEnd, dlg->m_edit2))
 		return 0;
-	Big value = valueRangeStart;
-	Big range = valueRangeEnd - valueRangeStart;
 	GeneratePrimes generator;
 	// a counter for the progress bar (0-100)
-	int progress = 0;
+	double progress = 0;
+	// the amount the progress bar is increased by with each checked number;
+	// this variable is only used for ranges smaller than 100 though, as we
+	// had problems with that particular scenario (i.e. 50/100 is not 0.5 in 
+	// terms of "Big" numbers)
+	double fixedProgressIncrease = 0;
+	Big range = valueRangeEnd - valueRangeStart + 1;
+	if(range < 100) {
+		char temp[4];
+		temp << range;
+		int rangeInt = (int)atoi(temp);
+		fixedProgressIncrease = (double)1 / (double)rangeInt;
+	}
 	// now, as long as the user does not abort the thread, keep testing for prime numbers
 	for(value = valueRangeStart; value < valueRangeEnd && !dlg->abortGenerationMultiplePrimeNumbers; value = value+1) 
 	{
@@ -667,11 +678,16 @@ UINT singleThreadGenerateMultiplePrimeNumbers(PVOID argument)
 				}
 			}	
 		}
-		// we increase the progress bar if necessary
-		Big step = (valueRangeEnd - valueRangeStart) / 100;
-		if((value - valueRangeStart) >= (step + step * progress))
-			progress++;
-		theApp.fs.Set(progress);
+		// we increase the progress bar if necessary (with case differentiation, see above)
+		if(range < 100) {
+			progress += fixedProgressIncrease;
+		}
+		else {
+			Big step = (valueRangeEnd - valueRangeStart) / 100;
+			if((value - valueRangeStart) >= (step + step * progress))
+				progress++;
+		}	
+		theApp.fs.Set((int)progress);
 	}
 	// end the progress bar
 	theApp.fs.cancel();
