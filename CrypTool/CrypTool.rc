@@ -22465,7 +22465,7 @@ BEGIN
     CONTROL         "Weitere Analyse-Werte ausgeben",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,85,122,10
     GROUPBOX        "Caesar",IDC_STATIC,15,20,120,80
     GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,145,20,146,80
-    GROUPBOX        "Optionen für Brute-Force Angriffe gegen moderne symmetrische Algorithmen",IDC_STATIC,7,216,292,92
+    GROUPBOX        "Optionen für Brute-Force-Angriffe gegen moderne symmetrische Algorithmen",IDC_STATIC,7,216,292,92
     LTEXT           "Anzahl der Bytes aus dem Geheimtextdokument für den Entropietest:",IDC_STATIC,27,243,220,8
     EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,250,241,30,14,ES_AUTOHSCROLL | ES_NUMBER
     GROUPBOX        "Umfang der Ausgabe bei der automatischen Analyse",IDC_STATIC,7,7,292,102
