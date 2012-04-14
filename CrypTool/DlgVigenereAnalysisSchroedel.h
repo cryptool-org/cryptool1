@@ -40,13 +40,17 @@ class CDlgVigenereAnalysisSchroedelChooseCiphertextLanguage;
 struct PossibleResult {
 	CString key;
 	CString cleartext;
+	CString longestDictionaryMatch;
 
 	// flomar, 04/08/2012: we abandon the 'rating' concept of former versions as 
 	// it wasn't very reliable; instead, we present ALL possible solutions to the 
-	// user; the order depends on the combined length of 'key' and 'cleartext', 
-	// as longer dictionary words likely create more meaningful solutions
+	// user; the order depends on (1) the length of the longest dictionary match,
+	// and (2) the length of the longest key
 	bool operator<(const PossibleResult &_result) {
-		return (key.GetLength() + cleartext.GetLength() > _result.key.GetLength() + _result.cleartext.GetLength());
+		if(longestDictionaryMatch.GetLength() == _result.longestDictionaryMatch.GetLength())
+			return (key.GetLength() > _result.key.GetLength());
+		else 
+			return (longestDictionaryMatch.GetLength() > _result.longestDictionaryMatch.GetLength());
 	}
 };
 
@@ -127,6 +131,8 @@ protected:
 
 	// this list contains all possible results
 	std::list<PossibleResult> listPossibleResults;
+	// this map contains all possible results (KEY -> RESULT)
+	std::map<CString, PossibleResult> mapPossibleResults;
 
 	// this string holds the analysis results (see result file)
 	CString result;

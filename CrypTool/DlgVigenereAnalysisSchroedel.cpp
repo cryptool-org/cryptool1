@@ -896,23 +896,36 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 
 									PossibleResult possibleResult;
 									possibleResult.key = dict[xDict];
-									possibleResult.cleartext = decryptText(ciphertext, dict[xDict]);
-									
-									// add the possible result to our list of results
-									CString stringPossibleResult;
-									for(int dictindex=0; dictindex<dictCount; dictindex++) {
-										if(possibleResult.cleartext.Find(dict[dictindex]) != -1) {
-											if(dict[dictindex].GetLength() > stringPossibleResult.GetLength()) {
-												stringPossibleResult = dict[dictindex];
+									possibleResult.cleartext = decryptedText;
+
+									CString foo;
+									CString bar;
+									CString longestDictionaryMatch;
+									for(int indexDict=0; indexDict<dictCount; indexDict++) {
+										foo = dict[indexDict];
+										bar = decryptedText;
+										// to lowercase
+										foo.MakeLower();
+										bar.MakeLower();
+										// try to find dictionary word
+										if(foo.Find(bar) == 0) {
+											if(dict[indexDict].GetLength() > longestDictionaryMatch) {
+												longestDictionaryMatch = dict[indexDict];
 											}
 										}
 									}
-									// if we didn't find a dictionary word, don't consider the result
-									if(stringPossibleResult.GetLength() > 0) {
-										possibleResult.cleartext = stringPossibleResult;
-										listPossibleResults.push_back(possibleResult);
-										// also, pass it through to the analysis dialog (if it exists)
-										if(theDialog) theDialog->addPossibleResult(possibleResult);
+									possibleResult.longestDictionaryMatch = longestDictionaryMatch.MakeLower();
+
+									// add possible result to our results map (and avoid duplicates)
+									if(mapPossibleResults.find(possibleResult.key) == mapPossibleResults.end()) {
+										mapPossibleResults[possibleResult.key] = possibleResult;
+										// also, pass it through to the analysis dialog (if the dialog 
+										// exists, and if there was a dictionary match) 
+										if(theDialog) {
+											if(possibleResult.longestDictionaryMatch.GetLength() > 0) {
+												theDialog->addPossibleResult(possibleResult);
+											}
+										}
 									}
 								}
 							}
@@ -935,10 +948,13 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 		output(outputString);
 
 		// list ALL possible results (not just one)
-		for(std::list<PossibleResult>::iterator i=listPossibleResults.begin(); i!=listPossibleResults.end(); i++) {
-			output((*i).key + "/" + (*i).cleartext);
+		for(std::map<CString, PossibleResult>::iterator it=mapPossibleResults.begin(); it!=mapPossibleResults.end(); it++) {
+			if((*it).second.longestDictionaryMatch.GetLength() > 0) 
+				output((*it).second.key + "/" + (*it).second.cleartext + " [" + (*it).second.longestDictionaryMatch + "]");
+			else
+				output((*it).second.key + "/" + (*it).second.cleartext);
 		}
-
+		
 		for(int i=0; i<cPairs; i++) {
 			key = pairs[i][0];
 			text = pairs[i][1];
@@ -1001,6 +1017,10 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 
 	output("", true);
 
+	// fill results list
+	for(std::map<CString, PossibleResult>::iterator it=mapPossibleResults.begin(); it!=mapPossibleResults.end(); it++) {
+		listPossibleResults.push_back((*it).second);
+	}
 	// sort list with possible results (see header file for details of PossibleResult::sort)
 	listPossibleResults.sort();
 
