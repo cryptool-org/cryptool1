@@ -33379,7 +33379,7 @@ CAPTION "Document Properties"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Close",IDOK,289,130,66,22
-    GROUPBOX        "Information about the actually selected document",IDC_STATIC,7,7,348,73
+    GROUPBOX        "Information about the currently selected document",IDC_STATIC,7,7,348,73
     RTEXT           "Name of the file:",IDC_STATIC,13,29,84,9
     RTEXT           "Document size:",IDC_STATIC,13,54,84,10
     RTEXT           "Document type:",IDC_STATIC,13,41,84,10
@@ -33997,7 +33997,7 @@ BEGIN
     CTEXT           "Peer Wichmann (till release 1.2)\nJoerg Cornelius Schneider (from release 1.3)",IDC_STATIC,20,64,330,16
     GROUPBOX        " Idea, Sponsoring, Challenges, QA, Lead ",IDC_STATIC,7,28,356,22,BS_CENTER
     GROUPBOX        " Design, Support and Architecture",IDC_STATIC,7,54,356,30,BS_CENTER
-    GROUPBOX        " Main persons taking overall care for version 1.3 and 1.4",IDC_STATIC,7,88,356,32,BS_CENTER
+    GROUPBOX        " Main Persons Taking Overall Care for Version 1.3 and 1.4",IDC_STATIC,7,88,356,32,BS_CENTER
     GROUPBOX        " Implementation, Documentation, Translation ",IDC_STATIC,7,125,175,126,BS_CENTER
     GROUPBOX        " Review and Feedback",IDC_STATIC,188,125,175,126,BS_CENTER
     CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_1,20,135,150,105
@@ -36342,7 +36342,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     CONTROL         "In order to apply examples from the literature, you can enter the required parameters by yourself:\nthe value of N, the bit length of p and the value of P.",IDC_RADIOCHOICE,
                     "Button",BS_AUTORADIOBUTTON | BS_MULTILINE | WS_GROUP,15,45,398,16
-    CONTROL         "In order to generate on example enter the desired bit lengths of N, p and P.\nAfterwards click on ""Generate example"".  You can find tipps for appropriate parameters in the online help.",IDC_RADIOCHOICE2,
+    CONTROL         "In order to generate an example enter the desired bit lengths of N, p and P.\nAfterwards click on ""Generate example"".  You can find tipps for appropriate parameters in the online help.",IDC_RADIOCHOICE2,
                     "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,15,62,398,16
     EDITTEXT        IDC_EDITN,31,116,250,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_NUMBER | WS_GROUP
     EDITTEXT        IDC_EDITBITSOFP,365,127,48,14,ES_AUTOHSCROLL | ES_NUMBER | WS_GROUP
@@ -41829,17 +41829,17 @@ END
 STRINGTABLE 
 BEGIN
     IDR_OPENGLTYPE          "\nUnnamed\n\nOpenGL file (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
-    IDS_STRING_TRANSLATIONS_HEADING_POLISH "Polish translation"
+    IDS_STRING_TRANSLATIONS_HEADING_POLISH "Polish Translation"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
                             "Initial translation: Warsaw University, Poland (http://www.ee.pw.edu.pl),\r\nDr. Bartosz Sawicki and his students"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_POLISH 
                             "Further Updates: Pawel Polewski"
-    IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "Serbian translation"
+    IDS_STRING_TRANSLATIONS_HEADING_SERBIAN "Serbian Translation"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_SERBIAN 
                             "Initial translation: Advanced School of Electrical Engineering, Belgrade, Serbia (http://www.viser.edu.rs),\r\nProf. Dragan Pleskonjic, Bojan Dimitrovski and his fellow students"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN 
                             "Further updates: Bojan Dimitrovski"
-    IDS_STRING_TRANSLATIONS_HEADING_SPANISH "Spanish translation"
+    IDS_STRING_TRANSLATIONS_HEADING_SPANISH "Spanish Translation"
 END
 
 STRINGTABLE 
