@@ -892,7 +892,7 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 									outputStr += " => ";
 									outputStr.Append(dict[xDict]);
 									outputStr += " <=> ";
-									outputStr.Append(decryptText(ciphertext, dict[xDict]));
+									outputStr.Append(decryptedText);
 
 									PossibleResult possibleResult;
 									possibleResult.key = dict[xDict];
@@ -907,10 +907,10 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 										// to lowercase
 										foo.MakeLower();
 										bar.MakeLower();
-										// try to find dictionary word
+										// try to find decrypted text in dictionary word
 										if(foo.Find(bar) == 0) {
-											if(dict[indexDict].GetLength() > longestDictionaryMatch) {
-												longestDictionaryMatch = dict[indexDict];
+											if(foo.GetLength() > longestDictionaryMatch.GetLength()) {
+												longestDictionaryMatch = foo;
 											}
 										}
 									}
