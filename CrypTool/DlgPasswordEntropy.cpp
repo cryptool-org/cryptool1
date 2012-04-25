@@ -176,6 +176,11 @@ void CDlgPasswordEntropy::EditPasswordBitLengthChanged()
 
 void CDlgPasswordEntropy::EditPasswordAlphabetChanged()
 {
+	// flomar, 04/25/2012: get the current selection
+	int selectionStart;
+	int selectionEnd;
+	editControlPasswordAlphabet.GetSel(selectionStart, selectionEnd);
+
 	UpdateData(true);
 
 	// make sure there are no double entries
@@ -198,8 +203,9 @@ void CDlgPasswordEntropy::EditPasswordAlphabetChanged()
 	// update the required password length
 	updatePasswordLength();
 
-	// set cursor position to the end of the input
-	editControlPasswordAlphabet.SetSel(stringPasswordAlphabet.GetLength(), stringPasswordAlphabet.GetLength());
+	// flomar, 04/25/2012: set cursor to the correct position
+	// (not just to the end, as it was done in previous versions)
+	editControlPasswordAlphabet.SetSel(selectionStart, selectionEnd);
 }
 
 void CDlgPasswordEntropy::CheckBoxesAlphabetChanged()
