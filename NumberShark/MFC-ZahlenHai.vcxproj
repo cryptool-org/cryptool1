@@ -178,6 +178,16 @@
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_es|Win32'">$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_es|Win32'">$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release_es|Win32'">false</LinkIncremental>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug_de|Win32'">Zahlenhai</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release_de|Win32'">Zahlenhai</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug_en|Win32'">NumberShark</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug_es|Win32'">NumberShark</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug_pl|Win32'">NumberShark</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug_rs|Win32'">NumberShark</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release_en|Win32'">NumberShark</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release_es|Win32'">NumberShark</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release_pl|Win32'">NumberShark</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release_rs|Win32'">NumberShark</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_en|Win32'">
     <Midl>
@@ -202,7 +212,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>htmlhelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../$(Configuration)/$(ProjectName).exe</OutputFile>
+      <OutputFile>../$(Configuration)/NumberShark.exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
@@ -234,7 +244,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>htmlhelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../$(Configuration)/$(ProjectName).exe</OutputFile>
+      <OutputFile>../$(Configuration)/Zahlenhai.exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
@@ -265,7 +275,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>htmlhelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../$(Configuration)/$(ProjectName).exe</OutputFile>
+      <OutputFile>../$(Configuration)/NumberShark.exe</OutputFile>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
@@ -299,7 +309,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>htmlhelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../$(Configuration)/$(ProjectName).exe</OutputFile>
+      <OutputFile>../$(Configuration)/Zahlenhai.exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -333,7 +343,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>htmlhelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../$(Configuration)/$(ProjectName).exe</OutputFile>
+      <OutputFile>../$(Configuration)/NumberShark.exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
@@ -368,7 +378,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>htmlhelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../$(Configuration)/$(ProjectName).exe</OutputFile>
+      <OutputFile>../$(Configuration)/NumberShark.exe</OutputFile>
       <AdditionalLibraryDirectories>C:\program files\html help workshop\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
@@ -403,7 +413,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>htmlhelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../$(Configuration)/$(ProjectName).exe</OutputFile>
+      <OutputFile>../$(Configuration)/NumberShark.exe</OutputFile>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
@@ -438,7 +448,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>htmlhelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../$(Configuration)/$(ProjectName).exe</OutputFile>
+      <OutputFile>../$(Configuration)/NumberShark.exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
@@ -470,7 +480,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>htmlhelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../$(Configuration)/$(ProjectName).exe</OutputFile>
+      <OutputFile>../$(Configuration)/NumberShark.exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
@@ -504,7 +514,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>htmlhelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../$(Configuration)/$(ProjectName).exe</OutputFile>
+      <OutputFile>../$(Configuration)/NumberShark.exe</OutputFile>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>

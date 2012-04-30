@@ -211,7 +211,7 @@ perl updateBuildInformation.pl PRE
       <Culture>0x0809</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>..\LibAnalyse\Release\LibAnalyse.lib;..\Libec\Lib\EcBibV2.lib;..\libmiracl\Release\LibMiracl.lib;..\OpenSSL\libeay32.lib;..\libNTL\Release\libNTL.lib;htmlhelp.lib;opengl32.lib;..\libgmp\Release\mpir.lib;..\libCVact\libCVact-vs2010\actvcmt.lib;..\cracklib-2.7\cracklib_Win32\Release\cracklib_Win32.lib;..\apfloat\apfloat-VS2010\apfloat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\LibAnalyse\Release\LibAnalyse.lib;..\Libec\Release\LibEc.lib;..\libmiracl\Release\LibMiracl.lib;..\OpenSSL\libeay32.lib;..\libNTL\Release\libNTL.lib;htmlhelp.lib;opengl32.lib;..\libgmp\Release\mpir.lib;..\libCVact\libCVact-vs2010\actvcmt.lib;..\cracklib-2.7\cracklib_Win32\Release\cracklib_Win32.lib;..\apfloat\apfloat-VS2010\apfloat.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>../$(Configuration)/$(ProjectName).exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libc;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -268,7 +268,7 @@ perl updateBuildInformation.pl PRE
       <Culture>0x0407</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>..\LibAnalyse\Release\LibAnalyse.lib;..\Libec\Lib\EcBibV2.lib;..\libmiracl\Release\LibMiracl.lib;..\OpenSSL\libeay32.lib;..\libNTL\Release\libNTL.lib;htmlhelp.lib;opengl32.lib;..\libgmp\Release\mpir.lib;..\libCVact\libCVact-vs2010\actvcmt.lib;..\cracklib-2.7\cracklib_Win32\Release\cracklib_Win32.lib;..\apfloat\apfloat-VS2010\apfloat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\LibAnalyse\Release\LibAnalyse.lib;..\Libec\Release\LibEc.lib;..\libmiracl\Release\LibMiracl.lib;..\OpenSSL\libeay32.lib;..\libNTL\Release\libNTL.lib;htmlhelp.lib;opengl32.lib;..\libgmp\Release\mpir.lib;..\libCVact\libCVact-vs2010\actvcmt.lib;..\cracklib-2.7\cracklib_Win32\Release\cracklib_Win32.lib;..\apfloat\apfloat-VS2010\apfloat.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>../$(Configuration)/$(ProjectName).exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libc;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -323,7 +323,7 @@ perl updateBuildInformation.pl PRE
       <Culture>0x0415</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>..\LibAnalyse\Release\LibAnalyse.lib;..\Libec\Lib\EcBibV2.lib;..\libmiracl\Release\LibMiracl.lib;..\OpenSSL\libeay32.lib;..\libNTL\Release\libNTL.lib;htmlhelp.lib;opengl32.lib;..\libgmp\Release\mpir.lib;..\libCVact\libCVact-vs2010\actvcmt.lib;..\cracklib-2.7\cracklib_Win32\Release\cracklib_Win32.lib;..\apfloat\apfloat-VS2010\apfloat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\LibAnalyse\Release\LibAnalyse.lib;..\Libec\Release\LibEc.lib;..\libmiracl\Release\LibMiracl.lib;..\OpenSSL\libeay32.lib;..\libNTL\Release\libNTL.lib;htmlhelp.lib;opengl32.lib;..\libgmp\Release\mpir.lib;..\libCVact\libCVact-vs2010\actvcmt.lib;..\cracklib-2.7\cracklib_Win32\Release\cracklib_Win32.lib;..\apfloat\apfloat-VS2010\apfloat.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>../$(Configuration)/$(ProjectName).exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libc;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -387,7 +387,7 @@ perl updateBuildInformation.pl PRE
       </Command>
     </PreLinkEvent>
     <Link>
-      <AdditionalDependencies>..\LibAnalyse\Debug\LibAnalyse.lib;..\Libec\Lib\EcBibV2D.lib;..\libmiracl\Debug\LibMiracl.lib;..\OpenSSL\libeay32.lib;..\libNtl\Debug\LibNTL.lib;htmlhelp.lib;opengl32.lib;..\libgmp\Debug\mpir.lib;..\libCVact\libCVact-vs2010\actvcmtd.lib;..\cracklib-2.7\cracklib_Win32\Debug\cracklib_Win32.lib;..\apfloat\apfloat-VS2010\apfloatd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\LibAnalyse\Debug\LibAnalyse.lib;..\Libec\Debug\LibEc.lib;..\libmiracl\Debug\LibMiracl.lib;..\OpenSSL\libeay32.lib;..\libNtl\Debug\LibNTL.lib;htmlhelp.lib;opengl32.lib;..\libgmp\Debug\mpir.lib;..\libCVact\libCVact-vs2010\actvcmtd.lib;..\cracklib-2.7\cracklib_Win32\Debug\cracklib_Win32.lib;..\apfloat\apfloat-VS2010\apfloatd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>../$(Configuration)/$(ProjectName).exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -443,7 +443,7 @@ perl updateBuildInformation.pl PRE
       <Culture>0x0809</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>..\LibAnalyse\Debug\LibAnalyse.lib;..\Libec\Lib\EcBibV2D.lib;..\libmiracl\Debug\LibMiracl.lib;..\OpenSSL\libeay32.lib;..\libNtl\Debug\LibNTL.lib;htmlhelp.lib;opengl32.lib;..\libgmp\Debug\mpir.lib;..\libCVact\libCVact-vs2010\actvcmtd.lib;..\cracklib-2.7\cracklib_Win32\Debug\cracklib_Win32.lib;..\apfloat\apfloat-VS2010\apfloatd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\LibAnalyse\Debug\LibAnalyse.lib;..\Libec\Debug\LibEc.lib;..\libmiracl\Debug\LibMiracl.lib;..\OpenSSL\libeay32.lib;..\libNtl\Debug\LibNTL.lib;htmlhelp.lib;opengl32.lib;..\libgmp\Debug\mpir.lib;..\libCVact\libCVact-vs2010\actvcmtd.lib;..\cracklib-2.7\cracklib_Win32\Debug\cracklib_Win32.lib;..\apfloat\apfloat-VS2010\apfloatd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>../$(Configuration)/$(ProjectName).exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -498,7 +498,7 @@ perl updateBuildInformation.pl PRE
       <Culture>0x0415</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>..\LibAnalyse\Debug\LibAnalyse.lib;..\Libec\Lib\EcBibV2D.lib;..\libmiracl\Debug\LibMiracl.lib;..\OpenSSL\libeay32.lib;..\libNtl\Debug\LibNTL.lib;htmlhelp.lib;opengl32.lib;..\libgmp\Debug\mpir.lib;..\libCVact\libCVact-vs2010\actvcmtd.lib;..\cracklib-2.7\cracklib_Win32\Debug\cracklib_Win32.lib;..\apfloat\apfloat-VS2010\apfloatd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\LibAnalyse\Debug\LibAnalyse.lib;..\Libec\Debug\LibEc.lib;..\libmiracl\Debug\LibMiracl.lib;..\OpenSSL\libeay32.lib;..\libNtl\Debug\LibNTL.lib;htmlhelp.lib;opengl32.lib;..\libgmp\Debug\mpir.lib;..\libCVact\libCVact-vs2010\actvcmtd.lib;..\cracklib-2.7\cracklib_Win32\Debug\cracklib_Win32.lib;..\apfloat\apfloat-VS2010\apfloatd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>../$(Configuration)/$(ProjectName).exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -555,7 +555,7 @@ perl updateBuildInformation.pl PRE
       <Culture>0x081a</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>..\LibAnalyse\Debug\LibAnalyse.lib;..\Libec\Lib\EcBibV2D.lib;..\libmiracl\Debug\LibMiracl.lib;..\OpenSSL\libeay32.lib;..\libNtl\Debug\LibNTL.lib;htmlhelp.lib;opengl32.lib;..\libgmp\Debug\mpir.lib;..\libCVact\libCVact-vs2010\actvcmtd.lib;..\cracklib-2.7\cracklib_Win32\Debug\cracklib_Win32.lib;..\apfloat\apfloat-VS2010\apfloatd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\LibAnalyse\Debug\LibAnalyse.lib;..\Libec\Debug\LibEc.lib;..\libmiracl\Debug\LibMiracl.lib;..\OpenSSL\libeay32.lib;..\libNtl\Debug\LibNTL.lib;htmlhelp.lib;opengl32.lib;..\libgmp\Debug\mpir.lib;..\libCVact\libCVact-vs2010\actvcmtd.lib;..\cracklib-2.7\cracklib_Win32\Debug\cracklib_Win32.lib;..\apfloat\apfloat-VS2010\apfloatd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>../$(Configuration)/$(ProjectName).exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -615,7 +615,7 @@ perl updateBuildInformation.pl PRE
       <Culture>0x081a</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>..\LibAnalyse\Release\LibAnalyse.lib;..\Libec\Lib\EcBibV2.lib;..\libmiracl\Release\LibMiracl.lib;..\OpenSSL\libeay32.lib;..\libNTL\Release\libNTL.lib;htmlhelp.lib;opengl32.lib;..\libgmp\Release\mpir.lib;..\libCVact\libCVact-vs2010\actvcmt.lib;..\cracklib-2.7\cracklib_Win32\Release\cracklib_Win32.lib;..\apfloat\apfloat-VS2010\apfloat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\LibAnalyse\Release\LibAnalyse.lib;..\Libec\Release\LibEc.lib;..\libmiracl\Release\LibMiracl.lib;..\OpenSSL\libeay32.lib;..\libNTL\Release\libNTL.lib;htmlhelp.lib;opengl32.lib;..\libgmp\Release\mpir.lib;..\libCVact\libCVact-vs2010\actvcmt.lib;..\cracklib-2.7\cracklib_Win32\Release\cracklib_Win32.lib;..\apfloat\apfloat-VS2010\apfloat.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>../$(Configuration)/$(ProjectName).exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libc;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -668,7 +668,7 @@ perl updateBuildInformation.pl PRE
       <Culture>0x0c0a</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>..\LibAnalyse\Debug\LibAnalyse.lib;..\Libec\Lib\EcBibV2D.lib;..\libmiracl\Debug\LibMiracl.lib;..\OpenSSL\libeay32.lib;..\libNtl\Debug\LibNTL.lib;htmlhelp.lib;opengl32.lib;..\libgmp\Debug\mpir.lib;..\libCVact\libCVact-vs2010\actvcmtd.lib;..\cracklib-2.7\cracklib_Win32\Debug\cracklib_Win32.lib;..\apfloat\apfloat-VS2010\apfloatd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\LibAnalyse\Debug\LibAnalyse.lib;..\Libec\Debug\LibEc.lib;..\libmiracl\Debug\LibMiracl.lib;..\OpenSSL\libeay32.lib;..\libNtl\Debug\LibNTL.lib;htmlhelp.lib;opengl32.lib;..\libgmp\Debug\mpir.lib;..\libCVact\libCVact-vs2010\actvcmtd.lib;..\cracklib-2.7\cracklib_Win32\Debug\cracklib_Win32.lib;..\apfloat\apfloat-VS2010\apfloatd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>../$(Configuration)/$(ProjectName).exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -730,7 +730,7 @@ perl updateBuildInformation.pl PRE
       <Culture>0x0c0a</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>..\LibAnalyse\Release\LibAnalyse.lib;..\Libec\Lib\EcBibV2.lib;..\libmiracl\Release\LibMiracl.lib;..\OpenSSL\libeay32.lib;..\libNTL\Release\libNTL.lib;htmlhelp.lib;opengl32.lib;..\libgmp\Release\mpir.lib;..\libCVact\libCVact-vs2010\actvcmt.lib;..\cracklib-2.7\cracklib_Win32\Release\cracklib_Win32.lib;..\apfloat\apfloat-VS2010\apfloat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\LibAnalyse\Release\LibAnalyse.lib;..\Libec\Release\LibEc.lib;..\libmiracl\Release\LibMiracl.lib;..\OpenSSL\libeay32.lib;..\libNTL\Release\libNTL.lib;htmlhelp.lib;opengl32.lib;..\libgmp\Release\mpir.lib;..\libCVact\libCVact-vs2010\actvcmt.lib;..\cracklib-2.7\cracklib_Win32\Release\cracklib_Win32.lib;..\apfloat\apfloat-VS2010\apfloat.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>../$(Configuration)/$(ProjectName).exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libc;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
