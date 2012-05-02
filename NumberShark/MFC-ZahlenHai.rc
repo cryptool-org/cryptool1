@@ -1070,7 +1070,7 @@ BEGIN
     IDS_TAB_HEADER2         "Standardno"
     IDS_TAB_HEADER3         "i18n Maximum score"
     IDS_TAB_RADIO1          "i18n Calculate the maximum score."
-    IDS_TAB_RADIO2          "i18n Show the precalculated scores."
+    IDS_TAB_RADIO2          "i18n Show the best known scores."
     IDS_SEARCH1             "PretragaAjkuleBrojeva["
 END
 
@@ -1616,7 +1616,7 @@ BEGIN
     IDS_TAB_HEADER2         "Standard"
     IDS_TAB_HEADER3         "Maximale Punktzahl"
     IDS_TAB_RADIO1          "Die maximal mögliche Punktzahl berechnen."
-    IDS_TAB_RADIO2          "Die vorberechneten Punktzahlen anzeigen."
+    IDS_TAB_RADIO2          "Die besten bisher bekannten Punktzahlen anzeigen."
     IDS_SEARCH1             "ZahlenHaiSuche["
 END
 
@@ -1674,7 +1674,7 @@ BEGIN
     IDS_SHOW_SEQUENCE_FOR_THIS_SPECIFIC_SCORE 
                             "Um mit der Zahl %s eine Punktzahl von %s zu erreichen, kannst Du zum Beispiel folgende Sequenz verwenden:\n\n%s."
     IDS_PRECALCULATED_SCORES_INTRO 
-                            "Für die Zahlen 1 bis %d kennen wir die optimalen Wege.\r\nFür die höheren Zahlen %d bis %d zeigen wir hier die besten vorberechneten Werte -- ob diese Werte oberhalb von %d auch optimal sind, wissen wir nicht."
+                            "Für die Zahlen 1 bis %d kennen wir die optimalen Wege.\r\nFür die höheren Zahlen %d bis %d zeigen wir hier die besten bisher bekannten Werte -- ob diese Werte oberhalb von %d auch optimal sind, wissen wir nicht."
     IDS_NO_SCORE_SELECTED   "Bitte wählen Sie zuerst ein Ergebnis aus."
     IDS_HEADING_SEQUENCE_LENGTH "Sequenzlänge"
     IDS_HEADING_SEQUENCE    "Sequenz"
@@ -2162,7 +2162,7 @@ BEGIN
     IDS_TAB_HEADER2         "Standard"
     IDS_TAB_HEADER3         "Maximum score"
     IDS_TAB_RADIO1          "Calculate the maximum score."
-    IDS_TAB_RADIO2          "Show the precalculated scores."
+    IDS_TAB_RADIO2          "Show the best known scores."
     IDS_SEARCH1             "NumberSharkSearch["
 END
 
