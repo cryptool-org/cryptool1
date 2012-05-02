@@ -60,6 +60,9 @@ BOOL CMFCZahlenHaiApp::InitInstance()
 	AfxEnableControlContainer();
 	AfxInitRichEdit();
 
+	// initialize our accelerator object
+	accelerator = LoadAccelerators(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDR_ACCELERATOR1));
+
 	// Standardinitialisierung
 	// Wenn Sie diese Features nicht verwenden und die Größe
 	// der ausführbaren Datei verringern möchten, entfernen Sie
@@ -69,9 +72,10 @@ BOOL CMFCZahlenHaiApp::InitInstance()
 	// z.B. zum Namen Ihrer Firma oder Organisation.
 	SetRegistryKey(_T("Vom lokalen Anwendungs-Assistenten generierte Anwendungen"));
 
-	CMFCZahlenHaiDlg dlg;
-	m_pMainWnd = &dlg;
-	INT_PTR nResponse = dlg.DoModal();
+	dlg = 0;
+	dlg = new CMFCZahlenHaiDlg;
+	m_pMainWnd = dlg;
+	INT_PTR nResponse = dlg->DoModal();
 	if (nResponse == IDOK)
 	{
 		// TODO: Fügen Sie hier Code ein, um das Schließen des
@@ -83,7 +87,35 @@ BOOL CMFCZahlenHaiApp::InitInstance()
 		//  Dialogfelds über "Abbrechen" zu steuern
 	}
 
+	delete dlg;
+
 	// Da das Dialogfeld geschlossen wurde, FALSE zurückliefern, so dass wir die
 	//  Anwendung verlassen, anstatt das Nachrichtensystem der Anwendung zu starten.
 	return FALSE;
 }
+
+BOOL CMFCZahlenHaiApp::ProcessMessageFilter(int code, LPMSG lpMsg)
+{
+	// try to let the accelerator handle the message
+	if(accelerator) {
+		if (::TranslateAccelerator(m_pMainWnd->m_hWnd, accelerator, lpMsg)) {
+			if(lpMsg->message == 260) {
+				if(lpMsg->wParam == 67) {
+					dlg->OnBnClickedButtonSwitchStyle();
+					return(TRUE);
+				}
+				if(lpMsg->wParam == 76) {
+					dlg->OnBnClickedButtonLoad();
+					return(TRUE);
+				}
+				if(lpMsg->wParam == 83) {
+					dlg->OnBnClickedButtonSave();
+					return(TRUE);
+				}
+			}
+    }
+	}
+	// otherwise use the default implementation
+	return CWinApp::ProcessMessageFilter(code, lpMsg);
+}
+

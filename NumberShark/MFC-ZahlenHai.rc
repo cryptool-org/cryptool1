@@ -146,11 +146,11 @@ BEGIN
     CONTROL         169,IDC_STATIC_HAI_LISTE,"Static",SS_BITMAP | SS_REALSIZEIMAGE,4,10,381,160
     GROUPBOX        "",IDC_STATIC,392,6,71,366
     PUSHBUTTON      "&Koniec",IDC_BUTTON_FINISH,375,367,10,6,NOT WS_VISIBLE
-    PUSHBUTTON      "Zmieñ &styl",IDC_BUTTON_SWITCH_STYLE,398,72,59,14,NOT WS_VISIBLE
+    PUSHBUTTON      "Zmieñ &styl",IDC_BUTTON_SWITCH_STYLE,398,72,59,14
     CTEXT           "Statisch",IDC_TIMER,398,148,59,14,SS_CENTERIMAGE
     LTEXT           "Czas:",IDC_STATIC,398,129,43,8
-    PUSHBUTTON      "&Za³aduj",IDC_BUTTON_LOAD,398,271,59,14,NOT WS_VISIBLE
-    PUSHBUTTON      "&Zachowaj",IDC_BUTTON_SAVE,398,294,59,14,NOT WS_VISIBLE
+    PUSHBUTTON      "&Za³aduj",IDC_BUTTON_LOAD,398,271,59,14
+    PUSHBUTTON      "&Zachowaj",IDC_BUTTON_SAVE,398,294,59,14
 END
 
 IDD_SEARCH_PROGRESS DIALOGEX 0, 0, 200, 110
@@ -363,6 +363,9 @@ IDR_MAINFRAME           ICON                    "Bilder\\NumberShark.ico"
 IDR_ACCELERATOR1 ACCELERATORS 
 BEGIN
     "N",            ID_GIVE_REST,           VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "C",            ID_ACCELERATOR_CHANGESTYLE, VIRTKEY, SHIFT, ALT, NOINVERT
+    "L",            ID_ACCELERATOR_LOADGAME, VIRTKEY, SHIFT, ALT, NOINVERT
+    "S",            ID_ACCELERATOR_SAVEGAME, VIRTKEY, SHIFT, ALT, NOINVERT
 END
 
 
@@ -543,13 +546,13 @@ BEGIN
     IDS_LOGFILE_PLAYER_NUMBERS "\r\nWybran przez Ciebie liczby:"
     IDS_SEPERATOR           ","
     IDS_TAB_HEADER4         "Skróty klawiszowe"
-    IDS_ACC_CHANGE          "SHIFT+ALT+C: Zmienia styl guzików w okienku muszelek.\r\n\r\n"
+    IDS_ACC_CHANGE          "SHIFT + ALT + C: Zmienia styl guzików w okienku muszelek.\r\n\r\n"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_ACC_LOAD            "SHIFT+ALT+L: £aduje istniej¹c¹ grê. \n\n\n\n"
-    IDS_ACC_SAVE            "SHIFT+ALT+S: Zachowuje aktualn¹ grê. \r\n\r\n"
+    IDS_ACC_LOAD            "SHIFT + ALT + L: £aduje istniej¹c¹ grê. \n\n\n\n"
+    IDS_ACC_SAVE            "SHIFT + ALT + S: Zachowuje aktualn¹ grê. \r\n\r\n"
     IDS_PLAYER_WINS_OPTIMAL2 
                             "Gratulacje! Wygra³eœ z Number Sharkiem! \n\n\n\n Osi¹gaj¹c %s punktów uzyska³eœ nawet lepszy wynik ni¿ my.\n\nNasz najlepszy wynik to %s punktów z %s liczbami.\n\n Wyœlij nam podsumowanie gry pod adres: esslinger@fb5.uni-siegen.de"
     IDS_PLAYER_WINS3        "Gratulacje! Wygra³eœ z Number Sharkiem! \n\n\n\n Jeœli poszukujesz wiêkszych wyzwañ, spróbuj wiêksz¹ liczbê ni¿ %s.\n\n\n\n Osi¹gn¹³eœ wynik %s punktów. Jak do tej pory najwiêcej uda³o nam siê zdobyæ %s punktów przy %s liczbach."
@@ -583,6 +586,8 @@ BEGIN
     IDS_NO_SCORE_SELECTED   "Wpierw wybierz wynik."
     IDS_HEADING_SEQUENCE_LENGTH "Dlugosc sekwencji"
     IDS_HEADING_SEQUENCE    "Sekwencja"
+    IDS_ACC_TAB             "[i18n] TAB: Selects the next shell within the shown number block (of one tab)."
+    IDS_ACC_ENTER_OR_SPACE  "[i18n] ENTER / SPACE: Choose the number of the selected shell via keyboard."
 END
 
 #endif    // Polish resources
@@ -723,11 +728,11 @@ BEGIN
     CONTROL         169,IDC_STATIC_HAI_LISTE,"Static",SS_BITMAP | SS_REALSIZEIMAGE,4,10,381,160
     GROUPBOX        "",IDC_STATIC,392,6,71,366
     PUSHBUTTON      "&Završi",IDC_BUTTON_FINISH,375,367,10,6,NOT WS_VISIBLE
-    PUSHBUTTON      "&Promeni stil",IDC_BUTTON_SWITCH_STYLE,398,72,59,14,NOT WS_VISIBLE
+    PUSHBUTTON      "&Promeni stil",IDC_BUTTON_SWITCH_STYLE,398,72,59,14
     CTEXT           "Statisch",IDC_TIMER,398,148,59,14,SS_CENTERIMAGE
     LTEXT           "Proteklo vreme:",IDC_STATIC,398,129,43,8
-    PUSHBUTTON      "&Ucitaj",IDC_BUTTON_LOAD,398,271,59,14,NOT WS_VISIBLE
-    PUSHBUTTON      "&Sacuvaj",IDC_BUTTON_SAVE,398,294,59,14,NOT WS_VISIBLE
+    PUSHBUTTON      "&Ucitaj",IDC_BUTTON_LOAD,398,271,59,14
+    PUSHBUTTON      "&Sacuvaj",IDC_BUTTON_SAVE,398,294,59,14
 END
 
 IDD_SEARCH_PROGRESS DIALOGEX 0, 0, 200, 110
@@ -940,6 +945,9 @@ IDR_MAINFRAME           ICON                    "Bilder\\NumberShark.ico"
 IDR_ACCELERATOR1 ACCELERATORS 
 BEGIN
     "N",            ID_GIVE_REST,           VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "C",            ID_ACCELERATOR_CHANGESTYLE, VIRTKEY, SHIFT, ALT, NOINVERT
+    "L",            ID_ACCELERATOR_LOADGAME, VIRTKEY, SHIFT, ALT, NOINVERT
+    "S",            ID_ACCELERATOR_SAVEGAME, VIRTKEY, SHIFT, ALT, NOINVERT
 END
 
 
@@ -1084,13 +1092,13 @@ BEGIN
     IDS_LOGFILE_PLAYER_NUMBERS "\r\nVaši odabrani brojevi: "
     IDS_SEPERATOR           ","
     IDS_TAB_HEADER4         "Ubrzavaci"
-    IDS_ACC_CHANGE          "SHIFT+ALT+C: Menja stil dugmati u kvadratu školjki.\r\n\r\n"
+    IDS_ACC_CHANGE          "SHIFT + ALT + C: Menja stil dugmati u kvadratu školjki.\r\n\r\n"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_ACC_LOAD            "SHIFT+ALT+L: Ucitava postojecu igru.\r\n\r\n"
-    IDS_ACC_SAVE            "SHIFT+ALT+S: Cuva trenutnu igru.\r\n\r\n"
+    IDS_ACC_LOAD            "SHIFT + ALT + L: Ucitava postojecu igru.\r\n\r\n"
+    IDS_ACC_SAVE            "SHIFT + ALT + S: Cuva trenutnu igru.\r\n\r\n"
     IDS_PLAYER_WINS_OPTIMAL2 
                             "Cestitamo, pobedili ste Ajkulu Brojeva!\n\nSa %s cak ste postigli veci rezultat nego mi. Naš najbolji rezultat je %s poena sa %s brojeva.\n\nMolimo pošaljite pregled igre na esslinger@fb5.uni-siegen.de."
     IDS_PLAYER_WINS3        "Cestitamo, pobedili ste Ajkulu Brojeva!\n\n Ako tražite veci izazov, probajte veci broj od %s.\n\nOsvojili ste %s poena. Do sada, najviši rezultat koji smo postigli sa %s brojeva je bio %s."
@@ -1108,22 +1116,24 @@ BEGIN
     IDS_SEARCH_PROGRESS_TEXT_2 "Proteklo vreme: %d sekundi"
     IDS_ALGORITHM_BRUTE_FORCE "brutalna sila"
     IDS_ALGORITHM_BACK_TRACKING "pracenje unazad"
-    IDS_HEADING_NUMBER      "i18n Number"
-    IDS_HEADING_SCORE       "i18n Result"
+    IDS_HEADING_NUMBER      "[i18n] Number"
+    IDS_HEADING_SCORE       "[i18n] Result"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_HEADING_PROVED      "i18n Result optimal?"
-    IDS_PROVED_YES          "i18n Proven"
-    IDS_PROVED_NO           "i18n Unknown"
+    IDS_HEADING_PROVED      "[i18n] Result optimal?"
+    IDS_PROVED_YES          "[i18n] Proven"
+    IDS_PROVED_NO           "[i18n] Unknown"
     IDS_SHOW_SEQUENCE_FOR_THIS_SPECIFIC_SCORE 
-                            "i18n If you choose the number %s, one way to achieve %s points is the following sequence:\n\n%s."
+                            "[i18n] If you choose the number %s, one way to achieve %s points is the following sequence:\n\n%s."
     IDS_PRECALCULATED_SCORES_INTRO 
-                            "i18n For numbers 1 through %d we know optimal ways to win.\r\nFor the higher numbers %d through %d we show the best known results already precalculated. However, we don't know whether these results from %d up are optimal."
-    IDS_NO_SCORE_SELECTED   "i18n Please select a result first."
-    IDS_HEADING_SEQUENCE_LENGTH "i18n Sequence length"
-    IDS_HEADING_SEQUENCE    "i18n Sequence"
+                            "[i18n] For numbers 1 through %d we know optimal ways to win.\r\nFor the higher numbers %d through %d we show the best known results already precalculated. However, we don't know whether these results from %d up are optimal."
+    IDS_NO_SCORE_SELECTED   "[i18n] Please select a result first."
+    IDS_HEADING_SEQUENCE_LENGTH "[i18n] Sequence length"
+    IDS_HEADING_SEQUENCE    "[i18n] Sequence"
+    IDS_ACC_TAB             "[i18n] TAB: Selects the next shell within the shown number block (of one tab)."
+    IDS_ACC_ENTER_OR_SPACE  "[i18n] ENTER / SPACE: Choose the number of the selected shell via keyboard."
 END
 
 #endif    // Serbian (Latin) resources
@@ -1264,11 +1274,11 @@ BEGIN
     CONTROL         169,IDC_STATIC_HAI_LISTE,"Static",SS_BITMAP | SS_REALSIZEIMAGE,4,10,381,160
     GROUPBOX        "",IDC_STATIC,392,6,71,366
     PUSHBUTTON      "&Fertig",IDC_BUTTON_FINISH,375,367,10,6,NOT WS_VISIBLE
-    PUSHBUTTON      "&Change style",IDC_BUTTON_SWITCH_STYLE,398,72,59,14,NOT WS_VISIBLE
+    PUSHBUTTON      "S&til ändern",IDC_BUTTON_SWITCH_STYLE,398,72,59,14
     CTEXT           "Statisch",IDC_TIMER,398,148,59,14,SS_CENTERIMAGE
     LTEXT           "Verstrichene Zeit:",IDC_STATIC,398,129,59,8
-    PUSHBUTTON      "&Laden",IDC_BUTTON_LOAD,398,271,59,14,NOT WS_VISIBLE
-    PUSHBUTTON      "&Speichern",IDC_BUTTON_SAVE,398,294,59,14,NOT WS_VISIBLE
+    PUSHBUTTON      "&Laden",IDC_BUTTON_LOAD,398,271,59,14
+    PUSHBUTTON      "&Speichern",IDC_BUTTON_SAVE,398,294,59,14
 END
 
 IDD_SEARCH_PROGRESS DIALOGEX 0, 0, 200, 110
@@ -1481,6 +1491,9 @@ IDR_MAINFRAME           ICON                    "Bilder\\Zahlenhai.ico"
 IDR_ACCELERATOR1 ACCELERATORS 
 BEGIN
     "N",            ID_GIVE_REST,           VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "C",            ID_ACCELERATOR_CHANGESTYLE, VIRTKEY, SHIFT, ALT, NOINVERT
+    "L",            ID_ACCELERATOR_LOADGAME, VIRTKEY, SHIFT, ALT, NOINVERT
+    "S",            ID_ACCELERATOR_SAVEGAME, VIRTKEY, SHIFT, ALT, NOINVERT
 END
 
 
@@ -1625,13 +1638,13 @@ BEGIN
     IDS_LOGFILE_PLAYER_NUMBERS "\r\nDeine gewählten Zahlen:       "
     IDS_SEPERATOR           ","
     IDS_TAB_HEADER4         "Tastenkombinationen"
-    IDS_ACC_CHANGE          "SHIFT+ALT+C: Verändert das Aussehen der Buttons im Muschelfeld.\r\n\r\n"
+    IDS_ACC_CHANGE          "SHIFT + ALT + C: Verändert das Aussehen der Buttons im Muschelfeld.\r\n\r\n"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_ACC_LOAD            "SHIFT+ALT+L: Lädt ein vorhandenes Spiel.\r\n\r\n"
-    IDS_ACC_SAVE            "SHIFT+ALT+S: Speichert das aktuelle Spiel.\r\n\r\n"
+    IDS_ACC_LOAD            "SHIFT + ALT + L: Lädt ein vorhandenes Spiel.\r\n\r\n"
+    IDS_ACC_SAVE            "SHIFT + ALT + S: Speichert das aktuelle Spiel.\r\n\r\n"
     IDS_PLAYER_WINS_OPTIMAL2 
                             "GLÜCKWUNSCH, Du hast gegen den Hai gewonnen!\n\nMit %s Punkten hast Du sogar mehr Punkte erreicht als wir bisher geschafft haben. Unser bestes Ergebnis war bisher %s Punkte bei %s Zahlen.\n\nBitte schicke die Zusammenfassung an esslinger@fb5.uni-siegen.de."
     IDS_PLAYER_WINS3        "Glückwunsch, Du hast gegen den Zahlenhai gewonnen!\n\nWenn Du eine größere Herausforderung suchst, dann nimm eine höhere Zahl als %s.\n\nDu hast %s Punkte erreicht. Bis jetzt haben wir bei %s Zahlen maximal %s Punkte erreicht."
@@ -1665,6 +1678,8 @@ BEGIN
     IDS_NO_SCORE_SELECTED   "Bitte wählen Sie zuerst ein Ergebnis aus."
     IDS_HEADING_SEQUENCE_LENGTH "Sequenzlänge"
     IDS_HEADING_SEQUENCE    "Sequenz"
+    IDS_ACC_TAB             "TAB: Auswahl der Muschel im angezeigten Zahlenblock (eines Reiters).\r\n\r\n"
+    IDS_ACC_ENTER_OR_SPACE  "ENTER / LEERTASTE: Auswahl der Zahl der selektierten Muschel per Tastatur.\r\n\r\n"
 END
 
 #endif    // German (Germany) resources
@@ -1805,11 +1820,11 @@ BEGIN
     CONTROL         169,IDC_STATIC_HAI_LISTE,"Static",SS_BITMAP | SS_REALSIZEIMAGE,4,10,381,160
     GROUPBOX        "",IDC_STATIC,392,6,71,366
     PUSHBUTTON      "&Finish",IDC_BUTTON_FINISH,375,367,10,6,NOT WS_VISIBLE
-    PUSHBUTTON      "&Change style",IDC_BUTTON_SWITCH_STYLE,398,72,59,14,NOT WS_VISIBLE
+    PUSHBUTTON      "&Change style",IDC_BUTTON_SWITCH_STYLE,398,72,59,14
     CTEXT           "Statisch",IDC_TIMER,398,148,59,14,SS_CENTERIMAGE
     LTEXT           "Elapsed time:",IDC_STATIC,398,129,43,8
-    PUSHBUTTON      "&Load",IDC_BUTTON_LOAD,398,271,59,14,NOT WS_VISIBLE
-    PUSHBUTTON      "&Save",IDC_BUTTON_SAVE,398,294,59,14,NOT WS_VISIBLE
+    PUSHBUTTON      "&Load",IDC_BUTTON_LOAD,398,271,59,14
+    PUSHBUTTON      "&Save",IDC_BUTTON_SAVE,398,294,59,14
 END
 
 IDD_SEARCH_PROGRESS DIALOGEX 0, 0, 200, 110
@@ -2022,6 +2037,9 @@ IDR_MAINFRAME           ICON                    "Bilder\\NumberShark.ico"
 IDR_ACCELERATOR1 ACCELERATORS 
 BEGIN
     "N",            ID_GIVE_REST,           VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "C",            ID_ACCELERATOR_CHANGESTYLE, VIRTKEY, SHIFT, ALT, NOINVERT
+    "L",            ID_ACCELERATOR_LOADGAME, VIRTKEY, SHIFT, ALT, NOINVERT
+    "S",            ID_ACCELERATOR_SAVEGAME, VIRTKEY, SHIFT, ALT, NOINVERT
 END
 
 
@@ -2166,13 +2184,13 @@ BEGIN
     IDS_LOGFILE_PLAYER_NUMBERS "\r\nYour chosen numbers: "
     IDS_SEPERATOR           ","
     IDS_TAB_HEADER4         "Shortcuts"
-    IDS_ACC_CHANGE          "SHIFT+ALT+C: Changes the style of the buttons in the shell square.\r\n\r\n"
+    IDS_ACC_CHANGE          "SHIFT + ALT + C: Changes the style of the buttons in the shell square.\r\n\r\n"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_ACC_LOAD            "SHIFT+ALT+L: Loads an existing game.\r\n\r\n"
-    IDS_ACC_SAVE            "SHIFT+ALT+S: Saves the current game.\r\n\r\n"
+    IDS_ACC_LOAD            "SHIFT + ALT + L: Loads an existing game.\r\n\r\n"
+    IDS_ACC_SAVE            "SHIFT + ALT + S: Saves the current game.\r\n\r\n"
     IDS_PLAYER_WINS_OPTIMAL2 
                             "Congratulation, you have won against the Number Shark!\n\nWith %s points you even achieved a higher score than we did. Our best score was %s points with %s numbers.\n\nPlease send the summary of the game to esslinger@fb5.uni-siegen.de."
     IDS_PLAYER_WINS3        "Congratulation, you have won against the Number Shark!\n\n If you are looking for a bigger challenge, then try a higher number than %s.\n\nYou achieved %s points. Until now the highest score we achieved with %s numbers was %s."
@@ -2206,6 +2224,8 @@ BEGIN
     IDS_NO_SCORE_SELECTED   "Please select a result first."
     IDS_HEADING_SEQUENCE_LENGTH "Sequence length"
     IDS_HEADING_SEQUENCE    "Sequence"
+    IDS_ACC_TAB             "TAB: Selects the next shell within the shown number block (of one tab).\r\n\r\n"
+    IDS_ACC_ENTER_OR_SPACE  "ENTER / SPACE: Choose the number of the selected shell via keyboard.\r\n\r\n"
 END
 
 #endif    // English (U.K.) resources
@@ -2346,11 +2366,11 @@ BEGIN
     CONTROL         169,IDC_STATIC_HAI_LISTE,"Static",SS_BITMAP | SS_REALSIZEIMAGE,4,10,381,160
     GROUPBOX        "",IDC_STATIC,392,6,71,366
     PUSHBUTTON      "&Finish",IDC_BUTTON_FINISH,375,367,10,6,NOT WS_VISIBLE
-    PUSHBUTTON      "Cam&biar Estilo",IDC_BUTTON_SWITCH_STYLE,398,72,59,14,NOT WS_VISIBLE
+    PUSHBUTTON      "Cam&biar Estilo",IDC_BUTTON_SWITCH_STYLE,398,72,59,14
     CTEXT           "Statisch",IDC_TIMER,398,148,59,14,SS_CENTERIMAGE
     LTEXT           "Tiempo transcurrido:",IDC_STATIC,396,129,65,8
-    PUSHBUTTON      "&Cargar",IDC_BUTTON_LOAD,398,271,59,14,NOT WS_VISIBLE
-    PUSHBUTTON      "&Guardar",IDC_BUTTON_SAVE,398,294,59,14,NOT WS_VISIBLE
+    PUSHBUTTON      "&Cargar",IDC_BUTTON_LOAD,398,271,59,14
+    PUSHBUTTON      "&Guardar",IDC_BUTTON_SAVE,398,294,59,14
 END
 
 IDD_SEARCH_PROGRESS DIALOGEX 0, 0, 200, 110
@@ -2563,6 +2583,9 @@ IDR_MAINFRAME           ICON                    "Bilder\\NumberShark.ico"
 IDR_ACCELERATOR1 ACCELERATORS 
 BEGIN
     "N",            ID_GIVE_REST,           VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "C",            ID_ACCELERATOR_CHANGESTYLE, VIRTKEY, SHIFT, ALT, NOINVERT
+    "L",            ID_ACCELERATOR_LOADGAME, VIRTKEY, SHIFT, ALT, NOINVERT
+    "S",            ID_ACCELERATOR_SAVEGAME, VIRTKEY, SHIFT, ALT, NOINVERT
 END
 
 
@@ -2707,13 +2730,13 @@ BEGIN
     IDS_LOGFILE_PLAYER_NUMBERS "\r\nLos número que ha seleccionado: "
     IDS_SEPERATOR           ","
     IDS_TAB_HEADER4         "Atajos"
-    IDS_ACC_CHANGE          "SHIFT+ALT+C: Quita el mejillón de los botones y los deja convencionales.\r\n\r\n"
+    IDS_ACC_CHANGE          "SHIFT + ALT + C: Quita el mejillón de los botones y los deja convencionales.\r\n\r\n"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_ACC_LOAD            "SHIFT+ALT+L: Carga un juego existente.\r\n\r\n"
-    IDS_ACC_SAVE            "SHIFT+ALT+S: Guarda una partida actual.\r\n\r\n"
+    IDS_ACC_LOAD            "SHIFT + ALT + L: Carga un juego existente.\r\n\r\n"
+    IDS_ACC_SAVE            "SHIFT + ALT + S: Guarda una partida actual.\r\n\r\n"
     IDS_PLAYER_WINS_OPTIMAL2 
                             "¡Felicidades, ha ganado la partida!\non %s puntos, ha logrado un puntaje mayor al que nosotros mismos hemos logrado hasta ahora. Nuestro mejor resultado es %s puntos para %s números.\n\nPor favor, envíe el resumen a esslinger@fb5.uni-siegen.de."
     IDS_PLAYER_WINS3        "¡Felicidades, ha ganado la partida!\n\nSi le gustaría probar un desafío mayor ahora, intente con un número mayor a %s.\n\nUsted ha alcanzado %s puntos, nosotros hasta ahora para un total de %s números hemos alcanzado como máximo %s puntos."
@@ -2747,6 +2770,8 @@ BEGIN
     IDS_NO_SCORE_SELECTED   "Por favor, seleccione un resultado primero. "
     IDS_HEADING_SEQUENCE_LENGTH "Tamaño de la secuencia"
     IDS_HEADING_SEQUENCE    "Secuencia"
+    IDS_ACC_TAB             "[i18n] TAB: Selects the next shell within the shown number block (of one tab)."
+    IDS_ACC_ENTER_OR_SPACE  "[i18n] ENTER / SPACE: Choose the number of the selected shell via keyboard."
 END
 
 #endif    // Spanish resources

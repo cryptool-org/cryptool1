@@ -34,6 +34,9 @@
 // Siehe MFC-ZahlenHai.cpp für die Implementierung dieser Klasse
 //
 
+// forward declaration
+class CMFCZahlenHaiDlg;
+
 class CMFCZahlenHaiApp : public CWinApp
 {
 public:
@@ -46,6 +49,12 @@ public:
 // Implementierung
 
 	DECLARE_MESSAGE_MAP()
+
+protected:
+	// flomar, 05/01/2012: used for clean accelerator handling
+	CMFCZahlenHaiDlg *dlg;
+	HACCEL accelerator;
+	BOOL ProcessMessageFilter(int code, LPMSG lpMsg);
 };
 
 extern CMFCZahlenHaiApp theApp;

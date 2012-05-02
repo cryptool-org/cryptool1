@@ -166,6 +166,12 @@ BOOL ZahlenHaiOptionen::OnInitDialog()
 
 	CString accTabText="";
 	CString accTabTextBuffer="";
+
+	accTabTextBuffer.LoadString(IDS_ACC_TAB);
+	accTabText+=accTabTextBuffer;
+
+	accTabTextBuffer.LoadString(IDS_ACC_ENTER_OR_SPACE);
+	accTabText+=accTabTextBuffer;
 	
 	accTabTextBuffer.LoadString(IDS_ACC_CHANGE);
 	accTabText+=accTabTextBuffer;

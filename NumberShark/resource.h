@@ -172,15 +172,17 @@
 #define IDS_NO_SCORE_SELECTED           229
 #define IDS_HEADING_SEQUENCE_LENGTH     230
 #define IDS_HEADING_SEQUENCE            231
-#define IDB_BITMAP_NUMBERSHARK_01				232
-#define IDB_BITMAP_NUMBERSHARK_02				233
-#define IDB_BITMAP_NUMBERSHARK_03				234
-#define IDB_BITMAP_NUMBERSHARK_04				235
-#define IDB_BITMAP_NUMBERSHARK_05				236
-#define IDB_BITMAP_NUMBERSHARK_06				237
-#define IDB_BITMAP_NUMBERSHARK_07				238
-#define IDB_BITMAP_NUMBERSHARK_08				239
-#define IDB_BITMAP_NUMBERSHARK_09				240
+#define IDB_BITMAP_NUMBERSHARK_01       232
+#define IDS_ACC_TAB                     232
+#define IDB_BITMAP_NUMBERSHARK_02       233
+#define IDS_ACC_ENTER_OR_SPACE          233
+#define IDB_BITMAP_NUMBERSHARK_03       234
+#define IDB_BITMAP_NUMBERSHARK_04       235
+#define IDB_BITMAP_NUMBERSHARK_05       236
+#define IDB_BITMAP_NUMBERSHARK_06       237
+#define IDB_BITMAP_NUMBERSHARK_07       238
+#define IDB_BITMAP_NUMBERSHARK_08       239
+#define IDB_BITMAP_NUMBERSHARK_09       240
 #define IDC_LIST2                       1001
 #define IDC_EDIT1                       1007
 #define IDC_BUTTON1                     1008
@@ -291,13 +293,16 @@
 #define ID_DATEI_ENDE                   32777
 #define ID_GIVE_REST                    32780
 #define ID_OPEN_RULES                   32786
+#define ID_ACCELERATOR_CHANGESTYLE      32788
+#define ID_ACCELERATOR_LOADGAME         32790
+#define ID_ACCELERATOR_SAVEGAME         32791
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        241
-#define _APS_NEXT_COMMAND_VALUE         32788
+#define _APS_NEXT_COMMAND_VALUE         32796
 #define _APS_NEXT_CONTROL_VALUE         1181
 #define _APS_NEXT_SYMED_VALUE           175
 #endif
