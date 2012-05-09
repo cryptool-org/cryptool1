@@ -993,6 +993,14 @@ void CDlgFactorisationDemo::OnShowFactorisationDetails()
 		}
 		NewDoc->SetTitle(line);
 		// Message(STR_LAENGE_STRING_TABLE, MB_ICONINFORMATION);
+
+		// flomar, 05/08/2012: when the "details" dialog is closed 
+		// with IDCANCEL, we're closing *this* dialog as well; this 
+		// is for user convenience in the RSA demonstration dialog;
+		// we might change this approach so the regular execution of 
+		// the factorization dialog (without the RSA demonstration 
+		// dialog on top) is not affected
+		EndDialog(IDCANCEL);
 	}
 }
 

@@ -23866,7 +23866,7 @@ BEGIN
     EDITTEXT        IDC_HEADER4,19,272,353,10,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
     EDITTEXT        IDC_HEADER2,19,302,353,10,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
     EDITTEXT        IDC_HEADER3,19,334,353,10,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
-    LTEXT           "Sie können mit Hilfe der Faktorisierung versuchen, den öffentlichen RSA-Modul N in seine Primfaktoren p und q zu faktorisieren.",IDC_RSA_MODE_FACTORISATION,19,85,257,30,NOT WS_VISIBLE
+    LTEXT           "Sie können versuchen, den RSA-Modul N in seine Primfaktoren p und q zu zerlegen.",IDC_RSA_MODE_FACTORISATION,19,85,257,30,NOT WS_VISIBLE
     PUSHBUTTON      "Button1",IDOK,204,377,37,15,NOT WS_VISIBLE
     LTEXT           "Schlüssel d = e^(-1) (mod phi(N)) berechnet.",IDC_STATIC,30,30,141,8
 END
@@ -34942,7 +34942,7 @@ BEGIN
     LTEXT           "(public)",IDC_STATIC,284,134,34,8
     LTEXT           "(secret)",IDC_STATIC,284,152,30,8
     LTEXT           "Input as",IDC_STATIC,19,225,31,8
-    LTEXT           "You may try to factorize the public RSA modulus N into its primes p and q.",IDC_RSA_MODE_FACTORISATION,19,81,257,30,NOT WS_VISIBLE
+    LTEXT           "You may try to resolve the RSA modulus N into its prime factors p and q.",IDC_RSA_MODE_FACTORISATION,19,81,257,30,NOT WS_VISIBLE
     PUSHBUTTON      "Button1",IDOK,204,377,37,15,NOT WS_VISIBLE
     LTEXT           "key d is then calculated such that d = e^(-1) (mod phi(N)).",IDC_STATIC,30,31,181,8
 END
