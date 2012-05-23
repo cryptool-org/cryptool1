@@ -61,7 +61,8 @@ public:
 	//{{AFX_DATA(CAestoolDlg)
 	enum { IDD = IDD_AESTOOL_DIALOG };
 	CStatic	m_CStaticTitle;
-	CButton	m_CButtonOK;
+	CButton	m_CButtonEncrypt;
+	CButton m_CButtonDecrypt;
 	CButton	m_CRadioExe;
 	CButton	m_CRadioAes;
 	CEditDropFilename	m_CEditSrc;
@@ -102,7 +103,7 @@ protected:
 	virtual void OnOK();
 	afx_msg void OnRadioFormat();
 	afx_msg void OnHelp();
-	afx_msg void EnDisableOK();
+	afx_msg void updateEncryptDecryptButtons();
 	afx_msg void EnDisableCheckSecurelyDeleteSourceFileAfterEncryption();
 	afx_msg void OnChangeSrc();
 	afx_msg void OnCheckShowPassword();

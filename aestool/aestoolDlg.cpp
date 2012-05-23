@@ -130,7 +130,8 @@ void CAestoolDlg::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CAestoolDlg)
 	DDX_Control(pDX, IDC_STATIC_TITLE, m_CStaticTitle);
-	DDX_Control(pDX, IDOK, m_CButtonOK);
+	DDX_Control(pDX, IDC_BUTTON_ENCRYPT, m_CButtonEncrypt);
+	DDX_Control(pDX, IDC_BUTTON_DECRYPT, m_CButtonDecrypt);
 	DDX_Control(pDX, IDC_RADIO_EXE, m_CRadioExe);
 	DDX_Control(pDX, IDC_RADIO_AES, m_CRadioAes);
 	DDX_Control(pDX, IDC_EDIT_SRC, m_CEditSrc);
@@ -152,13 +153,15 @@ BEGIN_MESSAGE_MAP(CAestoolDlg, CDialog)
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BUTTON_SRC, OnSucheSrc)
 	ON_BN_CLICKED(IDC_BUTTON3, OnHelp)
-	ON_EN_CHANGE(IDC_EDIT_KEY_HEX, EnDisableOK)
-	ON_EN_CHANGE(IDC_EDIT_KEY_ASCII, EnDisableOK)
+	ON_EN_CHANGE(IDC_EDIT_KEY_HEX, updateEncryptDecryptButtons)
+	ON_EN_CHANGE(IDC_EDIT_KEY_ASCII, updateEncryptDecryptButtons)
 	ON_EN_CHANGE(IDC_EDIT_SRC, OnChangeSrc)
 	ON_BN_CLICKED(IDC_CHECK_SHOW_PASSWORD, OnCheckShowPassword)
 	ON_BN_CLICKED(IDC_CHECK_ENTER_PASSWORD_AS_HEX, OnCheckEnterPasswordAsHex)
 	ON_BN_CLICKED(IDC_RADIO_EXE, OnRadioFormat)
 	ON_BN_CLICKED(IDC_RADIO_AES, OnRadioFormat)
+	ON_BN_CLICKED(IDC_BUTTON_ENCRYPT, OnOK)
+	ON_BN_CLICKED(IDC_BUTTON_DECRYPT, OnOK)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -202,7 +205,8 @@ BOOL CAestoolDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Großes Symbol verwenden
 	SetIcon(m_hIcon, FALSE);		// Kleines Symbol verwenden
 	
-	m_CButtonOK.EnableWindow(FALSE);
+	m_CButtonEncrypt.EnableWindow(FALSE);
+	m_CButtonDecrypt.EnableWindow(FALSE);
 
 	// initialize key field
 	m_CHEditKey.SetWindowText(m_CMD_inKey);
@@ -303,7 +307,9 @@ void CAestoolDlg::OnSucheSrc()
 	// ASCII
 	if(m_checkEnterPasswordAsHex == 0) {
 		if(m_EditKey.GetWindowTextLength() > 0) {
-			m_CButtonOK.SetFocus();
+			bool encrypted = m_SrcInfo.isEncrypted();
+			if(encrypted) m_CButtonDecrypt.SetFocus();
+			else m_CButtonEncrypt.SetFocus();
 		}
 		else {
 			m_EditKey.SetFocus();
@@ -312,7 +318,9 @@ void CAestoolDlg::OnSucheSrc()
 	// HEX
 	else {
 		if(m_CHEditKey.GetWindowTextLength() > 0) {
-			m_CButtonOK.SetFocus();
+			bool encrypted = m_SrcInfo.isEncrypted();
+			if(encrypted) m_CButtonDecrypt.SetFocus();
+			else m_CButtonEncrypt.SetFocus();
 		}
 		else {
 			m_CHEditKey.SetFocus();
@@ -320,6 +328,8 @@ void CAestoolDlg::OnSucheSrc()
 	}
 }
 
+// this function is called by both buttons, the encrypt AND decrypt button; the 
+// actual processing (encryption or decryption) is done implicitly in this function
 void CAestoolDlg::OnOK() 
 {
 	UpdateData(TRUE);
@@ -423,9 +433,9 @@ void CAestoolDlg::OnHelp()
 	dia.DoModal();
 }
 
-void CAestoolDlg::EnDisableOK()
+void CAestoolDlg::updateEncryptDecryptButtons()
 {
-	// we enable the encrypt button only if...
+	// we enable the encrypt/decrypt buttons only if...
 	//  a) we're in HEX mode and m_CHEditKey is not empty, AND m_SrcInfo exists
 	//  b) we're in ASCII mode and m_EditKey is not empty, AND m_SrcInfo exists
 	bool enable = false;
@@ -441,8 +451,21 @@ void CAestoolDlg::EnDisableOK()
 			enable = true;
 		}
 	}
-	// enable or disable the encrypt button
-	m_CButtonOK.EnableWindow(enable);
+	// enable/disable the encrypt/decrypt buttons
+	if(enable) {
+		if(m_SrcInfo.isEncrypted()) {
+			m_CButtonEncrypt.EnableWindow(false);
+			m_CButtonDecrypt.EnableWindow(true);
+		}
+		else {
+			m_CButtonEncrypt.EnableWindow(true);
+			m_CButtonDecrypt.EnableWindow(false);
+		}
+	}
+	else {
+		m_CButtonEncrypt.EnableWindow(false);
+		m_CButtonDecrypt.EnableWindow(false);
+	}
 }
 
 void CAestoolDlg::EnDisableCheckSecurelyDeleteSourceFileAfterEncryption()
@@ -480,16 +503,13 @@ void CAestoolDlg::OnChangeSrc()	// wird aufgerufen, wenn der Benutzer die Quelld
 	case SrcInfo::NOMEM:
 		AfxMessageBox(IDS_STRING_NOMEMORY,MB_OK);
 		break;
-	}			
+	}
+
+	// update encrypt/decrypt buttons depending on internal state
+	updateEncryptDecryptButtons();
+	
 	bool encrypted = m_SrcInfo.isEncrypted();
-	// enable/disable ok button
-	EnDisableOK();
-	// update descriptive text at the top of the dialog box
-	text.Format(encrypted ? IDS_STRING_DECRYPT : IDS_STRING_ENCRYPT);
-	m_CStaticTitle.SetWindowText(text);
-	// change text of ok button
-	text.Format(encrypted ? IDS_STRING_ENTSCHLUESSELN : IDS_STRING_VERSCHLUESSELN);
-	m_CButtonOK.SetWindowText(text);
+
 	// enable/disable direction radio buttons
 	m_CRadioExe.EnableWindow(!encrypted);
 	m_CRadioAes.EnableWindow(!encrypted);
@@ -551,8 +571,8 @@ void CAestoolDlg::OnCheckEnterPasswordAsHex()
 		m_CHEditKey.SetFocus();
 	}
 	
-	// make sure the encrypt button is updated
-	EnDisableOK();
+	// make sure the encrypt/decrypt buttons are updated
+	updateEncryptDecryptButtons();
 }
 
 CString CAestoolDlg::defaultDstName(SrcInfo *si, InfoBlock *ib,bool selfextracting /* = true*/)
@@ -620,6 +640,10 @@ void CAestoolDlg::securelyDeleteSourceFile()
 		file.Close();
 		// don't forget to actually remove the file
 		CFile::Remove(m_SrcInfo.getName());
+		// and last but not least, clear the m_SrcInfo field and set focus to search source button
+		m_CEditSrc.SetWindowText("");
+		OnChangeSrc();
+		m_CButtonSrc.SetFocus();
 	}
 	else {
 		CString message;
