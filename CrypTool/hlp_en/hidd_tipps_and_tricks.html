@@ -2,7 +2,7 @@
 <HTML>
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>An Introduction to CrypTool</TITLE>
+<TITLE>An Introduction to CrypTool 1</TITLE>
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 <script language="JScript" src="helper.js"></script>
 </HEAD>
@@ -23,14 +23,15 @@
 <BODY>
 
 
-<h3>Starting page: An Introduction to CrypTool</h3>
+<h3>Starting page: An Introduction to CrypTool 1</h3>
 
-<P>CrypTool is a comprehensive, free e-learning program about cryptography and cryptanalysis (<a href="crypto_methods.html">cryptology</a>). The relationship of the topics cryptology, IT security and risk management is described <a href="cryptology.html">here</a>.</P>
+<P>This is the starting page of the online help for "CrypTool 1". Within this online help, from now on it is just called "CrypTool".</P>
 
-<P>You can access the starting page of CrypTool via the menu entry <a href="menu_help.html">Help</a> \ <a href="hidd_tipps_and_tricks.html">Starting Page</a>.
-<br>This starting page is part of an extensive online help.</P>
+<P><A href="cryptool.html">CrypTool</A> is a comprehensive, free e-learning program about cryptography and cryptanalysis (<a href="crypto_methods.html">cryptology</a>). The relationship of the topics cryptology, IT security and risk management is described <a href="cryptology.html">here</a>.</P>
 
-<P>In the following, when talking about "CrypTool", we always refer to the version family CT 1.x.
+<P>You can access the starting page of CrypTool via the menu entry <a href="menu_help.html">Help</a> \ <a href="hidd_tipps_and_tricks.html">Starting Page</a>.</P>
+
+<P>In the following, when talking about "CrypTool", we always refer to the version family CT1.
 <br>You can find further information about the future program versions CT2 and JCT under 
 <a href="#FutureVersions">Future Versions CT2 and JCT</a>.</P>
 
@@ -76,11 +77,12 @@ Help is available for
 
 <br><P><B><a name="whatiscryptool">What is CrypTool?</a></B></P>
 
-<P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> is a <B>freeware</B> and <B>open source</B> program which enables you to apply and analyse cryptographic mechanisms. It has the typical look-and-feel of a modern Windows application.</P>
+<P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> is a <B>freeware</B> and <B>open source</B> program which enables you to apply and analyze cryptographic mechanisms. It has the typical look-and-feel of Windows applications.</P>
 
 <P>CrypTool contains exhaustive <A href="main_index.html">online help</A>, which can be understood without extensive knowledge of cryptography.</p>
 
-<p>CrypTool has been continously developed since 1998. It is available in <B>English</B>, <B>German</B>, <B>Polish</B>, <B>Serbian</B> and <B>Spanish</B>. CrypTool has implemented almost all state-of-the-art crypto functions and allows you to learn about and use <B>cryptography</B> within the same environment.</P>
+<p>CrypTool has been continously developed since 1998. It is available in <B>English</B>, <B>German</B>, <B>Polish</B>, <B>Serbian</B> and <B>Spanish</B>. Versions in <B>Greek</B> und <B>Russian</B> are currently under construction.
+CrypTool has implemented almost all state-of-the-art crypto functions and allows you to learn about and use <B>cryptography</B> within the same environment.</P>
 
 <P>The methods available include both classic methods and modern cryptosystems:</P>
 
@@ -92,7 +94,7 @@ Help is available for
 
 <P>A summary of all the <!--ZZZPOPUP--><A href="verschluesselung.html"><B>encryption algorithms</B></A> implemented in CrypTool is available in the online help page for the <A href="menu_crypt.html">Encrypt/Decrypt</A> menu.</P>
 
-<p>Both, the included <a class="filelink" onclick="parser('CrypToolPresentation-en.pdf')">CrypTool presentation</a> as well as the <a href="http://www.cryptool.com" target="_blank">CrypTool web site</a>, contain many <B>screen shots</B>.</p>
+<p>Both, the included <a class="filelink" onclick="parser('CrypToolPresentation-en.pdf')">CrypTool presentation</a> as well as the <a href="http://www.cryptool.org" target="_blank">CrypTool web site</a>, contain many <B>screen shots</B>.</p>
 
 
 <p>If you encrypt a document the result will be shown in a new sub-window: The title of the resulting window contains both the name of the original document and the encryption key used. The usage of keys is supported by two special icons: Clicking the icon "Show key" <img
@@ -144,6 +146,7 @@ For example:</P>
 <P>The RSA cryptosystem (see menu <A href="menu_related_methods.html">Indiv. Procedures</A> \ <A href="menu_individualprocedures_rsacryptosystem.html">RSA Cryptosystem</A> \ <A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">RSA demonstration</A>) is covered comprehensively and implemented for different codings. The RSA key can be generated from prime numbers selected by the user. Key generation, encryption and decryption can be followed step-by-step.</P>
 
 <P>Factorization of numbers is also an important application for cryptography. Simple RSA cryptosystems can be easily cracked using the factorization algorithms presented in CrypTool. Thus, you get an idea of the minimum length of keys necessary for secure systems.</P>
+<P>Remark: The factorization algorithms implemented in CT2 are faster than the ones in CT1 -- one reason is that in CT2 all cores of the CPU are used for parallel threads.</P>
 
 
 
@@ -196,7 +199,7 @@ factors and to make use of prime numbers.</p>
 
 
 
-<br><p><P><B><a name="onlinehelp">Online Help, Documentation and Tutorials</a></B></P>
+<br><p><P><B><a name="onlinehelp">Online Help, Documentation, Tutorials and Crypto Challenges</a></B></P>
 
 <P>During the development of CrypTool, much care has been taken to ensure that context sensitive help is available at any point by pressing the <B>F1</B> key. You can get a fast overview, if you open a file and move through the menu items: Just click <b>F1</b> to see details about any menu item.</P>
 
@@ -239,11 +242,15 @@ Additionally the appendix contains a list of movies and novels where cryptograph
 
 </UL>
 
-<P>In addition to the tutorials and the online help you can call from within CrypTool an 
-Authorware computer based training about elementary number theory.</P>
+<P>In addition to the tutorials and the online help you can call from within
+CrypTool an Authorware computer based training about elementary number theory.</P>
 
-<P>Also, a couple of encrypted files are attached to CrypTool. Klaus Schmeh compiled most of these 
-<a href="cryptochallenges.html">Crypto Puzzles</a> and illustrated them in his book.</P>
+
+<P>Also, a couple of encrypted files are attached to CrypTool (Klaus Schmeh
+compiled most of these <a href="cryptochallenges.html">Crypto Puzzles</a>
+and illustrated them in his book).<br>
+Many more cryptographic challenges can be found at
+<a href="http://www.mysterytwisterc3.org" target="_blank">MysteryTwister C3</a>.</P>
 
 
 
@@ -257,11 +264,9 @@ Authorware computer based training about elementary number theory.</P>
 
 <P>The <!--ZZZPOPUP--><A href="hashfunktion.html">hash functions</A>, the modern symmetric and the asymmetric encryption algorithms and the key management functions are based on the Secude toolkit developed by <!--ZZZPOPUP--><A href="secude.html">Secude IT Security Ltd</A>.</P>
 
-<p>The enclosed Secude library does not support smart cards. If you have a Secude library license you will be able to use smart cards, too.</p>
-
 <p>The ECC-AES hybrid encryption makes use of the cv act library by cv cryptovision GmbH (<a href="http://www.cryptovision.com/" target="_blank">http://www.cryptovision.com/</a>).</p>
 
-<P>In order to demonstrate the RSA cryptosystem and to factorise integers CrypTool uses the long integer arithmetic of the Miracl library from Shamus Software Ltd. (<a href="http://indigo.ie/~mscott/" target="_blank">http://indigo.ie/~mscott/</a>). </P>
+<P>In order to demonstrate the RSA cryptosystem and to factorise integers CrypTool uses the long integer arithmetic of the Miracl library from DCU/CertiVox (former Shamus Software) (<a href="http://www.compapp.dcu.ie/~mike/shamus.html" target="_blank">http://www.compapp.dcu.ie/~mike/shamus.html</a>). </P>
 
 <P>Fast calculation of huge Mersenne primes is done with the APFLOAT library of Mikko Tommila
 (<a href="http://www.apfloat.org/apfloat" target="_blank">http://www.apfloat.org/apfloat</a>).</P>
@@ -278,14 +283,15 @@ Authorware computer based training about elementary number theory.</P>
 
 <br><P><A NAME="FutureVersions"></A><b>Future Versions CT2 and JCT</b></P>
 
-<p>Information about the future roadmap can be found on the <a href="www.cryptool.org" target="_blank">CrypTool web site</a>, within the <a class="filelink" onclick="parser('readme-en.txt')">Readme file</a> and in the <A class="filelink" onclick="parser('CrypToolPresentation-en.pdf')">CrypTool presentation</a>. There the successor projects CT2 and JCT are introduced too.
-</P>
+<p>Information about the future roadmap can be found on the <a href="http://www.cryptool.org" target="_blank">CrypTool web site</a>, within the <a class="filelink" onclick="parser('readme-en.txt')">Readme file</a> and in the <A class="filelink" onclick="parser('CrypToolPresentation-en.pdf')">CrypTool presentation</a>. There, the successor projects CT2 and JCT are introduced too.</P>
 
-<p>The successor versions of CT1 are:
+<p>The successor versions of CT1 are CT2 and JCT. Both are already stable programs:
 <ul>
-<li><a href="http://www.cryptool2.vs.uni-due.de" target="_blank">CT2</a>: CrypTool 2 is developed for the .NET platform using C#, WPF and VisualStudio. CT2 is based on a modern plugin software architecture and offers visual programming to the user. </li>
-<li><a href="http://jcryptool.sourceforge.net/JCrypTool/" target="_blank">JCT</a>: Java-CrypTool is developed for the platforms Windows, MAC and Linux using Java, SWT and Eclipse. JCT is also based on a modern plugin software architecture and offers document and function centric perspectives.</li>
+	<li><a href="http://www.cryptool.org/en/ct2-documentation-en" target="_blank">CT2</a>: CrypTool 2 is developed for the .NET platform using C#, WPF and VisualStudio. CT2 is based on a modern plugin software architecture and offers visual programming to the user.</li>
+<br>
+<li><a href="http://www.cryptool.org/en/jct-volunteer-en" target="_blank">JCT</a>: Java-CrypTool is developed for the platforms Windows, MAC and Linux using Java, SWT and Eclipse. JCT is also based on a modern plugin software architecture and offers document and function centric perspectives.</li>
 </ul></p>
+<P>A summary of all the <B>encryption algorithms</B> implemented in all CT variants is available at the <a href="http://www.cryptool.org/en/ctp-documentation-en/ctp-functions-en" target="_blank">CrypTool Portal</a>.</P>
 
 
 <br><P><A NAME="licence_terms"></A><B>Terms of the License / Non-Liability / Copyright</B></P>
