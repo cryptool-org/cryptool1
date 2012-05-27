@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 for Win32, April 2012 (Beta 04)
+    CrypTool, Version 1.4.31 for Win32, May 2012 (Beta 04)
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main, and the
@@ -214,7 +214,8 @@ Main part of the CrypTool 1 package is the program CrypTool 1 itself:
 
 - Most of the cryptographic basic algorithms used are taken from:
   - the Secude library (http://www.secude.com/),
-  - the Miracl library of Shamus Software Ltd (http://indigo.ie/~mscott/),
+  - the Miracl library from DCU/CertiVox (former Shamus Software)
+        (http://www.compapp.dcu.ie/~mike/shamus.html),
   - the OpenSSL library (http://www.openssl.org/),
   - the NTL number theory library of Victor Shoup
         (http://www.shoup.net/ntl/),
@@ -1161,7 +1162,7 @@ a) Developer-relevant changes (more technically oriented):
   - cv act library v. 1.4.6 ?????????????
   - OpenSSL 1.0.0e  (oder f ?????????????)
   - MPIR 1.3.1 (derived from GMP version 4.2.1) instead of GMP 4.1
-      ???????   2.5.0 (5th January 2012 )
+      ???????   2.5.1
   - Miracl 4.4.3  -->  5.5.4
   - NTL 5.4  -->  5.5.2 (2009.08.14)
 
@@ -1386,8 +1387,7 @@ program (setup).
      --------------------------------------
 - In order to demonstrate the RSA cryptosystem and to factorize
   integers CrypTool uses the long integer arithmetic of the Miracl
-  library from Shamus Software Ltd. We restricted the integer bit
-  length up to 8192.
+  library. We restricted the integer bit length up to 8192.
 
 - From binary files "only" the first almost 2 GB can be loaded into
   the hex editor (< 0x7ffff000 = 2.147.479.552 Bytes).
