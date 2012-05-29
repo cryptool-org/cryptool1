@@ -15,31 +15,38 @@
 
 <BODY>
 
-<h3>Was ist PGP?</h3>
+<h3>Was ist PGP, OpenPGP, GnuPG, Gpg4win, ... ?</h3>
 
-<P>PGP steht für "Pretty Good Privacy" (übersetzt etwa "ziemlich gute Privatsphäre") und ist der de-facto 
-Standard im privaten Bereich. Das Software-Packet wurde ursprünglich von Phil Zimmermann entwickelt und 
-liefert starke Verschlüsselung und digitale Signaturen für elektronische Nachrichten (E-Mails) und Dateien 
-aller Art. Die erste Version fand bereits am 5. Juni 1991 ihren Weg in verschiedene Mailboxen und wurde zum 
+<P>PGP steht für "Pretty Good Privacy" (übersetzt etwa "ziemlich gute Privatsphäre")
+und ist als OpenPGP der de-facto Standard im privaten Bereich.
+Das Software-Packet PGP wurde ursprünglich von Phil Zimmermann entwickelt und 
+liefert starke Verschlüsselung und digitale Signaturen für elektronische
+Nachrichten (E-Mails) und für Dateien aller Art. Die erste Version fand bereits
+am 5. Juni 1991 ihren Weg in verschiedene Mailboxen und wurde zum 
 Klassiker, da sie auch für die Freiheit privater Kommunikation stand.</P>
+
+<P>Im Folgenden werden kurz die (wechselvolle) Geschichte von PGP und die
+aktuellen Open-Source-Produkte dazu erläutert.</P>
 
 <P><B><U>Stand Juni 2002</U></B>:</P>
 
 <P><b>a)</b> Die Firma NAI hatte PGP gekauft und eine Windows-Version entwickelt.
 PGP war nun ein kommerzielles Produkt und kein Open-Source-Produkt mehr.
-Mit der Client-Version Version 7.03 stellte NAI die Entwicklung und 
-den Support ein. NAI hatte bis dahin für PGP weder einen Käufer gefunden noch wollte sie ihre PGP-Version zu 
-Open-Source machen. Phil Zimmermann selbst sagte, nun befinde sich PGP für
-niemanden mehr zugänglich in einem "Gefängnis des geistigen Eigentums".
-<br><br>Da mit Version 2.6.3 die Sourcen zum letzten Mal offen lagen, 
+Mit der Client-Version Version 7.03 stellte NAI die Entwicklung und den Support
+ein. NAI hatte bis dahin für PGP weder einen Käufer gefunden noch wollte sie
+ihre PGP-Version zu Open-Source machen. Phil Zimmermann selbst sagte, nun
+befinde sich PGP für niemanden mehr zugänglich in einem "Gefängnis des
+geistigen Eigentums".</P>
+
+</P><b>b)</b> Da mit Version 2.6.3 die Sourcen zum letzten Mal offen lagen, 
 bildete sich in der Open-Source-Szene das Projekt GPG = <B>GnuPG</B> (GNU privacy guard).
 Dieses Projekt entwickelte ein Open-Source-Programm, das wie PGP den inzwischen
-entstandenen OpenPGP-Standard (RFC 2440) 
-implementiert und dadurch kompatibel zu PGP ist. Version 1.0 von GnuPG wurde bereits 1999 veröffentlicht und 
+entstandenen <B>OpenPG</B>-Standard (RFC 2440) implementiert und dadurch kompatibel zu PGP ist.
+Version 1.0 von GnuPG wurde bereits 1999 veröffentlicht und 
 bildet die Basis anderer Open-Source PGP-Pakete.
 <br>URL: <a href="http://www.gnupg.org/" target="_blank">www.gnupg.org</a></P>
 
-<P><b>b)</b> Das Kommandozeilen-orientierte GnuPG-Projekt 
+<P><b>c)</b> Das Kommandozeilen-orientierte GnuPG-Projekt 
 (<a href="http://www.gnupp.de/" target="_blank">www.gnupp.de</a>) wird von der
 deutschen Regierung [Bundesministerium für Wirtschaft und Arbeit (BMWA) und
 Bundesministerium für Inneres (BMI)] gefördert – mit dem Ziel, ein Paket
@@ -52,60 +59,72 @@ Windows, durch eine grafische Benutzeroberfläche und Plug-ins erhöht.</P>
 <P><b>a)</b> PGP wurde von der neuen Firma PGP Corporation, an der auch Phil Zimmermann beteiligt ist, 
 zurückgekauft. PGP 8.0 ist in einer englischen Fassung für Windows (incl. Windows XP) und Macintosh 
 freigegeben (deutsche Anleitungen finden sich z.B. unter <a href="http://www.helmbold.de/pgp" target="_blank">www.helmbold.de/pgp</a>). 
-Für die nicht-kommerzielle Nutzung gibt es eine Freeware-Fassung und die Sourcen sind auch wieder veröffentlicht. Wie Phil Zimmermann 
-in einem Vortrag am 30.1.2003 sagte, wird PGP – solange er das zu entscheiden habe – immer auch zeitgleich 
-als Quelltext vorliegen und keinerlei "Hintertüren" enthalten.<br>
+Für die nicht-kommerzielle Nutzung gibt es eine Freeware-Fassung und die
+Sourcen sind auch wieder veröffentlicht. Wie Phil Zimmermann in einem Vortrag
+am 30.1.2003 sagte, wird PGP – solange er das zu entscheiden habe – immer
+auch zeitgleich als Quelltext vorliegen und keinerlei "Hintertüren" enthalten.<br>
 URL: <a href="http://www.pgp.com/" target="_blank">www.pgp.com</a></P>
 
-<P><b>b)</b> Von dem Open-Source-Paket GnuPP gibt es inzwischen Version 1.1 – ebenfalls für alle 
-Windows-Versionen incl. Windows XP. Es basiert auf GnuPG 1.06 (das Basissystem GnuPG ist inzwischen bei 
-Version 1.2.1 angelangt und liegt auch für Linux vor).<br>Das Verschlüsselungspaket GnuPP kann direkt Dateien, 
-E-Mails, die Zwischenablage oder den Inhalt des aktiven Fensters verschlüsseln.<br>GnuPP kann sowohl privat 
-als auch kommerziell als Freeware genutzt werden. Die Software kommt mit deutscher und englischer Oberfläche 
-und hat zwei Anleitungen: eine für Einsteiger und eine für Fortgeschrittene. Der Assistent GPA zum Erstellen und 
-Verwalten von Schlüsseln ist besonders für Kryptographie-Unerfahrene sehr hilfreich.<br>Ebenso wie PGP 8.0 
-liefert GnuPP 1.1 passende Plug-ins für Mailprogramme (z.B. für Outlook, The Bat, Eudora und Pegasus).</P>
+<P><b>b)</b> Von dem Open-Source-Paket GnuPP gibt es inzwischen Version 1.1 – 
+ebenfalls für alle Windows-Versionen incl. Windows XP. Es basiert auf
+GnuPG 1.06 (das Basissystem GnuPG ist inzwischen bei Version 1.2.1 angelangt
+und liegt auch für Linux vor).
+<br>Das Verschlüsselungspaket GnuPP kann Dateien, E-Mails, die Zwischenablage
+oder den Inhalt des aktiven Fensters verschlüsseln.
+<br>GnuPP kann sowohl privat als auch kommerziell als Freeware genutzt werden.
+Die Software kommt mit deutscher und englischer Oberfläche und hat zwei
+Anleitungen: eine für Einsteiger und eine für Fortgeschrittene.
+Der Assistent GPA zum Erstellen und Verwalten von Schlüsseln ist besonders für
+Kryptographie-Unerfahrene sehr hilfreich.
+<br>Ebenso wie PGP 8.0 liefert GnuPP 1.1 passende Plug-ins für Mailprogramme
+(z.B. für Outlook, The Bat, Eudora und Pegasus).</P>
 
-<P><B>Bemerkung</B>:</P>
-
-<P>Die GnuPP-Initiative zur Entwicklung einer freien grafischen Oberfläche und eines Installers ist nicht 
+<P><B>Bemerkung</B>:
+<br>Die GnuPP-Initiative zur Entwicklung einer freien grafischen Oberfläche und eines Installers ist nicht 
 mehr aktiv. Die letzte Aktualisierung ist auf September 2003 datiert.</P>
 
 
-<P><B><U>Stand Juli 2010</U></B>:</P>
+<P><B><U>Stand Juni 2012</U></B>:</P>
 
 <P><b>a)</b> Seit 2005 ist die Version 9.0 von PGP Desktop verfügbar. Diese Version ermöglicht u.a. die 
 Verschlüsselung von Instant Messaging (AOL) und unterstützt die Authentisierung über Smartcards.
 Anschließend diversifizierte PGP Corporation ihre Produktpalette weiter (u.a. PGP Whole Disk Encryption
 oder PGP Support Package for BlackBerry) und bildete die so genannte PGP Encryption Platform.<br>
 
-In einem offiziellen Brief an 
-die PGP Community bekräftigt der CEO, Philip Dunkelberger, seine Einstellung, von PGP auch weiterhin die 
-Sourcen öffentlich zur Verfügung zu stellen. Dieses Angebot diene einerseits dazu, ein Code Review zu 
-ermöglichen, und andererseits um das Vertrauen der Kunden zu sichern.<br>
+In einem offiziellen Brief an die PGP Community bekräftigt der CEO, Philip
+Dunkelberger, seine Einstellung, von PGP auch weiterhin die Sourcen öffentlich
+zur Verfügung zu stellen. Dieses Angebot diene einerseits dazu, ein Code Review
+zu ermöglichen, und andererseits um das Vertrauen der Kunden zu sichern.<br>
 
-Allerdings beziehen sich die Sourcen 
-primär auf das Produkt PGP Desktop, wobei selbst dafür die Build-Tools nicht zum Umfang des Pakets gehören. 
-Letztere sind nur gegen Gebühr über PGP Professional Services erhältlich. PGP spricht im Hinblick auf die 
-verfügbaren Sourcen von monatlich mehr als 3.000 Downloads.<br>
+Allerdings beziehen sich die Sourcen primär auf das Produkt PGP Desktop, wobei
+selbst dafür die Build-Tools nicht zum Umfang des Pakets gehören. Letztere sind
+nur gegen Gebühr über PGP Professional Services erhältlich. PGP spricht im
+Hinblick auf die verfügbaren Sourcen von monatlich mehr als 3.000 Downloads.<br>
 
-Im Technical Advisory Board von PGP finden sich 
-z.Zt. neben dem Gründer Phil Zimmermann u.a. auch Bruce Schneier und Dr. Crispin Cowan. Inzwischen gibt es 
+Im Technical Advisory Board von PGP finden sich neben dem Gründer Phil
+Zimmermann u.a. auch Bruce Schneier und Dr. Crispin Cowan. Inzwischen gibt es 
 freie Versionen mit einem ähnlichen Funktionsumfang wie das ursprüngliche PGP.</P>
 
-<P><b>b)</b> Das Projekt <B>GnuPG</B> (<a href="http://www.gnupg.org" target="_blank">www.gnupg.org</a>)
-entwickelt 
-seit 1997 die freie Basis-Software (das eigentliche Signier- und Verschlüsselungsprogramm) als 
-Kommandozeilenprogramm für verschiedenste Betriebssysteme. Das GnuPG-Projekt ist sehr aktiv und 
-veröffentlicht kontinuierlich neue Versionen: Seit Juli 2010 stehen die GnuPG-Versionen 1.4.10 
-und 2.0.16 zur Verfügung. <a href="http://de.wikipedia.org/wiki/Gnupg" target="_blank">Hier</a> finden 
-Sie weitere Informationen zu GnuPG.</P>
+
+<br>
+<P><b>b)</b> Das Projekt
+<B>GnuPG</B> (<a href="http://www.gnupg.org" target="_blank">www.gnupg.org</a>)
+entwickelt seit 1997 die freie Basis-Software (das eigentliche Signier- und
+Verschlüsselungsprogramm) als Kommandozeilenprogramm für verschiedenste
+Betriebssysteme.
+<br>Das GnuPG-Projekt ist sehr aktiv und veröffentlicht kontinuierlich neue
+Versionen: Seit März 2012 stehen die GnuPG-Versionen 1.4.12 und 2.0.19
+zur Verfügung.
+<br><a href="http://de.wikipedia.org/wiki/Gnupg" target="_blank">Hier</a>
+finden Sie weitere Informationen zu GnuPG.</P>
 
 
-<P><b>c)</b> Seit längerem sind zwei Open-Source-Projekte aktiv, die
-GnuPG als Basis nutzen und das gesamte Paket von GnuPG in 
-grafische Frontends integrieren. Zudem bieten sie Installationspakete
-für Windows (und ersetzen damit GnuPP):</P>
+<br>
+<P><b>c)</b> Die folgenden zwei Open-Source-Projekte sind kontinuierlich aktiv,
+und integrieren das gesamte Paket von GnuPG in grafische Frontends.
+Zudem bieten sie Installationspakete für Windows (somit ersetzen sie komplett
+GnuPP und sind ein valider Ersatz für die entsprechende kommerzielle
+PGP-Software.):</P>
 
 <UL>
 	<li><B>Gpg4win</B>:<br>
@@ -115,10 +134,9 @@ für Windows (und ersetzen damit GnuPP):</P>
        	Dateiverschlüsselung und zum Schlüsselmanagement.<br>
        	Es ist verfügbar in deutsch und englisch.<br>
 	Umfangreiche Handbücher auch für Einsteiger sind beigelegt.<br>
-	Aktuelle Version: 2.0.4 (Juli 2010).<br>
+	Aktuelle Version: 2.1.0 (März 2012).<br>
 	<a href="http://www.gpg4win.org" target="_blank">www.gpg4win.org</a>
-        (unterstützt vom BSI)
-
+        (ausgereiftes und stabiles Projekt, unterstützt vom BSI)
      <UL>
 	<LI>Mit dem darin enthaltenen Programm <u>Kleopatra</u> lassen sich
        	sowohl X509-Zertifikate als auch PGP-Schlüssel verwalten.</LI>
@@ -141,7 +159,7 @@ für Windows (und ersetzen damit GnuPP):</P>
 	Es ist verfügbar in deutsch und englisch.<br>
 	Dieses Paket existiert seit 2003 und wird sehr regelmäßig
         aktualisiert.<br>
-	Aktuelle Version: 10.6.4 (Juli 2010).<br>
+	Aktuelle Version: 12.5.3 (Mai 2012).<br>
 	<a href="http://home.arcor.de/rose-indorf/" target="_blank">http://home.arcor.de/rose-indorf/</a>
 	</li>
 </UL>
@@ -149,11 +167,29 @@ für Windows (und ersetzen damit GnuPP):</P>
 
 <P><b>d)</b> Das Projekt <B>Enigmail</B>
 (<a href="http://enigmail.mozdev.org" target="_blank">http://enigmail.mozdev.org</a>)
-bietet ein breit genutztes Plugin für den Mail-Client Thunderbird an.
+bietet ein breit genutztes Plugin für den Mail-Client
+<a href="http://www.mozilla.com/thunderbird" target="_blank">Thunderbird</a> an.
 Damit kann man sichere E-Mail sowohl nach dem S/MIME- als auch nach dem
 OpenPGP-Standard umsetzen (verschlüsseln und signieren von E-Mails).<br>
 Für die Open-PGP-Variante wird ebenfalls GnuPG benutzt.
-<br>Aktuelle Version: Enigmail v1.1.2 (Juni 2010) für Thunderbird 3.1.</P>
+<br>Aktuelle Version: Enigmail v1.4.2 (April 2012) für Thunderbird 12.0.x.</P>
+
+
+<P><b>d)</b> Das neue und noch unvollständige Projekt <B>GPG4Browsers</B>
+(<a href="http://gpg4browsers.recurity.com/" target="_blank">http://gpg4browsers.recurity.com/</a>)
+hat im November 2011 begonnen, das OpenPGP Message Format in JavaScript zu implementieren.
+Es ist derzeit als Chrome Extension verfügbar und integriert sich in Googlemail.
+Unterstützte Funktionen sind Ver- und Entschlüsselung, Signierung und
+Verifizierung von Signaturen und der Import und Export von Zertifikaten.
+<br>Aktuelle Version: GPG4Browsers-v0.1.zip (Mai 2012).</P>
+
+
+<br>
+</P>
+<B>Weitere Links:</B>
+<br><a href="http://de.wikipedia.org/wiki/Pretty_Good_Privacy" target="_blank">http://de.wikipedia.org/wiki/Pretty_Good_Privacy</a></P>
+
+
 
 </BODY>
 </HTML>
