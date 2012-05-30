@@ -2745,6 +2745,7 @@ cmd /c copy /y "%(RootDir)%(Directory)ticket" "$(OutDir)"
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release_rs|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release_rs|Win32'">true</BrowseInformation>
     </ClCompile>
+    <ClCompile Include="CrypToolPRNG.cpp" />
     <ClCompile Include="CrypToolTools.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug_de|Win32'">Disabled</Optimization>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug_de|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -3311,6 +3312,7 @@ cmd /c copy /y "%(RootDir)%(Directory)ticket" "$(OutDir)"
     <ClCompile Include="DlgCrtSecretSharing_Log.cpp" />
     <ClCompile Include="DlgCrtSecretSharingOptions.cpp" />
     <ClCompile Include="DlgCrtTransformation.cpp" />
+    <ClCompile Include="DlgCrypToolPRNGSeedCollector.cpp" />
     <ClCompile Include="DlgDemoRSAKeyGeneration.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug_de|Win32'">Disabled</Optimization>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug_de|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -10012,6 +10014,7 @@ cmd /c copy /y "%(RootDir)%(Directory)ticket" "$(OutDir)"
     <ClInclude Include="CryptDocTemplate.h" />
     <ClInclude Include="Cryptography.h" />
     <ClInclude Include="CrypToolApp.h" />
+    <ClInclude Include="CrypToolPRNG.h" />
     <ClInclude Include="CrypToolTools.h" />
     <ClInclude Include="CrypToolView.h" />
     <ClInclude Include="CrypToolVolRen.h" />
@@ -10046,6 +10049,7 @@ cmd /c copy /y "%(RootDir)%(Directory)ticket" "$(OutDir)"
     <ClInclude Include="DlgCrtSecretSharing_Log.h" />
     <ClInclude Include="DlgCrtSecretSharingOptions.h" />
     <ClInclude Include="DlgCrtTransformation.h" />
+    <ClInclude Include="DlgCrypToolPRNGSeedCollector.h" />
     <ClInclude Include="DlgDemoRSAKeyGeneration.h" />
     <ClInclude Include="DlgDiffieHellmanCreateSharedKey.h" />
     <ClInclude Include="DlgDiffieHellmanExchangeSharedKeys.h" />
