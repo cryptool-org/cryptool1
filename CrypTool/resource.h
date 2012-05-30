@@ -170,6 +170,7 @@
 #define IDD_ADFGVX                      346
 #define IDD_ADFGVX_MANUAL               347
 #define IDD_ABOUT                       512
+#define IDD_CRYPTOOL_PRNG_SEED_COLLECTOR 513
 #define IDD_KEYASYM_GENERATION          515
 #define IDD_CAESAR_ANALYSIS             516
 #define IDD_HYBRID_DECRYPTION_DEMO      517
@@ -1707,6 +1708,7 @@
 #define IDC_BUTTON_PRIME_TEST           2097
 #define IDC_QUALITY_CRYPTOOL_COMMENT    2098
 #define IDC_EDIT_MODUL                  2099
+#define IDC_PROGRESS_BAR                2100
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -3361,7 +3363,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        885
 #define _APS_NEXT_COMMAND_VALUE         33396
-#define _APS_NEXT_CONTROL_VALUE         2100
+#define _APS_NEXT_CONTROL_VALUE         2101
 #define _APS_NEXT_SYMED_VALUE           114
 #endif
 #endif
