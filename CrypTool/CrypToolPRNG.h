@@ -23,10 +23,6 @@
 
 #include <stdafx.h>
 
-#if _MSC_VER <= 1500
-#include "..\libec\include\s_prng.h"
-#endif
-
 extern "C" {
 	// flomar, May 2012: Secude hack for VS2010
 	int CrypToolPRNG_GetRandomBit();
