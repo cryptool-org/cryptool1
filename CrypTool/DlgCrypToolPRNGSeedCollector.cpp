@@ -31,15 +31,17 @@ CDlgCrypToolPRNGSeedCollector::CDlgCrypToolPRNGSeedCollector(CWnd* pParent) :
 	CDialog(CDlgCrypToolPRNGSeedCollector::IDD, pParent),
 	seed(0),
 	numberOfEventsProcessed(0),
-	numberOfEventsNeeded(100)
+	numberOfEventsNeeded(256)
 {
-	
+	// initialize the bitmap
+	bitmapDiceImage.LoadBitmapA(IDB_DICE_IMAGE);
 }
 
 void CDlgCrypToolPRNGSeedCollector::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_PROGRESS_BAR, controlProgressBar);
+	DDX_Control(pDX, IDC_DICE_IMAGE, controlDiceImage);
 }
 
 
@@ -57,6 +59,8 @@ BOOL CDlgCrypToolPRNGSeedCollector::OnInitDialog()
 	// init progress bar
 	controlProgressBar.SetRange(0, numberOfEventsNeeded);
 	controlProgressBar.SetPos(0);
+	// set the dice image
+	controlDiceImage.SetBitmap(bitmapDiceImage);
 	
 	UpdateData(false);
 
@@ -64,29 +68,16 @@ BOOL CDlgCrypToolPRNGSeedCollector::OnInitDialog()
 }
 
 BOOL CDlgCrypToolPRNGSeedCollector::PreTranslateMessage(MSG* pMsg) {
-	if(pMsg->message == WM_KEYDOWN) {
-		// TODO/FIXME: use something more random...
-		seed += (unsigned long)(pMsg->lParam);
-		seed += (unsigned long)(pMsg->wParam);
-		numberOfEventsProcessed++;
-		updateProgressBar();
-		return true;
-	}
-	if(pMsg->message == WM_KEYUP) {
-		// TODO/FIXME: use something more random...
-		seed += (unsigned long)(pMsg->lParam);
-		seed += (unsigned long)(pMsg->wParam);
-		numberOfEventsProcessed++;
-		updateProgressBar();
-		return true;
-	}
-	if(pMsg->message == WM_MOUSEMOVE) {
-		// TODO/FIXME: use something more random...
-		seed += (unsigned long)(pMsg->lParam);
-		seed += (unsigned long)(pMsg->wParam);
-		numberOfEventsProcessed++;
-		updateProgressBar();
-		return true;
+	// react to key presses, key releases, and mouse movement
+	if(	pMsg->message == WM_KEYDOWN ||
+			pMsg->message == WM_KEYUP ||
+			pMsg->message == WM_MOUSEMOVE) {
+				// use message params and clock() to generate some random data
+				seed += (unsigned long)(pMsg->lParam) + (unsigned long)(clock());
+				seed += (unsigned long)(pMsg->wParam) + (unsigned long)(clock());
+				numberOfEventsProcessed++;
+				updateProgressBar();
+				return true;
 	}
 	return CDialog::PreTranslateMessage(pMsg);
 }

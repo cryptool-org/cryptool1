@@ -148,6 +148,7 @@
 #define IDD_PROGRESS_FACTORISATION      260
 #define IDD_SHOW_HASH                   268
 #define IDD_CHANGE_PIN                  270
+#define IDB_DICE_IMAGE                  271
 #define IDD_SIGNATURE_DEMO              275
 #define IDD_DEMO_RSAKEY_GENERATION      276
 #define IDD_CERTIFICATE_GENERATION      277
@@ -1709,6 +1710,7 @@
 #define IDC_QUALITY_CRYPTOOL_COMMENT    2098
 #define IDC_EDIT_MODUL                  2099
 #define IDC_PROGRESS_BAR                2100
+#define IDC_DICE_IMAGE                  2101
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -3363,7 +3365,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        885
 #define _APS_NEXT_COMMAND_VALUE         33396
-#define _APS_NEXT_CONTROL_VALUE         2101
+#define _APS_NEXT_CONTROL_VALUE         2102
 #define _APS_NEXT_SYMED_VALUE           114
 #endif
 #endif

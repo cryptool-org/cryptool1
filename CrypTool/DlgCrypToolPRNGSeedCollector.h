@@ -40,18 +40,25 @@ protected:
 	
 	DECLARE_MESSAGE_MAP()
 
-private:
+protected:
+	// counts how many events we've collected so far
+	int numberOfEventsProcessed;
+	// the minimum amount of events to be collected
+	int numberOfEventsNeeded;
+protected:
 	unsigned long seed;
 public:
 	unsigned long getSeed() { return seed; }
-
 protected:
+	// the control for the progress bar
 	CProgressCtrl controlProgressBar;
-	void updateProgressBar();
-
+	// the control for the dice image
+	CStatic controlDiceImage;
+	// the bitmap for the dice image
+	CBitmap bitmapDiceImage;
 protected:
-	int numberOfEventsProcessed;
-	int numberOfEventsNeeded;
+	// called whenever we've collected an event
+	void updateProgressBar();
 };
 
 #endif
