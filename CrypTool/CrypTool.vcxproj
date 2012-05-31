@@ -2127,6 +2127,7 @@ cmd /c copy /y "%(RootDir)%(Directory)ticket" "$(OutDir)"
     </None>
     <None Include="res\Bitmaps_en\simple_transposition_rail_fence.bmp" />
     <None Include="res\Bitmaps\simple_transposition_rail_fence.bmp" />
+	<None Include="res\Bitmaps\dice.bmp" />
     <None Include="res\Bitmaps_en\simple_transposition_scytale.bmp" />
     <None Include="res\Bitmaps\simple_transposition_scytale.bmp" />
     <None Include="res\splith.cur" />
