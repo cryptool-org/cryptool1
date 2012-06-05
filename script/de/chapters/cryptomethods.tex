@@ -8,7 +8,7 @@
 \chapter{Verschlüsselungsverfahren}
 \label{Label_Kapitel_1}
 (Bernhard Esslinger, Jörg-Cornelius Schneider, Mai 1999; Updates: Dez. 2001, Feb. 2003,
-Juni 2005, Juli 2007, Januar 2010)
+Juni 2005, Juli 2007, Januar 2010, Juni 2012)
 
 \begin{center}
 \fbox{\parbox{15cm}{%
@@ -21,7 +21,6 @@ Lass es mich tun, und ich werde es können.}}
 Dieses Kapitel soll einen eher beschreibenden Einstieg bieten und die
 Grundlagen ohne Verwendung von allzuviel Mathematik vermitteln.
 
-
 Sinn der Verschlüsselung \index{Verschlüsselung} ist es, Daten so zu
 verändern, dass nur ein autorisierter Empfän\-ger in der Lage ist,
 den Klartext zu rekonstruieren. Das hat den Vorteil, dass verschlüsselte
@@ -29,8 +28,28 @@ Daten offen übertragen werden können und trotzdem keine Gefahr besteht,
 dass ein Angreifer die Daten unberechtigterweise lesen kann. Der
 autorisierte Empfänger ist im Besitz einer geheimen Information, des
 sogenannten Schlüssels, die es ihm erlaubt, die Daten zu entschlüsseln,
-während sie jedem anderen verborgen bleiben.\par \vskip + 3pt
+während sie jedem anderen verborgen bleiben.%\par \vskip + 3pt
 
+\begin{sloppypar}
+Einen sehr guten Überblick zu den Verfahren bietet das Buch von Bruce
+Schneier \cite{cm:Schneier1996}. Grundsätz"-lich unterscheidet man zwischen
+symmetrischen und asymmetrischen Verfahren zur Verschlüsse"-lung.
+
+Aber davor soll es ein paar Informationen dazu geben, wie man Sicherheit von
+Krytoalgorithmen definiert.
+\end{sloppypar}
+
+
+
+
+% --------------------------------------------------------------------------
+\section[Sicherheits-Definitionen]{Sicherheits-Definitionen}
+
+
+
+
+
+,,,,
 Es gibt ein beweisbar sicheres Verschlüsselungsverfahren, 
 das \index{One-Time-Pad} {\em One-Time-Pad}. Dieses weist allerdings
 einige praktische Nachteile auf (der verwendete Schlüssel muss zufällig
@@ -43,14 +62,11 @@ zu brechen. Bei guten Verfahren sind diese jedoch so aufwändig, dass sie
 praktisch nicht durchführbar sind und diese Verfahren als (praktisch)
 sicher angesehen werden können.\par \vskip + 3pt
 
-\begin{sloppypar}
-Einen sehr guten Überblick zu den Verfahren bietet das Buch von Bruce
-Schneier \cite{cm:Schneier1996}. Grundsätz"-lich unterscheidet man zwischen
-symmetrischen und asymmetrischen Verfahren zur Verschlüsse"-lung.
-\end{sloppypar}
+
+
 
 % --------------------------------------------------------------------------
-\section[Symmetrische Verschlüsselung]
+\section[Symmetrische Verschlüsselung] % Was zw. [..] steht, kommt ins Inhaltsverzeichnis!
 {Symmetrische Verschlüsselung\footnotemark}
    \footnotetext{% XXX dieses Prozent ist nötig, sonst startet die Fußnote mit einem Blank !
      Mit CrypTool\index{CrypTool} können Sie über das Menü
@@ -112,9 +128,11 @@ Näheres zum AES-Algorithmus und den AES-Kandidaten der letzten Runde finden
 Sie in der CrypTool-Online-Hilfe\index{CrypTool}%
 \footnote{%
       CrypTool-Online-Hilfe\index{CrypTool}: Das Stichwort {\bf AES} im Index
-      führt auf die 3 Hilfeseiten: {\bf AES-Kandidaten}, 
+      führt auf die drei Hilfeseiten: {\bf AES-Kandidaten}, 
       {\bf Der AES-Gewinner Rijndael} und {\bf Der AES-Algorithmus Rijndael}.
   }.
+
+
 
 
 % HACK to fix warning "destination with the same identifier .. has already been used, ...":
@@ -705,6 +723,12 @@ True
        Siehe auch:\\
        \url{http://paper.ijcsns.org/07_book/200707/20070735.pdf}
 
+\bibitem[Menezes2001]{cm:Menezes2001} \index{Menezes 2001}
+    Alfred J. Menezes, Paul C. van Oorschot, Scott A. Vanstone \\
+    {\em Handbook of Applied Cryptography}, 
+    CRC Press 1997, 5th printing 2001,
+    \url{http://www.cacr.math.uwaterloo.ca/hac/} (Errata last update 24.07.2011).
+
 \bibitem[Musa-etal2003]{cm:Musa-etal2003} \index{Musa, Schaefer, Wedig 2003} 
        Mohammad A. Musa, Edward F. Schaefer, Stephen Wedig, \\
        {\em A simplified AES algorithm and its linear and differential cryptanalyses}, \\
@@ -728,7 +752,13 @@ True
        Aegean Park Press 1996; \\
        oder in 12 Lektionen online unter \\
        \url{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}
- 
+
+\bibitem[Oppliger2011]{cm:Oppliger2011} \index{Oppliger 2011}
+       Rolf Oppliger \\
+       {\em Contemporary Cryptography, Second Edition},
+       Artech House, 2011, \\
+       \url{http://books.esecurity.ch/cryptography2e.html}.
+
 \bibitem[Phan2002]{cm:Phan2002} \index{Phan 2002} 
        Raphael Chung-Wei Phan, \\
        {\em Mini Advanced Encryption Standard (Mini-AES): A Testbed for

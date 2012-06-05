@@ -37,7 +37,8 @@ cipher which human ingenuity cannot resolve.}}
 The following chapter provides a broad overview of paper and pencil 
 methods\footnote{%
 The footnotes to this chapter describe how the methods can be
-performed using CrypTool CrypTool 1.
+performed using CrypTool 1 (CT1), CrypTool 2 (CT2) or JCrypTool (JCT).
+\index{CT1} \index{CT2} \index{JCT}
 Additionally the last sub chapter (\ref{PaP_Sage_samples})
 contains example code using the computer algebra system Sage\index{Sage}.
                  }
@@ -876,12 +877,12 @@ Concerning polyalphabetic substitution\index{Substitution!polyalphabetic}, the a
 
 \begin{itemize}
 \item {\bf Vigen\`ere}\footnote{%
-   In CrypTool\index{CrypTool} you can call this method under the menu
+   In CT1\index{CT1} you can call this method under the menu
    {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic) \textbackslash{} Vigen\`ere}.}  
    \cite{pp:Singh1999}\index{Vigen\`ere}: 
    Each plaintext character is encrypted
    with a different ciphertext alphabet that is determined by the characters of
-   a keyword (the so-called Vigen\`ere-Tableau serves auxiliary means).
+   a keyword (the so-called Vigen\`ere tableau serves auxiliary means).
    If the plaintext is longer than the key, the latter is repeated.
 
    See table \ref{Vigenere-table-reference}.
@@ -983,10 +984,31 @@ Concerning polyalphabetic substitution\index{Substitution!polyalphabetic}, the a
 
 \item {\bf Superposition}\index{Superposition}
    \begin{itemize}
-       \item {\bf Book cipher}: A keytext (for example out of a book) is added
+       \item {\bf Running-key cipher}: A keytext (for example out of a book) is added
           to the plaintext.
+
        \item {\bf Superposition with numbers}: A sequence or a number of 
           sufficient length (for example pi) is added.
+
+       \item {\bf One Time Pad (OTP)}\footnote{%
+          CT1\index{CT1} offers this method under the menu
+          {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
+          \textbackslash{} Vernam / OTP}.}\index{One Time Pad}\index{OTP}:
+          A sequence
+          of bytes is XORed byte-by-byte to the plaintext. This is a
+          generalization of Vigen\`ere's mechanism and it was the first
+          information-theoretically secure scheme (see
+          chapter~\ref{cm_Section_Security_Definitions}
+          ``\nameref{cm_Section_Security_Definitions}'').
+          To fulfill this claim the pad must be random and it must be used
+          only once (to eliminate any semblance of pattern from ciphertext).\\
+          Reason: Given ciphertext C, plaintext P, pad K and two plaintexts
+          encrypted with the same key: C1 = P1 + K;  C2 = P2 + K; \\
+          Thus, C1 + C2 = (P1 + K) + (P2 + K) = P1 + P2; \\
+          which effectively could leak the plaintexts\footnote{%
+          In JCT\index{JavaCrypTool}\index{JCT} you can play with an automatic
+          cryptanalysis of running-key ciphertexts using the Viterbi analysis
+          under the menu {\bf Visuals \textbackslash{} Viterbi}.}.
    \end{itemize}
 
 \item {\bf Phillips} \cite{pp:ACA2002}: The alphabet is filled into a square 

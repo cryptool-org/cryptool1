@@ -15,7 +15,7 @@
 \chapter{Encryption Procedures}
 \label{Label_Kapitel_1}
 (Bernhard Esslinger, Joerg-Cornelius Schneider, May 1999; Updates Dec. 2001, Feb. 2003,
-June 2005, July 2007, January 2010)
+June 2005, July 2007, January 2010, June 2012)
 
 \begin{center}
 \fbox{\parbox{15cm}{%
@@ -32,23 +32,103 @@ that only an authorized recipient is able to reconstruct the plaintext. This
 allows us to transmit data without worrying about it getting into unauthorized
 hands. Authorized recipients possess a piece of secret information -- called the
 key -- which allows them to decrypt the data while it remains hidden from
-everyone else.\par \vskip + 3pt
+everyone else.%\par \vskip + 3pt
 
-One encryption procedure has been mathematically proved to be secure, the {\em
-One Time Pad}\index{One Time Pad}. However, this procedure has several
+First we present the ideas how the security of cryptosystems is defined.
+
+
+
+% --------------------------------------------------------------------------
+\hypertarget{cm_Section_Security_Definitions}{}
+\section[Security definitions]{Security definitions}
+\label{cm_Section_Security_Definitions}
+
+Modern cryptography is heavily based on mathematical theory and computer
+science practice. Cryptographic algorithms are designed around computational
+hardness assumptions, making such algorithms hard to break in practice by any
+adversary.
+
+\vskip +3pt
+Depending on the adversary's capabilities there are mainly two basic notations
+of security distinguished in literature
+(see e.g. {\em Contemporary Cryptography} \cite{cm:Oppliger2011}):
+
+\begin{itemize}
+
+\item {\bf Computational, conditional or practical security}\\
+A cipher is computationally secure if it is theoretically possible to break such
+a system but it is infeasible to do so by any known practical means. Theoretical
+advances (e.g., improvements in integer factorization algorithms) and faster
+computing technology require these solutions to be continually adapted. 
+
+Even using the best known algorithm for breaking it will require so much
+resources (e.g., 1,000,000 years) that practically the cryptosystem is secure.
+
+So this concept is based on assumptions of the adversary's limited computing
+power and the current state of science.
+
+\item {\bf Information-theoretical or unconditional security}\\
+A cipher is unconditionally secure if it is secure no matter how much resources
+(time, space) the attacker has. So even in the case where an adversary has
+unlimited resources for solving a problem e.g. breaking a cipher. An adversary
+has not sufficient information for doing that because he is unable to gain any
+meaningful data from a ciphertext.
+
+There exist information-theoretically secure schemes that provably cannot be
+broken even with unlimited computing power -- an example is the
+{\em One Time Pad}\index{One Time Pad} (OTP\index{OTP}).
+
+As the OTP is information-theoretically secure it derives its security
+solely from information theory and is secure even with unlimited computing
+power at the adversary's disposal. However, OTP has several
 practical disadvantages (the key used must be randomly selected and must be at
 least as long as the message being protected), which means that it is hardly
 used except in closed environments such as for the hot wire between Moscow and
-Washington.\par \vskip + 3pt
+Washington.%\par \vskip + 3pt
 
-For all other procedures there is a (theoretical) possibility of breaking them.
-If the procedures are good, however, the time taken to break them is so long
-that it is practically impossible to do so, and these procedures can therefore be
-considered (practically) secure.\par \vskip + 3pt
+\end{itemize}
 
-The book of Bruce Schneier \cite{cm:Schneier1996cm} offers a very good overview of
+
+\vskip +3pt
+Two more concepts are sometimes used:
+
+\begin{itemize}
+
+\item {\bf Provable security}
+This means that breaking such a cryptographic system is as difficult as
+solving some supposedly difficult problem e.g. discrete logarithm computation,
+discrete square root computation, very large integer factorization.
+
+Example: Currently we know that RSA is at most as difficult as factorization,
+but we cannot prove that its exactly as difficult as factorization. So RSA
+has no proven minimum security. Or in other words: We cannot prove, that if
+RSA (the cryptosystem) is broken, that then factorization (the hard
+mathematical problem) can be solved.
+
+The Rabin cryptosystem was the first cryptosystem which could be proven to be
+computationally equivalent to a hard problem.
+
+\item {\bf Ad-hoc security}
+A cryptographic system has this security feature if it is not worth to try to
+break into such a system because of inadequate price of data with comparison to
+price of work needed to do so. Or an attack can't be done in sufficiently short
+time (see {\em Handbook of Applied Cryptography} \cite{cm:Menezes2001}).
+
+Example: This may apply if a message relevant for the stock market will be
+published tomorrow and you need a year to break it.
+
+\end{itemize}
+
+
+\vskip +3pt
+For good procedures used today the time taken to break them is so long that
+it is practically impossible to do so, and these procedures can therefore be
+considered (practically) secure.%\par \vskip + 3pt
+
+The book of Bruce Schneier \cite{cm:Schneier1996cm} offers a good overview of
 the different algorithms. We basically distinguish between symmetric and
 asymmetric encryption procedures.
+
 
 
 % --------------------------------------------------------------------------
@@ -619,6 +699,12 @@ True
        See also:\\
        \url{http://paper.ijcsns.org/07_book/200707/20070735.pdf}
 
+\bibitem[Menezes2001]{cm:Menezes2001} \index{Menezes 2001}
+    Alfred J. Menezes, Paul C. van Oorschot, Scott A. Vanstone \\
+    {\em Handbook of Applied Cryptography}, 
+    CRC Press 1997, 5th printing 2001,\\
+    \url{http://www.cacr.math.uwaterloo.ca/hac/} (Errata last updated July 24, 2011).
+
 \bibitem[Musa-etal2003]{cm:Musa-etal2003} \index{Musa, Schaefer, Wedig 2003} 
        Mohammad A. Musa, Edward F. Schaefer, Stephen Wedig, \\
        {\em A simplified AES algorithm and its linear and differential cryptanalyses}, \\
@@ -642,6 +728,12 @@ True
        Aegean Park Press 1996;\\
        or in 12 lessons online at \\
        \url{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}
+
+\bibitem[Oppliger2011]{cm:Oppliger2011} \index{Oppliger 2011}
+       Rolf Oppliger \\
+       {\em Contemporary Cryptography, Second Edition},
+       Artech House, 2011, \\
+       \url{http://books.esecurity.ch/cryptography2e.html}.
 
 \bibitem[Phan2002]{cm:Phan2002} \index{Phan 2002} 
        Raphael Chung-Wei Phan, \\
