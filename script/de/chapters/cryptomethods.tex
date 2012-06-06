@@ -30,37 +30,108 @@ autorisierte Empfänger ist im Besitz einer geheimen Information, des
 sogenannten Schlüssels, die es ihm erlaubt, die Daten zu entschlüsseln,
 während sie jedem anderen verborgen bleiben.%\par \vskip + 3pt
 
-\begin{sloppypar}
-Einen sehr guten Überblick zu den Verfahren bietet das Buch von Bruce
-Schneier \cite{cm:Schneier1996}. Grundsätz"-lich unterscheidet man zwischen
-symmetrischen und asymmetrischen Verfahren zur Verschlüsse"-lung.
-
-Aber davor soll es ein paar Informationen dazu geben, wie man Sicherheit von
-Krytoalgorithmen definiert.
-\end{sloppypar}
-
+Zuerst erklären wir, wie die Sicherheit von Kryptosystemen definiert wird.
 
 
 
 % --------------------------------------------------------------------------
+\hypertarget{cm_Section_Security_Definitions}{}
 \section[Sicherheits-Definitionen]{Sicherheits-Definitionen}
+\label{cm_Section_Security_Definitions}
 
 
+Modern cryptography is heavily based on mathematical theory and computer
+science practice. Cryptographic algorithms are designed around computational
+hardness assumptions, making such algorithms hard to break in practice by any
+adversary.
 
+\vskip +3pt
+Depending on the adversary's capabilities there are mainly two basic notations
+of security distinguished in literature
+(see e.g. {\em Contemporary Cryptography} \cite{cm:Oppliger2011}):
 
+\begin{itemize}
 
-,,,,
-Es gibt ein beweisbar sicheres Verschlüsselungsverfahren, 
-das \index{One-Time-Pad} {\em One-Time-Pad}. Dieses weist allerdings
-einige praktische Nachteile auf (der verwendete Schlüssel muss zufällig
-gewählt werden und mindestens so lang wie die zu schützende Nachricht sein),
+\item {\bf Computational, conditional or practical security}\\
+A cipher is computationally secure if it is theoretically possible to break such
+a system but it is infeasible to do so by any known practical means. Theoretical
+advances (e.g., improvements in integer factorization algorithms) and faster
+computing technology require these solutions to be continually adapted. 
+
+Even using the best known algorithm for breaking it will require so much
+resources (e.g., 1,000,000 years) that practically the cryptosystem is secure.
+
+So this concept is based on assumptions of the adversary's limited computing
+power and the current state of science.
+
+\item {\bf Information-theoretical or unconditional security}\\
+A cipher is unconditionally secure if it is secure no matter how much resources
+(time, space) the attacker has. So even in the case where an adversary has
+unlimited resources for solving a problem e.g. breaking a cipher. An adversary
+has not sufficient information for doing that because he is unable to gain any
+meaningful data from a ciphertext.
+
+There exist information-theoretically secure schemes that provably cannot be
+broken even with unlimited computing power -- an example is the
+{\em One Time Pad}\index{One Time Pad} (OTP\index{OTP}).
+
+Das das OTP ein Informations-theoretisch sicheres Verschlüsselungsverfahren
+ist, leitet sich seine Sicherheit schon allein aus der Informationstheorie
+ab -- und ist sicher, auch wenn der Angreifer unbegrenzte Rechenkapazitäten
+hat. Dieses Verfahren weist allerdings einige praktische Nachteile auf (der
+verwendete Schlüssel dar nur einmal verwendet werden, muss zufällig
+gewählt werden und mindestens so lang sein wie die zu schützende Nachricht),
 so dass es außer in geschlossenen Umgebungen, zum Beispiel beim heißen
-Draht zwischen Moskau und Washington, kaum eine Rolle spielt.\par \vskip + 3pt
+Draht zwischen Moskau und Washington, kaum eine Rolle spielt.%\par \vskip + 3pt
 
-Für alle anderen Verfahren gibt es (theoretische) Möglichkeiten, sie
-zu brechen. Bei guten Verfahren sind diese jedoch so aufwändig, dass sie
-praktisch nicht durchführbar sind und diese Verfahren als (praktisch)
-sicher angesehen werden können.\par \vskip + 3pt
+\end{itemize}
+
+
+\vskip +3pt
+Two more concepts are sometimes used:
+
+\begin{itemize}
+
+\item {\bf Provable security}
+This means that breaking such a cryptographic system is as difficult as
+solving some supposedly difficult problem e.g. discrete logarithm computation,
+discrete square root computation, very large integer factorization.
+
+Example: Currently we know that RSA is at most as difficult as factorization,
+but we cannot prove that its exactly as difficult as factorization. So RSA
+has no proven minimum security. Or in other words: We cannot prove, that if
+RSA (the cryptosystem) is broken, that then factorization (the hard
+mathematical problem) can be solved.
+
+The Rabin cryptosystem was the first cryptosystem which could be proven to be
+computationally equivalent to a hard problem.
+
+\item {\bf Ad-hoc security}
+A cryptographic system has this security feature if it is not worth to try to
+break into such a system because of inadequate price of data with comparison to
+price of work needed to do so. Or an attack can't be done in sufficiently short
+time (see {\em Handbook of Applied Cryptography} \cite{cm:Menezes2001}).
+
+Example: This may apply if a message relevant for the stock market will be
+published tomorrow and you need a year to break it.
+
+\end{itemize}
+
+
+\vskip +3pt
+Bei den heutzutage verwendeten guten Verfahren ist der Zeitaufwand zum Brechen
+so hoch, dass sie praktisch nicht gebrochen werden können. Deshalb kann man
+diese Verfahren als (praktisch) sicher ansehen -- aus einer rein auf den
+Algorithmus bezogenen Sichtweise.%\par \vskip + 3pt
+
+
+\begin{sloppypar}
+Einen guten Überblick über die verschiedenen Verfahren bietet das Buch von Bruce
+Schneier \cite{cm:Schneier1996}. Grundsätz"-lich unterscheidet man zwischen
+symmetrischen und asymmetrischen Verfahren zur Verschlüsse"-lung.
+\end{sloppypar}
+
+
 
 
 

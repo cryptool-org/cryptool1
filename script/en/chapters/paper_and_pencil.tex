@@ -1001,10 +1001,10 @@ Concerning polyalphabetic substitution\index{Substitution!polyalphabetic}, the a
           chapter~\ref{cm_Section_Security_Definitions}
           ``\nameref{cm_Section_Security_Definitions}'').
           To fulfill this claim the pad must be random and it must be used
-          only once (to eliminate any semblance of pattern from ciphertext).\\
+          only once (to eliminate any semblance of pattern from the ciphertext).\\
           Reason: Given ciphertext C, plaintext P, pad K and two plaintexts
-          encrypted with the same key: C1 = P1 + K;  C2 = P2 + K; \\
-          Thus, C1 + C2 = (P1 + K) + (P2 + K) = P1 + P2; \\
+          encrypted with the same key: C1 = P1 $\oplus$ K;  C2 = P2 $\oplus$ K; \\
+          Thus, C1 $\oplus$ C2 = (P1 $\oplus$ K) $\oplus$ (P2 $\oplus$ K) = P1 $\oplus$ P2; \\
           which effectively could leak the plaintexts\footnote{%
           In JCT\index{JavaCrypTool}\index{JCT} you can play with an automatic
           cryptanalysis of running-key ciphertexts using the Viterbi analysis

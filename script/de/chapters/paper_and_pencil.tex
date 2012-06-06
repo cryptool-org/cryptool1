@@ -1077,8 +1077,32 @@ ist die Zuordnung Klartext-/Geheimtextzeichen nicht fest, sondern variabel
    \begin{itemize}
       \item {\bf Running-Key-Chiffre}: 
          Addition eines Schlüsseltextes (z.B. aus einem Buch) zum Klartext.
+
       \item {\bf Überlagerung mit einer Zahlenfolge}: 
          Eine Möglichkeit sind mathematische Folgen wie die Fibonacci-Zahlen.
+
+       \item {\bf One-Time-Pad (OTP)}\footnote{%
+          In CT1\index{CT1} kann man dieses Verfahren über den Menüeintrag {\bf 
+          Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch) 
+          \textbackslash{} Vernam / OTP} aufrufen.}\index{One-Time-Pad}\index{OTP}:
+          Eine Folge von Bytes wird Byte-für-Byte mit dem Klartext XOR-verknüpft.
+          Dies ist eine Verallgemeinerung des Vigen\`ere-Verfahrens, und es war
+          das erste Informations-theoretisch sichere Schema (vgl.
+          Kapitel~\ref{cm_Section_Security_Definitions}
+          ``\nameref{cm_Section_Security_Definitions}'').
+          Für diese Anforderung muss das Pad zufällig sein und es darf nur
+          einmal benutzt werden (um jede Ähnlichkeit von Patterns aus dem
+          Geheimtext zu eliminieren).\\
+          Begründung: Gegeben sei Geheimtext C, Klartext P, Pad K, und zwei
+          Klartexte, die jeweils mit dem gleichen Schlüssel verschlüsselt sind:
+          C1 = P1 $\oplus$ K;  C2 = P2 $\oplus$ K; \\
+          Damit ergibt sich C1 $\oplus$ C2 = (P1 $\oplus$ K) $\oplus$
+                           (P2 $\oplus$ K) = P1 $\oplus$ P2. \\
+          Diese Kombination kann die Klartexte durchsickern lassen\footnote{%
+          In JCT\index{JavaCrypTool}\index{JCT} kann man über den Menüeintrag
+          {\bf Visualisierungen \textbackslash{} Viterbi} mit der automatischen
+          Kryptoanalyse von Running-Key-Geheimtexten unter Verwendung der
+          Viterbi-Analyse spielen.}.
    \end{itemize}
 
 
