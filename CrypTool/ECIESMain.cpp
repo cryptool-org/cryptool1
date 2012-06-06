@@ -542,7 +542,7 @@ int encrypt(act::Blob &encBlob, const CString &sName, const CString &sVorname, c
 	// the new version, therefore we're using a compiler-dependent fix (BTW, thanks to M. Kraft)
 #if _MSC_VER > 1500
 	std::ifstream file;
-	file.open(ifile, ios_base::in);
+	file.open(ifile, ios_base::in|ios_base::binary);
 	if(!file)
 		return 66;
 	file.seekg(0, ios_base::end);
@@ -826,7 +826,7 @@ int readEncFile(const CString &ifile, CString &sName, CString &sVorname, CString
 	// the new version, therefore we're using a compiler-dependent fix (BTW, thanks to M. Kraft)
 #if _MSC_VER > 1500
 	std::ifstream file;
-	file.open(ifile, ios_base::in);
+	file.open(ifile, ios_base::in|ios_base::binary);
 	if(!file)
 		return 66;
 	file.seekg(0, ios_base::end);
@@ -947,7 +947,7 @@ void newWindow(const bool &plain, const act::Blob &output, const char* &OldTitle
 	// the new version, therefore we're using a compiler-dependent fix (BTW, thanks to M. Kraft)
 #if _MSC_VER > 1500
 	std::ofstream file;
-	file.open(outfile, ios_base::trunc);
+	file.open(outfile, ios_base::trunc|ios_base::binary);
 	if(!file)
 		return;
 	int len = output.size();
