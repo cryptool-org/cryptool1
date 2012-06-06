@@ -643,6 +643,24 @@ BOOL CCrypToolApp::InitInstance()
 	m_MainWnd = m_pMainWnd;
 	((CFrameWnd*)m_pMainWnd)->LoadFrame(IDR_MAINFRAME);
 
+	// ************************************************************************************************
+	// flomar, 06/05/2012: this is for convenience only: in case we have the string "Beta" or "beta" 
+	// in the window title, we append either "VS2008" or "VS2010" depending on the currently used IDE
+	CString mainWindowTitle;
+	m_MainWnd->GetWindowTextA(mainWindowTitle);
+	if(mainWindowTitle.Find("Beta") != -1 || mainWindowTitle.Find("beta") != -1) {
+		// Visual Studio 2008
+#if _MSC_VER == 1500
+		mainWindowTitle.Append(" [VS2008]");
+#endif
+		// Visual Studio 2010
+#if _MSC_VER == 1600
+		mainWindowTitle.Append(" [VS2010]");
+#endif
+	}
+	m_MainWnd->SetWindowTextA(mainWindowTitle);
+	// ************************************************************************************************
+
 	// enable file manager drag/drop and DDE Execute open
 	m_pMainWnd->DragAcceptFiles();
 	// EnableShellOpen();  // EVIL !!!
