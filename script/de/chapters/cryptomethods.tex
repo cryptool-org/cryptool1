@@ -40,46 +40,48 @@ Zuerst erklären wir, wie die Sicherheit von Kryptosystemen definiert wird.
 \label{cm_Section_Security_Definitions}
 
 
-Modern cryptography is heavily based on mathematical theory and computer
-science practice. Cryptographic algorithms are designed around computational
-hardness assumptions, making such algorithms hard to break in practice by any
-adversary.
+Moderne Kryptographie basiert vor allem auf mathematischer Theorie und
+Computer-Praxis. Beim Design kryptographischer Algorithmen werden Annahmen
+zur Schwierigkeit von Berechnungen so gemacht, so dass sich solche Verfahren
+in der Praxis von einem Angreifer nur schwer brechen lassen.
 
 \vskip +3pt
-Depending on the adversary's capabilities there are mainly two basic notations
-of security distinguished in literature
-(see e.g. {\em Contemporary Cryptography} \cite{cm:Oppliger2011}):
+Die zwei Hauptnotationen in der Literatur definieren Sicherheit in
+Abhängigkeit von den Möglichkeiten des Angreifers (vgl. z.B.
+{\em Contemporary Cryptography} \cite{cm:Oppliger2011}):
 
 \begin{itemize}
 
-\item {\bf Computational, conditional or practical security}\\
-A cipher is computationally secure if it is theoretically possible to break such
-a system but it is infeasible to do so by any known practical means. Theoretical
-advances (e.g., improvements in integer factorization algorithms) and faster
-computing technology require these solutions to be continually adapted. 
+\item {\bf Berechenbare, bedingte oder praktische Sicherheit}\\
+Ein Verschlüsselungsverfahren ist berechenbar sicher, wenn es (obwohl es
+theoretisch möglich ist, es zu brechen) selbst mit den besten bekannten
+Verfahren nicht gebrochen werden kann. Theoretische Fortschritte (z.B.
+Verbesserungen bei den Algorithmen zur Faktorisierung) und schnellere
+Computer erfordern, dass dies ständig angepasst wird. 
 
-Even using the best known algorithm for breaking it will require so much
-resources (e.g., 1,000,000 years) that practically the cryptosystem is secure.
+Selbst wenn man den besten bekannten Algorithmus zum Brechen benutzt, wird
+man so viele Ressourcen brauchen (z.B. 1.000.000 Jahre), dass das Kryptosystem
+sicher ist.
 
-So this concept is based on assumptions of the adversary's limited computing
-power and the current state of science.
+Daher basiert dieses Konzept auf Annahmen über die begrenzte Rechenkraft des
+Angreifers und auf dem aktuellen Stand der Wissenschaft.
 
-\item {\bf Information-theoretical or unconditional security}\\
-A cipher is unconditionally secure if it is secure no matter how much resources
-(time, space) the attacker has. So even in the case where an adversary has
-unlimited resources for solving a problem e.g. breaking a cipher. An adversary
-has not sufficient information for doing that because he is unable to gain any
-meaningful data from a ciphertext.
+\item {\bf Informations-theoretische oder unbedingte Sicherheit}\\
+Ein Verschlüsselungsverfahren ist unbedingt sicher, wenn es sicher ist, völlig
+unabhängig davon, wieviele Ressourcen (Zeit, Speicher) der Angreifer hat, also
+auch in dem Fall, wenn der Angreifer unbegrenzt viele Ressourcen hat, um das
+Verfahren zu brechen. Ein Angreifer hat nicht genug Informationen dafür, weil
+sich aus dem Chiffrat keine sinnvollen Informationen gewinnen lassen.
 
-There exist information-theoretically secure schemes that provably cannot be
-broken even with unlimited computing power -- an example is the
-{\em One Time Pad}\index{One Time Pad} (OTP\index{OTP}).
+Es gibt Informations-theoretisch sichere Verfahren, die beweisbar nicht
+gebrochen werden können, auch nicht mit unendlich viel Rechenkraft -- ein Beispiel
+dafür ist das {\em One-Time-Pad}\index{One-Time-Pad} (OTP\index{OTP}).
 
-Das das OTP ein Informations-theoretisch sicheres Verschlüsselungsverfahren
+Da das OTP ein Informations-theoretisch sicheres Verschlüsselungsverfahren
 ist, leitet sich seine Sicherheit schon allein aus der Informationstheorie
 ab -- und ist sicher, auch wenn der Angreifer unbegrenzte Rechenkapazitäten
-hat. Dieses Verfahren weist allerdings einige praktische Nachteile auf (der
-verwendete Schlüssel dar nur einmal verwendet werden, muss zufällig
+hat. Das OTP weist allerdings einige praktische Nachteile auf (der
+verwendete Schlüssel darf nur einmal verwendet werden, muss zufällig
 gewählt werden und mindestens so lang sein wie die zu schützende Nachricht),
 so dass es außer in geschlossenen Umgebungen, zum Beispiel beim heißen
 Draht zwischen Moskau und Washington, kaum eine Rolle spielt.%\par \vskip + 3pt
@@ -88,32 +90,36 @@ Draht zwischen Moskau und Washington, kaum eine Rolle spielt.%\par \vskip + 3pt
 
 
 \vskip +3pt
-Two more concepts are sometimes used:
+Manchmal werden auch zwei weitere Konzepte verwendet:
 
 \begin{itemize}
 
-\item {\bf Provable security}
-This means that breaking such a cryptographic system is as difficult as
-solving some supposedly difficult problem e.g. discrete logarithm computation,
-discrete square root computation, very large integer factorization.
+\item {\bf Beweisbare Sicherheit}
+Dies bedeutet, dass das Brechen eines Kryptosystems mindestens so schwierig ist
+wie die Lösung eines bestimmten schwierigen Problems, z.B. die Berechnung des
+diskreten Logarithmus, die diskrete Quadratwurzel-Berechnung oder die
+Faktorisierung sehr großer Zahlen.
 
-Example: Currently we know that RSA is at most as difficult as factorization,
-but we cannot prove that its exactly as difficult as factorization. So RSA
-has no proven minimum security. Or in other words: We cannot prove, that if
-RSA (the cryptosystem) is broken, that then factorization (the hard
-mathematical problem) can be solved.
+Beispiel: Aktuell wissen wir, dass RSA höchstens so schwierig ist wie die
+Faktorisierung, aber wir können nicht beweisen, dass es genauso schwierig ist.
+Deshalb hat RSA keine beweisbare Mindest-Sicherheit. Oder in anderen Worten:
+Wir können nicht beweisen, dass wenn das Kryptosystem RSA gebrochen ist, dass
+dann auch die Faktoriserung (ein schwieriges mathematisches Problem) gelöst
+werden kann.
 
-The Rabin cryptosystem was the first cryptosystem which could be proven to be
-computationally equivalent to a hard problem.
+Das Rabin-Kryptosystem war das erste Kryptosystem, für das sich beweisen ließ,
+dass es berechenbar äquivalent zu einem harten mathematischen Problem ist.
 
-\item {\bf Ad-hoc security}
-A cryptographic system has this security feature if it is not worth to try to
-break into such a system because of inadequate price of data with comparison to
-price of work needed to do so. Or an attack can't be done in sufficiently short
-time (see {\em Handbook of Applied Cryptography} \cite{cm:Menezes2001}).
+\item {\bf Ad-hoc-Sicherheit}
+Ein kryptographisches System hat diese Sicherheit, wenn es sich nicht lohnt,
+es zu versuchen es zu brechen, weil der Aufwand dafür teurer ist als der Wert
+der Daten, die man durch das Brechen erhalten würde. Z.B. weil ein Angriff
+nicht in einer ausreichend kurzen Zeit erfolgen kann (vgl.
+{\em Handbook of Applied Cryptography} \cite{cm:Menezes2001}).
 
-Example: This may apply if a message relevant for the stock market will be
-published tomorrow and you need a year to break it.
+Beispiel: Dies kann z.B. zutreffen, wenn Börsen-relevante Daten sowieso am
+nächsten Tag veröffentlicht werden und man für das Brechen ein Jahr brauchen
+würde.
 
 \end{itemize}
 
