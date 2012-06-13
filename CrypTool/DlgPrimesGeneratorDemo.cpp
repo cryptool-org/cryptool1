@@ -39,9 +39,14 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
+#define ITERATIONS_PRIME_NUMBER_GENERATION 20000
+
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgPrimesGeneratorDemo 
 
+// flomar, 06/12/12
+// this function is used to generate single pairs (p/q) of random prime numbers
+UINT singleThreadGeneratePrimeNumbers(PVOID argument);
 // flomar, 01/24/09
 // this function is used to generate multiple prime numbers
 UINT singleThreadGenerateMultiplePrimeNumbers(PVOID argument);
@@ -62,9 +67,11 @@ CDlgPrimesGeneratorDemo::CDlgPrimesGeneratorDemo(CWnd* pParent /*=NULL*/)
 	m_edit6 = _T("0");
 	separator = _T(" ");
 	//}}AFX_DATA_INIT
+	abortGenerationPrimeNumbers = false;
+	generationPrimeNumbersAborted = false;
 	generateMultiplePrimeNumbersEnabled = false;
 	abortGenerationMultiplePrimeNumbers = false;
-	primeNumberGenerationAborted = false;
+	generationMultiplePrimeNumbersAborted = false;
 }
 
 CDlgPrimesGeneratorDemo::CDlgPrimesGeneratorDemo(CString lower, CString upper, CWnd *pParent)
@@ -83,9 +90,11 @@ CDlgPrimesGeneratorDemo::CDlgPrimesGeneratorDemo(CString lower, CString upper, C
 	m_edit6 = _T("0");
 	separator = _T(" ");
 	//}}AFX_DATA_INIT
+	abortGenerationPrimeNumbers = false;
+	generationPrimeNumbersAborted = false;
 	generateMultiplePrimeNumbersEnabled = false;
 	abortGenerationMultiplePrimeNumbers = false;
-	primeNumberGenerationAborted = false;
+	generationMultiplePrimeNumbersAborted = false;
 }
 
 void CDlgPrimesGeneratorDemo::DoDataExchange(CDataExchange* pDX)
@@ -266,7 +275,7 @@ BOOL CDlgPrimesGeneratorDemo::GetRandomPrime(CString &OutStr, GeneratePrimes &P)
 {
 	BOOL flag = FALSE;
 
-	for ( int i=1; i<=20000 && !flag; i++ )			 // 
+	for ( int i=1; i<=ITERATIONS_PRIME_NUMBER_GENERATION && !flag; i++ )			 // 
 	{
 		P.RandP();
 				
@@ -293,8 +302,6 @@ void CDlgPrimesGeneratorDemo::OnButtonGenerate()
 {
 	UpdateData(true);
 
-	GeneratePrimes P;
-	GeneratePrimes Q;
 	int PSet,QSet;
 	
 	if(!((0==m_edit1.IsEmpty())&&(0==m_edit2.IsEmpty()) &&
@@ -345,7 +352,6 @@ void CDlgPrimesGeneratorDemo::OnButtonGenerate()
 		return;
 	}
 	
-
 	// normally, we would either create one or two prime numbers at this point; but if the 
 	// "create a set of prime numbers" check box is selected, we need to generate a set (1 to n) 
 	// of prime numbers in a separate thread that needs to be manually interrupted by the user
@@ -395,12 +401,12 @@ void CDlgPrimesGeneratorDemo::OnButtonGenerate()
 		// display the search interval (m_edit1, m_edit2) and the amount of prime numbers found;
 		// moreover, display a different message if the generation process was cancelled by the user, 
 		// thus rendering the set of generated prime numbers incomplete for the given value range
-		if(primeNumberGenerationAborted == false)
+		if(generationMultiplePrimeNumbersAborted == false)
 			LoadString(AfxGetInstanceHandle(), IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION, pc_str, STR_LAENGE_STRING_TABLE);
 		else
 			LoadString(AfxGetInstanceHandle(), IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION_CANCELLED, pc_str, STR_LAENGE_STRING_TABLE);
 		// either way, reset the abortion flag (otherwise we'll get weird errors)
-		primeNumberGenerationAborted = false;
+		generationMultiplePrimeNumbersAborted = false;
 		// build the notification message
 		sprintf(temp, pc_str, m_edit1, m_edit2, mapGeneratedPrimeNumbers.size());
 		message.Append(temp);
@@ -415,118 +421,91 @@ void CDlgPrimesGeneratorDemo::OnButtonGenerate()
 		UpdateData(false);
 		return;
 	}
-
-
-	if(0==m_radio4)
-	{
-		//if((0==m_edit1.IsEmpty())&&(0==m_edit2.IsEmpty()) &&
-		//	(0==m_edit3.IsEmpty())&&(0==m_edit4.IsEmpty()) )
-		//	{
-			PSet=P.SetLimits( m_edit1, m_edit2 );
-			QSet=Q.SetLimits( m_edit3, m_edit4 );
-			if ( (PSet == 1) && (QSet ==1))
-			{
-				SHOW_HOUR_GLASS				// aktiviert die Sanduhr (statt des Mauszeigers)
-				if ( !GetRandomPrime( m_edit5, P ) ) Message( IDS_STRING_MSG_LEFT_PRIMES_NOT_FOUND, MB_ICONSTOP );
-				if ( !GetRandomPrime( m_edit6, Q ) ) Message( IDS_STRING_MSG_RIGHT_PrIMES_NOT_FOUND, MB_ICONSTOP );
-				HIDE_HOUR_GLASS			// deaktiviert die Sanduhr
+	else {
+		// flomar, 06/12/12: since generating single prime numbers is very 
+		// time-consuming for large limits, we generate them in a separate 
+		// thread as well (see generation of multiple primes)
+		if(0==m_radio4)
+		{
+			// we use separate limits for prime number generation (edit1/edit2, and edit3/edit4)
+			PSet=P.SetLimits(m_edit1, m_edit2);
+			QSet=Q.SetLimits(m_edit3, m_edit4);
+		}
+		else {
+			// we use identical limits for prime number generation (edit1/edit2 for both)
+			PSet=P.SetLimits(m_edit1, m_edit2);
+			QSet=Q.SetLimits(m_edit1, m_edit2);
+		}
+		// if the limits are properly set, start the prime number generation thread
+		if(PSet == 1 && QSet == 1) {
+			// we need this initialization to allow multiple generation threads
+			abortGenerationPrimeNumbers = false;
+			// start the prime number generation thread
+			AfxBeginThread(singleThreadGeneratePrimeNumbers, PVOID(this));
+			// show the progress dialog
+			theApp.fs.Set(0);
+			theApp.fs.setTitle(IDS_STRING_PRIME_NUMBERS_GENERATION_TITLE);
+			// display value range in progress dialog
+			char temp[1024];
+			if(m_radio4 == 0) {
+				LoadString(AfxGetInstanceHandle(), IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2, pc_str, STR_LAENGE_STRING_TABLE);
+				sprintf(temp, pc_str, m_edit1, m_edit2, m_edit3, m_edit4);
 			}
-			else if ( PSet == 3)
-			{
-				m_control_edit1.SetFocus();
-				m_control_edit1.SetSel(0,-1);
-				Message( IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION );
+			else {
+				LoadString(AfxGetInstanceHandle(), IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT1, pc_str, STR_LAENGE_STRING_TABLE);
+				sprintf(temp, pc_str, m_edit1, m_edit2);
 			}
-			else if ( PSet == 2)
-			{
-				m_control_edit2.SetFocus();
-				m_control_edit2.SetSel(0,-1);
-				Message( IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION );
+			theApp.fs.setFormat(temp);
+			// show the progress dialog
+			if(theApp.fs.DoModal()) {
+				// as soon as the user cancels the progress dialog, 
+				// abort the prime number generation thread
+				abortGenerationPrimeNumbers = true;
 			}
-			else if (  QSet ==3)
-			{
-				m_control_edit3.SetFocus();
-				m_control_edit3.SetSel(0,-1);
-				Message( IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION );
-			}
-			else if (  QSet ==2)
-			{
-				m_control_edit4.SetFocus();
-				m_control_edit4.SetSel(0,-1);
-				Message( IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION );
-			}
-			else if (  PSet ==1 )
-			{
-				m_control_edit3.SetFocus();
-				m_control_edit3.SetSel(0,-1);
-				Message( IDS_STRING_MSG_LOWERBOUND_UPPERBOUND, MB_ICONSTOP );
-			}
-			else 
-			{
-				m_control_edit1.SetFocus();
-				m_control_edit1.SetSel(0,-1);
-				Message( IDS_STRING_MSG_LOWERBOUND_UPPERBOUND, MB_ICONSTOP );
-			}
-	}
-	else
-	{
-		//if((0==m_edit1.IsEmpty())&&(0==m_edit2.IsEmpty()))
-		//{
-			PSet=P.SetLimits( m_edit1, m_edit2 );
-			QSet=Q.SetLimits( m_edit1, m_edit2 );
-
-			if ( PSet==1 && QSet==1 )
-			{
-				SHOW_HOUR_GLASS				// aktiviert die Sanduhr (statt des Mauszeigers)
-				if ( !GetRandomPrime( m_edit5, P ) ) Message( IDS_STRING_MSG_LEFT_PRIMES_NOT_FOUND, MB_ICONSTOP );
-				if ( !GetRandomPrime( m_edit6, Q ) ) Message( IDS_STRING_MSG_RIGHT_PrIMES_NOT_FOUND, MB_ICONSTOP );
-				// flomar, 06/30/2009: we want consistency for primes P and Q in case 
-				// the "both are equal" checkbox (m_radio4) is checked, thus just copy from P to Q
-				// m_edit6 = m_edit5;
-				HIDE_HOUR_GLASS			// deaktiviert die Sanduhr
-			}
-			else if ( PSet == 3)
-			{
-				m_control_edit1.SetFocus();
-				m_control_edit1.SetSel(0,-1);
-				Message( IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION );
-			}
-			else if ( PSet == 2)
-			{
-				m_control_edit2.SetFocus();
-				m_control_edit2.SetSel(0,-1);
-				Message( IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION );
-			}
-			else if (  QSet ==3)
-			{
-				m_control_edit3.SetFocus();
-				m_control_edit3.SetSel(0,-1);
-				Message( IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION );
-			}
-			else if (  QSet ==2)
-			{
-				m_control_edit4.SetFocus();
-				m_control_edit4.SetSel(0,-1);
-				Message( IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION );
-			}
-			else if (  PSet ==1 )
-			{
-				m_control_edit3.SetFocus();
-				m_control_edit3.SetSel(0,-1);
-				Message( IDS_STRING_MSG_LOWERBOUND_UPPERBOUND, MB_ICONSTOP );
-			}
-			else 
-			{
-				m_control_edit1.SetFocus();
-				m_control_edit1.SetSel(0,-1);
-				Message( IDS_STRING_MSG_LOWERBOUND_UPPERBOUND, MB_ICONSTOP );
-			}
+		}
+		else if ( PSet == 3)
+		{
+			m_control_edit1.SetFocus();
+			m_control_edit1.SetSel(0,-1);
+			Message( IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION );
+		}
+		else if ( PSet == 2)
+		{
+			m_control_edit2.SetFocus();
+			m_control_edit2.SetSel(0,-1);
+			Message( IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION );
+		}
+		else if (  QSet ==3)
+		{
+			m_control_edit3.SetFocus();
+			m_control_edit3.SetSel(0,-1);
+			Message( IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION );
+		}
+		else if (  QSet ==2)
+		{
+			m_control_edit4.SetFocus();
+			m_control_edit4.SetSel(0,-1);
+			Message( IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION );
+		}
+		else if (  PSet ==1 )
+		{
+			m_control_edit3.SetFocus();
+			m_control_edit3.SetSel(0,-1);
+			Message( IDS_STRING_MSG_LOWERBOUND_UPPERBOUND, MB_ICONSTOP );
+		}
+		else 
+		{
+			m_control_edit1.SetFocus();
+			m_control_edit1.SetSel(0,-1);
+			Message( IDS_STRING_MSG_LOWERBOUND_UPPERBOUND, MB_ICONSTOP );
+		}
 	}
 
-	if(("0"!=m_edit5)&&("0"!=m_edit6))
-	{
+	// enable/disable 'accept' button (used by the RSA demonstration)
+	if(!m_edit5.IsEmpty() && m_edit5!="0" && !m_edit6.IsEmpty() && m_edit5!="0")
 		m_control_button_accept.EnableWindow(true);
-	}
+	else
+		m_control_button_accept.EnableWindow(false);
 
 	UpdateData(false);
 }
@@ -605,7 +584,6 @@ void CDlgPrimesGeneratorDemo::OnUpdateEdit()
 	UpdateData(false);
 	m_control_edit6.SetSel(selectionStart, selectionEnd);
 
-
 	// if the "both are equal" checkbox is marked, copy from P to Q
 	if(m_radio4)
 	{
@@ -614,13 +592,62 @@ void CDlgPrimesGeneratorDemo::OnUpdateEdit()
 		m_edit4 = m_edit2;
 		m_edit6 = m_edit5;
 		UpdateData(false);
-	}	
+	}
+
+	// disable the 'accept' button by default
+	// (it is implicitly enabled after successful generation)
+	m_control_button_accept.EnableWindow(false);
 }
 
 // use this function to enable the generation of muliple prime numbers;
 // by default, the generation of multiple prime numbers is not possible
 void CDlgPrimesGeneratorDemo::enableGenerateASetOfPrimeNumbersFunctionality() {
 	generateMultiplePrimeNumbersEnabled = true;
+}
+
+UINT singleThreadGeneratePrimeNumbers(PVOID argument)
+{
+	// get the parent dialog
+	CDlgPrimesGeneratorDemo *dlg = (CDlgPrimesGeneratorDemo*)(argument);
+	if(!dlg) return 0;
+	// generate random primes P and Q
+	bool doneP = false;
+	bool doneQ = false;
+	// initialize progress bar
+	theApp.fs.Set(0);
+	for(int i=1; i<=ITERATIONS_PRIME_NUMBER_GENERATION && !(doneP && doneQ); i++)
+	{
+		if(!doneP) {
+			dlg->P.RandP();
+			if(dlg->m_radio1 == 0) doneP = dlg->P.MillerRabinTest(100);
+			if(dlg->m_radio1 == 1) doneP = dlg->P.SolvayStrassenTest(100);
+			if(dlg->m_radio1 == 2) doneP = dlg->P.FermatTest(100);
+		}
+		if(!doneQ) {
+			dlg->Q.RandP();
+			if(dlg->m_radio1 == 0) doneQ = dlg->Q.MillerRabinTest(100);
+			if(dlg->m_radio1 == 1) doneQ = dlg->Q.SolvayStrassenTest(100);
+			if(dlg->m_radio1 == 2) doneQ = dlg->Q.FermatTest(100);
+		}
+		// update progress bar
+		theApp.fs.Set(i*100/ITERATIONS_PRIME_NUMBER_GENERATION);
+	}
+	// when we're done, set the respective dialog fields
+	if(doneP && doneQ) {
+		dlg->P.GetPrime(dlg->m_edit5);
+		dlg->Q.GetPrime(dlg->m_edit6);
+	}
+	else {
+		dlg->m_edit5 = "0";
+		dlg->m_edit6 = "0";
+		if(!doneP) Message(IDS_STRING_MSG_LEFT_PRIMES_NOT_FOUND, MB_ICONSTOP);
+		if(!doneQ) Message(IDS_STRING_MSG_RIGHT_PrIMES_NOT_FOUND, MB_ICONSTOP);
+	}
+	// end progress bar
+	theApp.fs.cancel();
+	// end the thread
+	AfxEndThread(0);
+	return 0;
 }
 
 // we need this threaded function to generate multiple prime numbers;
@@ -695,9 +722,9 @@ UINT singleThreadGenerateMultiplePrimeNumbers(PVOID argument)
 	// this is a very dirty hack, but it should work: if "value" is smaller than "valueRangeEnd",
 	// we have an indication that the progress bar was cancelled purposely by the user
 	if(value < valueRangeEnd)
-		dlg->primeNumberGenerationAborted = true;
+		dlg->generationMultiplePrimeNumbersAborted = true;
 	else
-		dlg->primeNumberGenerationAborted = false;
+		dlg->generationMultiplePrimeNumbersAborted = false;
 	
 	// end the thread
 	AfxEndThread(0);

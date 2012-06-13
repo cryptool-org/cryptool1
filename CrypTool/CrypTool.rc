@@ -11172,7 +11172,13 @@ BEGIN
     IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES "Pokaz granice kostki"
     IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES "Ukryj granice kostki"
     IDS_CONTROL_TOTXT       "Jako tekst"
+    IDS_STRING_PRIME_NUMBERS_GENERATION_TITLE 
+                            "[i18n] Generating prime numbers"
     IDS_CONTROL_TOHEX       "Heksadecymalnie"
+    IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT1 
+                            "[i18n] Generating prime numbers in the following value range:\n[%s, %s]"
+    IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
+                            "[i18n] Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
 END
 
 #endif    // Polish resources
@@ -22321,7 +22327,13 @@ BEGIN
     IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES "Prikaži granice kocke"
     IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES "Sakrij granice kocke"
     IDS_CONTROL_TOTXT       "Prikaži kao Tekst"
+    IDS_STRING_PRIME_NUMBERS_GENERATION_TITLE 
+                            "[i18n] Generating prime numbers"
     IDS_CONTROL_TOHEX       "Prikaži kao HexDump"
+    IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT1 
+                            "[i18n] Generating prime numbers in the following value range:\n[%s, %s]"
+    IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
+                            "[i18n] Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
 END
 
 #endif    // Serbian (Latin) resources
@@ -33412,7 +33424,12 @@ BEGIN
     IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES "Würfelkanten anzeigen"
     IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES "Würfelkanten nicht anzeigen"
     IDS_CONTROL_TOTXT       "Als Text anzeigen"
+    IDS_STRING_PRIME_NUMBERS_GENERATION_TITLE "Generation von Primzahlen"
     IDS_CONTROL_TOHEX       "Als HexDump anzeigen"
+    IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT1 
+                            "Generiere Primzahlen im folgenden Bereich:\n[%s, %s]"
+    IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
+                            "Generiere Primzahlen in folgenden Bereichen:\n[%s, %s], [%s, %s]"
 END
 
 #endif    // German (Germany) resources
@@ -44574,7 +44591,12 @@ BEGIN
     IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES "Show cube's borderlines"
     IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES "Hide cube's borderlines"
     IDS_CONTROL_TOTXT       "Show as Text"
+    IDS_STRING_PRIME_NUMBERS_GENERATION_TITLE "Generating prime numbers"
     IDS_CONTROL_TOHEX       "Show as HexDump"
+    IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT1 
+                            "Generating prime numbers in the following value range:\n[%s, %s]"
+    IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
+                            "Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
 END
 
 #endif    // English (U.K.) resources
@@ -55794,7 +55816,13 @@ BEGIN
     IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES "Mostrar bordes del cubo"
     IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES "Ocultar bordes del cubo"
     IDS_CONTROL_TOTXT       "Mostrar como código Texto"
+    IDS_STRING_PRIME_NUMBERS_GENERATION_TITLE 
+                            "[i18n] Generating prime numbers"
     IDS_CONTROL_TOHEX       "Mostrar como código Hexadecimal"
+    IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT1 
+                            "[i18n] Generating prime numbers in the following value range:\n[%s, %s]"
+    IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
+                            "[i18n] Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
 END
 
 #endif    // Spanish resources

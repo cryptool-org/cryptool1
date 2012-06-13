@@ -94,12 +94,19 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 public:
+	GeneratePrimes P;
+	GeneratePrimes Q;
+public:
+	// this variable indicates that the prime number generation thread is to be aborted
+	BOOL abortGenerationPrimeNumbers;
+	// this variable indicates if the prime number generation thread was aborted by the user
+	BOOL generationPrimeNumbersAborted;
 	// this variable indicates if the generation of multiple prime numbers is possible
 	BOOL generateMultiplePrimeNumbersEnabled;
-	// this variable indicates that the prime number generation thread is to be aborted
+	// this variable indicates that the multiple prime number generation thread is to be aborted
 	BOOL abortGenerationMultiplePrimeNumbers;
-	// this variable indicates if the generation thread was aborted by the user
-	BOOL primeNumberGenerationAborted;
+	// this variable indicates if the multiple prime number generation thread was aborted by the user
+	BOOL generationMultiplePrimeNumbersAborted;
 	// this struct holds the comparison function to sort the map filled with primes
 	struct primeComparison {
 		bool operator()(const CString &one, const CString &two) const {
