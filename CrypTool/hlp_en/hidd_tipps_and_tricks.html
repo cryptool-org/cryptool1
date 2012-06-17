@@ -25,15 +25,15 @@
 
 <h3>Starting page: An Introduction to CrypTool 1</h3>
 
-<P>This is the starting page of the online help for "CrypTool 1". Within this online help, from now on it is just called "CrypTool".</P>
+<P>This is the starting page of the online help for "CrypTool 1" (CT1). Within
+this online help, from now on the version family CT1 is just called "CrypTool".
+<br>
+You can find further information about the future program versions CT2 and JCT
+under <a href="#FutureVersions">Future Versions CT2 and JCT</a>.</P>
 
 <P><A href="cryptool.html">CrypTool</A> is a comprehensive, free e-learning program about cryptography and cryptanalysis (<a href="crypto_methods.html">cryptology</a>). The relationship of the topics cryptology, IT security and risk management is described <a href="cryptology.html">here</a>.</P>
 
 <P>You can access the starting page of CrypTool via the menu entry <a href="menu_help.html">Help</a> \ <a href="hidd_tipps_and_tricks.html">Starting Page</a>.</P>
-
-<P>In the following, when talking about "CrypTool", we always refer to the version family CT1.
-<br>You can find further information about the future program versions CT2 and JCT under 
-<a href="#FutureVersions">Future Versions CT2 and JCT</a>.</P>
 
 
 
@@ -97,21 +97,28 @@ CrypTool has implemented almost all state-of-the-art crypto functions and allows
 <p>Both, the included <a class="filelink" onclick="parser('CrypToolPresentation-en.pdf')">CrypTool presentation</a> as well as the <a href="http://www.cryptool.org" target="_blank">CrypTool web site</a>, contain many <B>screen shots</B>.</p>
 
 
-<p>If you encrypt a document the result will be shown in a new sub-window: The title of the resulting window contains both the name of the original document and the encryption key used. The usage of keys is supported by two special icons: Clicking the icon "Show key" <img
-	src="images/keycopy.png"> allows you to copy the used key from a resulting window into an internal storage. If you then encrypt another document with the same encryption method the icon "Insert key" <img
-	src="images/keypaste.png"> is active within the key entry dialog box. This is helpful, especially with more complex keys.</p>
+<p>If you encrypt a document the result will be shown in a new sub-window: The
+title of the resulting window contains both the name of the original document
+and the encryption key used. The usage of keys is supported by two special
+<B>icons</B>: Clicking the icon "Show key" <img	src="images/keycopy.png"> allows
+you to copy the used key from a resulting window into an internal storage.
+If you then encrypt another document with the same encryption method the icon
+"Insert key" <img src="images/keypaste.png"> is active within the key entry
+dialog box. This is helpful, especially with more complex keys.</p>
 
-<P>Automatic analysis tools for obtaining the <!--ZZZPOPUP--><A href="schluessel.html">key</A>, starting from knowledge of the encrypted document and any additional information (the unencrypted document or the language of the document), are provided for the classic encryption algorithms. For additional information on automatic analysis, see the online help page for the <A href="menu_analyze.html">Analysis</A> menu and choose the encryption algorithm to be analyzed there.</P>
+<P>Automatic <B>analysis</B> tools for obtaining the <!--ZZZPOPUP--><A href="schluessel.html">key</A>, starting from the knowledge of the encrypted document and any additional information (the unencrypted document or the language of the document), are provided for most of the classic encryption algorithms. Analysis tools against modern methods are also available (e.g. brute-force attacks against keys or
+factorisation attacks).
+For additional information on the analysis tools, see the online help page for the <A href="menu_analyze.html">Analysis</A> menu and choose the encryption algorithm to be analyzed there.</P>
 
 <P>To support your own analysis of documents, CrypTool can display a <!--ZZZPOPUP--><A href="histogramm.html">histogram</A> of the document, determine the statistics for any <A href="hid_analyse_ngram.html">n-grams</A> and calculate <!--ZZZPOPUP--><A href="entropie.html">entropy</A> and <!--ZZZPOPUP--><A href="autokorrelation.html">autocorrelation</A>.</P>
 
 <p>The encryption functions within the menu <A href="menu_crypt.html">Encrypt/Decrypt</A> are implemented in a way that they can be called upon and performed efficiently. <br>
 On the other hand, the functions in the menu <A href="menu_related_methods.html">Indiv. Procedures</A> are mostly implemented in a way that they can be performed step by step and interactively. Here the e-learning aspect is the main focus.</p>
 
-<P>In the menu <A href="menu_related_methods.html">Indiv. Procedures</A> single different methods and protocols are offered.<br>
+<P>In the menu <A href="menu_related_methods.html">Indiv. Procedures</A> ("individual procedures") single different methods and protocols are offered.<br>
 For example:</P>
 <UL>
-	<LI>calculate <!--ZZZPOPUP--><A href="hashwert.html">hash values</A> (see menu Indiv. Procedures \ <A href="menu_individualprocedures_hashprocedures.html">Hash</A>) and show their sensitivity.</LI>
+	<LI>calculate <!--ZZZPOPUP--><A href="hashwert.html">hash values</A> and show their sensitivity (see menu Indiv. Procedures \ <A href="menu_individualprocedures_hashprocedures.html">Hash</A>).</LI>
 
 	<LI>create <A href="hid_generate_macs.html">Message Authentication Codes (HMACs)</A>.</LI>
 
@@ -123,19 +130,19 @@ For example:</P>
 
 	<LI>demonstrate protocols for <A href="hid_cr_overview.html">authentication</A>, for <A href="hid_einzelverfahren_diffiehellmandemo.html">key exchange (DH)</A> and for <a href="hid_protokol_smime.html">secure e-mail</a>.</LI>
 
-	<LI>step through some ciphers forward and backwards (using the animation software ANIMAL).</LI>
+	<LI>step through some ciphers forward and backwards (using the animation software <a href="animal.html">ANIMAL</a>).</LI>
 
 	<LI>apply common encodings like <A href="hid_encode_base64.html">base64</A> and <A href="hid_encode_uu.html">uuencode</A>.</LI>
 
 </UL>
 
-<P>The remaining menu items in the main menu "Individual Procedures" are described below (see <a href="#rsa">RSA Cryptosystem</a> and <a href="#demo">Visualizations</a>). </P>
+<P>The remaining menu items in the main menu "Indiv. Procedures" are described below (see <a href="#rsa">RSA Cryptosystem</a> and <a href="#demo">Visualizations</a>). </P>
 
 <p>Which <A href="menu_structure.html">menu items</a> can be selected depends on the type of the active document (binary, text or graphics) and whether a document is open or not. All menu items are visible all the time, but only the ones which fit to the current document type can be selected. The remaining menu items are disabled.</p>
 
 <p>An overview of all menu items within CrypTool can be found in the <A href="menu_structure.html">menu tree</a> (in appendix A of the <A class="filelink" onclick="parser('script-en.pdf')">script</a>).</p>
 
-<p>Within CrypTool the modern algorithms are implemented according to international standards.</p>
+<p>Within CrypTool the modern algorithms are implemented according to international  <A href="standards.html">standards</A>.</p>
 
 <P>The authors of CrypTool did not implement cryptographic functionality where very good free programs were available in the internet: So dictionary attacks against password files (see John-the-Ripper, <a href="http://www.openwall.com/john/" target="_blank">http://www.openwall.com/john/</a>) are not part of CrypTool.</P>
 
@@ -151,7 +158,7 @@ For example:</P>
 
 
 <br><P><B><a name="demo">Interactive Demonstrations / Visualizations</a></B></P>
-<p>These interactive demonstrations (<A href="visualizations.html">visualizations</a>) are helpful for improving the understanding of the following topics: 
+<p>The interactive demonstrations (<A href="visualizations.html">visualizations</a>) are helpful for improving the understanding of the following topics: 
 <ul>
 	<li>creating an <A href="hid_einzelverfahren_sign_doc.html">electronic signature</a>.</li>
 
@@ -171,11 +178,11 @@ For example:</P>
 
 	<li><A href="hid_cr_overview.html">authentication protocols</a>.</li>
 
+	<li>shared secrets using <A href="hid_indiv_crt_secretsharing.html">Chinese Remainder Theorem</a> and <A href="hid_individual_procedures_secretsharing.html">Shamir</A>.</li>
+
 	<LI>find out how an ancient number theorem (<A href="menu_individualprocedures_chineseremaindertheorem.html">Chinese Remainder Theorem</A>) can be applied (e.g. When are the planets of our solar system positioned in one straight line?).</LI>
 
 	<LI><a href="menu_individualprocedures_visualizations.html">visualizations of some algorithms</a> (e.g. Vigenère, AES, Enigma).</LI>
-
-	<li>shared secrets using <A href="hid_indiv_crt_secretsharing.html">Chinese Remainder Theorem</a> and <A href="hid_individual_procedures_secretsharing.html">Shamir</A>.</li>
 
 	<li><a href="hid_analysis_random_3d_visualization.html">3D visualization</a> of big sets of random numbers.</li>
 	
@@ -190,8 +197,7 @@ For example:</P>
 
 	<LI><a href="HID_INDIV_POINTADDITIONONELLIPTICCURVES.html">point addition on elliptic curves</a>.</LI>
 
-</ul>
-</p>
+</ul></p>
 
 <p>Besides the interactive demonstrations the CrypTool package contains the educational game
 <A href="hid_numbershark.html">The Number Shark</a>, which trains pupils to calculate
@@ -212,14 +218,15 @@ factors and to make use of prime numbers.</p>
 <li>has a well sorted index of cryptographic topics.</li>
 </ul></p>
 
+
 <P>Besides the online help, CrypTool provides additional documentation: </P>
 
 <UL>
 
-	<LI>The readme file (<A class="filelink" onclick="parser('readme-en.txt')">readme-en.txt</A>) describes all important elements of the CrypTool package and the new features of this version.<br>
+	<LI>The <A class="filelink" onclick="parser('readme-en.txt')">readme file</A> describes all important elements of the CrypTool package and the new features of this version.<br>
 	Additionally it contains information about the project itself.</LI>
 
-<LI>In the <A class="filelink" onclick="parser('script-en.pdf')">script</A> (provided as a PDF file with about 250 pages) you will find more mathematically oriented information about</LI>
+<LI>In the <A class="filelink" onclick="parser('script-en.pdf')">script</A> (provided as a PDF file with almost 300 pages) you will find more mathematically oriented information about</LI>
 
 <UL type="disc">
 
@@ -232,24 +239,27 @@ factors and to make use of prime numbers.</p>
 <LI>current results of the cryptanalytic research. </LI>
 
 </UL>
-Additionally the appendix contains a list of movies and novels where cryptography plays a role.
+Additionally the appendix of this script contains a list of movies and novels where cryptography plays a role.
 
 <LI>The <A class="filelink" onclick="parser('CrypToolPresentation-en.pdf')">CrypTool presentation</A> with about 120 slides gives an overview about the CrypTool project and the features of CrypTool.</LI>
 
-<LI>In the first fantasy story <A class="filelink" onclick="parser('DialogueSisters.pdf')">The Dialogue of the Sisters</A> by Dr. Carsten Elsner two sisters in a psychiatric hospital use a variant of the RSA cryptosystem as their own secret language.</LI>
+<LI>In the first fantasy story by Dr. Carsten Elsner, <A class="filelink" onclick="parser('DialogueSisters.pdf')">The Dialogue of the Sisters</A>, two sisters in a psychiatric hospital use a variant of the RSA cryptosystem as their own secret language.</LI>
 
-<li>In the second fantasy story <A class="filelink" onclick="parser('ChinLab-en.pdf')">The Chinese Labyrinth</a> by Dr. Carsten Elsner, Marco Polo has to solve some number theoretic problems to become a chief advisor of the Great Khan.
+<li>In the second fantasy story by Dr. Carsten Elsner, <A class="filelink" onclick="parser('ChinLab-en.pdf')">The Chinese Labyrinth</a>, Marco Polo has to solve some number theoretic problems to become a chief advisor of the Great Khan.
 
 </UL>
 
 <P>In addition to the tutorials and the online help you can call from within
-CrypTool an Authorware computer based training about elementary number theory.</P>
+CrypTool an
+<a href="HID_INTERACTIVE_NUMBER_THEORY.html">Authorware computer based training</a>
+about elementary number theory.</P>
 
 
 <P>Also, a couple of encrypted files are attached to CrypTool (Klaus Schmeh
 compiled most of these <a href="cryptochallenges.html">Crypto Puzzles</a>
 and illustrated them in his book).<br>
-Many more cryptographic challenges can be found at
+Many more cryptographic challenges can be found at the website of the crypto
+cipher contest
 <a href="http://www.mysterytwisterc3.org" target="_blank">MysteryTwister C3</a>.</P>
 
 
@@ -260,13 +270,13 @@ Many more cryptographic challenges can be found at
 
 <P>Another objective was to demonstrate the cryptographic techniques employed in organizations. Therefore, with CrypTool as a reliable reference implementation the possibility of checking the encryption functionality of other programs exists.</P>
 
-<P>Several existing libraries have been integrated into CrypTool for special purposes. Thanks to the owners who allowed us to do so:</P>
+<P>Several existing libraries have been integrated into CrypTool. Thanks to the owners who allowed us to do so:</P>
 
 <P>The <!--ZZZPOPUP--><A href="hashfunktion.html">hash functions</A>, the modern symmetric and the asymmetric encryption algorithms and the key management functions are based on the Secude toolkit developed by <!--ZZZPOPUP--><A href="secude.html">Secude IT Security Ltd</A>.</P>
 
 <p>The ECC-AES hybrid encryption makes use of the cv act library by cv cryptovision GmbH (<a href="http://www.cryptovision.com/" target="_blank">http://www.cryptovision.com/</a>).</p>
 
-<P>In order to demonstrate the RSA cryptosystem and to factorise integers CrypTool uses the long integer arithmetic of the Miracl library from DCU/CertiVox (former Shamus Software) (<a href="http://www.compapp.dcu.ie/~mike/shamus.html" target="_blank">http://www.compapp.dcu.ie/~mike/shamus.html</a>). </P>
+<P>In order to demonstrate the RSA cryptosystem and to factorize integers CrypTool uses the long integer arithmetic of the Miracl library from DCU/CertiVox (former Shamus Software) (<a href="http://www.compapp.dcu.ie/~mike/shamus.html" target="_blank">http://www.compapp.dcu.ie/~mike/shamus.html</a>). </P>
 
 <P>Fast calculation of huge Mersenne primes is done with the APFLOAT library of Mikko Tommila
 (<a href="http://www.apfloat.org/apfloat" target="_blank">http://www.apfloat.org/apfloat</a>).</P>
@@ -287,18 +297,22 @@ Many more cryptographic challenges can be found at
 
 <p>The successor versions of CT1 are CT2 and JCT. Both are already stable programs:
 <ul>
-	<li><a href="http://www.cryptool.org/en/ct2-documentation-en" target="_blank">CT2</a>: CrypTool 2 is developed for the .NET platform using C#, WPF and VisualStudio. CT2 is based on a modern plugin software architecture and offers visual programming to the user.</li>
-<br>
+	<li><a href="http://www.cryptool.org/en/ct2-documentation-en" target="_blank">CT2</a>: CrypTool 2 is developed for the .NET platform using C#, WPF and VisualStudio. CT2 is based on a modern plugin software architecture and offers visual programming to the user.<br><br></li>
+
 <li><a href="http://www.cryptool.org/en/jct-volunteer-en" target="_blank">JCT</a>: Java-CrypTool is developed for the platforms Windows, MAC and Linux using Java, SWT and Eclipse. JCT is also based on a modern plugin software architecture and offers document and function centric perspectives.</li>
 </ul></p>
+
 <P>A summary of all the <B>encryption algorithms</B> implemented in all CT variants is available at the <a href="http://www.cryptool.org/en/ctp-documentation-en/ctp-functions-en" target="_blank">CrypTool Portal</a>.</P>
 
 
 <br><P><A NAME="licence_terms"></A><B>Terms of the License / Non-Liability / Copyright</B></P>
 
-	The <em>binary version</em> of the CrypTool product (CrypTool.exe and other executables contained in the package) is provided free of
+	The <em>binary version</em> of the CrypTool product (CrypTool.exe and
+	other executables contained in the package) is provided free of
 	charge to every user for training and test purposes and for the purpose
-	of familiarisation with cryptographic methods. So CrypTool can also be used commercially. In any case the following conditions have to be fulfilled:
+	of familiarisation with cryptographic methods. So CrypTool can also be
+	used commercially. In any case the following conditions have to be
+       	fulfilled:
 	<ul>
 	<li>
 	Use of the product may be subject to legal restrictions in the user's
@@ -312,14 +326,14 @@ Many more cryptographic challenges can be found at
 	originators. 
 	</li>
 
-	<li>The free use of software and/or hardware containing the IDEA algorithm is
-	limited to non-revenue generating data transfer between private
+	<li>The free use of software and/or hardware containing the IDEA algorithm
+       	is limited to non-revenue generating data transfer between private
 	individuals, i.e., not serving commercial purposes. Using IDEA within
-	CrypTool is considered non-commercial usage. For commercial use
+	CrypTool has been confirmed non-commercial usage. For commercial use
 	licenses of IDEA, please contact MediaCrypt AG at www.mediacrypt.com.</li> 
 	
-	<li>The usage of the included libraries from Secude IT Security Ltd and from Shamus
-	Software Ltd. (Miracl) is permitted only in conjunction with CrypTool. </li>
+	<li>The free usage of the included libraries Secude toolkit and Miracl is
+       	permitted only in conjunction with CrypTool. </li>
 	</ul>
 
 	<P>The enclosed stories "The Dialogue of the Sisters" and "The Chinese Labyrinth" are governed by the following license terms: The author owns all rights to these stories. The maintainer of CrypTool is authorized by the author to distribute these stories only together with the CrypTool package.</P>
@@ -330,8 +344,8 @@ Many more cryptographic challenges can be found at
 	<p>
 	The <em>source code</em> of the CrypTool product is distributed under 
 	the terms of the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License 2.0</a>.
-	This does not apply to the source code of the libraries from Secude 
-	GmbH, Shamus Software Ltd, cv cryptovision and the ANIMAL system.
+	This does neither apply to the source code of the libraries Secude toolkit,
+       	Miracl and cv act, nor to the ANIMAL system.
 	</p>
 
 <p>The open source developer group, headed by Prof. Bernhard Esslinger (<a href="mailto:esslinger@fb5.uni-siegen.de">esslinger@fb5.uni-siegen.de</a>), does the maintenance. Being the maintainer means to coordinate and execute actively the further development of CrypTool as freeware and open source software. Each maintainer has committed himself to take care that:
