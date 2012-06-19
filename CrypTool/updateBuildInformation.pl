@@ -104,13 +104,10 @@ if($mode eq "PRE") {
 	open(FILE, "<$fileCrypToolRC") or die ("Opening $fileCrypToolRC: $!\n");
 	@lineArrayFileCrypToolRC = <FILE>;
 	close(FILE);
-
-	print "TEST\n";
 	
 	# update the file content (with build time and current SVN revision)
 	foreach my $line(@lineArrayFileCrypToolRC) {
 		if($line =~ m{ \[CRYPTOOLVERSION_AND_IDE\] }xms) {
-		print "ddjdjdjdjd\n";
 			if(defined $ide) {
 				$line = "IDR_MAINFRAME \"CrypTool $CrypToolVersion [$ide]\"\n";
 			}

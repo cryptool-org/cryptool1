@@ -27,7 +27,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="perl authorsFileIntegrityCheck.pl&#x0D;&#x0A;perl updateBuildInformation.pl PRE&#x0D;&#x0A;"
+				CommandLine="perl authorsFileIntegrityCheck.pl&#x0D;&#x0A;perl updateBuildInformation.pl PRE VS2008&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -126,7 +126,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="perl authorsFileIntegrityCheck.pl&#x0D;&#x0A;perl updateBuildInformation.pl PRE&#x0D;&#x0A;"
+				CommandLine="perl authorsFileIntegrityCheck.pl&#x0D;&#x0A;perl updateBuildInformation.pl PRE VS2008&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -224,7 +224,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="perl authorsFileIntegrityCheck.pl&#x0D;&#x0A;perl updateBuildInformation.pl PRE&#x0D;&#x0A;"
+				CommandLine="perl authorsFileIntegrityCheck.pl&#x0D;&#x0A;perl updateBuildInformation.pl PRE VS2008&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -324,7 +324,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="perl authorsFileIntegrityCheck.pl&#x0D;&#x0A;perl updateBuildInformation.pl PRE&#x0D;&#x0A;"
+				CommandLine="perl authorsFileIntegrityCheck.pl&#x0D;&#x0A;perl updateBuildInformation.pl PRE VS2008&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -428,7 +428,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="perl authorsFileIntegrityCheck.pl&#x0D;&#x0A;perl updateBuildInformation.pl PRE&#x0D;&#x0A;"
+				CommandLine="perl authorsFileIntegrityCheck.pl&#x0D;&#x0A;perl updateBuildInformation.pl PRE VS2008&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -527,7 +527,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="perl authorsFileIntegrityCheck.pl&#x0D;&#x0A;perl updateBuildInformation.pl PRE&#x0D;&#x0A;"
+				CommandLine="perl authorsFileIntegrityCheck.pl&#x0D;&#x0A;perl updateBuildInformation.pl PRE VS2008&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -626,7 +626,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="perl authorsFileIntegrityCheck.pl&#x0D;&#x0A;perl updateBuildInformation.pl PRE&#x0D;&#x0A;"
+				CommandLine="perl authorsFileIntegrityCheck.pl&#x0D;&#x0A;perl updateBuildInformation.pl PRE VS2008&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -725,7 +725,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="perl authorsFileIntegrityCheck.pl&#x0D;&#x0A;perl updateBuildInformation.pl PRE&#x0D;&#x0A;"
+				CommandLine="perl authorsFileIntegrityCheck.pl&#x0D;&#x0A;perl updateBuildInformation.pl PRE VS2008&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -824,7 +824,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="perl authorsFileIntegrityCheck.pl&#x0D;&#x0A;perl updateBuildInformation.pl PRE&#x0D;&#x0A;"
+				CommandLine="perl authorsFileIntegrityCheck.pl&#x0D;&#x0A;perl updateBuildInformation.pl PRE VS2008&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -924,7 +924,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="perl authorsFileIntegrityCheck.pl&#x0D;&#x0A;perl updateBuildInformation.pl PRE&#x0D;&#x0A;"
+				CommandLine="perl authorsFileIntegrityCheck.pl&#x0D;&#x0A;perl updateBuildInformation.pl PRE VS2008&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
