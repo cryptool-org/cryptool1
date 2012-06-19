@@ -4,9 +4,11 @@
 # This script is called as pre-build and as post-build 
 # task from within Visual Studio. It updates a couple of 
 # static variables in "CrypToolApp.cpp" (i.e. build time 
-# and SVN revision) if invoked with the "PRE" parameter, 
-# and it reverts those changes when invoked after the 
-# build with the "POST" parameter.
+# and SVN revision) and some resources in "CrypTool.rc"
+# (i.e. the IDE version in the window title) if invoked 
+# with the "PRE" parameter, and it reverts those changes 
+# when invoked after the build with the "POST" parameter.
+# The "VS2008" or "VS2010" parameters are optional.
 #
 # flomar, 03/04/2012
 #
@@ -16,10 +18,18 @@ use strict;
 print "Updating CrypTool build time and SVN revision...\n";
 
 my $mode = undef;
-my $file = "CrypToolApp.cpp";
+my $ide = undef;
 
-if(scalar @ARGV != 1) {
-	print "Please supply exactly one argument, either PRE or POST! Exiting...\n";
+my $CrypToolVersion = "1.4.31 Beta 4";
+
+my $fileCrypToolApp = "CrypToolApp.cpp";
+my $fileCrypToolRC = "CrypTool.rc";
+
+my $fileCrypToolApp_BACKUP = "CrypToolApp-BACKUP.cpp";
+my $fileCrypToolRC_BACKUP = "CrypTool-BACKUP.rc";
+
+if(scalar @ARGV < 1) {
+	print "Please supply at least one argument, either PRE or POST! Exiting...\n";
 	exit;
 }
 else {
@@ -30,16 +40,27 @@ else {
 		$mode = "POST";
 	}
 	else {
-		print "Please supply exactly one argument, either PRE or POST! Exiting...\n";
+		print "Please supply at least one argument, either PRE or POST! Exiting...\n";
 		exit;
-	}	
+	}
+	if($ARGV[1] eq "VS2008") {
+		$ide = "VS2008";
+	}
+	if($ARGV[1] eq "VS2010") {
+		$ide = "VS2010";
+	}
 }
 
-# mode PRE: we update "$file"
+# mode PRE: we update the files
 if($mode eq "PRE") {
+
+	# copy the original files
+	system("copy $fileCrypToolApp $fileCrypToolApp_BACKUP");
+	system("copy $fileCrypToolRC $fileCrypToolRC_BACKUP");
+
 	my $buildTime = undef;
 	my $svnRevision = undef;
-
+	
 	# determine the current time
 	my ($sec,$min,$hour,$day,$month,$yr19,@rest) = localtime(time);
 	$buildTime = (1900+$yr19) . "-" . ($month+1) . "-" . ($day);
@@ -51,14 +72,14 @@ if($mode eq "PRE") {
 		$svnRevision = $1;
 	}
 
-	# open the file
-	my @lineArray;
-	open(FILE, "<$file") or die ("Opening $file: $!\n");
-	@lineArray = <FILE>;
+	# open the file (fileCrypToolApp)
+	my @lineArrayFileCrypToolApp;
+	open(FILE, "<$fileCrypToolApp") or die ("Opening $fileCrypToolApp: $!\n");
+	@lineArrayFileCrypToolApp = <FILE>;
 	close(FILE);
 
 	# update the file content (with build time and current SVN revision)
-	foreach my $line(@lineArray) {
+	foreach my $line(@lineArrayFileCrypToolApp) {
 		if($line =~ m{ \#define \s+ CRYPTOOL_BUILD_TIME }xms) {
 			if(defined $buildTime) {
 				$line = "#define CRYPTOOL_BUILD_TIME \"$buildTime\"\n";
@@ -72,8 +93,36 @@ if($mode eq "PRE") {
 	}
 
 	# re-write the file
-	open(FILE, ">$file") or die ("Opening $file $!\n");
-	foreach my $line(@lineArray) {
+	open(FILE, ">$fileCrypToolApp") or die ("Opening $fileCrypToolApp $!\n");
+	foreach my $line(@lineArrayFileCrypToolApp) {
+	  print FILE $line;
+	}
+	close(FILE);
+	
+	# open the file (fileCrypToolRC)
+	my @lineArrayFileCrypToolRC;
+	open(FILE, "<$fileCrypToolRC") or die ("Opening $fileCrypToolRC: $!\n");
+	@lineArrayFileCrypToolRC = <FILE>;
+	close(FILE);
+
+	print "TEST\n";
+	
+	# update the file content (with build time and current SVN revision)
+	foreach my $line(@lineArrayFileCrypToolRC) {
+		if($line =~ m{ \[CRYPTOOLVERSION_AND_IDE\] }xms) {
+		print "ddjdjdjdjd\n";
+			if(defined $ide) {
+				$line = "IDR_MAINFRAME \"CrypTool $CrypToolVersion [$ide]\"\n";
+			}
+			else {
+				$line = "IDR_MAINFRAME \"CrypTool $CrypToolVersion\"\n";
+			}
+		}
+	}
+
+	# re-write the file
+	open(FILE, ">$fileCrypToolRC") or die ("Opening $fileCrypToolRC $!\n");
+	foreach my $line(@lineArrayFileCrypToolRC) {
 	  print FILE $line;
 	}
 	close(FILE);
@@ -81,28 +130,7 @@ if($mode eq "PRE") {
 
 # mode POST: restore initial state of the file
 if($mode eq "POST") {
-	
-	# open the file
-	my @lineArray;
-	open(FILE, "<$file") or die ("Opening $file: $!\n");
-	@lineArray = <FILE>;
-	close(FILE);
-	
-	# update the file content (with default values for build time and current SVN revision)
-	foreach my $line(@lineArray) {
-		if($line =~ m{ \#define \s+ CRYPTOOL_BUILD_TIME }xms) {
-			$line = "#define CRYPTOOL_BUILD_TIME \"[BUILD TIME]\"\n";
-		}
-		if($line =~ m{ \#define \s+ CRYPTOOL_SVN_REVISION }xms) {
-			$line = "#define CRYPTOOL_SVN_REVISION \"[SVN REVISION]\"\n";
-		}
-	}
-	
-	# re-write the file
-	open(FILE, ">$file") or die ("Opening $file $!\n");
-	foreach my $line(@lineArray) {
-	  print FILE $line;
-	}
-	close(FILE);
+	system("copy $fileCrypToolApp_BACKUP $fileCrypToolApp");
+	system("copy $fileCrypToolRC_BACKUP $fileCrypToolRC");
 }
 

@@ -174,7 +174,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_en|Win32'">
     <PreBuildEvent>
       <Command>perl authorsFileIntegrityCheck.pl
-perl updateBuildInformation.pl PRE
+perl updateBuildInformation.pl PRE VS2010
 </Command>
     </PreBuildEvent>
     <Midl>
@@ -230,7 +230,7 @@ perl updateBuildInformation.pl PRE
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_de|Win32'">
     <PreBuildEvent>
       <Command>perl authorsFileIntegrityCheck.pl
-perl updateBuildInformation.pl PRE
+perl updateBuildInformation.pl PRE VS2010
 </Command>
     </PreBuildEvent>
     <Midl>
@@ -286,7 +286,7 @@ perl updateBuildInformation.pl PRE
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_pl|Win32'">
     <PreBuildEvent>
       <Command>perl authorsFileIntegrityCheck.pl
-perl updateBuildInformation.pl PRE
+perl updateBuildInformation.pl PRE VS2010
 </Command>
     </PreBuildEvent>
     <Midl>
@@ -344,7 +344,7 @@ perl updateBuildInformation.pl POST
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_de|Win32'">
     <PreBuildEvent>
       <Command>perl authorsFileIntegrityCheck.pl
-perl updateBuildInformation.pl PRE
+perl updateBuildInformation.pl PRE VS2010
 </Command>
     </PreBuildEvent>
     <CustomBuildStep>
@@ -410,7 +410,7 @@ perl updateBuildInformation.pl PRE
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_en|Win32'">
     <PreBuildEvent>
       <Command>perl authorsFileIntegrityCheck.pl
-perl updateBuildInformation.pl PRE
+perl updateBuildInformation.pl PRE VS2010
 </Command>
     </PreBuildEvent>
     <Midl>
@@ -465,7 +465,7 @@ perl updateBuildInformation.pl PRE
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_pl|Win32'">
     <PreBuildEvent>
       <Command>perl authorsFileIntegrityCheck.pl
-perl updateBuildInformation.pl PRE
+perl updateBuildInformation.pl PRE VS2010
 </Command>
     </PreBuildEvent>
     <Midl>
@@ -522,7 +522,7 @@ perl updateBuildInformation.pl POST
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_rs|Win32'">
     <PreBuildEvent>
       <Command>perl authorsFileIntegrityCheck.pl
-perl updateBuildInformation.pl PRE
+perl updateBuildInformation.pl PRE VS2010
 </Command>
     </PreBuildEvent>
     <Midl>
@@ -578,7 +578,7 @@ perl updateBuildInformation.pl POST</Command>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_rs|Win32'">
     <PreBuildEvent>
       <Command>perl authorsFileIntegrityCheck.pl
-perl updateBuildInformation.pl PRE
+perl updateBuildInformation.pl PRE VS2010
 </Command>
     </PreBuildEvent>
     <Midl>
@@ -635,7 +635,7 @@ perl updateBuildInformation.pl POST</Command>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_es|Win32'">
     <PreBuildEvent>
       <Command>perl authorsFileIntegrityCheck.pl
-perl updateBuildInformation.pl PRE
+perl updateBuildInformation.pl PRE VS2010
 </Command>
     </PreBuildEvent>
     <Midl>
@@ -693,7 +693,7 @@ perl updateBuildInformation.pl POST
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_es|Win32'">
     <PreBuildEvent>
       <Command>perl authorsFileIntegrityCheck.pl
-perl updateBuildInformation.pl PRE
+perl updateBuildInformation.pl PRE VS2010
 </Command>
     </PreBuildEvent>
     <Midl>
@@ -2127,7 +2127,7 @@ cmd /c copy /y "%(RootDir)%(Directory)ticket" "$(OutDir)"
     </None>
     <None Include="res\Bitmaps_en\simple_transposition_rail_fence.bmp" />
     <None Include="res\Bitmaps\simple_transposition_rail_fence.bmp" />
-	<None Include="res\Bitmaps\dice.bmp" />
+    <None Include="res\Bitmaps\dice.bmp" />
     <None Include="res\Bitmaps_en\simple_transposition_scytale.bmp" />
     <None Include="res\Bitmaps\simple_transposition_scytale.bmp" />
     <None Include="res\splith.cur" />
