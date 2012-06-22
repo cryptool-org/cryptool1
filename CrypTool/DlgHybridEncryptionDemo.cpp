@@ -928,7 +928,7 @@ void CDlgHybridEncryptionDemo::OnButtonShowEncDocument()
 	char *dest = new char [destSize+1];
 	SHOW_HOUR_GLASS
 	
-	int err = HexDumpMem(dest,destSize,(unsigned char*)CipherText->octets,m_iDocSize, INFO_TEXT_COLUMNS);
+	int err = HexDumpMem(dest,destSize,(unsigned char*)CipherText->octets, CipherText->noctets, INFO_TEXT_COLUMNS);
 
 	m_strEdit = dest;
 	HIDE_HOUR_GLASS
