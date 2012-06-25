@@ -137,6 +137,9 @@ void CDlgTextOptions::SetDefaultOptions()
 	referenceFile.Append(pc_str);
 	int pos = referenceFile.ReverseFind('\\');
 	title= referenceFile.Mid(pos+1);
+
+	referenceFile.Replace("\\\\", "\\");
+	selectedLanguageReferenceFile = 0;
 }
 
 
@@ -154,6 +157,7 @@ void CDlgTextOptions::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_TEXTOPTIONS_ALPHABET, informationAlphabetSize);
 	DDX_Control(pDX, IDC_EDIT_REFERENCE_FILE, controlEditReferenceFile);
 	DDX_Control(pDX, IDC_EDIT_ALPHABET, controlEditAlphabet);
+	DDX_Control(pDX, IDC_COMBO_SELECT_REFERENCE_FILE, controlComboBoxSelectReferenceFile);
 	DDX_Check(pDX, IDC_CHECK_KEEP_CHARACTERS_NOT_PRESENT_IN_ALPHABET_UNCHANGED, keepCharactersNotPresentInAlphabetUnchanged);
 	DDX_Text(pDX, IDC_EDIT_ALPHABET, alphabet);
 	DDX_Check(pDX, IDC_CHECK_DISTINGUISH_UPPER_LOWER_CASE, distinguishUpperLowerCase);
@@ -183,6 +187,7 @@ BEGIN_MESSAGE_MAP(CDlgTextOptions, CDialog)
 	ON_BN_CLICKED(IDC_CHECK_KEEP_UPPER_LOWER_CASE_INFORMATION, OnCheckKeepUpperLowerCaseInformation)
 	ON_BN_CLICKED(IDC_CHECK_UMLAUTS, OnCheckUmlauts)
 	ON_BN_CLICKED(IDC_BUTTON_SEARCH_REFERENCE_FILE, OnButtonSearchReferenceFile)
+	ON_CBN_SELENDOK(IDC_COMBO_SELECT_REFERENCE_FILE, OnSelendokComboSelectReferenceFile)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -192,12 +197,102 @@ BOOL CDlgTextOptions::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
+	// flomar, 06/20/2012: create language reference file structs for all supported languages;
+	// for now we support the following languages: Custom (user-defined), EN, DE, PL, SR, ES, FR, LA
+	CString pathToReferenceFiles;
+	CString stringLanguageName;
+	CString stringFileName;
+	// set path to reference files
+	if(Pfad) {
+		pathToReferenceFiles = Pfad;
+		pathToReferenceFiles.Append("\\reference\\");
+		pathToReferenceFiles.Replace("\\\\", "\\");
+	}
+	// CUSTOM
+	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_CUSTOM);
+	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_CUSTOM);
+	LanguageReferenceFile languageReferenceFileCustom;
+	languageReferenceFileCustom.language = stringLanguageName;
+	languageReferenceFileCustom.referenceFile = stringFileName;
+	mapLanguageReferenceFiles[stringLanguageName] = languageReferenceFileCustom;
+	// EN
+	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_ENGLISH);
+	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_ENGLISH);
+	LanguageReferenceFile languageReferenceFileEnglish;
+	languageReferenceFileEnglish.language = stringLanguageName;
+	languageReferenceFileEnglish.referenceFile = pathToReferenceFiles + stringFileName;
+	mapLanguageReferenceFiles[stringLanguageName] = languageReferenceFileEnglish;
+	// DE
+	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_GERMAN);
+	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_GERMAN);
+	LanguageReferenceFile languageReferenceFileGerman;
+	languageReferenceFileGerman.language = stringLanguageName;
+	languageReferenceFileGerman.referenceFile = pathToReferenceFiles + stringFileName;
+	mapLanguageReferenceFiles[stringLanguageName] = languageReferenceFileGerman;
+	// PL
+	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_POLISH);
+	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_POLISH);
+	LanguageReferenceFile languageReferenceFilePolish;
+	languageReferenceFilePolish.language = stringLanguageName;
+	languageReferenceFilePolish.referenceFile = pathToReferenceFiles + stringFileName;
+	mapLanguageReferenceFiles[stringLanguageName] = languageReferenceFilePolish;
+	// SR
+	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_SERBIAN);
+	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_SERBIAN);
+	LanguageReferenceFile languageReferenceFileSerbian;
+	languageReferenceFileSerbian.language = stringLanguageName;
+	languageReferenceFileSerbian.referenceFile = pathToReferenceFiles + stringFileName;
+	mapLanguageReferenceFiles[stringLanguageName] = languageReferenceFileSerbian;
+	// ES
+	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_SPANISH);
+	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_SPANISH);
+	LanguageReferenceFile languageReferenceFileSpanish;
+	languageReferenceFileSpanish.language = stringLanguageName;
+	languageReferenceFileSpanish.referenceFile = pathToReferenceFiles + stringFileName;
+	mapLanguageReferenceFiles[stringLanguageName] = languageReferenceFileSpanish;
+	// FR
+	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_FRENCH);
+	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_FRENCH);
+	LanguageReferenceFile languageReferenceFileFrench;
+	languageReferenceFileFrench.language = stringLanguageName;
+	languageReferenceFileFrench.referenceFile = pathToReferenceFiles + stringFileName;
+	mapLanguageReferenceFiles[stringLanguageName] = languageReferenceFileFrench;
+	// LA
+	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_LATIN);
+	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_LATIN);
+	LanguageReferenceFile languageReferenceFileLatin;
+	languageReferenceFileLatin.language = stringLanguageName;
+	languageReferenceFileLatin.referenceFile = pathToReferenceFiles + stringFileName;
+	mapLanguageReferenceFiles[stringLanguageName] = languageReferenceFileLatin;
+
+	// add all the language reference file structs to our map
+	mapLanguageReferenceFiles[languageReferenceFileCustom.language] = languageReferenceFileCustom;
+	mapLanguageReferenceFiles[languageReferenceFileEnglish.language] = languageReferenceFileEnglish;
+	mapLanguageReferenceFiles[languageReferenceFileGerman.language] = languageReferenceFileGerman;
+	mapLanguageReferenceFiles[languageReferenceFilePolish.language] = languageReferenceFilePolish;
+	mapLanguageReferenceFiles[languageReferenceFileSerbian.language] = languageReferenceFileSerbian;
+	mapLanguageReferenceFiles[languageReferenceFileSpanish.language] = languageReferenceFileSpanish;
+	mapLanguageReferenceFiles[languageReferenceFileFrench.language] = languageReferenceFileFrench;
+	mapLanguageReferenceFiles[languageReferenceFileLatin.language] = languageReferenceFileLatin;
+
+	// fill combox box for reference file selection according to our map
+	for(std::map<CString, LanguageReferenceFile>::iterator i=mapLanguageReferenceFiles.begin(); i!=mapLanguageReferenceFiles.end(); i++) {
+		CString language = (*i).first;
+		LanguageReferenceFile languageReferenceFile = (*i).second;
+		controlComboBoxSelectReferenceFile.AddString(language);
+	}
+	// initial combo box selection
+	controlComboBoxSelectReferenceFile.SetCurSel(selectedLanguageReferenceFile);
+	// some minor correction
+	referenceFile.Replace("\\\\", "\\");
+
 	// save information to return to settings in case user exits the dialog with the Cancel button
 	oldKeepCharactersNotPresentInAlphabetUnchanged  = keepCharactersNotPresentInAlphabetUnchanged;
 	oldKeepUpperLowerCaseInformation                = keepUpperLowerCaseInformation;
 	oldDistinguishUpperLowerCase                    = distinguishUpperLowerCase;
 	oldAlphabet                                     = alphabet;
 	oldReferenceFile                                = referenceFile;
+	oldSelectedLanguageReferenceFile                = selectedLanguageReferenceFile;
 
 	updateCheckState();
    UpdateData(FALSE);
@@ -216,6 +311,7 @@ void CDlgTextOptions::OnCancel()
 	distinguishUpperLowerCase                    = oldDistinguishUpperLowerCase;
 	alphabet                                     = oldAlphabet;
 	referenceFile                                = oldReferenceFile;
+	selectedLanguageReferenceFile                = oldSelectedLanguageReferenceFile;
 
 	CDialog::OnCancel();
 }
@@ -283,6 +379,8 @@ void CDlgTextOptions::OnButtonSearchReferenceFile()
 	UpdateData(TRUE);
 	referenceFile=fname;
 	title = ofn.lpstrFileTitle;
+	selectedLanguageReferenceFile = 0;
+	controlComboBoxSelectReferenceFile.SetCurSel(0);
 	UpdateData(FALSE);
 	controlEditReferenceFile.SetFocus();
 	controlEditReferenceFile.SetSel(0,-1);
@@ -355,6 +453,9 @@ void CDlgTextOptions::OnButtonRestoreStandard()
 	updateCheckState();
    UpdateData(FALSE);
 	updateAlphabetHeading();
+	// update gui elements
+	controlEditReferenceFile.SetSel(0,-1);
+	controlComboBoxSelectReferenceFile.SetCurSel(selectedLanguageReferenceFile);
 }
 
 void CDlgTextOptions::OnCheckDistinguishUpperLowerCase()
@@ -517,4 +618,18 @@ void CDlgTextOptions::updateCheckState()
    digits      = check_charset( alphabet, DIGIT_CHARS );
 }
 
+void CDlgTextOptions::OnSelendokComboSelectReferenceFile()
+{
+	CString language;
+	controlComboBoxSelectReferenceFile.GetWindowText(language);
+	if(mapLanguageReferenceFiles.find(language) != mapLanguageReferenceFiles.end()) {
+		LanguageReferenceFile languageReferenceFile = mapLanguageReferenceFiles[language];
+		referenceFile = languageReferenceFile.referenceFile;
+		UpdateData(false);
+	}
+	// move selection to the end of the edit box (so the user can easier see changes occuring)
+	controlEditReferenceFile.SetSel(0,-1);
+	// don't forget to update this variable
+	selectedLanguageReferenceFile = controlComboBoxSelectReferenceFile.GetCurSel();
+}
 

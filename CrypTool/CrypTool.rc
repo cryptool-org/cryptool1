@@ -454,13 +454,13 @@ BEGIN
     CTEXT           "Static\nDni",IDC_TEXT,6,53,174,28
 END
 
-IDD_TEXT_OPTIONS DIALOGEX 0, 0, 272, 260
+IDD_TEXT_OPTIONS DIALOGEX 0, 0, 272, 275
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Opcje tekstu "
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&ZatwierdŸ",IDOK,7,235,65,18
-    PUSHBUTTON      "&Przywróæ domyœlne",IDC_BUTTON_RESTORE_STANDARD,86,235,100,18
+    DEFPUSHBUTTON   "&ZatwierdŸ",IDOK,7,250,65,18
+    PUSHBUTTON      "&Przywróæ domyœlne",IDC_BUTTON_RESTORE_STANDARD,86,250,100,18
     CONTROL         "Zachowaj znaki nie reprezentowane w alfabecie jako niezmienione",IDC_CHECK_KEEP_CHARACTERS_NOT_PRESENT_IN_ALPHABET_UNCHANGED,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,16,213,10
     CONTROL         "Jeœli mo¿liwe: pamiêtaj informacje o szyfrowaniu/deszyfrowaniu, wielkich/ma³ych literach.",IDC_CHECK_KEEP_UPPER_LOWER_CASE_INFORMATION,
@@ -474,14 +474,15 @@ BEGIN
     EDITTEXT        IDC_EDIT_ALPHABET,20,161,237,13,ES_AUTOHSCROLL
     PUSHBUTTON      "&ZnajdŸ",IDC_BUTTON_SEARCH_REFERENCE_FILE,202,205,55,14
     CONTROL         "Cyfry arabskie",IDC_CHECK_DIGITS,"Button",BS_AUTO3STATE | WS_TABSTOP,20,136,49,10
-    PUSHBUTTON      "&Anuluj",IDCANCEL,200,235,65,18
+    PUSHBUTTON      "&Anuluj",IDCANCEL,200,250,65,18
     GROUPBOX        "Opcje formatowania",IDC_STATIC,7,5,258,27
     GROUPBOX        "Definicja alfabetu u¿ytego do szyfrowania",IDC_STATIC,7,93,258,90
     LTEXT           "U¿ywany alfabet",IDC_TEXTOPTIONS_ALPHABET,20,151,226,8
-    GROUPBOX        "Plik referencyjny dla zastosowañ statystycznych",IDC_STATIC,7,189,258,39
+    GROUPBOX        "Plik referencyjny dla zastosowañ statystycznych",IDC_STATIC,7,189,258,54
     EDITTEXT        IDC_EDIT_REFERENCE_FILE,20,205,165,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
     GROUPBOX        "Wielkie/ma³e litery",IDC_STATIC,7,39,258,48
     CONTROL         "Umlauty",IDC_CHECK_UMLAUTS,"Button",BS_AUTO3STATE | WS_TABSTOP,105,136,41,10
+    COMBOBOX        IDC_COMBO_SELECT_REFERENCE_FILE,20,225,165,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
 END
 
 IDD_KEYLENGTH DIALOG  0, 0, 186, 68
@@ -7378,7 +7379,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 265
         VERTGUIDE, 105
-        BOTTOMMARGIN, 253
+        BOTTOMMARGIN, 268
         HORZGUIDE, 106
         HORZGUIDE, 121
     END
@@ -8484,6 +8485,33 @@ BEGIN
                             "Inicja³ has³a wymaga co najmniej 26 kart. Liczba kart wzros³a do tego numeru."
     IDS_HILL_CHOOSE_HILL10x10 
                             "Wymiar przechowanego klucza jest wiekszy niz 5.\nProsze wybierz "" Wieksza Matrix "" zanim wklejisz ten klucz."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_CUSTOM 
+                            "[i18n] User-defined reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_CUSTOM 
+                            "[i18n] Please specify a file name."
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_ENGLISH 
+                            "[i18n] English reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_ENGLISH "genesis-en.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_GERMAN 
+                            "[i18n] German reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_GERMAN "genesis-de.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_POLISH 
+                            "[i18n] Polish reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_POLISH "genesis-pl.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_SERBIAN 
+                            "[i18n] Serbian reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_SERBIAN "genesis-sr.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_SPANISH 
+                            "[i18n] Spanish reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_SPANISH "genesis-es.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_FRENCH 
+                            "[i18n] French reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_FRENCH "genesis-fr.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_LATIN "[i18n] Latin reference file"
 END
 
 STRINGTABLE 
@@ -11181,6 +11209,11 @@ BEGIN
                             "[i18n] Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_LATIN "genesis-la.txt"
+END
+
 #endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -11630,13 +11663,13 @@ BEGIN
     CTEXT           "Staticno\nDana",IDC_TEXT,6,53,174,28
 END
 
-IDD_TEXT_OPTIONS DIALOGEX 0, 0, 272, 260
+IDD_TEXT_OPTIONS DIALOGEX 0, 0, 272, 275
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Opcije Teksta"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Primeni",IDOK,7,235,65,18
-    PUSHBUTTON      "&Vrati na standardni",IDC_BUTTON_RESTORE_STANDARD,86,235,100,18
+    DEFPUSHBUTTON   "&Primeni",IDOK,7,250,65,18
+    PUSHBUTTON      "&Vrati na standardni",IDC_BUTTON_RESTORE_STANDARD,86,250,100,18
     CONTROL         "Cuvaj karaktere koji nisu prisutni u alfabetu nepromenjenenima",IDC_CHECK_KEEP_CHARACTERS_NOT_PRESENT_IN_ALPHABET_UNCHANGED,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,16,213,10
     CONTROL         "Ako je moguce: cuvaj za šifrovanje/dešifrovanje informacije o malim/velikim slovima",IDC_CHECK_KEEP_UPPER_LOWER_CASE_INFORMATION,
@@ -11650,14 +11683,15 @@ BEGIN
     EDITTEXT        IDC_EDIT_ALPHABET,20,161,237,13,ES_AUTOHSCROLL
     PUSHBUTTON      "&Pronadi...",IDC_BUTTON_SEARCH_REFERENCE_FILE,202,205,55,14
     CONTROL         "Brojevima",IDC_CHECK_DIGITS,"Button",BS_AUTO3STATE | WS_TABSTOP,20,136,49,10
-    PUSHBUTTON      "&Otkaži",IDCANCEL,200,235,65,18
+    PUSHBUTTON      "&Otkaži",IDCANCEL,200,250,65,18
     GROUPBOX        "Opcije formatizovanja otvorenog teksta i šifrata",IDC_STATIC,9,5,256,27
     GROUPBOX        "Definiši alfabet koji se koristi u tekstualnim šifratima",IDC_STATIC,9,93,256,90
     LTEXT           "Alfabet za korišcenje:",IDC_TEXTOPTIONS_ALPHABET,20,151,226,8
-    GROUPBOX        "Referentna datoteka za statisticke aplikacije",IDC_STATIC,9,189,256,39
+    GROUPBOX        "Referentna datoteka za statisticke aplikacije",IDC_STATIC,9,189,256,54
     EDITTEXT        IDC_EDIT_REFERENCE_FILE,20,205,165,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
     GROUPBOX        "Mala/velika slova",IDC_STATIC,9,39,256,48
     CONTROL         "Preglasi",IDC_CHECK_UMLAUTS,"Button",BS_AUTO3STATE | WS_TABSTOP,105,136,41,10
+    COMBOBOX        IDC_COMBO_SELECT_REFERENCE_FILE,20,225,165,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
 END
 
 IDD_KEYLENGTH DIALOG  0, 0, 186, 68
@@ -18565,7 +18599,7 @@ BEGIN
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 265
-        BOTTOMMARGIN, 253
+        BOTTOMMARGIN, 268
     END
 
     IDD_KEY_ANALYSIS, DIALOG
@@ -19653,6 +19687,33 @@ BEGIN
                             "Inicijalizacija lozinke zahteva najmanje 26 karata. Broj karata je uvecan na ovaj broj."
     IDS_HILL_CHOOSE_HILL10x10 
                             "Velicina uskladištenog kljuca je veca od 5.\nMolim kliknite na dugme ""Veca Matrica"" pre nego što nalepite ovaj kljuc."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_CUSTOM 
+                            "[i18n] User-defined reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_CUSTOM 
+                            "[i18n] Please specify a file name."
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_ENGLISH 
+                            "[i18n] English reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_ENGLISH "genesis-en.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_GERMAN 
+                            "[i18n] German reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_GERMAN "genesis-de.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_POLISH 
+                            "[i18n] Polish reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_POLISH "genesis-pl.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_SERBIAN 
+                            "[i18n] Serbian reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_SERBIAN "genesis-sr.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_SPANISH 
+                            "[i18n] Spanish reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_SPANISH "genesis-es.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_FRENCH 
+                            "[i18n] French reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_FRENCH "genesis-fr.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_LATIN "[i18n] Latin reference file"
 END
 
 STRINGTABLE 
@@ -22336,6 +22397,11 @@ BEGIN
                             "[i18n] Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_LATIN "genesis-la.txt"
+END
+
 #endif    // Serbian (Latin) resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -22749,13 +22815,13 @@ BEGIN
     CTEXT           "Static\nTage",IDC_TEXT,6,53,177,25
 END
 
-IDD_TEXT_OPTIONS DIALOGEX 0, 0, 272, 260
+IDD_TEXT_OPTIONS DIALOGEX 0, 0, 272, 275
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Textoptionen"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Übernehmen",IDOK,7,235,65,18
-    PUSHBUTTON      "Standard &wiederherstellen",IDC_BUTTON_RESTORE_STANDARD,86,235,100,18
+    DEFPUSHBUTTON   "&Übernehmen",IDOK,7,250,65,18
+    PUSHBUTTON      "Standard &wiederherstellen",IDC_BUTTON_RESTORE_STANDARD,86,250,100,18
     CONTROL         "Nicht im Alphabet enthaltene Zeichen unverändert beibehalten",IDC_CHECK_KEEP_CHARACTERS_NOT_PRESENT_IN_ALPHABET_UNCHANGED,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,18,213,10
     CONTROL         "Wenn möglich bei der Ver-/Entschlüsselung Informationen zur Groß-/\nKleinschreibung beibehalten",IDC_CHECK_KEEP_UPPER_LOWER_CASE_INFORMATION,
@@ -22769,14 +22835,15 @@ BEGIN
     CONTROL         "Kleinbuchstaben",IDC_CHECK_LOWER_CASE,"Button",BS_AUTO3STATE | WS_TABSTOP,105,107,69,10
     EDITTEXT        IDC_EDIT_ALPHABET,20,162,237,13,ES_AUTOHSCROLL
     PUSHBUTTON      "&Suchen ...",IDC_BUTTON_SEARCH_REFERENCE_FILE,202,206,55,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,200,235,65,18
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,200,250,65,18
     GROUPBOX        "Formatierungsoptionen für Klar- und Geheimtext",IDC_STATIC,8,5,257,29
     GROUPBOX        "Alphabet für Texte definieren",IDC_STATIC,8,93,257,91
     LTEXT           "Zu verwendendes Alphabet:",IDC_TEXTOPTIONS_ALPHABET,20,152,189,8
-    GROUPBOX        "Referenzdatei für statistische Anwendungen",IDC_STATIC,8,190,257,39
+    GROUPBOX        "Referenzdatei für statistische Anwendungen",IDC_STATIC,8,190,257,54
     EDITTEXT        IDC_EDIT_REFERENCE_FILE,20,206,165,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
     GROUPBOX        "Groß-/Kleinschreibung in Klar- und Geheimtext",IDC_STATIC,8,40,257,48
     CONTROL         "Umlaute",IDC_CHECK_UMLAUTS,"Button",BS_AUTO3STATE | WS_TABSTOP,105,137,42,10
+    COMBOBOX        IDC_COMBO_SELECT_REFERENCE_FILE,20,225,165,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
 END
 
 IDD_KEYLENGTH DIALOG  0, 0, 186, 68
@@ -29729,7 +29796,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 265
         VERTGUIDE, 105
-        BOTTOMMARGIN, 253
+        BOTTOMMARGIN, 268
         HORZGUIDE, 117
         HORZGUIDE, 132
     END
@@ -30690,6 +30757,27 @@ BEGIN
                             "Bei einer Passwortinitialisierung werden mindestens 26 Karten benötigt. Deshalb wurde die Anzahl der Karten auf diese Zahl erhöht."
     IDS_HILL_CHOOSE_HILL10x10 
                             "Der im Zwischenspeicher gesicherte Schlüssel hat eine Dimension größer als 5.\nBitte wählen Sie zunächst ""Größere Matrix"", bevor Sie den Schlüssel einfügen."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_CUSTOM 
+                            "Benutzerdefinierte Referenzdatei"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_CUSTOM 
+                            "Bitte wählen Sie eine Referenzdatei aus."
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_ENGLISH "Englische Referenzdatei"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_ENGLISH "genesis-en.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_GERMAN "Deutsche Referenzdatei"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_GERMAN "genesis-de.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_POLISH "Polnische Referenzdatei"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_POLISH "genesis-pl.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_SERBIAN "Serbische Referenzdatei"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_SERBIAN "genesis-sr.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_SPANISH "Spanische Referenzdatei"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_SPANISH "genesis-es.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_FRENCH "Französische Referenzdatei"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_FRENCH "genesis-fr.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_LATIN "Lateinische Referenzdatei"
 END
 
 STRINGTABLE 
@@ -33432,6 +33520,11 @@ BEGIN
                             "Generiere Primzahlen in folgenden Bereichen:\n[%s, %s], [%s, %s]"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_LATIN "genesis-la.txt"
+END
+
 #endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -33876,13 +33969,13 @@ BEGIN
     CTEXT           "Static\nDays",IDC_TEXT,6,53,174,28
 END
 
-IDD_TEXT_OPTIONS DIALOGEX 0, 0, 272, 260
+IDD_TEXT_OPTIONS DIALOGEX 0, 0, 272, 275
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Text Options"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Apply",IDOK,7,235,65,18
-    PUSHBUTTON      "&Restore default",IDC_BUTTON_RESTORE_STANDARD,86,235,100,18
+    DEFPUSHBUTTON   "&Apply",IDOK,7,250,65,18
+    PUSHBUTTON      "&Restore default",IDC_BUTTON_RESTORE_STANDARD,86,250,100,18
     CONTROL         "Keep characters not present in the alphabet unchanged",IDC_CHECK_KEEP_CHARACTERS_NOT_PRESENT_IN_ALPHABET_UNCHANGED,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,16,213,10
     CONTROL         "If possible, retain case information for encryption/decryption",IDC_CHECK_KEEP_UPPER_LOWER_CASE_INFORMATION,
@@ -33896,14 +33989,15 @@ BEGIN
     EDITTEXT        IDC_EDIT_ALPHABET,20,161,237,13,ES_AUTOHSCROLL
     PUSHBUTTON      "&Find...",IDC_BUTTON_SEARCH_REFERENCE_FILE,202,205,55,14
     CONTROL         "Numerals",IDC_CHECK_DIGITS,"Button",BS_AUTO3STATE | WS_TABSTOP,20,136,49,10
-    PUSHBUTTON      "&Cancel",IDCANCEL,200,235,65,18
+    PUSHBUTTON      "&Cancel",IDCANCEL,200,250,65,18
     GROUPBOX        "Formatting options for cleartext and ciphertext",IDC_STATIC,9,5,256,27
     GROUPBOX        "Define the alphabet used in text ciphers",IDC_STATIC,9,93,256,90
     LTEXT           "Alphabet to use:",IDC_TEXTOPTIONS_ALPHABET,20,151,226,8
-    GROUPBOX        "Reference file for statistical applications",IDC_STATIC,9,189,256,39
+    GROUPBOX        "Reference file for statistical applications",IDC_STATIC,9,189,256,54
     EDITTEXT        IDC_EDIT_REFERENCE_FILE,20,205,165,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
     GROUPBOX        "Upper/lower case in cleartext and ciphertext",IDC_STATIC,9,39,256,48
     CONTROL         "Umlauts",IDC_CHECK_UMLAUTS,"Button",BS_AUTO3STATE | WS_TABSTOP,105,136,41,10
+    COMBOBOX        IDC_COMBO_SELECT_REFERENCE_FILE,20,225,165,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
 END
 
 IDD_KEYLENGTH DIALOG  0, 0, 186, 68
@@ -40794,7 +40888,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 265
         VERTGUIDE, 105
-        BOTTOMMARGIN, 253
+        BOTTOMMARGIN, 268
         HORZGUIDE, 116
         HORZGUIDE, 131
     END
@@ -41921,6 +42015,26 @@ BEGIN
                             "A password init requires at least 26 cards. The number of cards has been increased to this number."
     IDS_HILL_CHOOSE_HILL10x10 
                             "The dimension of the stored key is greater than 5.\nPlease select the button ""Larger Matrix"" before you paste this key."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_CUSTOM 
+                            "User-defined reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_CUSTOM "Please specify a file name."
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_ENGLISH "English reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_ENGLISH "genesis-en.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_GERMAN "German reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_GERMAN "genesis-de.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_POLISH "Polish reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_POLISH "genesis-pl.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_SERBIAN "Serbian reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_SERBIAN "genesis-sr.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_SPANISH "Spanish reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_SPANISH "genesis-es.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_FRENCH "French reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_FRENCH "genesis-fr.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_LATIN "Latin reference file"
 END
 
 STRINGTABLE 
@@ -44599,6 +44713,11 @@ BEGIN
                             "Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_LATIN "genesis-la.txt"
+END
+
 #endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -46820,13 +46939,13 @@ BEGIN
     CONTROL         259,IDB_BITMAP5,"Static",SS_BITMAP | SS_REALSIZEIMAGE,7,7,267,185,WS_EX_TRANSPARENT
 END
 
-IDD_TEXT_OPTIONS DIALOGEX 0, 0, 272, 260
+IDD_TEXT_OPTIONS DIALOGEX 0, 0, 272, 275
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Opciones de Texto"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Aplicar",IDOK,7,235,65,18
-    PUSHBUTTON      "&Valores por defecto",IDC_BUTTON_RESTORE_STANDARD,86,235,100,18
+    DEFPUSHBUTTON   "&Aplicar",IDOK,7,250,65,18
+    PUSHBUTTON      "&Valores por defecto",IDC_BUTTON_RESTORE_STANDARD,86,250,100,18
     CONTROL         "Mantener caracteres no presentes en el alfabeto",IDC_CHECK_KEEP_CHARACTERS_NOT_PRESENT_IN_ALPHABET_UNCHANGED,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,16,213,10
     CONTROL         "Si es posible, mantener el formato de mayúsculas/minúsculas al cifrar/descifrar",IDC_CHECK_KEEP_UPPER_LOWER_CASE_INFORMATION,
@@ -46840,14 +46959,15 @@ BEGIN
     EDITTEXT        IDC_EDIT_ALPHABET,20,161,237,13,ES_AUTOHSCROLL
     PUSHBUTTON      "&Examinar...",IDC_BUTTON_SEARCH_REFERENCE_FILE,202,205,55,14
     CONTROL         "Números",IDC_CHECK_DIGITS,"Button",BS_AUTO3STATE | WS_TABSTOP,20,136,49,10
-    PUSHBUTTON      "&Cancelar",IDCANCEL,200,235,65,18
+    PUSHBUTTON      "&Cancelar",IDCANCEL,200,250,65,18
     GROUPBOX        "Opciones de Formato",IDC_STATIC,7,5,258,27
     GROUPBOX        "Definir el alfabeto utilizado en los textos cifrados",IDC_STATIC,7,93,258,90
     LTEXT           "Alfabeto a utilizar:",IDC_TEXTOPTIONS_ALPHABET,20,151,226,8
-    GROUPBOX        "Fichero de referencia para las aplicaciones estadísticas",IDC_STATIC,7,189,258,39
+    GROUPBOX        "Fichero de referencia para las aplicaciones estadísticas",IDC_STATIC,7,189,258,54
     EDITTEXT        IDC_EDIT_REFERENCE_FILE,20,205,165,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
     GROUPBOX        "Mayúsculas/Minúsculas",IDC_STATIC,7,39,258,48
     CONTROL         "Diéresis",IDC_CHECK_UMLAUTS,"Button",BS_AUTO3STATE | WS_TABSTOP,105,136,41,10
+    COMBOBOX        IDC_COMBO_SELECT_REFERENCE_FILE,20,225,165,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
 END
 
 IDD_STATISTICS_SIGNATURE_ATTACK DIALOGEX 0, 0, 338, 329
@@ -52271,7 +52391,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 265
         VERTGUIDE, 105
-        BOTTOMMARGIN, 253
+        BOTTOMMARGIN, 268
         HORZGUIDE, 116
         HORZGUIDE, 131
     END
@@ -53066,6 +53186,33 @@ BEGIN
     IDS_STRING_LANGUAGE_CHOICE_REQUIREMENTS 
                             "Por favor, seleccione AL MENOS un idioma para la palabra clave y UN SOLO idioma para el texto cifrado."
     IDS_HASHDEMO_STRING_SHA256 "SHA-256 (256 bits)"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_CUSTOM 
+                            "[i18n] User-defined reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_CUSTOM 
+                            "[i18n] Please specify a file name."
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_ENGLISH 
+                            "[i18n] English reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_ENGLISH "genesis-en.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_GERMAN 
+                            "[i18n] German reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_GERMAN "genesis-de.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_POLISH 
+                            "[i18n] Polish reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_POLISH "genesis-pl.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_SERBIAN 
+                            "[i18n] Serbian reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_SERBIAN "genesis-sr.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_SPANISH 
+                            "[i18n] Spanish reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_SPANISH "genesis-es.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_FRENCH 
+                            "[i18n] French reference file"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_FRENCH "genesis-fr.txt"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_LATIN "[i18n] Latin reference file"
 END
 
 STRINGTABLE 
@@ -55823,6 +55970,11 @@ BEGIN
                             "[i18n] Generating prime numbers in the following value range:\n[%s, %s]"
     IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
                             "[i18n] Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_LATIN "genesis-la.txt"
 END
 
 #endif    // Spanish resources

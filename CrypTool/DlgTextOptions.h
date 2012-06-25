@@ -21,6 +21,8 @@
 #ifndef _DLGTEXTOPTIONS_H_
 #define _DLGTEXTOPTIONS_H_
 
+#include <map>
+
 class CDlgTextOptions : public CDialog
 {
 	enum { IDD = IDD_TEXT_OPTIONS };
@@ -99,6 +101,19 @@ private:
 	int punctuation;
 	int digits;
 	int umlauts;
+private:
+	struct LanguageReferenceFile {
+		// the name of the language
+		CString language;
+		// the path to the reference file associated with the language
+		CString referenceFile;
+	};
+	std::map<CString, LanguageReferenceFile> mapLanguageReferenceFiles;
+protected:
+	CComboBox	controlComboBoxSelectReferenceFile;
+	afx_msg void OnSelendokComboSelectReferenceFile();
+	int selectedLanguageReferenceFile;
+	int oldSelectedLanguageReferenceFile;
 };
 
 #endif
