@@ -21,7 +21,7 @@
 #ifndef _DLGTEXTOPTIONS_H_
 #define _DLGTEXTOPTIONS_H_
 
-#include <map>
+#include <list>
 
 class CDlgTextOptions : public CDialog
 {
@@ -108,7 +108,7 @@ private:
 		// the path to the reference file associated with the language
 		CString referenceFile;
 	};
-	std::map<CString, LanguageReferenceFile> mapLanguageReferenceFiles;
+	std::list<LanguageReferenceFile> listLanguageReferenceFiles;
 protected:
 	CComboBox	controlComboBoxSelectReferenceFile;
 	afx_msg void OnSelendokComboSelectReferenceFile();
