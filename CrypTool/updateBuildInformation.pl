@@ -127,7 +127,11 @@ if($mode eq "PRE") {
 
 # mode POST: restore initial state of the file
 if($mode eq "POST") {
+	# copy from backup files
 	system("copy $fileCrypToolApp_BACKUP $fileCrypToolApp");
 	system("copy $fileCrypToolRC_BACKUP $fileCrypToolRC");
+	# remove backup files
+	system("del $fileCrypToolApp_BACKUP");
+	system("del $fileCrypToolRC_BACKUP");
 }
 
