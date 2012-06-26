@@ -66,8 +66,18 @@ int CBruteForceHeap::add_candidate(double entropy, char *key, char *plain, int p
 			return 0; // no candidate
 	}
 
-	strncpy(list[heapsize-1].key, key, keybytes*2);
+	memcpy(list[heapsize-1].key, key, keybytes*2);
 	list[heapsize-1].key[keybytes*2] = '\0';
+#if 1
+	// flomar, 06/25/2012: the following lines prevent CrypTool from crashing; in 
+	// case the input parameter 'plain' was too large, the 'memcpy' call below would 
+	// corrupt the heap; now we're dynamically allocating (more) memory if needed
+	if(list[heapsize-1].plain_size < plainsize) {
+		delete []list[heapsize-1].plain;
+		list[heapsize-1].plain = new char[plainsize];
+		list[heapsize-1].plain_size = plainsize;
+	}
+#endif
 	memcpy(list[heapsize-1].plain, plain, plainsize);
 	list[heapsize-1].plain_size = plainsize;
 	list[heapsize-1].entropy = entropy;
