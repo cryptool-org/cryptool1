@@ -44,8 +44,11 @@ public:
 	BOOL	m_check1;
 	BOOL	m_check2;
 	int		m_storedKey;
+	CButton m_buttonSelectWordlistGerman;
+	CButton m_buttonSelectWordlistEnglish;
+	CString m_editWordlistGerman;
+	CString m_editWordlistEnglish;
 	//}}AFX_DATA
-
 
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
@@ -67,6 +70,8 @@ protected:
 	afx_msg void OnRadio1();
 	afx_msg void OnRadio3();
 	afx_msg void OnRadio4();
+	afx_msg void OnButtonSelectWordlistGerman();
+	afx_msg void OnButtonSelectWordlistEnglish();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

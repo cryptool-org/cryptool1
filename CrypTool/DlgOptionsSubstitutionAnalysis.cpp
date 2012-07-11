@@ -30,6 +30,7 @@
 #include "KeyRepository.h"
 
 extern char *Eingabedatei;
+extern char *Pfad;
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -64,6 +65,10 @@ void CDlgOptionsSubstitutionAnalysis::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_CHECK1, m_check1);
 	DDX_Check(pDX, IDC_CHECK2, m_check2);
 	DDX_Radio(pDX, IDC_RADIO4, m_storedKey);
+	DDX_Control(pDX, IDC_BUTTON_SELECT_WORDLIST_GERMAN, m_buttonSelectWordlistGerman);
+	DDX_Control(pDX, IDC_BUTTON_SELECT_WORDLIST_ENGLISH, m_buttonSelectWordlistEnglish);
+	DDX_Text(pDX, IDC_EDIT_WORDLIST_GERMAN, m_editWordlistGerman);
+	DDX_Text(pDX, IDC_EDIT_WORDLIST_ENGLISH, m_editWordlistEnglish);
 	//}}AFX_DATA_MAP
 }
 
@@ -76,6 +81,8 @@ BEGIN_MESSAGE_MAP(CDlgOptionsSubstitutionAnalysis, CDialog)
 	ON_BN_CLICKED(IDC_RADIO1, OnRadio1)
 	ON_BN_CLICKED(IDC_RADIO3, OnRadio3)
 	ON_BN_CLICKED(IDC_RADIO4, OnRadio4)
+	ON_BN_CLICKED(IDC_BUTTON_SELECT_WORDLIST_GERMAN, OnButtonSelectWordlistGerman)
+	ON_BN_CLICKED(IDC_BUTTON_SELECT_WORDLIST_ENGLISH, OnButtonSelectWordlistEnglish)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -100,6 +107,20 @@ BOOL CDlgOptionsSubstitutionAnalysis::OnInitDialog()
 	{
 		m_ctrl_storedKey.EnableWindow(FALSE);
 	}
+
+	// initialize wordlist files (DE and EN)
+	CString pathToWordlistFiles;
+	CString stringFileName;
+	if(Pfad) {
+		pathToWordlistFiles = Pfad;
+		pathToWordlistFiles.Append("\\words\\");
+		pathToWordlistFiles.Replace("\\\\", "\\");
+	}
+	m_editWordlistGerman = pathToWordlistFiles + "substitution-de.txt";
+	m_editWordlistEnglish = pathToWordlistFiles + "substitution-en.txt";
+
+	UpdateData(false);
+
 	return TRUE;  
 }
 
@@ -134,6 +155,8 @@ void CDlgOptionsSubstitutionAnalysis::OnRadio1()
 	m_control1.EnableWindow();
 	m_control2.EnableWindow();
 	m_storedKey = -1;
+	m_buttonSelectWordlistGerman.EnableWindow(TRUE);
+	m_buttonSelectWordlistEnglish.EnableWindow(TRUE);
 	UpdateData(FALSE);
 }
 
@@ -145,6 +168,8 @@ void CDlgOptionsSubstitutionAnalysis::OnRadio2()
 	m_check2 = false;
 	m_control2.EnableWindow(FALSE);
 	m_storedKey = -1;
+	m_buttonSelectWordlistGerman.EnableWindow(TRUE);
+	m_buttonSelectWordlistEnglish.EnableWindow(TRUE);
 	UpdateData(FALSE);
 }
 
@@ -156,6 +181,8 @@ void CDlgOptionsSubstitutionAnalysis::OnRadio3()
 	m_check2 = false;
 	m_control2.EnableWindow(FALSE);
 	m_storedKey = -1;
+	m_buttonSelectWordlistGerman.EnableWindow(FALSE);
+	m_buttonSelectWordlistEnglish.EnableWindow(FALSE);
 	UpdateData(FALSE);
 }
 
@@ -169,5 +196,81 @@ void CDlgOptionsSubstitutionAnalysis::OnRadio4()
 	m_control2.EnableWindow(FALSE);
 	m_storedKey = 0;
 	m_radio1    = -1;
+	m_buttonSelectWordlistGerman.EnableWindow(FALSE);
+	m_buttonSelectWordlistEnglish.EnableWindow(FALSE);
+	UpdateData(FALSE);
+}
+
+void CDlgOptionsSubstitutionAnalysis::OnButtonSelectWordlistGerman() {
+	OPENFILENAME ofn;
+	char fname[257], ftitle[128];
+	const char* s_FileFilter = "text files (*.txt)\0*.txt\0all files\0*.*;*\0\0";
+
+	memset(&ofn,0,sizeof(ofn));
+	ofn.lStructSize = sizeof(ofn);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_CHOOSE_REF_FILENAME,pc_str,STR_LAENGE_STRING_TABLE);
+	ofn.lpstrTitle = pc_str;
+	ofn.Flags = OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_PATHMUSTEXIST;
+	ofn.lpstrFile = fname;
+	sprintf(fname, "*.txt");
+	ofn.nMaxFile = sizeof(fname)-1;
+	ofn.lpstrFileTitle = ftitle;
+	ofn.lpstrFilter = s_FileFilter;
+
+	// set initial directory to be the directory in which the last wordlist file was found
+	if(m_editWordlistGerman.GetLength() != 0) {
+		// delete everything after the last backslash ('\')
+		int index = m_editWordlistGerman.ReverseFind('\\');
+		if(index != -1) {
+			CString directory = m_editWordlistGerman;
+			directory.Delete(index, directory.GetLength() - index);
+			ofn.lpstrInitialDir = directory;
+		}
+	}
+
+	ftitle[0] = 0;
+	ofn.nMaxFileTitle = sizeof(ftitle)-1;
+	if(!GetOpenFileName(&ofn)) return;
+	if(fname[0]==0) return;
+	
+	UpdateData(TRUE);
+	m_editWordlistGerman=fname;
+	UpdateData(FALSE);
+}
+
+void CDlgOptionsSubstitutionAnalysis::OnButtonSelectWordlistEnglish() {
+	OPENFILENAME ofn;
+	char fname[257], ftitle[128];
+	const char* s_FileFilter = "text files (*.txt)\0*.txt\0all files\0*.*;*\0\0";
+
+	memset(&ofn,0,sizeof(ofn));
+	ofn.lStructSize = sizeof(ofn);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_CHOOSE_REF_FILENAME,pc_str,STR_LAENGE_STRING_TABLE);
+	ofn.lpstrTitle = pc_str;
+	ofn.Flags = OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_PATHMUSTEXIST;
+	ofn.lpstrFile = fname;
+	sprintf(fname, "*.txt");
+	ofn.nMaxFile = sizeof(fname)-1;
+	ofn.lpstrFileTitle = ftitle;
+	ofn.lpstrFilter = s_FileFilter;
+
+	// set initial directory to be the directory in which the last wordlist file was found
+	if(m_editWordlistEnglish.GetLength() != 0) {
+		// delete everything after the last backslash ('\')
+		int index = m_editWordlistEnglish.ReverseFind('\\');
+		if(index != -1) {
+			CString directory = m_editWordlistEnglish;
+			directory.Delete(index, directory.GetLength() - index);
+			ofn.lpstrInitialDir = directory;
+		}
+	}
+
+	ftitle[0] = 0;
+	ofn.nMaxFileTitle = sizeof(ftitle)-1;
+	if(!GetOpenFileName(&ofn)) return;
+	if(fname[0]==0) return;
+	
+	UpdateData(TRUE);
+	m_editWordlistEnglish=fname;
 	UpdateData(FALSE);
 }

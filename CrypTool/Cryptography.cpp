@@ -1505,9 +1505,7 @@ UINT AnaSubst(PVOID p) {
 		   Communications of the ACM, Sept 1994, Vol 37, No.4
 */
 	
-	char *common[135];
 	CryptPar *par;
-	int Grenze;
 	//Eingabedatei=infile;
 	int vore[26], nache[26], anfang[26], ende[26],i,j;
 	for (i=0; i<26; i++){
@@ -1520,77 +1518,64 @@ UINT AnaSubst(PVOID p) {
 
 	par = (CryptPar *) p;
 
-	if (Dialog.DoModal()==IDOK){
-		/* deutscher Klartext
-		   Eine Liste mit den 106 häufigsten Wörtern wird eingelesen
-		   Quelle: eigene statistische Auswertungen				*/
-		if (Dialog.m_radio1==0){
-			Grenze=106;
-			common[0]="DIE";common[1]="DER";common[2]="UND";common[3]="IN";common[4]="DAS";
-			common[5]="ER";common[6]="DEN";common[7]="ICH";common[8]="ZU";common[9]="SIE";
-			common[10]="NICHT";common[11]="MIT";common[12]="SICH";common[13]="ES";common[14]="AUF";
-			common[15]="WAR";common[16]="EIN";common[17]="VON";common[18]="DEM";common[19]="IST";
-			common[20]="DES";common[21]="IM";common[22]="EINE";common[23]="ABER";common[24]="ALS";
-			common[25]="AN";common[26]="HATTE";common[27]="AUCH";common[28]="WIE";common[29]="FUER";
-			common[30]="WIR";common[31]="AUS";common[32]="NACH";common[33]="EINEN";common[34]="NOCH";
-			common[35]="SO";common[36]="WAS";common[37]="DASS";common[38]="MIR";common[39]="HAT";
-			common[40]="NUR";common[41]="UM";common[42]="EINEM";common[43]="DANN";common[44]="MICH";
-			common[45]="VOR";common[46]="EINER";common[47]="WENN";common[48]="BEI";common[49]="ZUM";
-			common[50]="ODER";common[51]="SEIN";common[52]="DU";common[53]="HABEN";common[54]="IHM";
-			common[55]="IHN";common[56]="MAN";common[57]="AM";common[58]="WAREN";common[59]="WIEDER";
-			common[60]="SEINE";common[61]="UNS";common[62]="SIND";common[63]="SCHON";common[64]="IMMER";
-			common[65]="JA";common[66]="ALLES";common[67]="ETWAS";common[68]="DA";common[69]="DIESE";
-			common[70]="DURCH";common[71]="WERDEN";common[72]="JETZT";common[73]="MEINE";common[74]="MEHR";
-			common[75]="HIER";common[76]="WURDE";common[77]="HABE";common[78]="DOCH";common[79]="WIRD";
-			common[80]="HATTEN";common[81]="DIESER";common[82]="IHR";common[83]="SEINER";common[84]="BIS";
-			common[85]="KANN";common[86]="MENSCHEN";common[87]="EINES";common[88]="ZUR";common[89]="EINMAL";
-			common[90]="KEINE";common[91]="UNTER";common[92]="IHRE";common[93]="KONNTE";common[94]="JAHRE";
-			common[95]="ZEIT";common[96]="MAL";common[97]="FRAU";common[98]="ANDEREN";common[99]="VOM";
-			common[100]="KOENNEN";common[101]="ALSO";common[102]="NICHTS";common[103]="IHNEN";common[104]="MANN";
-			common[105]="UEBER";
+	// **********************************************************************************
+	// **********************************************************************************
+	// **********************************************************************************
+	int Grenze = 0;
+	char **common = 0;
+
+	// the list of common words
+	std::vector<std::string> wordlist;
+
+	if(Dialog.DoModal()== IDOK) {		
+		// flomar, July 2012: instead of the old approach with hard-coded words we give 
+		// the user the option to select his/her own word files (note: one word per line);
+		// by default (CrypTool installation) the data resembles the old hard-coded words
+		if(Dialog.m_radio1 == 0 || Dialog.m_radio1 == 1) {
+			CString filenameWordlist;
+			if(Dialog.m_radio1 == 0) {
+				// GERMAN: the wordlist is based on statistical 
+				// evaluations by the original author of this code
+				filenameWordlist = Dialog.m_editWordlistGerman;
+			}
+			if(Dialog.m_radio1 == 1) {
+				// ENGLISH: the wordlist is based on George W. 
+				// Hart's work, "To Decode Short Cryptograms", 
+				// Communications of the ACM, Sept 1994, Vol 37, No.4			*
+				filenameWordlist = Dialog.m_editWordlistEnglish;
+			}
+			std::ifstream fileWordlist(filenameWordlist);
+			if(fileWordlist.is_open()) {
+				while(fileWordlist.good()) {
+					std::string word;
+					getline(fileWordlist, word);
+					wordlist.push_back(word);
+				}
+				fileWordlist.close();
+			}
+			else {
+				// TODO/FIXME: error handling anyone?
+				return 0;
+			}
+			Grenze = wordlist.size();
+			common = new char*[Grenze];
+			for(int wordlistIndex=0; wordlistIndex<Grenze; wordlistIndex++) {
+				common[wordlistIndex] = (char*)(wordlist[wordlistIndex].c_str());
+			}
 		}
-		if (Dialog.m_radio1==1){
-			/* englischer Klartext
-			   eine Liste mit den 135 häufigsten englischen Wörtern wird eingelesen.
-			   Quelle: George W. Hart
-			           To Decode Short Cryptograms
-					   Communications of the ACM, Sept 1994, Vol 37, No.4			*/
-			Grenze=135;
-			common[0]="THE";common[1]="OF";common[2]="AND";common[3]="TO";common[4]="A";
-			common[5]="IN";common[6]="THAT";common[7]="IS";common[8]="WAS";common[9]="HE";
-			common[10]="FOR";common[11]="IT";common[12]="WITH";common[13]="AS";common[14]="HIS";
-			common[15]="ON";common[16]="BE";common[17]="AT";common[18]="BY";common[19]="I";
-			common[20]="THIS";common[21]="HAD";common[22]="NOT";common[23]="ARE";common[24]="BUT";
-			common[25]="FROM";common[26]="OR";common[27]="HAVE";common[28]="AN";common[29]="THEY";
-			common[30]="WHICH";common[31]="ONE";common[32]="YOU";common[33]="WERE";common[34]="HER";
-			common[35]="ALL";common[36]="SHE";common[37]="THERE";common[38]="WOULD";common[39]="THEIR";
-			common[40]="WE";common[41]="HIM";common[42]="BEEN";common[43]="HAS";common[44]="WHEN";
-			common[45]="WHO";common[46]="WILL";common[47]="MORE";common[48]="NO";common[49]="IF";
-			common[50]="OUT";common[51]="SO";common[52]="SAID";common[53]="WHAT";common[54]="UP";
-			common[55]="ITS";common[56]="ABOUT";common[57]="INTO";common[58]="THAN";common[59]="THEM";
-			common[60]="CAN";common[61]="ONLY";common[62]="OTHER";common[63]="NEW";common[64]="SOME";
-			common[65]="COULD";common[66]="TIME";common[67]="THESE";common[68]="TWO";common[69]="MAY";
-			common[70]="THEN";common[71]="DO";common[72]="FIRST";common[73]="ANY";common[74]="MY";
-			common[75]="NOW";common[76]="SUCH";common[77]="LIKE";common[78]="OUR";common[79]="OVER";
-			common[80]="MAN";common[81]="ME";common[82]="EVEN";common[83]="MOST";common[84]="MADE";
-			common[85]="AFTER";common[86]="ALSO";common[87]="DID";common[88]="MANY";common[89]="BEFORE";
-			common[90]="MUST";common[91]="THROUGH";common[92]="BACK";common[93]="YEARS";common[94]="WHERE";
-			common[95]="MUCH";common[96]="YOUR";common[97]="WAY";common[98]="WELL";common[99]="DOWN";
-			common[100]="SHOULD";common[101]="BECAUSE";common[102]="EACH";common[103]="JUST";common[104]="THOSE";
-			common[105]="PEOPLE";common[106]="MR";common[107]="HOW";common[108]="TOO";common[109]="LITTLE";
-			common[110]="STATE";common[111]="GOOD";common[112]="VERY";common[113]="MAKE";common[114]="WORLD";
-			common[115]="STILL";common[116]="OWN";common[117]="SEE";common[118]="MEN";common[119]="WORK";
-			common[120]="LONG";common[121]="GET";common[122]="HERE";common[123]="BETWEEN";common[124]="BOTH";
-			common[125]="LIFE";common[126]="BEING";common[127]="UNDER";common[128]="NEVER";common[129]="DAY";
-			common[130]="SAME";common[131]="ANOTHER";common[132]="KNOW";common[133]="WHILE";common[134]="LAST";}
 	}
-	else{	// Der Benutzer hat in der Dialogbox "Abbrechen" gedrückt
-		return 0;}
+	else {
+		// TODO/FIXME: error handling anyone?
+			return 0;
+	}
+	// **********************************************************************************
+	// **********************************************************************************
+	// **********************************************************************************
 
 	// Manuelle Analyse wurde gewählt.
 	// In diesem Fall ist eine Anzeige des Fortschrittsanzeigers nicht nötig,
 	// da keine umfangreichen Berechnungen angestellt werden müssen.
-	if(Dialog.m_radio1 < 2 && Dialog.m_radio1 >= 0){
+	if(Dialog.m_radio1 == 0 || Dialog.m_radio1 == 1) {
 		if(par->flags & CRYPT_DO_PROGRESS) {
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_SUBSTITUTION_ANALYSE,pc_str,STR_LAENGE_STRING_TABLE);
 			theApp.fs.Display(pc_str);
@@ -1751,6 +1736,7 @@ UINT AnaSubst(PVOID p) {
 			free (Permu[i]);
 			free (MaxPermu[i]);
 		}
+		delete []common;
 		return 0;
 	}
 	
@@ -1815,7 +1801,10 @@ UINT AnaSubst(PVOID p) {
 	
 	while ((Start<Laenge)&&(Worte_in_Analyse<100)){
 
-		if((par->flags & CRYPT_DO_PROGRESS)&&(theApp.fs.m_canceled))   return 0;
+		if((par->flags & CRYPT_DO_PROGRESS)&&(theApp.fs.m_canceled)) {
+			delete []common;
+			return 0;
+		}
 		Leerzeichen=SucheLeer(Start, Laenge, text);
 
 		// Es werden Wörter gefunden, die länger als 20 Zeichen sind.
@@ -1972,6 +1961,7 @@ UINT AnaSubst(PVOID p) {
 
 		if(par->flags & CRYPT_DO_PROGRESS) {
 			if(theApp.fs.m_canceled) {
+				delete []common;
 				return 0;
 			};
 		}
@@ -2012,7 +2002,10 @@ UINT AnaSubst(PVOID p) {
 	   Dabei kommen die größten Werte für nBuch zuerst (Sinn: dadurch wird das Durchlaufen des
 	   Suchbaumes effizienter)				*/
 	for (i=1; i<DMax; i++){
-		if((par->flags & CRYPT_DO_PROGRESS)&&(theApp.fs.m_canceled))    return 0;
+		if((par->flags & CRYPT_DO_PROGRESS)&&(theApp.fs.m_canceled)) {
+			delete []common;
+			return 0;
+		}
 
 // Bestimme das aktuelle Maximum nMax der nBuch
 //	theApp.fs.Set(i);
@@ -2321,7 +2314,7 @@ UINT AnaSubst(PVOID p) {
 			free (Permu[i]);
 			free (MaxPermu[i]);
 		}
-
+		delete []common;
 		return 0;
 	}
 
@@ -2391,7 +2384,7 @@ UINT AnaSubst(PVOID p) {
 		free (Permu[i]);
 		free (MaxPermu[i]);
 	}
-
+	delete []common;
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
 		HIDE_HOUR_GLASS
 
