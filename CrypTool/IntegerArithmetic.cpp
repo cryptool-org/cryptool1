@@ -1317,6 +1317,26 @@ BOOL CRSADemo::GetParameter( Big	&NBig, Big &phiOfNBig, Big &eBig, Big &dBig )
 	return IsInitialized();
 }
 
+BOOL CRSADemo::GetParameterN(CString &_N) {
+	if(isInitialized_N) {
+		char charN[MAX_BIT_LENGTH + 1];
+		BigToString(N, charN, sizeof(charN));
+		_N = charN;
+		return true;
+	}
+	return false;
+}
+
+BOOL CRSADemo::GetParameterPhiOfN(CString &_phiOfN) {
+	if(isInitialized_N) {
+		char charPhiOfN[MAX_BIT_LENGTH + 1];
+		BigToString(phiOfN, charPhiOfN, sizeof(charPhiOfN));
+		_phiOfN = charPhiOfN;
+		return true;
+	}
+	return false;
+}
+
 
 int  CRSADemo::GetBlockLength()
 {

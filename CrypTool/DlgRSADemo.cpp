@@ -149,6 +149,7 @@ void CDlgRSADemo::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_HEADER3, m_Header_RSA_step_3);
 	DDX_Radio(pDX, IDC_RADIO1, m_EncryptTextOrNumbers);
 	DDX_Radio(pDX, IDC_RADIO3, m_RSAPublicKeyOnly);
+	DDX_Control(pDX, IDC_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE, m_controlHeaderEncryptionDecryptionWithAlphabetSize);
 	//}}AFX_DATA_MAP
 }
 
@@ -374,6 +375,7 @@ void CDlgRSADemo::OnButtonGeneratePrimes()
 
 		}
 	}
+	CheckRSAParameter();
 	ButtonManagement();
 }
 
@@ -456,7 +458,12 @@ int CDlgRSADemo::CheckRSAParameter()
 		{	
 			SetStatusPrimePValid(TRUE);
 			SetStatusPrimeQValid(TRUE);
-			SetStatusModulNValid(TRUE);			
+			SetStatusModulNValid(TRUE);	
+
+			// update N and phiOfN
+			RSA->GetParameterN(m_edit_N);
+			RSA->GetParameterPhiOfN(m_edit_phi_of_N);
+
 			if ( 1 == RSA->SetPublicKey( m_edit_e ) )
 			{
 				RSA->SetPrivateKey();
@@ -583,7 +590,23 @@ void CDlgRSADemo::InitPrivateRSAParameter()
 		}
 		else if ( ERR_ON_INITIALIZE_E )
 		{
-			MessageIntegerRSAError( m_control_edit_e,IDS_STRING_RSATUT_WRONG_PUBLICKEY, FALSE );
+			// flomar, 07/12/12: instead of simply throwing a warning/error message for
+			// an invalid parameter e, we present two options to the user: either going 
+			// with e=2^16+1 (the default) or computing e with regards to p and q
+			CString message;
+			message.Format(IDS_STRING_RSATUT_WRONG_PUBLICKEY, m_edit_e, m_edit_phi_of_N);
+			if(AfxMessageBox(message, MB_ICONINFORMATION | MB_YESNO) == IDYES) {
+				if(!calculateSmallestE(m_edit_e, m_edit_p, m_edit_q)) {
+					CString message;
+					message.Format("TODO/FIXME: ERROR_0815: this should NOT happen, please contact the CrypTool team");
+					AfxMessageBox(message, MB_ICONINFORMATION);
+					m_control_edit_e.SetFocus();
+				}
+			}
+			else {
+				m_edit_e = "2^16+1";
+			}
+			UpdateData(false);
 		}
 		return;
 	}
@@ -681,6 +704,7 @@ void CDlgRSADemo::OnButtonUpdateRSAParameter()
 		m_control_RSA_input.SetSel(100000, 100000);
 	}
 	RequestForInput(FALSE);
+	CheckRSAParameter();
 	ButtonManagement();
 }
 
@@ -880,6 +904,7 @@ void CDlgRSADemo::OnUpdatePrimeP()
 		SetStatusPrimePValid(false);
 		SetStatusKeyDValid(false);
 	}
+	CheckRSAParameter();
 	ButtonManagement();
 }
 
@@ -901,6 +926,7 @@ void CDlgRSADemo::OnUpdatePrimeQ()
 		SetStatusPrimeQValid(false);
 		SetStatusKeyDValid(false);
 	}
+	CheckRSAParameter();
 	ButtonManagement();
 }
 
@@ -1010,9 +1036,8 @@ void CDlgRSADemo::OnButtonOptions()
 			
 		}
 	}
-
+	CheckRSAParameter();
 	ButtonManagement();
-
 }
 
 
@@ -1024,6 +1049,37 @@ void CDlgRSADemo::OnButtonOptions()
 
 void CDlgRSADemo::ButtonManagement()
 {
+	// conditions for button "Options"
+	m_ButtonOptionen.EnableWindow(
+		KeyStatusPrivateKey() &&
+		KeyStatusPrimePValid() &&
+		KeyStatusPrimeQValid());
+	// conditions for button "Encrypt"
+	m_ButtonEncrypt.EnableWindow(
+		KeyStatusPrivateKey() &&
+		KeyStatusPrimePValid() &&
+		KeyStatusPrimeQValid() &&
+		KeyStatusInputValid() && 
+		KeyStatusOptionsValid() && 
+		m_edit_RSA_input.GetLength());
+	// conditions for button "Decrypt"
+	m_ButtonDecrypt.EnableWindow(
+		KeyStatusPrivateKey() &&
+		KeyStatusPrimePValid() &&
+		KeyStatusPrimeQValid() &&
+		KeyStatusInputValid() && 
+		KeyStatusOptionsValid() && 
+		m_edit_RSA_input.GetLength());
+	// conditions for button "Generate Primes"
+	m_GeneratePrimes.EnableWindow(
+		KeyStatusModulNValid());
+
+	// flomar, 07/12/12: the 'undefined' section below holds the old conditional
+	// implementation; feel free to correct the respective code above in case 
+	// I've misread the old implementation
+
+#if 0
+
 	if ( KeyStatusPrivateKey() )
 	{
 		if ( KeyStatusPrimePValid() && KeyStatusPrimeQValid() )
@@ -1078,6 +1134,10 @@ void CDlgRSADemo::ButtonManagement()
 			m_ButtonEncrypt.EnableWindow(FALSE);		
 		}
 	}
+#endif
+
+	// flomar, 07/12/12: don't know where else to put this
+	updateHeaderEncryptionDecryptionWithAlphabetSize();
 }
 
 
@@ -1345,6 +1405,34 @@ int CDlgRSADemo::CheckInversion()
 	return 0;
 }
 
+void CDlgRSADemo::updateHeaderEncryptionDecryptionWithAlphabetSize() {
+	CString title;
+	title.Format(IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE, DlgOptions->Anzahl_Zeichen);
+	m_controlHeaderEncryptionDecryptionWithAlphabetSize.SetWindowText(title);
+}
+
+bool CDlgRSADemo::calculateSmallestE(CString &_e, CString _p, CString _q) {
+	Big bigE = "1";
+	CString stringE;
+	CRSADemo demo;
+	if(demo.InitParameter(_p, _q) == 0) {
+		char charE[MAX_BIT_LENGTH + 1];
+		bool validE = false;
+		// TODO/FIXME: we assume we've found a valid 'e' before we reach 7 digits in length;
+		// for the future, maybe implement another status message for the user or something
+		while(!validE && bigE.len() < 7) {
+			BigToString(bigE, charE, sizeof(charE));
+			stringE = charE;
+			validE = (demo.SetPublicKey(stringE) == 1);
+			if(validE) {
+				_e = stringE;
+				return true;
+			}	
+			++bigE;
+		}
+	}
+	return false;
+}
 
 /////////////////////////////////////////////////////////////////////////////
 // Test, ob bei der Eingabe es sich um Zahlen handelt:

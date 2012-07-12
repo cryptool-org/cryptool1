@@ -1590,7 +1590,7 @@ BEGIN
     GROUPBOX        "RSA u¿ywa klucza prywatnego i publicznego - lub tylko publicznego. ",IDC_STATIC,10,4,371,62
     GROUPBOX        "Wprowadzenie liczb pierwszych",IDC_FRAME_RSA_MODE,10,70,371,48
     GROUPBOX        "Parametry RSA",IDC_STATIC,10,121,371,84
-    GROUPBOX        "Szyfrowanie RSA przy u¿yciu e / deszyfrowanie przy u¿yciu d",IDC_STATIC,10,208,371,158
+    GROUPBOX        "Szyfrowanie RSA przy u¿yciu e / deszyfrowanie przy u¿yciu d",IDC_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE,10,208,371,158
     LTEXT           "Liczba pierwsza p",IDC_RSA_CAPTION_PRIME_P,19,83,55,8
     LTEXT           "Liczba pierwsza q",IDC_RSA_CAPTION_PRIME_Q,19,101,59,8
     LTEXT           "modulus RSA",IDC_STATIC,19,133,52,8
@@ -8524,6 +8524,10 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_ENGLISH 
+                            "[i18n] The English word list for the substition analysis (%s) does not exist although it was rolled out with CrypTool."
+    IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
+                            "Szyfrowanie RSA przy u¿yciu e / deszyfrowanie przy u¿yciu d  [i18n alphabet size: %i]"
     IDR_OPENGLTYPE          "\nUnnamed\n\nOpenGL file (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nPliki OpenGL "
     IDS_STRING_TRANSLATIONS_HEADING_POLISH "T³umaczenie na jêzyk polski"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
@@ -9296,7 +9300,7 @@ BEGIN
     IDS_STRING_PA_HEX       "Zawartoœæ cyklu (hex)"
     IDS_STRING_PA_FSBDTITLE "Wyniki analizy czêstotliwoœci w"
     IDS_STRING_RSATUT_WRONG_PUBLICKEY 
-                            "Porametr e nie jest wzglêdnie pierwszy do phi(N). Wybierz nowy klucz publiczny (np.: e = 2^16 + 1)."
+                            "[i18n] The parameter e (%s) is not coprime to phi(N) (%s). Either a fixed public key is used (here: 2^16+1), or a new key is generated. Do you want to generate a new public key?"
 END
 
 STRINGTABLE 
@@ -9729,7 +9733,7 @@ BEGIN
                             "Zmieñ alfabet, w taki sposób, ¿eby liczba znaków w alfabecie (aktualnie %i) by³a mniejsza b¹dŸ równa liczbie modulus RSA (aktualnie N = %s)."
     IDS_STRING_ERR_ONBLOCKLENGTH_1 "Zmieñ d³ugoœæ bloku na 1."
     IDS_STRING_ERR_PRIME_ARE_EQUAL "Liczby pierwsze p i q musz¹ siê ró¿niæ!"
-    IDS_STRING_ANZAHL_ZEICHEN "Liczba znaków:\t\t%i"
+    IDS_STRING_ANZAHL_ZEICHEN "Liczba znaków: %i"
     IDS_STRING_BENOETIGTE_ZEIT_FAKT "Potrzebny ca³kowity czas:   %s"
     IDS_STRING_PSEOPENERROR "Plik PSE '%s' nie móg³ zostaæ otwarty.\n\nKod b³êdu: %s"
     IDS_STRING_P12_CREAT_FAILED 
@@ -9759,7 +9763,7 @@ BEGIN
     IDS_STRING_FMT_DAYS     " %4i dni, %02.2i:%02.2i:%02.2i godzin."
     IDS_STRING_FMT_SEC      " %2i,%03.3i sekund."
     IDS_STRING_RSADEMO_MODUL_KLEIN_NUM 
-                            "Szyfrowanie RSA liczb w tekst jest poprawne, liczba znaków w alfabecie (tutaj %i) jest wiêksza nie rozmiar modulusa N (tutaj: N = %s). \nProszê zmodyfikowaæ alfabet w ""opcjach dla alfabetu i systemu liczbowego"", lub wybraæ wiêksze liczby pierwsze."
+                            "Szyfrowanie RSA liczb w tekst jest poprawne, liczba znaków w alfabecie (tutaj %i) jest wiêksza nie rozmiar modulusa N (tutaj: N = %s). Proszê zmodyfikowaæ alfabet w ""opcjach dla alfabetu i systemu liczbowego"", lub wybraæ wiêksze liczby pierwsze."
     IDS_CRYPT_RSADEMO_HEADER_ENTERPRIME "Wprowadzenie liczby pierwszej"
     IDS_CRYPT_RSADEMO_HEADER_GENERATEPRIMES "Stwórz liczby pierwsze"
     IDS_CRYPT_RSADEMO_HEADER_FACTORISERSAMODUL "Atak faktoryzacji"
@@ -11216,9 +11220,7 @@ BEGIN
     IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
                             "[i18n] Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
     IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_GERMAN 
-                            "[i18n] The word list for the substition analysis in German (%s) does not exist although it was rolled out with CrypTool."
-    IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_ENGLISH 
-                            "[i18n] The word list for the substition analysis in English (%s) does not exist although it was rolled out with CrypTool."
+                            "[i18n] The German word list for the substition analysis (%s) does not exist although it was rolled out with CrypTool."
 END
 
 STRINGTABLE 
@@ -12817,7 +12819,7 @@ BEGIN
     GROUPBOX        "RSA koji koristi privatne i javne kljuceve -- ili koristi samo javne kljuceve",IDC_STATIC,10,4,371,62
     GROUPBOX        "Unos prostog broja",IDC_FRAME_RSA_MODE,10,70,371,48
     GROUPBOX        "RSA parametri",IDC_STATIC,10,121,371,84
-    GROUPBOX        "RSA šifrovanje pomocu e / dešifrovanje pomocu d",IDC_STATIC,10,208,371,158
+    GROUPBOX        "RSA šifrovanje pomocu e / dešifrovanje pomocu d",IDC_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE,10,208,371,158
     LTEXT           "Prost broj p",IDC_RSA_CAPTION_PRIME_P,19,83,55,8
     LTEXT           "Prost broj q",IDC_RSA_CAPTION_PRIME_Q,19,101,59,8
     LTEXT           "RSA moduo N",IDC_STATIC,19,133,52,8
@@ -19743,6 +19745,10 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_ENGLISH 
+                            "[i18n] The English word list for the substition analysis (%s) does not exist although it was rolled out with CrypTool."
+    IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
+                            "RSA šifrovanje pomocu e / dešifrovanje pomocu d  [i18n alphabet size: %i]"
     IDR_OPENGLTYPE          "\nNeimenovana\n\nOpenGL datoteka (*.ogl)\n.plt\n\nOpenGL Tip Datoteke\nOPENGL\nOpenGL Datoteke\n"
     IDS_STRING_TRANSLATIONS_HEADING_POLISH "Poljski prevod"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
@@ -20507,7 +20513,7 @@ BEGIN
     IDS_STRING_PA_HEX       "Sadržaj ciklusa (hex)"
     IDS_STRING_PA_FSBDTITLE "Izlaz analize ucestanosti u"
     IDS_STRING_RSATUT_WRONG_PUBLICKEY 
-                            "Parametar e nije prost broj broju phi(N). Odaberite novi javni kljuc (npr. e =2^16+1)."
+                            "[i18n] The parameter e (%s) is not coprime to phi(N) (%s). Either a fixed public key is used (here: 2^16+1), or a new key is generated. Do you want to generate a new public key?"
 END
 
 STRINGTABLE 
@@ -20940,7 +20946,7 @@ BEGIN
     IDS_STRING_ERR_ONBLOCKLENGTH_1 "Molim promenite dužinu bloka u 1."
     IDS_STRING_ERR_PRIME_ARE_EQUAL 
                             "Prosti brojevi p i q moraju biti razliciti!"
-    IDS_STRING_ANZAHL_ZEICHEN "Broj karaktera:        %i"
+    IDS_STRING_ANZAHL_ZEICHEN "Broj karaktera: %i"
     IDS_STRING_BENOETIGTE_ZEIT_FAKT "Ukupno zahtevano vreme:   %s"
     IDS_STRING_PSEOPENERROR "PSE '%s' ne može biti otvoren.\n\nKôd greške: %s"
     IDS_STRING_P12_CREAT_FAILED "PKCS#12 struktura ne može biti kreirana."
@@ -20969,7 +20975,7 @@ BEGIN
     IDS_STRING_FMT_DAYS     " %4i dana, %02.2i:%02.2i:%02.2i sati."
     IDS_STRING_FMT_SEC      " %2i.%03.3i sekundi."
     IDS_STRING_RSADEMO_MODUL_KLEIN_NUM 
-                            "RSA šifrovanje brojeva u tekst je neispravno, pošto je broj karaktera u alfabetu (ovde %i) veci od velicine RSA Modula (ovde N=%s).\nMolim izmenite alfabet u ""opcije za alfabet i brojne sisteme..."" ili odaberite vece proste brojeve."
+                            "RSA šifrovanje brojeva u tekst je neispravno, pošto je broj karaktera u alfabetu (ovde %i) veci od velicine RSA Modula (ovde N=%s). Molim izmenite alfabet u ""opcije za alfabet i brojne sisteme..."" ili odaberite vece proste brojeve."
     IDS_CRYPT_RSADEMO_HEADER_ENTERPRIME "Unos prostog broja"
     IDS_CRYPT_RSADEMO_HEADER_GENERATEPRIMES "Generisanje prostih brojeva..."
     IDS_CRYPT_RSADEMO_HEADER_FACTORISERSAMODUL "Napad razlaganja"
@@ -22421,9 +22427,7 @@ BEGIN
     IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
                             "[i18n] Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
     IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_GERMAN 
-                            "[i18n] The word list for the substition analysis in German (%s) does not exist although it was rolled out with CrypTool."
-    IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_ENGLISH 
-                            "[i18n] The word list for the substition analysis in English (%s) does not exist although it was rolled out with CrypTool."
+                            "[i18n] The German word list for the substition analysis (%s) does not exist although it was rolled out with CrypTool."
 END
 
 STRINGTABLE 
@@ -24014,7 +24018,7 @@ BEGIN
     GROUPBOX        "RSA mit privatem und öffentlichem Schlüssel -- oder nur mit öffentlichem Schlüssel",IDC_STATIC,10,3,371,67
     GROUPBOX        "Primzahleneingabe",IDC_FRAME_RSA_MODE,10,73,371,48
     GROUPBOX        "RSA-Parameter",IDC_STATIC,10,124,371,84
-    GROUPBOX        "RSA-Verschlüsselung mit e / Entschlüsselung mit d",IDC_STATIC,10,211,371,155
+    GROUPBOX        "RSA-Verschlüsselung mit e / Entschlüsselung mit d",IDC_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE,10,211,371,155
     LTEXT           "Primzahl p",IDC_RSA_CAPTION_PRIME_P,19,86,32,8
     LTEXT           "Primzahl q",IDC_RSA_CAPTION_PRIME_Q,19,104,32,8
     LTEXT           "RSA-Modul N",IDC_STATIC,19,136,52,8
@@ -30836,6 +30840,10 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_ENGLISH 
+                            "Die mit CrypTool ausgelieferte Wortliste für die Substitutions-Analyse in Englisch (%s) ist nicht vorhanden."
+    IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
+                            "RSA-Verschlüsselung mit e / Entschlüsselung mit d  [Alphabetsgröße: %i]"
     IDR_OPENGLTYPE          "\nUnbenannt\n\nOpenGL Datei (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
     IDS_STRING_TRANSLATIONS_HEADING_POLISH "Polnische Übersetzung"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
@@ -31628,7 +31636,7 @@ BEGIN
     IDS_STRING_PA_HEX       "Periodeninhalt (Hex)"
     IDS_STRING_PA_FSBDTITLE "Ausgabe der Periodenanalyse in"
     IDS_STRING_RSATUT_WRONG_PUBLICKEY 
-                            "Der Parameter e ist nicht teilerfremd zu phi(N). Wählen sie einen neuen öffentlichen Schlüssel (Beispiel e =2^16+1)."
+                            "Der Parameter e (%s) ist nicht teilerfremd zu phi(N) (%s). Entweder wird ein fixer öffentliche Schlüssel benutzt (hier: 2^16+1), oder es wird ein Schlüssel generiert. Wollen Sie einen neuen öffentlichen Schlüssel generieren?"
 END
 
 STRINGTABLE 
@@ -32072,7 +32080,7 @@ BEGIN
     IDS_STRING_ERR_ONBLOCKLENGTH_1 "Bitte setzen Sie die Blocklänge auf 1."
     IDS_STRING_ERR_PRIME_ARE_EQUAL 
                             "Die Primzahlen p und q müssen verschieden sein!"
-    IDS_STRING_ANZAHL_ZEICHEN "Anzahl Zeichen:        %i"
+    IDS_STRING_ANZAHL_ZEICHEN "Anzahl Zeichen: %i"
     IDS_STRING_BENOETIGTE_ZEIT_FAKT "Insgesamt benötigte Zeit:   %s"
     IDS_STRING_PSEOPENERROR "Die PSE '%s' konnte nicht geöffnet werden.\n\nFehler-Code: %s"
     IDS_STRING_P12_CREAT_FAILED 
@@ -32089,7 +32097,7 @@ BEGIN
                             "Der Buchstabe 'J' und die Ziffern '0'-'9' dürfen bei einer 5x5 Matrix nicht verwendet werden. Verwenden Sie ggf. eine 6x6 Matrix."
     IDS_NGRAMLIST_TOLONG    "Die Anzahl der Tabelleneinträge ist auf 5.000 Zeilen beschränkt!\nBitte geben Sie eine Zahl zwischen 1 und 5.000 ein."
     IDS_STRING_ERROR_NO_NUMBER_STREAM 
-                            "Die Eingabe ist keine Folge von Zahlen zur Basis %i. \nBitte korrigieren Sie die Eingabe oder verschlüsseln sie die Eingabe als Text."
+                            "Die Eingabe ist keine Folge von Zahlen zur Basis %i. \nBitte korrigieren Sie die Eingabe oder verschlüsseln Sie die Eingabe als Text."
     IDS_STRING_WARN_BEFOR_SKIPWS 
                             "Die Eingabe enthält Zeichen, die nicht im eingestellten Alphabet enthalten sind!\nWenn Sie OK wählen, werden nur die im Alphabet enthaltenen Zeichen verschlüsselt (alle anderen Zeichen werden aus der Eingabe gelöscht)."
     IDS_STRING_HELPNAME     "CrypTool-de.chm"
@@ -32102,7 +32110,7 @@ BEGIN
     IDS_STRING_FMT_DAYS     " %4i Tage, %02.2i:%02.2i:%02.2i Stunden."
     IDS_STRING_FMT_SEC      " %2i,%03.3i Sekunden."
     IDS_STRING_RSADEMO_MODUL_KLEIN_NUM 
-                            "Die RSA-Entschlüsselung von Zahlen in Text kann nicht korrekt sein, da die Anzahl der Zeichen im Alphabet\n(hier %i Buchstaben) größer als der RSA-Modul (hier N = %s) ist.\nBitte ändern Sie im Dialog ""Optionen für Alphabet und Zahlensystem..."" das Alphabet oder wählen Sie größere Primzahlen."
+                            "Die RSA-Entschlüsselung von Zahlen in Text kann nicht korrekt sein, da die Anzahl der Zeichen im Alphabet (hier %i Buchstaben) größer als der RSA-Modul (hier N = %s) ist. Bitte ändern Sie im Dialog ""Optionen für Alphabet und Zahlensystem..."" das Alphabet oder wählen Sie größere Primzahlen."
     IDS_CRYPT_RSADEMO_HEADER_ENTERPRIME "Primzahleingabe"
     IDS_CRYPT_RSADEMO_HEADER_GENERATEPRIMES "Primzahlen generieren..."
     IDS_CRYPT_RSADEMO_HEADER_FACTORISERSAMODUL "Faktorisierungsangriff"
@@ -33049,7 +33057,7 @@ BEGIN
                             "Die Obergrenze für die Primzahl p muss sowohl größer als das Geheimnis K\nals auch größer als die Teilnehmerzahl n sein."
     IDS_STRING_LOGSS_2B     "Sie haben eine Primzahl p festgelegt."
     IDS_STRING_LOGSS_3A     "Zusätzlich wurde ein Polynom f(x) vom Grad t-1 mit zufälligen Koeffizienten und dem absoluten Summanden S erzeugt. Alle folgenden Berechnungen finden mod p statt."
-    IDS_STRING_LOGSS_3B     "Für ein Polynom f(x) vom Grad t-1 haben sie die Koeffizienten bestimmt. Alle folgenden Berechnungen finden mod p statt."
+    IDS_STRING_LOGSS_3B     "Für ein Polynom f(x) vom Grad t-1 haben Sie die Koeffizienten bestimmt. Alle folgenden Berechnungen finden mod p statt."
     IDS_STRING_SECRETSHARING_NOPRIME 
                             "Bei der von Ihnen eingegebenen Zahl handelt es sich nicht um eine Primzahl."
     IDS_STRING_SECRETSHARING_PRIMELESS 
@@ -33574,8 +33582,6 @@ BEGIN
                             "Generiere Primzahlen in folgenden Bereichen:\n[%s, %s], [%s, %s]"
     IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_GERMAN 
                             "Die mit CrypTool ausgelieferte Wortliste für die Substitutions-Analyse in Deutsch (%s) ist nicht vorhanden."
-    IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_ENGLISH 
-                            "Die mit CrypTool ausgelieferte Wortliste für die Substitutions-Analyse in Englisch (%s) ist nicht vorhanden."
 END
 
 STRINGTABLE 
@@ -35165,7 +35171,7 @@ BEGIN
     GROUPBOX        "RSA using the private and public key -- or using only the public key",IDC_STATIC,10,4,371,62
     GROUPBOX        "Prime number entry",IDC_FRAME_RSA_MODE,10,70,371,48
     GROUPBOX        "RSA parameters",IDC_STATIC,10,121,371,84
-    GROUPBOX        "RSA encryption using e / decryption using d",IDC_STATIC,10,208,371,158
+    GROUPBOX        "RSA encryption using e / decryption using d",IDC_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE,10,208,371,158
     LTEXT           "Prime number p",IDC_RSA_CAPTION_PRIME_P,19,83,55,8
     LTEXT           "Prime number q",IDC_RSA_CAPTION_PRIME_Q,19,101,59,8
     LTEXT           "RSA modulus N",IDC_STATIC,19,133,52,8
@@ -42111,6 +42117,10 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_ENGLISH 
+                            "[i18n] The English word list for the substition analysis (%s) does not exist although it was rolled out with CrypTool."
+    IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
+                            "RSA encryption using e / decryption using d  [alphabet size: %i]"
     IDR_OPENGLTYPE          "\nUnnamed\n\nOpenGL file (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
     IDS_STRING_TRANSLATIONS_HEADING_POLISH "Polish Translation"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
@@ -42882,7 +42892,7 @@ BEGIN
     IDS_STRING_PA_HEX       "Cycle content (hex)"
     IDS_STRING_PA_FSBDTITLE "Output of periodicity analysis in"
     IDS_STRING_RSATUT_WRONG_PUBLICKEY 
-                            "The parameter e is not coprime to phi(N). Choose a new public key (e.g. e =2^16+1)."
+                            "The parameter e (%s) is not coprime to phi(N) (%s). Either a fixed public key is used (here: 2^16+1), or a new key is generated. Do you want to generate a new public key?"
 END
 
 STRINGTABLE 
@@ -43311,7 +43321,7 @@ BEGIN
     IDS_STRING_ERR_ONBLOCKLENGTH_1 "Please change the block length to 1."
     IDS_STRING_ERR_PRIME_ARE_EQUAL 
                             "The prime numbers p and q must be different!"
-    IDS_STRING_ANZAHL_ZEICHEN "Number of characters:        %i"
+    IDS_STRING_ANZAHL_ZEICHEN "Number of characters: %i"
     IDS_STRING_BENOETIGTE_ZEIT_FAKT "Total time required:   %s"
     IDS_STRING_PSEOPENERROR "The PSE '%s' could not be opened.\n\nError code: %s"
     IDS_STRING_P12_CREAT_FAILED "PKCS#12 structure could not be created."
@@ -43340,7 +43350,7 @@ BEGIN
     IDS_STRING_FMT_DAYS     " %4i days, %02.2i:%02.2i:%02.2i hours."
     IDS_STRING_FMT_SEC      " %2i.%03.3i seconds."
     IDS_STRING_RSADEMO_MODUL_KLEIN_NUM 
-                            "The RSA encryption of numbers into text is incorrect, since the number of characters in the alphabet (here %i) is larger than the size of the RSA modul (here N=%s).\nPlease modify the alphabet in ""options for alphabet and number-system..."" or chooses larger prime numbers."
+                            "The RSA encryption of numbers into text is incorrect, since the number of characters in the alphabet (here %i) is larger than the size of the RSA modul (here N=%s). Please modify the alphabet in ""options for alphabet and number-system..."" or chooses larger prime numbers."
     IDS_CRYPT_RSADEMO_HEADER_ENTERPRIME "Prime number entry"
     IDS_CRYPT_RSADEMO_HEADER_GENERATEPRIMES "Generate prime numbers..."
     IDS_CRYPT_RSADEMO_HEADER_FACTORISERSAMODUL "Factorization attack"
@@ -44784,9 +44794,7 @@ BEGIN
     IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
                             "Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
     IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_GERMAN 
-                            "The word list for the substition analysis in German (%s) does not exist although it was rolled out with CrypTool."
-    IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_ENGLISH 
-                            "The word list for the substition analysis in English (%s) does not exist although it was rolled out with CrypTool."
+                            "[i18n] The German word list for the substition analysis (%s) does not exist although it was rolled out with CrypTool."
 END
 
 STRINGTABLE 
@@ -47766,7 +47774,7 @@ BEGIN
     GROUPBOX        "RSA usando las Claves Pública y Privada o usando sólo la Clave Pública",IDC_STATIC,10,4,371,62
     GROUPBOX        "Entrada de Números Primos",IDC_FRAME_RSA_MODE,10,70,371,48
     GROUPBOX        "Parámetros RSA ",IDC_STATIC,10,121,371,84
-    GROUPBOX        "Cifrado RSA utilizando e / descifrado utilizando d",IDC_STATIC,10,208,371,158
+    GROUPBOX        "Cifrado RSA utilizando e / descifrado utilizando d",IDC_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE,10,208,371,158
     LTEXT           "Número primo p",IDC_RSA_CAPTION_PRIME_P,19,83,55,8
     LTEXT           "Número primo q",IDC_RSA_CAPTION_PRIME_Q,19,101,59,8
     LTEXT           "RSA módulo N",IDC_STATIC,19,133,52,8
@@ -53304,6 +53312,10 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_ENGLISH 
+                            "[i18n] The English word list for the substition analysis (%s) does not exist although it was rolled out with CrypTool."
+    IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
+                            "Cifrado RSA utilizando e / descifrado utilizando d  [i18n alphabet size: %i]"
     IDR_OPENGLTYPE          "\nSin nombre\n\nFichero OpenGL (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
     IDS_STRING_TRANSLATIONS_HEADING_POLISH "Versión en polaco:"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
@@ -54091,7 +54103,7 @@ BEGIN
     IDS_STRING_PA_HEX       "Contenido del ciclo (hex)"
     IDS_STRING_PA_FSBDTITLE "Salida del análisis de periodicidad en"
     IDS_STRING_RSATUT_WRONG_PUBLICKEY 
-                            "El parámetro e no es primo relativo con phi(N). Elija una clave pública nueva (Ej. e = 2^16+1)."
+                            "[i18n] The parameter e (%s) is not coprime to phi(N) (%s). Either a fixed public key is used (here: 2^16+1), or a new key is generated. Do you want to generate a new public key?"
 END
 
 STRINGTABLE 
@@ -54532,7 +54544,7 @@ BEGIN
                             "Por favor, modifique la longitud del bloque a 1."
     IDS_STRING_ERR_PRIME_ARE_EQUAL 
                             " ¡Los números primos p y q tienen que ser diferentes!"
-    IDS_STRING_ANZAHL_ZEICHEN "Número de caracteres:        %i"
+    IDS_STRING_ANZAHL_ZEICHEN "Número de caracteres: %i"
     IDS_STRING_BENOETIGTE_ZEIT_FAKT "Tiempo total necesario:   %s"
     IDS_STRING_PSEOPENERROR "No se pudo abrir el PSE '%s'.\n\nCódigo de error: %s"
     IDS_STRING_P12_CREAT_FAILED "No se pudo crear la estructura PKCS#12."
@@ -54561,7 +54573,7 @@ BEGIN
     IDS_STRING_FMT_DAYS     " %4i días, %02.2i:%02.2i:%02.2i horas."
     IDS_STRING_FMT_SEC      " %2i,%03.3i segundos."
     IDS_STRING_RSADEMO_MODUL_KLEIN_NUM 
-                            "El cifrado RSA de los números a texto es correcto, ya que el número de caracteres en el alfabeto (ahora %i) es mayor que el tamaño del módulo RSA (N=%s).\nPor favor, modifique el alfabeto en 'Opciones del alfabeto y sistema numérico...' o elija números primos mayores."
+                            "El cifrado RSA de los números a texto es correcto, ya que el número de caracteres en el alfabeto (ahora %i) es mayor que el tamaño del módulo RSA (N=%s). Por favor, modifique el alfabeto en 'Opciones del alfabeto y sistema numérico...' o elija números primos mayores."
     IDS_CRYPT_RSADEMO_HEADER_ENTERPRIME "Entrada de número primo"
     IDS_CRYPT_RSADEMO_HEADER_GENERATEPRIMES "Generar números primos..."
     IDS_CRYPT_RSADEMO_HEADER_FACTORISERSAMODUL "Ataque de Factorización"
@@ -56058,9 +56070,7 @@ BEGIN
     IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
                             "[i18n] Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
     IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_GERMAN 
-                            "[i18n] The word list for the substition analysis in German (%s) does not exist although it was rolled out with CrypTool."
-    IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_ENGLISH 
-                            "[i18n] The word list for the substition analysis in English (%s) does not exist although it was rolled out with CrypTool."
+                            "[i18n] The German word list for the substition analysis (%s) does not exist although it was rolled out with CrypTool."
 END
 
 STRINGTABLE 

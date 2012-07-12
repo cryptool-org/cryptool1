@@ -219,6 +219,8 @@ public:
 	BOOL SetPrivateKey();	
 	BOOL GetParameter( CString &NStr, CString &phiOfNStr, CString &eStr, CString &dStr, int base = 10 );
 	BOOL GetParameter( Big	&NBig, Big &phiOfNBig, Big &eBig, Big &dBig );
+	BOOL GetParameterN(CString &_N);
+	BOOL GetParameterPhiOfN(CString &_phiOfN);
 
 	BOOL IsInitialized()
 		{	return  ( isInitialized_N && isInitialized_e && isInitialized_d ); }

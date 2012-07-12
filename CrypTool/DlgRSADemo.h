@@ -163,6 +163,7 @@ public:
 	CEdit	m_control_Header_RSA_step_3;
 	int	m_EncryptTextOrNumbers;
 	int	m_RSAPublicKeyOnly;
+	CStatic m_controlHeaderEncryptionDecryptionWithAlphabetSize;
 	//}}AFX_DATA
 
 
@@ -197,6 +198,11 @@ protected:
 	virtual void OnOK();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
+private:
+	void updateHeaderEncryptionDecryptionWithAlphabetSize();
+	// provided for user convenience
+	bool calculateSmallestE(CString &_e, CString _p, CString _q);
 
 private:
 	BOOL CheckIfNumberStream();
