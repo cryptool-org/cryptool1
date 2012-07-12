@@ -108,8 +108,24 @@ BOOL CDlgOptionsSubstitutionAnalysis::OnInitDialog()
 		pathToWordlistFiles.Append("\\words\\");
 		pathToWordlistFiles.Replace("\\\\", "\\");
 	}
-	m_editWordlistGerman = pathToWordlistFiles + "substitution-de.txt";
-	m_editWordlistEnglish = pathToWordlistFiles + "substitution-en.txt";
+	// flomar, July 2012: file names for word lists are hard-coded on purpose
+	// to avoid redundancy, as they are identical for all languages anyway
+	m_editWordlistGerman = pathToWordlistFiles + "SubstitutionAnalysisMethod2-de.txt";
+	m_editWordlistEnglish = pathToWordlistFiles + "SubstitutionAnalysisMethod2-en.txt";
+
+	// make sure the default word list files do exist, otherwise dump a warning
+	CFileStatus wordlistFileStatus;
+	if(!CFile::GetStatus(m_editWordlistGerman, wordlistFileStatus)) {
+		CString message; 
+		message.Format(IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_GERMAN, m_editWordlistGerman);
+		AfxMessageBox(message, MB_ICONWARNING);
+
+	}
+	if(!CFile::GetStatus(m_editWordlistEnglish, wordlistFileStatus)) {
+		CString message; 
+		message.Format(IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_ENGLISH, m_editWordlistEnglish);
+		AfxMessageBox(message, MB_ICONWARNING);
+	}
 
 	UpdateData(false);
 

@@ -11215,6 +11215,10 @@ BEGIN
                             "[i18n] Generating prime numbers in the following value range:\n[%s, %s]"
     IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
                             "[i18n] Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
+    IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_GERMAN 
+                            "[i18n] The word list for the substition analysis in German (%s) does not exist although it was rolled out with CrypTool."
+    IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_ENGLISH 
+                            "[i18n] The word list for the substition analysis in English (%s) does not exist although it was rolled out with CrypTool."
 END
 
 STRINGTABLE 
@@ -22416,6 +22420,10 @@ BEGIN
                             "[i18n] Generating prime numbers in the following value range:\n[%s, %s]"
     IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
                             "[i18n] Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
+    IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_GERMAN 
+                            "[i18n] The word list for the substition analysis in German (%s) does not exist although it was rolled out with CrypTool."
+    IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_ENGLISH 
+                            "[i18n] The word list for the substition analysis in English (%s) does not exist although it was rolled out with CrypTool."
 END
 
 STRINGTABLE 
@@ -33564,6 +33572,10 @@ BEGIN
                             "Generiere Primzahlen im folgenden Bereich:\n[%s, %s]"
     IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
                             "Generiere Primzahlen in folgenden Bereichen:\n[%s, %s], [%s, %s]"
+    IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_GERMAN 
+                            "Die mit CrypTool ausgelieferte Wortliste für die Substitutions-Analyse in Deutsch (%s) ist nicht vorhanden."
+    IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_ENGLISH 
+                            "Die mit CrypTool ausgelieferte Wortliste für die Substitutions-Analyse in Englisch (%s) ist nicht vorhanden."
 END
 
 STRINGTABLE 
@@ -44771,6 +44783,10 @@ BEGIN
                             "Generating prime numbers in the following value range:\n[%s, %s]"
     IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
                             "Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
+    IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_GERMAN 
+                            "The word list for the substition analysis in German (%s) does not exist although it was rolled out with CrypTool."
+    IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_ENGLISH 
+                            "The word list for the substition analysis in English (%s) does not exist although it was rolled out with CrypTool."
 END
 
 STRINGTABLE 
@@ -56041,6 +56057,10 @@ BEGIN
                             "[i18n] Generating prime numbers in the following value range:\n[%s, %s]"
     IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
                             "[i18n] Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
+    IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_GERMAN 
+                            "[i18n] The word list for the substition analysis in German (%s) does not exist although it was rolled out with CrypTool."
+    IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_ENGLISH 
+                            "[i18n] The word list for the substition analysis in English (%s) does not exist although it was rolled out with CrypTool."
 END
 
 STRINGTABLE 
