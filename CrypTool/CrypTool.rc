@@ -2125,31 +2125,35 @@ BEGIN
     RTEXT           "Weryfikacja:",IDC_STATIC,15,157,37,12
 END
 
-IDD_OPTIONS_SUBSTITUTION_ANALYSIS DIALOGEX 0, 0, 229, 275
+IDD_OPTIONS_SUBSTITUTION_ANALYSIS DIALOGEX 0, 0, 230, 280
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analiza zast¹pienia"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&Start",IDOK,10,250,50,17
-    PUSHBUTTON      "&Anuluj",IDCANCEL,168,250,50,17
-    CONTROL         "Analiza manualna.",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,30,213,71,9
-    CONTROL         "Analiza manualna przy u¿yciu zach. klucza.",IDC_RADIO4,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,30,226,150,8
-    CONTROL         "U¿yj 'e' jako najczêœciej wystêpuj¹cego znaku",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,30,137,168,8
-    CONTROL         "Analiza rozszerzona (niemiecki tekst jawny)",IDC_CHECK2,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,30,178,136,8
-    LTEXT           "Automatyczna zamiana zosta³a zaimplementowana tylko dla niemieckich i angielskich tekstów. Dla innych jêzyków zalecana jest analiza maualna.",IDC_STATIC,10,5,208,26
-    LTEXT           "W wielu przypadkach, automatyczna analiza mo¿e zostaæ poprawiona przez przyjêcie 'e' jako najczêœciej wystêpuj¹cego znaku w tekœcie.",IDC_STATIC,19,109,192,25
-    LTEXT           "W tekstach niemieckich digramy 'en' i 'er' s¹ bardzo powszechne. Takie za³o¿enie mo¿e poprawiæ analizê:",IDC_STATIC,19,155,192,16
-    GROUPBOX        "Analiza automatyczna",IDC_STATIC,10,36,208,122
-    GROUPBOX        "Analiza manualna",IDC_STATIC,10,199,208,41
-    CONTROL         "Oczekiwany tekst jawny po niemiecku.",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,49,138,10
-    CONTROL         "Oczekiwany tekst jawny po angielsku.",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,20,76,136,10
-    EDITTEXT        IDC_EDIT_WORDLIST_GERMAN,30,60,130,14,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT_WORDLIST_ENGLISH,30,87,130,14,ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "ZnajdŸ...",IDC_BUTTON_SELECT_WORDLIST_GERMAN,162,60,50,14
-    PUSHBUTTON      "ZnajdŸ...",IDC_BUTTON_SELECT_WORDLIST_ENGLISH,162,87,50,14
+    DEFPUSHBUTTON   "&Start",IDOK,5,257,65,18
+    PUSHBUTTON      "&Anuluj",IDCANCEL,160,257,65,18
+    CONTROL         "U¿yj 'e' jako najczêœciej wystêpuj¹cego znaku",IDC_CHECK_ANALYSIS_AUTOMATIC_OPTION1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,154,168,8
+    CONTROL         "Analiza rozszerzona (niemiecki tekst jawny)",IDC_CHECK_ANALYSIS_AUTOMATIC_OPTION2,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,192,136,8
+    LTEXT           "Automatyczna zamiana zosta³a zaimplementowana tylko dla niemieckich i angielskich tekstów. Dla innych jêzyków zalecana jest analiza maualna.",IDC_STATIC,5,5,182,26
+    LTEXT           "W wielu przypadkach, automatyczna analiza mo¿e zostaæ poprawiona przez przyjêcie 'e' jako najczêœciej wystêpuj¹cego znaku w tekœcie:",IDC_STATIC,15,123,192,25
+    LTEXT           "W tekstach niemieckich digramy 'en' i 'er' s¹ bardzo powszechne. Takie za³o¿enie mo¿e poprawiæ analizê:",IDC_STATIC,15,168,192,16
+    GROUPBOX        "Analiza automatyczna",IDC_STATIC,5,65,220,144
+    GROUPBOX        "Analiza manualna",IDC_STATIC,5,214,220,36
+    EDITTEXT        IDC_EDIT_WORDLIST_GERMAN,15,103,147,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_WORDLIST_ENGLISH,15,103,147,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "ZnajdŸ...",IDC_BUTTON_SELECT_WORDLIST_GERMAN,165,102,50,14
+    PUSHBUTTON      "ZnajdŸ...",IDC_BUTTON_SELECT_WORDLIST_ENGLISH,165,102,50,14
+    CONTROL         "Analiza automatyczna",IDC_RADIO_ANALYSIS_AUTOMATIC,
+                    "Button",BS_AUTORADIOBUTTON,15,35,85,10
+    CONTROL         "Analiza manualna",IDC_RADIO_ANALYSIS_MANUAL,"Button",BS_AUTORADIOBUTTON,15,46,71,10
+    CONTROL         "Analiza manualna przy u¿yciu zach. klucza.",IDC_CHECK_ANALYSIS_MANUAL_OPTION1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,232,174,8
+    CONTROL         "Oczekiwany tekst jawny po niemiecku.",IDC_RADIO_ANALYSIS_AUTOMATIC_GERMAN,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,15,79,138,10
+    CONTROL         "Oczekiwany tekst jawny po angielsku.",IDC_RADIO_ANALYSIS_AUTOMATIC_ENGLISH,
+                    "Button",BS_AUTORADIOBUTTON,15,90,136,10
 END
 
 IDD_SELECT_HASHFUNCTION DIALOGEX 0, 0, 131, 155
@@ -7624,7 +7628,12 @@ BEGIN
 
     IDD_OPTIONS_SUBSTITUTION_ANALYSIS, DIALOG
     BEGIN
-        BOTTOMMARGIN, 242
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 225
+        VERTGUIDE, 15
+        VERTGUIDE, 25
+        TOPMARGIN, 5
+        BOTTOMMARGIN, 275
     END
 
     IDD_SELECT_HASHFUNCTION, DIALOG
@@ -8442,7 +8451,7 @@ END
 
 STRINGTABLE 
 BEGIN
-IDR_MAINFRAME "CrypTool 1.4.31 Beta 4 [VS2008]"
+    IDR_MAINFRAME           "CrypTool 1.4.31 Beta 4 [VS2008]"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -13343,31 +13352,34 @@ BEGIN
     RTEXT           "Provera:",IDC_STATIC,15,157,37,12
 END
 
-IDD_OPTIONS_SUBSTITUTION_ANALYSIS DIALOGEX 0, 0, 229, 275
+IDD_OPTIONS_SUBSTITUTION_ANALYSIS DIALOGEX 0, 0, 230, 280
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analiza Automatske Zamene 2 - Opcije"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&Pocni",IDOK,10,250,50,17
-    PUSHBUTTON      "&Otkaži",IDCANCEL,168,250,50,17
-    CONTROL         "Rucna analiza.",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,30,213,71,9
-    CONTROL         "Rucna analiza pomocu smeštenog kljuca.",IDC_RADIO4,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,30,226,150,8
-    CONTROL         "Upotrebi 'e' kao najucestaniji karakter.",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,30,137,168,8
-    CONTROL         "Proširena analiza (Nemacki obican tekst)",IDC_CHECK2,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,30,178,136,8
-    LTEXT           "Analiza automatske zamene implementirana je samo za Nemacki i Engleski obican tekst. Za sve ostale jezike preporucuje se rucna analiza.",IDC_STATIC,10,5,208,26
-    LTEXT           "U mnogim slucajevima automatska analiza može biti poboljšana pod pretpostavkom da je 'e' najucestanije slovo u obicnom tekstu:",IDC_STATIC,19,109,192,25
-    LTEXT           "U Nemackom obicnom tekstu digrami 'en' i 'er' su veoma cesti. Ova pretpostavka može poboljšati analizu:",IDC_STATIC,19,155,192,16
-    GROUPBOX        "Automatska analiza",IDC_STATIC,10,36,208,122
-    GROUPBOX        "Rucna analiza",IDC_STATIC,10,199,208,41
-    CONTROL         "Ocekivan obican tekst je Nemacki.",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,51,127,10
-    CONTROL         "Ocekivan obican tekst je Engleski.",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,20,78,125,10
-    EDITTEXT        IDC_EDIT_WORDLIST_GERMAN,30,62,130,14,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT_WORDLIST_ENGLISH,30,89,130,14,ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "Pronadi...",IDC_BUTTON_SELECT_WORDLIST_GERMAN,162,62,50,14
-    PUSHBUTTON      "Pronadi...",IDC_BUTTON_SELECT_WORDLIST_ENGLISH,162,89,50,14
+    DEFPUSHBUTTON   "&Pocni",IDOK,5,257,65,18
+    PUSHBUTTON      "&Otkaži",IDCANCEL,160,257,65,18
+    CONTROL         "Upotrebi 'e' kao najucestaniji karakter.",IDC_CHECK_ANALYSIS_AUTOMATIC_OPTION1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,154,168,8
+    LTEXT           "Analiza automatske zamene implementirana je samo za Nemacki i Engleski obican tekst. Za sve ostale jezike preporucuje se rucna analiza.",IDC_STATIC,5,5,174,26
+    LTEXT           "U mnogim slucajevima automatska analiza može biti poboljšana pod pretpostavkom da je 'e' najucestanije slovo u obicnom tekstu:",IDC_STATIC,15,123,182,25
+    LTEXT           "U Nemackom obicnom tekstu digrami 'en' i 'er' su veoma cesti. Ova pretpostavka može poboljšati analizu:",IDC_STATIC,15,168,184,16
+    GROUPBOX        "Automatska analiza",IDC_STATIC,5,65,220,144
+    GROUPBOX        "Rucna analiza",IDC_STATIC,5,214,220,36
+    EDITTEXT        IDC_EDIT_WORDLIST_GERMAN,15,103,147,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_WORDLIST_ENGLISH,15,103,147,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Pronadi...",IDC_BUTTON_SELECT_WORDLIST_GERMAN,165,102,50,14
+    PUSHBUTTON      "Pronadi...",IDC_BUTTON_SELECT_WORDLIST_ENGLISH,165,102,50,14
+    CONTROL         "Rucna analiza pomocu smeštenog kljuca.",IDC_CHECK_ANALYSIS_MANUAL_OPTION1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,232,174,8
+    CONTROL         "Automatska analiza",IDC_RADIO_ANALYSIS_AUTOMATIC,"Button",BS_AUTORADIOBUTTON,15,35,77,10
+    CONTROL         "Rucna analiza",IDC_RADIO_ANALYSIS_MANUAL,"Button",BS_AUTORADIOBUTTON,15,46,61,10
+    CONTROL         "Proširena analiza (Nemacki obican tekst)",IDC_CHECK_ANALYSIS_AUTOMATIC_OPTION2,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,192,147,8
+    CONTROL         "Ocekivan obican tekst je Nemacki.",IDC_RADIO_ANALYSIS_AUTOMATIC_GERMAN,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,15,79,127,10
+    CONTROL         "Ocekivan obican tekst je Engleski.",IDC_RADIO_ANALYSIS_AUTOMATIC_ENGLISH,
+                    "Button",BS_AUTORADIOBUTTON,15,90,125,10
 END
 
 IDD_SELECT_HASHFUNCTION DIALOGEX 0, 0, 131, 155
@@ -18837,7 +18849,13 @@ BEGIN
 
     IDD_OPTIONS_SUBSTITUTION_ANALYSIS, DIALOG
     BEGIN
-        BOTTOMMARGIN, 242
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 225
+        VERTGUIDE, 15
+        VERTGUIDE, 25
+        VERTGUIDE, 215
+        TOPMARGIN, 5
+        BOTTOMMARGIN, 275
     END
 
     IDD_SELECT_HASHFUNCTION, DIALOG
@@ -19648,7 +19666,7 @@ END
 
 STRINGTABLE 
 BEGIN
-IDR_MAINFRAME "CrypTool 1.4.31 Beta 4 [VS2008]"
+    IDR_MAINFRAME           "CrypTool 1.4.31 Beta 4 [VS2008]"
     IDR_TEXTTYPE            "\nNeimenovani\nTEKST dokument\nTekst datoteka (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nNeimenovana\n\nBinarna datoteka (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nNeimenovana\n\nASCII datoteka (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -22781,30 +22799,35 @@ BEGIN
     LTEXT           "Schlüssel eingeben (max. 26 verschiedene Zeichen):",IDC_STATIC,13,11,219,8
 END
 
-IDD_OPTIONS_SUBSTITUTION_ANALYSIS DIALOGEX 0, 0, 227, 275
+IDD_OPTIONS_SUBSTITUTION_ANALYSIS DIALOGEX 0, 0, 230, 280
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Automatische Substitutionsanalyse 2 - Optionen"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&Starten",IDOK,10,250,50,17
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,166,250,50,17
-    CONTROL         "Der erwartete Klartext ist Deutsch.",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,45,123,10
-    CONTROL         "Der erwartete Klartext ist Englisch.",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,20,72,123,10
-    CONTROL         "Manuelle Analyse.",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,30,215,71,9
-    CONTROL         "Manuelle Analyse mit dem gespeicherten Schlüssel.",IDC_RADIO4,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,30,228,175,8
-    CONTROL         "'e' als häufigstes Zeichen annehmen.",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,30,141,168,8
-    CONTROL         "erweiterte Analyse (deutscher Klartext).",IDC_CHECK2,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,30,181,136,8
-    LTEXT           "Die automatische Substitutionsanalyse ist nur für deutsche bzw. englische Klartexte implementiert. Für alle anderen Sprachen sollte die Analyse manuell durchgeführt werden.",IDC_STATIC,10,5,206,26
-    LTEXT           "Die Annahme, dass im Klartext der Buchstabe 'e' am häufigsten ist, verbessert oft das Ergebnis der automatischen Analyse:",IDC_STATIC,20,110,196,26
-    LTEXT           "In deutschen Klartexten sind die Digramme 'en' und 'er' sehr häufig. Die erweiterte Analyse benutzt diese Annahme:",IDC_STATIC,20,158,190,16
-    GROUPBOX        "Automatische Analyse",IDC_STATIC,10,34,206,165
-    GROUPBOX        "Manuelle Analyse",IDC_STATIC,10,204,206,36
-    EDITTEXT        IDC_EDIT_WORDLIST_GERMAN,30,56,130,14,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT_WORDLIST_ENGLISH,30,83,130,14,ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "Suchen...",IDC_BUTTON_SELECT_WORDLIST_GERMAN,162,56,50,14
-    PUSHBUTTON      "Suchen...",IDC_BUTTON_SELECT_WORDLIST_ENGLISH,162,83,50,14
+    CONTROL         "Automatische Analyse",IDC_RADIO_ANALYSIS_AUTOMATIC,
+                    "Button",BS_AUTORADIOBUTTON,15,35,85,10
+    CONTROL         "Manuelle Analyse",IDC_RADIO_ANALYSIS_MANUAL,"Button",BS_AUTORADIOBUTTON,15,46,71,10
+    CONTROL         "Der erwartete Klartext ist Deutsch.",IDC_RADIO_ANALYSIS_AUTOMATIC_GERMAN,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,15,79,123,10
+    CONTROL         "Der erwartete Klartext ist Englisch.",IDC_RADIO_ANALYSIS_AUTOMATIC_ENGLISH,
+                    "Button",BS_AUTORADIOBUTTON,15,90,123,10
+    EDITTEXT        IDC_EDIT_WORDLIST_GERMAN,15,103,147,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Suchen...",IDC_BUTTON_SELECT_WORDLIST_GERMAN,165,102,50,14
+    CONTROL         "'e' als häufigstes Zeichen annehmen",IDC_CHECK_ANALYSIS_AUTOMATIC_OPTION1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,154,168,8
+    CONTROL         "erweiterte Analyse (deutscher Klartext)",IDC_CHECK_ANALYSIS_AUTOMATIC_OPTION2,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,192,136,8
+    DEFPUSHBUTTON   "&Starten",IDOK,5,257,65,18
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,160,257,65,18
+    LTEXT           "Die automatische Substitutionsanalyse ist nur für deutsche bzw. englische Klartexte implementiert. Für alle anderen Sprachen sollte die Analyse manuell durchgeführt werden.",IDC_STATIC,5,5,197,26
+    LTEXT           "Die Annahme, dass im Klartext der Buchstabe 'e' am häufigsten ist, verbessert oft das Ergebnis der automatischen Analyse:",IDC_STATIC,15,123,188,26
+    LTEXT           "In deutschen Klartexten sind die Digramme 'en' und 'er' sehr häufig. Die erweiterte Analyse benutzt diese Annahme:",IDC_STATIC,15,168,190,16
+    GROUPBOX        "Automatische Analyse",IDC_STATIC,5,65,220,144
+    GROUPBOX        "Manuelle Analyse",IDC_STATIC,5,214,220,36
+    EDITTEXT        IDC_EDIT_WORDLIST_ENGLISH,15,103,147,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Suchen...",IDC_BUTTON_SELECT_WORDLIST_ENGLISH,165,102,50,14
+    CONTROL         "Manuelle Analyse mit dem gespeicherten Schlüssel.",IDC_CHECK_ANALYSIS_MANUAL_OPTION1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,232,174,8
 END
 
 IDD_SHOW_CERTIFICATE DIALOG  0, 0, 382, 213
@@ -29796,6 +29819,17 @@ BEGIN
         HORZGUIDE, 331
     END
 
+    IDD_OPTIONS_SUBSTITUTION_ANALYSIS, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 225
+        VERTGUIDE, 15
+        VERTGUIDE, 25
+        VERTGUIDE, 215
+        TOPMARGIN, 5
+        BOTTOMMARGIN, 275
+    END
+
     IDD_SHOW_PROGRESS, DIALOG
     BEGIN
         BOTTOMMARGIN, 96
@@ -30727,7 +30761,7 @@ END
 
 STRINGTABLE 
 BEGIN
-IDR_MAINFRAME "CrypTool 1.4.31 Beta 4 [VS2008]"
+    IDR_MAINFRAME           "CrypTool 1.4.31 Beta 4 [VS2008]"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT-Dokument\nText-Datei (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnbenannt\n\nBinär-Datei (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnbenannt\n\nASCII-Datei (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -35657,29 +35691,34 @@ BEGIN
     RTEXT           "Verification:",IDC_STATIC,15,157,37,12
 END
 
-IDD_OPTIONS_SUBSTITUTION_ANALYSIS DIALOGEX 0, 0, 229, 275
+IDD_OPTIONS_SUBSTITUTION_ANALYSIS DIALOGEX 0, 0, 230, 280
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Automatic Substitution Analysis 2 - Options"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&Start",IDOK,10,250,50,17
-    PUSHBUTTON      "&Cancel",IDCANCEL,168,250,50,17
-    CONTROL         "Manual analysis.",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,30,213,71,9
-    CONTROL         "Manual analysis using the stored key.",IDC_RADIO4,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,30,226,150,8
-    CONTROL         "Use 'e' as most frequent character.",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,30,137,168,8
-    CONTROL         "Extended analysis (German plaintext)",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,30,178,136,8
-    LTEXT           "The automatic substitution analysis is implemented for German and for English plaintexts only. For all other languages the manual analysis is recommended.",IDC_STATIC,10,5,208,26
-    LTEXT           "In many cases the automatic analysis could be improved by the assumption that 'e' is the most frequent letter on the plaintext:",IDC_STATIC,19,109,192,25
-    LTEXT           "On German plaintext the digrams 'en' and 'er' are very frequent. This assumption could improve the analysis:",IDC_STATIC,19,155,192,16
-    GROUPBOX        "Automatic analysis",IDC_STATIC,10,36,208,158
-    GROUPBOX        "Manual analysis",IDC_STATIC,10,199,208,41
-    CONTROL         "The expected plaintext is German.",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,45,123,10
-    CONTROL         "The expected plaintext is English.",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,20,72,121,10
-    EDITTEXT        IDC_EDIT_WORDLIST_GERMAN,30,56,130,14,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT_WORDLIST_ENGLISH,30,83,130,14,ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "Find...",IDC_BUTTON_SELECT_WORDLIST_GERMAN,162,56,50,14
-    PUSHBUTTON      "Find...",IDC_BUTTON_SELECT_WORDLIST_ENGLISH,162,83,50,14
+    DEFPUSHBUTTON   "&Start",IDOK,5,257,65,18
+    PUSHBUTTON      "&Cancel",IDCANCEL,160,257,65,18
+    LTEXT           "The automatic substitution analysis is implemented for German and for English plaintexts only. For all other languages the manual analysis is recommended.",IDC_STATIC,5,5,189,26
+    LTEXT           "In many cases the automatic analysis could be improved by the assumption that 'e' is the most frequent letter on the plaintext:",IDC_STATIC,15,123,192,25
+    LTEXT           "On German plaintext the digrams 'en' and 'er' are very frequent. This assumption could improve the analysis:",IDC_STATIC,15,168,192,16
+    GROUPBOX        "Automatic analysis",IDC_STATIC,5,65,220,144
+    GROUPBOX        "Manual analysis",IDC_STATIC,5,214,220,36
+    EDITTEXT        IDC_EDIT_WORDLIST_GERMAN,15,103,147,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_WORDLIST_ENGLISH,15,103,147,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Find...",IDC_BUTTON_SELECT_WORDLIST_GERMAN,165,102,50,14
+    PUSHBUTTON      "Find...",IDC_BUTTON_SELECT_WORDLIST_ENGLISH,165,102,50,14
+    CONTROL         "Manual analysis using the stored key.",IDC_CHECK_ANALYSIS_MANUAL_OPTION1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,232,174,8
+    CONTROL         "Extended analysis (German plaintext)",IDC_CHECK_ANALYSIS_AUTOMATIC_OPTION2,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,192,136,8
+    CONTROL         "Use 'e' as most frequent character.",IDC_CHECK_ANALYSIS_AUTOMATIC_OPTION1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,154,168,8
+    CONTROL         "The expected plaintext is German.",IDC_RADIO_ANALYSIS_AUTOMATIC_GERMAN,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,15,79,123,10
+    CONTROL         "The expected plaintext is English.",IDC_RADIO_ANALYSIS_AUTOMATIC_ENGLISH,
+                    "Button",BS_AUTORADIOBUTTON,15,90,121,10
+    CONTROL         "Automatic analysis",IDC_RADIO_ANALYSIS_AUTOMATIC,"Button",BS_AUTORADIOBUTTON,15,35,74,10
+    CONTROL         "Manual analysis",IDC_RADIO_ANALYSIS_MANUAL,"Button",BS_AUTORADIOBUTTON,15,46,66,10
 END
 
 IDD_SELECT_HASHFUNCTION DIALOGEX 0, 0, 131, 155
@@ -41146,7 +41185,13 @@ BEGIN
 
     IDD_OPTIONS_SUBSTITUTION_ANALYSIS, DIALOG
     BEGIN
-        BOTTOMMARGIN, 242
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 225
+        VERTGUIDE, 15
+        VERTGUIDE, 25
+        VERTGUIDE, 215
+        TOPMARGIN, 5
+        BOTTOMMARGIN, 275
     END
 
     IDD_SELECT_HASHFUNCTION, DIALOG
@@ -41989,7 +42034,7 @@ END
 
 STRINGTABLE 
 BEGIN
-IDR_MAINFRAME "CrypTool 1.4.31 Beta 4 [VS2008]"
+    IDR_MAINFRAME           "CrypTool 1.4.31 Beta 4 [VS2008]"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -47254,33 +47299,35 @@ BEGIN
     CONTROL         "Caracteres &NO imprimibles",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON,115,213,103,10
 END
 
-IDD_OPTIONS_SUBSTITUTION_ANALYSIS DIALOGEX 0, 0, 229, 275
+IDD_OPTIONS_SUBSTITUTION_ANALYSIS DIALOGEX 0, 0, 230, 280
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Análisis Automático de Sustitución 2"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&Iniciar",IDOK,10,250,50,17
-    PUSHBUTTON      "&Cancelar",IDCANCEL,168,250,50,17
-    CONTROL         "Análisis manual.",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,30,213,71,9
-    CONTROL         "Análisis Manual utilizando la clave guardada.",IDC_RADIO4,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,30,226,167,8
-    CONTROL         "Utilizar 'e' como el caracter más frecuente",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,30,137,168,8
-    CONTROL         "Análisis Extendido (texto claro en Alemán)",IDC_CHECK2,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,30,178,150,8
-    LTEXT           "El análisis automático de sustitución está implementado únicamente para mensajes en alemán y en inglés. Pare el resto de idiomas se recomienda usar el análisis manual.",IDC_STATIC,10,5,208,26
-    LTEXT           "En muchos casos, el análisis automático puede realizarse asumiendo que el caracter 'e' es el más frecuente en el texto claro.",IDC_STATIC,19,109,192,25
-    LTEXT           "En alemán, los digramas 'en' y 'er' son muy frecuentes. Esta asunción puede mejorar el análisis.",IDC_STATIC,19,155,192,16
-    GROUPBOX        "Análisis Automático",IDC_STATIC,10,36,208,122
-    GROUPBOX        "Análisis Manual",IDC_STATIC,10,199,208,41
-    CONTROL         "El texto claro esperado está en Alemán.",IDC_RADIO1,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,20,50,141,10
-    CONTROL         "El texto claro esperado está en Inglés.",IDC_RADIO2,
-                    "Button",BS_AUTORADIOBUTTON,20,77,136,10
-    EDITTEXT        IDC_EDIT_WORDLIST_GERMAN,30,61,130,14,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT_WORDLIST_ENGLISH,30,88,130,14,ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "Examinar...",IDC_BUTTON_SELECT_WORDLIST_GERMAN,162,61,50,14
-    PUSHBUTTON      "Examinar...",IDC_BUTTON_SELECT_WORDLIST_ENGLISH,162,88,50,14
+    DEFPUSHBUTTON   "&Iniciar",IDOK,5,257,65,18
+    PUSHBUTTON      "&Cancelar",IDCANCEL,160,257,65,18
+    LTEXT           "El análisis automático de sustitución está implementado únicamente para mensajes en alemán y en inglés. Pare el resto de idiomas se recomienda usar el análisis manual.",IDC_STATIC,5,5,186,26
+    LTEXT           "En muchos casos, el análisis automático puede realizarse asumiendo que el caracter 'e' es el más frecuente en el texto claro:",IDC_STATIC,15,123,185,25
+    LTEXT           "En alemán, los digramas 'en' y 'er' son muy frecuentes. Esta asunción puede mejorar el análisis:",IDC_STATIC,15,168,192,16
+    GROUPBOX        "Análisis Automático",IDC_STATIC,5,65,220,144
+    GROUPBOX        "Análisis Manual",IDC_STATIC,5,214,220,36
+    EDITTEXT        IDC_EDIT_WORDLIST_GERMAN,15,103,147,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_WORDLIST_ENGLISH,15,103,147,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Examinar...",IDC_BUTTON_SELECT_WORDLIST_GERMAN,165,102,50,14
+    PUSHBUTTON      "Examinar...",IDC_BUTTON_SELECT_WORDLIST_ENGLISH,165,102,50,14
+    CONTROL         "Análisis Manual utilizando la clave guardada.",IDC_CHECK_ANALYSIS_MANUAL_OPTION1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,232,174,8
+    CONTROL         "Análisis Extendido (texto claro en Alemán)",IDC_CHECK_ANALYSIS_AUTOMATIC_OPTION2,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,192,136,8
+    CONTROL         "Utilizar 'e' como el caracter más frecuente",IDC_CHECK_ANALYSIS_AUTOMATIC_OPTION1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,154,168,8
+    CONTROL         "El texto claro esperado está en Alemán.",IDC_RADIO_ANALYSIS_AUTOMATIC_GERMAN,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,15,79,141,10
+    CONTROL         "El texto claro esperado está en Inglés.",IDC_RADIO_ANALYSIS_AUTOMATIC_ENGLISH,
+                    "Button",BS_AUTORADIOBUTTON,15,90,136,10
+    CONTROL         "Análisis Automático",IDC_RADIO_ANALYSIS_AUTOMATIC,
+                    "Button",BS_AUTORADIOBUTTON,15,35,77,10
+    CONTROL         "Análisis Manual",IDC_RADIO_ANALYSIS_MANUAL,"Button",BS_AUTORADIOBUTTON,15,46,65,10
 END
 
 IDD_OPTIONS_SUBSTITUTION_AUTO_ANALYSIS DIALOGEX 0, 0, 230, 102
@@ -52497,7 +52544,13 @@ BEGIN
 
     IDD_OPTIONS_SUBSTITUTION_ANALYSIS, DIALOG
     BEGIN
-        BOTTOMMARGIN, 242
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 225
+        VERTGUIDE, 15
+        VERTGUIDE, 25
+        VERTGUIDE, 215
+        TOPMARGIN, 5
+        BOTTOMMARGIN, 275
     END
 
     IDD_OPTIONS_SUBSTITUTION_AUTO_ANALYSIS, DIALOG
@@ -53179,7 +53232,7 @@ END
 
 STRINGTABLE 
 BEGIN
-IDR_MAINFRAME "CrypTool 1.4.31 Beta 4 [VS2008]"
+    IDR_MAINFRAME           "CrypTool 1.4.31 Beta 4 [VS2008]"
     IDR_TEXTTYPE            "\nSin nombre\nDocumento de texto\nFichero de texto (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nSin nombre\n\nFichero binario (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nSin nombre\n\nFichero ASCII (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"

@@ -1531,14 +1531,14 @@ UINT AnaSubst(PVOID p) {
 		// flomar, July 2012: instead of the old approach with hard-coded words we give 
 		// the user the option to select his/her own word files (note: one word per line);
 		// by default (CrypTool installation) the data resembles the old hard-coded words
-		if(Dialog.m_radio1 == 0 || Dialog.m_radio1 == 1) {
+		if(Dialog.isAnalysisAutomatic()) {
 			CString filenameWordlist;
-			if(Dialog.m_radio1 == 0) {
+			if(Dialog.isAnalysisAutomaticGerman()) {
 				// GERMAN: the wordlist is based on statistical 
 				// evaluations by the original author of this code
 				filenameWordlist = Dialog.m_editWordlistGerman;
 			}
-			if(Dialog.m_radio1 == 1) {
+			if(Dialog.isAnalysisAutomaticEnglish()) {
 				// ENGLISH: the wordlist is based on George W. 
 				// Hart's work, "To Decode Short Cryptograms", 
 				// Communications of the ACM, Sept 1994, Vol 37, No.4			*
@@ -1572,10 +1572,8 @@ UINT AnaSubst(PVOID p) {
 	// **********************************************************************************
 	// **********************************************************************************
 
-	// Manuelle Analyse wurde gewählt.
-	// In diesem Fall ist eine Anzeige des Fortschrittsanzeigers nicht nötig,
-	// da keine umfangreichen Berechnungen angestellt werden müssen.
-	if(Dialog.m_radio1 == 0 || Dialog.m_radio1 == 1) {
+	// enable progress bar for automatic analysis only
+	if(Dialog.isAnalysisAutomatic()) {
 		if(par->flags & CRYPT_DO_PROGRESS) {
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_SUBSTITUTION_ANALYSE,pc_str,STR_LAENGE_STRING_TABLE);
 			theApp.fs.Display(pc_str);
@@ -1663,16 +1661,14 @@ UINT AnaSubst(PVOID p) {
 	   Substitution wird benutzt, um den zu bearbeitenden Ciphertext zu entschlüsseln.
 	   Das Resultat wird im unteren Texfenster dargestellt.				*/
 
-	if (Dialog.m_radio1==2 || Dialog.m_storedKey == 0){
+	if(Dialog.isAnalysisManual()){
 		// Anzeigen des Nachbearbeitungsfensters
-		if ( Dialog.m_storedKey == 0 )
+		if(Dialog.isAnalysisManualOption1())
 		{
-			LoadString(AfxGetInstanceHandle(),IDS_ANALYSIS_SUBSTITUTION,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(), IDS_ANALYSIS_SUBSTITUTION, pc_str, STR_LAENGE_STRING_TABLE);
 			CString SubstKey;
-			if ( PasteKey( pc_str, SubstKey ) )
-			{
-				for (int i=0; i<26; i++)
-				{
+			if(PasteKey(pc_str, SubstKey)) {
+				for(int i=0; i<26; i++) {
 					*MaxPermu[i] = SubstKey[i];
 				}
 			}
@@ -1753,7 +1749,7 @@ UINT AnaSubst(PVOID p) {
 	   wurde angewählt.
 	   Das häufigste Zeichen im Text wird bestimmt und die Anfangspermutation wird so gesetzt,
 	   daß dieses Zeichen die Verschlüsselung von 'e' darstellt.*/
-	if ((Dialog.m_check1)||(Dialog.m_check2)){
+	if(Dialog.isAnalysisAutomaticOption1()) {
 		NGram t(text);
 		int maxim=0;
 		for (/*int*/ i=0; i<26; i++){
@@ -2058,7 +2054,7 @@ UINT AnaSubst(PVOID p) {
 
 	// Bestimme den Buchstaben, der im Chiffrat am häufigsten nach dem e vorkommt.
 	// Wir nehmen an, daß dieser Buchstabe entweder auf n oder auf r abgebildet wird
-	if ((Dialog.m_check2)&&(doppelt==false)){
+	if(Dialog.isAnalysisAutomaticOption2() && doppelt==false){
 
 		
 		// Sortieren der Listen vore[26], nache[26], anfang[26] und ende[26]

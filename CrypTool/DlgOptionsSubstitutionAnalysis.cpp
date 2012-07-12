@@ -45,12 +45,7 @@ static char THIS_FILE[] = __FILE__;
 CDlgOptionsSubstitutionAnalysis::CDlgOptionsSubstitutionAnalysis(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgOptionsSubstitutionAnalysis::IDD, pParent)
 {
-	//{{AFX_DATA_INIT(CDlgOptionsSubstitutionAnalysis)
-	m_radio1 = 0;
-	m_check1 = FALSE;
-	m_check2 = FALSE;
-	m_storedKey = -1;
-	//}}AFX_DATA_INIT
+	
 }
 
 
@@ -58,32 +53,34 @@ void CDlgOptionsSubstitutionAnalysis::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgOptionsSubstitutionAnalysis)
-	DDX_Control(pDX, IDC_RADIO4, m_ctrl_storedKey);
-	DDX_Control(pDX, IDC_CHECK2, m_control2);
-	DDX_Control(pDX, IDC_CHECK1, m_control1);
-	DDX_Radio(pDX, IDC_RADIO1, m_radio1);
-	DDX_Check(pDX, IDC_CHECK1, m_check1);
-	DDX_Check(pDX, IDC_CHECK2, m_check2);
-	DDX_Radio(pDX, IDC_RADIO4, m_storedKey);
-	DDX_Control(pDX, IDC_BUTTON_SELECT_WORDLIST_GERMAN, m_buttonSelectWordlistGerman);
-	DDX_Control(pDX, IDC_BUTTON_SELECT_WORDLIST_ENGLISH, m_buttonSelectWordlistEnglish);
+	
+	DDX_Control(pDX, IDC_RADIO_ANALYSIS_AUTOMATIC, m_controlRadioAnalysisAutomatic);
+	DDX_Control(pDX, IDC_RADIO_ANALYSIS_MANUAL, m_controlRadioAnalysisManual);
+	DDX_Control(pDX, IDC_RADIO_ANALYSIS_AUTOMATIC_GERMAN, m_controlRadioAnalysisAutomaticGerman);
+	DDX_Control(pDX, IDC_RADIO_ANALYSIS_AUTOMATIC_ENGLISH, m_controlRadioAnalysisAutomaticEnglish);
+	DDX_Control(pDX, IDC_EDIT_WORDLIST_GERMAN, m_controlEditAnalysisAutomaticWordlistGerman);
+	DDX_Control(pDX, IDC_EDIT_WORDLIST_ENGLISH, m_controlEditAnalysisAutomaticWordlistEnglish);
 	DDX_Text(pDX, IDC_EDIT_WORDLIST_GERMAN, m_editWordlistGerman);
 	DDX_Text(pDX, IDC_EDIT_WORDLIST_ENGLISH, m_editWordlistEnglish);
+	DDX_Control(pDX, IDC_BUTTON_SELECT_WORDLIST_GERMAN, m_buttonSelectWordlistGerman);
+	DDX_Control(pDX, IDC_BUTTON_SELECT_WORDLIST_ENGLISH, m_buttonSelectWordlistEnglish);
+	DDX_Control(pDX, IDC_CHECK_ANALYSIS_AUTOMATIC_OPTION1, m_controlCheckAnalysisAutomaticOption1);
+	DDX_Control(pDX, IDC_CHECK_ANALYSIS_AUTOMATIC_OPTION2, m_controlCheckAnalysisAutomaticOption2);
+	DDX_Control(pDX, IDC_CHECK_ANALYSIS_MANUAL_OPTION1, m_controlCheckAnalysisManualOption1);
 	//}}AFX_DATA_MAP
 }
 
 
 BEGIN_MESSAGE_MAP(CDlgOptionsSubstitutionAnalysis, CDialog)
-	//{{AFX_MSG_MAP(CDlgOptionsSubstitutionAnalysis)
-	ON_BN_CLICKED(IDC_CHECK2, OnCheck2)
-	ON_BN_CLICKED(IDC_CHECK1, OnCheck1)
-	ON_BN_CLICKED(IDC_RADIO2, OnRadio2)
-	ON_BN_CLICKED(IDC_RADIO1, OnRadio1)
-	ON_BN_CLICKED(IDC_RADIO3, OnRadio3)
-	ON_BN_CLICKED(IDC_RADIO4, OnRadio4)
+	ON_BN_CLICKED(IDC_RADIO_ANALYSIS_AUTOMATIC, OnRadioAnalysisAutomatic)
+	ON_BN_CLICKED(IDC_RADIO_ANALYSIS_MANUAL, OnRadioAnalysisManual)
+	ON_BN_CLICKED(IDC_RADIO_ANALYSIS_AUTOMATIC_GERMAN, OnRadioAnalysisAutomaticGerman)
+	ON_BN_CLICKED(IDC_RADIO_ANALYSIS_AUTOMATIC_ENGLISH, OnRadioAnalysisAutomaticEnglish)
 	ON_BN_CLICKED(IDC_BUTTON_SELECT_WORDLIST_GERMAN, OnButtonSelectWordlistGerman)
 	ON_BN_CLICKED(IDC_BUTTON_SELECT_WORDLIST_ENGLISH, OnButtonSelectWordlistEnglish)
-	//}}AFX_MSG_MAP
+	ON_BN_CLICKED(IDC_CHECK_ANALYSIS_AUTOMATIC_OPTION1, OnCheckAnalysisAutomaticOption1)
+	ON_BN_CLICKED(IDC_CHECK_ANALYSIS_AUTOMATIC_OPTION2, OnCheckAnalysisAutomaticOption2)
+	ON_BN_CLICKED(IDC_CHECK_ANALYSIS_MANUAL_OPTION1, OnCheckAnalysisManualOption1)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -93,20 +90,15 @@ END_MESSAGE_MAP()
 BOOL CDlgOptionsSubstitutionAnalysis::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
-	
-	// Default-Einstellung ist englischer Klartext mit reiner Pattern Suche
-	CheckRadioButton (IDC_RADIO1, IDC_RADIO3, IDC_RADIO2);
-	m_control2.EnableWindow(FALSE);	
-	
-	LoadString(AfxGetInstanceHandle(),IDS_ANALYSIS_SUBSTITUTION,pc_str,STR_LAENGE_STRING_TABLE);
-	if ( IsKeyEmpty( pc_str ))
-	{
-		m_ctrl_storedKey.EnableWindow(TRUE);
-	}
-	else
-	{
-		m_ctrl_storedKey.EnableWindow(FALSE);
-	}
+
+	// initialize some state variables: by default we activate
+	// the AUTOMATIC analysis in ENGLISH, and all other options 
+	// are unchecked
+	analysisModeAutomatic = true;
+	analysisAutomaticGerman = false;
+	analysisAutomaticOption1 = false;
+	analysisAutomaticOption2 = false;
+	analysisManualOption1 = false;
 
 	// initialize wordlist files (DE and EN)
 	CString pathToWordlistFiles;
@@ -121,84 +113,38 @@ BOOL CDlgOptionsSubstitutionAnalysis::OnInitDialog()
 
 	UpdateData(false);
 
+	// update the GUI
+	updateButtons();
+
 	return TRUE;  
 }
 
-void CDlgOptionsSubstitutionAnalysis::OnCheck2() 
-{
-	// Wenn der Knopf "erweiterte Analyse" gewählt wird:
-	// Diese Option schließt die Option "'e' als häufigstes Zeichen logisch ein, so daß 
-	// diese Option automatsich auch angewählt wird.
-	// Ferner muß ausgeschlossen werden, daß der Benutzer eine erweiterte Analyse für
-	// englischen Klartext gewählt hat, da das derzeit vom Programm noch nicht unterstützt
-	// wird.
-	UpdateData(TRUE);
-	m_check1=true;
-	UpdateData(FALSE);	
+void CDlgOptionsSubstitutionAnalysis::OnRadioAnalysisAutomatic() {
+	if(!analysisModeAutomatic) {
+		analysisModeAutomatic = true;
+	}
+	updateButtons();
 }
 
-void CDlgOptionsSubstitutionAnalysis::OnCheck1() 
-{
-	// Wenn die Option "'e' als häufigstes Zeichen" geändert wird, muß die Option
-	// "erweiterte Analyse" automatisch abgeschaltet werden, damit es nicht vorkommt,
-	// daß die zweite ohne die erste Option ausgewählt wurde
-	UpdateData(TRUE);
-	if ( false == m_check1 )
-		m_check2=false;
-	UpdateData(FALSE);
+void CDlgOptionsSubstitutionAnalysis::OnRadioAnalysisManual() {
+	if(analysisModeAutomatic) {
+		analysisModeAutomatic = false;
+	}
+	updateButtons();
 }
 
-void CDlgOptionsSubstitutionAnalysis::OnRadio1() 
-{
-	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-	UpdateData();
-	m_control1.EnableWindow();
-	m_control2.EnableWindow();
-	m_storedKey = -1;
-	m_buttonSelectWordlistGerman.EnableWindow(TRUE);
-	m_buttonSelectWordlistEnglish.EnableWindow(TRUE);
-	UpdateData(FALSE);
+void CDlgOptionsSubstitutionAnalysis::OnRadioAnalysisAutomaticGerman() {
+	if(!analysisAutomaticGerman) {
+		analysisAutomaticGerman = true;
+	}
+	updateButtons();
 }
 
-void CDlgOptionsSubstitutionAnalysis::OnRadio2() 
-{
-	// Wird englischer Klartext gewählt, so muß die Option "erweiterte Analyse" abgeschaltet werden
-	UpdateData();
-	m_control1.EnableWindow();
-	m_check2 = false;
-	m_control2.EnableWindow(FALSE);
-	m_storedKey = -1;
-	m_buttonSelectWordlistGerman.EnableWindow(TRUE);
-	m_buttonSelectWordlistEnglish.EnableWindow(TRUE);
-	UpdateData(FALSE);
-}
-
-void CDlgOptionsSubstitutionAnalysis::OnRadio3() 
-{
-	UpdateData();
-	m_check1 = false;
-	m_control1.EnableWindow(FALSE);
-	m_check2 = false;
-	m_control2.EnableWindow(FALSE);
-	m_storedKey = -1;
-	m_buttonSelectWordlistGerman.EnableWindow(FALSE);
-	m_buttonSelectWordlistEnglish.EnableWindow(FALSE);
-	UpdateData(FALSE);
-}
-
-void CDlgOptionsSubstitutionAnalysis::OnRadio4() 
-{
-	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-	UpdateData();
-	m_check1 = false;
-	m_control1.EnableWindow(FALSE);
-	m_check2 = false;
-	m_control2.EnableWindow(FALSE);
-	m_storedKey = 0;
-	m_radio1    = -1;
-	m_buttonSelectWordlistGerman.EnableWindow(FALSE);
-	m_buttonSelectWordlistEnglish.EnableWindow(FALSE);
-	UpdateData(FALSE);
+void CDlgOptionsSubstitutionAnalysis::OnRadioAnalysisAutomaticEnglish() {
+	if(analysisAutomaticGerman) {
+		analysisAutomaticGerman = false;
+	}
+	updateButtons();
 }
 
 void CDlgOptionsSubstitutionAnalysis::OnButtonSelectWordlistGerman() {
@@ -208,7 +154,7 @@ void CDlgOptionsSubstitutionAnalysis::OnButtonSelectWordlistGerman() {
 
 	memset(&ofn,0,sizeof(ofn));
 	ofn.lStructSize = sizeof(ofn);
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_CHOOSE_REF_FILENAME,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(), IDS_STRING_CHOOSE_REF_FILENAME, pc_str, STR_LAENGE_STRING_TABLE);
 	ofn.lpstrTitle = pc_str;
 	ofn.Flags = OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_PATHMUSTEXIST;
 	ofn.lpstrFile = fname;
@@ -234,7 +180,7 @@ void CDlgOptionsSubstitutionAnalysis::OnButtonSelectWordlistGerman() {
 	if(fname[0]==0) return;
 	
 	UpdateData(TRUE);
-	m_editWordlistGerman=fname;
+	m_editWordlistGerman = fname;
 	UpdateData(FALSE);
 }
 
@@ -245,7 +191,7 @@ void CDlgOptionsSubstitutionAnalysis::OnButtonSelectWordlistEnglish() {
 
 	memset(&ofn,0,sizeof(ofn));
 	ofn.lStructSize = sizeof(ofn);
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_CHOOSE_REF_FILENAME,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(), IDS_STRING_CHOOSE_REF_FILENAME, pc_str, STR_LAENGE_STRING_TABLE);
 	ofn.lpstrTitle = pc_str;
 	ofn.Flags = OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_PATHMUSTEXIST;
 	ofn.lpstrFile = fname;
@@ -271,6 +217,89 @@ void CDlgOptionsSubstitutionAnalysis::OnButtonSelectWordlistEnglish() {
 	if(fname[0]==0) return;
 	
 	UpdateData(TRUE);
-	m_editWordlistEnglish=fname;
+	m_editWordlistEnglish = fname;
 	UpdateData(FALSE);
+}
+
+void CDlgOptionsSubstitutionAnalysis::OnCheckAnalysisAutomaticOption1() {
+	if(analysisAutomaticOption1) {
+		// deactivating the first options implicitly deactivates the second option
+		analysisAutomaticOption1 = false;
+		analysisAutomaticOption2 = false;
+	}
+	else {
+		analysisAutomaticOption1 = true;
+	}
+	// update the GUI
+	updateButtons();
+}
+
+void CDlgOptionsSubstitutionAnalysis::OnCheckAnalysisAutomaticOption2() {
+	if(analysisAutomaticOption2) {
+		analysisAutomaticOption2 = false;
+	}
+	else {
+		// activating the second option implicitly activates the first option
+		analysisAutomaticOption1 = true;
+		analysisAutomaticOption2 = true;
+	}
+	// update the GUI
+	updateButtons();
+}
+
+void CDlgOptionsSubstitutionAnalysis::OnCheckAnalysisManualOption1() {
+	if(analysisManualOption1) {
+		analysisManualOption1 = false;
+	}
+	else {
+		analysisManualOption1 = true;
+	}
+	// update the GUI
+	updateButtons();
+}
+
+void CDlgOptionsSubstitutionAnalysis::updateButtons() {
+
+	UpdateData(true);
+
+	// these are ALWAYS enabled
+	m_controlRadioAnalysisAutomatic.EnableWindow(true);
+	m_controlRadioAnalysisManual.EnableWindow(true);
+	
+	// the following ones are CONDITIONALLY enabled
+	m_controlRadioAnalysisAutomaticGerman.EnableWindow(analysisModeAutomatic);
+	m_controlRadioAnalysisAutomaticEnglish.EnableWindow(analysisModeAutomatic);
+	m_controlCheckAnalysisAutomaticOption1.EnableWindow(analysisModeAutomatic);
+	m_controlCheckAnalysisAutomaticOption2.EnableWindow(analysisModeAutomatic);
+	m_buttonSelectWordlistGerman.EnableWindow(analysisModeAutomatic);
+	m_buttonSelectWordlistEnglish.EnableWindow(analysisModeAutomatic);
+	
+	
+	// some showing and hiding
+	m_controlEditAnalysisAutomaticWordlistGerman.ShowWindow(analysisAutomaticGerman ? SW_SHOW : SW_HIDE);
+	m_controlEditAnalysisAutomaticWordlistEnglish.ShowWindow(!analysisAutomaticGerman ? SW_SHOW : SW_HIDE);
+	m_buttonSelectWordlistGerman.ShowWindow(analysisAutomaticGerman ? SW_SHOW : SW_HIDE);
+	m_buttonSelectWordlistEnglish.ShowWindow(!analysisAutomaticGerman ? SW_SHOW : SW_HIDE);
+
+	// some checking and unchecking
+	m_controlRadioAnalysisAutomatic.SetCheck(analysisModeAutomatic ? 1 : 0);
+	m_controlRadioAnalysisManual.SetCheck(!analysisModeAutomatic ? 1 : 0);
+	m_controlRadioAnalysisAutomaticGerman.SetCheck(analysisAutomaticGerman ? 1 : 0);
+	m_controlRadioAnalysisAutomaticEnglish.SetCheck(!analysisAutomaticGerman ? 1 : 0);
+	m_controlCheckAnalysisAutomaticOption1.SetCheck(analysisAutomaticOption1 ? 1 : 0);
+	m_controlCheckAnalysisAutomaticOption2.SetCheck(analysisAutomaticOption2 ? 1 : 0);
+	
+	// special handling (check for a pre-defined key in the key store)
+	LoadString(AfxGetInstanceHandle(), IDS_ANALYSIS_SUBSTITUTION, pc_str, STR_LAENGE_STRING_TABLE);
+	CString keystoreKey;
+	bool doesKeyExist = false;
+	if(PasteKey(pc_str, keystoreKey)) {
+		if(!keystoreKey.IsEmpty()) {
+			doesKeyExist = true;
+		}
+	}
+	m_controlCheckAnalysisManualOption1.EnableWindow(!analysisModeAutomatic && doesKeyExist);
+	m_controlCheckAnalysisManualOption1.SetCheck(analysisManualOption1 && doesKeyExist ? 1 : 0);
+	
+	UpdateData(false);
 }
