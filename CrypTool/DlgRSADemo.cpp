@@ -1071,8 +1071,7 @@ void CDlgRSADemo::ButtonManagement()
 		KeyStatusOptionsValid() && 
 		m_edit_RSA_input.GetLength());
 	// conditions for button "Generate Primes"
-	m_GeneratePrimes.EnableWindow(
-		KeyStatusModulNValid());
+	m_GeneratePrimes.EnableWindow(true);
 
 	// flomar, 07/12/12: the 'undefined' section below holds the old conditional
 	// implementation; feel free to correct the respective code above in case 
