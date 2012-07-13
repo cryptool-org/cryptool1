@@ -1166,8 +1166,7 @@ a) Developer-relevant changes (more technically oriented):
   - Miracl 4.4.3  -->  5.5.4
   - NTL 5.4  -->  5.5.2 (2009.08.14)
 
-- CT 1.4.31 now also can be compiled with VS 2010. ????XXXXXXXXXXXX
-
+- CT 1.4.31 now also can be compiled with VS2010.
 
 b) Changes within the user documentation / on the websites:
 
@@ -1684,7 +1683,7 @@ CrypTool-en.chm .. HTML help archive containing the CrypTool online help
                    system (in English).
 rijndael-poster-a4.pdf ... Procedures of the AES algorithm (German)
 
-msvcr71.dll ...... Necessary for CrypTool.exe.xxxxxxxxxxxx
+msvcr90.dll ...... Necessary for CrypTool.exe.
 EC-Param.ini ..... Initialization file for public-key procedures
                    based on elliptic curves.
 TEST-Param.ini ... Initialization file for random number tests.

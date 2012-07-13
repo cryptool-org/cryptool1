@@ -1202,8 +1202,7 @@ a) Entwickler-relevante Änderungen (eher Programm-technisch):
   - Miracl 4.4.3  -->  5.5.4
   - NTL 5.4  -->  5.5.2 (2009.08.14)
 
-- CT 1.4.31 kann nun auch mit VS 2010 kompiliert werden. ????XXXXXXXXXXXX
-
+- CT 1.4.31 kann nun auch mit VS2010 kompiliert werden.
 
 b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
 
@@ -1250,7 +1249,7 @@ c) Neue Funktionalität / Bedienung / Fehlerkorrekturen:
   Anfang des Geheimtext-Alphabets gestellt. xxxxxxxxxx
 - Die Analyse für die Substitutions-Chiffre wird in 2 Varianten angeboten.
   Variante 2 verwendet eine Liste häufiger Wörter, die der User bisher nicht
-  sehen oder ändern konnte. Das ist nun möglich. xxxxxxxxxxxxx
+  sehen oder ändern konnte. Das ist nun möglich.
 - Die ADFGVX-Analyse nutzt nun zur Bestimmung der Substitutionsmatrix auch
   die Häufigkeitsverteilung des im Textoptionen-Dialog eingestellten
   Referenztextes.
@@ -1749,7 +1748,7 @@ CrypTool-de.chm .. HTML-Hilfe-Archiv für die CrypTool-Onlinehilfe
                    (in deutsch).
 rijndael-poster-a4.pdf ... Darstellung der Abläufe beim AES-Algorithmus.
 
-msvcr71.dll ...... Nötig für CrypTool.exe.xxxxxxxxxxxxxx
+msvcr90.dll ...... Nötig für CrypTool.exe.
 EC-Param.ini ..... Initialisierungsdatei für auf Elliptischen
                    Kurven basierende Public-Key-Verfahren.
 TEST-Param.ini ... Initialisierungsdatei für die Zufallstests.
