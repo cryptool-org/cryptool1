@@ -436,10 +436,10 @@ BEGIN
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,71,356,44
     CTEXT           "CrypTool jest darmowym i kompleksowym programem edukacyjnym\nklasycznej i wspó³czesnej kryptografii / kryptoanalizy.\n\nWraz ze sponsorami",IDC_STATIC,20,35,330,32
     CTEXT           "CrypTool jest stosowane na ca³ym œwiecie do nauczania w szko³ach i na uniwersytetach oraz do szkolenia i podnoszenie œwiadomoœci pracowników firm i agencji rz¹dowych.",IDC_STATIC,20,140,330,16,WS_TABSTOP
-    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,213,178,145,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,11,178,185,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    GROUPBOX        "Informacje opublikowania",IDC_STATIC,7,164,195,64
-    GROUPBOX        "Informacje kontaktowe",IDC_STATIC,208,164,155,64
+    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,239,178,119,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,13,178,211,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Informacje opublikowania",IDC_STATIC,7,164,223,64
+    GROUPBOX        "Informacje kontaktowe",IDC_STATIC,233,164,130,64
     PUSHBUTTON      "Wspó³wykonawcy",ID_CONTRIBUTORS,7,250,66,18,WS_GROUP
     PUSHBUTTON      "T³umaczenia",ID_TRANSLATIONS,85,250,60,18,WS_GROUP
 END
@@ -25558,10 +25558,10 @@ BEGIN
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,71,356,44
     CTEXT           "CrypTool ist ein kostenloses und umfangreiches Lernprogramm\nzu klassischer und moderner Kryptographie/Kryptoanalyse.\n\nGemeinsam mit den Sponsoren",IDC_STATIC,20,35,330,32
     CTEXT           "CrypTool wird weltweit zur Lehre an Schulen und Hochschulen, und zur Ausbildung und Mitarbeiter-Awareness in Firmen und Behörden eingesetzt.",IDC_STATIC,20,140,330,16,WS_TABSTOP
-    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,213,178,145,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,11,178,185,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    GROUPBOX        "Release-Informationen",IDC_STATIC,7,164,195,64
-    GROUPBOX        "Kontakt-Informationen",IDC_STATIC,208,164,155,64
+    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,239,178,119,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,13,178,211,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Release-Informationen",IDC_STATIC,7,164,223,64
+    GROUPBOX        "Kontakt-Informationen",IDC_STATIC,233,164,130,64
     PUSHBUTTON      "Mitwirkende",ID_CONTRIBUTORS,7,255,60,18,WS_GROUP
     PUSHBUTTON      "Übersetzungen",ID_TRANSLATIONS,70,255,60,18,WS_GROUP
 END
@@ -34019,10 +34019,10 @@ BEGIN
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,198,73,143,37,WS_EX_TRANSPARENT
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,71,356,44
     CTEXT           "CrypTool is used world-wide for education in schools and universities, and for education and employee awareness in companies and government organizations.",IDC_STATIC,20,140,330,16
-    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,213,178,145,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    GROUPBOX        "Release information",IDC_STATIC,7,164,195,64
-    GROUPBOX        "Contact information",IDC_STATIC,208,164,155,64
-    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,11,178,185,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,239,178,119,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Release information",IDC_STATIC,7,164,223,64
+    GROUPBOX        "Contact information",IDC_STATIC,233,164,130,64
+    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,13,178,211,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
     PUSHBUTTON      "Contributors",ID_CONTRIBUTORS,7,255,60,18,WS_GROUP
     PUSHBUTTON      "Translations",ID_TRANSLATIONS,70,255,60,18,WS_GROUP
 END

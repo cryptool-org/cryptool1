@@ -375,6 +375,11 @@ void CDlgRSADemo::OnButtonGeneratePrimes()
 
 		}
 	}
+
+	// the following two lines help keeping the UI consistent
+	OnUpdatePrimeP();
+	OnUpdatePrimeQ();
+
 	CheckRSAParameter();
 	ButtonManagement();
 }
