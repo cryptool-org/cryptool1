@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 für Win32, Mai 2012 (Beta 04)
+    CrypTool, Version 1.4.31 für Win32, Juli 2012 (Beta 05) xxx
     (c) Contributors
         Dazu gehören z.B.
         Deutsche Bank AG, Frankfurt am Main, und die
@@ -674,8 +674,8 @@ Die generellen Eigenschaften und Funktionen von CrypTool 1 sind:
   svn checkout http://www.cryptool.com/svn/CrypTool/trunk --username anonymous
 
 - Einen Eindruck von der Größe des CT1-Projekts liefert die folgende, im
-  Mai 2012 xxxxxxx erstellte Statistik (anhand der Dateien für die Version 1.4.31
-  Beta xxxx):
+  Mai 2012 xxxxxxx erstellte Statistik (anhand der Dateien für die Version
+  1.4.31 Beta xxxx):
 
     FILE SUMMARY (Anzahl der Dateien anhand ihrer Dateinamenserweiterung)
     ------------
@@ -1202,14 +1202,16 @@ a) Entwickler-relevante Änderungen (eher Programm-technisch):
   - Miracl 4.4.3  -->  5.5.4
   - NTL 5.4  -->  5.5.2 (2009.08.14)
 
-- CT 1.4.31 kann nun auch mit VS2010 kompiliert werden.
+- Das Release von CT 1.4.31 wird nun mit VS2010 kompiliert. Man kann die
+  Sourcen weiterhin aber auch mit VS2008 übersetzen.
+
 
 b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
 
 - Online-Hilfe: aktualisiert an einigen Stellen
 
 - CrypTool-Skript: - Einige Korrekturen und Ergänzungen,
-                   - Aufnahme einiger weiterer Sage-Programmbeispiele, ?????
+                   - Aufnahme einiger weiterer Sage-Programmbeispiele, xxx
                    - In den Fußnoten nun auch die Menüpfade in CT2 ergänzt.
 
 - Aktualisierte und auf über 110 xxxxxxxxxx Seiten erweiterte Präsentation.
@@ -1233,7 +1235,7 @@ c) Neue Funktionalität / Bedienung / Fehlerkorrekturen:
   in der Pre-Output-Matrix (64 bit) wurden beseitigt.
   Danke an Vasilis. Zusätzlich wurde die entsprechende Online-Hilfe erweitert.
 - Dialog zur Eingabe von Hex-Schlüsseln: Bisher funktionierte das Einfügen per
-  Strg-V korrekt, per Kontextmenu -> Paste aber nicht. Nun tut beides korrekt. 
+  Strg-V korrekt; per Kontextmenu -> Paste aber nicht. Nun tut beides korrekt. 
 - Bei SHA256 / SHA512 wurde bisher die falsche Funktion aufgerufen.
   Dies betraf auch den Dialog "Generieren von HMACs".
 - Der Aufruf von bc von innerhalb der Zahlentheorie-Tutorials funktioniert
@@ -1249,7 +1251,7 @@ c) Neue Funktionalität / Bedienung / Fehlerkorrekturen:
   Anfang des Geheimtext-Alphabets gestellt. xxxxxxxxxx
 - Die Analyse für die Substitutions-Chiffre wird in 2 Varianten angeboten.
   Variante 2 verwendet eine Liste häufiger Wörter, die der User bisher nicht
-  sehen oder ändern konnte. Das ist nun möglich.
+  sehen oder ändern konnte. Beides ist nun möglich.
 - Die ADFGVX-Analyse nutzt nun zur Bestimmung der Substitutionsmatrix auch
   die Häufigkeitsverteilung des im Textoptionen-Dialog eingestellten
   Referenztextes.
@@ -1867,26 +1869,27 @@ reference\ ....... Dieses Verzeichnis enthält Textdateien in den
                    Diese Dateien sind schreibgeschützt.
 
 reference\deutsch.txt  // Auszug aus dem dt. Umsatzsteuergesetz
-         \english.txt  // Auszug aus der Agenda 21[UN-Dokument]
+         \english.txt  // Auszug aus der Agenda 21 [UN-Dokument]
          \genesis-de.txt  // Buch Genesis in den Sprachen
          \genesis-en.txt  // deutsch, englisch, französisch,
          \genesis-es.txt  // spanisch, polnisch und lateinisch.
          \genesis-fr.txt  // Die 2-Buchstabencodes (de, ...) entsprechen
          \genesis-pl.txt  // den ISO 639 Language Codes.
-         \genesis-la.txt
+         \genesis-la.txt  // xxx
 
 
 words\ ........... In diesem Verzeichnis liegen die Dateien, mit denen
-                   die Tests auf Passwortmuster durchgeführt werden, und
-                   die Tests für die Vigenère-Analyse (nach Schrödel).
+                   Tests und Analysen durchgeführt werden.
 
-words\cracklib-words
-      cracklib_dict.hwm
-      cracklib_dict.pwd
-      cracklib_dict.pwi
-      VigenereAnalysisSchroedelDictionary.txt      Sprachabhängig
-      VigenereAnalysisSchroedelDigrams.txt
-      VigenereAnalysisSchroedelTrigrams.txt
+words\cracklib-words        // Für Tests auf Passwortmuster
+      cracklib_dict.hwm     // 
+      cracklib_dict.pwd     // 
+      cracklib_dict.pwi     // 
+      VigenereAnalysisSchroedelDictionary.txt   // Für die Vigenère-Analyse
+      VigenereAnalysisSchroedelDigrams.txt      // (nach Schrödel)
+      VigenereAnalysisSchroedelTrigrams.txt     // Sprachabhängig
+      substitution-de.txt   // Für Variante 2 der mono-alphabetischen
+      substitution-de.txt   // Substitutionsanalyse
 
 
 sage\ ........... Dieses Verzeichnis enthält die Beispiel-Berechnungen
@@ -2159,7 +2162,7 @@ Version                  Deutsch    Englisch      Bedarf DE      durch
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.30    Aug. 2010      52,1 MB     51,5 MB         95 MB        DB
-1.4.31    Juni 2012      52.4 MB     51.8 MB         95 MB        DBxxxxxxxxxx
+1.4.31    Sep. 2012      52.4 MB     51.8 MB        100 MB        DBxxxxxxxxxx
 
 Bemerkungen zu den Versionen:
 1.3.02   Viele neue Funktionen gegenüber 1.3.00.
@@ -2193,8 +2196,8 @@ Bemerkungen zu den Versionen:
          PL: 100.0 MB
          RS:  93.7 MB  xxxxxxxxx
          SP:  94.4 MB
-1.4.31-Beta04  Mai 2012  Erste öffentliche Beta von Version 1.4.31.xxxxxxxxxxxx
-1.4.31   Bugfixes und ein wenig erweiterter Funktionsumfang i.Vgl. zu v1.4.30.
+1.4.31-Beta04  Juli 2012  Erste öffentliche Beta von Version 1.4.31.
+1.4.31   Viele Bugfixes und ein wenig erweiterter Funktionsumfang i.Vgl. zu v1.4.30.
 
 
 

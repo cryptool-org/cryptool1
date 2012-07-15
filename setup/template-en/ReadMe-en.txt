@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 for Win32, May 2012 (Beta 04)
+    CrypTool, Version 1.4.31 for Win32, July 2012 (Beta 05) xxx
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main, and the
@@ -44,7 +44,7 @@
  6. ... Brief history of the released main versions of CT1
  7. ... Feedback and contact addresses
  8. ... References / Hints / Awards
- 8.1. .. Articles about CrypTool
+ 8.1. ... Articles about CrypTool
  8.2. ... Further references
  8.3. ... Further freeware projects (Crank, CAP, CryptoStudio, SAGE, etc)
  8.4. ... Awards
@@ -1166,14 +1166,16 @@ a) Developer-relevant changes (more technically oriented):
   - Miracl 4.4.3  -->  5.5.4
   - NTL 5.4  -->  5.5.2 (2009.08.14)
 
-- CT 1.4.31 now also can be compiled with VS2010.
+- The release of CT 1.4.31 now is compiled with VS2010. Its still possible
+  to compile the sources with VS2008.
+
 
 b) Changes within the user documentation / on the websites:
 
 - Online help: updated some topics.
 
 - CrypTool script: - some corrections and additions,
-                   - Inclusion of some more many Sage code samples,  ????
+                   - Inclusion of some more many Sage code samples, xxx
                    - Added the menu paths in CT2 for the according topics.
 
 - Updated and enhanced presentation (more than 110 xxxxxxxxxxx pages now).
@@ -1211,9 +1213,9 @@ c) New functionality / Usability / Corrections of Errors:
   Dialog einen weiteren Parameter, mit dem man die Startposition (Offset)
   für das Passwort festlegen kann. Bisher wurde das Passwort immer an den
   Anfang des Geheimtext-lphabets gestellt. xxxxxxxxxx --> Englisch
-- Die Analyse für die Substitutions-Chiffre wird in 2 Varianten angeboten.
-  Variante 2 verwendet eine Liste häufiger Wörter, die der User bisher nicht
-  sehen oder ändern konnte. Das ist nun möglich. xxxxxxxxxxxxx --> Englisch
+- The analysis of the substitution cipher offers two variants. The second
+  variant uses a list of frequent words, which were not revealed and changeable
+  by the user in former versions. Both is possible now.
 - To determine the substitution matrix the ADFGVX analysis now also uses the
   frequency distribution of the reference text selected in the text options
   dialog.
@@ -1662,7 +1664,8 @@ b) If the user wants to create (or change) files from within CrypTool in
 5. List of delivered files
    -----------------------
 The package is distributed as a compressed, self extracting archive
-in five (xxxx) different language versions: English, German, Polish, Serbian, Spanish.
+in five (xxxx) different language versions: English, German, Polish,
+Serbian, Spanish.
 
 The self-extracting archive in English language
            SetupCrypTool_1_4_31_en.exe
@@ -1806,20 +1809,21 @@ reference\deutsch.txt   // Extract from the German value-added tax law
          \genesis-es.txt  // French, Spanish, Polish and Latin.
          \genesis-fr.txt  // The 2-letter codes (en, ...) are according
          \genesis-pl.txt  // to the ISO 639 language codes.
-         \genesis-la.txt
+         \genesis-la.txt  // xxx
 
 
 words\ ........... This directory contains the files used to perform
-                   the tests recognizing password patterns, and
-                   the tests for the Vigenère analyses (according Schroedel).
+                   the tests and analyses.
 
-words\cracklib-words
-      cracklib_dict.hwm
-      cracklib_dict.pwd
-      cracklib_dict.pwi
-      VigenereAnalysisSchroedelDictionary.txt      Language-dependent
-      VigenereAnalysisSchroedelDigrams.txt
-      VigenereAnalysisSchroedelTrigrams.txt
+words\cracklib-words        // For test on password patterns
+      cracklib_dict.hwm     //
+      cracklib_dict.pwd     //
+      cracklib_dict.pwi     //
+      VigenereAnalysisSchroedelDictionary.txt   // For the Vigenère analysis
+      VigenereAnalysisSchroedelDigrams.txt      // (according Schroedel)
+      VigenereAnalysisSchroedelTrigrams.txt     // Language-dependent
+      substitution-de.txt   // For variant 2 of the mono alphabetic
+      substitution-de.txt   // substitution analysis
 
 
 sage\ ........... This directory contains the source code of the example
@@ -2089,7 +2093,7 @@ Version                 English      German    needed EN     by
 1.4.20    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.21    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.30    Aug. 2010     51.5 MB      52.1 MB    94 MB        DB
-1.4.31    June 2012     51.8 MB      52.4 MB    94 MB        DBxxxxxxxxx
+1.4.31    Sep. 2012     51.8 MB      52.4 MB    99 MB        DBxxxxxxxxx
 
 Remarks about the versions:
 1.3.02   Many new functions compared to 1.3.00.
@@ -2122,8 +2126,8 @@ Remarks about the versions:
          PL: 100.0 MB
          RS:  93,7 MB  xxxxxxxxx
          SP:  94.4 MB
-1.4.31-Beta04  May 2012  First public beta of version 1.4.31.xxxxxxxxxxxx
-1.4.31   Bug fixes and some few enhanced functionality compared to v1.4.30.
+1.4.31-Beta05  July 2012  First public beta of version 1.4.31.
+1.4.31   Many bug fixes and a few enhanced functionality compared to v1.4.30.
 
 
 
