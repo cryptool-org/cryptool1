@@ -674,42 +674,42 @@ Die generellen Eigenschaften und Funktionen von CrypTool 1 sind:
   svn checkout http://www.cryptool.com/svn/CrypTool/trunk --username anonymous
 
 - Einen Eindruck von der Größe des CT1-Projekts liefert die folgende, im
-  Mai 2012 xxxxxxx erstellte Statistik (anhand der Dateien für die Version
-  1.4.31 Beta xxxx):
+  Juli 2012 erstellte Statistik (anhand der Dateien für die Version
+  1.4.31 Beta 05):
 
     FILE SUMMARY (Anzahl der Dateien anhand ihrer Dateinamenserweiterung)
     ------------
               4 .rc files
              36 .c files
-            321 .cpp files
-            375 .h files
+            325 .cpp files
+            379 .h files
              36 .java files
-             12 .pl files
-          1.142 .html files
+             14 .pl files
+           1146 .html files
              44 .txt files
              39 .tex files
               4 .sage files
-          2.013 TOTAL
+          2.027 TOTAL
 
 
     LINES OF CODE (LoC) SUMMARY
     ---------------------------
-         60.575 MFC resource code (rc)
-        257.675 C/C++ source code (c cpp h)
-          9.778 Java source code (java)
-          2.044 Perl code (pl)
-         64.561 HTML code (html hpp)
-          7.811 Text files (txt)
-         34.503 LaTeX code (tex)
+         60.458 MFC resource code (rc)
+        260.412 C/C++ source code (c cpp h)
+          9.795 Java source code (java)
+          2.257 Perl code (pl)
+         65.958 HTML code (html hpp)
+          7.889 Text files (txt)
+         35.025 LaTeX code (tex)
             825 Sage code (sage)
-        437.772 TOTAL
+        442.619 TOTAL
 
-    TOTAL: 437.772 Code-Zeilen (plus von 14,5 % gegenüber 382.244 bei v1.4.21)
+    TOTAL: 442.619 Code-Zeilen (plus von 15,8 % gegenüber 382.244 bei v1.4.21)
     - In den TOTAL-Wert gehen nur Sourcen ein, die innerhalb des
       CrypTool-Projektes entwickelt wurden oder dem CT-Projekt gewidmet wurden.
       Die Sourcen anderer Open-Source-Projekte, die innerhalb von CrypTool
       benutzt werden (wie OpenSSL, NTL, Scintilla) werden nicht gezählt.
-      Ebenso wenig werden automatisch erzeugte Dateien gezählt.
+      Ebenso wenig werden automatisch erzeugte Dateien oder Wortlisten gezählt.
 
   Snapshot zur Anzahl von Dateien und zur Anzahl der Source-Code-Zeilen
 

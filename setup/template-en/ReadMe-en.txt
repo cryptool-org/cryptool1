@@ -659,41 +659,41 @@ The general properties and functions of CrypTool 1 are:
   svn checkout http://www.cryptool.com/svn/CrypTool/trunk --username anonymous
 
 - To get an impression of the size of the CT1 project here is a statistics
-  created in May 2012 xxxxxxxx using the files of version 1.4.31 beta xxx.
+  created in July 2012 using the files of version 1.4.31 beta 05.
 
     FILE SUMMARY (number of files according to file extension)
     ------------
               4 .rc files
              36 .c files
-            321 .cpp files
-            375 .h files
+            325 .cpp files
+            379 .h files
              36 .java files
-             12 .pl files
-          1.142 .html files
+             14 .pl files
+           1146 .html files
              44 .txt files
              39 .tex files
               4 .sage files
-          2.013 TOTAL
+          2,027 TOTAL
 
 
     LINES OF CODE (LoC) SUMMARY
     ---------------------------
-         60,575 MFC resource code (rc)
-        257,675 C/C++ source code (c cpp h)
-          9,778 Java source code (java)
-          2,044 Perl code (pl)
-         64,561 HTML code (html hpp)
-          7,811 Text files (txt)
-         34,503 LaTeX code (tex)
+         60,458 MFC resource code (rc)
+        260,412 C/C++ source code (c cpp h)
+          9,795 Java source code (java)
+          2,257 Perl code (pl)
+         65,958 HTML code (html hpp)
+          7,889 Text files (txt)
+         35,025 LaTeX code (tex)
             825 Sage code (sage)
-        437,772 TOTAL
+        442,619 TOTAL
 
-    TOTAL: 437,772 lines of code (plus of 14.5 % from 382,244 with v1.4.21)
+    TOTAL: 442,619 lines of code (plus of 15.8 % from 382,244 with v1.4.21)
     - Here only code written within the CrypTool project or explicitly
       dedicated to the CrypTool project is counted. Any sources used
       within the CrypTool project coming from other open source projects
       like OpenSSL, NTL, Scintilla, ... are not counted here.
-      Also any automatically created files are not counted.
+      Also any automatically created files or word lists are not counted.
 
   Snapshot about the number of files and the number of lines of code
 
