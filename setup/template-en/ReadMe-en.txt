@@ -1159,14 +1159,14 @@ a) Developer-relevant changes (more technically oriented):
 
 - Update of used libraries and other software to the following versions:
   - Scintilla 1.7.7  -->  3.0.2   ????????
-  - cv act library v. 1.4.6 ?????????????
-  - OpenSSL 1.0.0e  (oder f ?????????????)
+  - compiler-dependent: cv act library 1.4.6 with VS2008, 1.4.18 with VS2010
+  - OpenSSL 1.0.1
   - MPIR 1.3.1 (derived from GMP version 4.2.1) instead of GMP 4.1
       ???????   2.5.1
   - Miracl 4.4.3  -->  5.5.4
   - NTL 5.4  -->  5.5.2 (2009.08.14)
 
-- The release of CT 1.4.31 now is compiled with VS2010. Its still possible
+- The release of CT 1.4.31 now is compiled with VS2010. It's still possible
   to compile the sources with VS2008.
 
 

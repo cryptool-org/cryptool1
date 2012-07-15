@@ -1195,8 +1195,8 @@ a) Entwickler-relevante Änderungen (eher Programm-technisch):
 
 - Update der Bibliotheken und der genutzten Fremdsoftware auf ff. Versionen:
   - Scintilla 1.7.7  -->  3.0.2   ????????
-  - cv act library v. 1.4.6 ??????????
-  - OpenSSL 1.0.0e  (oder f oder 1.0.1 ?????????????)
+  - compilerabhängig: cv act library 1.4.6 mit VS2008, 1.4.18 mit VS2010
+  - OpenSSL 1.0.1
   - MPIR 1.3.1 (hergeleitet aus GMP-Version 4.2.1) statt GMP 4.1   ??????
       ???????   2.5.1 
   - Miracl 4.4.3  -->  5.5.4
