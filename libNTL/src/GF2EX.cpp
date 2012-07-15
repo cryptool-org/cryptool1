@@ -76,6 +76,8 @@ void SetCoeff(GF2EX& x, long i, const GF2E& a)
 
    m = deg(x);
 
+   if (i > m && IsZero(a)) return; 
+
    if (i > m) {
       /* careful: a may alias a coefficient of x */
 
@@ -630,7 +632,7 @@ void ExtractBits(_ntl_ulong *cp, const _ntl_ulong *ap, long k, long n)
       for (i = 0; i < sc-1; i++)
          cp[i] = (ap[i+wn] >> bn) | (ap[i+wn+1] << (NTL_BITS_PER_LONG - bn));
 
-      if ((k + n) % NTL_BITS_PER_LONG != 0)
+      if (k > sc*NTL_BITS_PER_LONG - bn) 
          cp[sc-1] = (ap[sc+wn-1] >> bn)|(ap[sc+wn] << (NTL_BITS_PER_LONG - bn));
       else
          cp[sc-1] = ap[sc+wn-1] >> bn;

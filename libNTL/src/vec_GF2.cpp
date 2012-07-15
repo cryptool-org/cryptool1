@@ -2,6 +2,7 @@
 #include <NTL/vec_GF2.h>
 
 #include <NTL/new.h>
+#include <stdio.h>
 
 NTL_START_IMPL
 

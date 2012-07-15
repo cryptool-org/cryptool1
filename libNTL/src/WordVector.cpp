@@ -2,6 +2,7 @@
 #include <NTL/WordVector.h>
 
 #include <NTL/new.h>
+#include <stdio.h>
 
 NTL_START_IMPL
 
@@ -125,10 +126,10 @@ void WordVector::RangeError(long i) const
    cerr << "index out of range in vector: ";  
    cerr << i;  
    if (!rep)  
-      cerr << "(0)\n";  
+      cerr << "(0)";  
    else  
-      cerr << "(" << rep[-1] << ")\n";  
-   abort();  
+      cerr << "(" << rep[-1] << ")";  
+   Error("");  
 }  
 
 void CopySwap(WordVector& x, WordVector& y)

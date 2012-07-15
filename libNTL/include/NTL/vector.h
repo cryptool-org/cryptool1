@@ -353,10 +353,10 @@ void vec_T::RangeError(long l__i) const  \
    NTL_SNS cerr << "index out of range in vector: ";  \
    NTL_SNS cerr << l__i;  \
    if (!_vec__rep)  \
-      NTL_SNS cerr << "(0)\n";  \
+      NTL_SNS cerr << "(0)";  \
    else  \
-      NTL_SNS cerr << "(" << NTL_VEC_HEAD(_vec__rep)->length << ")\n";  \
-   abort();  \
+      NTL_SNS cerr << "(" << NTL_VEC_HEAD(_vec__rep)->length << ")";  \
+   NTL_NNS Error("");  \
 }  \
   \
    NTL_vector_impl_position(T,vec_T) \
@@ -431,7 +431,7 @@ NTL_SNS istream & operator>>(NTL_SNS istream& l__s, vec_T& l__a)   \
       l__s.get();  \
       l__c = l__s.peek();  \
    }  \
-   while (l__c != ']' && l__c != EOF) {   \
+   while (l__c != ']' && !NTL_NNS IsEOFChar(l__c)) {   \
       if (l__n % NTL_VectorInputBlock == 0) l__ibuf.SetMaxLength(l__n + NTL_VectorInputBlock); \
       l__n++;   \
       l__ibuf.SetLength(l__n);   \
@@ -442,7 +442,7 @@ NTL_SNS istream & operator>>(NTL_SNS istream& l__s, vec_T& l__a)   \
          l__c = l__s.peek();  \
       }  \
    }   \
-   if (l__c == EOF) NTL_NNS Error("bad vector input");  \
+   if (NTL_NNS IsEOFChar(l__c)) NTL_NNS Error("bad vector input");  \
    l__s.get(); \
    \
    l__a = l__ibuf; \

@@ -23,7 +23,6 @@ void CheckFinite(quad_float *p)
 }
 
 
-
 static void RowTransform(vec_ZZ& A, vec_ZZ& B, const ZZ& MU1)
 // x = x - y*MU
 {
@@ -61,10 +60,21 @@ static void RowTransform(vec_ZZ& A, vec_ZZ& B, const ZZ& MU1)
       long mu1;
       conv(mu1, MU);
 
-      for (i = 1; i <= n; i++) {
-         mul(T, B(i), mu1);
-         if (k > 0) LeftShift(T, T, k);
-         sub(A(i), A(i), T);
+      if (k > 0) {
+
+         for (i = 1; i <= n; i++) {
+            mul(T, B(i), mu1);
+            LeftShift(T, T, k);
+            sub(A(i), A(i), T);
+         }
+
+      }
+      else {
+
+         for (i = 1; i <= n; i++) {
+            MulSubFrom(A(i), B(i), mu1);
+         }
+
       }
    }
    else {
@@ -75,6 +85,9 @@ static void RowTransform(vec_ZZ& A, vec_ZZ& B, const ZZ& MU1)
       }
    }
 }
+
+
+
 
 #define TR_BND (NTL_FDOUBLE_PRECISION/2.0)
 // Just to be safe!!
@@ -265,8 +278,7 @@ static void RowTransform(vec_ZZ& A, vec_ZZ& B, const ZZ& MU1,
                   conv(A(i), a[i].hi);
                   in_a[i] = 0;
                }
-               mul(T, B(i), mu1);
-               sub(A(i), A(i), T);
+               MulSubFrom(A(i), B(i), mu1);
            }
          }
       }
@@ -952,19 +964,19 @@ long G_LLL_QP(mat_ZZ& B, mat_ZZ* U, quad_float delta, long deep,
 
    // clean-up
 
-   for (i = 1; i <= m; i++) {
+   for (i = 1; i <= m+dep; i++) {
       delete [] B1[i];
    }
 
    delete [] B1;
 
-   for (i = 1; i <= m; i++) {
+   for (i = 1; i <= m+dep; i++) {
       delete [] mu[i];
    }
 
    delete [] mu;
 
-   for (i = 1; i <= m; i++) {
+   for (i = 1; i <= m+dep; i++) {
       delete [] aux[i];
    }
 
@@ -1586,19 +1598,19 @@ long G_BKZ_QP(mat_ZZ& BB, mat_ZZ* UU, quad_float delta,
       *UU = *U;
    }
 
-   for (i = 1; i <= m+1; i++) {
+   for (i = 1; i <= m_orig+1; i++) {
       delete [] B1[i];
    }
 
    delete [] B1;
 
-   for (i = 1; i <= m+1; i++) {
+   for (i = 1; i <= m_orig+1; i++) {
       delete [] mu[i];
    }
 
    delete [] mu;
 
-   for (i = 1; i <= m+1; i++) {
+   for (i = 1; i <= m_orig+1; i++) {
       delete [] aux[i];
    }
 
@@ -1882,6 +1894,8 @@ long G_BKZ_QP1(mat_ZZ& BB, mat_ZZ* UU, quad_float delta,
 
             ctilda[t] = ctilda[t+1] + 
                (yvec[t]+utildavec[t])*(yvec[t]+utildavec[t])*to_double(c[t]);
+
+            ForceToMem(&ctilda[t]); // prevents an infinite loop
    
             if (prune > 0 && t > jj) {
                eta = to_double(G_BKZThresh(t-jj));
@@ -2105,19 +2119,19 @@ long G_BKZ_QP1(mat_ZZ& BB, mat_ZZ* UU, quad_float delta,
       *UU = *U;
    }
 
-   for (i = 1; i <= m+1; i++) {
+   for (i = 1; i <= m_orig+1; i++) {
       delete [] B1[i];
    }
 
    delete [] B1;
 
-   for (i = 1; i <= m+1; i++) {
+   for (i = 1; i <= m_orig+1; i++) {
       delete [] mu[i];
    }
 
    delete [] mu;
 
-   for (i = 1; i <= m+1; i++) {
+   for (i = 1; i <= m_orig+1; i++) {
       delete [] aux[i];
    }
 

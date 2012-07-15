@@ -371,7 +371,6 @@ long CRT(mat_ZZ& gg, ZZ& a, const mat_zz_p& G)
    long modified = 0;
 
    long h;
-   ZZ ah;
 
    ZZ g;
    long i, j;
@@ -394,12 +393,12 @@ long CRT(mat_ZZ& gg, ZZ& a, const mat_zz_p& G)
       
          if (h != 0) {
             modified = 1;
-            mul(ah, a, h);
-      
+
             if (!p_odd && g > 0 && (h == p1))
-               sub(g, g, ah);
+               MulSubFrom(g, a, h);
             else
-               add(g, g, ah);
+               MulAddTo(g, a, h);
+
          }
    
          gg[i][j] = g;

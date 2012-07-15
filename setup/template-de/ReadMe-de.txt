@@ -1200,7 +1200,7 @@ a) Entwickler-relevante Änderungen (eher Programm-technisch):
   - MPIR 1.3.1 (hergeleitet aus GMP-Version 4.2.1) statt GMP 4.1   ??????
       ???????   2.5.1 
   - Miracl 4.4.3  -->  5.5.4
-  - NTL 5.4  -->  5.5.2 (2009.08.14)
+  - NTL 5.5.2
 
 - Das Release von CT 1.4.31 wird nun mit VS2010 kompiliert. Man kann die
   Sourcen weiterhin aber auch mit VS2008 übersetzen.

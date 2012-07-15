@@ -1104,7 +1104,7 @@ long CRT(ZZ& gg, ZZ& a, long G, long p)
 
    long modified = 0;
 
-   ZZ g;
+   static ZZ g;
 
    if (!CRTInRange(gg, a)) {
       modified = 1;
@@ -1133,13 +1133,11 @@ long CRT(ZZ& gg, ZZ& a, long G, long p)
 
    if (h != 0) {
       modified = 1;
-      ZZ ah;
-      mul(ah, a, h);
 
       if (!(p & 1) && g > 0 && (h == p1))
-         sub(g, g, ah);
+         MulSubFrom(g, a, h);
       else
-         add(g, g, ah);
+         MulAddTo(g, a, h);
    }
 
    mul(a, a, p);

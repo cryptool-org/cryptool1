@@ -138,31 +138,30 @@ static void RowTransform(ZZ& c1, ZZ& c2,
 
 
 
-static void MulSub(ZZ& c, const ZZ& c1, const ZZ& c2, const ZZ& x)
+static void MulSubFrom(vec_ZZ& c, const vec_ZZ& c2, const ZZ& x)
 
-// c = c1 - x*c2
-
-{
-   static ZZ t1;
-
-   mul(t1, x, c2);
-   sub(c, c1, t1);
-}
-
-
-static void MulSub(vec_ZZ& c, const vec_ZZ& c1, const vec_ZZ& c2,
-                   const ZZ& x)
-
-// c = c1 - x*c2
+// c = c - x*c2
 
 {
-   long n = c1.length();
-   if (c2.length() != n) Error("MulSub: length mismatch");
-   c.SetLength(n);
+   long n = c.length();
+   if (c2.length() != n) Error("MulSubFrom: length mismatch");
 
    long i;
    for (i = 1; i <= n; i++)
-      MulSub(c(i), c1(i), c2(i), x);
+      MulSubFrom(c(i), c2(i), x);
+}
+
+static void MulSubFrom(vec_ZZ& c, const vec_ZZ& c2, long x)
+
+// c = c - x*c2
+
+{
+   long n = c.length();
+   if (c2.length() != n) Error("MulSubFrom: length mismatch");
+
+   long i;
+   for (i = 1; i <= n; i++)
+      MulSubFrom(c(i), c2(i), x);
 }
 
 
@@ -207,17 +206,40 @@ void reduce(long k, long l,
    if (t1 <= D[P(l)]) return;
 
    long j;
+   long rr, small_r;
 
    BalDiv(r, lam(k)(P(l)), D[P(l)]);
-   MulSub(B(k), B(k), B(l), r);
 
-   if (U) MulSub((*U)(k), (*U)(k), (*U)(l), r);
+   if (r.WideSinglePrecision()) {
+      small_r = 1;
+      rr = to_long(r);
+   }
+   else {
+      small_r = 0;
+   }
+      
+   if (small_r) {
+      MulSubFrom(B(k), B(l), rr);
 
-   for (j = 1; j <= l-1; j++)
-      if (P(j) != 0)
-         MulSub(lam(k)(P(j)), lam(k)(P(j)), lam(l)(P(j)), r);
+      if (U) MulSubFrom((*U)(k), (*U)(l), rr);
 
-   MulSub(lam(k)(P(l)), lam(k)(P(l)), D[P(l)], r);
+      for (j = 1; j <= l-1; j++)
+         if (P(j) != 0)
+            MulSubFrom(lam(k)(P(j)), lam(l)(P(j)), rr);
+      MulSubFrom(lam(k)(P(l)), D[P(l)], rr);
+   }
+   else {
+      MulSubFrom(B(k), B(l), r);
+
+      if (U) MulSubFrom((*U)(k), (*U)(l), r);
+
+      for (j = 1; j <= l-1; j++)
+         if (P(j) != 0)
+            MulSubFrom(lam(k)(P(j)), lam(l)(P(j)), r);
+      MulSubFrom(lam(k)(P(l)), D[P(l)], r);
+   }
+
+
 }
 
 

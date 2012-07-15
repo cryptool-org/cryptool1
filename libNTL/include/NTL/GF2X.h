@@ -190,6 +190,7 @@ inline void operator--(GF2X& x, int) { sub(x, x, 1); }
 
 
 void mul(GF2X& c, const GF2X& a, const GF2X& b);
+void OldMul(GF2X& c, const GF2X& a, const GF2X& b);
 
 void mul(GF2X& x, const GF2X& a, GF2 b);
 void mul(GF2X& x, const GF2X& a, long b);
@@ -479,7 +480,13 @@ void GCD(GF2X& d, const GF2X& a, const GF2X& b);
 inline GF2X GCD(const GF2X& a, const GF2X& b)
    { GF2X x; GCD(x, a, b); NTL_OPT_RETURN(GF2X, x); }
 
+void OldGCD(GF2X& d, const GF2X& a, const GF2X& b);
+
+
 void XGCD(GF2X& d, GF2X& s, GF2X& t, const GF2X& a, const GF2X& b);
+
+void OldXGCD(GF2X& d, GF2X& s, GF2X& t, const GF2X& a, const GF2X& b);
+
    
 void diff(GF2X& c, const GF2X& a);
 inline GF2X diff(const GF2X& a)
@@ -593,6 +600,9 @@ inline GF2X IrredPolyMod(const GF2X& g, const GF2XModulus& F, long m)
 // undocumented stuff:
 
 void MinPolyInternal(GF2X& h, const GF2X& x, long m);
+
+void OldMinPolyInternal(GF2X& h, const GF2X& x, long m);
+
 
 
 struct GF2XTransMultiplier {

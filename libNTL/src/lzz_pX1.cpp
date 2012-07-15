@@ -1625,7 +1625,7 @@ void TraceMod(zz_p& x, const zz_pX& a, const zz_pXModulus& F)
       Error("trace: bad args");
 
    if (F.tracevec.length() == 0) 
-      TraceVec(F);
+      ComputeTraceVec(F);
 
    InnerProduct(x, a.rep, F.tracevec);
 }

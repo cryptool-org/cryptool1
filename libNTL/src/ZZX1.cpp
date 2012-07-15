@@ -48,7 +48,6 @@ long CRT(ZZX& gg, ZZ& a, const zz_pX& G)
    long modified = 0;
 
    long h;
-   ZZ ah;
 
    long m = G.rep.length();
 
@@ -81,12 +80,11 @@ long CRT(ZZX& gg, ZZ& a, const zz_pX& G)
    
       if (h != 0) {
          modified = 1;
-         mul(ah, a, h);
-   
+
          if (!p_odd && g > 0 && (h == p1))
-            sub(g, g, ah);
+            MulSubFrom(g, a, h);
          else
-            add(g, g, ah);
+            MulAddTo(g, a, h);
       }
 
       gg.rep[i] = g;
@@ -510,8 +508,9 @@ void HomMul(ZZX& x, const ZZX& a, const ZZX& b)
 
       for (j = 0; j <= m; j++) {
          /* c[j] += coeff*rep(C.rep[j]) */
-         mul(t1, coeff, rep(C.rep[j]));
-         add(c[j], c[j], t1); 
+         MulAddTo(c[j], coeff, rep(C.rep[j]));
+         // mul(t1, coeff, rep(C.rep[j]));
+         // add(c[j], c[j], t1); 
       }
    }
 
@@ -725,8 +724,9 @@ void HomSqr(ZZX& x, const ZZX& a)
 
       for (j = 0; j <= m; j++) {
          /* c[j] += coeff*rep(C.rep[j]) */
-         mul(t1, coeff, rep(C.rep[j]));
-         add(c[j], c[j], t1); 
+         MulAddTo(c[j], coeff, rep(C.rep[j]));
+         // mul(t1, coeff, rep(C.rep[j]));
+         // add(c[j], c[j], t1); 
       }
    }
 

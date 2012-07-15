@@ -117,6 +117,9 @@ void SetCoeff(ZZ_pEX& x, long i, const ZZ_pE& a)
 
    m = deg(x);
 
+
+   if (i > m && IsZero(a)) return; 
+
    if (i > m) {
       /* careful: a may alias a coefficient of x */
 
@@ -155,6 +158,8 @@ void SetCoeff(ZZ_pEX& x, long i, const ZZ_p& aa)
    a = aa;
 
    m = deg(x);
+
+   if (i > m && IsZero(a)) return; 
 
    if (i > m) {
       x.rep.SetLength(i+1);
@@ -516,7 +521,7 @@ void sub(ZZ_pEX& x, const ZZ_pE& b, const ZZ_pEX& a)
    }
    else if (x.rep.MaxLength() == 0) {
       negate(x, a);
-      add(x.rep[0], a.rep[0], b);
+      add(x.rep[0], x.rep[0], b);
       x.normalize();
    }
    else {
