@@ -984,6 +984,7 @@
 #define IDC_SETPUBLICPARAMETERS         1429
 #define IDC_GENERATOR                   1430
 #define IDC_PRIME                       1431
+#define IDC_KEY_OFFSET                  1432
 #define IDC_SETSECRETS                  1433
 #define IDC_CREATESHAREDKEY             1434
 #define IDC_EXCHANGESHAREDKEYS          1435

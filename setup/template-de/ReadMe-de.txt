@@ -1248,7 +1248,7 @@ c) Neue Funktionalität / Bedienung / Fehlerkorrekturen:
 - Monoalphabetische Verschlüsselung: Hier gibt es nun im Schlüsseleingabe-
   Dialog einen weiteren Parameter, mit dem man die Startposition (Offset)
   für das Passwort festlegen kann. Bisher wurde das Passwort immer an den
-  Anfang des Geheimtext-Alphabets gestellt. xxxxxxxxxx
+  Anfang des Geheimtext-Alphabets gestellt.
 - Die Analyse für die Substitutions-Chiffre wird in 2 Varianten angeboten.
   Variante 2 verwendet eine Liste häufiger Wörter, die der User bisher nicht
   sehen oder ändern konnte. Beides ist nun möglich.

@@ -1209,10 +1209,10 @@ c) New functionality / Usability / Corrections of Errors:
   vice versa.
 - Transposition Encryption: The key entry dialog now also contains a text
   options dialog.
-- Monoalphabetische Verschlüsselung: Hier gibt es nun im Schlüsseleingabe-
-  Dialog einen weiteren Parameter, mit dem man die Startposition (Offset)
-  für das Passwort festlegen kann. Bisher wurde das Passwort immer an den
-  Anfang des Geheimtext-lphabets gestellt. xxxxxxxxxx --> Englisch
+- Monoalphabetic encryption: The key entry dialog features a new parameter 
+  to define the starting position (offset) of the password. In the past 
+  the password was always positioned at the beginning of the ciphertext
+  alphabet.
 - The analysis of the substitution cipher offers two variants. The second
   variant uses a list of frequent words, which were not revealed and changeable
   by the user in former versions. Both is possible now.

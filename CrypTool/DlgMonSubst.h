@@ -54,9 +54,11 @@ public:
 	CEdit	m_CtrlTo;
 	CEdit	m_CtrlFrom;
 	CEdit	m_CtrlKey;
+	CEdit m_CtrlKeyOffset;
 	CString m_stringTo;
 	CString m_stringFrom;
 	CString m_stringKey;
+	int m_intKeyOffset;
 	int m_RadioChooseKeyVariant;
 	//}}AFX_DATA
 

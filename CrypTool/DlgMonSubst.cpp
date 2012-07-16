@@ -57,9 +57,11 @@ void CDlgMonSubst::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_TO, m_CtrlTo);
 	DDX_Control(pDX, IDC_FROM, m_CtrlFrom);
 	DDX_Control(pDX, IDC_KEY, m_CtrlKey);
+	DDX_Control(pDX, IDC_KEY_OFFSET, m_CtrlKeyOffset);
 	DDX_Text(pDX, IDC_TO, m_stringTo);
 	DDX_Text(pDX, IDC_FROM, m_stringFrom);
 	DDX_Text(pDX, IDC_KEY, m_stringKey);
+	DDX_Text(pDX, IDC_KEY_OFFSET, m_intKeyOffset);
 	DDX_Radio(pDX, IDC_RADIO1, m_RadioChooseKeyVariant);
 	//}}AFX_DATA_MAP
 }
@@ -68,6 +70,7 @@ void CDlgMonSubst::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CDlgMonSubst, CDialog)
 	//{{AFX_MSG_MAP(CDlgMonSubst)
 	ON_EN_CHANGE(IDC_KEY, ComputeSubstKeyMapping)
+	ON_EN_CHANGE(IDC_KEY_OFFSET, ComputeSubstKeyMapping)
 	ON_BN_CLICKED(IDC_PASTE_KEY, OnPasteKey)
 	ON_BN_CLICKED(ID_ENCRYPT, OnEncrypt)
 	ON_BN_CLICKED(ID_DECRYPT, OnDecrypt)	
@@ -103,14 +106,18 @@ BOOL CDlgMonSubst::OnInitDialog()
 	m_CtrlKey.SetFont(&m_font);
 	m_CtrlFrom.SetWindowText("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 	m_CtrlTo.SetWindowText  ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-	m_CtrlKey.SetWindowText ("");
-
+	m_CtrlKey.SetWindowText("");
+	m_intKeyOffset = 0;
+	
 	// update the alphabet heading (in particular the size of the alphabet)
 	int alphabetSize = theApp.TextOptions.getAlphabet().GetLength();
 	CString alphabetHeading;
 	alphabetHeading.Format(IDS_STRING_MONOALPHABETIC_SUBSTITUTION_ALPHABET_HEADING, alphabetSize);
 	CWnd *window = GetDlgItem(IDC_ALPHABET_HEADING);
 	if(window) window->SetWindowText(alphabetHeading);
+
+	m_CtrlKey.SetReadOnly(0);
+	m_CtrlKeyOffset.SetReadOnly(0);
 
 	UpdateData(false);
 
@@ -129,6 +136,7 @@ void CDlgMonSubst::ComputeSubstKeyMapping()
 
 	// some init stuff (get the key, get the alphabet)
 	CString key = m_stringKey;
+	int offset = m_intKeyOffset;
 	CString newKey;
 	CString alphabet = theApp.TextOptions.getAlphabet();
 	CString mappedKey;
@@ -157,23 +165,54 @@ void CDlgMonSubst::ComputeSubstKeyMapping()
 			}
 		}
 
-		// now create the key mapping
-		// (first the actual key, then the remaining characters in a specific order)
-		mappedKey = newKey;
-		// ASCENDING order
+		// flomar, July 2012: in the past we simply created the mapped key by taking 
+		// the key, and then adding the remaining characters; now we support a key 
+		// offset that inserts the actual key at a to-be-specified position, all the 
+		// remaining characters are positioned around the key
+
+		// we don't want mysterious results due to wrong input
+		offset = offset % alphabet.GetLength();
+		if(offset > alphabet.GetLength() - newKey.GetLength())
+			offset = alphabet.GetLength() - newKey.GetLength();
+		
+		// ASCENDING ORDER
 		if(m_RadioChooseKeyVariant == 0) {
+			CString alphabetAscending;
 			for(int i=0; i<alphabet.GetLength(); i++) {
-				if(mappedKey.Find(alphabet[i]) == -1)
-					mappedKey.AppendChar(alphabet[i]);
+				if(newKey.Find(alphabet[i]) == -1) {
+					alphabetAscending.AppendChar(alphabet[i]);
+				}
+			}
+			for(int i=0; i<alphabet.GetLength(); i++) {
+				if(i >= offset && i < offset+newKey.GetLength()) {
+					mappedKey.AppendChar(newKey[i - offset]);
+				}
+				else {
+					mappedKey.AppendChar(alphabetAscending[0]);
+					alphabetAscending.Delete(0, 1);
+				}
 			}
 		}
-		// DESCENDING order
+
+		// DESCENDING ORDER
 		if(m_RadioChooseKeyVariant == 1) {
-			for(int i=alphabet.GetLength()-1; i>=0; i--) {
-				if(mappedKey.Find(alphabet[i]) == -1)
-					mappedKey.AppendChar(alphabet[i]);
+			CString alphabetDescending;
+			for(int i=0; i<alphabet.GetLength(); i++) {
+				if(newKey.Find(alphabet[alphabet.GetLength()-1-i]) == -1) {
+					alphabetDescending.AppendChar(alphabet[alphabet.GetLength()-1-i]);
+				}
+			}
+			for(int i=0; i<alphabet.GetLength(); i++) {
+				if(i >= offset && i < offset+newKey.GetLength()) {
+					mappedKey.AppendChar(newKey[i - offset]);
+				}
+				else {
+					mappedKey.AppendChar(alphabetDescending[0]);
+					alphabetDescending.Delete(0, 1);
+				}
 			}
 		}
+
 		// user may change the key here
 		m_CtrlKey.SetReadOnly(0);
 	}
@@ -191,6 +230,7 @@ void CDlgMonSubst::ComputeSubstKeyMapping()
 	m_stringFrom = alphabet;
 	m_stringTo = mappedKey;
 	m_stringKey = newKey;
+	m_intKeyOffset = offset;
 	
 	UpdateData(false);
 
@@ -253,6 +293,8 @@ void CDlgMonSubst::OnBnClickedRadioSubstFillAscendingOrder()
 		m_Paste.EnableWindow(FALSE);
 
 	m_CtrlKey.SetReadOnly(0);
+	m_CtrlKeyOffset.SetReadOnly(0);
+
 	ComputeSubstKeyMapping();
 }
 
@@ -270,6 +312,8 @@ void CDlgMonSubst::OnBnClickedRadioSubstFillDescendingOrder()
 		m_Paste.EnableWindow(FALSE);
 
 	m_CtrlKey.SetReadOnly(0);
+	m_CtrlKeyOffset.SetReadOnly(0);
+
 	ComputeSubstKeyMapping();
 }
 
@@ -289,8 +333,10 @@ void CDlgMonSubst::OnBnClickedRadioAtbash()
 	m_stringFrom = alphabet;
 	m_stringTo = alphabet.MakeReverse();
 	m_stringKey = m_stringTo;
+	m_intKeyOffset = 0;
 
 	m_CtrlKey.SetReadOnly(1);
+	m_CtrlKeyOffset.SetReadOnly(1);
 
 	UpdateData(false);
 }
