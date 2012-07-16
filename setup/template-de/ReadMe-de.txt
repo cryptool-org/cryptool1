@@ -1194,7 +1194,7 @@ Die Version 1.4.31 wurde zeitgleich in Deutsch und Englisch released.
 a) Entwickler-relevante Änderungen (eher Programm-technisch):
 
 - Update der Bibliotheken und der genutzten Fremdsoftware auf ff. Versionen:
-  - Scintilla 1.7.7  -->  3.0.2   ????????
+  - Scintilla 3.2.1
   - compilerabhängig: cv act library 1.4.6 mit VS2008, 1.4.18 mit VS2010
   - OpenSSL 1.0.1
   - MPIR 1.3.1 (hergeleitet aus GMP-Version 4.2.1) statt GMP 4.1   ??????

@@ -30,9 +30,6 @@
 //#include "Tokenizer.h"
 #include "scintilla.h"
 #include "SciLexer.h"
-#include "Accessor.h"
-#include "Propset.h"
-#include "keywords.h"
 #include <fstream>
 
 using namespace std;
