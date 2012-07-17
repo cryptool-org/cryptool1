@@ -610,6 +610,9 @@ UINT singleThreadGeneratePrimeNumbers(PVOID argument)
 	// get the parent dialog
 	CDlgPrimesGeneratorDemo *dlg = (CDlgPrimesGeneratorDemo*)(argument);
 	if(!dlg) return 0;
+	// halt this thread until the progress bar is visible (avoid concurrency issues)
+	while(theApp.fs.m_displayed == 0)
+		Sleep(5);
 	// generate random primes P and Q
 	bool doneP = false;
 	bool doneQ = false;
@@ -657,6 +660,9 @@ UINT singleThreadGenerateMultiplePrimeNumbers(PVOID argument)
 	// get the parent dialog
 	CDlgPrimesGeneratorDemo *dlg = (CDlgPrimesGeneratorDemo*)(argument);
 	if(!dlg) return 0;
+	// halt this thread until the progress bar is visible (avoid concurrency issues)
+	while(theApp.fs.m_displayed == 0)
+		Sleep(5);
 	// see which algorithm was chosen for prime generation
 	int chosenAlgorithm = dlg->m_radio1;
 	// we consider only the first choice for the value range (m_edit1, m_edit2)
