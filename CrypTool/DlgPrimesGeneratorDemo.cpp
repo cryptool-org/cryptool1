@@ -359,8 +359,6 @@ void CDlgPrimesGeneratorDemo::OnButtonGenerate()
 		// we need this initialization to allow multiple generation threads
 		abortGenerationMultiplePrimeNumbers = false;
 		mapGeneratedPrimeNumbers.clear();
-		// start the prime number generation thread
-		AfxBeginThread(singleThreadGenerateMultiplePrimeNumbers, PVOID(this));
 		// show the progress dialog
 		theApp.fs.Set(0);
 		theApp.fs.setTitle(IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_TITLE);
@@ -369,6 +367,8 @@ void CDlgPrimesGeneratorDemo::OnButtonGenerate()
 		LoadString(AfxGetInstanceHandle(), IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_TEXT, pc_str, STR_LAENGE_STRING_TABLE);
 		sprintf(temp, pc_str, m_edit1, m_edit2);
 		theApp.fs.setFormat(temp);
+		// start the prime number generation thread
+		AfxBeginThread(singleThreadGenerateMultiplePrimeNumbers, PVOID(this));
 		// show the progress dialog
 		if(theApp.fs.DoModal()) {
 			// as soon as the user cancels the progress dialog, 
@@ -440,8 +440,6 @@ void CDlgPrimesGeneratorDemo::OnButtonGenerate()
 		if(PSet == 1 && QSet == 1) {
 			// we need this initialization to allow multiple generation threads
 			abortGenerationPrimeNumbers = false;
-			// start the prime number generation thread
-			AfxBeginThread(singleThreadGeneratePrimeNumbers, PVOID(this));
 			// show the progress dialog
 			theApp.fs.Set(0);
 			theApp.fs.setTitle(IDS_STRING_PRIME_NUMBERS_GENERATION_TITLE);
@@ -456,6 +454,8 @@ void CDlgPrimesGeneratorDemo::OnButtonGenerate()
 				sprintf(temp, pc_str, m_edit1, m_edit2);
 			}
 			theApp.fs.setFormat(temp);
+			// start the prime number generation thread
+			AfxBeginThread(singleThreadGeneratePrimeNumbers, PVOID(this));
 			// show the progress dialog
 			if(theApp.fs.DoModal()) {
 				// as soon as the user cancels the progress dialog, 
