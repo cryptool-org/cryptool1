@@ -2907,7 +2907,7 @@ BEGIN
     CONTROL         "Stwórz szyfr podaj¹c tekst jawny i szyfruj¹c go.",IDC_RADIOCHOICE2,
                     "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,16,158,210,10
     EDITTEXT        IDC_EDITPLAINFULL,15,183,242,35,ES_MULTILINE | ES_READONLY | ES_WANTRETURN | NOT WS_VISIBLE | WS_VSCROLL
-    PUSHBUTTON      "Szyfruj",IDC_BUTTONENCRYPT,15,224,52,14,NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "Szyfruj",IDC_BUTTONENCRYPT,205,224,52,14,NOT WS_VISIBLE | WS_DISABLED
     EDITTEXT        IDC_EDITCIPHER,265,183,239,35,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
     CONTROL         "Dec",IDC_RADIONUMBER,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,364,226,39,10
     CONTROL         "Hex",IDC_RADIOHEX,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,414,226,57,10
@@ -2925,8 +2925,8 @@ BEGIN
     LTEXT           "Podgl¹d:",IDC_STATIC,15,325,28,12
     EDITTEXT        IDC_EDITPLAIN,13,279,242,35,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
     GROUPBOX        "Krok 3: Czêœæ tekstu jawnego znana dla atakuj¹cego.",IDC_STATIC,9,252,504,93
-    LTEXT           "D³ugoœæ tekstu jawnego (maksymalna mo¿liwa):",IDC_PTLENGTH,86,227,111,8,NOT WS_VISIBLE
-    EDITTEXT        IDC_EDITPLAINLENGTH,203,224,54,14,ES_AUTOHSCROLL | ES_NUMBER | NOT WS_VISIBLE
+    LTEXT           "D³ugoœæ tekstu jawnego (maksymalna mo¿liwa):",IDC_PTLENGTH,16,222,91,16,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDITPLAINLENGTH,100,224,54,14,ES_AUTOHSCROLL | ES_NUMBER | NOT WS_VISIBLE
     LTEXT           "Tekst jawny",IDC_STATIC_PLAINTEXT,15,173,125,8,NOT WS_VISIBLE
     LTEXT           "Szyfr",IDC_STATIC,265,173,84,8
     LTEXT           "WprowadŸ czêœæ tekstu jawnego znanego dla atakuj¹cego.",IDC_STATIC_ENTER_KNOWN,15,263,165,10
@@ -14143,7 +14143,7 @@ BEGIN
     CONTROL         "Generišite šifrat zadavanjem otvoreni tekst i njegovim šifrovanjem.",IDC_RADIOCHOICE2,
                     "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,16,157,238,13
     EDITTEXT        IDC_EDITPLAINFULL,15,183,242,35,ES_MULTILINE | ES_READONLY | ES_WANTRETURN | NOT WS_VISIBLE | WS_VSCROLL
-    PUSHBUTTON      "Zašifruj",IDC_BUTTONENCRYPT,15,224,52,14,NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "Zašifruj",IDC_BUTTONENCRYPT,205,224,52,14,NOT WS_VISIBLE | WS_DISABLED
     EDITTEXT        IDC_EDITCIPHER,265,183,239,35,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
     CONTROL         "Decimalno",IDC_RADIONUMBER,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,364,226,46,10
     CONTROL         "Heksadecimalno",IDC_RADIOHEX,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,414,226,63,10
@@ -14161,8 +14161,8 @@ BEGIN
     LTEXT           "Pregled:",IDC_STATIC,15,325,28,12
     EDITTEXT        IDC_EDITPLAIN,13,279,242,35,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
     GROUPBOX        "Korak 3: Deo otvoreni tekst poznatog napadacu",IDC_STATIC,9,252,504,93
-    LTEXT           "Dužina otvorenog teksta (maksimalna moguca):",IDC_PTLENGTH,86,227,111,8,NOT WS_VISIBLE
-    EDITTEXT        IDC_EDITPLAINLENGTH,203,224,54,14,ES_AUTOHSCROLL | ES_NUMBER | NOT WS_VISIBLE
+    LTEXT           "Dužina otvorenog teksta (maksimalna moguca):",IDC_PTLENGTH,16,222,111,16,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDITPLAINLENGTH,100,224,54,14,ES_AUTOHSCROLL | ES_NUMBER | NOT WS_VISIBLE
     LTEXT           "Cisti tekst",IDC_STATIC_PLAINTEXT,15,173,125,8,NOT WS_VISIBLE
     LTEXT           "Šifrovani tekst",IDC_STATIC,265,173,84,8
     LTEXT           "Unesite deo otvorenog teksta poznatog napadacu.",IDC_STATIC_ENTER_KNOWN,15,263,165,10
@@ -25333,7 +25333,7 @@ CAPTION "Angriff auf stereotype Nachrichten"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     CONTROL         "Chiffrat und ein Teil des Klartextes sind bekannt.",IDC_RADIOCHOICE,
-                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE | WS_GROUP,12,145,494,12
+                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE | WS_GROUP,12,145,229,12
     CONTROL         "Chiffrat erzeugen, indem ein vollständiger Klartext verschlüsselt wird.",IDC_RADIOCHOICE2,
                     "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,12,159,231,10
     EDITTEXT        IDC_EDITN,28,96,398,14,ES_AUTOHSCROLL | ES_NUMBER | WS_GROUP
@@ -25341,10 +25341,10 @@ BEGIN
     EDITTEXT        IDC_EDITBITSOFN,115,72,33,14,ES_AUTOHSCROLL | ES_NUMBER
     PUSHBUTTON      "Modul erzeugen",IDC_RANDOM,165,71,61,14
     EDITTEXT        IDC_EDITPLAINFULL,13,183,242,35,ES_MULTILINE | ES_READONLY | ES_WANTRETURN | NOT WS_VISIBLE | WS_VSCROLL
-    PUSHBUTTON      "Verschlüsseln",IDC_BUTTONENCRYPT,13,224,52,14,NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "Verschlüsseln",IDC_BUTTONENCRYPT,203,224,52,14,NOT WS_VISIBLE | WS_DISABLED
     EDITTEXT        IDC_EDITCIPHER,263,183,242,35,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
-    CONTROL         "Dezimal",IDC_RADIONUMBER,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,369,227,39,10
-    CONTROL         "Hexadezimal",IDC_RADIOHEX,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,415,227,56,10
+    CONTROL         "Dezimal",IDC_RADIONUMBER,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,379,227,39,10
+    CONTROL         "Hexadezimal",IDC_RADIOHEX,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,425,227,56,10
     EDITTEXT        IDC_EDITPOS,296,300,39,14,ES_AUTOHSCROLL | ES_NUMBER | WS_GROUP
     CONTROL         "Spin1",IDC_SPINPOS,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,333,300,11,14
     EDITTEXT        IDC_EDITLENGTH,385,300,39,14,ES_AUTOHSCROLL | ES_NUMBER
@@ -25386,8 +25386,8 @@ BEGIN
     LTEXT           "Gewünschte Bitlänge von N:",IDC_STATIC5,18,74,93,8
     EDITTEXT        IDC_EDITPLAIN,11,273,242,42,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
     GROUPBOX        "Schritt 3: Den dem Angreifer bekannten Teil des Klartextes eingeben",IDC_STATIC,7,252,504,93
-    LTEXT           "Länge des Klartextes (max.):",IDC_PTLENGTH,104,227,91,8,NOT WS_VISIBLE
-    EDITTEXT        IDC_EDITPLAINLENGTH,201,224,54,14,ES_AUTOHSCROLL | ES_NUMBER | NOT WS_VISIBLE
+    LTEXT           "Länge des Klartextes (max.):",IDC_PTLENGTH,13,227,91,8,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDITPLAINLENGTH,110,224,54,14,ES_AUTOHSCROLL | ES_NUMBER | NOT WS_VISIBLE
     LTEXT           "Starten Sie, indem Sie einen öffentlichen Schlüssel vorgeben (selbst eingeben oder erzeugen lassen).",IDC_STATIC,13,36,494,10
     LTEXT           "Klartext",IDC_STATIC_PLAINTEXT,13,171,125,8,NOT WS_VISIBLE
     LTEXT           "Geheimtext",IDC_STATIC,263,171,84,8
@@ -25395,7 +25395,7 @@ BEGIN
     LTEXT           "Hier werden die Einstellungen zur Anfangsposition und Länge des unbekannten Teils gemacht. Geben Sie diese über die Eingabefelder ein oder markieren Sie sie einen Teil des Klartextes aus Schritt 2 mit der Maus und klicken ""Beschneiden"".",IDC_STATIC_ENTER_POS,263,262,236,31,NOT WS_VISIBLE
     LTEXT           "Hier werden die Einstellungen zur Anfangsposition und Länge des unbekannten Teils gemacht. Geben Sie diese über die Eingabefelder ein.",IDC_STATIC_HIGHLIGHT_POS,263,262,239,37
     LTEXT           "Hier wird der Teil des Klartextes angezeigt, der dem Angreifer bekannt ist.",IDC_STATIC_SHOW_KNOWN,13,262,239,10,NOT WS_VISIBLE
-    LTEXT           "Darstellung des Geheimtextes:",IDC_STATIC,267,227,92,8
+    LTEXT           "Darstellung des Geheimtextes:",IDC_STATIC,267,227,100,8
 END
 
 IDD_RSABLOEMERMAY DIALOGEX 0, 0, 491, 457
@@ -36493,7 +36493,7 @@ BEGIN
     CONTROL         "Generate the ciphertext by giving a plaintext and encrypting it.",IDC_RADIOCHOICE2,
                     "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,16,158,210,10
     EDITTEXT        IDC_EDITPLAINFULL,15,183,242,35,ES_MULTILINE | ES_READONLY | ES_WANTRETURN | NOT WS_VISIBLE | WS_VSCROLL
-    PUSHBUTTON      "Encrypt",IDC_BUTTONENCRYPT,15,224,52,14,NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "Encrypt",IDC_BUTTONENCRYPT,205,224,52,14,NOT WS_VISIBLE | WS_DISABLED
     EDITTEXT        IDC_EDITCIPHER,265,183,239,35,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
     CONTROL         "Decimal",IDC_RADIONUMBER,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,364,226,39,10
     CONTROL         "Hexadecimal",IDC_RADIOHEX,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,414,226,57,10
@@ -36511,8 +36511,8 @@ BEGIN
     LTEXT           "Preview:",IDC_STATIC,15,325,28,12
     EDITTEXT        IDC_EDITPLAIN,13,279,242,35,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
     GROUPBOX        "Step 3: Part of the plaintext known to the attacker",IDC_STATIC,9,252,504,93
-    LTEXT           "Length of plaintext (max. possible):",IDC_PTLENGTH,86,227,111,8,NOT WS_VISIBLE
-    EDITTEXT        IDC_EDITPLAINLENGTH,203,224,54,14,ES_AUTOHSCROLL | ES_NUMBER | NOT WS_VISIBLE
+    LTEXT           "Length of plaintext (max. possible):",IDC_PTLENGTH,16,227,111,8,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDITPLAINLENGTH,133,224,54,14,ES_AUTOHSCROLL | ES_NUMBER | NOT WS_VISIBLE
     LTEXT           "Plaintext",IDC_STATIC_PLAINTEXT,15,173,125,8,NOT WS_VISIBLE
     LTEXT           "Ciphertext",IDC_STATIC,265,173,84,8
     LTEXT           "Enter the part of the plaintext known to the attacker.",IDC_STATIC_ENTER_KNOWN,15,263,165,10
@@ -47974,7 +47974,7 @@ BEGIN
     CONTROL         "Generar el texto cifrado partiendo del texto claro proporcionado",IDC_RADIOCHOICE2,
                     "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,16,158,214,10
     EDITTEXT        IDC_EDITPLAINFULL,15,183,242,35,ES_MULTILINE | ES_READONLY | ES_WANTRETURN | NOT WS_VISIBLE | WS_VSCROLL
-    PUSHBUTTON      "Cifrar",IDC_BUTTONENCRYPT,15,224,52,14,NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "Cifrar",IDC_BUTTONENCRYPT,205,224,52,14,NOT WS_VISIBLE | WS_DISABLED
     EDITTEXT        IDC_EDITCIPHER,265,183,239,35,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
     CONTROL         "Decimal",IDC_RADIONUMBER,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,364,226,39,10
     CONTROL         "Hexadecimal",IDC_RADIOHEX,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,414,226,57,10
@@ -47992,8 +47992,8 @@ BEGIN
     LTEXT           "Previsualización:",IDC_STATIC,15,325,28,12
     EDITTEXT        IDC_EDITPLAIN,13,279,242,35,ES_MULTILINE | ES_WANTRETURN | WS_VSCROLL
     GROUPBOX        "Paso 3: Parte del texto claro conocido por el atacante",IDC_STATIC,9,252,504,93
-    LTEXT           "Longitud del texto  (máx. posible)",IDC_PTLENGTH,86,227,111,8,NOT WS_VISIBLE
-    EDITTEXT        IDC_EDITPLAINLENGTH,203,224,54,14,ES_AUTOHSCROLL | ES_NUMBER | NOT WS_VISIBLE
+    LTEXT           "Longitud del texto (máx. posible):",IDC_PTLENGTH,16,223,69,16,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDITPLAINLENGTH,79,224,54,14,ES_AUTOHSCROLL | ES_NUMBER | NOT WS_VISIBLE
     LTEXT           "Texto Claro",IDC_STATIC_PLAINTEXT,15,173,125,8,NOT WS_VISIBLE
     LTEXT           "Texto Cifrado",IDC_STATIC,265,173,84,8
     LTEXT           "Esta es la parte del texto claro que conoce el atacante",IDC_STATIC_ENTER_KNOWN,15,263,165,10
