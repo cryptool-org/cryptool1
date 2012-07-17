@@ -44,7 +44,9 @@ public:
 	CButton m_controlRadioAnalysisAutomaticEnglish;
 	CEdit m_controlEditAnalysisAutomaticWordlistGerman;
 	CEdit m_controlEditAnalysisAutomaticWordlistEnglish;
+	CStatic m_controlStaticAnalysisAutomaticOption1;
 	CButton m_controlCheckAnalysisAutomaticOption1;
+	CStatic m_controlStaticAnalysisAutomaticOption2;
 	CButton m_controlCheckAnalysisAutomaticOption2;
 	CButton m_buttonSelectWordlistGerman;
 	CButton m_buttonSelectWordlistEnglish;

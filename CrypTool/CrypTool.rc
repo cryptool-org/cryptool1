@@ -2137,8 +2137,8 @@ BEGIN
     CONTROL         "Analiza rozszerzona (niemiecki tekst jawny)",IDC_CHECK_ANALYSIS_AUTOMATIC_OPTION2,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,192,136,8
     LTEXT           "Automatyczna zamiana zosta³a zaimplementowana tylko dla niemieckich i angielskich tekstów. Dla innych jêzyków zalecana jest analiza maualna.",IDC_STATIC,5,5,182,26
-    LTEXT           "W wielu przypadkach, automatyczna analiza mo¿e zostaæ poprawiona przez przyjêcie 'e' jako najczêœciej wystêpuj¹cego znaku w tekœcie:",IDC_STATIC,15,123,192,25
-    LTEXT           "W tekstach niemieckich digramy 'en' i 'er' s¹ bardzo powszechne. Takie za³o¿enie mo¿e poprawiæ analizê:",IDC_STATIC,15,168,192,16
+    LTEXT           "W wielu przypadkach, automatyczna analiza mo¿e zostaæ poprawiona przez przyjêcie 'e' jako najczêœciej wystêpuj¹cego znaku w tekœcie:",IDC_STATIC_ANALYSIS_AUTOMATIC_OPTION1,15,123,192,25
+    LTEXT           "W tekstach niemieckich digramy 'en' i 'er' s¹ bardzo powszechne. Takie za³o¿enie mo¿e poprawiæ analizê:",IDC_STATIC_ANALYSIS_AUTOMATIC_OPTION2,15,168,192,16
     GROUPBOX        "Analiza automatyczna",IDC_STATIC,5,65,220,144
     GROUPBOX        "Analiza manualna",IDC_STATIC,5,214,220,36
     EDITTEXT        IDC_EDIT_WORDLIST_GERMAN,15,103,147,14,ES_AUTOHSCROLL | ES_READONLY
@@ -13368,8 +13368,8 @@ BEGIN
     CONTROL         "Upotrebi 'e' kao najucestaniji karakter.",IDC_CHECK_ANALYSIS_AUTOMATIC_OPTION1,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,154,168,8
     LTEXT           "Analiza automatske zamene implementirana je samo za Nemacki i Engleski obican tekst. Za sve ostale jezike preporucuje se rucna analiza.",IDC_STATIC,5,5,174,26
-    LTEXT           "U mnogim slucajevima automatska analiza može biti poboljšana pod pretpostavkom da je 'e' najucestanije slovo u obicnom tekstu:",IDC_STATIC,15,123,182,25
-    LTEXT           "U Nemackom obicnom tekstu digrami 'en' i 'er' su veoma cesti. Ova pretpostavka može poboljšati analizu:",IDC_STATIC,15,168,184,16
+    LTEXT           "U mnogim slucajevima automatska analiza može biti poboljšana pod pretpostavkom da je 'e' najucestanije slovo u obicnom tekstu:",IDC_STATIC_ANALYSIS_AUTOMATIC_OPTION1,15,123,182,25
+    LTEXT           "U Nemackom obicnom tekstu digrami 'en' i 'er' su veoma cesti. Ova pretpostavka može poboljšati analizu:",IDC_STATIC_ANALYSIS_AUTOMATIC_OPTION2,15,168,184,16
     GROUPBOX        "Automatska analiza",IDC_STATIC,5,65,220,144
     GROUPBOX        "Rucna analiza",IDC_STATIC,5,214,220,36
     EDITTEXT        IDC_EDIT_WORDLIST_GERMAN,15,103,147,14,ES_AUTOHSCROLL | ES_READONLY
@@ -22834,8 +22834,8 @@ BEGIN
     DEFPUSHBUTTON   "&Starten",IDOK,5,257,65,18
     PUSHBUTTON      "&Abbrechen",IDCANCEL,160,257,65,18
     LTEXT           "Die automatische Substitutionsanalyse ist nur für deutsche bzw. englische Klartexte implementiert. Für alle anderen Sprachen sollte die Analyse manuell durchgeführt werden.",IDC_STATIC,5,5,197,26
-    LTEXT           "Die Annahme, dass im Klartext der Buchstabe 'e' am häufigsten ist, verbessert oft das Ergebnis der automatischen Analyse:",IDC_STATIC,15,123,188,26
-    LTEXT           "In deutschen Klartexten sind die Digramme 'en' und 'er' sehr häufig. Die erweiterte Analyse benutzt diese Annahme:",IDC_STATIC,15,168,190,16
+    LTEXT           "Die Annahme, dass im Klartext der Buchstabe 'e' am häufigsten ist, verbessert oft das Ergebnis der automatischen Analyse:",IDC_STATIC_ANALYSIS_AUTOMATIC_OPTION1,15,123,188,26
+    LTEXT           "In deutschen Klartexten sind die Digramme 'en' und 'er' sehr häufig. Die erweiterte Analyse benutzt diese Annahme:",IDC_STATIC_ANALYSIS_AUTOMATIC_OPTION2,15,168,190,16
     GROUPBOX        "Automatische Analyse",IDC_STATIC,5,65,220,144
     GROUPBOX        "Manuelle Analyse",IDC_STATIC,5,214,220,36
     EDITTEXT        IDC_EDIT_WORDLIST_ENGLISH,15,103,147,14,ES_AUTOHSCROLL | ES_READONLY
@@ -35718,8 +35718,8 @@ BEGIN
     DEFPUSHBUTTON   "&Start",IDOK,5,257,65,18
     PUSHBUTTON      "&Cancel",IDCANCEL,160,257,65,18
     LTEXT           "The automatic substitution analysis is implemented for German and for English plaintexts only. For all other languages the manual analysis is recommended.",IDC_STATIC,5,5,189,26
-    LTEXT           "In many cases the automatic analysis could be improved by the assumption that 'e' is the most frequent letter on the plaintext:",IDC_STATIC,15,123,192,25
-    LTEXT           "On German plaintext the digrams 'en' and 'er' are very frequent. This assumption could improve the analysis:",IDC_STATIC,15,168,192,16
+    LTEXT           "In many cases the automatic analysis could be improved by the assumption that 'e' is the most frequent letter on the plaintext:",IDC_STATIC_ANALYSIS_AUTOMATIC_OPTION1,15,123,192,25
+    LTEXT           "On German plaintext the digrams 'en' and 'er' are very frequent. This assumption could improve the analysis:",IDC_STATIC_ANALYSIS_AUTOMATIC_OPTION2,15,168,192,16
     GROUPBOX        "Automatic analysis",IDC_STATIC,5,65,220,144
     GROUPBOX        "Manual analysis",IDC_STATIC,5,214,220,36
     EDITTEXT        IDC_EDIT_WORDLIST_GERMAN,15,103,147,14,ES_AUTOHSCROLL | ES_READONLY
@@ -47336,8 +47336,8 @@ BEGIN
     DEFPUSHBUTTON   "&Iniciar",IDOK,5,257,65,18
     PUSHBUTTON      "&Cancelar",IDCANCEL,160,257,65,18
     LTEXT           "El análisis automático de sustitución está implementado únicamente para mensajes en alemán y en inglés. Pare el resto de idiomas se recomienda usar el análisis manual.",IDC_STATIC,5,5,186,26
-    LTEXT           "En muchos casos, el análisis automático puede realizarse asumiendo que el caracter 'e' es el más frecuente en el texto claro:",IDC_STATIC,15,123,185,25
-    LTEXT           "En alemán, los digramas 'en' y 'er' son muy frecuentes. Esta asunción puede mejorar el análisis:",IDC_STATIC,15,168,192,16
+    LTEXT           "En muchos casos, el análisis automático puede realizarse asumiendo que el caracter 'e' es el más frecuente en el texto claro:",IDC_STATIC_ANALYSIS_AUTOMATIC_OPTION1,15,123,185,25
+    LTEXT           "En alemán, los digramas 'en' y 'er' son muy frecuentes. Esta asunción puede mejorar el análisis:",IDC_STATIC_ANALYSIS_AUTOMATIC_OPTION2,15,168,192,16
     GROUPBOX        "Análisis Automático",IDC_STATIC,5,65,220,144
     GROUPBOX        "Análisis Manual",IDC_STATIC,5,214,220,36
     EDITTEXT        IDC_EDIT_WORDLIST_GERMAN,15,103,147,14,ES_AUTOHSCROLL | ES_READONLY

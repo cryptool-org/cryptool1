@@ -64,7 +64,9 @@ void CDlgOptionsSubstitutionAnalysis::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_WORDLIST_ENGLISH, m_editWordlistEnglish);
 	DDX_Control(pDX, IDC_BUTTON_SELECT_WORDLIST_GERMAN, m_buttonSelectWordlistGerman);
 	DDX_Control(pDX, IDC_BUTTON_SELECT_WORDLIST_ENGLISH, m_buttonSelectWordlistEnglish);
+	DDX_Control(pDX, IDC_STATIC_ANALYSIS_AUTOMATIC_OPTION1, m_controlStaticAnalysisAutomaticOption1);
 	DDX_Control(pDX, IDC_CHECK_ANALYSIS_AUTOMATIC_OPTION1, m_controlCheckAnalysisAutomaticOption1);
+	DDX_Control(pDX, IDC_STATIC_ANALYSIS_AUTOMATIC_OPTION2, m_controlStaticAnalysisAutomaticOption2);
 	DDX_Control(pDX, IDC_CHECK_ANALYSIS_AUTOMATIC_OPTION2, m_controlCheckAnalysisAutomaticOption2);
 	DDX_Control(pDX, IDC_CHECK_ANALYSIS_MANUAL_OPTION1, m_controlCheckAnalysisManualOption1);
 	//}}AFX_DATA_MAP
@@ -285,15 +287,18 @@ void CDlgOptionsSubstitutionAnalysis::updateButtons() {
 	// the following ones are CONDITIONALLY enabled
 	m_controlRadioAnalysisAutomaticGerman.EnableWindow(analysisModeAutomatic);
 	m_controlRadioAnalysisAutomaticEnglish.EnableWindow(analysisModeAutomatic);
+	m_controlStaticAnalysisAutomaticOption1.EnableWindow(analysisModeAutomatic);
 	m_controlCheckAnalysisAutomaticOption1.EnableWindow(analysisModeAutomatic);
+	m_controlStaticAnalysisAutomaticOption2.EnableWindow(analysisModeAutomatic);
 	m_controlCheckAnalysisAutomaticOption2.EnableWindow(analysisModeAutomatic);
 	m_buttonSelectWordlistGerman.EnableWindow(analysisModeAutomatic);
 	m_buttonSelectWordlistEnglish.EnableWindow(analysisModeAutomatic);
 	
-	
-	// some showing and hiding
+	// some enabling, showing and hiding
 	m_controlEditAnalysisAutomaticWordlistGerman.ShowWindow(analysisAutomaticGerman ? SW_SHOW : SW_HIDE);
+	m_controlEditAnalysisAutomaticWordlistGerman.EnableWindow(analysisModeAutomatic);
 	m_controlEditAnalysisAutomaticWordlistEnglish.ShowWindow(!analysisAutomaticGerman ? SW_SHOW : SW_HIDE);
+	m_controlEditAnalysisAutomaticWordlistEnglish.EnableWindow(analysisModeAutomatic);
 	m_buttonSelectWordlistGerman.ShowWindow(analysisAutomaticGerman ? SW_SHOW : SW_HIDE);
 	m_buttonSelectWordlistEnglish.ShowWindow(!analysisAutomaticGerman ? SW_SHOW : SW_HIDE);
 
@@ -316,6 +321,12 @@ void CDlgOptionsSubstitutionAnalysis::updateButtons() {
 	}
 	m_controlCheckAnalysisManualOption1.EnableWindow(!analysisModeAutomatic && doesKeyExist);
 	m_controlCheckAnalysisManualOption1.SetCheck(analysisManualOption1 && doesKeyExist ? 1 : 0);
+
+	// scroll to the end of the word list file names
+	m_controlEditAnalysisAutomaticWordlistGerman.SetSel(0, -1);
+	m_controlEditAnalysisAutomaticWordlistGerman.SetSel(-1);
+	m_controlEditAnalysisAutomaticWordlistEnglish.SetSel(0, -1);
+	m_controlEditAnalysisAutomaticWordlistEnglish.SetSel(-1);
 	
 	UpdateData(false);
 }
