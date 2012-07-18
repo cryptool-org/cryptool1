@@ -1897,8 +1897,7 @@ void CCryptDoc::OnFormatTextDocument()
 	if(dlg.DoModal() == IDOK) {
 		// format the contents of the current document as desired 
 		// and display the result in a new document
-		UpdateContent();
-		CString newDocumentText = dlg.format(ContentName);
+		CString newDocumentText = dlg.format(GetPathName());
 		GetTmpName(ContentName, "cry", ".org");
 		CFile outfile(ContentName, CFile::modeCreate|CFile::modeWrite);
 		outfile.Write(newDocumentText.GetBuffer(), newDocumentText.GetLength());
