@@ -33575,7 +33575,7 @@ BEGIN
     IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES "Würfelkanten anzeigen"
     IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES "Würfelkanten nicht anzeigen"
     IDS_CONTROL_TOTXT       "Als Text anzeigen"
-    IDS_STRING_PRIME_NUMBERS_GENERATION_TITLE "Generation von Primzahlen"
+    IDS_STRING_PRIME_NUMBERS_GENERATION_TITLE "Generierung von Primzahlen"
     IDS_CONTROL_TOHEX       "Als HexDump anzeigen"
     IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT1 
                             "Generiere Primzahlen im folgenden Bereich:\n[%s, %s]"
