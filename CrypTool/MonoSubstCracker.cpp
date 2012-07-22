@@ -352,6 +352,8 @@ UINT AutoAnaSubst(PVOID p)
 		{
 			// Free memory
 			free (ciphertext);
+			// free the file handle
+			fclose(file);
 			return 0;
 		}
 
