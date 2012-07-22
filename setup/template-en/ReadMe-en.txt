@@ -1158,7 +1158,7 @@ Version 1.4.31 was released simultaneously in English and German.
 a) Developer-relevant changes (more technically oriented):
 
 - Update of used libraries and other software to the following versions:
-  - Scintilla 3.2.1
+  - Scintilla 1.7.7  -->  3.0.2   ????????
   - compiler-dependent: cv act library 1.4.6 with VS2008, 1.4.18 with VS2010
   - OpenSSL 1.0.1
   - MPIR 1.3.1 (derived from GMP version 4.2.1) instead of GMP 4.1
@@ -1175,8 +1175,10 @@ b) Changes within the user documentation / on the websites:
 - Online help: updated some topics.
 
 - CrypTool script: - some corrections and additions,
-                   - Inclusion of some more many Sage code samples, xxx
-                   - Added the menu paths in CT2 for the according topics.
+                   - Inclusion of further Sage code samples (for primitive
+                     roots and RSA fix points),
+                   - Appendices with function overviews also for CT2 and JCT.
+                     Added the menu paths of CT2 and JCT in the foot notes.
 
 - Updated and enhanced presentation (more than 110 xxxxxxxxxxx pages now).
   Splitted xxxxxxxxxxxxxx
@@ -1207,12 +1209,14 @@ c) New functionality / Usability / Corrections of Errors:
 
 - Text windows now have a context menu entry to switch to hex view, and
   vice versa.
+- Many small improvements in the dialog window layouts, like in "Attack on
+  Stereotyped Messages".   
 - Transposition Encryption: The key entry dialog now also contains a text
   options dialog.
-- Monoalphabetic encryption: The key entry dialog features a new parameter 
-  to define the starting position (offset) of the password. In the past 
-  the password was always positioned at the beginning of the ciphertext
-  alphabet.
+- xxxMonoalphabetische Verschlüsselung: Hier gibt es nun im Schlüsseleingabe-
+  Dialog einen weiteren Parameter, mit dem man die Startposition (Offset)
+  für das Passwort festlegen kann. Bisher wurde das Passwort immer an den
+  Anfang des Geheimtext-lphabets gestellt. xxxxxxxxxx --> Englisch
 - The analysis of the substitution cipher offers two variants. The second
   variant uses a list of frequent words, which were not revealed and changeable
   by the user in former versions. Both is possible now.
@@ -1223,12 +1227,13 @@ c) New functionality / Usability / Corrections of Errors:
   distribution (case sensitivity and special characters are not allowed
   with the ADFGVX cipher). The introduction dialog of the analysis was
   adapted accordingly.
-- AES Tool 2.6:
+- Number Shark: Some of the hot key functionalities now also have a button.
+- AES Tool 2.6.x:
   - Fixed a bug which appeared when entering too long hexadecimal keys.
   - Now you can enter the key as normal ASCII characters too, and securely
     delete the original file after encrypting.
 
-- xxxxBug fixes --> Thanks to the many attentive users!
+- Thanks to the many attentive users, who pointed us to some bugs.
 
 
 
@@ -1454,7 +1459,7 @@ program (setup).
   Rijndael (AES)"  (even if you create a file with has the extension
   "aes"). CrypTool itself currently uses a fixed IV (0), which is
   not stored. AES-Tool uses a random IV, which is appended together
-  with the file name to the end of the encrypted data. xxxxxxxxxxxx
+  with the file name to the end of the encrypted data.
 
 
 3.6. Using certificates and keys created with older CrypTool versions
@@ -1664,7 +1669,7 @@ b) If the user wants to create (or change) files from within CrypTool in
 5. List of delivered files
    -----------------------
 The package is distributed as a compressed, self extracting archive
-in five (xxxx) different language versions: English, German, Polish,
+in currently five (xxxx) different language versions: English, German, Polish,
 Serbian, Spanish.
 
 The self-extracting archive in English language
@@ -1822,8 +1827,8 @@ words\cracklib-words        // For test on password patterns
       VigenereAnalysisSchroedelDictionary.txt   // For the Vigenère analysis
       VigenereAnalysisSchroedelDigrams.txt      // (according Schroedel)
       VigenereAnalysisSchroedelTrigrams.txt     // Language-dependent
-      substitution-de.txt   // For variant 2 of the mono alphabetic
-      substitution-de.txt   // substitution analysis
+      SubstitutionAnalysisMethod2-de.txt   // For variant 2 of the mono- 
+      SubstitutionAnalysisMethod2-en.txt   // alphabetic substitution analysis
 
 
 sage\ ........... This directory contains the source code of the example
@@ -2093,7 +2098,7 @@ Version                 English      German    needed EN     by
 1.4.20    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.21    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.30    Aug. 2010     51.5 MB      52.1 MB    94 MB        DB
-1.4.31    Sep. 2012     51.8 MB      52.4 MB    99 MB        DBxxxxxxxxx
+1.4.31    Sep. 2012     51.8 MB      52.4 MB    99 MB        CTxxxxxxxxx
 
 Remarks about the versions:
 1.3.02   Many new functions compared to 1.3.00.

@@ -7,64 +7,67 @@
 % --------------------------------------------------------------------------
 \clearpage\phantomsection
 % \vspace{-10pt}  wirkungslos!
-\addcontentsline{toc}{chapter}{Vorwort zur 10. Auflage des CrypTool-Skripts}
-\chapter*{Vorwort zur 10. Auflage des CrypTool-Skripts}
+\addcontentsline{toc}{chapter}{Vorwort zur 11. Auflage des CrypTool-Skripts}
+\chapter*{Vorwort zur 11. Auflage des CrypTool-Skripts}
 
 \vspace{-12pt}
-Ab dem Jahr 2000 wurde mit dem CrypTool-1-Paket\index{CrypTool} auch ein
-Skript ausgeliefert, das die Mathematik einzelner Themen genauer, aber doch 
+Ab dem Jahr 2000 wurde mit dem CrypTool-1-Paket (CT1)\index{CrypTool 1.x} auch
+ein Skript ausgeliefert, das die Mathematik einzelner Themen genauer, aber doch 
 möglichst verständlich erläutern sollte.
 
-Um auch hier die Möglichkeit zu schaffen, dass getrennte Entwickler/Autoren
-mitarbeiten können, wurden die Themen sinnvoll unterteilt und dafür jeweils
-eigenständig lesbare Kapitel geschrieben. In der anschließenden
-redaktionellen Arbeit wurden in TeX Querverweise ergänzt und Fußnoten
-hinzugefügt, die zeigen, an welchen Stellen man die entsprechenden
-Funktionen in CrypTool 1 (CT1)\index{CrypTool 1.x} aufrufen kann 
-\hyperlink{appendix-menutree}{(vgl. den Menübaum} im Anhang \ref{s:appendix-menutree}).
-%\hypertarget{appendix-menutree}{}\label{s:appendix-menutree}
-Natürlich gäbe es viel mehr Themen in Mathematik und Kryptographie, die
-man vertiefen könnte -- deshalb ist diese Auswahl auch nur eine von
-vielen möglichen.
+Themen aus Mathematik und Kryptographie wurden sinnvoll unterteilt und dafür
+wurden jeweils eigenständig lesbare Kapitel geschrieben, damit auch hier
+Entwickler/Autoren unabhängig voneinander mitarbeiten konnten. Natürlich gäbe
+es viel mehr Themen aus der Kryptographie, die man vertiefen könnte -- deshalb
+ist diese Auswahl auch nur eine von vielen möglichen.
+
+In der anschließenden redaktionellen Arbeit wurden in TeX Querverweise ergänzt
+und Fußnoten hinzugefügt. Die Fußnoten verweisen z.B. auf die entsprechenden
+Funktionen in den CrypTool-Programmen. Die Anhänge \ref{s:appendix-menu-overview-CT1} ff. enthalten den kompletten Überblick
+über\index{CrypTool 1.x}\index{CrypTool 2}\index{JCrypTool} 
+den \hyperlink{menu-overview-CT1}{CrypTool-1-Menübaum},
+die \hyperlink{template-overview-CT2}{CrypTool-2-Vorlagen} und
+die \hyperlink{function-overview-JCT}{JavaCrypTool-Funktionen}.
+%Anker sind \hypertarget{appendix-menutree}{} und \label{s:appendix-menutree}
+%  - \hyperlink{}{} legt Link auf die Seite unter den Text in 2. Klammer
+%  - \ref{} legt Link und fügt Kapitelnummer ein.
 
 Der Erfolg des Internets hat zu einer verstärkten 
 Forschung der damit verbundenen Technologien geführt, was auch im
 Bereich Kryptographie viele neue Erkenntnisse schaffte.
 
-%In dieser Ausgabe des Skripts wurden einige Themen ergänzt und andere auf
-%den aktuellen Stand gebracht (z.B. die Zusammenfassungen zu aktuellen 
-%Forschungsergebnissen):                   
-In dieser Ausgabe des Skripts wurden die TeX-Sourcen des Dokuments komplett
-überarbei"-tet, und etliche Themen korrigiert,
-ergänzt und auf den aktuellen Stand gebracht, z.B.:
+In dieser Ausgabe des CT-Skripts wurden wieder einige Themen auf den
+aktuellen Stand gebracht:
+%In dieser Ausgabe des Skripts wurden die TeX-Sourcen des Dokuments komplett
+%überarbei"-tet, und etliche Themen korrigiert,
+%ergänzt und auf den aktuellen Stand gebracht, z.B.:
 \vspace{-5pt}
 \begin{itemize}
+  \item die Definitionen zur Stärke von Sicherheits-Funktionen
+        (Kap. \ref{cm_Section_Security_Definitions}),
   \item die größten Primzahlen (Kap. \ref{search_for_very_big_primes}),
-        neue Faktorisierungsrekorde (Kap. \ref{RSA-768}),
-  \item Fortschritte bei der Kryptoanalyse von AES 
-        (Kap. \ref{NeueAES-Analyse}) und
+        neue Faktorisierungsrekorde (Kap. \ref{RSA-768}), und
 %  \item Fortschritte bei der Kryptoanalyse von Hashverfahren 
 %        (Kap. \ref{collision-attacks-against-sha-1}) und
 %  \item Fortschritte bei den Ideen für neue Kryptoverfahren (RSA-Nachfolger)
-%	(Kap. \ref{xxxxBrute-force-gegen-Symmetr})\index{xxxxxxxxxxxxxxxxxxxxx} und
+%	(Kap. \ref{xxxxBrute-force-gegen-Symmetr})\index{xxxxxxxxxxxxxxxx} und
   \item die Auflistung, in welchen Filmen und Romanen Kryptographie eine
         wesentliche Rolle spielt (siehe Anhang \ref{s:appendix-movies}),
         und Kurioses zu Primzahlen (siehe \ref{HT-Quaint-curious-Primes-usage}).
-  \item Neu hinzu gekommen sind z.B. der Absatz zu Benfords Gesetz und Primzahlen
-        (Kap. \ref{primes:Benford-Law}), und der Anhang \ref{s:appendix-using-sage} über
-        das Computer-Algebra-System Sage. Sage wird mehr und mehr zum
-        Standard-Open-Source CAS. Entsprechend
-	wurden alle Codebeispiele, die vorher in PARI-GP und Mathematica
-	geschrieben waren, durch Sage-Code ersetzt.
-	Außerdem kamen dank Nguyen und Massierer etliche neue Code-Beispiele hinzu
-        (vgl. auch Kap.~\ref{ec:Sage_Massierer}).
+  \item Neu hinzu gekommen sind die Funktionsübersichten
+        \hyperlink{template-overview-CT2}{zu CT2} und
+        \hyperlink{function-overview-JCT}{zu JCT},
+        weitere Sage-Skripte zu Kryptoverfahren und der Anhang
+        \ref{s:appendix-using-sage} über das Computer-Algebra-System
+        Sage. Sage wird mehr und mehr zum Standard-Open-Source CAS.
+        % Nguyen und Massierer (vgl. auch Kap.~\ref{ec:Sage_Massierer}).
 \end{itemize}
 
 Seit das Skript dem CrypTool-Paket in Version 1.2.01 das erste Mal beigelegt
-wurde, ist es mit fast jeder neuen Version von CrypTool ebenfalls erweitert
+wurde, ist es mit fast jeder neuen Version von CrypTool 1 ebenfalls erweitert
 und aktualisiert worden.
 
-Herzlichen Dank an alle, die mit Ihrem großem Einsatz zum 
+Herzlichen Dank an alle, die mit ihrem großem Einsatz zum 
 Erfolg und zur weiten Verbreitung dieses Projekts beigetragen haben.
 Danke auch an die Leser, die uns Feedback sandten. 
 
@@ -80,7 +83,7 @@ Bernhard Esslinger
 \\
 % [\baselineskip]
 % \nopagebreak
-Frankfurt, Januar 2010
+Frankfurt, Juli 2012
 
 
 
@@ -92,26 +95,30 @@ Frankfurt, Januar 2010
 
 \textbf{Das Skript}
 
-Dieses Skript wird zusammen mit dem Open-Source-Programm CrypTool 1\index{CrypTool}
-ausgeliefert.
+Dieses Skript wird zusammen mit dem Open-Source-Programm
+CrypTool 1\index{CrypTool 1.x} ausgeliefert.
 
 Die Artikel dieses Skripts sind weitgehend in sich abgeschlossen und können
-auch unabhängig von CrypTool\index{CrypTool} gelesen werden.
+auch unabhängig von den CrypTool-Programmen gelesen werden.
 
-Während für das Verständnis der meisten Kapitel Abiturwissen ausreicht,
-erfordern die Kapitel \ref{Chapter_ModernCryptography} (Moderne Kryptografie)
-und \ref{Chapter_EllipticCurves} (Elliptische Kurven) tiefere mathematische
-Kenntnisse.
+%Während für das Verständnis der meisten Kapitel Abiturwissen ausreicht,
+%erfordern die Kapitel \ref{Chapter_ModernCryptography} (Moderne Kryptografie)
+%und \ref{Chapter_EllipticCurves} (Elliptische Kurven) tiefere mathematische
+%Kennt"-nisse.
+Für das Verständnis der meisten Kapitel Abiturwissen reicht aus. Die Kapitel
+\ref{Chapter_ModernCryptography} (Moderne Kryptografie)
+und \ref{Chapter_EllipticCurves} (Elliptische Kurven) erfordern tiefere
+mathematische Kennt"-nisse.
 
 Die \hyperlink{appendix-authors}{Autoren}
 % \hyperlink{appendix-authors}{(Autoren)}
 % in \ref{s:appendix-authors}
 % \hypertarget{appendix-authors}{}\label{s:appendix-authors}
-haben sich bemüht, Kryptographie für eine möglichst 
-breite Leserschaft darzu"-stellen -- ohne mathematisch unkorrekt zu werden. 
-Dieser didaktische Anspruch ist am besten geeignet, die Awareness
-für die IT-Sicherheit und die Bereitschaft für den Einsatz 
-standardisierter, moderner Kryptographie zu fördern.
+haben sich bemüht, Kryptographie für eine möglichst breite Leserschaft
+darzu"-stellen -- ohne mathematisch unkorrekt zu werden. Dieser didaktische
+Anspruch ist am besten geeignet, die Awareness für die IT-Sicherheit und die
+Bereitschaft für den Einsatz standardisierter, moderner Kryptographie zu
+fördern.
 \par \vskip + 15pt
 
 
@@ -121,8 +128,9 @@ CrypTool 1 (CT1)\index{CrypTool} ist ein Lernprogramm mit umfangreicher
 Online-Hilfe, mit dem Sie unter einer einheitlichen Oberfläche
 kryptographische Verfahren anwenden und analysieren können.
 
-Inzwischen wird CrypTool\index{CrypTool} weltweit in Ausbildung und Lehre
-eingesetzt und von mehreren Hochschulen mit weiterentwickelt.
+CrypTool 1\index{CrypTool 1.x} und die Nachfolgeversionen
+CrypTool 2 (CT2)\index{CrypTool 2.0} und JCrypTool (JCT)\index{JCrypTool 1.0}
+werden weltweit in Schule, Ausbildung und Lehre eingesetzt.
 \par \vskip + 15pt
 
 
@@ -133,14 +141,15 @@ die bisher in ganz besonderer Weise zu CT1\index{CrypTool}
 beigetragen haben.
 Ohne ihre besonderen Fähigkeiten und ihr großes Engagement wäre CrypTool
 nicht, was es heute ist:
-\vspace{-7pt}
+\vspace{-6pt}
 \begin{list}{\textbullet}{\addtolength{\itemsep}{-0.5\baselineskip}}
    \item Hr.\ Henrik Koy
    \item Hr.\ Jörg-Cornelius Schneider
    \item Hr.\ Florian Marchal
    \item Dr.\ Peer Wichmann
-   \item Mitarbeiter von Prof.\ Claudia Eckert, Prof.\ Johannes Buchmann,
-         Prof.\ Torben Weis and Prof.\ Arno Wacker.
+   \item Mitarbeiter in den Teams von von Prof.\ Claudia Eckert,
+         Prof.\ Johannes Buchmann,
+         Prof.\ Torben Weis und Prof.\ Arno Wacker.
 \end{list}
 Auch allen hier nicht namentlich Genannten ganz herzlichen Dank für das 
 (meist in der Freizeit) geleistete Engagement.

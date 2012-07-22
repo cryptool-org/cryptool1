@@ -262,7 +262,7 @@ d) Präsentation, die auf Folien die Möglichkeiten von CrypTool
 Die folgenden Programme können aus CrypTool heraus, aber auch stand-alone
 aufgerufen werden:
 
-a) Das Programm AES-Tool v 2.6 (entstanden im CrypTool-Projekt):
+a) Das Programm AES-Tool v 2.6xxx (entstanden im CrypTool-Projekt):
    Zum Erstellen selbst-entpackender Executables ist in CrypTool ein
    Programm integriert, das auch eigenständig benutzt werden kann.
    AES-Tool verschlüsselt mit einem Session-Key den Inhalt einer beliebigen
@@ -272,7 +272,7 @@ a) Das Programm AES-Tool v 2.6 (entstanden im CrypTool-Projekt):
    Bei der CrypTool-Installation wird diesem Programm die Dateiendung "AES"
    zugeordnet.
 
-b) Das Lernspiel "Der Zahlenhai" v 1.2.1 (entstanden im CrypTool-Projekt):
+b) Das Lernspiel "Der Zahlenhai" v 1.2.1xxx (entstanden im CrypTool-Projekt):
    Dieses Lernspiel bringt Schülern den Umgang mit Teilern und Primfaktoren
    näher.
 
@@ -1018,7 +1018,8 @@ c) Neue Funktionalität / Bedienung:
 
 - Im Tutorial zu XOR und Psion in der Präsentation gab es bisher nur eine
   verschlüsselte Datei (erstellt aus einem deutschen Klartext). Nun gibt es
-  auch eine Datei mit einem verschlüsselten englischen Klartext: psion-en-enc.hex
+  auch eine Datei mit einem verschlüsselten englischen Klartext:
+  psion-en-enc.hex
 
 
 - Bei allen DES-basierten Verfahren wird nun sowohl die effektiv genutzte als
@@ -1125,7 +1126,7 @@ c) Neue Funktionalität / Bedienung:
 
   Der Textoptionen-Button ist absichtlich nicht verfügbar in den Schlüssel-
   eingabe-Dialogen der folgenden Verschlüsselungsverfahren:
-  - Substitutions-Teil von ADFGVX (der Algorithmus erfordert ein festes Alphabet)
+  - Substitutions-Teil von ADFGVX (Algorithmus erfordert ein festes Alphabet)
   - Playfair (der Algorithmus legt über die Matrix auch das Alphabet fest)
   - Permutation (alle Daten werden permutiert; wenn gewünscht, kann das Dokument
                  von Ihnen selbst vorab vorformatiert werden -- mit dem Menü
@@ -1194,7 +1195,7 @@ Die Version 1.4.31 wurde zeitgleich in Deutsch und Englisch released.
 a) Entwickler-relevante Änderungen (eher Programm-technisch):
 
 - Update der Bibliotheken und der genutzten Fremdsoftware auf ff. Versionen:
-  - Scintilla 3.2.1
+  - Scintilla 1.7.7  -->  3.0.2   ????????xxx
   - compilerabhängig: cv act library 1.4.6 mit VS2008, 1.4.18 mit VS2010
   - OpenSSL 1.0.1
   - MPIR 1.3.1 (hergeleitet aus GMP-Version 4.2.1) statt GMP 4.1   ??????
@@ -1211,8 +1212,10 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
 - Online-Hilfe: aktualisiert an einigen Stellen
 
 - CrypTool-Skript: - Einige Korrekturen und Ergänzungen,
-                   - Aufnahme einiger weiterer Sage-Programmbeispiele, xxx
-                   - In den Fußnoten nun auch die Menüpfade in CT2 ergänzt.
+                   - Aufnahme weiterer Sage-Programmbeispiele (zu
+                     Primitivwurzeln und RSA-Fixpunkten)
+                   - Anhänge zu den Funktionsübersichten auch für CT2 und JCT.
+                     In den Fußnoten nun auch die Menüpfade zu CT2 und JCT.
 
 - Aktualisierte und auf über 110 xxxxxxxxxx Seiten erweiterte Präsentation.
   Splitted xxxxxxxxxxxxxx
@@ -1238,11 +1241,13 @@ c) Neue Funktionalität / Bedienung / Fehlerkorrekturen:
   Strg-V korrekt; per Kontextmenu -> Paste aber nicht. Nun tut beides korrekt. 
 - Bei SHA256 / SHA512 wurde bisher die falsche Funktion aufgerufen.
   Dies betraf auch den Dialog "Generieren von HMACs".
-- Der Aufruf von bc von innerhalb der Zahlentheorie-Tutorials funktioniert
+- Der Aufruf von bc innerhalb der Zahlentheorie-Tutorials funktioniert
   nun auch unter Win7.
 
 - Textfenster haben nun einen Kontextmenu-Eintrag, um zur Hexanzeige
   umzuschalten, und umgekehrt.
+- Viele kleine Verbesserungen im Dialogfenstern (z.B. "Angriff auf stereotype
+  Nachrichten"). 
 - Transpositions-Verschlüsselung: Der Schlüsseleingabe-Dialog hat nun auch den
   Button "Textoptionen".
 - Monoalphabetische Verschlüsselung: Hier gibt es nun im Schlüsseleingabe-
@@ -1259,13 +1264,16 @@ c) Neue Funktionalität / Bedienung / Fehlerkorrekturen:
   aufstellung mit aufgenommen werden (Groß-Kleinschreibung und Sonderzeichen
   sind beim ADFGVX-Verfahren ausgeschlossen). Der Einleitungstext der Analyse
   wurde an das aktuelle Verhalten angepasst.
-- AES-Tool 2.6:
+- Zahlenhai: Einige Funktionen nun nicht nur über Tastenkombinationen sondern
+  auch über Buttons erreichbar.
+- AES-Tool 2.6.x:
   - Fehler behoben, der beim Eingeben von zu langen hexadezimalen Schlüsseln
     auftrat.
   - Erlaubt nun die Schlüsseleingabe als normalen ASCII-String und
     das sichere Löschen der Originaldatei nach dem Verschlüsseln.
 
-- xxxxBugfixes  --> Danke an die vielen aufmerksamen Benutzer!
+- Danke an die vielen aufmerksamen Benutzer, die uns auf die Bugs aufmerksam
+  machten.
 
 
 
@@ -1727,7 +1735,7 @@ b) Will der Benutzer in Mehrbenutzersystemen wie Windows 7 aus CrypTool
 
 5. Liste der Dateien in der Auslieferung
    -------------------------------------
-CrypTool wird als komprimiertes, selbstextrahierendes Archiv in
+CrypTool wird als komprimiertes, selbstextrahierendes Archiv in derzeit
 fünf (xxxx) verschiedenen Sprachversionen verteilt: Deutsch, Englisch,
 Polnisch, Serbisch und Spanisch.
 
@@ -1888,8 +1896,8 @@ words\cracklib-words        // Für Tests auf Passwortmuster
       VigenereAnalysisSchroedelDictionary.txt   // Für die Vigenère-Analyse
       VigenereAnalysisSchroedelDigrams.txt      // (nach Schrödel)
       VigenereAnalysisSchroedelTrigrams.txt     // Sprachabhängig
-      substitution-de.txt   // Für Variante 2 der mono-alphabetischen
-      substitution-de.txt   // Substitutionsanalyse
+      SubstitutionAnalysisMethod2-de.txt   // Für Variante 2 der mono-alphabe-
+      SubstitutionAnalysisMethod2-en.txt   // tischen Substitutionsanalyse
 
 
 sage\ ........... Dieses Verzeichnis enthält die Beispiel-Berechnungen
@@ -2162,7 +2170,7 @@ Version                  Deutsch    Englisch      Bedarf DE      durch
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.30    Aug. 2010      52,1 MB     51,5 MB         95 MB        DB
-1.4.31    Sep. 2012      52.4 MB     51.8 MB        100 MB        DBxxxxxxxxxx
+1.4.31    Sep. 2012      52.4 MB     51.8 MB        100 MB        CTxxxxxxxxxx
 
 Bemerkungen zu den Versionen:
 1.3.02   Viele neue Funktionen gegenüber 1.3.00.
@@ -2196,7 +2204,7 @@ Bemerkungen zu den Versionen:
          PL: 100.0 MB
          RS:  93.7 MB  xxxxxxxxx
          SP:  94.4 MB
-1.4.31-Beta04  Juli 2012  Erste öffentliche Beta von Version 1.4.31.
+1.4.31-Beta05  Juli 2012  Erste öffentliche Beta von Version 1.4.31.
 1.4.31   Viele Bugfixes und ein wenig erweiterter Funktionsumfang i.Vgl. zu v1.4.30.
 
 

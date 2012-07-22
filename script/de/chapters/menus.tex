@@ -2,34 +2,37 @@
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
-\enlargethispage{1cm}
-\hypertarget{appendix-menutree}{}
-\section{CrypTool-Menübaum}
-\label{s:appendix-menutree}
+%\enlargethispage{1cm}
+\hypertarget{appendix-menu-overview-CT1}{}
+\section{CrypTool-1-Menübaum}
+\label{s:appendix-menu-overview-CT1}
 
    % Eyecatcher_Neue-CrypTool-Version
 Dieser Anhang enthält auf der folgenden Seite den kompletten Menübaum der
 CrypTool\index{CrypTool}-Version 1.4.31\footnote{%
-  Parallel zu CrypTool 1.x (CT1)\index{CrypTool 1.x} werden im CrypTool-Projekt
-  momentan auch die Zukunftsversionen CrypTool 2 (CT2)\index{CrypTool 2.0} und
-  JCrypTool (JCT)\index{JCrypTool 1.0} entwickelt:\\
-  - Webseite CT2: \url{http://www.cryptool2.vs.uni-due.de} \\
-  - Webseite JCT: \url{http://jcryptool.sourceforge.net} \\
-  Diese Zukunftsversionen sind zur Zeit (Dezember 2009) noch Betaversionen;
-  sie sind aber schon stabil genug, um von Endbenutzern genutzt werden
-  zu können.
+  Während sich seit 2010 Änderungen an der langjährig stabilen Version
+  CrypTool 1.x (CT1)\index{CrypTool 1.x} vor allem auf Bugfixes beschränkten,
+  fließen alle Neuerungen in die beiden Nachfolgeversionen CrypTool 2
+  (CT2)\index{CrypTool 2.0} und JCrypTool (JCT)\index{JCrypTool}
+  ein:\\
+  - Webseite CT2: \url{http://www.cryptool.org/de/ct2-documentation-de} \\
+  - Webseite JCT: \url{http://www.cryptool.org/de/jct-machmit-de} \\
+  Diese Nachfolgeversionen sind zur Zeit (Juli 2012) noch Betaversionen;
+  sie stehen aber kurz vor ihrem jeweiligen ersten Release und sind schon
+  jetzt stabil genug, um von Endbenutzern genutzt werden zu können.
 }.
 
-\noindent Das Haupt-Menü von CT1 enthält die Service-Funktionen in den Menüs
+\noindent Das Haupt-Menü von CT1 enthält die generellen Service-Funktionen
+in den sechs Haupt-Menü-Einträgen
 \begin{itemize}
    \item Datei
    \item Bearbeiten
    \item Ansicht
    \item Optionen
    \item Fenster
-   \item Hilfe
+   \item Hilfe,
 \end{itemize}
-und die eigentlichen Krypto-Funktionen in den Menüs
+und die eigentlichen Krypto-Funktionen in den vier Haupt-Menü-Einträgen
 \begin{itemize}
    \item Ver-/Entschlüsseln
    \item Digitale Signaturen/PKI
@@ -37,13 +40,11 @@ und die eigentlichen Krypto-Funktionen in den Menüs
    \item Analyse.
 \end{itemize}
 
-Unter \verb#Einzelverfahren# finden sich auch die Visualisierungen von Einzelalgorithmen
-und von Protokollen. Manche Verfahren sind sowohl als schnelle Durchführung
-(meist unter dem Menü \verb#Ver-/Entschlüsseln#) als auch als
+Unter \verb#Einzelverfahren# finden sich auch die Visualisierungen von Einzelalgorithmen und von Protokollen. Manche Verfahren sind sowohl als schnelle Durchführung (meist unter dem Menü \verb#Ver-/Entschlüsseln#) als auch als
 Schritt-für-Schritt-Visualisierung implementiert.
 
-Welche Menüeinträge gerade aktiv (also nicht ausgegraut) sind, wird durch
-den Typ des aktiven Dokumentfensters bestimmt:
+Welche Menüeinträge in CrypTool 1 gerade aktiv (also nicht ausgegraut) sind,
+wird durch den Typ des aktiven Dokumentfensters bestimmt:
 So ist z.~B. die Brute-Force-Analyse\index{Angriff!Brute-Force} für DES 
 nur verfügbar, wenn das aktive Fenster in Hexadezi"-mal-Darstellung 
 geöffnet ist, während der Menüeintrag "`Zufallsdaten erzeugen\dots"'
@@ -71,23 +72,129 @@ immer verfügbar ist (auch wenn kein Dokument geöffnet ist).
                 {figures/CT1-menutree-de}
 %viewport=rand-links? rand-unten breite hoehe [bezogen auf querformat]
 %}
+\hypertarget{menu-overview-CT1}{}
 \caption{Komplette Übersicht über den Menü-Baum von CT1 (CrypTool 1.4.31)} 
-\label{menuoverview}
+\label{menu-overview-CT1}
 \end{center}
 \end{figure}
 \clearpage
 
 
-\noindent Text zu CT2 xxxxxxxxxx DRAFT
+
+
+\newpage
+%\enlargethispage{1cm}
+\hypertarget{appendix-template-overview-CT2}{}
+\section{CrypTool-2-Vorlagen}
+\label{s:appendix-template-overview-CT2}
+
+\noindent Dieser Anhang enthält auf den folgenden Seiten den Baum
+mit allen Vorlagen in CrypTool 2\index{CrypTool 2}.\footnote{%
+  Weitere Informationen zu CT2 finden Sie auf:
+  \url{http://www.cryptool.org/de/ct2-documentation-de}
+}
+
+\noindent Beim Start von CT2 öffnet sich das Startcenter.
+
+%\clearpage
+\begin{figure}[hb]
+\begin{center}
+%\vspace{-30pt}
+\includegraphics[scale=0.45, angle=0] {figures/CT2-Startcenter-de}
+\hypertarget{Welcome-CT2}{}
+\caption{Startcenter in CT2 (Beta 8b, Mai 2012)} 
+\label{Welcome-Screenshot-CT2}
+\end{center}
+\end{figure}
+%\clearpage
+
+\noindent Darin hat man die Auswahl, die Funktionalität auf drei verschiedenen Wegen aufzurufen:
+\begin{itemize}
+   \item den Wizard: Er leitet einen geführt zu den Funktionen.
+   \item die Arbeitsfläche, auf der man die Komponenten anhand der visuellen Programmierung\index{Visuelle Programmierung} selbst zusammenstellen kann.
+   \item den Vorlagen-Baum, aus dem man fertige Workflows auswählen kann.
+ \end{itemize}
+
+Der Wizard stellt Fragen zu dem gewünschten Szenario (z.B. Base64-Codierung) und führt einen dann zu den Funktionen. Das gewählte Szeanrio mit den eigenen Eingaben kann man anschließend auch als Vorlage abspeichern.
+
+Auf die leere Arbeitsfläche kann man aus der linken Navigationsleiste alle Komponenten ziehen und diese dann wie gewünscht miteinander verbinden. Die implementierte Krypto-Funktionalität steckt vor allem in diesen Komponenten (z.B. Enigma, AES).
+
+Im Vorlagen-Baum gibt es zu jeder Komponente mindestens eine Vorlage. Die angebotenen Vorlagen enthalten sofort lauffähige komplette Workflows. Wenn man z.B. in der Vorlage zu AES seine Eingaben ändert, sieht man dynamisch und sofort, wie sich Ausgaben entsprechend ändern (wie z.B. durch Padding ein Block hinzukommt, wie sich das Chaining auswirkt, ...).
 
 \clearpage
 \begin{figure}[hb]
 \begin{center}
 \vspace{-30pt}
 \includegraphics[scale=0.8, angle=270]
-                {figures/CT2-templatetree-de}
-\caption{Übersicht über den Template-Baum von CT2 (NB4882.1, Juli 2012), Teil 1} 
-\label{menuoverview}
+                {figures/CT2-templatetree-de-1}
+\hypertarget{template-overview-CT2}{}
+\caption{Screenshot über den Template-Baum von CT2 (NB4882.1, Juli 2012), Teil 1} 
+\label{template-overview-CT2}
+% \hypertarget{template-overview-CT2}{}
+\end{center}
+\end{figure}
+\clearpage
+
+
+
+
+\newpage
+%\enlargethispage{1cm}
+\hypertarget{appendix-function-overview-JCT}{}
+\section{JCrypTool-Funktionen}
+\label{s:appendix-function-overview-JCT}
+
+\noindent Dieser Anhang enthält auf den folgenden Seiten eine Liste aller
+Funktionen in JCrypTool\index{JCrypTool}.\footnote{%
+  Weitere Informationen zu JCT finden Sie auf:
+  \url{http://www.cryptool.org/de/jct-machmit-de} \\
+  Die Liste wurde mit Hilfe der CT-Portal-Webseite gewonnen.}
+
+\noindent Beim ersten Start von JCT öffnet sich das Willkommen-Fenster.
+
+%\clearpage
+\begin{figure}[hb]
+\begin{center}
+%\vspace{-30pt}
+\includegraphics[scale=0.45, angle=0] {figures/JCT-Welcome-DE}
+\hypertarget{welcome-JCT}{}
+\caption{Willkommen-Fenster in JCT (RC6, Juli 2012)} 
+\label{Welcome-Screenshot-JCT}
+\end{center}
+\end{figure}
+%\clearpage
+Mit Klick auf ``Start'' kann man die verschiedenen Funktionen direkt nutzen.
+Die in JCT implementierten Funktionen werden über zwei unterschiedliche Perspektiven angeboten:
+\begin{itemize}
+   \item Standard-Perspektive
+   \item Funktional-Perspektive
+ \end{itemize}
+
+Alle Funktionen in der {\bf Standard-Perspektive} finden sich sowohl in den Menüs als
+auch in der ``Krypto-Explorer'' genannten Navigationsleiste (rechts). Die Standard-Perspektive enthält alle wichtigen Verfahren (wie z.B. die klassische Transposition oder der moderne AES)  und viele Visualisierungen (z.B. Diffie-Hellman-Schlüsselaustausch oder Berechnungen auf Elliptischen Kurven).
+
+Alle Funktionen der {\bf Funktional-Perspektive} finden sich in der ``Algorithmen'' genannten Navigationsleiste (in dieser Perspektive ebenfalls rechts). Die Funktional-Perspektive enthält alle Detaileinstellungen der verschiedenen Algorithmen und bietet insbesondere auch Algorithmen aus dem Bereich des Post-Quantum-Computings\index{Post-Quantum-Computing} an.
+
+\clearpage
+\begin{figure}[hb]
+\begin{center}
+\vspace{-30pt}
+\includegraphics[scale=0.8, angle=0] {figures/JCT-functions-de-1}
+\hypertarget{template-overview-CT2}{}
+\caption{Screenshot zu den Funktionen in JCT (RC6, Juli 2012), Teil 1} 
+\label{functions-overview-1-JCT}
+\end{center}
+\end{figure}
+\clearpage
+
+\clearpage
+\begin{figure}[hb]
+\begin{center}
+\vspace{-30pt}
+\includegraphics[scale=0.8, angle=0] {figures/JCT-functions-de-2}
+\hypertarget{template-overview-CT2}{}
+\caption{Screenshot zu den Funktionen in JCT (RC6, Juli 2012), Teil 2} 
+\label{functions-overview-2-JCT}
 \end{center}
 \end{figure}
 \clearpage
