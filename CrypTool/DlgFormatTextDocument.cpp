@@ -61,7 +61,6 @@ CString CDlgFormatTextDocument::format(CString fileName)
 
 	// try to open the desired file
 	if(!infile.Open(fileName, CFile::modeRead)) {
-		infile.Close();
 		result = "";
 		return result;
 	}

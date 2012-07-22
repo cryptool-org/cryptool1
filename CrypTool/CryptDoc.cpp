@@ -732,7 +732,14 @@ BOOL CCryptDoc::UpdateContent( void )
 
 		CAppDocument::OnSaveDocument(ContentName);
 
-	    if(oldname[0]) SetPathName(oldname,FALSE);
+		if(oldname[0]) {
+			SetPathName(oldname,FALSE);
+		}
+		else {
+			SetPathName(ContentName, FALSE);
+		}
+
+
 		SetTitle(title);
 		SetModifiedFlag(TRUE);
 
@@ -1897,7 +1904,15 @@ void CCryptDoc::OnFormatTextDocument()
 	if(dlg.DoModal() == IDOK) {
 		// format the contents of the current document as desired 
 		// and display the result in a new document
-		CString newDocumentText = dlg.format(GetPathName());
+		CString completePath = GetPathName();
+		// if there is no path name, we need to implicitly create it
+		if(completePath.IsEmpty()) {
+			SetModifiedFlag(true);
+			UpdateContent();
+			completePath = GetPathName();
+		}
+		// format the document (stored in completePath)
+		CString newDocumentText = dlg.format(completePath);
 		GetTmpName(ContentName, "cry", ".org");
 		CFile outfile(ContentName, CFile::modeCreate|CFile::modeWrite);
 		outfile.Write(newDocumentText.GetBuffer(), newDocumentText.GetLength());
