@@ -588,6 +588,8 @@ BEGIN
     IDS_HEADING_SEQUENCE    "Sekwencja"
     IDS_ACC_TAB             "[i18n] TAB: Selects the next shell within the shown number block (of one tab)."
     IDS_ACC_ENTER_OR_SPACE  "[i18n] ENTER / SPACE: Choose the number of the selected shell via keyboard."
+    IDS_TOOLTIP_BUTTON_LOADGAME "[i18n] Loads an existing game."
+    IDS_TOOLTIP_BUTTON_SAVEGAME "[i18n] Saves the current game."
 END
 
 #endif    // Polish resources
@@ -1134,6 +1136,8 @@ BEGIN
     IDS_HEADING_SEQUENCE    "[i18n] Sequence"
     IDS_ACC_TAB             "[i18n] TAB: Selects the next shell within the shown number block (of one tab)."
     IDS_ACC_ENTER_OR_SPACE  "[i18n] ENTER / SPACE: Choose the number of the selected shell via keyboard."
+    IDS_TOOLTIP_BUTTON_LOADGAME "[i18n] Loads an existing game."
+    IDS_TOOLTIP_BUTTON_SAVEGAME "[i18n] Saves the current game."
 END
 
 #endif    // Serbian (Latin) resources
@@ -1680,6 +1684,8 @@ BEGIN
     IDS_HEADING_SEQUENCE    "Sequenz"
     IDS_ACC_TAB             "TAB: Auswahl der Muschel im angezeigten Zahlenblock (eines Reiters).\r\n\r\n"
     IDS_ACC_ENTER_OR_SPACE  "ENTER / LEERTASTE: Auswahl der Zahl der selektierten Muschel per Tastatur.\r\n\r\n"
+    IDS_TOOLTIP_BUTTON_LOADGAME "Lädt ein vorhandenes Spiel."
+    IDS_TOOLTIP_BUTTON_SAVEGAME "Speichert das aktuelle Spiel."
 END
 
 #endif    // German (Germany) resources
@@ -2226,6 +2232,8 @@ BEGIN
     IDS_HEADING_SEQUENCE    "Sequence"
     IDS_ACC_TAB             "TAB: Selects the next shell within the shown number block (of one tab).\r\n\r\n"
     IDS_ACC_ENTER_OR_SPACE  "ENTER / SPACE: Choose the number of the selected shell via keyboard.\r\n\r\n"
+    IDS_TOOLTIP_BUTTON_LOADGAME "Loads an existing game."
+    IDS_TOOLTIP_BUTTON_SAVEGAME "Saves the current game."
 END
 
 #endif    // English (U.K.) resources
@@ -2772,6 +2780,8 @@ BEGIN
     IDS_HEADING_SEQUENCE    "Secuencia"
     IDS_ACC_TAB             "[i18n] TAB: Selects the next shell within the shown number block (of one tab)."
     IDS_ACC_ENTER_OR_SPACE  "[i18n] ENTER / SPACE: Choose the number of the selected shell via keyboard."
+    IDS_TOOLTIP_BUTTON_LOADGAME "[i18n] Loads an existing game."
+    IDS_TOOLTIP_BUTTON_SAVEGAME "[i18n] Saves the current game."
 END
 
 #endif    // Spanish resources

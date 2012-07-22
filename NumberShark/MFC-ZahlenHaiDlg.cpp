@@ -867,7 +867,11 @@ void CMFCZahlenHaiDlg::updateToolTips()
 	TipText.LoadString(IDS_TOOL_TIP_UNDO);
 	toolTip.AddTool(GetDlgItem(IDC_BUTTON_UNDO), TipText);
 	TipText.LoadString(IDS_TOOL_TIP_REDO);
-	toolTip.AddTool(GetDlgItem(IDC_BUTTON_REDO),TipText);
+	toolTip.AddTool(GetDlgItem(IDC_BUTTON_REDO), TipText);
+	TipText.LoadString(IDS_TOOLTIP_BUTTON_LOADGAME);
+	toolTip.AddTool(GetDlgItem(IDC_BUTTON_LOAD), TipText);
+	TipText.LoadString(IDS_TOOLTIP_BUTTON_SAVEGAME);
+	toolTip.AddTool(GetDlgItem(IDC_BUTTON_SAVE), TipText);
 	  
 	toolTip.Activate(true);
 
@@ -2118,15 +2122,17 @@ void CMFCZahlenHaiDlg::readSaveGame()
 	filename.LoadString(IDS_NUMBER_SHARK);
 	filename+=".save";
 
-	CString loadFailure="";
-	loadFailure.Format(IDS_LOAD_FAILED,filename);
-
-	CString loadsave="";
-	int openstatus;
-	openstatus = saveGame.Open(filename,CFile::modeRead);
-	if(openstatus==0)
+	
+	int openstatus = saveGame.Open(filename, CFile::modeRead);
+	if(openstatus == 0) {
+		// display an error message to the user
+		CString loadFailure;
+		loadFailure.Format(IDS_LOAD_FAILED, filename);
+		AfxMessageBox(loadFailure, MB_ICONWARNING);
 		return;
-    
+	}
+  
+	CString loadsave;
 	saveGame.ReadString(loadsave);
 	saveGame.Close();
 
@@ -2152,7 +2158,9 @@ void CMFCZahlenHaiDlg::readSaveGame()
 		{
 			stopLoading=true;	
 			delete []nmbArray;
-			MessageBox(loadFailure,"", MB_OK);
+			CString loadFailure;
+			loadFailure.Format(IDS_LOAD_FAILED, filename);
+			AfxMessageBox(loadFailure, MB_ICONWARNING);
 			return;
 		}
 		if(i<initNumber)
@@ -2163,7 +2171,9 @@ void CMFCZahlenHaiDlg::readSaveGame()
 		{
 			stopLoading=true;
 			delete []nmbArray;
-			MessageBox(loadFailure,"", MB_OK);
+			CString loadFailure;
+			loadFailure.Format(IDS_LOAD_FAILED, filename);
+			AfxMessageBox(loadFailure, MB_ICONWARNING);
 			return;
 		}
 		

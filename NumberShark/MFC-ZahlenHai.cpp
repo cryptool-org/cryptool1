@@ -100,14 +100,17 @@ BOOL CMFCZahlenHaiApp::ProcessMessageFilter(int code, LPMSG lpMsg)
 	if(accelerator) {
 		if (::TranslateAccelerator(m_pMainWnd->m_hWnd, accelerator, lpMsg)) {
 			if(lpMsg->message == 260) {
+				// SHIFT+ALT+C
 				if(lpMsg->wParam == 67) {
 					dlg->OnBnClickedButtonSwitchStyle();
 					return(TRUE);
 				}
+				// SHIFT+ALT+L
 				if(lpMsg->wParam == 76) {
 					dlg->OnBnClickedButtonLoad();
 					return(TRUE);
 				}
+				// SHIFT+ALT+S
 				if(lpMsg->wParam == 83) {
 					dlg->OnBnClickedButtonSave();
 					return(TRUE);
