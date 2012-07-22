@@ -135,11 +135,13 @@ void CDlgMonSubst::ComputeSubstKeyMapping()
 	//  (C) fixed key (atbash)
 
 	// some init stuff (get the key, get the alphabet)
-	CString key = m_stringKey;
-	int offset = m_intKeyOffset;
-	CString newKey;
-	CString alphabet = theApp.TextOptions.getAlphabet();
-	CString mappedKey;
+	const CString alphabet = theApp.TextOptions.getAlphabet();
+	const int alphabetLength = alphabet.GetLength();
+	const CString key = m_stringKey;
+	const int offset = m_intKeyOffset % alphabet.GetLength();
+	CString insertedKey;
+	char *mappedKey = new char[alphabetLength + 1];
+	memset(mappedKey, 0, alphabetLength + 1);
 
 	// variants (A) and (B) are similar in that they both work with a variable alphabet
 	if(m_RadioChooseKeyVariant == 0 || m_RadioChooseKeyVariant == 1) {
@@ -153,15 +155,15 @@ void CDlgMonSubst::ComputeSubstKeyMapping()
 				char keyUpper = tempKey.MakeUpper()[i];
 				char keyLower = tempKey.MakeLower()[i];
 				// is only the upper case equivalent part of the alphabet?
-				if(alphabet.Find(keyUpper) != -1 && newKey.Find(keyUpper) == -1)
-					newKey.AppendChar(keyUpper);
+				if(alphabet.Find(keyUpper) != -1 && insertedKey.Find(keyUpper) == -1)
+					insertedKey.AppendChar(keyUpper);
 				// is only the lower case equivalent part of the alphabet?
-				if(alphabet.Find(keyLower) != -1 && newKey.Find(keyLower) == -1)
-					newKey.AppendChar(keyLower);
+				if(alphabet.Find(keyLower) != -1 && insertedKey.Find(keyLower) == -1)
+					insertedKey.AppendChar(keyLower);
 			}
 			else {
-				if(newKey.Find(key[i]) == -1)
-					newKey.AppendChar(key[i]);
+				if(insertedKey.Find(key[i]) == -1)
+					insertedKey.AppendChar(key[i]);
 			}
 		}
 
@@ -170,67 +172,69 @@ void CDlgMonSubst::ComputeSubstKeyMapping()
 		// offset that inserts the actual key at a to-be-specified position, all the 
 		// remaining characters are positioned around the key
 
-		// we don't want mysterious results due to wrong input
-		offset = offset % alphabet.GetLength();
-		if(offset > alphabet.GetLength() - newKey.GetLength())
-			offset = alphabet.GetLength() - newKey.GetLength();
-		
+		CString remainingAlphabet;
+
 		// ASCENDING ORDER
 		if(m_RadioChooseKeyVariant == 0) {
 			CString alphabetAscending;
-			for(int i=0; i<alphabet.GetLength(); i++) {
-				if(newKey.Find(alphabet[i]) == -1) {
+			for(int i=0; i<alphabetLength; i++) {
+				if(insertedKey.Find(alphabet[i]) == -1) {
 					alphabetAscending.AppendChar(alphabet[i]);
 				}
 			}
-			for(int i=0; i<alphabet.GetLength(); i++) {
-				if(i >= offset && i < offset+newKey.GetLength()) {
-					mappedKey.AppendChar(newKey[i - offset]);
-				}
-				else {
-					mappedKey.AppendChar(alphabetAscending[0]);
-					alphabetAscending.Delete(0, 1);
-				}
-			}
+			// set the remaining alphabet
+			remainingAlphabet = alphabetAscending;
 		}
 
 		// DESCENDING ORDER
 		if(m_RadioChooseKeyVariant == 1) {
 			CString alphabetDescending;
-			for(int i=0; i<alphabet.GetLength(); i++) {
-				if(newKey.Find(alphabet[alphabet.GetLength()-1-i]) == -1) {
-					alphabetDescending.AppendChar(alphabet[alphabet.GetLength()-1-i]);
+			for(int i=0; i<alphabetLength; i++) {
+				if(insertedKey.Find(alphabet[alphabetLength-1-i]) == -1) {
+					alphabetDescending.AppendChar(alphabet[alphabetLength-1-i]);
 				}
 			}
-			for(int i=0; i<alphabet.GetLength(); i++) {
-				if(i >= offset && i < offset+newKey.GetLength()) {
-					mappedKey.AppendChar(newKey[i - offset]);
-				}
-				else {
-					mappedKey.AppendChar(alphabetDescending[0]);
-					alphabetDescending.Delete(0, 1);
-				}
+			// set the remaining alphabet
+			remainingAlphabet = alphabetDescending;
+		}
+
+		// insert the key into the mapped key
+		for(int i=0; i<insertedKey.GetLength(); i++) {
+			mappedKey[(offset + i) % alphabetLength] = insertedKey[i];
+		}
+
+		// fill the open positions with the remaining alphabet characters
+		for(int i=0; i<alphabetLength; i++) {
+			if(mappedKey[i] == 0) {
+				mappedKey[i] = remainingAlphabet[0];
+				remainingAlphabet.Delete(0, 1);
 			}
 		}
 
+		// assign the new values
+		m_stringFrom = alphabet;
+		m_stringTo = mappedKey;
+		m_stringKey = insertedKey;
 		// user may change the key here
 		m_CtrlKey.SetReadOnly(0);
 	}
 
 	// variant (C) uses a fixed key
 	else {
-		newKey = alphabet;
-		newKey.MakeReverse();
-		mappedKey = newKey;
+		// simply reverse the alphabet
+		insertedKey = alphabet;
+		insertedKey.MakeReverse();
+		// assign the new values
+		m_stringFrom = alphabet;
+		m_stringTo = insertedKey.MakeReverse();
+		m_stringKey = insertedKey;
+		m_intKeyOffset = 0;
 		// user may NOT change the key here
 		m_CtrlKey.SetReadOnly(1);	
 	}
 
-	// at this point we should have it already...
-	m_stringFrom = alphabet;
-	m_stringTo = mappedKey;
-	m_stringKey = newKey;
-	m_intKeyOffset = offset;
+	// free some memory
+	delete []mappedKey;
 	
 	UpdateData(false);
 
