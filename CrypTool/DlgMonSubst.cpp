@@ -61,7 +61,7 @@ void CDlgMonSubst::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_TO, m_stringTo);
 	DDX_Text(pDX, IDC_FROM, m_stringFrom);
 	DDX_Text(pDX, IDC_KEY, m_stringKey);
-	DDX_Text(pDX, IDC_KEY_OFFSET, m_intKeyOffset);
+	DDX_Text(pDX, IDC_KEY_OFFSET, m_stringKeyOffset);
 	DDX_Radio(pDX, IDC_RADIO1, m_RadioChooseKeyVariant);
 	//}}AFX_DATA_MAP
 }
@@ -70,7 +70,7 @@ void CDlgMonSubst::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CDlgMonSubst, CDialog)
 	//{{AFX_MSG_MAP(CDlgMonSubst)
 	ON_EN_CHANGE(IDC_KEY, ComputeSubstKeyMapping)
-	ON_EN_CHANGE(IDC_KEY_OFFSET, ComputeSubstKeyMapping)
+	ON_EN_CHANGE(IDC_KEY_OFFSET, OnChangedKeyOffset)
 	ON_BN_CLICKED(IDC_PASTE_KEY, OnPasteKey)
 	ON_BN_CLICKED(ID_ENCRYPT, OnEncrypt)
 	ON_BN_CLICKED(ID_DECRYPT, OnDecrypt)	
@@ -107,7 +107,7 @@ BOOL CDlgMonSubst::OnInitDialog()
 	m_CtrlFrom.SetWindowText("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 	m_CtrlTo.SetWindowText  ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 	m_CtrlKey.SetWindowText("");
-	m_intKeyOffset = 0;
+	m_stringKeyOffset = "0";
 	
 	// update the alphabet heading (in particular the size of the alphabet)
 	int alphabetSize = theApp.TextOptions.getAlphabet().GetLength();
@@ -138,7 +138,7 @@ void CDlgMonSubst::ComputeSubstKeyMapping()
 	const CString alphabet = theApp.TextOptions.getAlphabet();
 	const int alphabetLength = alphabet.GetLength();
 	const CString key = m_stringKey;
-	const int offset = m_intKeyOffset % alphabet.GetLength();
+	const int offset = atoi(m_stringKeyOffset) % alphabet.GetLength();
 	CString insertedKey;
 	char *mappedKey = new char[alphabetLength + 1];
 	memset(mappedKey, 0, alphabetLength + 1);
@@ -228,7 +228,7 @@ void CDlgMonSubst::ComputeSubstKeyMapping()
 		m_stringFrom = alphabet;
 		m_stringTo = insertedKey.MakeReverse();
 		m_stringKey = insertedKey;
-		m_intKeyOffset = 0;
+		m_stringKeyOffset = "0";
 		// user may NOT change the key here
 		m_CtrlKey.SetReadOnly(1);	
 	}
@@ -337,7 +337,7 @@ void CDlgMonSubst::OnBnClickedRadioAtbash()
 	m_stringFrom = alphabet;
 	m_stringTo = alphabet.MakeReverse();
 	m_stringKey = m_stringTo;
-	m_intKeyOffset = 0;
+	m_stringKeyOffset = "0";
 
 	m_CtrlKey.SetReadOnly(1);
 	m_CtrlKeyOffset.SetReadOnly(1);
@@ -377,4 +377,38 @@ void CDlgMonSubst::OnBnClickedButtonTextoptions()
 	ComputeSubstKeyMapping();
 
 	UpdateData(false);
+}
+
+void CDlgMonSubst::OnChangedKeyOffset() {
+	UpdateData(true);
+	
+	// get the current selection
+	int selectionStart;
+	int selectionEnd;
+	m_CtrlKeyOffset.GetSel(selectionStart, selectionEnd);
+	
+	// remove all non-digits
+	CString stringKeyOffsetValid;
+	for(int i=0; i<m_stringKeyOffset.GetLength(); i++) {
+		char character = m_stringKeyOffset[i];
+		if(isdigit(character)) {
+			stringKeyOffsetValid.AppendChar(character);
+		}
+	}
+	m_stringKeyOffset = stringKeyOffsetValid;
+	// erase leading zeros
+	while(m_stringKeyOffset.Find('0') == 0)
+		m_stringKeyOffset.Delete(0, 1);
+	// prevent invalid offset through empty strings
+	if(m_stringKeyOffset.IsEmpty())
+		m_stringKeyOffset = "0";
+	
+	UpdateData(false);
+
+	// don't forget to update the key mapping
+	ComputeSubstKeyMapping();
+
+	// and reset the selection
+	if(m_stringKeyOffset == "0") m_CtrlKeyOffset.SetSel(0, 1);
+	else m_CtrlKeyOffset.SetSel(selectionEnd, selectionEnd);
 }

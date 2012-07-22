@@ -58,7 +58,7 @@ public:
 	CString m_stringTo;
 	CString m_stringFrom;
 	CString m_stringKey;
-	int m_intKeyOffset;
+	CString m_stringKeyOffset;
 	int m_RadioChooseKeyVariant;
 	//}}AFX_DATA
 
@@ -84,6 +84,7 @@ protected:
 	afx_msg void OnBnClickedRadioAtbash();
 	afx_msg void OnBnClickedRadioSubstFillDescendingOrder();
 	afx_msg void OnBnClickedButtonTextoptions();
+	afx_msg void OnChangedKeyOffset();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 	
