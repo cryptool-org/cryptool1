@@ -671,9 +671,9 @@ The general properties and functions of CrypTool 1 are:
              14 .pl files
            1146 .html files
              44 .txt files
-             39 .tex files
+             41 .tex files
               4 .sage files
-          2,027 TOTAL
+          2,029 TOTAL
 
 
     LINES OF CODE (LoC) SUMMARY
@@ -688,7 +688,8 @@ The general properties and functions of CrypTool 1 are:
             825 Sage code (sage)
         442,619 TOTAL
 
-    TOTAL: 442,619 lines of code (plus of 15.8 % from 382,244 with v1.4.21)
+    TOTAL: 442,619 lines of code (plus of  1.1 % from 437,772 with v1.4.30)
+                                 (plus of 15.8 % from 382,244 with v1.4.21)
     - Here only code written within the CrypTool project or explicitly
       dedicated to the CrypTool project is counted. Any sources used
       within the CrypTool project coming from other open source projects
@@ -1158,12 +1159,12 @@ Version 1.4.31 was released simultaneously in English and German.
 a) Developer-relevant changes (more technically oriented):
 
 - Update of used libraries and other software to the following versions:
-  - Scintilla 1.7.7  -->  3.0.2   ????????
+  - Scintilla 3.2.1
   - compiler-dependent: cv act library 1.4.6 with VS2008, 1.4.18 with VS2010
   - OpenSSL 1.0.1
-  - MPIR 1.3.1 (derived from GMP version 4.2.1) instead of GMP 4.1
-      ???????   2.5.1
-  - Miracl 4.4.3  -->  5.5.4
+  - MPIR 1.3.1 (derived from GMP version 4.2.1) instead of GMP 4.1 xxx
+      ???????   2.5.1   xxx
+  - Miracl 4.4.3  -->  5.5.4  xxx
   - NTL 5.5.2
 
 - The release of CT 1.4.31 now is compiled with VS2010. It's still possible
@@ -1213,10 +1214,10 @@ c) New functionality / Usability / Corrections of Errors:
   Stereotyped Messages".   
 - Transposition Encryption: The key entry dialog now also contains a text
   options dialog.
-- xxxMonoalphabetische Verschlüsselung: Hier gibt es nun im Schlüsseleingabe-
-  Dialog einen weiteren Parameter, mit dem man die Startposition (Offset)
-  für das Passwort festlegen kann. Bisher wurde das Passwort immer an den
-  Anfang des Geheimtext-lphabets gestellt. xxxxxxxxxx --> Englisch
+- Monoalphabetic substitution: The key entry dialog features a new parameter
+  to define the starting position (offset) of the password. In the past the
+  password was always positioned at the beginning of the ciphertext
+  alphabet.
 - The analysis of the substitution cipher offers two variants. The second
   variant uses a list of frequent words, which were not revealed and changeable
   by the user in former versions. Both is possible now.

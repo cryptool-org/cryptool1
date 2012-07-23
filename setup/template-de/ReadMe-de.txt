@@ -687,9 +687,9 @@ Die generellen Eigenschaften und Funktionen von CrypTool 1 sind:
              14 .pl files
            1146 .html files
              44 .txt files
-             39 .tex files
+             41 .tex files
               4 .sage files
-          2.027 TOTAL
+          2.029 TOTAL
 
 
     LINES OF CODE (LoC) SUMMARY
@@ -704,7 +704,8 @@ Die generellen Eigenschaften und Funktionen von CrypTool 1 sind:
             825 Sage code (sage)
         442.619 TOTAL
 
-    TOTAL: 442.619 Code-Zeilen (plus von 15,8 % gegenüber 382.244 bei v1.4.21)
+    TOTAL: 442.619 Code-Zeilen (plus von  1,1 % gegenüber 437.772 bei v1.4.30)
+                               (plus von 15,8 % gegenüber 382.244 bei v1.4.21)
     - In den TOTAL-Wert gehen nur Sourcen ein, die innerhalb des
       CrypTool-Projektes entwickelt wurden oder dem CT-Projekt gewidmet wurden.
       Die Sourcen anderer Open-Source-Projekte, die innerhalb von CrypTool
@@ -1195,12 +1196,12 @@ Die Version 1.4.31 wurde zeitgleich in Deutsch und Englisch released.
 a) Entwickler-relevante Änderungen (eher Programm-technisch):
 
 - Update der Bibliotheken und der genutzten Fremdsoftware auf ff. Versionen:
-  - Scintilla 1.7.7  -->  3.0.2   ????????xxx
+  - Scintilla 3.2.1
   - compilerabhängig: cv act library 1.4.6 mit VS2008, 1.4.18 mit VS2010
   - OpenSSL 1.0.1
-  - MPIR 1.3.1 (hergeleitet aus GMP-Version 4.2.1) statt GMP 4.1   ??????
-      ???????   2.5.1 
-  - Miracl 4.4.3  -->  5.5.4
+  - MPIR 1.3.1 (hergeleitet aus GMP-Version 4.2.1) statt GMP 4.1   ??????xxx
+      ???????   2.5.1   xxx
+  - Miracl 4.4.3  -->  5.5.4  xxx
   - NTL 5.5.2
 
 - Das Release von CT 1.4.31 wird nun mit VS2010 kompiliert. Man kann die
@@ -1250,10 +1251,10 @@ c) Neue Funktionalität / Bedienung / Fehlerkorrekturen:
   Nachrichten"). 
 - Transpositions-Verschlüsselung: Der Schlüsseleingabe-Dialog hat nun auch den
   Button "Textoptionen".
-- Monoalphabetische Verschlüsselung: Hier gibt es nun im Schlüsseleingabe-
-  Dialog einen weiteren Parameter, mit dem man die Startposition (Offset)
-  für das Passwort festlegen kann. Bisher wurde das Passwort immer an den
-  Anfang des Geheimtext-Alphabets gestellt.
+- Monoalphabetische Substitution: Hier gibt es nun im Schlüsseleingabe-Dialog
+  einen weiteren Parameter, mit dem man die Startposition (Offset) für das
+  Passwort festlegen kann. Bisher wurde das Passwort immer an den Anfang des
+  Geheimtext-Alphabets gestellt.
 - Die Analyse für die Substitutions-Chiffre wird in 2 Varianten angeboten.
   Variante 2 verwendet eine Liste häufiger Wörter, die der User bisher nicht
   sehen oder ändern konnte. Beides ist nun möglich.
