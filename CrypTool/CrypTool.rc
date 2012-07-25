@@ -4531,7 +4531,7 @@ END
 
 IDD_CRYPTOOL_PRNG_SEED_COLLECTOR DIALOGEX 34, 22, 218, 99
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
-CAPTION "CrypTool Random Number Generator"
+CAPTION "[i18n] CrypTool Random Number Generator"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     LTEXT           "Move your mouse and press different keys on your keyboard until enough random material is collected.",IDC_STATIC,104,10,104,48
@@ -15771,7 +15771,7 @@ END
 
 IDD_CRYPTOOL_PRNG_SEED_COLLECTOR DIALOGEX 34, 22, 218, 99
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
-CAPTION "CrypTool Random Number Generator"
+CAPTION "[i18n] CrypTool Random Number Generator"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     LTEXT           "Move your mouse and press different keys on your keyboard until enough random material is collected.",IDC_STATIC,104,10,104,48
@@ -38113,7 +38113,7 @@ END
 
 IDD_CRYPTOOL_PRNG_SEED_COLLECTOR DIALOGEX 34, 22, 218, 99
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
-CAPTION "[i18n] CrypTool Random Number Generator"
+CAPTION "CrypTool Random Number Generator"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     LTEXT           "Move your mouse and press different keys on your keyboard until enough random material is collected.",IDC_STATIC,104,10,104,48
@@ -42121,7 +42121,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_ENGLISH 
-                            "[i18n] The English word list for the substition analysis (%s) does not exist although it was rolled out with CrypTool."
+                            "The English word list for the substition analysis (%s) does not exist although it was rolled out with CrypTool."
     IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
                             "RSA encryption using e / decryption using d  [alphabet size: %i]"
     IDR_OPENGLTYPE          "\nUnnamed\n\nOpenGL file (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
@@ -44797,7 +44797,7 @@ BEGIN
     IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
                             "Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
     IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_GERMAN 
-                            "[i18n] The German word list for the substition analysis (%s) does not exist although it was rolled out with CrypTool."
+                            "The German word list for the substition analysis (%s) does not exist although it was rolled out with CrypTool."
 END
 
 STRINGTABLE 
@@ -49350,7 +49350,7 @@ END
 
 IDD_CRYPTOOL_PRNG_SEED_COLLECTOR DIALOGEX 34, 22, 218, 99
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
-CAPTION "CrypTool Random Number Generator"
+CAPTION "[i18n] CrypTool Random Number Generator"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     LTEXT           "Move your mouse and press different keys on your keyboard until enough random material is collected.",IDC_STATIC,104,10,104,48
