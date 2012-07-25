@@ -191,8 +191,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,9,0,0
- PRODUCTVERSION 0,9,0,0
+ FILEVERSION 1,2,3,0
+ PRODUCTVERSION 1,2,3,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -207,10 +207,10 @@ BEGIN
     BEGIN
         BLOCK "040704e4"
         BEGIN
-            VALUE "Copyright (C) 2006", " (C) CrypTool Projekt 2012"
-            VALUE "FileDescription", "Number Shark jest gra edukacyjna na rzecz poprawy wiedzy na temat czynnikow i liczb pierwszych."
+            VALUE "FileDescription", "NumberShark"
             VALUE "FileVersion", "1.2.3"
             VALUE "InternalName", "NumberShark.exe"
+            VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "NumberShark.exe"
             VALUE "ProductName", "NumberShark"
             VALUE "ProductVersion", "1.2.3"
@@ -775,8 +775,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,9,0,0
- PRODUCTVERSION 0,9,0,0
+ FILEVERSION 1,2,3,0
+ PRODUCTVERSION 1,2,3,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -791,10 +791,10 @@ BEGIN
     BEGIN
         BLOCK "040704e4"
         BEGIN
-            VALUE "Copyright (C) 2006", " (C) CrypTool Project 2012"
-            VALUE "FileDescription", "Ajkula Brojeva je edukativna igra za usavršavanje znanja o ciniocima i prostim brojevima."
+            VALUE "FileDescription", "NumberShark"
             VALUE "FileVersion", "1.2.3"
             VALUE "InternalName", "NumberShark.exe"
+            VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "NumberShark.exe"
             VALUE "ProductName", "NumberShark"
             VALUE "ProductVersion", "1.2.3"
@@ -1323,8 +1323,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,9,0,0
- PRODUCTVERSION 0,9,0,0
+ FILEVERSION 1,2,3,0
+ PRODUCTVERSION 1,2,3,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -1339,12 +1339,12 @@ BEGIN
     BEGIN
         BLOCK "040704e4"
         BEGIN
-            VALUE "Copyright (C) 2006", " (C) CrypTool-Projekt 2012"
-            VALUE "FileDescription", "Der Zahlenhai ist ein Lernspiel für den spielerischen Umgang mit Teilern und Primzahlen."
+            VALUE "FileDescription", "NumberShark"
             VALUE "FileVersion", "1.2.3"
-            VALUE "InternalName", "Zahlenhai.exe"
-            VALUE "OriginalFilename", "Zahlenhai.exe"
-            VALUE "ProductName", "Zahlenhai"
+            VALUE "InternalName", "NumberShark.exe"
+            VALUE "LegalCopyright", "Contributors © 1998-2012"
+            VALUE "OriginalFilename", "NumberShark.exe"
+            VALUE "ProductName", "NumberShark"
             VALUE "ProductVersion", "1.2.3"
         END
     END
@@ -1871,8 +1871,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,9,0,0
- PRODUCTVERSION 0,9,0,0
+ FILEVERSION 1,2,3,0
+ PRODUCTVERSION 1,2,3,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -1887,10 +1887,10 @@ BEGIN
     BEGIN
         BLOCK "040704e4"
         BEGIN
-            VALUE "Copyright (C) 2006", " (C) CrypTool Project 2012"
-            VALUE "FileDescription", "Number Shark is an educational game to improve the knowledge of factors and prime numbers."
+            VALUE "FileDescription", "NumberShark"
             VALUE "FileVersion", "1.2.3"
             VALUE "InternalName", "NumberShark.exe"
+            VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "NumberShark.exe"
             VALUE "ProductName", "NumberShark"
             VALUE "ProductVersion", "1.2.3"
@@ -2419,8 +2419,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,9,0,0
- PRODUCTVERSION 0,9,0,0
+ FILEVERSION 1,2,3,0
+ PRODUCTVERSION 1,2,3,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -2435,10 +2435,10 @@ BEGIN
     BEGIN
         BLOCK "040704e4"
         BEGIN
-            VALUE "Copyright (C) 2006", " (C) CrypTool Project 2012"
-            VALUE "FileDescription", "NumberShark es una herramienta didáctica para el aprendizado de números primos y factores."
+            VALUE "FileDescription", "NumberShark"
             VALUE "FileVersion", "1.2.3"
             VALUE "InternalName", "NumberShark.exe"
+            VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "NumberShark.exe"
             VALUE "ProductName", "NumberShark"
             VALUE "ProductVersion", "1.2.3"

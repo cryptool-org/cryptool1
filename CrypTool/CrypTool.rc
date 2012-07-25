@@ -6370,8 +6370,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,4,30,0
- PRODUCTVERSION 1,4,30,0
+ FILEVERSION 1,4,31,0
+ PRODUCTVERSION 1,4,31,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -6390,7 +6390,7 @@ BEGIN
             VALUE "FileDescription", "www.cryptool.org"
             VALUE "FileVersion", "[CRYPTOOL_VERSION]"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Copyright © 1998-2012"
+            VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
             VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
@@ -17610,8 +17610,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,4,30,0
- PRODUCTVERSION 1,4,30,0
+ FILEVERSION 1,4,31,0
+ PRODUCTVERSION 1,4,31,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -17630,7 +17630,7 @@ BEGIN
             VALUE "FileDescription", "www.cryptool.org"
             VALUE "FileVersion", "[CRYPTOOL_VERSION]"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Copyright © 1998-2012"
+            VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
             VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
@@ -28829,8 +28829,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,4,30,0
- PRODUCTVERSION 1,4,30,0
+ FILEVERSION 1,4,31,0
+ PRODUCTVERSION 1,4,31,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -28849,7 +28849,7 @@ BEGIN
             VALUE "FileDescription", "www.cryptool.de"
             VALUE "FileVersion", "[CRYPTOOL_VERSION]"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Copyright © 1998-2012"
+            VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
             VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
@@ -39952,8 +39952,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,4,30,0
- PRODUCTVERSION 1,4,30,0
+ FILEVERSION 1,4,31,0
+ PRODUCTVERSION 1,4,31,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -39972,7 +39972,7 @@ BEGIN
             VALUE "FileDescription", "www.cryptool.org"
             VALUE "FileVersion", "[CRYPTOOL_VERSION]"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Copyright © 1998-2012"
+            VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
             VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
@@ -51189,8 +51189,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,4,21,0
- PRODUCTVERSION 1,4,21,0
+ FILEVERSION 1,4,31,0
+ PRODUCTVERSION 1,4,31,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -51209,7 +51209,7 @@ BEGIN
             VALUE "FileDescription", "www.cryptool.org"
             VALUE "FileVersion", "[CRYPTOOL_VERSION]"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Copyright © 1998-2012"
+            VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
             VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
