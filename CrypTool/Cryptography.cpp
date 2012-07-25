@@ -1549,7 +1549,10 @@ UINT AnaSubst(PVOID p) {
 				while(fileWordlist.good()) {
 					std::string word;
 					getline(fileWordlist, word);
-					wordlist.push_back(word);
+					CString wordCString = word.c_str();
+					// convert to upper-case through CString
+					wordCString.MakeUpper();
+					wordlist.push_back((std::string)wordCString);
 				}
 				fileWordlist.close();
 			}

@@ -22,10 +22,13 @@
 
 <P>You can reach this dialog after selecting method 2 in the dialog <a href="hidd_auto_substitution_analysis_algorithm_choice.html">selecting a method for automatic substitution analysis</a>.</P>
 
-<P>This dialog is used to enter the settings for executing an automatic analysis of monoalphabetic substitution by method 2 (using most frequent words).</P>
+<P>In the upper part of the dialog you can decide between automatic or manual analysis.</p>
 
+<P><B><u>Options for manual analysis</u></b></p>
 
-<P>If no options are chosen, then a <A href="pattern_suche.html">pattern search</A> is performed using the most frequent words of the plaintext language. Satisfactory results are obtained with this tool when applied to English language texts. However, the analysis results are often much less impressive when the language is German.</P>
+<p>You can choose one of the supported languages: <b>German</b> or <b>English</b>. CrypTool is rolled out with word lists containing the most frequent words of the respective language. You can modify the word lists with a simple text editor. The only constraint is: words longer than 20 characters are ignored.</p>
+
+<P>If no further options are chosen, then a <A href="pattern_suche.html">pattern search</A> is performed using the most frequent words of the currently selected language. Satisfactory results are obtained with this tool when applied to English language texts. However, the analysis results are often much less impressive when the language is German.</P>
 
 <P>For this reason additional options can be chosen.</P>
 <ul>
@@ -63,7 +66,13 @@
 
 <P>A pattern search is now started having made this (partial) substitution.</P>
 
-<P>When CrypTool has completed its analysis, a <A href="hidd_manual_subst_analysis.html">Manual Post-processing window</A> containing the results appears.</P>
+<P><B><u>Options for manual analysis</u></b></p>
+
+<p>Note that the check box <B>Manual analysis using the stored key</B> is inactive unless there exists a suitable key in the <a href="keystore.html">key store</a>.</p>
+
+<br><br>
+
+<P>When CrypTool has completed its automatic analysis or when a manual analysis was chosen, a <A href="hidd_manual_subst_analysis.html">Manual Post-processing window</A> containing the results appears.</P>
 
 <P>In the <U>Examples</U> chapter there is an <A href="szenarien_monosubst.html">example</A> of an <A href="angriffe.html">attack</A> on the <!--ZZZPOPUP--><A href="verschluesselung.html">encryption algorithm</A>.</P>
 
