@@ -4508,7 +4508,7 @@ BEGIN
     LTEXT           "Prosz? wybra? przynajmniej jeden j?zyk, w którym szuka? mo?liwych s?ów kluczowych i wybra? dok?adnie jeden j?zyk, w którym zosta? napisany szyfrogram.",IDC_STATIC,7,7,216,24
     PUSHBUTTON      "OK",IDOK,7,115,216,18
     LTEXT           "J?zyk(i) do s?ów kluczowych:",IDC_STATIC,7,39,84,8
-    LTEXT           "J?zyk(i) do szyfrogramu:",IDC_STATIC,118,39,97,8
+    LTEXT           "[i18n] Language for cleartext:",IDC_STATIC,118,39,97,8
     LISTBOX         IDC_LIST_LANGUAGES_KEYWORD,7,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
     LISTBOX         IDC_LIST_LANGUAGES_CIPHERTEXT,118,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
 END
@@ -15743,7 +15743,7 @@ BEGIN
     LTEXT           "Molim odaberite barem jedan jezik koji je pretraživan za moguce kljucne reci, i odaberite tacno jedan jezik u kojem je šifrat originalno napisan.",IDC_STATIC,7,7,216,24
     PUSHBUTTON      "OK",IDOK,7,115,216,18
     LTEXT           "Jezik(ci) za kljucne reci:",IDC_STATIC,7,39,84,8
-    LTEXT           "Jezik(ci) za šifrat:",IDC_STATIC,118,39,97,8
+    LTEXT           "[i18n] Language for cleartext:",IDC_STATIC,118,39,97,8
     LISTBOX         IDC_LIST_LANGUAGES_KEYWORD,7,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
     LISTBOX         IDC_LIST_LANGUAGES_CIPHERTEXT,118,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
 END
@@ -22511,7 +22511,7 @@ BEGIN
     LTEXT           "Wählen Sie mindestens eine Sprache aus, in der nach möglichen Schlüsselworten gesucht werden soll; und wählen Sie genau eine Sprache, in welcher der Geheimtext ursprünglich verfasst wurde.",IDC_STATIC,7,7,216,24
     PUSHBUTTON      "OK",IDOK,7,115,216,18
     LTEXT           "Sprache(n) für Schlüsselworte:",IDC_STATIC,7,39,97,8
-    LTEXT           "Sprache für Geheimtext:",IDC_STATIC,118,39,97,8
+    LTEXT           "Sprache für Klartext:",IDC_STATIC,118,39,97,8
     LISTBOX         IDC_LIST_LANGUAGES_KEYWORD,7,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
     LISTBOX         IDC_LIST_LANGUAGES_CIPHERTEXT,118,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
 END
@@ -38095,7 +38095,7 @@ BEGIN
     LTEXT           "Please choose at least one language that is searched for possible keywords, and choose exactly one language in which the ciphertext was originally written.",IDC_STATIC,7,7,216,24
     PUSHBUTTON      "OK",IDOK,7,115,216,18
     LTEXT           "Language(s) for keywords:",IDC_STATIC,7,39,84,8
-    LTEXT           "Language for ciphertext:",IDC_STATIC,118,39,97,8
+    LTEXT           "Language for cleartext:",IDC_STATIC,118,39,97,8
     LISTBOX         IDC_LIST_LANGUAGES_KEYWORD,7,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
     LISTBOX         IDC_LIST_LANGUAGES_CIPHERTEXT,118,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
 END
@@ -48982,7 +48982,7 @@ BEGIN
     LTEXT           "Elija al menos un idioma, en el cuál deben ser buscadas posibles palabras claves; y elija también el idioma en el cuál fue redactado inicialmente el texto cifrado.",IDC_STATIC,7,7,216,24
     PUSHBUTTON      "Aceptar",IDOK,7,115,216,18
     LTEXT           "Idioma(s) para palabras claves:",IDC_STATIC,7,39,98,8
-    LTEXT           "Idioma(s) para el Texto Cifrado:",IDC_STATIC,118,39,97,8
+    LTEXT           "[i18n] Language for cleartext:",IDC_STATIC,118,39,97,8
     LISTBOX         IDC_LIST_LANGUAGES_KEYWORD,7,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
     LISTBOX         IDC_LIST_LANGUAGES_CIPHERTEXT,118,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
 END
