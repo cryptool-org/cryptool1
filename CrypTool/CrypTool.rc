@@ -20,6 +20,11 @@ LANGUAGE LANG_POLISH, SUBLANG_DEFAULT
 #pragma code_page(1250)
 #endif //_WIN32
 
+STRINGTABLE
+BEGIN
+	IDS_CRYPTOOL_RUNTIME_LANGUAGE_STRING "Polish"
+END
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // Dialog
@@ -6388,12 +6393,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
-            VALUE "FileVersion", "[CRYPTOOL_VERSION]"
+VALUE "FileVersion", "[CRYPTOOL_VERSION]"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
+VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
         END
     END
     BLOCK "VarFileInfo"
@@ -8451,7 +8456,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "[CRYPTOOL_VERSION_FULL]"
+IDR_MAINFRAME "[CRYPTOOL_VERSION_FULL]"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -8525,7 +8530,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_ENGLISH 
-                            "[i18n] The English word list for the substition analysis (%s) does not exist although it was rolled out with CrypTool."
+                            "[i18n] The English word list for the substitution analysis (%s) does not exist although it was rolled out with CrypTool."
     IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
                             "Szyfrowanie RSA przy u¿yciu e / deszyfrowanie przy u¿yciu d  [i18n alphabet size: %i]"
     IDR_OPENGLTYPE          "\nUnnamed\n\nOpenGL file (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nPliki OpenGL "
@@ -11220,7 +11225,7 @@ BEGIN
     IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
                             "[i18n] Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
     IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_GERMAN 
-                            "[i18n] The German word list for the substition analysis (%s) does not exist although it was rolled out with CrypTool."
+                            "[i18n] The German word list for the substitution analysis (%s) does not exist although it was rolled out with CrypTool."
 END
 
 STRINGTABLE 
@@ -11245,6 +11250,11 @@ END
 LANGUAGE LANG_SERBIAN, SUBLANG_SERBIAN_LATIN
 #pragma code_page(1250)
 #endif //_WIN32
+
+STRINGTABLE
+BEGIN
+	IDS_CRYPTOOL_RUNTIME_LANGUAGE_STRING "Serbian"
+END
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -17628,12 +17638,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
-            VALUE "FileVersion", "[CRYPTOOL_VERSION]"
+VALUE "FileVersion", "[CRYPTOOL_VERSION]"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
+VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
         END
     END
     BLOCK "VarFileInfo"
@@ -19674,7 +19684,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "[CRYPTOOL_VERSION_FULL]"
+IDR_MAINFRAME "[CRYPTOOL_VERSION_FULL]"
     IDR_TEXTTYPE            "\nNeimenovani\nTEKST dokument\nTekst datoteka (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nNeimenovana\n\nBinarna datoteka (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nNeimenovana\n\nASCII datoteka (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -19748,7 +19758,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_ENGLISH 
-                            "[i18n] The English word list for the substition analysis (%s) does not exist although it was rolled out with CrypTool."
+                            "[i18n] The English word list for the substitution analysis (%s) does not exist although it was rolled out with CrypTool."
     IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
                             "RSA šifrovanje pomocu e / dešifrovanje pomocu d  [i18n alphabet size: %i]"
     IDR_OPENGLTYPE          "\nNeimenovana\n\nOpenGL datoteka (*.ogl)\n.plt\n\nOpenGL Tip Datoteke\nOPENGL\nOpenGL Datoteke\n"
@@ -22429,7 +22439,7 @@ BEGIN
     IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
                             "[i18n] Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
     IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_GERMAN 
-                            "[i18n] The German word list for the substition analysis (%s) does not exist although it was rolled out with CrypTool."
+                            "[i18n] The German word list for the substitution analysis (%s) does not exist although it was rolled out with CrypTool."
 END
 
 STRINGTABLE 
@@ -22454,6 +22464,11 @@ END
 LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
 #pragma code_page(1252)
 #endif //_WIN32
+
+STRINGTABLE
+BEGIN
+	IDS_CRYPTOOL_RUNTIME_LANGUAGE_STRING "German"
+END
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -28847,12 +28862,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.de"
-            VALUE "FileVersion", "[CRYPTOOL_VERSION]"
+VALUE "FileVersion", "[CRYPTOOL_VERSION]"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
+VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
         END
     END
     BLOCK "VarFileInfo"
@@ -30774,7 +30789,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "[CRYPTOOL_VERSION_FULL]"
+IDR_MAINFRAME "[CRYPTOOL_VERSION_FULL]"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT-Dokument\nText-Datei (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnbenannt\n\nBinär-Datei (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnbenannt\n\nASCII-Datei (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -33606,6 +33621,11 @@ END
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
 #pragma code_page(1252)
 #endif //_WIN32
+
+STRINGTABLE
+BEGIN
+	IDS_CRYPTOOL_RUNTIME_LANGUAGE_STRING "English"
+END
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -39970,12 +39990,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
-            VALUE "FileVersion", "[CRYPTOOL_VERSION]"
+VALUE "FileVersion", "[CRYPTOOL_VERSION]"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
+VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
         END
     END
     BLOCK "VarFileInfo"
@@ -42055,7 +42075,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "[CRYPTOOL_VERSION_FULL]"
+IDR_MAINFRAME "[CRYPTOOL_VERSION_FULL]"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -42121,7 +42141,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_ENGLISH 
-                            "The English word list for the substition analysis (%s) does not exist although it was rolled out with CrypTool."
+                            "The English word list for the substitution analysis (%s) does not exist although it was rolled out with CrypTool."
     IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
                             "RSA encryption using e / decryption using d  [alphabet size: %i]"
     IDR_OPENGLTYPE          "\nUnnamed\n\nOpenGL file (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
@@ -44797,7 +44817,7 @@ BEGIN
     IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
                             "Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
     IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_GERMAN 
-                            "The German word list for the substition analysis (%s) does not exist although it was rolled out with CrypTool."
+                            "The German word list for the substitution analysis (%s) does not exist although it was rolled out with CrypTool."
 END
 
 STRINGTABLE 
@@ -44821,6 +44841,11 @@ END
 LANGUAGE LANG_SPANISH, SUBLANG_SPANISH_MODERN
 #pragma code_page(1252)
 #endif //_WIN32
+
+STRINGTABLE
+BEGIN
+	IDS_CRYPTOOL_RUNTIME_LANGUAGE_STRING "Spanish"
+END
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -51207,12 +51232,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
-            VALUE "FileVersion", "[CRYPTOOL_VERSION]"
+VALUE "FileVersion", "[CRYPTOOL_VERSION]"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
+VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
         END
     END
     BLOCK "VarFileInfo"
@@ -53261,7 +53286,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "[CRYPTOOL_VERSION_FULL]"
+IDR_MAINFRAME "[CRYPTOOL_VERSION_FULL]"
     IDR_TEXTTYPE            "\nSin nombre\nDocumento de texto\nFichero de texto (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nSin nombre\n\nFichero binario (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nSin nombre\n\nFichero ASCII (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -53318,7 +53343,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_ENGLISH 
-                            "[i18n] The English word list for the substition analysis (%s) does not exist although it was rolled out with CrypTool."
+                            "[i18n] The English word list for the substitution analysis (%s) does not exist although it was rolled out with CrypTool."
     IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
                             "Cifrado RSA utilizando e / descifrado utilizando d  [i18n alphabet size: %i]"
     IDR_OPENGLTYPE          "\nSin nombre\n\nFichero OpenGL (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
@@ -56075,7 +56100,7 @@ BEGIN
     IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
                             "[i18n] Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
     IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_GERMAN 
-                            "[i18n] The German word list for the substition analysis (%s) does not exist although it was rolled out with CrypTool."
+                            "[i18n] The German word list for the substitution analysis (%s) does not exist although it was rolled out with CrypTool."
 END
 
 STRINGTABLE 

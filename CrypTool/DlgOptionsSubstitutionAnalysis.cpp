@@ -129,6 +129,23 @@ BOOL CDlgOptionsSubstitutionAnalysis::OnInitDialog()
 		AfxMessageBox(message, MB_ICONWARNING);
 	}
 
+	// flomar, 07/25/2012: unless we're running a German version, select English by default
+
+	// TODO/FIXME: replace this quick-and-dirty approach with something more elegant; the 
+	// problem right now is that I don't know how to determine the language of the resource 
+	// file (the one CrypTool was COMPILED with) at runtime, thus I introduced an additional 
+	// resource string (IDS_CRYPTOOL_RUNTIME_LANGUAGE_STRING) for each language; note that 
+	// calls to "GetUserDefaultUILanguage()" or similar functions will give you the SYSTEM 
+	// language, not the CRYPTOOL language (which is statically set at compile time)
+	CString runtimeLanguage;
+	runtimeLanguage.Format(IDS_CRYPTOOL_RUNTIME_LANGUAGE_STRING);
+	if(runtimeLanguage == "German") {
+		analysisAutomaticGerman = true;
+	}
+	else {
+		analysisAutomaticGerman = false;
+	}
+
 	UpdateData(false);
 
 	// update the GUI
