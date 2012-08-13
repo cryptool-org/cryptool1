@@ -56,7 +56,7 @@ protected:
 	int ignoreDoubleCharactersInKey;
 public:
 	~CDlgKeyPlayfair();
-	CDlgKeyPlayfair(const char *infile,const char *outfile,int,int,CWnd* pParent = NULL);   // Standardkonstruktor
+	CDlgKeyPlayfair(const char *infile, const char *outfile, int reformat, int convert, CWnd* pParent = NULL);   // Standardkonstruktor
 
 	char *GetData();
 	int Display();

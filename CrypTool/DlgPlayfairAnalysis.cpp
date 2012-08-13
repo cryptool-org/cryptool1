@@ -935,6 +935,7 @@ PlayfairOptions CDlgPlayfairAnalysis::getPlayfairOptions()
 	// TODO playfairOptions.separator2 = "Y";
 	// TODO playfairOptions.separateDoubleCharactersOnlyWithinPairs = true;
 	playfairOptions.ignoreDoubleCharactersInKey = this->m_use;
+	playfairOptions.matrixSize = m_sechs ? 6 : 5;
 
 	return playfairOptions;
 }

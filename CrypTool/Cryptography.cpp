@@ -476,7 +476,7 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 	
 	GetTmpName(fileNameCiphertext,"cry",".txt");
 
-	class CDlgKeyPlayfair KeyDialog(infile,fileNameCiphertext,theApp.TextOptions.getKeepCharactersNotPresentInAlphabetUnchanged(),theApp.TextOptions.getKeepUpperLowerCaseInformation());
+	CDlgKeyPlayfair KeyDialog(infile, fileNameCiphertext, theApp.TextOptions.getKeepCharactersNotPresentInAlphabetUnchanged(), theApp.TextOptions.getKeepUpperLowerCaseInformation());
 
 	if(KeyDialog.Display()!=IDOK) return;
 
@@ -499,8 +499,13 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 	stringCompleteKey.Append(playfairOptions.separator1);
 	stringCompleteKey.Append(", SEPARATOR2: ");
 	stringCompleteKey.Append(playfairOptions.separator2);
-	if ( playfairOptions.ignoreDoubleCharactersInKey )				stringCompleteKey.Append(STR_OPT_IGNORE_DUPLICATE_LETTERS_IN_KEY);
-	if ( playfairOptions.separateDoubleCharactersOnlyWithinPairs )	stringCompleteKey.Append(STR_OPT_SEPERATE_DUPLICATE_ONLY_WITHIN_PAIRS);
+	stringCompleteKey.Append(", MATRIXSIZE: ");
+	CString matrixSize; matrixSize.Format("%d", playfairOptions.matrixSize);
+	stringCompleteKey.Append(matrixSize);
+	if(playfairOptions.ignoreDoubleCharactersInKey)
+		stringCompleteKey.Append(STR_OPT_IGNORE_DUPLICATE_LETTERS_IN_KEY);
+	if(playfairOptions.separateDoubleCharactersOnlyWithinPairs)
+		stringCompleteKey.Append(STR_OPT_SEPERATE_DUPLICATE_ONLY_WITHIN_PAIRS);
 
 	// apply Playfair with the desired options
 	KeyDialog.m_Alg->ApplyPlayfair(playfairOptions);
@@ -546,6 +551,13 @@ void PlayfairAnalyse(const char *infile, const char *OldTitle)
 	stringCompleteKey.Append(playfairOptions.separator1);
 	stringCompleteKey.Append(", SEPARATOR2: ");
 	stringCompleteKey.Append(playfairOptions.separator2);
+	stringCompleteKey.Append(", MATRIXSIZE: ");
+	CString matrixSize; matrixSize.Format("%d", playfairOptions.matrixSize);
+	stringCompleteKey.Append(matrixSize);
+	if(playfairOptions.ignoreDoubleCharactersInKey)
+		stringCompleteKey.Append(STR_OPT_IGNORE_DUPLICATE_LETTERS_IN_KEY);
+	if(playfairOptions.separateDoubleCharactersOnlyWithinPairs)
+		stringCompleteKey.Append(STR_OPT_SEPERATE_DUPLICATE_ONLY_WITHIN_PAIRS);
 
 	// apply Playfair with the desired options
 	KeyDialog.m_Alg->ApplyPlayfair(playfairOptions);

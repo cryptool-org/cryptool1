@@ -1371,6 +1371,9 @@ void CPlayfairAnalysis::CreateMatrixFromPass()
 
 void CPlayfairAnalysis::ApplyPlayfair(const PlayfairOptions playfairOptions)
 {
+	// flomar, 08/13/2012: sometimes we were working with an incorrect matrix size
+	SetSize(playfairOptions.matrixSize == 6 ? 1 : 0);
+
 	// allocate memory for the ciphertext (2*inbuflen)
 	int ciphertextSize = inbuflen * 2;
 	char *ciphertext = new char[ciphertextSize];
@@ -2607,8 +2610,10 @@ char CPlayfairAnalysis::convertCharacterToPlayfair(const char _character)
 
 	// if we have valid lower case letters, convert them to upper case
 	if(c>='a' && c<='z') c = c - 'a' + 'A';
-	// we replace "J" with "I" (Playfair convention)
-	if(c=='J') c = 'I';
+	// we replace "J" with "I" (Playfair convention), but only for 5x5 matrices
+	if(mysize == 5) {
+		if(c=='J') c = 'I';
+	}
 
 	// flomar, 04/16/2010
 	// some more conversions; but don't ask me, this is just copy&paste from the original implementation

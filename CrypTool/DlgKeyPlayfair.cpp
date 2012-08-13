@@ -36,13 +36,13 @@
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgKeyPlayfair 
 
-CDlgKeyPlayfair::CDlgKeyPlayfair(const char *infile,const char *outfile,int r,int c,CWnd* pParent /*=NULL*/)
+CDlgKeyPlayfair::CDlgKeyPlayfair(const char *infile, const char *outfile, int reformat, int convert, CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgKeyPlayfair::IDD, pParent)
 {
 	int i,j;
 
 	//{{AFX_DATA_INIT(CDlgKeyPlayfair)
-	m_Alg = new CPlayfairAnalysis("",0,infile,outfile,r,c,1);
+	m_Alg = new CPlayfairAnalysis("", 0, infile, outfile, reformat, convert, 1);
 	m_sechs = 0;
 	for (i=0;i<m_Alg->getSize();i++)
 	{
@@ -339,11 +339,11 @@ void CDlgKeyPlayfair::OnPasteKey()
 		m_text = extractValueFromStringByKey("KEY", stringCompleteKey);
 		separator1 = extractValueFromStringByKey("SEPARATOR1", stringCompleteKey);
 		separator2 = extractValueFromStringByKey("SEPARATOR2", stringCompleteKey);
-		if ( stringCompleteKey.Find( STR_OPT_SEPERATE_DUPLICATE_ONLY_WITHIN_PAIRS ) )
+		m_sechs = extractValueFromStringByKey("MATRIXSIZE", stringCompleteKey) == "6" ? 1 : 0;
+		if(stringCompleteKey.Find(STR_OPT_SEPERATE_DUPLICATE_ONLY_WITHIN_PAIRS))
 			separateDoubleCharactersOnlyWithinPairs = 1;
-		if ( stringCompleteKey.Find( STR_OPT_IGNORE_DUPLICATE_LETTERS_IN_KEY ) )
+		if(stringCompleteKey.Find(STR_OPT_IGNORE_DUPLICATE_LETTERS_IN_KEY))
 			ignoreDoubleCharactersInKey = 1;
-
 	}
 	UpdateData(FALSE);	
 	OnChange();
@@ -399,5 +399,6 @@ PlayfairOptions CDlgKeyPlayfair::getPlayfairOptions()
 	playfairOptions.separator2 = separator2;
 	playfairOptions.separateDoubleCharactersOnlyWithinPairs = separateDoubleCharactersOnlyWithinPairs;
 	playfairOptions.ignoreDoubleCharactersInKey = ignoreDoubleCharactersInKey;
+	playfairOptions.matrixSize = m_sechs ? 6 : 5;
 	return playfairOptions;
 }

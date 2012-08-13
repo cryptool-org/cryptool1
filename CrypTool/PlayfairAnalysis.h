@@ -446,6 +446,7 @@ struct PlayfairOptions {
 	CString separator2;
 	bool separateDoubleCharactersOnlyWithinPairs;
 	bool ignoreDoubleCharactersInKey;
+	int matrixSize;
 };
 
 class CPlayfairAnalysis
