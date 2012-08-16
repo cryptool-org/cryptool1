@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 für Win32, Juli 2012 (Beta 05) xxx
+    CrypTool, Version 1.4.31 für Win32, August 2012 (Beta 06) xxx
     (c) Contributors
         Dazu gehören z.B.
         Deutsche Bank AG, Frankfurt am Main, und die
@@ -52,12 +52,12 @@ A. ... Anhang
 A.1. .... Roadmap nach CT 1.4.31
 A.2. .... Nachfolger-Projekte mit Java/Eclipse und C#/.NET
 A.3. .... Mögliche Punkte für eine Weiterentwicklung -- Neue Funktionen, Ideen
-A.4. .... CrypTool v1 unter Linux
+A.4. .... CrypTool v unter Linux
 
 
 Benutzte Abkürzungen:
 CT1  CrypTool 1 = CrypTool-Version 1 (diese Version enthält diese Readme-Datei)
-CT2  CrypTool 2 = CrypTool-Version 2 (läuft unter .NET)
+CT2  CrypTool 2 = CrypTool-Version 2 (nutzt .NET; läuft unter Win32)
 JCT  JCrypTool  = Java-CrypTool (läuft unter Win32, Linux und MacOS)
 
 
@@ -704,8 +704,8 @@ Die generellen Eigenschaften und Funktionen von CrypTool 1 sind:
             825 Sage code (sage)
         442.619 TOTAL
 
-    TOTAL: 442.619 Code-Zeilen (plus von  1,1 % gegenüber 437.772 bei v1.4.30)
-                               (plus von 15,8 % gegenüber 382.244 bei v1.4.21)
+    TOTAL: 442.619 Code-Zeilen (plus von  1,1 % gegenüber 437.772 bei CT 1.4.30)
+                               (plus von 15,8 % gegenüber 382.244 bei CT 1.4.21)
     - In den TOTAL-Wert gehen nur Sourcen ein, die innerhalb des
       CrypTool-Projektes entwickelt wurden oder dem CT-Projekt gewidmet wurden.
       Die Sourcen anderer Open-Source-Projekte, die innerhalb von CrypTool
@@ -899,7 +899,7 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
 
 - Aktualisierte und auf über 110 Seiten erweiterte Präsentation.
 
-- Von der CT-Webseite wird auf die Websites der Nachfolger-Versionen JCT1
+- Von der CT-Webseite wird auf die Websites der Nachfolger-Versionen JCT
   und CT2 verwiesen, die schon die jeweils aktuelle, stabile Beta zum Download
   anbieten.
 
@@ -1188,7 +1188,7 @@ c) Neue Funktionalität / Bedienung:
 
 2.6. Neuerungen in Version 1.4.31
      ----------------------------
-Dieses Kapitel listet die Erweiterungen und Bugfixes auf, die in
+Dieses Kapitel listet die Erweiterungen und die Bugfixes auf, die in
 CrypTool 1.4.31 seit CrypTool 1.4.30 hinzugefügt wurden.
 
 Die Version 1.4.31 wurde zeitgleich in Deutsch und Englisch released.
@@ -1244,6 +1244,8 @@ c) Neue Funktionalität / Bedienung / Fehlerkorrekturen:
   Dies betraf auch den Dialog "Generieren von HMACs".
 - Der Aufruf von bc innerhalb der Zahlentheorie-Tutorials funktioniert
   nun auch unter Win7.
+- Playfair mit einer 6*6-Matrix konvertiert nun nicht mehr fälschlicherweise
+  "J" zu "I".
 
 - Textfenster haben nun einen Kontextmenu-Eintrag, um zur Hexanzeige
   umzuschalten, und umgekehrt.
@@ -1413,7 +1415,7 @@ ansehen und anpassen per "System Information" --> "Software Environment"
 
 3.3. Interaktive Online-Hilfe unter Windows XP
      -----------------------------------------
-Bei CrypTool v1 kann zu jedem selektierten Menüeintrag per F1 Hilfe anfordern.
+Bei CrypTool 1 kann zu jedem selektierten Menüeintrag per F1 Hilfe anfordern.
 
 - Für Endmenü-Einträge klappte das immer direkt.
 
@@ -2174,39 +2176,39 @@ Version                  Deutsch    Englisch      Bedarf DE      durch
 1.4.31    Sep. 2012      52.4 MB     51.8 MB        100 MB        CTxxxxxxxxxx
 
 Bemerkungen zu den Versionen:
-1.3.02   Viele neue Funktionen gegenüber 1.3.00.
-1.3.03   Viele kleine Bugfixes und Verbesserungen der Dokumentation.
-1.3.04   Etliche neue Funktionalität, einige kleine Bugfixes, und Verbes-
-         serung und Erweiterung der Dokumentation (Online-Hilfe, Skript).
-1.3.05   Kleine Bugfixes.
+1.3.02  Viele neue Funktionen gegenüber 1.3.00.
+1.3.03  Viele kleine Bugfixes und Verbesserungen der Dokumentation.
+1.3.04  Etliche neue Funktionalität, einige kleine Bugfixes, und Verbes-
+        serung und Erweiterung der Dokumentation (Online-Hilfe, Skript).
+1.3.05  Kleine Bugfixes.
 1.4.00-Beta10  Dez. 2005  Erste öffentliche Beta von Version 1.4.00.
 1.4.00-Beta12  März 2006  Zweite öffentliche Beta von Version 1.4.00.
 1.4.00-Beta14  Juli 2006  Dritte öffentliche Beta von Version 1.4.00.
-1.4.00   Viele neue Funktionen gegenüber 1.3.05.
+1.4.00  Viele neue Funktionen gegenüber 1.3.05.
 1.4.10-Beta04  Mai  2007  Erste öffentliche Beta von Version 1.4.10.
 1.4.10-Beta06  Juli 2007  Zweite öffentliche Beta von Version 1.4.10.
-1.4.10   Funktionsumfang und Onlinehilfe stark erweitert i.Vgl. zu 1.4.00.
+1.4.10  Funktionsumfang und Onlinehilfe stark erweitert i.Vgl. zu 1.4.00.
 1.4.20-Beta03  Mai  2008  Erste öffentliche Beta von Version 1.4.20.
-1.4.20   Funktionsumfang und Onlinehilfe erweitert i.Vgl. zu 1.4.10;
-         Vor allem Feinschliff und Code stabilisiert (Qualitätsrelease).
-1.4.21   Patch, das auch die MSVCR71.dll enthält, da diese Datei von der
-         neuen aktuellen OpenSSL-Bibliothek benutzt wird und nicht auf
-         frischen Windows-Umgebungen (ohne Office) enthalten ist.
+1.4.20  Funktionsumfang und Onlinehilfe erweitert i.Vgl. zu 1.4.10;
+        Vor allem Feinschliff und Code stabilisiert (Qualitätsrelease).
+1.4.21  Patch, das auch die MSVCR71.dll enthält, da diese Datei von der
+        neuen aktuellen OpenSSL-Bibliothek benutzt wird und nicht auf
+        frischen Windows-Umgebungen (ohne Office) enthalten ist.
 1.4.30-Beta03  März 2009  Erste öffentliche Beta von Version 1.4.30.
 1.4.30-Beta04  Sep. 2009  Zweite öffentliche Beta von Version 1.4.30.
 1.4.30-Beta05  Jan. 2010  Dritte öffentliche Beta von Version 1.4.30 (22.01.2010).
 1.4.30-Beta06  Feb. 2010  Vierte öffentliche Beta von Version 1.4.30 (28.02.2010).
 1.4.30-Beta07  Juni 2010  Fünfte öffentliche Beta von Version 1.4.30 (09.06.2010).
 1.4.30-Beta08  Juli 2010  Sechste öffentliche Beta von Version 1.4.30 (09.07.2010).
-1.4.30   Viele Bugfixes und erweiterter Funktionsumfang i.Vgl. zu v1.4.21.
-         Plattenplatz-Bedarf der verschiedenen Sprachversionen von 1.4.30:
-         EN:  93.7 MB
-         DE:  94.7 MB
-         PL: 100.0 MB
-         RS:  93.7 MB  xxxxxxxxx
-         SP:  94.4 MB
+1.4.30  Viele Bugfixes und erweiterter Funktionsumfang i.Vgl. zu CT 1.4.21.
+        Plattenplatz-Bedarf der verschiedenen Sprachversionen von CT 1.4.30:
+        EN:  93.7 MB
+        DE:  94.7 MB
+        PL: 100.0 MB
+        RS:  93.7 MB  xxxxxxxxx
+        SP:  94.4 MB
 1.4.31-Beta05  Juli 2012  Erste öffentliche Beta von Version 1.4.31.
-1.4.31   Viele Bugfixes und ein wenig erweiterter Funktionsumfang i.Vgl. zu v1.4.30.
+1.4.31  Viele Bugfixes und ein wenig erweiterter Funktionsumfang i.Vgl. zu 1.4.30.
 
 
 
@@ -2669,23 +2671,23 @@ A. Anhang
 
 A.1. .... Roadmap nach CT 1.4.31
 A.2. .... Nachfolger-Projekte mit Java/Eclipse und C#/.NET
-A.2.1. .... Design der Nachfolger-Projekte CT2 und JCT1
-A.2.2. .... Funktionen der Nachfolger-Projekte CT2 und JCT1
+A.2.1. .... Design der Nachfolger-Projekte CT2 und JCT
+A.2.2. .... Funktionen der Nachfolger-Projekte CT2 und JCT
 A.3. .... Mögliche Punkte für eine Weiterentwicklung -- Neue Funktionen, Ideen
 A.3.1. .... Funktionalität: Algorithmen / Verfahren
 A.3.2. .... Funktionalität: Analyse
 A.3.3. .... Interne Schnittstellen / Editoren
 A.3.4. .... User-Interface / Visualisierungen
-A.4. .... CrypTool v1 unter Linux
-A.4.1. .... Ausführen von CrypTool v1 unter Linux mit Wine
-A.4.2. .... Portierungsversuch von CrypTool v1 nach Linux mit Qt
+A.4. .... CrypTool 1 unter Linux
+A.4.1. .... Ausführen von CrypTool 1 unter Linux mit Wine
+A.4.2. .... Portierungsversuch von CrypTool 1 nach Linux mit Qt
 
 
 
 A.1. Roadmap nach CT 1.4.31
      ----------------------
 Generell fließen alle größeren Neu-Entwicklungen aus dem CT-Projekt nun in
-die beiden Nachfolger-Projekte CT2 und JCT1 (siehe A.2).
+die beiden Nachfolger-Projekte CT2 und JCT (siehe A.2).
 
 In CrypTool 1.x werden weiterhin Fehler behoben. Funktionen können erweitert
 oder hinzugefügt werden von Mitwirkenden, die weiter in C/C++ implementieren
@@ -2702,35 +2704,36 @@ A.2. Nachfolger-Projekte mit Java/Eclipse und C#/.NET
 Die Nachfolger von CrypTool 1.x nutzen State-of-the-Art-Entwicklungsumgebungen,
 aktuelle Layout-Techniken und moderne Software-Architekturen.
 
-A.2.1. Design der Nachfolger-Projekte CT2 und JCT1
-       -------------------------------------------
-a) Generelle Wunschliste anhand des Benutzerfeedbacks
+A.2.1. Design der Nachfolger-Projekte CT2 und JCT
+       ------------------------------------------
+a) Generelle Wunschliste anhand des Benutzerfeedbacks zu CT1
    Dies gilt für beide Nachfolger-Versionen Java-CrypTool und CrypTool 2:
    - Moderne Pure-Plugin-Architektur
    - Moderneres Layout, weniger Dialogboxen-Wechsel
    - Standardkonformität in der Bedienung
-   - Mehr Benutzerinteraktion, Action-Historie
+   - Mehr Benutzerinteraktion
    - Alle Sprachen in einem Programm, einem Setup
    - Dynamischer Wechsel zwischen den Sprachen
    - Dynamischer Wechsel zwischen Kryptoprovidern
    - Automatische Updates aus dem Internet (unter Beibehaltung der geöffneten
      Dateien nach dem Neustart)
    - Alle Funktionen als Thread implementieren (parallel, alle abbrechbar)
-   - Funktionen nutzen mehrere Core, falls vorhanden
-   - Einfacheres Erstellen von Kaskaden zusammengestellt aus den
+   - Funktionen nutzen alle CPU-Kerne, falls vorhanden
+   - Einfacheres Erstellen von Kaskaden, zusammengestellt aus den
      existierenden Elementen
-   - Anbieten eines Recorders für Benutzereingaben
+   - Mehr Einstellmöglichkeiten bei den Alphabeten der klassischen Verfahren
+   - Anbieten eines Recorders für Benutzereingaben (Action-Historie)
    - Alle Dateien als Stream nutzen, um auch sehr große Dateien bearbeiten
      zu können
-   - Steuerung der gesamten Funktionalität auch von der Kommandozeile.
+   - Steuerung der gesamten Funktionalität auch von der Kommandozeile
 
 b) Java-CrypTool (JCrypTool, JCT):
    - Komplett neu designtes CrypTool in Java mit Eclipse/RCP
    - Plattform-unabhängig
    - Nutzung von SWT für die GUI
    - Nutzt strikt die Standards von Eclipse 3.x
-   - Bouncy-Castle und FlexiProvider werden als Krypto-Provider benutzt.
-     Evtl. wird FP in BC aufgehen.
+   - Bouncy-Castle (BC) und FlexiProvider (FP) werden als Krypto-Provider benutzt.
+     Der FP wird in BC aufgehen.
    - Enge Zusammenarbeit mit dem Lehrstuhl Prof. Buchmann, TU Darmstadt für
      die Integration des FlexiProviders
    - Für Einsteiger, aber auch für Experten
@@ -2741,7 +2744,7 @@ b) Java-CrypTool (JCrypTool, JCT):
      https://github.com/jcryptool/crypto
      https://github.com/jcryptool/doc
 
-c) CrypTool 2.0 (CT 2)
+c) CrypTool 2.0 (CT2)
    - Komplett neu designtes CrypTool in C# mit dem .NET-Framework und WPF
    - Nutzt strikt die Standards von Microsoft .NET (Aussehen wie Office 2007)
    - Nutzung von Windows Presentation Foundation (WPF) zur Gestaltung
@@ -2758,10 +2761,10 @@ c) CrypTool 2.0 (CT 2)
 
 
 
-A.2.2. Funktionen der Nachfolger-Projekte CT2 und JCT1
-       -----------------------------------------------
+A.2.2. Funktionen der Nachfolger-Projekte CT2 und JCT
+       ----------------------------------------------
 Die neuen Versionen (siehe Kapitel A.2.1) sind:
-- CT2: CrypTool 2.0  und
+- CT2: CrypTool 2.0   und
 - JCT: JCrypTool 1.0
 
 
@@ -2776,9 +2779,10 @@ Einige Funktionen der Release-Versionen der Nachfolger-Projekte:
 - CT2  Smartcard-Plugin (sendet Kommandos an eine Chipkarte
                          mittels der PC/SC-Schnittstelle in Windows)
 - CT2  Cube Attack gegen symmetrische Chiffren (I. Dinur und A. Shamir)
+- CT2  SAT-Solver
 - CT2  Homomorphe Verschlüsselung (Paillier)
 - CT2  Quadratisches Sieb (deutlich schneller als in CT1)
-       Siehe:
+       Zeitmessungen siehe:
        - https://www.cryptoportal.org/details_links.php?PHPSESSID=1a3ea85bebc01e983a852682cecc48b3&link_id=69
        - http://bscw.schule.de/pub/bscw.cgi/d864899/Schulz_Witten_Zeit-Experimente.pdf
 - CT2  Solitaire-Verschlüsselung und -Analyse
@@ -2786,27 +2790,38 @@ Einige Funktionen der Release-Versionen der Nachfolger-Projekte:
 - CT2  Vigenère-Autokey-Verschlüsselung und verteilte Analyse dazu
 - CT2  Suche nach Wort-Patterns m.H. von Normierungen (z.B. "einen" = 12313)
 - CT2  LFSR, NLFSR
+- CT2  Symmetrische Verschlüsselungsverfahren von Ecrypt (SOSEMANUK, ...)
 - CT2  Verschlüsselung mit Enigma, Purple, T310/50, M209
-- CT2  Verschlüsselung mit DES, AES, PRESENT, ...
-
+- CT2  Verschlüsselung mit DES, AES, PRESENT, Twofish, ...
+- CT2  Verschlüsselung eines Klartextes mit AES unter Verwendung eines ASCII-
+       Passworts (das per PKCS#5 in einen AES-Schlüssel konvertiert wird). Das
+       Ergebnis wird Base64-encoded ausgegeben, um es leicht per Copy & Paste
+       z.B. in eine Email einfügen zu können.
+- CT2  Bewertung der Passwort-Stärke
+-------------------------------------------------------
 - JCT  Adaptive Navigationsleiste, wahlweise als Baum oder Palette, mit Filter
 - JCT  Vigenère-Autokey-Verschlüsselung
 - JCT  Visualisierung klassischer (Analyse-)Verfahren
 - JCT  Einstellbarkeit aller Detail-Parameter moderner Algorithmen
        in der FlexiProvider-Perspektive (insbesondere Post-Quantum-Algorithmen)
 - JCT  Dragon-Verschlüsselung & LFSR
-- JCT  Entropie-Analyse
+- JCT  Analyse-Verfahren für Entropie, Friedman, Häufigkeit
+- JCT  Visualisierung von Berechnungen auf Elliptischen Kurven
+       über R, F(p) und F(2^m)
 - JCT  Visualisierung von Kleptographie-Algorithmen (vier verschiedene
        "böswillige" Verfahren zur RSA-Schlüsselerzeugung incl. SETUP-Angriff)
 - JCT  Multi-partite Schlüsselvereinbarung
-- JCT  Homomorphe Verschlüsselung
+- JCT  Homomorphe Verschlüsselung (RSA, Paillier, Gentry&Halevi)
 - JCT  Analyse von Transpositions-Chiffren mit dem ACO-Algorithmus
 - JCT  Visualisierung von Zero-Knowledge-Beweisen
-- JCT  Running-Key-Verschlüsselung und Analyse (Viterbi)
+- JCT  Running-Key-Verschlüsselung und automatische Analyse (Viterbi)
 - JCT  Verifiable Secret Sharing
 - JCT  XML-Sicherheit (Demonstrator für XML-Signaturen)
+- JCT  Spiele: Zahlenhai (incl. heuristische Solver) und Sudoku-Solver
 - JCT  Mächtige Action-History und Kaskadierungs-Unterstützung
-
+- JCT  Vielfältige Einstellmöglichkeiten für die bei den klassischen
+       Verschlüsselungs-Verfahren benutzten Alphabete
+- JCT  Visualisierung und Erläuterung der Mustersperre von Android (AUP)
 
 
 A.3. Mögliche Punkte für eine Weiterentwicklung -- Neue Funktionen, Ideen
@@ -2830,7 +2845,7 @@ A.3.1. Funktionalität: Algorithmen / Verfahren
        - Klassische Verfahren (incl. Analyse): z.B.
            - Sigaba
            - Weitere Rotorchiffren, Hagelin, Lorenz-Maschine
-           - CT2  Alphabete auch für die klassischen Verfahren
+           - JCT: Alphabete auch für die klassischen Verfahren
                   auf 256 Zeichen ausdehnen
        - Symmetrische Verfahren:
            Camellia (RFC3713), RC5 und Gost (http://vipul.net/gost),
@@ -2840,7 +2855,7 @@ A.3.1. Funktionalität: Algorithmen / Verfahren
        - Neue Verfahren von Ecrypt (Network of Excellence in Cryptology)
          integrieren. Siehe http://www.ecrypt.eu.org
     * Hashverfahren:
-       - Tiger (http://www.cs.technion.ac.il/~biham/Reports/Tiger)
+       - CT2: Tiger (http://www.cs.technion.ac.il/~biham/Reports/Tiger)
        - Alle SHA-3-Kandidaten
          (http://csrc.nist.gov/groups/ST/hash/sha-3/index.html)
     * Protokolle / Protokollschwächen:
@@ -3059,7 +3074,7 @@ A.3.3. Interne Schnittstellen / Editoren
 
 A.3.4. User-Interface / Visualisierungen
        ---------------------------------
-- In den Dialogen in CrypTool 1.x können Zahlen nicht immer in allen
+- In den Dialogen in CT1 können Zahlen nicht immer in allen
   Darstellungsarten eingegeben werden (z.B. kann im Dialog
   RSA-Kryptosystem die zu verschlüsselnde Nachricht als Text mit frei
   einzustellendem Alphabet und als Zahl mit 4 verschiedenen Basen)
@@ -3115,7 +3130,7 @@ A.3.4. User-Interface / Visualisierungen
   klassischen Verfahren besteht der Schlüssel aus dem zugrunde
   liegenden Alphabet, bei den modernen symmetrischen Verfahren sind
   es Binärdaten von 56 Bit bis 256 Bit Länge.
-  Andererseits sind Benutzer gewohnt, ihre Eingaben per ASCII-Zeichen
+  Andererseits sind es Benutzer gewohnt, ihre Eingaben per ASCII-Zeichen
   zu machen. Da in einer produktiven Anwendung der Schlüssel nicht
   aus ASCII-Zeichen bestehen sollte, ist es besser, wenn man ein
   ASCII-Passwort als Grundlage verwendet, um daraus mit einem
@@ -3129,6 +3144,9 @@ A.3.4. User-Interface / Visualisierungen
   Der Dialog ist dann mit der richtigen Schlüssellänge parametrisiert
   und der generierte Schlüssel wird in die Hex-Schlüsseleingabe
   übernommen. AES-256 braucht dazu SHA-256.
+  CT1: Ab AES-Tool 2.6 (ausgeliefert mit CT 1.4.31) kann man die Schlüssel
+  auch in ASCII-Form eingeben. Die ASCII-Zeichen werden dann per PKCS#5
+  transformiert. 
 
 - Für den Benutzer konfigurierbar einstellbar machen, wie groß die
   Teile von Text- und Binärdateien sein können, die CrypTool laden kann.
@@ -3164,11 +3182,11 @@ A.3.4. User-Interface / Visualisierungen
 
 
 
-A.4. CrypTool v1 unter Linux
-     -----------------------
+A.4. CrypTool 1 unter Linux
+     ----------------------
 
-A.4.1. Ausführen von CrypTool v1 unter Linux mit Wine
-       ----------------------------------------------
+A.4.1. Ausführen von CrypTool 1 unter Linux mit Wine
+       ---------------------------------------------
 Bei einem kurzen Test mit Wine 1.3.28 unter Ubuntu 11.10 lief das Setup von
 CrypTool 1.4.31 Beta 04 (compiliert mit VS2008) ok. CrypTool selbst lief ok mit
 einigen Verschlüsselungsverfahren und mit der RSA-Schlüsselerzeugung. Aber in
@@ -3180,8 +3198,8 @@ Stattdessen empfehlen wir, die plattformunabhängige Version JCT zu benutzen, die
 auch unter Linux läuft (siehe Kapitel 3.5).
 
 
-A.4.2. Portierungsversuch von CrypTool v1 nach Linux mit Qt
-       ----------------------------------------------------
+A.4.2. Portierungsversuch von CrypTool 1 nach Linux mit Qt
+       ---------------------------------------------------
 Eine Portierung von CrypTool 1.4.x nach Linux mit Hilfe von GCC 4.x und
 Qt 4.x war außerhalb des eigentlichen CrypTool-Projektes von Einzelpersonen
 begonnen worden, aber mangels Zeit nicht/wenig fortgesetzt worden.
@@ -3198,6 +3216,6 @@ begonnen worden, aber mangels Zeit nicht/wenig fortgesetzt worden.
 
 ################################################################
 
-Bitte schauen Sie auf die Webseite wwww.cyptool.org und probieren die neuen
-Versionen von CT2 und JCT.
+Bitte schauen Sie auf die Webseite wwww.cyptool.org, und probieren die neuen
+Versionen CT2 und JCT.
 
