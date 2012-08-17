@@ -63,7 +63,7 @@ JCT  JCrypTool  = Java-CrypTool (runs under Win32, Linux and MacOS)
 
 1. Brief description of the CrypTool 1 package
    -------------------------------------------
-This ReadMe file is part of the distribution of the program CrypTool 1.
+This ReadMe file is part of the distribution of the program CrypTool 1 (CT1).
 CrypTool is a free and open-source program by means of which cryptographic
 functions can be easily learned and demonstrated, and known and unknown
 algorithms can be analyzed.
@@ -1366,7 +1366,7 @@ Windows 7 via "System Information" --> "Software Environment" -->
 
 3.3. Interactive online help under Windows XP
      ----------------------------------------
-In CrypTool 1 you can get help for each selected menu item via F1.
+In CrypTool 1 you can get help for each selected menu item via pressing F1.
 
 - For end menu items this always works directly.
 
@@ -2717,6 +2717,8 @@ Some features of the release versions of the successor projects:
        in the FlexiProvider perspective (especially Post-Quantum algorithms)
 - JCT  Dragon cipher & LFSR
 - JCT  Analysis methods for entropy, Friedman, frequency 
+- JCT  Detailed visualization of the inner states of DES (round keys, fixed
+       points, avalanche effekt within the S-box)
 - JCT  Visualization of calculations on elliptic curves over R, F(p) and F(2^m)
 - JCT  Visualization of Kleptography algorithms (four malicious methods against
        RSA key generation incl. SETUP attack)
