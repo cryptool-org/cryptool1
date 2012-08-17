@@ -11,26 +11,91 @@
 	<PARAM NAME="Keyword" VALUE="Symmetrisch">
 	<PARAM NAME="Keyword" VALUE="Verschlüsselung">
 	<PARAM NAME="Keyword" VALUE="DES-Verschlüsselungsverfahren">
+	<PARAM NAME="Keyword" VALUE="Padding">
 </OBJECT>
 
 <BODY>
 
 <h3>DES (CBC) (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Symmetrisch (modern))</h3>
 
-		<P>Der <A href="cbcmodus.html">CBC-Modus</A> wird mit Null-Initialisierungsvektor und <a href="padding.html#x923">X.923-Padding</a> verwendet.</P>
-		<P><!--ZZZPOPUP--><A href="des_info.html">DES</A> wird von <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>
-			neben dem <A href="cbcmodus.html">CBC-Modus</A> auch im <A href="ecbmodus.html">ECB-Modus</A> bereitgestellt.</P>
-		<P>Die Eingabe des <!--ZZZPOPUP--><A href="schluessel.html">Schlüssels</A> erfolgt 
-			im Dialog <A href="hidd_key.html">Schlüsseleingabe</A>.</P>
-		<P>In CrypTool ist ein <A href="hid_analyse_descbc.html">Brute-Force-Angriff für das 
-				DES-Verschlüsselungsverfahren im CBC-Modus</A> enthalten.</P>
-		<P>Im Kapitel <A href="hid_hilfe_szenarien.html">Szenarien</A> gibt es ein <A href="szenarien_tripledescbc.html">
-				Szenario</A> sowohl für die <!--ZZZPOPUP--><A href="verschluesselung.html">Ver</A>- 
-			und <!--ZZZPOPUP--><A href="entschluesselung.html">Entschlüsselung</A> mittels 
-			des Triple DES-Verschlüsselungsverfahrens im <!--ZZZPOPUP--><A href="cbcmodus.html">CBC-Modus</A>
-			als auch für den <!--ZZZPOPUP--><A href="bruteforce.html">Brute-Force-Angriff</A>. 
-			Dieses Szenario kann gleichfalls für das DES-<!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselungserfahrens</A>
-			im CBC-Modus durchgeführt werden, wobei sich natürlich die verschlüsselten <!--ZZZPOPUP--><A href="dokument.html">Dokumente</A>
-			unterscheiden.</P>
-	</BODY>
+<P>Der <A href="cbcmodus.html">CBC-Modus</A> wird mit Null-Initialisierungsvektor und <a href="padding.html#x923">X.923-Padding</a> verwendet.</P>
+
+<P><!--ZZZPOPUP--><A href="des_info.html">DES</A> wird von <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> im <A href="cbcmodus.html">CBC-Modus</A> und im <A href="ecbmodus.html">ECB-Modus</A> bereitgestellt.</P>
+
+<P>Die Eingabe des <!--ZZZPOPUP--><A href="schluessel.html">Schlüssels</A> erfolgt im Dialog <A href="hidd_key.html">Schlüsseleingabe</A>.</P>
+
+<P>In CrypTool ist ein <A href="hid_analyse_descbc.html">Brute-Force-Angriff für das DES-Verschlüsselungsverfahren im CBC-Modus</A> enthalten.</P>
+
+<P>Im Kapitel <A href="hid_hilfe_szenarien.html">Szenarien</A> gibt es ein <A href="szenarien_tripledescbc.html">Szenario</A> sowohl für die <!--ZZZPOPUP--><A href="verschluesselung.html">Ver</A>- und <!--ZZZPOPUP--><A href="entschluesselung.html">Entschlüsselung</A> mittels des Triple DES-Verschlüsselungsverfahrens im <!--ZZZPOPUP--><A href="cbcmodus.html">CBC-Modus</A> als auch für den <!--ZZZPOPUP--><A href="bruteforce.html">Brute-Force-Angriff</A>.
+
+Dieses Szenario kann gleichfalls für das DES-<!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselungserfahrens</A> im CBC-Modus durchgeführt werden, wobei sich natürlich die verschlüsselten <!--ZZZPOPUP--><A href="dokument.html">Dokumente</A> unterscheiden.</P>
+
+
+
+<P> <br> </P>
+<P><U>Bemerkung:</U></P>
+
+<P>Wird mit DES im CBC-Modus verschlüsselt, wird in CT1 standardmäßig das <a href="padding.html#x923">X.923-Padding</a> verwendet. Dieses hängt auch an einen vollständigen Block (passende Länge) immer einen Padding-Block an.
+
+Verschlüsselt man auf diese Weise einen Klartext-Block und nutzt den Null-Schlüssel "00 00 00 00 00 00 00 00", erhält man als zweiten Geheimtext-Block wieder den Klartext.</P>
+
+<P>Im ff. Screenshot besteht der erste Block des Klartextes nur aus dem Wort "CRYPTOOL". DES-verschlüsselt ergeben sich zwei Geheimtext-Blöcke und der zweite Block des Geheimtextes enthält wieder den Klartext-Block "CRYPTOOL".</P>
+
+<P><IMG SRC="images/Screenshot_de_DES-CBC-Zero-Padding-of-CRYPTOOL.png" BORDER="0"></P>
+
+<P>Das Phänomen ist verblüffend, lässt sich aber erklären:</P>
+
+<P>Der Grund ist, dass das X.923-Padding mit Nullen padded und dass es beim DES schwache Schlüssel gibt [für schwache Schlüssel gilt: DES(k, DES(k,m)) = m für alle Klartexte m].</P>
+
+<P>Zunächst lässt sich ein Padding im Allgemeinen nur dann eindeutig wieder entfernen, wenn es die Eingabedaten immer um mindestens ein Bit verlängert. Ansonsten könnte man nicht entscheiden, ob das Padding entfernt werden soll, oder ob dies nicht erforderlich ist, weil die Eingabedaten schon ein Vielfaches der Blocklänge lang waren und die Daten des letzten Blocks einem gepaddeten Block kürzerer Länge gleichen.</P>
+
+<P>Die grundsätzliche Verlängerung beim Padden kann man nur vermeiden, wenn man Out-of-band-Informationen über die Nachrichtenlänge hat oder die Struktur der Nachrichten so ist, dass sie nie mit einem Padding verwechselt werden kann.</P>
+
+<P><B>Detaillierte Erläuterung:</B></P>
+
+<P>Gewählte Bezeichnungen:<br>
+<TABLE cols="2" width="0*" class="pad20" ID="Table1">
+<TR VALIGN="top">
+<TD>B</TD> <TD>Letzter Block (beliebiger Inhalt, am Klartextende)</TD></TR>
+
+<TR VALIGN="top">
+<TD>A</TD> <TD>Block aus lauter Hex-Nullen</TD></TR>
+
+<TR VALIGN="top">
+<TD>Mi</TD> <TD>i-ter Klartext-Block</TD></TR>
+
+<TR VALIGN="top">
+<TD>Ci</TD> <TD>i-ter Geheimtext-Block</TD></TR>
+
+<TR VALIGN="top">
+<TD>k</TD> <TD>DES-Schlüssel (beliebig)</TD></TR>
+
+<TR VALIGN="top">
+<TD>j</TD> <TD>DES-Schlüssel (schwach, z.B. aus lauter Hex-Nullen)</TD></TR>
+</TABLE>
+
+
+<P>Ein Block besteht bei DES aus 64 Bit = 16 Hexzeichen.<br>
+Das X.923-Padding hängt an einen vollen Nachrichten-Block B einen Null-Block A = 00 00 00 00 00 00 00 00 an (7 Nullbytes = 14 mal Hex-0, konkateniert mit der Anzahl der Nachrichten-Bytes im Padding-Block = 00).<br>
+D.h. das letzte Byte gibt die Anzahl der Nachrichten-Bytes im Padding-Block an. Ein Padding-Block kann also maximal 7 Nachrichten-Bytes enthalten.</P>
+
+<P>PAD(B) = B || A   [ falls len(B) = 8 (in Byte) ]</P>
+
+<P>Der Null-Schlüssel j = 00 00 00 00 00 00 00 00 ist einer der 4 schwachen DES-Schlüssel (siehe Wikipedia). 
+Genauer gesagt ist 01 01 01 01 01 01 01 01 einer der 4 schwachen DES-Schlüssel und j entsteht daraus, indem die (ignorierten) Parity-Bits auf Null gesetzt werden.</P>
+
+<P>Ein schwacher Schlüssel j hat die Eigenschaft DES_j(DES_j(m)) = m, d.h. der Vorgang der Ver- und Entschlüsselung ist gleich.</P>
+
+<P>Damit ergibt sich für CBC-DES mit IV = 0:<br>
+DES_j(PAD(B))<br>
+= DES_j(B || A)<br>
+= DES_j(B) || DES_j(DES_j(B) xor A)  // weil CBC-Modus mit IV = 0<br>
+= DES_j(B) || DES_j(DES_j(B))        // weil A nur aus Nullen besteht<br>
+= DES_j(B) || B                      // weil j ein schwacher DES-Key ist<br>
+</P>
+
+<P>Das Phänomen tritt bei anderen Padding-Verfahren nicht auf, weil diese keine Null-Blöcke anhängen.</P>
+
+		
+</BODY>
 </HTML>

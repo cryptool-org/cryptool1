@@ -3117,6 +3117,6 @@ but unfortunately not finished because lack of time.
 
 ################################################################
 
-Please have a look at wwww.cyptool.org, and try out the new versions CT2 and
+Please have a look at www.cryptool.org, and try out the new versions CT2 and
 JCT.
 

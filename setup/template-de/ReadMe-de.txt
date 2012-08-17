@@ -3219,6 +3219,6 @@ begonnen worden, aber mangels Zeit nicht/wenig fortgesetzt worden.
 
 ################################################################
 
-Bitte schauen Sie auf die Webseite wwww.cyptool.org, und probieren die neuen
+Bitte schauen Sie auf die Webseite www.cryptool.org, und probieren die neuen
 Versionen CT2 und JCT.
 

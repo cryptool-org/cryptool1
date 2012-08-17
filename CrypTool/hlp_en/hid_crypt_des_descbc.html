@@ -11,6 +11,7 @@
 	<PARAM NAME="Keyword" VALUE="Symmetric">
 	<PARAM NAME="Keyword" VALUE="Encryption">
 	<PARAM NAME="Keyword" VALUE="DES encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Padding">
 </OBJECT>
 
 <BODY>
@@ -25,7 +26,76 @@
 
 <P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> contains a tool which performs a <A href="hid_analyse_descbc.html">brute-force attack on the DES encryption algorithm in CBC mode</A>.</P>
 
-<P>In the <A href="hid_hilfe_szenarien.html">Examples</A> chapter there is one <A href="szenarien_tripledescbc.html">example</A> which covers both <!--ZZZPOPUP--><A href="verschluesselung.html">encryption</A> and <!--ZZZPOPUP--><A href="entschluesselung.html">decryption</A> using the Triple-DES <!--ZZZPOPUP--><A href="verschluesselung.html">encryption algorithm</A> in <!--ZZZPOPUP--><A href="cbcmodus.html">CBC mode</A> and also the <!--ZZZPOPUP--><A href="bruteforce.html">brute-force attack</A>. This example can also be used for the DES <!--ZZZPOPUP--><A href="verschluesselung.html">encryption algorithm</A> in CBC mode; the encrypted <!--ZZZPOPUP--><A href="dokument.html">documents</A> are of course different.</P>
+<P>In the <A href="hid_hilfe_szenarien.html">Examples</A> chapter there is one <A href="szenarien_tripledescbc.html">example</A> which covers both <!--ZZZPOPUP--><A href="verschluesselung.html">encryption</A> and <!--ZZZPOPUP--><A href="entschluesselung.html">decryption</A> using the Triple-DES <!--ZZZPOPUP--><A href="verschluesselung.html">encryption algorithm</A> in <!--ZZZPOPUP--><A href="cbcmodus.html">CBC mode</A> and also the <!--ZZZPOPUP--><A href="bruteforce.html">brute-force attack</A>.
+
+This example can also be used for the DES <!--ZZZPOPUP--><A href="verschluesselung.html">encryption algorithm</A> in CBC mode; the encrypted <!--ZZZPOPUP--><A href="dokument.html">documents</A> are of course different.</P>
+
+
+
+<P> <br> </P>
+<P><U>Remark:</U></P>
+
+<P>When encrypting with DES using CBC mode, CT1 uses by default the <a href="padding.html#x923">X.923 padding</a>. This padding scheme adds to a complete block (fitting length) always a padding block.
+
+When encrypting one plaintext block this way and also using the zero key "00 00 00 00 00 00 00 00", you get in the second ciphertext block again the plaintext.</P>
+
+<P>The following screenshot shows that the first block of the plaintext is made of the word "CRYPTOOL". Encrypting with DES you get two ciphertext blocks, and the second one contains again the plaintext block "CRYPTOOL".</P>
+
+<P><IMG SRC="images/Screenshot_en_DES-CBC-Zero-Padding-of-CRYPTOOL.png" BORDER="0"></P>
+
+<P>This phenomenon is amazing, but it can be explained easily:</P>
+
+<P>The reason is, that X.923 pads with zeros and that DES has weak keys [for weak keys it holds: DES(k, DES(k,m)) = m for all plaintexts m].</P>
+
+<P>In general, you can remove padding only then definitely, if the input data are always enlarged by at least one bit. If not, you cannot decide, whether to remove the padding, or whether this is not necessary, as the input data have had a multiple length of the block size and the data within the last block just look like data of a padded block of shorter length.</P>
+
+<P>Avoiding the general enlargement via padding is only possible if you have out-of-band information about the message length or if the structure of the message is so, that it never can be confused with a padded block.</P>
+
+<P><B>Detailed explanation:</B></P>
+
+<P>Used conventions:<br>
+<TABLE cols="2" width="0*" class="pad20" ID="Table1">
+<TR VALIGN="top">
+<TD>B</TD> <TD>Last block (any content, at the end of the plaintext)</TD></TR>
+
+<TR VALIGN="top">
+<TD>A</TD> <TD>Block consisting only of hex zeros</TD></TR>
+
+<TR VALIGN="top">
+<TD>Mi</TD> <TD>i-th plaintext block</TD></TR>
+
+<TR VALIGN="top">
+<TD>Ci</TD> <TD>i-th ciphertext block</TD></TR>
+
+<TR VALIGN="top">
+<TD>k</TD> <TD>DES key (any)</TD></TR>
+
+<TR VALIGN="top">
+<TD>j</TD> <TD>DES key (weak, e.g. consisting only of hex zeros)</TD></TR>
+</TABLE>
+
+
+<P>For DES a block consists of 64 bit = 16 hex characters.<br>
+The X.923 padding attaches to a complete message block another block of zeros: A = 00 00 00 00 00 00 00 00 (7 zero bytes = 14 times hex 0 concatenated with the number of message bytes within the padding block = 00).<br>
+So the last byte means the number of message bytes within the padding block. A padding block can contain 7 message bytes at maximum.</P>
+
+<P>PAD(B) = B || A   [ if len(B) = 8 (in byte) ]</P>
+
+<P>The zero key j = 00 00 00 00 00 00 00 00 is one of the 4 weak DES keys (see Wikipedia). 
+More specific, 01 01 01 01 01 01 01 01 is one of the 4 weak DES keys and j is generated of it, as the (ignored) parity bits are set to zero.</P>
+
+<P>A weak key j has the attribute: DES_j( DES_j(m) ) = m, that means that the process of encrypting and decrypting is the same.</P>
+
+<P>This leads for CBC-DES with IV = 0 to:<br>
+DES_j(PAD(B))<br>
+= DES_j(B || A)<br>
+= DES_j(B) || DES_j(DES_j(B) xor A)  // because of CBC mode with IV = 0<br>
+= DES_j(B) || DES_j(DES_j(B))        // because A consists only of zeros<br>
+= DES_j(B) || B                      // because j is a weak DES key<br>
+</P>
+
+<P>This phenomenon doesn't occur with other padding schemes which don't add zero blocks.</P>
+
 
 </BODY>
 </HTML>
