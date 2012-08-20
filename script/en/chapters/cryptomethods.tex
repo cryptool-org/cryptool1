@@ -12,7 +12,7 @@
 % HACK to fix warning "destination with the same identifier .. has already been used, ...":
 \makeatletter \renewcommand{\thepage}{~\csname @arabic\endcsname \c@page~} \makeatother
 \hypertarget{Kapitel_1}{}
-\chapter{Encryption Procedures}
+\chapter{Security Definitions and Encryption Procedures}
 \label{Label_Kapitel_1}
 (Bernhard Esslinger, Joerg-Cornelius Schneider, May 1999; Updates Dec. 2001, Feb. 2003,
 June 2005, July 2007, January 2010, June 2012)
@@ -143,9 +143,9 @@ asymmetric encryption procedures.
     Twofish (AES candidate), Rijndael (official AES algorithm)\index{AES}.
 
     With {\bf CrypTool 2}\index{CrypTool 2} you can execute the following modern
-    symmetric encryption algorithms (using in the Startcenter Templates
+    symmetric encryption algorithms (using in the Startcenter {\bf Templates
     \textbackslash{} Cryptography \textbackslash{} Modern \textbackslash{}
-    Symmetric):\\
+    Symmetric}):\\
     AES, DES, PRESENT, RC2, RC4, SDES, TEA, TripleDES, Twofish.
 
     In {\bf JCrypTool}\index{JCrypTool} you can execute the following modern
@@ -194,7 +194,7 @@ Rijndael algorithm was declared winner of the AES award on October 2nd, 2000
 and thus succeeds the DES procedure.\index{AES}
 
 More details about the AES algorithms and the AES candidates of the last round
-can be found within the online help of CrypTool\index{CrypTool}%
+can be found i.e. within the online help of CrypTool 1\index{CrypTool 1}%
 \footnote{%
       CrypTool 1 online help\index{CrypTool 1}: The index head-word {\bf AES}
       leads to the 3 help pages: {\bf AES candidates}, 
@@ -206,7 +206,7 @@ can be found within the online help of CrypTool\index{CrypTool}%
 % HACK to fix warning "destination with the same identifier .. has already been used, ...":
 \makeatletter \renewcommand{\thepage}{\csname @arabic\endcsname \c@page} \makeatother
 % --------------------------------------------------------------------------
-\subsection{New results about cryptanalysis of AES}
+\subsection{Results about cryptanalysis of AES}
 \label{NeueAES-Analyse}
 \index{Cryptanalysis}
 \index{AES}
@@ -354,15 +354,13 @@ This makes clear, that symmetric algorithms (even if they have no
 cryptographic weakness) using keys of size 64 bit are no more appropriate
 to keep sensible data private.
 
-There are also cipher challenges for asymmetric algorithms (please
-see chapter \ref{nt:NoteFactorization})\footnote{%
+There are also cipher challenges\footnote{%
   A wide spectrum of simple and complex crypto riddles are included
-  in the ``Mystery Twister C3''~challenge.
+  in the ``MysteryTwister C3''~challenge: \url{http://www.mysterytwisterc3.org}.
   \index{Challenge}
   \index{Cipher challenge}
   \index{Crypto challenge}
-  }
-.
+  }  for asymmetric algorithms (please see chapter \ref{nt:NoteFactorization}).
 
 
 
@@ -499,7 +497,7 @@ efficiency of symmetric procedures to encrypt large quantities of data
 \addtocounter{footnote}{0}\footnotetext{%
   \url{http://tools.ietf.org/html/rfc4270}\index{IETF}\index{NSA}
   }
-\section{Ciphers and cryptanalysis for educational purposes} \index{Cryptanalysis}
+\section{Cryptanalysis and ciphers for educational purposes} \index{Cryptanalysis}
 
 Compared to public-key ciphers based on mathematics like RSA, the structure of AES,
 and most other modern symmetric ciphers, is very complex and cannot be explained
@@ -553,11 +551,11 @@ Another one is Mini-AES \cite{cm:Phan2002}
 
 
 % --------------------------------------------------------------------------
-\section{Further details}
+\section{Further information}
 
 Beside the information you can find in the following chapters, in many other
-books and on a good number of websites, the online help of 
-CrypTool\index{CrypTool} also offers very many details about the 
+books and on a good number of websites, the online help of all
+CrypTool variants\index{CrypTool} also offer very many details about the 
 symmetric and asymmetric encryption methods.
 
 
@@ -583,10 +581,10 @@ found e.g. in the thesis of Minh Van Nguyen \cite{cm:Nguyen2009}.
 \index{AES!Mini-AES}
 
 The Sage module \texttt{crypto/block\_cipher/miniaes.py} supports Mini-AES to allow
-students to explore the working of a modern block cipher.
+students to explore the inner working of a modern block cipher.
 
-Mini-AES, originally described at \cite{cm:Phan2002}, is a simplified variant of the Advanced
-Encryption Standard (AES) to be used for cryptography education.
+Mini-AES, originally described at \cite{cm:Phan2002}, is a simplified variant of the
+Advanced Encryption Standard (AES) to be used for cryptography education.
 
 How to use Mini-AES is exhaustively described at the Sage reference page:\\
 \url{http://www.sagemath.org/doc/reference/sage/crypto/block_cipher/miniaes.html}.

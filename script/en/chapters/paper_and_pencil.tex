@@ -232,9 +232,11 @@ under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
    Transposition key: K=2; E=1; Y=3. \\
    Ciphertext: NALFA PIOAX PORSS IEMET NOTN\\
 
+
 \item {\bf AMSCO} \cite{pp:ACA2002}\index{AMSCO}: The characters of the plaintext
    are written in alternating groups of one respectively two letters into a
    grille. Then the columns are swapped and the text can be read out.
+
 
 \item {\bf Double column transposition} \cite{pp:Savard1999}
    \index{Double column transposition}: 
@@ -243,8 +245,15 @@ under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
    transpositions with different keys are executed successively\footnote{%
    Using CrypTool: Choose a key for the 1st permutation, input line by line, 
    permute and output column by column. Then choose a (different) key for the
-   2nd permutation, input line by line, permute and output column by column.}.
-	
+   2nd permutation, input line by line, permute and output column by column.}.\\
+   If the keys are different and long enough (at least each 20 characters),
+   then this is even for today's computer a real challenge\footnote{%
+     MTC3 offers an according level-X challenge called "Double Columnar
+     Transposition":\\
+     \url{http://www.mysterytwisterc3.org/en/crypto-challenges/level-x-cryptography-challenges?id=12}                                                     }.
+
+
+
 \item {\bf Column transposition, General Luigi Sacco} \cite{pp:Savard1999}: The 
    columns of a table are numbered according to the letters of the keyword. 
    The plaintext is entered line by line, in the first line up to column 
