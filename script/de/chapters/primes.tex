@@ -7,7 +7,7 @@
 % \hypertarget{Kapitel_2}{}
 \chapter{Primzahlen}
 \label{Label_Kapitel_Primes}  %Die Kapitelnr. von \label wird per per \ref geholt.
-(Bernhard Esslinger, Mai 1999; Updates: Nov. 2000, Dez. 2001, Juni 2003, Mai 2005, März 2006, Juni 2007, Januar 2010)
+(Bernhard Esslinger, Mai 1999; Updates: Nov. 2000, Dez. 2001, Juni 2003, Mai 2005, März 2006, Juni 2007, Januar 2010, August 2012)
 
 \begin{center}
 \fbox{\parbox{15cm}{
@@ -36,7 +36,7 @@ Somit bestehen die {\em natürlichen} \index{Zahlen} Zahlen $ \mathbb{N} = \{1, 2
    \item den zusammengesetzten Zahlen (composite numbers).
 \end{itemize}
 
-Primzahlen haben aus 3 Gründen besondere Bedeutung erlangt:
+Primzahlen haben aus drei Gründen besondere Bedeutung erlangt:
 \begin{itemize}
   \item Sie werden in der Zahlentheorie als die Grundbausteine der
         natürlichen Zahlen betrachtet, anhand derer eine Menge genialer
@@ -184,7 +184,8 @@ sich in die Schlusskette kein Lapsus eingeschlichen hatte, konnte es nur
 die Annahme sein. Demnach musste es unendlich viele Primzahlen geben!
 
 \hypertarget{euklid}{}
-\paragraph{Euklid's Widerspruchsbeweis}
+\paragraph*{Euklid's Widerspruchsbeweis}
+% Bei /paragraph den * angefügt, damit es auch bei 4 Ebenen nicht in Inh.verzecihnis
 \index{Euklid's Widerspruchsbeweis}\index{Widerspruchsbeweis}
 führt die Argumentation wie folgt:
 
@@ -241,7 +242,7 @@ Dimensionen)}.
 
 % --------------------------------------------------------------------------
 \hypertarget{RecordPrimes}{}
-\subsection{Die 20+ größten bekannten Primzahlen (Stand Juli 2009)}  % Eyecatcher_neue-Mersenne
+\subsection{Die 20+ größten bekannten Primzahlen (Stand Juli 2012)}  % Eyecatcher_neue-Mersenne
 \index{Primzahlrekorde}
 \label{RecordPrimes}
 
@@ -249,7 +250,7 @@ In der folgenden Tabelle sind die größten bekanntesten Primzahlen und
 eine Beschreibung des jeweiligen Zahlentyps aufgeführt\footnote{%
 Eine jeweils aktuelle Fassung findet sich im Internet unter 
      \url{http://primes.utm.edu/largest.html}
-und
+und unter
      \url{http://primes.utm.edu/mersenne/index.html}.
 }:
 
@@ -273,8 +274,8 @@ und
 	4  & $2^{32.582.657}-1$ &  9.808.358 & 2006 & Mersenne, 44. bekannte \\
 	5  & $2^{30.402.457}-1$ &  9.152.052 & 2005 & Mersenne, 43. bekannte \\
 	6  & $2^{25.964.951}-1$ &  7.816.230 & 2005 & Mersenne, 42. bekannte \\
-	7  & $2^{24.036.583}-1$ &  7.235.733 & 2004 & Mersenne, 41. bekannte \\
-	8  & $2^{20.996.011}-1$ &  6.320.430 & 2003 & Mersenne, 40. bekannte \\
+	7  & $2^{24.036.583}-1$ &  7.235.733 & 2004 & Mersenne, M-41 \\
+	8  & $2^{20.996.011}-1$ &  6.320.430 & 2003 & Mersenne, M-40 \\
 	9  & $2^{13.466.917}-1$ &  4.053.946 & 2001 & Mersenne, M-39 \\
 	10 & $19.249 \cdot 2^{13.018.586}+1$ & 3.918.990 & 2007 & Verallgem. Mersenne\footnotemark \\
 	11 & $27.653 \cdot 2^{9.167.433}+1$ & 2.759.677 & 2005 & Verallgem. Mersenne \\
@@ -299,7 +300,7 @@ und
 \hline
 \end{tabular}
 \caption{Die 20+ größten Primzahlen und ihr jeweiliger Zahlentyp
-         (Stand Juli 2009)}    % Eyecatcher_neue-Mersenne
+         (Stand Juli 2012)}    % Eyecatcher_neue-Mersenne
 \label{L_n_Largest_Known-Primes}
 \end{center}
 \end{table} 
@@ -425,12 +426,13 @@ aus welchen Faktoren diese Primzahl besteht:
 $$ 2^{67} -1 =147. 573. 952. 589. 676. 412. 927 = 193. 707. 721 \cdot 761. 838. 257. 287. $$
 Er gestand, 20 Jahre an der Faktorisierung \index{Faktorisierung} (Zerlegung in Faktoren)%
 \footnote{%
-  Mit CrypTool\index{CrypTool} können Sie Zahlen auf folgende Weise 
+  Mit CrypTool 1\index{CrypTool 1} können Sie Zahlen auf folgende Weise 
   faktorisieren: Menü {\bf Einzelverfahren \textbackslash{} RSA-Kryptosystem 
   \textbackslash{} Faktorisieren einer Zahl}. \\
-  In sinnvoller Zeit zerlegt CrypTool Zahlen bis 250 Bit Länge.
-  Zahlen größer als 1024 Bit werden zur Zeit von CrypTool nicht angenommen. \\
-  Die aktuellen Faktorisierungsrekorde finden Sie in Kapitel \ref{nt:NoteFactorization}.
+  In sinnvoller Zeit zerlegt CrypTool 1 Zahlen bis 250 Bit Länge.
+  Zahlen größer als 1024 Bit werden zur Zeit von CrypTool 1 nicht angenommen. \\
+  Die aktuellen Faktorisierungsrekorde finden Sie in Kapitel
+  \ref{nt:NoteFactorization}.
   \index{Faktorisierung!Faktorisierungsrekorde}
 }
 dieser 21-stelligen Dezimalzahl gearbeitet zu haben!
@@ -453,7 +455,7 @@ $$
 4.423, ~9.689, ~ 9.941, ~ 11.213, ~ 19.937, ~ 21.701, ~ 23.207, ~ 44.497, ~ 86.243, ~ 110.503, ~ 132.049,\\
 216.091, ~ 756.839, ~ 859.433, ~ 1.257.787, ~ 1.398.269, ~ 2.976.221, ~ 3.021.377, ~ 6.972.593,\\
  ~ 13.466.917, ~ 20.996.011, ~ 24.036.583, ~ 25.964.951, ~ 30.402.457, ~ 32.582.657,\\
- ~ 37.156.667, ~ 43.112.609, ~ 42.643.801.
+ ~ 37.156.667, ~ 42.643.801, ~ 43.112.609.
 % be_2005_UPDATEN_if-new-mersenne-prime-appears          ~ xxx.xxx.xxx.
 \end{array}
 $$
@@ -462,6 +464,7 @@ $47$                  % be_2005_UPDATEN_if-new-mersenne-prime-appears
 Mersenne-Primzahlen\index{Primzahl!Mersenne}\index{Mersenne!Mersenne-Primzahl} 
 bekannt.
 
+\vskip +10 pt
 Die $19$. Zahl mit dem Exponenten $4.253$ war die erste mit mindestens $1.000$
 Stellen im Zehnersystem (der Mathematiker Samual \index{Yates,
 Samual} Yates prägte dafür den Ausdruck {\em titanische}
@@ -485,10 +488,10 @@ veraltet).
 % \end{itemize}
 
 
-\vskip +25 pt
-Für die ersten 39              % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
+\vskip +10 pt
+Für die ersten 41              % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
 Mersenne-Primzahlen weiß man inzwischen, dass diese Liste vollständig ist. 
-Die Exponenten bis zur 40.  % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
+Die Exponenten bis zur 47.  % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
 bekannten Mersenne-Primzahl sind noch nicht vollständig geprüft\footnote{%
 Den aktuellen Status der Prüfung findet man auf der Seite:
       \url{http://www.mersenne.org/status.htm}.\\
@@ -496,8 +499,23 @@ Hinweise, wie man Zahlen auf ihre Primalität prüfen kann, finden sich
 in Kapitel \ref{primality_tests}, Primzahltests\index{Primzahltest}.      }.
 
 
-\vskip +25 pt
-\paragraph{M-37 -- Januar 1998} \index{Mersenne!Mersenne-Primzahl!M-37}\mbox{}
+% be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
+Inzwischen (Stand Juli 2012) wurden alle primen Exponenten kleiner als
+$ 24.212.801 $ getestet und nochmal geprüft\footnote{%
+Siehe die Homepage des GIMPS-Projekts:
+      \url{http://www.mersenne.org/report_milestones}.
+                                  }:
+somit können wir sicher sein, dass dies wirklich 
+die 41. Mersenne-Primzahl ist und dass keine kleineren unentdeckten
+Mersenne-Primzahlen existieren (es ist üblich, die Bezeichnung M-nn erst dann
+zu verwenden, wenn die nn. bekannte Mersenne-Primzahl auch bewiesenermaßen die
+nn. Mersenne-Primzahl ist).
+
+\vskip +10 pt
+Hier einige Beispiele mit ein paar mehr Details:
+
+\vskip +10 pt
+\paragraph*{M-37 -- Januar 1998} \index{Mersenne!Mersenne-Primzahl!M-37}\mbox{}
 
 Die 37. Zahl Mersenne-Primzahl, $$2^{3.021.377} - 1 $$
 wurde im Januar 1998 gefunden und hat
@@ -505,7 +523,7 @@ wurde im Januar 1998 gefunden und hat
 
 
 \vskip +25 pt
-\paragraph{M-38 -- Juni 1999}\index{Mersenne!Mersenne-Primzahl!M-38}\mbox{}
+\paragraph*{M-38 -- Juni 1999}\index{Mersenne!Mersenne-Primzahl!M-38}\mbox{}
 
 Die 38. Mersenne-Primzahl, genannt M-38, $$ 2^{6.972.593} - 1 $$
 wurde im Juni 1999 gefunden und hat $2.098.960$ Stellen im
@@ -514,7 +532,7 @@ Zehnersystem (das entspricht rund 77 Seiten in der FAZ).
 
 \vskip +25 pt
 \hypertarget{M-39}{}
-\paragraph{M-39 -- Dezember 2001}
+\paragraph*{M-39 -- Dezember 2001}
 \index{Mersenne!Mersenne-Primzahl!M-39}\mbox{}
 
 Die 39. Mersenne-Primzahl, genannt M-39, $$2^{13.466.917}-1$$ 
@@ -528,19 +546,8 @@ $$
 $$
 bräuchte man in der FAZ knapp 200 Seiten.
 
-Inzwischen (Stand Juli 2009) wurden alle primen Exponenten kleiner als
-$ 18.000.989 $ getestet und nochmal geprüft\footnote{%
-Siehe die Homepage des GIMPS-Projekts:
-      \url{http://www.mersenne.org/report_milestones}.
-                                  }:
-somit können wir sicher sein, dass dies wirklich 
-die 39. Mersenne-Primzahl ist und dass keine kleineren unentdeckten
-Mersenne-Primzahlen existieren (es ist üblich, die Bezeichnung M-nn erst dann
-zu verwenden, wenn die nn. bekannte Mersenne-Primzahl auch bewiesenermaßen die
-nn. Mersenne-Primzahl ist).
-
 %\vskip +25 pt
-%\paragraph{Mxxxxxxxxx -- Juni 2003 -- M-40 ?}
+%\paragraph*{Mxxxxxxxxx -- Juni 2003 -- M-40 ?}
 %\index{Mersenne!Mersenne-Primzahl!M-40}\mbox{}
 
 %Als 40. Mersenne-Primzahl wurde die folgende Zahl gefunden (und schon als M-40
@@ -560,7 +567,7 @@ nn. Mersenne-Primzahl ist).
 
 
 \vskip +25 pt
-\paragraph{GIMPS}\index{GIMPS}\mbox{}
+\paragraph*{GIMPS}\index{GIMPS}\mbox{}
 \hypertarget{GIMPS-project}{}
 
 Das GIMPS-Projekt\index{GIMPS} (Great Internet Mer"-senne-Prime Search)
@@ -682,7 +689,7 @@ $2^{127}-1$ prim ist. Solange wird wohl kein neuer Rekord mehr Bestand haben.
     ZT können Sie in CrypTool\index{CrypTool} über das Menü
     {\bf Einzelverfahren \textbackslash{} Zahlentheorie interaktiv
     \textbackslash{} Lernprogramm für Zahlentheorie} aufrufen.
-    Siehe Anhang \ref{s:appendix-Learn-NT}.
+    Siehe auch Anhang \ref{s:appendix-Learn-NT}.
 }
 \label{primality_tests}   % chap. 3.5
 \index{Primzahltest}
@@ -698,8 +705,8 @@ mit dem \hyperlink{SieveEratosthenes01}{Sieb des Eratosthenes}
 \index{Eratosthenes!Sieb} ist mit heutigen Computern anwendbar 
 für Zahlen mit bis zu circa $20$ Stellen im Zehnersystem.
 Die größte Zahl, die bisher in ihre beiden annähernd gleich großen
-Primfaktoren zerlegt werden konnte, hatte 200 Stellen 
-(vgl. \hyperlink{RSA-200-chap3}{RSA-200} in Kapitel~\ref{nt:NoteFactorization}).
+Primfaktoren zerlegt werden konnte, hatte 232 Stellen 
+(vgl. \hyperlink{RSA-768-chap3}{RSA-768} in Kapitel~\ref{nt:NoteFactorization}).
 % be_2005 Das ist eine gute Art zu referenzieren !!!!!!!!!!!!!!!
 
 % be_2005_UPDATEN_if-new-factorization-record-appears
@@ -766,7 +773,7 @@ man hätte dann ein einfaches Primzahlkriterium).
 
 
 \vskip +25 pt
-\paragraph{Pseudoprimzahlen}%
+\paragraph*{Pseudoprimzahlen}%
 \index{Primzahl!Pseudoprimzahl}\index{Zahlen!Pseudoprimzahl}%
 \hypertarget{HT-Pseudoprimenumber01}{}\label{L-Pseudoprimenumber01}%
 \mbox{}
@@ -779,7 +786,7 @@ Die erste Pseudoprimzahl ist $$ 341 = 11 \cdot 31 .$$
 
 
 \vskip +25 pt
-\paragraph{Carmichaelzahlen}%
+\paragraph*{Carmichaelzahlen}%
 \index{Zahlen!Carmichaelzahl}%
 \hypertarget{HT-Carmichael-number01}{}\label{L-Carmichael-number01}%
 \mbox{}
@@ -803,7 +810,7 @@ Der Test angewandt auf $a=5$ ergibt: $5^{560} \;{\rm mod}\; 561 = 1$.
 \end{example}
 
 \vskip +25 pt
-\paragraph{Starke Pseudoprimzahlen}%
+\paragraph*{Starke Pseudoprimzahlen}%
 \index{Primzahl!starke Pseudoprimzahlen} \index{Zahlen!starke Pseudoprimzahl}%
 \hypertarget{HT-Strongpseudoprimenumber01}{}\label{L-Strongpseudoprimenumber01}%
 \mbox{}
@@ -1295,7 +1302,7 @@ $$
 
 % --------------------------------------------------------------------------
 \vskip +10 pt
-\subsection[Vermutung von Catalan]{Vermutung von Catalan\footnotemark}
+\subsection[Catalans Mersenne-Vermutung]{Catalans Mersenne-Vermutung\footnotemark}
     \footnotetext{%
 Eugene Charles Catalan, belgischer Mathematiker, 30.5.1814$-$14.2.1894.\\
 Nach ihm sind auch die sogenannten {\em Catalanzahlen}
@@ -1306,7 +1313,10 @@ benannt.
     }
 \nopagebreak
 Catalan\index{Catalan, Eugene}\index{Zahlen!Catalanzahl}
-äußerte die Vermutung, dass $ C_4 \;$ eine Primzahl ist:
+äußerte die Vermutung\footnote{%
+Siehe \url{http://www.utm.edu/research/primes/mersenne.shtml}
+           unter "`Conjectures and Unsolved Problems"'.
+         }, dass $ C_4 \;$ und jede weitere Zahl dieser Folge eine Primzahl ist:
 $$
 \begin{array}{l}
 C_0 = 2, \\
@@ -1317,24 +1327,57 @@ C_4 = 2^{C_3} - 1, \cdots \\
 \end{array}
 $$
 %% \begin{sloppypar}
-\noindent (siehe \url{http://www.utm.edu/research/primes/mersenne.shtml}
-           unter Conjectures and Unsolved Problems).
+%% \noindent 
 %% \end{sloppypar}
 
-    Diese Folge ist ebenfalls rekursiv definiert und wächst sehr schnell. 
-    Besteht sie nur aus Primzahlen?
+\noindent Diese Folge ist rekursiv definiert und wächst sehr schnell. 
+Besteht sie nur aus Primzahlen?
+
 $$
 \begin{array}{lll}
-C(0) = 2 & & \mapsto {\rm ~prim}\\
-C(1) = 2^2 - 1 &    = 3 & \mapsto {\rm ~prim}\\
-C(2) = 2^3 - 1 &    = 7 & \mapsto {\rm ~prim} \\
-C(3) = 2^7 - 1 &    = 127& \mapsto {\rm ~prim} \\
-C(4) = 2^{127} - 1 &      = 170. 141. 183. 460. 469. 231. 731. 687. 303. 715. 884. 105. 727 & \mapsto {\rm ~prim} \\
+C_0 = 2 & & \mapsto {\rm ~prim}\\
+C_1 = 2^2 - 1 &    = 3 & \mapsto {\rm ~prim}\\
+C_2 = 2^3 - 1 &    = 7 & \mapsto {\rm ~prim} \\
+C_3 = 2^7 - 1 &    = 127& \mapsto {\rm ~prim} \\
+C_4 = 2^{127} - 1 &      = 170. 141. 183. 460. 469. 231. 731. 687. 303. 715. 884. 105. 727 & \mapsto {\rm ~prim} \\
 \end{array}
 $$
-Ob $C_5$ bzw.\ alle höheren Elemente prim sind, ist (noch) nicht bekannt,
-aber auch nicht wahr"-scheinlich. Bewiesen ist jedenfalls nicht, dass diese
-Formel nur Primzahlen liefert.
+
+\noindent Ob $C_5 = 2^{C_4} - 1$ bzw.\ alle weiteren Elemente dieser Reihe prim sind,
+ist (noch) nicht bekannt. Bewiesen ist jedenfalls nicht, dass diese Formel nur
+Primzahlen liefert.
+
+\noindent Es scheint sehr unwahr"-scheinlich, dass $C_5$ (und die weiteren Glieder) prim sind.
+
+\noindent Dies könnte ein weiteres Beispiel von Guys "`Gesetz der kleinen Zahlen"'\index{Guys Gesetz der kleinen Zahlen}\footnote{%
+\url{http://primes.utm.edu/glossary/page.php?sort=LawOfSmall}
+               } sein.
+
+
+
+% --------------------------------------------------------------------------
+\vskip +10 pt
+\subsection[Doppelte Mersenne-Primzahlen]
+           {Doppelte Mersenne-Primzahlen}
+
+Obige Catalan-Mersenne-Zahlen sind eine Teilmenge der doppelten
+Mersenne-Primzahlen\footnote{%
+\url{http://en.wikipedia.org/wiki/Catalan%E2%80%93Mersenne_number}
+          }.
+Doppelte Mersenne-Primzahlen haben die Form
+$$ M_{M_p} = 2 ^ {2^p - 1} -1 $$ % Problem "Double subscript", wenn nicht geklammert
+wobei p ein primer Mersenne-Exponent ist und $M_p$ eine prime Mersenne-Zahl.
+
+Die ersten Werte von p für die $M_p$ prim ist, sind p = 2, 3, 5, 7, 13, 17, 19, 31, 61, 89 (siehe \hyperlink{MersenneNumbers01}{oben}).
+
+$M_{M_p}$ ist prim für p = 2, 3, 5, 7.
+Für p = 13, 17, 19, und 31 sind die entsprechenden doppelten Mersenne-Zahlen nicht
+prim.
+
+Der nächste Kandidat für die nächste doppelte Mersenne-Primzahl ist
+$$ M_{M_{61}} = 2^{2305843009213693951} - 1$$
+Mit einer Größe von $ 1,695 * 10^{694.127.911.065.419.641} $ ist auch diese Zahl --- ebenso wie $C_5$ --- viel zu groß für alle derzeit bekannten Primzahltests.
+
 
 
 
@@ -1380,7 +1423,7 @@ die Menge der quadratischen Zahlen:\footnotemark
 
 
 \vskip +15 pt
-\paragraph{Der Wert der $n$-ten Primzahl $P(n)$}%
+\paragraph*{Der Wert der $n$-ten Primzahl $P(n)$}%
 \index{P(n)}%
 \mbox{}
 \vskip +10 pt
@@ -1398,7 +1441,7 @@ Vergleiche auch \hyperlink{ntePrimzahl}{Tabelle \ref{s:ntePrimzahl}}.
 
 
 \vskip +15 pt
-\paragraph{Die Anzahl der Primzahlen $PI(x)$}%
+\paragraph*{Die Anzahl der Primzahlen $PI(x)$}%
 \index{PI(x)}%
 \mbox{}
 \vskip +10 pt
@@ -1501,7 +1544,7 @@ ihre Geheimnisse herauszufinden.
 
 %----------------------------------------
 \index{Eratosthenes!Sieb}
-\paragraph{Sieb des Eratosthenes}\index{Eratosthenes!Sieb}\mbox{}
+\paragraph*{Sieb des Eratosthenes}\index{Eratosthenes!Sieb}\mbox{}
 \hypertarget{SieveEratosthenes01}{}
 
 Ein einfacher Weg, alle $PI(x)$ Primzahlen kleiner oder gleich $x$
@@ -1538,7 +1581,7 @@ Primzahlen oder die Zerlegung in Primfaktoren vieler zusammengesetzter
 Zahlen enthalten.
 
 
-\paragraph{Weitere interessante Themen rund um Primzahlen} \mbox{}\\
+\paragraph*{Weitere interessante Themen rund um Primzahlen} \mbox{}\\
 In diesem Kapitel \ref{Label_Kapitel_Primes} wurden weitere, eher zahlentheoretische 
 Themen wie Teilbarkeitsregeln, Modulo-Rechnung, modulare Inverse, modulare Potenzen
 und Wurzeln, chinesischer Restesatz, Eulersche Phi-Funktion und perfekte Zahlen
@@ -1758,7 +1801,7 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
   
      \hline
      \end{tabular}
-     \caption{Arithmetische Primzahlfolgen mit minimaler Distanz (Stand Jan. 2010)}
+     \caption{Arithmetische Primzahlfolgen mit minimaler Distanz (Stand Aug. 2012)}
      \label{Smallest AP-k with minimal difference}
      \end{center}
      \end{table}
@@ -1773,7 +1816,8 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
      Es gilt $ 10\# = 7\# = 2 * 3 * 5 * 7 = 210$.
      Sucht man Folgen mit der Länge 15, so muss der 
      Abstand mindestens $ 15\# = 13\# = 2 * 3 * 5 * 7 * 11 * 13 = 30.030 $ betragen.
-     
+     \index{Primzahl!k Primorial} \index{Primzahl!k\#}   
+
      Daraus ergibt sich, dass die Folgenlänge beliebig groß sein kann, aber
      der Abstand kann nicht nicht jede beliebige Zahl annehmen: es kann keine
      arithmetische Primzahlfolge mit dem Abstand $100$ geben, denn 100 ist
@@ -1813,9 +1857,12 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
      \url{http://primes.utm.edu/glossary/page.php?sort=ArithmeticSequence}
      } 
      finden Sie weitere Informationen: Die längste bekannte arithmetische
-     Folge, die nur aus direkt hintereinander liegenden Primzahlen besteht,
-     hat die Länge $10$ und der Abstand beträgt
-     $$ 10\# = 7\# = 2 * 3 * 5 * 7 = 210 $$ \\
+     Folge, die nur aus direkt hintereinander liegenden Primzahlen besteht
+     (Stand Aug. 2012), hat die Länge $10$, der Abstand beträgt
+     $$ 10\# = 7\# = 2 * 3 * 5 * 7 = 210 $$
+     und sie startet mit der 93-stelligen Primzahl\\
+     100 9969724697 1424763778 6655587969 8403295093 2468919004 1803603417 7589043417 0334888215 9067229719\\
+
 
 \end{itemize}
 
@@ -1832,7 +1879,7 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
      Jede gerade natür"-liche Zahl größer $2$ lässt sich als die Summe
      zweier Primzahlen darstellen.
      Mit Computern ist die \textbf{Goldbachsche Vermutung} für alle geraden Zahlen
-     bis $15*10^{17}$ (Stand Juli 2009) verifiziert\footnote{%
+     bis $26*10^{17}$ (Stand November 2011) verifiziert\footnote{%
      Dass die Goldbachsche Vermutung wahr ist, d.h. für alle geraden 
      natürlichen Zahlen größer als $2$ gilt, wird heute allgemein nicht 
      mehr angezweifelt. Der Mathematiker Jörg Richstein\index{Richstein 1999}
@@ -1886,9 +1933,11 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
 \item Bernhard Riemann\footnote{%
         Bernhard Riemann\index{Riemann, Bernhard}, deutscher Mathematiker,
         17.9.1826$-$20.7.1866. }
-    stellte eine bisher unbewiesene, aber auch nicht widerlegte Formel
-    für die Verteilung von Primzahlen auf, die die Abschätzung 
-    weiter verbessern würde.
+     stellte eine wichtige, bisher unbewiesene Hypothese\footnote{%
+        \url{http://de.wikipedia.org/wiki/Riemannsche_Vermutung}  }
+     über die Nullstellen der Riemannschen Zetafunktion auf, aus der auch eine
+     verbesserte Restglied"-ab"-schät"-zung im Primzahlsatz (Verteilung von
+     Primzahlen) folgt.
 
 
 \item Das Benfordsche Gesetz\label{primes:Benford-Law}\footnote{%
@@ -1896,34 +1945,38 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
         \url{http://www.spiegel.de/wissenschaft/mensch/0,1518,632541,00.html},\\
         \url{http://arxiv.org/PS_cache/arxiv/pdf/0906/0906.2789v1.pdf}. 
         }$^,$\footnote{%
-        Didaktische Darstellungen zu Anwendungen von Benfords Gesetz finden sich unter:
-      \begin{itemize}	
-       \item Rüdeger Baumann: \glqq Ziffernanalyse zwecks Betrugsaufdeckung  ---  Beispiel
-            für kompetenzorientierten und kontextbezogenen Informatikunterricht\grqq, \\
-            in LOGIN, Informatische Bildung und Computer in der Schule, Nr. 154/155, 2008, S. 68-72
-       \item Norbert Hungerbühler: \glqq Benfords Gesetz über führende Ziffern\grqq, \\
-             März 2007,
-             \url{http://www.educ.ethz.ch/unt/um/mathe/ana/benford}
-      \end{itemize}
+        Didaktische Darstellungen zu Anwendungen von Benfords Gesetz finden sich
+        unter:
+        \begin{itemize}	
+         \item Rüdeger Baumann: \glqq Ziffernanalyse zwecks Betrugsaufdeckung ---
+              Beispiel für kompetenzorientierten und kontextbezogenen
+              Informatikunterricht\grqq, \\
+              in LOGIN, Informatische Bildung und Computer in der Schule,
+              Nr. 154/155, 2008, S. 68-72
+         \item Norbert Hungerbühler: \glqq Benfords Gesetz über führende
+              Ziffern\grqq, \\
+              März 2007,
+              \url{http://www.educ.ethz.ch/unt/um/mathe/ana/benford}
+        \end{itemize}
         }
-    gilt nicht für Primzahlen. 
+     gilt nicht für Primzahlen. 
 
-    Nach dem Benfordschen Gesetz sind die Ziffern
-    in den Zahlen bestimmter empirischer Datensätze (z.B. über Einwohnerzahlen
-    von Städten, Geldbeträge in der Buchhaltung, Naturkonstanten) ungleichmäßig
-    verteilt: Z.B. ist die Ziffer \verb#1# viel häufiger die erste Ziffer
-    einer Zahl als jede andere.
+     Nach dem Benfordschen Gesetz sind die Ziffern
+     in den Zahlen bestimmter empirischer Datensätze (z.B. über Einwohnerzahlen
+     von Städten, Geldbeträge in der Buchhaltung, Naturkonstanten) ungleichmäßig
+     verteilt: Z.B. ist die Ziffer \verb#1# viel häufiger die erste Ziffer
+     einer Zahl als jede andere.
 
-    Welche Datensätze diesem Gesetz gehorchen ist noch nicht vollständig geklärt.
-    Timo Eckhardt untersuchte in seiner Diplomarbeit 2008 ausführlich Eigenschaften
-    von Primzahlen. Unter anderem wurden alle Primzahlen bis 7.052.046.499 mit
-    verschiedenen Stellenwert-Basen dargestellt.
+     Welche Datensätze diesem Gesetz gehorchen ist noch nicht vollständig geklärt.
+     Timo Eckhardt untersuchte in seiner Diplomarbeit 2008 ausführlich Eigenschaften
+     von Primzahlen. Unter anderem wurden alle Primzahlen bis 7.052.046.499 mit
+     verschiedenen Stellenwert-Basen dargestellt.
     
-    Beim Vergleich der Basen 3 bis 10 ergab sich, dass die Abweichung von Benfords
-    Gesetz bei der Basis 3 am geringsten ist. Für die Basis zehn besteht in etwa eine
-    Gleichverteilung der ersten Ziffern. Bei der Untersuchung größerer Basen ergab sich,
-    dass die Verteilung der ersten Ziffern von Basis zu Basis sehr starke Unterschiede
-    aufweist.
+     Beim Vergleich der Basen 3 bis 10 ergab sich, dass die Abweichung von Benfords
+     Gesetz bei der Basis 3 am geringsten ist. Für die Basis zehn besteht in etwa eine
+     Gleichverteilung der ersten Ziffern. Bei der Untersuchung größerer Basen ergab
+     sich, dass die Verteilung der ersten Ziffern von Basis zu Basis sehr starke
+     Unterschiede aufweist.
 
 \end{itemize}
 
@@ -2056,7 +2109,7 @@ außerhalb der wissenschaftlichen For"-schung.
 \vskip +25 pt
 \hypertarget{HT-GoogleRecruitment2004}{}
 %\subsubsubsection{xxx} 3*sub kannte er nicht, deshalb paragraph !
-\paragraph{Mitarbeiterwerbung bei Google im Jahre 2004}%
+\paragraph*{Mitarbeiterwerbung bei Google im Jahre 2004}%
 \index{Google!Mitarbeiterwerbung}%
 \label{HT-GoogleRecruitment2004}%
 \mbox{}
@@ -2102,7 +2155,7 @@ Zahlenfolge finden: Dies hatte nichts mehr mit Primzahlen zu tun.}
 
 \vskip +25 pt
 \hypertarget{HT-Movie-Contact01}{}
-\paragraph{Contact [Regie Robert Zemeckis, 1997] -- Primzahlen zur Kontaktaufnahme}
+\paragraph*{Contact [Regie Robert Zemeckis, 1997] -- Primzahlen zur Kontaktaufnahme}
 \index{Filme}\index{Zemeckis 1997}
 \label{HT-Movie-Contact01}%
 \mbox{}
@@ -2752,7 +2805,7 @@ Percentage of primes: 58.3416583417
 % already defined in elementaryNumberTheory.inc -> 2 davor
 \bibitem[Bartholome1996]{pr:2Bartholome1996}  \index{Bartholome 1996}
     A. Bartholom\'e, J. Rung, H. Kern, \\
-    {\em Zahlentheorie für Einsteiger}, Vieweg 1995, 2. Auflage 1996.
+    {\em Zahlentheorie für Einsteiger}, Vieweg, 1995, 2. Auflage 1996.
 
 \bibitem[Blum1999]{pr:Blum1999} \index{Blum 1999}
     W. Blum, \\
@@ -2760,7 +2813,7 @@ Percentage of primes: 58.3416583417
 
 \bibitem[Bundschuh1998]{pr:Bundschuh1998} \index{Bundschuh 1998}
     Peter Bundschuh, \\
-    {\em Einführung in die Zahlentheorie}, Springer 1988, 4. Auflage 1998.
+    {\em Einführung in die Zahlentheorie}, Springer, 1988, 4. Auflage 1998.
 
 \bibitem[Crandell2001]{pr:Crandell2001} \index{Crandell 2001} \index{Pomerance 2001}
     Richard Crandell, Carl Pomerance, \\
@@ -2798,12 +2851,19 @@ Percentage of primes: 58.3416583417
 \bibitem[Padberg1996]{pr:Padberg1996} \index{Padberg 1996}
     F. Padberg, \\
     {\em Elementare Zahlentheorie}, 
-    Spektrum Akademischer Verlag 1988, 2. Auflage 1996.
+    Spektrum Akademischer Verlag, 1988, 2. Auflage 1996.
 
 \bibitem[Pieper1983]{pr:Pieper1983} \index{Pieper 1983}
     H. Pieper, \\
     {\em Zahlen aus Primzahlen}, 
-    Verlag Harri Deutsch 1974, 3. Auflage 1983.
+    Verlag Harri Deutsch, 1974, 3. Auflage 1983.
+
+\bibitem[Rempe2009]{pr:Rempe2009}  \index{Rempe 2009}
+    L. Rempe, R. Waldecker, \\
+    {\em Primzahltests für Einsteiger}, Vieweg+Teubner, 2009. \\
+    Dieses Buch entstand aus einem Kurs an der "`Deutschen Schülerakademie"'.
+    Es stellt den AKS-Beweis vollständig dar, ohne mathematisches Vorwissen zu
+    zu erwarten.
 
 \bibitem[Richstein1999]{pr:Richstein1999} \index{Richstein 1999}
     J. Richstein, \\
@@ -2812,7 +2872,7 @@ Percentage of primes: 58.3416583417
 
 \bibitem[Scheid1994]{pr:Scheid1994} \index{Scheid 1994}
     Harald Scheid, \\ 
-    {\em Zahlentheorie}, BI Wissenschaftsverlag, 2. Auflage, 1994.
+    {\em Zahlentheorie}, BI Wissenschaftsverlag, 2. Auflage 1994.
 
 %already defined in elementaryNumberTheory.inc -> 2 davor
 \bibitem[Schneier1996]{pr:Schneier1996p} \index{Schneier 1996}
@@ -2823,12 +2883,12 @@ Percentage of primes: 58.3416583417
 \bibitem[Schroeder1999]{pr:Schroeder1999} \index{Schroeder 1999}
     M.R. Schroeder, \\
     {\em Number Theory in Science and Communication}, \\
-    Springer 1984, 3rd edition 1997, Corrected Printing 1999.
+    Springer, 1984, 3rd edition 1997, Corrected Printing 1999.
 
 \bibitem[Schwenk1996]{pr:Schwenk1996} \index{Schwenk 1996}
     J. Schwenk \\
     {\em Conditional Access},
-    in taschenbuch der telekom praxis 1996, \\
+    in taschenbuch der telekom praxis, 1996, \\
     Hrgb. B. Seiler, Verlag Schiele und Schön, Berlin.
 
 \bibitem[Shoup2005]{pr:Shoup2005} \index{Shoup 2005}
@@ -2840,7 +2900,7 @@ Percentage of primes: 58.3416583417
 \bibitem[Tietze1973]{pr:Tietze1973} \index{Tietze 1973}
     H. Tietze, \\
     {\em Gelöste und ungelöste mathematische Probleme}, 
-    Verlag C.H. Beck 1959, 6. Auflage 1973.
+    Verlag C.H. Beck, 1959, 6. Auflage 1973.
 
 \end{thebibliography}
 

@@ -589,7 +589,7 @@ und
 
 Den diskreten Logarithmus kann man in beliebigen endlichen \index{Gruppen} Gruppen $ (G, \circ) $ verallgemeinern. Im Folgenden geben wir einige Eigenschaften über die Gruppe $G$ an, damit das diskrete Logarithmusproblem schwierig wird. \\
 \index{Exponentialfunktion!Berechnung}
-\paragraph{Berechnung der diskreten Exponentialfunktion}
+\paragraph*{Berechnung der diskreten Exponentialfunktion}
 Sei $ G $ eine Gruppe mit der Operation $ \circ $ und $ g \in G. $ Die (diskrete) Exponentialfunktion  zur Basis $ g $ ist definiert durch
 \[e_g: k \longmapsto g^k, \quad \text{ für alle } k \in \N. \]
 Dabei definiert man
@@ -621,7 +621,7 @@ Wir bezeichnen $ a $ mit $ \log_\alpha (\beta). $
 }}
 \end{center}
 
-\paragraph{Berechung des diskreten Logarithmus'}
+\paragraph*{Berechung des diskreten Logarithmus'}
 Ein einfaches Verfahren zur Berechnung des dis"-kreten Logarithmus' eines Gruppenelements, das wesentlich effizienter ist als das bloße Durchprobieren aller möglichen Werte für $ k, $ ist der \index{Babystep-Giantstep} Babystep-Giantstep-Algorithmus.
 \begin{satz}[Babystep-Giantstep-Algorithmus]\label{thm-cry-bsgs}
 Sei $ G $ eine Gruppe  und $ g \in G. $ Sei $ n $ die kleinste natürliche Zahl mit $ |G|\leq n^2. $ Dann kann der diskrete Logarithmus eines Elements $ h 
@@ -639,7 +639,7 @@ Falls $ g^{jn} = hg^{-i}, $ also $ h = g^{i+jn}, $ so ist das Problem gelöst. Fa
 Man kann sich mit Hilfe des Babystep-Giantstep-Algorithmus klar machen, dass die Berechnung des diskreten Logarithmus' sehr viel schwieriger ist als die Berechnung der diskreten Exponentialfunktion. Wenn die auftretenden Zahlen etwa 1000 Bit Länge haben, so benötigt man zur Berechnung von $ g^k $ nur etwa 2000 Multiplikationen, zur Berechnung des diskreten Logarithmus' mit dem Babystep-Giantstep-Algorithmus aber etwa $ 2^{500} \approx 10^{150} $ Operationen. \\
 Neben dem Babystep-Giantstep-Algorithmus gibt es noch zahlreiche andere Verfahren zur Be"-rechnung des diskreten Logarithmus' \cite{mc:Stinson1995}.
 
-\paragraph{Der Satz von Silver-Pohlig-Hellman}
+\paragraph*{Der Satz von Silver-Pohlig-Hellman}
 In endlichen abelschen Gruppen lässt sich das  dis"-krete Logarithmusproblem in Gruppen kleinerer Ordnung reduzieren.
 \begin{satz}[Silver-Pohlig-Hellman]\label{thm-cry-pohe}
 Sei $ G $ eine endliche abelsche Gruppe mit $ |G|= p_1^{a_1} p_2^{a_2} \cdot \ldots \cdot p_s^{a_s}. $ Dann lässt sich das diskrete Logarithmusproblem in $ G $ auf das Lösen von Logarithmenproblemen in Gruppen der Ordnung $ p_1, \ldots , p_s $ zurückführen.

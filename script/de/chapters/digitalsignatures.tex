@@ -354,7 +354,7 @@ Problem\index{Logarithmusproblem!diskret}. Die Bestandteile des privaten
 und öffentlichen DSA-Schlüssels, sowie die Verfahren zur Signatur und
 Verifikation sind in Krypto-Verfahren~\ref{dsasigproc} zusammengefasst.
 \begin{cryptoprocedure}
-\paragraph{Öffentlicher Schlüssel}\strut\\
+\paragraph*{Öffentlicher Schlüssel}\strut\\
 \begin{tabular}{l@{ }l}
 $p$ & prim \\
 $q$ & 160-Bit Primfaktor von $p - 1$ \\
@@ -367,12 +367,12 @@ $y$ & $\strut \equiv  g^x  \mbox{ mod } p$
 Benutzern gemeinsam genutzt werden.
 \end{remark}
 
-\paragraph{Privater Schlüssel}\strut\\
+\paragraph*{Privater Schlüssel}\strut\\
 \begin{tabular}{l@{ }l}
 $x < q$ (160-Bit Zahl) 
 \end{tabular}
 
-\paragraph{Signatur}\strut\\
+\paragraph*{Signatur}\strut\\
 \begin{tabular}{l@{ }l}
 $m$ & zu signierende Nachricht\\
 $k$ & zufällig\index{Zufall} gewählte Primzahl, kleiner als $q$\\
@@ -389,7 +389,7 @@ für $k$.
 \item SHA-1 \index{SHA-1} ist eine 160-Bit Hashfunktion.
 \end{itemize}
 \end{remark}
-\paragraph{Verifikation}\strut\\
+\paragraph*{Verifikation}\strut\\
 \begin{tabular}{l@{ }l}
 $w$ & $= s^{-1} \;  \mbox{ mod } q$\\
 $u_1$ & $= (\mbox{SHA-1}(m)w) \mbox{ mod } q$\\

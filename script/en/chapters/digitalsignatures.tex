@@ -317,7 +317,7 @@ the Discrete Logarithm Problem\index{Logarithm problem!discrete}. The DSA public
 procedures for signature and verification are summarised in crypto procedure~\ref{dsasigproc}.
 
 \begin{cryptoprocedure}
-\paragraph{Public Key}\strut\\
+\paragraph*{Public Key}\strut\\
 \begin{tabular}{l@{ }l}
 $p$ & prime \\
 $q$ & 160-bit prime factor of $p - 1$ \\
@@ -328,12 +328,12 @@ $y$ & $\strut \equiv  g^x  \mbox{ mod } p$
 
 \emph{Remark:} Parameters $p,q$ and $g$ can be shared among a group of users.
 
-\paragraph{Private Key}\strut\\
+\paragraph*{Private Key}\strut\\
 \begin{tabular}{l@{ }l}
 $x < q$ (a 160-bit number) 
 \end{tabular}
 
-\paragraph{Signing}\strut\\
+\paragraph*{Signing}\strut\\
 \begin{tabular}{l@{ }l}
 $m$ & the message to be signed\\
 $k$ & choose at random\index{Random}, less than $q$\\
@@ -348,7 +348,7 @@ $s$ & $= (k^{-1}(\mbox{SHA-1}(m) + xr)) \mbox{ mod } q$
   properties, but also on using a good random source\index{Random}  for $k$.
 \item SHA-1 \index{SHA-1} is a 160-bit hash function.
 \end{itemize}
-\paragraph{Verifying}\strut\\
+\paragraph*{Verifying}\strut\\
 \begin{tabular}{l@{ }l}
 $w$ & $= s^{-1} \;  \mbox{ mod } q$\\
 $u_1$ & $= (\mbox{SHA-1}(m)w) \mbox{ mod } q$\\
