@@ -1257,7 +1257,6 @@ $$
 
 \noindent This sequence is defined recursively and increases extremely quickly.
 Does it only consist of primes?
-
 $$
 \begin{array}{lll}
 C(0) = 2 & & \mapsto {\rm \:prime}\\
@@ -1274,8 +1273,8 @@ In any case, it has not been proved that this formula delivers only primes.
 
 \noindent It seems very unlikely that $C_5$ (or many of the larger terms) would be prime.
 
-\noindent So this could be another example of Guy's ``law of small numbers''
-\index{Guy's law of small numbers}\footnote{%
+\noindent So this could be another example of Guy's
+``law of small numbers''\index{Guy's law of small numbers}\footnote{%
 \url{http://primes.utm.edu/glossary/page.php?sort=LawOfSmall}
                }.
 
@@ -1286,7 +1285,7 @@ In any case, it has not been proved that this formula delivers only primes.
 \subsection[Double Mersenne primes]
            {Double Mersenne primes}
 
-The above Catalan-Mersenne numbers are a subset of the double Mersenne
+The above Catalan-Mersenne numbers are from $C_2$ a subset of the double Mersenne
 primes\footnote{%
 \url{http://en.wikipedia.org/wiki/Catalan%E2%80%93Mersenne_number}
           }.
@@ -1295,9 +1294,22 @@ $$ M_{M_p} = 2 ^ {2^p - 1} -1 $$
 % $ M_{M_p} = 2 ^ {2^p - 1} -1 $ 
 where p is a Mersenne prime exponent and $M_p$ ist a prime Mersenne number.
 
-The first values of p for which $M_p$ is prime are p = 2, 3, 5, 7, 13, 17, 19, 31, 61, 89 (see \hyperlink{MersenneNumbers01}{above}).
+The first values of p for which $M_p$ is prime are p = 2, 3, 5, 7, 13, 17, 19, 31,
+61, 89, 107, 127, 521, ... (see \hyperlink{MersenneNumbers01}{above}).
 
-$M_{M_p}$ is known to be prime for p = 2, 3, 5, 7.
+$M_{M_p}$ is known to be prime for p = 2, 3, 5, 7, and there has the according values:
+7, 127, 2.147.483.647, 170.141.183.460.469.231.731.687.303.715.884.105.727.\footnote{%
+Sage\index{Sage} calculates this with:
+\begin{Verbatim}
+sage: for p in (2,3,5,7): Mp=(2^p)-1; MMp=(2^Mp)-1; print Mp, MMp;
+....: 
+3 7
+7 127
+31 2147483647
+127 170141183460469231731687303715884105727}
+\end{Verbatim}
+}
+
 For p = 13, 17, 19, and 31, the corresponding double Mersenne numbers are not prime.
 
 The next candidate for the next double Mersenne prime is $ M_{M_{61}} = 2^{2305843009213693951} - 1$.
