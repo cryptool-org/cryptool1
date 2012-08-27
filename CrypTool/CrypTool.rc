@@ -20,11 +20,6 @@ LANGUAGE LANG_POLISH, SUBLANG_DEFAULT
 #pragma code_page(1250)
 #endif //_WIN32
 
-STRINGTABLE
-BEGIN
-	IDS_CRYPTOOL_RUNTIME_LANGUAGE_STRING "Polish"
-END
-
 /////////////////////////////////////////////////////////////////////////////
 //
 // Dialog
@@ -1709,26 +1704,26 @@ BEGIN
     EDITTEXT        IDC_EDIT2,19,201,275,13,ES_AUTOHSCROLL | ES_READONLY
 END
 
-IDD_NGRAM_ANALYSIS DIALOGEX 0, 0, 350, 260
+IDD_NGRAM_ANALYSIS DIALOGEX 0, 0, 375, 260
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Lista N-Gram"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Okreœl listê",IDC_BUTTON2,7,172,99,23
-    PUSHBUTTON      "Zapi&sz listê",IDOK,7,200,99,24
-    PUSHBUTTON      "&Zamknij",IDCANCEL,7,229,99,24
-    CONTROL         "&Histogram",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,22,53,10
-    CONTROL         "&Digram",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,20,36,56,10
-    CONTROL         "&Trigram",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,20,49,45,10
-    CONTROL         "",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,20,64,8,8
-    EDITTEXT        IDC_EDIT2,31,62,13,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
-    EDITTEXT        IDC_EDIT1,66,87,27,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
-    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,115,23,228,230
-    GROUPBOX        "Wybór",IDC_STATIC,7,3,99,122
-    LTEXT           "Wyœwietl",IDC_STATIC,20,88,44,8
-    LTEXT           "najczêœciej wyst. N-Gramów (1-5000)",IDC_STATIC,20,101,80,20
-    LTEXT           "-gram",IDC_STATIC,45,64,25,8
-    PUSHBUTTON      "&Opcje tekstu",IDC_BUTTON_TEXTOPTIONS,7,129,99,23
+    DEFPUSHBUTTON   "&Okreœl listê",IDC_BUTTON2,7,172,115,23
+    PUSHBUTTON      "Zapi&sz listê",IDOK,7,200,115,24
+    PUSHBUTTON      "&Zamknij",IDCANCEL,7,229,115,24
+    CONTROL         "&Histogram",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,22,53,10
+    CONTROL         "&Digram",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,36,56,10
+    CONTROL         "&Trigram",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,18,50,45,10
+    CONTROL         "",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,18,64,8,8
+    EDITTEXT        IDC_EDIT2,29,63,13,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT1,49,87,27,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,130,7,238,246
+    GROUPBOX        "Wybór",IDC_STATIC,7,7,115,120
+    LTEXT           "Wyœwietl",IDC_STATIC,18,88,31,8
+    LTEXT           "najczêœciej wyst. N-Gramów (1-5000)",IDC_STATIC,18,101,80,20
+    LTEXT           "-gram",IDC_STATIC,43,64,25,8
+    PUSHBUTTON      "&Opcje tekstu",IDC_BUTTON_TEXTOPTIONS,7,129,115,23
 END
 
 IDD_RANDOM_GENERATOR DIALOGEX 0, 0, 292, 274
@@ -6393,12 +6388,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
-VALUE "FileVersion", "[CRYPTOOL_VERSION]"
+            VALUE "FileVersion", "[CRYPTOOL_VERSION]"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
+            VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
         END
     END
     BLOCK "VarFileInfo"
@@ -7517,9 +7512,10 @@ BEGIN
 
     IDD_NGRAM_ANALYSIS, DIALOG
     BEGIN
+        RIGHTMARGIN, 350
         VERTGUIDE, 7
-        VERTGUIDE, 343
-        BOTTOMMARGIN, 242
+        VERTGUIDE, 122
+        VERTGUIDE, 368
         HORZGUIDE, 253
     END
 
@@ -8295,6 +8291,11 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_CRYPTOOL_RUNTIME_LANGUAGE_STRING "Polish"
+END
+
+STRINGTABLE 
+BEGIN
     ID_INDICATOR_EXT        "EXT"
     ID_INDICATOR_CAPS       "CAP"
     ID_INDICATOR_NUM        "NUM"
@@ -8456,7 +8457,7 @@ END
 
 STRINGTABLE 
 BEGIN
-IDR_MAINFRAME "[CRYPTOOL_VERSION_FULL]"
+    IDR_MAINFRAME           "[CRYPTOOL_VERSION_FULL]"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -11251,11 +11252,6 @@ LANGUAGE LANG_SERBIAN, SUBLANG_SERBIAN_LATIN
 #pragma code_page(1250)
 #endif //_WIN32
 
-STRINGTABLE
-BEGIN
-	IDS_CRYPTOOL_RUNTIME_LANGUAGE_STRING "Serbian"
-END
-
 /////////////////////////////////////////////////////////////////////////////
 //
 // Dialog
@@ -12943,26 +12939,26 @@ BEGIN
     EDITTEXT        IDC_EDIT2,19,201,275,13,ES_AUTOHSCROLL | ES_READONLY
 END
 
-IDD_NGRAM_ANALYSIS DIALOGEX 0, 0, 350, 260
+IDD_NGRAM_ANALYSIS DIALOGEX 0, 0, 375, 260
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "N-Gram Lista"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Ustanovi listu",IDC_BUTTON2,7,172,99,23
-    PUSHBUTTON      "&Sacuvaj listu",IDOK,7,200,99,24
-    PUSHBUTTON      "&Zatvori",IDCANCEL,7,229,99,24
-    CONTROL         "&Histogram",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,22,53,10
-    CONTROL         "&Digram",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,20,36,56,10
-    CONTROL         "&Trigram",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,20,49,45,10
-    CONTROL         "",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,20,64,8,8
-    EDITTEXT        IDC_EDIT2,31,62,13,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
-    EDITTEXT        IDC_EDIT1,66,83,27,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
-    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,115,23,228,230
-    GROUPBOX        "Selekcija",IDC_STATIC,7,3,99,122
-    LTEXT           "Prikaz",IDC_STATIC,20,84,44,8
-    LTEXT           "najucestalijih N-gram-ova (dozvoljene vrednosti: 1-5000)",IDC_STATIC,20,98,80,24
-    LTEXT           "-gram",IDC_STATIC,45,64,25,8
-    PUSHBUTTON      "&Opcije za tekst",IDC_BUTTON_TEXTOPTIONS,7,129,99,23
+    DEFPUSHBUTTON   "&Ustanovi listu",IDC_BUTTON2,7,172,115,23
+    PUSHBUTTON      "&Sacuvaj listu",IDOK,7,200,115,24
+    PUSHBUTTON      "&Zatvori",IDCANCEL,7,229,115,24
+    CONTROL         "&Histogram",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,22,53,10
+    CONTROL         "&Digram",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,36,56,10
+    CONTROL         "&Trigram",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,18,50,45,10
+    CONTROL         "",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,18,64,8,8
+    EDITTEXT        IDC_EDIT2,29,63,13,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT1,42,87,27,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,130,7,238,246
+    GROUPBOX        "Selekcija",IDC_STATIC,7,7,115,120
+    LTEXT           "Prikaz",IDC_STATIC,18,88,24,8
+    LTEXT           "najucestalijih N-gram-ova (dozvoljene vrednosti: 1-5000)",IDC_STATIC,18,101,95,24
+    LTEXT           "-gram",IDC_STATIC,43,64,25,8
+    PUSHBUTTON      "&Opcije za tekst",IDC_BUTTON_TEXTOPTIONS,7,129,115,23
 END
 
 IDD_RANDOM_GENERATOR DIALOGEX 0, 0, 292, 274
@@ -17638,12 +17634,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
-VALUE "FileVersion", "[CRYPTOOL_VERSION]"
+            VALUE "FileVersion", "[CRYPTOOL_VERSION]"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
+            VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
         END
     END
     BLOCK "VarFileInfo"
@@ -18756,9 +18752,10 @@ BEGIN
 
     IDD_NGRAM_ANALYSIS, DIALOG
     BEGIN
+        RIGHTMARGIN, 350
         VERTGUIDE, 7
-        VERTGUIDE, 343
-        BOTTOMMARGIN, 242
+        VERTGUIDE, 122
+        VERTGUIDE, 368
         HORZGUIDE, 253
     END
 
@@ -19524,6 +19521,11 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_CRYPTOOL_RUNTIME_LANGUAGE_STRING "Serbian"
+END
+
+STRINGTABLE 
+BEGIN
     ID_INDICATOR_EXT        "EXT"
     ID_INDICATOR_CAPS       "CAP"
     ID_INDICATOR_NUM        "NUM"
@@ -19684,7 +19686,7 @@ END
 
 STRINGTABLE 
 BEGIN
-IDR_MAINFRAME "[CRYPTOOL_VERSION_FULL]"
+    IDR_MAINFRAME           "[CRYPTOOL_VERSION_FULL]"
     IDR_TEXTTYPE            "\nNeimenovani\nTEKST dokument\nTekst datoteka (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nNeimenovana\n\nBinarna datoteka (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nNeimenovana\n\nASCII datoteka (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -22465,11 +22467,6 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
 #pragma code_page(1252)
 #endif //_WIN32
 
-STRINGTABLE
-BEGIN
-	IDS_CRYPTOOL_RUNTIME_LANGUAGE_STRING "German"
-END
-
 /////////////////////////////////////////////////////////////////////////////
 //
 // Dialog
@@ -24154,26 +24151,26 @@ BEGIN
     GROUPBOX        "Aus dem Passwort und den weiteren Parametern generierter Schlüssel",IDC_STATIC,8,185,295,70
 END
 
-IDD_NGRAM_ANALYSIS DIALOGEX 0, 0, 350, 260
+IDD_NGRAM_ANALYSIS DIALOGEX 0, 0, 375, 260
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "N-Gramm-Liste"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Liste berechnen",IDC_BUTTON2,7,172,99,23
-    PUSHBUTTON      "Liste &speichern",IDOK,7,200,99,24
-    PUSHBUTTON      "&Schließen",IDCANCEL,7,229,99,24
+    DEFPUSHBUTTON   "&Liste berechnen",IDC_BUTTON2,7,172,115,23
+    PUSHBUTTON      "Liste &speichern",IDOK,7,200,115,24
+    PUSHBUTTON      "&Schließen",IDCANCEL,7,229,115,24
     CONTROL         "&Histogramm",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,22,53,10
     CONTROL         "&Digramm",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,36,56,10
-    CONTROL         "&Trigramm",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,18,49,45,10
+    CONTROL         "&Trigramm",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,18,50,45,10
     CONTROL         "",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,18,64,8,8
-    EDITTEXT        IDC_EDIT2,29,62,13,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
-    EDITTEXT        IDC_EDIT1,59,87,31,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
-    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,115,9,228,244
-    GROUPBOX        "Auswahl",IDC_STATIC,7,4,99,120
+    EDITTEXT        IDC_EDIT2,29,63,13,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT1,59,87,30,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,130,7,238,246
+    GROUPBOX        "Auswahl",IDC_STATIC,7,7,115,120
     LTEXT           "Anzeige der",IDC_STATIC,18,88,39,8
     LTEXT           "häufigsten N-Gramme (erlaubte Werte: 1-5000).",IDC_STATIC,18,101,84,17
     LTEXT           "-Gramm",IDC_STATIC,43,64,25,8
-    PUSHBUTTON      "&Textoptionen",IDC_BUTTON_TEXTOPTIONS,7,129,99,23
+    PUSHBUTTON      "&Textoptionen",IDC_BUTTON_TEXTOPTIONS,7,129,115,23
 END
 
 IDD_RANDOM_GENERATOR DIALOGEX 0, 0, 301, 278
@@ -28862,12 +28859,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.de"
-VALUE "FileVersion", "[CRYPTOOL_VERSION]"
+            VALUE "FileVersion", "[CRYPTOOL_VERSION]"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
+            VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
         END
     END
     BLOCK "VarFileInfo"
@@ -29978,8 +29975,8 @@ BEGIN
     IDD_NGRAM_ANALYSIS, DIALOG
     BEGIN
         VERTGUIDE, 7
-        VERTGUIDE, 343
-        BOTTOMMARGIN, 242
+        VERTGUIDE, 122
+        VERTGUIDE, 368
         HORZGUIDE, 253
     END
 
@@ -30627,6 +30624,11 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_CRYPTOOL_RUNTIME_LANGUAGE_STRING "German"
+END
+
+STRINGTABLE 
+BEGIN
     ID_INDICATOR_EXT        "EXT"
     ID_INDICATOR_CAPS       "CAP"
     ID_INDICATOR_NUM        "NUM"
@@ -30789,7 +30791,7 @@ END
 
 STRINGTABLE 
 BEGIN
-IDR_MAINFRAME "[CRYPTOOL_VERSION_FULL]"
+    IDR_MAINFRAME           "[CRYPTOOL_VERSION_FULL]"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT-Dokument\nText-Datei (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnbenannt\n\nBinär-Datei (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnbenannt\n\nASCII-Datei (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -33622,11 +33624,6 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
 #pragma code_page(1252)
 #endif //_WIN32
 
-STRINGTABLE
-BEGIN
-	IDS_CRYPTOOL_RUNTIME_LANGUAGE_STRING "English"
-END
-
 /////////////////////////////////////////////////////////////////////////////
 //
 // Dialog
@@ -35307,26 +35304,26 @@ BEGIN
     EDITTEXT        IDC_EDIT2,19,201,275,13,ES_AUTOHSCROLL | ES_READONLY
 END
 
-IDD_NGRAM_ANALYSIS DIALOGEX 0, 0, 350, 260
+IDD_NGRAM_ANALYSIS DIALOGEX 0, 0, 375, 260
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "N-Gram List"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Compute list",IDC_BUTTON2,7,172,99,23
-    PUSHBUTTON      "&Save list",IDOK,7,200,99,24
-    PUSHBUTTON      "&Close",IDCANCEL,7,229,99,24
-    CONTROL         "&Histogram",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,22,53,10
-    CONTROL         "&Digram",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,20,36,56,10
-    CONTROL         "&Trigram",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,20,49,45,10
-    CONTROL         "",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,20,64,8,8
-    EDITTEXT        IDC_EDIT2,31,62,13,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
-    EDITTEXT        IDC_EDIT1,66,87,27,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
-    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,115,23,228,230
-    GROUPBOX        "Selection",IDC_STATIC,7,3,99,122
-    LTEXT           "Display of the",IDC_STATIC,20,88,44,8
-    LTEXT           "most common N-grams (allowed values: 1-5000)",IDC_STATIC,20,101,80,20
-    LTEXT           "-gram",IDC_STATIC,45,64,25,8
-    PUSHBUTTON      "&Text options",IDC_BUTTON_TEXTOPTIONS,7,129,99,23
+    DEFPUSHBUTTON   "&Compute list",IDC_BUTTON2,7,172,115,23
+    PUSHBUTTON      "&Save list",IDOK,7,200,115,24
+    PUSHBUTTON      "&Close",IDCANCEL,7,229,115,24
+    CONTROL         "&Histogram",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,22,53,10
+    CONTROL         "&Digram",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,36,56,10
+    CONTROL         "&Trigram",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,18,50,45,10
+    CONTROL         "",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,18,64,8,8
+    EDITTEXT        IDC_EDIT2,29,63,13,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT1,66,87,30,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,130,7,238,246
+    GROUPBOX        "Selection",IDC_STATIC,7,7,115,120
+    LTEXT           "Display of the",IDC_STATIC,18,88,44,8
+    LTEXT           "most common N-grams (allowed values: 1-5000)",IDC_STATIC,18,101,80,20
+    LTEXT           "-gram",IDC_STATIC,43,64,25,8
+    PUSHBUTTON      "&Text options",IDC_BUTTON_TEXTOPTIONS,7,129,115,23
 END
 
 IDD_RANDOM_GENERATOR DIALOGEX 0, 0, 292, 274
@@ -39990,12 +39987,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
-VALUE "FileVersion", "[CRYPTOOL_VERSION]"
+            VALUE "FileVersion", "[CRYPTOOL_VERSION]"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
+            VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
         END
     END
     BLOCK "VarFileInfo"
@@ -41109,9 +41106,10 @@ BEGIN
 
     IDD_NGRAM_ANALYSIS, DIALOG
     BEGIN
+        RIGHTMARGIN, 350
         VERTGUIDE, 7
-        VERTGUIDE, 343
-        BOTTOMMARGIN, 242
+        VERTGUIDE, 122
+        VERTGUIDE, 368
         HORZGUIDE, 253
     END
 
@@ -41914,6 +41912,11 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_CRYPTOOL_RUNTIME_LANGUAGE_STRING "English"
+END
+
+STRINGTABLE 
+BEGIN
     ID_INDICATOR_EXT        "EXT"
     ID_INDICATOR_CAPS       "CAP"
     ID_INDICATOR_NUM        "NUM"
@@ -42075,7 +42078,7 @@ END
 
 STRINGTABLE 
 BEGIN
-IDR_MAINFRAME "[CRYPTOOL_VERSION_FULL]"
+    IDR_MAINFRAME           "[CRYPTOOL_VERSION_FULL]"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -44842,11 +44845,6 @@ LANGUAGE LANG_SPANISH, SUBLANG_SPANISH_MODERN
 #pragma code_page(1252)
 #endif //_WIN32
 
-STRINGTABLE
-BEGIN
-	IDS_CRYPTOOL_RUNTIME_LANGUAGE_STRING "Spanish"
-END
-
 /////////////////////////////////////////////////////////////////////////////
 //
 // Dialog
@@ -46959,26 +46957,26 @@ BEGIN
     CONTROL         "REDO_",IDC_REDO_,"Button",BS_OWNERDRAW | WS_DISABLED | WS_TABSTOP,312,127,22,20
 END
 
-IDD_NGRAM_ANALYSIS DIALOGEX 0, 0, 350, 260
+IDD_NGRAM_ANALYSIS DIALOGEX 0, 0, 375, 260
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Lista de N-Gramas"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Ca&lcular lista",IDC_BUTTON2,7,172,99,23
-    PUSHBUTTON      "&Guardar  lista",IDOK,7,200,99,24
-    PUSHBUTTON      "&Cerrar",IDCANCEL,7,229,99,24
-    CONTROL         "&Histograma",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,22,53,10
-    CONTROL         "&Digrama",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,20,36,56,10
-    CONTROL         "&Trigrama",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,20,49,45,10
-    CONTROL         "",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,20,64,8,8
-    EDITTEXT        IDC_EDIT2,31,62,13,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
-    EDITTEXT        IDC_EDIT1,65,82,27,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
-    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,115,23,228,230
-    GROUPBOX        "Selección",IDC_STATIC,7,3,99,122
-    LTEXT           "Mostrar los",IDC_STATIC,19,83,35,8
-    LTEXT           " N-gramas más comunes (valores permitidos: 1-5000)",IDC_STATIC,20,97,80,25
-    LTEXT           "-grama",IDC_STATIC,45,64,25,8
-    PUSHBUTTON      "Opciones de &Texto",IDC_BUTTON_TEXTOPTIONS,7,129,99,23
+    DEFPUSHBUTTON   "Ca&lcular lista",IDC_BUTTON2,7,172,115,23
+    PUSHBUTTON      "&Guardar  lista",IDOK,7,200,115,24
+    PUSHBUTTON      "&Cerrar",IDCANCEL,7,229,115,24
+    CONTROL         "&Histograma",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,22,53,10
+    CONTROL         "&Digrama",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,36,56,10
+    CONTROL         "&Trigrama",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,18,50,45,10
+    CONTROL         "",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,18,64,8,8
+    EDITTEXT        IDC_EDIT2,29,63,13,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT1,54,87,27,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,130,7,238,246
+    GROUPBOX        "Selección",IDC_STATIC,7,7,115,120
+    LTEXT           "Mostrar los",IDC_STATIC,18,88,35,8
+    LTEXT           " N-gramas más comunes (valores permitidos: 1-5000)",IDC_STATIC,18,101,96,25
+    LTEXT           "-grama",IDC_STATIC,43,64,25,8
+    PUSHBUTTON      "Opciones de &Texto",IDC_BUTTON_TEXTOPTIONS,7,129,115,23
 END
 
 IDD_X2MODN_RANDOMPARAMETER DIALOGEX 0, 0, 256, 94
@@ -51232,12 +51230,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
-VALUE "FileVersion", "[CRYPTOOL_VERSION]"
+            VALUE "FileVersion", "[CRYPTOOL_VERSION]"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
+            VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
         END
     END
     BLOCK "VarFileInfo"
@@ -52496,9 +52494,10 @@ BEGIN
 
     IDD_NGRAM_ANALYSIS, DIALOG
     BEGIN
+        RIGHTMARGIN, 350
         VERTGUIDE, 7
-        VERTGUIDE, 343
-        BOTTOMMARGIN, 242
+        VERTGUIDE, 122
+        VERTGUIDE, 368
         HORZGUIDE, 253
     END
 
@@ -53125,6 +53124,11 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_CRYPTOOL_RUNTIME_LANGUAGE_STRING "Spanish"
+END
+
+STRINGTABLE 
+BEGIN
     ID_INDICATOR_EXT        "EXT"
     ID_INDICATOR_CAPS       "CAP"
     ID_INDICATOR_NUM        "NUM"
@@ -53286,7 +53290,7 @@ END
 
 STRINGTABLE 
 BEGIN
-IDR_MAINFRAME "[CRYPTOOL_VERSION_FULL]"
+    IDR_MAINFRAME           "[CRYPTOOL_VERSION_FULL]"
     IDR_TEXTTYPE            "\nSin nombre\nDocumento de texto\nFichero de texto (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nSin nombre\n\nFichero binario (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nSin nombre\n\nFichero ASCII (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"

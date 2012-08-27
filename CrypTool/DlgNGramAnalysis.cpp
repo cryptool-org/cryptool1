@@ -48,9 +48,9 @@ CDlgNGramAnaylsis::CDlgNGramAnaylsis(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgNGramAnaylsis::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CDlgNGramAnaylsis)
-		m_N_NGram      = 0;
-	    m_ShowCntNGram = 26;
-		m_NrNGram      = 4;
+	m_N_NGram      = 0;
+	m_ShowCntNGram = 26;
+	m_NrNGram      = 4;
 	//}}AFX_DATA_INIT
 	b_SaveNGramList = false;
 	NGramPtr = NULL;
@@ -98,19 +98,20 @@ int CDlgNGramAnaylsis::DoModal()
 
 BOOL CDlgNGramAnaylsis::OnInitDialog()
 {
-	int colWidth = 100;										// Spaltenbreite in Pixel
+	// column width in pixels
+	int colWidth = 90;
 
 	CDialog::OnInitDialog();
 
 	m_ListView.SetExtendedStyle( LVS_EX_FULLROWSELECT );
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_HOMOPHONE_NR,pc_str,STR_LAENGE_STRING_TABLE);
-	m_ListView.InsertColumn(1,pc_str,LVCFMT_LEFT,colWidth-32,1);							// Zeichen
+	m_ListView.InsertColumn(1, pc_str,LVCFMT_LEFT,colWidth - 10, 1);							// Zeichen
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_LIST2,pc_str,STR_LAENGE_STRING_TABLE);
-	m_ListView.InsertColumn(2,pc_str,LVCFMT_LEFT,colWidth-40,2);							// Anzahl
+	m_ListView.InsertColumn(2, pc_str,LVCFMT_LEFT,colWidth - 0, 2);							// Anzahl
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_LIST3,pc_str,STR_LAENGE_STRING_TABLE);
-	m_ListView.InsertColumn(3,pc_str,LVCFMT_LEFT,colWidth-10,3);
+	m_ListView.InsertColumn(3, pc_str,LVCFMT_LEFT,colWidth - 0, 3);
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_COLUMN_FREQUENCY,pc_str,STR_LAENGE_STRING_TABLE);
-	m_ListView.InsertColumn(3,pc_str,LVCFMT_LEFT,colWidth,3);
+	m_ListView.InsertColumn(4, pc_str,LVCFMT_LEFT,colWidth - 0, 4);
 	SetupListBox( m_N_NGram+1 );
 	m_NrNGramCtrl.EnableWindow(true);
 
