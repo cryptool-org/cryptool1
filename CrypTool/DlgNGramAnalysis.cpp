@@ -80,6 +80,10 @@ void CDlgNGramAnaylsis::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CDlgNGramAnaylsis, CDialog)
 	//{{AFX_MSG_MAP(CDlgNGramAnaylsis)
+		ON_BN_CLICKED(IDC_RADIO1, OnEvalNGram)
+		ON_BN_CLICKED(IDC_RADIO2, OnEvalNGram)
+		ON_BN_CLICKED(IDC_RADIO3, OnEvalNGram)
+		ON_BN_CLICKED(IDC_RADIO4, OnEvalNGram)
 		ON_BN_CLICKED(IDC_BUTTON2, OnEvalNGram)
 		ON_BN_CLICKED(IDOK, OnSaveNGramList)
 		ON_BN_CLICKED(IDC_BUTTON_TEXTOPTIONS, OnTextOptions)
@@ -327,6 +331,49 @@ void CDlgNGramAnaylsis::OnEvalNGram()
 	// limit the number of most common n-grams according to what is displayed in the list box
 	if(m_ShowCntNGram > m_ListView.GetItemCount()) m_ShowCntNGram = m_ListView.GetItemCount();
 
+
+	//	IDS_NGRAM_ANALYSIS_COUNT_HISTOGRAMS
+	//	IDS_NGRAM_ANALYSIS_COUNT_DIGRAMS
+	//	IDS_NGRAM_ANALYSIS_COUNT_TRIGRAMS
+	//	IDS_NGRAM_ANALYSIS_COUNT_NGRAMS
+
+	// flomar, August 2012: what we want to do here is append the exact number of N-Grams
+	// for each N to its respective dialog label (histogram, digram, trigram, N-gram), 
+	// simply for user convenience; there are certainly smarter ways to do this, but 
+	// re-writing the whole thing is not an option at the moment
+	CWnd *windowHistograms = GetDlgItem(IDC_RADIO1);
+	if(windowHistograms) {
+		Register(1);
+		unsigned long countHistograms = NGramPtr->getIndividuals();
+		CString textHistograms;
+		textHistograms.Format(IDS_NGRAM_ANALYSIS_COUNT_HISTOGRAMS, countHistograms);
+		windowHistograms->SetWindowText(textHistograms);
+	}
+	CWnd *windowDigrams = GetDlgItem(IDC_RADIO2);
+	if(windowDigrams) {
+		Register(2);
+		unsigned long countDigrams = NGramPtr->getIndividuals();
+		CString textDigrams;
+		textDigrams.Format(IDS_NGRAM_ANALYSIS_COUNT_DIGRAMS, countDigrams);
+		windowDigrams->SetWindowText(textDigrams);
+	}
+	CWnd *windowTrigrams = GetDlgItem(IDC_RADIO3);
+	if(windowTrigrams) {
+		Register(3);
+		unsigned long countTrigrams = NGramPtr->getIndividuals();
+		CString textTrigrams;
+		textTrigrams.Format(IDS_NGRAM_ANALYSIS_COUNT_TRIGRAMS, countTrigrams);
+		windowTrigrams->SetWindowText(textTrigrams);
+	}
+	CWnd *windowNGrams = GetDlgItem(IDC_STATIC_RADIO4);
+	if(windowNGrams) {
+		Register(m_NrNGram);
+		unsigned long countNGrams = NGramPtr->getIndividuals();
+		CString textNGrams;
+		textNGrams.Format(IDS_NGRAM_ANALYSIS_COUNT_NGRAMS, countNGrams);
+		windowNGrams->SetWindowText(textNGrams);
+	}
+	
 	UpdateData(FALSE);
 	HIDE_HOUR_GLASS
 }

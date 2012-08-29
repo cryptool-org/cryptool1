@@ -1712,9 +1712,9 @@ BEGIN
     DEFPUSHBUTTON   "&Okreœl listê",IDC_BUTTON2,7,172,115,23
     PUSHBUTTON      "Zapi&sz listê",IDOK,7,200,115,24
     PUSHBUTTON      "&Zamknij",IDCANCEL,7,229,115,24
-    CONTROL         "&Histogram",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,22,53,10
-    CONTROL         "&Digram",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,36,56,10
-    CONTROL         "&Trigram",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,18,50,45,10
+    CONTROL         "&Histogram",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,22,92,10
+    CONTROL         "&Digram",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,36,92,10
+    CONTROL         "&Trigram",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,18,50,92,10
     CONTROL         "",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,18,64,8,8
     EDITTEXT        IDC_EDIT2,29,63,13,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
     EDITTEXT        IDC_EDIT1,49,87,27,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
@@ -1722,7 +1722,7 @@ BEGIN
     GROUPBOX        "Wybór",IDC_STATIC,7,7,115,120
     LTEXT           "Wyœwietl",IDC_STATIC,18,88,31,8
     LTEXT           "najczêœciej wyst. N-Gramów (1-5000)",IDC_STATIC,18,101,80,20
-    LTEXT           "-gram",IDC_STATIC,43,64,25,8
+    LTEXT           "-gram",IDC_STATIC_RADIO4,43,64,67,8
     PUSHBUTTON      "&Opcje tekstu",IDC_BUTTON_TEXTOPTIONS,7,129,115,23
 END
 
@@ -7514,6 +7514,7 @@ BEGIN
     BEGIN
         RIGHTMARGIN, 350
         VERTGUIDE, 7
+        VERTGUIDE, 110
         VERTGUIDE, 122
         VERTGUIDE, 368
         HORZGUIDE, 253
@@ -8534,6 +8535,7 @@ BEGIN
                             "[i18n] The English word list for the substitution analysis (%s) does not exist although it was rolled out with CrypTool."
     IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
                             "Szyfrowanie RSA przy u¿yciu e / deszyfrowanie przy u¿yciu d  [i18n alphabet size: %i]"
+    IDS_STRING178           "-gram (%d)"
     IDR_OPENGLTYPE          "\nUnnamed\n\nOpenGL file (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nPliki OpenGL "
     IDS_STRING_TRANSLATIONS_HEADING_POLISH "T³umaczenie na jêzyk polski"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
@@ -11225,6 +11227,9 @@ BEGIN
                             "[i18n] Generating prime numbers in the following value range:\n[%s, %s]"
     IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
                             "[i18n] Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
+    IDS_NGRAM_ANALYSIS_COUNT_HISTOGRAMS "Histogram (%d)"
+    IDS_NGRAM_ANALYSIS_COUNT_DIGRAMS "Digram (%d)"
+    IDS_NGRAM_ANALYSIS_COUNT_TRIGRAMS "Trigram (%d)"
     IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_GERMAN 
                             "[i18n] The German word list for the substitution analysis (%s) does not exist although it was rolled out with CrypTool."
 END
@@ -12947,9 +12952,9 @@ BEGIN
     DEFPUSHBUTTON   "&Ustanovi listu",IDC_BUTTON2,7,172,115,23
     PUSHBUTTON      "&Sacuvaj listu",IDOK,7,200,115,24
     PUSHBUTTON      "&Zatvori",IDCANCEL,7,229,115,24
-    CONTROL         "&Histogram",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,22,53,10
-    CONTROL         "&Digram",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,36,56,10
-    CONTROL         "&Trigram",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,18,50,45,10
+    CONTROL         "&Histogram",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,22,92,10
+    CONTROL         "&Digram",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,36,92,10
+    CONTROL         "&Trigram",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,18,50,92,10
     CONTROL         "",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,18,64,8,8
     EDITTEXT        IDC_EDIT2,29,63,13,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
     EDITTEXT        IDC_EDIT1,42,87,27,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
@@ -12957,7 +12962,7 @@ BEGIN
     GROUPBOX        "Selekcija",IDC_STATIC,7,7,115,120
     LTEXT           "Prikaz",IDC_STATIC,18,88,24,8
     LTEXT           "najucestalijih N-gram-ova (dozvoljene vrednosti: 1-5000)",IDC_STATIC,18,101,95,24
-    LTEXT           "-gram",IDC_STATIC,43,64,25,8
+    LTEXT           "-gram",IDC_STATIC_RADIO4,43,64,67,8
     PUSHBUTTON      "&Opcije za tekst",IDC_BUTTON_TEXTOPTIONS,7,129,115,23
 END
 
@@ -18754,6 +18759,7 @@ BEGIN
     BEGIN
         RIGHTMARGIN, 350
         VERTGUIDE, 7
+        VERTGUIDE, 110
         VERTGUIDE, 122
         VERTGUIDE, 368
         HORZGUIDE, 253
@@ -19763,6 +19769,7 @@ BEGIN
                             "[i18n] The English word list for the substitution analysis (%s) does not exist although it was rolled out with CrypTool."
     IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
                             "RSA šifrovanje pomocu e / dešifrovanje pomocu d  [i18n alphabet size: %i]"
+    IDS_STRING178           "-gram (%d)"
     IDR_OPENGLTYPE          "\nNeimenovana\n\nOpenGL datoteka (*.ogl)\n.plt\n\nOpenGL Tip Datoteke\nOPENGL\nOpenGL Datoteke\n"
     IDS_STRING_TRANSLATIONS_HEADING_POLISH "Poljski prevod"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
@@ -22440,6 +22447,9 @@ BEGIN
                             "[i18n] Generating prime numbers in the following value range:\n[%s, %s]"
     IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
                             "[i18n] Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
+    IDS_NGRAM_ANALYSIS_COUNT_HISTOGRAMS "Histogram (%d)"
+    IDS_NGRAM_ANALYSIS_COUNT_DIGRAMS "Digram (%d)"
+    IDS_NGRAM_ANALYSIS_COUNT_TRIGRAMS "Trigram (%d)"
     IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_GERMAN 
                             "[i18n] The German word list for the substitution analysis (%s) does not exist although it was rolled out with CrypTool."
 END
@@ -24159,9 +24169,9 @@ BEGIN
     DEFPUSHBUTTON   "&Liste berechnen",IDC_BUTTON2,7,172,115,23
     PUSHBUTTON      "Liste &speichern",IDOK,7,200,115,24
     PUSHBUTTON      "&Schließen",IDCANCEL,7,229,115,24
-    CONTROL         "&Histogramm",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,22,53,10
-    CONTROL         "&Digramm",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,36,56,10
-    CONTROL         "&Trigramm",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,18,50,45,10
+    CONTROL         "&Histogramm",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,22,92,10
+    CONTROL         "&Digramm",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,36,92,10
+    CONTROL         "&Trigramm",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,18,50,92,10
     CONTROL         "",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,18,64,8,8
     EDITTEXT        IDC_EDIT2,29,63,13,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
     EDITTEXT        IDC_EDIT1,59,87,30,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
@@ -24169,7 +24179,7 @@ BEGIN
     GROUPBOX        "Auswahl",IDC_STATIC,7,7,115,120
     LTEXT           "Anzeige der",IDC_STATIC,18,88,39,8
     LTEXT           "häufigsten N-Gramme (erlaubte Werte: 1-5000).",IDC_STATIC,18,101,84,17
-    LTEXT           "-Gramm",IDC_STATIC,43,64,25,8
+    LTEXT           "-Gramm",IDC_STATIC_RADIO4,43,64,67,8
     PUSHBUTTON      "&Textoptionen",IDC_BUTTON_TEXTOPTIONS,7,129,115,23
 END
 
@@ -29975,6 +29985,7 @@ BEGIN
     IDD_NGRAM_ANALYSIS, DIALOG
     BEGIN
         VERTGUIDE, 7
+        VERTGUIDE, 110
         VERTGUIDE, 122
         VERTGUIDE, 368
         HORZGUIDE, 253
@@ -30862,6 +30873,7 @@ BEGIN
                             "Die mit CrypTool ausgelieferte Wortliste für die Substitutions-Analyse in Englisch (%s) ist nicht vorhanden."
     IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
                             "RSA-Verschlüsselung mit e / Entschlüsselung mit d  [Alphabetsgröße: %i]"
+    IDS_NGRAM_ANALYSIS_COUNT_NGRAMS "-Gramm (%d)"
     IDR_OPENGLTYPE          "\nUnbenannt\n\nOpenGL Datei (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
     IDS_STRING_TRANSLATIONS_HEADING_POLISH "Polnische Übersetzung"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
@@ -33598,6 +33610,9 @@ BEGIN
                             "Generiere Primzahlen im folgenden Bereich:\n[%s, %s]"
     IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
                             "Generiere Primzahlen in folgenden Bereichen:\n[%s, %s], [%s, %s]"
+    IDS_NGRAM_ANALYSIS_COUNT_HISTOGRAMS "Histogramm (%d)"
+    IDS_NGRAM_ANALYSIS_COUNT_DIGRAMS "Digramm (%d)"
+    IDS_NGRAM_ANALYSIS_COUNT_TRIGRAMS "Trigramm (%d)"
     IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_GERMAN 
                             "Die mit CrypTool ausgelieferte Wortliste für die Substitutions-Analyse in Deutsch (%s) ist nicht vorhanden."
 END
@@ -35312,9 +35327,9 @@ BEGIN
     DEFPUSHBUTTON   "&Compute list",IDC_BUTTON2,7,172,115,23
     PUSHBUTTON      "&Save list",IDOK,7,200,115,24
     PUSHBUTTON      "&Close",IDCANCEL,7,229,115,24
-    CONTROL         "&Histogram",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,22,53,10
-    CONTROL         "&Digram",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,36,56,10
-    CONTROL         "&Trigram",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,18,50,45,10
+    CONTROL         "&Histogram",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,22,92,10
+    CONTROL         "&Digram",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,36,92,10
+    CONTROL         "&Trigram",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,18,50,92,10
     CONTROL         "",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,18,64,8,8
     EDITTEXT        IDC_EDIT2,29,63,13,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
     EDITTEXT        IDC_EDIT1,66,87,30,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
@@ -35322,7 +35337,7 @@ BEGIN
     GROUPBOX        "Selection",IDC_STATIC,7,7,115,120
     LTEXT           "Display of the",IDC_STATIC,18,88,44,8
     LTEXT           "most common N-grams (allowed values: 1-5000)",IDC_STATIC,18,101,80,20
-    LTEXT           "-gram",IDC_STATIC,43,64,25,8
+    LTEXT           "-gram",IDC_STATIC_RADIO4,43,64,67,8
     PUSHBUTTON      "&Text options",IDC_BUTTON_TEXTOPTIONS,7,129,115,23
 END
 
@@ -41108,6 +41123,7 @@ BEGIN
     BEGIN
         RIGHTMARGIN, 350
         VERTGUIDE, 7
+        VERTGUIDE, 110
         VERTGUIDE, 122
         VERTGUIDE, 368
         HORZGUIDE, 253
@@ -42147,6 +42163,7 @@ BEGIN
                             "The English word list for the substitution analysis (%s) does not exist although it was rolled out with CrypTool."
     IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
                             "RSA encryption using e / decryption using d  [alphabet size: %i]"
+    IDS_NGRAM_ANALYSIS_COUNT_NGRAMS "-gram (%d)"
     IDR_OPENGLTYPE          "\nUnnamed\n\nOpenGL file (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
     IDS_STRING_TRANSLATIONS_HEADING_POLISH "Polish Translation"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
@@ -44819,6 +44836,9 @@ BEGIN
                             "Generating prime numbers in the following value range:\n[%s, %s]"
     IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
                             "Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
+    IDS_NGRAM_ANALYSIS_COUNT_HISTOGRAMS "Histogram (%d)"
+    IDS_NGRAM_ANALYSIS_COUNT_DIGRAMS "Digram (%d)"
+    IDS_NGRAM_ANALYSIS_COUNT_TRIGRAMS "Trigram (%d)"
     IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_GERMAN 
                             "The German word list for the substitution analysis (%s) does not exist although it was rolled out with CrypTool."
 END
@@ -46965,9 +46985,9 @@ BEGIN
     DEFPUSHBUTTON   "Ca&lcular lista",IDC_BUTTON2,7,172,115,23
     PUSHBUTTON      "&Guardar  lista",IDOK,7,200,115,24
     PUSHBUTTON      "&Cerrar",IDCANCEL,7,229,115,24
-    CONTROL         "&Histograma",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,22,53,10
-    CONTROL         "&Digrama",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,36,56,10
-    CONTROL         "&Trigrama",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,18,50,45,10
+    CONTROL         "&Histograma",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,22,92,10
+    CONTROL         "&Digrama",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,36,92,10
+    CONTROL         "&Trigrama",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,18,50,92,10
     CONTROL         "",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,18,64,8,8
     EDITTEXT        IDC_EDIT2,29,63,13,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
     EDITTEXT        IDC_EDIT1,54,87,27,12,ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
@@ -46975,7 +46995,7 @@ BEGIN
     GROUPBOX        "Selección",IDC_STATIC,7,7,115,120
     LTEXT           "Mostrar los",IDC_STATIC,18,88,35,8
     LTEXT           " N-gramas más comunes (valores permitidos: 1-5000)",IDC_STATIC,18,101,96,25
-    LTEXT           "-grama",IDC_STATIC,43,64,25,8
+    LTEXT           "-grama",IDC_STATIC_RADIO4,43,64,67,8
     PUSHBUTTON      "Opciones de &Texto",IDC_BUTTON_TEXTOPTIONS,7,129,115,23
 END
 
@@ -52496,6 +52516,7 @@ BEGIN
     BEGIN
         RIGHTMARGIN, 350
         VERTGUIDE, 7
+        VERTGUIDE, 110
         VERTGUIDE, 122
         VERTGUIDE, 368
         HORZGUIDE, 253
@@ -53350,6 +53371,7 @@ BEGIN
                             "[i18n] The English word list for the substitution analysis (%s) does not exist although it was rolled out with CrypTool."
     IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
                             "Cifrado RSA utilizando e / descifrado utilizando d  [i18n alphabet size: %i]"
+    IDS_STRING178           "-grama (%d)"
     IDR_OPENGLTYPE          "\nSin nombre\n\nFichero OpenGL (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
     IDS_STRING_TRANSLATIONS_HEADING_POLISH "Versión en polaco:"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
@@ -56103,6 +56125,9 @@ BEGIN
                             "[i18n] Generating prime numbers in the following value range:\n[%s, %s]"
     IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
                             "[i18n] Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
+    IDS_NGRAM_ANALYSIS_COUNT_HISTOGRAMS "Histograma (%d)"
+    IDS_NGRAM_ANALYSIS_COUNT_DIGRAMS "Digrama (%d)"
+    IDS_NGRAM_ANALYSIS_COUNT_TRIGRAMS "Trigrama (%d)"
     IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_GERMAN 
                             "[i18n] The German word list for the substitution analysis (%s) does not exist although it was rolled out with CrypTool."
 END
