@@ -4627,7 +4627,7 @@ Time: CPU 1.52 s, Wall: 1.59 s
 kann man alle Primitivwurzeln einer Primzahl $p$ finden.
 
 Die folgende Funktion zählt, wie viele Primitivwurzeln es innerhalb eines Primzahl-Bereiches
-gibt und gibt diese Primitivwurzeln jeweils aus.
+gibt, und gibt dann diese Primitivwurzeln jeweils aus.
 
 Aus dieser Liste der Primitivwurzeln können wir jeweils die kleinste und größte
 Primitivwurzel pro $\mathbf{Z} / p \mathbf{Z}$ bestimmen, als auch die Anzahl von
@@ -4945,8 +4945,9 @@ eigentliche Verschlüsselung dar:
     \end{itemize}
 
   \item[{\bf 4.}] Zur Verschlüsselung wird die Nachricht als (binäre) Ziffernfolge
-                  geschrieben. Diese Ziffernfolge wird dann so in gleich lange Teilfolgen
-		  aufgeteilt, dass jede Teilfolge eine Zahl kleiner als $n$ darstellt.
+                  geschrieben. Diese Ziffernfolge wird dann so in gleich lange
+                  Teilfolgen aufgeteilt, dass jede Teilfolge eine Zahl kleiner als
+                  $n$ darstellt.
 
   \item[{\bf 5.}] Vorgang der Verschlüsselung auf dem Klartext (bzw. auf Teilen davon)
                   $M \in \{1, \cdots, n-1\}$:
@@ -4969,9 +4970,9 @@ wie bei den klassischen Verschlüsselungsverfahren, kann man herausfinden wollen:
 Wie viele verschiedene private Schlüssel $(n, d)$ gibt es für einen bestimmten
 Bereich der Schlüsselgröße $n \in [a, b]$?
 
-\noindent Das Sage-Beispielprogramm~\ref{nt_sagesample_Count_RSA_Keys} unten definiert
-die Funktion \verb#count_Number_of_RSA_Keys#, die diese Frage konkret beantworten kann
-(wenn der Modulus nicht zu groß ist).\footnote{%
+\noindent Das Sage-Beispielprogramm~\ref{nt_sagesample_Count_RSA_Keys} unten
+definiert die Funktion \verb#count_Number_of_RSA_Keys#, die diese Frage konkret
+beantworten kann (wenn der Modulus nicht zu groß ist).\footnote{%
 a) Der Aufruf \verb#sage: count_Number_of_RSA_Keys(100, 1000)# bedeutet, dass man
 das Intervall $[100, 1000]$ für $n$ betrachtet.
 $n$ war definiert durch die beiden Primzahlen $p, q: n = p*q$.
@@ -5057,6 +5058,433 @@ Time: CPU 0.63 s, Wall: 0.66 s
 \noindent Weil es mehr private Schlüssel $(n, d)$ innerhalb eines größeren
 Bereiches von Werten für $n$ gibt, ist das Brute-Force-Faktorisieren
 viel effizienter als das Durchprobieren aller möglichen Schlüssel.
+
+
+
+
+% ---------------------------------------------------------------------------
+\clearpage
+\newpage
+\hypertarget{NumberTheory_Sage_Number-of-RSA-FixedKeys}{}
+\subsection
+    [RSA-Fixpunkte \texorpdfstring{}{m = m\^{}e}]%Das kommt ins Inhaltsverzeichnis
+    {RSA-Fixpunkte $ m^e = m \bmod n $ mit $m \in \{1,...,n-1\}$ }
+\label{l:NumberTheory_Sage_Number-of-RSA--FixedKeys}{}
+
+%1111111111111111111111111111111111111111111111111111111111111111111111111111111111
+%111xxx
+
+Auch Verschlüsselungsverfahren können Fixpunkte haben, also Texte, deren Chiffrat
+mit dem Original übereinstimmt. Solche Nachrichten nennt man "`unconcealed messages"' ("`unconcealed"' = unverborgen, offen). 
+
+Generell gilt: Je mehr Fixpunkte ein Verschlüsselungsalgorithmus besitzt,
+desto einfacher ist es, ihn zu entschlüsseln.
+
+Beim RSA-Verfahren gilt: $n=pq$ ist das Produkt zweier verschiedener Primzahlen, und
+es gibt ein $e$ mit $ggT(e,(p-1)(q-1))=1$. Die Verschlüsselung erfolgt mit
+$c = m^e \mod n$. 
+Ein Fixpunkt beim RSA-Verfahren ist dann eine Nachricht $m$ für die gilt:
+$m = m^e \mod n$. Das Ergebnis der Verschlüsselung ist wieder die gegebene Nachricht.
+
+Die Wahrscheinlichkeit für das Auftreten von Fixpunkten ist bei RSA bei genügend großem $n$ allerdings sehr gering\footnote{%
+Dank geht an Taras Shevchenko, der Teile des Inhalts dieses Kapitels zusammentrug, und an Volker Simon, der das Sage-Programm \ref{nt_sagesample_Calculate_RSA-Fixpoints}  "`Getfixpoints"' schrieb.
+}.
+
+
+% ----------------------------------------------------
+\subsubsection{Die Anzahl der RSA-Fixpunkte}
+In diesem Kapitel zeigen wir, dass es für $m \in \{1,...,n-1\} $ genau $ ggT(p-1, e-1) \cdot ggT(q-1, e-1) $ viele RSA-Fixpunkte gibt.\\
+
+\noindent\textbf{Behauptung:}\\
+\\
+Die Anzahl der Fixpunkte $ m^e = m \bmod n, m \in \{1,...,n-1\} $ ist \\$ ggT(p-1, e-1) \cdot ggT(q-1, e-1) $\\
+
+\noindent\textbf{Beweis:}
+\begin{proof}
+Sei $m^e = m \bmod n.$
+Nach dem CRT lässt sich $m^e = m \bmod n$ in ein direktes Produkt von $ m^{e} = m \bmod p \text{ und } m^{e} = m \bmod q $ zerlegen. Diese Zerlegung ist äquivalent zu:\\ $m^{e-1} = 1 \bmod p \text{ und }m^{e-1} = 1 \bmod q. $\\
+Wir betrachten  $m^{e-1} = 1 \bmod p $ und  suchen alle $(e-1)$-ten
+Einheitswurzeln\index{Einheitswurzel}\footnote{%
+- In der Algebra werden Zahlen $x$, deren n-te Potenz die Zahl 1 ergibt, n-te \textbf{Einheitswurzeln} genannt.
+
+In mathematics, a \textbf{root of unity} is a number $x$ that equals 1 when raised to some integer power $n$.
+
+- Eine $n$-te Einheitswurzel  heißt \textbf{primitiv}, falls  für  gilt:
+
+An $n$-th root of unity is \textbf{primitive} if it is not a $k$-th root of unity for all integers $k$ smaller than $n$:
+ $$x^{n} = 1$$
+ $$x^{k} \neq 1 ~~~(k = 1,2, 3, ..., n-1)$$
+
+% Was ist der Zusammenhang zw. "Primitivwurzel" und "primitiver Eineheitswurzel"?
+
+-
+If $F$ is a finite field and $n$ is a positive integer then a $n$th-root of unity in $F$ is a solution of the equation $$ x^{n}-1 = 0 \text{ in } F $$.
+}
+in $\mathbb{Z}_p^{*}.$\\
+Es gilt:~~ $\mathbb{Z}_p^{*}$ für p prim ist zyklisch.~~$\Rightarrow $~~
+Es existiert ein Generator $<g>$, der $\mathbb{Z}_p^{*}$ erzeugt.
+
+
+\noindent Satz aus \cite[S. 69]{nt:Katzenbeisser2001}\index{Katzenbeisser 2001}: 
+%\begin{lem}[$\cite{nt:Katzenbeisser2001}$]
+%\end{lem}
+\begin{satz}\label{nt-katzenbeisser-Anzahl-Einheitswurzeln}
+$g^{\alpha}$ ist genau dann $(e-1)$-te Einheitswurzel in $\mathbb{Z}_p^{*}$,
+wenn $(e-1)\alpha = 0\bmod p-1.$ Davon gibt es $ggT(p-1, e-1)$ viele.\\
+\end{satz}
+\begin{proof} 
+Kleiner Satz von Fermat:
+\[g^{\alpha (e-1)}= 1 \bmod p  ~~\Leftrightarrow~~ \alpha (e-1) = 0\bmod p-1 \]
+ Sei $\delta =ggT(p-1, e-1)$\\
+ Aus $\alpha (e-1) = 0\bmod p-1$ folgt, dass $\frac{\alpha (e-1)}{\delta}= 0 \bmod \frac{p-1}{\delta}$ \\
+ Da $\frac {(e-1)}{\delta}$ und $\frac{p-1}{\delta}$ teilerfremd sind, muss $\alpha$ das Vielfache von $\frac{p-1}{\delta}$ sein.
+
+\[ \alpha \frac{p-1}{ggT(p-1, e-1)} ~~ \text{mit} ~~ \alpha = 1,...,ggT(p-1, e-1)
+\]\\
+Diese $ggT(p-1, e-1)$-verschiedenen Potenzen entsprechen dann den 
+$(e-1)$-ten Einheitswurzeln.
+\end{proof}
+\noindent Für $m^{e-1} = 1 \bmod q $ haben wir dann $ ggT(q-1, e-1) $ viele $(e-1)$-ten Einheitswurzeln.\\
+
+\noindent Für die Gesamt-Anzahl der RSA-Fixpunkte $ m^e = m \bmod n, m \in \{1,...,n-1\}$ ist\\
+ $ggT(p-1, e-1) \cdot ggT(q-1, e-1) $\\
+
+\begin{satz}\label{nt-Anzanhl-RSA-Fixpunkte}
+\noindent $\Rightarrow ~~$ Wenn $ m \in \{0,...,n-1\}$ ist, dann ist die Anzahl der RSA-Fixpunkte:
+          \[ (ggT(p-1, e-1)+1) \cdot (ggT(q-1, e-1)+1) \]
+\end{satz}
+
+\end{proof}
+\vspace{15pt}
+
+
+
+% ----------------------------------------------------
+\subsubsection{Untere Schranke für die Anzahl der RSA-Fixpunkte}
+Im folgenden Kapitel zeigen wir, dass eine untere Schranke für die Anzahl der RSA-Fixpunkte existiert. Diese untere Schranke liegt vor, wenn die beiden Primzahlen die kleinstmöglichen sind (2 und 3).\\
+
+\noindent\textbf{Behauptung 1: $p,q > 2$}\\
+\\
+Die Anzahl der RSA-Fixpunkte für $p \neq q; p,q > 2$ ist $\geq 9$
+
+\begin{proof}
+Da $p$ und $q$ prim sind, sind $(p-1)$ und $(q-1)$ für $ p,q > 2 $ gerade.\\
+Wir müssen e so wählen, dass $1 < e < \phi(n)=(p-1)(q-1)$ und \\
+$ggT(e,(p-1)(q-1))=1$\\
+Da $(p-1)$ und $(q-1)$ gerade sind, ist e ungerade $ \Rightarrow e-1$ ist gerade.\\
+Wenn $(p-1)$ und $(e-1)$ gerade sind, dann gilt:\\
+$ggT(p-1, e-1) \geq 2$ \\
+$\Rightarrow (ggT(p-1, e-1)+1) \geq 3$ und $(ggT(q-1, e-1)+1) \geq 3$\\
+$\Rightarrow (ggT(p-1, e-1)+1) \cdot (ggT(q-1, e-1)+1) \geq 9$
+\end{proof}
+
+\noindent\textbf{Behauptung 2: $p = 2, q = 3$}\\
+\\
+Die Anzahl der RSA-Fixpunkte für $p=2$ und $q=3$ ist\\
+$(\underbrace{ggT(p-1, e-1)}_{=1}+1) \cdot (\underbrace{ggT(q-1, e-1)}_{=2}+1)=2 \cdot 3=6$
+
+
+
+% ----------------------------------------------------
+\subsubsection{Ungeschickte Wahl von $e$ }
+In diesem Kapitel zeigen wir, dass bei einer ungeschickten Wahl von
+$e=1+kgV(p-1,q-1)$ jede Verschlüsselung einen Fixpunkt liefert.\\
+%%% Wie viele solcher ungeschickter e existieren?
+%%% Warum muss es das kgV von phi sein, und kann nicht irgendein Vielfaches von
+%%%       phi sein? 
+
+\noindent\textbf{Behauptung 1: $p,q > 2$}\\
+\\
+Wenn $e=1+kgV(p-1,q-1)$, dann gilt für alle $ m \in \{1,...,n-1\}$\\
+$ m^e = m \bmod n$  \\
+
+\noindent\textbf{Beweis:}
+\begin{proof}
+
+Es gilt:\\
+$ ~~~ e\cdot d=1 \mod \phi(n)$ ~oder~ $e\cdot d=1 \mod kgV(p-1,q-1) $\\
+$ ~~~ m^{x} \mod n = m^{x \mod \phi(n)} \mod n $\\
+
+\noindent Verschlüsseln von Nachrichten: \\
+ $~~~c=m^e \mod n$, wobei c der Geheimtext und m der Klartext ist.\\
+
+\noindent Entschlüsseln von Nachrichten:\\
+ $~~~m'=c^d \mod n$, wobei d die multiplikative Inverse von e ist.\\
+
+\noindent Zu zeigen ist: $c=m \mod n$ für das gewählte e.
+
+$~~~c = m^e \mod n$
+
+$~~~c = m^{1+kgV(p-1,q-1)} \mod n$
+
+$~~~c = m^1 \cdot m^{k \cdot (p-1) \cdot (q-1)} \mod n$
+
+$~~~c = m^1 \cdot m^{[k \cdot \phi(n)] \mod \phi(n)} \mod n$
+
+$~~~c = m^1 \cdot m^{0} = m \mod n $
+\end{proof}
+
+~\\ % Zeilenumbruch erzwingen 
+\noindent\textbf{Beispiel Fixpunkteigenschaft für alle m:}\\
+Gegeben sei $n=p\cdot q= 13\cdot 37=481\\
+\Rightarrow \phi(n)=(p-1)(q-1)=12\cdot 36=432$\\
+$\Rightarrow e=kgV(p-1,q-1)+1=kgV(12,36)+1=36+1=37$.\\
+Mit $m \in \{4,6,7,480\}$ ergibt sich $m^{e} \mod n$:\\
+$~~4^{37} \mod 481=~~4 $\\
+$~~6^{37} \mod 481=~~6 $ \\
+$~~7^{37} \mod 481=~~7 $ \\
+$480^{37} \mod 481=480 $ \\
+
+
+~\\ % Zeilenumbruch erzwingen 
+\noindent Es gibt natürlich nicht nur ein einziges $e$, so dass für alle $ m \in \{1,...,n-1\}$ die Fixpunkteigenschaft $ m^e = m \bmod n$ gilt. Diese vollständige Fixpunkteigenschaft aller $m$ gilt für jedes $e=j\cdot kgV(p-1,q-1)+1$, wobei $j=2,3,4 ... $ bis $e \leq \phi(n)$.\\
+
+~\\ % Zeilenumbruch erzwingen 
+\noindent\textbf{Beispiel weitere Werte für $e$ mit Fixpunkteigenschaft:}\\
+Betrachten wir wieder
+$n=p\cdot q= 13\cdot 37=481$ mit $kgV(p-1,q-1)=kgV(12,36)=36$.\\
+Dann kann $e$ die ff. Werte annehmen: $e=j\cdot kgV(p-1,q-1)+1$ für $j=2,...,11$:\\
+$\Rightarrow e \in \left\{ 37,73,109,145,181,217, 253, 289, 325, 361,397\right\}$.\\
+
+\noindent Ab $j=12$ gilt: $ e=12\cdot kgV(12,36)+1=432+1=433 > 432=\phi(n)$.\\
+
+\noindent Überprüfen wir z.B. wieder die obigen vier Werte für $m$ mit $e=217$, ergibt sich:\\
+$~~4^{217} \mod 481=~~4 $\\
+$~~6^{217} \mod 481=~~6 $ \\
+$~~7^{217} \mod 481=~~7 $ \\
+$480^{217} \mod 481=480 $ \\
+
+\noindent Die Anzahl der möglichen Werte für $e\text{ mit } m^e = m \bmod n$ lässt sich wie folgt berechnen:
+\[\left[ \text{Anzahl }e \right]=\left\lfloor \frac{\phi(n)}{kgV(p-1,q-1)+1}\right\rfloor =\frac{\phi(n)}{kgV(p-1,q-1)}-1
+\]
+
+\noindent In unserem Beispiel ergibt dies $\frac{432}{kgV(12,36)}-1=11 $ viele $e$ mit $m^e = m \bmod n$.\\
+~\\ % Zeilenumbruch erzwingen 
+
+
+
+% ----------------------------------------------------
+\subsubsection{Eine empirische Abschätzung der Anzahl der Fixpunkte für die wachsende Moduli}
+In diesem Kapitel machen wir eine empirische Abschätzung der Anzahl der Fixpunkte
+für wachsende Moduli. Dabei haben wir $p $ und $ q$ zufällig aus den fünf folgenden
+Bereichen gewählt:\\
+$(2^2, 2^{10}), (2^{10}, 2^{20}), (2^{20}, 2^{40}), (2^{40}, 2^{80}),
+ (2^{80}, 2^{160})$ (pro Bereich untere und obere Schranke).\\
+In jedem Bereich haben wir 10 Versuche gemacht. Für den Exponenten $e$ haben wir
+immer den Standardwert $e=2^{16}+1$ genommen. Die Anzahl der Fixpunkte wurde für
+alle 50 Versuche mit dem Programm "`Getfixpoints.sage"' berechnet.
+
+Die folgenden fünf Mengen enthalten pro Größenbereich jeweils die Wertepaare (p,q),
+die wir für die Abschätzung zufällig gewählt haben.
+
+\begin{equation*}
+  \begin{split}
+Aus (2^2, 2^{10}): (p,q)~\in~ & \{ (127,947),(349,809),(47,461),(587,151),(19,23),\\ 
+                              & (709,509),(653,11),(859,523),(823,811),(83,331)\} \\
+\\
+Aus (2^{10}, 2^{20}): (p,q)~\in~
+            & \{ (447401,526283),(474223,973757),(100829,126757),(35803,116933),\\
+            &    (577751,598783),(558121,607337),(950233,248167),(451103,73009),\\
+            &    (235787,164429),(433267,287939)\} \\
+  \end{split}
+\end{equation*}
+
+\begin{equation*}
+  \begin{split}
+Aus (2^{20},2^{40}): (p,q)~\in~
+            & \{ (58569604997,321367332149),(286573447351,636576727223),\\
+            &    (134703821971,134220414529),(161234614601,711682765579), \\
+            &    (19367840881, 804790726361),(932891507377,521129503333),\\
+            &    (337186437739,426034644493),(986529569219,604515928397),\\
+            &    (276825557171,654134442649),(639276602353,1069979301731) \} \\
+  \end{split}
+\end{equation*}
+
+\begin{equation*}
+  \begin{split}
+Aus (2^{40}, 2^{80}): (p,q)~\in~
+            & \{ (667530919106151273090539,287940270633610590682889),\\
+            &    (437090557112369481760661,590040807609821698387141),\\
+            &    (1131921188937480863054851,813935599673320990215139)\\
+            &    (874130181777177966406673,632270193935624953596331),\\
+            &    (599303355925474677078809,717005631177936134003029),\\
+            &    (752829320004631398659063,714134510643836818718761),\\
+            &    (1046313315092743492917349,835721729660755006973833),\\
+            &    (877161707568112212806617,42831503328261105793649),\\
+            &    (575464819450637793425803, 5425832051159043433027),\\
+            &    (321404337099945148592363,992663778486687980443879) \} \\
+  \end{split}
+\end{equation*}
+
+\begin{equation*}
+  \begin{split}
+Aus (2^{80}, 2^{160}): (p,q)~\in~
+   & \{ (838952969674957834783403492645269831354775774659,\\
+   &     694309130163549038783972189350416942879771871411),\\
+   &    (981985107290629501374187748859961786804311564643,\\
+   &     178616495258601001174141825667078950281544628693),\\
+   &    (614446632627716919862227545890890553330513965359,\\
+   &     761232454374959264696945191327265643178491649141),\\
+   &    (1421756952722008095585945863962560425554707936337,\\ 
+   &     986781711714138924140285492105143175328486228197),\\
+   &    (862346475785474165539441761205023498091366178341,\\ 
+   &     438589995804600940885415547506719456975478582911),\\
+   &    (1034081318899669345416602574034081247538053001533,\\
+   &     1207032778571434704618111297072774884748706223447),\\
+   &    (308083812465705343620096534684980088954958466893,\\ 
+   &     350597371862294596793629011464584694618569736021),\\
+   &    (830376326124356299120963861338027196931951857769,\\ 
+   &     924874232653136669722297184352059466357375363191),\\
+   &    (85600581120154590810189237569820706006659829231, \\
+   &     297064381842806596646150718828138629443319259829),\\
+   &    (1358984492013516052055790129324581847590275909129,\\
+   &     609402294805414245544586792657989060761523960427) \} \\
+  \end{split}
+\end{equation*}
+
+
+\begin{figure}[!htb]  %[htbp]
+  \centering
+   \includegraphics[width=0.92\textwidth]{figures/MAF.jpg}
+%   \includegraphics{figures/MAF.jpg}
+  \caption{Eine empirische Abschätzung der Anzahl der Fixpunkte für wachsende Moduli}
+  \label{fig:NumberFixpointsGrowingN}
+\end{figure}
+
+% \begin{figure}[!htb]
+%   \centering
+%   \subfloat[$10^x$]{\label{10hochx}\includegraphics[height=4cm]{figures/10hochx.png}}
+%   \caption{Graph der Funktionen $x$ und $10^x$}
+%   \label{fig:xund10hochx}
+%   \vskip +25pt 
+% \end{figure} 
+
+Abbildung \ref{fig:NumberFixpointsGrowingN} zeigt, dass innerhalb der fünf Größenbereiche die durchschnittliche Anzahl der Fixpunkte zuerst steigt und dann mit wachsenden $p$ und $q$ wieder fällt. Das lässt uns vermuten, dass die durchschnittliche Anzahl der Fixpunkte mit den wachsenden RSA-Modulen kleiner wird, dass also die Wahrscheinlichkeit, einen Fixpunkt  zu bekommen, mit wachsenden $p$ und $q$ immer kleiner wird. Leider konnten wir die Moduli in noch höheren Bereichen nicht testen, da unser Sage-Programm \ref{nt_sagesample_Calculate_RSA-Fixpoints}  "`Getfixpoints"' in Bereichen mit $(p,q) > 2^{160}$ zu langsam ist. \\
+% Verweise auf das Sage-Programm !
+
+
+% ----------------------------------------------------
+\vskip +45pt   % TODO: Jörg, warum Abb.-Unterschrift so weit weg und Abstand zur
+               %       Überschrift 4.18.7.5 nicht vergrößerbar ?
+\subsubsection{Beispiel: Bestimmung aller Fixpunkte für einen bestimmten öffentlichen RSA-Schlüssel}
+
+Die Aufgabe besteht darin, alle Fixpunkte für (n, e) = (866959, 17) zu bestimmem. \\
+
+\noindent \textbf{Lösung:} \\
+Zuerst faktorisieren wir $n$:  $ 866959 = 811 \cdot 1069$.\\
+
+\noindent Die Anzahl der RSA-Fixpunkte ergibt sich nach Satz \ref{nt-Anzanhl-RSA-Fixpunkte}:\\
+$ (ggT(  p-1,  e-1)+1) \cdot (ggT(   q-1,  e-1)+1) =
+  (ggT(811-1, 17-1)+1) \cdot (ggT(1069-1, 17-1)+1) = (2+1) \cdot (4+1) = 15 $\\
+
+\noindent Das Sage-Programm \ref{nt_sagesample_Calculate_RSA-Fixpoints} "`Getfixpoints"' liefert folgende 15 Fixpunkte für
+$ (n,e) = (866959, 17)$:\\
+%
+%\noindent \textbf{3 Fixpunkte modulo p:}\\
+%$ ~~~~~0$ (trivialer Fixpunkt manuell hinzugefügt)\\
+%$ ~~~~~1$\\
+%$ ~~~810$\\
+%
+%\noindent \textbf{5 Fixpunkte modulo q:}\\
+%~~~~~~0 (trivialer Fixpunkt manuell hinzugefügt)\\
+%~~~~~~1\\
+%~~~~249\\
+%~~~~820\\
+%~~~1068\\
+%
+%\noindent \textbf{15 Fixpunkte modulo 866959 bei e= 17:}\\  % TODO: Jörg, Warum wirkt ~nicht ?
+~~~~~~~~0\\
+~~~~~~~~1\\
+~~~~23518\\
+~~~~23519\\
+~~~~47037\\
+~~~188964\\
+~~~212482\\
+~~~236000\\
+~~~654477\\
+~~~843440\\
+~~~843441\\
+~~~630959\\
+~~~677995\\
+~~~819922\\
+~~~866958\\
+
+\noindent \textbf{Beispiel:} \\
+Validieren, dass $ m = 843441$ wirklich ein Fixpunkt ist:\\
+$843441^{17} \mod 866959 = 843441 $\\
+
+
+
+%%% Leicht modifiziertes SAGE-Programm von Volker Simon vom 13.7.2012
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+import numpy
+
+print "--- Search for fixpoints in Textbook-RSA given p, q, e ---";
+fp=numpy.array([0])
+fq=numpy.array([0])
+
+#Edit e,p,q here
+###EDIT BEGIN###
+e=17;
+p=811;
+q=1069;
+###EDIT END###
+
+n=p*q;
+print "Prime p: ",p;
+print "Prime q: ",q;
+print "Modul n: ",n;
+print "Public exponent e: ", e;
+
+r=Integers(p)
+gen_f_p = r.multiplicative_generator()
+print "\nGenerator of f_p: ",gen_f_p;
+s=Integers(q) 
+gen_f_q = s.multiplicative_generator()
+print "Generator of f_q: ",gen_f_q;
+
+gcd_p = gcd(e-1,p-1)
+gcd_q = gcd(e-1,q-1)
+print "\ngcd(e-1,p-1): ", gcd_p;
+print "gcd(e-1,q-1): ", gcd_q;
+
+print "\nNumber of fixpoints: ",(gcd_p+1)*(gcd_q+1);
+#Calculating fixpoints modulo F_p
+#run i from 0 until gcd(e-1,p-1):
+#g^( i*(p-1) / (ggT(e-1,p-1)) ) mod p
+
+print "\nFixpoints modulo p";
+print "0 (trivial fixpoint added manually)";
+i=0;
+for i in range(gcd_p):
+	print power_mod(gen_f_p,Integer(i*(p-1)/gcd_p),p)
+	fp = numpy.append(fp,power_mod(gen_f_p,Integer(i*(p-1)/gcd_p),p))
+
+print "\nFixpoints modulo q";
+print "0 (trivial fixpoint added manually)";
+j=0;
+for j in range(gcd_q):
+	print power_mod(gen_f_q,Integer(j*(q-1)/gcd_q),q)
+	fq = numpy.append(fq,power_mod(gen_f_q,Integer(j*(q-1)/gcd_q),q))
+
+print "\nFixpoints for the public RSA key (n,e) =", n, e
+for r in fp:
+        for s in fq:
+                print crt(Integer(r),Integer(s),Integer(p),Integer(q))
+
+print "\nRemark: You can verify each fixpoint with power_mod(m,e,n).";
+
+\end{Verbatim}
+\caption{Bestimmung aller Fixpunkt-Nachrichten für einen gegebenen öffentlichen
+         RSA-Schlüssel}
+\label{nt_sagesample_Calculate_RSA-Fixpoints}
+\end{sagecode}
+
+
+%222xxx
+%222222222222N222222222222222222N22222222222222222222222222222222222222222222222222
 
 
 
@@ -5187,6 +5615,11 @@ Satz~\ref{thm-zth-ordp} & Ausschöpfung des Wertebereiches & \pageref{thm-zth-ord
      Graham, Knuth, Patashnik, \\
      {\em Concrete Mathemathics, a Foundation of Computer Science}, \\
      Addison Wesley 1989, 6th printing 1994.
+
+\bibitem[Katzenbeisser2001]{nt:Katzenbeisser2001} \index{Katzenbeisser 2001}
+     Stefan Katzenbeisser, \\
+     {\em Recent Advances in RSA Cryptography}, \\
+     Springer 2001.
 
 \bibitem[Kippenhahn1997]{nt:Kippenhahn1997} \index{Kippenhahn 1997}
     Rudolph Kippenhahn, \\
