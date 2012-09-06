@@ -643,8 +643,12 @@ void CDlgFactorisationDemo::expandFactorisation(CString &composite, CString &f1,
 
 void CDlgFactorisationDemo::Set_NonPrime_Factor_Red()
 {
-	CHARFORMAT cf; 
-	// Reset the old coloring
+	CHARFORMAT cf;
+	// flomar, 09/06/2012: don't forget to initialize the struct properly, otherwise we 
+	// may encounter weird behavior under VS2010; for some reason VS2008 seems to be fine 
+	// even without explicitly initializing everything to zero
+	memset(&cf, 0, sizeof(cf));
+	// go on as usual...
 	cf.cbSize = sizeof (CHARFORMAT);
 	cf.dwMask= CFM_COLOR;//
 	cf.crTextColor =RGB(0,0,0);
@@ -676,7 +680,7 @@ void CDlgFactorisationDemo::Set_NonPrime_Factor_Red()
 		{
 			cf.cbSize = sizeof (CHARFORMAT);
 			cf.dwMask= CFM_COLOR;
-			cf.crTextColor =RGB(250,0,0);
+			cf.crTextColor =RGB(255,0,0);
 			m_FactorisationCtrl.SetSel(anfang, ende);
 			m_FactorisationCtrl.SetSelectionCharFormat(cf);
 			if (firstcomposite == -1)

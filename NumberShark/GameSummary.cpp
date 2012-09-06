@@ -110,6 +110,11 @@ void CGameSummary::gameAnalyse()
 	int upperLimit = finishUpperLimit;
 
 	CHARFORMAT cf;
+	// flomar, 09/06/2012: don't forget to initialize the struct properly, otherwise we 
+	// may encounter weird behavior under VS2010; for some reason VS2008 seems to be fine 
+	// even without explicitly initializing everything to zero
+	memset(&cf, 0, sizeof(cf));
+	// go on as usual...
 	cf.cbSize = sizeof(CHARFORMAT);
 	cf.dwMask = CFM_COLOR;
 	cf.dwEffects = 0;
