@@ -2082,7 +2082,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT1,162,49,180,14,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Kontynuuj",IDC_BUTTON_Faktorisieren,24,156,77,16
-    PUSHBUTTON      "Komplteny rozk³ad na czynniki pierwsze",IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,206,156,136,16,NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "Komplteny rozk³ad na czynniki pierwsze",IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,206,156,136,16
     PUSHBUTTON      "&Zamknij",IDC_BUTTON_cancel,259,315,94,18
     GROUPBOX        "Algorytmy faktoryzacji (rozk³adu)",-1,13,6,129,107
     CONTROL         "Metoda brutalnej si³y",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,23,108,10
@@ -13326,7 +13326,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT1,177,49,165,14,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Nastavi",IDC_BUTTON_Faktorisieren,24,156,77,16
-    PUSHBUTTON      "Kompletno &razlaganje u proste brojeve",IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,214,156,128,16,NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "Kompletno &razlaganje u proste brojeve",IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,214,156,128,16
     PUSHBUTTON      "&Zatvori",IDC_BUTTON_cancel,259,313,94,18
     GROUPBOX        "Algoritmi za razlaganje",-1,13,6,140,107
     CONTROL         "Brutalna-sila",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,23,51,10
@@ -24292,7 +24292,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT1,157,49,185,14,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Weiter",IDC_BUTTON_Faktorisieren,24,156,77,16
-    PUSHBUTTON      "Vollständig &faktorisieren",IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,249,156,93,16,NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "Vollständig &faktorisieren",IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,249,156,93,16
     PUSHBUTTON      "&Schließen",IDC_BUTTON_cancel,259,308,94,18
     GROUPBOX        "Algorithmen zur Faktorisierung",IDC_STATIC,13,6,123,107
     CONTROL         "Brute-Force",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,23,53,10
@@ -35699,7 +35699,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT1,177,49,165,14,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Continue",IDC_BUTTON_Faktorisieren,24,156,77,16
-    PUSHBUTTON      "Complete &factorization into primes",IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,224,156,118,16,NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "Complete &factorization into primes",IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,224,156,118,16
     PUSHBUTTON      "&Close",IDC_BUTTON_cancel,259,313,94,18
     GROUPBOX        "Algorithms for factorization",-1,13,6,140,107
     CONTROL         "Brute-force",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,23,51,10
@@ -45920,7 +45920,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT1,177,49,165,14,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Continuar",IDC_BUTTON_Faktorisieren,24,156,77,16
-    PUSHBUTTON      "&Factorización completa en primos",IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,224,156,118,16,NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "&Factorización completa en primos",IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,224,156,118,16
     PUSHBUTTON      "&Cerrar",IDC_BUTTON_cancel,259,313,94,18
     GROUPBOX        "Algoritmos de Factorización",-1,13,6,140,107
     CONTROL         "Fuerza Bruta",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,23,56,10

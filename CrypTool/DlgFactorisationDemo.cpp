@@ -201,17 +201,12 @@ void CDlgFactorisationDemo::OnButtonFactorisation()
 		m_vollstaendig.EnableWindow(true);	
 	}
 	
-	
-	CString next_factor;
-	
-
-	next_factor=Search_First_Composite_Factor();
+	CString next_factor = Search_First_Composite_Factor();
 		
 	// Falls noch zusammengesetzten Faktoren die eingegebene Zahl teilen:
 	if (next_factor!="lolo")
 	{
-		int Out_SetN;
-			Out_SetN=f.SetN(next_factor);
+		int Out_SetN = f.SetN(next_factor);
 		int bitlength_next_factor = f.bitlength();
 		if (Out_SetN==EVAL_NULL || Out_SetN==EVAL_EINS)
 		{
@@ -479,7 +474,7 @@ void CDlgFactorisationDemo::OnButtonFactorisation()
 				m_DialogeDetails.EnableWindow();
 			}
 		}
-		else if (Out_SetN==1)
+		else if(Out_SetN == EVAL_NEG)
 		{
 			// Falsche Eingabe: Eingabe ist keine positive ganze Zahl
 			m_CompositeNoCtrl.SetSel(0,-1);
@@ -717,26 +712,20 @@ CString CDlgFactorisationDemo::Search_First_Composite_Factor()
 void CDlgFactorisationDemo::OnButtonVollstaendigFaktorisation() 
 {
 	NumFactor *ndx = factorList;
-	do
-		{
+	do {
 		UpdateData(TRUE);
 		SHOW_HOUR_GLASS			// Aktiviert die Sanduhr
-		CString next_factor;
-		next_factor=Search_First_Composite_Factor();
+
+		CString next_factor = Search_First_Composite_Factor();
 		
 		// Falls noch zusammengesetzten Faktoren die eingegebene Zahl teilen:
-		if (next_factor!="lolo")
+		if (next_factor != "lolo")
 		{
-			CTutorialFactorisation fact;
+			CTutorialFactorisation fact;			
+			int Out_SetN = fact.SetN(next_factor);
 
-			//fact.SetN(next_factor);
-			
-			int Out_SetN;
-			Out_SetN=fact.SetN(next_factor);
-			if (Out_SetN==2)
+			if (Out_SetN == EVAL_OK)
 			{
-
-			
 				BOOL factorized = FALSE; 
 				if (!m_bruteForce && !m_Brent && !m_Pollard && !m_Williams && !m_Lenstra && !m_QSieve)
 				{
@@ -796,16 +785,22 @@ void CDlgFactorisationDemo::OnButtonVollstaendigFaktorisation()
 				Set_NonPrime_Factor_Red();
 			}
 
-			else if (Out_SetN==1)
+			else if (Out_SetN == EVAL_NEG)
 			{
 				// Falsche Eingabe: Eingabe ist keine positive ganze Zahl
 				Message(IDS_STRING_FAKTORISATION_FALSCHE_EINGABE, MB_ICONEXCLAMATION);
 				return;
 			}
-			else
+			else if (Out_SetN == EVAL_NULL || Out_SetN == EVAL_EINS) {
+				m_CompositeNoCtrl.SetSel(0,-1);
+				m_CompositeNoCtrl.SetFocus();
+				Message(IDS_STRING_FAKTORISATION_NOT_NULL_OR_ONE, MB_ICONEXCLAMATION);
+				return;
+			}
+			else if (Out_SetN == EVAL_ERR)
 			{
 				// Eingabe ist zu groß (1024-bit); wird nicht von der Demo unterstützt.
-				Message(STR_LAENGE_STRING_TABLE, MB_ICONINFORMATION);
+				Message(IDS_PRIME_BIT_LENGTH, MB_ICONEXCLAMATION);
 				return;
 			}
 		}
