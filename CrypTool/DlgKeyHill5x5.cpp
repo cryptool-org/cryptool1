@@ -214,6 +214,7 @@ BEGIN_MESSAGE_MAP(CDlgKeyHill5x5, CDialog)
 	ON_BN_CLICKED(IDC_RADIO9, OnMatrixColumnVector)
 
 	ON_BN_CLICKED(IDC_BUTTON3, OnZufaelligerSchluessel)
+	ON_BN_CLICKED(IDC_BUTTON_RESETKEY, OnResetKey)
 	ON_BN_CLICKED(IDC_BUTTON4, OnGroessereSchluessel)
 	ON_BN_CLICKED(IDC_BUTTON5, OnDecrypt)
 	ON_BN_CLICKED(IDC_BUTTON2, OnPasteKey)
@@ -416,6 +417,10 @@ void CDlgKeyHill5x5::OnZufaelligerSchluessel()
    GetDlgItem(IDOK)->SetFocus();
 }
 
+void CDlgKeyHill5x5::OnResetKey()
+{
+	m_HillBase->Clear();
+}
 
 void CDlgKeyHill5x5::OnGroessereSchluessel() 
 {

@@ -395,6 +395,7 @@ protected:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnPasteKey();
 	afx_msg void OnZufaelligerSchluessel();
+	afx_msg void OnResetKey();
 	afx_msg void OnKleinereSchluessel();
 	afx_msg void OnTextOptions();
 	afx_msg void OnHillOptions();
