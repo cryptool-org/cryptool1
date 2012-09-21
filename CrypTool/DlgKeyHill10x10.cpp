@@ -614,106 +614,106 @@ BEGIN_MESSAGE_MAP(CDlgKeyHill10x10, CDialog)
 /////////////////////////////////////////////////////////////////////////////
 // Behandlungsroutinen für Nachrichten CDlgKeyHill10x10 
 
-void CDlgKeyHill10x10::OnUpdateMat11()    { m_HillBase->syncAlphNum(0,0); }
-void CDlgKeyHill10x10::OnUpdateMat12()    { m_HillBase->syncAlphNum(0,1); }
-void CDlgKeyHill10x10::OnUpdateMat13()    { m_HillBase->syncAlphNum(0,2); }
-void CDlgKeyHill10x10::OnUpdateMat14()    { m_HillBase->syncAlphNum(0,3); }
-void CDlgKeyHill10x10::OnUpdateMat15()    { m_HillBase->syncAlphNum(0,4); }
-void CDlgKeyHill10x10::OnUpdateMat16()    { m_HillBase->syncAlphNum(0,5); }
-void CDlgKeyHill10x10::OnUpdateMat17()    { m_HillBase->syncAlphNum(0,6); }
-void CDlgKeyHill10x10::OnUpdateMat18()    { m_HillBase->syncAlphNum(0,7); }
-void CDlgKeyHill10x10::OnUpdateMat19()    { m_HillBase->syncAlphNum(0,8); }
-void CDlgKeyHill10x10::OnUpdateMat110()   { m_HillBase->syncAlphNum(0,9); }
-void CDlgKeyHill10x10::OnUpdateMat21()    { m_HillBase->syncAlphNum(1,0); }
-void CDlgKeyHill10x10::OnUpdateMat22()    { m_HillBase->syncAlphNum(1,1); }
-void CDlgKeyHill10x10::OnUpdateMat23()    { m_HillBase->syncAlphNum(1,2); }
-void CDlgKeyHill10x10::OnUpdateMat24()    { m_HillBase->syncAlphNum(1,3); }
-void CDlgKeyHill10x10::OnUpdateMat25()    { m_HillBase->syncAlphNum(1,4); }
-void CDlgKeyHill10x10::OnUpdateMat26()    { m_HillBase->syncAlphNum(1,5); }
-void CDlgKeyHill10x10::OnUpdateMat27()    { m_HillBase->syncAlphNum(1,6); }
-void CDlgKeyHill10x10::OnUpdateMat28()    { m_HillBase->syncAlphNum(1,7); }
-void CDlgKeyHill10x10::OnUpdateMat29()    { m_HillBase->syncAlphNum(1,8); }
-void CDlgKeyHill10x10::OnUpdateMat210()   { m_HillBase->syncAlphNum(1,9); }
-void CDlgKeyHill10x10::OnUpdateMat31()    { m_HillBase->syncAlphNum(2,0); }
-void CDlgKeyHill10x10::OnUpdateMat32()    { m_HillBase->syncAlphNum(2,1); }
-void CDlgKeyHill10x10::OnUpdateMat33()    { m_HillBase->syncAlphNum(2,2); }
-void CDlgKeyHill10x10::OnUpdateMat34()    { m_HillBase->syncAlphNum(2,3); }
-void CDlgKeyHill10x10::OnUpdateMat35()    { m_HillBase->syncAlphNum(2,4); }
-void CDlgKeyHill10x10::OnUpdateMat36()    { m_HillBase->syncAlphNum(2,5); }
-void CDlgKeyHill10x10::OnUpdateMat37()    { m_HillBase->syncAlphNum(2,6); }
-void CDlgKeyHill10x10::OnUpdateMat38()    { m_HillBase->syncAlphNum(2,7); }
-void CDlgKeyHill10x10::OnUpdateMat39()    { m_HillBase->syncAlphNum(2,8); }
-void CDlgKeyHill10x10::OnUpdateMat310()   { m_HillBase->syncAlphNum(2,9); }
-void CDlgKeyHill10x10::OnUpdateMat41()    { m_HillBase->syncAlphNum(3,0); }
-void CDlgKeyHill10x10::OnUpdateMat42()    { m_HillBase->syncAlphNum(3,1); }
-void CDlgKeyHill10x10::OnUpdateMat43()    { m_HillBase->syncAlphNum(3,2); }
-void CDlgKeyHill10x10::OnUpdateMat44()    { m_HillBase->syncAlphNum(3,3); }
-void CDlgKeyHill10x10::OnUpdateMat45()    { m_HillBase->syncAlphNum(3,4); }
-void CDlgKeyHill10x10::OnUpdateMat46()    { m_HillBase->syncAlphNum(3,5); }
-void CDlgKeyHill10x10::OnUpdateMat47()    { m_HillBase->syncAlphNum(3,6); }
-void CDlgKeyHill10x10::OnUpdateMat48()    { m_HillBase->syncAlphNum(3,7); }
-void CDlgKeyHill10x10::OnUpdateMat49()    { m_HillBase->syncAlphNum(3,8); }
-void CDlgKeyHill10x10::OnUpdateMat410()   { m_HillBase->syncAlphNum(3,9); }
-void CDlgKeyHill10x10::OnUpdateMat51()    { m_HillBase->syncAlphNum(4,0); }
-void CDlgKeyHill10x10::OnUpdateMat52()    { m_HillBase->syncAlphNum(4,1); }
-void CDlgKeyHill10x10::OnUpdateMat53()    { m_HillBase->syncAlphNum(4,2); }
-void CDlgKeyHill10x10::OnUpdateMat54()    { m_HillBase->syncAlphNum(4,3); }
-void CDlgKeyHill10x10::OnUpdateMat55()    { m_HillBase->syncAlphNum(4,4); }
-void CDlgKeyHill10x10::OnUpdateMat56()    { m_HillBase->syncAlphNum(4,5); }
-void CDlgKeyHill10x10::OnUpdateMat57()    { m_HillBase->syncAlphNum(4,6); }
-void CDlgKeyHill10x10::OnUpdateMat58()    { m_HillBase->syncAlphNum(4,7); }
-void CDlgKeyHill10x10::OnUpdateMat59()    { m_HillBase->syncAlphNum(4,8); }
-void CDlgKeyHill10x10::OnUpdateMat510()   { m_HillBase->syncAlphNum(4,9); }
-void CDlgKeyHill10x10::OnUpdateMat61()    { m_HillBase->syncAlphNum(5,0); }
-void CDlgKeyHill10x10::OnUpdateMat62()    { m_HillBase->syncAlphNum(5,1); }
-void CDlgKeyHill10x10::OnUpdateMat63()    { m_HillBase->syncAlphNum(5,2); }
-void CDlgKeyHill10x10::OnUpdateMat64()    { m_HillBase->syncAlphNum(5,3); }
-void CDlgKeyHill10x10::OnUpdateMat65()    { m_HillBase->syncAlphNum(5,4); }
-void CDlgKeyHill10x10::OnUpdateMat66()    { m_HillBase->syncAlphNum(5,5); }
-void CDlgKeyHill10x10::OnUpdateMat67()    { m_HillBase->syncAlphNum(5,6); }
-void CDlgKeyHill10x10::OnUpdateMat68()    { m_HillBase->syncAlphNum(5,7); }
-void CDlgKeyHill10x10::OnUpdateMat69()    { m_HillBase->syncAlphNum(5,8); }
-void CDlgKeyHill10x10::OnUpdateMat610()   { m_HillBase->syncAlphNum(5,9); }
-void CDlgKeyHill10x10::OnUpdateMat71()    { m_HillBase->syncAlphNum(6,0); }
-void CDlgKeyHill10x10::OnUpdateMat72()    { m_HillBase->syncAlphNum(6,1); }
-void CDlgKeyHill10x10::OnUpdateMat73()    { m_HillBase->syncAlphNum(6,2); }
-void CDlgKeyHill10x10::OnUpdateMat74()    { m_HillBase->syncAlphNum(6,3); }
-void CDlgKeyHill10x10::OnUpdateMat75()    { m_HillBase->syncAlphNum(6,4); }
-void CDlgKeyHill10x10::OnUpdateMat76()    { m_HillBase->syncAlphNum(6,5); }
-void CDlgKeyHill10x10::OnUpdateMat77()    { m_HillBase->syncAlphNum(6,6); }
-void CDlgKeyHill10x10::OnUpdateMat78()    { m_HillBase->syncAlphNum(6,7); }
-void CDlgKeyHill10x10::OnUpdateMat79()    { m_HillBase->syncAlphNum(6,8); }
-void CDlgKeyHill10x10::OnUpdateMat710()   { m_HillBase->syncAlphNum(6,9); }
-void CDlgKeyHill10x10::OnUpdateMat81()    { m_HillBase->syncAlphNum(7,0); }
-void CDlgKeyHill10x10::OnUpdateMat82()    { m_HillBase->syncAlphNum(7,1); }
-void CDlgKeyHill10x10::OnUpdateMat83()    { m_HillBase->syncAlphNum(7,2); }
-void CDlgKeyHill10x10::OnUpdateMat84()    { m_HillBase->syncAlphNum(7,3); }
-void CDlgKeyHill10x10::OnUpdateMat85()    { m_HillBase->syncAlphNum(7,4); }
-void CDlgKeyHill10x10::OnUpdateMat86()    { m_HillBase->syncAlphNum(7,5); }
-void CDlgKeyHill10x10::OnUpdateMat87()    { m_HillBase->syncAlphNum(7,6); }
-void CDlgKeyHill10x10::OnUpdateMat88()    { m_HillBase->syncAlphNum(7,7); }
-void CDlgKeyHill10x10::OnUpdateMat89()    { m_HillBase->syncAlphNum(7,8); }
-void CDlgKeyHill10x10::OnUpdateMat810()   { m_HillBase->syncAlphNum(7,9); }
-void CDlgKeyHill10x10::OnUpdateMat91()    { m_HillBase->syncAlphNum(8,0); }
-void CDlgKeyHill10x10::OnUpdateMat92()    { m_HillBase->syncAlphNum(8,1); }
-void CDlgKeyHill10x10::OnUpdateMat93()    { m_HillBase->syncAlphNum(8,2); }
-void CDlgKeyHill10x10::OnUpdateMat94()    { m_HillBase->syncAlphNum(8,3); }
-void CDlgKeyHill10x10::OnUpdateMat95()    { m_HillBase->syncAlphNum(8,4); }
-void CDlgKeyHill10x10::OnUpdateMat96()    { m_HillBase->syncAlphNum(8,5); }
-void CDlgKeyHill10x10::OnUpdateMat97()    { m_HillBase->syncAlphNum(8,6); }
-void CDlgKeyHill10x10::OnUpdateMat98()    { m_HillBase->syncAlphNum(8,7); }
-void CDlgKeyHill10x10::OnUpdateMat99()    { m_HillBase->syncAlphNum(8,8); }
-void CDlgKeyHill10x10::OnUpdateMat910()   { m_HillBase->syncAlphNum(8,9); }
-void CDlgKeyHill10x10::OnUpdateMat101()   { m_HillBase->syncAlphNum(9,0); }
-void CDlgKeyHill10x10::OnUpdateMat102()   { m_HillBase->syncAlphNum(9,1); }
-void CDlgKeyHill10x10::OnUpdateMat103()   { m_HillBase->syncAlphNum(9,2); }
-void CDlgKeyHill10x10::OnUpdateMat104()   { m_HillBase->syncAlphNum(9,3); }
-void CDlgKeyHill10x10::OnUpdateMat105()   { m_HillBase->syncAlphNum(9,4); }
-void CDlgKeyHill10x10::OnUpdateMat106()   { m_HillBase->syncAlphNum(9,5); }
-void CDlgKeyHill10x10::OnUpdateMat107()   { m_HillBase->syncAlphNum(9,6); }
-void CDlgKeyHill10x10::OnUpdateMat108()   { m_HillBase->syncAlphNum(9,7); }
-void CDlgKeyHill10x10::OnUpdateMat109()   { m_HillBase->syncAlphNum(9,8); }
-void CDlgKeyHill10x10::OnUpdateMat1010()  { m_HillBase->syncAlphNum(9,9); }
+void CDlgKeyHill10x10::OnUpdateMat11()    { m_HillBase->syncAlphNum(0,0); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat12()    { m_HillBase->syncAlphNum(0,1); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat13()    { m_HillBase->syncAlphNum(0,2); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat14()    { m_HillBase->syncAlphNum(0,3); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat15()    { m_HillBase->syncAlphNum(0,4); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat16()    { m_HillBase->syncAlphNum(0,5); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat17()    { m_HillBase->syncAlphNum(0,6); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat18()    { m_HillBase->syncAlphNum(0,7); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat19()    { m_HillBase->syncAlphNum(0,8); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat110()   { m_HillBase->syncAlphNum(0,9); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat21()    { m_HillBase->syncAlphNum(1,0); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat22()    { m_HillBase->syncAlphNum(1,1); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat23()    { m_HillBase->syncAlphNum(1,2); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat24()    { m_HillBase->syncAlphNum(1,3); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat25()    { m_HillBase->syncAlphNum(1,4); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat26()    { m_HillBase->syncAlphNum(1,5); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat27()    { m_HillBase->syncAlphNum(1,6); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat28()    { m_HillBase->syncAlphNum(1,7); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat29()    { m_HillBase->syncAlphNum(1,8); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat210()   { m_HillBase->syncAlphNum(1,9); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat31()    { m_HillBase->syncAlphNum(2,0); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat32()    { m_HillBase->syncAlphNum(2,1); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat33()    { m_HillBase->syncAlphNum(2,2); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat34()    { m_HillBase->syncAlphNum(2,3); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat35()    { m_HillBase->syncAlphNum(2,4); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat36()    { m_HillBase->syncAlphNum(2,5); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat37()    { m_HillBase->syncAlphNum(2,6); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat38()    { m_HillBase->syncAlphNum(2,7); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat39()    { m_HillBase->syncAlphNum(2,8); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat310()   { m_HillBase->syncAlphNum(2,9); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat41()    { m_HillBase->syncAlphNum(3,0); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat42()    { m_HillBase->syncAlphNum(3,1); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat43()    { m_HillBase->syncAlphNum(3,2); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat44()    { m_HillBase->syncAlphNum(3,3); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat45()    { m_HillBase->syncAlphNum(3,4); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat46()    { m_HillBase->syncAlphNum(3,5); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat47()    { m_HillBase->syncAlphNum(3,6); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat48()    { m_HillBase->syncAlphNum(3,7); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat49()    { m_HillBase->syncAlphNum(3,8); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat410()   { m_HillBase->syncAlphNum(3,9); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat51()    { m_HillBase->syncAlphNum(4,0); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat52()    { m_HillBase->syncAlphNum(4,1); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat53()    { m_HillBase->syncAlphNum(4,2); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat54()    { m_HillBase->syncAlphNum(4,3); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat55()    { m_HillBase->syncAlphNum(4,4); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat56()    { m_HillBase->syncAlphNum(4,5); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat57()    { m_HillBase->syncAlphNum(4,6); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat58()    { m_HillBase->syncAlphNum(4,7); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat59()    { m_HillBase->syncAlphNum(4,8); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat510()   { m_HillBase->syncAlphNum(4,9); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat61()    { m_HillBase->syncAlphNum(5,0); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat62()    { m_HillBase->syncAlphNum(5,1); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat63()    { m_HillBase->syncAlphNum(5,2); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat64()    { m_HillBase->syncAlphNum(5,3); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat65()    { m_HillBase->syncAlphNum(5,4); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat66()    { m_HillBase->syncAlphNum(5,5); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat67()    { m_HillBase->syncAlphNum(5,6); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat68()    { m_HillBase->syncAlphNum(5,7); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat69()    { m_HillBase->syncAlphNum(5,8); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat610()   { m_HillBase->syncAlphNum(5,9); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat71()    { m_HillBase->syncAlphNum(6,0); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat72()    { m_HillBase->syncAlphNum(6,1); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat73()    { m_HillBase->syncAlphNum(6,2); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat74()    { m_HillBase->syncAlphNum(6,3); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat75()    { m_HillBase->syncAlphNum(6,4); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat76()    { m_HillBase->syncAlphNum(6,5); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat77()    { m_HillBase->syncAlphNum(6,6); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat78()    { m_HillBase->syncAlphNum(6,7); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat79()    { m_HillBase->syncAlphNum(6,8); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat710()   { m_HillBase->syncAlphNum(6,9); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat81()    { m_HillBase->syncAlphNum(7,0); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat82()    { m_HillBase->syncAlphNum(7,1); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat83()    { m_HillBase->syncAlphNum(7,2); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat84()    { m_HillBase->syncAlphNum(7,3); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat85()    { m_HillBase->syncAlphNum(7,4); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat86()    { m_HillBase->syncAlphNum(7,5); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat87()    { m_HillBase->syncAlphNum(7,6); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat88()    { m_HillBase->syncAlphNum(7,7); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat89()    { m_HillBase->syncAlphNum(7,8); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat810()   { m_HillBase->syncAlphNum(7,9); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat91()    { m_HillBase->syncAlphNum(8,0); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat92()    { m_HillBase->syncAlphNum(8,1); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat93()    { m_HillBase->syncAlphNum(8,2); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat94()    { m_HillBase->syncAlphNum(8,3); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat95()    { m_HillBase->syncAlphNum(8,4); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat96()    { m_HillBase->syncAlphNum(8,5); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat97()    { m_HillBase->syncAlphNum(8,6); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat98()    { m_HillBase->syncAlphNum(8,7); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat99()    { m_HillBase->syncAlphNum(8,8); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat910()   { m_HillBase->syncAlphNum(8,9); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat101()   { m_HillBase->syncAlphNum(9,0); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat102()   { m_HillBase->syncAlphNum(9,1); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat103()   { m_HillBase->syncAlphNum(9,2); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat104()   { m_HillBase->syncAlphNum(9,3); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat105()   { m_HillBase->syncAlphNum(9,4); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat106()   { m_HillBase->syncAlphNum(9,5); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat107()   { m_HillBase->syncAlphNum(9,6); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat108()   { m_HillBase->syncAlphNum(9,7); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat109()   { m_HillBase->syncAlphNum(9,8); checkForInvalidCharacterInput(); }
+void CDlgKeyHill10x10::OnUpdateMat1010()  { m_HillBase->syncAlphNum(9,9); checkForInvalidCharacterInput(); }
 
 
 ////////////////////////////////
@@ -1049,4 +1049,37 @@ void CDlgKeyHill10x10::OnTextOptions()
 {
    if ( m_HillBase->SetTextOptions() )
 	   displayAlphabet();
+}
+
+void CDlgKeyHill10x10::checkForInvalidCharacterInput() {
+	// get the current alphabet
+	CString alphabet = theApp.TextOptions.getAlphabet();
+	// as soon as this variables turns true, we leave the loop below
+	bool error = false;
+	// go through all elements of the matrix
+	for(int x=0; x<10 && !error; x++) {
+		for(int y=0; y<10 && !error; y++) {
+			// get the input for the current matrix cell
+			CString input;
+			m_HillBase->HillAlphMat[x][y].GetWindowText(input);
+			// empty cells DON'T result in an error, we just skip 'em
+			if(input.GetLength() > 0) {
+				// discard anything but the very first character
+				char character = input[0];
+				// now check if the character is valid
+				if(alphabet.Find(character) == -1) {
+					m_HillBase->HillAlphMat[x][y].SetSel(0, -1);
+					error = true;
+				}
+			}
+		}
+	}
+	// dump an error message for the user
+	if(error) {
+		CString title;
+		CString message;
+		title.LoadString(IDS_STRING_ASYMKEY_ERR_INPUT_UNCOMPLETED);
+		message.LoadString(IDS_HILL_BAD_KEY_NONVALID_CHAR);
+		MessageBox(message, title, MB_ICONWARNING|MB_OK);
+	}
 }

@@ -402,7 +402,10 @@ protected:
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
-public:
+protected:
+	// flomar, 09/18/2012: these functions ae be called whenever the user changes 
+	// the key; they pop an error message and mark the very first error encountered 
+	void checkForInvalidCharacterInput();
 };
 
 //{{AFX_INSERT_LOCATION}}

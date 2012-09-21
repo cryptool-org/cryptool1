@@ -228,31 +228,31 @@ END_MESSAGE_MAP()
 
 
 // HillAlphMat
-void CDlgKeyHill5x5::OnUpdateMat11() { m_HillBase->syncAlphNum(0,0); }
-void CDlgKeyHill5x5::OnUpdateMat12() { m_HillBase->syncAlphNum(0,1); }
-void CDlgKeyHill5x5::OnUpdateMat13() { m_HillBase->syncAlphNum(0,2); }
-void CDlgKeyHill5x5::OnUpdateMat14() { m_HillBase->syncAlphNum(0,3); }
-void CDlgKeyHill5x5::OnUpdateMat15() { m_HillBase->syncAlphNum(0,4); }
-void CDlgKeyHill5x5::OnUpdateMat21() { m_HillBase->syncAlphNum(1,0); }
-void CDlgKeyHill5x5::OnUpdateMat22() { m_HillBase->syncAlphNum(1,1); }
-void CDlgKeyHill5x5::OnUpdateMat23() { m_HillBase->syncAlphNum(1,2); }
-void CDlgKeyHill5x5::OnUpdateMat24() { m_HillBase->syncAlphNum(1,3); }
-void CDlgKeyHill5x5::OnUpdateMat25() { m_HillBase->syncAlphNum(1,4); }
-void CDlgKeyHill5x5::OnUpdateMat31() { m_HillBase->syncAlphNum(2,0); }
-void CDlgKeyHill5x5::OnUpdateMat32() { m_HillBase->syncAlphNum(2,1); }
-void CDlgKeyHill5x5::OnUpdateMat33() { m_HillBase->syncAlphNum(2,2); }
-void CDlgKeyHill5x5::OnUpdateMat34() { m_HillBase->syncAlphNum(2,3); }
-void CDlgKeyHill5x5::OnUpdateMat35() { m_HillBase->syncAlphNum(2,4); }
-void CDlgKeyHill5x5::OnUpdateMat41() { m_HillBase->syncAlphNum(3,0); }
-void CDlgKeyHill5x5::OnUpdateMat42() { m_HillBase->syncAlphNum(3,1); }
-void CDlgKeyHill5x5::OnUpdateMat43() { m_HillBase->syncAlphNum(3,2); }
-void CDlgKeyHill5x5::OnUpdateMat44() { m_HillBase->syncAlphNum(3,3); }
-void CDlgKeyHill5x5::OnUpdateMat45() { m_HillBase->syncAlphNum(3,4); }
-void CDlgKeyHill5x5::OnUpdateMat51() { m_HillBase->syncAlphNum(4,0); }
-void CDlgKeyHill5x5::OnUpdateMat52() { m_HillBase->syncAlphNum(4,1); }
-void CDlgKeyHill5x5::OnUpdateMat53() { m_HillBase->syncAlphNum(4,2); }
-void CDlgKeyHill5x5::OnUpdateMat54() { m_HillBase->syncAlphNum(4,3); }
-void CDlgKeyHill5x5::OnUpdateMat55() { m_HillBase->syncAlphNum(4,4); }
+void CDlgKeyHill5x5::OnUpdateMat11() { m_HillBase->syncAlphNum(0,0); checkForInvalidCharacterInput(); }
+void CDlgKeyHill5x5::OnUpdateMat12() { m_HillBase->syncAlphNum(0,1); checkForInvalidCharacterInput(); }
+void CDlgKeyHill5x5::OnUpdateMat13() { m_HillBase->syncAlphNum(0,2); checkForInvalidCharacterInput(); }
+void CDlgKeyHill5x5::OnUpdateMat14() { m_HillBase->syncAlphNum(0,3); checkForInvalidCharacterInput(); }
+void CDlgKeyHill5x5::OnUpdateMat15() { m_HillBase->syncAlphNum(0,4); checkForInvalidCharacterInput(); }
+void CDlgKeyHill5x5::OnUpdateMat21() { m_HillBase->syncAlphNum(1,0); checkForInvalidCharacterInput(); }
+void CDlgKeyHill5x5::OnUpdateMat22() { m_HillBase->syncAlphNum(1,1); checkForInvalidCharacterInput(); }
+void CDlgKeyHill5x5::OnUpdateMat23() { m_HillBase->syncAlphNum(1,2); checkForInvalidCharacterInput(); }
+void CDlgKeyHill5x5::OnUpdateMat24() { m_HillBase->syncAlphNum(1,3); checkForInvalidCharacterInput(); }
+void CDlgKeyHill5x5::OnUpdateMat25() { m_HillBase->syncAlphNum(1,4); checkForInvalidCharacterInput(); }
+void CDlgKeyHill5x5::OnUpdateMat31() { m_HillBase->syncAlphNum(2,0); checkForInvalidCharacterInput(); }
+void CDlgKeyHill5x5::OnUpdateMat32() { m_HillBase->syncAlphNum(2,1); checkForInvalidCharacterInput(); }
+void CDlgKeyHill5x5::OnUpdateMat33() { m_HillBase->syncAlphNum(2,2); checkForInvalidCharacterInput(); }
+void CDlgKeyHill5x5::OnUpdateMat34() { m_HillBase->syncAlphNum(2,3); checkForInvalidCharacterInput(); }
+void CDlgKeyHill5x5::OnUpdateMat35() { m_HillBase->syncAlphNum(2,4); checkForInvalidCharacterInput(); }
+void CDlgKeyHill5x5::OnUpdateMat41() { m_HillBase->syncAlphNum(3,0); checkForInvalidCharacterInput(); }
+void CDlgKeyHill5x5::OnUpdateMat42() { m_HillBase->syncAlphNum(3,1); checkForInvalidCharacterInput(); }
+void CDlgKeyHill5x5::OnUpdateMat43() { m_HillBase->syncAlphNum(3,2); checkForInvalidCharacterInput(); }
+void CDlgKeyHill5x5::OnUpdateMat44() { m_HillBase->syncAlphNum(3,3); checkForInvalidCharacterInput(); }
+void CDlgKeyHill5x5::OnUpdateMat45() { m_HillBase->syncAlphNum(3,4); checkForInvalidCharacterInput(); }
+void CDlgKeyHill5x5::OnUpdateMat51() { m_HillBase->syncAlphNum(4,0); checkForInvalidCharacterInput(); }
+void CDlgKeyHill5x5::OnUpdateMat52() { m_HillBase->syncAlphNum(4,1); checkForInvalidCharacterInput(); }
+void CDlgKeyHill5x5::OnUpdateMat53() { m_HillBase->syncAlphNum(4,2); checkForInvalidCharacterInput(); }
+void CDlgKeyHill5x5::OnUpdateMat54() { m_HillBase->syncAlphNum(4,3); checkForInvalidCharacterInput(); }
+void CDlgKeyHill5x5::OnUpdateMat55() { m_HillBase->syncAlphNum(4,4); checkForInvalidCharacterInput(); }
 
 // HillNumMat
 void CDlgKeyHill5x5::OnUpdateMat36()  { m_HillBase->syncNumAlph(0,0); }
@@ -440,4 +440,37 @@ void CDlgKeyHill5x5::OnTextOptions()
 {
    if ( m_HillBase->SetTextOptions() )
 	   displayAlphabet();
+}
+
+void CDlgKeyHill5x5::checkForInvalidCharacterInput() {
+	// get the current alphabet
+	CString alphabet = theApp.TextOptions.getAlphabet();
+	// as soon as this variables turns true, we leave the loop below
+	bool error = false;
+	// go through all elements of the matrix
+	for(int x=0; x<5 && !error; x++) {
+		for(int y=0; y<5 && !error; y++) {
+			// get the input for the current matrix cell
+			CString input;
+			m_HillBase->HillAlphMat[x][y].GetWindowText(input);
+			// empty cells DON'T result in an error, we just skip 'em
+			if(input.GetLength() > 0) {
+				// discard anything but the very first character
+				char character = input[0];
+				// now check if the character is valid
+				if(alphabet.Find(character) == -1) {
+					m_HillBase->HillAlphMat[x][y].SetSel(0, -1);
+					error = true;
+				}
+			}
+		}
+	}
+	// dump an error message for the user
+	if(error) {
+		CString title;
+		CString message;
+		title.LoadString(IDS_STRING_ASYMKEY_ERR_INPUT_UNCOMPLETED);
+		message.LoadString(IDS_HILL_BAD_KEY_NONVALID_CHAR);
+		MessageBox(message, title, MB_ICONWARNING|MB_OK);
+	}
 }
