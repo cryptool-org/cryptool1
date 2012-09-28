@@ -37,7 +37,8 @@ cipher which human ingenuity cannot resolve.}}
 The following chapter provides a broad overview of paper and pencil 
 methods\footnote{%
 The footnotes to this chapter describe how the methods can be
-performed using CrypTool 1 (CT1), CrypTool 2 (CT2) or JCrypTool (JCT).
+performed using CrypTool 1 (CT1)\index{CT1}, CrypTool 2 (CT2)\index{CT2}
+or JCrypTool (JCT)\index{JCT}.
 \index{CT1} \index{CT2} \index{JCT}
 Additionally the last sub chapter (\ref{PaP_Sage_samples})
 contains example code using the computer algebra system Sage\index{Sage}.
@@ -1015,7 +1016,7 @@ Concerning polyalphabetic substitution\index{Substitution!polyalphabetic}, the a
           encrypted with the same key: C1 = P1 $\oplus$ K;  C2 = P2 $\oplus$ K; \\
           Thus, C1 $\oplus$ C2 = (P1 $\oplus$ K) $\oplus$ (P2 $\oplus$ K) = P1 $\oplus$ P2; \\
           which effectively could leak the plaintexts\footnote{%
-          In JCT\index{JavaCrypTool}\index{JCT} you can play with an automatic
+          In JCT\index{JCrypTool}\index{JCT} you can play with an automatic
           cryptanalysis of running-key ciphertexts using the Viterbi analysis
           under the menu {\bf Visuals \textbackslash{} Viterbi}.}.
    \end{itemize}
@@ -1500,7 +1501,7 @@ sage: E
 sage: D
 (1,13,11,9,7,5,3)(2,14,12,10,8,6,4)
 \end{Verbatim}
-\caption{Simple Transposition by shifting (key and inverse key explicitly given)}
+\caption{Simple transposition by shifting (key and inverse key explicitly given)}
 \end{sagecode}
 
 \newpage
@@ -1558,7 +1559,7 @@ sage: T(key).key()
 sage: T(keyInv)
 (1,13,11,9,7,5,3)(2,14,12,10,8,6,4)
 \end{Verbatim}
-\caption{Simple Transposition by shifting (key and inverse key constructed with (``range''}
+\caption{Simple transposition by shifting (key and inverse key constructed with ``range'')}
 \end{sagecode}
 
 \newpage
@@ -1601,7 +1602,7 @@ sage: # Test correctness of decryption
 sage: msg == DC
 True
 \end{Verbatim}
-\caption{Simple Column Transposition with randomly generated (permutation) key}
+\caption{Simple column transposition with randomly generated (permutation) key}
 \end{sagecode}
 
 
@@ -1639,7 +1640,7 @@ sage: # deciphering
 sage: DC  = T.deciphering(key, C); DC
 ABCDEFGHIJKLMNOPQRSTUVWXYZAB
 \end{Verbatim}
-\caption{Simple Column Transposition (showing the key\_space)}
+\caption{Simple column transposition (showing the key\_space)}
 \end{sagecode}
 
 
@@ -1684,7 +1685,7 @@ SUBSTITUTETHISWITHSOMETHINGELSEBETTER
 sage: msg == DC
 True
 \end{Verbatim}
-\caption{Monoalphabetic Substitution with randomly generated key}
+\caption{Monoalphabetic substitution with randomly generated key}
 \end{sagecode}
 
 

@@ -1,20 +1,21 @@
 % $Id$
-% \def\QM {{,\kern -0.9 pt ,}}
-\setcounter{theorem}{0}
-\setcounter{definition}{0}
-
 % ..........................................................................
 % --------------------------------------------------------------------------
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 %              E l e m e n t a r e  Z a h l e n t h e o r i e
-% /~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+% \def\QM {{,\kern -0.9 pt ,}}
+\setcounter{theorem}{0}
+\setcounter{definition}{0}
+
 
 \newpage
 \hypertarget{Chapter_ElementaryNT}{}
 \chapter{Introduction to Elementary Number Theory with Examples}
 \label{Chapter_ElementaryNT}
 (Bernhard Esslinger, July 2001; Updates: Dec. 2001, June 2002, May 2003,
- May 2005, March 2006, June 2007, July 2009, Jan. 2010) \\
+ May 2005, March 2006, June 2007, July 2009, Jan. 2010, Sep.2012) \\
 
 This ``introduction'' is for people with a mathematical interest. There is no
 more pre-knowledge necessary than what you learn in the secondary school.\par
@@ -39,7 +40,7 @@ Further mathematical disciplines currently used in cryptography include
     \item Group theory\index{Group}
     \item Combination theory
     \item Complexity theory
-    \item Ergodic theory
+    \item Stochastic (ergodic theory)
     \item Information theory.
 \end{itemize}
 
@@ -1179,9 +1180,10 @@ As mathematicians investigate the structure $a *x \equiv b$ mod $m$
 {chapter~\ref{Label_Chapter_ElementaryNT_5_2}}), so they are interested in
 the structure $ x^{a} \equiv b$ mod $m.$
 
-Again here they are interested in the case, if $ b=1$ (value of the 
-multiplicative inverse) and if $ b=x$ (the function has a 
+Again here they are interested in the cases, if $ b=1$ (value of the 
+multiplicative inverse) and if $ b=x$ (the function $ f(x) = x^{a} {\rm ~mod~} m$ has a 
 fixpoint\index{Fixpoint}).
+Concerning RSA fixed points: see \ref{l:NumberTheory_Sage_Number-of-RSA-FixedPoints}.
 
 
 % --------------------------------------------------------------------------
@@ -1316,7 +1318,7 @@ By cleverly breaking down the exponent, we can calculate this power relatively e
 
 
 % --------------------------------------------------------------------------
-\subsection{Fixpoints modulo 26}\index{Fixpoint}
+\subsection{How many private RSA keys $d$ are there modulo 26}
 
 According to theorem~\ref{thm-zth-pot}, the arithmetic operations of modular expressions are performed in the exponents modulo $J(n)$ 
 rather than modulo $n$\footnote{For the following example, we will adopt the usual practice for the RSA procedure 
@@ -1333,7 +1335,7 @@ Solution: We have $e*d \equiv 1 {\rm ~(mod~} J(26))$.
 \item[] The reduced remainder set $R' = \mathbb{Z}_{26}^* = \{ 1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25 \}$ are
 the elements in $\mathbb{Z}_{26},$ which have a multiplicative inverse,
 that is which are relatively prime\index{Prime number!relative prime}\index{Relative prime}
-to $26$.
+to $26$ (see \ref{def-zth-znmult}).
 \item[] The reduced remainder set $R''$ contains only the elements of $R'$ that are relatively prime to 
         $J(n) = 12:  R'' = \{ 1, 5, 7, 11 \}$.
 \item[] For every $e$ in $R''$ there exists a $d$ in $R''$ such that $a \equiv (a^e)^d {\rm ~(mod~} n)$.
@@ -1341,14 +1343,16 @@ to $26$.
 For every $e$ in $R''$, there exists therefore precisely one element (not necessarily different from $e$) 
 such that $e*d \equiv 1 {\rm ~(mod~} J(26))$.
 
-For all $e$ that are relatively prime to $J(n)$ we could calculate $d$ as follows using the Euler-Fermat theorem:
+For all $e$ that are relatively prime to $J(n)$ we can calculate $d$ as follows using the Euler-Fermat theorem (the number of all $d$ is calculated by the Sage program in 
+\ref{l:NumberTheory_Sage_Number-of-RSA-keys}):
+
 For $a^{J(n)} \equiv 1 {\rm ~(mod~} n)$ is the same as saying $ a^{J(n)-1} \equiv a^{-1} {\rm ~(mod~} n)$. Therefore
 $$ d \equiv  e^{-1}   {\rm ~(mod~} J(n)) 
     \equiv  e^{J(J(n))-1}  {\rm ~(mod~} J(n)).
 $$
 \end{example}
 
-The problems of \index{Factorization} factorizing\index{Factorization!factorization problem} $n=pq$ with $q\neq p$ and finding $J(n)$ have a similar degree of difficulty 
+The problems of factorizing\index{Factorization!factorization problem} $n=pq$ with $q\neq p$ and of finding $J(n)$ have a similar degree of difficulty 
 and if we find a solution for one of the two problems, we also have a solution for the
 other\footnote{If we know the factors of $n=p*q$ with $p\neq q$, then $J(n)=(p-1)*(q-1) = n-(p+q)+1$. Additionally the factors $p$ and $q$ are
 solutions of the quadratic equation
@@ -1399,8 +1403,8 @@ The following table shows that in a multiplicative group
 $10$ and we notice that:
 \begin{enumerate}
 \item The orders are all factors of $10$.
-\item The numbers $a = 2, 6, 7$ and $8$ have the order $10$ - we say that these numbers have the 
-      {\bf maximum order} \index{Order!maximum} in $\mathbb{Z}_{11}^*$.
+\item The numbers $a = 2, 6, 7$ and $8$ have the order $10$ - we say that these numbers
+      have the {\bf maximum order}\index{Order!maximum} in $\mathbb{Z}_{11}^*$.
 \end{enumerate}
 
 \begin{example}{ 1:}\\
@@ -1449,10 +1453,16 @@ has the value $5$.
 
 \begin{definition}\label{def-zth-primitiveroot}
 If $a$ and $m$ are co-prime\index{Number!co-prime} and if $ord_m(a) = J(m)$
-(i.e. a has maximum order), then we say that $a$ is a {\bf primitive root} of $m$.
+(i.e. a has maximum order), then we say that $a$ is a {\bf primitive root}
+of $m$.\footnote{%
+  In chapter~\ref{nt:AppArith3a2} ``\nameref{nt:AppArith3a2}'' there are
+  Sage programs to calculate primitive roots.%%\label{primitive-roots-with-sage}
+}
 \end{definition}
-A number $a$ is not a primitive root for every modulo $m$. In the table~\ref{expmod11},
-only $a = 2, 6, 7$ and $8$ is a primitive root with respect to mod $11$ ($J(11) = 10$).
+
+Not for every modulo $m$ there is a number $a$, which is a primitive root.
+In the table~\ref{expmod11}, only $a = 2, 6, 7$ and $8$ is a primitive root with respect
+to mod $11$ ($J(11) = 10$).
 
 Using the primitive roots, we can clearly establish the conditions for which powers modulo $m$ have a unique inverse and the calculation in the exponents is manageable.
 
@@ -4594,7 +4604,7 @@ sage: [power_mod(a, e, m) for a in A]
 % ---------------------------------------------------------------------------
 \newpage
 \hypertarget{NumberTheory_Sage_Number-of-RSA-keys}{}
-\subsection{How many RSA keys exist within a given modulo range?}
+\subsection{How many private RSA keys exist within a given modulo range?}
 \label{l:NumberTheory_Sage_Number-of-RSA-keys}{}
 
 The RSA encryption procedure was described in section \ref{RSA} (``\nameref{RSA}'').
@@ -4680,7 +4690,7 @@ def count_Number_of_RSA_Keys(start, end, Verbose=False):
                   s = s + (euler_phi(euler_phi(p * q))-1)
                   if Verbose:
                       print "p=%s, " % p + "q=%s, " % q + "s=%s" % s
-      print "Number of private keys for modulus in a given range: %s" % s + " (comb=%s), " % comb
+      print "Number of private keys d for modulus in a given range: %s" % s + " (comb=%s), " % comb
 
       # Just for comparison: How many primes are in this range?
       s = 0
@@ -4703,25 +4713,25 @@ OUTPUT:
 DD_Start -- Testcases for count_Number_of_RSA_Keys(start, end)
 
 -----------Testcase: (100, 1000) [Should deliver 34.816]
-Number of private keys for modulus in a given range: 34816 (comb=258),
+Number of private keys d for modulus in a given range: 34816 (comb=258),
 Number of primes in a given range: 143
 Time: CPU 0.03 s, Wall: 0.04 s
 
 -----------Testcase: (100, 107, True) [Should deliver 23]
 p=2, q=53, s=23
-Number of private keys for modulus in a given range: 23 (comb=1),
+Number of private keys d for modulus in a given range: 23 (comb=1),
 a=100, b=107, p=101
 a=100, b=107, p=103
 a=100, b=107, p=107
 Number of primes in a given range: 3
 Time: CPU 0.00 s, Wall: 0.00 s
 
------------Testcase: (1000, 10000) [Should deliver 3.260.044]
-Number of private keys for modulus in a given range: 3260044 (comb=2312),
+-----------Testcase: (1000, 10000) [Should deliver 3,260,044]
+Number of private keys d for modulus in a given range: 3260044 (comb=2312),
 Number of primes in a given range: 1061
 Time: CPU 0.63 s, Wall: 0.66 s
 \end{Verbatim}
-\caption{How many RSA keys are there if you know a range for the public keys n?}
+\caption{How many private RSA keys are there if you know a range for the public key n?}
 \label{nt_sagesample_Count_RSA_Keys}
 \end{sagecode}
 
@@ -4735,16 +4745,424 @@ is much more efficient as brute-force trying all the keys.
 % ---------------------------------------------------------------------------
 \clearpage
 \newpage
-\hypertarget{NumberTheory_Sage_Number-of-RSA-FixedKeys}{}
-\subsection{Taras How many RSA keys exist within a given modulo range?}
-\label{l:NumberTheory_Sage_Number-of-RSA--FixedKeys}{}
+\hypertarget{NumberTheory_Sage_Number-of-RSA-FixedPoints}{}
+\subsection
+    [RSA fixed points \texorpdfstring{}{m = m\^{}e}]
+    {RSA fixed points $ m^e = m \bmod n $ mit $m \in \{1,...,n-1\}$ }
+\label{l:NumberTheory_Sage_Number-of-RSA-FixedPoints}{}
+\index{Fixpoint}\index{RSA!fixpoint}
+%%% xxx111222xxx-beg
 
-111xxx
- Die RSA-Verschlüsselung wurde beschrieben in Abschnitt \ref{RSA} (``\nameref{RSA}'').
-Schritt 1 bis 3 definieren die Schlüsselerzeugung, Schritt 4 und 5 stellen die
-eigentliche Verschlüsselung dar:
+Auch Verschlüsselungsverfahren können Fixpunkte haben, also Texte, deren Chiffrat
+mit dem Original übereinstimmt. Solche Nachrichten nennt man "`unconcealed messages"' ("`unconcealed"' = unverborgen, offen). 
 
-222xxx
+Generell gilt: Je mehr Fixpunkte ein Verschlüsselungsalgorithmus besitzt,
+desto einfacher ist es, ihn zu entschlüsseln.
+
+Beim RSA-Verfahren gilt: $n=pq$ ist das Produkt zweier verschiedener Primzahlen, und
+es gibt ein $e$ mit $ggT(e,(p-1)(q-1))=1$. Die Verschlüsselung erfolgt mit
+$c = m^e \mod n$. 
+Ein Fixpunkt beim RSA-Verfahren ist dann eine Nachricht $m$, für die gilt:
+$m = m^e \mod n$. Das Ergebnis der Verschlüsselung ist wieder die gegebene
+Nachricht\footnote{%
+Das RSA-Verfahren kennt für größere $n$ keine "`schwachen Schlüssel"' $(e,n)$ in der Form
+wie bei DES, die \textbf{jede} Nachricht $m$ bei doppelt hintereinander durchgeführter
+Verschlüsselung auf sich selbst abbildet.}.
+
+Die Wahrscheinlichkeit für das Auftreten von Fixpunkten ist bei RSA bei genügend großem $n$ allerdings sehr gering -- wie Abbildung \ref{fig:NumberFixpointsGrowingN} zeigt, sogar viel geringer als wir vermuteten (Studenten stoßen beim Probieren mit relativ kleinen Primzahlen immer auf "`relativ"' viele Beispiele, denn m = 0, 1 und n-1 sind immer auch Fixpunkte). In der Praxis, also bei groß genug gewählten Primzahlen, haben Fixpunkte keine Bedeutung für die Sicherheit. Deshalb bezieht sich dieser Abschnitt eher auf mathematische Fragen\footnote{%
+Dank geht an Taras Shevchenko, der Teile des Inhalts dieses Kapitels zusammentrug, und an Volker Simon, der das Sage-Programm \ref{nt_sagesample_Calculate_RSA-Fixpoints}  "`Getfixpoints"' schrieb.}.
+
+
+% ----------------------------------------------------
+\subsubsection{Die Anzahl der RSA-Fixpunkte}
+In diesem Kapitel zeigen wir, wie viele RSA-Fixpunkte es für $m \in \{1,...,n-1\} $ gibt.\\
+
+\noindent\textbf{Behauptung:}\\
+\\
+Die Anzahl der Fixpunkte $ m^e = m \bmod n, m \in \{1,...,n-1\} $ ist \\$ ggT(p-1, e-1) \cdot ggT(q-1, e-1) $\\
+
+\noindent\textbf{Beweis:}
+\begin{proof}
+Sei $m^e = m \bmod n.$
+Nach dem CRT sind die beiden folgenden Aussagen äquivalent:\\
+$$ [ m^e = m \bmod n ]  \Leftrightarrow [ m^{e} = m \bmod p \text{  und  } m^{e} = m \bmod q $$
+Diese Zerlegung ist äquivalent zu:
+$$m^{e-1} = 1 \bmod p \text{  und  } m^{e-1} = 1 \bmod q. $$
+
+\noindent Wir betrachten  $m^{e-1} = 1 \bmod p $ und  suchen alle $(e-1)$-ten
+Einheitswurzeln\index{Einheitswurzel}\footnote{%
+- In mathematics, a \textbf{root of unity} is a number $x$ that equals 1 when raised to some integer power $n$.
+
+\noindent- An $n$-th root of unity $x$ is \textbf{primitive} if it is not a $k$-th root of unity for all integers $k$ smaller than $n$:
+ $$x^{n} = 1  \text{ and }    x^{k} \neq 1 ~~~(k = 1,2, 3, ..., n-1)$$
+
+\noindent-
+If $F$ is a finite field and $n$ is a positive integer, then a $n$th-root of unity in $F$ is a solution of the equation $$ x^{n}-1 = 0 \text{ in } F $$
+}
+in $\mathbb{Z}_p^{*}.$\\
+Es gilt:~~ $\mathbb{Z}_p^{*}$ für p prim ist zyklisch.~~$\Rightarrow $~~
+Es existiert ein Generator $g$, der $\mathbb{Z}_p^{*}$ erzeugt: $\mathbb{Z}_p^{*}=<g>$.
+
+
+\noindent Der ff. Satz aus \cite[S. 69]{nt:Katzenbeisser2001}\index{Katzenbeisser 2001} charakterisiert alle $(e-1)$-ten Einheitswurzeln in $\mathbb{Z}_p^{*}$:
+\begin{theorem}\label{nt-katzenbeisser-Anzahl-Einheitswurzeln}
+$g^{\alpha}$ ist genau dann $(e-1)$-te Einheitswurzel in $\mathbb{Z}_p^{*}$,
+wenn $(e-1)\alpha = 0\bmod p-1.$ Davon gibt es $ggT(p-1, e-1)$ viele.\\
+\end{theorem}
+
+\begin{proof} 
+Die erste Behauptung ergibt sich direkt aus dem kleinen Satz von Fermat:
+\[g^{\alpha (e-1)}= 1 \bmod p  ~~\Leftrightarrow~~ \alpha (e-1) = 0\bmod p-1 \]
+ Sei $\delta =ggT(p-1, e-1)$. Aus $\alpha (e-1) = 0\bmod p-1$ folgt, dass $\frac{\alpha (e-1)}{\delta}= 0 \bmod \frac{p-1}{\delta}$. \\
+ Da $\frac {e-1}{\delta}$ und $\frac{p-1}{\delta}$ teilerfremd sind (da jeweils durch den
+ggT ihrer Zähler gekürzt wurde), muss $\alpha$ ein Vielfaches von $\frac{p-1}{\delta}$ sein.
+
+\[ \alpha \frac{p-1}{\delta} ~~ \text{mit} ~~ \alpha = 1,...,\delta
+\]\\
+Diese $\delta$-verschiedenen Potenzen entsprechen dann den 
+$(e-1)$-ten Einheitswurzeln $g^{\alpha \frac{p-1}{\delta}} \bmod p$ in $\mathbb{Z}_p^{*}$.
+\end{proof}
+
+\noindent Analog für $q$: Für $m^{e-1} = 1 \bmod q $ haben wir dann $ ggT(q-1, e-1) $ viele $(e-1)$-te Einheitswurzeln.\\
+
+\noindent Die Anzahl der Arten, die $(e-1)$-ten Einheitswurzeln in $\mathbb{Z}_p^{*}$ und
+$\mathbb{Z}_q^{*}$ zu kombinieren, ergibt die Gesamt-Anzahl der RSA-Fixpunkte
+$ m^e = m \bmod n$ mit $ m \in \{1,...,n-1\}$:\\
+ $ggT(p-1, e-1) \cdot ggT(q-1, e-1) $\\
+
+
+\noindent Nimmt man $m=0$ hinzu, ergibt sich Satz \ref{nt-thm-Anzahl-RSA-Fixpunkte}:
+\begin{theorem}\label{nt-thm-Anzahl-RSA-Fixpunkte}
+Wenn $ m \in \{0,...,n-1\}$ ist, dann ist die Anzahl der RSA-Fixpunkte:
+          \[ (ggT(p-1, e-1)+1) \cdot (ggT(q-1, e-1)+1) \]
+\end{theorem}
+
+\end{proof}
+\vspace{15pt}
+
+
+
+% ----------------------------------------------------
+\subsubsection{Untere Schranke für die Anzahl der RSA-Fixpunkte}
+Im folgenden Kapitel zeigen wir, dass eine untere Schranke für die Anzahl der RSA-Fixpunkte existiert. Diese untere Schranke liegt vor, wenn die beiden Primzahlen die kleinstmöglichen sind (2 und 3).\\
+
+\noindent\textbf{Behauptung 1: $p,q > 2$}\\
+\\
+Die Anzahl der RSA-Fixpunkte für $p \neq q; p,q > 2$ ist $\geq 9$.
+
+\begin{proof}
+Da $p$ und $q$ prim sind, sind $(p-1)$ und $(q-1)$ für $ p,q > 2 $ gerade.\\
+Wir müssen e so wählen, dass $1 < e < \phi(n)=(p-1)(q-1)$ und \\
+$ggT(e,(p-1)(q-1))=1$\\
+Da $(p-1)$ und $(q-1)$ gerade sind, ist e ungerade $ \Rightarrow e-1$ ist gerade.\\
+Wenn $(p-1)$ und $(e-1)$ gerade sind, dann gilt:\\
+$ggT(p-1, e-1) \geq 2$ \\
+$\Rightarrow (ggT(p-1, e-1)+1) \geq 3$ und $(ggT(q-1, e-1)+1) \geq 3$\\
+$\Rightarrow (ggT(p-1, e-1)+1) \cdot (ggT(q-1, e-1)+1) \geq 9$
+\end{proof}
+
+\noindent\textbf{Behauptung 2: $p = 2, q = 3$}\\
+\\
+Die Anzahl der RSA-Fixpunkte für $p=2$ und $q=3$ ist\\
+$(\underbrace{ggT(p-1, e-1)}_{=1}+1) \cdot (\underbrace{ggT(q-1, e-1)}_{=2}+1)=2 \cdot 3=6$ \\
+
+\noindent Für $(e,n)=(17,6)$ sind alle sechs möglichen Nachrichten \{0,1,2,3,4,5\} Fixpunkte (bei $n=6$ ist das unabhängig vom Wert von $e$).\\
+Für $(e,n)=(17,10)$ sind alle 10 möglichen Nachrichten Fixpunkte. Für $(e,n)=(19,10)$ sind nur 6 der 10 möglichen Nachrichten Fixpunkte. 
+
+
+
+% ----------------------------------------------------
+\vspace{15pt}
+\subsubsection{Ungeschickte Wahl von $e$ }
+In diesem Kapitel zeigen wir, dass bei einer ungeschickten Wahl von
+$e=1+kgV(p-1,q-1)$ jede Verschlüsselung einen Fixpunkt liefert.\\
+
+\noindent\textbf{Behauptung 1: $p,q > 2$}\\
+\\
+Wenn $e=1+kgV(p-1,q-1)$, dann gilt für alle $ m \in \{1,...,n-1\}$: $ m^e = m \bmod n$  \\
+
+\noindent\textbf{Beweis:}
+\begin{proof}
+
+Es gilt:\\
+$ ~~~ e\cdot d=1 \mod \phi(n)$ ~oder~ $e\cdot d=1 \mod kgV(p-1,q-1) $\\
+$ ~~~ m^{x} \mod n = m^{x \mod \phi(n)} \mod n $\\
+
+\noindent Verschlüsseln von Nachrichten: \\
+ $~~~c=m^e \mod n$, wobei c der Geheimtext und m der Klartext ist.\\
+
+\noindent Entschlüsseln von Nachrichten:\\
+ $~~~m'=c^d \mod n$, wobei d die multiplikative Inverse von e ist.\\
+
+\noindent Zu zeigen ist: $c=m \mod n$ für das gewählte e.
+
+$~~~c = m^e \mod n$
+
+$~~~c = m^{1+kgV(p-1,q-1)} \mod n$
+
+$~~~c = m^1 \cdot m^{k \cdot (p-1) \cdot (q-1)} \mod n$
+
+$~~~c = m^1 \cdot m^{[k \cdot \phi(n)] \mod \phi(n)} \mod n$
+
+$~~~c = m^1 \cdot m^{0} = m \mod n $
+\end{proof}
+
+~\\ % Zeilenumbruch erzwingen 
+\noindent\textbf{Beispiel Fixpunkteigenschaft für alle m:}\\
+Gegeben sei $n=p\cdot q= 13\cdot 37=481\\
+\Rightarrow \phi(n)=(p-1)(q-1)=12\cdot 36=432$\\
+$\Rightarrow e=kgV(p-1,q-1)+1=kgV(12,36)+1=36+1=37$.\\
+Mit $m \in \{4,6,7,480\}$ ergibt sich $m^{e} \mod n$:\\
+$~~4^{37} \mod 481=~~4 $\\
+$~~6^{37} \mod 481=~~6 $ \\
+$~~7^{37} \mod 481=~~7 $ \\
+$480^{37} \mod 481=480 $ \\
+
+
+~\\ % Zeilenumbruch erzwingen 
+\noindent Es gibt natürlich nicht nur ein einziges $e$, so dass für alle $ m \in \{1,...,n-1\}$ die Fixpunkteigenschaft $ m^e = m \bmod n$ gilt. Diese vollständige Fixpunkteigenschaft aller $m$ gilt für jedes $e=j\cdot kgV(p-1,q-1)+1$, wobei $j=2,3,4 ... $ bis $e \leq \phi(n)$.\\
+
+~\\ % Zeilenumbruch erzwingen 
+\noindent\textbf{Beispiel weitere Werte für $e$ mit Fixpunkteigenschaft:}\\
+Betrachten wir wieder
+$n=p\cdot q= 13\cdot 37=481$ mit $kgV(p-1,q-1)=kgV(12,36)=36$.\\
+Dann kann $e$ die ff. Werte annehmen: $e=j\cdot kgV(p-1,q-1)+1$ für $j=2,...,11$:\\
+$\Rightarrow e \in \left\{ 37,73,109,145,181,217, 253, 289, 325, 361,397\right\}$.\\
+
+\noindent Ab $j=12$ gilt: $ e=12\cdot kgV(12,36)+1=432+1=433 > 432=\phi(n)$.\\
+
+\noindent Überprüfen wir z.B. wieder die obigen vier Werte für $m$ mit $e=217$, ergibt sich:\\
+$~~4^{217} \mod 481=~~4 $\\
+$~~6^{217} \mod 481=~~6 $ \\
+$~~7^{217} \mod 481=~~7 $ \\
+$480^{217} \mod 481=480 $ \\
+
+\noindent Die Anzahl der möglichen Werte für $e\text{ mit } m^e = m \bmod n$ lässt sich wie folgt berechnen:
+\[\left[ \text{Anzahl }e \right]=\left\lfloor \frac{\phi(n)}{kgV(p-1,q-1)+1}\right\rfloor =\frac{\phi(n)}{kgV(p-1,q-1)}-1
+\]
+
+\noindent In unserem Beispiel ergibt dies $\frac{432}{kgV(12,36)}-1=11 $ viele $e$ mit $m^e = m \bmod n$.\\
+~\\ % Zeilenumbruch erzwingen 
+
+
+
+% ----------------------------------------------------
+\subsubsection{Eine empirische Abschätzung der Anzahl der Fixpunkte für wachsende Moduli}
+In diesem Kapitel machen wir eine empirische Abschätzung der Anzahl der Fixpunkte
+für wachsende Moduli. Dabei haben wir $p $ und $ q$ zufällig aus den fünf folgenden
+Bereichen gewählt:\\
+$(2^2, 2^{10}), (2^{10}, 2^{20}), (2^{20}, 2^{40}), (2^{40}, 2^{80}),
+ (2^{80}, 2^{160})$ (pro Bereich untere und obere Schranke).\\
+In jedem Bereich haben wir 10 Versuche gemacht. Für den Exponenten $e$ haben wir
+immer den Standardwert $e=2^{16}+1$ genommen. Die Anzahl der Fixpunkte wurde für
+alle 50 Versuche mit dem Programm "`Getfixpoints.sage"' berechnet.
+
+Die folgenden fünf Mengen enthalten pro Größenbereich jeweils die Wertepaare (p,q),
+die wir für die Abschätzung zufällig gewählt haben.
+
+\begin{equation*}
+  \begin{split}
+Aus (2^2, 2^{10}): (p,q)~\in~ & \{ (127,947),(349,809),(47,461),(587,151),(19,23),\\ 
+                              & (709,509),(653,11),(859,523),(823,811),(83,331)\} \\
+\\
+Aus (2^{10}, 2^{20}): (p,q)~\in~
+            & \{ (447401,526283),(474223,973757),(100829,126757),(35803,116933),\\
+            &    (577751,598783),(558121,607337),(950233,248167),(451103,73009),\\
+            &    (235787,164429),(433267,287939)\} \\
+  \end{split}
+\end{equation*}
+
+\begin{equation*}
+  \begin{split}
+Aus (2^{20},2^{40}): (p,q)~\in~
+            & \{ (58569604997,321367332149),(286573447351,636576727223),\\
+            &    (134703821971,134220414529),(161234614601,711682765579), \\
+            &    (19367840881, 804790726361),(932891507377,521129503333),\\
+            &    (337186437739,426034644493),(986529569219,604515928397),\\
+            &    (276825557171,654134442649),(639276602353,1069979301731) \} \\
+  \end{split}
+\end{equation*}
+
+\begin{equation*}
+  \begin{split}
+Aus (2^{40}, 2^{80}): (p,q)~\in~
+            & \{ (667530919106151273090539,287940270633610590682889),\\
+            &    (437090557112369481760661,590040807609821698387141),\\
+            &    (1131921188937480863054851,813935599673320990215139)\\
+            &    (874130181777177966406673,632270193935624953596331),\\
+            &    (599303355925474677078809,717005631177936134003029),\\
+            &    (752829320004631398659063,714134510643836818718761),\\
+            &    (1046313315092743492917349,835721729660755006973833),\\
+            &    (877161707568112212806617,42831503328261105793649),\\
+            &    (575464819450637793425803, 5425832051159043433027),\\
+            &    (321404337099945148592363,992663778486687980443879) \} \\
+  \end{split}
+\end{equation*}
+
+\begin{equation*}
+  \begin{split}
+Aus (2^{80}, 2^{160}): (p,q)~\in~
+   & \{ (838952969674957834783403492645269831354775774659,\\
+   &     694309130163549038783972189350416942879771871411),\\
+   &    (981985107290629501374187748859961786804311564643,\\
+   &     178616495258601001174141825667078950281544628693),\\
+   &    (614446632627716919862227545890890553330513965359,\\
+   &     761232454374959264696945191327265643178491649141),\\
+   &    (1421756952722008095585945863962560425554707936337,\\ 
+   &     986781711714138924140285492105143175328486228197),\\
+   &    (862346475785474165539441761205023498091366178341,\\ 
+   &     438589995804600940885415547506719456975478582911),\\
+   &    (1034081318899669345416602574034081247538053001533,\\
+   &     1207032778571434704618111297072774884748706223447),\\
+   &    (308083812465705343620096534684980088954958466893,\\ 
+   &     350597371862294596793629011464584694618569736021),\\
+   &    (830376326124356299120963861338027196931951857769,\\ 
+   &     924874232653136669722297184352059466357375363191),\\
+   &    (85600581120154590810189237569820706006659829231, \\
+   &     297064381842806596646150718828138629443319259829),\\
+   &    (1358984492013516052055790129324581847590275909129,\\
+   &     609402294805414245544586792657989060761523960427) \} \\
+  \end{split}
+\end{equation*}
+
+
+\begin{figure}[!htb]  %[htbp]
+  \centering
+   \includegraphics[width=0.92\textwidth]{figures/MAF.png}
+  \caption{Eine empirische Abschätzung der Anzahl der Fixpunkte für wachsende Moduli}
+  \label{fig:NumberFixpointsGrowingN}
+  %\vskip +45pt
+\end{figure}
+
+Abbildung \ref{fig:NumberFixpointsGrowingN} zeigt, dass innerhalb der fünf Größenbereiche die durchschnittliche Anzahl der Fixpunkte zuerst steigt und dann mit wachsenden $p$ und $q$ wieder fällt. Das lässt uns vermuten, dass die durchschnittliche Anzahl der Fixpunkte mit den wachsenden RSA-Modulen kleiner wird, dass also die Wahrscheinlichkeit, einen Fixpunkt  zu bekommen, mit wachsenden $p$ und $q$ immer kleiner wird. Leider konnten wir die Moduli in noch höheren Bereichen nicht testen, da unser Sage-Programm \ref{nt_sagesample_Calculate_RSA-Fixpoints}  "`Getfixpoints"' in Bereichen mit $(p,q) > 2^{160}$ zu langsam ist. \\
+
+
+
+%\vspace{15pt}
+% ----------------------------------------------------
+\subsubsection{Beispiel: Bestimmung aller Fixpunkte für einen bestimmten öf\discretionary{-}{}{}fent\-lichen RSA-Schlüssel}
+
+Die Aufgabe besteht darin, alle Fixpunkte für (n, e) = (866959, 17) zu bestimmem. \\
+
+\noindent \textbf{Lösung:} \\
+Zuerst faktorisieren wir $n$:  $ 866959 = 811 \cdot 1069$.\\
+
+\noindent Die Anzahl der RSA-Fixpunkte ergibt sich nach Satz \ref{nt-thm-Anzahl-RSA-Fixpunkte}:\\
+$ (ggT(  p-1,  e-1)+1) \cdot (ggT(   q-1,  e-1)+1) =
+  (ggT(811-1, 17-1)+1) \cdot (ggT(1069-1, 17-1)+1) = (2+1) \cdot (4+1) = 15 $\\
+
+\noindent Das Sage-Programm \ref{nt_sagesample_Calculate_RSA-Fixpoints} "`Getfixpoints"' liefert folgende 15 Fixpunkte für
+$ (n,e) = (866959, 17)$:
+\begin{table}[ht]
+\begin{center}
+{\tt 
+\begin{tabular}{llllllll}
+     0 &      1 &  23518 &  23519 &  47037 \\
+188964 & 212482 & 236000 & 654477 & 843440 \\
+843441 & 630959 & 677995 & 819922 & 866958 
+\end{tabular} } % tt
+\end{center}
+\end{table}
+
+
+
+
+
+
+\noindent \textbf{Beispiel:} \\
+Validieren, dass $ m = 843441$ wirklich ein Fixpunkt ist:\\
+$843441^{17} \mod 866959 = 843441 $\\
+
+
+
+%%% Leicht modifiziertes SAGE-Programm von Volker Simon (9/2012)
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+import numpy
+
+print "--- Search for fixpoints in Textbook-RSA given p, q, e ---";
+fp=numpy.array([0])
+fq=numpy.array([0])
+
+#Edit e,p,q here
+###EDIT BEGIN###
+e=17;
+p=811;
+q=1069;
+###EDIT END###
+
+n=p*q;
+print "Prime p: ",p;
+print "Prime q: ",q;
+print "Modul n: ",n;
+print "Public exponent e: ", e;
+
+r=Integers(p)
+gen_f_p = r.multiplicative_generator(); print "\nGenerator of f_p: ",gen_f_p;
+s=Integers(q)
+gen_f_q = s.multiplicative_generator(); print "Generator of f_q: ",gen_f_q;
+
+gcd_p = gcd(e-1,p-1)
+gcd_q = gcd(e-1,q-1)
+print "\ngcd(e-1,p-1): ", gcd_p;
+print "gcd(e-1,q-1): ", gcd_q;
+
+print "\nNumber of fixpoints: ",(gcd_p+1)*(gcd_q+1);
+#Calculating fixpoints modulo F_p
+#run i from 0 until gcd(e-1,p-1):
+#g^( i*(p-1) / (ggT(e-1,p-1)) ) mod p
+
+print "\nFixpoints modulo p";
+print "0 (trivial fixpoint added manually)";
+i=0;
+for i in range(gcd_p):
+                fix_p = power_mod(gen_f_p,Integer(i*(p-1)/gcd_p),p); print fix_p;
+                fp = numpy.append(fp,fix_p)
+
+print "\nFixpoints modulo q";
+print "0 (trivial fixpoint added manually)";
+j=0;
+for j in range(gcd_q):
+                fix_q = power_mod(gen_f_q,Integer(j*(q-1)/gcd_q),q); print fix_q;
+                fq = numpy.append(fq,fix_q);
+
+print "\nFixpoints for the public RSA key (n,e) = (", n, ",", e, ")"
+for r in fp:
+       for s in fq:
+               print crt(Integer(r),Integer(s),Integer(p),Integer(q))
+
+print "\nRemark: You can verify each fixpoint with power_mod(m,e,n).";
+\end{Verbatim}
+\caption{Bestimmung aller Fixpunkt-Nachrichten für einen gegebenen öffentlichen
+         RSA-Schlüssel}
+\label{nt_sagesample_Calculate_RSA-Fixpoints}
+\end{sagecode}
+%#print "        Here done for the last found fixpoint:";
+%#m = crt(Integer(r),Integer(s),Integer(p),Integer(q))
+%#print "        m = ", m, ",", "power_mod = ", power_mod(m,e,n)
+%#if (m != power_mod(m,e,n)):
+%#                print "Verification failed !!!";
+
+
+\vspace{15pt}
+\noindent \textbf{Bedeutung der Variablen im Sage-Code:}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+- gen_f_p = r.multiplicative_generator()
+  r ist ein Restklassen-Ring modulo p, und $multiplicative_generator()$ gibt
+  ein Generator-Element zurück, welches diesen Ring modulo p erzeugt.
+- power_mod(gen_f_p,Integer(i*(p-1)/gcd_p),p)
+  Die $power_mod$ Funktion potenziert eine Zahl m mit e, und gibt das Ergebnis modulo n aus.
+  Bsp.: $power_mod(m, e, n)  := m^e modulo n$
+- numpy.append(fp,power_mod(gen_f_p,Integer(i*(p-1)/gcd_p),p))
+  Die append Funktion erweitert ein Array (fp) um ein weiteres Element.
+- crt(Integer(r),Integer(s),Integer(p),Integer(q))
+  CRT steht für Chinese Remainder Theorem. crt(r, s, p, q) löst die Kongruenzen
+  x = r mod p und x = s mod q mit Hilfe des Chinesischen Restsatzes.
+\end{Verbatim}
+
+%%% xxx111222xxx-end
 
 
 
@@ -4758,20 +5176,27 @@ eigentliche Verschlüsselung dar:
 \begin{center}
 \begin{tabular}{|l|l|l|}\hline
  & Short description ~~ & Page \\ \hline
+
 Definition~\ref{def-zth-prime} & prime numbers &  \pageref{def-zth-prime} \\
 Definition~\ref{def-zth-composite} & composite numbers & \pageref{def-zth-composite}  \\ \hline
+
 Theorem~\ref{thm-zth-cnum} & factors of composite numbers~~~~~~~ & \pageref{thm-zth-cnum}\\
 Theorem~\ref{thm-zth-mthm} &  1st fundamental theorem of number theory &  \pageref{thm-zth-mthm} \\  \hline
+
 Definition~\ref{def-zth-divisibility} & divisibility & \pageref{def-zth-divisibility} \\
 Definition~\ref{def-zth-remainder} & remainder class $r$ modulo $m$ & \pageref{def-zth-remainder} \\
 Definition~\ref{def-zth-congruence} & congruent & \pageref{def-zth-congruence} \\ \hline
+
 Theorem~\ref{thm-zth-div} & congruence with difference  & \pageref{thm-zth-div} \\
 Theorem~\ref{thm-zth-multinv} & multiplicative inverse (existence) & \pageref{thm-zth-multinv}  \\
 Theorem~\ref{thm-zth-exhperm} & exhaustive permutation & \pageref{thm-zth-exhperm} \\
 Theorem~\ref{thm-zth-pot} & power mod $m$ & \pageref{thm-zth-pot} \\ \hline
+
 Definition~\ref{def-zth-zn} & $\mathbb{Z}_n$  & \pageref{def-zth-zn}\\
 Definition~\ref{def-zth-znmult} &   $\mathbb{Z}_n^*$ & \pageref{def-zth-znmult} \\ \hline
+
 Theorem~\ref{thm-zth-znmult} & multiplicative inverse in $\mathbb{Z}_n^*$& \pageref{thm-zth-znmult} \\ \hline
+
 Definition~\ref{def-zth-phiofn} & Euler function $J(n)$ & \pageref{def-zth-phiofn} \\
 Theorem~\ref{thm-zth-phiprime} & $J(p)$ &  \pageref{thm-zth-phiprime}\\
 Theorem~\ref{thm-zth-phipq} & $J(p*q)$ &  \pageref{thm-zth-phipq}\\
@@ -4779,9 +5204,13 @@ Theorem~\ref{thm-zth-phimultprime} & $J(p_1 * \cdots *p_k)$ & \pageref{thm-zth-p
 Theorem~\ref{thm-zth-phinum} & $J(p_1^{e_1} * \cdots *p_k^{e_k})$ & \pageref{thm-zth-phinum} \\
 Theorem~\ref{thm-zth-fermat1} & little Fermat  &  \pageref{thm-zth-fermat1}\\
 Theorem~\ref{thm-zth-fermateuler} & Euler-Fermat theorem & \pageref{thm-zth-fermateuler} \\ \hline
+
 Definition~\ref{def-zth-ordn} & multiplicative order $ {\rm ord}_{m} (a)$ & \pageref{def-zth-ordn} \\
 Definition~\ref{def-zth-primitiveroot} & primitive root of $m$ &  \pageref{def-zth-primitiveroot}\\
 Theorem~\ref{thm-zth-ordp} & exhausting of all possible values & \pageref{thm-zth-ordp} \\ \hline
+
+Theorem~\ref{nt-thm-Anzahl-RSA-Fixpunkte} & number of RSA fixed points & \pageref{nt-Anzahl-RSA-Fixpunkte} \\ \hline
+
 \end{tabular}
 \end{center}
 \vskip +6 pt
@@ -4800,7 +5229,7 @@ Theorem~\ref{thm-zth-ordp} & exhausting of all possible values & \pageref{thm-zt
     M. Agrawal, N. Kayal, N. Saxena, \\
     {\em PRIMES in P}, August 2002, revised paper: \\
        \url{http://www.cse.iitk.ac.in/~manindra/algebra/primality_v6.pdf}\\
-    See also the website "The AKS "PRIMES in P" Algorithm Resource":
+    See also the website "The AKS "PRIMES in P" Algorithm Resource":\\
        \url{http://fatphil.org/maths/AKS/}.
  
 \bibitem[Bartholome1996]{nt:3Bartholome1996}  \index{Bartholome 1996} 
@@ -4828,7 +5257,7 @@ Theorem~\ref{thm-zth-ordp} & exhausting of all possible values & \pageref{thm-zt
 \bibitem[Bourseau2002]{nt:Bourseau2002} \index{Bourseau 2002} \index{Fox 2002}
     F. Bourseau, D. Fox, C. Thiel, \\
     {\em Vorz\"uge und Grenzen des RSA-Verfahrens},\\
-    In: Datenschutz und Datensicherheit (DuD) 26/2002, pp~84-89 (see www.dud.de),
+    In: Datenschutz und Datensicherheit (DuD) 26/2002, pp~84-89 (see www.dud.de),\\
     \url{http://www.secorvo.de/publikationen/rsa-grenzen-fox-2002.pdf}.
 
 \bibitem[Brands2002]{nt:Brands2002} \index{Brands 2002}
@@ -5100,7 +5529,7 @@ I would like to take this opportunity to thank
          for the very constructive proof-reading of the first version of
 	 this article, and for helping with TeX. \\
 	 Mr.\ Koy designed and developed in his leisure time the 
-	 functions and the complex dialog box of the RSA cryptosystem within CrypTool, 
+	 functions and the complex dialog box of the RSA cryptosystem within CrypTool 1, 
 	 which enables you to execute the RSA samples of this article.}
 
   \item {J\"org Cornelius Schneider for his enthusiastic TeX support and for the
@@ -5108,10 +5537,11 @@ I would like to take this opportunity to thank
   
   \item {Dr.\ Georg Illies for pointing me to Pari-GP\index{Pari-GP}.}
   
-  \item {Lars Fischer for his help with fast Pari-GP\index{Pari-GP} code for primitive roots.}
+  \item {Lars Fischer for his help with fast Pari-GP\index{Pari-GP} code for
+        primitive roots.}
   
   \item {Minh Van Nguyen from Australia for his always fast, professional and exhaustive
-         help with the Sage\index{Sage} code samples in this chapter.}
+         help with the first Sage\index{Sage} code samples in this chapter.}
 
 \end{itemize}
 

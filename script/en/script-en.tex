@@ -214,41 +214,44 @@ Version control software: Subversion
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \begingroup
-% remove extra vertical space from \listoffigure and \listoftables so that 
-% it look similar to \listof{sagecode}
-%\setlength{\parskip}{0pt}
-\renewcommand*{\addvspace}[1]{}
+  % remove extra vertical space from \listoffigure and \listoftables so that 
+  % it look similar to \listof{sagecode}
+  %\setlength{\parskip}{0pt}
+  \renewcommand*{\addvspace}[1]{}
 
-\clearpage\phantomsection
-\addcontentsline{toc}{chapter}{\listfigurename}
-\listoffigures
+  \clearpage\phantomsection
+  \addcontentsline{toc}{chapter}{\listfigurename}
+  \listoffigures
 
-\clearpage\phantomsection
-\addcontentsline{toc}{chapter}{\listtablename}
-\listoftables
+  \clearpage\phantomsection
+  \addcontentsline{toc}{chapter}{\listtablename}
+  \listoftables
 
-\clearpage\phantomsection
-\addcontentsline{toc}{chapter}{List of Crypto Procedures with Pseudo Code}
-\listof{cryptoprocedure}{List of Crypto Procedures with Pseudo Code}
+  \clearpage\phantomsection
+  \addcontentsline{toc}{chapter}{List of Crypto Procedures with Pseudo Code}
+  \listof{cryptoprocedure}{List of Crypto Procedures with Pseudo Code}
 \endgroup
+
 
 \clearpage\phantomsection
 \addcontentsline{toc}{chapter}{List of Sage Code Examples}
 \listof{sagecode}{List of Sage Code Examples}
+\index{Sage!Code examples}
 \label{sc:List-of-Sage-Code-Examples}
 
 \vspace{30pt}
 \begin{itemize}
-  \item All samples have been tested with Sage v 4.7 (release date 2011-05-23).
   \item The source code of the Sage samples in this script is delivered as
         Sage program files within the CrypTool-1 setup program.
+        All samples within one chapter are collected in one file.
         After installing CrypTool 1 \index{CrypTool 1} you find
-        them within the subdirectory \verb#sage# within the CrypTool-1
+        the Sage samples within the subdirectory \verb#sage# within the CrypTool-1
         directory:\\
         - SAGE-Samples-in-Chap01.sage \\
         - SAGE-Samples-in-Chap02.sage \\
         - SAGE-Samples-in-Chap03.sage \\
         - SAGE-Samples-in-Chap04.sage
+  \item All samples have been tested with Sage Version 5.3 (Release Date 2012-09-08).
 \end{itemize}
 
 

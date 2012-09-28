@@ -1274,7 +1274,8 @@ In any case, it has not been proved that this formula delivers only primes.
 \noindent It seems very unlikely that $C_5$ (or many of the larger terms) would be prime.
 
 \noindent So this could be another example of Guy's
-``law of small numbers''\index{Guy's law of small numbers}\footnote{%
+``law of small numbers''\index{Guy's law of small numbers}\index{Law of
+small numbers}\footnote{%
 \url{http://primes.utm.edu/glossary/page.php?sort=LawOfSmall}
                }.
 
@@ -1628,8 +1629,9 @@ questions about primes, but also some quaint things and overviews.
      The table~\ref{Smallest AP-k with minimal difference}
      lists the longest currently known arithmetic prime number sequences
      with minimal difference\footnote{%
-        In the opposite, in \url{http://en.wikipedia.org/wiki/Primes_in_arithmetic_progression}
-        are the "largest known AP-k" listed. Therefore, there the last sequence element
+        In the opposite, in
+        \url{http://en.wikipedia.org/wiki/Primes_in_arithmetic_progression} are
+        the "largest known AP-k" listed. Therefore, there the last sequence element
         is a prime as big as possible. However, here are the sequences listed
         which have the smallest known difference for a given length.
      }.
@@ -1639,8 +1641,8 @@ questions about primes, but also some quaint things and overviews.
      mathematics - more than all other arts and sciences - is an activity 
      for young people. \\
      At that time 27-years-old Ben Green from the University of British
-     Columbia in Vancouver and 29-year-old Terence Tao from the University
-     of California in Los Angeles seem to confirm Hardy.
+     Columbia in Vancouver and 29-year-old Terence Tao\index{Tao, Terence}
+     from the University of California in Los Angeles seem to confirm Hardy.
      }
      mathematicians Ben Green and Terence Tao, were able in 2004 to prove
      Hardy's conjecture, which had puzzled mathematicians for over 80 years:
@@ -1803,51 +1805,6 @@ questions about primes, but also some quaint things and overviews.
      Mar 18, 1690$-$Nov 20, 1764. }
      conjectured: Every even natural number greater than 2 can
      be represented as the sum of two prime numbers.
-     Computers have verified\footnote{%
-     It is generally accepted today, that the \textbf{Goldbach Conjecture} is true, 
-     i.~e.\ valid for all even natural numbers greater than $2$.
-     In 1999, mathematician J\"org Richstein\index{Richstein 1999}
-     from the computer sciences institute at the University of Giessen,
-     studied even numbers up to 400 billion ($4*10^{14}$) and found no
-     contradictory example (\cite{pr:Richstein1999}).\\
-     In the meantime further progress was made: See\\
-     \url{http://www.ieeta.pt/~tos/goldbach.html},\\
-     \url{http://en.wikipedia.org/wiki/Goldbach's\_conjecture},\\
-     \url{http://primes.utm.edu/glossary/page.php/GoldbachConjecture.html}.\\      
-     Nevertheless, this does not provide us with general proof.\\
-     The fact is that despite all efforts, Goldbach's conjecture has to 
-     date not been proven. This leads one to believe that since the pioneer
-     work of the Austrian mathematician Kurt G\"odel \index{G\""odel, Kurt}
-     is well-known, not every true mathematical theorem is provable (see
-     \url{http://www.mathematik.ch/mathematiker/goedel.html}).
-     Perhaps Goldbach's conjecture was correct, but in any case the proof
-     will never be found. Conversely, that will presumably also remain 
-     unproven.}
-     the Goldbach conjecture for all even numbers up to
-     $26*10^{17}$ (as at November 2011) but no general proof has yet been
-     found\footnote{%
-     The English publisher {\em Faber} and the American publisher 
-     {\em Bloomsbury} issued in 2000 the 1992 published book 
-     ``Uncle Petros and Goldbach's Conjecture'' by Apostolos Doxiadis.
-     It's the story of an old maths professor who fails to prove a more 
-     than 250 year old puzzle. To boost the sales figures the English and
-     American publishers have offered a prize of 1 million USD, if someone
-     can prove the conjecture -- which should be published by 2004 in a 
-     well-known mathematical journal.\\
-     Surprisingly only British and American citizens are allowed to 
-     participate.\\
-     The theorem which has come closest so far to Goldbach's conjecture
-     was proved by Chen Jing-Run in 1966 in a way which is somewhat hard
-     to understand:
-     Each even integer greater than $2$ is the sum of one prime and of 
-     the product of two primes. E.g.: $20=5+3*5.$\\
-     Most of the research about the Goldbach conjecture is collected in 
-     the book: ``Goldbach Conjecture'', ed. Wang Yuan, 1984, World 
-     scientific Series in Pure Maths, Vol. 4.\\
-     Especially this conjecture makes it clear, that even today we do not
-     have a complete understanding of the deeper connections between 
-     addition and multiplication of natural numbers. }.
-
 
   \item Bernhard Riemann\footnote{%
         Bernhard Riemann\index{Riemann, Bernhard}, German mathematician,
@@ -1894,8 +1851,132 @@ questions about primes, but also some quaint things and overviews.
 \end{itemize}
 
 
+
+
+
+
+
 % --------------------------------------------------------------------------
 \vskip +10 pt
+\subsubsection{The Goldbach Conjecture}
+
+Here we will have a closer look at what is called the\index{Goldbach Conjecture}
+     \textbf{Goldbach Conjecture}\footnote{%
+        \url{http://en.wikipedia.org/wiki/Goldbach%27s_conjecture} }.
+
+
+
+\hypertarget{HT-WeakGoldbachConjecture}{}
+\paragraph*{The weak Goldbach conjecture\footnote{%
+   It is also known as the odd or ternary Goldbach conjecture.
+   } }%
+\index{Goldbach conjecture!weak}%
+\label{L-WeakGoldbachConjecture}%
+\mbox{}
+
+\noindent Goldbach conjectured in 1742 within a letter to the mathematician Euler:
+
+Every \textbf{odd} natural number greater than 5 can be represented as the sum of
+\textbf{exactly three} prime numbers.
+
+Samples: $7 = 3 + 2 + 2$ or $27 = 19 + 5 + 3$ or $27 = 17 + 5 + 5$
+
+\noindent This conjecture ist still (since more than 250 years) unproven.
+A preliminary work for a prove could be the prove published recently\footnote{\url{http://arxiv.org/abs/1201.6656}, submitted on 31 Jan 2012 (v1), last revised 3 Jul 2012 (v4)} by Terence Tao\index{Tao, Terence} from the University of California. He proved that every \textbf{odd} natural number greater than 1 can be represented as the sum of \textbf{at most five} prime numbers.
+
+
+
+
+\vskip +55 pt   % Don't want the headline stay alone on the previuos page.
+\hypertarget{HT-StrongGoldbachConjecture}{}
+\paragraph*{The strong Goldbach conjecture\footnote{%
+   It is also known as the even or binary Goldbach conjecture.
+   } }%
+\index{Goldbach conjecture!strong}%
+\label{L-StrongGoldbachConjecture}%
+\mbox{}
+
+\noindent Goldbach's strong prime number hypothesis was formulated by Euler after a mail exchange with Goldbach. This is now called \textbf{the} Goldbach conjecture:
+
+Every \textbf{even} natural number greater than 2 can be represented as the sum of \textbf{exactly two} prime numbers.
+
+Samples of Goldbach partitions: $8 = 5 + 3$ or $28 = 23 + 5$
+
+\noindent Computers have verified\footnote{%
+     It is generally accepted today, that the\index{Goldbach conjecture}
+     \textbf{Goldbach conjecture} is true, 
+     i.~e.\ valid for all even natural numbers greater than $2$.
+     In 1999, mathematician J\"org Richstein\index{Richstein 1999}
+     from the computer sciences institute at the University of Giessen,
+     studied even numbers up to 400 billion ($4*10^{14}$) and found no
+     contradictory example (\cite{pr:Richstein1999}).\\
+     In the meantime further progress was made: See\\
+     \url{http://www.ieeta.pt/~tos/goldbach.html} by Tomás Oliveira e Silva,\\
+     \url{http://en.wikipedia.org/wiki/Goldbach's\_conjecture},\\
+     \url{http://primes.utm.edu/glossary/page.php/GoldbachConjecture.html}.\\      
+     Nevertheless, this does not provide us with general proof.\\
+     The fact is that despite all efforts, Goldbach's conjecture has to 
+     date not been proven. This leads one to believe that since the pioneer
+     work of the Austrian mathematician Kurt G\"odel \index{G\""odel, Kurt}
+     is well-known, not every true mathematical theorem is provable (see
+     \url{http://www.mathematik.ch/mathematiker/goedel.html}).
+     Perhaps Goldbach's conjecture was correct, but in any case the proof
+     will never be found. Conversely, that will presumably also remain 
+     unproven.}
+     the Goldbach conjecture for all even numbers up to $3*10^{17}$
+     (as at September 2012), but no general proof has yet been
+     found\footnote{%
+     The English publisher {\em Faber} and the American publisher 
+     {\em Bloomsbury} issued in 2000 the 1992 published book 
+     ``Uncle Petros and Goldbach's Conjecture'' by Apostolos Doxiadis.
+     It's the story of an old maths professor who fails to prove a more 
+     than 250 year old puzzle. To boost the sales figures the English and
+     American publishers have offered a prize of 1 million USD, if someone
+     can prove the conjecture -- which should be published by 2004 in a 
+     well-known mathematical journal.\\
+     Surprisingly only British and American citizens are allowed to 
+     participate.
+     }${}^,$\footnote{%
+     The theorem which has come closest so far to Goldbach's conjecture
+     was proved by Chen Jing-Run in 1966 in a way which is somewhat hard
+     to understand:
+     Each even integer greater than $2$ is the sum of one prime and of 
+     the product of two primes. E.g.: $20=5+3*5.$\\
+     Most of the research about the Goldbach conjecture is collected in 
+     the book: ``Goldbach Conjecture'', ed. Wang Yuan, 1984, World 
+     scientific Series in Pure Maths, Vol. 4.
+     }${}^,$\footnote{%
+     Especially this conjecture makes it clear, that even today we do not
+     have a complete understanding of the deeper connections between 
+     addition and multiplication of natural numbers. }.
+
+As bigger an even number is, as more umso such binary Goldbach partitions can be found -- in average: For $4$ there is only one partition $2 + 2$; for $16$ there are two, $3 + 13$ and $5 + 11$. With $100$ there are six such partitions: $3 + 97$, $11 + 89$, $17 + 83$, $29 + 71$, $41 + 59$, $47 + 53$.\footnote{%
+     Progress in research about the Goldbach conjectures is often a topic in mathematical press column, like \url{http://oumathclub.wordpress.com/}.
+     }   % end_footnote
+
+
+
+
+\paragraph*{Interconnection between the two Goldbach conjectures}%
+\mbox{}
+
+\noindent If the strong Goldbach conjectures holds, then also the weak is true (so the strong implies the weak conjecture).
+
+The proof for this is relativly simple:\\
+Prerequisite: $u$ is an odd number bigger than $5$.\\
+Each such odd number $u$ can be written as sum $u = (u-3) + 3$. The first summand then is even and $>= 4$, so it fullfils the prerequisite of the strong Goldbach conjecture, and can
+be written as sum of two primes $p_1$ und $p_2$ ($p_1$ and $p_2$ are not necessarily different). So we found a partition of $u$ into the three primes $p_1, p_2$ and $3$.
+This means, its always possible to find such a sum, where one of the primes is the number $3$.
+
+Similarily easy it can be shown, that the weak Goldbach conjecture implies the above mentioned conjecture from Terence Tao (both hold for odd numbers):\\
+- For odd numbers $u>5$ directly the weak Goldbach conjecture implies that the sum consits at most of five primes.\\
+- For the remaining odd numbers $3$ and $5$ you can directly check it: $3 = 3$ (the ``sum'' has only one and therefore at most five prime summands); $5 = 2 + 3$ (the sum has two  and therefore at most five prime summands).
+
+
+
+
+% --------------------------------------------------------------------------
+\vskip +35 pt
 \subsection{Open questions about twin primes}
 
 Twin primes are prime numbers whose difference is 2. 

@@ -37,8 +37,13 @@
 %Option debug helps finding problems.
 
 \floatstyle{ruled}
+
+\newfloat{ctsquotes}{!ht}{loc}[chapter]   % ctsQuotes-from-Books
+\floatname{ctsquotes}{Verzeichnis der Zitate}
+
 \newfloat{sagecode}{!ht}{loc}[chapter]
 \floatname{sagecode}{Sage-Beispiel}
+
 \newfloat{cryptoprocedure}{!ht}{lop}[chapter]
 \floatname{cryptoprocedure}{Krypto-Verfahren}
 
@@ -220,41 +225,58 @@ Versionsverwaltungs-Software: Subversion
 
 \input{chapters/gnu-fdl-1.3.tex}
 
+
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \begingroup
-% remove extra vertical space from \listoffigure and \listoftables so that 
-% it look similar to \listof{sagecode}
-\setlength{\parskip}{0pt}
-\clearpage\phantomsection
-\addcontentsline{toc}{chapter}{\listfigurename}
-\listoffigures
+  % remove extra vertical space from \listoffigure and \listoftables so that 
+  % it look similar to \listof{sagecode}
+  \setlength{\parskip}{0pt}
 
-\clearpage\phantomsection
-\addcontentsline{toc}{chapter}{\listtablename}
-\listoftables
+  \clearpage\phantomsection
+  \addcontentsline{toc}{chapter}{\listfigurename}
+  \listoffigures
 
-\clearpage\phantomsection
-\addcontentsline{toc}{chapter}{Verzeichnis der Krypto-Verfahren mit Pseudocode}
-\listof{cryptoprocedure}{Verzeichnis der Krypto-Verfahren mit Pseudocode}
+  \clearpage\phantomsection
+  \addcontentsline{toc}{chapter}{\listtablename}
+  \listoftables
+
+  \clearpage\phantomsection
+  \addcontentsline{toc}{chapter}{Verzeichnis der Krypto-Verfahren mit Pseudocode}
+  \listof{cryptoprocedure}{Verzeichnis der Krypto-Verfahren mit Pseudocode}
+
 \endgroup
+
+
+% Wenn das aufgerufen, fehlen die Programmbeispiele unter "Verzeichnis der Sage-Bsp"
+% und unter zitate-Verzeichnis steht eine lange undefinierte Liste.
+% TODOTODO (Joerg) klären
+%\clearpage\phantomsection
+%\addcontentsline{toc}{chapter}{Verzeichnis der Zitate}
+%\listof{ctsquotes}{Verzeichnis der Zitate}
+%\index{Zitate}
+%\label{sc:List-of-Quotes}
+
 
 \clearpage\phantomsection
 \addcontentsline{toc}{chapter}{Verzeichnis der Sage-Programmbeispiele}
 \listof{sagecode}{Verzeichnis der Sage-Programmbeispiele}
+\index{Sage!Programmbeispiele}
 \label{sc:List-of-Sage-Code-Examples}
+% \hypertarget{sc:List-of-Sage-Code-Examples}{}
 
 \vspace{30pt}
 \begin{itemize}
-  \item Alle Beispiel wurden mit Sage v 4.7 (Release Date 2011-05-23) getestet.
   \item Der Quellcode der Sage-Beispiele in diesem Skript wird in Form von
         Sage-Programmdatei"-en mit dem CrypTool 1-Setup-Programm ausgeliefert.
+        Die Beispiele in einem Kapitel sind jeweils in einer Datei zusammen gefasst.\\
         Nach der Installation von CrypTool 1 \index{CrypTool 1} finden Sie
-        diese im Unterverzeichnis \verb#sage# innerhalb des
+        die Sage-Beispiele im Unterverzeichnis \verb#sage# innerhalb des
         CrypTool 1-Verzeichnisses:\\
         - SAGE-Samples-in-Chap01.sage \\
         - SAGE-Samples-in-Chap02.sage \\
         - SAGE-Samples-in-Chap03.sage \\
         - SAGE-Samples-in-Chap04.sage
+  \item Alle Beispiel wurden mit der Sage-Version 5.3 (Release Date 2012-09-08) getestet.
 \end{itemize}   % xxxxxxxxxxxxxx Weitere Beispiele ergänzen !
 
 
