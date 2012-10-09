@@ -156,7 +156,7 @@ void CKeyHillBase::syncAlphNum( unsigned long i, unsigned long j )
 		CString cs;
 		HillAlphMat[i][j].GetWindowText(cs);
 
-		// QUICK FIX: if user supplied MORE THAN ON CHARACTER, for example by using 
+		// QUICK FIX: if user supplied MORE THAN ONE CHARACTER, for example by using 
 		// the copy/paste mechanism, throw away all characters except the first one
 		if(cs.GetLength() > 1) {
 			cs.Delete(1, cs.GetLength() - 1);
@@ -297,7 +297,7 @@ int CKeyHillBase::validEntries()
 			if ( (cs.GetLength() != 1) || 0 > ord(cs[0]) )
 			{
 				CString msg;
-				msg.LoadStringA( IDS_HILL_BAD_KEY_NONVALID_CHAR );
+				msg.Format(IDS_HILL_BAD_KEY_NONVALID_CHAR, 0, theApp.TextOptions.getAlphabet().GetLength()-1, theApp.TextOptions.getAlphabet().GetLength());
 				cs.LoadStringA ( IDS_STRING_ASYMKEY_ERR_INPUT_UNCOMPLETED );
             currentDialog->MessageBoxA(msg, cs, MB_ICONWARNING|MB_OK);
 				return FALSE;

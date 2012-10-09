@@ -25,18 +25,17 @@
 <P>After you have chosen the size of the key in the <B>Dimension</B> box and input the key, you can <!--ZZZPOPUP--><A href="verschluesselung.html">encrypt</A> the <!--ZZZPOPUP--><A href="dokument.html">document</A> by clicking on the <B>Encrypt</B> button or pressing the <B>RETURN</B> key. If you wish to <!--ZZZPOPUP--><A href="entschluesselung.html">decrypt</A> the <!--ZZZPOPUP--><A href="dokument.html">document</A>, just click the <B>Decrypt</B> button.</P>
 
 <P>A key that is stored into the key memory could be inserted by the button <IMG SRC="images/iconinsertkey.gif" ALT="iconinsertkey.gif" BORDER=0> (if there is no key stored, the button is deactivated and appears in gray).</P>
-<P>You may edit the matrix by yourself. Choose either the character matrix or the number matrix - the values between the two matrices will be synchronized automatically (note: negative numbers are not supported). The first character of the selected alphabet starts either with the value 0 or with the value 1. Note. A Hill key is only valid if the number matrix is invertible. Make sure that the selected matrix fulfil this requirement. </P>
+<P>You may edit the matrix by yourself. Choose either the character matrix or the number matrix - the values between the two matrices will be synchronized automatically (note: negative numbers and jumping between input fields via tabulator are not supported). The first character of the selected alphabet starts either with the value 0 or with the value 1. Note. A Hill key is only valid if the number matrix is invertible. Make sure that the selected matrix fulfil this requirement. </P>
 <P>Clicking the button <U>Generate random key</U> generates an randomized valid (invertible) Hill key.</P>
 
 <P>It is possible that you could enter a key that was not in fact suitable because the matrix corresponding to the key is not invertible. (For further information, see explanation on the <A href="hid_hill.html">Hill encryption algorithm</A>.) In this case, a "Key is unusable" message box appears. Another key must be selected.</P>
 
-<P>You can define the used alphabet with the button <B>Text options</B>.</P>
-
-<P>With the button <a href="hidd_hill_options.html">Further Hill options</a> you can
+<P>In this dialog you can only view the alphabet and the value of the first alphabet character, but you can manipulate both by clicking either the <B><a href="hidd_text_options.html">Text options</a></B> or the <B><a href="hidd_hill_options.html">Further Hill options</a></B> button, and then
 <UL>
-<LI>adjust the value (0 or 1) of the first character of the selected alphabet,</LI>
-<LI>adjust the Hill encryption padding character (if the length of the plaintext does not devide the Hill key length the plaintext will be padded by this character).</LI>
+<LI>define whether the first alphabet character euqals 0 or 1,</LI>
+<LI>define which character is used for padding cleartexts whose length is not a multiple of the matrix dimension.</LI>
 </UL>
+</P>
 
 </BODY>
 </HTML>

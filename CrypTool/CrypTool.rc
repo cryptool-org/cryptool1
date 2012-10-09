@@ -187,7 +187,7 @@ BEGIN
     CONTROL         "&5 x 5",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,277,270,31,10
     PUSHBUTTON      "&D³u¿szy klucz",IDC_BUTTON4,267,295,59,18
     CONTROL         "Detale wyjœciowe macierzy kluczy Hilla",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,98,329,166,9
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,108,329,147,9
     DEFPUSHBUTTON   "&Szyfruj",IDOK,5,352,63,19
     PUSHBUTTON      "&Deszyfruj",IDC_BUTTON5,75,352,60,19
     PUSHBUTTON      "Opcje Hilla",IDC_BUTTON1,155,352,60,19
@@ -275,7 +275,7 @@ END
 
 IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 302, 298
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Macierz Kluczy Hilla "
+CAPTION "[i18n] Display Hill Key Matrix"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "&Kopiuj tekst",IDC_BUTTON1,9,273,52,19
@@ -720,7 +720,7 @@ END
 
 IDD_SHOW_KEY_HILL10x10 DIALOGEX 0, 0, 523, 389
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Macierz kluczy Hilla"
+CAPTION "[i18n] Display Hill Key Matrix"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "&Kopiuj klucz",IDC_BUTTON1,9,361,96,20
@@ -1069,7 +1069,7 @@ BEGIN
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,404,127,27,20
     PUSHBUTTON      "&Krótszy klucz",IDC_BUTTON4,455,325,73,18
     CONTROL         "Detale wyjœciowe macierzy kluczy Hilla",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,214,358,178,9
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,358,137,9
     GROUPBOX        "Opis",IDC_STATIC,5,4,537,50
     LTEXT           "Szyfr Hilla jest poligraficznym szyfrem zamiany opartym, na algebrze liniowej.",IDC_STATIC,11,17,512,8
     LTEXT           "By³ pierwszym szyfrem poligraficznym, w którym praktyczne by³o operowanie na grupach liter zawieraj¹cych wiêcej ni¿ trzy litery.",IDC_STATIC,11,27,399,8
@@ -6390,12 +6390,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
-            VALUE "FileVersion", "[CRYPTOOL_VERSION]"
+VALUE "FileVersion", "1.4.31"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
+VALUE "ProductVersion", "1.4.31"
         END
     END
     BLOCK "VarFileInfo"
@@ -8460,7 +8460,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "[CRYPTOOL_VERSION_FULL]"
+IDR_MAINFRAME "CrypTool 1.4.31 Beta 5 [VS2008]"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -11515,7 +11515,7 @@ END
 
 IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 302, 300
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Hill-ova kljucna matrica"
+CAPTION "[i18n] Display Hill Key Matrix"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "Kopiraj &kljuc",IDC_BUTTON1,9,275,52,19
@@ -11961,7 +11961,7 @@ END
 
 IDD_SHOW_KEY_HILL10x10 DIALOGEX 0, 0, 523, 387
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Hill-ova Kljucna Matrica"
+CAPTION "[i18n] Display Hill Key Matrix"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "Kopiraj &kljuc",IDC_BUTTON1,9,359,96,20
@@ -17643,12 +17643,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
-            VALUE "FileVersion", "[CRYPTOOL_VERSION]"
+VALUE "FileVersion", "1.4.31"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
+VALUE "ProductVersion", "1.4.31"
         END
     END
     BLOCK "VarFileInfo"
@@ -19696,7 +19696,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "[CRYPTOOL_VERSION_FULL]"
+IDR_MAINFRAME "CrypTool 1.4.31 Beta 5 [VS2008]"
     IDR_TEXTTYPE            "\nNeimenovani\nTEKST dokument\nTekst datoteka (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nNeimenovana\n\nBinarna datoteka (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nNeimenovana\n\nASCII datoteka (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -22611,7 +22611,7 @@ BEGIN
     CONTROL         "&5 x 5",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,288,241,31,10
     PUSHBUTTON      "&Größere Matrix",IDC_BUTTON4,263,271,81,18
     CONTROL         "Details und Zwischenschritte der Hill-Verschlüsselung ausgeben",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,73,300,211,9
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,70,300,217,9
     DEFPUSHBUTTON   "&Verschlüsseln",IDOK,4,317,56,18
     PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON5,62,317,56,18
     PUSHBUTTON      "Weitere Hill-Optionen",IDC_BUTTON1,126,317,80,18
@@ -22699,7 +22699,7 @@ END
 
 IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 299, 297
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Hill-Schlüsselmatrix"
+CAPTION "Anzeige Hill-Schlüsselmatrix"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "Schlüssel &kopieren",IDC_BUTTON1,9,267,68,19
@@ -23177,7 +23177,7 @@ END
 
 IDD_SHOW_KEY_HILL10x10 DIALOGEX 0, 0, 528, 387
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Hill-Schlüsselmatrix"
+CAPTION "Anzeige Hill-Schlüsselmatrix"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "Schlüssel &kopieren",IDC_BUTTON1,11,358,108,20
@@ -23527,7 +23527,7 @@ BEGIN
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,412,111,22,20
     PUSHBUTTON      "K&leinere Matrix",IDC_BUTTON4,447,332,88,18
     CONTROL         "Details und Zwischenschritte der Hill-Verschlüsselung ausgeben",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,166,361,212,9
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,166,361,218,9
     GROUPBOX        "Beschreibung",IDC_STATIC,4,4,537,50
     LTEXT           "Die Hill-Chiffre ist eine polygraphische Substitutionsverschlüsselung, die auf Linearer Algebra basiert. Dies war die erste polygraphische Substitutionsverschlüsselung,",IDC_STATIC,11,20,518,8
     LTEXT           "bei der man die Einzeloperationen auch praktikabel auf einer Gruppe von mehr als 3 Klartextbuchstaben (Blöcken) ausführen konnte. Der Schlüssel ist eine",IDC_STATIC,11,28,488,8
@@ -28875,12 +28875,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.de"
-            VALUE "FileVersion", "[CRYPTOOL_VERSION]"
+VALUE "FileVersion", "1.4.31"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
+VALUE "ProductVersion", "1.4.31"
         END
     END
     BLOCK "VarFileInfo"
@@ -30688,14 +30688,14 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_HILL_BAD_KEY_INV    "Die eingegebene %s-Matrix kann modulo %d nicht invertiert werden. Deshalb kann sie für\ndas Hill-Verfahren nicht verwendet werden.\n\nBitte ändern Sie entweder die Elemente der Matrix, die Dimension der Matrix oder die\nAnzahl der Elemente des Alphabets.\nAlternativ können Sie in der Hill-Schlüsseleingabe-Maske auch auf ""Zufälligen Schlüssel\nerzeugen"" klicken: Dann werden die Matrixelemente so gewählt, dass die Schlüsselmatrix für\ndie eingestellte Dimension und die gegebene Alphabetlänge invertierbar ist."
+    IDS_HILL_BAD_KEY_INV    "Die eingegebene %s-Matrix kann modulo %d nicht invertiert werden. Deshalb kann sie für das Hill-Verfahren nicht verwendet werden. \nBitte ändern Sie entweder die Elemente der Matrix, die Dimension der Matrix oder die Anzahl der Elemente des Alphabets.\nAlternativ können Sie in der Hill-Schlüsseleingabe-Maske auch auf ""Zufälligen Schlüssel erzeugen"" klicken: Dann werden die Matrixelemente so gewählt, dass die Schlüsselmatrix für die eingestellte Dimension und die gegebene Alphabetlänge invertierbar ist."
 END
 
 STRINGTABLE 
 BEGIN
     IDS_HILL_BAD_KEY        "Schlüssel nicht verwendbar"
     IDS_HILL_BAD_KEY_NONVALID_CHAR 
-                            "Alle Felder des Schlüssels müssen ein erlaubtes Zeichen enthalten."
+                            "Alle Felder der Schlüsselmatrix müssen ein erlaubtes Zeichen enthalten. Links sind nur Zeichen des eingestellten Alphabets erlaubt, rechts nur Zahlen zwischen %d und %d (für ein Alphabet von %d Zeichen)."
     IDS_STRING_ASYMKEY_ERR_INPUT_UNCOMPLETED "Eingabe unvollständig"
     IDS_STRING_ASYMKEY_MSG_SELECT_PSE "Bitte wählen Sie eine PSE."
     IDS_STRING_ASYMKEY_MSG_ENTER_PIN "Bitte geben Sie den PIN-Code ein."
@@ -30793,7 +30793,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "[CRYPTOOL_VERSION_FULL]"
+IDR_MAINFRAME "CrypTool 1.4.31 Beta 5 [VS2008]"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT-Dokument\nText-Datei (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnbenannt\n\nBinär-Datei (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnbenannt\n\nASCII-Datei (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -33797,7 +33797,7 @@ BEGIN
     CONTROL         "&5 x 5",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,288,241,31,10
     PUSHBUTTON      "&Larger matrix",IDC_BUTTON4,263,271,81,18
     CONTROL         "Show details and single steps of the Hill cipher",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,100,300,156,9
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,97,300,164,9
     DEFPUSHBUTTON   "&Encrypt",IDOK,4,317,56,18
     PUSHBUTTON      "&Decrypt",IDC_BUTTON5,62,317,56,18
     PUSHBUTTON      "Further Hill options",IDC_BUTTON1,126,317,80,18
@@ -33883,7 +33883,7 @@ END
 
 IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 302, 295
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Hill Key Matrix"
+CAPTION "Display Hill Key Matrix"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "Copy &key",IDC_BUTTON1,9,270,52,19
@@ -34327,7 +34327,7 @@ END
 
 IDD_SHOW_KEY_HILL10x10 DIALOGEX 0, 0, 523, 386
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Hill Key Matrix"
+CAPTION "Display Hill Key Matrix"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "Copy &key",IDC_BUTTON1,9,358,96,20
@@ -34675,7 +34675,7 @@ BEGIN
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,412,111,22,20
     PUSHBUTTON      "&Smaller matrix",IDC_BUTTON4,447,332,88,18
     CONTROL         "Show details and single steps of the Hill cipher",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,194,361,158,9
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,194,361,164,9
     GROUPBOX        "Description",IDC_STATIC,4,4,537,50
     GROUPBOX        "Information for encryption",IDC_STATIC_HILL_ALPH,4,58,537,35
     EDITTEXT        IDC_EDIT3,12,71,426,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
@@ -39995,12 +39995,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
-            VALUE "FileVersion", "[CRYPTOOL_VERSION]"
+VALUE "FileVersion", "1.4.31"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
+VALUE "ProductVersion", "1.4.31"
         END
     END
     BLOCK "VarFileInfo"
@@ -41972,14 +41972,14 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_HILL_BAD_KEY_INV    "The entered %s matrix key cannot be inverted with modulo %d. Therefore the key cannot be used for this Hill cipher.\n\nPlease either change the matrix elements, the matrix dimension or the number of elements of the alphabet.\nAlternatively in the Hill key entry dialog you can click on the button ""Generate random key"": The key matrix elements\nthen will be chosen so, that the matrix for the chosen dimension and alphabet size is invertible."
+    IDS_HILL_BAD_KEY_INV    "The entered %s matrix key cannot be inverted with modulo %d. Therefore the key cannot be used for this Hill cipher.\nPlease either change the matrix elements, the matrix dimension or the number of elements of the alphabet.\nAlternatively in the Hill key entry dialog you can click on the button ""Generate random key"": The key matrix elements then will be chosen so, that the matrix for the chosen dimension and alphabet size is invertible."
 END
 
 STRINGTABLE 
 BEGIN
     IDS_HILL_BAD_KEY        "Key cannot be used"
     IDS_HILL_BAD_KEY_NONVALID_CHAR 
-                            "All fields in the key must contain a permitted character."
+                            "All fields of the key matrix need to contain a valid character. The left side takes characters of the current alphabet only, the right takes numbers from %d to %d (for an alphabet of %d characters)."
     IDS_STRING_ASYMKEY_ERR_INPUT_UNCOMPLETED "Entry incomplete"
     IDS_STRING_ASYMKEY_MSG_SELECT_PSE "Please select a PSE."
     IDS_STRING_ASYMKEY_MSG_ENTER_PIN "Please enter the PIN code."
@@ -42076,7 +42076,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "[CRYPTOOL_VERSION_FULL]"
+IDR_MAINFRAME "CrypTool 1.4.31 Beta 5 [VS2008]"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -48234,7 +48234,7 @@ END
 
 IDD_SHOW_KEY_HILL10x10 DIALOGEX 0, 0, 528, 398
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Matriz de Clave de Hill"
+CAPTION "[i18n] Display Hill Key Matrix"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "Copiar &clave",IDC_BUTTON1,9,364,96,20
@@ -48460,7 +48460,7 @@ END
 
 IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 302, 302
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Matriz de Clave de Hill"
+CAPTION "[i18n] Display Hill Key Matrix"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "Copiar &clave",IDC_BUTTON1,9,277,52,19
@@ -51234,12 +51234,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
-            VALUE "FileVersion", "[CRYPTOOL_VERSION]"
+VALUE "FileVersion", "1.4.31"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
+VALUE "ProductVersion", "1.4.31"
         END
     END
     BLOCK "VarFileInfo"
@@ -53295,7 +53295,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "[CRYPTOOL_VERSION_FULL]"
+IDR_MAINFRAME "CrypTool 1.4.31 Beta 5 [VS2008]"
     IDR_TEXTTYPE            "\nSin nombre\nDocumento de texto\nFichero de texto (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nSin nombre\n\nFichero binario (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nSin nombre\n\nFichero ASCII (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"

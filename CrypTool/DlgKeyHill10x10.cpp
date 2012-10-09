@@ -1079,7 +1079,7 @@ void CDlgKeyHill10x10::checkForInvalidCharacterInput() {
 		CString title;
 		CString message;
 		title.LoadString(IDS_STRING_ASYMKEY_ERR_INPUT_UNCOMPLETED);
-		message.LoadString(IDS_HILL_BAD_KEY_NONVALID_CHAR);
+		message.Format(IDS_HILL_BAD_KEY_NONVALID_CHAR, 0, theApp.TextOptions.getAlphabet().GetLength()-1, theApp.TextOptions.getAlphabet().GetLength());
 		MessageBox(message, title, MB_ICONWARNING|MB_OK);
 	}
 }
