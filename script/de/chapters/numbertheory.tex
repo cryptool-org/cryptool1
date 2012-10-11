@@ -14,13 +14,15 @@
 \chapter{Einführung in die elementare Zahlentheorie mit Beispielen}
 \label{Chapter_ElementaryNT}
 (Bernhard Esslinger, Juli 2001; Updates: Nov. 2001, Juni 2002, Mai 2003,
- Mai 2005, März 2006, Juni 2007, Juli 2009, Jan. 2010, Sep.2012) \\
+ Mai 2005, März 2006, Juni 2007, Juli 2009, Jan. 2010, Sep. 2012) \\
 
 Diese \glqq Einführung\grqq~ bietet einen Einstieg für mathematisch Interessierte.
-Erforderlich sind nicht mehr Vorkenntnisse als die, die im Grundkurs Mathematik am Gymnasium vermittelt werden.\par
-Wir haben uns bewusst an \glqq Einsteigern\grqq~ und \glqq Interessenten\grqq~ orientiert, und nicht an den
-Gepflogenheiten mathematischer Lehrbücher, die auch dann \glqq Einführung\grqq~ genannt werden,
-wenn sie schon auf der 5. Seite nicht mehr auf Anhieb zu verstehen sind und sie eigentlich den Zweck haben, dass
+Erforderlich sind nicht mehr Vorkenntnisse als die, die im Grundkurs Mathematik
+am Gymnasium vermittelt werden.\par
+Wir haben uns bewusst an \glqq Einsteigern\grqq~ und \glqq Interessenten\grqq~
+orientiert, und nicht an den Gepflogenheiten mathematischer Lehrbücher, die
+auch dann \glqq Einführung\grqq~ genannt werden, wenn sie schon auf der 5. Seite
+nicht mehr auf Anhieb zu verstehen sind und sie eigentlich den Zweck haben, dass
 man danach auch spezielle Monographien zu dem Thema lesen können soll.
 
 
@@ -5083,22 +5085,28 @@ viel effizienter als das Durchprobieren aller möglichen Schlüssel.
 %%% xxx111222xxx-beg
 
 Auch Verschlüsselungsverfahren können Fixpunkte haben, also Texte, deren Chiffrat
-mit dem Original übereinstimmt. Solche Nachrichten nennt man "`unconcealed messages"' ("`unconcealed"' = unverborgen, offen). 
+mit dem Original übereinstimmt. In der Mathematik nennt man Variablen, die von einem
+Verfahren (Funktion) auf sich selbst abgebildet werden, Fixpunkte. In der Kryptographie nennt man entsprechende Nachrichten "`unconcealed messages"' ("`unconcealed"' = unverborgen, offen). 
 
 Generell gilt: Je mehr Fixpunkte ein Verschlüsselungsalgorithmus besitzt,
-desto einfacher ist es, ihn zu entschlüsseln.
+desto einfacher ist es, ihn zu knacken.
 
 Beim RSA-Verfahren gilt: $n=pq$ ist das Produkt zweier verschiedener Primzahlen, und
 es gibt ein $e$ mit $ggT(e,(p-1)(q-1))=1$. Die Verschlüsselung erfolgt mit
 $c = m^e \mod n$. 
 Ein Fixpunkt beim RSA-Verfahren ist dann eine Nachricht $m$, für die gilt:
 $m = m^e \mod n$. Das Ergebnis der Verschlüsselung ist wieder die gegebene
-Nachricht\footnote{%
-Das RSA-Verfahren kennt für größere $n$ keine "`schwachen Schlüssel"' $(e,n)$ in der Form
-wie bei DES, die \textbf{jede} Nachricht $m$ bei doppelt hintereinander durchgeführter
-Verschlüsselung auf sich selbst abbildet.}.
+Nachricht.
 
-Die Wahrscheinlichkeit für das Auftreten von Fixpunkten ist bei RSA bei genügend großem $n$ allerdings sehr gering -- wie Abbildung \ref{fig:NumberFixpointsGrowingN} zeigt, sogar viel geringer als wir vermuteten (Studenten stoßen beim Probieren mit relativ kleinen Primzahlen immer auf "`relativ"' viele Beispiele, denn m = 0, 1 und n-1 sind immer auch Fixpunkte). In der Praxis, also bei groß genug gewählten Primzahlen, haben Fixpunkte keine Bedeutung für die Sicherheit. Deshalb bezieht sich dieser Abschnitt eher auf mathematische Fragen\footnote{%
+Die Wahrscheinlichkeit für das Auftreten von Fixpunkten ist bei RSA bei genügend großem $n$ allerdings sehr gering -- wie Abbildung \ref{fig:NumberFixpointsGrowingN} zeigt:Im Durchschnitt fanden wir nicht mehr als 40 Fixpunkte.
+
+Studenten nehmen oft an, dass es viele Fixpunkte gibt, da sie beim Probieren mit
+relativ \textbf{kleinen} Primzahlen immer auf "`relativ"' viele Fixpunkte-Beispiele
+stoßen, denn m = 0, 1 und n-1 sind immer auch Fixpunkte.
+
+In der Praxis, also bei groß genug gewählten Primzahlen, haben Fixpunkte keine
+Bedeutung für die Sicherheit von RSA. Deshalb bezieht sich dieser Abschnitt
+eher auf mathematische Fragen\footnote{%
 Dank geht an Taras Shevchenko, der Teile des Inhalts dieses Kapitels zusammentrug, und an Volker Simon, der das Sage-Programm \ref{nt_sagesample_Calculate_RSA-Fixpoints}  "`Getfixpoints"' schrieb.}.
 
 
@@ -5106,11 +5114,9 @@ Dank geht an Taras Shevchenko, der Teile des Inhalts dieses Kapitels zusammentru
 \subsubsection{Die Anzahl der RSA-Fixpunkte}
 In diesem Kapitel zeigen wir, wie viele RSA-Fixpunkte es für $m \in \{1,...,n-1\} $ gibt.\\
 
-\noindent\textbf{Behauptung:}\\
-\\
-Die Anzahl der Fixpunkte $ m^e = m \bmod n, m \in \{1,...,n-1\} $ ist \\$ ggT(p-1, e-1) \cdot ggT(q-1, e-1) $\\
-
-\noindent\textbf{Beweis:}
+\begin{satz}\label{nt-number-of-fixpoints-1-to-n-1}
+Die Anzahl der Fixpunkte $ m^e = m \bmod n$ mit $m \in \{1,...,n-1\} $ ist \\$ ggT(p-1, e-1) \cdot ggT(q-1, e-1) $.
+\end{satz}
 \begin{proof}
 Sei $m^e = m \bmod n.$
 Nach dem CRT sind die beiden folgenden Aussagen äquivalent:\\
@@ -5134,28 +5140,26 @@ in $\mathbb{Z}_p^{*}.$\\
 Es gilt:~~ $\mathbb{Z}_p^{*}$ für p prim ist zyklisch.~~$\Rightarrow $~~
 Es existiert ein Generator $g$, der $\mathbb{Z}_p^{*}$ erzeugt: $\mathbb{Z}_p^{*}=<g>$.
 
-
 \noindent Der ff. Satz aus \cite[S. 69]{nt:Katzenbeisser2001}\index{Katzenbeisser 2001} charakterisiert alle $(e-1)$-ten Einheitswurzeln in $\mathbb{Z}_p^{*}$:
 %\begin{lem}[$\cite{nt:Katzenbeisser2001}$]
 %\end{lem}
 \begin{satz}\label{nt-katzenbeisser-Anzahl-Einheitswurzeln}
 $g^{\alpha}$ ist genau dann $(e-1)$-te Einheitswurzel in $\mathbb{Z}_p^{*}$,
-wenn $(e-1)\alpha = 0\bmod p-1.$ Davon gibt es $ggT(p-1, e-1)$ viele.\\
+wenn $(e-1)\alpha = 0\bmod p-1.$ Davon gibt es $ggT(p-1, e-1)$ viele.
 \end{satz}
-
 \begin{proof} 
 Die erste Behauptung ergibt sich direkt aus dem kleinen Satz von Fermat:
-\[g^{\alpha (e-1)}= 1 \bmod p  ~~\Leftrightarrow~~ \alpha (e-1) = 0\bmod p-1 \]
-%%%% Kann man diese Äquivalenz zum Rechnen in den Exponenten mod (p-1) wirklich aus dem
-%%%% kleinen Satz von Fermat folgern:
-%%%%           a^p = a mod p  oder  a^(p-1)=1 mod p
+\[g^{\alpha (e-1)}= 1 \bmod p  ~~\Rightarrow~~ \alpha (e-1) = 0\bmod p-1 \]
+%%% Kann man diese Äquivalenz zum Rechnen in den Exponenten mod (p-1) wirklich aus dem
+%%% kleinen Satz von Fermat folgern:
+%%%           a^p = a mod p  oder  a^(p-1)=1 mod p
  Sei $\delta =ggT(p-1, e-1)$. Aus $\alpha (e-1) = 0\bmod p-1$ folgt, dass $\frac{\alpha (e-1)}{\delta}= 0 \bmod \frac{p-1}{\delta}$. \\
- Da $\frac {e-1}{\delta}$ und $\frac{p-1}{\delta}$ teilerfremd sind (da jeweils durch den
-ggT ihrer Zähler gekürzt wurde), muss $\alpha$ ein Vielfaches von $\frac{p-1}{\delta}$ sein.
+Da $\frac {e-1}{\delta}$ und $\frac{p-1}{\delta}$ teilerfremd sind (da jeweils durch
+den ggT ihrer Zähler gekürzt wurde), muss $\alpha$ ein Vielfaches von $\frac{p-1}{\delta}$ sein.
 
 \[ \alpha \frac{p-1}{\delta} ~~ \text{mit} ~~ \alpha = 1,...,\delta
 \]\\
-Diese $\delta$-verschiedenen Potenzen entsprechen dann den 
+Diese $\delta$ verschiedenen Potenzen entsprechen dann den 
 $(e-1)$-ten Einheitswurzeln $g^{\alpha \frac{p-1}{\delta}} \bmod p$ in $\mathbb{Z}_p^{*}$.
 \end{proof}
 %%%% Ist $g^{\alpha \frac{p-1}{\delta}} \bmod p$ in $\mathbb{Z}_p^{*}$ richtig?
@@ -5173,7 +5177,6 @@ $ m^e = m \bmod n$ mit $ m \in \{1,...,n-1\}$:\\
 Wenn $ m \in \{0,...,n-1\}$ ist, dann ist die Anzahl der RSA-Fixpunkte:
           \[ (ggT(p-1, e-1)+1) \cdot (ggT(q-1, e-1)+1) \]
 \end{satz}
-
 \end{proof}
 \vspace{15pt}
 
@@ -5181,55 +5184,54 @@ Wenn $ m \in \{0,...,n-1\}$ ist, dann ist die Anzahl der RSA-Fixpunkte:
 
 % ----------------------------------------------------
 \subsubsection{Untere Schranke für die Anzahl der RSA-Fixpunkte}
-Im folgenden Kapitel zeigen wir, dass eine untere Schranke für die Anzahl der RSA-Fixpunkte existiert. Diese untere Schranke liegt vor, wenn die beiden Primzahlen die kleinstmöglichen sind (2 und 3).\\
+Im folgenden Kapitel zeigen wir, dass eine untere Schranke für die Anzahl der RSA-Fixpunkte existiert. Diese untere Schranke $6$ liegt vor, wenn die beiden unterschiedlichen RSA-Primzahlen die kleinstmöglichen sind (2 und 3).\\
 
-\noindent\textbf{Behauptung 1: $p,q > 2$}\\
-\\
+\noindent\textbf{Behauptung 1: $p = 2, q = 3$}\\
+Die Anzahl der RSA-Fixpunkte für $p=2$ und $q=3$ ist\\
+$(\underbrace{ggT(p-1, e-1)}_{=1}+1) \cdot (\underbrace{ggT(q-1, e-1)}_{=2}+1)=2 \cdot 3=6$ \\
+
+\noindent\textbf{Behauptung 2: $p \neq q; p > 2,q > 2$}\\
 Die Anzahl der RSA-Fixpunkte für $p \neq q; p,q > 2$ ist $\geq 9$.
 
 \begin{proof}
 Da $p$ und $q$ prim sind, sind $(p-1)$ und $(q-1)$ für $ p,q > 2 $ gerade.\\
-Wir müssen e so wählen, dass $1 < e < \phi(n)=(p-1)(q-1)$ und \\
+Nach dem RSA-Verfahren ist e so zu wählen, dass $1 < e < \phi(n)=(p-1)(q-1)$ und \\
 $ggT(e,(p-1)(q-1))=1$\\
 Da $(p-1)$ und $(q-1)$ gerade sind, ist e ungerade $ \Rightarrow e-1$ ist gerade.\\
-Wenn $(p-1)$ und $(e-1)$ gerade sind, dann gilt:\\
+Da $(p-1)$ und $(e-1)$ gerade sind, gilt:\\
 $ggT(p-1, e-1) \geq 2$ \\
 $\Rightarrow (ggT(p-1, e-1)+1) \geq 3$ und $(ggT(q-1, e-1)+1) \geq 3$\\
 $\Rightarrow (ggT(p-1, e-1)+1) \cdot (ggT(q-1, e-1)+1) \geq 9$
 \end{proof}
 
-\noindent\textbf{Behauptung 2: $p = 2, q = 3$}\\
-\\
-Die Anzahl der RSA-Fixpunkte für $p=2$ und $q=3$ ist\\
-$(\underbrace{ggT(p-1, e-1)}_{=1}+1) \cdot (\underbrace{ggT(q-1, e-1)}_{=2}+1)=2 \cdot 3=6$ \\
-
-\noindent Für $(e,n)=(17,6)$ sind alle sechs möglichen Nachrichten \{0,1,2,3,4,5\} Fixpunkte (bei $n=6$ ist das unabhängig vom Wert von $e$).\\
-Für $(e,n)=(17,10)$ sind alle 10 möglichen Nachrichten Fixpunkte. Für $(e,n)=(19,10)$ sind nur 6 der 10 möglichen Nachrichten Fixpunkte. 
+\noindent Beispiele:\\
+Für $(e,n)=(17,6)$ sind alle sechs möglichen Nachrichten \{0,1,2,3,4,5\} Fixpunkte (bei $n=6$ ist das unabhängig vom Wert von $e$).\\
+Für $(e,n)=(17,10)$ sind alle 10 möglichen Nachrichten Fixpunkte.\\
+Für $(e,n)=(19,10)$ sind nur 6 der 10 möglichen Nachrichten Fixpunkte. 
 
 
 
 % ----------------------------------------------------
 \vspace{15pt}
 \subsubsection{Ungeschickte Wahl von $e$ }
-In diesem Kapitel zeigen wir, dass bei einer ungeschickten Wahl von
-$e=1+kgV(p-1,q-1)$ jede Verschlüsselung einen Fixpunkt liefert.\\
+In diesem Kapitel zeigen wir, dass mit $e=1+kgV(p-1,q-1)$ jede Verschlüsselung einen
+Fixpunkt liefert (unabhängig von der Größe von p, q oder n); und erweitern das dann
+auf alle möglichen schlecht gewählten Werte für $e$.\\
 %%% Wie viele solcher ungeschickter e existieren?
-%%% Warum muss es das kgV von phi sein, und kann nicht irgendein Vielfaches von
-%%%       phi sein? 
+%%% Warum muss es das kgV sein, und kann nicht irgendein Vielfaches von phi? 
+
+\noindent Wenn $e=1$, dann gilt für alle $ m$: $ c = m^e = m$. Das ist der Trivialfall.\\
 
 \noindent\textbf{Behauptung 1: $p,q > 2$}\\
-\\
-Wenn $e=1+kgV(p-1,q-1)$, dann gilt für alle $ m \in \{1,...,n-1\}$: $ m^e = m \bmod n$  \\
+Wenn $e=1+kgV(p-1,q-1)$, dann gilt für alle $ m \in \{1,...,n-1\}$: $ m^e = m \bmod n$.
 
-\noindent\textbf{Beweis:}
-\begin{proof}
-
+\begin{proof}~\\  % Erzwingen der Leerzeile nach "Beweis."
 Es gilt:\\
-$ ~~~ e\cdot d=1 \mod \phi(n)$ ~oder~ $e\cdot d=1 \mod kgV(p-1,q-1) $\\
-$ ~~~ m^{x} \mod n = m^{x \mod \phi(n)} \mod n $\\
+-~~~ $ ~~~ e\cdot d=1 \mod \phi(n)$ ~oder~ $e\cdot d=1 \mod kgV(p-1,q-1) $\\
+-~~~ $ ~~~ m^{x} \mod n = m^{x \mod \phi(n)} \mod n $\\
 
 \noindent Verschlüsseln von Nachrichten: \\
- $~~~c=m^e \mod n$, wobei c der Geheimtext und m der Klartext ist.\\
+ $~~~c=m^e \mod n$, wobei c der Geheimtext und m der Klartext ist.
 
 \noindent Entschlüsseln von Nachrichten:\\
  $~~~m'=c^d \mod n$, wobei d die multiplikative Inverse von e ist.\\
@@ -5238,7 +5240,7 @@ $ ~~~ m^{x} \mod n = m^{x \mod \phi(n)} \mod n $\\
 
 $~~~c = m^e \mod n$
 
-$~~~c = m^{1+kgV(p-1,q-1)} \mod n$
+$~~~c = m^{1+kgV(p-1,q-1)} \mod n$  ~~~~~\# Umformung gilt aufgrund der Voraussetzung
 
 $~~~c = m^1 \cdot m^{k \cdot (p-1) \cdot (q-1)} \mod n$
 
@@ -5248,26 +5250,37 @@ $~~~c = m^1 \cdot m^{0} = m \mod n $
 \end{proof}
 
 ~\\ % Zeilenumbruch erzwingen 
-\noindent\textbf{Beispiel Fixpunkteigenschaft für alle m:}\\
+\noindent\textbf{Beispiel: Fixpunkteigenschaft für alle m:}\\
 Gegeben sei $n=p\cdot q= 13\cdot 37=481\\
 \Rightarrow \phi(n)=(p-1)(q-1)=12\cdot 36=432$\\
 $\Rightarrow e=kgV(p-1,q-1)+1=kgV(12,36)+1=36+1=37$.\\
-Mit $m \in \{4,6,7,480\}$ ergibt sich $m^{e} \mod n$:\\
+Mit $m \in \{4,6,7,480\}$ ergibt sich $m^{e} \mod n$ als:\\
 $~~4^{37} \mod 481=~~4 $\\
 $~~6^{37} \mod 481=~~6 $ \\
 $~~7^{37} \mod 481=~~7 $ \\
 $480^{37} \mod 481=480 $ \\
 
 
-~\\ % Zeilenumbruch erzwingen 
-\noindent Es gibt natürlich nicht nur ein einziges $e$, so dass für alle $ m \in \{1,...,n-1\}$ die Fixpunkteigenschaft $ m^e = m \bmod n$ gilt. Diese vollständige Fixpunkteigenschaft aller $m$ gilt für jedes $e=j\cdot kgV(p-1,q-1)+1$, wobei $j=2,3,4 ... $ bis $e \leq \phi(n)$.\\
+~\\ % Zeilenumbruch erzwingen
+\noindent Es gibt nicht nur das einzige $e$ (siehe oben), so dass für alle $ m \in \{1,...,n-1\}$ die Fixpunkteigenschaft $ m^e = m \bmod n$ gilt.\footnote{%
+Man kann diese $e$, die jede Nachricht zu einem Fixpunkt machen, als "`schwache
+Schlüssel"' $(e,n)$ des RSA-Verfahrens bezeichnen\index{Schlüssel!schwach}.
+Diese Bezeichnung unterscheidet sich jedoch von den "`schwachen Schlüsseln"' $k$
+bei DES\index{DES}, die \textbf{jede} Nachricht $m$ bei doppelt hintereinander
+durchgeführter \textbf{Ver}schlüsselung auf sich selbst abbilden.
+Das RSA-Verfahren kennt für größere $n$ m.W. keine schwachen Schlüssel dieser Art:
+$(m^e)^e = m$.}
+\begin{satz}\label{nt-thm-complete-fixed-point-property-values-of-e}
+Die vollständige Fixpunkteigenschaft aller $m$ gilt für jedes\\
+$e=j\cdot kgV(p-1,q-1)+1$, wobei $j=0,1,2,3,4, ... $ bis $e \leq \phi(n)$.
+\end{satz}
 
 ~\\ % Zeilenumbruch erzwingen 
-\noindent\textbf{Beispiel weitere Werte für $e$ mit Fixpunkteigenschaft:}\\
+\noindent\textbf{Beispiel: Weitere Werte für $e$ mit Fixpunkteigenschaft:}\\
 Betrachten wir wieder
 $n=p\cdot q= 13\cdot 37=481$ mit $kgV(p-1,q-1)=kgV(12,36)=36$.\\
-Dann kann $e$ die ff. Werte annehmen: $e=j\cdot kgV(p-1,q-1)+1$ für $j=2,...,11$:\\
-$\Rightarrow e \in \left\{ 37,73,109,145,181,217, 253, 289, 325, 361,397\right\}$.\\
+Dann kann $e$ die ff. Werte annehmen: $e=j\cdot kgV(p-1,q-1)+1$ für $j=0,1,2,...,11$:\\
+$\Rightarrow e \in \left\{ 1, 37,73,109,145,181,217, 253, 289, 325, 361,397\right\}$.\\
 
 \noindent Ab $j=12$ gilt: $ e=12\cdot kgV(12,36)+1=432+1=433 > 432=\phi(n)$.\\
 
@@ -5277,11 +5290,14 @@ $~~6^{217} \mod 481=~~6 $ \\
 $~~7^{217} \mod 481=~~7 $ \\
 $480^{217} \mod 481=480 $ \\
 
-\noindent Die Anzahl der möglichen Werte für $e\text{ mit } m^e = m \bmod n$ lässt sich wie folgt berechnen:
-\[\left[ \text{Anzahl }e \right]=\left\lfloor \frac{\phi(n)}{kgV(p-1,q-1)+1}\right\rfloor =\frac{\phi(n)}{kgV(p-1,q-1)}-1
+\begin{satz}\label{nt-thm-complete-fixed-point-property-number-of-e}
+Die Anzahl der möglichen Werte für $e\text{ mit } m^e = m \bmod n$ lässt sich wie folgt berechnen:
+\[\left[ \text{Anzahl }e \right]=\left\lfloor \frac{\phi(n)}{kgV(p-1,q-1)+1}\right\rfloor +1=\frac{\phi(n)}{kgV(p-1,q-1)}
 \]
+\end{satz}
 
-\noindent In unserem Beispiel ergibt dies $\frac{432}{kgV(12,36)}-1=11 $ viele $e$ mit $m^e = m \bmod n$.\\
+\noindent In unserem Beispiel ergibt dies $\frac{432}{kgV(12,36)}=12 $ verschiedene Werte
+für $e$, bei denen für alle $m$ in $\mathbb{Z}_{481}$ gilt: $m^e = m \bmod n$.\\
 ~\\ % Zeilenumbruch erzwingen 
 
 
@@ -5289,16 +5305,19 @@ $480^{217} \mod 481=480 $ \\
 % ----------------------------------------------------
 \subsubsection{Eine empirische Abschätzung der Anzahl der Fixpunkte für wachsende Moduli}
 In diesem Kapitel machen wir eine empirische Abschätzung der Anzahl der Fixpunkte
-für wachsende Moduli. Dabei haben wir $p $ und $ q$ zufällig aus den fünf folgenden
-Bereichen gewählt:\\
+für wachsende Moduli (und nicht schwache $e$).
+
+\noindent Dabei haben wir $p $ und $ q$ zufällig aus den sechs folgenden Bereichen
+gewählt (jeder gkennzeichnet durch seine untere und obere Schranke):\\
 $(2^2, 2^{10}), (2^{10}, 2^{20}), (2^{20}, 2^{40}), (2^{40}, 2^{80}),
- (2^{80}, 2^{160})$ (pro Bereich untere und obere Schranke).\\
+ (2^{80}, 2^{160}), (2^{160}, 2^{320})$.\\
 In jedem Bereich haben wir 10 Versuche gemacht. Für den Exponenten $e$ haben wir
 immer den Standardwert $e=2^{16}+1$ genommen. Die Anzahl der Fixpunkte wurde für
-alle 50 Versuche mit dem Programm "`Getfixpoints.sage"' berechnet.
+alle 60 Versuche mit dem Programm
+\ref{nt_sagesample_Calculate_RSA-Fixpoints} "`Getfixpoints.sage"' berechnet.
 
-Die folgenden fünf Mengen enthalten pro Größenbereich jeweils die Wertepaare (p,q),
-die wir für die Abschätzung zufällig gewählt haben.
+\noindent Die folgenden fünf Mengen enthalten die zufällig gewählten Wertepaare (p,q) innerhalb
+der ersten fünf Größenbereiche.
 
 \begin{equation*}
   \begin{split}
@@ -5374,11 +5393,14 @@ Aus (2^{80}, 2^{160}): (p,q)~\in~
   %\vskip +45pt
 \end{figure}
 
-Abbildung \ref{fig:NumberFixpointsGrowingN} zeigt, dass innerhalb der fünf Größenbereiche die durchschnittliche Anzahl der Fixpunkte zuerst steigt und dann mit wachsenden $p$ und $q$ wieder fällt. Das lässt uns vermuten, dass die durchschnittliche Anzahl der Fixpunkte mit den wachsenden RSA-Modulen kleiner wird, dass also die Wahrscheinlichkeit, einen Fixpunkt  zu bekommen, mit wachsenden $p$ und $q$ immer kleiner wird. Leider konnten wir die Moduli in noch höheren Bereichen nicht testen, da unser Sage-Programm \ref{nt_sagesample_Calculate_RSA-Fixpoints}  "`Getfixpoints"' in Bereichen mit $(p,q) > 2^{160}$ zu langsam ist. \\
+Abbildung \ref{fig:NumberFixpointsGrowingN} zeigt, dass innerhalb der sechs Größenbereiche die durchschnittliche Anzahl der Fixpunkte nicht größer als 40 ist.
+% Leider konnten wir die Moduli in noch höheren Bereichen nicht testen, da unser
+% Sage-Programm \ref{nt_sagesample_Calculate_RSA-Fixpoints}  "`Getfixpoints"'
+% in Bereichen mit $(p,q) > 2^{320}$ zu langsam ist. \\
 
 
 
-%\vspace{15pt}
+\vspace{15pt}
 % ----------------------------------------------------
 \subsubsection{Beispiel: Bestimmung aller Fixpunkte für einen bestimmten öf\discretionary{-}{}{}fent\-lichen RSA-Schlüssel}
 
@@ -5434,16 +5456,9 @@ $ (n,e) = (866959, 17)$:
 \end{center}
 \end{table}
 
-
-
-
-
-
 \noindent \textbf{Beispiel:} \\
-Validieren, dass $ m = 843441$ wirklich ein Fixpunkt ist:\\
+Validieren, dass $ m = 843441$ wirklich ein Fixpunkt ist:
 $843441^{17} \mod 866959 = 843441 $\\
-
-
 
 %%% Leicht modifiziertes SAGE-Programm von Volker Simon (9/2012)
 \begin{sagecode}
@@ -5515,16 +5530,17 @@ print "\nRemark: You can verify each fixpoint with power_mod(m,e,n).";
 %#                print "Verification failed !!!";
 
 
-\vspace{15pt}
-\noindent \textbf{Bedeutung der Variablen im Sage-Code:}
+\vspace{60pt}
+\noindent \textbf{Bedeutung der Variablen im Sage-Code
+                  \ref{nt_sagesample_Calculate_RSA-Fixpoints}:}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
 - gen_f_p = r.multiplicative_generator()
-  r ist ein Restklassen-Ring modulo p, und $multiplicative_generator()$ gibt
+  r ist ein Restklassen-Ring modulo p, und multiplicative_generator() gibt
   ein Generator-Element zurück, welches diesen Ring modulo p erzeugt.
 - power_mod(gen_f_p,Integer(i*(p-1)/gcd_p),p)
-  Die $power_mod$ Funktion potenziert eine Zahl m mit e, und gibt das Ergebnis modulo n aus.
-  Bsp.: $power_mod(m, e, n)  := m^e modulo n$
+  Die power_mod Funktion potenziert eine Zahl m mit e, und gibt das Ergebnis modulo n aus.
+  Bsp.: power_mod(m, e, n) := m^e modulo n
 - numpy.append(fp,power_mod(gen_f_p,Integer(i*(p-1)/gcd_p),p))
   Die append Funktion erweitert ein Array (fp) um ein weiteres Element.
 - crt(Integer(r),Integer(s),Integer(p),Integer(q))
