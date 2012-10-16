@@ -3,23 +3,19 @@
 %             V E R S C H L U E S S E L U N G S V E R F A H R E N
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % HACK to fix warning "destination with the same identifier .. has already been used, ...":
-\makeatletter \renewcommand{\thepage}{~\csname @arabic\endcsname \c@page~} \makeatother
+\makeatletter \renewcommand{\thepage}{~\csname @arabic\endcsname \c@page} \makeatother
 \hypertarget{Kapitel_1}{}
 \chapter{Sicherheits-Definitionen und Verschlüsselungsverfahren}
 \label{Label_Kapitel_1}
 (Bernhard Esslinger, Jörg-Cornelius Schneider, Mai 1999; Updates: Dez. 2001, Feb. 2003,
 Juni 2005, Juli 2007, Januar 2010, Juni 2012)
 
-%\begin{Quotes-from-Books}  %xx
-\begin{center}
-\fbox{\parbox{15cm}{%
-{\em Indisches Sprichwort}:\\
+\begin{ctsquote}
 Erkläre es mir, ich werde es vergessen.\\
 Zeige es mir, ich werde es vielleicht behalten.\\
-Lass es mich tun, und ich werde es können.}}
-\end{center}
-%\caption{Indisches Sprichwort 1}{Indisches Sprichwort 2}  %xx
-%\end{Quotes-from-Books}  %xx
+Lass es mich tun, und ich werde es können.
+\caption{Indisches Sprichwort}%
+\end{ctsquote}
 
 Dieses Kapitel soll einen eher beschreibenden Einstieg bieten und die
 Grundlagen ohne Verwendung von allzuviel Mathematik vermitteln.
@@ -585,14 +581,12 @@ Datenmengen zu verschlüsseln (mit den geheimen Schlüsseln).
 % --------------------------------------------------------------------------
 \newpage
 % \vskip +40 pt
-\begin{center}
-\fbox{\parbox{15cm}{
-    \emph{IETF\footnotemark:} \\
+\begin{ctsquote}
     Ein altes Sprichwort, angeblich geprägt von der US National Security Agency (NSA), sagt:\\
     ``Angriffe werden immer besser, niemals schlechter.''\\
     ``Attacks always get better; they never get worse.''
-}}
-\end{center}
+\caption[IETF]{IETF\footnotemark}
+\end{ctsquote}
 \addtocounter{footnote}{0}\footnotetext{%
   \url{http://tools.ietf.org/html/rfc4270}\index{IETF}\index{NSA}
   }

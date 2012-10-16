@@ -36,10 +36,11 @@
 %pdfpagelabels, plainpages=false and, hyperfootnotes=false and place hyperref after float.
 %Option debug helps finding problems.
 
-\floatstyle{ruled}
+\floatstyle{boxed}
+\newfloat{ctsquote}{H}{loq}   % ctsQuotes-from-Books
+\floatname{ctsquote}{Zitat}
 
-\newfloat{ctsquotes}{!ht}{loc}[chapter]   % ctsQuotes-from-Books
-\floatname{ctsquotes}{Verzeichnis der Zitate}
+\floatstyle{ruled}
 
 \newfloat{sagecode}{!ht}{loc}[chapter]
 \floatname{sagecode}{Sage-Beispiel}
@@ -250,11 +251,11 @@ Versionsverwaltungs-Software: Subversion
 % Wenn das aufgerufen, fehlen die Programmbeispiele unter "Verzeichnis der Sage-Bsp"
 % und unter zitate-Verzeichnis steht eine lange undefinierte Liste.
 % TODOTODO (Joerg) klären
-%\clearpage\phantomsection
-%\addcontentsline{toc}{chapter}{Verzeichnis der Zitate}
-%\listof{ctsquotes}{Verzeichnis der Zitate}
-%\index{Zitate}
-%\label{sc:List-of-Quotes}
+\clearpage\phantomsection
+\addcontentsline{toc}{chapter}{Verzeichnis der Zitate}
+\listof{ctsquote}{Verzeichnis der Zitate}
+\index{Zitate}
+\label{sc:List-of-Quotes}
 
 
 \clearpage\phantomsection
