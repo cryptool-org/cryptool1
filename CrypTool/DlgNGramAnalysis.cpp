@@ -306,7 +306,8 @@ void CDlgNGramAnaylsis::OnEvalNGram()
 {
 	SHOW_HOUR_GLASS
 	UpdateData(TRUE);
-	if ( m_ShowCntNGram <= 5000 )
+	// flomar, October 2012: displaying 'zero' entries in the result list doesn't make a lot of sense
+	if(m_ShowCntNGram > 0 && m_ShowCntNGram <= 5000)
 	{	
 		if ( m_N_NGram > 2 )
 		{
