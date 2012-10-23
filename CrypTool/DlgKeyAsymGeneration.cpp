@@ -1305,13 +1305,25 @@ void CDlgKeyAsymGeneration::OnButtonP12import()
 
 				remove(PSEName);
 				free(PSEName);
+
+				// flomar, October 2012: the function call below (freeing memory in issuer_name) 
+				// makes CrypTool crash for no apparent reason under VS2010; I have no idea what 
+				// exactly causes the memory corruption, but Secude seems to have a huge problem 
+				// with VS2010 anyway (it's not the only issue in CrypTool); to get around this 
+				// problem we simply don't call the function when built with VS2010; that's a 
+				// pretty nasty workaround as we might induce memory leaks here, but for the time 
+				// being that's way better than having CrypTool crash (***TODO/FIXME***)
+#if _MSC_VER <= 1500
 				theApp.SecudeLib.aux_free(&issuer_name);
+#endif
 				theApp.SecudeLib.aux_free_Certificate(&cert);
 				theApp.SecudeLib.aux_free_OctetString(&input);
 				return;
 			}
-
+			// flomar, October 2012: see comments above
+#if _MSC_VER <= 1500
 			theApp.SecudeLib.aux_free(&issuer_name);
+#endif
 		}
 		else
 		{
@@ -1319,13 +1331,15 @@ void CDlgKeyAsymGeneration::OnButtonP12import()
 			Message(IDS_STRING_CERT_DECODING_ERROR, MB_ICONSTOP);
 			remove(PSEName);
 			free(PSEName);
+			// flomar, October 2012: see comments above
+#if _MSC_VER <= 1500
 			theApp.SecudeLib.aux_free(&issuer_name);
+#endif
 			theApp.SecudeLib.aux_free_Certificate(&cert);
 			theApp.SecudeLib.aux_free_OctetString(&input);
 			return;
 		}
 	}
-
 
 	// Open CA PSE
 	PSE capse = theApp.SecudeLib.af_open(CaPseDatei, CaPseVerzeichnis, PSEUDO_MASTER_CA_PINNR, NULL);
