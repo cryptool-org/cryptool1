@@ -107,6 +107,29 @@ private:
 	int mTimerCancel;
 	int mTimerSchedule;
 	int mTimerDisplay;
+
+	// flomar, October 2012: a few hackish helpers to enable the factorization demo to handle 
+	// sequential factorizations (in other words: 'factorize all composite factors in one go');
+	// for more details on the implementation, see function 'OnButtonVollstaendigFaktorisation'
+	// in file 'DlgFactorisationDemo.cpp'
+private:
+	// indicates whether the factorization was aborted
+	bool abortedFactorizationInOneGo;
+public:
+	// this must be called before starting the 'single go' factorization; as of now the 
+	// only place this applies to is the function 'OnButtonVollstaendigFaktorisieren'
+	void startFactorizationInOneGo() {
+		abortedFactorizationInOneGo = false;
+	}
+	// this function is called from the outside to indicate the factorization was 
+	// either aborted by the user or it was aborted due to some internal error
+	void abortFactorizationInOneGo() {
+		abortedFactorizationInOneGo = true;
+	}
+	// simple access function
+	bool wasFactorizationInOneGoAborted() {
+		return abortedFactorizationInOneGo;
+	}
 };
 
 //{{AFX_INSERT_LOCATION}}

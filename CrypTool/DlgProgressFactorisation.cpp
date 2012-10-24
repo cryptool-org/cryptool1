@@ -149,6 +149,8 @@ void CDlgProgressFactorisation::OnCancel()
 			m_Factorisations[i]->status |= THREAD_REQUEST_ABORT;
 	Lock.Unlock();
 	m_retcode = IDCANCEL;
+	// flomar, October 2012: please see comments in header file for details
+	abortedFactorizationInOneGo = true;
 }
 
 

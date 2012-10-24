@@ -189,6 +189,8 @@ void CDlgFactorisationDemo::OnButtonFactorisation()
 		m_CompositeNoCtrl.SetSel(err_ndx-1,m_CompositeNoStr.GetLength());
 		m_CompositeNoCtrl.SetFocus();
 		Message(IDS_STRING_INPUT_FALSE, MB_ICONEXCLAMATION);
+		// flomar, October 2012: the new 'single go' implementation
+		dlg.abortFactorizationInOneGo();
 		return;
 	}
 
@@ -214,6 +216,8 @@ void CDlgFactorisationDemo::OnButtonFactorisation()
 			m_CompositeNoCtrl.SetSel(0,-1);
 			m_CompositeNoCtrl.SetFocus();
 			Message(IDS_STRING_FAKTORISATION_NOT_NULL_OR_ONE, MB_ICONEXCLAMATION);
+			// flomar, October 2012: the new 'single go' implementation
+			dlg.abortFactorizationInOneGo();
 			return;
 
 		}
@@ -227,11 +231,15 @@ void CDlgFactorisationDemo::OnButtonFactorisation()
 			{
 				//Sie müssen mindestens ein Verfahren wählen!
 				Message(IDS_STRING_FAKTORISATION_VERFAHREN, MB_ICONEXCLAMATION);
+				// flomar, October 2012: the new 'single go' implementation
+				dlg.abortFactorizationInOneGo();
 				return;
 			}
 			if ( f.IsPrime(next_factor) )
 			{// Die eingegebene Zahl ist eine Primzahl
 				Message(IDS_STRING_FAKTORISATION_PRIMZAHL, MB_ICONEXCLAMATION);
+				// flomar, October 2012: the new 'single go' implementation
+				dlg.abortFactorizationInOneGo();
 				return;
 			}
 			
@@ -344,6 +352,8 @@ void CDlgFactorisationDemo::OnButtonFactorisation()
 			if ( started && IDOK != (l_dlg_return = dlg.DoModal()) )
 			{
 				if (l_dlg_return == IDCANCEL) l_factorisation_aborted = true;
+				// flomar, October 2012: the new 'single go' implementation
+				dlg.abortFactorizationInOneGo();
 			}
 
 			for(i=0;i<5;i++) {
@@ -364,7 +374,8 @@ void CDlgFactorisationDemo::OnButtonFactorisation()
 			else if ( l_factorisation_aborted )
 				{
 					Message(IDS_STRING_FAKTORISATION_ABORTED, MB_ICONEXCLAMATION);
-					//m_Name = "";
+					// flomar, October 2012: the new 'single go' implementation
+					dlg.abortFactorizationInOneGo();
 				}
 				// Hier wird man angefordert mit einem anderen Algorithmus zu arbeiten!!
 				else
@@ -383,7 +394,8 @@ void CDlgFactorisationDemo::OnButtonFactorisation()
 					else {
 						// this is the normal "use another algorithm" notification
 						Message(IDS_STRING_FAKTORISATION_NEU_WAEHLEN, MB_ICONEXCLAMATION);
-						//m_Name = "";
+						// flomar, October 2012: the new 'single go' implementation
+						dlg.abortFactorizationInOneGo();
 				}
 			}
 
@@ -480,6 +492,8 @@ void CDlgFactorisationDemo::OnButtonFactorisation()
 			m_CompositeNoCtrl.SetSel(0,-1);
 			m_CompositeNoCtrl.SetFocus();
 			Message(IDS_STRING_FAKTORISATION_FALSCHE_EINGABE, MB_ICONEXCLAMATION);			
+			// flomar, October 2012: the new 'single go' implementation
+			dlg.abortFactorizationInOneGo();
 		}
 		else
 		{
@@ -487,6 +501,8 @@ void CDlgFactorisationDemo::OnButtonFactorisation()
 			m_CompositeNoCtrl.SetSel(0,-1);
 			m_CompositeNoCtrl.SetFocus();
 			Message(IDS_STRING_BIG_NUMBER, MB_ICONINFORMATION);
+			// flomar, October 2012: the new 'single go' implementation
+			dlg.abortFactorizationInOneGo();
 		}
 	}
 	
@@ -711,114 +727,36 @@ CString CDlgFactorisationDemo::Search_First_Composite_Factor()
 
 void CDlgFactorisationDemo::OnButtonVollstaendigFaktorisation() 
 {
-	NumFactor *ndx = factorList;
-	do {
-		UpdateData(TRUE);
-		SHOW_HOUR_GLASS			// Aktiviert die Sanduhr
+	// flomar, October 2012: belated implementation of 'factorize all'
+	// functionality; the solution is quite hackish; essentially, what 
+	// I'm doing is this: initialize the 'dlg' object so that an internal 
+	// 'aborted' variable is set to false; after that I repeatedly call 
+	// the function 'OnButtonFaktorisieren' to factorize the current 
+	// composite factor-- whenever an error occurs or the user cancels 
+	// the factorization, the 'aborted' variable is set to true by 
+	// calling the function 'dlg.abortFactorizationInOneGo()', which 
+	// in turn will break the main factorization loop; after countless 
+	// hours of debugging and getting familiar with the existing code 
+	// base for the 'single go' approach I decided to do it this 
+	// way; in case you like pain, feel free to re-write it...
 
-		CString next_factor = Search_First_Composite_Factor();
-		
-		// Falls noch zusammengesetzten Faktoren die eingegebene Zahl teilen:
-		if (next_factor != "lolo")
-		{
-			CTutorialFactorisation fact;			
-			int Out_SetN = fact.SetN(next_factor);
-
-			if (Out_SetN == EVAL_OK)
-			{
-				BOOL factorized = FALSE; 
-				if (!m_bruteForce && !m_Brent && !m_Pollard && !m_Williams && !m_Lenstra && !m_QSieve)
-				{
-					//Sie müssen mindestens ein Verfahren wählen!
-					Message(IDS_STRING_FAKTORISATION_VERFAHREN, MB_ICONEXCLAMATION);
-					return;
-				}
-				if ( f.IsPrime(next_factor) )
-				{// Die eingegebene Zahl ist eine Primzahl
-					Message(IDS_STRING_FAKTORISATION_PRIMZAHL, MB_ICONINFORMATION);
-					return;
-				}
-				if ( !factorized && m_bruteForce )
-				{
-					factorized = fact.BruteForce();
-				}
-				if ( !factorized && m_Brent )
-				{
-					factorized = fact.Brent();
-				}
-				if ( !factorized && m_Pollard )
-				{
-					factorized = fact.Pollard();
-				}
-
-				if ( !factorized && m_Williams )
-				{
-					factorized = fact.Williams();
-				}
-
-				if ( !factorized && m_Lenstra )
-				{
-					factorized = fact.Lenstra();
-				}
-				
-				if ( !factorized && m_QSieve )
-				{
-					factorized = fact.QuadraticSieve();
-				}		
-				if ( factorized )
-				{
-					CString f1, f2;
-					fact.GetFactor1Str( f1 );
-					fact.GetFactor2Str( f2 );
-					expandFactorisation( next_factor, f1, f2 );
-					// Zahl wurde Faktorisiert
-				}
-				else
-				{
-					// Hier wird man angefordert mit einem anderen Algorithmus zu arbeiten!!
-					Message(IDS_STRING_FAKTORISATION_NICHT_VOLLSTAENDIG, MB_ICONINFORMATION);
-					return;
-				}
-		
-				HIDE_HOUR_GLASS			// deaktiviert die Sanduhr
-				UpdateData(FALSE);
-				Set_NonPrime_Factor_Red();
-			}
-
-			else if (Out_SetN == EVAL_NEG)
-			{
-				// Falsche Eingabe: Eingabe ist keine positive ganze Zahl
-				Message(IDS_STRING_FAKTORISATION_FALSCHE_EINGABE, MB_ICONEXCLAMATION);
-				return;
-			}
-			else if (Out_SetN == EVAL_NULL || Out_SetN == EVAL_EINS) {
-				m_CompositeNoCtrl.SetSel(0,-1);
-				m_CompositeNoCtrl.SetFocus();
-				Message(IDS_STRING_FAKTORISATION_NOT_NULL_OR_ONE, MB_ICONEXCLAMATION);
-				return;
-			}
-			else if (Out_SetN == EVAL_ERR)
-			{
-				// Eingabe ist zu groß (1024-bit); wird nicht von der Demo unterstützt.
-				Message(IDS_PRIME_BIT_LENGTH, MB_ICONEXCLAMATION);
-				return;
-			}
-		}
-		// Die Zahl ist jetzt vollständig faktorisiert
-		else
-		{
-			m_weiter.EnableWindow(false);
-			m_vollstaendig.EnableWindow(false);	
-			Message(IDS_STRING_FAKTORISATION_VOLLSTAENDIG, MB_ICONINFORMATION);
-			return;
-		}
-		{
-			ndx = factorList;
-		}
+	// get the initial composite factor
+	CString initialCompositeFactor = Search_First_Composite_Factor();
+	// initialize control variable for our loop
+	dlg.startFactorizationInOneGo();
+	// this while loop repeatedly runs the "factorize" function until 
+	// either the composite factor is completey factorized (nice 
+	// 'keyword' BTW), or the factorization was aborted/cancelled
+	while(Search_First_Composite_Factor() != "lolo" && !dlg.wasFactorizationInOneGoAborted()) {
+		OnButtonFactorisation();
 	}
-
-	while (ndx);
-	
+	// this trailing call to "factorize" will automatically prompt 
+	// the user with the factorization result and internally disable 
+	// the "factorize" and "factorize all" buttons (this becomes 
+	// effective only if the factorization was not aborted)
+	if(!dlg.wasFactorizationInOneGoAborted()) {
+		OnButtonFactorisation();
+	}
 }
 
 BOOL CDlgFactorisationDemo::OnInitDialog() 
