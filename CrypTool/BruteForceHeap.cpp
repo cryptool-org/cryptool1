@@ -40,6 +40,7 @@ int CBruteForceHeap::init(long _keybytes, long _plainbytes, long _max_heapsize)
 			{
 				// FIXME throw "mem alloc error"
 			}
+			list[i].plain_size = plainbytes;
 		}
 	}
 	else
