@@ -10203,9 +10203,9 @@ cmd /c copy /y "%(RootDir)%(Directory)ticket" "$(OutDir)"
     <ClInclude Include="MakeNewName.h" />
     <ClInclude Include="MakeZip.h" />
     <ClInclude Include="..\AES\Mars\mars.h" />
-    <ClInclude Include="OpenSSL\md2.h" />
-    <ClInclude Include="OpenSSL\md4.h" />
-    <ClInclude Include="OpenSSL\md5.h" />
+    <ClInclude Include="..\OpenSSL\md2.h" />
+    <ClInclude Include="..\OpenSSL\md4.h" />
+    <ClInclude Include="..\OpenSSL\md5.h" />
     <ClInclude Include="ModifiedDocument_Attachments.h" />
     <ClInclude Include="ModifiedDocument_Blanks.h" />
     <ClInclude Include="ModifiedDocumentForHashing.h" />
@@ -10216,7 +10216,7 @@ cmd /c copy /y "%(RootDir)%(Directory)ticket" "$(OutDir)"
     <ClInclude Include="OpenGL.h" />
     <ClInclude Include="OpenGLDoc.h" />
     <ClInclude Include="OpenGLView.h" />
-    <ClInclude Include="OpenSSL\opensslconf.h" />
+    <ClInclude Include="..\OpenSSL\opensslconf.h" />
     <ClInclude Include="OptionsForSignatureAttack.h" />
     <ClInclude Include="..\ChallengeResponse\Packet.h" />
     <ClInclude Include="ParseIniFile.h" />

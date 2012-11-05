@@ -4853,15 +4853,15 @@ SOURCE=..\AES\Mars\mars.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\OpenSSL\md2.h
+SOURCE=..\OpenSSL\md2.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\OpenSSL\md4.h
+SOURCE=..\OpenSSL\md4.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\OpenSSL\md5.h
+SOURCE=..\OpenSSL\md5.h
 # End Source File
 # Begin Source File
 
@@ -4997,7 +4997,7 @@ SOURCE=.\OpenGLView.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\OpenSSL\opensslconf.h
+SOURCE=..\OpenSSL\opensslconf.h
 # End Source File
 # Begin Source File
 
