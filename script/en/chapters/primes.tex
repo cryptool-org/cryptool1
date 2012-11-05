@@ -9,14 +9,12 @@
 % \hypertarget{Kapitel_2}{}
 \chapter{Prime Numbers}
 \label{Label_Kapitel_Primes}
-(Bernhard Esslinger, May 1999; Updates Nov. 2000, Dec. 2001, June 2003, May 2005, March 2006, June 2007, January 2010, August 2012)
+(Bernhard Esslinger, May 1999; Updates Nov. 2000, Dec. 2001, June 2003, May 2005, March 2006, June 2007, Jan. 2010, Nov. 2012)
 
-\begin{center}
-\fbox{\parbox{15cm}{
-    \emph{Albert Einstein\footnotemark:}\\
+\begin{ctsquote}
     Progress requires exchange of knowledge.
-}}
-\end{center}
+\caption[Albert Einstein]{Albert Einstein\footnotemark}
+\end{ctsquote}
 \addtocounter{footnote}{0}\footnotetext{%
   Albert Einstein, German physicist and Nobel Prize winner, 
   Mar 14, 1879 $-$ Apr 14, 1955.
@@ -36,7 +34,7 @@ The {\em natural} \index{Number!natural} numbers $\mathbb{N}=\{1, 2, 3, 4,\cdots
    \item the composite numbers.
 \end{itemize}
 
-Prime numbers are particularly important for three reasons:
+\noindent Prime numbers are particularly important for three reasons:
 \begin{itemize}
   \item In number theory, they are considered to be the basic components of
 natural numbers, upon which numerous brilliant mathematical ideas are based.
@@ -408,11 +406,14 @@ $$ 2^{67} -1
 =147, 573, 952, 589, 676, 412, 927 = 193, 707, 721 \cdot 761, 838, 257, 287. $$
 He admitted to having worked 20 years on the factorization 
 \index{Factorization} (expression as a product of prime factors)\footnote{%
-  Using CrypTool 1\index{CrypTool 1} you can factorize numbers in the 
+  Using CT1\index{CrypTool 1} you can factorize numbers in the 
   following way: menu {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem 
   \textbackslash{} Factorization of a Number}. \\
-  CrypTool 1 can factorize in a reasonable time numbers no longer than 250 bit.
-  Numbers bigger than 1024 bits are currently not accepted by CrypTool 1. \\
+  CT1 can factorize with the quadratic sieve (QS) on a single PC in a reasonable
+  time numbers no longer than 250 bit.
+  Numbers bigger than 1024 bits are currently not accepted by CT1. \\
+  With CT2 you can use both the QS and the GNFS (general number field sieve),
+  and CT2 can distribute the calculations on several computers.\\
   The current factorization records are listed in chapter \ref{nt:NoteFactorization}.
   \index{Factorization!factoring records}
 }
@@ -645,10 +646,12 @@ No new record is likely to last that long.
     With the educational tool for number theory {\bf NT} you can apply the
     tests of Fermat and of Miller-Rabin:
     See learning units 3.2 and 3.3, pages 3-11/11.\\
-    NT can be called in CrypTool\index{CrypTool} via the menu path
+    NT can be called in CT1\index{CrypTool 1} via the menu path
     {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
     \textbackslash{} Learning Tool for Number Theory}.
-    See also appendix \ref{s:appendix-Learn-NT}.
+    See also appendix \ref{s:appendix-Learn-NT}.\\
+    CT2\index{CrypTool 2} contains a visualisation of this method within
+    the tutorial ``World of Primes''.
 }
 \label{primality_tests}   % chap. 3.5
 \index{Prime number!test}
@@ -1498,10 +1501,12 @@ equal to $x$.%
     sieve of Eratosthenes in a computer-aided and guided way: Enter you own
     number and do the sieving step by step:
     See learning unit 1.2, pages 6/21 and 7/21.\\
-    NT can be called in CrypTool\index{CrypTool} via the menu path
+    NT can be called in CT1\index{CrypTool 1} via the menu path
     {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
     \textbackslash{} Learning Tool for Number Theory}.
-    See appendix \ref{s:appendix-Learn-NT}.
+    See appendix \ref{s:appendix-Learn-NT}.\\
+    CT2\index{CrypTool 2} contains a visualisation of this method within
+    the tutorial ``World of Primes''.
 }
 
 
@@ -1530,7 +1535,9 @@ Some of these topics are considered in the \hyperlink{Chapter_ElementaryNT}
 
 % --------------------------------------------------------------------------
 \pagebreak
+\hypertarget{h_Notes-about-primes}{}
 \section{Notes about primes}
+\label{l_Notes-about-primes}
 
 The following notes list some interesting theorems, conjectures and open
 questions about primes, but also some quaint things and overviews.
@@ -1640,7 +1647,7 @@ questions about primes, but also some quaint things and overviews.
      Hardy\index{Hardy, Godfrey Harold} wrote in his memoirs in 1940, that
      mathematics - more than all other arts and sciences - is an activity 
      for young people. \\
-     At that time 27-years-old Ben Green from the University of British
+     At that time, 27-years-old Ben Green from the University of British
      Columbia in Vancouver and 29-year-old Terence Tao\index{Tao, Terence}
      from the University of California in Los Angeles seem to confirm Hardy.
      }
@@ -1858,7 +1865,9 @@ questions about primes, but also some quaint things and overviews.
 
 % --------------------------------------------------------------------------
 \vskip +10 pt
+\hypertarget{HT-GoldbachConjecture}{}
 \subsubsection{The Goldbach Conjecture}
+\label{L-GoldbachConjecture}
 
 Here we will have a closer look at what is called the\index{Goldbach Conjecture}
      \textbf{Goldbach Conjecture}\footnote{%
@@ -2104,7 +2113,8 @@ scientific research.
 \vskip +10 pt
 
 In summer 2004 the company Google used the number e\footnote{The base of the 
-natural logarithm e is approximately 2.718 281 828 459. This is one of the most
+natural logarithm\index{logarithm!natural} e is approximately 2.718 281 828 459.
+This is one of the most
 important numbers in all of mathematics like complex analysis, finance, physics
 and geometry. Now it was used the first time -- as far as I know -- for
 marketing or recruitment.} 
@@ -2738,9 +2748,9 @@ You can see that $f(n)$ generates
 values generated by $f(n)$.\\
 
 For larger sequences, it is impractical to print all single messages indicating the
-primality of integers. In the following Sage session, we count the
-number of primes generated by $f(n)$ where $0 \leq n \leq 1000$ and
-suppress primality messages.
+primality of integers. In the following Sage session, only the statitics at the end
+is printed (by setting the verbose parameter to false): the overall number of primes
+and the percentage of primes, generated by $f(n)$ where $0 \leq n \leq 1000$.
 
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
@@ -2767,8 +2777,8 @@ Percentage of primes: 58.3416583417
     Scott Aaronson, \\
     {\em The Prime Facts: From Euclid to AKS}, \\
     \url{http://www.scottaaronson.com/writings/prime.pdf} \\
-    After I had completed this article, I did come across the 
-    fine paper by Scott Aaronson, which also offers
+    After I had completed the first edition of this article, I did come
+    across the fine paper by Scott Aaronson, which also offers
     a didactically very well-done introduction to this topic. It is 
     humorous and easy to read but at the same time precise and erudite.
 

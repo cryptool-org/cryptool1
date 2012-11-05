@@ -20,16 +20,8 @@ Naturally there are many more interesting topics in cryptography which could
 be discussed in greater depth -- therefore this selection is only one of many
 possible ways.
 
-The later editorial work in TeX added cross linkages between different sections and footnotes describing where you can find the according functions within
-the CrypTool programs. The appendices \ref{s:appendix-menu-overview-CT1} etc. contain a complete overview
-of\index{CrypTool 1}\index{CrypTool 2}\index{JCrypTool}
-the \hyperlink{menu-overview-CT1}{CrypTool 1 menu tree},
-the \hyperlink{template-overview-CT2}{CrypTool 2 templates} and
-the \hyperlink{function-overview-JCT}{JCrypTool (JCT) functions}.
-
-The rapid spread of the Internet has lead to intensified research in the
-technologies involved, especially within the area of cryptography where a good
-deal of new knowledge has arisen.
+The later editorial work in TeX added footnotes and cross linkages between
+different sections.
 
 %This edition of the CT script again updated some topics:
 This edition completely updated the TeX sources of the document, and of course
@@ -38,8 +30,8 @@ the content of the script was amended, corrected, and updated with some topics, 
 \begin{itemize}
   \item the definitions of the strength of security functions
         (chap. \ref{cm_Section_Security_Definitions}),
-  \item the largest prime numbers (chap. \ref{search_for_very_big_primes}),
-        new factorization records (chap. \ref{RSA-768}),
+%  \item the largest prime numbers (chap. \ref{search_for_very_big_primes}),
+%        new factorization records (chap. \ref{RSA-768}),
 %  \item progress in cryptanalysis of AES 
 %        (chap. \ref{NeueAES-Analyse}) and
 %  \item progress in cryptanalysis of hash algorithms 
@@ -51,19 +43,27 @@ the content of the script was amended, corrected, and updated with some topics, 
         and where primes are used as hangers  
         (see curiouses in \ref{HT-Quaint-curious-Primes-usage}),
   \item the overviews of all functions in
-        \hyperlink{template-overview-CT2}{for CT2} and
-        \hyperlink{function-overview-JCT}{for JCT},
+        \hyperlink{appendix-template-overview-CT2}{for CT2} and
+        \hyperlink{appendix-function-overview-JCT}{for JCT},
   \item further Sage scripts for cryptography, and the appendix
         \ref{s:appendix-using-sage} about using the computer algebra system
         Sage. Sage becomes more and more the standard open-source CAS system,
         % Nguyen and Massierer (see also chap.~\ref{ec:Sage_Massierer}).
-  \item the section about RSA fixed points (see \ref{l:NumberTheory_Sage_Number-of-RSA-FixedPoints}), and
-%  \item the chapter about homomorphic encryption.
+  \item the section about the Goldbach conjecture
+        (see \ref{L-GoldbachConjecture}),
+  \item the section about shared primes in RSA modules used in reality
+        (see \ref{l:NumberTheory_Shared-Primesxxx}),xxxxxxxxxxxxxxxxxxxx
+  \item the section about RSA fixed points
+        (see \ref{l:NumberTheory_Sage_Number-of-RSA-FixedPoints}), and
+  \item the chapter about homomorphic encryption (see \ref{Chapter_HomomorphicEnc}).
 \end{itemize}
 
 The script was delivered the first time with the CrypTool-1 package in
 version 1.2.01. Since then it has been expanded and revised in almost
 every new version of CrypTool 1.
+
+In the meantime the CT project gets feedback and testimonials from almost all
+countries of the planet.
 
 I am deeply grateful to all the people helping with their impressive
 commitment who have made this global project so successful.
@@ -76,14 +76,10 @@ out of it more interest and greater understanding of this modern but
 also very ancient topic.
 \\
 \\
-% [1.5\baselineskip]
-% \enlargethispage*{2\baselineskip}
-% \nopagebreak
 Bernhard Esslinger
 \\
 \\
-% [\baselineskip]
-Frankfurt (Germany), September 2012
+Frankfurt and Siegen (Germany), October 2012
 
 
 
@@ -92,7 +88,7 @@ Frankfurt (Germany), September 2012
 \addcontentsline{toc}{chapter}{Introduction -- How do the Script and the Program Play together?}
 \chapter*{Introduction -- How do the Script and the Program Play together?}
 
-\textbf{This script}
+\textbf{This CrypTool script}
 
 This document is delivered together with the open-source program
 CrypTool 1\index{CrypTool 1}.
@@ -113,11 +109,14 @@ security and the readiness to use standardized modern cryptography.
 \par \vskip + 15pt
 
 
-\noindent \textbf{The program CrypTool 1\index{CrypTool}}
+\noindent \textbf{The programs CrypTool 1\index{CrypTool},
+  CrypTool 2\index{CrypTool 2} and JCrypTool\index{JCrypTool}}
 
 CrypTool 1 (CT1) is an educational program with a comprehensive
 online help enabling you to use and analyse cryptographic procedures within a
-unified graphical user interface.
+unified graphical user interface. The online help in CrypTool 1 contains both
+instructions how to use the program and explanations about the methods itself
+(both not as detailled and in another structure than the CT script).
 
 CrypTool 1\index{CrypTool 1} and the successor versions
 CrypTool 2 (CT2)\index{CrypTool 2} and JCrypTool (JCT)\index{JCrypTool}
@@ -126,11 +125,35 @@ universities.
 \par \vskip + 15pt
 
 
+\noindent \textbf{CrypTool-Online and MTC3\index{CTO}\index{MTC3}}
+
+Also part of the CT project is the website CrypTool-Online (CTO)
+(\url{http://www.cryptool-online.org}), where you can check and apply cryptographic
+methods within a browser or on a smartphone. The scope of CTO is far below from
+the standalone programs CT1, CT2 and JCT.
+
+Also based on the CT project is the international cryptography contest
+MysteryTwister C3 (MTC3) (\url{http://www.mysterytwisterc3.org}).
+Here you can find cryptographic riddles in four categories, a
+high-score list and a moderated forum. In the meantime more than 3300 active
+users participate, and more than 140 challenges are offered (currently 89 of
+them are solved by at least one user).
+\par \vskip + 15pt
+
+
+\noindent \textbf{The Computer Algebra System Sage\index{Sage}}
+
+Sage is an open source CAS package which can be used to easily program
+the mathematical methods explained in this script.
+\par \vskip + 15pt
+
+
+
 \noindent \textbf{Acknowledgment}
 
 At this point I'd like to thank explicitly the following people who
-particularly contributed to CrypTool\index{CrypTool}. They applied their
-very special talents and showed really great engagement:
+particularly contributed to the CrypTool projct\index{CrypTool}. They
+applied their very special talents and showed really great engagement:
 \vspace{-7pt}
 %\begin{itemize}
 \begin{list}{\textbullet}{\addtolength{\itemsep}{-0.5\baselineskip}}
@@ -139,8 +162,12 @@ very special talents and showed really great engagement:
    \item Mr.\ Florian Marchal
    \item Dr.\ Peer Wichmann
    \item Hr.\ Dominik Schadow
-   \item Staff of Prof.\ Claudia Eckert, Prof.\ Johannes Buchmann,
-         Prof.\ Torben Weis and Prof.\ Arno Wacker.
+   \item Staff of 
+         Prof.\ Johannes Buchmann,
+         Prof.\ Claudia Eckert,
+         Prof.\ Alexander May,
+         Prof.\ Torben Weis and
+         Prof.\ Arno Wacker.
 \end{list}
 %\end{itemize}
 Also I want to thank all the many people not mentioned here for their 
@@ -150,7 +177,13 @@ hard work (mostly carried out in their spare time).
 Bernhard Esslinger
 \\
 \\
-Frankfurt (Germany), July 2012
+Frankfurt and Siegen (Germany), October 2012
+\par \vskip + 15pt
+
+
+\noindent PS:\\
+We'd be glad if further authors would show up to add further chapters, e.g. about
+hash functions, random numbers or the design and attack of crypto protocols (like SSL).
 
 % Local Variables:
 % TeX-master: "../script-en.tex"

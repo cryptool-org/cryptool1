@@ -14,7 +14,7 @@
 \chapter{Einführung in die elementare Zahlentheorie mit Beispielen}
 \label{Chapter_ElementaryNT}
 (Bernhard Esslinger, Juli 2001; Updates: Nov. 2001, Juni 2002, Mai 2003,
- Mai 2005, März 2006, Juni 2007, Juli 2009, Jan. 2010, Sep. 2012) \\
+ Mai 2005, März 2006, Juni 2007, Juli 2009, Jan. 2010, Nov. 2012) \\
 
 Diese \glqq Einführung\grqq~ bietet einen Einstieg für mathematisch Interessierte.
 Erforderlich sind nicht mehr Vorkenntnisse als die, die im Grundkurs Mathematik
@@ -149,9 +149,9 @@ widersetzten sich die Lösungen zu den Problemen und die Beweise zu den Sätzen
 oft sehr lange den Mathematikern. Es ist also leicht, gute Fragen zu stellen,
 aber es ist ganz etwas anderes, die Antwort zu finden. Ein Beispiel dafür ist
 der sogenannte letzte (oder große) Satz von Fermat\footnote{Thema der
-   Schul-Mathematik ist der Satz von Pythagoras\index{Pythagoras!Satz von},
-   wo gelehrt wird, dass in einem rechtwinkligen Dreieck gilt:
-   $a^2 + b^2 = c^2$, wobei $a, b$ die Schenkellängen sind und 
+   Schul-Mathematik ist der Satz von Pythagoras\index{Pythagoras!Satz von}:
+   Den Schülern wird beigebracht, dass in einem ebenen, rechtwinkligen Dreieck
+   gilt: $a^2 + b^2 = c^2$, wobei $a, b$ die Schenkellängen sind und 
    c die Länge der Hypothenuse ist.
    Fermats berühmte Behauptung war, dass für $a,b,c \in \mathbb{N}$ und
    für ganzzahlige Exponenten $n > 2$ immer die Ungleichheit
@@ -223,11 +223,14 @@ Viele der Probleme in der elementaren Zahlentheorie beschäftigen sich mit Primza
 
 Jede ganze Zahl hat Teiler oder Faktoren. Die Zahl 1 hat nur einen, nämlich
 sich selbst. Die Zahl 12 hat die sechs Teiler 1, 2, 3, 4, 6 und 12\footnote{%
-Aufgrund der großen Teilerzahl von 12 findet sich diese Zahl -- und Vielfache dieser Zahl -- oft im alltäglichen wieder:
-Die 12 Stunden-Skala der Uhr, die 60 Minuten einer Stunde, die 360 Grad-Skala der Winkelmessung, usw. Teilt man 
-diese Skalen in Bruchteile auf, so ergeben sich in vielen Fällen die Brüche als ganze Zahlen. Mit diesen kann 
+Aufgrund der großen Teilerzahl von 12 findet sich diese Zahl -- und Vielfache
+dieser Zahl -- oft im Alltag wieder:
+Die 12 Stunden-Skala der Uhr, die 60 Minuten einer Stunde, die 360 Grad-Skala
+der Winkelmessung, usw. Teilt man diese Skalen in Bruchteile auf, so ergeben
+in vielen Fällen die Brüche ganze Zahlen. Mit diesen kann 
 man im Kopf einfacher rechnen als mit gebrochenen Zahlen.
-}. Viele Zahlen sind nur teilbar durch sich selbst und durch 1. Bezüglich der
+}.
+Viele Zahlen sind nur teilbar durch sich selbst und durch 1. Bezüglich der
 Multiplikation sind dies die \glqq Atome'' im Bereich der Zahlen.
 
 \index{Primzahl}
@@ -343,10 +346,12 @@ Primzahlen, Kapitel~\ref{Label_Kapitel_Primes}.
     Mit dem Lernprogramm {\bf ZT} können Sie das hier und im Folgekapitel
     vorgestellte Rechnen mit Kongruenzen spielerisch nachvollziehen
     (siehe Lern-Kapitel 2.1, Seiten 2-9/40).\\
-    ZT können Sie in CrypTool\index{CrypTool} über das Menü
+    ZT können Sie in CT1\index{CrypTool 1} über das Menü
     {\bf Einzelverfahren \textbackslash{} Zahlentheorie
     interaktiv \textbackslash{} Lernprogramm für Zahlentheorie} aufrufen.
-    Siehe Anhang~\ref{s:appendix-Learn-NT}.
+    Siehe Anhang~\ref{s:appendix-Learn-NT}.\\
+    Eine Visualisierung dieser Verfahren ist in CT2\index{CrypTool 2}
+    in dem Tutorial \glqq World of Primes'' enthalten.
 }
 %\nopagebreak
 \index{Modulus} \index{Teilbarkeit}
@@ -503,7 +508,7 @@ Multiplikation modulo $m$. Das Ergebnis einer Division\footnote{%
 Die Division modulo $m$\index{Division modulo $n$}
 ist nur für Zahlen, die teilerfremd\index{Zahlen!teilerfremde (co-prime)}
 zu $m$ sind, definiert, da andere Zahlen die gleiche Eigenschaft wie Null haben.
-Vergleiche Fußsnote~\ref{ftn-mod6} in Kapitel~\ref{addmult}.
+Vergleiche Fußnote~\ref{ftn-mod6} in Kapitel~\ref{addmult}.
 \label{ftn-res-divmodn}
 \label{ftn-zth-divmodn}
 } ist kein Bruch, sondern eine ganze Zahl zwischen $0$ und $m-1$.
@@ -3328,6 +3333,14 @@ Von Bob: $11 ^ y \equiv 285 {\rm ~(mod~}347)$, also $\log_{11}(285){\rm ~(mod~}3
     \vskip +3 pt
 }
 \label{rsaconcrete}\index{RSA}
+
+\begin{ctsquote}
+\glqq Das Spiel ist eine Erfindung der Natur, um uns auf schwierige Realitäten vorzubereiten. Sind Sie jetzt endlich bereit, der Realität is Auge zu sehen, Sergeant?\grqq 
+\caption[Daniel Suarez, Daemon]{Daniel Suarez\footnotemark}\index{Suarez, Daniel}
+\end{ctsquote}
+\addtocounter{footnote}{0}\footnotetext{Daniel Suarez, \glqq Daemon\grqq, rororo, (c) 2010,
+Kapitel 45, \glqq Wiedereintritt\grqq, S. 615, Sobol.}
+
 Nachdem oben die \hyperlink{RSA}{Funktionsweise des RSA-Verfahrens} beschrieben
 wurde, sollen diese Schritte hier mit konkreten, aber kleinen Zahlen
 durchgeführt werden.
@@ -4164,6 +4177,14 @@ Damit ergibt sich $z = 35189$.
 \label{NumberTheory_Appendix_E}{}
 \index{Sage}
 \index{Sage!Programmbeispiele}
+
+\begin{ctsquote}
+\glqq Nie würde sie ihren Eltern ... von dieser ganzen Welt erzählen können. Nicht von ihrer Arbeit, die im Knacken von Codes bestand. Nicht vom Fiasko der Daemon-Taskforce ... Nicht von den schattenhaften Marionetten, die die Regierung nach ihrer Pfeife tanzen ließen.\grqq 
+\caption[Daniel Suarez, Darknet]{Daniel Suarez\footnotemark}\index{Suarez, Daniel}
+\end{ctsquote}
+\addtocounter{footnote}{0}\footnotetext{Daniel Suarez, \glqq Darknet\grqq, rororo,
+                           (c) 2011, Kapitel 19, \glqq Scheideweg\grqq, S. 229, Philips.}
+
 
 \noindent In diesem Anhang finden Sie Sage-Quellcode, mit dem Sie die Tabellen und
 Beispiele des Kapitels~\ref{Chapter_ElementaryNT} (``\nameref{Chapter_ElementaryNT}'')

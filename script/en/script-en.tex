@@ -31,9 +31,15 @@
 %pdfpagelabels, plainpages=false and, hyperfootnotes=false and place hyperref after float.
 %Option debug helps finding problems.
 
+\floatstyle{boxed}
+\newfloat{ctsquote}{H}{loq}   % ctsQuotes-from-Books, List-of-Quotes
+\floatname{ctsquote}{Quote}
+
 \floatstyle{ruled}
+
 \newfloat{sagecode}{!ht}{loc}[chapter]
 \floatname{sagecode}{Sage sample}
+
 \newfloat{cryptoprocedure}{!ht}{lop}[chapter]
 \floatname{cryptoprocedure}{Crypto Procedure}
 
@@ -194,14 +200,14 @@ Version control software: Subversion
       \item[1] \hyperlink{appendix-menu-overview-CT1}{CrypTool 1 Menu Tree}
       \item[2] \hyperlink{appendix-template-overview-CT2}{CrypTool 2 Templates}
       \item[3] \hyperlink{appendix-function-overview-JCT}{JCrypTool Functions}
-      \item[4] \hyperlink{appendix-authors}{Bibliography of Movies and
-                     Fictional Literature with Relation to Cryptography,
-                     Books for Kids with Collections of Simple Ciphers}
-      \item[5] \hyperlink{appendix-Learn-NT}
+      \item[4] \hyperlink{appendix-function-overview-CTO}{CrypTool-Online Functions}
+      \item[5] \hyperlink{appendix-authors}{Bibliography of Movies and
+                     Fictional Literature with Relation to Cryptography}
+      \item[6] \hyperlink{appendix-Learn-NT}
                      {Learning Tool for Elementary Number Theory}
-      \item[6] \hyperlink{appendix-using-sage}
+      \item[7] \hyperlink{appendix-using-sage}
                      {Using Sage with this Script}
-      \item[7] \hyperlink{appendix-authors}{Authors of the CrypTool Script}
+      \item[8] \hyperlink{appendix-authors}{Authors of the CrypTool Script}
     \end{itemize}
   \newpage
   \input{chapters/menus.tex}
@@ -231,6 +237,13 @@ Version control software: Subversion
   \addcontentsline{toc}{chapter}{List of Crypto Procedures with Pseudo Code}
   \listof{cryptoprocedure}{List of Crypto Procedures with Pseudo Code}
 \endgroup
+
+
+\clearpage\phantomsection
+\addcontentsline{toc}{chapter}{List of Quotes}
+\listof{ctsquote}{List of Quotes}
+\index{Quotes}
+\label{sc:List-of-Quotes}
 
 
 \clearpage\phantomsection

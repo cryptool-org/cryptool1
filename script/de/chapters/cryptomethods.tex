@@ -8,14 +8,7 @@
 \chapter{Sicherheits-Definitionen und Verschlüsselungsverfahren}
 \label{Label_Kapitel_1}
 (Bernhard Esslinger, Jörg-Cornelius Schneider, Mai 1999; Updates: Dez. 2001, Feb. 2003,
-Juni 2005, Juli 2007, Januar 2010, Juni 2012)
-
-\begin{ctsquote}
-Erkläre es mir, ich werde es vergessen.\\
-Zeige es mir, ich werde es vielleicht behalten.\\
-Lass es mich tun, und ich werde es können.
-\caption{Indisches Sprichwort}%
-\end{ctsquote}
+Juni 2005, Juli 2007, Jan. 2010, Nov. 2012)
 
 Dieses Kapitel soll einen eher beschreibenden Einstieg bieten und die
 Grundlagen ohne Verwendung von allzuviel Mathematik vermitteln.
@@ -29,6 +22,16 @@ autorisierte Empfänger ist im Besitz einer geheimen Information, des
 sogenannten Schlüssels, die es ihm erlaubt, die Daten zu entschlüsseln,
 während sie jedem anderen verborgen bleiben.%\par \vskip + 3pt
 
+Zur Erläuterung verwenden wir die Begriffe aus der folgenden Abbildung \ref{Generic-Notations-when-Encrypting}:
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[scale=0.7]{figures/Generic-Notation-Encryption_de.png}
+\caption{Übliche Bezeichnungen bei der Verwendung von Verschlüsselungsverfahren} 
+\label{Generic-Notations-when-Encrypting}
+\end{center}
+\end{figure}
+
+
 Zuerst erklären wir, wie die Sicherheit von Kryptosystemen definiert wird.
 
 
@@ -38,6 +41,12 @@ Zuerst erklären wir, wie die Sicherheit von Kryptosystemen definiert wird.
 \section[Sicherheits-Definitionen]{Sicherheits-Definitionen}
 \label{cm_Section_Security_Definitions}
 
+\begin{ctsquote}
+Erkläre es mir, ich werde es vergessen.\\
+Zeige es mir, ich werde es vielleicht behalten.\\
+Lass es mich tun, und ich werde es können.
+\caption{Indisches Sprichwort}
+\end{ctsquote}
 
 Moderne Kryptographie basiert vor allem auf mathematischer Theorie und
 Computer-Praxis. Beim Design kryptographischer Algorithmen werden Annahmen
@@ -140,30 +149,36 @@ symmetrischen und asymmetrischen Verfahren zur Verschlüsse"-lung.
 
 
 
-
 % --------------------------------------------------------------------------
 \section[Symmetrische Verschlüsselung] % Was zw. [..] steht, kommt ins Inhaltsverzeichnis!
 {Symmetrische Verschlüsselung\footnotemark}
   \footnotetext{% XXX dieses Prozent ist nötig, sonst startet die Fußnote mit einem Blank !
-    Mit {\bf CrypTool 1}\index{CrypTool 1} können Sie über das Menü
+    Mit CrypTool 1 ({\bf CT1})\index{CrypTool 1} können Sie über das Menü
     {\bf Ver-/Entschlüsseln \textbackslash{} Symmetrisch (modern)} folgende 
     modernen symmetrischen Verschlüsselungsverfahren ausführen:\\
     IDEA, RC2, RC4, DES (ECB), DES (CBC), Triple-DES (ECB), Triple-DES (CBC),
     MARS (AES-Kandidat), RC6 (AES-Kandidat), Serpent (AES-Kandidat), 
     Twofish (AES-Kandidat),
-    Rijndael (offizielles AES-Verfahren)\index{AES}.
-
-    Mit {\bf CrypTool 2}\index{CrypTool 2} können Sie im Startcenter
+    Rijndael (offizielles AES-Verfahren)\index{AES}.\\
+    Mit CrypTool 2 ({\bf CT2})\index{CrypTool 2} können Sie im Startcenter
     über {\bf Vorlagen \textbackslash{} Kryptographie \textbackslash{}
     Modern \textbackslash{} Symmetrisch} folgende modernen symmetrischen
     Verschlüsselungsverfahren ausführen:\\ 
-    AES, DES, PRESENT, RC2, RC4, SDES, TEA, Triple-DES, Twofish.
-
-    In {\bf JCrypTool}\index{JCrypTool} stehen Ihnen die folgenden modernen
+    AES, DES, PRESENT, RC2, RC4, SDES, TEA, Triple-DES, Twofish.\\
+    In JCrypTool ({\bf JCT})\index{JCrypTool} stehen Ihnen die folgenden modernen
     symmetrischen Verschlüsselungsverfahren zur Verfügung:\\ 
     AES, Rijndael, Camellia, DES, Dragon, IDEA, LFSR, MARS, Misty1, RC2, RC5,
     RC6, SAFER+, SAFER++, Serpent, Shacal, Shacal2, Twofish.
     }
+
+% --------------------------------------------------------------------------
+\begin{ctsquote}
+\glqq Transparenz. Das ist das Höchste, was man sich in einer technologisch hoch entwickelten Gesellschaft erhoffen kann ... sonst wird man einfach nur manipuliert.\grqq 
+\caption[Daniel Suarez, Darknet]{Daniel Suarez\footnotemark}\index{Suarez, Daniel}
+\end{ctsquote}
+\addtocounter{footnote}{0}\footnotetext{Daniel Suarez, \glqq Darknet\grqq, rororo,
+                           (c) 2011, Kapitel 5, \glqq Einsichten\grqq, S. 69, Price.}
+
 \nopagebreak
 Bei der {\em symmetrischen} Verschlüsselung 
 \index{Verschlüsselung!symmetrisch} müssen Sender und Empfänger
@@ -198,12 +213,12 @@ Er wurde 1975 als Standard veröffentlicht. Trotz seines relativ hohen
 Alters ist jedoch bis heute kein  ~\glqq effektiver\grqq~ Angriff auf
 ihn gefunden worden. Der effektivste Angriff besteht aus dem Durchprobieren
 (fast) aller möglichen Schlüssel, bis der richtige gefunden wird 
-({\em brute-force-attack})\index{Angriff!Brute-Force}. Aufgrund der relativ
+({\em Brute-Force-Angriff})\index{Angriff!Brute-Force}. Aufgrund der relativ
 kurzen Schlüssellänge von effektiv 56 Bits (64 Bits, die allerdings 8
 Paritätsbits enthalten), sind in der Vergangenheit schon mehrfach mit dem
-DES verschlüsselte Nachrichten gebrochen worden, so dass er heute als nur
-noch bedingt sicher anzusehen ist. Symmetrische Alternativen zum DES sind
-zum Beispiel die Algorithmen IDEA \index{IDEA} oder Triple-DES.
+DES verschlüsselte Nachrichten gebrochen worden, so dass er heute nicht
+mehr als sicher anzusehen ist. Alternativen zum DES sind zum Beispiel die
+Algorithmen IDEA\index{IDEA}, Triple-DES und vor allem AES.
 \par \vskip + 3pt
 
 Hohe Aktualität besitzt das symmetrische AES-Verfahren:\index{AES} 
@@ -211,12 +226,15 @@ Der dazu gehörende Rijndael-Algo"-rithmus wurde am 2. Oktober 2000 zum
 Gewinner der AES-Ausschreibung erklärt und ist damit Nachfolger
 des DES-Verfahrens.
 
-Näheres zum AES-Algorithmus und den AES-Kandidaten der letzten Runde finden
-Sie z.B. in der CrypTool-1-Online-Hilfe\index{CrypTool 1}%
+Näheres und weitere Verweise zum AES-Algorithmus und den AES-Kandidaten
+der letzten Runde finden Sie z.B. in der
+CrypTool-1-Online-Hilfe\index{CrypTool 1}%
 \footnote{%
       Online-Hilfe von CT1\index{CrypTool 1}: Das Stichwort {\bf AES} im Index
       führt auf die drei Hilfeseiten: {\bf AES-Kandidaten}, 
-      {\bf Der AES-Gewinner Rijndael} und {\bf Der AES-Algorithmus Rijndael}.
+      {\bf Der AES-Gewinner Rijndael} und {\bf Der AES-Algorithmus Rijndael}.\\
+      Eine ausführliche Beschreibung von AES mit C-Code findet sich
+       in \cite{cm:Haan2008}.
   }.
 
 
@@ -304,8 +322,8 @@ genannt (manchmal ist die Namensgebung abhängig davon, ob die verwendeten
 Schlüssel statistisch abhängig oder unabhängig sind).\\
 Nicht immer wird die Sicherheit eines Verfahrens durch Produktbildung 
 erhöht.\\
-Diese Vorgehen wird auch {\em innerhalb} moderner Algorithmen angewandt:
-Sie kombinieren in der Regel einfacheund, für sich genommen, kryptologisch
+Dieses Vorgehen wird auch {\em innerhalb} moderner Algorithmen angewandt:
+Sie kombinieren in der Regel einfache und, für sich genommen, kryptologisch
 relativ unsichere Einzelschritte in mehreren Runden zu einem leistungsfähigen
 Gesamtverfahren. Die meisten modernen Blockchiffrierungen (z.B. DES, IDEA)
 sind Produktalgorithmen.\\
@@ -358,7 +376,7 @@ AES-192 ist der Angriff noch weniger praktikabel, für AES-128 geben die Autoren
 keinen Angriff an.
 
 % --------------------------------------------------------------------------
-\subsection{Aktueller Stand der Brute-Force-Angriffe auf symmetrische Verfahren (RC5)}
+\subsection{Aktueller Stand der Brute-Force-Angriffe auf symmetrische Verfahren}
 \index{Angriff!Brute-Force}
 \index{RC5}
 \label{Brute-force-gegen-Symmetr}
@@ -376,26 +394,30 @@ Klartext ergibt. Bei einer Schlüssellänge von 64 Bit sind dies maximal
 $2^{64}$ = 18.446.744.073.709.551.616 oder rund 18 Trillionen zu
 überprüfende Schlüssel\index{CrypTool}%
 \footnote{%
-Mit CrypTool\index{CrypTool} können Sie über das Menü
-{\bf Analyse \textbackslash{} Symmetrische Verschlüsselung (modern)}
-ebenfalls Brute-Force-Analysen von modernen symmetrischen Verfahren
-durchführen (unter der schwächsten aller möglichen Annahmen: der
-Angreifer kennt nur den Geheimtext, er führt also einen Ciphertext
-only-Angriff durch). 
-Um in einer sinnvollen Zeit auf einem Einzel-PC ein Ergebnis zu
-erhalten, sollten Sie nicht mehr als 20 Bit des Schlüssels als
-unbekannt kennzeichnen.
+  Mit CrypTool 1\index{CrypTool 1} können Sie über das Menü
+  {\bf Analyse \textbackslash{} Symmetrische Verschlüsselung (modern)}
+  ebenfalls Brute-Force-Analysen von modernen symmetrischen Verfahren
+  durchführen (unter der schwächsten aller möglichen Annahmen: Der
+  Angreifer kennt nur den Geheimtext, er führt also einen Ciphertext
+  only-Angriff durch). 
+  Um in einer sinnvollen Zeit auf einem Einzel-PC ein Ergebnis zu
+  erhalten, sollten Sie nicht mehr als 24 Bit des Schlüssels als
+  unbekannt kennzeichnen.\\
+  Mit CrypTool 2\index{CrypTool 2} können Sie bei den Vorlagen unter
+  {\bf Kryptoanalyse \textbackslash{} Modern} ebenfalls Brute-Force-Analysen
+  durchführen. Besonders mächtig ist die KeySearcher-Komponente, die
+  die Ausführung auch auf mehrere Rechner verteilen kann.
 }.
 \end{sloppypar}
 
 Um zu zeigen, welche Sicherheit bekannte symmetrische Verfahren wie
 DES, Triple-DES oder RC5\index{DES}\index{RC5}\index{Triple-DES}
-haben, veranstaltet z.B. RSA Security
+haben, veranstaltete z.B. RSA Security
 sogenannte Cipher-Challenges\footnote{%
  \url{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}\\
  Im Mai 2007 meldete RSA, dass sie die Korrektheit der bis dahin nicht
  gelösten RC5-72 Challenge nicht bestätigen werden.}.
-Unter kontrollierten Bedingungen werden Preise ausgelobt, um Ciphertexte
+Unter kontrollierten Bedingungen wurden Preise ausgelobt, um Ciphertexte
 (verschlüsselt mit verschiedenen Verfahren und verschiedenen
 Schlüssellängen) zu entschlüsseln und den symmetrischen Schlüssel
 zu ermitteln. Damit werden theoretische Resultate praktisch bestätigt.
@@ -429,8 +451,10 @@ keine geeigneten Verfahren mehr sind, um sensible Daten länger geheim
 zu halten.
 
 Cipher-Challenges\footnote{%
-  Ein weites Spektrum einfacher und komplexer Krypto-Aufgaben bietet
-  der Wettbewerb \glqq MysteryTwister C3\grqq: \url{http://www.mysterytwisterc3.org}.
+  Ein weites Spektrum einfacher und komplexer, symmetrischer und asymmetrischer
+  Krypto-Aufgaben bietet der Wettbewerb \glqq MysteryTwister C3\grqq:
+  \url{http://www.mysterytwisterc3.org}.
+  \index{MTC3}
   \index{Challenge}
   \index{Cipher-Challenge}
   \index{Krypto-Wettbewerb}
@@ -443,14 +467,19 @@ Cipher-Challenges\footnote{%
 % --------------------------------------------------------------------------
 \section[Asymmetrische Verschlüsselung] % Was zw. [..] steht, kommt ins Inhaltsverzeichnis!
 {Asymmetrische Verschlüsselung\footnotemark}
-        \footnotetext{%
-        Mit CrypTool\index{CrypTool} können Sie über das Menü
-        {\bf Ver-/Entschlüsseln \textbackslash{} Asymmetrisch} mit RSA 
-        ver- und entschlüsseln. In beiden Fällen müssen Sie ein 
-        RSA-Schlüsselpaar auswählen. Nur bei der Entschlüsselung wird der 
-        geheime RSA-Schlüssel benötigt: deshalb wird nur hier die PIN
-        abgefragt. 
-        }
+  \footnotetext{%
+   Mit CrypTool 1\index{CrypTool 1} können Sie über das Menü
+   {\bf Ver-/Entschlüsseln \textbackslash{} Asymmetrisch} mit RSA 
+   ver- und entschlüsseln. In beiden Fällen müssen Sie ein 
+   RSA-Schlüsselpaar auswählen. Nur bei der Entschlüsselung wird der 
+   geheime RSA-Schlüssel benötigt -- deshalb wird nur hier die PIN abgefragt.\\
+   Mit CrypTool 2\index{CrypTool 2} können Sie bei den Vorlagen unter
+   {\bf Kryptographie \textbackslash{} Modern} ebenfalls asymmetrische
+   Verfahren durchführen.\\
+   JCrypTool\index{JCrypTool} bietet asymmetrische Verfahren wie RSA sowohl im
+   Menü {\bf Visualisierungen} der Standard-Perspektive als auch in der Funktionalen
+   Perspektive.
+  }
 
 Bei der {\em asymmetrischen} Verschlüsselung
 \index{Verschlüsselung!asymmetrisch} hat jeder Teilnehmer 
@@ -511,11 +540,11 @@ Das bekannteste asymmetrische Verfahren ist der \index{RSA}
 RSA-Algorithmus\index{CrypTool}%
 \footnote{%
 RSA wird in diesem Skript ab Kapitel \ref{rsabeweis} ausführlich beschrieben.
-Das RSA-Kryptosystem kann mit CrypTool\index{CrypTool} über das Menü 
+Die aktuellen Forschungsergebnisse im Umfeld von RSA werden in Kapitel
+\ref{SecurityRSA} beschrieben.\\
+Das RSA-Kryptosystem kann mit CT1\index{CrypTool 1} über das Menü 
 {\bf Einzelverfahren \textbackslash{} RSA-Kryptosystem \textbackslash{} 
-RSA-Demo} in vielen Variationen nachvollzogen werden. Die 
-aktuellen Forschungsergebnisse im Umfeld von RSA werden in Kapitel
-\ref{SecurityRSA} beschrieben.
+RSA-Demo} in vielen Variationen nachvollzogen werden.
 }%
 , der nach seinen Entwicklern Ronald \index{Rivest, Ronald} Rivest, 
 Adi \index{Shamir, Adi} Shamir und Leonard \index{Adleman, Leonard} Adleman
@@ -533,12 +562,14 @@ Signature Algorithm).
 % --------------------------------------------------------------------------
 \section[Hybridverfahren]{Hybridverfahren\footnotemark} 
 \footnotetext{%
-In CrypTool\index{CrypTool} finden Sie dieses Verfahren über das Menü
-{\bf Ver-/Entschlüsseln \textbackslash{} Hybrid}:
-Dabei können Sie die einzelnen Schritte und ihre Abhängigkeiten mit konkreten
-Zahlen nachvollziehen. Die Variante mit RSA als asymmetrischem Verfahren
-ist graphisch visualisiert; die Variante mit ECC nutzt die Standard-Dialoge.
-In beiden Fällen wird AES als symmetrisches Verfahren eingesetzt.\index{AES}
+   In CT1\index{CrypTool 1} finden Sie dieses Verfahren über das Menü
+   {\bf Ver-/Entschlüsseln \textbackslash{} Hybrid}:
+   Dabei können Sie die einzelnen Schritte und ihre Abhängigkeiten mit konkreten
+   Zahlen nachvollziehen. Die Variante mit RSA als asymmetrischem Verfahren
+   ist graphisch visualisiert; die Variante mit ECC nutzt die Standard-Dialoge.
+   In beiden Fällen wird AES als symmetrisches Verfahren eingesetzt.\index{AES}\\
+   JCrypTool\index{JCrypTool} bietet Hybrid-Verfahren (z.B. ECIES) in der
+   Funktionalen Perspektive an unter {\bf Algorithms \textbackslash{} Hybrid Ciphers}.
 }
 \label{CM_Hybrid-procedures}
 \index{Hybridverfahren}
@@ -549,17 +580,18 @@ Hybridverfahren \index{Verschlüsselung!hybrid} verwendet.\par \vskip + 3pt
 
 Hier werden die Mengen-Daten mittels symmetrischer Verfahren
 verschlüsselt: Der Schlüssel ist ein vom Absender zufällig\footnote{%
-  Die Erzeugung zufälliger Zahlen ist ein wichtiger Bestandteil 
-  kryptographisch sicherer Verfahren. Mit CrypTool\index{CrypTool} 
-  können Sie über das Menü {\bf Einzelverfahren \textbackslash{}
-  Zufallsdaten erzeugen} verschiedene Zufallszahlengeneratoren ausprobieren.
-  Über das Menü {\bf Analyse \textbackslash{} Zufallsanalyse} können Sie
-  verschiedene Testverfahren für Zufallsdaten auf binäre Dokumente
-  anwenden. \\
-  Bisher konzentriert sich CrypTool auf kryptographisch starke 
-  Pseudozufallszahlengeneratoren. Nur im Secude-Generator
-  \index{SECUDE IT Security GmbH} wird eine "`echte"'
-  Zufallsquelle einbezogen. 
+   Die Erzeugung zufälliger Zahlen ist ein wichtiger Bestandteil 
+   kryptographisch sicherer Verfahren. Mit CT1\index{CrypTool 1} 
+   können Sie über das Menü {\bf Einzelverfahren \textbackslash{}
+   Zufallsdaten erzeugen} verschiedene Zufallszahlengeneratoren ausprobieren.
+   Über das Menü {\bf Analyse \textbackslash{} Zufallsanalyse} können Sie
+   verschiedene Testverfahren für Zufallsdaten auf binäre Dokumente
+   anwenden. \\
+   CT1 konzentriert sich auf kryptographisch starke {\bf Pseudo}zufallszahlengeneratoren.
+   Nur im Secude-Generator wird eine "`echte"' Zufallsquelle einbezogen.\\
+   JCrypTool\index{JCrypTool} bietet {\bf Pseudo}zufallszahlengeneratoren sowohl
+   im Menü {\bf Algorithms \textbackslash{} Random Number Generator} der
+   Standard-Perspektive als auch in der Funktionalen Perspektive an.
 }\index{Zufall}
 generierter geheimer Sitzungsschlüssel (session key)\index{Session Key},
 der nur für diese Nachricht verwendet wird.
@@ -581,8 +613,10 @@ Datenmengen zu verschlüsseln (mit den geheimen Schlüsseln).
 % --------------------------------------------------------------------------
 \newpage
 % \vskip +40 pt
+
 \begin{ctsquote}
-    Ein altes Sprichwort, angeblich geprägt von der US National Security Agency (NSA), sagt:\\
+    Ein altes Sprichwort, angeblich geprägt von der
+    US National Security Agency (NSA), sagt:\\
     ``Angriffe werden immer besser, niemals schlechter.''\\
     ``Attacks always get better; they never get worse.''
 \caption[IETF]{IETF\footnotemark}
@@ -590,7 +624,17 @@ Datenmengen zu verschlüsseln (mit den geheimen Schlüsseln).
 \addtocounter{footnote}{0}\footnotetext{%
   \url{http://tools.ietf.org/html/rfc4270}\index{IETF}\index{NSA}
   }
-\section{Kryptoanalyse und Chiffren für Lehrzwecke} \index{Kryptoanalyse}
+
+\section[Kryptoanalyse und symmetrische Chiffren für Lehrzwecke]{Kryptoanalyse und symmetrische Chiffren für Lehrzwecke\footnotemark} 
+\footnotetext{%
+Ein guter Start in die Kryptoanalyse ist das Buch von Mark Stamp \cite{cm:Stamp2007}.\\
+Sehr high-level und nur bezogen auf die Analyse symmetrischer Blockchiffren ist
+der Artikel von Bruce Schneier \cite{cm:Schneier2000cm}.\\
+Einige der Cipher-Challenges bei \glqq MysteryTwister C3\grqq
+(\url{http://www.mysterytwisterc3.org}) sind ebenfalls gut für Lehrzwecke
+einsetzbar.\index{MTC3}\index{Challenge}\index{Cipher-Challenge}\index{Krypto-Wettbewerb}
+}
+\index{Kryptoanalyse}
 
 Verglichen mit den auf der Zahlentheorie beruhenden Public-Key-Verschlüsselungsverfahren
 wie RSA, ist die Struktur von AES und den meisten anderen modernen symmetrischen
@@ -613,7 +657,7 @@ seinen Studenten \cite{cm:Musa-etal2003}%
     - \url{http://math.scu.edu/~eschaefe/getfile.pdf} \\
     - \url{http://www.scu.edu/cas/research/cryptography.cfm}
 }. Eine andere Variante ist Mini-AES \cite{cm:Phan2002}
-(siehe das Kapitel~\ref{CM_Sage_Mini-AES} ``\nameref{CM_Sage_Mini-AES}'')%
+(siehe das Kapitel~\ref{CM_Sage_Mini-AES} \glqq \nameref{CM_Sage_Mini-AES}\grqq)%
 \index{DES}\index{DES!SDES}\index{IDEA}:
 \begin{itemize}
 
@@ -788,6 +832,12 @@ True
        Draft 1. Mai 2001, \\
        \url{http://www.xs4all.nl/~vorpal/pubs/rdalgeq.html}
 
+\bibitem[Haan2008]{cm:Haan2008} \index{Haan 2008} 
+       Kristian Laurent Haan, \\
+       {\em Advanced Encryption Standard (AES)},\\
+       2008 \\
+       \url{http://www.codeplanet.eu/tutorials/cpp/51-advanced-encryption-standard.html}
+
 \bibitem[Hoffman2006]{cm:Hoffman2006} \index{Hoffman 2006} 
        Nick Hoffman, \\
        {\em A SIMPLIFIED IDEA ALGORITHM},\\
@@ -801,9 +851,10 @@ True
 
 \bibitem[Mansoori-etal2007]{cm:Mansoori-etal2007} \index{Mansoori, Bizaki 2007} 
        S. Davod. Mansoori, H. Khaleghei Bizaki, \\
-       {\em On the vulnerability of Simplified AES Algorithm Against Linear Cryptanalysis}, \\
-       In: IJCSNS International Journal of Computer Science and Network Security, Vol.7 No.7,
-           Juli 2007, Seite~257-263. \\
+       {\em On the vulnerability of Simplified AES Algorithm Against Linear
+       Cryptanalysis}, \\
+       In: IJCSNS International Journal of Computer Science and Network Security,
+       Vol.7 No.7, Juli 2007, Seite~257-263. \\
        Siehe auch:\\
        \url{http://paper.ijcsns.org/07_book/200707/20070735.pdf}
 
@@ -884,6 +935,12 @@ True
        Bruce Schneier, \\
        {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
        Wiley 1994, 2nd edition 1996.
+
+\bibitem[Schneier2000]{cm:Schneier2000cm} \index{Schneier 2000} 
+       Bruce Schneier, \\
+       {\em A Self-Study Course in Block-Cipher Cryptanalysis}, \\
+       Cryptologia, v.24, Jan 2000, pp. 18-34\\
+       \url{www.schneier.com/paper-self-study.pdf}
 
 \bibitem[Stallings2006]{cm:Stallings2006} \index{Stallings 2006} 
        William Stallings, \\

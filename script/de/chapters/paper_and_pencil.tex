@@ -8,8 +8,10 @@
 
 \chapter{Papier- und Bleistift-Verschlüsselungsverfahren}
 \label{Kapitel_PaperandPencil}
-(Christine Stötzel, April 2004; Updates B.+C. Esslinger, Juni 2005; Updates Minh Van Nguyen und B. Esslinger, November 2009 und Juni 2010)
+(Christine Stötzel, April 2004; Updates B.+C. Esslinger, Juni 2005;
+ Updates Minh Van Nguyen und B. Esslinger, Nov. 2009, June 2010 und Nov. 2012)
 \index{Papier- und Bleistiftverfahren}
+\index{Verschlüsselung!klassisch}
 
 \begin{ctsquote}
 Nur Wenige kann man glauben machen, dass es keine leichte Sache ist,
@@ -21,11 +23,14 @@ keine Chiffre erdenken kann, die menschlicher Scharfsinn nicht lösen kann.
 
 Das folgende Kapitel bietet einen recht vollständigen Überblick über Papier- 
 und Bleistiftverfahren\footnote{%
-In den Fußnoten zu diesem Kapitel wird jeweils beschrieben, wie man diese
-Verfahren mit CrypTool 1 (CT1)\index{CT1}, CrypTool 2 (CT2)\index{CT2} oder
-JCrypTool (JCT)\index{JCT} ausführen kann.
+Die Fußnoten zu diesem Kapitel beschreiben, wie man die besprochenen
+Verfahren mit den Offline-Programmen CrypTool 1 ({\bf CT1})\index{CT1},
+CrypTool 2 ({\bf CT2})\index{CT2} und JCrypTool ({\bf JCT})\index{JCT} ausführen kann.\\
+Viele der Verfahren lassen sich auch online im Browser durchführen, z.B. auf
+der CrypTool-Online-Seite ({\bf CTO}) (\url{http://www.cryptool-online.org})\index{CTO}.
+Vergleiche auch den Anhang \ref{s:appendix-function-overview-CTO}.\\
 Außerdem enthält das letzte Unterkapitel (\ref{PaP_Sage_samples})
-zu einigen Verfahren Beispielcode in dem Computer-Algebra-System Sage\index{Sage}.
+zu einigen Verfahren Beispielcode für das Computer-Algebra-System {\bf Sage}\index{Sage}.
                                }.
 Unter diesem Begriff lassen sich alle Verfahren zusammenfassen, die Menschen von
 Hand anwenden können, um Nachrichten zu ver- und entschlüsseln.
@@ -75,16 +80,16 @@ ist Permutation\index{Permutation}.}.
 \begin{itemize}
 
 \item {\bf Gartenzaun}\footnote{%
-   Dieses Verfahren kann direkt in CrypTool\index{CrypTool} mit dem Menüpunkt 
+   Dieses Verfahren kann direkt in CT1\index{CrypTool 1} mit dem Menüpunkt 
    {\bf Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch) \textbackslash{}
    Skytale / Gartenzaun} abgebildet werden.
-   Man kann diese Matheode auch simulieren über den Menüeintrag {\bf Ver-/Entschlüsseln
+   Man kann diese Metheode auch simulieren über den Menüeintrag {\bf Ver-/Entschlüsseln
    \textbackslash{} Symmetrisch (klassisch) \textbackslash{} Permutation}:
-   für einen Gartenzaun mit 2 Zeilen gibt man als Schlüssel
+   Für einen Gartenzaun mit 2 Zeilen gibt man als Schlüssel
    "`B,A"' ein und lässt ansonsten die Standardeinstellungen (nur 1
    Permutation, in der man zeilenweise ein- und spaltenweise ausliest). 
    Mit dem Schlüssel "`A,B"' würde man man das Zick-zack-Muster unten so 
-   beginnen, dass der 1. Buchstabe in der ersten statt in der 2. Zeile steht.}
+   beginnen, dass der 1. Buchstabe in der ersten statt in der zweiten Zeile steht.}
    \cite{pp:Singh2001}\index{Gartenzaun-Verschlüsselung}:
                         % Kein Blank VOR "\index", sonst ist der
                         % Doppelpunkt nicht direkt nach dem Fussnotenindex.
@@ -93,8 +98,8 @@ ist Permutation\index{Permutation}.}.
    Dann werden die Zeichen zeilenweise nacheinander gelesen.\\
    Dieses Verfahren ist eher eine Kinderverschlüsselung.
 	
-   Klartext\footnote{Wenn das Alphabet nur die 26 Buchstaben verwendet, 
-   schreiben wir den Klartext in Kleinbuchstaben und den Geheimtext in 
+   Klartext\footnote{Konvention: Wenn das Alphabet nur die 26 Buchstaben verwendet, 
+   schreiben wir im Folgenden den Klartext in Kleinbuchstaben und den Geheimtext in 
    Großbuchstaben.}: ein beispiel zur transposition
 
    \begin{table}[ht]
@@ -119,21 +124,23 @@ ist Permutation\index{Permutation}.}.
 
 
 \item {\bf Skytale von Sparta}\footnote{%
-   Dieses Verfahren kann direkt in CrypTool\index{CrypTool} mit dem Menüpunkt 
-   {\bf Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch) \textbackslash{}
-   Skytale / Gartenzaun} abgebildet werden.
-   Da dieses Verschlüsselungsverfahrens ein Spezialfall der einfachen
-   Spaltentransposition ist, kann man es in CrypTool\index{CrypTool} simulieren
-   über den Menüeintrag {\bf Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch) 
-   \textbackslash{} Permutation}: Für die Skytale braucht man in
-   der Dialogbox nur die erste Permutation. Darin gibt man bei z.B. 4 
-   Kanten als Schlüssel  "`1,2,3,4"'  ein. Dies wäre so, als würde man
-   den Text in 4-er Blöcken waagrecht in eine Tabelle schreiben und 
-   senkrecht auslesen. 
-   Weil der Schlüssel aufsteigend geordnet ist, bezeichnet man die Skytale
-   auch als identische Permutation. Weil das Schreiben und Auslesen nur 
-   einmal durchgeführt wird, als einfache (und nicht als doppelte)
-   Permutation.}
+    Dieses Verfahren kann direkt in CT1\index{CrypTool 1} mit dem Menüpunkt 
+    {\bf Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch) \textbackslash{}
+    Skytale / Gartenzaun} abgebildet werden.
+    Da dieses Verschlüsselungsverfahrens ein Spezialfall der einfachen
+    Spaltentransposition ist, kann man es in CT1\index{CrypTool 1} auch
+    über den Menüeintrag {\bf Ver-/Entschlüsseln \textbackslash{}
+    Symmetrisch (klassisch) \textbackslash{} Permutation} simulieren: Für die
+    Skytale braucht man in der Dialogbox nur die erste Permutation. Darin gibt
+    man bei z.B. 4 Kanten als Schlüssel  "`1,2,3,4"'  ein. Dies wäre so, als
+    würde man den Text in 4-er Blöcken waagrecht in eine Tabelle schreiben und 
+    senkrecht auslesen. 
+    Weil der Schlüssel aufsteigend geordnet ist, bezeichnet man die Skytale
+    auch als identische Permutation. Und weil das Schreiben und Auslesen nur 
+    einmal durchgeführt wird, als einfache (und nicht als doppelte) Permutation.\\
+    In CT2\index{CrypTool 2} findet sich die Skytale bei den Vorlagen unter
+    {\bf Kryptographie \textbackslash{} Klassisch}.
+   }
    \cite{pp:Singh2001}\index{Skytale}%
    : 
    Dieses Verfahren wurde wahrscheinlich das erste Mal um 600 v.Chr.
@@ -143,6 +150,7 @@ ist Permutation\index{Permutation}.}.
    darauf zeilenweise der Klartext geschrieben. 
    Wickelt man den Streifen ab, hält man den Geheimtext in den Händen.
 
+
 \item {\bf Schablone} \cite{pp:Goebel2003}: Sender und Empfänger benutzen
    die gleiche Schablone. In deren Löcher werden zeilenweise die
    Klartextzeichen geschrieben, die dann spaltenweise ausgelesen werden. 
@@ -151,14 +159,18 @@ ist Permutation\index{Permutation}.}.
    Dieses Verfahren kann man nicht durch eine einfache Spaltentransposition
    darstellen.}.
 
+
    \hypertarget{turning-grille}{}  %be_2006 so ist es gut.
 \item {\bf Fleißner-Schablone} \cite{pp:Savard1999}% verhindert, dass Blank vor ":"
    \index{Fleißner-Schablone}: 
    Die Fleißner-Schablone
    wurde im Ersten Weltkrieg von deutschen Soldaten benutzt\footnote{%
-   Erfunden wurde die Fleißner-Schablone bereits 1881 von Eduard Fleißner
-   von Wostrowitz.\\
-   Eine gute Visualisierung findet sich unter www.turning-grille.com.}%
+      Erfunden wurde die Fleißner-Schablone bereits 1881 von Eduard Fleißner
+      von Wostrowitz.\\
+      Eine gute Visualisierung findet sich unter www.turning-grille.com.\\
+      In JCT\index{JCrypTool}\index{JCT} findet man es in der Standard-Perspektive
+      über den Menüeintrag {\bf Visualisierungen \textbackslash{} Grille}.
+   }%
    .
    Ein quadratisches Gitter dient als Schablone, wobei ein Viertel der 
    Felder Löcher hat. Der erste Teil des Klartextes wird zeichenweise 
@@ -197,7 +209,7 @@ ist Permutation\index{Permutation}.}.
 \subsection[Spalten- und Zeilentranspositionsverfahren]
     {Spalten- und Zeilentranspositionsverfahren\footnotemark}
     \footnotetext{%
-Die meisten der folgenden Verfahren können in CrypTool\index{CrypTool}
+Die meisten der folgenden Verfahren können in CT1\index{CrypTool 1}
 mit dem Menüpunkt {\bf Ver-/Entschlüsseln \textbackslash{} 
 Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
 
@@ -210,7 +222,7 @@ Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
    Die Spalten werden entsprechend des Auftretens der Buchstaben des 
    Schlüsselwortes im Alphabet durchnummeriert. In dieser Reihenfolge werden 
    nun auch die Spalten ausgelesen und so der Geheimtext gebildet\footnote{%
-   Darstellung mit CrypTool: Eingabe eines Schlüssels für die 1. Permutation,
+   Darstellung mit CT1: Eingabe eines Schlüssels für die 1. Permutation,
    zeilenweise einlesen, spaltenweise permutieren und auslesen.}.
 	
    Klartext: ein beispiel zur transposition
@@ -252,7 +264,7 @@ Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
    Kalten Krieges angewendet. Dabei werden zwei Spaltentranspositionen 
    nacheinander durchgeführt, für die zweite Transposition wird ein neuer
    Schlüssel benutzt\footnote{%
-   Darstellung mit CrypTool: Eingabe eines Schlüssels für die 1. Permutation,
+   Darstellung mit CT1: Eingabe eines Schlüssels für die 1. Permutation,
    zeilenweise einlesen, spaltenweise permutieren und auslesen.
    Eingabe eines (neuen) Schlüssels für die 2. Permutation, Ergebnis der
    1. Permutation zeilenweise einlesen, spaltenweise permutieren und
@@ -260,8 +272,9 @@ Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
    Werden zwei unterschiedliche und genügend lange Schlüssel (mindestens je 20
    Zeichen) verwendet, dann ist das auch für heutige Computer noch eine
    Herausforderung\footnote{%
-     In MTC3 findet sich dazu die Level-X-Challenge "`Doppelwürfel"':\\
-     \url{http://www.mysterytwisterc3.org/de/crypto-challenges/level-x-cryptography-challenges?id=12}            }.
+     In MTC3\index{MTC3} findet sich dazu die Level-X-Challenge "`Doppelwürfel"':\\
+     \url{http://www.mysterytwisterc3.org/de/challenges-de/level-x-kryptographie-challenges/doppelwuerfel}
+   }.
 
 	
 
@@ -308,7 +321,7 @@ Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
    wird die Reihenfolge der Buchstaben bzw. der Spalten vertauscht. Da das 
    Auslesen zeilenweise erfolgt, wird nur jeweils innerhalb der Blöcke 
    permutiert\footnote{%
-   Darstellung mit CrypTool: Eingabe eines Schlüssels für die 1. Permutation, 
+   Darstellung mit CT1: Eingabe eines Schlüssels für die 1. Permutation, 
    zeilenweise einlesen, spaltenweise permutieren und zeilenweise auslesen.}.
 
 \end{itemize}
@@ -449,22 +462,25 @@ Zuordnung ist während des ganzen Verschlüsselungsprozesses dieselbe.
 \item {\bf Allgemeine monoalphabetische Substitution / Zufällige
    Buchstabenzuordnung\footnotemark}
    \footnotetext{%
-   Dieses Verfahren kann in CrypTool\index{CrypTool} mit dem Menüpunkt 
-   {\bf Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch) \textbackslash{}
-   Substitution / Atbash} abgebildet werden.}
+    Dieses Verfahren kann in CT1\index{CrypTool 1} mit dem Menüpunkt 
+    {\bf Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch) \textbackslash{}
+    Substitution / Atbash} abgebildet werden.\\
+    In CT2\index{CrypTool 2} finden sich diese Verfahren bei den Vorlagen unter
+    {\bf Kryptographie \textbackslash{} Klassisch}.
+   }
    \cite{pp:Singh2001}: Die Substitution erfolgt aufgrund einer festgelegten
    Zuordnung der Einzelbuchstaben.
 
 \item {\bf Atbash\footnotemark}
    \footnotetext{%
-   Dieses Verfahren kann in CrypTool\index{CrypTool} mit dem Menüpunkt 
+   Dieses Verfahren kann in CT1\index{CrypTool 1} mit dem Menüpunkt 
    {\bf Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch) \textbackslash{}
    Substitution / Atbash} abgebildet werden.} 
    \cite{pp:Singh2001}\index{Atbash}: Der erste Buchstabe des Alphabets wird 
    durch den letzten Buchstaben des Alphabets ersetzt, 	der zweite durch den
    vorletzten, usw.
 
-\item {\bf Verschiebechiffre, z.B. Caesar}\footnote{In CrypTool
+\item {\bf Verschiebechiffre, z.B. Caesar}\footnote{In CT1\index{CrypTool 1}
    kann man dieses Verfahren an drei verschiedenen Stellen im Menü finden:\\
    - {\bf Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch)
      \textbackslash{} Caesar / ROT13} \\
@@ -472,19 +488,28 @@ Zuordnung ist während des ganzen Verschlüsselungsprozesses dieselbe.
      \textbackslash{} Ciphertext only \textbackslash{} Caesar} \\
    - {\bf Einzelverfahren \textbackslash{} Visualisierung von Algorithmen
      \textbackslash{} Caesar}. }
-   \cite{pp:Singh2001}\index{Caesar}%
+   \cite{pp:Singh2001}\index{Caesar}\index{Verschiebechiffre}%
    : Klartext- und Geheimtextalphabet werden um eine bestimmte Anzahl von
    Zeichen gegeneinander verschoben.
 
    Klartext:\\ 	\texttt{bei der caesarchiffre wird um drei stellen verschoben}
 
-   Geheimtext:\\ \texttt{EHL GHU FDHVDUFKLIIUH ZLUG XP GUHL VWHOOHQ YHUVFKREHQ}\\
+   Geheimtext:\\ \texttt{EHL GHU FDHVDUFKLIIUH ZLUG XP GUHL VWHOOHQ YHUVFKREHQ}
 
-\item {\bf Affine Chiffre}: Dies ist eine Verallgemeinerung der
-   Verschiebechiffre. Jeder Klartext-Buchstabe wird erst durch einen anderen
+\item {\bf Affine Chiffre}\footnote{
+   Mit Sage sind dazu unter \ref{PaP_affine_cipher_sage-sample} einige Beispiele
+   implementiert.}%
+   \index{Affine Chiffre}: Dies ist eine Verallgemeinerung
+   der Verschiebechiffre. Jeder Klartext-Buchstabe wird erst durch einen anderen
    ersetzt und das Ergebnis wird dann mit der Verschiebechiffre verschlüsselt.
    Die Bezeichnung "`affine Chiffre"' kommt daher, dass man die
-   Ver- und Entschlüsselungs-Funktion affine bzw. lineare Funktionen sind.
+   Ver- und Entschlüsselung als affine bzw. lineare Funktion beschreiben kann.
+
+
+\label{PaP_affine_cipher_sage-sample}
+
+
+
 
 \item {\bf Substitution mit Symbolen, z.B. Freimaurerchiffre}  
    \cite{pp:Singh2001}: Ein Buchstabe wird durch ein Symbol ersetzt.
@@ -492,7 +517,7 @@ Zuordnung ist während des ganzen Verschlüsselungsprozesses dieselbe.
 \item {\bf Varianten}: Füller, absichtliche Fehler \cite{pp:Singh2001}.
 
 \item {\bf Nihilist-Substitution}\footnote{Eine Animation zu diesem
-   Nihilist-Verfahren findet sich in CrypTool unter dem Menüpunkt 
+   Nihilist-Verfahren findet sich in CT1\index{CrypTool 1} unter dem Menüpunkt 
      {\bf Einzelverfahren \textbackslash{} Visualisierung von Algorithmen 
      \textbackslash{} Nihilist}. }
    \cite{pp:ACA2002}\index{Nihilist-Substitution}: Das Alphabet wird in 
@@ -764,7 +789,7 @@ Geheimtextzeichen zugeordnet.
 
 \begin{itemize}
 
-\item {\bf Homophone monoalphabetische Substitution}\footnote{In CrypTool
+\item {\bf Homophone monoalphabetische Substitution}\footnote{In CT1\index{CrypTool 1}
    kann man dieses Verfahren über den Menüeintrag {\bf Ver-/Entschlüsseln
    \textbackslash{} Symmetrisch (klassisch) \textbackslash{} Homophone}
    aufrufen.}
@@ -819,22 +844,26 @@ sich um Digramme, Trigramme, Silben, etc. handeln.
    zuweisen.
 
    \hypertarget{playfair}{}
-\item {\bf Playfair}\footnote{In CrypTool
+\item {\bf Playfair}\footnote{In CT1\index{CrypTool 1}
    kann man dieses Verfahren über den Menüeintrag {\bf Ver-/Entschlüsseln
    \textbackslash{} Symmetrisch (klassisch) \textbackslash{} Playfair}
-   aufrufen.}
+   aufrufen.\\
+   In JCT\index{JCrypTool}\index{JCT} findet man es in der Standard-Perspektive
+   über den Menüeintrag {\bf Algorithmen \textbackslash{} Klassisch \textbackslash{}
+   Playfair}.
+   }
    \cite{pp:Singh2001}\index{Playfair}: 
    Eine 5x5-Matrix wird mit dem Alphabet gefüllt, z.B. erst mit den 
    verschiedenen Zeichen eines Schlüsselwortes, dann mit den restlichen 
    Buchstaben des Alphabets. Der Klartext wird in Digramme unterteilt, die 
    nach den folgenden Regeln verschlüsselt werden:
    \begin{enumerate}
-      \item Befinden sich die Buchstaben in der selben Spalte, werden sie durch 
+      \item Befinden sich die Buchstaben in derselben Spalte, werden sie durch 
          die Buchstaben ersetzt, die direkt darunter stehen.
-      \item Befinden sich die Buchstaben in der selben Zeile, nimmt man jeweils
+      \item Befinden sich die Buchstaben in derselben Zeile, nimmt man jeweils
          den Buchstaben rechts vom Klartextzeichen.
       \item Befinden sich die Buchstaben in unterschiedlichen Spalten und 
-         Zeilen, nimmt man jeweils den Buchstaben, der zwar in der selben
+         Zeilen, nimmt man jeweils den Buchstaben, der zwar in derselben
          Zeile, aber in der Spalte des anderen Buchstabens steht.
       \item Für Doppelbuchstaben (falls sie in einem Digramm vorkommen)
          gelten Sonderregelungen, wie zum Beispiel
@@ -964,9 +993,15 @@ ist die Zuordnung Klartext-/Geheimtextzeichen nicht fest, sondern variabel
 \begin{itemize}
 
 \item {\bf Vigen\`ere}\footnote{%
-   In CrypTool kann man dieses Verfahren über den Menüeintrag {\bf 
+   In CT1\index{CT1} kann man dieses Verfahren über den Menüeintrag {\bf 
    Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch) 
-   \textbackslash{} Vigen\`ere} aufrufen.}
+   \textbackslash{} Vigen\`ere} aufrufen.\\
+   In CT2\index{CrypTool 2} findet sich dieses Verfahren bei den Vorlagen
+   unter {\bf Kryptographie \textbackslash{} Klassisch}.\\
+   In JCT\index{JCrypTool}\index{JCT} findet man es in der Standard-Perspektive
+   über den Menüeintrag {\bf Algorithmen \textbackslash{} Klassisch
+   \textbackslash{} Vigen\`ere}.
+   }
    \cite{pp:Singh2001}\index{Vigen\`ere}: 
    Entsprechend den Zeichen eines Schlüsselwortes wird jedes Klartextzeichen
    mit einem anderen Geheimtextalphabet verschlüsselt (als Hilfsmittel dient
@@ -1027,8 +1062,15 @@ ist die Zuordnung Klartext-/Geheimtextzeichen nicht fest, sondern variabel
      Der Schlüssel wird nicht fortlaufend wiederholt, sondern beginnt mit 
      jedem neuen Klartextwort von vorne.
 
+
  
-   \item {\bf Autokey-Variante} \cite{pp:Savard1999}: 
+   \item {\bf Autokey-Variante}\footnote{%
+   In CT2\index{CrypTool 2} findet sich dieses Verfahren bei den Vorlagen
+   unter {\bf Kryptographie \textbackslash{} Klassisch}.\\
+   In JCT\index{JCrypTool}\index{JCT} findet man es in der Standard-Perspektive
+   über den Menüeintrag {\bf Algorithmen \textbackslash{} Klassisch
+   \textbackslash{} Autokey-Vigen\`ere}.
+   } \cite{pp:Savard1999}: 
       Nachdem der vereinbarte Schlüssel abgearbeitet wurde, geht man dazu
       über, die Zeichen der Nachricht als Schlüssel zu benutzen.
 
@@ -1091,7 +1133,13 @@ ist die Zuordnung Klartext-/Geheimtextzeichen nicht fest, sondern variabel
        \item {\bf One-Time-Pad (OTP)}\footnote{%
           In CT1\index{CT1} kann man dieses Verfahren über den Menüeintrag {\bf 
           Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch) 
-          \textbackslash{} Vernam / OTP} aufrufen.}\index{One-Time-Pad}\index{OTP}:
+          \textbackslash{} Vernam / OTP} aufrufen.\\
+          In CT2\index{CrypTool 2} findet sich dieses Verfahren bei den Vorlagen
+          unter {\bf Kryptographie \textbackslash{} Klassisch}.\\
+          In JCT\index{JCrypTool}\index{JCT} findet man es in der Standard-Perspektive
+          über den Menüeintrag {\bf Algorithmen \textbackslash{} Klassisch
+          \textbackslash{} XOR}.
+          }\index{One-Time-Pad}\index{OTP}:
           Eine Folge von Bytes wird Byte-für-Byte mit dem Klartext XOR-verknüpft.
           Dies ist eine Verallgemeinerung des Vigen\`ere-Verfahrens, und es war
           das erste Informations-theoretisch sichere Schema (vgl.
@@ -1160,9 +1208,12 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
 \begin{itemize}
 
 \item {\bf ADFG(V)X}\footnote{%
-   In CrypTool kann man dieses Verfahren über den Menüeintrag {\bf 
-   Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch) 
-   \textbackslash{} ADFGVX} aufrufen.}
+   In CT1\index{CrypTool 1} kann man dieses Verfahren über den Menüeintrag
+   {\bf Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch) 
+   \textbackslash{} ADFGVX} aufrufen.\\
+   In CT2\index{CrypTool 2} findet sich dieses Verfahren bei den Vorlagen
+   unter {\bf Kryptographie \textbackslash{} Klassisch}.
+   }
    \cite{pp:Singh2001}\index{ADFGVX}%
    : 
    Die ADFG(V)X-Verschlüsselung wurde in Deutschland im ersten Weltkrieg 
@@ -1424,10 +1475,8 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
    \begin{itemize}
       \item {\bf Solitaire (Bruce Schneier)\footnotemark}
          \footnotetext{%
-         %Dieses Verfahren wird in einem zukünftigen Release von CrypTool
-         %enthalten sein.}
-         In CrypTool kann man dieses Verfahren über den Menüeintrag {\bf 
-         Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch) 
+         In CT1\index{CrypTool 1} kann man dieses Verfahren über den Menüeintrag
+         {\bf Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch) 
          \textbackslash{} Solitaire} aufrufen.}
          \cite{pp:Schneier1999}\index{Solitaire}: 
          Sender und Empfänger der Botschaft müssen jeweils ein Kartenspiel
@@ -1542,8 +1591,9 @@ Alle Verfahren sind im Kapitel~\ref{Kapitel_PaperandPencil}
      - unter \url{http://www.sagemath.org/doc/constructions/linear_codes.html\#classical-ciphers}\\
      - in der Diplomarbeit von Minh Van Nguyen \cite{pp:Nguyen2009}
                                           }
-leichter lesbar zu machen, hielten wir uns an die in der folgenden
-Grafik aufgeführten Bezeichnungen und Abläufe:
+zu den Verschlüsselungsver\-fah\-ren leichter lesbar zu machen, hielten wir uns
+an die in der folgenden Abbildung \ref{naming-convention-in-Sage-cipher-samples}
+aufgeführten Bezeichnungen und Abläufe:
 \begin{itemize}
   \item Die Verschlüsselung besteht aus den Schritten codieren und verschlüsseln.
   \begin{itemize}
@@ -1561,9 +1611,9 @@ Grafik aufgeführten Bezeichnungen und Abläufe:
 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[scale=0.5]{figures/encryption-decryption-de}
-\caption{Namenskonventionen in den Sage-Programmbeispielen zu Verschlüsselungsver\-fah\-ren} 
-\label{XXX}
+\includegraphics[scale=0.5]{figures/notation-enc-dec_in-sage-scripts_de}
+\caption{Namenskonventionen in den Sage-Programmbeispielen} 
+\label{naming-convention-in-Sage-cipher-samples}
 \end{center}
 \end{figure}
 
@@ -1572,6 +1622,7 @@ Grafik aufgeführten Bezeichnungen und Abläufe:
 % ---------------------------------------------------------------------------
 \newpage
 \subsection{Transpositions-Chiffren}
+\index{Transposition}
 
 Tranpositions-Chiffren sind implementiert in der Sage-Klasse
 \begin{center}
@@ -1776,6 +1827,7 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZAB
 % ---------------------------------------------------------------------------
 \newpage
 \subsection{Substitutions-Chiffren}
+\index{Substitution}
 
 Substitutions-Verschlüsselungen sind in Sage in der folgenden Klasse implementiert
 \begin{center}
@@ -1821,6 +1873,7 @@ True
 % ---------------------------------------------------------------------------
 \newpage
 \subsubsection{Caesar-Chiffre}
+\index{Caesar}
 
 Das folgende Programmbeispiel erzeugt eine Caesar-Chiffre.
 
@@ -1915,6 +1968,7 @@ True
 % ---------------------------------------------------------------------------
 \newpage
 \subsubsection{Verschiebe-Chiffre}
+\index{Verschiebechiffre}
 
 Die Verschiebe-Chiffre kann man sich auch als Verallgemeinerung der ursprünglichen
 Caesar-Chiffre denken: Caesar shiftete das Alphabet immer genau um 3 Positionen.
@@ -1991,16 +2045,18 @@ True
 % ---------------------------------------------------------------------------
 \newpage
 \subsubsection{Affine Chiffren}
+\label{PaP_affine_cipher_sage-sample}
+\index{Affine Chiffre}
 
 Die affine Chiffre ist implementiert in the Sage-Klasse
 \begin{center}
 \verb!sage.crypto.classical.AffineCryptosystem!
 \end{center}
 
-Im folgenden Beispiel konstruieren wir eine affine Chiffre mit dem
-Schlüssel $(3, 13)$ und benutzen sie, um einen gegebenen Klartext P
-zu verschlüsseln. Der Klartext wird dann wieder entschlüsselt und das
-Ergebnis DC mit dem ursprünglichen Klartext verglichen.
+Im folgenden Beispiel konstruieren wir eine affine Chiffre $ c_i = b*p_i + a $
+mit dem Schlüssel $(3, 13)$ und benutzen sie, um einen gegebenen Klartext
+$P = (p_1,p_2, ...,p_n)$ zu verschlüsseln. Der Klartext wird dann wieder
+entschlüsselt und das Ergebnis DC mit dem ursprünglichen Klartext verglichen.
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -2098,6 +2154,7 @@ True
 % ---------------------------------------------------------------------------
 \newpage
 \subsubsection{Substitutions-Chiffre mit Symbolen}
+\index{Substitution}
 
 Im folgenden Sage-Programmbeispiel sind die Alphabetzeichen aus dem Binärsystem.
 Eine monoalphabetische Substitution über einem Binäralphabet bietet nur wenig
@@ -2192,6 +2249,7 @@ True
 % ---------------------------------------------------------------------------
 \newpage
 \subsubsection{Vigen{\`e}re-Verschlüsselung}
+\index{Vigen\`ere}
 
 Die Vigen{\`e}re-Verschlüsselung ist in der folgenden Sage-Klasse implementiert
 \begin{center}
@@ -2246,6 +2304,7 @@ True
 % ---------------------------------------------------------------------------
 \newpage
 \subsection{Hill-Verschlüsselung}
+\index{Hill}
 
 Die Hill~\cite{pp:Hill1929,pp:Hill1931}- oder Matrix-Verschlüsselung
 ist mathematisch anspruchsvoller als die Verfahren in den bisherigen
@@ -2264,25 +2323,27 @@ jedem Alphabet-Zeichen eine eindeutige natürliche Zahl modulo 26 zugewiesen.
 Die Größe der Matrix (auch Matrix-Dimension genannt) ist vom Hill-Verfahren
 selbst nicht beschränkt.
 
-\noindent {\bf Bemerkung:} Vergleich der Hill-Implementierung in CrypTool v1.4.30
+\noindent {\bf Bemerkung:} Vergleich der Hill-Implementierung in CrypTool v1.4.31
 und in Sage v4.2.1:
 \begin{itemize}
   \item Sage bietet schnelle Operationen auf der Kommandozeile;
         CrypTool stellt seine Funktionalität nur in einer GUI zur Verfügung.
   \item Sage bietet jede Matrix-Dimension an; CrypTool ist beschränkt auf die
         Werte 1 bis 10.
-  \item Sage weist dem ersten Alphabet-Zeichen immer den Wert 0 zu; und Sage
-        benutzt die Multiplikationsvariante
+  \item Sage erlaubt auch negative Zahlen in der Matrix, CrypTool nicht.
+  \item Sage weist dem ersten Alphabet-Zeichen immer den Wert 0 zu;\\
+        Sage lässt hierbei nur die 26 Großbuchstaben als Alphabet zu;\\
+        und es nutzt nur die Multiplikationsvariante
         Klartext-Zeilenvektor * Schlüsselmatrix: C = P*M.
   \item CrypTool erlaubt die Wahl zwischen 0 und 1 für das erste
-        Alphabet-Zeichen; und es bietet auch die umgekehrte
-        Multiplikationsvariante.
+        Alphabet-Zeichen; man kann sein Alphabet im Textoptionen-Dialog zusammen
+        stellen; und es bietet auch die umgekehrte Multiplikationsvariante.
 \end{itemize}
 
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.4]{figures/PaP_Fig_Hill-Cipher-CT-Dialog.png}
-\caption{Hill-Dialog in CrypTool mit den verfügbaren Operationen und Optionen\vspace{1ex}} 
+\caption{Hill-Dialog in CrypTool 1 mit den verfügbaren Operationen und Optionen\vspace{1ex}} 
 \label{PaP_Fig_Hill-Cipher-CT-Dialog}
 \end{center}
 \end{figure}

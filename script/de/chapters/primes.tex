@@ -7,7 +7,7 @@
 % \hypertarget{Kapitel_2}{}
 \chapter{Primzahlen}
 \label{Label_Kapitel_Primes}  %Die Kapitelnr. von \label wird per per \ref geholt.
-(Bernhard Esslinger, Mai 1999; Updates: Nov. 2000, Dez. 2001, Juni 2003, Mai 2005, März 2006, Juni 2007, Januar 2010, August 2012)
+(Bernhard Esslinger, Mai 1999; Updates: Nov. 2000, Dez. 2001, Juni 2003, Mai 2005, März 2006, Juni 2007, Jan. 2010, Nov. 2012)
 
 \begin{ctsquote}
     Der Fortschritt lebt vom Austausch des Wissens.
@@ -34,7 +34,7 @@ Somit bestehen die {\em natürlichen} \index{Zahlen} Zahlen $ \mathbb{N} = \{1, 2
    \item den zusammengesetzten Zahlen (composite numbers).
 \end{itemize}
 
-Primzahlen haben aus drei Gründen besondere Bedeutung erlangt:
+\noindent Primzahlen haben aus drei Gründen besondere Bedeutung erlangt:
 \begin{itemize}
   \item Sie werden in der Zahlentheorie als die Grundbausteine der
         natürlichen Zahlen betrachtet, anhand derer eine Menge genialer
@@ -424,11 +424,14 @@ aus welchen Faktoren diese Primzahl besteht:
 $$ 2^{67} -1 =147. 573. 952. 589. 676. 412. 927 = 193. 707. 721 \cdot 761. 838. 257. 287. $$
 Er gestand, 20 Jahre an der Faktorisierung \index{Faktorisierung} (Zerlegung in Faktoren)%
 \footnote{%
-  Mit CrypTool 1\index{CrypTool 1} können Sie Zahlen auf folgende Weise 
+  Mit CT1\index{CrypTool 1} können Sie Zahlen auf folgende Weise 
   faktorisieren: Menü {\bf Einzelverfahren \textbackslash{} RSA-Kryptosystem 
   \textbackslash{} Faktorisieren einer Zahl}. \\
-  In sinnvoller Zeit zerlegt CrypTool 1 Zahlen bis 250 Bit Länge.
-  Zahlen größer als 1024 Bit werden zur Zeit von CrypTool 1 nicht angenommen. \\
+  In sinnvoller Zeit zerlegt CT1 mit dem Quadratischen Sieb (QS) auf einem Einzel-PC
+  Zahlen bis 250 Bit Länge.
+  Zahlen größer als 1024 Bit werden zur Zeit von CT1 nicht angenommen.\\
+  Mit CT2 kann man sowohl das QS als auch das GNFS (General Number Field Sieve)
+  anwenden und die Berechnungen auf mehrere Rechner verteilen.\\
   Die aktuellen Faktorisierungsrekorde finden Sie in Kapitel
   \ref{nt:NoteFactorization}.
   \index{Faktorisierung!Faktorisierungsrekorde}
@@ -684,10 +687,12 @@ $2^{127}-1$ prim ist. Solange wird wohl kein neuer Rekord mehr Bestand haben.
     In dem Lernprogramm {\bf ZT} können Sie den Fermat-Test und den Miller-Rabin-Test
     geführt Schritt für Schritt anwenden: Siehe Lern-Kapitel 3.2 und 3.3, 
     Seiten 3-11/11.\\
-    ZT können Sie in CrypTool\index{CrypTool} über das Menü
+    ZT können Sie in CT1\index{CrypTool 1} über das Menü
     {\bf Einzelverfahren \textbackslash{} Zahlentheorie interaktiv
     \textbackslash{} Lernprogramm für Zahlentheorie} aufrufen.
-    Siehe auch Anhang \ref{s:appendix-Learn-NT}.
+    Siehe auch Anhang \ref{s:appendix-Learn-NT}.\\
+    Eine Visualisierung dieses Verfahrens ist in CT2\index{CrypTool 2}
+    in dem Tutorial \glqq World of Primes'' enthalten.
 }
 \label{primality_tests}   % chap. 3.5
 \index{Primzahltest}
@@ -1533,7 +1538,7 @@ Die \textbf{Verteilung} der Primzahlen%
     Einige Visualisierungen (Plots) zur Menge von Primzahlen in verschiedenen
     Zahlendimensionen finden Sie in
     Kapitel~\ref{primes:_Appendix_Plotting-Primes-Quantity}
-    ``\nameref{primes:_Appendix_Plotting-Primes-Quantity}''.
+    \glqq \nameref{primes:_Appendix_Plotting-Primes-Quantity}''.
 } weist viele
 Unregelmäßigkeiten auf, für die bis heute kein \glqq System''
 gefunden wurde: Einerseits liegen viele eng benachbart wie $2$ und
@@ -1571,10 +1576,13 @@ der größten Zahl, deren Quadrat kleiner oder gleich $x$ ist.%
 Mit dem Lernprogramm {\bf ZT} können Sie für beliebige eigene Wertemengen
 das Sieb des Eratosthenes rechnergestützt und geführt Schritt für
 Schritt anwenden: Siehe Lern-Kapitel 1.2, Seite 6/21 und 7/21.\\
-ZT können Sie in CrypTool\index{CrypTool} über das Menü
+ZT können Sie in CT1\index{CrypTool 1} über das Menü
 {\bf Einzelverfahren \textbackslash{} Zahlentheorie interaktiv \textbackslash{}
 Lernprogramm für Zahlentheorie} aufrufen.
-    Siehe Anhang \ref{s:appendix-Learn-NT}.}
+    Siehe Anhang \ref{s:appendix-Learn-NT}.
+    Eine Visualisierung dieses Verfahrens ist in CT2\index{CrypTool 2}
+    in dem Tutorial \glqq World of Primes'' enthalten.
+}
 
 
 Abgesehen von 2 sind Primzahlen nie gerade. Abgesehen von 2 und 5 haben Primzahlen nie die
@@ -1601,7 +1609,9 @@ nicht betrachtet. Auf einige dieser Themen geht das \hyperlink{Chapter_Elementar
 
 % --------------------------------------------------------------------------
 \pagebreak
+\hypertarget{h_Notes-about-primes}{}
 \section{Anmerkungen zu Primzahlen}
+\label{l_Notes-about-primes}
 
 Die folgenden Anmerkungen listen einzelne interessante Sätze, Vermutungen und 
 Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
@@ -1723,7 +1733,7 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
      dass die Mathematik mehr als alle anderen Wissenschaften und Künste 
      ein Spiel für junge Leute sei. \\
      Der damals 27 Jahre alte Ben Green von der University of British Columbia
-     in Vancouver und der 29 Jahre alte Terence Tao\index{Tao, Terence} von der
+     in Vancouver und der damals 29 Jahre alte Terence Tao\index{Tao, Terence} von der
      University of California in Los Angeles scheinen ihm recht zu geben.
      }
      Mathematikern  Ben Green and Terence Tao ist es im Jahre 2004 gelungen,
@@ -1946,7 +1956,9 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
 
 % --------------------------------------------------------------------------
 \vskip +10 pt
+\hypertarget{HT-GoldbachConjecture}{}
 \subsubsection{Die Goldbach-Vermutung}
+\label{L-GoldbachConjecture}
 
 Hier soll noch etwas tiefer auf auf die
 \textbf{Goldbach-Vermutung}\index{Goldbach-Vermutung}\footnote{%
@@ -2216,7 +2228,7 @@ außerhalb der wissenschaftlichen For"-schung.
 \mbox{}
 \vskip +10 pt
 Im Sommer 2004 benutzte die Firma Google die Zahl e\footnote{Die Basis des
-natürlichen Logarithmus e ist ungefähr 2,718 281 828 459. Dies ist eine der
+natürlichen Logarithmus\index{Logarithmus!natürlicher} e ist ungefähr 2,718 281 828 459. Dies ist eine der
 bedeutendsten Zahlen in der Mathematik. Sie wird gebraucht für komplexe Analysis,
 Finanzmathematik, Physik und Geometrie. Nun wurde sie -- meines Wissens -- das
 erste Mal für Marketing oder Personalbeschaffung verwendet.},
@@ -2868,7 +2880,8 @@ $f(n)$ erzeugten Werte darstellt.\\
 
 Bei längeren Sequenzen ist die Einzelausgabe der erzeugten Zahl und ihrer Primalität
 ziemlich unpraktisch. Deshalb wird in der folgenden Sage-Session nur die Statistik am
-Ende ausgegeben: die Gesamtzahl und der prozentuale Anteil der Primzahlen, die von
+Ende ausgegeben (indem man den Verbose-Parameter auf False setzt): die Gesamtzahl und
+der prozentuale Anteil der Primzahlen, die von
 $f(n)$ im Bereich $0 \leq n \leq 1000$ erzeugt wurde.
 
 \begin{Verbatim}%
@@ -2898,8 +2911,8 @@ Percentage of primes: 58.3416583417
     {\em The Prime Facts: From Euclid to AKS}, \\
     % veraltete Seite: http://www.cs.berkeley.edu/~aaronson/prime.ps
     \url{http://www.scottaaronson.com/writings/prime.pdf} \\
-    Dieses schöne Paper wurde mir erst nach Vollendung dieses Artikels
-    bekannt: Es bietet ebenfalls einen einfachen, didaktisch 
+    Dieses schöne Paper wurde mir erst nach Vollendung der ersten Fassung
+    dieses Artikels bekannt: Es bietet ebenfalls einen einfachen, didaktisch 
     gut aufbereiteten und trotzdem nicht oberflächlichen Einstieg 
     in dieses Thema (ist nur in Englisch verfügbar).
 
