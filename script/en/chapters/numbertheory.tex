@@ -1375,7 +1375,7 @@ $$} (please compare requisition 3 in \hyperlink{Chapter_ElementaryNT_10_1}
     With the educational tool for number theory {\bf NT} you can have a
     playful experience with primitive roots
     (see learning unit 2.2, pages 10-14/40 and 24-40/40).\\
-    NT can be called in CrypTool\index{CrypTool} via the menu path
+    NT can be called in CT1\index{CrypTool 1} via the menu path
     {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
     \textbackslash{} Learning Tool for Number Theory}.
     See appendix~\ref{s:appendix-Learn-NT}.
@@ -1407,8 +1407,8 @@ $10$ and we notice that:
 
 \begin{example}{ 1:}\\
 The following table~\ref{expmod11}\footnote{%
-  See chapter~\ref{nt:AppArith3a1} ``\nameref{nt:AppArith3a1}''
-  for the source code to generate the table using Sage.} 
+  The source code to generate table \ref{expmod11} with Sage can be found
+  in chapter~\ref{nt:AppArith3a1} ``\nameref{nt:AppArith3a1}''.} 
 shows the values $a^i$ mod $11$ for the exponents $i = 1, 2, \cdots, 10$ and for the bases 
 $a =  1, 2, \cdots, 10$ as well as the resulting value $ord_{11}(a)$ for each $a$/
 \end{example}
@@ -1470,7 +1470,7 @@ modulo $45$ and modulo $46$.
 \begin{example}{ 2:}\\
 The following table~\ref{expmod45}\footnote{%
   See chapter~\ref{nt:AppArith3b} ``\nameref{nt:AppArith3b}''
-  for the source code to generate the table using Sage.
+  for the source code to generate the table~\ref{expmod45} using Sage.
 } shows the values $a^i$ mod $45$ for the exponents $i = 1, 2, \cdots, 12$ and for the bases 
 $a =  1, 2, \cdots, 12$ as well as the resulting value $ord_{45}(a)$ for each $a$.
 \end{example}
@@ -1525,9 +1525,9 @@ Table~\ref{expmod45} shows that the number $a=7$ is not a primitive root of $45$
 \end{example}
 
 \begin{example}{ 4:}\\
-The following table~\ref{modexp46}\footnote{%
+The following table~\ref{expmod46}\footnote{%
   See chapter~\ref{nt:AppArith3c} ``\nameref{nt:AppArith3c}''
-  for the source code to generate the table using Sage.
+  for the source code to generate the table~\ref{expmod46} using Sage.
 } answers the question as to
 whether the number $a=7$ is a primitive root of $46$. 
 The  necessary, but not sufficient requirement/condition $gcd(7,46)=1$ is fulfilled.\\
@@ -1594,27 +1594,28 @@ $a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 &
 }
 \caption{Values of $a^i{\rm ~mod~}46, 1\leq a,i<23$}
 \label{SrcArith3c}
-\label{modexp46}
+\label{expmod46}
 \end{table}
 
 
 \vskip +10 pt
-\begin{theorem}\label{thm-zth-ordp}\footnote{%
+\begin{theorem}\label{thm-zth-ordp}
+  Given a modulus $n$ and a number $a$, relative prime to $n$ the
+  following holds: \\
+  The set $\{ a^i\; (\mbox{mod }n) |\; i = 1,\dots,J(n)\}$ equals the
+  multiplicative group $Z_n^*$ if and only if $ord_n(a) = J(n)$.\footnote{%
     For prime moduli $p$ all $a$ with $0 < a < p$ are of order $J(p) = p - 1$.
     Compare table~\ref{expmod45} for an example. In this case $a^i (\mbox{mod }n)$ goes
     through all the values $1,\dots,p-1$. Exhausting all possible values of
     the set is an important cryptographic proposition (compare theorem
     \ref{thm-zth-exhperm}). This determines a permutation\index{Permutation}
     $\pi(p-1)$.}$^,$\footnote{%
-    Table~\ref{modexp46} demonstrates that for composite moduli $n$ not all $a$ are of
+    Table~\ref{expmod46} demonstrates that for composite moduli $n$ not all $a$ are of
     maximal order $J(n)$. In this example only $5,7,11,15,17,19\mbox{ and }21$
     are of order 22.
-  } Given a modulus $n$ and a number $a$, relative prime to $n$ the
-  following holds: \\
-  The set $\{ a^i\; (\mbox{mod }n) |\; i = 1,\dots,J(n)\}$ equals the
-  multiplicative group $Z_n^*$ if and only if $ord_n(a) = J(n)$.
+  }
 \end{theorem}
-The multiplicative group $Z_n^*$ contains all values from $1$ to $n-1$.
+\noindent The multiplicative group $Z_n^*$ contains all values from $1$ to $n-1$.
 
 
 
@@ -1698,7 +1699,9 @@ The individual steps for implementing the \index{RSA} RSA procedure can be descr
 \cite[p. 338 ff]{nt:Sedgewick1990}\index{Sedgewick 1990}). 
 Steps 1 to 3 constitute key generation, steps 4 and 5 are the encryption, and steps 
 6 and 7 are the decryption:
+
 \begin{itemize}
+
 \item[{\bf 1.}] Select two distinct random prime numbers\footnote{
 Compaq introduced the so-called multi-prime method with high marketing 
 effort in 2000.
@@ -1726,7 +1729,7 @@ They recommend to generate the primes independently and check that the
 restriction is fulfilled (see \cite{nt:GISA2002}).
 }.\\
 The value $n$ is called the RSA modulus\footnote{
-In CrypTool\index{CrypTool} the RSA modulo is denoted with a capital ``$N$'' .}.
+In CT1\index{CrypTool 1} the RSA modulo is denoted with a capital ``$N$'' .}.
 
 \item[{\bf 2.}] Select an arbitrary $e \in \{2, \cdots, n-1\}$ such
                 that\footnote{%
@@ -1978,19 +1981,21 @@ Please refer to: {\em Handbook of Applied Cryptography} \cite{nt:Menezes2001}.
 \label{chptSecurityParam}
 \nopagebreak
 %\vskip +15 pt
-%\paragraph*{Factorization algorithms\footnotemark}
-\paragraph*[Factorization algorithms]
-          {Factorization algorithms\footnotemark}
+%\paragraph*[Factorization algorithms]{Factorization algorithms\footnotemark}
+\paragraph*{Factorization algorithms\footnotemark}
 \footnotetext{%
     \index{NT, Learning Tool for Number Theory}%
     \index{Educational tool NT}%
     With the educational tool for number theory {\bf NT} you can gather more
     experience with current factorization algorithms
     (see learning unit 5.1-5.5, pages 1-15/15).\\
-    NT can be called in CrypTool\index{CrypTool} via the menu path
+    NT can be called in CT1\index{CrypTool 1} via the menu path
     {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
     \textbackslash{} Learning Tool for Number Theory}.
-    See appendix~\ref{s:appendix-Learn-NT}.
+    See appendix~\ref{s:appendix-Learn-NT}.\\
+    The quadratic sieve (QS) can be found in CT1 and CT2;
+    GNFS, the most modern factorisation method for moduli bigger than 130
+    decimal digits, is only part of CT2 (via the msieve library).
 }
 \nopagebreak
 The complexity is basically determined by the length $l$ of the modulus $n$.
@@ -2045,7 +2050,7 @@ Details about factorization progress since 1999 see chapter~\ref{RSA-200}.
 \vskip +15 pt
 \paragraph*{Lattice base reduction algorithms} \mbox{}
 
-The module length is not the only parameter relevant for security.
+The module length $l$  is not the only parameter relevant for security.
 Beneath requirements from implementation and engineering the sizes and
 the proportions of the  parameters e, d and n are relevant.
 
@@ -2158,7 +2163,7 @@ methods can be found on the following web pages:
 %\footnote{%
 %This site was not quite up-to-date end of May 2005: RSA-200 was missing.}
 
-The current record (as of Jan. 2010) obtained using the GNFS method
+The current record (as of Nov. 2012) obtained using the GNFS method
 (General Number Field Sieve) factorized a general 232 decimal digit into its
 both prime factors.
 
@@ -2180,9 +2185,10 @@ RSA-640 etc. using 64 bit steps upwards --- An exception to this is
 RSA-617, which was created prior to the change in the numbering scheme).
 But the RSA challenges ended ahead of time in 2007, RSA Inc. retracted
 the prize.
-  \index{Challenge}
-  \index{Cipher challenge}
-  \index{Crypto challenge}
+All till now unsolved RSA challenges of RSA Labs can also be found at
+the website of the cipher challenge ``MysteryTwister C3''
+(\url{http://www.mysterytwisterc3.org}).
+\index{MTC3}\index{Challenge}\index{Cipher challenge}\index{Crypto challenge}
 
 The 'C numbers' originate from the Cunningham project:
 \url{http://www.cerias.purdue.edu/homes/ssw/cun/}.
@@ -2212,7 +2218,7 @@ listed in the table~\ref{factorizationrecords}.
 	C158 & 		158 & 523 & Jan 2002 & Jens Franke et al. \\
 \hline
 \end{tabular}
-\caption{The current factoring records (as of Jan. 2010)}    % Eyecatcher_neue-Mersenne 
+\caption{The current factoring records (as of Nov. 2012)}    % Eyecatcher_neue-Mersenne 
 \label{factorizationrecords}
 \end{center}
 \end{table} 
@@ -2288,11 +2294,12 @@ $$
 \end{array}
 $$
 The first 3 factors can be easily computed\footnote{%
-E.g.\ using CrypTool\index{CrypTool} via menu 
+E.g.\ using CT1\index{CrypTool 1} via menu 
 {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} 
 Factorization of a Number}. \\
-CrypTool can factorize in a reasonable time numbers no longer than 250 bit.
-Numbers bigger than 1024 bits are currently not accepted by CrypTool.
+CT1 can factorize in a reasonable time numbers no longer than 250 bit (Numbers
+bigger than 1024 bits are not accepted by CT1). CT2 is able to factorize
+numbers bigger than 250 bit length.
 }.
 The next three prime factors were found by P.~Zimmerman\footnote{%
 \url{http://www.loria.fr/~zimmerma/ecmnet}}, 
@@ -2523,7 +2530,7 @@ To describe the magnitude one writes $p<n>$ or $c<n>$:
 ``n'' is the number of decimal digits and ``p'' and ``c'' tell,
 whether the number is prime or composite.\\
 $2^{1039}-1 = p7 * c307 = p7 * p80 * p227$ \\
-It is explained more precisely at the CUN page:\\
+It is explained more precisely at the page of the Cunningham project:\\
 ``2651+ means $2^{651} + 1$ and the size (c209 means 209 decimal digits)
 of the
 number which was factored.  Then come the new factor(s), the discoverer and
@@ -2537,12 +2544,10 @@ sieve.  Under `new factors', `p90' means a 90-digit prime and `c201' is a
 
 The number $2^{1039}-1$ consists of 3 prime factors: The smallest one, 
 $p7 = 5080711$ was already known.\footnote{%
-This one can also be found using CrypTool\index{CrypTool}  via menu 
+This one can also be found using CT1\index{CrypTool 1}  via menu 
 {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} 
 Factorization of a Number} --- with the algorithms of Brent, Williams or
-Lenstra, which are ``relatively'' good to separate small factors. \\
-CrypTool can factorize in a reasonable time numbers no longer than 250 bit.
-}
+Lenstra, which are ``relatively'' good to separate small factors.}
 
 
 To complete this the second factor (co-divider) ``C307'' had to be factorized:
@@ -2641,10 +2646,10 @@ quantum leap in factorization, the RSA algorithm might be compromised.
 
 % --------------------------------------------------------------------------
 \vskip +20pt
-\paragraph*{Bernstein's paper and its implication on the
-  security of the RSA algorithm}
+%\paragraph*
+\subsubsection{Bernstein's paper and its implication on the
+               security of the RSA algorithm}
 \label{RSABernstein} \index{Factorization!factorization problem}\mbox{}
-
 In his paper ``Circuits for integer factorization: a proposal'' 
 (\url{http://cr.yp.to/djb.html}, published November 2001,
 D.~J.\ Bernstein \cite{nt:Bernstein2001} addresses the problem of
@@ -2744,7 +2749,9 @@ Links:
 
 % --------------------------------------------------------------------------
 \vskip +20pt
-\paragraph*{The TWIRL device} \label{TWIRLDevice} \index{TWIRL device}\mbox{}
+%\paragraph*
+\subsubsection{The TWIRL device} \label{TWIRLDevice} \index{TWIRL device}
+%\mbox{}
 
 In January 2003 Adi Shamir and Eran Tromer from the Weizmann Institute of Science published a preliminary draft called {\em ``Factoring Large Numbers with the TWIRL Device''} raising concerns about the security of key sizes till 1024 bits \cite{nt:Shamir2003}. 
 
@@ -2790,8 +2797,9 @@ So recommendations like the ones from the GISA (German Information Security Agen
 
 % --------------------------------------------------------------------------
 \vskip +20pt
-\paragraph*{``Primes in P'': Primality testing is polynomial} \label{PrimesinP} 
-\index{Primality testing}\mbox{}
+%\paragraph*
+\subsubsection{``Primes in P'': Primality testing is polynomial}
+\label{PrimesinP} \index{Primality testing}%\mbox{}
 
 In August 2002 the three Indian researchers M. Agrawal, N. Kayal and N. Saxena published the paper {\em ``PRIMES in P''} about a new primality testing algorithm called AKS\index{AKS} \cite{nt:Agrawal2002}. 
 They discovered a polynomial\index{Polynomial} time deterministic algorithm for determining if a number is prime or not.
@@ -2835,9 +2843,8 @@ last chapter ``Dobby's reward'', p.~245, by Dumbledore.}
 \section{Applications of asymmetric cryptography using numerical examples}
 
 The results of modular arithmetic are used extensively in \index{Cryptography!modern} modern cryptography. Here we will provide a few examples from 
-cryptography using small\footnote{In the RSA procedure, we call numbers ``small'' if the bit lengths are much less than $1024$ 
-bits (i.e. $308$ decimal points). In practice, $1024$ bits is currently the minimum length for a secure Certification 
-Authority RSA modulus.} numbers.
+cryptography using small\footnote{In the RSA procedure, we call numbers ``small'' if the bit lengths are much less than $1024$ bits (i.e. $308$ decimal points). In practice,
+$1024$ bits is currently considered the minimum length for an RSA modulus.} numbers.
 
 Enciphering a text entails applying a function (mathematical operation) to a character string (number) to generate a 
 different number. Deciphering entails reversing this function, in other words using the distorted image that the function 
@@ -2886,10 +2893,13 @@ us much about the function as a whole (in contrast to addition and multiplicatio
 
 Whitfield Diffie, Martin E. Hellman and Ralph Merkle developed this DH key 
 exchange protocol in Stanford in 1976\footnote{%
-With CrypTool\index{CrypTool} this exchange protocol has been
-visualized: you can execute the single steps with concrete numbers using 
-menu {\bf Indiv. Procedures \textbackslash{} Protocols
-\textbackslash{} Diffie-Hellman Demonstration}.
+  With CT1\index{CrypTool 1} this exchange protocol has been
+  visualized: You can execute the single steps with concrete numbers using 
+  menu {\bf Indiv. Procedures \textbackslash{} Protocols
+  \textbackslash{} Diffie-Hellman Demonstration}.\\
+  In JCT\index{JCrypTool}\index{JCT} you can find it in the default perspective
+  via the menu item {\bf Visuals \textbackslash{} Diffie-Hellman
+  Key Exchange (EC)}.
 }.
 
 Alice and Bob\footnote{Bob\index{Bob} and Alice\index{Alice} are the default
@@ -3053,7 +3063,7 @@ For Bob: $11 ^ y \equiv 285 {\rm ~(mod~}347)$, that means $\log_{11}(285){\rm ~(
     Public Key Cryptosystem'', 2009. An introductory tutorial on using
     Sage to study elementary number theory and public key
     cryptography. A didactically very clear article about some basic
-    number theory and Sage usage. 
+    number theory and Sage usage.\\
     \url{http://nguyenminh2.googlepages.com/sage_numtheory-rsa.pdf}.
 }
 \label{rsaconcrete}\index{RSA}
@@ -3072,8 +3082,10 @@ Having described above \hyperlink{RSA}{how the RSA procedure works}, we will now
 \subsection{RSA with small prime numbers and with a number as message}
 
 Before applying the RSA procedure to a text, we will first demonstrate it
-directly using a single number as message\footnote{Using CrypTool\index{CrypTool} you can solve this with the menu 
-{\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration}.}.
+directly using a single number as message\footnote{%
+   Using CT1\index{CrypTool 1} you can solve this with the menu {\bf Indiv.
+   Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration}.
+}.
 \begin{itemize}
 \item[{\bf 1.}] Let the selected prime numbers be $p=5$ and $q=11$. \\
 Thus, $n=55$ and $J(n)=(p-1)*(q-1)=40$.
@@ -3102,10 +3114,14 @@ We will now apply the RSA procedure to a text, first using the upper case alphab
 \subsection[RSA with slightly larger primes and an upper-case message]{RSA with slightly larger primes and a text of upper case letters}
 \label{rsaex2}
 
-We have the text ``ATTACK AT DAWN'' and the characters are coded according to table~\ref{alphacode}.\footnote{Using
-CrypTool\index{CrypTool} you can solve this with the menu 
-{\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration}.
-This is also described in the tutorial/scenario in CrypTool's online help [Options, specify alphabet, number system, block length\index{Block length} 2 and decimal representation].}
+We have the text ``ATTACK AT DAWN'', and the characters are coded according to
+table~\ref{alphacode}.\footnote{%
+Using CT1\index{CrypTool 1} you can solve this with the menu {\bf Indiv. Procedures
+\textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration}.
+This is also described in the tutorial/scenario in CT1's online help [Options,
+specify alphabet, number system, block length\index{Block length} 2 and decimal
+representation].
+}
 
 \begin{table}[ht]
 \begin{center}
@@ -3165,8 +3181,9 @@ L       & 12   & Y    & 25 \\
 \noindent All 7 parts are encrypted using: $C \equiv M^{37}{\rm ~(mod~}3713)$\footnote{%
   See chapter~\ref{nt:AppArith4a} ``\nameref{nt:AppArith4a}''
   for source code to do RSA encryption using Sage. \\
-  You can also encrypt the message with CrypTool\index{CrypTool} via the menu path 
-  {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration}.
+  You can also encrypt the message with CT1\index{CrypTool 1} via the menu path 
+  {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{}
+  RSA Demonstration}.
 }: \\
 {\tt 1404 2932 3536 0001 3284 2280 2235}
 
@@ -3194,9 +3211,10 @@ little chance of this.
 In real life, the ASCII alphabet is used to code the individual characters
 of the message as $8$-bit numbers.
 
-\noindent The idea for this task\footnote{Using CrypTool\index{CrypTool} you can 
-solve this via the menu path
-{\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration}.} 
+\noindent The idea for this task\footnote{%
+Using CT1\index{CrypTool 1} you can solve this via the menu path {\bf Indiv. Procedures
+\textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration}.
+} 
 is taken from the example in \cite[p. 271]{nt:Eckert2003}\index{Eckert 2003}.
 
 \noindent Coded in decimal notation, the text ``RSA works!'' is as follows: \\
@@ -3213,7 +3231,7 @@ is taken from the example in \cite[p. 271]{nt:Eckert2003}\index{Eckert 2003}.
 {\bf 1.} $p=503,~q=509 \quad (n= 256,027; \; J(n)=(p-1)(q-1)=255,016=2^3*127*251)$\footnote{%
   See chapter~\ref{nt:AppArith4b} ``\nameref{nt:AppArith4b}''
   for the source code to factorize the number $J(n)$ using Sage.
-  Using CrypTool\index{CrypTool} you can solve this with the 
+  Using CT1\index{CrypTool 1} you can solve this with the 
   {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} 
   Factorization of a Number}.
 }. \\
@@ -3301,11 +3319,12 @@ single character& binary representation  && decimal representation\\
 01110011, 115 & 01110011 00100001 & = &29473 \\
 00100001, 33: 
 \end{tabular}} (each ASCII character is encoded into a 8 digit binary number below):\\
-{\tt 21075 16672 30575 29291 29473}\footnote{Using CrypTool\index{CrypTool} 
-you can solve this with the menu
-{\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration} 
+{\tt 21075 16672 30575 29291 29473}\footnote{%
+Using CT1\index{CrypTool 1} you can solve this with the menu {\bf Indiv. Procedures
+\textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration} 
 with the following options: all 256 ASCII characters, b-adic,
-block length\index{Block length} 2 and decimal representation.}
+block length\index{Block length} 2 and decimal representation.
+}
 
 \label{SrcArith4d}
 \noindent Each block is encrypted using: $C \equiv M^{65,537}{\rm ~(mod~}256,027)$\footnote{%
@@ -3351,21 +3370,25 @@ Ciphertext:\\
 \subsection{A small RSA cipher challenge (1)} \index{RSA!cipher challenge}
 
 The task is taken from \cite[Exercise 4.6]{nt:Stinson1995}\index{Stinson 1995}:
-The pure solution has been published by Prof. Stinson at 
-\url{http://www.cacr.math.uwaterloo.ca/~dstinson/solns.html}\footnote{%
-or
-\url{http://bibd.unl/~stinson/solns.html}.
+The pure solution has been published by Prof. Stinson.\footnote{%
+\url{http://www.cacr.math.uwaterloo.ca/~dstinson/solns.html} or
+\url{http://bibd.unl/~stinson/solns.html}
 }
-
 However, it is not the result that is important here but rather the
 individual steps of the solution, that is, the explanation of the 
 cryptanalysis\index{Cryptanalysis}\footnote{The method of solving the
 problem is outlined in the scenario of the online help to
-CrypTool\index{CrypTool} and in the presentation on the website.
+CT1\index{CrypTool 1} and in the presentation on the CT website.
 If anyone sends us a well prepared exact method of solving the problem,
 we would be pleased to include it in the documentation.}:
 
-Two samples of RSA ciphertext are presented in Tables~\ref{stinson1}\footnote{The numbers of this table can be worked with via Copy and Paste.} and \ref{stinson2}\footnote{The numbers of this table are in the online-help ``Example illustrating the RSA demonstration'' of CrypTool\index{CrypTool}.}. 
+Two samples of RSA ciphertext are presented in Tables~\ref{stinson1}\footnote{%
+The numbers of this table can be worked with via Copy and Paste.
+}
+and \ref{stinson2}\footnote{%
+The numbers of this table are in the online help of CT1\index{CrypTool 1}
+in the chapter ``Example illustrating the RSA demonstration''.
+}. 
 Your task is to decrypt them. The public parameters of the system are 
 
 \noindent $n = 18,923$ and $e = 1261$ (for Table~\ref{stinson1}) and \\
@@ -3468,11 +3491,12 @@ The following task is a corrected version from the book written by Prof. Yan
 \cite[Example 3.3.7, p. 318]{nt:Yan2000}\index{Yan 2000}.
 However, it is not the result that is important here but rather the
 individual steps of the solution, that is, the explanation of the
-cryptanalysis\index{Cryptanalysis}\footnote{The method of solving the
-problem is outlined in the scenario of the online help to
-CrypTool\index{CrypTool} and in the CrypTool presentation.
+cryptanalysis\index{Cryptanalysis}\footnote{%
+The method of solving the problem is outlined in the scenario of the online
+help to CT1\index{CrypTool 1} and in the CrypTool presentation.
 If anyone sends us a well prepared exact method of solving the problem,
-we would be pleased to include it in the documentation.}.
+we would be pleased to include it in the documentation.
+}.
 
 There are three tasks with completely different degrees of difficulty here.
 In each case we know the ciphertext 
@@ -3487,8 +3511,8 @@ and the public key $(e,n)$:
 $n = 63978486879527143858831415041, ~e = 17579$
 
 Message\footnote{%
-The numbers of this table are in the online help 
-``Example illustrating the RSA demonstration'' of CrypTool\index{CrypTool}.
+The numbers of this table are in the online help of CT1\index{CrypTool 1}
+in the chapter ``Example illustrating the RSA demonstration''.
 }:
 
 {\tt
@@ -3547,7 +3571,7 @@ With the educational tool for number theory {\bf NT} you can see\\
 a) how Euklid's algorithm calculates the gcd (learning unit 1.3, pages 14-19/21) and \\
 b) how Euklid's enhanced algorithm finds the multiplicative inverse
    (learning unit 2.2, page 13/40).\\
-NT can be called in CrypTool\index{CrypTool} via the menu path
+NT can be called in CT1\index{CrypTool 1} via the menu path
 {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
 \textbackslash{} Learning Tool for Number Theory}.
 See appendix~\ref{s:appendix-Learn-NT}.
