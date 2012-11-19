@@ -35,8 +35,7 @@ by Moore's law (i.~e.\ it doubles every 18 months)\footnote{empirical
 knowledge by Gordon Moore, co-founder of Intel, 1965}, then the evolution of
 the key lengths for secure communication will be as figure~\ref{RSAKeylength}
 \cite{ec:Lenstra1999} (source: Arjen Lenstra and Eric Verheul:
-\href{http://cryptosavvy.com/table.htm}
-{\texttt{http://cryptosavvy.com/table.htm}}).
+\url{http://cryptosavvy.com/table.htm}).
 
 % -> Figure 1
 \begin{figure}[ht]
@@ -398,9 +397,13 @@ $$
 In particular, we obtain $-P=(x,-y)$ for $P=(x,y)\in E$.
 
 (Note that $-(-P)=(x,x+(x+y))=(x,2x+y)=(x,y)$, since the underlying field
-has characteristic $2$.)\footnote{An animation of the addition of points
+has characteristic $2$.)\footnote{%
+An animation of the addition of points
 on elliptic curves can be found on the Certicom\index{Certicom} homepage \\
-\url{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}}
+\url{http://www.certicom.com/index.php/ecc-tutorial}\\
+See also the web link about the \hyperlink{ec:Web-Link:Java_Laubrock}
+{Java-Tutorial} at the end of this chapter.
+}
 
 One can verify that $+$ defines a group operation on the set $E\cap\{\cal O\}$.
 In particular this means that the sum of two points is again a point on the
@@ -514,17 +517,16 @@ in the development of many different factorization algorithms; also at
 factorization with ECC he was one of the leading heads. As an employee
 of British Telekom he never published much. At the RSA data Security Conference
 in 1999 he was awarded for his ``outstanding contributions in mathematics'':
-\href{http://www.eff.org/Privacy/Crypto_misc/DESCracker/HTML/19990118_rsa_awards.html}
-{\texttt{http://www.eff.org/Privacy/Crypto\_misc/DESCracker/HTML/19990118\_rsa\_awards.html}}.
+\url{http://www.eff.org/Privacy/Crypto_misc/DESCracker/HTML/19990118_rsa_awards.html}.\\
+In 1987 H.W. Lenstra published an often used factorization algorithm,
+based on elliptic curves (see \cite{ec:Lenstra1987}).
 }
 algorithms based on elliptic curves%
-\footnote{In 1987 H.W. Lenstra published
-a factorization algorithm, based on elliptic curves (see \cite{ec:Lenstra1987}).
-The biggest compound number currently 
-factorized\index{Factorization!factoring records} with elliptic curves is 
-the number $ 628^{59}-1, $ which has 55 decimal digits. It was
-found Oct. 6th, 2001 by M. Izumi 
-(See \hyperlink{Lenstra2}{ECMNET}\index{ECMNET}).
+\footnote{The biggest compound numbers currently 
+factorized\index{Factorization!factoring records} with elliptic curves have
+about 80 decimal digits:\\
+\url{http://www.loria.fr/~zimmerma/records/top50.html}.\\
+See also the web link about the \hyperlink{Lenstra2}{ECMNET project}\index{ECMNET} at the end of this chapter.
 }. 
 More precisely, these procedures exploit the fact that elliptic curves can
 be defined over ${\mathbb Z}_n$ ($n$ composite number). Elliptic curves 
@@ -569,17 +571,17 @@ CrypTool and in Sage.
 
 
 % -----------------------------------------------------------------------------
-\subsection{CrypTool}
+\subsection{CrypTool}\index{CrypTool}
 
-CrypTool offers elliptic curves for the digital signature function%
+CT1 offers elliptic curves for the digital signature function%
 \footnote{%
-The dialog box, which appears in CrypTool\index{CrypTool} after clicking the menu
+The dialog box, which appears in CT1\index{CrypTool 1} after clicking the menu
 {\bf Digital Signatures/PKI \textbackslash{} Sign Message},
 offers the EC methods ECSP-DSA and ECSP-NR.
 
 } and for ECC-AES hybrid encryption%
 \footnote{%
-Within CrypTool\index{CrypTool} you can find this technique using the menu
+Within CT1\index{CrypTool 1} you can find this technique using the menu
 path {\bf Crypt \textbackslash{} Hybrid}.
 
 }.
@@ -595,6 +597,13 @@ Specifications for Public Key Cryptography}
 The procedure implements the cryptographic primitives for generating and
 verifying signatures for the variations of Nyberg-Rueppel signatures and
 \index{DSA} DSA signatures based on elliptic curves.
+
+Step-by-step point addition on elliptic curves is visualized in CT1\index{CrypTool 1} and JCT\index{JCrypTool}.%
+\footnote{%
+CT1: menu {\bf Digital Signatures/PKI \textbackslash{} Signature Demonstration (Signature Generation)},\\
+JCT (default perspective): menu {\bf Visuals \textbackslash{} Elliptic Curve Calculations}.
+
+}
 
 
 % -----------------------------------------------------------------------------
@@ -790,8 +799,7 @@ Both examples show the typical range of application for elliptic curve cryptogra
         {\em Selecting Cryptographic Key Sizes (1999)},\\
 	Journal of Cryptology: the journal of the International 
 	Association for Cryptologic Research \\
-	\href{http://www.cryptosavvy.com/cryptosizes.pdf}
-	{\texttt{http://www.cryptosavvy.com/cryptosizes.pdf}}
+	\url{http://www.cryptosavvy.com/cryptosizes.pdf}
     \bibitem[Menezes1993]{ec:Menezes1993}A. J. Menezes, 
 	\index{Menezes 1993} \\
         {\em Elliptic curve public key cryptosystems},\\
@@ -819,16 +827,23 @@ Both examples show the typical range of application for elliptic curve cryptogra
 
 \begin{enumerate}
 
-        \hypertarget{ec:Web-Link:Sage_Massierer}{} 
-   \item Interactive introduction to elliptic curves and elliptic curve cryptography
-        with Sage\index{Sage} by Maike Massierer and the CrypTool team,\\
+   \hypertarget{ec:Web-Link:Sage_Massierer}{} 
+   \item Interactive introduction to elliptic curves and elliptic curve
+        cryptography with Sage\index{Sage} 
+        by Maike Massierer and the CrypTool team,\\
         \url{http://sagenb.org/home/pub/1126/} (\verb!#1126 to #1133!) \\
         ECC Tutorial as Sage Notebook \\
         Version 1.2, November 2009
 
+   \hypertarget{ec:Web-Link:Certicom_Tutorial}{} 
    \item Certicom Online Tutorial\index{Certicom},\\
-        \url{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}      
-		
+        \url{http://www.certicom.com/index.php/ecc-tutorial}  
+
+   \hypertarget{ec:Web-Link:Java_Laubrock}{} 
+   \item Tutorial with Java applets -- Crypto methods based on elliptic curves,
+        thesis by Thomas Laubrock, 1999 (German only),\\
+        \url{http://www.warendorf-freckenhorst.de/elliptische-kurven/frame.html}  
+
    \item Working group IEEE P1363, \\
         \url{http://grouper.ieee.org/groups/1363}
 

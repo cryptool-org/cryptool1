@@ -22,24 +22,29 @@ mit der man eigene Funktionen in Sage stark beschleunigen kann.\\
 Siehe \url{http://openwetware.org/wiki/Open_writing_projects/Sage_and_cython_a_brief_introduction}.
 }.
 
-\noindent Sage kann man wie andere CAS auch auf vielfältige Weise nutzen:
-als mächtigen Taschenrechner; als Tool, das Studenten beim Mathematikstudium hilft;
+\noindent Sage kann man auf vielfältige Weise nutzen:
+als mächtigen Taschenrechner; als Tool für das Mathematikstudium;
 oder als Programmier-Umgebung, um Algorithmen zu prototypen oder um Forschung im
 Bereich der algorithmischen Aspekte der Mathematik zu betreiben.
 
-\noindent Einen schnellen Eindruck von Sage erhält man mit der
-\glqq Einladung zu Sage\grqq~von David Joyner\footnote{%
-\url{http://sage.math.washington.edu/home/wdj/teaching/calc1-sage/an-invitation-to-sage.pdf}\\
-(Letztes Update 2009).}.
+\noindent Einen schnellen Einsteig bieten z.B. die Referenzen in dieser Fußnote%
+\footnote{%
+- \glqq Einladung zu Sage\grqq~von David Joyner, letztes Update 2009,\\
+  \url{http://sage.math.washington.edu/home/wdj/teaching/calc1-sage/an-invitation-to-sage.pdf}\\
+- \glqq The SDSU Sage Tutorial\grqq,\\
+  \url{http://www-rohan.sdsu.edu/~mosulliv/sagetutorial/}\\
+  \url{http://www-rohan.sdsu.edu/~mosulliv/sagetutorial/sagecalc.html}\\
+- \glqq SAGE For Newbies\grqq~von Ted Kosan, 2007,\\
+  \url{http://sage.math.washington.edu/home/tkosan/newbies_book/sage_for_newbies_v1.23.pdf}
+}.
   
 \noindent Die offizielle Sage Online-Dokumentation\footnote{%
   Die entsprechenden offiziellen PDF-Dokuments können herunter geladen werden von\\
-  \url{http://www.sagemath.org/help.html}
-} ist verfügbar unter: \url{http://www.sagemath.org/doc}.
+  \url{http://www.sagemath.org/help.html}, \url{http://www.sagemath.org/doc} und \url{http://planet.sagemath.org}.
+} ist verfügbar unter: \url{http://www.sagemath.org}.
 
 
-\noindent Es gibt inzwischen viele PDF- und HTML-Dokumente über Sage, so dass wir als
-guten Startpunkt nur einige wenige nennen\footnote{%
+\noindent Es gibt inzwischen viele PDF- und HTML-Dokumente über Sage, so dass wir als guten Startpunkt nur einige wenige nennen\footnote{%
 - \glqq Bibliothek\grqq: {\centering \url{http://www.sagemath.org/library/index.html}},\\
 - \glqq Dokumentationsprojekt\grqq:
   {\centering \url{http://wiki.sagemath.org/DocumentationProject}},\\
@@ -61,11 +66,14 @@ werden\footnote{%
 
 }.
 
-\noindent Ein fertiger Kryptographie-Kurs von David Kohel, der Sage nutzt,
-findet sich unter\\
+\noindent Umfangreiche Kryptographie-Einführungen finden sich in der folgenden Fußnote\footnote{%
+- Ein fertiger Kryptographie-Kurs von David Kohel, der Sage nutzt, aus 2008:\\
 {\centering \url{http://www.sagemath.org/library/crypto.pdf} }\\
 bzw. derselbe Kurs in einer eventuell neueren Fassung\\
-{\centering \url{http://sage.math.washington.edu/home/wdj/teaching/kohel-crypto.pdf} }.
+{\centering \url{http://sage.math.washington.edu/home/wdj/teaching/kohel-crypto.pdf} }.\\
+- \glqq Introduction to Cryptography with Open-Source Software\grqq, ein
+  hervorragendes Buch von Alasdair McAndrew, CRC, 2011
+}.
 
 
 % ---------------------------------------------------------------------------
@@ -74,27 +82,25 @@ Sage ist kostenlos und kann von folgender Webseite herunter geladen werden:
 \begin{center}
   \url{http://www.sagemath.org} \\
 \end{center}
-Standardmäßig nutzt man die Sage-Kommandozeile als Interface, wie im folgenden
-Bild~\ref{fig:sage_cmd_interfaces} zu sehen ist.
+Standardmäßig nutzt man die Sage-{\bf Kommandozeile} als Interface, wie im
+folgenden Bild~\ref{fig:sage_cmd_interfaces} zu sehen ist.
 Es gibt jedoch auch ein grafisches Benutzerinterface für diese Software
 in Form des Sage-Notebooks (siehe Bild~\ref{fig:sage_gui_interfaces}).
-Und schließlich kann man Sage-Notebooks\footnote{%
+Und schließlich kann man Sage-{\bf Notebooks}\footnote{%
 Weitere Details zu Sage-Notebooks finden Sie in
 Kapitel~\ref{ec:Sage_Massierer} 
 (\glqq \nameref{ec:Implementing-for-Education}\grqq
-  $\Rightarrow$ \glqq \nameref{ec:Sage_Massierer}\grqq )
+  $\Rightarrow$ \glqq \nameref{ec:Sage_Massierer}\grqq ).
                       }
 auch online auf verschiedenen Servern nutzen, ohne Sage lokal zu installieren, z.B.:
 \begin{center}
 \url{http://www.sagenb.org} oder \\
 \url{http://sage.mathematik.uni-siegen.de:8000}
 \end{center}
-.
 
 Sage läuft unter den Betriebssystemen Linux, Mac OS X und Windows.
 Auf der Windows-Plattform läuft die komplette Sage-Distribution momentan
-nur als a VMware-Image. Allerdings wird gerade an einem vollen, native Port
-von Sage auf Windows gearbeitet.
+nur als a VMware-Image.
 
 \begin{figure}[!htpb]
 \centering

@@ -58,7 +58,7 @@
     Mit dem Lernprogramm {\bf ZT} können Sie spielerisch einige der hier
     besprochenen Verfahren (RSA, Rabin, DH, ElGamal) nachvollziehen
     (siehe Lern-Kapitel 4.2 und 4.3, Seiten 9-17/17).\\
-    ZT können Sie in CrypTool\index{CrypTool} über das Menü
+    ZT können Sie in CT1\index{CrypTool 1} über das Menü
     {\bf Einzelverfahren \textbackslash{} Zahlentheorie 
     interaktiv \textbackslash{} Lernprogramm für Zahlentheorie} aufrufen.
     Siehe Anhang \ref{s:appendix-Learn-NT}.
@@ -82,8 +82,7 @@
 \footnotetext{%
   Georg Christoph Lichtenberg\index{Lichtenberg, Georg Christoph}, 
   deutscher Schriftsteller und Physiker (1742-1799),\\ 
-  (siehe auch: \href{http://de.wikipedia.org/wiki/Georg\_Christoph\_Lichtenberg}
-                {\tt http://de.wikipedia.org/wiki/Georg\_Christoph\_Lichtenberg})
+  (siehe auch: \url{http://de.wikipedia.org/wiki/Georg\_Christoph\_Lichtenberg})
 }
 
 %--------------------------------------------------------------------
@@ -198,9 +197,8 @@ Ein schneller Algorithmus zur Klärung der Frage, ob zwei 0-1-Knapsackprobleme ko
 \end{remark}
 
 Das Lösen eines 0-1-Knapsackproblems kann durch Probieren der $ 2^n $   Möglichkeiten für $ x_1, \dots, x_n $   erfolgen. Die beste Methode erfordert $ O(2^{n/2}) $  Operationen, was für $ n=100 $  mit $ 2^{100} \approx 1,27 \cdot 10^{30} $  und  $ 2^{n/2} \approx 1,13 \cdot 10^{15} $ für Computer eine unüberwindbare Hürde darstellt.
-Allerdings ist die Lösung für spezielle $ a_1, \dots, a_n $   recht einfach zu finden, etwa für $ a_i = 2^{i-1}. $  Die binäre Darstellung von $ g $ liefert unmittelbar $ x_1, \dots, x_n$. Allgemein ist die Lösung des 0-1-Knapsackproblems leicht zu finden, falls eine \index{Permutation} Permutation\footnote{Eine Permutation\index{Permutation} $\pi$ der Zahlen $1, \dots, n$ ist die Vertauschung der Reihenfolge, in der
-diese Zahlen aufgezählt werden. Beispielsweise ist eine Permutation $\pi$ von $(1,2,3)$ gleich $(3,1,2),$ also $\pi(1) = 3$, $\pi(2) =1$ 
-und $\pi(3) = 2$.} 
+Allerdings ist die Lösung für spezielle $ a_1, \dots, a_n $   recht einfach zu finden, etwa für $ a_i = 2^{i-1}. $  Die binäre Darstellung von $ g $ liefert unmittelbar $ x_1, \dots, x_n$. Allgemein ist die Lösung des 0-1-Knapsackproblems leicht zu finden, falls eine \index{Permutation} Permutation\footnote{%
+  Eine Permutation\index{Permutation} $\pi$ der Zahlen $1, \dots, n$ ist die Vertauschung der Reihenfolge, in der diese Zahlen aufgezählt werden. Beispielsweise ist eine Permutation $\pi$ von $(1,2,3)$ gleich $(3,1,2),$ also $\pi(1) = 3$, $\pi(2) =1$ und $\pi(3) = 2$.} 
 $ \pi $  von $ 1, \dots, n $  mit $ a_{\pi (j)} > \sum_{i=1}^{j-1} a_{\pi(i)} $  existiert. Ist zusätzlich $ \pi $ die Identität, d.h. $ \pi(i)=i $ für $ i=1,2,\dots,n, $ so heißt die Folge $ a_1, \dots , a_n $ superwachsend.
 Das Verfahren \ref{knapsackalgo} löst das Knapsackproblem mit superwachsender Folge im Zeitraum von $ O(n). $
 \begin{cryptoprocedure}
@@ -282,10 +280,12 @@ Einwegfunktion, deren Falltür-In"-for"-ma"-tion (Verfremden des
 {Das RSA-Verfahren\footnote{%
 Vergleiche auch die Kapitel \ref{rsabeweis}, ff.
 }$^,$\footnote{%
-Mit CrypTool\index{CrypTool} können Sie praktische Erfahrungen
+Mit CT1\index{CrypTool 1} können Sie praktische Erfahrungen
 mit dem RSA-Verfahren sammeln: per Menü {\bf Einzelverfahren 
-\textbackslash{} RSA-Kryptosystem \textbackslash{} RSA-Demo}.
-}}
+\textbackslash{} RSA-Kryptosystem \textbackslash{} RSA-Demo}.\\
+RSA finden Sie ebenfalls in CT2\index{CrypTool 2} und JCT\index{JCrypTool}.
+}
+}
 \index{RSA} \label{rsaverfahren}
 
 Bereits 1978 stellten R. \index{Rivest, Ronald} Rivest,
@@ -331,12 +331,13 @@ Zum Beispiel ist $ \phi (24)=8, $ weil
 \[
 |\{ x <24 : \ggt (x,24) =1 \}| =|\{1,5,7,11,13,17,19,23\}|.
 \]
-Ist  $ p $ eine Primzahl, so gilt $ \phi (p)= p-1. $\\
+Ist $ p $ eine Primzahl, so gilt $ \phi (p)= p-1. $\\
 Kennt man die verschiedenen Primfaktoren  $ p_1, \dots , p_k $ von $ N, $ so ist 
 \[
 \phi (N) = N \cdot (1-\frac{1}{p_1}) \,
 \cdots \, (1-\frac{1}{p_k}).\footnote{%
-Weitere Formeln zur Eulerschen Phi-Funktionfinden sich in \ref{L-Euler-Function}.}
+Weitere Formeln zur Eulerschen Phi-Funktion finden sich in Kapitel~\ref{L-Euler-Function} \glqq \nameref{L-Euler-Function}''.
+}
 \]
 Tabelle~\ref{phi15} zeigt die Werte bis $15$. Im Spezialfall $ N=pq $ gilt
 \[
@@ -444,7 +445,7 @@ Hintertür-Information ist die Primfaktorzerlegung von $ n = pq. $
     Logarithmus experimentieren und Shanks Babystep-Giantstep-Methode
     anwenden:
     Siehe Lern-Kapitel 6.1-6.3, Seiten 1-6/6.\\
-    ZT können Sie in CrypTool\index{CrypTool} über das Menü
+    ZT können Sie in CT1\index{CrypTool 1} über das Menü
     {\bf Einzelverfahren \textbackslash{} Zahlentheorie
     interaktiv \textbackslash{} Lernprogramm für Zahlentheorie} aufrufen.
     Siehe Anhang \ref{s:appendix-Learn-NT}.
@@ -486,8 +487,7 @@ Index-Calculus &             $ O(e^{(1+o(1)) \sqrt{\ln (p) \ln (\ln (p))}}) $ \\
 Der aktuelle Rekord\index{Logarithmusproblem!Rekord} (Stand April 2007) für die Berechnung
 des diskreten Logarithmus wurde im Februar 2007 von der Gruppe Kleinjung, Franke und Bahr an
 der Universität Bonn aufgestellt.\footnote{%
-   \href{http://www.nabble.com/Discrete-logarithms-in-GF(p)-----160-digits-t3175622.html}
-{\texttt{http://www.nabble.com/Discrete-logarithms-in-GF(p)-----160-digits-t3175622.html}}}
+   \url{http://www.nabble.com/Discrete-logarithms-in-GF(p)-----160-digits-t3175622.html}}
 Kleinjung berechnete den diskreten
 Logarithmus modulo einer 160-stelligen Prim"-zahl $p$ und Erzeuger $g$: 
 $$
@@ -522,9 +522,13 @@ benötigte ca.~17 CPU-Jahre auf 3.2 GHz Xeon Maschinen.
 \subsection[Diffie-Hellman-Schlüsselvereinbarung]
 {Diffie-Hellman-Schlüsselvereinbarung\footnotemark}
 \footnotetext{%
-In CrypTool\index{CrypTool} ist dieses Austauschprotokoll visualisiert:
-Sie können die einzelnen Schritte mit konkreten Zahlen nachvollziehen 
-per Menü {\bf Einzelverfahren \textbackslash{} Protokolle \textbackslash{} Diffie-Hellman-Demo}.
+  In CT1\index{CrypTool 1} ist dieses Austauschprotokoll visualisiert:
+  Sie können die einzelnen Schritte mit konkreten Zahlen nachvollziehen 
+  per Menü {\bf Einzelverfahren \textbackslash{} Protokolle \textbackslash{}
+  Diffie-Hellman-Demo}.\\
+  In JCT\index{JCrypTool}\index{JCT} findet man es in der Standard-Perspektive
+  über den Menüeintrag {\bf Visualisierungen \textbackslash{}
+  Diffie-Hellman Schlüsselaustausch (EC)}.
 }
 
 \index{Schlüsselaustausch!Diffie-Hellman} 
@@ -547,7 +551,7 @@ Damit gilt
 \label{diffiehellmanproc}
 \end{cryptoprocedure}
 
-Die Sicherheit des {\bf Diffie-Hellman-Protokolls} hängt eng mit der Berechnung der diskreten Logarithmus modulo $p$ zusammen. Es wird sogar vermutet, dass diese Probleme äquivalent sind.
+Die Sicherheit des {\bf Diffie-Hellman-Protokolls} hängt eng mit der Berechnung des diskreten Logarithmus modulo $p$ zusammen. Es wird sogar vermutet, dass diese Probleme äquivalent sind.
 
 
 %--------------------------------------------------------------------

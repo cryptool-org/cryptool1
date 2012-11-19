@@ -42,8 +42,7 @@ Schnitt alle 18 Monate verdoppelt (Gesetz von Moore\index{Gesetz von Moore}\inde
 1965.} ), in die Zukunft fort, so kann man von einer Entwicklung der
 sicheren Schlüssellängen wie in Abbildung~\ref{RSAKeylength} ausgehen
 \cite{ec:Lenstra1999} (Quelle: Arjen Lenstra und Eric Verheul:
-\href{http://cryptosavvy.com/table.htm}
-{\texttt{http://cryptosavvy.com/table.htm}}).
+\url{http://cryptosavvy.com/table.htm}).
 
 % -> Figur 1
 \begin{figure}[ht]
@@ -117,7 +116,7 @@ sollte man bei der Neuimplementierung ernsthaft den Einsatz von Verfahren
 erwägen, die auf Elliptischen Kurven basieren.
 Dies gilt insbesondere, wenn es sich um Anwendungen im Finanzsektor
 handelt, die noch nach 2005\footnote{%
-BSI-Empfehlung: ``Geeignete Kryptoalgorithmen'' vom 24. Oktober 2002.
+BSI-Empfehlung: \glqq Geeignete Kryptoalgorithmen'' vom 24. Oktober 2002.
 } operativ sein sollen.
 
 
@@ -206,7 +205,7 @@ Da der Begriff der {\em Gruppe} umgangssprachlich anders als in der Mathematik e
 Vollständigkeit halber an dieser Stelle die wesentliche Aussage der formalen Definition einer Gruppe
 kurz eingeführt werden:
 \begin{itemize}
-   \item Eine Gruppe ist eine nichtleere Menge $G$ mit einer Verknüpfung ``$\cdot$''. Die Menge $G$ ist unter der
+   \item Eine Gruppe ist eine nichtleere Menge $G$ mit einer Verknüpfung \glqq $\cdot$''. Die Menge $G$ ist unter der
          Verknüpfung $\cdot $ abgeschlossen, d.h, sind $a,b$ Elemente aus $G$, so ist auch ihre Verknüpfung $ab=a\cdot  b$ ein Element aus $G$.
    \item Für alle Elemente $a, b$ und $c$ aus $G$ gilt: $(ab)c = a(bc)$ (Assoziativgesetz).
    \item Es gibt ein Element $e$ in $G$, das sich bezüglich der Verknüpfung $\cdot$ neutral verhält, d.h., für alle $a$ aus der Menge $G:$ gilt $ae = ea = a$.
@@ -428,9 +427,14 @@ $$ \lambda:=\left\{ \begin{array}{cl} \frac{y_1+y_2}{x_1+x_2} & {\rm falls~} P_1
                                    x_1+\frac{y_1}{x_1} & {\rm falls~} P_1=P_2. \end{array}\right.
 $$
 \end{enumerate}
-Hieraus folgt insbesondere für $P=(x,y)\in E$, dass gilt $-P=(x,x+y)$. (Beachte: $-(-P)=(x,x+(x+y))=(x,2x+y)=(x,y)$, da der zugrunde liegende Körper Charakteristik $2$ hat.)\footnote{Eine Animation der Punktaddition auf Elliptischen Kurven 
+Hieraus folgt insbesondere für $P=(x,y)\in E$, dass gilt $-P=(x,x+y)$. (Beachte: $-(-P)=(x,x+(x+y))=(x,2x+y)=(x,y)$, da der zugrunde liegende Körper Charakteristik $2$ hat.)\footnote{%
+Eine Animation der Punktaddition auf Elliptischen Kurven 
 findet man auf der Certicom-Seite\index{Certicom} unter \\
-\url{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}}
+\url{http://www.certicom.com/index.php/ecc-tutorial}\\
+Vergleiche auch den Web-Link über das \hyperlink{ec:Web-Link:Java_Laubrock}
+{Java-Tutorial} am Ende dieser Kapitels.
+
+}
 
 Man kann nachrechnen, dass die Menge $E\cap\{\cal O\}$ mit der so definierten
 Addition eine Gruppe bildet. Dies bedeutet insbesondere, dass die Summe zweier
@@ -533,7 +537,7 @@ Mit Hilfe Elliptischer Kurven kann ein sicherer Schlüsselaustausch nach dem \hyp
 In der Schreibweise der Elliptischen Kurven liest sich das Diffie-Hellman Verfahren wie folgt: Zunächst einigen sich beide Partner (A und B) öffentlich auf eine Gruppe $G$ und eine ganze Zahl $q$. Danach wählen sie zufällig $r_A,r_B\in\{1,2,\dots,q-1\}$, bilden die Punkte $R_A=r_AG$, $R_B=r_BG$ auf der Elliptischen Kurve und tauschen diese aus. Danach berechnet A leicht $R=r_AR_B$. Denselben Punkt (nämlich $r_Ar_B G$) erhält auch B, indem er $r_BR_A=r_Br_AG=r_Ar_BG=R$ bildet. Dabei ist die Berechnung von $R_A,R_B$ als $r_A$ bzw. $r_B$-faches des Kurvenpunktes $G$ leicht durchzuführen; die umgekehrte Operation, aus $R_A$ bzw. $R_B$ den Wert $r_A$ bzw. $r_B$ zu erhalten, ist jedoch sehr aufwändig.
 \\ Für einen Dritten ist es nach heutigen Kenntnisstand nicht möglich, $R$ zu berechnen, wenn er nicht mindestens einen der Werte $r_A$ oder $r_B$ ermitteln kann, d.h. das ECDLP löst.
 
-Um einen ``Man-in-the-Middle''-Angriff zu verhindern, kann man auch hier wie schon in Kapitel \ref{Impersonalisierungsattacke} beschrieben, die übertragenen Werte $G,q,R_A,R_B$ digital signieren.
+Um einen \glqq Man-in-the-Middle''-Angriff zu verhindern, kann man auch hier wie schon in Kapitel \ref{Impersonalisierungsattacke} beschrieben, die übertragenen Werte $G,q,R_A,R_B$ digital signieren.
 
 \par
 %\smallskip 
@@ -573,16 +577,16 @@ beim Faktorisieren mit ECC war er einer der führenden Köpfe. Als Mitarbeiter
 von British Telekom hat er leider nie viel selbst publiziert. Auf der RSA
 Konferenz 1999 wurde er für seine \glqq outstanding contributions in 
 mathematics\grqq ~ausgezeichnet:\\ 
-\href{http://www.eff.org/Privacy/Crypto_misc/DESCracker/HTML/19990118_rsa_awards.html}
-{\texttt{http://www.eff.org/Privacy/Crypto\_misc/DESCracker/HTML/19990118\_rsa\_awards.html}}.
+\url{http://www.eff.org/Privacy/Crypto_misc/DESCracker/HTML/19990118_rsa_awards.html}.\\
+Im Jahr 1987 stellte H.W. Lenstra\index{Lenstra 1987} einen häufig genutzten
+Faktorisierungsalgorithmus vor, der auf Elliptischen Kurven basiert 
+(siehe \cite{ec:Lenstra1987}).
 }, die auf Elliptischen Kurven
 \index{Faktorisierung!Faktorisierungsalgorithmen} basieren\footnote{%
-Im Jahr 1987 stellte H.W. Lenstra\index{Lenstra 1987}
-einen Faktorisierungsalgorithmus vor, der auf Elliptischen Kurven basiert 
-(siehe \cite{ec:Lenstra1987}). Die aktuell größte mit Elliptischen Kurven 
-faktorisierte Zahl\index{Faktorisierung!Faktorisierungsrekorde} ist die 
-55 Dezimalstellen lange Zahl $629^{59}-1$, sie wurde am 6. Oktober 2001 
-von M. Izumi gefunden (siehe \hyperlink{Lenstra2}{ECMNET}\index{ECMNET}).
+Die größten mit Elliptischen Kurven faktorisierten Zahlen\index{Faktorisierung!Faktorisierungsrekorde} haben ca. 80 Dezimalstellen:\\
+\url{http://www.loria.fr/~zimmerma/records/top50.html}.\\
+Vergleiche auch den Web-Link über das \hyperlink{Lenstra2}{ECMNET-Projekt}
+\index{ECMNET} am Ende dieser Kapitels.
 }.
 Genauer gesagt, machen sich diese Verfahren zunutze, dass man auch 
 über ${\mathbb Z}_n$ ($n$ zusammengesetzte Zahl) Elliptische Kurven
@@ -626,17 +630,17 @@ Im Folgenden wird aufgezeigt, welche Funktionalität dazu in CrypTool und in Sage
 
 
 % -----------------------------------------------------------------------------
-\subsection{CrypTool}
+\subsection{CrypTool}\index{CrypTool}
 
-CrypTool enthält Elliptische Kurven, um digitale Signaturen zu erzeugen%
+CT1 enthält Elliptische Kurven, um digitale Signaturen zu erzeugen%
 \footnote{%
-Die Dialogbox, die in CrypTool\index{CrypTool} nach dem Menü 
+Die Dialogbox, die in CT1\index{CrypTool 1} nach dem Menü 
 {\bf Digitale Signaturen/PKI \textbackslash{} Dokument signieren} erscheint,
 bietet die EC-Verfahren ECSP-DSA und ECSP-NR an.
 
 } und um die ECC-AES-Hybridverschlüsselung durchzuführen%
 \footnote{%
-In CrypTool\index{CrypTool} finden Sie dieses Verfahren über das Menü
+In CT1\index{CrypTool 1} finden Sie dieses Verfahren über das Menü
 {\bf Ver-/Entschlüsseln \textbackslash{} Hybrid}.
 
 }.
@@ -653,6 +657,15 @@ IEEE P1363 {\em Standard Specifications for Public Key Cryptography}
 Implementiert sind die kryptographischen Primitive zur Signaturerzeugung
 und Signaturverifikation für die auf Elliptischen Kurven basierenden
 Varianten von Nyberg-Rueppel-Signaturen und \index{DSA} DSA-Signaturen.
+
+Schritt-für-Schritt ist die Punkt-Addition auf elliptischen Kurven
+in CT1\index{CrypTool 1} and JCT\index{JCrypTool} visualisiert.%
+\footnote{%
+CT1: Menü {\bf Digitale Signaturen/PKI \textbackslash{} Signaturdemo (Signaturerzeugung)},\\
+JCT (Standard-Perspektive): Menü {\bf Visualisierungen \textbackslash{}
+Elliptische Kurvem-Berechnungen}.
+
+}
 
 
 % -----------------------------------------------------------------------------
@@ -854,8 +867,7 @@ der Schlüssellänge (Speicherplatz) eine entscheidende Bedeutung zukommt.
         {\em Selecting Cryptographic Key Sizes (1999)}, \\
 	Journal of Cryptology: the journal of the International 
 	Association for Cryptologic Research \\
-	\href{http://www.cryptosavvy.com/cryptosizes.pdf}
-	{\texttt{http://www.cryptosavvy.com/cryptosizes.pdf}}
+	\url{http://www.cryptosavvy.com/cryptosizes.pdf}
     \bibitem[Menezes1993]{ec:Menezes1993}A. J. Menezes, 
 	\index{Menezes 1993} \\ 
 	{\em Elliptic curve public key cryptosystems}, \\
@@ -892,8 +904,16 @@ der Schlüssellänge (Speicherplatz) eine entscheidende Bedeutung zukommt.
         Version 1.2, November 2009
         % --> seit April 2009 ohne HTTPS auf Siegener Server (mit SAGE 3.4)
 
-  \item Online-Tutorial über Elliptische Kurven der Firma Certicom\index{Certicom},\\
-        \url{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}
+  \hypertarget{ec:Web-Link:Certicom_Tutorial}{} 
+  \item Online-Tutorial über Elliptische Kurven der Firma
+        Certicom\index{Certicom} (alles in Englisch),\\
+        \url{http://www.certicom.com/index.php/ecc-tutorial}
+
+   \hypertarget{ec:Web-Link:Java_Laubrock}{} 
+   \item Tutorial mit Java Applets -- Krypto-Verfahren basierend auf
+        elliptischen Kurven, Diplomarbeit Thomas Laubrock, 1999,\\
+        \url{http://www.warendorf-freckenhorst.de/elliptische-kurven/frame.html}
+
 
   \item Arbeitsgruppe IEEE P1363, \\
         \url{http://grouper.ieee.org/groups/1363}

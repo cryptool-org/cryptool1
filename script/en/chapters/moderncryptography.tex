@@ -99,7 +99,7 @@
     With the educational tool for number theory {\bf NT} you can apply
     some of the methods introduced here (RSA, Rabin, DH, ElGamal)
     (see learning unit 4.2 and 4.3, pages 9-17/17).\\
-    NT can be called in CrypTool\index{CrypTool} via the menu path
+    NT can be called in CT1\index{CrypTool 1} via the menu path
     {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
     \textbackslash{} Learning Tool for Number Theory}.
     See appendix \ref{s:appendix-Learn-NT}.
@@ -118,8 +118,7 @@
 \footnotetext{%
   Georg Christoph Lichtenberg\index{Lichtenberg, Georg Christoph}, 
   German writer and physicist (1742-1799),\\ 
-  (also see: \href{http://en.wikipedia.org/wiki/Georg\_Christoph\_Lichtenberg}
-              {\tt http://en.wikipedia.org/wiki/Georg\_Christoph\_Lichtenberg})
+  (also see: \url{http://en.wikipedia.org/wiki/Georg\_Christoph\_Lichtenberg})
 }
 
 %--------------------------------------------------------------------
@@ -295,11 +294,8 @@ for $ n=100 $  with $ 2^{100} \approx 1.27 \cdot 10^{30} $  and  $ 2^{n/2}
 However, for special $ a_1, \dots, a_n $   the solution is quite easy to find, 
 e.g. for $ a_i = 2^{i-1}. $  The binary representation of $ g $ immediately 
 delivers $ x_1, \dots, x_n$. In general, the a 0-1 knapsack problem can be 
-solved easily if a \index{Permutation} permutation\footnote{A permutation\index{Permutation} $\pi$ 
-of the numbers $1, \dots, n$ is a change in the order in which these numbers are 
-listed. For example, a permutation $\pi$ of $(1,2,3)$ is $(3,1,2),$ i.e. 
-$\pi(1) = 3$, $\pi(2) =1$ 
-and $\pi(3) = 2$.} 
+solved easily if a \index{Permutation} permutation\footnote{%
+A permutation\index{Permutation} $\pi$ of the numbers $1, \dots, n$ is a change in the order in which these numbers are listed. For example, a permutation $\pi$ of $(1,2,3)$ is $(3,1,2),$ i.e. $\pi(1) = 3$, $\pi(2) =1$ and $\pi(3) = 2$.} 
 $ \pi $  of $ 1, \dots, n $  exists with $ a_{\pi (j)} > \sum_{i=1}^{j-1} 
 a_{\pi(i)} $. If, in addition, $ \pi $ is the identity, i.e. $ \pi(i)=i $ for $ 
 i=1,2,\dots,n, $ then the sequence $ a_1, \dots , a_n $ is said to be 
@@ -390,11 +386,12 @@ procedures}\index{Prime factor!decomposition}
 {The RSA procedure\footnote{%
 Please compare chapters \ref{rsabeweis}, ff.
 }$^,$\footnote{%
-Using CrypTool\index{CrypTool} you can gain practical experience
+Using CT1\index{CrypTool 1} you can gain practical experience
 with the RSA procedure via the menu {\bf Indiv.Procedures \textbackslash{} 
-RSA Cryptosystem \textbackslash{} RSA Demonstration}.
-}}
-
+RSA Cryptosystem \textbackslash{} RSA Demonstration}.\\
+You can find RSA also in CT2\index{CrypTool 2} and JCT\index{JCrypTool}.
+}
+}
 % LateX-Learnings: Mit \footnotemark statt \footnote
 % stand der höhere Index unten zweimal (oben ok).
 %
@@ -411,7 +408,6 @@ RSA Cryptosystem \textbackslash{} RSA Demonstration}.
 %   in the article ``Introduction to Elementary Number Theory with Examples'',
 %   chapter~\ref{patternsandstructures}
 %   \hyperlink{RSABeweis}{Beweis des RSA-Verfahrens mit Euler-Fermat}
-
 \index{RSA} \label{rsaverfahren}
 
 As early as 1978, R. \index{Rivest, Ronald} Rivest, \index{Shamir, Adi} 
@@ -466,9 +462,10 @@ If  $ p $ is a prime number, then $ \phi (p)= p-1. $ \\
 If we know the various prime factors $ p_1, \dots , p_k $ of $ N, $ then 
 \[
 \phi(N) = N \cdot (1-\frac{1}{p_1}) \,
-\cdots \, (1-\frac{1}{p_k}).\footnote{Further formulas for the Euler phi
-function are in the article ``Introduction to Elementary Number Theory with
-Examples'', chapter~\ref{patternsandstructures}.} %or \ref{L-Euler-Function}
+\cdots \, (1-\frac{1}{p_k}).\footnote{%
+Further formulas for the Euler phi function are in
+chapter~\ref{L-Euler-Function} ``\nameref{L-Euler-Function}''.
+}
 \]
 Table~\ref{phi15} gives the values up to $15$. 
 In the case of $ N=pq $, 
@@ -594,7 +591,7 @@ Backdoor information is the decomposition into prime numbers of $ n = pq. $
     distribution of the discrete logarithm values and apply Shank's
     baby-step-giant-step method:
     See learning units 6.1-6.3, pages 1-6/6.\\
-    NT can be called in CrypTool\index{CrypTool} via the menu path
+    NT can be called in CT1\index{CrypTool 1} via the menu path
     {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
     \textbackslash{} Learning Tool for Number Theory}.
     See appendix \ref{s:appendix-Learn-NT}.
@@ -642,8 +639,7 @@ Index-Calculus &             $ O(e^{(1+o(1)) \sqrt{\ln (p) \ln (\ln (p))}}) $ \\
 The current record\index{Logarithm problem!record} (as of April 2007) for calculating discrete logarithms was
 established in February 2007 by the group Kleinjung, Franke and Bahr at
 University of Bonn.\footnote{%
-   \href{http://www.nabble.com/Discrete-logarithms-in-GF(p)-----160-digits-t3175622.html}
-{\texttt{http://www.nabble.com/Discrete-logarithms-in-GF(p)-----160-digits-t3175622.html}}}
+   \url{http://www.nabble.com/Discrete-logarithms-in-GF(p)-----160-digits-t3175622.html}}
 Kleinjung calculated the discrete logarithm modulo a 160 digit prime number $p$
 and generator $g$:
 $$
@@ -678,9 +674,13 @@ years on 3.2 GHz Xeon machines.
 \subsection[Diffie-Hellman key agreement]
 {Diffie-Hellman key agreement\footnotemark}
 \footnotetext{%
-With CrypTool\index{CrypTool} this exchange protocol has been
-visualized: you can execute the single steps with concrete numbers using 
-menu {\bf Indiv. Procedures \textbackslash{} Protocols \textbackslash{} Diffie-Hellman Demonstration}.
+  With CT1\index{CrypTool 1} this exchange protocol has been
+  visualized: you can execute the single steps with concrete numbers using 
+  menu {\bf Indiv. Procedures \textbackslash{} Protocols \textbackslash{}
+  Diffie-Hellman Demonstration}.\\
+  In JCT\index{JCrypTool}\index{JCT} you can find it in the default perspective
+  via the menu item {\bf Visuals \textbackslash{} Diffie-Hellman Key
+  Exchange (EC)}.
 }
 
 \index{Key agreement (key exchange)!Diffie-Hellman} 

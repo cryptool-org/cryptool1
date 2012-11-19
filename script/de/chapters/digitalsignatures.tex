@@ -10,7 +10,7 @@
 \label{Chapter_Hashes-and-Digital-Signatures}
 \index{Signatur!digitale}
 (Schneider J. / Esslinger B. / Koy H., Juni 2002; 
-Updates: Feb. 2003, Juni 2005, Juli 2009)
+Updates: Feb. 2003, Juni 2005, Juli 2009, Nov. 2012)
 % --------------------------------------------------------------------------
 %\vskip + 30pt
 \begin{ctsquote}
@@ -24,7 +24,7 @@ wollen wir es nicht.'
 \addtocounter{footnote}{0}\footnotetext{Antwort von Stanislaw Lem auf
 die Kritik an seinem philosophischen Hauptwerk ~\glqq Summa Technologiae'',
 1964, in der er die evolutionäre Möglichkeit einer Entstehung der
-künstlichen Intelligenz ausführte.\\}
+künstlichen Intelligenz ausführte.}
 
 
 %\vspace{12pt}
@@ -46,17 +46,21 @@ muss ein Schlüssel"-paar besitzen. Er benutzt seinen geheimen Schlüssel,
 um Signaturen zu erzeugen, und der Empfänger benutzt den öffentlichen
 Schlüssel des Absenders, um die Richtigkeit der Signatur zu überprüfen.
 Es darf wiederum nicht möglich sein, aus dem öffentlichen den geheimen
-Schlüssel abzuleiten\footnote{%
-Mit CrypTool\index{CrypTool} können Sie ebenfalls digitale Signaturen
+Schlüssel abzuleiten.
+
+Im Detail sieht ein \index{Signaturverfahren}
+{\em Signaturverfahren}\footnote{%
+Mit CT1\index{CrypTool 1} können Sie ebenfalls digitale Signaturen
 erzeugen und prüfen: \\
-in den Untermenüs des Hauptmenüpunktes 
+entweder in den Untermenüs des Hauptmenüpunktes 
 {\bf Digitale Signaturen / PKI} oder \\
 per 
 {\bf Einzelverfahren \textbackslash{} RSA-Kryptosystem \textbackslash{}
-Signaturdemo (Signaturerzeugung)}.
-}.
-
-Im Detail sieht ein \index{Signaturverfahren} {\em Signaturverfahren} 
+Signaturdemo (Signaturerzeugung)}.\\
+Ebenso können mit JCT\index{JCrypTool} (in der Standard- und der
+Funktions-Perspektive) unterschiedliche Arten elektronischer Signaturen
+erzeugt werden.
+} 
 folgendermaßen aus: \\
 Der Absender berechnet aus seiner Nachricht und seinem geheimen Schlüssel
 die digitale Signatur der Nachricht. Im Vergleich zur handschriftlichen
@@ -78,7 +82,7 @@ eigentliche Dokument. Um den Datenverkehr nicht unnötig anwachsen zu
 lassen und aus Performance-Gründen\index{Performance} wendet man -- vor
 dem Signieren -- auf das Dokument eine kryptographische 
 Hashfunktion\footnote{%
-Hashfunktionen\index{Hashfunktion} sind in CrypTool\index{CrypTool}
+Hashfunktionen\index{Hashfunktion} sind in CT1\index{CrypTool 1}
 an mehreren Stellen implementiert.\\
 In den Menüs {\bf Einzelverfahren \textbackslash{} Hashverfahren} bzw.
               {\bf Analyse \textbackslash{} Hashverfahren}
@@ -96,6 +100,8 @@ haben Sie die Möglichkeit
 \item aufgrund von gezielt gesuchten Hashwertkollisionen\index{Kollision}
       einen Angriff auf digitale Signaturen zu simulieren.
 \end{list}
+CT2\index{CrypTool 2} und JCT\index{JCrypTool} enthalten ebenfalls verschiedene
+Hashverfahren. 
 } an. Deren Output wird dann signiert.
 
 
@@ -165,7 +171,7 @@ Schwächen in ihrer Struktur gezeigt hatten
   SHA-1 \index{SHA-1} ist eine in den Standards FIPS 180-1 (durch die
   US-Behörde NIST), ANSI X9.30 Part 2 und
   \cite{ds:FIPS186} spezifizierte 160-Bit Hashfunktion.\\
-  SHA bedeutet ``Secure Hash Algorithm'' und wird häufig benutzt, z.B. 
+  SHA bedeutet \glqq Secure Hash Algorithm'' und wird häufig benutzt, z.B. 
   mit DSA, RSA oder ECDSA.\\
   Der aktuelle Standard \cite{ds:FIPS180-3} definiert vier sichere Hashverfahren
   -- SHA-1, SHA-256, SHA-384 und SHA-512.
@@ -181,11 +187,12 @@ Schwächen in ihrer Struktur gezeigt hatten
   - 192-bit AES -- SHA-384 \\
   - 256-bit AES -- SHA-512.
 
-  Mit CrypTool\index{CrypTool} können Sie den Geburtstagsangriff
+  Mit CT1\index{CrypTool 1} können Sie den Geburtstagsangriff
   \index{Angriff!Geburtstagsangriff} auf digitale Signaturen 
   nachvollziehen: \\
   über das Menü {\bf Analyse \textbackslash{} Hashverfahren
-  \textbackslash{} Angriff auf den Hashwert der digitalen Signatur}.
+  \textbackslash{} Angriff auf den Hashwert der digitalen Signatur}.\\
+  CT2\index{CrypTool 2} enthält einen MD5-Kollisionsgenerator.
   } 
 oder \index{RIPEMD-160} RIPEMD-160\footnote{%
   RIPEMD-160, RIPEMD-128 und die optionale Erweiterung RIPEMD-256 haben
@@ -194,17 +201,14 @@ oder \index{RIPEMD-160} RIPEMD-160\footnote{%
   RIPEMD-160 ist Teil des internationalen ISO/IEC-Standards 
   ISO/IEC 10118-3:1998 für dedizierte Hashfunktionen, zusammen mit
   RIPEMD-128 and SHA-1. Weitere Details: \\
-- \href{http://www.esat.kuleuven.ac.be/~bosselae/ripemd160.html}
-   {\tt http://www.esat.kuleuven.ac.be/\~{}bosselae/ripemd160.html}\\
-- \href{http://www.ietf.org/rfc/rfc2857.txt}
-   {\tt http://www.ietf.org/rfc/rfc2857.txt} (``The Use of HMAC-RIPEMD-160-96
+- \url{http://www.esat.kuleuven.ac.be/~bosselae/ripemd160.html}\\
+- \url{http://www.ietf.org/rfc/rfc2857.txt} (``The Use of HMAC-RIPEMD-160-96
    within ESP and AH'').
   }%
 ) vertraut.
 
 Auf der Crypto 2004 (August 2004)\footnote{%
-    \href{http://www.iacr.org/conferences/crypto2004/}
- {\texttt{http://www.iacr.org/conferences/crypto2004/}} }
+    \url{http://www.iacr.org/conferences/crypto2004/} }
 wurde dieses Sicherheitsgefühl jedoch stark in Zweifel gezogen: 
 Chinesische Wissenschaftler veröffentlichten
 Kollisionsangriffe gegen MD4, SHA-0 und Teile von SHA-1, die
@@ -233,21 +237,17 @@ näch"-sten Jahren auslaufen zu lassen. Es ist daher zu empfehlen, für neue
 Produkte zur Erstellung von Sig"-naturen SHA-1 nicht mehr zu verwenden. Die
 SHA-2 Familie \cite{ds:FIPS180-3} bietet stärkere Verfahren.  Um den neuen
 Erkenntnissen in der Kryptoanalyse von Hashfunktionen Rechnung zu tragen, hat
-das NIST 2008 einen Wettbewerb gestartet, in dem eine neue Hashfunktion
-``SHA-3'' ausgewählt werden soll.\footnote{%
-\url{http://csrc.nist.gov/groups/ST/hash/sha-3/}} Der Wettbewerb soll im Jahr
-2012 enden.
+das NIST 2008 einen Wettbewerb gestartet: Als neue Hashfunktion \glqq SHA-3''
+wurde im Oktober 2012 Keccak\index{Keccak} verkündet.\footnote{%
+\url{http://csrc.nist.gov/groups/ST/hash/sha-3/}}
 
 Weitere Informationen zu diesem Thema finden sich z.B. in dem Artikel
 \glqq Hash mich -- Konsequenzen der erfolgreichen Angriffe auf SHA-1\grqq\
 von Reinhard Wobst und Jürgen Schmidt\footnote{% 
-      \href{http://www.heise.de/security/artikel/56555}
-   {\texttt{http://www.heise.de/security/artikel/56555}}. \\
+      \url{http://www.heise.de/security/artikel/56555}. \\
   Weitere Quellen sind z.B.: \\
-      \href{http://www.bsi.bund.de/esig/basics/techbas/krypto/index.htm}
-   {\texttt{http://www.bsi.bund.de/esig/basics/techbas/krypto/index.htm}} \\
-      \href{http://csrc.nist.gov/CryptoToolkit/tkhash.html}
-   {\texttt{http://csrc.nist.gov/CryptoToolkit/tkhash.html}}.
+      \url{http://www.bsi.bund.de/esig/basics/techbas/krypto/index.htm} \\
+      \url{http://csrc.nist.gov/CryptoToolkit/tkhash.html}.
 }
   von Heise Security.
 
@@ -266,15 +266,12 @@ von Reinhard Wobst und Jürgen Schmidt\footnote{%
 Kapitel 14, \glqq mem-payload\grqq, S. 148, Ross.}
 
 
-Das Signatur-Verfahren mit Hashfunktion (ohne den oben genannten Nachteil)
-sieht folgendermaßen aus:\footnote{% 
+Signatur-Verfahren mit Hashfunktion\footnote{% 
 Vergleiche auch:\\
-      \href{http://de.wikipedia.org/wiki/Digitale\_Signatur}
-   {\texttt{http://de.wikipedia.org/wiki/Digitale\_Signatur}},\\
-      \href{http://en.wikipedia.org/wiki/Digital\_signature}
-   {\texttt{http://en.wikipedia.org/wiki/Digital\_signature}}.
-} \\
-Anstatt das eigentliche Dokument zu signieren,
+      \url{http://de.wikipedia.org/wiki/Digitale\_Signatur},\\
+      \url{http://en.wikipedia.org/wiki/Digital\_signature}.
+}
+funktionieren folgendermaßen: Anstatt das eigentliche Dokument zu signieren,
 berechnet der Absender nun zuerst den Hashwert der Nachricht und signiert
 diesen. Der Empfänger bildet ebenfalls den Hashwert der Nachricht (der
 benutzte Algorithmus muss bekannt sein). Er überprüft dann, ob die
@@ -537,8 +534,7 @@ gesichert übermittelt werden.
     \index{FIPS186-2} \\
     {\em Digital Signature Standard (DSS)}, \\
     Januar 27, 2000. Change Note: Oktober 5, 2001.\\
-  \href{http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf}
-   {\tt http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf}
+   \url{http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf}
 
 \bibitem[McDonald2009]{ds:McDonald2009} Cameron McDonald, Philip Hawkes, Josef Pieprzyk, 
     \index{McDonald 2009} \\

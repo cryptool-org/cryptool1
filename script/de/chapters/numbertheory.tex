@@ -2330,7 +2330,7 @@ prognostizierten Entwicklung (rot; Quelle Fox 2001)}
 \end{ctsquote}
 \addtocounter{footnote}{0}\footnotetext{%
     Hermann Hesse, deutsch-schweizerischer Schriftsteller und Nobelpreisträger, 
-    02.07.1877$-$09.08.1962.\\}
+    02.07.1877$-$09.08.1962.}
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 \subsection{Status der Faktorisierung von konkreten großen Zahlen}
@@ -2352,8 +2352,8 @@ mit unterschiedlichen Methoden finden sich auf den folgenden Webseiten:
 \end{itemize}
 
 Der aktuelle Rekord (Stand Nov. 2012) mit der GNFS-Methode (General Number
-Field Sieve) \index{General Number Field Sieve (GNFS)} liegt in der Zerlegung
-einer allgemeinen $232$-stelligen Dezimalzahl in ihre beiden Primfaktoren.
+Field Sieve) \index{General Number Field Sieve (GNFS)} zerlegte eine
+allgemeine $232$-stellige Dezimalzahl in ihre beiden Primfaktoren.
 
 \vskip +10pt
 Die letzten Rekorde\footnote{%
@@ -2382,7 +2382,7 @@ Die "`C-Zahlen"' stammen aus dem Cunningham-Projekt:
 Diese sind Faktoren großer Mersennezahlen, die eine ganz spezielle
 Struktur haben. Dies macht es um Größenordnungen einfacher, sie zu
 faktorisieren, als Moduli gleicher Längen, die man für RSA erstellt.
-                               } 
+                               }
 mit Faktorisierungsverfahren für zusammengesetzte Zahlen
 sind in der folgenden Tabelle~\ref{factorizationrecords} aufgeführt:
 
@@ -2405,7 +2405,8 @@ sind in der folgenden Tabelle~\ref{factorizationrecords} aufgeführt:
 	C158 & 		158 & 523 & Jan 2002 & Jens Franke et al. \\
 \hline
 \end{tabular}
-\caption{Die derzeitigen Faktorisierungsrekorde (Stand Nov. 2012)}    % Eyecatcher_neue-Mersenne
+\caption{Die derzeitigen Faktorisierungsrekorde (Stand Nov. 2012)}
+    % Eyecatcher_neue-Mersenne
 \label{factorizationrecords}
 \end{center}
 \end{table}
@@ -2422,25 +2423,37 @@ für sichere RSA-Moduli fundierter.
 
 Siehe \url{http://www.heise.de/newsticker/meldung/print/65957}
 }
+
 %be_2005: Erzwingen, dass die Abb. noch in diesem Kapitel !
 
 
-\noindent Im Folgenden werden diese letzten Rekorde etwas ausführlicher erläutert.
+Laufzeituntersuchungen zur Faktorisierung\index{Faktorisierung} mit den
+Open-Source Software-Paketen Pari-GP, Sage, CrypTool 1 und CrypTool 2
+finden sich in "`Zeitexperimente zur Faktorisierung"'\footnote{%
+R.-H.Schulz und H.Witten: "`Zeitexperimente zur Faktorisierung. Ein Beitrag
+zur Didaktik der Kryptographie"', in LogIn Heft Nr. 166/167 (2010) 113-120,\\
+\url{http://bscw.schule.de/pub/bscw.cgi/d864899/Schulz_Witten_Zeit-Experimente.pdf}
+}.
+
+\vskip +20pt
+%\noindent
+Im Folgenden werden diese letzten Rekorde etwas ausführlicher
+erläutert\footnote{%
 Die beiden dabei benutzten Methoden GNFS und SNFS werden kurz z.B. auf
 den ff. Webseiten dargestellt:
 \index{General Number Field Sieve (GNFS)}
 \index{Special Number Field Sieve (SNFS)}
-\vspace{-10pt}
 \begin{itemize}
 \item[]
       \url{http://en.wikipedia.org/wiki/Special_number_field_sieve} \\
       \url{http://en.wikipedia.org/wiki/General_number_field_sieve}
 \end{itemize}
-%\vspace{-10pt}
+\vspace{-10pt}
+}:
 
 
 % --------------------------------------------------------------------------
-\vskip +20pt
+%\vskip +20pt
 \paragraph*{RSA-155} \label{RSA-155} \index{RSA-155} 
 \mbox{} % für Zeilenumbruch, da er // allein nicht mag ! xxxxxxxxx
 
@@ -2469,7 +2482,7 @@ Lösung von RSA-155.
 
 Die Aufgabe der Bonner Wissenschaftler entsprang auch nicht einer Challenge,
 sondern die Aufgabe war, die letzten Primfaktoren der Zahl $2^{953}+1$ 
-zu finden (siehe~ ``Wanted List'' des Cunningham-Projekts\index{Cunningham-Projekt}%
+zu finden (siehe~ \glqq Wanted List'' des Cunningham-Projekts\index{Cunningham-Projekt}%
 \footnote{%
 Cunningham-Projekt: \url{http://www.cerias.purdue.edu/homes/ssw/cun/}}). 
 
@@ -2899,7 +2912,7 @@ Einsatz des RSA ganz verzichtet werden.
 \label{RSABernstein} \index{Faktorisierung!Faktorisierungsproblem}
 %\mbox{} % für Zeilenumbruch, da er \\ allein nicht mag ! 
         % Braucht die Leerzeile danach auch noch !! bebebe ?
-Die im November 2001 veröffentlichte Arbeit ``Circuits for integer
+Die im November 2001 veröffentlichte Arbeit \glqq Circuits for integer
 factorization: a proposal'' (siehe \url{http://cr.yp.to/djb.html})
 von D.J. Bernstein \cite{nt:Bernstein2001} behandelt das Problem der 
 Faktorisierung großer Zahlen.
@@ -2965,10 +2978,10 @@ Als Ergebnis kommen Sie zu einer Bitlängen-Verbesserung der
 Faktorisierung um den Faktor 1.17 
 (anstatt Faktor 3 wie von Bernstein erwartet).
 
-Die Zusammenfassung ihres Papers ``Analysis of Bernstein's Factorization 
+Die Zusammenfassung ihres Papers \glqq Analysis of Bernstein's Factorization 
 Circuit'' lautet:
 
-``... Bernstein proposed a circuit-based implementation of
+\glqq ... Bernstein proposed a circuit-based implementation of
 the matrix step of the number field sieve factorization algorithm. We
 show that under the non-standard cost function used in [1], these circuits
 indeed offer an asymptotic improvement over other methods but
@@ -3014,11 +3027,11 @@ Verweise:
 %\mbox{} % für Zeilenumbruch, da er // allein nicht mag ! xxxxxxxxx
 
 Im Januar 2003 veröffentlichten Adi Shamir und Eran Tromer vom Weizmann
-Institute of Science den vorläufigen Draft {\em ``Factoring Large Numbers
+Institute of Science den vorläufigen Draft {\em \glqq Factoring Large Numbers
 with the TWIRL Device''}, in dem deutliche Bedenken gegen RSA-Schlüssellängen
 unter 1024 begründet werden \cite{nt:Shamir2003}.
 
-Das Abstract fasst ihre Ergebnisse folgendermaßen zusammen: ``The security of the RSA cryptosystem depends on the difficulty of factoring large integers. The best current factoring algorithm is the Number Field Sieve (NFS), and its most difficult part is the sieving step. In 1999 a large distributed computation involving thousands of workstations working for many months managed to factor a 512-bit RSA key, but 1024-bit keys were believed to be safe for the next 15-20 years. In this paper we describe a new hardware implementation of the NFS sieving step ... which is 3-4 orders of magnitude more cost effective than the best previously published designs ... . Based on a detailed analysis of all the critical components (but without an actual implementation), we believe that the NFS sieving step for 1024-bit RSA keys can be completed in less than a year by a \$10M device, and that the NFS sieving step for 512-bit RSA keys can be completed in less than ten minutes by a \$10K device. Coupled with recent results about the difficulty of the NFS matrix step ... this raises some concerns about the security of these key sizes.''
+Das Abstract fasst ihre Ergebnisse folgendermaßen zusammen: \glqq The security of the RSA cryptosystem depends on the difficulty of factoring large integers. The best current factoring algorithm is the Number Field Sieve (NFS), and its most difficult part is the sieving step. In 1999 a large distributed computation involving thousands of workstations working for many months managed to factor a 512-bit RSA key, but 1024-bit keys were believed to be safe for the next 15-20 years. In this paper we describe a new hardware implementation of the NFS sieving step ... which is 3-4 orders of magnitude more cost effective than the best previously published designs ... . Based on a detailed analysis of all the critical components (but without an actual implementation), we believe that the NFS sieving step for 1024-bit RSA keys can be completed in less than a year by a \$10M device, and that the NFS sieving step for 512-bit RSA keys can be completed in less than ten minutes by a \$10K device. Coupled with recent results about the difficulty of the NFS matrix step ... this raises some concerns about the security of these key sizes.''
 
 Eine ausführliche Fassung findet sich auch in dem Artikel der beiden Autoren
 in den RSA Laboratories CryptoBytes \cite{nt:Shamir2003a}.
@@ -3264,8 +3277,8 @@ LiDIA\index{LiDIA}, BC\index{BC} oder Mathematica\index{Mathematica}
 können solche zahlentheoretischen Aufgaben gelöst werden.\\
 - Pari-GP: \texttt{znlog(Mod(49,347),Mod(11,347))}.\\
 - LiDIA:   \texttt{dl(11,49,347)}.\\
-- Mathematica: Die allgemeine Funktion ``Solve'' liefert die {em tdep}-Meldung
-  ``The equations appear to involve the variables to be solved for in an essentially
+- Mathematica: Die allgemeine Funktion \glqq Solve'' liefert die {em tdep}-Meldung
+  \glqq The equations appear to involve the variables to be solved for in an essentially
     non-algebraic way''.\\
 - Mathematica\index{Mathematica}: {\tt MultiplicativeOrder[11, 347, 49]}.\\
 Alle liefern das Ergebnis $67$.
@@ -3924,8 +3937,8 @@ zusammen. Wendet man den ggT-Algorithmus auf diese Matrix an, so erhält man den
   \item[\tt 2.] {\tt if (b != 0) then goto 1.}
 \end{itemize}
 
-{\tt OUTPUT:} ``ggT$(a,b) = a*x +b*y$: '', ``ggT$(a,b) =$ '' $b$, 
-              ``$x = $'' $x_{2,1}$, ``$y = $'' $x_{2,2}$
+{\tt OUTPUT:} \glqq ggT$(a,b) = a*x +b*y$: '', \glqq ggT$(a,b) =$ '' $b$, 
+              \glqq $x = $'' $x_{2,1}$, \glqq $y = $'' $x_{2,2}$
 
 \noindent Da dieser Algorithmus nur lineare Transformationen durchführt, gelten immer die Gleichungen
 \begin{eqnarray*}
@@ -4171,6 +4184,33 @@ Damit ergibt sich $z = 35189$.
 \end{example}
 % End of Base representation and base transformation of numbers.
 
+
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\newpage
+\hypertarget{NumberTheory_Appendix_D2_Koblenz}{}
+\section{Anhang: Interaktive Präsentation zur RSA-Chiffre}
+\label{l:NumberTheory_Appendix_D2_Koblenz}{}
+
+Die folgende Präsentation (letzte Änderung Nov. 2010) zeigt in interaktiver
+Form die Grundlagen und Funktionsweisen der RSA-Chiffre.\\
+Folgende drei Varianten der Präsentation sind vorhanden:
+\begin{itemize}
+ \item Powerpoint 2007 (dynamisch, animiert)\footnote{%
+    \url{http://www.cryptool.org/images/ct1/presentations/RSA/RSA-de.pptx}}
+ \item PDF (statisch, keine Interaktion)\footnote{%
+    \url{http://www.cryptool.org/images/ct1/presentations/RSA/RSA-de(keine%20Interaktivitaet).pdf}}
+ \item Flash (kann im Browser gestartet werden, erfordert JavaScript; zeitgesteuerte Wiedergabe)\footnote{%
+\url{http://www.cryptool.org/images/ct1/presentations/RSA/RSA-Flash-de/player.html}}
+\end{itemize}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[scale=0.4]{figures/Interactive_RSA_Presentation_D.png}
+\caption{Screenshot RSA-Präsentation} 
+\label{l_Interactive_RSA_Presentation}
+\end{center}
+\end{figure}
 
 
 
@@ -4523,7 +4563,7 @@ AA_Start -- Testcases for enum_PrimitiveRoots_of_an_Integer(M)
 3-----------Testcase: M = 17
 {3, 5, 6, 7, 10, 11, 12, 14}
 \end{Verbatim}
-\caption{Funktion ``enum\_PrimitiveRoots\_of\_an\_Integer'' zur Berechnung
+\caption{Funktion \glqq enum\_PrimitiveRoots\_of\_an\_Integer'' zur Berechnung
          aller Primitiv\-wurzeln für eine gegebene Zahl}
 \end{sagecode}
 
@@ -4604,7 +4644,7 @@ def count_PrimitiveRoots_of_an_IntegerRange(start, end, bPrimesOnly=True):
 			      "Amount of numbers without primitive roots: %s)" % \
 			          nCheckedNumb_WithoutPrimitivRoots
 \end{Verbatim}
-\caption{Funktion ``count\_PrimitiveRoots\_of\_an\_IntegerRange'' zur Berechnung
+\caption{Funktion \glqq count\_PrimitiveRoots\_of\_an\_IntegerRange'' zur Berechnung
          aller Pri\-mitivwurzeln für einen gegebenen Zahlenbereich}
 \end{sagecode}
 
@@ -4645,7 +4685,7 @@ Found all 11010 primitive roots of 170 numbers.
 (Total of numbers checked: 500, Amount of numbers without primitive roots: 330)
 Time: CPU 1.52 s, Wall: 1.59 s
 \end{Verbatim}
-\caption{Funktion ``count\_PrimitiveRoots\_of\_an\_IntegerRange'': Testfälle und Testausgaben}
+\caption{Funktion \glqq count\_PrimitiveRoots\_of\_an\_IntegerRange'': Testfälle und Testausgaben}
 \end{sagecode}
 
 
@@ -4709,7 +4749,7 @@ CC_Start -- Testcases for count_PrimitiveRoots_of_a_PrimesRange(start, end)
 Found all 62044 primitive roots of 239 primes.
 Time: CPU 7.55 s, Wall: 7.85 s
 \end{Verbatim}
-\caption{Funktion ``count\_PrimitiveRoots\_of\_a\_PrimesRange'' zur Berechnung
+\caption{Funktion \glqq count\_PrimitiveRoots\_of\_a\_PrimesRange'' zur Berechnung
          aller Primitivwurzeln für ein gegebenes Intervall von Primzahlen}
 \end{sagecode}
 
@@ -4744,12 +4784,12 @@ file.close()
 \end{sagecode}
 
 Es dauerte rund einen ganzen Tag auf der Maschine sage.math, um die Datei
-``primroots.dat'' zu erstellen (erstellt im Juli 2009 von Minh Van Nguyen).
+\glqq primroots.dat'' zu erstellen (erstellt im Juli 2009 von Minh Van Nguyen).
 
 Auch dieser Code und die Funktion \verb!enum_PrimitiveRoots_of_an_Integer!
 wurden in eine Sage-Skriptdatei eingefügt und nicht-interaktiv ausgeführt.
 
-Die Datei ``primroots.dat'' enthält die Liste alle Primitivwurzeln für alle
+Die Datei \glqq primroots.dat'' enthält die Liste alle Primitivwurzeln für alle
 Primzahlen zwischen 1 und 100.000 inklusive. Dies ist eine sehr große Datei
 (ca. 1 GB unkomprimiert, ca. 285 MB komprimiert mit bzip2).
 Die Datei kann abgerufen werden unter
@@ -4758,7 +4798,7 @@ Die Datei kann abgerufen werden unter
 
 
 \newpage
-\noindent Diese Datei ``primroots.dat'' wurde dann benutzt, um mit dem folgenden Code
+\noindent Diese Datei \glqq primroots.dat'' wurde dann benutzt, um mit dem folgenden Code
 drei Grafiken zu erstellen.
 
 \begin{sagecode}

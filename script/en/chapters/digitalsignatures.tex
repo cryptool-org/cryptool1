@@ -10,7 +10,7 @@
 \label{Chapter_Hashes-and-Digital-Signatures}
 \index{Signature!digital}
 (Schneider J. / Esslinger B. / Koy H., June 2002;
-Updates: Feb. 2003, June 2005, July 2009)
+Updates: Feb. 2003, June 2005, July 2009, Nov. 2012)
 % --------------------------------------------------------------------------
 %\vskip + 30pt
 \begin{ctsquote}
@@ -24,7 +24,7 @@ don't want this.'
 \addtocounter{footnote}{0}\footnotetext{This was the answer of Stanislaw Lem
 to heavy critics at his philosophical main book ~``Summa Technologiae'',
 1964, where he thought about the possibility of an evolution creating
-artificial intelligence.\\}
+artificial intelligence.}
 
 
 %\vspace{12pt}
@@ -43,16 +43,18 @@ An asymmetric technique is used again (see encryption procedures). Participants
 who wish to generate a digital signature for a document must possess a pair of
 keys. They use their secret key to generate signatures and the recipient uses
 the sender's public key to verify whether the signature is correct. As before,
-it must be impossible to use the public key to derive the secret key\footnote{%
-With CrypTool\index{CrypTool} you can also generate and check 
+it must be impossible to use the public key to derive the secret key.
+
+
+In detail, a \index{Signature procedure} {\em Signature procedure}\footnote{%
+With CT1\index{CrypTool 1} you can also generate and check 
 digital signatures: Using\\
 the submenus of the main menu {\bf Digital Signatures / PKI}  or using\\
 menu {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem 
-\textbackslash{} Signature Demonstration (Signature Generation)}.
-}.
-
-
-In detail, a \index{Signature procedure} {\em Signature procedure} looks like
+\textbackslash{} Signature Demonstration (Signature Generation)}.\\
+Also with JCT\index{JCrypTool} (in the default and the functional perspektive)
+its possible to create different kinds of electronic signatures.
+} looks like
 this: \\ Senders use their message and secret key to calculate the digital
 signature for the message. Compared to hand-written signatures, digital
 signatures therefore have the advantage that they also depend on the document to
@@ -71,7 +73,7 @@ approximately as long as the document itself. To prevent an unnecessary increase
 in data traffic, and also for reasons of performance\index{Performance}, we apply
 a cryptographic hash function\footnote{%
 Hash functions\index{Hash function} are implemented within 
-CrypTool\index{CrypTool} at several places.\\
+CT1\index{CrypTool 1} at several places.\\
 Using menus {\bf Individual Procedures \textbackslash{} Hash} and
             {\bf Analysis \textbackslash{} Hash}
 you have the possibilities
@@ -87,7 +89,9 @@ you have the possibilities
 \item to perform a simulation, how digital signatures could be attacked 
       by a targeted search for hash value collisions\index{Collision}.
 \end{list}
-} to the document -- before signing. The output of the hash function will 
+CT2\index{CrypTool 2} and JCT\index{JCrypTool} also contain different hash
+methods. }
+to the document -- before signing. The output of the hash function will 
 then be signed.
 
 
@@ -168,10 +172,11 @@ in their structure in practice
   - 192-bit AES -- SHA-384 \\
   - 256-bit AES -- SHA-512.
 
-  With CrypTool\index{CrypTool} you can comprehend the birthday attack
+  With CT1\index{CrypTool 1} you can comprehend the birthday attack
   \index{Attack!birthday} on digital signatures: \\
   using the menu {\bf Analysis \textbackslash{} Hash \textbackslash{} 
-  Attack on the Hash Value of the Digital Signature}.
+  Attack on the Hash Value of the Digital Signature}.\\
+  CT2\index{CrypTool 2} contains an MD5 collider.
   }  
 or \index{RIPEMD-160} RIPEMD-160\footnote{%
   RIPEMD-160, RIPEMD-128 and the optional extension RIPEMD-256 have object
@@ -181,18 +186,15 @@ or \index{RIPEMD-160} RIPEMD-160\footnote{%
   ISO/IEC 10118-3:1998 on dedicated hash functions, together with 
   RIPEMD-128 and SHA-1.
   Further details: \\
-- \href{http://www.esat.kuleuven.ac.be/~bosselae/ripemd160.html}
-   {\tt http://www.esat.kuleuven.ac.be/\~{}bosselae/ripemd160.html}\\
-- \href{http://www.ietf.org/rfc/rfc2857.txt}
-   {\tt http://www.ietf.org/rfc/rfc2857.txt} (``The Use of HMAC-RIPEMD-160-96
+- \url{http://www.esat.kuleuven.ac.be/~bosselae/ripemd160.html}\\
+- \url{http://www.ietf.org/rfc/rfc2857.txt} (``The Use of HMAC-RIPEMD-160-96
    within ESP and AH'').
   }%
 ) were trusted.
 
 
 At Crypto 2004 (August 2004)\footnote{%
-    \href{http://www.iacr.org/conferences/crypto2004/}
- {\texttt{http://www.iacr.org/conferences/crypto2004/}} }
+    \url{http://www.iacr.org/conferences/crypto2004/} }
 this safety-feeling was disputed: 
 Chinese researchers published collision attacks against MD4, SHA-0 and
 parts of SHA-1. This globally caused new motivation to engage in
@@ -214,21 +216,18 @@ other hash algorithms.
 Already before Crypto 2004 the U.S. National Institute of Standards and
 Technology (NIST)\index{NIST} announced, to discontinue SHA-1 in the next few
 years. So it is recommended not to use SHA-1 for new products generating digital
-signatures. The SHA-2 family \cite{ds:FIPS180-3} provides stronger algorithms. To
-address new findings in cryptanalysis, NIST has opened a competition to develop a
-new cryptographic hash algorithm ``SHA-3'' in 2008. The competition is expected
-to end in 2012.\footnote{\url{http://csrc.nist.gov/groups/ST/hash/sha-3/}}
+signatures. The SHA-2 family \cite{ds:FIPS180-3} provides stronger algorithms.
+To address new findings in cryptanalysis, NIST has opened a competition to develop a new cryptographic hash algorithm in 2008: In October 2012
+Keccak\index{Keccak} was announced as ``SHA-3''.\footnote{%
+\url{http://csrc.nist.gov/groups/ST/hash/sha-3/}}
 
 Further information about this topic can be found in the article
 ``Hash cracked -- The consequences of the successful attacks on SHA-1''
 by Reinhard Wobst and J\"urgen Schmidt\footnote{% 
-      \href{http://www.heise.de/security/artikel/56634}
-   {\texttt{http://www.heise.de/security/artikel/56634}}. \\
+      \url{http://www.heise.de/security/artikel/56634}. \\
   Further references are e.g.: \\
-      \href{http://www.bsi.bund.de/esig/basics/techbas/krypto/index.htm}
-   {\texttt{http://www.bsi.bund.de/esig/basics/techbas/krypto/index.htm}} \\
-      \href{http://csrc.nist.gov/CryptoToolkit/tkhash.html}
-   {\texttt{http://csrc.nist.gov/CryptoToolkit/tkhash.html}}.
+      \url{http://www.bsi.bund.de/esig/basics/techbas/krypto/index.htm}\\
+      \url{http://csrc.nist.gov/CryptoToolkit/tkhash.html}.
 } 
   by Heise Security.
 
@@ -247,10 +246,9 @@ by Reinhard Wobst and J\"urgen Schmidt\footnote{%
 Chapter 14, ``Meme Payload'', p. 142, Ross.}
 
 
-The signature procedure with hash functions is as follows:\footnote{% 
-Compare: \href{http://en.wikipedia.org/wiki/Digital\_signature}
-      {\texttt{http://en.wikipedia.org/wiki/Digital\_signature}}.
-} \\ Rather than signing the actual
+The signature procedure with hash functions\footnote{% 
+Compare: \url{http://en.wikipedia.org/wiki/Digital\_signature}.
+} is as follows: Rather than signing the actual
 document, the sender now first calculates the hash value of the message and
 signs this. The recipient also calculates the hash value of the message (the
 algorithm used must be known), then verifies whether the signature sent with the
@@ -479,8 +477,7 @@ available publicly.
     \index{FIPS186-2} \\
     {\em Digital Signature Standard (DSS)}, \\
     January 27, 2000. Change Note: October 5, 2001.\\
-  \href{http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf}
-   {\tt http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf}
+   \url{http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf}
 
 \bibitem[McDonald2009]{ds:McDonald2009} Cameron McDonald, Philip Hawkes, Josef Pieprzyk, 
     \index{McDonald 2009} \\
