@@ -8542,7 +8542,7 @@ BEGIN
                             "[i18n] The English word list for the substitution analysis (%s) does not exist although it was rolled out with CrypTool."
     IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
                             "Szyfrowanie RSA przy u¿yciu e / deszyfrowanie przy u¿yciu d  [i18n alphabet size: %i]"
-    IDS_STRING178           "-gram (%d)"
+    IDS_NGRAM_ANALYSIS_COUNT_NGRAMS           "-gram (%d)"
     IDS_GENERATION_TADIC_NAF_KEYS_PATH "tadicnafkeys\\"
     IDS_GENERATION_TADIC_NAF_KEYS_EXECUTABLE "t-adicNAF.hta"
     IDS_GENERATION_TADIC_NAF_KEYS_ERROR_EXECUTION 
@@ -19792,7 +19792,7 @@ BEGIN
                             "[i18n] The English word list for the substitution analysis (%s) does not exist although it was rolled out with CrypTool."
     IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
                             "RSA šifrovanje pomocu e / dešifrovanje pomocu d  [i18n alphabet size: %i]"
-    IDS_STRING178           "-gram (%d)"
+    IDS_NGRAM_ANALYSIS_COUNT_NGRAMS           "-gram (%d)"
     IDS_GENERATION_TADIC_NAF_KEYS_PATH "tadicnafkeys\\"
     IDS_GENERATION_TADIC_NAF_KEYS_EXECUTABLE "t-adicNAF.hta"
     IDS_GENERATION_TADIC_NAF_KEYS_ERROR_EXECUTION 
@@ -53416,7 +53416,7 @@ BEGIN
                             "[i18n] The English word list for the substitution analysis (%s) does not exist although it was rolled out with CrypTool."
     IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
                             "Cifrado RSA utilizando e / descifrado utilizando d  [i18n alphabet size: %i]"
-    IDS_STRING178           "-grama (%d)"
+		IDS_NGRAM_ANALYSIS_COUNT_NGRAMS           "-grama (%d)"
     IDS_GENERATION_TADIC_NAF_KEYS_PATH "tadicnafkeys\\"
     IDS_GENERATION_TADIC_NAF_KEYS_EXECUTABLE "t-adicNAF.hta"
     IDS_GENERATION_TADIC_NAF_KEYS_ERROR_EXECUTION 
