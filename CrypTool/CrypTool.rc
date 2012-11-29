@@ -4785,6 +4785,7 @@ BEGIN
             MENUITEM "Narzêdzie edukacyjne teorii liczb", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Obliczyc liczby &Mersenne’a...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Kryptoanaliza"
@@ -5141,6 +5142,7 @@ BEGIN
             MENUITEM "Narzêdzie edukacyjne teorii liczb", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Obliczyc liczby &Mersenne’a...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Kryptoanaliza"
@@ -5497,6 +5499,7 @@ BEGIN
             MENUITEM "Narzêdzie edukacyjne teorii liczb", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Obliczyc liczby &Mersenne’a...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Kryptoanaliza"
@@ -5853,6 +5856,7 @@ BEGIN
             MENUITEM "Narzêdzie edukacyjne teorii liczb", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Obliczyc liczby &Mersenne’a...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Kryptoanaliza"
@@ -6238,6 +6242,7 @@ BEGIN
             MENUITEM "Narzêdzie edukacyjne teorii liczb", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Obliczyc liczby &Mersenne’a...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Kryptoanaliza"
@@ -6390,12 +6395,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
-			VALUE "FileVersion", "[CRYPTOOL_VERSION]"
+            VALUE "FileVersion", "1.4.31"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-			VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
+            VALUE "ProductVersion", "1.4.31"
         END
     END
     BLOCK "VarFileInfo"
@@ -8460,7 +8465,7 @@ END
 
 STRINGTABLE 
 BEGIN
-IDR_MAINFRAME "[CRYPTOOL_VERSION_FULL]"
+    IDR_MAINFRAME           "CrypTool 1.4.31 Beta 5a [VS2008]"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -8538,6 +8543,10 @@ BEGIN
     IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
                             "Szyfrowanie RSA przy u¿yciu e / deszyfrowanie przy u¿yciu d  [i18n alphabet size: %i]"
     IDS_STRING178           "-gram (%d)"
+    IDS_GENERATION_TADIC_NAF_KEYS_PATH "tadicnafkeys\\"
+    IDS_GENERATION_TADIC_NAF_KEYS_EXECUTABLE "t-adicNAF.hta"
+    IDS_GENERATION_TADIC_NAF_KEYS_ERROR_EXECUTION 
+                            "[i18n] The file ""%s"" in directory ""%s"" could not be opened."
     IDR_OPENGLTYPE          "\nUnnamed\n\nOpenGL file (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nPliki OpenGL "
     IDS_STRING_TRANSLATIONS_HEADING_POLISH "T³umaczenie na jêzyk polski"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
@@ -10657,6 +10666,11 @@ BEGIN
                             "Œcie¿ka user key file structure\n%s\nwydaje siê byæ uszkodzona!\n\nCzy CrypTool ma spróbowaæ ponownie napisaæ ten plik struktury?\nProszê wybraæ przycisk OK w celu ponownego zapisu lub Anuluj, jeœli problem ma byæ rozwi¹zany rêcznie.\n\nUwaga: W przypadnu ponownego zapisu stare klucze juz siê nie nadaj¹!\nW celu uzyskania dalszych informacji prosimy zapoznaæ siê z readme CrypTool."
     ID_COMPUTE_MERSENNE_NUMBERS 
                             "Obliczenie liczby Mersenne i pokazuj wyniki GIMPS na biezaco"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_GENERATION_TADIC_NAF_KEYS "[i18n] Generates t-adic NAF keys"
 END
 
 STRINGTABLE 
@@ -16038,6 +16052,7 @@ BEGIN
             MENUITEM "&Alatka za Ucenje Teorije Brojeva...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Sabiranje Tacaka na Eliptickoj Krivoj...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Racunanje &Mersenne-ovih Brojeva...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Analiza"
@@ -16394,6 +16409,7 @@ BEGIN
             MENUITEM "&Alatka za Ucenje Teorije Brojeva...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Sabiranje Tacaka na Eliptickoj Krivoj...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Racunanje &Mersenne-ovih Brojeva...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Analiza"
@@ -16750,6 +16766,7 @@ BEGIN
             MENUITEM "&Alatka za Ucenje Teorije Brojeva...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Sabiranje Tacaka na Eliptickoj Krivoj...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Racunanje &Mersenne-ovih Brojeva...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Analiza"
@@ -17106,6 +17123,7 @@ BEGIN
             MENUITEM "&Alatka za Ucenje Teorije Brojeva...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Sabiranje Tacaka na Eliptickoj Krivoj...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Racunanje &Mersenne-ovih Brojeva...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Analiza"
@@ -17491,6 +17509,7 @@ BEGIN
             MENUITEM "&Alatka za Ucenje Teorije Brojeva...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Sabiranje Tacaka na Eliptickoj Krivoj...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Racunanje &Mersenne-ovih Brojeva...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Analiza"
@@ -17643,12 +17662,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
-			VALUE "FileVersion", "[CRYPTOOL_VERSION]"
+            VALUE "FileVersion", "1.4.31"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-			VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
+            VALUE "ProductVersion", "1.4.31"
         END
     END
     BLOCK "VarFileInfo"
@@ -19696,7 +19715,7 @@ END
 
 STRINGTABLE 
 BEGIN
-IDR_MAINFRAME "[CRYPTOOL_VERSION_FULL]"
+    IDR_MAINFRAME           "CrypTool 1.4.31 Beta 5a [VS2008]"
     IDR_TEXTTYPE            "\nNeimenovani\nTEKST dokument\nTekst datoteka (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nNeimenovana\n\nBinarna datoteka (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nNeimenovana\n\nASCII datoteka (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -19774,6 +19793,10 @@ BEGIN
     IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
                             "RSA šifrovanje pomocu e / dešifrovanje pomocu d  [i18n alphabet size: %i]"
     IDS_STRING178           "-gram (%d)"
+    IDS_GENERATION_TADIC_NAF_KEYS_PATH "tadicnafkeys\\"
+    IDS_GENERATION_TADIC_NAF_KEYS_EXECUTABLE "t-adicNAF.hta"
+    IDS_GENERATION_TADIC_NAF_KEYS_ERROR_EXECUTION 
+                            "[i18n] The file ""%s"" in directory ""%s"" could not be opened."
     IDR_OPENGLTYPE          "\nNeimenovana\n\nOpenGL datoteka (*.ogl)\n.plt\n\nOpenGL Tip Datoteke\nOPENGL\nOpenGL Datoteke\n"
     IDS_STRING_TRANSLATIONS_HEADING_POLISH "Poljski prevod"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
@@ -21878,6 +21901,11 @@ BEGIN
                             "Korisnicka struktura datoteke kljuca na putanji\n%s\nizgleda da je oštecena!\n\nDa li da CrypTool pokuša da prepiše ovu strukturu datoteke?\nMolim odaberite OK za prepisivanje ili Otkaži ako želite da rešite ovaj probelm rucno.\n\nImajte na umu: U slucaju prepisivanja, stari kljucevi nisu više upotrebljivi!\nZa dalje informacije pogledajte CrypTool procitaj-me."
     ID_COMPUTE_MERSENNE_NUMBERS 
                             "Racuna Mersenne-ove brojeve i prikazuje aktuelne GIMPS rezultate"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_GENERATION_TADIC_NAF_KEYS "[i18n] Generates t-adic NAF keys"
 END
 
 STRINGTABLE 
@@ -27270,6 +27298,7 @@ BEGIN
             MENUITEM "&Lernprogramm für Zahlentheorie...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Punktaddition auf Elliptischen Kurven...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "&Mersenne-Zahlen berechnen...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "&Generierung von Schlüsseln nach t-adic NAF...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "A&nalyse"
@@ -27626,6 +27655,7 @@ BEGIN
             MENUITEM "&Lernprogramm für Zahlentheorie...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Punktaddition auf Elliptischen Kurven...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "&Mersenne-Zahlen berechnen...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "&Generierung von Schlüsseln nach t-adic NAF...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "A&nalyse"
@@ -27982,6 +28012,7 @@ BEGIN
             MENUITEM "&Lernprogramm für Zahlentheorie...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Punktaddition auf Elliptischen Kurven...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "&Mersenne-Zahlen berechnen...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "&Generierung von Schlüsseln nach t-adic NAF...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "A&nalyse"
@@ -28338,6 +28369,7 @@ BEGIN
             MENUITEM "&Lernprogramm für Zahlentheorie...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Punktaddition auf Elliptischen Kurven...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "&Mersenne-Zahlen berechnen...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "&Generierung von Schlüsseln nach t-adic NAF...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "A&nalyse"
@@ -28723,6 +28755,7 @@ BEGIN
             MENUITEM "&Lernprogramm für Zahlentheorie...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Punktaddition auf Elliptischen Kurven...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "&Mersenne-Zahlen berechnen...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "&Generierung von Schlüsseln nach t-adic NAF...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "A&nalyse"
@@ -28875,12 +28908,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.de"
-			VALUE "FileVersion", "[CRYPTOOL_VERSION]"
+            VALUE "FileVersion", "1.4.31"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-			VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
+            VALUE "ProductVersion", "1.4.31"
         END
     END
     BLOCK "VarFileInfo"
@@ -30793,7 +30826,7 @@ END
 
 STRINGTABLE 
 BEGIN
-IDR_MAINFRAME "[CRYPTOOL_VERSION_FULL]"
+    IDR_MAINFRAME           "CrypTool 1.4.31 Beta 5a [VS2008]"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT-Dokument\nText-Datei (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnbenannt\n\nBinär-Datei (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnbenannt\n\nASCII-Datei (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -30865,6 +30898,10 @@ BEGIN
     IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
                             "RSA-Verschlüsselung mit e / Entschlüsselung mit d  [Alphabetsgröße: %i]"
     IDS_NGRAM_ANALYSIS_COUNT_NGRAMS "-Gramm (%d)"
+    IDS_GENERATION_TADIC_NAF_KEYS_PATH "tadicnafkeys\\"
+    IDS_GENERATION_TADIC_NAF_KEYS_EXECUTABLE "t-adicNAF.hta"
+    IDS_GENERATION_TADIC_NAF_KEYS_ERROR_EXECUTION 
+                            "Die Datei ""%s"" im Verzeichnis ""%s"" konnte nicht geöffnet werden."
     IDR_OPENGLTYPE          "\nUnbenannt\n\nOpenGL Datei (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
     IDS_STRING_TRANSLATIONS_HEADING_POLISH "Polnische Übersetzung"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
@@ -33128,6 +33165,11 @@ BEGIN
                             "Die Dateistruktur Ihrer Benutzer-Schlüssel im Pfad \n%s\nscheint fehlerhaft zu sein!\n\nSoll CrypTool versuchen, die Datenstruktur neu zu schreiben?\nBitte wählen Sie OK für das Neu-Schreiben oder Abbruch, wenn Sie das Problem manuell lösen wollen.\n\nBitte beachten Sie, dass beim Neu-Schreiben bisherige Schlüssel nicht mehr nutzbar sind!\nWeitere Informationen zum Schlüsselspeicher finden Sie im CrypTool-Readme."
     ID_COMPUTE_MERSENNE_NUMBERS 
                             "Berechnet Mersenne-Zahlen und zeigt aktuelle GIMPS-Ergebnisse an"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_GENERATION_TADIC_NAF_KEYS "Generiert Schlüssel nach t-adic NAF"
 END
 
 STRINGTABLE 
@@ -38390,6 +38432,7 @@ BEGIN
             MENUITEM "&Learning Tool for Number Theory...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Point Addition on Elliptic Curves...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "&Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Analysis"
@@ -38746,6 +38789,7 @@ BEGIN
             MENUITEM "&Learning Tool for Number Theory...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Point Addition on Elliptic Curves...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "&Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Analysis"
@@ -39102,6 +39146,7 @@ BEGIN
             MENUITEM "&Learning Tool for Number Theory...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Point Addition on Elliptic Curves...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "&Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Analysis"
@@ -39458,6 +39503,7 @@ BEGIN
             MENUITEM "&Learning Tool for Number Theory...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Point Addition on Elliptic Curves...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "&Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Analysis"
@@ -39843,6 +39889,7 @@ BEGIN
             MENUITEM "&Learning Tool for Number Theory...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Point Addition on Elliptic Curves...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "&Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Analysis"
@@ -39995,12 +40042,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
-			VALUE "FileVersion", "[CRYPTOOL_VERSION]"
+            VALUE "FileVersion", "1.4.31"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-			VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
+            VALUE "ProductVersion", "1.4.31"
         END
     END
     BLOCK "VarFileInfo"
@@ -42076,7 +42123,7 @@ END
 
 STRINGTABLE 
 BEGIN
-IDR_MAINFRAME "[CRYPTOOL_VERSION_FULL]"
+    IDR_MAINFRAME           "CrypTool 1.4.31 Beta 5a [VS2008]"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -42146,6 +42193,10 @@ BEGIN
     IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
                             "RSA encryption using e / decryption using d  [alphabet size: %i]"
     IDS_NGRAM_ANALYSIS_COUNT_NGRAMS "-gram (%d)"
+    IDS_GENERATION_TADIC_NAF_KEYS_PATH "tadicnafkeys\\"
+    IDS_GENERATION_TADIC_NAF_KEYS_EXECUTABLE "t-adicNAF.hta"
+    IDS_GENERATION_TADIC_NAF_KEYS_ERROR_EXECUTION 
+                            "The file ""%s"" in directory ""%s"" could not be opened."
     IDR_OPENGLTYPE          "\nUnnamed\n\nOpenGL file (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
     IDS_STRING_TRANSLATIONS_HEADING_POLISH "Polish Translation"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
@@ -44251,6 +44302,11 @@ BEGIN
                             "The user key file structure at the path\n%s\nseems to be corrupted!\n\nShould CrypTool try to re-write this file structure?\nPlease select OK for re-write or Cancel if you try to resolve this problem manually.\n\nPlease note: In case of re-write old keys are not usable anymore!\nFor further information please refer to the CrypTool readme."
     ID_COMPUTE_MERSENNE_NUMBERS 
                             "Computes Mersenne numbers and shows up-to-date GIMPS results"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_GENERATION_TADIC_NAF_KEYS "Generates t-adic NAF keys"
 END
 
 STRINGTABLE 
@@ -49667,6 +49723,7 @@ BEGIN
             MENUITEM "&Aprendiendo Teoría de Números...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Calcular números de &Mersenne...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "A&nálisis"
@@ -50023,6 +50080,7 @@ BEGIN
             MENUITEM "&Aprendiendo Teoría de Números...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Calcular números de &Mersenne...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "A&nálisis"
@@ -50379,6 +50437,7 @@ BEGIN
             MENUITEM "&Aprendiendo Teoría de Números...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Calcular números de &Mersenne...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "A&nálisis"
@@ -50735,6 +50794,7 @@ BEGIN
             MENUITEM "&Aprendiendo Teoría de Números...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Calcular números de &Mersenne...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "A&nálisis"
@@ -51091,6 +51151,7 @@ BEGIN
             MENUITEM "&Aprendiendo Teoría de Números...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Calcular números de &Mersenne...", ID_COMPUTE_MERSENNE_NUMBERS
+            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "A&nálisis"
@@ -51234,12 +51295,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
-			VALUE "FileVersion", "[CRYPTOOL_VERSION]"
+            VALUE "FileVersion", "1.4.31"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Contributors © 1998-2012"
             VALUE "OriginalFilename", "CrypTool.exe"
-			VALUE "ProductName", "CrypTool"
-			VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
+            VALUE "ProductName", "CrypTool"
+            VALUE "ProductVersion", "1.4.31"
         END
     END
     BLOCK "VarFileInfo"
@@ -53295,7 +53356,7 @@ END
 
 STRINGTABLE 
 BEGIN
-IDR_MAINFRAME "[CRYPTOOL_VERSION_FULL]"
+    IDR_MAINFRAME           "CrypTool 1.4.31 Beta 5a [VS2008]"
     IDR_TEXTTYPE            "\nSin nombre\nDocumento de texto\nFichero de texto (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nSin nombre\n\nFichero binario (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nSin nombre\n\nFichero ASCII (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -53356,6 +53417,10 @@ BEGIN
     IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
                             "Cifrado RSA utilizando e / descifrado utilizando d  [i18n alphabet size: %i]"
     IDS_STRING178           "-grama (%d)"
+    IDS_GENERATION_TADIC_NAF_KEYS_PATH "tadicnafkeys\\"
+    IDS_GENERATION_TADIC_NAF_KEYS_EXECUTABLE "t-adicNAF.hta"
+    IDS_GENERATION_TADIC_NAF_KEYS_ERROR_EXECUTION 
+                            "[i18n] The file ""%s"" in directory ""%s"" could not be opened."
     IDR_OPENGLTYPE          "\nSin nombre\n\nFichero OpenGL (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
     IDS_STRING_TRANSLATIONS_HEADING_POLISH "Versión en polaco:"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
@@ -55507,6 +55572,11 @@ BEGIN
                             "La estructura de archivos de clave del usuario en la ruta\n%s\n ¡parece estar corrupta!\n\n¿CrypTool debería reescribir esta estructura de archivos?\n Seleccione OK para reescribir o Cancelar si quiere resolver este problema manualmente.\n\nNota: En el caso de reescribir, ¡las claves anteriores no podrán volver a ser utilizadas!\n Para más información diríjase al archivo Leeme de CrypTool."
     ID_COMPUTE_MERSENNE_NUMBERS 
                             "Calcula números de Mersenne y muestra resultados GIMPS actualizados."
+END
+
+STRINGTABLE 
+BEGIN
+    ID_GENERATION_TADIC_NAF_KEYS "[i18n] Generates t-adic NAF keys"
 END
 
 STRINGTABLE 

@@ -148,6 +148,7 @@ class CCrypToolApp : public CWinApp
 	afx_msg void OnNumberShark();
 	afx_msg void OnUpdateNumberShark(CCmdUI* pCmdUI);
 	afx_msg void OnIndividualProceduresSecretsharing();
+	afx_msg void OnGenerationTAdicNAFKeys();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 

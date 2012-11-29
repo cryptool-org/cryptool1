@@ -189,6 +189,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SIGN, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN, OnUpdateNeedSecudeTicket)
 	ON_COMMAND(ID_INDIVIDUAL_PROCEDURES_SECRETSHARING, OnIndividualProceduresSecretsharing)
+	ON_COMMAND(ID_GENERATION_TADIC_NAF_KEYS, OnGenerationTAdicNAFKeys)
 	//}}AFX_MSG_MAP
 
 	//ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnVerentschlsselnHybridverfahrenHybridverschlsselung)
@@ -1443,6 +1444,25 @@ void CCrypToolApp::OnIndivCrtSecretsharing()
 {
 	CDlgCrtSecretSharing dialg;
 	dialg.DoModal();
+}
+
+void CCrypToolApp::OnGenerationTAdicNAFKeys() {
+	// get relative path and executable from resource file
+	CString generationTAdicNAFKeysPath;
+	CString generationTAdicNAFKeysExecutable;
+	generationTAdicNAFKeysPath.LoadString(IDS_GENERATION_TADIC_NAF_KEYS_PATH);
+	generationTAdicNAFKeysExecutable.LoadString(IDS_GENERATION_TADIC_NAF_KEYS_EXECUTABLE);
+	// prepend CrypTool path to get the absolute path
+	generationTAdicNAFKeysPath = CString(Pfad) + generationTAdicNAFKeysPath;
+	// do some windows magic
+	generationTAdicNAFKeysPath.Replace("/", "\\");
+	// try to open the executable, otherwise dump an error
+	HINSTANCE hInst=ShellExecute(NULL, NULL, generationTAdicNAFKeysExecutable, NULL, generationTAdicNAFKeysPath, SW_HIDE);
+	if(reinterpret_cast<int>(hInst) <= 32) {
+		CString message;
+		message.Format(IDS_GENERATION_TADIC_NAF_KEYS_ERROR_EXECUTION, generationTAdicNAFKeysExecutable, generationTAdicNAFKeysPath);
+		AfxMessageBox(message, MB_ICONSTOP);
+	}
 }
 
 void CCrypToolApp::OnNumberShark() 

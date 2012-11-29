@@ -573,6 +573,7 @@ visualizations.html
 zufall.html
 hid_compute_mersenne_numbers.html
 hidd_compute_mersenne_numbers.html
+hid_generation_tadic_naf_keys.html
 
 [ALIAS]
 #include CrypTool_Alias.h
