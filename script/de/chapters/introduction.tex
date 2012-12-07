@@ -11,8 +11,9 @@
 \chapter*{Vorwort zur 11. Auflage des CrypTool-Skripts}
 
 \vspace{-12pt}
-Ab dem Jahr 2000 wurde -- zusammen mit dem CrypTool-1-Paket (CT1)\index{CrypTool 1} -- 
-auch ein Skript ausgeliefert, das die Mathematik einzelner Themen genauer, aber doch 
+Ab dem Jahr 2000 wurde -- zusammen mit dem
+CrypTool-1-Paket (CT1)\index{CrypTool 1} -- auch ein Skript ausgeliefert,
+das die Mathematik einzelner Themen genauer, aber doch 
 möglichst verständlich erläutern sollte.
 
 Themen aus Mathematik und Kryptographie wurden sinnvoll unterteilt und dafür
@@ -41,13 +42,13 @@ Stand gebracht, z.B.:
 %	(Kap. \ref{xxxxBrute-force-gegen-Symmetr})\index{xxxxxxxxxxxxxxxx} und
   \item die Auflistung, in welchen Filmen und Romanen Kryptographie eine
         wesentliche Rolle spielt (siehe Anhang \ref{s:appendix-movies}),
-        und Kurioses zu Primzahlen (siehe \ref{HT-Quaint-curious-Primes-usage}),
+%       und Kurioses zu Primzahlen (siehe \ref{HT-Quaint-curious-Primes-usage}),
   \item die Funktionsübersichten
-        \hyperlink{appendix-template-overview-CT2}{zu CT2} und
-        \hyperlink{appendix-function-overview-JCT}{zu JCT},
+        \hyperlink{appendix-template-overview-CT2}{zu CrypTool 2 (CT2)},
+        \hyperlink{appendix-function-overview-JCT}{zu JCrypTool (JCT)}, und
+        \hyperlink{appendix-function-overview-CTO}{zu CrypTool-Online (CTO)},
   \item weitere Sage-Skripte zu Kryptoverfahren, und die Einführung in das 
-        Computer-Algebra-System (CAS) Sage (siehe Anhang \ref{s:appendix-using-sage}).
-        Sage wird mehr und mehr zum Standard-Open-Source CAS,
+        Computer-Algebra-System (CAS) Sage (siehe Anhang \ref{s:appendix-using-sage}),
         % Nguyen und Massierer (vgl. auch Kap.~\ref{ec:Sage_Massierer})
   \item der Abschnitt über die Goldbach-Vermutung
         (siehe \ref{L-GoldbachConjecture}),
@@ -59,30 +60,63 @@ Stand gebracht, z.B.:
         (siehe \ref{Chapter_HomomorphicEnc}).
 \end{itemize}
 
-Seit das Skript dem CrypTool-1-Paket in Version 1.2.01 das erste Mal beigelegt
-wurde, ist es mit fast jeder neuen Version von CrypTool 1 ebenfalls erweitert
+Seit das Skript dem CT1-Paket in Version 1.2.01 das erste Mal beigelegt
+wurde, ist es mit fast jeder neuen Version von CT1 ebenfalls erweitert
 und aktualisiert worden.
 
 Inzwischen bekommt das CT-Projekt Feedback und Testimonials aus nahezu allen
 Ländern der Erde.
 
-Herzlichen Dank an alle, die mit ihrem großem Einsatz zum 
-Erfolg und zur weiten Verbreitung dieses Projekts beigetragen haben.
+
+\newpage
+\noindent \textbf{Dank}
+
+An dieser Stelle möchte ich explizit folgenden Personen danken, 
+die bisher in ganz besonderer Weise zum CrypTool-Projekt\index{CrypTool} 
+beigetragen haben.
+Ohne ihre besonderen Fähigkeiten und ihr großes Engagement wäre CrypTool
+nicht, was es heute ist:
+\vspace{-6pt}
+\begin{list}{\textbullet}{\addtolength{\itemsep}{-0.5\baselineskip}}
+   \item Hr.\ Henrik Koy
+   \item Hr.\ Jörg-Cornelius Schneider
+   \item Hr.\ Florian Marchal
+   \item Dr.\ Peer Wichmann
+   \item Hr.\ Dominik Schadow
+   \item Mitarbeiter in den Teams von
+         Prof.\ Johannes Buchmann,
+         Prof.\ Claudia Eckert,
+         Prof.\ Alexander May,
+         Prof.\ Torben Weis und insbesondere
+         Prof.\ Arno Wacker.
+\end{list}
+
+Auch allen hier nicht namentlich Genannten ganz herzlichen Dank für das 
+(meist in der Freizeit) geleistete Engagement.
+
 Danke auch an die Leser, die uns Feedback sandten. 
 
 Ich hoffe, dass viele Leser mit diesem Skript mehr Interesse an und 
 Verständnis für dieses moderne und zugleich uralte Thema finden.
+\par \vskip + 15pt
+
+
+\noindent Bernhard Esslinger
 \\
 \\
+Frankfurt und Siegen, Dezember 2012
+\par \vskip + 30pt
+
+
+\noindent PS:\\
+Wir würden uns freuen, wenn sich weitere Autoren finden, die fundierte
+Artikel zu einem der folgenden Themen Riemannsche Zeta-Funktion, Hashverfahren,
+Zufallszahlen und Design/Angriff auf Krypto-Protokolle (wie SSL) ergänzen
+könnten.
+ 
 % [1.5\baselineskip]
 % \enlargethispage*{2\baselineskip}
 % \nopagebreak
-Bernhard Esslinger
-\\
-\\
-% [\baselineskip]
-% \nopagebreak
-Frankfurt und Siegen, Oktober 2012
 
 
 
@@ -94,8 +128,8 @@ Frankfurt und Siegen, Oktober 2012
 
 \textbf{Das CrypTool-Skript}
 
-Dieses Skript wird zusammen mit dem Open-Source-Programm
-CrypTool 1\index{CrypTool 1} ausgeliefert.
+Dieses Skript wird zusammen mit den Open-Source-Programmen des
+CrypTool-Projektes\index{CrypTool} ausgeliefert.
 
 Die Artikel dieses Skripts sind weitgehend in sich abgeschlossen und können
 auch unabhängig von den CrypTool-Programmen gelesen werden.
@@ -105,9 +139,10 @@ auch unabhängig von den CrypTool-Programmen gelesen werden.
 %und \ref{Chapter_EllipticCurves} (Elliptische Kurven) tiefere mathematische
 %Kennt"-nisse.
 Für das Verständnis der meisten Kapitel reicht Abiturwissen aus. Die Kapitel
-\ref{Chapter_ModernCryptography} (Moderne Kryptografie)
-und \ref{Chapter_EllipticCurves} (Elliptische Kurven) erfordern tiefere
-mathematische Kennt"-nisse.
+\ref{Chapter_ModernCryptography} (Moderne Kryptografie),
+\ref{Chapter_EllipticCurves} (Elliptische Kurven) und
+\ref{Chapter_HomomorphicEnc}(Homomorphe Verschlüsselung)
+erfordern tiefere mathematische Kennt"-nisse.
 
 Die \hyperlink{appendix-authors}{Autoren}
 % \hyperlink{appendix-authors}{(Autoren)}
@@ -136,66 +171,71 @@ werden weltweit in Schule, Ausbildung und Lehre eingesetzt.
 \par \vskip + 15pt
 
 
-\noindent \textbf{CrypTool-Online und MTC3\index{CrypTool-Online}\index{CTO}\index{MTC3}}
+\noindent \textbf{CrypTool-Online\index{CrypTool-Online}\index{CTO}}
 
 Die Webseite CrypTool-Online (CTO) (\url{http://www.cryptool-online.org}), auf
-der man im Browser oder vom Smartphone kryptographische Verfahren ausprobieren
-und anwenden kann, gehört ebenfalls zum CT-Projekt. Der Umfang von CTO
-ist bei weitem nicht so groß wie der der Standalone-Programme CT1, CT2 und JCT.
+der man im Browser oder vom Smartphone aus kryptographische Verfahren
+ausprobieren und anwenden kann, gehört ebenfalls zum CT-Projekt. Der Umfang
+von CTO ist bei weitem nicht so groß wie der der Standalone-Programme CT1,
+CT2 und JCT.
+\par \vskip + 15pt
 
-Vom CT-Projekt wird auch der internationale Kryptographie-Wettbewerb
-MysteryTwister C3 (MTC3) (\url{http://www.mysterytwisterc3.org}) getragen.
+
+\noindent \textbf{MTC3\index{MTC3}}
+
+Der internationale Kryptographie-Wettbewerb
+MysteryTwister C3 (MTC3) (\url{http://www.mysterytwisterc3.org})
+wird ebenfalls vom CT-Projekt getragen.
 Hier findet man kryptographische Rätsel in vier verschiedenen Kategorien, eine
-High-Score-Liste und ein moderiertes Forum. Inzwischen nehmen über 3300 aktive
+High-Score-Liste und ein moderiertes Forum. Inzwischen nehmen über 3500 aktive
 User teil, und es gibt über 140 Aufgaben, von denen z.Zt. 89 von zumindest einem
 User gelöst wurden.
 \par \vskip + 15pt
 
 
+
 \noindent \textbf{Das Computer-Algebra-Programm Sage\index{Sage}}
 
-Sage ist ein Open-Source CAS-Paket, mit dem sich die in diesem Skript erläuterten
-mathematischen Verfahren leicht Schritt-für-Schritt programieren lassen.
+Sage ist ein sehr umfangreiches Open-Source CAS-Paket, mit dem sich die in
+diesem Skript erläuterten mathematischen Verfahren leicht Schritt-für-Schritt
+programieren lassen. Eine Besonderheit dieses CAS ist, dass als Script-Sprache
+Python benutzt wird.\\
+Sage wird mehr und mehr zum Standard-Open-Source CAS an Hochschulen.
+\par \vskip + 15pt
+
+
+
+\noindent \textbf{Die Schüler-Krypto-Kurse\index{Schüler-Krypto}}
+
+Diese Initiative bietet Ein- und Zwei-Tages-Kurse in Kryptologie für Schüler
+und Lehrer, um zu zeigen, wie attraktiv MINT-Fächer wie Mathematik,
+Informatik und insbesondere Kryptologie sind.
+Die Kursidee ist eine virtuelle Geheimagenten-Ausbildung.\\
+Inzwischen finden diese Kurse seit mehreren Jahren in Deutschland in
+unterschiedlichen Städten statt.\\
+Alle Kursunterlagen sind frei erhältlich
+(\url{http://www.cryptool.org/schuelerkrypto/}).\\
+Alle eingesetzte Software ist ebenfalls frei (meist wird CT1 und CT2
+eingesetzt).\\
+Wir würden uns freuen, wenn jemand die Kursunterlagen übersetzt und
+einen entsprechenden Kurs in Englisch anbieten würde.
 \par \vskip + 15pt
 
 
 
 \noindent \textbf{Dank}
 
-An dieser Stelle möchte ich explizit folgenden Personen danken, 
-die bisher in ganz besonderer Weise zum CrypTool-Projekt\index{CrypTool} 
-beigetragen haben.
-Ohne ihre besonderen Fähigkeiten und ihr großes Engagement wäre CrypTool
-nicht, was es heute ist:
-\vspace{-6pt}
-\begin{list}{\textbullet}{\addtolength{\itemsep}{-0.5\baselineskip}}
-   \item Hr.\ Henrik Koy
-   \item Hr.\ Jörg-Cornelius Schneider
-   \item Hr.\ Florian Marchal
-   \item Dr.\ Peer Wichmann
-   \item Hr.\ Dominik Schadow
-   \item Mitarbeiter in den Teams von
-         Prof.\ Johannes Buchmann,
-         Prof.\ Claudia Eckert,
-         Prof.\ Alexander May,
-         Prof.\ Torben Weis und
-         Prof.\ Arno Wacker.
-\end{list}
-Auch allen hier nicht namentlich Genannten ganz herzlichen Dank für das 
-(meist in der Freizeit) geleistete Engagement.
-\\
-\\
-Bernhard Esslinger
-\\
-\\
-Frankfurt und Siegen, Oktober 2012
+Herzlichen Dank an alle, die mit ihrem großem Einsatz zum 
+Erfolg und zur weiten Verbreitung dieses Projekts beigetragen haben.
 \par \vskip + 15pt
 
 
-\noindent PS:\\
-Wir würden uns freuen, wenn sich weitere Autoren finden, die fundierte
-Artikel zu einem der ff. Themen Hashverfahren, Zufallszahlen und Design/Angriff auf
-Krypto-Protokolle (wie SSL) ergänzen könnten.
+\noindent Bernhard Esslinger
+\\
+\\
+Frankfurt und Siegen, Dezember 2012
+\par \vskip + 15pt
+
  
 % Local Variables:
 % TeX-master: "../script-de.tex"

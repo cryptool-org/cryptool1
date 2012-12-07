@@ -22,7 +22,8 @@ autorisierte Empfänger ist im Besitz einer geheimen Information, des
 sogenannten Schlüssels, die es ihm erlaubt, die Daten zu entschlüsseln,
 während sie jedem anderen verborgen bleiben.%\par \vskip + 3pt
 
-Zur Erläuterung verwenden wir die Begriffe aus der folgenden Abbildung \ref{Generic-Notations-when-Encrypting}:
+Zur Erläuterung verwenden wir im Folgenden die Begriffe aus der
+Abbildung \ref{Generic-Notations-when-Encrypting}:
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.7]{figures/Generic-Notation-Encryption_de.png}
@@ -40,6 +41,7 @@ Zuerst erklären wir, wie die Sicherheit von Kryptosystemen definiert wird.
 \hypertarget{cm_Section_Security_Definitions}{}
 \section[Sicherheits-Definitionen]{Sicherheits-Definitionen}
 \label{cm_Section_Security_Definitions}
+\index{Sicherheits-Definitionen}
 
 \begin{ctsquote}
 Erkläre es mir, ich werde es vergessen.\\
@@ -82,8 +84,8 @@ Verfahren zu brechen. Ein Angreifer hat nicht genug Informationen dafür, weil
 sich aus dem Chiffrat keine sinnvollen Informationen gewinnen lassen.
 
 Es gibt Informations-theoretisch sichere Verfahren, die beweisbar nicht
-gebrochen werden können, auch nicht mit unendlich viel Rechenkraft -- ein Beispiel
-dafür ist das {\em One-Time-Pad}\index{One-Time-Pad} (OTP\index{OTP}).
+gebrochen werden können, auch nicht mit unendlich viel Rechenkraft -- ein
+Beispiel dafür ist das {\em One-Time-Pad}\index{One-Time-Pad} (OTP\index{OTP}).
 
 Da das OTP ein Informations-theoretisch sicheres Verschlüsselungsverfahren
 ist, leitet sich seine Sicherheit schon allein aus der Informationstheorie
@@ -108,8 +110,9 @@ wie die Lösung eines bestimmten schwierigen Problems, z.B. die Berechnung des
 diskreten Logarithmus, die diskrete Quadratwurzel-Berechnung oder die
 Faktorisierung sehr großer Zahlen.
 
-Beispiel: Aktuell wissen wir, dass RSA höchstens so schwierig ist wie die
-Faktorisierung, aber wir können nicht beweisen, dass es genauso schwierig ist.
+Beispiel: Aktuell wissen wir, dass RSA\index{RSA} höchstens so schwierig
+ist wie die Faktorisierung, aber wir können nicht beweisen, dass es genauso
+schwierig ist.
 Deshalb hat RSA keine beweisbare Mindest-Sicherheit. Oder in anderen Worten:
 Wir können nicht beweisen, dass wenn das Kryptosystem RSA gebrochen ist, dass
 dann auch die Faktoriserung (ein schwieriges mathematisches Problem) gelöst
@@ -125,7 +128,7 @@ der Daten, die man durch das Brechen erhalten würde. Z.B. weil ein Angriff
 nicht in einer ausreichend kurzen Zeit erfolgen kann (vgl.
 {\em Handbook of Applied Cryptography} \cite{cm:Menezes2001}).
 
-Beispiel: Dies kann z.B. zutreffen, wenn Börsen-relevante Daten sowieso am
+Dies kann z.B. zutreffen, wenn Börsen-relevante Daten sowieso am
 nächsten Tag veröffentlicht werden und man für das Brechen ein Jahr brauchen
 würde.
 
@@ -136,15 +139,16 @@ würde.
 Bei den heutzutage verwendeten guten Verfahren ist der Zeitaufwand zum Brechen
 so hoch, dass sie praktisch nicht gebrochen werden können. Deshalb kann man
 diese Verfahren als (praktisch) sicher ansehen -- aus einer rein auf den
-Algorithmus bezogenen Sichtweise.%\par \vskip + 3pt
+Algorithmus bezogenen Sichtweise.%\par
 
-
+\vskip +3pt
 \begin{sloppypar}
-Einen guten Überblick über die verschiedenen Verfahren bietet das Buch von Bruce
-Schneier \cite{cm:Schneier1996}. Grundsätz"-lich unterscheidet man zwischen
-symmetrischen und asymmetrischen Verfahren zur Verschlüsse"-lung.
+Grundsätz"-lich unterscheidet man zwischen symmetrischen und asymmetrischen
+Verfahren zur Verschlüsse"-lung.\\
+Einen guten Überblick über die verschiedenen Verschlüsselungs-Verfahren bietet
+das Buch von Bruce Schneier \cite{cm:Schneier1996}.
 \end{sloppypar}
-
+\vskip +3pt
 
 
 
@@ -165,8 +169,8 @@ symmetrischen und asymmetrischen Verfahren zur Verschlüsse"-lung.
     Modern \textbackslash{} Symmetrisch} folgende modernen symmetrischen
     Verschlüsselungsverfahren ausführen:\\ 
     AES, DES, PRESENT, RC2, RC4, SDES, TEA, Triple-DES, Twofish.\\
-    In JCrypTool ({\bf JCT})\index{JCrypTool} stehen Ihnen die folgenden modernen
-    symmetrischen Verschlüsselungsverfahren zur Verfügung:\\ 
+    In JCrypTool ({\bf JCT})\index{JCrypTool} stehen Ihnen die folgenden
+    modernen symmetrischen Verschlüsselungsverfahren zur Verfügung:\\ 
     AES, Rijndael, Camellia, DES, Dragon, IDEA, LFSR, MARS, Misty1, RC2, RC5,
     RC6, SAFER+, SAFER++, Serpent, Shacal, Shacal2, Twofish.
     }
@@ -187,11 +191,12 @@ Beginn der eigentlichen Kommunikation ausgetauscht haben. Der Sender
 benutzt diesen Schlüssel, um die Nachricht zu verschlüsseln und der
 Empfänger, um diese zu entschlüsseln.\par \vskip + 3pt
 
-Alle klassischen Verfahren sind von diesem Typ. Beispiele dazu finden Sie im
-Programm CrypTool, im Kapitel~\ref{Kapitel_PaperandPencil}
+Alle klassischen Verfahren sind von diesem Typ. Beispiele dazu finden Sie in
+den CT-Programmen, im Kapitel~\ref{Kapitel_PaperandPencil}
 (\glqq \nameref{Kapitel_PaperandPencil}\grqq ) in diesem Skript oder 
 in \cite{cm:Nichols1996}. 
-Im folgenden wollen wir jedoch nur die moderneren Verfahren betrachten.
+In diesem Absatz wollen wir jedoch nur die moderneren symmetrischen Verfahren
+betrachten.
 
 Vorteile von symmetrischen Algorithmen sind die hohe
 Geschwindigkeit, mit denen Daten ver- und entschlüsselt werden.
@@ -227,15 +232,15 @@ Gewinner der AES-Ausschreibung erklärt und ist damit Nachfolger
 des DES-Verfahrens.
 
 Näheres und weitere Verweise zum AES-Algorithmus und den AES-Kandidaten
-der letzten Runde finden Sie z.B. in der
-CrypTool-1-Online-Hilfe\index{CrypTool 1}%
+der letzten Runde finden Sie z.B. in der Online-Hilfe von
+CrypTool\index{CrypTool}.%
 \footnote{%
       Online-Hilfe von CT1\index{CrypTool 1}: Das Stichwort {\bf AES} im Index
       führt auf die drei Hilfeseiten: {\bf AES-Kandidaten}, 
       {\bf Der AES-Gewinner Rijndael} und {\bf Der AES-Algorithmus Rijndael}.\\
       Eine ausführliche Beschreibung von AES mit C-Code findet sich
        in \cite{cm:Haan2008}.
-  }.
+  }
 
 
 
@@ -250,7 +255,7 @@ CrypTool-1-Online-Hilfe\index{CrypTool 1}%
 
 Im Anschluss finden Sie einige Informationen, die das AES-Verfahren in
 letzter Zeit in Zweifel zogen -- unserer Ansicht nach aber (noch)
-unbegründet. Die folgenden Informationen beruhen auf den unten
+unbegründet. Die folgenden Informationen beruhen vor allem auf den unten
 angegebenen Originalarbeiten und auf \cite{cm:Wobst-iX2002} und
 \cite{cm:Lucks-DuD2002}.
 
@@ -276,7 +281,7 @@ Geheimdienst) gilt ein Aufwand von $2^{75}$ bis $2^{90}$
 Verschlüsselungsoperationen.
 
 Eine neue Vorgehensweise wurde in der Arbeit von Ferguson, Schroeppel
-und Whiting im Jahre 2001 \cite{cm:Ferguson2001} beschrieben: sie stellten
+und Whiting im Jahre 2001 \cite{cm:Ferguson2001} beschrieben: Sie stellten
 AES als geschlossene Formel (in der Form einer Art Kettenbruch) dar,
 was aufgrund seiner "`relativ"' übersichtlichen Struktur gelang. Da
 diese Formel aus rund 1 Billiarde Summanden besteht, taugt sie zunächst
@@ -286,7 +291,7 @@ geweckt. Bereits bekannt war, dass sich der 128-Bit-AES als ein
 (über algebraischen Zahlkörpern) mit rund 1600 Variablen (einige
 Unbekannte sind die Schlüsselbits) darstellen lässt -- solch große
 Gleichungssysteme sind praktisch nicht lösbar. Dieses Gleichungssystem
-ist relativ dünn besetzt (``sparse''), d.h. von den insgesamt etwa
+ist relativ dünn besetzt (\glqq sparse''), d.h. von den insgesamt etwa
 1.280.000 möglichen quadratischen Termen tauchen nur relativ wenige
 überhaupt im Gleichungssystem auf.
 
@@ -298,7 +303,7 @@ XL-Verfahren (eXtended Linearization) weiter zum XSL-Verfahren
 Technik, mit der es manchmal gelingt, große nicht-lineare Gleichungssysteme 
 zu lösen und die bei der Analyse eines asymmetrischen Algorithmus (HFE) 
 angewandt wurde.  Die Innovation von Courois und Pieprzyk war, das 
-XL-Verfahren auf symmetrische Verfahren anzuwenden: das XSL-Verfahren kann
+XL-Verfahren auf symmetrische Verfahren anzuwenden: Das XSL-Verfahren kann
 auf spezielle Gleichungssysteme angewandt werden. Damit könnte ein 
 256-Bit-AES-Verfah"-ren in rund $2^{230}$ Schritten geknackt werden. Dies ist 
 zwar immer noch ein rein akademischer Angriff, aber er ist richtungsweisend
@@ -334,7 +339,7 @@ nicht mehr exponentiell mit der Rundenzahl.
 
 Aktuell wird sehr intensiv auf diesem Gebiet geforscht: z.B. stellten
 Murphy und Robshaw auf der Crypto 2002 ein Papier vor \cite{cm:Robshaw2002a},
-das die Kryptoanalyse drastisch verbessern könnte: der Aufwand für
+das die Kryptoanalyse drastisch verbessern könnte: Der Aufwand für
 128-Bit-Schlüssel wurde auf $2^{100}$ geschätzt, indem sie AES als
 Spezialfall eines Algorithmus BES (Big Encryption System) darstellten,
 der eine besonders "`runde"' Struktur hat. Aber auch $2^{100}$
@@ -342,23 +347,26 @@ Rechenschritte liegen jenseits dessen, was praktisch in absehbarer Zeit
 realisierbar ist. Bei 256 Bit Schlüssellänge schätzen die Autoren
 den Aufwand für den XSL-Angriff auf $2^{200}$ Operationen.
 
-Weitere Details dazu stehen unter:
+Weitere Details finden Sie unter den Weblinks bei
+\hyperlink{CM_HT_Weblink_Rijndael-Cryptosystem}{\glqq Das AES-/Rijndael-Kryptosystem''}.
 % nur \href oder \url rückt nicht ein, deshalb \item dazu !
-\vspace{-10pt}
-\begin{itemize}
-  \item[] \url{http://www.cryptosystem.net/aes} \\
-          \url{http://www.minrank.org/aes/} 
-\end{itemize}
+%\vspace{-10pt}
+%\begin{itemize}
+%  \item[] \url{http://www.cryptosystem.net/aes} \\
+%          \url{http://www.minrank.org/aes/} 
+%\end{itemize}
 
-Für 256-AES wäre der Angriff ebenfalls viel besser als
+
+Für AES-256 wäre der Angriff ebenfalls viel besser als
 Brute-Force\index{Angriff!Brute-Force}, aber auch noch weiter außerhalb der
 Reichweite realisierbarer Rechenpower.
 
 \begin{sloppypar}
-Die Diskussion ist z.Zt. sehr kontrovers: Don Coppersmith (einer der DES-Erfinder) 
-z.B. bezweifelt die generelle Durchführbarkeit des Angriffs: XLS liefere für 
-AES gar keine Lösung \cite{cm:Coppersmith2002}. Dann würde auch die Optimierung von 
-Murphy und Robshaw \cite{cm:Robshaw2002b} nicht greifen.
+Die Diskussion ist z.Zt. sehr kontrovers: Don Coppersmith (einer der
+DES-Erfinder) z.B. bezweifelt die generelle Durchführbarkeit des Angriffs:
+XLS liefere für AES gar keine Lösung \cite{cm:Coppersmith2002}. Dann würde
+auch die Optimierung von Murphy und Robshaw \cite{cm:Robshaw2002b} nicht
+greifen.
 \end{sloppypar}
 
 2009 veröffentlichten Biryukov und Khovratovich \cite{cm:Biryukov2009} einen
@@ -386,37 +394,42 @@ auf symmetrische Verschlüsselungsverfahren gut erläutert werden.
 
 \begin{sloppypar}
 Als Brute-Force-Angriff (exhaustive search, trial-and-error) bezeichnet
-man das vollständige Durchsuchen des Schlüsselraumes: dazu müssen
+man das vollständige Durchsuchen des Schlüsselraumes: Dazu müssen
 keine besonderen Analysetechniken eingesetzt werden. Stattdessen wird
 der Ciphertext mit allen möglichen Schlüsseln des Schlüsselraums
-entschlüsselt und geprüft, ob der resultierende Text einen sinnvollen
-Klartext ergibt. Bei einer Schlüssellänge von 64 Bit sind dies maximal
-$2^{64}$ = 18.446.744.073.709.551.616 oder rund 18 Trillionen zu
-überprüfende Schlüssel\index{CrypTool}%
+entschlüsselt%
 \footnote{%
-  Mit CrypTool 1\index{CrypTool 1} können Sie über das Menü
+  Mit CT1\index{CrypTool 1} können Sie über das Menü
   {\bf Analyse \textbackslash{} Symmetrische Verschlüsselung (modern)}
   ebenfalls Brute-Force-Analysen von modernen symmetrischen Verfahren
   durchführen (unter der schwächsten aller möglichen Annahmen: Der
-  Angreifer kennt nur den Geheimtext, er führt also einen Ciphertext
-  only-Angriff durch). 
-  Um in einer sinnvollen Zeit auf einem Einzel-PC ein Ergebnis zu
-  erhalten, sollten Sie nicht mehr als 24 Bit des Schlüssels als
-  unbekannt kennzeichnen.\\
-  Mit CrypTool 2\index{CrypTool 2} können Sie bei den Vorlagen unter
+  Angreifer kennt nur den Geheimtext, er führt also einen
+  Ciphertext-only-Angriff durch).\\
+  Mit CT2\index{CrypTool 2} können Sie bei den Vorlagen unter
   {\bf Kryptoanalyse \textbackslash{} Modern} ebenfalls Brute-Force-Analysen
   durchführen. Besonders mächtig ist die KeySearcher-Komponente, die
   die Ausführung auch auf mehrere Rechner verteilen kann.
-}.
+}
+und geprüft, ob der resultierende Text einen sinnvollen
+Klartext ergibt%
+\footnote{%
+  Ist der Klartext natürlich-sprachlich und wenigstens 100 B lang, kann
+  diese Prüfung ebenfalls automatisiert durchgeführt werden.\\
+  Um in einer sinnvollen Zeit auf einem Einzel-PC ein Ergebnis zu
+  erhalten, sollten Sie nicht mehr als 24 Bit des Schlüssels als
+  unbekannt kennzeichnen.}.
+Bei einer Schlüssellänge von 64 Bit sind dies maximal
+$2^{64}$ = 18.446.744.073.709.551.616 oder rund 18 Trillionen zu
+überprüfende Schlüssel\index{CrypTool}.
 \end{sloppypar}
 
 Um zu zeigen, welche Sicherheit bekannte symmetrische Verfahren wie
 DES, Triple-DES oder RC5\index{DES}\index{RC5}\index{Triple-DES}
 haben, veranstaltete z.B. RSA Security
-sogenannte Cipher-Challenges\footnote{%
+sogenannte Cipher-Challenges.\footnote{%
  \url{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}\\
- Im Mai 2007 meldete RSA, dass sie die Korrektheit der bis dahin nicht
- gelösten RC5-72 Challenge nicht bestätigen werden.}.
+ Im Mai 2007 meldete RSA Inc leider, dass sie die Korrektheit der bis dahin
+ nicht gelösten RC5-72 Challenge nicht bestätigen werden.}
 Unter kontrollierten Bedingungen wurden Preise ausgelobt, um Ciphertexte
 (verschlüsselt mit verschiedenen Verfahren und verschiedenen
 Schlüssellängen) zu entschlüsseln und den symmetrischen Schlüssel
@@ -425,21 +438,23 @@ zu ermitteln. Damit werden theoretische Resultate praktisch bestätigt.
 Dass das "`alte"' Standard-Verfahren DES mit der fixen Schlüssellänge
 von 56 Bit nicht mehr sicher ist, wurde schon im Januar 1999 von der
 Electronic Frontier Foundation (EFF) demonstriert, als sie mit Deep Crack
-eine DES-verschlüsselte Nachricht in weniger als einem Tag knackten\footnote{%
+eine DES-verschlüsselte Nachricht in weniger als einem Tag
+knackten.\footnote{%
  \url{http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}
-}.
+}
 
 Der aktuelle Rekord für starke symmetrische Verfahren liegt bei 64 Bit
 langen Schlüsseln. Dazu wurde das Verfahren RC5 benutzt, eine
 Blockchiffre mit variabler Schlüssellänge. 
 
 Die RC5-64 Challenge wurde im September 2002 nach 5 Jahren vom
-distributed.net-Team gelöst\footnote{%
+distributed.net-Team gelöst.\footnote{%
  \url{http://distributed.net/pressroom/news-20020926.html}
-}.
+}
 Insgesamt arbeiteten 331.252 Personen gemeinsam über das Internet
 zusammen.\footnote{%
-Eine Übersicht über die aktuellen Projekte zum verteilten Rechnen finden Sie unter:\\
+Eine Übersicht über die aktuellen Projekte zum verteilten Rechnen finden
+Sie unter:\\
 \url{http://distributedcomputing.info/}
 }
 Ge"-testet wurden rund 15 Trillionen Schlüssel, bis der
@@ -977,6 +992,7 @@ True
 %  \item[] \href{http://www.cryptosystem.net/aes}
 %       {\texttt{http://www.cryptosystem.net/aes}} 
 %  per item[] werden sie NICHT durchnummeriert !
+  \hypertarget{CM_HT_Weblink_Rijndael-Cryptosystem}{}
   \item Das AES-/Rijndael-Kryptosystem \\
         \url{http://www.cryptosystem.net/aes} \\
 	\url{http://www.minrank.org/aes/}

@@ -26,7 +26,8 @@ hands. Authorized recipients possess a piece of secret information -- called the
 key -- which allows them to decrypt the data while it remains hidden from
 everyone else.%\par \vskip + 3pt
 
-For further explanations we use the notation from the following Figure \ref{Generic-Notations-when-Encrypting}:
+For explanations in the following we use the notation from 
+Figure \ref{Generic-Notations-when-Encrypting}:
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.7]{figures/Generic-Notation-Encryption_en.png}
@@ -44,6 +45,7 @@ First we present the ideas how the security of cryptosystems is defined.
 \hypertarget{cm_Section_Security_Definitions}{}
 \section[Security definitions]{Security definitions}
 \label{cm_Section_Security_Definitions}
+\index{Security definitions}
 
 \begin{ctsquote}
 \caption{Saying from India}
@@ -108,10 +110,11 @@ This means that breaking such a cryptographic system is as difficult as
 solving some supposedly difficult problem e.g. discrete logarithm computation,
 discrete square root computation, very large integer factorization.
 
-Example: Currently we know that RSA is at most as difficult as factorization,
-but we cannot prove that its exactly as difficult as factorization. So RSA
-has no proven minimum security. Or in other words: We cannot prove, that if
-RSA (the cryptosystem) is broken, that then factorization (the hard
+Example: Currently we know that RSA\index{RSA} is at most as difficult as
+factorization, but we cannot prove that its exactly as difficult as
+factorization.
+So RSA has no proven minimum security. Or in other words: We cannot prove,
+that if RSA (the cryptosystem) is broken, that then factorization (the hard
 mathematical problem) can be solved.
 
 The Rabin cryptosystem was the first cryptosystem which could be proven to be
@@ -132,12 +135,14 @@ published tomorrow and you need a year to break it.
 \vskip +3pt
 For good procedures used today the time taken to break them is so long that
 it is practically impossible to do so, and these procedures can therefore be
-considered (practically) secure -- from a pure algorithm's point of view.%\par \vskip + 3pt
+considered (practically) secure -- from a pure algorithm's point of view.%\par
 
+\vskip +3pt
+We basically distinguish between symmetric and asymmetric encryption
+procedures.\\
 The book of Bruce Schneier \cite{cm:Schneier1996cm} offers a good overview of
-the different algorithms. We basically distinguish between symmetric and
-asymmetric encryption procedures.
-
+the different encryption algorithms.
+\vskip +3pt
 
 
 
@@ -178,10 +183,10 @@ key to encrypt the message and the recipient uses it to decrypt it.
 \par \vskip + 3pt
 
 All classical methods are of this type. Examples can be found within the 
-program CrypTool, in chapter~\ref{Kapitel_PaperandPencil}
+CT programs, in chapter~\ref{Kapitel_PaperandPencil}
 (``\nameref{Kapitel_PaperandPencil}'')
-of this script or in \cite{cm:Nichols1996}. 
-Now we want to consider more modern mechanisms.
+of this script, or in \cite{cm:Nichols1996}.
+In this chapter howver, we want to consider only modern symmetric mechanisms.
 
 The advantages of symmetric algorithms are the high speed with which data can be
 encrypted and decrypted. One disadvantage is the need for key management. In
@@ -210,9 +215,9 @@ Up-to-the-minute procedure is the symmetric AES standard\index{AES}. The associa
 Rijndael algorithm was declared winner of the AES award on October 2nd, 2000
 and thus succeeds the DES procedure.\index{AES}
 
-More details and further references about the AES algorithms and the AES candidates
-of the last round can be found i.e. within the online help of
-CrypTool 1\index{CrypTool 1}%
+More details and further references about the AES algorithms and the AES
+candidates of the last round can be found i.e. within the online help of
+CrypTool\index{CrypTool}.%
 \footnote{%
       CrypTool 1 online help\index{CrypTool 1}: The index head-word {\bf AES}
       leads to the 3 help pages: {\bf AES candidates}, 
@@ -220,7 +225,7 @@ CrypTool 1\index{CrypTool 1}%
       {\bf The Rijndael encryption algorithm}\\
       A comprehensive description of AES including C code can be found
       in \cite{cm:Haan2008}.
-  }.
+  }
 
 
 % HACK to fix warning "destination with the same identifier .. has already been used, ...":
@@ -234,7 +239,8 @@ CrypTool 1\index{CrypTool 1}%
 Below you will find some results, which have recently called into question the security of the AES algorithm -- from our point of view these doubts practically still remain unfounded
 % = do not bring disrepute upon AES
 . 
-The following information is based on the original papers and the articles \cite{cm:Wobst-iX2002} and \cite{cm:Lucks-DuD2002}.
+The following information is based particularly on the original papers and the
+articles \cite{cm:Wobst-iX2002} and \cite{cm:Lucks-DuD2002}.
 
 AES with a minimum key length of 128 bit is still in the long run sufficiently secure against brute-force attacks\index{Attack!brute-force} -- as long as the quantum computers aren't powerful enough. When announced as new standard AES was immune against all known cryptanalytic attacks, mostly based on statistical considerations and earlier applied to DES: using pairs of clear and cipher texts expressions are constructed, which are not completely at random, so they allow conclusions to the used keys. These attacks required unrealistically large amounts of intercepted data.
 
@@ -293,14 +299,10 @@ does not exponentially increase with the number of rounds.
 
 Currently there is a large amount of research in this area: for example Murphy and Robshaw presented a paper at Crypto 2002 \cite{cm:Robshaw2002a}, which could dramatically improve cryptanalysis: the burden for a 128-bit key was estimated at about $2^{100}$ steps by describing AES as a special case of an algorithm called BES (Big Encryption System), which has an especially "round" structure. But even $2^{100}$ steps are beyond what is achievable in the foreseeable future. Using a 256 bit key the authors estimate that a XSL-attack will require $2^{200}$ operations.
 
-More details can be found at:
-\vspace{-10pt}
-\begin{itemize}
-  \item[] \url{http://www.cryptosystem.net/aes} \\
-          \url{http://www.minrank.org/aes/} 
-\end{itemize}
+More details can be found in the Web links section at
+\hyperlink{CM_HT_Weblink_Rijndael-Cryptosystem}{``AES or Rijndael cryptosystem''}.
 
-So for 256-AES the attack is much more effective than brute-force\index{Attack!brute-force} but still far more away from any computing power which could be accessible in the short-to-long term. 
+So for AES-256 the attack is much more effective than brute-force\index{Attack!brute-force} but still far more away from any computing power which could be accessible in the short-to-long term. 
 
 The discussion is very controversial at the moment: Don Coppersmith (one of the
 inventors of DES) for example queries the practicability of the attack because
@@ -328,49 +330,57 @@ practical, for AES-128 the authors do not provide an attack.
 
 The current status of brute-force attacks on symmetric encryption algorithms can be explained with the block cipher RC5.
 
-Brute-force (exhaustive search, trial-and-error) means to completely examine all keys of the key space: so no special analysis methods have to be used. Instead, the ciphertext is decrypted with all possible keys and for each resulting text it is checked, whether this is a meaningful clear text. A key length of 64 bit means at most $2^{64}$ = 18,446,744,073,709,551,616 or about 18 trillion (GB) / 18 quintillion (US)  keys to check\index{CrypTool}%
+Brute-force (exhaustive search, trial-and-error) means to completely examine all keys of the key space: so no special analysis methods have to be used. Instead, the ciphertext is decrypted with all possible keys%
 \footnote{%
-    With CrypTool 1\index{CrypTool 1} you can also perform brute-force attacks
+    With CT1\index{CrypTool 1} you can also perform brute-force attacks
     of modern symmetric algorithms (using the menu path
     {\bf Analysis \textbackslash{} Symmetric Encryption (modern)}): Here
     the weakest knowledge of an attacker is assumed, he performs a 
-    ciphertext-only attack.
-    To achieve a result in an appropriate time with a single PC you should 
-    mark not more than 24 bit of the key as unknown.\\
-    With CrypTool 2\index{CrypTool 2} you can also perform brute-force attacks
+    ciphertext-only attack.\\
+    With CT2\index{CrypTool 2} you can also perform brute-force attacks
     (using the templates under {\bf Cryptanalysis \textbackslash{} Modern}).
-    Highly powerful is the KeySearcher component, which can be used to distribute
-    the calculations to many different computers.
+    Highly powerful is the KeySearcher component, which can be used to
+    distribute the calculations to many different computers.
+}
+and for each resulting text it is checked, whether this is a meaningful clear text%
+\footnote{%
+    If the cleartext is written in a natural language and at least 100 B
+    lobg, this check also can be performed automatically.\\
+    To achieve a result in an appropriate time with a single PC you should 
+    mark not more than 24 bit of the key as unknown.
 }.
+A key length of 64 bit means at most $2^{64}$ = 18,446,744,073,709,551,616 or about 18 trillion (GB) / 18 quintillion (US)  keys to check\index{CrypTool}.
 
 Companies like RSA Security provided so-called cipher challenges in order
 to quantify the security offered by well-known symmetric ciphers as DES,
 Triple-DES or RC5%
-\index{DES}\index{RC5}\index{Triple-DES}%
+\index{DES}\index{RC5}\index{Triple-DES}.%
 \footnote{%
  \url{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}\\
- In May 2007 RSA announced that they will not confirm the correctness of
- the not yet solved RC5-72 challenge.}.
-They offer prizes for those who managed to decipher ciphertexts, encrypted with different algorithms and different key lengths, and to unveil the symmetric key (under controlled conditions). So theoretical estimates can be confirmed.
+ Unfortunately, in May 2007 RSA Inc announced that they will not confirm the
+ correctness of the not yet solved RC5-72 challenge.}
+They offered prizes for those who managed to decipher ciphertexts, encrypted with different algorithms and different key lengths, and to unveil the symmetric key (under controlled conditions). So theoretical estimates can be confirmed.
 
-It is well-known, that the ``old'' standard algorithm DES with a fixed key length
-of 56 bit is no more secure: This was demonstrated already in January 1999 by the
-Electronic Frontier Foundation (EFF). With their specialized computer Deep Crack
-they cracked a DES encrypted message within less than a day\footnote{%
+It is well-known, that the ``old'' standard algorithm DES with a fixed key
+length of 56 bit is no more secure: This was demonstrated already in January
+1999 by the Electronic Frontier Foundation (EFF). With their specialized
+computer Deep Crack they cracked a DES encrypted message within less than a
+day.\footnote{%
  \url{http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}
-}.
+}
 
 The current record for strong symmetric algorithms unveiled a key 64 bit long.
 The algorithm used was RC5, a block cipher with variable key size. 
 
 The RC5-64 challenge has been solved by the distributed.net team after 5
-years\footnote{%
+years.\footnote{%
  \url{http://distributed.net/pressroom/news-20020926.html}
-}.
-In total 331,252 individuals co-operated over the internet to find the key\footnote{%
+}
+In total 331,252 individuals co-operated over the internet to find the
+key.\footnote{%
 An overview of current distributed computing projects can be found here:\\
 \url{http://distributedcomputing.info/}
-}.
+}
 More than 15 trillion (GB) / 15 quintillion (US)  keys were checked, until they
 found the right key.
 
@@ -875,7 +885,8 @@ True
 
 \begin{enumerate}
 
-\item AES or Rijndael cryptosystem \\
+  \hypertarget{CM_HT_Weblink_Rijndael-Cryptosystem}{}
+  \item AES or Rijndael cryptosystem \\
         \url{http://www.cryptosystem.net/aes} \\
 	\url{http://www.minrank.org/aes/}
 
