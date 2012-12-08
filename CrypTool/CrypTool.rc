@@ -4785,7 +4785,7 @@ BEGIN
             MENUITEM "Narzêdzie edukacyjne teorii liczb", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Obliczyc liczby &Mersenne’a...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "[i18n] &Generic t-adic NAF Key Generator...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Kryptoanaliza"
@@ -5142,7 +5142,7 @@ BEGIN
             MENUITEM "Narzêdzie edukacyjne teorii liczb", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Obliczyc liczby &Mersenne’a...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "[i18n] &Generic t-adic NAF Key Generator...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Kryptoanaliza"
@@ -5499,7 +5499,7 @@ BEGIN
             MENUITEM "Narzêdzie edukacyjne teorii liczb", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Obliczyc liczby &Mersenne’a...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "[i18n] &Generic t-adic NAF Key Generator...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Kryptoanaliza"
@@ -5856,7 +5856,7 @@ BEGIN
             MENUITEM "Narzêdzie edukacyjne teorii liczb", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Obliczyc liczby &Mersenne’a...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "[i18n] &Generic t-adic NAF Key Generator...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Kryptoanaliza"
@@ -6242,7 +6242,7 @@ BEGIN
             MENUITEM "Narzêdzie edukacyjne teorii liczb", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Obliczyc liczby &Mersenne’a...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "[i18n] &Generic t-adic NAF Key Generator...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Kryptoanaliza"
@@ -16052,7 +16052,7 @@ BEGIN
             MENUITEM "&Alatka za Ucenje Teorije Brojeva...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Sabiranje Tacaka na Eliptickoj Krivoj...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Racunanje &Mersenne-ovih Brojeva...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "[i18n] &Generic t-adic NAF Key Generator...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Analiza"
@@ -16409,7 +16409,7 @@ BEGIN
             MENUITEM "&Alatka za Ucenje Teorije Brojeva...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Sabiranje Tacaka na Eliptickoj Krivoj...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Racunanje &Mersenne-ovih Brojeva...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "[i18n] &Generic t-adic NAF Key Generator...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Analiza"
@@ -16766,7 +16766,7 @@ BEGIN
             MENUITEM "&Alatka za Ucenje Teorije Brojeva...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Sabiranje Tacaka na Eliptickoj Krivoj...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Racunanje &Mersenne-ovih Brojeva...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "[i18n] &Generic t-adic NAF Key Generator...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Analiza"
@@ -17123,7 +17123,7 @@ BEGIN
             MENUITEM "&Alatka za Ucenje Teorije Brojeva...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Sabiranje Tacaka na Eliptickoj Krivoj...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Racunanje &Mersenne-ovih Brojeva...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "[i18n] &Generic t-adic NAF Key Generator...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Analiza"
@@ -17509,7 +17509,7 @@ BEGIN
             MENUITEM "&Alatka za Ucenje Teorije Brojeva...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Sabiranje Tacaka na Eliptickoj Krivoj...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Racunanje &Mersenne-ovih Brojeva...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "[i18n] &Generic t-adic NAF Key Generator...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Analiza"
@@ -27298,7 +27298,7 @@ BEGIN
             MENUITEM "&Lernprogramm für Zahlentheorie...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Punktaddition auf Elliptischen Kurven...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "&Mersenne-Zahlen berechnen...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "&Generierung von Schlüsseln nach t-adic NAF...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "&Generischer t-adic-NAF-Schlüsselgenerator...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "A&nalyse"
@@ -27655,7 +27655,7 @@ BEGIN
             MENUITEM "&Lernprogramm für Zahlentheorie...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Punktaddition auf Elliptischen Kurven...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "&Mersenne-Zahlen berechnen...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "&Generierung von Schlüsseln nach t-adic NAF...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "&Generischer t-adic-NAF-Schlüsselgenerator...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "A&nalyse"
@@ -28012,7 +28012,7 @@ BEGIN
             MENUITEM "&Lernprogramm für Zahlentheorie...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Punktaddition auf Elliptischen Kurven...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "&Mersenne-Zahlen berechnen...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "&Generierung von Schlüsseln nach t-adic NAF...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "&Generischer t-adic-NAF-Schlüsselgenerator...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "A&nalyse"
@@ -28369,7 +28369,7 @@ BEGIN
             MENUITEM "&Lernprogramm für Zahlentheorie...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Punktaddition auf Elliptischen Kurven...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "&Mersenne-Zahlen berechnen...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "&Generierung von Schlüsseln nach t-adic NAF...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "&Generischer t-adic-NAF-Schlüsselgenerator...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "A&nalyse"
@@ -28755,7 +28755,7 @@ BEGIN
             MENUITEM "&Lernprogramm für Zahlentheorie...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Punktaddition auf Elliptischen Kurven...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "&Mersenne-Zahlen berechnen...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "&Generierung von Schlüsseln nach t-adic NAF...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "&Generischer t-adic-NAF-Schlüsselgenerator...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "A&nalyse"
@@ -33169,7 +33169,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    ID_GENERATION_TADIC_NAF_KEYS "Generiert Schlüssel nach t-adic NAF"
+    ID_GENERATION_TADIC_NAF_KEYS "Generiert t-adic-NAF-Schlüssel"
 END
 
 STRINGTABLE 
@@ -38432,7 +38432,7 @@ BEGIN
             MENUITEM "&Learning Tool for Number Theory...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Point Addition on Elliptic Curves...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "&Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "&Generic t-adic NAF Key Generator...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Analysis"
@@ -38789,7 +38789,7 @@ BEGIN
             MENUITEM "&Learning Tool for Number Theory...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Point Addition on Elliptic Curves...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "&Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "&Generic t-adic NAF Key Generator...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Analysis"
@@ -39146,7 +39146,7 @@ BEGIN
             MENUITEM "&Learning Tool for Number Theory...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Point Addition on Elliptic Curves...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "&Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "&Generic t-adic NAF Key Generator...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Analysis"
@@ -39503,7 +39503,7 @@ BEGIN
             MENUITEM "&Learning Tool for Number Theory...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Point Addition on Elliptic Curves...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "&Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "&Generic t-adic NAF Key Generator...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Analysis"
@@ -39889,7 +39889,7 @@ BEGIN
             MENUITEM "&Learning Tool for Number Theory...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Point Addition on Elliptic Curves...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Compute &Mersenne Numbers...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "&Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "&Generic t-adic NAF Key Generator...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Analysis"
@@ -49723,7 +49723,7 @@ BEGIN
             MENUITEM "&Aprendiendo Teoría de Números...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Calcular números de &Mersenne...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "&Generic t-adic NAF Key Generator...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "A&nálisis"
@@ -50080,7 +50080,7 @@ BEGIN
             MENUITEM "&Aprendiendo Teoría de Números...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Calcular números de &Mersenne...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "&Generic t-adic NAF Key Generator...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "A&nálisis"
@@ -50437,7 +50437,7 @@ BEGIN
             MENUITEM "&Aprendiendo Teoría de Números...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Calcular números de &Mersenne...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "&Generic t-adic NAF Key Generator...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "A&nálisis"
@@ -50794,7 +50794,7 @@ BEGIN
             MENUITEM "&Aprendiendo Teoría de Números...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Calcular números de &Mersenne...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "&Generic t-adic NAF Key Generator...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "A&nálisis"
@@ -51151,7 +51151,7 @@ BEGIN
             MENUITEM "&Aprendiendo Teoría de Números...", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Suma de Puntos en Curvas Elípticas...", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Calcular números de &Mersenne...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "[i18n] &Generation of t-adic NAF keys...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "&Generic t-adic NAF Key Generator...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "A&nálisis"
