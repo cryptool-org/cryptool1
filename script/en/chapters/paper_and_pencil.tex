@@ -14,7 +14,7 @@
 % Update and corrections: B. Esslinger, June 2005
 % Update B. Esslinger and Minh Van Nguyen, November 2009 
 % Update B. Esslinger, June 2010 
-% Update B. Esslinger, Nov. 2012 
+% Update B. Esslinger, Dec. 2012 
 %------------------------------------------------------------------------------
 
 % ``primenet''
@@ -24,9 +24,10 @@
 \chapter{Paper and Pencil Encryption Methods}
 \label{Kapitel_PaperandPencil}
 (Christine St\"otzel, April 2004; Updates: B.+C. Esslinger, June 2005;
- Updates Minh Van Nguyen and B. Esslinger, Nov. 2009, June 2010 and Nov. 2012)
+ Updates Minh Van Nguyen and B. Esslinger, Nov. 2009, June 2010, Dec. 2012)
 \index{Paper and pencil methods}
 \index{Encryption!classic}
+\index{Cryptography!classic}
 
 \begin{ctsquote}
 Few persons can be made to believe that it is not quite an easy thing
@@ -40,10 +41,13 @@ The following chapter provides a broad overview of paper and pencil
 methods\footnote{%
 The footnotes of this chapter describe how these methods can be
 performed using the offline programs CrypTool 1 ({\bf CT1})\index{CT1},
-CrypTool 2 ({\bf CT2})\index{CT2} and JCrypTool ({\bf JCT})\index{JCT}.\\
+CrypTool 2 ({\bf CT2})\index{CT2} and JCrypTool ({\bf JCT})\index{JCT}.
+See the appendices
+\ref{s:appendix-menu-overview-CT1},
+\ref{s:appendix-template-overview-CT2}, and
+\ref{s:appendix-function-overview-JCT}.\\
 Many of the methods can also per performed within a browser, e.g. on the
-the website CrypTool-Online ({\bf CTO}) (\url{http://www.cryptool-online.org})\index{CTO}.
-See the appendix \ref{s:appendix-function-overview-CTO}.\\
+the website CrypTool-Online ({\bf CTO}) (\url{http://www.cryptool-online.org})\index{CTO}. See the appendix \ref{s:appendix-function-overview-CTO}.\\
 Additionally the last sub chapter (\ref{PaP_Sage_samples})
 contains example code for the computer-algebra system {\bf Sage}\index{Sage}.
                  }
@@ -79,8 +83,8 @@ Methods to be successful and wide-spread had to fulfill some attributes which ar
 
 Encrypting a message by means of transposition\index{Transposition} does not 
 change the original characters of this message, only their order is modified
-(transposition = exchange)\footnote{Another name used for transposition is
-permutation\index{Permutation}.}.
+(transposition = exchange).\footnote{Another name used for transposition is
+permutation\index{Permutation}.}
 
 %------------------------------------------------------------------------------
 \subsection{Introductory samples of different transposition ciphers}
@@ -88,14 +92,15 @@ permutation\index{Permutation}.}.
 
 \begin{itemize}
 
-\item {\bf Rail Fence}\footnote{%
+\item {\bf Rail Fence cipher}\footnote{%
    This method can directly be found in CT1\index{CrypTool 1} at the menu item
-   {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic) \textbackslash{} Scytale / Rail Fence}.
-   You can simulate this method also under the menu {\bf Encrypt/Decrypt \textbackslash{} 
-   Symmetric (classic) \textbackslash{} Permutation}: For a Rail Fence with
-   2 lines use as key ``B,A'' and accept the default settings (only one
-   permutation, where your input is done line-by-line and the output is
-   taken column-by-column). 
+   {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic) \textbackslash{}
+   Scytale / Rail Fence}.
+   You can simulate this method also under the menu {\bf Encrypt/Decrypt
+   \textbackslash{} Symmetric (classic) \textbackslash{} Permutation}:
+   For a Rail Fence with 2 lines use as key ``B,A'' and accept the default
+   settings (only one permutation, where your input is done line-by-line and
+   the output is taken column-by-column). 
    Using the key ``A,B'' would start the zigzag pattern below in the
    way, that the first letter is written into the first line instead of the
    second line.}
@@ -105,19 +110,23 @@ permutation\index{Permutation}.}.
    line by line.\\
    This is more a children's method.
 
-   Plaintext\footnote{Agreement: If the alphabet only uses 26 letters, we write from now
-   onwards the plaintext in small letters and the ciphertext in capital letters.}%
-   : an example of transposition
+   See table \ref{PaP_RailFence_table-reference}.
 
-\begin{table}[ht]
-\begin{center}
-\begin{tabular}{r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}}
+   Plaintext\footnote{\index{Agreement}: If the alphabet only uses 26 letters,
+   we write from now onwards the plaintext in small letters and the ciphertext
+   in capital letters.}:
+   an example of transposition
+
+   \begin{table}[ht]
+   \begin{center}
+   \begin{tabular}{r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}}
 	  & n &   & x &   & m &   & l &   & o &   & t &   & a &   & s &   & o &   & i &   & i &   & n \\
 	a &   & e &   & a &   & p &   & e &   & f &   & r &   & n &   & p &   & s &   & t &   & o &   \\
-\end{tabular}
-\caption{Rail Fence cipher}
-\end{center} 
-\end{table}
+   \end{tabular}
+   \caption{Rail Fence cipher}
+   \label{PaP_RailFence_table-reference}
+   \end{center} 
+   \end{table}
 
    Ciphertext\footnote{The letters of the cleartext are -- as used 
    historically -- grouped within blocks of 5 letters. It does not matter
@@ -151,25 +160,24 @@ permutation\index{Permutation}.}.
    produced by unwinding the strip.
 
 
-\item {\bf Grille} \cite{pp:Goebel2003}: Both parties use identical stencils. 
+\item {\bf Grille cipher} \cite{pp:Goebel2003}: Both parties use identical
+   stencils. 
    Line by line, their holes are filled with plaintext that is read out 
    column by column to produce the ciphertext. If there is plaintext left, 
-   the procedure is repeated\footnote{%
-   This method cannot be simulated with a pure column transposition.}.
+   the procedure is repeated.\footnote{%
+   This method cannot be simulated with a pure column transposition.}
 
 
-   \hypertarget{turning-grille}{}
+   \hypertarget{turning-grille cipher}{}
 \item {\bf Turning grille} \cite{pp:Savard1999}%
    \index{Turning grille}: 
-   The German army used turning 
-   grilles during WW1\footnote{%
+   The German army used turning grilles during WW1.\footnote{%
       The turning grille was already invented in 1881 by Eduard Fleissner von
       Wostrowitz.\\
       A good visualization can be found under www.turning-grille.com.\\
       In JCT\index{JCrypTool} you can find it in the default perspective
       via the menu item {\bf Visuals \textbackslash{} Grille}.
-   }%
-   . 
+   } 
    A square grille serves as a stencil, a quarter of its fields being holes.
    The first part of the message is written on a piece of paper through	these
    holes, then the grille is rotated by 90 degrees and the user can
@@ -178,26 +186,27 @@ permutation\index{Permutation}.}.
    no field may be used twice, either. The ciphertext is read out line by
    line.
 
-   In the example for a turning grille in the following table you can write
-   4 times 16 characters of the cleartext on a piece of paper:
-\begin{table}[ht]
-\begin{center}
-\begin{tabular}{|cccc|cccc|}
-\hline 	
+   In the example for a turning grille in table \ref{PaP_88Fleissner_table-reference}
+   you can write 4 times 16 characters of the cleartext on a piece of paper:
+   \begin{table}[ht]
+   \begin{center}
+   \begin{tabular}{|cccc|cccc|}
+   \hline 	
 	O & - & - & - & - & O & - & - \\
 	- & - & - & O & O & - & - & O \\
 	- & - & - & O & - & - & O & - \\
 	- & - & O & - & - & - & - & - \\
-\hline 	
+   \hline 	
 	- & - & - & - & O & - & - & - \\
 	O & - & O & - & - & - & O & - \\
 	- & O & - & - & - & - & - & O \\
 	- & - & - & O & O & - & - & - \\
-\hline
-\end{tabular}  
-\caption{8x8 turning grille} 
-\end{center}   
-\end{table}
+   \hline
+   \end{tabular}  
+   \caption{8x8 turning grille} 
+   \label{PaP_88Fleissner_table-reference}
+   \end{center}   
+   \end{table}
 
 \end{itemize}
 
@@ -218,9 +227,11 @@ under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
    table is filled with the text to be encrypted line by line. Then the 
    columns are rearranged by sorting the letters of the keyword alphabetically.
    Afterwards the columns are read out from left to right to build the 
-   ciphertext\footnote{%
+   ciphertext.\footnote{%
    Using CT1: Choose a key for the 1st permutation, input line by line, 
-   permute and output column by column.}.
+   permute and output column by column.}
+
+   See table \ref{PaP_SimpColTransp_table-reference}.
 
    Plaintext: an example of transposition
 
@@ -241,6 +252,7 @@ under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
 \hline
 \end{tabular}
 \caption{Simple columnar transposition}
+\label{PaP_SimpColTransp_table-reference}
 \end{center} 
 \end{table}
 
@@ -248,25 +260,25 @@ under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
    Ciphertext: NALFA PIOAX PORSS IEMET NOTN\\
 
 
-\item {\bf AMSCO} \cite{pp:ACA2002}\index{AMSCO}: The characters of the plaintext
-   are written in alternating groups of one respectively two letters into a
-   grille. Then the columns are swapped and the text can be read out.
+\item {\bf AMSCO cipher} \cite{pp:ACA2002}\index{AMSCO}: The characters of the
+   plaintext are written in alternating groups of one respectively two letters
+   into a grille. Then the columns are swapped and the text can be read out.
 
 
 \item {\bf Double column transposition} \cite{pp:Savard1999}
    \index{Double column transposition}: 
    Double columnar transposition
    was frequently used during WW2 and during the Cold War. Two simple columnar
-   transpositions with different keys are executed successively\footnote{%
+   transpositions with different keys are executed successively.\footnote{%
    Using CT1: Choose a key for the 1st permutation, input line by line, 
    permute and output column by column. Then choose a (different) key for the
-   2nd permutation, input line by line, permute and output column by column.}.\\
+   2nd permutation, input line by line, permute and output column by column.}\\
    If the keys are different and long enough (at least each 20 characters),
-   then this is even for today's computer a real challenge\footnote{%
-     MTC3\index{MTC3} offers an according level-X challenge called ``Double Columnar
-     Transposition'':\\
+   then this is even for today's computer a real challenge.\footnote{%
+     MTC3\index{MTC3} offers an according level-X challenge called
+     ``Double Columnar Transposition'':\\
      \url{http://www.mysterytwisterc3.org/en/challenges/level-x/double-column-transposition}
-   }.
+   }
 
 
 
@@ -275,6 +287,8 @@ under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
    The plaintext is entered line by line, in the first line up to column 
    number one, in the second line up to column number two, etc. 
    Again, the ciphertext is read out in columns.
+
+   See table \ref{PaP_LuigiSacco_table-reference}.
 
    Plaintext: an example of transposition
 
@@ -295,6 +309,7 @@ under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
 \hline
 \end{tabular}
 \caption{Columnar transposition (General Luigi Sacco)}
+\label{PaP_LuigiSacco_table-reference}
 \end{center} 
 \end{table}
 
@@ -309,9 +324,9 @@ under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
 \item {\bf Row transposition} \cite{pp:Savard1999}: The plaintext is divided 
    into blocks of equal length and a keyword is chosen.
    Now the letters of the keyword are numbered and permutation is done only
-   within each block according to this numbering\footnote{%
+   within each block according to this numbering.\footnote{%
    Using CT1: Choose a key for 1st permutation, input line by line, 
-   permute column by column and output line by line.}.
+   permute column by column and output line by line.}
 
 \end{itemize}
 
@@ -338,6 +353,8 @@ under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
    a square grille and write the same keyword above the columns and next to
    the lines. As this keyword is sorted alphabetically, the contents of the
    grille are rearranged, too. Read out the ciphertext line by line.
+
+   See table \ref{PaP_NihilistTransp_table-reference}.
 	
    Plaintext: an example of transposition
 
@@ -355,6 +372,7 @@ under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
 \hline
 \end{tabular}  
 \caption[Nihilist transposition]{Nihilist transposition\footnotemark}
+   \label{PaP_NihilistTransp_table-reference}
 \end{center} 
 \end{table}
 
@@ -365,8 +383,8 @@ under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
 
 
 %\newpage % Damit die Tables immer direkt nach dem zugehörigen Item. 
-\item {\bf Cadenus} \cite{pp:ACA2002}\index{Cadenus}: Cadenus is a form of
-   columnar transposition that uses two keywords.\\
+\item {\bf Cadenus cipher} \cite{pp:ACA2002}\index{Cadenus}: Cadenus is a form
+   of columnar transposition that uses two keywords.\\
    The 1st keyword is used to swap columns.\\
    The 2nd keyword is used to define the initial letter of each column:
    this 2nd keyword is a permutation of the used alphabet. This permutation
@@ -374,7 +392,8 @@ under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
    Afterwards, each column is moved (wrap-around) so that it begins with the
    letter, which is in the same line as the key letter of the first 
    keyword within the second keyword. Ciphertext is read out line by line.
-   See table \ref{Cadenus-table-reference}.
+
+   See table \ref{PaP_Cadenus-table-reference}.
 		
    Plaintext: cadenus is a form of columnar transposition using a keyword
 
@@ -403,8 +422,8 @@ under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
 	H & r & d & - & d & r & - & r & s & -\\
 \hline
 \end{tabular}  
-\caption[Cadenus]{Cadenus\footnotemark}
-\label{Cadenus-table-reference}
+\caption[Cadenus]{Cadenus cipher\footnotemark}
+\label{PaP_Cadenus-table-reference}
 \end{center} 
 \end{table}%
 
@@ -445,7 +464,7 @@ remains unchanged during the whole process of encryption.
    \cite{pp:Singh1999}:
    The substitution occurs by a given assignment of single letters.
 
-\item {\bf Atbash\footnotemark}
+\item {\bf Atbash cipher\footnotemark}
    \footnotetext{%
    This cipher can be simulated in CT1\index{CrypTool 1} 
    under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic) 
@@ -486,7 +505,7 @@ remains unchanged during the whole process of encryption.
 
 \item {\bf Variants}: Fill characters, intentional mistakes \cite{pp:Singh1999}.
 
-\item {\bf Nihilist Substitution}\footnote{An animation of this Nihilist method
+\item {\bf Nihilist substitution}\footnote{An animation of this Nihilist method
    can be found in CT1\index{CrypTool 1} at the menu item
      {\bf Indiv. Procedures \textbackslash{} Visualization of Algorithms 
      \textbackslash{} Nihilist}. }
@@ -674,7 +693,7 @@ remains unchanged during the whole process of encryption.
 
 
    \begin{itemize}
-      \item {\bf Ch\'e Guevara Cipher}:
+      \item {\bf Ch\'e Guevara cipher}:
       A special variant is the cipher used by Ch\'e Guevara (with an additional 
       substitution step and a slightly changed checkerboard):
 	 \begin{itemize}
@@ -686,9 +705,10 @@ remains unchanged during the whole process of encryption.
    \end{itemize}
   
 
-\item {\bf Tri-Digital} \cite{pp:ACA2002}: A keyword with ten letters is used to
-    create a numeric key by numbering its letters corresponding to their
-   alphabetical order. This key is written above the columns of 3x10-matrix.
+\item {\bf Tri-Digital cipher} \cite{pp:ACA2002}: A keyword with ten letters
+   is used to create a numeric key by numbering its letters corresponding to
+   their alphabetical order. This key is written above the columns of the
+   3x10-matrix.
    This matrix is filled line by line with the alphabet as follows: 
    The different letters of a keyword are inserted first, followed by the
    remaining letters. The last column is left out. Plaintext characters
@@ -696,14 +716,14 @@ remains unchanged during the whole process of encryption.
    separate words.\\
 
 
-\item {\bf Baconian Cipher} \cite{pp:ACA2002}\index{Baconian Cipher}: 
+\item {\bf Baconian cipher} \cite{pp:ACA2002}\index{Baconian cipher}: 
    Assign a five-digit binary code to
    every letter and to 6 numbers or special characters (for example 00000 = A,
    00001 = B, etc.) and replace the plaintext characters with this binary code.
    Now use a second, unsuspicious message to hide the ciphertext inside 
    of it. This may happen by upper and lower case or italicized letters: 
    e.g.\ all letters of the unsuspicious message below  a binary ``1'' are 
-   capitalised. 
+   capitalised. Overall this is obtrusive.
 
    See table \ref{Baconian-table-reference}.
 
@@ -748,7 +768,7 @@ character of the plaintext alphabet is assigned several ciphertext characters.
    that numbers the words of a keytext. These numbers replace the cleartext 
    letters by the words' initial letters.
 
-\item {\bf Grandpr\'e Cipher} \cite{pp:Savard1999}: A square grille with 10 
+\item {\bf Grandpr\'e cipher} \cite{pp:Savard1999}: A square grille with 10 
    columns (other layouts are possible, too) is filled with ten words. The 
    initial letters should result in an eleventh word. As columns and rows are
    numbered from 0 to 9, letters can be replaced by two-digit numbers. It is 
@@ -780,7 +800,7 @@ Polygraphic techniques\index{Substitution!polygraphic} do not work by replacing 
    preceding one.
 
    \hypertarget{playfair}{}
-\item {\bf Playfair}\footnote{%
+\item {\bf Playfair cipher}\footnote{%
    In CT1\index{CrypTool 1} you can call this method under the menu
    {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
    \textbackslash{} Playfair}.\\
@@ -808,7 +828,10 @@ Polygraphic techniques\index{Substitution!polygraphic} do not work by replacing 
 
    See table \ref{Playfair-table-reference}.
 	
-   Plaintext: plaintext letters are x encrypted in pairs
+   Unformated Plaintext: plaintext letters are encrypted in pairs\\
+   Formated Plaintext:   pl ai nt ex tl et te rs ar ee ncrypted in pairs\\
+   Formated Plaintext:   plaintext letters are x encrypted in pairs\\
+   Formated Plaintext:   pl ai nt ex tl et te rs ar ex en cr yp te di np ai rs
 
    \begin{table}[ht]
    \begin{center}
@@ -825,7 +848,7 @@ Polygraphic techniques\index{Substitution!polygraphic} do not work by replacing 
 	T & U & V & X & Z\\
    \hline
    \end{tabular}
-   \caption{5x5 Playfair matrix}
+   \caption{5x5 Playfair matrix with password ``Keyword''}
    \label{Playfair-table-reference}
    \end{center}
    \end{table}
@@ -901,7 +924,7 @@ Polygraphic techniques\index{Substitution!polygraphic} do not work by replacing 
    and can be encrypted with every letter of that row. Between these two 
    ciphertext characters, the letter at the intersection point is set.
 
-\item {\bf Dockyard Cipher} \cite{pp:Savard1999}: Used by the German navy 
+\item {\bf Dockyard cipher} \cite{pp:Savard1999}: Used by the German navy 
    during WW2.
 \end{itemize}
 
@@ -997,7 +1020,7 @@ Concerning polyalphabetic substitution\index{Substitution!polyalphabetic}, the a
    Ciphertext: & {\tt DLC} & {\tt TSTHLQLT} & {\tt JW} & {\tt VPSPNIAM}\\
    \hline
    \end{tabular}  
-   \caption{Autokey}	
+   \caption{Autokey variant of Vigen\`ere}	
    \label{Autokey-table-reference}
    \end{center} 
    \end{table}
@@ -1060,24 +1083,28 @@ Concerning polyalphabetic substitution\index{Substitution!polyalphabetic}, the a
           Reason: Given ciphertext C, plaintext P, pad K and two plaintexts
           encrypted with the same key: C1 = P1 $\oplus$ K;  C2 = P2 $\oplus$ K; \\
           Thus, C1 $\oplus$ C2 = (P1 $\oplus$ K) $\oplus$ (P2 $\oplus$ K) = P1 $\oplus$ P2; \\
-          which effectively could leak the plaintexts\footnote{%
+          which effectively could leak the plaintexts.\footnote{%
           In JCT\index{JCrypTool} you can play with an automatic
           cryptanalysis of running-key ciphertexts using the Viterbi analysis
-          under the menu {\bf Visuals \textbackslash{} Viterbi}.}.
+          under the menu {\bf Visuals \textbackslash{} Viterbi}.}
    \end{itemize}
 
-\item {\bf Phillips} \cite{pp:ACA2002}: The alphabet is filled into a square 
+\item {\bf Phillips cipher} \cite{pp:ACA2002}: The alphabet is filled into a
+   square 
    table with 5 columns. Seven more tables are generated by first shifting the
    first row one position towards the bottom, then shifting the second row 
    towards the bottom. The plaintext is divided into blocks of five which are 
    encrypted with one matrix each. Letters are substituted by the ones on their
    right and underneath.
 
-\item {\bf Ragbaby} \cite{pp:ACA2002}: Construct an alphabet with 24 characters.
+\item {\bf Ragbaby cipher} \cite{pp:ACA2002}: Construct an alphabet with 24
+   characters.
    Then number the plaintext characters, starting the numeration of the first
    word with ``1'', the numeration of the second one with ``2'' and so forth.
    Number 25 corresponds to number 1. Each letter of the message is encrypted
    by shifting it the corresponding positions to the right.
+
+   See table \ref{PaP_Ragbaby_table-reference}.
 
    alphabet: KEYWORDABCFGHILMNPSTUVXZ\\
    \begin{table}[ht]
@@ -1089,7 +1116,8 @@ Concerning polyalphabetic substitution\index{Substitution!polyalphabetic}, the a
 	Ciphertext: & U & L & O & C & P & V & P & I & M & C & O & N & X & I & P & I & Z & T & X & Y & X\\
    \hline
    \end{tabular}  
-   \caption{Ragbaby}
+   \caption{Ragbaby cipher}
+   \label{PaP_Ragbaby_table-reference}
    \end{center} 
    \end{table}
    \end{itemize}
@@ -1168,7 +1196,7 @@ previous mentioned methods.
 	Columns: & {\tt {\bf 3}3211} & {\tt 41443} & {\tt 41321} & {\tt 24213} & {\tt 45442} & {\tt 25435} & {\tt 33121}\\
 	\hline
 	\end{tabular}  
-	\caption{Bifid}
+	\caption{Bifid cipher}
         \label{Bifid-table-reference}
 	\end{center} 
 	\end{table}
@@ -1187,8 +1215,9 @@ previous mentioned methods.
            corresponding characters.
    \end{itemize}
 
-\item {\bf Bazeries} \cite{pp:ACA2002}: The plaintext alphabet is filled into a 
-   5x5-matrix column by column, a second matrix is filled line by line with a
+\item {\bf Bazeries cipher} \cite{pp:ACA2002}: The plaintext alphabet is filled
+   into a 5x5-matrix column by column, a second matrix is filled line by line
+   with a
    keyword (a number smaller than a million) followed by the remaining letters
    of the alphabet. Then the message is divided into blocks of arbitrary length
    and their characters' order is inverted. Finally, each letter is substituted
@@ -1222,14 +1251,15 @@ previous mentioned methods.
 	{\tt {\bf T}MA} & {\tt LBLD} & {\tt CRB} & {\tt DY} & {\tt YPLPC} & {\tt NBMLP} & {\tt PKB} & {\tt BNO} & {\tt LCMXC} & {\tt LP} & {\tt BM}\\
    \hline
    \end{tabular}
-   \caption{Bazeries}
+   \caption{Bazeries cipher}
    \label{Bazeries-table-reference}
    \end{center}
 
    \end{table}
 
 
-\item {\bf Digrafid} \cite{pp:ACA2002}: To substitute digraphs, the following
+\item {\bf Digrafid cipher} \cite{pp:ACA2002}: To substitute digraphs, the
+   following
    table is used (to simplify matters, the alphabet is used in its original
    form). Look up the first letter of the digraph in the horizontal alphabet
    and write down the column number. Then look up the second letter in the
@@ -1239,7 +1269,7 @@ previous mentioned methods.
    in groups of three. The three digit numbers arising horizontally are 
    transformed back into digraphs.
 
-{\bf Remark:} This cipher only works with complete blocks of 3 pairs of
+   {\bf Remark:} This cipher only works with complete blocks of 3 pairs of
    cleartext characters. For a complete description, it is necessary to
    explain how sender and receiver handle texts which fill in the last block
    only 1-5 characters. The possibilities range from ignoring a last and
@@ -1284,7 +1314,7 @@ previous mentioned methods.
 	LI & KB & FN & .C & BY & EB & SU & I. & BK & RN & KD & FD & BA & HQ & RP & X. & FT & AO\\
    \hline
    \end{tabular}
-   \caption{Digrafid}
+   \caption{Digrafid cipher}
    \label{Digrafid-table-reference}
    \end{center}
 
@@ -1292,7 +1322,7 @@ previous mentioned methods.
 
 
 \newpage % Damit die Tables immer direkt nach dem zugehörigen Item. 
-\item {\bf Nicodemus} \cite{pp:ACA2002}: First of all, a simple columnar 
+\item {\bf Nicodemus cipher} \cite{pp:ACA2002}: First of all, a simple columnar 
    transposition is carried out. Before reading out the columns, the message
    is encrypted additionally by Vigen\`ere (all letters of a column are
    enciphered with the corresponding keyword letter). The ciphertext is read
@@ -1322,7 +1352,7 @@ previous mentioned methods.
 	t & i & o & & i & t & o & & M & D & N\\
    \hline
    \end{tabular}
-   \caption{Nicodemus}
+   \caption{Nicodemus cipher}
    \label{Nicodemus-table-reference}
    \end{center}
    \end{table}
@@ -1357,7 +1387,7 @@ previous mentioned methods.
    of coincidence, cards can be transformed into numbers easily and a
    transposition cipher can be carried out without any further aid.
    \begin{itemize}
-      \item {\bf Solitaire (Bruce Schneier)\footnotemark}
+      \item {\bf Solitaire cipher (Bruce Schneier)\footnotemark}
          \footnotetext{%
          In CT1\index{CrypTool 1} you can call this method under the menu
          {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic) \textbackslash{} 
@@ -1395,13 +1425,17 @@ previous mentioned methods.
          high concentration.
 
          Encryption takes place by addition modulo 26. Encryption is
-         relatively fast compared to the key stream generation.\\
+         relatively fast compared to the key stream generation.
 
-      \item {\bf Mirdek (Paul Crowley)} \cite{pp:Crowley2000}: Even though this
-         method is quite complicated, the author provides a very good example
-         to illustrate the procedure.
+         This P\&P cipher creates a key stream which is so good, that even
+         nowadays it is hard to crack the cipher if you don't know the
+         originally sortierted card deck (ciphertext-only attack).\\
 
-      \item {\bf Playing Card Cipher (John Savard)} \cite{pp:Savard1999}: This 
+      \item {\bf Mirdek cipher (Paul Crowley)} \cite{pp:Crowley2000}:
+         Even though this method is quite complicated, the author provides
+         a very good example to illustrate the procedure.\\
+
+      \item {\bf Playing Card cipher (John Savard)} \cite{pp:Savard1999}: This 
          algorithm uses a shuffled deck of 52 cards (no joker). Separate rules
          describe how to shuffle the deck. A keystream is created via the
          following steps:
@@ -1429,7 +1463,7 @@ previous mentioned methods.
          being J, Q or K. Count down that number of cards. The card selected
          has to be between 1 and 10. Now repeat these steps beginning with the
          last card. These two numbers are added and the last digit of the sum
-         is your keystream character.
+         is your keystream character.\\
    \end{itemize}
 
 \item {\bf VIC cipher} \cite{pp:Savard1999}: This is a highly complicated but
@@ -1458,7 +1492,7 @@ In the following section some classic ciphers are implemented using the open sou
 algebra system \verb!Sage!\footnote{%
     A first introduction to the CAS Sage can be found in the appendix \ref{s:appendix-using-sage}.
                         }
-. The code was tested with Sage version 4.2.
+. The code was tested with Sage version 5.3.
 All ciphers are explained in chapter~\ref{Kapitel_PaperandPencil}
 (``\nameref{Kapitel_PaperandPencil}'').
 
@@ -2194,18 +2228,21 @@ letter of this alphabet is assigned a unique integer modulo 26.
 The size of matrix (also called its dimension) is not restricted by the cipher.
 
 \noindent {\bf Remark:} Comparing the Hill implementation in CrypTool v1.4.31
-and in Sage v4.2.1:
+and in Sage v5.3:
 \begin{itemize}
-  \item Sage offers fast commandline operations; CrypTool offers
+  \item Sage offers fast commandline operations; CT1 offers
         its functionality within a GUI.
-  \item Sage offers any dimension; CrypTool is restricted
+  \item Sage offers any dimension; CT1 is restricted
         to a matrix size between 1 and 10.
-  \item Sage allows negative numbers in the matrix size, CrypTool doesn't.
+  \item Sage allows negative numbers in the key matrix, and converts them
+        automatically into appropriate non-negative numbers;
+        CT1 doesn't allow negative numbers in the key matrix.
   \item Sage always sets the first alphabet character to 0;\\
         Sage only allows the 26 capital letters as alphabet;\\
-        and it uses only the multiplication variant plaintext row vector * key matrix:
+        and it uses only the multiplication variant
+        plaintext row vector * key matrix:\\
         C = P*M.
-  \item CrypTool offers to choose also 1 as value for the first alphabet
+  \item CT1 offers to choose also 1 as value for the first alphabet
         character; you can combine your alphabet within the text options dialog;
         and it offers to use a reverse multiplication variant too.
 \end{itemize}
@@ -2213,7 +2250,7 @@ and in Sage v4.2.1:
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.45]{figures/PaP_Fig_Hill-Cipher-CT-Dialog.png}
-\caption{Hill dialog in CrypTool 1 with the operations and options available\vspace{1ex}} 
+\caption{Hill dialog in CT1 with the operations and options available\vspace{1ex}} 
 \label{PaP_Fig_Hill-Cipher-CT-Dialog}
 \end{center}
 \end{figure}
@@ -2300,8 +2337,7 @@ HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
 
 \bibitem[ACA2002]{pp:ACA2002} \index{ACA 2002}
    American Cryptogram Association, \\
-   {\em Length and Standards for all ACA Ciphers}, \\
-   2002.\\
+   {\em Length and Standards for all ACA Ciphers}, 2002.\\
    \url{http://www.cryptogram.org/cdb/aca.info/aca.and.you/chap08.html#}
 
 \bibitem[Bauer1995]{pp:Bauer1995} \index{Bauer 1995}
@@ -2316,20 +2352,17 @@ HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
 	
 \bibitem[Crowley2000]{pp:Crowley2000} \index{Crowley 2000}
    Paul Crowley, \\
-   {\em Mirdek: A card cipher inspired by ``Solitaire''}, \\
-   2000.\\
+   {\em Mirdek: A card cipher inspired by ``Solitaire''}, 2000.\\
    \url{http://www.ciphergoth.org/crypto/mirdek/}
 
 \bibitem[DA1999]{pp:DA1999} \index{DA 1999}
    Data encryption page of the ThinkQuest Team 27158 for ThinkQuest 1999 \\
-   (no update since 1999, no search possibility), \\
-   1999.\\
+   (no update since 1999, no search possibility), 1999.\\
    \url{http://library.thinkquest.org/27158/}
 
 \bibitem[Goebel2003]{pp:Goebel2003} \index{Goebel 2003}
    Greg Goebel, \\
-   {\em Codes, Ciphers and Codebreaking}, \\
-   2003.\\
+   {\em Codes, Ciphers and Codebreaking}, 2003.\\
    \url{http://www.vectorsite.net/ttcode.htm}
 
 \bibitem[Hill1929]{pp:Hill1929} \index{Hill 1929}
@@ -2359,8 +2392,7 @@ HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
 
 \bibitem[Savard1999]{pp:Savard1999} \index{Savard 1999}
 	John J. G. Savard, \\
-	{\em A Cryptographic Compendium}, \\
-	1999.\\
+	{\em A Cryptographic Compendium}, 1999.\\
 	\url{http://www.quadibloc.com/crypto/jscrypt.htm}
 
 \bibitem[Schmeh2004]{pp:Schmeh2004}  \index{Schmeh 2004}
@@ -2374,9 +2406,11 @@ HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
         {\em Codeknacker gegen Codemacher. Die faszinierende Geschichte der Verschl\"usselung},\\ 
         W3L Verlag Bochum, 2nd edition 2007.\\
 	This is most current among the books dealing in a comprehensive manner
-	with the history of cryptology. It contains a small collection of solved
-	and unsolved crypto riddles. One of the challenges deals with a double
-	column transposition using two long keys, which are differently in addition.
+	with the history of cryptology. It also contains a small collection of
+        solved and unsolved crypto riddles. One of the challenges deals with
+        a double column transposition using two long keys, which are
+        differently in addition.\\
+	\url{http://www.mysterytwisterc3.org/en/challenges/level-x/double-column-transposition}
 
 \bibitem[Schneier1999]{pp:Schneier1999}
 	Bruce Schneier, \\
@@ -2391,8 +2425,7 @@ HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
 
 \bibitem[ThinkQuest1999]{pp:ThinkQuest1999} \index{ThinkQuest 1999}
 	ThinkQuest Team 27158, \\
-	{\em Data Encryption}, \\
-	1999.\\
+	{\em Data Encryption}, 1999.\\
 	\url{http://library.thinkquest.org/27158/}
 
 \end{thebibliography}  % English

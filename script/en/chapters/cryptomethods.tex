@@ -15,7 +15,7 @@
 \chapter{Security Definitions and Encryption Procedures}
 \label{Label_Kapitel_1}
 (Bernhard Esslinger, Joerg-Cornelius Schneider, May 1999; Updates Dec. 2001, Feb. 2003,
-June 2005, July 2007, Jan. 2010, Nov. 2012)
+June 2005, July 2007, Jan. 2010, Dec. 2012)
 
 This chapter introduces the topic in a more descriptive way without using too much mathematics.
 
@@ -404,22 +404,23 @@ There are also cipher challenges\footnote{%
 \section[Asymmetric encryption]
 {Asymmetric encryption\footnotemark}
   \footnotetext{%
-    With CrypTool 1\index{CrypTool 1} you can execute RSA encryption
-    and decryption (using the menu path {\bf Crypt \textbackslash{} Asymmetric}).
+    With CT1\index{CrypTool 1} you can execute RSA encryption and decryption
+    (using the menu path {\bf Crypt \textbackslash{} Asymmetric}).
     In both cases you must select a RSA key pair. Only in the case of decryption
     the secret RSA key is necessary -- so here you are asked to enter the PIN.\\
-    With CrypTool 2\index{CrypTool 2} you can also perform asymmetic methods
+    With CT2\index{CrypTool 2} you can also perform asymmetic methods
     (using the templates under {\bf Cryptography \textbackslash{} Modern}).\\
-    JCrypTool\index{JCrypTool} offers asymmetic methods like RSA both within
+    JCT\index{JCrypTool} offers asymmetic methods like RSA both within
     the {\bf Visuals} menu of the Default Perspective as well as within the
-    Functional Perspective.
+    Algorithm Perspective.
   }
 \nopagebreak
 In the case of {\em asymmetric} encryption \index{Encryption!asymmetric} each
 subscriber has a personal pair of keys consisting of a {\em secret}
 \index{Key!secret} key and a {\em public} key\index{Key!public}. The public
 key, as its name implies, is made public, e.g. in a key directory on the
-Internet.\par \vskip + 3pt
+Internet (this kind of ``bill-board'' is also called just directory or
+public key ring).\par \vskip + 3pt
 
 If Alice\index{Alice}%
 \footnote{%
@@ -439,19 +440,27 @@ message she has sent. Of course, you must first ensure that the public key
 cannot be used to derive the private key.\par \vskip + 3pt
 
 Such a procedure can be demonstrated using a series of thief-proof letter boxes.
-If I have composed a message, I then look for the letter box of the recipient
-and post the letter through it. After that, I can no longer read or change the
-message myself, because only the legitimate recipient has the key for the
-letter box.\par \vskip + 3pt
+If I have composed a message, I then look for the letter box\index{Letter box}
+of the recipient and post the letter through it. After that, I can no longer
+read or change the message myself, because only the legitimate recipient has
+the key for the letter box.\par \vskip + 3pt
 
-The advantage of asymmetric procedures is the easy \index{Key management} key management. Let's look again at a network with $n$
+The advantage of asymmetric procedures is the easier \index{Key management}
+key management. Let's look again at a network with $n$
 subscribers. In order to ensure that each subscriber can establish
 an encrypted connection to each other subscriber, each subscriber
 must possess a pair of keys. We therefore need $2n$ keys or $n$
 pairs of keys. Furthermore, no secure channel is needed before
 messages are transmitted, because all the information required in
 order to communicate confidentially can be sent openly. In
-this case, you simply have to pay attention to the accuracy
+this case, you simply%
+\footnote{%
+That this is also not trivial is explained e.g. in xxxx % [[[KES-Article-SharedPrimes__und__anderes-Chapter-hier]]]
+. Besides the requirements
+for the key generation it has to be considered hat nowadays also (public-key)
+infrastructures are targets of attacks.
+}%
+have to pay attention to the accuracy
 (integrity and authenticity) \index{Authenticity} of the public
 key. Disadvantage: Pure asymmetric procedures take a lot longer to
 perform than symmetric ones.\par \vskip + 3pt
@@ -490,8 +499,8 @@ Algorithm).
    numbers. The variant with RSA as the asymmetric algorithm is graphically
    visualized; the variant with ECC uses the standard dialogs. In both cases
    AES is used as the symmetric algorithm.\index{AES}\\
-   JCrypTool\index{JCrypTool} offers hybrid methods like ECIES within
-   the Functional Perspective under {\bf Algorithms \textbackslash{} Hybrid Ciphers}.
+   JCT\index{JCrypTool} offers hybrid methods like ECIES within
+   the Algorithm  Perspective under {\bf Algorithms \textbackslash{} Hybrid Ciphers}.
 }
 \label{CM_Hybrid-procedures}
 \index{Hybrid procedure}
@@ -510,10 +519,11 @@ sender randomly\footnote{%
    Using the menu path {\bf Analysis \textbackslash{} Analyze Randomness}
    you can apply different test methods for random data to binary documents. \\
    CT1 concentrates on cryptographically strong {\bf pseudo} random number
-   generators. Only the integrated Secude generator involves a "pure" random source.\\
-   JCrypTool\index{JCrypTool} offers {\bf pseudo} random number generators both
+   generators. ``Real'' random sources are only included via calling the
+   integrated Secude generator.\\
+   JCT\index{JCrypTool} offers {\bf pseudo} random number generators both
    within the Default Perspective in the menu {\bf Algorithms \textbackslash{}
-   Random Number Generator} as well as within the Functional Perspective.
+   Random Number Generator} as well as within the Algorithm Perspective.
 }\index{Random}
 that is only used for this message.
 
@@ -553,26 +563,24 @@ Several of the cipher challenges at ``MysteryTwister C3''
 }
 \index{Cryptanalysis}
 
-Compared to public-key ciphers based on mathematics like RSA, the structure of AES,
-and most other modern symmetric ciphers, is very complex and cannot be explained
-as easily as RSA.\index{AES}
+Compared to public-key ciphers based on mathematics like RSA, the structure of AES\index{AES} and most other modern symmetric ciphers (like DES, IDEA or Present), is very complex and cannot be explained as easily as RSA\index{RSA}.
 
-So some simplified variants of modern symmetric ciphers like DES, IDEA or AES
-were developed for educational purposes in order to allow beginners to perform
+So simplified variants of modern symmetric ciphers were developed for
+educational purposes in order to allow beginners to perform
 encryption and decryption by hand and gain a better understanding of how the
 algorithms work in detail.
 These simplified variants also help to understand and apply the according
 cryptanalysis methods.
 
 One of these variants is e.g. S-AES (Simplified-AES) by Prof. Ed Schaefer
-and his students \cite{cm:Musa-etal2003}%
+and his students \cite{cm:Musa-etal2003}.%
 \footnote{
     See the two articles with the same title
     ``Devising a Better Way to Teach and Learn the Advanced Encryption Standard''
     at the university's news at\\
     - \url{http://math.scu.edu/~eschaefe/getfile.pdf} \\
     - \url{http://www.scu.edu/cas/research/cryptography.cfm}
-}.
+}
 Another one is Mini-AES \cite{cm:Phan2002}
 (see chapter~\ref{CM_Sage_Mini-AES} ``\nameref{CM_Sage_Mini-AES}'')%
 \index{DES}\index{DES!SDES}\index{IDEA}:
@@ -708,6 +716,21 @@ True
 
 
 
+% ---------------------------------------------------------------------------
+\subsection{Further symmetric crypto algorithms in Sage}
+\label{CM_Sage_SymCryptoAlg}
+
+The Sage Reference v5.4.1%
+\footnote{
+See \url{http://www.sagemath.org/doc/reference/sage/crypto/}
+}
+lists the following further ciphers:\\ 
+- Linear feedback shift register (LFSR),\\
+- ShrinkingGeneratorCryptosystem,\\
+- Blum-Blum-Shub (BBS) pseudorandom bit generator,\\
+- Lattice related functions.
+
+
 
 
 % --------------------------------------------------------------------------
@@ -717,7 +740,7 @@ True
 
 \bibitem[Biryukov2009]{cm:Biryukov2009} \index{Biryukov 2009}
 	Alex Biryukov, Dmitry Khovratovich, \\
-	{\em Related-key Cryptanalysis of the Full AES-192 and AES-256}, \\
+	{\em Related-key Cryptanalysis of the Full AES-192 and AES-256},
 	2009 \\
 	\url{http://eprint.iacr.org/2009/317}
 
@@ -744,13 +767,13 @@ True
 
 \bibitem[Haan2008]{cm:Haan2008} \index{Haan 2008} 
        Kristian Laurent Haan, \\
-       {\em Advanced Encryption Standard (AES)},\\
+       {\em Advanced Encryption Standard (AES)},
        2008, (German article)\\
        \url{http://www.codeplanet.eu/tutorials/cpp/51-advanced-encryption-standard.html}
 
 \bibitem[Hoffman2006]{cm:Hoffman2006} \index{Hoffman 2006} 
        Nick Hoffman, \\
-       {\em A SIMPLIFIED IDEA ALGORITHM},\\
+       {\em A SIMPLIFIED IDEA ALGORITHM},
        2006 \\
        \url{http://www.nku.edu/~christensen/simplified%20IDEA%20algorithm.pdf}
 
@@ -836,9 +859,9 @@ True
        Klaus Schmeh, \\
        {\em Cryptography and Public Key Infrastructures on the Internet},\\ 
        John Wiley \& Sons Ltd., Chichester 2003. \\
-       An up-to-date, easy to read book, which also considers practical
+       An easy to read book, which also considers practical
        problems such as standardization or real existing software.
-       In German the 4th edition was published in 2009.
+       In German, the 5th edition was published in 2012.
 
 \bibitem[Schneier1996]{cm:Schneier1996cm} \index{Schneier 1996} 
        Bruce Schneier, \\
@@ -880,32 +903,33 @@ True
 
 % --------------------------------------------------------------------------
 \newpage
-\section*{Web links}
-\addcontentsline{toc}{section}{Web links}
+% \section*{Web links}\addcontentsline{toc}{section}{Web links}
+\chapter*{Web Links}\addcontentsline{toc}{section}{Web Links}
 
 \begin{enumerate}
 
   \hypertarget{CM_HT_Weblink_Rijndael-Cryptosystem}{}
   \item AES or Rijndael cryptosystem \\
-        \url{http://www.cryptosystem.net/aes} \\
-	\url{http://www.minrank.org/aes/}
+        \url{http://www.cryptosystem.net/aes}
 
   \item AES discussion groups at NIST \\
-	\url{http://aes.nist.gov/aes}
+	\url{http://csrc.nist.gov/archive/aes/}
 
   \item distributed.net: ``RC5-64 has been solved'' \\
-        \url{http://distributed.net/pressroom/news-20020926.html}
+        \url{http://www.distributed.net/Pressroom_press-rc5-64}
 
   \item RSA: ``The RSA Secret Key Challenge'' \\
-      \url{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}
+        \url{http://www.rsa.com/rsalabs/node.asp?id=2100}
 
   \item RSA: ``DES Challenge'' \\
-        \url{http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}
+        \url{http://www.rsa.com/rsalabs/node.asp?id=2108}
 
   \item Further links can be found at the CrypTool homepage \\
         \url{http://www.cryptool.org}
 	       
 \end{enumerate}
+
+All links have been confirmed at December 12, 2012.
 
 
 

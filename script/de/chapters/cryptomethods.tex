@@ -8,7 +8,7 @@
 \chapter{Sicherheits-Definitionen und Verschlüsselungsverfahren}
 \label{Label_Kapitel_1}
 (Bernhard Esslinger, Jörg-Cornelius Schneider, Mai 1999; Updates: Dez. 2001, Feb. 2003,
-Juni 2005, Juli 2007, Jan. 2010, Nov. 2012)
+Juni 2005, Juli 2007, Jan. 2010, Dez. 2012)
 
 Dieses Kapitel soll einen eher beschreibenden Einstieg bieten und die
 Grundlagen ohne Verwendung von allzuviel Mathematik vermitteln.
@@ -483,17 +483,17 @@ Cipher-Challenges\footnote{%
 \section[Asymmetrische Verschlüsselung] % Was zw. [..] steht, kommt ins Inhaltsverzeichnis!
 {Asymmetrische Verschlüsselung\footnotemark}
   \footnotetext{%
-   Mit CrypTool 1\index{CrypTool 1} können Sie über das Menü
+   Mit CT1\index{CrypTool 1} können Sie über das Menü
    {\bf Ver-/Entschlüsseln \textbackslash{} Asymmetrisch} mit RSA 
    ver- und entschlüsseln. In beiden Fällen müssen Sie ein 
    RSA-Schlüsselpaar auswählen. Nur bei der Entschlüsselung wird der 
    geheime RSA-Schlüssel benötigt -- deshalb wird nur hier die PIN abgefragt.\\
-   Mit CrypTool 2\index{CrypTool 2} können Sie bei den Vorlagen unter
+   Mit CT2\index{CrypTool 2} können Sie bei den Vorlagen unter
    {\bf Kryptographie \textbackslash{} Modern} ebenfalls asymmetrische
    Verfahren durchführen.\\
-   JCrypTool\index{JCrypTool} bietet asymmetrische Verfahren wie RSA sowohl im
-   Menü {\bf Visualisierungen} der Standard-Perspektive als auch in der Funktionalen
-   Perspektive.
+   JCT\index{JCrypTool} bietet asymmetrische Verfahren wie RSA sowohl im
+   Menü {\bf Visualisierungen} der Standard-Perspektive als auch in der
+   Algorithmen-Perspektive.%Funktionalen
   }
 
 Bei der {\em asymmetrischen} Verschlüsselung
@@ -503,7 +503,8 @@ das aus einem {\em geheimen} \index{Schlüssel!geheim} und einem
 {\em öffentlichen} Schlüssel \index{Schlüssel!öffentlich} besteht.
 Der öffentliche Schlüssel wird, der Name deutet es an,
 öffentlich bekanntgemacht, zum Beispiel in einem Schlüsselverzeichnis
-im Internet.\par \vskip + 3pt
+im Internet (diese Art von \glqq Schwarzem Brett\grqq wird auch Directory oder
+öffentlicher Schlüsselring genannt).\par \vskip + 3pt
 
 Möchte Alice\index{Alice}%
 \footnote{%
@@ -530,13 +531,13 @@ kann.\par \vskip + 3pt
 
 Veranschaulichen kann man sich ein solches Verfahren mit einer
 Reihe von einbruchssicheren Briefkästen. Wenn ich eine Nachricht
-verfasst habe, so suche ich den Briefkasten mit dem Namensschild
-des Empfängers und werfe den Brief dort ein. Danach kann ich die
+verfasst habe, so suche ich den Briefkasten\index{Briefkasten} mit dem
+Namensschild des Empfängers und werfe den Brief dort ein. Danach kann ich die
 Nachricht selbst nicht mehr lesen oder verändern, da nur der
 legitime Empfänger im Besitz des Schlüssels für den Briefkasten
 ist.\par \vskip + 3pt
 
-Vorteil von asymmetrischen Verfahren ist das einfache
+Vorteil von asymmetrischen Verfahren ist das einfachere
 \index{Schlüsselmanagement} Schlüsselmanagement. Betrachten wir
 wieder ein Netz mit $n$ Teilnehmern. Um sicherzustellen, dass
 jeder Teilnehmer jederzeit eine verschlüsselte Verbindung zu
@@ -545,8 +546,15 @@ Schlüsselpaar besitzen. Man braucht also $2n$ Schlüssel oder $n$
 Schlüsselpaare. Ferner ist im Vorfeld einer Übertragung kein
 sicherer Kanal notwendig, da alle Informationen, die zur Aufnahme
 einer vertraulichen Kommunikation notwendig sind, offen
-übertragen werden können. Hier ist lediglich auf die
-Unverfälschtheit (Integrität und Authentizität)
+übertragen werden können. Hier ist lediglich%
+\footnote{%
+Dass auch dies nicht trivial ist, wird z.B. in xxxx % [[[KES-Article-SharedPrimes__und__anderes-Chapter-hier]]]
+erläutert. Neben den
+Anforderungen bei der Schlüsselgenerierung ist auch zu beachten, dass
+inzwischen auch die (Public-Key-)Infrastrukturen Ziele von Angriffen
+sind.
+}%
+auf die Unverfälschtheit (Integrität und Authentizität)
 \index{Authentizität} des öffentlichen Schlüssels zu achten.
 Nachteil: Im Vergleich zu symmetrischen Verfahren sind reine
 asymmetrische Verfahren jedoch um ein Vielfaches langsamer.\par \vskip + 3pt
@@ -583,8 +591,8 @@ Signature Algorithm).
    Zahlen nachvollziehen. Die Variante mit RSA als asymmetrischem Verfahren
    ist graphisch visualisiert; die Variante mit ECC nutzt die Standard-Dialoge.
    In beiden Fällen wird AES als symmetrisches Verfahren eingesetzt.\index{AES}\\
-   JCrypTool\index{JCrypTool} bietet Hybrid-Verfahren (z.B. ECIES) in der
-   Funktionalen Perspektive an unter {\bf Algorithms \textbackslash{} Hybrid Ciphers}.
+   JCT\index{JCrypTool} bietet Hybrid-Verfahren (z.B. ECIES) in der
+   Algorithmen-Perspektive an unter {\bf Algorithms \textbackslash{} Hybrid Ciphers}.
 }
 \label{CM_Hybrid-procedures}
 \index{Hybridverfahren}
@@ -602,11 +610,12 @@ verschlüsselt: Der Schlüssel ist ein vom Absender zufällig\footnote{%
    Über das Menü {\bf Analyse \textbackslash{} Zufallsanalyse} können Sie
    verschiedene Testverfahren für Zufallsdaten auf binäre Dokumente
    anwenden. \\
-   CT1 konzentriert sich auf kryptographisch starke {\bf Pseudo}zufallszahlengeneratoren.
-   Nur im Secude-Generator wird eine "`echte"' Zufallsquelle einbezogen.\\
-   JCrypTool\index{JCrypTool} bietet {\bf Pseudo}zufallszahlengeneratoren sowohl
+   CT1 konzentriert sich auf kryptographisch starke
+   {\bf Pseudo}zufallszahlengeneratoren. \glqq Echte\grqq % "`echte"'
+   Zufallsquellen werden nur über den Aufruf des Secude-Generators einbezogen.\\
+   JCT\index{JCrypTool} bietet {\bf Pseudo}zufallszahlengeneratoren sowohl
    im Menü {\bf Algorithms \textbackslash{} Random Number Generator} der
-   Standard-Perspektive als auch in der Funktionalen Perspektive an.
+   Standard-Perspektive als auch in der Algorithmen-Perspektive an.
 }\index{Zufall}
 generierter geheimer Sitzungsschlüssel (session key)\index{Session Key},
 der nur für diese Nachricht verwendet wird.
@@ -651,27 +660,25 @@ einsetzbar.\index{MTC3}\index{Challenge}\index{Cipher-Challenge}\index{Krypto-We
 }
 \index{Kryptoanalyse}
 
-Verglichen mit den auf der Zahlentheorie beruhenden Public-Key-Verschlüsselungsverfahren
-wie RSA, ist die Struktur von AES und den meisten anderen modernen symmetrischen
-Verschlüsse"-lungsverfahren sehr komplex und kann nicht so einfach wie RSA
-erklärt werden.\index{AES}
+Verglichen mit den auf der Zahlentheorie beruhenden Public-Key-Verschlüsselungsverfahren wie RSA, ist die Struktur von AES\index{AES} und den meisten anderen modernen symmetrischen Verschlüsse"-lungsverfahren (wie DES, IDEA oder Present) sehr komplex und kann nicht so einfach wie RSA\index{RSA} erklärt werden.
 
-Deshalb wurden zu Lehrzwecken einige vereinfachte Varianten moderner symmetrischer
-Verfahren wie DES, IDEA oder AES entwickelt, um Einsteigern die Möglichkeit zu geben,
+Deshalb wurden zu Lehrzwecken vereinfachte Varianten moderner
+symmetrischer Verfahren entwickelt, um Einsteigern die Möglichkeit zu geben,
 Ver- und Entschlüsselung von Hand zu lernen und ein besseres Verständnis zu
 gewinnen, wie die Algorithmen im Detail funktionieren.
-Diese vereinfachten Varianten helfen auch, die entsprechenden Kryptoanalyse-Methoden
-zu verstehen und anzuwenden.
+Diese vereinfachten Varianten helfen auch, die entsprechenden
+Kryptoanalyse-Methoden zu verstehen und anzuwenden.
 
 Eine dieser Varianten ist z.B. S-AES (Simplified-AES) von Prof. Ed Schaefer und
-seinen Studenten \cite{cm:Musa-etal2003}%
+seinen Studenten \cite{cm:Musa-etal2003}.%
 \footnote{
     Siehe auch die beiden namensgleichen Artikel
-    ``Devising a Better Way to Teach and Learn the Advanced Encryption Standard''
+    \glqq Devising a Better Way to Teach and Learn the Advanced Encryption Standard\grqq
     unter den Universitäts-News bei\\
     - \url{http://math.scu.edu/~eschaefe/getfile.pdf} \\
     - \url{http://www.scu.edu/cas/research/cryptography.cfm}
-}. Eine andere Variante ist Mini-AES \cite{cm:Phan2002}
+}
+Eine andere Variante ist Mini-AES \cite{cm:Phan2002}
 (siehe das Kapitel~\ref{CM_Sage_Mini-AES} \glqq \nameref{CM_Sage_Mini-AES}\grqq)%
 \index{DES}\index{DES!SDES}\index{IDEA}:
 \begin{itemize}
@@ -806,6 +813,22 @@ True
 
 
 
+% ---------------------------------------------------------------------------
+\subsection{Weitere symmetrische Krypto-Algorithmen in Sage}
+\label{CM_Sage_SymCryptoAlg}
+
+Die Sage-Referenz v5.4.1%
+%
+\footnote{
+Siehe \url{http://www.sagemath.org/doc/reference/sage/crypto/}
+}
+führt als weitere Chiffren auf:\\ 
+- Linear feedback shift register (LFSR),\\
+- ShrinkingGeneratorCryptosystem,\\
+- Blum-Blum-Shub (BBS): Pseudo-Zufallsbit-Generator,\\
+- Gitter-bezogene Funktionen.
+
+
 
 
 % --------------------------------------------------------------------------
@@ -821,7 +844,7 @@ True
 
 \bibitem[Biryukov2009]{cm:Biryukov2009} \index{Biryukov 2009}
 	Alex Biryukov, Dmitry Khovratovich, \\
-	{\em Related-key Cryptanalysis of the Full AES-192 and AES-256}, \\
+	{\em Related-key Cryptanalysis of the Full AES-192 and AES-256},
 	2009 \\
 	\url{http://eprint.iacr.org/2009/317}
 
@@ -849,13 +872,13 @@ True
 
 \bibitem[Haan2008]{cm:Haan2008} \index{Haan 2008} 
        Kristian Laurent Haan, \\
-       {\em Advanced Encryption Standard (AES)},\\
+       {\em Advanced Encryption Standard (AES)},
        2008 \\
        \url{http://www.codeplanet.eu/tutorials/cpp/51-advanced-encryption-standard.html}
 
 \bibitem[Hoffman2006]{cm:Hoffman2006} \index{Hoffman 2006} 
        Nick Hoffman, \\
-       {\em A SIMPLIFIED IDEA ALGORITHM},\\
+       {\em A SIMPLIFIED IDEA ALGORITHM},
        2006 \\
        \url{http://www.nku.edu/~christensen/simplified%20IDEA%20algorithm.pdf}
 
@@ -938,10 +961,10 @@ True
        {\em A Simplified Data Encryption Standard Algorithm}, \\
        In: Cryptologia 20 (1), 1996, Seite~77-84
 
-\bibitem[Schmeh2009]{cm:Schmeh2009}  \index{Schmeh 2009}
+\bibitem[Schmeh2012]{cm:Schmeh2012}  \index{Schmeh 2012}
        Klaus Schmeh, \\
        {\em Kryptografie -- Verfahren, Protokolle, Infrastrukturen},\\ 
-       dpunkt.verlag, 4. aktualisierte und erweiterte Auflage 2009. \\
+       dpunkt.verlag, 5. aktualisierte und erweiterte Auflage 2012. \\
        Sehr gut lesbares, aktuelles und umfangreiches Buch über Kryptographie. 
        Geht auch auf praktische Probleme, wie Standardisierung oder 
        real existierende Software, ein.
@@ -994,26 +1017,26 @@ True
 %  per item[] werden sie NICHT durchnummeriert !
   \hypertarget{CM_HT_Weblink_Rijndael-Cryptosystem}{}
   \item Das AES-/Rijndael-Kryptosystem \\
-        \url{http://www.cryptosystem.net/aes} \\
-	\url{http://www.minrank.org/aes/}
+        \url{http://www.cryptosystem.net/aes}
 
   \item \glqq AES Discussion Groups'' beim NIST \\
-	\url{http://aes.nist.gov/aes}
+	\url{http://csrc.nist.gov/archive/aes/}
 
   \item distributed.net:~\glqq RC5-64 has been solved'' \\
-        \url{http://distributed.net/pressroom/news-20020926.html}
+        \url{http://www.distributed.net/Pressroom_press-rc5-64}
 
   \item RSA: ~\glqq The RSA Secret Key Challenge'' \\
-      \url{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}
+        \url{http://www.rsa.com/rsalabs/node.asp?id=2100}
 
   \item RSA: ~\glqq DES Challenge'' \\
-        \url{http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}
+        \url{http://www.rsa.com/rsalabs/node.asp?id=2108}
 
   \item Weiterführende Links auf der CrypTool-Homepage \\
-        \url{http://www.cryptool.de}
+        \url{http://www.cryptool.org}
 	       
 \end{enumerate}
 
+Alle Links wurden am 12.12.2012 überprüft.
 
 
 
