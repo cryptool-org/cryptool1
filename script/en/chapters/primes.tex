@@ -9,7 +9,7 @@
 % \hypertarget{Kapitel_2}{}
 \chapter{Prime Numbers}
 \label{Label_Kapitel_Primes}
-(Bernhard Esslinger, May 1999; Updates Nov. 2000, Dec. 2001, June 2003, May 2005, March 2006, June 2007, Jan. 2010, Nov. 2012)
+(Bernhard Esslinger, May 1999; Updates Nov. 2000, Dec. 2001, June 2003, May 2005, March 2006, June 2007, Jan. 2010, Dec. 2012)
 
 \begin{ctsquote}
     Progress requires exchange of knowledge.
@@ -24,10 +24,11 @@
 \section{What are prime numbers?}
 \index{Prime number} \index{Number!prime}
 Prime numbers are whole, positive numbers greater than or equal to $2$ that can
-only be divided by 1 and themselves. All other natural numbers greater than or
-equal to $2$ can be formed by multiplying prime numbers.
+only be divided by 1 and themselves. All other natural numbers (composite
+numbers) can be formed by multiplying prime numbers.
 
-The {\em natural} \index{Number!natural} numbers $\mathbb{N}=\{1, 2, 3, 4,\cdots \}$ thus comprise 
+\noindent The {\em natural} \index{Number!natural} numbers
+$\mathbb{N}=\{1, 2, 3, 4,\cdots \}$ thus comprise 
 \begin{itemize}
    \item the number $1$ (the unit value)
    \item the primes and
@@ -42,8 +43,7 @@ natural numbers, upon which numerous brilliant mathematical ideas are based.
 \index{Cryptography!modern} cryptography (public key \index{Cryptography!public key} cryptography). The most common public key procedure, invented at the end of
 the 1970's, is \index{RSA} RSA encryption. Only using (large) prime numbers for
 particular parameters can you guarantee that an algorithm is secure, both for
-the RSA procedure and for even more modern procedures (digital
-\index{Signature!digital} signature, elliptic curves).
+the RSA procedure and for even more modern procedures (e.g. elliptic curves).
   \item The search for the largest known prime numbers does not have any
 practical usage known to date, but requires the best computers, is an excellent
 benchmark (possibility for determining the performance\index{Performance} of computers) and leads
@@ -84,7 +84,7 @@ The sequence of prime numbers starts with $$ 2,~ 3,~ 5,~ 7, ~ 11, ~ 13, ~
 The first 100 numbers include precisely 25 prime numbers. After this,
 the percentage of primes constantly decreases. Prime numbers can be
 factorized in a uniquely {\em trivial} way: 
-$$5 = 1 \cdot 5,\quad  17 = 1 \cdot 17, \quad 1,013 = 1 \cdot 1,013,  \quad
+$$5 = 1 \cdot 5,\quad  17 = 1 \cdot 17, \quad 1013 = 1 \cdot 1013,  \quad
 1,296,409 = 1 \cdot 1,296,409.$$
 All numbers that have $2$ or more factors not equal 1 are called 
 \index{Number!composite} {\em composite} numbers. 
@@ -239,7 +239,7 @@ of various orders of magnitude / dimensions)}.
 \label{RecordPrimes}
 \index{Prime number!records}
 
-The following table contains the current record primes and
+The following table contains the biggest, currently known primes and
 a description of its particular number type\footnote{%
 An up-to-date version can be found in the internet at
      \url{http://primes.utm.edu/largest.html}
@@ -400,10 +400,10 @@ Mersenne claimed that $2^{67}-1$ is a prime number. There is also a mathematical
 history behind this claim: it first took over 200 years before 
 \index{Lucas, Edouard} Edouard Lucas (1842-1891) proved that this number 
 is composite.
-However, he argued indirectly and did not name any of the factors. Then Frank
-Nelson Cole\index{Cole, Frank Nelson}\footnote{%
+However, he argued indirectly and did not name any of the factors. In 1903,
+Frank Nelson Cole\index{Cole, Frank Nelson}\footnote{%
 Frank Nelson Cole, American mathematician, Sep. 20, 1861 $-$ May 26, 1926.}
-showed in 1903 which factors make up this composite number: 
+showed which factors make up this composite number: 
 $$ 2^{67} -1
 =147, 573, 952, 589, 676, 412, 927 = 193, 707, 721 \cdot 761, 838, 257, 287. $$
 He admitted to having worked 20 years on the factorization 
@@ -426,9 +426,8 @@ Due to the fact that the exponents of the Mersenne numbers
 natural numbers, but only the primes, the {\em experimental space} is limited
 considerably. The currently known Mersenne prime numbers 
 \index{Mersenne!prime number} have the exponents\footnote{%
-The following page from Landon Curt Noll\index{Noll, Landon Curt} contains 
-all Mersenne primes including its date of discovery and its value as number 
-and as word:
+Landon Curt Noll\index{Noll, Landon Curt} lists all known Mersenne primes
+including its date of discovery and its value as number and as word:
       \url{http://www.isthe.com/chongo/tech/math/prime/mersenne.html} \\
 Also see:
       \url{http://www.utm.edu/}.
@@ -463,11 +462,11 @@ now long outdated).
 For the first 41            % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
 Mersenne prime numbers we know that this list is complete.
 The exponents until the 47th     % be_2005_UPDATEN_if-new-mersenne-prime-appear    % Eyecatcher_neue-Mersennes
-Mersenne prime number have not yet been checked completely\footnote{%
+Mersenne prime number have not yet been checked completely.\footnote{%
 The current status of the check can be found at:
       \url{http://www.mersenne.org/status.htm}.\\
 Hints, how the primality of a number can be checked, are in chapter
-\ref{primality_tests}, prime number tests\index{Prime number!test}. }.
+\ref{primality_tests}, prime number tests\index{Prime number!test}. }
 
 
 % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
@@ -547,7 +546,8 @@ Right now the GIMPS project has discovered 13
    % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
 largest Mersenne primes so far, including the largest known prime number at all. 
 
-The following table contains these Mersenne record primes\footnote{%
+Table \ref{Primes_GIMPS-Primes_table-reference} contains these Mersenne record
+primes.\footnote{%
 An up-to-date version can be found in the internet at
      \url{http://www.mersenne.org/history.htm}.
 }$^,$\footnote{%
@@ -557,7 +557,7 @@ sense? Can this result be applied for anything useful?
 The answer is, that we don't know it yet. In fundamental research one
 cannot see at once whether and how it brings mankind forward.
 %But this is the normal case with basic research, that one cannot see at once, 
-}:
+}
 
    % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
 \begin{table}[ht]
@@ -585,13 +585,14 @@ cannot see at once whether and how it brings mankind forward.
 \hline
 \end{tabular}
    % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
-\caption{The largest primes found by the GIMPS project (as of July 2009)}
+\caption{The largest primes found by the GIMPS project (as of July 2012)}
+\label{Primes_GIMPS-Primes_table-reference}
 \end{center}
 \end{table} 
 
 %be_2005: Erzwingen, dass die Abb. noch in diesem Kapitel !
 
-Dr. Richard Crandall\index{Crandall, Richard} discovered the advanced 
+Richard Crandall\index{Crandall, Richard} discovered the advanced 
 transform algorithm used by the GIMPS program. George Woltman implemented
 Crandall's algorithm in machine language, thereby producing a prime-search 
 program of unprecedented efficiency,
@@ -647,13 +648,13 @@ No new record is likely to last that long.
     \index{Educational tool NT}%
     With the educational tool for number theory {\bf NT} you can apply the
     tests of Fermat and of Miller-Rabin:
-    See learning units 3.2 and 3.3, pages 3-11/11.\\
+    See NT learning units 3.2 and 3.3, pages 3-11/11.\\
     NT can be called in CT1\index{CrypTool 1} via the menu path
     {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
     \textbackslash{} Learning Tool for Number Theory}.
     See also appendix \ref{s:appendix-Learn-NT}.\\
-    CT2\index{CrypTool 2} contains a visualisation of this method within
-    the tutorial ``World of Primes''.
+    CT2\index{CrypTool 2} contains a visualisation of these methods within
+    the tutorial ``{\bf World of Primes}''.
 }
 \label{primality_tests}   % chap. 3.5
 \index{Prime number!test}
@@ -778,7 +779,7 @@ In 1976 an efficient probabilistic primality test was published by Prof. Rabin, 
 Prof. Miller worked at the Carnegie-Mellon University, School of Computer
 Science. Prof. Rabin, born in 1931, worked at the Harvard and Hebrew University.
 }%
-: it is only passed by so-called {\em strong pseudo prime numbers}. 
+: It is only passed by so-called {\em strong pseudo prime numbers}. 
 Again, there are strong pseudo prime numbers that are not primes, but this is
 much less often the case than for (simple) pseudo prime numbers or for 
 Carmichael numbers. The smallest strong pseudo prime number base $2$ is 
@@ -802,7 +803,10 @@ can be found on Web sites such as:
 
 % --------------------------------------------------------------------------
 \vskip +30 pt
-\section{Special number types and the search for a formula for primes}\label{spezialzahlentypen}
+% caused a warning black rectangle:
+%\section{Special number types and the search for a formula for primes}
+\section{Special types of numbers and the search for a formula for primes}
+\label{spezialzahlentypen}
 \index{Prime number!formula}
 There are currently no useful, open (i.e. not recursive) formulae known that
 only deliver prime numbers (recursive means that in order to calculate the
@@ -916,9 +920,10 @@ If their are compound numbers could their prime factors be determined?
     As mentioned \hyperlink{FermatNumbers01}{above} in 
     chapter~\ref{FermatNumbers01}, Fermat wrote to Mersenne regarding 
     his assumption, that all numbers of this type are primes.
-    This assumption was disproved by Euler (1732). The prime $641$ divides $f(5)$\footnote{%
+    This assumption was disproved by Euler (1732). The prime $641$ divides
+    $f(5)$.\footnote{%
     Surprisingly this number can easily be found by using Fermat's theorem (see e.g.\ \cite[p. 176]{pr:Scheid1994})
-    }. 
+    } 
 %    Surprisingly he would have been able obtain a positive result using
 %    the negative prime number test for $n=5$ based on his small theorem.
 $$
@@ -1159,11 +1164,11 @@ It is easy to see that $f(41)$ cannot be a prime number:
 % --------------------------------------------------------------------------
 \subsection{\texorpdfstring{$f(n) = n^2 - 79 \cdot n + 1,601$}{f(n) = n\^{}2 - 79 ... n + 1,601}}
 \label{L-Polynomfunktion02-1601}   \label{SrcPrimArith1}
-   This function\footnote{%
-   See chapter~\ref{primes:_Appendix_Sage-Samples} ``\nameref{primes:_Appendix_Sage-Samples}''
-   for the source code
+   This function delivers prime numbers for all values from $n=0$ to $n=79$
+   .\footnote{%
+   See chapter~\ref{primes:_Appendix_Sage-Samples},
+   ``\nameref{primes:_Appendix_Sage-Samples}'' for the source code
    to compute the table using Sage\index{Sage}.}  %Pari-GP.\index{Pari-GP}}
-   delivers prime numbers for all values from $n=0$ to $n=79$.
 Unfortunately $f(80) = 1,681 = 11 \cdot 151$ is not a prime number. To this
 date, no function has been found that delivers more prime numbers in a row. On
 the other hand, each prime occurs twice (first in the decreasing then in the
@@ -1173,7 +1178,7 @@ in chapter~\ref{L-Polynomfunktion01-41})\footnote{%
    Another quadratic polynom, which delivers these primes, is: 
    $f(n) = n^2 - 9 \cdot n + 61$.\\
    Among the first 1000 sequence elements more than 50\% are prime
-   (See chapter~\ref{primes:_Appendix_Sage-Samples} ``\nameref{primes:_Appendix_Sage-Samples}''.).}.
+   (See chapter~\ref{primes:_Appendix_Sage-Samples}, ``\nameref{primes:_Appendix_Sage-Samples}''.).}.
 
 $$
 \begin{array}{|ll||ll|}
@@ -1291,10 +1296,10 @@ small numbers}\footnote{%
 \subsection[Double Mersenne primes]
            {Double Mersenne primes}
 
-The above Catalan-Mersenne numbers are from $C_2$ a subset of the double Mersenne
-primes\footnote{%
+The above Catalan-Mersenne numbers are from $C_2$ a subset of the double
+Mersenne primes.\footnote{%
 \url{http://en.wikipedia.org/wiki/Catalan%E2%80%93Mersenne_number}
-          }.
+          }
 A double Mersenne prime is a Mersenne prime of the form
 $$ M_{M_p} = 2 ^ {2^p - 1} -1 $$
 % $ M_{M_p} = 2 ^ {2^p - 1} -1 $ 
@@ -1307,16 +1312,16 @@ $M_{M_p}$ is known to be prime for p = 2, 3, 5, 7, and there has the according v
 7, 127, 2.147.483.647, 170.141.183.460.469.231.731.687.303.715.884.105.727.\footnote{%
 Sage\index{Sage} calculates this with:
 \begin{Verbatim}
-sage: for p in (2,3,5,7): Mp=(2^p)-1; MMp=(2^Mp)-1; print Mp, MMp;
+sage: for p in (2,3,5,7): Mp=(2^p)-1; MMp=(2^Mp)-1; B=is_prime(MMp); print p, Mp, MMp, B;
 ....: 
-3 7
-7 127
-31 2147483647
-127 170141183460469231731687303715884105727
+2  3 7  True
+3  7 127  True
+5  31 2147483647  True
+7  127 170141183460469231731687303715884105727  True
 \end{Verbatim}
 }
 
-For p = 13, 17, 19, and 31, the corresponding double Mersenne numbers are not prime.
+For p = 11, 13, 17, 19, and 31, the corresponding double Mersenne numbers are not prime.
 
 The next candidate for the next double Mersenne prime is $ M_{M_{61}} = 2^{2305843009213693951} - 1$.
 Being approximately $ 1.695 * 10^{694,127,911,065,419,641} $, this number --- like
@@ -1327,7 +1332,9 @@ successfully applied.
 
 % --------------------------------------------------------------------------
 \vskip +10 pt
+\hypertarget{h_Primes_Distrib-of-Primes}{}
 \section{Density and distribution of the primes}
+\label{l_Primes_Distrib-of-Primes}
 
 As Euclid discovered, there is an infinite number of primes. However,
 some infinite sets are {\em denser} \index{Prime number!density} than
@@ -1377,18 +1384,20 @@ $n$ tends to infinity.
 \end{theorem}
 
 For $n > 5$, $P(n)$  lies between  $2n$  and  $n^2$. This means that there are
-fewer prime numbers than even natural numbers but more prime numbers than
-square numbers\footnote{%
+fewer prime numbers than even natural numbers, but more prime numbers than
+square numbers.\footnote{%
 Please refer to \hyperlink{ntePrimzahl}{the table \ref{s:ntePrimzahl}}
-}.
+}
 
 
 \vskip +15 pt
-\paragraph*{The number of prime numbers $PI(x)$}%
-\index{PI(x)}%
+\paragraph*{The number of prime numbers $PI(x)$}
+\index{PI(x), $\Pi(x)$}
 \mbox{}
 \vskip +10 pt
-The definition is similar for the number of prime numbers $PI(x)$
+The definition for the number\footnote{%
+Often, instead of PI(x) the convention $\Pi(x)$ is used.
+} $PI(x)$ is similar: It is the number of all primes
 that do not exceed the maximum value $x$:
 
 \begin{theorem}\label{thm-pz-pi-x}\hypertarget{thm-pz-pi-x}
@@ -1407,12 +1416,17 @@ and Gauss\footnote{%
 }
 but not proved until over 100 years later.
 
-\hyperlink{primhfk}{Cross-reference: The overview under \ref{s:primhfk}} 
-shows the number of prime numbers in various intervals.
+\hyperlink{primhfk}{The tables} under \ref{s:primhfk} %Cross-reference
+show the number of prime numbers in various intervals.\\
+The distribution is graphically presented within 
+Figure \ref{deltazehnxdurchlnxbis} at page
+\pageref{primes:_Appendix_subsubsection_NumberofPrimes-in-intervals}
+within the appendix \ref{primes:_Appendix_Plotting-Primes-Quantity}.
 
 
-These formulae, which only apply when n tends to infinity, can be replaced by
-more precise formulae.
+
+Formulae for the prime number theorem only apply when n tends to infinity,
+The formula of Gausee can be replaced by more precise formulae.
 For $x \geq 67$:
 $$ ln(x) - 1,5 < x / PI(x) < ln(x) - 0,5 $$
 Given that we know $PI(x)  =  x / \ln x$ only for very large $x$ ($x$ tending
@@ -1465,7 +1479,7 @@ The \textbf{distribution} of primes%
 \footnote{%
     Some visualizations (plots) of the quantity of primes in different
     number dimensions can be found in
-    chapter~\ref{primes:_Appendix_Plotting-Primes-Quantity}
+    chapter~\ref{primes:_Appendix_Plotting-Primes-Quantity},
     ``\nameref{primes:_Appendix_Plotting-Primes-Quantity}''.
 } displays several irregularities for which
 no ``system'' has yet been found: On the one hand, many occur closely together,
@@ -1479,8 +1493,8 @@ For details, please see:
   \item[] \url{http://www.utm.edu/research/primes/notes/gaps.html}
 \end{itemize}
 
-This is precisely part of what motivates mathematicians to discover its
-secrets.
+To discover the secrets of these irregularities is precisely part of what
+motivates mathematicians.
 
 %----------------------------------------
 \vskip +15 pt
@@ -1502,13 +1516,13 @@ equal to $x$.%
     With the educational tool for number theory {\bf NT} you can apply the
     sieve of Eratosthenes in a computer-aided and guided way: Enter you own
     number and do the sieving step by step:
-    See learning unit 1.2, pages 6/21 and 7/21.\\
+    See the NT learning unit 1.2, pages 6/21 and 7/21.\\
     NT can be called in CT1\index{CrypTool 1} via the menu path
     {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
     \textbackslash{} Learning Tool for Number Theory}.
     See appendix \ref{s:appendix-Learn-NT}.\\
     CT2\index{CrypTool 2} contains a visualisation of this method within
-    the tutorial ``World of Primes''.
+    the tutorial \textbf{``World of Primes''}.
 }
 
 
@@ -1517,10 +1531,7 @@ never end in 2, 5 or 0. So you only need to consider numbers ending in 1, 3,
 7, 9 anyway (there are infinite primes ending in these numbers; see
 \cite[vol. 1, p. 137]{pr:Tietze1973}).
 
-You can now find a large number of finished programs on the Internet - often
-complete with source code - allowing you to experiment with large numbers
-yourself (see chapter \ref{spezialzahlentypen}). 
-You also have access to large databases that contain either a large
+Nowadays, you can now find large databases that contain either a large
 number of primes or the factorization of numerous composite numbers.
 
 
@@ -1566,14 +1577,18 @@ questions about primes, but also some quaint things and overviews.
      
   \item % \hypertarget{link-Primzahlfunktion-base-a-Proof}{}
         \label{link-Primzahlfunktion-base-a-Proof}
-      There is a real number a such that the function $f: {\bf N}
-      \rightarrow {\mathbb Z}$ where $n \mapsto \lfloor a^{3^n}\rfloor$ 
-      only delivers primes\footnote{%
-      The Gauss\index{Gauss bracket} bracket  $\lfloor x \rfloor $ of a real number $x$
-      is defined via: $\lfloor x \rfloor $ is the next integer less or equal $x$.
-      } for all $n$  (see \cite[p. 82]{pr:Padberg1996}).
-      Unfortunately, problems arise when we try to determine $a$ 
-      (see chapter \ref{link-Primzahlfunktion-base-a-Offen}).
+     There is a real number a such that the function $f: {\bf N}
+     \rightarrow {\mathbb Z}$ where $n \mapsto \lfloor a^{3^n}\rfloor$ 
+     only delivers primes\footnote{%
+     The Gauss\index{Gauss bracket} bracket  $\lfloor x \rfloor $ of a real
+     number $x$ is defined via: $\lfloor x \rfloor $ is the next integer less
+     or equal $x$.
+     } for all $n$  (see \cite[p. 82]{pr:Padberg1996}).
+     Unfortunately, problems arise when we try to determine $a$ 
+     (see chapter \ref{link-Primzahlfunktion-base-a-Offen}).\footnote{%
+     If someone knows how to prove this, we are very interested to learn
+     about this. Friedhelm Padberg told us, he doesn't have his prove any more.}
+
 
 
   \vskip +6 pt      
@@ -1598,7 +1613,7 @@ questions about primes, but also some quaint things and overviews.
      and therefore their abbreviation is PAP-k or AP-k.
      }
 
-     In 1923 the famous British mathematician Godfrey Harold Hardy\footnote{%
+     In 1923 the famous British mathematician Hardy\footnote{%
      Godfrey Harold Hardy\index{Hardy, Godfrey Harold}, British mathematician,
      Feb 7, 1877$-$Dec 1, 1947.}
      compiled the conjecture, that there are arithmetic sequences of arbitrary
@@ -1638,11 +1653,13 @@ questions about primes, but also some quaint things and overviews.
      The table~\ref{Smallest AP-k with minimal difference}
      lists the longest currently known arithmetic prime number sequences
      with minimal difference\footnote{%
-        In the opposite, in
-        \url{http://en.wikipedia.org/wiki/Primes_in_arithmetic_progression} are
-        the "largest known AP-k" listed. Therefore, there the last sequence element
-        is a prime as big as possible. However, here are the sequences listed
-        which have the smallest known difference for a given length.
+        In the opposite, 
+        \url{http://en.wikipedia.org/wiki/Primes_in_arithmetic_progression}
+        lists the "largest known AP-k". Therefore, there the last sequence
+        element is a prime as big as possible.\\
+        However, table \ref{Smallest AP-k with minimal difference}  lists
+        the sequences which have the smallest known difference for a given
+        length.
      }.
 
      As a team, the two young\footnote{%
@@ -1806,16 +1823,17 @@ questions about primes, but also some quaint things and overviews.
 
 
 % --------------------------------------------------------------------------
-\vskip +10 pt
-\subsection{Unproven statements / conjectures about primes}
+% \vskip +10 pt
+\newpage
+\subsection{Unproven statements / conjectures about primes / Further open questions}
 \begin{itemize}
-  \item Christian Goldbach\footnote{%
+  \item Goldbach\footnote{%
      Christian Goldbach\index{Goldbach, Christian}, German mathematician,
      Mar 18, 1690$-$Nov 20, 1764. }
      conjectured: Every even natural number greater than 2 can
      be represented as the sum of two prime numbers.
 
-  \item Bernhard Riemann\footnote{%
+  \item Riemann\footnote{%
         Bernhard Riemann\index{Riemann, Bernhard}, German mathematician,
         Sep 17, 1826$-$Jul 20, 1866.
         }
@@ -1832,10 +1850,13 @@ questions about primes, but also some quaint things and overviews.
         Two good didactical articles in German about applications of
         Benford's law are:
       \begin{itemize}	
-       \item R\"udeger Baumann: "Ziffernanalyse zwecks Betrugsaufdeckung  ---  Beispiel
-            f\"ur kompetenzorientierten und kontextbezogenen Informatikunterricht",\\
-            in LOGIN, Informatische Bildung und Computer in der Schule, No. 154/155, 2008, p. 68-72
-       \item Norbert Hungerb\"uhler: "Benfords Gesetz \"uber f\"uhrende Ziffern",\\
+       \item R\"udeger Baumann: "Ziffernanalyse zwecks Betrugsaufdeckung ---
+            Beispiel f\"ur kompetenzorientierten und kontextbezogenen
+            Informatikunterricht",\\
+            in LOGIN, Informatische Bildung und Computer in der Schule,
+            No. 154/155, 2008, p. 68-72
+       \item Norbert Hungerb\"uhler: "Benfords Gesetz \"uber f\"uhrende
+             Ziffern",\\
              March 2007,
              \url{http://www.educ.ethz.ch/unt/um/mathe/ana/benford}
       \end{itemize}
@@ -1857,18 +1878,58 @@ questions about primes, but also some quaint things and overviews.
     with base 3. Comparing the first digit for base 10 all digits are almost
     equally distributed. Analyzing bigger bases showed strong differences.
 
+
+
+\item % \hypertarget{link-Primzahlfunktion-base-a-Offen}{}
+      \label{link-Primzahlfunktion-base-a-Offen}
+    The proof (mentioned above in chapter \ref{link-Primzahlfunktion-base-a-Proof}) of the
+    function $f: \: N \rightarrow Z$ with $n \mapsto \lfloor a^{3^n}\rfloor$  
+    only guarantees the existence of such a number $a$.  How can we
+    determine this number $a$ and will it have a value, making the 
+    function also of some practical interest?
+
+
+\item Is there an infinite number of Mersenne prime numbers?
+    \index{Prime number!Mersenne}\index{Mersenne!prime number}
+
+\item Is there an infinite number of Fermat prime numbers?
+
+
+\item Does a polynomial\index{Polynomial} time algorithm exist for 
+   calculating the prime factors of a number (see \cite[p. 167]{pr:Klee1997})?
+   This question can be divided into the three following questions:
+   \begin{itemize} 
+      \item Does a polynomial time algorithm exist that decides whether a
+            number is prime? \\
+	    This question has been answered by the AKS algorithm\index{AKS} 
+	    (see chapter \ref{PrimesinP}, ``Primes in P'': 
+	    Primality testing is polynomial).
+
+      \item Does a polynomial time algorithm exist  that calculates for a
+            composite number from how many prime factors it is made up 
+	    (without calculating these factors)?
+
+      \item Does a polynomial time algorithm exist that calculates for a
+            composite number $n$ a non-trivial (i.e. other than $1$ and $n$)
+	    factor of $n$?\footnote{Please compare chapters \ref{RSABernstein}
+	    and \ref{nt:NoteFactorization}.}
+   \end{itemize}
+
+   At the end of chapter \ref{nt:NoteFactorization},
+   section \hyperlink{RSA-200-chap3}{RSA-200}
+   you can see the dimensions of the numbers where the current algorithms
+   testing for primality\index{Primality testing} and
+   calculating the factorization\index{Factorization!factoring records}
+   deliver results.
+
 \end{itemize}
-
-
-
-
 
 
 
 % --------------------------------------------------------------------------
 \vskip +10 pt
 \hypertarget{HT-GoldbachConjecture}{}
-\subsubsection{The Goldbach Conjecture}
+\subsection{The Goldbach Conjecture}
 \label{L-GoldbachConjecture}
 
 Here we will have a closer look at what is called the\index{Goldbach Conjecture}
@@ -1898,7 +1959,7 @@ A preliminary work for a prove could be the prove published recently\footnote{\u
 
 
 
-\vskip +55 pt   % Don't want the headline stay alone on the previuos page.
+% \vskip +55 pt   % Don't want the headline stay alone on the previous page.
 \hypertarget{HT-StrongGoldbachConjecture}{}
 \paragraph*{The strong Goldbach conjecture\footnote{%
    It is also known as the even or binary Goldbach conjecture.
@@ -1936,7 +1997,7 @@ Samples of Goldbach partitions: $8 = 5 + 3$ or $28 = 23 + 5$
      unproven.}
      the Goldbach conjecture for all even numbers up to $3*10^{17}$
      (as at September 2012), but no general proof has yet been
-     found\footnote{%
+     found.\footnote{%
      The English publisher {\em Faber} and the American publisher 
      {\em Bloomsbury} issued in 2000 the 1992 published book 
      ``Uncle Petros and Goldbach's Conjecture'' by Apostolos Doxiadis.
@@ -1959,7 +2020,7 @@ Samples of Goldbach partitions: $8 = 5 + 3$ or $28 = 23 + 5$
      }${}^,$\footnote{%
      Especially this conjecture makes it clear, that even today we do not
      have a complete understanding of the deeper connections between 
-     addition and multiplication of natural numbers. }.
+     addition and multiplication of natural numbers.}
 
 As bigger an even number is, as more umso such binary Goldbach partitions can be found -- in average: For $4$ there is only one partition $2 + 2$; for $16$ there are two, $3 + 13$ and $5 + 11$. With $100$ there are six such partitions: $3 + 97$, $11 + 89$, $17 + 83$, $29 + 71$, $41 + 59$, $47 + 53$.\footnote{%
      Progress in research about the Goldbach conjectures is often a topic in mathematical press column, like \url{http://oumathclub.wordpress.com/}.
@@ -1988,7 +2049,7 @@ Similarily easy it can be shown, that the weak Goldbach conjecture implies the a
 
 % --------------------------------------------------------------------------
 \vskip +35 pt
-\subsubsection{Open questions about twin primes}
+\subsection{Open questions about twin primes}
 
 Twin primes are prime numbers whose difference is 2. 
 Examples include 5 and 7, or 101 and 103,
@@ -2009,7 +2070,7 @@ always divisible by 3 and thus not a prime.
 \end{itemize}
 
 A big step towards the solution of this problem was made by Dan Goldston,
-J\'{a}nos Pintz and Cem Yildirim in 2003\footnote{%
+J\'{a}nos Pintz and Cem Yildirim in 2003.\footnote{%
     D. A. Goldston: ``Gaps Between Primes''\\
     \url{http://www.math.sjsu.edu/~goldston/OberwolfachAbstract.pdf}\\ 
     See also: 
@@ -2020,7 +2081,7 @@ J\'{a}nos Pintz and Cem Yildirim in 2003\footnote{%
             The Work Of Goldston-Pintz-Yildirim"\\
 	    \url{http://www.ams.org/bull/2007-44-01/S0273-0979-06-01142-6/S0273-0979-06-01142-6.pdf}
     \end{itemize}
-                                               }. 
+                                               }
 The three mathematicians were investigating the distribution of prime numbers.
 They could proof, that \[ \liminf_{n\to\infty}{\frac{p_{n+1}-p_n}{\log{p_n}}}=0,\]
 where $p_{n}$ denotes the $n$-th prime number. \\
@@ -2043,55 +2104,8 @@ Those results could be the basis for the proof, that infinitely many twin primes
 
 
 % --------------------------------------------------------------------------
-\vskip +25 pt
-\subsubsection{Further open questions}
-
-\begin{itemize}
-\item % \hypertarget{link-Primzahlfunktion-base-a-Offen}{}
-      \label{link-Primzahlfunktion-base-a-Offen}
-    The proof (mentioned above in chapter \ref{link-Primzahlfunktion-base-a-Proof}) of the
-    function $f: \: N \rightarrow Z$ with $n \mapsto \lfloor a^{3^n}\rfloor$  
-    only guarantees the existence of such a number $a$.  How can we
-    determine this number $a$ and will it have a value, making the 
-    function also of some practical interest?
-
-\item Is there an infinite number of Mersenne prime numbers?
-    \index{Prime number!Mersenne}\index{Mersenne!prime number}
-
-\item Is there an infinite number of Fermat prime numbers?
-
-\item Does a polynomial\index{Polynomial} time algorithm exist for 
-   calculating the prime factors of a number (see \cite[p. 167]{pr:Klee1997})?
-   This question can be divided into the three following questions:
-   \begin{itemize} 
-      \item Does a polynomial time algorithm exist that decides whether a
-            number is prime? \\
-	    This question has been answered by the AKS algorithm\index{AKS} 
-	    (see chapter \ref{PrimesinP}, ``Primes in P'': 
-	    Primality testing is polynomial).
-
-      \item Does a polynomial time algorithm exist  that calculates for a
-            composite number from how many prime factors it is made up 
-	    (without calculating these factors)?
-
-      \item Does a polynomial time algorithm exist that calculates for a
-            composite number $n$ a non-trivial (i.e. other than $1$ and $n$)
-	    factor of $n$?\footnote{Please compare chapters \ref{RSABernstein}
-	    and \ref{nt:NoteFactorization}.}
-   \end{itemize}
-\end{itemize}
-
-
-At the end of chapter \ref{nt:NoteFactorization},
-section \hyperlink{RSA-200-chap3}{RSA-200}
-you can see the dimensions of the numbers where the current algorithms
-testing for primality\index{Primality testing} and
-calculating the factorization\index{Factorization!factoring records}
-deliver results.
-
-
-% --------------------------------------------------------------------------
-\vskip +25 pt
+% \vskip +25 pt
+\newpage
 \subsection[Quaint and interesting things around primes]
               {Quaint and interesting things around primes\footnotemark}
     \footnotetext{%
@@ -2108,27 +2122,24 @@ scientific research.
 
 \vskip +25 pt
 \hypertarget{HT-GoogleRecruitment2004}{}
-\paragraph*{Recruitment at Google in 2004}%
+\subsubsection{Recruitment at Google in 2004}%
+% \paragraph*{Recruitment at Google in 2004}%
 \index{Google!Recruitment}%
 \label{HT-GoogleRecruitment2004}%
 \mbox{}
-\vskip +10 pt
-
-In summer 2004 the company Google used the number e\footnote{The base of the 
-natural logarithm\index{logarithm!natural} e is approximately 2.718 281 828 459.
-This is one of the most
-important numbers in all of mathematics like complex analysis, finance, physics
-and geometry. Now it was used the first time -- as far as I know -- for
-marketing or recruitment.} 
-to attract potential employees\footnote{Most of this information is taken 
-from the article ``e-number crunching'' by John Allen Paulos in TheGuardian,
-Sept. 30, 2004, and from the web:\\
+In summer 2004 the company Google used the number $e$ to attract potential
+employees.\footnote{The base of the natural logarithm\index{logarithm!natural}
+$e$ is approximately 2.718 281 828 459.
+This is one of the most important numbers in all of mathematics like complex
+analysis, finance, physics and geometry. Now it was used the first time -- as
+far as I know -- for marketing or recruitment.}${}^,$\footnote{Most of this
+information is taken from the article ``e-number crunching'' by John Allen
+Paulos in TheGuardian, Sept. 30, 2004, and from the web:\\
 - \url{http://www.mkaz.com/math/google/}\\
 - \url{http://epramono.blogspot.com/2004/10/7427466391.html}\\
 - \url{http://mathworld.wolfram.com/news/2004-10-13/google/}\\
 - \url{http://www.math.temple.edu/~paulos/}.
-}.
-
+}
 
 On a prominent billboard in California's Silicon Valley on July 12 there
 appeared the following mysterious puzzle:
@@ -2157,14 +2168,13 @@ given number sequence had nothing to do with primes any more.}
 
 \vskip +25 pt
 \hypertarget{HT-Movie-Contact01}{}
-\paragraph*{Contact [Directed by Robert Zemeckis, 1997] -- Primes helping to 
-           contact aliens}
+\subsubsection{Contact [movie, 1997] -- Primes helping to contact aliens}
+% \paragraph*{xxx}
 \index{Movies}\index{Zemeckis 1997}
 \label{HT-Movie-Contact01}%
 \mbox{}
-\vskip +10 pt
-
-The movie originated from Carl Sagan's book with the same title.
+The movie, directed by Robert Zemeckis, originated from Carl Sagan's book
+with the same title.
 
 After years of unavailing search the radio astronomer Dr. Ellie Arroway
 (Jodie Foster) discovers signals from the solar system Vega, 26 light years
@@ -2220,7 +2230,7 @@ Interval  &     Number &    Interval  & Number &  Interval  & Number\\ \hline
 91-100   &       1     &     901-1000 &     14 &      9001-10000 &    112 \\
 \hline
 \end{tabular}
-\caption{How many primes exist within the first intervals of tens?}
+\caption{How many primes exist within the first intervals of tens, of hundreds and of thousands?}
 \end{center}
 \end{table}
 \vskip +20 pt
@@ -2228,15 +2238,15 @@ Interval  &     Number &    Interval  & Number &  Interval  & Number\\ \hline
 
 \begin{table}[ht]
 \begin{center}
-\begin{tabular}{|l|l|l|}\hline
-Interval & Number & Average number per 1000 \\ \hline
-1 - 10,000          &    1,229        &    122.900 \\
-1 - 100,000         &    9,592        &    95.920 \\
-1 - 1,000,000       &    78,498      &    78.498 \\
-1 - 10,000,000       &   664,579     &    66.458 \\
-1 - 100,000,000      &   5,761,455   &    57.615 \\
-1 - 1,000,000,000    &   50,847,534  &    50.848 \\
-1 - 10,000,000,000   &   455,052,512 &    45.505 \\ \hline
+\begin{tabular}{|l|r|r|r|}\hline
+Dimension & Interval & Number & Average number per 1000 \\ \hline
+  4  &  1 - 10,000           &   1,229       &   122.900 \\
+  5  &  1 - 100,000          &   9,592       &    95.920 \\
+  6  &  1 - 1,000,000        &   78,498      &    78.498 \\
+  7  &  1 - 10,000,000       &   664,579     &    66.458 \\
+  8  &  1 - 100,000,000      &   5,761,455   &    57.615 \\
+  9  &  1 - 1,000,000,000    &   50,847,534  &    50.848 \\
+ 10  &  1 - 10,000,000,000   &   455,052,512 &    45.505 \\ \hline
 \end{tabular}
 \caption{How many primes exist within the first intervals of dimensions?}
 \end{center}
@@ -2245,7 +2255,8 @@ Interval & Number & Average number per 1000 \\ \hline
 
 A visualization of the number of primes in higher intervals of powers of $10$
 can be found in chapter \ref{primes:_Appendix_Plotting-Primes-Quantity}
-at page \pageref{primes:_Appendix_Plotting-Primes-Quantity}.
+at page
+\pageref{primes:_Appendix_subsubsection_NumberofPrimes-in-intervals}.
 
 
 
@@ -2283,7 +2294,7 @@ Index   &   Precise value  & Rounded value & Comment \\
 1E+09   &    22,801,763,489  &    2.28018E+10 & \\
 1E+12   &    29,996,224,275,833 & 2.99962E+13 & \\ \hline
 \end{tabular}
-\caption{List of particular $n$-th prime numbers}
+\caption{List of particular $n$-th prime numbers P(n)}\index{P(n)}
 \end{center}
 \end{table}
 
@@ -2425,10 +2436,10 @@ for e in E:
 % ---------------------------------------------------------------------------
 \subsection*{The distribution of primes}
 Between $1$ and $10$ there are $4$ primes. Between $10^3$ and $10^4$ there are
-already $1,061$ primes. In the interval $[10^9,10^{10}]$ lie
-$404,204,977\approx 4\cdot 10^{8}$ primes and in the interval from
+already $1061$ primes. In the interval $[10^9,10^{10}]$ lie
+$404,204,977\approx 4\cdot 10^{8}$ primes, and in the interval from
 $10^{19}$ to $10^{20}$ there are $1,986,761,935,284,574,233\approx 1,9\cdot 10^{18}$
-primes\footnote{\url{http://en.wikipedia.org/wiki/Prime\_number\_theorem}}.
+primes.\footnote{\url{http://en.wikipedia.org/wiki/Prime\_number\_theorem}}
 
 Why is the difference between the number of primes in the different intervals
 so big, although the boundaries of the intervals differ only by value 1 of the
@@ -2436,14 +2447,19 @@ exponent of the power of $10$?
 
 
 \subsubsection*{The prime number theorem}
-The number of primes up to a given number $x$ can approximately be determined by a formula, the so called prime number theorem. $\pi(x)$ denotes the number of primes which are smaller or equal to $x$. Then the formula is
-\[\pi(x)\sim \frac{x}{\ln{x}}.\]
+The number PI(x) of primes up to a given number $x$ can approximately be
+determined by a formula, derived from the so called prime number theorem
+(see chapter \ref{l_Primes_Distrib-of-Primes}).
+$PI(x)$ denotes the number of primes which are smaller or equal to $x$.
+Then the formula is
+\[PI(x)\sim \frac{x}{\ln{x}}.\]
+\index{PI(x), $\Pi(x)$}
 Note, that this formula only gives an approximation of the number of primes smaller or equal to $x$. It's getting more exact as the number $x$ increases.\\
 In the following we are using the prime number theorem to examine the distribution of primes.
 
-To understand, why the number of primes is growing so rapidly, although the boundaries
-of the intervals only differ by the exponent $1$, let's have a closer look to both
-components of the right side of the formula: $x$ and $\ln{x}$.
+To understand, why the number of primes is growing so rapidly, although the
+boundaries of the intervals only differ by the exponent $1$, let's have a closer
+look to both components of the right side of the formula: $x$ and $\ln{x}$.
 
 
 \subsubsection*{The functions $x$ and $10^x$}
@@ -2486,13 +2502,27 @@ One can see that the values of the function $\ln{x}$ grow slowly compared to the
 \end{figure}
 
 
-\subsubsection*{The function $\frac{x}{\ln{x}}$}
+\subsubsection*{The function $PI(x) = \frac{x}{\ln{x}}$}
+\index{PI(x), $\Pi(x)$}
 The function $\frac{x}{\ln{x}}$ consists of the function $x$ as the numerator and the function $\ln{x}$ in the denominator, which, in comparison to $x$, increases very slowly. Compared to the number $x$ itself, the number of primes less or equal to $x$ is small. But still, $\frac{x}{\ln{x}}$ is an increasing function as you can see in figure \ref{xundlnxundxdurchlnx} on page \pageref{xundlnxundxdurchlnx}.
 
 
 \subsubsection*{The number of primes in the different intervals}
-To see how the number of primes in different intervals $[10^{x-1},10^{x}]$ behave, let's have a look on figure \ref{deltazehnxdurchlnxbis} on page \pageref{deltazehnxdurchlnxbis}. Here $\frac{10^{x}}{\ln{10^{x}}}$ and $\frac{10^{x}}{\ln{10^{x}}}-\frac{10^{x-1}}{\ln{10^{x-1}}}$ are visualized. The left chart shows the values for the exponent $x$ from $1$ to $5$ and the other one shows the values for $x$ from $1$ to $10$.\\
-The blue bars represent the overall number of primes up to $10^x$. The red bars show how many primes lie in the interval $[10^{x-1},10^x]$, respectively. This makes clear, that the number of primes in intervals of higher exponents grows quite fast. 
+\label{primes:_Appendix_subsubsection_NumberofPrimes-in-intervals}
+Figure \ref{deltazehnxdurchlnxbis}
+% on page \pageref{deltazehnxdurchlnxbis}
+visualizes how the number of primes in the intervals $[1, 10^x]$ and
+$[10^{x-1},10^{x}]$ behave.
+To calculate it faster, the result of the approximation function is used
+(not the exact numbers like in the tables in chapter \ref{s:primhfk}).
+
+Here for each base 10 exponent two bars are drawn:
+$\frac{10^{x}}{\ln{10^{x}}}$ and $\frac{10^{x}}{\ln{10^{x}}}-\frac{10^{x-1}}{\ln{10^{x-1}}}$:
+The left chart shows the values for the exponents $x$ from $1$ to $5$,
+and the right one for $x$ from $1$ to $10$, where $x$ is the base 10 exponent.\\
+
+The blue bars represent the overall number of primes up to $10^x$. The red bars show how many primes accrue in the interval $[10^{x-1},10^x]$, respectively.
+This makes clear, that the number of primes in intervals of higher exponents keeps growing quite fast. 
 
 \begin{figure}[!htb]
 	\centering
@@ -2501,14 +2531,19 @@ The blue bars represent the overall number of primes up to $10^x$. The red bars 
 	\hfill
 	\subfloat[ ]{\label{deltazehnxdurchlnxbis10}
                      \includegraphics[height=4cm]{figures/deltazehnxdurchlnxbis10.png}}
-	\caption{Numbers of primes in the interval $0$ to $10^x$ (blue) and in the intervall
-                 $[10^{x-1},10^x]$ (red) for different exponents $x$.}
+	\caption{Numbers of primes in the interval $[1, 10^x]$ (blue) and in the
+        interval $[10^{x-1},10^x]$ (red) for different exponents $x$}
 	\label{deltazehnxdurchlnxbis}
 \end{figure}
 
 
-A table containing the number of primes in some dedicated intervals can be found in
-chapter \ref{s:primhfk} at page \pageref{s:primhfk}.
+A table containing the number of primes in some dedicated intervals can be found
+in chapter \ref{s:primhfk} at page \pageref{s:primhfk}:
+For example, within the interval $[1, 10^4]$ there are 1229 primes;
+thereof are in the interval $[10^3, 10^4]$ 1229 - 168 = 1061 primes.
+
+Theory about the prime number theorem and the function PI(x) can be found in
+chapter \ref{l_Primes_Distrib-of-Primes}.
 
 
 
@@ -2598,9 +2633,9 @@ chapter~\ref{Label_Kapitel_Primes} (``\nameref{Label_Kapitel_Primes}'').
 \index{Sage}
 
 This part of the appendix contains Sage code, to perform some simple
-computations about primes%
+computations about primes.%
 \footnote{See the Sage documentation about Elementary number theory
-          \url{http://www.sagemath.org/doc/constructions/number_theory.html}.}.
+          \url{http://www.sagemath.org/doc/constructions/number_theory.html}.}
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -2831,7 +2866,7 @@ Percentage of primes: 58.3416583417
     \url{http://books.esecurity.ch/cryptography2e.html}.
 
 \bibitem[Padberg1996]{pr:Padberg1996} \index{Padberg 1996}     
-   F. Padberg, \\
+   Friedhelm Padberg, \\
    {\em Elementare Zahlentheorie}, 
    Spektrum Akademischer Verlag, 1988, 2nd edition 1996.
 
