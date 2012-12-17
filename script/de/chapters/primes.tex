@@ -178,15 +178,14 @@ Er nahm an, es gebe nur endlich viele Primzahlen und damit eine größte
 Primzahl. Daraus zog er solange logische Schlüsse, bis er auf einen
 offensichtlichen Widerspruch stieß. Damit musste etwas falsch sein. Da 
 sich in die Schlusskette kein Lapsus eingeschlichen hatte, konnte es nur 
-die Annahme sein. Demnach musste es unendlich viele Primzahlen geben!
+die Annahme sein. Demnach musste es unendlich viele Primzahlen geben!\\
 
 \hypertarget{euklid}{}
-\paragraph*{Euklids Widerspruchsbeweis}
-% Bei /paragraph den * angefügt, damit es auch bei 4 Ebenen nicht in Inh.verzecihnis
 \index{Euklids Widerspruchsbeweis}\index{Widerspruchsbeweis}
-führt die Argumentation wie folgt:
-
-\begin{Beweis}{}
+% \paragraph*{Euklids Widerspruchsbeweis}
+% Bei /paragraph den * angefügt, damit es auch bei 4 Ebenen nicht im Inh.verzeichnis erscheint
+% führt die Argumentation wie folgt:
+\begin{Beweis}{nach Euklid (Widerspruchsbeweis)\\}
 {\bf Annahme:} \quad Es gibt {\em endlich} viele Primzahlen.
 \\*[4pt] {\bf Schluss:} \quad Dann lassen sie sich auflisten $p_1
 < p_2 < p_3 < \dots < p_n$, wobei $n$ für die (endliche) Anzahl
@@ -419,7 +418,7 @@ dieser Behauptung gibt es eine interessante mathematische Historie:
 Zuerst dauerte es über 200 Jahre, bis \index{Lucas, Edouard}
 Edouard Lucas (1842-1891) bewies, dass diese Zahl zusammengesetzt
 ist. Er argumentierte aber indirekt und kannte keinen der
-Faktoren. 1903 zeigte Frank Nelson Cole\index{Cole, Frank Nelson}\footnote{%
+Faktoren. 1903 zeigte Cole\index{Cole, Frank Nelson}\footnote{%
 Frank Nelson Cole, amerikanischer Mathematiker, 20.09.1861$-$26.05.1926.},
 aus welchen Faktoren diese Primzahl besteht:
 $$ 2^{67} -1 =147. 573. 952. 589. 676. 412. 927 = 193. 707. 721 \cdot 761. 838. 257. 287. $$
@@ -2139,10 +2138,18 @@ damit die Voraussetzung der starken Goldbach-Vermutung und kann damit als Summe 
 Primzahlen $p_1$ und $p_2$ geschrieben werden (wobei $p_1$ und $p_2$ nicht notwendigerweise verschieden sein müssen). Damit hat man eine Zerlegung von $u$ in die drei Primzahlen $p_1, p_2$ und $3$ gefunden.
 D.h. man kann sogar immer eine Summe finden, in der einer der drei primen Summanden die Zahl $3$ ist.
 
-Ähnlich einfach kann man zeigen, dass aus der schwachen Golfbach-Vermutung die oben
-erwähnte Behauptung von Terence Tao folgt (beide gelten für ungerade Zahlen):\\
-- Für ungerade Zahlen $u>5$ folgt direkt aus der schwachen Goldbach-Vermutung, dass die Summe aus höchstens fünf Primzahlen besteht.\\
-- Für die restlichen ungeraden Zahlen $3$ und $5$ kann man es direkt einsetzen: $3 = 3$ (die \glqq Summe\grqq~ hat nur einen und damit höchstens fünf prime Summanden); $5 = 2 + 3$ (die Summe hat zwei und damit höchstens fünf prime Summanden).
+Ähnlich einfach kann man zeigen, dass aus der schwachen Golfbach-Vermutung die
+oben erwähnte Behauptung von Terence Tao folgt (beide gelten für ungerade
+Zahlen):
+\begin{itemize}	
+   \item Für ungerade Zahlen $u>5$ folgt direkt aus der schwachen
+      Goldbach-Vermutung, dass die Summe aus höchstens fünf Primzahlen besteht.
+   \item Für die restlichen ungeraden Zahlen $3$ und $5$ kann man es direkt
+      einsetzen:\\
+      $3 = 3$ (die \glqq Summe\grqq~hat nur einen und damit höchstens
+      fünf prime Summanden);\\
+      $5 = 2 + 3$ (die Summe hat zwei und damit höchstens fünf prime Summanden).
+\end{itemize}
 
 
 
@@ -3082,7 +3089,7 @@ Percentage of primes: 58.3416583417
       \url{http://www.utm.edu/research/primes/mersenne.shtml} \\
       \url{http://www.utm.edu/research/primes/prove/index.html}
 
-\item Ausgabe der $n$-ten Primzahl \\
+\item Ausgabe der $n$-ten Primzahl P(n)\\
       \url{http://www.utm.edu/research/primes/notes/by_year.html}
 
 \item Der Supercomputerhersteller SGI Cray Research beschäftigte nicht
