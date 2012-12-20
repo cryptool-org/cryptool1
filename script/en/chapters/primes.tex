@@ -1847,7 +1847,11 @@ questions about primes, but also some quaint things and overviews.
         }$^,$\footnote{%
         Two good didactical articles in German about applications of
         Benford's law are:
-      \begin{itemize}	
+      % \begin{itemize}	
+      % \begin{itemize}[topsep=0pt, itemsep=0pt] 
+      % \begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
+      % \begin{itemize}              [noitemsep,topsep=0pt,parsep=0pt,parskip=0pt,partopsep=0pt]
+        \begin{compactitem}
        \item R\"udeger Baumann: "Ziffernanalyse zwecks Betrugsaufdeckung ---
             Beispiel f\"ur kompetenzorientierten und kontextbezogenen
             Informatikunterricht",\\
@@ -1857,8 +1861,9 @@ questions about primes, but also some quaint things and overviews.
              Ziffern",\\
              March 2007,
              \url{http://www.educ.ethz.ch/unt/um/mathe/ana/benford}
-      \end{itemize}
- 
+      %\end{itemize}
+      \end{compactitem}
+      \vspace{-\baselineskip} % TODO: Geht das nicht anders?
         }
     does not apply to primes. 
 
@@ -1869,7 +1874,8 @@ questions about primes, but also some quaint things and overviews.
 
     Which empirical data applies to this "law" ist not completely clear yet.
     Timo Eckhardt analyzed in his thesis in 2008 extensively attributes of
-    prime numbers. Among other things all primes until 7,052,046,499 were
+    prime numbers. %Among other things
+    For example, all primes until 7,052,046,499 were
     described with different bases of the positional notation.
     
     Comparing the bases 3 to 10 the deviation from Benford's law was lowest
@@ -1914,11 +1920,10 @@ questions about primes, but also some quaint things and overviews.
    \end{itemize}
 
    At the end of chapter \ref{nt:NoteFactorization},
-   section \hyperlink{RSA-200-chap3}{RSA-200}
-   you can see the dimensions of the numbers where the current algorithms
-   testing for primality\index{Primality testing} and
-   calculating the factorization\index{Factorization!factoring records}
-   deliver results.
+   section \hyperlink{RSA-200-chap3}{RSA-200} you can see the limits for which
+   numbers the current algorithms for primality testing\index{Primality testing}
+   and for factorization\index{Factorization!factoring records}
+   deliver good results.
 
 \end{itemize}
 

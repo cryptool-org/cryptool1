@@ -46,7 +46,7 @@ Further mathematical disciplines currently used in cryptography include
 
 Number theory or arithmetic (the emphasis here is more on the aspect of 
 performing calculations with numbers) was established 
-by Carl Friedrich Gauss\footnote{%
+by Gauss\footnote{%
   Carl Friedrich Gauss, German mathematician and astronomer,
   Apr 30, 1777$-$Feb 23, 1855.
 }
@@ -100,11 +100,13 @@ are applied in cryptography. Particular attention will be paid to the
 traditional Diffie-Hellman\index{Diffie-Hellman} (DH) and RSA public 
 key procedures.\index{RSA}
 
-Additionally I added some qualified statements about the security of the RSA algorithm.
+It was important to me to make verifiable statements about the security of the
+RSA algorithm, and to add Sage code for as much as possible examples.
 
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\newpage
 \begin{ctsquote}
 Mathematics is the queen of sciences and number theory is the queen of
 mathematics.
@@ -140,7 +142,7 @@ On the other hand, the solutions to these problems or the prove to the theorems
 often resisted to the mathematicians for a very long time.
 It is therefore one thing to pose good questions but quite another matter to
 find the answer. One example of this is what is known as Fermat's Last (or
-large) theorem\footnote{One of the things we learn in mathematics at school
+large) theorem.\footnote{One of the things we learn in mathematics at school
    is Pythagoras' theorem, which states the following for a right-angle
    triangle: $a^2 + b^2 = c^2$, where $a$ and $b$ are the lengths of the sides
    containing the right angle and $c$ is the length of the hypotenuse.
@@ -148,7 +150,7 @@ large) theorem\footnote{One of the things we learn in mathematics at school
    for $a,b,c \in \mathbb{N}$ and whole-number exponents $n > 2$.
    Unfortunately, the letter in which Fermat made the claim did not have
    enough space for him to prove it. The theorem was not proven until over
-   300 years later \cite[p. 433-551]{nt:Wiles1994}\index{Wiles, Andrew}. }.
+   300 years later \cite[p. 433-551]{nt:Wiles1994}\index{Wiles, Andrew}. }
 
 Up until the mid 20th century, number theory was considered to be the purest area of mathematics, an area that 
 had no practical use in the real world. This changed with the development of computers and digital 
@@ -174,8 +176,9 @@ This article only deals with the area of elementary number theory.
 
 
 % --------------------------------------------------------------------------
-\newpage
+\vskip +40 pt
 \subsection{Convention}
+\index{Convention}
 Unless stated otherwise: 
 \begin{itemize}
 \item The letters $a, b, c, d, e, k, n, m, p, q$ are used to present whole numbers.
@@ -188,9 +191,9 @@ are the {\em natural} and {\em whole} numbers respectively.
 
 
 
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 % \vskip +40 pt
 \newpage
-
 \begin{ctsquote}
 This isn't magic -- it's logic -- a puzzle.
 A lot of the greatest wizards haven't got an ounce of logic.
@@ -210,13 +213,14 @@ A lot of the greatest wizards haven't got an ounce of logic.
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Prime numbers and the first fundamental theorem of elementary number theory}
 \index{Number theory!elementary}
-Many of the problems in elementary number theory are concerned with prime numbers.
+Many of the problems in elementary number theory are concerned with prime numbers (see chapter~\ref{Label_Kapitel_Primes}).
 
 Every whole number has divisors or factors. The number 1 has just one -- itself, whereas the number 12 has the 
-six factors 1, 2, 3, 4, 6 and 12\footnote{Due to the fact that 12 has so many factors, this number -- and multiples 
+six factors 1, 2, 3, 4, 6 and 12.\footnote{Due to the fact that 12 has so many factors, this number -- and multiples 
 of this number -- is often found in everyday life: the 12-hour scale on clocks, the 60 minutes in an hour, the 
 360-degree scale for measuring angles, etc. If we divide these scales into segments, the segments often turn out to be whole numbers. 
-These are easier to use in mental arithmetic than fractions.}. Many numbers are only divisible by themselves and 
+These are easier to use in mental arithmetic than fractions.}
+Many numbers are only divisible by themselves and 
 by 1. When it comes to multiplication, these can be regarded as the ``atoms'' in the realm of numbers.
 
 \begin{definition}\label{def-zth-prime} \index{Prime number}
@@ -320,11 +324,13 @@ chapter~\ref{Label_Kapitel_Primes} in this script.
     \index{Educational tool NT}%
     With the educational tool for number theory {\bf NT} you can have a
     playful view at the calculation with congruences, discussed in this and
-    the next chapter (see learning unit 2.1, pages 2-9/40).\\
+    the next chapter (see NT learning unit 2.1, pages 2-9/40).\\
     NT can be called in CrypTool\index{CrypTool} via the menu path
     {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
     \textbackslash{} Learning Tool for Number Theory}.
-    See appendix~\ref{s:appendix-Learn-NT}.
+    See appendix~\ref{s:appendix-Learn-NT}.\\
+    CT2\index{CrypTool 2} contains a visualisation of these methods within
+    the tutorial ``{\bf World of Primes}''.
 }
 \index{Modulus} \index{Divisibility} 
 
@@ -344,7 +350,8 @@ A whole number $n$ is {\bf divisible} by a whole number $d$ if the
 quotient $n/d$ is a whole number $c$ such that $n = c * d$.
 \end{definition}
 
-$n$ is called a {\em multiple} of $d$, whereas $d$ is called a \index{Divisor} {\em divisor} or \index{Factor} {\em factor} of $n$.
+$n$ is called a {\em multiple} of $d$, whereas $d$ is called a \index{Divisor}
+{\em divisor} or \index{Factor} {\em factor} of $n$.
 
 The mathematical notation for this is $d | n$  (read ``$d$ divides $n$'').
 The notation $d \!\!\not| n$ means that $d$ does not divide the number $n$.
@@ -358,8 +365,9 @@ In our example therefore: $10 \!\!\not| 158$ but $2 | 158$.
 When we investigate divisibility, it is only the remainder of the division that is important. When dividing a 
 number $n$ by $m$, we often use the following notation:
 $$\frac{n}{m} = c + \frac{r}{m} ,$$
-where $c$ is a whole number and $r$ is a number with the values $0,1,\cdots, m-1$. This notation is called division 
-with remainder, whereby $c$ is called the whole-number ``quotient'' and $r$ is the ``remainder'' of the division.
+where $c$ is a whole number and $r$ is a number with the values $0,1,\cdots,
+m-1$. This notation is called division with remainder, whereby $c$ is called
+the whole-number ``quotient'' and $r$ is the ``remainder'' of the division.
 
 \begin{example}{:}
 $$\frac{19}{7} = 2 + \frac{5}{7} \quad (m=7, ~c = 2, ~r = 5)$$
@@ -369,8 +377,8 @@ What do the numbers $5, 12, 19, 26, \cdots$ have in common for division by $7$? 
 For division by $7$, only the following remainders are possible:
 $$r = 0, 1, 2, \cdots, 6.$$
 
-The numbers that result in the same remainder $r$ when divided by $7$ are combined
-to form the ``remainder class $r$ modulo $7$''. Two numbers $a$ and
+The numbers that result in the same remainder $r$ when divided by $7$ are
+combined to form the ``remainder class $r$ modulo $7$''. Two numbers $a$ and
 $b$ ~\mbox{belonging} to the same remainder class modulo $7$ are said to 
 be ``congruent modulo 7''. Or in general:
 
@@ -478,10 +486,10 @@ The same goes for multiplication modulo $m$. The result of a
 division\footnote{%
 The division modulo $m$\index{Division modulo $n$} is only defined for
 numbers co-prime\index{Number!co-prime} to $m$ because other numbers
-have the same property as zero. See footnote
-\ref{ftn-mod6} in chapter~\ref{addmult}.
-\label{ftn-res-divmodn}
-\label{ftn-zth-divmodn}
+have the same property as zero (this means there is no inverse number).
+See footnote \ref{ftn-mod6} in chapter~\ref{addmult} and
+table~\ref{mulmod6} in chapter~\ref{add-and-mult-inverses}.
+\label{ftn-res-divmodn}\label{ftn-zth-divmodn}
 } is not a fraction but rather a whole number between $0$ and $m-1$.
 
 The known laws apply:
@@ -571,8 +579,9 @@ when we divide $8$ by $5$.
 
 
 % --------------------------------------------------------------------------
-\subsection{Addition and multiplication} \index{Addition} \index{Multiplication}
+\subsection{Addition and multiplication}
 \label{addmult}
+\index{Addition} \index{Multiplication}
 
 The following shows
 
@@ -638,6 +647,8 @@ Multiplication is defined on the set $\mathbb{Z}$  excluding $0$.
 
 % --------------------------------------------------------------------------
 \subsection{Additive and multiplicative inverses}
+\label{add-and-mult-inverses}\label{multmodn}
+\index{Inverse!additive} \index{Inverse!multiplicative}
 
 You can use the tables to read the inverses for each number in relation to addition and multiplication.
 
@@ -738,21 +749,23 @@ for large moduli (this only applies to the areas of the table shaded dark grey),
 we can use Fermat's Little Theorem\index{Fermat!little theorem}
 to create a simple algorithm for this \cite[p. 80]{nt:Pfleeger1997}.
 Quicker algorithms are described, for instance, in 
-\cite{nt:Knuth1998}\footnote{Using Euclid's extended
+\cite{nt:Knuth1998}.\footnote{Using Euclid's extended
 theorem\index{Euclidean algorithm!extended} (extended gcd),
 we can calculate the multiplicative inverse and determine whether numbers
 have an inverse (see appendix~\ref{nt:NumberTheory_Appendix_GCD}).
-Alternatively, we can also use the primitive roots.}.
+Alternatively, we can also use the primitive roots.}
 
 Cryptographically not only the unique nature of the inverse is important, but
 also that the set of possible values has been exhausted.
 \begin{theorem}\label{thm-zth-exhperm}
 For $a,i\in \{1, \cdots, m-1 \}$ with ${\rm~gcd} (a,m)=1),$ then the product $a*i {\rm ~mod ~} m $ takes for a 
-certain number $a$ all values from $\{1, \cdots ,m-1 \} $ (exhaustive permutation \index{Permutation} of the length $m-1$)\footnote{See
+certain number $a$ all values from $\{1, \cdots ,m-1 \} $ (exhaustive permutation \index{Permutation} of the length $m-1$).\footnote{See
 also theorem~\ref{thm-zth-ordp} in \hyperlink{Chapter_ElementaryNT_9}
-{chapter~\ref{MultOrdPrimitveRoot}, Multiplicative order and primitive roots}.}.
+{chapter~\ref{MultOrdPrimitveRoot}, Multiplicative order and primitive roots}.}
 \end{theorem}
-\noindent The following three examples\footnote{%
+
+
+The following three examples\footnote{%
   See chapter~\ref{nt:AppArith1} ``\nameref{nt:AppArith1}''
   for the source code to compute the tables using Sage.}
 illustrate the properties of multiplicative inverses.
@@ -883,7 +896,7 @@ This is not quite as simple in modular arithmetic because this would give:
 $$
  (4^3)^2 \equiv 4^{3*2{\rm ~(mod~}5)} \equiv 4^{6{\rm ~(mod~}5)} \equiv 4^1 \equiv 4{\rm ~(mod~}5). 
 $$
-But as we saw above, the correct result is $1$!!
+But as we saw above, the correct result is $1$ !
 
 (3) Therefore, the rule is slightly different for consecutive powers in modular arithmetic: We do not multiply the 
 exponents in (mod $m$) but rather in (mod $J(m)$).
@@ -985,8 +998,8 @@ Let us take the equation $a \equiv b^c{\rm ~(mod~}m)$.
 
 \begin{itemize}
 \item [\bf a)] 
-      {\bf Taking the logarithm (determining $c$) -- Discrete logarithm
-       problem:\footnotemark}
+      {\bf Taking the logarithm (determining $c$) --- Discrete logarithm
+       problem\footnotemark:}
 \footnotetext{%
 Further details about
 the\index{Logarithm problem!discrete}\index{Discrete logarithm}
@@ -994,18 +1007,23 @@ the\index{Logarithm problem!discrete}\index{Discrete logarithm}
 can be found in chapter~\ref{L-Discrete-Logarithm-as-Basis}.
 }
 
+\index{Logarithmusproblem!diskret}
+\index{DL-Problem}\index{Diskreter Logarithmus}
 If we know $a$ and $b$ of the three numbers $a$, $b$ and $c$ that meet this equation, then every known method 
 of finding $c$ is approximately just as time-consuming as trying out all $m$ possible values for $c$ one after the 
 other. For a typical $m$ of the order of magnitude of $10^{180}$ for $600$-digit binary numbers, this is a 
 hopeless task. More precisely, for suitably large numbers $m$, the time required according to current 
 knowledge is proportional to ${\rm exp}\left( C*( \log m [\log \log m]^2)^{1/3}\right)$ with a constant $C > 1$.
+
+
 \item[\bf b)] {\bf Calculating the root (determining $b$):}  
 
-The situation is similar if 
-$b$ is the unknown variable and we know the values of $a$ and $c$: \\
-If we know the Euler function \index{Euler!(phi) function} of $m, J(m)$,
-then we can easily\footnote{%
-  See chapter~\ref{nt:NumberTheory_Appendix_GCD} ``\nameref{nt:NumberTheory_Appendix_GCD}''.
+The situation is similar if $b$ is the unknown variable and we know the values
+of $a$ and $c$: \\
+If we know the Euler function\footnote{%
+  See chapter~\ref{L-Euler-Function}, ``\nameref{L-Euler-Function}''.
+} \index{Euler!(phi) function} $J(m)$, then we can easily\footnote{%
+  See chapter~\ref{nt:NumberTheory_Appendix_GCD}, ``\nameref{nt:NumberTheory_Appendix_GCD}''.
 }\index{gcd}
 calculate $d$ with $c*d \equiv 1 {\rm ~(mod~} J(m))$ and 
 use theorem~\ref{thm-zth-pot} to obtain:
@@ -1103,7 +1121,9 @@ We call this set $\mathbb{Z}_n^*$.
 \begin{definition}\label{def-zth-znmult}\index{Z@$\mathbb{Z}_n^*$} $\mathbb{Z}_n^*:$
 $$\mathbb{Z}_n^* = \{ a \in \mathbb{Z}_n  | {\rm gcd}(a,n) = 1 \}.$$
 \end{definition} 
-$\mathbb{Z}_n^*$ is sometimes also called the reduced remainder set $R'$ modulo $n$.
+
+\noindent $\mathbb{Z}_n^*$ is sometimes also called the reduced remainder set
+$R'$ modulo $n$.
 
 \begin{example}{:}
 For $n=10=2*5$ the following applies:
@@ -1139,7 +1159,6 @@ $a = 3$ modulo $10$ with $\mathbb{Z}_n^* = \{ 1, 3, 7, 9 \}$ it holds that $a^{-
 1 & \equiv & 3 * 7{\rm ~(mod~}10), \nonumber \\
 7 & \equiv & 3 * 9{\rm ~(mod~}10). \nonumber 
 \end{eqnarray*}
-
 The unique invertibility\index{Invertibility} is an essential condition for
 cryptography (see section~\ref{rsabeweis}).
 
@@ -1192,11 +1211,13 @@ the Euler\footnote{Leonhard Euler, Swiss mathematician, Apr 15, 1707 -- Sep 18, 
 } function $J(n)$.
 
 \begin{definition}\label{def-zth-phiofn} \hypertarget{EulerFunction}{} 
-The Euler function\footnote{Often written as the Euler phi function\index{Euler!(phi) function} $\Phi(n)$.} $J(n)$ specifies the number of 
-elements in $\mathbb{Z}_n^*$.
+The Euler function\footnote{Often written as the Euler phi function\index{Euler!(phi) function} $\Phi(n)$ or $\phi(n)$.}
+$J(n)$ specifies the number of elements in $\mathbb{Z}_n^*$.
 \end{definition}
-$J(n)$ also specifies how many whole numbers have multiplicative inverses in mod $n$.
-$J(n)$ can be calculated if we know the prime factors of $n$\index{Prime factor!decomposition}.
+
+$J(n)$ also specifies how many whole numbers have multiplicative inverses in
+mod $n$. $J(n)$ can be calculated if we know the prime factors of $n$.
+\index{Prime factor!decomposition}
 
 \begin{theorem}\label{thm-zth-phiprime}
 For a prime number, the following is true: $J(p) = p - 1.$
@@ -1209,15 +1230,16 @@ $$J(p*q) = (p - 1) * (q - 1) \quad  {\rm or} \quad  J(p * q) = J(p) * J(q).$$
 \noindent This case is important for the RSA procedure.
 
 \begin{theorem}\label{thm-zth-phimultprime}\label{J_of_p1..pk}
-If $n = p_1 * p_2 * \cdots * p_k$ where $p_1$ to $p_k$ are distinct prime numbers
-(i.e. no factor occurs more than once), 
-then the following is true (as a generalization of theorem~\ref{thm-zth-phipq}):
+If $n = p_1 * p_2 * \cdots * p_k$ where $p_1$ to $p_k$ are distinct prime
+numbers (i.e. no factor occurs more than once), then the following is true
+(as a generalization of theorem~\ref{thm-zth-phipq}):
 $$J(n) = (p_1 - 1)*(p_2 - 1)* \cdots *(p_k - 1).$$
 \end{theorem}
 
 \begin{theorem}\label{thm-zth-phinum}\label{J_of_n}
 
-In general, the following is true for every prime number $p$ and every $n$ in $\mathbb{N}$:
+In general, the following is true for every prime number $p$ and every $n$ in
+$\mathbb{N}$:
 \begin{enumerate}
 \item $J(p^n) = p^{n-1} * (p-1).$
 \item If $n = p_1^{e_1} * p_2^{e_2} * \cdots * p_k^{e_k}$, 
@@ -1307,20 +1329,24 @@ For our example, this means:
 \item[] Since the modulus $7351$ is prime, $p-2 = 7349$. \\
     $1579^{-1} \equiv 1579^{7349} {\rm ~(mod~} p).$
 \end{itemize}
-By cleverly breaking down the exponent, we can calculate this power relatively easily (see Section~\ref{hohpot}
-\hyperlink{hohpot}{Fast calculation of high powers}):
+By cleverly breaking down the exponent, we can calculate this power relatively
+easily\footnote{%
+See section~\ref{hohpot}, ``\nameref{hohpot}''.
+% Veraltet: \hyperlink{hohpot}{Fast calculation of high powers}
+}:
 \begin{itemize}
-\item[] $7349 = 4096 + 2048 + 1024 + 128 + 32 + 16 + 4 + 1$
-\item[] $1579^{-1} \equiv 4716 {\rm ~(mod~} 7351).$
+  \item[] $7349 = 4096 + 2048 + 1024 + 128 + 32 + 16 + 4 + 1$
+  \item[] $1579^{-1} \equiv 4716 {\rm ~(mod~} 7351)$
 \end{itemize}
 
 
 % --------------------------------------------------------------------------
 \subsection{How many private RSA keys $d$ are there modulo 26}
 
-According to theorem~\ref{thm-zth-pot}, the arithmetic operations of modular expressions are performed in the exponents modulo $J(n)$ 
-rather than modulo $n$\footnote{For the following example, we will adopt the usual practice for the RSA procedure 
-of using ``$n$'' rather than ``$m$'' to denote the modulus.}.
+According to theorem~\ref{thm-zth-pot}, the arithmetic operations of modular
+expressions are performed in the exponents modulo $J(n)$ rather than modulo
+$n$.\footnote{For the following example, we will adopt the usual practice for
+the RSA procedure of using ``$n$'' rather than ``$m$'' to denote the modulus.}
 
 In $a^{e*d} \equiv a^1 {\rm ~(mod~} n)$, if we wish to determine the 
 inverses for the factor $e$ in the exponent, we need to calculate modulo $J(n)$.
@@ -1341,8 +1367,11 @@ to $26$ (see \ref{def-zth-znmult}).
 For every $e$ in $R''$, there exists therefore precisely one element (not necessarily different from $e$) 
 such that $e*d \equiv 1 {\rm ~(mod~} J(26))$.
 
-For all $e$ that are relatively prime to $J(n)$ we can calculate $d$ as follows using the Euler-Fermat theorem (the number of all $d$ is calculated by the Sage program in 
-\ref{l:NumberTheory_Sage_Number-of-RSA-keys}):
+The general case, where $n$ can be any integer (the sample here had n fixed to
+$26$), is considered in chapter \ref{l:NumberTheory_Sage_Number-of-RSA-keys}.
+There is a Sage program, calculating the number of all $d$. For all $e$ that
+are relatively prime to $J(n)$ we can calculate $d$ as follows using the
+Euler-Fermat theorem:
 
 For $a^{J(n)} \equiv 1 {\rm ~(mod~} n)$ is the same as saying $ a^{J(n)-1} \equiv a^{-1} {\rm ~(mod~} n)$. Therefore
 $$ d \equiv  e^{-1}   {\rm ~(mod~} J(n)) 
@@ -1350,16 +1379,20 @@ $$ d \equiv  e^{-1}   {\rm ~(mod~} J(n))
 $$
 \end{example}
 
-The problems of factorizing\index{Factorization!factorization problem} $n=pq$ with $q\neq p$ and of finding $J(n)$ have a similar degree of difficulty 
-and if we find a solution for one of the two problems, we also have a solution for the
-other\footnote{If we know the factors of $n=p*q$ with $p\neq q$, then $J(n)=(p-1)*(q-1) = n-(p+q)+1$. Additionally the factors $p$ and $q$ are
-solutions of the quadratic equation
+The problems of factorizing\index{Factorization!factorization problem} $n=pq$
+with $q\neq p$ and of finding $J(n)$ have a similar degree of difficulty, and
+if we find a solution for one of the two problems, we also have a solution for
+the other\footnote{%
+If we know the factors of $n=p*q$ with $p\neq q$, then
+$J(n)=(p-1)*(q-1) = n-(p+q)+1$. Additionally the factors $p$ and $q$ are
+solutions of the quadratic equation:
 $ x^2 - (p+q) x + pq=0.
 $\\
 If only $n$ and $J(n)$ are known, then it is:
 $pq=n$ and $p+q= n-J(n)+1.$ So you get $p$ and $q$ by solving the equation
-$$ x^2 + (J(n)-n-1)x +n= 0.
-$$} (please compare requisition 3 in \hyperlink{Chapter_ElementaryNT_10_1}
+$$ x^2 + (J(n)-n-1)x +n= 0$$\vspace{-\baselineskip}
+}
+(please compare requisition 3 in \hyperlink{Chapter_ElementaryNT_10_1}
 {section~\ref{Label_Chapter_ElementaryNT_10_1}}).
 
 
@@ -1382,10 +1415,11 @@ $$} (please compare requisition 3 in \hyperlink{Chapter_ElementaryNT_10_1}
 }
 \label{MultOrdPrimitveRoot}
 
-The multiplicative order and the primitive root are two useful constructs (concepts) in elementary number theory.
+The multiplicative order and the primitive root are two useful constructs
+(concepts) in elementary number theory.
 
-Mathematicians often ask, in which conditions the repeated application of an operation results in the neutral
-element (compare \hyperlink{patternsandstructures}{Patterns and Structures}, chapter~\ref{patternsandstructures})\index{Structure}.
+Mathematicians often ask, in which conditions the repeated application of an
+operation results in the neutral element (compare \hyperlink{patternsandstructures}{Patterns and Structures}, chapter~\ref{patternsandstructures})\index{Structure}.
 
 For the $i$-times successive modular multiplication of a number $a$ with $i=1,\cdots, m-1$ the product is the neutral element
 of the multiplication if and only if $a$ and $m$ are relatively prime. 
@@ -1396,22 +1430,25 @@ The {\bf multiplicative order} ${\rm ord}_m(a)$ of a whole number $a$ (mod $m$)
 smallest whole number $i$ for which $a^{i} \equiv 1 ~(mod~m)$.  
 \end{definition}
 
-The following table shows that in a multiplicative group 
-(here $\mathbb{Z}_{11}^*$) not all numbers necessarily have the same order. The orders in this case are $1, 2, 5$ and 
-$10$ and we notice that:
+The following table shows that in a multiplicative group (here
+$\mathbb{Z}_{11}^*$) not all numbers necessarily have the same order. The
+orders in this case are $1, 2, 5$ and $10$ and we notice that:
 \begin{enumerate}
 \item The orders are all factors of $10$.
-\item The numbers $a = 2, 6, 7$ and $8$ have the order $10$ - we say that these numbers
-      have the {\bf maximum order}\index{Order!maximum} in $\mathbb{Z}_{11}^*$.
+\item The numbers $a = 2, 6, 7$ and $8$ have the order $10$ - we say that these
+      numbers have the {\bf maximum order}\index{Order!maximum} in
+      $\mathbb{Z}_{11}^*$.
 \end{enumerate}
 
+\newpage
 \begin{example}{ 1:}\\
 The following table~\ref{expmod11}\footnote{%
   The source code to generate table \ref{expmod11} with Sage can be found
   in chapter~\ref{nt:AppArith3a1} ``\nameref{nt:AppArith3a1}''.} 
-shows the values $a^i$ mod $11$ for the exponents $i = 1, 2, \cdots, 10$ and for the bases 
-$a =  1, 2, \cdots, 10$ as well as the resulting value $ord_{11}(a)$ for each $a$/
-\end{example}
+shows the values $a^i$ mod $11$ for the exponents $i = 1, 2, \cdots, 10$, and
+for the bases $a =  1, 2, \cdots, 10$ as well as the resulting value
+$ord_{11}(a)$ for each $a$.
+\end{example}\\
 
 \begin{table}[ht]
 \begin{center}
@@ -1446,8 +1483,9 @@ a=10         & 10  & {\bf 1}   & 10  & 1   & 10    & 1   & 10  & 1   & 10  & 1  
 \label{SrcArith3a}\label{expmod11}
 \end{table}
 
-\noindent Table~\ref{expmod11} shows, for example, that the order of $3$ modulo $11$
-has the value $5$.
+\noindent Table~\ref{expmod11} shows, for example, that the order of $3$ modulo
+$11$ has the value $5$.\\
+
 
 \begin{definition}\label{def-zth-primitiveroot}
 If $a$ and $m$ are co-prime\index{Number!co-prime} and if $ord_m(a) = J(m)$
@@ -1459,20 +1497,25 @@ of $m$.\footnote{%
 \end{definition}
 
 Not for every modulo $m$ there is a number $a$, which is a primitive root.
-In the table~\ref{expmod11}, only $a = 2, 6, 7$ and $8$ is a primitive root with respect
-to mod $11$ ($J(11) = 10$).
+In the table~\ref{expmod11}, only $a = 2, 6, 7$ and $8$ are a primitive root
+with respect to mod $11$ ($ord_m(a) = J(11) = 10$).
 
-Using the primitive roots, we can clearly establish the conditions for which powers modulo $m$ have a unique inverse and the calculation in the exponents is manageable.
+Using the primitive roots, we can clearly establish the conditions for which
+powers modulo $m$ have a unique inverse and the calculation in the exponents
+is manageable.
 
-The following two tables show the multiplicative orders and primitive roots
-modulo $45$ and modulo $46$.
+The following two tables \ref{expmod45} and \ref{expmod46} show the
+multiplicative orders and primitive roots modulo $45$ and modulo $46$.
 
+\newpage
 \begin{example}{ 2:}\\
 The following table~\ref{expmod45}\footnote{%
-  See chapter~\ref{nt:AppArith3b} ``\nameref{nt:AppArith3b}''
-  for the source code to generate the table~\ref{expmod45} using Sage.
-} shows the values $a^i$ mod $45$ for the exponents $i = 1, 2, \cdots, 12$ and for the bases 
-$a =  1, 2, \cdots, 12$ as well as the resulting value $ord_{45}(a)$ for each $a$.
+  The source code to generate table \ref{expmod45} with Sage can be found
+  in chapter~\ref{nt:AppArith3b}, ``\nameref{nt:AppArith3b}''.
+  }
+shows the values $a^i$ mod $45$ for the exponents $i = 1, 2, \cdots, 12$ and
+for the bases $a =  1, 2, \cdots, 12$ as well as the resulting value
+$ord_{45}(a)$ for each $a$.
 \end{example}
 
 \begin{table}[ht]
@@ -1517,6 +1560,9 @@ $J(45)$ is calculated using theorem~\ref{thm-zth-phinum}: $J(45) = J(3^2*5) = 3^
 Since $45$ is not a prime, there is no ``multiplicative order'' for all values of $a$ (for all numbers that are not 
 relatively prime to $45: 3, 5, 6, 9, 10, 12, \cdots,$ because $45 = 3^2*5$).
 
+
+
+\vspace{\baselineskip}
 \begin{example}{ 3:}\\
 Is $7$ a primitive root modulo $45$?
 
@@ -1524,9 +1570,11 @@ Is $7$ a primitive root modulo $45$?
 Table~\ref{expmod45} shows that the number $a=7$ is not a primitive root of $45$, because $ord_{45}(7) = 12 \not= 24 = J(45)$.
 \end{example}
 
+
+\newpage
 \begin{example}{ 4:}\\
 The following table~\ref{expmod46}\footnote{%
-  See chapter~\ref{nt:AppArith3c} ``\nameref{nt:AppArith3c}''
+  See chapter~\ref{nt:AppArith3c}, ``\nameref{nt:AppArith3c}''
   for the source code to generate the table~\ref{expmod46} using Sage.
 } answers the question as to
 whether the number $a=7$ is a primitive root of $46$. 
@@ -1620,29 +1668,22 @@ $a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 &
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\hypertarget{Chapter_ElementaryNT_10}{}
+\newpage
+%\hypertarget{Chapter_ElementaryNT_10}{}
 \hypertarget{RSABeweis}{}
 \section{Proof of the RSA procedure with Euler-Fermat}
 \index{RSA}\label{rsabeweis}
 Using the Euler-Fermat theorem, we can ``prove'' the
-RSA\footnote{The RSA procedure\index{RSA!RSA procedure} is the most
-common asymmetric cryptography procedure. Developed in 1978 by Ronald Rivest,
+RSA\footnote{The RSA procedure\index{RSA!RSA procedure} is the most common
+asymmetric cryptography procedure. Developed in 1978 by Ronald Rivest,
 Adi Shamir and Leonard Adleman, it can be used both for signatures and for
-encryption. Cryptographers always associate this procedure with the
-abbreviation ``\textbf{RSA}'' $-$ the following remark is meant with humor to show
-that each letter combination can be used with several meanings: In Britain
+encryption.
+Cryptographers always associate this procedure with the abbreviation
+``\textbf{RSA}'' $-$ the following remark is meant with humor to show that
+each letter combination can be used with several meanings: In Britain
 the ``Royal Society for the encouragement of Arts, Manufactures \& Commerce''
 is commonly known as the ``RSA''.
-}$^,$\footnote{%
-In literature\index{Literature} and in movies\index{Movies} not only 
-classic but also modern cryptographic methods have been used 
-(see appendix~\ref{s:appendix-movies}).
-% hier die items nicht einrücken ! xxxxxxxxxxxxxxx
-% \begin{list}{\textbullet}{\leftmargin10pt}
-%   \item the movie ``House of Cards'', 1992
-%   \item the story ``The Dialogue of the Sisters'' by Dr.~C.~Elsner
-% \end{list}\vspace{-\baselineskip}\vspace{-\parskip}
-} %end footnote
+}
 procedure in the group $\mathbb{Z}_n^*$.
 
 
