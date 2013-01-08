@@ -207,7 +207,7 @@ BEGIN
     GROUPBOX        "Wariant mno¿enia",IDC_STATIC,254,115,103,50
     RTEXT           "Wartoœæ pierwszego znaku alfabetu",IDC_STATIC,259,86,67,19
     EDITTEXT        IDC_EDIT2,332,87,16,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
-    PUSHBUTTON      "[i18n] &Reset key",IDC_BUTTON_RESETKEY,15,294,223,18
+    PUSHBUTTON      "&Reset",IDC_BUTTON_RESETKEY,15,294,223,18
 END
 
 IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 354
@@ -275,7 +275,7 @@ END
 
 IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 302, 298
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "[i18n] Display Hill Key Matrix"
+CAPTION "Wyswietl kluczowa macierz Hilla"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "&Kopiuj tekst",IDC_BUTTON1,9,273,52,19
@@ -433,7 +433,7 @@ BEGIN
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,44,74,105,37,WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,198,73,143,37,WS_EX_TRANSPARENT
     CTEXT           "rozwinêto z Uniwersytetem Siegen i Darmstadt, jak i za pomoc¹ wielu ochotników projekt open-source.",IDC_STATIC,20,119,330,16
-    CTEXT           "Copyright (C) 1998-2012 Deutsche Bank AG i wspó³pracowników\nprzy Open Source  na podstawie Apache-Lizenz 2.0",IDC_STATIC,7,233,356,16
+    CTEXT           "Copyright (C) 1998-2013 Deutsche Bank AG i wspó³pracowników\nprzy Open Source  na podstawie Apache-Lizenz 2.0",IDC_STATIC,7,233,356,16
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,71,356,44
     CTEXT           "CrypTool jest darmowym i kompleksowym programem edukacyjnym\nklasycznej i wspó³czesnej kryptografii / kryptoanalizy.\n\nWraz ze sponsorami",IDC_STATIC,20,35,330,32
     CTEXT           "CrypTool jest stosowane na ca³ym œwiecie do nauczania w szko³ach i na uniwersytetach oraz do szkolenia i podnoszenie œwiadomoœci pracowników firm i agencji rz¹dowych.",IDC_STATIC,20,140,330,16,WS_TABSTOP
@@ -720,7 +720,7 @@ END
 
 IDD_SHOW_KEY_HILL10x10 DIALOGEX 0, 0, 523, 389
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "[i18n] Display Hill Key Matrix"
+CAPTION "Wyswietl kluczowa macierz Hilla"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "&Kopiuj klucz",IDC_BUTTON1,9,361,96,20
@@ -1186,7 +1186,7 @@ BEGIN
     PUSHBUTTON      "&Opcje tekstu",IDC_BUTTON_TEXTOPTIONS,265,376,74,20
     RTEXT           "Wartoœæ pierwszego znaku alfabetu",IDC_STATIC,445,75,67,19
     EDITTEXT        IDC_EDIT2,518,76,16,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
-    PUSHBUTTON      "[i18n] &Reset key",IDC_BUTTON_RESETKEY,224,321,209,18
+    PUSHBUTTON      "&Reset",IDC_BUTTON_RESETKEY,224,321,209,18
 END
 
 IDD_SHOW_KEY DIALOG  0, 0, 277, 89
@@ -2067,14 +2067,14 @@ BEGIN
     EDITTEXT        IDC_EDIT6,114,5,88,14,ES_AUTOHSCROLL | WS_DISABLED
 END
 
-IDD_SHOW_HASH DIALOG  0, 0, 241, 71
+IDD_SHOW_HASH DIALOGEX 0, 0, 354, 65
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Dialog"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    PUSHBUTTON      "Zapisz wart. hasz do formatu &HEX",IDOK,7,46,113,18
-    DEFPUSHBUTTON   "&Zamknij",IDCANCEL,147,46,87,18
-    EDITTEXT        IDC_EDIT1,7,16,227,15,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Zapisz wart. hasz do formatu &HEX",IDOK,7,40,130,18
+    DEFPUSHBUTTON   "&Zamknij",IDCANCEL,217,40,130,18
+    EDITTEXT        IDC_EDIT1,7,16,340,15,ES_AUTOHSCROLL | ES_READONLY
 END
 
 IDD_FACTORISATION_DEMO DIALOGEX 0, 0, 366, 339
@@ -2141,8 +2141,8 @@ BEGIN
     LTEXT           "Automatyczna zamiana zosta³a zaimplementowana tylko dla niemieckich i angielskich tekstów. Dla innych jêzyków zalecana jest analiza maualna.",IDC_STATIC,5,5,182,26
     LTEXT           "W wielu przypadkach, automatyczna analiza mo¿e zostaæ poprawiona przez przyjêcie 'e' jako najczêœciej wystêpuj¹cego znaku w tekœcie:",IDC_STATIC_ANALYSIS_AUTOMATIC_OPTION1,15,123,192,25
     LTEXT           "W tekstach niemieckich digramy 'en' i 'er' s¹ bardzo powszechne. Takie za³o¿enie mo¿e poprawiæ analizê:",IDC_STATIC_ANALYSIS_AUTOMATIC_OPTION2,15,168,192,16
-    GROUPBOX        "[i18n] Options for automatic analysis",IDC_STATIC,5,65,220,144
-    GROUPBOX        "[i18n] Options for manual analysis",IDC_STATIC,5,214,220,36
+    GROUPBOX        "Opcje automatycznej analizy",IDC_STATIC,5,65,220,144
+    GROUPBOX        "Opcje manualnej analizy",IDC_STATIC,5,214,220,36
     EDITTEXT        IDC_EDIT_WORDLIST_GERMAN,15,103,147,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT_WORDLIST_ENGLISH,15,103,147,14,ES_AUTOHSCROLL | ES_READONLY
     PUSHBUTTON      "ZnajdŸ...",IDC_BUTTON_SELECT_WORDLIST_GERMAN,165,102,50,14
@@ -4505,7 +4505,7 @@ BEGIN
     LTEXT           "Prosz? wybra? przynajmniej jeden j?zyk, w którym szuka? mo?liwych s?ów kluczowych i wybra? dok?adnie jeden j?zyk, w którym zosta? napisany szyfrogram.",IDC_STATIC,7,7,216,24
     PUSHBUTTON      "OK",IDOK,7,115,216,18
     LTEXT           "J?zyk(i) do s?ów kluczowych:",IDC_STATIC,7,39,84,8
-    LTEXT           "[i18n] Language for cleartext:",IDC_STATIC,118,39,97,8
+    LTEXT           "Jezyk tekstu otwartego:",IDC_STATIC,118,39,97,8
     LISTBOX         IDC_LIST_LANGUAGES_KEYWORD,7,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
     LISTBOX         IDC_LIST_LANGUAGES_CIPHERTEXT,118,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
 END
@@ -4533,7 +4533,7 @@ END
 
 IDD_CRYPTOOL_PRNG_SEED_COLLECTOR DIALOGEX 34, 22, 218, 99
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
-CAPTION "[i18n] CrypTool Random Number Generator"
+CAPTION "Generator losowych liczb CrypToola"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     LTEXT           "Move your mouse and press different keys on your keyboard until enough random material is collected.",IDC_STATIC,104,10,104,48
@@ -4785,7 +4785,7 @@ BEGIN
             MENUITEM "Narzêdzie edukacyjne teorii liczb", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Obliczyc liczby &Mersenne’a...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "[i18n] &Generic t-adic NAF Key Generator...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "&Generator klucza rodzajowego t-adic NAF...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Kryptoanaliza"
@@ -5142,7 +5142,7 @@ BEGIN
             MENUITEM "Narzêdzie edukacyjne teorii liczb", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Obliczyc liczby &Mersenne’a...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "[i18n] &Generic t-adic NAF Key Generator...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "&Generator klucza rodzajowego t-adic NAF...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Kryptoanaliza"
@@ -5499,7 +5499,7 @@ BEGIN
             MENUITEM "Narzêdzie edukacyjne teorii liczb", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Obliczyc liczby &Mersenne’a...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "[i18n] &Generic t-adic NAF Key Generator...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "&Generator klucza rodzajowego t-adic NAF...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Kryptoanaliza"
@@ -5856,7 +5856,7 @@ BEGIN
             MENUITEM "Narzêdzie edukacyjne teorii liczb", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Obliczyc liczby &Mersenne’a...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "[i18n] &Generic t-adic NAF Key Generator...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "&Generator klucza rodzajowego t-adic NAF...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Kryptoanaliza"
@@ -6242,7 +6242,7 @@ BEGIN
             MENUITEM "Narzêdzie edukacyjne teorii liczb", ID_INTERACTIVE_NUMBER_THEORY
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", ID_INDIV_POINTADDITIONONELLIPTICCURVES
             MENUITEM "Obliczyc liczby &Mersenne’a...", ID_COMPUTE_MERSENNE_NUMBERS
-            MENUITEM "[i18n] &Generic t-adic NAF Key Generator...", ID_GENERATION_TADIC_NAF_KEYS
+            MENUITEM "&Generator klucza rodzajowego t-adic NAF...", ID_GENERATION_TADIC_NAF_KEYS
         END
     END
     POPUP "&Kryptoanaliza"
@@ -6395,12 +6395,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
-            VALUE "FileVersion", "[CRYPTOOL_VERSION]"
+            VALUE "FileVersion", "1.4.31"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Contributors © 1998-2012"
+            VALUE "LegalCopyright", "Contributors © 1998-2013"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
+            VALUE "ProductVersion", "1.4.31"
         END
     END
     BLOCK "VarFileInfo"
@@ -7612,10 +7612,9 @@ BEGIN
     IDD_SHOW_HASH, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 234
+        RIGHTMARGIN, 347
         TOPMARGIN, 7
-        BOTTOMMARGIN, 64
-        HORZGUIDE, 46
+        BOTTOMMARGIN, 58
     END
 
     IDD_FACTORISATION_DEMO, DIALOG
@@ -8465,7 +8464,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "[CRYPTOOL_VERSION_FULL]"
+    IDR_MAINFRAME           "CrypTool 1.4.31 Beta 5a [VS2010]"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -8512,41 +8511,38 @@ END
 STRINGTABLE 
 BEGIN
     IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_CUSTOM 
-                            "[i18n] User-defined reference file"
-    IDS_LANGUAGEREFERENCEFILE_FILENAME_CUSTOM 
-                            "[i18n] Please specify a file name."
+                            "Zdefiniowany przez uzytkownika plik referencyjny"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_CUSTOM "Prosze podac nazwe pliku."
     IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_ENGLISH 
-                            "[i18n] English reference file"
+                            "Angielski plik referencyjny"
     IDS_LANGUAGEREFERENCEFILE_FILENAME_ENGLISH "genesis-en.txt"
     IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_GERMAN 
-                            "[i18n] German reference file"
+                            "Niemiecki plik referencyjny"
     IDS_LANGUAGEREFERENCEFILE_FILENAME_GERMAN "genesis-de.txt"
-    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_POLISH 
-                            "[i18n] Polish reference file"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_POLISH "Polski plik referencyjny"
     IDS_LANGUAGEREFERENCEFILE_FILENAME_POLISH "genesis-pl.txt"
-    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_SERBIAN 
-                            "[i18n] Serbian reference file"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_SERBIAN "Serbski plik referencyjny"
     IDS_LANGUAGEREFERENCEFILE_FILENAME_SERBIAN "genesis-sr.txt"
     IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_SPANISH 
-                            "[i18n] Spanish reference file"
+                            "Hiszpanski plik referencyjny"
     IDS_LANGUAGEREFERENCEFILE_FILENAME_SPANISH "genesis-es.txt"
     IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_FRENCH 
-                            "[i18n] French reference file"
+                            "Francuski plik referencyjny"
     IDS_LANGUAGEREFERENCEFILE_FILENAME_FRENCH "genesis-fr.txt"
-    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_LATIN "[i18n] Latin reference file"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_LATIN "Lacinski plik referencyjny"
 END
 
 STRINGTABLE 
 BEGIN
     IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_ENGLISH 
-                            "[i18n] The English word list for the substitution analysis (%s) does not exist although it was rolled out with CrypTool."
+                            "Angielski lista wyrazów do analizy substytucyjnego (%s) nie istnieje, chociaz zostala wdrozona z CrypToolem."
     IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
-                            "Szyfrowanie RSA przy u¿yciu e / deszyfrowanie przy u¿yciu d  [i18n alphabet size: %i]"
-    IDS_NGRAM_ANALYSIS_COUNT_NGRAMS           "-gram (%d)"
+                            "Szyfrowanie RSA przy u¿yciu e / deszyfrowanie przy u¿yciu d rozmiar apfabetu: %i"
+    IDS_NGRAM_ANALYSIS_COUNT_NGRAMS "-gram (%d)"
     IDS_GENERATION_TADIC_NAF_KEYS_PATH "tadicnafkeys\\"
     IDS_GENERATION_TADIC_NAF_KEYS_EXECUTABLE "t-adicNAF.hta"
     IDS_GENERATION_TADIC_NAF_KEYS_ERROR_EXECUTION 
-                            "[i18n] The file ""%s"" in directory ""%s"" could not be opened."
+                            "Nie mozna otworzyc pliku ""%s"" z katalogu ""%s""."
     IDR_OPENGLTYPE          "\nUnnamed\n\nOpenGL file (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nPliki OpenGL "
     IDS_STRING_TRANSLATIONS_HEADING_POLISH "T³umaczenie na jêzyk polski"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_POLISH 
@@ -9319,7 +9315,7 @@ BEGIN
     IDS_STRING_PA_HEX       "Zawartoœæ cyklu (hex)"
     IDS_STRING_PA_FSBDTITLE "Wyniki analizy czêstotliwoœci w"
     IDS_STRING_RSATUT_WRONG_PUBLICKEY 
-                            "[i18n] The parameter e (%s) is not coprime to phi(N) (%s). Either a fixed public key is used (here: 2^16+1), or a new key is generated. Do you want to generate a new public key?"
+                            "Parametr e (%s) nie jest wzglednie pierwszy z Phi(N) (%s). Albo stale stosuje sie klucz publiczny (tutaj: 2 ^ 16 +1), lub generowany jest nowy klucz. Czy chcesz, aby zostal wygenerowac nowy klucz publiczny?"
 END
 
 STRINGTABLE 
@@ -10670,7 +10666,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    ID_GENERATION_TADIC_NAF_KEYS "[i18n] Generates t-adic NAF keys"
+    ID_GENERATION_TADIC_NAF_KEYS "Stwórz klucze t-adic NAF"
 END
 
 STRINGTABLE 
@@ -11236,27 +11232,26 @@ BEGIN
     IDS_CONTEXT_MENU_OPENGL_ENABLE_BORDER_LINES "Pokaz granice kostki"
     IDS_CONTEXT_MENU_OPENGL_DISABLE_BORDER_LINES "Ukryj granice kostki"
     IDS_CONTROL_TOTXT       "Jako tekst"
-    IDS_STRING_PRIME_NUMBERS_GENERATION_TITLE 
-                            "[i18n] Generating prime numbers"
+    IDS_STRING_PRIME_NUMBERS_GENERATION_TITLE "Generowanie liczb pierwszych"
     IDS_CONTROL_TOHEX       "Heksadecymalnie"
     IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT1 
-                            "[i18n] Generating prime numbers in the following value range:\n[%s, %s]"
+                            "Generowanie liczb pierwszych w nastepujacym zakresie wartosci:\n[%s, %s]"
     IDS_STRING_PRIME_NUMBERS_GENERATION_TEXT2 
-                            "[i18n] Generating prime numbers in the following value ranges:\n[%s, %s], [%s, %s]"
+                            "Generowanie liczb pierwszych w nastepujacym zakresie wartosci:\n[%s, %s], [%s, %s]"
     IDS_NGRAM_ANALYSIS_COUNT_HISTOGRAMS "Histogram (%d)"
     IDS_NGRAM_ANALYSIS_COUNT_DIGRAMS "Digram (%d)"
     IDS_NGRAM_ANALYSIS_COUNT_TRIGRAMS "Trigram (%d)"
     IDS_STRING_SUBSTITUTION_ANALYSIS_MISSING_WORDLIST_GERMAN 
-                            "[i18n] The German word list for the substitution analysis (%s) does not exist although it was rolled out with CrypTool."
+                            "Niemiecka lista wyrazów do analizy substytucyjnego (%s) nie istnieje, chociaz zostala wdrozona z CrypToolem."
 END
 
 STRINGTABLE 
 BEGIN
     IDS_LANGUAGEREFERENCEFILE_FILENAME_LATIN "genesis-la.txt"
     IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_RUSSIAN 
-                            "[i18n] Russian reference file"
+                            "Rosyjski plik referencyjny"
     IDS_LANGUAGEREFERENCEFILE_FILENAME_RUSSIAN "genesis-ru.txt"
-    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_GREEK "[i18n] Greek reference file"
+    IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_GREEK "Grecki plik referencyjny"
     IDS_LANGUAGEREFERENCEFILE_FILENAME_GREEK "genesis-gr.txt"
 END
 
@@ -11686,7 +11681,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Zatvori",IDOK,312,263,60,18,WS_GROUP
     CTEXT           "univerziteti Siegen i Darmstadt razvili su ga kao\nkao projekat otvorenog koda zahvaljujuæi mnogim programerima dobrovoljcima.",IDC_STATIC,29,127,330,16
-    CTEXT           "Copyright (C) 1998-2012 Deutsche Bank AG i Saradnici\nDistribuirano kao otvoreni kod pod uslovima Apache 2.0 Licence",IDC_STATIC,16,242,356,16
+    CTEXT           "Copyright (C) 1998-2013 Deutsche Bank AG i Saradnici\nDistribuirano kao otvoreni kod pod uslovima Apache 2.0 Licence",IDC_STATIC,16,242,356,16
     CTEXT           "CrypTool je besplatan i sveobuhvatni program za e-uèenje \nklasiène i savremene kriptografije i kriptoanalize.\n\nU zajednièkom naporu sa sponzorima",IDC_STATIC,29,44,330,32
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,53,82,105,37,WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,207,82,143,37,WS_EX_TRANSPARENT
@@ -13327,14 +13322,14 @@ BEGIN
     EDITTEXT        IDC_EDIT6,114,5,88,14,ES_AUTOHSCROLL | WS_DISABLED
 END
 
-IDD_SHOW_HASH DIALOG  0, 0, 241, 71
+IDD_SHOW_HASH DIALOGEX 0, 0, 354, 65
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Dijalog"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    PUSHBUTTON      "Smesti heš vrednosti u &HEX format",IDOK,7,46,113,18
-    DEFPUSHBUTTON   "&Zatvori",IDCANCEL,147,46,87,18
-    EDITTEXT        IDC_EDIT1,7,16,227,15,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Smesti heš vrednosti u &HEX format",IDOK,7,40,130,18
+    DEFPUSHBUTTON   "&Zatvori",IDCANCEL,217,40,130,18
+    EDITTEXT        IDC_EDIT1,7,16,340,15,ES_AUTOHSCROLL | ES_READONLY
 END
 
 IDD_FACTORISATION_DEMO DIALOGEX 0, 0, 366, 338
@@ -17664,7 +17659,7 @@ BEGIN
             VALUE "FileDescription", "www.cryptool.org"
             VALUE "FileVersion", "[CRYPTOOL_VERSION]"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Contributors © 1998-2012"
+            VALUE "LegalCopyright", "Contributors © 1998-2013"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
             VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
@@ -18867,10 +18862,9 @@ BEGIN
     IDD_SHOW_HASH, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 234
+        RIGHTMARGIN, 347
         TOPMARGIN, 7
-        BOTTOMMARGIN, 64
-        HORZGUIDE, 46
+        BOTTOMMARGIN, 58
     END
 
     IDD_FACTORISATION_DEMO, DIALOG
@@ -19792,7 +19786,7 @@ BEGIN
                             "[i18n] The English word list for the substitution analysis (%s) does not exist although it was rolled out with CrypTool."
     IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
                             "RSA šifrovanje pomocu e / dešifrovanje pomocu d  [i18n alphabet size: %i]"
-    IDS_NGRAM_ANALYSIS_COUNT_NGRAMS           "-gram (%d)"
+    IDS_NGRAM_ANALYSIS_COUNT_NGRAMS "-gram (%d)"
     IDS_GENERATION_TADIC_NAF_KEYS_PATH "tadicnafkeys\\"
     IDS_GENERATION_TADIC_NAF_KEYS_EXECUTABLE "t-adicNAF.hta"
     IDS_GENERATION_TADIC_NAF_KEYS_ERROR_EXECUTION 
@@ -24588,14 +24582,14 @@ BEGIN
     EDITTEXT        IDC_EDIT6,109,6,97,14,ES_AUTOHSCROLL | ES_READONLY
 END
 
-IDD_SHOW_HASH DIALOG  0, 0, 241, 71
+IDD_SHOW_HASH DIALOGEX 0, 0, 354, 65
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Dialog"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    PUSHBUTTON      "Hashwert als &HEX-Datei",IDOK,7,46,108,18
-    DEFPUSHBUTTON   "&Schließen",IDCANCEL,144,46,90,18
-    EDITTEXT        IDC_EDIT1,7,16,227,15,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Hashwert als &HEX-Datei",IDOK,7,40,130,18
+    DEFPUSHBUTTON   "&Schließen",IDCANCEL,217,40,130,18
+    EDITTEXT        IDC_EDIT1,7,16,340,15,ES_AUTOHSCROLL | ES_READONLY
 END
 
 IDD_CHANGE_PIN DIALOG  0, 0, 173, 209
@@ -25612,7 +25606,7 @@ BEGIN
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,44,74,105,37,WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,198,73,143,37,WS_EX_TRANSPARENT
     CTEXT           "haben es die Universitäten Siegen und Darmstadt\nund viele freiwillige Entwickler in einem Open-Source-Projekt entwickelt.",IDC_STATIC,20,119,330,16
-    CTEXT           "Copyright (C) 1998-2012 Deutsche Bank AG und Mitwirkende\nOpen-Source anhand der Apache-Lizenz 2.0",IDC_STATIC,7,233,356,16
+    CTEXT           "Copyright (C) 1998-2013 Deutsche Bank AG und Mitwirkende\nOpen-Source anhand der Apache-Lizenz 2.0",IDC_STATIC,7,233,356,16
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,71,356,44
     CTEXT           "CrypTool ist ein kostenloses und umfangreiches Lernprogramm\nzu klassischer und moderner Kryptographie/Kryptoanalyse.\n\nGemeinsam mit den Sponsoren",IDC_STATIC,20,35,330,32
     CTEXT           "CrypTool wird weltweit zur Lehre an Schulen und Hochschulen, und zur Ausbildung und Mitarbeiter-Awareness in Firmen und Behörden eingesetzt.",IDC_STATIC,20,140,330,16,WS_TABSTOP
@@ -28910,7 +28904,7 @@ BEGIN
             VALUE "FileDescription", "www.cryptool.de"
             VALUE "FileVersion", "[CRYPTOOL_VERSION]"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Contributors © 1998-2012"
+            VALUE "LegalCopyright", "Contributors © 1998-2013"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
             VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
@@ -30054,6 +30048,14 @@ BEGIN
     IDD_TIPPS_AND_TRICKS, DIALOG
     BEGIN
         BOTTOMMARGIN, 211
+    END
+
+    IDD_SHOW_HASH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 347
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 58
     END
 
     IDD_CERTIFICATE_GENERATION, DIALOG
@@ -34080,7 +34082,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Close",IDOK,303,255,60,18,WS_GROUP
     CTEXT           "the universities Siegen and Darmstadt developed it within an\nopen source project thanks to the help of many voluntary developers.",IDC_STATIC,20,119,330,16
-    CTEXT           "Copyright (C) 1998-2012 Deutsche Bank AG and Contributors\nDistributed as open source under the terms of the Apache License 2.0",IDC_STATIC,7,233,356,16
+    CTEXT           "Copyright (C) 1998-2013 Deutsche Bank AG and Contributors\nDistributed as open source under the terms of the Apache License 2.0",IDC_STATIC,7,233,356,16
     CTEXT           "CrypTool is a free and comprehensive e-learning program about\nclassic and contemporary cryptography and cryptanalysis.\n\nIn a joint effort with the sponsors",IDC_STATIC,20,35,330,32
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,44,74,105,37,WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,198,73,143,37,WS_EX_TRANSPARENT
@@ -35717,14 +35719,14 @@ BEGIN
     EDITTEXT        IDC_EDIT6,114,5,88,14,ES_AUTOHSCROLL | WS_DISABLED
 END
 
-IDD_SHOW_HASH DIALOG  0, 0, 241, 71
+IDD_SHOW_HASH DIALOGEX 0, 0, 354, 65
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Dialog"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    PUSHBUTTON      "Store hash value to &HEX format",IDOK,7,46,113,18
-    DEFPUSHBUTTON   "&Close",IDCANCEL,147,46,87,18
-    EDITTEXT        IDC_EDIT1,7,16,227,15,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Store hash value to &HEX format",IDOK,7,40,130,18
+    DEFPUSHBUTTON   "&Close",IDCANCEL,217,40,130,18
+    EDITTEXT        IDC_EDIT1,7,16,340,15,ES_AUTOHSCROLL | ES_READONLY
 END
 
 IDD_FACTORISATION_DEMO DIALOGEX 0, 0, 366, 338
@@ -40044,7 +40046,7 @@ BEGIN
             VALUE "FileDescription", "www.cryptool.org"
             VALUE "FileVersion", "[CRYPTOOL_VERSION]"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Contributors © 1998-2012"
+            VALUE "LegalCopyright", "Contributors © 1998-2013"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
             VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
@@ -41243,10 +41245,9 @@ BEGIN
     IDD_SHOW_HASH, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 234
+        RIGHTMARGIN, 347
         TOPMARGIN, 7
-        BOTTOMMARGIN, 64
-        HORZGUIDE, 46
+        BOTTOMMARGIN, 58
     END
 
     IDD_FACTORISATION_DEMO, DIALOG
@@ -48267,14 +48268,14 @@ BEGIN
     EDITTEXT        IDC_EDIT2,10,180,35,12,ES_READONLY | WS_DISABLED | NOT WS_BORDER
 END
 
-IDD_SHOW_HASH DIALOGEX 0, 0, 241, 71
+IDD_SHOW_HASH DIALOGEX 0, 0, 354, 65
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Dialog"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    PUSHBUTTON      "Mostrar el valor Hash en formato &HEX",IDOK,7,46,130,18
-    DEFPUSHBUTTON   "&Cerrar",IDCANCEL,147,46,87,18
-    EDITTEXT        IDC_EDIT1,7,16,227,15,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Mostrar el valor Hash en formato &HEX",IDOK,7,40,130,18
+    DEFPUSHBUTTON   "&Cerrar",IDCANCEL,217,40,130,18
+    EDITTEXT        IDC_EDIT1,7,16,340,15,ES_AUTOHSCROLL | ES_READONLY
 END
 
 IDD_SHOW_KEY DIALOGEX 0, 0, 277, 89
@@ -49052,7 +49053,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Cerrar",IDOK,303,252,60,18,WS_GROUP
     CTEXT           "desarrollado por las universidades de Siegen y Darmstadt\ny muchos desarrolladores voluntarios del proyecto OpenSource.",IDC_STATIC,20,119,330,16
-    CTEXT           "Copyright (C) 1998-2012 Deutsche Bank AG y Colaboradores\nDistribuído como Open-source bajo los términos de la Licencia Apache 2.0",IDC_STATIC,7,233,356,16
+    CTEXT           "Copyright (C) 1998-2013 Deutsche Bank AG y Colaboradores\nDistribuído como Open-source bajo los términos de la Licencia Apache 2.0",IDC_STATIC,7,233,356,16
     CTEXT           "CrypTool es una extensa herramienta de e-learning gratuita sobre\ncriptografía y criptoanálisis, tanto clásico como moderno.\n\nEs un esfuerzo conjunto entre:",IDC_STATIC,20,35,330,32
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,44,74,105,37,WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,198,73,143,37,WS_EX_TRANSPARENT
@@ -51297,7 +51298,7 @@ BEGIN
             VALUE "FileDescription", "www.cryptool.org"
             VALUE "FileVersion", "[CRYPTOOL_VERSION]"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Contributors © 1998-2012"
+            VALUE "LegalCopyright", "Contributors © 1998-2013"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
             VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
@@ -52844,10 +52845,9 @@ BEGIN
     IDD_SHOW_HASH, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 234
+        RIGHTMARGIN, 347
         TOPMARGIN, 7
-        BOTTOMMARGIN, 64
-        HORZGUIDE, 46
+        BOTTOMMARGIN, 58
     END
 
     IDD_SHOW_KEY, DIALOG
@@ -53416,7 +53416,7 @@ BEGIN
                             "[i18n] The English word list for the substitution analysis (%s) does not exist although it was rolled out with CrypTool."
     IDS_RSA_DEMO_HEADER_ENCRYPTION_DECRYPTION_WITH_ALPHABET_SIZE 
                             "Cifrado RSA utilizando e / descifrado utilizando d  [i18n alphabet size: %i]"
-		IDS_NGRAM_ANALYSIS_COUNT_NGRAMS           "-grama (%d)"
+    IDS_NGRAM_ANALYSIS_COUNT_NGRAMS "-grama (%d)"
     IDS_GENERATION_TADIC_NAF_KEYS_PATH "tadicnafkeys\\"
     IDS_GENERATION_TADIC_NAF_KEYS_EXECUTABLE "t-adicNAF.hta"
     IDS_GENERATION_TADIC_NAF_KEYS_ERROR_EXECUTION 

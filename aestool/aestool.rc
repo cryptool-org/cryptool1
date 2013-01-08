@@ -88,31 +88,31 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
     LTEXT           "AES-Tool 2.6",IDC_AES_TOOL_VERSION,40,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2012",IDC_STATIC1,40,25,119,8
+    LTEXT           "Copyright (C) 2013",IDC_STATIC1,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
 END
 
-IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 205
+IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 382, 205
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "[i18n][POLISH] AES-Tool 2.6"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    EDITTEXT        IDC_EDIT_KEY_HEX,26,67,266,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_SRC,26,105,200,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
-    PUSHBUTTON      "Search...",IDC_BUTTON_SRC,232,102,60,18
-    CONTROL         "Self-extracting and encrypted",IDC_RADIO_EXE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,155,103,10
+    EDITTEXT        IDC_EDIT_KEY_HEX,26,67,340,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SRC,26,105,273,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
+    PUSHBUTTON      "Search...",IDC_BUTTON_SRC,306,102,60,18
+    CONTROL         "Self-extracting and encrypted",IDC_RADIO_EXE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,155,130,10
     CONTROL         "Encrypted",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,170,155,80,10
-    PUSHBUTTON      "Exit",IDCANCEL,184,180,60,18
-    PUSHBUTTON      "Help",IDC_BUTTON3,245,180,60,18
+    PUSHBUTTON      "Exit",IDCANCEL,254,180,60,18
+    PUSHBUTTON      "Help",IDC_BUTTON3,315,180,60,18
     LTEXT           "Encrypt or decrypt a file",IDC_STATIC_TITLE,17,9,80,8
-    GROUPBOX        "Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",IDC_KEY_HEADER,15,28,290,58
-    GROUPBOX        "Input file",IDC_STATIC,15,92,290,45
-    GROUPBOX        "Output format",IDC_STATIC,15,143,290,30
+    GROUPBOX        "Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",IDC_KEY_HEADER,15,28,360,58
+    GROUPBOX        "Input file",IDC_STATIC,15,92,360,45
+    GROUPBOX        "Output format",IDC_STATIC,15,143,360,30
     CONTROL         "Show entered key",IDC_CHECK_SHOW_PASSWORD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,42,73,10
     CONTROL         "Enter key as hex",IDC_CHECK_ENTER_PASSWORD_AS_HEX,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,53,69,10
-    EDITTEXT        IDC_EDIT_KEY_ASCII,26,67,266,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_KEY_ASCII,26,67,340,12,ES_AUTOHSCROLL
     CONTROL         "Securely delete input file after encryption",IDC_CHECK_SECURELY_DELETE_SOURCE_FILE_AFTER_ENCRYPTION,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,121,143,10
     PUSHBUTTON      "Encrypt",IDC_BUTTON_ENCRYPT,15,180,62,18
@@ -145,7 +145,7 @@ BEGIN
             VALUE "FileDescription", "AES-Tool"
             VALUE "FileVersion", "2.6"
             VALUE "InternalName", "aestool"
-            VALUE "LegalCopyright", "Contributors © 2002-2012"
+            VALUE "LegalCopyright", "Contributors © 2002-2013"
             VALUE "OriginalFilename", "aestool.exe"
             VALUE "ProductName", "AES-Tool"
             VALUE "ProductVersion", "2.6"
@@ -202,7 +202,7 @@ BEGIN
     IDD_AESTOOL_DIALOG, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 313
+        RIGHTMARGIN, 375
         TOPMARGIN, 7
         BOTTOMMARGIN, 198
     END
@@ -355,31 +355,31 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
     LTEXT           "AES-Tool Version 2.6",IDC_STATIC,40,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2012",IDC_STATIC1,40,25,119,8
+    LTEXT           "Copyright (C) 2013",IDC_STATIC1,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
 END
 
-IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 205
+IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 382, 205
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "[i18n][SERBIAN] AES-Tool 2.6"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    EDITTEXT        IDC_EDIT_KEY_HEX,26,67,266,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_SRC,26,105,200,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
-    PUSHBUTTON      "Search...",IDC_BUTTON_SRC,232,102,60,18
-    CONTROL         "Self-extracting and encrypted",IDC_RADIO_EXE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,155,103,10
+    EDITTEXT        IDC_EDIT_KEY_HEX,26,67,340,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SRC,26,105,273,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
+    PUSHBUTTON      "Search...",IDC_BUTTON_SRC,306,102,60,18
+    CONTROL         "Self-extracting and encrypted",IDC_RADIO_EXE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,155,130,10
     CONTROL         "Encrypted",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,170,155,80,10
-    PUSHBUTTON      "Exit",IDCANCEL,184,180,60,18
-    PUSHBUTTON      "Help",IDC_BUTTON3,245,180,60,18
+    PUSHBUTTON      "Exit",IDCANCEL,254,180,60,18
+    PUSHBUTTON      "Help",IDC_BUTTON3,315,180,60,18
     LTEXT           "Encrypt or decrypt a file",IDC_STATIC_TITLE,17,9,80,8
-    GROUPBOX        "Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",IDC_KEY_HEADER,15,28,290,58
-    GROUPBOX        "Input file",IDC_STATIC,15,92,290,45
-    GROUPBOX        "Output format",IDC_STATIC,15,143,290,30
+    GROUPBOX        "Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",IDC_KEY_HEADER,15,28,360,58
+    GROUPBOX        "Input file",IDC_STATIC,15,92,360,45
+    GROUPBOX        "Output format",IDC_STATIC,15,143,360,30
     CONTROL         "Show entered key",IDC_CHECK_SHOW_PASSWORD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,42,73,10
     CONTROL         "Enter key as hex",IDC_CHECK_ENTER_PASSWORD_AS_HEX,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,53,69,10
-    EDITTEXT        IDC_EDIT_KEY_ASCII,26,67,266,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_KEY_ASCII,26,67,340,12,ES_AUTOHSCROLL
     CONTROL         "Securely delete input file after encryption",IDC_CHECK_SECURELY_DELETE_SOURCE_FILE_AFTER_ENCRYPTION,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,121,143,10
     PUSHBUTTON      "Encrypt",IDC_BUTTON_ENCRYPT,15,180,62,18
@@ -412,7 +412,7 @@ BEGIN
             VALUE "FileDescription", "AES-Tool"
             VALUE "FileVersion", "2.6"
             VALUE "InternalName", "aestool"
-            VALUE "LegalCopyright", "Contributors © 2002-2012"
+            VALUE "LegalCopyright", "Contributors © 2002-2013"
             VALUE "OriginalFilename", "aestool.exe"
             VALUE "ProductName", "AES-Tool"
             VALUE "ProductVersion", "2.6"
@@ -469,7 +469,7 @@ BEGIN
     IDD_AESTOOL_DIALOG, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 313
+        RIGHTMARGIN, 375
         TOPMARGIN, 7
         BOTTOMMARGIN, 198
     END
@@ -589,33 +589,33 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
     LTEXT           "AES-Tool 2.6",IDC_AES_TOOL_VERSION,40,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2012",IDC_STATIC,40,25,119,8
+    LTEXT           "Copyright (C) 2013",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
 END
 
-IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 205
+IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 382, 205
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "AES-Tool 2.6"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    EDITTEXT        IDC_EDIT_KEY_HEX,26,67,266,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_SRC,26,105,200,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
-    PUSHBUTTON      "Durchsuchen...",IDC_BUTTON_SRC,232,102,60,18
+    EDITTEXT        IDC_EDIT_KEY_HEX,26,67,340,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SRC,26,105,273,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
+    PUSHBUTTON      "Durchsuchen...",IDC_BUTTON_SRC,306,102,60,18
     CONTROL         "Selbstextrahierend und verschlüsselt",IDC_RADIO_EXE,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,26,155,131,10
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,26,155,130,10
     CONTROL         "Verschlüsselt",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,170,155,57,10
-    PUSHBUTTON      "Beenden",IDCANCEL,184,180,60,18
-    PUSHBUTTON      "Hilfe",IDC_BUTTON3,245,180,60,18
+    PUSHBUTTON      "Beenden",IDCANCEL,254,180,60,18
+    PUSHBUTTON      "Hilfe",IDC_BUTTON3,315,180,60,18
     LTEXT           "Ver- oder Entschlüsseln einer Datei",IDC_STATIC_TITLE,15,9,111,8
-    GROUPBOX        "Schlüssel [maximal 64 Hexzeichen (0, 1, ..., 8, 9, A, B, C, D, E, F)]",IDC_KEY_HEADER,15,28,290,58
-    GROUPBOX        "Eingabedatei",IDC_STATIC,15,92,290,45
-    GROUPBOX        "Ausgabeformat",IDC_STATIC,15,143,290,30
+    GROUPBOX        "Schlüssel [maximal 64 Hexzeichen (0, 1, ..., 8, 9, A, B, C, D, E, F)]",IDC_KEY_HEADER,15,28,360,58
+    GROUPBOX        "Eingabedatei",IDC_STATIC,15,92,360,45
+    GROUPBOX        "Ausgabeformat",IDC_STATIC,15,143,360,30
     CONTROL         "Eingegebenen Schlüssel anzeigen",IDC_CHECK_SHOW_PASSWORD,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,42,125,10
     CONTROL         "Schlüssel hexadezimal eingeben",IDC_CHECK_ENTER_PASSWORD_AS_HEX,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,53,118,10
-    EDITTEXT        IDC_EDIT_KEY_ASCII,26,67,266,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_KEY_ASCII,26,67,340,12,ES_AUTOHSCROLL
     CONTROL         "Sicheres Löschen der Eingabedatei nach Verschlüsselung",IDC_CHECK_SECURELY_DELETE_SOURCE_FILE_AFTER_ENCRYPTION,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,121,199,10
     PUSHBUTTON      "Verschlüsseln",IDC_BUTTON_ENCRYPT,15,180,62,18
@@ -696,7 +696,7 @@ BEGIN
             VALUE "FileDescription", "AES-Tool"
             VALUE "FileVersion", "2.6"
             VALUE "InternalName", "aestool"
-            VALUE "LegalCopyright", "Contributors © 2002-2012"
+            VALUE "LegalCopyright", "Contributors © 2002-2013"
             VALUE "OriginalFilename", "aestool.exe"
             VALUE "ProductName", "AES-Tool"
             VALUE "ProductVersion", "2.6"
@@ -728,7 +728,7 @@ BEGIN
     IDD_AESTOOL_DIALOG, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 313
+        RIGHTMARGIN, 375
         TOPMARGIN, 7
         BOTTOMMARGIN, 198
     END
@@ -857,27 +857,27 @@ BEGIN
     LTEXT           "Generally it is advisable to use good precaution when starting code presented by third parties. Otherwise damages inflicted by viruses, trojans etc. can not be completely ruled out.",IDC_STATIC,7,45,197,40
 END
 
-IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 205
+IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 382, 205
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "AES-Tool 2.6"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    EDITTEXT        IDC_EDIT_KEY_HEX,26,67,266,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_SRC,26,105,200,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
-    PUSHBUTTON      "Search...",IDC_BUTTON_SRC,232,102,60,18
-    CONTROL         "Self-extracting and encrypted",IDC_RADIO_EXE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,155,103,10
+    EDITTEXT        IDC_EDIT_KEY_HEX,26,67,340,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SRC,26,105,273,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
+    PUSHBUTTON      "Search...",IDC_BUTTON_SRC,306,102,60,18
+    CONTROL         "Self-extracting and encrypted",IDC_RADIO_EXE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,155,130,10
     CONTROL         "Encrypted",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,170,155,80,10
-    PUSHBUTTON      "Exit",IDCANCEL,184,180,60,18
-    PUSHBUTTON      "Help",IDC_BUTTON3,245,180,60,18
+    PUSHBUTTON      "Exit",IDCANCEL,254,180,60,18
+    PUSHBUTTON      "Help",IDC_BUTTON3,315,180,60,18
     LTEXT           "Encrypt or decrypt a file",IDC_STATIC_TITLE,17,9,80,8
-    GROUPBOX        "Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",IDC_KEY_HEADER,15,28,290,58
-    GROUPBOX        "Input file",IDC_STATIC,15,92,290,45
-    GROUPBOX        "Output format",IDC_STATIC,15,143,290,30
+    GROUPBOX        "Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",IDC_KEY_HEADER,15,28,360,58
+    GROUPBOX        "Input file",IDC_STATIC,15,92,360,45
+    GROUPBOX        "Output format",IDC_STATIC,15,143,360,30
     CONTROL         "Show entered key",IDC_CHECK_SHOW_PASSWORD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,42,73,10
     CONTROL         "Enter key as hex",IDC_CHECK_ENTER_PASSWORD_AS_HEX,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,53,69,10
-    EDITTEXT        IDC_EDIT_KEY_ASCII,26,67,266,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_KEY_ASCII,26,67,340,12,ES_AUTOHSCROLL
     CONTROL         "Securely delete input file after encryption",IDC_CHECK_SECURELY_DELETE_SOURCE_FILE_AFTER_ENCRYPTION,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,121,143,10
     PUSHBUTTON      "Encrypt",IDC_BUTTON_ENCRYPT,15,180,62,18
@@ -927,7 +927,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
     LTEXT           "AES-Tool 2.6",IDC_AES_TOOL_VERSION,40,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2012",IDC_STATIC1,40,25,119,8
+    LTEXT           "Copyright (C) 2013",IDC_STATIC1,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
 END
 
@@ -957,7 +957,7 @@ BEGIN
             VALUE "FileDescription", "AES-Tool"
             VALUE "FileVersion", "2.6"
             VALUE "InternalName", "aestool"
-            VALUE "LegalCopyright", "Contributors © 2002-2012"
+            VALUE "LegalCopyright", "Contributors © 2002-2013"
             VALUE "OriginalFilename", "aestool.exe"
             VALUE "ProductName", "AES-Tool"
             VALUE "ProductVersion", "2.6"
@@ -989,7 +989,7 @@ BEGIN
     IDD_AESTOOL_DIALOG, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 313
+        RIGHTMARGIN, 375
         TOPMARGIN, 7
         BOTTOMMARGIN, 198
     END
@@ -1145,7 +1145,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,21,20
     LTEXT           "AES-Tool 2.6",IDC_AES_TOOL_VERSION,40,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2012",IDC_STATIC1,40,25,119,8
+    LTEXT           "Copyright (C) 2013",IDC_STATIC1,40,25,119,8
     DEFPUSHBUTTON   "&Aceptar",IDOK,178,7,50,14,WS_GROUP
 END
 
@@ -1196,27 +1196,27 @@ BEGIN
     LTEXT           "Generalmente es aconsejable tener mucha precaución al ejecutar código de terceros en su ordenador para evitar posibles virus, troyanos y demás daños.",IDC_STATIC,7,45,197,40
 END
 
-IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 205
+IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 382, 205
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "[i18n][SPANISH] AES-Tool 2.6"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    EDITTEXT        IDC_EDIT_KEY_HEX,26,67,266,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_SRC,26,105,200,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
-    PUSHBUTTON      "Search...",IDC_BUTTON_SRC,232,102,60,18
-    CONTROL         "Self-extracting and encrypted",IDC_RADIO_EXE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,155,103,10
+    EDITTEXT        IDC_EDIT_KEY_HEX,26,67,340,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SRC,26,105,273,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
+    PUSHBUTTON      "Search...",IDC_BUTTON_SRC,306,102,60,18
+    CONTROL         "Self-extracting and encrypted",IDC_RADIO_EXE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,155,130,10
     CONTROL         "Encrypted",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,170,155,80,10
-    PUSHBUTTON      "Exit",IDCANCEL,184,180,60,18
-    PUSHBUTTON      "Help",IDC_BUTTON3,245,180,60,18
+    PUSHBUTTON      "Exit",IDCANCEL,254,180,60,18
+    PUSHBUTTON      "Help",IDC_BUTTON3,315,180,60,18
     LTEXT           "Encrypt or decrypt a file",IDC_STATIC_TITLE,17,9,80,8
-    GROUPBOX        "Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",IDC_KEY_HEADER,15,28,290,58
-    GROUPBOX        "Input file",IDC_STATIC,15,92,290,45
-    GROUPBOX        "Output format",IDC_STATIC,15,143,290,30
+    GROUPBOX        "Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",IDC_KEY_HEADER,15,28,360,58
+    GROUPBOX        "Input file",IDC_STATIC,15,92,360,45
+    GROUPBOX        "Output format",IDC_STATIC,15,143,360,30
     CONTROL         "Show entered key",IDC_CHECK_SHOW_PASSWORD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,42,73,10
     CONTROL         "Enter key as hex",IDC_CHECK_ENTER_PASSWORD_AS_HEX,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,53,69,10
-    EDITTEXT        IDC_EDIT_KEY_ASCII,26,67,266,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_KEY_ASCII,26,67,340,12,ES_AUTOHSCROLL
     CONTROL         "Securely delete input file after encryption",IDC_CHECK_SECURELY_DELETE_SOURCE_FILE_AFTER_ENCRYPTION,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,121,143,10
     PUSHBUTTON      "Encrypt",IDC_BUTTON_ENCRYPT,15,180,62,18
@@ -1249,7 +1249,7 @@ BEGIN
             VALUE "FileDescription", "AES-Tool"
             VALUE "FileVersion", "2.6"
             VALUE "InternalName", "aestool"
-            VALUE "LegalCopyright", "Contributors © 2002-2012"
+            VALUE "LegalCopyright", "Contributors © 2002-2013"
             VALUE "OriginalFilename", "aestool.exe"
             VALUE "ProductName", "AES-Tool"
             VALUE "ProductVersion", "2.6"
@@ -1306,7 +1306,7 @@ BEGIN
     IDD_AESTOOL_DIALOG, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 313
+        RIGHTMARGIN, 375
         TOPMARGIN, 7
         BOTTOMMARGIN, 198
     END
