@@ -9,7 +9,6 @@
 \setcounter{satz}{0}
 \setcounter{definition}{0}
 
-
 \hypertarget{Chapter_ElementaryNT}{}
 \chapter{Einführung in die elementare Zahlentheorie mit Beispielen}
 \label{Chapter_ElementaryNT}
@@ -75,10 +74,11 @@ aufeinanderfolgende\index{Fibonacci} Fibonacci-Zahlen\footnote{%
 Die Folge der Fibonacci-Zahlen $(a_i)_{i \in \mathbb{N}}$ ist definiert durch die \glqq rekursive'' 
 Vorschrift $a_1 := a_2 := 1$ und für alle Zahlen  $n=1,2,3,\cdots$ definiert man 
 $a_{n+2} := a_{n+1}+a_n$.  Zu dieser historischen Folge gibt es viele interessante 
-Anwendungen in der Natur (siehe z.B. \cite[S. 290 ff]{nt:Graham1994}\index{Graham 1994} oder die Web-Seite 
-von \hyperlink{knott}{Ron Knott:} \index{Knott, Ron} hier dreht sich alles um Fibonacci-Zahlen). 
-Die Fibonacci-Folge\index{Fibonacci} ist gut verstanden und wird heute als wichtiges Werkzeug in der 
-Mathematik benutzt.
+Anwendungen in der Natur (siehe z.B. \cite[S. 290 ff]{nt:Graham1994}\index{Graham 1994}
+oder die Web-Seite von \hyperlink{knott}{Ron Knott:}\index{Knott, Ron}
+Hier dreht sich alles um Fibonacci-Zahlen). 
+Die Fibonacci-Folge\index{Fibonacci} ist gut verstanden und wird heute als
+wichtiges Werkzeug in der Mathematik benutzt.
 }, also z.B.  wie  $21 : 34$.
 
 Außerdem wurde spätestens mit den zahlentheoretischen Anwendungen der
@@ -416,10 +416,12 @@ bei der Division durch $m$ denselben Rest $r$ haben.
 \end{definition}
 \newpage
 \begin{example}{:}
-\begin{itemize}
+%\begin{itemize}
+\begin{compactitem}
 \item[] Restklasse $0$ modulo $4 = \{ x | x = 4*n; \; n \in \mathbb{Z} \} = \{ \dots, -16, -12, -8, -4, 0, 4, 8, 12, 16, \dots \}$
 \item[] Restklasse $3$ modulo $4 = \{ x | x = 4*n + 3;\; n \in \mathbb{Z} \} = \{ \dots, -13, -9, -5, -1, 3, 7, 11, 15, \dots \}$
-\end{itemize}
+%\end{itemize}
+\end{compactitem}
 \end{example}
 Da modulo $m$ nur die Reste $0, 1, 2, \cdots, m-1$ möglich sind, rechnet die modulare Arithmetik in endlichen Mengen. 
 Zu jedem Modul $m$ gibt es genau $m$ Restklassen.
@@ -435,18 +437,32 @@ dass $a$ und $b$ zur gleichen Restklasse gehören. Der Modul ist also der Teiler.
 Gauss eingeführt. Gewöhnlich ist der Teiler positiv, aber $a$ und $b$ können auch beliebige ganze Zahlen sein.
 
 \begin{example}{:}
-\begin{itemize}
+%\begin{itemize}
+\begin{compactitem}
    \item[] $19 \equiv 12 {\rm ~(mod~} 7)$,         
            denn die Reste sind gleich:  $19 / 7 = 2$ Rest $5$  und  $12 / 7 = 1$ Rest $5$.
    \item[] $23103 \equiv 0 {\rm ~(mod~} 453)$, denn $23103 / 453 = 51$ Rest $0$  und  $0 / 453 = 0$ Rest $0$.
-\end{itemize}
+%\end{itemize}
+\end{compactitem}
 \end{example}
 
 \begin{satz}\label{thm-zth-div}
 $a \equiv b$ (mod $m$) gilt genau dann,  wenn die Differenz $(a - b)$ durch $m$ teilbar ist, also wenn 
 ein $q\in \mathbf{Z}$ existiert mit $ (a-b)=q*m.$
 \end{satz}
-Diese beiden Aussagen sind also äquivalent.
+Diese beiden Aussagen sind also äquivalent.\footnote{%
+Die obige Äquivalenz gilt nur für die Differenz $(a - b)$, nicht für die
+Summe $(a + b)$!
+
+\begin{example}{:}\\
+$11 \equiv 2$ (mod $3$), also ist $11 - 2 = 9 \equiv 0$ (mod $3$); aber $11 + 2 = 13$ ist nicht durch $3$ teilbar.
+\end{example}
+
+\noindent Für Summen gilt die Aussage von Satz~\ref{thm-zth-div} nicht einmal
+in eine Richtung. Richtig ist sie bei Summen nur für den Rest $0$ und nur in
+der folgenden Richtung: Teilt ein Teiler beide Summanden ohne Rest, teilt er
+auch die Summe ohne Rest.
+}
 
 Daraus ergibt sich: Wenn $m$ die Differenz teilt, gibt es eine ganze Zahl $q$, so dass gilt: $a = b + q*m$.
 Alternativ zur Kongruenzschreibweise kann man auch die Teilbarkeitsschreibweise verwenden: $m | (a - b)$.
@@ -456,19 +472,8 @@ $35 \equiv 11$ (mod $3) \Longleftrightarrow  35 - 11 \equiv 0$ (mod $3)$,
 wobei $35 - 11 = 24$ sich ohne Rest durch $3$ teilen lässt, während $35:3$ und $11:3$ beide den Rest $2$ ergeben.
 \end{example}
 
-\begin{remark}{:}\\
-Für die Summe $(a + b)$ gilt die obige Äquivalenz nicht!
-\end{remark}
-
-\begin{example}{:}\\
-$11 \equiv 2$ (mod $3$), also ist $11 - 2 = 9 \equiv 0$ (mod $3$); aber $11 + 2 = 13$ ist nicht durch $3$ teilbar.
-\end{example}
-
-Die Aussage von Satz~\ref{thm-zth-div} gilt für Summen nicht einmal in eine
-Richtung. Richtig ist sie bei Summen nur für den Rest $0$ und nur in der
-folgenden Richtung: Teilt ein Teiler beide Summanden ohne Rest, teilt er
-auch die Summe ohne Rest.
-
+%\begin{remark}{:}\\
+%\end{remark}
 
 Anwenden kann man die obige Äquivalenz von Satz~\ref{thm-zth-div}, wenn man schnell und
 geschickt für große Zahlen entscheiden will, ob sie durch eine bestimmte
@@ -477,7 +482,7 @@ Zahl teilbar sind.
 \newpage
 \begin{example}{:} \\
 Ist $69.993$ durch $7$ teilbar?\\
-Da die Zahl in eine Differenz zerlegt werden kann, wo einfach zu ersehen
+Da die Zahl in eine Differenz zerlegt werden kann, bei der einfach zu ersehen
 ist, dass jeder Operand durch $7$ teilbar ist, ist auch die Differenz durch $7$
 teilbar: $69.993 = 70.000 - 7$.
 \end{example}
@@ -634,7 +639,8 @@ der besonderen Rolle der $0$ als Identität bei der Addition:\\
 Für alle $a$ gilt $a*0=0, $ denn $a*0 = a*(0+0) =a*0 + a*0.$ Es ist
 offensichtlich, dass $0$ keine Inverse bzgl. der Multiplikation besitzt,
 denn sonst müsste gelten: $0 = 0 * 0^{-1} = 1.$ Vergleiche Fußnote
-\ref{ftn-res-divmodn}.  } für mod $5$ (Tabelle~\ref{mulmod5}) und für mod $6$ (Tabelle~\ref{mulmod6})
+\ref{ftn-res-divmodn}.  } für mod $5$ (Tabelle~\ref{mulmod5}) und für mod $6$
+(Tabelle~\ref{mulmod6})
 \end{itemize}
 aufgestellt.
 
@@ -1007,8 +1013,8 @@ $$
 \subsection{Schnelles Berechnen hoher Potenzen} 
 \label{hohpot} \index{Potenz}
 Bei RSA-Ver- und Entschlüsselungen\footnote{%
-Siehe Kapitel~\ref{rsabeweis} (Beweis des RSA-Verfahrens mit Euler-Fermat) und 
-Kapitel~\ref{rsaconcrete} (Das RSA-Verfahren mit konkreten Zahlen).
+Siehe Kapitel~\ref{rsabeweis} (\glqq \nameref{rsabeweis}'') und 
+Kapitel~\ref{rsaconcrete} (\glqq \nameref{rsaconcrete}'').
 } müssen hohe Potenzen modulo $m$ berechnet werden. Schon die Berechnung $(100^5)
 {\rm ~mod~}3$ sprengt den $32$ Bit langen \index{Long-Integer}
 Long-Integer-Zahlenbereich, sofern man zur Berechnung von $a^n$ getreu der
@@ -1456,6 +1462,7 @@ Siehe Kapitel~\ref{hohpot}, \glqq \nameref{hohpot}''.
 %\subsection{Wie viele private RSA-Schlüssel d gibt es modulo 26}
 %\subsection[Wie viele private RSA-Schlüssel d gibt es modulo 26]{Wie viele private RSA-Schlüssel $d$ gibt es modulo 26}
 \subsection{Wie viele private RSA-Schlüssel \texorpdfstring{$d$}{d} gibt es modulo 26}
+\label{L_nt_Num-of-d-mod-26}
 
 Laut Satz~\ref{thm-zth-pot} werden die arithmetischen Operationen von modularen
 Ausdrücken in den Exponenten modulo $J(n)$ und nicht modulo $n$
@@ -1692,100 +1699,8 @@ Hat $7$ eine Primitivwurzel\index{Primitivwurzel} modulo $45$?
 ggT$(7,45)=1$ ist erfüllt.
 Aus der Tabelle~\ref{expmod45} kann man ersehen, dass die
 Zahl $a=7$ keine Primitivwurzel\index{Primitivwurzel} von $45$ ist,
-denn $ord_{45}(7) = 12 \not= 24 = J(45)$.\vskip + 1em
+denn $ord_{45}(7) = 12 \not= 24 = J(45)$.%\vskip + 1em
 \end{example}
-
-
-\newpage
-\begin{Verbatim}
-AA_Start -- Testcases for build_Table_of_powers_a_i_mod_m()
-
-1-----------Testcase: m = 45, max_i = 13, max_a = 13.
-[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 24]
-[2, 4, 8, 16, 32, 19, 38, 31, 17, 34, 23, 1, 12, 24]
-[3, 9, 27, 36, 18, 9, 27, 36, 18, 9, 27, 36, 'None', 24]
-[4, 16, 19, 31, 34, 1, 4, 16, 19, 31, 34, 1, 6, 24]
-[5, 25, 35, 40, 20, 10, 5, 25, 35, 40, 20, 10, 'None', 24]
-[6, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 'None', 24]
-[7, 4, 28, 16, 22, 19, 43, 31, 37, 34, 13, 1, 12, 24]
-[8, 19, 17, 1, 8, 19, 17, 1, 8, 19, 17, 1, 4, 24]
-[9, 36, 9, 36, 9, 36, 9, 36, 9, 36, 9, 36, 'None', 24]
-[10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 'None', 24]
-[11, 31, 26, 16, 41, 1, 11, 31, 26, 16, 41, 1, 6, 24]
-[12, 9, 18, 36, 27, 9, 18, 36, 27, 9, 18, 36, 'None', 24]
-
-1-----------Testcase: m = 46, max_i = 25, max_a = 25.
-[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 22]
-[2, 4, 8, 16, 32, 18, 36, 26, 6, 12, 24, 2, 4, 8, 16, 32, 18, 36, 26, 6, 12, 24, 2, 4, 'None', 22]
-[3, 9, 27, 35, 13, 39, 25, 29, 41, 31, 1, 3, 9, 27, 35, 13, 39, 25, 29, 41, 31, 1, 3, 9, 11, 22]
-[4, 16, 18, 26, 12, 2, 8, 32, 36, 6, 24, 4, 16, 18, 26, 12, 2, 8, 32, 36, 6, 24, 4, 16, 'None', 22]
-[5, 25, 33, 27, 43, 31, 17, 39, 11, 9, 45, 41, 21, 13, 19, 3, 15, 29, 7, 35, 37, 1, 5, 25, 22, 22]
-[6, 36, 32, 8, 2, 12, 26, 18, 16, 4, 24, 6, 36, 32, 8, 2, 12, 26, 18, 16, 4, 24, 6, 36, 'None', 22]
-[7, 3, 21, 9, 17, 27, 5, 35, 15, 13, 45, 39, 43, 25, 37, 29, 19, 41, 11, 31, 33, 1, 7, 3, 22, 22]
-[8, 18, 6, 2, 16, 36, 12, 4, 32, 26, 24, 8, 18, 6, 2, 16, 36, 12, 4, 32, 26, 24, 8, 18, 'None', 22]
-[9, 35, 39, 29, 31, 3, 27, 13, 25, 41, 1, 9, 35, 39, 29, 31, 3, 27, 13, 25, 41, 1, 9, 35, 11, 22]
-[10, 8, 34, 18, 42, 6, 14, 2, 20, 16, 22, 36, 38, 12, 28, 4, 40, 32, 44, 26, 30, 24, 10, 8, 'None', 22]
-[11, 29, 43, 13, 5, 9, 7, 31, 19, 25, 45, 35, 17, 3, 33, 41, 37, 39, 15, 27, 21, 1, 11, 29, 22, 22]
-[12, 6, 26, 36, 18, 32, 16, 8, 4, 2, 24, 12, 6, 26, 36, 18, 32, 16, 8, 4, 2, 24, 12, 6, 'None', 22]
-[13, 31, 35, 41, 27, 29, 9, 25, 3, 39, 1, 13, 31, 35, 41, 27, 29, 9, 25, 3, 39, 1, 13, 31, 11, 22]
-[14, 12, 30, 6, 38, 26, 42, 36, 44, 18, 22, 32, 34, 16, 40, 8, 20, 4, 10, 2, 28, 24, 14, 12, 'None', 22]
-[15, 41, 17, 25, 7, 13, 11, 27, 37, 3, 45, 31, 5, 29, 21, 39, 33, 35, 19, 9, 43, 1, 15, 41, 22, 22]
-[16, 26, 2, 32, 6, 4, 18, 12, 8, 36, 24, 16, 26, 2, 32, 6, 4, 18, 12, 8, 36, 24, 16, 26, 'None', 22]
-[17, 13, 37, 31, 21, 35, 43, 41, 7, 27, 45, 29, 33, 9, 15, 25, 11, 3, 5, 39, 19, 1, 17, 13, 22, 22]
-[18, 2, 36, 4, 26, 8, 6, 16, 12, 32, 24, 18, 2, 36, 4, 26, 8, 6, 16, 12, 32, 24, 18, 2, 'None', 22]
-[19, 39, 5, 3, 11, 25, 15, 9, 33, 29, 45, 27, 7, 41, 43, 35, 21, 31, 37, 13, 17, 1, 19, 39, 22, 22]
-[20, 32, 42, 12, 10, 16, 44, 6, 28, 8, 22, 26, 14, 4, 34, 36, 30, 2, 40, 18, 38, 24, 20, 32, 'None', 22]
-[21, 27, 15, 39, 37, 41, 33, 3, 17, 35, 45, 25, 19, 31, 7, 9, 5, 13, 43, 29, 11, 1, 21, 27, 22, 22]
-[22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 'None', 22]
-[23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 'None', 22]
-[24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 'None', 22]
-\end{Verbatim}
-\newpage
-\begin{Verbatim}
-1-----------Testcase: m = 14, max_i = 13, max_a = 16.
-[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 6]
-[2, 4, 8, 2, 4, 8, 2, 4, 8, 2, 4, 8, 'None', 6]
-[3, 9, 13, 11, 5, 1, 3, 9, 13, 11, 5, 1, 6, 6]
-[4, 2, 8, 4, 2, 8, 4, 2, 8, 4, 2, 8, 'None', 6]
-[5, 11, 13, 9, 3, 1, 5, 11, 13, 9, 3, 1, 6, 6]
-[6, 8, 6, 8, 6, 8, 6, 8, 6, 8, 6, 8, 'None', 6]
-[7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 'None', 6]
-[8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 'None', 6]
-[9, 11, 1, 9, 11, 1, 9, 11, 1, 9, 11, 1, 3, 6]
-[10, 2, 6, 4, 12, 8, 10, 2, 6, 4, 12, 8, 'None', 6]
-[11, 9, 1, 11, 9, 1, 11, 9, 1, 11, 9, 1, 3, 6]
-[12, 4, 6, 2, 10, 8, 12, 4, 6, 2, 10, 8, 'None', 6]
-[13, 1, 13, 1, 13, 1, 13, 1, 13, 1, 13, 1, 2, 6]
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'None', 6]
-[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 6]
-
-1-----------Testcase: m = 22, max_i = 21, max_a = 25.
-[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10]
-[2, 4, 8, 16, 10, 20, 18, 14, 6, 12, 2, 4, 8, 16, 10, 20, 18, 14, 6, 12, 'None', 10]
-[3, 9, 5, 15, 1, 3, 9, 5, 15, 1, 3, 9, 5, 15, 1, 3, 9, 5, 15, 1, 5, 10]
-[4, 16, 20, 14, 12, 4, 16, 20, 14, 12, 4, 16, 20, 14, 12, 4, 16, 20, 14, 12, 'None', 10]
-[5, 3, 15, 9, 1, 5, 3, 15, 9, 1, 5, 3, 15, 9, 1, 5, 3, 15, 9, 1, 5, 10]
-[6, 14, 18, 20, 10, 16, 8, 4, 2, 12, 6, 14, 18, 20, 10, 16, 8, 4, 2, 12, 'None', 10]
-[7, 5, 13, 3, 21, 15, 17, 9, 19, 1, 7, 5, 13, 3, 21, 15, 17, 9, 19, 1, 10, 10]
-[8, 20, 6, 4, 10, 14, 2, 16, 18, 12, 8, 20, 6, 4, 10, 14, 2, 16, 18, 12, 'None', 10]
-[9, 15, 3, 5, 1, 9, 15, 3, 5, 1, 9, 15, 3, 5, 1, 9, 15, 3, 5, 1, 5, 10]
-[10, 12, 10, 12, 10, 12, 10, 12, 10, 12, 10, 12, 10, 12, 10, 12, 10, 12, 10, 12, 'None', 10]
-[11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 'None', 10]
-[12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 'None', 10]
-[13, 15, 19, 5, 21, 9, 7, 3, 17, 1, 13, 15, 19, 5, 21, 9, 7, 3, 17, 1, 10, 10]
-[14, 20, 16, 4, 12, 14, 20, 16, 4, 12, 14, 20, 16, 4, 12, 14, 20, 16, 4, 12, 'None', 10]
-[15, 5, 9, 3, 1, 15, 5, 9, 3, 1, 15, 5, 9, 3, 1, 15, 5, 9, 3, 1, 5, 10]
-[16, 14, 4, 20, 12, 16, 14, 4, 20, 12, 16, 14, 4, 20, 12, 16, 14, 4, 20, 12, 'None', 10]
-[17, 3, 7, 9, 21, 5, 19, 15, 13, 1, 17, 3, 7, 9, 21, 5, 19, 15, 13, 1, 10, 10]
-[18, 16, 2, 14, 10, 4, 6, 20, 8, 12, 18, 16, 2, 14, 10, 4, 6, 20, 8, 12, 'None', 10]
-[19, 9, 17, 15, 21, 3, 13, 5, 7, 1, 19, 9, 17, 15, 21, 3, 13, 5, 7, 1, 10, 10]
-[20, 4, 14, 16, 12, 20, 4, 14, 16, 12, 20, 4, 14, 16, 12, 20, 4, 14, 16, 12, 'None', 10]
-[21, 1, 21, 1, 21, 1, 21, 1, 21, 1, 21, 1, 21, 1, 21, 1, 21, 1, 21, 1, 2, 10]
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'None', 10]
-[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10]
-[2, 4, 8, 16, 10, 20, 18, 14, 6, 12, 2, 4, 8, 16, 10, 20, 18, 14, 6, 12, 'None', 10]
-\end{Verbatim}
-
 
 
 
@@ -1861,7 +1776,7 @@ $a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 &
 \end{tabular}
 \end{center}
 }
-\caption{Werte von $a^i{\rm ~mod~}46, 1\leq a,i<23$}
+\caption{Werte von $a^i{\rm ~mod~}46, 1\leq a,i<24$}
 \label{expmod46}
 \end{table}
 
@@ -1885,139 +1800,246 @@ maximale Ordnung $J(n)$ haben. In diesem Beispiel haben nur $5,7,11,15,17,19
 die Ordnung 22.
 }
 \end{satz}
-\noindent Die multiplikative Gruppe $Z_n^*$ nimmt alle Werte von $1$ bis $n-1$ an.
+\noindent Die multiplikative Gruppe $Z_n^*$ nimmt nur dann alle Werte von $1$ bis $n-1$
+an, wenn n prim ist (vgl. Definition \ref{def-zth-znmult}).
+
 
 
 
 \newpage
-beg---------------------------------------
+\begin{example}{ 5: Zykluslängen}
 
-\begin{example}{ 5:}\\
-Die folgende Tabelle~\ref{expmod14}\footnote{%
-  In Kapitel~\ref{nt:AppArith3c}, \glqq \nameref{nt:AppArith3c}''
-  finden Sie den Quelltext zur Berechnung der Tabelle~\ref{expmod46} mit Sage.
-} beantwortet die Frage, ob die Zahl $a=7$ eine Primitivwurzel\index{Primitivwurzel} von $46$ ist.
-Die notwendige, aber nicht hinreichende Voraussetzung/Bedingung ggT$(7,46)=1$ ist erfüllt.\\
-$J(46)$ berechnet sich nach Satz~\ref{J_of_pq}: $J(46) = J(2*23) = 1*22 = 22$.
-Die Zahl $7$ ist eine Primitivwurzel\index{Primitivwurzel} von $46$,
-denn $ord_{46}(7) = 22 = J(46)$.
+\noindent Die folgenden Tabellen~\ref{expmod14} und~\ref{expmod22}\footnote{%
+  In Kapitel~\ref{nt:AppArith3d}, \glqq \nameref{nt:AppArith3d}''
+  finden Sie den Quelltext zur Berechnung der Tabellen~\ref{expmod14} und~\ref{expmod22}
+  mit Sage.
+} dienen als Beispiele, um Zykluslängen\index{Zykluslänge} zu betrachten -- ein
+Thema, das über die multiplikative Ordnung hinausführt.
+
+\noindent Als Zyklus bezeichnet man hier eine Folge von Zahlen $a^i{\rm ~mod~}n$
+mit $1\leq i<n$
+für ein festes $a$, wobei sich die Folge wiederholt. Innerhalb eines Zyklus kommt
+jede Zahl nur einmal vor. Allgemeine Zyklen müssen die $1$ nicht enthalten -- im
+Gegensatz zu Zyklen, die eine multiplikative Ordnung $\ge 1$ haben (diese haben
+die $1$ sogar immer am Ende des Zyklus).\\
+Im Folgenden bezeichnet $l$ die Zykluslänge.
+
+\noindent Die maximale Zykluslänge $l_{max}$ ist $J(n)$.\\
+Für die folgenden Tabellen~\ref{expmod14} und~\ref{expmod22} gilt
+(nach Satz~\ref{J_of_n}):\\
+\indent  - $J(14) = J(2*7) = 1*6 = 6$.\\
+\indent  - $J(22) = J(2*11) = 1*10 = 10$.
+
+\noindent a) Falls die multiplikative Ordnung für $a$ existiert, gilt (egal
+ob $a$ prim ist): $ord_{n}(a) = l$.
+\indent Beispiele: Die maximale Länge $l_{max}$\footnote{%
+            Wir kennen keine Formel, für welche a die maximale Länge erreicht wird.}
+wird beispielsweise erreicht für:\\
+\indent  - $a=3$ mit $l_{max} = ord_{14}(a) = 6$ in Tabelle~\ref{expmod14}, oder\\
+\indent  - $a=10$ mit $l_{max} = ord_{22}(a) = 10$ in Tabelle~\ref{expmod22}.
+
+\noindent b) Auch wenn für $a$ keine multiplikative Ordnung existiert, kann
+die Zykluslänge maximal sein.\footnote{%
+         Die Folgen hier werden gebildet per $a^i{\rm ~mod~}n$ mit $1\leq i<n$,
+         und enthalten für zusammengesetzte $n$ nie alle Zahlen $1, ..., n-1$.\\
+         Dies ist nicht zu verwechseln mit RSA, wo die \glqq Folge\grqq anders
+         gebildet wird,  $m^e{\rm ~mod~}n$ mit $0\leq m<n$, und diese Folge
+         dann alle Zahlen $0, ..., n-1$ durchläuft (Permutation).
+}\\
+Beispiele:\\
+\indent  - In Tabelle~\ref{expmod14} ist $l_{max}=J(14)=6$ für $a=10, 12$.\\
+\indent  - In Tabelle~\ref{expmod22} ist $l_{max}=J(22)=10$ für $a=2, 6, 8, 18$.
+
 \end{example}
-                                                                    
+
+
 
 \begin{table}[ht]
-\label{SrcArith3d}
-{\textmd \small 
 \begin{center}
-%\vspace{-5ex}  %Dieses vspace bewirkte, dass die Überschrift in der Tab. stand.
-\vspace{-2ex}  % Rein, damit Kap. 4.10 oben auf der ff. Seite beginnt.
-\begin{tabular}{|p{16 pt}||@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|c|}
+\begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c||c|c|c|}
 \hline
-$a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 & 21 & 22 & 23 & ord \\
+$a \setminus i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & $ord_{14}(a)$       & $J(14)$ & $l$ \\
 \hline
 \hline
-1    & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1 & 1    \\
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 6 & 1 \\
 \hline
-2 & 2  & 4  & 8 & 16 & 32 & 18 & 36 & 26  & 6 & 12 & 24  & 2  & 4  & 8 & 16 & 32 & 18 & 36 & 26  & 6 & 12 & 24  & 2 & --    \\
+2 & 2 & 4 & 8 & 2 & 4 & 8 & 2 & 4 & 8 & 2 & 4 & 8 & 2 & 0 & 6 & 3 \\
 \hline
-3 & 3  & 9 & 27 & 35 & 13 & 39 & 25 & 29 & 41 & 31  & 1  & 3  & 9 & 27 & 35 & 13 & 39 & 25 & 29 & 41 & 31  & 1  & 3 & 11   \\
+3 & 3 & 9 & 13 & 11 & 5 & 1 & 3 & 9 & 13 & 11 & 5 & 1 & 3 & 6 & 6 & 6 \\
 \hline
-4  & 4 & 16 & 18 & 26 & 12  & 2  & 8 & 32 & 36  & 6 & 24  & 4 & 16 & 18 & 26 & 12  & 2  & 8 & 32 & 36  & 6 & 24  & 4 & --  \\
+4 & 4 & 2 & 8 & 4 & 2 & 8 & 4 & 2 & 8 & 4 & 2 & 8 & 4 & 0 & 6 & 3 \\
 \hline
-5 & 5 & 25 & 33 & 27 & 43 & 31 & 17 & 39 & 11  & 9 & 45 & 41 & 21 & 13 & 19  & 3 & 15 & 29  & 7 & 35 & 37  & 1  & 5 & 22  \\
+5 & 5 & 11 & 13 & 9 & 3 & 1 & 5 & 11 & 13 & 9 & 3 & 1 & 5 & 6 & 6 & 6 \\
 \hline
-6 & 6 & 36 & 32  & 8  & 2 & 12 & 26 & 18 & 16  & 4 & 24  & 6 & 36 & 32  & 8  & 2 & 12 & 26 & 18 & 16  & 4 & 24  & 6 & -- \\
+6 & 6 & 8 & 6 & 8 & 6 & 8 & 6 & 8 & 6 & 8 & 6 & 8 & 6 & 0 & 6 & 2 \\
 \hline
-7 & 7  & 3 & 21  & 9 & 17 & 27  & 5 & 35 & 15 & 13 & 45 & 39 & 43 & 25 & 37 & 29 & 19 & 41 & 11 & 31 & 33  & \textbf{1}  & 7 & 22 \\
+7 & 7 & 7 & 7 & 7 & 7 & 7 & 7 & 7 & 7 & 7 & 7 & 7 & 7 & 0 & 6 & 1 \\
 \hline
-8 & 8 & 18  & 6  & 2 & 16 & 36 & 12  & 4 & 32 & 26 & 24  & 8 & 18  & 6  & 2 & 16 & 36 & 12  & 4 & 32 & 26 & 24  & 8 & --  \\
+8 & 8 & 8 & 8 & 8 & 8 & 8 & 8 & 8 & 8 & 8 & 8 & 8 & 8 & 0 & 6 & 1 \\
 \hline
-9 & 9 & 35 & 39 & 29 & 31  & 3 & 27 & 13 & 25 & 41  & 1  & 9 & 35 & 39 & 29 & 31  & 3 & 27 & 13 & 25 & 41  & 1  & 9 & 11  \\
+9 & 9 & 11 & 1 & 9 & 11 & 1 & 9 & 11 & 1 & 9 & 11 & 1 & 9 & 3 & 6 & 3 \\
 \hline
-10 & 10  & 8 & 34 & 18 & 42  & 6 & 14  & 2 & 20 & 16 & 22 & 36 & 38 & 12 & 28  & 4 & 40 & 32 & 44 & 26 & 30 & 24 & 10 & --  \\
-\hline 
-11 & 11 & 29 & 43 & 13  & 5  & 9  & 7 & 31 & 19 & 25 & 45 & 35 & 17  & 3 & 33 & 41 & 37 & 39 & 15 & 27 & 21  & 1 & 11 & 22 \\
+10 & 10 & 2 & 6 & 4 & 12 & 8 & 10 & 2 & 6 & 4 & 12 & 8 & 10 & 0 & 6 & 6 \\
 \hline
-12 & 12  & 6 & 26 & 36 & 18 & 32 & 16  & 8  & 4  & 2 & 24 & 12  & 6 & 26 & 36 & 18 & 32 & 16  & 8  & 4  & 2 & 24 & 12 & -- \\
+11 & 11 & 9 & 1 & 11 & 9 & 1 & 11 & 9 & 1 & 11 & 9 & 1 & 11 & 3 & 6 & 3 \\
 \hline
-13 & 13 & 31 & 35 & 41 & 27 & 29  & 9 & 25  & 3 & 39  & 1 & 13 & 31 & 35 & 41 & 27 & 29  & 9 & 25  & 3 & 39  & 1 & 13 & 11  \\
+12 & 12 & 4 & 6 & 2 & 10 & 8 & 12 & 4 & 6 & 2 & 10 & 8 & 12 & 0 & 6 & 6 \\
 \hline
-14 & 14 & 12 & 30  & 6 & 38 & 26 & 42 & 36 & 44 & 18 & 22 & 32 & 34 & 16 & 40  & 8 & 20  & 4 & 10  & 2 & 28 & 24 & 14 & -- \\
+13 & 13 & 1 & 13 & 1 & 13 & 1 & 13 & 1 & 13 & 1 & 13 & 1 & 13 & 2 & 6 & 2 \\
 \hline
-15 & 15 & 41 & 17 & 25  & 7 & 13 & 11 & 27 & 37  & 3 & 45 & 31  & 5 & 29 & 21 & 39 & 33 & 35 & 19  & 9 & 43  & 1 & 15 & 22 \\
+14 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 6 & 1 \\
+% Ab hier wiederholen sich die Zeilen --> statt Doppellinie:
+% The arydshln package offers you the \hdashline and \cdashline commands which
+% are the dashed counterparts of \hline and \cline, respectively.
+\hdashline
+\hdashline
+% \hdashline[1pt/5pt]
+% \hline
+% \hline
+15 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 6 & 1 \\
 \hline
-16 & 16 & 26  & 2 & 32  & 6  & 4 & 18 & 12  & 8 & 36 & 24 & 16 & 26  & 2 & 32  & 6  & 4 & 18 & 12  & 8 & 36 & 24 & 16 & -- \\
+16 & 2 & 4 & 8 & 2 & 4 & 8 & 2 & 4 & 8 & 2 & 4 & 8 & 2 & 0 & 6 & 3 \\
 \hline
-17 & 17 & 13 & 37 & 31 & 21 & 35 & 43 & 41  & 7 & 27 & 45 & 29 & 33  & 9 & 15 & 25 & 11  & 3  & 5 & 39 & 19  & 1 & 17 & 22 \\
-\hline
-18 & 18  & 2 & 36  & 4 & 26  & 8  & 6 & 16 & 12 & 32 & 24 & 18  & 2 & 36  & 4 & 26  & 8  & 6 & 16 & 12 & 32 & 24 & 18 & -- \\
-\hline
-19  & 19 & 39  & 5  & 3 & 11 & 25 & 15  & 9 & 33 & 29 & 45 & 27  & 7 & 41 & 43 & 35 & 21 & 31 & 37 & 13 & 17  & 1 & 19 & 22 \\
-\hline
-20  & 20 & 32 & 42 & 12 & 10 & 16 & 44  & 6 & 28  & 8 & 22 & 26 & 14  & 4 & 34 & 36 & 30  & 2 & 40 & 18 & 38 & 24 & 20 & --  \\
-\hline
-21 & 21 & 27 & 15 & 39 & 37 & 41 & 33  & 3 & 17 & 35 & 45 & 25 & 19 & 31  & 7  & 9  & 5 & 13 & 43 & 29 & 11  & 1 & 21 & 22  \\
-\hline
-22 & 22 & 24 & 22 & 24 & 22 & 24 & 22 & 24 & 22 & 24 & 22 & 24 & 22 & 24 & 22 & 24 & 22 & 24 & 22 & 24 & 22 & 24 & 22 & -- \\
-\hline
-23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 23 & -- \\
-\hline 
 \end{tabular}
 \end{center}
-}
-\caption{Werte von $a^i{\rm ~mod~}46, 1\leq a,i<23$}
+\caption{Werte von $a^i{\rm ~mod~}14, 1\leq a<17, i<14$}
 \label{expmod14}
 \end{table}
 
 
+\newpage                                                              
+\begin{table}[ht]
+\begin{center}
+% \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c||c|c|}
+% Tabular modifiziert, damit enger und nicht über Seitenrand rausgeht
+\begin{tabular}{|p{16 pt}||@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}||@{\:}r@{\:}|@{\:}r@{\:}|c|}
+\hline
+$a \setminus i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 & 21 & $ord_{22}(a)$ & $l$ \\
+\hline
+\hline
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+\hline
+2 & 2 & 4 & 8 & 16 & 10 & 20 & 18 & 14 & 6 & 12 & 2 & 4 & 8 & 16 & 10 & 20 & 18 & 14 & 6 & 12 & 2 & 0 & 10 \\
+\hline
+3 & 3 & 9 & 5 & 15 & 1 & 3 & 9 & 5 & 15 & 1 & 3 & 9 & 5 & 15 & 1 & 3 & 9 & 5 & 15 & 1 & 3 & 5 & 5 \\
+\hline
+4 & 4 & 16 & 20 & 14 & 12 & 4 & 16 & 20 & 14 & 12 & 4 & 16 & 20 & 14 & 12 & 4 & 16 & 20 & 14 & 12 & 4 & 0 & 5 \\
+\hline
+5 & 5 & 3 & 15 & 9 & 1 & 5 & 3 & 15 & 9 & 1 & 5 & 3 & 15 & 9 & 1 & 5 & 3 & 15 & 9 & 1 & 5 & 5 & 5 \\
+\hline
+6 & 6 & 14 & 18 & 20 & 10 & 16 & 8 & 4 & 2 & 12 & 6 & 14 & 18 & 20 & 10 & 16 & 8 & 4 & 2 & 12 & 6 & 0 & 10 \\
+\hline
+7 & 7 & 5 & 13 & 3 & 21 & 15 & 17 & 9 & 19 & 1 & 7 & 5 & 13 & 3 & 21 & 15 & 17 & 9 & 19 & 1 & 7 & 10 & 10 \\
+\hline
+8 & 8 & 20 & 6 & 4 & 10 & 14 & 2 & 16 & 18 & 12 & 8 & 20 & 6 & 4 & 10 & 14 & 2 & 16 & 18 & 12 & 8 & 0 & 10 \\
+\hline
+9 & 9 & 15 & 3 & 5 & 1 & 9 & 15 & 3 & 5 & 1 & 9 & 15 & 3 & 5 & 1 & 9 & 15 & 3 & 5 & 1 & 9 & 5 & 5 \\
+\hline
+10 & 10 & 12 & 10 & 12 & 10 & 12 & 10 & 12 & 10 & 12 & 10 & 12 & 10 & 12 & 10 & 12 & 10 & 12 & 10 & 12 & 10 & 0 & 2 \\
+\hline
+11 & 11 & 11 & 11 & 11 & 11 & 11 & 11 & 11 & 11 & 11 & 11 & 11 & 11 & 11 & 11 & 11 & 11 & 11 & 11 & 11 & 11 & 0 & 1 \\
+\hline
+12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 0 & 1 \\
+\hline
+13 & 13 & 15 & 19 & 5 & 21 & 9 & 7 & 3 & 17 & 1 & 13 & 15 & 19 & 5 & 21 & 9 & 7 & 3 & 17 & 1 & 13 & 10 & 10 \\
+\hline
+14 & 14 & 20 & 16 & 4 & 12 & 14 & 20 & 16 & 4 & 12 & 14 & 20 & 16 & 4 & 12 & 14 & 20 & 16 & 4 & 12 & 14 & 0 & 5 \\
+\hline
+15 & 15 & 5 & 9 & 3 & 1 & 15 & 5 & 9 & 3 & 1 & 15 & 5 & 9 & 3 & 1 & 15 & 5 & 9 & 3 & 1 & 15 & 5 & 5 \\
+\hline
+16 & 16 & 14 & 4 & 20 & 12 & 16 & 14 & 4 & 20 & 12 & 16 & 14 & 4 & 20 & 12 & 16 & 14 & 4 & 20 & 12 & 16 & 0 & 5 \\
+\hline
+17 & 17 & 3 & 7 & 9 & 21 & 5 & 19 & 15 & 13 & 1 & 17 & 3 & 7 & 9 & 21 & 5 & 19 & 15 & 13 & 1 & 17 & 10 & 10 \\
+\hline
+18 & 18 & 16 & 2 & 14 & 10 & 4 & 6 & 20 & 8 & 12 & 18 & 16 & 2 & 14 & 10 & 4 & 6 & 20 & 8 & 12 & 18 & 0 & 10 \\
+\hline
+19 & 19 & 9 & 17 & 15 & 21 & 3 & 13 & 5 & 7 & 1 & 19 & 9 & 17 & 15 & 21 & 3 & 13 & 5 & 7 & 1 & 19 & 10 & 10 \\
+\hline
+20 & 20 & 4 & 14 & 16 & 12 & 20 & 4 & 14 & 16 & 12 & 20 & 4 & 14 & 16 & 12 & 20 & 4 & 14 & 16 & 12 & 20 & 0 & 5 \\
+\hline
+21 & 21 & 1 & 21 & 1 & 21 & 1 & 21 & 1 & 21 & 1 & 21 & 1 & 21 & 1 & 21 & 1 & 21 & 1 & 21 & 1 & 21 & 2 & 2 \\
+\hline
+22 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+\hdashline
+\hdashline
+23 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+\hline
+24 & 2 & 4 & 8 & 16 & 10 & 20 & 18 & 14 & 6 & 12 & 2 & 4 & 8 & 16 & 10 & 20 & 18 & 14 & 6 & 12 & 2 & 0 & 10 \\
+\hline
+25 & 3 & 9 & 5 & 15 & 1 & 3 & 9 & 5 & 15 & 1 & 3 & 9 & 5 & 15 & 1 & 3 & 9 & 5 & 15 & 1 & 3 & 5 & 5 \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Werte von $a^i{\rm ~mod~}22, 1\leq  a<26, i<22$}
+\label{expmod22}
+\end{table}
 
+% \newpage
+% Information Sage's latex command
+% Table 4.8 created this way (hier fehlt noch die letzte Spalte mit J(45) (Jan 2013)
+% - latex nur auf Sage-Objekte anwendbar (also erst alles in eine Matrix schreiben)
+%   Die Matrix kann nur numerische Werte enthalten (also "0" statt "--" geschrieben).
+% - Ausgabe ist ein array (dieses muss in %% eingeschlossen werden).
+% - Um das Array zur Table zu machen, sind ein paar hline, ein \\ nach der letzten
+%   Zeile, etc zu ergänzen.
+%% $$
+%% \left(     %Macht runde Klammer vor der Matrix
+%% \begin{array}{rrrrrrrrrrrrr}
+%\begin{table}[ht]
+%\begin{center}
+%\begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+%\hline
+%1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+%\hline
+%\hline
+%2 & 4 & 8 & 16 & 32 & 19 & 38 & 31 & 17 & 34 & 23 & 1 & 12 \\
+%\hline
+%3 & 9 & 27 & 36 & 18 & 9 & 27 & 36 & 18 & 9 & 27 & 36 & 0 \\
+%\hline
+%4 & 16 & 19 & 31 & 34 & 1 & 4 & 16 & 19 & 31 & 34 & 1 & 6 \\
+%\hline
+%5 & 25 & 35 & 40 & 20 & 10 & 5 & 25 & 35 & 40 & 20 & 10 & 0 \\
+%\hline
+%6 & 36 & 36 & 36 & 36 & 36 & 36 & 36 & 36 & 36 & 36 & 36 & 0 \\
+%\hline
+%7 & 4 & 28 & 16 & 22 & 19 & 43 & 31 & 37 & 34 & 13 & 1 & 12 \\
+%\hline
+%8 & 19 & 17 & 1 & 8 & 19 & 17 & 1 & 8 & 19 & 17 & 1 & 4 \\
+%\hline
+%9 & 36 & 9 & 36 & 9 & 36 & 9 & 36 & 9 & 36 & 9 & 36 & 0 \\
+%\hline
+%10 & 10 & 10 & 10 & 10 & 10 & 10 & 10 & 10 & 10 & 10 & 10 & 0 \\
+%\hline
+%11 & 31 & 26 & 16 & 41 & 1 & 11 & 31 & 26 & 16 & 41 & 1 & 6 \\
+%\hline
+%12 & 9 & 18 & 36 & 27 & 9 & 18 & 36 & 27 & 9 & 18 & 36 & 0  \\
+%\hline
+%\end{tabular}
+%\end{center}
+%\caption{xxxTESTxxxValues of $a^i{\rm ~mod~}45, 1\leq a,i<13$}
+%\label{xxxTESTxxxSrcArith3b}\label{xxxTESTxxxexpmod45}
+%\end{table}
+%% \end{array}
+%% \right)    %Schließt runde Klammer nach der Matrix
+%% $$
 
+%Sample:
+%\begin{table}[ht]
+%\begin{center}
+%\begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+%\hline
+%$a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 & 21 & 22 & 23 & ord \\
+%\hline
+%\hline
+%1    & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1 & 1    \\
+%\hline
 
-\begin{Verbatim}
-1-----------Testcase: m = 14, max_i = 13, max_a = 16.
-[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 6]
-[2, 4, 8, 2, 4, 8, 2, 4, 8, 2, 4, 8, 'None', 6]
-[3, 9, 13, 11, 5, 1, 3, 9, 13, 11, 5, 1, 6, 6]
-[4, 2, 8, 4, 2, 8, 4, 2, 8, 4, 2, 8, 'None', 6]
-[5, 11, 13, 9, 3, 1, 5, 11, 13, 9, 3, 1, 6, 6]
-[6, 8, 6, 8, 6, 8, 6, 8, 6, 8, 6, 8, 'None', 6]
-[7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 'None', 6]
-[8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 'None', 6]
-[9, 11, 1, 9, 11, 1, 9, 11, 1, 9, 11, 1, 3, 6]
-[10, 2, 6, 4, 12, 8, 10, 2, 6, 4, 12, 8, 'None', 6]
-[11, 9, 1, 11, 9, 1, 11, 9, 1, 11, 9, 1, 3, 6]
-[12, 4, 6, 2, 10, 8, 12, 4, 6, 2, 10, 8, 'None', 6]
-[13, 1, 13, 1, 13, 1, 13, 1, 13, 1, 13, 1, 2, 6]
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'None', 6]
-[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 6]
-
-1-----------Testcase: m = 22, max_i = 21, max_a = 25.
-[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10]
-[2, 4, 8, 16, 10, 20, 18, 14, 6, 12, 2, 4, 8, 16, 10, 20, 18, 14, 6, 12, 'None', 10]
-[3, 9, 5, 15, 1, 3, 9, 5, 15, 1, 3, 9, 5, 15, 1, 3, 9, 5, 15, 1, 5, 10]
-[4, 16, 20, 14, 12, 4, 16, 20, 14, 12, 4, 16, 20, 14, 12, 4, 16, 20, 14, 12, 'None', 10]
-[5, 3, 15, 9, 1, 5, 3, 15, 9, 1, 5, 3, 15, 9, 1, 5, 3, 15, 9, 1, 5, 10]
-[6, 14, 18, 20, 10, 16, 8, 4, 2, 12, 6, 14, 18, 20, 10, 16, 8, 4, 2, 12, 'None', 10]
-[7, 5, 13, 3, 21, 15, 17, 9, 19, 1, 7, 5, 13, 3, 21, 15, 17, 9, 19, 1, 10, 10]
-[8, 20, 6, 4, 10, 14, 2, 16, 18, 12, 8, 20, 6, 4, 10, 14, 2, 16, 18, 12, 'None', 10]
-[9, 15, 3, 5, 1, 9, 15, 3, 5, 1, 9, 15, 3, 5, 1, 9, 15, 3, 5, 1, 5, 10]
-[10, 12, 10, 12, 10, 12, 10, 12, 10, 12, 10, 12, 10, 12, 10, 12, 10, 12, 10, 12, 'None', 10]
-[11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 'None', 10]
-[12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 'None', 10]
-[13, 15, 19, 5, 21, 9, 7, 3, 17, 1, 13, 15, 19, 5, 21, 9, 7, 3, 17, 1, 10, 10]
-[14, 20, 16, 4, 12, 14, 20, 16, 4, 12, 14, 20, 16, 4, 12, 14, 20, 16, 4, 12, 'None', 10]
-[15, 5, 9, 3, 1, 15, 5, 9, 3, 1, 15, 5, 9, 3, 1, 15, 5, 9, 3, 1, 5, 10]
-[16, 14, 4, 20, 12, 16, 14, 4, 20, 12, 16, 14, 4, 20, 12, 16, 14, 4, 20, 12, 'None', 10]
-[17, 3, 7, 9, 21, 5, 19, 15, 13, 1, 17, 3, 7, 9, 21, 5, 19, 15, 13, 1, 10, 10]
-[18, 16, 2, 14, 10, 4, 6, 20, 8, 12, 18, 16, 2, 14, 10, 4, 6, 20, 8, 12, 'None', 10]
-[19, 9, 17, 15, 21, 3, 13, 5, 7, 1, 19, 9, 17, 15, 21, 3, 13, 5, 7, 1, 10, 10]
-[20, 4, 14, 16, 12, 20, 4, 14, 16, 12, 20, 4, 14, 16, 12, 20, 4, 14, 16, 12, 'None', 10]
-[21, 1, 21, 1, 21, 1, 21, 1, 21, 1, 21, 1, 21, 1, 21, 1, 21, 1, 21, 1, 2, 10]
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'None', 10]
-[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10]
-[2, 4, 8, 16, 10, 20, 18, 14, 6, 12, 2, 4, 8, 16, 10, 20, 18, 14, 6, 12, 'None', 10]
-\end{Verbatim}
-
-end------------------------------------------
+%\hline
+%\end{tabular}
+%\end{center}
+%\caption{xxxTESTxxxValues of $a^i{\rm ~mod~}45, 1\leq a,i<13$}
+%\label{xxxTESTxxxSrcArith3b}\label{xxxTESTxxxexpmod45}
+%\end{table}
 
 
 
@@ -2025,6 +2047,7 @@ end------------------------------------------
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\clearpage
 \newpage
 %\hypertarget{Chapter_ElementaryNT_10}{}
 \hypertarget{RSABeweis}{} 
@@ -2042,7 +2065,7 @@ jede Buchstabenkombination mehrfach belegen kann: In Deutschland gibt es sehr
 Interessen-lastige Diskussionen im Gesundheitswesen. Dabei wird mit
 \glqq RSA'' der vom Gesundheitsministerium geregelte
 \mbox{\glqq{\bf R}isiko{\bf S}truktur{\bf A}usgleich''} in der gesetzlichen
-Krankenversicherung: Im Jahr 2004 wurden durch den RSA ca. 16 Mrd. Euro
+Krankenversicherung bezeichnet: Im Jahr 2004 wurden durch den RSA ca. 16 Mrd. Euro
 zwischen den Krankenkassen umverteilt.
 }-Verfahren \glqq beweisen''.
 
@@ -2074,7 +2097,7 @@ Damit dieses System mit jeder Nachricht $M$ funktioniert, müssen folgende 4
 \begin{itemize}
     \item[\bf 1.] $D ( S; E (P; M) ) = M$ für jedes $M$ (Umkehrbarkeit) und $M$ nimmt
 \glqq sehr viele\grqq~ verschiedene Werte an.
-    \item[\bf 2.] Alle $(S, P)$-Paare aller Teilnehmer sind verschieden (d.h. es muss viele davon geben).
+    \item[\bf 2.] Alle $(S, P)$-Paare aller Teilnehmer sind verschieden.
     \item[\bf 3.] Der Aufwand, $S$ aus $P$ herzuleiten, ist mindestens so hoch, wie das Entschlüsseln
                                von $M$ ohne Kenntnis von $S$.
     \item[\bf 4.] Sowohl $C$ als auch $M$ lassen sich relativ einfach berechnen.
@@ -2083,19 +2106,21 @@ Damit dieses System mit jeder Nachricht $M$ funktioniert, müssen folgende 4
 Die 1. Forderung ist eine generelle Bedingung für alle kryptographischen
 Verschlüsselungsal"-go"-rith"-men.
 
-Die 2. Forderung kann leicht sichergestellt werden, weil es \glqq sehr'' viele \index{Primzahl!Anzahl}
-Primzahlen gibt\footnote{%
-Nach dem \textbf{\hyperlink{thm-pz-pi-x}{Primzahlsatz}}\index{Primzahlsatz} (Kapitel~\ref{thm-pz-pi-x}, S.~\pageref{thm-pz-pi-x}) von 
+Die Voraussetzung für die 2. Forderung kann leicht sichergestellt werden, weil
+es \glqq sehr'' viele \index{Primzahl!Anzahl} Primzahlen gibt\footnote{%
+Nach dem \textbf{\hyperlink{thm-pz-pi-x}{Primzahlsatz}}\index{Primzahlsatz}
+(Kapitel~\ref{thm-pz-pi-x}, S.~\pageref{thm-pz-pi-x}) von 
 Legendre\index{Legendre, Adrien-Marie} und Gauss\index{Gauss, Carl Friedrich}
 gibt es bis zur Zahl $n$ asymptotisch $n/{\rm ln}(n)$ Primzahlen. Dies bedeutet
-beispielsweise: es gibt $6,5*10^{74}$ Primzahlen unterhalb von $n=2^{256}$
+beispielsweise: Es gibt $6,5*10^{74}$ Primzahlen unterhalb von $n=2^{256}$
 $(1,1*10^{77})$ und $3,2*10^{74}$ Primzahlen unterhalb von $n=2^{255}$. 
 Zwischen $2^{256}$ und $2^{255}$ gibt es also allein $3,3*10^{74}$ Primzahlen
 mit genau $256$ Bits. Diese hohe Zahl ist auch der Grund, warum man sie nicht
 einfach alle abspeichern kann.
-} 
-und weil dies durch eine zentrale Stelle, die Zertifikate ausgibt,
-sichergestellt werden kann.
+}.
+Hinzu kommen muss noch, dass eine zentrale Stelle, die Zertifikate ausgibt,
+sicher stellt, das das erfüllt ist (siehe Kapitel~\ref{nt_Shared-Primes},
+S.~\pageref{nt_Shared-Primes}).
 
 Die letzte Forderung macht das Verfahren überhaupt erst anwendbar. Dies
 geht, weil die modulare Potenzierung in linearer Zeit möglich ist (da die
@@ -2119,33 +2144,37 @@ Schritt 4 und 5 sind die Verschlüsselung, 6 und 7 die Entschlüsselung:
 \begin{itemize}
 
 \item[{\bf 1.}] Wähle zufällig $2$ verschiedene Primzahlen\footnote{%
-Compaq hatte in 2000 mit hohem Marketingaufwand das sogenannte Multiprime-Verfahren eingeführt.
+Compaq hatte in 2000 mit hohem Marketingaufwand das sogenannte
+Multi-prime-Verfahren\index{RSA!multi-prime} eingeführt.
 $n$ war dabei das Produkt von zwei großen und einer relativ dazu kleinen Primzahl:
 $n=o*p*q.$ Nach Satz~\ref{J_of_p1..pk} ist dann $ J(n)= (o-1)*(p-1)*(q-1).$ Das
-Verfahren hat sich bisher nicht durchgesetzt.\\
+Verfahren hat sich nicht durchgesetzt.\\
 Mit ein Grund dafür dürfte sein, dass Compaq ein Patent\index{Patent} 
-dafür angemeldet hat. Generell gibt es in Europa und in der Open Source 
-Bewegung \index{Open Source} wenig Verständnis für Patente auf Algorithmen.
+dafür angemeldet hat. Generell gibt es in Europa und in der Open-Source-Bewegung
+\index{Open Source} wenig Verständnis für Patente auf Algorithmen.
 Überhaupt kein Verständnis herrscht außerhalb der USA, dass man auf den 
 Sonderfall (3 Faktoren) eines Algorithmus (RSA) ein Patent beantragen kann, 
-obwohl das Patent für den allgemeinen Fall schon fast abgelaufen war.
+obwohl das Patent für den allgemeinen Fall schon fast abgelaufen war.\\
+   JCT\index{JCrypTool} enthält das Multi-prime RSA-Verfahren sowohl im
+   Menü {\bf Visualisierungen} der Standard-Perspektive als auch in der
+   Algorithmen-Perspektive.%Funktionalen
 }$^,$\footnote{%
 Für Primzahlen $p$ und $q$ mit $p=q$, und $e,d$ mit $ed\equiv 1 \mod J(n)$
 gilt i.a. nicht $ (m^{e})^d \equiv m \mod n \text{ für alle } m <n.$
 Sei z.B. $n=5^2$, berechnet sich $J(n)$ nach Satz~\ref{thm-zth-phinum}:
 $~J(n)=5*4=20,~e=3,~d=7,~ed\equiv 21\equiv 1\mod~J(n).$ Dann gilt $ (5^3)^7 \equiv 0 \mod 25.$
-} $p$ und $q$ und berechne $n = p*q$\footnote{%
+} $p$ und $q$ und berechne $n = p*q$.\footnote{%
 Das BSI \index{BSI} (Bundesamt für Sicherheit in der Informationstechnik) empfiehlt, die Primfaktoren $p$ 
 und $q$ ungefähr gleich groß zu wählen, aber nicht zu dicht beieinander, d.h. konkret etwa
 $$ 0.5 < |\log_2 (p) - \log_2 (q) | <30. $$ Die Primfaktoren werden unter Beachtung der genannten 
 Nebenbedingung zufällig und unabhängig voneinander erzeugt 
 (Siehe 
 \url{http://www.bsi.bund.de/esig/basics/techbas/krypto/bund02v7.pdf}).
-}.\\ 
-Der Wert $n$ wird als RSA-Modul bezeichnet\footnote{%
+}\\ 
+Der Wert $n$ wird als RSA-Modul bezeichnet.\footnote{%
 In CT1\index{CrypTool 1} wird der RSA-Modul mit einem großen \glqq N'' 
 bezeichnet.
-}. 
+}
 
 \item[{\bf 2.}] Wähle ein beliebiges $e \in \{2, \cdots, n-1\}$, so dass 
                 gilt\footnote{%
@@ -2173,11 +2202,11 @@ bezeichnet.
                 deshalb zu sehr vielen Zahlen teilerfremd).
                 }
 \item[{\bf 3.}] Wähle $d \in \{1, \cdots, n-1\}$  mit  $e*d = 1$  mod $J(n)$,
-      d.h. $d$ ist die multiplikative Inverse zu $e$ modulo $J(n)$\footnote{%
+      d.h. $d$ ist die multiplikative Inverse zu $e$ modulo $J(n).$\footnote{%
       Aus Sicherheitsgründen darf $d$ nicht zu klein sein.
       }$^,$\footnote{%
       Je nach Implementierung wird zuerst $d$ oder zuerst $e$ bestimmt.
-      }. Danach kann man $J(n)$ \glqq wegwerfen''.
+      } Danach kann man $J(n)$ \glqq wegwerfen''.
   \begin{itemize}
       \item[$\rightarrow$] $(n, e)$ ist der öffentliche Schlüssel $P$.
       \item[$\rightarrow$] $(n, d)$ ist der geheime Schlüssel $S$ (es 
@@ -2310,7 +2339,7 @@ $$
 \section[Zur Sicherheit des RSA-Verfahrens]
 {Zur Sicherheit des RSA-Verfahrens\footnotemark}
     \footnotetext{%
-    Große Teile des Kapitels~\ref{SecurityRSA}
+    Große Teile des ersten Teils in Kapitel~\ref{SecurityRSA}
     sind angelehnt an den Artikel \glqq Vorzüge und Grenzen des
     RSA-Verfahrens\grqq~von F. Bourseau, D. Fox und C. Thiel 
     \cite{nt:Bourseau2002}.}
@@ -2355,20 +2384,20 @@ Die Lösungskomplexität des Faktorisierungsproblems liegt damit asymptotisch bei
 $$
 O(l) = e^{c \cdot (l \cdot \ln 2)^{1/3} \cdot  (\ln(l \cdot \ln(2))^{2/3} + o(l)}
 $$
-Siehe: 
+\indent Siehe: \cite{nt:Lenstra1993} und \cite{nt:Silverman2000}
 % {\em The development of the Number Field Sieve} \cite{nt:Lenstra1993} und \\ 
 % {\em A Cost-Based Security Analysis of Symmetric and Asymmetric 
 %     Key Lengths} \cite{nt:Silverman2000} 
-\vspace{-10pt}
-\begin{itemize}
-  \item[] A. Lenstra, H. Lenstra:  
-          {\em The development of the Number Field Sieve} 
-          \cite{nt:Lenstra1993}.\\
-          Robert D. Silverman:  
-          {\em A Cost-Based Security Analysis of Symmetric and Asymmetric
-          Key Lengths} 
-          \cite{nt:Silverman2000}.
-\end{itemize}
+%\vspace{-10pt}
+%\begin{itemize}
+%  \item[] A. Lenstra, H. Lenstra:  
+%          {\em The development of the Number Field Sieve} 
+%          \cite{nt:Lenstra1993}.\\
+%          Robert D. Silverman:  
+%          {\em A Cost-Based Security Analysis of Symmetric and Asymmetric
+%          Key Lengths} 
+%          \cite{nt:Silverman2000}.
+%\end{itemize}
 
      
 \vskip +12pt
@@ -2419,7 +2448,7 @@ Siehe: {\em Handbook of Applied Cryptography} \cite{nt:Menezes2001}.
     GNFS, das modernste Faktorisierungsverfahren für Moduli größer 130
     Dezimalstellen, ist (mittels der msieve-Bibliothek) nur in CT2 enthalten.
 }}
-\mbox{}
+\mbox{}%Damit er nach der Paragraph-Überschrift nicht hintendran weiter schreibt, sondern umbricht,
 
 Die Komplexität wird im wesentlichen von der Länge $l$ des Moduls $n$ 
 bestimmt. Höhere Werte für diesen wesentlichen Parameter orientieren 
@@ -2527,9 +2556,9 @@ in Kapitel ~\ref{ECAlternative}).
 
 \begin{sloppypar}  %xxxxxx Was bedeutet das? Im Englischen nicht drin? 2003-03-02
   In dem Artikel \cite{nt:Bourseau2002} veröffentlichte Dirk Fox\footnote{%
-  Seine Firma Secorvo GmbH hat auch eine Stellungnahme zur
+  Seine Firma Secorvo GmbH gab eine Stellungnahme zur
   Schlüssellängenempfehlung des BSI\index{BSI} für den Bundesanzeiger  
-  abgegeben. Kapitel 2.3.1 dieser Stellungnahme geht kompetent 
+  ab. Kapitel 2.3.1 dieser Stellungnahme geht kompetent 
   und verständlich auf RSA-Sicherheit ein (existiert nur in Deutsch): \\  
   \url{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}
   }
@@ -2564,7 +2593,7 @@ Hält die Prognose, dann ist die Faktorisierung eines RSA-Moduls der Länge
 % scale dehnt Rahmenlinie und Bild aus -> Sitenrand wird bei 0.7 z.B. kleiner.
 }
 \caption{Vergleich der publizierten Faktorisierungserfolge (blau) mit der
-prognostizierten Entwicklung (rot; Quelle Fox 2001)}
+prognostizierten Entwicklung (rot) [Quelle Fox 2001]}
 \label{secorvo-factorisation-forecast}
 \end{center}
 \end{figure}
@@ -2684,16 +2713,16 @@ Siehe \url{http://www.heise.de/newsticker/meldung/print/65957}
 
 Laufzeituntersuchungen zur Faktorisierung\index{Faktorisierung} mit den
 Open-Source Software-Paketen Pari-GP, Sage, CrypTool 1 und CrypTool 2
-finden sich in "`Zeitexperimente zur Faktorisierung"'\footnote{%
-R.-H.Schulz und H.Witten: "`Zeitexperimente zur Faktorisierung. Ein Beitrag
+finden sich in "`Zeitexperimente zur Faktorisierung"'.\footnote{%
+R.-H. Schulz und H. Witten: "`Zeitexperimente zur Faktorisierung. Ein Beitrag
 zur Didaktik der Kryptographie"', in LogIn Heft Nr. 166/167 (2010) 113-120,\\
 \url{http://bscw.schule.de/pub/bscw.cgi/d864899/Schulz_Witten_Zeit-Experimente.pdf}
-}.
+}
 
 \vskip +20pt
 %\noindent
-Im Folgenden werden diese letzten Rekorde etwas ausführlicher
-erläutert\footnote{%
+Im Folgenden werden die letzten Rekorde aus Tabelle~\ref{factorizationrecords}
+etwas ausführlicher erläutert\footnote{%
 Die beiden dabei benutzten Methoden GNFS und SNFS werden kurz z.B. auf
 den ff. Webseiten dargestellt:
 \index{General Number Field Sieve (GNFS)}
@@ -2822,7 +2851,7 @@ Field Sieve (GNFS)} eine $160$-stellige Zahl in ihre beiden Primfaktoren
 (diese haben jeweils 80 Dezimalstellen).
 
 Die Berechnungen dazu fanden auch im Bundesamt für Sicherheit in der 
-Informationstechnik (BSI) in Bonn statt\footnote{%
+Informationstechnik (BSI) in Bonn statt.\footnote{%
 Das BSI \index{BSI} erstellt jedes Jahr ein Papier über die Eignung von
 Kryptoalgorithmen, mit denen Signaturen erzeugt werden können,         
 die den Vorgaben des deutschen Signaturgesetzes genügen.
@@ -2832,7 +2861,7 @@ Schwierigkeit auf dem Faktorisierungsproblem beruht,
 kooperiert das BSI auch mit Forschern der Universität Bonn.
 Weitere Informationen zu Kryptoalgorithmen finden Sie auf den BSI-Internetseiten unter:
    \url{http://www.bsi.bund.de/esig/basics/techbas/krypto/index.htm}
-}.
+}
 
 Die 160-stellige Dezimalzahl stammt von der alten Challenge-Liste von RSADSI.
 Diese wurde nach der Faktorisierung von RSA-155 (RSA512) zurückgezogen.
@@ -3004,9 +3033,9 @@ q = 3674604366679959042824463379962795263227915816434308764267\\
 \end{array}
 $$
 
-Die Berechnungen dauerten 2 1/2 Jahre\footnote{%
+Die Berechnungen dauerten 2 1/2 Jahre.\footnote{%
 Dies war ein "`academic effort"' -- Organisationen mit besserer Ressourcen-Ausstattung
-könnten es deutlich schneller durchführen.}.
+könnten es deutlich schneller durchführen.}
 \vspace{24pt}
 
 
@@ -3110,7 +3139,8 @@ Verweise:
 
 % --------------------------------------------------------------------------
 \vskip +50pt
-\paragraph*{Größenordnung faktorisierter Zahlen im Vergleich zu auf Primalität getesteter Zahlen}
+\paragraph*{Größenordnung faktorisierter Zahlen im Vergleich zu auf Primalität
+getesteter Zahlen}
 \mbox{}
 
 Wie man sieht, sind die größten (aus 2 Primfaktoren) zusammengesetzten
@@ -3122,10 +3152,11 @@ der Lage sind, Aussagen über ihre Primalität zu treffen (siehe Kapitel
 
 
 % be_2005_UPDATEN_if-new-mersenne-prime-appears   % Eyecatcher_neue-Mersenne
-Länge in Bit der derzeitigen Weltrekorde:\\
-$$  ~~~~~~~~~[RSA{-}768{-}Zahl] ~~\longleftrightarrow{}~~[47.~bekannte~Mersenne~Primzahl] $$
-$$ 768 ~~ \longleftrightarrow{} ~~ 43.112.609 ~~~~~$$
+Länge der derzeitigen Weltrekorde in Dezimaldarstellung:
 
+$$  ~~~~~~~~~[RSA{-}768{-}Zahl] ~~\longleftrightarrow{}~~[47.~bekannte~Mersenne~Primzahl] $$
+$$ 232 ~~ \longleftrightarrow{} ~~ 43.112.609 ~~~~~$$
+$$ [vgl.~Tab.~\ref{factorizationrecords}] ~~\longleftrightarrow{}~~ [vgl.~Tab.~\ref{L_n_Largest_Known-Primes}] ~~~~~~~~~~~~~~~~$$
 
 %be_2005 - erzwungenes Blank und $$ um Pfeilzeichen, sonst setzt er Blanks an 
 %          die falschen Stellen.
@@ -3142,9 +3173,9 @@ $$ 768 ~~ \longleftrightarrow{} ~~ 43.112.609 ~~~~~$$
            {Weitere aktuelle Forschungsergebnisse zu Primzahlen und Faktorisie"-rung}
 \label{FactorisationResearch}
 Primzahlen sind Teil vieler hochaktueller Forschungsgebiete der Zahlentheorie. 
-Die Fortschritte bei der Faktorisierung sind größ als noch vor 5 Jahren
+Die Fortschritte bei der Faktorisierung sind größer als noch vor 5 Jahren
 geschätzt -- sie gehen nicht nur auf das Konto schnellerer Rechner, 
-sondern sie sind auch in neuen Erkenntnissen begründet.
+sondern sie sind auch in neuen mathematischen Erkenntnissen begründet.
 
 Die Sicherheit des RSA-Algorithmus basiert auf der empirischen Beobachtung, dass die Faktorisierung großer ganzer 
 Zahlen ein schwieriges Problem ist. Besteht wie beim RSA-Algorithmus der zugrunde liegende Modul $n$ aus dem Produkt 
@@ -3340,9 +3371,18 @@ Aber selbst die Autoren merken an, dass andere bekannte Algorithmen (z.B. ECPP) 
           \href{http://ls2-www.cs.uni-dortmund.de/lehre/winter200203/kt/material/primes.ps}{\tt http://ls2-www.cs.uni-dortmund.de/lehre/winter200203/kt/material/primes.ps} \\% \url... created overfull \hbox
            \hspace*{2em}\hspace*{2em}Gute Erläuterung in Deutsch von Thomas Hofmeister.
 \end{itemize}
-
 \vskip +10 pt
 
+
+
+% --------------------------------------------------------------------------
+\vskip +20pt
+%\paragraph*{``Primes in P'': Testen auf Primalität ist polynominal}
+\subsubsection{\glqq Shared Primes\grqq: Module mit gleichen Primzahlen}
+\label{nt_Shared-Primes} \index{Primzahl!Shared} 
+
+%~\ref{nt_Shared-Primes}, S.~\pageref{nt_Shared-Primes}
+Im xxxxxxxxxx
 
 
 
@@ -3365,7 +3405,7 @@ der modularen Arithmetik extensiv angewandt. Hier werden exemplarisch einige
 wenige Beispiele aus der Kryptographie mit kleinen\footnote{%
 \glqq Klein'' bedeutet beim RSA-Verfahren, dass die Bitlängen der Zahlen sehr
 viel kleiner sind als $1024$ Bit (das sind $308$ Dezimalstellen). 
-$1024$ Bit gilt im Moment in der Praxis als Mindestlänge für den RSA-Modul.
+$1024$ Bit gilt im Moment in der Praxis als Mindestlänge für sichere RSA-Module.
 } Zahlen vorgestellt.
 
 Die Chiffrierung eines Textes besteht darin, dass man aus einer Zeichenkette
@@ -3429,7 +3469,7 @@ Funktion im ganzen.
 \index{Diffie-Hellman}
 
 Das DH-Schlüsselaustauschprotokoll (Key Exchange Protocol) wurde 1976 in
-Stanford von Whitfield Diffie, Martin E. Hellman und Ralph Merkle erdacht\footnote{%
+Stanford von Whitfield Diffie, Martin E. Hellman und Ralph Merkle erdacht.\footnote{%
   In CT1\index{CrypTool 1} ist dieses Austauschprotokoll visualisiert:
   Sie können die einzelnen Schritte mit konkreten Zahlen nachvollziehen 
   per Menü {\bf Einzelverfahren \textbackslash{} Protokolle
@@ -3437,7 +3477,7 @@ Stanford von Whitfield Diffie, Martin E. Hellman und Ralph Merkle erdacht\footno
   In JCT\index{JCrypTool} findet man es in der Standard-Perspektive
   über den Menüeintrag {\bf Visualisierungen \textbackslash{} Diffie-Hellman
   Schlüsselaustausch (EC)}.
-}. 
+}
 
 Eine Einwegfunktion dient Alice und Bob\footnote{%
 Alice\index{Alice} und Bob\index{Bob} werden standardmäßig als die beiden
@@ -3520,7 +3560,7 @@ berechnen.
 \begin{remark}{:}\\
 In diesem Beispiel mit den kleinen Zahlen ist das Diskrete
 Logarithmusproblem\index{Logarithmusproblem!diskret} leicht lösbar, aber mit großen
-Zahlen ist es kaum zu lösen\footnote{%
+Zahlen ist es kaum zu lösen.\footnote{%
 Mit Sage\index{Sage} kann man den diskreten Logarithmus\index{Logarithmusproblem!diskret} $x$,
 der die Gleichung $11^x \equiv 49 {\rm ~(mod~}347)$ löst, folgendermaßen bestimmen
                 % $11^x \equiv 49 \pmod{347}$
@@ -3580,7 +3620,7 @@ i  & $11^i \bmod 347$ & \\
 
 \noindent Weitere Details finden Sie
 in Kapitel~\ref{nt:AppArith3a2} \glqq \nameref{nt:AppArith3a2}''.
-}.
+}
 \end{remark}
 
 \noindent Um die diskreten Logarithen zu erhalten, ist hier Folgendes zu berechnen: \\
@@ -3622,18 +3662,17 @@ durchgeführt werden.
 % --------------------------------------------------------------------------
 \subsection{RSA mit kleinen Primzahlen und mit einer Zahl als Nachricht}
 Bevor wir RSA auf einen Text anwenden, wollen wir es erst direkt mit einer
-Zahl zeigen\footnote{%
+Zahl zeigen.\footnote{%
    Mit CT1\index{CrypTool 1} können Sie dies per Menü {\bf Einzelverfahren
    \textbackslash{} RSA-Kryptosystem \textbackslash{} RSA-Demo} lösen.
-}.
+}
 \begin{itemize}
   \item[\bf 1.] Die gewählten Primzahlen seien $p=5$ und $q=11$. \\
                 Also ist $n=55$ und $J(n) = (p-1)*(q-1)=40$.
-  \item[\bf 2.] $e = 7$ (sollte\footnote{%
+  \item[\bf 2.] $e = 7$ ($e$ sollte\footnote{%
                 Siehe Fußnote~\ref{foot:Selection-of-e} auf Seite
-                \pageref{foot:Selection-of-e}.}
-                zwischen $11$ und $39$ liegen und muss
-                teilerfremd\index{Zahlen!teilerfremde (co-prime)}
+                \pageref{foot:Selection-of-e}.} zwischen $11$ und $39$ liegen,
+                und muss teilerfremd\index{Zahlen!teilerfremde (co-prime)}
                 zu $40$ sein).
   \item[\bf 3.] $d = 23$ (da $23*7 \equiv 161 \equiv 1{\rm ~(mod~}40)$)
   \begin{itemize} 
@@ -3693,17 +3732,16 @@ L       & 12   & Y    & 25 \\
 \noindent {\bf Schlüsselerzeugung (Schritt 1 bis 3):} \\
 %\vskip 5 pt
 {\bf 1.} $p=47, q=79$ $( n= 3713;~ J(n) = (p-1)*(q-1)=3588).$ \\
-{\bf 2.} $e=37$ (sollte\footnote{%
+{\bf 2.} $e=37$ ($e$ sollte\footnote{%
                 Siehe Fußnote~\ref{foot:Selection-of-e} auf Seite
-                \pageref{foot:Selection-of-e}.}
-                zwischen 79 und 3587 liegen und muss
-                teilerfremd\index{Zahlen!teilerfremde (co-prime)}
+                \pageref{foot:Selection-of-e}.}  zwischen 79 und 3587 liegen,
+                und muss teilerfremd\index{Zahlen!teilerfremde (co-prime)}
                 zu $3588$ sein). \\
 {\bf 3.} $d=97$ (denn $e*d=1{\rm ~mod~}J(n); 37*97 \equiv 3589 
-\equiv 1{\rm ~(mod~}3588) \;$)\footnote{%
+\equiv 1{\rm ~(mod~}3588) \;$).\footnote{%
   Wie man $d = 97$ mit Hilfe des erweiterten ggT berechnet, wird in
   Anhang~\ref{nt:NumberTheory_Appendix_GCD} gezeigt.
-}.
+}
 
 \noindent {\bf 4. Verschlüsselung:} \\ 
 {\tt
@@ -3720,12 +3758,12 @@ die Blocklänge 2 beträgt.\\
 
 \label{SrcArith4a}
 %Verschlüsselung aller 7 Teile jeweils per: $C \equiv M^{37}{\rm ~(mod~}$3713)\footnote{%
-\noindent Verschlüsselung aller 7 Teile jeweils per: $C \equiv M^{37}{\rm ~(mod~3713)}$\footnote{%
+\noindent Verschlüsselung aller 7 Teile jeweils per: $C \equiv M^{37}{\rm ~(mod~3713)}$:\footnote{%
   In Kapitel~\ref{nt:AppArith4a} \glqq \nameref{nt:AppArith4a}''
   finden Sie den Beispiel-Quelltext zur RSA-Verschlüsselung mit Sage. \\
   Mit CT1\index{CrypTool 1} können Sie dies per Menü {\bf Einzelverfahren
   \textbackslash{} RSA-Kryptosystem \textbackslash{} RSA-Demo} lösen. 
-}: \\
+} \\
 {\tt 1404 2932 3536 0001 3284 2280 2235}
 
 \noindent {\bf 5. Entschlüsselung:} \\ 
@@ -3776,17 +3814,17 @@ ist angeregt durch das Beispiel aus \cite[S. 271]{nt:Eckert2003}.
 \noindent Das Beispiel wird in 2 Varianten durchgespielt. Gemeinsam für beide sind die Schritte $1$ bis $3$.
 \vskip +10pt
 \noindent {\bf Schlüsselerzeugung (Schritt 1 bis 3):} \\\label{SrcArith4b}%
-{\bf 1.} $p=509,~q=503 \quad (n= 256.027; \; ~J(n)=(p-1)*(q-1)=255.016=2^3*127*251)$\footnote{%
+{\bf 1.} $p=509,~q=503 \quad (n= 256.027; \; ~J(n)=(p-1)*(q-1)=255.016=2^3*127*251)$.\footnote{%
   In Kapitel~\ref{nt:AppArith4b} \glqq \nameref{nt:AppArith4b}''
   finden Sie den Quelltext zur Faktorisierung von $J(n)$ mit Sage. \\
   Mit CT1\index{CrypTool 1} können Sie dies per Menü
   {\bf Einzelverfahren \textbackslash{} RSA-Kryptosystem \textbackslash{}
   Faktorisieren einer Zahl} lösen.
-}. \\
-{\bf 2.} $e=65.537$ (sollte\footnote{%
+} \\
+{\bf 2.} $e=65.537$ ($e$ sollte\footnote{%
                 Siehe Fußnote~\ref{foot:Selection-of-e} auf Seite
                 \pageref{foot:Selection-of-e}.}
-      zwischen $509$ und $255.015$ liegen u. muss\footnote{%
+                zwischen $509$ und $255.015$ liegen, u. muss\footnote{%
                 $e$ darf also nicht $2, 127$ oder $251$ sein
                 ($65537 = 2^{16}+1$) ($255,016 = 2^{3}*127*251$).\\
                 Real wird $J(n)$ nicht faktorisiert, sondern für das gewählte $e$ wird
@@ -3796,13 +3834,13 @@ ist angeregt durch das Beispiel aus \cite[S. 271]{nt:Eckert2003}.
 {\bf 3.} $d=231.953$ \\
 \strut\quad\ (denn $e \equiv d^{-1}{\rm ~mod~}J(n);$
 \mbox{}\quad $65.537*231.953 \equiv 15.201.503.761 \equiv 1
-{\rm ~(mod~}255.016))$\footnote{%
+{\rm ~(mod~}255.016))$.\footnote{%
 Andere mögliche Kombinationen von (e,d) sind z.B.: (3, 170.011), (5, 204.013), (7, 36.431).
-}.
+}
 
 
 % --------------------------------------------------------------------------
-\subsection*{Variante 1:\\ Alle ASCII-Zeichen werden einzeln ver- und entschlüsselt (keine Blockbildung).} 
+\subsection*{Variante 1:\\ ASCII-Zeichen werden einzeln ver- und entschlüsselt (keine Blockbildung).} 
 
 {\bf 4. Verschlüsselung:} \\ 
 {\tt
@@ -3811,7 +3849,7 @@ Andere mögliche Kombinationen von (e,d) sind z.B.: (3, 170.011), (5, 204.013), (
 {\rm Zahl:} & 82 & 83 & 65 & 32 & 119 & 111 & 114 & 107 & 115 & 33 
 \end{tabular} } % \tt
 
-\noindent Keine Zusammenfassung der Buchstaben\footnote{%
+\noindent Keine Zusammenfassung der Buchstaben!\footnote{%
 Für sichere Verfahren braucht man große Zahlen, die möglichst alle Werte bis
 $n-1$ annehmen. Wenn die mögliche Wertemenge der Zahlen in der Nachricht zu
 klein ist, nutzen auch große Primzahlen nichts für die Sicherheit.
@@ -3823,14 +3861,12 @@ Beim Zusammenfassen bleiben in der Binär-Schreibweise die führenden Nullen
 erhalten (genauso wie wenn man oben in der Dezimalschreibweise alle Zahlen
 3-stellig schreiben würde und dann die Folge {\tt 082 083, 065 032,
 119 111, 114 107, 115 033} hätte). 
-}!
-
-\label{SrcArith4c}
-\noindent Verschlüsselung pro Zeichen per: $C \equiv M^{65.537}{\rm ~(mod~}256.027)$\footnote{%
+}
+\label{SrcArith4c}\\
+Verschlüsselung pro Zeichen per: $C \equiv M^{65.537}{\rm ~(mod~}256.027)$:\footnote{%
   In Kapitel~\ref{nt:AppArith4c} \glqq \nameref{nt:AppArith4c}''
   finden Sie den Quelltext zur RSA-Exponentiation mit Sage.
-}:
-
+}\\
 {\tt
 \begin{tabular}{lllll}
 212984 & 025546 & 104529 & 031692 & 248407 \\
@@ -3884,10 +3920,10 @@ $256$ Zeichen, b-adisch, Blocklänge\index{Blocklänge} 2, dezimale Darstellung.
 }
 
 \label{SrcArith4d}
-\noindent Verschlüsselung pro Block per: $C \equiv M^{65.537}{\rm ~(mod~}256027)$\footnote{%
+\noindent Verschlüsselung pro Block per: $C \equiv M^{65.537}{\rm ~(mod~}256027)$:\footnote{%
   In Kapitel~\ref{nt:AppArith4d} \glqq \nameref{nt:AppArith4d}''
   finden Sie den Quelltext zur RSA-Exponentiation mit Sage.
-}: \\
+} \\
 {\tt 158721 137346 37358 240130 112898}
 
 \noindent {\bf 5. Entschlüsselung:} \\
@@ -3908,11 +3944,11 @@ da die ASCII-Blöcke in Zahlen kleiner oder gleich $255.255$ kodiert werden.
 } 
 
 \label{SrcArith4e}
-\noindent Verschlüsselung pro Block per: $C \equiv M^{65537}{\rm ~(mod~}256.027)$\footnote{%
+\noindent Verschlüsselung pro Block per: $C \equiv M^{65537}{\rm ~(mod~}256.027)$:\footnote{%
   In Kapitel~\ref{nt:AppArith4e} \glqq \nameref{nt:AppArith4e}''
   %%xIn \hyperlink{nt:AppArith4e}{Anhang zu diesem Kapitel}
   finden Sie den Quelltext zur RSA-Exponentiation mit Sage.
-}: \\ 
+} \\ 
 {\tt 198967 051405 254571 115318 014251}
 
 \noindent {\bf 5'. Entschlüsselung:} \\
@@ -3928,18 +3964,18 @@ Chiffrat: \\
 \subsection{Eine kleine RSA-Cipher-Challenge (1)}
 \index{RSA!Cipher-Challenge}
 Die Aufgabe stammt aus \cite[Exercise 4.6]{nt:3Stinson1995}\index{Stinson 1995}:
-Die pure Lösung hat Prof. Stinson veröffentlicht.\footnote{%
+Prof. Stinson hat dazu eine Lösung veröffentlicht.\footnote{%
 \url{http://www.cacr.math.uwaterloo.ca/~dstinson/solns.html} oder
 \url{http://bibd.unl/~stinson/solns.html}
 }
 Es geht aber nicht nur um das Ergebnis, sondern vor allem
 um die Einzelschritte der Lösung, also um die Darlegung der
-Kryptoanalyse\index{Kryptoanalyse}\footnote{%
+Kryptoanalyse\index{Kryptoanalyse}.\footnote{%
 Im Szenario der Online-Hilfe zu CT1\index{CrypTool 1} und in der
 Präsentation auf der CT-Webseite wird der Lösungsweg skizziert.
 Wenn uns jemand einen (weiteren) gut aufbereiteten konkreten Lösungsweg
 schickt, nehmen wir ihn gerne in die Dokumentation auf.
-}.
+}
 
 \noindent Hier die Aufgabe im Originaltext:
 
@@ -4042,6 +4078,7 @@ by Garrison Keillor, 1985.
 
 
 % --------------------------------------------------------------------------
+\clearpage
 \subsection{Eine kleine RSA-Cipher-Challenge (2)}
 \index{RSA!Cipher-Challenge}
 
@@ -4049,12 +4086,12 @@ Die folgende Aufgabe ist eine korrigierte Variante aus dem Buch
 von Prof.~Yan \cite[Example 3.3.7, S. 318]{nt:Yan2000}. \index{Yan 2000}
 Es geht aber nicht nur um das Ergebnis, sondern vor allem um die
 Einzelschritte der Lösung, also um die Darlegung der 
-Kryptoanalyse\index{Kryptoanalyse}\footnote{%
+Kryptoanalyse\index{Kryptoanalyse}.\footnote{%
 Im Szenario der Online-Hilfe zu CT1\index{CrypTool 1} und in der 
 CrypTool-Präsentation werden der Lösungsweg skizziert. 
 Wenn uns jemand einen gut aufbereiteten konkreten Lösungsweg schickt, 
 nehmen wir ihn gerne in die Dokumentation auf.
-}.
+}
 
 Man kann sich drei völlig unterschiedlich schwierige Aufgaben vorstellen:
 Gegeben ist jeweils der Geheimtext und der öffentliche Schlüssel $(e,n)$:
@@ -4065,7 +4102,7 @@ zusätzlich bekannten Ursprungsnachricht.
 \item \index{Faktorisierung!Faktorisierungsproblem} RSA-Modul knacken, d.h. faktorisieren (ohne Kenntnis der Nachrichten).
 \end{itemize}
 
-\newpage
+%\newpage
 $n = 63978486879527143858831415041, ~e = 17579$
 
 Klartextnachricht\footnote{%
@@ -4132,8 +4169,9 @@ b) wie Euklids erweiterter Algorithmus das multiplikative Inverse findet
 ZT können Sie in CT1\index{CrypTool 1} über das Menü
 {\bf Einzelverfahren \textbackslash{} Zahlentheorie interaktiv \textbackslash{}
 Lernprogramm für Zahlentheorie} aufrufen.
-Siehe Anhang~\ref{s:appendix-Learn-NT}.
-}
+Siehe Anhang~\ref{s:appendix-Learn-NT}.\\
+    CT2\index{CrypTool 2} enthält den erweiterten Euklid bxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+    in dem Tutorial \glqq {\bf World of Primes} --> Zahlentheorie --> Zahlentheoretische Funktionen --> Modulare multiplikative Inverse'' enthalten.}
 \label{nt:NumberTheory_Appendix_GCD}
 \index{Euklidscher Algorithmus!erweiterter}
 \index{ggT}
@@ -4144,10 +4182,13 @@ die sehr schnell berechnet werden kann. Wenn eine Zahl $c$ die Zahlen $a$ und $b
 teilt (d.h. es gibt ein $a'$ und ein $b'$, so dass $a = a'*c$ und $b = b'*c$), dann teilt
 $c$ auch den Rest $r$ der Division von $a$ durch $b$. Wir schreiben in aller Kürze:
 Aus $c$ teilt $a$ und $b$ folgt:
-$c$ teilt $r = a - \lfloor a/b \rfloor * b$\footnote{%
-Die Gaussklammer \index{Gaussklammer} $\lfloor x \rfloor $ der reellwertigen Zahl $x$
-ist definiert als: $\lfloor x \rfloor $ ist die größte ganze Zahl kleiner oder gleich $x$.
-}.
+$c$ teilt $r = a - \lfloor a/b \rfloor * b$.\footnote{\label{nt_Gauss-Klammer}%
+Die untere Gaussklammer \index{Gaussklammer} $\lfloor x \rfloor $ der reellwertigen
+Zahl $x$ ist definiert als: $\lfloor x \rfloor $ ist die größte ganze Zahl kleiner
+oder gleich $x$.\\
+Vergleiche Fußnote~\ref{nt_Gauss-Funktion} auf Seite ~\pageref{nt_Gauss-Funktion}.
+%aaaaaaaaaaaa
+}
 
 Weil die obige Aussage für alle gemeinsamen Teiler $c$ von $a$ und $b$ gilt, folgt für
 den größten gemeinsamen Teiler von $a$ und $b$ (ggT($a,b$)) die Aussage
@@ -4367,11 +4408,13 @@ $\log_b z = \log_{b'} z / \log_{b'} (b)$.
 Es ist also einfach, ausgehend von Logarithmentafeln für z.B. die Basis $b' = 10$ den Logarithmus zur Basis $b = 2$ zu berechnen.
 }
 bestimmt man die Ungleichung $n+1 > log_b z \ge n$. 
-Es folgt, dass $n = \lfloor \log_b z \rfloor$\footnote{%
+Es folgt, dass $n = \lfloor \log_b z \rfloor$.\footnote{\label{nt_Gauss-Funktion}%
 Die Funktion $\lfloor x \rfloor$ bestimmt die nächste ganze Zahl kleiner $x$
 (wenn $x \ge 0$, dann werden die Nachkommastellen der Zahl einfach abgeschnitten).
-Man sagt auch {\em untere Gaußklammer von} $x$.
-}.
+Man sagt auch {\em untere Gaußklammer von} $x$.\\
+Vergleiche Fußnote~\ref{nt_Gauss-Klammer} auf Seite ~\pageref{nt_Gauss-Klammer}.
+%aaaaaaaaaaaaaaaa
+}
 Man bezeichnet mit $l_b(z)$ die Zahl der benötigten Ziffern zur Darstellung
 der Zahl $z$ in $b$-adischer Schreibweise. Es gilt die Gleichung
 $$l_b(z) = \lfloor \log_b z \rfloor +1. $$
@@ -4448,8 +4491,9 @@ Damit ergibt sich $z = 35189$.
 \label{l:NumberTheory_Appendix_D2_Koblenz}{}
 
 Die folgende Präsentation (letzte Änderung Nov. 2010) zeigt in interaktiver
-Form die Grundlagen und Funktionsweisen der RSA-Chiffre.\\
-Folgende drei Varianten der Präsentation sind vorhanden:
+Form die Grundlagen und Funktionsweisen der RSA-Chiffre.
+
+\noindent Folgende drei Varianten der Präsentation sind vorhanden:
 \begin{itemize}
  \item Powerpoint 2007 (dynamisch, animiert)\footnote{%
     \url{http://www.cryptool.org/images/ct1/presentations/RSA/RSA-de.pptx}}
@@ -4462,7 +4506,7 @@ Folgende drei Varianten der Präsentation sind vorhanden:
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.4]{figures/Interactive_RSA_Presentation_D.png}
-\caption{Screenshot RSA-Präsentation} 
+\caption{Screenshot RSA-Präsentation (PDF)} 
 \label{l_Interactive_RSA_Presentation}
 \end{center}
 \end{figure}
@@ -4704,6 +4748,87 @@ sage: for a in xrange(1, 24):
 \end{sagecode}
 
 
+
+
+\newpage
+\hypertarget{nt:AppArith3d}{}
+\label{nt:AppArith3d}{}
+Der folgende Code für die Tabellen~\ref{expmod14} und~\ref{expmod22}
+auf Seite~\pageref{expmod14} f. gibt auch gleich das Ergebnis so aus,
+dass man es leicht in LaTeX weiter verarbeiten kann. Voraussetzung dafür ist,
+dass alle Inhalte vorher einem Sage-Objekt (hier einer Matrix) zugewiesen
+werden.\footnote{%
+        Anmerkungen zu dem Sage-Programm, insbesondere den
+        Sage-Indizes\index{Sage}\index{Sage!latex()}:
+        \begin{compactitem}
+         \item for x in xrange(2, 5) liefert 2,3,4.
+         \item m = matrix(ZZ, 2, 5) hat 2 Zeilen und 5 Spalten.\\
+               Die Zellen haben die Bezeichner m(0,0) bis m(1,4).
+         \item Alle Elemente der Matrix müssen numerisch sein, daher \glqq 0\grqq
+               statt \glqq None\grqq.
+         \item Die Ausgabe von Matrizen kann man in Sage so steuern:
+\begin{Verbatim}
+               sage: from sage.matrix.matrix0 import set_max_cols, set_max_rows
+               sage: set_max_cols(100)
+               sage: set_max_rows(100)
+\end{Verbatim}
+         \item Die Zykluslänge in der letzten Spalte in den
+               Tabellen~\ref{expmod14} und~\ref{expmod22}
+               wurde noch von Hand ermittelt.
+        \end{compactitem}
+        \vspace{-\baselineskip} % Hier nötig, damit alles auf 1 Seite passt!
+        }
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+def power_mod_order_matrix(m, max_a, max_i):
+    r = matrix(ZZ, max_a+1, max_i+3)
+    for a in xrange(0, max_a+1):
+        r[a, 0] = a
+        for i in xrange(1, max_i+1):
+            if a==0:
+                r[a,i] = i
+            else:
+                r[a, i] = power_mod(a, i, m)
+        try:
+            r[a, max_i+1] = multiplicative_order(mod(a, m))
+        except:
+            r[a, max_i+1] = 0
+        r[a, max_i+2] = euler_phi(m)
+    return r
+
+print "\n1: m=45;max_i=13;max_a=13";m=45;max_i=13;max_a=13
+r = power_mod_order_matrix(m, max_a, max_i);print r;print latex(r)
+
+print "\n2: m=46;max_i=25;max_a=25";m=46;max_i=25;max_a=25
+r = power_mod_order_matrix(m, max_a, max_i);print r.str();print latex(r)
+
+print "\n3: m=14;max_i=13;max_a=16";m=14;max_i=13;max_a=16
+r = power_mod_order_matrix(m, max_a, max_i);print r;print latex(r)
+
+print "\n4: m=22;max_i=21;max_a=25";m=22;max_i=21;max_a=25
+r = power_mod_order_matrix(m, max_a, max_i);print r.str();print latex(r)
+...
+3: m=14;max_i=13;max_a=16
+[ 0  1  2  3  4  5  6  7  8  9 10 11 12 13  0  6]
+[ 1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  6]
+[ 2  2  4  8  2  4  8  2  4  8  2  4  8  2  0  6]
+[ 3  3  9 13 11  5  1  3  9 13 11  5  1  3  6  6]
+...
+\left(\begin{array}{rrrrrrrrrrrrrrrr}
+0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 0 & 6 \\
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 6 \\
+2 & 2 & 4 & 8 & 2 & 4 & 8 & 2 & 4 & 8 & 2 & 4 & 8 & 2 & 0 & 6 \\
+3 & 3 & 9 & 13 & 11 & 5 & 1 & 3 & 9 & 13 & 11 & 5 & 1 & 3 & 6 & 6 \\
+...
+\end{Verbatim}
+\caption{Code für Tabellen mit allen Potenzen $a^i \pmod{m}$ für variable $a$ und $i$ plus Ordnung von a und Eulerphi von m}
+\end{sagecode}
+
+
+
+
 % ---------------------------------------------------------------------------
 \newpage
 \hypertarget{nt:AppArith3a2}{}
@@ -4715,7 +4840,7 @@ sage: for a in xrange(1, 24):
 Das Berechnen von Primitivwurzeln
 (siehe Kapitel~\ref{MultOrdPrimitveRoot}, \glqq \nameref{MultOrdPrimitveRoot}\grqq)
 geht in Sage sehr einfach: Sei \verb!n! eine natürliche Zahl, dann kann mit dem Befehl
-\verb!primitive_root(n)! eine Primitivwurzel der multiplikativen Gruppe
+\verb!primitive_root(n)! \textit{eine} Primitivwurzel der multiplikativen Gruppe
 $(\mathbf{Z} / n \mathbf{Z})^{\ast}$ berechnet werden, sofern eine existiert.
 Ist $n$ prim, dann ist das äquivalent zum Berechnen einer Primitivwurzel in
 $\mathbf{Z} / n \mathbf{Z}$.
@@ -4748,7 +4873,7 @@ sage: for p in primes(1, 50):
 43 3
 47 5
 \end{Verbatim}
-\caption{Berechnen einer Primitivwurzel jeweils für eine Primzahl}
+\caption{Berechnen einer Primitivwurzel für eine gegebene Primzahl}
 \end{sagecode}
 
 \noindent Ist $p$ prim, dann hat $\mathbf{Z} / p \mathbf{Z}$ mindestens eine Primitivwurzel.
@@ -5012,7 +5137,7 @@ Time: CPU 7.55 s, Wall: 7.85 s
 
 \newpage
 \noindent Eine leicht geänderte Fassung unserer Funktion
-\verb!count_PrimitiveRoots_of_a_PrimesRange! wird nun benutzt, um eine
+\verb!count_PrimitiveRoots_of_a_PrimesRange! wurde nun benutzt, um eine
 Liste (Datenbank) aller Primitivwurzeln für alle Primzahlen zwischen 1 und 100.000
 zu erstellen.
 
@@ -5245,7 +5370,7 @@ sage: [power_mod(a, e, m) for a in A]
 \newpage
 \hypertarget{NumberTheory_Sage_Number-of-RSA-keys}{}
 %\subsection{Wie viele private RSA-Schlüssel gibt es innerhalb eines Modulo-Bereiches?}
-\subsection{Wie viele private RSA-Schlüs\discretionary{-}{}{}sel gibt es innerhalb eines Modulo-Be\-rei\-ches?}
+\subsection{Wie viele private RSA-Schlüs\discretionary{-}{}{}sel $d$ gibt es innerhalb eines Modulo-Be\-rei\-ches?}
 \label{l:NumberTheory_Sage_Number-of-RSA-keys}{}
 
 Die RSA-Verschlüsselung wurde beschrieben in Abschnitt \ref{RSA} (\glqq \nameref{RSA}'').
@@ -5264,10 +5389,10 @@ eigentliche Verschlüsselung dar:
                   {\rm ~(mod~} J(n))$,\\
 		  d.h. $d$ ist die multiplikative Inverse von $e$ modulo $J(n)$.
 		  Dann kann man $J(n)$ \glqq wegwerfen\grqq.
-    \begin{itemize}
+    \begin{compactitem}
       \item[] $\rightarrow (n, e)$ ist der öffentliche Schlüssel $P$.
       \item[] $\rightarrow (n, d)$ ist der private Schlüssel $S$ (nur $d$ muss man geheim halten).
-    \end{itemize}
+    \end{compactitem}
 
   \item[{\bf 4.}] Zur Verschlüsselung wird die Nachricht als (binäre) Ziffernfolge
                   geschrieben. Diese Ziffernfolge wird dann so in gleich lange
@@ -5279,40 +5404,50 @@ eigentliche Verschlüsselung dar:
                   $$C = E ( (n, e); M ) := M^e {\rm ~(mod~} n).$$
 \end{itemize}
 
-Standardmäßig versucht man, einen mit RSA verschlüsselten Geheimtext $C$ dadurch zu knacken,
-dass man den öffentlichen Schlüssel des Empfängers betrachtet und versucht, $n$ zu
-faktorisieren. Hat man das erreicht, geht man wieder durch die Schritte 2 und 3 und
-erzeugt den privaten Schlüssel $e$, den man zum Entschlüsseln des Geheimtextes braucht.
+Standardmäßig versucht man, einen mit RSA verschlüsselten Geheimtext $C$
+dadurch zu knacken, dass man den öffentlichen Schlüssel des Empfängers
+betrachtet und versucht, $n$ zu faktorisieren. Hat man das erreicht, geht man
+wieder durch die Schritte 2 und 3 und erzeugt den privaten Schlüssel $e$, den
+man zum Entschlüsseln des Geheimtextes braucht.
 
-Gemäß dem \glqq Primzahlsatz\grqq (beschrieben in Abschnitt \ref{thm-pz-pi-x}
-\glqq \nameref{thm-pz-pi-x}\grqq) bewegt sich die Anzahl der Primzahlen
-$PI(x)$ asymptotisch gegen  $x / ln(x)$.
-Für ein gegebenes $n$ gibt es also ca. $n / ln(n)$ mögliche Werte für die
-Primzahl $p$.
+Gemäß dem \glqq Primzahlsatz\grqq\footnote{%
+Siehe Abschnitt \ref{thm-pz-pi-x} \glqq (\nameref{l_Primes_Distrib-of-Primes}\grqq).
+% Der Ausdruck \nameref{thm-pz-pi-x}\grqq lieferte nur einen leeren String.
+}
+geht die Anzahl der Primzahlen $PI(x)$ asymptotisch gegen $x / ln(x)$.
+Zwischen $1$ und einem gegebenen $n$ gibt es also ca. $n / ln(n)$ unterschiedliche
+Primzahlen.
 
 \noindent Will man nicht faktorisieren, sondern stellt sich eine Frage ähnlich
 wie bei den klassischen Verschlüsselungsverfahren, kann man herausfinden wollen:
 Wie viele verschiedene private Schlüssel $(n, d)$ gibt es für einen bestimmten
-Bereich der Schlüsselgröße $n \in [a, b]$?
+Bereich der Schlüsselgröße $n \in [a, b]$?\footnote{%
+Kapitel~\ref{L_nt_Num-of-d-mod-26} (\glqq \nameref{L_nt_Num-of-d-mod-26}''),
+S.~\pageref{L_nt_Num-of-d-mod-26} behandelt den Spezialfall $n=26$.
+}
 
 \noindent Das Sage-Beispielprogramm~\ref{nt_sagesample_Count_RSA_Keys} unten
 definiert die Funktion \verb#count_Number_of_RSA_Keys#, die diese Frage konkret
 beantworten kann (wenn der Modulus nicht zu groß ist).\footnote{%
-a) Der Aufruf \verb#sage: count_Number_of_RSA_Keys(100, 1000)# bedeutet, dass man
-das Intervall $[100, 1000]$ für $n$ betrachtet.
+%\begin{compactitem}
+%       \item
+ a) Der Aufruf \verb#sage: count_Number_of_RSA_Keys(100, 1000)# bedeutet, dass
+man das Intervall $[100, 1000]$ für $n$ betrachtet.
 $n$ war definiert durch die beiden Primzahlen $p, q: n = p*q$.
 Daher kann eine Primzahl höchstens den Wert $500$ annehmen, weil $2 * 500 =1000$.\\
 Die Anzahl möglicher Primzahl-Kombinationen beträgt: $comb = 258$.\\
 Die Anzahl der Primzahlen im gegebenen Bereich beträgt: $143$.\\
 Die Anzahl der privaten Schlüssel beträgt: $34.816$.
 
-\noindent b) Der Aufruf \verb#sage: count_Number_of_RSA_Keys(100, 100, True)#
+\noindent %       \item
+ b) Der Aufruf \verb#sage: count_Number_of_RSA_Keys(100, 100, True)#
 hat die folgende Ausgabe:\\
    - Number of private keys for modulus in a given range: 0\\
    - Number of primes in a given range: 0\\
-   Der Grund dafür ist, dass wir damit nur $n=100$ betrachten, und $100$ ist nicht
-   semiprim\index{Primzahl!semiprime}\index{Primzahl!Halbprimzahl}\index{Halbprimzahl}\index{Zahlen!semiprime},
-   d.h. $100$ ist nicht das Produkt von genau zwei Primzahlen.
+   Der Grund dafür ist, dass mit diesem Aufruf nur $n=100$ betrachtet wird und
+   die Funktion nur semiprime $n$ untersucht. Die Zahl $100$ ist nicht
+   semiprim\index{Primzahl!semiprime}\index{Primzahl!Halbprimzahl}\index{Halbprimzahl}\index{Zahlen!semiprime}, d.h. $100$ ist nicht das Produkt von genau zwei Primzahlen.
+%\end{compactitem}
 }
 
 

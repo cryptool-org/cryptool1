@@ -318,8 +318,9 @@ AES-256. I.~e.\ the attacker not only needs to be able to encrypt arbitrary data
 (related-key). 
 
 Based on those assumptions, the effort to find a AES-256 key is reduced to
-$2^{119}$ time and $2^{77}$ memory. In the case of AES-192 the attack is even less
-practical, for AES-128 the authors do not provide an attack.
+$2^{119}$ time and $2^{77}$ memory (considering asymmetric complexity).
+In the case of AES-192 the attack is even less practical, for AES-128
+the authors do not provide an attack.
 
 
 % --------------------------------------------------------------------------
@@ -408,9 +409,9 @@ There are also cipher challenges\footnote{%
     (using the menu path {\bf Crypt \textbackslash{} Asymmetric}).
     In both cases you must select a RSA key pair. Only in the case of decryption
     the secret RSA key is necessary -- so here you are asked to enter the PIN.\\
-    With CT2\index{CrypTool 2} you can also perform asymmetic methods
+    With CT2\index{CrypTool 2} you can also perform asymmetric methods
     (using the templates under {\bf Cryptography \textbackslash{} Modern}).\\
-    JCT\index{JCrypTool} offers asymmetic methods like RSA both within
+    JCT\index{JCrypTool} offers asymmetric methods like RSA both within
     the {\bf Visuals} menu of the Default Perspective as well as within the
     Algorithm Perspective.
   }
