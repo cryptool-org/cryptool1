@@ -9,7 +9,7 @@
 \chapter{Papier- und Bleistift-Verschlüsselungsverfahren}
 \label{Kapitel_PaperandPencil}
 (Christine Stötzel, April 2004; Updates B.+C. Esslinger, Juni 2005;
- Updates Minh Van Nguyen und B. Esslinger, Nov. 2009, Juni 2010, Dez. 2012)
+ Updates Minh Van Nguyen und B. Esslinger, Nov. 2009, Juni 2010, Jan. 2013)
 \index{Papier- und Bleistiftverfahren}
 \index{Verschlüsselung!klassisch}
 \index{Kryptographie!klassisch}
@@ -73,8 +73,11 @@ Merkmale erfüllen wie moderne Verfahren:
 Bei der Verschlüsselung durch Transposition\index{Transposition} 
 bleiben die ursprünglichen Zeichen der Nachricht erhalten,
 nur ihre Anordnung wird geändert (Transposition = 
-Vertauschung).\footnote{Ein anderer Begriff für eine Transposition
-ist Permutation\index{Permutation}.}
+Vertauschung).\footnote{%
+Manchmal wird auch der Begriff Permutation\index{Permutation} verwendet, um zu
+beschreiben, wie Buchstaben, Buchstabengruppen oder Spalten des Klartextes
+vertauscht werden, z.B. in der Form $(1, 2, 3, 4, 5) \Leftrightarrow (3, 4, 2, 1, 5)$.
+}
 
 %------------------------------------------------------------------------------
 \subsection{Einführungs-Beispiele unterschiedlicher Transpositionsverfahren}
@@ -609,7 +612,7 @@ Zuordnung ist während des ganzen Verschlüsselungsprozesses dieselbe.
    48 44 65 78 53~~~99 48 66 86 74~~~56\\
 
 
-\item {\bf Codierung} \cite{pp:Singh2001}: Im Laufe der Geschichte wurden immer
+\item {\bf Codes} \cite{pp:Singh2001}: Im Laufe der Geschichte wurden immer
    wieder Codebücher verwendet. In diesen Büchern wird jedem möglichen 
    {\bf Wort} eines Klartextes ein Codewort, ein Symbol oder eine Zahl
    zugeordnet.
@@ -617,11 +620,12 @@ Zuordnung ist während des ganzen Verschlüsselungsprozesses dieselbe.
    Sender und Empfänger exakt das gleiche Codebuch besitzen und die 
    Zuordnung der Codewörter zu den Klartextwörtern nicht offengelegt wird.
 
-\item {\bf Nomenklatur} \cite{pp:Singh2001}\index{Nomenklatur}: Eine Nomenklatur 
-   ist ein Verschlüsselungssystem, das auf einem Geheimtextalphabet basiert,
-   mit dem ein Großteil der Nachricht chiffriert wird. Für besonders
-   häufig auftretende oder geheim zu haltende Wörter existieren eine 
-   begrenzte Anzahl von Codewörtern.
+\item {\bf Nomenklator} \cite{pp:Singh2001}\index{Nomenklator}:
+   Als Nomenklator werden Techniken bezeichnet, die ein Verschlüsselungsverfahren
+   mit einem Codebuch kombinieren. Meist basiert das Verschlüsselungssystem auf
+   einem Geheimtextalphabet, mit dem ein Großteil der Nachricht chiffriert
+   (via Substitution) wird. Für besonders häufig auftretende oder
+   geheim zu haltende Wörter existieren eine begrenzte Anzahl von Codewörtern.
 
 \item {\bf Landkarten-Chiffre} \cite{pp:ThinkQuest1999}\index{Landkarten-Chiffre}: 
    Diese Methode stellt eine Kombination aus 

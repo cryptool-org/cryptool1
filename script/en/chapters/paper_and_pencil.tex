@@ -14,7 +14,7 @@
 % Update and corrections: B. Esslinger, June 2005
 % Update B. Esslinger and Minh Van Nguyen, November 2009 
 % Update B. Esslinger, June 2010 
-% Update B. Esslinger, Dec. 2012 
+% Update B. Esslinger, Jan. 2013 
 %------------------------------------------------------------------------------
 
 % ``primenet''
@@ -24,7 +24,7 @@
 \chapter{Paper and Pencil Encryption Methods}
 \label{Kapitel_PaperandPencil}
 (Christine St\"otzel, April 2004; Updates: B.+C. Esslinger, June 2005;
- Updates Minh Van Nguyen and B. Esslinger, Nov. 2009, June 2010, Dec. 2012)
+ Updates Minh Van Nguyen and B. Esslinger, Nov. 2009, June 2010, Jan. 2013)
 \index{Paper and pencil methods}
 \index{Encryption!classic}
 \index{Cryptography!classic}
@@ -83,8 +83,11 @@ Methods to be successful and wide-spread had to fulfill some attributes which ar
 
 Encrypting a message by means of transposition\index{Transposition} does not 
 change the original characters of this message, only their order is modified
-(transposition = exchange).\footnote{Another name used for transposition is
-permutation\index{Permutation}.}
+(transposition = exchange).\footnote{%
+Sometimes, the name permutation\index{Permutation} is used to describe how
+characters, groups of characters or columns of the plaintext are exchanged, e.g.
+$(1, 2, 3, 4, 5) \Leftrightarrow (3, 4, 2, 1, 5)$.
+}
 
 %------------------------------------------------------------------------------
 \subsection{Introductory samples of different transposition ciphers}
@@ -574,18 +577,18 @@ remains unchanged during the whole process of encryption.
    Ciphertext: 58 53 85 88 54~~~96 78 72 85 56~~~63 65 47 44 65~~~49 46 68 47 55~~~69 56 53\\
 
 
-\item {\bf Coding} \cite{pp:Singh1999}: In the course of time, codebooks were
+\item {\bf Codes} \cite{pp:Singh1999}: In the course of time, codebooks were
    used again and again. A codebook assigns a codeword, a symbol or a number
    to every possible {\bf word} of a message. Only if both parties hold
    identical codebooks and if the assignment of codewords to plaintext words
    is not revealed, a successful and secret communication can take place.
 
-\item {\bf Nomenclature} \cite{pp:Singh1999}\index{Nomenclature}: 
-   A nomenclature is an encryption 
-   system that is based upon a ciphertext alphabet. This alphabet is used to 
-   encrypt the bigger part of the message. Particularly frequent or top-secret
-   words are replaced by a limited number of codewords existing besides the 
-   ciphertext alphabet.
+\item {\bf Nomenclator} \cite{pp:Singh1999}\index{Nomenclator}: 
+   A nomenclator refers to techniques that combine the use of a cipher algorithm
+   with a codebook. Often the encryption system is based upon a ciphertext alphabet.
+   This alphabet is used to encrypt (via substitution) the bigger part of
+   the message. Particularly frequent or top-secret words are replaced by a limited
+   number of codewords existing besides the ciphertext alphabet.
 
 \item {\bf Map cipher} \cite{pp:ThinkQuest1999}\index{Map cipher}: 
    This method constitutes a combination of substitution

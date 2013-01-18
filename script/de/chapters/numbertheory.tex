@@ -5511,7 +5511,7 @@ Number of private keys d for modulus in a given range: 3260044 (comb=2312),
 Number of primes in a given range: 1061
 Time: CPU 0.63 s, Wall: 0.66 s
 \end{Verbatim}
-\caption{Wie viele private RSA-Schlüssel gibt es, wenn man den Bereich für die Schlüssel\-größe n kennt?}
+\caption{Wie viele private RSA-Schlüssel d gibt es, wenn man den Bereich für die Schlüssel\-größe n kennt?}
 \label{nt_sagesample_Count_RSA_Keys}
 \end{sagecode}
 
@@ -5547,7 +5547,9 @@ Ein Fixpunkt beim RSA-Verfahren ist dann eine Nachricht $m$, für die gilt:
 $m = m^e \mod n$. Das Ergebnis der Verschlüsselung ist wieder die gegebene
 Nachricht.
 
-Die Wahrscheinlichkeit für das Auftreten von Fixpunkten ist bei RSA bei genügend großem $n$ allerdings sehr gering -- wie Abbildung \ref{fig:NumberFixpointsGrowingN} zeigt:Im Durchschnitt fanden wir nicht mehr als 40 Fixpunkte.
+Die Wahrscheinlichkeit für das Auftreten von Fixpunkten ist bei RSA bei genügend
+großem $n$ allerdings sehr gering -- wie Abbildung \ref{fig:NumberFixpointsGrowingN}
+zeigt: Im Durchschnitt fanden wir nicht mehr als 40 Fixpunkte.
 
 Studenten nehmen oft an, dass es viele Fixpunkte gibt, da sie beim Probieren mit
 relativ \textbf{kleinen} Primzahlen immer auf "`relativ"' viele Fixpunkte-Beispiele
@@ -5555,8 +5557,8 @@ stoßen, denn m = 0, 1 und n-1 sind immer auch Fixpunkte.
 
 In der Praxis, also bei groß genug gewählten Primzahlen, haben Fixpunkte keine
 Bedeutung für die Sicherheit von RSA. Deshalb bezieht sich dieser Abschnitt
-eher auf mathematische Fragen\footnote{%
-Dank geht an Taras Shevchenko, der Teile des Inhalts dieses Kapitels zusammentrug, und an Volker Simon, der das Sage-Programm \ref{nt_sagesample_Calculate_RSA-Fixpoints}  "`Getfixpoints"' schrieb.}.
+eher auf mathematische Fragen.\footnote{%
+Dank geht an Taras Shevchenko, der Teile des Inhalts dieses Kapitels zusammentrug, und an Volker Simon, der das Sage-Programm \ref{nt_sagesample_Calculate_RSA-Fixpoints}  "`Getfixpoints"' schrieb.}
 
 
 % ----------------------------------------------------
@@ -6105,15 +6107,24 @@ Satz~\ref{nt-thm-Anzahl-RSA-Fixpunkte} & Anzahl der RSA-Fixpunkte & \pageref{nt-
     {\em Verschlüsselungsalgorithmen -- Angewandte Zahlentheorie 
     rund um Sicherheitsprotokolle}, Vieweg, 2002.
 
-\bibitem[BSI2002]{nt:BSI2002} \index{BSI 2002}
+
+\bibitem[BSI2012]{nt:BSI2012} \index{BSI 2012}
     BSI (Bundesamt für Sicherheit in der Informationstechnik), \\
-    {\em Empfehlungen zur Wahl der Schlüssellängen}, Bonn, 9.9.2002, \\
+    {\em Angaben des BSI für die Algorithmenkataloge der Vorjahre,
+         Empfehlungen zur Wahl der Schlüssellängen}, \\
+    \url{https://www.bsi.bund.de/DE/Themen/weitereThemen/ElektronischeSignatur/TechnischeRealisierung/Kryptoalgorithmen/kryptoalgorithmen_node.html}
+
+    BNetzA (Bundesnetzagentur),\\
+    {\em Jährliche erscheinende Veröffentlichung zu Algorithmen und Parameter
+         im Umfeld elektronischer Signaturen}
     (Geeignete Kryptoalgorithmen zur Erfüllung der Anforderungen
-    nach \S 17 (1) SigG vom 22. Mai 2001 in Verbindung mit Anlage 1, 
-    I 2, SigV vom 22. November 2001), \\
-    \url{http://www.bsi.bund.de/esig/basics/techbas/krypto/bund02v7.pdf} \\
+    nach \S 17 (1-3) SigG vom 16. Mai 2001 in Verbindung mit Anlage 1, 
+    I 2, SigV vom 16. November 2001), Bonn, 30.12.2011\\
+    \url{http://www.bundesnetzagentur.de/DE/Sachgebiete/QES/Veroeffentlichungen/Algorithmen/algorithmen_node.html}
+
     Eine Stellungnahme zu diesen Empfehlungen: \\
-    \url{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf} .
+    \url{http://www.secorvo.de/publikationen/stellungnahme-algorithmenempfehlung-020307.pdf} .
+
 
 \bibitem[Buchmann2004]{nt:Buchmann2004} \index{Buchmann 2004}
     Johannes Buchmann, \\
@@ -6384,14 +6395,10 @@ herzlich zu danken:
 \begin{itemize}
 
   \item {Hr. Henrik Koy für das anregende und sehr konstruktive 
-         Korrekturlesen und für die vielen Verbesserungen der ersten
+         Korrekturlesen, für die vielen Verbesserungen der ersten
 	 Version dieses Artikels, und für die Hilfen bei TeX, ohne die
-	 dieser Artikel nie in dieser Form erschienen wäre. \\
-	 Außerdem hat Hr. Koy in seiner Freizeit im CrypTool-1-Programm 
-	 die komplexe Dialogbox zum RSA-Kryptosystem
+	 dieser Artikel nie in dieser Form erschienen wäre.}
 %	 RSA-Krypto"-system   (TRENNUNG erzwingen)
-	 designed und die dahinterliegende Logik entwickelt, mit der die
-	 RSA-Beispiele dieses Artikels nachvollzogen werden können.}
 
   \item {Jörg Cornelius Schneider für die engagierte Unterstützung bei TeX und
          die mannigfaltigen Hilfen bei allen Arten von Programmier- und
