@@ -6,13 +6,13 @@ mit ausführlicher Online-Hilfe und mit vielen Visualisierungen.
 
 Dies ist eine Textdatei, mit der Sie Ihre ersten Schritte mit CT1 machen können.
 
-1) Den besten Überblick über die Möglichkeiten von CrypTool bietet die "Startseite", die sich in der Windows Online-Hilfe befindet. Von der Startseite aus können Sie alle wesentlichen Funktionen über Links erreichen.
+1) Den besten Überblick über die Möglichkeiten von CT1 bietet die "Startseite", die sich in der Windows-Online-Hilfe befindet. Von der Startseite aus können Sie alle wesentlichen Funktionen über Links erreichen.
 Die Startseite selbst erreichen Sie über das Menü "Hilfe -> Startseite", oder indem Sie in der Online-Hilfe im Index den Begriff "Startseite" eingeben.
 Sie können die Online-Hilfe mit F1 an jeder Stelle in CT1 öffnen.
 
 2) Als nächstes könnten Sie eine Datei z.B. mit dem Caesar-Verfahren verschlüsseln -- über das Menü "Ver-/Entschlüsseln -> Symmetrisch (klassisch)".
 
-3) Die Online-Hilfe enthält verschiedene Szenarien (Tutorials), die einen schnellen Einstieg in die Verfahren der Kryptologie ermöglichen. Die Szenarien finden Sie über das Menü "Hilfe -> Szenarien (Tutorials)".
+3) Verschiedene Szenarien (Tutorials) in der Online-Hilfe ermöglichen einen schnellen Einstieg in die Verfahren der Kryptologie. Die Szenarien finden Sie über das Menü "Hilfe -> Szenarien (Tutorials)".
 
 4) Weitere Funktionen können Sie z.B. auf folgende Weise erkunden:
 - Sie klicken sich spielerisch durch die Menüs. Dabei können Sie zu jedem ausgewählten Menüeintrag Informationen erhalten, indem Sie F1 drücken.
@@ -20,5 +20,5 @@ Sie können die Online-Hilfe mit F1 an jeder Stelle in CT1 öffnen.
 - Sie schauen sich die beiliegende bunte Präsentation an (Diese Präsentation ist auf verschiedene Arten zugänglich: z.B. unter dem Menü "Hilfe", oder über den Abschnitt "Dokumentation" auf der Startseite der Online-Hilfe).
 - Sie schauen sich die Webseite www.cryptool.de an.
 
-August 2012
+Januar 2013
 Das CrypTool-Team

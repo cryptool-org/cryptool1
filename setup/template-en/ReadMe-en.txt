@@ -1,10 +1,10 @@
 ==================================================================
-    CrypTool, Version 1.4.31 for Win32, August 2012 (Beta 06) xxx
+    CrypTool, Version 1.4.31 for Win32, January 2013 (Beta 06) xxx
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main, and the
         Universities of Siegen, Darmstadt, Bochum, Duisburg-Essen and Kassel.
-        1998-2012
+        1998-2013
     Freeware and Open Source according to Apache License 2.0
     www.cryptool.org
     Prof. Bernhard Esslinger
@@ -103,8 +103,8 @@ In English and German the CrypTool-1 package is completely localized.
 If a component isn't available for a special language version, then
 the according English component is attached.
 
-Further language versions (Greek, Russian, Ukrainian, French, ...) are under
-development.
+Further language versions (Greek, Turkish, Russian, Ukrainian, French, ...)
+are under development.
 
 The current release version of CrypTool and the source code are
 available at the following internet addresses (without registration):
@@ -430,6 +430,7 @@ I also want to thank
 - Bojan Dimitrovski from the University of Belgrade, who did with his
   colleagues the first Serbian version.
 - Greek xxxxxxxxxxxxx
+- Turkish xxxxxxxxxxxxx
 - French xxxxxxxxxxx
 - Russian xxxxxxxxxx
 
@@ -1168,21 +1169,23 @@ a) Developer-relevant changes (more technically oriented):
   - NTL 5.5.2
 
 - The release of CT 1.4.31 now is compiled with VS2010. It's still possible
-  to compile the sources with VS2008.
+  to compile the sources with VS2008.xxxxxxxxxxxxxxxxxxx
 
 
 b) Changes within the user documentation / on the websites:
 
 - Online help: updated some topics.
 
-- CrypTool script: - some corrections and additions,
+- CrypTool script: - Some corrections and additions
+                   - Additional chapter
                    - Inclusion of further Sage code samples (for primitive
-                     roots and RSA fix points),
+                     roots and RSA fix points)
                    - Appendices with function overviews also for CT2 and JCT.
                      Added the menu paths of CT2 and JCT in the foot notes.
 
-- Updated and enhanced presentation (more than 110 xxxxxxxxxxx pages now).
-  Splitted xxxxxxxxxxxxxx
+- Updated presentation about CT1.
+  The description of the overall CT project, and the information about the
+  other CT projects (CT2, JCT) are now in self-contained presentations.
 
 - At January 18th, 2012 the new CrypTool website was released. Its based on
   Joomla 1.7 and it describes the 5 sub projects of the CT project in an
@@ -1194,6 +1197,36 @@ c) New functionality / Usability / Corrections of errors:
 - Installation and usage without administrator privileges: Now not only the
   program doesn't need administrator rights any more, but also the installer
   can be executed by a normal user.
+- Within the number-theoretic functions the special case of generic t-adic
+  NAF key generators was added.
+- Text windows now have a context menu entry to switch to hex view, and
+  vice versa.
+- Many small improvements in the dialog window layouts, like in "Attack on
+  Stereotyped Messages".   
+- Transposition Encryption: The key entry dialog now also contains a text
+  options dialog.
+  This button was also added with the analysis of the maS.
+- Monoalphabetic substitutio (maS): The key entry dialog features a new
+  parameter to define the starting position (offset) of the password. In the
+  past the password was always positioned at the beginning of the ciphertext
+  alphabet.
+- The analysis of the substitution cipher offers two variants. The second
+  variant uses a list of frequent words, which were not revealed and changeable
+  by the user in former versions. Both is possible now.
+- To determine the substitution matrix the ADFGVX analysis now also uses the
+  frequency distribution of the reference text selected in the text options
+  dialog.
+  Additionally you can determine whether digits are also used for the frequency
+  distribution (case sensitivity and special characters are not allowed
+  with the ADFGVX cipher). The introduction dialog of the analysis was
+  adapted accordingly.
+- The fields to present hash values now can display hasvalues of 256 bit length
+  without the need of scrolling. xxxxxxxxxxx validieren!
+- Number Shark: Some of the hot key functionalities now also have a button.
+- AES Tool 2.6.x:
+  - Fixed a bug which appeared when entering too long hexadecimal keys.
+  - Now you can enter the key as normal ASCII characters too, and securely
+    delete the original file after encrypting.
 
 - If the registry contains positions or sizes laying the CT windows outside
   of the screen, CT now recognizes this at start time and adjusts its position
@@ -1207,35 +1240,11 @@ c) New functionality / Usability / Corrections of errors:
 - At SHA256 / SHA512 the wrong function was called yet.
   This also effected the dialog window "Generation of HMACs".
 - Calling bc from within the number theory tutorial now also works under Win7.
+  xxxxxxxxxxxxx
 - Playfair with a 6*6 matrix now doesn't wrongly transform J to I any more.
 
-- Text windows now have a context menu entry to switch to hex view, and
-  vice versa.
-- Many small improvements in the dialog window layouts, like in "Attack on
-  Stereotyped Messages".   
-- Transposition Encryption: The key entry dialog now also contains a text
-  options dialog.
-- Monoalphabetic substitution: The key entry dialog features a new parameter
-  to define the starting position (offset) of the password. In the past the
-  password was always positioned at the beginning of the ciphertext
-  alphabet.
-- The analysis of the substitution cipher offers two variants. The second
-  variant uses a list of frequent words, which were not revealed and changeable
-  by the user in former versions. Both is possible now.
-- To determine the substitution matrix the ADFGVX analysis now also uses the
-  frequency distribution of the reference text selected in the text options
-  dialog.
-  Additionally you can determine whether digits are also used for the frequency
-  distribution (case sensitivity and special characters are not allowed
-  with the ADFGVX cipher). The introduction dialog of the analysis was
-  adapted accordingly.
-- Number Shark: Some of the hot key functionalities now also have a button.
-- AES Tool 2.6.x:
-  - Fixed a bug which appeared when entering too long hexadecimal keys.
-  - Now you can enter the key as normal ASCII characters too, and securely
-    delete the original file after encrypting.
-
-- Thanks to the many attentive users, who pointed us to some bugs.
+- Thanks to the many attentive users, who pointed us to bugs and
+  inconsistencies.
 
 
 
@@ -1281,8 +1290,9 @@ as "well" as in productive applications.
 
 3.2. Win32 environment, rights for installation and usage, Java-Runtime
      ------------------------------------------------------------------
-CrypTool 1.4.31 is supported to run under Windows 7.
+CT1 v 1.4.31 was written to run under the operating system Windows 7.
 CrypTool requires a Win32 environment, which is also available in 64-bit Win-7.
+CT1 also runs under Windows 8 (Win-8).
 
 Some functions like ANIMAL, ECC demonstration, ... [see chapter 1.2, part (3)]
 require an installed Java Runtime Environment JRE (version >= 1.5).
@@ -1952,8 +1962,7 @@ xtras\BMPVIEW.X32
      \VIEWSVC.X32
 
 
-
-smimedemo\ ............ Files needed by Flash/Java animation of an
+smimedemo\ ............ Files needed by the Flash/Java animation of an
                         S/MIME e-mail.
 
 smimedemo\anim.swf
@@ -2023,6 +2032,12 @@ smimedemo\utils\Tools.class
                \Utils.class
                \Version.class
 
+
+tadicnafkeys\ ..... Files belonging to the generic t-adic NAF key generator.
+
+tadicnafkeys\t-adicNAF.exe
+            \t-adicNAF.hta
+            \t-adicNAF.pdf
 
 
 While CrypTool is running, the following files are generated and
@@ -2100,7 +2115,7 @@ Version                 English      German    needed EN     by
 1.4.20    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.21    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.30    Aug. 2010     51.5 MB      52.1 MB    94 MB        DB
-1.4.31    Sep. 2012     51.8 MB      52.4 MB    99 MB        CTxxxxxxxxx
+1.4.31    Mar. 2013     51.8 MB      52.4 MB    99 MB        CTxxxxxxxxx
 
 Remarks about the versions:
 1.3.02  Many new functions compared to 1.3.00.
@@ -2134,6 +2149,7 @@ Remarks about the versions:
         RS:  93,7 MB  xxxxxxxxx
         SP:  94.4 MB
 1.4.31-Beta05  July 2012  First public beta of CT 1.4.31.
+1.4.31-Beta06  Jan. 2013  Second public beta of CT 1.4.31.
 1.4.31  Many bug fixes and a few enhanced functionality compared to 1.4.30.
 
 
@@ -2154,6 +2170,7 @@ Contact addresses:
 - esslinger@cryptool.org
 - joerg-cornelius.schneider@db.com
 - henrik.koy@db.com
+
 
 
 
@@ -3089,11 +3106,11 @@ A.4. Using CrypTool 1 on Linux
 
 A.4.1. Running CrypTool 1 on Linux with Wine
        -------------------------------------
-In a short test under Ubuntu 11.10 with Wine 1.3.28 the setup of CrypTool 1.4.31
-Beta 04 (compiled with VS2008) worked fine. CrypTool itself run fine with some
-encryption methods and RSA key generation. But within the RSA-AES hybrid
-encryption visualization and when clicking on link within the online help
-Wine crashed.
+In a short test under Ubuntu 11.10 Unity with Wine 1.3.28 the setup of CrypTool
+1.4.31 Beta 04 (compiled with VS2008) worked fine. CrypTool itself run fine
+with some encryption methods and RSA key generation. But within the RSA-AES
+hybrid encryption visualization and when clicking on link within the online
+help Wine crashed.
 
 Generally we do not aim to support Wine.
 Instead of that, please try the platform independent version JCT which also
@@ -3117,6 +3134,6 @@ but unfortunately not finished because lack of time.
 
 ################################################################
 
-Please have a look at www.cryptool.org, and try out the new versions CT2 and
-JCT.
+Please try out the new versions CT2 and JCT.
+You can find them also at www.cryptool.org.
 
