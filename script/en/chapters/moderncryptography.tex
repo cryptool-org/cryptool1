@@ -102,12 +102,17 @@
     NT can be called in CT1\index{CrypTool 1} via the menu path
     {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
     \textbackslash{} Learning Tool for Number Theory}.
-    See appendix \ref{s:appendix-Learn-NT}.
+    See appendix \ref{s:appendix-Learn-NT}.\\
+    You can find according functions within the programs CT1,
+    CT2\index{CrypTool 2} and JCT\index{JCrypTool}: see the list of the included
+    functions within appendix \ref{s:appendix-menu-overview-CT1}, 
+    \ref{s:appendix-template-overview-CT2} and
+    \ref{s:appendix-function-overview-JCT}.
 }
 \label{Chapter_ModernCryptography}
 %********************************************************************
 (Oyono R. / Esslinger B./ Schneider J., Sep. 2000; 
-            Updates Nov. 2000, Feb. 2003, Apr. 2007, Mar. 2010)
+            Updates Nov. 2000, Feb. 2003, Apr. 2007, Mar. 2010, Jan. 2013)
 
 %\vskip +30 pt
 \begin{ctsquote}
@@ -517,7 +522,7 @@ $L(N)$ & $ 1.42 \cdot 10^{10} $ &  $ 2.34  \cdot 10^{15} $ &  $ 3.26 \cdot
 10^{29} $ \\ \hline
 \end{tabular}
 \end{center}
-\caption{$L(N)$ value table}
+\caption{$L(N)$ value table [Factorization effort related to the modul length]}
 \label{lnvalues}
 \end{table}
 
@@ -545,9 +550,9 @@ How easy it is to guess the future wrong is shown by the
 %--------------------------------------------------------------------
 \subsection{Rabin public key procedure (1979)}
 
-The Rabin\index{Rabin, Michael O.} public key procedure\index{Rabin!public key procedure}
-(crypto procedure~\ref{rabinproc}) has been shown to be equivalent to breaking 
-the factorization problem. 
+The Rabin\index{Rabin, Michael O.} public key procedure\index{Rabin!public key
+procedure} (crypto procedure~\ref{rabinproc}) has been shown to be equivalent to
+breaking the factorization problem. 
 Unfortunately, this procedure is susceptible to chosen-ciphertext attacks.
 \index{Attack!chosen-ciphertext}
 \begin{cryptoprocedure}

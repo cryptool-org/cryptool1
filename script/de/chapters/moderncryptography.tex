@@ -57,21 +57,25 @@
     \index{Lernprogramm ZT}%
     Mit dem Lernprogramm {\bf ZT} können Sie spielerisch einige der hier
     besprochenen Verfahren (RSA, Rabin, DH, ElGamal) nachvollziehen
-    (siehe Lern-Kapitel 4.2 und 4.3, Seiten 9-17/17).\\
+    (siehe Lern-Kapitel 4.2 und 4.3, Seite 9-17/17).\\
     ZT können Sie in CT1\index{CrypTool 1} über das Menü
     {\bf Einzelverfahren \textbackslash{} Zahlentheorie 
     interaktiv \textbackslash{} Lernprogramm für Zahlentheorie} aufrufen.
-    Siehe Anhang \ref{s:appendix-Learn-NT}.
+    Siehe Anhang \ref{s:appendix-Learn-NT}.\\
+    Entsprechende Funktionen finden Sie auch in den Programmen CT1,
+    CT2\index{CrypTool 2} und JCT\index{JCrypTool}: siehe die Liste der darin
+    enthaltenen Funktionen in Anhang \ref{s:appendix-menu-overview-CT1}, 
+    \ref{s:appendix-template-overview-CT2} und
+    \ref{s:appendix-function-overview-JCT}.
 }
 \label{Chapter_ModernCryptography}
 %********************************************************************
 (Oyono R./ Esslinger B./ Schneider J., Sep. 2000;
-           Updates Nov. 2000, Feb. 2003, Apr. 2007, März 2010)
+           Updates Nov. 2000, Feb. 2003, Apr. 2007, März 2010, Jan. 2013)
 
 \begin{ctsquote}
    Ich weiß nicht, ob es besser wird, wenn wir es ändern,\\
    aber ich weiß, dass wir es ändern müssen, wenn es besser werden soll.\\
-
    {\em Anmerkung von Unbekannt (Radio) dazu:}\\
    Und Gott gebe den Akteuren bei der notwendigen Umsetzung\\
    das Wissen, die Weisheit und das Verantwortungsbewusstsein,\\
@@ -379,7 +383,7 @@ $N$ & $ 10^{50} $ & $ 10^{100} $ & $ 10^{150} $ & $ 10^{200} $ & $ 10^{250} $ & 
 $L(N)$ & $ 1,42 \cdot 10^{10} $ &  $ 2,34  \cdot 10^{15} $ &  $ 3,26 \cdot 10^{19} $ &  $ 1,20 \cdot 10^{23} $ &  $ 1,86 \cdot 10^{26} $ &  $ 1,53 \cdot 10^{29} $ \\ \hline
 \end{tabular}
 \end{center}
-\caption{Wertetabelle $L(N)$}
+\caption{Wertetabelle für $L(N)$ [Faktorisierungsaufwand bezogen auf die Modullänge]}
 \label{lnvalues}
 \end{table}
 
@@ -408,8 +412,8 @@ Durchbrüche''.}
 \subsection{Rabin-Public-Key-Verfahren (1979)}
 
 Für \index{Rabin, Michael O.} \index{Rabin!Public-Key-Verfahren} 
-dieses Verfahren (\ref{rabinproc}) konnte gezeigt werden, dass es äquivalent zum Brechen
-des Faktorisierungsproblems ist. Leider ist dieses Verfahren anfällig
+dieses Verfahren (\ref{rabinproc}) konnte gezeigt werden, dass es äquivalent zum
+Brechen des Faktorisierungsproblems ist. Leider ist dieses Verfahren anfällig
 gegen Chosen-Ciphertext-Angriffe.
 \index{Angriff!Chosen-Ciphertext}
 \begin{cryptoprocedure}
