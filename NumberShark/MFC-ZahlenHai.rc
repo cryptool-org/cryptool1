@@ -131,7 +131,7 @@ BEGIN
     PUSHBUTTON      "&Zasady gry",ID_BUTTON_RULES,398,16,59,22,BS_VCENTER | BS_MULTILINE
     PUSHBUTTON      "&Pomoc",IDC_BUTTON_HELP,398,46,59,22
     PUSHBUTTON      "&Nakarm rekina",IDC_BUTTON_REST,398,178,60,22,BS_MULTILINE | WS_DISABLED
-    PUSHBUTTON      "i18n &Game options",IDC_BUTTON_OPTION,398,205,60,22,BS_MULTILINE
+    PUSHBUTTON      "&Opcje gry",IDC_BUTTON_OPTION,398,205,60,22,BS_MULTILINE
     CONTROL         "",IDC_BUTTON_UNDO,"Button",BS_OWNERDRAW | BS_MULTILINE | WS_DISABLED | WS_TABSTOP,404,246,19,15,WS_EX_TRANSPARENT
     CONTROL         "",IDC_BUTTON_REDO,"Button",BS_OWNERDRAW | WS_DISABLED | WS_TABSTOP,434,246,19,15,WS_EX_TRANSPARENT
     PUSHBUTTON      "&Nowa gra",IDC_BUTTON_STARTNEW,398,316,59,22,BS_MULTILINE
@@ -538,7 +538,7 @@ BEGIN
     IDS_TOOL_TIP_UNDO       "Poprzez ""Cofnij"" mo¿esz powtórzyæ poprzednie rundy jeœli chcesz wybraæ inne liczby."
     IDS_TOOL_TIP_REDO       "Poprzez ""Ponów"" mo¿esz przejœæ naprzód tyle kroków ile poszed³eœ wstecz w grze poprzez ""Cofnij"""
     IDS_MAX_POINTS_NEW_2    "Aby obliczyæ dla %s liczb najwiêksza sumê %s punktów\n\n program potrzebowa³ %s sekund. Musia³ przejœæ przez %s wêz³ów.\n\nNajwiêksz¹ liczb¹ pierwsz¹ tutaj jest %s. Powinieneœ rozpocz¹æ grê z t¹ liczb¹ pierwsz¹, aby osi¹gn¹æ maksymalny wynik.\n\n\n\nAby osi¹gn¹æ ten wynik, powinieneœ wybraæ liczby w tej kolejnoœci: %s."
-    IDS_SHELL_GROUP_BOX     "i18n Shell square (blue means ""still free to choose""; gray means ""already distributed and eaten up"")"
+    IDS_SHELL_GROUP_BOX     "Muszelka kwadratowa (niebieski oznacza "" nadal wolny wybór "", kolor szary oznacza "" juz rozpowszechnione i zjedzony "")"
     IDS_NORMAL_GROUP_BOX    "Shell square"
     IDS_NO_SEARCH           "Plik ""%s"" nie móg³ zostaæ zapisany. Prawdopodobnie nie posiadasz wystarczaj¹cych praw dla folderu.\r\n""%s"".\r\n\r\n Obliczenia rozpoczn¹ siê mimo to, ale nie bêd¹ mog³y byæ kontynuowane po przerwie."
     IDS_NO_SUMMARY          "Plik ""%s"" nie móg³ zostaæ zapisany. Prawdopodobnie nie posiadasz wystarczaj¹cych praw do folderu \r\n""%s"".\r\n"
@@ -586,10 +586,10 @@ BEGIN
     IDS_NO_SCORE_SELECTED   "Wpierw wybierz wynik."
     IDS_HEADING_SEQUENCE_LENGTH "Dlugosc sekwencji"
     IDS_HEADING_SEQUENCE    "Sekwencja"
-    IDS_ACC_TAB             "[i18n] TAB: Selects the next shell within the shown number block (of one tab)."
-    IDS_ACC_ENTER_OR_SPACE  "[i18n] ENTER / SPACE: Choose the number of the selected shell via keyboard."
-    IDS_TOOLTIP_BUTTON_LOADGAME "[i18n] Loads an existing game."
-    IDS_TOOLTIP_BUTTON_SAVEGAME "[i18n] Saves the current game."
+    IDS_ACC_TAB             "TAB: Wybiera nastepna muszelke w pokazanym bloku numerowym (z jednej karty)."
+    IDS_ACC_ENTER_OR_SPACE  "ENTER / SPACJA: Wybierz numer wybranej muszelki za pomoca klawiatury."
+    IDS_TOOLTIP_BUTTON_LOADGAME "Wczytuje istniejaca gre."
+    IDS_TOOLTIP_BUTTON_SAVEGAME "Zapisuje biezaca gre."
 END
 
 #endif    // Polish resources

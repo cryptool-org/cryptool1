@@ -78,7 +78,7 @@ BEGIN
     LTEXT           "Zgodnie z systemem operacyjnym i œrodowiskiem zosta³o wprowadzone ograniczenie pliku zaszyfrowanego (w³¹czaj¹c nag³ówki) do 4GB.",IDC_STATIC,12,248,476,16
     LTEXT           "Proszê sprawdziæ pochodzenie pliku przed otwieraniem plików samorozpakowuj¹cych. Zalecane jest u¿ycie programu antywirusowego.",IDC_STATIC,12,278,476,18
     LTEXT           "Mo¿esz równie¿ umieœciæ plik, którego chcesz u¿yæ poprzez ""drag & drop"" - umieszczaj¹c go w polu: ""plik wejœciowy"".",IDC_STATIC,62,86,426,8
-    LTEXT           "[i18n][POLISH] The key can be entered in either HEX or ASCII characters. The maximum key length is 256 bits (64 HEX or 32 ASCII characters). The key length should be bigger than 88 bits (22 HEX or 11 ASCII characters).",IDC_STATIC,62,52,426,18
+    LTEXT           "Klucz moze byc wpisany zarówno w postaci HEX lub ASCII. Maksymalna dlugosc klucza wynosi 256 bitów (64 HEX lub 32 znaków ASCII). Dlugosc klucza powinien byc wiekszy niz 88 bitów (22 HEX lub 11 znaków ASCII).",IDC_STATIC,62,52,426,18
 END
 
 IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
@@ -95,7 +95,7 @@ END
 IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 382, 205
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
-CAPTION "[i18n][POLISH] AES-Tool 2.6"
+CAPTION "AES-Tool 2.6"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT_KEY_HEX,26,67,340,12,ES_AUTOHSCROLL
@@ -244,34 +244,34 @@ AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\95check.bmp"
 
 STRINGTABLE 
 BEGIN
-    IDS_ABOUTBOX            "[i18n][POLISH] Inf&ormation about AES-Tool..."
-    IDS_STRING_DECRYPT      "[i18n][POLISH] Decrypt a file"
-    IDS_STRING_ENCRYPT      "[i18n][POLISH] Encrypt a file"
-    IDS_STRING_DECERROR     "[i18n][POLISH] File decryption error: %s"
-    IDS_STRING_ENCOK        "[i18n][POLISH] The encrypted file %s has been successfully created."
-    IDS_STRING_DECOK        "[i18n][POLISH] The decrypted file %s has been successfully created."
-    IDS_STRING_VERSCHLUESSELN "[i18n][POLISH] Encrypt"
-    IDS_STRING_ENTSCHLUESSELN "[i18n][POLISH] Decrypt"
-    IDS_STRING_FILEERROR    "[i18n][POLISH] Error opening %s: %s\n"
-    IDS_STRING_NOMEMORY     "[i18n][POLISH] Out of virtual memory."
-    IDS_STRING_KEYERROR     "[i18n][POLISH] Wrong key or file %s corrupt."
+    IDS_ABOUTBOX            "Inf&ormacje o AES-Tool..."
+    IDS_STRING_DECRYPT      "Odszyfrowanie pliku"
+    IDS_STRING_ENCRYPT      "Szyfrowanie pliku"
+    IDS_STRING_DECERROR     "Blad odszyfrowywania pliku: %s"
+    IDS_STRING_ENCOK        "Zaszyfrowany plik %s zostal utworzony."
+    IDS_STRING_DECOK        "Odszyfrowany plik %s zostal utworzony."
+    IDS_STRING_VERSCHLUESSELN "Szyfrowanie"
+    IDS_STRING_ENTSCHLUESSELN "Odszyfrowanie"
+    IDS_STRING_FILEERROR    "Blad otwarcia %s: %s\n"
+    IDS_STRING_NOMEMORY     "Z pamieci wirtualnej."
+    IDS_STRING_KEYERROR     "Niewlasciwy klucz lub uszkodzony plik %s."
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_ENCERROR     "[i18n][POLISH] File encryption error: %s"
-    IDS_STRING_VERSION      "[i18n][POLISH] This file has been encrypted with an older version of AES-Tool. \nPlease use the same version for decrypting."
-    IDS_STRING_AES_TOOL_VERSION "[i18n][POLISH] AES-Tool 2.6"
-    IDS_STRING_CORRUPT      "[i18n][POLISH] This encrypted file is corrupt."
-    IDS_STRING_INVALID_KEY  "[i18n][POLISH] Invalid character in key. Please use only 0-9,a-f,A-F."
-    IDS_STRING_KEY_TOO_LONG "[i18n][POLISH] Key too long. Maximum AES key length is 256 bits (= 32 bytes = 64 hexadecimal digits)."
+    IDS_STRING_ENCERROR     "Blad szyfrowania pliku: %s"
+    IDS_STRING_VERSION      "Ten plik zostal zaszyfrowany za pomoca starszej wersji AES-Tool. \nProsze uzywac tej samej wersji do odszyfrowania."
+    IDS_STRING_AES_TOOL_VERSION "AES-Tool 2.6"
+    IDS_STRING_CORRUPT      "Ten zaszyfrowany plik jest uszkodzony."
+    IDS_STRING_INVALID_KEY  "Nieprawidlowy znak w kluczu. Prosze uzywac wylacznie 0-9,a-f,A-F."
+    IDS_STRING_KEY_TOO_LONG "Klucz jest za dlugi. Maksymalna dlugosc klucza AES to 256 bity (= 32 bajty = 64 cyfr szesnastkowych)."
     IDS_STRING_KEY_HEADER_HEX 
-                            "[i18n][POLISH] Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]"
-    IDS_STRING_KEY_HEADER_ASCII "[i18n][POLISH] Key [at most 32 characters]"
-    IDS_STRING_AES_TOOL_HELP_PREFIX "[i18n][POLISH] Help for %s"
+                            "Klucz [maksymalnie 64 cyfr szesnastkowych (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]"
+    IDS_STRING_KEY_HEADER_ASCII "Klucz [maksymalnie 32 znaków]"
+    IDS_STRING_AES_TOOL_HELP_PREFIX "Pomoc dla %s"
     IDS_STRING_FILE_DELETION_FAILED 
-                            "[i18n][POLISH] The file %s could not be deleted."
-    IDS_STRING_ENCRYPT_DECRYPT "[i18n][POLISH] Encrypt or decrypt a file"
+                            "Plik %s nie moze zostac usuniety."
+    IDS_STRING_ENCRYPT_DECRYPT "Szyfrowanie lub odszyfrowywania pliku"
 END
 
 #endif    // Polish resources
