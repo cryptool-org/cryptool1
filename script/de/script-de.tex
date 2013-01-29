@@ -40,8 +40,9 @@
 %Option debug helps finding problems.
 
 \floatstyle{boxed}
-\newfloat{ctsquote}{H}{loq}   % ctsQuotes-from-Books
-\floatname{ctsquote}{Zitat}
+\newfloat{ctsquotefloat}{H}{loq}   % ctsQuotes-from-Books
+\floatname{ctsquotefloat}{Zitat}
+\newenvironment{ctsquote}{\begin{ctsquotefloat}\center}{\end{ctsquotefloat}}
 
 \floatstyle{ruled}
 
@@ -256,7 +257,7 @@ Versionsverwaltungs-Software: Subversion
 
 \clearpage\phantomsection
 \addcontentsline{toc}{chapter}{Verzeichnis der Zitate}
-\listof{ctsquote}{Verzeichnis der Zitate}
+\listof{ctsquotefloat}{Verzeichnis der Zitate}
 \index{Zitate}
 \label{sc:List-of-Quotes}
 

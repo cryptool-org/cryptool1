@@ -36,9 +36,9 @@
 %Option debug helps finding problems.
 
 \floatstyle{boxed}
-\newfloat{ctsquote}{H}{loq}   % ctsQuotes-from-Books, List-of-Quotes
-\floatname{ctsquote}{Quote}
-
+\newfloat{ctsquotefloat}{H}{loq}   % ctsQuotes-from-Books, List-of-Quotes
+\floatname{ctsquotefloat}{Quote}   % ctsQuotes with centering
+\newenvironment{ctsquote}{\begin{ctsquotefloat}\center}{\end{ctsquotefloat}}
 \floatstyle{ruled}
 
 \newfloat{sagecode}{!ht}{loc}[chapter]
@@ -248,7 +248,7 @@ Version control software: Subversion
 
 \clearpage\phantomsection
 \addcontentsline{toc}{chapter}{List of Quotes}
-\listof{ctsquote}{List of Quotes}
+\listof{ctsquotefloat}{List of Quotes}
 \index{Quotes}
 \label{sc:List-of-Quotes}
 
