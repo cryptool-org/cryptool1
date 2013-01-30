@@ -4551,15 +4551,15 @@ IDR_PLOTTYPE MENU
 BEGIN
     POPUP "&Plik"
     BEGIN
-        MENUITEM "&Nowy \t Ctrl + N",           ID_FILE_NEW
-        MENUITEM "&Otwórz \t Ctrl + O",         ID_FILE_OPEN
-        MENUITEM "&Zamknij \t Ctrl + F4",       ID_FILE_CLOSE
-        MENUITEM "&Zapisz \t Ctrl + S",         ID_FILE_SAVE
-        MENUITEM "Zapisz &jako",                ID_FILE_SAVE_AS
+        MENUITEM "&Nowy\tCtrl+N",               ID_FILE_NEW
+        MENUITEM "&Otwórz...\tCtrl+O",          ID_FILE_OPEN
+        MENUITEM "&Zamknij\tCtrl+F4",           ID_FILE_CLOSE
+        MENUITEM "&Zapisz\tCtrl+S",             ID_FILE_SAVE
+        MENUITEM "Zapisz &jako...",             ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "&W³aœciwoœci dokumentu",      ID_FILEPROPERTIES
-        MENUITEM "&Drukuj \t Ctrl + P",         ID_FILE_PRINT
-        MENUITEM "Ustawienia drukowania",       ID_FILE_PRINT_SETUP
+        MENUITEM "&W³aœciwoœci dokumentu...\tCtrl+D", ID_FILEPROPERTIES
+        MENUITEM "&Drukuj...\tCtrl+P",          ID_FILE_PRINT
+        MENUITEM "Ustawienia drukowania...",    ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
         MENUITEM "Ostatnie pliki",              ID_FILE_MRU_FILE1
         MENUITEM SEPARATOR
@@ -4908,15 +4908,15 @@ IDR_HEXTYPE MENU
 BEGIN
     POPUP "&Plik"
     BEGIN
-        MENUITEM "&Nowy \t Ctrl + N",           ID_FILE_NEW
-        MENUITEM "&Otwórz \t Ctrl + O",         ID_FILE_OPEN
-        MENUITEM "&Zamknij \t Ctrl + F4",       ID_FILE_CLOSE
-        MENUITEM "&Zapisz \t Ctrl + S",         ID_FILE_SAVE
-        MENUITEM "Zapisz &jako",                ID_FILE_SAVE_AS
+        MENUITEM "&Nowy\tCtrl+N",               ID_FILE_NEW
+        MENUITEM "&Otwórz...\tCtrl+O",          ID_FILE_OPEN
+        MENUITEM "&Zamknij\tCtrl+F4",           ID_FILE_CLOSE
+        MENUITEM "&Zapisz\tCtrl+S",             ID_FILE_SAVE
+        MENUITEM "Zapisz &jako...",             ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "&W³aœciwoœci dokumentu",      ID_FILEPROPERTIES
-        MENUITEM "&Drukuj \t Ctrl + P",         ID_FILE_PRINT
-        MENUITEM "Ustawienia drukowania",       ID_FILE_PRINT_SETUP
+        MENUITEM "&W³aœciwoœci dokumentu...\tCtrl+D", ID_FILEPROPERTIES
+        MENUITEM "&Drukuj...\tCtrl+P",          ID_FILE_PRINT
+        MENUITEM "Ustawienia drukowania...",    ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
         MENUITEM "Ostatnie pliki",              ID_FILE_MRU_FILE1
         MENUITEM SEPARATOR
@@ -5265,15 +5265,15 @@ IDR_MAINFRAME MENU
 BEGIN
     POPUP "&Plik"
     BEGIN
-        MENUITEM "&Nowy \t Ctrl + N",           ID_FILE_NEW
-        MENUITEM "&Otwórz \t Ctrl + O",         ID_FILE_OPEN
-        MENUITEM "&Zamknij \t Ctrl + F4",       ID_FILE_CLOSE, GRAYED
-        MENUITEM "&Zapisz \t Ctrl + S",         ID_FILE_SAVE, GRAYED
-        MENUITEM "Zapisz &jako",                ID_FILE_SAVE_AS, GRAYED
+        MENUITEM "&Nowy\tCtrl+N",               ID_FILE_NEW
+        MENUITEM "&Otwórz...\tCtrl+O",          ID_FILE_OPEN
+        MENUITEM "&Zamknij\tCtrl+F4",           ID_FILE_CLOSE, GRAYED
+        MENUITEM "&Zapisz\tCtrl+S",             ID_FILE_SAVE, GRAYED
+        MENUITEM "Zapisz &jako...",             ID_FILE_SAVE_AS, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&W³aœciwoœci dokumentu",      ID_FILEPROPERTIES, GRAYED
-        MENUITEM "&Drukuj \t Ctrl + P",         ID_FILE_PRINT, GRAYED
-        MENUITEM "Ustawienia drukowania",       ID_FILE_PRINT_SETUP
+        MENUITEM "&W³aœciwoœci dokumentu...\tCtrl+D", ID_FILEPROPERTIES, GRAYED
+        MENUITEM "&Drukuj...\tCtrl+P",          ID_FILE_PRINT, GRAYED
+        MENUITEM "Ustawienia drukowania...",    ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
         MENUITEM "Ostatnie pliki",              ID_FILE_MRU_FILE1
         MENUITEM SEPARATOR
@@ -5622,15 +5622,15 @@ IDR_TEXTTYPE MENU
 BEGIN
     POPUP "&Plik"
     BEGIN
-        MENUITEM "&Nowy \t Ctrl + N",           ID_FILE_NEW
-        MENUITEM "&Otwórz \t Ctrl + O",         ID_FILE_OPEN
-        MENUITEM "&Zamknij \t Ctrl + F4",       ID_FILE_CLOSE
-        MENUITEM "&Zapisz \t Ctrl + S",         ID_FILE_SAVE
-        MENUITEM "Zapisz &jako",                ID_FILE_SAVE_AS
+        MENUITEM "&Nowy\tCtrl+N",               ID_FILE_NEW
+        MENUITEM "&Otwórz...\tCtrl+O",          ID_FILE_OPEN
+        MENUITEM "&Zamknij\tCtrl+F4",           ID_FILE_CLOSE
+        MENUITEM "&Zapisz\tCtrl+S",             ID_FILE_SAVE
+        MENUITEM "Zapisz &jako...",             ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "&W³aœciwoœci dokumentu",      ID_FILEPROPERTIES
-        MENUITEM "&Drukuj \t Ctrl + P",         ID_FILE_PRINT
-        MENUITEM "Ustawienia drukowania",       ID_FILE_PRINT_SETUP
+        MENUITEM "&W³aœciwoœci dokumentu...\tCtrl+D", ID_FILEPROPERTIES
+        MENUITEM "&Drukuj...\tCtrl+P",          ID_FILE_PRINT
+        MENUITEM "Ustawienia drukowania...",    ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
         MENUITEM "Ostatnie pliki",              ID_FILE_MRU_FILE1
         MENUITEM SEPARATOR
@@ -6008,15 +6008,15 @@ IDR_OPENGLTYPE MENU
 BEGIN
     POPUP "&Plik"
     BEGIN
-        MENUITEM "&Nowy \t Ctrl + N",           ID_FILE_NEW
-        MENUITEM "&Otwórz \t Ctrl + O",         ID_FILE_OPEN
-        MENUITEM "&Zamknij \t Ctrl + F4",       ID_FILE_CLOSE
-        MENUITEM "&Zapisz \t Ctrl + S",         ID_FILE_SAVE
-        MENUITEM "Zapisz &jako",                ID_FILE_SAVE_AS
+        MENUITEM "&Nowy\tCtrl+N",               ID_FILE_NEW
+        MENUITEM "&Otwórz...\tCtrl+O",          ID_FILE_OPEN
+        MENUITEM "&Zamknij\tCtrl+F4",           ID_FILE_CLOSE
+        MENUITEM "&Zapisz\tCtrl+S",             ID_FILE_SAVE
+        MENUITEM "Zapisz &jako...",             ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "&W³aœciwoœci dokumentu",      ID_FILEPROPERTIES, GRAYED
-        MENUITEM "&Drukuj \t Ctrl + P",         ID_FILE_PRINT
-        MENUITEM "Ustawienia drukowania",       ID_FILE_PRINT_SETUP
+        MENUITEM "&W³aœciwoœci dokumentu...\tCtrl+D", ID_FILEPROPERTIES, GRAYED
+        MENUITEM "&Drukuj...\tCtrl+P",          ID_FILE_PRINT
+        MENUITEM "Ustawienia drukowania...",    ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
         MENUITEM "Ostatnie pliki",              ID_FILE_MRU_FILE1
         MENUITEM SEPARATOR
@@ -7277,28 +7277,29 @@ AFX_IDC_MAGNIFY         CURSOR                  "res\\magnify.cur"
 
 IDR_MAINFRAME ACCELERATORS 
 BEGIN
-    "A",            ID_EDIT_SELECT_ALL,     VIRTKEY, CONTROL, NOINVERT
+    VK_F1,          ID_CONTEXT_HELP,        VIRTKEY, SHIFT, NOINVERT
+    "R",            ID_CRYPT_AES_RIJNDAEL,  VIRTKEY, SHIFT, CONTROL, NOINVERT
     "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
     "F",            ID_EDIT_FIND,           VIRTKEY, CONTROL, NOINVERT
+    VK_F3,          ID_EDIT_FIND_NEXT,      VIRTKEY, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "Y",            ID_EDIT_REDO,           VIRTKEY, CONTROL, NOINVERT
+    "A",            ID_EDIT_SELECT_ALL,     VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
     "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
     "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
     "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
-    "R",            ID_CRYPT_AES_RIJNDAEL,  VIRTKEY, SHIFT, CONTROL, NOINVERT
     "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
-    "U",            ID_UNZIP,               VIRTKEY, SHIFT, CONTROL, NOINVERT
-    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
-    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
-    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
-    VK_F1,          ID_CONTEXT_HELP,        VIRTKEY, SHIFT, NOINVERT
-    VK_F3,          ID_EDIT_FIND_NEXT,      VIRTKEY, NOINVERT
     VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
     VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
-    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
-    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
-    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
-    "Y",            ID_EDIT_REDO,           VIRTKEY, CONTROL, NOINVERT
-    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+    "U",            ID_UNZIP,               VIRTKEY, SHIFT, CONTROL, NOINVERT
     "Z",            ID_ZIP,                 VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "D",            ID_FILEPROPERTIES,      VIRTKEY, CONTROL, NOINVERT
 END
 
 
@@ -15816,7 +15817,7 @@ BEGIN
         MENUITEM "&Sacuvaj\tCtrl+S",            ID_FILE_SAVE
         MENUITEM "Sacuvaj &kao...",             ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "&Svojstva Dokumenta...",      ID_FILEPROPERTIES, GRAYED
+        MENUITEM "&Svojstva Dokumenta...\tCtrl+D", ID_FILEPROPERTIES, GRAYED
         MENUITEM "&Štampaj...\tCtrl+P",         ID_FILE_PRINT
         MENUITEM "P&odešavanje Štampe...",      ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -16173,7 +16174,7 @@ BEGIN
         MENUITEM "&Sacuvaj\tCtrl+S",            ID_FILE_SAVE
         MENUITEM "Sacuvaj &kao...",             ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "&Svojstva Dokumenta...",      ID_FILEPROPERTIES
+        MENUITEM "&Svojstva Dokumenta...\tCtrl+D", ID_FILEPROPERTIES
         MENUITEM "&Štampaj...\tCtrl+P",         ID_FILE_PRINT
         MENUITEM "P&odešavanje Štampe...",      ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -16530,7 +16531,7 @@ BEGIN
         MENUITEM "&Sacuvaj\tCtrl+S",            ID_FILE_SAVE
         MENUITEM "Sacuvaj &kao...",             ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "&Svojstva Dokumenta...",      ID_FILEPROPERTIES
+        MENUITEM "&Svojstva Dokumenta...\tCtrl+D", ID_FILEPROPERTIES
         MENUITEM "&Štampaj...\tCtrl+P",         ID_FILE_PRINT
         MENUITEM "P&odešavanje Štampe...",      ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -16887,7 +16888,7 @@ BEGIN
         MENUITEM "&Sacuvaj\tCtrl+S",            ID_FILE_SAVE
         MENUITEM "Sacuvaj &kao...",             ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "&Svojstva Dokumenta...",      ID_FILEPROPERTIES
+        MENUITEM "&Svojstva Dokumenta...\tCtrl+D", ID_FILEPROPERTIES
         MENUITEM "&Štampaj...\tCtrl+P",         ID_FILE_PRINT
         MENUITEM "P&odešavanje Štampe...",      ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -17273,7 +17274,7 @@ BEGIN
         MENUITEM "&Sacuvaj\tCtrl+S",            ID_FILE_SAVE
         MENUITEM "Sacuvaj &kao...",             ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "&Svojstva Dokumenta...",      ID_FILEPROPERTIES, GRAYED
+        MENUITEM "&Svojstva Dokumenta...\tCtrl+D", ID_FILEPROPERTIES, GRAYED
         MENUITEM "&Štampaj...\tCtrl+P",         ID_FILE_PRINT
         MENUITEM "P&odešavanje Štampe...",      ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -18542,28 +18543,29 @@ AFX_IDC_MAGNIFY         CURSOR                  "res\\magnify.cur"
 
 IDR_MAINFRAME ACCELERATORS 
 BEGIN
-    "A",            ID_EDIT_SELECT_ALL,     VIRTKEY, CONTROL, NOINVERT
+    VK_F1,          ID_CONTEXT_HELP,        VIRTKEY, SHIFT, NOINVERT
+    "R",            ID_CRYPT_AES_RIJNDAEL,  VIRTKEY, SHIFT, CONTROL, NOINVERT
     "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
     "F",            ID_EDIT_FIND,           VIRTKEY, CONTROL, NOINVERT
+    VK_F3,          ID_EDIT_FIND_NEXT,      VIRTKEY, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "Y",            ID_EDIT_REDO,           VIRTKEY, CONTROL, NOINVERT
+    "A",            ID_EDIT_SELECT_ALL,     VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
     "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
     "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
     "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
-    "R",            ID_CRYPT_AES_RIJNDAEL,  VIRTKEY, SHIFT, CONTROL, NOINVERT
     "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
-    "U",            ID_UNZIP,               VIRTKEY, SHIFT, CONTROL, NOINVERT
-    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
-    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
-    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
-    VK_F1,          ID_CONTEXT_HELP,        VIRTKEY, SHIFT, NOINVERT
-    VK_F3,          ID_EDIT_FIND_NEXT,      VIRTKEY, NOINVERT
     VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
     VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
-    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
-    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
-    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
-    "Y",            ID_EDIT_REDO,           VIRTKEY, CONTROL, NOINVERT
-    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+    "U",            ID_UNZIP,               VIRTKEY, SHIFT, CONTROL, NOINVERT
     "Z",            ID_ZIP,                 VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "D",            ID_FILEPROPERTIES,      VIRTKEY, CONTROL, NOINVERT
 END
 
 
@@ -27061,7 +27063,7 @@ BEGIN
         MENUITEM "&Speichern\tStrg+S",          ID_FILE_SAVE
         MENUITEM "Speichern &als...",           ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Dokument-&Eigenschaften...",  ID_FILEPROPERTIES, GRAYED
+        MENUITEM "Dokument-&Eigenschaften...\tStrg+D", ID_FILEPROPERTIES, GRAYED
         MENUITEM "&Drucken...\tStrg+P",         ID_FILE_PRINT
         MENUITEM "D&rucker einstellen...",      ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -27418,7 +27420,7 @@ BEGIN
         MENUITEM "&Speichern\tStrg+S",          ID_FILE_SAVE
         MENUITEM "Speichern &als...",           ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Dokument-&Eigenschaften...",  ID_FILEPROPERTIES
+        MENUITEM "Dokument-&Eigenschaften...\tStrg+D", ID_FILEPROPERTIES
         MENUITEM "&Drucken...\tStrg+P",         ID_FILE_PRINT
         MENUITEM "D&rucker einstellen...",      ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -27775,7 +27777,7 @@ BEGIN
         MENUITEM "&Speichern\tStrg+S",          ID_FILE_SAVE
         MENUITEM "Speichern &als...",           ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Dokument-&Eigenschaften...",  ID_FILEPROPERTIES
+        MENUITEM "Dokument-&Eigenschaften...\tStrg+D", ID_FILEPROPERTIES
         MENUITEM "&Drucken...\tStrg+P",         ID_FILE_PRINT
         MENUITEM "D&rucker einstellen...",      ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -28132,7 +28134,7 @@ BEGIN
         MENUITEM "&Speichern\tStrg+S",          ID_FILE_SAVE
         MENUITEM "Speichern &als...",           ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Dokument-&Eigenschaften...",  ID_FILEPROPERTIES
+        MENUITEM "Dokument-&Eigenschaften...\tStrg+D", ID_FILEPROPERTIES
         MENUITEM "&Drucken...\tStrg+P",         ID_FILE_PRINT
         MENUITEM "D&rucker einstellen...",      ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -28518,7 +28520,7 @@ BEGIN
         MENUITEM "&Speichern\tStrg+S",          ID_FILE_SAVE
         MENUITEM "Speichern &als...",           ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Dokument-&Eigenschaften...",  ID_FILEPROPERTIES, GRAYED
+        MENUITEM "Dokument-&Eigenschaften...\tStrg+D", ID_FILEPROPERTIES, GRAYED
         MENUITEM "&Drucken...\tStrg+P",         ID_FILE_PRINT
         MENUITEM "D&rucker einstellen...",      ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -29779,28 +29781,29 @@ AFX_IDC_MAGNIFY         CURSOR                  "res\\magnify.cur"
 
 IDR_MAINFRAME ACCELERATORS 
 BEGIN
-    "A",            ID_EDIT_SELECT_ALL,     VIRTKEY, CONTROL, NOINVERT
+    VK_F1,          ID_CONTEXT_HELP,        VIRTKEY, SHIFT, NOINVERT
+    "R",            ID_CRYPT_AES_RIJNDAEL,  VIRTKEY, SHIFT, CONTROL, NOINVERT
     "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
     "F",            ID_EDIT_FIND,           VIRTKEY, CONTROL, NOINVERT
+    VK_F3,          ID_EDIT_FIND_NEXT,      VIRTKEY, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "Y",            ID_EDIT_REDO,           VIRTKEY, CONTROL, NOINVERT
+    "A",            ID_EDIT_SELECT_ALL,     VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
     "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
     "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
     "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
-    "R",            ID_CRYPT_AES_RIJNDAEL,  VIRTKEY, SHIFT, CONTROL, NOINVERT
     "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
-    "U",            ID_UNZIP,               VIRTKEY, SHIFT, CONTROL, NOINVERT
-    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
-    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
-    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
-    VK_F1,          ID_CONTEXT_HELP,        VIRTKEY, SHIFT, NOINVERT
-    VK_F3,          ID_EDIT_FIND_NEXT,      VIRTKEY, NOINVERT
     VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
     VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
-    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
-    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
-    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
-    "Y",            ID_EDIT_REDO,           VIRTKEY, CONTROL, NOINVERT
-    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+    "U",            ID_UNZIP,               VIRTKEY, SHIFT, CONTROL, NOINVERT
     "Z",            ID_ZIP,                 VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "D",            ID_FILEPROPERTIES,      VIRTKEY, CONTROL, NOINVERT
 END
 
 
@@ -38200,7 +38203,7 @@ BEGIN
         MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
         MENUITEM "Save &as...",                 ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "&Document Properties...",     ID_FILEPROPERTIES, GRAYED
+        MENUITEM "&Document Properties...\tCtrl+D", ID_FILEPROPERTIES, GRAYED
         MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
         MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -38557,7 +38560,7 @@ BEGIN
         MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
         MENUITEM "Save &as...",                 ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "&Document Properties...",     ID_FILEPROPERTIES
+        MENUITEM "&Document Properties...\tCtrl+D", ID_FILEPROPERTIES
         MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
         MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -38914,7 +38917,7 @@ BEGIN
         MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE, GRAYED
         MENUITEM "Save &as...",                 ID_FILE_SAVE_AS, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Document Properties...",     ID_FILEPROPERTIES, GRAYED
+        MENUITEM "&Document Properties...\tCtrl+D", ID_FILEPROPERTIES, GRAYED
         MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT, GRAYED
         MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -39271,7 +39274,7 @@ BEGIN
         MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
         MENUITEM "Save &as...",                 ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "&Document Properties...",     ID_FILEPROPERTIES
+        MENUITEM "&Document Properties...\tCtrl+D", ID_FILEPROPERTIES
         MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
         MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -39657,7 +39660,7 @@ BEGIN
         MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
         MENUITEM "Save &as...",                 ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "&Document Properties...",     ID_FILEPROPERTIES, GRAYED
+        MENUITEM "&Document Properties...\tCtrl+D", ID_FILEPROPERTIES, GRAYED
         MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
         MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -40919,28 +40922,29 @@ AFX_IDC_MAGNIFY         CURSOR                  "res\\magnify.cur"
 
 IDR_MAINFRAME ACCELERATORS 
 BEGIN
-    "A",            ID_EDIT_SELECT_ALL,     VIRTKEY, CONTROL, NOINVERT
+    VK_F1,          ID_CONTEXT_HELP,        VIRTKEY, SHIFT, NOINVERT
+    "R",            ID_CRYPT_AES_RIJNDAEL,  VIRTKEY, SHIFT, CONTROL, NOINVERT
     "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
     "F",            ID_EDIT_FIND,           VIRTKEY, CONTROL, NOINVERT
+    VK_F3,          ID_EDIT_FIND_NEXT,      VIRTKEY, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "Y",            ID_EDIT_REDO,           VIRTKEY, CONTROL, NOINVERT
+    "A",            ID_EDIT_SELECT_ALL,     VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
     "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
     "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
     "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
-    "R",            ID_CRYPT_AES_RIJNDAEL,  VIRTKEY, SHIFT, CONTROL, NOINVERT
     "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
-    "U",            ID_UNZIP,               VIRTKEY, SHIFT, CONTROL, NOINVERT
-    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
-    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
-    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
-    VK_F1,          ID_CONTEXT_HELP,        VIRTKEY, SHIFT, NOINVERT
-    VK_F3,          ID_EDIT_FIND_NEXT,      VIRTKEY, NOINVERT
     VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
     VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
-    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
-    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
-    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
-    "Y",            ID_EDIT_REDO,           VIRTKEY, CONTROL, NOINVERT
-    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+    "U",            ID_UNZIP,               VIRTKEY, SHIFT, CONTROL, NOINVERT
     "Z",            ID_ZIP,                 VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "D",            ID_FILEPROPERTIES,      VIRTKEY, CONTROL, NOINVERT
 END
 
 
@@ -49487,7 +49491,7 @@ BEGIN
         MENUITEM "&Guardar\tCtrl+S",            ID_FILE_SAVE
         MENUITEM "Guardar C&omo...",            ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Propiedades del &Documento...", ID_FILEPROPERTIES
+        MENUITEM "Propiedades del &Documento...\tCtrl+D", ID_FILEPROPERTIES
         MENUITEM "&Imprimir...\tCtrl+P",        ID_FILE_PRINT
         MENUITEM "Configurar Im&presora...",    ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -49844,7 +49848,7 @@ BEGIN
         MENUITEM "&Guardar\tCtrl+S",            ID_FILE_SAVE
         MENUITEM "Guardar C&omo...",            ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Propiedades del &Documento...", ID_FILEPROPERTIES, GRAYED
+        MENUITEM "Propiedades del &Documento...\tCtrl+D", ID_FILEPROPERTIES, GRAYED
         MENUITEM "&Imprimir...\tCtrl+P",        ID_FILE_PRINT
         MENUITEM "Configurar Im&presora...",    ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -50201,7 +50205,7 @@ BEGIN
         MENUITEM "&Guardar\tCtrl+S",            ID_FILE_SAVE
         MENUITEM "Guardar C&omo...",            ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Propiedades del &Documento...", ID_FILEPROPERTIES
+        MENUITEM "Propiedades del &Documento...\tCtrl+D", ID_FILEPROPERTIES
         MENUITEM "&Imprimir...\tCtrl+P",        ID_FILE_PRINT
         MENUITEM "Configurar Im&presora...",    ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -50558,7 +50562,7 @@ BEGIN
         MENUITEM "&Guardar\tCtrl+S",            ID_FILE_SAVE
         MENUITEM "Guardar C&omo...",            ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Propiedades del &Documento...", ID_FILEPROPERTIES
+        MENUITEM "Propiedades del &Documento...\tCtrl+D", ID_FILEPROPERTIES
         MENUITEM "&Imprimir...\tCtrl+P",        ID_FILE_PRINT
         MENUITEM "Configurar Im&presora...",    ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -50915,7 +50919,7 @@ BEGIN
         MENUITEM "&Guardar\tCtrl+S",            ID_FILE_SAVE, GRAYED
         MENUITEM "Guardar C&omo...",            ID_FILE_SAVE_AS, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Propiedades del &Documento...", ID_FILEPROPERTIES, GRAYED
+        MENUITEM "Propiedades del &Documento...\tCtrl+D", ID_FILEPROPERTIES, GRAYED
         MENUITEM "&Imprimir...\tCtrl+P",        ID_FILE_PRINT, GRAYED
         MENUITEM "Configurar Im&presora...",    ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -52172,28 +52176,29 @@ AFX_IDC_MAGNIFY         CURSOR                  "res\\magnify.cur"
 
 IDR_MAINFRAME ACCELERATORS 
 BEGIN
-    "A",            ID_EDIT_SELECT_ALL,     VIRTKEY, CONTROL, NOINVERT
+    VK_F1,          ID_CONTEXT_HELP,        VIRTKEY, SHIFT, NOINVERT
+    "R",            ID_CRYPT_AES_RIJNDAEL,  VIRTKEY, SHIFT, CONTROL, NOINVERT
     "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
     "F",            ID_EDIT_FIND,           VIRTKEY, CONTROL, NOINVERT
+    VK_F3,          ID_EDIT_FIND_NEXT,      VIRTKEY, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "Y",            ID_EDIT_REDO,           VIRTKEY, CONTROL, NOINVERT
+    "A",            ID_EDIT_SELECT_ALL,     VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
     "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
     "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
     "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
-    "R",            ID_CRYPT_AES_RIJNDAEL,  VIRTKEY, SHIFT, CONTROL, NOINVERT
     "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
-    "U",            ID_UNZIP,               VIRTKEY, SHIFT, CONTROL, NOINVERT
-    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
-    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
-    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
-    VK_F1,          ID_CONTEXT_HELP,        VIRTKEY, SHIFT, NOINVERT
-    VK_F3,          ID_EDIT_FIND_NEXT,      VIRTKEY, NOINVERT
     VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
     VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
-    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
-    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
-    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
-    "Y",            ID_EDIT_REDO,           VIRTKEY, CONTROL, NOINVERT
-    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+    "U",            ID_UNZIP,               VIRTKEY, SHIFT, CONTROL, NOINVERT
     "Z",            ID_ZIP,                 VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "D",            ID_FILEPROPERTIES,      VIRTKEY, CONTROL, NOINVERT
 END
 
 

@@ -836,6 +836,14 @@ void CScintillaWnd::Init()
    SendMessage(SCI_SETSELFORE,true,GetSysColor(COLOR_HIGHLIGHTTEXT));
    SendMessage(SCI_SETSELBACK,true,GetSysColor(COLOR_HIGHLIGHT));
    SetShowAlphabet(false);
+
+	 // flomar, 01/30/2013: these lines "unmap" the key binding for CTRL+D, which 
+	 // by default is the Scintilla-internal "duplicate the line" command; what we 
+	 // want instead is to show the document properties upon pressing CTRL+D, thus 
+	 // we disable the command here and catch it through regular MFC accelerators
+	 const int keyDefinition = 'D' + (SCMOD_CTRL << 16);
+	 SendMessage(SCI_CLEARCMDKEY, keyDefinition, SCI_NULL);
+	 SendMessage(SCI_ASSIGNCMDKEY, keyDefinition, SCI_NULL);
 }
 /////////////////////////////////////
 // @mfunc Update UI and do brace matching
