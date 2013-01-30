@@ -45,7 +45,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // this is a static sha-1 hash value (used for integrity of the authors.txt file)
-static const CString authorsFileHash = "2043304cbd3ebfeacd81d8888390ad3cbd9d36cb";
+static const CString authorsFileHash = "6fa9c82e96cee919fd941025029818edaaa0dcbc";
 
 
 /////////////////////////////////////////////////////////////////////////////
