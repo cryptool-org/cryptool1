@@ -23,7 +23,7 @@
   
   Name "${ProgramName} ${VersionInfo}"
   OutFile "SetupCrypTool_${VersionFile}_${LANGUAGE_STR}.exe"
-  BrandingText "(c) 1998-2012 Contributors"
+  BrandingText "(c) 1998-2013 Contributors"
 ;  Icon "..\CrypTool\res\idr_main.ico" ; does not work for some reason
 
   ;Default installation folder
