@@ -1402,10 +1402,10 @@ Event: Die CrypTool-Anwendung stoppt mit der Meldung "Could not create
 
 When CrypTool creates a new temporary file the program tries to write the file
 at the following locations: 
-1. as of the local variable TEMP 
-2. if TEMP is not set as of the local variable TMP 
-3. if both variables, TEMP and TMP, are not set CrypTool tries to write the file
-   on the folder which is actually set.
+ 1. as of the local variable TEMP 
+ 2. if TEMP is not set as of the local variable TMP 
+ 3. if both variables, TEMP and TMP, are not set CrypTool tries to write the file
+    on the folder which is actually set.
 
 Bitte prüfen Sie die Zugriffsrechte für die Pfade, auf die die temporären
 Variablen zeigen. Falls sowohl %TEMP% und %TMP% nicht gesetzt sind, setzen Sie
