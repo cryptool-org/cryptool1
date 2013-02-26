@@ -6395,12 +6395,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
-            VALUE "FileVersion", "1.4.31"
+            VALUE "FileVersion", "[CRYPTOOL_VERSION]"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Contributors © 1998-2013"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "1.4.31"
+            VALUE "ProductVersion", "[CRYPTOOL_VERSION]"
         END
     END
     BLOCK "VarFileInfo"
@@ -8462,7 +8462,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.31 Beta 5a [VS2010]"
+    IDR_MAINFRAME           "[CRYPTOOL_VERSION_FULL]"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
