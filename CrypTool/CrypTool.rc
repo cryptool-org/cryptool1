@@ -4835,7 +4835,7 @@ BEGIN
             MENUITEM "DES z CBC",                   ID_ANALYSE_DESCBC
             MENUITEM "3DES z ECB",                  ID_ANALYSE_TRIPLEDESECB
             MENUITEM "3DES z CBC",                  ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM "AES (CBC)...",             ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "AES (CBC)...",                ID_ANALYSE_AES_RIJNDAEL
             POPUP "&Wiêcej algorytmów"
             BEGIN
                 MENUITEM "&MARS",                       ID_ANALYSE_AES_MARS
@@ -5192,7 +5192,7 @@ BEGIN
             MENUITEM "DES z CBC",                   ID_ANALYSE_DESCBC
             MENUITEM "3DES z ECB",                  ID_ANALYSE_TRIPLEDESECB
             MENUITEM "3DES z CBC",                  ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM "AES (CBC)...",             ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "AES (CBC)...",                ID_ANALYSE_AES_RIJNDAEL
             POPUP "&Wiêcej algorytmów"
             BEGIN
                 MENUITEM "&MARS",                       ID_ANALYSE_AES_MARS
@@ -5549,7 +5549,7 @@ BEGIN
             MENUITEM "DES z CBC",                   ID_ANALYSE_DESCBC, GRAYED
             MENUITEM "3DES z ECB",                  ID_ANALYSE_TRIPLEDESECB, GRAYED
             MENUITEM "3DES z CBC",                  ID_ANALYSE_TRIPLEDESCBC, GRAYED
-            MENUITEM "AES (CBC)...",             ID_ANALYSE_AES_RIJNDAEL, GRAYED
+            MENUITEM "AES (CBC)...",                ID_ANALYSE_AES_RIJNDAEL, GRAYED
             POPUP "&Wiêcej algorytmów"
             BEGIN
                 MENUITEM "&MARS",                       ID_ANALYSE_AES_MARS
@@ -5906,7 +5906,7 @@ BEGIN
             MENUITEM "DES z CBC",                   ID_ANALYSE_DESCBC
             MENUITEM "3DES z ECB",                  ID_ANALYSE_TRIPLEDESECB
             MENUITEM "3DES z CBC",                  ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM "AES (CBC)...",             ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "AES (CBC)...",                ID_ANALYSE_AES_RIJNDAEL
             POPUP "&Wiêcej algorytmów"
             BEGIN
                 MENUITEM "&MARS",                       ID_ANALYSE_AES_MARS
@@ -6292,7 +6292,7 @@ BEGIN
             MENUITEM "DES z CBC",                   ID_ANALYSE_DESCBC, GRAYED
             MENUITEM "3DES z ECB",                  ID_ANALYSE_TRIPLEDESECB, GRAYED
             MENUITEM "3DES z CBC",                  ID_ANALYSE_TRIPLEDESCBC, GRAYED
-            MENUITEM "AES (CBC)...",             ID_ANALYSE_AES_RIJNDAEL, GRAYED
+            MENUITEM "AES (CBC)...",                ID_ANALYSE_AES_RIJNDAEL, GRAYED
             POPUP "&Wiêcej algorytmów"
             BEGIN
                 MENUITEM "&MARS",                       ID_ANALYSE_AES_MARS, GRAYED
@@ -8553,6 +8553,16 @@ BEGIN
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN 
                             "Dalsze aktualizacje: Bojan Dimitrovski"
     IDS_STRING_TRANSLATIONS_HEADING_SPANISH "T³umaczenie na jêzyk hiszpañski"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
+                            "Wstêpne t³umaczenie: Uniwersztet Madrid, Hiszpania (http://www.csic.es),\r\nDr. Gonzalo Alvarez Maranon wraz ze studentami"
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
+                            "Dalsze aktualizacje: Raphael Labaca Castro"
+    IDS_RSA_DEMO_RSA_MODULUS_INVALID 
+                            "[i18n] Please provide a valid RSA modulus."
 END
 
 STRINGTABLE 
@@ -11181,14 +11191,6 @@ BEGIN
                             "Wyœwietla algorytmu Rijndael w wizualizacji przep³ywu"
     ID_ANALYSIS_VIGENERE_SCHROEDEL 
                             "Automatyczna analiza szyfrowania Vigenere (Schrödel)"
-END
-
-STRINGTABLE 
-BEGIN
-    IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
-                            "Wstêpne t³umaczenie: Uniwersztet Madrid, Hiszpania (http://www.csic.es),\r\nDr. Gonzalo Alvarez Maranon wraz ze studentami"
-    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
-                            "Dalsze aktualizacje: Raphael Labaca Castro"
 END
 
 STRINGTABLE 
@@ -16095,7 +16097,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC, GRAYED
             MENUITEM "&Trostruki DES (ECB)...",     ID_ANALYSE_TRIPLEDESECB, GRAYED
             MENUITEM "T&rostruki DES (CBC)...",     ID_ANALYSE_TRIPLEDESCBC, GRAYED
-            MENUITEM "AES (CBC)...",          ID_ANALYSE_AES_RIJNDAEL, GRAYED
+            MENUITEM "AES (CBC)...",                ID_ANALYSE_AES_RIJNDAEL, GRAYED
             POPUP "&Dalji Algoritmi"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
@@ -16452,7 +16454,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
             MENUITEM "&Trostruki DES (ECB)...",     ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&rostruki DES (CBC)...",     ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM "AES (CBC)...",          ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "AES (CBC)...",                ID_ANALYSE_AES_RIJNDAEL
             POPUP "&Dalji Algoritmi"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
@@ -16809,7 +16811,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
             MENUITEM "&Trostruki DES (ECB)...",     ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&rostruki DES (CBC)...",     ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM "AES (CBC)...",          ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "AES (CBC)...",                ID_ANALYSE_AES_RIJNDAEL
             POPUP "&Dalji Algoritmi"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
@@ -17166,7 +17168,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
             MENUITEM "&Trostruki DES (ECB)...",     ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&rostruki DES (CBC)...",     ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM "AES (CBC)...",          ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "AES (CBC)...",                ID_ANALYSE_AES_RIJNDAEL
             POPUP "&Dalji Algoritmi"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
@@ -17552,7 +17554,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC, GRAYED
             MENUITEM "&Trostruki DES (ECB)...",     ID_ANALYSE_TRIPLEDESECB, GRAYED
             MENUITEM "T&rostruki DES (CBC)...",     ID_ANALYSE_TRIPLEDESCBC, GRAYED
-            MENUITEM "AES (CBC)...",          ID_ANALYSE_AES_RIJNDAEL, GRAYED
+            MENUITEM "AES (CBC)...",                ID_ANALYSE_AES_RIJNDAEL, GRAYED
             POPUP "&Dalji Algoritmi"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS, GRAYED
@@ -19802,6 +19804,16 @@ BEGIN
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN 
                             "Dalja ažuriranja: Bojan Dimitrovski"
     IDS_STRING_TRANSLATIONS_HEADING_SPANISH "Španski prevod"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
+                            "Inicijalni prevod: Madrid Univerzitet, Španija (http://www.csic.es),\r\nDr. Gonzalo Alvarez Maranon i njegovi studenti"
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
+                            "Dalja ažuriranja: Raphael Labaca Castro"
+    IDS_RSA_DEMO_RSA_MODULUS_INVALID 
+                            "[i18n] Please provide a valid RSA modulus."
 END
 
 STRINGTABLE 
@@ -22416,14 +22428,6 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "karaktera"
-END
-
-STRINGTABLE 
-BEGIN
-    IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
-                            "Inicijalni prevod: Madrid Univerzitet, Španija (http://www.csic.es),\r\nDr. Gonzalo Alvarez Maranon i njegovi studenti"
-    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
-                            "Dalja ažuriranja: Raphael Labaca Castro"
 END
 
 STRINGTABLE 
@@ -27341,7 +27345,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC, GRAYED
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB, GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC, GRAYED
-            MENUITEM "AES (CBC)...",          ID_ANALYSE_AES_RIJNDAEL, GRAYED
+            MENUITEM "AES (CBC)...",                ID_ANALYSE_AES_RIJNDAEL, GRAYED
             POPUP "&Weitere Algorithmen"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS, GRAYED
@@ -27698,7 +27702,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM "AES (CBC)...",          ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "AES (CBC)...",                ID_ANALYSE_AES_RIJNDAEL
             POPUP "&Weitere Algorithmen"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
@@ -28055,7 +28059,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM "AES (CBC)...",          ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "AES (CBC)...",                ID_ANALYSE_AES_RIJNDAEL
             POPUP "&Weitere Algorithmen"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
@@ -28412,7 +28416,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM "AES (CBC)...",          ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "AES (CBC)...",                ID_ANALYSE_AES_RIJNDAEL
             POPUP "&Weitere Algorithmen"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
@@ -28798,7 +28802,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC, GRAYED
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB, GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC, GRAYED
-            MENUITEM "AES (CBC)...",          ID_ANALYSE_AES_RIJNDAEL, GRAYED
+            MENUITEM "AES (CBC)...",                ID_ANALYSE_AES_RIJNDAEL, GRAYED
             POPUP "&Weitere Algorithmen"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS, GRAYED
@@ -30913,6 +30917,16 @@ BEGIN
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN 
                             "Weitere Updates: Bojan Dimitrovski"
     IDS_STRING_TRANSLATIONS_HEADING_SPANISH "Spanische Übersetzung"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
+                            "Erstübersetzung: Universität Madrid, Spanien (http://www.csic.es),\r\nDr. Gonzalo Alvarez Maranon und seine Studenten"
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
+                            "Weitere Updates: Raphael Labaca Castro"
+    IDS_RSA_DEMO_RSA_MODULUS_INVALID 
+                            "Bitte geben Sie einen gültigen RSA-Modul an."
 END
 
 STRINGTABLE 
@@ -33587,14 +33601,6 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "Zeichen"
-END
-
-STRINGTABLE 
-BEGIN
-    IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
-                            "Erstübersetzung: Universität Madrid, Spanien (http://www.csic.es),\r\nDr. Gonzalo Alvarez Maranon und seine Studenten"
-    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
-                            "Weitere Updates: Raphael Labaca Castro"
 END
 
 STRINGTABLE 
@@ -38481,7 +38487,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC, GRAYED
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB, GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC, GRAYED
-            MENUITEM "AES (CBC)...",          ID_ANALYSE_AES_RIJNDAEL, GRAYED
+            MENUITEM "AES (CBC)...",                ID_ANALYSE_AES_RIJNDAEL, GRAYED
             POPUP "&Further Algorithms"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
@@ -38838,7 +38844,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM "AES (CBC)...",          ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "AES (CBC)...",                ID_ANALYSE_AES_RIJNDAEL
             POPUP "&Further Algorithms"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
@@ -39195,7 +39201,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC, GRAYED
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB, GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC, GRAYED
-            MENUITEM "AES (CBC)...",          ID_ANALYSE_AES_RIJNDAEL, GRAYED
+            MENUITEM "AES (CBC)...",                ID_ANALYSE_AES_RIJNDAEL, GRAYED
             POPUP "&Further Algorithms"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
@@ -39552,7 +39558,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM "AES (CBC)...",          ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "AES (CBC)...",                ID_ANALYSE_AES_RIJNDAEL
             POPUP "&Further Algorithms"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
@@ -39938,7 +39944,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC, GRAYED
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB, GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC, GRAYED
-            MENUITEM "AES (CBC)...",          ID_ANALYSE_AES_RIJNDAEL, GRAYED
+            MENUITEM "AES (CBC)...",                ID_ANALYSE_AES_RIJNDAEL, GRAYED
             POPUP "&Further Algorithms"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS, GRAYED
@@ -42205,6 +42211,15 @@ BEGIN
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN 
                             "Further updates: Bojan Dimitrovski"
     IDS_STRING_TRANSLATIONS_HEADING_SPANISH "Spanish Translation"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
+                            "Initial translation: Madrid University, Spain (http://www.csic.es),\r\nDr. Gonzalo Alvarez Maranon and his students"
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
+                            "Further updates: Raphael Labaca Castro"
+    IDS_RSA_DEMO_RSA_MODULUS_INVALID "Please provide a valid RSA modulus."
 END
 
 STRINGTABLE 
@@ -44817,14 +44832,6 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "characters"
-END
-
-STRINGTABLE 
-BEGIN
-    IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
-                            "Initial translation: Madrid University, Spain (http://www.csic.es),\r\nDr. Gonzalo Alvarez Maranon and his students"
-    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
-                            "Further updates: Raphael Labaca Castro"
 END
 
 STRINGTABLE 
@@ -49769,7 +49776,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM "AES (CBC)...",          ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "AES (CBC)...",                ID_ANALYSE_AES_RIJNDAEL
             POPUP "&Otros Algoritmos"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
@@ -50126,7 +50133,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC, GRAYED
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB, GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC, GRAYED
-            MENUITEM "AES (CBC)...",          ID_ANALYSE_AES_RIJNDAEL, GRAYED
+            MENUITEM "AES (CBC)...",                ID_ANALYSE_AES_RIJNDAEL, GRAYED
             POPUP "&Otros Algoritmos"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
@@ -50483,7 +50490,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM "AES (CBC)...",          ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "AES (CBC)...",                ID_ANALYSE_AES_RIJNDAEL
             POPUP "&Otros Algoritmos"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
@@ -50840,7 +50847,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM "AES (CBC)...",          ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "AES (CBC)...",                ID_ANALYSE_AES_RIJNDAEL
             POPUP "&Otros Algoritmos"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
@@ -51197,7 +51204,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC, GRAYED
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB, GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC, GRAYED
-            MENUITEM "AES (CBC)...",          ID_ANALYSE_AES_RIJNDAEL, GRAYED
+            MENUITEM "AES (CBC)...",                ID_ANALYSE_AES_RIJNDAEL, GRAYED
             POPUP "&Otros Algoritmos"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
@@ -53426,6 +53433,16 @@ BEGIN
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SERBIAN 
                             "\r\nNuevas actualizaciones: Bojan Dimitrovski"
     IDS_STRING_TRANSLATIONS_HEADING_SPANISH "Versión en español:"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
+                            "Versión inicial: Universidad de Madrid, España (http://www.csic.es);\r\nDr. Gonzalo Álvarez Marañón y sus estudiantes."
+    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
+                            "\r\nNuevas actualizaciones: Raphael Labaca Castro"
+    IDS_RSA_DEMO_RSA_MODULUS_INVALID 
+                            "[i18n] Please provide a valid RSA modulus."
 END
 
 STRINGTABLE 
@@ -56115,14 +56132,6 @@ BEGIN
     IDS_SELECT_DOCUMENT     "[Por favor, seleccione un documento]"
     IDS_HEADERTEXT_KEY      "Clave"
     IDS_HEADERTEXT_READIN   "Leer"
-END
-
-STRINGTABLE 
-BEGIN
-    IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 
-                            "Versión inicial: Universidad de Madrid, España (http://www.csic.es);\r\nDr. Gonzalo Álvarez Marañón y sus estudiantes."
-    IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
-                            "\r\nNuevas actualizaciones: Raphael Labaca Castro"
 END
 
 STRINGTABLE 

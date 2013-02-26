@@ -372,7 +372,12 @@ void CDlgRSADemo::OnButtonGeneratePrimes()
 				m_control_edit_N.SetSel(0,-1);
 				m_control_edit_N.SetFocus();
 			}
-
+		}
+		else {
+			// flomar, 02/26/2013: we don't have a valid modulus at 
+			// this point (the field m_edit_N is empty), therefore 
+			// dump a warning message for the user
+			Message(IDS_RSA_DEMO_RSA_MODULUS_INVALID, MB_ICONINFORMATION);
 		}
 	}
 

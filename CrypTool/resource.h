@@ -123,6 +123,7 @@
 #define IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 192
 #define IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 193
 #define IDI_PLOTTYPE                    194
+#define IDS_RSA_DEMO_RSA_MODULUS_INVALID  195
 #define IDI_ICON1                       199
 #define IDI_ICON2                       200
 #define IDI_ICON3                       201
