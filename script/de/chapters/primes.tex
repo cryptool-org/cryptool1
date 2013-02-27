@@ -7,7 +7,7 @@
 % \hypertarget{Kapitel_2}{}
 \chapter{Primzahlen}
 \label{Label_Kapitel_Primes}  %Die Kapitelnr. von \label wird per per \ref geholt.
-(Bernhard Esslinger, Mai 1999; Updates: Nov. 2000, Dez. 2001, Juni 2003, Mai 2005, März 2006, Juni 2007, Jan. 2010, Dez. 2012)
+(Bernhard Esslinger, Mai 1999; Updates: Nov. 2000, Dez. 2001, Juni 2003, Mai 2005, März 2006, Juni 2007, Jan. 2010, Feb. 2013)
 
 \begin{ctsquote}
     Der Fortschritt lebt vom Austausch des Wissens.
@@ -238,7 +238,7 @@ Dimensionen)}.
 
 % --------------------------------------------------------------------------
 \hypertarget{RecordPrimes}{}
-\subsection{Die 20+ größten bekannten Primzahlen (Stand Juli 2012)}  % Eyecatcher_neue-Mersenne
+\subsection{Die 20+ größten bekannten Primzahlen (Stand Februar 2013)}  % Eyecatcher_neue-Mersenne
 \index{Primzahlrekorde}
 \label{RecordPrimes}
 
@@ -260,43 +260,38 @@ und unter
 \begin{table}[ht]
 \begin{center}
 \begin{tabular}{|c|cccc|}
-\hline
- 	& {\bf Definition} & {\bf Dezimalstellen} & {\bf Wann} & {\bf Beschreibung} \\
 \hline    % Eyecatcher_neue-Mersenne
-	1  & $2^{43.112.609}-1$ & 12.978.189 & 2008 & Mersenne, 47. bekannte \\
-	2  & $2^{42.643.801}-1$ & 12.837.064 & 2009 & Mersenne, 46. bekannte \\
-	3  & $2^{37.156.667}-1$ & 11.185.272 & 2008 & Mersenne, 45. bekannte \\
-
-	4  & $2^{32.582.657}-1$ &  9.808.358 & 2006 & Mersenne, 44. bekannte \\
-	5  & $2^{30.402.457}-1$ &  9.152.052 & 2005 & Mersenne, 43. bekannte \\
-	6  & $2^{25.964.951}-1$ &  7.816.230 & 2005 & Mersenne, 42. bekannte \\
-	7  & $2^{24.036.583}-1$ &  7.235.733 & 2004 & Mersenne, M-41 \\
-	8  & $2^{20.996.011}-1$ &  6.320.430 & 2003 & Mersenne, M-40 \\
-	9  & $2^{13.466.917}-1$ &  4.053.946 & 2001 & Mersenne, M-39 \\
-	10 & $19.249 \cdot 2^{13.018.586}+1$ & 3.918.990 & 2007 & Verallgem. Mersenne\footnotemark \\
-	11 & $27.653 \cdot 2^{9.167.433}+1$ & 2.759.677 & 2005 & Verallgem. Mersenne \\
-	12 & $28.433 \cdot 2^{7.830.457}+1$ & 2.357.207 & 2004 & Verallgem. Mersenne \\
-	13 & $2^{ 6.972.593}-1$ & 2.098.960 & 1999 & Mersenne, M-38 \\
-	14 & $5.359 \cdot 2^{5.054.502}+1$ & 1.521.561 & 2003 & Verallgem. Mersenne \\
-	15 & $4.847 \cdot 2^{3.321.063}+1$ & 999.744 & 2005 & Verallgem. Mersenne \\
-	16 & $3 \cdot 2^{3.136.255}-1$ & 944.108 & 2007 & Verallgem. Mersenne \\
-
-	17 & $2^{ 3.021.377}-1$ &   909.526 & 1998 & Mersenne, M-37 \\
-	18 & $2^{ 2.976.221}-1$ &   895.932 & 1997 & Mersenne, M-36 \\
-
-	19 & $222.361 \cdot 2^{2.854.840}+1$ & 859.398 & 2006 & Verallgem. Mersenne \\
-
-	20 & $1.372.930^{131.072}+1$ &   804.474 & 2003 & Verallgem. Fermat\footnotemark \\
-
-	21 & $1.361.244^{131.072}+1$ &   803.988 & 2004 & Verallgem. Fermat \\
-	22 & $1.176.694^{131.072}+1$ &   795.695 & 2003 & Verallgem. Fermat \\
-
-	23 & $342.673 \cdot 2^{2.639.439}-1$ & 794.556 & 2007 & Verallgem. Mersenne \\
+ 	& {\bf Definition} & {\bf Dezimalstellen} & {\bf Wann} & {\bf Beschreibung} \\
+\hline
+	1  & $2^{57.885.161}-1$ & 17.425.170 & 2013 & Mersenne, 48. bekannte \\
+	2  & $2^{43.112.609}-1$ & 12.978.189 & 2008 & Mersenne, 47. bekannte \\
+	3  & $2^{42.643.801}-1$ & 12.837.064 & 2009 & Mersenne, 46. bekannte \\
+	4  & $2^{37.156.667}-1$ & 11.185.272 & 2008 & Mersenne, 45. bekannte \\
+	5  & $2^{32.582.657}-1$ &  9.808.358 & 2006 & Mersenne, 44. bekannte \\
+	6  & $2^{30.402.457}-1$ &  9.152.052 & 2005 & Mersenne, 43. bekannte \\
+	7  & $2^{25.964.951}-1$ &  7.816.230 & 2005 & Mersenne, M-42 \\
+	8  & $2^{24.036.583}-1$ &  7.235.733 & 2004 & Mersenne, M-41 \\
+	9  & $2^{20.996.011}-1$ &  6.320.430 & 2003 & Mersenne, M-40 \\
+	10 & $2^{13.466.917}-1$ &  4.053.946 & 2001 & Mersenne, M-39 \\
+	11 & $19.249 \cdot 2^{13.018.586}+1$ & 3.918.990 & 2007 & Verallgem. Mersenne\footnotemark \\
+	12 & $27.653 \cdot 2^{9.167.433}+1$ & 2.759.677 & 2005 & Verallgem. Mersenne \\
+	13 & $28.433 \cdot 2^{7.830.457}+1$ & 2.357.207 & 2004 & Verallgem. Mersenne \\
+	14 & $2^{ 6.972.593}-1$ & 2.098.960 & 1999 & Mersenne, M-38 \\
+	15 & $5.359 \cdot 2^{5.054.502}+1$ & 1.521.561 & 2003 & Verallgem. Mersenne \\
+	16 & $4.847 \cdot 2^{3.321.063}+1$ & 999.744 & 2005 & Verallgem. Mersenne \\
+	17 & $3 \cdot 2^{3.136.255}-1$ & 944.108 & 2007 & Verallgem. Mersenne \\
+	18 & $2^{ 3.021.377}-1$ &   909.526 & 1998 & Mersenne, M-37 \\
+	19 & $2^{ 2.976.221}-1$ &   895.932 & 1997 & Mersenne, M-36 \\
+	20 & $222.361 \cdot 2^{2.854.840}+1$ & 859.398 & 2006 & Verallgem. Mersenne \\
+	21 & $1.372.930^{131.072}+1$ &   804.474 & 2003 & Verallgem. Fermat\footnotemark \\
+	22 & $1.361.244^{131.072}+1$ &   803.988 & 2004 & Verallgem. Fermat \\
+	23 & $1.176.694^{131.072}+1$ &   795.695 & 2003 & Verallgem. Fermat \\
+	24 & $342.673 \cdot 2^{2.639.439}-1$ & 794.556 & 2007 & Verallgem. Mersenne \\
 
 \hline
 \end{tabular}
 \caption{Die 20+ größten Primzahlen und ihr jeweiliger Zahlentyp
-         (Stand Juli 2012)}    % Eyecatcher_neue-Mersenne
+         (Stand Februar 2013)}    %  Eyecatcher_neue-Mersenne
 \label{L_n_Largest_Known-Primes}
 \end{center}
 \end{table} 
@@ -461,7 +456,7 @@ $$
 \end{array}
 $$
 Damit sind heute    % Eyecatcher_neue-Mersenne
-$47$                  % be_2005_UPDATEN_if-new-mersenne-prime-appears
+$48$                  % be_2005_UPDATEN_if-new-mersenne-prime-appears
 Mersenne-Primzahlen\index{Primzahl!Mersenne}\index{Mersenne!Mersenne-Primzahl} 
 bekannt.
 
@@ -490,9 +485,9 @@ veraltet).
 
 
 \vskip +10 pt
-Für die ersten 41              % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
+Für die ersten 42  % be_2005_UPDATEN_if-new-mersenne-prime-appears % Eyecatcher_neue-Mersenne
 Mersenne-Primzahlen weiß man inzwischen, dass diese Liste vollständig ist. 
-Die Exponenten bis zur 47.  % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
+Die Exponenten bis zur 48.  % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
 bekannten Mersenne-Primzahl sind noch nicht vollständig geprüft.\footnote{%
 Den aktuellen Status der Prüfung findet man auf der Seite:
       \url{http://www.mersenne.org/status.htm}.\\
@@ -501,8 +496,8 @@ in Kapitel \ref{primality_tests}, Primzahltests\index{Primzahltest}.      }
 
 
 % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
-Inzwischen (Stand Juli 2012) wurden alle primen Exponenten kleiner als
-$ 24.212.801 $ getestet und nochmal geprüft\footnote{%
+Inzwischen (Stand Februar 2013) wurden alle primen Exponenten kleiner als
+$ 26.083.693 $ getestet und nochmal geprüft\footnote{%
 Siehe die Homepage des GIMPS-Projekts:
       \url{http://www.mersenne.org/report_milestones}.
                                   }:
@@ -579,7 +574,7 @@ Genauere Erläuterungen zu diesem Zahlentyp finden sich unter
 \hyperlink{MersenneNumbers01}{Mersenne-Primzahlen}.
 
 \begin{sloppypar}
-Bisher hat das GIMPS-Projekt 13
+Bisher hat das GIMPS-Projekt 14
    % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
 größte Mersenne-Primzahlen entdeckt, inklusive der größten bekannten
 Primzahl überhaupt. 
@@ -606,6 +601,7 @@ Menschheit voranbringt.
 	{\bf Definition} & {\bf Dezimalstellen} & {\bf Wann} & {\bf Wer} \\
 \hline
 
+	$2^{57.885.161}-1$ & 17.425.170 & 25. Januar 2013 & Curtis Cooper  \\
 	$2^{43.112.609}-1$ & 12.978.189 & 23. August 2008 & Edson Smith  \\
 	$2^{42.643.801}-1$ & 12.837.064 & 12. April 2009 & Odd Magnar Strindmo \\
 	$2^{37.156.667}-1$ & 11.185.272 & 6. September 2008 & Hans-Michael Elvenich \\
@@ -623,7 +619,7 @@ Menschheit voranbringt.
 \hline
 \end{tabular}
    % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
-\caption{Die größten vom GIMPS-Projekt gefundenen Primzahlen (Stand Juli 2012)}
+\caption{Die größten vom GIMPS-Projekt gefundenen Primzahlen (Stand Februar 2013)}
 \label{Primes_GIMPS-Primes_table-reference}
 \end{center}
 \end{table} 
@@ -1186,7 +1182,7 @@ $ggT(e_i,e_j) \le ggT(e_1 \cdots e_i \cdots e_{j-1}, e_j) = ggT(e_j - e_1 \cdots
 = ggT(1, e_1 \cdots e_i \cdots e_{j-1}) = 1$.\\
 Siehe Seite \pageref{nt:NumberTheory_Appendix_GCD}.  %KORR_NumberTheory_Appendix_A mk56_ok_now
 }, sie sind also%
-\index{Primzahl!relative}\index{relativ prim} {\em relativ zueinander prim}.
+\index{Primzahl!relative}\index{Zahlen!relativ prim} {\em relativ zueinander prim}.
 \end{remark}
 
 % --------------------------------------------------------------------------

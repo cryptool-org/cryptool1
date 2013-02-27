@@ -302,7 +302,10 @@ asymmetrische Kryptographie-Verfahren vor (Krypto-Verfahren~\ref{rsaproc}).
 \begin{cryptoprocedure}
 \textbf{Schlüsselgenerierung:}
 
-Seien $p$ und $q$ zwei verschiedene Primzahlen und $N=pq.$ Sei $e$ eine frei wählbare, zu $ \phi (N) $ \index{Primzahl!relative} relative Primzahl, d.h. $ \ggt (e,\phi (N))=1. $ Mit dem Euklidschen Algorithmus berechnet man die natürliche Zahl  $ d < \phi (N), $ so dass gilt
+Seien $p$ und $q$ zwei verschiedene Primzahlen und $N=pq.$
+Sei $e$ eine frei wählbare, zu $ \phi (N) $ relativ prime Zahl
+\index{Primzahl!relative}\index{Zahlen!relativ prim},
+d.h. $ \ggt (e,\phi (N))=1. $ Mit dem Euklidschen Algorithmus berechnet man die natürliche Zahl  $ d < \phi (N), $ so dass gilt
 
 \[ ed \equiv 1 \mod \phi (N). \]
 Dabei ist $ \phi $ die {\bf Eulersche Phi-Funktion}. 

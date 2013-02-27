@@ -695,7 +695,7 @@ $p$, then $p$ and a are co-prime.\\
 Further name to the topic co-prime (with $a_i \in \mathbb{Z}, i=1, \cdots, n$):
 \begin{enumerate}
 \item $a_1,a_2, \cdots, a_n$ are {\em relatively prime}
-\index{Prime number!relative prime}\index{Relative prime},
+\index{Prime number!relative prime}\index{Number!relative prime},
 if $ \mbox{gcd}(a_1, \cdots , a_n) =1.$
 \item An even stronger request for more than two numbers is :\\
      $a_1, \cdots , a_n$ are {\em in pairs relatively prime}, if for all $i=1, \cdots, n$ and 
@@ -796,10 +796,13 @@ remainder                & 6 & 12  & {\bf 1}  & 7 & 13  & 2  & 8 & 14  & 3  & 9 
 \hline
 \end{tabular}
 \end{center} 
-\caption{Multiplication table modulo $17$ (for $a=5$ and $a=6$)}\label{SrcArith1a}\label{mulmod17}
+\caption{Multiplication table modulo $17$ (for $a=5$ and $a=6$)}
+\label{SrcArith1a}\label{mulmod17}
 \end{table}
-Between $i=1, \cdots, m$, all values between $0, \cdots, m-1$ occur for the remainders, because both $5$ and $6$ are 
-also relatively prime\index{Prime number!relative prime}\index{Relative prime}
+
+Between $i=1, \cdots, m$, all values between $0, \cdots, m-1$ occur for the remainders,
+because both $5$ and $6$ are also relatively prime
+\index{Prime number!relative prime}\index{Number!relative prime}
 to the modulus $m=17$.
 \enlargethispage{0.5cm}
 
@@ -1361,7 +1364,8 @@ Solution: We have $e*d \equiv 1 {\rm ~(mod~} J(26))$.
 \begin{itemize}
 \item[] The reduced remainder set $R' = \mathbb{Z}_{26}^* = \{ 1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25 \}$ are
 the elements in $\mathbb{Z}_{26},$ which have a multiplicative inverse,
-that is which are relatively prime\index{Prime number!relative prime}\index{Relative prime}
+that is which are relatively prime
+\index{Prime number!relative prime}\index{Number!relative prime}
 to $26$ (see \ref{def-zth-znmult}).
 \item[] The reduced remainder set $R''$ contains only the elements of $R'$ that are relatively prime to 
         $J(n) = 12:  R'' = \{ 1, 5, 7, 11 \}$.
@@ -1658,8 +1662,7 @@ $a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 &
 
 \vskip +10 pt
 \begin{theorem}\label{thm-zth-ordp}
-  Given a modulus $n$ and a number $a$, relative prime to $n$ the
-  following holds: \\
+  Given a modulus $n$ and a number $a$, relative prime\index{Prime number!relative prime}\index{Number!relative prime} to $n$, the following holds: \\
   The set $\{ a^i\; (\mbox{mod }n) |\; i = 1,\dots,J(n)\}$ equals the
   multiplicative group $Z_n^*$ if and only if $ord_n(a) = J(n)$.\footnote{%
     For prime moduli $p$ all $a$ with $0 < a < p$ are of order $J(p) = p - 1$.
@@ -2444,7 +2447,7 @@ listed in the table~\ref{factorizationrecords}.
 	C158 & 		158 & 523 & Jan 2002 & Jens Franke et al. \\
 \hline
 \end{tabular}
-\caption{The current factoring records (as of Nov. 2012)}    % Eyecatcher_neue-Mersenne 
+\caption{The current factoring records (as of Nov. 2012)}    % Eyecatcher
 \label{factorizationrecords}
 \end{center}
 \end{table} 
@@ -2850,7 +2853,7 @@ and \ref{spezialzahlentypen}).
 Length of the current world records in decimal notation:
 
 $$ [RSA{-}768~number] ~~\longleftrightarrow{}~~ [47th ~known~Mersenne~prime] $$
-$$ 232 ~~ \longleftrightarrow{} ~~ 43,112,609 ~~~~~$$
+$$ 232 ~~ \longleftrightarrow{} ~~ 17,425,170 ~~~~~$$
 $$ [see~table~\ref{factorizationrecords}] ~~\longleftrightarrow{}~~ [see~table~\ref{L_n_Largest_Known-Primes}] ~~~~~~~~~~~~~~~~$$
 
 
@@ -5005,7 +5008,9 @@ Steps 1 to 3 constitute key generation, steps 4 and 5 are the encryption:
                   The value $n$ is called the RSA modulus.
 
   \item[{\bf 2.}] Select an arbitrary $e \in \{2, \cdots, n-1\}$ such that: \\
-                  $e$ is relatively prime to $J(n) = (p-1)*(q-1)$. \\
+                  $e$ is relatively prime
+                  \index{Prime number!relative prime}\index{Number!relative prime}
+                  to $J(n) = (p-1)*(q-1)$. \\
                   We can then ``throw away'' $p$ and $q$.
 
   \item[{\bf 3.}] Select $d \in \{1, \cdots, n-1\}$ with $e*d \equiv 1  

@@ -9,7 +9,7 @@
 \label{Chapter_EllipticCurves}
 \index{Elliptic curves}
 (Filipovics B. / B\"uger M. / Esslinger B. / Oyono R., April 2000,
-Updates: Dec. 2001, June 2002, Mar. 2003, November 2009)
+Updates: Dec. 2001, June 2002, Mar. 2003, Nov. 2009)
 
 \section{Elliptic curve cryptography -- a high-performance substitute for RSA?}
 \index{Performance}
@@ -41,8 +41,8 @@ the key lengths for secure communication will be as figure~\ref{RSAKeylength}
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.7]{figures/RSAKeyLength-2}
-\caption{Prognosis of the key lengths to be regarded safe for RSA and
-  Elliptic Curves\vspace{1ex}} 
+\caption{Prognosis of the key lengths regarded to be safe for RSA and
+  for elliptic curves\vspace{1ex}} 
 \label{RSAKeylength}
 \end{center}
 \end{figure}
@@ -59,7 +59,7 @@ long enough.
 \begin{figure}[ht]
 \begin{center}
 \vspace{1.5cm}\includegraphics[scale=0.7]{figures/ECCRSA}
-\caption{Comparison of signing and verification time for RSA and Elliptic Curves} 
+\caption{Comparison of signing and verification time for RSA and elliptic curves} 
 \label{ThousandBitMultiplications}
 \end{center}
 \end{figure}
@@ -333,10 +333,11 @@ $$ {\bf E} = \left\{(x,y)\in K\times K \, |\, y^2+a_1xy+a_3y = x^3+a_2x^2+a_4x+a
 $$
 Here, ${\cal O}$ represents the point $(0,1,0)$ that is loosely speaking mapped to infinity by the transformation (division by $x_3$) that reduces the three variables to two.
 
+% -> Figure 3
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.60]{figures/elliptic-curve}
-\caption{Example of an elliptic curve with the real numbers as underlying field.\vspace{1ex}} 
+\caption{Example of an elliptic curve with the real numbers as underlying field\vspace{1ex}} 
 \label{ExampleEllipticCurve}
 \end{center}
 \vskip -10 pt
@@ -644,7 +645,7 @@ the package ``kash3-2008-07-31.spkg'' has to be installed (command \verb#sage -i
 
 The ECC notebook\index{Elliptic curves!ECC notebook}\index{Massierer, Maike} of
 Massierer\footnote{%
-Instructions to use an interactive Sage notebook:\\
+Instructions to use an interactive Sage notebook\index{Sage!Instructions interactive notebook}:\\
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
   Public Sage servers like \url{http://sage.mathematik.uni-siegen.de:8000} or
@@ -840,7 +841,7 @@ Both examples show the typical range of application for elliptic curve cryptogra
         \url{http://www.certicom.com/index.php/ecc-tutorial}  
 
    \hypertarget{ec:Web-Link:Java_Laubrock}{} 
-   \item Tutorial with Java applets -- Crypto methods based on elliptic curves,
+   \item Tutorial with Java applets -- Crypto methods based on elliptic curves,\\
         thesis by Thomas Laubrock, 1999 (German only),\\
         \url{http://www.warendorf-freckenhorst.de/elliptische-kurven/frame.html}  
 

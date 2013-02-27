@@ -744,7 +744,9 @@ Desweiteren gilt: Ist $p$ prim und $a$ eine beliebige ganze Zahl, die kein
 Vielfaches von $p$ ist, so sind beide Zahlen teilerfremd.\\
 Weitere Bezeichnungen zum Thema Teilerfremdheit (mit $a_i \in \mathbb{Z}, i=1, \cdots, n$):
 \begin{enumerate}
-\item $a_1,a_2, \cdots, a_n$ heißen {\em relativ prim} \index{relativ prim}, wenn $ {\rm~ggT}(a_1, \cdots , a_n) =1.$
+\item $a_1,a_2, \cdots, a_n$ heißen {\em relativ prim}
+\index{Primzahl!relative}\index{Zahlen!relativ prim},
+wenn $ {\rm~ggT}(a_1, \cdots , a_n) =1.$
 \item Für mehr als $2$ Zahlen  ist eine noch stärkere Anforderung:\\
       $a_1, \cdots , a_n$ heißen {\em paarweise relativ prim}, wenn für alle $i=1, \cdots, n$ und 
       $j=1, \cdots , n$ mit $ i \neq j $ gilt: $ {\rm ggT} (a_i, a_j) =1. $
@@ -869,7 +871,8 @@ Rest                & 6 & 12  & {\bf 1}  & 7 & 13  & 2  & 8 & 14  & 3  & 9 & 15 
 \label{mulmod17}
 \end{table}
 
-Da sowohl $5$ als auch $6$ jeweils teilerfremd\index{Zahlen!teilerfremde (co-prime)}
+Da sowohl $5$ als auch $6$ jeweils teilerfremd
+\index{Zahlen!teilerfremde (co-prime)}\index{Primzahl!relative}\index{Zahlen!relativ prim}
 zum Modul $m=17$ sind, kommen zwischen $i=1, \cdots, m$ für die Reste alle Werte
 zwischen $0, \cdots, m-1$ vor (vollständige $m$-Permutation\index{Permutation}).
 % \enlargethispage{0.5cm}
@@ -1480,8 +1483,10 @@ Lösung: Es gilt $e*d \equiv 1$ (mod $J(26)$).
 \begin{itemize}
    \item[] Die reduzierte Restmenge\index{Restmenge!reduzierte} 
 $R' = \mathbb{Z}_{26}^* = \{ 1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25 \}$ sind die 
-Elemente in $\mathbb{Z}_{26}, $ die eine multiplikative Inverse haben, also
-teilerfremd\index{Zahlen!teilerfremde (co-prime)} zu $26$ sind (vgl. \ref{def-zth-znmult}).
+Elemente in $\mathbb{Z}_{26}, $ die eine multiplikative Inverse haben,
+also teilerfremd
+\index{Zahlen!teilerfremde (co-prime)}\index{Primzahl!relative}\index{Zahlen!relativ prim}
+zu $26$ sind (vgl. \ref{def-zth-znmult}).
    \item[] Die reduzierte Restmenge $R''$ enthält nur die Elemente aus
            $R'$, die teilerfremd zu $J(26) = 12$ sind:
            $R'' = \{ 1, 5, 7, 11 \}$.
@@ -2689,8 +2694,7 @@ sind in der folgenden Tabelle~\ref{factorizationrecords} aufgeführt:
 	C158 & 		158 & 523 & Jan 2002 & Jens Franke et al. \\
 \hline
 \end{tabular}
-\caption{Die derzeitigen Faktorisierungsrekorde (Stand Nov. 2012)}
-    % Eyecatcher_neue-Mersenne
+\caption{Die derzeitigen Faktorisierungsrekorde (Stand Nov. 2012)}  % Eyecatcher
 \label{factorizationrecords}
 \end{center}
 \end{table}
@@ -3155,7 +3159,7 @@ der Lage sind, Aussagen über ihre Primalität zu treffen (siehe Kapitel
 Länge der derzeitigen Weltrekorde in Dezimaldarstellung:
 
 $$  ~~~~~~~~~[RSA{-}768{-}Zahl] ~~\longleftrightarrow{}~~[47.~bekannte~Mersenne~Primzahl] $$
-$$ 232 ~~ \longleftrightarrow{} ~~ 43.112.609 ~~~~~$$
+$$ 232 ~~ \longleftrightarrow{} ~~ 17.425.170 ~~~~~$$
 $$ [vgl.~Tab.~\ref{factorizationrecords}] ~~\longleftrightarrow{}~~ [vgl.~Tab.~\ref{L_n_Largest_Known-Primes}] ~~~~~~~~~~~~~~~~$$
 
 %be_2005 - erzwungenes Blank und $$ um Pfeilzeichen, sonst setzt er Blanks an 
@@ -5382,7 +5386,9 @@ eigentliche Verschlüsselung dar:
                   Der Wert $n$ wird RSA-Modul genannt.
 
   \item[{\bf 2.}] Wähle ein zufälliges $e \in \{2, \cdots, n-1\}$, so dass gilt: \\
-                  $e$ ist relativ prim zu $J(n) = (p-1)*(q-1)$. \\
+                  $e$ ist relativ prim
+                  \index{Primzahl!relative}\index{Zahlen!relativ prim}
+                  zu $J(n) = (p-1)*(q-1)$. \\
                   Danach kann man $p$ und $q$ \glqq wegwerfen\grqq.
 
   \item[{\bf 3.}] Wähle $d \in \{1, \cdots, n-1\}$ mit $e*d \equiv 1  

@@ -8,7 +8,7 @@
 \label{Chapter_EllipticCurves}
 \index{Elliptische Kurven}
 (Filipovics B. / Büger M. / Esslinger B. / Oyono R., April 2000,
- Updates: Dez. 2001, Juni 2002, März 2003, November 2009)
+ Updates: Dez. 2001, Juni 2002, März 2003, Nov. 2009)
 
 % -----------------------------------------------------------------------------
 \section{Elliptische Kurven -- Ein effizienter Ersatz für RSA?}
@@ -49,7 +49,7 @@ sicheren Schlüssellängen wie in Abbildung~\ref{RSAKeylength} ausgehen
 \begin{center}
 \includegraphics[scale=0.7]{figures/RSAKeyLength-2}
 \caption{Prognose für die Entwicklung der als sicher betrachteten
-  Schlüssellängen für RSA und Elliptische Kurven\vspace{1ex}} 
+  Schlüssellängen bei RSA und bei Elliptische Kurven\vspace{1ex}} 
 \label{RSAKeylength}
 \end{center}
 \vskip -30 pt
@@ -75,7 +75,7 @@ private Exponent nur hinreichend lang ist.
 \begin{center}
 \vspace{1.5cm}\includegraphics[scale=0.7]{figures/ECCRSA}
 \caption{Gegenüberstellung des Aufwands der Operationen Signieren und
-         Verifizieren bei RSA und Elliptischen Kurven} 
+         Verifizieren bei RSA und bei Elliptischen Kurven} 
 \label{ThousandBitMultiplications}
 \end{center}
 \vskip -10 pt
@@ -359,10 +359,11 @@ $$ {\bf E} = \left\{(x,y)\in K\times K \, |\, y^2+a_1xy+a_3y = x^3+a_2x^2+a_4x+a
 $$
 Dabei soll ${\cal O}$ den auf diese Weise nicht beschriebenen Punkt $(0,1,0)$ darstellen, der durch die Projektion (Division durch $x_3$) quasi in den unendlich fernen Punkt abgebildet wird.
 
+% -> Figure 3
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.60]{figures/elliptic-curve}
-\caption{Beispiel einer Elliptischen Kurve über dem Körper der reellen Zahlen.\vspace{1ex}} 
+\caption{Beispiel einer Elliptischen Kurve über dem Körper der reellen Zahlen\vspace{1ex}} 
 \label{ExampleEllipticCurve}
 \end{center}
 \vskip -10 pt
@@ -663,7 +664,7 @@ in CT1\index{CrypTool 1} and JCT\index{JCrypTool} visualisiert.%
 \footnote{%
 CT1: Menü {\bf Digitale Signaturen/PKI \textbackslash{} Signaturdemo (Signaturerzeugung)},\\
 JCT (Standard-Perspektive): Menü {\bf Visualisierungen \textbackslash{}
-Elliptische Kurvem-Berechnungen}.
+Elliptische Kurven-Berechnungen}.
 
 }
 
@@ -681,7 +682,7 @@ In Sage werden Elliptische Kurven beschrieben unter
 Sage-Beispiele dazu finden sich z.B. unter den \glqq Published Worksheets\grqq~auf
 \url{http://www.sagenb.org/pub/}:\\
 - über Elliptic Curve: \url{http://www.sagenb.org/home/pub/606/} \\
-- über Elliptic Curve El Gamal: \url{http://www.sagenb.org/home/pub/104/}, oder im
+- über Elliptic Curve ElGamal: \url{http://www.sagenb.org/home/pub/104/}, oder im
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
   das \glqq Elliptic Curve Cryptography (ECC) Tutorial\grqq~\\
@@ -707,7 +708,7 @@ das Package \glqq kash3-2008-07-31.spkg\grqq~installiert worden sein (Befehl \ve
 
 Das ECC-Notebook\index{Elliptische Kurven!ECC-Notebook}\index{Massierer, Maike} von
 Massierer\footnote{%
-Anleitung zur Benutzung eines interaktiven Sage-Notebooks:\\
+Anleitung zur Benutzung eines interaktiven Sage-Notebooks\index{Sage!Anleitung interactives Notebook}:\\
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
   Öffentliche Sage-Server wie
@@ -765,7 +766,7 @@ Anleitung zur Benutzung eines interaktiven Sage-Notebooks:\\
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
   Gemäß der Sage-Support-Newsgroup wird daran gearbeitet, ein System zu erstellen,
-  dass \verb#@interact# komplett außerhalb des Sage-Notebooks benutzt werden kann
+  so dass \verb#@interact# komplett außerhalb des Sage-Notebooks benutzt werden kann
   (JS-Code innerhalb von statischen HTML-Seiten).
    % Leerzeile am Ende nötig (Erkennen Absatz-Ende, sonst hat die 2. Zeile KEINEN hängenden Einzug?! (TODO)
 
@@ -911,7 +912,8 @@ der Schlüssellänge (Speicherplatz) eine entscheidende Bedeutung zukommt.
 
    \hypertarget{ec:Web-Link:Java_Laubrock}{} 
    \item Tutorial mit Java Applets -- Krypto-Verfahren basierend auf
-        elliptischen Kurven, Diplomarbeit Thomas Laubrock, 1999,\\
+        elliptischen Kurven,\\
+        Diplomarbeit Thomas Laubrock, 1999,\\
         \url{http://www.warendorf-freckenhorst.de/elliptische-kurven/frame.html}
 
 

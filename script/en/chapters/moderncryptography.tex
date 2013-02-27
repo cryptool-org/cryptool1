@@ -419,12 +419,14 @@ As early as 1978, R. \index{Rivest, Ronald} Rivest, \index{Shamir, Adi}
 A. Shamir, \index{Adleman, Leonard} L. Adleman \cite{mc:RSA1978} introduced 
 the most important asymmetric cryptography procedure to date.  \par
 
+\index{Factorization!factorization problem}
+\index{Euler!(phi) function}
 \begin{cryptoprocedure}
 \textbf{Key generation:} \vskip + 5pt
 
-Let $ p $ and $ q $ be two different prime numbers and $ N = pq$. Let 
-$ e $ be any prime number relative to $ \phi (N) $
-\index{Prime number!relative prime}\index{Relative prime},
+Let $ p $ and $ q $ be two different prime numbers and $ N = pq$.
+Let $ e $ be any number relative prim to $ \phi (N) $
+\index{Prime number!relative prime}\index{Number!relative prime},
 i.e. $ \ggt (e,\phi (N))=1. $\index{gcd}
 Using the Euclidean algorithm, 
 we calculate the natural number  $ d < \phi (N), $ such that
@@ -444,8 +446,6 @@ binary value $ x^{(j)} \leq N $. \vskip + 5 pt
 \[ d_{T} (y) = y^d \mod N. \]
 \caption{RSA (based on the factorization problem)}
 \label{rsaproc}
-\index{Factorization!factorization problem}
-\index{Euler!(phi) function}
 \end{cryptoprocedure}
 
 \begin{remark}{:}\\
