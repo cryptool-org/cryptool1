@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 for Win32, January 2013 (Beta 06) xxx
+    CrypTool, Version 1.4.31 for Win32, February 2013 (Beta 06) xxx
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main, and the
@@ -285,7 +285,7 @@ c) The animation program ANIMAL (see http://www.algoanim.info/Animal2):
    Unfortunately, the further development of Animal stagnates since 2011.
    Further examples of animations can be found within the ANIMAL repository:
    http://www.algoanim.info/Animal2/?q=node/284
-   To run it JRE 1.6 is required (see chapter 3.2).
+   To run it JRE 1.7 is required (see chapter 3.2).
 
 d) As well as ANIMAL the following programs are stand-alone Java applications
    (JAR files). To run them JRE 1.5 is required (see chapter 3.2).
@@ -636,7 +636,8 @@ The general properties and functions of CrypTool 1 are:
 - The educational game "The Number Shark" helps pupils to
   get an easy understanding of divisors and primes.
 
-- Web page with the hash values of all downloadable CrypTool files:
+- Download website http://www.cryptool.org/en/ct1-download-en
+  This web page contains the hash values of all downloadable CrypTool files:
   So you can check the integrity of the files of the CrypTool package
   stored on your computer.
 
@@ -725,9 +726,10 @@ You can get a good overview of what CrypTool offers
 - using the menu tree in appendix A.1 within the attached CrypTool script,
 - auf der Webseite des CrypTool-Portals unter
           "Documentation" -> "CT Function",
+          http://www.cryptool.org/en/ctp-documentation-en/ctp-functions-en
 - auf der Webseite der CT1-Seite unter
-          "Documentation" -> "Features of CrypTool 1.4.3x" and
-          "Screenshots" -> "Screenshots".
+          - "Documentation" -> "Features of CrypTool 1.4.3x" and
+          - "Screenshots" -> "Screenshots".
 
 
 
@@ -1167,6 +1169,10 @@ a) Developer-relevant changes (more technically oriented):
       ???????   2.5.1   xxx
   - Miracl 4.4.3  -->  5.5.4  xxx
   - NTL 5.5.2
+  - ANIMAL 2.3.30 xxxxxxxxxxxxxxxxxxxx
+  - Substitution of the Secude library, as we encountered problems after
+    compiling with VS2010 (not with VS2008).
+    xxxxxxxxxx
 
 - The release of CT 1.4.31 now is compiled with VS2010. It's still possible
   to compile the sources with VS2008.xxxxxxxxxxxxxxxxxxx
@@ -1202,7 +1208,9 @@ c) New functionality / Usability / Corrections of errors:
 - Text windows now have a context menu entry to switch to hex view, and
   vice versa.
 - Many small improvements in the dialog window layouts, like in "Attack on
-  Stereotyped Messages".   
+  Stereotyped Messages". 
+- The layout of the RSA demonstration dialog was improved according to some
+  didactical feedback we received. xxxxxxxxxxxxxxxxx   
 - Transposition Encryption: The key entry dialog now also contains a text
   options dialog.
   This button was also added with the analysis of the maS.
@@ -1295,7 +1303,7 @@ CrypTool requires a Win32 environment, which is also available in 64-bit Win-7.
 CT1 also runs under Windows 8 (Win-8).
 
 Some functions like ANIMAL, ECC demonstration, ... [see chapter 1.2, part (3)]
-require an installed Java Runtime Environment JRE (version >= 1.5).
+require an installed Java Runtime Environment JRE (version >= 1.7).
 
 The computer equipment should have at least a 300 MHz CPU, 256 MByte RAM,
 and 100 MByte free space on the hard drive (low requirements).
@@ -1876,7 +1884,7 @@ pse\pseca\calog        These files are necessary for the administration
 animal\ .......... This directory contains files, necessary for the
                    animation program ANIMAL.
 
-animal\Animal-2.3.21.jar
+animal\Animal-2.3.21.jar     xxxxxxxxxxxxxxxx
       \animal.bat
       \animal.properties
       \AnimalResources

@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 für Win32, Januar 2013 (Beta 06) xxx
+    CrypTool, Version 1.4.31 für Win32, Februar 2013 (Beta 06) xxx
     (c) Contributors
         Dazu gehören z.B.
         Deutsche Bank AG, Frankfurt am Main, und die
@@ -287,7 +287,7 @@ c) Das Animationsprogramm ANIMAL (siehe http://www.algoanim.info/Animal2):
    Leider stockt die Weiterentwicklung von Animal seit 2011.
    Weitere Beispiele für Animationen finden sich im ANIMAL-Repository:
    http://www.algoanim.info/Animal2/?q=node/284
-   Hierzu wird JRE 1.6 benötigt (siehe Kapitel 3.2).
+   Hierzu wird JRE 1.7 benötigt (siehe Kapitel 3.2).
 
 d) Ebenso wie ANIMAL sind die ff. Programme eigenständige Java-Anwendungen
    (JAR-Dateien). Hierzu wird jeweils JRE 1.5 benötigt (siehe Kapitel 3.2).
@@ -436,10 +436,10 @@ Bedanken möchte ich mich auch bei
   Kollegen die erste spanische Version erstellte.
 - Bojan Dimitrovski von der Universität Belgrad, der mit seinen
   Kollegen die erste serbische Version erstellte.
-- Greek xxxxxxxxxxxxx
-- Turkish xxxxxxxxxxxxx
-- French xxxxxxxxxxx
-- Russian xxxxxxxxxx
+- Griechisch xxxxxxxxxxxxx
+- Türkisch xxxxxxxxxxxxx
+- Französisch xxxxxxxxxxx
+- Russisch xxxxxxxxxx
 
 
 
@@ -651,7 +651,8 @@ Die generellen Eigenschaften und Funktionen von CrypTool 1 sind:
 - Das Lern-Spiels "Der Zahlenhai" bringt Schülern den Umgang mit
   Teilern und Primfaktoren näher.
 
-- Webseite mit den Hashwerten aller herunterladbaren CrypTool-Dateien:
+- Download-Seite http://www.cryptool.org/de/ct1-download
+  Diese Webseite enthält die Hashwerte aller herunterladbaren CrypTool-Dateien:
   Damit kann man die Integrität der Dateien aus dem CrypTool-Paket, die
   sich auf dem Computer befinden, überprüfen.
 
@@ -740,10 +741,11 @@ Eine gute Übersicht, was CrypTool bietet, finden Sie auch
 - in der beigelegten PDF-Präsentation (Titel: "Kryptologie mit CrypTool"),
 - mithilfe des Menübaums im Anhang A.1 des beigelegten CrypTool-Skripts,
 - auf der Webseite des CrypTool-Portals unter
-          "Dokumentation" -> "CT-Funktionsumfang" und
+          "Dokumentation" -> "CT-Funktionsumfang",
+          http://www.cryptool.org/de/ctp-dokumentation-de/ctp-functions-de
 - auf der Webseite der CT1-Seite unter
-          "Dokumentation" -> "Funktionen von CrypTool 1.4.3x" und
-          "Screenshots" -> "Screenshots".
+          - "Dokumentation" -> "Funktionen von CrypTool 1.4.3x" und
+          - "Screenshots" -> "Screenshots".
 
 
 
@@ -1205,6 +1207,10 @@ a) Entwickler-relevante Änderungen (eher Programm-technisch):
       ???????   2.5.1   xxx
   - Miracl 4.4.3  -->  5.5.4  xxx
   - NTL 5.5.2
+  - ANIMAL 2.3.30 xxxxxxxxxxxxxxxxxxxx
+  - Ersatz der Secude-Bibliothek, da sie Probleme nach der Compilation mit
+    VS2010 (nicht mit VS2008) hatte.
+    xxxxxxxxxx
 
 - Das Release von CT 1.4.31 wird nun mit VS2010 kompiliert. Man kann die
   Sourcen weiterhin aber auch mit VS2008 übersetzen.xxxxxxxxxxxx
@@ -1239,8 +1245,10 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
   Generic t-adic NAF Schlüsselerzeuger hinzugefügt.
 - Textfenster haben nun einen Kontextmenu-Eintrag, um zur Hexanzeige
   umzuschalten, und umgekehrt.
-- Viele kleine Verbesserungen im Dialogfenstern (z.B. "Angriff auf stereotype
-  Nachrichten"). 
+- Viele kleine Verbesserungen in Dialogfenstern (z.B. "Angriff auf stereotype
+  Nachrichten").
+- RSA-Demo-Dialog erhielt einige optische Änderungen aufgrund des didaktischen
+  Feedbacks, das wir erhielten.xxxxxxxxxxx
 - Transpositions-Verschlüsselung: Der Schlüsseleingabe-Dialog hat nun auch den
   Button "Textoptionen".
   Ebenso hinzugefügt wurde dieser Button in der Analyse der maS.
@@ -1279,7 +1287,7 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
 - Bei SHA256 / SHA512 wurde bisher die falsche Funktion aufgerufen.
   Dies betraf auch den Dialog "Generieren von HMACs".
 - Der Aufruf von bc innerhalb der Zahlentheorie-Tutorials funktioniert
-  nun auch unter Win7.xxxxxxxxxxxx
+  nun auch unter Win7.xxxxxxxxxxxxxxxxxxxxxxxx
 - Playfair mit einer 6*6-Matrix konvertiert nun nicht mehr fälschlicherweise
   "J" zu "I".
 
@@ -1338,7 +1346,7 @@ vorhanden.
 CT1 läuft auch unter Windows 8 (Win-8).
 
 Einige Funktionen wie ANIMAL, ECC-Demo, ... [siehe Kapitel 1.2, Teil (3)]
-erfordern zusätzlich eine Java Runtime-Umgebung JRE (Version >= 1.5).
+erfordern zusätzlich eine Java Runtime-Umgebung JRE (Version >= 1.7).
 
 Die minimale Rechnerausstattung liegt bei 300 MHz CPU, 256 MByte RAM,
 100 MByte Festplattenplatz (das sind relativ geringe Anforderungen).
@@ -1946,7 +1954,7 @@ pse\pseca\calog        Diese Dateien sind für die Verwaltung der
 animal\ .......... Dieses Verzeichnis enthält die Dateien, die für
                    das Animationsprogramm ANIMAL nötig sind.
 
-animal\Animal-2.3.21.jar
+animal\Animal-2.3.21.jar    xxxxxxxxxxxxxxxx
       \animal.bat
       \animal.properties
       \AnimalResources
