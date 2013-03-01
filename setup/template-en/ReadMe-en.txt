@@ -270,7 +270,7 @@ a) The program AES-Tool v 2.6xxxxxxx (developed within the CrypTool project):
    The installation of CrypTool assigns the file extension "AES" with
    this program.
 
-b) The educational game "Number Shark" v 1.2.2xxxxxxxxx (by the CrypTool project):
+b) The educational game "Number Shark" v 1.2.3xxxxxxxxx (by the CrypTool project):
    This game helps pupils to get acquainted with divisors and prime
    factors.
 
@@ -2123,7 +2123,7 @@ Version                 English      German    needed EN     by
 1.4.20    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.21    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.30    Aug. 2010     51.5 MB      52.1 MB    94 MB        DB
-1.4.31    Mar. 2013     51.8 MB      52.4 MB    99 MB        CTxxxxxxxxx
+1.4.31    xxx. 2013     54.2 MB      54.9 MB    97 MB        CTxxxxxxxxx
 
 Remarks about the versions:
 1.3.02  Many new functions compared to 1.3.00.
@@ -2157,7 +2157,7 @@ Remarks about the versions:
         RS:  93,7 MB  xxxxxxxxx
         SP:  94.4 MB
 1.4.31-Beta05  July 2012  First public beta of CT 1.4.31.
-1.4.31-Beta06  Jan. 2013  Second public beta of CT 1.4.31.
+1.4.31-Beta06  Feb. 2013  Second public beta of CT 1.4.31.
 1.4.31  Many bug fixes and a few enhanced functionality compared to 1.4.30.
 
 

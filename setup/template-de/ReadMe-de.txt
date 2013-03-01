@@ -52,7 +52,7 @@ A. ... Anhang
 A.1. .... Roadmap nach CT 1.4.31
 A.2. .... Nachfolger-Projekte mit Java/Eclipse und C#/.NET
 A.3. .... Mögliche Punkte für eine Weiterentwicklung -- Neue Funktionen, Ideen
-A.4. .... CrypTool v unter Linux
+A.4. .... CrypTool 1 unter Linux
 
 
 Benutzte Abkürzungen:
@@ -272,7 +272,7 @@ a) Das Programm AES-Tool v 2.6xxx (entstanden im CrypTool-Projekt):
    Bei der CrypTool-Installation wird diesem Programm die Dateiendung "AES"
    zugeordnet.
 
-b) Das Lernspiel "Der Zahlenhai" v 1.2.1xxx (entstanden im CrypTool-Projekt):
+b) Das Lernspiel "Der Zahlenhai" v 1.2.3xxx (entstanden im CrypTool-Projekt):
    Dieses Lernspiel bringt Schülern den Umgang mit Teilern und Primfaktoren
    näher.
 
@@ -2194,7 +2194,7 @@ Version                  Deutsch    Englisch      Bedarf DE      durch
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.30    Aug. 2010      52,1 MB     51,5 MB         95 MB        DB
-1.4.31    März 2013      52.4 MB     51.8 MB        100 MB        CTxxxxxxxxxx
+1.4.31    xxxx 2013      54,9 MB     54,2 MB         98 MB        CTxxxxxxxxxx
 
 Bemerkungen zu den Versionen:
 1.3.02  Viele neue Funktionen gegenüber 1.3.00.
@@ -2229,7 +2229,7 @@ Bemerkungen zu den Versionen:
         RS:  93.7 MB  xxxxxxxxx
         SP:  94.4 MB
 1.4.31-Beta05  Juli 2012  Erste öffentliche Beta von Version 1.4.31.
-1.4.31-Beta06  Jan. 2013  Zweite öffentliche Beta von Version 1.4.31.
+1.4.31-Beta06  Feb. 2013  Zweite öffentliche Beta von Version 1.4.31.
 1.4.31  Viele Bugfixes und ein nur wenig erweiterter Funktionsumfang
         i.Vgl. zu 1.4.30.
 
