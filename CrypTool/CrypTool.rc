@@ -353,11 +353,11 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Generowanie pary kluczy asymetrycznych"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    EDITTEXT        IDC_EDIT1,306,48,75,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,306,66,75,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT5,306,88,75,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT3,306,110,75,12,ES_PASSWORD | ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT4,306,129,75,12,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT1,306,61,90,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,306,77,90,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,306,93,90,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,306,113,90,12,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,306,129,90,12,ES_PASSWORD | ES_AUTOHSCROLL
     DEFPUSHBUTTON   "Wygeneruj &now¹ parê kluczy...",IDOK,10,310,117,19
     CONTROL         "&RSA",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,28,81,10
     CONTROL         "&DSA",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,20,62,76,10
@@ -375,12 +375,12 @@ BEGIN
     LTEXT           "D³ugoœæ bitowa modulusa RSA:",IDC_KEYASYM_TEXTRSA,33,40,108,8
     LTEXT           "D³ugoœæ bitowa liczby pierwszej DSA:",IDC_KEYASYM_TEXTDSA,33,74,103,8
     LTEXT           "Identyfikator (d³ugoœæ bitowa i parametry krzywej):",IDC_KEYASYM_TEXTEC,33,110,87,17,NOT WS_GROUP
-    LTEXT           "Para kluczy zostanie umieszczona w zaszyfrowanym pliku PSE z nazw¹ pokazan¹ poni¿ej. Para kluczy bêdzie chroniona Twoim kodem PIN.",IDC_STATIC,237,16,162,24
-    LTEXT           "Nazwisko:",IDC_STATIC,240,48,50,8
-    LTEXT           "Imiê:",IDC_STATIC,240,66,50,8
-    LTEXT           "Identyfikator klucza\n (opcja)",IDC_STATIC,240,89,64,20
-    LTEXT           "PIN:",IDC_STATIC,240,110,50,8
-    LTEXT           "Weryfikacja PINu:",IDC_STATIC,240,129,65,8
+    LTEXT           "Para kluczy zostanie umieszczona w zaszyfrowanym pliku PSE z nazw¹ pokazan¹ poni¿ej. Para kluczy bêdzie chroniona Twoim kodem PIN.",IDC_STATIC,237,16,162,33
+    LTEXT           "Nazwisko:",IDC_STATIC,240,63,50,8
+    LTEXT           "Imiê:",IDC_STATIC,240,79,50,8
+    LTEXT           "Identyfikator klucza\n(opcja):",IDC_STATIC,240,91,64,20
+    LTEXT           "PIN:",IDC_STATIC,240,115,50,8
+    LTEXT           "Weryfikacja PINu:",IDC_STATIC,240,131,65,8
     GROUPBOX        "System liczbowy:",IDC_STATIC,10,271,231,32
     GROUPBOX        "Dane u¿ytkownika",IDC_STATIC,224,4,185,145
     LTEXT           "",IDC_STATIC_PARAM_DESCRIPTION,10,157,400,8
@@ -7372,8 +7372,6 @@ BEGIN
 
     IDD_KEYASYM_GENERATION, DIALOG
     BEGIN
-        RIGHTMARGIN, 397
-        VERTGUIDE, 409
         HORZGUIDE, 4
         HORZGUIDE, 149
         HORZGUIDE, 294
@@ -11603,11 +11601,11 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Generisanje Para Asimetricnog Kljuca"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    EDITTEXT        IDC_EDIT1,306,48,75,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,306,66,75,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT5,306,88,75,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT3,306,110,75,12,ES_PASSWORD | ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT4,306,129,75,12,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT1,306,61,90,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,306,77,90,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,306,93,90,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,306,113,90,12,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,306,129,90,12,ES_PASSWORD | ES_AUTOHSCROLL
     DEFPUSHBUTTON   "Generiši &novi par kljuceva...",IDOK,10,310,128,19
     CONTROL         "&RSA",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,28,81,10
     CONTROL         "&DSA",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,20,62,76,10
@@ -11625,12 +11623,12 @@ BEGIN
     LTEXT           "Dužina bita RSA modula:",IDC_KEYASYM_TEXTRSA,33,40,108,8
     LTEXT           "Dužina bita DSA prostog broja:",IDC_KEYASYM_TEXTDSA,33,74,103,8
     LTEXT           "Identifikator (dužina bita i parametar krive):",IDC_KEYASYM_TEXTEC,33,110,87,17,NOT WS_GROUP
-    LTEXT           "Par kljuceva bice postavljen kao šifrovani PSE sa imenom prikazanim ispod. Par kljuceva ce biti zašticen Vašim PIN kodom.",IDC_STATIC,237,16,162,24
-    LTEXT           "Prezime:",IDC_STATIC,240,48,50,8
-    LTEXT           "Ime:",IDC_STATIC,240,66,50,8
-    LTEXT           "Kljucni identifikator:\n(opciono)",IDC_STATIC,240,89,64,20
-    LTEXT           "PIN:",IDC_STATIC,240,110,50,8
-    LTEXT           "Verifikacija PIN-a:",IDC_STATIC,240,129,65,8
+    LTEXT           "Par kljuceva bice postavljen kao šifrovani PSE sa imenom prikazanim ispod. Par kljuceva ce biti zašticen Vašim PIN kodom.",IDC_STATIC,237,16,162,32
+    LTEXT           "Prezime:",IDC_STATIC,240,63,50,8
+    LTEXT           "Ime:",IDC_STATIC,240,79,50,8
+    LTEXT           "Kljucni identifikator\n(opciono):",IDC_STATIC,240,91,64,20
+    LTEXT           "PIN:",IDC_STATIC,240,115,50,8
+    LTEXT           "Verifikacija PIN-a:",IDC_STATIC,240,131,65,8
     GROUPBOX        "Osnova za predstavljanje brojeva",IDC_STATIC,10,271,231,32
     GROUPBOX        "Korisnicki podaci",IDC_STATIC,224,4,185,145
     LTEXT           "",IDC_STATIC_PARAM_DESCRIPTION,10,157,400,8
@@ -18631,8 +18629,6 @@ BEGIN
 
     IDD_KEYASYM_GENERATION, DIALOG
     BEGIN
-        RIGHTMARGIN, 397
-        VERTGUIDE, 409
         HORZGUIDE, 4
         HORZGUIDE, 149
         HORZGUIDE, 294
@@ -22803,10 +22799,10 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Erzeugung eines asymmetrischen Schlüsselpaares"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    EDITTEXT        IDC_EDIT1,306,48,90,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,306,66,90,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT5,306,88,90,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT3,306,110,90,12,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT1,306,61,90,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,306,77,90,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,306,93,90,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,306,113,90,12,ES_PASSWORD | ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT4,306,129,90,12,ES_PASSWORD | ES_AUTOHSCROLL
     CONTROL         "&RSA",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,28,81,10
     CONTROL         "&DSA",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,20,62,76,10
@@ -22824,16 +22820,16 @@ BEGIN
     LTEXT           "Bitlänge des RSA-Moduls:",IDC_KEYASYM_TEXTRSA,33,40,108,8
     LTEXT           "Bitlänge der DSA-Primzahl:",IDC_KEYASYM_TEXTDSA,33,74,103,8
     LTEXT           "Bezeichner (Bitlänge und Kurvenparameter):",IDC_KEYASYM_TEXTEC,33,110,87,17,NOT WS_GROUP
-    LTEXT           "Das erzeugte Schlüsselpaar wird in einer verschlüsselten Datei (PSE) abgelegt. Durch Ihren PIN-Code wird das Schlüsselpaar geschützt:",IDC_STATIC,237,17,152,26
-    LTEXT           "Vorname:",IDC_STATIC,240,66,50,8
-    LTEXT           "Schlüsselkennung:\n(Optional)",IDC_STATIC,240,89,64,20
-    LTEXT           "PIN-Code:",IDC_STATIC,240,110,50,8
-    LTEXT           "PIN-Verifikation:",IDC_STATIC,240,129,50,8
+    LTEXT           "Das erzeugte Schlüsselpaar wird in einer verschlüsselten Datei (PSE) abgelegt. Durch Ihren PIN-Code wird das Schlüsselpaar geschützt:",IDC_STATIC,237,17,152,32
+    LTEXT           "Vorname:",IDC_STATIC,240,79,50,8
+    LTEXT           "Schlüsselkennung\n(optional):",IDC_STATIC,240,91,64,20
+    LTEXT           "PIN-Code:",IDC_STATIC,240,115,50,8
+    LTEXT           "PIN-Verifikation:",IDC_STATIC,240,131,50,8
     GROUPBOX        "Zahlensystem der Parameterdarstellung",IDC_STATIC,10,273,231,32
     GROUPBOX        "Benutzerdaten",IDC_STATIC,225,6,185,143
     LTEXT           "",IDC_STATIC_PARAM_DESCRIPTION,10,159,400,8
     EDITTEXT        IDC_EDIT_LV,363,272,39,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT WS_BORDER
-    LTEXT           "Name:",IDC_STATIC,240,50,46,8
+    LTEXT           "Name:",IDC_STATIC,240,63,46,8
     DEFPUSHBUTTON   "&Neues Schlüsselpaar erzeugen ...",IDOK,10,312,122,19
     PUSHBUTTON      "Schlüsselpaar anzeigen...",IDC_BUTTON1,218,312,96,19
 END
@@ -34007,11 +34003,11 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Generation of Asymmetric Key Pair"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    EDITTEXT        IDC_EDIT1,306,48,75,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,306,66,75,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT5,306,88,75,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT3,306,110,75,12,ES_PASSWORD | ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT4,306,129,75,12,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT1,306,61,90,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,306,77,90,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,306,93,90,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,306,113,90,12,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,306,129,90,12,ES_PASSWORD | ES_AUTOHSCROLL
     DEFPUSHBUTTON   "Generate &new key pair...",IDOK,10,310,106,19
     CONTROL         "&RSA",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,28,81,10
     CONTROL         "&DSA",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,20,62,76,10
@@ -34029,12 +34025,12 @@ BEGIN
     LTEXT           "Bit length of RSA modulus:",IDC_KEYASYM_TEXTRSA,33,40,108,8
     LTEXT           "Bit length of DSA prime number:",IDC_KEYASYM_TEXTDSA,33,74,103,8
     LTEXT           "Identifier (bit length and curve parameter):",IDC_KEYASYM_TEXTEC,33,110,87,17,NOT WS_GROUP
-    LTEXT           "The key pair will be put in an encrypted PSE with the name shown below. The key pair will be protected by your PIN code.",IDC_STATIC,237,16,162,24
-    LTEXT           "Last name:",IDC_STATIC,240,48,50,8
-    LTEXT           "First name:",IDC_STATIC,240,66,50,8
-    LTEXT           "Key identifier:\n(optional)",IDC_STATIC,240,89,64,20
-    LTEXT           "PIN:",IDC_STATIC,240,110,50,8
-    LTEXT           "PIN verification:",IDC_STATIC,240,129,65,8
+    LTEXT           "The key pair will be put in an encrypted PSE with the name shown below. The key pair will be protected by your PIN code.",IDC_STATIC,237,16,162,32
+    LTEXT           "Last name:",IDC_STATIC,240,63,50,8
+    LTEXT           "First name:",IDC_STATIC,240,79,50,8
+    LTEXT           "Key identifier\n(optional):",IDC_STATIC,240,91,64,20
+    LTEXT           "PIN:",IDC_STATIC,240,115,50,8
+    LTEXT           "PIN verification:",IDC_STATIC,240,131,65,8
     GROUPBOX        "Base for presentation of numbers",IDC_STATIC,10,271,231,32
     GROUPBOX        "User data",IDC_STATIC,224,4,185,145
     LTEXT           "",IDC_STATIC_PARAM_DESCRIPTION,10,157,400,8
@@ -41012,8 +41008,6 @@ BEGIN
 
     IDD_KEYASYM_GENERATION, DIALOG
     BEGIN
-        RIGHTMARGIN, 397
-        VERTGUIDE, 409
         HORZGUIDE, 4
         HORZGUIDE, 149
         HORZGUIDE, 294
@@ -46877,11 +46871,11 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Generación de Pares de Claves Asimétricas"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    EDITTEXT        IDC_EDIT1,306,48,75,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,306,66,75,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT5,306,88,75,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT3,306,110,75,12,ES_PASSWORD | ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT4,306,129,75,12,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT1,306,61,90,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,306,77,90,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,306,93,90,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,306,113,90,12,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,306,129,90,12,ES_PASSWORD | ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Generar un nuevo par de claves...",IDOK,10,312,122,19
     CONTROL         "&RSA",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,28,81,10
     CONTROL         "&DSA",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,20,62,76,10
@@ -46899,12 +46893,12 @@ BEGIN
     LTEXT           "Longitud del módulo RSA (en bits):",IDC_KEYASYM_TEXTRSA,33,40,108,8
     LTEXT           "Longitud del primo DSA (en bits):",IDC_KEYASYM_TEXTDSA,33,74,103,8
     LTEXT           "Identificador (longitud en bits y parámetros):",IDC_KEYASYM_TEXTEC,33,110,87,17,NOT WS_GROUP
-    LTEXT           "El par de claves se añadirá a un PSE cifrado con la información siguiente. El par de claves será protegido por tu código PIN.",IDC_STATIC,237,16,162,24
-    LTEXT           "Apellido:",IDC_STATIC,240,48,50,8
-    LTEXT           "Nombre:",IDC_STATIC,240,66,50,8
-    LTEXT           "Identificador de Clave:\n(opcional)",IDC_STATIC,231,87,72,20
-    LTEXT           "PIN:",IDC_STATIC,240,110,50,8
-    LTEXT           "Verificar PIN:",IDC_STATIC,240,129,65,8
+    LTEXT           "El par de claves se añadirá a un PSE cifrado con la información siguiente. El par de claves será protegido por tu código PIN.",IDC_STATIC,237,16,162,32
+    LTEXT           "Apellido:",IDC_STATIC,240,63,50,8
+    LTEXT           "Nombre:",IDC_STATIC,240,79,50,8
+    LTEXT           "Identificador de\nClave (opcional):",IDC_STATIC,240,91,58,20
+    LTEXT           "PIN:",IDC_STATIC,240,115,50,8
+    LTEXT           "Verificar PIN:",IDC_STATIC,240,131,65,8
     GROUPBOX        "Formato de Representación de los números",IDC_STATIC,10,273,231,32
     GROUPBOX        "Datos de Usuario",IDC_STATIC,225,6,185,143
     LTEXT           "",IDC_STATIC_PARAM_DESCRIPTION,10,157,400,8
@@ -52529,8 +52523,6 @@ BEGIN
 
     IDD_KEYASYM_GENERATION, DIALOG
     BEGIN
-        RIGHTMARGIN, 398
-        VERTGUIDE, 409
         HORZGUIDE, 4
         HORZGUIDE, 149
         HORZGUIDE, 294
