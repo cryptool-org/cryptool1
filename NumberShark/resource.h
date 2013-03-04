@@ -2,11 +2,9 @@
 // Microsoft Visual C++ generated include file.
 // Used by MFC-ZahlenHai.rc
 //
-
 #define IDM_ABOUTBOX                    0x0010
 #define IDD_ABOUTBOX                    100
 #define IDS_ABOUTBOX                    101
-
 #define IDD_MFCZAHLENHAI_DIALOG         102
 #define ID_BUTTON_RULES                 103
 #define IDS_RULES                       104
@@ -185,6 +183,7 @@
 #define IDS_TOOLTIP_BUTTON_SAVEGAME     277
 #define IDS_TAB_RADIO2                  278
 #define IDS_SEARCH1                     279
+#define IDS_TOOLTIP_BUTTON_SWITCH_STYLE 280
 #define IDC_LIST2                       1001
 #define IDC_EDIT1                       1007
 #define IDC_BUTTON1                     1008

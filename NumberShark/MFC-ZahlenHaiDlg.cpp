@@ -851,7 +851,7 @@ void CMFCZahlenHaiDlg::updateTab()
 void CMFCZahlenHaiDlg::updateToolTips()
 {
 	CString TipText;
-	//mit CMsg wird das Laden von Strings aus der String Table und die Weiterverwendung vereinfacht
+	// initialize the tool tips
 	TipText.LoadString(IDS_BUTTON_STARTNEW);
 	toolTip.AddTool(GetDlgItem(IDC_BUTTON_STARTNEW), TipText);
 	TipText.LoadString(IDS_BUTTON_END);
@@ -872,11 +872,10 @@ void CMFCZahlenHaiDlg::updateToolTips()
 	toolTip.AddTool(GetDlgItem(IDC_BUTTON_LOAD), TipText);
 	TipText.LoadString(IDS_TOOLTIP_BUTTON_SAVEGAME);
 	toolTip.AddTool(GetDlgItem(IDC_BUTTON_SAVE), TipText);
-	  
+	TipText.LoadString(IDS_TOOLTIP_BUTTON_SWITCH_STYLE);
+	toolTip.AddTool(GetDlgItem(IDC_BUTTON_SWITCH_STYLE), TipText);
+	// activate the tool tips
 	toolTip.Activate(true);
-
-	//Andere Variante
-	//toolTip.AddTool(GetDlgItem(IDC_BUTTON_STARTNEW), CMsg(IDS_BUTTON_STARTNEW));
 }
 //Wenn der Spieler der Knopf "Neues Spiel" drückt werden die Punkteanzeigen, sowie die
 //angezeigten Buttons gelöscht
