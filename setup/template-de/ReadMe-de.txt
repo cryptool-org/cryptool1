@@ -276,7 +276,7 @@ b) Das Lernspiel "Der Zahlenhai" v 1.2.3xxx (entstanden im CrypTool-Projekt):
    Dieses Lernspiel bringt Schülern den Umgang mit Teilern und Primfaktoren
    näher.
 
-c) Das Animationsprogramm ANIMAL (siehe http://www.algoanim.info/Animal2):
+c) Das Animationsprogramm ANIMAL (siehe http://www.algoanim.info/AnimalAV):
    Mit diesem an der TU Darmstadt von Dr. Rößling gepflegten Programm
    kann man die Einzelschritte von Algorithmen oder die Komponenten von
    Datenstrukturen beliebig genau modellieren, die Einzelschritte manuell
@@ -286,7 +286,7 @@ c) Das Animationsprogramm ANIMAL (siehe http://www.algoanim.info/Animal2):
    einer GUI, einer Skriptsprache sowie einer Java-API.
    Leider stockt die Weiterentwicklung von Animal seit 2011.
    Weitere Beispiele für Animationen finden sich im ANIMAL-Repository:
-   http://www.algoanim.info/Animal2/?q=node/284
+   http://www.algoanim.info/AnimalAV/available-animations/available-animations-new.html
    Hierzu wird JRE 1.7 benötigt (siehe Kapitel 3.2).
 
 d) Ebenso wie ANIMAL sind die ff. Programme eigenständige Java-Anwendungen

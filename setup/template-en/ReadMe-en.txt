@@ -274,7 +274,7 @@ b) The educational game "Number Shark" v 1.2.3xxxxxxxxx (by the CrypTool project
    This game helps pupils to get acquainted with divisors and prime
    factors.
 
-c) The animation program ANIMAL (see http://www.algoanim.info/Animal2):
+c) The animation program ANIMAL (see http://www.algoanim.info/AnimalAV):
    This program is maintained by Dr. Roessling at the Technical
    University of Darmstadt. It allows to specify and model the single
    steps of algorithms or the components of data structures with as
@@ -284,7 +284,7 @@ c) The animation program ANIMAL (see http://www.algoanim.info/Animal2):
    a script language or a Java API.
    Unfortunately, the further development of Animal stagnates since 2011.
    Further examples of animations can be found within the ANIMAL repository:
-   http://www.algoanim.info/Animal2/?q=node/284
+   http://www.algoanim.info/AnimalAV/available-animations/available-animations-new.html
    To run it JRE 1.7 is required (see chapter 3.2).
 
 d) As well as ANIMAL the following programs are stand-alone Java applications
