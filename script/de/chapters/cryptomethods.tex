@@ -7,8 +7,7 @@
 \hypertarget{Kapitel_1}{}
 \chapter{Sicherheits-Definitionen und Verschlüsselungsverfahren}
 \label{Label_Kapitel_1}
-(Bernhard Esslinger, Jörg-Cornelius Schneider, Mai 1999; Updates: Dez. 2001, Feb. 2003,
-Juni 2005, Juli 2007, Jan. 2010, Dez. 2012)
+(Bernhard Esslinger, Jörg-Cornelius Schneider, Mai 1999; Updates: Dez. 2001, Feb. 2003, Juni 2005, Juli 2007, Jan. 2010, März 2013)
 
 Dieses Kapitel soll einen eher beschreibenden Einstieg bieten und die
 Grundlagen ohne Verwendung von allzuviel Mathematik vermitteln.
@@ -381,6 +380,44 @@ Unter diesen Angriffs-Voraussetzungen reduziert der Angriff den Aufwand, einen
 AES-256-Schlüssel zu ermitteln, auf eine (asymmetrische) Komplexität von
 $2^{119}$ Zeit und $2^{77}$ Speicher. Bei AES-192 ist der Angriff noch weniger
 praktikabel, für AES-128 geben die Autoren keinen Angriff an.
+
+
+% --------------------------------------------------------------------------
+\subsection{Algebraische oder algorithmische Kryptoanalyse symmetrischer Verfahren}
+\index{Angriff!Algebraisch}
+\label{Algebraic-gegen-Symmetr}
+
+Es gibt unterschiedliche moderne Angriffsverfahren, die die Strukturen eines Problems direkt oder nach einer Transformation des Problems angreifen. Eines dieser Angriffsverfahren beruht auf dem Erfüllbarkeitsproblem der Aussagenlogik (SAT, von englisch satisfiability)%
+\footnote{%
+ \url{http://de.wikipedia.org/wiki/Erf%C3%BCllbarkeitsproblem_der_Aussagenlogik}
+}.
+
+
+%\vskip +25 pt
+\paragraph*{Beschreibung SAT-Solver}\index{SAT-Solver}\mbox{}
+\hypertarget{ht_SAT-Solver}{}
+
+Ein sehr altes und gut studiertes Problem in der Informatik ist das sogenannte SAT-Problem. Hier gilt es, für eine gegebene Boolesche Formel herauszufinden, ob es eine Belegung der Variablen gibt, so dass die Auswertung der Formel den Wert 1 ergibt. 
+
+Beispiel: Die Formel \glqq A UND B\grqq~wird zu 1 ausgewertet, wenn A=B=1 gilt. Für die Formel \glqq A UND NICHT(A)\grqq~gibt es keine Belegung für A, so dass sie zu 1 ausgewertet wird.
+
+Für größere Formeln ist es nicht so einfach herauszufinden, ob eine Formel zu 1 ausgewertet werden kann (dieses Problem gehört zu den NP-vollständigen Problemen). Daher wurden spezielle Tools entwickelt, um dieses Problem für generelle Boolesche Formeln zu lösen, sogenannte SAT-Solver\footnote{
+    Mit {\bf CT2}\index{CT2}\index{CrypTool 2} können Sie im Startcenter
+    über {\bf Vorlagen \textbackslash{} Mathematisch \textbackslash{}
+    SAT-Solver (Texteingabe)}  und  {\bf SAT-Solver (Dateieingabe)} einen SAT-Solver
+    aufrufen.
+    }. Wie sich herausgestellt hat, können SAT-Solver erfolgreich eingesetzt werden, um Krypto-Verfahren
+anzugreifen.
+
+
+%\vskip +25 pt
+\paragraph*{SAT-Solver basierte Kryptoanalyse}\index{SAT-Solver}\mbox{}
+\hypertarget{ht_SAT-Solver_Cryptanalysis}{}
+
+Der generelle Ansatz, um SAT-Solver in der Kryptoanalyse einzusetzen, ist sehr einfach: Zunächst wird das kryptographische Problem, etwa das Finden des symmetrischen Schlüssels oder die Umkehrung einer Hashfunktion, in ein SAT-Problem übersetzt. Das wird so gemacht, dass die Lösung des SAT-Problems das ursprüngliche kryptographische Problem löst. Dann wird ein SAT-Solver verwendet, um eine Lösung für das SAT-Problem zu finden. Das Paper von Massacci \cite{cm: Massacci2000} beschreibt die erste bekannte Verwendung eines SAT-Solvers in diesem Kontext. Leider stellte sich sehr bald heraus, dass ein solch genereller Ansatz in der Praxis nicht effizient eingesetzt werden kann. Die kryptographischen SAT-Probleme sind sehr komplex und die Laufzeit eines SAT-Solvers wächst exponentiell mit der Problemgröße. Daher werden in modernen Ansätzen SAT-Solver nur für das Lösen von Teilproblemen der Kryptoanalyse verwendet. Ein gutes Beispiel zeigt das Paper von Mironov und Zhang \cite{cm: Mironov2006}. Hier wird anhand eines Angriffs auf Hashfunktionen gezeigt, zur Lösung welcher Teilprobleme SAT-Solver effizient eingesetzt werden können.
+
+
+
 
 % --------------------------------------------------------------------------
 \subsection{Aktueller Stand der Brute-Force-Angriffe auf symmetrische Verfahren}
@@ -891,15 +928,26 @@ führt als weitere Chiffren auf:\\
        {\em On the vulnerability of Simplified AES Algorithm Against Linear
        Cryptanalysis}, \\
        In: IJCSNS International Journal of Computer Science and Network Security,
-       Vol.7 No.7, Juli 2007, Seite~257-263. \\
+       Vol. 7 No. 7, Juli 2007, Seite~257-263. \\
        Siehe auch:\\
        \url{http://paper.ijcsns.org/07_book/200707/20070735.pdf}
 
+\bibitem[Massacci2000]{cm: Massacci2000} \index{Massacci 2000}
+       Fabio Massacci, Laura Marraro \\
+       {\em Logical cryptanalysis as a SAT problem: Encoding and analysis},\\
+       In: Journal of Automated Reasoning Security,
+       Vol. 24, 2000, Seite~165-203.
+
 \bibitem[Menezes2001]{cm:Menezes2001} \index{Menezes 2001}
-    Alfred J. Menezes, Paul C. van Oorschot, Scott A. Vanstone \\
-    {\em Handbook of Applied Cryptography}, 
-    CRC Press 1997, 5th printing 2001,
-    \url{http://www.cacr.math.uwaterloo.ca/hac/} (Errata last update 24.07.2011).
+       Alfred J. Menezes, Paul C. van Oorschot, Scott A. Vanstone \\
+       {\em Handbook of Applied Cryptography}, 
+       CRC Press 1997, 5th printing 2001,
+       \url{http://www.cacr.math.uwaterloo.ca/hac/} (Errata last update 24.07.2011).
+
+\bibitem[Mironov2006]{cm: Mironov2006} \index{Mironov 2006}
+       Ilya Mironov, Lintao Zhang \\
+       {\em Applications of SAT Solvers to Cryptanalysis of Hash Functions}, 
+       Springer 2006
 
 \bibitem[Musa-etal2003]{cm:Musa-etal2003} \index{Musa, Schaefer, Wedig 2003} 
        Mohammad A. Musa, Edward F. Schaefer, Stephen Wedig, \\

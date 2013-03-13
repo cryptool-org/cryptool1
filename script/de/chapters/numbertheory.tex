@@ -5432,27 +5432,39 @@ Kapitel~\ref{L_nt_Num-of-d-mod-26} (\glqq \nameref{L_nt_Num-of-d-mod-26}''),
 S.~\pageref{L_nt_Num-of-d-mod-26} behandelt den Spezialfall $n=26$.
 }
 
+\newpage
 \noindent Das Sage-Beispielprogramm~\ref{nt_sagesample_Count_RSA_Keys} unten
 definiert die Funktion \verb#count_Number_of_RSA_Keys#, die diese Frage konkret
 beantworten kann (wenn der Modulus nicht zu groß ist).\footnote{%
 %\begin{compactitem}
-%       \item
+\newlength{\saveleftmargini}
+\setlength{\saveleftmargini}{\leftmargini}
+\setlength{\leftmargini}{0em}% for example to outdent verse
+\settowidth{\versewidth}{xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx}
+\vspace{-\baselineskip} % TODO: Geht das nicht anders?
+\begin{verse}[\versewidth]
  a) Der Aufruf \verb#sage: count_Number_of_RSA_Keys(100, 1000)# bedeutet, dass
 man das Intervall $[100, 1000]$ für $n$ betrachtet.
 $n$ war definiert durch die beiden Primzahlen $p, q: n = p*q$.
-Daher kann eine Primzahl höchstens den Wert $500$ annehmen, weil $2 * 500 =1000$.\\
-Die Anzahl möglicher Primzahl-Kombinationen beträgt: $comb = 258$.\\
-Die Anzahl der Primzahlen im gegebenen Bereich beträgt: $143$.\\
-Die Anzahl der privaten Schlüssel beträgt: $34.816$.
-
-\noindent %       \item
+\verselinebreak Daher kann hier die eine Primzahl höchstens den Wert $500$ annehmen, weil
+$2 * 500 =1000$ (d.h. wenn die andere Primzahl den kleinst-möglichen Primzahlwert $2$
+annimmt).\\
+\vin Die Anzahl möglicher Primzahl-Kombinationen beträgt: $comb = 258$.\\
+\vin Die Anzahl der Primzahlen im gegebenen Bereich beträgt: $143$.\\
+\vin Die Anzahl der privaten Schlüssel beträgt: $34.816$.
+\end{verse}
+%\noindent %       \item
+\begin{verse}[\versewidth]
  b) Der Aufruf \verb#sage: count_Number_of_RSA_Keys(100, 100, True)#
 hat die folgende Ausgabe:\\
-   - Number of private keys for modulus in a given range: 0\\
-   - Number of primes in a given range: 0\\
-   Der Grund dafür ist, dass mit diesem Aufruf nur $n=100$ betrachtet wird und
-   die Funktion nur semiprime $n$ untersucht. Die Zahl $100$ ist nicht
+\vin    - Number of private keys for modulus in a given range: 0\\
+\vin    - Number of primes in a given range: 0\\
+\vin   Der Grund dafür ist, dass mit diesem Aufruf nur $n=100$ betrachtet wird und
+   die Funktion nur semiprime $n$\\ % TODO: Newline und anschließendes \vin sind nur Krücken,damit der ganze Satz vorne bündig! Unklar, wie man länger Sätze linksbündig ausgibt.
+\vin untersucht. Die Zahl $100$ ist nicht
    semiprim\index{Primzahl!semiprime}\index{Primzahl!Halbprimzahl}\index{Halbprimzahl}\index{Zahlen!semiprime}, d.h. $100$ ist nicht das Produkt von genau zwei Primzahlen.
+\end{verse}
+\setlength{\leftmargini}{\saveleftmargini}% restore original value
 %\end{compactitem}
 }
 
