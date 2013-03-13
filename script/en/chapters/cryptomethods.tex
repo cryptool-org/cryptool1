@@ -14,8 +14,7 @@
 \hypertarget{Kapitel_1}{}
 \chapter{Security Definitions and Encryption Procedures}
 \label{Label_Kapitel_1}
-(Bernhard Esslinger, Joerg-Cornelius Schneider, May 1999; Updates Dec. 2001, Feb. 2003,
-June 2005, July 2007, Jan. 2010, Dec. 2012)
+(Bernhard Esslinger, Joerg-Cornelius Schneider, May 1999; Updates Dec. 2001, Feb. 2003, June 2005, July 2007, Jan. 2010, Mar. 2013)
 
 This chapter introduces the topic in a more descriptive way without using too much mathematics.
 
@@ -322,6 +321,43 @@ Based on those assumptions, the effort to find a AES-256 key is reduced to
 $2^{119}$ time and $2^{77}$ memory (considering asymmetric complexity).
 In the case of AES-192 the attack is even less practical, for AES-128
 the authors do not provide an attack.
+
+
+% --------------------------------------------------------------------------
+\subsection{Algebraic or algorithmic cryptanalysis on symmetric algorithms}
+\index{Attack!algebraic}
+\index{SAT solver}
+\label{Algebraic-gegen-Symmetr}
+
+There are different modern methods attacking the structure of a problem directly or after a transformation of the problem. One of the attack methods is based on the satisfiability problem (SAT)%
+\footnote{%
+ \url{http://en.wikipedia.org/wiki/Boolean_satisfiability_problem}
+}.
+
+
+%\vskip +25 pt
+\paragraph*{Description of a SAT solver}\index{SAT solver}\mbox{}
+\hypertarget{ht_SAT-Solver}{}
+
+An old and well-studied problem in computer science is called the SAT problem. Here, for a given Boolean formula, it's the task to find out whether there is an assignment of the variables, so that the evaluation result of the formula is 1. 
+
+Example: The Boolean formula "A AND B" evaluates to 1, if and only if A=B=1. For the formula "A AND NOT(A)" there exists no assignment of its variable A, so that the formula is evaluated to the value 1.
+
+For larger Boolean formulas, it is not easy to determine if an assignment exists for which the formula can be evaluated to 1 (this problem belongs to the NP-complete problems). Therefore specific tools have been developed to solve this problem for general Boolean formulas, so called SAT solvers\footnote{
+    With {\bf CT2}\index{CT2}\index{CrypTool 2} you can execute
+    a SAT solver -- using in the Startcenter
+    {\bf Templates
+    \textbackslash{} Mathematics \textbackslash{}
+    SAT Solver (Text Input)}  and  {\bf SAT Solver (File Input)}.
+    }. As has been found, SAT solvers can also be used to attack cryptographic systems.
+
+
+%\vskip +25 pt
+\paragraph*{SAT solver based cryptanalysis}\index{SAT solver}\mbox{}
+\hypertarget{ht_SAT-Solver_Cryptanalysis}{}
+
+The general approach to use SAT solvers in cryptanalysis is very straightforward: First, the cryptographic problem, e.g. finding the symmetric key or an inversion of a hash function, is translated into a SAT problem. This is done in a way that the solution of the SAT problem solves the original cryptographic problem. Therefore, the SAT solver can be used to find a solution to the SAT problem. The paper by Massacci \cite{cm: Massacci2000} describes the first known usage of a SAT solver in this context. Unfortunately, very soon it turned out that such a general approach cannot be used efficiently in practice. This is due to the fact that the cryptographic SAT problems are very complex and the runtime of a SAT solver increases exponentially with the problem size. Therefore, in modern approaches SAT solvers are used only for solving partial problems of cryptanalysis. A good example for this is described in the paper by Mironov and Zhang \cite{cm: Mironov2006}. They demonstrate the usage of a SAT solver in an attack on hash functions, where the SAT solver is used to solve some partial problems in a very efficient way.
+
 
 
 % --------------------------------------------------------------------------
@@ -786,17 +822,29 @@ lists the following further ciphers:\\
 
 \bibitem[Mansoori-etal2007]{cm:Mansoori-etal2007} \index{Mansoori, Bizaki 2007} 
        S. Davod. Mansoori, H. Khaleghei Bizaki, \\
-       {\em On the vulnerability of Simplified AES Algorithm Against Linear Cryptanalysis}, \\
-       In: IJCSNS International Journal of Computer Science and Network Security, Vol.7 No.7,
-           July 2007, pp~257-263 \\
+       {\em On the vulnerability of Simplified AES Algorithm Against Linear
+       Cryptanalysis}, \\
+       In: IJCSNS International Journal of Computer Science and Network Security,
+       Vol. 7 No. 7, July 2007, pp~257-263 \\
        See also:\\
        \url{http://paper.ijcsns.org/07_book/200707/20070735.pdf}
 
+\bibitem[Massacci2000]{cm: Massacci2000} \index{Massacci 2000}
+       Fabio Massacci, Laura Marraro \\
+       {\em Logical cryptanalysis as a SAT problem: Encoding and analysis},\\ 
+       In: Journal of Automated Reasoning Security,
+       Vol. 24, 2000, pp~165-203.
+
 \bibitem[Menezes2001]{cm:Menezes2001} \index{Menezes 2001}
-    Alfred J. Menezes, Paul C. van Oorschot, Scott A. Vanstone \\
-    {\em Handbook of Applied Cryptography}, 
-    CRC Press 1997, 5th printing 2001,\\
-    \url{http://www.cacr.math.uwaterloo.ca/hac/} (Errata last updated July 24, 2011).
+       Alfred J. Menezes, Paul C. van Oorschot, Scott A. Vanstone \\
+       {\em Handbook of Applied Cryptography}, 
+       CRC Press 1997, 5th printing 2001,\\
+       \url{http://www.cacr.math.uwaterloo.ca/hac/} (Errata last updated July 24, 2011).
+
+\bibitem[Mironov2006]{cm: Mironov2006} \index{Mironov 2006}
+       Ilya Mironov, Lintao Zhang \\
+       {\em Applications of SAT Solvers to Cryptanalysis of Hash Functions}, 
+       Springer 2006
 
 \bibitem[Musa-etal2003]{cm:Musa-etal2003} \index{Musa, Schaefer, Wedig 2003} 
        Mohammad A. Musa, Edward F. Schaefer, Stephen Wedig, \\

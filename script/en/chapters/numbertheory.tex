@@ -5047,32 +5047,41 @@ Between $1$ and a given $n$ there are about $n / ln(n)$ different primes.
 encryption, you may want to find out:
 How many possible private keys $(n, d)$ are there for a given key size range
 $n \in [a, b]$?\footnote{%
-See chapter~\ref{L_nt_Num-of-d-mod-26} (``\nameref{L_nt_Num-of-d-mod-26}''),
-p.~\pageref{L_nt_Num-of-d-mod-26}, which deals with the special case $n=26$.
-}
+Chapter~\ref{L_nt_Num-of-d-mod-26} (``\nameref{L_nt_Num-of-d-mod-26}''),
+p.~\pageref{L_nt_Num-of-d-mod-26} deals with the special case $n=26$.}
 %% (this means, only a part of each public key $(n, e)$ is known).
 
 \noindent Sage source code~\ref{nt_sagesample_Count_RSA_Keys} below defining the
 function \verb#count_Number_of_RSA_Keys# can answer this question concretely
 (if the modulus is not too big).\footnote{%
 %\begin{compactitem}
-%       \item
+\newlength{\saveleftmargini}
+\setlength{\saveleftmargini}{\leftmargini}
+\setlength{\leftmargini}{0em}% for example to outdent verse
+\settowidth{\versewidth}{xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx}
+\vspace{-\baselineskip} % TODO: Geht das nicht anders?
+\begin{verse}[\versewidth]
  a) Calling \verb#sage: count_Number_of_RSA_Keys(100, 1000)# means to consider the interval
-$[100, 1000]$ for $n$. $n$ is defined by the two primes $p, q: n = p*q$.
-So the primes can have the maximal value $500$ because $2 * 500 =1000$.\\
-The number of possible combinations of primes is $comb = 258$.\\
-The number of primes in the given range is $143$.\\
-The number of private keys is $34,816$.
-
-\noindent %       \item
+$[100, 1000]$ for $n$.
+\verselinebreak $n$ is defined by the two primes $p, q: n = p*q$.
+\verselinebreak So here one prime can have the maximal value $500$ because $2 * 500 =1000$
+(while then the other prime will have the smallest possible prime value $2$).\\
+\vin The number of possible combinations of primes is $comb = 258$.\\
+\vin The number of primes in the given range is $143$.\\
+\vin The number of private keys is $34,816$.
+\end{verse}
+%\noindent %       \item
+\begin{verse}[\versewidth]
  b) Calling \verb#sage: count_Number_of_RSA_Keys(100, 100, True)# has the
 following output:\\
-   - Number of private keys for modulus in a given range: 0\\
-   - Number of primes in a given range: 0\\
-   The reason for that is, that with this call only $n=100$ is considered, and
-   die Funktion nur semiprime $n$ untersucht: $100$ is not semi prime\index{Prime number!semi prime}\index{Prime number!half prime}\index{Half prime},
+\vin    - Number of private keys for modulus in a given range: 0\\
+\vin    - Number of primes in a given range: 0\\
+\vin    The reason for that is, that with this call only $n=100$ is considered, and the
+   function investigates only\\
+\vin semiprime $n$: $100$ is not semi prime\index{Prime number!semi prime}\index{Prime number!half prime}\index{Half prime},
    this means $100$ is not the product of only two primes.
-%\end{compactitem}
+\end{verse}
+\setlength{\leftmargini}{\saveleftmargini}% restore original value%\end{compactitem}
 }
 
 
