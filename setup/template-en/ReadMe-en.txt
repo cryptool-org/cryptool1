@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 for Win32, February 2013 (Beta 06) xxx
+    CrypTool, Version 1.4.31 for Win32, February 2013 (Beta 06) xxxx
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main, and the
@@ -282,10 +282,9 @@ c) The animation program ANIMAL (see http://www.algoanim.info/AnimalAV):
    automatically). It also can dynamically animate source code.
    Animations can be created with the Animal system using a GUI,
    a script language or a Java API.
-   Unfortunately, the further development of Animal stagnates since 2011.
-   Further examples of animations can be found within the ANIMAL repository:
-   http://www.algoanim.info/AnimalAV/available-animations/available-animations-new.html
-   To run it JRE 1.7 is required (see chapter 3.2).
+   Further examples of animations can be found within the Animal repository
+   at the website or included within the Animal ControlCenter.
+   To run Animal JRE 1.7 is required (see chapter 3.2).
 
 d) As well as ANIMAL the following programs are stand-alone Java applications
    (JAR files). To run them JRE 1.5 is required (see chapter 3.2).
@@ -1169,7 +1168,7 @@ a) Developer-relevant changes (more technically oriented):
       ???????   2.5.1   xxx
   - Miracl 4.4.3  -->  5.5.4  xxx
   - NTL 5.5.2
-  - ANIMAL 2.3.30 xxxxxxxxxxxxxxxxxxxx
+  - ANIMAL 2.3.30
   - Substitution of the Secude library, as we encountered problems after
     compiling with VS2010 (not with VS2008).
     xxxxxxxxxx
@@ -1884,7 +1883,7 @@ pse\pseca\calog        These files are necessary for the administration
 animal\ .......... This directory contains files, necessary for the
                    animation program ANIMAL.
 
-animal\Animal-2.3.21.jar     xxxxxxxxxxxxxxxx
+animal\Animal-2.3.30.jar
       \animal.bat
       \animal.properties
       \AnimalResources
