@@ -445,6 +445,21 @@ unsigned long CDlgHashDemo::loadData( const char *infile, const char *title, uns
 	f.Read( (void *)m_dataOrig.octets, filesize );
 	f.Close();
 	m_dataOrig.octets[filesize] = '\0';
+
+	// flomar, March 2013: in case the inserted data contains null bytes, the user may be 
+	// confused because everything after the first null byte is implicitly removed as we're 
+	// internally working with CStrings (see below)-- integrating a control which is able 
+	// to display null bytes (i.e. Scintilla) into the dialog is not an easy task, thus we 
+	// go with a warning message here to at least make sure the user knows why the hash 
+	// values for original and current document differ right from the get go
+	for(int i=0; i<filesize; i++) {
+		const char currentByte = m_dataOrig.octets[i];
+		if(currentByte == 0) {
+			LoadString(AfxGetInstanceHandle(), IDS_STRING_HASH_DEMO_SOURCE_DOCUMENT_CONTAINS_NULL_BYTE, pc_str, STR_LAENGE_STRING_TABLE);
+			AfxMessageBox(pc_str, MB_ICONEXCLAMATION);
+		}
+	}
+
 	m_strText = CString((char*)m_dataOrig.octets);
 
 	return (unsigned long)m_strText.GetLength();

@@ -8561,6 +8561,8 @@ BEGIN
                             "Dalsze aktualizacje: Raphael Labaca Castro"
     IDS_RSA_DEMO_RSA_MODULUS_INVALID 
                             "[i18n] Please provide a valid RSA modulus."
+	IDS_STRING_HASH_DEMO_SOURCE_DOCUMENT_CONTAINS_NULL_BYTE
+							"[i18n] The document contains a null byte. Since the hash demonstration doesn't support null bytes, all characters after the first null byte are removed."
 END
 
 STRINGTABLE 
@@ -19810,6 +19812,8 @@ BEGIN
                             "Dalja ažuriranja: Raphael Labaca Castro"
     IDS_RSA_DEMO_RSA_MODULUS_INVALID 
                             "[i18n] Please provide a valid RSA modulus."
+	IDS_STRING_HASH_DEMO_SOURCE_DOCUMENT_CONTAINS_NULL_BYTE
+							"[i18n] The document contains a null byte. Since the hash demonstration doesn't support null bytes, all characters after the first null byte are removed."
 END
 
 STRINGTABLE 
@@ -30923,6 +30927,8 @@ BEGIN
                             "Weitere Updates: Raphael Labaca Castro"
     IDS_RSA_DEMO_RSA_MODULUS_INVALID 
                             "Bitte geben Sie einen gültigen RSA-Modul an."
+	IDS_STRING_HASH_DEMO_SOURCE_DOCUMENT_CONTAINS_NULL_BYTE
+							"Das Dokument enthält ein Null-Byte. Da die Hash-Demo keine Null-Bytes unterstützt, werden alle Zeichen nach dem ersten Null-Byte entfernt."
 END
 
 STRINGTABLE 
@@ -42214,6 +42220,8 @@ BEGIN
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
                             "Further updates: Raphael Labaca Castro"
     IDS_RSA_DEMO_RSA_MODULUS_INVALID "Please provide a valid RSA modulus."
+	IDS_STRING_HASH_DEMO_SOURCE_DOCUMENT_CONTAINS_NULL_BYTE
+							"The document contains a null byte. Since the hash demonstration doesn't support null bytes, all characters after the first null byte are removed."
 END
 
 STRINGTABLE 
@@ -53435,6 +53443,8 @@ BEGIN
                             "\r\nNuevas actualizaciones: Raphael Labaca Castro"
     IDS_RSA_DEMO_RSA_MODULUS_INVALID 
                             "[i18n] Please provide a valid RSA modulus."
+	IDS_STRING_HASH_DEMO_SOURCE_DOCUMENT_CONTAINS_NULL_BYTE
+							"[i18n] The document contains a null byte. Since the hash demonstration doesn't support null bytes, all characters after the first null byte are removed."
 END
 
 STRINGTABLE 
