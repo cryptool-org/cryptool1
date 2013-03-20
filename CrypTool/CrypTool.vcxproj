@@ -2412,7 +2412,6 @@ cmd /c copy /y "%(RootDir)%(Directory)ticket" "$(OutDir)"
     <ClCompile Include="ParseIniFile.cpp" />
     <ClCompile Include="ParseIniFile2.cpp" />
     <ClCompile Include="passwordchecker.cpp" />
-    <ClCompile Include="passwordqualitymeter.cpp" />
     <ClCompile Include="PictureEx.cpp" />
     <ClCompile Include="PictureExLoop.cpp" />
     <ClCompile Include="PlayfairAnalysis.cpp" />
@@ -2719,7 +2718,6 @@ cmd /c copy /y "%(RootDir)%(Directory)ticket" "$(OutDir)"
     <ClInclude Include="ParseIniFile.h" />
     <ClInclude Include="ParseIniFile2.h" />
     <ClInclude Include="passwordchecker.h" />
-    <ClCompile Include="passwordqualitymeter.h" />
     <ClInclude Include="PictureEx.h" />
     <ClInclude Include="PictureExLoop.h" />
     <ClInclude Include="PlayfairAnalysis.h" />

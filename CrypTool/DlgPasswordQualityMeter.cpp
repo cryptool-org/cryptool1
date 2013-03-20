@@ -22,7 +22,6 @@
 #include "CrypToolApp.h"
 #include "DlgPasswordQualityMeter.h"
 
-#include "passwordqualitymeter.h"
 #include "passwordchecker.h"
 #include "DlgPasswordGuidelines.h"
 
