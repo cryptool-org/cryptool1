@@ -153,6 +153,16 @@ das Buch von Bruce Schneier \cite{cm:Schneier1996}.
 
 
 % --------------------------------------------------------------------------
+\newpage
+
+\begin{ctsquote}
+\glqq Transparenz. Das ist das Höchste, was man sich in einer technologisch hoch entwickelten Gesellschaft erhoffen kann ... sonst wird man einfach nur manipuliert.\grqq 
+\caption[Daniel Suarez, Darknet]{Daniel Suarez\footnotemark}\index{Suarez, Daniel}
+\end{ctsquote}
+\addtocounter{footnote}{0}\footnotetext{Daniel Suarez, \glqq Darknet\grqq,
+            rororo, (c) 2011, Kapitel 5, \glqq Einsichten\grqq, S. 69, Price.}
+
+% --------------------------------------------------------------------------
 \section[Symmetrische Verschlüsselung] % Was zw. [..] steht, kommt ins Inhaltsverzeichnis!
 {Symmetrische Verschlüsselung\footnotemark}
   \footnotetext{% XXX dieses Prozent ist nötig, sonst startet die Fußnote mit einem Blank !
@@ -173,28 +183,29 @@ das Buch von Bruce Schneier \cite{cm:Schneier1996}.
     RC6, SAFER+, SAFER++, Serpent, Shacal, Shacal2, Twofish.
     }
 
-% --------------------------------------------------------------------------
-\begin{ctsquote}
-\glqq Transparenz. Das ist das Höchste, was man sich in einer technologisch hoch entwickelten Gesellschaft erhoffen kann ... sonst wird man einfach nur manipuliert.\grqq 
-\caption[Daniel Suarez, Darknet]{Daniel Suarez\footnotemark}\index{Suarez, Daniel}
-\end{ctsquote}
-\addtocounter{footnote}{0}\footnotetext{Daniel Suarez, \glqq Darknet\grqq, rororo,
-                           (c) 2011, Kapitel 5, \glqq Einsichten\grqq, S. 69, Price.}
-
 \nopagebreak
 Bei der {\em symmetrischen} Verschlüsselung 
 \index{Verschlüsselung!symmetrisch} müssen Sender und Empfänger
 über einen gemeinsamen (geheimen) Schlüssel verfügen, den sie vor
 Beginn der eigentlichen Kommunikation ausgetauscht haben. Der Sender
 benutzt diesen Schlüssel, um die Nachricht zu verschlüsseln und der
-Empfänger, um diese zu entschlüsseln.\par \vskip + 3pt
+Empfänger, um diese zu entschlüsseln.\par %\vskip + 3pt
 
-Alle klassischen Verfahren sind von diesem Typ. Beispiele dazu finden Sie in
-den CT-Programmen, im Kapitel~\ref{Kapitel_PaperandPencil}
+Dies veranschaulicht Abbildung \ref{Figure_Symmetric-Enc_Secret-Key-Enc}:
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[scale=0.7]{figures/SymmetricEnc_Figure_Chap1_de.png}
+\caption{Symmetrische oder Secret-Key-Verschlüsselung} 
+\label{Figure_Symmetric-Enc_Secret-Key-Enc}
+\end{center}
+\end{figure}
+
+Alle klassischen Chiffren sind vom Typ symmetrisch. Beispiele dazu finden Sie
+in den CT-Programmen, im Kapitel~\ref{Kapitel_PaperandPencil}
 (\glqq \nameref{Kapitel_PaperandPencil}\grqq ) in diesem Skript oder 
 in \cite{cm:Nichols1996}. 
-In diesem Absatz wollen wir jedoch nur die moderneren symmetrischen Verfahren
-betrachten.
+In diesem Unterkapitel wollen wir jedoch nur die moderneren symmetrischen
+Verfahren betrachten.
 
 Vorteile von symmetrischen Algorithmen sind die hohe
 Geschwindigkeit, mit denen Daten ver- und entschlüsselt werden.
@@ -466,7 +477,7 @@ sogenannte Cipher-Challenges.\footnote{%
  \url{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}\\
  Im Mai 2007 meldete RSA Inc leider, dass sie die Korrektheit der bis dahin
  nicht gelösten RC5-72 Challenge nicht bestätigen werden.}
-Unter kontrollierten Bedingungen wurden Preise ausgelobt, um Ciphertexte
+Unter kontrollierten Bedingungen wurden Preise ausgelobt, um Geheimtexte
 (verschlüsselt mit verschiedenen Verfahren und verschiedenen
 Schlüssellängen) zu entschlüsseln und den symmetrischen Schlüssel
 zu ermitteln. Damit werden theoretische Resultate praktisch bestätigt.
@@ -483,9 +494,10 @@ Der aktuelle Rekord für starke symmetrische Verfahren liegt bei 64 Bit
 langen Schlüsseln. Dazu wurde das Verfahren RC5 benutzt, eine
 Blockchiffre mit variabler Schlüssellänge. 
 
-Die RC5-64 Challenge wurde im September 2002 nach 5 Jahren vom
+Die RC5-64 Challenge wurde im Juli 2002 nach 5 Jahren vom
 distributed.net-Team gelöst.\footnote{%
- \url{http://distributed.net/pressroom/news-20020926.html}
+ \url{http://www.distributed.net/Pressroom_press-rc5-64}\\
+ \url{http://www.distributed.net/images/9/92/20020925_-_PR_-_64_bit_solved.pdf}
 }
 Insgesamt arbeiteten 331.252 Personen gemeinsam über das Internet
 zusammen.\footnote{%
@@ -538,9 +550,19 @@ ein persönliches Schlüsselpaar, % Schlüs\-selpaar, be_24.5.03: so vorher und kam
 das aus einem {\em geheimen} \index{Schlüssel!geheim} und einem 
 {\em öffentlichen} Schlüssel \index{Schlüssel!öffentlich} besteht.
 Der öffentliche Schlüssel wird, der Name deutet es an,
-öffentlich bekanntgemacht, zum Beispiel in einem Schlüsselverzeichnis
+öffentlich bekanntgemacht -- zum Beispiel in einem Schlüsselverzeichnis
 im Internet (diese Art von \glqq Schwarzem Brett\grqq~wird auch Directory oder
-öffentlicher Schlüsselring genannt).\par \vskip + 3pt
+öffentlicher Schlüsselring genannt) oder in einem sogenannten \index{Zertifikat} Zertifikat.
+\par \vskip + 3pt
+
+Die asymmetrische Verschlüsselung veranschaulicht Abbildung \ref{Figure_Asymmetric-Enc_Public-Key-Enc}:
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[scale=0.7]{figures/AsymmetricEnc_Figure_Chap1_de.png}
+\caption{Asymmetrische oder Public-Key-Verschlüsselung} 
+\label{Figure_Asymmetric-Enc_Public-Key-Enc}
+\end{center}
+\end{figure}
 
 Möchte Alice\index{Alice}%
 \footnote{%
@@ -552,8 +574,8 @@ Möchte Alice\index{Alice}%
   Mallory (malicious active attacker = böswilliger, aktiver Abgreifer)
   bezeichnet.
   }
-mit Bob kommunizieren, so sucht sie Bobs öffentlichen Schlüssel aus
-dem Verzeichnis und benutzt ihn, um ihre Nachricht an ihn zu
+mit Bob kommunizieren, so sucht sie Bobs öffentlichen Schlüssel
+und benutzt ihn, um ihre Nachricht an ihn zu
 verschlüsseln. Diesen verschlüsselten Text schickt sie dann an Bob,
 der mit Hilfe seines geheimen Schlüssels den Text wieder entschlüs"-seln
 kann. Da einzig Bob Kenntnis von seinem geheimen Schlüssel hat, ist
@@ -564,6 +586,8 @@ versandten (verschlüsselten) Nachricht den Klartext nicht wieder
 herstellen. Natürlich muss sichergestellt sein, dass man aus dem
 öffentlichen Schlüssel nicht auf den geheimen Schlüssel schließen
 kann.\par \vskip + 3pt
+
+% Abbildung evtl. besser hier, wenn Seitenaufteilung ausginge.
 
 Veranschaulichen kann man sich ein solches Verfahren mit einer
 Reihe von einbruchssicheren Briefkästen. Wenn ich eine Nachricht
@@ -586,10 +610,10 @@ einer vertraulichen Kommunikation notwendig sind, offen
 \footnote{%
 Dass auch dies nicht trivial ist, wird z.B. in xxxx % [[[KES-Article-SharedPrimes__und__anderes-Chapter-hier]]]
 erläutert. Neben den
-Anforderungen bei der Schlüsselgenerierung ist auch zu beachten, dass
+Anforderungen bei der Schlüsselgenerierung ist zu beachten, dass
 inzwischen auch die (Public-Key-)Infrastrukturen Ziele von Angriffen
 sind.
-}%
+}
 auf die Unverfälschtheit (Integrität und Authentizität)
 \index{Authentizität} des öffentlichen Schlüssels zu achten.
 Nachteil: Im Vergleich zu symmetrischen Verfahren sind reine
@@ -619,6 +643,7 @@ Signature Algorithm).
 
 
 % --------------------------------------------------------------------------
+\newpage
 \section[Hybridverfahren]{Hybridverfahren\footnotemark} 
 \footnotetext{%
    In CT1\index{CrypTool 1} finden Sie dieses Verfahren über das Menü
@@ -685,6 +710,7 @@ Datenmengen zu verschlüsseln (mit den geheimen Schlüsseln).
   \url{http://tools.ietf.org/html/rfc4270}\index{IETF}\index{NSA}
   }
 
+% --------------------------------------------------------------------------
 \section[Kryptoanalyse und symmetrische Chiffren für Lehrzwecke]{Kryptoanalyse und symmetrische Chiffren für Lehrzwecke\footnotemark} 
 \footnotetext{%
 Ein guter Start in die Kryptoanalyse ist das Buch von Mark Stamp \cite{cm:Stamp2007}.\\
@@ -783,11 +809,12 @@ Variante des Advanced Encryption Standard (AES) für Ausbildungszwecke.
 Wie man Mini-AES benutzt, ist ausführlich in der Sage Reference-Page beschrieben:\\
 \url{http://www.sagemath.org/doc/reference/sage/crypto/block_cipher/miniaes.html}.
 
-Das folgende Sage Code-Beispiel von den Release-Notes von Sage 4.1%
+Das folgende Sage-Code-Beispiel~\ref{cryptomethods:Mini-AES:Sage_example}
+ist aus den Release-Notes von Sage 4.1%
 \footnote{
 Siehe \url{http://mvngu.wordpress.com/2009/07/12/sage-4-1-released/}
 }
-ruft diese Implementierung des Mini-AES auf.
+und ruft diese Implementierung des Mini-AES auf.
 
 Weiterer Beispiel-Code zum Mini-AES findet sich in
 \cite[Kap. 6.5 und Anhang D]{cm:Nguyen2009}.
@@ -845,6 +872,7 @@ sage: plaintxt == P
 True
 \end{Verbatim}
 \caption{Ver- und Entschlüsselung mit dem Mini-AES}
+\label{cryptomethods:Mini-AES:Sage_example}
 \end{sagecode}
 
 
@@ -1008,10 +1036,10 @@ führt als weitere Chiffren auf:\\
        {\em A Simplified Data Encryption Standard Algorithm}, \\
        In: Cryptologia 20 (1), 1996, Seite~77-84
 
-\bibitem[Schmeh2012]{cm:Schmeh2012}  \index{Schmeh 2012}
+\bibitem[Schmeh2013]{cm:Schmeh2013}  \index{Schmeh 2013}
        Klaus Schmeh, \\
        {\em Kryptografie -- Verfahren, Protokolle, Infrastrukturen},\\ 
-       dpunkt.verlag, 5. aktualisierte und erweiterte Auflage 2012. \\
+       dpunkt.verlag, 5. aktualisierte und erweiterte Auflage 2013. \\
        Sehr gut lesbares, aktuelles und umfangreiches Buch über Kryptographie. 
        Geht auch auf praktische Probleme, wie Standardisierung oder 
        real existierende Software, ein.

@@ -147,6 +147,16 @@ the different encryption algorithms.
 
 
 % --------------------------------------------------------------------------
+\newpage
+
+\begin{ctsquote}
+``Transparency. That's the best one can hope for in a technologically advanced society ... otherwise you will just be manipulated.''
+\caption[Daniel Suarez, Freedom]{Daniel Suarez\footnotemark}\index{Suarez, Daniel}
+\end{ctsquote}
+\addtocounter{footnote}{0}\footnotetext{Daniel Suarez, ``Freedom'',
+   Dutton Adult, 2010, Chapter 5, ``Getting with the Program'', p. 63, Price.}
+
+% --------------------------------------------------------------------------
 \section[Symmetric encryption]
 {Symmetric encryption\footnotemark}
   \footnotetext{%
@@ -167,26 +177,28 @@ the different encryption algorithms.
     AES, Rijndael, Camellia, DES, Dragon, IDEA, LFSR, MARS, Misty1, RC2, RC5,
     RC6, SAFER+, SAFER++, Serpent, Shacal, Shacal2, Twofish.
   }
-% --------------------------------------------------------------------------
-\begin{ctsquote}
-``Transparency. That's the best one can hope for in a technologically advanced society ... otherwise you will just be manipulated.''
-\caption[Daniel Suarez, Freedom]{Daniel Suarez\footnotemark}\index{Suarez, Daniel}
-\end{ctsquote}
-\addtocounter{footnote}{0}\footnotetext{Daniel Suarez, ``Freedom'', Dutton Adult, 2010,
-                          Chapter 5, ``Getting with the Program'', p. 63, Price.}
 
 \nopagebreak
 For {\em symmetric} encryption \index{Encryption!symmetric} sender and
 recipient must be in possession of a common (secret) key which they have
 exchanged before actually starting to communicate. The sender uses this
 key to encrypt the message and the recipient uses it to decrypt it.
-\par \vskip + 3pt
+\par %\vskip + 3pt
 
-All classical methods are of this type. Examples can be found within the 
-CT programs, in chapter~\ref{Kapitel_PaperandPencil}
+This is visualized in Figure \ref{Figure_Symmetric-Enc_Secret-Key-Enc}:
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[scale=0.7]{figures/SymmetricEnc_Figure_Chap1_en.png}
+\caption{Symmetric or Secret-Key Encryption} 
+\label{Figure_Symmetric-Enc_Secret-Key-Enc}
+\end{center}
+\end{figure}
+
+All classical ciphers are of the type symmetric. Examples can be found within
+the CT programs, in chapter~\ref{Kapitel_PaperandPencil}
 (``\nameref{Kapitel_PaperandPencil}'')
 of this script, or in \cite{cm:Nichols1996}.
-In this chapter howver, we want to consider only modern symmetric mechanisms.
+In this section however, we want to consider only modern symmetric mechanisms.
 
 The advantages of symmetric algorithms are the high speed with which data can be
 encrypted and decrypted. One disadvantage is the need for key management. In
@@ -410,9 +422,12 @@ day.\footnote{%
 The current record for strong symmetric algorithms unveiled a key 64 bit long.
 The algorithm used was RC5, a block cipher with variable key size. 
 
-The RC5-64 challenge has been solved by the distributed.net team after 5
-years.\footnote{%
- \url{http://distributed.net/pressroom/news-20020926.html}
+The RC5-64 challenge has been solved in July 2002 by the distributed.net team
+after 5 years.\footnote{%
+ \url{http://www.distributed.net/Pressroom_press-rc5-64}\\
+ \url{http://www.distributed.net/images/9/92/20020925_-_PR_-_64_bit_solved.pdf}
+% The pdf is the former page
+%  \url{http://distributed.net/pressroom/news-20020926.html}
 }
 In total 331,252 individuals co-operated over the internet to find the
 key.\footnote{%
@@ -456,9 +471,19 @@ There are also cipher challenges\footnote{%
 In the case of {\em asymmetric} encryption \index{Encryption!asymmetric} each
 subscriber has a personal pair of keys consisting of a {\em secret}
 \index{Key!secret} key and a {\em public} key\index{Key!public}. The public
-key, as its name implies, is made public, e.g. in a key directory on the
+key, as its name implies, is made public -- e.g. in a key directory on the
 Internet (this kind of ``bill-board'' is also called just directory or
-public key ring).\par \vskip + 3pt
+public key ring) or within a so-called public-key \index{certificate}
+certificate.\par \vskip + 3pt
+
+The asymmetric encryption is visualized in Figure \ref{Figure_Asymmetric-Enc_Public-Key-Enc}:
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[scale=0.7]{figures/AsymmetricEnc_Figure_Chap1_en.png}
+\caption{Asymmetric or Public-Key Encryption} 
+\label{Figure_Asymmetric-Enc_Public-Key-Enc}
+\end{center}
+\end{figure}
 
 If Alice\index{Alice}%
 \footnote{%
@@ -468,14 +493,16 @@ If Alice\index{Alice}%
       2-person-protocols. Alice will initiate all protocols and 
       Bob answers. The attackers are named Eve (eavesdropper) and
       Mallory (malicious active attacker).
-  } wants to communicate with Bob, then she finds Bob's public key 
-in the directory and uses it to encrypt her message to him. She then sends
+  } wants to communicate with Bob, then she looks for Bob's public key 
+and uses it to encrypt her message to him. She then sends
 this ciphertext to Bob, who is then able to decrypt it again using his 
 secret key. As only Bob knows his secret key, only he can decrypt 
 messages addressed to him.
 Even Alice who sends the message cannot restore plaintext from the (encrypted)
 message she has sent. Of course, you must first ensure that the public key
 cannot be used to derive the private key.\par \vskip + 3pt
+
+% Abbildung evtl. besser hier, wenn Seitenaufteilung ausginge.
 
 Such a procedure can be demonstrated using a series of thief-proof letter boxes.
 If I have composed a message, I then look for the letter box\index{Letter box}
@@ -491,13 +518,12 @@ must possess a pair of keys. We therefore need $2n$ keys or $n$
 pairs of keys. Furthermore, no secure channel is needed before
 messages are transmitted, because all the information required in
 order to communicate confidentially can be sent openly. In
-this case, you simply%
-\footnote{%
+this case, you simply\footnote{%
 That this is also not trivial is explained e.g. in xxxx % [[[KES-Article-SharedPrimes__und__anderes-Chapter-hier]]]
 . Besides the requirements
-for the key generation it has to be considered hat nowadays also (public-key)
+for the key generation it has to be considered that nowadays also (public-key)
 infrastructures are targets of attacks.
-}%
+}
 have to pay attention to the accuracy
 (integrity and authenticity) \index{Authenticity} of the public
 key. Disadvantage: Pure asymmetric procedures take a lot longer to
@@ -520,10 +546,10 @@ RSA Demonstration}).
 The RSA algorithm
 was published in 1978. The concept of asymmetric encryption was first
 introduced by Whitfield Diffie \index{Diffie, Whitfield}  and Martin
-\index{Hellman, Martin} Hellman in 1976. Today, the ElGamal \index{ElGamal, Tahir}
-procedures also play a decisive role, particularly the \index{Schnorr, C.P.} Schnorr
-variant in the \index{DSA} DSA (Digital \index{Signature!digital}Signature
-Algorithm).
+\index{Hellman, Martin} Hellman in 1976. Today, the ElGamal \index{ElGamal,
+Tahir} procedures also play a decisive role, particularly the \index{Schnorr,
+C.P.} Schnorr variant in the \index{DSA} DSA \index{Signature!digital}
+(Digital Signature Algorithm).
 
 
 
@@ -590,6 +616,7 @@ efficiency of symmetric procedures to encrypt large quantities of data
   \url{http://tools.ietf.org/html/rfc4270}\index{IETF}\index{NSA}
   }
 
+% --------------------------------------------------------------------------
 \section[Cryptanalysis and symmetric ciphers for educational purposes]{Cryptanalysis and symmetric ciphers for educational purposes\footnotemark}
 \footnotetext{%
 A good starting point to learn cryptanalysis is the book from Mark Stamp \cite{cm:Stamp2007}.\\
@@ -689,11 +716,12 @@ Advanced Encryption Standard (AES) to be used for cryptography education.
 How to use Mini-AES is exhaustively described at the Sage reference page:\\
 \url{http://www.sagemath.org/doc/reference/sage/crypto/block_cipher/miniaes.html}.
 
-The following Sage code from the release tour of Sage 4.1%
+The following Sage code~\ref{cryptomethods:Mini-AES:Sage_example}
+is taken from the release tour of Sage 4.1%
 \footnote{
 See \url{http://mvngu.wordpress.com/2009/07/12/sage-4-1-released/}
 }
-calls the implementation of the Mini-AES.
+and calls the implementation of the Mini-AES.
 
 Further example code for Mini-AES can be found in \cite[chap. 6.5 and appendix D]{cm:Nguyen2009}.
 
@@ -750,6 +778,7 @@ sage: plaintxt == P
 True
 \end{Verbatim}
 \caption{Encryption and decryption with Mini-AES}
+\label{cryptomethods:Mini-AES:Sage_example}
 \end{sagecode}
 
 
@@ -824,8 +853,8 @@ lists the following further ciphers:\\
        S. Davod. Mansoori, H. Khaleghei Bizaki, \\
        {\em On the vulnerability of Simplified AES Algorithm Against Linear
        Cryptanalysis}, \\
-       In: IJCSNS International Journal of Computer Science and Network Security,
-       Vol. 7 No. 7, July 2007, pp~257-263 \\
+       In: IJCSNS International Journal of Computer Science and Network
+       Security, Vol. 7 No. 7, July 2007, pp~257-263 \\
        See also:\\
        \url{http://paper.ijcsns.org/07_book/200707/20070735.pdf}
 
@@ -911,7 +940,7 @@ lists the following further ciphers:\\
        John Wiley \& Sons Ltd., Chichester 2003. \\
        An easy to read book, which also considers practical
        problems such as standardization or real existing software.
-       In German, the 5th edition was published in 2012.
+       In German, the 5th edition was published in 2013.
 
 \bibitem[Schneier1996]{cm:Schneier1996cm} \index{Schneier 1996} 
        Bruce Schneier, \\
