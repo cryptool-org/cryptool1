@@ -1365,6 +1365,297 @@ END
 /////////////////////////////////////////////////////////////////////////////
 
 
+/////////////////////////////////////////////////////////////////////////////
+// Greek resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ELL)
+#ifdef _WIN32
+LANGUAGE LANG_GREEK, SUBLANG_DEFAULT
+#pragma code_page(1253)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\aestool.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_SPLASH DIALOGEX 0, 0, 211, 122
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Προειδοποίηση"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,47,101,50,14
+    PUSHBUTTON      "’κυρο",IDCANCEL,113,101,50,14
+    LTEXT           "Μόλις ξεκινήσατε την εκτέλεση κώδικα που πιθανότατα προέρχεται από κάποιον τρίτο.\nΑυτό ΔΕΝ συνιστάται καθώς θα μπορούσε να εισάγει επιβλαβή κώδικα στον υπολογιστή σας.",IDC_STATIC,7,7,197,35
+    LTEXT           "Γενικά προτείνεται η λήψη μέτρων προστασίας κατά την εκτέλεση κώδικα από τρίτους. Διαφορετικά δεν μπορούν να αποκλειστούν βλάβες από ιούς, δούρειους ίππους κ.λπ..",IDC_STATIC,7,45,197,40
+END
+
+IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 382, 205
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "AES-Tool 2.6"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_KEY_HEX,26,67,340,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SRC,26,105,273,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
+    PUSHBUTTON      "Αναζήτηση...",IDC_BUTTON_SRC,306,102,60,18
+    CONTROL         "Αυτοεξαγόμενο και κρυπτογραφημένο",IDC_RADIO_EXE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,155,142,10
+    CONTROL         "Κρυπτογραφημένο",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,173,155,80,10
+    PUSHBUTTON      "Έξοδος",IDCANCEL,254,180,60,18
+    PUSHBUTTON      "Βοήθεια",IDC_BUTTON3,315,180,60,18
+    LTEXT           "Κρυπτογράφηση ή αποκρυπτογράφηση ενός αρχείου",IDC_STATIC_TITLE,17,9,340,8
+    GROUPBOX        "Κλειδί [το πολύ 64 δεκαεξαδικά ψηφία (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",IDC_KEY_HEADER,15,28,360,58
+    GROUPBOX        "Αρχείο εισόδου",IDC_STATIC,15,92,360,45
+    GROUPBOX        "Μορφή εξόδου",IDC_STATIC,15,143,360,30
+    CONTROL         "Εμφάνιση συνθηματικού",IDC_CHECK_SHOW_PASSWORD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,42,97,10
+    CONTROL         "Εισαγωγή δεκαεξαδικού κλειδιού",IDC_CHECK_ENTER_PASSWORD_AS_HEX,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,53,125,10
+    EDITTEXT        IDC_EDIT_KEY_ASCII,26,67,340,12,ES_AUTOHSCROLL
+    CONTROL         "Ασφαλής διαγραφή αρχείου εισόδου μετά την κρυπτογράφηση",IDC_CHECK_SECURELY_DELETE_SOURCE_FILE_AFTER_ENCRYPTION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,121,273,10
+    PUSHBUTTON      "Κρυπρογράφηση",IDC_BUTTON_ENCRYPT,15,180,62,18
+    PUSHBUTTON      "Αποκρυπτογράφηση",IDC_BUTTON_DECRYPT,79,180,84,18
+END
+
+IDD_HELP DIALOGEX 0, 0, 500, 350
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Βοήθεια για το AES-Tool 2.5.1"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,209,329,50,14
+    LTEXT           "Το AES-Tool είναι ένα πρόγραμμα κρυπτογράφησης το οποίο μπορεί να χρησιμοποιηθεί για την κρυπτογράφηση αρχείων με χρήση του ελεύθερης άδειας συμμετρικού αλγορίθμου Rijndael (=AES).",IDC_STATIC,12,9,476,18
+    LTEXT           "Το πρόγραμμα μπορεί να εκκινήσει με τρεις διαφορετικούς τρόπους:",IDC_STATIC,12,26,476,11
+    LTEXT           "Αυτές οι παράμετροι είναι:",IDC_STATIC,24,47,464,10
+    LTEXT           "Συνθηματικό:",IDC_STATIC,24,57,45,8
+    LTEXT           "Αρχείο εισόδου:",IDC_STATIC,24,75,38,8
+    LTEXT           "Αρχείο εξόδου:",IDC_STATIC,24,118,38,19
+    LTEXT           "Το συνθηματικό εισάγεται σε δεκαεξαδική μορφή (χαρακτήρες '0' ως '9' και 'A' ως 'F'). Το μέγιστο μήκος συνθηματικού είναι 256 bits ή 64 δεκαεξαδικά ψηφία. Το προτεινόμενο ελάχιστο μήκος είναι 20 ψηφία.",IDC_STATIC,72,57,416,18
+    LTEXT           "Το αρχείο εισόδου περιέχει τα δεδομένα προς κρυπτογράφηση ή αποκρυπτογράφηση. Αν το επιλεγμένο αρχείο έχει ήδη κρυπτογραφηθεί από το πρόγραμμα, το πρόγραμμα τίθεται αυτόματα σε κατάσταση αποκρυπτογράφησης. Διαφορετικά παραμένει σε κατάσταση κρυπτογράφησης.",IDC_STATIC,71,75,417,27
+    LTEXT           "Το όνομα και η θέση του αρχείου εξόδου μπορεί να καθοριστεί αφού πατηθεί το κουμπί ""Κρυπ/ση""-""Αποκ/ση"".\nΚατά την κρυπτογράφηση μπορείτε να επιλέξετε ανάμεσα σε δύο μορφές εξόδου χρησιμοποιώντας ""κουμπιά επιλογής"":",IDC_STATIC,71,118,417,18
+    LTEXT           "Ένα 'αυτοεξαγόμενο αρχείο' περιέχει δεδομένα και ταυτόχρονα είναι και πρόγραμμα. Αυτό το πρόγραμμα κάνει ό,τι και το AES-Tool, δηλ. μπορεί να χρησιμοποιηθεί για την αποκρυπτογράφηση και την αποθήκευση των δεδομένων (εφόσον δοθεί το σωστό συνθηματικό).",IDC_STATIC,71,135,419,28
+    LTEXT           "Ένα 'κρυπτογραφημένο αρχείο' περιέχει δεδομένα, για την αποκρυπτογράφηση των οποίων απαιτείται το AES-Tool.",IDC_STATIC,71,159,416,12
+    LTEXT           "Ο δεύτερος τρόπος εκκίνησης του προγράμματος είναι μέσω παραμέτρων από τη γραμμή εντολής. Αυτές οι παράμετροι χαρακτηρίζονται είτε από τη θέση τους (τη σειρά τους) στην εντολή είτε από διακόπτες επιλογής (χαρακτήρες κλειδιά)",IDC_STATIC,24,170,464,16
+    LTEXT           "AESTool <Αρχείο εισόδου> <Αρχείο εξόδου> <συνθηματικό>",IDC_STATIC,62,203,426,10
+    LTEXT           "AESTool -i <Αρχείο εισόδου> -o <Αρχείο εξόδου> -k <συνθηματικό>",IDC_STATIC,62,213,426,10
+    LTEXT           "Η τρίτη δυνατότητα εκκίνησης του προγράμματος είναι μέσω ενός αυτοεξαγόμενου αρχείου. Το όνομα του αρχείου εξόδου είναι προκαθορισμένο στο αυτοεξαγόμενο αρχείο.",IDC_STATIC,24,265,464,15
+    LTEXT           "Με κλικ στο εικονίδιο, όλες οι απαραίτητες παράμετροι μπορούν να εισαχθούν στο πλαίσιο διαλόγου.",IDC_STATIC,24,38,464,9
+    LTEXT           "1.",IDC_STATIC,12,38,12,9
+    LTEXT           "2.",IDC_STATIC,12,170,12,11
+    LTEXT           "3.",IDC_STATIC,12,265,12,11
+    RTEXT           "-",IDC_STATIC,56,135,8,19
+    RTEXT           "-",IDC_STATIC,56,158,8,11
+    LTEXT           "Το πρόγραμμα αποφασίζει αν το αρχείο εισόδου είναι κρυπτογραφημένο και στη συνέχεια το αποκρυπτογραφεί. Διαφορετικά το κρυπτογραφεί ανάλογα.",IDC_STATIC,24,223,464,16
+    LTEXT           "οι παράμετροι εισάγονται χωρίς τη μεσολάβηση χρήστη, διαφορετικά αναδύεται παράθυρο όπου ο χρήστης μπορεί να εισάγει τα δεδομένα που ίσως λείπουν.",IDC_STATIC,24,186,464,17
+    LTEXT           "Ο κωδικός εξόδου αντικατοπτρίζει την επιτυχία του προγράμματος: 0: όλα καλά, 1: συνέβει λάθος, στέλνεται μήνυμα στην έξοδο stderr.",IDC_STATIC,24,251,464,12
+    LTEXT           "Η επέκταση του αρχείου εξόδου καθορίζει τη μορφή κρυπ/σης: .EXE: αυτοεξαγόμενο αρχείο, άλλη: αρχείο συνηθισμένης κρυπ/σης.",IDC_STATIC,24,242,464,9
+    LTEXT           "Παρακαλώ ελέγξτε την προέλευση πριν ανοίξετε ένα αυτοεξαγόμενο αρχείο.\nΣυνιστάται να διατηρείτε ενημερωμένα το Λ.Σ. καθώς και το πρόγραμμα προστασίας από ιούς.",IDC_STATIC,12,307,476,18
+    LTEXT           "Μπορείτε ακόμη να επιλέξετε το αρχείο με το ποντίκι, σέρνοντάς το από την εξερεύνηση αρχείων των windows μέσα στο πεδίο ""Αρχείο εισόδου"".",IDC_STATIC,72,100,416,16
+    LTEXT           "Τα αυτοεξαγόμενα αρχεία (.EXE) μπορούν να είναι έως 4 GB, αυτό σημαίνει πως το προς κρυπτογράφηση αρχείο θα πρέπει να είναι λίγο μικρότερο.\nΑν ωστόσο δημιουργείτε ένα τυπικό κρυπτογραφημένο αρχείο AES, αυτό μπορεί να είναι και μεγαλύτερο από 4 GB.",IDC_STATIC,12,288,476,16
+END
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Πληροφορίες για το AES-Tool"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "AES-Tool 2.6",IDC_AES_TOOL_VERSION,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2013",IDC_STATIC1,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,6,0,0
+ PRODUCTVERSION 2,6,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080904b0"
+        BEGIN
+            VALUE "FileDescription", "AES-Tool"
+            VALUE "FileVersion", "2.6"
+            VALUE "InternalName", "aestool"
+            VALUE "LegalCopyright", "Contributors © 2002-2013"
+            VALUE "OriginalFilename", "aestool.exe"
+            VALUE "ProductName", "AES-Tool"
+            VALUE "ProductVersion", "2.6"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x809, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_SPLASH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 204
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 115
+    END
+
+    IDD_AESTOOL_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 375
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 198
+    END
+
+    IDD_HELP, DIALOG
+    BEGIN
+        LEFTMARGIN, 12
+        RIGHTMARGIN, 488
+        VERTGUIDE, 24
+        VERTGUIDE, 62
+        VERTGUIDE, 69
+        VERTGUIDE, 268
+        TOPMARGIN, 12
+        BOTTOMMARGIN, 343
+        HORZGUIDE, 22
+        HORZGUIDE, 33
+        HORZGUIDE, 42
+        HORZGUIDE, 52
+        HORZGUIDE, 70
+    END
+
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+AFX_IDC_CONTEXTHELP     CURSOR                  "res\\help.cur"
+AFX_IDC_SMALLARROWS     CURSOR                  "res\\sarrows.cur"
+AFX_IDC_HSPLITBAR       CURSOR                  "res\\splith.cur"
+AFX_IDC_VSPLITBAR       CURSOR                  "res\\splitv.cur"
+AFX_IDC_NODROPCRSR      CURSOR                  "res\\nodrop.cur"
+AFX_IDC_TRACKNWSE       CURSOR                  "res\\trcknwse.cur"
+AFX_IDC_TRACKNESW       CURSOR                  "res\\trcknesw.cur"
+AFX_IDC_TRACKNS         CURSOR                  "res\\trckns.cur"
+AFX_IDC_TRACKWE         CURSOR                  "res\\trckwe.cur"
+AFX_IDC_TRACK4WAY       CURSOR                  "res\\trck4way.cur"
+AFX_IDC_MOVE4WAY        CURSOR                  "res\\move4way.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+26567                   BITMAP                  "res\\3dcheck.bmp"
+AFX_IDB_MINIFRAME_MENU  BITMAP                  "res\\minifwnd.bmp"
+AFX_IDB_CHECKLISTBOX_NT BITMAP                  "res\\ntcheck.bmp"
+AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\95check.bmp"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+2 TEXTINCLUDE
+BEGIN
+    "#include ""resource.h""\r\n"
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+1 TEXTINCLUDE
+BEGIN
+    "resource.h\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "Πληροφορίες για το εργαλείο AES..."
+    IDS_STRING_DECRYPT      "Αποκρυπτογράφηση αρχείου"
+    IDS_STRING_ENCRYPT      "Κρυπτογράφηση αρχείου"
+    IDS_STRING_DECERROR     "Σφάλμα αποκρυπτογράφησης: %s"
+    IDS_STRING_ENCOK        "Το κρυπτογραφημένο αρχείο %s δημιουργήθηκε επιτυχώς."
+    IDS_STRING_DECOK        "Το αποκρυπτογραφημένο αρχείο %s δημιουργήθηκε επιτυχώς."
+    IDS_STRING_VERSCHLUESSELN "Κρυπτογράφηση"
+    IDS_STRING_ENTSCHLUESSELN "Αποκρυπτογράφηση"
+    IDS_STRING_FILEERROR    "Σφάλμα στο άνοιγμα του αχρείου %s: %s\n"
+    IDS_STRING_NOMEMORY     "Έλλειψη εικονικής μνήμης."
+    IDS_STRING_KEYERROR     "Λάθος συνθηματικό ή το αρχείο %s δεν είναι αναγνώσιμο."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING_ENCERROR     "Σφάλμα κρυπτογράφησης αρχείου: %s."
+    IDS_STRING_VERSION      "Το αρχείο κρυπτογραφηθήθηκε με παλαιότερη έκδοση του εργαλείου AES-Tool. \nΠαρακαλώ χρησιμοποιήστε την ίδια έκδοση για την αποκρυπτογράφηση του."
+    IDS_STRING_AES_TOOL_VERSION "AES-Tool 2.6"
+    IDS_STRING_CORRUPT      "Το κρυπτογραφημένο αρχείο δεν είναι αναγνώσιμο."
+    IDS_STRING_INVALID_KEY  "Μη επιτρεπτός χαρακτήρας στο συνθηματικό. Παρακαλώ χρησιμοποιήστε μόνο 0-9, a-f, A-F."
+    IDS_STRING_KEY_TOO_LONG "Πολύ μεγάλο συνθηματικό. Το μέγιστο μήκος κλειδιού στον AES είναι 256 bits (= 32 bytes = 64 δεκαεξαδικά ψηφία)."
+    IDS_STRING_KEY_HEADER_HEX
+                            "Συνθηματικό [το πολύ 64 δεκαεξαδικά ψηφία (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]"
+    IDS_STRING_KEY_HEADER_ASCII "Συνθηματικό [το πολύ 32 χαρακτήρες]"
+    IDS_STRING_AES_TOOL_HELP_PREFIX "Βοήθεια για %s"
+    IDS_STRING_FILE_DELETION_FAILED "Το αρχείο %s δεν μπόρεσε να διαγραφεί."
+    IDS_STRING_ENCRYPT_DECRYPT "Κρυπτογράφηση ή αποκρυπτογράφηση αρχείου"
+END
+
+#endif    // Greek resources
+/////////////////////////////////////////////////////////////////////////////
+
 
 #ifndef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////

@@ -62,6 +62,13 @@ BOOL CDlgTranslations::OnInitDialog()
 	};
 
 	std::list<Translation> listTranslations;
+	
+	// Greek translation
+	Translation translationGreek;
+	translationGreek.heading.LoadString(IDS_STRING_TRANSLATIONS_HEADING_GREEK);
+	translationGreek.initialWork.LoadString(IDS_STRING_TRANSLATIONS_INITIAL_WORK_GREEK);
+	translationGreek.furtherWork.LoadString(IDS_STRING_TRANSLATIONS_FURTHER_WORK_GREEK);
+	listTranslations.push_back(translationGreek);
 
 	// Polish translation
 	Translation translationPolish;
