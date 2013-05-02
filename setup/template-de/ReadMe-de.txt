@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 für Win32, Februar 2013 (Beta 06) xxxx
+    CrypTool, Version 1.4.31 für Win32, April 2013 (Beta 06) xxxx
     (c) Contributors
         Dazu gehören z.B.
         Deutsche Bank AG, Frankfurt am Main, und die
@@ -46,7 +46,7 @@
  8. ... Verweise / Auszeichnungen
  8.1. ... Artikel über CrypTool
  8.2. ... Sonstige Referenzen auf CrypTool
- 8.3. ... Weitere Freeware-Projekte (Crank, CAP, CryptoStudio, SAGE, etc.)
+ 8.3. ... Weitere Freeware-Projekte (Crank, CAP, CryptoStudio, Sage, etc.)
  8.4. ... Auszeichnungen
 A. ... Anhang
 A.1. .... Roadmap nach CT 1.4.31
@@ -1922,7 +1922,7 @@ words\cracklib-words        // Für Tests auf Passwortmuster
 
 sage\ ........... Dieses Verzeichnis enthält die Beispiel-Berechnungen
                   aus dem CT-Skript script-de.pdf, die mit dem Computer-
-                  Algebra-System SAGE ausgeführt wurden.
+                  Algebra-System Sage ausgeführt wurden.
 
 sage\SAGE-Samples-in-Chap01.sage
      SAGE-Samples-in-Chap02.sage
@@ -2490,7 +2490,7 @@ d) Eine kleine Auswahl weiterer Seiten:
 
 
 
-8.3. Weitere Freeware-Projekte (Crank, CAP, CryptoStudio, SAGE, etc.)
+8.3. Weitere Freeware-Projekte (Crank, CAP, CryptoStudio, Sage, etc.)
      ----------------------------------------------------------------
 
 a) Vollständig mit Source-Code verfügbar sind:
@@ -2631,9 +2631,9 @@ b) Die einzigen weiteren uns bekannten brauchbaren Programme, die
   Chiffren.
   Zur Ausführung unter Windows XP muss man den "Windows 2000 compatibility
   mode" aktivieren.
-  Letzter Update: Mai 02, 2004 - Uploaded Cryptanalysis Project
-                  Nov 27, 2004 - Version 0.17 (laut Splash Screen)
-                               - Version 0.37 (laut help file)
+  Letzter Update:  2.5.2004 - Uploaded Cryptanalysis Project
+                  27.112004 - Version 0.17 (laut Splash Screen)
+                            - Version 0.37 (laut Hilfedatei)
   http://studenthome.nku.edu/~kohuss/content/crypt.html
 
 - "Cryptography Tools" von Don Spickler
@@ -2641,8 +2641,17 @@ b) Die einzigen weiteren uns bekannten brauchbaren Programme, die
   Salisbury University "to help users understand the workings of and the
   cryptanalysis of several classical ciphers".
   Es gibt ausführbare Dateien (keine Sourcen) für Windows, Linux und Mac.
-  Letzter Update: Sep 24, 2009 - Version 1.2.1
+  Letztes Update: 24.9.2009 -- Version 1.2.1
   http://facultyfp.salisbury.edu/despickler/personal/CryptTools.asp
+
+- "CryptoCrack" von Phil Pilcrow
+  Das Windows-Programm CryptoCrack wurde entworfen, um klassiche Chiffren zu
+  lösen und enthält keine Routinen, um Maschinen-basierte oder moderne,
+  Computer-basierte Verfahren wie Enigma, AES, DES, Blowfish etc. zu knacken.
+  Dieses Tool löst viele klassische Chiffren sehr schnell und in guter Qualität.
+  Erstes Release: 29.5.2011; weiterhin aktive Weiterentwicklung.  
+  Letztes Update: 3.4.2013 -- Version 0.3.4841.23102
+  https://sites.google.com/site/cryptocrackprogram/home
 
 
 Falls uns hier etwas entgangen ist, würden wir uns über eine Nachricht

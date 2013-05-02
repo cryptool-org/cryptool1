@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 for Win32, February 2013 (Beta 06) xxxx
+    CrypTool, Version 1.4.31 for Win32, April 2013 (Beta 06) xxxx
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main, and the
@@ -46,7 +46,7 @@
  8. ... References / Hints / Awards
  8.1. ... Articles about CrypTool
  8.2. ... Further references
- 8.3. ... Further freeware projects (Crank, CAP, CryptoStudio, SAGE, etc)
+ 8.3. ... Further freeware projects (Crank, CAP, CryptoStudio, Sage, etc)
  8.4. ... Awards
 A. ... Appendix
 A.1. .... Roadmap after CT 1.4.31
@@ -1852,7 +1852,7 @@ words\cracklib-words        // For test on password patterns
 
 sage\ ........... This directory contains the source code of the example
                   calculations in the manual script-en.pdf using the
-                  computer algebra system SAGE.
+                  computer algebra system Sage.
 
 sage\SAGE-Samples-in-Chap01.sage
      SAGE-Samples-in-Chap02.sage
@@ -2408,7 +2408,7 @@ d) A small selection of further pages:
 
 
 
-8.3. Further freeware projects (Crank, CAP, CryptoStudio, SAGE, etc)
+8.3. Further freeware projects (Crank, CAP, CryptoStudio, Sage, etc)
      ---------------------------------------------------------------
 
 a) Available with complete source code are:
@@ -2553,9 +2553,18 @@ b) The only other programs known to us, which usefully combine
   The Java program was developed at the Henson School of Science & Technology,
   Salisbury University "to help users understand the workings of and the
   cryptanalysis of several classical ciphers".
-  The are executable files (no sources) available for Windows, Linux and Mac.
-  Last Update: Sep 24, 2009 - Version 1.2.1
+  There are executable files (no sources) available for Windows, Linux and Mac.
+  Last Update: Sep 24, 2009 -- Version 1.2.1
   http://facultyfp.salisbury.edu/despickler/personal/CryptTools.asp
+
+- "CryptoCrack" by Phil Pilcrow
+  The Windows program CryptoCrack is designed for solving classical ciphers
+  and doesn’t include routines for solving machine based or modern, computer
+  based types such as Enigma, AES, DES, Blowfish etc. (see FAQ).
+  This tool solves many classical ciphers very fast and well.
+  Initial release: May 29, 2011, ongoing active development.  
+  Last Update: April 3, 2013 -- Version 0.3.4841.23102
+  https://sites.google.com/site/cryptocrackprogram/home
 
 
 If we are missing something here or are incorrect anyhow, please feel
