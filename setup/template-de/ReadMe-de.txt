@@ -2614,7 +2614,7 @@ b) Die einzigen weiteren uns bekannten brauchbaren Programme, die
 
 - Die Java-Anwendung CipherClerk von Wilhelm M. Plotz
   (Ver- und Entschlüsselung mit vielen klassischen Verfahren;
-  letzter Update 2003)
+  letztes Update 2003)
   http://members.aon.at/cipherclerk/
 
 - CryptoBench - GUI um Teile von Wei Dai's Crypto++ Bibliothek
@@ -2631,9 +2631,9 @@ b) Die einzigen weiteren uns bekannten brauchbaren Programme, die
   Chiffren.
   Zur Ausführung unter Windows XP muss man den "Windows 2000 compatibility
   mode" aktivieren.
-  Letzter Update:  2.5.2004 - Uploaded Cryptanalysis Project
-                  27.112004 - Version 0.17 (laut Splash Screen)
-                            - Version 0.37 (laut Hilfedatei)
+  Letztes Update:  2.05.2004 - Uploaded Cryptanalysis Project
+                  27.11.2004 - Version 0.17 (laut Splash Screen)
+                             - Version 0.37 (laut Hilfedatei)
   http://studenthome.nku.edu/~kohuss/content/crypt.html
 
 - "Cryptography Tools" von Don Spickler
