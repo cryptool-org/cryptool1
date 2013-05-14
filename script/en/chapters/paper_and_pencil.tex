@@ -24,7 +24,7 @@
 \chapter{Paper and Pencil Encryption Methods}
 \label{Kapitel_PaperandPencil}
 (Christine St\"otzel, April 2004; Updates: B.+C. Esslinger, June 2005;
- Updates Minh Van Nguyen and B. Esslinger, Nov. 2009, June 2010, Jan. 2013)
+ Updates Minh Van Nguyen and B. Esslinger, Nov. 2009, June 2010, May 2013)
 \index{Paper and pencil methods}
 \index{Encryption!classic}
 \index{Cryptography!classic}
@@ -833,7 +833,6 @@ Polygraphic techniques\index{Substitution!polygraphic} do not work by replacing 
 	
    Unformated Plaintext: plaintext letters are encrypted in pairs\\
    Formated Plaintext:   pl ai nt ex tl et te rs ar ee ncrypted in pairs\\
-   Formated Plaintext:   plaintext letters are x encrypted in pairs\\
    Formated Plaintext:   pl ai nt ex tl et te rs ar ex en cr yp te di np ai rs
 
    \begin{table}[ht]
@@ -1394,7 +1393,11 @@ previous mentioned methods.
          \footnotetext{%
          In CT1\index{CrypTool 1} you can call this method under the menu
          {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic) \textbackslash{} 
-         Solitaire}.}
+         Solitaire}.\\
+          In CT2\index{CrypTool 2} you can find this method within the templates
+          {\bf Cryptography \textbackslash{} Classical} and 
+          {\bf Cryptanalysis \textbackslash{} Classical}.
+         }
          \cite{pp:Schneier1999}\index{Solitaire}: 
          Sender and receiver have to own a deck of cards shuffled in the
          same manner. A key stream is generated that has to consist of as 
@@ -2215,11 +2218,13 @@ True
 \subsection{Hill cipher}
 \index{Hill}
 
-The Hill~\cite{pp:Hill1929,pp:Hill1931} or matrix cipher is more
-mathematically sophisticated than other ciphers mentioned in this
+The Hill~\cite{pp:Hill1929,pp:Hill1931} or matrix cipher is
+mathematically more sophisticated than the other ciphers mentioned in this
 chapter. The encryption/decryption key of this cipher is an invertible
-square matrix, and the plaintext/ciphertext is processed also as a matrix.
-The encryption and decryption processes use matrix operations modulo 26.
+square matrix (here called $key$).
+Plaintext and ciphertext are vectors ($P$ and $C$).
+The encryption and decryption processes use matrix operations modulo 26,
+here it is $C = P * key$ $(mod$ $26)$. %Zweimal $$-Klammer, damit Blank vor "(".
 The Hill cipher is implemented in the Sage class
 \begin{center}
 \verb!sage.crypto.classical.HillCryptosystem!
@@ -2228,14 +2233,15 @@ The Hill cipher is implemented in the Sage class
 \noindent In the following example our plaintext/ciphertext space is the
 capital letters of the English alphabet. In the Hill cipher, each
 letter of this alphabet is assigned a unique integer modulo 26.
-The size of matrix (also called its dimension) is not restricted by the cipher.
+The size of the key matrix (also called its dimension) is not restricted by the
+cipher.\\
 
 \noindent {\bf Remark:} Comparing the Hill implementation in CrypTool v1.4.31
-and in Sage v5.3:
+and in Sage version 5.3:
 \begin{itemize}
   \item Sage offers fast commandline operations; CT1 offers
         its functionality within a GUI.
-  \item Sage offers any dimension; CT1 is restricted
+  \item Sage offers for the key matrix any dimension; CT1 is restricted
         to a matrix size between 1 and 10.
   \item Sage allows negative numbers in the key matrix, and converts them
         automatically into appropriate non-negative numbers;
@@ -2244,15 +2250,16 @@ and in Sage v5.3:
         Sage only allows the 26 capital letters as alphabet;\\
         and it uses only the multiplication variant
         plaintext row vector * key matrix:\\
-        C = P*M.
+        $C = P * key$.
   \item CT1 offers to choose also 1 as value for the first alphabet
         character; you can combine your alphabet within the text options dialog;
-        and it offers to use a reverse multiplication variant too.
+        and it also offers to use a reverse multiplication variant:
+        $C = key * P$.
 \end{itemize}
 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[scale=0.45]{figures/PaP_Fig_Hill-Cipher-CT-Dialog.png}
+\includegraphics[scale=0.7]{figures/PaP_Fig_Hill-Cipher-CT-Dialog.png}
 \caption{Hill dialog in CT1 with the operations and options available\vspace{1ex}} 
 \label{PaP_Fig_Hill-Cipher-CT-Dialog}
 \end{center}

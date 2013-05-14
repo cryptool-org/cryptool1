@@ -2,14 +2,14 @@
 % ............................................................................
 %             V E R S C H L U E S S E L U N G S V E R F A H R E N
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-% "`xx"'
+% \glqq Einführung\grqq~
 \newpage
 \hypertarget{Kapitel_PaperandPencil}{}
 
 \chapter{Papier- und Bleistift-Verschlüsselungsverfahren}
 \label{Kapitel_PaperandPencil}
 (Christine Stötzel, April 2004; Updates B.+C. Esslinger, Juni 2005;
- Updates Minh Van Nguyen und B. Esslinger, Nov. 2009, Juni 2010, Jan. 2013)
+ Updates Minh Van Nguyen und B. Esslinger, Nov. 2009, Juni 2010, Mai 2013)
 \index{Papier- und Bleistiftverfahren}
 \index{Verschlüsselung!klassisch}
 \index{Kryptographie!klassisch}
@@ -76,7 +76,8 @@ nur ihre Anordnung wird geändert (Transposition =
 Vertauschung).\footnote{%
 Manchmal wird auch der Begriff Permutation\index{Permutation} verwendet, um zu
 beschreiben, wie Buchstaben, Buchstabengruppen oder Spalten des Klartextes
-vertauscht werden, z.B. in der Form $(1, 2, 3, 4, 5) \Leftrightarrow (3, 4, 2, 1, 5)$.
+vertauscht werden, z.B. in der Form $(1, 2, 3, 4, 5)
+\Leftrightarrow (3, 4, 2, 1, 5)$.
 }
 
 %------------------------------------------------------------------------------
@@ -93,7 +94,7 @@ vertauscht werden, z.B. in der Form $(1, 2, 3, 4, 5) \Leftrightarrow (3, 4, 2, 1
    {\bf Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch)
    \textbackslash{} Permutation}:
    Für einen Gartenzaun mit 2 Zeilen gibt man als Schlüssel
-   "`B,A"' ein und lässt ansonsten die Standardeinstellungen (nur 1
+   \glqq B,A\grqq~ein und lässt ansonsten die Standardeinstellungen (nur 1
    Permutation, in der man zeilenweise ein- und spaltenweise ausliest). 
    Mit dem Schlüssel "`A,B"' würde man das Zick-zack-Muster unten so 
    beginnen, dass der erste Buchstabe in der ersten statt in der zweiten Zeile
@@ -742,7 +743,7 @@ Zuordnung ist während des ganzen Verschlüsselungsprozesses dieselbe.
 
 
    \begin{itemize}
-      \item {\bf Ch\'e Guevara-Chiffre};
+      \item {\bf Ch\'e Guevara-Chiffre}:
       Einen Spezialfall dieser Variante benutzte Ch\'e Guevara (mit einem 
       zusätzlicher Substitutionsschritt und einem leicht modifizierten Checkerboard):
 	 \begin{itemize}
@@ -893,7 +894,6 @@ sich um Digramme, Trigramme, Silben, etc. handeln.
 
    Unformatierter Klartext: buchstaben werden paarweise verschluesselt\\
    Formatierter Klartext:   bu ch st ab en we rd en pa ar we is ev er sc hl ue ss elt\\
-   Formatierter Klartext:   buchstaben werden paarweise verschluesxselt\\
    Formatierter Klartext:   bu ch st ab en we rd en pa ar we is ev er sc hl ue sx se lt
 
    \begin{table}[ht]
@@ -1162,7 +1162,8 @@ ist die Zuordnung Klartext-/Geheimtextzeichen nicht fest, sondern variabel
           über den Menüeintrag {\bf Algorithmen \textbackslash{} Klassisch
           \textbackslash{} XOR}.
           }\index{One-Time-Pad}\index{OTP}:
-          Eine Folge von Bytes wird Byte-für-Byte mit dem Klartext XOR-verknüpft.
+          Eine Folge von Bytes wird Byte-für-Byte mit dem Klartext
+          XOR-verknüpft.
           Dies ist eine Verallgemeinerung des Vigen\`ere-Verfahrens, und es war
           das erste Informations-theoretisch sichere Schema (vgl.
           Kapitel~\ref{cm_Section_Security_Definitions}
@@ -1503,7 +1504,11 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
          \footnotetext{%
          In CT1\index{CrypTool 1} kann man dieses Verfahren über den Menüeintrag
          {\bf Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch) 
-         \textbackslash{} Solitaire} aufrufen.}
+         \textbackslash{} Solitaire} aufrufen.\\
+          In CT2\index{CrypTool 2} findet sich dieses Verfahren bei den Vorlagen
+          unter {\bf Kryptographie \textbackslash{} Klassisch} und
+          unter {\bf Kryptoanalyse \textbackslash{} Klassisch}.
+         }
          \cite{pp:Schneier1999}\index{Solitaire}: 
          Sender und Empfänger der Botschaft müssen jeweils ein Kartenspiel
          besitzen, bei dem alle Karten in der gleichen Ausgangsanordnung
@@ -2344,10 +2349,11 @@ True
 Die Hill~\cite{pp:Hill1929,pp:Hill1931}- oder Matrix-Verschlüsselung
 ist mathematisch anspruchsvoller als die Verfahren in den bisherigen
 Programmbeispielen dieses Kapitels. Der Schlüssel dieses
-Verfahrens ist eine invertierbare quadratische Matrix. Auch der Klar-/Geheimtext
-wird als Matrix verarbeitet. Die Ver- und Entschlüsselungsprozesse
-nutzen Matrizen-Operationen modulo 26. Die Hill-Verschlüsselung ist
-implementiert in der Sage-Klasse
+Verfahrens ist eine invertierbare quadratische Matrix (hier $key$ genannt).
+Klartext und Geheimtext sind Vektoren ($P$ und $C$).
+Die Ver- und Entschlüsselungsprozesse nutzen Matrizen-Operationen modulo 26,
+hier also $C = P * key$ $(mod$ $26)$.
+Die Hill-Verschlüsselung ist implementiert in der Sage-Klasse
 \begin{center}
 \verb!sage.crypto.classical.HillCryptosystem!
 \end{center}
@@ -2355,31 +2361,33 @@ implementiert in der Sage-Klasse
 \noindent Im folgenden Beispiel besteht der Klar-/Geheimtext-Zeichenraum wieder
 aus den Großbuchstaben des lateinischen Alphabets. Im Hill-Verfahren wird
 jedem Alphabet-Zeichen eine eindeutige natürliche Zahl modulo 26 zugewiesen.
-Die Größe der Matrix (auch Matrix-Dimension genannt) ist vom Hill-Verfahren
-selbst nicht beschränkt.
+Die Größe der Schlüssel-Matrix (auch Matrix-Dimension genannt) ist vom
+Hill-Verfahren selbst nicht beschränkt.\\
 
-\noindent {\bf Bemerkung:} Vergleich der Hill-Implementierung in CrypTool v1.4.31
-und in Sage v5.3:
+\noindent {\bf Bemerkung:} Vergleich der Hill-Implementierung in
+CrypTool v1.4.31 und in Sage Version 5.3:
 \begin{itemize}
   \item Sage bietet schnelle Operationen auf der Kommandozeile;
         CT1 stellt seine Funktionalität nur in einer GUI zur Verfügung.
-  \item Sage bietet jede Matrix-Dimension an; CT1 ist beschränkt auf die
-        Werte 1 bis 10.
+  \item Sage bietet für die Schlüssel-Matrix jede Matrix-Dimension an;
+        CT1 ist beschränkt auf die Werte 1 bis 10.
   \item Sage erlaubt auch negative Zahlen in der Schlüssel-Matrix
         und konvertiert diese selbststän"-dig in nicht-negative Werte;
         CT1 erlaubt keine negativen Zahlen in der Schlüssel-Matrix.
   \item Sage weist dem ersten Alphabet-Zeichen immer den Wert 0 zu;\\
         Sage lässt hierbei nur die 26 Großbuchstaben als Alphabet zu;\\
         und es nutzt nur die Multiplikationsvariante
-        Klartext-Zeilenvektor * Schlüsselmatrix:\\ C = P*M.
+        Klartext-Zeilenvektor * Schlüsselmatrix:\\
+        $C = P * key$.
   \item CT1 erlaubt die Wahl zwischen 0 und 1 für das erste
-        Alphabet-Zeichen; man kann sein Alphabet im Textoptionen-Dialog zusammen
-        stellen; und es bietet auch die umgekehrte Multiplikationsvariante.
+        Alphabet-Zeichen; man kann sein Alphabet im Textoptionen-Dialog
+        zusammen stellen; und es bietet auch die umgekehrte
+        Multiplikationsvariante: $C = key * P$
 \end{itemize}
 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[scale=0.4]{figures/PaP_Fig_Hill-Cipher-CT-Dialog.png}
+\includegraphics[scale=0.7]{figures/PaP_Fig_Hill-Cipher-CT-Dialog.png}
 \caption{Hill-Dialog in CT1 mit den verfügbaren Operationen und Optionen\vspace{1ex}} 
 \label{PaP_Fig_Hill-Cipher-CT-Dialog}
 \end{center}

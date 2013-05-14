@@ -15,7 +15,7 @@
 \chapter{Introduction to Elementary Number Theory with Examples}
 \label{Chapter_ElementaryNT}
 (Bernhard Esslinger, July 2001; Updates: Dec. 2001, June 2002, May 2003,
- May 2005, March 2006, June 2007, July 2009, Jan. 2010, Dec. 2012) \\
+ May 2005, March 2006, June 2007, July 2009, Jan. 2010, May 2013) \\
 
 This ``introduction'' is for people with a mathematical interest. There is no
 more pre-knowledge necessary than what you learn in the secondary school.\par
@@ -376,7 +376,9 @@ $$\frac{19}{7} = 2 + \frac{5}{7} \quad (m=7, ~c = 2, ~r = 5)$$
 
 What do the numbers $5, 12, 19, 26, \cdots$ have in common for division by $7$? The remainder is always $r = 5$.
 For division by $7$, only the following remainders are possible:
-$$r = 0, 1, 2, \cdots, 6.$$
+$$r = 0, 1, 2, \cdots, 6$$
+
+If $r = 0$, then: $m | n$ (``$m$ divides $n$'').
 
 The numbers that result in the same remainder $r$ when divided by $7$ are
 combined to form the ``remainder class $r$ modulo $7$''. Two numbers $a$ and
@@ -477,6 +479,7 @@ the remainder when this number is divided by $m$. The result is that all results
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\newpage
 \section{Calculations with finite sets}
 
 % --------------------------------------------------------------------------
@@ -490,6 +493,7 @@ division\footnote{%
 The division modulo $m$\index{Division modulo $n$} is only defined for
 numbers co-prime\index{Number!co-prime} to $m$ because other numbers
 have the same property as zero (this means there is no inverse number).
+See law number 6 {\bf existence of an inverse element}.
 See footnote \ref{ftn-mod6} in chapter~\ref{addmult} and
 table~\ref{mulmod6} in chapter~\ref{add-and-mult-inverses}.
 \label{ftn-res-divmodn}\label{ftn-zth-divmodn}
@@ -513,24 +517,57 @@ The associative law and the commutative law apply to both addition and multiplic
     $(a*b) {\rm ~(mod~} m) \equiv  (a {\rm ~(mod~ } m) * b {\rm ~(mod~ } m)) {\rm ~(mod~} m).$ \\
     When adding or multiplying the order in which the modulo operation is performed does not matter.
 \end{itemize}
+
 \begin{itemize}
 \item[\bf 5.] {\bf Existence of an identity (neutral element):} \index{Identity}\\
     $(a + 0) {\rm ~(mod~ } m) \equiv  (0 + a) {\rm ~(mod~ } m) \equiv  a {\rm ~(mod~ } m).$  \\
     $(a * 1) {\rm ~(mod~ } m) \equiv  (1 * a) {\rm ~(mod~ } m) \equiv  a {\rm ~(mod~ } m).$
-\item[\bf 6.] {\bf Existence of an inverse element:} \\
-    For all whole numbers $a$ and $m$ there exists a whole number $-a$ such that: \\
-    $(a + (-a)) {\rm ~(mod~}m) \equiv  0 {\rm ~(mod~ } m)$ \quad (additive inverse).
-\index{Inverse!additive}\\
-    For each $a$ ($a \not\equiv 0 {\rm ~(mod~ } p$) ) where $p$ is prime there exists a whole number $a^{-1}$, 
-such that: \\
-    $(a * a^{-1}) {\rm ~(mod~ } p) \equiv 1 {\rm ~(mod~}p)$ \quad (multiplicative inverse). 
-\index{Inverse!multiplicative}
+
+
+
+
+
+\item[\bf 6.] {\bf Existence of an inverse element}\footnote{%
+An inverse element only exits, if it is unique for the given operation.
+}:
+% \begin{itemize}
+\begin{compactitem}
+
+\item {\bf Additive inverse}\index{Inverse!additive}\\
+   For all whole numbers $a$ and $m$ there exists a whole number $-a$ such
+   that: \\
+   $(a + (-a)) {\rm ~(mod~}m) \equiv  0 {\rm ~(mod~ } m)$
+   % $(a + (-a)) {\rm ~(mod~}m) \equiv  0 {\rm ~(mod~ } m)$ \quad (additive inverse)
+   
+\item {\bf Multiplicative inverse modulo a prime p}\\
+    For each whole number $a$ (with $a \not\equiv 0 {\rm ~(mod~ } p$) and $p$
+    prime) there exists a whole number $a^{-1}$, such that:~~~ 
+    $(a * a^{-1}) {\rm ~(mod~ } p) \equiv 1 {\rm ~(mod~}p)$
+    % \quad (multiplicative inverse)
+    \index{Inverse!multiplicative}
+
+\item {\bf Multiplicative inverse modulo a compound number m}\footnote{%
+    As $8 \equiv 3 ~mod~ 5$ and $ 3 * 2 \equiv 1 ~mod~ 5$,
+    then $ 2 = 3^{-1} = 8^{-1}$ is a (unique) inverse for $3$ and $8$.\\
+    A multiple of p or m has no inverse mod p or mod m:
+    $5 \equiv 10 \equiv 0 ~mod~ 5$.
+}\\
+    For all whole numbers $a$ and $m$ (with $a \not\equiv 0 {\rm ~(mod~ } m$)
+    and $ggT(a,m) = 1$) there exists a whole number $a^{-1}$, such that: 
+    $(a * a^{-1}) {\rm ~(mod~ } m) \equiv 1 {\rm ~(mod~}m)$
+
+% \end{itemize}
+\end{compactitem}
+
+
+
 \item[\bf 7.] \index{Closeness} {\bf Closeness}\footnote{\label{ftn-zth-closed}The
    property of closeness is always defined in relation to an operation in a set.
    See chapter~\ref{nt:NumberTheory_Appendix_B} ``\nameref{nt:NumberTheory_Appendix_B}''.}: \\
       %%% \hyperlink{nt:NumberTheory_Appendix_B}{Appendix B of this chapter}.}:   \\
      $a, b \in G  \Longrightarrow  ( a + b ) \in G.$ \\
     $a, b \in G  \Longrightarrow  ( a * b ) \in G.$
+
 \item[\bf 8.] \index{Transitivity} {\bf Transitivity}:
 
 $ [ a \equiv b {\rm ~mod~ } m, ~b \equiv c {\rm ~mod~ } m] \Longrightarrow [ a \equiv c {\rm ~mod~ } m].

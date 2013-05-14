@@ -13,9 +13,9 @@
 \chapter{Einführung in die elementare Zahlentheorie mit Beispielen}
 \label{Chapter_ElementaryNT}
 (Bernhard Esslinger, Juli 2001; Updates: Nov. 2001, Juni 2002, Mai 2003,
- Mai 2005, März 2006, Juni 2007, Juli 2009, Jan. 2010, Dez. 2012) \\
+ Mai 2005, März 2006, Juni 2007, Juli 2009, Jan. 2010, Mai 2013) \\
 
-Diese \glqq Einführung\grqq~ bietet einen Einstieg für mathematisch Interessierte.
+Diese \glqq Einführung\grqq~bietet einen Einstieg für mathematisch Interessierte.
 Erforderlich sind nicht mehr Vorkenntnisse als die, die im Grundkurs Mathematik
 am Gymnasium vermittelt werden.\par
 Wir haben uns bewusst an \glqq Einsteigern\grqq~ und \glqq Interessenten\grqq~
@@ -403,7 +403,9 @@ Was haben die Zahlen $5, 12, 19, 26, \cdots$ bei der Division durch $7$
 gemeinsam?
 Es ergibt sich immer der Rest $r = 5$.
 Bei der Division durch $7$ sind nur die folgenden Reste möglich:
-$$r = 0, 1, 2, \cdots, 6.$$
+$$r = 0, 1, 2, \cdots, 6$$
+
+Wenn $r = 0$, dann gilt: $m | n$ (\glqq  $m$ teilt $n$'').
 
 Wir fassen bei der Division durch $7$ die Zahlen, die den gleichen Rest $r$
 ergeben, in die \glqq Restklasse $r$ modulo $7$'' zusammen. Zwei Zahlen $a$
@@ -479,7 +481,7 @@ Anwenden kann man die obige Äquivalenz von Satz~\ref{thm-zth-div}, wenn man schn
 geschickt für große Zahlen entscheiden will, ob sie durch eine bestimmte
 Zahl teilbar sind.
 
-\newpage
+%\newpage
 \begin{example}{:} \\
 Ist $69.993$ durch $7$ teilbar?\\
 Da die Zahl in eine Differenz zerlegt werden kann, bei der einfach zu ersehen
@@ -507,6 +509,7 @@ Dadurch bleiben alle Ergebnisse im Bereich von $0$ bis $m-1$.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\newpage
 \section{Rechnen in endlichen Mengen}
 
 % --------------------------------------------------------------------------
@@ -521,6 +524,7 @@ Die Division modulo $m$\index{Division modulo $n$} ist nur für Zahlen, die
 teilerfremd\index{Zahlen!teilerfremde (co-prime)} zu $m$ sind, definiert, da
 andere Zahlen die gleiche Eigenschaft wie Null haben, d.h. zu ihnen gibt es
 keine Inverse.
+Vergleiche das Gesetz Nummer 6 {\bf Existenz des inversen Elements}.
 Vergleiche Fußnote~\ref{ftn-mod6} in Kapitel~\ref{addmult} und
 Tabelle~\ref{mulmod6} in Kapitel~\ref{add-and-mult-inverses}.
 \label{ftn-res-divmodn}\label{ftn-zth-divmodn}
@@ -550,11 +554,43 @@ Assoziativgesetz und Kommutativgesetz gelten sowohl für die Addition als auch fü
     $(a + 0) {\rm ~(mod~ } m) \equiv  (0 + a) {\rm ~(mod~ } m) \equiv  a {\rm ~(mod~ } m).$  \\
     $(a * 1) {\rm ~(mod~ } m) \equiv  (1 * a) {\rm ~(mod~ } m) \equiv  a {\rm ~(mod~ } m).$
 
-\item[\bf 6.] {\bf Existenz des inversen Elements:} \\
-    Für jedes ganzzahlige $a$ und $m$ gibt es eine ganze Zahl $-a$, so dass gilt: \\
-    $(a + (-a)) {\rm ~(mod~}m) \equiv  0 {\rm ~(mod~ } m)$ \quad (additive Inverse). \index{Inverse!additive}\\
-    Für jedes $a$ ($a \not\equiv 0 {\rm ~(mod~ } p$) ) und $p$ prim gibt es eine ganze Zahl $a^{-1}$, so dass gilt: \\
-    $(a * a^{-1}) {\rm ~(mod~ } p) \equiv 1 {\rm ~(mod~}p)$ \quad (multiplikative Inverse). \index{Inverse!multiplikative}
+
+
+
+\item[\bf 6.] {\bf Existenz des inversen Elements}\footnote{%
+Inverse sind nur dann Inverse, wenn sie bezüglich der gegebenen Operation
+eindeutig sind.
+}:
+\begin{compactitem}
+
+\item {\bf Additive Inverse}\index{Inverse!additive}\\
+   Für jedes ganzzahlige $a$ und $m$ gibt es eine ganze Zahl $-a$, so dass
+   gilt: \\
+   $(a + (-a)) {\rm ~(mod~}m) \equiv  0 {\rm ~(mod~ } m)$
+   % \quad (additive Inverse)
+
+\item {\bf Multiplikative Inverse modulo einer Primzahl p}\\
+   Für jedes ganzzahlige $a$ (mit $a \not\equiv 0 {\rm ~(mod~ } p$) und $p$
+   prim) gibt es eine ganze Zahl $a^{-1}$, so dass gilt:~~~ 
+   $(a * a^{-1}) {\rm ~(mod~ } p) \equiv 1 {\rm ~(mod~}p)$
+   % \quad (multiplikative Inverse).
+   \index{Inverse!multiplikative}.
+
+\item {\bf Multiplikative Inverse modulo einer zusammengesetzten
+           Zahl m}\footnote{%
+    Da $8 \equiv 3 ~mod~ 5$ und $ 3 * 2 \equiv 1 ~mod~ 5$,
+    ist $ 2 = 3^{-1} = 8^{-1}$ eine (eindeutige) Inverse für $3$ und $8$.\\
+    Ein Vielfaches von p oder m hat keine Inverse mod p oder mod m:
+    $5 \equiv 10 \equiv 0 ~mod~ 5$.
+}\\
+    Für alle ganzzahligen $a$ und $m$ (mit $a \not\equiv 0 {\rm ~(mod~ } m$)
+    und $ggT(a,m) = 1$) gibt es eine ganze Zahl $a^{-1}$, so dass gilt: 
+    $(a * a^{-1}) {\rm ~(mod~ } m) \equiv 1 {\rm ~(mod~}m)$
+
+
+\end{compactitem}
+
+
 
 \item[\bf 7.] \index{Abgeschlossenheit} {\bf Abgeschlossenheit}\footnote{%
 \label{ftn-closed}Diese Eigenschaft wird innerhalb einer Menge immer bezüglich
@@ -565,6 +601,7 @@ Assoziativgesetz und Kommutativgesetz gelten sowohl für die Addition als auch fü
 }: \\
 $a, b \in G  \Longrightarrow  ( a + b ) \in G.$ \\
 $a, b \in G  \Longrightarrow  ( a * b ) \in G.$
+
 \item[\bf 8.] \index{Transitivität} {\bf Transitivität:}\\
 $ [ a \equiv b {\rm ~mod~ } m, ~b \equiv c {\rm ~mod~ } m] \Longrightarrow [ a \equiv c {\rm ~mod~ } m].
 $
