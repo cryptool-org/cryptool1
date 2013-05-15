@@ -7,8 +7,9 @@ if x%1==xen goto langok
 if x%1==xpl goto langok
 if x%1==xes goto langok
 if x%1==xrs goto langok
+if x%1==xel goto langok
 echo Error: invalid or no argument
-echo Usage: %0 [de, en, es, pl, rs] 
+echo Usage: %0 [de, en, es, pl, rs, el] 
 goto end
 
 :langok 
@@ -24,6 +25,7 @@ goto end
 if x%1==xes set langsubstr=en
 if x%1==xpl set langsubstr=en
 if x%1==xrs set langsubstr=en
+if x%1==xel set langsubstr=en
 
 makensis /DLANGUAGE_STR=%lang% /DLANGUAGE_SUBST_STR=%langsubstr% %nsi%
 if not errorlevel 1 echo Created SetupCrypTool_%lang%.exe ...

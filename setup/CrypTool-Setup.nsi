@@ -23,7 +23,7 @@
   
   Name "${ProgramName} ${VersionInfo}"
   OutFile "SetupCrypTool_${VersionFile}_${LANGUAGE_STR}.exe"
-  BrandingText "(c) 1998-2013 Contributors"
+  BrandingText "(c) 1998-2012 Contributors"
 ;  Icon "..\CrypTool\res\idr_main.ico" ; does not work for some reason
 
   ;Default installation folder
@@ -227,6 +227,32 @@
    !define UNINSTALL_PROMPT2    "Ovaj direktorijum vec postoji.$\n$\nMolim odaberite drugi direktorijum, ili prvo deinstalirajte program u ovom direktorijumu."
    !define UNINSTALL_CONFIRM	"Deinstalacija ce obrisati sve datoteke iz ovog direktorijuma - cak i asimetricne kljuceve koje ste generisali, kao i primere.$\n$\nAko otkaete sada, bicete u mogucnosti da izvezete kljuceve iz svoje postojece CrypTool instalacije.$\n$\nDa li stvarno elite da deinstalirate CrypTool?"
    !define UNINSTALL_RMPROGDIR_FAILED "Direktorijum programa nije mogao biti obrisan (u potpunosti).$\n$\nMolim uklonite ga rucno."
+!else if ${LANGUAGE_STR} == 'el'
+   !insertmacro MUI_LANGUAGE "Greek"
+   !define SCN_CRYPTOOL		"CrypTool"
+   !define SCL_CRYPTOOL		"CrypTool.exe"
+   !define SCN_CRYPTOOL_HELP    "Βοήθεια του CrypTool"
+   !define SCL_CRYPTOOL_HELP	"CrypTool-${LANGUAGE_SUBST_STR}.chm"
+   !define SCN_NUMBERSHARK	"NumberShark"
+   !define SCL_NUMBERSHARK	"NumberShark.exe"
+   !define SCN_NUMBERSHARK_HELP "Βοήθεια του Number Shark"
+   !define SCL_NUMBERSHARK_HELP "NumberShark-${LANGUAGE_SUBST_STR}.chm"
+   !define SCN_AES_TOOL		"AES-Tool"
+   !define SCL_AES_TOOL		"aestool.exe"
+   !define SCN_SCRIPT		"Εγχειρίδιο"
+   !define SCL_SCRIPT		"script-${LANGUAGE_SUBST_STR}.pdf"
+   !define SCN_PRESENTATION	"Παρουσίαση"
+   !define SCL_PRESENTATION	"CrypToolPresentation-${LANGUAGE_SUBST_STR}.pdf"
+   !define SCN_README		"Αρχείο ReadMe"
+   !define SCL_README 		"ReadMe-${LANGUAGE_SUBST_STR}.txt"
+   !define SCN_UNINSTALL	"Απεγκατάσταση"
+   !define SCL_UNINSTALL	"Uninstall.exe"
+   !define URL		"http://www.cryptool.org/"
+   !define UNINSTALL_PROMPT	"είναι ήδη εγκατεστημένο. $\n$\nΠατήστε στο 'OK' για την αφαίρεση της \
+  προηγούμενης έκδοσης ή 'Cancel' για την επιλογή διαφορετικού φακέλου εγκατάστασης."
+   !define UNINSTALL_PROMPT2    "Ο φάκελος υπάρχει ήδη.$\n$\nΠαρακαλώ επιλέξτε έναν άλλο φάκελο, ή προηγουμένως απεγκαταστήστε το πρόγραμμα από αυτόν το φάκελο."
+   !define UNINSTALL_CONFIRM	"Η απεγκατάσταση θα διαγράψει όλα τα αρχεία στο φάκελο εγκατάστασης - ακόμη και τα ασσύμετρα κλειδιά ή τα αρχεία παραδείγματα που ενδεχομένως έχετε δημιουργήσει.$\n$\nΑν τώρα ακυρώσετε θα είστε σε θέση να τα εξάγετε πρώτα μέσα από το CrypTool.$\n$\nΕπιμένετε να απεγκαταστήσετε το CrypTool;"
+   !define UNINSTALL_RMPROGDIR_FAILED "Ο φάκελος του προγράμματος δεν ήταν δυνατό να διαγραφεί (εντελώς).$\n$\nΠαρακαλώ διαγράψτε τον χειρωνακτικά."
 !else
   !echo "ERROR: ...!"
   Abort ; EXIT

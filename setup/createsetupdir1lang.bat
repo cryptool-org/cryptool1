@@ -5,9 +5,10 @@ if x%1==xen goto ok
 if x%1==xes goto ok
 if x%1==xpl goto ok
 if x%1==xrs goto ok
+if x%1==xel goto ok
 
 echo Error: invalid or no argument
-echo Usage: setup1lang [de, en, es, pl, rs]
+echo Usage: setup1lang [de, en, es, pl, rs, el]
 goto end
 
 :ok 
@@ -18,6 +19,7 @@ rem all languages except de+en use some English (en) files
 if x%lang%==xes set lang_sub=en
 if x%lang%==xpl set lang_sub=en
 if x%lang%==xrs set lang_sub=en
+if x%lang%==xel set lang_sub=en
 
 echo Create and populate setup-%lang% directory ...
 if exist setup-%lang%\nul rmdir /q/s setup-%lang%
@@ -30,6 +32,7 @@ xcopy /s/q template-%lang%\*.* setup-%lang%\
 if x%lang%==xes xcopy /s/q template-en\*.* setup-%lang%\ & del setup-%lang%\license-en.rtf & del setup-%lang%\CrypToolPresentation-en.pdf & del setup-%lang%\Rijndael-Inspector.exe & del setup-%lang%\Rijndael-Animation.exe & del setup-%lang%\Enigma_en.exe & del setup-%lang%\Enigma-Help_en.html & del setup-%lang%\enigma_screenshot1.png
 if x%lang%==xpl xcopy /s/q template-en\*.* setup-%lang%\ & del setup-%lang%\license-en.rtf & del setup-%lang%\Enigma_en.exe & del setup-%lang%\Enigma-Help_en.html & del setup-%lang%\enigma_screenshot1.png
 if x%lang%==xrs xcopy /s/q template-en\*.* setup-%lang%\ 
+if x%lang%==xel xcopy /s/q template-en\*.* setup-%lang%\ & del setup-%lang%\license-en.rtf
 
 echo Copying ..\release_%lang%\*.exe ...
 copy ..\release_%lang%\*.exe setup-%lang%
