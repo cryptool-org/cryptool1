@@ -514,6 +514,7 @@ Dadurch bleiben alle Ergebnisse im Bereich von $0$ bis $m-1$.
 
 % --------------------------------------------------------------------------
 \subsection{Gesetze beim modularen Rechnen}
+\label{Laws-modular-calcs}
 
 Aus Sätzen der Algebra folgt, dass wesentliche Teile der üblichen
 Rechenregeln beim Übergang zum modularen Rechnen über der Grundmenge
@@ -639,53 +640,61 @@ bezüglich dieser Operation.
 
 Wir haben bisher gesehen:
 
-Für zwei natürliche Zahlen $a$ und $m$ bezeichnet  $a$ mod $m$  den Rest, den man erhält, 
-wenn man $a$ durch $m$ teilt. Daher ist $a {\rm ~(mod~ } m$) stets eine Zahl zwischen $0$ und $m-1$.
+Für zwei natürliche Zahlen $a$ und $m$ bezeichnet  $a$ mod $m$  den Rest, den
+man erhält, wenn man $a$ durch $m$ teilt. Daher ist $a {\rm ~(mod~ } m$) stets
+eine Zahl zwischen $0$ und $m-1$.
 
-Zum Beispiel gilt: $1 \equiv  6  \equiv  41 {\rm ~(mod~ } 5)$, denn der Rest ist jeweils $1$.
-
-Ein anderes Beispiel ist: $2000  \equiv  0 {\rm ~(mod~ } 4)$, denn $4$ geht in $2000$ ohne Rest auf.
+Zum Beispiel gilt: $1 \equiv  6  \equiv  41 {\rm ~(mod~ } 5)$, denn der Rest
+ist jeweils $1$. Ein anderes Beispiel ist: $2000  \equiv  0 {\rm ~(mod~ } 4)$,
+denn $4$ geht in $2000$ ohne Rest auf.
 
 In der modularen Arithmetik gibt es nur eine eingeschränkte Menge
 nicht-negativer Zahlen. Deren Anzahl wird durch einen Modul $m$ vorgegeben.
-Ist der Modul $m = 5$, werden nur die 5 Zahlen der Menge $\{ 0, 1, 2, 3, 4\}$ benutzt.
+Ist der Modul $m = 5$, werden nur die 5 Zahlen der Menge $\{ 0, 1, 2, 3, 4\}$
+benutzt.
 
-Ein Rechenergebnis größer als $4$ wird dann \glqq modulo'' $5$ umgeformt, d.h. es ist
-der Rest, der sich bei der Division des Ergebnisses durch $5$ ergibt. So ist
-etwa $2*4 \equiv 8 \equiv 3 {\rm ~(mod~ } 5)$, da $3$ der Rest ist, wenn man $8$ durch $5$ teilt.
+Ein Rechenergebnis größer als $4$ wird dann \glqq modulo'' $5$ umgeformt, d.h.
+es ist der Rest, der sich bei der Division des Ergebnisses durch $5$ ergibt.
+So ist etwa $2*4 \equiv 8 \equiv 3 {\rm ~(mod~ } 5)$, da $3$ der Rest ist,
+wenn man $8$ durch $5$ teilt.
 
 
 % --------------------------------------------------------------------------
 \subsection{Addition und Multiplikation} \index{Addition}\index{Multiplikation}
 \label{addmult}
 
-Im folgenden werden 
+Im folgenden werden zwei Tabellen aufgestellt:
 \begin{itemize}
+
 \item die Additionstabelle\footnote{%
       Bemerkung zur Subtraktion modulo 5: \\
       $2 - 4 = -2 \equiv 3{\rm ~mod~}5.$\\
       Es gilt modulo $5$ also nicht, dass $-2 = 2$
-      (siehe Kapitel~\ref{nt:NumberTheory_Appendix_C} \glqq \nameref{nt:NumberTheory_Appendix_C}'').
+      (siehe Kapitel~\ref{nt:NumberTheory_Appendix_C}
+      \glqq \nameref{nt:NumberTheory_Appendix_C}'').
       }
 für ${\rm mod~ } 5$ (Tabelle~\ref{addmod5}) und
-\item die Multiplikationstabellen\footnote{\label{ftn-mod6}%
-Bemerkung zur Division modulo 6:\index{Division modulo $n$}
 
-\noindent Bei der Division darf nicht durch die Null geteilt werden, dies liegt an
-der besonderen Rolle der $0$ als Identität bei der Addition:\\
+\item die Multiplikationstabellen\footnote{\label{ftn-mod6}%
+Bemerkung zur modulo Division:\index{Division modulo $n$}\\
+Aufgrund der besonderen Rolle der $0$ als Identität bei der Addition,
+darf nicht durch die Null geteilt werden.\\
 Für alle $a$ gilt $a*0=0, $ denn $a*0 = a*(0+0) =a*0 + a*0.$ Es ist
 offensichtlich, dass $0$ keine Inverse bzgl. der Multiplikation besitzt,
 denn sonst müsste gelten: $0 = 0 * 0^{-1} = 1.$ Vergleiche Fußnote
-\ref{ftn-res-divmodn}.  } für mod $5$ (Tabelle~\ref{mulmod5}) und für mod $6$
-(Tabelle~\ref{mulmod6})
+\ref{ftn-res-divmodn} in Kapitel~\ref{Laws-modular-calcs}.  }
+für mod $5$ (Tabelle~\ref{mulmod5}) und für mod $6$ (Tabelle~\ref{mulmod6}).
+
 \end{itemize}
-aufgestellt.
+
 
 % --------------------------------------------------------------------------
 \begin{example}{ Additionstabelle:}\\
-Das Ergebnis der Addition von $3$ und $4 {\rm ~(mod~ } 5)$ wird folgendermaßen bestimmt:
-berechne $3 + 4 = 7$ und ziehe solange die $5$ vom Ergebnis ab, bis sich ein
-Ergebnis kleiner als der Modul ergibt: $7 - 5 = 2$. Also ist: $3 + 4 \equiv 2 {\rm ~(mod~ } 5)$. 
+Das Ergebnis der Addition von $3$ und $4 {\rm ~(mod~ } 5)$ wird folgendermaßen
+bestimmt:
+Berechne $3 + 4 = 7$ und ziehe solange die $5$ vom Ergebnis ab, bis sich ein
+Ergebnis kleiner als der Modul ergibt: $7 - 5 = 2$.
+Also ist: $3 + 4 \equiv 2 {\rm ~(mod~ } 5)$. 
 
 \begin{table}[!ht]
 \begin{center}
@@ -703,13 +712,17 @@ Ergebnis kleiner als der Modul ergibt: $7 - 5 = 2$. Also ist: $3 + 4 \equiv 2 {\
 \label{addmod5}
 \end{table}
 \end{example}
+
 % --------------------------------------------------------------------------
-\begin{example}{ Multiplikationstabelle:}
-Das Ergebnis der Multiplikation $4 * 4 {\rm ~(mod~ } 5)$ wird folgendermaßen berechnet: berechne $ 4*4=16$ und
-ziehe solange die $5$ ab, bis sich ein Ergebnis kleiner als der Modul ergibt:
-$$16 - 5 = 11;~ 11 - 5 = 6;~6- 5 = 1.$$
-Direkt ergibt es sich auch aus Tabelle~\ref{mulmod5}: $4 * 4 \equiv 1 {\rm ~(mod~} 5)$, weil $16 : 5 = 3$ Rest $1$.
-Die Multiplikation wird auf der Menge $\mathbb{Z}$ ohne $0$ definiert.
+\begin{example}{ Multiplikationstabelle:}\\
+Das Ergebnis der Multiplikation $4 * 4 {\rm ~(mod~ } 5)$ wird folgendermaßen
+bestimmt: Berechne $ 4*4=16$ und ziehe solange die $5$ ab, bis sich ein
+Ergebnis kleiner als der Modul ergibt.
+$$16 - 5 = 11;~ 11 - 5 = 6;~6- 5 = 1$$
+Direkt ergibt es sich auch aus Tabelle~\ref{mulmod5}: $4 * 4 \equiv
+1 {\rm ~(mod~} 5)$, weil $16 : 5 = 3$ Rest $1$.\\
+Beachte: Die Multiplikation wird auf der Menge $\mathbb{Z}$ ohne $0$ definiert
+(da $0*x$ immer $0$ ergibt und $0$ keine Inverse hat).
 
 \begin{table}[ht]
 \begin{center}
@@ -765,39 +778,42 @@ ist das Gesamtergebnis gleich dem Ausgangswert.
 \end{example}
 
 
-In der Menge $\mathbb{Z}_5 = \{0, 1, 2, 3, 4\}$ für die Addition und in der Menge $\mathbb{Z}_5 \setminus \{ 0\}$  für
-die Multiplikation haben alle Zahlen eine {\bf eindeutige} Inverse
-bezüglich modulo $5$.
+In der Menge $\mathbb{Z}_5 = \{0, 1, 2, 3, 4\}$ für die Addition, und in der
+Menge $\mathbb{Z}_5 \setminus \{ 0\}$  für die Multiplikation haben alle Zahlen
+eine {\bf eindeutige} Inverse bezüglich modulo $5$.
 
 Bei der modularen Addition ist das für jeden Modul (also nicht nur für $5$)
 so.
 
-Bei der modularen Multiplikation dagegen ist das nicht so:
+Bei der modularen Multiplikation dagegen ist das nicht so (wichtiger Satz):
 \begin{satz}\label{thm-zth-multinv}
-Für eine natürliche Zahl $a$ aus der Menge $\{1, \cdots, m-1\}$ gibt es genau dann eine\index{ggT}
-multiplikative Inverse, wenn sie mit dem Modul $m$ teilerfremd\footnote{%
-Es gilt: Zwei ganze Zahlen $a$ und $b$ sind genau dann
-teilerfremd\index{Zahlen!teilerfremde (co-prime)}, wenn ${\rm ggT}(a, b) = 1$.\\
-Desweiteren gilt: Ist $p$ prim und $a$ eine beliebige ganze Zahl, die kein
-Vielfaches von $p$ ist, so sind beide Zahlen teilerfremd.\\
-Weitere Bezeichnungen zum Thema Teilerfremdheit (mit $a_i \in \mathbb{Z}, i=1, \cdots, n$):
-\begin{enumerate}
-\item $a_1,a_2, \cdots, a_n$ heißen {\em relativ prim}
-\index{Primzahl!relative}\index{Zahlen!relativ prim},
-wenn $ {\rm~ggT}(a_1, \cdots , a_n) =1.$
-\item Für mehr als $2$ Zahlen  ist eine noch stärkere Anforderung:\\
-      $a_1, \cdots , a_n$ heißen {\em paarweise relativ prim}, wenn für alle $i=1, \cdots, n$ und 
-      $j=1, \cdots , n$ mit $ i \neq j $ gilt: $ {\rm ggT} (a_i, a_j) =1. $
-\end{enumerate}
-\begin{example}{:}\\
-$2,3,6 $ sind relativ prim, da $ {\rm~ggT} (2,3,6)=1.$ 
-Sie sind nicht paarweise prim, da $ {\rm~ggT} (2,6)=2>1.$
-\end{example}
+Für eine natürliche Zahl $a$ aus der Menge $\{1, \cdots, m-1\}$ gibt es genau
+dann eine\index{ggT} modulare multiplikative Inverse, wenn sie mit dem Modul
+$m$ teilerfremd\footnote{%
+  Es gilt: Zwei ganze Zahlen $a$ und $b$ sind genau dann teilerfremd\index{
+  Zahlen!teilerfremde (co-prime)}, wenn ${\rm ggT}(a, b) = 1$.\\
+  Desweiteren gilt: Ist $p$ prim und $a$ eine beliebige ganze Zahl, die kein
+  Vielfaches von $p$ ist, so sind beide Zahlen teilerfremd.\\
+  Weitere Bezeichnungen zum Thema Teilerfremdheit (mit $a_i \in \mathbb{Z},
+  i=1, \cdots, n$):
+  \begin{enumerate}
+  \item $a_1,a_2, \cdots, a_n$ heißen {\em relativ prim}
+    \index{Primzahl!relative}\index{Zahlen!relativ prim},
+    wenn $ {\rm~ggT}(a_1, \cdots , a_n) =1.$
+  \item Für mehr als $2$ Zahlen  ist eine noch stärkere Anforderung:\\
+    $a_1, \cdots , a_n$ heißen {\em paarweise relativ prim}, wenn für alle
+    $i=1, \cdots, n$ und $j=1, \cdots , n$ mit $ i \neq j $ gilt:
+    $ {\rm ggT} (a_i, a_j) =1. $
+  \end{enumerate}
+  \begin{example}{:}\\
+  $2,3,6 $ sind relativ prim, da $ {\rm~ggT} (2,3,6)=1.$ 
+  Sie sind nicht paarweise prim, da $ {\rm~ggT} (2,6)=2>1.$
+  \end{example}
 } ist, d.h. wenn $a$ und $m$ keine gemeinsamen Primfaktoren haben.
 \end{satz}
 
-Da $m=5$ eine Primzahl ist, sind die Zahlen $1$ bis $4$ teilerfremd zu $5$, und es
-gibt mod $5$ zu {\bf jeder} dieser Zahlen eine multiplikative Inverse.
+Da $m=5$ eine Primzahl ist, sind die Zahlen $1$ bis $4$ teilerfremd zu $5$, und
+es gibt mod $5$ zu {\bf jeder} dieser Zahlen eine multiplikative Inverse.
 
 Ein Gegenbeispiel zeigt die Multiplikationstabelle für mod $6$
 (da der Modul $m = 6$ nicht prim ist, sind nicht alle Elemente aus
@@ -873,7 +889,7 @@ Primitivwurzel\index{Primitivwurzel}}.
 \end{satz}
 
 
-Die folgenden drei Beispiele\footnote{%
+\noindent Die folgenden drei Beispiele\footnote{%
   In Kapitel~\ref{nt:AppArith1} \glqq \nameref{nt:AppArith1}''
   finden Sie den Quellcode zur Berechnung der Tabellen mit Sage.\index{Sage}
 }
@@ -881,48 +897,54 @@ veranschaulichen Eigenschaften der multiplikativen Inversen (hier sind nicht
 mehr die vollständigen Multiplikationstabellen angegeben, sondern nur die Zeilen
 für die Faktoren $5$ und $6$).
 
-In der Multiplikationstabelle mod $17$ (Tabelle~\ref{mulmod17}) wurde
+\noindent Tabelle~{\bf \ref{mulmod17}} (Multiplikationstabelle mod $17$ wurde
 für $i = 1, 2, \cdots, 18$ berechnet:
 \begin{itemize}
    \item[] $(5*i)/17 = a$ Rest $r$ und hervorgehoben $5*i \equiv 1$ (mod $17$),
    \item[] $(6*i)/17 = a$ Rest $r$ und hervorgehoben $6*i \equiv 1$ (mod $17$).
 \end{itemize}
-{\bf Gesucht} ist das $i$, für das der Produktrest $ a*i$ modulo $17$ mit $a=5$ bzw. $a=6$
-den Wert $1$ hat. 
 
-\begin{table}[ht] \label{SrcArith1a}
+{\bf Gesucht} ist das $i$, für das der Produktrest $a*i$ modulo $17$ mit $a=5$
+bzw. $a=6$ den Wert $1$ hat (also die multiplikative Inverse von $a*i$). 
+
+\begin{table}[ht]
 \begin{center}
 \begin{tabular}{|l@{\:}||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c||c|c|}
 \hline 
-i                   & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16  & 17 & 18 \\
+i $\Rightarrow$     & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16  & 17 & 18 \\
 \hline
 \hline  
-$5*i$                 & 5 & 10 & 15 & 20 & 25 & 30 & 35 & 40 & 45 & 50 & 55 & 60 & 65 & 70 & 75 & 80  & 85 & 90   \\
+$5*i$               & 5 & 10 & 15 & 20 & 25 & 30 & 35 & 40 & 45 & 50 & 55 & 60 & 65 & 70 & 75 & 80  & 85 & 90   \\
 Rest                & 5 & 10 & 15  & 3  & 8 & 13  & {\bf 1}  & 6 & 11 & 16  & 4  & 9 & 14  & 2  & 7 & 12   & 0  & 5   \\
 \hline
-$6*i$                 & 6 & 12 & 18 & 24 & 30 & 36 & 42 & 48 & 54 & 60 & 66 & 72 & 78 & 84 & 90 & 96 & 102 & 108   \\
+$6*i$               & 6 & 12 & 18 & 24 & 30 & 36 & 42 & 48 & 54 & 60 & 66 & 72 & 78 & 84 & 90 & 96 & 102 & 108   \\
 Rest                & 6 & 12  & {\bf 1}  & 7 & 13  & 2  & 8 & 14  & 3  & 9 & 15  & 4 & 10 & 16  & 5 & 11   & 0  & 6   \\
 \hline
 \end{tabular}
 \end{center} 
 \caption{Multiplikationstabelle modulo $17$ (für $a=5$ und $a=6$)}
-\label{mulmod17}
+\label{SrcArith1a} \label{mulmod17}
 \end{table}
 
-Da sowohl $5$ als auch $6$ jeweils teilerfremd
-\index{Zahlen!teilerfremde (co-prime)}\index{Primzahl!relative}\index{Zahlen!relativ prim}
-zum Modul $m=17$ sind, kommen zwischen $i=1, \cdots, m$ für die Reste alle Werte
-zwischen $0, \cdots, m-1$ vor (vollständige $m$-Permutation\index{Permutation}).
+Da sowohl $5$ als auch $6$ jeweils teilerfremd \index{Zahlen!teilerfremde
+(co-prime)}\index{Primzahl!relative}\index{Zahlen!relativ prim} zum Modul
+$m=17$ sind, kommen zwischen $i=1, \cdots, m$ für die Reste alle Werte zwischen
+$0, \cdots, m-1$ vor (vollständige $m$-Permutation\index{Permutation}).
 % \enlargethispage{0.5cm}
 
 \noindent {\bf Die multiplikative Inverse von $5$ (mod $17$)
 ist $7$, die Inverse von $6$ (mod $17$) ist $3$.}
 
+
+
+
+\vskip + 20pt
+\noindent Tabelle~{\bf \ref{mulmod13}} (Multiplikationstabelle mod $13$
+berechnet die Reste der Produkte $5*i$ und $6*i$:
 \begin{table}[ht] \label{SrcArith1b}
-\begin{center}                                                                          
-\begin{tabular}{|l@{\:}||c|c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|}
+\begin{center}                                                                  \begin{tabular}{|l@{\:}||c|c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|}
 \hline 
-i                    & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16  & 17  & 18 \\
+i $\Rightarrow$      & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16  & 17  & 18 \\
 \hline 
 \hline 
 $5*i$                 & 5 & 10 & 15 & 20 & 25 & 30 & 35 & 40 & 45 & 50 & 55 & 60 & 65 & 70 & 75 & 80  & 85  & 90 \\
@@ -946,14 +968,16 @@ $0, \cdots, m-1$ vor.
 \noindent {\bf Die multiplikative Inverse von $5$ (mod $13$)
 ist $8$, die Inverse von $6$ (mod $13$) ist $11$.}
 
-Tabelle~\ref{mulmod12} enthält ein Beispiel dafür, wo der Modul $m$ und die Zahl $(a=6)$
-{\em nicht} teilerfremd sind.
+
+
+\vskip + 20pt
+\noindent Tabelle~{\bf \ref{mulmod12}} enthält ein Beispiel dafür, wo der
+Modul $m$ und die Zahl $(a=6)$ {\em nicht} teilerfremd sind.
 
 \begin{table}[ht]
-\begin{center}                                                                          
-\begin{tabular}{|l@{\:}||c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|c|}
+\begin{center}                                                                  \begin{tabular}{|l@{\:}||c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|c|}
 \hline 
-i                    & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16  & 17  & 18 \\
+i $\Rightarrow$      & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16  & 17  & 18 \\
 \hline 
 \hline 
 5*i                  & 5 & 10 & 15 & 20 & 25 & 30 & 35 & 40 & 45 & 50 & 55 & 60 & 65 & 70 & 75 & 80  & 85  & 90 \\
@@ -983,11 +1007,11 @@ ist $5$. Die Zahl $6$ hat keine Inverse (mod $12$). }
 \subsection{Potenzieren}
 \index{Potenzieren}
 Das Potenzieren ist in der modularen Arithmetik definiert als wiederholtes
-Multiplizieren -- wie üblich, nur dass jetzt Multiplizieren etwas anderes ist.
+Multiplizieren -- wie üblich.
 Es gelten mit kleinen Einschränkungen die üblichen Rechenregeln wie
 \begin{eqnarray*}
 a^{b+c} & = & a^b * a^c,  \nonumber \\
-(a^b)^c & = & a^{b*c} = a^{c*b} = (a^c)^b. \nonumber
+(a^b)^c & = & a^{b*c} = a^{c*b} = (a^c)^b \nonumber
 \end{eqnarray*}
 
 
@@ -1119,12 +1143,12 @@ Dieser häufig verwendete Algorithmus heißt \glqq Square and Multiply''. \index{S
 \vskip +40 pt
 \subsection{Wurzeln und Logarithmen} \index{Wurzel}
 
-Die Umkehrungen des Potenzierens sind ebenfalls definiert: Wurzeln und
+Die Umkehrungen des Potenzierens modulo m sind ebenfalls definiert: Wurzeln und
 Logarithmen sind abermals ganze Zahlen, aber im Gegensatz zur üblichen
 Situation sind sie nicht nur mühsam, sondern bei sehr großen Zahlen in
 \glqq erträglicher\grqq~ Zeit überhaupt nicht zu berechnen.
 
-Gegeben sei die Gleichung: $a \equiv b^c{\rm ~(mod~}m)$.
+\noindent Gegeben sei die Gleichung: $a \equiv b^c{\rm ~(mod~}m)$.
 
 \begin{itemize}
 \item [\bf a)] 
@@ -1246,20 +1270,24 @@ nicht für jedes $n$ alle Eigenschaften erfüllt sind.
 \mbox{}
 \begin{itemize}
 \item[a)] In $\mathbb{Z}_{15}$ besitzt z.B. das Element $5$ kein Inverses.
-Es gibt nämlich kein $a$ mit \\ $5 * a \equiv 1 ({\rm ~mod~}15).$
-Jedes Modulo-Produkt mit $5$ ergibt auf dieser Menge $5, 10$ oder $0$.
-\item[b)] In $\mathbb{Z}_{55} \setminus \{0\}$ besitzen z.B. die Elemente $5$ und $11$ 
-keine multiplikativen Inversen. Es gibt nämlich kein $a$ aus $\mathbb{Z}_{55}$ mit 
-$5 * a \equiv 1 ({\rm ~mod~}55)$ und kein $a$ mit $11 *a \equiv 1 {\rm ~mod~}55$.
-Das liegt daran, dass $5$ und $11$ nicht
-teilerfremd\index{Zahlen!teilerfremde (co-prime)} zu $55$ sind.
-Jedes Modulo-Produkt mit $5$ ergibt auf dieser Menge $5, 10, 15, \cdots, 50$ oder $0$.
-Jedes Modulo-Produkt mit $11$ ergibt auf dieser Menge $11, 22, 33, 44$ oder $0$.
+  Es gibt nämlich kein $a$ mit \\ $5 * a \equiv 1 {\rm ~(mod~}15).$
+  Jedes Modulo-Produkt mit $5$ ergibt auf dieser Menge $5, 10$ oder $0$.
+\item[b)] In $\mathbb{Z}_{55} \setminus \{0\}$ besitzen z.B. die Elemente $5$
+  und $11$ keine multiplikativen Inversen. Es gibt nämlich kein $a$ aus
+  $\mathbb{Z}_{55}$ mit $5 * a \equiv 1 {\rm ~(mod~}55)$ und kein $a$ mit
+  $11 *a \equiv 1 {\rm ~(mod~}55)$.
+  Das liegt daran, dass $5$ und $11$ nicht 
+  teilerfremd\index{Zahlen!teilerfremde (co-prime)} zu $55$ sind.
+  Jedes Modulo-Produkt mit $5$ ergibt auf dieser Menge $5, 10, 15, \cdots, 50$
+  oder $0$. Jedes Modulo-Produkt mit $11$ ergibt auf dieser Menge $11, 22, 33,
+  44$ oder $0$.
 \end{itemize}
 \end{example}
-Dagegen gibt es Teilmengen von $\mathbb{Z}_n$, die bezüglich mod* eine Gruppe bilden.
-Wählt man sämtliche Elemente aus $\mathbb{Z}_n$ aus, die teilerfremd zu $n$ sind, so ist
-diese Menge eine Gruppe bezüglich mod*. Diese Menge bezeichnet man mit $\mathbb{Z}_n^*$ .
+Dagegen gibt es Teilmengen von $\mathbb{Z}_n$, die bezüglich mod* eine Gruppe
+bilden.
+Wählt man sämtliche Elemente aus $\mathbb{Z}_n$ aus, die teilerfremd zu $n$
+sind, so ist diese Menge eine Gruppe bezüglich mod*. Diese Menge bezeichnet
+man mit $\mathbb{Z}_n^*$ .
 
 \begin{definition}\label{def-zth-znmult}
 {\bf $\mathbb{Z}_n^*$} : \index{Z@$\mathbb{Z}_n^*$}
@@ -1348,17 +1376,17 @@ Zu den RSA-Fixpunkten: siehe \ref{l:NumberTheory_Sage_Number-of-RSA-FixedPoints}
 
 
 % --------------------------------------------------------------------------
-\subsection{Die Euler-Funktion}\index{Eulersche Phi-Funktion}
+\subsection{Die Eulersche Phi-Funktion}\index{Eulersche Phi-Funktion}
 \label{L-Euler-Function}
-Bei vorgegebenem $n$ ist die Anzahl der Zahlen aus der Menge $\{1, \cdots, n-1\}$,
-die zu $n$ teilerfremd\index{Zahlen!teilerfremde (co-prime)} sind,
+Bei vorgegebenem $n$ ist die Anzahl der Zahlen aus der Menge $\{1, \cdots,
+n-1\}$, die zu $n$ teilerfremd\index{Zahlen!teilerfremde (co-prime)} sind,
 gleich dem Wert der Euler\footnote{%
 Leonhard Euler, schweizer Mathematiker, 15.4.1707 -- 18.9.1783\index{Euler,
 Leonhard} 
 }-Funktion $J(n)$.
 
 \begin{definition}\label{def-zth-phiofn} \hypertarget{EulerFunction}{}
-Die Euler-Funktion\footnote{%
+Die Eulersche Phi-Funktion\footnote{%
 Wird oft auch als Eulersche Phi-Funktion\index{Eulersche Phi-Funktion}
 $\Phi(n)$ oder $\phi(n)$ geschrieben.
 }
@@ -1425,7 +1453,7 @@ dessen Verallgemeinerung (Satz von Euler-Fermat) --
 Pierre de Fermat, französischer Mathematiker, 17.8.1601 -- 12.1.1665.
 \index{Fermat, Pierre}
 }
-\hypertarget{kleiner-Fermat}Sei $p$ eine Primzahl und $a$ eine beliebige ganze Zahl, dann gilt
+\hypertarget{kleiner-Fermat}Sei $p$ eine Primzahl und $a$ eine beliebige ganze Zahl, dann gilt:
 $$a^p \equiv a {\rm ~(mod~} p).$$
 \end{satz}
 
@@ -1458,13 +1486,17 @@ Es gilt: $a^{(p-1)*(q-1)} \equiv 1 {\rm ~(mod~}pq)$.
 \begin{example}{ Berechnung einer modularen Potenz:}
 \vskip -4pt
 \begin{itemize}
-   \item Mit $2 = 1 * 2$ und $6 = 2*3$, wobei $2$ und $3$ jeweils prim;
+   \item Was ist $5^{2} {\rm ~(mod~}6)$ ?\\
+         Mit $2 = 1 * 2$ und $6 = 2*3$, wobei $2$ und $3$ jeweils prim;
          $J(6) = 2$, da nur $1$ und $5$ zu $6$ teilerfremd
          \index{Zahlen!teilerfremde (co-prime)} sind, folgt
          $5^2 \equiv 5^{J(6)} \equiv 1 {\rm ~(mod~}6)$,
          ohne dass man die Potenz berechnen musste.
-   \item Mit $792 = 22 * 36$ und $23*37 = 851$, wobei $23$ und $37$ jeweils prim sind, folgt für $31 \in \mathbb{Z}_{851}^*$\\
-         $31^{792} \equiv 31^{J(23*37)} \equiv 31^{J(851)} \equiv 1 {\rm ~(mod~}851)$.
+   \item Was ist $31^{792} {\rm ~(mod~}851)$ ?\\
+         Mit $792 = 22 * 36$ und $23*37 = 851$, wobei $23$ und $37$ jeweils
+         prim sind, folgt für $31 \in \mathbb{Z}_{851}^*$\\
+         $31^{792} \equiv 31^{J(23*37)} \equiv 31^{J(851)} \equiv 1
+         {\rm ~(mod~}851)$.
 \end{itemize}
 \end{example}
 
@@ -1610,8 +1642,9 @@ haben: Die Ordnungen sind $1, 2, 5$ und $10$. Es gilt:
 \newpage
 \begin{example}{ 1:}\\
 Die folgende Tabelle~\ref{expmod11}\footnote{%
-  Den Quelltext zur Bestimmung der Tabelle \ref{expmod11} mit Sage finden Sie
-  in Kapitel~\ref{nt:AppArith3a1} \glqq \nameref{nt:AppArith3a1}''.}
+  Das Sage-Beispiel~\ref{nt_Sage-code_MultOrder_expmod11} enthält den
+  Quelltext zur Berechnung der Tabelle~\ref{expmod11}.
+  Siehe Kapitel~\ref{nt:AppArith3a1} \glqq \nameref{nt:AppArith3a1}''.}
 zeigt die Werte $a^i{\rm ~mod~}11$ für die Exponenten $i = 1, 2, \cdots, 10$
 und für die Basen $a = 1, 2, \cdots, 10$, sowie den sich für jedes a daraus
 ergebenden Wert $ord_{11}(a)$.
@@ -1646,7 +1679,7 @@ a=10         & 10  & {\bf 1}   & 10  & 1   & 10    & 1   & 10  & 1   & 10  & 1  
 \hline
 \end{tabular}
 \end{center}
-\caption{Werte von $a^i{\rm ~mod~}11, 1\leq a,i<11$ und zugehörige Ordnung von $a$ modulo $m$}
+\caption{Werte von $a^i{\rm ~mod~}11, 1\leq a,i<11$ und zugehörige Ordnung von $a$ modulo $11$}
 \label{expmod11}
 \end{table}
 
@@ -1678,9 +1711,9 @@ $45$ und modulo $46$.
 \newpage
 \begin{example}{ 2:}\\
 Die folgende Tabelle~\ref{expmod45}\footnote{%
-  Den Quelltext zur Berechnung der Tabelle~\ref{expmod45} mit Sage finden Sie
-  in Kapitel~\ref{nt:AppArith3b}, \glqq \nameref{nt:AppArith3b}''.
-}
+  Das Sage-Beispiel~\ref{nt_Sage-code_MultOrder_expmod45} enthält den
+  Quelltext zur Berechnung der Tabelle~\ref{expmod45}.
+  Siehe Kapitel~\ref{nt:AppArith3b}, \glqq \nameref{nt:AppArith3b}''.}
 zeigt die Werte $a^i{\rm ~mod~}45$ für die Exponenten $i = 1, 2, \cdots, 12$
 und für die Basen $a = 1, 2, \cdots, 12$ sowie den sich für jedes $a$ daraus
 ergebenden Wert $ord_{45}(a)$.
@@ -1719,7 +1752,7 @@ ergebenden Wert $ord_{45}(a)$.
 \hline
 \end{tabular}
 \end{center}
-\caption{Werte von $a^i{\rm ~mod~}45, 1\leq a,i<13$}
+\caption{Werte von $a^i{\rm ~mod~}45, 1\leq a,i<13$ und zugehörige Ordnung von $a$ modulo $45$}
 \label{expmod45}
 \end{table}
 
@@ -1750,10 +1783,13 @@ denn $ord_{45}(7) = 12 \not= 24 = J(45)$.%\vskip + 1em
 \newpage
 \begin{example}{ 4:}\\
 Die folgende Tabelle~\ref{expmod46}\footnote{%
-  In Kapitel~\ref{nt:AppArith3c}, \glqq \nameref{nt:AppArith3c}''
-  finden Sie den Quelltext zur Berechnung der Tabelle~\ref{expmod46} mit Sage.
-} beantwortet die Frage, ob die Zahl $a=7$ eine Primitivwurzel\index{Primitivwurzel} von $46$ ist.
-Die notwendige, aber nicht hinreichende Voraussetzung/Bedingung ggT$(7,46)=1$ ist erfüllt.\\
+  Das Sage-Beispiel~\ref{nt_Sage-code_MultOrder_expmod46} enthält den
+  Quelltext zur Berechnung der Tabelle~\ref{expmod46}.
+  Siehe Kapitel~\ref{nt:AppArith3c}, \glqq \nameref{nt:AppArith3c}''.}
+beantwortet die Frage, ob die Zahl $a=7$ eine Primitivwurzel\index{Primitivwurzel} von $46$ ist.
+
+\noindent Die notwendige, aber nicht hinreichende Voraussetzung/Bedingung
+ggT$(7,46)=1$ ist erfüllt.\\
 $J(46)$ berechnet sich nach Satz~\ref{J_of_pq}: $J(46) = J(2*23) = 1*22 = 22$.
 Die Zahl $7$ ist eine Primitivwurzel\index{Primitivwurzel} von $46$,
 denn $ord_{46}(7) = 22 = J(46)$.
@@ -1819,7 +1855,7 @@ $a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 &
 \end{tabular}
 \end{center}
 }
-\caption{Werte von $a^i{\rm ~mod~}46, 1\leq a,i<24$}
+\caption{Werte von $a^i{\rm ~mod~}46, 1\leq a,i<24$ und zugehörige Ordnung von $a$ modulo $46$}
 \label{expmod46}
 \end{table}
 
@@ -1889,7 +1925,7 @@ die Zykluslänge maximal sein.\footnote{%
          gebildet wird,  $m^e{\rm ~mod~}n$ mit $0\leq m<n$, und diese Folge
          dann alle Zahlen $0, ..., n-1$ durchläuft (Permutation).
 }\\
-Beispiele:\\
+\indent Beispiele:\\
 \indent  - In Tabelle~\ref{expmod14} ist $l_{max}=J(14)=6$ für $a=10, 12$.\\
 \indent  - In Tabelle~\ref{expmod22} ist $l_{max}=J(22)=10$ für $a=2, 6, 8, 18$.
 
@@ -2295,21 +2331,22 @@ dass man den privaten Key $d$ nicht aus  dem öffentlichen Key $(n,e)$ berechnen 
 \subsection{Beweis der Forderung 1 (Umkehrbarkeit)}
 \label{RSAproof}
 
-Für Schlüsselpaare $(n, e)$ und $(n, d)$, die die in den Schritten 1 bis 3 des RSA-Verfahrens 
-festgelegten Eigenschaften besitzen, muss für alle $M < n$ gelten:
-$$M  \equiv  (M^e)^d  {\rm ~(mod~} n) \quad {\rm wobei} \quad  (M^e)^d  =  M^{e * d}.$$
+Für Schlüsselpaare $(n, e)$ und $(n, d)$, die die in den Schritten 1 bis 3 des
+RSA-Verfahrens festgelegten Eigenschaften besitzen, muss für alle $M < n$
+gelten: $$M  \equiv  (M^e)^d  {\rm ~(mod~} n) \quad {\rm wobei} \quad
+            (M^e)^d  =  M^{e * d}.$$
 Das heißt, der oben angegebene Dechiffrieralgorithmus arbeitet korrekt.
 
-Zu zeigen ist also:   $M^{e * d}  = M$  (mod $n$):
+\noindent Zu zeigen ist also:
+   $$ M^{e * d}  \equiv  M  {\rm ~(mod~} n) $$
 
-\noindent Wir zeigen das in 3 Schritten (s. \cite[S. 131ff]{nt:Beutelspacher1996}).
+\noindent Wir zeigen das in 3 Schritten mit Hilfe von Satz~\ref{thm-zth-fermat1} (Kleiner Satz von Fermat)\\ (siehe \cite[S. 131ff]{nt:Beutelspacher1996}).
 
 \noindent {\bf Schritt 1:} 
 
-Im ersten Schritt zeigen wir: 
-$$M^{e * d} \equiv M{\rm ~(mod~}p).$$
-Dies ergibt sich aus den Voraussetzungen und dem Satz von Euler-Fermat (Satz~\ref{thm-zth-fermateuler}).
-Da $n=p*q$ und $J(p*q)=(p-1)*(q-1)$ und da $e$ und $d$ so gewählt sind, dass $e*d \equiv 1 {\rm ~(mod~}J(n))$,
+\noindent Im ersten Schritt zeigen wir: $M^{e * d} \equiv M{\rm ~(mod~}p)$
+
+\noindent Da $n=p*q$ und $J(p*q)=(p-1)*(q-1)$ und da $e$ und $d$ so gewählt sind, dass $e*d \equiv 1 {\rm ~(mod~}J(n))$,
 gibt es eine ganze Zahl $k$, so dass gilt: $e*d = 1 + k*(p-1)*(q-1)$.
 \begin{eqnarray*}
 M^{e * d}  & \equiv & M^{1+k*J(n)} \equiv M * M^{k*J(n)} \equiv M * M^{k*(p-1)*(q-1)}{\rm ~(mod~}p) \nonumber \\
@@ -2330,16 +2367,16 @@ Wenn $p$ die Zahl $M$ teilt, so teilt $p$ erst recht $M^{e * d}$. Also ist auch:
 $$M^{e * d} \equiv 0 {\rm ~(mod~}p).$$
 Da $p$ sowohl $M$ als auch $M^{e * d}$ teilt, teilt er auch ihre Differenz:
 $$ (M^{e * d} - M ) \equiv 0 {\rm ~(mod~}p).$$
-Und damit gilt auch in diesem Spezialfall unsere zu beweisende Behauptung.
+Und damit gilt auch in diesem Spezialfall unsere zu beweisende Behauptung.\\
 
 \noindent {\bf Schritt 2:} 
 
-Völlig analog beweist man:  $M^{e * d} \equiv M{\rm ~(mod~}q)$.
+\noindent Völlig analog beweist man:  $M^{e * d} \equiv M{\rm ~(mod~}q)$.\\
 
 \noindent {\bf Schritt 3:} 
 
-Nun führen wir die Behauptungen aus Schritt 1 und 2 zusammen für $n=p*q$, um
-zu zeigen:
+\noindent Nun führen wir die Behauptungen aus Schritt 1 und 2 zusammen für
+$n=p*q$, um zu zeigen:
 $$ M^{e * d} \equiv M{\rm ~(mod~}n) \mbox{~für~alle~} M < n. $$
 Nach Schritt 1 und 2 gilt $(M^{e * d} - M) \equiv 0 {\rm ~(mod~} p)$ und $(M^{e * d} - M) \equiv 0 {\rm ~(mod~} q)$,
 also teilen $p$ und $q$ jeweils dieselbe Zahl $z = (M^{e * d} - M)$.
@@ -2352,8 +2389,9 @@ $$
 
 
 \begin{remark}{ 1:}\\
-Man kann die 3 Schritte auch kürzer zusammenfassen, wenn man Satz~\ref{thm-zth-fermateuler} 
-(Euler-Fermat) benutzt (also nicht den vereinfachten Satz, wo $n = p$ gilt):
+Man kann die 3 Schritte auch kürzer zusammenfassen, wenn man
+Satz~\ref{thm-zth-fermateuler} (Euler-Fermat) benutzt (also nicht den
+vereinfachten Satz, wo $n = p$ gilt):
 $$
 (M^e)^d \equiv M^{e*d} \equiv M^{(p-1)(q-1)*k + 1} \equiv 
         (\underbrace{M^{(p-1)(q-1)}}_{\equiv M^{J(n)} \equiv 1 {\rm ~(mod~}n)})^k * M
@@ -2636,7 +2674,7 @@ Hält die Prognose, dann ist die Faktorisierung eines RSA-Moduls der Länge
 % scale dehnt Rahmenlinie und Bild aus -> Sitenrand wird bei 0.7 z.B. kleiner.
 }
 \caption{Vergleich der publizierten Faktorisierungserfolge (blau) mit der
-prognostizierten Entwicklung (rot) [Quelle Fox 2001]}
+prognostizierten Entwicklung (rot) [Quelle Fox 2001; letzte Ergänzung 2011]}
 \label{secorvo-factorisation-forecast}
 \end{center}
 \end{figure}
@@ -3419,10 +3457,8 @@ Aber selbst die Autoren merken an, dass andere bekannte Algorithmen (z.B. ECPP) 
 
 % --------------------------------------------------------------------------
 \vskip +20pt
-%\paragraph*{``Primes in P'': Testen auf Primalität ist polynominal}
 \subsubsection{\glqq Shared Primes\grqq: Module mit gleichen Primzahlen}
 \label{nt_Shared-Primes} \index{Primzahl!Shared} 
-
 %~\ref{nt_Shared-Primes}, S.~\pageref{nt_Shared-Primes}
 Im xxxxxxxxxx
 
@@ -3691,7 +3727,8 @@ Von Bob: $11 ^ y \equiv 285 {\rm ~(mod~}347)$, also $\log_{11}(285){\rm ~(mod~}3
 
 \begin{ctsquote}
 \glqq Das Spiel ist eine Erfindung der Natur, um uns auf schwierige Realitäten vorzubereiten. Sind Sie jetzt endlich bereit, der Realität is Auge zu sehen, Sergeant?\grqq 
-\caption[Daniel Suarez, Daemon]{Daniel Suarez\footnotemark}\index{Suarez, Daniel}
+\caption[Daniel Suarez]{Daniel Suarez\footnotemark}\index{Suarez, Daniel}
+%Der erste String nach \caption geht in das Zitate-Verzeichnis.
 \end{ctsquote}
 \addtocounter{footnote}{0}\footnotetext{Daniel Suarez, \glqq Daemon\grqq, rororo, (c) 2010,
 Kapitel 45, \glqq Wiedereintritt\grqq, S. 615, Sobol.}
@@ -4565,10 +4602,10 @@ Form die Grundlagen und Funktionsweisen der RSA-Chiffre.
 
 \begin{ctsquote}
 \glqq Nie würde sie ihren Eltern ... von dieser ganzen Welt erzählen können. Nicht von ihrer Arbeit, die im Knacken von Codes bestand. Nicht vom Fiasko der Daemon-Taskforce ... Nicht von den schattenhaften Marionetten, die die Regierung nach ihrer Pfeife tanzen ließen.\grqq 
-\caption[Daniel Suarez, Darknet]{Daniel Suarez\footnotemark}\index{Suarez, Daniel}
+\caption[Daniel Suarez]{Daniel Suarez\footnotemark}\index{Suarez, Daniel}
 \end{ctsquote}
-\addtocounter{footnote}{0}\footnotetext{Daniel Suarez, \glqq Darknet\grqq, rororo,
-                           (c) 2011, Kapitel 19, \glqq Scheideweg\grqq, S. 229, Philips.}
+\addtocounter{footnote}{0}\footnotetext{Daniel Suarez, \glqq Darknet\grqq,
+     rororo, (c) 2011, Kapitel 19, \glqq Scheideweg\grqq, S. 229, Philips.}
 
 
 \noindent In diesem Anhang finden Sie Sage-Quellcode, mit dem Sie die Tabellen und
@@ -4685,6 +4722,7 @@ sage: for a in xrange(1, m):
 [10, 1, 10, 1, 10, 1, 10, 1, 10, 1, 2]
 \end{Verbatim}
 \caption{Tabelle mit allen Potenzen $a^i \pmod{m}$ für $m=11$, $a=1,...,10$}
+\label{nt_Sage-code_MultOrder_expmod11}%Creates table with label expmod11
 \end{sagecode}
 
 
@@ -4724,6 +4762,7 @@ sage: for a in xrange(1, 13):
 [12, 9, 18, 36, 27, 9, 18, 36, 27, 9, 18, 36, 'None', 24]
 \end{Verbatim}
 \caption{Tabelle mit allen Potenzen $a^i \pmod{45}$ für $a=1,...,12$ plus der Ordnung von a}
+\label{nt_Sage-code_MultOrder_expmod45}
 \end{sagecode}
 
 Die Ordnung $\text{ord}_m(a)$ kann nur berechnet werden, wenn $a$
@@ -4787,6 +4826,7 @@ sage: for a in xrange(1, 24):
 [23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 'None']
 \end{Verbatim}
 \caption{Tabelle mit allen Potenzen $a^i \pmod{46}$ für $a=1,...,23$ plus die Ordnung von a}
+\label{nt_Sage-code_MultOrder_expmod46}
 \end{sagecode}
 
 
@@ -5599,7 +5639,7 @@ desto einfacher ist es, ihn zu knacken.
 Beim RSA-Verfahren gilt: $n=pq$ ist das Produkt zweier verschiedener Primzahlen, und
 es gibt ein $e$ mit $ggT(e,(p-1)(q-1))=1$. Die Verschlüsselung erfolgt mit
 $c = m^e \mod n$. 
-Ein Fixpunkt beim RSA-Verfahren ist dann eine Nachricht $m$, für die gilt:
+Ein Fixpunkt beim RSA-Verfahren ist eine Nachricht $m$, für die gilt:
 $m = m^e \mod n$. Das Ergebnis der Verschlüsselung ist wieder die gegebene
 Nachricht.
 
@@ -5614,7 +5654,9 @@ stoßen, denn m = 0, 1 und n-1 sind immer auch Fixpunkte.
 In der Praxis, also bei groß genug gewählten Primzahlen, haben Fixpunkte keine
 Bedeutung für die Sicherheit von RSA. Deshalb bezieht sich dieser Abschnitt
 eher auf mathematische Fragen.\footnote{%
-Dank geht an Taras Shevchenko, der Teile des Inhalts dieses Kapitels zusammentrug, und an Volker Simon, der das Sage-Programm \ref{nt_sagesample_Calculate_RSA-Fixpoints}  "`Getfixpoints"' schrieb.}
+Dank geht an Taras Shevchenko, der Teile des Inhalts dieses Kapitels zusammentrug, und an Volker Simon, der das Sage-Programm \ref{nt_sagesample_Calculate_RSA-Fixpoints}
+\glqq Getfixpoints\grqq~% "`Getfixpoints"'
+schrieb.}
 
 
 % ----------------------------------------------------
@@ -5626,8 +5668,11 @@ Die Anzahl der Fixpunkte $ m^e = m \bmod n$ mit $m \in \{1,...,n-1\} $ ist \\$ g
 \end{satz}
 \begin{proof}
 Sei $m^e = m \bmod n.$
-Nach dem CRT sind die beiden folgenden Aussagen äquivalent:\\
-$$ [ m^e = m \bmod n ]  \Leftrightarrow [ m^{e} = m \bmod p \text{  und  } m^{e} = m \bmod q $$
+Nach dem CRT\index{CRT}\footnote{%
+CRT = Chinesischer Restsatz. 
+\url{http://de.wikipedia.org/wiki/Chinesischer_Restsatz}
+} sind die beiden folgenden Aussagen äquivalent:\\
+$$ [ m^e = m \bmod n ]  \Leftrightarrow [ m^{e} = m \bmod p \text{  und  } m^{e} = m \bmod q ] $$
 Diese Zerlegung ist äquivalent zu:
 $$m^{e-1} = 1 \bmod p \text{  und  } m^{e-1} = 1 \bmod q. $$
 
@@ -5757,7 +5802,8 @@ $~~~c = m^1 \cdot m^{[k \cdot \phi(n)] \mod \phi(n)} \mod n$
 $~~~c = m^1 \cdot m^{0} = m \mod n $
 \end{proof}
 
-~\\ % Zeilenumbruch erzwingen 
+\newpage
+%~\\ % Zeilenumbruch erzwingen 
 \noindent\textbf{Beispiel: Fixpunkteigenschaft für alle m:}\\
 Gegeben sei $n=p\cdot q= 13\cdot 37=481\\
 \Rightarrow \phi(n)=(p-1)(q-1)=12\cdot 36=432$\\
@@ -5771,13 +5817,20 @@ $480^{37} \mod 481=480 $ \\
 
 ~\\ % Zeilenumbruch erzwingen
 \noindent Es gibt nicht nur das einzige $e$ (siehe oben), so dass für alle $ m \in \{1,...,n-1\}$ die Fixpunkteigenschaft $ m^e = m \bmod n$ gilt.\footnote{%
-Man kann diese $e$, die jede Nachricht zu einem Fixpunkt machen, als "`schwache
-Schlüssel"' $(e,n)$ des RSA-Verfahrens bezeichnen\index{Schlüssel!schwach}.
-Diese Bezeichnung unterscheidet sich jedoch von den "`schwachen Schlüsseln"' $k$
-bei DES\index{DES}, die \textbf{jede} Nachricht $m$ bei doppelt hintereinander
-durchgeführter \textbf{Ver}schlüsselung auf sich selbst abbilden.
-Das RSA-Verfahren kennt für größere $n$ m.W. keine schwachen Schlüssel dieser Art:
-$(m^e)^e = m$.}
+  Man kann diese $e$, die jede Nachricht zu einem Fixpunkt machen, als
+  "`schwache Schlüssel"' $(e,n)$ des RSA-Verfahrens
+  bezeichnen\index{Schlüssel!schwach}.
+  Diese Bezeichnung unterscheidet sich jedoch von den "`schwachen Schlüsseln"'
+  $k$ bei DES\index{DES}, die \textbf{jede} Nachricht $m$ bei doppelt
+  hintereinander durchgeführter \textbf{Ver}schlüsselung auf sich selbst
+  abbilden.
+  Das RSA-Verfahren kennt m.W. für größere $n$ keine schwachen Schlüssel
+  dieser Art: $(m^e)^e = m$.\\
+  In JCT\index{JCrypTool} findet man schwache DES-Schlüssel in der
+  Standard-Perspektive über den Menüeintrag {\bf Visualisierungen
+  \textbackslash{} Innere Zustände im Data Encryption Standard (DES)}.
+}
+
 \begin{satz}\label{nt-thm-complete-fixed-point-property-values-of-e}
 Die vollständige Fixpunkteigenschaft aller $m$ gilt für jedes\\
 $e=j\cdot kgV(p-1,q-1)+1$, wobei $j=0,1,2,3,4, ... $ bis $e \leq \phi(n)$.
@@ -5811,6 +5864,7 @@ für $e$, bei denen für alle $m$ in $\mathbb{Z}_{481}$ gilt: $m^e = m \bmod n$.\\
 
 
 % ----------------------------------------------------
+\newpage
 \subsubsection[Empirische Abschätzung der Anzahl der Fixpunkte für wachsende Moduli]{Eine empirische Abschätzung der Anzahl der Fixpunkte für wachsende Moduli}
 In diesem Kapitel machen wir eine empirische Abschätzung der Anzahl der Fixpunkte
 für wachsende Moduli (und nicht schwache $e$).
@@ -5965,8 +6019,9 @@ $ (n,e) = (866959, 17)$:
 \end{table}
 
 \noindent \textbf{Beispiel:} \\
-Validieren, dass $ m = 843441$ wirklich ein Fixpunkt ist:
-$843441^{17} \mod 866959 = 843441 $\\
+Beispielhaftes Validieren für $ 843441 $:~~
+$843441^{17} \mod 866959 = 843441$\\
+Also ist $ m = 843441$ ein Fixpunkt für das gegebene $(n,e)$.\\
 
 %%% Leicht modifiziertes SAGE-Programm von Volker Simon (9/2012)
 \begin{sagecode}
