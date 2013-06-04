@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 for Win32, April 2013 (Beta 06) xxxx
+    CrypTool, Version 1.4.31 for Win32, June 2013 (Beta 06a) xxxx
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main, and the
@@ -79,32 +79,33 @@ world-wide are working and contributing voluntarily to the CrypTool project.
 Every part of the program comes with extensive online help, which
 can be understood without deep knowledge in cryptography.
 
-CrypTool 1 is available in the five languages
-- English,
-- German,
-- Polish,
-- Serbian and
-- Spanish.
+CrypTool 1 is available in 6 languages:
+- English (EN),
+- German (DE),
+- Greek (EL),
+- Polish (PL),
+- Serbian (RS) and
+- Spanish (ES).
 
 In all language versions the program has the same full functionality --
 translated and localized are the GUI (menus, dialogs, etc.) of the programs
-CrypTool, AES-Tool and Number Shark.
+CrypTool, AES-Tool and Number Shark, and the installation program (setup).
 
 Here is a list of the remaining components of the CrypTool-1 package, which
 could not be localized yet for all language versions:
-                        DE     EN    ES     PL    RS
-Online help (html)      yes    yes   no     no    no
-Readme file (txt)       yes    yes   no     no    no
-CT script (pdf)         yes    yes   no     no    no
-CT presentation (pdf)   yes    yes   yes    no    no
-Elsner stories (pdf)    yes    yes   no     no    no
+                        DE     EN    EL    ES     PL    RS
+Online help (html)      yes    yes   no    no     no    no
+Readme file (txt)       yes    yes   no    no     no    no
+CT script (pdf)         yes    yes   no    no     no    no
+CT presentation (pdf)   yes    yes   no    yes    no    no
+Elsner stories (pdf)    yes    yes   no    no     no    no
 
 In English and German the CrypTool-1 package is completely localized.
 If a component isn't available for a special language version, then
 the according English component is attached.
 
-Further language versions (Greek, Turkish, Russian, Ukrainian, French, ...)
-are under development.
+Further language versions (Turkish, Russian, Ukrainian, French, ...)
+are a bit under development.
 
 The current release version of CrypTool and the source code are
 available at the following internet addresses (without registration):
@@ -114,14 +115,13 @@ available at the following internet addresses (without registration):
                 http://www.CrypTool.es
                 http://www.CrypTool.pl
 
-Since beginning of 2010 more than 6000 CrypTool-1 packages are downloaded
-per month -- with a growing trend (more than 1/2 of the current downloads
-request the English version).
+Since beginning of 2010, the rate of CrypTool-1 packages downloaded per month
+is ca. 6000 (more than 1/2 of the current downloads request the English version).
 
 There are two successors of CT1, called CT2 and JCT.
 Their download numbers are: xxxxxxxxxxxxxxxxxx
-               JCT: ca.  500 / month
-               CT2: ca. 2000 / month
+               JCT: ca. 3000 / month
+               CT2: ca. 3000 / month
 The successor versions von CT1 offer a far broader functionality than
 CrypTool 1.
 
@@ -213,7 +213,7 @@ Main part of the CrypTool 1 package is the program CrypTool 1 itself:
   employee's awareness about the importance of IT security.
 
 - Most of the cryptographic basic algorithms used are taken from:
-  - the Secude library (http://www.secude.com/),
+  - the Secude library (http://www.secude.com/), xxxxxxxxx
   - the Miracl library from DCU/CertiVox (former Shamus Software)
         (http://www.compapp.dcu.ie/~mike/shamus.html),
   - the OpenSSL library (http://www.openssl.org/),
@@ -406,7 +406,7 @@ for their input:
   application remain with the appropriate owners/authors.
 
 - The companies (see chapter 1.2)
-  - Secude IT Security Ltd,
+  - Secude IT Security Ltd,xxxxxxxxxx
   - Shamus Software Ltd and
   - cv cryptovision Ltd
   allowed us gratefully to use their cryptographic libraries.
@@ -564,6 +564,7 @@ The general properties and functions of CrypTool 1 are:
     entropy by mouse moves and keyboard entries.
     This is the default, when calling it the first time, because it shows,
     that you need a random source in order to get good random data.
+    xxxxxxxxxxxx
   - 3-D visualization of big sets of random numbers with the rendering
     engine from OpenQVis (http://openqvis.sourceforge.net/).
 
@@ -704,15 +705,16 @@ The general properties and functions of CrypTool 1 are:
   can be found in the sources in the file "readme-source.txt".
 
 - The sources have been compiled with the Microsoft development environment
-  Visual Studio 2008 Standard Edition (VC++ v9.0), in order to support the
-  most-modern Microsoft development environment.
-  The Express Edition of VS2008 is not sufficient, because this does not
-  support the old MFC library (in contrast to the Standard Edition) for
-  the GUI, which is still used in CT 1.x.
-  Additionally there was a need to change from VS2003 to VS2008, because
-  some libraries could only be compiled with VS2008 in a way, that they run
-  well under both Windows XP and Windows Vista.
-  Compiling all versions (5 languages, each in debug and release mode)
+  Visual Studio 2010 Standard Edition (VC++ v9.0), in order to support a
+  modern Microsoft development environment used at the universities.
+  Note about the versions of the MS development environment:
+  - The Express Edition of VS2008 is not sufficient, because this does not
+    support the old MFC library (in contrast to the Standard Edition) for
+    the GUI, which is still used in CT 1.x.
+  - Additionally there was a need to change from VS2003 to VS2008, because
+    some libraries could only be compiled with VS2008 in a way, that they run
+    well under both Windows XP and Windows Vista.
+  Compiling all versions (6 languages, each in debug and release mode)
   lasts about 2 h on a modern PC.
 
 
@@ -1286,9 +1288,10 @@ This means that everybody (!), who uses CrypTool, can sign user
 certificates with this built-in CA.
 
 Professional PKI software like the OpenXPKI, the FlexiTRUST from
-FlexSecure, Entrust, the Secude CA or the Microsoft CA additionally
-manage the whole certificate life-cycle, offer CRL handling, take care
-for unique serial numbers and use defined registration processes.
+FlexSecure, Entrust, or the Microsoft CA additionally manage the
+whole certificate life-cycle, offer CRL handling, take care for
+unique serial numbers and use defined registration processes.
+JCT contains a plugin which visualizes the processes of a PKI.
 
 Nevertheless, all the modern crypto algorithms in CrypTool are
 implemented according to international standards and are working
@@ -1688,8 +1691,7 @@ b) If the user wants to create (or change) files from within CrypTool in
 5. List of delivered files
    -----------------------
 The package is distributed as a compressed, self extracting archive
-in currently five (xxxx) different language versions: English, German, Polish,
-Serbian, Spanish.
+in currently six (xxxx) different language versions.
 
 The self-extracting archive in English language
            SetupCrypTool_1_4_31_en.exe
@@ -1715,14 +1717,14 @@ EC-Param.ini ..... Initialization file for public-key procedures
                    based on elliptic curves.
 TEST-Param.ini ... Initialization file for random number tests.
 secude.dll ....... Library of cryptographic functions provided by
-                   Secude IT Security Ltd.
-ticket ........... License for the Secude library.
-libxml2.dll ...... Is used by the secude.dll.
-secidea.dll ...... Is used by the secude.dll for IDEA encryption.
+                   Secude IT Security Ltd.xxxxxxxx
+ticket ........... License for the Secude library.xxxxxxxx
+libxml2.dll ...... Is used by the secude.dll.xxxxxxxx
+secidea.dll ...... Is used by the secude.dll for IDEA encryption.xxxxxxx
 srndmskb.dll ..... Used by secude.dll for collecting entropy when
-                   initializing the Secude random number generator.
-db.dll ........... Is used by the secude.dll.
-secude.xml ....... Is used by the secude.dll.
+                   initializing the Secude random number generator.xxxxxxx
+db.dll ........... Is used by the secude.dll.xxxxxxxxxx
+secude.xml ....... Is used by the secude.dll.xxxxxxxxxxxx
 libeay32.dll ..... Library from OpenSSL.
 SciLexer.dll ..... Library of the Scintilla text editor.
 cracklib_Win32.dll .. Supports PQM tests.
@@ -1821,7 +1823,7 @@ cryptochallenges\Schmeh01-Dorabella-enc.txt
 
 
 reference\ ...... This directory contains text files in the
-                  languages German, English, French, Spanish, Polish
+                  languages German, English, French, Greek xxxxx, Spanish, Polish
                   and Latin. These files are routinely used as
                   references for the analysis of encrypted
                   texts. These files are write-protected.
@@ -2157,6 +2159,10 @@ Remarks about the versions:
         SP:  94.4 MB
 1.4.31-Beta05  July 2012  First public beta of CT 1.4.31.
 1.4.31-Beta06  Feb. 2013  Second public beta of CT 1.4.31.
+1.4.31-Beta06a June 2013  Third public beta of CT 1.4.31
+                          (first one with a Greek language version)
+1.4.31-Beta06a July 2013  Fourth public beta of CT 1.4.31
+                          (first with OpenSSL and SAP lib replacing Secude).
 1.4.31  Many bug fixes and a few enhanced functionality compared to 1.4.30.
 
 
@@ -3138,7 +3144,7 @@ A.4.2. Porting draft of CrypTool 1 to Linux with Qt
 A project to port CrypTool 1.4.x to Linux using GCC 4.x and Qt 4.x
 was started outside of the actual CrypTool project by single persons,
 but unfortunately not finished because lack of time.
-- The libraries from Secude, Miracl, NTL, OpenSSL and GMP/MPIR are available.
+- The libraries from Miracl, NTL, OpenSSL and GMP/MPIR are available.
 - Divide the complete task in meaningful parts:
        - graphical user interface: This is the main task.
        - functionality implemented in pure C/C++: ok
