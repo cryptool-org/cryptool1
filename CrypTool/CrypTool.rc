@@ -11255,7 +11255,7 @@ BEGIN
                             "Rosyjski plik referencyjny"
     IDS_LANGUAGEREFERENCEFILE_FILENAME_RUSSIAN "genesis-ru.txt"
     IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_GREEK "Grecki plik referencyjny"
-    IDS_LANGUAGEREFERENCEFILE_FILENAME_GREEK "genesis-gr.txt"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_GREEK "homer-el.txt"
 END
 
 #endif    // Polish (Poland) resources
@@ -22496,7 +22496,7 @@ BEGIN
                             "[i18n] Russian reference file"
     IDS_LANGUAGEREFERENCEFILE_FILENAME_RUSSIAN "genesis-ru.txt"
     IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_GREEK "[i18n] Greek reference file"
-    IDS_LANGUAGEREFERENCEFILE_FILENAME_GREEK "genesis-gr.txt"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_GREEK "homer-el.txt"
 END
 
 #endif    // Serbian (Latin, Serbia and Montenegro (Former)) resources
@@ -33672,7 +33672,7 @@ BEGIN
     IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_RUSSIAN "Russische Referenzdatei"
     IDS_LANGUAGEREFERENCEFILE_FILENAME_RUSSIAN "genesis-ru.txt"
     IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_GREEK "Griechische Referenzdatei"
-    IDS_LANGUAGEREFERENCEFILE_FILENAME_GREEK "genesis-gr.txt"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_GREEK "homer-el.txt"
 END
 
 #endif    // German (Germany) resources
@@ -44932,7 +44932,7 @@ BEGIN
     IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_RUSSIAN "Russian reference file"
     IDS_LANGUAGEREFERENCEFILE_FILENAME_RUSSIAN "genesis-ru.txt"
     IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_GREEK "Greek reference file"
-    IDS_LANGUAGEREFERENCEFILE_FILENAME_GREEK "genesis-gr.txt"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_GREEK "homer-el.txt"
 END
 
 #endif    // English (United Kingdom) resources
@@ -56240,7 +56240,7 @@ BEGIN
                             "[i18n] Russian reference file"
     IDS_LANGUAGEREFERENCEFILE_FILENAME_RUSSIAN "genesis-ru.txt"
     IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_GREEK "[i18n] Greek reference file"
-    IDS_LANGUAGEREFERENCEFILE_FILENAME_GREEK "genesis-gr.txt"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_GREEK "homer-el.txt"
 END
 
 #endif    // Spanish (Spain, International Sort) resources
@@ -67556,7 +67556,7 @@ BEGIN
     IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_RUSSIAN "Ρώσικο αρχείο αναφοράς"
     IDS_LANGUAGEREFERENCEFILE_FILENAME_RUSSIAN "genesis-ru.txt"
     IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_GREEK "Ελληνικό αρχείο αναφοράς"
-    IDS_LANGUAGEREFERENCEFILE_FILENAME_GREEK "genesis-gr.txt"
+    IDS_LANGUAGEREFERENCEFILE_FILENAME_GREEK "homer-el.txt"
 END
 
 #endif    // Greek (Greece) resources
