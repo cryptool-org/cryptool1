@@ -1783,14 +1783,16 @@ $1$ to $n-1$, if n is prime (see \ref{def-zth-znmult}).
   See chapter~\ref{nt:AppArith3d}, ``\nameref{nt:AppArith3d}''
   for the source code to generate the tables~~\ref{expmod14} und~\ref{expmod22}
   using Sage.
-} serve as samples to introduce cycle lengths\index{cycle length} -- this is a topic
-which goes beyond the multiplicative order.
+} serve as samples to introduce cycle lengths\index{cycle length} -- this is a
+topic which goes beyond the multiplicative order.
 
-\noindent Cycle here means a sequence of numbers $a^i{\rm ~mod~}n$ with $1\leq i<n$
-for a given $a$, and a repeating sequence. Within the cycle each number is unique.
-Generally, cycles don't have to contain the $1$ -- in the opposite to cycles
-which have a multiplicative order $\ge 1$ (they yet have the $1$ always at the end).\\
-With $l$ we now mean the cycle length.
+\noindent Cycle here means a sequence of numbers $a^i{\rm ~mod~}n$ with $1\leq
+i<n$ for a given $a$, and a repeating sequence. According to the generation
+method as modular power, here each number is unique within a cycle.
+The cycles here don't have to contain the $1$ -- unless this cycles belongs to
+a multiplicative order $\ge 1$ (they have the $1$ always at the end of the
+cycle and at the position $a^{n-1} ~mod~n$).\\
+\noindent With $l$ we now mean the cycle length.
 
 \noindent The maximum cycle length $l_{max}$ is $J(n)$.\\
 For the following tables~\ref{expmod14} and~\ref{expmod22} $J(n)$ is
@@ -3154,13 +3156,170 @@ But even its authors note that other known algorithms may be faster (for example
 
 
 % --------------------------------------------------------------------------
-\vskip +20pt
+% \vskip +20pt
+\newpage
 \subsubsection{Shared Primes: Modules with common prime factors}
 \label{nt_Shared-Primes} \index{Prime!Shared}%\mbox{}
-%~\ref{nt_Shared-Primes}, S.~\pageref{nt_Shared-Primes}
-In xxxxxxxxxxxxxxxxxxx
+%~\ref{nt_Shared-Primes}, page~\pageref{nt_Shared-Primes}
+
+The RSA algorithm for public-key cryptography is based on the presumed difficulty of factoring large bi-prime integers, the factoring problem. However, as pointed out in Lenstra et al \cite{nt:Lenstra2012} it is possible, given a set of moduli, to factor some of them by finding shared primes. This way the factoring problem is bypassed using a simple greatest common divisor (gcd) operation. It is no trivial task to extract common shared primes and to factor the according moduli efficiently for a very big number of given moduli (several millions).
+
+Using the gcd only works if the RSA keys were not generated randomly. Taking into consideration the significance of strong cryptographic keys it is important to verify that all keys were generated following the principle of true randomness \cite{nt:Esslinger2012}. 
+
+When Lenstra et al published their paper \cite{nt:Lenstra2012} in Feb. 2012, they did not publish the source code. However, soon afterwards the source code of a similar program was published at the CrypTool website\footnote{%
+\url{http://www.cryptool.org/en/ctp-dokumentation-en/361-ctp-paper-rsa-moduli}
+%\url{http://www.cryptool.org/de/ctp-dokumentation-de/361-ctp-paper-rsa-moduli}
+}
+in Python and C++, and at the page used by \cite{nt:Heninger2012}\footnote{\url{https://www.factorable.net/}
+}.
+The fastest code known to me comes with \cite{nt:Heninger2012}.
+
+These applications find all shared factors that may exist, given a finite set of moduli -- even if this set includes millions of moduli. Such an application enables system administrators to test their own RSA keys. 
+
+The quite naive way to find all shared factors would be to compare each modul with all other moduli which has a complexity growing quadratically with the number of moduli.
+A very efficient method using trees for comparing all gcd pairs is based on a publication of Dan Bernstein in 2005 \cite{nt:Bernstein2005}. Bernstein uses a precalculation which leads to the product of all moduli. It's another example showing how helpful precalculations can be to break cryptographic systems (another famous example are rainbow tables used to find the origin of a hash value \cite{nt:Oechslin2003}).
 
 
+The following Sage sample shows the very different run times when calculating a gcd and a factorization. The section after this sample will explain the essential part of the method used in \cite{nt:Heninger2012}: Using the trees accelerates the calculation of the gcd pairs a lot.
+
+The Sage sample~\ref{nt_sagesample_Compare-Runtime-gcd-factoring} shows that multiplication of factors, dividing a modul with a known factor, or calculating the gcd is very fast. However, factoring moduli steeply increases with longer moduli. Even the relatively small moduli used in this example show this: The smaller modul (69 decimal digits, 228 bits) took 76 seconds, while the bigger one (72 decimal digits, 239 bits) took almost 217 seconds.
+
+In addition, the operations multiplication, divsion and gcd show big differences in runtime when the used operands are very different in size.
+
+% Just to show the origin of the used primes
+% sage: factor (2^211-1)
+% 15193 * 60272956433838849161 * 3593875704495823757388199894268773153439
+%
+% sage: factor (2^214-1)
+% 3 * 643 * 84115747449047881488635567801 * 162259276829213363391578010288127
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+
+# Multiplication
+sage: 3593875704495823757388199894268773153439 * 84115747449047881488635567801
+302301541122639745170382530168903859625492057067780948293331060817639
+
+sage: 3593875704495823757388199894268773153439 * 162259276829213363391578010288127
+583139672825572068433667900695808357466165186436234672858047078770918753
+
+
+# Division
+sage: time 302301541122639745170382530168903859625492057067780948293331060817639 / 
+           3593875704495823757388199894268773153439
+Wall time: 0.00 s
+84115747449047881488635567801
+
+sage: time 583139672825572068433667900695808357466165186436234672858047078770918753 / 
+           3593875704495823757388199894268773153439
+Wall time: 0.00 s
+162259276829213363391578010288127
+
+
+# Calculate gcd
+sage: time gcd (583139672825572068433667900695808357466165186436234672858047078770918753,
+                302301541122639745170382530168903859625492057067780948293331060817639)
+Wall time: 0.00 s
+3593875704495823757388199894268773153439
+
+
+# Factorize
+sage: time factor (583139672825572068433667900695808357466165186436234672858047078770918753)
+Wall time: 217.08 s
+162259276829213363391578010288127 * 3593875704495823757388199894268773153439
+
+sage: time factor (302301541122639745170382530168903859625492057067780948293331060817639)
+Wall time: 76.85 s
+84115747449047881488635567801 * 3593875704495823757388199894268773153439
+
+\end{Verbatim}
+\caption{Comparing the runtime of calculating a gcd and performing a factorization}
+\label{nt_sagesample_Compare-Runtime-gcd-factoring}
+\end{sagecode}
+
+
+
+\clearpage
+\section*{Efficient computing of all gcd pairs and explanation of the formula used}
+
+The paper "Mining Your Ps and Qs: Detection of Widespread Weak Keys in Network Devices"~\cite{nt:Heninger2012} explains the algorithm how the gcd's of every pair of RSA moduli are calculated efficiently.
+
+First the product $P$ of all moduli $m_{i}$ is calculated using a product tree. Then a remainder tree is build modulo the squares of the moduli. Then the gcd's of a defined modul $m_{i}$ and of the remainders $z_{i}$ divided by this defined modul are calculated. 
+
+This is visualized in Figure \ref{Figure_Bernstein_Computing-all-pairs-GCDs} which is a copy from \cite{nt:Heninger2012} (where the moduli are called $N_{i}$
+instead of $m_{i}$:
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[scale=0.7]{figures/Bernstein_Computing-all-pairs-GCDs.png}
+\caption{Algorithm and Figure to compute all gcd pairs efficiently} 
+\label{Figure_Bernstein_Computing-all-pairs-GCDs}
+\end{center}
+\end{figure}
+
+
+The paper~\cite{nt:Heninger2012} explains well \textit{how} the algorithm works, but not as well \textit{why}. The product $P$ of all moduli is a very big number, even compared to a single modul. Without the simplifications from the remainder tree you would go the following way: Calculate $gcd_{i} = gcd( P / m_{i},  m_{i}) $ for all i. Compare each $gcd_{i} \ne 1$ with all other $gcd_{j} \ne 1$ with  $j \ne i$. If two gcd's are the same, then their moduli share a factor.
+
+As it's very slow to calculate this for numbers with such a big difference in size, the remainder tree is used. Despite it seems to consist of more steps it's a huge simplification.
+
+Within the remainder tree you get -- at the end -- $(P \bmod ({m_{i}^{2}}) ) / m_{i}$ for all $i$.\footnote{%
+It would not make sense to calculate $(P \bmod m_{i} ) / m_{i}$
+as $(P \bmod m_{i} )$ is always $= 0$.
+
+Sample with very small moduli:\\
+$ m_{1} = 2*3 = 6;~~~ m_{2} = 2*7 = 14;~~~ P=6*14=84 $\\
+$ P \bmod m_{1} = 84 \bmod 6 = 0;~~~ P \bmod {m_{1}^{2}} = 84 \bmod 36 = 12 $\\
+$ P \bmod m_{2} = 84 \bmod 14 = 0;~~~ P \bmod {m_{2}^{2}} = 84 \bmod 196 = 84 $\\
+$gcd_{1} = gcd(12/6, 6) = gcd(2, 6) = 2 $\\
+$gcd_{2} = gcd(84/14, 14) = gcd(6, 14) = 2 $
+
+The way the tree is structured it also would not make sense to first divide and then do the modulo calculation, as making the division first would lead just to the given moduli but in reversed order.
+
+It also would not make sense to calculate $(P \bmod ({m_{i}^{3}}) ) / {m_{i}^{2}})$ as this is only additional effort with no improvement.
+}
+
+The main remaining question now is: Why does $gcd((P \bmod {m_{i}^{2}})/ m_{i}, m_{i})$ deliver the same result as $gcd( P / m_{i}, m_{i})$ ?
+We prove that this identity is correct.
+
+P represents here the product of all moduli, and $m_{i}$ represents any
+arbitrary modulus.%\mbox{}\\\mbox{}\\
+
+$$gcd((P \bmod {m_{i}^{2}})/ m_{i}, m_{i})~~~  \overset{!}{=}  ~~~gcd( P / m_{i}, m_{i})$$
+$ \Longleftrightarrow $~~~\footnote{According to Euklid's algorithm the following identities are true:
+\mbox{}\\
+$gcd((P \bmod {m_{i}^{2}})/ m_{i}, m_{i})=gcd((P \bmod {m_{i}^{2}})/ m_{i} \bmod{m_{i}}, m_{i})$ \mbox{}\\
+$gcd( P / m_{i}, m_{i})=gcd( P / m_{i} \bmod{m_{i}}, m_{i})$\mbox{}
+}
+
+$$gcd(((P \bmod {m_{i}^{2}})/ m_{i}) \bmod {m_{i}}, m_{i})~~~  \overset{!}{=}  ~~~gcd( (P / m_{i}) \bmod {m_{i}}, m_{i})$$
+$ \Longleftrightarrow $~~~\footnote{The gcd's are equal if both their first arguments are equal.
+}
+
+$$((P \bmod {m_{i}^{2}})/ m_{i}) \bmod {m_{i}}~~~  \overset{!}{=}  ~~~ (P / m_{i}) \bmod {m_{i}}$$
+$ \Longleftrightarrow $~~~\footnote{The following transformations are all equalities.
+}
+
+$$(P \bmod{m_{i}^{2}})/ m_{i} - P / m_{i} \equiv 0   \bmod{m_{i}}~~~ \Leftrightarrow ~~~  m_{i} ~~ | ~~ ((P \bmod{m_{i}^{2}})/ m_{i} - P / m_{i})$$~~~\footnote{%
+According to the definition of modulus and division it is:\\
+$a \bmod{b} ~~ \Longleftrightarrow ~~ a - b * \lfloor a/b \rfloor$\\
+So $P \bmod{m_{i}^{2}}$ can be written as $ P-m_{i}^{2} \lfloor P/m_{i}^{2} \rfloor$.
+}
+
+$$ m_{i} ~~ | ~~ ((P-m_{i}^{2}* \lfloor P/m_{i}^{2} \rfloor - P))/m_{i}$$~~~\footnote{%
+$P$ reduces itself, the exponent in the $m_{i}$ enumerator is simplified with the  $m_{i}$ denominator.
+}
+
+$$ m_{i} ~~ | ~~ (m_{i}* \lfloor P/m_{i}^{2} \rfloor)$$
+
+As this is true, we can conclude that the two gcds are equivalent.
+
+% yyyyyyyyyyyyyyyyyyyyyyyyyyy
+
+% Sätze und Links:
+% https://en.wikipedia.org/wiki/Greatest_common_divisor
+% https://de.wikipedia.org/wiki/Gr%C3%B6%C3%9Fter_gemeinsamer_Teiler
+
+
+%TODO: Wohl durch das verschobene Sage-Beispiel wirkt das \newpage vor dem ff. Kapitel nicht!
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -4501,7 +4660,7 @@ one Sage object (here a matrix).\footnote{%
                The cells are named m(0,0) to m(1,4).
          \item All elements of the matrix have to be numerical,
                so ``0'' instead of ``None'' as in the tables before.
-         \item The output of matrices kann be controlled in Sage with:
+         \item The output of matrices can be controlled in Sage with:
 \begin{Verbatim}
                sage: from sage.matrix.matrix0 import set_max_cols, set_max_rows
                sage: set_max_cols(100)
@@ -5176,9 +5335,10 @@ $[100, 1000]$ for $n$.
 following output:\\
 \vin    - Number of private keys for modulus in a given range: 0\\
 \vin    - Number of primes in a given range: 0\\
-\vin    The reason for that is, that with this call only $n=100$ is considered, and the
-   function investigates only\\
-\vin semiprime $n$: $100$ is not semi prime\index{Prime number!semi prime}\index{Prime number!half prime}\index{Half prime},
+\vin    The reason for that is, that with this call only $n=100$ is considered,
+   and the function investigates only\\
+\vin semiprime $n$: $100$ is not semi prime\index{Prime number!semi
+   prime}\index{Prime number!half prime},
    this means $100$ is not the product of only two primes.
 \end{verse}
 \setlength{\leftmargini}{\saveleftmargini}% restore original value%\end{compactitem}
@@ -5685,7 +5845,7 @@ for r in fp:
 
 print "\nRemark: You can verify each fixpoint with power_mod(m,e,n).";
 \end{Verbatim}
-\caption{Determining all Fixed Points for a Specific Public RSA Key}
+\caption{Determining all fixed points for a specific public RSA key}
 \label{nt_sagesample_Calculate_RSA-Fixpoints}
 \end{sagecode}
 %#print "        Here done for the last found fixpoint:";
@@ -5801,6 +5961,12 @@ Theorem~\ref{nt-thm-Anzahl-RSA-Fixpunkte} & number of RSA fixed points & \pagere
     \url{http://cr.yp.to/papers/nfscircuit.ps} \\
     \url{http://cr.yp.to/djb.html}.
 
+\bibitem[Bernstein2005]{nt:Bernstein2005} \index{ Bernstein 2005}
+	Daniel J. Bernstein, \\
+	{\em Factoring into coprimes in essentially linear time}, \\
+	In Journal of Algorithms 54 (2005), 2005,
+	\url{http://cr.yp.to/lineartime/dcba-20040404.pdf}.
+
 \bibitem[Beutelspacher1996]{nt:Beutelspacher1996} \index{Beutelspacher 1996}
     Albrecht Beutelspacher, \\
     {\em Kryptologie}, Vieweg 1987, 5th edition 1996.
@@ -5837,6 +6003,12 @@ Theorem~\ref{nt-thm-Anzahl-RSA-Fixpunkte} & number of RSA fixed points & \pagere
     {\em Angewandte Kryptographie}, 
     Fachbuchverlag Leipzig FV 2001.
 
+\bibitem[Esslinger2012]{nt:Esslinger2012} \index{ Esslinger 2012}
+	Esslinger, Schneider, and Simon, \\
+	{\em RSA -- Sicherheit in der Praxis }, \\
+	in KES -- Zeitschrift für Informationssicherheit,
+	April 2012.
+
 
 \bibitem[GISA2012]{nt:GISA2012} \index{GISA 2012}
     GISA (German Information Security Agency), \\
@@ -5857,6 +6029,12 @@ Theorem~\ref{nt-thm-Anzahl-RSA-Fixpunkte} & number of RSA fixed points & \pagere
     Graham, Knuth, Patashnik, \\
     {\em Concrete Mathemathics, a Foundation of Computer Science}, \\
     Addison Wesley 1989, 6th printing 1994.
+
+\bibitem[Heninger2012]{nt:Heninger2012} \index{ Heninger 2012}
+	Nadia Heninger, Zakir Durumeric, Eric Wustrow, and J. Alex Halderman, \\
+	{\em Mining Your Ps and Qs: Detection of Widespread Weak Keys in
+        Network Devices }, \\
+	August 2012, \url{https://factorable.net/paper.html}.
 
 \bibitem[Katzenbeisser2001]{nt:Katzenbeisser2001} \index{Katzenbeisser 2001}
      Stefan Katzenbeisser, \\
@@ -5901,11 +6079,25 @@ Theorem~\ref{nt-thm-Anzahl-RSA-Fixpunkte} & number of RSA fixed points & \pagere
     {\em Analysis of Bernstein's Factorization Circuit},\\
     \url{http://www.cryptosavvy.com/mesh.pdf}.
 
+\bibitem[Lenstra2012]{nt:Lenstra2012} \index{ Lenstra 2012}
+	Arjen K. Lenstra, James P. Hughes, Maxime Augier, Joppe W. Bos,
+        Thorsten Kleinjung and Christophe Wachter, \\
+	{\em Ron was wrong, Whit is right, A Sanity Check of Public Keys
+             Collected on the Web}, \\
+	February 2012,
+	\url{http://eprint.iacr.org/2012/064.pdf}.
+
 \bibitem[Menezes2001]{nt:Menezes2001} \index{Menezes 2001}
     Alfred J. Menezes, Paul C. van Oorschot, Scott A. Vanstone \\
     {\em Handbook of Applied Cryptography}, 
     CRC Press 1997, 5th printing 2001,\\
     \url{http://www.cacr.math.uwaterloo.ca/hac/} (Errata last updated July 24, 2011).
+
+\bibitem[Oechslin2003]{nt:Oechslin2003} \index{ Oechslin 2003}
+	Philippe Oechslin,\\
+	{\em Making a Faster Cryptanalytic Time-Memory Trade-Off},\\
+	At Crypto 2003, 2003,\\
+	\url{http://lasecwww.epfl.ch/pub/lasec/doc/Oech03.pdf}.
 
 \bibitem[Pfleeger1997]{nt:Pfleeger1997} \index{Pfleeger 1997}
     Charles P. Pfleeger, \\

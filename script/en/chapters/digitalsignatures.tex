@@ -148,7 +148,7 @@ Cryptographically secure hash functions fulfill the following three requirements
 
 % --------------------------------------------------------------------------
 \vskip + 15pt
-\subsection{Current attacks against hash functions like SHA-1}
+\subsection{Current attacks against hash functions  //  SHA-3}
 \label{collision-attacks-against-sha-1}
 
 So far, no formal proof has been found that perfectly secure cryptographic
@@ -218,10 +218,22 @@ other hash algorithms.
 Already before Crypto 2004 the U.S. National Institute of Standards and
 Technology (NIST)\index{NIST} announced, to discontinue SHA-1 in the next few
 years. So it is recommended not to use SHA-1 for new products generating digital
-signatures. The SHA-2 family \cite{ds:FIPS180-3} provides stronger algorithms.
-To address new findings in cryptanalysis, NIST has opened a competition to develop a new cryptographic hash algorithm in 2008: In October 2012
-Keccak\index{Keccak} was announced as ``SHA-3''.\footnote{%
-\url{http://csrc.nist.gov/groups/ST/hash/sha-3/}}
+signatures. The SHA-2\index{SHA-2} family \cite{ds:FIPS180-3} provides stronger algorithms.
+
+To address new findings in cryptanalysis, in 2008 NIST opened a competition to
+develop a new cryptographic hash algorithm beyound the SHA-2 family: In October
+2012 Keccak\index{Keccak}\index{SHA-3} was announced as ``SHA-3''.\footnote{%
+\url{http://csrc.nist.gov/groups/ST/hash/sha-3/}\\
+    With {\bf CT2}\index{CT2}\index{CrypTool 2} you can execute and visualize
+    the Keccak hash function -- using in the Startcenter
+    {\bf Templates \textbackslash{} Hash Functions \textbackslash{}
+    Keccak Hash (SHA-3)}.\\
+    Keccak also can be used as pseudo random number generator and as stream
+    cipher: This can be found within the Startcenter templates via
+    {\bf Tools \textbackslash{} Keccak PRNG}, and 
+    {\bf Cryptography \textbackslash{} Modern Ciphers \textbackslash{}
+         Symmetric \textbackslash{} Keccak Streamcipher}.
+}
 
 Further information about this topic can be found in the article
 ``Hash cracked -- The consequences of the successful attacks on SHA-1''

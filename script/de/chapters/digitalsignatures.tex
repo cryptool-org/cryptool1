@@ -160,7 +160,7 @@ Kryptographisch sichere Hashfunktionen erfüllen folgende drei Anforderungen
 
 % --------------------------------------------------------------------------
 \vskip + 15pt
-\subsection{Aktuelle Angriffe gegen Hashfunktionen wie SHA-1}
+\subsection{Aktuelle Angriffe gegen Hashfunktionen // SHA-3}
 \label{collision-attacks-against-sha-1}
 
 Bisher konnte die Existenz von perfekt sicheren kryptographischen
@@ -237,11 +237,23 @@ Das U.S. National Institute of Standards and Technology (NIST)\index{NIST} hat
 schon vor Bekanntwerden der neuen Ergebnisse angekündigt, SHA-1 in den
 näch"-sten Jahren auslaufen zu lassen. Es ist daher zu empfehlen, für neue
 Produkte zur Erstellung von Sig"-naturen SHA-1 nicht mehr zu verwenden. Die
-SHA-2 Familie \cite{ds:FIPS180-3} bietet stärkere Verfahren.  Um den neuen
-Erkenntnissen in der Kryptoanalyse von Hashfunktionen Rechnung zu tragen, hat
-das NIST 2008 einen Wettbewerb gestartet: Als neue Hashfunktion \glqq SHA-3''
-wurde im Oktober 2012 Keccak\index{Keccak} verkündet.\footnote{%
-\url{http://csrc.nist.gov/groups/ST/hash/sha-3/}}
+SHA-2 Familie \cite{ds:FIPS180-3} bietet stärkere Verfahren.
+
+Um den neuen Erkenntnissen in der Kryptoanalyse von Hashfunktionen Rechnung
+zu tragen, hat das NIST 2008 einen Wettbewerb gestartet, um eine neue
+Hash-Funktion jenseits der SHA-2-Familie zu entwickeln: Als neue Hashfunktion
+\glqq SHA-3'' wurde im Oktober 2012 Keccak\index{Keccak}\index{SHA-3}
+verkündet.\footnote{%
+\url{http://csrc.nist.gov/groups/ST/hash/sha-3/}\\
+    Mit {\bf CT2}\index{CT2}\index{CrypTool 2} können Sie im Startcenter
+    über {\bf Vorlagen \textbackslash{} Hash-Funktionen \textbackslash{}
+    Keccak-Hash (SHA-3)} die Keccak-Hashfunktion ausführen und visualisieren.\\
+    Keccak kann auch als Zufallszahlengenerator und als Stromchiffre benutzt
+    werden: Das finden Sie in den Startcenter-Vorlagen über
+    {\bf Werkzeuge \textbackslash{} Keccak PRNG}, bzw. 
+    {\bf Kryptographie \textbackslash{} Modern \textbackslash{} Symmetrisch
+         \textbackslash{} Keccak-Stromchiffre}.
+}
 
 Weitere Informationen zu diesem Thema finden sich z.B. in dem Artikel
 \glqq Hash mich -- Konsequenzen der erfolgreichen Angriffe auf SHA-1\grqq\

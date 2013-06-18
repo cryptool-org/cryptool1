@@ -95,7 +95,7 @@ $(1, 2, 3, 4, 5) \Leftrightarrow (3, 4, 2, 1, 5)$.
 
 \begin{itemize}
 
-\item {\bf Rail Fence cipher}\footnote{%
+\item {\bf Rail fence cipher}\footnote{%
    This method can directly be found in CT1\index{CrypTool 1} at the menu item
    {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic) \textbackslash{}
    Scytale / Rail Fence}.
@@ -107,7 +107,7 @@ $(1, 2, 3, 4, 5) \Leftrightarrow (3, 4, 2, 1, 5)$.
    Using the key ``A,B'' would start the zigzag pattern below in the
    way, that the first letter is written into the first line instead of the
    second line.}
-   \cite{pp:Singh1999}\index{Rail Fence cipher}:
+   \cite{pp:Singh1999}\index{Rail fence cipher}:
    The characters of a message are alternately written in two (or more) lines,
    creating a zigzag pattern. The resulting ciphertext is read out 
    line by line.\\
@@ -386,8 +386,8 @@ under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
 
 
 %\newpage % Damit die Tables immer direkt nach dem zugehörigen Item. 
-\item {\bf Cadenus cipher} \cite{pp:ACA2002}\index{Cadenus}: Cadenus is a form
-   of columnar transposition that uses two keywords.\\
+\item {\bf Cadenus cipher} \cite{pp:ACA2002}\index{Cadenus cipher}: Cadenus is
+   a form of columnar transposition that uses two keywords.\\
    The 1st keyword is used to swap columns.\\
    The 2nd keyword is used to define the initial letter of each column:
    this 2nd keyword is a permutation of the used alphabet. This permutation
@@ -472,7 +472,7 @@ remains unchanged during the whole process of encryption.
    This cipher can be simulated in CT1\index{CrypTool 1} 
    under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic) 
    \textbackslash{} Substitution / Atbash}.}  
-   \cite{pp:Singh1999}\index{Atbash}: Replace the first letter of the 
+   \cite{pp:Singh1999}\index{Atbash cipher}: Replace the first letter of the 
    alphabet by the last letter of the alphabet, the second one by the last 
    but one, etc.
 
@@ -484,7 +484,7 @@ remains unchanged during the whole process of encryption.
      \textbackslash{} Ciphertext only \textbackslash{} Caesar} \\
    - {\bf Indiv. Procedures \textbackslash{} Visualization of Algorithms 
      \textbackslash{} Caesar}. } 
-   \cite{pp:Singh1999}\index{Caesar}%
+   \cite{pp:Singh1999}\index{Caesar cipher}%
    : Plaintext alphabet and ciphertext alphabet are shifted against each 
    other by a determined number of letters. Using the Caesar cipher means 
    shifting letters about three positions.
@@ -599,7 +599,7 @@ remains unchanged during the whole process of encryption.
 
 
 \item {\bf Straddling Checkerboard} 
-   \cite{pp:Goebel2003}\index{Straddling Checkerboard}:
+   \cite{pp:Goebel2003}\index{Straddling checkerboard}:
    A 3x10 matrix is filled
    with the letters of the used alphabet and two arbitrary digits or special
    characters as follows: The different letters of a keyword and the remaining
@@ -640,7 +640,7 @@ remains unchanged during the whole process of encryption.
 
 
 \item {\bf Straddling Checkerboard, variant} \cite{pp:Goebel2003}
-   \index{Straddling Checkerboard}: This variant
+   \index{Straddling checkerboard}: This variant
    of the straddling checkerboard was developed by Soviet spies during WW2. 
    Ernesto (Ch\'e) Guevara \index{Ch\'e Guevara} and Fidel Castro allegedly
    used this cipher for their secret communication.
@@ -1128,8 +1128,8 @@ Concerning polyalphabetic substitution\index{Substitution!polyalphabetic}, the a
 %------------------------------------------------------------------------------
 \section{Combining substitution and transposition}
 \label{PaP_combined_ciphers}
-\index{Product algorithm}\index{Encryption!Product algorithm}%
-\index{Cascade cipher}\index{Encryption!Cascade cipher}%
+\index{Product algorithm}\index{Encryption!product algorithm}%
+\index{Cascade cipher}\index{Encryption!cascade cipher}%
 
 In the history of cryptography one often comes across combinations of the 
 previous mentioned methods.
@@ -1782,7 +1782,7 @@ True
 % ---------------------------------------------------------------------------
 \newpage
 \subsubsection{Caesar cipher}
-\index{Caesar}
+\index{Caesar cipher}
 
 The following example uses Sage to construct a Caesar cipher.
 
