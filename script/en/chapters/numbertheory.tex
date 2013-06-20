@@ -423,10 +423,8 @@ whole numbers.
 \end{example}
 
 \begin{theorem}\label{thm-zth-div}
-$a \equiv b$ (mod $m$) if and only if, the difference $(a - b)$ is divisible by $m$, i.e. if $q\in 
-\mathbb{Z}$ exists with $ (a-b)=q*m.$
-\end{theorem}
-These two statements are therefore equivalent.\footnote{%
+$a \equiv b$ (mod $m$) if and only if, the difference $(a - b)$ is divisible by
+$m$, i.e. if $q\in \mathbb{Z}$ exists with $ (a-b)=q*m.$\footnote{%
 The above equivalence does apply only to the difference $(a - b)$, not to the
 sum $(a + b)$!
 
@@ -440,6 +438,13 @@ sums in one direction.
 It is correct for sums only if the remainder is 0 and only in the following direction:
 If a divisor divides both summands with no remainder, it also divides the sum with no remainder.
 }
+\end{theorem}
+
+\noindent In other words:~~~
+$ a \equiv b \bmod{m}   ~~ \Longleftrightarrow ~~
+  m | (a-b)             ~~ \Longleftrightarrow ~~
+  (a-b) \equiv 0 \bmod{m} $
+
 
 Therefore: If $m$ divides the difference, there exists a whole number
 $q$ such that: $a = b + q*m$.
@@ -3257,13 +3262,17 @@ instead of $m_{i}$:
 \end{figure}
 
 
-The paper~\cite{nt:Heninger2012} explains well \textit{how} the algorithm works, but not as well \textit{why}. The product $P$ of all moduli is a very big number, even compared to a single modul. Without the simplifications from the remainder tree you would go the following way: Calculate $gcd_{i} = gcd( P / m_{i},  m_{i}) $ for all i. Compare each $gcd_{i} \ne 1$ with all other $gcd_{j} \ne 1$ with  $j \ne i$. If two gcd's are the same, then their moduli share a factor.
+The paper~\cite{nt:Heninger2012} explains well \textit{how} the algorithm works, but not as well \textit{why}. The product $P$ of all moduli is a very big number, even compared to a single modul. Without the simplifications from the remainder tree you would go the following way: Calculate $gcd_{i} = gcd( P / m_{i},  m_{i}) $ for all i. Compare each $gcd_{i} \ne 1$ with all other $gcd_{j} \ne 1$ with  $j \ne i$. If two gcd's are the same, then their moduli share a factor.\footnote{%
+A prerequisite for getting only prime factors, is that duplicate moduli are removed
+before setting up the trees.
+}
 
 As it's very slow to calculate this for numbers with such a big difference in size, the remainder tree is used. Despite it seems to consist of more steps it's a huge simplification.
 
 Within the remainder tree you get -- at the end -- $(P \bmod ({m_{i}^{2}}) ) / m_{i}$ for all $i$.\footnote{%
-It would not make sense to calculate $(P \bmod m_{i} ) / m_{i}$
-as $(P \bmod m_{i} )$ is always $= 0$.
+It would not make sense to calculate $(P \bmod m_{i} ) / m_{i}$, as 
+$m_{i} | P$, so $P/m_{i}$ is always a whole number, which means  
+$(P \bmod m_{i} )$ is always $= 0$.
 
 Sample with very small moduli:\\
 $ m_{1} = 2*3 = 6;~~~ m_{2} = 2*7 = 14;~~~ P=6*14=84 $\\
@@ -3284,7 +3293,10 @@ P represents here the product of all moduli, and $m_{i}$ represents any
 arbitrary modulus.%\mbox{}\\\mbox{}\\
 
 $$gcd((P \bmod {m_{i}^{2}})/ m_{i}, m_{i})~~~  \overset{!}{=}  ~~~gcd( P / m_{i}, m_{i})$$
-$ \Longleftrightarrow $~~~\footnote{According to Euklid's algorithm the following identities are true:
+$ \Longleftrightarrow $~~~\footnote{According to Euklid's algorithm (first iteration) the following identity is true:\\
+$gcd(a, b) = gcd(b, a \bmod b)$ if $ b \neq 0 $\\
+This holds as per definition it is: $gcd(a, 0) = a$\\
+Applied to our problem this means:
 \mbox{}\\
 $gcd((P \bmod {m_{i}^{2}})/ m_{i}, m_{i})=gcd((P \bmod {m_{i}^{2}})/ m_{i} \bmod{m_{i}}, m_{i})$ \mbox{}\\
 $gcd( P / m_{i}, m_{i})=gcd( P / m_{i} \bmod{m_{i}}, m_{i})$\mbox{}
@@ -3299,7 +3311,8 @@ $ \Longleftrightarrow $~~~\footnote{The following transformations are all equali
 }
 
 $$(P \bmod{m_{i}^{2}})/ m_{i} - P / m_{i} \equiv 0   \bmod{m_{i}}~~~ \Leftrightarrow ~~~  m_{i} ~~ | ~~ ((P \bmod{m_{i}^{2}})/ m_{i} - P / m_{i})$$~~~\footnote{%
-According to the definition of modulus and division it is:\\
+According to the definition of modulus (see theorem \ref{thm-zth-div}) and
+division it is:
 $a \bmod{b} ~~ \Longleftrightarrow ~~ a - b * \lfloor a/b \rfloor$\\
 So $P \bmod{m_{i}^{2}}$ can be written as $ P-m_{i}^{2} \lfloor P/m_{i}^{2} \rfloor$.
 }

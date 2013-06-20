@@ -449,10 +449,8 @@ Gauss eingeführt. Gewöhnlich ist der Teiler positiv, aber $a$ und $b$ können auc
 \end{example}
 
 \begin{satz}\label{thm-zth-div}
-$a \equiv b$ (mod $m$) gilt genau dann,  wenn die Differenz $(a - b)$ durch $m$ teilbar ist, also wenn 
-ein $q\in \mathbf{Z}$ existiert mit $ (a-b)=q*m.$
-\end{satz}
-Diese beiden Aussagen sind also äquivalent.\footnote{%
+$a \equiv b$ (mod $m$) gilt genau dann,  wenn die Differenz $(a - b)$ durch $m$
+teilbar ist, also wenn ein $q\in \mathbf{Z}$ existiert mit $ (a-b)=q*m.$\footnote{%
 Die obige Äquivalenz gilt nur für die Differenz $(a - b)$, nicht für die
 Summe $(a + b)$!
 
@@ -465,13 +463,23 @@ in eine Richtung. Richtig ist sie bei Summen nur für den Rest $0$ und nur in
 der folgenden Richtung: Teilt ein Teiler beide Summanden ohne Rest, teilt er
 auch die Summe ohne Rest.
 }
+\end{satz}
 
-Daraus ergibt sich: Wenn $m$ die Differenz teilt, gibt es eine ganze Zahl $q$, so dass gilt: $a = b + q*m$.
-Alternativ zur Kongruenzschreibweise kann man auch die Teilbarkeitsschreibweise verwenden: $m | (a - b)$.
+\noindent In anderen Worten:~~~
+$ a \equiv b \bmod{m}   ~~ \Longleftrightarrow ~~
+  m | (a-b)             ~~ \Longleftrightarrow ~~
+  (a-b) \equiv 0 \bmod{m} $
+
+
+Daraus ergibt sich: Wenn $m$ die Differenz teilt, gibt es eine ganze Zahl $q$, so
+dass gilt: $a = b + q*m$.
+Alternativ zur Kongruenzschreibweise kann man auch die Teilbarkeitsschreibweise
+verwenden: $m | (a - b)$.
 
 \begin{example}{ für äquivalente Aussagen:} \\
 $35 \equiv 11$ (mod $3) \Longleftrightarrow  35 - 11 \equiv 0$ (mod $3)$, 
-wobei $35 - 11 = 24$ sich ohne Rest durch $3$ teilen lässt, während $35:3$ und $11:3$ beide den Rest $2$ ergeben.
+wobei $35 - 11 = 24$ sich ohne Rest durch $3$ teilen lässt, während $35:3$ und
+$11:3$ beide den Rest $2$ ergeben.
 \end{example}
 
 %\begin{remark}{:}\\
