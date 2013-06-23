@@ -391,28 +391,30 @@ have the same remainder $r$ when divided by $m$.
 \end{definition}
 
 \newpage
-\begin{example}{:}
+\begin{example}{ of remainder classes RC:}
 \begin{compactitem}
-\item[] Remainder class $0$ modulo 
-        4 = \\ 
-        \strut\quad $\{ x | x = 4 * n; \; n \in \mathbb{Z} \} = \{ \dots, -16, -12, -8, -4, 0, 4, 8, 12, 16, \dots \}$
-\item[] Remainder class $3$ modulo 
-        4 = \\ 
-        \strut\quad $\{ x | x = 4 * n + 3;\; n \in \mathbb{Z} \} = \{ \dots, -13, -9, -5, -1, 3, 7, 11, 15, \dots \}$
+% \strut\quad
+\item[] RC $0$ mod $ 4 = \{ x | x = 4 * n; \; n \in \mathbb{Z} \} = \{ \dots, -16, -12, -8, -4, 0, 4, 8, 12, 16, \dots \}$
+\item[] RC $3$ mod $ 4 = \{ x | x = 4 * n + 3;\; n \in \mathbb{Z} \} = \{ \dots, -13, -9, -5, -1, 3, 7, 11, 15, \dots \}$
 \end{compactitem}
 \end{example}
 As only the remainders $0, 1, 2, \cdots, m-1$ are possible for division modulo $m$, modular arithmetic works with finite sets. 
 For each modulo $m$ there are precisely $m$ remainder classes.
+
+The result of the modulo operation can be formulated as:
+$~a \bmod{m} ~ =  ~ a - m * \lfloor a/m \rfloor$\\
+
+
 
 \begin{definition}\label{def-zth-congruence} \index{Congruence}
 Two numbers $a, b \in \mathbb{N}$  are said to be congruent modulo $m \in 
 \mathbb{N}$ if and only if they have the same remainder when divided by $m$.
 \end{definition}
 
-We write: $a \equiv b {\rm ~(mod~} m)$ (read $a$ is congruent $b$ modulo $m$), which 
-means that $a$ and $b$ belong to the same remainder class. The modulo is therefore the 
-divisor. This notation was introduced by Gauss. Although the divisor is usually positive, $a$ and $b$ can also be any 
-whole numbers.
+We write: $a \equiv b {\rm ~(mod~} m)$ (read $a$ is congruent $b$ modulo $m$),
+which means that $a$ and $b$ belong to the same remainder class. The modulo is
+therefore the divisor. This notation was introduced by Gauss. Although the
+divisor is usually positive, $a$ and $b$ can also be any whole numbers.
 
 \begin{example}{:}
 \begin{compactitem}
@@ -422,6 +424,7 @@ whole numbers.
 \end{compactitem}
 \end{example}
 
+\vskip +20 pt
 \begin{theorem}\label{thm-zth-div}
 $a \equiv b$ (mod $m$) if and only if, the difference $(a - b)$ is divisible by
 $m$, i.e. if $q\in \mathbb{Z}$ exists with $ (a-b)=q*m.$\footnote{%
@@ -449,7 +452,7 @@ $ a \equiv b \bmod{m}   ~~ \Longleftrightarrow ~~
 Therefore: If $m$ divides the difference, there exists a whole number
 $q$ such that: $a = b + q*m$.
 As an alternative to the congruence notation, we can also use the divisibility
-notation: $m | (a - b)$.
+notation: $m | (a - b)$.\\
 
 \begin{example}{ of equivalent statements:}\\
 $35 \equiv 11$ (mod $3) \Longleftrightarrow  35 - 11 \equiv 0$ (mod $3)$, 
@@ -466,20 +469,26 @@ large numbers are divisible by a certain number.
 Is $69,993$ divisible by $7$? \\
 The number can be written in the form of a difference in which it is clear that
 each operand is divisible by $7$: 
-$69,993 = 70,000 - 7$. Therefore, the difference is also divisible by $7$.
+$69,993 = 70,000 - 7$. Therefore, the difference is also divisible by $7$.\\
 \end{example}
 
-Although these considerations and definitions may seem to be rather theoretical, we are so familiar with them in 
-everyday life that we no longer think about the formal procedure. For example, the 24 hours on a clock are 
-represented by the numbers $1, 2, \cdots, 12$. We obtain the hours after 12 noon as the remainder of a division by 12 
-and know immediately that 2 o'clock in the afternoon is the same as 14.00.
+Although these considerations and definitions may seem to be rather theoretical,
+we are so familiar with them in everyday life that we no longer think about the
+formal procedure. For example, the 24 hours on a clock are represented by the
+numbers $1, 2, \cdots, 12$. We obtain the hours after 12 noon as the remainder of
+a division by 12 and know immediately that 2 o'clock in the afternoon is the same
+as 14.00.
 
-This ``modular'' arithmetic (based on division remainders) forms the basis of asymmetric encryption procedures. 
-Cryptographic calculations are therefore not based on real numbers, as the calculations you performed at school, 
-but rather on character strings with a limited length, in other words on positive whole numbers that cannot exceed 
-a certain value. This is one of the reasons why we choose a large number $m$ and ``calculate modulo $m$''. 
-That is, we ignore whole-number multiples of $m$ and, rather than working with a number, we only work with 
-the remainder when this number is divided by $m$. The result is that all results are in the range $0$ to $m-1$.
+The ``modular'' arithmetic (based on division remainders) forms the basis of
+asymmetric encryption procedures. 
+Cryptographic calculations are therefore not based on real numbers, as the
+calculations you performed mostly at school, but rather on character strings
+with a limited length, in other words on positive whole numbers that cannot
+exceed a certain value. This is one of the reasons why we choose a large number
+$m$ and ``calculate modulo $m$''. 
+That is, we ignore whole-number multiples of $m$ and, rather than working with
+a number, we only work with the remainder when this number is divided by $m$.
+The result is that all results are in the range $0$ to $m-1$.
 
 
 
@@ -3270,11 +3279,12 @@ before setting up the trees.
 As it's very slow to calculate this for numbers with such a big difference in size, the remainder tree is used. Despite it seems to consist of more steps it's a huge simplification.
 
 Within the remainder tree you get -- at the end -- $(P \bmod ({m_{i}^{2}}) ) / m_{i}$ for all $i$.\footnote{%
-It would not make sense to calculate $(P \bmod m_{i} ) / m_{i}$, as 
+It would not make sense to calculate modulo $m_{i}$ instead of $m_{i}^{2}$ on the
+left gcd, which would mean to use $(P \bmod m_{i} ) / m_{i}$, as 
 $m_{i} | P$, so $P/m_{i}$ is always a whole number, which means  
 $(P \bmod m_{i} )$ is always $= 0$.
 
-Sample with very small moduli:\\
+\noindent Sample with very small moduli:\\
 $ m_{1} = 2*3 = 6;~~~ m_{2} = 2*7 = 14;~~~ P=6*14=84 $\\
 $ P \bmod m_{1} = 84 \bmod 6 = 0;~~~ P \bmod {m_{1}^{2}} = 84 \bmod 36 = 12 $\\
 $ P \bmod m_{2} = 84 \bmod 14 = 0;~~~ P \bmod {m_{2}^{2}} = 84 \bmod 196 = 84 $\\
@@ -3311,9 +3321,9 @@ $ \Longleftrightarrow $~~~\footnote{The following transformations are all equali
 }
 
 $$(P \bmod{m_{i}^{2}})/ m_{i} - P / m_{i} \equiv 0   \bmod{m_{i}}~~~ \Leftrightarrow ~~~  m_{i} ~~ | ~~ ((P \bmod{m_{i}^{2}})/ m_{i} - P / m_{i})$$~~~\footnote{%
-According to the definition of modulus (see theorem \ref{thm-zth-div}) and
-division it is:
-$a \bmod{b} ~~ \Longleftrightarrow ~~ a - b * \lfloor a/b \rfloor$\\
+Using the modulus operation (definition \ref{def-zth-remainder} at page
+\pageref{def-zth-remainder}) and division it is:
+$~a \bmod{b} ~ =  ~ a - b * \lfloor a/b \rfloor$\\
 So $P \bmod{m_{i}^{2}}$ can be written as $ P-m_{i}^{2} \lfloor P/m_{i}^{2} \rfloor$.
 }
 

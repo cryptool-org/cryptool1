@@ -417,7 +417,7 @@ Als {\bf Restklasse $r$ modulo $m$} bezeichnet man alle ganzen Zahlen $a$, die
 bei der Division durch $m$ denselben Rest $r$ haben.
 \end{definition}
 \newpage
-\begin{example}{:}
+\begin{example}{ von Restklassen:}
 %\begin{itemize}
 \begin{compactitem}
 \item[] Restklasse $0$ modulo $4 = \{ x | x = 4*n; \; n \in \mathbb{Z} \} = \{ \dots, -16, -12, -8, -4, 0, 4, 8, 12, 16, \dots \}$
@@ -427,6 +427,11 @@ bei der Division durch $m$ denselben Rest $r$ haben.
 \end{example}
 Da modulo $m$ nur die Reste $0, 1, 2, \cdots, m-1$ möglich sind, rechnet die modulare Arithmetik in endlichen Mengen. 
 Zu jedem Modul $m$ gibt es genau $m$ Restklassen.
+
+Das Ergebnis der Modulo-Operation lässt sich so ausdrücken:
+$~a \bmod{m} ~ =  ~ a - m * \lfloor a/m \rfloor$\\
+
+
 
 \begin{definition}\label{def-zth-congruence} \index{Kongruenz}
 Zwei Zahlen $a, b \in \mathbb{N}$  heißen \index{restgleich}
@@ -448,6 +453,7 @@ Gauss eingeführt. Gewöhnlich ist der Teiler positiv, aber $a$ und $b$ können auc
 \end{compactitem}
 \end{example}
 
+\vskip +20 pt
 \begin{satz}\label{thm-zth-div}
 $a \equiv b$ (mod $m$) gilt genau dann,  wenn die Differenz $(a - b)$ durch $m$
 teilbar ist, also wenn ein $q\in \mathbf{Z}$ existiert mit $ (a-b)=q*m.$\footnote{%
@@ -474,7 +480,7 @@ $ a \equiv b \bmod{m}   ~~ \Longleftrightarrow ~~
 Daraus ergibt sich: Wenn $m$ die Differenz teilt, gibt es eine ganze Zahl $q$, so
 dass gilt: $a = b + q*m$.
 Alternativ zur Kongruenzschreibweise kann man auch die Teilbarkeitsschreibweise
-verwenden: $m | (a - b)$.
+verwenden: $m | (a - b)$.\\
 
 \begin{example}{ für äquivalente Aussagen:} \\
 $35 \equiv 11$ (mod $3) \Longleftrightarrow  35 - 11 \equiv 0$ (mod $3)$, 
@@ -485,8 +491,8 @@ $11:3$ beide den Rest $2$ ergeben.
 %\begin{remark}{:}\\
 %\end{remark}
 
-Anwenden kann man die obige Äquivalenz von Satz~\ref{thm-zth-div}, wenn man schnell und
-geschickt für große Zahlen entscheiden will, ob sie durch eine bestimmte
+Anwenden kann man die obige Äquivalenz von Satz~\ref{thm-zth-div}, wenn man schnell
+und geschickt für große Zahlen entscheiden will, ob sie durch eine bestimmte
 Zahl teilbar sind.
 
 %\newpage
@@ -494,7 +500,7 @@ Zahl teilbar sind.
 Ist $69.993$ durch $7$ teilbar?\\
 Da die Zahl in eine Differenz zerlegt werden kann, bei der einfach zu ersehen
 ist, dass jeder Operand durch $7$ teilbar ist, ist auch die Differenz durch $7$
-teilbar: $69.993 = 70.000 - 7$.
+teilbar: $69.993 = 70.000 - 7$.\\
 \end{example}
 
 Diese Überlegungen und Definitionen mögen recht theoretisch erscheinen, sind
@@ -504,7 +510,7 @@ $1, 2, \cdots, 12$ repräsentiert. Die Stunden nach 12:00 mittags erhält man als
 Reste einer Division durch 12. Wir wissen sofort, dass $2$ Uhr nachmittags
 dasselbe wie 14:00 ist.
 
-Diese \glqq modulare'', also auf die Divisionsreste bezogene Arithmetik ist die
+Die \glqq modulare'', also auf die Divisionsreste bezogene Arithmetik ist die
 Basis der asymmetrischen Verschlüsselungsverfahren.
 Kryptographische Berechnungen spielen sich also nicht wie das Schulrechnen
 unter den reellen Zahlen ab, sondern unter Zeichenketten begrenzter Länge,
