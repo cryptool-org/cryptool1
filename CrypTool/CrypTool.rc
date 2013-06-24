@@ -262,7 +262,7 @@ BEGIN
     COMBOBOX        IDC_DIM_BIS,188,320,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,8,26,305,211
     LTEXT           "Ta analiza Hilla jest analizΉ Known-Plaintext, ktσra z tekstu oryginalnego i z tekstu tajnego oblicza klucz Hilla.",IDC_LBL_INFOTEXT,8,5,305,17,0,WS_EX_TRANSPARENT
-    PUSHBUTTON      "&Opcje tekstu",IDC_BUTTON1,92,350,71,20
+    PUSHBUTTON      "&Opcje tekstu",IDC_BUTTON1,124,350,71,20
     COMBOBOX        IDC_FILE_SELECT,16,218,287,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     GROUPBOX        "Jakie odmiany szyfrowania Hilla maja zostac analizowane",IDC_STATIC,8,243,305,60
     GROUPBOX        "Wariant mnoΏenia",IDC_STATIC,16,256,287,40
@@ -11514,7 +11514,7 @@ BEGIN
     COMBOBOX        IDC_DIM_BIS,187,320,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,26,306,211
     LTEXT           "Ova Hill-ova analiza je analiza Poznatog otvorenog teksta. Na ulazu otvoreni tekst i ifrat izracunavaju Hill-ov kljuc",IDC_LBL_INFOTEXT,7,5,306,17,0,WS_EX_TRANSPARENT
-    PUSHBUTTON      "Opcije za tekst",IDC_BUTTON1,87,349,71,21
+    PUSHBUTTON      "Opcije za tekst",IDC_BUTTON1,124,349,71,21
     COMBOBOX        IDC_FILE_SELECT,15,217,289,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     GROUPBOX        "Hill varijante ifrovanja ",IDC_STATIC,8,243,304,60
     GROUPBOX        "Varijansa umnoavanja",IDC_STATIC,16,256,287,40
@@ -22710,7 +22710,7 @@ CAPTION "Hill-Analyse (Known Plaintext)"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Schlόssel suchen",IDOK,8,349,76,20
-    PUSHBUTTON      "Schlieίen",IDCANCEL,254,349,62,20
+    PUSHBUTTON      "Schlieίen",IDCANCEL,250,349,62,20
     COMBOBOX        IDC_DIM_VON,145,320,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_DIM_BIS,198,320,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Durchsuchen der Dimensionen von",IDC_STATIC,20,322,115,8
@@ -22718,7 +22718,7 @@ BEGIN
     CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,8,25,305,211
     LTEXT           "Dies ist eine Known-Plaintext-Analyse einer Hill-Chiffre. Mit dieser Analyse kφnnen Sie aus dem Klartext und dem Geheimtext den Hill-Schlόssel berechnen.",IDC_LBL_INFOTEXT,8,5,304,17,0,WS_EX_TRANSPARENT
     GROUPBOX        "Welche Varianten der Hill-Verschlόsselung sollen analysiert werden",IDC_STATIC,8,243,304,60
-    PUSHBUTTON      "Textoptionen...",IDC_BUTTON1,90,349,71,20
+    PUSHBUTTON      "Textoptionen...",IDC_BUTTON1,124,349,71,20
     COMBOBOX        IDC_FILE_SELECT,15,216,288,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     GROUPBOX        "Multiplikationsart",IDC_STATIC,16,256,287,40
     CONTROL         "(Vektorreihe) x (Matrix)",IDC_CHECK_VM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,268,101,8
@@ -33949,7 +33949,7 @@ CAPTION "Hill Analysis (Known Plaintext)"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "C&ontinue",IDOK,7,353,71,18
-    PUSHBUTTON      "&Cancel",IDCANCEL,231,353,62,18
+    PUSHBUTTON      "&Cancel",IDCANCEL,250,353,62,18
     LTEXT           "Search through the dimensions from",IDC_STATIC,16,324,117,8
     COMBOBOX        IDC_DIM_VON,154,322,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     CTEXT           "to",IDC_STATIC,188,324,9,8
@@ -33957,7 +33957,7 @@ BEGIN
     CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,26,305,211
     LTEXT           "This is a known-plaintext analysis of Hill encryption. If the plaintext is available along with the ciphertext, the Hill key can be recomputed.",IDC_LBL_INFOTEXT,7,5,286,17,0,WS_EX_TRANSPARENT
     GROUPBOX        "Hill encryption variants ",IDC_STATIC,7,243,305,63
-    PUSHBUTTON      "Text options",IDC_BUTTON1,154,353,71,18
+    PUSHBUTTON      "Text options",IDC_BUTTON1,125,353,71,18
     COMBOBOX        IDC_FILE_SELECT,15,217,289,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     GROUPBOX        "Multiplication variant",IDC_STATIC,16,256,287,40
     CONTROL         "(row vector) * (matrix)",IDC_CHECK_VM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,268,101,8
@@ -49142,7 +49142,7 @@ BEGIN
     COMBOBOX        IDC_DIM_BIS,189,320,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,26,306,211
     LTEXT           "El Anαlisis de Hill es un anαlisis de Texto Claro Conocido, con el cuαl puede calcular la Clave de Hill a partir del texto claro y del texto cifrado.",IDC_LBL_INFOTEXT,7,5,306,17,0,WS_EX_TRANSPARENT
-    PUSHBUTTON      "Opc&iones de Texto",IDC_BUTTON1,93,349,71,19
+    PUSHBUTTON      "Opc&iones de Texto",IDC_BUTTON1,124,349,71,19
     COMBOBOX        IDC_FILE_SELECT,15,217,288,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     GROUPBOX        "ΏCuαles variantes del cifrado Hill deberνan ser analizadas?",IDC_STATIC,8,243,304,60
     GROUPBOX        "Variante de multiplicaciσn",IDC_STATIC,16,256,287,40
@@ -56491,7 +56491,7 @@ CAPTION "Αάλυση Hill (Με γνωστό αρχικό κείμενο)"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Σ&υνέχεια",IDOK,7,366,71,18
-    PUSHBUTTON      "&Άκυρο",IDCANCEL,231,366,62,18
+    PUSHBUTTON      "&Άκυρο",IDCANCEL,250,366,62,18
     LTEXT           "Αναζήτηση μέσω των διαστάσεων από",IDC_STATIC,16,331,136,8
     COMBOBOX        IDC_DIM_VON,154,329,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     CTEXT           "έως",IDC_STATIC,187,330,14,8
@@ -56499,7 +56499,7 @@ BEGIN
     CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,29,305,211
     LTEXT           "Αυτή είναι μία ανάλυση της κρυπτογράφησης Hill. Αν το αρχικό κείμενο είναι διαθέσιμο μαζί με το κρυπτογραφημένο κείμενο, το κλειδί Hill μπορεί να υπολογισθεί εκ νέου.",IDC_LBL_INFOTEXT,7,6,301,19,0,WS_EX_TRANSPARENT
     GROUPBOX        "Παραλλαγές της κρυπτογράφησης του Hill ",IDC_STATIC,7,251,305,63
-    PUSHBUTTON      "Επιλογές κειμένου",IDC_BUTTON1,154,366,71,18
+    PUSHBUTTON      "Επιλογές κειμένου",IDC_BUTTON1,125,366,71,18
     COMBOBOX        IDC_FILE_SELECT,15,217,289,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     GROUPBOX        "Πολλαπλασιαστική παραλλαγή",IDC_STATIC,16,266,287,40
     CONTROL         "(διάνυσμα σειρά) * (μήτρα)",IDC_CHECK_VM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,280,149,8
