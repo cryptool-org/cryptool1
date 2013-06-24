@@ -228,11 +228,12 @@ BOOL CDlgAutomatedPermAnalysis::OnInitDialog()
 	str.LoadString(IDS_SELECT_DOCUMENT);
 	m_ctrlFileSelect.AddString(str);
 
+	CCryptDoc *pDoc = 0;
 	m_sel_tab1 = m_sel_tab2 = 0;
 	deque<void*>::iterator it = theApp.m_fileList.begin();
 	while ( it != theApp.m_fileList.end() )
 	{
-		CCryptDoc *pDoc = (CCryptDoc*)*it;
+		pDoc = (CCryptDoc*)*it;
 		str = pDoc->GetTitle();
 		if ( fn_activeDocument && theApp.active == it )
 		{
@@ -247,6 +248,25 @@ BOOL CDlgAutomatedPermAnalysis::OnInitDialog()
 
 	str.LoadString(IDS_OPEN_FILE);
 	m_ctrlFileSelect.AddString(str);
+
+	// flomar, June 2013: if there is a valid document when starting this dialog, 
+	// we want to automatically load its contents into the ciphertext window
+	if(pDoc) {
+		// select the ciphertext tab
+		m_TC_textspace.SetCurSel(1);
+		// load the document into the ciphertext window-- the 'm_edTab = 1' instruction is mandatory
+		// for the 'OpenFile' method to use the ciphertext window instead of the cleartext window
+		m_edTab = 1;
+		pDoc->UpdateContent();
+		OpenFile(pDoc->ContentName);
+		// hide the cleartext window, and show the ciphertext window
+		::ShowWindow(hWndEditPlain,  SW_HIDE);
+		::ShowWindow(hWndEditCipher, SW_SHOW);
+		// select the 'active document' entry
+		m_ctrlFileSelect.SetCurSel(1);
+		// focus the ciphertext window
+		::SetFocus(hWndEditCipher);
+	}
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 }
