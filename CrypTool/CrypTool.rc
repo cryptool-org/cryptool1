@@ -2473,15 +2473,15 @@ BEGIN
     LTEXT           "Static",IDC_HEADING,7,7,186,16
 END
 
-IDD_DIFFIEHELLMAN_GENERATEFINALKEY DIALOG 0, 0, 200, 117
+IDD_DIFFIEHELLMAN_GENERATEFINALKEY DIALOGEX 0, 0, 200, 117
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Generowanie wspσlny klucz sesji"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,96,50,14
     PUSHBUTTON      "&Anuluj",IDCANCEL,143,96,50,14
     LTEXT           "Wszystkie warunki wstκpne do utworzenia klucza wspσlnego i tajnych kluczy S dla Alicji i Boba, zosta³y spe³nione. MoΏesz wygenerowaζ Klucz Sesji dla Alicji i Boba, klikajΉc 'OK'.",IDC_STATIC,7,37,186,24,NOT WS_GROUP
-    LTEXT           "Wspσlny Klucz Sesji obliczany jest wed³ug zaleΏnoci: \n A = (g^a)^b mod p oraz B = (g^b)^a mod p.",IDC_STATIC,7,69,186,16
+    LTEXT           "Wspσlny Klucz Sesji obliczany jest wed³ug zaleΏnoci: \nAlice = B^a mod p oraz Bob = A^b mod p.",IDC_STATIC,7,69,186,16
     LTEXT           "Static",IDC_HEADING,7,7,186,16
 END
 
@@ -7743,6 +7743,10 @@ BEGIN
         RIGHTMARGIN, 300
         TOPMARGIN, 10
         BOTTOMMARGIN, 98
+    END
+
+    IDD_DIFFIEHELLMAN_GENERATEFINALKEY, DIALOG
+    BEGIN
     END
 
     IDD_DIFFIEHELLMAN_KEY, DIALOG
@@ -13731,15 +13735,15 @@ BEGIN
     LTEXT           "Staticki",IDC_HEADING,7,7,186,16
 END
 
-IDD_DIFFIEHELLMAN_GENERATEFINALKEY DIALOG 0, 0, 200, 117
+IDD_DIFFIEHELLMAN_GENERATEFINALKEY DIALOGEX 0, 0, 200, 117
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Generii Zajednicki Kljuc Sesije"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,96,50,14
     PUSHBUTTON      "&Otkai",IDCANCEL,143,96,50,14
     LTEXT           "Svi preduslovi za generisanje zajednickog i deljenog kljuca sesije S za Alisu i Boba su ispunjeni. Moete generisati Alisin i Bobov kljuc sesije klikom na dugme 'OK'.",IDC_STATIC,7,37,186,24,NOT WS_GROUP
-    LTEXT           "Zajednicki kljuc sesije S se izracunava na sledeci nacin:\nA = (g^a)^b mod p and B = (g^b)^a mod p.",IDC_STATIC,7,69,186,16
+    LTEXT           "Zajednicki kljuc sesije S se izracunava na sledeci nacin:\nAlice = B^a mod p and Bob = A^b mod p.",IDC_STATIC,7,69,186,16
     LTEXT           "Staticki",IDC_HEADING,7,7,186,16
 END
 
@@ -18999,6 +19003,10 @@ BEGIN
         RIGHTMARGIN, 300
         TOPMARGIN, 10
         BOTTOMMARGIN, 98
+    END
+
+    IDD_DIFFIEHELLMAN_GENERATEFINALKEY, DIALOG
+    BEGIN
     END
 
     IDD_DIFFIEHELLMAN_KEY, DIALOG
@@ -24936,15 +24944,15 @@ BEGIN
     LTEXT           "Static",IDC_HEADING,7,7,186,16
 END
 
-IDD_DIFFIEHELLMAN_GENERATEFINALKEY DIALOG 0, 0, 200, 118
+IDD_DIFFIEHELLMAN_GENERATEFINALKEY DIALOGEX 0, 0, 200, 126
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Geheimen Schlόssel generieren"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,96,50,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,143,96,50,14
+    DEFPUSHBUTTON   "&OK",IDOK,7,104,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,143,104,50,14
     LTEXT           "Nachdem Sie auf die Schaltflδche 'OK' gedrόckt haben, kφnnen Sie getrennt voneinander fόr Alice und Bob den geheimen und gemeinsamen Schlόssel S berechnen.",IDC_STATIC,7,37,186,24,NOT WS_GROUP
-    LTEXT           "Dieser gemeinsame Session Key S wird berechnet als (g^a)^b mod p und als (g^b)^a mod p.",IDC_STATIC,7,69,186,17
+    LTEXT           "Dieser gemeinsame Session Key S wird auf Seiten von Alice berechnet als B^a mod p und auf Seiten von Bob als A^b mod p.",IDC_STATIC,7,69,186,24
     LTEXT           "Static",IDC_HEADING,7,7,186,16
 END
 
@@ -30102,6 +30110,11 @@ BEGIN
         VERTGUIDE, 383
         BOTTOMMARGIN, 176
         HORZGUIDE, 100
+    END
+
+    IDD_DIFFIEHELLMAN_GENERATEFINALKEY, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 118
     END
 
     IDD_STATISTICS_SIGNATURE_ATTACK, DIALOG
@@ -36167,15 +36180,15 @@ BEGIN
     LTEXT           "Static",IDC_HEADING,7,7,186,16
 END
 
-IDD_DIFFIEHELLMAN_GENERATEFINALKEY DIALOG 0, 0, 200, 117
+IDD_DIFFIEHELLMAN_GENERATEFINALKEY DIALOGEX 0, 0, 200, 126
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Generate Common Session Key"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,96,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,143,96,50,14
+    DEFPUSHBUTTON   "&OK",IDOK,7,104,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,143,104,50,14
     LTEXT           "All preconditions to generate a common and secret Session Key S for Alice and Bob are fulfilled. You can generate Alice's and Bob's Session Key after a click on 'OK'.",IDC_STATIC,7,37,186,24,NOT WS_GROUP
-    LTEXT           "The common Session Key S is computed as follows:\nA = (g^a)^b mod p and B = (g^b)^a mod p.",IDC_STATIC,7,69,186,16
+    LTEXT           "The common Session Key S is computed by Alice as B^a mod p, and by Bob as A^b mod p.",IDC_STATIC,7,69,186,24
     LTEXT           "Static",IDC_HEADING,7,7,186,16
 END
 
@@ -41420,6 +41433,11 @@ BEGIN
         BOTTOMMARGIN, 98
     END
 
+    IDD_DIFFIEHELLMAN_GENERATEFINALKEY, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 117
+    END
+
     IDD_DIFFIEHELLMAN_KEY, DIALOG
     BEGIN
         LEFTMARGIN, 7
@@ -45733,7 +45751,7 @@ BEGIN
     DEFPUSHBUTTON   "&Aceptar",IDOK,7,96,50,14
     PUSHBUTTON      "&Cancelar",IDCANCEL,143,96,50,14
     LTEXT           "Se han realizado todos los pasos necesarios para generar la clave secreta comϊn a Alice y Bob. La clave de sesiσn se calcularα tras pulsar en 'Aceptar'.",IDC_STATIC,7,37,186,24,NOT WS_GROUP
-    LTEXT           "Esta clave de sesiσn comϊn S se calcula:\nA = (g^a)^b mod p    y    B = (g^b)^a mod p.",IDC_STATIC,7,69,186,16
+    LTEXT           "Esta clave de sesiσn comϊn S se calcula:\nAlice = B^a mod p    y    Bob = A^b mod p.",IDC_STATIC,7,69,186,16
     LTEXT           "Static",IDC_HEADING,7,7,186,16
 END
 
@@ -52370,6 +52388,10 @@ BEGIN
         BOTTOMMARGIN, 138
     END
 
+    IDD_DIFFIEHELLMAN_GENERATEFINALKEY, DIALOG
+    BEGIN
+    END
+
     IDD_DIFFIEHELLMAN_KEY, DIALOG
     BEGIN
         LEFTMARGIN, 7
@@ -58712,7 +58734,7 @@ BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,96,50,14
     PUSHBUTTON      "Άκυρο",IDCANCEL,143,96,50,14
     LTEXT           "Όλες οι απαιτήσεις για τη δημιουργία ενός κοινού και ενός μυστικού κλειδιού S για την Alice και τον Bob έχουν εκπληρωθεί. Τώρα μπορείτε να δημιουργήσετε το κοινό κλειδί της Alice και του Bob με το πάτημα του κουμπιού 'OK'.",IDC_STATIC,7,22,186,41,NOT WS_GROUP
-    LTEXT           "Το κοινό κλειδί υπολογίζετε ως εξής:\nA = (g^a)^b mod p και B = (g^b)^a mod p.",IDC_STATIC,7,69,186,16
+    LTEXT           "Το κοινό κλειδί υπολογίζετε ως εξής:\nAlice = B^a mod p και Bob = A^b mod p.",IDC_STATIC,7,69,186,16
     LTEXT           "Στατικά",IDC_HEADING,7,7,186,16
 END
 
@@ -63966,6 +63988,10 @@ BEGIN
         RIGHTMARGIN, 300
         TOPMARGIN, 10
         BOTTOMMARGIN, 98
+    END
+
+    IDD_DIFFIEHELLMAN_GENERATEFINALKEY, DIALOG
+    BEGIN
     END
 
     IDD_DIFFIEHELLMAN_KEY, DIALOG
