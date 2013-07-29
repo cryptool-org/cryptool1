@@ -3472,11 +3472,194 @@ Aber selbst die Autoren merken an, dass andere bekannte Algorithmen (z.B. ECPP) 
 
 % --------------------------------------------------------------------------
 \vskip +20pt
-\subsubsection{\glqq Shared Primes\grqq: Module mit gleichen Primzahlen}
+\subsubsection{\glqq Shared Primes\grqq: Module mit gleichen Primfaktoren}
 \label{nt_Shared-Primes} \index{Primzahl!Shared} 
 %~\ref{nt_Shared-Primes}, S.~\pageref{nt_Shared-Primes}
 
-yyyyyyyyyyyyyyyyyyyyyyyyy
+Der RSA-Algorithmus basiert auf der angenommenen Schwierigkeit, große semi-prime
+natürliche Zahlen (Module) zu faktorisieren (Faktorisierungsproblem).
+Wie Lenstra et al \cite{nt:Lenstra2012} beschrieben, ist es aber möglich, aus
+einer gegebenen Menge von Modulen einige zu faktorisieren, sofern sie
+gemeinsame Primfaktoren (shared primes) aufweisen. In diesem Fall kann das 
+Faktorisierungsproblem umgangen werden, indem man die -- relativ einfach zu
+berechnenden -- größten gemeinsamen Teiler (ggT) bestimmt. Andererseits ist es
+keine triviale Aufgabe, alle Shared Primes (gemeinsame Primfaktoren) effizient
+zu bestimmen und die zugehörigen Module zu faktorisieren, wenn die gegebene
+Menge von Moduln sehr groß ist (mehrere Millionen).
+
+Die ggTs lassen sich nur nutzen, wenn die RSA-Schlüssel nicht zufällig genug
+erzeugt wurden. Zieht man die Wichtigkeit starker kryptographischer Schlüssel
+in Betracht, sollte man verifizieren, dass alle Schlüssel (wirklich)
+zufällig erzeugt wurden \cite{nt:Esslinger2012}. 
+
+Als Lenstra et al ihr Paper \cite{nt:Lenstra2012} im Februar 2012 
+veröffentlichten, veröffentlichten sie nicht den zugehörigen Source-Code.
+Kurz danach wurde der Source-Code eines ähnlichen Programms auf der
+CrypTool-Website\footnote{%
+\url{http://www.cryptool.org/en/ctp-dokumentation-en/361-ctp-paper-rsa-moduli}
+%\url{http://www.cryptool.org/de/ctp-dokumentation-de/361-ctp-paper-rsa-moduli}
+}
+in Python und C++ veröffentlicht, und noch etwas später auf der Seite, die von
+\cite{nt:Heninger2012}\footnote{\url{https://www.factorable.net/}
+} benutzt wurde.
+Der schnellste bisher bekannte Code ist von \cite{nt:Heninger2012}.
+
+Diese Programme finden alle eventuell existierenden gemeinsamen Primfaktoren aus
+einer gegebenen Menge von Modulen, auch wenn diese Menge Millionen von
+Modulen enthält. Mit diesen Programmen können dann System-Administratoren ihre
+eigenen RSA-Schlüssel testen.
+
+Der einfachste Ansatz, alle Primfaktoren zu finden (indem man jeden Modul mit
+jedem anderen vergleicht), hat eine Komplexität, die quadratisch mit der Anzahl
+der Modulen wächst.
+
+Eine sehr effiziente Methode, die Bäume zum Vergleich aller ggT-Paare benutzt,
+basiert auf einer Publikation von Dan Bernstein aus 2005 \cite{nt:Bernstein2005}. Bernstein benutzt eine Vorberechnung, in der das Produkt aller Module erzeugt wird. Das ist ein weiteres Beispiel dafür, wie hilfreich Vorberechnungen sein können, um kryptographische Systeme zu brechen (ein anderes berühmtes Beispiel sind die Rainbow-Tabellen, um die Ursprungswerte von Hashwertes zu finden \cite{nt:Oechslin2003}).
+
+
+Das folgende Sage-Beispiel zeigt die sehr unterschiedlichen Laufzeiten für die Berechnung eines ggT und einer Faktorisierung. In dem Abschnitt nach diesem Beispiel wird der Kern der Methode erklärt, der in \cite{nt:Heninger2012} benutzt wird: Die Benutzung von zwei Bäumen beschleunigt die Berechnung deutlich.
+
+Das Sage-Beispiel~\ref{nt_sagesample_Compare-Runtime-gcd-factoring} zeigt, dass die folgenden Operationen sehr schnell sind: Multiplikation von Faktoren, Dividieren eines Moduls durch einen bekannten Faktor und Berechnen des ggT. Im Gegensatz dazu steigt die Rechendauer zur Faktorisierung von längeren Moduli stark an. Selbst die relativ kleinen Module in diesem Beispiel zeigen das: Der kleinere Modul (69 Dezimalstellen, 228 bit) brauchte 76 Sekunden, während der größere (72 Dezimalstellen, 239 bit) schon fast 217 Sekunden benötigte.
+
+Hinzu kommt, dass die Operationen Multiplikation, Division und ggT große Laufzeit-Unter"-schiede aufweisen, wenn die Operanden von sehr unterschiedlicher Größe sind.
+
+% Just to show the origin of the used primes
+% sage: factor (2^211-1)
+% 15193 * 60272956433838849161 * 3593875704495823757388199894268773153439
+%
+% sage: factor (2^214-1)
+% 3 * 643 * 84115747449047881488635567801 * 162259276829213363391578010288127
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+
+# Multiplication
+sage: 3593875704495823757388199894268773153439 * 84115747449047881488635567801
+302301541122639745170382530168903859625492057067780948293331060817639
+
+sage: 3593875704495823757388199894268773153439 * 162259276829213363391578010288127
+583139672825572068433667900695808357466165186436234672858047078770918753
+
+
+# Division
+sage: time 302301541122639745170382530168903859625492057067780948293331060817639 / 
+           3593875704495823757388199894268773153439
+Wall time: 0.00 s
+84115747449047881488635567801
+
+sage: time 583139672825572068433667900695808357466165186436234672858047078770918753 / 
+           3593875704495823757388199894268773153439
+Wall time: 0.00 s
+162259276829213363391578010288127
+
+
+# Calculate gcd
+sage: time gcd (583139672825572068433667900695808357466165186436234672858047078770918753,
+                302301541122639745170382530168903859625492057067780948293331060817639)
+Wall time: 0.00 s
+3593875704495823757388199894268773153439
+
+
+# Factorize
+sage: time factor (583139672825572068433667900695808357466165186436234672858047078770918753)
+Wall time: 217.08 s
+162259276829213363391578010288127 * 3593875704495823757388199894268773153439
+
+sage: time factor (302301541122639745170382530168903859625492057067780948293331060817639)
+Wall time: 76.85 s
+84115747449047881488635567801 * 3593875704495823757388199894268773153439
+
+\end{Verbatim}
+\caption{Vergleich der Laufzeit bei der Berechnung eines ggT und einer Faktorisierung}
+\label{nt_sagesample_Compare-Runtime-gcd-factoring}
+\end{sagecode}
+
+
+
+\clearpage
+\section*{Effiziente Berechnung aller ggT-Paare und Erläuterung der benutzten Formel zur Bestimmung der Shared Primes}
+
+Der hervorragende Artikel \glqq Mining Your Ps and Qs: Detection of Widespread Weak Keys in Network Devices''~\cite{nt:Heninger2012} erklärt, wie der Algorithmus die ggTs von allen RSA-Moduln effizient berechnet.
+
+Zuerst wird das Produkt $P$ aller Moduln $m_{i}$ mit Hilfe eines Produktbaumes berechnet. Anschließend wird ein Restebaum modulo den Quadraten der Module berechnet. Dann werden alle ggTs aus einem Modul $m_{i}$ und dem zugehörigen Rest $z_{i}$ dividiert durch diesen Modul berechnet.
+
+Dies wird in Abbildung \ref{Figure_Bernstein_Computing-all-pairs-GCDs} veranschaulicht -- sie ist eine Kopie aus \cite{nt:Heninger2012} (nur dass dort die Module $N_{i}$ statt $m_{i}$ genannt werden):
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[scale=0.7]{figures/Bernstein_Computing-all-pairs-GCDs.png}
+\caption{Algorithmus und Abbildung, um alle ggTs effizient zu berechnen} 
+\label{Figure_Bernstein_Computing-all-pairs-GCDs}
+\end{center}
+\end{figure}
+
+
+Der Artikel~\cite{nt:Heninger2012} erklärt sehr gut \textit{wie} der Algorithmus funktioniert, aber nicht so gut \textit{warum}. Das Produkt $P$ aller Module ist eine sehr große Zahl, sogar wenn man sie mit den einzelnen Modulen vergleicht. Ohne die Vereinfachungen durch den Restebaum würde man folgendermaßen vorgehen: Berechnen von $ggT_{i} = ggT( P / m_{i},  m_{i}) $ für alle $i$. Vergleichen jedes $ggT_{i} \ne 1$ mit allen anderen $ggT_{j} \ne 1$ mit  $j \ne i$. Wenn zwei ggTs gleich sind, haben ihre Module einen gemeinsamen Faktor.\footnote{%
+Eine Vorraussetzung dafür, dass man nur Primfaktoren erhält, ist, dass doppelte Module entfernt werden, bevor man den Baum aufsetzt.
+}
+
+Weil diese Berechnungen bei den großen Längenunterschieden der Zahlen sehr langsam sind, wird der Restebaum benutzt. Obwohl es so aussieht, als bestände er aus mehr Schritte, bedeutet er eine große Vereinfachung.
+
+Innerhalb des Restebaums erhält man -- am Ende -- $(P \bmod ({m_{i}^{2}}) ) / m_{i}$ für alle $i$.\footnote{%
+Es würde keinen Sinn machen, beim linken ggT modulo $m_{i}$ statt $m_{i}^{2}$
+zu rechnen, denn das bedeutete, $(P \bmod m_{i} ) / m_{i}$ zu benutzen: Denn
+$m_{i} | P$, so dass $P/m_{i}$ immer eine ganze Zahl ist, so dass  
+$(P \bmod m_{i} )$ immer $= 0$ ist.
+
+\noindent Beispiel mit sehr kleinen Modulen:\\
+$ m_{1} = 2*3 = 6;~~~ m_{2} = 2*7 = 14;~~~ P=6*14=84 $\\
+$ P \bmod m_{1} = 84 \bmod 6 = 0;~~~ P \bmod {m_{1}^{2}} = 84 \bmod 36 = 12 $\\
+$ P \bmod m_{2} = 84 \bmod 14 = 0;~~~ P \bmod {m_{2}^{2}} = 84 \bmod 196 = 84 $\\
+$ggT_{1} = ggT(12/6, 6) = ggT(2, 6) = 2 $\\
+$ggT_{2} = ggT(84/14, 14) = ggT(6, 14) = 2 $
+
+So wie der Baum strukturiert ist, würde es auch keinen Sinn machen, zuerst zu
+teilen und dann die Modulo-Operation vorzunehmen, denn das würde zu den gegebenen Modulen in umgekehrter Reihenfolge führen.
+
+Ebenfalls keinen Sinn würde es machen, $(P \bmod ({m_{i}^{3}}) ) / {m_{i}^{2}})$ zu berechnen, da dies nur zusätzlichen Aufwand ohne Verbesserung bedeutet.
+}
+
+Die wesentliche offene Frage ist noch: Warum liefert $ggT((P \bmod {m_{i}^{2}})/ m_{i}, m_{i})$ dasselbe Ergebnis wie $ggT( P / m_{i}, m_{i})$?
+Wir beweisen, dass diese Identität korrekt ist.\footnote{%
+P ist das Produkt aller Module, und $m_{i}$ ist irgendein Modul.
+}
+
+$$ggT((P \bmod {m_{i}^{2}})/ m_{i}, m_{i})~~~  \overset{!}{=}  ~~~ggT( P / m_{i}, m_{i})$$
+$ \Longleftrightarrow $~~~\footnote{Gemäß Euklids Algorithmus (erste Iteration) ist die folgende Identität wahr:\\
+$ggT(a, b) = ggT(b, a \bmod b)$ wenn $ b \neq 0 $\\
+Dies gilt, weil per Definition gilt: $ggT(a, 0) = a$\\
+Angewandt auf unsere Problem bedeutet das:
+\mbox{}\\
+$ggT((P \bmod {m_{i}^{2}})/ m_{i}, m_{i})=ggT((P \bmod {m_{i}^{2}})/ m_{i} \bmod{m_{i}}, m_{i})$ \mbox{}\\
+$ggT( P / m_{i}, m_{i})=ggT( P / m_{i} \bmod{m_{i}}, m_{i})$\mbox{}
+}
+
+$$ggT(((P \bmod {m_{i}^{2}})/ m_{i}) \bmod {m_{i}}, m_{i})~~~  \overset{!}{=}  ~~~ggT( (P / m_{i}) \bmod {m_{i}}, m_{i})$$
+$ \Longleftrightarrow $~~~\footnote{Die ggTs sind gleich, wenn ihre beiden ersten Argumente gleich sind.
+}
+
+$$((P \bmod {m_{i}^{2}})/ m_{i}) \bmod {m_{i}}~~~  \overset{!}{=}  ~~~ (P / m_{i}) \bmod {m_{i}}$$
+$ \Longleftrightarrow $~~~\footnote{Die folgenden Umformungen sind Äquivalenzumformungen.
+}
+
+$$(P \bmod{m_{i}^{2}})/ m_{i} - P / m_{i} \equiv 0   \bmod{m_{i}}~~~ \Leftrightarrow ~~~  m_{i} ~~ | ~~ ((P \bmod{m_{i}^{2}})/ m_{i} - P / m_{i})$$~~~\footnote{%
+Benutzt man die Modulo-Operation (Definition \ref{def-zth-remainder} von Seite
+\pageref{def-zth-remainder}) und eine Division, ergibt sich:
+$~a \bmod{b} ~ =  ~ a - b * \lfloor a/b \rfloor$. So kann $P \bmod{m_{i}^{2}}$ geschrieben werden als $ P-m_{i}^{2} \lfloor P/m_{i}^{2} \rfloor$.
+}
+
+$$ m_{i} ~~ | ~~ ((P-m_{i}^{2}* \lfloor P/m_{i}^{2} \rfloor - P))/m_{i}$$~~~\footnote{%
+$P$ reduziert sich selbst, der Exponent von $m_{i}$ im Zähler kürzt sich mit dem $m_{i}$ im Nenner.
+}
+
+$$ m_{i} ~~ | ~~ (m_{i}* \lfloor P/m_{i}^{2} \rfloor)$$
+
+Weil dies offensichtlich wahr ist, können wir schließen, dass die zwei ggTs äquivalent sind.
+
+% yyyyyyyyyyyyyyyyyyyyyyyyyyy
+% Sätze und Links:
+% https://en.wikipedia.org/wiki/Greatest_common_divisor
+% https://de.wikipedia.org/wiki/Gr%C3%B6%C3%9Fter_gemeinsamer_Teiler
+
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -6218,6 +6401,12 @@ Satz~\ref{nt-thm-Anzahl-RSA-Fixpunkte} & Anzahl der RSA-Fixpunkte & \pageref{nt-
     \url{http://cr.yp.to/papers/nfscircuit.ps} \\
     \url{http://cr.yp.to/djb.html}.
 
+\bibitem[Bernstein2005]{nt:Bernstein2005} \index{ Bernstein 2005}
+	Daniel J. Bernstein, \\
+	{\em Factoring into coprimes in essentially linear time}, \\
+	In Journal of Algorithms 54 (2005), 2005,
+	\url{http://cr.yp.to/lineartime/dcba-20040404.pdf}.
+
 \bibitem[Beutelspacher1996]{nt:Beutelspacher1996} \index{Beutelspacher 1996}
     Albrecht Beutelspacher, \\
     {\em Kryptologie}, Vieweg 1987, 5. Auflage 1996.
@@ -6273,10 +6462,22 @@ Satz~\ref{nt-thm-Anzahl-RSA-Fixpunkte} & Anzahl der RSA-Fixpunkte & \pageref{nt-
     {\em Angewandte Kryptographie}, 
     Fachbuchverlag Leipzig FV 2001.
 
+\bibitem[Esslinger2012]{nt:Esslinger2012} \index{ Esslinger 2012}
+	Esslinger, Schneider, Simon, \\
+	{\em RSA -- Sicherheit in der Praxis }, \\
+	in KES -- Zeitschrift für Informationssicherheit,
+	April 2012.
+
 \bibitem[Graham1994]{nt:Graham1994} \index{Graham 1994}
      Graham, Knuth, Patashnik, \\
      {\em Concrete Mathemathics, a Foundation of Computer Science}, \\
      Addison Wesley 1989, 6th printing 1994.
+
+\bibitem[Heninger2012]{nt:Heninger2012} \index{ Heninger 2012}
+	Nadia Heninger, Zakir Durumeric, Eric Wustrow, J. Alex Halderman, \\
+	{\em Mining Your Ps and Qs: Detection of Widespread Weak Keys in
+        Network Devices }, \\
+	August 2012, \url{https://factorable.net/paper.html}.
 
 \bibitem[Katzenbeisser2001]{nt:Katzenbeisser2001} \index{Katzenbeisser 2001}
      Stefan Katzenbeisser, \\
@@ -6321,11 +6522,25 @@ Satz~\ref{nt-thm-Anzahl-RSA-Fixpunkte} & Anzahl der RSA-Fixpunkte & \pageref{nt-
     {\em Analysis of Bernstein's Factorization Circuit},\\
     \url{http://www.cryptosavvy.com/mesh.pdf}.
 
+\bibitem[Lenstra2012]{nt:Lenstra2012} \index{ Lenstra 2012}
+	Arjen K. Lenstra, James P. Hughes, Maxime Augier, Joppe W. Bos,
+        Thorsten Kleinjung, Christophe Wachter, \\
+	{\em Ron was wrong, Whit is right, A Sanity Check of Public Keys
+             Collected on the Web}, \\
+	February 2012,
+	\url{http://eprint.iacr.org/2012/064.pdf}.
+
 \bibitem[Menezes2001]{nt:Menezes2001} \index{Menezes 2001}
     Alfred J. Menezes, Paul C. van Oorschot, Scott A. Vanstone \\
     {\em Handbook of Applied Cryptography}, 
     CRC Press 1997, 5th printing 2001,
-    \url{http://www.cacr.math.uwaterloo.ca/hac/} (Errata last update 24.07.2011).
+    \url{http://www.cacr.math.uwaterloo.ca/hac/} (Errata letzter Update 24.07.2011).
+
+\bibitem[Oechslin2003]{nt:Oechslin2003} \index{ Oechslin 2003}
+	Philippe Oechslin,\\
+	{\em Making a Faster Cryptanalytic Time-Memory Trade-Off},\\
+	Crypto 2003, 2003,\\
+	\url{http://lasecwww.epfl.ch/pub/lasec/doc/Oech03.pdf}.
 
 \bibitem[Pfleeger1997]{nt:Pfleeger1997} \index{Pfleeger 1997}
     Charles P. Pfleeger, \\
