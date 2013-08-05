@@ -8561,15 +8561,14 @@ BEGIN
                             "Wstêpne t³umaczenie: Uniwersztet Madrid, Hiszpania (http://www.csic.es),\r\nDr. Gonzalo Alvarez Maranon wraz ze studentami"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 
                             "Dalsze aktualizacje: Raphael Labaca Castro"
-    IDS_RSA_DEMO_RSA_MODULUS_INVALID 
-                            "[i18n] Please provide a valid RSA modulus."
+    IDS_RSA_DEMO_RSA_MODULUS_INVALID "Proszê podaæ poprawny modu³ RSA."
     IDS_STRING_HASH_DEMO_SOURCE_DOCUMENT_CONTAINS_NULL_BYTE 
-                            "[i18n] The document contains a null byte. Since the hash demonstration doesn't support null bytes, all characters after the first null byte are removed."
-    IDS_STRING_TRANSLATIONS_HEADING_GREEK "[i18n] Greek Translation"
+                            "Dokument zawiera zerowe bajty. Poniewa¿ demonstracja hashu nie obs³uguje zerowych bajtów,\nwszystkie znaki po pierwszym zerowym bajcie s¹ usuwane."
+    IDS_STRING_TRANSLATIONS_HEADING_GREEK "T³umaczenie greckie"
     IDS_STRING_TRANSLATIONS_INITIAL_WORK_GREEK 
-                            "[i18n] Initial translation: University of Macedonia, Thessaloniki, Greece (http://infosec.uom.gr),\r\nProf. Ioannis Mavridis"
+                            "T³umaczenie wstêpne: University of Macedonia, Thessaloniki, Greece (http://infosec.uom.gr),\r\nProf. Ioannis Mavridis"
     IDS_STRING_TRANSLATIONS_FURTHER_WORK_GREEK 
-                            "[i18n] Further updates: Dr. Theodoros Mastoras"
+                            "Dalsze aktualizacje: Dr. Theodoros Mastoras"
 END
 
 STRINGTABLE
