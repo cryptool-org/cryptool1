@@ -9,7 +9,7 @@
 \label{Chapter_EllipticCurves}
 \index{Elliptic curves}
 (Filipovics B. / B\"uger M. / Esslinger B. / Oyono R., April 2000,
-Updates: Dec. 2001, June 2002, Mar. 2003, Nov. 2009)
+Updates: Dec. 2001, June 2002, Mar. 2003, Nov. 2009, Aug. 2013)
 
 \section{Elliptic curve cryptography -- a high-performance substitute for RSA?}
 \index{Performance}
@@ -30,12 +30,20 @@ alternative in the area of asymmetric cryptography.
 The efficiency of a cryptographic algorithm depends on the key length and
 the calculation effort that is necessary to provide a prescribed level of
 security. The major advantage of ECC compared to RSA is that it requires
-much shorter key lengths. If we assume that the computing power increases
-by Moore's law (i.~e.\ it doubles every 18 months)\footnote{empirical
-knowledge by Gordon Moore, co-founder of Intel, 1965}, then the evolution of
-the key lengths for secure communication will be as figure~\ref{RSAKeylength}
-\cite{ec:Lenstra1999} (source: Arjen Lenstra and Eric Verheul:
-\url{http://cryptosavvy.com/table.htm}).
+much shorter key lengths.
+
+If we assume that the computing power increases by Moore's law (i.~e.\ it
+doubles every 18 months)\footnote{%
+Empirical knowledge by Gordon Moore, co-founder of Intel, 1965}%
+, then the evolution of the key lengths for secure communication will be as
+in figure~\ref{RSAKeylength}, which was generated from table 1 (on page 32 in
+\cite{ec:Lenstra1999}).\footnote{%
+Further information about key length comparison by Arjen Lenstra und Eric
+Verheul, plus more modern evaluations till 2013 can be found in\\
+\url{http://www.keylength.com/biblio/Handbook_of_Information_Security_-_Keylength.pdf}\\
+and interactively in\\
+\url{http://www.keylength.com/en/1/}.
+}
 
 % -> Figure 1
 \begin{figure}[ht]
@@ -69,17 +77,18 @@ secret key and have to process a digital signature rather than verify one.
 Therefore, there is a clear advantage in using ECC in terms of efficiency.
 \par
 \smallskip
-Nowadays, the major problem with ECC implementations is the lack of standardization.
-There is only one way to implement RSA, but there are many ways for ECC: One can work with
-different sets of numbers, different (elliptic) curves --- described by parameters\footnote{%
-see chapter \ref{ECC-Crypto}
-} --- ,
-and a variety of representations of the elements on the curve. Each choice has its
-advantages and disadvantages, and one can certainly construct the most efficient for
-each application. However, this causes problems in interoperability. But if all
-ECC-tools should be able to communicate with each other, they will have to support
-all different algorithms, which might put the advantage of efficient computation and
-the need of less storage capacity to the contrary.
+Nowadays, the major problem with ECC implementations is the lack of
+standardization. There is only one way to implement RSA, but there are many
+ways for ECC: One can work with different sets of numbers, different (elliptic)
+curves --- described by parameters\footnote{%
+See chapter \ref{ECC-Crypto}
+} --- , and a variety of representations of the elements on the curve. Each
+choice has its advantages and disadvantages, and one can certainly construct
+the most efficient for each application. However, this causes problems in
+interoperability. But if all ECC-tools should be able to communicate with each
+other, they will have to support all different algorithms, which might put the
+advantage of efficient computation and the need of less storage capacity to the
+contrary.
 
 \begin{sloppypar}
 Therefore, international standardization organizations like IEEE (P1363),
@@ -797,12 +806,16 @@ Both examples show the typical range of application for elliptic curve cryptogra
         \index{Lenstra 1987} \\
         {\em Factoring integers with elliptic curves}, \\
 	Annals of Mathematics 126, pp. 649-673, 1987.
-    \bibitem[Lenstra1999]{ec:Lenstra1999} Arjen K. Lenstra, Eric R. Verheul
-        \index{Lenstra/Verheul 1999} \\
-        {\em Selecting Cryptographic Key Sizes (1999)},\\
-	Journal of Cryptology: the journal of the International 
-	Association for Cryptologic Research \\
-	\url{http://www.cryptosavvy.com/cryptosizes.pdf}
+
+\bibitem[Lenstra1999]{nt:Lenstra1999} Arjen K. Lenstra, Eric R. Verheul,
+     \index{Lenstra/Verheul 1999} \\
+     {\em Selecting Cryptographic Key Sizes (1999 + 2001)}, \\
+     Journal of Cryptology 14 (2001), 255-293 \\
+     \url{http://www.win.tue.nl/~klenstra/key.pdf},
+     \url{http://www.cs.ru.nl/E.Verheul/papers/Joc2001/joc2001.pdf},
+     \url{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.20.69&rep=rep1&type=pdf}.
+     % Former Link is dead: \url{http://www.cryptosavvy.com/cryptosizes.pdf}.
+
     \bibitem[Menezes1993]{ec:Menezes1993}A. J. Menezes, 
 	\index{Menezes 1993} \\
         {\em Elliptic curve public key cryptosystems},\\
@@ -855,9 +868,6 @@ Both examples show the typical range of application for elliptic curve cryptogra
         \url{http://www.loria.fr/~zimmerma/records/ecmnet.html}\\
         It contains literature related to the topic factorization with 
 	elliptic curves as well as links to other web page. 
-
-   \item Key length comparison by Arjen Lenstra and Eric Verheul,\\
-        \url{http://cryptosavvy.com/table.htm}
 
 \end{enumerate}
 

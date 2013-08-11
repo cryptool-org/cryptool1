@@ -8,7 +8,7 @@
 \label{Chapter_EllipticCurves}
 \index{Elliptische Kurven}
 (Filipovics B. / Büger M. / Esslinger B. / Oyono R., April 2000,
- Updates: Dez. 2001, Juni 2002, März 2003, Nov. 2009)
+ Updates: Dez. 2001, Juni 2002, März 2003, Nov. 2009, Aug. 2013)
 
 % -----------------------------------------------------------------------------
 \section{Elliptische Kurven -- Ein effizienter Ersatz für RSA?}
@@ -37,12 +37,19 @@ RSA-Algorithmus liegt in der Tatsache, dass die sicheren Schlüssellängen
 erheblich kürzer sind. 
 
 Setzt man den Trend, dass sich die Leistung der verfügbaren Rechner im 
-Schnitt alle 18 Monate verdoppelt (Gesetz von Moore\index{Gesetz von Moore}\index{Moore, Gordon E.}%
-\footnote{empirische Erkenntnis von Gordon Moore, Mitbegründer von Intel,
-1965.} ), in die Zukunft fort, so kann man von einer Entwicklung der
-sicheren Schlüssellängen wie in Abbildung~\ref{RSAKeylength} ausgehen
-\cite{ec:Lenstra1999} (Quelle: Arjen Lenstra und Eric Verheul:
-\url{http://cryptosavvy.com/table.htm}).
+Schnitt alle 18 Monate verdoppelt (Gesetz von Moore\index{Gesetz von
+Moore}\index{Moore, Gordon E.}\footnote{%
+Empirische Erkenntnis von Gordon Moore, Mitbegründer von Intel, 1965.}%
+), in die Zukunft fort, so kann man von einer Entwicklung der
+sicheren Schlüssellängen wie in Abbildung~\ref{RSAKeylength} ausgehen,
+die anhand der Tabelle 1 (auf Seite 32 in \cite{ec:Lenstra1999}) erstellt
+wurde.\footnote{%
+Weitere Informationen zum Schlüssellängen-Vergleich von Arjen Lenstra und
+Eric Verheul, aber auch zu neuereren Untersuchungen bis 2013 finden sich in\\
+\url{http://www.keylength.com/biblio/Handbook_of_Information_Security_-_Keylength.pdf}\\
+und interaktiv in\\
+\url{http://www.keylength.com/en/1/}.
+}
 
 % -> Figur 1
 \begin{figure}[ht]
@@ -864,12 +871,16 @@ der Schlüssellänge (Speicherplatz) eine entscheidende Bedeutung zukommt.
         \index{Lenstra 1987} \\
         {\em Factoring integers with elliptic curves}, \\
 	Annals of Mathematics 126, pp. 649-673, 1987.
-    \bibitem[Lenstra1999]{ec:Lenstra1999} Arjen K. Lenstra, Eric R. Verheul,
-	\index{Lenstra/Verheul 1999} \\
-        {\em Selecting Cryptographic Key Sizes (1999)}, \\
-	Journal of Cryptology: the journal of the International 
-	Association for Cryptologic Research \\
-	\url{http://www.cryptosavvy.com/cryptosizes.pdf}
+
+\bibitem[Lenstra1999]{nt:Lenstra1999} Arjen K. Lenstra, Eric R. Verheul,
+     \index{Lenstra/Verheul 1999} \\
+     {\em Selecting Cryptographic Key Sizes (1999 + 2001)}, \\
+     Journal of Cryptology 14 (2001), 255-293 \\
+     \url{http://www.win.tue.nl/~klenstra/key.pdf},
+     \url{http://www.cs.ru.nl/E.Verheul/papers/Joc2001/joc2001.pdf},
+     \url{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.20.69&rep=rep1&type=pdf}.
+     % Former Link is dead: \url{http://www.cryptosavvy.com/cryptosizes.pdf}.
+
     \bibitem[Menezes1993]{ec:Menezes1993}A. J. Menezes, 
 	\index{Menezes 1993} \\ 
 	{\em Elliptic curve public key cryptosystems}, \\
@@ -926,9 +937,6 @@ der Schlüssellänge (Speicherplatz) eine entscheidende Bedeutung zukommt.
         \url{http://www.loria.fr/~zimmerma/records/ecmnet.html}\\
         Dort findet man Literatur zum Thema Faktorisieren mit Elliptischen
 	Kurven sowie Links zu anderen ECC-Seiten.
-
-  \item Schlüssellängen-Vergleich von Arjen Lenstra und Eric Verheul,\\
-        \url{http://cryptosavvy.com/table.htm}
 
 \end{enumerate}
 
