@@ -1821,7 +1821,8 @@ questions about primes, but also some quaint things and overviews.
      Christian Goldbach\index{Goldbach, Christian}, German mathematician,
      Mar 18, 1690$-$Nov 20, 1764. }
      conjectured: Every even natural number greater than 2 can
-     be represented as the sum of two prime numbers.
+     be represented as the sum of two prime numbers.\footnote{Please compare
+     chapter \ref{L-GoldbachConjecture}.}
 
   \item Riemann\footnote{%
         Bernhard Riemann\index{Riemann, Bernhard}, German mathematician,
@@ -1922,7 +1923,7 @@ questions about primes, but also some quaint things and overviews.
 
 
 % --------------------------------------------------------------------------
-\vskip +10 pt
+\vskip +50 pt %Zuerst nur +10, aber dann war der Titel "The strong Goldbach conjecture" allein unten auf der Seite.
 \hypertarget{HT-GoldbachConjecture}{}
 \subsection{The Goldbach conjecture}
 \label{L-GoldbachConjecture}
@@ -1935,29 +1936,61 @@ Here we will have a closer look at what is called the\index{Goldbach conjecture}
 
 \hypertarget{HT-WeakGoldbachConjecture}{}
 \paragraph*{The weak Goldbach conjecture\footnote{%
-   It is also known as the odd or ternary Goldbach conjecture.
+   It is also known as the \textbf{odd} or \textbf{ternary} Goldbach conjecture.
    } }%
 \index{Goldbach conjecture!weak}%
 \label{L-WeakGoldbachConjecture}%
 \mbox{}
 
-\noindent Goldbach conjectured in 1742 within a letter to the mathematician Euler:
+\noindent Goldbach conjectured in 1742 within a letter to the mathematician
+Euler:
 
-Every \textbf{odd} natural number greater than 5 can be represented as the sum of
-\textbf{exactly three} prime numbers.
+Every \textbf{odd} natural number greater than 5 can be represented as the sum
+of \textbf{exactly three} prime numbers.
 
 Samples: $7 = 3 + 2 + 2$ or $27 = 19 + 5 + 3$ or $27 = 17 + 5 + 5$
 
-\noindent This conjecture ist still (since more than 250 years) unproven.
+\noindent This conjecture ist still (since more than 250 years) assumed
+unproven.
+
+\noindent Computers have verified the \textbf{weak Goldbach conjecture} for all odd
+natural numbers up to: $4*10^{18}$ (simple check at April 2012) and
+$4*10^{17}$ (double check at May 2013).\footnote{%
+See \url{http://sweet.ua.pt/tos/goldbach.html} by Tomás Oliveira e Silva
+    }
+
+Previous results proved, that the weak Goldbach conjecture is true for all
+odd natural numbers larger $e^{3100}\approx 2 \times 10^{1346}$.
+
+As with many famous conjectures in mathematics, there are also a number of
+purported proofs of the Goldbach conjecture, none accepted by the mathematical
+community yet.\footnote{%
+One of them is in the paper from Shan-Guang Tan, submitted on 16 Oct 2011 (v1),
+last revised 26 Jun 2013 (v11) which claims to even proof the strong Goldbach
+conjecture.\\
+v1 has the title ``A proof of the Goldbach conjecture''.\\
+v11 has the title ``On the representation of even numbers as the sum and difference of two primes and the representation of odd numbers as the sum of an odd prime and an even semiprime and the distribution of primes in short intervals''.\\
+See \url{http://arxiv.org/abs/1110.3465}.
+   }
+
 A preliminary work for a prove could be the prove published recently\footnote{\url{http://arxiv.org/abs/1201.6656}, submitted on 31 Jan 2012 (v1), last revised 3 Jul 2012 (v4)} by Terence Tao\index{Tao, Terence} from the University of California. He proved that every \textbf{odd} natural number greater than 1 can be represented as the sum of \textbf{at most five} prime numbers.
 
+Considerable work has been done on Goldbach's weak conjecture, culminating in a 2013 claim by Harald Helfgott to fully prove the conjecture for all odd integers greater than 7.\footnote{%
+Helfgott, H.A. (2013): ``Major arcs for Goldbach's theorem''.
+\url{http://arxiv.org/abs/1305.2897}.\\
+v2 of his 133 pages paper (14 Jun 2013) states, that the proof works starting at $10^{29}$ (instead of $10^{30})$. And for all numbers up to $10^{30}$ he claims, that he and David Platt proved at the computer that the weak Goldbach is valid.
+\\
+\url{http://truthiscool.com/prime-numbers-the-271-year-old-puzzle-resolved}.\\
+\url{http://www.newscientist.com/article/dn23535-proof-that-an-infinite-number-of-primes-are-paired.html#.UgwhOpL0Ek0}.\\
+\url{http://www.spiegel.de/wissenschaft/mensch/beweis-fuer-schwache-goldbachsche-vermutung-a-901111.html}.
+}
 
 
 
 % \vskip +55 pt   % Don't want the headline stay alone on the previous page.
 \hypertarget{HT-StrongGoldbachConjecture}{}
 \paragraph*{The strong Goldbach conjecture\footnote{%
-   It is also known as the even or binary Goldbach conjecture.
+   It is also known as the \textbf{even} or \textbf{binary} Goldbach conjecture.
    } }%
 \index{Goldbach conjecture!strong}%
 \label{L-StrongGoldbachConjecture}%
@@ -1969,7 +2002,7 @@ Every \textbf{even} natural number greater than 2 can be represented as the sum 
 
 Samples of Goldbach partitions: $8 = 5 + 3$ or $28 = 23 + 5$
 
-\noindent Computers have verified\footnote{%
+\noindent Computers have once verified\footnote{%
      It is generally accepted today, that the\index{Goldbach conjecture}
      \textbf{Goldbach conjecture} is true, 
      i.~e.\ valid for all even natural numbers greater than $2$.
@@ -1978,6 +2011,7 @@ Samples of Goldbach partitions: $8 = 5 + 3$ or $28 = 23 + 5$
      studied even numbers up to 400 billion ($4*10^{14}$) and found no
      contradictory example (\cite{pr:Richstein1999}).\\
      In the meantime further progress was made: See\\
+     \url{http://sweet.ua.pt/tos/goldbach.html} by Tomás Oliveira e Silva, \\
      \url{http://www.ieeta.pt/~tos/goldbach.html} by Tomás Oliveira e Silva,\\
      \url{http://en.wikipedia.org/wiki/Goldbach's\_conjecture},\\
      \url{http://primes.utm.edu/glossary/page.php/GoldbachConjecture.html}.\\      
@@ -1990,8 +2024,8 @@ Samples of Goldbach partitions: $8 = 5 + 3$ or $28 = 23 + 5$
      Perhaps Goldbach's conjecture was correct, but in any case the proof
      will never be found. Conversely, that will presumably also remain 
      unproven.}
-     the Goldbach conjecture for all even numbers up to $3*10^{17}$
-     (as at September 2012), but no general proof has yet been
+     the Goldbach conjecture for all even numbers up to $4*10^{18}$
+     (as at May 2013), but no general proof has yet been
      found.\footnote{%
      The English publisher {\em Faber} and the American publisher 
      {\em Bloomsbury} issued in 2000 the 1992 published book 
@@ -2017,7 +2051,7 @@ Samples of Goldbach partitions: $8 = 5 + 3$ or $28 = 23 + 5$
      have a complete understanding of the deeper connections between 
      addition and multiplication of natural numbers.}
 
-As bigger an even number is, as more umso such binary Goldbach partitions can be found -- in average: For $4$ there is only one partition $2 + 2$; for $16$ there are two, $3 + 13$ and $5 + 11$. With $100$ there are six such partitions: $3 + 97$, $11 + 89$, $17 + 83$, $29 + 71$, $41 + 59$, $47 + 53$.\footnote{%
+As bigger an even number is, as more such binary Goldbach partitions can be found -- in average: For $4$ there is only one partition $2 + 2$; for $16$ there are two, $3 + 13$ and $5 + 11$. With $100$ there are six such partitions: $3 + 97$, $11 + 89$, $17 + 83$, $29 + 71$, $41 + 59$, $47 + 53$.\footnote{%
      Progress in research about the Goldbach conjectures is often a topic in mathematical press column, like \url{http://oumathclub.wordpress.com/}.
      }   % end_footnote
 
@@ -2051,9 +2085,9 @@ Similarily easy it can be shown, that the weak Goldbach conjecture implies the a
 
 % --------------------------------------------------------------------------
 \vskip +35 pt
-\subsection{Open questions about twin primes and prime cousins}
+\subsection{Open questions about twin primes and cousin primes}
 
-Twin primes are prime numbers whose difference is 2. 
+Twin primes\index{Twin prime} are prime numbers whose difference is exactly 2. 
 Examples include 5 and 7, or 101 and 103,
 or $1,693,965 \cdot 2^{66,443} \pm 1$. 
 
@@ -2068,9 +2102,19 @@ or $1,693,965 \cdot 2^{66,443} \pm 1$.
 \item What is the number of twin primes: Are there infinitely many or only a
       limited number?\footnote{%
       Remark: {\bf Triplet} primes, however, only occur once: 3, 5, 7.  
-      For all other sets of three consecutive uneven numbers, one of them is 
+      For all other sets of three consecutive odd numbers, one of them is 
       always divisible by 3 and thus not a prime.
-                              }
+                              }${}^,$\footnote{%
+      The conjecture that there are infinite many twin primes is not obvious.
+      It's known, that for large numbers in average the expected gap between
+      primes is constantly growing and circa 2.3 times the number of decimal
+      digits. For example, among 100-digit decimal numbers the expected gap
+      between primes is in average 230.
+      But this statement is true just on average -- often the gap is much
+      bigger, often much smaller.
+                               }${}^,$\footnote{%
+      \url{http://en.wikipedia.org/wiki/Twin_Prime_Conjecture}
+      }
 \item Does a formula exist for calculating the number of twin primes per interval?
 \end{itemize}
 
@@ -2093,21 +2137,19 @@ J\'{a}nos Pintz and Cem Yildirim in 2003.\footnote{%
 	    \url{http://www.ams.org/bull/2007-44-01/S0273-0979-06-01142-6/S0273-0979-06-01142-6.pdf}
     \end{compactitem}
     \vspace{-\baselineskip} % TODO: Geht das nicht anders?
-
                                                }
 The three mathematicians were investigating the distribution of prime numbers.
 They could proof, that \[ \liminf_{n\to\infty}{\frac{p_{n+1}-p_n}{\log{p_n}}}=0,\]
 where $p_{n}$ denotes the $n$-th prime number. \\
 This means that the smallest limit point ($\liminf$) of the sequence
 $\frac{p_{n+1}-p_n}{\log{p_n}}$ equals zero.\\
-A point is called limit point of a sequence, if there lie in any arbitrarily small
-neighbourhood of that point infinitely many elements of the sequence.\\
-$\log{p_n}$ is about the average distance between the prime $p_n$ and the next prime
-$p_{n+1}$.\\
+A point is called limit point of a sequence, if there lie in any arbitraril
+small neighbourhood of that point infinitely many elements of the sequence.\\
+$\log{p_n}$ is about the average distance between the prime $p_n$ and the next
+prime $p_{n+1}$.\\
 Hence, the term above implies, that there are infinitely many consecutive
-primes with a gap between them which is arbitrarily small compared to the expected
-average gap.
-
+primes with a gap between them which is arbitrarily small compared to the
+expected average gap.
 
 Moreover, it was proofed, that \[p_{n+1}-p_n < (\log{p_n})^{8/9}\] holds true
 for infinitely many primes\footnote{ c't magazine 2003, no. 8, page 54}.
@@ -2116,11 +2158,25 @@ for infinitely many primes\footnote{ c't magazine 2003, no. 8, page 54}.
 
 \subsubsection{Zhang 2013}
 
+In May 2013 the results of Yitang Zhang\index{Zhang, Yitang} became
+known.\footnote{%
+    Erica Klarreich (May 19, 2013): ``Unheralded Mathematician Bridges the
+    Prime Gap''\\
+    \url{https://www.simonsfoundation.org/quanta/20130519-unheralded-mathematician-bridges-the-prime-gap/}}
+Zhang proved, that there are infinitely many ``cousin primes'', or more
+concretely that there is some number $N$ smaller than 70 million such that there
+are inifinitely many pairs of primes that differ by N.\footnote{%
+Whereas the gap between the primes of a twin prime is exactly $2$, do cousin
+primes\index{Cousin prime} denote two primes, which have a gap between them,
+which has a value of a bigger, even, but finite number.
+      }${}^,$\footnote{%
+This is close to the conjecture stated in 1849 by the French mathematician
+Alphonse de Polignac that there are infinitely many prime pairs for any
+possible even finite gap, not just $2$.
+       }
 
-
-xxxxxxxxxxxxxx
-
-Those results could be the basis for the proof, that infinitely many twin primes exist.
+Those results could be the basis for the proof, that infinitely many twin
+primes exist.
 
 
 
@@ -2995,9 +3051,9 @@ Percentage of primes: 58.3416583417
 \item \url{http://www.math.Princeton.EDU/~arbooker/nthprime.html}
 % {\tt http://www.math.Princeton.EDU/\~{}arbooker/nthprime.html }
 
-\item Goldbach conjecture verification project von Tomás Oliveira e Silva,
+\item Goldbach conjecture verification project by Tomás Oliveira e Silva,
       \index{Goldbach project}\\ 
-      \url{http://www.ieeta.pt/~tos/goldbach.html}
+      \url{http://sweet.ua.pt/tos/goldbach.html}
 
 \item \url{http://www.mathematik.ch/mathematiker/goedel.html}
 
