@@ -7,7 +7,7 @@
 % \hypertarget{Kapitel_2}{}
 \chapter{Primzahlen}
 \label{Label_Kapitel_Primes}  %Die Kapitelnr. von \label wird per per \ref geholt.
-(Bernhard Esslinger, Mai 1999; Updates: Nov. 2000, Dez. 2001, Juni 2003, Mai 2005, März 2006, Juni 2007, Jan. 2010, Juli 2013)
+(Bernhard Esslinger, Mai 1999; Updates: Nov. 2000, Dez. 2001, Juni 2003, Mai 2005, März 2006, Juni 2007, Jan. 2010, Aug. 2013)
 
 \begin{ctsquote}
     Der Fortschritt lebt vom Austausch des Wissens.
@@ -2024,14 +2024,20 @@ eingegangen werden.
 
 %\vskip +25 pt
 \hypertarget{HT-WeakGoldbachConjecture}{}
-%\subsubsubsection{xxx} 3*sub kannte er nicht, deshalb paragraph !
-\paragraph*{Die schwache Goldbach-Vermutung\footnote{%
+%\paragraph*{Die schwache Goldbach-Vermutung\footnote{%
+%   Sie wird auch \textbf{ungerade} oder \textbf{ternäre} Goldbach-Vermutung
+%   genannt.
+%   } }%
+%\subsubsubsection{xxx} 3*sub kennt er nicht, deshalb vorher paragraph !
+% Ohne [] vor der { lässt er footnote nicht zu!
+\subsubsection[Die schwache Goldbach-Vermutung]%
+   {Die schwache Goldbach-Vermutung\footnote{%
    Sie wird auch \textbf{ungerade} oder \textbf{ternäre} Goldbach-Vermutung
-genannt.
+   genannt.
    } }%
 \index{Goldbach-Vermutung!schwache}%
 \label{L-WeakGoldbachConjecture}%
-\mbox{}
+%\mbox{}
 
 \noindent Goldbach stellte 1742 in einem Brief an den Mathematiker Euler die Behauptung auf:
 
@@ -2083,12 +2089,14 @@ Probieren am Computer erbrachten.
 %\vskip +25 pt
 \hypertarget{HT-StrongGoldbachConjecture}{}
 %\subsubsubsection{xxx} 3*sub kannte er nicht, deshalb paragraph !
-\paragraph*{Die starke Goldbach-Vermutung\footnote{%
-   Sie wird auch \textbf{gerade} oder \textbf{binäre} Goldbach-Vermutung genannt.
+\subsubsection[Die starke Goldbach-Vermutung]%
+   {Die starke Goldbach-Vermutung\footnote{%
+   Sie wird auch \textbf{gerade} oder \textbf{binäre} Goldbach-Vermutung
+   genannt.
    } }%
 \index{Goldbach-Vermutung!starke}%
 \label{L-StrongGoldbachConjecture}%
-\mbox{}
+%\mbox{}
 
 \noindent Goldbachs starke Primzahlhypothese wurde von Euler nach einem Briefwechsel mit Goldbach formuliert, und wird meist einfach als \textbf{die} Goldbach-Vermutung bezeichnet:
 
@@ -2164,10 +2172,10 @@ Je größer eine gerade Zahl ist, umso mehr solcher binärer Goldbach-Zerlegungen l
 
 
 
-\vskip +35 pt %Größer geacht als 15, damit die ff. Überschrift nicht alle am Seitenende 
+\vskip +35 pt %Größer gemacht als 15, damit die ff. Überschrift nicht alle am Seitenende 
 %\subsubsubsection{xxx} 3*sub kannte er nicht, deshalb paragraph !
-\paragraph*{Zusammenhang zwischen den beiden Goldbach-Vermutungen}%
-\mbox{}
+\subsubsection{Zusammenhang zwischen den beiden Goldbach-Vermutungen}%
+%\mbox{}
 
 \noindent Wenn die starke Goldbach-Vermutung gilt, gilt auch die schwache (d.h. die starke impliziert die schwache Vermutung).
 
@@ -2197,7 +2205,9 @@ Zahlen):
 
 % --------------------------------------------------------------------------
 \vskip +35 pt
+\hypertarget{HT-TwinCousinPrimes}{}
 \subsection{Offene Fragen zu Primzahlzwillingen und Primzahl-Cousins}
+\label{L-TwinCousinPrimes}
 
 Primzahlzwillinge\index{Primzahlzwilling} sind Primzahlen, die genau den
 Abstand 2 voneinander haben, zum Beispiel 5 und 7, oder 101 und 103,
