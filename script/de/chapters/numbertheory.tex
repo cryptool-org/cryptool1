@@ -4033,12 +4033,9 @@ die Blocklänge 2 beträgt.\\
 {\tt 0120 2001 0311 0001 2000 0401 2314}
 
 \label{SrcArith4a}
-%Verschlüsselung aller 7 Teile jeweils per: $C \equiv M^{37}{\rm ~(mod~}$3713)\footnote{%
 \noindent Verschlüsselung aller 7 Teile jeweils per: $C \equiv M^{37}{\rm ~(mod~3713)}$:\footnote{%
   In Kapitel~\ref{nt:AppArith4a} \glqq \nameref{nt:AppArith4a}''
-  finden Sie den Beispiel-Quelltext zur RSA-Verschlüsselung mit Sage. \\
-  Mit CT1\index{CrypTool 1} können Sie dies per Menü {\bf Einzelverfahren
-  \textbackslash{} RSA-Kryptosystem \textbackslash{} RSA-Demo} lösen. 
+  finden Sie den Beispiel-Quelltext zur RSA-Verschlüsselung mit Sage.
 } \\
 {\tt 1404 2932 3536 0001 3284 2280 2235}
 
@@ -4057,7 +4054,8 @@ Chiffrat: {\tt 1404 2932 3536 0001 3284 2280 2235 }
 $n=3713$ und $e=37$ die geheimen Werte zu finden, indem
 er offenlegt, dass $3713 = 47 * 79$.
 
-\noindent Wenn $n$ eine $768$-Bit-Zahl ist, bestehen dafür -- nach heutigen Kenntnissen -- wenig Chancen.
+\noindent Wenn $n$ eine $1024$-Bit-Zahl ist, bestehen dafür -- nach heutigen
+Kenntnissen -- wenig Chancen.
 
 
 % --------------------------------------------------------------------------
@@ -4096,10 +4094,7 @@ ist angeregt durch das Beispiel aus \cite[S. 271]{nt:Eckert2003}.
 \noindent {\bf Schlüsselerzeugung (Schritt 1 bis 3):} \\\label{SrcArith4b}%
 {\bf 1.} $p=509,~q=503 \quad (n= 256.027; \; ~J(n)=(p-1)*(q-1)=255.016=2^3*127*251)$.\footnote{%
   In Kapitel~\ref{nt:AppArith4b} \glqq \nameref{nt:AppArith4b}''
-  finden Sie den Quelltext zur Faktorisierung von $J(n)$ mit Sage. \\
-  Mit CT1\index{CrypTool 1} können Sie dies per Menü
-  {\bf Einzelverfahren \textbackslash{} RSA-Kryptosystem \textbackslash{}
-  Faktorisieren einer Zahl} lösen.
+  finden Sie den Quelltext zur Faktorisierung von $J(n)$ mit Sage.
 } \\
 {\bf 2.} $e=65.537$ ($e$ sollte\footnote{%
                 Siehe Fußnote~\ref{foot:Selection-of-e} auf Seite
@@ -4107,8 +4102,9 @@ ist angeregt durch das Beispiel aus \cite[S. 271]{nt:Eckert2003}.
                 zwischen $509$ und $255.015$ liegen, u. muss\footnote{%
                 $e$ darf also nicht $2, 127$ oder $251$ sein
                 ($65537 = 2^{16}+1$) ($255,016 = 2^{3}*127*251$).\\
-                Real wird $J(n)$ nicht faktorisiert, sondern für das gewählte $e$ wird
-                mit dem Euklidschen Algorithmus sichergestellt, dass ggT$(e,J(n))=1$.
+                Real wird $J(n)$ nicht faktorisiert, sondern für das gewählte
+                $e$ wird mit dem Euklidschen Algorithmus sichergestellt, dass
+                ggT$(e,J(n))=1$.
                 }
       teilerfremd\index{Zahlen!teilerfremde (co-prime)} zu $255.016$ sein).\\
 {\bf 3.} $d=231.953$ \\
@@ -4450,31 +4446,36 @@ ZT können Sie in CT1\index{CrypTool 1} über das Menü
 {\bf Einzelverfahren \textbackslash{} Zahlentheorie interaktiv \textbackslash{}
 Lernprogramm für Zahlentheorie} aufrufen.
 Siehe Anhang~\ref{s:appendix-Learn-NT}.\\
-    CT2\index{CrypTool 2} enthält den erweiterten Euklid bxxxxxxxxxxxxxxxxxxxxxxxxxxx 
-    in dem Tutorial \glqq {\bf World of Primes} --> Zahlentheorie --> Zahlentheoretische Funktionen --> Modulare multiplikative Inverse'' enthalten.}
+    CT2\index{CrypTool 2} enthält in dem Krypto-Tutorial-Pfad
+    \glqq {\bf Welt der Primzahlen} $\Rightarrow$ Zahlentheorie
+    $\Rightarrow$ Zahlentheoretische Funktionen'' die Funktionen
+    \glqq Erweiterter euklidischer Algorithmus'' und
+    \glqq Modulare multiplikative Inverse''.
+}
 \label{nt:NumberTheory_Appendix_GCD}
 \index{Euklidscher Algorithmus!erweiterter}
 \index{ggT}
 
 %%%\item
-Der größte gemeinsame Teiler zweier natürlicher Zahlen $a$ und $b$ ist eine wichtige Größe,
-die sehr schnell berechnet werden kann. Wenn eine Zahl $c$ die Zahlen $a$ und $b$ 
-teilt (d.h. es gibt ein $a'$ und ein $b'$, so dass $a = a'*c$ und $b = b'*c$), dann teilt
-$c$ auch den Rest $r$ der Division von $a$ durch $b$. Wir schreiben in aller Kürze:
+Der größte gemeinsame Teiler zweier natürlicher Zahlen $a$ und $b$ ist eine
+wichtige Größe, die sehr schnell berechnet werden kann. Wenn eine Zahl $c$ die
+Zahlen $a$ und $b$ teilt (d.h. es gibt ein $a'$ und ein $b'$, so dass
+$a = a'*c$ und $b = b'*c$), dann teilt $c$ auch den Rest $r$ der Division von
+$a$ durch $b$. Wir schreiben in aller Kürze:
 Aus $c$ teilt $a$ und $b$ folgt:
 $c$ teilt $r = a - \lfloor a/b \rfloor * b$.\footnote{\label{nt_Gauss-Klammer}%
-Die untere Gaussklammer \index{Gaussklammer} $\lfloor x \rfloor $ der reellwertigen
-Zahl $x$ ist definiert als: $\lfloor x \rfloor $ ist die größte ganze Zahl kleiner
-oder gleich $x$.\\
+Die untere Gaussklammer \index{Gaussklammer} $\lfloor x \rfloor $ der
+reellwertigen Zahl $x$ ist definiert als: $\lfloor x \rfloor $ ist die größte
+ganze Zahl kleiner oder gleich $x$.\\
 Vergleiche Fußnote~\ref{nt_Gauss-Funktion} auf Seite ~\pageref{nt_Gauss-Funktion}.
 %aaaaaaaaaaaa
 }
 
-Weil die obige Aussage für alle gemeinsamen Teiler $c$ von $a$ und $b$ gilt, folgt für
-den größten gemeinsamen Teiler von $a$ und $b$ (ggT($a,b$)) die Aussage
-$$ {\rm ggT}(a,b) = {\rm ggT}(a - \lfloor a/b \rfloor * b, b). $$
-Mit dieser Erkenntnis lässt sich der Algorithmus zum Berechnen des ggT zweier Zahlen
-wie folgt (in Pseudocode) beschreiben:
+Weil die obige Aussage für alle gemeinsamen Teiler $c$ von $a$ und $b$ gilt,
+folgt für den größten gemeinsamen Teiler von $a$ und $b$ (ggT($a,b$)) die
+Aussage $$ {\rm ggT}(a,b) = {\rm ggT}(a - \lfloor a/b \rfloor * b, b). $$
+Mit dieser Erkenntnis lässt sich der Algorithmus zum Berechnen des ggT zweier
+Zahlen wie folgt (in Pseudocode) beschreiben:
 
 \begin{verbatim}
 INPUT: a,b != 0
@@ -4609,11 +4610,12 @@ G_3 & = & G_2 {\rm ~~--- man~sagt:~} G_2
 \section{Anhang: Bemerkungen zur modulo Subtraktion}
 \label{nt:NumberTheory_Appendix_C}{}
 
-Beispielweise gilt für die Subtraktion modulo 5: $2 - 4 = -2 \equiv 3{\rm ~mod~}2$.\\
-Es gilt also nicht, dass: $-2 = 2 mod 5$ !
+Beispielweise gilt für die Subtraktion modulo 5: $~2 - 4 = -2 \equiv
+3{\rm ~mod~}5$.\\
+Es gilt also {\bf nicht}, dass: $-2 \equiv 2 {\rm ~mod~} 5$ !
 
 Dies gleichzusetzen ist ein häufig gemachter Fehler.
-Warum diese nicht gleich ist, kann man sich gut verdeutlichen, wenn man die
+Warum dies nicht gleich ist, kann man sich gut verdeutlichen, wenn man die
 Permutation $(0, 1, 2, 3, 4)$ aus $\mathbb{Z}_5$ von z.B. $-11$ bis $+11$
 wiederholt über den Zahlenstrahl aus $\mathbb{Z}$ legt.
 

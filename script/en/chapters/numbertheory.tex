@@ -3699,10 +3699,7 @@ L       & 12   & Y    & 25 \\
 \label{SrcArith4a}
 \noindent All 7 parts are encrypted using: $C \equiv M^{37}{\rm ~(mod~}3713)$:\footnote{%
   See chapter~\ref{nt:AppArith4a} ``\nameref{nt:AppArith4a}''
-  for source code to do RSA encryption using Sage. \\
-  You can also encrypt the message with CT1\index{CrypTool 1} via the menu path 
-  {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{}
-  RSA Demonstration}.
+  for source code to do RSA encryption using Sage.
 } \\
 {\tt 1404 2932 3536 0001 3284 2280 2235}
 
@@ -3720,8 +3717,8 @@ Ciphertext: {\tt 1404 2932 3536 0001 3284 2280 2235 }
 to derive the secret values from the public 
 parameters $n=3713$ and $e=37$ by revealing that $3713 = 47 * 79$.
 
-\noindent If $n$ is a $768$-bit number, there is, according to present knowledge,
-little chance of this.
+\noindent If $n$ is a $1024$-bit number, there is, according to present
+knowledge, little chance of this.
 
 
 % --------------------------------------------------------------------------
@@ -3753,9 +3750,7 @@ is taken from the example in \cite[p. 271]{nt:Eckert2003}\index{Eckert 2003}.
 {\bf 1.} $p=503,~q=509 \quad (n= 256,027; \; J(n)=(p-1)(q-1)=255,016=2^3*127*251)$.\footnote{%
   See chapter~\ref{nt:AppArith4b} ``\nameref{nt:AppArith4b}''
   for the source code to factorize the number $J(n)$ using Sage.
-  Using CT1\index{CrypTool 1} you can solve this with the 
-  {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} 
-  Factorization of a Number}.} \\
+} \\
 {\bf 2.} $e=65,537$ \\
 \strut\quad\ ($e$ should\footnote{%
                 See footnote~\ref{foot:Selection-of-e} on page
@@ -4098,9 +4093,10 @@ NT can be called in CT1\index{CrypTool 1} via the menu path
 {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
 \textbackslash{} Learning Tool for Number Theory}.
 See appendix~\ref{s:appendix-Learn-NT}.\\
-    CT2\index{CrypTool 2} contains Euklid's extended algorithm within the
-    tutorial ``{\bf World of Primes} --> Number Theory --> Number-theoretic
-    functions: Extended Euklid''  bxxxxxxxxxxxxxxxxxxxxxxxxxx .
+    CT2\index{CrypTool 2} contains within the crypto tutorial path
+    ``{\bf World of Primes} $\Rightarrow$ Number Theory $\Rightarrow$
+    Number-theoretic functions'' the functions ``Extended Euclidian algorithm''
+    and ``Modular multiplicative inverse''.
 }
 \label{nt:NumberTheory_Appendix_GCD}
 % \addcontentsline{toc}{section}{Appendix A: gcd of whole numbers and the two
@@ -4110,22 +4106,24 @@ See appendix~\ref{s:appendix-Learn-NT}.\\
 
 %%%\begin{enumerate}
 %%%\item
-The greatest common divisor of two natural numbers $a$ and $b$ is an important value
-that can be calculated very quickly. Here we make use of the fact that if a number
-$c$ divides the numbers $a$ and $b$ (i.e. there exists an $a'$ and a $b'$ such that
-$a = a'*c$ and $b = b'*c$), then $c$ also divides the remainder $r$ of $a/b$.
+The greatest common divisor of two natural numbers $a$ and $b$ is an important
+value that can be calculated very quickly. Here we make use of the fact that if
+a number $c$ divides the numbers $a$ and $b$ (i.e. there exists an $a'$ and a
+$b'$ such that $a = a'*c$ and $b = b'*c$), then $c$ also divides the remainder
+$r$ of $a/b$.
 In short notion we can write: If $c$ divides $a$ and $b$ it follows that 
 $c$ divides $r =  a - \lfloor a/b \rfloor * b$.\footnote{\label{nt_Gauss-Klammer}%
-The Gauss\index{Gauss bracket} bracket  $\lfloor x \rfloor $ of a real number $x$
-is defined via: $\lfloor x \rfloor $ is the next integer less or equal $x$.\\
+The Gauss\index{Gauss bracket} bracket  $\lfloor x \rfloor $ of a real number
+$x$ is defined via: $\lfloor x \rfloor $ is the next integer less or equal
+$x$.\\
 See footnote~\ref{nt_Gauss-Funktion} on page~\pageref{nt_Gauss-Funktion}.
 %aaaaaaaaaaaaaaaaaaaaaaa
 }
 
 As the latter statement is valid for each common divisor $c$ of $a$ and $b$ it
 follows that: $$gcd(a,b) = gcd(a - \lfloor a/b \rfloor * b, b).$$
-Using this information, the algorithm for calculating the gcd of two numbers can be
-written as follows (in pseudo code):
+Using this information, the algorithm for calculating the gcd of two numbers
+can be written as follows (in pseudo code):
 
 \begin{verbatim}
 INPUT: a,b != 0
@@ -4259,11 +4257,11 @@ G_3 & = & G_2 {\rm ~~--- we~say:~} G_2 {\rm~is~closed~for~addition~~(mod~}8). \n
 \section{Appendix: Comments on modulo subtraction}
 \label{nt:NumberTheory_Appendix_C}{}
 
-Comment on subtraction modulo 5: $2 - 4 = -2 \equiv 3{\rm ~mod~}2$.\\
-It is therefore not true that $-2 = 2 mod 5$ !
+Comment on subtraction modulo 5: $2 - 4 = -2 \equiv 3{\rm ~mod~}5$.\\
+It is therefore {\bf not} true that $-2 \equiv 2 {\rm ~mod~} 5$ !
 
 People often make the mistake of equating this.
-You can show this clearly if you place the permutation $(0, 1, 2, 3, 4)$
+You can see this clearly if you place the permutation $(0, 1, 2, 3, 4)$
 in $\mathbb{Z}_5$, for example from $-11$ to $+11$, over the range of
 numbers in $\mathbb{Z}$.
 
