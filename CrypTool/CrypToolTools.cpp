@@ -236,8 +236,9 @@ BOOL CT_READ_REGISTRY_DEFAULT	(char *value, const char *ID, const char *default_
 {
 	if (ERROR_SUCCESS != theApp.localRegistry.QueryValue(value, ID, &length ) )
 	{
-		strncpy(value, default_value, length-1);
-		value[length-1]='\0';
+		unsigned long defaultLength = strlen(default_value);
+		strncpy(value, default_value, defaultLength);
+		value[defaultLength]='\0';
 		if (ERROR_SUCCESS != theApp.localRegistry.SetValue(value, ID))
 			return FALSE;
 	}	
