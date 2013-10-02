@@ -422,12 +422,12 @@ BEGIN
     EDITTEXT        IDC_EDIT2,10,180,35,12,ES_READONLY | WS_DISABLED | NOT WS_BORDER
 END
 
-IDD_ABOUT DIALOGEX 34, 22, 373, 280
+IDD_ABOUT DIALOGEX 34, 22, 370, 280
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "O CrypToolu"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Wyjcie",IDOK,303,250,60,18,WS_GROUP
+    DEFPUSHBUTTON   "Wyjcie",IDOK,293,255,70,18,WS_GROUP
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,44,74,105,37,WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,198,73,143,37,WS_EX_TRANSPARENT
     CTEXT           "rozwinκto z Uniwersytetem Siegen i Darmstadt, jak i za pomocΉ wielu ochotnikσw projekt open-source.",IDC_STATIC,20,119,330,16
@@ -435,12 +435,12 @@ BEGIN
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,71,356,44
     CTEXT           "CrypTool jest darmowym i kompleksowym programem edukacyjnym\nklasycznej i wspσ³czesnej kryptografii / kryptoanalizy.\n\nWraz ze sponsorami",IDC_STATIC,20,35,330,32
     CTEXT           "CrypTool jest stosowane na ca³ym wiecie do nauczania w szko³ach i na uniwersytetach oraz do szkolenia i podnoszenie wiadomoci pracownikσw firm i agencji rzΉdowych.",IDC_STATIC,20,140,330,16,WS_TABSTOP
-    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,239,178,119,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,13,178,211,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    GROUPBOX        "Informacje opublikowania",IDC_STATIC,7,164,223,64
-    GROUPBOX        "Informacje kontaktowe",IDC_STATIC,233,164,130,64
-    PUSHBUTTON      "Wspσ³wykonawcy",ID_CONTRIBUTORS,7,250,66,18,WS_GROUP
-    PUSHBUTTON      "T³umaczenia",ID_TRANSLATIONS,85,250,60,18,WS_GROUP
+    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,242,178,116,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,13,178,214,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Informacje opublikowania",IDC_STATIC,7,164,226,64
+    GROUPBOX        "Informacje kontaktowe",IDC_STATIC,236,164,127,64
+    PUSHBUTTON      "Wspσ³wykonawcy",ID_CONTRIBUTORS,7,255,70,18,WS_GROUP
+    PUSHBUTTON      "T³umaczenia",ID_TRANSLATIONS,80,255,70,18,WS_GROUP
 END
 
 IDD_SHOW_PROGRESS DIALOG 0, 0, 187, 105
@@ -11678,25 +11678,25 @@ BEGIN
     EDITTEXT        IDC_EDIT2,10,180,35,12,ES_READONLY | WS_DISABLED | NOT WS_BORDER
 END
 
-IDD_ABOUT DIALOGEX 34, 22, 387, 294
+IDD_ABOUT DIALOGEX 34, 22, 370, 280
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "O CrypTool-u"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Zatvori",IDOK,312,263,60,18,WS_GROUP
-    CTEXT           "univerziteti Siegen i Darmstadt razvili su ga kao\nkao projekat otvorenog koda zahvaljujuζi mnogim programerima dobrovoljcima.",IDC_STATIC,29,127,330,16
-    CTEXT           "Copyright (C) 1998-2013 Deutsche Bank AG i Saradnici\nDistribuirano kao otvoreni kod pod uslovima Apache 2.0 Licence",IDC_STATIC,16,242,356,16
-    CTEXT           "CrypTool je besplatan i sveobuhvatni program za e-uθenje \nklasiθne i savremene kriptografije i kriptoanalize.\n\nU zajedniθkom naporu sa sponzorima",IDC_STATIC,29,44,330,32
-    CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,53,82,105,37,WS_EX_TRANSPARENT
-    CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,207,82,143,37,WS_EX_TRANSPARENT
-    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,16,79,356,44
-    CTEXT           "CrypTool se koristi irom sveta u obrazovanju u kolama i na univerzitetima, i za obrazovanje i podizanje svesti zaposlenih u kompanijama i vladinim organizacijama.",IDC_STATIC,29,149,330,16
-    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,223,186,145,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    GROUPBOX        "Informacije o izdanju",IDC_STATIC,17,173,195,64
-    GROUPBOX        "Kontakt informacije",IDC_STATIC,217,173,155,64
-    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,21,186,185,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "Saradnici",ID_CONTRIBUTORS,17,263,60,18,WS_GROUP
-    PUSHBUTTON      "Prevodi",ID_TRANSLATIONS,79,263,60,18,WS_GROUP
+    DEFPUSHBUTTON   "Zatvori",IDOK,293,255,70,18,WS_GROUP
+    CTEXT           "univerziteti Siegen i Darmstadt razvili su ga kao\nkao projekat otvorenog koda zahvaljujuζi mnogim programerima dobrovoljcima.",IDC_STATIC,20,119,330,16
+    CTEXT           "Copyright (C) 1998-2013 Deutsche Bank AG i Saradnici\nDistribuirano kao otvoreni kod pod uslovima Apache 2.0 Licence",IDC_STATIC,7,233,356,16
+    CTEXT           "CrypTool je besplatan i sveobuhvatni program za e-uθenje \nklasiθne i savremene kriptografije i kriptoanalize.\n\nU zajedniθkom naporu sa sponzorima",IDC_STATIC,20,35,330,32
+    CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,36,74,105,37,WS_EX_TRANSPARENT
+    CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,190,74,143,37,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,71,356,44
+    CTEXT           "CrypTool se koristi irom sveta u obrazovanju u kolama i na univerzitetima, i za obrazovanje i podizanje svesti zaposlenih u kompanijama i vladinim organizacijama.",IDC_STATIC,20,140,330,16
+    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,242,178,116,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Informacije o izdanju",IDC_STATIC,7,164,226,64
+    GROUPBOX        "Kontakt informacije",IDC_STATIC,236,164,127,64
+    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,13,178,214,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Saradnici",ID_CONTRIBUTORS,7,255,70,18,WS_GROUP
+    PUSHBUTTON      "Prevodi",ID_TRANSLATIONS,80,255,70,18,WS_GROUP
 END
 
 IDD_SHOW_PROGRESS DIALOG 0, 0, 187, 105
@@ -25616,7 +25616,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "άber CrypTool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Schlieίen",IDOK,303,255,60,18,WS_GROUP
+    DEFPUSHBUTTON   "Schlieίen",IDOK,293,255,70,18,WS_GROUP
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,44,74,105,37,WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,198,73,143,37,WS_EX_TRANSPARENT
     CTEXT           "haben es die Universitδten Siegen und Darmstadt\nund viele freiwillige Entwickler in einem Open-Source-Projekt entwickelt.",IDC_STATIC,20,119,330,16
@@ -25624,12 +25624,12 @@ BEGIN
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,71,356,44
     CTEXT           "CrypTool ist ein kostenloses und umfangreiches Lernprogramm\nzu klassischer und moderner Kryptographie/Kryptoanalyse.\n\nGemeinsam mit den Sponsoren",IDC_STATIC,20,35,330,32
     CTEXT           "CrypTool wird weltweit zur Lehre an Schulen und Hochschulen, und zur Ausbildung und Mitarbeiter-Awareness in Firmen und Behφrden eingesetzt.",IDC_STATIC,20,140,330,16,WS_TABSTOP
-    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,239,178,119,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,13,178,211,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    GROUPBOX        "Release-Informationen",IDC_STATIC,7,164,223,64
-    GROUPBOX        "Kontakt-Informationen",IDC_STATIC,233,164,130,64
-    PUSHBUTTON      "Mitwirkende",ID_CONTRIBUTORS,7,255,60,18,WS_GROUP
-    PUSHBUTTON      "άbersetzungen",ID_TRANSLATIONS,70,255,60,18,WS_GROUP
+    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,242,178,116,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,13,178,214,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Release-Informationen",IDC_STATIC,7,164,226,64
+    GROUPBOX        "Kontakt-Informationen",IDC_STATIC,236,164,127,64
+    PUSHBUTTON      "Mitwirkende",ID_CONTRIBUTORS,7,255,70,18,WS_GROUP
+    PUSHBUTTON      "άbersetzungen",ID_TRANSLATIONS,80,255,70,18,WS_GROUP
 END
 
 IDD_CRYPTOOL_PRNG_SEED_COLLECTOR DIALOGEX 34, 22, 218, 99
@@ -34132,7 +34132,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About CrypTool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Close",IDOK,303,255,60,18,WS_GROUP
+    DEFPUSHBUTTON   "Close",IDOK,293,255,70,18,WS_GROUP
     CTEXT           "the universities Siegen and Darmstadt developed it within an\nopen source project thanks to the help of many voluntary developers.",IDC_STATIC,20,119,330,16
     CTEXT           "Copyright (C) 1998-2013 Deutsche Bank AG and Contributors\nDistributed as open source under the terms of the Apache License 2.0",IDC_STATIC,7,233,356,16
     CTEXT           "CrypTool is a free and comprehensive e-learning program about\nclassic and contemporary cryptography and cryptanalysis.\n\nIn a joint effort with the sponsors",IDC_STATIC,20,35,330,32
@@ -34140,12 +34140,12 @@ BEGIN
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,198,73,143,37,WS_EX_TRANSPARENT
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,71,356,44
     CTEXT           "CrypTool is used world-wide for education in schools and universities, and for education and employee awareness in companies and government organizations.",IDC_STATIC,20,140,330,16
-    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,239,178,119,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    GROUPBOX        "Release information",IDC_STATIC,7,164,223,64
-    GROUPBOX        "Contact information",IDC_STATIC,233,164,130,64
-    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,13,178,211,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "Contributors",ID_CONTRIBUTORS,7,255,60,18,WS_GROUP
-    PUSHBUTTON      "Translations",ID_TRANSLATIONS,70,255,60,18,WS_GROUP
+    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,242,178,116,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Release information",IDC_STATIC,7,164,226,64
+    GROUPBOX        "Contact information",IDC_STATIC,236,164,127,64
+    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,13,178,214,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Contributors",ID_CONTRIBUTORS,7,255,70,18,WS_GROUP
+    PUSHBUTTON      "Translations",ID_TRANSLATIONS,80,255,70,18,WS_GROUP
 END
 
 IDD_SHOW_PROGRESS DIALOG 0, 0, 187, 105
@@ -49105,12 +49105,12 @@ BEGIN
     LISTBOX         IDC_LIST_LANGUAGES_CIPHERTEXT,118,49,105,60,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_TABSTOP
 END
 
-IDD_ABOUT DIALOGEX 34, 22, 370, 275
+IDD_ABOUT DIALOGEX 34, 22, 370, 280
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Acerca de CrypTool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Cerrar",IDOK,303,252,60,18,WS_GROUP
+    DEFPUSHBUTTON   "&Cerrar",IDOK,293,255,70,18,WS_GROUP
     CTEXT           "desarrollado por las universidades de Siegen y Darmstadt\ny muchos desarrolladores voluntarios del proyecto OpenSource.",IDC_STATIC,20,119,330,16
     CTEXT           "Copyright (C) 1998-2013 Deutsche Bank AG y Colaboradores\nDistribuνdo como Open-source bajo los tιrminos de la Licencia Apache 2.0",IDC_STATIC,7,233,356,16
     CTEXT           "CrypTool es una extensa herramienta de e-learning gratuita sobre\ncriptografνa y criptoanαlisis, tanto clαsico como moderno.\n\nEs un esfuerzo conjunto entre:",IDC_STATIC,20,35,330,32
@@ -49118,12 +49118,12 @@ BEGIN
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,198,73,143,37,WS_EX_TRANSPARENT
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,71,356,44
     CTEXT           "CrypTool se utliza en forma didαctica en escuelas y universidades alrededor del mundo, asν como tambiιn, en empresas y organizaciones gubernamentales con el fin de concientizar a sus empleados en aspectos relacionados a la seguridad infromαtica.",IDC_STATIC,20,139,330,24
-    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,213,178,145,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    GROUPBOX        "Informaciσn de versiσn",IDC_STATIC,7,164,195,64
-    GROUPBOX        "Informaciσn de contacto",IDC_STATIC,208,164,155,64
-    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,11,178,185,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "C&olaboradores",ID_CONTRIBUTORS,7,252,60,18,WS_GROUP
-    PUSHBUTTON      "Traducciones",ID_TRANSLATIONS,71,252,60,18,WS_GROUP
+    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,242,178,116,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Informaciσn de versiσn",IDC_STATIC,7,164,226,64
+    GROUPBOX        "Informaciσn de contacto",IDC_STATIC,236,164,127,64
+    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,13,178,214,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "C&olaboradores",ID_CONTRIBUTORS,7,255,70,18,WS_GROUP
+    PUSHBUTTON      "Traducciones",ID_TRANSLATIONS,80,255,70,18,WS_GROUP
 END
 
 IDD_AUTHORS DIALOGEX 0, 0, 370, 280
@@ -56685,7 +56685,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Σχετικά με το CrypTool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Κλείσιμο",IDOK,303,255,60,18,WS_GROUP
+    DEFPUSHBUTTON   "Κλείσιμο",IDOK,293,255,70,18,WS_GROUP
     CTEXT           "Τα πανεπιστήμια του Siegen και του Darmstadt το ανέπτυξαν στα πλαίσια ενός\nproject ανοιχτού κώδικα, χάρη στη βοήθεια πολλών εθελοντών προγραμματιστών.",IDC_STATIC,20,119,330,16
     CTEXT           "Copyright (C) 1998-2013 Deutsche Bank AG and Contributors\nΔιανέμεται ως ανοικτός κώδικας υπό τους όρους της Apache License 2.0",IDC_STATIC,7,233,356,16
     CTEXT           "To CrypTool είναι ένα ελεύθερο και εύληπτο πρόγραμμα e-learning σχετικό\nμε κλασσική και μοντέρνα κρυπτογραφία και κρυπτανάλυση.\n\nΣε συνεργασία με τους χορηγούς:",IDC_STATIC,20,35,330,32
@@ -56693,12 +56693,12 @@ BEGIN
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,198,73,143,37,WS_EX_TRANSPARENT
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,71,356,44
     CTEXT           "Το CrypTool χρησιμοποιείται σε όλο τον κόσμο για εκπαίδευση στα σχολεία και τα πανεπιστήμια, καθώς και για εκπαίδευση και ανάπτυξη συνείδησης σε εταιρείες και κυβερνητικούς οργανισμούς.",IDC_STATIC,20,140,330,16
-    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,213,178,145,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    GROUPBOX        "Στοιχεία Έκδοσης:",IDC_STATIC,7,164,195,64
-    GROUPBOX        "Στοιχεία Επικοινωνίας:",IDC_STATIC,208,164,155,64
-    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,11,178,185,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "Συντελεστές",ID_CONTRIBUTORS,7,255,60,18,WS_GROUP
-    PUSHBUTTON      "Μεταφράσεις",ID_TRANSLATIONS,70,255,60,18,WS_GROUP
+    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,242,178,116,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Στοιχεία Έκδοσης:",IDC_STATIC,7,164,226,64
+    GROUPBOX        "Στοιχεία Επικοινωνίας:",IDC_STATIC,236,164,127,64
+    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,13,178,214,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Συντελεστές",ID_CONTRIBUTORS,7,255,70,18,WS_GROUP
+    PUSHBUTTON      "Μεταφράσεις",ID_TRANSLATIONS,80,255,70,18,WS_GROUP
 END
 
 IDD_SHOW_PROGRESS DIALOG 0, 0, 187, 105
@@ -67455,7 +67455,7 @@ BEGIN
                             "Μήκος του κρυπτογραφημένου κειμένου που αναλύθηκε:"
     IDS_AUTHORS_FILE_CORRUPTED 
                             "Το αρχείο authors.txt άλλαξε μετά την εγκατάσταση του CrypTool."
-    IDS_CRYPTOOL_RELEASE_INFORMATION "%s (%s, %s),\r\ncompiled with "
+    IDS_CRYPTOOL_RELEASE_INFORMATION "%s (r%s, %s, %s),\r\ncompiled with "
     IDS_STRING_FILE_COULD_NOT_BE_OPENED 
                             "Το ακόλουθο αρχείο δεν μπορεί να ανοίξει:\n"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DICTIONARY_FILE 
