@@ -292,6 +292,80 @@ CString extractValueFromStringByKey(CString _key, CString _string) {
 	return result;
 }
 
+// This function is a very basic 'split' implemenation-- it splits the specified 
+// string with regards to the specified separator and returns the results as a 
+// list of strings; if no separator can be found, an empty list is returned
+std::vector<CString> splitString(const CString &_string, const CString &_separator) {
+	std::vector<CString> vectorStrings;
+	CString inputString = _string;
+	int index;
+	while((index = inputString.Find(_separator)) != -1) {
+		CString temporaryString = inputString;
+		temporaryString.Delete(index, temporaryString.GetLength() - index);
+		vectorStrings.push_back(temporaryString);
+		inputString.Delete(0, index + _separator.GetLength());
+	}
+	if(vectorStrings.size() > 0) {
+		vectorStrings.push_back(inputString);
+	}
+	return vectorStrings;
+}
+
+// This function checks whether a specific Java version is available; by 
+// default, the parameter is empty-- in that case the function returns true 
+// as long as any Java version is available. To test against a specific Java 
+// version, simply supply a string like "1.3" or "1.4". Please note that more 
+// sophisticated filtering is not supported at the moment.
+bool isJavaAvailable(const CString &_version) {
+	// check if hava is available
+	if(reinterpret_cast<int>(ShellExecute(NULL, NULL, "java", NULL, NULL, SW_HIDE)) > 32) {
+		// this *should* probably be done with "CreateProcess" and pipes, 
+		// but piping the Java output into a file should work as well
+		const CString outputFileName = CString(Pfad) + CString("__javaversion.txt__");
+		// pipe the Java version output into the file
+		system(CString("java -version") + CString(" 2> ") + CString(outputFileName));
+		// try to open the file and retrieve the version
+		CString version;
+		CStdioFile inputFile;
+		if(inputFile.Open(outputFileName, CFile::modeRead)) {
+			// read the version line
+			inputFile.ReadString(version);
+			inputFile.Close();
+			// delete the file
+			system(CString("del") + CString(" ") + CString(outputFileName));
+			// parse the version line which comes in the following format:
+			//   java version "1.2.3abc"
+			// we want to remove everything before and after the two quotes
+			int indexQuote1 = version.Find("\"", 0);
+			int indexQuote2 = version.Find("\"", indexQuote1);
+			version.Delete(0, indexQuote1 + 1);
+			version.Delete(indexQuote2, version.GetLength() - indexQuote2);
+			// now we split the versions (available + specified)
+			std::vector<CString> vectorAvailableVersionStrings = splitString(version, ".");
+			std::vector<CString> vectorSpecifiedVersionStrings = splitString(_version, ".");
+			// compare versions
+			if(vectorAvailableVersionStrings.size() >= 2 && vectorSpecifiedVersionStrings.size() >= 2) {
+				const CString stringAvailableVersionMajor = vectorAvailableVersionStrings[0];
+				const CString stringAvailableVersionMinor = vectorAvailableVersionStrings[1];
+				const CString stringSpecifiedVersionMajor = vectorSpecifiedVersionStrings[0];
+				const CString stringSpecifiedVersionMinor = vectorSpecifiedVersionStrings[1];
+				const int availableVersionMajor = atoi(stringAvailableVersionMajor);
+				const int availableVersionMinor = atoi(stringAvailableVersionMinor);
+				const int specifiedVersionMajor = atoi(stringSpecifiedVersionMajor);
+				const int specifiedVersionMinor = atoi(stringSpecifiedVersionMinor);
+				if(availableVersionMajor >= specifiedVersionMajor && availableVersionMinor >= specifiedVersionMinor) {
+					return true;
+				}
+			}
+		}
+	}
+	// if we reach this point, something went wrong
+	CString errorMessage;
+	errorMessage.Format(IDS_STRING_JAVA_REQUIREMENTS_NOT_MET, _version);
+	AfxMessageBox(errorMessage, MB_ICONINFORMATION);
+	return false;
+}
+
 // This function tries to execute a Java program (parameter 1) using 
 // the supplied call (parameter 2). The first parameter ("the executable") 
 // is needed for internal error management (i.e. did the Java call fail or 
@@ -300,7 +374,7 @@ CString extractValueFromStringByKey(CString _key, CString _string) {
 // determines if the desired program exists (thus we need parameter 1); 
 // if the program exists, this function tries to execute the program 
 // within a shell window
-void ShellExecuteJava(CString &_javaProgram, CString &_javaProgramCompleteCall, CString &_path) {
+void ShellExecuteJava(const CString &_javaProgram, const CString &_javaProgramCompleteCall, const CString &_path) {
 
 	CString javaProgram = _javaProgram;
 	CString javaProgramCompleteCall = _javaProgramCompleteCall;

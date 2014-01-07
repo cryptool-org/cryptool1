@@ -138,6 +138,7 @@
 #define IDD_EXTRACT_SIGNATURE           210
 #define IDD_VERIFY_ECSIGNATURE_STEPBYSTEP 211
 #define IDD_MAC                         212
+#define IDS_STRING_JAVA_REQUIREMENTS_NOT_MET 213
 #define IDD_KEY_PLAYFAIR                214
 #define IDD_BRUTEFORCE                  215
 #define IDD_SHOW_KEY_PARAMETER          216

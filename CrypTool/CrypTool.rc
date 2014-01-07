@@ -11259,6 +11259,7 @@ BEGIN
     IDS_LANGUAGEREFERENCEFILE_FILENAME_RUSSIAN "genesis-ru.txt"
     IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_GREEK "Grecki plik referencyjny"
     IDS_LANGUAGEREFERENCEFILE_FILENAME_GREEK "homer-el.txt"
+    IDS_STRING_JAVA_REQUIREMENTS_NOT_MET "[i18n] Please make sure that at least Java %s is installed."
 END
 
 #endif    // Polish (Poland) resources
@@ -22504,6 +22505,7 @@ BEGIN
     IDS_LANGUAGEREFERENCEFILE_FILENAME_RUSSIAN "genesis-ru.txt"
     IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_GREEK "[i18n] Greek reference file"
     IDS_LANGUAGEREFERENCEFILE_FILENAME_GREEK "homer-el.txt"
+    IDS_STRING_JAVA_REQUIREMENTS_NOT_MET "[i18n] Please make sure that at least Java %s is installed."
 END
 
 #endif    // Serbian (Latin, Serbia and Montenegro (Former)) resources
@@ -33685,6 +33687,7 @@ BEGIN
     IDS_LANGUAGEREFERENCEFILE_FILENAME_RUSSIAN "genesis-ru.txt"
     IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_GREEK "Griechische Referenzdatei"
     IDS_LANGUAGEREFERENCEFILE_FILENAME_GREEK "homer-el.txt"
+    IDS_STRING_JAVA_REQUIREMENTS_NOT_MET "Bitte stellen Sie sicher, dass mindestens Java %s installiert ist."
 END
 
 #endif    // German (Germany) resources
@@ -44950,6 +44953,7 @@ BEGIN
     IDS_LANGUAGEREFERENCEFILE_FILENAME_RUSSIAN "genesis-ru.txt"
     IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_GREEK "Greek reference file"
     IDS_LANGUAGEREFERENCEFILE_FILENAME_GREEK "homer-el.txt"
+    IDS_STRING_JAVA_REQUIREMENTS_NOT_MET "Please make sure that at least Java %s is installed."
 END
 
 #endif    // English (United Kingdom) resources
@@ -56262,6 +56266,7 @@ BEGIN
     IDS_LANGUAGEREFERENCEFILE_FILENAME_RUSSIAN "genesis-ru.txt"
     IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_GREEK "[i18n] Greek reference file"
     IDS_LANGUAGEREFERENCEFILE_FILENAME_GREEK "homer-el.txt"
+    IDS_STRING_JAVA_REQUIREMENTS_NOT_MET "[i18n] Please make sure that at least Java %s is installed."
 END
 
 #endif    // Spanish (Spain, International Sort) resources
@@ -67582,6 +67587,7 @@ BEGIN
     IDS_LANGUAGEREFERENCEFILE_FILENAME_RUSSIAN "genesis-ru.txt"
     IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_GREEK "Ελληνικό αρχείο αναφοράς"
     IDS_LANGUAGEREFERENCEFILE_FILENAME_GREEK "homer-el.txt"
+    IDS_STRING_JAVA_REQUIREMENTS_NOT_MET "[i18n] Please make sure that at least Java %s is installed."
 END
 
 #endif    // Greek (Greece) resources

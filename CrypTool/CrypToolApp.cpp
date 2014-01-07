@@ -1385,6 +1385,12 @@ void CCrypToolApp::OnRsaBloemermay()
 
 void CCrypToolApp::execAnimalVisualization(int animalPathID, int animalFileID, int animalExecutableID, int animalLocaleID)
 {
+	// flomar, 01/07/2014: for all animal visualizations we require at least Java 1.7;
+	// in case this function returns false, an appropriate warning message is displayed
+	if(!isJavaAvailable("1.7")) {
+		return;
+	}
+
 	CString animalPath, animalFile, animalExecutable, animalLocale;
 	LoadString(AfxGetInstanceHandle(),animalPathID,pc_str,STR_LAENGE_STRING_TABLE);
 	animalPath = CString(Pfad) + CString(pc_str);

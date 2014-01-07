@@ -52,7 +52,12 @@ BOOL CT_WRITE_REGISTRY			(const char *value,         const char *ID);
 CString extractValueFromStringByKey(CString _key, CString _string);
 
 // see implementation
-void ShellExecuteJava(CString &_javaProgram, CString &_javaProgramCompleteCall, CString &_path);
+std::vector<CString> splitString(const CString &_string, const CString &_separator);
+
+// see implementation
+bool isJavaAvailable(const CString &_version = "");
+// see implementation
+void ShellExecuteJava(const CString &_javaProgram, const CString &_javaProgramCompleteCall, const CString &_path);
 
 // see implementation
 CString adaptKeyToAlphabet(const CString _key);
