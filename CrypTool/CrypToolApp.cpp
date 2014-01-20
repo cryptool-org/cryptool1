@@ -1565,13 +1565,17 @@ void CCrypToolApp::OnAesSelfextract()
 
 void CCrypToolApp::OnIndivPointadditiononellipticcurves()
 {
+	// flomar, 01/20/2014: for the following Java program we require at least Java 1.5;
+	// in case this function returns false, an appropriate warning message is displayed
+	if(!isJavaAvailable("1.5")) {
+		return;
+	}
+
 	CString javaProgram;
 	CString javaProgramCompleteCall;
 	CString javaExecPath = Pfad; 
-
 	javaProgram.LoadStringA(IDS_ECCDemo_EXECUTABLE);
 	javaProgramCompleteCall.LoadStringA(IDS_ECCDemo_FILE);
-
 	ShellExecuteJava(javaProgram, javaProgramCompleteCall, javaExecPath);
 }
 
@@ -1643,25 +1647,33 @@ void CCrypToolApp::OnFlashEnigmademo()
 
 void CCrypToolApp::OnProtokolSMIME()
 {
+	// flomar, 01/20/2014: for the SMIME visualizations we require at least Java 1.5;
+	// in case this function returns false, an appropriate warning message is displayed
+	if(!isJavaAvailable("1.5")) {
+		return;
+	}
+
 	CString javaProgram;
 	CString javaProgramCompleteCall;
 	CString javaExecPath = CString(Pfad) + CString(_T("\\smimedemo\\")); 
-
 	javaProgram.LoadStringA(IDS_STRING_SMIME_DEMO_PROGRAM);
 	javaProgramCompleteCall.LoadStringA(IDS_STRING_SMIME_DEMO_PROGRAM_COMPLETE_CALL);
-
 	ShellExecuteJava(javaProgram, javaProgramCompleteCall, javaExecPath);
 }
 
 void CCrypToolApp::OnAesRijndaelFlowvisualisation()
 {
+	// flomar, 01/20/2014: for the following Java program we require at least Java 1.5;
+	// in case this function returns false, an appropriate warning message is displayed
+	if(!isJavaAvailable("1.5")) {
+		return;
+	}
+
 	CString javaProgram;
 	CString javaProgramCompleteCall;
 	CString javaExecPath = Pfad; 
-
 	javaProgram.LoadStringA(IDS_AES_FLOWVISUALIZATION_JAVA_FILE);
 	javaProgramCompleteCall.LoadStringA(IDS_AES_FLOWVISUALIZATION_PARAM);
-
 	ShellExecuteJava(javaProgram, javaProgramCompleteCall, javaExecPath);
 }
 
