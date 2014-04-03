@@ -267,11 +267,9 @@ Section "CrypTool"
 	; set the files to be installed
 	File /r setup-${LANGUAGE_STR}\*.*
 	; flomar, 04/03/2014: load the user name into the $0 variable, and then explicitly 
-	; grant the user access to specific directories below the installation directory
+	; grant the user write access to the complete installation directory
 	System::Call "advapi32::GetUserName(t .r0, *i ${NSIS_MAX_STRLEN} r1) i.r2"
-	ExecWait 'cacls "$INSTDIR\pse"  /t /e /g $0:w' 
-	ExecWait 'cacls "$INSTDIR\examples"  /t /e /g $0:w' 
-	ExecWait 'cacls "$INSTDIR\smimedemo" /t /e /g $0:w'
+	ExecWait 'cacls "$INSTDIR"  /t /e /g $0:w' 
 	; determine the shortcut name
 	${WordFind} $INSTDIR "\" "-1*}" $ShortCutName  ; FIXME '\' at the string end
 	; populate the start menu
