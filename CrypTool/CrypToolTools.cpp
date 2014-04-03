@@ -321,7 +321,7 @@ bool isJavaAvailable(const CString &_version) {
 	if(reinterpret_cast<int>(ShellExecute(NULL, NULL, "java", NULL, NULL, SW_HIDE)) > 32) {
 		// this *should* probably be done with "CreateProcess" and pipes, 
 		// but piping the Java output into a file should work as well
-		const CString outputFileName = CString(Pfad) + CString("__javaversion.txt__");
+		const CString outputFileName = CString(getenv("APPDATA")) + CString("\\") + CString("javaversion.txt");
 		// pipe the Java version output into the file
 		system(CString("java -version") + CString(" 2> ") + CString(outputFileName));
 		// try to open the file and retrieve the version
