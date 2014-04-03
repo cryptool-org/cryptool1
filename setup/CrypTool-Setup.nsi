@@ -23,7 +23,7 @@
   
   Name "${ProgramName} ${VersionInfo}"
   OutFile "SetupCrypTool_${VersionFile}_${LANGUAGE_STR}.exe"
-  BrandingText "(c) 1998-2012 Contributors"
+  BrandingText "(c) 1998-2014 Contributors"
 ;  Icon "..\CrypTool\res\idr_main.ico" ; does not work for some reason
 
   ;Default installation folder
@@ -266,9 +266,12 @@ Section "CrypTool"
 	SetOutPath $INSTDIR
 	; set the files to be installed
 	File /r setup-${LANGUAGE_STR}\*.*
-	; allow all users to write into pse and examples directory
-	ExecWait 'cacls "$INSTDIR\pse"  /t /e /g USERS:w' 
-	ExecWait 'cacls "$INSTDIR\examples"  /t /e /g USERS:w' 
+	; flomar, 04/03/2014: load the user name into the $0 variable, and then explicitly 
+	; grant the user access to specific directories below the installation directory
+	System::Call "advapi32::GetUserName(t .r0, *i ${NSIS_MAX_STRLEN} r1) i.r2"
+	ExecWait 'cacls "$INSTDIR\pse"  /t /e /g $0:w' 
+	ExecWait 'cacls "$INSTDIR\examples"  /t /e /g $0:w' 
+	ExecWait 'cacls "$INSTDIR\smimedemo" /t /e /g $0:w'
 	; determine the shortcut name
 	${WordFind} $INSTDIR "\" "-1*}" $ShortCutName  ; FIXME '\' at the string end
 	; populate the start menu
