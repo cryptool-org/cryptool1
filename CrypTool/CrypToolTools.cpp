@@ -311,17 +311,40 @@ std::vector<CString> splitString(const CString &_string, const CString &_separat
 	return vectorStrings;
 }
 
-// This function checks whether a specific Java version is available; by 
-// default, the parameter is empty-- in that case the function returns true 
-// as long as any Java version is available. To test against a specific Java 
-// version, simply supply a string like "1.3" or "1.4". Please note that more 
-// sophisticated filtering is not supported at the moment.
+// This function simply checks whether the "%APPDATA%" environment variable 
+// is defined; this check is important for various elements in CrypTool which 
+// need to create temporary files; note that this function implicity dumps a 
+// warning message if this variable is not defined (in other words: you don't 
+// need to create any error handling stuff around the call to this function).
+bool isAppDataVariableDefined() {
+	const CString appDataVariable = getenv("APPDATA");
+	if(appDataVariable.IsEmpty()) {
+		CString errorMessage;
+		errorMessage.Format(IDS_PSE_FILESTRUCT_NO_APPLICATION_DATA_PATH);
+		AfxMessageBox(errorMessage, MB_ICONERROR);
+		return false;
+	}
+	return true;
+}
+
+// This function checks whether a specific Java version is available; 
+// to test against a specific Java version, simply supply a string 
+// like "1.3" or "1.4". Note that more sophisticated filtering is 
+// not supported at the moment. Also, you don't need to create any 
+// error handling stuff around the call to this function, as it 
+// presents its own error message in case it returns false.
 bool isJavaAvailable(const CString &_version) {
 	// check if hava is available
 	if(reinterpret_cast<int>(ShellExecute(NULL, NULL, "java", NULL, NULL, SW_HIDE)) > 32) {
+		// make sure we have a valid "%APPDATA%" environment variable; if not, 
+		// return false directly without an explicit error message as the function 
+		// below creates its own error message in case it returns false
+		if(!isAppDataVariableDefined()) {
+			return false;
+		}
 		// this *should* probably be done with "CreateProcess" and pipes, 
 		// but piping the Java output into a file should work as well
-		const CString outputFileName = CString(getenv("APPDATA")) + CString("\\") + CString("javaversion.txt");
+		const CString outputFileName = CString(getenv("APPDATA")) + CString("\\") + CString("__CRYPTOOL_JAVA_VERSION__");
 		// pipe the Java version output into the file
 		system(CString("java -version") + CString(" 2> ") + CString(outputFileName));
 		// try to open the file and retrieve the version
@@ -357,12 +380,19 @@ bool isJavaAvailable(const CString &_version) {
 					return true;
 				}
 			}
+			// if we reach this point, Java seems to be installed, but 
+			// the Java version is not sufficient (with regards to the 
+			// Java version specified when calling this function)
+			CString errorMessage;
+			errorMessage.Format(IDS_STRING_JAVA_REQUIREMENTS_NOT_MET, _version, version);
+			AfxMessageBox(errorMessage, MB_ICONINFORMATION);
+			return false;
 		}
 	}
-	// if we reach this point, something went wrong
+	// if we reach this point, Java is not installed
 	CString errorMessage;
-	errorMessage.Format(IDS_STRING_JAVA_REQUIREMENTS_NOT_MET, _version);
-	AfxMessageBox(errorMessage, MB_ICONINFORMATION);
+	errorMessage.Format(IDS_STRING_JAVA_NOT_INSTALLED, _version);
+	AfxMessageBox(errorMessage, MB_ICONERROR);
 	return false;
 }
 

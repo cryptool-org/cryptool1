@@ -144,6 +144,7 @@
 #define IDD_SHOW_KEY_PARAMETER          216
 #define IDB_BITMAP2                     217
 #define IDB_BITMAP1                     218
+#define IDS_STRING_JAVA_NOT_INSTALLED   219
 #define IDD_PRIMES_GENERATOR_DEMO       223
 #define IDD_RSA_DEMO                    226
 #define IDD_KEY_HOMOPHONE               227

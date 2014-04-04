@@ -55,7 +55,9 @@ CString extractValueFromStringByKey(CString _key, CString _string);
 std::vector<CString> splitString(const CString &_string, const CString &_separator);
 
 // see implementation
-bool isJavaAvailable(const CString &_version = "");
+bool isAppDataDirectoryDefined();
+// see implementation
+bool isJavaAvailable(const CString &_version);
 // see implementation
 void ShellExecuteJava(const CString &_javaProgram, const CString &_javaProgramCompleteCall, const CString &_path);
 
