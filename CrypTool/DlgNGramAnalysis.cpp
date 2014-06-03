@@ -398,16 +398,24 @@ void CDlgNGramAnaylsis::OnSaveNGramList()
 	char string[100];
 	char title[CRYPTOOL_PATH_LENGTH], method[20]; 
 	switch ( m_N_NGram )  {
-	case 0: LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_HISTOGRAM,pc_str,STR_LAENGE_STRING_TABLE);
+	case 0:
+		Register(1);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_HISTOGRAM,pc_str,STR_LAENGE_STRING_TABLE);
 		strcpy( method, pc_str );
 		break;
-	case 1: LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_DIGRAM,pc_str,STR_LAENGE_STRING_TABLE);
+	case 1:
+		Register(2);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_DIGRAM,pc_str,STR_LAENGE_STRING_TABLE);
 		strcpy( method, pc_str );
 		break;
-	case 2: LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_TRIGRAM,pc_str,STR_LAENGE_STRING_TABLE);
+	case 2:
+		Register(3);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_TRIGRAM,pc_str,STR_LAENGE_STRING_TABLE);
 		strcpy( method, pc_str );
 		break;
-	case 3:  LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_NGRAM,pc_str,STR_LAENGE_STRING_TABLE);
+	case 3:
+		Register(m_NrNGram);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_NGRAM,pc_str,STR_LAENGE_STRING_TABLE);
 		sprintf( method, pc_str, m_NrNGram );
 		break;
 	}
