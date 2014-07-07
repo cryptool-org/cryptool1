@@ -47,7 +47,7 @@ END
 
 IDD_HELP DIALOGEX 0, 0, 500, 350
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Pomoc do AES-Toola 2.6"
+CAPTION "Pomoc do AES-Toola 2.7"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,209,329,50,14
@@ -87,15 +87,15 @@ CAPTION "Informacje o programie AES-Tool"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-    LTEXT           "AES-Tool 2.6",IDC_AES_TOOL_VERSION,40,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2013",IDC_STATIC1,40,25,119,8
+    LTEXT           "AES-Tool 2.7",IDC_AES_TOOL_VERSION,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2014",IDC_STATIC1,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
 END
 
 IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 382, 205
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
-CAPTION "AES-Tool 2.6"
+CAPTION "AES-Tool 2.7"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT_KEY_HEX,26,67,340,12,ES_AUTOHSCROLL
@@ -143,12 +143,12 @@ BEGIN
         BLOCK "080904b0"
         BEGIN
             VALUE "FileDescription", "AES-Tool"
-            VALUE "FileVersion", "2.6"
+            VALUE "FileVersion", "2.7"
             VALUE "InternalName", "aestool"
-            VALUE "LegalCopyright", "Contributors © 2002-2013"
+            VALUE "LegalCopyright", "Contributors © 2002-2014"
             VALUE "OriginalFilename", "aestool.exe"
             VALUE "ProductName", "AES-Tool"
-            VALUE "ProductVersion", "2.6"
+            VALUE "ProductVersion", "2.7"
         END
     END
     BLOCK "VarFileInfo"
@@ -261,7 +261,7 @@ STRINGTABLE
 BEGIN
     IDS_STRING_ENCERROR     "Blad szyfrowania pliku: %s"
     IDS_STRING_VERSION      "Ten plik zostal zaszyfrowany za pomoca starszej wersji AES-Tool. \nProsze uzywac tej samej wersji do odszyfrowania."
-    IDS_STRING_AES_TOOL_VERSION "AES-Tool 2.6"
+    IDS_STRING_AES_TOOL_VERSION "AES-Tool 2.7"
     IDS_STRING_CORRUPT      "Ten zaszyfrowany plik jest uszkodzony."
     IDS_STRING_INVALID_KEY  "Nieprawidlowy znak w kluczu. Prosze uzywac wylacznie 0-9,a-f,A-F."
     IDS_STRING_KEY_TOO_LONG "Klucz jest za dlugi. Maksymalna dlugosc klucza AES to 256 bity (= 32 bajty = 64 cyfr szesnastkowych)."
@@ -314,7 +314,7 @@ END
 
 IDD_HELP DIALOGEX 0, 0, 500, 350
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Pomoc za AES-Tool 2.6"
+CAPTION "Pomoc za AES-Tool 2.7"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,209,329,50,14
@@ -354,15 +354,15 @@ CAPTION "Informacije o AES-Tool"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-    LTEXT           "AES-Tool Version 2.6",IDC_STATIC,40,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2013",IDC_STATIC1,40,25,119,8
+    LTEXT           "AES-Tool Version 2.7",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2014",IDC_STATIC1,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
 END
 
 IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 382, 205
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
-CAPTION "[i18n][SERBIAN] AES-Tool 2.6"
+CAPTION "[i18n][SERBIAN] AES-Tool 2.7"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT_KEY_HEX,26,67,340,12,ES_AUTOHSCROLL
@@ -410,12 +410,12 @@ BEGIN
         BLOCK "080904b0"
         BEGIN
             VALUE "FileDescription", "AES-Tool"
-            VALUE "FileVersion", "2.6"
+            VALUE "FileVersion", "2.7"
             VALUE "InternalName", "aestool"
-            VALUE "LegalCopyright", "Contributors © 2002-2013"
+            VALUE "LegalCopyright", "Contributors © 2002-2014"
             VALUE "OriginalFilename", "aestool.exe"
             VALUE "ProductName", "AES-Tool"
-            VALUE "ProductVersion", "2.6"
+            VALUE "ProductVersion", "2.7"
         END
     END
     BLOCK "VarFileInfo"
@@ -542,7 +542,7 @@ STRINGTABLE
 BEGIN
     IDS_STRING_ENCERROR     "[i18n][SERBIAN] File encryption error: %s"
     IDS_STRING_VERSION      "[i18n][SERBIAN] This file has been encrypted with an older version of AES-Tool. \nPlease use the same version for decrypting."
-    IDS_STRING_AES_TOOL_VERSION "[i18n][SERBIAN] AES-Tool 2.6"
+    IDS_STRING_AES_TOOL_VERSION "[i18n][SERBIAN] AES-Tool 2.7"
     IDS_STRING_CORRUPT      "[i18n][SERBIAN] This encrypted file is corrupt."
     IDS_STRING_INVALID_KEY  "[i18n][SERBIAN] Invalid character in key. Please use only 0-9,a-f,A-F."
     IDS_STRING_KEY_TOO_LONG "[i18n][SERBIAN] Key too long. Maximum AES key length is 256 bits (= 32 bytes = 64 hexadecimal digits)."
@@ -588,15 +588,15 @@ CAPTION "Info όber AES-Tool"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-    LTEXT           "AES-Tool 2.6",IDC_AES_TOOL_VERSION,40,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2013",IDC_STATIC,40,25,119,8
+    LTEXT           "AES-Tool 2.7",IDC_AES_TOOL_VERSION,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2014",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
 END
 
 IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 382, 205
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
-CAPTION "AES-Tool 2.6"
+CAPTION "AES-Tool 2.7"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT_KEY_HEX,26,67,340,12,ES_AUTOHSCROLL
@@ -635,7 +635,7 @@ END
 
 IDD_HELP DIALOGEX 0, 0, 500, 350
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Hilfe zu AES-Tool 2.6"
+CAPTION "Hilfe zu AES-Tool 2.7"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,209,329,50,14
@@ -694,12 +694,12 @@ BEGIN
         BLOCK "040704b0"
         BEGIN
             VALUE "FileDescription", "AES-Tool"
-            VALUE "FileVersion", "2.6"
+            VALUE "FileVersion", "2.7"
             VALUE "InternalName", "aestool"
-            VALUE "LegalCopyright", "Contributors © 2002-2013"
+            VALUE "LegalCopyright", "Contributors © 2002-2014"
             VALUE "OriginalFilename", "aestool.exe"
             VALUE "ProductName", "AES-Tool"
-            VALUE "ProductVersion", "2.6"
+            VALUE "ProductVersion", "2.7"
         END
     END
     BLOCK "VarFileInfo"
@@ -806,7 +806,7 @@ STRINGTABLE
 BEGIN
     IDS_STRING_ENCERROR     "Fehler beim Verschlόsseln: %s"
     IDS_STRING_VERSION      "Diese Datei wurde mit einer δlteren Version von AES-Tool verschlόsselt.\nBitte verwenden Sie diese auch zum Entschlόsseln."
-    IDS_STRING_AES_TOOL_VERSION "AES-Tool 2.6"
+    IDS_STRING_AES_TOOL_VERSION "AES-Tool 2.7"
     IDS_STRING_CORRUPT      "Diese verschlόsselte Datei ist beschδdigt."
     IDS_STRING_INVALID_KEY  "Ungόltiges Zeichen im Schlόssel. Erlaubt sind: 0-9,a-f,A-F"
     IDS_STRING_KEY_TOO_LONG "Der angegebene Schlόssel ist zu lang. Die maximale Lδnge fόr AES-Schlόssel betrδgt 256 Bit (= 32 Byte = 64 Hexadezimalziffern)."
@@ -858,9 +858,9 @@ BEGIN
 END
 
 IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 382, 205
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
-CAPTION "AES-Tool 2.6"
+CAPTION "AES-Tool 2.7"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT_KEY_HEX,26,67,340,12,ES_AUTOHSCROLL
@@ -886,7 +886,7 @@ END
 
 IDD_HELP DIALOGEX 0, 0, 500, 350
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Help for AES-Tool 2.6"
+CAPTION "Help for AES-Tool 2.7"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,209,329,50,14
@@ -926,8 +926,8 @@ CAPTION "Information about AES-Tool"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-    LTEXT           "AES-Tool 2.6",IDC_AES_TOOL_VERSION,40,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2013",IDC_STATIC1,40,25,119,8
+    LTEXT           "AES-Tool 2.7",IDC_AES_TOOL_VERSION,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2014",IDC_STATIC1,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
 END
 
@@ -955,12 +955,12 @@ BEGIN
         BLOCK "080904b0"
         BEGIN
             VALUE "FileDescription", "AES-Tool"
-            VALUE "FileVersion", "2.6"
+            VALUE "FileVersion", "2.7"
             VALUE "InternalName", "aestool"
-            VALUE "LegalCopyright", "Contributors © 2002-2013"
+            VALUE "LegalCopyright", "Contributors © 2002-2014"
             VALUE "OriginalFilename", "aestool.exe"
             VALUE "ProductName", "AES-Tool"
-            VALUE "ProductVersion", "2.6"
+            VALUE "ProductVersion", "2.7"
         END
     END
     BLOCK "VarFileInfo"
@@ -1099,7 +1099,7 @@ STRINGTABLE
 BEGIN
     IDS_STRING_ENCERROR     "File encryption error: %s"
     IDS_STRING_VERSION      "This file has been encrypted with an older version of AES-Tool. \nPlease use the same version for decrypting."
-    IDS_STRING_AES_TOOL_VERSION "AES-Tool 2.6"
+    IDS_STRING_AES_TOOL_VERSION "AES-Tool 2.7"
     IDS_STRING_CORRUPT      "This encrypted file is corrupt."
     IDS_STRING_INVALID_KEY  "Invalid character in key. Please use only 0-9,a-f,A-F."
     IDS_STRING_KEY_TOO_LONG "Key too long. Maximum AES key length is 256 bits (= 32 bytes = 64 hexadecimal digits)."
@@ -1144,14 +1144,14 @@ CAPTION "Acerca de AES-Tool"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,21,20
-    LTEXT           "AES-Tool 2.6",IDC_AES_TOOL_VERSION,40,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2013",IDC_STATIC1,40,25,119,8
+    LTEXT           "AES-Tool 2.7",IDC_AES_TOOL_VERSION,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2014",IDC_STATIC1,40,25,119,8
     DEFPUSHBUTTON   "&Aceptar",IDOK,178,7,50,14,WS_GROUP
 END
 
 IDD_HELP DIALOGEX 0, 0, 500, 350
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Ayuda para AES-Tool 2.6"
+CAPTION "Ayuda para AES-Tool 2.7"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Aceptar",IDOK,209,329,50,14
@@ -1197,9 +1197,9 @@ BEGIN
 END
 
 IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 382, 205
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
-CAPTION "[i18n][SPANISH] AES-Tool 2.6"
+CAPTION "[i18n][SPANISH] AES-Tool 2.7"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT_KEY_HEX,26,67,340,12,ES_AUTOHSCROLL
@@ -1247,12 +1247,12 @@ BEGIN
         BLOCK "0c0a04b0"
         BEGIN
             VALUE "FileDescription", "AES-Tool"
-            VALUE "FileVersion", "2.6"
+            VALUE "FileVersion", "2.7"
             VALUE "InternalName", "aestool"
-            VALUE "LegalCopyright", "Contributors © 2002-2013"
+            VALUE "LegalCopyright", "Contributors © 2002-2014"
             VALUE "OriginalFilename", "aestool.exe"
             VALUE "ProductName", "AES-Tool"
-            VALUE "ProductVersion", "2.6"
+            VALUE "ProductVersion", "2.7"
         END
     END
     BLOCK "VarFileInfo"
@@ -1348,7 +1348,7 @@ STRINGTABLE
 BEGIN
     IDS_STRING_ENCERROR     "[i18n][SPANISH] File encryption error: %s"
     IDS_STRING_VERSION      "[i18n][SPANISH] This file has been encrypted with an older version of AES-Tool. \nPlease use the same version for decrypting."
-    IDS_STRING_AES_TOOL_VERSION "[i18n][SPANISH] AES-Tool 2.6"
+    IDS_STRING_AES_TOOL_VERSION "[i18n][SPANISH] AES-Tool 2.7"
     IDS_STRING_CORRUPT      "[i18n][SPANISH] This encrypted file is corrupt."
     IDS_STRING_INVALID_KEY  "[i18n][SPANISH] Invalid character in key. Please use only 0-9,a-f,A-F."
     IDS_STRING_KEY_TOO_LONG "[i18n][SPANISH] Key too long. Maximum AES key length is 256 bits (= 32 bytes = 64 hexadecimal digits)."
@@ -1400,9 +1400,9 @@ BEGIN
 END
 
 IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 382, 205
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
-CAPTION "AES-Tool 2.6"
+CAPTION "AES-Tool 2.7"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT_KEY_HEX,26,67,340,12,ES_AUTOHSCROLL
@@ -1468,8 +1468,8 @@ CAPTION "Πληροφορίες για το AES-Tool"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-    LTEXT           "AES-Tool 2.6",IDC_AES_TOOL_VERSION,40,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2013",IDC_STATIC1,40,25,119,8
+    LTEXT           "AES-Tool 2.7",IDC_AES_TOOL_VERSION,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2014",IDC_STATIC1,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
 END
 
@@ -1497,12 +1497,12 @@ BEGIN
         BLOCK "080904b0"
         BEGIN
             VALUE "FileDescription", "AES-Tool"
-            VALUE "FileVersion", "2.6"
+            VALUE "FileVersion", "2.7"
             VALUE "InternalName", "aestool"
-            VALUE "LegalCopyright", "Contributors © 2002-2013"
+            VALUE "LegalCopyright", "Contributors © 2002-2014"
             VALUE "OriginalFilename", "aestool.exe"
             VALUE "ProductName", "AES-Tool"
-            VALUE "ProductVersion", "2.6"
+            VALUE "ProductVersion", "2.7"
         END
     END
     BLOCK "VarFileInfo"
@@ -1641,7 +1641,7 @@ STRINGTABLE
 BEGIN
     IDS_STRING_ENCERROR     "Σφάλμα κρυπτογράφησης αρχείου: %s."
     IDS_STRING_VERSION      "Το αρχείο κρυπτογραφηθήθηκε με παλαιότερη έκδοση του εργαλείου AES-Tool. \nΠαρακαλώ χρησιμοποιήστε την ίδια έκδοση για την αποκρυπτογράφηση του."
-    IDS_STRING_AES_TOOL_VERSION "AES-Tool 2.6"
+    IDS_STRING_AES_TOOL_VERSION "AES-Tool 2.7"
     IDS_STRING_CORRUPT      "Το κρυπτογραφημένο αρχείο δεν είναι αναγνώσιμο."
     IDS_STRING_INVALID_KEY  "Μη επιτρεπτός χαρακτήρας στο συνθηματικό. Παρακαλώ χρησιμοποιήστε μόνο 0-9, a-f, A-F."
     IDS_STRING_KEY_TOO_LONG "Πολύ μεγάλο συνθηματικό. Το μέγιστο μήκος κλειδιού στον AES είναι 256 bits (= 32 bytes = 64 δεκαεξαδικά ψηφία)."
