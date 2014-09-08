@@ -6,9 +6,10 @@ if x%1==xes goto ok
 if x%1==xpl goto ok
 if x%1==xrs goto ok
 if x%1==xel goto ok
+if x%1==xfr goto ok
 
 echo Error: invalid or no argument
-echo Usage: setup1lang [de, en, es, pl, rs, el]
+echo Usage: setup1lang [de, en, es, pl, rs, el, fr]
 goto end
 
 :ok 

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="9.00"
+	Version="9,00"
 	Name="sharkHelp_de"
 	ProjectGUID="{13F98398-B0A6-4F32-82D9-9C4F24A0C07A}"
+	RootNamespace="sharkHelp_de"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="131072"
 	>
@@ -40,6 +41,50 @@
 		<Configuration
 			Name="Release_de|Win32"
 			OutputDirectory="..\$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="0"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot; LANG=de OUTDIR=..\..\$(ConfigurationName)"
+				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a LANG=de OUTDIR=..\..\$(ConfigurationName)"
+				CleanCommandLine=""
+				Output="NumberShark-de.chm"
+				PreprocessorDefinitions=""
+				IncludeSearchPath=""
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+		<Configuration
+			Name="Debug_fr|Win32"
+			OutputDirectory="$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="0"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot; LANG=de OUTDIR=..\..\$(ConfigurationName)"
+				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a LANG=de OUTDIR=..\..\$(ConfigurationName)"
+				CleanCommandLine=""
+				Output="NumberShark-de.chm"
+				PreprocessorDefinitions=""
+				IncludeSearchPath=""
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release_fr|Win32"
+			OutputDirectory="$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="0"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"

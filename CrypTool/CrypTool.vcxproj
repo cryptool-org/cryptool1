@@ -5,7 +5,7 @@
       <Configuration>Debug_de</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-	<ProjectConfiguration Include="Debug_el|Win32">
+    <ProjectConfiguration Include="Debug_el|Win32">
       <Configuration>Debug_el</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
@@ -15,6 +15,10 @@
     </ProjectConfiguration>
     <ProjectConfiguration Include="Debug_es|Win32">
       <Configuration>Debug_es</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_fr|Win32">
+      <Configuration>Debug_fr</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Debug_pl|Win32">
@@ -29,7 +33,7 @@
       <Configuration>Release_de</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-	<ProjectConfiguration Include="Release_el|Win32">
+    <ProjectConfiguration Include="Release_el|Win32">
       <Configuration>Release_el</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
@@ -39,6 +43,10 @@
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release_es|Win32">
       <Configuration>Release_es</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_fr|Win32">
+      <Configuration>Release_fr</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release_pl|Win32">
@@ -84,6 +92,10 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>Static</UseOfMfc>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_fr|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>Static</UseOfMfc>
@@ -102,6 +114,10 @@
     <UseOfMfc>Static</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_en|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_fr|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>Static</UseOfMfc>
   </PropertyGroup>
@@ -136,6 +152,10 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_fr|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_de|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
@@ -152,6 +172,10 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_fr|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
@@ -164,11 +188,14 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_en|Win32'">..\$(Configuration)\</OutDir>
-	<OutDir Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">..\$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_fr|Win32'">..\$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">..\$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_en|Win32'">$(Configuration)\</IntDir>
-	<IntDir Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_fr|Win32'">$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release_en|Win32'">false</LinkIncremental>
-	<LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release_fr|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">false</LinkIncremental>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_de|Win32'">..\$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_de|Win32'">$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release_de|Win32'">false</LinkIncremental>
@@ -180,11 +207,14 @@
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_de|Win32'">true</LinkIncremental>
     <EmbedManifest Condition="'$(Configuration)|$(Platform)'=='Debug_de|Win32'">false</EmbedManifest>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_en|Win32'">..\$(Configuration)\</OutDir>
-	<OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'">..\$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_fr|Win32'">..\$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'">..\$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_en|Win32'">$(Configuration)\</IntDir>
-	<IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'">$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_fr|Win32'">$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'">$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_en|Win32'">true</LinkIncremental>
-	<LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_fr|Win32'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'">true</LinkIncremental>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_pl|Win32'">..\$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_pl|Win32'">$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_pl|Win32'">true</LinkIncremental>
@@ -239,6 +269,62 @@ perl updateBuildInformation.pl PRE VS2010
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;AFX_RESOURCE_DLL;AFX_TARG_ENG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <Culture>0x0809</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>..\LibAnalyse\Release\LibAnalyse.lib;..\Libec\Release\LibEc.lib;..\libmiracl\Release\LibMiracl.lib;..\OpenSSL\libeay32.lib;..\libNTL\Release\libNTL.lib;htmlhelp.lib;opengl32.lib;..\libgmp\Release\mpir.lib;..\libCVact\libCVact-vs2010\actvcmt.lib;..\cracklib-2.7\cracklib_Win32\Release\cracklib_Win32.lib;..\apfloat\apfloat-VS2010\apfloat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>../$(Configuration)/$(ProjectName).exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <IgnoreSpecificDefaultLibraries>libc;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>.\..\Release_en/CrypTool.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>perl updateBuildInformation.pl POST</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_fr|Win32'">
+    <PreBuildEvent>
+      <Command>perl authorsFileIntegrityCheck.pl
+perl updateBuildInformation.pl PRE VS2010
+</Command>
+    </PreBuildEvent>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\..\Release_en/CrypTool.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>..\libNTL\include;.\dialogue-buttons;..\ChallengeResponse;..;..\Secude;..\Libec\include;.\;..\libmiracl\include;..\OpenSSL;..\scintilla\include;..\libVolRen;..\libgmp;..\libCVact\libCVact-vs2010\include;..\apfloat\apfloat-VS2010;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;NO_SMARTCARD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>.\..\Release_en/CrypTool.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\..\Release_en/</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc70.pdb</ProgramDataBaseFileName>
+      <BrowseInformation>false</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;AFX_RESOURCE_DLL;AFX_TARG_FRA;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x040c</Culture>
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>..\LibAnalyse\Release\LibAnalyse.lib;..\Libec\Release\LibEc.lib;..\libmiracl\Release\LibMiracl.lib;..\OpenSSL\libeay32.lib;..\libNTL\Release\libNTL.lib;htmlhelp.lib;opengl32.lib;..\libgmp\Release\mpir.lib;..\libCVact\libCVact-vs2010\actvcmt.lib;..\cracklib-2.7\cracklib_Win32\Release\cracklib_Win32.lib;..\apfloat\apfloat-VS2010\apfloat.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -527,6 +613,61 @@ perl updateBuildInformation.pl PRE VS2010
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;AFX_RESOURCE_DLL;AFX_TARG_ENG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <Culture>0x0809</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>..\LibAnalyse\Debug\LibAnalyse.lib;..\Libec\Debug\LibEc.lib;..\libmiracl\Debug\LibMiracl.lib;..\OpenSSL\libeay32.lib;..\libNtl\Debug\LibNTL.lib;htmlhelp.lib;opengl32.lib;..\libgmp\Debug\mpir.lib;..\libCVact\libCVact-vs2010\actvcmtd.lib;..\cracklib-2.7\cracklib_Win32\Debug\cracklib_Win32.lib;..\apfloat\apfloat-VS2010\apfloatd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>../$(Configuration)/$(ProjectName).exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>libcd;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>.\Debug/CrypTool.pdb</ProgramDatabaseFile>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>.\Debug/CrypTool.map</MapFileName>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>perl updateBuildInformation.pl POST</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_fr|Win32'">
+    <PreBuildEvent>
+      <Command>perl authorsFileIntegrityCheck.pl
+perl updateBuildInformation.pl PRE VS2010
+</Command>
+    </PreBuildEvent>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Debug/CrypTool.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\libNTL\include;.\dialogue-buttons;..\ChallengeResponse;..;..\Secude;..\Libec\include;.\;..\libmiracl\include;..\OpenSSL;..\scintilla\include;..\libVolRen;..\libgmp;..\libCVact\libCVact-vs2010\include;..\apfloat\apfloat-VS2010;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;NO_SMARTCARD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeaderOutputFile>.\Debug/CrypTool.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Debug/</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc70.pdb</ProgramDataBaseFileName>
+      <BrowseInformation>false</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;AFX_RESOURCE_DLL;AFX_TARG_FRA;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x040c</Culture>
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>..\LibAnalyse\Debug\LibAnalyse.lib;..\Libec\Debug\LibEc.lib;..\libmiracl\Debug\LibMiracl.lib;..\OpenSSL\libeay32.lib;..\libNtl\Debug\LibNTL.lib;htmlhelp.lib;opengl32.lib;..\libgmp\Debug\mpir.lib;..\libCVact\libCVact-vs2010\actvcmtd.lib;..\cracklib-2.7\cracklib_Win32\Debug\cracklib_Win32.lib;..\apfloat\apfloat-VS2010\apfloatd.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -1723,13 +1864,17 @@ perl updateBuildInformation.pl POST
 </Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_de|Win32'">$(OutDir)pse\pseca\capse.cse;%(Outputs)</Outputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_en|Win32'">Copying template PSE to $(OutDir)</Message>
-	  <Message Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'">Copying template PSE to $(OutDir)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_fr|Win32'">Copying template PSE to $(OutDir)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'">Copying template PSE to $(OutDir)</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug_en|Win32'">xcopy /s/y "%(RootDir)%(Directory).." "$(OutDir)pse\"
 </Command>
-<Command Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'">xcopy /s/y "%(RootDir)%(Directory).." "$(OutDir)pse\"
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_fr|Win32'">xcopy /s/y "%(RootDir)%(Directory).." "$(OutDir)pse\"
+</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'">xcopy /s/y "%(RootDir)%(Directory).." "$(OutDir)pse\"
 </Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_en|Win32'">$(OutDir)pse\pseca\capse.cse;%(Outputs)</Outputs>
-	  <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'">$(OutDir)pse\pseca\capse.cse;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_fr|Win32'">$(OutDir)pse\pseca\capse.cse;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'">$(OutDir)pse\pseca\capse.cse;%(Outputs)</Outputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_es|Win32'">Copying template PSE to $(OutDir)</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug_es|Win32'">xcopy /s/y "%(RootDir)%(Directory).." "$(OutDir)pse\"
 </Command>
@@ -1747,13 +1892,17 @@ perl updateBuildInformation.pl POST
 </Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_de|Win32'">$(OutDir)pse\pseca\capse.cse;%(Outputs)</Outputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release_en|Win32'">Copying template PSE to $(OutDir)</Message>
-	  <Message Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">Copying template PSE to $(OutDir)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release_fr|Win32'">Copying template PSE to $(OutDir)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">Copying template PSE to $(OutDir)</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release_en|Win32'">xcopy /s/y "%(RootDir)%(Directory).." "$(OutDir)pse\"
 </Command>
-<Command Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">xcopy /s/y "%(RootDir)%(Directory).." "$(OutDir)pse\"
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_fr|Win32'">xcopy /s/y "%(RootDir)%(Directory).." "$(OutDir)pse\"
+</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">xcopy /s/y "%(RootDir)%(Directory).." "$(OutDir)pse\"
 </Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_en|Win32'">$(OutDir)pse\pseca\capse.cse;%(Outputs)</Outputs>
-	  <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">$(OutDir)pse\pseca\capse.cse;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_fr|Win32'">$(OutDir)pse\pseca\capse.cse;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">$(OutDir)pse\pseca\capse.cse;%(Outputs)</Outputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release_es|Win32'">Copying template PSE to $(OutDir)</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release_es|Win32'">xcopy /s/y "%(RootDir)%(Directory).." "$(OutDir)pse\"
 </Command>
@@ -1817,13 +1966,18 @@ perl updateBuildInformation.pl POST
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_de|Win32'">CrypTool.rc;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_de|Win32'">CheckResourceIDs.log;%(Outputs)</Outputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_en|Win32'">Checking CrypTool.rc and %(FullPath) (-&gt;CheckResourceIDs.*)</Message>
-	  <Message Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'">Checking CrypTool.rc and %(FullPath) (-&gt;CheckResourceIDs.*)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_fr|Win32'">Checking CrypTool.rc and %(FullPath) (-&gt;CheckResourceIDs.*)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'">Checking CrypTool.rc and %(FullPath) (-&gt;CheckResourceIDs.*)</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug_en|Win32'">CheckResourceIDs.bat
 </Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_fr|Win32'">CheckResourceIDs.bat
+</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_en|Win32'">CrypTool.rc;%(AdditionalInputs)</AdditionalInputs>
-	  <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'">CrypTool.rc;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_fr|Win32'">CrypTool.rc;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'">CrypTool.rc;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_en|Win32'">CheckResourceIDs.log;%(Outputs)</Outputs>
-	  <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'">CheckResourceIDs.log;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_fr|Win32'">CheckResourceIDs.log;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'">CheckResourceIDs.log;%(Outputs)</Outputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_es|Win32'">Checking CrypTool.rc and %(FullPath) (-&gt;CheckResourceIDs.*)</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug_es|Win32'">CheckResourceIDs.bat
 </Command>
@@ -1845,15 +1999,20 @@ perl updateBuildInformation.pl POST
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_de|Win32'">CrypTool.rc;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_de|Win32'">CheckResourceIDs.log;%(Outputs)</Outputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release_en|Win32'">Checking CrypTool.rc and %(FullPath) (-&gt;CheckResourceIDs.*)</Message>
-	  <Message Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">Checking CrypTool.rc and %(FullPath) (-&gt;CheckResourceIDs.*)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release_fr|Win32'">Checking CrypTool.rc and %(FullPath) (-&gt;CheckResourceIDs.*)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">Checking CrypTool.rc and %(FullPath) (-&gt;CheckResourceIDs.*)</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release_en|Win32'">CheckResourceIDs.bat
 </Command>
-<Command Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">CheckResourceIDs.bat
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_fr|Win32'">CheckResourceIDs.bat
+</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">CheckResourceIDs.bat
 </Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_en|Win32'">CrypTool.rc;%(AdditionalInputs)</AdditionalInputs>
-	  <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">CrypTool.rc;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_fr|Win32'">CrypTool.rc;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">CrypTool.rc;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_en|Win32'">CheckResourceIDs.log;%(Outputs)</Outputs>
-	  <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">CheckResourceIDs.log;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_fr|Win32'">CheckResourceIDs.log;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">CheckResourceIDs.log;%(Outputs)</Outputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release_es|Win32'">Checking CrypTool.rc and %(FullPath) (-&gt;CheckResourceIDs.*)</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release_es|Win32'">CheckResourceIDs.bat
 </Command>
@@ -2401,21 +2560,29 @@ cmd /c copy /y "%(RootDir)%(Directory)ticket" "$(OutDir)"
 </Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_de|Win32'">$(OutDir)%(Filename)%(Extension);%(Outputs)</Outputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_en|Win32'">copying template DLLs to $(OutDir)</Message>
-	  <Message Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'">copying template DLLs to $(OutDir)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_fr|Win32'">copying template DLLs to $(OutDir)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'">copying template DLLs to $(OutDir)</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug_en|Win32'">cmd /c copy /y "%(RootDir)%(Directory)*.dll" "$(OutDir)"
 cmd /c copy /y "%(RootDir)%(Directory)*.ini" "$(OutDir)"
 cmd /c copy /y "%(RootDir)%(Directory)*.xml" "$(OutDir)"
 cmd /c copy /y "%(RootDir)%(Directory)ticket" "$(OutDir)"
 
 </Command>
-<Command Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'">cmd /c copy /y "%(RootDir)%(Directory)*.dll" "$(OutDir)"
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_fr|Win32'">cmd /c copy /y "%(RootDir)%(Directory)*.dll" "$(OutDir)"
+cmd /c copy /y "%(RootDir)%(Directory)*.ini" "$(OutDir)"
+cmd /c copy /y "%(RootDir)%(Directory)*.xml" "$(OutDir)"
+cmd /c copy /y "%(RootDir)%(Directory)ticket" "$(OutDir)"
+
+</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'">cmd /c copy /y "%(RootDir)%(Directory)*.dll" "$(OutDir)"
 cmd /c copy /y "%(RootDir)%(Directory)*.ini" "$(OutDir)"
 cmd /c copy /y "%(RootDir)%(Directory)*.xml" "$(OutDir)"
 cmd /c copy /y "%(RootDir)%(Directory)ticket" "$(OutDir)"
 
 </Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_en|Win32'">$(OutDir)%(Filename)%(Extension);%(Outputs)</Outputs>
-	  <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'">$(OutDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_fr|Win32'">$(OutDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_el|Win32'">$(OutDir)%(Filename)%(Extension);%(Outputs)</Outputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_es|Win32'">copying template DLLs to $(OutDir)</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug_es|Win32'">cmd /c copy /y "%(RootDir)%(Directory)*.dll" "$(OutDir)"
 cmd /c copy /y "%(RootDir)%(Directory)*.ini" "$(OutDir)"
@@ -2449,21 +2616,29 @@ cmd /c copy /y "%(RootDir)%(Directory)ticket" "$(OutDir)"
 </Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_de|Win32'">$(OutDir)%(Filename)%(Extension);%(Outputs)</Outputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release_en|Win32'">copying template DLLs to $(OutDir)</Message>
-	  <Message Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">copying template DLLs to $(OutDir)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release_fr|Win32'">copying template DLLs to $(OutDir)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">copying template DLLs to $(OutDir)</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release_en|Win32'">cmd /c copy /y "%(RootDir)%(Directory)*.dll" "$(OutDir)"
 cmd /c copy /y "%(RootDir)%(Directory)*.ini" "$(OutDir)"
 cmd /c copy /y "%(RootDir)%(Directory)*.xml" "$(OutDir)"
 cmd /c copy /y "%(RootDir)%(Directory)ticket" "$(OutDir)"
 
 </Command>
-<Command Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">cmd /c copy /y "%(RootDir)%(Directory)*.dll" "$(OutDir)"
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_fr|Win32'">cmd /c copy /y "%(RootDir)%(Directory)*.dll" "$(OutDir)"
+cmd /c copy /y "%(RootDir)%(Directory)*.ini" "$(OutDir)"
+cmd /c copy /y "%(RootDir)%(Directory)*.xml" "$(OutDir)"
+cmd /c copy /y "%(RootDir)%(Directory)ticket" "$(OutDir)"
+
+</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">cmd /c copy /y "%(RootDir)%(Directory)*.dll" "$(OutDir)"
 cmd /c copy /y "%(RootDir)%(Directory)*.ini" "$(OutDir)"
 cmd /c copy /y "%(RootDir)%(Directory)*.xml" "$(OutDir)"
 cmd /c copy /y "%(RootDir)%(Directory)ticket" "$(OutDir)"
 
 </Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_en|Win32'">$(OutDir)%(Filename)%(Extension);%(Outputs)</Outputs>
-	  <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">$(OutDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_fr|Win32'">$(OutDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_el|Win32'">$(OutDir)%(Filename)%(Extension);%(Outputs)</Outputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release_es|Win32'">copying template DLLs to $(OutDir)</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release_es|Win32'">cmd /c copy /y "%(RootDir)%(Directory)*.dll" "$(OutDir)"
 cmd /c copy /y "%(RootDir)%(Directory)*.ini" "$(OutDir)"
