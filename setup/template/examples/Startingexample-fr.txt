@@ -1,0 +1,24 @@
+Cette page est un exemple de texte utilisable pour débuter avec les versions 1.x de Cryptool (CT1)
+
+CrypTool 1 (CT1) est un programme complet et gratuit d'apprentissage de la cryptographie et de la cryptanalyse, offrant une vaste Aide en ligne et plusieurs démonstrations visuelles.
+
+Ce fichier texte est destiné à vous aider dans vos premiers pas avec CT1.
+
+1) Pour débuter nous vous recommandons de lire l'Aide en ligne (pas encore traduite en Français). Elle vous donnera une vue d'ensemble des fonctions disponibles dans cette application.
+La page initiale de l'Aide en ligne peut être affichée via le menu "Aide -> Page d'accueil" en haut à droite de l'écran, ou par la recherche de "Starting page" dans l'index de l'Aide.
+
+Vous pouvez lancer l'Aide en ligne à tout moment dans CT1, avec la touche F1.
+
+2) Une seconde étape peut être de chiffrer un texte par la méthode de César. Ceci peut être fait via le menu "Chiffrer/Déchiffrer -> Symétrique (classique)".
+
+3) Il y a plusieurs exemples (tutoriels) dans l'Aide en ligne, qui permettent une approche facile de la cryptologie. Ces exemples peuvent être obtenus par le menu "Aide -> Scénarios (Tutoriels)".
+
+4) Vous pouvez aussi étendre vos connaissances par:
+- la navigation dans les menus. Vous pouvez faire F1 à tout niveau dans les menus, si vous désirez plus d'informations.
+- la lecture du fichier Lisez-moi -pas encore disponible en Français- (voir le menu "Aide -> Lisez-moi").
+- l'affichage de la présentation en couleurs. Cette présentation peut être affichée de plusieurs façons: par exemple dans le menu "Aide", ou via la section "Documentation" disponible dans la page d'accueil de l'Aide.
+- la consultation du site web www.cryptool.org.
+
+Septembre 2014
+L'équipe CrypTool
+
