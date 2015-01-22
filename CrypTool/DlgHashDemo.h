@@ -86,7 +86,7 @@ private:
 	void showDiffOrigHashBin(OctetString &hash);
 	void ComputeHash(OctetString *data, OctetString *hashValue);
 
-	void getNextBlock(CString &dispByte, unsigned short inByte, unsigned short numberBase, char seperator = '\0');
+	void getNextBlock(CString &dispByte, unsigned char inByte, unsigned short numberBase, char seperator = '\0');
 	void showHashBin(OctetString &hash);
 	void showHashHex(OctetString &hash);
 	void showHashDec(OctetString &hash);

@@ -416,7 +416,7 @@ void CDlgHashDemo::SetRed()
 }
 
 
-void CDlgHashDemo::getNextBlock(CString &dispByte, unsigned short inByte, unsigned short numberBase, char seperator)
+void CDlgHashDemo::getNextBlock(CString &dispByte, unsigned char inByte, unsigned short numberBase, char seperator)
 {
 	char digit[8];
 	unsigned short n = 255, modulo;
