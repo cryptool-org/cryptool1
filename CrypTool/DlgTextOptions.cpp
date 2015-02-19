@@ -210,6 +210,10 @@ BOOL CDlgTextOptions::OnInitDialog()
 	}
 	// a struct to verify the existence of files
 	CFileStatus fileStatus;
+
+	// make sure the list doesn't keep piling up due to re-opening the dialog several times
+	listLanguageReferenceFiles.clear();
+
 	// CUSTOM
 	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_CUSTOM);
 	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_CUSTOM);
@@ -289,12 +293,12 @@ BOOL CDlgTextOptions::OnInitDialog()
 	languageReferenceFileGreek.referenceFile = pathToReferenceFiles + stringFileName;
 	if(CFile::GetStatus(languageReferenceFileGreek.referenceFile, fileStatus))
 		listLanguageReferenceFiles.push_back(languageReferenceFileGreek);
-
 	// fill combox box for reference file selection according to our list
 	for(std::list<LanguageReferenceFile>::iterator i=listLanguageReferenceFiles.begin(); i!=listLanguageReferenceFiles.end(); i++) {
 		CString language = (*i).language;
 		controlComboBoxSelectReferenceFile.AddString(language);
 	}
+
 	// initial combo box selection
 	controlComboBoxSelectReferenceFile.SetCurSel(selectedLanguageReferenceFile);
 	// some minor correction
@@ -309,7 +313,7 @@ BOOL CDlgTextOptions::OnInitDialog()
 	oldSelectedLanguageReferenceFile                = selectedLanguageReferenceFile;
 
 	updateCheckState();
-   UpdateData(FALSE);
+	UpdateData(FALSE);
 	controlEditReferenceFile.SetFocus();
 	controlEditReferenceFile.SetSel(0,-1);
 	updateAlphabetHeading();
