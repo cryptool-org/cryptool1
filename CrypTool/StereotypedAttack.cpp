@@ -19,7 +19,7 @@
 **************************************************************************/
 
 #include "StereotypedAttack.h"
-
+#include "resource.h"
 
 using namespace NTL;
 
@@ -31,14 +31,24 @@ void StereotypedAttack::attack(){
 	reduceLatticeTime=0.0;
 	startTime=GetTime();
 
-	Log=timeStamp()+" Stereotyped Attack begonnen /  Stereotyped Attack started \r\n";
-	Log+=timeStamp()+" Erzeuge Gitter / Building lattice \r\n";
+	CString logStringStereotypedAttackStarted;
+	logStringStereotypedAttackStarted.LoadString(IDS_RSA_LOG_STEREOTYPED_ATTACK_STARTED);
+	Log = timeStamp() + logStringStereotypedAttackStarted + "\r\n";
+
+	CString logStringBuildingLattice;
+	logStringBuildingLattice.LoadString(IDS_RSA_LOG_BUILDING_LATTICE);
+	Log += timeStamp() + logStringBuildingLattice + "\r\n";
+
 	if(status!=SA_CANCELED){
 		buildLatticeTime=GetTime();
 		buildPoly();
 		buildLattice();
 	}
-	Log+=timeStamp()+" Reduziere Gitter / Reducing lattice \r\n";
+
+	CString logStringReducingLattice;
+	logStringReducingLattice.LoadString(IDS_RSA_LOG_REDUCING_LATTICE);
+	Log += timeStamp() + logStringReducingLattice + "\r\n";
+
 	buildLatticeTime=GetTime()-buildLatticeTime;
 	if(status!=SA_CANCELED){
 		reduceLatticeTime=GetTime();
@@ -50,17 +60,23 @@ void StereotypedAttack::attack(){
 	if(status!=SA_CANCELED){
 		findSolution();
 		if(solution>0){
-			Log+=timeStamp()+" Lösung gefunden / Solution found:\r\n";
+			CString logStringFoundSolution;
+			logStringFoundSolution.LoadString(IDS_RSA_LOG_FOUND_SOLUTION);
+			Log += timeStamp() + logStringFoundSolution + "\r\n";
 			Log+=toString(solution,256,0);
 			status=SA_SUCCESSFUL;
 		}
 		else{
-			Log+=timeStamp()+"Keine Lösung gefunden / No Solution found \r\n";
+			CString logStringFoundNoSolution;
+			logStringFoundNoSolution.LoadString(IDS_RSA_LOG_FOUND_NO_SOLUTION);
+			Log += timeStamp() + logStringFoundNoSolution + "\r\n";
 			status=SA_FAILED;
 		}
-	}else
-		Log+=timeStamp()+" Angriff vom Benutzer abgebrochen / Attack canceled by user \r\n";
-
+	}else {
+		CString logStringCancelledByUser;
+		logStringCancelledByUser.LoadString(IDS_RSA_LOG_CANCELLED_BY_USER);
+		Log += timeStamp() + logStringCancelledByUser + "\r\n";
+	}
 };
 
 void StereotypedAttack::cancel(){
@@ -84,12 +100,19 @@ long StereotypedAttack::reductions = 0;
 void StereotypedAttack::buildPoly(){
 	poly.kill();
 
-	Log+="Text links des unbekannten Teils / Text left of unknown part:\r\n";
+	CString logStringTextLeftOfUnknownPart;
+	logStringTextLeftOfUnknownPart.LoadString(IDS_RSA_LOG_TEXT_LEFT_OF_UNKNOWN_PART);
+	Log += logStringTextLeftOfUnknownPart + "\r\n";
 	Log+=toString(leftText,256,0)+"\r\n";
-	Log+="Text rechts des unbekannten Teils / Text right of unknown part:\r\n";
+
+	CString logStringTextRightOfUnknownPart;
+	logStringTextRightOfUnknownPart.LoadString(IDS_RSA_LOG_TEXT_RIGHT_OF_UNKNOWN_PART);
+	Log += logStringTextRightOfUnknownPart + "\r\n";
 	Log+=toString(rightText,256,0)+"\r\n";
 
-	Log+="Länge des unbekannten Teils / Length of unknown part:\r\n";
+	CString logStringLengthOfUnknownPart;
+	logStringLengthOfUnknownPart.LoadString(IDS_RSA_LOG_LENGTH_OF_UNKNOWN_PART);
+	Log += logStringLengthOfUnknownPart + "\r\n";
 	Log+=toString(to_ZZ(unknownLength),10,0)+"\r\n";
 
 	int rightLength = 0;
@@ -123,9 +146,10 @@ void StereotypedAttack::buildPoly(){
 	for(i=0; i<=deg(poly); i++)
 		SetCoeff(poly,i,coeff(poly,i)*inv%N);
 
-	Log+="Zu lösendes Polynom / Polynomial to solve:\r\n";
+	CString logStringPolynomialToSolve;
+	logStringPolynomialToSolve.LoadString(IDS_RSA_LOG_POLYNOMIAL_TO_SOLVE);
+	Log += timeStamp() + logStringPolynomialToSolve + "\r\n";
 	Log+=readable(poly)+"\r\n";
-
 };
 
 void StereotypedAttack::buildLattice(){
@@ -140,7 +164,11 @@ void StereotypedAttack::buildLattice(){
 		polyPowers[a]=ptmp;
 		ptmp*=poly;
 	}
-	Log+="Aufgestelltes Gitter / Built lattice:\r\n";
+
+	CString logStringLatticeBuilt;
+	logStringLatticeBuilt.LoadString(IDS_RSA_LOG_LATTICE_BUILT);
+	Log += logStringLatticeBuilt + "\r\n";
+
 	Log+="[\r\n";
 	if(!IsZero(X)){
 		HGMatrix.SetDims(lh*k, lh*k);

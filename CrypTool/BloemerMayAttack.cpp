@@ -19,6 +19,7 @@
 **************************************************************************/
 
 #include "BloemerMayAttack.h"
+#include "resource.h"
 
 // static status variables
 int BloemerMayAttack::status = BM_CANCELED;
@@ -34,11 +35,15 @@ void BloemerMayAttack::attack(){
 	q=to_ZZ(0);
 	startTime=GetTime();
 	
-	log=timeStamp()+" Bloemer-May-Angriff gestartet / Bloemer-May-Attack started\r\n";
+	CString logStringBloemerMayAttackStarted;
+	logStringBloemerMayAttackStarted.LoadString(IDS_RSA_LOG_BLOEMER_MAY_ATTACK_STARTED);
+	log = timeStamp() + logStringBloemerMayAttackStarted + "\r\n";
 
 	buildPolyPowers();
 	if(status!=BM_CANCELED){
-		log+=timeStamp()+" Erzeuge Gitter / Building lattice\r\n";
+		CString logStringBuildingLattice;
+		logStringBuildingLattice.LoadString(IDS_RSA_LOG_BUILDING_LATTICE);
+		log += timeStamp() + logStringBuildingLattice + "\r\n";
 		status=BM_BUILDING;
 		buildLattice();
 	}
@@ -50,7 +55,9 @@ void BloemerMayAttack::attack(){
 	}
 
 	if(status!=BM_CANCELED){
-		log+=timeStamp()+" Reduziere Gitter / Reducing lattice\r\n";
+		CString logStringReducingLattice;
+		logStringReducingLattice.LoadString(IDS_RSA_LOG_REDUCING_LATTICE);
+		log += timeStamp() + logStringReducingLattice + "\r\n";
 		status=BM_REDUCING;// reducing Lattice
 		reduceLattice();
 	}
@@ -66,17 +73,24 @@ void BloemerMayAttack::attack(){
 		status=BM_BUILDINGRESULTANT;// calculation resultants
 		getSolution();
 	}
-	if(status==BM_CANCELED)
-		log+=timeStamp()+" Abbruch durch Benutzer / Canceled by user:\r\n";
+	if(status==BM_CANCELED) {
+		CString logStringCancelledByUser;
+		logStringCancelledByUser.LoadString(IDS_RSA_LOG_CANCELLED_BY_USER);
+		log += timeStamp() + logStringCancelledByUser + "\r\n";
+	}
 	else
 	if(!IsZero(p)){
 		status=BM_SUCCESSFUL; // successful
-		log+=timeStamp()+" Lösung gefunden / Found solution:\r\n";
+		CString logStringFoundSolution;
+		logStringFoundSolution.LoadString(IDS_RSA_LOG_FOUND_SOLUTION);
+		log += timeStamp() + logStringFoundSolution + "\r\n";
 		log+="p="+toString(p,10,0)+"\r\n";
 		log+="q="+toString(q,10,0);
 	}
 	else{
-		log+=timeStamp()+" Ohne Erfolg beendet / Finished without solution:\r\n";
+		CString logStringFoundNoSolution;
+		logStringFoundNoSolution.LoadString(IDS_RSA_LOG_FOUND_NO_SOLUTION);
+		log += timeStamp() + logStringFoundNoSolution + "\r\n";
 		status=BM_FAILED; // failed
 	}
 }
@@ -100,7 +114,9 @@ void BloemerMayAttack::buildPolyPowers()
 	Y=3*SqrRoot(e);
 	CString formatParam;
 	formatParam.Format("delta=%f\r\nm=%d\r\nt=%d\r\n", delta,m,t);
-	log+=timeStamp()+" Parameters:\r\n";
+	CString logStringParameters;
+	logStringParameters.LoadString(IDS_RSA_LOG_PARAMETERS);
+	log += timeStamp() + logStringParameters + "\r\n";
 	log=log+formatParam;
 	log=log+"e="+toString(e,10,0)+"\r\n";
 	log=log+"N="+toString(N,10,0)+"\r\n";
@@ -220,9 +236,13 @@ void BloemerMayAttack::deleteVectors(){
 	k=0;
 	b=0;
 	CString dimForm;
-	dimForm.Format("%d",dim-z);
-	log+=timeStamp()+" Lattice dimension ="+ dimForm +" \r\n";
-	log+=timeStamp()+" Lattice = \r\n";
+	dimForm.Format("%d", dim-z);
+	CString logStringLatticeDimension;
+	logStringLatticeDimension.LoadString(IDS_RSA_LOG_LATTICE_DIMENSION);
+	CString logStringLattice;
+	logStringLattice.LoadString(IDS_RSA_LOG_LATTICE);
+	log += timeStamp() + logStringLatticeDimension + " = " + dimForm + "\r\n";
+	log += timeStamp() + logStringLattice + " = " + "\r\n";
 	log+="[\r\n";
 	for(i=0; i<merk.NumCols(); i++){
 		if(!deletedVectors[i]){
@@ -310,7 +330,10 @@ void BloemerMayAttack::getSolution(){
 		treffer[a]=i;
 		norms[a]=norm;
 	}
-	log+=timeStamp()+" Gefundene Polynome / Polynomials found:\r\n";
+
+	CString logStringPolynomialsFound;
+	logStringPolynomialsFound.LoadString(IDS_RSA_LOG_POLYNOMIALS_FOUND);
+	log += timeStamp() + logStringPolynomialsFound + ":" + "\r\n";
 	CString polyName;
 	for(j=1; j<newDim&&status!=BM_CANCELED; j++){
 		polyName.Format("f%d=",j);
@@ -322,7 +345,9 @@ void BloemerMayAttack::getSolution(){
 			resultantsCheck++;
 			findResultantTime=GetTime();
 			polyName.Format("RES(f%d,f%d)\r\n",treffer[i],treffer[j]);
-			log+=timeStamp()+" Calculating resultant "+polyName;
+			CString logStringCalculatingResultant;
+			logStringCalculatingResultant.LoadString(IDS_RSA_LOG_CALCULATING_RESULTANT);
+			log += timeStamp() + logStringCalculatingResultant + " " + polyName;
 			result=polynomials[treffer[i]].resultant(polynomials[treffer[j]],&status);
 			if(FindRoots(result, roots)){
 				for(x=0; x < roots.length()&&!resultFound; x++){

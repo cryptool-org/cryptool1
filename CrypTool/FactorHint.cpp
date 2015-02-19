@@ -19,6 +19,7 @@
 **************************************************************************/
 
 #include "FactorHint.h"
+#include "resource.h"
 
 // static status variables
 int FactorHint::status = 0;
@@ -32,21 +33,33 @@ void FactorHint::MSBFact(){
 	startTime=GetTime();
 	buildLatticeTime=0;
 	reduceLatticeTime=0;
-	log=timeStamp()+" Angriff mit bekannten höchstwertigen Bits gestartet / MSB attack started\r\n";
+
+	CString logStringMostSignificantBitsAttackStarted;
+	logStringMostSignificantBitsAttackStarted.LoadString(IDS_RSA_LOG_MOST_SIGNIFICANT_BITS_ATTACK_STARTED);
+	log = timeStamp() + logStringMostSignificantBitsAttackStarted + "\r\n";
 
 	buildMSBPolyPowers();
 
 	CString form;
 	log+="N: "+toString(N,10,0)+"\r\n";
 	log+="P: "+toString(P,10,0)+"\r\n";
-	form.Format(" Gitterdimension / Lattice dimension: %d\r\n",d);
-	log+=form;
-	log+=timeStamp()+" Erzeuge Gitter / Building lattice\r\n";
+	
+	CString logStringLatticeDimension;
+	logStringLatticeDimension.LoadString(IDS_RSA_LOG_LATTICE_DIMENSION);
+	form.Format(CString(logStringLatticeDimension + " %d" + "\r\n"), d);
+	log += form;
+
+	CString logStringBuildingLattice;
+	logStringBuildingLattice.LoadString(IDS_RSA_LOG_BUILDING_LATTICE);
+	log += timeStamp() + logStringBuildingLattice + "\r\n";
 
 	if(status!=0)
 		buildLattice();
 
-	log+=timeStamp()+" Reduziere Gitter / Reducing lattice\r\n";
+	CString logStringReducingLattice;
+	logStringReducingLattice.LoadString(IDS_RSA_LOG_REDUCING_LATTICE);
+	log += timeStamp() + logStringReducingLattice + "\r\n";
+
 	if(status!=0){
 		status=3;// reducing Lattice
 		reduceLattice();
@@ -59,18 +72,24 @@ void FactorHint::MSBFact(){
 
 	if(status!=0){
 		if(N==p*q){
-			log+=timeStamp()+" Gefundene Lösung / Found solution:\r\n";
+			CString logStringFoundSolution;
+			logStringFoundSolution.LoadString(IDS_RSA_LOG_FOUND_SOLUTION);
+			log += timeStamp() + logStringFoundSolution + "\r\n";
 			log+="p: "+toString(p,10,0)+"\r\n";
 			log+="q: "+toString(q,10,0)+"\r\n";
 			status=6; // successful
 		}
 		else{
-			log+=timeStamp()+" Keine Lösung gefunden / No solution Found\r\n";
+			CString logStringFoundNoSolution;
+			logStringFoundNoSolution.LoadString(IDS_RSA_LOG_FOUND_NO_SOLUTION);
+			log += timeStamp() + logStringFoundNoSolution + "\r\n";
 			status=7; // failed
 		}
-	}else
-		log+=timeStamp()+" Abbruch durch Benutzer / Canceled by user\r\n";
-
+	}else {
+		CString logStringCancelledByUser;
+		logStringCancelledByUser.LoadString(IDS_RSA_LOG_CANCELLED_BY_USER);
+		log += timeStamp() + logStringCancelledByUser + "\r\n";
+	}
 }
 
 void FactorHint::LSBFact(){
@@ -81,20 +100,34 @@ void FactorHint::LSBFact(){
 	startTime=GetTime();
 	buildLatticeTime=0;
 	reduceLatticeTime=0;
-	log=timeStamp()+" Angriff mit bekannten niederwertigsten Bits gestartet / LSB attack started\r\n";
+
+	CString logStringLeastSignificantBitsAttackStarted;
+	logStringLeastSignificantBitsAttackStarted.LoadString(IDS_RSA_LOG_LEAST_SIGNIFICANT_BITS_ATTACK_STARTED);
+	log = timeStamp() + logStringLeastSignificantBitsAttackStarted + "\r\n";
+
 	buildLSBPolyPowers();
 
 	CString form;
 	log+="N: "+toString(N,10,0)+"\r\n";
 	log+="P: "+toString(P,10,0)+"\r\n";
-	form.Format(" Gitterdimension / Lattice dimension: %d\r\n",d);
-	log+=form;
-	log+=timeStamp()+" Erzeuge Gitter / Building lattice\r\n";
+
+	CString dimForm;
+	dimForm.Format("%d", d);
+	CString logStringLatticeDimension;
+	logStringLatticeDimension.LoadString(IDS_RSA_LOG_LATTICE_DIMENSION);	
+	log += timeStamp() + logStringLatticeDimension + " = " + dimForm + "\r\n";
+
+	CString logStringBuildingLattice;
+	logStringBuildingLattice.LoadString(IDS_RSA_LOG_BUILDING_LATTICE);
+	log += timeStamp() + logStringBuildingLattice + "\r\n";
 
 	if(status!=0)
 		buildLattice();
 
-	log+=timeStamp()+" Reduziere Gitter / Reducing lattice\r\n";
+	CString logStringReducingLattice;
+	logStringReducingLattice.LoadString(IDS_RSA_LOG_REDUCING_LATTICE);
+	log += timeStamp() + logStringReducingLattice + "\r\n";
+
 	if(status!=0){
 		status=3;// reducing Lattice
 		reduceLattice();
@@ -106,17 +139,24 @@ void FactorHint::LSBFact(){
 	}
 	if(status!=0){
 		if(N==p*q){
-			log+=timeStamp()+" Gefundene Lösung / Found solution:\r\n";
+			CString logStringFoundSolution;
+			logStringFoundSolution.LoadString(IDS_RSA_LOG_FOUND_SOLUTION);
+			log += timeStamp() + logStringFoundSolution + "\r\n";
 			log+="p: "+toString(p,10,0)+"\r\n";
 			log+="q: "+toString(q,10,0)+"\r\n";
 			status=6; // successful
 		}
 		else{
-			log+=timeStamp()+" Keine Lösung gefunden / No solution Found\r\n";
+			CString logStringFoundNoSolution;
+			logStringFoundNoSolution.LoadString(IDS_RSA_LOG_FOUND_NO_SOLUTION);
+			log += timeStamp() + logStringFoundNoSolution + "\r\n";
 			status=7; // failed
 		}
-	}else
-		log+=timeStamp()+" Abbruch durch Benutzer / Canceled by user\r\n";
+	}else {
+		CString logStringCancelledByUser;
+		logStringCancelledByUser.LoadString(IDS_RSA_LOG_CANCELLED_BY_USER);
+		log += timeStamp() + logStringCancelledByUser + "\r\n";
+	}
 }
 
 ZZ FactorHint::binom(int i, int j)
