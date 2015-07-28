@@ -2943,6 +2943,7 @@ cmd /c copy /y "%(RootDir)%(Directory)ticket" "$(OutDir)"
     <ClCompile Include="DlgKeySubstitution.cpp" />
     <ClCompile Include="DlgKeyVigenere.cpp" />
     <ClCompile Include="DlgLCGRandomParameter.cpp" />
+    <ClCompile Include="DlgLengthOfANumber.cpp" />
     <ClCompile Include="DlgManualSubstAnalysis.cpp" />
     <ClCompile Include="DlgMonSubst.cpp" />
     <ClCompile Include="DlgNGramAnalysis.cpp" />
@@ -3242,6 +3243,7 @@ cmd /c copy /y "%(RootDir)%(Directory)ticket" "$(OutDir)"
     <ClInclude Include="DlgKeySubstitution.h" />
     <ClInclude Include="DlgKeyVigenere.h" />
     <ClInclude Include="DlgLCGRandomParameter.h" />
+    <ClInclude Include="DlgLengthOfANumber.h" />
     <ClInclude Include="DlgManualSubstAnalysis.h" />
     <ClInclude Include="DlgMonSubst.h" />
     <ClInclude Include="DlgNGramAnalysis.h" />

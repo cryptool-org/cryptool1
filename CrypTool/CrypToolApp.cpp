@@ -72,6 +72,7 @@
 #include "ChallengeResponseDlg.h"
 #include "DlgPasswordQualityMeter.h"
 #include "DlgPasswordEntropy.h"
+#include "DlgLengthOfANumber.h"
 #include "HexEditCtrlDoc.h"
 #include "HexEditCtrlView.h"
 #include "ScintillaWnd.h"
@@ -98,8 +99,8 @@
 #pragma warning(disable : 4996)
 
 // flomar, 03/04/2012: don't touch the two lines below, they're automatically adjusted during build time
-#define CRYPTOOL_BUILD_TIME "[BUILD TIME]"
-#define CRYPTOOL_SVN_REVISION "[SVN REVISION]"
+#define CRYPTOOL_BUILD_TIME "2015-7-28"
+#define CRYPTOOL_SVN_REVISION "3685"
 // flomar, 03/04/2012: don't touch the two lines above, they're automatically adjusted during build time
 
 // globale Variablen fuer Zugriff auf Stringtable
@@ -168,6 +169,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_COMMAND(ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION, OnEinzelverfahrenSidechannelattackOnHybridencryption)
 	ON_COMMAND(ID_PASSWORDQUALITYMETER, OnPasswordQualityMeter)
 	ON_COMMAND(ID_PASSWORDENTROPY, OnPasswordEntropy)
+	ON_COMMAND(ID_LENGTHOFANUMBER, OnLengthOfANumber)
 	ON_COMMAND(ID_CHALLENGE_RESPONSE, OnChallengeResponse)
 	ON_COMMAND(ID_RSA_FACTORHINT, OnRsaFactorhint)
 	ON_COMMAND(ID_RSA_STEREOTYPED, OnRsaStereotyped)
@@ -1339,6 +1341,12 @@ void CCrypToolApp::OnPasswordQualityMeter()
 void CCrypToolApp::OnPasswordEntropy()
 {
 	CDlgPasswordEntropy dlg;
+	dlg.DoModal();
+}
+
+void CCrypToolApp::OnLengthOfANumber()
+{
+	CDlgLengthOfANumber dlg;
 	dlg.DoModal();
 }
 

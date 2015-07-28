@@ -222,6 +222,7 @@ hid_indiv_pointadditiononellipticcurves.html
 hid_individual_procedures_secretsharing.html
 hid_interactive_number_theory.html
 hid_known_analysis_single_permutation.html
+hid_lengthofanumber.html
 hid_load_readme.html
 hid_mass_pattern_search.html
 hid_numbershark.html
@@ -369,6 +370,7 @@ hidd_keyasym_generation.html
 hidd_keylength.html
 hidd_keys_list.html
 hidd_lcg_randomparameter.html
+hidd_lengthofanumber.html
 hidd_list_results.html
 hidd_manual_subst_analysis.html
 hidd_ngram_analysis.html
