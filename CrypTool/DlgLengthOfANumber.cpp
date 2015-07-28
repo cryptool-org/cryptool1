@@ -20,6 +20,7 @@
 
 #include "stdafx.h"
 #include "CrypToolApp.h"
+#include "CrypToolTools.h"
 #include "DlgLengthOfANumber.h"
 
 CDlgLengthOfANumber::CDlgLengthOfANumber(CWnd* pParent /*=NULL*/)
@@ -47,109 +48,79 @@ BOOL CDlgLengthOfANumber::OnInitDialog()
 	numberRepresentation = 2;
 	// we also start with an empty number
 	stringNumber.Empty();
-	// initially update number lengths
-	updateNumberLengths();
+	// update both, the number representation and the number itself
+	updateNumberRepresentation();
+	updateNumber();
 	// make changes visible
 	UpdateData(false);
 	return FALSE;
 }
 
 BEGIN_MESSAGE_MAP(CDlgLengthOfANumber, CDialog)
-	ON_BN_CLICKED(IDC_RADIO_BINARY, OnClickedRadioButtonNumberRepresentation)
-	ON_BN_CLICKED(IDC_RADIO_OCTAL, OnClickedRadioButtonNumberRepresentation)
-	ON_BN_CLICKED(IDC_RADIO_DECIMAL, OnClickedRadioButtonNumberRepresentation)
-	ON_BN_CLICKED(IDC_RADIO_HEXADECIMAL, OnClickedRadioButtonNumberRepresentation)
-	ON_EN_CHANGE(IDC_EDIT_NUMBER, OnChangedNumber)
+	ON_BN_CLICKED(IDC_RADIO_BINARY, updateNumberRepresentation)
+	ON_BN_CLICKED(IDC_RADIO_OCTAL, updateNumberRepresentation)
+	ON_BN_CLICKED(IDC_RADIO_DECIMAL, updateNumberRepresentation)
+	ON_BN_CLICKED(IDC_RADIO_HEXADECIMAL, updateNumberRepresentation)
+	ON_EN_CHANGE(IDC_EDIT_NUMBER, updateNumber)
 END_MESSAGE_MAP()
 
-void CDlgLengthOfANumber::OnClickedRadioButtonNumberRepresentation()
+void CDlgLengthOfANumber::updateNumberRepresentation()
 {
+	// acquire the old representation
+	numberRepresentationOld = numberRepresentation;
+	// make sure we're working with the current data
 	UpdateData(true);
-	// convert the number to the specified number representation (2, 8, 10, 16)
-	switch(numberRepresentation) {
-	// binary
-	case 0:
-		convertNumberToRepresentation(2);
-		break;
-	// octal
-	case 1:
-		convertNumberToRepresentation(8);
-		break;
-	// decimal
-	case 2:
-		convertNumberToRepresentation(10);
-		break;
-	// hexadecimal
-	case 3:
-		convertNumberToRepresentation(16);
-		break;
-	default:
-		break;
-	}
-	// update number lengths for each representation
-	updateNumberLengths();
-}
-
-void CDlgLengthOfANumber::OnChangedNumber()
-{
-	// update number lengths for each representation
-	updateNumberLengths();
-}
-
-void CDlgLengthOfANumber::convertNumberToRepresentation(const int _base)
-{
-	// TODO/FIXME
-	stringNumber.Empty();
-	if(_base == 2) stringNumber = "BINARY";
-	if(_base == 8) stringNumber = "OCTAL";
-	if(_base == 10) stringNumber = "DECIMAL";
-	if(_base == 16) stringNumber = "HEXADECIMAL";
-
-	// make sure the GUI is updated properly
-	OnChangedNumber();
+	// convert number to new representation
+	BaseRepr(stringNumber, getBase(numberRepresentationOld), getBase(numberRepresentation));
 	// make changes visible
 	UpdateData(false);
 }
 
-void CDlgLengthOfANumber::updateNumberLengths()
+void CDlgLengthOfANumber::updateNumber()
 {
-	// calculate new number lengths
-	const int lengthBinary = calculateNumberLength(2);
-	const int lengthOctal = calculateNumberLength(8);
-	const int lengthDecimal = calculateNumberLength(10);
-	const int lengthHexadecimal = calculateNumberLength(16);
-	// acquire static text objects
+	// make sure we're working with the current data
+	UpdateData(true);
+	// remove invalid (non-alphabet) characters from the number
+	const int base = getBase(numberRepresentation);
+	if(base == 2) stringNumber = removeNonAlphabetCharacters(stringNumber, "01");
+	if(base == 8) stringNumber = removeNonAlphabetCharacters(stringNumber, "01234567");
+	if(base == 10) stringNumber = removeNonAlphabetCharacters(stringNumber, "0123456789");
+	if(base == 16) stringNumber = removeNonAlphabetCharacters(stringNumber, "0123456789ABCDEF");
+	// convert number to different representations
+	CString stringNumberBinary = stringNumber;
+	CString stringNumberOctal = stringNumber;
+	CString stringNumberDecimal = stringNumber;
+	CString stringNumberHexadecimal = stringNumber;
+	BaseRepr(stringNumberBinary, base, 2);
+	BaseRepr(stringNumberOctal, base, 8);
+	BaseRepr(stringNumberDecimal, base, 10);
+	BaseRepr(stringNumberHexadecimal, base, 16);
+	// calculate number lengths for each representation
+	CString stringNumberBinaryLength;
+	CString stringNumberOctalLength;
+	CString stringNumberDecimalLength;
+	CString stringNumberHexadecimalLength;
+	stringNumberBinaryLength.Format("%d", stringNumberBinary.GetLength());
+	stringNumberOctalLength.Format("%d", stringNumberOctal.GetLength());
+	stringNumberDecimalLength.Format("%d", stringNumberDecimal.GetLength());
+	stringNumberHexadecimalLength.Format("%d", stringNumberHexadecimal.GetLength());
+	// update number lengths for each representation
 	CWnd *windowBinary = GetDlgItem(IDC_STATIC_BINARY);
+	if(windowBinary) windowBinary->SetWindowText(stringNumberBinaryLength);
 	CWnd *windowOctal = GetDlgItem(IDC_STATIC_OCTAL);
+	if(windowOctal) windowOctal->SetWindowText(stringNumberOctalLength);
 	CWnd *windowDecimal = GetDlgItem(IDC_STATIC_DECIMAL);
+	if(windowDecimal) windowDecimal->SetWindowText(stringNumberDecimalLength);
 	CWnd *windowHexadecimal = GetDlgItem(IDC_STATIC_HEXADECIMAL);
-	// update static text objects (the actual number lengths)
-	if(windowBinary) {
-		CString windowText;
-		windowText.Format("%d", lengthBinary);
-		windowBinary->SetWindowText(windowText);
-	}
-	if(windowOctal) {
-		CString windowText;
-		windowText.Format("%d", lengthOctal);
-		windowOctal->SetWindowText(windowText);
-	}
-	if(windowDecimal) {
-		CString windowText;
-		windowText.Format("%d", lengthDecimal);
-		windowDecimal->SetWindowText(windowText);
-	}
-	if(windowHexadecimal) {
-		CString windowText;
-		windowText.Format("%d", lengthHexadecimal);
-		windowHexadecimal->SetWindowText(windowText);
-	}
-	// make changes visible
+	if(windowHexadecimal) windowHexadecimal->SetWindowText(stringNumberHexadecimalLength);
+	// update the dialog
 	UpdateData(false);
 }
 
-int CDlgLengthOfANumber::calculateNumberLength(const int _base)
+int CDlgLengthOfANumber::getBase(const int _numberRepresentation) const
 {
-	// TODO/FIXME
-	return 0;
+	if(_numberRepresentation == 0) return 2;
+	if(_numberRepresentation == 1) return 8;
+	if(_numberRepresentation == 2) return 10;
+	return 16;
 }

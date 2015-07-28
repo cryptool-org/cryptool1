@@ -75,6 +75,9 @@ CString createStringNumberWithDigitGrouping(const float &_number, const unsigned
 CString createStringNumberWithDigitGrouping(const double &_number, const unsigned int &_numberOfDecimalPlaces = 2);
 CString createStringNumberWithDigitGrouping(const CString &_number);
 
+// see implementation
+CString removeNonAlphabetCharacters(CString &_text, const CString &_alphabet);
+
 #endif
 
 

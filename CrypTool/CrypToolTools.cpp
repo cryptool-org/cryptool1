@@ -619,3 +619,14 @@ CString createStringNumberWithDigitGrouping(const CString &_number) {
 
 	return stringNumber;
 }
+
+// this function removes all non-alphabet characters from the specified string
+CString removeNonAlphabetCharacters(CString &_text, const CString &_alphabet) {
+	CString result;
+	for(int i=0; i<_text.GetLength(); i++) {
+		if(_alphabet.Find(_text[i]) != -1) {
+			result.AppendChar(_text[i]);
+		}
+	}
+	return result;
+}

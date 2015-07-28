@@ -34,15 +34,16 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
 	virtual BOOL OnInitDialog();
 protected:
-	afx_msg void OnClickedRadioButtonNumberRepresentation();
-	afx_msg void OnChangedNumber();
+	afx_msg void updateNumberRepresentation();
+	afx_msg void updateNumber();
 private:
+	int getBase(const int _numberRepresentation) const;
+private:
+	// the number representation chosen by the user
 	int numberRepresentation;
+	int numberRepresentationOld;
+	// the number string inserted by the user
 	CString stringNumber;
-private:
-	void convertNumberToRepresentation(const int _base);
-	void updateNumberLengths();
-	int calculateNumberLength(const int _base);
 
 	DECLARE_MESSAGE_MAP()
 };
