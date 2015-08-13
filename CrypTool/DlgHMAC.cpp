@@ -137,7 +137,21 @@ BOOL CDlgHMAC::OnInitDialog()
 	m_text.SetWindowText(strText);
 	m_originalMessage = strText;
 	UpdateData(false);
-	
+
+
+	// flomar, 08/13/2015: here we try to select some meaningful default values for both algorithms 
+	// (SHA256 and HKM) and the key-- this may be useful for inexperienced users; please note that this
+	// extension might be ignored if someone tampers with the algorithms above, which in turn might 
+	// cause assertions
+	if(m_comboCtrlSelectHashFunction.GetCount() > 6 && m_comboCtrlSelectHMACFunction.GetCount() > 1) {
+		m_comboCtrlSelectHashFunction.SetCurSel(6);
+		m_comboCtrlSelectHMACFunction.SetCurSel(1);
+		m_key = "foobar";
+		UpdateData(false);
+		OnCbnSelendokComboSelectHashFunction();
+		OnCbnSelendokComboSelectHmacAlgorithm();
+	}
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
