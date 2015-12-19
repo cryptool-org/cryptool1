@@ -1,4 +1,3 @@
-# test
 all: de en
 pdf1: pdf1-de pdf1-en
 
