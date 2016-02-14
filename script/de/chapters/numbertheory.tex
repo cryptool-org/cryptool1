@@ -108,7 +108,7 @@ Insbesondere wird auf die klassischen Public-Key-Verfahren Diffie-Hellman
 \index{Diffie-Hellman} (DH) und RSA\index{RSA} eingegangen.
 
 Es war mir wichtig, fundierte Aussagen zur Sicherheit des RSA-Verfahrens zu
-machen, und für möglichst alle Beispiele Sage-Code anzugeben.
+machen, und für möglichst alle Beispiele SageMath-Code anzugeben.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -904,7 +904,7 @@ Primitivwurzel\index{Primitivwurzel}}.
 
 \noindent Die folgenden drei Beispiele\footnote{%
   In Kapitel~\ref{nt:AppArith1} \glqq \nameref{nt:AppArith1}''
-  finden Sie den Quellcode zur Berechnung der Tabellen mit Sage.\index{Sage}
+  finden Sie den Quellcode zur Berechnung der Tabellen mit SageMath.\index{SageMath}
 }
 veranschaulichen Eigenschaften der multiplikativen Inversen (hier sind nicht
 mehr die vollständigen Multiplikationstabellen angegeben, sondern nur die Zeilen
@@ -1132,7 +1132,7 @@ die Quadrate (mod $103$) vorab berechnet werden können
 gilt\footnote{%
   In Kapitel~\ref{nt:AppArith2} \glqq \nameref{nt:AppArith2}''
   finden Sie den Beispielcode
-  zum Nachrechnen der Square-and-Multiply Methode mit Sage.
+  zum Nachrechnen der Square-and-Multiply Methode mit SageMath.
 }:
 \label{SrcArith2}
 \begin{eqnarray*}
@@ -1582,7 +1582,7 @@ $e$ verschiedenes) Element, so dass gilt: $e*d \equiv 1$ (mod $J(26)$).
 Der allgemeine Fall, wo $n$ beliebige natürliche Zahlen annehmen kann (in
 dem Beispiel hier galt ja immer $n = 26$), wird in Kapitel
 \ref{l:NumberTheory_Sage_Number-of-RSA-keys} behandelt. Dort ist auch ein
-Sage-Programm, das die Anzahl aller $d$ liefert. Für alle $e$, die
+SageMath-Programm, das die Anzahl aller $d$ liefert. Für alle $e$, die
 teilerfremd\index{Zahlen!teilerfremde (co-prime)} zu $J(n)$ sind, kann man
 das $d$ nach dem Satz von Euler-Fermat folgendermaßen berechnen:
 \begin{eqnarray*}
@@ -1655,7 +1655,7 @@ haben: Die Ordnungen sind $1, 2, 5$ und $10$. Es gilt:
 \newpage
 \begin{example}{ 1:}\\
 Die folgende Tabelle~\ref{expmod11}\footnote{%
-  Das Sage-Beispiel~\ref{nt_Sage-code_MultOrder_expmod11} enthält den
+  Das SageMath-Beispiel~\ref{nt_Sage-code_MultOrder_expmod11} enthält den
   Quelltext zur Berechnung der Tabelle~\ref{expmod11}.
   Siehe Kapitel~\ref{nt:AppArith3a1} \glqq \nameref{nt:AppArith3a1}''.}
 zeigt die Werte $a^i{\rm ~mod~}11$ für die Exponenten $i = 1, 2, \cdots, 10$
@@ -1705,7 +1705,7 @@ Sind $a$ und $m$ teilerfremd\index{Zahlen!teilerfremde (co-prime)} und
 gilt $ord_m(a) = J(m)$, (d.h. $a$ hat maximale Ordnung), dann nennt man
 $a$ eine {\bf Primitivwurzel} \index{Primitivwurzel} von $m$.\footnote{%
   In Kapitel~\ref{nt:AppArith3a2}, \glqq \nameref{nt:AppArith3a2}'' finden Sie
-  Sage-Programme zur Berechnung von Primitivwurzeln.%%\label{primitive-roots-with-sage}
+  SageMath-Programme zur Berechnung von Primitivwurzeln.%%\label{primitive-roots-with-sage}
 }
 \end{definition}
 
@@ -1724,7 +1724,7 @@ $45$ und modulo $46$.
 \newpage
 \begin{example}{ 2:}\\
 Die folgende Tabelle~\ref{expmod45}\footnote{%
-  Das Sage-Beispiel~\ref{nt_Sage-code_MultOrder_expmod45} enthält den
+  Das SageMath-Beispiel~\ref{nt_Sage-code_MultOrder_expmod45} enthält den
   Quelltext zur Berechnung der Tabelle~\ref{expmod45}.
   Siehe Kapitel~\ref{nt:AppArith3b}, \glqq \nameref{nt:AppArith3b}''.}
 zeigt die Werte $a^i{\rm ~mod~}45$ für die Exponenten $i = 1, 2, \cdots, 12$
@@ -1796,7 +1796,7 @@ denn $ord_{45}(7) = 12 \not= 24 = J(45)$.%\vskip + 1em
 \newpage
 \begin{example}{ 4:}\\
 Die folgende Tabelle~\ref{expmod46}\footnote{%
-  Das Sage-Beispiel~\ref{nt_Sage-code_MultOrder_expmod46} enthält den
+  Das SageMath-Beispiel~\ref{nt_Sage-code_MultOrder_expmod46} enthält den
   Quelltext zur Berechnung der Tabelle~\ref{expmod46}.
   Siehe Kapitel~\ref{nt:AppArith3c}, \glqq \nameref{nt:AppArith3c}''.}
 beantwortet die Frage, ob die Zahl $a=7$ eine Primitivwurzel\index{Primitivwurzel} von $46$ ist.
@@ -1904,7 +1904,7 @@ an, wenn n prim ist (vgl. Definition \ref{def-zth-znmult}).
 \noindent Die folgenden Tabellen~\ref{expmod14} und~\ref{expmod22}\footnote{%
   In Kapitel~\ref{nt:AppArith3d}, \glqq \nameref{nt:AppArith3d}''
   finden Sie den Quelltext zur Berechnung der Tabellen~\ref{expmod14} und~\ref{expmod22}
-  mit Sage.
+  mit SageMath.
 } dienen als Beispiele, um Zykluslängen\index{Zykluslänge} zu betrachten -- ein
 Thema, das über die multiplikative Ordnung hinausführt.
 
@@ -1917,8 +1917,9 @@ denn, dieser Zyklus gehört zu einer multiplikativen Ordnung $\ge 1$
 $a^{n-1} ~mod~n$).\\
 \noindent Im Folgenden bezeichnet $l$ die Zykluslänge.
 
-\noindent Die maximale Zykluslänge $l_{max}$ ist $J(n)$.\\
-Für die folgenden Tabellen~\ref{expmod14} und~\ref{expmod22} gilt
+\noindent Die maximale Zykluslänge $l_{max}$ ist $J(n)$.
+
+\noindent Für die folgenden Tabellen~\ref{expmod14} und~\ref{expmod22} gilt
 (nach Satz~\ref{J_of_n}):\\
 \indent  - $J(14) = J(2*7) = 1*6 = 6$.\\
 \indent  - $J(22) = J(2*11) = 1*10 = 10$.
@@ -2068,9 +2069,9 @@ $a \setminus i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 1
 \end{table}
 
 % \newpage
-% Information Sage's latex command
+% Information SageMath's latex command
 % Table 4.8 created this way (hier fehlt noch die letzte Spalte mit J(45) (Jan 2013)
-% - latex nur auf Sage-Objekte anwendbar (also erst alles in eine Matrix schreiben)
+% - latex nur auf SageMath-Objekte anwendbar (also erst alles in eine Matrix schreiben)
 %   Die Matrix kann nur numerische Werte enthalten (also "0" statt "--" geschrieben).
 % - Ausgabe ist ein array (dieses muss in %% eingeschlossen werden).
 % - Um das Array zur Table zu machen, sind ein paar hline, ein \\ nach der letzten
@@ -2259,10 +2260,8 @@ $~J(n)=5*4=20,~e=3,~d=7,~ed\equiv 21\equiv 1\mod~J(n).$ Dann gilt $ (5^3)^7 \equ
 } $p$ und $q$ und berechne $n = p*q$.\footnote{%
 Das BSI \index{BSI} (Bundesamt für Sicherheit in der Informationstechnik) empfiehlt, die Primfaktoren $p$ 
 und $q$ ungefähr gleich groß zu wählen, aber nicht zu dicht beieinander, d.h. konkret etwa
-$$ 0.5 < |\log_2 (p) - \log_2 (q) | <30. $$ Die Primfaktoren werden unter Beachtung der genannten 
-Nebenbedingung zufällig und unabhängig voneinander erzeugt 
-(Siehe 
-\url{http://www.bsi.bund.de/esig/basics/techbas/krypto/bund02v7.pdf}).
+$$ 0.5 < |\log_2 (p) - \log_2 (q) | <30. $$ Dabei sollen die Primfaktoren unter Beachtung der genannten 
+Nebenbedingung zufällig und unabhängig voneinander erzeugt werden (siehe \cite{nt:BSI2015}).
 }\\ 
 Der Wert $n$ wird als RSA-Modul bezeichnet.\footnote{%
 In CT1\index{CrypTool 1} wird der RSA-Modul mit einem großen \glqq N'' 
@@ -2806,7 +2805,7 @@ Siehe \url{http://www.heise.de/newsticker/meldung/print/65957}
 
 
 Laufzeituntersuchungen zur Faktorisierung\index{Faktorisierung} mit den
-Open-Source Software-Paketen Pari-GP, Sage, CrypTool 1 und CrypTool 2
+Open-Source Software-Paketen Pari-GP, SageMath, CrypTool 1 und CrypTool 2
 finden sich in "`Zeitexperimente zur Faktorisierung"'.\footnote{%
 R.-H. Schulz und H. Witten: "`Zeitexperimente zur Faktorisierung. Ein Beitrag
 zur Didaktik der Kryptographie"', in LogIn Heft Nr. 166/167 (2010) 113-120,\\
@@ -3516,9 +3515,9 @@ Eine sehr effiziente Methode, die Bäume zum Vergleich aller ggT-Paare benutzt,
 basiert auf einer Publikation von Dan Bernstein aus 2005 \cite{nt:Bernstein2005}. Bernstein benutzt eine Vorberechnung, in der das Produkt aller Module erzeugt wird. Das ist ein weiteres Beispiel dafür, wie hilfreich Vorberechnungen sein können, um kryptographische Systeme zu brechen (ein anderes berühmtes Beispiel sind die Rainbow-Tabellen, um die Ursprungswerte von Hashwertes zu finden \cite{nt:Oechslin2003}).
 
 
-Das folgende Sage-Beispiel zeigt die sehr unterschiedlichen Laufzeiten für die Berechnung eines ggT und einer Faktorisierung. In dem Abschnitt nach diesem Beispiel wird der Kern der Methode erklärt, der in \cite{nt:Heninger2012} benutzt wird: Die Benutzung von zwei Bäumen beschleunigt die Berechnung deutlich.
+Das folgende SageMath-Beispiel zeigt die sehr unterschiedlichen Laufzeiten für die Berechnung eines ggT und einer Faktorisierung. In dem Abschnitt nach diesem Beispiel wird der Kern der Methode erklärt, der in \cite{nt:Heninger2012} benutzt wird: Die Benutzung von zwei Bäumen beschleunigt die Berechnung deutlich.
 
-Das Sage-Beispiel~\ref{nt_sagesample_Compare-Runtime-gcd-factoring} zeigt, dass die folgenden Operationen sehr schnell sind: Multiplikation von Faktoren, Dividieren eines Moduls durch einen bekannten Faktor und Berechnen des ggT. Im Gegensatz dazu steigt die Rechendauer zur Faktorisierung von längeren Moduli stark an. Selbst die relativ kleinen Module in diesem Beispiel zeigen das: Der kleinere Modul (69 Dezimalstellen, 228 bit) brauchte 76 Sekunden, während der größere (72 Dezimalstellen, 239 bit) schon fast 217 Sekunden benötigte.
+Das SageMath-Beispiel~\ref{nt_sagesample_Compare-Runtime-gcd-factoring} zeigt, dass die folgenden Operationen sehr schnell sind: Multiplikation von Faktoren, Dividieren eines Moduls durch einen bekannten Faktor und Berechnen des ggT. Im Gegensatz dazu steigt die Rechendauer zur Faktorisierung von längeren Moduli stark an. Selbst die relativ kleinen Module in diesem Beispiel zeigen das: Der kleinere Modul (69 Dezimalstellen, 228 bit) brauchte 76 Sekunden, während der größere (72 Dezimalstellen, 239 bit) schon fast 217 Sekunden benötigte.
 
 Hinzu kommt, dass die Operationen Multiplikation, Division und ggT große Laufzeit-Unter"-schiede aufweisen, wenn die Operanden von sehr unterschiedlicher Größe sind.
 
@@ -3530,7 +3529,7 @@ Hinzu kommt, dass die Operationen Multiplikation, Division und ggT große Laufzei
 % 3 * 643 * 84115747449047881488635567801 * 162259276829213363391578010288127
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 
 # Multiplication
 sage: 3593875704495823757388199894268773153439 * 84115747449047881488635567801
@@ -3580,7 +3579,7 @@ Wall time: 76.85 s
 
 Der hervorragende Artikel \glqq Mining Your Ps and Qs: Detection of Widespread Weak Keys in Network Devices''~\cite{nt:Heninger2012} erklärt, wie der Algorithmus die ggTs von allen RSA-Moduln effizient berechnet.
 
-Zuerst wird das Produkt $P$ aller Moduln $m_{i}$ mit Hilfe eines Produktbaumes berechnet. Anschließend wird ein Restebaum modulo den Quadraten der Module berechnet. Dann werden alle ggTs aus einem Modul $m_{i}$ und dem zugehörigen Rest $z_{i}$ dividiert durch diesen Modul berechnet.
+Zuerst wird das Produkt $P$ aller Moduln $m_{i}$ mit Hilfe eines Produktbaumes berechnet, anschließend ein Restebaum modulo den Quadraten der Module. Dann werden alle ggTs aus einem Modul $m_{i}$ und dem zugehörigen Rest $z_{i}$ dividiert durch diesen Modul berechnet.
 
 Dies wird in Abbildung \ref{Figure_Bernstein_Computing-all-pairs-GCDs} veranschaulicht -- sie ist eine Kopie aus \cite{nt:Heninger2012} (nur dass dort die Module $N_{i}$ statt $m_{i}$ genannt werden):
 \begin{figure}[ht]
@@ -3836,7 +3835,7 @@ berechnen.
 In diesem Beispiel mit den kleinen Zahlen ist das Diskrete
 Logarithmusproblem\index{Logarithmusproblem!diskret} leicht lösbar, aber mit großen
 Zahlen ist es kaum zu lösen.\footnote{%
-Mit Sage\index{Sage} kann man den diskreten Logarithmus\index{Logarithmusproblem!diskret} $x$,
+Mit SageMath\index{SageMath} kann man den diskreten Logarithmus\index{Logarithmusproblem!diskret} $x$,
 der die Gleichung $11^x \equiv 49 {\rm ~(mod~}347)$ löst, folgendermaßen bestimmen
                 % $11^x \equiv 49 \pmod{347}$
 (hier für Allice):
@@ -3870,7 +3869,7 @@ von $347$ ist, nehmen die Reste nicht alle Werte aus der Menge $\{1, 2, \cdots, 
 Somit kann es für einen bestimmten Rest mehr als einen oder auch gar keinen
 Exponenten aus der Menge $\{0, 1, \cdots, 345\}$ geben, der die Gleichung
 erfüllt. \\
-Mit den entsprechenden Sage-Funktionen\index{Sage} findet man: \\
+Mit den entsprechenden SageMath-Funktionen\index{SageMath} findet man: \\
 \texttt{is\_prime(347)=True}, \texttt{euler\_phi(347)=346}, \texttt{gcd(11,347)=1} und 
 \texttt{multiplicative\_order(mod(11, 347))=173}.
 
@@ -3911,14 +3910,14 @@ Von Bob: $11 ^ y \equiv 285 {\rm ~(mod~}347)$, also $\log_{11}(285){\rm ~(mod~}3
 \section[Das RSA-Verfahren mit konkreten Zahlen]
 	{Das RSA-Verfahren mit konkreten Zahlen\footnotemark}
 \footnotetext{%
-    \index{Sage}%
+    \index{SageMath}%
     \index{Nguyen, Minh Van }%
     Weiteres Material: Minh Van Nguyen: \glqq Number Theory and the RSA Public Key
-    Cryptosystem. Introductory tutorial on using Sage to study elementary number
+    Cryptosystem. Introductory tutorial on using SageMath to study elementary number
     theory and public key cryptography'', 2009.
     Didaktisch sehr klarer Artikel zu einigen Grundlagen der Zahlentheorie und zur
-    Benutzung von Sage.\\
-    \url{http://nguyenminh2.googlepages.com/sage_numtheory-rsa.pdf}.%\vskip +3 pt
+    Benutzung von SageMath.%\\
+%    \url{http://nguyenminh2.googlepages.com/sage_numtheory-rsa.pdf}.%\vskip +3 pt
 }
 \label{rsaconcrete}\index{RSA}
 
@@ -4035,7 +4034,7 @@ die Blocklänge 2 beträgt.\\
 \label{SrcArith4a}
 \noindent Verschlüsselung aller 7 Teile jeweils per: $C \equiv M^{37}{\rm ~(mod~3713)}$:\footnote{%
   In Kapitel~\ref{nt:AppArith4a} \glqq \nameref{nt:AppArith4a}''
-  finden Sie den Beispiel-Quelltext zur RSA-Verschlüsselung mit Sage.
+  finden Sie den Beispiel-Quelltext zur RSA-Verschlüsselung mit SageMath.
 } \\
 {\tt 1404 2932 3536 0001 3284 2280 2235}
 
@@ -4094,7 +4093,7 @@ ist angeregt durch das Beispiel aus \cite[S. 271]{nt:Eckert2003}.
 \noindent {\bf Schlüsselerzeugung (Schritt 1 bis 3):} \\\label{SrcArith4b}%
 {\bf 1.} $p=509,~q=503 \quad (n= 256.027; \; ~J(n)=(p-1)*(q-1)=255.016=2^3*127*251)$.\footnote{%
   In Kapitel~\ref{nt:AppArith4b} \glqq \nameref{nt:AppArith4b}''
-  finden Sie den Quelltext zur Faktorisierung von $J(n)$ mit Sage.
+  finden Sie den Quelltext zur Faktorisierung von $J(n)$ mit SageMath.
 } \\
 {\bf 2.} $e=65.537$ ($e$ sollte\footnote{%
                 Siehe Fußnote~\ref{foot:Selection-of-e} auf Seite
@@ -4141,7 +4140,7 @@ erhalten (genauso wie wenn man oben in der Dezimalschreibweise alle Zahlen
 \label{SrcArith4c}\\
 Verschlüsselung pro Zeichen per: $C \equiv M^{65.537}{\rm ~(mod~}256.027)$:\footnote{%
   In Kapitel~\ref{nt:AppArith4c} \glqq \nameref{nt:AppArith4c}''
-  finden Sie den Quelltext zur RSA-Exponentiation mit Sage.
+  finden Sie den Quelltext zur RSA-Exponentiation mit SageMath.
 }\\
 {\tt
 \begin{tabular}{lllll}
@@ -4198,7 +4197,7 @@ $256$ Zeichen, b-adisch, Blocklänge\index{Blocklänge} 2, dezimale Darstellung.
 \label{SrcArith4d}
 \noindent Verschlüsselung pro Block per: $C \equiv M^{65.537}{\rm ~(mod~}256027)$:\footnote{%
   In Kapitel~\ref{nt:AppArith4d} \glqq \nameref{nt:AppArith4d}''
-  finden Sie den Quelltext zur RSA-Exponentiation mit Sage.
+  finden Sie den Quelltext zur RSA-Exponentiation mit SageMath.
 } \\
 {\tt 158721 137346 37358 240130 112898}
 
@@ -4223,7 +4222,7 @@ da die ASCII-Blöcke in Zahlen kleiner oder gleich $255.255$ kodiert werden.
 \noindent Verschlüsselung pro Block per: $C \equiv M^{65537}{\rm ~(mod~}256.027)$:\footnote{%
   In Kapitel~\ref{nt:AppArith4e} \glqq \nameref{nt:AppArith4e}''
   %%xIn \hyperlink{nt:AppArith4e}{Anhang zu diesem Kapitel}
-  finden Sie den Quelltext zur RSA-Exponentiation mit Sage.
+  finden Sie den Quelltext zur RSA-Exponentiation mit SageMath.
 } \\ 
 {\tt 198967 051405 254571 115318 014251}
 
@@ -4798,10 +4797,10 @@ Form die Grundlagen und Funktionsweisen der RSA-Chiffre.
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
 \hypertarget{NumberTheory_Appendix_E}{}
-\section{Anhang: Beispiele mit Sage}
+\section{Anhang: Beispiele mit SageMath}
 \label{NumberTheory_Appendix_E}{}
-\index{Sage}
-\index{Sage!Programmbeispiele}
+\index{SageMath}
+\index{SageMath!Programmbeispiele}
 
 \begin{ctsquote}
 \glqq Nie würde sie ihren Eltern ... von dieser ganzen Welt erzählen können. Nicht von ihrer Arbeit, die im Knacken von Codes bestand. Nicht vom Fiasko der Daemon-Taskforce ... Nicht von den schattenhaften Marionetten, die die Regierung nach ihrer Pfeife tanzen ließen.\grqq 
@@ -4811,7 +4810,7 @@ Form die Grundlagen und Funktionsweisen der RSA-Chiffre.
      rororo, (c) 2011, Kapitel 19, \glqq Scheideweg\grqq, S. 229, Philips.}
 
 
-\noindent In diesem Anhang finden Sie Sage-Quellcode, mit dem Sie die Tabellen und
+\noindent In diesem Anhang finden Sie SageMath-Quellcode, mit dem Sie die Tabellen und
 Beispiele des Kapitels~\ref{Chapter_ElementaryNT}
 (\glqq \nameref{Chapter_ElementaryNT}'') berechnen können. 
 
@@ -4823,11 +4822,11 @@ Beispiele des Kapitels~\ref{Chapter_ElementaryNT}
 
 The Multiplikationstabelle~\ref{mulmod17} (von Seite \pageref{SrcArith1a})
 für $a \times i \pmod{m}$, mit $m = 17$, $a=5$ and $a=6$, und $i$ von $0$ bis $16$
-kann mit folgenden Sage-Befehlen berechnet werden:
+kann mit folgenden SageMath-Befehlen berechnet werden:
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: m = 17; a = 5; b = 6
 sage: [mod(a * i, m).lift() for i in xrange(m)]
 [0, 5, 10, 15, 3, 8, 13, 1, 6, 11, 16, 4, 9, 14, 2, 7, 12]
@@ -4856,7 +4855,7 @@ kann man auf dieselbe Weise bestimmen, wenn man im Quelltext jeweils
 \subsection{Schnelles Berechnen hoher Potenzen}
 \label{nt:AppArith2}{}
 
-Das schnelle Potenzieren modulo $m$ kann mit der Sage-Funktion \verb!power_mod()!
+Das schnelle Potenzieren modulo $m$ kann mit der SageMath-Funktion \verb!power_mod()!
 durchgeführt werden. Das Ergebnis dieser Funktion ist eine natürliche Zahl.
 Sie können mit Hilfe der folgenden Zeilen die Idee der Square-and-Multiply-Methode
 nachvollziehen, wie sie im Beispiel in Kapitel \glqq \nameref{hohpot}''
@@ -4864,7 +4863,7 @@ auf Seite \pageref{SrcArith2} dargestellt ist:
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: a = 87; m = 103
 sage: exp = [2, 4, 8, 16, 32, 43]
 sage: [power_mod(a, e, m) for e in exp]
@@ -4889,7 +4888,7 @@ können wir alle Potenzen $a^i \pmod{11}$ wie folgt ausgeben:
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: m = 11
 sage: for a in xrange(1, m):
 ....:     print [power_mod(a, i, m) for i in xrange(1, m)]
@@ -4936,11 +4935,11 @@ Die Tabelle~\ref{expmod45} auf Seite~\pageref{SrcArith3b} enthält Beispiele
 für die Ordnung von a modulo 45 ($ord_{45}(a)$) und den Wert der Eulerfunktion
 von 45 ($J(45)$).
 
-Der folgende Sage-Code erzeugt eine analoge Tabelle.
+Der folgende SageMath-Code erzeugt eine analoge Tabelle.
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: m = 45
 sage: for a in xrange(1, 13):
 ....:     lst = [power_mod(a, i, m) for i in xrange(1, 13)]
@@ -4974,7 +4973,7 @@ Das kann mit der Abfrage, ob \verb!gcd(a, m)==1!, überprüft werden.
 
 In unserem Codebeispiel haben wir stattdessen die Berechung der
 multiplikativen Ordnung in einem \verb!try!-\verb!except!-Block
-durchgeführt. Auf diese Weise kann Sage jede Ausnahme und jeden Fehler
+durchgeführt. Auf diese Weise kann SageMath jede Ausnahme und jeden Fehler
 abfangen, der von der Funktion \verb!multiplicative_order()! geworfen wird.
 Wird eine Ausnahmen oder ein Fehler im \verb!try!-Block geworfen, wissen
 wir, dass $\text{ord}_m(a)$ nicht existiert für den gegebenen Wert von $a$.
@@ -4988,11 +4987,11 @@ angehängt (die Zeile wird durch das Objekt \verb!lst! repräsentiert).
 Die Tabelle~\ref{expmod46} auf Seite~\pageref{SrcArith3c} enthält Beispiele
 für die Exponentiationen $a^i$ mod $46$ sowie die Ordnungen $ord_{46}(a)$ 
 
-Der folgende Sage-Code erzeugt eine analoge Tabelle.
+Der folgende SageMath-Code erzeugt eine analoge Tabelle.
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: m = 46
 sage: euler_phi(m)
 22
@@ -5041,17 +5040,17 @@ sage: for a in xrange(1, 24):
 Der folgende Code für die Tabellen~\ref{expmod14} und~\ref{expmod22}
 auf Seite~\pageref{expmod14} f. gibt auch gleich das Ergebnis so aus,
 dass man es leicht in LaTeX weiter verarbeiten kann. Voraussetzung dafür ist,
-dass alle Inhalte vorher einem Sage-Objekt (hier einer Matrix) zugewiesen
+dass alle Inhalte vorher einem SageMath-Objekt (hier einer Matrix) zugewiesen
 werden.\footnote{%
-        Anmerkungen zu dem Sage-Programm, insbesondere den
-        Sage-Indizes\index{Sage}\index{Sage!latex()}:
+        Anmerkungen zu dem SageMath-Programm, insbesondere den
+        SageMath-Indizes\index{SageMath}\index{SageMath!latex()}:
         \begin{compactitem}
          \item for x in xrange(2, 5) liefert 2,3,4.
          \item m = matrix(ZZ, 2, 5) hat 2 Zeilen und 5 Spalten.\\
                Die Zellen haben die Bezeichner m(0,0) bis m(1,4).
          \item Alle Elemente der Matrix müssen numerisch sein, daher \glqq 0\grqq
                statt \glqq None\grqq.
-         \item Die Ausgabe von Matrizen kann man in Sage so steuern:
+         \item Die Ausgabe von Matrizen kann man in SageMath so steuern:
 \begin{Verbatim}
                sage: from sage.matrix.matrix0 import set_max_cols, set_max_rows
                sage: set_max_cols(100)
@@ -5066,7 +5065,7 @@ werden.\footnote{%
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 def power_mod_order_matrix(m, max_a, max_i):
     r = matrix(ZZ, max_a+1, max_i+3)
     for a in xrange(0, max_a+1):
@@ -5124,7 +5123,7 @@ r = power_mod_order_matrix(m, max_a, max_i);print r.str();print latex(r)
 
 Das Berechnen von Primitivwurzeln
 (siehe Kapitel~\ref{MultOrdPrimitveRoot}, \glqq \nameref{MultOrdPrimitveRoot}\grqq)
-geht in Sage sehr einfach: Sei \verb!n! eine natürliche Zahl, dann kann mit dem Befehl
+geht in SageMath sehr einfach: Sei \verb!n! eine natürliche Zahl, dann kann mit dem Befehl
 \verb!primitive_root(n)! \textit{eine} Primitivwurzel der multiplikativen Gruppe
 $(\mathbf{Z} / n \mathbf{Z})^{\ast}$ berechnet werden, sofern eine existiert.
 Ist $n$ prim, dann ist das äquivalent zum Berechnen einer Primitivwurzel in
@@ -5134,7 +5133,7 @@ $\mathbf{Z} / n \mathbf{Z}$.
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: primitive_root(4)
 3
 sage: primitive_root(22)
@@ -5161,22 +5160,25 @@ sage: for p in primes(1, 50):
 \caption{Berechnen einer Primitivwurzel für eine gegebene Primzahl}
 \end{sagecode}
 
-\noindent Ist $p$ prim, dann hat $\mathbf{Z} / p \mathbf{Z}$ mindestens eine Primitivwurzel.
+\noindent Ist $p$ prim, dann hat $\mathbf{Z} / p \mathbf{Z}$ mindestens eine Primitivwurzel.\\
 
 
 
-\newpage
-\noindent Will man \texttt{alle} Primitivwurzeln von $\mathbf{Z} / p \mathbf{Z}$
-berechnen, und nicht nur irgend eine einzige von $\mathbf{Z} / p \mathbf{Z}$,
-dann kann man das mit der folgenden Funktion durchführen%
-\footnote{Der folgende Code wurde als Sage-Skriptdatei erstellt und
+%\newpage
+\noindent Will man \texttt{alle} Primitivwurzeln von $(\mathbf{Z} / n \mathbf{Z})^{\ast}$
+berechnen, und nicht nur irgend eine einzige von $(\mathbf{Z} / n \mathbf{Z})^{\ast}$,
+dann kann man das mit der folgenden selbstgeschriebenen Funktion durchführen%
+\footnote{Der folgende Code wurde als SageMath-Skriptdatei erstellt und
 nicht-interaktiv ausgeführt. Deshalb gibt es in der Ausgabe keine Zeilen,
 die mit \glqq sage:\grqq~oder
-\glqq ....:\grqq~anfangen wie in den Sage-Programmbeispielen bisher.}.
+\glqq ....:\grqq~anfangen wie in den SageMath-Programmbeispielen bisher.}.
+
+\newpage %BERM_Warning: Egal, ob Newpage hier oder vor dem Text (wie im Englischen), warum gibt
+         %              es nur im Deutschen die Warnung: "Text page 202 contains only floats."
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 def enum_PrimitiveRoots_of_an_Integer(M):
     r"""
     Return all the primitive roots of the integer M (if possible).
@@ -5239,7 +5241,7 @@ AA_Start -- Testcases for enum_PrimitiveRoots_of_an_Integer(M)
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: L=enum_PrimitiveRoots_of_an_Integer(541); L
 {2, 517, 10, 523, 13, 14, 527, 528, 18, 531, 24, 539, 30, 37, 40, 51,
 54, 55, 59, 62, 65, 67, 68, 72, 73, 77, 83, 86, 87, 91, 94, 96, 98,
@@ -5267,7 +5269,7 @@ Wir können das für alle Zahlen oder nur für die Primzahlen in diesem Bereich ber
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 def count_PrimitiveRoots_of_an_IntegerRange(start, end, bPrimesOnly=True):
 	r"""
 	Compute all primitive roots of all numbers between start and end,
@@ -5316,11 +5318,11 @@ def count_PrimitiveRoots_of_an_IntegerRange(start, end, bPrimesOnly=True):
 
 \newpage
 \noindent Um zu sehen, wie lange unser Computer für diese Berechnung braucht,
-kann man den Sage-Befehl \verb!time! verwenden.
+kann man den SageMath-Befehl \verb!time! verwenden.
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 # BB_Start -- Testcases for count_PrimitiveRoots_of_an_IntegerRange(start, end, bPrimesOnly=True)
 print "\n\nBB_Start -- Testcases for count_PrimitiveRoots_of_an_IntegerRange(start, end, True)"
 
@@ -5369,7 +5371,7 @@ Primitivwurzeln pro $\mathbf{Z} / p \mathbf{Z}$ zählen.
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 def count_PrimitiveRoots_of_a_PrimesRange(start, end):
       r"""
       Compute all primitive roots of all primes between start and end,
@@ -5428,7 +5430,7 @@ zu erstellen.
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 start = 1
 end = 10^5
 fileName = "/scratch/mvngu/primroots.dat"
@@ -5452,14 +5454,15 @@ Es dauerte rund einen ganzen Tag auf der Maschine sage.math, um die Datei
 \glqq primroots.dat'' zu erstellen (erstellt im Juli 2009 von Minh Van Nguyen).
 
 Auch dieser Code und die Funktion \verb!enum_PrimitiveRoots_of_an_Integer!
-wurden in eine Sage-Skriptdatei eingefügt und nicht-interaktiv ausgeführt.
+wurden in eine SageMath-Skriptdatei eingefügt und nicht-interaktiv ausgeführt.
 
 Die Datei \glqq primroots.dat'' enthält die Liste alle Primitivwurzeln für alle
 Primzahlen zwischen 1 und 100.000 inklusive. Dies ist eine sehr große Datei
 (ca. 1 GB unkomprimiert, ca. 285 MB komprimiert mit bzip2).
-Die Datei kann abgerufen werden unter
-   \url{http://sage.math.washington.edu/home/mvngu/doc/primitive-roots/primroots.dat.bz2}.
-
+% Die Datei kann abgerufen werden unter
+%   \url{http://sage.math.washington.edu/home/mvngu/doc/primitive-roots/primroots.dat.bz2}.
+% Siehe auch Re: [sage-devel] what can we do with a database of primitive roots?
+% https://groups.google.com/forum/m/#!topic/sage-devel/TA5Nk2GdhOI
 
 
 \newpage
@@ -5468,7 +5471,7 @@ drei Grafiken zu erstellen.
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: # open a database file on primitive roots from 1 to 100,000
 sage: file = open("/scratch/mvngu/primroots.dat", "r")
 sage: plist = []    # list of all primes from 1 to 100,000
@@ -5540,14 +5543,14 @@ mit der größten Primitivwurzel zu jeder Primzahl im obigen Intervall.
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics{figures/primitive-roots-smallest}
+\includegraphics{figures/primitive-roots-smallest.png}
 \caption{Die kleinste Primitivwurzel von jeder Primzahl zwischen 1 und 100.000}
 \label{fig:primitive_roots_smallest}
 \end{figure}
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics{figures/primitive-roots-largest}
+\includegraphics{figures/primitive-roots-largest.png}
 \caption{Die größte Primitivwurzel von jeder Primzahl zwischen 1 und 100.000}
 \label{fig:primitive_roots_largest}
 \end{figure}
@@ -5563,11 +5566,11 @@ mit der größten Primitivwurzel zu jeder Primzahl im obigen Intervall.
 
 % ---------------------------------------------------------------------------
 \newpage
-\hypertarget{NumberTheory_Sage_RSA sample}{}
-\subsection{RSA-Beispiele mit Sage}
-\label{l:NumberTheory_Sage_RSA sample}{}
+\hypertarget{NumberTheory_Sage_RSA_sample}{}
+\subsection{RSA-Beispiele mit SageMath}
+\label{l:NumberTheory_Sage_RSA_sample}{}
 
-\noindent In diesem Abschnitt sind die Sage-Quelltexte für die einfachen RSA-Beispiele
+\noindent In diesem Abschnitt sind die SageMath-Quelltexte für die einfachen RSA-Beispiele
 im Kapitel~\ref{rsaconcrete} (\glqq \nameref{rsaconcrete}'') angegeben. 
 
 \vskip +10 pt 
@@ -5575,10 +5578,10 @@ im Kapitel~\ref{rsaconcrete} (\glqq \nameref{rsaconcrete}'') angegeben.
 \noindent \textbf{Beispiel auf Seite~\pageref{SrcArith4a}:}}
 \label{nt:AppArith4a}\\
 Die RSA-Exponentiation $M^{37} \pmod{3713}$ für die Nachricht $M = 120$ kann
-mit Sage folgendermaßen ausgeführt werden:
+mit SageMath folgendermaßen ausgeführt werden:
 
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: power_mod(120, 37, 3713)
 1404
 \end{Verbatim}
@@ -5588,12 +5591,12 @@ sage: power_mod(120, 37, 3713)
 \hypertarget{nt:AppArith4b}{%
 \noindent {\bf Beispiel auf Seite~\pageref{SrcArith4b}:}}
 \label{nt:AppArith4b}\\
-Die Faktorisierung von $J(256.027) = 255.016 = 2^3 * 127 * 251$ kann mit Sage
+Die Faktorisierung von $J(256.027) = 255.016 = 2^3 * 127 * 251$ kann mit SageMath
 folgendermaßen durchgeführt werden:
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: factor(255016)
 2^3 * 127 * 251
 \end{Verbatim}
@@ -5605,11 +5608,11 @@ sage: factor(255016)
 \hypertarget{nt:AppArith4c}{%
 \noindent {\bf Beispiel auf Seite~\pageref{SrcArith4c}:}}
 \label{nt:AppArith4c}\\
-RSA-Verschlüsselung mit Sage:
+RSA-Verschlüsselung mit SageMath:
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: A = [82, 83, 65, 32, 119, 111, 114, 107, 115, 33]
 sage: e = 65537; m = 256027
 sage: [power_mod(a, e, m) for a in A]
@@ -5623,10 +5626,10 @@ sage: [power_mod(a, e, m) for a in A]
 \hypertarget{nt:AppArith4d}{%
 \noindent {\bf Beispiel auf Seite~\pageref{SrcArith4d}:}}
 \label{nt:AppArith4d}\\
-RSA-Verschlüsselung mit Sage:
+RSA-Verschlüsselung mit SageMath:
 
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: A = [21075, 16672, 30575, 29291, 29473]
 sage: e = 65537; m = 256027
 sage: [power_mod(a, e, m) for a in A]
@@ -5638,10 +5641,10 @@ sage: [power_mod(a, e, m) for a in A]
 \hypertarget{nt:AppArith4e}{%
 \noindent {\bf Beispiel auf Seite~\pageref{SrcArith4e}:}}
 \label{nt:AppArith4e}\\
-RSA-Verschlüsselung mit Sage:
+RSA-Verschlüsselung mit SageMath:
 
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: A = [82083, 65032, 119111, 114107, 115033]
 sage: e = 65537; m = 256027
 sage: [power_mod(a, e, m) for a in A]
@@ -5655,7 +5658,11 @@ sage: [power_mod(a, e, m) for a in A]
 \newpage
 \hypertarget{NumberTheory_Sage_Number-of-RSA-keys}{}
 %\subsection{Wie viele private RSA-Schlüssel gibt es innerhalb eines Modulo-Bereiches?}
-\subsection{Wie viele private RSA-Schlüs\discretionary{-}{}{}sel $d$ gibt es innerhalb eines Modulo-Be\-rei\-ches?}
+% \texorpdfstring{$d$}{d} not necessary as title-id and title-output separated.
+% \subsection[Wie viele private RSA-Schlüssel \texorpdfstring{$d$}{d} gibt es innerhalb eines Modulo-Bereiches?]
+\subsection[Wie viele private RSA-Schlüssel d gibt es innerhalb eines Modulo-Bereiches?]
+{Wie viele private RSA-Schlüs\discretionary{-}{}{}sel $d$ gibt es innerhalb eines Modulo-Be\-rei\-ches?}
+
 \label{l:NumberTheory_Sage_Number-of-RSA-keys}{}
 
 Die RSA-Verschlüsselung wurde beschrieben in Abschnitt \ref{RSA} (\glqq \nameref{RSA}'').
@@ -5714,9 +5721,9 @@ S.~\pageref{L_nt_Num-of-d-mod-26} behandelt den Spezialfall $n=26$.
 }
 
 \newpage
-\noindent Das Sage-Beispielprogramm~\ref{nt_sagesample_Count_RSA_Keys} unten
+\noindent Das SageMath-Programm~\ref{nt_sagesample_Count_RSA_Keys} unten
 definiert die Funktion \verb#count_Number_of_RSA_Keys#, die diese Frage konkret
-beantworten kann (wenn der Modulus nicht zu groß ist).\footnote{%
+beantwortet (wenn der Modulus nicht zu groß ist).\footnote{%
 %\begin{compactitem}
 \newlength{\saveleftmargini}
 \setlength{\saveleftmargini}{\leftmargini}
@@ -5752,7 +5759,7 @@ hat die folgende Ausgabe:\\
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 def count_Number_of_RSA_Keys(start, end, Verbose=False):
       r"""
       How many private RSA keys (n,d) exist, if only modulus N is given, and start <= N <= end?
@@ -5857,7 +5864,7 @@ stoßen, denn m = 0, 1 und n-1 sind immer auch Fixpunkte.
 In der Praxis, also bei groß genug gewählten Primzahlen, haben Fixpunkte keine
 Bedeutung für die Sicherheit von RSA. Deshalb bezieht sich dieser Abschnitt
 eher auf mathematische Fragen.\footnote{%
-Dank geht an Taras Shevchenko, der Teile des Inhalts dieses Kapitels zusammentrug, und an Volker Simon, der das Sage-Programm \ref{nt_sagesample_Calculate_RSA-Fixpoints}
+Dank geht an Taras Shevchenko, der Teile des Inhalts dieses Abschnitts zusammentrug, und an Volker Simon, der das SageMath-Programm \ref{nt_sagesample_Calculate_RSA-Fixpoints}
 \glqq Getfixpoints\grqq~% "`Getfixpoints"'
 schrieb.}
 
@@ -6160,7 +6167,7 @@ Aus (2^{80}, 2^{160}): (p,q)~\in~
 
 Abbildung \ref{fig:NumberFixpointsGrowingN} zeigt, dass innerhalb der sechs Größenbereiche die durchschnittliche Anzahl der Fixpunkte nicht größer als 40 ist.
 % Leider konnten wir die Moduli in noch höheren Bereichen nicht testen, da unser
-% Sage-Programm \ref{nt_sagesample_Calculate_RSA-Fixpoints}  "`Getfixpoints"'
+% SageMath-Programm \ref{nt_sagesample_Calculate_RSA-Fixpoints}  "`Getfixpoints"'
 % in Bereichen mit $(p,q) > 2^{320}$ zu langsam ist. \\
 
 
@@ -6178,8 +6185,7 @@ Zuerst faktorisieren wir $n$:  $ 866959 = 811 \cdot 1069$.\\
 $ (ggT(  p-1,  e-1)+1) \cdot (ggT(   q-1,  e-1)+1) =
   (ggT(811-1, 17-1)+1) \cdot (ggT(1069-1, 17-1)+1) = (2+1) \cdot (4+1) = 15 $\\
 
-\noindent Das Sage-Programm \ref{nt_sagesample_Calculate_RSA-Fixpoints} "`Getfixpoints"' liefert folgende 15 Fixpunkte für
-$ (n,e) = (866959, 17)$:
+  \noindent Das SageMath-Programm \ref{nt_sagesample_Calculate_RSA-Fixpoints} (Getfixpoints) liefert für $(n,e) = (866959, 17)$ die folgenden 15 Fixpunkte:
 %
 %\noindent \textbf{3 Fixpunkte modulo p:}\\
 %$ ~~~~~0$ (trivialer Fixpunkt manuell hinzugefügt)\\
@@ -6229,7 +6235,7 @@ Also ist $ m = 843441$ ein Fixpunkt für das gegebene $(n,e)$.\\
 %%% Leicht modifiziertes SAGE-Programm von Volker Simon (9/2012)
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 import numpy
 
 print "--- Search for fixpoints in Textbook-RSA given p, q, e ---";
@@ -6297,10 +6303,10 @@ print "\nRemark: You can verify each fixpoint with power_mod(m,e,n).";
 
 
 \vspace{60pt}
-\noindent \textbf{Bedeutung der Variablen im Sage-Code
+\noindent \textbf{Bedeutung der Variablen im SageMath-Code
                   \ref{nt_sagesample_Calculate_RSA-Fixpoints}:}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 - gen_f_p = r.multiplicative_generator()
   r ist ein Restklassen-Ring modulo p, und multiplicative_generator() gibt
   ein Generator-Element zurück, welches diesen Ring modulo p erzeugt.
@@ -6428,22 +6434,21 @@ Satz~\ref{nt-thm-Anzahl-RSA-Fixpunkte} & Anzahl der RSA-Fixpunkte & \pageref{nt-
     rund um Sicherheitsprotokolle}, Vieweg, 2002.
 
 
-\bibitem[BSI2012]{nt:BSI2012} \index{BSI 2012}
+\bibitem[BSI2015]{nt:BSI2015} \index{BSI 2015}
     BSI (Bundesamt für Sicherheit in der Informationstechnik), \\
     {\em Angaben des BSI für die Algorithmenkataloge der Vorjahre,
          Empfehlungen zur Wahl der Schlüssellängen}, \\
-    \url{https://www.bsi.bund.de/DE/Themen/weitereThemen/ElektronischeSignatur/TechnischeRealisierung/Kryptoalgorithmen/kryptoalgorithmen_node.html}
+    \url{https://www.bsi.bund.de/DE/Themen/DigitaleGesellschaft/ElektronischeSignatur/TechnischeRealisierung/Kryptoalgorithmen/kryptoalg.html}
 
+  \begin{sloppypar}
     BNetzA (Bundesnetzagentur),\\
     {\em Jährliche erscheinende Veröffentlichung zu Algorithmen und Parameter
-         im Umfeld elektronischer Signaturen}
-    (Geeignete Kryptoalgorithmen zur Erfüllung der Anforderungen
-    nach \S 17 (1-3) SigG vom 16. Mai 2001 in Verbindung mit Anlage 1, 
-    I 2, SigV vom 16. November 2001), Bonn, 30.12.2011\\
-    \url{http://www.bundesnetzagentur.de/DE/Sachgebiete/QES/Veroeffentlichungen/Algorithmen/algorithmen_node.html}
+         im Umfeld elektronischer Signaturen}\\
+	 \url{http://www.bundesnetzagentur.de/cln_1911/DE/Service-Funktionen/QualifizierteelektronischeSignatur/WelcheAufgabenhatdieBundesnetzagentur/GeeigneteAlgorithmenfestlegen/geeignetealgorithmenfestlegen-node.html}
 
     Eine Stellungnahme zu diesen Empfehlungen: \\
-    \url{http://www.secorvo.de/publikationen/stellungnahme-algorithmenempfehlung-020307.pdf} .
+    \url{http://www.secorvo.de/publikationen/stellungnahme-algorithmenempfehlung-020307.pdf}
+  \end{sloppypar}
 
 
 \bibitem[Buchmann2004]{nt:Buchmann2004} \index{Buchmann 2004}
@@ -6729,7 +6734,7 @@ Satz~\ref{nt-thm-Anzahl-RSA-Fixpunkte} & Anzahl der RSA-Fixpunkte & \pageref{nt-
          \url{http://www.cerias.purdue.edu/homes/ssw/cun/}
 
 
-   \item\sloppy Sage, \index{Sage} \\
+   \item\sloppy SageMath, \index{SageMath} \\
          Ausgezeichnetes Open-Source Computer-Algebra-System, basierend auf Python
 	 als Skript-Sprache. Damit sind die Code-Beispiele in diesem Kapitel erstellt.
 	 Vergleiche die Einführung in Kapitel~\ref{s:appendix-using-sage}.\\
@@ -6763,7 +6768,7 @@ herzlich zu danken:
          für Primitivwurzeln.}
   
   \item {Minh Van Nguyen aus Australien für seine immer schnelle, kompetente und
-         ausführliche Hilfe bei den ersten Sage\index{Sage}-Code-Beispielen in diesem
+         ausführliche Hilfe bei den ersten SageMath\index{SageMath}-Code-Beispielen in diesem
 	 Kapitel.}
 
 \end{itemize}

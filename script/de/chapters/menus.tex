@@ -66,16 +66,32 @@ immer verfügbar ist (auch wenn kein Dokument geöffnet ist).
 \clearpage
 \begin{figure}[hb]
 \begin{center}
-\vspace{-30pt}
-%\frame{
-%\includegraphics[scale=0.25, angle=270, viewport=200 30 2680 1420]
-\includegraphics[scale=0.35, angle=270]
-                {figures/CT1-menutree-de}
-%viewport=rand-links? rand-unten breite hoehe [bezogen auf querformat]
-%}
+\vspace{-30pt}% Negative Werte schieben Bild nach oben.
+
+% Vor(rotate + minipage) war es mit \includegraphics[scale=0.35,angle=270] gemacht.
+% Dann ist die Bildunterschrift aber weiterhin statt auf der Längsseite.
+\rotatebox{90}{%
+\begin{minipage}{1.57\textwidth}% So sah es für mich mittig aus.
+	% Mit nur "{1.5\textwidth}" ragt die Grafik nach oben raus.
+	% Mit 1.5 stößt es an den oberen Rand (schw. Balken), aber keine LaTeX Warning.
+	% Mit 1.55 erscheint es etwas kleiner, aber immer noch kommt:
+	%   LaTeX Warning: Float too large for page by 14.68823pt on input line 91.
+	% Mit 1.6 erscheint es etwas kleiner, aber immer noch kommt:
+	%   LaTeX Warning: Float too large for page by 37.33801pt on input line 83.
+	% Mit 1.7 passt es ganz drauf, ist aber sehr nah am unteren Rand, und es kommt
+	%   LaTeX Warning: Float too large for page by 82.63066pt on input line 87.
+	% Mit 1.8 ragt es nach unten raus, und es kommt
+	%   LaTeX Warning: Float too large for page by 127.9302pt on input line 85.
+%\frame{ % Erzeugt einen Rahmen und Rand (siehe viewport) drumherum -- gut zum Testen
+\includegraphics[scale=0.35]{figures/CT1-menutree-de}  % Ohne Runterscallieren
+ % ist die Grafik zu groß, und ragt über die sichtbare Minipage / Seite hinaus.
+%} % Ende von \frame
 \hypertarget{appendix-figure-menu-overview-CT1}{}
-\caption{Komplette Übersicht über den Menü-Baum von CT1 (CrypTool 1.4.31)} 
+\caption{Komplett-Übersicht über den Menü-Baum von CT1 (CrypTool 1.4.31xxxxxxxxxxxxxxxxx)} 
 \label{appendix-figure-menu-overview-CT1}
+\end{minipage}
+}
+
 \end{center}
 \end{figure}
 \clearpage

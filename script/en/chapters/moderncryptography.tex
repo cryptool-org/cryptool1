@@ -781,7 +781,7 @@ operations.
 }
 
 \vskip +10 pt
-\begin{Proof}{}
+\begin{proof}{}
 Let $ k=2^n + k_{n-1} 2^{n-1} + \cdots + k_1 2 + k_0 $ be the binary 
 representation of $k. $ Then $ n \leq \log_2 (k), $  because $ 2^n \leq k < 
 2^{n+1}. $ $ k $ can be written in the form $ k=2k' + k_0 $ with $ k'= 2^{n-1} + 
@@ -789,7 +789,7 @@ k_{n-1} 2^{n-2} + \cdots + k_1 $. Thus
 \[ g^k = g^{2k'+k_0}= (g^{k'})^2 g^{k_0} .\]
 We therefore obtain $ g^k $ from $ g^{k'} $ by squaring and then multiplying by 
 $ g $. The claim is thus proved by induction to $ n. $
-\end{Proof}
+\end{proof}
 
 \vskip +10 pt
 \noindent {\bf Problem of the discrete logarithm}\index{Logarithm problem!discrete}
@@ -816,7 +816,7 @@ $ elements and comparing these lists.\\
 In order to calculate these lists, we need $ 2n $ group operations.
 \end{theorem}
 
-\begin{Proof}{}
+\begin{proof}{} !N!*
   First create the two lists \\
 Giant-step list: $ \{1,g^n,g^{2n}, \ldots, g^{n \cdot n}\}, $\\
 Baby-step list: $ \{ hg^{-1} , hg^{-2} , \ldots , hg^{-n} \}. $ \par
@@ -824,7 +824,7 @@ If $ g^{jn} = hg^{-i}, $ i.e. $ h = g^{i+jn}, $ then the problem is solved. If
 the lists are disjoint, then $ h $ cannot be represented as $ g^{i + jn}, i, 
 j\leq n,$. As all powers of $ g $ are thus recorded, the logarithm problem does 
 not have a solution.
-\end{Proof}
+\end{proof}
 
 You can use the baby-step-giant-step algorithm to demonstrate that it is much 
 more difficult to calculate the discrete logarithm than to calculate the 

@@ -2,48 +2,56 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[a4paper,11pt,oneside]{book}
-\overfullrule=5pt % uncomment to mark overfull boxes
+\overfullrule=5pt
+\usepackage[latin1]{inputenc}
+\DeclareTextSymbolDefault{\dh}{T1}
+\DeclareTextSymbolDefault{\textperthousand}{T1}
+
+\usepackage{datetime} % To distinguish often compiled draft versions
+
 \setlength{\fboxrule}{.5mm}
 \setlength{\fboxsep}{1.75mm}
 \setlength{\footnotesep}{6pt}
 
 \usepackage{amsmath}
+\usepackage{amssymb,amscd,latexsym}   %BERM2: added for biciphers.tex
 \usepackage{amsfonts}
 \usepackage{amsthm}
+\usepackage{color}
+
 \usepackage{fancyvrb}
 \usepackage{makeidx}
 \usepackage[pdftex]{graphicx}
-\usepackage{pdfpages} %SR_2009: added new cover
-%\usepackage{enumitem} %BE_2012: eliminate space after end{itemize} didn't work
-\usepackage{paralist} %BE_2012: eliminate space after end{itemize} worked
-                      %         with compactitem
-\usepackage{arydshln} %BE_Jan2013: To use hdashline
-\usepackage{verse}    %BE_Feb2013: To use \settowidth{\versewidth}{xxx}
+\usepackage{pdfpages}
+\usepackage{paralist}
+\usepackage{arydshln}
+\usepackage{verse}
 
 \usepackage[flushmargin]{footmisc}
 \usepackage{fullpage}
-\usepackage[hyphens]{url} % options "hyphens" enables linebreaks in \url{}
-% Literaturverzeichnis kapitelweise
-\usepackage[labelstoglobalaux]{bibunits} % ohne labelstoglobalaux scheint man thebibilograpy und bibtex nicht mischen zu können
+\usepackage[hyphens]{url}
+\appto\UrlBreaks{\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j
+\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w
+\do\x\do\y\do\z}
+
+\usepackage[labelstoglobalaux]{bibunits}
 %\bibliographyunit[\section] % bibunits für das ganze Dokument aktivieren
-\defaultbibliography{references}
-\defaultbibliographystyle{abbrv}
+\defaultbibliography{references} % Why only in English version?
+\defaultbibliographystyle{abbrv} % Why only in English version?
+
 \usepackage{float}
 \usepackage{subfig}
 \usepackage{shorttoc}
 \usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black,bookmarksnumbered=true,pdfpagelabels,plainpages=false,hyperfootnotes=false]{hyperref}
-%To reduce the number of hyperlink related 'pdfTeX warning's we use options 
-%pdfpagelabels, plainpages=false and, hyperfootnotes=false and place hyperref after float.
-%Option debug helps finding problems.
 
 \floatstyle{boxed}
-\newfloat{ctsquotefloat}{H}{loq}   % ctsQuotes-from-Books, List-of-Quotes
-\floatname{ctsquotefloat}{Quote}   % ctsQuotes with centering
+\newfloat{ctsquotefloat}{H}{loq}
+\floatname{ctsquotefloat}{Quote}
 \newenvironment{ctsquote}{\begin{ctsquotefloat}\center}{\end{ctsquotefloat}}
 \floatstyle{ruled}
 
 \newfloat{sagecode}{!ht}{loc}[chapter]
-\floatname{sagecode}{Sage sample}
+\floatname{sagecode}{SageMath sample}
 
 \newfloat{cryptoprocedure}{!ht}{lop}[chapter]
 \floatname{cryptoprocedure}{Crypto Procedure}
@@ -52,40 +60,38 @@
 \makeindex
 \hypersetup{colorlinks=true}
 
-% \setlength{\textwidth}{460 pt}
-% \hoffset-0.7in
-\newtheorem{definition}{Definition}[section]
 %\newcommand{\href}[2]{#2}
 \newcommand{\hypertag}[2]{#1}
 %\newcommand{\hyperlink}[2]{#2}
 %\newcommand{\hypertarget}[2]{#2}
+
+\newtheorem{definition}{Definition}[section]
 \newtheorem{theorem}{Theorem}[section]
-\newenvironment{Proof}[1]{\noindent\textbf{Proof #1} \\}{\hfill$\Box$\par}
+\renewenvironment{proof}[1]{\noindent\textbf{Proof #1} \\}{\hfill$\Box$\par}  %BERM: Instead of making AMS-Theorem a comment in order to have no redefinition of proof, used renewenvironment [proof used in moderncryptography.text and primes.text]. Necessary only in English!
 \newenvironment{example}[1]{\noindent\textbf{Example#1}}{}
 \newenvironment{remark}[1]{\noindent\textbf{Comment#1}}{}
+
+\newenvironment{ Latex_Create-Closed-Dummy-Environ }{}{}
 
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
 
 
-% Define title %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define title ..............
 \title{ % Keine Leerzeilen, sonst Meldung: "Paragraph ended before \title was complete."
-	{\Huge The CrypTool Script: \\
-	 \vspace{5pt}
-	 Cryptography, Mathematics, and More} \\
-        \vspace{20pt}
+	{\Huge The CrypTool Book \\[15pt]
+         Cryptography, Mathematics, and More} \\[25pt]
 	{\LARGE	Background reading for CrypTool\\ 
-         the free e-learning program\\
-	 (with number theory code samples for Sage)} \\
-        \vspace{15pt}
-        {\large (11th edition -- distributed with CrypTool version 1.4.31)}
+         the free e-learning crypto program \\[5pt]
+	 (with code samples written in SageMath)} \\[25pt]
+	{\large 12th edition -- draft version (\settimeformat{hhmmsstime}\currenttime)}
+	% {\large 12th edition}
         \vspace{180pt}
 }
 
-% Hier wird \vspace{32pt} einfach ignoriert
-\author{ % Die Klammer zur Fontänderung funktioniert bei author nur einzeilig im Gegensatz zu title?!
-        {\LARGE Copyright (c) Prof.\ Bernhard Esslinger (co-author and editor)}\\[5pt]
-        {\LARGE and the CrypTool Team, 1998-2013}\\[5pt]
+\author{
+        {\LARGE Prof.\ Bernhard Esslinger (co-author and editor)}\\[10pt]
+        {\LARGE and the CrypTool Team, 1998-2016}\\[10pt]
         {\LARGE Frankfurt am Main, Germany} \\*[15pt]
         \url{www.cryptool.org}
 }
@@ -99,7 +105,6 @@
 % \includepdf[pages=1]{figures/coverv1_en.pdf}
 \includepdf[pages=1]{figures/coverv1_en_draft.pdf}
 
-
 \frontmatter
 
 \pagestyle{plain}
@@ -107,30 +112,16 @@
 \setlength{\fboxsep}{1.75mm}
 \setlength{\footnotesep}{6pt}
 \addtolength{\footskip}{8pt}
-%\setlength{\footskip}{4cm}
-%\renewcommand{\footnoterule}{\parindent0cm\rule{13cm}{.1pt}\vspace{.2cm}}
-%Formatierung der Fu"snoten
 
-%space between text and footnote 
 \renewcommand\footnoterule{%
-  \vspace{2em}%   <-- one line space between text and footnoterule
-%\kern-3\p@
+  \vspace{2em}
   \hrule width .4\columnwidth
  \vspace{4pt}
-%kern 2.6\p@
 }
-
-%\long\def\@makefntext#1{%
-%    \parindent 1em%
-%    \noindent
-%    \hbox to 1.8em{\hss\@makefnmark}#1}
-
 
 \maketitle
 
 
-% Vergleichbar zur Nutzung von Texten aus der Wikipedia (=GNU Free Documentation Licence, GFDL)
-% \vspace{200pt}
 \begin{quote}
 This is a free document, so the content of the document can
 be copied and distributed, also for commercial purposes --- as long as
@@ -140,7 +131,7 @@ possible, as in all other documents.\\
 Additionally, this document is liable to the specific license of the
 GNU Free Documentation Licence.
 
-    Copyright \copyright{} 1998--2013 Bernhard Esslinger and the
+    Copyright \copyright{} 1998--2016 Bernhard Esslinger and the
     CrypTool Team. Permission is granted to copy,
     distribute and/or modify this document under the terms of the GNU
     Free Documentation License, Version 1.3 or any later version
@@ -148,16 +139,14 @@ GNU Free Documentation Licence.
     the license is included in the section entitled
     \hyperlink{appendix-GNU-fdl}{``GNU Free Documentation License''}.
 
-    This also includes the code of the Sage samples in this document.
+    This also includes the code of the SageMath samples in this document.
 \end{quote}
 
 \vspace{420pt}
+\noindent
 Source cover photograph: \url{www.photocase.com}, Andre Guenther\\
-
-Typesetting software: \LaTeX
-
+Typesetting software: \LaTeX\\
 Version control software: Subversion
-
 
 
 \input{chapters/aboutcryptool.tex}
@@ -172,18 +161,13 @@ Version control software: Subversion
 \newpage
 \normalsize
 
-%\parindent 0cm
-% \parskip 4pt
-% Setting the default for the vertical distance before a paragraph as distinguished variable
 \newcounter{mycounterDefaultParskip}
 \setcounter{mycounterDefaultParskip}{4}
 \parskip \value{mycounterDefaultParskip} pt 
 
 
 \input{chapters/introduction.tex}
-
 \mainmatter
-
 \input{chapters/cryptomethods.tex}
 \input{chapters/paper_and_pencil.tex}
 \input{chapters/primes.tex}
@@ -191,6 +175,7 @@ Version control software: Subversion
 \input{chapters/moderncryptography.tex}
 \input{chapters/digitalsignatures.tex}
 \input{chapters/ellipticcurves.tex}
+\input{chapters/bitciphers.tex}
 \input{chapters/homomorphicencryption.tex}
 \bibliographyunit[\chapter]
 \bibliography*{../de/references}
@@ -214,7 +199,7 @@ Version control software: Subversion
       \item[6] \hyperlink{appendix-Learn-NT}
                      {Learning Tool for Elementary Number Theory}
       \item[7] \hyperlink{appendix-using-sage}
-                     {Using Sage with this Script}
+                     {Short Introduction into the Computer Algebra System SageMath}
       \item[8] \hyperlink{appendix-authors}{Authors of the CrypTool Script}
     \end{itemize}
   \newpage
@@ -228,8 +213,6 @@ Version control software: Subversion
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \begingroup
-  % remove extra vertical space from \listoffigure and \listoftables so that 
-  % it look similar to \listof{sagecode}
   %\setlength{\parskip}{0pt}
   \renewcommand*{\addvspace}[1]{}
 
@@ -255,24 +238,24 @@ Version control software: Subversion
 
 
 \clearpage\phantomsection
-\addcontentsline{toc}{chapter}{List of Sage Code Examples}
-\listof{sagecode}{List of Sage Code Examples}
-\index{Sage!Code examples}
+\addcontentsline{toc}{chapter}{List of SageMath Code Examples}
+\listof{sagecode}{List of SageMath Code Examples}
+\index{SageMath!Code examples}
 \label{sc:List-of-Sage-Code-Examples}
 
 \vspace{30pt}
 \begin{itemize}
-  \item The source code of the Sage samples in this script is delivered as
-        Sage program files within the CrypTool-1 setup program.
+  \item The source code of the SageMath samples in this script is delivered as
+        SageMath program files within the CrypTool-1 setup program.
         All samples within one chapter are collected in one file.
         After installing CrypTool 1 \index{CrypTool 1} you find
-        the Sage samples within the subdirectory \verb#sage# in the
+        the SageMath samples within the subdirectory \verb#sagemath# in the
         following 4 files:\\
-        - SAGE-Samples-in-Chap01.sage \\
-        - SAGE-Samples-in-Chap02.sage \\
-        - SAGE-Samples-in-Chap03.sage \\
-        - SAGE-Samples-in-Chap04.sage
-  \item All samples have been tested with Sage Version 5.3 (Release Date 2012-09-08).
+        - SageMath-Samples-in-Chap01.sage \\
+        - SageMath-Samples-in-Chap02.sage \\
+        - SageMath-Samples-in-Chap03.sage \\
+        - SageMath-Samples-in-Chap04.sage
+  \item All samples have been tested with SageMath Version 5.3 (Release Date 2012-09-08)xxxxxxxxxxxxxxxxxxxxxxxxxxx.
 \end{itemize}
 
 

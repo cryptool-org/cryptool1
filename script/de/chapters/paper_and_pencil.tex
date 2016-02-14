@@ -36,7 +36,7 @@ ausführen kann. Vergleiche dazu die Anhänge
 Viele der Verfahren lassen sich auch online im Browser durchführen, z.B. auf
 der CrypTool-Online-Seite ({\bf CTO}) (\url{http://www.cryptool-online.org})\index{CTO}. Vergleiche dazu den Anhang \ref{s:appendix-function-overview-CTO}.\\
 Außerdem enthält das letzte Unterkapitel (\ref{PaP_Sage_samples})
-zu einigen Verfahren Beispielcode für das Computer-Algebra-System {\bf Sage}\index{Sage}.
+zu einigen Verfahren Beispielcode für das Computer-Algebra-System {\bf SageMath}\index{SageMath}.
                                }
 Unter diesem Begriff lassen sich alle Verfahren zusammenfassen, die Menschen von
 Hand anwenden können, um Nachrichten zu ver- und entschlüsseln.
@@ -523,7 +523,7 @@ Zuordnung ist während des ganzen Verschlüsselungsprozesses dieselbe.
 
 
 \item {\bf Affine Chiffre}\footnote{
-   Mit Sage sind dazu unter \ref{PaP_affine_cipher_sage-sample} einige Beispiele
+   Mit SageMath sind dazu unter \ref{PaP_affine_cipher_sage-sample} einige Beispiele
    implementiert.}%
    \index{Affine Chiffre}: Dies ist eine Verallgemeinerung
    der Verschiebechiffre. Jeder Klartext-Buchstabe wird erst durch einen anderen
@@ -1610,21 +1610,21 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
 % ---------------------------------------------------------------------------
 % ---------------------------------------------------------------------------
 \newpage
-\section{Anhang: Beispiele mit Sage}
+\section{Anhang: Beispiele mit SageMath}
 \label{PaP_Sage_samples}
-\index{Sage!Programmbeispiele}
-\index{Sage}
+\index{SageMath!Programmbeispiele}
+\index{SageMath}
 
 Im Folgenden werden einige der klassischen Verfahren mit dem Open-Source Computer-Algebra-System
-\verb!Sage!\footnote{%
-     Eine erste Einführung in das CAS Sage finden Sie im Anhang \ref{s:appendix-using-sage}.
+\verb!SageMath!\footnote{%
+     Eine erste Einführung in das CAS SageMath finden Sie im Anhang \ref{s:appendix-using-sage}.
                                           }
-implementiert. Der Code ist lauffähig und getestet mit Sage Version 5.3.
+implementiert. Der Code ist lauffähig und getestet mit SageMath Version 5.3.
 Alle Verfahren sind im Kapitel~\ref{Kapitel_PaperandPencil}
 (\glqq \nameref{Kapitel_PaperandPencil}\grqq) erklärt.
 
 \noindent Um die Beispielprogramme\footnote{%
-     Weitere Programmbeispiele in Sage zu klassischen Kryptoverfahren finden
+     Weitere Programmbeispiele in SageMath zu klassischen Kryptoverfahren finden
      sich z.B.:\\
      - unter \url{http://www.sagemath.org/doc/constructions/linear_codes.html\#classical-ciphers}\\
      - in der Diplomarbeit von Minh Van Nguyen \cite{pp:Nguyen2009}
@@ -1651,7 +1651,7 @@ aufgeführten Bezeichnungen und Abläufe:
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.5]{figures/notation-enc-dec_in-sage-scripts_de}
-\caption{Namenskonventionen in den Sage-Programmbeispielen} 
+\caption{Namenskonventionen in den SageMath-Programmbeispielen} 
 \label{naming-convention-in-Sage-cipher-samples}
 \end{center}
 \end{figure}
@@ -1663,11 +1663,11 @@ aufgeführten Bezeichnungen und Abläufe:
 \subsection{Transpositions-Chiffren}
 \index{Transposition}
 
-Tranpositions-Chiffren sind implementiert in der Sage-Klasse
+Tranpositions-Chiffren sind implementiert in der SageMath-Klasse
 \begin{center}
 \verb!sage.crypto.classical.TranspositionCryptosystem!
 \end{center}
-Bevor man mit einer Sage Transpositions-Chiffre arbeiten kann, muss man sie
+Bevor man mit einer SageMath Transpositions-Chiffre arbeiten kann, muss man sie
 konstruieren: Dazu legt man das Alphabet fest, das sie Symbole (Zeichen) enthält,
 aus denen Klartext und Geheimtext bestehen können. 
 Typischerweise besteht das Alphabet aus den normalen lateinischen Großbuchstaben.
@@ -1687,9 +1687,13 @@ am Ende des Blocks). Das ist der Verschlüsselungsvorgang.
 Der Ent"-schlüsselungsvorgang besteht im Shiften jedes Zeichens des
 Geheimtextes um $14 - 2 = 12$ Zeichen nach links.
 
+% Using [fontsize=\footnotesize,fontshape=tt] caused:
+%   LaTeX Font Warning: Font shape `T1/cmtt/m/tt' undefined
+%   (Font)              using `T1/cmtt/m/n' instead on input line 730.
+% so deleted the fontshape parameter.
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: # transposition cipher using a block length of 14
 sage: T = TranspositionCryptosystem(AlphabeticStrings(), 14)
 sage: # given plaintext
@@ -1726,7 +1730,7 @@ automatisiert: Die Schlüssel werden anhand des Shift-Wertes generiert.
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: # transposition cipher using a block length of 14, code more variable
 sage: keylen = 14
 sage: shift = 2
@@ -1795,7 +1799,7 @@ Ergebnisse (Schlüssel und Geheimtext) auftreten.
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: # Remark: Enciphering here requires, that the length of msg is a multiple of keylen
 sage: keylen = 14   # length of key
 sage: A = AlphabeticStrings()
@@ -1833,7 +1837,7 @@ einer einfachen Spaltentransposition aus.
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: keylen = 14   # length of key
 sage: A = AlphabeticStrings()
 sage: T = TranspositionCryptosystem(A, keylen); T
@@ -1871,12 +1875,12 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZAB
 \subsection{Substitutions-Chiffren}
 \index{Substitution}
 
-Substitutions-Verschlüsselungen sind in Sage in der folgenden Klasse implementiert
+Substitutions-Verschlüsselungen sind in SageMath in der folgenden Klasse implementiert
 \begin{center}
 \verb!sage.crypto.classical.SubstitutionCryptosystem!
 \end{center}
 
-\noindent Das folgende Programmbeispiel lässt Sage eine Substitutions-Chiffre mit
+\noindent Das folgende Programmbeispiel lässt SageMath eine Substitutions-Chiffre mit
 zufälligem Schlüssel erstellen. Den zufälligen Schlüssel kann man mit der Methode
 \verb!random_key()! der Klasse \texttt{Sub"-stitutionCryptosystem} erzeugen.
 Unterschiedliche Schlüssel erzeugen eine unterschiedliche Substitutions-Chiffre.
@@ -1885,7 +1889,7 @@ ein anderes Ergebnis.
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: # plaintext/ciphertext alphabet
 sage: A   = AlphabeticStrings()
 sage: S   = SubstitutionCryptosystem(A)
@@ -1921,7 +1925,7 @@ Das folgende Programmbeispiel erzeugt eine Caesar-Chiffre.
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: # plaintext/ciphertext alphabet
 sage: A = AlphabeticStrings()
 sage: P = "Shift the alphabet three positions to the right."
@@ -1959,7 +1963,7 @@ Das zweite Caesar-Beispiel macht dasselbe, aber der Programmcode ist variabler.
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: # plaintext/ciphertext alphabet
 sage: A = AlphabeticStrings()
 sage: keylen = len(A.gens()); keylen
@@ -2021,7 +2025,7 @@ In den obigen Beispielen wurde das \verb!SubstitutionCryptosystem! angewandt, un
 Caesar wurde als Sonderfall der Substitution implementiert. Andererseits
 kann man Caesar auch Spezialfall der Shift-Chiffre betrachten.
 
-Die Shift-Chiffre  ist direkt implementiert in der Sage-Klasse
+Die Shift-Chiffre  ist direkt implementiert in der SageMath-Klasse
 \begin{center}
 \verb!sage.crypto.classical.ShiftCryptosystem!
 \end{center}
@@ -2033,7 +2037,7 @@ dass das Egebnis (DC) identisch mit dem ursprünglichen Klartext ist.
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: # construct Shift cipher directly
 sage: shiftcipher = ShiftCryptosystem(AlphabeticStrings()); shiftcipher
 Shift cryptosystem on Free alphabetic string monoid on A-Z
@@ -2064,7 +2068,7 @@ festem Schlüssel 3. Im nächsten Beispiel wird die Caesar-Chiffre
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: caesarcipher = ShiftCryptosystem(AlphabeticStrings())
 sage: P = caesarcipher.encoding("Shift the alphabet by three positions to the right."); P
 SHIFTTHEALPHABETBYTHREEPOSITIONSTOTHERIGHT
@@ -2090,7 +2094,7 @@ True
 \label{PaP_affine_cipher_sage-sample}
 \index{Affine Chiffre}
 
-Die affine Chiffre ist implementiert in the Sage-Klasse
+Die affine Chiffre ist implementiert in the SageMath-Klasse
 \begin{center}
 \verb!sage.crypto.classical.AffineCryptosystem!
 \end{center}
@@ -2102,7 +2106,7 @@ entschlüsselt und das Ergebnis DC mit dem ursprünglichen Klartext verglichen.
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: # create an affine cipher
 sage: affineCipher = AffineCryptosystem(AlphabeticStrings()); affineCipher
 Affine cryptosystem on Free alphabetic string monoid on A-Z
@@ -2128,15 +2132,15 @@ True
 
 
 Man kann  die Shift-Chiffre auch als Sonderfall der affinen Chiffre sehen.
-Dazu muss man den Schllüssel der affinen Chiffre auf die folgende Form
+Dazu muss man den Schlüssel der affinen Chiffre auf die folgende Form
 $(1, b)$ einschränken, wobei $b$ jede ganze, nicht-negative Zahl sein kann.
-Das Sage-Beispiel~\ref{paper_pencil:shift_cipher:Sage_example} auf
+Das SageMath-Beispiel~\ref{paper_pencil:shift_cipher:Sage_example} auf
 Seite~\pageref{paper_pencil:shift_cipher:Sage_example} kann man
 wie folgt darstellen:
 
-\begin{sagecode}
+\begin{sagecode}[h]
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: # construct a shift cipher
 sage: shiftcipher = AffineCryptosystem(AlphabeticStrings()); shiftcipher
 Affine cryptosystem on Free alphabetic string monoid on A-Z
@@ -2162,13 +2166,13 @@ True
 
 Man kann mit der affinen Chiffre auch eine Caesar-Chiffre bauen. Dazu muss
 der Ver-/Entschlüsselungsschlüssel den Wert $(1, 3)$ haben.
-Das Sage-Beispiel~\ref{paper_pencil:shift_cipher:Sage_example_Caesar_cipher}
+Das SageMath-Beispiel~\ref{paper_pencil:shift_cipher:Sage_example_Caesar_cipher}
 auf Seite~\pageref{paper_pencil:shift_cipher:Sage_example_Caesar_cipher}
 kann mit der affinen Chiffre folgendermaßen dargestellt werden.
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: # create a Caesar cipher
 sage: caesarcipher = AffineCryptosystem(AlphabeticStrings())
 sage: P = caesarcipher.encoding("Shift the alphabet by three positions to the right.")
@@ -2198,7 +2202,7 @@ True
 \subsubsection{Substitutions-Chiffre mit Symbolen}
 \index{Substitution}
 
-Im folgenden Sage-Programmbeispiel sind die Alphabetzeichen aus dem Binärsystem.
+Im folgenden SageMath-Programmbeispiel sind die Alphabetzeichen aus dem Binärsystem.
 Eine monoalphabetische Substitution über einem Binäralphabet bietet nur wenig
 Sicherheit: Weil das Klartext-/Geheintext-Alphabet nur aus den 2 Elementen 
 0 and 1 besteht, gibt es nur zwei mögliche Schlüssel: (0 1) and (1 0). \\
@@ -2207,7 +2211,7 @@ alle Alphabetzeichen genau einmal auftreten.
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: # the plaintext/ciphertext alphabet
 sage: B = BinaryStrings()
 sage: # substitution cipher over the alphabet B; no keylen argument possible
@@ -2252,7 +2256,7 @@ Hier wird nun das hexadezimale Zahlensystem als Substitutions-Alphabet verwendet
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: A = HexadecimalStrings()
 sage: S = SubstitutionCryptosystem(A)
 sage: key = S.random_key(); key
@@ -2293,7 +2297,7 @@ True
 \subsubsection{Vigen{\`e}re-Verschlüsselung}
 \index{Vigen\`ere}
 
-Die Vigen{\`e}re-Verschlüsselung ist in der folgenden Sage-Klasse implementiert
+Die Vigen{\`e}re-Verschlüsselung ist in der folgenden SageMath-Klasse implementiert
 \begin{center}
 \verb!sage.crypto.classical.VigenereCryptosystem!
 \end{center}
@@ -2305,7 +2309,7 @@ nutzt.
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: # construct Vigenere cipher
 sage: keylen = 14
 sage: A = AlphabeticStrings()
@@ -2355,7 +2359,8 @@ Verfahrens ist eine invertierbare quadratische Matrix (hier $key$ genannt).
 Klartext und Geheimtext sind Vektoren ($P$ und $C$).
 Die Ver- und Entschlüsselungsprozesse nutzen Matrizen-Operationen modulo 26,
 hier also $C = P * key$ $(mod$ $26)$.
-Die Hill-Verschlüsselung ist implementiert in der Sage-Klasse
+
+\noindent Die Hill-Verschlüsselung ist implementiert in der SageMath-Klasse
 \begin{center}
 \verb!sage.crypto.classical.HillCryptosystem!
 \end{center}
@@ -2367,17 +2372,17 @@ Die Größe der Schlüssel-Matrix (auch Matrix-Dimension genannt) ist vom
 Hill-Verfahren selbst nicht beschränkt.\\
 
 \noindent {\bf Bemerkung:} Vergleich der Hill-Implementierung in
-CrypTool v1.4.31 und in Sage Version 5.3:
+CrypTool v1.4.31 und in SageMath Version 5.3:
 \begin{itemize}
-  \item Sage bietet schnelle Operationen auf der Kommandozeile;
+  \item SageMath bietet schnelle Operationen auf der Kommandozeile;
         CT1 stellt seine Funktionalität nur in einer GUI zur Verfügung.
-  \item Sage bietet für die Schlüssel-Matrix jede Matrix-Dimension an;
+  \item SageMath bietet für die Schlüssel-Matrix jede Matrix-Dimension an;
         CT1 ist beschränkt auf die Werte 1 bis 10.
-  \item Sage erlaubt auch negative Zahlen in der Schlüssel-Matrix
+  \item SageMath erlaubt auch negative Zahlen in der Schlüssel-Matrix
         und konvertiert diese selbststän"-dig in nicht-negative Werte;
         CT1 erlaubt keine negativen Zahlen in der Schlüssel-Matrix.
-  \item Sage weist dem ersten Alphabet-Zeichen immer den Wert 0 zu;\\
-        Sage lässt hierbei nur die 26 Großbuchstaben als Alphabet zu;\\
+  \item SageMath weist dem ersten Alphabet-Zeichen immer den Wert 0 zu;\\
+        SageMath lässt hierbei nur die 26 Großbuchstaben als Alphabet zu;\\
         und es nutzt nur die Multiplikationsvariante
         Klartext-Zeilenvektor * Schlüsselmatrix:\\
         $C = P * key$.
@@ -2397,16 +2402,14 @@ CrypTool v1.4.31 und in Sage Version 5.3:
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: # construct a Hill cipher
-sage: keylen = 19    # keylen = 3  # Alternative key length with non-random small key
-sage: A = AlphabeticStrings()
-sage: H = HillCryptosystem(A, keylen); H
+sage: keylen = 19    # An Alternative could be: Use a non-random small key (e.g. keylen = 3)
+sage: A = AlphabeticStrings(); H = HillCryptosystem(A, keylen); H
 Hill cryptosystem on Free alphabetic string monoid on A-Z of block length 19
 sage:
-sage: # To create key non-randomly, HKS is necessary [even H.key_space() is not enough].
-sage: # HKS = H.key_space()
-sage: # key = HKS([[1,0,1],[0,1,1],[2,2,3]]); key
+sage: # Alternative: Here, HKS is necessary in addition [H.key_space() isn't enough].
+sage: # HKS = H.key_space(); key = HKS([[1,0,1],[0,1,1],[2,2,3]]); key
 sage:
 sage: # Random key creation
 sage: key = H.random_key(); key
@@ -2431,23 +2434,20 @@ sage: key = H.random_key(); key
 [ 2  6 14 22 17  7 23  6 22  7 13 20  0 14 23 17  6  1 12]
 sage:
 sage: # encoding and encryption
-sage: P = "Hill or matrix cipher uses matrix operations."
-sage: len(P)
+sage: P = "Hill or matrix cipher uses matrix operations."; len(P)
 45
 sage: # implementation requires: Length of msg is a multiple of matrix dimension (block_length)
-sage: msg = H.encoding(P); msg
+sage: msg = H.encoding(P); msg; len(msg)
 HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
-sage: len(msg)
 38
 sage:
-sage: # encryption
+sage: # encryption (the length of msg must be a multiple of keylen).
 sage: C  = H.enciphering(key, msg); C
 CRWCKPRVYXNBRZTNZCTQWFWSDWBCHABGMNEHVP
 sage:
 sage: # decryption
-sage: DC  = H.deciphering(key, C); DC
+sage: DC  = H.deciphering(key, C); DC; msg == DC
 HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
-sage: msg == DC
 True
 sage:
 sage: # alternative decryption using inverse matrix
@@ -2460,7 +2460,7 @@ sage: keyInv = H.inverse_key(key); keyInv
 sage: DC     = H.enciphering(keyInv, C); DC
 HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
 \end{Verbatim}
-\caption{Hill-Verschlüsselung}
+\caption{Hill-Verschlüsselung mit einer zufällig generierten Schlüsselmatrix}
 \end{sagecode}
 
 
@@ -2523,9 +2523,9 @@ HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
 
 \bibitem[Nguyen2009]{pp:Nguyen2009} \index{Nguyen 2009} 
        Minh Van Nguyen, \\
-       {\em Exploring Cryptography Using the Sage Computer Algebra System}, \\
+       {\em Exploring Cryptography Using the SageMath Computer Algebra System}, \\
        Victoria University, 2009, \\
-       Siehe Sage publications \url{http://www.sagemath.org/library-publications.html},\\
+       Siehe SageMath publications \url{http://www.sagemath.org/library-publications.html},\\
        \url{http://www.sagemath.org/files/thesis/nguyen-thesis-2009.pdf},\\
        \url{http://sites.google.com/site/nguyenminh2/honours-thesis-2009.pdf}
 

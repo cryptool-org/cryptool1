@@ -63,20 +63,20 @@ is always available (even if no document is opened).
 
 
 %--------------------------------------------------------------------
-%\nobreak
 \clearpage
 \begin{figure}[hb]
 \begin{center}
 \vspace{-30pt}
-%\frame{  %TeX macht einen Rahmen (siehe viewport) drumherum -- gut zum Testen
-%\includegraphics[scale=0.25, angle=270, viewport=200 30 2660 1430]
-\includegraphics[scale=0.35, angle=270]
-                {figures/CT1-menutree-en}
-%viewport=rand-links? rand-unten breite hoehe? [bezogen auf querformat]
-%}
+
+\rotatebox{90}{%
+\begin{minipage}{1.57\textwidth}% So sah es für mich mittig aus.
+\includegraphics[scale=0.35]{figures/CT1-menutree-en}
 \hypertarget{appendix-figure-menu-overview-CT1}{}
-\caption{Complete overview of the menu tree of CT1 (CrypTool 1.4.31)} 
+\caption{Complete overview of the menu tree of CT1 (CrypTool 1.4.31xxxxxxxxxxxxxxxxxxx)} 
 \label{appendix-figure-menu-overview-CT1}
+\end{minipage}
+}
+
 \end{center}
 \end{figure}
 \clearpage

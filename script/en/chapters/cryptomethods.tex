@@ -692,14 +692,14 @@ symmetric and asymmetric encryption methods.
 % ---------------------------------------------------------------------------
 \newpage
 \hypertarget{CM_Appendix_SageCode}{}
-\section{Appendix: Examples using Sage}
+\section{Appendix: Examples using SageMath}
 \label{CM_Sage_samples}
-\index{Sage!Code examples}
+\index{SageMath!Code examples}
 
-\noindent Below is Sage source code related to contents of the
+\noindent Below is SageMath source code related to contents of the
 chapter~\ref{Label_Kapitel_1} (``\nameref{Label_Kapitel_1}''). 
 
-Further details concerning cryptosystems within Sage (e.g. S-DES) can be
+Further details concerning cryptosystems within SageMath (e.g. S-DES) can be
 found e.g. in the thesis of Minh Van Nguyen \cite{cm:Nguyen2009}.
 
 % ---------------------------------------------------------------------------
@@ -707,17 +707,17 @@ found e.g. in the thesis of Minh Van Nguyen \cite{cm:Nguyen2009}.
 \label{CM_Sage_Mini-AES}
 \index{AES!Mini-AES}
 
-The Sage module \texttt{crypto/block\_cipher/miniaes.py} supports Mini-AES to allow
+The SageMath module \texttt{crypto/block\_cipher/miniaes.py} supports Mini-AES to allow
 students to explore the inner working of a modern block cipher.
 
 Mini-AES, originally described at \cite{cm:Phan2002}, is a simplified variant of the
 Advanced Encryption Standard (AES) to be used for cryptography education.
 
-How to use Mini-AES is exhaustively described at the Sage reference page:\\
+How to use Mini-AES is exhaustively described at the SageMath reference page:\\
 \url{http://www.sagemath.org/doc/reference/sage/crypto/block_cipher/miniaes.html}.
 
-The following Sage code~\ref{cryptomethods:Mini-AES:Sage_example}
-is taken from the release tour of Sage 4.1%
+The following SageMath code~\ref{cryptomethods:Mini-AES:Sage_example}
+is taken from the release tour of SageMath 4.1%
 \footnote{
 See \url{http://mvngu.wordpress.com/2009/07/12/sage-4-1-released/}
 }
@@ -725,9 +725,13 @@ and calls the implementation of the Mini-AES.
 
 Further example code for Mini-AES can be found in \cite[chap. 6.5 and appendix D]{cm:Nguyen2009}.
 
+% Using [fontsize=\footnotesize,fontshape=tt] caused:
+%   LaTeX Font Warning: Font shape `T1/cmtt/m/tt' undefined
+%   (Font)              using `T1/cmtt/m/n' instead on input line 730.
+% so deleted the fontshape parameter.
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 # We can encrypt a plaintext using Mini-AES as follows:
 sage: from sage.crypto.block_cipher.miniaes import MiniAES
 sage: maes = MiniAES()
@@ -784,10 +788,10 @@ True
 
 
 % ---------------------------------------------------------------------------
-\subsection{Further symmetric crypto algorithms in Sage}
+\subsection{Further symmetric crypto algorithms in SageMath}
 \label{CM_Sage_SymCryptoAlg}
 
-The Sage Reference v5.4.1%
+The SageMath Reference v5.4.1%
 \footnote{
 See \url{http://www.sagemath.org/doc/reference/sage/crypto/}
 }
@@ -888,7 +892,7 @@ lists the following further ciphers:\\
        Minh Van Nguyen, \\
        {\em Exploring Cryptography Using the Sage Computer Algebra System}, \\
        Victoria University, 2009, \\
-       See Sage publications \url{http://www.sagemath.org/library-publications.html},\\
+       See SageMath publications \url{http://www.sagemath.org/library-publications.html},\\
        \url{http://www.sagemath.org/files/thesis/nguyen-thesis-2009.pdf},\\
        \url{http://sites.google.com/site/nguyenminh2/honours-thesis-2009.pdf}
 

@@ -1,3 +1,7 @@
+% Put the whole graphics implementation of this file into a latex environment
+% to cope with bad influence from here to the lines in the bitcipher graphics.
+\begin{ Latex_Create-Closed-Dummy-Environ }
+
 \setlength{\unitlength}{2486sp}%
 %
 \begingroup\makeatletter\ifx\SetFigFont\undefined%
@@ -177,3 +181,5 @@
 }}}
 \end{picture}
 \end{center}
+
+\end{ Latex_Create-Closed-Dummy-Environ }

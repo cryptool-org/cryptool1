@@ -636,7 +636,7 @@ Daher eignen sich diese Verfahren auch sehr gut für eine Parallelisierung.
 \label{ec:Implementing-for-Education}
 
 Es gibt relativ wenig freie Programme mit graphischer Oberfläche, die ECC implementieren.
-Im Folgenden wird aufgezeigt, welche Funktionalität dazu in CrypTool und in Sage vorhanden ist.
+Im Folgenden wird aufgezeigt, welche Funktionalität dazu in CrypTool und in SageMath vorhanden ist.
 
 
 % -----------------------------------------------------------------------------
@@ -680,16 +680,16 @@ Elliptische Kurven-Berechnungen}.
 
 
 % -----------------------------------------------------------------------------
-\subsection{Sage}
+\subsection{SageMath}
 \label{ec:Sage_Massierer}
-\index{Sage}
-\index{Sage!Programmbeispiele}
+\index{SageMath}
+\index{SageMath!Programmbeispiele}
 
-In Sage werden Elliptische Kurven beschrieben unter
+In SageMath werden Elliptische Kurven beschrieben unter
 
 \url{http://www.sagemath.org/doc/constructions/elliptic_curves.html}%
 \footnote{%
-Sage-Beispiele dazu finden sich z.B. unter den \glqq Published Worksheets\grqq~auf
+SageMath-Beispiele dazu finden sich z.B. unter den \glqq Published Worksheets\grqq~auf
 \url{http://www.sagenb.org/pub/}:\\
 - über Elliptic Curve: \url{http://www.sagenb.org/home/pub/606/} \\
 - über Elliptic Curve ElGamal: \url{http://www.sagenb.org/home/pub/104/}, oder im
@@ -704,24 +704,24 @@ Sage-Beispiele dazu finden sich z.B. unter den \glqq Published Worksheets\grqq~a
 \noindent Zusätzlich gibt es ein ausführliches, interaktives
 \hyperlink{ec:Web-Link:Sage_Massierer}{ECC-Tutorial} von Maike Massierer.
 Diese Einführung in die Elliptische-Kurven-Kryptographie (ECC)
-ist als Sage-Notebook aufgebaut.
+ist als SageMath-Notebook aufgebaut.
 
-Sage-Notebooks werden im Browser nach einem Logon-Vorgang aufgerufen%
+SageMath-Notebooks werden im Browser nach einem Logon-Vorgang aufgerufen%
 \footnote{%
-Hat man Sage auf einem eigenen (Unix-)Server installiert, muss man auf der Sage-Kommandozeile 
+Hat man SageMath auf einem eigenen (Unix-)Server installiert, muss man auf der SageMath-Kommandozeile 
 erst den Befehl \verb#notebook()# aufrufen.
 
 }${}^,$\footnote{%
-Das ECC-Notebook von Maike Massierer benötigt die KASH3-Bibliothek: Deshalb muss (z.B. für Sage 4.2.1)
+Das ECC-Notebook von Maike Massierer benötigt die KASH3-Bibliothek: Deshalb muss (z.B. für SageMath 4.2.1)
 das Package \glqq kash3-2008-07-31.spkg\grqq~installiert worden sein (Befehl \verb#sage -i#).
 }.
 
 Das ECC-Notebook\index{Elliptische Kurven!ECC-Notebook}\index{Massierer, Maike} von
 Massierer\footnote{%
-Anleitung zur Benutzung eines interaktiven Sage-Notebooks\index{Sage!Anleitung interaktives Notebook}:\\
+Anleitung zur Benutzung eines interaktiven SageMath-Notebooks\index{SageMath!Anleitung interaktives Notebook}:\\
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  Öffentliche Sage-Server wie
+  Öffentliche SageMath-Server wie
   \url{http://sage.mathematik.uni-siegen.de:8000} oder
   \url{http://www.sagenb.org/} bieten oft Worksheets als
   \glqq Published Worksheets\grqq~ an, die man ohne Log-in
@@ -736,7 +736,7 @@ Anleitung zur Benutzung eines interaktiven Sage-Notebooks\index{Sage!Anleitung i
   und für das ECC-Tutorial):\\
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  Anlegen eines Accounts für ein Sage-Notebook unter \url{http://sagenb.org/register}
+  Anlegen eines Accounts für ein SageMath-Notebook unter \url{http://sagenb.org/register}
   und Einloggen unter \url{http://sagenb.org/}.
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
@@ -775,8 +775,8 @@ Anleitung zur Benutzung eines interaktiven Sage-Notebooks\index{Sage!Anleitung i
   TIFF-Fonts. Diese Font-Installation muss an jedem PC einzeln erfolgen.
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  Gemäß der Sage-Support-Newsgroup wird daran gearbeitet, ein System zu erstellen,
-  so dass \verb#@interact# komplett außerhalb des Sage-Notebooks benutzt werden kann
+  Gemäß der SageMath-Support-Newsgroup wird daran gearbeitet, ein System zu erstellen,
+  so dass \verb#@interact# komplett außerhalb des SageMath-Notebooks benutzt werden kann
   (JS-Code innerhalb von statischen HTML-Seiten).
    % Leerzeile am Ende nötig (Erkennen Absatz-Ende, sonst hat die 2. Zeile KEINEN hängenden Einzug?! (TODO)
 
@@ -912,10 +912,10 @@ der Schlüssellänge (Speicherplatz) eine entscheidende Bedeutung zukommt.
         % \label{ec:Web-Link:Sage_Massierer}
         \hypertarget{ec:Web-Link:Sage_Massierer}{} 
    \item Umfassende interaktive Einführung in elliptische Kurven und
-        Elliptische-Kurven-Krypto"-graphie (ECC) mit Sage\index{Sage}
+        Elliptische-Kurven-Krypto"-graphie (ECC) mit SageMath\index{SageMath}
         von Maike Massierer und dem CrypTool-Team (alles in Englisch),\\
         \url{http://sagenb.org/home/pub/1126/} (\verb!#1126 bis #1133!) \\
-        ECC-Tutorial als Sage Notebook \\
+        ECC-Tutorial als SageMath-Notebook \\
         Version 1.2, November 2009
         % --> seit April 2009 ohne HTTPS auf Siegener Server (mit SAGE 3.4)
 

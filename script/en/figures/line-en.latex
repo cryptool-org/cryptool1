@@ -1,3 +1,7 @@
+% Put the whole graphics implementation of this file into a latex environment
+% to cope with bad influence from here to the lines in the bitcipher graphics.
+\begin{ Latex_Create-Closed-Dummy-Environ }
+
 \setlength{\unitlength}{6000sp}% in 1.3.05 war es skaliert auf {4144sp}
 %
 \begingroup\makeatletter\ifx\SetFigFont\undefined%
@@ -165,3 +169,5 @@
 \put(361,-1051){\makebox(0,0)[lb]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0} range of numbers in $\mathbb{Z}$}%
 }}}
 \end{picture}
+
+\end{ Latex_Create-Closed-Dummy-Environ }

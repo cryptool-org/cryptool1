@@ -514,7 +514,7 @@ Hier einige Beispiele mit ein paar mehr Details:
 \vskip +10 pt
 \paragraph*{M-37 -- Januar 1998} \index{Mersenne!Mersenne-Primzahl!M-37}\mbox{}
 
-Die 37. Zahl Mersenne-Primzahl, $$2^{3.021.377} - 1 $$
+Die 37. Mersenne-Primzahl, $$2^{3.021.377} - 1 $$
 wurde im Januar 1998 gefunden und hat
 909.526 Stellen im Zehnersystem, was 33 Seiten in der FAZ entspricht!
 
@@ -1232,7 +1232,7 @@ $$
    Primzahlwerte.\footnote{%
    In Kapitel~\ref{primes:_Appendix_Sage-Samples},
    \glqq \nameref{primes:_Appendix_Sage-Samples}'' finden Sie den
-   Quellcode zur Berechnung der Tabelle mit Sage\index{Sage}.}
+   Quellcode zur Berechnung der Tabelle mit SageMath\index{SageMath}.}
    Leider ergibt $f(80) = 1.681 = 11 \cdot 151$ keine Primzahl. Bis heute
    kennt man keine Funktion, die mehr aufeinanderfolgende Primzahlen annimmt.
    Andererseits kommt jede Primzahl doppelt vor (erst in der absteigenden,
@@ -1376,7 +1376,7 @@ Die ersten Werte von p, für die $M_p$ prim ist, sind p = 2, 3, 5, 7, 13, 17, 19,
 
 $M_{M_p}$ ist prim für p = 2, 3, 5, 7, und nimmt dabei ff. Werte an: 7, 127, 
 2.147.483.647, 170.141.183.460.469.231.731.687.303.715.884.105.727.\footnote{%
-Mit Sage\index{Sage} kann man sich das folgendermaßen ausgeben lassen:
+Mit SageMath\index{SageMath} kann man sich das folgendermaßen ausgeben lassen:
 \begin{Verbatim}
 sage: for p in (2,3,5,7): Mp=(2^p)-1; MMp=(2^Mp)-1; B=is_prime(MMp); print p, Mp, MMp, B;
 ....: 
@@ -1841,7 +1841,7 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
      Vielfaches davon betragen. Die Zahl 30 ergibt sich als das Produkt aller
      Primzahlen, die kleiner als die Folgenlänge, also kleiner als 6, sind:
      $ 6\# = 5\# = 2 * 3 * 5 = 30 $.
-     Es gilt $ 10\# = 7\# = 2 * 3 * 5 * 7 = 210$.
+     Noch ein Beispiel: $ 10\# = 7\# = 2 * 3 * 5 * 7 = 210$.
      Sucht man Folgen mit der Länge 15, so muss der 
      Abstand mindestens $ 15\# = 13\# = 2 * 3 * 5 * 7 * 11 * 13 = 30.030 $ betragen.
      \index{Primzahl!k Primorial} \index{Primzahl!k\#}   
@@ -2609,11 +2609,11 @@ $2^{2048}$ 	&   $3,23170\cdot 10^{616}$ \\ \hline
 \end{table}
 
 Solche Tabellen lassen sich mit Computer-Algebra-Systemen einfach berechnen.
-Hier ein Codebeispiel für das CAS-System Sage\index{Sage}\index{CAS}:
+Hier ein Codebeispiel für das CAS-System SageMath\index{SageMath}\index{CAS}:
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 E = [10, 40, 56, 64, 80, 90, 112, 128, 150, 160, 192, 256, 1024, 2048]
 for e in E:
     # print "2^" + str(e), "---", 1.0*(2^e)
@@ -2648,8 +2648,8 @@ for e in E:
 \hypertarget{primes:_Appendix_Plotting-Primes-Quantity}{}
 \section{Anhang: Visualisierung der Menge der Primzahlen in hohen Bereichen}
 \label{primes:_Appendix_Plotting-Primes-Quantity}
-\index{Sage!Programmbeispiele}
-\index{Sage}
+\index{SageMath!Programmbeispiele}
+\index{SageMath}
 \vskip +15pt 
 
 % ---------------------------------------------------------------------------
@@ -2785,7 +2785,7 @@ Theorie zum Primzahlsatz und zur Funktion PI(x) steht in Kapitel
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 
 # Definition der Funktion f(x)=x und Plots für die Definitionsbereiche 0 bis 10^10 und 0 bis 100
 sage: def f(x):return x
@@ -2852,30 +2852,30 @@ sage: pari(10**9).primepi()-pari(10**8).primepi()
 \clearpage
 \newpage
 \hypertarget{primes:_Appendix_Sage-Samples}{}
-\section{Anhang: Beispiele mit Sage}
-% \section*{Appendix A: Beispiele mit Sage}
-% \addcontentsline{toc}{section}{Appendix A: Beispiele mit Sage}
+\section{Anhang: Beispiele mit SageMath}
+% \section*{Appendix A: Beispiele mit SageMath}
+% \addcontentsline{toc}{section}{Appendix A: Beispiele mit SageMath}
 \label{primes:_Appendix_Sage-Samples}
-\index{Sage!Programmbeispiele}
-\index{Sage}
+\index{SageMath!Programmbeispiele}
+\index{SageMath}
 
-\noindent Der folgende Abschnitt enthält Sage Source-Code zu den Inhalten aus
+\noindent Der folgende Abschnitt enthält SageMath Source-Code zu den Inhalten aus
 Kapitel~\ref{Label_Kapitel_Primes} (\glqq \nameref{Label_Kapitel_Primes}\grqq).
 
 
 % ---------------------------------------------------------------------------
 % \newpage
-\subsection{Einfache Funktionen zu Primzahlen mit Sage}
-\index{Sage}
+\subsection{Einfache Funktionen zu Primzahlen mit SageMath}
+\index{SageMath}
 
-In diesem Teil des Anhangs finden Sie den Quellcode für Sage, mit dem man
+In diesem Teil des Anhangs finden Sie den Quellcode für SageMath, mit dem man
 einige einfache Berechnungen zu Primzahlen durchführen kann.%
-\footnote{Siehe die Sage-Dokumentation über Elementare Zahlentheorie
+\footnote{Siehe die SageMath-Dokumentation über Elementare Zahlentheorie
           \url{http://www.sagemath.org/doc/constructions/number_theory.html}.}
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 
 # Primzahlen (allgemeine Befehle)
 # Die Menge der Primzahlen
@@ -2907,9 +2907,9 @@ sage: list(primes(1,10))
 % ---------------------------------------------------------------------------
 \newpage
 \subsection{Primalitäts-Check der von einer quadratischen Funktion erzeugten Zahlen}
-\index{Sage}
+\index{SageMath}
 
-In diesem Anhang finden Sie den Quellcode für Sage, mit dem man
+In diesem Anhang finden Sie den Quellcode für SageMath, mit dem man
 z.B.\ prüfen kann, ob die von der Funktion $f(n) = n^2 - 9n + 61$ 
 erzeugten Zahlen prim sind. 
 Der Quellcode definiert eine Funktion namens \verb!quadratic_prime_formula()!,
@@ -2933,7 +2933,7 @@ deren Funktionswerte auf Primalität geprüft werden sollen.
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 def quadratic_prime_formula(start, end, verbose=True):
     print "N -- N^2 - 9*N + 61"
     P = 0 # the number of primes between start and end
@@ -2957,7 +2957,7 @@ Mit dem folgenden Funktionsaufruf berechnen wir die Werte von $f(n) = n^2 - 9n +
 für $n = 0, 1, 2, \dots, 50$ und verifizieren die Primalität der erzeugten Funktionswerte:
 
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: quadratic_prime_formula(0, 50)
  N -- N^2 - 9*N + 61
 0 -- 61 is prime
@@ -3020,13 +3020,13 @@ $f(n)$ 48 Primzahlen erzeugt für $0 \leq n \leq 50$, was ca. 94\% der von
 $f(n)$ erzeugten Werte darstellt.\\
 
 Bei längeren Sequenzen ist die Einzelausgabe der erzeugten Zahl und ihrer Primalität
-ziemlich unpraktisch. Deshalb wird in der folgenden Sage-Session nur die Statistik am
+ziemlich unpraktisch. Deshalb wird in der folgenden SageMath-Session nur die Statistik am
 Ende ausgegeben (indem man den Verbose-Parameter auf False setzt): die Gesamtzahl und
 der prozentuale Anteil der Primzahlen, die von
 $f(n)$ im Bereich $0 \leq n \leq 1000$ erzeugt wurde.
 
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: quadratic_prime_formula(0, 1000, verbose=False)
 N -- N^2 - 9*N + 61
 Number of primes: 584

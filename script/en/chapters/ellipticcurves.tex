@@ -177,7 +177,7 @@ $n$. More information about this can be found under the chapter \ref{ECC-Factori
 \section{Elliptic curves -- mathematical basics}
 
 This section provides information about \index{Group} {\em groups} and
-\index{Field} {\em fields}.
+\index{field} {\em fields}.
 
 \subsection{Groups}
 
@@ -248,7 +248,7 @@ Fields may contain an infinite number of elements (e.g.\ the field of real numbe
 {\em finite}, if it contains only a finite number of elements (e.g.\ ${\mathbb Z}_p = \{0, 1, 2, 3, \cdots, p-1\}$
 , where $p$ is a prime. ${\mathbb Z}_p$ with addition mod $p$ and multiplication
 mod $p$).
-\index{Field!characteristic}
+\index{field!characteristic}
 \paragraph*{Characteristic of a field}
 Let $K$ be a field and $1$ be the neutral element of $K$ with
 respect to the multiplicative operation ``$\cdot$''. Then the characteristic of $K$ is said to be the order of $1$ with respect to the additive operation. This means that the characteristic of $K$ is the smallest positive integer $n$ such that
@@ -268,7 +268,7 @@ the characteristic $p$. If $p$ is not prime, ${\mathbb Z}_p$ is not a field at a
 
 The most simple field is ${\mathbb Z}_2=\{ 0,1\}$. It contains only two elements, the neutral elements with respect to addition and multiplication. In particular, we have $0+0=0$, $0+1=1+0=1$, $1+1=0$, $1\cdot 1=1$, $0\cdot 0=0\cdot 1=1\cdot 0=0$.
 
-\index{Field!finite}
+\index{field!finite}
 \paragraph*{Finite Fields}
 As mentioned above, each finite field has a characteristic $p\ne 0$, where $p$ is a prime. On the other hand, given a prime $p$ there is a field which has exactly $p$ elements, that is ${\mathbb Z}_p$.
 
@@ -577,7 +577,7 @@ are therefore highly suitable for parallelization.
 
 There are not many free programms offering ECC under a graphical user interface.
 The following subsections explain which according functionality is available in
-CrypTool and in Sage.
+CrypTool and in SageMath.
 
 
 % -----------------------------------------------------------------------------
@@ -619,16 +619,16 @@ Calculations}.
 
 
 % -----------------------------------------------------------------------------
-\subsection{Sage}
+\subsection{SageMath}
 \label{ec:Sage_Massierer}
-\index{Sage}
-\index{Sage!Code examples}
+\index{SageMath}
+\index{SageMath!Code examples}
 
-In Sage elliptic curves are described at
+In SageMath elliptic curves are described at
 
 \url{http://www.sagemath.org/doc/constructions/elliptic_curves.html}%
 \footnote{%
-According Sage samples can be found at the "Published Worksheets" at
+According SageMath samples can be found at the "Published Worksheets" at
 \url{http://www.sagenb.org/pub/}\\
 - about Elliptic Curve: \url{http://www.sagenb.org/home/pub/606/} \\
 - about Elliptic Curve El Gamal: \url{http://www.sagenb.org/home/pub/104/}, or at
@@ -642,24 +642,24 @@ According Sage samples can be found at the "Published Worksheets" at
 \noindent Additionally there is an exhaustive, interactive
 \hyperlink{ec:Web-Link:Sage_Massierer}{ECC tutorial} by Maike Massierer.
 This interactive introduction to Elliptic Curve Cryptography is built up as
-a Sage notebook.
+a SageMath notebook.
 
-Sage notebooks are running after a logon within a browser%
+SageMath notebooks are running after a logon within a browser%
 \footnote{%
-If you installed Sage on your own (Unix) server, you first have to enter at the
+If you installed SageMath on your own (Unix) server, you first have to enter at the
 command line the command \verb#notebook()#.
 
 }${}^,$\footnote{%
-The ECC notebook of Maike Massierer needs the KASH3 library: Therefore e.g.\ with Sage 4.2.1
+The ECC notebook of Maike Massierer needs the KASH3 library: Therefore e.g.\ with SageMath 4.2.1
 the package ``kash3-2008-07-31.spkg'' has to be installed (command \verb#sage -i#).
 }.
 
 The ECC notebook\index{Elliptic curves!ECC notebook}\index{Massierer, Maike} of
 Massierer\footnote{%
-Instructions to use an interactive Sage notebook\index{Sage!Instructions interactive notebook}:\\
+Instructions to use an interactive SageMath notebook\index{SageMath!Instructions interactive notebook}:\\
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  Public Sage servers like \url{http://sage.mathematik.uni-siegen.de:8000} or
+  Public SageMath servers like \url{http://sage.mathematik.uni-siegen.de:8000} or
   \url{http://www.sagenb.org/} often offer running samples as "Published Worksheets",
   which you can run and download without login on. These worksheets are listed
   if you click on ``Published'' in the above right corner.
@@ -671,7 +671,7 @@ Instructions to use an interactive Sage notebook\index{Sage!Instructions interac
   This works as follows (described for the sagenb server and for the ECC tutorial):\\
  
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  Sign-up for a Sage notebook account at \url{http://sagenb.org/register}
+  Sign-up for a SageMath notebook account at \url{http://sagenb.org/register}
   and sign in at \url{http://sagenb.org/}.
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
@@ -711,9 +711,9 @@ Instructions to use an interactive Sage notebook\index{Sage!Instructions interac
   the TIFF fonts. This fonts installation has to be done at every PC.
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  According to the Sage-support newsgroup there is work underway
+  According to the SageMath-support newsgroup there is work underway
   to create a system for using \verb#@interact# completely outside of the
-  Sage notebook (JS code within a static html pages).
+  SageMath notebook (JS code within a static html pages).
 
 }${}^,$\footnote{%
   Since 2008 this ECC notebook can be found at
@@ -845,10 +845,10 @@ Both examples show the typical range of application for elliptic curve cryptogra
 
    \hypertarget{ec:Web-Link:Sage_Massierer}{} 
    \item Interactive introduction to elliptic curves and elliptic curve
-        cryptography with Sage\index{Sage} 
+        cryptography with Sage\index{SageMath} 
         by Maike Massierer and the CrypTool team,\\
         \url{http://sagenb.org/home/pub/1126/} (\verb!#1126 to #1133!) \\
-        ECC Tutorial as Sage Notebook \\
+        ECC Tutorial as SageMath Notebook \\
         Version 1.2, November 2009
 
    \hypertarget{ec:Web-Link:Certicom_Tutorial}{} 

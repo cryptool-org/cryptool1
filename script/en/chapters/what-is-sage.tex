@@ -1,32 +1,32 @@
 % ---------------------------------------------------------------------------
 \newpage
 \hypertarget{appendix-using-sage}{}
-\section{Using Sage with this Script}
+\section{Short Introduction into the Computer Algebra System SageMath}
 \label{s:appendix-using-sage}
-\index{Sage}
-\index{Sage!Code examples}
+\index{SageMath}
+\index{SageMath!Code examples}
 
-This script includes numerous code samples using Sage. Sage is an open
+This book includes numerous code samples using SageMath. SageMath is an open
 source computer algebra system (CAS) that supports teaching, study and
 research in mathematics.  It combines many high-quality open
 source packages\footnote{%
-To get an impression of how big Sage is: After downloading the source of Sage 4.1,
+To get an impression of how big SageMath is: After downloading the source of SageMath 4.1,
 it took around 5 hours on an average Linux PC to compile the whole system including
 all libraries. The compiled version occupied 1.8 GB disk space.
 }
 and provides access to their functionalities via a
 common interface, namely, a Python\footnote{%
 There is also an easy interface to the C language, called Cython, which can be used
-to substantially speed up functions in Sage.\\
+to substantially speed up functions in SageMath.\\
 See \url{http://openwetware.org/wiki/Open_writing_projects/Sage_and_cython_a_brief_introduction}.
 } based programming language.
 
-\noindent Sage can be used as a powerful desktop calculator, as a tool to help
+\noindent SageMath can be used as a powerful desktop calculator, as a tool to help
 (undergraduate) students study mathematics, or as a programming
 environment for prototyping algorithms and research in algorithmic
 aspects of mathematics.
 
-\noindent You can get a quick impression of Sage e.g. with the references in this footnote\footnote{%
+\noindent You can get a quick impression of SageMath e.g. with the references in this footnote\footnote{%
 - ``Invitation to Sage'' by David Joyner, last update 2009\\
 \url{http://sage.math.washington.edu/home/wdj/teaching/calc1-sage/an-invitation-to-sage.pdf}\\
 - ``The SDSU Sage Tutorial'',\\
@@ -36,28 +36,28 @@ aspects of mathematics.
    \url{http://sage.math.washington.edu/home/tkosan/newbies_book/sage_for_newbies_v1.23.pdf}
 }.
   
-\noindent The official Sage online documentation\footnote{%
+\noindent The official SageMath online documentation\footnote{%
   The corresponding official PDF documents can be downloaded at\\
   \url{http://www.sagemath.org/help.html}, \url{http://www.sagemath.org/doc} and \url{http://planet.sagemath.org}.
 } is available at: \url{http://www.sagemath.org}.
 
 
 %% \centering statt \begin{center} ... \end{center}, da dies zusätzlich vertical space erzeugt.
-\noindent In the meantime there are lots of PDF and HTML documents about using Sage, so we name only a few of them as a good starting point\footnote{%
+\noindent In the meantime there are lots of PDF and HTML documents about using SageMath, so we name only a few of them as a good starting point\footnote{%
 - ``Library'': {\centering \url{http://www.sagemath.org/library/index.html}},\\
 - ``Documentation Project'': {\centering \url{http://wiki.sagemath.org/DocumentationProject}},\\
 - ``Teaching'': {\centering \url{http://wiki.sagemath.org/Teaching_with_SAGE}}.
 }.
 
-\noindent With respect to studying cryptography, Sage modules can be used
+\noindent With respect to studying cryptography, SageMath modules can be used
 to complement a first course in cryptography\footnote{%
 - Module sources in the directory \url{SAGE_ROOT/devel/sage-main/sage/crypto}.
 
-\noindent\hangindent=6pt\makebox[6pt][l]{-}Overview, what crypto currently is in Sage:\\
+\noindent\hangindent=6pt\makebox[6pt][l]{-}Overview, what crypto currently is in SageMath:\\
    \url{http://www.sagemath.org/doc/reference/sage/crypto/}
 
 \noindent\hangindent=6pt\makebox[6pt][l]{-}Discussions
-   about teaching related aspects of development crypto in Sage:\\
+   about teaching related aspects of development crypto in SageMath:\\
    \url{http://groups.google.com/group/sage-devel/browse_thread/thread/c5572c4d8d42d081}
 
    % Leerzeile am Ende nötig, sonst hat die zweite Zeile KEINEN hängenden Einzug?! (TODO)
@@ -76,48 +76,48 @@ or the same eventually newer at\\
 
 
 % ---------------------------------------------------------------------------
-\section*{Sage user interfaces}
-Sage is available free of charge and can be downloaded from the
+\section*{SageMath user interfaces}
+SageMath is available free of charge and can be downloaded from the
 following website:
 \begin{center}
   \url{http://www.sagemath.org} \\
 \end{center}
-The default interface to Sage is {\bf command line} based, as shown in
+The default interface to SageMath is {\bf command line} based, as shown in
 figure~\ref{fig:sage_cmd_interfaces}. However, there is a
 graphical user interface to the software as well in the form of the
-Sage notebook (see figure~\ref{fig:sage_gui_interfaces}). We can even
-use Sage {\bf notebooks}\footnote{%
-Further details about Sage notebooks can be found at 
+SageMath notebook (see figure~\ref{fig:sage_gui_interfaces}). We can even
+use SageMath {\bf notebooks}\footnote{%
+Further details about SageMath notebooks can be found at 
 chapter~\ref{ec:Sage_Massierer} 
 (``\nameref{ec:Implementing-for-Education}''
 $\Rightarrow$ ``\nameref{ec:Sage_Massierer}'').
                       }
-online at different servers, without having to install Sage locally, e.g:
+online at different servers, without having to install SageMath locally, e.g:
 \begin{center}
 \url{http://www.sagenb.org} or\\
 \url{http://sage.mathematik.uni-siegen.de:8000}
 \end{center}
 
-Sage runs under many Linux distributions, Mac OS X, and Windows.
-For the Windows platform, a complete distribution of Sage currently
+SageMath runs under many Linux distributions, Mac OS X, and Windows.
+For the Windows platform, a complete distribution of SageMath currently
 only runs as a VMware image. 
 
 \begin{figure}[!htpb]
 \centering
 \includegraphics[scale=0.6]{figures/sage-cmd}
-\caption{Sage command line interface}
+\caption{SageMath command line interface}
 \label{fig:sage_cmd_interfaces}
 \end{figure}
 
 \begin{figure}[!htpb]
 \centering
 \includegraphics[scale=0.4]{figures/sage-gui}
-\caption[Sage notebook interface]{Sage notebook interface\footnotemark}
+\caption[SageMath notebook interface]{SageMath notebook interface\footnotemark}
 \label{fig:sage_gui_interfaces}
 \end{figure}
 
 \footnotetext{%
-To start the Sage gui locally: Enter notebook() at the Sage prompt, and then your favorite
+To start the SageMath gui locally: Enter notebook() at the SageMath prompt, and then your favorite
 browser (Iceweasel, Firefox, IE, ...) is started e.g. with the URL \url{http://localhost:8000}.
 }
 
@@ -125,13 +125,13 @@ browser (Iceweasel, Firefox, IE, ...) is started e.g. with the URL \url{http://l
 
 % ---------------------------------------------------------------------------
 \newpage
-\section*{Getting help with using Sage}
+\section*{Getting help with using SageMath}
 
-Upon loading Sage from the command line, we are presented with
+Upon loading SageMath from the command line, we are presented with
 something similar to the following:
 %
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 mnemonic:~$ sage
 ----------------------------------------------------------------------
 | Sage Version 4.1, Release Date: 2009-07-09                         |
@@ -159,59 +159,59 @@ of what it does; to list the modules whose summaries contain a given word
 such as "spam", type "modules spam".
 \end{Verbatim}
 %
-Plenty of help is provided in the form of the official Sage
-documentation that is distributed with every release of Sage~(see
+Plenty of help is provided in the form of the official SageMath
+documentation that is distributed with every release of SageMath~(see
 Figure~\ref{fig:sage_standard_doc}).
 %
 \begin{figure}[!htpb]
 \centering
 \includegraphics[scale=0.4]{figures/sage-online-doc}
-\caption{The Sage standard documentation}
+\caption{The SageMath standard documentation}
 \label{fig:sage_standard_doc}
 \end{figure}
 %
-The official Sage standard documentation includes the following documents:
+The official SageMath standard documentation includes the following documents:
 
 \begin{itemize}
-\item Tutorial --- This tutorial is designed to help Sage beginners
-  become familiar with Sage. It covers many features that beginners
+\item Tutorial --- This tutorial is designed to help SageMath beginners
+  become familiar with SageMath. It covers many features that beginners
   should be familiar with, and takes one to three hours to go through.
 
-\item Constructions --- This document is in the style of a Sage
+\item Constructions --- This document is in the style of a SageMath
   ``cookbook''. It is a collection of answers to questions about
-  constructing various objects in Sage.
+  constructing various objects in SageMath.
 
 \item Developers' Guide --- This guide is for developers who want to
-  contribute to the development of Sage. Among other issues, it covers
-  coding style and conventions, modifying the core Sage libraries,
-  modifying the Sage standard documentation, and code review and
+  contribute to the development of SageMath. Among other issues, it covers
+  coding style and conventions, modifying the core SageMath libraries,
+  modifying the SageMath standard documentation, and code review and
   distribution.
 
 \item Reference Manual --- This manual provides complete documentation
-  on the major features of Sage. The description of a class is
+  on the major features of SageMath. The description of a class is
   accompanied by numerous code samples. All code samples in the
-  reference manual are tested before each Sage release.
+  reference manual are tested before each SageMath release.
 
-\item Installation Guide --- This guide explains how to install Sage
+\item Installation Guide --- This guide explains how to install SageMath
   under various platforms.
 
-\item A Tour of Sage --- This is a tour of Sage that showcases various
-  features of Sage that are useful for beginners.
+\item A Tour of Sage --- This is a tour of SageMath that showcases various
+  features of SageMath that are useful for beginners.
 
 \item Numerical Sage --- This document introduces tools available
-  under Sage that are useful for numerical computation.
+  under SageMath that are useful for numerical computation.
 
 \item Three Lectures about Explicit Methods in Number Theory Using
-  Sage --- This document is about using Sage to perform computations
+  Sage --- This document is about using SageMath to perform computations
   in advanced number theory.
 \end{itemize}
 
-\noindent From within a Sage session, we can obtain a list of commands matching
+\noindent From within a SageMath session, we can obtain a list of commands matching
 some pattern.  To do so, we type the first few characters and then
 press the ``Tab'' key:
 %
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: Su[TAB]
 Subsets                   Subwords                  SuzukiGroup
 SubstitutionCryptosystem  SupersingularModule
@@ -226,7 +226,7 @@ documentation on the built-in class
 this class with the question mark as follows:
 %
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 sage: SubstitutionCryptosystem?
 Type:type
 Base Class:<type 'type'>
@@ -280,16 +280,16 @@ search the archive of the \texttt{sage-support} mailing list at
 
 % ---------------------------------------------------------------------------
 \newpage
-\section*{Some examples using the built-in mathematical functions in Sage}
+\section*{Some examples using the built-in mathematical functions in SageMath}
 
 Here are a few little examples\footnote{%
 The examples are from the blog of Dr. Alasdair McAndrew, Victoria University,\\
 \url{http://amca01.wordpress.com/2008/12/19/sage-an-open-source-mathematics-software-system}}
-(all in console mode, for ease) to see what you can do with Sage:
+(all in console mode, for ease) to see what you can do with SageMath:
 
 \begin{sagecode}
 \begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+[fontsize=\footnotesize]
 # * Calculus:
     sage: x=var('x')
     sage: p=diff(exp(x^2),x,10)*exp(-x^2)
@@ -330,7 +330,7 @@ The examples are from the blog of Dr. Alasdair McAndrew, Victoria University,\\
     sage: (a^3+1)^13
       a^2
 \end{Verbatim}
-\caption{Some small general samples in Sage from different areas in mathematics}
+\caption{Some small general samples in SageMath from different areas in mathematics}
 \end{sagecode}
 
 
@@ -340,21 +340,21 @@ The examples are from the blog of Dr. Alasdair McAndrew, Victoria University,\\
 
 % ---------------------------------------------------------------------------
 \newpage
-\section*{Writing code samples with Sage}
+\section*{Writing code samples with SageMath}
 
 When you start using a CAS (computer algebra system) you normally type in the single commands
 on the command line as in the above example\footnote{%
-  The standard way for presenting Sage code starts the lines with ``sage:'' and ``...''.
+  The standard way for presenting SageMath code starts the lines with ``sage:'' and ``...''.
   \begin{Verbatim}%
-  [fontsize=\footnotesize,fontshape=tt]
+  [fontsize=\footnotesize]
   sage: m = 11
   sage: for a in xrange(1, m):
   ....:     print [power_mod(a, i, m) for i in xrange(1, m)]
   ....:
   \end{Verbatim}
 
-  \noindent This script usually uses the above convention for presenting Sage code,
-  if the code doesn't come from a Sage script. When people copy and paste the Sage code
+  \noindent This script usually uses the above convention for presenting SageMath code,
+  if the code doesn't come from a SageMath script. When people copy and paste the SageMath code
   from this script, in order to enter it at the command line, 
   they should leave out ``sage:'' and ``...' from the script (nevertheless
   in most cases the command prompt can deal with these prefixes correctly).}.
@@ -368,13 +368,13 @@ chapter \ref{PaP_Sage_samples} (``\nameref{PaP_Sage_samples}''),
 chapter \ref{primes:_Appendix_Sage-Samples} (``\nameref{primes:_Appendix_Sage-Samples}'') and in
 chapter \ref{NumberTheory_Appendix_E} (``\nameref{NumberTheory_Appendix_E}'').
 
-\noindent To program and test Sage code using an editor there are two useful commands:
+\noindent To program and test SageMath code using an editor there are two useful commands:
 \verb!load()! and \verb!attach()!\footnote{%
-See Sage tutorial about Programming, chapter ``Loading and Attaching Sage files'',\\
+See SageMath tutorial about Programming, chapter ``Loading and Attaching Sage files'',\\
 \url{http://www.sagemath.org/doc/tutorial/programming.html\#loading-and-attaching-sage-files}.}.\\
 Suppose you have a function definition like this:
 \begin{Verbatim}%
-   [fontsize=\footnotesize,fontshape=tt]
+   [fontsize=\footnotesize]
    def function(var1):
        r"""
        DocText.
@@ -384,62 +384,62 @@ Suppose you have a function definition like this:
 \end{Verbatim}
 \noindent which has been saved to the file \texttt{primroots.sage}.
 
-\noindent To load this function into Sage (and do a syntax check at once),
+\noindent To load this function into SageMath (and do a syntax check at once),
 use \verb!load()! as follows:
 
 \texttt{sage: load primroots.sage}
 
 \noindent and you can then proceed to use on the command line any variable or function
-defined in that Sage script\footnote{%
+defined in that SageMath script\footnote{%
 Notes:
 
 \noindent\hangindent=6pt\makebox[6pt][l]{-}Don't use white spaces in your file name.
 
-\noindent\hangindent=6pt\makebox[6pt][l]{-}Its recommended that your Sage script
+\noindent\hangindent=6pt\makebox[6pt][l]{-}Its recommended that your SageMath script
 has the file extension
-``.sage'', instead of ``.py''. With a Sage script whose file name ends in
-``.sage'', when you load it into Sage then the default Sage environment
+``.sage'', instead of ``.py''. With a SageMath script whose file name ends in
+``.sage'', when you load it into SageMath then the default SageMath environment
 is also loaded to make sure that it works as if you have defined your
-function from the Sage command line. This also applies if you run the
+function from the SageMath command line. This also applies if you run the
 script from a bash shell using~~\texttt{\$ sage primroots.sage}.
 
 \noindent\hangindent=6pt\makebox[6pt][l]{-}If you run your script as above,
-then Sage first parses your script,
+then SageMath first parses your script,
 writes it to another file called ``primroots.py'' (note the ``.py''
 extension), adds all necessary variables to "primroots.py" as well as
-writing any import statements to that file. That way, your Sage script
+writing any import statements to that file. That way, your SageMath script
 is executed as if you had typed the definitions in your script to the
-Sage command line. An important difference isthat all output needs a
+SageMath command line. An important difference isthat all output needs a
 \verb!print! statement.
 
 }.
 
-Normally we also want to edit our own Sage script and reload the
-content of the changed script into Sage again. In that case, you can
+Normally we also want to edit our own SageMath script and reload the
+content of the changed script into SageMath again. In that case, you can
 use the command \verb!attach()! (you also can apply \verb!attach()!
 directly after loading the script, even before having changed the script;
 and you can even omit \verb!load()!, as this is contained in \verb!attach()!):
 
 \texttt{sage: attach primroots.sage}
 
-Now edit the Sage script in a text editor, but don't exit Sage.
+Now edit the SageMath script in a text editor, but don't exit SageMath.
 After you saved it within your text editor, the changed function
-definition is reloaded into the running Sage session after the
+definition is reloaded into the running SageMath session after the
 next typing of Enter (and a syntax check is done at once). This reloading is
 done automatically for you, provided that all changes to your script
 have been saved. You can think of the command \verb!attach()! as a way of
-telling Sage to watch for all changes to a file, and reloading the
-file again once Sage notices that there have been changes. With this
+telling SageMath to watch for all changes to a file, and reloading the
+file again once SageMath notices that there have been changes. With this
 command, you don't have to copy and paste between your text editor and
-the Sage command line interface.
+the SageMath command line interface.
 
-Here is a picture of Sage code in the editor GVIM with activated code highlighting
+Here is a picture of SageMath code in the editor GVIM with activated code highlighting
 (see figure~\ref{fig:sage-highlighted-code-in-editor}).
 %
 \begin{figure}[!htpb]
 \centering
 \includegraphics[scale=0.7]{figures/sage-highlighted-code-in-editor}
-\caption{Sage sample shown in an editor with code highlighting}
+\caption{SageMath sample shown in an editor with code highlighting}
 \label{fig:sage-highlighted-code-in-editor}
 \end{figure}
 
@@ -449,7 +449,7 @@ typed in the commands on the commandline directly (not only what is shown
 via \verb!print!) then you could use the command \verb!iload()!:
 Each line is loaded one at a time. To load the next line, you have to
 press the \verb!Enter! key. You have to repeatedly press the \verb!Enter! key
-until all lines of the Sage script are loaded into the Sage session.
+until all lines of the SageMath script are loaded into the SageMath session.
 
 \texttt{sage: iload primroots.sage}
 
@@ -458,13 +458,13 @@ until all lines of the Sage script are loaded into the Sage session.
 \newpage
 \noindent Some more hints:
 \begin{itemize}
-  \item To get the version of your Sage environment: \texttt{version()}
-  \item To move quickly to the Sage code examples in this script,
+  \item To get the version of your SageMath environment: \texttt{version()}
+  \item To move quickly to the SageMath code examples in this script,
     \begin{itemize}
-      \item either look in the index at \verb#Sage -> Code examples#,
+      \item either look in the index at \verb#SageMath -> Code examples#,
       \item or have a look at the appendix ``\nameref{sc:List-of-Sage-Code-Examples}''.
     \end{itemize}
-  \item The Sage samples in this script are delivered with CrypTool.\\
+  \item The SageMath samples in this script are delivered with CrypTool.\\
         For further details see the end of the overview
         ``\nameref{sc:List-of-Sage-Code-Examples}''.
 \end{itemize}
