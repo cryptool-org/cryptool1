@@ -86,7 +86,7 @@ George Boole\index{Boole, George}\footnote{%
 der durch die Einführung der elementaren logischen Operationen die Logik
 mathematisch formalisierte ("`Logikkalkül\index{Logikkalkül}"').
 Moderne symmetrische Verschlüsselungsverfahren, wie auch
-Hash-Funktionen\index{Hash-Funktion},
+Hash-Funktionen\index{Hashfunktion},
 werden durch Systeme von Booleschen Funktionen beschrieben.
 
 Der Schwerpunkt dieses Kapitels liegt in der Einführung in die
@@ -117,7 +117,7 @@ Das Thema dieses Kapitels ist also mit anderen Worten
 Die mathematischen Grundlagen und Methoden gehören zu den Gebieten
    
    {\bf Boolesche Algebra\index{Boolesche Algebra}\index{Algebra!Boolesche}
-   und endliche Körper\index{finite field}\index{field!finite}\index{Endliche Körper}\index{Körper!endliche}}.
+   und endliche Körper\index{finite field}\index{field!finite}\index{endlicher Körper}\index{Körper!endliche}}.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1123,7 +1123,7 @@ $(n \times 1)$- bzw. $(m \times 1)$-Matrizen gedacht werden.
 \subsubsection*{Lineare Gleichungssysteme in SageMath}
 
 Um die Verbindung mit der "`gewöhnlichen"' Linearen
-Algebra\index{Lineare Algebra}\index{Algebra!Lineare} herzustellen,
+Algebra\index{lineare Algebra}\index{Algebra!Lineare} herzustellen,
 betrachten wir ein Beispiel über den rationalen Zahlen, das
 Gleichungssystem\index{lineares Gleichungssystem}\index{Gleichungssystem!lineares}
 \[
@@ -1639,10 +1639,10 @@ eine Klasse {\tt BoolMap} als Liste von Objekten der Klasse {\tt BoolF} mit
 In der klassischen Kryptographie wurde die Schwäche der einfachen
 monoalphabetischen Substitution auf zwei Arten behoben: einmal durch
 polygraphische
-Substitutionen\index{polygraphische Substitution}\index{Substitution!polygraphische},
+Substitutionen\index{polygraphische Substitution}\index{Substitution!polygraphisch},
 bei denen Gruppen von Buchstaben
 gemeinsam verschlüsselt werden, zum zweiten durch polyalphabetische
-Substitutionen\index{polyalphabetische Substitution}\index{Substitution!polyalphabetische},
+Substitutionen\index{polyalphabetische Substitution}\index{Substitution!polyalphabetisch},
 bei denen sich das Substitutionsalphabet mit der Position im Text ändert.
 
 Geht man von Buchstaben zu Bits über, so sind monoalphabetische
@@ -1783,7 +1783,7 @@ von $n$ Polynomgleichungen\index{Polynomgleichung} für den unbekannten
 Schlüssel $x \in \F_2^l$.
 
 Solche Gleichungssysteme (über beliebigen Körpern)
-sind Gegenstand der Algebraischen Geometrie\index{Algebraische Geometrie}.
+sind Gegenstand der Algebraischen Geometrie\index{algebraische Geometrie}.
 Die allgemeine Theorie hierzu ist hochkompliziert, insbesondere, wenn man
 konkrete Lösungsverfahren haben will.
 Aber vielleicht hilft die Beobachtung, dass man nur
@@ -1794,7 +1794,7 @@ $\leq 1$ benötigt?
 \item[Beispiel 1,] Linearität: Ist $F$ eine {\em lineare}
 Abbildung\index{lineare Abbildung}\index{Abbildung!lineare},
 so ist das Gleichungssystem mit den Methoden der
-Linearen Algebra\index{Lineare Algebra}\index{Algebra!Lineare} effizient
+Linearen Algebra\index{lineare Algebra}\index{Algebra!Lineare} effizient
 lösbar, siehe \ref{ss-bool-lgl} ($n$ lineare Gleichungen in $l$ Unbekannten
 -- ist $l < n$, braucht man natürlich mehrere bekannte Klartextblöcke, oder
 man führt eine Exhaustion über die verbliebenen $n - l$ Schlüsselbits
@@ -2104,7 +2104,7 @@ daher in der Notation weggelassen.) Das erfordert zwei Maßnahmen:
 \begin{enumerate}
    \item Die Bitfolge $a$ wird in $n$-Bit-Blöcke $a_1$, \ldots, $a_r$ aufgespalten.
    \item Der letzte Block $a_r$ wird bei Bedarf auf die Länge $n$ aufgefüllt
-      ("`padding\index{padding}"') mit
+      ("`padding\index{Padding}"') mit
    \begin{itemize}
       \item Nullen oder
       \item Zufallswerten oder
@@ -3049,7 +3049,7 @@ Linearformen $\alpha$ und $\beta$ mit $p = p_{f,\alpha,\beta}$)? Das ist genau
 eine konkrete Einkleidung der Fragestellung der hypergeometrischen Verteilung,
 und daher gilt
 (ohne Beweis und ohne Erklärung der hypergeometrischen
-Verteilung\index{hypergeometrische Verteilung}\index{Verteilung!hypergeometrische}):
+Verteilung\index{hypergeometrische Verteilung}\index{Verteilung!hypergeometrisch}):
 
 \begin{satz}
   Im Beispiel A sei $(\alpha,\beta)$ ein Paar von Linearformen, das
@@ -3067,7 +3067,7 @@ zu asymptotischen Näherungsformeln über, so kann man unter den (sehr vage
 formulierten) Voraussetzungen
 "`$p$ nicht zu weit von $\frac{1}{2}$ entfernt, $N \ll 2^n$, aber $N$ nicht
 zu klein,"' die hypergeometrische Verteilung\index{hypergeometrische
-Verteilung}\index{Verteilung!hypergeometrische} durch die
+Verteilung}\index{Verteilung!hypergeometrisch} durch die
 Normalverteilung\index{Normalverteilung} approximieren und erhält
 \begin{equation}\label{equ-bool-N}
   p_N \approx \frac{1}{\sqrt{2\pi}} \cdot
@@ -3077,7 +3077,7 @@ wobei $\lambda = (2p - 1)^2$ das Potenzial\index{Potenzial} der linearen Relatio
 Zusammen mit den bekannten Werten für die Normalverteilung\footnote{%
    Man kann statt mit der Approximation durch die Normalverteilung auch direkt
    mit der hypergeometrischen
-   Verteilung\index{hypergeometrische Verteilung}\index{Verteilung!hypergeometrische}
+   Verteilung\index{hypergeometrische Verteilung}\index{Verteilung!hypergeometrisch}
    rechnen. Dann erhält man,
    besonders bei kleinem $N$, einen genaueren Wert, aber keine so
    einfache geschlossene Formel wie (\ref{equ-bool-N}).
@@ -3095,7 +3095,7 @@ $N\lambda = \frac{27}{16} \approx 1,68\ldots$)\footnote{%
    Hier wird man die Voraussetzung "`$N$ nicht zu klein"' der Approximation
    durch die Normalverteilung\index{Normalverteilung} zu Recht anzweifeln müssen.
    In der Tat kann man leicht die exakten Werte für die hypergeometrische
-   Verteilung\index{hypergeometrische Verteilung}\index{Verteilung!hypergeometrische}
+   Verteilung\index{hypergeometrische Verteilung}\index{Verteilung!hypergeometrisch}
    bestimmen:
    Zieht man aus einer Urne mit $16$ Kugeln, von denen $14$ schwarz und
    $2$ weiß sind, zufällig $3$ Kugeln, so werden diese mit Wahrscheinlichkeit
@@ -3146,7 +3146,7 @@ erhalten; im allgemeinen Fall würde dort $2^n$ stehen. Die übrigen Einträge
 in der ersten Spalte (entsprechend $\beta = 0$) sind $8$, weil jede von Null
 verschiedene Linearform\index{Linearform} $\alpha$ den Wert $0$ in genau der
 Hälfte aller Fälle, hier also $8$-mal, annimmt\footnote{%
-   In der Sprache der Linearen Algebra\index{Lineare Algebra}\index{Algebra!Lineare}:
+   In der Sprache der Linearen Algebra\index{lineare Algebra}\index{Algebra!Lineare}:
    Der Kern einer Linearform\index{Linearform} $\neq 0$
    ist ein $(n-1)$-dimensionaler Unterraum.
 }. Für die erste Zeile gilt das analoge
@@ -6493,7 +6493,7 @@ $s_i$ kennt sie eine lineare Relation:
 Jedes weitere bekannte Bit des Klartexts liefert eine weitere Relation,
 und mit $l$ solchen Relationen, also insgesamt $2l$ Bits an bekanntem
 Klartext, liefert die sehr einfache Lineare
-Algebra\index{Lineare Algebra}\index{Algebra!Lineare} über dem Körper
+Algebra\index{lineare Algebra}\index{Algebra!lineare} über dem Körper
 $\F_2$ im allgemeinen eine eindeutige Lösung. Die
 $l \times l$-Koeffizientenmatrix dieses linearen
 Gleichungssystems\index{lineares Gleichungssystem}\index{Gleichungssystem!lineares}
@@ -8249,7 +8249,7 @@ bewiesen ist. Ein guter Zufallsgenerator reicht aber nicht aus,
 um eine praxistaugliche Bitstrom-Chiffre zu implementieren.
 Das Problem der Nachrichten-Integrität\index{Integrität} erfordert zusätzliche
 Überlegungen, z.\,B. die Kombination mit einer kryptographischen
-Hash-Funktion\index{Hash-Funktion}. Auch muss zuverlässig verhindert werden, dass
+Hash-Funktion\index{Hashfunktion}. Auch muss zuverlässig verhindert werden, dass
 der gleiche Schlüsselstrom\index{Schlüsselstrom} irgendwann noch einmal vorkommt,
 d.\,h., das Schlüsselmanagement\index{Schlüsselmanagement} erfordert zusätzliche
 Sorgfalt. Ein möglicher Ansatz dafür ist, einen längerfristig gültigen Schlüssel

@@ -22,13 +22,13 @@
 
 % --------------------------------------------------------------------------
 \section{What are prime numbers?}
-\index{Prime number} \index{Number!prime}
+\index{prime number} \index{number!prime}
 Prime numbers are whole, positive numbers greater than or equal to $2$ that can
 only be divided by 1 and themselves. All other natural numbers greater than or
 equal to $4$ are composite numbers, and can be formed by multiplying prime
 numbers.
 
-\noindent The {\em natural} \index{Number!natural} numbers
+\noindent The {\em natural} \index{number!natural} numbers
 $\mathbb{N}=\{1, 2, 3, 4,\cdots \}$ thus comprise 
 \begin{itemize}
    \item the number $1$ (the unit value)
@@ -41,13 +41,13 @@ $\mathbb{N}=\{1, 2, 3, 4,\cdots \}$ thus comprise
   \item In number theory, they are considered to be the basic components of
 natural numbers, upon which numerous brilliant mathematical ideas are based.
   \item They are of extreme practical importance in modern
-\index{Cryptography!modern} cryptography (public key \index{Cryptography!public key} cryptography). The most common public key procedure, invented at the end of
+\index{cryptography!modern} cryptography (public key \index{cryptography!public key} cryptography). The most common public key procedure, invented at the end of
 the 1970's, is \index{RSA} RSA encryption. Only using (large) prime numbers for
 particular parameters can you guarantee that an algorithm is secure, both for
 the RSA procedure and for even more modern procedures (e.g. elliptic curves).
   \item The search for the largest known prime numbers does not have any
 practical usage known to date, but requires the best computers, is an excellent
-benchmark (possibility for determining the performance\index{Performance} of computers) and leads
+benchmark (possibility for determining the performance\index{performance} of computers) and leads
 to new calculation methods on many computers \\
 (see also: \url{http://www.mersenne.org/prime.htm}).
 \end{itemize}
@@ -71,7 +71,7 @@ area of numbers. Such numbers are called prime numbers.
 In mathematics, a slightly different (but equivalent) definition is used.
 
 \begin{definition}\label{def-pz-prime}
-A whole number $p \in {\bf N}$ is called prime \index{Number!prime} if
+A whole number $p \in {\bf N}$ is called prime \index{number!prime} if
 $p > 1$ and $p$ only possesses the trivial factors $\pm 1$ and $\pm p$.
 \end{definition}
 
@@ -88,7 +88,7 @@ factorized in a uniquely {\em trivial} way:
 $$5 = 1 \cdot 5,\quad  17 = 1 \cdot 17, \quad 1013 = 1 \cdot 1013,  \quad
 1,296,409 = 1 \cdot 1,296,409.$$
 All numbers that have $2$ or more factors not equal 1 are called 
-\index{Number!composite} {\em composite} numbers. 
+\index{number!composite} {\em composite} numbers. 
 These include $$ 4 = 2 \cdot 2, \quad 6 = 2\cdot 3 $$ as well
 as numbers that {\em look like primes}, but are in fact composite:
 $$ 91 = 7 \cdot 13, \quad 161=7 \cdot 23, \quad 767 =13 \cdot 59. $$
@@ -102,7 +102,7 @@ is less than or equal to the square root of $m$.
 All whole numbers greater than $1$ can be expressed as a product of prime
 numbers --- in a unique way. This is the claim of the \textbf{1st fundamental theorem of
 number theory} (= fundamental theorem of arithmetic = fundamental building block
-of all positive integers).\index{Number theory!fundamental theorem}
+of all positive integers).\index{number theory!fundamental theorem}
 
 \begin{theorem}\label{thm-pz-prod}
 Each element $n$ of the natural numbers greater than $1$ can be written as the
@@ -175,7 +175,7 @@ Therefore, the quantity of prime numbers is infinite.
 \end{theorem}
 His proof that there is an infinite number of
 primes is still considered to be a brilliant mathematical consideration and
-conclusion today (\textbf{proof by contradiction} \index{Proof by contradiction}). 
+conclusion today (\textbf{proof by contradiction} \index{proof by contradiction}). 
 He assumed that there is only a finite number of primes and therefore a 
 largest prime number. Based on this assumption, he drew logical conclusions
 until he obtained an obvious contradiction. This meant that something must
@@ -184,7 +184,7 @@ only be the assumption that was wrong. Therefore, there must be an infinite
 number of primes!\\
 
 \hypertarget{euclid}{}
-\index{Euclid's proof by contradiction}\index{Proof by contradiction}
+\index{Euclid's proof by contradiction}\index{proof by contradiction}
 % \paragraph*{Euclid's proof by contradiction}
 % goes as follows:
 \begin{proof}{according to Euclid (proof by contradiction)\\}
@@ -237,7 +237,7 @@ of various orders of magnitude / dimensions)}.
 \hypertarget{RecordPrimes}{}
 \subsection{The 20+ largest known primes (as of February 2013)}  % Eyecatcher_neue-Mersenne
 \label{RecordPrimes}
-\index{Prime number!records}
+\index{prime number!records}
 
 The following table contains the biggest, currently known primes and
 a description of its particular number type\footnote{%
@@ -289,7 +289,7 @@ and at
 \end{center}
 \end{table} 
 \addtocounter{footnote}{-1}
-\footnotetext{\index{Number!Sierpinski}\index{Seventeen or Bust SoB}%
+\footnotetext{\index{number!Sierpinski}\index{Seventeen or Bust SoB}%
 This number was found within the distributed computing project
 ``Seventeen or Bust'' (SoB) (\url{http://www.seventeenorbust.com})
 % {\href{http://www.mersenne.org} {\tt http://www.mersenne.org}}
@@ -345,7 +345,7 @@ $$
 \end{array}
 $$
 
-\index{Number!Mersenne}\index{Mersenne!number}
+\index{number!Mersenne}\index{Mersenne!number}
 \index{Mersenne!theorem} 
 
 Even Mersenne knew that not all Mersenne numbers
@@ -361,7 +361,7 @@ of the form $2^n-1$ cannot be a prime number if $n$ is a composite number:
 
 \begin{proof}{}
 The theorem of Mersenne can be proved by contradiction%
-\index{Proof by contradiction}.  We therefore assume that
+\index{proof by contradiction}.  We therefore assume that
 there exists a composite natural number $ n $ (with real factorization)  
 $ n=n_1 \cdot n_2 $
 , with the property that $ 2^n -1 $ is a prime number.
@@ -396,7 +396,7 @@ showed which factors make up this composite number:
 $$ 2^{67} -1
 =147, 573, 952, 589, 676, 412, 927 = 193, 707, 721 \cdot 761, 838, 257, 287. $$
 He admitted to having worked 20 years on the factorization 
-\index{Factorization} (expression as a product of prime factors)\footnote{%
+\index{factorization} (expression as a product of prime factors)\footnote{%
   Using CT1\index{CrypTool 1} you can factorize numbers in the 
   following way: menu {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem 
   \textbackslash{} Factorization of a Number}. \\
@@ -406,7 +406,7 @@ He admitted to having worked 20 years on the factorization
   With CT2 you can use both the QS and the GNFS (general number field sieve),
   and CT2 can distribute the calculations on several computers.\\
   The current factorization records are listed in chapter \ref{nt:NoteFactorization}.
-  \index{Factorization!factoring records}
+  \index{factorization!factoring records}
 }
 of this 21-digit decimal number!
 
@@ -436,14 +436,14 @@ $$
 Thus    % Eyecatcher_neue-Mersenne
 $48$            % be_2005_UPDATEN_if-new-mersenne-prime-appears
 Mersenne prime numbers are currently known%
-\index{Prime number!Mersenne}\index{Mersenne!prime number}. 
+\index{prime number!Mersenne}\index{Mersenne!prime number}. 
 
 The $19$th number with the exponent $4,253$ was the first with at least $1,000$ digits in  decimal system
 (the mathematician Samual \index{Yates, Samual} Yates coined the expression {\em
-titanic} \index{Prime number!titanic} prime for this; it was discovered by
+titanic} \index{prime number!titanic} prime for this; it was discovered by
 Hurwitz in 1961); the $27$th number with the exponent $44,497$ was the first
 with at least $10,000$ digits in the decimal system (Yates coined the expression
-\index{Prime number!gigantic}  {\em gigantic} prime for this. These names are
+\index{prime number!gigantic}  {\em gigantic} prime for this. These names are
 now long outdated).
 
 
@@ -455,7 +455,7 @@ Mersenne prime number have not yet been checked completely.\footnote{%
 The current status of the check can be found at:
       \url{http://www.mersenne.org/status.htm}.\\
 Hints, how the primality of a number can be checked, are in chapter
-\ref{primality_tests}, prime number tests\index{Prime number!test}. }
+\ref{primality_tests}, prime number tests\index{prime number!test}. }
 
 
 % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
@@ -635,7 +635,7 @@ No new record is likely to last that long.
 \section[Prime number tests]{Prime number tests\footnotemark}
 \footnotetext{%
     \index{NT, Learning Tool for Number Theory}%
-    \index{Educational tool NT}%
+    \index{educational tool NT}%
     With the educational tool for number theory {\bf NT} you can apply the
     tests of Fermat and of Miller-Rabin:
     See NT learning units 3.2 and 3.3, pages 3-11/11.\\
@@ -647,7 +647,7 @@ No new record is likely to last that long.
     the tutorial ``{\bf World of Primes}''.
 }
 \label{primality_tests}   % chap. 3.5
-\index{Prime number!test}
+\index{prime number!test}
 
 In order to implement secure encryption procedures we need extremely large prime
 numbers (in the region of $2^{2,048}$, i.e. numbers with $600$ digits in the
@@ -679,7 +679,7 @@ presumed that all numbers of the form
 $$ f(n) = 2^{2^n} + 1 $$ 
 are prime for all whole numbers $ n \geq 0$ 
 (\hyperlink{FermatNumbers02}{see below}, chapter~\ref{L-FermatNumbers02}).
-\index{Number!Fermat}\index{Fermat!number}
+\index{number!Fermat}\index{Fermat!number}
 
 As early as in the 19th century, it was discovered that the $29$-digit number $$
 f(7) = 2^{2^7} + 1 $$ is not prime. However, it was not until 1970 that
@@ -723,7 +723,7 @@ put it in other words, we would have a simple prime number criterion).
 
 \vskip +25 pt
 \paragraph*{Pseudo prime numbers}%
-\index{Prime number!pseudo prime} \index{Number!pseudo prime}%
+\index{prime number!pseudo prime} \index{number!pseudo prime}%
 \hypertarget{HT-Pseudoprimenumber01}{}\label{L-Pseudoprimenumber01}%
 \mbox{}
 \vskip +10 pt
@@ -735,7 +735,7 @@ The first pseudo prime number is $$ 341 = 11 \cdot 31 .$$
 
 \vskip +25 pt
 \paragraph*{Carmichael numbers}%
-\index{Number!Carmichael}%
+\index{number!Carmichael}%
 \hypertarget{HT-Carmichael-number01}{}\label{L-Carmichael-number01}%
 \mbox{}
 \vskip +10 pt
@@ -759,7 +759,7 @@ The test applied for $a=5$ results in: $ 5^{560} \;{\rm mod}\; 561 = 1 $.
 
 \vskip +25 pt
 \paragraph*{Strong pseudo prime numbers}%
-\index{Prime number!strong pseudo prime}\index{Number!strong pseudo prime}%
+\index{prime number!strong pseudo prime}\index{number!strong pseudo prime}%
 \hypertarget{HT-Strongpseudoprimenumber01}{}\label{L-Strongpseudoprimenumber01}%
 \mbox{}
 \vskip +10 pt
@@ -797,7 +797,7 @@ can be found on Web sites such as:
 %\section{Special number types and the search for a formula for primes}
 \section{Special types of numbers and the search for a formula for primes}
 \label{spezialzahlentypen}
-\index{Prime number!formula}
+\index{prime number!formula}
 There are currently no useful, open (i.e. not recursive) formulae known that
 only deliver prime numbers (recursive means that in order to calculate the
 function the same function is used with a smaller variable). Mathematicians
@@ -831,7 +831,7 @@ If their are compound numbers could their prime factors be determined?
 \hypertarget{MersenneNumbers02}{}
 \subsection{Mersenne numbers \texorpdfstring{$f(n) = 2^n - 1$  \quad for $ n $ prime}
 	   			      {f(n) = 2\^{}n - 1 for n prime}}
-    \index{Prime number!Mersenne} \index{Mersenne!prime number}
+    \index{prime number!Mersenne} \index{Mersenne!prime number}
     As shown \hyperlink{MersenneNumbers01}{above}, this formula seems
     to deliver relatively large prime numbers but - as for $n=11$ 
     [$f(n)=2,047$] - it is repeatedly the case that the result even with
@@ -853,7 +853,7 @@ If their are compound numbers could their prime factors be determined?
     \footnotetext{%
        Their names come from the French farmer François Proth (1852-1879).
        More famous as the Proth primes is the related Sierpinski 
-       problem\index{Number!Sierpinski}: Find all numbers k, so that
+       problem\index{number!Sierpinski}: Find all numbers k, so that
        $k*2^n+1$ is composite for all n > 0.
        See table \ref{L_n_Largest_Known-Primes}.
     }
@@ -861,7 +861,7 @@ If their are compound numbers could their prime factors be determined?
 
    This first generalization of the Mersenne
    numbers\index{Mersenne!number!generalized}
-   creates the so called Proth numbers\index{Number!Proth}.
+   creates the so called Proth numbers\index{number!Proth}.
    There are (for small $k$) extremely quick prime number tests
    (see \cite{pr:Knuth1981}). This can be performed in practice using software
    such as the Proths software from Yves Gallot\index{Gallot, Yves}:
@@ -906,7 +906,7 @@ If their are compound numbers could their prime factors be determined?
        ruler, when $p$ is a Fermat prime number.
     }
     \label{L-FermatNumbers02}
-    \index{Prime number!Fermat} \index{Fermat!prime number}       
+    \index{prime number!Fermat} \index{Fermat!prime number}       
     As mentioned \hyperlink{FermatNumbers01}{above} in 
     chapter~\ref{FermatNumbers01}, Fermat wrote to Mersenne regarding 
     his assumption, that all numbers of this type are primes.
@@ -1010,7 +1010,7 @@ $$
 
 % --------------------------------------------------------------------------
 \vskip +10 pt
-\subsection{Carmichael numbers}\index{Number!Carmichael}
+\subsection{Carmichael numbers}\index{number!Carmichael}
 As mentioned \hyperlink{HT-Carmichael-number01}{above} in
 chapter~\ref{L-Carmichael-number01} not all Carmichael numbers are prime.
 
@@ -1018,7 +1018,7 @@ chapter~\ref{L-Carmichael-number01} not all Carmichael numbers are prime.
 % --------------------------------------------------------------------------
 \vskip +10 pt
 \subsection{Pseudo prime numbers}
-\index{Prime number!pseudo prime}\index{Number!pseudo prime}
+\index{prime number!pseudo prime}\index{number!pseudo prime}
 See \hyperlink{HT-Pseudoprimenumber01}{above} in
 chapter~\ref{L-Pseudoprimenumber01}.
 
@@ -1026,7 +1026,7 @@ chapter~\ref{L-Pseudoprimenumber01}.
 % --------------------------------------------------------------------------
 \vskip +10 pt
 \subsection{Strong pseudo prime numbers}
-\index{Prime number!strong pseudo prime}\index{Number!strong pseudo prime}
+\index{prime number!strong pseudo prime}\index{number!strong pseudo prime}
 See \hyperlink{HT-Strongpseudoprimenumber01}{above} in
 chapter~\ref{L-Strongpseudoprimenumber01}.
 
@@ -1109,7 +1109,7 @@ We have for $i<j$: \\
 $gcd(e_i,e_j) \le gcd(e_1 \cdots e_i \cdots e_{j-1}, e_j) = gcd(e_j - e_1 \cdots e_i \cdots e_{j-1}, e_1 \cdots e_i \cdots e_{j-1}) 
 = gcd(1, e_1 \cdots e_i \cdots e_{j-1}) = 1$.\\
 See page \pageref{nt:NumberTheory_Appendix_GCD}.
-}. Therefore they are \index{Prime number!relative prime}\index{Number!relative prime}
+}. Therefore they are \index{prime number!relative prime}\index{number!relative prime}
 {\em relatively prime}.
 \end{remark}
 
@@ -1211,9 +1211,9 @@ $$
 \subsection[Polynomial functions 
     \texorpdfstring{$f(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_1 x^1 + a_0$}
                    {f(x) = a\_n x\^{}n + a\_n-1 x\^{}n-1 + ... + a\_1 x\^{}1 + a\_0}]
-    {Polynomial functions\index{Polynomial} 
+    {Polynomial functions\index{polynomial} 
     $f(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_1 x^1 + a_0$ ~ 
-    ($a_i$ in ${\mathbb Z}$, $n \geq 1$)}\index{Polynomial}
+    ($a_i$ in ${\mathbb Z}$, $n \geq 1$)}\index{polynomial}
 
     There exists no such polynomial that for all $x$ in ${\mathbb Z}$ only
     delivers prime values.
@@ -1239,7 +1239,7 @@ $=  1, 2, 5, 14, 42, 132, 429, 1430,
 are named.
     }
 \nopagebreak
-Catalan \index{Catalan Eugene}  \index{Number!Catalan}
+Catalan \index{Catalan Eugene}  \index{number!Catalan}
 conjectured\footnote{%
 See \url{http://www.utm.edu/research/primes/mersenne.shtml}
            under ``Conjectures and Un\-sol\-ved Problems''.
@@ -1274,7 +1274,7 @@ In any case, it has not been proved that this formula delivers only primes.
 \noindent It seems very unlikely that $C_5$ (or many of the larger terms) would be prime.
 
 \noindent So this could be another example of Guy's
-``law of small numbers''\index{Guy's law of small numbers}\index{Law of
+``law of small numbers''\index{Guy's law of small numbers}\index{law of
 small numbers}\footnote{%
 \url{http://primes.utm.edu/glossary/page.php?sort=LawOfSmall}
                }.
@@ -1327,7 +1327,7 @@ successfully applied.
 \label{l_Primes_Distrib-of-Primes}
 
 As Euclid discovered, there is an infinite number of primes. However,
-some infinite sets are {\em denser} \index{Prime number!density} than
+some infinite sets are {\em denser} \index{prime number!density} than
 others.
 
 Within the set of natural numbers, there is an infinite number of even,
@@ -1395,7 +1395,7 @@ $PI(x)$  is asymptotic to  $x / ln(x)$.
 \end{theorem}
 
 
-This is the \index{Prime number!theorem} \textbf{prime number theorem}. 
+This is the \index{prime number!theorem} \textbf{prime number theorem}. 
 It was put forward by Legendre\footnote{%
   Adrien-Marie Legendre\index{Legendre, Adrien-Marie}, 
   French mathematician, Sep 18, 1752 $-$ Jan 10, 1833.
@@ -1502,7 +1502,7 @@ continue until you reach the largest number whose square is less than or
 equal to $x$.%
 \footnote{%
     \index{NT, Learning Tool for Number Theory}%
-    \index{Educational tool NT}%
+    \index{educational tool NT}%
     With the educational tool for number theory {\bf NT} you can apply the
     sieve of Eratosthenes in a computer-aided and guided way: Enter you own
     number and do the sieving step by step:
@@ -1584,8 +1584,8 @@ questions about primes, but also some quaint things and overviews.
   \vskip +6 pt      
   \item \hypertarget{link-Arithmetic-sequence-of-primes}{}
      There are arithmetic prime sequences
-     \index{Prime sequence!arithmetic}
-     \index{Arithmetic progression!Primes in}
+     \index{prime sequence!arithmetic}
+     \index{arithmetic progression!primes in}
      of arbitrary length.\footnote{%
      Sources: \\
      - \url{http://users.cybercity.dk/~dsl522332/math/aprecords.htm}
@@ -1672,13 +1672,13 @@ questions about primes, but also some quaint things and overviews.
      Green and Tao intended to proof that there are infinitely many arithmetic
      sequences of length four. For this they considered sets of numbers 
      consisting of primes and so called 
-     ``near primes''\index{Prime number!near prime}.
+     ``near primes''\index{prime number!near prime}.
      These are numbers with a small set of divisors like numbers which are
      the product of two primes - these numbers are called 
      ``half primes''%
-     \index{Prime number!half prime}%
-     \index{Prime number!semi prime}\index{Prime number!bi prime}%
-     \index{Number!semi prime}\index{Number!bi prime}.
+     \index{prime number!half prime}%
+     \index{prime number!semi prime}\index{prime number!bi prime}%
+     \index{number!semi prime}\index{number!bi prime}.
      Thus they managed to considerably simplify their work because about near
      primes there already existed a lot of useful theorems.  Finally they
      discovered that the results of their theorem were far more reaching than
@@ -1687,7 +1687,7 @@ questions about primes, but also some quaint things and overviews.
      Any one who believes that it is easy to use Green's and Tao's 49 page
      proof to compute arithmetic prime number series of arbitrary length will
      soon become disappointed, because the proof is non-constructive. It is 
-     a so called proof of existence\index{Proof!of existence}\index{Proof!constructive}.
+     a so called proof of existence\index{proof!of existence}\index{proof!constructive}.
      This means that these mathematicians have shown ``only'' that these 
      series exist, but not how to find them in practice.
      
@@ -1764,7 +1764,7 @@ questions about primes, but also some quaint things and overviews.
      Another example: $ 10\# = 7\# = 2 * 3 * 5 * 7 = 210$.
      If you look for a sequence with 15 elements, then the common
      distance is at least $15\# = 13\# = 2 * 3 * 5 * 7 * 11 * 13 = 30,030$.
-     \index{Prime number!k primorial} \index{Prime number!k\#}
+     \index{prime number!k primorial} \index{prime number!k\#}
 
      This means that the length of an arithmetic prime sequence can be
      arbitrary big, but the distance between the elements cannot be any
@@ -1889,12 +1889,12 @@ questions about primes, but also some quaint things and overviews.
 
 
 \item Is there an infinite number of Mersenne prime numbers?
-    \index{Prime number!Mersenne}\index{Mersenne!prime number}
+    \index{prime number!Mersenne}\index{Mersenne!prime number}
 
 \item Is there an infinite number of Fermat prime numbers?
 
 
-\item Does a polynomial\index{Polynomial} time algorithm exist for 
+\item Does a polynomial\index{polynomial} time algorithm exist for 
    calculating the prime factors of a number (see \cite[p. 167]{pr:Klee1997})?
    This question can be divided into the three following questions:
    \begin{itemize} 
@@ -1916,8 +1916,8 @@ questions about primes, but also some quaint things and overviews.
 
    At the end of chapter \ref{nt:NoteFactorization},
    section \hyperlink{RSA-200-chap3}{RSA-200} you can see the limits for which
-   numbers the current algorithms for primality testing\index{Primality testing}
-   and for factorization\index{Factorization!factoring records}
+   numbers the current algorithms for primality testing\index{primality testing}
+   and for factorization\index{factorization!factoring records}
    deliver good results.
 
 \end{itemize}
@@ -2090,7 +2090,7 @@ Similarily easy it can be shown, that the weak Goldbach conjecture implies the a
 \subsection{Open questions about twin primes and cousin primes}
 \label{L-TwinCousinPrimes}
 
-Twin primes\index{Twin prime} are prime numbers whose difference is exactly 2. 
+Twin primes\index{twin prime} are prime numbers whose difference is exactly 2. 
 Examples include 5 and 7, or 101 and 103,
 or $1,693,965 \cdot 2^{66,443} \pm 1$. 
 
@@ -2170,7 +2170,7 @@ Zhang proved, that there are infinitely many ``cousin primes'', or more
 concretely that there is some number $H$ smaller than 70 million such that there
 are inifinitely many pairs of primes that differ by $H$.\footnote{%
 Whereas the gap between the primes of a twin prime is exactly $2$, cousin
-primes\index{Cousin prime} do denote two primes, which have a gap between them,
+primes\index{cousin prime} do denote two primes, which have a gap between them,
 which has a value of a bigger, even, but finite number $H$.
       }${}^,$\footnote{%
 This is close to the conjecture stated in 1849 by the French mathematician
@@ -2215,7 +2215,7 @@ scientific research.
 \label{HT-GoogleRecruitment2004}%
 \mbox{}
 In summer 2004 the company Google used the number $e$ to attract potential
-employees.\footnote{The base of the natural logarithm\index{Logarithm!natural}
+employees.\footnote{The base of the natural logarithm\index{logarithm!natural}
 $e$ is approximately 2.718 281 828 459.
 This is one of the most important numbers in all of mathematics like complex
 analysis, finance, physics and geometry. Now it was used the first time -- as
@@ -2257,7 +2257,7 @@ given number sequence had nothing to do with primes any more.}
 \hypertarget{HT-Movie-Contact01}{}
 \subsubsection{Contact [movie, 1997] -- Primes helping to contact aliens}
 % \paragraph*{xxx}
-\index{Movies}\index{Zemeckis 1997}
+\index{movies}\index{Zemeckis 1997}
 \label{HT-Movie-Contact01}%
 \mbox{}
 The movie, directed by Robert Zemeckis, originated from Carl Sagan's book
@@ -2516,7 +2516,7 @@ for e in E:
         % Wie in Fussnote eckige Klammer davor: Was in Klammern kommt in Contents
         % links, so dass dort keine Schmierzeichen mehr! 
 \label{primes:_Appendix_Plotting-Primes-Quantity}
-\index{SageMath!Code examples}
+\index{SageMath!code examples}
 \index{SageMath}
 \vskip +15pt
 
@@ -2707,7 +2707,7 @@ sage: pari(10**9).primepi()-pari(10**8).primepi()
 % \section*{Appendix A: Examples using SageMath}
 % \addcontentsline{toc}{section}{Appendix A: Examples using SageMath}
 \label{primes:_Appendix_Sage-Samples}
-\index{SageMath!Code examples}
+\index{SageMath!code examples}
 \index{SageMath}
 
 \noindent Below is SageMath source code related to contents of the
@@ -2721,7 +2721,7 @@ chapter~\ref{Label_Kapitel_Primes} (``\nameref{Label_Kapitel_Primes}'').
 
 This part of the appendix contains SageMath code, to perform some simple
 computations about primes.%
-\footnote{See the SageMath documentation about Elementary number theory
+\footnote{See the SageMath documentation about elementary number theory
           \url{http://www.sagemath.org/doc/constructions/number_theory.html}.}
 
 \begin{sagecode}

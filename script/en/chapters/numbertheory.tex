@@ -29,17 +29,17 @@ purpose to deliver all information that special monographs can be read.
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Mathematics and cryptography}
-A large proportion of modern, asymmetric cryptography\index{Encryption!asymmetric} is based on mathematical knowledge -- on the properties 
-(``laws'') of whole numbers, which are investigated in elementary \index{Number theory!elementary} number 
+A large proportion of modern, asymmetric cryptography\index{encryption!asymmetric} is based on mathematical knowledge -- on the properties 
+(``laws'') of whole numbers, which are investigated in elementary \index{number theory!elementary} number 
 theory. Here, the word ``elementary'' means that questions raised in number theory are essentially rooted in the set 
 of natural and whole numbers.
 
 Further mathematical disciplines currently used in cryptography include
 (see \cite[p. 2]{nt:Bauer1995}, \cite[p. 3]{nt:Bauer2000}) :
 \begin{itemize}
-    \item Group theory\index{Group}
+    \item Group theory\index{group}
     \item Combination theory
-    \item Complexity theory
+    \item Complexity theory\index{complexity}
     \item Stochastic (ergodic theory)
     \item Information theory.
 \end{itemize}
@@ -119,10 +119,10 @@ mathematics.
 %\end{quote}
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Introduction to number theory} \index{Number theory!introduction}
+\section{Introduction to number theory} \index{number theory!introduction}
 
 Number theory arose from interest in positive whole numbers $1, 2, 3, 4, \cdots$, also referred to as the set of natural numbers 
-\index{Number!natural} {\em natural numbers} $\mathbb{N}$. These are the first mathematical constructs 
+\index{number!natural} {\em natural numbers} $\mathbb{N}$. These are the first mathematical constructs 
 used by human civilization. According to Kronecker\footnote{Leopold
   Kronecker, German mathematician, Dec 7, 1823 $-$ Dec 29, 1891}\index{Kronecker, Leopold}, they are a creation of God. 
 In Dedekind's\footnote{Julius Wilhelm Richard Dedekind,
@@ -157,7 +157,7 @@ had no practical use in the real world. This changed with the development of com
 communication, as number theory was able to provide several unexpected solutions to real-life tasks. At the same 
 time, advances in information technology allowed specialists in number theory to make huge progress in 
 factorizing large numbers, finding new prime numbers, testing (old) conjectures and solving numerical problems 
-that were previously impossible to solve. Modern number theory \index{Number theory!modern} is made up of 
+that were previously impossible to solve. Modern number theory \index{number theory!modern} is made up of 
 areas such as:
 \begin{itemize}
     \item Elementary number theory
@@ -178,7 +178,7 @@ This article only deals with the area of elementary number theory.
 % --------------------------------------------------------------------------
 \vskip +40 pt
 \subsection{Convention}
-\index{Convention}
+\index{convention}
 Unless stated otherwise: 
 \begin{itemize}
 \item The letters $a, b, c, d, e, k, n, m, p, q$ are used to present whole numbers.
@@ -212,7 +212,7 @@ A lot of the greatest wizards haven't got an ounce of logic.
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Prime numbers and the first fundamental theorem of elementary number theory}
-\index{Number theory!elementary}
+\index{number theory!elementary}
 Many of the problems in elementary number theory are concerned with prime numbers (see chapter~\ref{Label_Kapitel_Primes}).
 
 Every whole number has divisors or factors. The number 1 has just one -- itself, whereas the number 12 has the 
@@ -223,7 +223,7 @@ These are easier to use in mental arithmetic than fractions.}
 Many numbers are only divisible by themselves and 
 by 1. When it comes to multiplication, these can be regarded as the ``atoms'' in the realm of numbers.
 
-\begin{definition}\label{def-zth-prime} \index{Prime number}
+\begin{definition}\label{def-zth-prime} \index{prime number}
 {\bf Prime numbers} are natural numbers greater than 1 that can only be divided by 1 and themselves.
 \end{definition}
 
@@ -248,14 +248,14 @@ Prime numbers can be factorized in a unique (``{\em trivial}'') way:
 1,296,409 & = & 1 * 1,296,409. \nonumber
 \end{eqnarray*}
 
-\begin{definition}\label{def-zth-composite} \index{Number!composite}
+\begin{definition}\label{def-zth-composite} \index{number!composite}
 Natural numbers greater than $1$ that are not prime are called {\bf composite numbers}. These have at least two 
 factors other than $1$.
 \end{definition}
 
 
 Examples of the decomposition of such numbers into prime 
-factors\index{Prime factor!decomposition}:
+factors\index{prime factor!decomposition}:
 \begin{eqnarray*}
 4 & = & 2*2  \nonumber \\
 6 & = & 2*3  \nonumber \\
@@ -276,7 +276,7 @@ All whole numbers greater than $1$ can be expressed as a product of prime number
 This is the claim of the 1st {\em fundamental theorem of number theory} 
 (= fundamental theorem of arithmetic = fundamental building block of all positive integers). This was 
 formulated precisely for the first time by Carl Friedrich Gauss in his Disquisitiones Arithmeticae (1801).  
-\index{Number theory!fundamental theorem}  \index{Gauss, Carl Friedrich}
+\index{number theory!fundamental theorem}  \index{Gauss, Carl Friedrich}
 
 \begin{theorem}\label{thm-zth-mthm}{\bf Gauss 1801}
 Every even natural number greater than $1$ can be written as the product of prime numbers. Given two such 
@@ -289,7 +289,7 @@ one way, if we ignore the order of the factors. The factors are therefore unique
 (the ``expression as a product of factors'' is unique)!
 
 For example, $60 = 2*2*3*5 = 2^2*3*5$. And this --- other than changing the order of the factors --- is the only 
-way in which the number $60$ can be factorized\index{Prime factor}.
+way in which the number $60$ can be factorized\index{prime factor}.
 
 If you allow numbers other than primes as factors, there are several ways of factorizing integers and the {\em 
 uniqueness} is lost:
@@ -322,7 +322,7 @@ chapter~\ref{Label_Kapitel_Primes} in this script.
            {Divisibility, modulus and remainder classes\footnotemark}
 \footnotetext{%
     \index{NT, Learning Tool for Number Theory}%
-    \index{Educational tool NT}%
+    \index{educational tool NT}%
     With the educational tool for number theory {\bf NT} you can have a
     playful view at the calculation with congruences, discussed in this and
     the next chapter (see NT learning unit 2.1, pages 2-9/40).\\
@@ -333,7 +333,7 @@ chapter~\ref{Label_Kapitel_Primes} in this script.
     CT2\index{CrypTool 2} contains a visualisation of these methods within
     the tutorial ``{\bf World of Primes}''.
 }
-\index{Modulus} \index{Divisibility} 
+\index{modulus} \index{divisibility} 
 
 If whole numbers are added, subtracted or multiplied, the result is always
 another whole number.
@@ -346,13 +346,13 @@ If, however, we divide $158$ by $2$ the result $79$ is a whole number.
 In number theory we express this by saying that $158$ is {\em divisible} 
 by $2$ but not by $10$. In general, we say:
 
-\begin{definition}\label{def-zth-divisibility} \index{Divisibility}
+\begin{definition}\label{def-zth-divisibility} \index{divisibility}
 A whole number $n$ is {\bf divisible} by a whole number $d$ if the
 quotient $n/d$ is a whole number $c$ such that $n = c * d$.
 \end{definition}
 
-$n$ is called a {\em multiple} of $d$, whereas $d$ is called a \index{Divisor}
-{\em divisor} or \index{Factor} {\em factor} of $n$.
+$n$ is called a {\em multiple} of $d$, whereas $d$ is called a \index{divisor}
+{\em divisor} or \index{factor} {\em factor} of $n$.
 
 The mathematical notation for this is $d | n$  (read ``$d$ divides $n$'').
 The notation $d \!\!\not| n$ means that $d$ does not divide the number $n$.
@@ -361,7 +361,7 @@ In our example therefore: $10 \!\!\not| 158$ but $2 | 158$.
 
 
 % --------------------------------------------------------------------------
-\subsection{The modulo operation -- working with congruence} \index{Congruence}
+\subsection{The modulo operation -- working with congruence} \index{congruence}
 
 When we investigate divisibility, it is only the remainder of the division that is important. When dividing a 
 number $n$ by $m$, we often use the following notation:
@@ -385,7 +385,7 @@ combined to form the ``remainder class $r$ modulo $7$''. Two numbers $a$ and
 $b$ ~\mbox{belonging} to the same remainder class modulo $7$ are said to 
 be ``congruent modulo 7''. Or in general:
 
-\begin{definition}\label{def-zth-remainder} \index{Remainder class}
+\begin{definition}\label{def-zth-remainder} \index{remainder class}
 The {\bf remainder class r modulo m} is the set of all whole numbers a that
 have the same remainder $r$ when divided by $m$.
 \end{definition}
@@ -406,7 +406,7 @@ $~a \bmod{m} ~ =  ~ a - m * \lfloor a/m \rfloor$\\
 
 
 
-\begin{definition}\label{def-zth-congruence} \index{Congruence}
+\begin{definition}\label{def-zth-congruence} \index{congruence}
 Two numbers $a, b \in \mathbb{N}$  are said to be congruent modulo $m \in 
 \mathbb{N}$ if and only if they have the same remainder when divided by $m$.
 \end{definition}
@@ -505,8 +505,8 @@ calculation rules are kept when we proceed to modular calculations over
 a basic set $\mathbb{Z}$.  For example, addition remains commutative. 
 The same goes for multiplication modulo $m$. The result of a
 division\footnote{%
-The division modulo $m$\index{Division modulo $n$} is only defined for
-numbers co-prime\index{Number!co-prime} to $m$ because other numbers
+The division modulo $m$\index{division modulo $n$} is only defined for
+numbers co-prime\index{number!co-prime} to $m$ because other numbers
 have the same property as zero (this means there is no inverse number).
 See law number 6 {\bf existence of an inverse element}.
 See footnote \ref{ftn-mod6} in chapter~\ref{addmult} and
@@ -516,25 +516,25 @@ table~\ref{mulmod6} in chapter~\ref{add-and-mult-inverses}.
 
 The known laws apply:
 \begin{itemize}
-\item[\bf 1.] {\bf Associative law:}\index{Associative law} \\ 
+\item[\bf 1.] {\bf Associative law:}\index{associative law} \\ 
     $((a+b) + c) {\rm ~(mod~ } m) \equiv  (a + (b+c)) {\rm ~(mod~ } m).$ \\
     $((a*b) * c) {\rm ~(mod~ } m) \equiv  (a * (b*c)) {\rm ~(mod~ } m).$
-\item[\bf 2.] {\bf Commutative law:} \index{Commutative law}\\
+\item[\bf 2.] {\bf Commutative law:} \index{commutative law}\\
     $(a+b) {\rm ~(mod~ } m) \equiv  (b+a) {\rm ~(mod~ } m).$ \\
      $(a*b) {\rm ~(mod~ } m) \equiv  (b*a) {\rm ~(mod~ } m).$
 \end{itemize}
 The associative law and the commutative law apply to both addition and multiplication.
 \begin{itemize}
-\item[\bf 3.] {\bf Distributive law:} \index{Distributive law}\\
+\item[\bf 3.] {\bf Distributive law:} \index{distributive law}\\
     $ (a * (b+c)) {\rm ~(mod~ } m) \equiv  (a*b + a*c) {\rm ~(mod~ } m).$ 
-\item[\bf 4.] {\bf Reducibility:} \index{Reducibility} \\
+\item[\bf 4.] {\bf Reducibility:} \index{reducibility} \\
     $(a+b) {\rm ~(mod~} m) \equiv  (a {\rm ~(mod~ } m) + b {\rm ~(mod~ } m)) {\rm ~(mod~} m).$ \\  
     $(a*b) {\rm ~(mod~} m) \equiv  (a {\rm ~(mod~ } m) * b {\rm ~(mod~ } m)) {\rm ~(mod~} m).$ \\
     When adding or multiplying the order in which the modulo operation is performed does not matter.
 \end{itemize}
 
 \begin{itemize}
-\item[\bf 5.] {\bf Existence of an identity (neutral element):} \index{Identity}\\
+\item[\bf 5.] {\bf Existence of an identity (neutral element):} \index{identity}\\
     $(a + 0) {\rm ~(mod~ } m) \equiv  (0 + a) {\rm ~(mod~ } m) \equiv  a {\rm ~(mod~ } m).$  \\
     $(a * 1) {\rm ~(mod~ } m) \equiv  (1 * a) {\rm ~(mod~ } m) \equiv  a {\rm ~(mod~ } m).$
 
@@ -548,7 +548,7 @@ An inverse element only exits, if it is unique for the given operation.
 % \begin{itemize}
 \begin{compactitem}
 
-\item {\bf Additive inverse}\index{Inverse!additive}\\
+\item {\bf Additive inverse}\index{inverse!additive}\\
    For all whole numbers $a$ and $m$ there exists a whole number $-a$ such
    that: \\
    $(a + (-a)) {\rm ~(mod~}m) \equiv  0 {\rm ~(mod~ } m)$
@@ -559,7 +559,7 @@ An inverse element only exits, if it is unique for the given operation.
     prime) there exists a whole number $a^{-1}$, such that:~~~ 
     $(a * a^{-1}) {\rm ~(mod~ } p) \equiv 1 {\rm ~(mod~}p)$
     % \quad (multiplicative inverse)
-    \index{Inverse!multiplicative}
+    \index{inverse!multiplicative}
 
 \item {\bf Multiplicative inverse modulo a compound number m}\footnote{%
     As $8 \equiv 3 ~mod~ 5$ and $ 3 * 2 \equiv 1 ~mod~ 5$,
@@ -576,14 +576,14 @@ An inverse element only exits, if it is unique for the given operation.
 
 
 
-\item[\bf 7.] \index{Closeness} {\bf Closeness}\footnote{\label{ftn-zth-closed}The
+\item[\bf 7.] \index{closeness} {\bf Closeness}\footnote{\label{ftn-zth-closed}The
    property of closeness is always defined in relation to an operation in a set.
    See chapter~\ref{nt:NumberTheory_Appendix_B} ``\nameref{nt:NumberTheory_Appendix_B}''.}: \\
       %%% \hyperlink{nt:NumberTheory_Appendix_B}{Appendix B of this chapter}.}:   \\
      $a, b \in G  \Longrightarrow  ( a + b ) \in G.$ \\
     $a, b \in G  \Longrightarrow  ( a * b ) \in G.$
 
-\item[\bf 8.] \index{Transitivity} {\bf Transitivity}:
+\item[\bf 8.] \index{transitivity} {\bf Transitivity}:
 
 $ [ a \equiv b {\rm ~mod~ } m, ~b \equiv c {\rm ~mod~ } m] \Longrightarrow [ a \equiv c {\rm ~mod~ } m].
 $
@@ -595,7 +595,7 @@ $
 \subsection{Patterns and structures}
 \label{Label_Chapter_ElementaryNT_5_2}
 
-In general mathematicians investigate ``Structures''\index{Structure}. They ask e.g.\ at $ a * x \equiv b $ mod $m$,
+In general mathematicians investigate ``Structures''\index{structure}. They ask e.g.\ at $ a * x \equiv b $ mod $m$,
 which values $x$ can take for given values of $a, ~b, ~m.$
 
 Especially the case is investigated, where the result $b$ of this operation is the neutral element. Then
@@ -636,7 +636,7 @@ when we divide $8$ by $5$.
 % --------------------------------------------------------------------------
 \subsection{Addition and multiplication}
 \label{addmult}
-\index{Addition} \index{Multiplication}
+\index{addition} \index{multiplication}
 
 The following shows two tables:
 \begin{itemize}
@@ -651,7 +651,7 @@ The following shows two tables:
 ${\rm ~(mod~ } 5)$ (table~\ref{addmod5}) and
 
 \item the multiplication tables\footnote{\label{ftn-mod6}%
-Comment on modulo division:\index{Division modulo $n$}\\
+Comment on modulo division:\index{division modulo $n$}\\
 Due to the special role of zero as the identity for addition, division by zero
 is not permitted.\\
 For all $a$ it is $a*0=0,$ because $a*0=a*(0+0)=a*0+a*0.$ Obviously $0$ has no
@@ -718,7 +718,7 @@ Remark: Multiplication is defined on the set $\mathbb{Z}$  excluding $0$
 % --------------------------------------------------------------------------
 \subsection{Additive and multiplicative inverses}
 \label{add-and-mult-inverses}\label{multmodn}
-\index{Inverse!additive} \index{Inverse!multiplicative}
+\index{inverse!additive} \index{inverse!multiplicative}
 
 You can use the tables to read the inverses for each number in relation to
 addition and multiplication.
@@ -760,13 +760,13 @@ However, this is not the case for modular multiplication (important theorem):
 \begin{theorem}\label{thm-zth-multinv}
 A natural number $a$ from the set $\{1, \cdots, m-1\}$ has one modular
 multiplicative inverse if and only if this number and the modulo $m$ are
-co-prime\footnote{Two whole numbers $a$ and $b$ are co-prime\index{Number!co-prime} if and only if ${\rm gcd}(a, b) = 1$.\\
+co-prime\footnote{Two whole numbers $a$ and $b$ are co-prime\index{number!co-prime} if and only if ${\rm gcd}(a, b) = 1$.\\
 If $p$ is prime and $a$ is a random whole number that is not a multiple of
 $p$, then $p$ and a are co-prime.\\
 Further name to the topic co-prime (with $a_i \in \mathbb{Z}, i=1, \cdots, n$):
 \begin{enumerate}
 \item $a_1,a_2, \cdots, a_n$ are {\em relatively prime}
-\index{Prime number!relative prime}\index{Number!relative prime},
+\index{prime number!relative prime}\index{number!relative prime},
 if $ \mbox{gcd}(a_1, \cdots , a_n) =1.$
 \item An even stronger request for more than two numbers is :\\
      $a_1, \cdots , a_n$ are {\em in pairs relatively prime}, if for all $i=1, \cdots, n$ and 
@@ -833,7 +833,7 @@ Cryptographically not only the unique nature of the inverse is important, but
 also that the set of possible values has been exhausted.
 \begin{theorem}\label{thm-zth-exhperm}
 For $a,i\in \{1, \cdots, m-1 \}$ with ${\rm~gcd} (a,m)=1),$ then the product $a*i {\rm ~mod ~} m $ takes for a 
-certain number $a$ all values from $\{1, \cdots ,m-1 \} $ (exhaustive permutation \index{Permutation} of the length $m-1$).\footnote{See
+certain number $a$ all values from $\{1, \cdots ,m-1 \} $ (exhaustive permutation \index{permutation} of the length $m-1$).\footnote{See
 also theorem~\ref{thm-zth-ordp} in \hyperlink{Chapter_ElementaryNT_9}
 {chapter~\ref{MultOrdPrimitveRoot}, Multiplicative order and primitive roots}.}
 \end{theorem}
@@ -878,7 +878,7 @@ remainder                & 6 & 12  & {\bf 1}  & 7 & 13  & 2  & 8 & 14  & 3  & 9 
 
 Between $i=1, \cdots, m$, all values between $0, \cdots, m-1$ occur for the
 remainders, because both $5$ and $6$ are also relatively prime
-\index{Prime number!relative prime}\index{Number!relative prime}
+\index{prime number!relative prime}\index{number!relative prime}
 to the modulus $m=17$.
 \enlargethispage{0.5cm}
 
@@ -946,7 +946,7 @@ remainder                 & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6 
 \end{table}
 We have calculated $(5 * i)$ (mod $12$)  and  $(6*i)$ (mod $12$).
 Between $i=1, \cdots, m$, not all values between $0, \cdots, m-1$ occur and $6$ does not have an inverse mod $12$, 
-because $6$ and the modulus $m=12$ are not co-prime\index{Number!co-prime}.
+because $6$ and the modulus $m=12$ are not co-prime\index{number!co-prime}.
 
 \noindent {\bf The multiplicative inverse of $5$ (mod $12$) is $5$.
 The number $6$ has no inverse (mod $12$).}
@@ -954,7 +954,7 @@ The number $6$ has no inverse (mod $12$).}
 
 
 % --------------------------------------------------------------------------
-\subsection{Raising to the power} \index{Raising to the power} 
+\subsection{Raising to the power} \index{raising to the power}\index{power}
 In modular arithmetic, raising to the power is defined as repeated
 multiplication -- as usual. With small exceptions we can even apply the usual
 rules, such as:
@@ -1024,11 +1024,11 @@ $$
 % --------------------------------------------------------------------------
 \vskip +10pt
 \hypertarget{hohpot}{}
-\subsection{Fast calculation of high powers} \label{hohpot}\index{Power}
+\subsection{Fast calculation of high powers} \label{hohpot}\index{power}
 RSA encryption and decryption\footnote{See chapter~\ref{rsabeweis} (``\nameref{rsabeweis}'') \index{RSA} and chapter~\ref{rsaconcrete} (``\nameref{rsaconcrete}'').} 
 entails calculating high powers modulo $m$.
 For example, the calculation ($100^5) {\rm ~(mod~} 3)$ exceeds the 32-bit
-long integer\index{Long integer} number range provided we calculate $a^n$ by
+long integer\index{long integer} number range provided we calculate $a^n$ by
 actually multiplying a with itself $n$ times in line with the definition. In
 the case of extremely large numbers, even a fast computer chip would take
 longer than the age of the universe to calculate a single exponential. Luckily,
@@ -1036,7 +1036,7 @@ there is an extremely effective shortcut for calculating exponentials (but not
 for calculating logarithms).
 
 If the expression is divided differently using the rules of modular arithmetic, then the calculation does not even exceed the 
-16-bit short integer number range:\index{Short integer}
+16-bit short integer number range:\index{short integer}
 $$
 (a^5) \equiv (((a^2{\rm ~(mod~}m))^2 {\rm ~(mod~}m)) * a){\rm ~(mod~}m).
 $$
@@ -1080,12 +1080,12 @@ and -- if enough memory is available -- save them. In order to then find $a^n$
 in each individual case, it now only needs to multiply those $(a^{2})^k$ for
 which there is a one in the k-th position of the binary representation of $n$.
 The typical effort is then reduced from $2^{600}$ to $2*600$ multiplications!
-This frequently used algorithm is called ``Square and Multiply''\index{Square and multiply}.
+This frequently used algorithm is called ``Square and Multiply''\index{square and multiply}.
 
 
 
 % --------------------------------------------------------------------------
-\subsection{Roots and logarithms} \index{Root} \index{Logarithm}
+\subsection{Roots and logarithms} \index{root} \index{logarithm}
 
 The inverses of the powers modulo m are also defined. The roots and logarithms
 are again whole numbers. Yet in contrast to the usual situation, they are not
@@ -1100,13 +1100,11 @@ calculated at all within a reasonable amount of time.
        problem\footnotemark:}
 \footnotetext{%
 Further details about
-the\index{Logarithm problem!discrete}\index{Discrete logarithm}
+the\index{logarithm problem!discrete}\index{discrete logarithm}\index{DL problem}
 \hyperlink{HT-Discrete-Logarithm-as-Basis}{discrete logarithm problem}
 can be found in chapter~\ref{L-Discrete-Logarithm-as-Basis}.
 }
 
-\index{Logarithmusproblem!diskret}
-\index{DL-Problem}\index{Diskreter Logarithmus}
 If we know $a$ and $b$ of the three numbers $a$, $b$ and $c$ that meet this equation, then every known method 
 of finding $c$ is approximately just as time-consuming as trying out all $m$ possible values for $c$ one after the 
 other. For a typical $m$ of the order of magnitude of $10^{180}$ for $600$-digit binary numbers, this is a 
@@ -1131,9 +1129,9 @@ $$
 the {\em $c$-th root} $b$ of $a$. \par
 
 If $J(m)$ cannot be determined\footnote{According to the first fundamental
-theorem of number theory\index{Number theory!fundamental theorem} and
+theorem of number theory\index{number theory!fundamental theorem} and
 theorem~\ref{thm-zth-phinum}, we can determine $J(m)$ by reducing $m$ to
-prime factors\index{Prime factor!decomposition}.
+prime factors\index{prime factor!decomposition}.
 }, it is difficult to calculate the $c$-th root. This forms the basis for the
 security assumption used by the RSA encryption system (see chapter
 \ref{rsabeweis} or chapter~\ref{rsaverfahren}).
@@ -1143,19 +1141,19 @@ The time required for inverting addition and multiplication, on the other hand,
 is simply proportional to $\log m$ or $(\log m)^2$. Powers (for a number $x$ 
 calculate $x^a$ with $a$ fixed) and exponents (for a number $x$ 
 calculate $a^x$ with $a$ fixed) are therefore typical one way functions
-\index{One way function}
+\index{one-way function}
 (compare chapters~\ref{OneWayFunktion1} and \ref{OneWayFunktion2}).
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Groups and modular arithmetic in \texorpdfstring{$\mathbb{Z}_n$ and $\mathbb{Z}_n^*$}
                                                          {Zn and Zn*}}
-\index{Group}
+\index{group}
 Mathematical ``{\em groups}'' play a decisive role in number theory and cryptography. We only talk of groups if, for a 
 defined set and a defined relation (an operation such as addition or multiplication), the following properties are fulfilled:
 
 \begin{itemize}
-\item The set is closed \index{Closeness}
+\item The set is closed \index{closeness}
 \item A neutral element exists
 \item An inverse element exists for each element
 \item The associative law applies.
@@ -1176,7 +1174,7 @@ This value range is equivalent to the set $\mathbb{Z}_{2^{32}}$.
 
 
 % --------------------------------------------------------------------------
-\subsection{Addition in a group}\index{Addition} 
+\subsection{Addition in a group}\index{addition} 
 
 If we define the operation mod+ on such a set where
 $$ a {\rm ~mod+~} b := (a + b){\rm ~(mod~}n) , $$
@@ -1190,11 +1188,11 @@ of a group are valid for all elements in $\mathbb{Z}_n$:
         (because $a {\rm ~mod+~} (n-a) \equiv a + (n-a){\rm ~(mod~}n) \equiv n \equiv 0 {\rm ~(mod~}n)$).
 \end{itemize}
 Since the operation is commutative, i.e. $(a {\rm ~mod+~} b) = (b {\rm ~mod+~}
-a)$, this structure \index{Structure} is actually a ``commutative group''.
+a)$, this structure \index{structure} is actually a ``commutative group''.
 
 
 % --------------------------------------------------------------------------
-\subsection{Multiplication in a group}\index{Multiplication}
+\subsection{Multiplication in a group}\index{multiplication}
 
 If we define the operation mod* on the set $\mathbb{Z}_n$ where
 $$ a {\rm ~mod*~} b := (a * b){\rm ~(mod~}n), $$
@@ -1235,8 +1233,8 @@ $R'$ modulo $n$.
 For $n=10=2*5$ the following applies:
 \end{example}
 \begin{itemize}
-  \item[] \index{Remainder set!full} full remainder set $R = \mathbb{Z}_n = \{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 \}$
-  \item[] \index{Remainder set!reduced} reduced remainder set $R' = \mathbb{Z}_n^* = \{ 1, 3, 7, 9 \} \longrightarrow J(n)=4$.
+  \item[] \index{remainder set!full} full remainder set $R = \mathbb{Z}_n = \{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 \}$
+  \item[] \index{remainder set!reduced} reduced remainder set $R' = \mathbb{Z}_n^* = \{ 1, 3, 7, 9 \} \longrightarrow J(n)=4$.
 \end{itemize}
 
 \begin{remark}{:}\\
@@ -1265,7 +1263,7 @@ $a = 3$ modulo $10$ with $\mathbb{Z}_n^* = \{ 1, 3, 7, 9 \}$ it holds that $a^{-
 1 & \equiv & 3 * 7{\rm ~(mod~}10), \nonumber \\
 7 & \equiv & 3 * 9{\rm ~(mod~}10). \nonumber 
 \end{eqnarray*}
-The unique invertibility\index{Invertibility} is an essential condition for
+The unique invertibility\index{invertibility} is an essential condition for
 cryptography (see section~\ref{rsabeweis}).
 
 
@@ -1296,7 +1294,7 @@ not rational, perhaps even {\bf irrational and thereby closer to reality}.
 
 % --------------------------------------------------------------------------
 \hypertarget{patternsandstructures}{}
-\subsection{Patterns and structures} \index{Structure}
+\subsection{Patterns and structures} \index{structure}
 \label{patternsandstructures}
 As mathematicians investigate the structure $a *x \equiv b$ mod $m$
 (see \hyperlink{Chapter_ElementaryNT_5_2}
@@ -1305,7 +1303,7 @@ the structure $ x^{a} \equiv b$ mod $m.$
 
 Again here they are interested in the cases, if $ b=1$ (value of the 
 multiplicative inverse) and if $ b=x$ (the function $ f(x) = x^{a} {\rm ~mod~} m$ has a 
-fixpoint\index{Fixpoint}).
+fixpoint\index{fixpoint}).
 Concerning RSA fixed points: see \ref{l:NumberTheory_Sage_Number-of-RSA-FixedPoints}.
 
 
@@ -1324,7 +1322,7 @@ $J(n)$ specifies the number of elements in $\mathbb{Z}_n^*$.
 
 $J(n)$ also specifies how many whole numbers have multiplicative inverses in
 mod $n$. $J(n)$ can be calculated if we know the prime factors of $n$.
-\index{Prime factor!decomposition}
+\index{prime factor!decomposition}
 
 \begin{theorem}\label{thm-zth-phiprime}
 For a prime number, the following is true: $J(p) = p - 1.$
@@ -1393,7 +1391,7 @@ $$      a^{p-1} \equiv 1 {\rm ~(mod~} p).$$
 \begin{theorem}\label{thm-zth-fermateuler}{\bf Euler-Fermat theorem
                          (generalization of Fermat's Little Theorem)}
 For all elements $a$ in the group $\mathbb{Z}_n^*$ (i.e. $a$ and $n$
-are natural numbers that are co-prime\index{Number!co-prime}):
+are natural numbers that are co-prime\index{number!co-prime}):
 $$a^{J(n)} \equiv 1 {\rm ~(mod~} n). $$
 \end{theorem}
 \index{Euler, Leonhard} \index{Fermat, Pierre}
@@ -1471,7 +1469,7 @@ Solution: We have $e*d \equiv 1 {\rm ~(mod~} J(26))$.
 \item[] The reduced remainder set $R' = \mathbb{Z}_{26}^* = \{ 1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25 \}$ are
 the elements in $\mathbb{Z}_{26},$ which have a multiplicative inverse,
 that is which are relatively prime
-\index{Prime number!relative prime}\index{Number!relative prime}
+\index{prime number!relative prime}\index{number!relative prime}
 to $26$ (see \ref{def-zth-znmult}).
 \item[] The reduced remainder set $R''$ contains only the elements of $R'$ that are relatively prime to 
         $J(n) = 12:  R'' = \{ 1, 5, 7, 11 \}$.
@@ -1492,7 +1490,7 @@ $$ d \equiv  e^{-1}   {\rm ~(mod~} J(n))
 $$
 \end{example}
 
-The problems of factorizing\index{Factorization!factorization problem} $n=pq$
+The problems of factorizing\index{factorization!factorization problem} $n=pq$
 with $q\neq p$ and of finding $J(n)$ have a similar degree of difficulty, and
 if we find a solution for one of the two problems, we also have a solution for
 the other\footnote{%
@@ -1517,7 +1515,7 @@ $$ x^2 + (J(n)-n-1)x +n= 0$$\vspace{-\baselineskip}
            {Multiplicative order and primitive roots\footnotemark}
 \footnotetext{%
     \index{NT, Learning Tool for Number Theory}%
-    \index{Educational tool NT}%
+    \index{educational tool NT}%
     With the educational tool for number theory {\bf NT} you can have a
     playful experience with primitive roots
     (see learning unit 2.2, pages 10-14/40 and 24-40/40).\\
@@ -1532,14 +1530,14 @@ The multiplicative order and the primitive root are two useful constructs
 (concepts) in elementary number theory.
 
 Mathematicians often ask, in which conditions the repeated application of an
-operation results in the neutral element (compare \hyperlink{patternsandstructures}{Patterns and Structures}, chapter~\ref{patternsandstructures})\index{Structure}.
+operation results in the neutral element (compare \hyperlink{patternsandstructures}{Patterns and Structures}, chapter~\ref{patternsandstructures})\index{structure}.
 
 For the $i$-times successive modular multiplication of a number $a$ with $i=1,\cdots, m-1$ the product is the neutral element
 of the multiplication if and only if $a$ and $m$ are relatively prime. 
 
 \begin{definition}\label{def-zth-ordn}
 The {\bf multiplicative order} ${\rm ord}_m(a)$ of a whole number $a$ (mod $m$)
-(where $a$ and $m$ are co-prime\index{Number!co-prime}) is the 
+(where $a$ and $m$ are co-prime\index{number!co-prime}) is the 
 smallest whole number $i$ for which $a^{i} \equiv 1 ~(mod~m)$.  
 \end{definition}
 
@@ -1549,7 +1547,7 @@ orders in this case are $1, 2, 5$ and $10$ and we notice that:
 \begin{enumerate}
 \item The orders are all factors of $10$.
 \item The numbers $a = 2, 6, 7$ and $8$ have the order $10$ - we say that these
-      numbers have the {\bf maximum order}\index{Order!maximum} in
+      numbers have the {\bf maximum order}\index{order!maximum} in
       $\mathbb{Z}_{11}^*$.
 \end{enumerate}
 
@@ -1602,7 +1600,7 @@ $11$ has the value $5$.\\
 
 
 \begin{definition}\label{def-zth-primitiveroot}
-If $a$ and $m$ are co-prime\index{Number!co-prime} and if $ord_m(a) = J(m)$
+If $a$ and $m$ are co-prime\index{number!co-prime} and if $ord_m(a) = J(m)$
 (i.e. a has maximum order), then we say that $a$ is a {\bf primitive root}
 of $m$.\footnote{%
   In chapter~\ref{nt:AppArith3a2} ``\nameref{nt:AppArith3a2}'' there are
@@ -1769,14 +1767,14 @@ $a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 &
 
 \vskip +10 pt
 \begin{theorem}\label{thm-zth-ordp}
-  Given a modulus $n$ and a number $a$, relative prime\index{Prime number!relative prime}\index{Number!relative prime} to $n$, the following holds: \\
+  Given a modulus $n$ and a number $a$, relative prime\index{prime number!relative prime}\index{number!relative prime} to $n$, the following holds: \\
   The set $\{ a^i\; (\mbox{mod }n) |\; i = 1,\dots,J(n)\}$ equals the
   multiplicative group $Z_n^*$ if and only if $ord_n(a) = J(n)$.\footnote{%
     For prime moduli $p$ all $a$ with $0 < a < p$ are of order $J(p) = p - 1$.
     Compare table~\ref{expmod45} for an example. In this case $a^i (\mbox{mod }n)$ goes
     through all the values $1,\dots,p-1$. Exhausting all possible values of
     the set is an important cryptographic proposition (compare theorem
-    \ref{thm-zth-exhperm}). This determines a permutation\index{Permutation}
+    \ref{thm-zth-exhperm}). This determines a permutation\index{permutation}
     $\pi(p-1)$.}$^,$\footnote{%
     Table~\ref{expmod46} demonstrates that for composite moduli $n$ not all $a$ are of
     maximal order $J(n)$. In this example only $5,7,11,15,17,19\mbox{ and }21$
@@ -1982,7 +1980,7 @@ procedure in the group $\mathbb{Z}_n^*$.
 \hypertarget{Chapter_ElementaryNT_10_1}{}
 \subsection{Basic idea of public key cryptography}
 \label{Label_Chapter_ElementaryNT_10_1}
-\index{Cryptography!public key}
+\index{cryptography!public key}
 
 The basic idea behind public key cryptography is that all participants possess a different pair of keys ($P$ and $S$) and the 
 public keys for all recipients are published. You can retrieve the public key $P$ for a recipient from a directory just as you 
@@ -2008,7 +2006,7 @@ According to the \textbf{\hyperlink{thm-pz-pi-x}{prime number theorem}}
 (chapter~\ref{thm-pz-pi-x}, p.~\pageref{thm-pz-pi-x}) of 
 Legendre\index{Legendre, Adrien-Marie} and Gauss \index{Gauss, Carl Friedrich} 
 there are approximately $n/\ln(n)$ 
-prime numbers\index{Prime number!number of} up to the number $n$. 
+prime numbers\index{prime number!number of} up to the number $n$. 
 This means, for example, that there are $6.5*10^{74}$ prime numbers 
 under $n=2^{256}$ ($=1.1*10^{77}$) and $3.2*10^{74}$ prime numbers 
 under $n=2^{255}$. 
@@ -2042,9 +2040,9 @@ with high marketing effort in 2000.
 $n$ was the product of two big and one relative small prime: $n=o*p*q.$ 
 With theorem~\ref{J_of_p1..pk} we get:
 $J(n)= (o-1)*(p-1)*(q-1). $ This method did not assert itself.\\
-One reason probably is, that Compaq claimed a patent \index{Patent} on it. 
+One reason probably is, that Compaq claimed a patent \index{patent} on it. 
 Generally there is less understanding in Europe and with the Open Source
-Initiative\index{Open Source}, that one can claim patents on algorithms.
+Initiative\index{open source}, that one can claim patents on algorithms.
 But there is really no understanding outside the U.S., that one can get
 a patent for a special case (3 factors) of an algorithm (RSA), although
 the patent for the general case was almost expired.\\
@@ -2141,7 +2139,7 @@ on the difficulty to calculate the private key $d$ from the public key $(n,e)$.
     chapter~\ref{primes:_Appendix_Plotting-Primes-Quantity}
     ``\nameref{primes:_Appendix_Plotting-Primes-Quantity}''.
 }
-\index{Factorization!factorization problem}.
+\index{factorization!factorization problem}.
 \end{enumerate}
 \vskip +1em
 
@@ -2221,7 +2219,7 @@ $$
 \begin{remark}{ 2:}\\
 When it comes to signing messages, we perform the same operations but first use
 the secret key $d$, followed by the public key $e$. The RSA procedure can also be
-used to create digital signatures\index{Signature!digital}, because: 
+used to create digital signatures\index{signature!digital}, because: 
 $$
 M \equiv (M^d)^e{\rm ~(mod~}n).
 $$
@@ -2266,7 +2264,7 @@ two points.
 % --------------------------------------------------------------------------
 \subsection{Complexity}
 \label{complexity}
-\index{Complexity}
+\index{complexity}
 
 Successful decryption or forgery of a signature --- without knowing the
 private key --- requires calculating the $e$-th root mod $n$.  The private
@@ -2276,7 +2274,7 @@ prime factors of $n$.  Breaking of RSA therefore cannot be more difficult
 than factorization of the module $n$.
 
 The best factorization method known today is a further development of the
-General Number Field Sieve (GNFS) \index{General Number Field Sieve (GNFS)},
+General Number Field Sieve (GNFS) \index{general number field sieve (GNFS)},
 which was originally devised to factor only numbers of a special form 
 (like Fermat numbers).  The complexity of solving the factorization problem
 with the GNFS is asymptotically
@@ -2301,7 +2299,7 @@ problems with sub-exponential time complexity (i.~e.\ time complexity grows
 asymptotically not as fast as exponential functions like $e^l$ or $2^l$,
 but strictly slower, e.~g.\ like $e^{\sqrt{l}}$).  This classification is
 all that is currently known; it does not preclude the possibility that the
-factorization problem can be solved in polynomial\index{Polynomial} time 
+factorization problem can be solved in polynomial\index{polynomial} time 
 (see~\ref{RSABernstein}).
 
 $O(l)$ is the average number of processor steps depending on the bit length
@@ -2326,7 +2324,7 @@ Please refer to: {\em Handbook of Applied Cryptography} \cite{nt:Menezes2001}.
 %\paragraph*[Factorization algorithms]{Factorization algorithms\footnotemark}
 \paragraph*{Factorization algorithms\footnote{%
     \index{NT, Learning Tool for Number Theory}%
-    \index{Educational tool NT}%
+    \index{educational tool NT}%
     With the educational tool for number theory {\bf NT} you can gather more
     experience with current factorization algorithms
     (see learning unit 5.1-5.5, pages 1-15/15).\\
@@ -2349,7 +2347,7 @@ current algorithms for factorization:
 \item In 1994 a 129-digit RSA modulus (428 bit), published in 1977, was factorized
       by a distributed implementation of the Quadratic Sieve algorithm (QS),
       developed 1982 by Pomerance. This effort took 8 months.
-      \index{Quadratic Sieve-Algorithmus (QS)}\\
+      \index{quadratic sieve algorithm (QS)}\\
       Please refer to:
       \begin{list}{}{\setlength{\topsep}{-7 pt}}
         \item[] C. Pomerance:  
@@ -2359,11 +2357,11 @@ current algorithms for factorization:
       \vskip +12pt
 
 \item In 1999 a 155-digit modulus (512 bit) was factored with an implementation
-      of the General Number Field Sieve algorithm (GNFS), 
+      of the general number field sieve algorithm (GNFS), 
       developed by Buhler, Lenstra and Pomerance.
       The GNFS is more efficient than QS if $n$ is longer
       than about 116 decimal digits. This effort took 5 months.
-      \index{General Number Field Sieve (GNFS)}\\
+      \index{general number field sieve (GNFS)}\\
       Please refer to:
       \begin{list}{}{\setlength{\topsep}{-7 pt}}
         \item[] J.P. Buhler, H.W. Lenstra, C. Pomerance:  
@@ -2397,7 +2395,7 @@ The module length $l$  is not the only parameter relevant for security.
 Beneath requirements from implementation and engineering the sizes and
 the proportions of the  parameters e, d and n are relevant.
 
-According attacks based on lattice reductions\index{Lattice reduction} 
+According attacks based on lattice reductions\index{lattice reduction} 
 are a real threat for (too) simple implementations of RSA.
 Theses attacks can be structured into the following four categories:
 \begin{itemize}
@@ -2417,15 +2415,15 @@ of Matthias Schneider \cite{nt:SchneiderM2004}.
 % --------------------------------------------------------------------------
 \vskip +40pt
 \subsection{Forecasts about factorization of large integers}
-\index{Factorization!forecast}
+\index{factorization!forecast}
 
 Since 1980 a lot of progress has been made. Estimations about
 the future development of the ability to factor RSA modules vary and depend
 on some assumptions:
 \begin{itemize}
-  \item progression in computing performance\index{Performance} (Moore's 
+  \item progression in computing performance\index{performance} (Moore's 
       law\index{Moore's law}\index{Moore, Gordon E.}: every 18 month the
-      computing power will double) and in grid computing\index{Grid computing}.
+      computing power will double) and in grid computing\index{grid computing}.
   \item development of new algorithms.
 \end{itemize}
 Within the last years the module bit length feasible for factorization
@@ -2493,7 +2491,7 @@ predicted development (red) [Source Fox 2001; last addition 2011]}
 \label{nt:NoteFactorization} 
 
 An exhaustive overview about the factoring records
-\index{Factorization!factoring records} of composed integers using different
+\index{factorization!factoring records} of composed integers using different
 methods can be found on the following web pages:
 \vspace{-10pt}
 \begin{itemize}
@@ -2507,13 +2505,13 @@ methods can be found on the following web pages:
 %This site was not quite up-to-date end of May 2005: RSA-200 was missing.}
 
 The current record (as of Nov. 2012) obtained using the GNFS method
-(General Number Field Sieve) factorized a general 232 decimal digit into its
+(general number field sieve) factorized a general 232 decimal digit into its
 both prime factors.
 
 \vskip +10pt
 The last records\footnote{%
 The 'RSA numbers' are certain large semiprime numbers (i.e., numbers with
-exactly two prime factors)\index{Number!semi prime}. 
+exactly two prime factors)\index{number!semi prime}. 
 They were generated and published by the company RSA Security: In the
 RSA Factoring Challenge the prime factors for these numbers are sought.\\
 See \url{http://www.rsa.com/rsalabs/node.asp?id=2092}.
@@ -2531,7 +2529,7 @@ the prize.
 All till now unsolved RSA challenges of RSA Labs can also be found at
 the website of the cipher challenge ``MysteryTwister C3''
 (\url{http://www.mysterytwisterc3.org}).
-\index{MTC3}\index{Challenge}\index{Cipher challenge}\index{Crypto challenge}
+\index{MTC3}\index{challenge}\index{cipher challenge}\index{crypto challenge}
 
 The 'C numbers' originate from the Cunningham project:
 \url{http://www.cerias.purdue.edu/homes/ssw/cun/}.
@@ -2595,8 +2593,8 @@ Below these last records listed in table~\ref{factorizationrecords} are
 explained in more detail\footnote{%
 The two methods, GNFS and SNFS, used to do so are shortly illustrated at the 
 following web pages:
-\index{General Number Field Sieve (GNFS)}
-\index{Special Number Field Sieve (SNFS)}
+\index{general number field sieve (GNFS)}
+\index{special number field sieve (SNFS)}
 \begin{itemize}
 \item[]
       \url{http://en.wikipedia.org/wiki/Special_number_field_sieve} \\
@@ -2626,8 +2624,8 @@ On January 18, 2002 researchers at the German University of Bonn\footnote{%
 \url{http://www.ercim.org/publication/Ercim\_News/enw49/franke.html}
 }
 factorized a 158-digit decimal number into its both prime factors (these are
-build with 73 and 86 decimal digits) using the GNFS method (General Number
-Field Sieve)\index{General Number Field Sieve (GNFS)}.
+build with 73 and 86 decimal digits) using the GNFS method (general number
+field sieve)\index{general number field sieve (GNFS)}.
 
 This record got much less attention within the press than the solution of
 RSA-155.
@@ -2709,8 +2707,8 @@ On January 18, 2002 researchers at the German University of Bonn\footnote{%
           \url{http://www.crypto-world.com/FactorWorld.html}
 } 
 factorized a 160-digit number into its both prime factors (these are build
-with each 80 decimal digits) using the GNFS method (General Number Field
-Sieve)\index{General Number Field Sieve (GNFS)}.
+with each 80 decimal digits) using the GNFS method (general number field
+sieve)\index{general number field sieve (GNFS)}.
 
 The  computations for the factorization of RSA-160 also took place at the 
 German Information Security Agency (GISA) in Bonn.\footnote{%
@@ -2770,7 +2768,7 @@ University of Bonn\footnote{%
    \url{http://www.loria.fr/~zimmerma/records/rsa200}} announced,
 that they achieved to factorize a 200-digit number into its both prime factors 
 (these are build with each 100 decimal digits) using the GNFS method 
-(General Number Field Sieve)\index{General Number Field Sieve (GNFS)}.
+(general number field sieve)\index{general number field sieve (GNFS)}.
 
 The composite number called ``RSA-200'' is (the following 3 lines contain
 one number):
@@ -2821,7 +2819,7 @@ Kleinjung\footnote{%
          } announced,
 that they achieved to factorize a 232-digit number into its both prime factors 
 (both factors have 116 decimal digits). They used the GNFS method 
-(General Number Field Sieve)\index{General Number Field Sieve (GNFS)} in a
+(general number field sieve)\index{general number field sieve (GNFS)} in a
 way where they did ``oversieving'' on several hundred computers
 before starting the matrix step.
 
@@ -2867,8 +2865,8 @@ In May 2007 Prof. Franke, Prof. Kleinjung (University of Bonn),
 the Japanese telecommunication company NTT and Prof. Arjen Lenstra
 (Polytechnical University of Lausanne) announced, that they managed to
 factorize a $307$ digit decimal number into its both prime factors
-with the SNFS method (Special Number Field Sieve)
-\index{Special Number Field Sieve (SNFS)} within 11 months
+with the SNFS method (special number field sieve)
+\index{special number field sieve (SNFS)} within 11 months
 (the two factors have 80 and 227 decimal digits).
 
 The task of the researchers was not initiated by a challenge, but
@@ -2959,7 +2957,7 @@ Links:
 
 As you notice the factorized compound numbers built of 2 prime factors are
 much smaller than the especially structured numbers, for which primality 
-tests\index{Primality testing} are able to decide whether these numbers are prime 
+tests\index{primality testing} are able to decide whether these numbers are prime 
 or not (see chapters~\ref{search_for_very_big_primes},~\ref{primality_tests}
 and \ref{spezialzahlentypen}). 
 
@@ -2999,14 +2997,14 @@ quantum leap in factorization, the RSA algorithm might be compromised.
 %\paragraph*
 \subsubsection{Bernstein's paper and its implication on the
                security of the RSA algorithm}
-\label{RSABernstein} \index{Factorization!factorization problem}\mbox{}
+\label{RSABernstein} \index{factorization!factorization problem}\mbox{}
 In his paper ``Circuits for integer factorization: a proposal'' 
 (\url{http://cr.yp.to/djb.html}, published November 2001,
 D.~J.\ Bernstein \cite{nt:Bernstein2001} addresses the problem of
 factorizing large integers. Therefore, his results are of relevance from a
 RSA point of view.  As a main result Bernstein claims that the
-implementation of the General Number Field Sieve algorithm (GNFS)
- \index{General Number Field Sieve (GNFS)} can be improved to factor, with
+implementation of the general number field sieve algorithm (GNFS)
+ \index{general number field sieve (GNFS)} can be improved to factor, with
 the same effort as before, integers with three times more digits.
 
 We note that the definition of \emph{effort} is a crucial point: Bernstein
@@ -3125,8 +3123,8 @@ A detailed explanation from these two authors also can be found in the
 RSA Laboratories CryptoBytes \cite{nt:Shamir2003a}.
 
 The 3-page article in the DuD issue of June 2003 \cite{nt:Weis2003} contains
-a very good explanation, how the attack using the Generalized Number Field
-Sieve (GNFS) \index{General Number Field Sieve (GNFS)} works and which 
+a very good explanation, how the attack using the generalized number field
+sieve (GNFS) \index{general number field sieve (GNFS)} works and which 
 progress is made, to factorize numbers.
 At GNFS we can distinguish 2 general steps: 
 The sieve step (relation collecting) and the matrix reduction.
@@ -3149,10 +3147,10 @@ So recommendations like the ones from the GISA (German Information Security Agen
 \vskip +20pt
 %\paragraph*
 \subsubsection{``Primes in P'': Primality testing is polynomial}
-\label{PrimesinP} \index{Primality testing}%\mbox{}
+\label{PrimesinP} \index{primality testing}%\mbox{}
 
 In August 2002 the three Indian researchers M. Agrawal, N. Kayal and N. Saxena published the paper {\em ``PRIMES in P''} about a new primality testing algorithm called AKS\index{AKS} \cite{nt:Agrawal2002}. 
-They discovered a polynomial\index{Polynomial} time deterministic algorithm for determining if a number is prime or not.
+They discovered a polynomial\index{polynomial} time deterministic algorithm for determining if a number is prime or not.
 
 The importance of this discovery is that it provides number theorists with new insights and opportunities for further research. Lots of people over centuries have been looking for a polynomial time test for primality, and this result is a major theoretic breakthrough. It shows that new results can be generated from already known facts.
 
@@ -3173,7 +3171,7 @@ But even its authors note that other known algorithms may be faster (for example
 % \vskip +20pt
 \newpage
 \subsubsection{Shared Primes: Modules with common prime factors}
-\label{nt_Shared-Primes} \index{Prime!Shared}%\mbox{}
+\label{nt_Shared-Primes} \index{prime!Shared}%\mbox{}
 %~\ref{nt_Shared-Primes}, page~\pageref{nt_Shared-Primes}
 
 The RSA algorithm is based on the presumed difficulty of factoring large bi-prime integers (moduli), the factoring problem. However, as pointed out in Lenstra et al \cite{nt:Lenstra2012} it is possible, given a set of moduli, to factor some of them if they share primes. In this case, the factoring problem is bypassed using the -- relatively easy greatest common divisor (gcd) operation. On the other hand, it is no trivial task to extract common shared primes and to factor the according moduli efficiently for a very big number of given moduli (several millions).
@@ -3363,7 +3361,7 @@ last chapter ``Dobby's reward'', p.~245, by Dumbledore.}
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Applications of asymmetric cryptography using numerical examples}
 
-The results of modular arithmetic are used extensively in \index{Cryptography!modern} modern cryptography. Here we will provide a few examples from 
+The results of modular arithmetic are used extensively in \index{cryptography!modern} modern cryptography. Here we will provide a few examples from 
 cryptography using small\footnote{In the RSA procedure, we call numbers ``small'' if the bit lengths are much less than $1024$ bits (i.e. $308$ decimal points). In practice,
 $1024$ bits is currently considered the minimum length for a secure RSA modul.} numbers.
 
@@ -3383,7 +3381,7 @@ The essential reason for this is that subtraction is just as simple an operation
 
 % --------------------------------------------------------------------------
 \hypertarget{OneWayFunktion2}{}%
-\subsection{One way functions}\index{One way function}
+\subsection{One-way functions}\index{one-way function}
 \label{OneWayFunktion2}%
 If the key is to be impossible to determine even with knowledge of both the 
 plaintext and the ciphertext, we need a function that is, on the one hand, 
@@ -3409,7 +3407,7 @@ us much about the function as a whole (in contrast to addition and multiplicatio
 \subsection{The Diffie-Hellman key exchange protocol}
 \index{Diffie, Whitfield} 
 \index{Hellman, Martin} 
-\index{Key agreement (key exchange)!Diffie-Hellman}
+\index{key agreement (key exchange)!Diffie-Hellman}
 \index{Diffie-Hellman}
 
 Whitfield Diffie, Martin E. Hellman and Ralph Merkle developed this DH key 
@@ -3474,7 +3472,7 @@ use these in order to determine the used session key used -- due to the
 difficulty of calculating the discrete logarithm\footnotemark.
 \footnotetext{%
 Further details about
-the\index{Logarithm problem!discrete}\index{Discrete logarithm}
+the\index{logarithm problem!discrete}\index{discrete logarithm}
 \hyperlink{HT-Discrete-Logarithm-as-Basis}{discrete logarithm problem}
 can be found in chapter~\ref{L-Discrete-Logarithm-as-Basis}.
 }
@@ -3502,7 +3500,7 @@ $g = 11, p = 347, A = 49$ and $B = 285$, they would not be able to calculate the
 \newpage
 \begin{remark}{:}\\
 In this example using such small numbers, it is easily possible to calculate the discrete
-logarithms, but with large numbers the discrete logarithm\index{Discrete logarithm}
+logarithms, but with large numbers the discrete logarithm\index{discrete logarithm}
 problem\footnote{%
 You can use SageMath to determine the discrete logarithm $x$ that solves the
 equation $11^x \equiv 49 \pmod{347}$ (here for Alice)\index{SageMath}:
@@ -3520,7 +3518,7 @@ Mathematica\index{Mathematica}
 All deliver the result $67$.
 }${}^,$\footnote{%
 Why have the functions delivered the value $67$ for the discrete
-logarithm\index{Discrete logarithm} of Alice rather than $240$ which Alice
+logarithm\index{discrete logarithm} of Alice rather than $240$ which Alice
 selected as exponent $a$?\\
 The discrete logarithm is
 the smallest natural exponent that solves the equation 
@@ -3529,12 +3527,12 @@ selected in the example) satisfy the equation and can therefore be
 used to calculate the session key: 
 $285^{240} \equiv 285^{67} \equiv 268 \pmod{347}$.
 If Alice and Bob
-had selected a primitive root\index{Primitive root} modulo $p$ as base $g$, then for every
+had selected a primitive root\index{primitive root} modulo $p$ as base $g$, then for every
 remainder from the set $\{1, 2, \dots, p-1 \}$ there is exactly one
 exponent from the set $\{0, 1, \dots, p-2 \}$. \\
 \indent As an aside, there are $172$ different primitive roots modulo $347$,
 $32$ of which are prime (not necessary). Since the number $11$
-selected for $g$ in the example is not a primitive root\index{Primitive root} of $347$, the
+selected for $g$ in the example is not a primitive root\index{primitive root} of $347$, the
 remainders do not take all values from the set $\{1, 2, \dots, 346 \}$. 
 Thus, for a particular remainder there may be more than one exponent
 or even no exponent at all in the set $\{0, 1, \dots, 345 \}$ that
@@ -3640,7 +3638,7 @@ table~\ref{alphacode}.\footnote{%
 Using CT1\index{CrypTool 1} you can solve this with the menu {\bf Indiv. Procedures
 \textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration}.
 This is also described in the tutorial/scenario in CT1's online help [Options,
-specify alphabet, number system, block length\index{Block length} 2 and decimal
+specify alphabet, number system, block length\index{block length} 2 and decimal
 representation].
 }
 
@@ -3669,7 +3667,7 @@ L       & 12   & Y    & 25 \\
 \end{tabular}
 \end{center}
 \hypertarget{Grossbuchstaben-Alphabet}{}    
-\caption{Capital letters alphabet}\index{Capital letters alphabet}
+\caption{Capital letters alphabet}\index{capital letters alphabet}
 \label{alphacode}
 \end{table}
 \vskip +20 pt
@@ -3714,7 +3712,7 @@ Ciphertext: {\tt 1404 2932 3536 0001 3284 2280 2235 }
 
 \noindent The 2-digit numbers are transformed into capital letters and blanks.
 
-\noindent Using the selected values it is easy for a cryptanalyst\index{Cryptanalysis}
+\noindent Using the selected values it is easy for a cryptanalyst\index{cryptanalysis}
 to derive the secret values from the public 
 parameters $n=3713$ and $e=37$ by revealing that $3713 = 47 * 79$.
 
@@ -3769,7 +3767,7 @@ is taken from the example in \cite[p. 271]{nt:Eckert2003}\index{Eckert 2003}.
 
 
 % --------------------------------------------------------------------------
-\subsection*{Variant 1: All ASCII characters are en-/decrypted separately (no blocks\index{Block length} are formed).}
+\subsection*{Variant 1: All ASCII characters are en-/decrypted separately (no blocks\index{block length} are formed).}
 
 {\bf 4. Encryption}:\\
 {\tt
@@ -3839,7 +3837,7 @@ single character& binary representation  && decimal representation\\
 Using CT1\index{CrypTool 1} you can solve this with the menu {\bf Indiv. Procedures
 \textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration} 
 with the following options: all 256 ASCII characters, b-adic,
-block length\index{Block length} 2 and decimal representation.
+block length\index{block length} 2 and decimal representation.
 }
 
 \label{SrcArith4d}
@@ -3893,7 +3891,7 @@ The pure solution has been published by Prof. Stinson.\footnote{%
 }
 However, it is not the result that is important here but rather the
 individual steps of the solution, that is, the explanation of the 
-cryptanalysis\index{Cryptanalysis}.\footnote{The method of solving the
+cryptanalysis\index{cryptanalysis}.\footnote{The method of solving the
 problem is outlined in the scenario of the online help to
 CT1\index{CrypTool 1} and in the presentation on the CT website.
 If anyone sends us a well prepared exact method of solving the problem,
@@ -3914,7 +3912,7 @@ Your task is to decrypt them. The public parameters of the system are
 This can be accomplished as follows. First, factor $n$ (which is easy
 because it is so small). Then compute the exponent $d$ from $J(n)$, and,
 finally, decrypt the ciphertext. Use the square-and-multiply
-\index{Square and multiply} algorithm to exponentiate modulo $n$. 
+\index{square and multiply} algorithm to exponentiate modulo $n$. 
 
 In order to translate the plaintext back into ordinary English text, you
 need to know how alphabetic characters are ``encoded'' as elements in
@@ -4010,7 +4008,7 @@ The following task is a corrected version from the book written by Prof. Yan
 \cite[Example 3.3.7, p. 318]{nt:Yan2000}\index{Yan 2000}.
 However, it is not the result that is important here but rather the
 individual steps of the solution, that is, the explanation of the
-cryptanalysis\index{Cryptanalysis}.\footnote{%
+cryptanalysis\index{cryptanalysis}.\footnote{%
 The method of solving the problem is outlined in the scenario of the online
 help to CT1\index{CrypTool 1} and in the CrypTool presentation.
 If anyone sends us a well prepared exact method of solving the problem,
@@ -4021,9 +4019,9 @@ There are three tasks with completely different degrees of difficulty here.
 In each case we know the ciphertext 
 and the public key $(e,n)$:
 \begin{itemize}
-\item[{\bf (a)}] Known plaintext: \index{Attack!known plaintext} find the secret key $d$ using the additionally known original message.
-\item[{\bf (b)}] Ciphertext-only: \index{Attack!ciphertext-only} find $d$ and the plaintext.
-\item[{\bf (c)}] Calculate the RSA modulus, in other words factorization (with no knowledge of the message). \index{Factorization!factorization problem}
+\item[{\bf (a)}] Known plaintext: \index{attack!known plaintext} find the secret key $d$ using the additionally known original message.
+\item[{\bf (b)}] Ciphertext-only: \index{attack!ciphertext-only} find $d$ and the plaintext.
+\item[{\bf (c)}] Calculate the RSA modulus, in other words factorization (with no knowledge of the message). \index{factorization!factorization problem}
 \end{itemize}
 
 %\newpage
@@ -4055,7 +4053,7 @@ Cipher:
 
 \begin{remark}{:}\\
 The original message consisted of a sentence containing $31$ characters (coded
-with the capital letters alphabet \index{Capital letters alphabet} from
+with the capital letters alphabet \index{capital letters alphabet} from
 section~\ref{rsaex2}).  Each group of $16$ decimal numbers is then combined to
 form one number (the last number is filled with zeros). These numbers are
 raised to the power of $e$.
@@ -4085,7 +4083,7 @@ during implementation and standardization for interoperable algorithms.
          and the two algorithms of Euclid\footnotemark}
 \footnotetext{%
     \index{NT, Learning Tool for Number Theory}%
-    \index{Educational tool NT}%
+    \index{educational tool NT}%
 With the educational tool for number theory {\bf NT} you can see\\
 a) how Euklid's algorithm calculates the gcd (learning unit 1.3, pages 14-19/21) and \\
 b) how Euklid's enhanced algorithm finds the multiplicative inverse
@@ -4210,7 +4208,7 @@ gcd($37,3588$) = 1, $x = -1$, $y=97$.
 \begin{enumerate}
 
 \item $37$ and $3588$ are relatively prime ($37$ has an inverse modulo $3588$).
-      \index{Number!co-prime}
+      \index{number!co-prime}
 
 \item $37*97 = (1 * 3588) + 1$ in other words $37*97 \equiv 1 {\rm ~(mod~} 3588).$ \\
       and therefore the number $97$ is the multiplicative inverse to $37$ modulo $3588$.
@@ -4228,7 +4226,7 @@ gcd($37,3588$) = 1, $x = -1$, $y=97$.
 \section{Appendix: Forming closed sets}
 \label{nt:NumberTheory_Appendix_B}{}
 
-The property of closeness\index{Closeness} within a set is always defined in
+The property of closeness\index{closeness} within a set is always defined in
 relation to an operation.
 The following shows how to construct the ``closed set'' $G$ with respect to
 the operation $+ {\rm ~(mod~} 8)$ for a given initial set $G_0$:
@@ -4437,7 +4435,7 @@ RSA cipher in an interactive way.
 \section{Appendix: Examples using SageMath}
 \label{NumberTheory_Appendix_E}{}
 \index{SageMath}
-\index{SageMath!Code examples}
+\index{SageMath!code examples}
 
 \begin{ctsquote}
 ``She would never be able to tell her parents ... about any of this. She couldn't tell them about her code-breaking work. About her near death at the hands of the Daemon. About the shadowy entities pulling the strings of her government.''
@@ -4603,7 +4601,7 @@ sage: for a in xrange(1, 13):
 \end{sagecode}
 
 The number $\text{ord}_m(a)$ only exists if $a$ is relatively prime
-\index{Number!co-prime} to $m$, which can be checked with \verb!gcd(a, m)!.
+\index{number!co-prime} to $m$, which can be checked with \verb!gcd(a, m)!.
 
 In the above code example, we put the calculation of the multiplicative order
 within a \verb!try!-\verb!except! block. This allows SageMath to catch any
@@ -4750,7 +4748,7 @@ r = power_mod_order_matrix(m, max_a, max_i);print r.str();print latex(r)
 \subsection{Primitive roots}
 \label{nt:AppArith3a2}
 \label{primitive-roots-with-sage}
-\index{Primitive root}
+\index{primitive root}
 
 Computing a primitive root (see chapter~\ref{MultOrdPrimitveRoot},
 ``\nameref{MultOrdPrimitveRoot}'')
@@ -5296,7 +5294,7 @@ Steps 1 to 3 constitute key generation, steps 4 and 5 are the encryption:
 
   \item[{\bf 2.}] Select an arbitrary $e \in \{2, \cdots, n-1\}$ such that: \\
                   $e$ is relatively prime
-                  \index{Prime number!relative prime}\index{Number!relative prime}
+                  \index{prime number!relative prime}\index{number!relative prime}
                   to $J(n) = (p-1)*(q-1)$. \\
                   We can then ``throw away'' $p$ and $q$.
 
@@ -5365,8 +5363,8 @@ following output:\\
 \vin    - Number of primes in a given range: 0\\
 \vin    The reason for that is, that with this call only $n=100$ is considered,
    and the function investigates only\\
-\vin semiprime $n$: $100$ is not semi prime\index{Prime number!semi
-   prime}\index{Prime number!half prime},
+\vin semiprime $n$: $100$ is not semi prime\index{prime number!semi
+   prime}\index{prime number!half prime},
    this means $100$ is not the product of only two primes.
 \end{verse}
 \setlength{\leftmargini}{\saveleftmargini}% restore original value%\end{compactitem}
@@ -5452,7 +5450,7 @@ is much more efficient as brute-force trying all the keys.
     [RSA fixed points \texorpdfstring{}{m = m\^{}e}]
     {RSA fixed points $ m^e = m \bmod n $ mit $m \in \{1,...,n-1\}$ }
 \label{l:NumberTheory_Sage_Number-of-RSA-FixedPoints}{}
-\index{Fixpoint}\index{RSA!fixpoint}
+\index{fixpoint}\index{RSA!fixpoint}
 %%% xxx111222xxx-beg
 
 Also encryption methods can have fixed -- cleartext messages where the
@@ -5508,7 +5506,7 @@ This decomposition is equivalent to:
 $$m^{e-1} = 1 \bmod p \text{  and  } m^{e-1} = 1 \bmod q. $$
 
 \noindent We consider  $m^{e-1} = 1 \bmod p$ and search all $(e-1)$
-roots of unity\index{RootOfUnity}\footnote{%
+roots of unity\index{root of unity}\footnote{%
 - In mathematics, a \textbf{root of unity} is a number $x$ that equals 1 when raised to some integer power $n$.
 
 \noindent- An $n$-th root of unity $x$ is \textbf{primitive} if it is not a $k$-th root of unity for all integers $k$ smaller than $n$:
@@ -5640,7 +5638,7 @@ $480^{37} \mod 481=480 $ \\   % be-xxxxxxxx Testen aller m-Werte auch mit 1 + 2*
 $ m \in \{1,...,n-1\}$ have the fixed point property
 $ m^e = m \bmod n$.\footnote{%
   Sometimes these $e$, which make any message to a fixed point, are called
-  ``weak keys'' $(e,n)$ of the RSA algorithm\index{Key!weak}.
+  ``weak keys'' $(e,n)$ of the RSA algorithm\index{key!weak}.
   This notation is different to the ``weak keys'' $k$ in DES\index{DES}, where
   \textbf{every} message $m$ relates to itself if the \textbf{en}cryption is
   done twice.
@@ -6163,7 +6161,7 @@ Theorem~\ref{nt-thm-Anzahl-RSA-Fixpunkte} & number of RSA fixed points & \pagere
     {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
     Wiley and Sons, 2nd edition 1996.
 
-\bibitem[Schulz2010]{nt:Schulz2010} \index{Schulz 2010}%\index{Time experiments}
+\bibitem[Schulz2010]{nt:Schulz2010} \index{Schulz 2010}%\index{time experiments}
     R.-H. Schulz, Helmut Witten, \\
     {\em Zeitexperimente zur Faktorisierung. Ein Beitrag zur Didaktik
          der Kryptographie}, 
@@ -6257,7 +6255,7 @@ Theorem~\ref{nt-thm-Anzahl-RSA-Fixpunkte} & number of RSA fixed points & \pagere
           \url{http://www.informatik.tu-darmstadt.de/TI/LiDIA}
           
    \item BC, \index{BC} \\
-         Interpreter with number-theory functions \\
+         Interpreter with number-theory functions. Development stopped. \\
          \url{http://www.gnu.org/software/bc/bc.html}
           
    \item Pari-GP, \index{Pari-GP} \\
@@ -6286,7 +6284,7 @@ Theorem~\ref{nt-thm-Anzahl-RSA-Fixpunkte} & number of RSA fixed points & \pagere
          German Information Security Agency \\
          \url{http://www.bsi.bund.de}
 
-   \item Factorization records and challenges\index{Factorization!factoring records},\\
+   \item Factorization records and challenges\index{factorization!factoring records},\\
          \url{http://www.crypto-world.com/} \\
          \url{http://www.crypto-world.com/FactorWorld.html}, Webseite von Scott Contini \\
          \url{http://www.loria.fr/~zimmerma/records/factor.html} \\

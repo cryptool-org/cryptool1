@@ -95,7 +95,7 @@
         {The Mathematical Ideas behind Modern Cryptography\footnotemark}
 \footnotetext{%
     \index{NT, Learning Tool for Number Theory}%
-    \index{Educational tool NT}%
+    \index{educational tool NT}%
     With the educational tool for number theory {\bf NT} you can apply
     some of the methods introduced here (RSA, Rabin, DH, ElGamal)
     (see learning unit 4.2 and 4.3, pages 9-17/17).\\
@@ -131,7 +131,7 @@
 \section{One way functions with trapdoor and complexity classes}
 \label{OneWayFunktion1}
 %--------------------------------------------------------------------
-\index{Cryptography!modern} \index{One way function}
+\index{cryptography!modern} \index{one-way function}
 A {\bf one way function} is a function that can be calculated 
 efficiently, but whose inverse is extremely complicated and practically 
 impossible to calculate.\par
@@ -149,11 +149,11 @@ obviously difficult if you only have a telephone book available. \par
 
 One way functions play a decisive role in cryptography. Almost all cryptographic 
 terms can be rephrased using the term one way function. Let's take for example 
-public key encryption \index{Encryption!public key}\index{Encryption!asymmetric} 
+public key encryption \index{encryption!public key}\index{encryption!asymmetric} 
 (asymmetric cryptography):\par
 
-Each subscriber $ T $ to the system is assigned a private \index{Key!private} 
-\index{Key!public} key $ d_T $   and what is known as a public key $ e_T $. 
+Each subscriber $ T $ to the system is assigned a private \index{key!private} 
+\index{key!public} key $ d_T $   and what is known as a public key $ e_T $. 
 These keys must have the following property (public key property):\\
 For an opponent who knows the public key $ e_T $, it is practically impossible 
 to determine the private key  $ d_T $.\par
@@ -162,16 +162,16 @@ In order to construct useful public key procedures, therefore, we look for a
 one way function that is ``easy'' to calculate in one direction {}, but 
 is ``difficult'' (practically impossible) to calculate in the other 
 direction, provided that a particular piece of additional information 
-\index{One way function!with trapdoor } (trapdoor) is not available. This 
+\index{one-way function!with trapdoor} (trapdoor) is not available. This 
 additional piece of information allows the inverse to be found efficiently. Such 
 functions are called {\bf trapdoor one way functions}. In the above case, $ d_T 
 $ is the trapdoor information. \par
 
 In this process, we describe a problem as ``easy'' if it can be solved in 
-\index{Runtime!polynomial} \index{Polynomial}polynomial time as a function of the length of the 
+\index{runtime!polynomial} \index{polynomial}polynomial time as a function of the length of the 
 input. If the length of the input is $ n $ bits, then the time for calculating 
 the function is proportional to $ n^{a}, $ where $ a $  is a constant. We say 
-that the \index{Complexity} complexity of such problems is $ O(n^{a}) $
+that the \index{complexity} complexity of such problems is $ O(n^{a}) $
 [Landau- or Big-O notation]. 
 
 If you compare two functions  $ 2^n $  and   $ n^{a} $,  where $ a $  is a
@@ -186,9 +186,9 @@ quickly \
  ($ 2^{24}=16,777,216 $, $ 24^5= 7,962,624 $)].\par 
 
 The term ``practically impossible'' is slightly less precise. In 
-general, we can say that a problem cannot be solved \index{Runtime!efficient} 
+general, we can say that a problem cannot be solved \index{runtime!efficient} 
 efficiently, if the time required to solve it increases more quickly than the 
-polynomial\index{Polynomial} time as a function of the size of the input. If, for example, the 
+polynomial\index{polynomial} time as a function of the size of the input. If, for example, the 
 length of the input is $ n $  bits and the time required for calculating the 
 function is proportional to $ 2^n $, then the following currently applies: the 
 function practically cannot be calculated for $n > 80$.
@@ -206,12 +206,12 @@ The most important complexity classes are the classes \textbf{P} and
 \begin{itemize}
 
     \item The class \textbf{P}: This class contains those problems that can be 
-solved in a polynomial \index{Polynomial} amount of time.
+solved in a polynomial \index{polynomial} amount of time.
     
 		\item The class \textbf{NP}: The definition of this class doesn't look at
 		the time required to solve a problem, but rather at the time required to
 		verify a given solution. The class \textbf{NP} consists of those problems
-		for which a given solution can be verified in a polynomial \index{Polynomial} amount of time.
+		for which a given solution can be verified in a polynomial \index{polynomial} amount of time.
 		Hereby, the term \textbf{NP} ``non-deterministic'' means polynomial and is
 		based on a calculation model, i.e. on a computer that only exists in theory
 		and can ``guess'' correct solutions non-deterministically then verify them
@@ -227,7 +227,7 @@ problems. These are problems that represent the
 class \textbf{NP} as follows: If a ``good'' algorithm for such a 
 problem exists, then ``good'' algorithms exist for all problems from 
 \textbf{NP}. In particular: if \textbf{P} only contained one complete problem, 
-i.e. if a polynomial \index{Polynomial} solution algorithm existed for this problem, then 
+i.e. if a polynomial \index{polynomial} solution algorithm existed for this problem, then 
 \textbf{P}would be equal to \textbf{NP}. In this sense, the \textbf{NP}-complete 
 problems are the most difficult problems in \textbf{NP}.
 
@@ -243,16 +243,16 @@ However, we can prove that one way functions exist if and only if $ \textbf{P}
 Some mathematicians have again and again claimed to have proven this equivalence, 
 but so far the claims have always turned out to be false \cite{mc:Hesselink2001}.
 
-A number of algorithms have been suggested for public key procedures\index{Cryptography!public key}. In many 
+A number of algorithms have been suggested for public key procedures\index{cryptography!public key}. In many 
 cases - although they at first appeared promising - it was discovered that they 
-could be solved polynomially\index{Polynomial}. The most famous failed applicant is the knapsack 
+could be solved polynomially\index{polynomial}. The most famous failed applicant is the knapsack 
 with trapdoor, suggested by Ralph Merkle \cite{mc:Merkle1978}.
 
 %\newpage
 \vskip +20 pt
 %--------------------------------------------------------------------
 \section{Knapsack problem as a basis for public key procedures}%
-\index{Cryptography!public key}
+\index{cryptography!public key}
 %--------------------------------------------------------------------
 
 %--------------------------------------------------------------------
@@ -265,7 +265,7 @@ possible in terms of value while restricted to an upper weight limit $ g $. You
 therefore need to find a subset of $ \{ G_1, \cdots,G_n\}, $ i.e. $ \{G_{i_1}, 
 \dots ,G_{i_k} \}, $ so that $ w_{i_1}+ \cdots +w_{i_k} $ is maximised under the 
 condition $  g_{i_1}+ \cdots +g_{i_k} \leq g. $ \par
-Such questions are called {\bf NP}-complete problems (not \index{Runtime!not polynomial NP} deterministically polynomial\index{Polynomial}) that are difficult to 
+Such questions are called {\bf NP}-complete problems (not \index{runtime!not polynomial NP} deterministically polynomial\index{polynomial}) that are difficult to 
 calculate.\index{Knapsack}
 
 A special case of the knapsack problem is:\\
@@ -275,7 +275,7 @@ find $ x_1, \dots, x_n \in \{ 0,1\} $  where $ g = \sum_{i=1}^{n}x_i a_i $
 {\bf 0-1 knapsack problem} and is identified with $ K(a_1, \dots, a_n;g) $.\\
 
 Two 0-1 knapsack problems  $ K(a_1, \dots, a_n;g) $   and  $ K(a'_1, \dots, 
-a'_n;g') $  are called congruent if two co-prime\index{Number!co-prime}
+a'_n;g') $  are called congruent if two co-prime\index{number!co-prime}
 numbers $ w $ and $ m $ exist in such a way that
 \begin{enumerate}
     \item $ m > \max \{ \sum_{i=1}^n a_i , \sum_{i=1}^n a'_i \}, $
@@ -299,8 +299,8 @@ for $ n=100 $  with $ 2^{100} \approx 1.27 \cdot 10^{30} $  and  $ 2^{n/2}
 However, for special $ a_1, \dots, a_n $   the solution is quite easy to find, 
 e.g. for $ a_i = 2^{i-1}. $  The binary representation of $ g $ immediately 
 delivers $ x_1, \dots, x_n$. In general, the a 0-1 knapsack problem can be 
-solved easily if a \index{Permutation} permutation\footnote{%
-A permutation\index{Permutation} $\pi$ of the numbers $1, \dots, n$ is a change in the order in which these numbers are listed. For example, a permutation $\pi$ of $(1,2,3)$ is $(3,1,2),$ i.e. $\pi(1) = 3$, $\pi(2) =1$ and $\pi(3) = 2$.} 
+solved easily if a \index{permutation} permutation\footnote{%
+A permutation\index{permutation} $\pi$ of the numbers $1, \dots, n$ is a change in the order in which these numbers are listed. For example, a permutation $\pi$ of $(1,2,3)$ is $(3,1,2),$ i.e. $\pi(1) = 3$, $\pi(2) =1$ and $\pi(3) = 2$.} 
 $ \pi $  of $ 1, \dots, n $  exists with $ a_{\pi (j)} > \sum_{i=1}^{j-1} 
 a_{\pi(i)} $. If, in addition, $ \pi $ is the identity, i.e. $ \pi(i)=i $ for $ 
 i=1,2,\dots,n, $ then the sequence $ a_1, \dots , a_n $ is said to be 
@@ -331,7 +331,7 @@ sequence in the time of $ O(n). $
 \index{Hellman, Martin} \index{Merkle, Ralph} 
 
 In 1978, Merkle and Hellman 
-\cite{mc:Merkle1978} \index{Encryption!Merkle-Hellman} specified a public key 
+\cite{mc:Merkle1978} \index{encryption!Merkle-Hellman} specified a public key 
 encryption procedure that is based on ``defamiliarizing'' the easy 0-1 
 knapsack problem with a super-increasing sequence into a congruent one with a 
 super-increasing sequence. It is a block ciphering that ciphers an $n$-bit 
@@ -340,7 +340,7 @@ plaintext each time it runs, see crypto procedure~\ref{merklehellmanproc} for th
 
 \begin{cryptoprocedure}
 Let $ (a_1, \dots, a_n) $ be super-increasing. Let $ m $ and $ w $ be two
-co-prime\index{Number!co-prime}
+co-prime\index{number!co-prime}
 numbers with $ m > \sum_{i=1}^{n} a_i $ and $ 1\leq w \leq m-1. $ Select 
 $\bar{w} $ with $ w \bar{w} \equiv 1 \mod m $ the modular inverse of $ w $ and 
 set $ b_i:= wa_i \mod m, $ $ 0\leq b_i < m $ for $ i=1, \dots ,n, $ and verify 
@@ -368,7 +368,7 @@ super-increasing sequence $ a_1, \dots,a_n $.
 \end{cryptoprocedure}
 
 In 1982, \index{Shamir, Adi} Shamir \cite{mc:Shamir1982} specified an algorithm for 
-breaking the system in polynomial \index{Polynomial} time without solving the general knapsack 
+breaking the system in polynomial \index{polynomial} time without solving the general knapsack 
 problem. Len \index{Adleman, Leonard} Adleman \cite{mc:Adleman1982} and Jeff 
 Lagarias \index{Lagarias, Jeff} \cite{mc:Lagarias1983} specified an algorithm for 
 breaking the twice iterated Merkle-Hellman knapsack encryption procedure in 
@@ -382,7 +382,7 @@ by an eavesdropper.
 
 %--------------------------------------------------------------------
 \section{Decomposition into prime factors as a basis for public key
-procedures}\index{Prime factor!decomposition}
+procedures}\index{prime factor!decomposition}
 
 
 %--------------------------------------------------------------------
@@ -419,14 +419,14 @@ As early as 1978, R. \index{Rivest, Ronald} Rivest, \index{Shamir, Adi}
 A. Shamir, \index{Adleman, Leonard} L. Adleman \cite{mc:RSA1978} introduced 
 the most important asymmetric cryptography procedure to date.  \par
 
-\index{Factorization!factorization problem}
+\index{factorization!factorization problem}
 \index{Euler!(phi) function}
 \begin{cryptoprocedure}
 \textbf{Key generation:} \vskip + 5pt
 
 Let $ p $ and $ q $ be two different prime numbers and $ N = pq$.
 Let $ e $ be any number relative prim to $ \phi (N) $
-\index{Prime number!relative prime}\index{Number!relative prime},
+\index{prime number!relative prime}\index{number!relative prime},
 i.e. $ \ggt (e,\phi (N))=1. $\index{gcd}
 Using the Euclidean algorithm, 
 we calculate the natural number  $ d < \phi (N), $ such that
@@ -451,7 +451,7 @@ binary value $ x^{(j)} \leq N $. \vskip + 5 pt
 \begin{remark}{:}\\
 The Euler phi function is defined as: $ \phi (N)$ is the number of natural 
 numbers that do not have a common factor with $ N $ {} $ x \leq N. $
-Two natural numbers $ a $ and $ b $ are co-prime\index{Number!co-prime} if 
+Two natural numbers $ a $ and $ b $ are co-prime\index{number!co-prime} if 
 $ \ggt (a,b)=1. $ 
 
 For the Euler phi function it holds that: 
@@ -483,7 +483,7 @@ In the case of $ N=pq $,
 \begin{table}[ht]
 \begin{center}
 \begin{tabular}{|l|l|l|}\hline
-$n$ & $\phi (n) $ & The natural numbers that are co-prime\index{Number!co-prime}
+$n$ & $\phi (n) $ & The natural numbers that are co-prime\index{number!co-prime}
 to $ n $ and less than $ n. $ \\ \hline
 1 & 1 & 1  \\
 2 & 1 & 1 \\
@@ -554,7 +554,7 @@ The Rabin\index{Rabin, Michael O.} public key procedure\index{Rabin!public key
 procedure} (crypto procedure~\ref{rabinproc}) has been shown to be equivalent to
 breaking the factorization problem. 
 Unfortunately, this procedure is susceptible to chosen-ciphertext attacks.
-\index{Attack!chosen-ciphertext}
+\index{attack!chosen-ciphertext}
 \begin{cryptoprocedure}
 Let $ p $ and $ q $ be two different prime numbers with $ p,q\equiv 3 \mod 4 $ 
 and $ n = pq.$ Let $ 0\leq B \leq n-1.$ \\
@@ -591,7 +591,7 @@ Backdoor information is the decomposition into prime numbers of $ n = pq. $
            {The discrete logarithm as basis for public key procedures\footnotemark}
 \footnotetext{%
     \index{NT, Learning Tool for Number Theory}%
-    \index{Educational tool NT}%
+    \index{educational tool NT}%
     With the educational tool for number theory {\bf NT} you can play with the
     distribution of the discrete logarithm values and apply Shank's
     baby-step-giant-step method:
@@ -602,7 +602,7 @@ Backdoor information is the decomposition into prime numbers of $ n = pq. $
     See appendix \ref{s:appendix-Learn-NT}.
 }
 \label{L-Discrete-Logarithm-as-Basis}
-\index{Discrete logarithm}\index{Logarithm problem!discrete}
+\index{discrete logarithm}\index{logarithm problem!discrete}
 Discrete logarithms form the basis for a large
 number of algorithms for public-key procedures.
 
@@ -616,7 +616,7 @@ the discrete exponential function base $ g $  is defined as
 The inverse function is called a discrete logarithm function $ \log_g $; the 
 following holds:
 \[ \log_g (g^k) =k. \]
-\index{Exponential function!discrete} The problem of the discrete logarithm (in 
+\index{exponential function!discrete} The problem of the discrete logarithm (in 
 $ \Z_p^\ast$) is understood to be as follows:
 \[ {\rm Given~ } p,g {\rm ~and~ } y, {\rm~determine~} k {\rm ~such~that~ } 
 y=g^k \mod p {\rm .}\]
@@ -638,10 +638,10 @@ Index-Calculus &             $ O(e^{(1+o(1)) \sqrt{\ln (p) \ln (\ln (p))}}) $ \\
 \caption{Procedures for calculating the discrete logarithm over $\Z_p^\ast$}
 \label{dlogprocs}
 \index{Silver} \index{Pohlig, S. C.} \index{Hellman, Martin}
-\index{Baby-step-giant-step}
+\index{baby-step-giant-step}
 \end{table}
 
-The current record\index{Logarithm problem!record} (as of April 2007) for calculating discrete logarithms was
+The current record\index{logarithm problem!record} (as of April 2007) for calculating discrete logarithms was
 established in February 2007 by the group Kleinjung, Franke and Bahr at
 University of Bonn.\footnote{%
    \url{http://www.nabble.com/Discrete-logarithms-in-GF(p)-----160-digits-t3175622.html}}
@@ -671,8 +671,8 @@ k & = & \log_g(y)\mod p\\
 &   & 537679319636711561053526082423513665596
 \end{array}
 $$
-The search was performed with GNFS method (General Number Field Sieve,
-Index-Calculus) \index{General Number Field Sieve (GNFS)} and took about
+The search was performed with GNFS method (general number field sieve,
+Index-Calculus) \index{general number field sieve (GNFS)} and took about
 17 CPU years on 3.2 GHz Xeon machines.
  
 %--------------------------------------------------------------------
@@ -688,7 +688,7 @@ Index-Calculus) \index{General Number Field Sieve (GNFS)} and took about
   Exchange (EC)}.
 }
 
-\index{Key agreement (key exchange)!Diffie-Hellman} 
+\index{key agreement (key exchange)!Diffie-Hellman} 
 \index{Diffie, Whitfield}
 \index{Hellman, Martin}
 \index{Diffie-Hellman}
@@ -723,13 +723,13 @@ Thus
 \end{cryptoprocedure}
 
 The safety of the {\bf Diffie-Hellman protocol} is closely connected to 
-calculating the discrete logarithm mod $p$\index{Logarithm}. It is even thought that these 
+calculating the discrete logarithm mod $p$\index{logarithm}. It is even thought that these 
 problems are equivalent.
 
 %--------------------------------------------------------------------
 \subsection{ElGamal public key encryption procedure in \texorpdfstring{$ \Z_p^\ast$}{Zp*}}
 \index{ElGamal!public key}
-\index{Encryption!ElGamal public key}
+\index{encryption!ElGamal public key}
 
 By varying the Diffie-Hellman key agreement protocol\index{Diffie-Hellman} 
 slightly, you can obtain an asymmetric encryption algorithm, crypto
@@ -761,10 +761,10 @@ and
 %--------------------------------------------------------------------
 \subsection{Generalised ElGamal public key encryption procedure}
 
-The discrete logarithm can be generalised in any number of finite \index{Group} 
+The discrete logarithm can be generalised in any number of finite \index{group} 
 groups $ (G, \circ) $. The following provides several properties of $ G, $ that 
 make the discrete logarithm problem difficult. \\
-\index{Exponential function!calculation}
+\index{exponential function!calculation}
 \paragraph*{Calculating the discrete exponential function}
 Let $ G $ be a group with the operation $ \circ $ and $ g \in G. $ The 
 (discrete) exponential function  base $ g $ is defined as
@@ -792,7 +792,7 @@ $ g $. The claim is thus proved by induction to $ n. $
 \end{proof}
 
 \vskip +10 pt
-\noindent {\bf Problem of the discrete logarithm}\index{Logarithm problem!discrete}
+\noindent {\bf Problem of the discrete logarithm}\index{logarithm problem!discrete}
 \vskip +10 pt
 \begin{center}
 \fbox{\parbox{12cm}{        
@@ -807,7 +807,7 @@ We define $ a $ as $ \log_\alpha (\beta). $
 \paragraph*{Calculating the discrete logarithm }
 A simple procedure for calculating the discrete logarithm of a group element, 
 that is considerably more efficient than simply trying all possible values for $ 
-k, $ is the \index{Baby-step-giant-step} baby-step-giant-step algorithm.
+k, $ is the \index{baby-step-giant-step} baby-step-giant-step algorithm.
 \begin{theorem}\label{thm-cry-bsgs}[baby-step-giant-step algorithm]
 Let $ G $ be a group and $ g \in G. $ Let $ n $ be the smallest natural number 
 with $ |G|\leq n^2. $ Then the discrete logarithm of an element $ h 
@@ -845,7 +845,7 @@ solving logarithm problems in groups of the order $ p_1, \ldots , p_s $.
 \end{theorem}
 
 \noindent If $ |G| $ contains a ``dominant'' prime factor $ p ,$ then the 
-complexity \index{Complexity} of the logarithm problem is approximately
+complexity \index{complexity} of the logarithm problem is approximately
 \[ O(\sqrt{p}). \]
 
 \noindent Therefore, if the logarithm problem is to be made difficult, the order of the 

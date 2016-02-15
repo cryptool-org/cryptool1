@@ -7,7 +7,7 @@
 \hypertarget{ellcurve}{}
 \chapter{Elliptische Kurven}
 \label{Chapter_EllipticCurves}
-\index{Elliptische Kurven}
+\index{elliptische Kurve}
 (Filipovics B. / Büger M. / Esslinger B. / Oyono R., April 2000,
  Updates: Dez. 2001, Juni 2002, März 2003, Nov. 2009, Aug. 2013)
 
@@ -203,7 +203,7 @@ wird.
 \section{Elliptische Kurven -- Mathematische Grundlagen}
 
 In diesem Abschnitt erhalten Sie Informationen über
-\index{Gruppen} {\em Gruppen} und \index{Körper} {\em Körper}.
+\index{Gruppe} {\em Gruppen} und \index{Körper}\index{field} {\em Körper}.
 
 
 % -----------------------------------------------------------------------------
@@ -235,7 +235,7 @@ ${\mathbb Z}$ ist $0$. Das Inverse Element von $3$ ist $-3$, denn $3+(-3) = 0$.
 Für unsere Zwecke besonders interessant sind sogenannte {\em endliche} Gruppen, bei denen die zugrundelegte Menge $G$ nur aus einer endlichen Anzahl von
 Elementen besteht. Beispiele sind die Gruppen ${\mathbb Z}_n = \{0, 1, 2, 3, \cdots, n-1\}, n$ der Teilerreste bei der Division durch $n$ mit der Addition als Verknüpfung.
 
-\paragraph*{Zyklische Gruppen}\index{Gruppen!zyklische}
+\paragraph*{Zyklische Gruppen}\index{Gruppe!zyklische}
 Als {\it zyklische Gruppen}\footnote{Zyklische Gruppen können grundsätzlich auch unendlich sein wie z.B. die additive Gruppe der ganzen Zahlen. Wir betrachten hier jedoch nur endliche zyklische Gruppen.} bezeichnet man solche Gruppen $G'$, die ein Element $g$ besitzen, aus dem man
 mittels der Gruppen-Verknüpfung alle anderen Elemente der Gruppe erzeugen kann. Es gibt also für jedes
 Element $a$ aus $G'$ eine positive, ganze Zahl $i$, so dass die $i$-fache Verknüpfung von $g$ mit sich
@@ -243,7 +243,7 @@ selbst $g^i = g\cdot g \cdots g = a$. Das Element $g$ ist ein {\em Generator} de
 in $G'$ lässt sich mittels $g$ und der Verknüpfung erzeugen.
 
 
-\paragraph*{Ordnung von Elementen einer Gruppe}\index{Gruppen!Ordnung}
+\paragraph*{Ordnung von Elementen einer Gruppe}\index{Gruppe!Ordnung}
 Nun zur Ordnung eines Elements der Gruppe: Sei $a$ aus $G$. Die kleinste positive ganze Zahl $r$ für
 die gilt, dass $a^r$, also $r$ mal $a$ mit sich selbst verknüpft, das neutrale Element der Gruppe $G'$ ist
 (d.h. $a^r = e$), nennt man {\em Ordnung} von $a$.
@@ -716,7 +716,7 @@ Das ECC-Notebook von Maike Massierer benötigt die KASH3-Bibliothek: Deshalb muss
 das Package \glqq kash3-2008-07-31.spkg\grqq~installiert worden sein (Befehl \verb#sage -i#).
 }.
 
-Das ECC-Notebook\index{Elliptische Kurven!ECC-Notebook}\index{Massierer, Maike} von
+Das ECC-Notebook\index{elliptische Kurve!ECC-Notebook}\index{Massierer, Maike} von
 Massierer\footnote{%
 Anleitung zur Benutzung eines interaktiven SageMath-Notebooks\index{SageMath!Anleitung interaktives Notebook}:\\
 

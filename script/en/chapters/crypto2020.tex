@@ -7,7 +7,7 @@
 \newpage
 \hypertarget{Chapter_Crypto2020}{}
 \chapter{Crypto 2020 --- Perspectives for Long-Term Cryptographic
-         Security}\index{Security!long-term}
+         Security}\index{security!long-term}
 \label{Chapter_Crypto2020}
 \begin{sloppypar}
 (Johannes Buchmann, Erik Dahmen, Alexander May and Ulrich Vollmer, TU Darmstadt, May~2007)\\
@@ -75,7 +75,7 @@ security of the RSA algorithm}, and especially chapters
 
 In 2000, Lenstra and Verheul\index{Lenstra/Verheul}
 developed an extrapolation formula that is supposed
-to help us forecast the security\index{Security!forecast}
+to help us forecast the security\index{security!forecast}
 one can achieve with RSA and other important
 cryptographic schemes in the long
 term (\url{www.keylength.com}).  The formula
@@ -94,7 +94,7 @@ types of computations --- can in principle be used
 for the fast factorization of large numbers \cite{shor:1997}.
 Despite intensive research in the area, it is
 still too early to judge whether we are ever going
-to be able to build quantum computers\index{Quantum computer} of
+to be able to build quantum computers\index{quantum computer} of
 sufficient capacity to apply Shor's algorithm to
 numbers of relevant size.\footnote{%
 Required qbits for attacks on RSA, DSA and ECDSA using key with a bit length n: \\
@@ -192,7 +192,7 @@ cryptographic schemes can be easily exchanged.
 The open source library FlexiProvider\index{FlexiProvider} implements a
 multitude of cryptographic schemes.  Lately, we
 have intensified our research into ``Post Quantum
-Cryptography''\index{Cryptography!Post Quantum} seeking
+Cryptography''\index{cryptography!post quantum}\index{post-quantum computing}\index{PQC} seeking
 cryptographic schemes which
 remain secure even in the event that powerful
 quantum computers are built.
@@ -206,7 +206,7 @@ decoding problem, the shortest and closest vector
 problem in lattices, and the problem of solving
 large systems of multivariate quadratic
 equations.  It is conjectured that quantum
-computers\index{Quantum computer} offer little advantage if we try to
+computers\index{quantum computer} offer little advantage if we try to
 solve these problems efficiently.
 
 
@@ -216,7 +216,7 @@ solve these problems efficiently.
 Let us look at these alternatives a little more
 closely.  The first encryption scheme based on the
 decoding problem was proposed by
-McEliece~\cite{mceliece:1978}\index{Encryption!McEliece}.  The background:
+McEliece~\cite{mceliece:1978}\index{encryption!McEliece}.  The background:
 Error-correcting codes are used to transmit or
 store electronic data in such a way that they
 remain undistorted even if a small number of bits
@@ -225,7 +225,7 @@ This property is used in, e.g., compact discs
 (CDs).  The data on a CD can be reconstructed even
 if the disc has been slightly scratched.
 
-In a code-based encryption\index{Encryption!code-based} scheme a message is
+In a code-based encryption\index{encryption!code-based} scheme a message is
 encrypted by adding a fixed number of errors to
 (i.e. flipping a fixed numbers of bits of) the
 encoded message.  Decoding requires knowledge of a
@@ -236,7 +236,7 @@ efficient.  At the moment, research focus on the
 question which codes lead to secure encryption
 schemes with keys which are as small as possible.
 
-Encryption on the basis of lattice problems\index{Encryption!lattice problems}
+Encryption on the basis of lattice problems\index{encryption!lattice problems}
 is very similar to that on the basis of
 error-correcting codes.  Lattices are regular
 structures of points in space.  For instance, the
@@ -252,7 +252,7 @@ able to find this lattice point in the vicinity of
 the given point in space.  The lattice point in
 turn yields the plain text.  A particularly
 efficient lattice based encryption scheme is NTRU
-Encrypt (\url{www.ntru.com})\index{Encryption!lattice problems!NTR}.
+Encrypt (\url{www.ntru.com})\index{encryption!lattice problems!NTR}.
 However, because
 NTRU was introduced fairly recently (in 1998), and
 its specification underwent several changes due to
@@ -265,7 +265,7 @@ is required to achieve confidence in its security.
 In 1979, Ralph Merkle proposed a remarkable
 framework for new signature schemes in his PhD
 thesis~\cite{merkle-thesis:1979}.
-Contrary to all other signature schemes\index{Signature!Merkle}, its
+Contrary to all other signature schemes\index{signature!Merkle}, its
 security does not rest on the difficulty of a
 number-theoretic, algebraic or geometric problem.
 The only thing it requires is something which
@@ -295,7 +295,7 @@ single key pair.
 
 %\subsection{Quantum cryptography -- a loophole?}
 \section{Quantum cryptography -- a way out of the impasse?}
-\label{sec:quantum cryptography}\index{Quantum cryptography}
+\label{sec:quantum cryptography}\index{quantum cryptography}
 
 From the point of view of today's state of the art
 of cryptography, the problem of long-term
@@ -333,7 +333,7 @@ schemes.  This portfolio needs to contain schemes
 which are suitable for the world of ubiquitous
 computing with many less powerful computers.  It
 also needs to contain schemes which remain secure
-in the event that powerful quantum computers\index{Quantum computer} are
+in the event that powerful quantum computers\index{quantum computer} are
 built.  Several promising candidates have been
 discussed in this article.  They need to be
 studied carefully and prepared for use in everyday

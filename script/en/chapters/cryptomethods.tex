@@ -18,7 +18,7 @@
 
 This chapter introduces the topic in a more descriptive way without using too much mathematics.
 
-The purpose of encryption \index{Encryption} is to change data in such a way
+The purpose of encryption \index{encryption} is to change data in such a way
 that only an authorized recipient is able to reconstruct the plaintext. This
 allows us to transmit data without worrying about it getting into unauthorized
 hands. Authorized recipients possess a piece of secret information -- called the
@@ -44,7 +44,7 @@ First we present the ideas how the security of cryptosystems is defined.
 \hypertarget{cm_Section_Security_Definitions}{}
 \section[Security definitions]{Security definitions}
 \label{cm_Section_Security_Definitions}
-\index{Security definitions}
+\index{security definitions}
 
 \begin{ctsquote}
 \caption{Saying from India}
@@ -86,7 +86,7 @@ meaningful data from a ciphertext.
 
 There exist information-theoretically secure schemes that provably cannot be
 broken even with unlimited computing power -- an example is the
-{\em One Time Pad}\index{One Time Pad} (OTP\index{OTP}).
+{\em one-time pad}\index{one-time pad} (OTP\index{OTP}).
 
 As the OTP is information-theoretically secure it derives its security
 solely from information theory and is secure even with unlimited computing
@@ -179,7 +179,7 @@ the different encryption algorithms.
   }
 
 \nopagebreak
-For {\em symmetric} encryption \index{Encryption!symmetric} sender and
+For {\em symmetric} encryption \index{encryption!symmetric} sender and
 recipient must be in possession of a common (secret) key which they have
 exchanged before actually starting to communicate. The sender uses this
 key to encrypt the message and the recipient uses it to decrypt it.
@@ -216,7 +216,7 @@ National Security Agency \index{NSA} (NSA), and was published as a standard in
 1975. Despite the fact that the procedure is relatively old, no effective attack
 on it has yet been detected. The most effective way of attacking consists of
 testing (almost) all possible keys until the right one is found ({\em brute-force-attack}).
-\index{Attack!brute-force} Due to the relatively short key length of
+\index{attack!brute-force} Due to the relatively short key length of
 effectively 56 bits (64 bits, which however include 8 parity bits), numerous
 messages encrypted using DES have in the past been broken. Therefore, the
 procedure can not be considered secure any longer. Alternatives to the DES
@@ -245,7 +245,7 @@ CrypTool\index{CrypTool}.%
 % --------------------------------------------------------------------------
 \subsection{Results about cryptanalysis of AES}
 \label{NeueAES-Analyse}
-\index{Cryptanalysis}
+\index{cryptanalysis}
 \index{AES}
 
 Below you will find some results, which have recently called into question the security of the AES algorithm -- from our point of view these doubts practically still remain unfounded
@@ -254,7 +254,7 @@ Below you will find some results, which have recently called into question the s
 The following information is based particularly on the original papers and the
 articles \cite{cm:Wobst-iX2002} and \cite{cm:Lucks-DuD2002}.
 
-AES with a minimum key length of 128 bit is still in the long run sufficiently secure against brute-force attacks\index{Attack!brute-force} -- as long as the quantum computers aren't powerful enough. When announced as new standard AES was immune against all known cryptanalytic attacks, mostly based on statistical considerations and earlier applied to DES: using pairs of clear and cipher texts expressions are constructed, which are not completely at random, so they allow conclusions to the used keys. These attacks required unrealistically large amounts of intercepted data.
+AES with a minimum key length of 128 bit is still in the long run sufficiently secure against brute-force attacks\index{attack!brute-force} -- as long as the quantum computers aren't powerful enough. When announced as new standard AES was immune against all known cryptanalytic attacks, mostly based on statistical considerations and earlier applied to DES: using pairs of clear and cipher texts expressions are constructed, which are not completely at random, so they allow conclusions to the used keys. These attacks required unrealistically large amounts of intercepted data.
 
 Cryptanalysts already label methods as ``academic success'' or as ``cryptanalytic attack'' if they are theoretically faster than the complete testing of all keys (brute force analysis). In the case of AES with the maximal key length (256 bit) exhaustive key search on average needs $2^{255}$ encryption operations. A cryptanalytic attack needs to be better than this. At present between $2^{75}$ and $2^{90}$ encryption operations are estimated to be performable only just for organizations, for example a security agency.
 
@@ -289,13 +289,13 @@ not known, which conditions are sufficient.  There are two very new aspects of
 this attack: firstly this attack is not based on statistics but on algebra. So
 attacks seem to be possible, where only very small amounts of ciphertext are
 available. Secondly the security of a product algorithm%
-\index{Product algorithm}\index{Encryption!product algorithm}%
-\index{Cascade cipher}\index{Encryption!cascade cipher}%
+\index{product algorithm}\index{encryption!product algorithm}%
+\index{cascade cipher}\index{encryption!cascade cipher}%
 \footnote{%
 A ciphertext can be used as input for another encryption algorithm. 
 A cascade cipher%
-\index{Product algorithm}\index{Encryption!product algorithm}%
-\index{Cascade cipher}\index{Encryption!cascade cipher}%
+\index{product algorithm}\index{encryption!product algorithm}%
+\index{cascade cipher}\index{encryption!cascade cipher}%
 is build up as a composition of different encryption transformations.
 The overall cipher is called product algorithm or cascade cipher
 (sometimes depending whether the used keys are statistically dependent or not).\\
@@ -314,7 +314,7 @@ Currently there is a large amount of research in this area: for example Murphy a
 More details can be found in the Web links section at
 \hyperlink{CM_HT_Weblink_Rijndael-Cryptosystem}{``AES or Rijndael cryptosystem''}.
 
-So for AES-256 the attack is much more effective than brute-force\index{Attack!brute-force} but still far more away from any computing power which could be accessible in the short-to-long term. 
+So for AES-256 the attack is much more effective than brute-force\index{attack!brute-force} but still far more away from any computing power which could be accessible in the short-to-long term. 
 
 The discussion is very controversial at the moment: Don Coppersmith (one of the
 inventors of DES) for example queries the practicability of the attack because
@@ -337,7 +337,7 @@ the authors do not provide an attack.
 
 % --------------------------------------------------------------------------
 \subsection{Algebraic or algorithmic cryptanalysis on symmetric algorithms}
-\index{Attack!algebraic}
+\index{attack!algebraic}
 \index{SAT solver}
 \label{Algebraic-gegen-Symmetr}
 
@@ -374,7 +374,7 @@ The general approach to use SAT solvers in cryptanalysis is very straightforward
 
 % --------------------------------------------------------------------------
 \subsection{Current status of brute-force attacks on symmetric algorithms}
-\index{Attack!brute-force}
+\index{attack!brute-force}
 \index{RC5}
 \label{Brute-force-gegen-Symmetr}
 
@@ -404,7 +404,7 @@ A key length of 64 bit means at most $2^{64}$ = 18,446,744,073,709,551,616 or ab
 Companies like RSA Security provided so-called cipher challenges in order
 to quantify the security offered by well-known symmetric ciphers as DES,
 Triple-DES or RC5%
-\index{DES}\index{RC5}\index{Triple-DES}.%
+\index{DES}\index{RC5}\index{triple-DES}.%
 \footnote{%
  \url{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}\\
  Unfortunately, in May 2007 RSA Inc announced that they will not confirm the
@@ -446,9 +446,9 @@ There are also cipher challenges\footnote{%
   are included in the ``MysteryTwister C3''~challenge:
   \url{http://www.mysterytwisterc3.org}.
   \index{MTC3}
-  \index{Challenge}
-  \index{Cipher challenge}
-  \index{Crypto challenge}
+  \index{challenge}
+  \index{cipher challenge}
+  \index{crypto challenge}
   }  for asymmetric algorithms (please see chapter \ref{nt:NoteFactorization}).
 
 
@@ -468,9 +468,9 @@ There are also cipher challenges\footnote{%
     Algorithm Perspective.
   }
 \nopagebreak
-In the case of {\em asymmetric} encryption \index{Encryption!asymmetric} each
+In the case of {\em asymmetric} encryption \index{encryption!asymmetric} each
 subscriber has a personal pair of keys consisting of a {\em secret}
-\index{Key!secret} key and a {\em public} key\index{Key!public}. The public
+\index{key!secret} key and a {\em public} key\index{key!public}. The public
 key, as its name implies, is made public -- e.g. in a key directory on the
 Internet (this kind of ``bill-board'' is also called just directory or
 public key ring) or within a so-called public-key \index{certificate}
@@ -505,12 +505,12 @@ cannot be used to derive the private key.\par \vskip + 3pt
 % Abbildung evtl. besser hier, wenn Seitenaufteilung ausginge.
 
 Such a procedure can be demonstrated using a series of thief-proof letter boxes.
-If I have composed a message, I then look for the letter box\index{Letter box}
+If I have composed a message, I then look for the letter box\index{letter box}
 of the recipient and post the letter through it. After that, I can no longer
 read or change the message myself, because only the legitimate recipient has
 the key for the letter box.\par \vskip + 3pt
 
-The advantage of asymmetric procedures is the easier \index{Key management}
+The advantage of asymmetric procedures is the easier \index{key management}
 key management. Let's look again at a network with $n$
 subscribers. In order to ensure that each subscriber can establish
 an encrypted connection to each other subscriber, each subscriber
@@ -525,7 +525,7 @@ Besides the requirements for the key generation it has to be considered that
 nowadays also (public-key) infrastructures itself are targets of cyber attacks.
 }
 have to pay attention to the accuracy
-(integrity and authenticity) \index{Authenticity} of the public
+(integrity and authenticity) \index{authenticity} of the public
 key. Disadvantage: Pure asymmetric procedures take a lot longer to
 perform than symmetric ones.\par \vskip + 3pt
 
@@ -548,7 +548,7 @@ was published in 1978. The concept of asymmetric encryption was first
 introduced by Whitfield Diffie \index{Diffie, Whitfield}  and Martin
 \index{Hellman, Martin} Hellman in 1976. Today, the ElGamal \index{ElGamal,
 Tahir} procedures also play a decisive role, particularly the \index{Schnorr,
-C.P.} Schnorr variant in the \index{DSA} DSA \index{Signature!digital}
+C.P.} Schnorr variant in the \index{DSA} DSA \index{signature!digital}
 (Digital Signature Algorithm).
 
 
@@ -567,14 +567,14 @@ C.P.} Schnorr variant in the \index{DSA} DSA \index{Signature!digital}
    the Algorithm  Perspective under {\bf Algorithms \textbackslash{} Hybrid Ciphers}.
 }
 \label{CM_Hybrid-procedures}
-\index{Hybrid procedure}
+\index{hybrid procedure}
 
 In order to benefit from the advantages of symmetric and asymmetric
-techniques together, hybrid procedures \index{Encryption!hybrid} are
+techniques together, hybrid procedures \index{encryption!hybrid} are
 usually used (for encryption) in practice. \par \vskip + 3pt
 
 In this case the bulk data is encrypted using symmetric procedures: The key
-used for this is a secret session key\index{Session key} generated by the
+used for this is a secret session key\index{session key} generated by the
 sender randomly\footnote{%
    An important part of cryptographically secure techniques is to generate 
    random numbers. Within CT1\index{CrypTool 1} you can check out
@@ -588,7 +588,7 @@ sender randomly\footnote{%
    JCT\index{JCrypTool} offers {\bf pseudo} random number generators both
    within the Default Perspective in the menu {\bf Algorithms \textbackslash{}
    Random Number Generator} as well as within the Algorithm Perspective.
-}\index{Random}
+}\index{random}
 that is only used for this message.
 
 This session key is then encrypted using the asymmetric procedure, and
@@ -597,7 +597,7 @@ transmitted to the recipient together with the message.
 Recipients can determine the session key using their private keys and
 then use the session key to encrypt the message.
 
-In this way, we can benefit from the easy key management\index{Key management}
+In this way, we can benefit from the easy key management\index{key management}
 of asymmetric procedures (using public/private keys) and we benefit from the
 efficiency of symmetric procedures to encrypt large quantities of data
 (using secret keys).
@@ -624,9 +624,9 @@ Very high-level and concentrating on analysing symmetric block ciphers only is t
 article from von Bruce Schneier \cite{cm:Schneier2000cm}.\\
 Several of the cipher challenges at ``MysteryTwister C3''
 (\url{http://www.mysterytwisterc3.org}) are also well suitable for educational purposes.
-\index{MTC3}\index{Challenge}\index{Cipher challenge}\index{Crypto challenge}
+\index{MTC3}\index{challenge}\index{cipher challenge}\index{crypto challenge}
 }
-\index{Cryptanalysis}
+\index{cryptanalysis}
 
 Compared to public-key ciphers based on mathematics like RSA, the structure of AES\index{AES} and most other modern symmetric ciphers (like DES, IDEA or Present), is very complex and cannot be explained as easily as RSA\index{RSA}.
 
@@ -694,7 +694,7 @@ symmetric and asymmetric encryption methods.
 \hypertarget{CM_Appendix_SageCode}{}
 \section{Appendix: Examples using SageMath}
 \label{CM_Sage_samples}
-\index{SageMath!Code examples}
+\index{SageMath!code examples}
 
 \noindent Below is SageMath source code related to contents of the
 chapter~\ref{Label_Kapitel_1} (``\nameref{Label_Kapitel_1}''). 
@@ -705,7 +705,7 @@ found e.g. in the thesis of Minh Van Nguyen \cite{cm:Nguyen2009}.
 % ---------------------------------------------------------------------------
 \subsection{Mini-AES}
 \label{CM_Sage_Mini-AES}
-\index{AES!Mini-AES}
+\index{AES!mini-AES}
 
 The SageMath module \texttt{crypto/block\_cipher/miniaes.py} supports Mini-AES to allow
 students to explore the inner working of a modern block cipher.

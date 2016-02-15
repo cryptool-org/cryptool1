@@ -8,7 +8,7 @@
 \hypertarget{Chapter_Hashes-and-Digital-Signatures}{}
 \chapter{Hash Functions and Digital Signatures}
 \label{Chapter_Hashes-and-Digital-Signatures}
-\index{Signature!digital}
+\index{signature!digital}
 (Schneider J. / Esslinger B. / Koy H., June 2002;
 Updates: Feb. 2003, June 2005, July 2009, Nov. 2012)
 % --------------------------------------------------------------------------
@@ -30,10 +30,10 @@ artificial intelligence.}
 %\vspace{12pt}
 \noindent The aim of digital signatures is to guarantee the following two points:
 \begin{itemize}
- \item User authenticity: \index{Authenticity!user} \\
+ \item User authenticity: \index{authenticity!user} \\
       It can be checked whether a message really does
 come from a particular person.
- \item Message integrity:  \index{Message integrity} \\
+ \item Message integrity:  \index{message integrity} \\
       It can be checked whether the message has been
 changed (on route).
 \end{itemize}
@@ -46,7 +46,7 @@ the sender's public key to verify whether the signature is correct. As before,
 it must be impossible to use the public key to derive the secret key.
 
 
-In detail, a \index{Signature procedure} {\em Signature procedure}\footnote{%
+In detail, a \index{signature procedure} {\em Signature procedure}\footnote{%
 With CT1\index{CrypTool 1} you can also generate and check 
 digital signatures: Using\\
 the submenus of the main menu {\bf Digital Signatures / PKI}  or using\\
@@ -70,9 +70,9 @@ can then use the sender's public key, the document and the signature to
 establish whether or not the signature is correct. The procedure we just described
 has in practice, however, a decisive disadvantage. The signature would be
 approximately as long as the document itself. To prevent an unnecessary increase
-in data traffic, and also for reasons of performance\index{Performance}, we apply
+in data traffic, and also for reasons of performance\index{performance}, we apply
 a cryptographic hash function\footnote{%
-Hash functions\index{Hash function} are implemented within 
+Hash functions\index{hash function} are implemented within 
 CT1\index{CrypTool 1} at several places.\\
 Using menus {\bf Individual Procedures \textbackslash{} Hash} and
             {\bf Analysis \textbackslash{} Hash}
@@ -87,7 +87,7 @@ you have the possibilities
       standard\index{PKCS\#5}, \\
 \item to calculate HMACs from a text and a secret key, and\\
 \item to perform a simulation, how digital signatures could be attacked 
-      by a targeted search for hash value collisions\index{Collision}.
+      by a targeted search for hash value collisions\index{collision}.
 \end{list}
 CT2\index{CrypTool 2} and JCT\index{JCrypTool} also contain different hash
 methods: See the functions' lists within the appendix
@@ -101,7 +101,7 @@ then be signed.
 % --------------------------------------------------------------------------
 \hypertarget{Hash-functions-ht}{}
 \section{Hash functions}
-\index{Hash function}
+\index{hash function}
 A {\em hash function}\footnote{%
 Hash algorithms compute a condensed representation of electronic data
 (message).
@@ -114,7 +114,7 @@ keyed-hash message authentication codes, or in the generation of random
 numbers (bits).
 }
 maps a message of any length to a string of characters with a constant size,
-the \index{Hash value} hash value. 
+the \index{hash value} hash value. 
 
 
 
@@ -126,19 +126,19 @@ Cryptographically secure hash functions fulfill the following three requirements
 (the order is in a way that the requirements increase):
 \begin{itemize}
  \item Resistance against 1st pre-image attacks:
-      \index{Pre-image attack!1st} \index{Attack!pre-image!1st}   \\
+      \index{pre-image attack!1st} \index{attack!pre-image!1st}   \\
       It should be practically impossible, for a given number, to find a
       message that has precisely this number as hash value. \\
       Given (fix): hash value H', \\
       Searched: message m, so that: H(m) = H'.
  \item Resistance against 2nd pre-image attacks:
-      \index{Pre-image attack!2nd} \index{Attack!pre-image!2nd}   \\
+      \index{pre-image attack!2nd} \index{attack!pre-image!2nd}   \\
       It should be practically impossible, for a given message, to find another
       message, which has precisely the same hash value. \\
       Given (fix): message m1 [and so the hash value H1 = H(m1)], \\
       Searched: message m2, so that: H(m2) = H1.
  \item Collision resistance:
-      \index{Collision resistance}  \\
+      \index{collision resistance}  \\
       It should be practically impossible to find any two messages with the
       same hash value (it doesn't matter what hash value). \\
       Searched: 2 messages m1 and m2, so that: H(m1) = H(m2).
@@ -168,14 +168,14 @@ in their structure in practice
   test suite FIPS 140-2.
 
   The output length of the SHA algorithms was enhanced because of the
-  possibility of birthday attacks\index{Attack!birthday}\index{Collision}:
+  possibility of birthday attacks\index{attack!birthday}\index{collision}:
   these make n-bit AES and a 2n-bit hash roughly equivalent: \\
   - 128-bit AES -- SHA-256 \\
   - 192-bit AES -- SHA-384 \\
   - 256-bit AES -- SHA-512.
 
   With CT1\index{CrypTool 1} you can comprehend the birthday attack
-  \index{Attack!birthday} on digital signatures: \\
+  \index{attack!birthday} on digital signatures: \\
   using the menu {\bf Analysis \textbackslash{} Hash \textbackslash{} 
   Attack on the Hash Value of the Digital Signature}.\\
   CT2\index{CrypTool 2} contains an MD5 collider.
@@ -290,7 +290,7 @@ is called Public Key Certification.
 % --------------------------------------------------------------------------
 \vskip + 15pt
 \section{RSA signatures}
-\index{Signature!digital}
+\index{signature!digital}
 \index{RSA!signature}
 
 \def\Mod#1{\ (\mbox{mod }#1)}
@@ -324,7 +324,7 @@ to get the details of cryptography right.
 % --------------------------------------------------------------------------
 \vskip + 15pt
 \section{DSA signatures}
-\index{Signature!digital}
+\index{signature!digital}
 \index{DSA!signature}
 
 In August of 1991, the U.S. National Institute of Standards and Technology
@@ -333,7 +333,7 @@ subsequently adopted as a U.S. Federal Information Processing Standard (FIPS 186
 \cite{ds:FIPS186}). 
 
 The algorithm is a variant of the ElGamal scheme. Its security is based on
-the Discrete Logarithm Problem\index{Logarithm problem!discrete}. The DSA public and private key and its
+the Discrete Logarithm Problem\index{logarithm problem!discrete}. The DSA public and private key and its
 procedures for signature and verification are summarised in crypto procedure~\ref{dsasigproc}.
 
 \begin{cryptoprocedure}
@@ -356,7 +356,7 @@ $x < q$ (a 160-bit number)
 \paragraph*{Signing}\strut\\
 \begin{tabular}{l@{ }l}
 $m$ & the message to be signed\\
-$k$ & choose at random\index{Random}, less than $q$\\
+$k$ & choose at random\index{random}, less than $q$\\
 $r$ & $= (g^k \; \mbox{ mod } p) \mbox{ mod } q$\\
 $s$ & $= (k^{-1}(\mbox{SHA-1}(m) + xr)) \mbox{ mod } q$
 \end{tabular}
@@ -365,7 +365,7 @@ $s$ & $= (k^{-1}(\mbox{SHA-1}(m) + xr)) \mbox{ mod } q$
 \begin{itemize}
 \item $(s,r)$ is the signature.
 \item The security of the signature depends not only on the mathematical
-  properties, but also on using a good random source\index{Random}  for $k$.
+  properties, but also on using a good random source\index{random}  for $k$.
 \item SHA-1 \index{SHA-1} is a 160-bit hash function.
 \end{itemize}
 \paragraph*{Verifying}\strut\\
@@ -392,7 +392,7 @@ used to emulate RSA and ElGamal encryption.
 % --------------------------------------------------------------------------
 \vskip + 15pt
 \section{Public key certification}
-\index{Certification!public key}
+\index{certification!public key}
 \index{PKI}
 The aim of public key certification is to guarantee the connection between a
 public key and a user and to make it traceable for external parties. In cases in
@@ -404,7 +404,7 @@ cryptographic modules cannot be broken.
 % --------------------------------------------------------------------------
 \vskip + 15pt
 \subsection{Impersonation attacks}\label{Impersonalisierungsattacke}
-\index{Impersonation attack}
+\index{impersonation attack}
 Assume Charlie has two pairs of keys (PK1, SK1) and (PK2, SK2), where SK denotes
 the secret key and PK the public key. Further assume that he manages to palm off
 PK1 on Alice as Bob's public key and PK2 on Bob as Alice's public key (by
@@ -429,11 +429,11 @@ In this way Charlie can listen in on communication between Alice and Bob and
 change the exchanged messages without them noticing. The attack will also work
 if Charlie only has one pair of keys.
 
-Another name for this type of attack is \index{Attack!man-in-the-middle}
+Another name for this type of attack is \index{attack!man-in-the-middle}
 ``man-in-the-middle attack''. Users are promised
 protection against this type of attack by public-key
 certification, which is intended to guarantee the
-\index{Authenticity} authenticity of public keys. The most common
+\index{authenticity} authenticity of public keys. The most common
 certification method is the X.509 standard.
 
 
@@ -443,7 +443,7 @@ certification method is the X.509 standard.
 \index{X.509} 
 Each participant who wants to have an X.509 certificate (\cite{ds:X.509})
 verifying that his public key belongs to a real person consults what is
-known as a \index{Certification authority (CA)} certification authority
+known as a \index{certification authority (CA)} certification authority
 (CA)\footnote{%
 Often called trust center, if the certificates are not only offered
 to a closed user group.

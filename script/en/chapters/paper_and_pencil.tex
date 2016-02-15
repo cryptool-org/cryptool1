@@ -25,9 +25,9 @@
 \label{Kapitel_PaperandPencil}
 (Christine St\"otzel, April 2004; Updates: B.+C. Esslinger, June 2005;
  Updates Minh Van Nguyen and B. Esslinger, Nov. 2009, June 2010, May 2013)
-\index{Paper and pencil methods}
-\index{Encryption!classic}
-\index{Cryptography!classic}
+\index{paper and pencil methods}
+\index{encryption!classic}
+\index{cryptography!classic}
 
 \begin{ctsquote}
 Few persons can be made to believe that it is not quite an easy thing
@@ -59,7 +59,7 @@ aids -- are totally unsuspicious.
 
 The first paper and pencil methods already arose about 3000 years ago, but new
 procedures were developed during the past century, too. All paper and pencil 
-methods are a matter of symmetric methods\index{Encryption!symmetric}. 
+methods are a matter of symmetric methods\index{encryption!symmetric}. 
 Even the earliest encryption algorithms use the basic principles such as 
 transposition, substitution, block construction and their combinations. 
 Hence it is worthwhile to closely consider this ``ancient'' methods especially
@@ -79,12 +79,12 @@ Methods to be successful and wide-spread had to fulfill some attributes which ar
 %------------------------------------------------------------------------------
 \section{Transposition ciphers}
 \label{PaP_transposition_ciphers}
-\index{Transposition}
+\index{transposition}
 
-Encrypting a message by means of transposition\index{Transposition} does not 
+Encrypting a message by means of transposition\index{transposition} does not 
 change the original characters of this message, only their order is modified
 (transposition = exchange).\footnote{%
-Sometimes, the name permutation\index{Permutation} is used to describe how
+Sometimes, the name permutation\index{permutation} is used to describe how
 characters, groups of characters or columns of the plaintext are exchanged, e.g.
 $(1, 2, 3, 4, 5) \Leftrightarrow (3, 4, 2, 1, 5)$.
 }
@@ -107,7 +107,7 @@ $(1, 2, 3, 4, 5) \Leftrightarrow (3, 4, 2, 1, 5)$.
    Using the key ``A,B'' would start the zigzag pattern below in the
    way, that the first letter is written into the first line instead of the
    second line.}
-   \cite{pp:Singh1999}\index{Rail fence cipher}:
+   \cite{pp:Singh1999}\index{rail fence cipher}:
    The characters of a message are alternately written in two (or more) lines,
    creating a zigzag pattern. The resulting ciphertext is read out 
    line by line.\\
@@ -115,7 +115,7 @@ $(1, 2, 3, 4, 5) \Leftrightarrow (3, 4, 2, 1, 5)$.
 
    See table \ref{PaP_RailFence_table-reference}.
 
-   Plaintext\footnote{\index{Agreement}: If the alphabet only uses 26 letters,
+   Plaintext\footnote{\index{agreement}: If the alphabet only uses 26 letters,
    we write from now onwards the plaintext in small letters and the ciphertext
    in capital letters.}:
    an example of transposition
@@ -173,7 +173,7 @@ $(1, 2, 3, 4, 5) \Leftrightarrow (3, 4, 2, 1, 5)$.
 
    \hypertarget{turning-grille cipher}{}
 \item {\bf Turning grille} \cite{pp:Savard1999}%
-   \index{Turning grille}: 
+   \index{turning grille}: 
    The German army used turning grilles during WW1.\footnote{%
       The turning grille was already invented in 1881 by Eduard Fleissner von
       Wostrowitz.\\
@@ -269,7 +269,7 @@ under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
 
 
 \item {\bf Double column transposition} \cite{pp:Savard1999}
-   \index{Double column transposition}: 
+   \index{double column transposition}: 
    Double columnar transposition
    was frequently used during WW2 and during the Cold War. Two simple columnar
    transpositions with different keys are executed successively.\footnote{%
@@ -443,12 +443,12 @@ under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
 %------------------------------------------------------------------------------
 \section{Substitution ciphers}
 \label{PaP_substitution_ciphers}
-\index{Substitution}
+\index{substitution}
 
 
 %------------------------------------------------------------------------------
 \subsection{Monoalphabetic substitution ciphers}
-Monoalphabetic substitution\index{Substitution!monoalphabetic} assigns one 
+Monoalphabetic substitution\index{substitution!monoalphabetic} assigns one 
 character of the ciphertext alphabet to each plaintext character. This mapping
 remains unchanged during the whole process of encryption.
 \label{monoalphabeticSubstitutionCiphers}
@@ -497,7 +497,7 @@ remains unchanged during the whole process of encryption.
 \item {\bf Affine cipher}\footnote{
    Some according SageMath samples are implemented at \ref{PaP_affine_cipher_sage-sample}.
    }%
-   \index{Affine cipher}: This is a generalization of
+   \index{affine cipher}: This is a generalization of
    the shift cipher. A plaintext character is first substituted by another
    character and then the result is encrypted using the shift cipher.
    The name ``affine cipher'' was chosen because its encryption and
@@ -590,16 +590,16 @@ remains unchanged during the whole process of encryption.
    the message. Particularly frequent or top-secret words are replaced by a limited
    number of codewords existing besides the ciphertext alphabet.
 
-\item {\bf Map cipher} \cite{pp:ThinkQuest1999}\index{Map cipher}: 
+\item {\bf Map cipher} \cite{pp:ThinkQuest1999}\index{map cipher}: 
    This method constitutes a combination of substitution
    and steganography\footnote{Instead of encrypting a message, pure 
-   steganography \index{Steganography} tries to conceal its existence.}. 
+   steganography \index{steganography} tries to conceal its existence.}. 
    Plaintext characters are replaced by symbols which are arranged in a map 
    following certain rules
 
 
 \item {\bf Straddling Checkerboard} 
-   \cite{pp:Goebel2003}\index{Straddling checkerboard}:
+   \cite{pp:Goebel2003}\index{straddling checkerboard}:
    A 3x10 matrix is filled
    with the letters of the used alphabet and two arbitrary digits or special
    characters as follows: The different letters of a keyword and the remaining
@@ -640,7 +640,7 @@ remains unchanged during the whole process of encryption.
 
 
 \item {\bf Straddling Checkerboard, variant} \cite{pp:Goebel2003}
-   \index{Straddling checkerboard}: This variant
+   \index{straddling checkerboard}: This variant
    of the straddling checkerboard was developed by Soviet spies during WW2. 
    Ernesto (Ch\'e) Guevara \index{Ch\'e Guevara} and Fidel Castro allegedly
    used this cipher for their secret communication.
@@ -753,7 +753,7 @@ remains unchanged during the whole process of encryption.
 %------------------------------------------------------------------------------
 \subsection{Homophonic substitution ciphers}
 
-Homophonic methods\index{Substitution!homophonic} constitute a special form of monoalphabetic substitution. Each
+Homophonic methods\index{substitution!homophonic} constitute a special form of monoalphabetic substitution. Each
 character of the plaintext alphabet is assigned several ciphertext characters.
 
 \begin{itemize}
@@ -779,7 +779,7 @@ character of the plaintext alphabet is assigned several ciphertext characters.
    represented by more than one number. You should keep in mind that those
    ten words have to contain all letters of the plaintext alphabet.
 
-\item {\bf Book cipher}\index{Book cipher}: 
+\item {\bf Book cipher}\index{book cipher}: 
    The words of a message are substituted by triples 
    ``page-line-position''. This method requires a detailed agreement of which
    book to use, especially regarding the edition (layout, error correction,
@@ -791,7 +791,7 @@ character of the plaintext alphabet is assigned several ciphertext characters.
 \subsection{Polygraphic substitution ciphers}
 \label{polygraphicSubstitutionCiphers}
 
-Polygraphic techniques\index{Substitution!polygraphic} do not work by replacing single characters, but by replacing whole groups of characters. In most cases, these groups are diagrams, trigrams or syllables.
+Polygraphic techniques\index{substitution!polygraphic} do not work by replacing single characters, but by replacing whole groups of characters. In most cases, these groups are diagrams, trigrams or syllables.
 
 \begin{itemize}
 \item {\bf ``Great Chiffre''} \cite{pp:Singh1999}: This cipher was used by 
@@ -934,7 +934,7 @@ Polygraphic techniques\index{Substitution!polygraphic} do not work by replacing 
 %------------------------------------------------------------------------------
 \subsection{Polyalphabetic substitution ciphers}
 
-Concerning polyalphabetic substitution\index{Substitution!polyalphabetic}, the assignment of ciphertext characters to plaintext characters is not static, but changes during the process of encryption (depending on the key).
+Concerning polyalphabetic substitution\index{substitution!polyalphabetic}, the assignment of ciphertext characters to plaintext characters is not static, but changes during the process of encryption (depending on the key).
 
 \begin{itemize}
 \item {\bf Vigen\`ere}\footnote{%
@@ -1056,7 +1056,7 @@ Concerning polyalphabetic substitution\index{Substitution!polyalphabetic}, the a
 
 \end{itemize}
 
-\item {\bf Superposition}\index{Superposition}
+\item {\bf Superposition}\index{superposition}
    \begin{itemize}
        \item {\bf Running-key cipher}: A keytext (for example out of a book) is added
           to the plaintext.
@@ -1064,7 +1064,7 @@ Concerning polyalphabetic substitution\index{Substitution!polyalphabetic}, the a
        \item {\bf Superposition with numbers}: A sequence or a number of 
           sufficient length (for example pi) is added.
 
-       \item {\bf One Time Pad (OTP)}\footnote{%
+       \item {\bf One-time pad (OTP)}\footnote{%
           CT1\index{CrypTool 1} offers this method under the menu
           {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
           \textbackslash{} Vernam / OTP}.\\
@@ -1073,7 +1073,7 @@ Concerning polyalphabetic substitution\index{Substitution!polyalphabetic}, the a
           In JCT\index{JCrypTool} you can find it in the default perspective
           via the menu item {\bf Algorithms \textbackslash{} Classic
           \textbackslash{} XOR}.
-          }\index{One Time Pad}\index{OTP}:
+          }\index{one-time pad}\index{OTP}:
           A sequence
           of bytes is XORed byte-by-byte to the plaintext. This is a
           generalization of Vigen\`ere's mechanism and it was the first
@@ -1128,8 +1128,8 @@ Concerning polyalphabetic substitution\index{Substitution!polyalphabetic}, the a
 %------------------------------------------------------------------------------
 \section{Combining substitution and transposition}
 \label{PaP_combined_ciphers}
-\index{Product algorithm}\index{Encryption!product algorithm}%
-\index{Cascade cipher}\index{Encryption!cascade cipher}%
+\index{product algorithm}\index{encryption!product algorithm}%
+\index{cascade cipher}\index{encryption!cascade cipher}%
 
 In the history of cryptography one often comes across combinations of the 
 previous mentioned methods.
@@ -1491,7 +1491,7 @@ previous mentioned methods.
 \newpage
 \section{Appendix: Examples using SageMath}
 \label{PaP_Sage_samples}
-\index{SageMath!Code examples}
+\index{SageMath!code examples}
 \index{SageMath}
 
 In the following section some classic ciphers are implemented using the open source computer
@@ -1535,7 +1535,7 @@ shown in the Figure \ref{naming-convention-in-Sage-cipher-samples} below:
 % ---------------------------------------------------------------------------
 \newpage
 \subsection{Transposition ciphers}
-\index{Transposition}
+\index{transposition}
 
 Transposition ciphers are implemented in the SageMath class
 \begin{center}
@@ -1740,7 +1740,7 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZAB
 % ---------------------------------------------------------------------------
 \newpage
 \subsection{Substitution ciphers}
-\index{Substitution}
+\index{substitution}
 
 Substitution cryptosystems are implemented in SageMath in the class
 \begin{center}
@@ -1882,7 +1882,7 @@ True
 % ---------------------------------------------------------------------------
 \newpage
 \subsubsection{Shift cipher}
-\index{Shift cipher}
+\index{shift cipher}
 
 The shift cipher can also be thought of as a generalization of the Caesar
 cipher. While the Caesar cipher restricts us to shift exactly three
@@ -1962,7 +1962,7 @@ True
 \newpage
 \subsubsection{Affine cipher}
 \label{PaP_affine_cipher_sage-sample}
-\index{Affine cipher}
+\index{affine cipher}
 
 The affine cipher is implemented in the SageMath class
 \begin{center}
@@ -2070,7 +2070,7 @@ True
 % ---------------------------------------------------------------------------
 \newpage
 \subsubsection{Substitution with symbols}
-\index{Substitution}
+\index{substitution}
 
 In the following SageMath example the symbols are from the binary number
 system. A monoalphabetic substitution cipher with a binary alphabet has very little
