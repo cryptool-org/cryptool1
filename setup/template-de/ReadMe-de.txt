@@ -1,25 +1,28 @@
 ==================================================================
-    CrypTool, Version 1.4.31 für Win32, Juni 2013 (Beta 06a) xxxx
+    CrypTool, Version 1.4.31 für Win32, August 2015 (Beta 07) xxxxx
+
+CrypTool v1 (CT1) ist ein internationales E-Learning-Programm für
+Kryptographie und Kryptoanalyse.
+
     (c) Contributors
-        Dazu gehören z.B.
-        Deutsche Bank AG, Frankfurt am Main, und die
+        Dazu gehören z.B. Deutsche Bank AG, Frankfurt am Main, und die
         Universitäten Siegen, Darmstadt, Bochum, Duisburg-Essen und Kassel.
-        1998-2013
+        1998-2015
     Freie Software und Open Source gemäß der Apache Lizenz 2.0
     www.cryptool.org
     Prof. Bernhard Esslinger
     $Id$
 ==================================================================
 
- 1. ... Kurzbeschreibung des CrypTool-1-Paketes
- 1.1. ... Wie Sie als Benutzer am besten starten - Der Einstieg in CrypTool 1
+ 1. ... Kurzbeschreibung des CT1-Paketes
+ 1.1. ... Wie Sie als Benutzer am besten starten -- Der Einstieg in CT1
  1.2. ... Was beinhaltet die CT1-Distribution
  1.3. ... Danke
  1.4. ... Maintainer, Hosting, Webseite und Welcome
  2. ... Was bietet CT1 im Detail
- 2.1. ... Was können Sie mit CrypTool 1 machen
+ 2.1. ... Was können Sie mit CT1 machen
  2.2. ... Informationen für Entwickler / Wo finden Sie die Sourcen
- 2.3. ... Wo finden Sie weitere Überblicke zu CrypTool
+ 2.3. ... Wo finden Sie weitere Überblicke zu CT1
  2.4. ... Neuerungen in Version 1.4.20 / 1.4.21
  2.5. ... Neuerungen in Version 1.4.30
  2.6. ... Neuerungen in Version 1.4.31
@@ -29,10 +32,10 @@
  3.3. ... Interaktive Online-Hilfe unter Windows XP
  3.4. ... Unterstützung verschiedener Sprachen
  3.5. ... Einschränkungen / Features / Tipps
- 3.6. ... Mit älteren CrypTool-Versionen erzeugte Zertifikate und Schlüssel
+ 3.6. ... Mit älteren CT1-Versionen erzeugte Zertifikate und Schlüssel
  4. ... Installation / Deinstallation / Schlüsselnutzung / Betrieb
  4.1. ... Installation
- 4.2. ... Deinstallation von CrypTool
+ 4.2. ... Deinstallation von CT1
  4.3. ... Wiederholte Nutzung von Schlüsseln
  4.3.1. ... Schlüssel aus vorherigen Versionen
  4.3.2. ... Schlüssel gespeichert in den Dateien des PSE-Verzeichnisses
@@ -52,17 +55,18 @@ A. ... Anhang
 A.1. .... Roadmap nach CT 1.4.31
 A.2. .... Nachfolger-Projekte mit Java/Eclipse und C#/.NET
 A.3. .... Mögliche Punkte für eine Weiterentwicklung -- Neue Funktionen, Ideen
-A.4. .... CrypTool 1 unter Linux
+A.4. .... CT1 unter Linux
 
 
 Benutzte Abkürzungen:
+CT   CrypTool  (z.B. um das ganze CT-Projekt zu bezeichnen)
 CT1  CrypTool 1 = CrypTool-Version 1 (diese Version enthält diese Readme-Datei)
 CT2  CrypTool 2 = CrypTool-Version 2 (nutzt .NET; läuft unter Win32)
 JCT  JCrypTool  = Java-CrypTool (läuft unter Win32, Linux und MacOS)
 
 
-1. Kurzbeschreibung des CrypTool-1-Paketes
-   ---------------------------------------
+1. Kurzbeschreibung des CT1-Paketes
+   --------------------------------
 Diese Readme-Datei gehört zur Distribution des Programms CrypTool 1 (CT1).
 CrypTool ist Open-Source und kostenlos. Mit CrypTool kann man kryptographische
 Verfahren erlernen, ausprobieren und sowohl bekannte wie unbekannte Verfahren
@@ -73,13 +77,13 @@ neben der Verschlüsselung auch die Prüfung der Integrität, die Erstellung von
 Signaturen, sichere Authentisierung und Vieles mehr. CrypTool unterstützt
 sowohl die Ausführung als auch die Analyse solcher Verfahren.
 
-CrypTool 1 wird seit 1998 entwickelt. Im CrypTool-Projekt arbeiten über 60
+CT1 wird seit 1998 entwickelt. Im CrypTool-Projekt arbeiten über 60
 Personen weltweit und ehrenamtlich mit.
 
 Zu jedem Programmteil gibt es reichhaltige Online-Hilfe, die auch
 ohne tiefes Kryptowissen verstanden werden kann.
 
-CrypTool 1 existiert in den 6 Sprachen
+CT1 existiert in den 6 Sprachen
 - Deutsch (DE),
 - Englisch (EN),
 - Griechisch (EL),
@@ -92,7 +96,7 @@ Funktionalität -- übersetzt und lokalisiert sind also jeweils die
 Oberfläche (Menüs, Dialoge, etc.) der Programme CrypTool, AES-Tool
 und Zahlenhai, und das Installationsprogramm (setup).
 
-Hier eine Auflistung der restlichen Komponenten des CrypTool-1-Paketes,
+Hier eine Auflistung der restlichen Komponenten des CT1-Paketes,
 die bisher nicht in allen Sprachversionen lokalisiert werden konnten:
                         DE    EN   EL     ES     PL     RS
 Onlinehilfe (html)      ja    ja   nein   nein   nein   nein
@@ -101,7 +105,7 @@ CT-Skript (pdf)         ja    ja   nein   nein   nein   nein
 CT-Präsentation (pdf)   ja    ja   nein   ja     nein   nein
 Elsner-Stories (pdf)    ja    ja   nein   nein   nein   nein
 
-Im Deutschen und Englischen liegen alle Komponenten von CrypTool 1 übersetzt
+Im Deutschen und Englischen liegen alle Komponenten von CT1 übersetzt
 vor. Wenn etwas in einer Sprachversion nicht vorliegt, wird die englische
 Komponente beigelegt.
 
@@ -116,7 +120,7 @@ unter den folgenden Internet-Adressen (dazu ist keine Registrierung nötig):
                 http://www.CrypTool.es
                 http://www.CrypTool.pl
 
-Seit Anfang 2010 werden ca. 6000 CrypTool-1-Pakete pro Monat herunter
+Seit Anfang 2010 werden ca. 6000 CT1-Pakete pro Monat herunter
 geladen (davon entfallen etwas über die Hälfte auf die englische Version).
 
 Zu CT1 gibt es zwei Nachfolger-Versionen, genannt CT2 und JCT.
@@ -124,14 +128,13 @@ Deren Download-Zahlen betragen: xxxxxxxxxxxxxxxxxx
                JCT: ca. 3000 / Mt.
                CT2: ca. 3000 / Mt.
 Die Nachfolger-Versionen von CT1 bieten einen deutlich größeren Funktionsumfang
-als von CrypTool 1.
+als CT1.
 
 Ziel aller CrypTool-Versionen ist es, kryptographische Mechanismen anschaulich
 zu machen und die Verwendung und die Grenzen einzelner Verfahren aufzuzeigen.
-In CrypTool 1 sind fast alle State-of-the-art-Krypto-
-funktionen implementiert. Dies ermöglicht einen "spielerischen"
-Einstieg in die moderne und klassische Kryptographie -- unter
-einer einheitlichen Oberfläche.
+In CT1 sind fast alle State-of-the-art-Krypto-funktionen implementiert.
+Dies ermöglicht einen "spielerischen" Einstieg in die moderne und klassische
+Kryptographie -- unter einer einheitlichen Oberfläche.
 
 CrypTool wird weltweit eingesetzt
 - in Unternehmen sowohl zur Mitarbeiter-Sensibilisierung bezüglich
@@ -139,11 +142,11 @@ CrypTool wird weltweit eingesetzt
 - im Schulunterricht und
 - in der Lehre an vielen Hochschulen.
 
-Bitte beachten Sie die Lizenz- und Nutzungsbestimmungen für
-CrypTool. Diese werden z.B. auf der Webseite, bei der Installation und
-auf der Einstiegsseite der Online-Hilfe erläutert.
+Bitte beachten Sie die Lizenz- und Nutzungsbestimmungen für CT1.
+Diese werden z.B. auf der Webseite, bei der Installation und auf der
+Einstiegsseite der Online-Hilfe erläutert.
 
-Für bisherige Benutzer von CrypTool 1 dürften in diesem Readme vor
+Für bisherige Benutzer von CT1 dürften in diesem Readme vor
 allem die Kapitel 2.6 (Neuerungen in CT 1.4.31) und in Kapitel A.1
 (Roadmap nach CT 1.4.31) interessant sein.
 
@@ -157,12 +160,12 @@ lernen.
 Kontakte: Siehe Kapitel 7 unten.
 
 
-1.1. Wie Sie als Benutzer am besten starten - Der Einstieg in CrypTool 1
-     -------------------------------------------------------------------
+1.1. Wie Sie als Benutzer am besten starten -- Der Einstieg in CT1
+     -------------------------------------------------------------
 Vorausgesetzt wird, dass der Benutzer mit Anwendungen in einer
 Windows-Umgebung umgehen kann.
 
-Beim Start von CrypTool 1 öffnet sich zuerst im Vordergrund ein kleines
+Beim Start von CT1 öffnet sich zuerst im Vordergrund ein kleines
 Begrüßungsfenster und dann die Arbeitsfläche von CrypTool.
 Wenn Sie im Begrüßungsfenster gleich die F1-Taste drücken, erscheint
 zusätzlich die Startseite der Online-Hilfe.
@@ -193,7 +196,7 @@ finden Sie im beigelegten CrypTool-Skript (im Anhang A1 dieser PDF-Datei).
 Eine Übersicht über alle Funktionen in den verschiedenen CrypTool-Programmen
 finden Sie auf der Webseite des CT-Portals (www.cryptool.org) unter dem Menü
 "Dokumentation --> CT-Funktionen" oder direkt via:
-   http://www.cryptool.org/de/ctp-dokumentation/ctp-functions
+   https://www.cryptool.org/de/ctp-dokumentation/ctp-funktionsumfang
 
 Wir wünschen viel Spaß beim Lernen und beim Ausprobieren der Funktionen
 von CrypTool.
@@ -201,11 +204,11 @@ von CrypTool.
 
 1.2. Was beinhaltet die CT1-Distribution
      -----------------------------------
-Das CrypTool-1-Paket enthält die folgenden vier Hauptbestandteile:
+Das CT1-Paket enthält die folgenden vier Hauptbestandteile:
 
-(1) Das Programm CrypTool 1
----------------------------
-Hauptteil des CrypTool-1-Paketes ist das Programm CrypTool 1 selbst:
+(1) Das Programm CT1
+--------------------
+Hauptteil des CT1-Paketes ist das Programm CT1 selbst:
 
 - In CrypTool ist eine umfangreiche Sammlung kryptographischer
   Algorithmen und Protokolle implementiert, die hervorragend
@@ -223,7 +226,7 @@ Hauptteil des CrypTool-1-Paketes ist das Programm CrypTool 1 selbst:
   - der APFLOAT-Bibliothek von Mikko Tommila (http://www.apfloat.org/apfloat),
   - der MPIR-Bibliothek für beliebig genaue Arithmetik (entstanden aus GMP)
         (www.mpir.org) und
-  - der cv act library der cv cryptovision GmbH (www.cryptovision.com).
+  - der cv act library der cv cryptovision GmbH (www.cryptovision.com). xxxxxx
 
   Die aktuell benutzten Versionen der inkludierten Bibliotheken finden
   Sie in der Dialogbox "Über CrypTool" (siehe Hilfe-Menü).
@@ -262,7 +265,7 @@ d) Präsentation, die auf Folien die Möglichkeiten von CrypTool
 Die folgenden Programme können aus CrypTool heraus, aber auch stand-alone
 aufgerufen werden:
 
-a) Das Programm AES-Tool v 2.6xxx (entstanden im CrypTool-Projekt):
+a) Das Programm AES-Tool v 2.7 (entstanden im CrypTool-Projekt):
    Zum Erstellen selbst-entpackender Executables ist in CrypTool ein
    Programm integriert, das auch eigenständig benutzt werden kann.
    AES-Tool verschlüsselt mit einem Session-Key den Inhalt einer beliebigen
@@ -276,20 +279,21 @@ b) Das Lernspiel "Der Zahlenhai" v 1.2.3xxx (entstanden im CrypTool-Projekt):
    Dieses Lernspiel bringt Schülern den Umgang mit Teilern und Primfaktoren
    näher.
 
-c) Das Animationsprogramm ANIMAL (siehe http://www.algoanim.info/AnimalAV):
+c) Das Animationsprogramm ANIMAL (siehe http://www.algoanim.net):
    Mit diesem an der TU Darmstadt von Dr. Rößling gepflegten Programm
    kann man die Einzelschritte von Algorithmen oder die Komponenten von
    Datenstrukturen beliebig genau modellieren, die Einzelschritte manuell
-   vor und zurück abspielen oder automatisch ablaufen lassen. Damit kann
-   man auch dynamisch Source-Code-Zeilen visualisieren.
+   vor und zurück abspielen oder automatisch ablaufen lassen.
+   Auch Source-Code-Zeilen lassen sich damit dynamisch visualisieren.
    Das Animal-System erlaubt die Erstellung von Animationen mithilfe
    einer GUI, einer Skriptsprache sowie einer Java-API.
-   Weitere Beispiele für Animationen finden sich im Animal-Repository auf
-   der Webseite und inkludiert im mitgelieferten Animal-ControlCenter.
+   Weitere Beispiele für Animationen finden sich im Animal-Repository
+   auf der Webseite (www.algoanim.net/available-animations) und inkludiert
+   im mitgelieferten Animal-ControlCenter.
    Animal benötigt JRE 1.7 (siehe Kapitel 3.2).
 
 d) Ebenso wie ANIMAL sind die ff. Programme eigenständige Java-Anwendungen
-   (JAR-Dateien). Hierzu wird jeweils JRE 1.5 benötigt (siehe Kapitel 3.2).
+   (JAR-Dateien). Diese benötigen jeweils mindestens JRE 1.5 (s. Kapitel 3.2).
    - ECC-Demo v 1.1.1
    - AES-Flussvisualisierung
    - Das Control-Center zur Steuerung der S/MIME-Demo (diese erstellt anhand
@@ -301,7 +305,7 @@ e) Die Flash-Anwendungen:
    - Rijndael-Inspektor (visualisiert die Änderungen der State-Matrix
                          nach jedem Schritt in jeder Runde bei AES),
    - S/MIME-Demo und
-   - Enigma (visualisiert das 2.-Weltkriegs-Krypto-Gerät Enigma).
+   - Enigma (visualisiert das 2. Weltkriegs-Krypto-Gerät Enigma).
 
 f) Die Authorware-Anwendung "ZT" (Zahlentheorie) führt in die elementare
    Zahlentheorie ein und visualisiert viele der Verfahren und Konzepte,
@@ -311,6 +315,8 @@ f) Die Authorware-Anwendung "ZT" (Zahlentheorie) führt in die elementare
    kleinen Zahlenbeispielen ausprobiert werden.
    Dazu gehört auch das Programm bc v1.06 der Free Software Foundation (FSF),
    mit dem man auf der Kommandozeile beliebig genau rechnen kann.
+   Leider gibt es keine lauffähige BC-Variante mehr für Win7 und höher,
+   so dass dieser Teil herausgenommen wurde.
 
 
 
@@ -342,7 +348,7 @@ b) Krypto-Wettbewerbe / Krypto-Rätsel:
    7) Harry-Potter-Chiffre (von Klaus Schmeh, Quelltext deutsch, ungelöst)
    8) "Mathias Sandorf" von Jules Verne (gelöst)
 
-   Mehr Informationen dazu gibt es in der Onlinehilfe zu CrypTool (unter dem
+   Mehr Informationen dazu gibt es in der Onlinehilfe zu CT1 (unter dem
    Indexeintrag "Krypto-Wettbewerbe") und in dem Buch von Klaus Schmeh.
 
    Weitere Rätsel und Herausforderungen (Challenges) finden sich auch
@@ -359,7 +365,7 @@ Readme) aufgeführt.
 
 1.3. Danke
      -----
-Zu CrypTool haben sehr viele verschiedene Personen (über 300)
+Zu CT1 haben sehr viele verschiedene Personen (über 300)
 beigetragen -- insbesondere auch ehrenamtlich in ihrer Freizeit.
 Einige sind namentlich in der Dialogbox aufgeführt, die man erhält,
 wenn man in der Dialogbox "Über CrypTool" einen Doppelklick ausführt.
@@ -368,7 +374,7 @@ per Google-Map zu finden (Menü Team).
 Herzlichen Dank an alle Mitwirkenden.
 
 Besonders herausheben möchte ich einige Kernentwickler/-Architekten
-im CrypTool 1.x-Projekt, deren hohes und langjähriges Engagement und
+im CT1-Projekt, deren hohes und langjähriges Engagement und
 deren hervorragende Kompetenz und Hartnäckigkeit solche dauerhaften,
 lebendigen und erfolgreichen Open-Source-Projekte erst ermöglicht:
 Jörg, Henrik, Florian, Peer.
@@ -414,10 +420,10 @@ besondere Bedingungen gelten:
 - Die Firmen (siehe Kapitel 1.2)
   - Secude IT Security GmbH,xxxxxxxxxxxx
   - Shamus Software Ltd und
-  - cv cryptovision GmbH
+  - cv cryptovision GmbH xxxxxx
   gestatteten uns großzügigerweise, ihre Krypto-Bibliotheken zu nutzen.
-  Diese mit CrypTool 1 verteilten Bibliotheken dürfen nicht in einem
-  Kontext außerhalb von CrypTool 1 benutzt werden, ohne vorher die erwähnten
+  Diese mit CT1 verteilten Bibliotheken dürfen nicht in einem
+  Kontext außerhalb von CrypToo benutzt werden, ohne vorher die erwähnten
   Firmen zu kontaktieren und nach ihren aktuellen Lizenzbedingungen zu
   fragen.
 
@@ -445,13 +451,15 @@ Bedanken möchte ich mich auch bei
 1.4. Maintainer, Hosting, Webseite und Welcome
      -----------------------------------------
 Der Lehrstuhl für Verteilte Systeme, Fakultät für Ingenieurwissenschaften
-unter Prof. Dr. Torben Weis an der Universität Duisburg-Essen hostet seit
-April 2008
-- die Webseite von CrypTool,
-- das Subversion-Repository für die Programm-Sourcen der Release-Version
-  CrypTool 1.x, und
-- das Subversion-Repository für die Programm-Sourcen der Nachfolger-Version
+unter Prof. Dr. Torben Weis an der Universität Duisburg-Essen hostete CT
+ab April 2008. Seit April 2014 hostet der Lehrstuhl für Angewandte
+Informationssicherheit von Prof. Dr. Arno Wacker an der Universität Kassel:
+- die Webseite des gesamten CrypTool-Projekts,
+- das Subversion-Repository für die Programm-Sourcen von CT1, und
+- das Subversion-Repository für die Programm-Sourcen des Nachfolgers
   CrypTool 2.
+Webserver und Buildserver laufen momentan virtuell in einer Proxmox-Umgebung
+mit 24 Intel Xeon E5-2640 a 2.5GHz und 128 Gigabyte Speicher.
 
 Die CrypTool-Entwicklergruppe um Prof. Bernhard Esslinger fungiert
 als Maintainer von CT1, d.h. sie kümmert sich um die Pflege des Codes, die
@@ -459,7 +467,7 @@ Veröffentlichung als Open Source und Freeware, und um die
 Koordination der Weiterentwicklung. Die nächsten Schritte der
 Roadmap sind in Kapitel A.1 und auch auf der Webseite veröffentlicht.
 
-Die Homepage von CrypTool ist www.cryptool.org.
+Homepage von CrypTool: www.cryptool.org
 
 Wir freuen uns über jeden weiteren Entwickler, der sich an der
 Weiterentwicklung von CrypTool beteiligt.
@@ -475,9 +483,9 @@ dazu ist z.B. das Kryptologie-Portal für Lehrer (www.cryptoportal.org).
 2. Was bietet CT1 im Detail
    ------------------------
 
-2.1. Was können Sie mit CrypTool 1 machen
-     ------------------------------------
-Die generellen Eigenschaften und Funktionen von CrypTool 1 sind:
+2.1. Was können Sie mit CT1 machen
+     -----------------------------
+Die generellen Eigenschaften und Funktionen von CT1 sind:
 
 - E-Learning-Programm rund um das Thema Kryptographie und Kryptoanalyse.
 
@@ -884,7 +892,7 @@ a) Entwickler-relevante Änderungen (eher Programm-technisch):
   - APFLOAT 2.41
   - Animal 2.3.21.
 
-- Quellcode und die Applikation CrypTool 1.x stehen nun unter der Lizenz
+- Quellcode und die Applikation CT1 stehen nun unter der Lizenz
   Apache 2.0 (siehe http://www.apache.org/licenses/LICENSE-2.0).
 
 
@@ -1196,25 +1204,27 @@ c) Neue Funktionalität / Bedienung:
 Dieses Kapitel listet die Erweiterungen und die Bugfixes auf, die in
 CrypTool 1.4.31 seit CrypTool 1.4.30 hinzugefügt wurden.
 
-Die Version 1.4.31 wurde zeitgleich in Deutsch und Englisch released.
+Die Version 1.4.31 wird zeitgleich in Deutsch und Englisch released.
 
 a) Entwickler-relevante Änderungen (eher Programm-technisch):
 
 - Update der Bibliotheken und der genutzten Fremdsoftware auf ff. Versionen:
-  - Scintilla 3.2.1
+  - Scintilla 3.2.1  
   - compilerabhängig: cv act library 1.4.6 mit VS2008, 1.4.18 mit VS2010
   - OpenSSL 1.0.1
   - MPIR 1.3.1 (hergeleitet aus GMP-Version 4.2.1) statt GMP 4.1   ??????xxx
       ???????   2.5.1   xxx
   - Miracl 4.4.3  -->  5.5.4  xxx
-  - NTL 5.5.2
-  - ANIMAL 2.3.30
+  - NTL 5.5.2  --> 9.3 (nun thread-safe und mit Exception-Handling, braucht
+                        einen C++11-Compiler)  xxx
+  - ANIMAL 2.4.0
   - Ersatz der Secude-Bibliothek, da sie Probleme nach der Compilation mit
     VS2010 (nicht mit VS2008) hatte.
     xxxxxxxxxx
 
-- Das Release von CT 1.4.31 wird nun mit VS2010 kompiliert. Man kann die
-  Sourcen weiterhin aber auch mit VS2008 übersetzen.xxxxxxxxxxxx
+- Das Release von CT 1.4.31 wird nun mit VS2010 kompiliert. xxxxxxxFM
+  (Man kann die Sourcen weiterhin aber auch mit VS2008 übersetzen.
+   DAS WUERDE ICH WEGLASSEN. xxxxxxxxxxxxFM)
 
 
 b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
@@ -1222,19 +1232,22 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
 - Online-Hilfe: aktualisiert an einigen Stellen
 
 - CrypTool-Skript: - Einige Korrekturen und Ergänzungen
-                   - Weiteres Kapitel
+                   - Weitere Kapitel zu Bitblock- und Bitstrom-Verschlüsselung
+                     und mit einem Survey on Current Academic Results for
+                     Solving Discrete Logarithms And Factoring  xxxxxBE
                    - Aufnahme weiterer Sage-Programmbeispiele (zu
-                     Primitivwurzeln und RSA-Fixpunkten)
-                   - Anhänge zu den Funktionsübersichten auch für CT2 und JCT.
+                     Primitivwurzeln und RSA-Fixpunkten)  xxxxxBE
+                   - Anhänge zu den Funktionsübersichten auch für CT2 und
+                     JCT.  xxxxxBE
                      In den Fußnoten nun auch die Menüpfade zu CT2 und JCT.
 
-- Aktualisierte Präsentation zu CT1.
-  Die Informationen zum Gesamtprojekt und zu den anderen CT-Projekten (CT2, JCT)
-  liegen nun in eigenständigen Präsentationen.
+- Aktualisierte Präsentation zu CT1.  xxxxxBE
+  Die Informationen zum Gesamtprojekt und zu den beiden anderen CT-Projekten
+  (CT2, JCT) liegen nun in eigenständigen Präsentationen.
 
-- Am 18. Januar 2012 wurde die neue CrypTool-Webseite freigegeben, die auf
-  Joomla 1.7 beruht und die die 5 Unterprojekte des CT-Projektes gleichwertig
-  darstellt.
+- Am 18. Januar 2012 wurde die neue CrypTool-Webseite (CTP) freigegeben, die
+  die 5 Unterprojekte des CT-Projektes gleichwertig darstellt.
+  Am 3. August 2015 wurde CTP auf Joomla 3.4.3 gehoben. 
 
 
 c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
@@ -1271,7 +1284,7 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
   Hashwerte ohne Scrollen anzeigen. xxxxxxxxxxx validieren!
 - Zahlenhai: Einige Funktionen nun nicht nur über Tastenkombinationen sondern
   auch über Buttons erreichbar.
-- AES-Tool 2.6.x:
+- AES-Tool 2.7:
   - Fehler behoben, der beim Eingeben von zu langen hexadezimalen Schlüsseln
     auftrat.
   - Erlaubt nun die Schlüsseleingabe als normalen ASCII-String und
@@ -1291,6 +1304,7 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
   nun auch unter Win7.xxxxxxxxxxxxxxxxxxxxxxxx
 - Playfair mit einer 6*6-Matrix konvertiert nun nicht mehr fälschlicherweise
   "J" zu "I".
+- b-adic xxxxxxxxxxxxx
 
 - Danke an die vielen aufmerksamen Benutzer, die uns auf die Bugs und 
   Inkonsistenzen aufmerksam machten.
@@ -1342,10 +1356,9 @@ wie in kommerziellen Anwendungen.
 
 3.2. Win32-Umgebung, Rechte bei Installation und Betrieb, Java-Runtime
      -----------------------------------------------------------------
-CT1 v 1.4.31 ist geschrieben für das Betriebssystem Windows 7.
+CT1 v1.4.31 ist geschrieben für das Betriebssystem Windows 8 und 10.
 CT1 erfordert eine Win32-Umgebung. Diese ist auch unter 64-Bit Win-7
 vorhanden.
-CT1 läuft auch unter Windows 8 (Win-8).
 
 Einige Funktionen wie ANIMAL, ECC-Demo, ... [siehe Kapitel 1.2, Teil (3)]
 erfordern zusätzlich eine Java Runtime-Umgebung JRE (Version >= 1.7).
@@ -1353,15 +1366,15 @@ erfordern zusätzlich eine Java Runtime-Umgebung JRE (Version >= 1.7).
 Die minimale Rechnerausstattung liegt bei 300 MHz CPU, 256 MByte RAM,
 100 MByte Festplattenplatz (das sind relativ geringe Anforderungen).
 
-Verschiedene Sprachversionen von CrypTool 1 kann man parallel auf einem
-Rechner benutzen, wenn man sie in unterschiedlichen Verzeichnissen installiert.
+Verschiedene Sprachversionen von CT1 kann man parallel auf einem Rechner
+benutzen, wenn man sie in unterschiedlichen Verzeichnissen installiert.
 
 Verschiedene Benutzer können am gleichen PC jeweils unterschiedliche
 Einstellungen haben (da persistente Einstellungen im Nutzer-spezifischen
 Teil der Registry abgelegt werden).
 
-Ausführen von CrypTool:
- - CrypTool kann man ohne Administratorrechte ausführen.
+Ausführen von CT1:
+ - CT1 kann man ohne Administratorrechte ausführen.
  - Erläuterung:
    Bei der Benutzung braucht man Schreibrechte für:
     - Dateien im CrypTool-Verzeichnis PSE (für das PKI-Schlüsselmanagement),
@@ -1369,7 +1382,7 @@ Ausführen von CrypTool:
       Dateien),
     - Einstellungen im Benutzer-spezifischen Teil der Registry.
 
-Installation von CrypTool:
+Installation von CT1:
  - Auch für die Installation braucht man dazu keine Administratorrechte.
  - Erläuterung:
    Bei der Installation werden persistente Daten an ff. Stellen abgelegt,
@@ -1392,34 +1405,32 @@ b) Windows-Registry:
    HKEY_CLASSES_ROOT
    HKEY_CLASSES_ROOT\Applications
 
-   CrypTool wird in der Liste der installierten Anwendungen (System ->
-   Software) nur aufgeführt, wenn der folgende Registry-Eintrag beschreibbar
-   ist:
+   CT1 wird in der Liste der installierten Anwendungen (System -> Software)
+   nur aufgeführt, wenn der folgende Registry-Eintrag beschreibbar ist:
    HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall
 
 c) Startmenü:
-   CrypTool wird im Startmenü für alle Benutzer eingetragen, wenn das
+   CT1 wird im Startmenü für alle Benutzer eingetragen, wenn das
    folgende Verzeichnis während der Installation beschreibbar ist:
    %allusersprofile%\Startmenü\Programme
-   Wenn dieses Verzeichnis nicht beschreibbar ist, wird CrypTool eingetragen
-   unter:
+   Wenn dieses Verzeichnis nicht beschreibbar ist, wird CT1 eingetragen unter:
    %userprofile%\Startmenü\Programs.
 
 
-Anmerkung 2:
-Event: Die CrypTool-Anwendung stoppt mit der Meldung "Could not create
+Anmerkung 2:   xxxxxxxxxxxxxxxxxBE_Translate
+Event: Die CT1-Anwendung stoppt mit der Meldung "Could not create
        temporary file".
 
-When CrypTool creates a new temporary file the program tries to write the file
-at the following locations: 
+When CT1 creates a new temporary file it tries to write the file at the
+following locations: 
  1. as of the local variable TEMP 
  2. if TEMP is not set as of the local variable TMP 
- 3. if both variables, TEMP and TMP, are not set CrypTool tries to write the file
-    on the folder which is actually set.
+ 3. if both variables, TEMP and TMP, are not set CT1 tries to write the file
+    in the folder which is actually set.
 
 Bitte prüfen Sie die Zugriffsrechte für die Pfade, auf die die temporären
 Variablen zeigen. Falls sowohl %TEMP% und %TMP% nicht gesetzt sind, setzen Sie
-diese Umgebungsvariablen auf einen passenden Pfad. Falls sie gesetzt sind,
+diese Umgebungsvariablen auf einen passenden Pfad. Falls diese gesetzt sind,
 prüfen Sie bitte, dass Sie die Rechte haben, dort Dateien und Verzeichnisse
 zu schreiben. 
 
@@ -1434,7 +1445,7 @@ ansehen und anpassen per "System Information" --> "Software Environment"
 
 3.3. Interaktive Online-Hilfe unter Windows XP
      -----------------------------------------
-Bei CrypTool 1 kann man zu jedem selektierten Menüeintrag mit der F1-Taste
+Bei CT1 kann man zu jedem selektierten Menüeintrag mit der F1-Taste
 Hilfe anfordern.
 
 - Für Endmenü-Einträge klappte das immer direkt.
@@ -1443,7 +1454,7 @@ Hilfe anfordern.
   wenn das Untermenü nicht aufgeklappt ist (vor Windows XP war dies
   unabhängig davon, ob das Untermenü aufgeklappt war oder nicht).
 
-  Workaround um ein aufgeklapptes Untermenü zu unterdrücken
+  Workaround, um ein aufgeklapptes Untermenü zu unterdrücken
   (anhand eines Beispiels):
   Markieren Sie den Menüeintrag "Einzelverfahren \ RSA-Kryptosystem":
   Wenn das Untermenü zu "RSA-Kryptosystem" aufgeklappt ist und Sie die
@@ -1769,7 +1780,7 @@ ReadMe-de.txt .... Diese Kurzanleitung (deutsch).
 
 md5sum.txt ....... MD5-Hashwerte aller Dateien innerhalb des CrypTool-Paketes.
 sha1sum.txt ...... SHA-1-Hashwerte aller dieser Dateien.
-authors.txt ...... Informationen zu den Autoren von CrypTool-1.
+authors.txt ...... Informationen zu den Autoren von CT1.
 
 CrypTool.exe ..... Das E-Learning-Programm.
 aestool.exe ...... Das Programm AES-Tool, das Dateien in sich selbst-entpackende
@@ -2716,9 +2727,9 @@ A.3.1. .... Funktionalität: Algorithmen / Verfahren
 A.3.2. .... Funktionalität: Analyse
 A.3.3. .... Interne Schnittstellen / Editoren
 A.3.4. .... User-Interface / Visualisierungen
-A.4. .... CrypTool 1 unter Linux
-A.4.1. .... Ausführen von CrypTool 1 unter Linux mit Wine
-A.4.2. .... Portierungsversuch von CrypTool 1 nach Linux mit Qt
+A.4. .... CT1 unter Linux
+A.4.1. .... Ausführen von CT1 unter Linux mit Wine
+A.4.2. .... Portierungsversuch von CT1 nach Linux mit Qt
 
 
 
@@ -2727,7 +2738,7 @@ A.1. Roadmap nach CT 1.4.31
 Generell fließen alle größeren Neu-Entwicklungen aus dem CT-Projekt nun in
 die beiden Nachfolger-Projekte CT2 und JCT (siehe A.2).
 
-In CrypTool 1.x werden weiterhin Fehler behoben. Funktionen können erweitert
+In CT1 werden weiterhin Fehler behoben. Funktionen können erweitert
 oder hinzugefügt werden von Mitwirkenden, die weiter in C/C++ implementieren
 wollen.
 
@@ -2739,7 +2750,7 @@ interaktiven Liste abgerufen werden auf:
 
 A.2. Nachfolger-Projekte mit Java/Eclipse und C#/.NET
      ------------------------------------------------
-Die Nachfolger von CrypTool 1.x nutzen State-of-the-Art-Entwicklungsumgebungen,
+Die Nachfolger von CT1 nutzen State-of-the-Art-Entwicklungsumgebungen,
 aktuelle Layout-Techniken und moderne Software-Architekturen.
 
 A.2.1. Design der Nachfolger-Projekte CT2 und JCT
@@ -2802,8 +2813,8 @@ c) CrypTool 2.0 (CT2)
 A.2.2. Funktionen der Nachfolger-Projekte CT2 und JCT
        ----------------------------------------------
 Die neuen Versionen (siehe Kapitel A.2.1) sind:
-- CT2: CrypTool 2.0   und
-- JCT: JCrypTool 1.0
+- CT2: CrypTool 2.x   und
+- JCT: JCrypTool 1.x
 
 
 Einige Funktionen der Release-Versionen der Nachfolger-Projekte:
@@ -3222,14 +3233,14 @@ A.3.4. User-Interface / Visualisierungen
 
 
 
-A.4. CrypTool 1 unter Linux
-     ----------------------
+A.4. CT1 unter Linux
+     ---------------
 
-A.4.1. Ausführen von CrypTool 1 unter Linux mit Wine
-       ---------------------------------------------
+A.4.1. Ausführen von CT1 unter Linux mit Wine
+       --------------------------------------
 Bei einem kurzen Test mit Wine 1.3.28 unter Ubuntu 11.10 Unity lief das Setup
-von CrypTool 1.4.31 Beta 04 (compiliert mit VS2008) ok. CrypTool selbst lief
-ok mit einigen Verschlüsselungsverfahren und mit der RSA-Schlüsselerzeugung.
+von CrypTool 1.4.31 Beta 04 (compiliert mit VS2008) ok. CT1 selbst lief ok
+mit einigen Verschlüsselungsverfahren und mit der RSA-Schlüsselerzeugung.
 Aber in der RSA-AES-Hybrid-Verschlüsselungs-Demo und beim Klicken auf Links
 in der Onlinehilfe stürzte Wine ab.
 
@@ -3238,14 +3249,14 @@ Stattdessen empfehlen wir, die plattformunabhängige Version JCT zu benutzen,
 die auch unter Linux läuft (siehe Kapitel 3.5).
 
 
-A.4.2. Portierungsversuch von CrypTool 1 nach Linux mit Qt
-       ---------------------------------------------------
+A.4.2. Portierungsversuch von CT1 nach Linux mit Qt
+       --------------------------------------------
 Eine Portierung von CrypTool 1.4.x nach Linux mit Hilfe von GCC 4.x und
 Qt 4.x war außerhalb des eigentlichen CrypTool-Projektes von Einzelpersonen
 begonnen worden, aber mangels Zeit nicht/wenig fortgesetzt worden.
 - Die Bibliotheken von Miracl, NTL, OpenSSL und GMP/MPIR stehen
   zur Verfügung.
-- Gesamtaufgabe in sinnvolle Teile zerlegt:
+- Die Gesamtaufgabe sollte man in sinnvolle Teile zerlegen:
        - Oberfläche: Hier liegt die Hauptarbeit.
        - Funktionalität, implementiert in purem C/C++: ok
        - Online-Hilfe in HTML: ok.

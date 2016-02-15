@@ -1,21 +1,23 @@
-CrypTool 1.4.30  (December 2009)
+
+CrypTool 1.4.31  (August 2015)
 ~~~~~~~~~~~~~~~
 
 
-Readme for developers
+Readme for developers of CrypTool v1 (CT1)
+------------------------------------------
 
 
 Content:
 ========
-A) How to build CrypTool from the current C++ sources?
+A) How to build CT1 from the current C++ sources?
 
-B) What to deliver back, if one makes enhancements to CrypTool?
-
-
+B) What to deliver back, if you make enhancements to CT1?
 
 
-A) Readme for developers who want to build CrypTool from the current C++ sources.
-=================================================================================
+
+
+A) Readme for developers who want to build CT1 from the current C++ sources
+===========================================================================
 
 1. Files you need
    ~~~~~~~~~~~~~~
@@ -26,7 +28,7 @@ CrypTool\source\ ...	Directory tree with the source code for building CrypTool.
 
 2. Tools you need
    ~~~~~~~~~~~~~~
-For building CrypTool completely you need:
+For building CT1 completely you need:
 a) Microsoft C++ Compiler:
     - Visual Studio 2008.
     - Older compilers like Visual Studio 2005 are no longer supported and will not work 
@@ -70,20 +72,20 @@ by adding a file called "makehelp.no" to the help directories.
 
 4. The installer
    ~~~~~~~~~~~~~
-How to build the CrypTool installer (SetupCrypTool*.exe) is described in 
+How to build the CT1 installer (SetupCrypTool*.exe) is described in 
 setup\README.txt
 
 
-5. Adding your own developments to CrypTool
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+5. Adding your own developments to CT1
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Everyone is encouraged to enhance the possibilities CrypTool already has.
 Please contact the CrypTool team or see the CrypTool homepage (www.cryptool.org),
-how to move your enhancements into the sources of the major release Subversion.
+how to move your enhancements into the sources of the major release version.
 
 5.1 Expanding the online help
    ~~~~~~~~~~~~~~~~~~~~~~~~~~
-When you extend CrypTool you also will have to expand the online help. 
+When you extend CT1 you also will have to expand the online help. 
 There are four cases that can appear:
 
 a) Adding new source code, which gets a new ID, like terminal dialogs, menu
@@ -128,11 +130,11 @@ b) Adding new source code, which gets no ID but an Alink, like menus, or sub-
      More information for editing the Alink-object can be found in the template.
 
 
-5.2 Further things to consider to make a new development fit into CrypTool
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+5.2 Further things to consider to make a new development fit into CT1
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 These claims guarantee a high level of quality and a consistent user interface.
 
-a) CrypTool has for each menu item a longer text string explaining it. This text
+a) CT1 has for each menu item a longer text string explaining it. This text
    appears in the status line at the lower border of the main window.
    Within the properties dialog of a new menu item (within Visual Studio) please
    fill the field for the text in the status bar.
@@ -162,12 +164,13 @@ d) More complex methods which require several different input values like the
    - to show the achieved result in an extra dialog mask.
    - to create a log file.
 
-e) The online help for CrypTool is in HTML format. To build it, use your HTML editor
+e) The online help for CT1 is in HTML format. To build it, use your HTML editor
    of choice.
 
    Help texts have to be exhaustive and easy to understand.
-   There must be a version in English AND in German (if you can do it only in one
-   language please contact the CrypTool mailing list).
+   There must be a version in both English AND German (if you can do it only in
+   one language please contact the CrypTool mailing list, and we translate it
+   into the other language).
    Each help page has to be within an own HTML file (with a self-explaining name).
 
    There have to be different help pages one gets when pressing F1 and
@@ -212,24 +215,24 @@ g) When developing new code, try to separate different functionalities: so pleas
    ~~~~~~~~~~~~~~~~
 
 - We want to encourage you, to first have a look at the different features implemented in
-  the CrypTool program (run it), and then look into the source code, look for according examples
+  the CT1 program (run it), and then look into the source code, look for according examples
   and re-use the existing methods.
 
 - If you come to a problem do not hesitate to paste a mail to the CrypTool team
   (see www.cryptool.org).
 
-- There is an old presentation about how to compile CrypTool and how to add own
+- There is an old presentation about how to compile CT1 and how to add own
   methods (CrypTool-MFC-Kurs-VC7.ppt in the same directory as this file). 
   The most important recommendations are:
   - First develop your program as a pure console application to make your functionality clear.
-  - Then integrate your program into CrypTool and design the GUI.
+  - Then integrate your program into CT1 and design the GUI.
   Acting in this way means to have 2 separated steps: this helps to clearly divide up the
   crypto functionality and the application/presentation layer.
   
 - Among others, there is the Perl script "CheckHelp.pl" (located in "trunk/CrypTool") supporting 
-  developers in maintaining the CrypTool online help. It is very useful because it runs various 
+  developers in maintaining the CT1 online help. It is very useful because it runs various 
   consistency checks regarding the online help. A simple way to run this script is "perl CheckHelp.pl 
-  ENGLISH hlp_de" from the CrypTool root directory ("trunk/CrypTool"). There are more languages 
+  ENGLISH hlp_de" from the CT1 root directory ("trunk/CrypTool"). There are more languages 
   supported, and you can get detailed output information if the "$debug" switch is set. For more 
   information, take a look at the documented source file "CheckHelp.pl"
   
@@ -238,14 +241,14 @@ g) When developing new code, try to separate different functionalities: so pleas
 
 
 
-B) What to do deliver back, if enhancements to CrypTool are finished?
-=====================================================================
+B) What to deliver back, if you make enhancements to CT1
+========================================================
 
-This describes, what the CrypTool developer team expects, if 
+This describes, what the CT1 developer team expects, if 
 someone develops new features and starts to work with a copy
-of a CrypTool version.
+of a CT1 version.
 Here we describe, what is the best way, to deliver the results
-of one's project back to the CrypTool mainstream source code.
+of one's project back to the CT1 mainstream source code.
 
 
 English:
@@ -302,17 +305,17 @@ E4. TODO/Further enhancements
    - ...
 
 E5. What do we expect to get back?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 If your project is in a status, that it can be integrated
-into the CT release version, please send us
+into the CT1 release version, please send us
 a) one zip file with the following content:
-- all files changed or created within your project
-- Your project file (content see above B-E-1 till B-E-4)
-- Your seminar workout, thesis or other documentation
-- eventually other relevant files
+   - all files changed or created within your project
+   - Your project file (content see above B-E-1 till B-E-4)
+   - Your seminar workout, thesis or other documentation
+   - eventually other relevant files
 b) another zip file with:
-- all sources (your whole project directory, in order we can build the executable too)
-- your last executable (release and debug version).
+   - all sources (your whole project directory, in order we can build the executable too)
+   - your last executable (release and debug version).
 
 
 
@@ -369,15 +372,15 @@ G4. TODO/Ausblick
    - ...
 
 G5. Was soll zurückgeschickt werden?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Wenn Ihr Projekt in einem Status ist, dass es in die 
-CT-Releaseversion integriert werden kann/soll, senden Sie uns bitte:
+CT1-Releaseversion integriert werden kann/soll, senden Sie uns bitte:
 a) eine Zip-Datei mit folgendem Inhalt:
-- alle im CrypTool-Projekt neuen / geänderten Dateien
-- Ihre Projektdatei (Inhalt siehe oben Punkte B-G-1 bis B-G-4)
-- die Seminar-/Diplomarbeit und evtl. weitere Doku
-- ggf. weitere relevante Dateien
+   - alle im CT1-Projekt neuen / geänderten Dateien
+   - Ihre Projektdatei (Inhalt siehe oben Punkte B-G-1 bis B-G-4)
+   - die Seminar-/Diplomarbeit und evtl. weitere Doku
+   - ggf. weitere relevante Dateien
 b) eine weitere Zip-Datei mit:
-- allen Sourcen (Ihr ganzes Projekt-Verzeichnis, damit auch wir daraus das Executable bauen können)
-- Ihr letztes Executable (Release- und Debug-Version).
+   - allen Sourcen (Ihr ganzes Projekt-Verzeichnis, damit auch wir daraus das Executable bauen können)
+   - Ihr letztes Executable (Release- und Debug-Version).
 
