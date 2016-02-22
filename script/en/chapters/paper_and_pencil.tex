@@ -2,7 +2,7 @@
 % ..............................................................................
 %                V E R S C H L U E S S E L U N G S V E R F A H R E N
 %
-% Writing rule: Capitel header with all nouns/verbs-words capitalized,
+% Writing rule: Chapter header with all nouns/verbs-words capitalized,
 %               All other headers in the normal lower/upper case manner
 %               like sentences (without a dot at the end).
 % Writing rule: Use American English instead of British English consistently.
@@ -47,7 +47,7 @@ See the appendices
 \ref{s:appendix-template-overview-CT2}, and
 \ref{s:appendix-function-overview-JCT}.\\
 Many of the methods can also per performed within a browser, e.g. on the
-the website CrypTool-Online ({\bf CTO}) (\url{http://www.cryptool-online.org})\index{CTO}. See the appendix \ref{s:appendix-function-overview-CTO}.\\
+website CrypTool-Online ({\bf CTO}) (\url{http://www.cryptool-online.org})\index{CTO}. See the appendix \ref{s:appendix-function-overview-CTO}.\\
 Additionally the last sub chapter (\ref{PaP_Sage_samples})
 contains example code for the computer-algebra system {\bf SageMath}\index{SageMath}.
                  }
@@ -65,7 +65,8 @@ transposition, substitution, block construction and their combinations.
 Hence it is worthwhile to closely consider this ``ancient'' methods especially
 under didactic aspects.
 
-Methods to be successful and wide-spread had to fulfill some attributes which are equally required for modern algorithms:
+Methods to be successful and wide-spread had to fulfill some attributes
+which are equally required for modern algorithms:
 \begin{itemize}
 \item Exhaustive description, almost standardization (including special cases,
       padding, etc.).
@@ -131,7 +132,7 @@ $(1, 2, 3, 4, 5) \Leftrightarrow (3, 4, 2, 1, 5)$.
    \end{center} 
    \end{table}
 
-   Ciphertext\footnote{The letters of the cleartext are -- as used 
+   Ciphertext\footnote{The letters of the plaintext are -- as used 
    historically -- grouped within blocks of 5 letters. It does not matter
    if the (constant) block length is different or no blank is inserted.}%
    : NXMLO TASOI INAEA PEFRN PSTO\\
@@ -190,7 +191,7 @@ $(1, 2, 3, 4, 5) \Leftrightarrow (3, 4, 2, 1, 5)$.
    line.
 
    In the example for a turning grille in table \ref{PaP_88Fleissner_table-reference}
-   you can write 4 times 16 characters of the cleartext on a piece of paper:
+   you can write 4 times 16 characters of the plaintext on a piece of paper:
    \begin{table}[ht]
    \begin{center}
    \begin{tabular}{|cccc|cccc|}
@@ -381,7 +382,7 @@ under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
 
    Ciphertext: SPOIS EPLOM ATRNF NIOTX NEAA\\
    \footnotetext{%
-   After filling the matrix with the cleartext you get the left block.
+   After filling the matrix with the plaintext you get the left block.
    After switching rows and columns you get the right block}
 
 
@@ -726,7 +727,7 @@ remains unchanged during the whole process of encryption.
    Now use a second, unsuspicious message to hide the ciphertext inside 
    of it. This may happen by upper and lower case or italicized letters: 
    e.g.\ all letters of the unsuspicious message below  a binary ``1'' are 
-   capitalised. Overall this is obtrusive.
+   capitalized. Overall this is obtrusive.
 
    See table \ref{Baconian-table-reference}.
 
@@ -768,7 +769,7 @@ character of the plaintext alphabet is assigned several ciphertext characters.
 
 \item {\bf Beale cipher} \cite{pp:Singh1999}\index{Beale cipher}: 
    The Beale cipher is a book cipher
-   that numbers the words of a keytext. These numbers replace the cleartext 
+   that numbers the words of a keytext. These numbers replace the plaintext 
    letters by the words' initial letters.
 
 \item {\bf Grandpr\'e cipher} \cite{pp:Savard1999}: A square grille with 10 
@@ -802,7 +803,7 @@ Polygraphic techniques\index{substitution!polygraphic} do not work by replacing 
    For example, a number could assign a different meaning to or delete the 
    preceding one.
 
-   \hypertarget{playfair}{}
+\hypertarget{playfair}{}
 \item {\bf Playfair cipher}\footnote{%
    In CT1\index{CrypTool 1} you can call this method under the menu
    {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
@@ -1161,7 +1162,7 @@ previous mentioned methods.
       \item {\bf Bifid/Polybius square/checkerboard} \cite{pp:Goebel2003}: 
          Bifid encryption is the basic form of fractionation. A 5x5 matrix 
          is filled with the plaintext alphabet (see Playfair encryption), 
-         rows and columns are numbered, so that each cleartext character can be
+         rows and columns are numbered, so that each plaintext character can be
          substituted by a pair of digits. Mostly the plaintext is divided into 
          blocks of equal length. The length of blocks (here 5) is another 
          configuration parameter of this cipher. Block-by-block all line
@@ -1272,7 +1273,7 @@ previous mentioned methods.
    transformed back into digraphs.
 
    {\bf Remark:} This cipher only works with complete blocks of 3 pairs of
-   cleartext characters. For a complete description, it is necessary to
+   plaintext characters. For a complete description, it is necessary to
    explain how sender and receiver handle texts which fill in the last block
    only 1-5 characters. The possibilities range from ignoring a last and
    incomplete block to padding it with random characters or with characters
@@ -1427,7 +1428,7 @@ previous mentioned methods.
          \end{enumerate}
 	 For each keystream character you like to generate, these six steps 
          have to be carried out. This procedure is -- manually -- very lengthy
-         (4 h for 300 characters, dependant on your exercise) and requires
+         (4 h for 300 characters, dependent on your exercise) and requires
          high concentration.
 
          Encryption takes place by addition modulo 26. Encryption is
@@ -2244,7 +2245,7 @@ cipher.\\
 \noindent {\bf Remark:} Comparing the Hill implementation in CrypTool v1.4.31
 and in SageMath version 5.3:
 \begin{itemize}
-  \item SageMath offers fast commandline operations; CT1 offers
+  \item SageMath offers fast command-line operations; CT1 offers
         its functionality within a GUI.
   \item SageMath offers for the key matrix any dimension; CT1 is restricted
         to a matrix size between 1 and 10.

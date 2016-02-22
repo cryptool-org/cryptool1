@@ -876,7 +876,7 @@ sich um Digramme, Trigramme, Silben, etc. handeln.
    }
    \cite{pp:Singh2001}\index{Playfair}: 
    Eine 5x5-Matrix wird mit dem Alphabet gefüllt, z.B. erst mit den 
-   verschiedenen Zeichen eines Schlüsselwortes, dann mit den restlichen 
+   verschiedenen Zeichen eines Schlüsselworts, dann mit den restlichen 
    Buchstaben des Alphabets. Der Klartext wird in Digramme unterteilt, die 
    nach den folgenden Regeln verschlüsselt werden:
    \begin{enumerate}
@@ -1788,7 +1788,7 @@ sage: T(keyInv)
 \newpage
 \begin{sloppypar}
 Im dritten Beispiel der Transpositions-Chiffren wird eine beliebige Permutation
-als Schlüssel für die Ver- und Entschlüsselun gewählt, um die Zeichen in jedem Block
+als Schlüssel für die Ver- und Entschlüsselung gewählt, um die Zeichen in jedem Block
 zu verwürfeln (Blocklän"-ge = Anzahl Spalten in der einfachen Spaltentransposition).
 Ist die Blocklänge $n$, dann ist der Schlüssel eine Permutation über $n$ Zeichen.
 Das folgende Beispiel nutzt die Methode \verb!random_key()! der Klasse
@@ -2018,7 +2018,7 @@ True
 
 Die Verschiebe-Chiffre kann man sich auch als Verallgemeinerung der ursprünglichen
 Caesar-Chiffre denken: Caesar shiftete das Alphabet immer genau um 3 Positionen.
-Die Shift-Chiffre kann um eine beliebige Anzahl Positonen entlang des
+Die Shift-Chiffre kann um eine beliebige Anzahl Positionen entlang des
 Alphabets shiften. Shiften ist eine spezielle Form der Substitution.
 
 In den obigen Beispielen wurde das \verb!SubstitutionCryptosystem! angewandt, und
@@ -2033,7 +2033,7 @@ Die Shift-Chiffre  ist direkt implementiert in der SageMath-Klasse
 Im folgenden Beispiel konstruieren wir eine Shift-Chiffre über den Großbuchstaben
 des lateinischen Alphabets. Dann verschlüsseln wir den Klartext P durch Shiften
 um 12 Positionen. Schließlich entschlüsseln wir wieder das Chiffrat C und überprüfen,
-dass das Egebnis (DC) identisch mit dem ursprünglichen Klartext ist.
+dass das Ergebnis (DC) identisch mit dem ursprünglichen Klartext ist.
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -2063,7 +2063,7 @@ festem Schlüssel 3. Im nächsten Beispiel wird die Caesar-Chiffre
 über den Großbuchstaben des lateinischen Alphabets gebaut.
 % Dann verschlüsseln wir den
 % Klartext P mit der Caesar-Chiffre. Schließlich entschlüsseln wir
-% wieder das Chiffrat C und überprüfen, dass das Egebnis (DC)
+% wieder das Chiffrat C und überprüfen, dass das Ergebnis (DC)
 % identisch mit dem ursprünglichen Klartext ist.
 
 \begin{sagecode}
@@ -2094,7 +2094,7 @@ True
 \label{PaP_affine_cipher_sage-sample}
 \index{affine Chiffre}
 
-Die affine Chiffre ist implementiert in the SageMath-Klasse
+Die affine Chiffre ist implementiert in der SageMath-Klasse
 \begin{center}
 \verb!sage.crypto.classical.AffineCryptosystem!
 \end{center}
@@ -2204,8 +2204,8 @@ True
 
 Im folgenden SageMath-Programmbeispiel sind die Alphabetzeichen aus dem Binärsystem.
 Eine monoalphabetische Substitution über einem Binäralphabet bietet nur wenig
-Sicherheit: Weil das Klartext-/Geheintext-Alphabet nur aus den 2 Elementen 
-0 and 1 besteht, gibt es nur zwei mögliche Schlüssel: (0 1) and (1 0). \\
+Sicherheit: Weil das Klartext-/Geheimtext-Alphabet nur aus den 2 Elementen 
+0 und 1 besteht, gibt es nur zwei mögliche Schlüssel: (0 1) und (1 0). \\
 Anmerkung: Im Schlüssel einer allgemeinen Substitutions-Chiffre müssen
 alle Alphabetzeichen genau einmal auftreten.
 
