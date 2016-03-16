@@ -115,7 +115,7 @@
 
 % Define title ......................
 % \title{ % Keine Leerzeilen, sonst Meldung: "Paragraph ended before \title was complete."
-% \title{\vspace{25pt}
+%\title{\vspace{25pt}%SO bekam ich leider VOR dem Titel keinen Abstand nach oben
 \title{%
 % be_Wished to enlarge only the main title, however \HUGE not available,
 %    or \HUGE without any effect beside adding \usepackage[11pt]{moresize}
@@ -127,8 +127,9 @@
 %    {\HUGE Das CrypTool-Buch} \\[15pt]
 % --> Später: Use the KOMA-script class or the memoir class (erfordert aber andere \documentclass)
 %    http://texblog.org/2012/08/29/changing-the-font-size-in-latex/
-	{\Huge ~ \\[20pt]
-	       Das CrypTool-Buch:\\[20pt]
+%	{\Huge ~ \\[20pt]%NUR SO bekam ich VOR dem Titel noch etwas mehr Abstand nach oben
+% 	       Das CrypTool-Buch:\\[20pt]
+	{\Huge Das CrypTool-Buch:\\[20pt]
 	       Kryptographie lernen und anwenden\\[15pt]
                mit CrypTool und SageMath} \\[25pt]
 	{\LARGE Hintergrundmaterial und Zusatzinformationen\\
@@ -136,10 +137,15 @@
 	 (Kryptographie, Mathematik und mehr)} \\[25pt]
 	%{\large 12. Auflage}
 	{\large 12. Auflage -- Draft-Version (\settimeformat{hhmmsstime}\currenttime)}
-        \vspace{180pt}
+        \vspace{110pt}
+	% War der \vspace-Wert zu groß (z.B. 180), kam nach dem Cover eine
+	% komplett leere Seite und auf der von \maketitle erstellten 3. Seite
+	% stand die Seitennummer II ?
+	% Zusätzlich stand auf der Seite "Dies ist ein freies ..." wieder eine
+	% römische I ?  D.h. er begann zweimal von vorne!
 }
 
-\author{ % Die Klammer zur Fontänderung funktioniert bei author nur einzeilig im Gegensatz zu title?!
+\author{% Die Klammer zur Fontänderung funktioniert bei \author nur einzeilig im Gegensatz zu \title?!
 	{\LARGE Prof.\ Bernhard Esslinger (Mitautor und Herausgeber)}\\[10pt]
 	{\LARGE und das CrypTool-Team, 1998-2016}\\[10pt]
 	{\LARGE Frankfurt am Main}\\*[15pt]
@@ -149,30 +155,28 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-\VerbatimFootnotes
 
+% \includepdf[pages=1]{figures/coverv1_de_draft.pdf}
 % \includepdf[pages=1]{figures/coverv1_de-300dpi.pdf}
 \includepdf[pages=1]{figures/coverv1_de.pdf}
-% \includepdf[pages=1]{figures/coverv1_de_draft.pdf}
-
-\frontmatter
 
 \pagestyle{plain}
 \setlength{\fboxrule}{.5mm}
 \setlength{\fboxsep}{1.75mm}
 \setlength{\footnotesep}{6pt}
 \addtolength{\footskip}{8pt}
-%\setlength{\footskip}{4cm}
+% \setlength{\footskip}{4cm}
 
-%space between text and footnote 
-%\renewcommand{\footnoterule}{\parindent0cm\rule{13cm}{.1pt}\vspace{.2cm}}
-%Formatierung der Fu"snoten
+\VerbatimFootnotes
+% space between text and footnote 
+% \renewcommand{\footnoterule}{\parindent0cm\rule{13cm}{.1pt}\vspace{.2cm}}
+% Formatierung der Fußnoten
 \renewcommand\footnoterule{
 \vspace{2em}%   <-- one line space between text and footnoterule
-%\kern-3\p@
+% \kern-3\p@
 \hrule width .4\columnwidth
 \vspace{4pt}
-%kern 2.6\p@
+% kern 2.6\p@
 }
 
 %\long\def\@makefntext#1{%
@@ -180,10 +184,8 @@
 %\noindent
 %\hbox to 1.8em{\hss\@makefnmark}#1}
 
-% TODO: Warum nach dem Cover eine leere Seite und auf der von \maketitle
-%       erstellten 3. Seite die Seitennummer II ?  Beides ist akzeptabel.
-% TODO: Warum beginnt er auf der 4. Seite wieder mit der Seite römisch I ?
-%       Das sollte nicht sein!
+
+\frontmatter % Ab hier beginnt Seitennummerierung mit römischen Ziffern
 \maketitle
 
 
@@ -218,7 +220,8 @@ Versionsverwaltungs-Software: Subversion
 % be_2005: a) Auf erste Seite nur den Titel ! -> Newpage eingefügt.
 %          b) "aboutcryptool.tex" hier und nicht unten vor "introduction.tex"
 %             einfügen, damit es VOR dem Inhaltsverzeichnis steht.
-\input{chapters/aboutcryptool.tex}
+\input{chapters/aboutcryptool.tex} % Überblick über den Inhalt des CT-Buches
+
 
 \newpage
 \pdfbookmark[0]{Kurzinhaltsverzeichnis}{ShortContents}
@@ -238,8 +241,9 @@ Versionsverwaltungs-Software: Subversion
 \parskip \value{mycounterDefaultParskip} pt 
 
 
-\input{chapters/introduction.tex}
-\mainmatter
+\input{chapters/introduction.tex} % Working together of Book and Programm 
+
+\mainmatter % Ab hier beginnt Seitennummerierung mit arabischen Ziffern
 \input{chapters/cryptomethods.tex}
 \input{chapters/paper_and_pencil.tex}
 \input{chapters/primes.tex}

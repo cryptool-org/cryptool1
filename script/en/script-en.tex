@@ -79,17 +79,15 @@
 
 % Define title ..............
 \title{% Keine Leerzeilen, sonst Meldung: "Paragraph ended before \title was complete."
-	{\Huge ~ \\[20pt]
-	 The CrypTool Book: \\[20pt]
-         Learning and Experiencing\\[15pt]
-         Cryptography\\[20pt]
+	{\Huge The CrypTool Book: \\[20pt]
+         Learning and Experiencing Cryptography\\[20pt]
          with CrypTool and SageMath} \\[25pt]
 	{\LARGE	Background reading for CrypTool\\ 
          the free e-learning crypto program \\[5pt]
 	 (Cryptography, Mathematics, and More)} \\[25pt]
-	{\large 12th edition -- draft version (\settimeformat{hhmmsstime}\currenttime)}
 	% {\large 12th edition}
-        \vspace{180pt}
+	{\large 12th edition -- draft version (\settimeformat{hhmmsstime}\currenttime)}
+        \vspace{110pt}
 }
 
 \author{
@@ -102,13 +100,10 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-\VerbatimFootnotes
 
+% \includepdf[pages=1]{figures/coverv1_en_draft.pdf}
 % \includepdf[pages=1]{figures/coverv1_en-300dpi.pdf}
 \includepdf[pages=1]{figures/coverv1_en.pdf}
-% \includepdf[pages=1]{figures/coverv1_en_draft.pdf}
-
-\frontmatter
 
 \pagestyle{plain}
 \setlength{\fboxrule}{.5mm}
@@ -116,13 +111,15 @@
 \setlength{\footnotesep}{6pt}
 \addtolength{\footskip}{8pt}
 
+\VerbatimFootnotes
 \renewcommand\footnoterule{%
   \vspace{2em}
   \hrule width .4\columnwidth
  \vspace{4pt}
 }
 
-\vspace{30pt}
+
+\frontmatter
 \maketitle
 
 
@@ -154,6 +151,7 @@ Version control software: Subversion
 
 
 \input{chapters/aboutcryptool.tex}
+
 
 \newpage
 \pdfbookmark[0]{Contents Overview}{ShortContents}
