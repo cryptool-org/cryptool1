@@ -116,7 +116,7 @@
 % Define title ......................
 % \title{ % Keine Leerzeilen, sonst Meldung: "Paragraph ended before \title was complete."
 % \title{\vspace{25pt}
-\title{
+\title{%
 % be_Wished to enlarge only the main title, however \HUGE not available,
 %    or \HUGE without any effect beside adding \usepackage[11pt]{moresize}
 %    and explicit use of \fontsize caused the LaTeX Font Warning:
@@ -126,12 +126,14 @@
 %    {\fontsize{40}{48} \selectfont Das CrypTool-Buch} \\[15pt]
 %    {\HUGE Das CrypTool-Buch} \\[15pt]
 % --> Später: Use the KOMA-script class or the memoir class (erfordert aber andere \documentclass)
-%             http://texblog.org/2012/08/29/changing-the-font-size-in-latex/
-	{\Huge Das CrypTool-Buch \\[15pt]
-	       Kryptographie, Mathematik und mehr} \\[25pt]
+%    http://texblog.org/2012/08/29/changing-the-font-size-in-latex/
+	{\Huge ~ \\[20pt]
+	       Das CrypTool-Buch:\\[20pt]
+	       Kryptographie lernen und anwenden\\[15pt]
+               mit CrypTool und SageMath} \\[25pt]
 	{\LARGE Hintergrundmaterial und Zusatzinformationen\\
 	 zum freien E-Learning Krypto-Programm CrypTool\\[5pt]
-	 (mit Code-Beispielen, geschrieben in SageMath)} \\[25pt]
+	 (Kryptographie, Mathematik und mehr)} \\[25pt]
 	%{\large 12. Auflage}
 	{\large 12. Auflage -- Draft-Version (\settimeformat{hhmmsstime}\currenttime)}
         \vspace{180pt}
@@ -150,8 +152,8 @@
 \VerbatimFootnotes
 
 % \includepdf[pages=1]{figures/coverv1_de-300dpi.pdf}
-% \includepdf[pages=1]{figures/coverv1_de.pdf}
-\includepdf[pages=1]{figures/coverv1_de_draft.pdf}
+\includepdf[pages=1]{figures/coverv1_de.pdf}
+% \includepdf[pages=1]{figures/coverv1_de_draft.pdf}
 
 \frontmatter
 
@@ -178,6 +180,10 @@
 %\noindent
 %\hbox to 1.8em{\hss\@makefnmark}#1}
 
+% TODO: Warum nach dem Cover eine leere Seite und auf der von \maketitle
+%       erstellten 3. Seite die Seitennummer II ?  Beides ist akzeptabel.
+% TODO: Warum beginnt er auf der 4. Seite wieder mit der Seite römisch I ?
+%       Das sollte nicht sein!
 \maketitle
 
 
