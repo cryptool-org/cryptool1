@@ -156,6 +156,43 @@ das Buch von Bruce Schneier \cite{cm:Schneier1996}.
 \newpage
 
 \begin{ctsquote}
+\glqq Man kann nicht nicht kommunizieren!\grqq 
+\caption[Paul Watzlawick]{Paul Watzlawick\footnotemark}\index{Watzlawick, Paul}
+\end{ctsquote}
+\addtocounter{footnote}{0}\footnotetext{Paul Watzlawick, Janet H. Beavin und Don D. Jackson, \glqq Menschliche Kommunikation. Formen, Störungen, Paradoxien\grqq, Huber, (c) 2007, Das erste der fünf pragmatischen Axiome ihrer Kommunikationstheorie.}
+
+% --------------------------------------------------------------------------
+\section[Einflüsse auf Verschlüsselungsverfahren] % Was zw. [..] steht, kommt ins Inhaltsverzeichnis!
+{Einflüsse auf Verschlüsselungsverfahren}
+
+\nopagebreak
+Hier sollen kurz zwei Aspekte von Kryptoverfahren erwähnt werden, auf die oft nicht früh genug eingegangen wird:
+
+\begin{itemize}
+
+\item {\bf Zufallsbasiert}\\
+Man kann Algorithmen trennen in deterministische\index{deterministisch} und heuristische\index{heuristisch} Verfahren. Meistens lernten Studenten nur deterministische Verfahren kennen, bei denen die Ausgabe eindeutig durch die Eingabe vorgegeben wird. Bei heuristischen Verfahren werden Entscheidungen aufgrund zufälliger Werte getroffen. Moderne Verfahren des maschinellen Lernens gehören ebenfalls hierzu.
+
+In Kryptoverfahren spielt Zufall eine große Rolle. Immer müssen die Schlüssel zufällig gewählt werden, so dass zumindest bei der Schlüsselgenerierung~\glqq Zufall\grqq~erzeugt werden muss. Zusätzlich sind manche Verfahren (vor allem aus der Kryptoanalyse) heuristisch.
+
+\item {\bf Konstanten-basiert}\\
+Viele moderne Verfahren (insbesondere Hashverfahren und symmetrische Verschlüsse-lungsverfahren) benutzen numerische Konstanten. Diese sollten nachvollziehbar sein und keine Hintertüren ermöglichen. Zahlen, die das erfüllen, nennt man im Englischen~\glqq Nichts-im-Ärmel\grqq-Zahlen: Nothing-up-my-sleeve number\index{Zahl!Nothing-up-my-sleeve}.%
+\footnote{\url{http://en.wikipedia.org/wiki/Nothing_up_my_sleeve_number}}
+
+\end{itemize}
+
+
+
+
+
+
+
+
+
+% --------------------------------------------------------------------------
+\newpage
+
+\begin{ctsquote}
 \glqq Transparenz. Das ist das Höchste, was man sich in einer technologisch hoch entwickelten Gesellschaft erhoffen kann ... sonst wird man einfach nur manipuliert.\grqq 
 \caption[Daniel Suarez]{Daniel Suarez\footnotemark}\index{Suarez, Daniel}
 \end{ctsquote}
@@ -225,7 +262,7 @@ Das bekannteste symmetrische Verschlüsselungsverfahren ist der
 DES-Algorithmus.\index{DES} Der DES-Algorithmus ist eine Entwicklung von IBM 
 in Zusammenarbeit mit der National Security Agency \index{NSA} (NSA). 
 Er wurde 1975 als Standard veröffentlicht. Trotz seines relativ hohen
-Alters ist jedoch bis heute kein  ~\glqq effektiver\grqq~ Angriff auf
+Alters ist jedoch bis heute kein ~\glqq effektiver\grqq~ Angriff auf
 ihn gefunden worden. Der effektivste Angriff besteht aus dem Durchprobieren
 (fast) aller möglichen Schlüssel, bis der richtige gefunden wird 
 ({\em Brute-Force-Angriff})\index{Angriff!Brute-Force}. Aufgrund der relativ

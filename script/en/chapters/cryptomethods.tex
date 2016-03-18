@@ -146,6 +146,40 @@ the different encryption algorithms.
 
 
 
+
+
+
+% --------------------------------------------------------------------------
+\newpage
+
+\begin{ctsquote}
+``One cannot not communicate.''
+\caption[Paul Watzlawick]{Paul Watzlawick\footnotemark}\index{Watzlawick, Paul}
+\end{ctsquote}
+\addtocounter{footnote}{0}\footnotetext{Paul Watzlawick, Janet H. Beavin, and Don D. Jackson, ``Pragmatics of human communication; a study of interactional patterns, pathologies, and paradoxes'', Norton, 1967, The first of five axioms of their human communications theory.}
+
+% --------------------------------------------------------------------------
+\section[Influences on encryption methods]{Influences on encryption methods}
+
+\nopagebreak
+Here, we just want to mention two aspects often neglected and dealt with too late:
+
+\begin{itemize}
+
+\item {\bf Random based}\\
+Algorithms can be divided up into deterministic\index{deterministic} and heuristic\index{heuristic} methods. Most students only learnt deterministic methods, where the output is uniquely determined by the input. On the other hand, heuristic methods make decisions using random values. Modern methods of machine learning are also part of them.
+
+Random looms large in cryptographic methods. Keys have to be selected randomly, which means that at least for the key generation ``random'' is necessary. In addition, some methods, especially from cryptanalysis, are heuristic.
+
+\item {\bf Constant based}\\
+Many modern methods (especially hash methods and symmetric encryption) use numeric constants. Their values should be plausible and they shouldn't contain back doors. Numbers fulfilling this requirement are called nothing-up-my-sleeve numbers\index{Number!nothing-up-my-sleeve}.%
+\footnote{\url{http://en.wikipedia.org/wiki/Nothing_up_my_sleeve_number}}
+
+\end{itemize}
+
+
+
+
 % --------------------------------------------------------------------------
 \newpage
 
