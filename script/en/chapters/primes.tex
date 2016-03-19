@@ -93,6 +93,55 @@ These include $$ 4 = 2 \cdot 2, \quad 6 = 2\cdot 3 $$ as well
 as numbers that {\em look like primes}, but are in fact composite:
 $$ 91 = 7 \cdot 13, \quad 161=7 \cdot 23, \quad 767 =13 \cdot 59. $$
 
+
+\newpage
+The following table gives a first impression how primes are distributed between natural numbers. There are many graphical forms of represenation
+%display formats
+(the most well-known is the Ulam spiral). However till now, these graphical forms gained no new insights, but for some people they created the impression that
+%are suggestive of
+there are at least local patterns within the random distribution.
+
+\begin{figure}[!hb]
+\begin{center}
+\includegraphics[scale=0.3]{figures/Numberrectangle-with-colored-primes_Irisprime.jpg}
+\caption[Primes between the first 390 integers -- marked with color]
+        {Primes between the first 390 integers -- marked with color\protect\footnotemark}
+\label{Primes-in-a-390-integer-rechtangle-figure}
+\end{center}
+\end{figure}
+\footnotetext{%
+   Graphics from 
+   \url{http://mathforum.org/mathimages/index.php/Image:Irisprime.jpg}, 30*13 rectangle
+   }
+
+\begin{figure}[!hb]
+\begin{center}
+\includegraphics[scale=0.41]{figures/Ulam_spiral_via-CT2-within-1-999.png}
+\caption[Primes between the first 999 integers -- as Ulam spiral]
+        {Primes between the first 999 integers -- as Ulam spiral\protect\footnotemark}
+\label{Primes-in-a-999-integer-ulam-spiral-figure}
+\end{center}
+\end{figure}
+\footnotetext{%
+   Graphics from CT2, menu Crypto Tutorials, Distribution of primes, Ulam's spiral; 32*32 points
+   }
+%\newpage
+\begin{figure}[!hb]
+\begin{center}
+\includegraphics{figures/Ulam_spiral_Wikipedia.png}
+\caption[Primes between the first 4000 integers -- as Ulam spiral]
+        {Primes between the first 4000 integers -- as Ulam spiral\protect\footnotemark}
+\label{Primes-in-a-4000-integer-ulam-spiral-figure}
+\end{center}
+\end{figure}
+\footnotetext{%
+   Graphics from 
+   \url{http://mathforum.org/mathimages/index.php/Image:Ulam_spiral.png}, 200*200 Ulam spiral
+   }
+
+
+
+\newpage
 \begin{theorem}\label{thm-pz-sqr}
 Each whole number $m$ greater than $1$ possesses a lowest factor greater than
 $1$. This is a prime number $p$. Unless $m$ is a prime number itself, then: $p$
@@ -1499,9 +1548,25 @@ use the sieve of Eratosthenes. In the 3rd century B.C., he found an
 extremely easy, automatic way of finding this out. To begin with, you write
 down all numbers from 2 to $x$, circle 2, then cross out all multiples of 2.
 Next, you circle the lowest number that hasn't been circled or crossed out
-(3) and again cross out all multiples of this number, etc. You only need to
-continue until you reach the largest number whose square is less than or
-equal to $x$.%
+(now 3) and again cross out all multiples of this number, etc. 
+
+\begin{figure}[!hb]
+\begin{center}
+\fboxrule0.5pt \fbox{
+ \includegraphics{figures/Primes-via-Eratosthenes-from-Wikipedia_en.png}
+ }
+ \caption[The sieve of Eratosthenes, applied to the first 120 numbers]
+         {The sieve of Eratosthenes, applied to the first 120 numbers\protect\footnotemark}
+\label{SieveEratosthenes01-figure}
+\end{center}
+\end{figure}
+\footnotetext{%
+   Graphics from 
+   \url{https://upload.wikimedia.org/wikipedia/commons/0/0b/Sieve_of_Eratosthenes_animation.svg}
+   }
+
+You need to continue only until you reach the largest number whose
+square is less than or equal to $x$ (here up to 10, as $11^2$ is already $> 120$).%
 \footnote{%
     \index{NT, Learning Tool for Number Theory}%
     \index{educational tool NT}%

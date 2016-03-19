@@ -2,7 +2,7 @@
 % ...........................................................................
 %       K A P I T E L  3 :     P R I M Z A H L E N
 %
-% - Todo for new version: always check "Eyecatcher_neue-Mersenne"
+% - Todo for new version: always check "Eyecatcher_neue-Mersenne" in primes.text and numbertheory.tex!
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 \newpage
@@ -95,6 +95,51 @@ $$ 4 = 2 \cdot 2, \quad 6 = 2\cdot 3 $$
 aber auch Zahlen, die {\em wie Primzahlen aussehen}, aber doch keine sind:
 $$ 91 = 7 \cdot 13, \quad 161=7 \cdot 23, \quad 767 =13 \cdot 59. $$
 
+
+\newpage
+Die folgende Tabelle vermittelt einen Eindruck, wie Primzahlen in den natürlichen Zahlen verteilt sind. Es gibt auch viele grafische Darstellungsformen (am bekanntesten ist die Ulam-Spirale), diese brachten bisher keinen konkreten Erkenntnisgewinn, doch sie erweckten bei manchen den Eindruck, dass es in der zufälligen Verteilung zumindest lokale Muster gäbe.
+
+\begin{figure}[!hb]
+\begin{center}
+\includegraphics[scale=0.3]{figures/Numberrectangle-with-colored-primes_Irisprime.jpg}
+\caption[Primzahlen unter den ersten 390 natürlichen Zahlen -- farblich markiert]
+        {Primzahlen unter den ersten 390 natürlichen Zahlen -- farblich markiert\protect\footnotemark}
+\label{Primes-in-a-390-integer-rechtangle-figure}
+\end{center}
+\end{figure}
+\footnotetext{%
+   Grafik von 
+   \url{http://mathforum.org/mathimages/index.php/Image:Irisprime.jpg}, 30*13-Rechteck
+   }
+
+\begin{figure}[!hb]
+\begin{center}
+\includegraphics[scale=0.41]{figures/Ulam_spiral_via-CT2-within-1-999.png}
+\caption[Primzahlen unter den ersten 999 natürlichen Zahlen -- als Ulam-Spirale]
+        {Primzahlen unter den ersten 999 natürlichen Zahlen -- als Ulam-Spirale\protect\footnotemark}
+\label{Primes-in-a-999-integer-ulam-spiral-figure}
+\end{center}
+\end{figure}
+\footnotetext{%
+   Grafik von CT2, Menü Kryptotutorien, Verteilung der Primzahlen, Ulam-Spirale; 32*32 Punkte
+   }
+%\newpage
+\begin{figure}[!hb]
+\begin{center}
+\includegraphics{figures/Ulam_spiral_Wikipedia.png}
+\caption[Primzahlen unter den ersten 4000 natürlichen Zahlen -- als Ulam-Spirale]
+        {Primzahlen unter den ersten 4000 natürlichen Zahlen -- als Ulam-Spirale\protect\footnotemark}
+\label{Primes-in-a-4000-integer-ulam-spiral-figure}
+\end{center}
+\end{figure}
+\footnotetext{%
+   Grafik von
+   \url{http://mathforum.org/mathimages/index.php/Image:Ulam_spiral.png}, 200*200 Ulam-Spirale
+   }
+
+
+
+\newpage
 \begin{satz}\label{thm-pz-sqr}
 Jede ganze Zahl $m$ größer als $1$ besitzt einen kleinsten Teiler größer als $1$.
 Dieser ist eine Primzahl $p$. Sofern $m$ nicht selbst eine Primzahl ist, gilt:
@@ -1582,9 +1627,35 @@ Jahrhundert vor Christus einen sehr einfach automatisierbaren Weg,
 das herauszufinden. Zuerst werden ab 2 alle Zahlen bis $x$
 aufgeschrieben, die 2 umkreist und dann streicht man alle
 Vielfachen von 2. Anschließend umkreist man die kleinste noch
-nicht umkreiste oder gestrichene Zahl (3), streicht wieder alle
-ihre Vielfachen, usw. Durchzuführen braucht man das nur bis zu
-der größten Zahl, deren Quadrat kleiner oder gleich $x$ ist.%
+nicht umkreiste oder gestrichene Zahl (nun 3), streicht wieder
+alle ihre Vielfachen, usw.
+
+% Mit \frame um \includegraphics fehlt der obere Rand um die Grafik.
+% Nimmt man [!h] raus, steht die Graphik oben auf der Seite und hat
+% einen vollständigen Rahmen. Auch \vskip +10pt vor \begin{figure}
+% half nicht. Also nahm ich \fbox statt \frame. Tat, nur ist die
+% Rahmenlinie nun dicker. Korrigiert per \fboxrule.
+% Vgl. http://home.mathematik.uni-freiburg.de/junker/ss10/LaTeX-SS10-5.pdf
+\begin{figure}[!hb]
+\begin{center}
+\fboxrule0.5pt \fbox{
+ \includegraphics{figures/Primes-via-Eratosthenes-from-Wikipedia_en.png}
+ }
+% footnotemark, damit Nummer direkt hinter dem Titel; protect davor, um Compilierungsfehler
+% zu vermeiden (http://www.undertec.de/blog/2013/06/latex-error-argument-of-caption-has-an-extra.html),
+ % da es ein fragile command. footnotetext NACH end{figure}, sonst Fußnote nicht angezeigt.
+ \caption[Das Sieb des Eratosthenes angewandt auf die ersten 120 Zahlen]
+         {Das Sieb des Eratosthenes angewandt auf die ersten 120 Zahlen\protect\footnotemark}
+\label{SieveEratosthenes01-figure}
+\end{center}
+\end{figure}
+\footnotetext{%
+   Graphik von 
+   \url{https://upload.wikimedia.org/wikipedia/commons/0/0b/Sieve_of_Eratosthenes_animation.svg}
+   }
+
+Durchzuführen braucht man das nur bis zu der größten Zahl,
+deren Quadrat kleiner oder gleich $x$ ist (hier also bis 10, da $11^2$ schon $> 120$).%
 \footnote{%
 \index{ZT, Lernprogramm Zahlentheorie}%
 \index{Lernprogramm ZT}%

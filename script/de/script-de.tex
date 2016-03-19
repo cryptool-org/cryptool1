@@ -12,7 +12,7 @@
                           % erzeugt aber ein paar zusätzliche schwarze Balken (z.B. bei
                           % "Der DES-Algorithmus ist" in cryptomethods.text im Deutschen,
                           % und bei der Trennung von "straddling checker-board" in 2.2.1 im Englischen.
-% Statt T1 als Package zu inkludieren, nur die benötigten Sonderzeichen definiert.
+% Statt T1 als Package zu inkludieren, nur die wirklich benötigten Sonderzeichen definiert.
 \DeclareTextSymbolDefault{\dh}{T1}
 \DeclareTextSymbolDefault{\textperthousand}{T1}
 
@@ -27,7 +27,7 @@
 \usepackage{color}   %BERM2: added for biciphers.tex
 
 \usepackage{fancyvrb}
-\usepackage{makeidx}
+\usepackage{makeidx}  % Alternativ evtl. \usepackage{imakeidx} (bemerkte keinen Unterschied)
 \usepackage[pdftex]{graphicx}
 \usepackage{pdfpages}   % SR_2009: added new cover
 %\usepackage{enumitem} %BE_2012: eliminate space after end{itemize} didn't work
@@ -58,7 +58,8 @@
 \usepackage{shorttoc}
 \usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black,bookmarksnumbered=true,pdfpagelabels,plainpages=false,hyperfootnotes=false]{hyperref}
 %To reduce the number of hyperlink related 'pdfTeX warning's we use options 
-%pdfpagelabels, plainpages=false and, hyperfootnotes=false and place hyperref after float.
+% pdfpagelabels, plainpages=false and, hyperfootnotes=false,
+% and place hyperref after float and after mykeidx!
 %Option debug helps finding problems.
 
 \floatstyle{boxed}  % This is necessary to have borders around the Zitate.
@@ -209,6 +210,7 @@ Dokumentation.
     \hyperlink{appendix-GNU-fdl}{``GNU Free Documentation License''}.
 
     Dies beinhaltet auch den Code für die SageMath-Beispiele in diesem Dokument.
+    \index{ZZZ-A0-xxxxxxxxxxxxxxxx}
 \end{quote}
 
 \vspace{420pt}

@@ -7,8 +7,9 @@
 \hypertarget{Kapitel_1}{}
 \chapter{Sicherheits-Definitionen und Verschlüsselungsverfahren}
 \label{Label_Kapitel_1}
-(Bernhard Esslinger, Jörg-Cornelius Schneider, Mai 1999; Updates: Dez. 2001, Feb. 2003, Juni 2005, Juli 2007, Jan. 2010, März 2013)
+(Bernhard Esslinger, Jörg-Cornelius Schneider, Mai 1999; Updates: Dez. 2001, Feb. 2003, Juni 2005, Juli 2007, Jan. 2010, März 2013, März 2016)
 
+\index{ZZZ0a-xxxxxxxxxxxxxxxx}
 Dieses Kapitel soll einen eher beschreibenden Einstieg bieten und die
 Grundlagen ohne Verwendung von allzu viel Mathematik vermitteln.
 
@@ -48,6 +49,8 @@ Zeige es mir, ich werde es vielleicht behalten.\\
 Lass es mich tun, und ich werde es können.
 \caption{Indisches Sprichwort}
 \end{ctsquote}
+
+\index{ZZZ1xxxxxxxxxxxxxxxx}
 
 Moderne Kryptographie basiert vor allem auf mathematischer Theorie und
 Computer-Praxis. Beim Design kryptographischer Algorithmen werden Annahmen
@@ -148,6 +151,8 @@ Einen guten Überblick über die verschiedenen Verschlüsselungs-Verfahren bietet
 das Buch von Bruce Schneier \cite{cm:Schneier1996}.
 \end{sloppypar}
 \vskip +3pt
+\index{ZZZ2xxxxxxxxxxxxxxxx}
+
 
 
 
@@ -165,22 +170,30 @@ das Buch von Bruce Schneier \cite{cm:Schneier1996}.
 \section[Einflüsse auf Verschlüsselungsverfahren] % Was zw. [..] steht, kommt ins Inhaltsverzeichnis!
 {Einflüsse auf Verschlüsselungsverfahren}
 
-\nopagebreak
+% \nopagebreak
 Hier sollen kurz zwei Aspekte von Kryptoverfahren erwähnt werden, auf die oft nicht früh genug eingegangen wird:
+\index{ZZZ3xxxxxxxxxxxxxxxx}
+
 
 \begin{itemize}
 
 \item {\bf Zufallsbasiert}\\
+\index{Zufall}
 Man kann Algorithmen trennen in deterministische\index{deterministisch} und heuristische\index{heuristisch} Verfahren. Meistens lernten Studenten nur deterministische Verfahren kennen, bei denen die Ausgabe eindeutig durch die Eingabe vorgegeben wird. Bei heuristischen Verfahren werden Entscheidungen aufgrund zufälliger Werte getroffen. Moderne Verfahren des maschinellen Lernens gehören ebenfalls hierzu.
 
 In Kryptoverfahren spielt Zufall eine große Rolle. Immer müssen die Schlüssel zufällig gewählt werden, so dass zumindest bei der Schlüsselgenerierung~\glqq Zufall\grqq~erzeugt werden muss. Zusätzlich sind manche Verfahren (vor allem aus der Kryptoanalyse) heuristisch.
 
 \item {\bf Konstanten-basiert}\\
-Viele moderne Verfahren (insbesondere Hashverfahren und symmetrische Verschlüsse-lungsverfahren) benutzen numerische Konstanten. Diese sollten nachvollziehbar sein und keine Hintertüren ermöglichen. Zahlen, die das erfüllen, nennt man im Englischen~\glqq Nichts-im-Ärmel\grqq-Zahlen: Nothing-up-my-sleeve number\index{Zahl!Nothing-up-my-sleeve}.%
+Viele moderne Verfahren (insbesondere Hashverfahren und symmetrische Verschlüsse-lungsverfahren) benutzen numerische Konstanten. Diese sollten nachvollziehbar sein und keine Hintertüren ermöglichen. Zahlen, die das erfüllen, nennt man im Englischen~\glqq Nichts-im-Ärmel\grqq-Zahlen: Nothing-up-my-sleeve number\index{Zahlen!Nothing-up-my-sleeve}\index{Zahlen!NNN}.%
 \footnote{\url{http://en.wikipedia.org/wiki/Nothing_up_my_sleeve_number}}
 
 \end{itemize}
 
+\index{ZZZ4xxxxxxxxxxxxxxxx}
+\index{Zufallxxxxxxxxxxxxxxxx}
+\index{Zahlen!Nothing-up-my-sleeve}
+\index{Zahlen!NNNxxxxxxxxxxxxxxxx}%TODOTODO_weder hier noch im item wurden die Begriffe in den Index geschrieben! Problem von TeXworks? 19.3.16  script-de.ind zu löschen brachte nichts, ebsowenig wie die explitie Änderung von script-de.tex und das Löschen aller Zwischen-Files script-de.*?
+xxxxxxxxxxxy
 
 
 
@@ -222,6 +235,8 @@ Viele moderne Verfahren (insbesondere Hashverfahren und symmetrische Verschlüsse
     }
 
 \nopagebreak
+\index{ZZZ5xxxxxxxxxxxxxxxx}
+
 Bei der {\em symmetrischen} Verschlüsselung 
 \index{Verschlüsselung!symmetrisch} müssen Sender und Empfänger
 über einen gemeinsamen (geheimen) Schlüssel verfügen, den sie vor
@@ -229,6 +244,7 @@ Beginn der eigentlichen Kommunikation ausgetauscht haben. Der Sender
 benutzt diesen Schlüssel, um die Nachricht zu verschlüsseln und der
 Empfänger, um diese zu entschlüsseln.\par %\vskip + 3pt
 
+\index{ZZZ6h-xxxxxxxxxxxxxxxx}
 Dies veranschaulicht Abbildung \ref{Figure_Symmetric-Enc_Secret-Key-Enc}:
 \begin{figure}[ht]
 \begin{center}
@@ -238,12 +254,14 @@ Dies veranschaulicht Abbildung \ref{Figure_Symmetric-Enc_Secret-Key-Enc}:
 \end{center}
 \end{figure}
 
+\index{ZZZ6g-xxxxxxxxxxxxxxxx}
 Alle klassischen Chiffren sind vom Typ symmetrisch. Beispiele dazu finden Sie
 in den CT-Programmen, im Kapitel~\ref{Kapitel_PaperandPencil}
 (\glqq \nameref{Kapitel_PaperandPencil}\grqq ) in diesem Skript oder 
 in \cite{cm:Nichols1996}. 
 In diesem Unterkapitel wollen wir jedoch nur die moderneren symmetrischen
 Verfahren betrachten.
+\index{ZZZ6f-xxxxxxxxxxxxxxxx}
 
 Vorteile von symmetrischen Algorithmen sind die hohe
 Geschwindigkeit, mit denen Daten ver- und entschlüsselt werden.
@@ -277,6 +295,7 @@ Hohe Aktualität besitzt das symmetrische AES-Verfahren:\index{AES}
 Der dazu gehörende Rijndael-Algo"-rithmus wurde am 2. Oktober 2000 zum
 Gewinner der AES-Ausschreibung erklärt und ist damit Nachfolger
 des DES-Verfahrens.
+\index{ZZZ6e-xxxxxxxxxxxxxxxx}
 
 Näheres und weitere Verweise zum AES-Algorithmus und den AES-Kandidaten
 der letzten Runde finden Sie z.B. in der Online-Hilfe von
@@ -299,6 +318,7 @@ CrypTool\index{CrypTool}.%
 \label{NeueAES-Analyse}
 \index{Kryptoanalyse}
 \index{AES}
+\index{ZZZ6d-xxxxxxxxxxxxxxxx}
 
 Im Anschluss finden Sie einige Informationen, die das AES-Verfahren in
 letzter Zeit in Zweifel zogen -- unserer Ansicht nach aber (noch)
@@ -435,6 +455,7 @@ praktikabel, für AES-128 geben die Autoren keinen Angriff an.
 \subsection{Algebraische oder algorithmische Kryptoanalyse symmetrischer Verfahren}
 \index{Angriff!algebraischer}
 \label{Algebraic-gegen-Symmetr}
+\index{ZZZ6c-xxxxxxxxxxxxxxxx}
 
 Es gibt unterschiedliche moderne Angriffsverfahren, die die Strukturen eines Problems direkt oder nach einer Transformation des Problems angreifen. Eines dieser Angriffsverfahren beruht auf dem Erfüllbarkeitsproblem der Aussagenlogik (SAT, von englisch satisfiability)%
 \footnote{%
@@ -475,6 +496,7 @@ xxxxxxxxx Bsp aus CT2.1
 \index{Angriff!Brute-Force}
 \index{RC5}
 \label{Brute-force-gegen-Symmetr}
+\index{ZZZ6b-xxxxxxxxxxxxxxxx}
 
 Anhand der Blockchiffre RC5 kann der aktuelle Stand von Brute-Force-Angriffen
 auf symmetrische Verschlüsselungsverfahren gut erläutert werden.
@@ -583,6 +605,7 @@ Cipher-Challenges\footnote{%
    Menü {\bf Visualisierungen} der Standard-Perspektive als auch in der
    Algorithmen-Perspektive.%Funktionalen
   }
+\index{ZZZ6a-xxxxxxxxxxxxxxxx}
 
 Bei der {\em asymmetrischen} Verschlüsselung
 \index{Verschlüsselung!asymmetrisch} hat jeder Teilnehmer 
@@ -697,6 +720,7 @@ Signature Algorithm).
 }
 \label{CM_Hybrid-procedures}
 \index{Hybridverfahren}
+\index{ZZZ6xxxxxxxxxxxxxxxx}
 
 Um die Vorteile von symmetrischen und asymmetrischen Techniken gemeinsam 
 nutzen zu können, werden (zur Verschlüsselung) in der Praxis meist 
@@ -705,15 +729,17 @@ Hybridverfahren \index{Verschlüsselung!hybrid} verwendet.\par \vskip + 3pt
 Hier werden die Mengen-Daten mittels symmetrischer Verfahren
 verschlüsselt: Der Schlüssel ist ein vom Absender zufällig\footnote{%
    Die Erzeugung zufälliger Zahlen ist ein wichtiger Bestandteil 
-   kryptographisch sicherer Verfahren. Mit CT1\index{CrypTool 1} 
+   kryptographisch sicherer Verfahren.\\
+   Mit CT1\index{CrypTool 1} 
    können Sie über das Menü {\bf Einzelverfahren \textbackslash{}
    Zufallsdaten erzeugen} verschiedene Zufallszahlengeneratoren ausprobieren.
    Über das Menü {\bf Analyse \textbackslash{} Zufallsanalyse} können Sie
    verschiedene Testverfahren für Zufallsdaten auf binäre Dokumente
-   anwenden. \\
-   CT1 konzentriert sich auf kryptographisch starke
-   {\bf Pseudo}zufallszahlengeneratoren. \glqq Echte\grqq % "`echte"'
-   Zufallsquellen werden nur über den Aufruf des Secude-Generators einbezogen.\\
+   anwenden.\\
+   % CT1 konzentriert sich auf kryptographisch starke
+   % {\bf Pseudo}zufallszahlengeneratoren. \glqq Echte\grqq~
+   % Zufallsquellen werden nur über den Aufruf des Secude-Generators einbezogen.\\
+   CT2 xxxxxxxxxxxxxxx\\
    JCT\index{JCrypTool} bietet {\bf Pseudo}zufallszahlengeneratoren sowohl
    im Menü {\bf Algorithms \textbackslash{} Random Number Generator} der
    Standard-Perspektive als auch in der Algorithmen-Perspektive an.
