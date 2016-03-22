@@ -4,10 +4,12 @@
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % --------------------------------------------------------------------------
 % HACK to fix warning "destination with the same identifier .. has already been used, ...":
-\makeatletter \renewcommand{\thepage}{~\csname @roman\endcsname \c@page~} \makeatother
+% REMOVED, because it caused missing index entries
+%\makeatletter \renewcommand{\thepage}{~\csname @roman\endcsname \c@page~} \makeatother
 \clearpage\phantomsection
 % HACK to fix warning "destination with the same identifier .. has already been used, ...":
 % \makeatletter \renewcommand{\thepage}{\csname @roman\endcsname \c@page} \makeatother
+% REMOVED, because it caused missing index entries
 % BE_2016-03-16: Nahm dies ohne ~ nach "page" raus. Scheint nichts zu ändern?
 
 \addcontentsline{toc}{chapter}{Überblick über den Inhalt des CrypTool-Buchs}
