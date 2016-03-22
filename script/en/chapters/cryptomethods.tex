@@ -9,8 +9,6 @@
 %
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-% HACK to fix warning "destination with the same identifier .. has already been used, ...":
-%\makeatletter \renewcommand{\thepage}{~\csname @arabic\endcsname \c@page~} \makeatother
 \hypertarget{Kapitel_1}{}
 \chapter{Security Definitions and Encryption Procedures}
 \label{Label_Kapitel_1}
@@ -405,6 +403,10 @@ For larger Boolean formulas, it is not easy to determine if an assignment exists
 
 The general approach to use SAT solvers in cryptanalysis is very straightforward: First, the cryptographic problem, e.g. finding the symmetric key or an inversion of a hash function, is translated into a SAT problem. This is done in a way that the solution of the SAT problem solves the original cryptographic problem. Therefore, the SAT solver can be used to find a solution to the SAT problem. The paper by Massacci \cite{cm: Massacci2000} describes the first known usage of a SAT solver in this context. Unfortunately, very soon it turned out that such a general approach cannot be used efficiently in practice. This is due to the fact that the cryptographic SAT problems are very complex and the runtime of a SAT solver increases exponentially with the problem size. Therefore, in modern approaches SAT solvers are used only for solving partial problems of cryptanalysis. A good example for this is described in the paper by Mironov and Zhang \cite{cm: Mironov2006}. They demonstrate the usage of a SAT solver in an attack on hash functions, where the SAT solver is used to solve some partial problems in a very efficient way.
 
+xxxxxxxxx Bsp aus CT2.1 ergänzen
+%\index{ZZZ6b-xxxxxxxxxxxxxxxx_Bsp aus CT2.1 ergaenzen}
+\index{ZZZ6b-xxxxxxxxxxxxxxxx}
+
 
 
 % --------------------------------------------------------------------------
@@ -621,7 +623,8 @@ sender randomly\footnote{%
    % CT1 concentrates on cryptographically strong {\bf pseudo} random number
    % generators. ``Real'' random sources are only included via calling the
    % integrated Secude generator.\\
-   CT2 xxxxxxxxxxxx\\
+%   CT2 xxxxxxxxxxxx\index{ZZZ6c-xxxxxxxxxxxxxxxx_Bsp-Menue aus CT2 ergaenzen}\\
+   CT2 xxxxxxxxxxxx\index{ZZZ6c-xxxxxxxxxxxxxxxx}\\
    JCT\index{JCrypTool} offers {\bf pseudo} random number generators both
    within the Default Perspective in the menu {\bf Algorithms \textbackslash{}
    Random Number Generator} as well as within the Algorithm Perspective.

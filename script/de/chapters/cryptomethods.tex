@@ -1,16 +1,18 @@
 % $Id$
 % ............................................................................
 %             V E R S C H L U E S S E L U N G S V E R F A H R E N
+%
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 % HACK to fix warning "destination with the same identifier .. has already been used, ...":
 % REMOVED, because it caused missing index entries
 %\makeatletter \renewcommand{\thepage}{~\csname @arabic\endcsname \c@page} \makeatother
+
 \hypertarget{Kapitel_1}{}
 \chapter{Sicherheits-Definitionen und Verschlüsselungsverfahren}
 \label{Label_Kapitel_1}
 (Bernhard Esslinger, Jörg-Cornelius Schneider, Mai 1999; Updates: Dez. 2001, Feb. 2003, Juni 2005, Juli 2007, Jan. 2010, März 2013, März 2016)
 
-\index{ZZZ0a-xxxxxxxxxxxxxxxx}
 Dieses Kapitel soll einen eher beschreibenden Einstieg bieten und die
 Grundlagen ohne Verwendung von allzu viel Mathematik vermitteln.
 
@@ -50,8 +52,6 @@ Zeige es mir, ich werde es vielleicht behalten.\\
 Lass es mich tun, und ich werde es können.
 \caption{Indisches Sprichwort}
 \end{ctsquote}
-
-\index{ZZZ1xxxxxxxxxxxxxxxx}
 
 Moderne Kryptographie basiert vor allem auf mathematischer Theorie und
 Computer-Praxis. Beim Design kryptographischer Algorithmen werden Annahmen
@@ -152,7 +152,6 @@ Einen guten Überblick über die verschiedenen Verschlüsselungs-Verfahren bietet
 das Buch von Bruce Schneier \cite{cm:Schneier1996}.
 \end{sloppypar}
 \vskip +3pt
-\index{ZZZ2xxxxxxxxxxxxxxxx}
 
 
 
@@ -173,8 +172,6 @@ das Buch von Bruce Schneier \cite{cm:Schneier1996}.
 
 % \nopagebreak
 Hier sollen kurz zwei Aspekte von Kryptoverfahren erwähnt werden, auf die oft nicht früh genug eingegangen wird:
-\index{ZZZ3xxxxxxxxxxxxxxxx}
-
 
 \begin{itemize}
 
@@ -185,16 +182,11 @@ Man kann Algorithmen trennen in deterministische\index{deterministisch} und heur
 In Kryptoverfahren spielt Zufall eine große Rolle. Immer müssen die Schlüssel zufällig gewählt werden, so dass zumindest bei der Schlüsselgenerierung~\glqq Zufall\grqq~erzeugt werden muss. Zusätzlich sind manche Verfahren (vor allem aus der Kryptoanalyse) heuristisch.
 
 \item {\bf Konstanten-basiert}\\
-Viele moderne Verfahren (insbesondere Hashverfahren und symmetrische Verschlüsse-lungsverfahren) benutzen numerische Konstanten. Diese sollten nachvollziehbar sein und keine Hintertüren ermöglichen. Zahlen, die das erfüllen, nennt man im Englischen~\glqq Nichts-im-Ärmel\grqq-Zahlen: Nothing-up-my-sleeve number\index{Zahlen!Nothing-up-my-sleeve}\index{Zahlen!NNN}.%
+Viele moderne Verfahren (insbesondere Hashverfahren und symmetrische Verschlüsse-lungsverfahren) benutzen numerische Konstanten. Diese sollten nachvollziehbar sein und keine Hintertüren ermöglichen. Zahlen, die das erfüllen, nennt man im Englischen~\glqq Nichts-im-Ärmel\grqq-Zahlen: Nothing-up-my-sleeve number\index{Zahlen!Nothing-up-my-sleeve}.%
 \footnote{\url{http://en.wikipedia.org/wiki/Nothing_up_my_sleeve_number}}
 
 \end{itemize}
 
-\index{ZZZ4xxxxxxxxxxxxxxxx}
-\index{Zufallxxxxxxxxxxxxxxxx}
-\index{Zahlen!Nothing-up-my-sleeve}
-\index{Zahlen!NNNxxxxxxxxxxxxxxxx}%TODOTODO_weder hier noch im item wurden die Begriffe in den Index geschrieben! Problem von TeXworks? 19.3.16  script-de.ind zu löschen brachte nichts, ebsowenig wie die explitie Änderung von script-de.tex und das Löschen aller Zwischen-Files script-de.*?
-xxxxxxxxxxxy
 
 
 
@@ -216,7 +208,7 @@ xxxxxxxxxxxy
 % --------------------------------------------------------------------------
 \section[Symmetrische Verschlüsselung] % Was zw. [..] steht, kommt ins Inhaltsverzeichnis!
 {Symmetrische Verschlüsselung\footnotemark}
-  \footnotetext{% XXX dieses Prozent ist nötig, sonst startet die Fußnote mit einem Blank !
+  \footnotetext{% Dieses Prozent ist nötig, sonst startet die Fußnote mit einem Blank !
     Mit CrypTool 1 ({\bf CT1})\index{CT1}\index{CrypTool 1} können Sie über das
     Menü {\bf Ver-/Entschlüsseln \textbackslash{} Symmetrisch (modern)} folgende
     modernen symmetrischen Verschlüsselungsverfahren ausführen:\\
@@ -236,7 +228,6 @@ xxxxxxxxxxxy
     }
 
 \nopagebreak
-\index{ZZZ5xxxxxxxxxxxxxxxx}
 
 Bei der {\em symmetrischen} Verschlüsselung 
 \index{Verschlüsselung!symmetrisch} müssen Sender und Empfänger
@@ -245,7 +236,6 @@ Beginn der eigentlichen Kommunikation ausgetauscht haben. Der Sender
 benutzt diesen Schlüssel, um die Nachricht zu verschlüsseln und der
 Empfänger, um diese zu entschlüsseln.\par %\vskip + 3pt
 
-\index{ZZZ6h-xxxxxxxxxxxxxxxx}
 Dies veranschaulicht Abbildung \ref{Figure_Symmetric-Enc_Secret-Key-Enc}:
 \begin{figure}[ht]
 \begin{center}
@@ -255,19 +245,12 @@ Dies veranschaulicht Abbildung \ref{Figure_Symmetric-Enc_Secret-Key-Enc}:
 \end{center}
 \end{figure}
 
-\index{ZZZ6ge-xxxxxxxxxxxxxxxx}
 Alle klassischen Chiffren sind vom Typ symmetrisch. Beispiele dazu finden Sie
 in den CT-Programmen, im Kapitel~\ref{Kapitel_PaperandPencil}
-\index{ZZZ6gd-xxxxxxxxxxxxxxxx}
 (\glqq \nameref{Kapitel_PaperandPencil} \grqq )
-\index{ZZZ6gc-xxxxxxxxxxxxxxxx}
-in diesem Skript oder 
-\index{ZZZ6gb-xxxxxxxxxxxxxxxx}
-in \cite{cm:Nichols1996}. 
-\index{ZZZ6ga-xxxxxxxxxxxxxxxx}
+in diesem Skript oder in \cite{cm:Nichols1996}. 
 In diesem Unterkapitel wollen wir jedoch nur die moderneren symmetrischen
 Verfahren betrachten.
-\index{ZZZ6f-xxxxxxxxxxxxxxxx}
 
 Vorteile von symmetrischen Algorithmen sind die hohe
 Geschwindigkeit, mit denen Daten ver- und entschlüsselt werden.
@@ -301,7 +284,6 @@ Hohe Aktualität besitzt das symmetrische AES-Verfahren:\index{AES}
 Der dazu gehörende Rijndael-Algo"-rithmus wurde am 2. Oktober 2000 zum
 Gewinner der AES-Ausschreibung erklärt und ist damit Nachfolger
 des DES-Verfahrens.
-\index{ZZZ6e-xxxxxxxxxxxxxxxx}
 
 Näheres und weitere Verweise zum AES-Algorithmus und den AES-Kandidaten
 der letzten Runde finden Sie z.B. in der Online-Hilfe von
@@ -325,7 +307,6 @@ CrypTool\index{CrypTool}.%
 \label{NeueAES-Analyse}
 \index{Kryptoanalyse}
 \index{AES}
-\index{ZZZ6d-xxxxxxxxxxxxxxxx}
 
 Im Anschluss finden Sie einige Informationen, die das AES-Verfahren in
 letzter Zeit in Zweifel zogen -- unserer Ansicht nach aber (noch)
@@ -462,7 +443,6 @@ praktikabel, für AES-128 geben die Autoren keinen Angriff an.
 \subsection{Algebraische oder algorithmische Kryptoanalyse symmetrischer Verfahren}
 \index{Angriff!algebraischer}
 \label{Algebraic-gegen-Symmetr}
-\index{ZZZ6c-xxxxxxxxxxxxxxxx}
 
 Es gibt unterschiedliche moderne Angriffsverfahren, die die Strukturen eines Problems direkt oder nach einer Transformation des Problems angreifen. Eines dieser Angriffsverfahren beruht auf dem Erfüllbarkeitsproblem der Aussagenlogik (SAT, von englisch satisfiability)%
 \footnote{%
@@ -493,7 +473,9 @@ anzugreifen.
 
 Der generelle Ansatz, um SAT-Solver in der Kryptoanalyse einzusetzen, ist sehr einfach: Zunächst wird das kryptographische Problem, etwa das Finden des symmetrischen Schlüssels oder die Umkehrung einer Hashfunktion, in ein SAT-Problem übersetzt. Das wird so gemacht, dass die Lösung des SAT-Problems das ursprüngliche kryptographische Problem löst. Dann wird ein SAT-Solver verwendet, um eine Lösung für das SAT-Problem zu finden. Das Paper von Massacci \cite{cm: Massacci2000} beschreibt die erste bekannte Verwendung eines SAT-Solvers in diesem Kontext. Leider stellte sich sehr bald heraus, dass ein solch genereller Ansatz in der Praxis nicht effizient eingesetzt werden kann. Die kryptographischen SAT-Probleme sind sehr komplex und die Laufzeit eines SAT-Solvers wächst exponentiell mit der Problemgröße. Daher werden in modernen Ansätzen SAT-Solver nur für das Lösen von Teilproblemen der Kryptoanalyse verwendet. Ein gutes Beispiel zeigt das Paper von Mironov und Zhang \cite{cm: Mironov2006}. Hier wird anhand eines Angriffs auf Hashfunktionen gezeigt, zur Lösung welcher Teilprobleme SAT-Solver effizient eingesetzt werden können.
 
-xxxxxxxxx Bsp aus CT2.1
+xxxxxxxxx Bsp aus CT2.1 ergänzen
+% \index{ZZZ6b-xxxxxxxxxxxxxxxx-Bsp aus CT2.1 ergaenzen} 
+\index{ZZZ6b-xxxxxxxxxxxxxxxxD}
 
 
 
@@ -503,7 +485,6 @@ xxxxxxxxx Bsp aus CT2.1
 \index{Angriff!Brute-Force}
 \index{RC5}
 \label{Brute-force-gegen-Symmetr}
-\index{ZZZ6b-xxxxxxxxxxxxxxxx}
 
 Anhand der Blockchiffre RC5 kann der aktuelle Stand von Brute-Force-Angriffen
 auf symmetrische Verschlüsselungsverfahren gut erläutert werden.
@@ -612,7 +593,6 @@ Cipher-Challenges\footnote{%
    Menü {\bf Visualisierungen} der Standard-Perspektive als auch in der
    Algorithmen-Perspektive.%Funktionalen
   }
-\index{ZZZ6a-xxxxxxxxxxxxxxxx}
 
 Bei der {\em asymmetrischen} Verschlüsselung
 \index{Verschlüsselung!asymmetrisch} hat jeder Teilnehmer 
@@ -727,7 +707,6 @@ Signature Algorithm).
 }
 \label{CM_Hybrid-procedures}
 \index{Hybridverfahren}
-\index{ZZZ6xxxxxxxxxxxxxxxx}
 
 Um die Vorteile von symmetrischen und asymmetrischen Techniken gemeinsam 
 nutzen zu können, werden (zur Verschlüsselung) in der Praxis meist 
@@ -746,7 +725,8 @@ verschlüsselt: Der Schlüssel ist ein vom Absender zufällig\footnote{%
    % CT1 konzentriert sich auf kryptographisch starke
    % {\bf Pseudo}zufallszahlengeneratoren. \glqq Echte\grqq~
    % Zufallsquellen werden nur über den Aufruf des Secude-Generators einbezogen.\\
-   CT2 xxxxxxxxxxxxxxx\\
+%   CT2 ... xxxxxxxxxxxxxxx\index{ZZZ6c-xxxxxxxxxxxxxxxx-Bsp-Menue aus CT2 ergaenzen}\\
+   CT2 ... xxxxxxxxxxxxxxx\index{ZZZ6c-xxxxxxxxxxxxxxxxD} \\
    JCT\index{JCrypTool} bietet {\bf Pseudo}zufallszahlengeneratoren sowohl
    im Menü {\bf Algorithms \textbackslash{} Random Number Generator} der
    Standard-Perspektive als auch in der Algorithmen-Perspektive an.
