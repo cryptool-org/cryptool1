@@ -124,7 +124,7 @@ sollte man bei der Neuimplementierung ernsthaft den Einsatz von Verfahren
 erwägen, die auf Elliptischen Kurven basieren.
 Dies gilt insbesondere, wenn es sich um Anwendungen im Finanzsektor
 handelt, die noch nach 2005\footnote{%
-BSI-Empfehlung: \glqq Geeignete Kryptoalgorithmen'' vom 24. Oktober 2002.
+BSI-Empfehlung: \glqq Geeignete Kryptoalgorithmen\grqq vom 24. Oktober 2002.
 } operativ sein sollen.
 
 
@@ -213,7 +213,7 @@ Da der Begriff der {\em Gruppe} umgangssprachlich anders als in der Mathematik e
 Vollständigkeit halber an dieser Stelle die wesentliche Aussage der formalen Definition einer Gruppe
 kurz eingeführt werden:
 \begin{itemize}
-   \item Eine Gruppe ist eine nichtleere Menge $G$ mit einer Verknüpfung \glqq $\cdot$''. Die Menge $G$ ist unter der
+   \item Eine Gruppe ist eine nichtleere Menge $G$ mit einer Verknüpfung \glqq $\cdot$\grqq. Die Menge $G$ ist unter der
          Verknüpfung $\cdot $ abgeschlossen, d.h, sind $a,b$ Elemente aus $G$, so ist auch ihre Verknüpfung $ab=a\cdot  b$ ein Element aus $G$.
    \item Für alle Elemente $a, b$ und $c$ aus $G$ gilt: $(ab)c = a(bc)$ (Assoziativgesetz).
    \item Es gibt ein Element $e$ in $G$, das sich bezüglich der Verknüpfung $\cdot$ neutral verhält, d.h., für alle $a$ aus der Menge $G:$ gilt $ae = ea = a$.
@@ -547,7 +547,7 @@ Mit Hilfe Elliptischer Kurven kann ein sicherer Schlüsselaustausch nach dem \hyp
 In der Schreibweise der Elliptischen Kurven liest sich das Diffie-Hellman Verfahren wie folgt: Zunächst einigen sich beide Partner (A und B) öffentlich auf eine Gruppe $G$ und eine ganze Zahl $q$. Danach wählen sie zufällig $r_A,r_B\in\{1,2,\dots,q-1\}$, bilden die Punkte $R_A=r_AG$, $R_B=r_BG$ auf der Elliptischen Kurve und tauschen diese aus. Danach berechnet A leicht $R=r_AR_B$. Denselben Punkt (nämlich $r_Ar_B G$) erhält auch B, indem er $r_BR_A=r_Br_AG=r_Ar_BG=R$ bildet. Dabei ist die Berechnung von $R_A,R_B$ als $r_A$ bzw. $r_B$-faches des Kurvenpunktes $G$ leicht durchzuführen; die umgekehrte Operation, aus $R_A$ bzw. $R_B$ den Wert $r_A$ bzw. $r_B$ zu erhalten, ist jedoch sehr aufwändig.
 \\ Für einen Dritten ist es nach heutigen Kenntnisstand nicht möglich, $R$ zu berechnen, wenn er nicht mindestens einen der Werte $r_A$ oder $r_B$ ermitteln kann, d.h. das ECDLP löst.
 
-Um einen \glqq Man-in-the-Middle''-Angriff zu verhindern, kann man auch hier wie schon in Kapitel \ref{Impersonalisierungsattacke} beschrieben, die übertragenen Werte $G,q,R_A,R_B$ digital signieren.
+Um einen \glqq Man-in-the-Middle\grqq-Angriff zu verhindern, kann man auch hier wie schon in Kapitel \ref{Impersonalisierungsattacke} beschrieben, die übertragenen Werte $G,q,R_A,R_B$ digital signieren.
 
 \par
 %\smallskip 

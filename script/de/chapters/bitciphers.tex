@@ -1,3 +1,8 @@
+% $Id: cryptomethods.tex 3712 2016-03-22 23:36:46Z xesslinger $
+% ..............................................................................
+% B i t b l o c k -  u n d  B i t s t r o m - V e r s c h l ü s s e l u n g
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 %BERM0 Changed when bc becoming part of the CT book.
 %BERM1 Transformed to comment when bc becoming part of the CT book: There it already was in script-en.tex.
 %BERM2 Transformed to comment when bc becoming part of the CT book: Added there to script-en.tex.
@@ -18,7 +23,6 @@
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 % Pommerenings Spezialitäten
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 % \newcommand*{\C}{\mathbb{C}}   %BERM3
 \renewcommand*{\C}{\mathbb{C}}   %BERM3
 \newcommand*{\F}{\mathbb{F}}
@@ -33,7 +37,6 @@
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 % CrypTool-Spezialitäten
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 %BERM1 \newtheorem{definition}{Definition}[section]
 %BERM1 \newtheorem{satz}{Satz}[section]
 %BERM1 \newenvironment{Beweis}[1]{\noindent\textbf{Beweis #1} \\}{\hfill$\Box$\par}
@@ -49,18 +52,16 @@
 %BERM1 \makeindex
 %BERM1 \begin{document}
 
-% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-% B i t b l o c k -  u n d  B i t s t r o m - V e r s c h l ü s s e l u n g
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+%BERM0 \setcounter{chapter}{98}  % ====> Dummy - beim Einfügen ins CT-Skript löschen <=====
 \setcounter{satz}{0}
 \setcounter{definition}{0}
 
-\newpage
-\hypertarget{Chapter_BitCiphers}{}
+
+\newpage %BERM0 
+\hypertarget{Chapter_BitCiphers}{}   %BERM0
 \chapter{Einführung in die Bitblock- und Bitstrom-Verschlüsselung}
 \label{Chapter_BitCiphers}
-(Klaus Pommerening, Januar--Juni 2015) \\
+(Klaus Pommerening, Januar--Juni 2015; Updates: Januar 2016, April 2016) \\
 
 \noindent
 Während asymmetrische Verschlüsselung meistens zahlentheoretische Methoden
@@ -117,14 +118,12 @@ Das Thema dieses Kapitels ist also mit anderen Worten
 Die mathematischen Grundlagen und Methoden gehören zu den Gebieten
    
    {\bf Boolesche Algebra\index{Boolesche Algebra}\index{Algebra!Boolesche}
-   und endliche Körper\index{finite field}\index{field!finite}\index{endlicher Körper}\index{Körper!endliche}}.
+   und endliche Körper\index{finite field}\index{field!finite}\index{endlicher Körper}\index{Körper!endlicher}}.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
-
 \section{Boolesche Funktionen}\label{s-bool-fct}
-
 \subsection{Bits und ihre Verknüpfung}\label{s-bool-bit}
 
 Die Objekte, mit denen Computer auf der untersten Software-Ebene operieren,
@@ -246,8 +245,15 @@ Definition mathematisch präzise fassen (siehe Definition~\ref{def-bool-fkt}),
 soll sie zunächst etwas anschaulicher gemacht werden.
 
 Für eine vertiefte Darstellung sei auf \cite{CuSt} oder \cite{Pomm}
-sowie die beiden Artikel von Claude Carlet in \cite{CrHa}
-verwiesen.
+sowie die beiden Artikel von Claude Carlet\footnote{%
+  siehe auch dessen Publikationsverzeichnis unter%BERM Todo ohne Eile -- evtl. \url statt \href
+  \href{http://www.math.univ-paris13.fr/~carlet/pubs.html}{\tt http://www.math.univ-paris13.fr/$\sim$carlet/pubs.html}
+} in \cite{CrHa}\footnote{%
+  online zu finden unter
+  \href{http://www.math.univ-paris13.fr/~carlet/chap-fcts-Bool-corr.pdf}{\tt http://www.math.univ-paris13.fr/$\sim$carlet/chap-fcts-Bool-corr.pdf}
+  und
+  \href{http://www.math.univ-paris13.fr/~carlet/chap-vectorial-fcts-corr.pdf}{\tt http://www.math.univ-paris13.fr/$\sim$carlet/chap-vectorial-fcts-corr.pdf}
+} verwiesen.
 
 Als ganz einfaches Musterbeispiel dient die Funktion AND\index{AND}: Sie nimmt zwei Bits
 entgegen und erzeugt daraus ein neues Bit nach der bekannten Verknüpfungsregel
@@ -262,7 +268,6 @@ berechnet.
 
 Veranschaulichen kann man sich eine Boolesche Funktion durch eine
 "`Black Box\index{Black Box}"':
-
 \begin{center}
 \begin{picture}(140,60)
    \put(20,25){\colorbox{black}{XgXXXXXXXXXX}}
@@ -804,7 +809,8 @@ die Inputvariablen $x = x_1$, $y = x_2$.
   \end{tabular}
 \end{center}
 \caption{Die 16 zweistelligen Bitoperationen (= Boolesche Funktionen von 2 Variablen)
-   unter Benutzung von Tabelle~\ref{t-bool-trf}}\label{tab-bool-2}
+   unter Benutzung von Tabelle~\ref{t-bool-trf} (Die Anordnung in der ersten Spalte ist
+   lexikographisch, wenn man die Reihenfolge $a$, $b$, $c$, $d$ umkehrt.)}\label{tab-bool-2}
 \end{table}
 
 Wir haben bereits gesehen, dass sich jede Boolesche Funktion in beliebig
@@ -1632,6 +1638,7 @@ eine Klasse {\tt BoolMap} als Liste von Objekten der Klasse {\tt BoolF} mit
   oft "`S-Boxen\index{S-Box}"' genannt.
 } zu finden.
 
+
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
 \section{Bitblock-Chiffren}\label{s-bool-bitbl}
@@ -2411,7 +2418,7 @@ die {\bf Input-Output-Korrelation}\footnote{%
 (kurz: I/O-Korrelation\index{I/O-Korrelation}) und das
 {\bf Potenzial\index{Potenzial}}
 der linearen\index{lineare Relation}\index{Relation!lineare} Relation\footnote{%
-   Für diese Bezeichnung (``potential'') ist der älteste bekannte
+   Für diese Bezeichnung (\glqq potential\grqq) ist der älteste bekannte
    Nachweis der Beitrag von Kaisa Nyberg\index{Nyberg, Kaisa} auf der {\sc EuroCrypt} 1994.
    Mathematisch weniger elegant, aber oft verwendet, ist der
    "`Bias\index{Bias}"' $\left| p - \frac{1}{2} \right| = \sqrt{\lambda}/2$.
@@ -2597,9 +2604,12 @@ gegeben ist, und bilden damit die Bitblock-Chiffre
 Das SageMath-Beispiel~\ref{Sage-code-Luc-S0} definiert diese Boolesche
 Abbildung $f$ unter dem Namen {\tt S0}
 und verwendet die Klassen {\tt BoolF} und {\tt BoolMap} aus dem
-Anhang~\ref{ss-bool-class}. Dabei enthalten die Spalten der (impliziten)
+Anhang~\ref{ss-bool-class}. Dabei geben die Spalten der (impliziten)
 definierenden Matrix genau die Werte der Abbildung an, wie man sie auch
 in Tabelle~\ref{tab-bool-A1} in der Spalte $y = f(x)$ wiederfindet.
+(D.\,h., das SageMath-Beispiel~\ref{Sage-code-Luc-S0} und die
+Tabelle~\ref{tab-bool-A1} enthalten äquivalente Definitionen der
+Abbildung $f$.)
 Eine exemplarische Evaluation illustriert das (für die dritte Spalte,
 entsprechend dem Argument {\tt 0010}).
 
@@ -2760,7 +2770,7 @@ aufaddiert\footnote{%
    einzubringen, aber dennoch realistisch. Die paradigmatischen
    Beispiel-Chiffren {\sc Lucifer}\index{Lucifer}, DES\index{DES}
    und AES\index{AES} verfahren so.
-   Bei AES \cite{DaRi} heißt das ``key-alternating cipher structure''.
+   Bei AES \cite{DaRi} heißt das \glqq key-alternating cipher structure\grqq.
 }. Das einfachste denkbare Modell, die Verschlüsselung nach der
 Vorschrift
 \[
@@ -3018,7 +3028,7 @@ für die Summe der Schlüsselbits genau $14$-mal annimmt, wie es sein soll.
 \begin{table}
 \begin{center}
 \begin{tabular}{|cccc|c|} \hline
-  $a$  & $b$  & $b'$ & $c$  & $\alpha(a)+\beta(c)$ \\ \hline
+  $a$  & $b$  & $b'$ & $c$  & $\alpha(a)+\beta(c) = a_4 + c_1 + c_2 + c_4$ \\ \hline
   0000 & 1000 & 0010 & 0011 & 1 \\
   0001 & 1001 & 0110 & 0111 & 1 \\
   0010 & 1010 & 0011 & 0010 & 0 \\
@@ -3038,7 +3048,9 @@ für die Summe der Schlüsselbits genau $14$-mal annimmt, wie es sein soll.
   \hline
 \end{tabular}
 \end{center}
-\caption{Eine lineare Relation für die Schlüsselbits}\label{tab-bool-linrel}
+\caption{Eine lineare Relation für die Schlüsselbits ($b$ entsteht aus $a$ durch Addition
+   von $k^{(0)}$, also "`Umkippen"' des ersten Bits, $b'$ aus $b$ durch Anwendung
+   von $f$, $c$ aus $b'$ durch Addition von $k^{(1)}$.}\label{tab-bool-linrel}
 \end{table}
 
 Wie groß ist nun die Erfolgswahrscheinlichkeit $p_N$ dafür, diesen Wert
@@ -3194,8 +3206,8 @@ Argument -- vorausgesetzt, $f$ ist bijektiv\footnote{%
    3 & 0 &$\frac{1}{2}$&$\frac{1}{4}$& $-\frac{1}{4}$ &$\frac{1}{2}$& 0 &$\frac{1}{4}$& $-\frac{1}{4}$ & $-\frac{1}{4}$ & $-\frac{1}{4}$ & 0 & 0 &$\frac{1}{4}$&$\frac{1}{4}$& 0 & 0 \\
    4 & 0 & 0 &$-\frac{1}{2}$& 0 & 0 & 0 & 0 &$-\frac{1}{2}$&$\frac{1}{4}$& $-\frac{1}{4}$ & $-\frac{1}{4}$ & $-\frac{1}{4}$ &$\frac{1}{4}$& $-\frac{1}{4}$ &$\frac{1}{4}$&$\frac{1}{4}$\\
    5 & 0 &$\frac{1}{4}$&$\frac{1}{4}$&$\frac{1}{2}$& 0 &$\frac{1}{4}$& $-\frac{1}{4}$ & 0 &$\frac{1}{4}$& 0 &$-\frac{1}{2}$&$\frac{1}{4}$&$\frac{1}{4}$& 0 & 0 & $-\frac{1}{4}$ \\
-   6 & 0 &$\frac{1}{4}$& 0 &$\frac{1}{4}$& 0 &$\frac{1}{4}$& 0 &$\frac{1}{4}$& 0 &$\frac{1}{4}$& 0 & 2 & 0 &$\frac{1}{4}$& 0 &$\frac{1}{4}$\\
-   7 & 0 & 0 &$\frac{1}{4}$& $-\frac{1}{4}$ & 0 & 0 & 2 & $-\frac{1}{4}$ & 0 & 0 &$\frac{1}{4}$& $-\frac{1}{4}$ & 0 & 0 &$\frac{1}{4}$& $-\frac{1}{4}$ \\
+   6 & 0 &$\frac{1}{4}$& 0 &$\frac{1}{4}$& 0 &$\frac{1}{4}$& 0 &$\frac{1}{4}$& 0 &$\frac{1}{4}$& 0 & $-\frac{3}{4}$ & 0 &$\frac{1}{4}$& 0 &$\frac{1}{4}$\\
+   7 & 0 & 0 &$\frac{1}{4}$& $-\frac{1}{4}$ & 0 & 0 & $-\frac{3}{4}$ & $-\frac{1}{4}$ & 0 & 0 &$\frac{1}{4}$& $-\frac{1}{4}$ & 0 & 0 &$\frac{1}{4}$& $-\frac{1}{4}$ \\
    8 & 0 & 0 & $-\frac{1}{4}$ &$\frac{1}{4}$& $-\frac{1}{4}$ &$\frac{1}{4}$& 0 & 0 &$-\frac{1}{2}$& 0 &$\frac{1}{4}$&$\frac{1}{4}$&$\frac{1}{4}$&$\frac{1}{4}$&$\frac{1}{2}$& 0 \\
    9 & 0 &$\frac{1}{4}$& 0 &$\frac{1}{4}$& $-\frac{1}{4}$ &$-\frac{1}{2}$&$\frac{1}{4}$& 0 & 0 & $-\frac{1}{4}$ & 0 & $-\frac{1}{4}$ & $-\frac{1}{4}$ & 0 &$\frac{1}{4}$&$-\frac{1}{2}$\\
   10 & 0 & $-\frac{1}{4}$ &$\frac{1}{4}$& 0 & $-\frac{1}{4}$ & 0 & 0 &$\frac{1}{4}$& $-\frac{1}{4}$ &$-\frac{1}{2}$& 0 & $-\frac{1}{4}$ &$\frac{1}{2}$& $-\frac{1}{4}$ & $-\frac{1}{4}$ & 0 \\
@@ -3242,7 +3254,7 @@ Argument -- vorausgesetzt, $f$ ist bijektiv\footnote{%
 12&0& 0            &$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{16}$& 0            &$\frac{1}{4}$ &$\frac{1}{16}$
      &$\frac{1}{16}$& 0            & 0            &$\frac{1}{4}$ & 0            &$\frac{1}{16}$&$\frac{1}{16}$\\
 13&0&$\frac{1}{16}$&$\frac{1}{4}$&$\frac{1}{16}$&$\frac{1}{16}$& 0            &$\frac{1}{16}$& 0            &$\frac{1}{16}$
-     & 0            &$\frac{1}{16}$& 0            & 0            &$\frac{1}{16}$&$\frac{1}{4}$ &$\frac{1}{16}$\\
+     & 0            &$\frac{1}{16}$& 0            & 0            &$\frac{1}{16}$&$\frac{1}{4}$ &$0$\\
 14&0&$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{4}$ &$\frac{1}{16}$&$\frac{1}{4}$ & 0            &$\frac{1}{16}$& 0            
      &$\frac{1}{16}$&$\frac{1}{16}$& 0            &$\frac{1}{16}$& 0            & 0            &$\frac{1}{16}$\\
 15&0& 0            & 0            & 0            &$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{4}$ 
@@ -4153,7 +4165,10 @@ $\beta = (\beta_0, \ldots, \beta_r)$ ab:
       \sum_{i=0}^r \beta_i(k^{(i)}) = \beta_0(a) + \beta_r(F(a,k))\}.
 \]
 Setzen wir in der definierenden Gleichung dieser Menge
-$F(a,k) = a^{(r)} + k^{(r)} = f_r(b^{(r-1)}) + k^{(r)}$ ein,
+$F(a,k) = a^{(r)} + k^{(r)} = f_r(b^{(r-1)}) + k^{(r)}$ ein:
+\[
+  \beta_0(k^{(0)}) + \cdots + \beta_r(k^{(r)}) = \beta_0(a) + \beta_r(f_r(b^{(r-1)})) + \beta_r(k^{(r)}),
+\]
 so kürzt sich $\beta_r(k^{(r)})$ heraus, und wir sehen, dass die Zählung von $k^{(r)}$
 unabhängig ist; es bleibt also
 \[
@@ -4377,12 +4392,14 @@ links und $\textrm{S}_1$ rechts (vergleiche Abbildung~\ref{fig-bool-par}).
 Für die linke S-Box $\textrm{S}_0$ nehmen wir wieder die lineare Relation
 mit $\alpha \:\hat{=}$ \verb:0001: und $\beta \:\hat{=}$ \verb:1101:,
 von der wir wissen, dass sie die
-Wahrscheinlichkeit $p_1 = \frac{7}{8}$ hat, für die rechte S-Box $\textrm{S}_1$
-die Relation $(0,0)$ mit Wahrscheinlichkeit $1$. Die zusammengesetzte lineare
-Relation für $f = (\textrm{S}_0,\textrm{S}_1)$ hat dann ebenfalls die
+Wahrscheinlichkeit $p_1 = \frac{7}{8}$ hat. Für die rechte S-Box $\textrm{S}_1$
+nehmen wir die Relation $(0,0)$, wo also beide beteiligten Linearformen $0$ sind;
+da $0 = 0$ immer gilt, ist ihre Wahrscheinlichkeit $1$. Die zusammengesetzte lineare
+Relation für $f = (\textrm{S}_0,\textrm{S}_1)$ hat dann nach Satz~\ref{thm-bool-parallel}
+ebenfalls die
 Wahrscheinlichkeit $p = \frac{7}{8}$ und das Potenzial $\lambda = \frac{9}{16}$,
 und wir wissen, dass die lineare Kryptoanalyse mit $N = 5$ Klartext-Geheimtext-Paaren
-schon eine 95-prozentige Erfolgswahrscheinlichkeit erreicht. Wir zerlegen
+schon eine (mehr als) 95-prozentige Erfolgswahrscheinlichkeit erreicht. Wir zerlegen
 alle relevanten Bitblöcke in Bits:
 \begin{description}
    \item[Klartext:] $a = (a_0, \ldots, a_7) \in \F_2^8$,
@@ -4400,7 +4417,12 @@ Die anzugreifende Relation ist also
 \]
 Wir wählen jetzt konkret den Schlüssel $k =$ \verb:1001011000101110:, dessen zu
 schätzendes Bit also $k_3 + k_8 + k_9 + k_{11} = 1$ ist. Damit erzeugen wir
-fünf zufällige Klartext-Geheimtext-Paare, siehe Tabelle~\ref{tab-bool-BspC},
+fünf zufällige Klartext-Geheimtext-Paare\footnote{%
+   D.\,h., wir simulieren eine Angreiferin, die fünf Klartext-Geheimtextpaare
+   aufgefangen hat, indem wir (zufällig, willkürlich) fünf solche erzeugen und
+   verwenden. Damit haben wir eine gute Chance, das gesuchte Schlüsselbit richtig
+   zu bestimmen.
+}, siehe Tabelle~\ref{tab-bool-BspC},
 und stellen fest, dass in diesem konkreten Fall das fragliche Schlüsselbit
 durch den Matsui-Algorithmus einstimmig ohne Gegenstimme korrekt geschätzt wird.
 
@@ -4623,17 +4645,20 @@ sehen, was "`nicht wesentlich"' bedeutet.
 \caption{Mini-Lucifer mit 2 Runden}\label{fig-bool-mLuc2}
 \end{figure}
 
-Das konkrete Beispiel ist in Abbildung~\ref{fig-bool-mLuc2} beschrieben.
+Das konkrete Beispiel (als Fortsetzung des Beispiels in \ref{ss-bool-par})
+ist in Abbildung~\ref{fig-bool-mLuc2} beschrieben.
 Die Relation {\color{red} 1}, nämlich
 \[
-     \beta(b') \stackrel{p_1}{\approx} \alpha(a + k^{(0)})
+     \beta(b') \stackrel{p_1}{\approx} \alpha(a + k^{(0)}) \quad \text{oder explizit} \quad
+     b'_0 + b'_1 + b'_3 \stackrel{p_1}{\approx} a_3 + k_3
 \]
 besteht zwischen $\alpha \:\hat{=}$ \verb:0001: und
 $\beta \:\hat{=}$ \verb:1101: mit Wahrscheinlichkeit $p_1 = \frac{7}{8}$. Die
 Permutation $\textrm{P}$ macht daraus die Relation {\color{red} 2}, nämlich
 \[
      \beta \circ \textrm{P}^{-1}(a') \stackrel{p_1}{\approx}
-        \alpha(a + k^{(0)}) = \alpha(a) + \alpha(k^{(0)}).
+        \alpha(a + k^{(0)}) = \alpha(a) + \alpha(k^{(0)}), \quad
+     \text{explizit} \quad a'_3 + a'_4 + a'_5 \stackrel{p_1}{\approx} a_3 + k_3.
 \]
 Sie verteilt aber auch die Bits auf der linken Seite der Relation
 auf die beiden S-Boxen der nächsten Runde. Der kryptoanalytische Trick,
@@ -4670,8 +4695,8 @@ $2 p_2 - 1 = (2 p'_2 - 1)(2 p''_2 - 1) = \frac{3}{8}$,
 also $p_2 = \frac{11}{16}$, $\lambda_2 = \frac{9}{64}$.
 
 Die Relation zwischen $\beta'(a' + k^{(1)})$ und $\gamma(b'')$ ist
-die in Abbildung~\ref{fig-bool-mLuc2} mit {\color{red} 3} markierte,
-nämlich
+die in Abbildung~\ref{fig-bool-mLuc2} mit {\color{red} 3} markierte
+und explizit ausgeschriebene, nämlich
 \[
      \gamma(b'') \stackrel{p_2}{\approx} \beta'(a' + k^{(1)})
        = \beta'(a') + \beta'(k^{(1)}).
@@ -4682,7 +4707,7 @@ Kürzung von $k_3$) die Relation
      \gamma(c) + \gamma(k^{(0)}) = \gamma(c + k^{(0)}) = \gamma(b'')
         \stackrel{p}{\approx} \alpha(a) + \alpha(k^{(0)}) + \beta'(k^{(1)}),
 \]
-in der Abbildung mit {\color{red} 4} markiert,
+in der Abbildung mit {\color{red} 4} markiert und explizit ausgeschrieben,
 deren Wahrscheinlichkeit $p$ nach Satz~\ref{thm-bool-rrnd} bestimmt
 werden kann, da die beiden verwendeten Rundenschlüssel\index{Rundenschlüssel}
 unabhängig sind. Es ergibt sich
@@ -5156,7 +5181,7 @@ hat durch die Erhöhung der Rundenzahl ihren Sinn verloren.
 \end{picture}
 \end{center}
 \caption{Ein linearer Pfad\index{linearer Pfad}\index{Pfad!linearer}
-   mit Verzweigungen (``Trail''). Bei S wird
+   mit Verzweigungen (\glqq Trail\grqq). Bei S wird
    die Linearform im Bild jeweils {\em gewählt} (anhand des Potenzials),
    angedeutet durch den roten Punkt;
    bei P entsteht die Linearform im Bild jeweils durch
@@ -5354,6 +5379,7 @@ eine Abhängigkeit der verschiedenen Rundenschlüssel\index{Rundenschlüssel}
 ausnützt, etwa wenn diese als überlappende Teilblöcke aus dem "`wahren"'
 Schlüssel gebildet werden.
 
+
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
 \section{Bitstrom-Chiffren}\label{s-bool-bitstr}
@@ -5460,7 +5486,7 @@ Schlüssel verwenden sollte, wurde von Mauborgne\index{Mauborgne, Joseph}\footnot
 },
 einem Offizier und späteren Chief Signal Officer der US Army, bemerkt.
 
-%BERM0: Kopierte es vom englischen biciphers.tex
+%BERM0: Kopierte es vom englischen bitciphers.tex
 \begin{figure}[bhtp]
 \begin{center}
 \begin{picture}(135,50)
@@ -6049,8 +6075,10 @@ Die gesamte Folge wird also nach der Rekursionsformel
 \end{equation}
 berechnet. Das SageMath-Beispiel~\ref{Sage-code-bool-fsr} definiert ein
 allgemeines rückgekoppeltes Schieberegister mit Rückkopplungsfunktion
-$f$, im SageMath-Beispiel~\ref{Sage-code-bool-fsr1} wird es eingesetzt,
-um eine Bitfolge zu erzeugen. Die Fortschaltung des Registers wird
+$f$. Im SageMath-Beispiel~\ref{Sage-code-bool-fsr1} wird es mit einer
+konkreten exemplarischen Rückkopplungsfunktion eingesetzt,
+um eine Bitfolge zu erzeugen. Die Fortschaltung des Registers
+in diesem konkreten Beispiel wird
 in Tabelle~\ref{tab-bool-fsr2} veranschaulicht. Dass das Ergebnis nicht
 besonders zufällig aussieht, ist ein Warnhinweis darauf, dass man
 bei der Wahl der Parameter größere Sorgfalt walten lassen sollte.
@@ -6102,7 +6130,9 @@ geeignet.
    \put(0,0){\line(0,1){114}}
    \put(342,0){\line(0,1){114}}
 \end{picture}
-\caption{Ein rückgekoppeltes Schieberegister}\label{fig-bool-fsr}
+\caption{Ein rückgekoppeltes Schieberegister (beim ersten Iterationsschritt). Die
+   Boolesche Funktion $f$ berechnet aus dem aktuellen Zustand des Registers ein
+   neues Bit, das von links nachgeschoben wird.}\label{fig-bool-fsr}
 \end{center}
 \end{figure}
 
@@ -6138,7 +6168,7 @@ sage: print(bbl2str(bitlist))
 \end{verbatim}
 \caption{Eine Pseudozufallsfolge\index{Pseudozufallsfolge} in Python/SageMath}\label{Sage-code-bool-fsr1}
 \end{sagecode}
-\clearpage
+%\clearpage
 
 \begin{table}
 \begin{center}
@@ -7275,14 +7305,14 @@ findet man dann auch leicht durch Exhaustion.
 \begin{center}
   \begin{tabular}{|c|cccc|cccc|}\hline
       $x$    & $0$ & $0$ & $0$ & $0$ & $1$ & $1$ & $1$ & $1$ \\
-      $y$    & $0$ & $1$ & $0$ & $1$ & $0$ & $1$ & $0$ & $1$ \\
-      $z$    & $0$ & $0$ & $1$ & $1$ & $0$ & $0$ & $1$ & $1$ \\
+      $y$    & $0$ & $0$ & $1$ & $1$ & $0$ & $0$ & $1$ & $1$ \\
+      $z$    & $0$ & $1$ & $0$ & $1$ & $0$ & $1$ & $0$ & $1$ \\
     \hline
-  $f(x,y,z)$ & $0$ & $0$ & $0$ & $1$ & $1$ & $1$ & $0$ & $1$ \\
+  $f(x,y,z)$ & $0$ & $0$ & $0$ & $1$ & $1$ & $0$ & $1$ & $1$ \\
     \hline
   \end{tabular}
 \end{center}
-\caption{Wahrheitstafel der Geffe-Funktion}\label{tab-bool-gef-wt}
+\caption{Wahrheitstafel der Geffe-Funktion (waagerecht angeordnet)}\label{tab-bool-gef-wt}
 \end{table}
 
 Diese Schwachstelle des Geffe-Generators wird im
@@ -7332,11 +7362,11 @@ sage: linProf = g.linProf(); linProf
 
 Im SageMath-Beispiel~\ref{Sage-code-bool-gef-coi} wird diese Erkenntnis auf
 die mit dem Geffe-Generator erzeugte Folge der Länge $100$ angewendet.
-Zur Zählung der Koinzidenzen wird die Funktion {\tt coinc} aus dem
+Zur Zählung der Koinzidenzen (= Übereinstimmungen) wird die Funktion {\tt coinc} aus dem
 SageMath-Beispiel~\ref{Sage-code-bool-div-bbl} (im Anhang) verwendet. Mit dem ersten
 Register gibt es $73$, mit dem zweiten $76$ Koinzidenzen, mit dem
-dritten dagegen nur $41$ -- alles zu den theoretisch erwarteten
-Werten passend.
+dritten dagegen nur $41$. Das passt sehr gut zu den im Rahmen statistischer Schwankungen
+theoretisch erwarteten Werte $75$, $75$, $50$.
 
 \begin{sagecode}
 \begin{verbatim}
@@ -7555,8 +7585,8 @@ besetzte lineare Rückkopplungsfunktionen \cite{MeSt}.
 Diese reduzieren zwar nicht die Komplexitätsklasse des Angriffs
 ("`mindestens exponenziell in der Länge des kürzesten Registers"'), aber der
 Aufwand wird um einen beträchtlichen Proportionalitätsfaktor verringert.
-Auf diese Weise werden Register angreifbar, die bis zu 100 Koeffizienten 1
-in der Rückkopplungsfunktion haben. Folgerung:
+Auf diese Weise werden Register angreifbar, deren Rückkopplungsfunktion
+in der ANF weniger als 100 Monome mit Koeffizienten 1 enthält. Folgerung:
 \begin{itemize}
 	\item Die einzelnen linearen Schieberegister sollten mindestens 200 Bits
 	   lang sein und eine "`dicht besetzte"' Rückkopplung besitzen.
@@ -8020,7 +8050,7 @@ zu erzeugen\footnote{%
 
 Für die Länge der nutzbaren Folge gibt es nur die qualitative Aussage
 "`höchstens polynomial"', mit der man in der konkreten Anwendung nichts
-anfangen kann. Aber selbst man nur "`quadratisch viele"' Bits zulässt,
+anfangen kann. Aber selbst wenn man nur "`quadratisch viele"' Bits zulässt,
 kann man bei einem $\geq 2000$-Bit-Modul ohne weiteres 4 Millionen
 erzeugte Bits verwenden; bei wesentlich höherem Bedarf sollte man dann
 irgendwann mit neuen Parametern weitermachen.
@@ -8282,10 +8312,10 @@ dem guten Rat, der hier wie überall in der Kryptographie gilt:
    Periode\index{Periode} oder eine riesige Auswahl an Startwerten.}
 \end{quote}
 
+
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
 \section{Anhang: Boolesche Abbildungen in SageMath}\label{a-bool-sage}
-
 \subsection{Was liefert SageMath mit?}
 
 SageMath bietet einige Funktionen zur Behandlung von Bitblöcken\index{Bitblock}
@@ -9006,8 +9036,8 @@ class LFSR(object):
     {\em Boolean Gröbner Bases -- Theory, Algorithms and Applications}
     (Dissertation TU Kaiserslautern 2009).
     Logos Verlag, Berlin 2010.
-    Siehe auch ``\href{http://polybori.sourceforge.net/}{PolyBoRi --
-    Polynomials over Boolean Rings}'', online:
+    Siehe auch \glqq \href{http://polybori.sourceforge.net/}{PolyBoRi --
+    Polynomials over Boolean Rings}\grqq, online:
     {\tt http://polybori.sourceforge.net/} (25. September 2014).
 
 \bibitem{CLOS}
@@ -9058,8 +9088,8 @@ class LFSR(object):
     Selecting Cryptographic Key Sizes,
     Springer Lecture Notes in Computer Science 558
     (PKC2000), p. 446--465.
-    Siehe auch ``\href{http://www.keylength.com/en/2/}{Lenstra Cryptographic
-    Key Length Equations}'', online:
+    Siehe auch \glqq \href{http://www.keylength.com/en/2/}{Lenstra Cryptographic
+    Key Length Equations}\grqq, online:
     {\tt http://www.keylength.com/en/2/} (19. September 2014).
 
 \bibitem{MeSt}

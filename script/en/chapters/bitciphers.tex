@@ -1,23 +1,11 @@
-%BERM0 Changed when bc becoming part of the CT book.
-%BERM1 Transformed to comment when bc becoming part of the CT book: There it already was in script-en.tex.
-%BERM2 Transformed to comment when bc becoming part of the CT book: Added there to script-en.tex.
-%BERM3 Redefined new commands already existing in moderncryptography.tex when bc becoming part of the CT book
-%BERM3 (see http://tex.stackexchange.com/questions/36175/what-do-newcommand-renewcommand-and-providecommand-do-and-how-do-they-differ).
-
-%BERM1 \documentclass[11pt,a4paper,leqno]{report}
-%BERM1 \usepackage[latin1]{inputenc}
-%BERM2 \usepackage[T1]{fontenc}
-%BERM2 \usepackage{amsmath,amssymb,amscd,latexsym}
-%BERM2 \usepackage{color}
-%BERM1 \usepackage{hyperref}
-%BERM1 \usepackage{makeidx}
-%BERM1 \usepackage[pdftex]{graphicx}
-%BERM1 \usepackage{float}
+% $Id: cryptomethods.tex 3712 2016-03-22 23:36:46Z xesslinger $
+% ..............................................................................
+% B i t b l o c k -  a n d  B i t s t r e a m - E n c r y p t i o n
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 % Pommerenings Specialities
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 % \newcommand*{\C}{\mathbb{C}}   %BERM3
 \renewcommand*{\C}{\mathbb{C}}   %BERM3
 \newcommand*{\F}{\mathbb{F}}
@@ -29,38 +17,18 @@
 \newcommand*{\lsb}{\operatorname{lsb}}
 \newcommand*{\Oh}{\operatorname{O}}
 
-% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-% CrypTool-Spezialitäten
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-%BERM1 \newtheorem{definition}{Definition}[section]
-%BERM1 \newtheorem{theorem}{Theorem}[section]
-%BERM1 \newenvironment{proof}[1]{\noindent\textbf{Proof #1} \\}{\hfill$\Box$\par}
-%BERM1 \newenvironment{example}[1]{\noindent\textbf{Example#1}}{}
-%BERM1 \newenvironment{remark}[1]{\noindent\textbf{Remark#1}}{}
-%BERM1 \setcounter{secnumdepth}{4}
-%BERM1 \floatstyle{ruled}
-%BERM1 \newfloat{sagecode}{!ht}{loc}[chapter]
-%BERM1 \floatname{sagecode}{SageMath sample}
-
 \sloppy
 \frenchspacing
-%BERM1 \makeindex
-%BERM1 \begin{document}
 
-% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-% B i t b l o c k -  a n d  B i t s t r e a m - E n c r y p t i o n
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-%BERM0 \setcounter{chapter}{98}  % ====> Dummy - beim Einfügen ins CT-Skript löschen <=====
 \setcounter{theorem}{0}
 \setcounter{definition}{0}
 
-\newpage %BERM0 
-\hypertarget{Chapter_BitCiphers}{}   %BERM0
+
+\newpage
+\hypertarget{Chapter_BitCiphers}{}
 \chapter{Introduction to Bitblock and Bitstream Ciphers}
 \label{Chapter_BitCiphers}
-(Klaus Pommerening, 2015) \\
+(Klaus Pommerening, 2015, Updates: Jan 2016, Apr 2016) \\
 
 \noindent
 While number theoretic methods prevail for the construction and analysis
@@ -113,12 +81,11 @@ The mathematical foundations and methods belong to the domains of
    {\bf Boolean algebra\index{Boolean algebra} and finite
    fields\index{finite field}\index{field!finite}}.
 
+
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
-
 \section{Boolean Functions}\label{s-bool-fct}
-
-\subsection{Bits and Their Composition}\label{s-bool-bit}
+\subsection{Bits and their Composition}\label{s-bool-bit}
 
 On the lowest level computers operate on bits\index{bit}, or small groups of bits,
 for example bytes\index{byte} that usually consist of 8 bits, or
@@ -231,7 +198,15 @@ in mathematical language (see Definition~\ref{def-bool-fkt}) we illuminate
 its meaning by some concrete illustrations.
 
 For a comprehensive treatment see \cite{CuSt} or the two articles
-by Claude Carlet in \cite{CrHa}.
+by Claude Carlet\footnote{%
+  also see his list of publications at
+  \href{http://www.math.univ-paris13.fr/~carlet/pubs.html}{\tt http://www.math.univ-paris13.fr/$\sim$carlet/pubs.html}
+} in \cite{CrHa}\footnote{%
+  Carlet's articles are online at
+  \href{http://www.math.univ-paris13.fr/~carlet/chap-fcts-Bool-corr.pdf}{\tt http://www.math.univ-paris13.fr/$\sim$carlet/chap-fcts-Bool-corr.pdf}
+  and
+  \href{http://www.math.univ-paris13.fr/~carlet/chap-vectorial-fcts-corr.pdf}{\tt http://www.math.univ-paris13.fr/$\sim$carlet/chap-vectorial-fcts-corr.pdf}
+}.
 
 As a first simple example, consider AND\index{AND} as a Boolean function:
 It takes two bits and produces one new bit by the well-known rules
@@ -763,7 +738,8 @@ $ d = a_{\{1,2\}}$, the input variables as $x = x_1$, $y = x_2$.
   \end{tabular}
 \end{center}
 \caption{The 16 operations on two bits (= Boolean functions of 2 variables),
-   using Table~\ref{t-bool-trf}}\label{tab-bool-2}
+   using Table~\ref{t-bool-trf} (The order of the first column is
+   lexicographic if $a$, $b$, $c$, $d$ are considered in reverse order.)}\label{tab-bool-2}
 \end{table}
 
 We have already seen that each Boolean function admits a
@@ -1553,6 +1529,7 @@ SageMath module {\tt sage.crypto.mq.sbox}\footnote{%
   Cryptographers often use the term ``S-boxes\index{S-box}'' for
   Boolean maps in small dimensions.
 }.
+
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
@@ -2476,9 +2453,12 @@ define the bitblock cipher
 \]
 SageMath sample~\ref{Sage-code-Luc-S0} defines this Boolean map
 $f =$ {\tt S0}, using the classes {\tt BoolF} and {\tt BoolMap}
-from Appendix~\ref{ss-bool-class}. The columns of the (implicit)
-defining matrix contain just the values of the map, as they are
-also given in the column $y = f(x)$ of Table~\ref{tab-bool-A1}.
+from Appendix~\ref{ss-bool-class}.
+The columns of the defining matrix (implicit in the SageMath code)
+just give the values of the map as they are also found
+in the column $y = f(x)$ of Table~\ref{tab-bool-A1}.
+(In other words, SageMath sample~\ref{Sage-code-Luc-S0} and
+Table~\ref{tab-bool-A1} give equivalent definitions of the map $f$.)
 A sample evaluation illustrates this (for the third column,
 representing the argument {\tt 0010}).
 
@@ -2902,7 +2882,9 @@ for this partial sum of key bits exactly $14$ times---as expected.
   \hline
 \end{tabular}
 \end{center}
-\caption{A linear relation for the key bits}\label{tab-bool-linrel}
+\caption{A linear relation for the key bits ($b$ arises from $a$ by adding
+   $k^{(0)}$, resulting in ``flipping'' the first bit, $b'$ from $b$ by applying
+   $f$, and $c$ from $b'$ by adding $k^{(1)}$.}\label{tab-bool-linrel}
 \end{table}
 
 How large is the success probability $p_N$ of correctly estimating
@@ -3058,8 +3040,8 @@ bijective\footnote{%
    3 & 0 &$\frac{1}{2}$&$\frac{1}{4}$& $-\frac{1}{4}$ &$\frac{1}{2}$& 0 &$\frac{1}{4}$& $-\frac{1}{4}$ & $-\frac{1}{4}$ & $-\frac{1}{4}$ & 0 & 0 &$\frac{1}{4}$&$\frac{1}{4}$& 0 & 0 \\
    4 & 0 & 0 &$-\frac{1}{2}$& 0 & 0 & 0 & 0 &$-\frac{1}{2}$&$\frac{1}{4}$& $-\frac{1}{4}$ & $-\frac{1}{4}$ & $-\frac{1}{4}$ &$\frac{1}{4}$& $-\frac{1}{4}$ &$\frac{1}{4}$&$\frac{1}{4}$\\
    5 & 0 &$\frac{1}{4}$&$\frac{1}{4}$&$\frac{1}{2}$& 0 &$\frac{1}{4}$& $-\frac{1}{4}$ & 0 &$\frac{1}{4}$& 0 &$-\frac{1}{2}$&$\frac{1}{4}$&$\frac{1}{4}$& 0 & 0 & $-\frac{1}{4}$ \\
-   6 & 0 &$\frac{1}{4}$& 0 &$\frac{1}{4}$& 0 &$\frac{1}{4}$& 0 &$\frac{1}{4}$& 0 &$\frac{1}{4}$& 0 & 2 & 0 &$\frac{1}{4}$& 0 &$\frac{1}{4}$\\
-   7 & 0 & 0 &$\frac{1}{4}$& $-\frac{1}{4}$ & 0 & 0 & 2 & $-\frac{1}{4}$ & 0 & 0 &$\frac{1}{4}$& $-\frac{1}{4}$ & 0 & 0 &$\frac{1}{4}$& $-\frac{1}{4}$ \\
+   6 & 0 &$\frac{1}{4}$& 0 &$\frac{1}{4}$& 0 &$\frac{1}{4}$& 0 &$\frac{1}{4}$& 0 &$\frac{1}{4}$& 0 &$-\frac{3}{4}$& 0 &$\frac{1}{4}$& 0 &$\frac{1}{4}$\\
+   7 & 0 & 0 &$\frac{1}{4}$& $-\frac{1}{4}$ & 0 & 0 &$-\frac{3}{4}$& $-\frac{1}{4}$ & 0 & 0 &$\frac{1}{4}$& $-\frac{1}{4}$ & 0 & 0 &$\frac{1}{4}$& $-\frac{1}{4}$ \\
    8 & 0 & 0 & $-\frac{1}{4}$ &$\frac{1}{4}$& $-\frac{1}{4}$ &$\frac{1}{4}$& 0 & 0 &$-\frac{1}{2}$& 0 &$\frac{1}{4}$&$\frac{1}{4}$&$\frac{1}{4}$&$\frac{1}{4}$&$\frac{1}{2}$& 0 \\
    9 & 0 &$\frac{1}{4}$& 0 &$\frac{1}{4}$& $-\frac{1}{4}$ &$-\frac{1}{2}$&$\frac{1}{4}$& 0 & 0 & $-\frac{1}{4}$ & 0 & $-\frac{1}{4}$ & $-\frac{1}{4}$ & 0 &$\frac{1}{4}$&$-\frac{1}{2}$\\
   10 & 0 & $-\frac{1}{4}$ &$\frac{1}{4}$& 0 & $-\frac{1}{4}$ & 0 & 0 &$\frac{1}{4}$& $-\frac{1}{4}$ &$-\frac{1}{2}$& 0 & $-\frac{1}{4}$ &$\frac{1}{2}$& $-\frac{1}{4}$ & $-\frac{1}{4}$ & 0 \\
@@ -3106,7 +3088,7 @@ bijective\footnote{%
 12&0& 0            &$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{16}$& 0            &$\frac{1}{4}$ &$\frac{1}{16}$
      &$\frac{1}{16}$& 0            & 0            &$\frac{1}{4}$ & 0            &$\frac{1}{16}$&$\frac{1}{16}$\\
 13&0&$\frac{1}{16}$&$\frac{1}{4}$&$\frac{1}{16}$&$\frac{1}{16}$& 0            &$\frac{1}{16}$& 0            &$\frac{1}{16}$
-     & 0            &$\frac{1}{16}$& 0            & 0            &$\frac{1}{16}$&$\frac{1}{4}$ &$\frac{1}{16}$\\
+     & 0            &$\frac{1}{16}$& 0            & 0            &$\frac{1}{16}$&$\frac{1}{4}$ & 0 \\
 14&0&$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{4}$ &$\frac{1}{16}$&$\frac{1}{4}$ & 0            &$\frac{1}{16}$& 0            
      &$\frac{1}{16}$&$\frac{1}{16}$& 0            &$\frac{1}{16}$& 0            & 0            &$\frac{1}{16}$\\
 15&0& 0            & 0            & 0            &$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{4}$ 
@@ -3971,7 +3953,11 @@ linear path $\beta$:
       \sum_{i=0}^r \beta_i(k^{(i)}) = \beta_0(a) + \beta_r(F(a,k))\}.
 \]
 Substitute $F(a,k) = a^{(r)} + k^{(r)} = f_r(b^{(r-1)}) + k^{(r)}$ into the
-defining equation of this set. Then $\beta_r(k^{(r)})$ cancels out, and we see
+defining equation of this set:
+\[
+  \beta_0(k^{(0)}) + \cdots + \beta_r(k^{(r)}) = \beta_0(a) + \beta_r(f_r(b^{(r-1)})) + \beta_r(k^{(r)}).
+\]
+Then $\beta_r(k^{(r)})$ cancels out, and we see
 that the count is independent of $k^{(r)}$. The remaining formula is
 \[
      q_r = \frac{1}{2^{n\cdot(r+1)}} \cdot \#\{a, k^{(0)}, \ldots, k^{(r-1)} \in \F_2^n \:|\:
@@ -4184,12 +4170,14 @@ hence $n = 8$. As S-boxes we take the ones from {\sc Lucifer}, $\textrm{S}_0$
 at the left, and $\textrm{S}_1$ at the right, see Figure~\ref{fig-bool-par}.
 For the left S-box $\textrm{S}_0$ we take the linear relation
 with $\alpha \:\hat{=}$ \verb:0001: and $\beta \:\hat{=}$ \verb:1101:,
-that we know has probability $p_1 = \frac{7}{8}$, for the right
-S-Box $\textrm{S}_1$ we take the relation $(0,0)$ with probability $1$.
+that we know has probability $p_1 = \frac{7}{8}$. For the right
+S-Box $\textrm{S}_1$ we take the relation $(0,0)$ (where both linear forms are $0$).
+Since always $0 = 0$ its probability is $1$.
 The combined linear relation for $f = (\textrm{S}_0,\textrm{S}_1)$ then
-also has probability $p = \frac{7}{8}$ and potential $\lambda = \frac{9}{16}$,
+also has probability $p = \frac{7}{8}$ and potential $\lambda = \frac{9}{16}$
+by Theorem~\ref{thm-bool-parallel},
 and we know that linear cryptanalysis with $N = 5$ pairs of plaintext
-and ciphertext has 95\% success probability. We decompose all relevant
+and ciphertext has (more than) 95\% success probability. We decompose all relevant
 bitblocks into bits:
 \begin{description}
    \item[plaintext:] $a = (a_0, \ldots, a_7) \in \F_2^8$,
@@ -4207,7 +4195,11 @@ Hence the target relation is
 \]
 We use the key $k =$ \verb:1001011000101110: whose relevant bit is
 $k_3 + k_8 + k_9 + k_{11} = 1$, and generate five random pairs of
-plaintext and ciphertext, see Table~\ref{tab-bool-BspC}. We see that
+plaintext and ciphertext\footnote{%
+   We simulate an attacker who knows five pairs of plaintexts and corresponding ciphertexts
+   by generating (arbitrarily at random) and using these five pairs.
+   Our odds of correctly determining the wanted key bit are very high.
+}, see Table~\ref{tab-bool-BspC}. We see that
 for this example Matsui's algorithm guesses the relevant key bit
 correctly with no dissentient.
 
@@ -4430,7 +4422,8 @@ the effect really is.
 The concrete example is specified in Figure~\ref{fig-bool-mLuc2}.
 The relation {\color{red} 1}, namely
 \[
-     \beta(b') \stackrel{p_1}{\approx} \alpha(a + k^{(0)})
+     \beta(b') \stackrel{p_1}{\approx} \alpha(a + k^{(0)}), \quad
+     \text{or explicitly} \quad b'_0 + b'_1 + b'_3 \stackrel{p_1}{\approx} a_3 + k_3,
 \]
 holds with probability $p_1 = \frac{7}{8}$ between $\alpha \:\hat{=}$
 \verb:0001: and $\beta \:\hat{=}$ \verb:1101:. The
@@ -4438,7 +4431,8 @@ permutation $\textrm{P}$ transforms it to the relation {\color{red} 2},
 namely
 \[
      \beta \circ \textrm{P}^{-1}(a') \stackrel{p_1}{\approx}
-        \alpha(a + k^{(0)}) = \alpha(a) + \alpha(k^{(0)}).
+        \alpha(a + k^{(0)}) = \alpha(a) + \alpha(k^{(0)}), \quad
+     \text{or explicitly} \quad a'_3 + a'_4 + a'_5 \stackrel{p_1}{\approx} a_3 + k_3.
 \]
 But $\textrm{P}$ also distributes the bits from the left-hand side of the relation
 over the two S-boxes of the next round. So the cryptanalytic trick of
@@ -4475,19 +4469,20 @@ has I/O-correlation $$2 p_2 - 1 = (2 p'_2 - 1)(2 p''_2 - 1) = \frac{3}{8}$$
 by Theorem~\ref{thm-bool-parallel}, hence $p_2 = \frac{11}{16}$,
 $\lambda_2 = \frac{9}{64}$.
 
-The relation between $\beta'(a' + k^{(1)})$ and $\gamma(b'')$ is
-labelled by {\color{red} 3} in Figure~\ref{fig-bool-mLuc2}, namely
+The relation between $\beta'(a' + k^{(1)})$ and $\gamma(b'')$, namely
 \[
      \gamma(b'') \stackrel{p_2}{\approx} \beta'(a' + k^{(1)})
-       = \beta'(a') + \beta'(k^{(1)}).
+       = \beta'(a') + \beta'(k^{(1)}),
 \]
+is labelled by {\color{red} 3} and written in explicit form in
+Figure~\ref{fig-bool-mLuc2}.
 Combining {\color{red} 2} and {\color{red} 3} (and cancelling $k_3$)
 yields the relation
 \[
      \gamma(c) + \gamma(k^{(0)}) = \gamma(c + k^{(0)}) = \gamma(b'')
         \stackrel{p}{\approx} \alpha(a) + \alpha(k^{(0)}) + \beta'(k^{(1)}),
 \]
-labelled by {\color{red} 4} in the figure, whose probability $p$ is
+given explicitly and labelled by {\color{red} 4} in the figure. Its probability $p$ is
 given by Theorem~\ref{thm-bool-rrnd} since the two round\index{round key}
 keys are independent. We get
 $$2 p - 1 = (2 p_1 - 1)(2 p_2 - 1) = \frac{3}{4}\cdot \frac{3}{8} = \frac{9}{32},$$
@@ -5121,6 +5116,7 @@ to break the cipher. Nevertheless a complex key schedule makes a cipher
 more secure for it detains the attacker from explicitly
 utilizing the dependence of the various round keys\index{round key}, in
 particular if they consist of overlapping blocks of master key bits.
+
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
@@ -5786,7 +5782,8 @@ Thus the recursive formula
 represents the complete sequence. SageMath sample~\ref{Sage-code-bool-fsr}
 defines a general FSR with feedback function
 $f$, SageMath sample~\ref{Sage-code-bool-fsr1} uses it to generate a bit
-sequence. Table~\ref{tab-bool-fsr2} illustrates the stepping of the
+sequence by a concrete sample feedback function. Table~\ref{tab-bool-fsr2}
+illustrates the stepping of the
 register. Note that the result doesn't look convincingly random,
 and take this as warning that the choice of the parameters needs
 significantly more care.
@@ -5844,7 +5841,9 @@ it may serve as part of the key.
    \put(0,0){\line(0,1){114}}
    \put(342,0){\line(0,1){114}}
 \end{picture}
-\caption{A feedback shift register (FSR)}\label{fig-bool-fsr}
+\caption{A feedback shift register (FSR) during the first iteration step. The
+   Boolean function $f$ calculates a new bit from the current state of the register.
+   This new bit is slid in from the left.}\label{fig-bool-fsr}
 \end{center}
 \end{figure}
 
@@ -5993,7 +5992,6 @@ A simple graphical representation of an LFSR is shown in Figure~\ref{fig-bool-gr
 Here, the subset $I$ defines the contacts (``taps''\index{tap}) that feed
 the respective cells into the feedback sum.
 
-%BERM0: Verschoben an die richtige Stelle.
 \begin{figure}[h] % [htbp]
 \begin{center}
 \begin{picture}(320,50)
@@ -6934,18 +6932,18 @@ A correlation attack easily detects the initial states of registers
 sequence. Afterwards exhaustion finds the initial state of register 3,
 the control register.
 
-\begin{table}
+\begin{table}[h]
 \begin{center}
   \begin{tabular}{|c|cccc|cccc|}\hline
       $x$    & $0$ & $0$ & $0$ & $0$ & $1$ & $1$ & $1$ & $1$ \\
-      $y$    & $0$ & $1$ & $0$ & $1$ & $0$ & $1$ & $0$ & $1$ \\
-      $z$    & $0$ & $0$ & $1$ & $1$ & $0$ & $0$ & $1$ & $1$ \\
+      $y$    & $0$ & $0$ & $1$ & $1$ & $0$ & $0$ & $1$ & $1$ \\
+      $z$    & $0$ & $1$ & $0$ & $1$ & $0$ & $1$ & $0$ & $1$ \\
     \hline
   $f(x,y,z)$ & $0$ & $0$ & $0$ & $1$ & $1$ & $1$ & $0$ & $1$ \\
     \hline
   \end{tabular}
 \end{center}
-\caption{Truth table of the Geffe function}\label{tab-bool-gef-wt}
+\caption{Truth table of the Geffe function (in horizontal order)}\label{tab-bool-gef-wt}
 \end{table}
 
 We exploit this weakness of the Geffe generator in SageMath
@@ -6964,13 +6962,12 @@ in Table~\ref{tab-bool-gef-korr}, using the formula
 \[
      p = \frac{1}{2} \cdot (\pm \sqrt{\lambda} + 1).
 \]
-\clearpage
 
 If $\lambda = 0$, then $p = 1/2$. If  $\lambda = 1/4$, then $p = 1/4$
 or $3/4$. For deciding between these two values for $p$ we use
 Table~\ref{tab-bool-gef-wt}.
 
-\begin{table}
+\begin{table}[h]
 \begin{center}
 \begin{tabular}{|l|cccccccc|} \hline
   linear form     & $0$   &   $z$   &   $y$    &   $y+z$   &  $x$    &   $x+z$   &  $x+y$  & $x+y+z$ \\
@@ -6997,7 +6994,8 @@ $100$ element sequence from SageMath sample~\ref{Sage-code-bool-gef-seq}.
 The function {\tt coinc} from SageMath sample~\ref{Sage-code-bool-div-bbl}
 (in the appendix) counts the coincidences. For the first register we
 find $73$ coincidences, for the second one $76$, for the third one
-only $41$. This confirms the values $75$, $75$, $50$ predicted by our theory.
+only $41$. This confirms the values $75$, $75$, $50$ predicted by our theory
+(taking into account statistical variability).
 
 \begin{sagecode}
 \begin{verbatim}
@@ -7206,8 +7204,8 @@ transformation\index{Walsh transformation}, in particular against sparse
 linear feedback functions (that use only a small number of taps) \cite{MeSt}. These
 don't reduce the complexity class of the attack (``exponential in the
 length of the shortest register'') but reduce the cost by a significant
-factor. So they are able to attack registers with up to $100$ coefficients
-1 in the feedback function. As a consequence
+factor. So they are able to attack registers whose feedback functions have
+up to $100$ monomials with coefficients in their ANF. As a consequence
 \begin{itemize}
 	\item The single LFSRs should have a length of at least 200 bits,
 	   and use about $100$ taps each.
@@ -7890,10 +7888,10 @@ form applies to all parts of cryptography:
    states.}
 \end{quote}
 
+
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
 \section{Appendix: Boolean Maps in SageMath}\label{a-bool-sage}
-
 \subsection{What's in SageMath?}
 
 SageMath has several functions for bitblocks\index{bitblock} and Boolean
@@ -8590,8 +8588,6 @@ class LFSR(object):
 \end{sagecode}
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-%BERM1 \printindex
-
 \begin{thebibliography}{999}
 \bibitem{Bard}
     Gregory V. Bard,
