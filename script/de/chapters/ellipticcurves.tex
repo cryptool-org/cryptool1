@@ -9,13 +9,12 @@
 \label{Chapter_EllipticCurves}
 \index{elliptische Kurve}
 (Filipovics B. / Büger M. / Esslinger B. / Oyono R., April 2000,
- Updates: Dez. 2001, Juni 2002, März 2003, Nov. 2009, Aug. 2013)
+ Updates: Dez. 2001, Juni 2002, März 2003, Nov. 2009, Aug. 2013, April 2016)
 
 % -----------------------------------------------------------------------------
 \section{Elliptische Kurven -- Ein effizienter Ersatz für RSA?}
 \index{Performance}
 \label{ECAlternative}
-
 
 Bei Datenübertragungen kommt es auf Sicherheit und Effizienz an.  Viele
 Anwendungen verwenden den RSA-Algorithmus als asymmetrisches Signatur- und
@@ -52,7 +51,7 @@ und interaktiv in\\
 \url{http://www.keylength.com/en/1/}.
 }
 
-% -> Figur 1
+% -> Figure 1
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.7]{figures/RSAKeyLength-2}
@@ -77,7 +76,7 @@ Grund liegt darin, dass es bei Verwendung des RSA möglich ist, einen sehr
 kurzen Exponent für den öffentlichen Schlüssel zu wählen, solange der 
 private Exponent nur hinreichend lang ist.
 
-% -> Figur 2
+% -> Figure 2
 \begin{figure}[ht]
 \vskip -40 pt
 \begin{center}
@@ -123,9 +122,9 @@ Kapitel \ref{SecurityRSA}.}, laufende RSA-Anwendungen umzustellen,
 sollte man bei der Neuimplementierung ernsthaft den Einsatz von Verfahren
 erwägen, die auf Elliptischen Kurven basieren.
 Dies gilt insbesondere, wenn es sich um Anwendungen im Finanzsektor
-handelt, die noch nach 2005\footnote{%
-BSI-Empfehlung: \glqq Geeignete Kryptoalgorithmen\grqq vom 24. Oktober 2002.
-} operativ sein sollen.
+handelt, die auch nach 2005\footnote{%
+BSI-Empfehlung: \glqq Geeignete Kryptoalgorithmen\grqq~vom 24. Oktober 2002.
+} operativ sein sollen. Neuere Diskussionen zur Sicherheit von ECC finden Sie in Kapitel xxxxxxxxxxxxxxxxxxxx
 
 
 % -----------------------------------------------------------------------------
@@ -195,7 +194,6 @@ Problems.
 Ferner gibt es einen Zusammenhang zwischen Faktorisierung von ganzen Zahlen und
 Elliptischen Kurven, der in Abschnitt \ref{ECC-Factorisation} näher beschrieben 
 wird.
-
 
 
 
@@ -331,12 +329,11 @@ Man kann zeigen, dass die Ordnung jedes Körpers eine Primzahlpotenz (d.h. die Po
 
 Eine besondere Rolle spielen die Körper $GF(p)$, deren Ordnung eine Primzahl ist. Man nennt solche Körper Primkörper zur Primzahl $p$ und bezeichnet ihn meist mit ${\mathbb Z}_p$\footnote{Für Primkörper sind die additive Gruppe sowie die multiplikative Gruppe zyklisch. Ferner enthält jeder Körper $GF(p^n)$ einen zu ${\mathbb Z}_p$ isomorphen Primkörper.}.
 
- 
 
 % -----------------------------------------------------------------------------
 \section{Elliptische Kurven in der Kryptographie} \label{ECC-Crypto}
 
-In der Kryptographie betrachten wir Elliptische Kurven. Solche Kurven ergeben sich als Lösung"-en einer Gleichung der Form\footnote{Die hier verwendete Kurve erhält man als Nullstellen des {\it Polynoms}\index{Polynom} $F$ vom Grad drei in drei Variablen. Dabei bezeichnet man allgemein Ausdrücke der Form
+In der Kryptographie sind elliptische Kurven ein nützliches Werkzeug. Solche Kurven ergeben sich als Lösung"-en einer Gleichung der Form\footnote{Die hier verwendete Kurve erhält man als Nullstellen des {\it Polynoms}\index{Polynom} $F$ vom Grad drei in drei Variablen. Dabei bezeichnet man allgemein Ausdrücke der Form
 $P=\sum_{i_1,\dots,i_n\in\N_0} a_{i_1\dots i_n} x_1^{i_1}\dots x_n^{i_n}$ mit Koeffizienten $a_{i_1\dots i_n}\in K$ als Polynome in $n$ Variablen $x_1,\dots,x_n$ über dem Körper $K$, wenn ${\rm grad\,} P:=\max\{i_1+\dots +i_n: a_{i_1\dots i_n}\ne 0\}$ einen endlichen Wert hat, die Summe also nur aus endlich vielen Summanden (Monomen) besteht. Die Summe der Exponenten der Variablen jedes einzelnen Summanden ist maximal $3$, bei mindestens einem Summanden kommt $3$ als Exponentwert einer Variablen auch wirklich vor.}
 \begin{equation}
  F(x_1,x_2,x_3)=-x_1^3+x_2^2x_3+a_1x_1x_2x_3-a_2x_1^2x_3+a_3x_2x_3^2-a_4x_1x_3^2-a_6x_3^3=0.
@@ -399,8 +396,7 @@ mit $b\ne 0$\footnote{Die Form (\ref{ellp}) ist die Standardform der Weierstrass
 Durch diese Bedingungen an die Parameter $a,b$ ist gewährleistet, dass die Elliptische Gleichung für kryptographische Anwendungen geeignet ist\footnote{Formal sagt man, die Kurve ist nicht singulär.}.
 
 
-
-Für die Anzahl $|E|$ der Elemente einer Elliptischen Kurve $E$ über einem Körper $GF(k)$ (praktisch $k=p$ prim oder $k=2^n$) gilt nach dem Satz von Hasse \cite{ec:Silverman1986} die einfache Beziehung $| \, |E| - k-1\,| \le 2\cdot \sqrt{k}$. Diese Ungleichung ist äquivalent zu $k+1 - 2\sqrt{k} < |E| < k+1+2\sqrt{k}$. Dies bedeutet, dass die Anzahl der Elemente der Elliptischen Kurve mit der Größe $k$ gut abgeschätzt werden kann. 
+Für die Anzahl $|E|$ der Elemente einer Elliptischen Kurve $E$ über einem Körper $GF(k)$ (praktisch $k=p$ prim oder $k=2^n$) gilt nach dem Satz von Hasse \cite{ec:Silverman1992} die einfache Beziehung $| \, |E| - k-1\,| \le 2\cdot \sqrt{k}$. Diese Ungleichung ist äquivalent zu $k+1 - 2\sqrt{k} < |E| < k+1+2\sqrt{k}$. Dies bedeutet, dass die Anzahl der Elemente der Elliptischen Kurve mit der Größe $k$ gut abgeschätzt werden kann. 
 
 % $$ (\sqrt{k}-1)^2=k-2\sqrt{k}+1 \le |E| \le k+1 .
 % $$
@@ -591,6 +587,10 @@ mathematics\grqq ~ausgezeichnet:\\
 Im Jahr 1987 stellte H.W. Lenstra\index{Lenstra 1987} einen häufig genutzten
 Faktorisierungsalgorithmus vor, der auf Elliptischen Kurven basiert 
 (siehe \cite{ec:Lenstra1987}).
+  % Leerzeile vor schließender Footnote-Klammer zu #21 nötig, um einheitlich eine
+  % Leerzeile am Ende der Fußnoten zu haben -- solange keine andere Lösung
+  % für das Einrückproblem bei Fußnote #23 (TODOTODO)
+
 }, die auf Elliptischen Kurven
 \index{Faktorisierung!Faktorisierungsalgorithmen} basieren\footnote{%
 Die größten mit Elliptischen Kurven faktorisierten Zahlen\index{Faktorisierung!Faktorisierungsrekorde} haben ca. 80 Dezimalstellen:\\
@@ -629,7 +629,6 @@ Wahrscheinlichkeit erhöhen, zwei Punkte zu finden, bei deren Addition ein Teiler
 Daher eignen sich diese Verfahren auch sehr gut für eine Parallelisierung.
 
 
-
 % -----------------------------------------------------------------------------
 \newpage
 \section{Implementierung Elliptischer Kurven zu Lehrzwecken}
@@ -647,11 +646,17 @@ CT1 enthält Elliptische Kurven, um digitale Signaturen zu erzeugen%
 Die Dialogbox, die in CT1\index{CrypTool 1} nach dem Menü 
 {\bf Digitale Signaturen/PKI \textbackslash{} Dokument signieren} erscheint,
 bietet die EC-Verfahren ECSP-DSA und ECSP-NR an.
+  % Leerzeile vor schließender Footnote-Klammer zu #20 nötig, um einheitlich eine
+  % Leerzeile am Ende der Fußnoten zu haben -- solange keine andere Lösung
+  % für das Einrückproblem bei Fußnote #23 (TODOTODO)
 
 } und um die ECC-AES-Hybridverschlüsselung durchzuführen%
 \footnote{%
 In CT1\index{CrypTool 1} finden Sie dieses Verfahren über das Menü
 {\bf Ver-/Entschlüsseln \textbackslash{} Hybrid}.
+  % Leerzeile vor schließender Footnote-Klammer zu #21 nötig, um einheitlich eine
+  % Leerzeile am Ende der Fußnoten zu haben -- solange keine andere Lösung
+  % für das Einrückproblem bei Fußnote #23 (TODOTODO)
 
 }.
 
@@ -675,6 +680,9 @@ CT1: Menü {\bf Digitale Signaturen/PKI \textbackslash{} Signaturdemo
 (Signaturerzeugung)},\\
 JCT (Standard-Perspektive): Menü {\bf Visualisierungen \textbackslash{}
 Elliptische Kurven-Berechnungen}.
+  % Leerzeile vor schließender Footnote-Klammer zu #22 nötig, um einheitlich eine
+  % Leerzeile am Ende der Fußnoten zu haben -- solange keine andere Lösung
+  % für das Einrückproblem bei Fußnote #23 (TODOTODO)
 
 }
 
@@ -695,10 +703,12 @@ SageMath-Beispiele dazu finden sich z.B. unter den \glqq Published Worksheets\gr
 - über Elliptic Curve ElGamal: \url{http://www.sagenb.org/home/pub/104/}, oder im
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  das \glqq Elliptic Curve Cryptography (ECC) Tutorial\grqq~\\
+  das \glqq Elliptic Curve Cryptography (ECC) Tutorial\grqq\\
   \url{http://www.williamstein.org/simuw06/notes/notes/node12.html}
-   % Leerzeile am Ende nötig (Erkennen Absatz-Ende, sonst hat die 2. Zeile KEINEN hängenden Einzug?! (TODO)
-
+  % Leerzeile nach "oder im" nötig (\\ führt auch zu ungewünschter Verschiebung)
+  % Leerzeile am Ende vor der schließenden Footnote-Klammer nötig -- nicht vor Kommentar und nicht per \\ nach der url
+  % (um Absatz-Ende zu erkennen, sonst hat die 2. Zeile (also die URL) KEINEN hängenden Einzug?! (TODOTODO)
+  
 }.
 
 \noindent Zusätzlich gibt es ein ausführliches, interaktives
@@ -718,7 +728,8 @@ das Package \glqq kash3-2008-07-31.spkg\grqq~installiert worden sein (Befehl \ve
 
 Das ECC-Notebook\index{elliptische Kurve!ECC-Notebook}\index{Massierer, Maike} von
 Massierer\footnote{%
-Anleitung zur Benutzung eines interaktiven SageMath-Notebooks\index{SageMath!Anleitung interaktives Notebook}:\\
+Anleitung zur Benutzung eines interaktiven SageMath-Notebooks\index{SageMath!Anleitung interaktives Notebook}:
+TODOTODO: Hier aktualisieren für SageMathCloudxxxxxxxxxxxxx\\
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
   Öffentliche SageMath-Server wie
@@ -803,15 +814,12 @@ sind (es ist nur auf Englisch vorhanden):
    \item Domain Parameter Generation for ECC Systems
    \item Conclusion and Further Topics
    \item References
-
 \end{enumerate}
-
 
 
 % -----------------------------------------------------------------------------
 \newpage
-\section{Patentaspekte}
-\index{Patent}
+\section{Patentaspekte}\index{Patent}
 
 Wenn man statt des Primkörpers $GF(p)$ einen Körper der Form $GF(2^n)$ zugrunde legt, ergeben sich wesentliche Unterschiede in der Implementierung. Der Vorteil einer Implementierung unter Verwendung von $GF(2^n)$ liegt darin, dass Rechnungen aufgrund der binären Darstellung effizienter durchgeführt werden können. Dies betrifft insbesondere die Division, die in $GF(p)$ vergleichsweise aufwändig ist (was z.B. bei dem oben beschriebenen Signaturverfahren sowohl die Erstellung der Signatur als auch ihre spätere Verifikation betrifft, da beide eine Divisionsoperation enthalten).
 
@@ -823,17 +831,24 @@ Im allgemeinen Fall $GF(p^n)$ (aber auch für $n=1$) werden oft sogenannte affine
 
 Eine vollständige Beschreibung aller Implementierungen unter Abwägung ihrer Vor- und Nachteile würde an dieser Stelle zu weit führen. Abschließend kann festgehalten werden, dass die Vielfalt möglicher Implementierungen bei Elliptischen Kurven z.B. im Vergleich zu RSA-Implementie"-rungen sehr groß ist. Aus diesem Grund gibt es Bestrebungen, sich auf wenige Standardimplementierungen, ja sogar auf eine kleine Schar fest vorgegebener Kurven zu beschränken (ASC-Ansatz).
 
-Der Erfolg dieser Standardisierungsbemühungen ist heute noch nicht absehbar.
+Der Erfolg dieser Standardisierungsbemühungen ist noch nicht absehbar.
 Dies wäre aber eine Voraussetzung dafür, dass sich ECC dauerhaft als
 Alternative zu RSA etabliert. Die Arbeit der Standardisierungskomitees wird
 sich erheblich beschleunigen müssen, wenn sich abzeichnet, dass die aktuellen
 Forschungsprojekte im Bereich der Faktorisierung einen Durchbruch erzielen.
 
+Aktuelle Informationen zur Patentlage finden sich hier\footnote{%
+\url{https://en.wikipedia.org/wiki/Elliptic_curve_cryptography}\\
+\url{https://en.wikipedia.org/wiki/ECC_patents}\\
+\url{https://cr.yp.to/ecdh/patents.html} Bernstein, Daniel J. (2006-05-23): \glqq Irrelevant patents on elliptic-curve cryptography\grqq. Abgerufen 2013-08-12.
+}.
+
 
 % -----------------------------------------------------------------------------
 \section{Elliptische Kurven im praktischen Einsatz}
 
-Bereits heute werden Elliptische Kurven in der Praxis eingesetzt.
+% Einsatz in Protokollen wie TLS, Chats, ... ergänzen !!  xxxxxxxxxxxxxxxxxxxxxxxxx
+Bereits heute werden Elliptische Kurven in der Praxis breit eingesetzt.
 Als prominentes Beispiel ist hier der Informationsverbund Bonn-Berlin (IVBB)\footnote{%
 Der IVBB verbindet Regierungsstellen in der alten und neuen deutschen Hauptstadt.\\
 \url{http://www.cio.bund.de/cln_094/sid_92C19118CBA5A021AFD1ABAEC15D2B77/DE/IT-Angebot/IT-Infrastrukturen/IVBB/ivbb_inhalt.html}
@@ -847,60 +862,62 @@ In Österreich gibt es eine Massenanwendung auf Basis von ECC: Die Bankkarte mit 
 
 Beide Beispiele zeigen gut die typischen Einsatzgebiete Elliptischer Kurven:
 Als Hochsicherheitslösungen und bei Implementierungen auf Smartcards, bei denen
-der Schlüssellänge (Speicherplatz) eine entscheidende Bedeutung zukommt.
-
+der Schlüssellänge (begrenzter Speicherplatz) eine entscheidende Bedeutung zukommt.
 
 
 %--------------------------------------------------------------------
 \newpage
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{section}{Literaturverzeichnis}
+    \bibitem[BernsteinLange2013]{ec:BernsteinLange2013} Daniel J. Bernstein, Tanja Lange,
+        \index{Bernstein/Lange 2013} \\
+        {\em SafeCurves: choosing safe curves for elliptic-curve cryptography}, \\
+        \url{http://safecurves.cr.yp.to/}. Abgerufen 1. Dezember 2013.
     \bibitem[Cassels1991]{ec:Cassels1991} J. W. S. Cassels,
 	\index{Cassels 1991} \\ 
-	{\em Lectures on elliptic curves}, \\
+	{\em Lectures on Elliptic Curves}, \\
 	Cambridge University Press, 1991, 143 Seiten.
-    \bibitem[Koblitz1984]{ec:Koblitz1984}N. Koblitz, 
+    \bibitem[Koblitz1984]{ec:Koblitz1984} N. Koblitz, 
 	\index{Koblitz 1984} \\
-	{\em Introduction to elliptic curves and modular forms}, \\
+	{\em Introduction to Elliptic Curves and Modular Forms}, \\
 	Graduate Texts in Mathemathics, Springer-Verlag, 1984.
-    \bibitem[Koblitz1998]{ec:Koblitz1998}N. Koblitz, 
+    \bibitem[Koblitz1998]{ec:Koblitz1998} N. Koblitz, 
 	\index{Koblitz 1998} \\
-	{\em Algebraic aspects of Cryptography. With an appendix on 
-	Hyperelleptic curves by Alfred J. Menezes, Yi Hong Wu and Robert 
+	{\em Algebraic Aspects of Cryptography. With an appendix on 
+	Hyperelleptic Curves by Alfred J. Menezes, Yi Hong Wu and Robert 
 	J. Zuccherato}, \\
 	Springer-Verlag, 1998, 206 Seiten.
     \bibitem[Lenstra1987]{ec:Lenstra1987} H.W. Lenstra, 
         \index{Lenstra 1987} \\
-        {\em Factoring integers with elliptic curves}, \\
+        {\em Factoring Integers with Elliptic Curves}, \\
 	Annals of Mathematics 126, pp. 649-673, 1987.
-
-\bibitem[Lenstra1999]{ec:Lenstra1999} Arjen K. Lenstra, Eric R. Verheul,
-     \index{Lenstra/Verheul 1999} \\
-     {\em Selecting Cryptographic Key Sizes (1999 + 2001)}, \\
-     Journal of Cryptology 14 (2001), 255-293 \\
-     \url{http://www.win.tue.nl/~klenstra/key.pdf},\\
-     \url{http://www.cs.ru.nl/E.Verheul/papers/Joc2001/joc2001.pdf},\\
-     \url{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.20.69&rep=rep1&type=pdf}.
-     % Former Link is dead: \url{http://www.cryptosavvy.com/cryptosizes.pdf}.
-
-    \bibitem[Menezes1993]{ec:Menezes1993}A. J. Menezes, 
+    \bibitem[Lenstra1999]{ec:Lenstra1999} Arjen K. Lenstra, Eric R. Verheul,
+        \index{Lenstra/Verheul 1999} \\
+        {\em Selecting Cryptographic Key Sizes (1999 + 2001)}, \\
+        Journal of Cryptology 14 (2001), 255-293 \\
+        \url{http://www.win.tue.nl/~klenstra/key.pdf},\\
+        \url{http://www.cs.ru.nl/E.Verheul/papers/Joc2001/joc2001.pdf},\\
+        \url{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.20.69&rep=rep1&type=pdf}.
+        % Former Link is dead: \url{http://www.cryptosavvy.com/cryptosizes.pdf}.
+    \bibitem[Menezes1993]{ec:Menezes1993} A. J. Menezes, 
 	\index{Menezes 1993} \\ 
-	{\em Elliptic curve public key cryptosystems}, \\
+	{\em Elliptic Curve Public Key Cryptosystems}, \\
 	Kluwer Academic Publishers, 1993.
-    \bibitem[Silverman1986]{ec:Silverman1986} J. Silverman,
-	\index{Silverman 1986} \\
-	{\em The Arithmetic of Elliptic Curves},\\
-	Springer-Verlag, 1986.
-    \bibitem[Silverman1992]{ec:Silverman1992}J. Silverman,
+    \bibitem[Silverman1992]{ec:Silverman1992} J. Silverman,
 	\index{Silverman 1992} \\
-	{\em The arithmetic of elliptc curves}, \\
-	Graduate Texts in Mathemathics, Springer-Verlag, 1992.
+	{\em The Arithmetic of Elliptc Curves}, \\
+	Graduate Texts in Mathemathics, Springer-Verlag, 2. Auflage 2009.
     \bibitem[SilvermanTate1992]{ec:SilvermanTate1992}J. Silverman, J. Tate,
 	\index{Silverman/Tate 1992} \\
-	{\em Rational points on elliptic curves}, \\
+	{\em Rational Points on Elliptic Curves}, \\
 	Springer-Verlag, 1992.
+    \bibitem[SchulzWittenEssl2015]{ec:SchulzWittenEssl2015} Ralph-Hardo Schulz, Helmut Witten und Bernhard Esslinger
+	\index{Schulz/Witten/Esslinger 2015} \\
+	{\em Rechnen mit Punkten einer elliptischen Kurve}, \\
+	LOG IN Heft Nr. 181/182 (2015), 13 Seiten.\\
+        \url{http://bscw.schule.de/pub/nj_bscw.cgi/d1024028/Schulz_Witten_Esslinger-Rechnen_mit_Punkten_einer_elliptischen_Kurve.pdf},\\
+	Geschrieben für Lehrer, didaktisch aufbereitet, leicht verständlich, mit vielen SageMath-Beispielen.
 \end{thebibliography}
-
 
 
 %--------------------------------------------------------------------
@@ -909,8 +926,8 @@ der Schlüssellänge (Speicherplatz) eine entscheidende Bedeutung zukommt.
 
 \begin{enumerate}
 
-        % \label{ec:Web-Link:Sage_Massierer}
-        \hypertarget{ec:Web-Link:Sage_Massierer}{} 
+   % \label{ec:Web-Link:Sage_Massierer}
+   \hypertarget{ec:Web-Link:Sage_Massierer}{} 
    \item Umfassende interaktive Einführung in elliptische Kurven und
         Elliptische-Kurven-Krypto"-graphie (ECC) mit SageMath\index{SageMath}
         von Maike Massierer und dem CrypTool-Team (alles in Englisch),\\
@@ -919,8 +936,8 @@ der Schlüssellänge (Speicherplatz) eine entscheidende Bedeutung zukommt.
         Version 1.2, November 2009
         % --> seit April 2009 ohne HTTPS auf Siegener Server (mit SAGE 3.4)
 
-  \hypertarget{ec:Web-Link:Certicom_Tutorial}{} 
-  \item Online-Tutorial über Elliptische Kurven der Firma
+   \hypertarget{ec:Web-Link:Certicom_Tutorial}{} 
+   \item Online-Tutorial über Elliptische Kurven der Firma
         Certicom\index{Certicom} (alles in Englisch),\\
         \url{http://www.certicom.com/index.php/ecc-tutorial}
 
@@ -931,10 +948,10 @@ der Schlüssellänge (Speicherplatz) eine entscheidende Bedeutung zukommt.
         \url{http://www.warendorf-freckenhorst.de/elliptische-kurven/frame.html}
 
 
-  \item Arbeitsgruppe IEEE P1363, \\
+   \item Arbeitsgruppe IEEE P1363, \\
         \url{http://grouper.ieee.org/groups/1363}
 
-  \item \hypertarget{Lenstra2} Eine informative Seite zum Faktorisieren mit
+   \item \hypertarget{Lenstra2} Eine informative Seite zum Faktorisieren mit
         Elliptischen Kurven, \\
         \url{http://www.loria.fr/~zimmerma/records/ecmnet.html}\\
         Dort findet man Literatur zum Thema Faktorisieren mit Elliptischen
