@@ -1,15 +1,22 @@
 % $Id$
 % ...........................................................................
-%                  E L L I P T I S C H E  K U R V E N
+%                 E L L I P T I C  C U R V E S
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
+
 \newpage
-\hypertarget{ellcurve}{}
+\hypertarget{Chapter_EllipticCurves}{}
+
 \chapter{Elliptic Curves}
 \label{Chapter_EllipticCurves}
 \index{elliptic curve}
-(Filipovics B. / B\"uger M. / Esslinger B. / Oyono R., April 2000,
-Updates: Dec. 2001, June 2002, Mar. 2003, Nov. 2009, Aug. 2013, April 2016)
+(\hyperlink{author_Bartol-Filipovic}{Bartol Filipovic} /
+ \hyperlink{author_Matthias-Bueger}{Matthias Bueger} /  % B\"uger
+ \hyperlink{author_Bernhard-Esslinger}{Bernhard Esslinger} /
+ \hyperlink{author_Roger-Oyono}{Roger Oyono},
+ Apr 2000,
+ Updates: Dec 2001, Jun 2002, Mar 2003, Nov 2009, Aug 2013, Apr 2016)
 
 % -----------------------------------------------------------------------------
 \section{Elliptic-curve cryptography -- a high-performance substitute for RSA?}
@@ -23,9 +30,9 @@ caused a growth in the necessary key length.  Today, 1024-bit RSA keys are
 standard, but the GISA\index{GISA} (German Information Security Agency)
 recommends the usage of 2048-bit keys from 2006 on (compare
 section~\ref{SecurityRSA}).  The fact that most chips on smart cards cannot
-process keys extending 1024 bit shows that there is a need for
-alternatives. Elliptic-curve cryptography (ECC) can be such an
-alternative in the area of asymmetric cryptography.
+process keys extending ca. 2000 bit shows that there is a need for
+alternatives in the area of asymmetric cryptography. Elliptic-curve
+cryptography (ECC) is such an alternative. They are used widely on smartcards.
 
 The efficiency of a cryptographic algorithm depends on the key length and
 the calculation effort that is necessary to provide a prescribed level of
@@ -37,12 +44,10 @@ doubles every 18 months)\footnote{%
 Empirical knowledge by Gordon Moore, co-founder of Intel, 1965}%
 , then the evolution of the key lengths for secure communication will be as
 in figure~\ref{RSAKeylength}, which was generated from table 1 (on page 32 in
-\cite{ec:Lenstra1999}).\footnote{%
+\cite{LeVe2001}).\footnote{%
 Further information about key length comparison by Arjen Lenstra und Eric
-Verheul, plus more modern evaluations till 2013 can be found in\\
-\url{http://www.keylength.com/biblio/Handbook_of_Information_Security_-_Keylength.pdf}\\
-and interactively in\\
-\url{http://www.keylength.com/en/1/}.
+Verheul, plus more modern evaluations till 2015 can be found in the
+interactive website \url{http://www.keylength.com}.
 }
 
 % -> Figure 1
@@ -50,7 +55,7 @@ and interactively in\\
 \begin{center}
 \includegraphics[scale=0.7]{figures/RSAKeyLength-2}
 \caption{Prognosis of the key lengths regarded to be safe for RSA and
-  for elliptic curves\vspace{1ex}} 
+  for elliptic curves} 
 \label{RSAKeylength}
 \end{center}
 \end{figure}
@@ -67,7 +72,7 @@ long enough.
 \begin{figure}[ht]
 \begin{center}
 \vspace{1.5cm}\includegraphics[scale=0.7]{figures/ECCRSA}
-\caption{Comparison of signing and verification time for RSA and elliptic curves} 
+\caption{Comparison between signing and verification time for RSA and elliptic curves} 
 \label{ThousandBitMultiplications}
 \end{center}
 \end{figure}
@@ -101,13 +106,14 @@ meant. However, it is not yet clear whether the ASC curves will become a de
 facto standard.
 \end{sloppypar}
 
-Although we see no need to replace RSA in any application today\footnote{%
+Although there is no need to replace RSA in any application today\footnote{%
 Current information about the security of the RSA algorithm can be found in 
-chapter \ref{SecurityRSA}.}, one should
-take the usage of ECC-based tools into consideration whenever a new system
-is set up --- in particular, when the tool should be available beyond 2005\footnote{%
-Compare the recommendation of GISA: ``Fitting Crypto Algorithms'' from October 24th, 2002.
-}. More current discussions about the security of ECC can be found in chapter xxxxxxxxxxxxxx
+chapters \ref{SecurityRSA} and \ref{Chapter_Dlog-FactoringDead}.},
+one seriously should take the usage of ECC into consideration\footnote{%
+Compare the technical guideline ``Cryptographic Methods: Recommendations and
+Keylengths'' of GISA from February 15th, 2016.}.GISA\index{GISA}
+More current discussions about the security of ECC can be found in
+chapter \ref{Chapter_Dlog-FactoringDead}.
 
 
 % -----------------------------------------------------------------------------
@@ -122,17 +128,22 @@ mathematical. That is to say, elliptic curves were investigated, for
 example, in the mathematical areas of number theory and algebraic 
 geometry, which are generally highly abstract. Even in the recent
 past, elliptic curves played an important role in pure mathematics.
-In 1993 and 1994, Andrew Wiles\index{Wiles, Andrew} published 
+In 1993 and 1994\footnote%
+{
+  1994 the gaps in the first proof have been closed by Wiles and Richard Taylor.
+}
+, Andrew Wiles\index{Wiles, Andrew} published 
 mathematical works that triggered enthusiasm far beyond the specialist
 audience. In these works, he proved a conjecture put forward in the 1960's.
 To put it short, this conjecture was concerned with the connection 
 between elliptic curves and what are called module forms. What is
 particularly interesting for most people is that the works of Wiles
-also proved the famous second theorem of Fermat. Mathematicians had
-spent centuries (Fermat lived from 1601 to 1665) trying to find a
+also proved the famous second theorem of Fermat\index{Fermat!last theorem}.
+Mathematicians had spent centuries (Fermat\index{Fermat, Pierre} lived from
+1601 to 1665) trying to find a
 strict proof of this theorem. Understandably, therefore, Wiles' proof
 got a good response. Fermat formulated his theorem as follows 
-(written in the border of a book):
+(written in the borders of a book from Diophantus):
 
 \begin{quote} {\em
 Cubum autem in duos cubos, aut quadratoquadratum in duos quadratoquadratos, et
@@ -141,7 +152,7 @@ nominis fas est dividere: cujus rei demonstrationem mirabilem sane detexi. Hanc
 marginis exiguitas non caperet.
 } \end{quote}
 
-With a free translation, using the denotation of modern mathematics, this means: \\
+With a free translation, using the denotation of modern mathematics, this means:\\
 No positive whole numbers $x, y$ and $z$ greater than zero exist such that
 $x^n +y^n = z^n$ for $n>2$. I have found an amazing proof of this fact, but there is
 too little space within the confines of this book to include it.
@@ -154,7 +165,7 @@ publications connected with the proof made up a book in themselves). This should
 therefore make it obvious that elliptic curves are generally based on highly
 complex mathematics.
 
-Anyway that's enough about the role of elliptic curves in pure mathematics. 
+Anyway, that's enough about the role of elliptic curves in pure mathematics. 
 In 1985 Neal Koblitz\index{Koblitz, Neal} and Victor Miller\index{Miller, Victor}
 independently suggested using elliptic curves in cryptography. Elliptic 
 curves have thus also found a concrete practical application. 
@@ -163,18 +174,17 @@ factorizing whole numbers \index{factorization} (the RSA cryptographic system
 is based on the \index{complexity} difficulty/complexity of finding prime
 factors of an extremely large number;  compare section \ref{SecurityRSA}.).
 In this area, procedures based on elliptic curves have been investigated and
-used since 1987 (compare section \ref{ECC-Factorization}). \\
+used since 1987 (compare section \ref{ECC-Factorization}).\\
 There are also prime number tests\index{prime number!test} based on elliptic
 curves.
 % (s. Anmerkung U. Kuehn)
 
-Elliptic curves are used differently in the various areas. Encryption
-procedures based on elliptic curves are based on the difficulty of a problem
+Elliptic curves are used differently in the various areas: Encryption
+procedures based on elliptic curves are based on the difficulty of the problem
 known as elliptic curve discrete logarithm\index{logarithm problem!discrete}.
-The factorization of whole numbers uses the fact that a large number of
-elliptic curves can be generated for a natural composite number $n$ with
-several prime factors; however, these curves are not then groups for composite
-$n$. More information about this can be found under the chapter \ref{ECC-Factorization}.
+The factorization of natural composite numbers $n$ uses the fact that a large
+number of elliptic curves can be generated for $n$.%; however, these curves
+%then are not groups for composite $n$.
 
 
 
@@ -182,7 +192,10 @@ $n$. More information about this can be found under the chapter \ref{ECC-Factori
 \section{Elliptic curves -- mathematical basics}
 
 This section provides information about \index{group} {\em groups} and
-\index{field} {\em fields}.
+\index{field} {\em fields}.\footnote{%
+  A didactically well prepared introduction into Elliptic Curves can be found
+  in \cite{Schulz2015}.\index{RSA \& Co. at school}
+}
 
 % -----------------------------------------------------------------------------
 \subsection{Groups}
@@ -204,25 +217,28 @@ essential statement of the formal definition of a group:
          $x=xe=x(ay)=(xa)y=ey=y$.}
 	 element $a^{-1}$ in $G$ such that: $aa^{-1} = a^{-1}a = e$.
 \end{itemize}
-If also $ab = ba$ (commutative law) for all $a, b$ in $G$, then we call the group an {\em Abelian} group.
+
+If in addition it applies $ab = ba$ (commutative law) for all $a, b$ in $G$, then we call
+the group an {\em Abelian} group.
 
 Since we may define different operations on the same set, we distinguish
 them by giving them different names (e.g.\ $+$ addition or $\cdot$ multiplication).
 
 The simplest example of an (Abelian) group is the group of whole numbers under
 the standard operation of addition. The set of whole numbers is denoted as
-${\mathbb Z}$. ${\mathbb Z}$ has an infinite number of elements, because
+${\mathbb Z}$. ${\mathbb Z}$ has an infinite number of elements:
 ${\mathbb Z} = \{ \cdots, -4, -3, -2, -1, 0, 1, 2, 3, 4, \cdots\}$. For example, the
 operation of $1+2$ lies in ${\mathbb Z}$, for $1+2 = 3$ and $3$ lies in
 ${\mathbb Z}$. The neutral element in the group ${\mathbb Z}$ is $0$. The
 inverse element of $3$ is $-3$, for $3+(-3) = 0$.
 
-For our purpose, so-called {\em finite} groups play an important role. This means that these exists a set
-$\mathcal{M}$ with a fixed number of elements and an operation $+$ such that the
-above conditions are fulfilled. One example of this is any set ${\mathbb Z}_n$
-where ${\mathbb Z}_n = \{0, 1, 2, 3, \cdots, n-1\}, n$ is a positive whole number
-and the operation is addition mod $n$, i.e. $a$ and $b$ in ${\mathbb Z}_n$ are
-subject to the operation $a+b \;{\rm mod~} n$.
+For our purpose, so-called {\em finite} groups play an important role. This means
+that there exists a set $\mathcal{M}$ with a fixed number of elements and an
+operation $+$ such that the above conditions are fulfilled. One example is the
+group ${\mathbb Z}_n = \{0, 1, 2, 3, \cdots, n-1\}$ of the remainders of the
+division by $n \in {\mathbb N}$, and the operation is an addition mod $n$.
+So, for example, $a$ and $b$ in ${\mathbb Z}_n$ are subject to the operation
+$a+b \;{\rm mod~} n$.
 
 \paragraph*{Cyclic groups}\index{group!cyclic}
 Cyclic groups\footnote{Cyclic groups can be in general also endless like
@@ -303,51 +319,69 @@ The set $K=\{0,1,a,b\}$ fitted with the operation defined in the tabular below i
 $
 \begin{array}{|c||c|c|c|c|} 
 \hline 
-+ & 0 & 1 & a & b \\
++ & 0 & 1 & a & b\\
 \hline \hline
-0 & 0 & 1 & a & b \\
+0 & 0 & 1 & a & b\\
 \hline 
-1 & 1 & 0 & b & a \\
+1 & 1 & 0 & b & a\\
 \hline 
-a & a & b & 0 & 1 \\
+a & a & b & 0 & 1\\
 \hline 
-b & b & a & 1 & 0 \\
+b & b & a & 1 & 0\\
 \hline 
 \end{array} \qquad {\rm ~und~} \qquad
 \begin{array}{|c||c|c|c|c|} 
 \hline 
-\cdot & 0 & 1 & a & b  \\
+\cdot & 0 & 1 & a & b\\
 \hline \hline
-0 & 0 & 0 & 0 & 0 \\ 
+0 & 0 & 0 & 0 & 0\\ 
 \hline 
-1 & 0 & 1 & a & b \\ 
+1 & 0 & 1 & a & b\\ 
 \hline 
-a & 0 & a & b & 1 \\ 
+a & 0 & a & b & 1\\ 
 \hline 
-b & 0 & b & 1 & a \\
+b & 0 & b & 1 & a\\
 \hline 
 \end{array} 
-$  \\
+$\\
 }.
 
-One can show that the order of any field is a prime power (i.e. the power of a prime number). On the other hand, we can construct a field with $p^n$ elements for any given prime $p$ and positive integer $n$. Since two fields that have the same number of elements can not be distinguished\footnote{If $K,K'$ are fields with $k=p^n$ elements, then there is a one-to-one map $\varphi:K\to K'$, that respects the arithmetic of the field. Such a map is called an isomorphy. Isomorphic fields mathematically behave in the same way so that   it makes no sense to distinguish between them. For example, ${\mathbb Z}_2$ und $K'=\{ ZERO,ONE\}$ with zero-element $ZERO$ and one-element $ONE$ are isomorphic. We note that mathematical objects are only defined by their mathematical properties.}, we say that there is {\bf the field with $p^n$ elements} and denote it by $GF(p^n)$. Here $GF$ stands for {\it Galois Field} to commemorate the French Mathematician Galois.
+One can show that the order of any field is a prime power (i.e. the power of a prime number). On the other hand, we can construct a field with $p^n$ elements for any given prime $p$ and positive integer $n$. Since two fields that have the same number of elements can not be distinguished\footnote{If $K,K'$ are fields with $k=p^n$ elements, then there is a one-to-one map $\varphi:K\to K'$, that respects the arithmetic of the field. Such a map is called an isomorphy. Isomorphic fields mathematically behave in the same way so that   it makes no sense to distinguish between them. For example, ${\mathbb Z}_2$ und $K'=\{ ZERO,ONE\}$ with zero-element $ZERO$ and one-element $ONE$ are isomorphic. We note that mathematical objects are only defined by their mathematical properties.}, we say that there is {\bf the field with $p^n$ elements} and denote it by $GF(p^n)$ or by $\mathbb{F}_p^{n}$ (used mostly in the English-speaking world). Here $GF$ stands for {\it Galois Field} to commemorate the French Mathematician Galois.
 
-The fields $GF(p)$ of prime order play a prominent role. They are called prime fields and often denoted by ${\mathbb Z}_p$\footnote{For prime fields additive as well as multiplicative group are cyclic. Furthermore, each field $GF(p^n)$ contains a subfield that is isomorphic to the prime field ${\mathbb Z}_p$.}.
+The fields $GF(p)$ of prime order play a prominent role. They are called prime fields and often also denoted by ${\mathbb Z}_p$.\footnote{%
+  For prime fields additive as well as multiplicative group are cyclic. Furthermore,
+  each field $GF(p^n)$ contains a subfield that is isomorphic to the prime field ${\mathbb Z}_p$.
+}
 
 
 % -----------------------------------------------------------------------------
 \section{Elliptic curves in cryptography}\label{ECC-Crypto}
 
 In cryptography elliptic curves are a useful tool.\footnote{%
-We write ``elliptic-curve cryptography'' with a hyphen, according to ``public-key cryptography''. Sadly, this isn't used consistently in the literature.
+  We write ``elliptic-curve cryptography'' with a hyphen, according to ``public-key cryptography''.
+  Sadly, this isn't used consistently in the literature.
 }
 
-Such curves are described by some equation. A detailed analysis has shown that curves of the form\footnote{This curve is given by the zeros of a {\it polynomial}\index{polynomial} $F$ of degree three in three variables. In general, expressions of the form
-$P=\sum_{i_1,\dots,i_n\in\N_0} a_{i_1\dots i_n} x_1^{i_1}\dots x_n^{i_n}$ with coefficients $a_{i_1\dots i_n}\in K$ are called polynomials in $n$ variables $x_1,\dots,x_n$ with underlying field $K$, if ${\rm deg\,} P:=\max\{i_1+\dots +i_n: a_{i_1\dots i_n}\ne 0\}$ is finite, i.e. the sum has only finitely many non-zero terms (monomials). The sum of the exponents of the variables of each term of the sum is at most $3$, at least one term of the sum has a single variable with $3$ as value of the according exponent.}
+Such curves are described by some equation. A detailed analysis has shown that curves
+of the form\footnote{%
+  This curve is given by the zeros of a {\it polynomial}\index{polynomial}
+  $F$ of degree three in three variables. In general, expressions of the form
+  %%  $P=\sum_{i_1,\dots,i_n\in\mathbb{N}} a_{i_1\dots i_n} x_1^{i_1}\dots x_n^{i_n}$
+  $P=\sum_{i_1,\dots,i_n} a_{i_1\dots i_n} x_1^{i_1}\dots x_n^{i_n}$
+  with $i_1,\dots,i_n \in \mathbb{N}$
+  with coefficients $a_{i_1\dots i_n}\in K$ are called polynomials in $n$ variables
+  $x_1,\dots,x_n$ with underlying field $K$, if ${\rm deg\,} P:=\max\{i_1+\dots +i_n:
+  a_{i_1\dots i_n}\ne 0\}$ is finite, i.e. the sum has only finitely many non-zero
+  terms (monomials). The sum of the exponents of the variables of each term of the
+  sum is at most $3$, at least one term of the sum has a single variable with $3$ as
+  value of the according exponent.
+}
+
 \begin{equation}
  F(x_1,x_2,x_3)=-x_1^3+x_2^2x_3+a_1x_1x_2x_3-a_2x_1^2x_3+a_3x_2x_3^2-a_4x_1x_3^2-a_6x_3^3=0,
 \label{eccbasisgleichung}
 \end{equation}
+
 are especially useful. The variables $x_1,x_2,x_3$ and parameters $a_1,\dots,a_4,a_6$ are elements of a given field $K$, which has certain properties that are make it useful from the cryptographic point of view. The underlying field $K$ might be the well known field of real numbers or some finite field (see last section).
 In order to obtain a cure that is useful for cryptography, the parameters have to be chosen in a way that the following conditions hold
 $$ \frac{\partial F}{\partial x_1}\ne 0, \quad \frac{\partial F}{\partial x_2}\ne 0, \quad
@@ -375,7 +409,7 @@ Here, ${\cal O}$ represents the point $(0,1,0)$ that is loosely speaking mapped 
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.60]{figures/elliptic-curve}
-\caption{Example of an elliptic curve with the real numbers as underlying field\vspace{1ex}} 
+\caption{Example of an elliptic curve with the real numbers as underlying field} 
 \label{ExampleEllipticCurve}
 \end{center}
 \vskip -10 pt
@@ -402,7 +436,7 @@ with $b\ne 0$\footnote{The form (\ref{ellp}) is called the standard form of the 
 \end{itemize}
 This conditions on the parameters $a,b$ ensure that the elliptic equation can be used in the context of cryptography\footnote{Formally we call such curves non singular.}.
 
-Let $|E|$ denote the number of elements of an elliptic curve $E$ given an underlying field $GF(k)$ (for practical reasons either $k=p$ with $p$ prim or $k=2^n$). Then Hasse's theorem\cite{ec:Silverman1992} yields $| \, |E| - k-1\,| \le 2\cdot \sqrt{k}$. This inequality is equivalent to $k+1 - 2\sqrt{k} < |E| < k+1+2\sqrt{k}$. In particular, this means that the number of elements of an elliptic curve is approximately $k$ (for large $k$). 
+Let $|E|$ denote the number of elements of an elliptic curve $E$ given an underlying field $GF(k)$ (for practical reasons either $k=p$ with $p$ prim or $k=2^n$). Then Hasse's theorem\cite{Silverman2009} yields $| \, |E| - k-1\,| \le 2\cdot \sqrt{k}$. This inequality is equivalent to $k+1 - 2\sqrt{k} < |E| < k+1+2\sqrt{k}$. In particular, this means that the number of elements of an elliptic curve is approximately $k$ (for large $k$). 
 
 
 % -----------------------------------------------------------------------------
@@ -416,7 +450,7 @@ In order to work with elliptic curves in practice, we define an operation (often
 $$ x_3:=-x_1-x_2+\lambda^2 \, , \qquad y_3:=-y_1+\lambda (x_1-x_3)
 $$
 with the auxiliary quotient
-$$ \lambda:=\left\{ \begin{array}{cl} \frac{y_1-y_2}{x_1-x_2} & {\rm if~} P_1\ne P_2, \\
+$$ \lambda:=\left\{ \begin{array}{cl} \frac{y_1-y_2}{x_1-x_2} & {\rm if~} P_1\ne P_2,\\
                                      \frac{3x_1^2+a}{2y_1} & {\rm if~} P_1=P_2. \end{array} \right.
 $$
 \end{enumerate}
@@ -430,7 +464,7 @@ If we deal with a curve over the field $GF(2^n)$, we define the operation $+$ in
 $$ x_3:=-x_1+x_2+\lambda+\lambda^2+a \, , \qquad y_3:=y_1+x_3+\lambda (x_1+x_3)
 $$
 with auxiliary quotient
-$$ \lambda:=\left\{ \begin{array}{cl} \frac{y_1+y_2}{x_1+x_2} & {\rm if~} P_1\ne P_2, \\
+$$ \lambda:=\left\{ \begin{array}{cl} \frac{y_1+y_2}{x_1+x_2} & {\rm if~} P_1\ne P_2,\\
                                    x_1+\frac{y_1}{x_1} & {\rm if~} P_1=P_2. \end{array}\right.
 $$
 \end{enumerate}
@@ -439,8 +473,8 @@ In particular, we obtain $-P=(x,-y)$ for $P=(x,y)\in E$.
 (Note that $-(-P)=(x,x+(x+y))=(x,2x+y)=(x,y)$, since the underlying field
 has characteristic $2$.)\footnote{%
 An animation of the addition of points
-on elliptic curves can be found on the Certicom\index{Certicom} homepage \\
-\url{http://www.certicom.com/index.php/ecc-tutorial}\\
+on elliptic curves can be found on the Certicom\index{Certicom} homepage\\
+\url{https://www.certicom.com/ecc-tutorial} (Date of last update is unknown).\\
 See also the web link about the \hyperlink{ec:Web-Link:Java_Laubrock}
 {Java-Tutorial} at the end of this chapter.
 }
@@ -552,20 +586,19 @@ Since $R=rG$, we obtain $\bar v_1=\bar r_1$, i.e. $R$ and $V$ coincide modulo th
 \section{Factorization using elliptic curves} \label{ECC-Factorization}
 
 There are factorization%
-\footnote{Especially John M. Pollard \index{Pollard, John M.} was involved
+\footnote{John M. Pollard \index{Pollard, John M.} was involved
 in the development of many different factorization algorithms; also at
 factorization with ECC he was one of the leading heads. As an employee
 of British Telekom he never published much. At the RSA data Security Conference
-in 1999 he was awarded for his ``outstanding contributions in mathematics'':
-\url{http://www.eff.org/Privacy/Crypto_misc/DESCracker/HTML/19990118_rsa_awards.html}.\\
+in 1999 he was awarded for his ``outstanding contributions in mathematics''.\\
 In 1987 H.W. Lenstra published an often used factorization algorithm,
-based on elliptic curves (see \cite{ec:Lenstra1987}).
+based on elliptic curves (see \cite{Lenstra1987}).
 }
 algorithms based on elliptic curves%
 \footnote{The biggest compound numbers currently 
 factorized\index{factorization!factoring records} with elliptic curves have
 about 80 decimal digits:\\
-\url{http://www.loria.fr/~zimmerma/records/top50.html}.\\
+\url{https://members.loria.fr/PZimmermann/records/top50.html}.\\
 See also the web link about the \hyperlink{Lenstra2}{ECMNET project}\index{ECMNET} at the end of this chapter.
 }. 
 More precisely, these procedures exploit the fact that elliptic curves can
@@ -614,13 +647,13 @@ CrypTool and in SageMath.
 
 CT1 offers elliptic curves for the digital signature function%
 \footnote{%
-The dialog box, which appears in CT1\index{CrypTool 1} after clicking the menu
+The dialog box, which appears in CT1\index{CT1} after clicking the menu
 {\bf Digital Signatures/PKI \textbackslash{} Sign Message},
 offers the EC methods ECSP-DSA and ECSP-NR.
 
 } and for ECC-AES hybrid encryption%
 \footnote{%
-Within CT1\index{CrypTool 1} you can find this technique using the menu
+Within CT1\index{CT1} you can find this technique using the menu
 path {\bf Crypt \textbackslash{} Hybrid}.
 
 }.
@@ -637,12 +670,13 @@ The procedure implements the cryptographic primitives for generating and
 verifying signatures for the variations of Nyberg-Rueppel signatures and
 \index{DSA} DSA signatures based on elliptic curves.
 
-Step-by-step point addition on elliptic curves is visualized in CT1\index{CrypTool 1} and JCT\index{JCrypTool}.%
+Step-by-step point addition on elliptic curves is visualized in CT1\index{CT1}
+and in JCT\index{JCT}.%
 \footnote{%
-CT1: menu {\bf Digital Signatures/PKI \textbackslash{} Signature Demonstration
-(Signature Generation)},\\
-JCT (default perspective): menu {\bf Visuals \textbackslash{} Elliptic Curve
-Calculations}.
+  CT1: menu {\bf Digital Signatures/PKI \textbackslash{} Signature Demonstration
+  (Signature Generation)},\\
+  JCT (default perspective): menu {\bf Visuals \textbackslash{} Elliptic Curve
+  Calculations}.
 
 }
 
@@ -653,44 +687,53 @@ Calculations}.
 \index{SageMath}
 \index{SageMath!code examples}
 
-In SageMath elliptic curves are described at
-
-\url{http://www.sagemath.org/doc/constructions/elliptic_curves.html}%
+In SageMath elliptic curves are very well described at:%
 \footnote{%
-According SageMath samples can be found at the "Published Worksheets" at
-\url{http://www.sagenb.org/pub/}\\
-- about Elliptic Curve: \url{http://www.sagenb.org/home/pub/606/} \\
-- about Elliptic Curve El Gamal: \url{http://www.sagenb.org/home/pub/104/}, or at
-
-  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  the "Elliptic Curve Cryptography (ECC) Tutorial"\\
-  \url{http://www.williamstein.org/simuw06/notes/notes/node12.html}
+According SageMath samples can be found e.g. also in the "Elliptic Curve Cryptography
+(ECC) Tutorial"\\
+\url{http://www.williamstein.org/simuw06/notes/notes/node12.html}
   
-}.
+}
+
+\begin{sloppypar}
+\begin{itemize}
+    \item \url{http://doc.sagemath.org/html/en/constructions/elliptic_curves.html}
+    \item \url{http://doc.sagemath.org/html/en/reference/plane_curves/index.html#elliptic-curves}
+\end{itemize}
+\end{sloppypar}
+
 
 \noindent Additionally there is an exhaustive, interactive
 \hyperlink{ec:Web-Link:Sage_Massierer}{ECC tutorial} by Maike Massierer.
 This interactive introduction to Elliptic-Curve Cryptography is built up as
 a SageMath notebook.
 
-SageMath notebooks are running after a logon within a browser%
+\noindent SageMath notebooks are running after a logon within a browser%
 \footnote{%
-If you installed SageMath on your own (Unix) server, you first have to enter at the
-command line the command \verb#notebook()#.
+If you installed SageMath on your own (Unix) server, you first have to
+enter at the command line the command \verb#notebook()#.
 
 }${}^,$\footnote{%
-The ECC notebook of Maike Massierer needs the KASH3 library: Therefore e.g.\ with SageMath 4.2.1
+The \hyperlink{ec:Web-Link:Sage_Massierer}{ECC notebook} of Massierer
+needs the KASH3 library: Therefore e.g.\ with SageMath 4.2.1%TODO-Version
 the package ``kash3-2008-07-31.spkg'' has to be installed (command \verb#sage -i#).
 }.
 
-The ECC notebook\index{elliptic curve!ECC notebook}\index{Massierer, Maike} of
-Massierer\footnote{%
-Instructions to use an interactive SageMath notebook\index{SageMath!instructions interactive notebook}:
-TODOTODO: Update for the new SageMathCloudxxxxxxxxxxxxx\\
+
+%--------------
+The \hyperlink{ec:Web-Link:Sage_Massierer}{ECC notebook}
+\index{elliptic curve!ECC notebook}\index{Massierer, Maike}
+created in 2008 by Massierer\footnote{%
+Instructions to use an interactive SageMath notebook\index{SageMath!instructions
+interactive notebook}:
+Update for the new SageMathCloud xxxxxxxxxxxxx\\
+% TODOTODO
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  Public SageMath servers like \url{http://sage.mathematik.uni-siegen.de:8000} or
-  \url{http://www.sagenb.org/} often offer running samples as "Published Worksheets",
+  Some SageMath servers are publicly available
+  %like \url{http://sage.mathematik.uni-siegen.de:8000} or
+  %\url{http://www.sagenb.org/}
+  and offer running samples as ``Published Worksheets'',
   which you can run and download without login on. These worksheets are listed
   if you click on ``Published'' in the above right corner.
 
@@ -698,35 +741,38 @@ TODOTODO: Update for the new SageMathCloudxxxxxxxxxxxxx\\
   Worksheets using the  \verb#interact# command currently need some additional
   todos for a user to work correctly: sign-in, make a copy and execute all
   commands again.\\
-  This works as follows (described for the sagenb server and for the ECC tutorial):\\
- 
-  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  Sign-up for a SageMath notebook account at \url{http://sagenb.org/register}
-  and sign in at \url{http://sagenb.org/}.
+%  This works as follows (described for the sagenb server and for the ECC tutorial):\\
+% 
+%  TODO --> SageMathCloud xxxxxxxxxxx
+%  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
+%  Sign-up for a SageMath notebook account at \url{http://sagenb.org/register}
+%  and sign in at \url{http://sagenb.org/}.
 
-  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  Open the worksheet \url{http://sagenb.org/home/pub/1126/}.
-  This contains the table of contents of the interactive ECC notebook.
-  From here you can navigate via a click to the different chapters of the document.
+%  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
+%  Open the worksheet \url{http://sagenb.org/home/pub/1126/}.
+%  --> Now
+%  https://cloud.sagemath.com/projects/19575ea0-317e-402b-be57-368d04c113db/files/pub/1101-1201/1126.sagews
+%  This contains the table of contents of the interactive ECC notebook.
+%  From here you can navigate via a click to the different chapters of the document.
 
-  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  In the very top left corner, click \verb#Edit a copy# in order to create
-  your own copy of the worksheet.
+%  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
+%  In the very top left corner, click \verb#Edit a copy# in order to create
+%  your own copy of the worksheet.
 
-  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  Sometimes it's necessary at the beginning to re-evaluate the worksheet.
-  Click in the left upper corner on \verb#Action -> Evaluate all#.
+%  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
+%  Sometimes it's necessary at the beginning to re-evaluate the worksheet.
+%  Click in the left upper corner on \verb#Action -> Evaluate all#.
 
-  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  Some of the applications still do not always work after opening a worksheet.
-  Instead of nice output, they show lots of (blue) error messages.
-  This normally can be solved quickly by clicking the gray  ``\%hide'' string:
-  Then you get the code behind the graphics. Simply generate the graphics
-  again with Shift-Enter.\\
-  Even after doing this, the graphics code does not always disappear. Instead,
-  it sometimes turns gray. Should this happen, click on the gray text,
-  then click somewhere outside of the text box. The code will then
-  disappear and leave you with a nice layout of the worksheet.
+%  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
+%  Some of the applications still do not always work after opening a worksheet.
+%  Instead of nice output, they show lots of (blue) error messages.
+%  This normally can be solved quickly by clicking the gray  ``\%hide'' string:
+%  Then you get the code behind the graphics. Simply generate the graphics
+%  again with Shift-Enter.\\
+%  Even after doing this, the graphics code does not always disappear. Instead,
+%  it sometimes turns gray. Should this happen, click on the gray text,
+%  then click somewhere outside of the text box. The code will then
+%  disappear and leave you with a nice layout of the worksheet.
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
   Some of the ECC tutorial's content uses a special math fonts that are
@@ -734,28 +780,19 @@ TODOTODO: Update for the new SageMathCloudxxxxxxxxxxxxx\\
   formulas are not displayed correctly or even get an error message
   about missing fonts from your browser, you need to install the jsMath
   fonts for a better layout.\\
-  See \url{http://www.math.union.edu/~dpvc/jsMath/}
-  and \url{http://pubpages.unh.edu/~jsh3/jsMath/}.\\
+  See \url{http://www.math.union.edu/~dpvc/jsMath/}.\\
   After installing these fonts you can see the jsMath symbol at the lower border
   of your browser. If you click this symbol you can find the download page for
-  the TIFF fonts. This fonts installation has to be done at every PC.
+  the TIFF fonts. This font installation has to be done at every PC.
+%
+%  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
+%  According to the SageMath-support newsgroup there is work underway
+%  to create a system for using \verb#@interact# completely outside of the
+%  SageMath notebook (JS code within a static html pages).
 
-  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  According to the SageMath-support newsgroup there is work underway
-  to create a system for using \verb#@interact# completely outside of the
-  SageMath notebook (JS code within a static html pages).
-
-}${}^,$\footnote{%
-  Since 2008 this ECC notebook can be found at
-    \url{http://sage.mathematik.uni-siegen.de:8000/home/pub/45/} (\verb!#45 to #52!).
-  To logon in Siegen you have to allow port 8000 and Cookies.\\
-  Since 2009 an updated version of this ECC notebook can be found at
-    \url{http://sagenb.org/home/pub/1126/} (\verb!#1126 to #1133!).
 }
-consists of 8 parts (title page plus 7 chapters)
-% "Titelseite" mit Inhaltsverzeichnis plus 7 Kapitel
+consists of 8 parts (title page with contents plus 7 chapters)
 and aims to let even beginners understand what elliptic curves are:
-
 \begin{enumerate}
    \setcounter{enumi}{-1}
    \item ECC Notebook (title page and contents)
@@ -791,7 +828,8 @@ if there was a break-through in factorization.
 Current informationen about the patents situation can be found here\footnote{%
 \url{https://en.wikipedia.org/wiki/Elliptic_curve_cryptography}\\
 \url{https://en.wikipedia.org/wiki/ECC_patents}\\
-\url{https://cr.yp.to/ecdh/patents.html} Bernstein, Daniel J. (2006-05-23): ``Irrelevant patents on elliptic-curve cryptography''. Retrieved 2013-08-12.
+\url{https://cr.yp.to/ecdh/patents.html} Bernstein, Daniel J. (2006-05-23):
+``Irrelevant patents on elliptic-curve cryptography''. Retrieved 2016-07-14.
 }.
 
 
@@ -802,73 +840,25 @@ Current informationen about the patents situation can be found here\footnote{%
 Today elliptic-curve cryptography is already broadly in use. A prominent example is the
 information network Bonn-Berlin\footnote{%
 The Informationsverbund Bonn-Berlin (IVBB) connects governmental institutions
-in the old and new German capital.\\
-\url{http://www.cio.bund.de/cln_094/sid_92C19118CBA5A021AFD1ABAEC15D2B77/DE/IT-Angebot/IT-Infrastrukturen/IVBB/ivbb_inhalt.html}
-                                        }\index{IVBB}, used for the exchange
+in the old and new German capital.
+}\index{IVBB}, used for the exchange
 of strictly confidential documents between different German federal governmental
 institutions in Berlin and Bonn. With the help of ECC a high security solution
 could be realized. Interoperability, however, played only a minor role.
 
 In Austria ECC has been massively launched: A bank card with digital signature function.
 
-Both examples show the typical range of application for elliptic-curve cryptography: For high security solutions and for implementations on smartcards in which the key length is crucial (because of lack of physical memory available).
+Both examples show typical applications for elliptic-curve cryptography: For high security solutions and for implementations on smartcards in which the key length is crucial (because of lack of physical memory available).
 
 
-%--------------------------------------------------------------------
-\newpage
-%\addcontentsline{toc}{subsection}{Literaturverzeichnis}
-\begin{thebibliography}{99999}
+
+%------------------------------------------------------------------------------
+\putbib[../de/references]
 \addcontentsline{toc}{section}{Bibliography}
-    \bibitem[BernsteinLange2013]{ec:BernsteinLange2013} Daniel J. Bernstein, Tanja Lange,
-        \index{Bernstein/Lange 2013} \\
-        {\em SafeCurves: choosing safe curves for elliptic-curve cryptography}, \\
-        \url{http://safecurves.cr.yp.to/}. Retrieved 1 December 2013.
-    \bibitem[Cassels1991]{ec:Cassels1991} J. W. S. Cassels,
-	\index{Cassels 1991} \\
-        {\em Lectures on Elliptic Curves},\\
-	Cambridge University Press, 1991, 143 pages.
-    \bibitem[Koblitz1984]{ec:Koblitz1984}N. Koblitz, 
-	\index{Koblitz 1984} \\
-        {\em Introduction to Elliptic Curves and Modular Forms},\\
-	Graduate Texts in Mathematics, Springer, 1984.
-    \bibitem[Koblitz1998]{ec:Koblitz1998} N. Koblitz,  
-	\index{Koblitz 1998}\\
-	{\em Algebraic Aspects of Cryptography. With an appendix on 
-	Hyperelleptic Curves by Alfred J. Menezes, Yi Hong Wu and Robert 
-	J. Zuccherato}, \\
-	Springer, 1998, 206 pages.
-    \bibitem[Lenstra1987]{ec:Lenstra1987} H.W. Lenstra, 
-        \index{Lenstra 1987} \\
-        {\em Factoring Integers with Elliptic Curves}, \\
-	Annals of Mathematics 126, pp. 649-673, 1987.
-    \bibitem[Lenstra1999]{ec:Lenstra1999} Arjen K. Lenstra, Eric R. Verheul,
-        \index{Lenstra/Verheul 1999} \\
-        {\em Selecting Cryptographic Key Sizes (1999 + 2001)}, \\
-        Journal of Cryptology 14 (2001), 255-293 \\
-        \url{http://www.win.tue.nl/~klenstra/key.pdf},\\
-        \url{http://www.cs.ru.nl/E.Verheul/papers/Joc2001/joc2001.pdf},\\
-        \url{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.20.69&rep=rep1&type=pdf}.
-        % Former Link is dead: \url{http://www.cryptosavvy.com/cryptosizes.pdf}.
-    \bibitem[Menezes1993]{ec:Menezes1993} A. J. Menezes, 
-	\index{Menezes 1993} \\
-        {\em Elliptic Curve Public Key Cryptosystems},\\
-	Kluwer Academic Publishers, 1993.
-    \bibitem[Silverman1992]{ec:Silverman1992} J. Silverman,
-	\index{Silverman 1992} \\
-        {\em The Arithmetic of Elliptc Curves},\\
-	Graduate Texts in Mathematics, Springer, 2nd ed, 2009.
-    \bibitem[SilvermanTate1992]{ec:SilvermanTate1992} J. Silverman, J. Tate,
-	\index{Silverman/Tate 1992} \\
-        {\em Rational Points on Elliptic Curves},\\
-	Springer, 1992.
-    \bibitem[SchulzWittenEssl2015]{ec:SchulzWittenEssl2015} Ralph-Hardo Schulz, Helmut Witten, and Bernhard Esslinger
-	\index{Schulz/Witten/Esslinger 2015} \\
-	{\em Rechnen mit Punkten einer elliptischen Kurve}, \\
-	LOG IN Journal 181/182 (2015), 13 pages.\\
-        \url{http://bscw.schule.de/pub/nj_bscw.cgi/d1024028/Schulz_Witten_Esslinger-Rechnen_mit_Punkten_einer_elliptischen_Kurve.pdf},\\
-	Written for teachers, didactically prepared, easy to understand, with many SageMath examples.
-	Sadly, this article is only available in German.
-\end{thebibliography}
+\end{bibunit}
+
+\noindent All links have been confirmed at July 14, 2016.
+
 
 
 %--------------------------------------------------------------------
@@ -879,31 +869,55 @@ Both examples show the typical range of application for elliptic-curve cryptogra
 
    \hypertarget{ec:Web-Link:Sage_Massierer}{} 
    \item Interactive introduction to elliptic curves and elliptic curve
-        cryptography with Sage\index{SageMath} 
+        cryptography with SageMath\index{SageMath} 
         by Maike Massierer and the CrypTool team,\\
-        \url{http://sagenb.org/home/pub/1126/} (\verb!#1126 to #1133!) \\
-        ECC Tutorial as SageMath Notebook \\
-        Version 1.2, November 2009
+        ``ECC Tutorial as SageMath notebook'', Version 1.3, January 2011\\
+        \url{http://web.maths.unsw.edu.au/~maikemassierer/ecc-notebook/}
 
    \hypertarget{ec:Web-Link:Certicom_Tutorial}{} 
    \item Certicom Online Tutorial\index{Certicom},\\
-        \url{http://www.certicom.com/index.php/ecc-tutorial}  
+        \url{https://www.certicom.com/index.php/ecc-tutorial}
+
+   \hypertarget{ec:Web-Link:RSALabs}{}
+   \item Overview of Elliptic Curve Cryptosystems,\\
+        Revised June 27, 1997.~
+        M.J.B. Robshaw and Yiqun Lisa Yin.\\
+        RSA Laboratories\index{RSA Laboratories},
+        \begin{sloppypar}
+        \url{http://www.emc.com/emc-plus/rsa-labs/historical/overview-elliptic-curve-cryptosystems.htm}
+        \end{sloppypar}
 
    \hypertarget{ec:Web-Link:Java_Laubrock}{} 
    \item Tutorial with Java applets -- Crypto methods based on elliptic curves,\\
         thesis by Thomas Laubrock, 1999 (German only),\\
         \url{http://www.warendorf-freckenhorst.de/elliptische-kurven/frame.html}  
 
-   \item Working group IEEE P1363, \\
+   \item Working group IEEE P1363,\\
         \url{http://grouper.ieee.org/groups/1363}
 
    \item \hypertarget{Lenstra2}{}
-        An informative web page about factorization with elliptic curves, \\
-        \url{http://www.loria.fr/~zimmerma/records/ecmnet.html}\\
+        An informative web page about factorization with elliptic curves,\\
         It contains literature related to the topic factorization with 
-	elliptic curves as well as links to other web page. 
+	elliptic curves as well as links to other web pages.\\
+        \url{https://members.loria.fr/PZimmermann/records/ecmnet.html}
+
+   \item BSI TR-02102-1,\\
+	Technical Guideline for Cryptographic Methods: Recommendations and
+        Keylengths by GISA\index{GISA} (German Information Security Agency),\\
+	February 15th, 2016. (German only)
+        % BSI -- Technische Richtlinie
+        % Bezeichnung:  Kryptographische Verfahren: Empfehlungen und Schlüssellängen
+        % Kürzel:       BSI TR-02102-1
+        % Version:      2016-01
+        % Stand:        15. Februar 2016
+        \begin{sloppypar}
+        \url{https://www.bsi.bund.de/EN/Topics/ElectrIDDocuments/TRandSecurProfiles/technicalGuidelinesSeite.html}\\
+        \url{https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102.pdf?__blob=publicationFile&v=2}
+        \end{sloppypar}
 
 \end{enumerate}
+
+\noindent All links have been confirmed at July 14, 2016.
 
 
 % Local Variables:

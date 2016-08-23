@@ -1,7 +1,11 @@
-% ---------------------------------------------------------------------------
+% $Id: 
+% ..............................................................................
+%             W A S  I S T  S A G E M A T H  ?
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 \newpage
 \hypertarget{appendix-using-sage}{}
-\section{Kurzeinführung in das Computer-Algebra-System SageMath}
+\section{Kurzeinführung in das CAS SageMath}
 \label{s:appendix-using-sage}
 \index{SageMath}
 \index{SageMath!Programmbeispiele}
@@ -29,19 +33,23 @@ Bereich der algorithmischen Aspekte der Mathematik zu betreiben.
 
 \noindent Einen schnellen Einstieg bieten z.B. die Referenzen in dieser Fußnote%
 \footnote{%
-- \glqq Einladung zu Sage\grqq~von David Joyner, letztes Update 2009,\\
-  \url{http://sage.math.washington.edu/home/wdj/teaching/calc1-sage/an-invitation-to-sage.pdf}\\
-- \glqq The SDSU Sage Tutorial\grqq,\\
+\noindent\hangindent=6pt\makebox[6pt][l]{-}\glqq Einladung zu Sage\grqq~von David Joyner, letztes Update 2009,\\
+  \url{http://sage.math.washington.edu/home/wdj/teaching/calc1-sage/an-invitation-to-sage.pdf}
+
+\noindent\hangindent=6pt\makebox[6pt][l]{-}\glqq The SDSU Sage Tutorial\grqq,\\
   \url{http://www-rohan.sdsu.edu/~mosulliv/sagetutorial/}\\
-  \url{http://www-rohan.sdsu.edu/~mosulliv/sagetutorial/sagecalc.html}\\
-- \glqq SAGE For Newbies\grqq~von Ted Kosan, 2007,\\
-  \url{http://sage.math.washington.edu/home/tkosan/newbies_book/sage_for_newbies_v1.23.pdf}
+  \url{http://www-rohan.sdsu.edu/~mosulliv/sagetutorial/sagecalc.html}
+
+  \noindent\hangindent=6pt\makebox[6pt][l]{-}{\glqq SAGE For Newbies\grqq~von Ted Kosan, 2007,\\
+  \url{http://sage.math.washington.edu/home/tkosan/newbies_book/sage_for_newbies_v1.23.pdf}}
+   % Leerzeile am Ende nötig, sonst hat die letzte Zeile KEINEN hängenden Einzug?! (TODO_LaTeX)
+   %%%% Aber das auch unschön.
 }.
   
 \noindent Die offizielle SageMath Online-Dokumentation\footnote{%
   Die entsprechenden offiziellen PDF-Dokuments können herunter geladen werden von\\
   \url{http://www.sagemath.org/help.html}, \url{http://www.sagemath.org/doc} und \url{http://planet.sagemath.org}.
-} ist verfügbar unter: \url{http://www.sagemath.org}.
+} finden Sie unter: \url{http://www.sagemath.org}.
 
 
 \noindent Es gibt inzwischen viele PDF- und HTML-Dokumente über SageMath, so dass wir als guten Startpunkt nur einige wenige nennen\footnote{%
@@ -67,12 +75,15 @@ werden\footnote{%
 }.
 
 \noindent Umfangreiche Kryptographie-Einführungen finden sich in der folgenden Fußnote\footnote{%
-- Ein fertiger Kryptographie-Kurs von David Kohel, der SageMath nutzt, aus 2008:\\
-{\centering \url{http://www.sagemath.org/library/crypto.pdf} }\\
-bzw. derselbe Kurs in einer eventuell neueren Fassung\\
-{\centering \url{http://sage.math.washington.edu/home/wdj/teaching/kohel-crypto.pdf} }.\\
-- \glqq Introduction to Cryptography with Open-Source Software\grqq, ein
-  hervorragendes Buch von Alasdair McAndrew, CRC, 2011
+\noindent\hangindent=6pt\makebox[6pt][l]{-}Ein fertiger Kryptographie-Kurs von David Kohel,
+  der SageMath nutzt, aus 2008:\\
+  {\centering \url{http://www.sagemath.org/library/crypto.pdf} }\\
+  bzw. derselbe Kurs in einer eventuell neueren Fassung\\
+  {\centering \url{http://sage.math.washington.edu/home/wdj/teaching/kohel-crypto.pdf} }.
+
+\noindent\hangindent=6pt\makebox[6pt][l]{-}\glqq Introduction to Cryptography with
+  Open-Source Software\grqq, ein hervorragendes Buch von Alasdair McAndrew, CRC, 2011
+  %% TODO: Wenn die eine Zeile länger, beginnt sie doch wieder ganz vorne!
 }.
 
 
@@ -391,7 +402,7 @@ wird der Befehl \verb!load()! benutzt:
 \texttt{sage: load primroots.sage}
 
 \noindent Danach kann man auf der Kommandozeile alle Variablen und Funktionen
-nutzen, die im SageMath-Skript definiert wurden\footnote{%
+nutzen, die im Sage\-Math-Skript definiert wurden\footnote{%
 Anmerkungen:
 
 \noindent\hangindent=6pt\makebox[6pt][l]{-}Bitte keine Leerzeichen

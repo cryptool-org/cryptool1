@@ -1,16 +1,23 @@
 % $Id$
-% ...........................................................................
+% ..............................................................................
 %                  D I G I T A L E  S I G N A T U R E N
-% ...........................................................................
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% be_2016-07-13: Housekeeping: " \\\" --> "\\" done (d+E).
+
+
+\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
 
 \newpage
 % --------------------------------------------------------------------------
 \hypertarget{Chapter_Hashes-and-Digital-Signatures}{}
 \chapter{Hashfunktionen und Digitale Signaturen}
 \label{Chapter_Hashes-and-Digital-Signatures}
-\index{Signatur!digitale}
-(Schneider J. / Esslinger B. / Koy H., Juni 2002; 
-Updates: Feb. 2003, Juni 2005, Juli 2009, Nov. 2012)
+\index{Signatur!digital}
+(\hyperlink{author_Joerg-Cornelius-Schneider}{Jörg-Cornelius Schneider} /
+ \hyperlink{author_Bernhard-Esslinger}{Bernhard Esslinger} /
+ \hyperlink{author_Henrik-Koy}{Henrik Koy},
+ Juni 2002; 
+ Updates: Feb. 2003, Juni 2005, Juli 2009, Nov. 2012)
 % --------------------------------------------------------------------------
 %\vskip + 30pt
 \begin{ctsquote}
@@ -30,10 +37,10 @@ künstlichen Intelligenz ausführte.}
 %\vspace{12pt}
 \noindent Ziel der digitalen Signatur ist es, folgende zwei Punkte zu gewährleisten:
 \begin{itemize}
- \item Benutzerauthentizität:\index{Authentizität!Benutzer-}  \\
+ \item Benutzerauthentizität:\index{Authentizität!Benutzer-}\\
       Es kann überprüft werden, ob eine Nachricht tatsächlich
       von einer bestimmten Person stammt.
- \item Nachrichtenintegrität:\index{Nachrichtenintegrität}  \\
+ \item Nachrichtenintegrität:\index{Nachrichtenintegrität}\\
       Es kann überprüft werden, ob die Nachricht (unterwegs) 
       verändert wurde.
 \end{itemize}
@@ -50,18 +57,18 @@ Schlüssel abzuleiten.
 
 Im Detail sieht ein \index{Signaturverfahren}
 {\em Signaturverfahren}\footnote{%
-Mit CT1\index{CrypTool 1} können Sie ebenfalls digitale Signaturen
-erzeugen und prüfen: \\
+Mit CT1\index{CT1} können Sie ebenfalls digitale Signaturen
+erzeugen und prüfen:\\
 entweder in den Untermenüs des Hauptmenüpunktes 
-{\bf Digitale Signaturen / PKI} oder \\
+{\bf Digitale Signaturen / PKI} oder\\
 per 
 {\bf Einzelverfahren \textbackslash{} RSA-Kryptosystem \textbackslash{}
 Signaturdemo (Signaturerzeugung)}.\\
-Ebenso können mit JCT\index{JCrypTool} (in der Standard- und der
+Ebenso können mit JCT\index{JCT} (in der Standard- und der
 Algorithmen-Perspektive) unterschiedliche Arten elektronischer Signaturen
 erzeugt werden.
 } 
-folgendermaßen aus: \\
+folgendermaßen aus:\\
 Der Absender berechnet aus seiner Nachricht und seinem geheimen Schlüssel
 die digitale Signatur der Nachricht. Im Vergleich zur handschriftlichen
 Unterschrift hat die digitale Signatur den Vorteil, dass die 
@@ -82,7 +89,7 @@ eigentliche Dokument. Um den Datenverkehr nicht unnötig anwachsen zu
 lassen und aus Performance-Gründen\index{Performance} wendet man -- vor
 dem Signieren -- auf das Dokument eine kryptographische 
 Hashfunktion\footnote{%
-Hashfunktionen\index{Hashfunktion} sind in CT1\index{CrypTool 1}
+Hashfunktionen\index{Hashfunktion} sind in CT1\index{CT1}
 an mehreren Stellen implementiert.\\
 In den Menüs {\bf Einzelverfahren \textbackslash{} Hashverfahren} bzw.
               {\bf Analyse \textbackslash{} Hashverfahren}
@@ -90,17 +97,17 @@ haben Sie die Möglichkeit
 % hier die items nicht einrücken!
 \begin{list}{\textbullet}{\leftmargin10pt\addtolength{\itemsep}{-1.0\baselineskip}}
 %\begin{itemize}\addtolength{\itemsep}{-1.0\baselineskip}
-\item 6 Hashfunktionen auf den Inhalt des aktiven Fensters anzuwenden, \\
-\item für eine Datei den Hashwert zu berechnen, \\
+\item 6 Hashfunktionen auf den Inhalt des aktiven Fensters anzuwenden,\\
+\item für eine Datei den Hashwert zu berechnen,\\
 \item in der Hash-Demo die Auswirkung von Textänderungen auf den
       Hashwert zu testen,\\
 \item aus einem Passwort gemäß dem PKCS\#5-Standard\index{PKCS\#5}
-      einen Schlüssel zu berechnen, \\
+      einen Schlüssel zu berechnen,\\
 \item aus einem Text und einem geheimen Schlüssel HMACs zu berechnen, und\\
 \item aufgrund von gezielt gesuchten Hashwertkollisionen\index{Kollision}
       einen Angriff auf digitale Signaturen zu simulieren.
 \end{list}
-CT2\index{CrypTool 2} und JCT\index{JCrypTool} enthalten ebenfalls verschiedene
+CT2\index{CT2} und JCT\index{JCT} enthalten ebenfalls verschiedene
 Hashverfahren: Vergleiche die Funktionenliste im Anhang
 \ref{s:appendix-template-overview-CT2} und
 \ref{s:appendix-function-overview-JCT}.
@@ -137,21 +144,21 @@ Kryptographisch sichere Hashfunktionen erfüllen folgende drei Anforderungen
 (Reihenfolge so, dass die Anforderungen ansteigen):
 \begin{itemize}
  \item Standhaftigkeit gegen 1st-Pre-Image-Attacks:
-      \index{Pre-Image-Attack!1st} \index{Angriff!Pre-Image!1st}  \\
+      \index{Pre-Image-Attack!1st} \index{Angriff!Pre-Image!1st}\\
       Es sollte praktisch unmöglich sein, zu einer gegebenen Zahl eine
-      Nachricht zu finden, die genau diese Zahl als Hashwert hat. \\
-      Gegeben (fix): Hashwert H', \\
+      Nachricht zu finden, die genau diese Zahl als Hashwert hat.\\
+      Gegeben (fix): Hashwert H',\\
       Gesucht: Nachricht m, so dass gilt: H(m) = H'.
  \item Standhaftigkeit gegen 2nd-Pre-Image-Attacks:
-      \index{Pre-Image-Attack!2nd} \index{Angriff!Pre-Image!2nd}  \\
+      \index{Pre-Image-Attack!2nd} \index{Angriff!Pre-Image!2nd}\\
       Es sollte praktisch unmöglich sein, zu einer gegebenen Nachricht
-      eine zweite Nachricht zu finden, die genau denselben Hashwert hat. \\
-      Gegeben (fix): Nachricht m1 [und damit der Hashwert H1 = H(m1)], \\
+      eine zweite Nachricht zu finden, die genau denselben Hashwert hat.\\
+      Gegeben (fix): Nachricht m1 [und damit der Hashwert H1 = H(m1)],\\
       Gesucht: Nachricht m2, so dass gilt: H(m2) = H1.
  \item Standhaftigkeit gegen Kollisionsangriffe:
-      \index{Angriff!Kollisionsangriff}  \\
+      \index{Angriff!Kollisionsangriff}\\
       Es sollte es praktisch unmöglich sein, zwei (beliebige) Nachrichten
-      mit demselben Hashwert (welcher ist egal) zu finden. \\
+      mit demselben Hashwert (welcher ist egal) zu finden.\\
       Gesucht: 2 Nachrichten m1 und m2, so dass gilt: H(m1) = H(m2).
 \end{itemize}
 
@@ -172,10 +179,10 @@ Schwächen in ihrer Struktur gezeigt hatten
 (zum Beispiel \index{SHA-1} SHA-1\footnote{%
   SHA-1 \index{SHA-1} ist eine in den Standards FIPS 180-1 (durch die
   US-Behörde NIST), ANSI X9.30 Part 2 und
-  \cite{ds:FIPS186} spezifizierte 160-Bit Hashfunktion.\\
+  \cite{FIPS186} spezifizierte 160-Bit Hashfunktion.\\
   SHA bedeutet \glqq Secure Hash Algorithm\grqq und wird häufig benutzt, z.B. 
   mit DSA, RSA oder ECDSA.\\
-  Der aktuelle Standard \cite{ds:FIPS180-3} definiert vier sichere Hashverfahren
+  Der aktuelle Standard \cite{FIPS180} definiert vier sichere Hashverfahren
   -- SHA-1, SHA-256, SHA-384 und SHA-512.
   Für diese Hashalgorithmen sind in der Testsuite FIPS 140-2 auch
   Validierungstests definiert.
@@ -184,17 +191,17 @@ Schwächen in ihrer Struktur gezeigt hatten
   Möglichkeit von Geburtstagsangriffen:
   \index{Angriff!Geburtstagsangriff} \index{Kollision}
   diese machen -- grob gesprochen -- den n-Bit AES und ein 2n-bit 
-  Hashverfahren äquivalent: \\
-  - 128-bit AES -- SHA-256 \\
-  - 192-bit AES -- SHA-384 \\
+  Hashverfahren äquivalent:\\
+  - 128-bit AES -- SHA-256\\
+  - 192-bit AES -- SHA-384\\
   - 256-bit AES -- SHA-512.
 
-  Mit CT1\index{CrypTool 1} können Sie den Geburtstagsangriff
+  Mit CT1\index{CT1} können Sie den Geburtstagsangriff
   \index{Angriff!Geburtstagsangriff} auf digitale Signaturen 
-  nachvollziehen: \\
+  nachvollziehen:\\
   über das Menü {\bf Analyse \textbackslash{} Hashverfahren
   \textbackslash{} Angriff auf den Hashwert der digitalen Signatur}.\\
-  CT2\index{CrypTool 2} enthält einen MD5-Kollisionsgenerator.
+  CT2\index{CT2} enthält einen MD5-Kollisionsgenerator.
   } 
 oder \index{RIPEMD-160} RIPEMD-160\footnote{%
   RIPEMD-160, RIPEMD-128 und die optionale Erweiterung RIPEMD-256 haben
@@ -202,7 +209,7 @@ oder \index{RIPEMD-160} RIPEMD-160\footnote{%
   TeleTrusT, sowohl für Hashverfahren als auch in Kombination mit RSA.
   RIPEMD-160 ist Teil des internationalen ISO/IEC-Standards 
   ISO/IEC 10118-3:1998 für dedizierte Hashfunktionen, zusammen mit
-  RIPEMD-128 and SHA-1. Weitere Details: \\
+  RIPEMD-128 and SHA-1. Weitere Details:\\
 - \url{http://www.esat.kuleuven.ac.be/~bosselae/ripemd160.html}\\
 - \url{http://www.ietf.org/rfc/rfc2857.txt} (``The Use of HMAC-RIPEMD-160-96
    within ESP and AH'').
@@ -219,11 +226,11 @@ führte.
 
 Die zunächst veröffentlichten Resultate reduzierten den erwarteten Aufwand für
 die Suche nach einer SHA-1 Kollision von $2^{80}$ (brute-force) auf $2^{69}$
-\cite{ds:Wang2005}.  In der Folge wurden Verfahren angekündigt, die den Aufwand
-weiter auf $2^{63}$ \cite{ds:Wang2005b} und $2^{52}$ \cite{ds:McDonald2009} reduzieren
+\cite{Wang2005}.  In der Folge wurden Verfahren angekündigt, die den Aufwand
+weiter auf $2^{63}$ \cite{Wang2005b} und $2^{52}$ \cite{McDonald2009} reduzieren
 sollen.  Damit wäre der Kollisionsangriff in den Bereich des praktisch möglichen
 gerückt, denn ähnliche Aufwände wurden in der Vergangenheit schon realisiert (s.\
-\ref{Brute-force-gegen-Symmetr}).
+\ref{cm_Brute-force-versus-Symmetr}).
 
 Die Sicherheit bereits erstellter Signaturen wird durch den geschilderten
 Kollisionsangriff aber nicht gefährdet. 
@@ -237,7 +244,7 @@ Das U.S. National Institute of Standards and Technology (NIST)\index{NIST} hat
 schon vor Bekanntwerden der neuen Ergebnisse angekündigt, SHA-1 in den
 näch"-sten Jahren auslaufen zu lassen. Es ist daher zu empfehlen, für neue
 Produkte zur Erstellung von Sig"-naturen SHA-1 nicht mehr zu verwenden. Die
-SHA-2 Familie \cite{ds:FIPS180-3} bietet stärkere Verfahren.
+SHA-2 Familie \cite{FIPS180} bietet stärkere Verfahren.
 
 Um den neuen Erkenntnissen in der Kryptoanalyse von Hashfunktionen Rechnung
 zu tragen, hat das NIST 2008 einen Wettbewerb gestartet, um eine neue
@@ -245,7 +252,7 @@ Hash-Funktion jenseits der SHA-2-Familie zu entwickeln: Als neue Hashfunktion
 \glqq SHA-3\grqq wurde im Oktober 2012 Keccak\index{Keccak}\index{SHA-3}
 verkündet.\footnote{%
 \url{http://csrc.nist.gov/groups/ST/hash/sha-3/}\\
-    Mit {\bf CT2}\index{CT2}\index{CrypTool 2} können Sie im Startcenter
+    Mit {\bf CT2}\index{CT2} können Sie im Startcenter
     über {\bf Vorlagen \textbackslash{} Hash-Funktionen \textbackslash{}
     Keccak-Hash (SHA-3)} die Keccak-Hashfunktion ausführen und visualisieren.\\
     Keccak kann auch als Zufallszahlengenerator und als Stromchiffre benutzt
@@ -258,10 +265,11 @@ verkündet.\footnote{%
 Weitere Informationen zu diesem Thema finden sich z.B. in dem Artikel
 \glqq Hash mich -- Konsequenzen der erfolgreichen Angriffe auf SHA-1\grqq\
 von Reinhard Wobst und Jürgen Schmidt\footnote{% 
-      \url{http://www.heise.de/security/artikel/56555}. \\
-  Weitere Quellen sind z.B.: \\
-      \url{http://www.bsi.bund.de/esig/basics/techbas/krypto/index.htm} \\
-      \url{http://csrc.nist.gov/CryptoToolkit/tkhash.html}.
+      \url{http://www.heise.de/security/artikel/56555}.\\
+% = http://www.heise.de/security/artikel/Consequences-of-the-successful-attacks-on-SHA-1-270650.html
+  Weitere Quellen sind z.B.:\\
+      % Toter Link: \url{http://www.bsi.bund.de/esig/basics/techbas/krypto/index.htm}\\
+      \url{http://csrc.nist.gov/groups/ST/toolkit/index.html}.
 }
   von Heise Security.
 
@@ -279,11 +287,10 @@ von Reinhard Wobst und Jürgen Schmidt\footnote{%
 \addtocounter{footnote}{0}\footnotetext{Daniel Suarez, \glqq Daemon\grqq, rororo, (c) 2010,
 Kapitel 14, \glqq mem-payload\grqq, S. 148, Ross.}
 
-
 Signatur-Verfahren mit Hashfunktion\footnote{% 
 Vergleiche auch:\\
-      \url{http://de.wikipedia.org/wiki/Digitale\_Signatur},\\
-      \url{http://en.wikipedia.org/wiki/Digital\_signature}.
+      \url{http://de.wikipedia.org/wiki/Digitale_Signatur},\\
+      \url{http://en.wikipedia.org/wiki/Digital_signature}.
 }
 funktionieren folgendermaßen: Anstatt das eigentliche Dokument zu signieren,
 berechnet der Absender nun zuerst den Hashwert der Nachricht und signiert
@@ -317,7 +324,7 @@ Public-Key-Zertifizierung.
 % --------------------------------------------------------------------------
 \vskip + 15pt
 \section{RSA-Signatur}
-\index{Signatur!digitale}
+\index{Signatur!digital}
 \index{Signatur!RSA}
 \index{RSA!Signatur}
 
@@ -347,7 +354,7 @@ Nachricht ausführt, sondern auf einem kryptographischen Hashwert davon. Um
 verschiedene Attacken auf das Sig"-naturverfahren (und seine Kombination mit
 Verschlüsselung) auszuschließen, ist es nötig, den Hashwert vor der
 Exponentiation auf spezielle Weise zu formatieren, wie in PKCS\#1 (Public
-Key Cryptography Standard \#1 \cite{ds:PKCS1})\index{PKCS\#1} beschrieben. 
+Key Cryptography Standard \#1 \cite{PKCS1_2002})\index{PKCS\#1} beschrieben. 
 Der Tatsache, dass
 dieser Standard nach mehreren Jahren Einsatz revidiert werden musste, kann
 als Beispiel dafür dienen, wie schwer es ist, kryptographische Details
@@ -357,14 +364,14 @@ richtig zu definieren.
 % --------------------------------------------------------------------------
 \vskip + 15pt
 \section{DSA-Signatur}
-\index{Signatur!digitale}
+\index{Signatur!digital}
 \index{Signatur!DSA}
 \index{DSA-Signatur}
 
 Im August 1991 hat das U.S. National Institute of Standards and Technology
 (NIST)\index{NIST} einen digitalen Signaturalgorithmus (DSA, Digital Signature
 Algorithm) vorgestellt, der später zum U.S. Federal Information Processing
-Standard (FIPS 186 \cite{ds:FIPS186}) wurde.
+Standard (FIPS 186 \cite{FIPS186}) wurde.
 
 Der Algorithmus ist eine Variante des ElGamal-Verfahrens. Seine Sicherheit
 beruht auf dem Diskreten Logarithmus
@@ -374,10 +381,10 @@ Verifikation sind in Krypto-Verfahren~\ref{dsasigproc} zusammengefasst.
 \begin{cryptoprocedure}
 \paragraph*{Öffentlicher Schlüssel}\strut\\
 \begin{tabular}{l@{ }l}
-$p$ & prim \\
-$q$ & 160-Bit Primfaktor von $p - 1$ \\
+$p$ & prim\\
+$q$ & 160-Bit Primfaktor von $p - 1$\\
 $g$ & $ = h^{(p-1)/q}  \mbox{ mod } p$, wobei $h < p - 1$ und
-$h^{(p-1)/q} > 1  \Mod{p}$ \\
+$h^{(p-1)/q} > 1  \Mod{p}$\\
 $y$ & $\strut \equiv  g^x  \mbox{ mod } p$ 
 \end{tabular}
 
@@ -426,7 +433,7 @@ Obwohl DSA unabhängig von einem Verschlüsselungsverfahren so spezifiziert
 wurde, dass es aus Länder exportiert werden kann, die den Export von
 kryptographischer Hard- und Software einschränken (wie die USA zum
 Zeitpunkt der Spezifikation), wurde festgestellt
-\cite[S.~490]{ds:Schneier1996}, dass die Operationen des DSA dazu geeignet
+\cite[S.~490]{Schneier1996}, dass die Operationen des DSA dazu geeignet
 sind, nach RSA bzw. ElGamal zu verschlüsseln.
 
 
@@ -492,7 +499,7 @@ verbreitete Zertifizierungsmethode ist der X.509-Standard.
 \vskip + 15pt
 \subsection{X.509-Zertifikat}
 \index{X.509}
-Jeder Teilnehmer, der sich per X.509-Zertifikat \cite{ds:X.509}
+Jeder Teilnehmer, der sich per X.509-Zertifikat \cite{X.509}
 die Zugehörigkeit seines öffentlichen Schlüssels zu seiner realen Person
 bestätigen lassen möchte, wendet sich an eine sogenannte
 \index{Certification Authority (CA)} Certification Authority (CA)\footnote{%
@@ -528,74 +535,13 @@ auch vom Benutzer nachträglich nicht mehr geändert werden. Aber auch durch
 gesichert übermittelt werden.
 
 
-\newpage
-\begin{thebibliography}{99999}
+
+%------------------------------------------------------------------------------
+\putbib[../de/references]
 \addcontentsline{toc}{section}{Literaturverzeichnis}
+\end{bibunit}
 
-\bibitem[FIPS180-3]{ds:FIPS180-3} U.S. Department of Commerce/N.I.S.T. ,
-    \index{FIPS180-3} \\
-    {\em Secure Hash Standard (SHS)}, \\
-    October 2008.\\
-    (FIPS 180-3 supersedes FIPS 180-2.)
-
-\bibitem[FIPS186]{ds:FIPS186} U.S. Department of Commerce/N.I.S.T. ,
-    \index{FIPS186} \\
-    {\em Entity authentication using public key cryptography}, \\
-    Februar 18, 1997.\\
-    Nicht mehr gültig.
-
-\bibitem[FIPS186-2]{ds:FIPS186-2} U.S. Department of Commerce/N.I.S.T. ,
-    \index{FIPS186-2} \\
-    {\em Digital Signature Standard (DSS)}, \\
-    Januar 27, 2000. Change Note: Oktober 5, 2001.\\
-   \url{http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf}
-
-\bibitem[McDonald2009]{ds:McDonald2009} Cameron McDonald, Philip Hawkes, Josef Pieprzyk, 
-    \index{McDonald 2009} \\
-    {\em Differential Path for SHA-1 with complexity $O(2^{52})$}, \\
-    \url{http://eprint.iacr.org/2009/259}
-
-\bibitem[PKCS1]{ds:PKCS1} RSA Laboratories,  
-    \index{PKCS\#1} \index{RSA Laboratories} \\
-    {\em PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard}, \\
-    April 19, 2002.
-
-\bibitem[Schneier1996]{ds:Schneier1996} \index{Schneier 1996} 
-    Bruce Schneier, \\
-    {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
-    Wiley, 2nd edition, 1996.
-
-\bibitem[Wang2005]{ds:Wang2005} Xiaoyun Wang, Yiqun Yin, Hongbo Yu, 
-    \index{Wang 2005} \\
-    {\em Finding Collisions in the Full SHA-1}, \\
-    Advances in Cryptology-Crypto 2005, LNCS 3621: 17-36, 2005.
-
-\bibitem[Wang2005b]{ds:Wang2005b}  Xiaoyun Wang, Andrew Yao and Frances Yao, 
-    \index{Wang 2005} \\
-    {\em New Collision Search for SHA-1}, \\
-    Crypto 2005 Rump Session \\
-    \url{http://www.iacr.org/conferences/crypto2005/rumpSchedule.html}
-
-\bibitem[Wobst2005]{ds:Wobst2005} \index{Wobst 2005} 
-    Reinhard Wobst, \\
-    {\em New Attacks Against Hash Functions}, \\
-    Information Security Bulletin, April 2005.
-
-\bibitem[X.509]{ds:X.509} ITU-T,
-    \index{X.509} \\
-    {\em ITU-T Recommendation X.509 (1997 E): Information Technology -- 
-    Open Systems Interconnection -- The Directory: Authentication Framework},\\
-    Juni 1997.
-
-\bibitem[X.509v3]{ds:X.509v3} ITU-T, 
-    \index{X.509} \index{ITU-T} \index{ISO/IEC 9594-8} \\
-    {\em X.509 (1993) Amendment 1: Certificate Extensions, The Directory
-    Authentication Framework},\\ 
-    International Telecommunication Union, Geneva, Switzerland, July 1995\\
-    (equivalent to amendment 1 to ISO/IEC 9594-8).
-
-\end{thebibliography}
-                                                          
+\noindent Alle Links wurden am 14.07.2016 überprüft.
 
 
 % Local Variables:

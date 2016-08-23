@@ -1,13 +1,17 @@
+% $Id:
 % ..............................................................................
-% Homomorphe Chiffren
+%         H o m o m o r p h e   C h i f f r e n
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
+
 \newpage
-\hypertarget{homciph}{}
+% #### old naming: \hypertarget{homciph}{}
+\hypertarget{Chapter_HomomorphicCiphers}{}
 \chapter{Homomorphe Chiffren}
 \label{Chapter_HomomorphicCiphers}
-\index{homomorphe Chiffren}\index{Verschlüsselung!homomorphe}
-(Martin Franz, Januar 2013)
+\index{homomorphe Chiffren}\index{Verschlüsselung!homomorph}
+(\hyperlink{author_Martin-Franz}{Martin Franz}, Januar 2013)
 
 % -----------------------------------------------------------------------------
 \section{Einführung}
@@ -44,7 +48,7 @@ $$f(y_1  * y_2) = f(y_1) + f(y_2) = x_1  + x_2$$
 
 \subsection{Paillier-Kryptosystem}
 
-Das wohl bekannteste Kryptosystem mit solchen homomorphen Eigenschaften ist das von Paillier\allowbreak\cite{hc:Paillier}. Wir sehen zunächst, wie die Schlüsselerzeugung, die Verschlüsselung und die Entschlüsselung funktionieren, und zeigen dann, dass das Paillier-Kryptosystem homomorphe Eigenschaften besitzt.
+Das wohl bekannteste Kryptosystem mit solchen homomorphen Eigenschaften ist das von Paillier\allowbreak\cite{Paillier1999}. Wir sehen zunächst, wie die Schlüsselerzeugung, die Verschlüsselung und die Entschlüsselung funktionieren, und zeigen dann, dass das Paillier-Kryptosystem homomorphe Eigenschaften besitzt.
 
 \subsubsection{Schlüsselerzeugung}
 
@@ -107,21 +111,21 @@ Die homomorphe Eigenschaft lässt sich dazu verwenden, um verschlüsselte Werte zu
 \end{center}
 \end{figure}
 
-\item Ein weiteres Anwendungsgebiet für homomorphe Chiffren ist \glqq Secure Multiparty Computation\grqq. Hierbei berechnen mehrere Parteien gemeinsam eine vorgegebene Funktion. Jede der Parteien steuert einen Input für die zu berechnende Funktion bei. Das Ziel der Berechnung ist es, alle Inputs und auch die Zwischenergebnisse geheim zu halten, während nur das Ergebnis der Funktion bekannt wird. Die Verwendung homomorpher Chiffren hilft dabei, diese Berechnungen auf verschlüsselten Daten durchzuführen. Da sich allerdings unter der homomorphen Chiffre von Paillier nur Additionen (und z.B. keine Multiplikationen durchführen lassen), müssen noch weitere geeignete Methoden verwendet werden. Einen guten Einstieg in dieses Thema bietet Wikipedia \cite{hc:SMC}.
+\item Ein weiteres Anwendungsgebiet für homomorphe Chiffren ist \glqq Secure Multiparty Computation\grqq. Hierbei berechnen mehrere Parteien gemeinsam eine vorgegebene Funktion. Jede der Parteien steuert einen Input für die zu berechnende Funktion bei. Das Ziel der Berechnung ist es, alle Inputs und auch die Zwischenergebnisse geheim zu halten, während nur das Ergebnis der Funktion bekannt wird. Die Verwendung homomorpher Chiffren hilft dabei, diese Berechnungen auf verschlüsselten Daten durchzuführen. Da sich allerdings unter der homomorphen Chiffre von Paillier nur Additionen (und z.B. keine Multiplikationen durchführen lassen), müssen noch weitere geeignete Methoden verwendet werden. Einen guten Einstieg in dieses Thema bietet Wikipedia \cite{Wiki_SMC}.
 
-\item Weiterhin wird erwartet, dass homomorphe Chiffren im Bereich Cloud Computing enorme Vorteile bringen können. Mittels sogenannter voll-homomorpher Kryptosysteme \cite{hc:HomEnc} wird es möglich sein, komplette Anwendungen auf verschlüsselten Daten durchzuführen. Hierzu ist es notwendig, dass unter der homomorphen Verschlüsselung die beiden Operationen Addition und Multiplikation durchgeführt werden können (im Gegensatz zum Paillier-Kryptosystem, welches nur die Addition unterstützt). Ein solches Kryptosystem wurde erstmals 2009 von Craig Gentry vorgestellt \cite{hc:Gentry2009}.
+\item Weiterhin wird erwartet, dass homomorphe Chiffren im Bereich Cloud Computing enorme Vorteile bringen können. Mittels sogenannter voll-homomorpher Kryptosysteme \cite{Wiki_HomEnc} wird es möglich sein, komplette Anwendungen auf verschlüsselten Daten durchzuführen. Hierzu ist es notwendig, dass unter der homomorphen Verschlüsselung die beiden Operationen Addition und Multiplikation durchgeführt werden können (im Gegensatz zum Paillier-Kryptosystem, welches nur die Addition unterstützt). Ein solches Kryptosystem wurde erstmals 2009 von Craig Gentry vorgestellt \cite{Gentry2009}.
 \end{enumerate}
 
 % -----------------------------------------------------------------------------
 \section{Homomorphe Chiffren in CrypTool}
 
-\subsection{CrypTool 2}
-In CrypTool 2 findet man bereits eine Implementierung des Paillier-Kryptosystems (siehe Bild \ref{CT2-Paillier}). Unter den fertigen Vorlagen finden sich Methoden zur Erzeugung der kryptographischen Schlüssel (Paillier Key Generator), ein Beispiel für eine Ver- und Entschlüsselung mittels Paillier (Paillier Text), sowie Beispiele, die die homomorphen Eigenschaften von Paillier aufzeigen (Paillier Addition, Paillier Blinding und Paillier Voting).
+\subsection{CrypTool~2}
+In CrypTool~2\index{CT2} findet man bereits eine Implementierung des Paillier-Kryptosystems (siehe Bild \ref{CT2-Paillier}). Unter den fertigen Vorlagen finden sich Methoden zur Erzeugung der kryptographischen Schlüssel (Paillier Key Generator), ein Beispiel für eine Ver- und Entschlüsselung mittels Paillier (Paillier Text), sowie Beispiele, die die homomorphen Eigenschaften von Paillier aufzeigen (Paillier Addition, Paillier Blinding und Paillier Voting).
 
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.8]{figures/CT2-Paillier.png}
-\caption{Paillier-Kryptosystem in CrypTool 2} 
+\caption{Paillier-Kryptosystem in CrypTool~2 (CT2)} 
 \label{CT2-Paillier}
 \end{center}
 \end{figure}
@@ -130,45 +134,25 @@ In CrypTool 2 findet man bereits eine Implementierung des Paillier-Kryptosystems
 
 \subsection{JCrypTool}
 
-Im JCrypTool gibt es eine Implementierung (siehe Bild \ref{JCT-HomEnc}), die die homomorphen Eigenschaften verschiedener Kryptosystem visualisiert. Für RSA und Paillier wird gezeigt, dass jeweils Multiplikationen (für RSA) und Additionen (für Paillier) auf verschlüsselten Werten möglich sind. Für das voll-homomorphe Kryptosystem von Gentry können sowohl Multiplikationen als auch Additionen auf verschlüsselten Werten durchgeführt werden.
+Im JCrypTool\index{JCT} gibt es eine Implementierung (siehe Bild \ref{JCT-HomEnc}), die die homomorphen Eigenschaften verschiedener Kryptosysteme visualisiert. Für RSA und Paillier wird gezeigt, dass jeweils Multiplikationen (für RSA) und Additionen (für Paillier) auf verschlüsselten Werten möglich sind. Für das voll-homomorphe Kryptosystem von Gentry können sowohl Multiplikationen als auch Additionen auf verschlüsselten Werten durchgeführt werden.
 
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.4]{figures/JCT-HomEnc.PNG}
-\caption{Kryptosysteme mit homomorphen Eigenschaften in JCrypTool} 
+\caption{Kryptosysteme mit homomorphen Eigenschaften in JCrypTool (JCT)} 
 \label{JCT-HomEnc}
 \end{center}
 \end{figure}
 
 
+
 %------------------------------------------------------------------------------
-\newpage
-\begin{thebibliography}{99999}
+\putbib[../de/references]
 \addcontentsline{toc}{section}{Literaturverzeichnis}
+\end{bibunit}
 
-\bibitem[Paillier1999]{hc:Paillier} \index{Paillier 1999}
-   Pascal Paillier, \\
-   {\em Public-Key Cryptosystems Based on Composite Degree Residuosity Classes},\\
-	 Advances in Cryptology -- EUROCRYPT'99, 1999.
+\noindent Alle Links im Artikel wurden am 15.07.2016 überprüft.
 
-\bibitem[SMC]{hc:SMC} \index{SMC}
-   Wikipedia, \\
-   {\em Secure Multiparty Computation}.\\
-   \url{http://en.wikipedia.org/wiki/Secure_multi-party_computation}
-
-\bibitem[HomEnc]{hc:HomEnc}
-   Wikipedia, \\
-   {\em Homomorphic Encryption}\\
-   \url{https://en.wikipedia.org/wiki/Homomorphic_encryption}\\
-   {\em Homomorphismus}\\
-   \url{https://de.wikipedia.org/wiki/Homomorphismus}
-
-\bibitem[Gentry2009]{hc:Gentry2009} \index{Gentry 2009}
-   Craig Gentry, \\
-   {\em Fully Homomorphic Encryption Using Ideal Lattices},\\
-	In the 41st ACM Symposium on Theory of Computing (STOC), 2009.
-
-\end{thebibliography}  % German
 
 % Local Variables:
 % TeX-master: "../script-de.tex"

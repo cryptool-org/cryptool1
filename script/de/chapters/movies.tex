@@ -1,5 +1,16 @@
+% $Id: 
+% ..............................................................................
+%             F I L M E  +  R O M A N E
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%
+% Consider to add next time:
+%  - Filme: Matrix, Tron, Echelon Verschwörung, ...
+%  - Bücher: xxx, ...
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
+
 \newpage
 \hypertarget{appendix-movies}{}
 \section{Filme und belletristische Literatur mit Bezug zur Kryptographie}
@@ -17,6 +28,7 @@ Wissen motivierend zu transportieren. Anbei der Beginn eines Überblicks.
 
 % --------------------------------------------------------------------------
 \subsection{Für Erwachsene und Jugendliche}
+\label{s:Light-fiction-for-grownups}
 
 %be_2005: Hatte zuerst \begin{thebibliography}{99999} und \bibitem[... ,
 %         aber dann wurde immer der feste Titel "Literatur" bzw. "References"
@@ -28,7 +40,32 @@ Wissen motivierend zu transportieren. Anbei der Beginn eines Überblicks.
 
 \item[\textrm{[Poe1843]}] \index{Poe 1843}
     Edgar Allan Poe\index{Poe, Edgar Allan}, \\
-    {\em Der Goldkäfer}, 1843. \\
+    {\em Der Goldkäfer}, 1843.\footnote{%
+        Siehe \url{https://de.wikipedia.org/wiki/Der_Goldk%C3%A4fer}.
+
+	Eine didaktisch aufbereitete Beschreibung zum Einsatz im Schulunterricht findet
+        sich in Teil 1 der Artikelserie {\em RSA \& Co. in der Schule:
+        Moderne Kryptologie, alte Mathematik, raffinierte Protokolle}.
+        Siehe \cite{Witten1998}, S. 52 ff (\glqq Das Gold des Gehenkten\grqq).
+	\index{RSA \& Co. in der Schule}
+
+	Alle Materialien zu der Goldkäfer-Unterrichtsstunde (oder Doppelstunde)
+	finden sich unter \url{http://www.informatik-im-kontext.de/} via
+	\glqq E-Mail (nur?) für Dich\grqq~=> \glqq Vertraulichkeit mit Verschlüsselungsverfahren\grqq.
+	% In den Materialien wird ein erprobter generischer Gang zu RSA präsentiert:
+	% Monoalphabetische Verschlüsselung (Goldkäfer) => Knacken durch Häufigkeitsanalyse
+	% => polyalphabetische Verschlüsselung => Knacken durch Bestimmung der Schlüssellänge (Kasiski, Friedman)
+	% => One-Time-Pad als beweisbar sicheres Verschlüsselungsverfahren
+	% => Problem des Schlüsselmanagments => asymmetrische Kryptographie (Diffie, Hellman, Merkle, RSA). 
+
+	Poe war nicht nur ein bekannter -- in seiner Heimat Amerika zunächst
+	verkannter -- Schriftsteller und Erfinder des Kriminalromans,
+	%% („Der Doppelmord in der Rue Morgue“, s. https://de.wikipedia.org/wiki/Edgar_Allan_Poe,
+	%% https://de.wikipedia.org/wiki/Der_Doppelmord_in_der_Rue_Morgue)
+	sondern auch ein begabter Kryptologe. Die Geschichte dazu wird auch in dem
+	Krypto-Buch {\em Verschlüsselte Botschaften} \cite{Kippenhahn1997}
+	erzählt.
+    }\\
     Diese Kurzgeschichte erschien in Deutsch z.B. in der illustrierten und
     mit Kommentaren in den Marginalspalten versehenen Ausgabe "`Der Goldkäfer
     und andere Erzählungen"', Gerstenbergs visuelle Weltliteratur,
@@ -42,8 +79,16 @@ Wissen motivierend zu transportieren. Anbei der Beginn eines Überblicks.
     als allgemeine monoalphabetische Substitutions-Chiffre (vgl. 
     Kapitel~\ref{monoalphabeticSubstitutionCiphers}). Ihre schrittweise 
     Dechiffrie"-rung durch semantische und syntaktische Analyse
-    (Häufigkeiten der einzelnen Buchstaben in englischen Texten)
-    wird ausführlich erläutert.\\
+    (Häufigkeit der einzelnen Buchstaben in englischen Texten)
+    wird in der Geschichte ausführlich erläutert.\footnote{%
+      Teil der oben genannten Unterrichtsmaterialien ist auch ein Python-Programm.
+      %% Außerdem gibt es eine schrittweise Lösung des Gold-Bug-Kryptogramms,
+      %% das vor einigen Jahren Wittens Frau in Standard-HTML schrieb.
+      Damit lässt sich das Kryptogramm mit Python {\em und} mit SageMath\index{SageMath}
+      entschlüsseln.
+      Siehe das Code-Beispiel in \ref{s:appendix-Code-for-light-fiction-books}.
+      % \ref{Lit_Python-sample_Gold-bug}  Hier druckt er "A.1" ?
+    }\\
     Der Entschlüsseler Legrand sagt darin (S. 39) den berühmten Satz:
     "`Und es ist wohl sehr zu bezweifeln, ob menschlicher Scharfsinn
     ein Rätsel ersinnen kann, das menschlicher Scharfsinn bei
@@ -55,7 +100,7 @@ Wissen motivierend zu transportieren. Anbei der Beginn eines Überblicks.
     % E: Poe, 1809-1849 was named "Father of the crime novel". He claimed,
     % that he will be able to decrypt any cipher sent to him by friends or
     % readers.
- 
+    %
     % Originalausgabe dieser illustrierten Ausgabe: "Le scarabée d'or et 
     %                           autre nouvelles", Gallimard, Paris, 1998.
     % In "Der Goldkäfer" wird detailliert beschrieben, wie der verarmte
@@ -78,7 +123,7 @@ Wissen motivierend zu transportieren. Anbei der Beginn eines Überblicks.
     besondere Schablone, die sie ihm stahlen. Diese Schablone bestand aus
     einem quadratischen Stück Karton mit 6x6 Kästchen, wovon 1/4, also neun,
     ausgeschnitten waren (vgl. die
-    \hyperlink{turning-grille}{Fleißner-Schablone}
+    \hyperlink{turning-grille-cipher}{Fleißner-Schablone}
     in Kapitel~\ref{introsamplesTranspositionCiphers}).\\
 
 
@@ -176,7 +221,7 @@ Wissen motivierend zu transportieren. Anbei der Beginn eines Überblicks.
     In diesem Film versucht Ruth, hinter das Geheimnis zu kommen, das ihre
     Tochter verstummen ließ. Hierin unterhalten sich Autisten mit Hilfe von
     5- und 6-stelligen Primzahlen (siehe 
-    Kapitel~\ref{Label_Kapitel_Primes}).
+    Kapitel~\ref{Chapter_Primes}).
     Nach über eine Stunde kommen im Film die folgenden beiden (nicht
     entschlüsselten) Primzahlfolgen vor:
 %  \vskip -30pt  %be_2005 Bewirkt anscheinend nichts -- Abstand etwas zu groß.
@@ -423,6 +468,7 @@ Wissen motivierend zu transportieren. Anbei der Beginn eines Überblicks.
     % siehe: www.wolfgang-burger.com
 
 
+\newpage
 \item[\textrm{[Vidal2006]}] \index{Vidal 2006}
     Agustin Sanchez Vidal, \\
     {\em Kryptum}, Dtv, 2006. \\
@@ -458,7 +504,7 @@ Wissen motivierend zu transportieren. Anbei der Beginn eines Überblicks.
 \item[\textrm{[Preston2007]}] \index{Preston 2007}
     Douglas Preston, \\
     {\em Der Canyon (Orginaltitel: Tyrannosaur Canyon)}, Knauer, 2007. \\
-    Ein sehr spannender Thriller, bei dem es auch darum geht, warum die Dinosaurier
+    Ein spannender Thriller, bei dem es auch darum geht, warum die Dinosaurier
     ausstarben.
 
     Archäologe Stem Weathers wird im Labyrinth-Canyon erschossen. Noch bevor der
@@ -605,6 +651,34 @@ Wissen motivierend zu transportieren. Anbei der Beginn eines Überblicks.
 
 
 
+\item[\textrm{[Olsberg2011]}] \index{Olsberg 2011}
+    Karl Olsberg,\\
+    {\em Rafael 2.0}, Thienemann Verlag, 2011, 240 Seiten.\\
+    Michael und Rafael Ogilvy sind begabte Zwillinge, die sich sehr gut verstehen.
+    Bevor der unheilbar kranke Rafael stirbt, entwickelt sein Vater ein virtuelles
+    Computer-Ebenbild von ihm, eine künstliche Intelligenz (KI). Das ist ein gut
+    gehütetes Geheimnis, bis Michael eines Tages dahinter kommt, was sein Vater da vor
+    ihm versteckt. Sein erstes Entsetzen verwandelt sich jedoch bald in Freude.
+    So hat er noch etwas, das ihn an seinen Bruder erinnert.\\
+    Doch dieses Computersystem ist auch für das Militär interessant.
+    Eines Tages wird Michaels Vater entführt und die
+    Firma und somit auch das Computerprogramm Rafael 2.0 geraten in die falschen Hände.
+    Michael wird von seinem Onkel in ein Internat verbannt, aus dem er aber fliehen kann.
+    Fortan versuchen Michael und seine Freunde alles, um seinen Vater zu finden, von dem
+    sie annehmen, dass er von einer konkurrierenden Firma entführt wurde. Ab hier wird
+    die Geschichte richtig spannend ...
+    Michael erfährt, dass es eine weitere künstliche Intelligenz, Metraton, gibt,
+    die den Menschen nicht so wohlgesonnen ist.
+    Nichts wird zu sehr vertieft, junge Jugendliche sind die Zielgruppe.
+    Trotzdem entsteht auch Tiefgang, wenn es bspw. um Machenschaften bei Firmenübernahmen
+    geht.\\
+    Aus kryptologischer Sicht: Spannend ist der Abschnitt zur Faktorisierung: Mit einer
+    Variante kann Michael erkennen, ob der Computer betrügt ...\\
+    %% \glqq x\grqq~
+    %% ``x''
+
+
+
 \item[\textrm{[Burger2011]}] \index{Burger 2011}
     Wolfgang Burger, \\
     {\em Der fünfte Mörder}, Piper, 2011. \\
@@ -637,16 +711,31 @@ Wissen motivierend zu transportieren. Anbei der Beginn eines Überblicks.
     einer Alternative zum Internet, aufgebaut auf schnellen drahtlosen Meshnetzen, die
     eine sehr hohe Standfestigkeit und Verfügbarkeit haben. Auch wenn die Geschichte
     in einigen Teilen schockierend ist, scheint sie realistisch und nicht weit weg
-    von der simultanenen Nutzung moderner Technologie, die unser aller Leben durchdringt
+    von der simultanen Nutzung moderner Technologie, die unser aller Leben durchdringt
     als virtuelle Welt, die sich über die reale Welt legt.\\
    % [[[Gute Besprechung zum Nachfolgebuch: Freedom = Darknet
    %    http://www.goodreads.com/book/show/7132363-freedom-tm]]]
 
 
 
+\item[\textrm{[Eschbach2011]}] \index{Eschbach 2011}
+    Andreas Eschbach, \\
+    {\em Herr aller Dinge}, Lübbe, 2011. \\
+    Dieser Roman hätte es verdient, viel bekannter zu werden: Die Idee darin des
+    \glqq schrecklichsten aller Verbrechen\grqq, die der Grund der ganzen Geschichte
+    wird, ist neu und geradzu revolutionär, aber auch unendlich traurig.
+    Anhand der scheiternden Paarbeziehung von Hiroshi (Erfindergenie) und Charlotte
+    werden große Themen wie Gerechtigkeit, Wohlstand und Macht behandelt.\\
+    Aus kryptographischer Sicht: Hiroshi benutzt verteilte Berechnung und hat
+    ein Verschlüs\-se\-lungs- und Backup-System entwickelt, dass die Regierung,
+    die ihn verwanzt, in die Irre leitet.\\
+    % Master of the universe -- master of all staff
+
+
+
 \item[\textrm{[Elsberg2012]}] \index{Elsberg 2012}
-    Marc Elsberg, \\
-    {\em Blackout -- Morgen ist es zu spät}, Blanvalet, 2012, 800 Seiten. \\
+    Marc Elsberg,\\
+    {\em Blackout -- Morgen ist es zu spät}, Blanvalet, 2012, 800 Seiten.\\
     An einem kalten Wintertag brechen in Europa alle Stromnetze zusammen.
     Die Behörden, Stromversorger und Sicherheitsfirmen tappen im Dunkeln und können das
     Problem nicht beheben.
@@ -660,36 +749,136 @@ Wissen motivierend zu transportieren. Anbei der Beginn eines Überblicks.
 
 
 
+\item[\textrm{[Olsberg2013]}] \index{Olsberg 2013}
+    Karl Olsberg,\\
+    {\em Die achte Offenbarung}, Aufbau Taschenbuch, 2013, 460 Seiten.\\
+    Kann eine Botschaft aus der Vergangenheit unsere Zukunft verändern?
+    Dem Historiker Paulus Brenner fällt ein uraltes, verschlüsseltes Manuskript aus
+    dem Besitz seiner Familie in die Hände. Doch je mehr er von dem Text dekodiert,
+    desto rätselhafter wird der Inhalt: Denn das Buch sagt mit erstaunlicher Präzision
+    Ereignisse voraus, die zum Zeitpunkt seiner vermuteten Entstehung noch nicht
+    geschehen sind. Während aus einem US-Labor hoch gefährliches Genmaterial
+    verschwindet, will irgendjemand um jeden Preis verhindern, dass Paulus auch die
+    letzte, die achte Offenbarung entziffert. Ein packender Thriller um eine
+    erschreckend realistische Apokalypse mit vielen menschlichen Seiten ...\\
+    Als Leser kann man an der Entschlüsselung des Manuskripts teilhaben.\\
+    Die Versuche Pauls, seine Entdeckung an die richtigen Stellen zu bringen und
+    sie später zu berichtigen, sind sehr spannend beschrieben -- auch
+    Chefredakteure haben ein Dilemma mit Verschwörungstheorien.\\
+    Das Chiffrat auf der letzten Buchseite wurde auch als Challenge im Krypto-Wettbewerb MTC3
+    %% \glqq MysteryTwister C3\grqq~
+    %% `` MysteryTwister C3''
+    veröffentlicht:~~
+    \url{https://www.mysterytwisterc3.org/de/challenges/level-1-kryptographie-challenges/die-letzte-notiz}\\
+    % https://www.mysterytwisterc3.org/images/challenges/mtc3-esslinger-18-note-de.pdf
+
+    % \url{https://www.mysterytwisterc3.org/en/challenges/level-i/the-last-note}\\
+    % https://www.mysterytwisterc3.org/images/challenges/mtc3-esslinger-18-note-en.pdf
+
+    % https://www.youtube.com/watch?v=DK92ZY0o_wA
+    % Karl Olsberg, Die achte Offenbarung, Official Trailer
+
+
+
+\item[\textrm{[Elsberg2014]}] \index{Elsberg 2014}
+    Marc Elsberg,\\
+    {\em ZERO -- Sie wissen, was du tust}, Blanvalet Verlag, 2014, 480 Seiten.\\
+    London. Bei einer Verfolgungsjagd wird ein Junge erschossen. Sein Tod führt die
+    Journalistin Cynthia Bonsant zu der gefeierten Internetplattform Freemee. Diese
+    sammelt und analysiert Daten, und verspricht dadurch ihren Millionen Nutzern
+    -- zurecht -- ein besseres Leben und mehr Erfolg. Nur einer warnt vor Freemee
+    und vor der Macht, die der Online-Newcomer einigen wenigen verleihen könnte:
+    ZERO, der meistgesuchte Online-Aktivist der Welt. Als Cynthia anfängt, genauer
+    zu recherchieren, wird sie selbst zur Gejagten. Doch in einer Welt voller Kameras,
+    Datenbrillen und Smartphones gibt es kein Entkommen ...\\
+    Hochaktuell und bedrohlich: Der gläserne Mensch unter Kontrolle.
+    Der Roman spielt in der nahen Zukunft (near fiction) und
+    enthält viele aktuelle Bezüge wie PRISM, Predictive Analytics, Gamification.
+    Ganz nebenbei werden Verweise auf bekannte Science-Fiction-Medien wie
+    \glqq The Running Man\grqq, \glqq Monkey Wrench Gang\grqq, \glqq V wie
+    Vendetta\grqq~(V trägt eine Guy-Fawkes-Maske, mittlerweile das Markenzeichen
+    von Anonymous), \glqq Network\grqq~ und \glqq Body Snatchers\grqq~verarbeitet.\\
+    Technologisch-kryptologisch bewegen sich die Protagonisten auf dem höchsten
+    Level, der aber nicht weiter erklärt wird: Alice Kinkaid kommuniziert mit einem
+    Raspberry Pi. Cynthias Tochter Vi nutzt Mesh-Netze. ~Siehe\\
+    \url{https://de.wikipedia.org/wiki/Zero_%E2%80%93_Sie_wissen,_was_du_tust},\\
+    \url{http://www.zero-das-buch.de/actiontrailer.php}\\
+
+
+
+\item[\textrm{[Takano2015]}] \index{Takano 2015}
+    Kazuaki Takano, \\
+    {\em Extinction}, C. Bertelsmann, 2015, 559 Seiten. (Orginal in Japanisch: "`Jenosaido"', 2011;
+    in Englisch unter dem Titel "`Genocide of One"', 2014)\\
+    Jonathan Yeager wird im Auftrag der amerikanischen Regierung in den Kongo geschickt.
+    Bei einem Pygmäenstamm sei ein tödliches Virus ausgebrochen. Die Verbreitung muss
+    mit allen Mitteln verhindert werden. Doch im Dschungel erkennt Yeager, dass es um
+    etwas ganz anderes geht: Ein kleiner Junge, der über unglaubliche Fähigkeiten und
+    übermenschliche Intelligenz verfügt, ist das eigentliche Ziel der Operation.
+    Ein sehr spannendes Buch: Wenn man die ersten 100-200 Seiten hinter sich hat,
+    belohnt das überraschende Ende umso mehr. Aus den Rezensionen wird klar, dass es
+    kein Buch für oberflächliche Leser ist: "`Dieser Thriller liest sich sehr gut und
+    ist zudem informationshaltig. Ein herausforderndes Buch. Sehr detailliert recherchiert."'
+    Das Buch schafft ein Szenario mit viel Realität: Auch die menschliche Evolution ist
+    nicht zu Ende. Was wenn ein höherer Mensch auftaucht? Der Autor verbindet Abenteuer,
+    fundierte und gut recherchierte Wissenschaft und Politik mit Globalität, politischen
+    Verschwörungen, Kriegspsychologie, Psychologie der Mächtigen, Cyberterrorismus ... 
+    und leistet einen Appell an die Toleranz.\\
+    Aus kryptographischer Sicht: RSA und OTP kommen handlungsbestimmend und korrekt zum Einsatz.
+    Das Brechen von RSA durch Faktorisierung ist so bedeutsam, dass der CIA nicht
+    dulden kann, dass dieses Wissen nicht in seinen Händen liegt ...\\
+    Siehe \url{https://de.wikipedia.org/wiki/Extinction_(Roman)}.\\
+    % http://www.deutschlandradiokultur.de/roman-extinction-eskalation-im-kongolesischen-dschungel.1270.de.html?dram:article_id=307563
+    % http://www.lovelybooks.de/autor/Kazuaki-Takano/Extinction-1117124481-w/
+    % https://www.goodreads.com/book/show/23572919-extinction?ac=1&from_search=1
+    % https://www.amazon.de/Extinction-Thriller-Kazuaki-Takano/dp/3570101851
+    % https://www.amazon.de/Extinction-Kazuaki-Takano/dp/1444759531/ref=pd_sim_14_6?ie=UTF8&dpID=51BHFc6buZL&dpSrc=sims&preST=_AC_UL160_SR104%2C160_&psc=1&refRID=CRGBPTHNG36S6XNX36FA
+
+
+
+
+\item[\textrm{[Lagercrantz2015]}] \index{Lagercrantz 2015}
+    David Lagercrantz, \\
+    {\em Verschwörung}, Heyne, 2015. \\
+    Dies ist der vierte Band in der Millenium-Reihe, und der erste, der nicht von
+    Stieg Larsson geschrieben wurde. Während Mikael Blomkvists Printmedium mit
+    dem Überleben kämpft, erfährt man immer mehr von den inneren Strukturen und
+    Verquickungen von Verlegern, Geheimdiensten, Behörden, organisierter Kriminalität
+    und Wirtschaftsspionen.
+    Auf einzelne Menschen wird dabei keine Rücksicht genommen und normale Menschen
+    haben bei diesen Interessen auch keine Chance. Durch die besonderen Fähigkeiten von
+    Lisbeth Salander wendet sich das Blatt und die NSA erfährt, dass Teile von ihr
+    von der organisierten Kriminalität geführt und missbraucht werden. Die Millenium-Charaktere
+    werden dabei glaubwürdig weiter entwickelt. Sehr spannend.\\
+    Aus kryptographischer Sicht: Lisbeth und der Autist August beschäftigen sich
+    mit Elliptischen Kurven, um RSA zu knacken.\\
+    % http://www.welt.de/kultur/literarischewelt/article145716532/So-liest-sich-das-Millennium-Sequel-Verschwoerung.html
+    % http://www.krimi-couch.de/krimis/david-lagercrantz-verschwoerung.html
+    % http://www.faz.net/aktuell/feuilleton/buecher/themen/david-lagercrantz-setzt-millennium-trilogie-fort-13784109.html
+    % http://www.lovelybooks.de/autor/David-Lagercrantz/Verschw%C3%B6rung-1154378405-w/
+    
+
+
 \end{description}
 
-% Filme: Matrix, Tron, ...
-% Bücher: xxx, ...
 
 
 
 \vskip +20 pt
 \paragraph*{Anmerkung 1:}
-%be_2006: Hier ist ein Link zu lange.
-%   \href{http://www.staff.uni-mainz.de/pommeren/Kryptologie99/Klassisch/1\_Monoalph/Literat.html}
-%   {\texttt{http://www.staff.uni-mainz.de/pommeren/Kryptologie99/Klassisch/1\_Monoalph/Literat.html}}
-% Damit er nicht über den Seitenrand hinausragt, wurden 2 \href mit dem
-% gleichen Link, aber verschiedenem Text direkt aneinandergefügt --
-% mit "\\" dazwischen.
-% Eigentlich wollten wir \discretionary{}{}{} dazwischen einfügen, aber
-% das bewirkte nichts.
-Weitere Beispiele für Kryptologie in der belletristischen Literatur finden
-sich z.B. auf der folgenden Webseite: 
+Eine lange Liste, teilweise auch kommentierter Beispiele für Kryptologie in der
+belletristischen Literatur finden sich auf der folgenden Webseite: 
 % \vskip -5 pt % Das hat vor \begin überhaupt keine Auswirkung (Paragraph-Beginn)!!!
-% \parindent -5 pt  % 0 mm  Ändert den genrellen Indent, aber nicht den Abstand VOR einem Paragraph
+% \parindent -5 pt  % 0 mm  Ändert den generellen Indent, aber nicht den Abstand VOR einem Paragraph
 % \setlength{\parskip}{-11pt}
 \parskip -4pt  % 1-BACK to DEFAULT -- Really necessary
 \begin{center}
-    \url{http://www.staff.uni-mainz.de/pommeren/Kryptologie99/Klassisch/1\_Monoalph/Literat.html}
+    \url{http://www.staff.uni-mainz.de/pommeren/Kryptologie/Klassisch/0_Unterhaltung/}
 \end{center}
 \parskip \value{mycounterDefaultParskip} pt  % 2-BACK to DEFAULT -- Really necessary
 Für die ältere Literatur (z.B. von Jules Verne, Karl May, Arthur Conan
 Doyle, Edgar Allen Poe) sind darauf sogar die Links zu den eigentlichen
-Textstellen enthalten.\\
+Textstellen enthalten.\\\\
 
 
 \paragraph*{Anmerkung 2:}
@@ -701,14 +890,15 @@ antiken Büchern zur Kryptographie beschäftigt:
    \url{http://tobiasschroedel.com/crypto_books.php}
 \end{center}  % hier kein \\ ans Ende, sonst Warnung. Und in neuer Zeile wirkungslos, deshalb vspace.
 \parskip \value{mycounterDefaultParskip} pt  % 2-BACK to DEFAULT -- Really necessary
-\vspace{1em}
+\vspace{2em}
 
 
 \paragraph*{Anmerkung 3:}
 Wenn Sie weitere Literatur und Filme wissen, wo Kryptographie eine
 wesent"-liche Rolle spielt, dann würden wir uns sehr freuen, wenn Sie
 uns den genauen Titel und eine kurze Erläuterung zum Film-/Buchinhalt
-zusenden würden. Herzlichen Dank.\\
+zusenden würden. Wir werden Ihre evtl. Begeisterung für einen Titel
+anklingen lassen. Herzlichen Dank.\\
 
 
 
@@ -753,7 +943,7 @@ einfachen Verschlüsselungen, didaktisch und spannend aufbereitet:
 
     Gleich auf S. 6 steht in einem old-fashioned Style für den Anfänger
     "`Das Wichtigste zuerst"' über Papier- und Bleistiftverfahren
-    (vergleiche Kapitel~\ref{Kapitel_PaperandPencil}):
+    (vergleiche Kapitel~\ref{Chapter_PaperandPencil}):
     "`Wollte man Goldene Regeln für Geheimschriften aufstellen, so
     könnten sie lauten:
     \begin{itemize}
@@ -891,6 +1081,118 @@ Erläuterung zum Buchinhalt zusenden würden. Herzlichen Dank.\\
 
 
 
+% --------------------------------------------------------------------------
+\newpage
+\subsection{Code zur den Büchern der Unterhaltungsliteratur}
+     \label{s:appendix-Code-for-light-fiction-books}
+
+\noindent Im Kapitel \ref{s:Light-fiction-for-grownups} wurde als erstes E.A. Poes
+\glqq Der Goldkäfer\grqq~aufgeführt.\index{Poe 1843}
+
+Mit dem folgenden Python-Code\footnote{%
+  Siehe \cite{Witten1998} und die Datei \verb|2_MonoKidd.zip| unter
+  \url{http://bscw.schule.de/pub/bscw.cgi/159132}.
+}
+kann man das Kryptogramm von Captain Kidd (Originaltext \glqq The Gold Bug\grqq~in
+\url{http://pinkmonkey.com/dl/library1/gold.pdf}, Seite 21) mit Python oder
+mit SageMath\index{SageMath} entschlüsseln.
+
+Im Code sind die ASCII-Zeichen des Geheimtextes und die einander entsprechenden
+Alphabete dieses monoalphabetischen Verfahrens schon enthalten.
+
+Am einfachsten kann man die Entschlüsselung mit dem SageMathCell-Server
+(\url{http://sagecell.sagemath.org/}) in einem Browser durchführen:
+Dort kann man zwischen den beiden Sprachen Sage und Python umschalten.
+Ausführen kann man den Code ganz leicht, indem man ihn mit \glqq copy and
+paste\grqq~einfügt und dann \glqq Evaluate\grqq~drückt.\\
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize]
+
+# Hier geht's los ... Start here
+import string
+PA = 'ETHSONAIRDGLBVPFYMUC'
+print 'Plaintext alphabet  PA: ', PA, '   Length of PA', len(PA)
+CA = "8;4)+*56(!302'.1:9?-"
+print 'Ciphertext alphabet CA: ', CA, '   Length of CA', len(CA)
+codetableC2P = string.maketrans(CA,PA)
+C = '''53++!305))6*;4826)4+.)4+);806*;48!8'60))85;1+(;:+*8!83(88)5*!;46
+(;88*96*?;8)*+(;485);5*!2:*+(;4956*2(5*-4)8'8*;4069285);)6!8)4++;1(+9;4
+8081;8:8+1;48!85;4)485!528806*81(+9;48;(88;4(+?34;48)4+;161;:188;+?;'''
+P = string.translate(C, codetableC2P);
+print 'Kidd decrypted:', P
+# ... und hier sind wir schon fertig ... and here we are done!
+
+\end{Verbatim}
+\caption{Entschlüsselung des Gold-Bug-Geheimtextes in der Geschichte von E.A. Poe (mit Python)}
+\label{Lit_Python-sample_Gold-bug}
+\end{sagecode}
+
+\paragraph*{Anmerkung 1:}
+Pinkmonkey hat beim Drucken des Geheimtextes von Poe so ähnlich \glqq geschummelt\grqq~
+wie der Code-Autor, indem er nur ASCII-Zeichen verwendete.
+
+In der Reproduktion einer Original-Publikation (z.B. unter
+\url{https://archive.org/details/goldbug00poegoog} auf Seite 95) kann man sehen,
+dass Poe Zeichen genommen hat, die im Buchdruck üblich waren, aber nur
+zum (allerdings größeren) Teil auch im ASCII-Zeichensatz vorkommen. Es ist zudem
+mehr als unwahrscheinlich, dass ein ungebildeter Seeräuber gerade diese
+Zeichen für sein Geheimtextalphabet verwenden würde ...
+
+
+\paragraph*{Anmerkung 2:}
+Im Code werden die Python-Funktionen \glqq maketrans\grqq~und \glqq translate\grqq~
+aus dem String-Paket (siehe z.B. die Python 2.7-Dokumentation, Abschnitt \glqq functions\grqq)
+verwendet.
+
+Hierbei gibt man das Klartext- und Geheimtext-Alphabet jeweils als einfache Strings
+ein und erzeugt daraus mit \glqq maketrans\grqq~eine Übersetzungstabelle. Die
+eigentliche Verschlüsselung erledigt dann \glqq translate\grqq. Für die Dechiffrierung
+müssen bei \glqq maketrans\grqq~nur die Argumente für die beiden Alphabete
+vertauscht werden. Die sonst üblichen Hin-und-Her-Umwandlungen zwischen Zeichen und
+ASCII-Nummern mittels \glqq str\grqq~und \glqq ord\grqq~entfallen.
+Das ist ideal für monoalphabetische Chiffrierungen -- gerade im Unterricht in der Mittelstufe.
+
+
+\paragraph*{Anmerkung 3:}
+Hier ist ein Screenshot, der die Ausführung des Python-Codes auf dem SageMathCell-Server
+(\url{http://sagecell.sagemath.org/}) zeigt.
+
+SageMathCell ist das Browser-Interface für Sage. Seine Funktionen werden auf dem Sage-Cell-Server
+kostenlos zur Verfügung gestellt.
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[scale=0.53]{../en/figures/Using-SageMathCell-with-Python-for-Poes-GoldBug}
+\caption{Benutzung von SageMathCell, um Poes Goldkäfer zu entschlüsseln (mit Python)} 
+\label{MOV_Using-SageMathCell-with-Python-for-Poes-GoldBug}
+\end{center}
+\end{figure}
+
+
+\noindent Als Ergebnis erhalten wir:
+
+% \noindent \verb muss auf derselben Zeile enden.
+\begin{Verbatim}%
+
+Plaintext alphabet  PA:  ETHSONAIRDGLBVPFYMUC    Length of PA 20
+Ciphertext alphabet CA:  8;4)+*56(!302'.1:9?-    Length of CA 20
+Kidd decrypted: AGOODGLASSINTHEBISHOPSHOSTELINTHEDEVILSSEATFORTYONEDEGREES
+                ANDTHIRTEENMINUTESNORTHEASTANDBYNORTHMAINBRANCHSEVENTHLIMB
+                EASTSIDESHOOTFROMTHELEFTEYEOFTHEDEATHSHEADABEELINEFROMTHE
+                TREETHROUGHTHESHOTFIFTYFEETOUT
+
+\end{Verbatim}
+
+\noindent Man sieht gut, wie wenig Code man mit Python oder Sage für solche Aufgaben benötigt.
+Im obigen Beispiel waren es 2 überflüssige Kommentarzeilen, 3 Zeilen Eingabe, 3 Zeilen echter Code und 3 Zeilen Ausgabe;
+effektiv nötig waren 7 Zeilen Code.
+
+
+
+
+
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
 \hypertarget{appendix-Learn-NT}{}
@@ -899,9 +1201,9 @@ Erläuterung zum Buchinhalt zusenden würden. Herzlichen Dank.\\
     \index{ZT, Lernprogramm Zahlentheorie}%
     \index{Lernprogramm ZT}%
 
-In CT1\index{CrypTool 1} ist ein interaktives Lernprogramm zur elementaren
+In CT1\index{CT1} ist ein interaktives Lernprogramm zur elementaren
 {\em Zahlentheorie}, genannt "`ZT"', enthalten.\footnote{%
-    ZT können Sie in CT1\index{CrypTool 1} über das Menü
+    ZT können Sie in CT1\index{CT1} über das Menü
     {\bf Einzelverfahren \textbackslash{} Zahlentheorie
     interaktiv \textbackslash{} Lernprogramm für Zahlentheorie} aufrufen.
 }
@@ -913,7 +1215,7 @@ Oftmals können die mathematischen Verfahren dynamisch mit eigenen kleinen
 Zahlenbeispielen ausprobiert werden.
 
 Die Inhalte basieren vor allem auf den Büchern von
-\cite{a:Buchmann2004} und \cite{a:Scheid2003}.
+\cite{Buchmann2016} und \cite{Scheid2006}.
 
 Dieses visualisierte Lernprogramm wurde mit Authorware 4 erstellt.\footnote{%
     Da Authorware veraltet ist und der Hersteller keine Portierungswerkzeuge
@@ -943,8 +1245,14 @@ Lernprogramms "`ZT"':
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.4]{figures/NT_Fig_C1-3_EuclidsAlg-LinearCombinations}
-\caption{Jeder gemeinsame Teiler zweier Zahlen teilt auch alle ihre
-Linearkombinationen\vspace{1ex}} 
+\caption{Jeder gemeinsame Teiler zweier Zahlen teilt auch alle ihre Linearkombinationen}
+%%% TODO_Layout: Nur in Teilen von movies wird bei caption noch \vspace{1ex} hinzugefügt.
+%%%              Damit sind die Abstände im Abbildungsverzeichnis von A.9 bis A.16
+%%%              unterschiedlich vom Rest --> nahm es wieder raus. Analog wurde etwas
+%%%              Platz unter den Abb-Untertitel in Kap. 7 geschaffen, der nun auch weg (22.8.16)
+%%%              --> Wenn man es macht, dann muss man es überall machen!
+%%% Bsp: vorher:  \caption{Euklids Algorithmus zur Bestimmung des ggT\vspace{1ex}} 
+%%%      nachher: \caption{Euklids Algorithmus zur Bestimmung des ggT} 
 \label{NT_Fig_C1.3_EuclidsAlg-LinearCombinations}
 \end{center}
 \end{figure}
@@ -953,7 +1261,7 @@ Linearkombinationen\vspace{1ex}}
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.4]{figures/NT_Fig_C1-3_EuclidsAlg-Procedure}
-\caption{Euklids Algorithmus zur Bestimmung des ggT\vspace{1ex}} 
+\caption{Euklids Algorithmus zur Bestimmung des ggT} 
 \label{NT_Fig_C1.3_EuclidsAlg-Procedure}
 \end{center}
 \end{figure}
@@ -962,7 +1270,7 @@ Linearkombinationen\vspace{1ex}}
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.4]{figures/NT_Fig_C3-1_PrimesDistribution}
-\caption{Verteilung der Primzahlen und ihrer Differenzen\vspace{1ex}} 
+\caption{Verteilung der Primzahlen und ihrer Differenzen} 
 \label{NT_Fig_C3.1_PrimesDistribution}
 \end{center}
 \end{figure}
@@ -971,7 +1279,7 @@ Linearkombinationen\vspace{1ex}}
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.4]{figures/NT_Fig_C3-2_Fermat-Test}
-\caption{Primzahlen finden mit dem Primzahltest nach Fermat\vspace{1ex}} 
+\caption{Primzahlen finden mit dem Primzahltest nach Fermat} 
 \label{NT_Fig_C3.2_Fermat-Test}
 \end{center}
 \end{figure}
@@ -980,7 +1288,7 @@ Linearkombinationen\vspace{1ex}}
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.4]{figures/NT_Fig_C4-1_ReversibilityAdditiveCipher}
-\caption{Umkehrbarkeit von Verschlüsselungsalgoritmen am Beispiel additiver Chiffren\vspace{1ex}} 
+\caption{Umkehrbarkeit von Verschlüsselungsalgoritmen am Beispiel additiver Chiffren} 
 \label{NT_Fig_C4.1_ReversibilityAdditiveCipher}
 \end{center}
 \end{figure}
@@ -989,7 +1297,7 @@ Linearkombinationen\vspace{1ex}}
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.4]{figures/NT_Fig_C5-2_Fermat-factorization-How-far-1}
-\caption{Fermat-Faktorisierung m.H. der 3. Binomischen Formel\vspace{1ex}} 
+\caption{Fermat-Faktorisierung m.H. der 3. Binomischen Formel} 
 \label{NT_Fig_C5.2_Fermat-factorization-How-far-1}
 \end{center}
 \end{figure}
@@ -998,7 +1306,7 @@ Linearkombinationen\vspace{1ex}}
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.4]{figures/NT_Fig_C5-2_Fermat-factorization-How-far-2}
-\caption{Fermat-Faktorisierung: Quadrate erkennen\vspace{1ex}} 
+\caption{Fermat-Faktorisierung: Quadrate erkennen} 
 \label{NT_Fig_C5.2_Fermat-factorization-How-far-2}
 \end{center}
 \end{figure}
@@ -1007,31 +1315,18 @@ Linearkombinationen\vspace{1ex}}
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.4]{figures/NT_Fig_C5-3_PollardRho}
-\caption{Pollards Rho-Faktorisierung: Kreisfindungsalgorithmus nach Floyd\vspace{1ex}} 
+\caption{Pollards Rho-Faktorisierung: Kreisfindungsalgorithmus nach Floyd} 
 \label{NT_Fig_C5.3_PollardRho}
 \end{center}
 \end{figure}
 
 
 
-
-
-% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\clearpage   % Nötig, damit Lit.verzeichnis nicht gl. nach Abb. 8 kommt.
+%------------------------------------------------------------------------------
+% \clearpage   % Nötig, damit Lit.verzeichnis nicht gl. nach Abb. 8 kommt.
 % \newpage
-\begin{thebibliography}{99999}
-%\addcontentsline{toc}{section}{Literaturverzeichnis}
+\putbib[../de/references]
+\addcontentsline{toc}{section}{Literaturverzeichnis}
+\end{bibunit}
 
-\bibitem[Buchmann2004]{a:Buchmann2004} \index{Buchmann 2004}
-    Johannes Buchmann, \\
-    {\em Einführung in die Kryptographie}, Springer, 3. Auflage, 2004.
-
-\bibitem[Scheid2003]{a:Scheid2003} \index{Scheid 2003}
-    Harald Scheid, \\
-    {\em Zahlentheorie}, Spektrum Akademischer Verlag, 3. Auflage, 2003.
-
-\end{thebibliography}
-
-%    \href{http://www....}
-%    {\texttt{http://www....}}
 

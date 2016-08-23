@@ -1,7 +1,9 @@
 % $Id$
-% ...........................................................................
-%                  D I G I T A L E  S I G N A T U R E N
-% ...........................................................................
+% ..............................................................................
+%                  D I G I T A L  S I G N A T U R E S
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
 
 \newpage
 % --------------------------------------------------------------------------
@@ -9,8 +11,11 @@
 \chapter{Hash Functions and Digital Signatures}
 \label{Chapter_Hashes-and-Digital-Signatures}
 \index{signature!digital}
-(Schneider J. / Esslinger B. / Koy H., June 2002;
-Updates: Feb. 2003, June 2005, July 2009, Nov. 2012)
+(\hyperlink{author_Joerg-Cornelius-Schneider}{Joerg-Cornelius Schneider} /
+ \hyperlink{author_Bernhard-Esslinger}{Bernhard Esslinger} /
+ \hyperlink{author_Henrik-Koy}{Henrik Koy},
+ Jun 2002;
+ Updates: Feb 2003, Jun 2005, Jul 2009, Nov 2012)
 % --------------------------------------------------------------------------
 %\vskip + 30pt
 \begin{ctsquote}
@@ -30,10 +35,10 @@ artificial intelligence.}
 %\vspace{12pt}
 \noindent The aim of digital signatures is to guarantee the following two points:
 \begin{itemize}
- \item User authenticity: \index{authenticity!user} \\
+ \item User authenticity: \index{authenticity!user}\\
       It can be checked whether a message really does
 come from a particular person.
- \item Message integrity:  \index{message integrity} \\
+ \item Message integrity:  \index{message integrity}\\
       It can be checked whether the message has been
 changed (on route).
 \end{itemize}
@@ -47,15 +52,15 @@ it must be impossible to use the public key to derive the secret key.
 
 
 In detail, a \index{signature procedure} {\em Signature procedure}\footnote{%
-With CT1\index{CrypTool 1} you can also generate and check 
+With CT1\index{CT1} you can also generate and check 
 digital signatures: Using\\
 the submenus of the main menu {\bf Digital Signatures / PKI}  or using\\
 menu {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem 
 \textbackslash{} Signature Demonstration (Signature Generation)}.\\
-Also with JCT\index{JCrypTool} (in the default and the algorithm perspektive)
+Also with JCT\index{JCT} (in the default and the algorithm perspektive)
 its possible to create different kinds of electronic signatures.
 } looks like
-this: \\ Senders use their message and secret key to calculate the digital
+this:\\ Senders use their message and secret key to calculate the digital
 signature for the message. Compared to hand-written signatures, digital
 signatures therefore have the advantage that they also depend on the document to
 be signed. Signatures from one and the same participant are different unless the
@@ -73,23 +78,23 @@ approximately as long as the document itself. To prevent an unnecessary increase
 in data traffic, and also for reasons of performance\index{performance}, we apply
 a cryptographic hash function\footnote{%
 Hash functions\index{hash function} are implemented within 
-CT1\index{CrypTool 1} at several places.\\
+CT1\index{CT1} at several places.\\
 Using menus {\bf Individual Procedures \textbackslash{} Hash} and
             {\bf Analysis \textbackslash{} Hash}
 you have the possibilities
 % hier die items nicht einruecken!
 \begin{list}{\textbullet}{\leftmargin10pt\addtolength{\itemsep}{-1.0\baselineskip}}
 %\begin{itemize}\addtolength{\itemsep}{-1.0\baselineskip} % um den Abstand zu verringern bebe
-\item to apply one of 6 hash functions to the content of the current window, \\
-\item to calculate the hash value of a file, \\
+\item to apply one of 6 hash functions to the content of the current window,\\
+\item to calculate the hash value of a file,\\
 \item to test, how changes to a text change the according hash value,\\
 \item to calculate a key from a password according to the PKCS\#5 
-      standard\index{PKCS\#5}, \\
+      standard\index{PKCS\#5},\\
 \item to calculate HMACs from a text and a secret key, and\\
 \item to perform a simulation, how digital signatures could be attacked 
       by a targeted search for hash value collisions\index{collision}.
 \end{list}
-CT2\index{CrypTool 2} and JCT\index{JCrypTool} also contain different hash
+CT2\index{CT2} and JCT\index{JCT} also contain different hash
 methods: See the functions' lists within the appendix
 \ref{s:appendix-template-overview-CT2} and
 \ref{s:appendix-function-overview-JCT}.}
@@ -126,21 +131,21 @@ Cryptographically secure hash functions fulfill the following three requirements
 (the order is in a way that the requirements increase):
 \begin{itemize}
  \item Resistance against 1st pre-image attacks:
-      \index{pre-image attack!1st} \index{attack!pre-image!1st}   \\
+      \index{pre-image attack!1st} \index{attack!pre-image!1st}\\
       It should be practically impossible, for a given number, to find a
-      message that has precisely this number as hash value. \\
-      Given (fix): hash value H', \\
+      message that has precisely this number as hash value.\\
+      Given (fix): hash value H',\\
       Searched: message m, so that: H(m) = H'.
  \item Resistance against 2nd pre-image attacks:
-      \index{pre-image attack!2nd} \index{attack!pre-image!2nd}   \\
+      \index{pre-image attack!2nd} \index{attack!pre-image!2nd}\\
       It should be practically impossible, for a given message, to find another
-      message, which has precisely the same hash value. \\
-      Given (fix): message m1 [and so the hash value H1 = H(m1)], \\
+      message, which has precisely the same hash value.\\
+      Given (fix): message m1 [and so the hash value H1 = H(m1)],\\
       Searched: message m2, so that: H(m2) = H1.
  \item Collision resistance:
-      \index{collision resistance}  \\
+      \index{collision resistance}\\
       It should be practically impossible to find any two messages with the
-      same hash value (it doesn't matter what hash value). \\
+      same hash value (it doesn't matter what hash value).\\
       Searched: 2 messages m1 and m2, so that: H(m1) = H(m2).
 \end{itemize}
 
@@ -159,26 +164,26 @@ came up, and so the candidates that had not yet shown any weaknesses
 in their structure in practice 
 (e.g. \index{SHA-1} SHA--1\footnote{%
   SHA-1 \index{SHA-1} is a 160 bit hash function specified in FIPS 180-1
-  (by NIST), ANSI X9.30 Part 2 and \cite{ds:FIPS186}.\\
+  (by NIST), ANSI X9.30 Part 2 and \cite{FIPS186}.\\
   SHA means Secure Hash Algorithm, and is widely used, 
   e.g. with DSA, RSA or ECDSA.\\
-  The current standard \cite{ds:FIPS180-3} defines four secure hash algorithms
+  The current standard \cite{FIPS180} defines four secure hash algorithms
   -- SHA-1, SHA-256, SHA-384, and SHA-512.
   For these hash algorithms there are also validation tests defined in the
   test suite FIPS 140-2.
 
   The output length of the SHA algorithms was enhanced because of the
   possibility of birthday attacks\index{attack!birthday}\index{collision}:
-  these make n-bit AES and a 2n-bit hash roughly equivalent: \\
-  - 128-bit AES -- SHA-256 \\
-  - 192-bit AES -- SHA-384 \\
+  these make n-bit AES and a 2n-bit hash roughly equivalent:\\
+  - 128-bit AES -- SHA-256\\
+  - 192-bit AES -- SHA-384\\
   - 256-bit AES -- SHA-512.
 
-  With CT1\index{CrypTool 1} you can comprehend the birthday attack
-  \index{attack!birthday} on digital signatures: \\
+  With CT1\index{CT1} you can comprehend the birthday attack
+  \index{attack!birthday} on digital signatures:\\
   using the menu {\bf Analysis \textbackslash{} Hash \textbackslash{} 
   Attack on the Hash Value of the Digital Signature}.\\
-  CT2\index{CrypTool 2} contains an MD5 collider.
+  CT2\index{CT2} contains an MD5 collider.
   }  
 or \index{RIPEMD-160} RIPEMD-160\footnote{%
   RIPEMD-160, RIPEMD-128 and the optional extension RIPEMD-256 have object
@@ -187,7 +192,7 @@ or \index{RIPEMD-160} RIPEMD-160\footnote{%
   RIPEMD-160 is also part of the ISO/IEC international standard 
   ISO/IEC 10118-3:1998 on dedicated hash functions, together with 
   RIPEMD-128 and SHA-1.
-  Further details: \\
+  Further details:\\
 - \url{http://www.esat.kuleuven.ac.be/~bosselae/ripemd160.html}\\
 - \url{http://www.ietf.org/rfc/rfc2857.txt} (``The Use of HMAC-RIPEMD-160-96
    within ESP and AH'').
@@ -204,10 +209,10 @@ new hash attack methods.
 
 The initially published result reduced the expected complexity for one SHA-1
 collision search from $2^{80}$ (brute-force) to $2^{69}$
-\cite{ds:Wang2005}. More recent announcements claim to further reduce the required
-effort to $2^{63}$ \cite{ds:Wang2005b} and $2^{52}$ \cite{ds:McDonald2009}. This would
+\cite{Wang2005}. More recent announcements claim to further reduce the required
+effort to $2^{63}$ \cite{Wang2005b} and $2^{52}$ \cite{McDonald2009}. This would
 bring collision attacks into the practical realm, as similar efforts have been
-mastered in the past (s.\ \ref{Brute-force-gegen-Symmetr}).
+mastered in the past (s.\ \ref{cm_Brute-force-versus-Symmetr}).
 
 
 % be_2005_UPDATEN_if-hash-attacks-make-progress
@@ -218,13 +223,13 @@ other hash algorithms.
 Already before Crypto 2004 the U.S. National Institute of Standards and
 Technology (NIST)\index{NIST} announced, to discontinue SHA-1 in the next few
 years. So it is recommended not to use SHA-1 for new products generating digital
-signatures. The SHA-2\index{SHA-2} family \cite{ds:FIPS180-3} provides stronger algorithms.
+signatures. The SHA-2\index{SHA-2} family \cite{FIPS180} provides stronger algorithms.
 
 To address new findings in cryptanalysis, in 2008 NIST opened a competition to
 develop a new cryptographic hash algorithm beyound the SHA-2 family: In October
 2012 Keccak\index{Keccak}\index{SHA-3} was announced as ``SHA-3''.\footnote{%
 \url{http://csrc.nist.gov/groups/ST/hash/sha-3/}\\
-    With {\bf CT2}\index{CT2}\index{CrypTool 2} you can execute and visualize
+    With {\bf CT2}\index{CT2} you can execute and visualize
     the Keccak hash function -- using in the Startcenter
     {\bf Templates \textbackslash{} Hash Functions \textbackslash{}
     Keccak Hash (SHA-3)}.\\
@@ -238,10 +243,9 @@ develop a new cryptographic hash algorithm beyound the SHA-2 family: In October
 Further information about this topic can be found in the article
 ``Hash cracked -- The consequences of the successful attacks on SHA-1''
 by Reinhard Wobst and J\"urgen Schmidt\footnote{% 
-      \url{http://www.heise.de/security/artikel/56634}. \\
-  Further references are e.g.: \\
-      \url{http://www.bsi.bund.de/esig/basics/techbas/krypto/index.htm}\\
-      \url{http://csrc.nist.gov/CryptoToolkit/tkhash.html}.
+      \url{http://www.heise.de/security/artikel/56634}.\\
+  Further references are e.g.:\\
+      \url{http://csrc.nist.gov/groups/ST/toolkit/index.htmll}.
 } 
   by Heise Security.
 
@@ -259,9 +263,8 @@ by Reinhard Wobst and J\"urgen Schmidt\footnote{%
 \addtocounter{footnote}{0}\footnotetext{Daniel Suarez, ``Daemon'', Dutton Adult, 2010,
 Chapter 14, ``Meme Payload'', p. 142, Ross.}
 
-
 The signature procedure with hash functions\footnote{% 
-Compare: \url{http://en.wikipedia.org/wiki/Digital\_signature}.
+Compare: \url{http://en.wikipedia.org/wiki/Digital_signature}.
 } is as follows: Rather than signing the actual
 document, the sender now first calculates the hash value of the message and
 signs this. The recipient also calculates the hash value of the message (the
@@ -315,7 +318,7 @@ on a cryptographic hash value of the message. To prevent certain attacks
 on the signature procedure (alone or in combination with encryption) it is
 necessary to format the hash value before doing the exponentiation, as
 described in the PKCS\#1 (Public Key Cryptography Standard \#1
-\cite{ds:PKCS1})\index{PKCS\#1}. 
+\cite{PKCS1_2002})\index{PKCS\#1}. 
 The fact that this standard had to be revised recently, after
 being in use for several years, can serve as an example of how difficult it is
 to get the details of cryptography right.
@@ -330,7 +333,7 @@ to get the details of cryptography right.
 In August of 1991, the U.S. National Institute of Standards and Technology
 (NIST\index{NIST}) proposed a digital signature algorithm (DSA), which was
 subsequently adopted as a U.S. Federal Information Processing Standard (FIPS 186
-\cite{ds:FIPS186}). 
+\cite{FIPS186}). 
 
 The algorithm is a variant of the ElGamal scheme. Its security is based on
 the Discrete Logarithm Problem\index{logarithm problem!discrete}. The DSA public and private key and its
@@ -339,10 +342,10 @@ procedures for signature and verification are summarised in crypto procedure~\re
 \begin{cryptoprocedure}
 \paragraph*{Public Key}\strut\\
 \begin{tabular}{l@{ }l}
-$p$ & prime \\
-$q$ & 160-bit prime factor of $p - 1$ \\
+$p$ & prime\\
+$q$ & 160-bit prime factor of $p - 1$\\
 $g$ & $ = h^{(p-1)/q}  \mbox{ mod } p$, where $h < p - 1$ and
-$h^{(p-1)/q} > 1  \Mod{p}$ \\
+$h^{(p-1)/q} > 1  \Mod{p}$\\
 $y$ & $\strut \equiv  g^x  \mbox{ mod } p$ 
 \end{tabular}
 
@@ -385,7 +388,7 @@ $v$ & $= (g^{u_1}y^{u_2}) \mbox{ mod } p)  \mbox{ mod } q$\\
 While DSA was specifically designed, so that it can be exported from
 countries regulating export of encryption soft and hardware (like the U.S.\ 
 at the time when it was specified), it has been noted
-\cite[p.~490]{ds:Schneier1996ds}, that the operations involved in DSA can be
+\cite[p.~490]{Schneier1996}, that the operations involved in DSA can be
 used to emulate RSA and ElGamal encryption.
 
 
@@ -441,7 +444,7 @@ certification method is the X.509 standard.
 \vskip + 15pt
 \subsection{X.509 certificate}
 \index{X.509} 
-Each participant who wants to have an X.509 certificate (\cite{ds:X.509})
+Each participant who wants to have an X.509 certificate (\cite{X.509})
 verifying that his public key belongs to a real person consults what is
 known as a \index{certification authority (CA)} certification authority
 (CA)\footnote{%
@@ -471,73 +474,14 @@ those of the root entity, can also be secured by means of making them
 available publicly.
 
 
-\newpage
-\begin{thebibliography}{99999}
+
+%------------------------------------------------------------------------------
+\putbib[../de/references]
 \addcontentsline{toc}{section}{Bibliography}
+\end{bibunit}
 
-\bibitem[FIPS180-3]{ds:FIPS180-3} U.S. Department of Commerce/N.I.S.T. ,
-    \index{FIPS180-3} \\
-    {\em Secure Hash Standard (SHS)}, \\
-    October 2008.\\
-    (FIPS 180-3 supersedes FIPS 180-2.)
+\noindent All links have been confirmed at July 14, 2016.
 
-\bibitem[FIPS186]{ds:FIPS186} U.S. Department of Commerce/N.I.S.T. ,
-    \index{FIPS186} \\
-    {\em Entity authentication using public key cryptography}, \\
-    February 18, 1997.\\
-    No more valid.
-    
-\bibitem[FIPS186-2]{ds:FIPS186-2} U.S. Department of Commerce/N.I.S.T. ,
-    \index{FIPS186-2} \\
-    {\em Digital Signature Standard (DSS)}, \\
-    January 27, 2000. Change Note: October 5, 2001.\\
-   \url{http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf}
-
-\bibitem[McDonald2009]{ds:McDonald2009} Cameron McDonald, Philip Hawkes, Josef Pieprzyk, 
-    \index{McDonald 2009} \\
-    {\em Differential Path for SHA-1 with complexity $O(2^{52})$}, \\
-    \url{http://eprint.iacr.org/2009/259}
-
-\bibitem[PKCS1]{ds:PKCS1} RSA Laboratories,
-    \index{PKCS\#1} \index{RSA Laboratories} \\
-    {\em PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard}, \\
-    April 19, 2002.
-
-\bibitem[Schneier1996]{ds:Schneier1996ds} \index{Schneier 1996} 
-    Bruce Schneier, \\
-    {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
-    Wiley, 2nd edition, 1996.
-
-\bibitem[Wang2005]{ds:Wang2005} Xiaoyun Wang, Yiqun Yin, Hongbo Yu, 
-    \index{Wang 2005} \\
-    {\em Finding Collisions in the Full SHA-1}, \\
-    Advances in Cryptology-Crypto 2005, LNCS 3621: 17-36, 2005.
-
-\bibitem[Wang2005b]{ds:Wang2005b}  Xiaoyun Wang, Andrew Yao and Frances Yao, 
-    \index{Wang 2005} \\
-    {\em New Collision Search for SHA-1}, \\
-    Crypto 2005 Rump Session \\
-    \url{http://www.iacr.org/conferences/crypto2005/rumpSchedule.html}
-
-\bibitem[Wobst2005]{ds:Wobst2005} \index{Wobst 2005} 
-    Reinhard Wobst, \\
-    {\em New Attacks Against Hash Functions}, \\
-    Information Security Bulletin, April 2005.
-
-\bibitem[X.509]{ds:X.509} ITU-T, 
-    \index{X.509} \\
-    {\em ITU-T Recommendation X.509 (1997 E): Information Technology -- 
-    Open Systems Interconnection -- The Directory: Authentication Framework},\\
-    June 1997.
-    
-\bibitem[X.509v3]{ds:X.509v3} ITU-T, 
-    \index{X.509} \index{ITU-T} \index{ISO/IEC 9594-8} \\
-    {\em X.509 (1993) Amendment 1: Certificate Extensions, The Directory
-    Authentication Framework},\\ 
-    International Telecommunication Union, Geneva, Switzerland, July 1995\\
-    (equivalent to amendment 1 to ISO/IEC 9594-8).
-
-\end{thebibliography}
 
 % Local Variables:
 % TeX-master: "../script-en.tex"

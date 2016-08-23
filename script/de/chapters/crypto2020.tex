@@ -1,17 +1,21 @@
+% $Id: 
 % ..........................................................................
-% --------------------------------------------------------------------------
-% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 %              Krypto 2020
-% /~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
 
 \newpage
 \hypertarget{Chapter_Crypto2020}{}
 \chapter{Krypto 2020 --- Perspektiven für langfristige kryptographische
-         Sicherheit}\index{Sicherheit!langfristige}
+         Sicherheit}\index{Sicherheit!langfristig}
 \label{Chapter_Crypto2020}
 \begin{sloppypar}
-(Johannes Buchmann, Erik Dahmen, Alexander May und Ulrich Vollmer,
-TU Darmstadt, Mai~2007)\\
+%(Johannes Buchmann, Erik Dahmen, Alexander May und Ulrich Vollmer,
+(\hyperlink{author_Johannes-Buchmann}{Johannes Buchmann}, 
+ \hyperlink{author_Erik-Dahmen}{Erik Dahmen},
+ \hyperlink{author_Alexander-May}{Alexander May} und 
+ \hyperlink{author_Ulrich-Vollmer}{Ulrich Vollmer}, TU Darmstadt, Mai~2007)\\
 \end{sloppypar}
 
 \hyphenation{mathe-ma-tischer Schwie-rig-keit}
@@ -44,9 +48,13 @@ $N=pq$ in ihre (großen) Primfaktoren $p$ und $q$ zu zerlegen. In ihrer
 Arbeit schlugen die Erfinder von RSA damals vor, für langfristige
 Sicherheit $200$-stellige RSA-Moduln zu verwenden. Später
 veröffentlichte die Firma RSA Security eine Liste von RSA-Moduln
-wachsender Größe (RSA Challenge Numbers) und setzte Preise von insgesamt
+wachsender Größe (RSA Challenge numbers) und setzte Preise von insgesamt
 635.000 US-\$ für das Faktorisieren dieser Zahlen aus (siehe
-\url{www.rsasecurity.com/rsalabs/}).
+%% be_2017-07: Toter Link: \url{www.rsasecurity.com/rsalabs/}
+%\url{http://www.rsalabs.com/}
+%\url{http://www.emc.com/emc-plus/rsa-labs/index.htm}
+\url{http://www.emc.com/emc-plus/rsa-labs/historical/the-rsa-challenge-numbers.htm}
+).
 
 Im Jahr 2005, also 27 Jahre nach der Erfindung von RSA, gelang es Bahr,
 Boehm, Franke und Kleinjung von der Universität Bonn bereits innerhalb
@@ -61,6 +69,8 @@ Implementierungstechnik.\footnote{%
 Vergleiche Kapitel \ref{SecurityRSA}
 \hyperlink{SecurityRSA}{Zur Sicherheit des RSA-Verfahrens}, und
 speziell die Kapitel \ref{nt:NoteFactorization} und \ref{FactorisationResearch}.
+Details zu aktuelleren kryptoanalytischen Ergebnissen gegen
+RSA und Dlog finden Sie in Kapitel \ref{Chapter_Dlog-FactoringDead}.
 }
 
 Lenstra und Verheul\index{Lenstra/Verheul} entwickelten 2000 eine
@@ -154,6 +164,8 @@ macht? Drei Dinge sind zur Vorbereitung nötig:
 \item Verfahren, die langfristige Vertraulichkeit sicherstellen.
 \end{itemize}
 
+
+%% be_2017-07: Ist der ff. Absatz noch gültig: FP -> BC; Webseite www.flexiprovider.de hat "Stand: 26.6.16".
 Diese Ziele verfolgen auch die Kryptoarbeitsgruppe der TU Darmstadt und
 der daraus entstandene Spin-off FlexSecure (\url{www.flexsecure.de})
 seit vielen Jahren. Die Trustcenter-Software FlexiTrust, die in der
@@ -164,8 +176,8 @@ macht. Die Open-Source-Bibliothek FlexiPro"-vider\index{FlexiProvider}
 (siehe \url{www.flexiprovider.de}) stellt zudem eine Vielzahl
 unterschiedlicher kryptographischer Verfahren zur Verfügung und in
 jüngerer Zeit laufen intensive Forschungen zur \glqq Post Quantum
-Cryptography\grqq\index{Kryptographie!Post Quantum}: Kryptographie,
-die auch dann noch sicher bleibt, wenn es
+Cryptography\grqq~(PQC)\index{Kryptographie!Post Quantum}\index{Post-Quantum-Computing}:
+Kryptographie, die auch dann noch sicher bleibt, wenn es
 (leistungsfähige) Quantencomputer tatsächlich gibt.
 
 Die Sicherheit der Public-Key-Kryptographie beruht traditionell auf der
@@ -203,6 +215,13 @@ Allgemeinen sehr effizient durchführbar. Derzeit wird daran geforscht,
 welche Codes zu sicheren Verschlüsselungsverfahren mit möglichst kleinen
 Schlüsseln führen.
 
+
+%% be_2017-07: Klick auf www.ntru.com führt zu https://www.securityinnovation.com/
+%% Dort gibt es sie dann unter https://www.securityinnovation.com/products/ntru-crypto
+%% Vgl.: https://www.securityinnovation.com/products/ntru-crypto/ntru-challenge !!!
+%% Diee rsten 7 von 27 sind gelöst:
+%%    https://assets.securityinnovation.com/static/downloads/NTRU/challenge/ntru-challenge-parameter-sets-and-public-keys-new.pdf?mtime=20160411180153
+%%    https://assets.securityinnovation.com/static/downloads/NTRU/challenge/ntru-challenge-parameter-sets-and-public-keys-answers.pdf
 Verschlüsselung auf der Grundlage von
 Gitterproblemen\index{Verschlüsselung!Gitterprobleme} ist den
 codebasierten Verschlüssel"-ungs"-ver"-fah"-ren sehr ähnlich. Gitter sind
@@ -215,7 +234,7 @@ geringfügig verschoben, sodass er kein Gitterpunkt mehr ist, aber in der
 Nähe eines solchen liegt. Wer ein Geheimnis über das Gitter kennt, kann
 diesen Gitterpunkt in der Nähe finden und damit entschlüsseln. Ein
 besonders praktikables Gitterverschlüsselungsverfahren ist NTRU
-(\url{www.ntru.com})\index{Verschlüsselung!Gitterprobleme!NTRU}.
+(\url{https://www.securityinnovation.com/products/ntru-crypto})\index{Verschlüsselung!Gitterprobleme!NTRU}.
 Da NTRU vor vergleichsweise kurzer Zeit
 eingeführt wurde (1998) und seine Spezifizierung aufgrund verschiedener
 Angriffe mehrfach geändert wurde, sind allerdings noch weitere
@@ -249,10 +268,16 @@ möglicher Signaturen festlegen, was lange wie ein gravierender Nachteil
 aussah. In \cite{buchmann/coronado/dahmen/doering/klintsevich:2006}
 wurde jedoch eine Variante des Merkle-Verfahrens vorgestellt, die es
 ermöglicht, äußerst effizient mit einem einzigen Schlüsselpaar bis zu
-$2^{40}$ Signaturen zu erzeugen und zu verifizieren.
+$2^{40}$ Signaturen zu erzeugen und zu verifizieren.\footnote{%
+  In JCT\index{JCT} findet man in der Standard-Perspektive
+  unter dem Hauptmenü-Eintrag {\bf Visualisierungen} verschiedene
+  Komponenten und Ausprägungen davon: die Einmalsignatur WOTS+,
+  die normale Merkle-Signatur (MSS) und die Extended-Merkle-Signatur
+  (XMSS).\index{Merkle-Signatur}\index{MSS}\index{XMSS}\index{WOTS}
+}
 
 
-\section{Quantenkryptographie -- Ein Ausweg?}
+\section{Quantenkryptographie -- Ein Ausweg?}%Quantum
 \label{sec:Quantenkryptographie}\index{Quantenkryptographie}
 
 Ungelöst bleibt aus Sicht der heutigen Kryptographie das Problem der
@@ -291,6 +316,12 @@ Praxis aufbereitet werden. Die Frage nach einem Verfahren zur Sicherung
 langfristiger Vertraulichkeit bleibt ein wichtiges offenes Problem, auf
 das sich zukünftige Forschung fokussieren sollte.
 
-\putbib
+
+%------------------------------------------------------------------------------
+\putbib[../de/references]
 \addcontentsline{toc}{section}{Literaturverzeichnis}
+\end{bibunit}
+
+\noindent Alle Links im Artikel wurden am 15.07.2016 überprüft.
+
 

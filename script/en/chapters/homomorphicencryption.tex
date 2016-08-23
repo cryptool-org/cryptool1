@@ -1,13 +1,17 @@
+% $Id:
 % ..............................................................................
-% Homomorphe Chiffren
+%          H o m o m o r p h i c   C i p h e r s
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
+
 \newpage
-\hypertarget{homciph}{}
+% #### old naming: \hypertarget{Homomorphic Ciphers}{}
+\hypertarget{Chapter_HomomorphicCiphers}{}
 \chapter{Homomorphic Ciphers}
 \label{Chapter_HomomorphicCiphers}
 \index{homomorphic ciphers}\index{encryption!homomorphic}
-(Martin Franz, January 2013)
+(\hyperlink{author_Martin-Franz}{Martin Franz}, Jan 2013)
 
 % -----------------------------------------------------------------------------
 \section{Introduction}
@@ -45,7 +49,7 @@ This equation can be interpreted as follows: If we multiply two ciphertexts $y_1
 
 \subsection{Paillier cryptosystem}
 
-The most famous cryptosystem with homomorphic properties is the one by Paillier \cite{hc:Paillier}. First we will see how the Paillier key generation process works. After that, we will show that the Paillier cryptosystem indeed has homomorphic properties.
+The most famous cryptosystem with homomorphic properties is the one by Paillier \cite{Paillier1999}. First we will see how the Paillier key generation process works. After that, we will show that the Paillier cryptosystem indeed has homomorphic properties.
 
 \subsubsection{Key generation}
 
@@ -114,22 +118,22 @@ All voters encrypt their ballots, using homomorphic encryption (see at the left 
 \end{center}
 \end{figure}
 
-\item A second application of homomorphic ciphers is ``Secure Multiparty Computation''. Here, two or more parties can compute any commonly known function. Each of the parties provides one or more of the inputs for the function to be computed. The goal of the secure computations is to keep all private inputs secret, while only the result of the function is revealed. The use of homomorphic encryption helps to perform these computations on encrypted data. However, since the Paillier encryption only allows to compute additions of encrypted values (and, e.g. no multiplications can be performed), a number of additional methods and techniques have to be applied. The Wikipedia page \cite{hc:SMC} offers a great start for reading more about this topic and more advanced techniques for Secure Multiparty Computation.
+\item A second application of homomorphic ciphers is ``Secure Multiparty Computation''. Here, two or more parties can compute any commonly known function. Each of the parties provides one or more of the inputs for the function to be computed. The goal of the secure computations is to keep all private inputs secret, while only the result of the function is revealed. The use of homomorphic encryption helps to perform these computations on encrypted data. However, since the Paillier encryption only allows to compute additions of encrypted values (and, e.g. no multiplications can be performed), a number of additional methods and techniques have to be applied. The Wikipedia page \cite{Wiki_SMC} offers a great start for reading more about this topic and more advanced techniques for Secure Multiparty Computation.
 
-\item Furthermore it is expected, that homomorphic encryption will provide great advantages in the areas of ``Cloud Computing''. Using so called ``fully-homomorphic encryption'' \cite{hc:HomEnc} it will be possible to run large applications on external servers only on encrypted data. For this, necessarily one needs to be able to perform both arithmetic operations, the addition and the multiplication, on encrypted data (in contrast to Paillier encryption, which only allows performing additions). Such a crypto system was first presented in 2009 \cite{hc:Gentry2009}.
+\item Furthermore it is expected, that homomorphic encryption will provide great advantages in the areas of ``Cloud Computing''. Using so called ``fully-homomorphic encryption'' \cite{Wiki_HomEnc} it will be possible to run large applications on external servers only on encrypted data. For this, necessarily one needs to be able to perform both arithmetic operations, the addition and the multiplication, on encrypted data (in contrast to Paillier encryption, which only allows performing additions). Such a crypto system was first presented in 2009 \cite{Gentry2009}.
 \end{enumerate}
 
 % -----------------------------------------------------------------------------
 \section{Homomorphic ciphers in CrypTool}
 
-\subsection{CrypTool 2}
+\subsection{CrypTool~2}
 
-In CrypTool 2 you will find an implementation of the Paillier cryptosystem. Among the available components, there are components for key generation (Paillier Key Generator), an example for encryption and decryption with Paillier (called Paillier Text), as well as examples which illustrate the homomorphic properties of the cryptosystem (Paillier Addition, Paillier Blinding and Paillier Voting).
+In CrypTool~2\index{CT2} you will find an implementation of the Paillier cryptosystem. Among the available components, there are components for key generation (Paillier Key Generator), an example for encryption and decryption with Paillier (called Paillier Text), as well as examples which illustrate the homomorphic properties of the cryptosystem (Paillier Addition, Paillier Blinding and Paillier Voting).
 
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.8]{figures/CT2-Paillier.png}
-\caption{Paillier cryptosystem in CrypTool 2} 
+	\caption{Paillier cryptosystem in CrypTool~2 (CT2)} 
 \label{CT2-Paillier}
 \end{center}
 \end{figure}
@@ -137,45 +141,25 @@ In CrypTool 2 you will find an implementation of the Paillier cryptosystem. Amon
 \newpage
 \subsection{JCrypTool}
 
-In JCrypTool there is an implementation (see Figure \ref{JCT-HomEnc}), which visualizes the homomorphic properties of various cryptosystem. For RSA and Paillier it shows, that multiplications, for RSA, and additions for Paillier, respectively, can be performed on encrypted values. For the fully-homomorphic cryptosystem by Gentry it is possible to perform both multiplications, as well as additions on encrypted values.
+In JCrypTool\index{JCT} there is an implementation (see Figure \ref{JCT-HomEnc}), which visualizes the homomorphic properties of various cryptosystem. For RSA and Paillier it shows, that multiplications, for RSA, and additions for Paillier, respectively, can be performed on encrypted values. For the fully-homomorphic cryptosystem by Gentry it is possible to perform both multiplications, as well as additions on encrypted values.
 
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.4]{figures/JCT-HomEnc.PNG}
-\caption{Visualization of homomorphic properties in JCrypTool} 
+	\caption{Visualization of homomorphic properties in JCrypTool (JCT)} 
 \label{JCT-HomEnc}
 \end{center}
 \end{figure}
 
 
+
 %------------------------------------------------------------------------------
-\newpage
-\begin{thebibliography}{99999}
+\putbib[../de/references]
 \addcontentsline{toc}{section}{Bibliography}
+\end{bibunit}
 
-\bibitem[Paillier1999]{hc:Paillier} \index{Paillier 1999}
-   Pascal Paillier, \\
-   {\em Public-Key Cryptosystems Based on Composite Degree Residuosity Classes},\\
-	 Advances in Cryptology -- EUROCRYPT'99, 1999.
+\noindent All links have been confirmed at July 15, 2016.
 
-\bibitem[SMC]{hc:SMC} \index{SMC}
-   Wikipedia, \\
-   {\em Secure Multiparty Computation}.\\
-   \url{http://en.wikipedia.org/wiki/Secure_multi-party_computation}
-
-\bibitem[HomEnc]{hc:HomEnc}
-   Wikipedia, \\
-   {\em Homomorphic Encryption}\\
-   \url{https://en.wikipedia.org/wiki/Homomorphic_encryption}\\
-   {\em Homomorphism}\\
-   \url{https://en.wikipedia.org/wiki/Homomorphism}
-
-\bibitem[Gentry2009]{hc:Gentry2009} \index{Gentry 2009}
-   Craig Gentry, \\
-   {\em Fully Homomorphic Encryption Using Ideal Lattices},\\
-	In the 41st ACM Symposium on Theory of Computing (STOC), 2009.
-
-\end{thebibliography}  % German
 
 % Local Variables:
 % TeX-master: "../script-de.tex"

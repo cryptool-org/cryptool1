@@ -1,20 +1,19 @@
 % $Id$
 % ............................................................................
-%      V O R W O R T  und  E I N F U E H R U N G (Zusammenspiel CT-Buch und CT-Programme) 
-%      P R E F A C E  and  I N T R O D U C T I O N (Playing together of book and programs)
+%      P R E F A C E  and  I N T R O D U C T I O N  (Playing together of book and programs)
 %
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 \clearpage\phantomsection
-\addcontentsline{toc}{chapter}{Preface to the 12th Edition of the CrypTool Book xxxxxxxxxxxx}
-\chapter*{Preface to the 12th Edition of the CrypTool Book xxxxxxxxxxxx}
+\addcontentsline{toc}{chapter}{Preface to the 12th Edition of the CrypTool Book}
+\chapter*{Preface to the 12th Edition of the CrypTool Book}
 
 The book's goal is to explain some mathematical topics from cryptology in
 exact detail, nevertheless in a way which is easy to understand.
 
-Starting in the year 2000 this book became part of the CrypTool 1
-(CT1)\index{CrypTool 1} package in version 1.2.01. 
-Since then it has been expanded and revised in almost every new version of CT1.
+This book was delivered since the year 2000 -- together with the CrypTool~1
+(CT1)\index{CT1} package in version 1.2.01. 
+Since then it has been expanded and revised in almost every new version of CT1 and CT2.
 
 Topics from mathematics and cryptography have been meaningfully split up and
 for each topic an extra chapter has been written which can be read on its own.
@@ -24,13 +23,13 @@ be discussed in greater depth -- therefore this selection is only one of many
 possible ways.
 
 The later editorial work in LaTeX added footnotes and cross linkages between
-different sections, and some corrections.
+different sections, harmonized the index entries, and made some corrections.
 
 %This edition of the CT book again updated some topics:
-Compared to edition 11, in this edition
-% completely updated the TeX sources of the document, and of course,
-the content of the book was amended, corrected, and
-updated with some topics, for instance:
+Compared to edition 11, this edition completely updated the TeX sources
+of the document (e.g. one single bibtex file for all chapters and both languages),
+and of course, the content of the book was amended, corrected, and
+updated with many topics, for instance:
 \vspace{-5pt}
 \begin{itemize}
 %  \item the definitions of the strength of security functions
@@ -42,13 +41,13 @@ updated with some topics, for instance:
 %  \item progress in cryptanalysis of hash algorithms 
 %        (chap. \ref{collision-attacks-against-sha-1}) and
 %  \item progress in ideas for new crypto methods (RSA successor) 
-%        (chap. \ref{xxxxxxxxxBrute-force-gegen-Symmetr})\index{xxxxxxxxxx} and
+%        (chap. \ref{xxxxxxxxxcm_Brute-force-versus-Symmetr})\index{xxxxxxxxxx} and
   \item the list of movies or novels, in which cryptography or number theory 
         played a major role (see appendix \ref{s:appendix-movies}),
 %       and where primes are used as hangers  
 %        (see curiouses in \ref{HT-Quaint-curious-Primes-usage}),
   \item the overviews of all functions in
-        \hyperlink{appendix-template-overview-CT2}{CrypTool 2 (CT2)},
+        \hyperlink{appendix-template-overview-CT2}{CrypTool~2 (CT2)},
         \hyperlink{appendix-function-overview-JCT}{JCrypTool (JCT)}, and
         \hyperlink{appendix-function-overview-CTO}{CrypTool-Online (CTO)}
         (see appendix),
@@ -65,8 +64,12 @@ updated with some topics, for instance:
 %        (see \ref{l:NumberTheory_Sage_Number-of-RSA-FixedPoints}), and
 %  \item homomorphic encryption
 %        (see chapter \ref{Chapter_HomomorphicCiphers}).
-  \item the \nameref{Chapter_BitCiphers} is completely new
-        (see chapter \ref{Chapter_BitCiphers}).
+  \item the ``\nameref{Chapter_BitCiphers}'' is completely new
+        (see chapter \ref{Chapter_BitCiphers}),
+  \item the ``\nameref{Chapter_Dlog-FactoringDead}'' is completely new too
+        (see chapter \ref{Chapter_Dlog-FactoringDead}). It's a phantastic
+	in-depth summary about the limits of the according current
+	cryptanalytical methods.
 \end{itemize}
 
 %In the meantime the CT project gets feedback and testimonials from almost all
@@ -77,7 +80,7 @@ updated with some topics, for instance:
 \noindent \textbf{Acknowledgment}
 
 At this point I'd like to thank explicitly the following people who
-particularly contributed to the CrypTool projct\index{CrypTool}. They
+particularly contributed to the CrypTool project\index{CrypTool}. They
 applied their very special talents and showed really great engagement:
 \vspace{-7pt}
 %\begin{itemize}
@@ -86,21 +89,22 @@ applied their very special talents and showed really great engagement:
    \item Mr.\ J\"org-Cornelius Schneider
    \item Mr.\ Florian Marchal
    \item Dr.\ Peer Wichmann
-   \item Hr.\ Dominik Schadow
+   \item Mr.\ Dominik Schadow
    \item Staff of 
          Prof.\ Johannes Buchmann,
          Prof.\ Claudia Eckert,
          Prof.\ Alexander May,
-         Prof.\ Torben Weis and especially
-         Prof.\ Arno Wacker.
+         Prof.~Torben Weis, and especially
+         Prof.~Arno Wacker.
 \end{list}
 
 Also I want to thank all the many people not mentioned here for their 
 hard work (mostly carried out in their spare time).
 
-Thanks also to the readers who sent us feedback.
+Thanks also to the readers who sent us feedback. And especial thanks for the
+free proof reading of this edition done by Helmut Witten and Prof.\ Ralph-Hardo Schulz.
 % Especially I would like to acknowledge the English language proof-reading
-% of this book version done by Richard Christensen and Lowell Montgomery.
+% of this book version done by Richard Christensen and Lowell Montgomery. Tom.
 
 I hope that many readers have fun with this book and that they get 
 out of it more interest and greater understanding of this modern but 
@@ -108,22 +112,41 @@ also very ancient topic.
 
 
 
-\par \vskip + 45pt
+\par \vskip + 35pt
 \noindent Bernhard Esslinger
 \par \vskip + 10pt
-\noindent Frankfurt/Siegen (Germany), April 2016
+\noindent Heilbronn/Siegen (Germany), August 2016
 
 
 
-\par \vskip + 100pt
+\par \vskip + 90pt
 \noindent PS:\\
-We'd be glad if new authors would show up to add further chapters,
-e.g. about\\
-- the Riemann Zeta function,\\
-- hash functions,\\
-- lattice-based cryptography,\\
-- random numbers, or\\
-- the design and attack of crypto protocols (like SSL).
+We'd be glad if new authors would show up to improve existing chapters or to add further chapters,
+e.g. about
+\begin{compactitem}
+   \item the Riemann Zeta function,
+   \item hash functions and password attacks,
+   \item lattice-based cryptography,
+   \item random numbers, or
+   \item the design and attack of crypto protocols (like SSL).
+\end{compactitem}
+
+
+\par \vskip + 15pt
+\noindent PPS:\\%xxxxxxxxxx Todo
+Todos to be dealt with to make edition 12 of this CTB a release (till then we still call it a draft):%xxxxxxxxxxxxx
+\begin{compactitem}
+   \item Update all information about SageMath (chap.~\ref{ec:Sage_Massierer}
+      and appendix) and run the code against the newest SageMath (version 7.x) -- 
+      both command line and SageMathCloud notebook.
+   \item Update the function lists of the four CT versions (in the appendix).
+\end{compactitem}
+
+
+
+
+
+
 
 
 
@@ -135,15 +158,18 @@ e.g. about\\
 \textbf{This CrypTool book}
 
 This document is delivered together with the open-source programs of the
-CrypTool project\index{CrypTool}.
+CrypTool project\index{CrypTool}. You can also download it directly from the
+website of the CT portal: \url{https://www.cryptool.org/en/ctp-documentation}.
 
 The chapters in this book are largely self-contained and
 can also be read independently of the CrypTool programs.
 
 Chapters \ref{Chapter_ModernCryptography} (``Modern Cryptography''),
 \ref{Chapter_EllipticCurves} (``\nameref{Chapter_EllipticCurves}''),
-\ref{Chapter_BitCiphers} (``Bitblock and Bitstream Ciphers''), and % (``\nameref{Chapter_BitCiphers}'')
-\ref{Chapter_HomomorphicCiphers} (``\nameref{Chapter_HomomorphicCiphers}'')
+\ref{Chapter_BitCiphers} (``Bitblock and Bitstream Ciphers''), %% (``\nameref{Chapter_BitCiphers}'')
+\ref{Chapter_HomomorphicCiphers} (``\nameref{Chapter_HomomorphicCiphers}''), and
+\ref{Chapter_Dlog-FactoringDead} (``Results for Solving Discrete
+Logarithms and for Factoring'') % Shortened as original title is too long.
 require a deeper knowledge in mathematics, while the other chapters should
 be understandable with a school leaving certificate.
 
@@ -155,28 +181,43 @@ security and the readiness to use standardized modern cryptography.
 \par \vskip + 15pt
 
 
-\noindent \textbf{The programs CrypTool 1\index{CrypTool}\index{CT1},
-  CrypTool 2\index{CrypTool 2}\index{CT2} and JCrypTool\index{JCrypTool}\index{JCT}}
+\noindent \textbf{The programs CrypTool~1, CrypTool~2, and JCrypTool}
+\index{CT1} \index{CT2} \index{JCT}
+% \noindent \textbf{The programs CrypTool~1\index{CrypTool~1}\index{CT1},
+%   CrypTool~2\index{CrypTool~2}\index{CT2}, and JCrypTool\index{JCrypTool}\index{JCT}}
+%%% Solved-Problem__Only in English__Separated index at p144 (4.11.2) and p217 (5.3) and
+%%%     at page xviii, but \index{CrypTool~1} was called like everywhere else!
+%%%     In *.idx stand statt \indexentry{CrypTool~1|hyperpage}{iii}
+%%%     ein                  \indexentry{CrypTool\nobreakspace  {}1|hyperpage}{xviii}
+%%%  --> Fixed here by moving the \index out of \textbf.
+%%%  --> Fixed in chap 4 (below \label{chptSecurityParam}) by moving the \index out of
+%%%      \paragraph (done via moving footnote out of paragraph using footnotemark).
+%%%  --> Fixed in 5.3 by moving the \index out of \subsection-Klammern using footnotemark).
+%%%      BEFORE_MOVING_OUT_INDEX: \subsection[The RSA procedure]{The RSA procedure\footnote{%
+%%%  See: http://wwws.htwk-leipzig.de/~myagovki/latex/fussnoten_und_randnotizen/
+%%%       https://en.wikibooks.org/wiki/LaTeX/Counters
 
-CrypTool 1 (CT1) is an educational program with a comprehensive
-online help enabling you to use and analyse cryptographic procedures within a
-unified graphical user interface. The online help in CrypTool 1 contains both
+CrypTool~1 (CT1) is an educational program enabling you to use and analyze
+cryptographic procedures within a unified graphical user interface. The
+comprehensive online help in CrypTool~1 contains both
 instructions how to use the program and explanations about the methods itself
-(both not as detailled and in another structure than the CT book).
+(both not as detailed and in another structure as in the CT book).
 
-CrypTool 1\index{CrypTool 1} and the successor versions
-CrypTool 2 (CT2)\index{CrypTool 2} and JCrypTool (JCT)\index{JCrypTool}
+CrypTool~1 and the successor versions CrypTool~2 (CT2) and JCrypTool (JCT)
 are used world-wide for training in companies and teaching at schools and
 universities.
 \par \vskip + 15pt
 
 
-\noindent \textbf{CrypTool-Online\index{CrypTool-Online}\index{CTO}}
+\noindent \textbf{CrypTool-Online\index{CTO}}
 
-Also part of the CT project is the website CrypTool-Online (CTO)
-(\url{http://www.cryptool-online.org}), where you can check and apply
-cryptographic methods within a browser or on a smartphone. The scope
+Another part of the CT project is the website CrypTool-Online (CTO)
+(\url{http://www.cryptool-online.org}), where you can apply
+crypto methods within a browser or on a smartphone. The scope
 of CTO is far below from the standalone programs CT1, CT2 and JCT.
+However, this is what people more and more use as the first contact,
+so we currently redesign the whole backbone system with most modern
+web technology to have a fast and consistent look\&feel.
 \par \vskip + 15pt
 
 
@@ -186,10 +227,10 @@ MTC3 is the abbreviation for MysteryTwister C3, an international cryptography
 contest (\url{http://www.mysterytwisterc3.org}), which is also based on the
 CT project.
 Here you can find cryptographic riddles in four categories, a high-score list
-and a moderated forum. In the meantime more than 4000 active users participate,
-and more than 150 challenges are offered (currently 109 of them are solved by
-at least one user).xxxxxxxxxxxxxx
-\par \vskip + 25pt  % more than +15 to start Sag at the next page
+and a moderated forum. As of 2016-06-16 more than 7000 users participate,
+and more than 200 challenges are offered (162 of them are solved by
+at least one participant).
+\par \vskip + 25pt  % vskip: more than +15 to start SageMat the next page
 
 
 
@@ -197,8 +238,10 @@ at least one user).xxxxxxxxxxxxxx
 
 SageMath is a comprehensive open-source CAS package which can be used to easily
 program the mathematical methods explained in this book. A speciality of
-this CAS is, that the scripting language is Python.\\
-SageMath becomes more and more the standard open-source CAS system at universities.
+this CAS is, that the scripting language is Python (currently version 2.x).
+So in a Sage script, you have after an import statement all functions from the
+Python language at your disposal.\\
+SageMath becomes more and more the standard CAS system at universities.
 \par \vskip + 15pt
 
 
@@ -211,8 +254,8 @@ mathematics, computer science and especially cryptology are.
 The course agenda is a virtual secret agent story.\\
 In the meantime, these courses took place for several years in Germany in
 different towns.\\
-All course material is freely available on net
-(\url{http://www.cryptool.org/schuelerkrypto/}).\\
+All course material is freely available at
+\url{http://www.cryptool.org/schuelerkrypto/}.\\
 All software used is free software (using mostly CT1 and CT2).\\
 As all course material is currently available only in German -- we'd be happy
 if someone could translate the course material and build an according course
@@ -231,7 +274,7 @@ commitment who have made this global project so successful.
 \par \vskip + 45pt
 \noindent Bernhard Esslinger
 \par \vskip + 10pt
-\noindent Frankfurt/Siegen (Germany), April 2016
+\noindent Heilbronn/Siegen (Germany), August 2016
 
 % Local Variables:
 % TeX-master: "../script-en.tex"

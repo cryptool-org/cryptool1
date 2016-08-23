@@ -1,4 +1,11 @@
 % $Id$
+% ..........................................................................
+%            The Mathematical Ideas behind Modern Cryptography
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
+
+
 \setcounter{theorem}{0}
 \setcounter{definition}{0}
 
@@ -81,8 +88,8 @@
 % \newtheorem{Haupt}[Bsp]{Hauptsatz}}                 
 % In diesem Stil wird nach dem Theoremkopf ein Zeilenumbruch vorgenommen.
 % \newenvironment{Beweis}[1]
-%   {\textbf{Beweis #1} \\}
-%   {\hfill$\Box$ \\}
+%   {\textbf{Beweis #1}\\}
+%   {\hfill$\Box$\\}
 
 \setlength{\fboxrule}{.4pt}
 \setlength{\fboxsep}{4pt}
@@ -99,20 +106,23 @@
     With the educational tool for number theory {\bf NT} you can apply
     some of the methods introduced here (RSA, Rabin, DH, ElGamal)
     (see learning unit 4.2 and 4.3, pages 9-17/17).\\
-    NT can be called in CT1\index{CrypTool 1} via the menu path
+    NT can be called in CT1\index{CT1} via the menu path
     {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
     \textbackslash{} Learning Tool for Number Theory}.
     See appendix \ref{s:appendix-Learn-NT}.\\
     You can find according functions within the programs CT1,
-    CT2\index{CrypTool 2} and JCT\index{JCrypTool}: see the list of the included
+    CT2\index{CT2} and JCT\index{JCT}: see the list of the included
     functions within appendix \ref{s:appendix-menu-overview-CT1}, 
     \ref{s:appendix-template-overview-CT2} and
     \ref{s:appendix-function-overview-JCT}.
 }
 \label{Chapter_ModernCryptography}
 %********************************************************************
-(Oyono R. / Esslinger B./ Schneider J., Sep. 2000; 
-            Updates Nov. 2000, Feb. 2003, Apr. 2007, Mar. 2010, Jan. 2013)
+(\hyperlink{author_Roger-Oyono}{Roger Oyono} /
+ \hyperlink{author_Bernhard-Esslinger}{Bernhard Esslinger} /
+ \hyperlink{author_Joerg-Cornelius-Schneider}{Joerg-Cornelius Schneider},
+ Sep 2000; 
+ Updates: Nov 2000, Feb 2003, Apr 2007, Mar 2010, Jan 2013)
 
 %\vskip +30 pt
 \begin{ctsquote}
@@ -164,8 +174,9 @@ is ``difficult'' (practically impossible) to calculate in the other
 direction, provided that a particular piece of additional information 
 \index{one-way function!with trapdoor} (trapdoor) is not available. This 
 additional piece of information allows the inverse to be found efficiently. Such 
-functions are called {\bf trapdoor one way functions}. In the above case, $ d_T 
-$ is the trapdoor information. \par
+functions are called {\bf trapdoor one way functions}. In the above case, 
+the one-way function is the encryption via exponentiation with the public key $ e_T $
+as exponent. The private key $ d_T $ is the trapdoor information.\par
 
 In this process, we describe a problem as ``easy'' if it can be solved in 
 \index{runtime!polynomial} \index{polynomial}polynomial time as a function of the length of the 
@@ -204,31 +215,28 @@ The most important complexity classes are the classes \textbf{P} and
 \textbf{NP}: 
 
 \begin{itemize}
-
-    \item The class \textbf{P}: This class contains those problems that can be 
-solved in a polynomial \index{polynomial} amount of time.
-    
-		\item The class \textbf{NP}: The definition of this class doesn't look at
-		the time required to solve a problem, but rather at the time required to
-		verify a given solution. The class \textbf{NP} consists of those problems
-		for which a given solution can be verified in a polynomial \index{polynomial} amount of time.
-		Hereby, the term \textbf{NP} ``non-deterministic'' means polynomial and is
-		based on a calculation model, i.e. on a computer that only exists in theory
-		and can ``guess'' correct solutions non-deterministically then verify them
-		in polynomial time.
-
+\item The class \textbf{P}: This class contains those problems that can be 
+      solved in a polynomial \index{polynomial} amount of time.
+\item The class \textbf{NP}: The definition of this class doesn't look at
+    the time required to solve a problem, but rather at the time required to
+    verify a given solution. The class \textbf{NP} consists of those problems
+    for which a given solution can be verified in a polynomial \index{polynomial} amount of time.
+    Hereby, the term \textbf{NP} ``non-deterministic'' means polynomial and is
+    based on a calculation model, i.e. on a computer that only exists in theory
+    and can ``guess'' correct solutions non-deterministically then verify them
+    in polynomial time.
 \end{itemize}
 
 The class \textbf{P} is contained in the class \textbf{NP}. A well-known 
 unsolved problem is the question whether or not $ \textbf{P} \neq \textbf{NP} $ 
 is true, i.e. whether or not \textbf{P} is a true subset. An important property 
-of the class \textbf{NP} is that it also contains what are known as ``\textbf{NP}-complete''
-problems. These are problems that represent the 
+of the class \textbf{NP} is that it also contains what are known as
+\textbf{NP}-complete problems. These are problems that represent the 
 class \textbf{NP} as follows: If a ``good'' algorithm for such a 
 problem exists, then ``good'' algorithms exist for all problems from 
-\textbf{NP}. In particular: if \textbf{P} only contained one complete problem, 
+\textbf{NP}. In particular: If \textbf{P} only contained one complete problem, 
 i.e. if a polynomial \index{polynomial} solution algorithm existed for this problem, then 
-\textbf{P}would be equal to \textbf{NP}. In this sense, the \textbf{NP}-complete 
+\textbf{P} would be equal to \textbf{NP}. In this sense, the \textbf{NP}-complete 
 problems are the most difficult problems in \textbf{NP}.
 
 Many cryptographic protocols are formed in such a way that the ``good''
@@ -237,16 +245,17 @@ perpetrator is faced with problems from \textbf{NP}.
 
 Unfortunately, we do not yet know whether one way functions actually exist. 
 However, we can prove that one way functions exist if and only if $ \textbf{P} 
-\neq \textbf{NP} $ \cite[S.63]{mc:Balcazar1988}.\\
+\neq \textbf{NP} $ \cite[S.63]{Balcazar1988}.\\
 
 \vskip +3pt
 Some mathematicians have again and again claimed to have proven this equivalence, 
-but so far the claims have always turned out to be false \cite{mc:Hesselink2001}.
+but so far the claims have always turned out to be false \cite{Hesselink2001}.
 
 A number of algorithms have been suggested for public key procedures\index{cryptography!public key}. In many 
 cases - although they at first appeared promising - it was discovered that they 
 could be solved polynomially\index{polynomial}. The most famous failed applicant is the knapsack 
-with trapdoor, suggested by Ralph Merkle \cite{mc:Merkle1978}.
+with trapdoor, suggested by Ralph Merkle \cite{Merkle1978}.
+
 
 %\newpage
 \vskip +20 pt
@@ -265,7 +274,7 @@ possible in terms of value while restricted to an upper weight limit $ g $. You
 therefore need to find a subset of $ \{ G_1, \cdots,G_n\}, $ i.e. $ \{G_{i_1}, 
 \dots ,G_{i_k} \}, $ so that $ w_{i_1}+ \cdots +w_{i_k} $ is maximised under the 
 condition $  g_{i_1}+ \cdots +g_{i_k} \leq g. $ \par
-Such questions are called {\bf NP}-complete problems (not \index{runtime!not polynomial NP} deterministically polynomial\index{polynomial}) that are difficult to 
+Such questions belong to the {\bf NP}-complete problems (not \index{runtime!not polynomial NP} deterministically polynomial\index{polynomial}) that are difficult to 
 calculate.\index{Knapsack}
 
 A special case of the knapsack problem is:\\
@@ -300,9 +309,13 @@ However, for special $ a_1, \dots, a_n $   the solution is quite easy to find,
 e.g. for $ a_i = 2^{i-1}. $  The binary representation of $ g $ immediately 
 delivers $ x_1, \dots, x_n$. In general, the a 0-1 knapsack problem can be 
 solved easily if a \index{permutation} permutation\footnote{%
-A permutation\index{permutation} $\pi$ of the numbers $1, \dots, n$ is a change in the order in which these numbers are listed. For example, a permutation $\pi$ of $(1,2,3)$ is $(3,1,2),$ i.e. $\pi(1) = 3$, $\pi(2) =1$ and $\pi(3) = 2$.} 
+  A permutation\index{permutation} $\pi$ of the numbers $1, \dots, n$ is a change
+  in the order in which these numbers are listed. For example, a permutation
+  $\pi$ of $(1,2,3)$ is $(3,1,2),$ i.e. $\pi(1) = 3$, $\pi(2) = 1$ and $\pi(3) = 2$.
+} 
 $ \pi $  of $ 1, \dots, n $  exists with $ a_{\pi (j)} > \sum_{i=1}^{j-1} 
-a_{\pi(i)} $. If, in addition, $ \pi $ is the identity, i.e. $ \pi(i)=i $ for $ 
+a_{\pi(i)} $ with $ j = 1, \dots, n $ .
+If, in addition, $ \pi $ is the identity, i.e. $ \pi(i)=i $ for $ 
 i=1,2,\dots,n, $ then the sequence $ a_1, \dots , a_n $ is said to be 
 super-increasing.
 Crypto procedure~\ref{knapsackalgo} solves the knapsack problem with a super-increasing 
@@ -310,15 +323,15 @@ sequence in the time of $ O(n). $
 \begin{cryptoprocedure}
 \begin{tabbing}
 \hspace*{0.5cm} \= \hspace*{0.5cm} \= \hspace*{0.5cm} \= \kill
-\>{\bf for} $ i=n $ {\bf to} 1 {\bf do} \\
+\>{\bf for} $ i=n $ {\bf to} 1 {\bf do}\\
 \>\> {\bf if} $ T\geq a_i $ {\bf then}\\
-\>\> \> $ T:=T-s_i $ \\
-\>\>\> $ x_i:=1 $ \\
-\>\> {\bf else} \\
-\>\>\> $ x_i:=0 $ \\
-\>{\bf if} $ T=0 $ {\bf then} \\
-\>\> $ X:=(x_1, \dots, x_n) $ is the solution. \\
-\>{\bf else} \\
+\>\> \> $ T:=T-s_i $\\
+\>\>\> $ x_i:=1 $\\
+\>\> {\bf else}\\
+\>\>\> $ x_i:=0 $\\
+\>{\bf if} $ T=0 $ {\bf then}\\
+\>\> $ X:=(x_1, \dots, x_n) $ is the solution.\\
+\>{\bf else}\\
 \>\> No solution exists.
 \end{tabbing}
 \caption{Solving knapsack problems with super-increasing weights}
@@ -331,7 +344,7 @@ sequence in the time of $ O(n). $
 \index{Hellman, Martin} \index{Merkle, Ralph} 
 
 In 1978, Merkle and Hellman 
-\cite{mc:Merkle1978} \index{encryption!Merkle-Hellman} specified a public key 
+\cite{Merkle1978} \index{encryption!Merkle-Hellman} specified a public key 
 encryption procedure that is based on ``defamiliarizing'' the easy 0-1 
 knapsack problem with a super-increasing sequence into a congruent one with a 
 super-increasing sequence. It is a block ciphering that ciphers an $n$-bit 
@@ -357,7 +370,7 @@ and obtains the $ x_{\mu(i)}^{(j)} \in \{ 0,1\} $ (and thus also the $ x_i^{(j)}
 $) from
 \begin{eqnarray*}
 G^{(j)} & \equiv & \bar{w} g^{(j)} = \sum_{i=1}^n x_i^{(j)} b_{\pi (i)} \bar{w} 
-\equiv \sum_{i=1}^n x_i^{(j)} a_{\pi (i)} \mod m \\
+\equiv \sum_{i=1}^n x_i^{(j)} a_{\pi (i)} \mod m\\
 & = & \sum_{i=1}^n x_{\mu (i)}^{(j)} a_{\pi (\mu (i))} = \sum _{i=1}^n x_{\mu 
 (i)}^{(j)} a_i \mod m, 
 \end{eqnarray*}
@@ -367,12 +380,12 @@ super-increasing sequence $ a_1, \dots,a_n $.
 \label{merklehellmanproc}
 \end{cryptoprocedure}
 
-In 1982, \index{Shamir, Adi} Shamir \cite{mc:Shamir1982} specified an algorithm for 
+In 1982, \index{Shamir, Adi} Shamir \cite{Shamir1982} specified an algorithm for 
 breaking the system in polynomial \index{polynomial} time without solving the general knapsack 
-problem. Len \index{Adleman, Leonard} Adleman \cite{mc:Adleman1982} and Jeff 
-Lagarias \index{Lagarias, Jeff} \cite{mc:Lagarias1983} specified an algorithm for 
+problem. Len \index{Adleman, Leonard} Adleman \cite{Adleman1982} and Jeff 
+Lagarias \index{Lagarias, Jeff} \cite{Lagarias1983} specified an algorithm for 
 breaking the twice iterated Merkle-Hellman knapsack encryption procedure in 
-polynomial time. Ernst Brickell \index{Brickell, Ernst} \cite{mc:Brickell1985} then 
+polynomial time. Ernst Brickell \index{Brickell, Ernst} \cite{Brickell1985} then 
 specified an algorithm for breaking multiply iterated Merkle-Hellman knapsack 
 encryption procedures in polynomial time. This made this procedure unsuitable as 
 an encryption procedure. It therefore delivers a one way function whose trapdoor 
@@ -380,44 +393,41 @@ information (defamiliarization of the 0-1 knapsack problem) could be discovered
 by an eavesdropper.
 
 
+
 %--------------------------------------------------------------------
-\section{Decomposition into prime factors as a basis for public key
-procedures}\index{prime factor!decomposition}
+\section{Decomposition into prime factors as a basis for public key procedures}
+\index{prime factor!decomposition}
+
+Primes form the basis for a large number of algorithms for public-key procedures.
 
 
 %--------------------------------------------------------------------
 \hypertarget{RSAVerfahren}{}
-\subsection[The RSA procedure]
-{The RSA procedure\footnote{%
-Please compare chapters \ref{rsabeweis}, ff.
-}$^,$\footnote{%
-Using CT1\index{CrypTool 1} you can gain practical experience
-with the RSA procedure via the menu {\bf Indiv.Procedures \textbackslash{} 
-RSA Cryptosystem \textbackslash{} RSA Demonstration}.\\
-You can find RSA also in CT2\index{CrypTool 2} and JCT\index{JCrypTool}.
+\subsection[The RSA procedure]{The RSA procedure\footnotemark$^,$\footnotemark}
+\addtocounter {footnote} {-1} % Each footnotemark increase the footnotecounter by 1.
+                              % So if there are two, we have to lower it bevor the first usage.
+                              % And to raise it again before the 2nd usage.
+\footnotetext{
+  Please compare chapters \ref{rsabeweis}, ff.
 }
+%%_BEFORE_MOVING_OUT_INDEX: %%## }$^,$\footnote{%
+
+\addtocounter {footnote} {1} 
+\footnotetext{
+  Using CT1\index{CT1} you can gain practical experience
+  with the RSA procedure via the menu {\bf Indiv. Procedures \textbackslash{} 
+  RSA Cryptosystem \textbackslash{} RSA Demonstration}.\\
+  You can find RSA also in CT2\index{CT2} and JCT\index{JCT}.
 }
-% LateX-Learnings: Mit \footnotemark statt \footnote
-% stand der höhere Index unten zweimal (oben ok).
-%
-%  {The RSA procedure\footnotemark$^,$\footnotemark}
-%  \footnotetext{
-%  Please compare chapters \ref{rsabeweis}, ff.
-%  }
-%  \footnotetext{
-%  Using CrypTool\index{CrypTool} you can gain practical experience
-%  with the RSA procedure via the menu {\bf Indiv.Procedures \textbackslash{} 
-%  RSA Cryptosystem \textbackslash{} RSA Demonstration}.
-%  }
-%  
-%   in the article ``Introduction to Elementary Number Theory with Examples'',
-%   chapter~\ref{patternsandstructures}
-%   \hyperlink{RSABeweis}{Beweis des RSA-Verfahrens mit Euler-Fermat}
+%%_BEFORE_MOVING_OUT_INDEX %%## }
+
+
 \index{RSA} \label{rsaverfahren}
 
 As early as 1978, R. \index{Rivest, Ronald} Rivest, \index{Shamir, Adi} 
-A. Shamir, \index{Adleman, Leonard} L. Adleman \cite{mc:RSA1978} introduced 
+A. Shamir, \index{Adleman, Leonard} L. Adleman \cite{rivest/shamir/adleman:1978} introduced 
 the most important asymmetric cryptography procedure to date.  \par
+
 
 \index{factorization!factorization problem}
 \index{Euler!(phi) function}
@@ -448,67 +458,93 @@ binary value $ x^{(j)} \leq N $. \vskip + 5 pt
 \label{rsaproc}
 \end{cryptoprocedure}
 
-\begin{remark}{:}\\
-The Euler phi function is defined as: $ \phi (N)$ is the number of natural 
-numbers that do not have a common factor with $ N $ {} $ x \leq N. $
-Two natural numbers $ a $ and $ b $ are co-prime\index{number!co-prime} if 
-$ \ggt (a,b)=1. $ 
 
-For the Euler phi function it holds that: 
+
+\newpage
+\begin{remark}{: Euler phi function}
+\label{mc:Euler-phi} \hypertarget{mc:Euler-phi}{}
+\index{Euler!(phi) function}
+
+\vskip +10 pt
+\noindent The Euler phi function is defined as:
+
+\fbox{\parbox{0.7\linewidth}{
+\centering
+  $ \phi (n)$ is the number of natural numbers $ x < n $\\
+  that do not have a common factor with $ n $.
+}}
+
+\vskip +10 pt
+\noindent No common factor means: Two natural numbers $ a $ and $ b $ are
+co-prime\index{number!co-prime} if $ \ggt (a,b)=1. $ 
+
+\vskip +10 pt
+\noindent For the Euler phi function it holds that: 
 \[
-\phi (1)=1, \phi(2)=1,
-\phi(3)=2, \phi (4)=2, \phi(6)=2, \phi (10)= 4, \phi (15)=8.
+\phi(1)=1,~~ \phi(2)=1,~~
+\phi(3)=2,~~ \phi(4)=2,~~ \phi(6)=2,~~ \phi(10)= 4,~~ \phi(15)=8.
 \]
-For example, $ \phi (24)=8, $ because
+
+\noindent For example, $ \phi (24)=8, $ because
 \[
 |\{ x <24 : \ggt (x,24) =1 \}| =|\{1,5,7,11,13,17,19,23\}|.
 \]
-If  $ p $ is a prime number, then $ \phi (p)= p-1. $ \\
-If we know the various prime factors $ p_1, \dots , p_k $ of $ N, $ then 
-\[
-\phi(N) = N \cdot (1-\frac{1}{p_1}) \,
-\cdots \, (1-\frac{1}{p_k}).\footnote{%
-Further formulas for the Euler phi function are in
-chapter~\ref{L-Euler-Function} ``\nameref{L-Euler-Function}''.
-}
-\]
-Table~\ref{phi15} gives the values up to $15$. 
-In the case of $ N=pq $, 
-\[
-\phi (N)= pq(1-1/p)(1-1/q) = p(1-1/p)q(1-1/q)=(p-
-1)(q-1).
-\]
-\end{remark}
+
+\noindent Table~\ref{phi15} shows values of $ \phi(n)$ up to $n=25$.
 
 \begin{table}[ht]
 \begin{center}
 \begin{tabular}{|l|l|l|}\hline
-$n$ & $\phi (n) $ & The natural numbers that are co-prime\index{number!co-prime}
-to $ n $ and less than $ n. $ \\ \hline
-1 & 1 & 1  \\
-2 & 1 & 1 \\
-3 &  2 & 1, 2 \\ 
-4 &  2 & 1, 3 \\ 
-5 &  4 & 1, 2, 3, 4 \\ 
-6 &  2 & 1, 5 \\ 
-7 &  6 & 1, 2, 3, 4, 5, 6 \\ 
-8 &  4 & 1, 3, 5, 7 \\ 
-9 &  6 & 1, 2, 4, 5, 7, 8 \\ 
-10 &  4 & 1, 3, 7, 9 \\ 
-15 &  8 & 1, 2, 4, 7, 8, 11, 13, 14 \\ \hline
+$n$  &  $\phi(n)$  &  The natural numbers that are co-prime\index{number!co-prime}
+to $ n $ and less than $n$.\\ \hline
+1 & 1 & 1\\
+2 & 1 & 1\\
+3 &  2 & 1, 2\\ 
+4 &  2 & 1, 3\\ 
+5 &  4 & 1, 2, 3, 4\\ 
+6 &  2 & 1, 5\\ 
+7 &  6 & 1, 2, 3, 4, 5, 6\\ 
+8 &  4 & 1, 3, 5, 7\\ 
+9 &  6 & 1, 2, 4, 5, 7, 8\\ 
+10 &  4 & 1, 3, 7, 9\\ 
+15 &  8 & 1, 2, 4, 7, 8, 11, 13, 14\\
+20 &  8 & 1, 3, 7, 9, 11, 13, 17, 19\\
+25 &  20 & 1, 2, 3, 4, 6, 7, 8, 9, 11, 12, 13, 14, 16, 17, 18, 19, 21, 22, 23, 24\\ \hline
 \end{tabular}
 \end{center}
 \caption{Euler phi function}
 \label{phi15}
 \end{table}
 
+
+\noindent If  $ p $ is a prime number, then $ \phi(p)= p-1 $.\\
+
+\noindent In the case of $ N=pq $:
+\[
+\phi(N)= pq(1-1/p)(1-1/q) = p(1-1/p)q(1-1/q)=(p-
+1)(q-1).
+\]
+
+\noindent If we know the various prime factors $ p_1, \dots , p_k $ of $ n $, then 
+\[
+\phi(n) = n \cdot (1-\frac{1}{p_1}) \,
+\cdots \, (1-\frac{1}{p_k}).\footnote{%
+  Further formulas for the Euler phi function are in
+  chapter~\ref{L-Euler-Function} ``\nameref{L-Euler-Function}''.
+}
+\]
+
+\end{remark}
+\newpage
+
+
+
 The function $ e_T $  is a one way function whose trapdoor information is the 
 decomposition into primes of $ N $.
 
 At the moment, no algorithm is known that can factorize two prime numbers 
 sufficiently quickly for extremely large values (e.g. for several hundred 
-decimal places). The quickest algorithms known today
-\cite{mc:4Stinson1995}\index{Stinson 1995} 
+decimal places). The quickest algorithms known today \cite{Stin2006}
 factorize a compound whole number $ N $ in a time period proportional to $ L(N)= 
 e^{\sqrt{\ln (N) \ln (\ln (N))}}. $ Some example values can be found in 
 table~\ref{lnvalues}.
@@ -516,13 +552,13 @@ table~\ref{lnvalues}.
 \begin{center}
 \begin{tabular}{|l||l|l|l|l|l|l|}\hline
 $N$ & $ 10^{50} $ & $ 10^{100} $ & $ 10^{150} $ & $ 10^{200} $ & $ 10^{250} $ & 
-$ 10^{300} $ \\ \hline
+$ 10^{300} $\\ \hline
 $L(N)$ & $ 1.42 \cdot 10^{10} $ &  $ 2.34  \cdot 10^{15} $ &  $ 3.26 \cdot 
 10^{19} $ &  $ 1.20 \cdot 10^{23} $ &  $ 1.86 \cdot 10^{26} $ &  $ 1.53 \cdot 
-10^{29} $ \\ \hline
+10^{29} $\\ \hline
 \end{tabular}
 \end{center}
-\caption{$L(N)$ value table [Factorization effort related to the modul length]}
+\caption{$L(N)$ value table [factorization effort related to the modul length]}
 \label{lnvalues}
 \end{table}
 
@@ -557,7 +593,7 @@ Unfortunately, this procedure is susceptible to chosen-ciphertext attacks.
 \index{attack!chosen-ciphertext}
 \begin{cryptoprocedure}
 Let $ p $ and $ q $ be two different prime numbers with $ p,q\equiv 3 \mod 4 $ 
-and $ n = pq.$ Let $ 0\leq B \leq n-1.$ \\
+and $ n = pq.$ Let $ 0\leq B \leq n-1.$\\
 \textbf{Public key:}
 \[ e=(n,B). \]
 \textbf{Private key:}
@@ -596,7 +632,7 @@ Backdoor information is the decomposition into prime numbers of $ n = pq. $
     distribution of the discrete logarithm values and apply Shank's
     baby-step-giant-step method:
     See learning units 6.1-6.3, pages 1-6/6.\\
-    NT can be called in CT1\index{CrypTool 1} via the menu path
+    NT can be called in CT1\index{CT1} via the menu path
     {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
     \textbackslash{} Learning Tool for Number Theory}.
     See appendix \ref{s:appendix-Learn-NT}.
@@ -608,7 +644,7 @@ number of algorithms for public-key procedures.
 
 %--------------------------------------------------------------------
 \subsection{The discrete logarithm in \texorpdfstring{$ \Z_p $}{Zp}}
-\label{L_Discrete_Logarithm}  %Die Kapitelnr von \label wird per per \ref geholt.
+\label{L_Discrete_Logarithm}  %Die Kapitelnr von \label wird per \ref geholt.
 
 Let $ p $ be a prime number and let $ g \in \Z_p^\ast=\{0,1,\ldots,p-1\} $. Then 
 the discrete exponential function base $ g $  is defined as
@@ -623,15 +659,16 @@ y=g^k \mod p {\rm .}\]
 It is much more difficult to calculate the discrete logarithm than to evaluate 
 the discrete exponential function (see chapter \ref{MultOrdPrimitveRoot}).
 Table~\ref{dlogprocs} lists several procedures for calculating the discrete logarithm 
-and their complexity \cite{mc:4Stinson1995}\index{Stinson 1995}.
+and their complexity \cite{Stin2006}.
+
 \begin{table}[ht]
 \begin{center}
 \begin{tabular}{|l|l|}\hline
-Name                 &        Complexity \\ \hline \hline
-Baby-step-giant-step &         $ O(\sqrt{p}) $ \\ \hline
-Silver-Pohlig-Hellman    &    polynomial in $ q, $ the greatest \\
-&  prime factor of $ p-1. $ \\ \hline
-Index-Calculus &             $ O(e^{(1+o(1)) \sqrt{\ln (p) \ln (\ln (p))}}) $ \\ 
+Name                 &        Complexity\\ \hline \hline
+Baby-step-giant-step &         $ O(\sqrt{p}) $\\ \hline
+Silver-Pohlig-Hellman    &    polynomial in $ q, $ the greatest\\
+&  prime factor of $ p-1. $\\ \hline
+Index-Calculus &             $ O(e^{(1+o(1)) \sqrt{\ln (p) \ln (\ln (p))}}) $\\ 
 \hline
 \end{tabular}
 \end{center}
@@ -649,9 +686,9 @@ Kleinjung calculated the discrete logarithm modulo a 160 digit prime number $p$
 and generator $g$:
 $$
 \begin{array}{r@{\:}c@{\:}l}
-p & = & \lfloor 10^{159}\pi\rfloor + 119849 \\
-  & = & 314159265358979323846264338327950288419716939937510582097494 \\
-  &   & 459230781640628620899862803482534211706798214808651328230664 \\
+p & = & \lfloor 10^{159}\pi\rfloor + 119849\\
+  & = & 314159265358979323846264338327950288419716939937510582097494\\
+  &   & 459230781640628620899862803482534211706798214808651328230664\\
   &   & 7093844609550582231725359408128481237299\\
 g & = & 2
 \end{array}
@@ -661,13 +698,13 @@ determined:\footnote{The integer $y$ was chosen as the first 159 digits of the
 Euler number $e$.}
 $$
 \begin{array}{r@{\:}c@{\:}l}
-y & = & \lfloor 10^{159}e\rfloor \\
-  & = & 271828182845904523536028747135266249775724709369995957496696 \\
-  &   & 762772407663035354759457138217852516642742746639193200305992 \\
-  &   & 1817413596629043572900334295260595630738 \\
+y & = & \lfloor 10^{159}e\rfloor\\
+  & = & 271828182845904523536028747135266249775724709369995957496696\\
+  &   & 762772407663035354759457138217852516642742746639193200305992\\
+  &   & 1817413596629043572900334295260595630738\\
 k & = & \log_g(y)\mod p\\
-  & = & 829897164650348970518646802640757844024961469323126472198531 \\
-&   & 845186895984026448342666252850466126881437617381653942624307 \\
+  & = & 829897164650348970518646802640757844024961469323126472198531\\
+&   & 845186895984026448342666252850466126881437617381653942624307\\
 &   & 537679319636711561053526082423513665596
 \end{array}
 $$
@@ -679,16 +716,14 @@ Index-Calculus) \index{general number field sieve (GNFS)} and took about
 \subsection[Diffie-Hellman key agreement]
 {Diffie-Hellman key agreement\footnotemark}
 \footnotetext{%
-  With CT1\index{CrypTool 1} this exchange protocol has been
+  With CT1\index{CT1} this exchange protocol has been
   visualized: you can execute the single steps with concrete numbers using 
   menu {\bf Indiv. Procedures \textbackslash{} Protocols \textbackslash{}
   Diffie-Hellman Demonstration}.\\
-  In JCT\index{JCrypTool} you can find it in the default perspective
+  In JCT\index{JCT} you can find it in the default perspective
   via the menu item {\bf Visuals \textbackslash{} Diffie-Hellman Key
   Exchange (EC)}.
 }
-
-\index{key agreement (key exchange)!Diffie-Hellman} 
 \index{Diffie, Whitfield}
 \index{Hellman, Martin}
 \index{Diffie-Hellman}
@@ -700,16 +735,16 @@ already exchanged the secret key. In classical cryptography you cannot avoid
 exchanging secrets without encrypting them. Transmission safety here must be 
 achieved using non-cryptographic methods. We say that we need a secret channel 
 for exchanging secrets. This channel can be realised either physically or 
-organisationally. \\
+organisationally.\\
 What is revolutionary about modern cryptography is, amongst other things, that 
 you no longer need secret channels: You can agree secret keys using non-secret, 
-i.e. public channels. \\
+i.e. public channels.\\
 One protocol that solves this problem is that of Diffie and Hellman (crypto 
 procedure~\ref{diffiehellmanproc}).
 \begin{cryptoprocedure}
 Two subscribers $ A $ and $ B $ want to agree on a joint secret key. \par
 Let $ p $ be a prime number and $ g $ a natural number. These two numbers do not 
-need to be secret. \\
+need to be secret.\\
 The two subscribers then select a secret number $ a $ and $ b$ from which they 
 calculate the values $ \alpha = g^{a}\mod p $ and $ \beta = g^b \mod p. $ They 
 then exchange the numbers $ \alpha $ and $ \beta $. To end with, the two 
@@ -725,6 +760,7 @@ Thus
 The safety of the {\bf Diffie-Hellman protocol} is closely connected to 
 calculating the discrete logarithm mod $p$\index{logarithm}. It is even thought that these 
 problems are equivalent.
+
 
 %--------------------------------------------------------------------
 \subsection{ElGamal public key encryption procedure in \texorpdfstring{$ \Z_p^\ast$}{Zp*}}
@@ -743,7 +779,7 @@ difficult to compute. Let $ \alpha \in \Z_p^\ast $ be a primitive element. Let $
 \textbf{Private key:}
 \[a. \]
 Let $ k \in \Z_{p-1} $ be a random number and $ x \in \Z_p^{\ast} $ the 
-plaintext. \\
+plaintext.\\
 \textbf{Encryption:}
 \[ e_T(x,k)=(y_1,y_2), \]
 where
@@ -759,11 +795,13 @@ and
 
 
 %--------------------------------------------------------------------
-\subsection{Generalised ElGamal public key encryption procedure}
+\subsection{Generalized ElGamal public key encryption procedure}
 
-The discrete logarithm can be generalised in any number of finite \index{group} 
+The discrete logarithm can be generalized in any number of finite \index{group} 
 groups $ (G, \circ) $. The following provides several properties of $ G, $ that 
-make the discrete logarithm problem difficult. \\
+make the discrete logarithm problem difficult. Instead of $g\circ h$ we often
+write only $g h$.\\
+
 \index{exponential function!calculation}
 \paragraph*{Calculating the discrete exponential function}
 Let $ G $ be a group with the operation $ \circ $ and $ g \in G. $ The 
@@ -795,11 +833,11 @@ $ g $. The claim is thus proved by induction to $ n. $
 \noindent {\bf Problem of the discrete logarithm}\index{logarithm problem!discrete}
 \vskip +10 pt
 \begin{center}
-\fbox{\parbox{12cm}{        
+\fbox{\parbox{11cm}{        
 Let $ G $ by a finite group with the operation $ \circ. $ Let $ \alpha \in G $ 
-and $ \beta \in H=\{ \alpha^{i}: i\geq 0\}. $ \\
+and $ \beta \in H=\{ \alpha^{i}: i\geq 0\}. $\\
 We need to find a unique $ a \in {\rm N} $ with $ 0 \leq a \leq |H| -1 $ and $ \beta 
-= \alpha^{a}. $ \\       
+= \alpha^{a}. $\\       
 We define $ a $ as $ \log_\alpha (\beta). $
 }}
 \end{center}
@@ -808,36 +846,39 @@ We define $ a $ as $ \log_\alpha (\beta). $
 A simple procedure for calculating the discrete logarithm of a group element, 
 that is considerably more efficient than simply trying all possible values for $ 
 k, $ is the \index{baby-step-giant-step} baby-step-giant-step algorithm.
+
 \begin{theorem}\label{thm-cry-bsgs}[baby-step-giant-step algorithm]
 Let $ G $ be a group and $ g \in G. $ Let $ n $ be the smallest natural number 
-with $ |G|\leq n^2. $ Then the discrete logarithm of an element $ h 
-\in G $ can be calculated base $ g $ by generating two lists each containing $ n 
-$ elements and comparing these lists.\\
+with $ |G|\leq n^2. $ Then the discrete logarithm of an element $ h \in G $
+can be calculated base $ g $ by generating the following two lists each
+containing $ n $ elements and comparing these lists:\\
+\centerline{giant-step list: $ \{1,g^n,g^{2n}, \ldots, g^{n \cdot n}\}, $}\\
+\centerline{baby-step list: $ \{ hg^{-1} , hg^{-2} , \ldots , hg^{-n} \}.$}\\
+After detecting a common element the calculation can be stopped.
 In order to calculate these lists, we need $ 2n $ group operations.
 \end{theorem}
 
-\begin{proof}{} !N!*
-  First create the two lists \\
-Giant-step list: $ \{1,g^n,g^{2n}, \ldots, g^{n \cdot n}\}, $\\
-Baby-step list: $ \{ hg^{-1} , hg^{-2} , \ldots , hg^{-n} \}. $ \par
+\begin{proof}{} %%% !N!*  ???
 If $ g^{jn} = hg^{-i}, $ i.e. $ h = g^{i+jn}, $ then the problem is solved. If 
 the lists are disjoint, then $ h $ cannot be represented as $ g^{i + jn}, i, 
 j\leq n,$. As all powers of $ g $ are thus recorded, the logarithm problem does 
 not have a solution.
 \end{proof}
 
-You can use the baby-step-giant-step algorithm to demonstrate that it is much 
+You can use the baby-step-giant-step algorithm to demonstrate that it is much
 more difficult to calculate the discrete logarithm than to calculate the 
-discrete exponential function. If the numbers that occur have approximately 1000 
-bits in length, then you only need around 2000 multiplications to calculate $ 
-g^k $ but around $ 2^{500} \approx 10^{150} $ operations to calculate the 
-discrete logarithm using the baby-step-giant-step algorithm. \\
+discrete exponential function. If the numbers that occur have approximately
+1000 bits in length, then you only need around 2000 multiplications (see
+theorem \ref{thm-cry-bsgs}) to calculate all $ g^k $, but around $ 2^{500}
+\approx 10^{150} $ operations to calculate the discrete logarithm using
+the baby-step-giant-step algorithm.\\
 In addition to the baby-step-giant-step algorithm, there are also numerous other 
-procedures for calculating the discrete logarithm \cite{mc:4Stinson1995}\index{Stinson 1995}.
+procedures for calculating the discrete logarithm \cite{Stin2006}.
 
 \paragraph*{The theorem from Silver-Pohlig-Hellman}
 In finite Abelian groups, the discrete logarithm problem can be reduced to 
 groups of a lower order.
+
 \begin{theorem}\label{thm-cry-pohe}[Silver-Pohlig-Hellman]
 Let $ G $ be a finite Abelian group with $ |G|= p_1^{a_1} p_2^{a_2} \cdot \ldots 
 \cdot p_s^{a_s}. $ The discrete logarithm in $ G $ can then be reduced to 
@@ -852,105 +893,51 @@ complexity \index{complexity} of the logarithm problem is approximately
 group used $ G $ should have a large prime factor. In particular, if the 
 discrete exponential function in the group $ \Z_p^{\ast} $ is to be a one way 
 function, then $ p -1 $ must be a large prime factor. In this case a
-generalized ElGamal procedure can be defined (crypto
-procedure~\ref{genelgamalproc}).
+generalized ElGamal procedure can be defined (crypto procedure~\ref{genelgamalproc}).
+
+\clearpage % Ohne clearpage kommt nur die crypto-procedure auf eine neue Seite, aber
+           % der Text zu den ECC, der ganz am Ende stehen soll, bleibt auf der Vorgängerseite.
 \begin{cryptoprocedure}
-Let $ G $ be a finite group with operation $  \circ, $ and let $ \alpha \in G, $ 
+\vskip +6pt
+Let $ G $ be a finite group with operation $ \circ $, and let $ \alpha \in G $, 
 so that the discrete logarithm in $ H =\{ \alpha^{i}: i \geq 0 \} $ is 
-difficult, Let $ a $ with $   0 \leq a \leq |H| -1 $ and let $ \beta = 
-\alpha^{a}. $\\
+difficult to calculate. Let $ a $ with $ 0 \leq a \leq |H| -1 $ and let
+$ \beta = \alpha^{a} $.\\
+
 \textbf{Public key:}
-\[ \alpha,\beta. \]
+\[ \alpha,\beta \]
 \textbf{Private key:}
-\[a. \]
-Let $ k \in \Z_{|H|} $ be a random number and $ x \in G $ be a plaintext. \\
+\[a \]
+Let $ k \in \Z_{|H|} $ be a random number, $ k\neq 0$, and $ x \in G $ be a plaintext.\\
+
 \textbf{Encryption:}
-\[ e_T(x,k)=(y_1,y_2), \]
+\[ e_T(x,k)=(y_1,y_2) ,\]
 where
 \[ y_1=\alpha^k \]
 and
-\[ y_2 = x\circ \beta^k .\]
+\[ y_2 = x\circ \beta^k .\]\\
+
 \textbf{Decryption:}
 \[ d_T(y_1,y_2)= y_2\circ (y_1^{a})^{-1}  \]
 \caption{Generalized ElGamal (based on the factorization problem)}
 \label{genelgamalproc}
 \end{cryptoprocedure}
 
-\noindent \hyperlink{ellcurve}{Elliptic curves}{} provide useful groups for public key 
-encryption procedures.
+\vskip +25pt
+\noindent \hyperlink{Chapter_EllipticCurves}{Elliptic curves}{} (see chapter
+\ref{Chapter_EllipticCurves}) provide useful groups for public key encryption
+procedures.
 
 
-%--------------------------------------------------------------------
-\newpage
-\begin{thebibliography}{99}
+
+%------------------------------------------------------------------------------
+\putbib[../de/references]
 \addcontentsline{toc}{section}{Bibliography}
+\end{bibunit}
 
-   \bibitem[Adleman1982]{mc:Adleman1982} \index{Adleman 1982}
-       Adleman L.: \\ 
-       \emph{On breaking the iterated Merkle-Hellman public key 
-             Cryptosystem.} \\ 
-       Advances in Cryptology, Proceedings of Crypto 82, 
-       Plenum Press 1983, 303-308.
-
-   \bibitem[Balcazar1988]{mc:Balcazar1988} \index{Balcazar 1988} 
-       Balcazar J.L., Daaz J., Gabarr J.: \\ 
-       \emph{Structural Complexity I.} \\ 
-       Springer Verlag, pp 63.
-           
-    \bibitem[Brickell1985]{mc:Brickell1985} \index{Brickell 1985}
-       Brickell E.F.: \\
-       \emph{Breaking Iterated Knapsacks.}  \\
-       Advances in Cryptology: Proc. CRYPTO'84, 
-       Lecture Notes in Computer Science, vol. 196, 
-       Springer-Verlag, New York, 1985, pp. 342-358.
-
-    \bibitem[Hesselink2001]{mc:Hesselink2001} \index{Hesselink 2001} 
-       Hesselink Wim H.: \\
-       \emph{The borderline between P and NP.} \\
-       \url{http://www.cs.rug.nl/~wim/pub/whh237.pdf},\\
-       February 12, 2001.
-
-    \bibitem[Lagarias1983]{mc:Lagarias1983} \index{Lagarias 1983} 
-       Lagarias J.C.: \\
-       \emph{Knapsack public key Cryptosystems and diophantine
-             Approximation.} \\
-       Advances in Cryptology, Proceedings of Crypto 83, Plenum Press.
-
-    \bibitem[Merkle1978]{mc:Merkle1978} \index{Merkle 1978} 
-       Merkle R. and Hellman M.: \\
-       \emph{Hiding information and signatures in trapdoor knapsacks.} \\
-       IEEE Trans. Information Theory, IT-24, 1978.
-
-    \bibitem[RSA1978]{mc:RSA1978} \index{RSA 1978}
-       Rivest R.L., Shamir A. and Adleman L.: \\
-       \emph{A Method for Obtaining Digital Signatures and 
-             Public Key Cryptosystems.} \\
-       Commun. ACM, vol 21, April 1978, pp. 120-126.
-
-    \bibitem[Shamir1982]{mc:Shamir1982} \index{Shamir 1982}
-       Shamir A.: \\
-       \emph{A polynomial time algorithm for breaking the basic 
-             Merkle-Hellman Cryptosystem.} \\
-       Symposium on Foundations of Computer Science (1982), 145-152.
-           
-%already defined in elementaryNumberTheory.tex
-    \bibitem[Stinson1995]{mc:4Stinson1995} \index{Stinson 1995}
-       Stinson D.R.: \\
-       \emph{Cryptography.} \\
-       CRC Press, Boca Raton, London, Tokyo, 1995.
-
-\end{thebibliography}
+\noindent All links have been confirmed at July 13, 2016.
 
 
-%--------------------------------------------------------------------
-%\newpage
-%\chapter*{Web links}
-%% \section*{Web links}   %%% TODO: einheitlich section oder chapter für Web-Links
-                         %%% TODO: einheitlich addcontentsline NACH WebLinks und NACH Bibliography
-%\addcontentsline{toc}{section}{Web links}
-%\begin{enumerate}
-%   \item \url{http://www.geocities.com/st_busygin/clipat.html}
-%\end{enumerate}
 
 % Local Variables:
 % TeX-master: "../script-en.tex"

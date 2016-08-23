@@ -1,16 +1,78 @@
 % $Id$
 % ............................................................................
-%      MAIN or STARTING file for this document.
+%        MAIN or STARTING Datei für dieses Dokument
 %
-%      Add (lengthy) comment only into this German version!
+% Comments: - Add (lengthy) comment only into this German version!
+%           - Kommentare, die sich NICHT NUR auf die englische Version beziehen,
+%             nur in die deutschen TeX-Dateien.
+%
+% Grammatik dt.: - der Algorithmus; Genitiv: des Algorithmus
+%                  (http://www.duden.de/rechtschreibung/Algorithmus)
+%                - der Logarithmus; Genitiv: des Logarithmus
+%                - der Prozess; Genitiv: des Prozesses (http://www.duden.de/rechtschreibung/Prozess)
+%
+% Rechtschreibung dt: - eine abelsche Gruppe  --> "abelsche" klein.
+%                     - eine Boolesche Funktion --> bisher immer groß [passt das zu Abel?]
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%
+% Housekeeping:
+% - Use  %-%-%-%-%-%-%  TEST_CURRENT  %-%-%-%-%-%-%-%  as long as working on a current problem.
+% be_2016-07-13: - Blank am Ende weg: " \\\" --> "\\" done all files (d+E).
+% be_2016-07-16: - Trennung unterbinden:
+%                  "CT 2" --> "CT2" done all files (d+E)
+%                  "CrypTool 2" --> "CrypTool~2" done all files (d+E)
+%                  [ Abstandsmäßig etwas enger wäre: "CrypTool 2" --> "CrypTool\,2" ]
+%                  Analog für CrypTool 1  done (d+E).
+% be_2016-07-18: - If implemented: CT2 and JCT mentioned as well as CT1.
+% be_2016-07-20: - Consistent names for chapter labels and hypertargets, all start with "Chapter_"
+%
 %
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%
+% Remark concerning LaTeX:
+% 1) Appearing of black boxes: They are only created if you have the draft option set.
+%    \documentclass[11pt,a4paper,draft]{report}
+%                                ^^^^^
+%    It will leave if you delete this - and just appear as a warning in texfile.log
+%    such as  Overfull \hbox (38.36009pt too wide)  in paragraph at lines 16--30
+% 2) Black boxes kamen auch nach Einfügen der Referenzen:
+%    http://tex.stackexchange.com/questions/171999/overfull-hbox-in-biblatex
+%    --> Load \usepackage[final]{microtype}
+%        or try  \emergencystretch=1em  or try  \begin{tolerant}{3000}
+% 3) 
+%    
+%    
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%
+% Todos for later:
+% 1) In code ifdefs machen, dass wenn draft (WO???) gesetzt, dass dann
+%    Verschiedenes anders, aber automatisch:
+%    - kleineres PDF für Cover
+%    - \errorcontextlines=200  --> Erh. mehr Kontextinfo um auftretende Fehler herum.
+%    - \tracingstats=2 
+%    - ...
+% 2) Deutsche Erläuterungen in der englischen Bibliography durch englische Texte ersetzen,
+%    wenn klar, wie das mit bibtex machbar ist!!!!!
+%    Generelle Info: https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management
+%                    https://www.tug.org/TUGboat/tb30-1/tb94mori.pdf
+%                    http://mirror.unl.edu/ctan/biblio/bibtex/contrib/babelbib/babelbib.pdf
+% 3) bibtex durch biblatex ersetzen ?
+%    Dürfte aber viele Problem machen, denn laut Doc zu v3.4 in
+%    http://tug.ctan.org/macros/latex/exptl/biblatex/doc/biblatex.pdf
+%    sind viele Packages wie babelbib und bibunits damit nicht kompatibel,
+%    und die nutze ich momentan w/ der Verzeichnisse.
+%    
+%    
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-\documentclass[a4paper,11pt,oneside]{book}
+
+\documentclass[a4paper,11pt,oneside,ngerman]{book}
 \overfullrule=5pt % uncomment to mark overfull boxes
-\usepackage[latin1]{inputenc} % Umlaute  %%BERM2: Added for biciphers.tex (necessary any more?)
-\usepackage[german]{babel} % TODO: ngerman (für neue dt. Rechtschreibung) führte zu Compiliationsfehler
-%\usepackage[T1]{fontenc} %BERM2: biciphers.tex used T1.
+\usepackage[latin1]{inputenc} % Umlaute  %%BERM2: Added for bitciphers.tex (necessary any more?)
+%%% \usepackage[utf8]{inputenc}   % Alternative?
+\usepackage[ngerman]{babel} % ngerman (für neue dt. Rechtschreibung) geht nur, wenn auch bei documentclass gesetzt.
+                            % Steht bei documentclass keine Sprache, geht hier nur german.
+%\usepackage[T1]{fontenc} %BERM2: bitciphers.tex used T1.
                           % Ohne T1 wurden dort \dh und \textperthousand nicht erkannt.
                           % Die Hinzunahme von T1 (soll eigentlich Umbrüche verbessern),
                           % erzeugt aber ein paar zusätzliche schwarze Balken (z.B. bei
@@ -20,6 +82,24 @@
 \DeclareTextSymbolDefault{\dh}{T1}
 \DeclareTextSymbolDefault{\textperthousand}{T1}
 
+
+%%% Remark: Wenn man biblatex nutzt, darf man nicht mehr nutzen / braucht man kein babelbib mehr !!!
+%%%         Siehe: http://tex.stackexchange.com/questions/219203/how-to-use-babelbib
+%%%   It is really much easier to do this in biblatex (and you can use the natbib option
+%%%   and use command like \citep). babelbib and natbib aren't compatible.
+%%% --> Ich sah erst keinerlei Effekt in der Bibliography!
+%%% --> Als ich babalpha nahm, kompilierte es nicht mehr wegen {Evaluating Logarithms in GF(2\verb|^|n)}
+%%%     Fügte $-Klammer drumherum, was wahrscheinlich eh korrekter. 5.8.16
+\usepackage[fixlanguage]{babelbib} % Im D per bibtex erzeugte Bibliography statt editors -> Herausgeber, 
+                                   % bei edition aus "1" eine "1." (ohne babelbib im Englischen "1" unverändert).
+                                   % Leider macht es aus Mar nicht März
+\selectbiblanguage{ngerman}
+%% \bibliographystyle{babplain}
+%%% \bibliography{../de/references.bib}  %% Evtl. hier EINMAL setzen, statt in jedem \putbib[../de/references]
+
+
+\usepackage{morewrites}% Neu wegen "message {No room for a new \string #" nach Hinzufügen von \lostof{opensslcode}
+
 \usepackage{datetime} % To distinguish often compiled draft versions
 % \usepackage[dvips]{graphics}
 % \usepackage{graphicx}
@@ -28,16 +108,26 @@
 \usepackage{amssymb,amscd,latexsym}   %BERM2: added for biciphers.tex
 \usepackage{amsfonts}
 \usepackage{amsthm}
+\usepackage{ae}% Neu wegen dlog.tex
 \usepackage{color}   %BERM2: added for biciphers.tex
+\usepackage{wrapfig}%16xxxxxxxxxxxxxx WIRKLICH NOETIG?
+
+\usepackage{tikz,tikz-cd} %16xxxxxxxxxxxxxx WIRKLICH NOETIG?
+\usepackage{fancybox} %16xxxxxxxxxxxxxx
 
 \usepackage{fancyvrb}
-\usepackage{makeidx}  % Alternativ evtl. \usepackage{imakeidx} (bemerkte keinen Unterschied)
-\usepackage[pdftex]{graphicx}
+\usepackage{makeidx}  % Alternativ evtl. \usepackage{imakeidx} (bemerkte keinen Unterschied) --> Alphabetheader wahrscheinlich möglich!
+%16xxxxxxxxxxxxxx \usepackage[pdftex]{graphicx} %% RAUS wegen Option clash for package graphicx.
 \usepackage{pdfpages}   % SR_2009: added new cover
-%\usepackage{enumitem} %BE_2012: eliminate space after end{itemize} didn't work
+%\usepackage{enumitem} %BE_2012: eliminate space after end{itemize}  Did NOT work!
+%                      %BE_2016: So sollte er topsep, partopsep, itemsep und nolistsep kennen. Did NOT work!
+%  Trotz http://tex.stackexchange.com/questions/119919/no-spacing-between-enumerated-items-with-usepackageenumerate
+%      (enthält Beispiel für Multiple Choice Quizz)
+%  See also: http://www.troubleshooters.com/linux/lyx/ownlists.htm +++
 \usepackage{paralist}  %BE_2012: eliminate space after end{itemize} worked with compactitem
 \usepackage{arydshln} %BE_Jan2013: To use hdashline
 \usepackage{verse}    %BE_Feb2013: To use \settowidth{\versewidth}{xxx}
+
 
 %\usepackage{myThanks}
 %\usepackage{thumbpdf}
@@ -49,22 +139,106 @@
 % Formatierung der Fußnoten
 \usepackage[flushmargin]{footmisc}
 \usepackage{fullpage}
+
+% Rahmen um Boxen, die auch mehrzeilig sein können (siehe Euler-Phi-Def.)
+% \usepackage{framed}  %% Nicht gebraucht, da man dafür auch \parbox innerhalb von \fbox aufrufen kann.
+
 \usepackage[hyphens]{url} % options "hyphens" enables linebreaks nach Bindestrich in \url{}
+                          % (evtl. usepackage url erst NACH usepackage hyperref?)
 \appto\UrlBreaks{\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j
 \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w
-\do\x\do\y\do\z}  % Trennung in langen URLs nach jedem Kleinbuchstaben möglich.
+\do\x\do\y\do\z}
+% Trennung in langen URLs nach jedem Kleinbuchstaben möglich (braucht manchmal zusätzlich sloopypar).
+% Vgl http://tex.stackexchange.com/questions/3033/forcing-linebreaks-in-url  und \def\UrlBigBreaks{\do\/\do-\do:}
+%
+% http://tex.stackexchange.com/questions/241343/what-is-the-meaning-of-fussy-sloppy-emergencystretch-tolerance-hbadness
+% --> use \sloppy
+% http://golatex.de/silbentrennung-letzter-ausweg-sloppypar-t3535.html
+% --> evtl. bessere Alternativen:
+%        \begin{sloppypar}    ...   \end{sloppypar}
+%     oder
+%        \usepackage{microtype} %Sorgt für bessere Platzausnutzung der \hbox bei Umbrüchen
+%        \setlength{\emergencystretch}{1em} %Sorgt für bessere Platzausnutzung der \hbox bei Umbrüchen
+% 
+% \usepackage{breakurl}  %BE_2016Jul: War nicht nötig!
+% http://www.undertec.de/blog/2011/10/latexbibtex-zeilenumbruch-in-url.html
+% Wer in seinem Literaturverzeichnis eine Quellenangabe auf eine Webseite
+% mit "\url{}" %setzt, kann Probleme mit dem Zeilenumbruch bekommen.
+% Um dieses Problem zu beseitigen, bindet man das Paket "breakurl" nach dem
+% Paket "hyperref" mit "\usepackage{...}" ein. Nun kann man ohne Probleme
+% den "\url{}"-Befehl in einem BibTeX-File verwenden und erhält einen
+% Zeilenumbruch in der Url, ohne dass die Möglichkeit in PDF-Dokumenten
+% verloren geht, den Link direkt auszuführen.
+
+
 
 % Literaturverzeichnis kapitelweise
-\usepackage[labelstoglobalaux]{bibunits} % ohne labelstoglobalaux scheint man thebibilograpy und bibtex nicht mischen zu können
+\usepackage[labelstoglobalaux]{bibunits} % ohne labelstoglobalaux scheint man thebibilography und bibtex nicht mischen zu können
+
 
 \usepackage{float}
 \usepackage{subfig}
 \usepackage{shorttoc}
-\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black,bookmarksnumbered=true,pdfpagelabels,plainpages=false,hyperfootnotes=false]{hyperref}
+
+% First \textperthousand was used for the promille symbol in bitcipers.tex.
+% As a black box appeared after a %, I tried \usepackage{textcomp}.
+% However, then 2 warnings cam eup at \copyright: 
+%   script-de.tex --- 326
+%   LaTeX Font Warning: Font shape `TS1/aer/m/n' undefined using `TS1/cmr/m/n' instead
+%                       for symbol `textcopyright' on input line 326.
+% Info:
+% \textperthousand only works in text mode, not in math mode.
+% \permil from the package wasysym, works in both text mode as in math mode.
+\usepackage{wasysym}%Necessary for promille symbol in bitcipers.tex
+
+\usepackage{eurosym}%Necessary for € symbol in bitcipers.tex
+
+
+
+% -------------
+% \usepackage{xstring,xifthen}  %BE_2016Jun: %% be_todo: To use \StrSubstitute{abcde}{d}{D} (together with hyperref)
+\usepackage{xstring}  %BE_2016Jun: %% be_todo: To use \StrSubstitute{abcde}{d}{D}  (together with hyperref)
+
 %To reduce the number of hyperlink related 'pdfTeX warning's we use options 
 % pdfpagelabels, plainpages=false and, hyperfootnotes=false,
 % and place hyperref after float and after mykeidx!
 %Option debug helps finding problems.
+
+%BE_2016Jun: %% be_todo -- 3. Versuch: nameref erst einer Variablen zuweisen und diese dann um // strippen.
+
+
+%BE_2016Jun: %% be_todo -- 2. Versuch: Nach \usepackage{hyperref}
+% \usepackage{nameref}% loads gettitlestring
+% \GetTitleStringSetup{expand} % Default way would be without expansion.
+
+
+%BE_2016Jun: %% be_todo -- 1. Versuch: TUT noch nicht:
+%https://viaverdepaisagismo.com.br/index.cgi/ar/00/http/tex.stackexchange.com/questions/296643/how-to-use-nameref-with-xstring-package-to-check-string-length
+% http://tex.stackexchange.com/questions/178610/replacing-substrings-by-linebreaks
+% Within \StrSubstitute or \StrLen we need an expandable version of \nameref (%BE_2016Jun):
+\makeatletter
+% \newcommand\@namedisablecommands{}
+% \newcommand{\addnamedisablecommand}[1]{%
+\newcommand{\getnamereftext}[1]{%
+  \@ifundefined{r@#1}{}{%
+    \unexpanded\expandafter\expandafter\expandafter{%
+      \expandafter\expandafter\expandafter\@thirdoffive\csname r@#1\endcsname
+    }%
+  }%
+}
+\makeatother
+
+
+% !!! --------------------------------------------------------------------------  !!!!!!!!!!!!!!!!!!
+% !!! http://tex.stackexchange.com/questions/58469/why-are-listof-and-listoffigures-styled-differently
+% !!! BEACHTE: Several problems can be avoided, if hyperref is the last package leoaded !!!!!!!!!!!!
+%              (Vorher hatte ich es direkt nach \usepackage{xstring} )
+% \usepackage[dvipdfm, colorlinks=true, bookmarksopen=true, bookmarksopenlevel=4, breaklinks=true, pdfstartview=Fit, linkcolor=blue]{hyperref}
+% \usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black,bookmarksnumbered=true,pdfpagelabels,plainpages=false,hyperfootnotes=false]{hyperref}
+%% https://www.apfeltalk.de/community/threads/latex-hyperref-ja-aber-bitte-ohne-rahmen.82217/
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=black,bookmarksnumbered=true,pdfpagelabels,plainpages=false,hyperfootnotes=false]{hyperref}
+
+
 
 \floatstyle{boxed}  % This is necessary to have borders around the Zitate.
                     % After the ctsquote def overruled by \floatstyle{ruled} ?
@@ -76,11 +250,37 @@
 \newfloat{sagecode}{!ht}{loc}[chapter]
 \floatname{sagecode}{SageMath-Beispiel}
 
+% With  "\newfloat{opensslcode}{!ht}{loc}[chapter]"  both Verzeichnisse of sagecode and opensslcode contained
+% all entries --> It's important to add a new extension name (where the temp info is collected) per list type!!!
+% Statt loc wie bei sagecode, dann bspw. loo oder loos verwenden.
+\newfloat{opensslcode}{!ht}{loos}[chapter]
+\floatname{opensslcode}{OpenSSL-Beispiel}
+
 \newfloat{cryptoprocedure}{!ht}{lop}[chapter]
 \floatname{cryptoprocedure}{Krypto-Verfahren}
 
 
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE%16xxxxxxxxxxxxxx
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE%16xxxxxxxxxxxxxx
+\providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE%16xxxxxxxxxxxxxx
+\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE%16xxxxxxxxxxxxxx
+
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE%16xxxxxxxxxxxxxx
+\providecommand{\DIFaddend}{} %DIF PREAMBLE%16xxxxxxxxxxxxxx
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE%16xxxxxxxxxxxxxx
+\providecommand{\DIFdelend}{} %DIF PREAMBLE%16xxxxxxxxxxxxxx
+
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE%16xxxxxxxxxxxxxx
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE%16xxxxxxxxxxxxxx
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE%16xxxxxxxxxxxxxx
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE%16xxxxxxxxxxxxxx
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE%16xxxxxxxxxxxxxx
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE%16xxxxxxxxxxxxxx
+
+
+\usepackage{ragged2e} % be_2016-08-04: ragged margin with hyphenation w/ blackbox in index
 \makeindex
+% \makeindex[columns=3, title=Alphabetical Index] %%% TodoTodo_Nice-to-have-only: Alphabetzeichen als Header im Index. Tat nicht! --> Siehe usepackage{imakeidx}
 \hypersetup{colorlinks=true}
 
 %\newlength{\myFootnoteWidth}
@@ -91,6 +291,7 @@
 % \hoffset-0.7in
 \newtheorem{definition}{Definition}[section]
 \newtheorem{satz}{Satz}[section]
+\renewenvironment{proof}[1]{\noindent\textbf{Beweis #1} \\}{\hfill$\Box$\par}
 \newenvironment{Beweis}[1]{\noindent\textbf{Beweis #1} \\}{\hfill$\Box$\par}
 \newenvironment{example}[1]{\noindent\textbf{Beispiel#1}}{}
 \newenvironment{remark}[1]{\noindent\textbf{Bemerkung#1}}{}
@@ -135,14 +336,14 @@
 %	{\Huge ~ \\[20pt]%NUR SO bekam ich VOR dem Titel noch etwas mehr Abstand nach oben
 % 	       Das CrypTool-Buch:\\[20pt]
 	{\Huge Das CrypTool-Buch:\\[20pt]
-	       Kryptographie lernen und anwenden\\[15pt]
-               mit CrypTool und SageMath} \\[25pt]
+	       {\bf Kryptographie lernen und anwenden\\[15pt]
+                mit CrypTool und SageMath}} \\[35pt]
 	{\LARGE Hintergrundmaterial und Zusatzinformationen\\
 	 zum freien E-Learning Krypto-Programm CrypTool\\[5pt]
-	 (Kryptographie, Mathematik und mehr)} \\[25pt]
+	 (Kryptographie, Mathematik und mehr)} \\[35pt]
 	%{\large 12. Auflage}
-	{\large 12. Auflage -- Draft-Version (\settimeformat{hhmmsstime}\currenttime)}
-        \vspace{110pt}
+	 {\large 12. Auflage --  {\bf Draft-Version} (\settimeformat{hhmmsstime}\currenttime)}
+        \vspace{150pt}
 	% War der \vspace-Wert zu groß (z.B. 180), kam nach dem Cover eine
 	% komplett leere Seite und auf der von \maketitle erstellten 3. Seite
 	% stand die Seitennummer II ?
@@ -153,9 +354,39 @@
 \author{% Die Klammer zur Fontänderung funktioniert bei \author nur einzeilig im Gegensatz zu \title?!
 	{\LARGE Prof.\ Bernhard Esslinger (Mitautor und Herausgeber)}\\[10pt]
 	{\LARGE und das CrypTool-Team, 1998-2016}\\[10pt]
-	{\LARGE Frankfurt am Main}\\*[15pt]
+%	{\LARGE Frankfurt am Main}\\*[15pt]
 	\url{www.cryptool.org}
 }
+
+
+
+
+% Purer Versuch, zweisprachige note-Items zu haben, die je nach Sprache umbenannt.
+% ===============================================================================
+% --> Per bibtex läuft das unter Annotated Bibliography.
+%   ... language=xxx" (xxx, usenglish, english, german, ngerman, ... ) 
+%
+% --> Weitere Möglichkeiten, leider nur per biblatex (nicht per bibtex):
+% \AtEveryBibitem{%
+%   \clearfield{note}%
+% }
+% 
+% \savefield{<field>}{<macro>}
+% \savefield*{<field>}{<macro>}
+%   Copies an unformatted<field>to a<macro>. The regular variant of this command defines the
+%   <macro> globally, the starred one works locally.
+% 
+% \restorefield{<field>}{<macro>}
+%   Restores a<field>from a<macro>defined with\savefield before. The field is
+%   restored within a local scope.
+%
+% Andere Idee, aber auch mit biblatex:
+% http://tex.stackexchange.com/questions/166739/main-text-and-bibliography-in-two-languages-but-with-alternate-date-format
+
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -165,6 +396,9 @@
 % \includepdf[pages=1]{figures/coverv1_de.pdf}        % 300dpi (wieder pdf statt png)
 
 \pagestyle{plain}
+%16xxxxxxxxxxxxxxERSTMAL weggelassen \pagestyle{myheadings}
+\tikzset{ampersand replacement=\&} %DIF > %16xxxxxxxxxxxxxx
+
 \setlength{\fboxrule}{.5mm}
 \setlength{\fboxsep}{1.75mm}
 \setlength{\footnotesep}{6pt}
@@ -174,7 +408,7 @@
 \VerbatimFootnotes
 % space between text and footnote 
 % \renewcommand{\footnoterule}{\parindent0cm\rule{13cm}{.1pt}\vspace{.2cm}}
-% Formatierung der Fußnoten
+% Formatierung der Fuï¿½noten
 \renewcommand\footnoterule{
 \vspace{2em}%   <-- one line space between text and footnoterule
 % \kern-3\p@
@@ -197,12 +431,13 @@
 \begin{quote}
 Dies ist ein freies Dokument, d.h. Inhalte des Dokuments können kopiert und
 verbreitet werden, auch zu kommerziellen Zwecken. \\
-Im Gegenzug sind Autor, Titel und die CrypTool-Webseite (www.cryptool.org) zu
-nennen. Selbstverständlich darf aus dem CrypTool-Skript, genau wie aus jedem
+Im Gegenzug sind Autor, Titel und die CrypTool-Webseite (\url{www.cryptool.org}) zu
+nennen. Selbstverständlich darf aus dem CrypTool-Buch, genau wie aus jedem
 anderen Werk auch, zitiert werden. \\
 Darüber hinaus unterliegt dieses Dokument der GNU-Lizenz für freie
 Dokumentation.
 
+%   Copyright \textcopyright{} 1998--2016 Bernhard Esslinger and the  %%  Geht beides.
     Copyright \copyright{} 1998--2016 Bernhard Esslinger and the
     CrypTool Team. Permission is granted to copy,
     distribute and/or modify this document under the terms of the GNU
@@ -214,7 +449,35 @@ Dokumentation.
     Dies beinhaltet auch den Code für die SageMath-Beispiele in diesem Dokument.
 \end{quote}
 
-\vspace{420pt}
+
+
+
+\vspace{70pt}\noindent Zum Referenzieren per bibtex:
+% Referenzart: book
+% Notwendige Felder: author oder editor, title, publisher, year
+% Optionale Felder: volume oder number, series, address, edition, month, note, isbn
+\begin{Verbatim}%
+[fontsize=\footnotesize]
+@book{Esslinger:ctb_2016,
+  editor    = {Bernhard Esslinger},
+  title     = {{D}as {C}ryp{T}ool-{B}uch: {K}ryptographie lernen
+               und anwenden mit {C}ryp{T}ool und {S}age{M}ath},
+  publisher = {CrypTool-Projekt},
+  edition   = {12},
+  year      = {2016}
+}
+\end{Verbatim}
+% 
+% https://de.wikibooks.org/wiki/LaTeX-Kompendium:_Zitieren_mit_BibTeX
+% https://de.wikipedia.org/wiki/BibTeX
+% http://jabref.sourceforge.net/help/de/BibtexHelp.php
+% 
+% Vgl. auch bei Wikipedia: https://de.wikipedia.org/wiki/Vorlage:Cite_journal
+
+
+
+
+\vspace{240pt}
 \noindent
 Quelle Coverfoto: \url{www.photocase.com}, Andre Günther\\
 Schriftsatz-Software: \LaTeX\\
@@ -222,9 +485,9 @@ Versionsverwaltungs-Software: Subversion
 
 
 % be_2005: a) Auf erste Seite nur den Titel ! -> Newpage eingefügt.
-%          b) "aboutcryptool.tex" hier und nicht unten vor "introduction.tex"
+%          b) "overviewcontent.tex" hier und nicht unten vor "introduction.tex"
 %             einfügen, damit es VOR dem Inhaltsverzeichnis steht.
-\input{chapters/aboutcryptool.tex} % Überblick über den Inhalt des CT-Buches
+\input{chapters/overviewcontent.tex} % Überblick über den Inhalt des CT-Buches
 
 
 \newpage
@@ -246,8 +509,32 @@ Versionsverwaltungs-Software: Subversion
 
 
 \input{chapters/introduction.tex} % Working together of Book and Programm 
-
 \mainmatter % Ab hier beginnt Seitennummerierung mit arabischen Ziffern
+
+% Die Datei references.bib steht nur einmal (!) in trunk\script\de (gilt also auch für trunk\script\en).
+
+%%% Bisher: Bibliography einmal hier erzeugt und in den einzelnen Tex-Files nur die Ausgabe aufgerufen.
+%%% Ziel: Will am Ende eine 2. Gesamt-Bibliography-Ausgabe, aber mit anderem Style (!),
+%%%       und überall sollen die automatisch erzeugten alpha-Referenzen im Text angezeigt werden.
+%%% Bem.: Hier sollen also nur die tex-Files der Kapitel geladen und dort die bibliography behandelt werden.
+%%%       Das geht nur, wenn man das \begin{bibunit}[plain] und \end{bibunit} jeweils auch dort
+%%%       am File-Beg. und -Ende hat. Macht man das hier um jede Datei herum, wird es unübersichtlich.
+%%%       Alternativ hätte ich es wohl auch mit biblatex probieren können.
+% - http://tex.stackexchange.com/questions/98660/two-bibliographies-one-for-main-text-and-one-for-appendix
+% - http://tex.stackexchange.com/questions/10104/two-bibliographies-with-two-different-styles-in-the-same-document
+% - http://tex.stackexchange.com/questions/44589/how-to-split-bibliography-for-different-sections
+% - http://www.matthiaspospiech.de/files/latex/vortrag/VortragBibtexBiblatexBiber.pdf  +++
+
+%%%x  \bibliographyunit[\chapter] % \bibliographyunit mit [chapter] leite units weise ein; ohne Arg. wieder normal.
+
+% Stern hier vor der {...}, da dies nur den Style in der local units festlegt und nur dafür Infos generiert. 
+%%%x  \bibliography*{references}
+%%%x  \bibliographystyle*{plain}
+%xxx Das war vorher in dlog-factoringdead.text am Ende, bevor nach refrences.bib
+%xxx \def\shortbib{0}
+%xxx \bibliographystyle{abbrv}
+%xxx \bibliography{./../en/bib-dfd}% Annahme: bin in "de" (nicht in "de\chapters")
+
 \input{chapters/cryptomethods.tex}
 \input{chapters/paper_and_pencil.tex}
 \input{chapters/primes.tex}
@@ -257,10 +544,9 @@ Versionsverwaltungs-Software: Subversion
 \input{chapters/ellipticcurves.tex}
 \input{chapters/bitciphers.tex}
 \input{chapters/homomorphicencryption.tex}
-\bibliographyunit[\chapter]
-\bibliography*{references}
-\bibliographystyle*{plain}
+\input{chapters/dlog-factoringdead.tex}
 \input{chapters/crypto2020.tex}
+
 \bibliographyunit
 
 
@@ -280,7 +566,7 @@ Versionsverwaltungs-Software: Subversion
                          {Lernprogramm Elementare Zahlentheorie}
       \item[7] \hyperlink{appendix-using-sage}
                          {Kurzeinführung in das Computer-Algebra-System SageMath}
-      \item[8] \hyperlink{appendix-authors}{Autoren des CrypTool-Skripts}
+      \item[8] \hyperlink{appendix-authors}{Autoren des CrypTool-Buchs}
     \end{itemize}
   \input{chapters/menus.tex}
   \input{chapters/movies.tex}
@@ -318,34 +604,144 @@ Versionsverwaltungs-Software: Subversion
 \label{sc:List-of-Quotes}
 
 
+% Zur Fehlermeldung vgl https://www.ntg.nl/doc/fairbairns/newfaq.pdf, #228:
+%                       Läuft mir damit eine Registerzahl über? Welche?
+% http://tex.stackexchange.com/questions/289734/special-package-combination-gives-no-room-for-new-write:
+% The solution was to use \usepackage{morewrites} since basically any of the packages already loaded
+% there grabs at least one (write) file handle, but the number of file handles is restricted to
+% 16 registers only, unless morewrites is loaded. 
+ \clearpage\phantomsection%%% Zeile \listof verursachte den Error \e@ch@ck ...message {No room for a new \string #4}
+ \addcontentsline{toc}{chapter}{Verzeichnis der OpenSSL-Beispiele}
+ \listof{opensslcode}{Verzeichnis der OpenSSL-Beispiele}
+ \index{OpenSSL!Beispiel}
+ \label{sc:List-of-OpenSSL-Code-Examples}
+
+
+
 \clearpage\phantomsection
 \addcontentsline{toc}{chapter}{Verzeichnis der SageMath-Programmbeispiele}
 \listof{sagecode}{Verzeichnis der SageMath-Programmbeispiele}
 \index{SageMath!Programmbeispiele}
 \label{sc:List-of-Sage-Code-Examples}
-% \hypertarget{sc:List-of-Sage-Code-Examples}{}
+% \hypertarget{sc:List-of-Sa
 
 \vspace{30pt}
 \begin{itemize}
   \item Der Quellcode der SageMath-Beispiele in diesem Skript wird in Form von
-        SageMath-Programmdatei"-en mit dem CrypTool 1-Setup-Programm ausgeliefert.
+        SageMath-Programmdatei"-en mit dem CT1-Setup-Programm ausgeliefert.
         Die Beispiele in einem Kapitel sind jeweils in einer Datei zusammen gefasst.\\
-        Nach der Installation von CrypTool 1 \index{CrypTool 1} finden Sie
+        Nach der Installation von CrypTool~1 \index{CT1} finden Sie
         die SageMath-Beispiele im Unterverzeichnis \verb#sagemath# in den folgenden
-        4 Dateien:\\
+        4 Dateien:\\\\%%%% TODOTODO: more files: nicht nur CT1 --> evtl. nach Github !
         - SageMath-Samples-in-Chap01.sage \\
         - SageMath-Samples-in-Chap02.sage \\
         - SageMath-Samples-in-Chap03.sage \\
         - SageMath-Samples-in-Chap04.sage
-  \item Alle Beispiel wurden mit der SageMath-Version 5.3 (Release Date 2012-09-08) xxxxxxxxxxxxxxxxxxxx  getestet.
-\end{itemize}   % xxxxxxxxxxxxxx Weitere Beispiele ergänzen !
+  \item Alle Beispiel wurden mit der SageMath-Version 5.3 (Release Date 2012-09-08) getestet.
+\end{itemize}   % xxxxxxxxxxxxxx Weitere Beispiele ergänzen !  % TODOTODO: Update.
 
 
+
+
+
+%------------------------------------------------------------------------------
+%%% Fassung vor Einführung von \begin{bibunit}:
+%%% \xxnocite{*}  % Um ALLE Referenzen in einer Bibliography am Ende auszugeben (nicht nur die zitierten)
+%%% \xxbibliographystyle{plain}  % Dieser Befehl ist nötig!
+%%% \xxrenewcommand{\bibname}{References of All Chapters}  % Change title at page, not the contents entry.
+%%% \xxbibliography{../de/references} % WICHTIG: Kein * vor der {...}
+%%% \xxaddcontentsline{toc}{chapter}{Bibliography of All Chapters}  % section, chapter oder * legen nur
+                                % die Gliederungsebene fest für die Ausgabe im Inhaltsverzeichnis.
+
+%% Zum Style:
+%% Im Quelltext darf nur eine Nummer stehen. Hat man zwei Nummern (hier am Ende und direkt
+%% nach dem Kapitel), ist die Referenz im Text nicht mehr eindeutig. Im Text wird immer die
+%% Referenz des letzten Bibliography-Aufrufs genommen, hier also vom "alpha"-Style.
+%% Die Nummerierung in der 2. Gesamt-Bibliography hier gilt also nur als Aufzählung.
+
+
+%%% TESTTEST Die erste der beiden Gesamt-Bibliotheken kann man während der Entwicklung auch
+%%%          rausnehmen, um Zeit zu sparen beim Compilieren. Die zweite muss drin bleiben !!!!
+%% plain: Gesamt-Bibliography zeigt Zahlen und ist unsortiert nach Autor/Jahr.
+\begin{bibunit}[plain]
+\nocite{*}
+\renewcommand{\bibname}{Literaturverzeichnis über alle Kapitel}
+\putbib[../de/references]
+\addcontentsline{toc}{chapter}{Literaturverzeichnis über alle Kapitel}
+\end{bibunit}
+
+
+%% alpha: Gesamt-Bibliography zeigt Autorenkürzel und ist unsortiert nach Autor/Jahr.
+%%        Da dies der letzte Bibliography-Aufruf ist, stehen im Quelltext auch die Autorenkürzel.
+%% \begin{bibunit}[alpha]
+\begin{bibunit}[babalpha]
+\nocite{*}  %% Wenn auskommentiert, ist Ges.lit.verzeichnis leer und
+            %% ("Label `Heninger2012' multiply defined"). Es kommen nur 18 statt 210
+            %% Warnungen ("multiply defined references"). Warum noch 18?  Todo_LaTeX.
+\renewcommand{\bibname}{Literaturverzeichnis über alle Kapitel (sortiert nach Autoren)}
+\putbib[../de/references]
+\addcontentsline{toc}{chapter}{Literaturverzeichnis über alle Kapitel (sortiert nach Autoren)}
+\end{bibunit}
+
+
+
+%------------------------------------------------------------------------------
 \clearpage\phantomsection
-\addcontentsline{toc}{chapter}{Index}
-\printindex
+% In order to have a better overview in the index, used \see.
+% So e.g. use only \index{CT1}, as "CrypTool 1" refers to it.
+% - Info:
+%   - http://tex.stackexchange.com/questions/86646/indexing-subentries-and-see-also
+%     Per neu zu def \indexalso neue Zeile am Ende von Entry 1, das auf Entry 2 verweist.
+%   - Um auf Subentry zu verweisen, muss man das Ziel anders schreiben: Also nicht
+%     see{Fermat!letzter Satz}, sondern see{Fermat, letzter Satz}.
+%     http://tex.stackexchange.com/questions/186019/makeindex-and-see-subentry
+  \index{Primzerlegung|see{Faktorisierung}}
 
-\newpage %Nice-to-have-TODO_Doesn't seem to create an empty page at the end.
+  \index{gpg|see{GnuPG}}
+  \index{One-Time-Pad|see{OTP}}
+  \index{PRNG|see{Zufallsgenerator}}
+  \index{Pseudozufallsgenerator|see{Zufallsgenerator}}
+  \index{Schlüsselaustausch!Diffie-Hellman|see{Diffie-Hellman}}
+  \index{ECC|see{elliptische Kurve}}
+  \index{Triple-DES|see{DES, Triple-DES}}
+
+  \index{Fermat!großer Satz|see{Fermat, letzter Satz}}
+  \index{Fermat!zweiter Satz|see{Fermat, letzter Satz}}
+  \index{großer Satz|see{Fermat, letzter Satz}}
+  \index{zweiter Satz|see{Fermat, letzter Satz}}
+  \index{letzter Satz|see{Fermat, letzter Satz}}
+  \index{kleiner Satz|see{Fermat, kleiner Satz}}
+
+  % \index{MysteryTwister C3|see{MTC3}|see{Krypto-Wettbewerb}}  % Das geht nicht, zeigt nur "siehe MTC3".
+  \index{MysteryTwister C3|see{MTC3}}
+  % \index{MysteryTwister C3|see{Krypto-Wettbewerb}}  Raus, da zwei Verweise nicht schön, und vor allem
+  %                 werden sie alphabetisch geordnet und nach "siehe Krypto-Wettbewerb" ist eine Blackbox.
+  \index{Challenge|see{Krypto-Wettbewerb}}
+  % \index{Cipher-Challenge|see{Krypto-Wettbewerb}}  Raus, führt trotz RaggedRight zu Balckbox.
+  \index{CrypTool~1|see{CT1}}  %% So \index{CrypTool~1} is no more needed, only \index{CT1}.
+  \index{CrypTool~2|see{CT2}}
+  \index{JCrypTool|see{JCT}}
+  \index{CrypTool-Online|see{CTO}}
+
+  \index{Phi-Funktion|see{Eulersche Phi-Funktion}}
+  \index{Fast Fourier Transformation|see{FFT}}
+  \index{FSR|see{Schieberegister}}
+  \index{rückgekoppeltes Schieberegister|see{Schieberegister}}
+  \index{PQC|see{Post-Quantum-Computing}}
+  
+%% be_2016-08-04: Da es 4 blackboxes im Index gab (nur dt.)  ragged2e und RaggedRight eingeführt --> half.
+%% Siehe: http://tex.stackexchange.com/questions/63006/overfull-hbox-from-printindex
+%%        http://tex.stackexchange.com/questions/97196/how-to-avoid-bad-boxes-in-the-index
+%%  - warning "overfull hbox". With the class option draft the overfull box is marked with an black box.
+%%  \usepackage{index,lipsum,lmodern}
+%%  \usepackage{ragged2e}
+{              % start group
+  \addcontentsline{toc}{chapter}{Index}
+  \RaggedRight  % be_2016-08-04: left-justified setting w/ blackbox in index
+  \printindex
+}              % end group
+
+\newpage %Nice-to-have-TODO_LaTeX_Doesn't seem to create an empty page at the end.
 \newpage
 
 \end{document}

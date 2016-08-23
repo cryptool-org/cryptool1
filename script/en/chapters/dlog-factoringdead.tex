@@ -1,0 +1,929 @@
+% $Id: 
+% ..........................................................................
+% Survey on Current Academic Results for Solving Discrete Logarithms and for Factoring
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
+
+
+\newcommand{\mmod}{\hspace{1mm}{\rm mod}\hspace{1mm}}
+\newcommand{\lf}{\left\lfloor}
+\newcommand{\rf}{\right\rfloor}
+\newcommand{\norm}{|\!|}
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\F}{\mathbb{F}}
+
+\newcommand{\phin}{\phi(N)}
+\newcommand{\bigO}{{\cal O}}
+\newcommand{\res}{\textrm{res}}
+\newcommand{\poly}{\textrm{poly}}
+\newcommand{\dlog}{\textrm{dlog}}
+%16xxxxxxxxxxxxxx\newcommand{\bi}{\begin{itemize}}
+%16xxxxxxxxxxxxxx\newcommand{\ei}{\end{itemize}}
+\newbox\BeweisSym
+\setbox\BeweisSym=\hbox{%
+\unitlength=0.18ex%
+\begin{picture}(10,10)
+\put(0,0){\framebox(9,9){}}
+\put(0,3){\framebox(6,6){}}
+\end{picture}}
+
+%\newenvironment{Proof}{\noindent{\bf Proof:}$\mbox{}\;$}%
+%{\hfill\copy\BeweisSym\linebreak\par\noindent}
+%\renewenvironment{proof}{\noindent{\it Proof. }$\mbox{}\;$}%%16xxxxxxxxxxxxxx
+%{\par\noindent}
+%\newtheorem{Claim}{Claim}
+
+\newtheorem{defi}{Definition}
+\newtheorem{theo}[defi]{Theorem}
+\newtheorem{coro}[defi]{Corollary}
+\newtheorem{assu}[defi]{Assumption}
+\newtheorem{lemm}[defi]{Lemma}
+\newtheorem{prop}[defi]{Proposition}
+\newtheorem{nota}[defi]{Notation}
+\newtheorem{rema}[defi]{Remark}
+\newtheorem{fact}[defi]{Fact}
+
+
+%--------------------------------------------------------------------
+\newpage
+\hypertarget{Chapter_Dlog-FactoringDead}{}
+\chapter[Survey on Current Academic Results for Solving Discrete Logarithms and for Factoring]{Survey on Current Academic Results for Solving Discrete Logarithms and for Factoring -- And How to React in Practice}
+\label{Chapter_Dlog-FactoringDead}
+\index{discrete logarithm}\index{logarithm!discrete}\index{factorisation}
+
+(\hyperlink{author_Antoine-Joux}{Antoine Joux}, \hyperlink{author_Arjen-Lenstra}{Arjen Lenstra}, \& \hyperlink{author_Alexander-May}{Alexander May}; Apr 2014)\\
+
+
+\noindent {\bf Abstract:}
+Recent algorithmic developments for solving discrete logarithms in finite fields of small characteristic led to some uncertainty among cryptographic users fueled by the media about the impact for the security of currently deployed cryptographic schemes (see for instance the discussion in~\cite{Blackhat2013} using the catchword ``cryptocalypse'').\index{cryptocalypse}   This survey provides a broader picture about the currently best algorithms for computing discrete logarithms in various groups and about the status of the factorization problem. Our goal is to clarify what currently can be done algorithmically and what cannot be done without further major breakthroughs. In particular, we currently do not see a way how to extend the current algorithmic progress for finite fields of small characteristic to either the case of large characteristic finite fields or to the integer factorization problem.
+% Our analysis leads to practical mid- and long-term suggestions both for the deployed cryptographic systems and for the choice of their key sizes.
+
+
+%%%%%
+\newpage
+\section{Generic Algorithms for the Discrete Logarithm Problem in any Group}
+\label{generic}
+
+{\bf Management Summary: The hardiness of the Discrete Logarithm Problem depends on the group over which it is defined. In this chapter we review cryptanalytical algorithms that work for any group. From a cryptographic point of view it is desirable to identify groups for which one is unable to find better algorithms. One candidate for these groups are elliptic curve groups.\\[0.1cm]}
+
+In this chapter, we describe {\em general} cryptanalytical algorithms that apply for {\em any} finite abelian group. That means, any group used in cryptography -- e.g. multiplicative groups of finite fields or of elliptic curves -- are susceptible to this kind of algorithms. We will see that we can always compute a discrete logarithm in a group of order $n$ in $\bigO(\sqrt n)$ steps by Pollard's Rho Method. This in turn means that for achieving a security level of $2^{k}$ one has to choose a group of order at least $2^{2k}$. E.g. for achieving a security level of $80$ bits, one has to choose a group of order at least $160$ bits. This explains why in practice we usually take elliptic curve groups with at least $160$ bit order. 
+
+Moreover, let $G$ be a group of order $n$ and let $n=p_1^{e_1} \cdot \ldots \cdot p_{\ell}^{e_{\ell}}$ be the prime factorization of $n$. Then we will see that discrete logarithms in $G$ can be computed in time $\bigO(e_1 \sqrt{p_1} + \ldots + e_{\ell}\sqrt{p_{\ell}})$. Notice that this bound is equal to Pollard's bound $O(\sqrt n)$ if and only if $n$ is a prime. Otherwise, the complexity of computing the discrete logarithm is mainly determined by the size of the largest prime divisor of its group order. This explains why e.g. Schnorr/DSA signatures are implemented in groups which contain by construction a prime factor of size at least $160$ bits. This also explains why usually elliptic curve groups have prime order or order containing only a very small \textbf{smooth co-factor}.
+
+%\DIFaddbegin \DIFadd{\fbox{It should be $\bigO(\sqrt{p_1} + \ldots + \sqrt{p_{\ell}}) \leq \bigO \left( \left(\sum_ {i=1}^\ell e_i  \right)\max_{i}(\sqrt p_i) \right)$}
+%}
+
+
+\DIFaddend \subsection{Pollard Rho Method}
+\index{Pollard-Rho}
+Let $G$ be a finite abelian group. Let $g$ be a generator of some large subgroup $G' = \{g, g^2, \ldots, g^n\} \subseteq G$ (e.g. $g$ could generate $G$ itself). Let $y=g^{x}$. Then the discrete logarithm problem is to find on input $g$ and $y$ the output $x \mod n$.
+We write $x=\dlog_g(y)$. 
+
+Pollard's Rho method tries to generate elements $g^{a_i}y^{b_i} \in G'$ with $a_i, b_i \in \N$ in a pseudo-random but deterministic fashion. Let us assume for simplicity that we generate random elements from the $n$ elements in $G'$. Then by the birthday paradox, we expect to find after only $\bigO(\sqrt n)$ steps two elements which are identical. In our case, this means that
+$$
+  g^{a_i}y^{b_i} = g^{a_j}y^{b_j}.
+$$
+This can be rewritten as $g^{\frac{a_i-a_j}{b_j-b_i}} = y$. This in turn implies that we can recover our discrete logarithm as $x \equiv \frac{a_i-a_j}{b_j-b_i} \mmod n$.
+
+Hence, with Pollard's Rho method one can compute discrete logarithms in any finite abelian group of order $n$ in $\bigO(\sqrt n)$ steps. By using so-called cycle-finding techniques, one can also show that Pollard's Rho Method can be implemented within constant space.
+
+Moreover, it is also possible to improve the efficiency of square root algorithms when multiple discrete logarithms in the same group are desired: When computing $L$ distinct logarithms, one can reduce the global cost from $\bigO (L\sqrt{n})$ to $\bigO (\sqrt{Ln})$~\cite{multiple2014}.
+
+
+\subsection{Silver-Pohlig-Hellman Algorithm}
+\index{Silver-Pohlig-Hellman}
+As before let $y = g^{x}$ for a generator $g$ of order $n$. We have to compute the discrete logarithm $x \mmod n$. Moreover, let $n=p_1^{e_1} \cdot \ldots \cdot p_{\ell}^{e_{\ell}}$ be the prime factorization of $n$. Then by the Chinese Remainder Theorem $x \mmod n$ is uniquely defined by the system of congruences 
+\begin{equation}
+\label{crt}
+\begin{array}{lll}
+  x & \equiv & x_1 \mmod p_1^{e_1}\\
+    & \vdots\\
+  x & \equiv & x_{\ell} \mmod p_{\ell}^{e_{\ell}}.	
+\end{array}
+\end{equation}
+
+The algorithm of Silver-Pohlig-Hellman computes all discrete logarithms $x_i \mmod p_i$ in the subgroups of order $p_i$ in $\bigO(\sqrt{p_i})$ steps by using Pollard's Rho method. Then it is quite easy to find a logarithm modulo the prime power $x_i \mmod p_i^{e_i}$ by a Hensel lifting process that performs $e_i$ calls to the discrete logarithm procedure modulo $p_i$. In a Hensel lifting process, we start by a solution $x_i \mmod p_i$, and then consecutively compute $x_i \mmod p_i^2$, $x_i \mmod p_i^3$, etc. until $x_i \mmod p_i^{e_i}$ (see~\cite{May2013} for Hensel's formula). 
+
+Finally, one computes the desired discrete logarithm $x \mmod n$ from the above system of equations~(\ref{crt}) by Chinese Remaindering.
+In total, the running time is mainly determined by computing $x_i \mmod p_i$ for the largest prime factor $p_i$. That is, the running time is roughly $\bigO(\max_i\{\sqrt p_i\})$. 
+
+
+\subsection{How to Measure Running Times}
+Throughout this survey, we want to measure the running time of analysis algorithms for discrete logarithms as a function of the bit-size of $n$. Note that any integer $n$ can be written with (roughly) $\log n$ bits, where $\log$ is to base $2$. Thus, the {\em bit-size} of $n$ is $\log n$. 
+
+For expressing our running times we use the notation $L_n[b,c]=\exp^{c \cdot (\ln n)^{b}(\ln\ln n)^{1-b}}$ for constants $b \in [0,1]$ and $c>0$. Notice that $L_n[1,c]=e^{c \cdot \ln n} = n^c$ is a function that is for constant $c$ a polynomial in $n$. Therefore, we say that $L_n[1,c]$ is {\em polynomial} in $n$. Also notice that $L_n[1,c]=n^c = (2^{c})^{\log_2 n}$ is a function that is exponential in $\log n$. Therefore, we say that $L_n[1,c]$ is {\em exponential} in the bit-size $\log n$ of $n$. So our Pollard Rho algorithm achieves exponential running time $L[1,\frac 1 2]$.
+
+On the other end, $L_n[0,c] = e^{c \cdot \ln\ln n} = (\ln n)^c$ is {\em polynomial} in the bit-size of $n$. Notice that the first parameter $b$ is more important for the running time than the second parameter $c$, since $b$ interpolates between polynomial and exponential running time. We shortly denote $L_n[b]$ if we do not want to specify the constant $c$.
+
+Some of the most important algorithms that we discuss in the subsequent sections achieve a running time of $L_n[\frac 1 2 +o(1)]$ or $L_n[\frac 1 3 +o(1)]$ (where the $o(1)$-part vanishes for $n\to\infty$), which is a function that grows faster than any polynomial but slower than exponential. For cryptographic schemes, such attacks are completely acceptable, since the desired security level can be easily achieved by a moderate adjustment of the key sizes.
+
+However, the recent algorithm of Joux et al. for computing discrete logarithms in finite fields of small characteristic achieves a running time of $L_n[o(1)]$, where $o(1)$ converges to $0$ for $n \to \infty$. This means that these algorithms are quasi polynomial time, and the underlying fields are no longer acceptable for cryptographic applications.  A finite field $\F_{p^n}$ has small characteristic if $p$ is small, i.e. the base field $\F_p$ is small and its extension degree $n$ is usually large. In the recent algorithms we need a small $p$, since the algorithms enumerate over all $p$ elements in the base field $\F_p$.
+
+
+\subsection{Insecurity in the Presence of Quantum Computers}
+\index{quantum computer}
+In 1995, Shor published an algorithm for computing discrete logarithms and factorizations on a quantum computer. He showed that computing discrete logarithms in {\em any} group of order $n$ can be done in polynomial time which is almost $\bigO(\log n^2)$. The same running time holds for computing the factorization of an integer $n$. This running time is not only polynomial, but the attacks are even more efficient than
+the cryptographic schemes themselves! This in turn means that the problem cannot be fixed by just adjusting key sizes.
+
+Thus, if we face the development of large-scale quantum computers in the next decades, then all classical dlog- and factoring-based cryptography has to be replaced. However, one should stress that the construction of large quantum computers with many qubits appears to be way more difficult than its classical counterpart, since most small quantum systems do not scale well and face decoherence problems.\\[0.1cm]
+
+\noindent {\bf Recommendation:} It seems hard to predict the developments in constructing quantum computers. But experts in quantum physics currently do not see any mayor obstacle that would hinder the development of large quantum computers in the long term. It seems crucial to keep track of current progress in this area, and to have some alternative quantum-resistant cryptosystems ready to enroll within the next 15 years.\\[0.1cm]
+
+\noindent {\bf References and further reading:} 
+We recommend to read the books of Menezes, van Oorschot and Vanstone~\cite{Menezes2001}, Joux~\cite{Joux2009} and Galbraith~\cite{Galbraith2012}  for a survey of cryptanalytic techniques. An introductory course in cryptanalysis is provided by May's lecture notes on cryptanalysis~\cite{May2012a,May2012b}(German). An introduction to quantum algorithms can be found in the books of Homeister~\cite{Homeister2007}(German) and Mermin~\cite{Mermin2008}.
+
+The algorithms of this section were originally presented in the superb works of Pollard~\cite{Pollard1975,Pollard2000} and Shor~\cite{Shor1994}.
+Generic algorithms for multiple dlogs have recently been studied in~\cite{multiple2014}.
+
+
+%%%%%
+\newpage
+\section{\texorpdfstring{Best Algorithms for Prime Fields $\F_p$}{Best Algorithms for Prime Fields Fp}}
+\label{prime_field}
+\index{prime field}
+
+{\bf Management Summary: Prime fields $\F_p$ are -- besides Elliptic Curves -- the standard group for the discrete logarithm problem. There has been no significant algorithmic progress for this groups in the last 20 years. They are still a good choice for cryptography.\\[0.1cm]}
+
+In Chapter~\ref{generic}, we learned that in any finite abelian group of order $n$, we can determine discrete logarithms in $\bigO(\sqrt n)$ steps. Notice that both the Pollard Rho Method as well as the Silver-Pohlig-Hellman algorithm from Chapter~\ref{generic} used no other property of {\em representations} of group elements than their uniqueness. In these methods, one simply computes group elements by group operations and checks for equality of elements. Algorithms of this type are called {\em generic} in the literature.
+
+It is known that generic algorithms cannot compute discrete logarithms in time better than the Silver-Pohlig-Hellman algorithm~\cite{Shoup1997}. Thus, the algorithms of Chapter~\ref{generic} can be considered optimal if no further information about the group elements is used.
+
+However, when we specify our group $G$ as the multiplicative group of the finite field $\F_p$, where $p$ is a prime, we can actually exploit the representation of group elements. Natural representatives of $\F_p$ are the integer $0, \ldots, p-1$. Thus, we can e.g. use the prime factorization of these integers. This is done in the so-called {\em Index Calculus type} discrete logarithm algorithms. This type of algorithm currently forms the class with the best running times for discrete logarithm over prime fields, prime extensions (Chapter~\ref{ffs}) and for the factorization problem (Chapter~\ref{factor}).
+
+We will now illustrate an Index Calculus algorithm with a very easy example.
+
+
+%%%%%
+\subsection{An Introduction to Index Calculus Algorithms}
+\label{simple}
+\index{index calculus}
+
+An Index Calculus algorithm consists of three basic steps.
+\begin{description}
+\item[Factor base:] Definition of a factor base $F=\{f_1, \ldots, f_k\}$. We want to express group elements as powers of elements of the factor base. 
+\item[Relation finding:] Find elements $z_i:=g^{x_i} \in G$ for some integer $x_i$ that can be written in the factor base, that is
+$$
+  g^{x_i} = \prod_{j=1}^k f_j^{e_{ij}}.
+$$ 
+When we write this equality to the base $g$, we obtain a {\em relation}
+$$
+  x_i \equiv \sum_{j=1}^k e_{ij}\textrm{dlog}_g(f_j) \mmod n,
+$$
+where $n$ is the order of $g$. A relation is a linear equation in the $k$ unknowns
+$$\textrm{dlog}_g(f_1), \ldots, \textrm{dlog}_g(f_k)$$. %BE_Remark: Nur auf neue Zeile per $$...$$, um black box zu vermeiden und weil keine gute andere Formulierung gefunden.
+Once we have $k$ linear independent relations of this type, we can compute these unknowns by linear algebra. This means we actually first compute all discrete logarithms of the factor base elements before we compute our desired individual logarithm of $y$.
+\item[Dlog computation:] Express $yg^r = g^{x+r} = \prod_{j=1}^k f_j^{e_j}$ in the factor base for some integer~$r$.
+This gives us another relation 
+$$
+  x+r \equiv \sum_{j=1}^k e_{j}\textrm{dlog}_g(f_j) \mmod n,
+$$
+which can be easily solved in the only unknown $x=\textrm{dlog}_g y$.
+\end{description}
+
+Let us provide an easy example for an Index Calculus algorithm that computes $x=\textrm{dlog}_2(5)$ in $\F_{11}^*$. Since $2$ generates the multiplicative group $\F_{11}^*$, the order of $2$ is $10$.
+\begin{description}
+\item[Factor base:] Define $F=\{-1,2\}$.
+\item[Relation finding:] $2^1 = (-1)^0 2^1$ gives us a first trivial relation 
+$$
+  1 \equiv 0 \cdot \textrm{dlog}_2(-1) + 1\cdot  \dlog_2(2) \mmod 10.
+$$
+If we compute $2^6 = 64 \equiv -2 \mmod 11$ we obtain a second relation 
+$$
+  6 \equiv 1\cdot \dlog_2(-1) + 1 \cdot \dlog_2(2) \mmod 10.
+$$
+Therefore, we can solve the system of linear equations
+$$
+\left(
+\begin{array}{ll}
+0 & 1\\
+1 & 1
+\end{array}
+\right)
+\cdot
+\left(
+\begin{array}{l}
+\dlog_2(-1)\\
+\dlog_2(2)
+\end{array}
+\right)
+%
+\equiv
+%
+\left(
+\begin{array}{l}
+1\\
+6
+\end{array}
+\right) \mmod 10.
+$$
+We obtain as the unique solution $\dlog_2(-1) \equiv 5$ and $\dlog_2(2) \equiv 1$.
+\item[Dlog computation:] Since $5 \cdot 2^{1} = 10 \equiv -1 \mmod 11$ we obtain that 
+$$
+  x + 1 \equiv 1 \cdot \dlog(-1) + 0 \cdot \dlog(2) \mmod 10.
+$$
+This leads to the solution $x \equiv 4 \mmod 10$.
+\end{description}
+
+\noindent {\bf Runtime:}
+Choosing a large factor base makes it easier to find relations, since it increases the likelihood that a certain number splits in the factor base. On the other hand, for a large factor base we have to find more relations in order to compute the dlogs of all factor base elements. An optimization of this tradeoff leads to a running time of $L_p[\frac 1 2]$ for the relation finding step and also $L_p[\frac 1 2]$ for performing the individual discrete logarithm computation in step~3.
+
+Let us briefly discuss the advantages and disadvantages of the above simple Index Calculus algorithm from a cryptanalyst's point of view.
+
+\noindent {\bf Advantages:}
+\begin{itemize}
+\item For $g^{x_i} = \prod_{j=1}^k f_j^{e_{ij}}$ it is trivial to compute the discrete logarithm on the left hand size.
+\end{itemize}
+
+\noindent {\bf Disadvantages:}
+\begin{itemize}
+\item We need to factor relatively large numbers $g^{x_i}$ over the integers. One can show that this intrinsically leads to a running time of $L_p[\frac 1 2]$, and there is no hope to get below the constant $\frac 1 2$.
+\DIFdelbegin %DIFDELCMD < 
+
+\DIFdelend \item We need to compute all discrete logarithms of the factor base elements. This is inherent to all Index Calculus algorithms.
+\end{itemize}
+
+We will eliminate the first disadvantage by allowing factorizations
+over number fields. The second disadvantage is eliminated by choosing a
+factor base that allows for very efficient discrete logarithm
+computations of its elements.
+%Let us illustrate our Index Calculus in a (trivial) commuting diagram.
+
+
+
+\subsection[The Number Field Sieve for Calculating the Dlog]{The Number Field Sieve for Calculating the Dlog\footnotemark}
+\footnotetext{%
+	When calculating the dlog there is only the term {\bf number field sieve} and
+	no distinction between general vs. special. This is in the opposite to
+	the number field sieve for factorization in section~\ref{nfs-factor}.
+}
+\label{nfs-dlog}
+\index{number field sieve}
+
+A number field $\Q[\alpha]$ is a $k$-dimensional vector space over $\Q$ and can be obtained by adjoining a root $\alpha$ of some irreducible degree-$k$ polynomial $f $ to $\Q$. This means we can write every element of $\Q[\alpha]$ as $a_0+a_1\alpha + \ldots a_{k-1}\alpha^{k-1}$ with $a_i \in \Q$. If we restrict the $a_i$ to integers we are in the ring $\Z[\alpha]$.
+
+The number field sieve is also an index calculus algorithm. Compared
+to the previous approach it has the advantage to involve smaller
+numbers. This is done by choosing a specific representation of the
+prime field $\F_p$, which is implicitly defined as a finite field
+where two polynomials of small degree with small coefficients possess
+a common root. There are several methods that allow to construct such
+polynomials with a common root modulo $p$. In particular, for primes
+of a special form, {\it i.e.}\/ with a sparse representation, it is
+possible to construct polynomials which are much better than in the
+general case. One typical construction that works well is to choose a
+number $m$ and write $p$ in basis $m$ as $\sum_{i=0}^{t}a_im^i$. We
+then find that $f_1(X)=X-m$ and $f_2(X)=\sum_{i=0}^{t}a_im^i$ have $m$
+as a common root modulo $p$.
+
+Equipped with two polynomials $f_1$ and $f_2$ of this form, with
+$m$ as their common root modulo $p$, we obtain the following
+commutative diagram:
+\[
+\begin{tikzcd}
+\& \mathbb{Z}[X]
+\arrow{ld}{}
+\arrow{rd}{}
+\\
+\mathbb{Q}[X]/(f_1(X)) \arrow{rd}{X\mapsto m} \& \&\mathbb{Q}[X]/(f_2(X)) \arrow{ld}{X\mapsto m}\\
+\&\F_p\&
+\end{tikzcd}
+\]
+
+Let $r_1, r_2$ be roots of $f_1, f_2$, respectively. Then we are working with the number fields $\Q[r_1] \simeq \Q[X]/(f_1(X))$ and $\Q[r_2] \simeq \Q[X]/(f_2(X))$.
+
+\begin{description}
+\item[Factor base:] Consists of small-norm prime elements in both number fields.
+\item[Relation finding:] The basic principle of the number field sieve consists of sending
+elements of the form $a+bX$ to both sides of the diagram and to write
+a relation when both sides factor into the factor base. Technically, this is quite challenging, because we need to
+introduce several tools to account for the fact that the left and
+right sides are not necessarily {\it unique factorization domains}. As
+a consequence, we need to factor elements into ideals and take care of
+the obstructions that arise from the class groups and unit groups.
+This procedure gives us the discrete logarithms of the factor base elements
+\item[Discrete log computation:] Express the desired logarithm as a linear combination of the factor base elements.
+\end{description}
+
+\noindent {\bf Runtime:}
+The Number Field Sieve is the most
+efficient currently known algorithm for the large characteristic discrete
+logarithm problem. In the general case -- which means that p is not of a special form, e.g. close to a prime power -- its complexity is $L_p[\frac 1
+3,\left(\frac{64}{9}\right)^{1/3}]$. 
+
+\noindent {\bf References and further reading:} 
+For an introduction to Index Calculus and the involved mathematical tools see May's lecture notes on number theory~\cite{May2013}(german) and the number theory book by M\"uller-Stach, Piontkowski~\cite{MSP2011}. For gaining a deep understanding of the Number Field Sieve, one has to study the book of Lenstra, Lenstra~\cite{NFS1993} that contains all original works that led to the development of the Number Field Sieve algorithm in the late 80s and early 90s.
+
+As a good start for understanding the Number Field Sieve, we recommend to first study its predecessors that are described in the original works of Adleman~\cite{Adleman1979}, Coppersmith~\cite{CoppersmithOS1986} and Pomerance~\cite{Pomerance1984,Pomerance1996}.
+
+
+%%%%%
+\newpage
+\section{\texorpdfstring{Best Known Algorithms for Extension Fields $\F_{p^n}$ and Recent Advances}
+                        {Best Known Algorithms for Extension Fields Fpn and Recent Advances}}
+\label{ffs}
+\index{extension fields}
+
+{\bf Management Summary: The groups over extension fields are attacked by the new algorithms of Joux et al. Before the invention of these attacks, the security of extension field groups appeared to be similar to the prime order groups from the last chapter. The new attacks render these groups completely insecure. However, the new attacks do not affect the security of prime order groups.\\[0.1cm]}
+
+We will first discuss the formerly best algorithm from 2006 due to Joux and Lercier that achieves a running time of $L_n[\frac 1 3]$. We will then describe the recent developments that led to the dramatic improvement in the running time down to $L_n[o(1)]$, which is quasi polynomial time.
+
+
+\subsection{The Joux-Lercier Function Field Sieve (FFS)}
+\index{function field sieve (FFS)}
+
+Any finite field $\F_{p^n}$ can be represented by a polynomial ring $\F_p[x]/f(x)$, where $f(x)$ is an irreducible polynomial over $\F_p$ with degree $n$. Thus, any element in $\F_{p^n}$ can be represented by a univariate polynomial with coefficients in $\F_p$ of degree less than $n$. Addition of two elements is the usual addition of polynomials, where the coefficients are reduced modulo $p$. Multiplication of two elements is the usual multiplication of polynomials, where the result is reduced modulo $f(x)$ in order to again achieve a polynomial of degree less than $n$.
+
+It is important to notice that the \textbf{description length} of an element is $n \bigO(\log p)$. Thus, a polynomial time algorithm achieves a running time which is polynomial in $n$ and $\log p$. We will also consider fields of {\em small characteristic} $p$, where $p$ is constant. Then polynomial running time means polynomial in $n$.
+
+It is known that for any $p$ there are always polynomials $f(x)$ of degree $n$ that are irreducible over $\F_p$. Usually, there are many of these polynomials, which in turn means that we obtain different representations of a finite field when choosing different polynomials $f(x)$. However, it is also known that all of these representations are isomorphic, and the isomorphisms are efficiently computable.
+
+This fact is used in the algorithm of Joux and Lercier, who exploit different representations $\F_p[x]/f(x)$ and $\F_p[y]/g(y)$ of the same field. This is illustrated in the following commutative diagram.
+
+\[
+\begin{tikzcd}
+\& \mathbb{F}_{p}[X,Y]
+\arrow{ld}{Y \mapsto f(X)}
+\arrow{rd}{X \mapsto g(Y)}
+\\
+\mathbb{F}_{p}[X]  \arrow{rd}{X\mapsto x} \& \&\mathbb{F}_p[Y] \arrow{ld}{Y\mapsto y}\\
+\&\F_{p^n}\&
+\end{tikzcd}
+\]
+
+\begin{description}
+\item[Factor base:] We choose all degree-1 polynomials $x-a$ and $y-b$ from $\F_p[x] \cup \F_p[y]$. Thus, the factor base has size $2p$.
+
+\item[Relation finding:] On both sides, that is for polynomials $h$ from $\F_p[x]/f(x)$ and from $\F_p[y]/g(y)$, we try to factor into the linear factors from the factor base. This can be done by an easy gcd computation $\gcd(h, x^p-x)$ in time $\bigO(p)$ for each polynomial. It can be shown that the number of polynomials that have to be tested is bounded by $L_{p^n}[\frac 1 3]$.
+\item[Discrete log computation:] This step is done by writing a polynomial as a linear combination of polynomials of smaller degree and by repeating recursively, until degree-1 is found. This recursion is called a (degree) decent and requires running time $L_{p^n}[\frac 1 3]$, just like the relation finding step.	
+\end{description}
+
+\subsection{Recent Improvements for the Function Field Sieve}
+\label{GGMZ}
+\index{function field sieve (FFS)}
+
+The first recent improvement upon the Joux-Lercier FFS was presented at
+Eurocrypt~2013 by Joux, who showed that 
+it is possible to drastically lower the complexity of finding
+relations by replacing the classical sieving approach with a new
+technique based on a linear change of variables called {\it pinpointing}.
+
+\DIFaddend At the Crypto Conference 2013, G\"ologlu, Granger, McGuire, and 
+Zumbr\"agel presented another approach, related to pinpointing that
+works very efficiently with a characteristic 2 subfield.
+Their paper was considered so important by the cryptographic community
+that they received the best paper award.
+
+The new results hold for finite fields $\F_{q^n}$ of characteristic two, i.e. $q=2^{\ell}$. Notice that we use the standard convention\index{convention} that denotes primes by $p$ and prime powers by $q=p^{\ell}$.
+For these fields $\F_{q^n}$ the relation finding step in the Joux-Lercier algorithm simplifies, since one can construct polynomials that split with a higher probability than generic polynomials of the same degree.
+
+Let us give a high-level description of the ideas of their improvement.
+
+\begin{description}
+\item[Factor base:] All degree-1 polynomials as in the Joux-Lercier algorithm.
+\item[Relation finding:] G\"ologlu, Granger, McGuire, and Zumbr\"agel show that one can construct a special type of polynomials over $\F_q[x]$ -- the so-called Bluher polynomials -- that by construction split over $\F_q[x]$. So similar to our simple version of Index Calculus for integers in Section~\ref{simple}, we obtain one side of the equation for free. The cost for splitting the polynomials in $\F_q[y]$ is roughly $\bigO(q)$ and the cost for finding the discrete logarithms of the factor base elements is roughly $\bigO(n \cdot q^2)$. We will explain below why this gives us the discrete logarithms of the factor base in {\em polynomial time} for properly chosen parameters. 
+\item[Discrete log computation:] The individual discrete logarithm computation is similar to the Joux-Lercier algorithm.
+\end{description}
+
+\noindent {\bf Runtime:} We are computing in a field $\F_{q^n}$, where $q=2^{\ell}$. Hence, a polynomial time algorithm would require running time polynomial in the parameters $n$ and $\log q$. However, the relation finding above takes time $\bigO(n \cdot q^2)$, which is polynomial in $n$ but exponential in $\log q$. So actually the algorithm performs very poorly with respect to the size of the base field $\F_q = \F_{2^{\ell}}$. 
+
+The trick to work around this is to decrease the size of the base $q$ to $q'$ while slightly increasing the extension degree $n$ to $n'$. Our goal is that the new base field size $q'$ roughly equals the new extension degree $n'$, that is $q' \approx n'$. In this case, we again obtain a running time which is polynomial in $n'$ and $q'$, but now $q'$ is also polynomially bounded by $n'$. So in total, for step 2 our running time is in total polynomially bounded by $n'$.\\[0.1cm]
+
+Let us give a simple example of how this can be done for concrete parameters. Assume that we wish to compute a discrete logarithm in $\F_{(2^{100})^{100}}$. Then we would lower the base field to $q'=2^{10}$ and at the same time increase the extension degree to $n'=1000$, i.e. compute in $\F_{(2^{10})^{1000}}$. Notice that this can always be done by using the efficiently computable isomorphisms between finite fields of the same cardinality.\\[0.1cm]
+
+\noindent{\em Warning:} One might be tempted to bypass the above with the selection of exponents that do not split appropriately, i.e. by choosing $\F_{2^p}$ with prime $p$. However, we can always embed our finite field in some larger field -- as well as the respective discrete logarithms. Hence finite fields with small characteristic have to be considered insecure, independently of the special form of the extension degree $n$.\\[0.1cm]
+
+While the relation finding in step 2 of G\"ologlu, Granger, McGuire, and Zumbr\"agel can be done in {\em polynomial time}, the individual log computation is still time-consuming. If one does it naively, step 3 is even more time-consuming than in Joux-Lercier because of the increased extension degree $n'$. If one balances out the running times of step 2 and 3, one ends up with an improved overall running time of $L_{q^n}[\frac 1 3, (\frac 4 9)^{\frac 1 3}]$.
+%\DIFaddbegin \DIFadd{With the pinpointing technique of Joux, the resulting complexity also
+%remains of the form $L[\frac 1 3]$.
+%}\DIFaddend 
+
+
+\subsection{Quasi-Polynomial Dlog Computation of Joux et al}
+
+In the previous section, it was shown that the discrete logarithms of all elements of a factor base can be computed in polynomial time. However, it remained a hard problem to use that fact for computing individual logarithms. 
+
+This problem has been recently solved by Joux~\cite{Joux2013} and Barbulesu, Gaudry, Joux and Thom\'e~\cite{BGJT2013}. In the paper of Joux, it was shown that the individual logarithm step can be performed in $L[\frac 1 4]$. Shortly after, this was improved by Barbulescu, Gaudry, Joux and Thom\'e to $L[o(1)]$, which is a function that grows slower than $L[\epsilon]$ for any $\epsilon > 0$. So they achieve quasi polynomial time. 
+
+Let us briefly describe the modifications of these two papers to the Function Field Sieve algorithm.\index{function field sieve (FFS)}
+
+\begin{description}
+\item[Factor base:] Consists of degree-1 polynomials as before.
+
+\item[Relation finding:] One starts with the trivial initial polynomial 
+$$
+  h(x)= x^q-x = \prod_{\alpha \in \F_q} (x-\alpha)
+$$ 
+that obviously factors in the factor base. Now, one applies linear and rational transformations (called homographies) to $h(x)$, which preserve its property to split over the factor base. One can show that there are sufficiently many independent homographies in order to construct sufficiently many relations. So out of one trivial polynomial $h(x)$, we obtain for free all $\bigO(q)$ relations. This enables us to compute the discrete logarithms of the factor base elements in time $\bigO(q)$.
+
+\item[Discrete log computation:] Barbulescu et al present an efficient {\em degree decent} algorithm which on input of a polynomial $p(x)$ of degree $n$ outputs a linear relation between the discrete log of $p(x)$ and $\bigO(nq^2)$ polynomials of degree $\frac n 2$ in time polynomial in $q$ and $D$. This implies that we get a tree of polynomials, where the degree drops in every level by a factor of two, which in turns implies a tree depth of $\log n$. This results in a running time of $\bigO(q^{\bigO(\log n)})$.
+\end{description}
+
+\noindent {\bf Runtime:}
+As in the previous Section~\ref{GGMZ} let us assume that the size $q$ of the base field is of the same size as the extension degree $n$, i.e., $q=\bigO(n)$. Then step 2 runs in time $\bigO(q)=\bigO(n)$, which is polynomial in $n$. Step 3 runs in time $\bigO(q^{\bigO(\log n)})=\bigO(n^{\bigO(\log n)}) = L_{q^n}[o(1)]$. Notice that $n^{\log n}=2^{\log^2 n}$ grows faster than any polynomial function in $n$ but slower than any sup-exponential function $2^{n^{c}}$ for some $c>0$.
+
+
+\subsection{Conclusions for Finite Fields of Small Characteristic}
+
+To give some examples what the theoretical quasi-polynomial run time of the previous results implies in practice, we illustrate in Table~\ref{dlog-table} what can currently be achieved in computing discrete logarithms.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{ccccc}
+Date & Field & Bitsize & Cost (CPU hours) & Algorithm\\
+\hline
+ 2012/06/17&$3^{6\cdot 97}$ & 923 & 895\,000 & \cite{JL2006}\\
+2012/12/24&$p^{47}$ & 1175 & 32\,000 & \cite{Pin2013}\\
+2013/01/06&$p^{57}$ & 1425 & 32\,000 & \cite{Pin2013}\\
+2013/02/11 &$2^{1778}$ & 1778 & 220 & \cite{Joux2013}\\
+2013/02/19 &$2^{1778}$ & 1991 & 2200 & \cite{GGMZ2013}\\
+2013/03/22 &$2^{4080}$& 4080 & 14\,100 & \cite{Joux2013}\\
+2013/04/11&$2^{6120}$ & 6120 & 750 & \cite{Joux2013}\\
+2013/05/21&$2^{6168}$ & 6168 & 550 & \cite{Joux2013}\\
+\hline
+\end{tabular}
+\caption{Small characteristic records}
+\label{dlog-table}
+\end{center}
+\end{table}
+
+\noindent {\bf Recommendation:}
+The use of small characteristic fields for discrete log-based is {\bf completely insecure}, no matter which key sizes are used. Fortunately, we are not aware of such a usage in actual applications in wide-spread/standardized cryptographic schemes.
+
+
+
+\subsection{Do these Results Transfer to other Index Calculus Type Algorithms?}
+\index{index calculus}
+
+From a crypto user's point of view, one could worry that the current breakthrough results that drop the complexity for discrete log computations in small characteristic fields from $L[\frac 1 3]$ to $L[o(1)]$ apply to discrete logarithms in other groups as well. For instance, one might be concerned by the actual security level of discrete log based cryptography in finite fields $\F_p$ of {\em large} characteristic.\\[0.1cm]
+
+\noindent {\bf Conjecture:} We believe that the new techniques do not carry over to large-characteristic finite fields or elliptic curves that currently comprise the standard for cryptographic constructions.\\[0.1cm]
+
+Let us briefly collect some reasons, why the current techniques do not carry over to these groups, and which problems have to be solved before we see any significant progress in the running time for these groups.
+
+\begin{itemize} 
+\item {\bf Runtime:} Notice that all Index Calculus algorithms described in this section are polynomial in the base field size $q$ and thus exponential in the bit-length $\bigO(\log q)$. So the hardness of the discrete logarithm problem seems to stem from the hardness in the base field, whereas the extension degree $n$ does not contribute to make the problem significantly harder.
+
+In particular, we note that each equation -- constructed from the
+polynomial $x^q-x$ as done in the new small characteristic algorithms --
+contains at least $q$ terms. Thus, whenever $q$ becomes bigger than
+$L[1/3]$, even writing a single equation of this type would cost more
+than the full complexity of the Number Field Sieve from Section~\ref{nfs-dlog}.
+
+Notice that there is a similar situation for discrete logarithms in elliptic curve groups. When we use an elliptic curve over $\F_q$ in general the best known algorithm is the generic Pollard Rho algorithm from Chapter~\ref{generic} with running time $\bigO(\sqrt q)$. However, Gaudry's algorithm -- that we discuss in Section~\ref{gaudry} -- requires for elliptic curves over $\F_{q^n}$ only running time $q^{2-\frac 2 n}$, which is way better than the generic bound $\bigO(q^{\frac n 2})$. Like the algorithms in this Chapter, Gaudry's algorithm is of Index Calculus type. And similar to the algorithms in this Chapter, the complexity of the discrete logarithm problem seems to be concentrated in the parameter $q$ rather than the parameter $n$.
+
+\item{\bf Polynomials vs Numbers:} Notice that the current results make heavy use of polynomial arithmetic and of subfields of $\F_{q^n}$. However, neither is polynomial arithmetic available for $\F_p$ nor do there exist subfields for prime order groups. We would like to argue that many problems are efficiently solvable for polynomials, whereas they appear to be notoriously hard for integers. For instance, it is known that polynomials over finite fields and over the rationals can be efficiently factored by the algorithms of Berlekamp and Lenstra-Lenstra-Lovasz, whereas there is no equivalent algorithm for the integers. There is also an efficient algorithm for finding shortest vectors in polynomial rings due to von zur Gathen, where its integer lattice counterpart is known to be NP-hard.
+
+What makes integers intrinsically harder than polynomials is the effect of carry bits. When we multiply two polynomials, we know by the convolution product exactly which coefficients contribute to which coefficients in the product, which is not true for integer multiplication due to the carry bits.
+
+\item{\bf Complexity of Steps 2 \& 3:} Any algorithmic breakthrough for index calculus type discrete logarithms would have to efficiently solve the discrete logarithms of a well-defined factor base {\em and} express the desired logarithm in terms of this factor base. But currently, we do not have an efficient method for either step in the case of large prime fields $\F_p$. 
+\end{itemize}
+
+\noindent {\bf References and further reading:} 
+Coppersmith's algorithm~\cite{Coppersmith1984} from the mid 80s was for a long time the reference method for computing discrete logarithms in small characteristic fields. 
+The Joux-Lercier Function Field Sieve was introduced 2006 in~\cite{JL2006}.
+\index{function field sieve (FFS)}
+
+The recent advances started at Eurocrypt 2013 with Joux's pinpointing technique~\cite{Pin2013}.
+At Crypto 2013, G\"ologlu, Granger, McGuire and Jens Zumbr\"agel~\cite{GGMZ2013}
+already improved the constant $c$ in the $L[\frac 1 3,c]$ running time. The
+improvement to running time $L[\frac 1 4]$ was then presented in the work of
+Joux~\cite{Joux2013}. Eventually, Barbulescu, Gaudry, Joux and Thom{\'e}~\cite{BGJT2013}
+proposed an algorithm for the decent that led to running time $L[o(1)]$.
+
+
+
+%%%%%
+\newpage
+\section{Best Known Algorithms for Factoring Integers}
+\label{factor}
+\index{factoring}
+
+{\bf Management Summary: The best algorithm for factoring shows close similarity to the best algorithm for computing discrete logarithms in prime order groups. It seems that the new attacks do not help to improve any of the two algorithms.\\[0.1cm]}
+
+The best algorithm for computing the prime factorization of integers, the so-called Number Field Sieve, is very similar to the best algorithm for computing discrete logarithm in $\F_p$ from Section~\ref{nfs-dlog}, and much less similar to the algorithm for $\F_{q^n}$ from Chapter~\ref{ffs}.
+
+In a nutshell, all known, sophisticated algorithms that factor RSA moduli $n=pq$ for primes $p,q$ of the same size, rely on the same basic simple idea. Our goal is to construct $x, y \in \Z/n\Z$ such that 
+\begin{center}
+  $x^2 \equiv y^2 \mmod n$ and $x \not\equiv \pm y \mmod n$. 
+\end{center}
+This immediately yields the factorization of $n$, since $n$ divides the product $x^2- y^2 = (x+y)(x-y)$ by the first property, but $n$ does neither divide $x+y$ nor $x-y$ by the second property. Thus one prime factor of $n$ has to divide $x+y$, whereas the other one has to divide $x-y$. This in turn means that $\gcd(x \pm y, n) = \{p,q\}$.
+
+The factorization algorithms only differ in the way in which these $x,y$ are computed.
+ %%%                - Kann man "independent" etwas genauer definieren?
+The intention is to compute $x,y$ with $x^2 \equiv y^2 \mmod n$ in an ``independent'' way.
+% Remark:
+% Ein triviales Beispiel für "dependent" wäre: Wähle $x$ zufällig und setze $y=x$ oder $y=-x$.
+% Die Berechnung von y sollte an keiner Stelle das x verwenden.
+If this independence is given, it is easy to show that $x \not\equiv \pm y \mmod n$ holds with probability $\frac 1 2$, since every square in $\Z/n\Z$ has 4 square roots by the Chinese Remainder Theorem -- two different roots modulo $p$ and two different roots modulo $q$.
+
+
+
+\subsection[The Number Field Sieve for Factorization (GNFS)]
+           {The Number Field Sieve for Factorization (GNFS)\footnotemark}
+\footnotetext{%
+   The term number field sieve here always means the {\bf general} number field sieve (GNFS).
+   In the context of factorization there is a difference between a special and a
+   general number field sieve -- this is in the opposite to section~\ref{nfs-dlog}.\\
+   CT2\index{CT2} contains an implementation of GNFS using msieve and YAFU.
+}
+% \subsection{The Number Field Sieve}
+\label{nfs-factor}
+\index{number field sieve}
+
+Let $n \in \N$ be the integer that we want to factor. In the Number Field Sieve algorithm we start by constructing two polynomials $f,g$ that share a common root $m$ modulo $N$. Usually this is done by simply defining $g(X)=X-m \mmod n$ and constructing some low degree polynomial $f(X)$ with $f(m) \equiv 0 \mmod n$ (e.g. by expanding $n$ in base $m$ as in Section~\ref{nfs-dlog}).
+
+Since $f$ and $g$ are different, they define different rings $\Z[X]/f(X)$ and $\Z[X]/g(X)$. But since $f$ and $g$ share the same root $m$ modulo $n$, both rings are isomorphic to $\Z/n\Z$; and this isomorphism can be explicitely computed by the mapping $X \mapsto m$. This is illustrated in the following commutative diagram.
+\[
+\begin{tikzcd}
+\& \mathbb{Z}[X]
+\arrow{ld}{}
+\arrow{rd}{}
+\\
+\mathbb{Q}[X]/(f(X)) \arrow{rd}{X\mapsto m} \& \&\mathbb{Q}[X]/(g(X)) \arrow{ld}{X\mapsto m}\\
+\&\Z/n\Z\&
+\end{tikzcd}
+\]
+
+\begin{description}
+\item[Factor base:] Consists of small-norm prime elements in both number fields.
+
+\item[Relation finding:] We look for arguments $\tilde x$ such that simultaneously $\pi_f:=f(\tilde x)$ splits in $\mathbb{Q}[X]/(f(X))$ and $\pi_g:=g(\tilde x)$ splits in $\mathbb{Q}[X]/(g(X))$ into the factor base. Such elements are called relations.
+
+\item[Linear Algebra:] By linear algebra, we search for a product of the elements $\pi_f$ which is a square and whose corresponding product of the $\pi_g$ is also a square. If we send these elements via our homomorphism $X \mapsto m$ to $\Z/n\Z$, we obtain elements $x^2,y^2 \in \Z/n\Z$ such that $x^2 \equiv y^2 \mmod n$. If we first compute the square roots of $\pi_f$ and $\pi_g$ in their respective number fields before applying the homomorphism, we obtain $x, y \in \Z/n\Z$ with $x^2 \equiv y^2 \mmod N$, as desired. The independence of $x,y$ here stems from the different representations in both number fields.
+\end{description}
+
+\noindent {\bf Runtime:}
+The above algorithm is up to some details -- e.g. the square root computation in the number field -- identical to the algorithm of Section~\ref{nfs-dlog} and shares the same running time $L[\frac 1
+3,\left(\frac{64}{9}\right)^{1/3}]$.
+
+
+\subsection{\texorpdfstring{Relation to the Index Calculus Algorithm for Dlogs in $\F_p$}{Relation to the Index Calculus Algorithm for Dlogs in Fp}}
+\index{index calculus}
+
+Firstly, we know that computing discrete logarithms in composite order groups $\Z/n\Z$ is at least as hard as factoring $n=pq$. This in turn means that any algorithm that computes discrete logarithms in $\Z/n\Z$ computes the factorization of $n$:
+\begin{center}
+  Dlogs in $\Z/n\Z$ $\Rightarrow$ Factoring $n$.
+\end{center}
+Let us briefly give the idea of this relation. We compute the order $k=\textrm{ord}(a)$ for an arbitrary $a \in \Z/n\Z$ by our dlog-algorithm, i.e. we compute the smallest positive integer $k$ such that $a^{k} \equiv 1 \mmod n$. If $k$ is even, then $a^{\frac k 2} \not\equiv 1$ is a square root of $1$. We have $a^{\frac k 2} \not\equiv -1$ with probability at least $\frac 1 2$, since $1$ has 4 square roots modulo $n$. Set $x \equiv a^{\frac k 2} \mmod n$ and $y =1$. Then we obtain $x^2 \equiv 1 \equiv y^2 \mmod n$ and $x \not \equiv \pm y \mmod n$. By the discussion at the beginning of the Chapter this allows us to factor $n$.\\[0.1cm]
+
+Secondly, we also know that both problems factoring and computing discrete logarithms in $\F_p$ are together
+at least as hard as computing discrete logarithms in $\Z/n\Z$. In short
+\begin{center}
+  Factoring + Dlogs in $\F_p$ $\Rightarrow$ Dlogs in $\Z/n\Z$.
+\end{center}
+This fact can be easily seen by noticing that factoring and dlogs in $\F_p$ together immediately give an efficient version of the Silver-Pohlig-Hellman algorithm from Section~\ref{generic}. We first factor the group order $n$ in prime powers $p_i^{e_i}$, and then compute the discrete logarithms in $\F_{p_i}$ for each $i$. Just as in the Silver-Pohlig-Hellman algorithm we lift the solution modulo $p_i^{e_i}$ and combine these lifted solutions via Chinese Remaindering.
+
+We would like to stress that these two known relations do not tell much about whether there is a reduction 
+\begin{center}
+  Factoring $\Rightarrow$ Dlog in $\F_p$ \hskip 1cm or \hskip 1cm Dlog in $\F_p \Rightarrow $ Factoring.
+\end{center}
+Both directions are a long-standing open problem in cryptography. Notice however that the best algorithms for factoring and dlog in $\F_p$ from Sections~\ref{nfs-dlog} and~\ref{nfs-factor} are remarkably similar. Also historically always algorithmic progress for one problem immediately implied progress for the other problem as well. Although we have no formal proof, it seems to be fair to say that both problems seem to be closely linked from an algorithmic perspective.
+ 
+
+\subsection{Integer Factorization in Practice}
+\index{factoring}
+
+Given the current state of the art of academic integer factorization research,
+even moderately sized -- but properly chosen -- RSA moduli offer a reasonable
+amount of protection against open community cryptanalytic efforts. The
+largest RSA challenge number factored by a public effort has just 768 bits~\cite{factor768_2010}
+and required the equivalent of about 2000 years of computing on a single 2 GHz
+core. Attacking a 1024-bit RSA modulus is about a thousand times harder.
+Such an effort must be expected to be out of reach for academic efforts for several
+more years. Doubling the size to 2048-bit moduli increases the computational
+effort by another factor of $10^9$. Without substantial new mathematical
+or algorithmic insights 2048-bit RSA must be considered to be out of reach
+for at least two more decades.
+
+
+\subsection{\texorpdfstring{Relation of Key Size vs. Security for Dlog in $\F_p$ and Factoring}{Relation of Key Size vs. Security for Dlog in Fp and Factoring}}
+\label{key-size-factoring}
+
+The running time of the best algorithm for a problem defines the security level of a cryptosystem. E.g. for 80-bit security, we want that the best algorithm requires
+%%% Man könnte nach "requires" noch "in average" ergänzen.
+at least $2^{80}$ steps. 
+
+As we already noted, the best running time for discrete logs in $\F_p$ and for factoring is $L[\frac 1
+3,\left(\frac{64}{9}\right)^{1/3}]$. The most accurate way to use this formula is to actually measure the running time for a large real world factorization/dlog computation, and then extrapolate to large values. Assume that we know that it took time $T$ to factor a number $n_1$, then we extrapolate the running time for some $n_2 > n_1$ by the formula
+$$
+  T  \cdot \frac{ L_{n_1}[\frac 1
+3,\left(\frac{64}{9}\right)^{1/3}] }
+{ L_{n_2}[\frac 1
+3,\left(\frac{64}{9}\right)^{1/3}] }.
+$$
+So, we use the L-formula to estimate the relative factor that we have to spend in addition. Notice that this (slightly) overestimates the security, since the L-formula is asymptotic and thus becomes more accurate in the numerator than in the denominator -- the denominator should include a larger error term. So in practice, one obtains (only slightly) less security than predicted by this formula.
+
+We computed the formula for several choices of the bit-size of an RSA number $n$, respectively a dlog prime $p$, in Table~\ref{nfs-table}. Recall from Section~\ref{nfs-factor} that the running time of the Number Field Sieve
+algorithm for factoring is indeed a function of $n$ and not of the prime factors of $n$. 
+
+
+We start with RSA-768 that has been successfully factored in 2009~\cite{factor768_2010}. In order to count the number of instructions for factoring RSA-768, one has to define what an {\em instruction unit} is. It is good practice in cryptography to define as a unit measure the time to evaluate DES in order to obtain comparability of security levels between secret and public key primitives. Then by definition of this unit measure, DES offers 56-bit security against brute-force key attacks.
+
+In terms of this unit measure, the factorization of RSA-768 required $T=2^{67}$ instructions. From this starting point, we extrapolated the security level for larger bit-sizes in Table~\ref{nfs-table}.
+
+We successively increase the bit-size by $128$ up to $2048$ bits. We see that in the beginning, this leads to roughly an increase of security of 5 bits per 128-bit step, whereas in the end we only have an increase of roughly 3 bits per 128-bit step. 
+
+By Moore's law the speed of computers doubles every 1.5 years. Hence after $5\cdot 1.5 = 7.5$ years we have an increase of $2^5$, which means that currently we should roughly increase our bit-size by $128$ bits every $7.5$ years; and when we come closer to $2000$ bits our increase of 128-bit steps should be in intervals of  no later than 4.5 years. For more conservative choices that also anticipate some algorithmic progress rather than just an increase in computers' speed see the recommendations in Chapter~\ref{advice}.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{c|c}
+bit-size & security\\
+\hline
+768 & 67.0\\
+896 & 72.4\\
+1024 & 77.3\\
+1152 & 81.8\\
+1280 & 86.1\\
+1408 & 90.1\\
+1536 & 93.9\\
+1664 & 97.5\\
+1792 & 100.9\\
+1920 & 104.2\\
+2048 & 107.4\\
+\end{tabular}
+\caption{Bitsize of $n$, $p$ versus security level}
+\label{nfs-table}
+\end{center}
+\end{table}
+
+
+%Moreover, the $L$-function can be easily inverted numerically, but it is quite cumbersome to give a closed formula for the inversion. Nevertheless, one might be interested in some intuition on how this function behaves on changes of the key size.
+
+%We want to give here a rule of thumb for an easy estimation. For simplicity we approximate
+%\begin{center}
+ %$
+ %L_n[b, c] \approx e^{c \ln^{b} n}.
+% $
+%\end{center}
+%That is we ignore the term $\ln\ln^{1-b} n$ in the exponent. Let us now increase our bit-size of $n$ by a factor of $k$, i.e. we use $k \log n$ bits instead of $\log n$ bits. Since $\log n = \frac{\ln n}{\ln 2}$ we also increase $\ln n$ by a factor of $k$, which results in 
+%$$
+%  e^{c (k \cdot \ln n)^{b}} = (e^{c \ln^{b} n})^{k^b}. 
+%$$
+%%
+%This means that a multiplication of the bit-size by $k$ implies that we have to exponentiate the running time with an exponent of roughly $k^{b}$ when the best algorithm has running time $L[b]$. 
+%
+%Especially that means that for exponential running time $L[1]$ a doubling of the bit-size translates into a squaring of the security level. For our $L[\frac 1 3]$ running time a multiplication by $k=\frac 4 3$ and $k=2$ translates into exponents ${\frac 4 3}^{\frac 1 3} \approx 1.1$ and $2^{\frac 1 3} \approx 1.26$, respectively.
+%In~\cite{factor768_2010}, the number of operations for factoring a $768$-bit RSA number was determined in a practical factorization implemented as $2^{67}$. We calculate
+%\begin{center}
+%  $(2^{67})^{1.1} \approx 2^{73.7}$ and $(2^{73.7})^{1.26} \approx 2^{92.9}$.
+%\end{center}
+%Thus moving from a $768$-bit number to a $1024$-bit RSA modulus requires an additional factor of $2^{6.7} \approx 100$, whereas moving from $1024$ bit to $2048$ requires yet another factor of roughly $2^{19} \approx 10^{5,7}$.
+
+\noindent {\bf References and further reading:} 
+An introduction to several factorization algorithms including the Quadratic Sieve -- the predecessor of the Number Field Sieve -- can be found in May's lecture notes on number theory~\cite{May2013}. We recommend Bl\"omer's lecture notes on algorithmic number theory~\cite{Bloemer1999} as an introduction to the Number Field Sieve.
+
+The development of the Number Field Sieve is described in the textbook of Lenstra and Lenstra~\cite{NFS1993} that includes all original papers. The relation of discrete logarithms and factoring has been discussed by Bach~\cite{Bach1984}. Details of the current factorization record for RSA-768 can be found in~\cite{factor768_2010}.
+
+
+
+%%%%%
+\newpage
+\section{\texorpdfstring{Best Known Algorithms for Elliptic Curves $E$}{Best Known Algorithms for Elliptic Curves E}}
+\index{elliptic curve}
+
+{\bf Management Summary: Elliptic curves are the second standard group for the discrete logarithm problem. The new attacks do not affect these groups, their security remains unchanged.\\[0.1cm]}
+
+We would like to discuss elliptic curves $E[p^n]$ over finite extension fields $\F_{p^n}$ and elliptic curves $E[p]$ over prime fields $\F_p$. The later are usually used for cryptographic purposes. The reason to discuss the former too is to illustrate -- similar to the previous chapters -- the vulnerabilities of extension fields $\F_{p^n}$ as opposed to prime field $\F_p$. However, we would like to point out that we assume in the following -- in contrast to the previous chapter -- that $n$ is fixed. This is because as opposed to the algorithm of Joux et al, the algorithms for $E[p^n]$ have complexities which depend exponentially on $n$.
+
+We present two different approaches for elliptic curves over extension fields: cover (or Weil
+descent) attacks introduced by Gaudry, Hess and Smart (GHS), and decomposition
+attacks proposed by Semaev and Gaudry. In some cases, it is possible to combine
+the two approaches into an even more efficient algorithm as shown by Joux and Vitse~\cite{JV2011}.
+
+
+\subsection{\texorpdfstring{The GHS Approach for Elliptic Curves $E[p^n]$}{The GHS Approach for Elliptic Curves E[pn]}}
+This approach introduced by Gaudry, Hess and Smart aims at
+transporting the discrete logarithm problem from an elliptic curve $E$
+defined over an extension field $\F_{p^n}$ to an higher genus curve
+defined over a smaller field, for example $\F_p$. This can be done by
+finding a curve $H$ over $\F_p$ together with a surjective morphism
+from $H$ to $E$. In this context, we say that the curve $H$ is a cover
+of $E$. Once such a curve $H$ is obtained, it is possible using the so
+called coNorm technique to pulI back a discrete logarithm problem
+on $E$ to a discrete logarithm problem on the Jacobian of $H$. If the
+genus $g$ of the target curve is not too large, this can lead to an
+efficient discrete logarithm algorithm. This uses the fact that there
+exists an index calculus algorithm on high genus curve of genus $g$
+over $\F_p$ with complexity $\max(g!\, p, p^2)$. This was introduced
+by Enge, Gaudry and Thom\'e~\cite{EGT2011}.
+
+Ideally, one would like the genus $g$ to be equal to $n$. However,
+this is not possible in general. Classifying the possible covers for
+elliptic curve seems to be a difficult task.
+
+
+\subsection{\texorpdfstring{Gaudry-Semaev Algorithm for Elliptic Curves $E[p^n]$}{Gaudry-Semaev Algorithm for Elliptic Curves E[pn]}}
+\label{gaudry}
+
+Let $Q=\alpha P$ be a discrete logarithm on an elliptic curve $E[p^n]$. So the goal is to find the integer $\alpha \in \N$ such that $k$ times the point $P \in E[p^n]$ added to itself is equal to the point $Q \in E[p^n]$.
+
+Gaudry's discrete logarithm algorithm is of index calculus type. We briefly outline the basic steps.
+
+\begin{description}
+\item[Factor base:] Consists of all points $(x,y)$ on the elliptic curve $E[p^n]$ such that $x\in \F_p$. That is $x$ lies in the ground field $\F_p$ rather than in the extension. 
+\item[Relation finding:] Given a random point $R = aP$, with $a\in
+  \N$, we try to write $R$ as a sum of exactly $n$ points from the
+  factor base, where $n$ is the extension degree. This is achieved by
+  using the $n$-th Semaev polynomial $f_{n+1}$. This polynomial is a
+  symmetric polynomial of degree $2^{n-2}$ in $n+1$ unknowns $x_1$,
+  \dots, $x_{n+1}$ which encodes the fact that there exists points
+  with respective abscissae $x_1$, \dots, $x_{n+1}$ which sum to
+  zero. Of course, the coefficients of $f$ depend on the curve
+  $E$. Replacing $x_{n+1}$ by the abscissa of $R$, we can find a
+  decomposition of $R$ as a sum of points from the factor base by
+  searching for a solution $(x_1,\cdots, x_n)$ in the basefield
+  $\F_p$. In order to do this, one first rewrites $f$ as a
+  multivariate system of $n$ equations by decomposing the constants
+  that appear in the polynomial over some basis of $\F_{p^n}$ over
+  $\F_p$. This system of $n$ equations in $n$ unknowns can be solved
+  using a Gröbner basis\index{Groebner basis} computation. 
+  %Note that the symmetry of the
+  %system is very useful to speed-up the computation.
+\item[Individual Discrete Log Computation:] To compute the discrete
+  logarithm of $Q$, it suffices to find one additional relation that
+  express a random multiple of $Q$, namely $R=aQ$ in terms of the
+  points in the factor base. This is done in the exact same way as the
+  generation of relations in the previous step.
+\end{description}
+
+
+\noindent {\bf Runtime:}
+The factor base can be computed in time $\bigO(p)$. Every $R$ can be written as a sum of $n$ factor base elements, i.e. yields a relation, with probability exponentially small in $n$ (but independent of $p$). If it yields a solution the running time of a Gr\"obner basis\index{Groebner basis} computation is also exponential in $n$ (but polynomial in $\log p$). In total, we need roughly $p$ relations which can be computed in time linearly in $p$ and exponentially in $n$. Since we assumed $n$ to be fixed, we do not care about the bad behavior in $n$. The linear algebra step on a $(p \times p)$-matrix can then be performed in $\bigO(p^2)$, since the matrix is sparse -- every row contains exactly $n$ non-zero entries. With additional tricks one achieves a running time of $\bigO(p^{2-\frac 2 n})$ for Gaudry's algorithm. 
+
+This should be compared to the generic bound of $\bigO(p^{\frac n 2})$ that we achieve when using Pollard's Rho algorithm from Chapter~\ref{generic}. Similar to Chapter~\ref{ffs}, almost the whole complexity of the problem seems to be concentrated in the size of the base field $p$, and not in the extension degree $n$. Notice that as in Chapter~\ref{ffs}, Gaudry's algorithm is exponential in $\log p$.
+
+
+
+\subsection{\texorpdfstring{Best Known Algorithms for Elliptic Curves $E[p]$ over Prime Fields}{Best Known Algorithms for Elliptic Curves E[p] over Prime Fields}}
+\index{elliptic curve}
+
+\noindent {\bf Generic discrete log solving:}
+In general, the best algorithm that we know for arbitrary elliptic curves $E[p]$ is Pollard's Rho method with a running time of $\bigO(\sqrt p)$. For the moment, it seems that nobody knows how to exploit the structure of an elliptic curve group or its elements in order to improve over the generic bound.
+
+We would also like to point out that {\em random} elliptic curves, i.e. where the elliptic curve parameters $a,b$ in the defining Weierstrass equation $y^2 \equiv x^3+ax+b \mmod p$ are chosen in a uniformly random manner, are among the hard instances. To further harden elliptic curves, one chooses for standardization only those curves that have (almost) prime order. This means that the co-factor of the largest prime in the group order is usually $1$, which abandons the use of Silver-Pohlig-Hellman's algorithm.
+
+\noindent {\bf Embedding $E[p]$ into $\F_{p^k}$:}
+It is known that in general elliptic curves $E[p]$ can be embedded into a finite field $\F_{p^k}$, where $k$ is the so-called {\em embedding degree}. In $\F_{p^k}$ we could use the Number Field Sieve for discrete logarithm computations. Hence such an embedding would be attractive if $L_{p^k}[\frac 1 3]$ is smaller than $\sqrt p$, which is the case only if the embedding degree $k$ happens to be very small. However, for almost all elliptic curves the embedding degree is known to be huge, namely comparable to $p$ itself. 
+
+Some constructions in cryptography, e.g. those that make use of bilinear pairings, exploit the advantages of a small embedding degree. Thus, in these schemes elliptic curves are explicitly chosen with a small embedding degree, e.g. $k=6$, which balances out the hardness of the discrete logarithm problem on $E[p]$ and in $\F_p^k$.
+
+\noindent {\bf The xedni calculus algorithm:}
+In 2000, Silverman published his {\em xedni calculus algorithm} (read xedni backwards) that uses the group structure of $E[p]$ for discrete logarithm computations, and thus is the only known non-generic algorithm that works directly on $E[p]$. However, it was soon after his publication discovered that the so-called lifting process in Silverman's algorithm has a negligible probability of succeeding in computing a discrete logarithm.
+
+
+
+\subsection{\texorpdfstring{Relation of Key Size vs. Security for Elliptic Curves $E[p]$}{Relation of Key Size vs. Security for Elliptic Curves E[p]}}
+\label{key-size-EC}
+
+Similar to the discussion in Section~\ref{key-size-factoring} about key sizes for dlog in $\F_p$ and for factoring, we want to evaluate how key sizes have to be adapted for elliptic curves $E[p]$ in order to guard against an increase in computer speed. For elliptic curves, such an analysis is comparably simple. The best algorithm that we know for the dlog in $E[p]$ is Pollard's Rho method with running time 
+$$
+  L_p[1,\frac 1 2] = \sqrt{p} = 2^{\frac{ \log p}{2}}.
+$$
+This means that for achieving a security level of $k$ bits, we have to choose a prime $p$ with $2k$ bits. In other words, increasing the bit-size of our group by 2 bits leads to increase of 1 bit in security. By Moore's law we loose 1 bit of security every 1.5 years just from an increase of computer's speed. In order to guard against this loss over 10 years, it thus suffices to increase the group-size by just $7 \cdot 2=14$ bits. Notice that as opposed to the case of dlog in $\F_p$ and factoring in Section~\ref{key-size-factoring} this increase is linear and independent of the starting point. That means to guard against technological speedups over 20 years, an increase of $28$ bits is sufficient. 
+
+Of course, this analysis only holds if we do not have to face any major breakthrough in computer technology or algorithms. For a more conservative choice see the advice in Chapter~\ref{advice}.
+
+
+\subsection{How to Securely Choose Elliptic Curve Parameters}
+
+A comprehensive description on how to choose elliptic curve domain parameters over finite fields can be found in RFC 5639 ``ECC Brainpool Standard Curves and Curve Generation'' by Manfred Lochter and Johannes Merkle~\cite{LM2010, LM2005}. This RFC defines a publicly verifiable way of choosing pseudo-random parameters for elliptic curve parameters, and thus it excludes the main source for embedding a trapdoor in the definition of a group. The authors 
+discuss all {\em known} properties of a curve $E[p]$ that might potentially weaken its security: 
+\begin{itemize}
+\item {\bf A small embedding degree} for the embedding into a finite field. This would allow for the use of more efficient finite field algorithms. Especially, the requirement excludes supersingular curves of order $p+1$.
+\item {\bf Trace one curves} which have order $|E[p]|=p$. These curves are known to be weak by the discrete logarithm algorithms of Satoh-Araki~\cite{Satoh-Araki1998}, Semaev~\cite{Semaev1998} and Smart~\cite{Smart1999}.
+\item {\bf Large class number}. This excludes that $E[p]$ can be efficiently lifted to a curve defined over some algebraic number field. This requirement is quite conservative, since even for small class numbers there is currently no efficient attack known.
+\end{itemize}
+
+\noindent Moreover the authors insist on the following useful properties.
+\begin{itemize}
+\item {\bf Prime order}. This simply rules out subgroup attacks.
+\item {\bf Verifiable pseudo random number generation}. The seeds for a pseudo random number generator are chosen in a systematic way by Lochter and Merkle, who use in their construction the first 7 substrings of lenght 160 bit of the fundamental constant $\pi = 3.141 \ldots$.
+\end{itemize}
+In addition, Lochter and Merkle specify a variety of curves for $p$'s of bit-lengths in the range $160$ to $512$. For TLS/SSL there is also a new set of proposed Brainpool curves available~\cite{LM2013}.
+
+The work of Bos, Costello, Longa and Naehrig~\cite{BCLN2014} gives a valuable introduction for practitioners on how to choose elliptic curve parameters that are secure and also allow for efficient implementation in various coordinate settings (Weierstrass, Edwards, Montgomery). Additionally, Bos et al focus on side-channel resistance against timing attacks by proposing constant-time scalar multiplications.
+
+We highly recommend the SafeCurve project\index{SafeCurve project} by Daniel Bernstein and Tanja Lange~\cite{BernsteinLange2014} that provides an excellent overview for several selection methods, their benefits and drawbacks.\index{Bernstein} The goal of Bernstein and Lange is to provide security of Elliptic Curve Cryptography -- rather than just strength of elliptic curves against discrete logarithm attacks. Therefore, they take into account various types of side-channels that may leak secrets in an implementation.
+
+\noindent {\bf References and further reading:} 
+For an introduction to the mathematics of elliptic curves and their cryptographic applications we refer to the textbooks of Washington~\cite{Washington2008}, Galbraith~\cite{Galbraith2012}, and Silverman~\cite{Silverman1999}.
+
+This section described the results of the original works of Gaudry, Hess, Smart~\cite{GHS2002}, Gaudry~\cite{Gaudry2009}, Semaev~\cite{Semaev2004}, and the xedni~algorithm of Silverman~\cite{Silverman1999}.
+
+
+
+%%%%%------------
+%\newpage
+%\section{Estimate for Secure Key Lengths within the next 20 years}
+
+%\subsection{Key Growth without Quantum Computers}
+\index{quantum computer}
+%Lenstra-Verheul estimates.
+%(I have added the imo most relevant estimate above; the LV must
+%by now be considered to be overly conservative because most of the progress
+%taken into account there has not materialized.)
+
+%\subsection{Key Growth with Quantum Computers}
+\index{quantum computer}
+%All discrete log based cryptosystems, independent of the underlying abelian group, and factoring-based cryptosystems are vulnerable to quantum algorithms. 
+%how hard is that prediction? It has been quite consistently about 10 to 15 years away...
+%I see the above paragraph more as an attempt to be politically correct than as something that anyone needs to take seriously
+%%%%%------------
+
+
+%%%%%
+\newpage
+\section{Possibility of Embedded Backdoors in Cryptographic Keys}
+\index{backdoors}
+
+{\bf Management Summary: All cryptography seems to offer the possibility of embedding backdoors. Dlog schemes offer some advantage over factoring-based schemes in the sense that carefully chosen system-wide parameters protect {\em all} users.\\[0.1cm]}
+
+The possibility of embedding trapdoors in cryptographic schemes to bypass cryptography and thus to decrypt/sign/authenticate without the use of a secret key is a long recognized problem that has been intensively discussed in the cryptographic community -- e.g. at the panel discussion at Eurocrypt 1990.
+%you may for instance refer to the panel discussion at Eurocrypt Hungary, early 1990s
+However, the wide-spread use of NSA's backdoors as described by Edward Snowden\index{Snowden, Edward} has recently renewed the interest in this topic. 
+
+It appears that by construction some schemes are way more vulnerable than others. E.g. for discrete-log based schemes the definition of the group parameters is a system-wide parameter that is used by any user in the scheme. Thus, a party that is able to manipulate the definition of a group in such a way that enables this party to compute discrete logarithms in this group efficiently, can decrypt {\em all} communication. On the other hand, a carefully specified secure group also offers security for {\em all} users.
+
+Currently, there is some speculation whether the NSA influenced NIST, the U.S. standardization agency, to standardize certain elliptic curves. But the definition of a group is not the only way to embed backdoors. All cryptographic schemes rely inherently on a good source of (pseudo-)random bits. It is well known that so-called semantic security of encryption schemes cannot be achieved without randomness, and every cryptographic secret key is assumed to be randomly chosen. Thus a weak pseudo-random generator opens the door for bypassing cryptography. Such a weak pseudo-random generator was standardized by NIST as Special Publication 800-90, although there have been warnings by the cryptographic community.
+
+For factoring-based schemes the situation is slightly different than for discrete log-based schemes. As opposed to discrete log schemes, there are no system-wide parameters that define a group. Nevertheless, there are known ways to embed e.g. information about the factorization of the RSA modulus N in the RSA public exponent $e$. Moreover, recent attacks on RSA public key infrastructures~\cite{keys2012, Heninger2012} show that it appears to be a difficult problem to generate RSA public keys with different primes in the public, mainly due to bad initializations of pseudo-random generators. This of course does only affect badly chosen keys of individuals as opposed to all users of cryptographic scheme.\\[0.1cm]
+
+
+\noindent {\bf Recommendation:} Dlog-based schemes seem to be easier to control from a crypto designers perspective, since here all users have to take the same system-wide parameters.\\[0.1cm]
+
+%It seems impossible to completely guard against backdoors.  in the definition of dlog groups. As it seems, some standardization institutions for elliptic curves are under the influence of security agencies.
+%So it seems to be a good advice to employ curves that where designed in an open-source manner. One possibility of such curves are the ones chosen in Brainpool~\cite{}. 
+%we need at least some ref for Brainpool!
+%In factoring-based schemes like RSA it seems much harder to employ system-wide trapdoors. Nevertheless, bad pseudo-random generation is here definitely a real-world problem.\\[0.1cm]
+
+We do not discuss the possibility of malware here -- which may render obsolete any cryptographic protection method -- or how to protect against it. But we would like to stress the follow (somewhat trivial) warning that addresses a crucial point in practice.\\[0.1cm]
+
+\noindent {\bf Warning:} Cryptography can only protect data if it is properly implemented and does not leak its (immanent) secret. So in addition to the mathematical hardness of the underlying problems, we also have to trust in the implementor of a cryptographic scheme. This trust does not only include that the cryptographic scheme is implemented in the way it was originally designed -- without embedding of any backdoors --, but also that the implementor does not reveal the generated secret keys to a third party. 
+
+It seems that in the NSA affair, some companies were forced to reveal secret keys. Thus, one has to keep in mind that one has to buy cryptographic schemes from a completely reliable company that has not been compromised.\\
+
+\noindent {\bf References and further reading:} 
+For a nice discussion of how to embed undetectable backdoors in various cryptographic schemes, see the original works of Young and Yung~\cite{YY1996,YY1997}. See~\cite{keys2012} for a current attack on a significant portion of RSA keys in practice due to bad pseudo random number generation.
+
+
+
+%%%%%
+\newpage
+\section{Advice for Cryptographic Infrastructure}
+\label{advice}
+
+{\bf Management Summary: Despite of recent discrete logarithm attacks, discrete logarithm-based schemes over {\em prime order groups} and {\em elliptic curve groups} remain secure. The same holds for factoring-based schemes. All discrete logarithm-based groups with small characteristic are completely insecure. Our suggestion is to choose elliptic curve groups.}
+
+
+\subsection{Suggestions for Choice of Scheme}
+
+As we saw in the previous Chapters, discrete log-based schemes in $\F_p$ and over $E[p]$ remain secure, as well as factoring-based schemes. In the following, we suggest key sizes for these schemes that provide a sufficient security level {\bf for the next two decades} under the assumption that no major algorithmic breakthrough occurs.
+%
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{c|c}
+System & Key size in bits\\
+\hline
+Dlog in $\F_p$ & 2000 until 2019, then 3000\\
+Factoring & 2000 until 2019, then 3000\\
+Dlog in $E[p]$ & 224 until 2015, then 250\\
+\end{tabular}
+\caption{Security level $100$ bit, source: BSI~\cite{BSI2012}, ANSSI~\cite{refanssi2013}}
+\end{center}
+\end{table}
+
+
+Our preference is to use {\bf elliptic curve groups} $E[p]$ since they offer the following advantages:
+\begin{itemize}
+\item Algorithms for discrete logarithms in $\F_p$ and factoring are closely linked. So any progress in one of these two might imply some progress for the other. But such a progress is unlikely to affect the security of elliptic curve groups.
+\item The best algorithms for $E[p]$ are those of generic type from Chapter~\ref{generic}, which are inferior to the best algorithms for prime order discrete logarithm and factoring with $L[\frac 1 3]$ running time. This in turn means that the key growth that compensates technological progress of faster computers is much smaller for $E[p]$ -- roughly 2 bits every 1.5 years according to Moore's law. 
+\item Getting algorithmic progress by using the group structure of $E[p]$ seems to be harder than for $\F_p$, since as opposed to $\F_p$ we do not even have an initial starting group-structure Index Calculus algorithm that we could improve.
+\item If an elliptic curve $E[p]$ is properly chosen, i.e. the group is computationally hard and backdoor-free, then all users profit from the hardness of the discrete logarithm problem. Notice that this choice is crucial: If the group is not secure, then also all users suffer from its insecurity. 
+\end{itemize}
+
+\noindent {\bf Warning:} One should keep in mind that the suggestions above only hold in a world without large quantum computers.\index{quantum computer}
+ It seems crucial to keep track of current progress in this area, and to have some alternative quantum-resistant cryptosystems ready to enroll within the next 15 years.
+
+\noindent {\bf References and further reading:} 
+For a good and conservative choice of key sizes we highly recommend to follow the suggestions of the Bundesamt f\"ur Sicherheit in der Informationstechnik (BSI)~\cite{BSI2012} and the Agence nationale de la s\'ecurit\'e des  syst\`emes d'information~\cite{refanssi2013}. Both sources also provide various valuable recommendations how to correctly implement and
+combine different cryptographic primitives.\\\\
+
+\noindent {\bf Remark from the editor in June 2016:}
+Since April 2014, quite a lot of things have changed (there have been new records in dlog finite fields and some marginal improvements of the L(1/3) algorithms in some contexts). However, this does not affect the overall conclusion that (only) small characteristic finite fields are no longer secure.
+
+
+%------------------------------------------------------------------------------
+\putbib[../de/references]
+\addcontentsline{toc}{section}{Bibliography}
+\end{bibunit}
+
+\noindent All links have been confirmed at July 15, 2016.
+
+

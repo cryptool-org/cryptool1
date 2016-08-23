@@ -3,17 +3,21 @@
 % B i t b l o c k -  a n d  B i t s t r e a m - E n c r y p t i o n
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
+
+
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 % Pommerenings Specialities
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-% \newcommand*{\C}{\mathbb{C}}   %BERM3
-\renewcommand*{\C}{\mathbb{C}}   %BERM3
 \newcommand*{\F}{\mathbb{F}}
 \newcommand*{\M}{\mathbb{M}}
-\renewcommand*{\N}{\mathbb{N}}   %BERM3
-\renewcommand*{\Q}{\mathbb{Q}}   %BERM3
-\renewcommand*{\R}{\mathbb{R}}   %BERM3
-\renewcommand*{\Z}{\mathbb{Z}}   %BERM3
+
+\newcommand*{\C}{\mathbb{C}}
+\newcommand*{\N}{\mathbb{N}}
+\newcommand*{\Q}{\mathbb{Q}}
+\newcommand*{\R}{\mathbb{R}}
+\newcommand*{\Z}{\mathbb{Z}}
+
 \newcommand*{\lsb}{\operatorname{lsb}}
 \newcommand*{\Oh}{\operatorname{O}}
 
@@ -28,12 +32,12 @@
 \hypertarget{Chapter_BitCiphers}{}
 \chapter{Introduction to Bitblock and Bitstream Ciphers}
 \label{Chapter_BitCiphers}
-(Klaus Pommerening, 2015, Updates: Jan 2016, Apr 2016) \\
+(\hyperlink{author_Klaus-Pommerening}{Klaus Pommerening}, 2015, Updates: Jan 2016, Apr 2016) \\
 
 \noindent
 While number theoretic methods prevail for the construction and analysis
 of asymmetric encryption algorithms,
-modern symmetric encryption algorithms\index{symmetric encryption} almost
+modern symmetric encryption algorithms\index{encryption!symmetric} almost
 always rely on Boolean algebra\index{Boolean algebra}\index{algebra!Boolean},
 that is on the manipulation of bits. This involves a quite different kind of
 Mathematics and might be unfamiliar to beginners. Therefore in this chapter
@@ -57,11 +61,11 @@ are expressed in terms of systems of Boolean functions.
 The focus of this chapter is on introducing the mathematical foundations
 of ciphers that operate on bits. We won't define concrete ciphers in detail
 but instead recommend the books by
-Menezes/Orschot/Vanstone \cite{HAC},
-Oppliger \cite{Opp},
-Paar und Pelzl \cite{PaPe},
-Schmeh \cite{Schm},
-and Stamp \cite{Sta}.
+Menezes/Orschot/Vanstone \cite{Menezes2001},
+Oppliger \cite{Oppliger2011},
+Paar und Pelzl \cite{PaPe2009},
+Schmeh \cite{Schm2003, Schm2016},
+and Stamp \cite{Stamp2007}.
 
 A word on nomenclature: In the existing literature these ciphers usually
 are called ``block ciphers\index{block cipher}'' or
@@ -74,9 +78,9 @@ to make the ``bits'' explicit parts of the notations.
 This being said we could express the subject of this chapter---bitblock
 ciphers as well as bitstream ciphers---in other words as
 
-   {\bf Symmetric encryption of information given by bits}
+   {\bf Symmetric encryption of information given by bits}.
 
-The mathematical foundations and methods belong to the domains of
+\noindent The mathematical foundations and methods belong to the domains of
    
    {\bf Boolean algebra\index{Boolean algebra} and finite
    fields\index{finite field}\index{field!finite}}.
@@ -124,7 +128,7 @@ and algebraical operations auf.
 \end{tabular}
 \end{center}
 \caption{The most important compositions of bits\index{bit}. The logical
-  XOR\index{XOR} is identical with the algebraic +, the logical AND\index{AND},
+  XOR\index{XOR} is identical with the algebraic +, the logical AND\index{AND}
   with the algebraic $\cdot$ (multiplication).}\label{t-bool-xor}
 \end{table}
 
@@ -188,6 +192,7 @@ calculations in the binary case (or in characteristic $2$):
       Since mixed term occurs twice, resulting in a $0$.
 \end{itemize}
 
+
 \subsection{Description of Boolean Functions}\label{ss-bool-descr}
 
 First, we act the naive and define: A {\bf Boolean
@@ -197,22 +202,21 @@ bit from them. Before rephrasing this naive definition more precisely
 in mathematical language (see Definition~\ref{def-bool-fkt}) we illuminate
 its meaning by some concrete illustrations.
 
-For a comprehensive treatment see \cite{CuSt} or the two articles
+For a comprehensive treatment see \cite{CuSt2009} or \cite{Pomm2008, Pomm2014} or the two articles
 by Claude Carlet\footnote{%
   also see his list of publications at
-  \href{http://www.math.univ-paris13.fr/~carlet/pubs.html}{\tt http://www.math.univ-paris13.fr/$\sim$carlet/pubs.html}
-} in \cite{CrHa}\footnote{%
+  \url{http://www.math.univ-paris13.fr/~carlet/pubs.html}
+} in \cite{CrHa2010}\footnote{%
   Carlet's articles are online at
-  \href{http://www.math.univ-paris13.fr/~carlet/chap-fcts-Bool-corr.pdf}{\tt http://www.math.univ-paris13.fr/$\sim$carlet/chap-fcts-Bool-corr.pdf}
-  and
-  \href{http://www.math.univ-paris13.fr/~carlet/chap-vectorial-fcts-corr.pdf}{\tt http://www.math.univ-paris13.fr/$\sim$carlet/chap-vectorial-fcts-corr.pdf}
+  \url{http://www.math.univ-paris13.fr/~carlet/chap-fcts-Bool-corr.pdf} and
+  \url{http://www.math.univ-paris13.fr/~carlet/chap-vectorial-fcts-corr.pdf}
 }.
 
 As a first simple example, consider AND\index{AND} as a Boolean function:
 It takes two bits and produces one new bit by the well-known rules
 shown in Table~\ref{t-bool-xor}. For a slightly more complex example
 take the function $f_0$ that produces the value
-\begin{equation}\label{eq-expl-f0}
+\begin{equation}\label{bc_sample-fct-f0-with-3-vars}%\label{eq-expl-f0}
    f_0(x_1, x_2, x_3) = x_1\: \text{AND}\: (x_2\: \text{OR}\: x_3)
 \end{equation}
 from three bits $x_1$, $x_2$, $x_3$.
@@ -245,7 +249,8 @@ points of view:
    \item {\bf pragmatically} by a truth table\index{truth table}
       (that is the complete lookup table of its values)
 \end{itemize}
-Our sample function $f_0$ is mathematically defined by Formula~(\ref{eq-expl-f0}).
+Our sample function $f_0$ is mathematically defined by the
+Formula~(\ref{bc_sample-fct-f0-with-3-vars}).
 The corresponding algorithm is also adequately specified by this formula since it
 has no branching points or conditional statements. As a circuit we visualize $f_0$
 as in Figure~\ref{fig-bool-circuit}. The truth table is in Table~\ref{tab-bool-wt}.
@@ -506,7 +511,7 @@ form\index{conjunctive normal form}\index{normal form!conjunctive}
   $\wedge\: (x_1 \vee x_2) \wedge (x_1 \vee x_3)$ to the normal form of $f_0$.
 }$^,$\footnote{%
   The SageMath class {\tt sage.logic.boolformula.BooleanFormula} provides
-  transformations of a logical expression into CNF by the function
+  transformations of a logical expression to the CNF by the function
   {\tt convert\_cnf()}, and to the corresponding truth table by the
   function {\tt truthtable()}.
 }.
@@ -1012,7 +1017,7 @@ functions\index{function!affine} are the linear forms and their negations.}
 
 Linear algebra over the field $\F_2$ is quite simple, many complications known
 from other mathematical areas boil down to trivialities. Such is the
-case for the the solution of systems of linear
+case for the solution of systems of linear
 equations\index{linear equation}\index{equation!linear},
 explicitly written as
 \[
@@ -1095,7 +1100,7 @@ sage: A*y
 
 In the general case (over an arbitrary field) the underlying algorithm for
 solving a system of linear equations is Gaussian\footnote{%
-  Johann Carl Friedrich Gauß\index{Gauss, Johann Carl Friedrich},
+  Johann Carl Friedrich Gauß\index{Gauss, Carl Friedrich},
   German mathematician, astronomer, geodesist,
   and physicist, April 30, 1777 -- February 23, 1855
 }
@@ -1333,6 +1338,7 @@ functions.
 \caption{Interpretations of bitblocks of length $3$}\label{tab-bool-3}
 \end{table}
 
+
 \subsubsection*{Representation of the Truth Table of a Boolean Function}
 
 The previous subsection described (and Table~\ref{tab-bool-3} illustrated)
@@ -1352,17 +1358,19 @@ The general procedure for arbitrary $n$ runs as follows:
 This might look entangled, but it simply means: ``Interpret $x$ as
 the base-2 representation of an integer $i(x)$, and set $f(x)$ as the
 bit at position $i(x)$ from the bitblock $b$''. An additional column
-$i(x)$ in the truth table of the function $f_0$, Table~\ref{tab-bool-wt},
-illustrates this procedure, see Table~\ref{tab-bool-wt2}. The last
-column of this t
-able, written in row form, is the bitblock $b$.
+$i(x)$ in the truth table of the function $f_0$
+($f_0$ was defined in Formula~\ref{bc_sample-fct-f0-with-3-vars})
+illustrates this procedure -- see Table~\ref{tab-bool-wt2}. The last
+column of this table, written in row form, is the bitblock $b$.
 
-In this way the bitblock $(0,0,0,0,0,1,1,1)$ completely specifies
-the truth table of $f_0$ or, even more parsimoniously, this bitstring
-of length $2^3 = 8$:
+In this way, the bitblock $(0,0,0,0,0,1,1,1)$ or, even more parsimoniously,
+the bitstring
 \[
      00000111
 \]
+of length $2^3 = 8$ completely specifies the truth table of $f_0$.\footnote{%
+  In Python/SageMath bitblocks are implemented as lists\index{list}.
+}
 
 \begin{table}[hbpt]
 \begin{center}
@@ -1384,18 +1392,20 @@ of length $2^3 = 8$:
    with $n = 3$ and $2^n = 8$}\label{tab-bool-wt2}
 \end{table}
 
+
 \subsubsection*{Representation of the Algebraic Normal Form}
 
 The algebraic normal form\index{algebraic normal form}\index{normal form!algebraic}
 (ANF\index{ANF}) also has a characterization by $2^n$ bits: the
 coefficients of the $2^n$ different monomials\footnote{%
-  Remember that the ANF is a sum of monomials, and each monomial\index{monomial}
-  is a product of a subset of $\{x_1, \ldots, x_n \}$, hence has a representation
+  Remember that the ANF is a sum of monomials. Each monomial\index{monomial}
+  is a product of a subset of $\{x_1, \ldots, x_n \}$, and hence has a representation
   as an integer between $0$ und $2^n-1$.
-} (see Theorem~\ref{thm-bool-anf1}, page~\pageref{thm-bool-anf1}). The
+}
+(see Theorem~\ref{thm-bool-anf1}, page~\pageref{thm-bool-anf1}). The
 monomials also have an interpretation as bitblocks, see the list above.
 Therefore we may view a bitblock $a = (a_0, \ldots, a_{2^n-1})$ as
-representing the ANF of a Boolean function $f\!: \F_2^n \longrightarrow \F$
+representation of the ANF of a Boolean function $f\!: \F_2^n \longrightarrow \F_2$
 in the following way:
 \begin{align*}
      f(x) = \sum_{i=0}^{2^n-1} a_i x_1^{e_1(i)} \cdots x_n^{e_n(i)} \quad & \text{where }
@@ -1601,7 +1611,7 @@ the probabilities for all keys are the same, that is $1/2^l$.
 In other words we assume that keys are chosen uniformly at random.
 
 With these assumption we have a lower bound of about $80$ bits for
-a secure key length according to the state of the art \cite{LeVe}.
+a secure key length according to the state of the art \cite{LeVe2000}.
 Popular ciphers use keys of lengths $128$ or more, so have a sufficient
 security margin. The outdated standard cipher DES used
 56 bit keys. The technology of today breaks it quite quickly.
@@ -1638,15 +1648,15 @@ a broad choice of good and fast ciphers that provide large security
 margins there is no need to rely on a weaker cipher, even if this
 precaution seems paranoid.
 
-\subsection{Algebraic
-  Cryptanalysis}\label{ss-bool-algca}\index{algebraic cryptanalysis}\index{cryptanalysis!algebraic}
+\subsection{Algebraic Cryptanalysis}
+\label{ss-bool-algca}\index{algebraic cryptanalysis}\index{cryptanalysis!algebraic}
 
 \subsubsection*{Attacks with Known\index{known plaintext}\index{plaintext!known}
   Plaintext\footnote{%
   An attack with known plaintext assumes that the attacker knows or
-  guesses a small piece of plaintext and tries to deduce the key,
+  guesses a small piece of plaintext, and then tries to deduce the key
   or some more plaintext that is unknown to her. For the present
-  section we assume that a complete plaintext bitblock is known.}}
+  section we assume that the known plaintext is a complete bitblock.}}
 
 Let a bitblock cipher\index{bitblock cipher} be given by a
 Boolean map\index{Boolean map}\index{map!Boolean}
@@ -1716,7 +1726,7 @@ key bits. For this method to work $F$ needs to be linear only in $x$.
 There are two powerful general approaches for solving systems of (polynomial)
 equations over $\F_2$:
 \begin{itemize}
-   \item SAT solvers\index{SAT solver} \cite{GaJo}\footnote{%
+   \item SAT solvers\index{SAT solver} \cite{GaJo1979}\footnote{%
       SAT denotes the satisfiability\index{satisfiability} problem
       of propositional logic. Consider a logical expression in Boolean variables
       $x_1, \ldots, x_n$ and ask if there exist values of the variables
@@ -1734,9 +1744,9 @@ equations over $\F_2$:
       and {\tt sage.sat.boolean\_polynomials} contain some of these algorithms.
       },
    \item elimination\index{elimination} using
-      Groebner bases\index{Groebner basis} \cite{Bric}\footnote{%
-      For an introduction to this theory see the textbooks \cite{Bard,CLOS,GaGe},
-      or the script \cite{Sege}, or the paper \cite{Laza}.
+      Groebner bases\index{Groebner basis} \cite{Bric2010}\footnote{%
+      For an introduction to this theory see the textbooks \cite{Bard2009,CLOS2007,GaGe1999},
+      or the script \cite{Sege2004}, or the paper \cite{Laza1983}.
       }.
 \end{itemize}
 Both methods work well for a small number of unknowns. With a growing number
@@ -1746,7 +1756,7 @@ of unknowns their complexity becomes unmanageable\footnote{%
 }.
 Of course we always find a solution by searching through the
 complete value table. But this naive method is inefficient (exponential
-in the number of unknowns, hopeless for 80 or more unknowns).
+in the number of unknowns, and so hopeless for 80 or more unknowns).
 But also the costs of SAT solvers and Groebner-basis methods grow
 exponentially with the number of unknowns. Not even the fact that
 all partial degrees are $\leq 1$ is of vital help.
@@ -1759,11 +1769,11 @@ of the central notions of complexity theory,
 
 \begin{theorem}[Garey/Johnson]
   The problem of finding a solution for a system of polynomial equations
-  over $\F_2$ is {\bf NP}-complete\index{NP-complete}.
+  over $\F_2$ is {\bf NP} complete\index{NP-complete}.
 \end{theorem}
-For a proof see the book by Garey/Johnson~\cite{GaJo}.\footnote{%
+For a proof see the book by Garey/Johnson~\cite{GaJo1979}.\footnote{%
    A recent article on the difficulty of systems of polynom equations is
-   \cite{CGHM}.
+   \cite{CGHM2003}.
 }
 
 We won't explain the notion ``{\bf NP}-complete\index{NP-complete}''
@@ -2144,29 +2154,30 @@ This shows how the cost of the attack grows with the number of rounds.
 In this way we find criteria for the number of rounds for which
 the cipher is ``secure''---at least from this special attack.
 
+
 \subsubsection*{Security Criteria for Bitblock Ciphers}
 
 To escape attacks bitblock ciphers\index{bitblock cipher}, or their round
 maps, or their S-boxes\index{S-box}, should fulfill some requirements.
 \begin{itemize}
-\item {\bf Balance\index{balance}} All preimages have the same
+\item {\bf Balance\index{balance}:} All preimages have the same
    number of elements, or in other words, the values of the map are
    uniformly distributed. Irregularities of the distribution would
    provide hooks for statistical cryptanalysis.
-\item {\bf Diffusion\index{diffusion}/avalanche effect\index{avalanche effect}}
+\item {\bf Diffusion\index{diffusion}/avalanche effect\index{avalanche effect}:}
    If a single plaintext bit changes, about 50\% of the ciphertext bits change.
    This effect conceals similarity of plaintexts.
-\item {\bf Algebraic complexity}
+\item {\bf Algebraic complexity:}
    The determination of preimages or parts thereof should lead to equations
    whose solution is as difficult as possible. This requirement is related
    to the algebraic degree of the map, but only in an indirect way.
    A suitable measure is ``algebraic immunity''\index{algebraic immunity}\index{immunity!algebraic}.
-\item {\bf Nonlinearity} We know several criteria that measure linearity,
+\item {\bf Nonlinearity:} We know several criteria that measure linearity,
    also ``hidden'' linearity, and are relatively easy to describe and to
    handle. For example they quantify how susceptible Boolean maps are for
    linear\index{linear cryptanalysis}\index{cryptanalysis!linear} or
    differential\index{differential cryptanalysis}\index{cryptanalysis!differential}
-   cryptanalysis \cite{Pomm}.
+   cryptanalysis \cite{Pomm2014}.
    \begin{itemize}
    \item The linear potential\index{linear potential}\index{potential!linear}
       should be as low as possible, the linear\index{linear profile}\index{profile!linear}
@@ -2536,7 +2547,7 @@ is $t = 2$. Hence the majority decision gives the estimate $k_4 = 0$
 This was easily done with pencil and paper. However it might be instructive
 to retrace the count in SageMath for a better understanding of more complex examples.
 SageMath sample~\ref{Sage-code-Mats-Expl} provides this. It uses the function
-{\tt xor} from SageMath sample~\ref{Sage-code-bool-div-bbl} in Appendix~\ref{ss-bool-conv},
+{\tt xor}\index{XOR} from SageMath sample~\ref{Sage-code-bool-div-bbl} in Appendix~\ref{ss-bool-conv},
 as well {\tt S0} from SageMath sample~\ref{Sage-code-Luc-S0}. The result
 \mbox{\tt [2, 0, True]} says that we found $2$ zeroes among the counted values,
 yielding the majority decision $0$, and the output parameter {\tt True} tells
@@ -2592,7 +2603,7 @@ analysis of linear paths\index{linear path}\index{path!linear}, see
 Section~\ref{ss-bool-path}, and the cumulation of probabilities, see
 Theorem~\ref{thm-bool-rrnd}. For (c) finally we'll find a useful rule of thumb.
 
-\subsection{Example A: A One-Round Cipher}\label{ss-bool-bsp1}
+\subsection{Example A: A one-round cipher}\label{ss-bool-bsp1}
 
 We consider examples that are much too simple for real
 world applications but illustrate the principles of
@@ -2603,7 +2614,7 @@ an $n$-bit part of it---to the plaintext\footnote{%
    This is a quite special method of bringing the key into
    play but nevertheless realistic. The paradigmatic
    sample ciphers {\sc Lucifer}\index{Lucifer}, DES\index{DES},
-   and AES\index{AES} do so. The term used with AES \cite{DaRi}
+   and AES\index{AES} do so. The term used with AES \cite{DaRi2002}
    is ``key-alternating cipher structure''.
 } before applying a bijective
 S-box $f\!: \F_2^n \longrightarrow \F_2^n$. The simplest model is
@@ -3102,10 +3113,10 @@ bijective\footnote{%
 The {\bf correlation matrix}\index{correlation matrix} and the
 {\bf linear profile}\index{linear profile}\index{profile!linear}\footnote{%
    also called linearity profile\index{linearity profile}. Not to be
-   confused with the linear
-   complexity profile\index{linear complexity profile}\index{complexity profile!linear}
-   of a bit sequence that is defined by linear feedback shift registers and
-   sometimes also called linearity profile.
+   confused with the linear complexity
+   profile\index{linear complexity profile}\index{complexity profile!linear}
+   of a bit sequence that is defined by linear feedback shift registers
+   (LFSRs)\index{LFSR} and sometimes also called linearity profile.
    }
 are the analogous matrices whose entries are the
 I/O-correlations\index{I/O-correlation} or the potentials\index{potential}
@@ -3225,7 +3236,7 @@ This theorem is of eminent theoretical and practical importance:
 \begin{itemize}
    \item On the theoretical side it leads to very elegant and short proofs
       of statements about the correlation matrix\index{correlation matrix}
-      and related objects \cite{Pomm}.
+      and related objects \cite{Pomm2014}.
    \item On the practical side it allows the calculation of the correlation
       matrix (and consequently also of the
       approximation table\index{approximation table} and of the
@@ -3242,7 +3253,7 @@ $p_{f,\alpha,\beta}$ (and thereby also $\tau_{f,\alpha,\beta}$) for
 fixed $\alpha$ and $\beta$, the map being given by the value table.
 Hence the total cost is $2^n \cdot 2^n \cdot 2^n$.
 
-We won't explain the FFT; see \cite{Pomm}.
+We won't explain the FFT (see \cite{Pomm2014}).
 It is at the heart of the function \verb:wtr(): from Appendix~\ref{ss-bool-walsh}.
 We remark without proof that the
 FFT\index{Fourier transformation!fast} of a real valued
@@ -3323,7 +3334,7 @@ sage: for coord in lProf[3]:
    of the S-box $\mathrm{S}_0$ with evaluation}\label{Sage-code-bool-lprext}
 \end{sagecode}
 
-\subsection{Example B: A Two Round Cipher}\label{ss-bool-2rd}
+\subsection{Example B: A two-round cipher}\label{ss-bool-2rd}
 
 As a next step we iterate the round map
 \[
@@ -3518,7 +3529,7 @@ $p_2$, I/O-correlation $\tau_2$, and potential $\lambda_2$
    \put(320,0){\line(0,1){170}}
 \end{picture}
 \end{center}
-\caption{Example B: A Two Round Cipher}\label{fig-bool-bspB}
+\caption{Example B: a two-round cipher}\label{fig-bool-bspB}
 \end{figure}
 
 With the notations of Figure~\ref{fig-bool-bspB} we have
@@ -3663,6 +3674,7 @@ S1 = BoolMap([g1,g2,g3,g4])
    {\sc Lucifer}\index{Lucifer})}\label{Sage-code-Luc-S1}
 \end{sagecode}
 
+
 \subsubsection*{Example}
 
 Let $n = 4$, $\mathrm{S_0}$ as in \ref{ss-bool-bsp1}, and $\mathrm{S_1}$
@@ -3697,7 +3709,7 @@ sage: for i in range(0,2**n):
 ....:     bit3 = (binScPr(alpha,a) + binScPr(gamma,c)) % 2
 ....:     print(a, b0, a1, b1, a2, c, bit1, bit2, bit3)
 \end{verbatim}
-\caption{Calculations for the example of B}\label{Sage-code-2rds1}
+\caption{Sample calculations for the example B (two-round cipher)}\label{Sage-code-2rds1}
 \end{sagecode}
 
 As concrete round keys\index{round key} take $k^{(0)} =$ \verb:1000:,
@@ -3910,7 +3922,7 @@ see Figure~\ref{fig-bool-bspC}.
    \put(350,0){\line(0,1){110}}
 \end{picture}
 \end{center}
-\caption{Example C: Round keys enter the algorithm in an additive way}\label{fig-bool-bspC}
+\caption{Example C: Multiple rounds, keys entered into the algorithm in an additive way}\label{fig-bool-bspC}
 \end{figure}
 
 Given a key $k = (k^{(0)}, \ldots, k^{(r)}) \in \F_2^{n\cdot(r+1)}$
@@ -4028,6 +4040,7 @@ This means that the security of a cipher against linear
 cryptanalysis\index{linear cryptanalysis}\index{cryptanalysis!linear} is
 the better, the more rounds it involves.
 
+
 \subsection{Parallel Arrangement of S-Boxes}\label{ss-bool-par}
 
 The round map of an SP-network\index{SP-network} usually involves
@@ -4110,7 +4123,7 @@ a simple example~D, see Figure~\ref{fig-bool-par}.
    \put(270,50){\vector(0,-1){20}}
 \end{picture}
 \end{center}
-\caption{Example D, parallel arrangement of $m$ S-boxes $\textrm{S}_1$, \ldots,
+\caption{Example D: parallel arrangement of $m$ S-boxes $\textrm{S}_1$, \ldots,
    $\textrm{S}_m$ of width $q$}\label{fig-bool-par}
 \end{figure}
 
@@ -4214,8 +4227,10 @@ correctly with no dissentient.
   10110101 &   1   & 01010111 &         0         &     1     \\ \hline
 \end{tabular}
 \end{center}
-\caption{Calculations for example~D}\label{tab-bool-BspC}
+\caption{Calculations for example~D (parallel arrangement of $m$ S-boxes)}\label{tab-bool-BspC}
 \end{table}
+
+
 
 \subsection{Mini-Lucifer}\label{ss-bool-mini}
 
@@ -4282,7 +4297,7 @@ def miniLuc(a,k,r):
   c = xor(aa,finkey)
   return c
 \end{verbatim}
-\caption{Mini-Lucifer\index{Mini-Lucifer}}\label{Sage-code-miniLuc}
+\caption{Mini-Lucifer over r rounds\index{Mini-Lucifer}}\label{Sage-code-miniLuc}
 \end{sagecode}
 
 \begin{figure}
@@ -4336,7 +4351,7 @@ def miniLuc(a,k,r):
    \put(150,55){\vector(-1,0){64}}
 \end{picture}
 \end{center}
-\caption{Mini-Lucifer\index{Mini-Lucifer}}\label{fig-bool-miniLuc}
+\caption{Mini-Lucifer over r rounds\index{Mini-Lucifer}}\label{fig-bool-miniLuc}
 \end{figure}
 
 Up to now we ignored permutations\index{permutation} in
@@ -4639,9 +4654,9 @@ function \verb:randsel(): from SageMath sample~\ref{Sage-code-sample}.
 This function delivers \verb:NN: different integers\footnote{%
    in fact pseudo-random integers. More on this topic in
    Section~\ref{s-bool-bitstr}
-   } in the
-interval $[0,255]$. SageMath sample~\ref{Sage-code-miniLucKP} shows
-the results of a random execution.
+}
+in the interval $[0,255]$. SageMath sample~\ref{Sage-code-miniLucKP}
+shows the results of a random execution.
 
 \begin{sagecode}
 \begin{verbatim}
@@ -4957,7 +4972,7 @@ analyst gets that many plaintexts).
 The treatment of linear cryptanalysis serves as an example of similar analyses.
 Differential cryptanalysis\index{differential cryptanalysis}\index{cryptanalysis!differential}
 as well as generalized and mixed variants follow similar lines of thought.
-For more information see the book \cite{Stin} that also explicitly specifies
+For more information see the book \cite{Stin2006} that also explicitly specifies
 the most important ciphers DES\index{DES} and AES\index{AES}.
 
 \begin{figure}
@@ -5075,7 +5090,7 @@ the most important ciphers DES\index{DES} and AES\index{AES}.
 
 Figures~\ref{fig-bool-aes1} and \ref{fig-bool-aes2} show the design
 of AES\index{AES}\footnote{%
-  in CrypTool 2 found under ``modern'' / ``symmetric''.
+  in CrypTool~2 found under ``modern'' / ``symmetric''.
 } in the large and show the realization of the design principles
 derived in the former subsections.
 \begin{itemize}
@@ -5127,7 +5142,7 @@ bit of a bitstring\index{bitstring} by an individual rule. The two
 possibilities are: leave the bit unchanged, or negate it. Leaving the
 bit unchanged is equivalent with (binary) adding $0$,
 negating the bit is equivalent with adding $1$. Thus every bitstream cipher
-may be interpreted as an XOR encryption\footnote{%
+may be interpreted as an XOR\index{XOR}\index{encryption!XOR} encryption\footnote{%
   the key being the ``difference'' between ciphertext and plaintext
   as in Figure~\ref{fig-bool-otp}
 }
@@ -5170,7 +5185,7 @@ bits $0$, $1$.
 \end{figure}
 
 The basic method of bitstream encryption is simply denoted by
-XOR\index{XOR encryption}. It interprets plaintexts\footnote{%
+XOR\index{XOR}\index{encryption!XOR}. It interprets plaintexts\footnote{%
    The SageMath method {\tt ascii\_to\_bin()} from the module {\tt sage.crypto.util}
    converts ``ordinary'' texts to bitstrings\index{bitstring}. The inverse
    method is {\tt bin\_to\_ascii()}. However these bitstrings belong to the
@@ -5183,7 +5198,7 @@ Also the key is a bit sequence, called {\bf key stream}\index{key stream}.
 The encryption algorithm adds the current bit of the plaintext and the
 current bit of the key stream by XOR. Figure~\ref{fig-bool-xor} illustrates
 the algorithm\footnote{%
-  In CrypTool 2 under ``classic''/ ``XOR'', in Appendix~\ref{ss-bool-conv}
+  In CrypTool~2 under ``classic''/ ``XOR'', in Appendix~\ref{ss-bool-conv}
   as {\tt xor}, see SageMath sample~\ref{Sage-code-bool-div-bbl}.
 },
 Figure~\ref{fig-bool-xorbsp} shows an example.
@@ -5202,7 +5217,7 @@ Figure~\ref{fig-bool-xorbsp} shows an example.
 \caption{Example of XOR encryption}\label{fig-bool-xorbsp}
 \end{figure}
 
-In the twenties of the 20th century XOR ciphers\index{XOR cipher} were
+In the twenties of the 20th century XOR ciphers\index{XOR}\index{encryption!XOR}\index{cipher!XOR} were
 invented to encrypt teleprinter\index{teleprinter} messages. These messages were
 written on five-hole punched\index{punched tape} tapes as in
 Figure~\ref{fig-bool-ptape}. Another punched tape provided the key stream.
@@ -5311,7 +5326,7 @@ immediately recognized that a nonperiodic key is obligatory for security.
 \caption{Punched tape---each column represents a five-bit character}\label{fig-bool-ptape}
 \end{figure}
 
-In its strongest form, the one-time pad\index{one-time pad}, XOR encryption
+In its strongest form, the one-time pad (OTP)\index{OTP}, XOR encryption
 is an example for perfect security in the sense of Shannon\index{Shannon, Claude}.
 As algorithm A5\index{A5} or $\mathrm{E}_0$\index{E0} XOR helps to secure mobile
 phones\index{mobile phone} or the Bluetooth\index{Bluetooth} protocol for wireless
@@ -5320,8 +5335,8 @@ protocol that (sometimes) encrypts client-server communication in the World Wide
 and of the PKZIP\index{PKZIP} compression software. There are many other
 current applications, not all of them fulfilling the expected security requirements.
 \begin{quote}
-   {\em The scope of XOR encryption\index{XOR encryption} ranges from simple
-   ciphers that are trivially broken to unbreakable ciphers.} 
+   {\em The scope of XOR encryption\index{XOR}\index{encryption!XOR}\index{cipher!XOR}
+	ranges from simple ciphers that are trivially broken to unbreakable ciphers.} 
 \end{quote}
 
 \begin{description}
@@ -5336,7 +5351,7 @@ current applications, not all of them fulfilling the expected security requireme
                key stream at both ends of the line.
          \item If the key stream is properly chosen the security is high.
       \end{itemize}
-   \item[Disadvantages] ~
+   \item[Disadvantages] of XOR ciphers:
       \begin{itemize}
          \item XOR ciphers are vulnerable for known
                plaintext\index{known plaintext}\index{plaintext!known} attacks:
@@ -5344,21 +5359,25 @@ current applications, not all of them fulfilling the expected security requireme
          \item If the attacker knows a piece of plaintext she also knows the
                corresponding piece of the key stream, and then is able to
                exchange this plaintext at will. For example she might replace
-               ``I love you'' by ``I hate you'', or replace an amout of 1000\$
-               by 9999\$. In other words the integrity\index{integrity} of the
-               message is poorly protected\footnote{%
+               ``I love you'' by ``I hate you'', or replace an amout of
+	       %% Währungssysmbol nicht direkt angeben: 1000\$ by 9999\$, sonst fehlt Zwischenraum.
+	       \textdollar{1000} by \textdollar{9999}.
+	       In other words the integrity\index{integrity} of the message
+	       is poorly protected\footnote{%
                   To protect message integrity the sender has to implement
-                  an extended procedure.
+                  an additional procedure.
                }.
          \item XOR ciphers provide no diffusion\index{diffusion} in the sense
                of Shannon's criteria since each plaintext bit affects the one
-               corresponding plaintext bit only.
+               corresponding plaintext bit only\footnote{%
+	         Block ciphers in the opposite were designed for using diffusion.
+	       }.
          \item Each reuse of a part of the key sequence (also in form of a periodic
                repetition)
                opens the door for an attack. The historical successes in breaking
                stream ciphers almost always used this effect, for example the
                attacks on encrypted teleprinters in World War II, or the project
-               VENONA\index{VENONA} during the Cold War.
+               Venona\index{Venona} during the Cold War.
       \end{itemize}
 \end{description}
 
@@ -5378,6 +5397,7 @@ In other words: We cannot prevent the attacker from getting or guessing a good
 portion of the plaintext. Thus the security against an attack with known
 plaintext is a fundamental requirement for an XOR cipher, even more than for
 any other cryptographic procedure.
+
 
 \subsection{Generating the Key Stream}\label{ss-bool-keystream}
 
@@ -5448,8 +5468,9 @@ sage: ciphstr = bbl2str(cipher); ciphstr
 '110101011111100111111011111100111011011011110111
 111000101011011011111000111111111111100011110011'
 \end{verbatim}
-\caption{XOR encryption\index{XOR encryption} in Python/SageMath}\label{Sage-code-bool-xor}
+\caption{XOR encryption\index{XOR}\index{encryption!XOR}\index{cipher!XOR} in Python/SageMath}\label{Sage-code-bool-xor}
 \end{sagecode}
+
 
 \subsubsection*{MS Word and Periodic XOR}
 
@@ -5473,7 +5494,7 @@ matter here since we observe
 \begin{center}
    {\em long chains of {\tt 00} bytes.}
 \end{center}
-For an MS Word file that is XOR encrypted with a periodically repeated key
+For an MS Word file that is XOR\index{XOR}\index{encryption!XOR}\index{cipher!XOR} encrypted with a periodically repeated key
 the ubiquity of zeroes suggests an efficient attack: Split the stream of
 ciphertext bits into blocks corresponding to the length of the period\footnote{%
    If the length of the period is unknown, determine it by the methods for periodic
@@ -5506,12 +5527,13 @@ blocks are equal, and so are the corresponding plaintext blocks. The
 probability that both of them are zero is high. Thus the key could immediately show
 through. To summarize:
 \begin{quote}
-   {\em XOR encryption with a periodic key stream is quite easily broken for
+   {\em XOR\index{XOR}\index{encryption!XOR}\index{cipher!XOR} encryption with a periodic key stream is quite easily broken for
    messages with a known structure.}
 \end{quote}
 This is true also for a large period\index{period}, say $512$ bytes $= 4096$ bits,
 in spite of the hyperastronomically huge key space of $2^{4096}$ different
 possible keys.
+
 
 \subsubsection*{Running-Text Encryption}
 
@@ -5538,19 +5560,21 @@ discuss this here\footnote{%
    uses ciphertext only, see ``Analysis''/``Viterbi analysis''.
 } but summarize:
 \begin{quote}
-   {\em XOR encryption with running-text keys is fairly easily broken.}
+   {\em XOR\index{XOR}\index{encryption!XOR}\index{cipher!XOR} encryption with running-text keys is fairly easily broken.}
 \end{quote}
 
+
 \subsubsection*{True Random Sequence}
+\label{s-bool-bitstr-real-random}
 
 The extreme choice for a key is a true random sequence of bits as key
 stream\index{key stream}. Then the cipher is called {\bf (binary)
-one-time pad\index{one-time pad} (OTP\index{OTP})}. In particular no
+one-time pad (OTP\index{OTP})}. In particular no
 part of the key stream must be repeated at any time. The notation
 ``pad'' comes from the idea of a tear-off calendar---each sheet is
 destroyed after use. This cipher is unbreakable, or ``perfectly
 secure''. Shannon\index{Shannon, Claude} gave a formal proof of this,
-see \cite{Stin}.
+see \cite{Stin2006}.
 
 Without mathematical formalism the argument is as follows: The ciphertext
 divulges no information about the plaintext (except the length). It could
@@ -5610,7 +5634,7 @@ Pseudodecrypted bits and text:
    plaintext}\label{fig-bool-otp}
 \end{figure}
 
-If the one-time pad\index{one-time pad} is perfect---why not use it
+If the one-time pad\index{OTP} is perfect---why not use it
 in any case?
 \begin{itemize}
 \item The key management is unwieldy:
@@ -5624,7 +5648,7 @@ in any case?
       communication because of its complexity that grows with each additional
       participant.
 \item The problem of message integrity requires an extended solution
-      for OTP\index{OTP} like for any XOR cipher.
+      for OTP\index{OTP} like for any XOR\index{XOR}\index{encryption!XOR}\index{cipher!XOR} cipher.
 \end{itemize}
 
 There is another, practical, problem when encrypting on a computer:
@@ -5659,23 +5683,23 @@ the essence of the concept ``pseudo-randomness'', and generating
 pseudo-random sequences is of fundamental cryptologic relevance.
 
 \begin{quote}
-   {\em XOR encryption with a pseudo-random\index{pseudo-random} key stream
-   spoils the perfect security of
-   the one-time pad\index{one-time pad}. But if the pseudo-random sequence
+   {\em XOR encryption\index{XOR}\index{encryption!XOR}\index{cipher!XOR}
+   with a pseudo-random\index{pseudo-random} key stream spoils the perfect
+   security of the one-time pad\index{OTP}. But if the pseudo-random sequence
    is cryptographically strong (Section~\ref{ss-bool-rndperf}) the attacker
    has no chance to exploit this fact.}
 \end{quote}
 
-\subsection{Pseudo-random Generators}\label{ss-bool-prg}
+\subsection{Pseudo-Random Generators}\label{ss-bool-prg}
 
-Pseudo-random generators\index{pseudo-random generator} mimic true random
+Pseudo-random generators\index{random generator} mimic true random
 processes by deterministic algorithms. Usually such an algorithm is called
 random generator\index{random generator}, omitting the prefix ``pseudo'' if
 there is no danger of confusion. The main difference between a
 pseudo-random sequence and a true random sequence is its reproducibility.
 
 Cipher designers hope to approximate the ideal properties of the one-time
-pad\index{one-time pad} by using a pseudo-random bit sequence as key
+pad\index{OTP} by using a pseudo-random bit sequence as key
 stream treating the short start string as ``effective key''. Even for random
 generators of modest quality the resulting ciphertexts are immune against
 statistical analyses\index{statistical analysis}\index{analysis!statistical}.
@@ -5698,8 +5722,9 @@ efficiency and security.
 The main serious methods of generating pseudo-random bit sequences, or key streams,
 are:
 \begin{itemize}
-\item (feedback) shift registers and combinations thereof, with theoretical
-      foundations in Boolean algebra\index{Boolean algebra}\index{algebra!Boolean},
+\item (feedback) shift registers\index{feedback shift register} (FSR) and
+      combinations thereof, with theoretical foundations in Boolean
+      algebra\index{Boolean algebra}\index{algebra!Boolean},
 \item perfect random generators\index{perfect random generator}\index{random generator!perfect}
       with theoretical foundations in number
       theory\index{number theory}.
@@ -5747,8 +5772,8 @@ stops it.
   \put(235,58){\sf to be used as}
   \put(235,46){\sf pseudo-random sequence}
 \end{picture}
-\caption{(Pseudo-)
-   random generator\index{random generator}\index{black box}}\label{fig-bool-prg}
+\caption{(Pseudo-)random generator
+	 \index{random generator}\index{black box}}\label{fig-bool-prg}
 \end{center}
 \end{figure}
 
@@ -5756,9 +5781,10 @@ Thus the random generator transforms a short, truely random, bit
 sequence, the initial state, into a long pseudo-random sequence.
 Cryptologists call this effect ``key expansion\index{key expansion}''.
 
+
 \subsubsection*{Feedback Shift Registers}
 
-Feedback shift registers\index{shift register} (FSR\index{FSR}) are a
+Feedback shift registers\index{feedback shift register} (FSR) are a
 classical and popular method of generating pseudo-random sequences. The
 method goes back to Golomb\index{Golomb, Solomon}\footnote{%
   Solomon W. Golomb, U.\,S. American mathematician and engineer,
@@ -5896,11 +5922,12 @@ sage: print(bbl2str(bitlist))
 \caption{The stepping of a sample FSR\label{tab-bool-fsr2}}
 \end{table}
 
+
 \subsubsection*{The Period of a Finite-State Machine}
 
 In computer science a feedback shift register is a special case of a finite-state
 machine\index{finite-state machine}\index{machine!finite-state}.
-Therefore the sequence of its states is periodic\index{periodic}.
+Therefore, the sequence of its states is periodic\index{period}.
 Here is why.
 
 Let $M$ be a finite set of $m = \#M$ elements. Imagine $M$ as the collection
@@ -5910,7 +5937,7 @@ of all possible states of a machine. Cosider a map (``transition\index{transitio
 \]
 For each element (``initial state'') $x_0 \in M$ define a sequence $(x_i)_{i \geq 0}$
 in $M$ by the recursive formula $x_i = g(x_{i-1})$ for $i \geq 1$. After a
-preperiod\index{preperiod} of length $\mu$ the sequence runs into a
+preperiod\index{period!preperiod} of length $\mu$ the sequence runs into a
 period\index{period} of length $\nu$, see Figure~\ref{fig-bool-P+VP},
 an explanation follows.
 
@@ -5944,7 +5971,7 @@ an explanation follows.
    \put(342,0){\line(0,1){99}}
 \end{picture}
 \end{center}
-\caption{Period\index{period} and preperiod\index{preperiod}}\label{fig-bool-P+VP}
+\caption{Period\index{period} and preperiod\index{period!preperiod}}\label{fig-bool-P+VP}
 \end{figure}
 
 Since the set $M$ is finite the states must eventually repeat. Thus there are
@@ -5960,12 +5987,12 @@ $\mu + \nu \leq m$. The values $x_0, \ldots, x_{\mu+\nu-1}$ are all different,
 and the values $x_0, \ldots, x_{\mu-1}$ never reappear in the sequence.
 
 \begin{description}
-   \item[Definition:] $\mu$ is called the (length of the) {\bf preperiod\index{preperiod}},
+   \item[Definition:] $\mu$ is called the (length of the) {\bf preperiod}\index{period!preperiod},
       $\nu$, the (length of the) {\bf period\index{period}}.
 \end{description}
 
 \begin{quote}
-   {\em A pseudo-random generator\index{pseudo-random generator} in the sense of
+   {\em A pseudo-random generator\index{random generator} in the sense of
    Figure~\ref{fig-bool-prg} inevitably generates periodic sequences. The best we
    can hope for is a period so huge that the practical application never exhausts
    its size.}
@@ -5975,8 +6002,8 @@ and the values $x_0, \ldots, x_{\mu-1}$ never reappear in the sequence.
 \subsubsection*{Linear Shift Registers}
 
 The simplest and best understood instances of FSRs are the
-linear\index{linear feedback shift register}\index{feedback shift register!linear}
-feedback shift registers (LFSR\index{LFSR}). Their feedback
+linear\index{feedback shift register!linear} feedback shift registers
+(LFSR\index{LFSR}). Their feedback
 functions\index{feedback function} $f$ are linear. From Section~\ref{ss-bool-lin}
 we know that a linear function is simply a partial sum from an $l$-bit block:
 \begin{equation}\label{eq-bool-lfsr1}
@@ -6028,7 +6055,7 @@ For a good choice of the parameters---that we won't discuss further---the
 sequence has a period\index{period} of about $2^l$, the number of possible
 different states of the register, and statistical tests are hardly
 able to distinguish it from a uniformly distributed true random
-sequence \cite{Golo}. It is remarkable that such a simple approach
+sequence \cite{Golo1982}. It is remarkable that such a simple approach
 generates pseudo-random sequences of fairly high quality! Of course the
 initial state $u = (0, \ldots, 0)$ is inappropriate. For an initial
 state $\neq 0$ the maximum possible period is $2^l - 1$. Without further
@@ -6070,7 +6097,7 @@ However the superficial impression shows a quite random
 sequence. SageMath sample~\ref{Sage-code-bool-lfsr1} generated this picture.
 
 Don't take offense at the sequence of nine (black) ones in the third to last
-row: The probability of nine ones in nine random bits is $1/2^9 = 1/512$.
+row: The probability of nine ones in nine random bits is $(1/2)^9 = 1/512$.
 Therefore in a random bitstream of length $1024$ a ``run'' of this kind
 occurs with high probability.
 
@@ -6171,9 +6198,10 @@ sage: matrix_plot(p, subdivisions=True)
 \end{figure}
 % \clearpage
 
-\subsection{Algebraic
-   Attack\index{algebraic attack}\index{attack!algebraic}
-   on LFSRs}\label{ss-bool-alg2}
+
+\subsection{Algebraic Attack on LFSRs}
+\label{ss-bool-alg2}
+\index{algebraic attack}\index{attack!algebraic}
 
 Even simple random generators\index{random generator} such as LFSRs\index{LFSR}
 produce bit sequences that are virtually indistiguishable from true random sequences
@@ -6187,7 +6215,8 @@ promises success. In particular this holds for LFSRs.
 
 Consider a key bitstream $u_0, u_1, \ldots$ generated by an LFSR\index{LFSR}
 by formulas~(\ref{eq-bool-lfsr1}) or (\ref{eq-bool-lfsr2}). Assume a
-plaintext $a$ is XOR encrypted using this key stream\index{key stream},
+plaintext $a$ is XOR\index{XOR}\index{encryption!XOR}\index{cipher!XOR}
+encrypted using this key stream\index{key stream},
 resulting in the ciphertext $c$, where $c_i = a_i + u_i$ for $i = 0, 1, \ldots$
 What are the prospects of an attacker who knows a chunk of the plaintext?
 
@@ -6268,7 +6297,8 @@ Assume we are given a ciphertext:
    11000110 01010101 00001011 11010011 01111011 10110000
    10011111 00100100 00001111 01010011 11111101
 \end{verbatim}
-We suspect that the cipher is XOR with a key stream from an LFSR of
+We suspect that the cipher is XOR\index{XOR}\index{encryption!XOR}\index{cipher!XOR}
+with a key stream from an LFSR of
 length $l = 16$. The context suggest that the text is in German and
 begins with the word ``Treffpunkt'' (meeting point). To solve the
 cryptogram we need 32 bits of plaintext, that is the first four letters
@@ -6402,10 +6432,10 @@ problem has a solution even when the internal parameters remain unknown. Thus:
 \end{quote}
 
 \begin{quote}
-   {\em Linear feedback shift
-   registers\index{linear feedback shift register}\index{feedback shift register!linear}
+   {\em Linear feedback shift registers\index{LFSR}\index{feedback shift register!linear}
    are not cryptographically secure.}
 \end{quote}
+
 
 \subsection{Approaches to Nonlinearity\index{nonlinearity} for Feedback Shift
    Registers}\label{ss-bool-nlsr}
@@ -6427,14 +6457,16 @@ cryptological weakness there are several approaches.
 
 Nonlinear feedback\index{feedback} follows the scheme from
 Figure~\ref{fig-bool-fsr} with a nonlinear Boolean
-function\index{Boolean function}\index{function!Boolean} $f$. We saw a very
-simple toy example in SageMath
-sample~\ref{Sage-code-bool-fsr1}. There is a general proof that
-in realistic use cases NLFSRs\index{NLFSR}\footnote{%
+function\index{Boolean function}\index{function!Boolean} $f$.
+We won't pursue this approach here. We saw a very simple toy
+example in SageMath sample~\ref{Sage-code-bool-fsr1}.
+There is a general proof that in realistic use cases
+NLFSRs\index{NLFSR}\footnote{%
    for Non Linear Feedback Shift Register\index{feedback shift register!nonlinear}
-} are cryptographically useless
-if used in the direct naive way \cite{Pom2}. We won't pursue
-this approach here.
+}
+are cryptographically useless if used in the direct naive
+way \cite{Pom2016}.
+
 
 \subsubsection*{Approach 2, Nonlinear Output Filter}
 
@@ -6592,9 +6624,9 @@ Both variants can be broken on a standard PC in real-time.
 
 The Bluetooth encryption standard $\mathrm{E}_0$\index{E0} uses four LFSRs
 and combines them in a nonlinear way. This method is somewhat stronger than
-A5, but also too weak for real security \cite{Schm}.
+A5, but also too weak for real security \cite{Schm2003}.
 
-\subsubsection*{Example: The Geffe generator}
+\subsubsection*{Example: The Geffe Generator}
 
 The Geffe generator\index{Geffe generator} provides a simple example of
 output selection. Its description is in Figure~\ref{fig-bool-gef}.
@@ -6755,7 +6787,7 @@ in Section~\ref{ss-bool-lfsrclass}.
 \subsubsection*{Example: Geffe Generator\index{Geffe generator}}
 
 First we choose\footnote{%
-  using the lists of primitive polynomials from \cite{HAC}
+  using the lists of primitive polynomials from \cite{Menezes2001}
 } three LFSRs of lengths 15, 16, 17,
 whose periods are $2^{15} - 1 = 32767$, $2^{16} - 1 = 65535$, and
 $2^{17} - 1 = 131071$. These are pairwise coprime, see SageMath
@@ -6915,7 +6947,7 @@ complexity of key search\footnote{%
   the linear potential\index{linear potential}\index{potential!linear}.
 }.
 
-\subsubsection*{Correlations from the Geffe generator}
+\subsubsection*{Correlations from the Geffe Generator}
 
 From the truth table~\ref{tab-bool-gef-wt} we get the correlations produced by
 the Geffe generator\index{Geffe generator}. Thus the probabilities of
@@ -7036,7 +7068,7 @@ and the standard deviation, $\sqrt{r}/2$.
 
 In any case for $r = 100$ the probability of finding at most (say) $65$
 coincidences is $0.999$, the probability of surpassing this number
-is 1\,\textperthousand. For the initial state of register 1 we have to
+is 1\,\permil. For the initial state of register 1 we have to
 try $2^{15} = 32786$ possibilities (generously including the zero
 state $0 \in \F_2^{15}$ into the count). So we expect about $33$
 oversteppings with at least $66$ coincidences. One of these should
@@ -7201,7 +7233,7 @@ combiners\index{combiner}:
 How long should the battery registers be? There are some algorithms for
 ``fast'' correlation attacks using the Walsh
 transformation\index{Walsh transformation}, in particular against sparse
-linear feedback functions (that use only a small number of taps) \cite{MeSt}. These
+linear feedback functions (that use only a small number of taps) \cite{MeSt1989}. These
 don't reduce the complexity class of the attack (``exponential in the
 length of the shortest register'') but reduce the cost by a significant
 factor. So they are able to attack registers whose feedback functions have
@@ -7257,7 +7289,7 @@ assessed by plausible criteria that---as for bitblock ciphers---are related
 to the nonlinearity\index{nonlinearity} of Boolean
 functions\index{Boolean function}\index{function!Boolean}.
 
-\subsection{Perfect (Pseudo-) Random Generators}\label{ss-bool-rndperf}
+\subsection{Perfect (Pseudo-)Random Generators}\label{ss-bool-rndperf}
 
 As we saw the essential cryptologic criterion for random\index{random generator}
 generators is unpredictability\index{unpredictable}. In the 1980s cryptographers,
@@ -7306,6 +7338,7 @@ yielded algorithms that were too slow for most practical uses
 (given the then current CPUs). But modified approaches soon provided random
 generators that are passably fast und nevertheless (presumably)
 cryptographically secure.
+
 
 \subsection{The BBS Generator}\label{ss-bool-bbs}
 
@@ -7492,7 +7525,7 @@ sage: blum_blum_shub(1000,x0,p,q)
 
 \subsection{Perfectness and the Factorization Conjecture}\label{ss-bool-perfqr}
 
-Informally we define a {\bf pseudo-random generator}\index{pseudo-random generator}
+Informally we define a {\bf pseudo-random generator}
 (shortly: a random generator\index{random generator}) as an efficient algorithm
 that takes a ``short'' bitstring $s \in \F_2^n$ and converts it into a ``long''
 bitstring\index{bitstring} $s \in \F_2^r$.
@@ -7569,10 +7602,11 @@ Unfortunately this approach only gives qualitative results, and so it
 is somewhat dissatisfying. However, as often in complexity theory, this
 is the best we can achieve.
 
+
 \subsubsection*{The (Conjectured) Perfectness of the BBS Generator}
 
-The {\bf factorization hypothesis}\index{factorization hypothesis} states
-that there is no efficient algorithm that decomposes large natural numbers
+The {\bf factorization hypothesis}\index{factorization!factorization hypothesis}
+states that there is no efficient algorithm that decomposes large natural numbers
 into their prime factors. This hypothesis is the base of the security of
 RSA\index{RSA}, as well, as stated in Theorem~\ref{thm-bool-BBSperf}, of the
 perfectness of the BBS generator\index{BBS generator}:
@@ -7702,7 +7736,7 @@ similar principles as BBS\index{BBS generator}:
        element of the multiplicative group $\bmod\, p$.
      } $a$ for $p$. Furthermore
      choose a random initial state $x = x_0$, coprime with $p-1$. Then calculate
-     $x_i = a^{x_{i-1}} \bmod p$, and and ouput the most significant bit of $x_i$,
+     $x_i = a^{x_{i-1}} \bmod p$, and ouput the most significant bit of $x_i$,
      or the $\lfloor \log_2 \log_2 p \rfloor$ most significant bits.
      The perfectness of the index generator relies on the hypothesis that calculating
      discrete logarithms\index{discrete logarithm}\index{logarithm!discrete}
@@ -7850,8 +7884,7 @@ random generators\index{random generator}. These probably exist, however
 their security---{\em like the security of almost all ciphers}---is mathematically not
 completely proven.
 
-But implementing a useful bitstream cipher takes more than
-just a good random generator:
+But implementing a useful bitstream cipher takes more than just a good random generator:
 \begin{itemize}
    \item Message integrity\index{integrity} requires additional means
       such as a combination with a cryptographic hash function\index{hash function}. 
@@ -7860,18 +7893,18 @@ just a good random generator:
       key management\index{key management} requires utmost prudence.
       A possible approach\footnote{%
          This was a usual approach with the cipher machines of World War II.
-      } is using a longtime general key that consists of
-      certain inner parameters of the random generator, and use the
-      remaining parameters including the initial state as one-time message
-      key.
+      }
+      is using a longtime general key that consists of certain inner parameters
+      of the random generator, and use the remaining parameters including the
+      initial state as one-time message key\index{OTP}.
 \end{itemize}
 
-In contrast with bitblock ciphers where we have the standard AES\index{AES} (and
-the outdated standard DES\index{DES}) for bitstream ciphers there is no
+In contrast with bitblock ciphers where we have the accepted standard AES\index{AES}
+(and the outdated standard DES\index{DES}) for bitstream ciphers there is no
 established standard. Closest to standardization is the
 \href{http://www.ecrypt.eu.org/stream/}{eSTREAM\index{eSTREAM} portfolio}
 developed in a European project from 2004 until 2008. It recommends
-a bunch of several ciphers \cite{Schm}.
+a bunch of several ciphers \cite{Schm2003}.
 
 Unfortunately several ``proprietary'' ciphers, mostly bitstream ciphers
 developed in back rooms by cryptologic amateurs, found their way into
@@ -8518,7 +8551,7 @@ def miniLuc(a,k,r):
   c = xor(aa,finkey)
   return c
 \end{verbatim}
-\caption{Mini-Lucifer\index{Mini-Lucifer}}\label{Sage-code-bool-MiniLuc}
+\caption{Mini-Lucifer over r rounds\index{Mini-Lucifer}}\label{Sage-code-bool-MiniLuc}
 \end{sagecode}
 \clearpage
 
@@ -8587,138 +8620,14 @@ class LFSR(object):
    registers\index{LFSR} (continued)}\label{Sage-code-bool-lfsr4}
 \end{sagecode}
 
-% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\begin{thebibliography}{999}
-\bibitem{Bard}
-    Gregory V. Bard,
-    {\em Algebraic Cryptanalysis}.
-    Springer, Dordrecht 2009.
 
-\bibitem{Bric}
-    Michael Brickenstein,
-    {\em Boolean Gröbner Bases -- Theory, Algorithms and Applications}
-    (Dissertation TU Kaiserslautern 2009).
-    Logos Verlag, Berlin 2010.
-    See also ``\href{http://polybori.sourceforge.net/}{PolyBoRi --
-    Polynomials over Boolean Rings}'', online:
-    {\tt http://polybori.sourceforge.net/} (25 September 2014).
 
-\bibitem{CGHM}
-    D. Castro, M. Giusti, J. Heintz, G. Matera, L. M. Pardo,
-    {\em The hardness of polynomial equation solving}.
-    Found. Comput. Math. 3 (2003), 347--420.
+%------------------------------------------------------------------------------
+\putbib[../de/references]
+\addcontentsline{toc}{section}{Bibliography}
+\end{bibunit}
 
-\bibitem{CLOS}
-    David Cox, John Little, Donal O'Shea,
-    {\em Ideals, Varieties, and Algorithms}.
-    Springer, New York 2007 (3rd edition).
-
-\bibitem{CrHa}
-    Yves Crama, Peter L. Hammer (eds.),
-    {\em Boolean Models and Methods in Mathematics, Computer Science,
-    and Engineering}.
-    Cambridge University Press, New York 2010.
-
-\bibitem{CuSt}
-    Thomas W. Cusick, Pantelimon St\u{a}nic\u{a},
-    {\em Cryptographic Boolean Functions and Applications}.
-    Elsevier Academic Press, Amsterdam 2009.
-
-\bibitem{DaRi}
-    Joan Daemen, Vincent Rijmen,
-    {\em The Design of Rijndael. AES -- The Advanced Encryption Standard}.
-    Springer, Berlin 2002.
-
-\bibitem{GaJo}
-    Michael R. Garey, David S. Johnson,
-    {\em Computers and Intractability}.
-    Freeman, New York 1979.
-
-\bibitem{GaGe}
-    Joachim von zur Gathen, Jürgen Gerhard,
-    {\em Modern Computer Algebra}.
-    Cambridge University Press, 1999.
-
-\bibitem{Golo}
-   Solomon W. Golomb,
-   {\em Shift Register Sequences}.
-   Revised Edition: Aegean Park Press, Laguna Hills 1982.
-
-\bibitem{Laza}
-    Daniel Lazard,
-    {\em Gröbner bases, Gaussian elimination and resolution of systems of
-    algebraic equations}.
-    Springer Lecture Notes in Computer Science 162
-    (EUROCAL '83), 146--156.
-
-\bibitem{LeVe}
-    Arjen K. Lenstra, Eric R. Verheul,
-    {\em Selecting Cryptographic Key Sizes},
-    Springer Lecture Notes in Computer Science 558
-    (PKC2000), p. 446--465.
-    Also see ``\href{http://www.keylength.com/en/2/}{Lenstra Cryptographic
-    Key Length Equations}'', online:
-    {\tt http://www.keylength.com/en/2/} (19 September 2014).
-
-\bibitem{MeSt}
-    W. Meier, O. Staffelbach,
-    {\em Fast correlation attacks on certain stream ciphers},
-    Journal of Cryptology 1 (1989), 159--176.
-
-\bibitem{HAC}
-    Alfred J. Menezes, Paul C. van Oorschot, Scott A. Vanstone,
-    {\em Handbook of Applied Cryptography}.
-    CRC Press, Boca Raton 1999, online:
-    \href{http://cacr.uwaterloo.ca/hac/}{\tt http://cacr.uwaterloo.ca/hac/}
-   (4 January 2015)
-
-\bibitem{Opp}
-    Rolf Oppliger,
-    {\em Contemporary Cryptography}.
-    Artech House, Dedham MA 2011 (2nd edition).
-
-\bibitem{PaPe}
-    Christof Paar, Jan Pelzl,
-    {\em Understanding Cryptography -- A Textbook for Students and Practioners}.
-    Springer, 2009.
-
-\bibitem{Pomm}
-    Klaus Pommerening,
-    \href{http://www.staff.uni-mainz.de/pommeren/Cryptology/Bitblock/Fourier/Fourier.pdf}{{\em Fourier
-    Analysis of Boolean Maps -- A Tutorial}},
-    30 May 2000, online:
-    {\tt http://www.staff.uni-mainz.de} {\tt /pommeren/Kryptologie/Bitblock/A\_Nonlin/nonlin.pdf}
-    (19 September 2014).
-
-\bibitem{Pom2}
-    Klaus Pommerening,
-    {\em Cryptanalysis of nonlinear shift registers},
-    accepted for publication in Cryptologia.
-    % http://www.tandfonline.com/doi/abs/10.1080/01611194.2015.1055385
-
-\bibitem{Schm}
-    Klaus Schmeh,
-    {\em Cryptography and Public Key Infrastructure on the Internet}.
-    John Wiley, New York 2003.
-    In German, the 6th edition was published in 2016.
-
-\bibitem{Sege}
-    A. J. M. Segers,
-    {\em Algebraic Attacks from a Gröbner Basis Perspective}.
-    Master's Thesis, Technische Universiteit Eindhoven 2004. Online:
-    {\tt http://www.win.tue.nl/~henkvt/images} {\tt /ReportSegersGB2-11-04.pdf}
-    (22 February 2015)
-
-\bibitem{Sta}
-    Mark Stamp,
-    {\em Information Security: Principles and Practice}.
-    Wiley, 2011 (2nd edition).
-
-\bibitem{Stin}
-    Douglas R. Stinson,
-    {\em Cryptography -- Theory and Practice}.
-    Chapman \& Hall/CRC, Boca Raton 2006 (3rd edition).
-\end{thebibliography}
+\noindent All links have been confirmed at July 15, 2016.
 
 %BERM1 \end{document}
 

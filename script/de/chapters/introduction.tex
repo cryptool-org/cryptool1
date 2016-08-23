@@ -1,22 +1,21 @@
 % $Id$
 % ............................................................................
-%      V O R W O R T  und  E I N F U E H R U N G (Zusammenspiel CT-Buch und CT-Programme) 
-%      P R E F A C E  and  I N T R O D U C T I O N (Playing together of book and programs)
+%      V O R W O R T  und  E I N F U E H R U N G  (Zusammenspiel CT-Buch und CT-Programme) 
 %
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 \clearpage\phantomsection
 % \vspace{-10pt}  wirkungslos!
 \addcontentsline{toc}{chapter}{Vorwort zur 12. Auflage des CrypTool-Buchs}
-\chapter*{Vorwort zur 12. Auflage des CrypTool-Buchs xxxxxxxxx}
+\chapter*{Vorwort zur 12. Auflage des CrypTool-Buchs}
 
 %\vspace{-12pt}
 Dieses Buch versucht, einzelne Themen aus der Mathematik der Kryptologie
-genau, und trotzdem möglichst verständlich zu erläutern.
+genau und trotzdem möglichst verständlich zu erläutern.
 
 Dieses Buch wurde ab dem Jahr 2000 -- zusammen mit dem CrypTool-1-Paket
-(CT1)\index{CrypTool 1} in Version 1.2.01 -- ausgeliefert.
-Seitdem ist das Buch mit fast jeder neuen Version von CT1 ebenfalls erweitert
+(CT1)\index{CT1} in Version 1.2.01 -- ausgeliefert.
+Seitdem ist das Buch mit fast jeder neuen Version von CT1 und CT2 ebenfalls erweitert
 und aktualisiert worden.
 
 Themen aus Mathematik und Kryptographie wurden sinnvoll unterteilt und dafür
@@ -26,14 +25,49 @@ es viel mehr Themen aus der Kryptographie, die man vertiefen könnte -- deshalb
 ist diese Auswahl auch nur eine von vielen möglichen.
 
 In der anschließenden redaktionellen Arbeit wurden in LaTeX Querverweise ergänzt,
-Fußnoten hinzugefügt und Korrekturen vorgenommen.
+Fußnoten hinzugefügt, Index-Einträge vereinheitlicht und Korrekturen vorgenommen.
 
 %In dieser Ausgabe des CT-Buchs wurden wieder einige Themen auf den
 %aktuellen Stand gebracht:
 Im Vergleich zu Ausgabe 11 des Buchs wurden in dieser Ausgabe
-% die TeX-Sourcen des Dokuments komplett überarbei"-tet, und 
-etliche Themen ergänzt, korrigiert, und auf den aktuellen Stand gebracht, z.B.:
+die TeX-Sourcen des Dokuments komplett überarbei"-tet (bspw. eine einzige
+bibtex-Datei für alle Kapitel und beide Sprachen), und 
+etliche Themen ergänzt, korrigiert und auf den aktuellen Stand gebracht, z.B.:
 \vspace{-5pt}
+
+%%%%%%%%%%%%%BE_2016Jun: %% be_todo BEGIN
+%% myNewSt = strrep(mySt,sprintf('\n'),'');
+%% be_todo -- TUT noch nicht:
+%% https://viaverdepaisagismo.com.br/index.cgi/ar/00/http/tex.stackexchange.com/questions/296643/how-to-use-nameref-with-xstring-package-to-check-string-length
+%% http://tex.stackexchange.com/questions/296643/how-to-use-nameref-with-xstring-package-to-check-string-length/296648
+%\noindent \StrLen{\getnamereftext{testLabel}}[\testStrNumOfChars1] yyy
+%Number of characters in string1 = \testStrNumOfChars1
+%\StrLen{\getnamereftext{\nameref{Chapter_Dlog-FactoringDead}}}[\testStrNumOfChars2]
+%Number of characters in string2 = \testStrNumOfChars2
+
+%\makeatletter
+%\edef\@currentlabelname{This is a somewhat longxxx string}
+%\label{testLabel}
+%\makeatother
+%\noindent \StrLen{\getnamereftext{testLabel}}[\testStrNumOfChars1] yyy
+%Number of characters2 = \testStrNumOfChars1
+
+%\makeatletter
+%\edef\@currentlabelname{This is a somewhat longxxx string}
+%\label{testLabel}
+%\makeatother
+%\noindent \StrLen{\getnamereftext{testLabel}}[\testStrNumOfChars1] yyy
+%Nmbr3 = \testStrNumOfChars1
+
+%BE_2016Jun: %% be_todo -- 3. Versuch: nameref erst einer Variablen zuweisen und diese dann um // strippen.
+%                                      Aber auch beim Zuweisen zu einer Variablen wird es nicht korrekt expandiert.
+% \def\mystring{XYZ}  % Das tut ok.
+%\def\mystring{\nameref{Chapter_Dlog-FactoringDead}}
+%\StrLen{\mystring}[\mystringlen]
+%\mystring \\
+%\mystringlen
+%%%%%%%%%%%%%%%%%%%% %BE_2016Jun: %% be_todo END
+
 \begin{itemize}
 %  \item die Definitionen zur Stärke von Sicherheits-Funktionen
 %        (Kapitel \ref{cm_Section_Security_Definitions}),
@@ -42,13 +76,13 @@ etliche Themen ergänzt, korrigiert, und auf den aktuellen Stand gebracht, z.B.:
 %  \item Fortschritte bei der Kryptoanalyse von Hashverfahren 
 %        (Kap. \ref{collision-attacks-against-sha-1}) und
 %  \item Fortschritte bei den Ideen für neue Kryptoverfahren (RSA-Nachfolger)
-%	(Kap. \ref{xxxxBrute-force-gegen-Symmetr})\index{xxxxxxxxxxxxxxxx} und
+%	(Kap. \ref{xxxxcm_Brute-force-versus-Symmetr})\index{xxxxxxxxxxxxxxxx} und
   \item die Auflistung, in welchen Filmen und Romanen Kryptographie eine
         wesentliche Rolle spielt (siehe Anhang \ref{s:appendix-movies}),
 %       und Kurioses zu Primzahlen (siehe \ref{HT-Quaint-curious-Primes-usage}),
   \item die Funktionsübersichten
-        \hyperlink{appendix-template-overview-CT2}{zu CrypTool 2 (CT2)},
-        \hyperlink{appendix-function-overview-JCT}{zu JCrypTool (JCT)}, und
+        \hyperlink{appendix-template-overview-CT2}{zu CrypTool~2 (CT2)},
+        \hyperlink{appendix-function-overview-JCT}{zu JCrypTool (JCT)} und
         \hyperlink{appendix-function-overview-CTO}{zu CrypTool-Online (CTO)}
         (siehe Anhang),
   \item weitere SageMath-Skripte zu Kryptoverfahren, und die Einführung in das 
@@ -64,8 +98,27 @@ etliche Themen ergänzt, korrigiert, und auf den aktuellen Stand gebracht, z.B.:
 %        (siehe \ref{l:NumberTheory_Sage_Number-of-RSA-FixedPoints}), und
 %  \item Homomorphe Verschlüsselung
 %        (siehe Kapitel \ref{Chapter_HomomorphicCiphers})
-  \item Die \nameref{Chapter_BitCiphers} ist völlig neu
-	(siehe Kapitel \ref{Chapter_BitCiphers}).
+  \item die~\glqq \nameref{Chapter_BitCiphers}\grqq~ist völlig neu
+	(siehe Kapitel \ref{Chapter_BitCiphers}),
+
+  %% \item die~\glqq \StrSubstitute{ XXXXXXXXXXXX }{a}{AA}\grqq~ist völlig neu
+  %% \item die~\glqq \StrSubstitute{ \nameref{Chapter_Dlog-FactoringDead} }{a}{AA}\grqq~ist völlig neu  %% tut nicht
+  %% \item die~\glqq \StrSubstitute{FactFactoringFact}{a}{AA}\grqq~ist völlig neu  %% das tut
+  %% \item die~\glqq \StrSubstitute{\nameref{Chapter_Dlog-FactoringDead}}{a}{AA}\grqq~ist völlig neu
+  %% \item die~\glqq \nameref{Chapter_Dlog-FactoringDead}\grqq~ist völlig neu
+  \item die Studie ~\glqq \nameref{Chapter_Dlog-FactoringDead}\grqq~ist völlig neu
+	%% So kommt leider auch der Umbruch rein, der für den Titel nötig ist bei nameref.
+	%% myNewSt = strrep(mySt,sprintf('\n'),'');
+	%% \usepackage{xstring}
+	%% \StrSubstitute{abcde}{d}{D}   %%  {//}{ }  Use of \@xs@StrSubstitute@@ doesn't match its definition.
+	%% \StrSubstitute[<number>]{<string>}{<stringA>}{<stringB>}[<name>]
+	%% Man muss erzwingen, dass nameref expandiert wird vor der Verwendung!
+	%% 	  \StrLen{\getnamereftext{testLabel}}[\testStrNumOfChars]
+	%% 	  Number of characters in string = \testStrNumOfChars
+	%% http://www.golatex.de/wiki/%5Cmakeatletter
+	(siehe Kapitel \ref{Chapter_Dlog-FactoringDead}). Das ist ein
+	phantastischer und eingehender Überblick über die Grenzen der
+	entsprechenden aktuellen kryptoanalytischen Methoden.
 \end{itemize}
 
 %Inzwischen bekommt das CT-Projekt Feedback und Testimonials aus nahezu allen
@@ -90,41 +143,66 @@ nicht, was es heute ist:
    \item Mitarbeiter in den Teams von
          Prof.\ Johannes Buchmann,
          Prof.\ Claudia Eckert,
-         Prof.\ Alexander May,
-         Prof.\ Torben Weis und insbesondere
+         Prof.~Alexander May,
+         Prof.~Torben Weis und insbesondere
          Prof.\ Arno Wacker.
 \end{list}
 
 Auch allen hier nicht namentlich Genannten ganz herzlichen Dank für das 
 (meist in der Freizeit) geleistete Engagement.
 
-Danke auch an die Leser, die uns Feedback sandten. 
+Danke auch an die Leser, die uns Feedback sandten. Und ein ganz besonderer
+Dank für das konstruktive Gegenlesen dieser Version durch Helmut Witten und
+Prof.\ Ralph-Hardo Schulz.
 
 Ich hoffe, dass viele Leser mit diesem Buch mehr Interesse an und 
 Verständnis für dieses moderne und zugleich uralte Thema finden.
 
 
 
-\par \vskip + 45pt
+\par \vskip + 35pt
 \noindent Bernhard Esslinger
 \par \vskip + 10pt
-\noindent Frankfurt/Siegen, April 2016
+\noindent Heilbronn/Siegen, August 2016
 
 
 
-\par \vskip + 100pt
+\par \vskip + 90pt
 \noindent PS:\\
-Wir würden uns freuen, wenn sich weitere Autoren finden, die fundierte
-Artikel z.B. zu einem der folgenden Themen ergänzen könnten:\\
-- Riemannsche Zeta-Funktion,\\
-- Hashverfahren,\\
-- Gitter-basierte Kryptographie,\\
-- Zufallszahlen oder\\
-- Design/Angriff auf Krypto-Protokolle (wie SSL).
- 
+Wir würden uns freuen, wenn sich weitere Autoren finden, die vorhandene Kapitel verbessern oder fundierte
+Kapitel z.B. zu einem der folgenden Themen ergänzen könnten:
+\begin{compactitem}
+   \item Riemannsche Zeta-Funktion,
+   \item Hashverfahren und Passwort-Knacken,
+   \item Gitter-basierte Kryptographie,
+   \item Zufallszahlen oder
+   \item Design/Angriff auf Krypto-Protokolle (wie SSL).
+\end{compactitem}
+
+
+\par \vskip + 15pt
+\noindent PPS:\\%xxxxxxxxxx Todo
+Ausstehende Todos für Edition 12 dieses Buches (bis dahin nennen wir es weiterhin Draft):%xxxxxxxxxxxxx
+%\begin{list}{\textbullet}{\addtolength{\itemsep}{-0.5\baselineskip}}
+%\end{list}
+% - Abstand nach/zwischen den Bulletzeilen per itemsep+baselineskip;
+% - Abstand vor erstem Bulletpoint versucht per \vskip und negativem Wert, aber 
+%   \par \vskip -15pt wirkte weder VOR dem \begin{list} noch DANACH. --> Nutzte eben compactitem!
+\begin{compactitem}
+\item Updaten aller Informationen zu SageMath (Kap.~\ref{ec:Sage_Massierer} und Appendix) und Testen des Codes gegen das neueste SageMath (Version 7.x), sowohl von der Kommandozeile als auch mit dem SageMathCloud-Notebook.
+   \item Updaten der Funktionslisten zu den vier CT-Versionen (im Appendix).
+\end{compactitem}
+
+
 % [1.5\baselineskip]
 % \enlargethispage*{2\baselineskip}
 % \nopagebreak
+
+
+
+
+
+
 
 
 
@@ -136,7 +214,8 @@ Artikel z.B. zu einem der folgenden Themen ergänzen könnten:\\
 \textbf{Das CrypTool-Buch}
 
 Dieses Buch wird zusammen mit den Open-Source-Programmen des
-CrypTool-Projektes\index{CrypTool} ausgeliefert.
+CrypTool-Projektes\index{CrypTool} ausgeliefert. Es kann auch direkt auf der
+Webseite des CT-Portals herunter geladen werden (\url{https://www.cryptool.org/de/ctp-dokumentation}).
 
 Die Kapitel dieses Buchs sind weitgehend in sich abgeschlossen und können
 auch unabhängig von den CrypTool-Programmen gelesen werden.
@@ -146,10 +225,11 @@ auch unabhängig von den CrypTool-Programmen gelesen werden.
 %und \ref{Chapter_EllipticCurves} (Elliptische Kurven) tiefere mathematische
 %Kennt"-nisse.
 Für das Verständnis der meisten Kapitel reicht Abiturwissen aus. Die Kapitel
-\ref{Chapter_ModernCryptography} (\glqq Moderne Kryptografie\grqq), % (\glqq \nameref{Chapter_ModernCryptography}\grqq)
+\ref{Chapter_ModernCryptography} (\glqq Moderne Kryptografie\grqq), %% (\glqq \nameref{Chapter_ModernCryptography}\grqq)
 \ref{Chapter_EllipticCurves} (\glqq \nameref{Chapter_EllipticCurves}\grqq),
-\ref{Chapter_BitCiphers} (\glqq Bitblock- und Bitstrom-Verschlüsselung\grqq) und % (\glqq \nameref{Chapter_BitCiphers}\grqq)
-\ref{Chapter_HomomorphicCiphers} (\glqq \nameref{Chapter_HomomorphicCiphers}\grqq)
+\ref{Chapter_BitCiphers} (\glqq Bitblock- und Bitstrom-Verschlüsselung\grqq), %% (\glqq \nameref{Chapter_BitCiphers}\grqq)
+\ref{Chapter_HomomorphicCiphers}~(\glqq \nameref{Chapter_HomomorphicCiphers}\grqq) und
+\ref{Chapter_Dlog-FactoringDead} (\glqq Resultate für das Lösen diskreter Logarithmen und zur Faktorisierung\grqq) %% (\glqq \nameref{Chapter_Dlog-FactoringDead}\grqq)
 erfordern tiefere mathematische Kennt"-nisse.
 
 Die \hyperlink{appendix-authors}{Autoren}
@@ -163,29 +243,30 @@ Kryptographie fördern.
 \par \vskip + 15pt
 
 
-\noindent \textbf{Die Programme CrypTool 1\index{CrypTool 1}\index{CT1},
-  CrypTool 2\index{CrypTool 2}\index{CT2} und JCrypTool\index{JCrypTool}\index{JCT}}
+\noindent \textbf{Die Programme CrypTool~1\index{CT1},
+  CrypTool~2\index{CT2} und JCrypTool\index{JCT}}
+% \index{CrypTool~1}\index{CT1} \index{CrypTool~2}\index{CT2} \index{JCrypTool}\index{JCT}
 
-CrypTool 1 (CT1) ist ein Lernprogramm mit umfangreicher
-Online-Hilfe, mit dem Sie unter einer einheitlichen Oberfläche
-kryptographische Verfahren anwenden und analysieren können. Die Onlinehilfe in
-CrypTool 1 enthält nicht nur Anleitungen zur Bedienung des Programms, sondern auch
+CrypTool~1 (CT1) ist ein Lernprogramm, mit dem Sie unter einer einheitlichen Oberfläche
+kryptographische Verfahren anwenden und analysieren können. Die umfangreicher Onlinehilfe
+in CT1 enthält nicht nur Anleitungen zur Bedienung des Programms, sondern auch
 Informationen zu den Verfahren selbst (aber weniger ausführlich und anders
 strukturiert als im CT-Buch).
 
-CrypTool 1\index{CrypTool 1} und die Nachfolgeversionen
-CrypTool 2 (CT2)\index{CrypTool 2} und JCrypTool (JCT)\index{JCrypTool}
-werden weltweit in Schule, Ausbildung und Lehre eingesetzt.
+CrypTool~1 und die Nachfolgeversionen CrypTool~2 (CT2) und JCrypTool (JCT)
+werden weltweit in Schule, Lehre, Aus- und Fortbildung eingesetzt.
 \par \vskip + 15pt
 
 
-\noindent \textbf{CrypTool-Online\index{CrypTool-Online}\index{CTO}}
+\noindent \textbf{CrypTool-Online\index{CTO}}
 
 Die Webseite CrypTool-Online (CTO) (\url{http://www.cryptool-online.org}), auf
 der man im Browser oder vom Smartphone aus kryptographische Verfahren
 ausprobieren und anwenden kann, gehört ebenfalls zum CT-Projekt. Der Umfang
 von CTO ist bei weitem nicht so groß wie der der Standalone-Programme CT1,
-CT2 und JCT.
+CT2 und JCT. Jedoch wird CTO mehr und mehr als Erstkontakt genutzt, weshalb
+wir das Backbone momentan mit modernster Webtechnologie neu designen, um ein
+schnelles und konsistentes Look\&Feel zu haben.
 \par \vskip + 15pt
 
 
@@ -195,20 +276,24 @@ Der internationale Kryptographie-Wettbewerb
 MysteryTwister C3 (MTC3) (\url{http://www.mysterytwisterc3.org})
 wird ebenfalls vom CT-Projekt getragen.
 Hier findet man kryptographische Rätsel in vier verschiedenen Kategorien, eine
-High-Score-Liste und ein moderiertes Forum. Inzwischen nehmen über 4000 aktive
-Teilnehmer teil, und es gibt über 150 Aufgaben, von denen z.Zt. 109 von
-zumindest einem Teilnehmer gelöst wurden.xxxxxxxxxxxxxxxx
+High-Score-Liste und ein moderiertes Forum. Stand 2016-06-16 sind über 7000 
+Teilnehmer dabei, und es gibt über 200 Aufgaben, von denen 162 von
+zumindest einem Teilnehmer gelöst wurden.
+%% Todo-repetitively: 2016-06-16: All: 75+84+48+12=219; Solved: 75+75+6+6=162. Diff = 57.
 \par \vskip + 15pt
 
 
 
 \noindent \textbf{Das Computer-Algebra-Programm SageMath\index{SageMath}}
 
-SageMath ist ein umfangreiches Open-Source CAS-Paket, mit dem sich die in
-diesem Buch erläuterten mathematischen Verfahren leicht Schritt-für-Schritt
-programmieren lassen. Eine Besonderheit dieses CAS ist, dass als Skript-Sprache
-Python benutzt wird.\\
-SageMath wird mehr und mehr zum Standard-Open-Source CAS an Hochschulen.
+SageMath ist Open-Source und ein umfangreiches Computer-Algebra-System (CAS)-Paket,
+mit dem sich die in diesem Buch erläuterten mathematischen Verfahren leicht
+Schritt-für-Schritt programmieren lassen. Eine Besonderheit dieses CAS ist,
+dass als Skript-Sprache Python (z.Zt. Version 2.x) benutzt wird.
+% be_xxxxxxxxxx_Update, if SageMath moves to 3.x
+Dadurch stehen einem in Sage-Skripten nach einem import-Befehl auch alle Funktionen
+der Sprache Python zur Verfügung.\\
+SageMath wird mehr und mehr zum Standard-CAS an Hochschulen.
 \par \vskip + 15pt
 
 
@@ -221,8 +306,8 @@ Informatik und insbesondere Kryptologie sind.
 Die Kursidee ist eine virtuelle Geheimagenten-Ausbildung.\\
 Inzwischen finden diese Kurse seit mehreren Jahren in Deutschland in
 unterschiedlichen Städten statt.\\
-Alle Kursunterlagen sind frei erhältlich
-(\url{http://www.cryptool.org/schuelerkrypto/}).\\
+Alle Kursunterlagen sind frei erhältlich auf
+\url{http://www.cryptool.org/schuelerkrypto/}.\\
 Alle eingesetzte Software ist ebenfalls frei (meist wird CT1 und CT2
 eingesetzt).\\
 Wir würden uns freuen, wenn jemand die Kursunterlagen übersetzt und
@@ -241,7 +326,7 @@ Erfolg und zur weiten Verbreitung dieses Projekts beigetragen haben.
 \par \vskip + 45pt
 \noindent Bernhard Esslinger
 \par \vskip + 10pt
-\noindent Frankfurt/Siegen, April 2016
+\noindent Heilbronn/Siegen, August 2016
 
 % Local Variables:
 % TeX-master: "../script-de.tex"

@@ -1,30 +1,20 @@
 % $Id$
 % ..............................................................................
-%                V E R S C H L U E S S E L U N G S V E R F A H R E N
-%
-% Writing rule: Chapter header with all nouns/verbs-words capitalized,
-%               All other headers in the normal lower/upper case manner
-%               like sentences (without a dot at the end).
-% Writing rule: Use American English instead of British English consistently.
-%
+%     P & P -  P a p e r   a n d   P e n c i l   E n c r y p t i o n   M e t h o d s
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-%------------------------------------------------------------------------------
-% First Editor: Christine Stötzel, April 2004
-% Update and corrections: B. Esslinger, June 2005
-% Update and corrections: B. Esslinger, June 2005
-% Update B. Esslinger and Minh Van Nguyen, November 2009 
-% Update B. Esslinger, June 2010 
-% Update B. Esslinger, Jan. 2013 
-%------------------------------------------------------------------------------
 
-% ``primenet''
+\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
+
 \newpage
-\hypertarget{Kapitel_PaperandPencil}{}
+\hypertarget{Chapter_PaperandPencil}{}
 
 \chapter{Paper and Pencil Encryption Methods}
-\label{Kapitel_PaperandPencil}
-(Christine St\"otzel, April 2004; Updates: B.+C. Esslinger, June 2005;
- Updates Minh Van Nguyen and B. Esslinger, Nov. 2009, June 2010, May 2013)
+\label{Chapter_PaperandPencil}
+(\hyperlink{author_Christine-Stoetzel}{Christine Stoetzel}, Apr 2004; % St\"otzel
+ Updates: B.+C. Esslinger, Jun 2005;
+ Updates: \hyperlink{author_Minh-Van-Nguyen}{Minh Van Nguyen} and
+ 	  \hyperlink{author_Bernhard-Esslinger}{Bernhard Esslinger}, Nov 2009, Jun 2010;
+	  \hyperlink{author_Bernhard-Esslinger}{Bernhard Esslinger}, May 2013, Aug 2016)
 \index{paper and pencil methods}
 \index{encryption!classic}
 \index{cryptography!classic}
@@ -34,23 +24,39 @@ Few persons can be made to believe that it is not quite an easy thing
 to invent a method of secret writing which shall baffle investigation.
 Yet it may be roundly asserted that human ingenuity cannot concoct a
 cipher which human ingenuity cannot resolve.
-\caption[Edgar Allan Poe]{Edgar Allan Poe: A Few Words on Secret Writing, 1841}\index{Poe, Edgar Allan}
+\caption[Edgar Allan Poe]{Edgar Allan Poe: A Few Words on Secret Writing,
+1841}\index{Poe, Edgar Allan}
 \end{ctsquote}
 
 The following chapter provides a broad overview of paper and pencil 
 methods\footnote{%
 The footnotes of this chapter describe how these methods can be
-performed using the offline programs CrypTool 1 ({\bf CT1})\index{CT1},
-CrypTool 2 ({\bf CT2})\index{CT2} and JCrypTool ({\bf JCT})\index{JCT}.
+performed using the offline programs CrypTool~1 ({\bf CT1})\index{CT1},
+CrypTool~2 ({\bf CT2})\index{CT2}, and JCrypTool ({\bf JCT})\index{JCT}.
 See the appendices
 \ref{s:appendix-menu-overview-CT1},
 \ref{s:appendix-template-overview-CT2}, and
 \ref{s:appendix-function-overview-JCT}.\\
-Many of the methods can also per performed within a browser, e.g. on the
-website CrypTool-Online ({\bf CTO}) (\url{http://www.cryptool-online.org})\index{CTO}. See the appendix \ref{s:appendix-function-overview-CTO}.\\
-Additionally the last sub chapter (\ref{PaP_Sage_samples})
-contains example code for the computer-algebra system {\bf SageMath}\index{SageMath}.
-                 }
+
+Many of the methods can also be performed within a browser, e.g. on the
+website CrypTool-Online ({\bf CTO}) (\url{http://www.cryptool-online.org})\index{CTO}.
+See the appendix \ref{s:appendix-function-overview-CTO} in this book.\\
+
+While the CrypTool websites and programs offer both classic and modern ciphers,
+there are several sites related to the American Cryptogram Association (ACA)
+(\url{http://www.cryptogram.org/}) which focus very deeply and detailed only on
+classic ciphers.\\
+For instance, \url{https://sites.google.com/site/bionspot/} and
+\url{https://encode-decode.appspot.com/} from Bion\index{Bion}.\\
+An attractive new site for performing classic ciphers is from Phil Pilcrow (\url{
+www.cryptoprograms.com}). It also includes descriptions and examples for each
+type. His FAQ stated at July 23rd, 2016: ``The site is designed for creating
+classical cipher types, not machine based or modern ones but if you want another
+cipher type added let me know.''\index{Pilcrow, Phil}\\
+
+Additionally the last sub chapter (\ref{PaP_Sage_samples}) of this chapter contains
+according example code for the computer-algebra system {\bf SageMath}\index{SageMath}.
+   }
 each with references to deeper information.
 All techniques that people can apply manually to en- and decipher a message are 
 embraced by this term. These methods were and still are especially popular with
@@ -76,8 +82,9 @@ which are equally required for modern algorithms:
 \end{itemize}
 
 
-\newpage
+
 %------------------------------------------------------------------------------
+\newpage
 \section{Transposition ciphers}
 \label{PaP_transposition_ciphers}
 \index{transposition}
@@ -97,7 +104,7 @@ $(1, 2, 3, 4, 5) \Leftrightarrow (3, 4, 2, 1, 5)$.
 \begin{itemize}
 
 \item {\bf Rail fence cipher}\footnote{%
-   This method can directly be found in CT1\index{CrypTool 1} at the menu item
+   This method can directly be found in CT1\index{CT1} at the menu item
    {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic) \textbackslash{}
    Scytale / Rail Fence}.
    You can simulate this method also under the menu {\bf Encrypt/Decrypt
@@ -108,7 +115,7 @@ $(1, 2, 3, 4, 5) \Leftrightarrow (3, 4, 2, 1, 5)$.
    Using the key ``A,B'' would start the zigzag pattern below in the
    way, that the first letter is written into the first line instead of the
    second line.}
-   \cite{pp:Singh1999}\index{rail fence cipher}:
+   \cite{Singh1999}\index{rail fence cipher}:
    The characters of a message are alternately written in two (or more) lines,
    creating a zigzag pattern. The resulting ciphertext is read out 
    line by line.\\
@@ -116,9 +123,11 @@ $(1, 2, 3, 4, 5) \Leftrightarrow (3, 4, 2, 1, 5)$.
 
    See table \ref{PaP_RailFence_table-reference}.
 
-   Plaintext\footnote{\index{agreement}: If the alphabet only uses 26 letters,
-   we write from now onwards the plaintext in small letters and the ciphertext
-   in capital letters.}:
+   Plaintext\footnote{%
+     \index{agreement}\index{convention}Convention: If the alphabet uses only
+     26 letters, we write from now onwards the plaintext in small letters and
+     the ciphertext in capital letters.
+   }:
    an example of transposition
 
    \begin{table}[ht]
@@ -134,16 +143,17 @@ $(1, 2, 3, 4, 5) \Leftrightarrow (3, 4, 2, 1, 5)$.
 
    Ciphertext\footnote{The letters of the plaintext are -- as used 
    historically -- grouped within blocks of 5 letters. It does not matter
-   if the (constant) block length is different or no blank is inserted.}%
+   if a different (constant) block length is used or if there is no separation
+   by blanks.}%
    : NXMLO TASOI INAEA PEFRN PSTO\\
 
 
 \item {\bf Scytale}\footnote{%
-    This method can directly be found in CT1\index{CrypTool 1} at the menu item
+    This method can directly be found in CT1\index{CT1} at the menu item
     {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic) \textbackslash{}
     Scytale / Rail Fence}.
     As this method is a special case of a simple columnar transposition, you also can
-    simulate it in CT1\index{CrypTool 1} under the 
+    simulate it in CT1\index{CT1} under the 
     menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic) \textbackslash{} 
     Permutation}: For the Scytale within the dialog box only the first 
     permutation is used. If the wood has e.g.\ 4 angles use as key ``1,2,3,4''.
@@ -152,19 +162,21 @@ $(1, 2, 3, 4, 5) \Leftrightarrow (3, 4, 2, 1, 5)$.
     Because the key is in an in ascending order, the Scytale is denoted as
     an identical permutation. And because writing and read-out is done only
     once it is a simple (and no double) permutation.\\
-    In CT2\index{CrypTool 2} you can find the Scytale within the templates
-    {\bf Cryptography \textbackslash{} Classical}).
+    In CT2\index{CT2} you can find the Scytale within the templates
+    {\bf Cryptography \textbackslash{} Classical}.
    }
-   \cite{pp:Singh1999}\index{Scytale}%
+   \cite{Singh1999}\index{Scytale}%
    : 
    This method was probably used since 600 B.C. -- a description
    of how it operated is not known from before Plutarch (50-120 B.C.).\\
    A long strip of paper is wrapped around a wooden cylinder and then the 
-   message is written along the length of this strip. The ciphertext is 
-   produced by unwinding the strip.
+   message is written along the length of this strip. After unwinding the
+   strip contains the ciphertext. For decryption the recipient needs to
+   have a -- previously agreed -- cylinder of the same size and with the same
+   number of edges.
 
 
-\item {\bf Grille cipher} \cite{pp:Goebel2003}: Both parties use identical
+\item {\bf Grille cipher} \cite{Goebel2014}: Both parties use identical
    stencils. 
    Line by line, their holes are filled with plaintext that is read out 
    column by column to produce the ciphertext. If there is plaintext left, 
@@ -172,14 +184,14 @@ $(1, 2, 3, 4, 5) \Leftrightarrow (3, 4, 2, 1, 5)$.
    This method cannot be simulated with a pure column transposition.}
 
 
-   \hypertarget{turning-grille cipher}{}
-\item {\bf Turning grille} \cite{pp:Savard1999}%
+   \hypertarget{turning-grille-cipher}{}
+\item {\bf Turning grille} \cite{Savard1999}%
    \index{turning grille}: 
    The German army used turning grilles during WW1.\footnote{%
       The turning grille was already invented in 1881 by Eduard Fleissner von
       Wostrowitz.\\
       A good visualization can be found under www.turning-grille.com.\\
-      In JCT\index{JCrypTool} you can find it in the default perspective
+      In JCT\index{JCT} you can find it in the default perspective
       via the menu item {\bf Visuals \textbackslash{} Grille}.
    } 
    A square grille serves as a stencil, a quarter of its fields being holes.
@@ -220,20 +232,25 @@ $(1, 2, 3, 4, 5) \Leftrightarrow (3, 4, 2, 1, 5)$.
 \subsection[Column and row transposition ciphers]
     {Column and row transposition\footnotemark}
     \footnotetext{%
-Most of the following methods can be simulated in CT1\index{CrypTool 1} 
+Most of the following methods can be simulated in CT1\index{CT1} 
 under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic) 
-\textbackslash{} Permutation}.}
+\textbackslash{} Permutation}.
+}
 
 \begin{itemize}
 
-\item {\bf Simple columnar transposition} \cite{pp:Savard1999}: First of all, 
+\item {\bf Simple columnar transposition} \cite{Savard1999}: First of all, 
    a keyword is chosen, that is written above the columns of a table. This
    table is filled with the text to be encrypted line by line. Then the 
    columns are rearranged by sorting the letters of the keyword alphabetically.
    Afterwards the columns are read out from left to right to build the 
    ciphertext.\footnote{%
    Using CT1: Choose a key for the 1st permutation, input line by line, 
-   permute and output column by column.}
+   permute and output column by column.\\
+   In CT2\index{CT2} you can find the transposition within the templates
+   {\bf Cryptography \textbackslash{} Classical}. This component also visualizes
+   how the text is put into and taken off the matrix and how the columns are permuted.
+   }
 
    See table \ref{PaP_SimpColTransp_table-reference}.
 
@@ -264,29 +281,28 @@ under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
    Ciphertext: NALFA PIOAX PORSS IEMET NOTN\\
 
 
-\item {\bf AMSCO cipher} \cite{pp:ACA2002}\index{AMSCO}: The characters of the
+\item {\bf AMSCO cipher} \cite{ACA2002}\index{AMSCO}: The characters of the
    plaintext are written in alternating groups of one respectively two letters
    into a grille. Then the columns are swapped and the text can be read out.
 
 
-\item {\bf Double column transposition} \cite{pp:Savard1999}
+\item {\bf Double column transposition (DCT)} \cite{Savard1999}
    \index{double column transposition}: 
    Double columnar transposition
    was frequently used during WW2 and during the Cold War. Two simple columnar
    transpositions with different keys are executed successively.\footnote{%
    Using CT1: Choose a key for the 1st permutation, input line by line, 
    permute and output column by column. Then choose a (different) key for the
-   2nd permutation, input line by line, permute and output column by column.}\\
+   2nd permutation, input line by line, permute and output column by column.
+   }\\
    If the keys are different and long enough (at least each 20 characters),
    then this is even for today's computer a real challenge.\footnote{%
-     MTC3\index{MTC3} offers an according level-X challenge called
-     ``Double Columnar Transposition'':\\
-     \url{http://www.mysterytwisterc3.org/en/challenges/level-x/double-column-transposition}
+     MTC3\index{MTC3} offers according challenges, for instance\\
+     \url{http://www.mysterytwisterc3.org/en/challenges/level-x/double-column-transposition} and\\
+     \url{https://www.mysterytwisterc3.org/en/challenges/level-iii/double-column-transposition-reloaded-part-1}
    }
 
-
-
-\item {\bf Column transposition, General Luigi Sacco} \cite{pp:Savard1999}: The 
+\item {\bf Column transposition, General Luigi Sacco} \cite{Savard1999}: The 
    columns of a table are numbered according to the letters of the keyword. 
    The plaintext is entered line by line, in the first line up to column 
    number one, in the second line up to column number two, etc. 
@@ -321,16 +337,20 @@ under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
 
 
 \item {\bf Column transposition, French army in WW1} 
-   \cite{pp:Savard1999}: 
+   \cite{Savard1999}: 
    After executing a simple columnar transposition, diagonal rows are read out.
 
 
-\item {\bf Row transposition} \cite{pp:Savard1999}: The plaintext is divided 
+\item {\bf Row transposition} \cite{Savard1999}: The plaintext is divided 
    into blocks of equal length and a keyword is chosen.
    Now the letters of the keyword are numbered and permutation is done only
    within each block according to this numbering.\footnote{%
    Using CT1: Choose a key for 1st permutation, input line by line, 
-   permute column by column and output line by line.}
+   permute column by column and output line by line.\\
+   In CT2\index{CT2} you can find the transposition within the templates
+   {\bf Cryptography \textbackslash{} Classical}. This component also visualizes
+   the row wise transposition.
+   }
 
 \end{itemize}
 
@@ -341,10 +361,10 @@ under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
 
 \begin{itemize}
 
-\item {\bf Geometric figures} \cite{pp:Goebel2003}: Write the message into a
+\item {\bf Geometric figures} \cite{Goebel2014}: Write the message into a
    grille following one pattern and read it out using another.
 
-\item {\bf Union Route Cipher} \cite{pp:Goebel2003}: The Union Route Cipher
+\item {\bf Union Route Cipher} \cite{Goebel2014}: The Union Route Cipher
    derives from Civil War. This method does not rearrange letters of a given
    plaintext, but whole words. Particularly sensitive names and terms are
    substituted by codewords which are recorded in codebooks together with
@@ -352,7 +372,7 @@ under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
    A route determines the size of a grille and the pattern that is used to 
    read out the ciphertext. In addition, a number of filler words is defined.
 
-\item {\bf Nihilist Transposition} \cite{pp:ACA2002}\index{Nihilist transposition}: 
+\item {\bf Nihilist Transposition} \cite{ACA2002}\index{Nihilist transposition}: 
    Insert the plaintext into 
    a square grille and write the same keyword above the columns and next to
    the lines. As this keyword is sorted alphabetically, the contents of the
@@ -387,7 +407,7 @@ under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
 
 
 %\newpage % Damit die Tables immer direkt nach dem zugehörigen Item. 
-\item {\bf Cadenus cipher} \cite{pp:ACA2002}\index{Cadenus cipher}: Cadenus is
+\item {\bf Cadenus cipher} \cite{ACA2002}\index{Cadenus cipher}: Cadenus is
    a form of columnar transposition that uses two keywords.\\
    The 1st keyword is used to swap columns.\\
    The 2nd keyword is used to define the initial letter of each column:
@@ -442,6 +462,7 @@ under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
 
 
 %------------------------------------------------------------------------------
+\clearpage
 \section{Substitution ciphers}
 \label{PaP_substitution_ciphers}
 \index{substitution}
@@ -459,33 +480,37 @@ remains unchanged during the whole process of encryption.
 \item {\bf General monoalphabetic substitution / Random letter 
    pairs\footnotemark}
    \footnotetext{%
-    This cipher can be simulated in CT1\index{CrypTool 1} 
+    This cipher can be simulated in CT1\index{CT1} 
     under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic) 
     \textbackslash{} Substitution / Atbash}.\\
-    In CT2\index{CrypTool 2} you can find these methods within the templates
-    {\bf Cryptography \textbackslash{} Classical}).
+    In CT2\index{CT2} you can find these methods within the templates
+    {\bf Cryptography \textbackslash{} Classical}.
+    According analyzers can be found within the templates
+    {\bf Cryptanalysis \textbackslash{} Classical}.
    } 
-   \cite{pp:Singh1999}:
+   \cite{Singh1999}:
    The substitution occurs by a given assignment of single letters.
 
 \item {\bf Atbash cipher\footnotemark}
    \footnotetext{%
-   This cipher can be simulated in CT1\index{CrypTool 1} 
+   This cipher can be simulated in CT1\index{CT1} 
    under the menu {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic) 
-   \textbackslash{} Substitution / Atbash}.}  
-   \cite{pp:Singh1999}\index{Atbash cipher}: Replace the first letter of the 
+   \textbackslash{} Substitution / Atbash}.
+   }  
+   \cite{Singh1999}\index{Atbash cipher}: Replace the first letter of the 
    alphabet by the last letter of the alphabet, the second one by the last 
    but one, etc.
 
-\item {\bf Shift cipher, for example Caesar cipher}\footnote{In CT1\index{CrypTool 1}
+\item {\bf Shift cipher, for example Caesar cipher}\footnote{In CT1\index{CT1}
    this method  can be found at three different places in the menu tree:\\
    - {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic) \textbackslash{} 
       Caesar / ROT13}\\
    - {\bf Analysis \textbackslash{} Symmetric Encryption (classic)
      \textbackslash{} Ciphertext only \textbackslash{} Caesar} \\
    - {\bf Indiv. Procedures \textbackslash{} Visualization of Algorithms 
-     \textbackslash{} Caesar}. } 
-   \cite{pp:Singh1999}\index{Caesar cipher}%
+     \textbackslash{} Caesar}.
+   } 
+   \cite{Singh1999}\index{Caesar cipher}%
    : Plaintext alphabet and ciphertext alphabet are shifted against each 
    other by a determined number of letters. Using the Caesar cipher means 
    shifting letters about three positions.
@@ -504,16 +529,19 @@ remains unchanged during the whole process of encryption.
    The name ``affine cipher'' was chosen because its encryption and
    decryption can be described as affine or linear function.
 
-\item {\bf Substitution with symbols} \cite{pp:Singh1999}, for instance the 
+\item {\bf Substitution with symbols} \cite{Singh1999}, for instance the 
    so-called ``freemason cipher'': Each letter is replaced with a symbol.
 
-\item {\bf Variants}: Fill characters, intentional mistakes \cite{pp:Singh1999}.
+\item {\bf Variants}: Fill characters, intentional mistakes \cite{Singh1999}.
 
 \item {\bf Nihilist substitution}\footnote{An animation of this Nihilist method
-   can be found in CT1\index{CrypTool 1} at the menu item
+   can be found in CT1\index{CT1} at the menu item
      {\bf Indiv. Procedures \textbackslash{} Visualization of Algorithms 
-     \textbackslash{} Nihilist}. }
-   \cite{pp:ACA2002}\index{Nihilist substitution}: 
+     \textbackslash{} Nihilist}.\\
+     In CT2\index{CT2} you can find nihilist within the templates
+     {\bf Cryptography \textbackslash{} Classical}.
+   }
+   \cite{ACA2002}\index{Nihilist substitution}: 
    Insert the alphabet into a 5x5-matrix to assign each letter the number built 
    from row and column number.  
    A keyword is chosen and placed above the columns of a second matrix (grille). 
@@ -578,29 +606,31 @@ remains unchanged during the whole process of encryption.
    Ciphertext: 58 53 85 88 54~~~96 78 72 85 56~~~63 65 47 44 65~~~49 46 68 47 55~~~69 56 53\\
 
 
-\item {\bf Codes} \cite{pp:Singh1999}: In the course of time, codebooks were
+\item {\bf Codes} \cite{Singh1999}: In the course of time, codebooks were
    used again and again. A codebook assigns a codeword, a symbol or a number
    to every possible {\bf word} of a message. Only if both parties hold
    identical codebooks and if the assignment of codewords to plaintext words
    is not revealed, a successful and secret communication can take place.
 
-\item {\bf Nomenclator} \cite{pp:Singh1999}\index{Nomenclator}: 
+\item {\bf Nomenclator} \cite{Singh1999}\index{Nomenclator}: 
    A nomenclator refers to techniques that combine the use of a cipher algorithm
    with a codebook. Often the encryption system is based upon a ciphertext alphabet.
    This alphabet is used to encrypt (via substitution) the bigger part of
    the message. Particularly frequent or top-secret words are replaced by a limited
    number of codewords existing besides the ciphertext alphabet.
 
-\item {\bf Map cipher} \cite{pp:ThinkQuest1999}\index{map cipher}: 
+\item {\bf Map cipher} \cite{ThinkQuest1999}\index{map cipher}: 
    This method constitutes a combination of substitution
-   and steganography\footnote{Instead of encrypting a message, pure 
+   and stegano\-graphy\footnote{Instead of encrypting a message, pure 
    steganography \index{steganography} tries to conceal its existence.}. 
    Plaintext characters are replaced by symbols which are arranged in a map 
-   following certain rules
+   following certain rules.
+   %% D: "- bedeutet zusätzliche Trennstelle; \- besagt, dass nur da getrennt werden darf.
+   %% E: Es geht m.W. nur \- 
 
 
 \item {\bf Straddling Checkerboard} 
-   \cite{pp:Goebel2003}\index{straddling checkerboard}:
+   \cite{Goebel2014}\index{straddling checkerboard}:
    A 3x10 matrix is filled
    with the letters of the used alphabet and two arbitrary digits or special
    characters as follows: The different letters of a keyword and the remaining
@@ -640,11 +670,19 @@ remains unchanged during the whole process of encryption.
 
 
 
-\item {\bf Straddling Checkerboard, variant} \cite{pp:Goebel2003}
-   \index{straddling checkerboard}: This variant
+\item {\bf Straddling Checkerboard, variant}
+   % BE_Remark: ~ after colon added by will to avoid black box (schwarzer Kasten w/ Umbruch)
+   \cite{Goebel2014}\index{straddling checkerboard}:~ This variant
    of the straddling checkerboard was developed by Soviet spies during WW2. 
    Ernesto (Ch\'e) Guevara \index{Ch\'e Guevara} and Fidel Castro allegedly
-   used this cipher for their secret communication.
+   used this cipher for their secret communication.\footnote{%
+     In addition, Ch\'e Guevara used for his communication with Fidel Castro
+     also a one-time pad\index{OTP}.\\
+     See part 3 of the series {\em RSA \& Co. at school: Modern cryptology,
+     old mathematics, and subtle protocols}: \cite{Witten1999}, p. 52.\\
+     Unfortunately these are currently only available in German.
+     \index{RSA \& Co. at school}
+   }
    A grille is filled with the alphabet (number of columns = length of
    keyword), and two arbitrary digits are chosen as reserved to indicate the
    second and third line of a 3x10-matrix (see above). Now the grille is
@@ -709,7 +747,7 @@ remains unchanged during the whole process of encryption.
    \end{itemize}
   
 
-\item {\bf Tri-Digital cipher} \cite{pp:ACA2002}: A keyword with ten letters
+\item {\bf Tri-Digital cipher} \cite{ACA2002}: A keyword with ten letters
    is used to create a numeric key by numbering its letters corresponding to
    their alphabetical order. This key is written above the columns of the
    3x10-matrix.
@@ -720,7 +758,7 @@ remains unchanged during the whole process of encryption.
    separate words.\\
 
 
-\item {\bf Baconian cipher} \cite{pp:ACA2002}\index{Baconian cipher}: 
+\item {\bf Baconian cipher} \cite{ACA2002}\index{Baconian cipher}: 
    Assign a five-digit binary code to
    every letter and to 6 numbers or special characters (for example 00000 = A,
    00001 = B, etc.) and replace the plaintext characters with this binary code.
@@ -759,20 +797,20 @@ character of the plaintext alphabet is assigned several ciphertext characters.
 
 \begin{itemize}
 \item {\bf Homophonic monoalphabetic substitution}\footnote{This cipher can be 
-   simulated in CT1\index{CrypTool 1} under the menu
+   simulated in CT1\index{CT1} under the menu
    {\bf Encrypt/Decrypt \textbackslash{}Symmetric (classic)\textbackslash{} Homophone}.}
-   \cite{pp:Singh1999}: Each language has a typical frequency distribution of
+   \cite{Singh1999}: Each language has a typical frequency distribution of
    letters. To conceal this distribution, each plaintext letter is assigned
    several ciphertext characters.
    The number of ciphertext characters assigned depends on the frequency of the
    letter to be encrypted.
 
-\item {\bf Beale cipher} \cite{pp:Singh1999}\index{Beale cipher}: 
+\item {\bf Beale cipher} \cite{Singh1999}\index{Beale cipher}: 
    The Beale cipher is a book cipher
    that numbers the words of a keytext. These numbers replace the plaintext 
    letters by the words' initial letters.
 
-\item {\bf Grandpr\'e cipher} \cite{pp:Savard1999}: A square grille with 10 
+\item {\bf Grandpr\'e cipher} \cite{Savard1999}: A square grille with 10 
    columns (other layouts are possible, too) is filled with ten words. The 
    initial letters should result in an eleventh word. As columns and rows are
    numbered from 0 to 9, letters can be replaced by two-digit numbers. It is 
@@ -795,7 +833,7 @@ character of the plaintext alphabet is assigned several ciphertext characters.
 Polygraphic techniques\index{substitution!polygraphic} do not work by replacing single characters, but by replacing whole groups of characters. In most cases, these groups are diagrams, trigrams or syllables.
 
 \begin{itemize}
-\item {\bf ``Great Chiffre''} \cite{pp:Singh1999}: This cipher was used by 
+\item {\bf ``Great Chiffre''} \cite{Singh1999}: This cipher was used by 
    Louis XIV. and was not solved until the end of the nineteenth century. 
    Cryptograms consisted of 587 different numbers, every number representing
    a syllable. The inventors of the ``Great Chiffre'' (Rossignol, father and
@@ -805,13 +843,15 @@ Polygraphic techniques\index{substitution!polygraphic} do not work by replacing 
 
 \hypertarget{playfair}{}
 \item {\bf Playfair cipher}\footnote{%
-   In CT1\index{CrypTool 1} you can call this method under the menu
+   In CT1\index{CT1} you can call this method under the menu
    {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
    \textbackslash{} Playfair}.\\
-   In JCT\index{JCrypTool} you can find it in the default perspective
+   In CT2\index{CT2} you can find the Playfair within the templates
+   {\bf Cryptography \textbackslash{} Classical}.\\   
+   In JCT\index{JCT} you can find it in the default perspective
    via the menu item {\bf Algorithms \textbackslash{} Classic \textbackslash{}
    Playfair}.}
-   \cite{pp:Singh1999}\index{Playfair}:
+   \cite{Singh1999}\index{Playfair}:
    A 5x5-matrix is filled with the plaintext characters. For example, the
    different letters of a keyword are inserted first, followed by the
    remaining letters. The plaintext is divided into pairs, these digraphs
@@ -868,15 +908,15 @@ Polygraphic techniques\index{substitution!polygraphic} do not work by replacing 
 	\item A trigraph with two different letters is encrypted like a 
            digraph in Playfair.
 	\item If a trigraph contains three different characters, very 
-           complex rules come into effect. See \cite{pp:Savard1999}
+           complex rules come into effect. See \cite{Savard1999}
 	\end{enumerate}
 
-\item {\bf Substituting digraphs by symbols} \cite{pp:Savard1999}: Giovanni 
+\item {\bf Substituting digraphs by symbols} \cite{Savard1999}: Giovanni 
    Battista della Porta, 15th century. He created a 20x20-matrix that 
    contained one symbol for every possible combination of letters (his 
    alphabet did not comprise more than twenty letters).
 
-\item {\bf Four square cipher} \cite{pp:Savard1999}: This method is similar to 
+\item {\bf Four square cipher} \cite{Savard1999}: This method is similar to 
    Playfair, because it is based on a system of coordinates whose four 
    quadrants are each filled with the alphabet. The layout of letters can 
    differ from quadrant to quadrant. To encipher a message, act in the 
@@ -913,21 +953,21 @@ Polygraphic techniques\index{substitution!polygraphic} do not work by replacing 
 
    Ciphertext: MWYQW XQINO VNKGC ZWPZF FGZPM DIICC GRVCS\\
 
-\item {\bf Two square cipher} \cite{pp:Savard1999}: The two square cipher 
+\item {\bf Two square cipher} \cite{Savard1999}: The two square cipher 
    resembles the four square cipher, but the matrix is reduced to two 
    quadrants. Are both letters of the digraph part of the same row, they are
    just exchanged. Otherwise, the plaintext letters are considered as opposite
    corners of a rectangle and substituted by the other vertices. Quadrants can
    be arranged horizontal and vertical.
 
-\item {\bf Tri square cipher} \cite{pp:ACA2002}: Three quadrants are filled with
+\item {\bf Tri square cipher} \cite{ACA2002}: Three quadrants are filled with
    the same alphabet. The first plaintext letter is looked up in the first 
    quadrant and can be encrypted with every letter of that column. The second
    plaintext letter is looked up in the second quadrant (diagonally across)
    and can be encrypted with every letter of that row. Between these two 
    ciphertext characters, the letter at the intersection point is set.
 
-\item {\bf Dockyard cipher} \cite{pp:Savard1999}: Used by the German navy 
+\item {\bf Dockyard cipher} \cite{Savard1999}: Used by the German navy 
    during WW2.
 \end{itemize}
 
@@ -939,15 +979,15 @@ Concerning polyalphabetic substitution\index{substitution!polyalphabetic}, the a
 
 \begin{itemize}
 \item {\bf Vigen\`ere}\footnote{%
-   In CT1\index{CrypTool 1} you can call this method under the menu {\bf Encrypt/Decrypt
+   In CT1\index{CT1} you can call this method under the menu {\bf Encrypt/Decrypt
    \textbackslash{} Symmetric (classic) \textbackslash{} Vigen\`ere}.\\
-   In CT2\index{CrypTool 2} you can find this method within the templates
+   In CT2\index{CT2} you can find this method within the templates
    {\bf Cryptography \textbackslash{} Classical}.\\
-   In JCT\index{JCrypTool} you can find it in the default perspective
+   In JCT\index{JCT} you can find it in the default perspective
    via the menu item {\bf Algorithms \textbackslash{} Classic \textbackslash{}
    Vigen\`ere}.
    }  
-   \cite{pp:Singh1999}\index{Vigen\`ere}: 
+   \cite{Singh1999}\index{Vigen\`ere}: 
    Each plaintext character is encrypted
    with a different ciphertext alphabet that is determined by the characters of
    a keyword (the so-called Vigen\`ere tableau serves auxiliary means).
@@ -1003,12 +1043,12 @@ Concerning polyalphabetic substitution\index{substitution!polyalphabetic}, the a
 
 
 	\item {\bf Autokey}\footnote{%
-   In CT2\index{CrypTool 2} you can find this method within the templates
+   In CT2\index{CT2} you can find this method within the templates
    {\bf Cryptography \textbackslash{} Classical}.\\
-   In JCT\index{JCrypTool} you can find it in the default perspective
+   In JCT\index{JCT} you can find it in the default perspective
    via the menu item {\bf Algorithms \textbackslash{} Classic \textbackslash{}
    Autokey Vigen\`ere}.
-   } \cite{pp:Savard1999}: After using the agreed key,
+   } \cite{Savard1999}: After using the agreed key,
 	 use the message itself as a key.
 	 See table \ref{Autokey-table-reference}.
 
@@ -1029,25 +1069,25 @@ Concerning polyalphabetic substitution\index{substitution!polyalphabetic}, the a
    \end{table}
 
 
-	\item {\bf Progressive key} \cite{pp:Savard1999}: The key changes during
+	\item {\bf Progressive key} \cite{Savard1999}: The key changes during
 	 the process of encryption. With every repetition, the characters of
 	 the keyword are shifted about one position. ``KEY'' becomes ``LFZ''.
 
 
-	\item {\bf Gronsfeld} \cite{pp:Savard1999}: Variant of Vigen\`ere that
+	\item {\bf Gronsfeld} \cite{Savard1999}: Variant of Vigen\`ere that
 	 uses a numeric key.
 
-	\item {\bf Beaufort} \cite{pp:Savard1999}\index{Beaufort}: 
+	\item {\bf Beaufort} \cite{Savard1999}\index{Beaufort}: 
    	Variant of Vigen\`ere, the key is subtracted, not added. The ciphertext 
    	alphabets may be written backwards.
 
 
-	\item {\bf Porta} \cite{pp:ACA2002}: Variant of Vigen\`ere with only 13
+	\item {\bf Porta} \cite{ACA2002}: Variant of Vigen\`ere with only 13
 	 alphabets. As a consequence, two letters of the keyword are assigned
 	 the same ciphertext alphabet and the first and the second half of the
 	 alphabet are reciprocal.
 
-	\item {\bf Slidefair} \cite{pp:ACA2002}: This method can be used as a
+	\item {\bf Slidefair} \cite{ACA2002}: This method can be used as a
 	 variant of Vigen\`ere, Gronsfeld or Beaufort. Slidefair does encrypt
 	 digraphs according to the following rules: Look up the first letter in
 	 the plaintext alphabet above the tableau. Then look up the second one
@@ -1057,42 +1097,57 @@ Concerning polyalphabetic substitution\index{substitution!polyalphabetic}, the a
 
 \end{itemize}
 
-\item {\bf Superposition}\index{superposition}
-   \begin{itemize}
-       \item {\bf Running-key cipher}: A keytext (for example out of a book) is added
-          to the plaintext.
 
-       \item {\bf Superposition with numbers}: A sequence or a number of 
-          sufficient length (for example pi) is added.
 
        \item {\bf One-time pad (OTP)}\footnote{%
-          CT1\index{CrypTool 1} offers this method under the menu
-          {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
-          \textbackslash{} Vernam / OTP}.\\
-          In CT2\index{CrypTool 2} you can find this method within the templates
-          {\bf Cryptography \textbackslash{} Classical}.\\
-          In JCT\index{JCrypTool} you can find it in the default perspective
-          via the menu item {\bf Algorithms \textbackslash{} Classic
-          \textbackslash{} XOR}.
-          }\index{one-time pad}\index{OTP}:
-          A sequence
-          of bytes is XORed byte-by-byte to the plaintext. This is a
+             On a big scale OTPs have been successfully analyzed by Americans and
+	     British during the ``Venona'' project -- because of wrong usage by the
+	     soviet spies. See \url{https://en.wikipedia.org/wiki/Venona_project}.
+	     \index{Venona}
+          }$^,$\footnote{%
+            CT1\index{CT1} offers this method under the menu
+            {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic)
+            \textbackslash{} Vernam / OTP}.\\
+            In CT2\index{CT2} you can find this method within the templates
+            {\bf Cryptography \textbackslash{} Classical}.\\
+            In JCT\index{JCT} you can find it in the default perspective
+            via the menu item {\bf Algorithms \textbackslash{} Classic
+            \textbackslash{} XOR}.\\
+            In chapter \ref{ss-bool-xor} you find a detailed description of the
+	    OTP as bitstream cipher and its implementation in SageMath.
+          }\index{OTP}:
+          This is a major concept:
+	  A sequence of bytes is XORed byte-by-byte to the plaintext. This is a
           generalization of Vigen\`ere's mechanism and it was the first
-          information-theoretically secure scheme (see
+          information theoretically secure scheme (see
           chapter~\ref{cm_Section_Security_Definitions}
           ``\nameref{cm_Section_Security_Definitions}'').
+	  
           To fulfill this claim the pad must be random and it must be used
           only once (to eliminate any semblance of pattern from the ciphertext).\\
           Reason: Given ciphertext C, plaintext P, pad K and two plaintexts
           encrypted with the same key: C1 = P1 $\oplus$ K;  C2 = P2 $\oplus$ K; \\
           Thus, C1 $\oplus$ C2 = (P1 $\oplus$ K) $\oplus$ (P2 $\oplus$ K) = P1 $\oplus$ P2; \\
           which effectively could leak the plaintexts.\footnote{%
-          In JCT\index{JCrypTool} you can play with an automatic
-          cryptanalysis of running-key ciphertexts using the Viterbi analysis
-          under the menu {\bf Visuals \textbackslash{} Viterbi}.}
+            In JCT\index{JCT} you can play with an automatic
+            cryptanalysis of running-key ciphertexts using the Viterbi analysis
+            under the menu {\bf Visuals \textbackslash{} Viterbi}. You can see
+	    how astonishing it is, if you get little by little from XORed ciphertexts
+	    or XORed plaintexts both original plaintexts.
+          }
+
+
+
+  \item {\bf Superposition} (some variants of the OTP)\index{superposition}
+   \begin{itemize}
+       \item {\bf Running-key cipher}: A keytext (for example out of a book) is added
+          to the plaintext.
+
+       \item {\bf Superposition with numbers}: A sequence or a number of 
+          sufficient length (for example pi) is added.
    \end{itemize}
 
-\item {\bf Phillips cipher} \cite{pp:ACA2002}: The alphabet is filled into a
+\item {\bf Phillips cipher} \cite{ACA2002}: The alphabet is filled into a
    square 
    table with 5 columns. Seven more tables are generated by first shifting the
    first row one position towards the bottom, then shifting the second row 
@@ -1100,7 +1155,7 @@ Concerning polyalphabetic substitution\index{substitution!polyalphabetic}, the a
    encrypted with one matrix each. Letters are substituted by the ones on their
    right and underneath.
 
-\item {\bf Ragbaby cipher} \cite{pp:ACA2002}: Construct an alphabet with 24
+\item {\bf Ragbaby cipher} \cite{ACA2002}: Construct an alphabet with 24
    characters.
    Then number the plaintext characters, starting the numeration of the first
    word with ``1'', the numeration of the second one with ``2'' and so forth.
@@ -1127,6 +1182,7 @@ Concerning polyalphabetic substitution\index{substitution!polyalphabetic}, the a
 
 
 %------------------------------------------------------------------------------
+\clearpage
 \section{Combining substitution and transposition}
 \label{PaP_combined_ciphers}
 \index{product algorithm}\index{encryption!product algorithm}%
@@ -1138,13 +1194,13 @@ previous mentioned methods.
 \begin{itemize}
 
 \item {\bf ADFG(V)X}\footnote{%
-   In CT1\index{CrypTool 1} you can call this method under the menu
+   In CT1\index{CT1} you can call this method under the menu
    {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic) \textbackslash{} 
    ADFGVX}.\\
-   In CT2\index{CrypTool 2} you can find this method within the templates
+   In CT2\index{CT2} you can find this method within the templates
    {\bf Cryptography \textbackslash{} Classical}.
    }
-   \cite{pp:Singh1999}\index{ADFGVX}%
+   \cite{Singh1999}\index{ADFGVX}%
    : 
    ADFG(V)X-encryption was developed in Germany during WW1. The alphabet 
    is filled into a 5x5 or 6x6 matrix, and columns and rows are marked with
@@ -1152,14 +1208,14 @@ previous mentioned methods.
    plaintext character is substituted by the corresponding pair of letters. 
    Finally, a (row-) transposition cipher is performed on the resulting text.
 
-\item {\bf Fractionation} \cite{pp:Savard1999}: 
+\item {\bf Fractionation} \cite{Savard1999}: 
    Generic term for all kinds of methods that encrypt one plaintext character
    by several ciphertext characters and then apply a transposition cipher to this
    ciphertext so that ciphertext characters originally belonging to each 
    other are separated.
    
    \begin{itemize}
-      \item {\bf Bifid/Polybius square/checkerboard} \cite{pp:Goebel2003}: 
+      \item {\bf Bifid/Polybius square/checkerboard} \cite{Goebel2014}: 
          Bifid encryption is the basic form of fractionation. A 5x5 matrix 
          is filled with the plaintext alphabet (see Playfair encryption), 
          rows and columns are numbered, so that each plaintext character can be
@@ -1209,7 +1265,7 @@ previous mentioned methods.
 	Ciphertext: BNLLL UPHVI NNUCS OHLMW BDNOI GINUR HCZQI\\
 
 
-	\item {\bf Trifid} \cite{pp:Savard1999}: 27 characters (alphabet + 1 
+	\item {\bf Trifid} \cite{Savard1999}: 27 characters (alphabet + 1 
            special character) may be represented by a triple consisting of the
            digits 1 to 3. The message to be encrypted is divided into blocks of
            three and the relevant triple is written underneath each plaintext
@@ -1218,7 +1274,7 @@ previous mentioned methods.
            corresponding characters.
    \end{itemize}
 
-\item {\bf Bazeries cipher} \cite{pp:ACA2002}: The plaintext alphabet is filled
+\item {\bf Bazeries cipher} \cite{ACA2002}: The plaintext alphabet is filled
    into a 5x5-matrix column by column, a second matrix is filled line by line
    with a
    keyword (a number smaller than a million) followed by the remaining letters
@@ -1261,7 +1317,7 @@ previous mentioned methods.
    \end{table}
 
 
-\item {\bf Digrafid cipher} \cite{pp:ACA2002}: To substitute digraphs, the
+\item {\bf Digrafid cipher} \cite{ACA2002}: To substitute digraphs, the
    following
    table is used (to simplify matters, the alphabet is used in its original
    form). Look up the first letter of the digraph in the horizontal alphabet
@@ -1325,7 +1381,7 @@ previous mentioned methods.
 
 
 \newpage % Damit die Tables immer direkt nach dem zugehörigen Item. 
-\item {\bf Nicodemus cipher} \cite{pp:ACA2002}: First of all, a simple columnar 
+\item {\bf Nicodemus cipher} \cite{ACA2002}: First of all, a simple columnar 
    transposition is carried out. Before reading out the columns, the message
    is encrypted additionally by Vigen\`ere (all letters of a column are
    enciphered with the corresponding keyword letter). The ciphertext is read
@@ -1362,16 +1418,39 @@ previous mentioned methods.
 
 	Ciphertext: SMRYX MLSCC KLEZG YSRVW JSKDX RLBYN WMYDG N\\
 
+
+
+
+\clearpage
+\item {\bf Double column transposition (DCT) / ``Granit E160''}
+   \cite{Drobick2015}
+   \index{Granit}:
+   Granit is a 2-step cipher. The second step is the double colum transposition;
+   in the first step before, the cleartext is substituted by a sequence of digits using a
+   codebook and a matrix (a variant of the Polybios square).
+
+   The Granit cipher was used for instance by the spy Guenter Guillaume for his
+   communication with the Ministry of State Security of the former GDR until about
+   1960.\footnote{%
+   MTC3\index{MTC3} offers according challenges. If you enter at
+   \url{https://www.mysterytwisterc3.org/en/challenges/the-four-levels?showAll=1}
+   in your browser the search item ``Granit'', you'll find 6 challenges about it.\\
+   A detailed 20-page description about the Granit cipher can be found at:\\
+   \url{https://www.mysterytwisterc3.org/images/challenges/mtc3-drobick-01-doppelwuerfel-01-en.pdf}
+   }
+
+
 \end{itemize}
 
 
 
 %------------------------------------------------------------------------------
+\clearpage
 \section{Further methods}
 \label{Further-PaP-methods}
 
 \begin{itemize}
-\item {\bf ``Pinprick encryption''} \cite{pp:Singh1999}: For centuries, this 
+\item {\bf ``Pinprick encryption''} \cite{Singh1999}: For centuries, this 
    simple encryption method has been put into practice for different reasons (actually steganography).
    During the Victorian Age, for example, small holes underneath letters in
    newspaper articles marked the characters of a plaintext, as sending
@@ -1382,7 +1461,7 @@ previous mentioned methods.
    Sender and receiver have to agree upon a text. Above this text, a stencil
    is laid and the letters that remain visible make up the ciphertext.
 
-\item {\bf Card games} \cite{pp:Savard1999}: The key is created by means of a
+\item {\bf Card games} \cite{Savard1999}: The key is created by means of a
    pack of cards and rules that are agreed upon in advance. All methods
    mentioned in this paragraph are designed as paper and pencil methods,
    i.e. they are applicable without electronic aid. A pack of cards is
@@ -1392,14 +1471,14 @@ previous mentioned methods.
    \begin{itemize}
       \item {\bf Solitaire cipher (Bruce Schneier)\footnotemark}
          \footnotetext{%
-         In CT1\index{CrypTool 1} you can call this method under the menu
+         In CT1\index{CT1} you can call this method under the menu
          {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic) \textbackslash{} 
          Solitaire}.\\
-          In CT2\index{CrypTool 2} you can find this method within the templates
+          In CT2\index{CT2} you can find this method within the templates
           {\bf Cryptography \textbackslash{} Classical} and 
           {\bf Cryptanalysis \textbackslash{} Classical}.
          }
-         \cite{pp:Schneier1999}\index{Solitaire}: 
+         \cite{Schneier1999}\index{Solitaire}: 
          Sender and receiver have to own a deck of cards shuffled in the
          same manner. A key stream is generated that has to consist of as 
          many characters as the message to be encrypted. 
@@ -1438,11 +1517,11 @@ previous mentioned methods.
          nowadays it is hard to crack the cipher if you don't know the
          originally sorted card deck (ciphertext-only attack).\\
 
-      \item {\bf Mirdek cipher (Paul Crowley)} \cite{pp:Crowley2000}:
+      \item {\bf Mirdek cipher (Paul Crowley)} \cite{Crowley2000}:
          Even though this method is quite complicated, the author provides
          a very good example to illustrate the procedure.\\
 
-      \item {\bf Playing Card cipher (John Savard)} \cite{pp:Savard1999}: This 
+      \item {\bf Playing Card cipher (John Savard)} \cite{Savard1999}: This 
          algorithm uses a shuffled deck of 52 cards (no joker). Separate rules
          describe how to shuffle the deck. A keystream is created via the
          following steps:
@@ -1473,13 +1552,13 @@ previous mentioned methods.
          is your keystream character.\\
    \end{itemize}
 
-\item {\bf VIC cipher} \cite{pp:Savard1999}: This is a highly complicated but
+\item {\bf VIC cipher} \cite{Savard1999}: This is a highly complicated but
    relatively secure paper and pencil method. It has been developed and
    applied by Soviet spies. Amongst other things, the user had to create
    ten pseudo-random numbers out of a date, the first words of a sentence
    and any five-digit number. A straddling checkerboard is part of the
    encryption, too. A detailed description can be found under
-   \cite{pp:Savard1999}.
+   \cite{Savard1999}.
 
 \end{itemize}
 
@@ -1496,18 +1575,20 @@ previous mentioned methods.
 \index{SageMath}
 
 In the following section some classic ciphers are implemented using the open source computer
-algebra system \verb!SageMath!\footnote{%
+algebra system \verb!SageMath!.\footnote{%
     A first introduction to the CAS SageMath can be found in the appendix \ref{s:appendix-using-sage}.
-                        }
-. The code was tested with SageMath version 5.3.
-All ciphers are explained in chapter~\ref{Kapitel_PaperandPencil}
-(``\nameref{Kapitel_PaperandPencil}'').
+    }
+The code was tested with SageMath version 5.3.
+All ciphers are explained in chapter~\ref{Chapter_PaperandPencil}
+(``\nameref{Chapter_PaperandPencil}'').
 
 \noindent To make the sample code\footnote{%
      Further examples with SageMath concerning classic crypto methods can be found e.g.:\\
-     - at \url{http://www.sagemath.org/doc/constructions/linear_codes.html\#classical-ciphers}\\
-     - in the thesis of Minh Van Nguyen \cite{pp:Nguyen2009}
-                                          }
+     - as PDF in \url{http://doc.sagemath.org/pdf/en/reference/cryptography/cryptography.pdf}\\
+     - as HTML under \url{http://doc.sagemath.org/html/en/reference/cryptography/index.html}\\
+     - at \url{http://doc.sagemath.org/html/en/reference/cryptography/sage/crypto/classical.html}\\
+     - in the thesis of Minh Van Nguyen \cite{Nguyen2009b}
+     }
 of the ciphers easier to understand, we used the structure and the naming conventions
 shown in the Figure \ref{naming-convention-in-Sage-cipher-samples} below:
 \begin{itemize}
@@ -1750,10 +1831,10 @@ Substitution cryptosystems are implemented in SageMath in the class
 
 \noindent The following code sample uses SageMath to construct a substitution
 cipher with a random key. A random key can be generated using the
-method \verb!random_key()! of the class
-\texttt{SubstitutionCryp\-to\-system}. Different keys determine different
-substitution ciphers. So each call to \verb!random_key()! returns
-different results.
+method \verb!random_key()! of the class \texttt{Substitution\-Cryp\-to\-system}.
+% Possible separator positions (Trenner) to avoid black squares (schwarze Punkte).
+Different keys determine different substitution ciphers:
+With each call to \verb!random_key()! a different result is returned.
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -2223,9 +2304,16 @@ True
 \subsection{Hill cipher}
 \index{Hill}
 
-The Hill~\cite{pp:Hill1929,pp:Hill1931} or matrix cipher is
-mathematically more sophisticated than the other ciphers mentioned in this
-chapter. The encryption/decryption key of this cipher is an invertible
+The Hill~\cite{Hill1929,Hill1931} or matrix cipher\footnote{%
+   In CT1\index{CT1} you can call this method under the menu
+   {\bf Encrypt/Decrypt \textbackslash{} Symmetric (classic) \textbackslash{} 
+   Hill}.\\
+   In CT2\index{CT2} you can find this method within the templates
+   {\bf Cryptography \textbackslash{} Classical} and 
+   {\bf Cryptanalysis \textbackslash{} Classical}.
+   }
+is mathematically more sophisticated than the other ciphers mentioned in
+this chapter. The encryption/decryption key of this cipher is an invertible
 square matrix (here called $key$).
 Plaintext and ciphertext are vectors ($P$ and $C$).
 The encryption and decryption processes use matrix operations modulo 26,
@@ -2338,116 +2426,12 @@ HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
 
 
 
-
-
-
-% --------------------------------------------------------------------------
-\newpage
-\begin{thebibliography}{99999}
+%------------------------------------------------------------------------------
+\putbib[../de/references]
 \addcontentsline{toc}{section}{Bibliography}
+\end{bibunit}
 
-\bibitem[ACA2002]{pp:ACA2002} \index{ACA 2002}
-   American Cryptogram Association, \\
-   {\em Length and Standards for all ACA Ciphers}, 2002.\\
-   \url{http://www.cryptogram.org/cdb/aca.info/aca.and.you/chap08.html#},\\
-   \url{http://www.und.edu/org/crypto/crypto/.chap08.html}
-
-\bibitem[Bauer1995]{pp:Bauer1995} \index{Bauer 1995}
-    Friedrich L. Bauer, \\
-    {\em Entzifferte Geheimnisse},\\
-    Springer, 1995.
-
-\bibitem[Bauer2000]{pp:Bauer2000} \index{Bauer 2000}
-    Friedrich L. Bauer, \\
-    {\em Decrypted Secrets}, Springer 1997,\\
-    2nd edition 2000.
-	
-\bibitem[Crowley2000]{pp:Crowley2000} \index{Crowley 2000}
-   Paul Crowley, \\
-   {\em Mirdek: A card cipher inspired by ``Solitaire''}, 2000.\\
-   \url{http://www.ciphergoth.org/crypto/mirdek/}
-
-\bibitem[DA1999]{pp:DA1999} \index{DA 1999}
-   Data encryption page of the ThinkQuest Team 27158 for ThinkQuest 1999 \\
-   (no update since 1999, no search possibility), 1999.\\
-   \url{http://library.thinkquest.org/27158/}
-
-\bibitem[Goebel2003]{pp:Goebel2003} \index{Goebel 2003}
-   Greg Goebel, \\
-   {\em Codes, Ciphers and Codebreaking}, 2003.\\
-   \url{http://www.vectorsite.net/ttcode.htm}
-
-\bibitem[Hill1929]{pp:Hill1929} \index{Hill 1929}
-   Lester S. Hill,\\
-   \emph{Cryptography in an Algebraic Alphabet},\\
-   The American Mathematical Monthly, 36(6): 306--312, 1929.
-
-\bibitem[Hill1931]{pp:Hill1931} \index{Hill 1931}
-   Lester S. Hill,\\
-   \emph{Concerning Certain Linear Transformation Apparatus of Cryptography},\\
-   The American Mathematical Monthly, 38(3): 135--154, 1931.
-
-\bibitem[Nichols1996]{pp:Nichols1996} \index{Nichols 1996} 
-    Randall K. Nichols, \\
-    {\em Classical Cryptography Course, Volume 1 and 2}, \\
-    Aegean Park Press 1996;\\
-    or in 12 lessons online at \\
-    \url{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}
-
-\bibitem[Nguyen2009]{pp:Nguyen2009} \index{Nguyen 2009} 
-       Minh Van Nguyen, \\
-       {\em Exploring Cryptography Using the SageMath Computer Algebra System}, \\
-       Victoria University, 2009, \\
-       See SageMath publications\\
-       \url{http://www.sagemath.org/library-publications.html},\\
-       \url{http://www.sagemath.org/files/thesis/nguyen-thesis-2009.pdf},\\
-       \url{http://sites.google.com/site/nguyenminh2/honours-thesis-2009.pdf}
-
-\bibitem[Savard1999]{pp:Savard1999} \index{Savard 1999}
-	John J. G. Savard, \\
-	{\em A Cryptographic Compendium}, 1999.\\
-	\url{http://www.quadibloc.com/crypto/jscrypt.htm}
-
-\bibitem[Schmeh2004]{pp:Schmeh2004}  \index{Schmeh 2004}
-        Klaus Schmeh, \\
-        {\em Die Welt der geheimen Zeichen. Die faszinierende Geschichte
-        der Verschl\"usselung},\\ 
-        W3L Verlag Bochum, 1st edition 2004.
-
-\bibitem[Schmeh2007]{pp:Schmeh2007}  \index{Schmeh 2007}
-        Klaus Schmeh, \\
-        {\em Codeknacker gegen Codemacher. Die faszinierende Geschichte der Verschl\"usselung},\\ 
-        W3L Verlag Bochum, 2nd edition 2007.\\
-	This is most current among the books dealing in a comprehensive manner
-	with the history of cryptology. It also contains a small collection of
-        solved and unsolved crypto riddles. One of the challenges deals with
-        a double column transposition using two long keys, which are
-        differently in addition.\\
-	\url{http://www.mysterytwisterc3.org/en/challenges/level-x/double-column-transposition}
-
-\bibitem[Schneier1999]{pp:Schneier1999}
-	Bruce Schneier, \\
-	{\em The Solitaire Encryption Algorithm}, \\
-	version 1.2, 1999.\\
-	\url{http://www.schneier.com/solitaire.html}
-
-\bibitem[Singh1999]{pp:Singh1999} \index{Singh 1999}
-	Simon Singh, \\
-	{\em The Code Book: The Science of Secrecy from Ancient Egypt to Quantum Cryptography}, \\
-	Anchor, 1999.
-
-\bibitem[ThinkQuest1999]{pp:ThinkQuest1999} \index{ThinkQuest 1999}
-	ThinkQuest Team 27158, \\
-	{\em Data Encryption}, 1999.\\
-	\url{http://library.thinkquest.org/27158/}
-
-\end{thebibliography}  % English
-
-
-
-
-
-
+\noindent All links have been confirmed at July 11, 2016.
 
 
 

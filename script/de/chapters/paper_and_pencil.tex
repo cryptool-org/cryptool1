@@ -1,15 +1,20 @@
 % $Id$
 % ............................................................................
-%             V E R S C H L U E S S E L U N G S V E R F A H R E N
+%       P & P - V E R S C H L U E S S E L U N G S V E R F A H R E N
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-% \glqq Einführung\grqq~
+
+\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
+
 \newpage
-\hypertarget{Kapitel_PaperandPencil}{}
+\hypertarget{Chapter_PaperandPencil}{}
 
 \chapter{Papier- und Bleistift-Verschlüsselungsverfahren}
-\label{Kapitel_PaperandPencil}
-(Christine Stötzel, April 2004; Updates B.+C. Esslinger, Juni 2005;
- Updates Minh Van Nguyen und B. Esslinger, Nov. 2009, Juni 2010, Mai 2013)
+\label{Chapter_PaperandPencil}
+(\hyperlink{author_Christine-Stoetzel}{Christine Stötzel}, Apr. 2004;
+ Updates B.+C. Esslinger, Juni 2005;
+ Updates: \hyperlink{author_Minh-Van-Nguyen}{Minh Van Nguyen} und
+	  \hyperlink{author_Bernhard-Esslinger}{Bernhard Esslinger}, Nov. 2009, Juni 2010;
+	  \hyperlink{author_Bernhard-Esslinger}{Bernhard Esslinger}, Mai 2013, Aug. 2016)
 \index{Papier- und Bleistiftverfahren}
 \index{Verschlüsselung!klassisch}
 \index{Kryptographie!klassisch}
@@ -20,24 +25,39 @@ eine Geheimschrift zu erdenken, die sich der Untersuchung widersetzt.
 Dennoch kann man rundheraus annehmen, dass menschlicher Scharfsinn
 keine Chiffre erdenken kann, die menschlicher Scharfsinn nicht lösen kann.
 %\caption{Edgar Allan Poe: A Few Words on Secret Writing, 1841}
-\caption[Edgar Allan Poe]{Edgar Allan Poe: A Few Words on Secret Writing, 1841}\index{Poe, Edgar Allan}
+\caption[Edgar Allan Poe]{Edgar Allan Poe: A Few Words on Secret Writing, 1841}
+\index{Poe, Edgar Allan}
 \end{ctsquote}
-
 
 Das folgende Kapitel bietet einen recht vollständigen Überblick über Papier- 
 und Bleistiftverfahren.\footnote{%
 Die Fußnoten dieses Kapitel zeigen, wie man diese
-Verfahren mit den Offline-Programmen CrypTool 1 ({\bf CT1})\index{CT1},
-CrypTool 2 ({\bf CT2})\index{CT2} und JCrypTool ({\bf JCT})\index{JCT}
+Verfahren mit den Offline-Programmen CrypTool~1 ({\bf CT1})\index{CT1},
+CrypTool~2 ({\bf CT2})\index{CT2} und JCrypTool ({\bf JCT})\index{JCT}
 ausführen kann. Vergleiche dazu die Anhänge
 \ref{s:appendix-menu-overview-CT1},
 \ref{s:appendix-template-overview-CT2} und
 \ref{s:appendix-function-overview-JCT}.\\
+
 Viele der Verfahren lassen sich auch online im Browser durchführen, z.B. auf
-der CrypTool-Online-Seite ({\bf CTO}) (\url{http://www.cryptool-online.org})\index{CTO}. Vergleiche dazu den Anhang \ref{s:appendix-function-overview-CTO}.\\
-Außerdem enthält das letzte Unterkapitel (\ref{PaP_Sage_samples})
+der Seite von CrypTool-Online ({\bf CTO}) (\url{http://www.cryptool-online.org})\index{CTO}.
+Vergleiche dazu den Anhang \ref{s:appendix-function-overview-CTO} in diesem Buch.\\
+
+Während die CrypTool-Webseiten und -Programme sowohl klassische und moderne Chiffren
+anbieten, gibt es auch mehrere Seiten, die sich mit großer Detailtiefe auf klassische
+Chiffren fokussieren -- diese stehen oft in Verbindung mit der American Cryptogram
+Association (ACA) (\url{http://www.cryptogram.org/}).\\
+Zum Beispiel \url{https://sites.google.com/site/bionspot/} und
+\url{https://encode-decode.appspot.com/} von Bion\index{Bion}.\\
+Eine attraktive neue Seite, um klassiche Chiffren auszuführen, ist von
+Phil Pilcrow (\url{www.cryptoprograms.com}). Diese Seite enthält auch Beschreibungen
+und Beispiele für jeden Verfahrenstyp. Sein FAQ vom 23. Juli 2016 sagt:
+\glqq The site is designed for creating classical cipher types, not machine based
+or modern ones but if you want another cipher type added let me know.\grqq \index{Pilcrow, Phil}\\
+
+Außerdem enthält das letzte Unterkapitel (\ref{PaP_Sage_samples}) dieses Kapitels
 zu einigen Verfahren Beispielcode für das Computer-Algebra-System {\bf SageMath}\index{SageMath}.
-                               }
+   }
 Unter diesem Begriff lassen sich alle Verfahren zusammenfassen, die Menschen von
 Hand anwenden können, um Nachrichten zu ver- und entschlüsseln.
 Besonders populär waren diese Verfahren für Geheimdienste (und 
@@ -66,8 +86,9 @@ Merkmale erfüllen wie moderne Verfahren:
 \end{itemize}
 
 
-\newpage
+
 %------------------------------------------------------------------------------
+\newpage
 \section{Transpositionsverfahren}
 \label{PaP_transposition_ciphers}
 \index{Transposition}
@@ -89,7 +110,7 @@ vertauscht werden, z.B. in der Form $(1, 2, 3, 4, 5)
 \begin{itemize}
 
 \item {\bf Gartenzaun-Chiffre}\footnote{%
-   Dieses Verfahren kann direkt in CT1\index{CrypTool 1} mit dem Menüpunkt 
+   Dieses Verfahren kann direkt in CT1\index{CT1} mit dem Menüpunkt 
    {\bf Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch)
    \textbackslash{} Skytale / Gartenzaun} abgebildet werden.
    Man kann diese Methode auch simulieren über den Menüeintrag
@@ -101,7 +122,7 @@ vertauscht werden, z.B. in der Form $(1, 2, 3, 4, 5)
    Mit dem Schlüssel "`A,B"' würde man das Zick-zack-Muster unten so 
    beginnen, dass der erste Buchstabe in der ersten statt in der zweiten Zeile
    steht.}
-   \cite{pp:Singh2001}\index{Gartenzaun-Verschlüsselung}:
+   \cite{Singh2001}\index{Gartenzaun-Verschlüsselung}:
                         % Kein Blank VOR "\index", sonst ist der
                         % Doppelpunkt nicht direkt nach dem Fussnotenindex.
    Die Buchstaben des Klartextes werden abwechselnd in zwei (oder mehr) 
@@ -111,9 +132,11 @@ vertauscht werden, z.B. in der Form $(1, 2, 3, 4, 5)
 
    Siehe Tabelle \ref{PaP_RailFence_table-reference}.
 
-   Klartext\footnote{Konvention\index{Konvention}: Wenn das Alphabet nur die
-   26 Buchstaben verwendet, schreiben wir im Folgenden den Klartext in
-   Kleinbuchstaben und den Geheimtext in Großbuchstaben.}:
+   Klartext\footnote{%
+     Konvention\index{Konvention}: Wenn das Alphabet nur die 26 Buchstaben
+     verwendet, schreiben wir im Folgenden den Klartext in Kleinbuchstaben
+     und den Geheimtext in Großbuchstaben.
+   }:
    ein beispiel zur transposition
 
    \begin{table}[ht]
@@ -139,11 +162,11 @@ vertauscht werden, z.B. in der Form $(1, 2, 3, 4, 5)
 
 
 \item {\bf Skytale von Sparta}\footnote{%
-    Dieses Verfahren kann direkt in CT1\index{CrypTool 1} mit dem Menüpunkt 
+    Dieses Verfahren kann direkt in CT1\index{CT1} mit dem Menüpunkt 
     {\bf Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch)
     \textbackslash{} Skytale / Gartenzaun} abgebildet werden.
     Da dieses Verschlüsselungsverfahrens ein Spezialfall der einfachen
-    Spaltentransposition ist, kann man es in CT1\index{CrypTool 1} auch
+    Spaltentransposition ist, kann man es in CT1\index{CT1} auch
     über den Menüeintrag {\bf Ver-/Entschlüsseln \textbackslash{}
     Symmetrisch (klassisch) \textbackslash{} Permutation} simulieren: Für die
     Skytale braucht man in der Dialogbox nur die erste Permutation. Darin gibt
@@ -153,20 +176,21 @@ vertauscht werden, z.B. in der Form $(1, 2, 3, 4, 5)
     Weil der Schlüssel aufsteigend geordnet ist, bezeichnet man die Skytale
     auch als identische Permutation. Und weil das Schreiben und Auslesen nur 
     einmal durchgeführt wird, als einfache (und nicht als doppelte) Permutation.\\
-    In CT2\index{CrypTool 2} findet sich die Skytale bei den Vorlagen unter
+    In CT2\index{CT2} findet sich die Skytale bei den Vorlagen unter
     {\bf Kryptographie \textbackslash{} Klassisch}.
    }
-   \cite{pp:Singh2001}\index{Skytale}%
+   \cite{Singh2001}\index{Skytale}%
    : 
    Dieses Verfahren wurde wahrscheinlich das erste Mal um 600 v.Chr.
    benutzt und es wurde von dem griechischen Schriftsteller und Philosophen
    Plutarch (50-120 v.Chr.) zuerst beschrieben.\\
    Um einen Holzstab wird ein Streifen Papier o.ä. gewickelt. Dann wird
-   darauf zeilenweise der Klartext geschrieben. 
-   Wickelt man den Streifen ab, hält man den Geheimtext in den Händen.
+   darauf zeilenweise der Klartext geschrieben. Nach dem Abwickeln steht
+   auf dem Streifen der Geheimtext. Zum Entschlüsseln braucht der Empfänger
+   einen zuvor verabredeten gleich großen Holzstab mit gleich vielen Kanten.
 
 
-\item {\bf Schablonen-Chiffre} \cite{pp:Goebel2003}: Sender und Empfänger
+\item {\bf Schablonen-Chiffre} \cite{Goebel2014}: Sender und Empfänger
    benutzen die gleiche Schablone. In deren Löcher werden zeilenweise die
    Klartextzeichen geschrieben, die dann spaltenweise ausgelesen werden. 
    Bleibt Klartext übrig, wird der Vorgang wiederholt, unter Umständen 
@@ -175,15 +199,15 @@ vertauscht werden, z.B. in der Form $(1, 2, 3, 4, 5)
    darstellen.}
 
 
-   \hypertarget{turning-grille}{}  %be_2006 so ist es gut.
-\item {\bf Fleißner-Schablone} \cite{pp:Savard1999}% verhindert, dass Blank vor ":"
+   \hypertarget{turning-grille-cipher}{}   % References in movies.text
+\item {\bf Fleißner-Schablone} \cite{Savard1999}% verhindert, dass Blank vor ":"
    \index{Fleißner-Schablone}: 
    Die Fleißner-Schablone wurde im Ersten Weltkrieg von deutschen Soldaten
    benutzt.\footnote{%
       Erfunden wurde die Fleißner-Schablone bereits 1881 von Eduard Fleißner
       von Wostrowitz.\\
       Eine gute Visualisierung findet sich unter www.turning-grille.com.\\
-      In JCT\index{JCrypTool} findet man es in der Standard-Perspektive
+      In JCT\index{JCT} findet man es in der Standard-Perspektive
       über den Menüeintrag {\bf Visualisierungen \textbackslash{} Grille}.
    }
    Ein quadratisches Gitter dient als Schablone, wobei ein Viertel der 
@@ -224,13 +248,16 @@ vertauscht werden, z.B. in der Form $(1, 2, 3, 4, 5)
 \subsection[Spalten- und Zeilentranspositionsverfahren]
     {Spalten- und Zeilentranspositionsverfahren\footnotemark}
     \footnotetext{%
-Die meisten der folgenden Verfahren können in CT1\index{CrypTool 1}
+Die meisten der folgenden Verfahren können in CT1\index{CT1}
 mit dem Menüpunkt {\bf Ver-/Entschlüsseln \textbackslash{} 
-Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
+Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.
+% Todo: Add later same statement for CT2, if DCT is added there too. xxxxxxxxxxxxxxx
+%       Some permutation analysis components are already there.
+}
 
 \begin{itemize}\sloppy
 
-\item {\bf Einfache Spaltentransposition} \cite{pp:Savard1999}: Zunächst wird
+\item {\bf Einfache Spaltentransposition} \cite{Savard1999}: Zunächst wird
    ein Schlüsselwort bestimmt, das über die Spalten eines Gitters geschrieben
    wird. Dann schreibt man den zu verschlüsseln"-den Text zeilenweise in dieses
    Gitter.
@@ -238,7 +265,12 @@ Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
    Schlüsselwortes im Alphabet durchnummeriert. In dieser Reihenfolge werden 
    nun auch die Spalten ausgelesen und so der Geheimtext gebildet.\footnote{%
    Darstellung mit CT1: Eingabe eines Schlüssels für die erste Permutation,
-   zeilenweise einlesen, spaltenweise permutieren und auslesen.}
+   zeilenweise einlesen, spaltenweise permutieren und auslesen.\\
+   In CT2\index{CT2} findet sich die Transposition bei den Vorlagen unter
+   {\bf Kryptographie \textbackslash{} Klassisch}. Diese Komponente visualisiert
+   auch, wie der Text in die Matrix ein- und ausgelesen wird und wie die Spalten
+   vertauscht werden.
+   }
 
    Siehe Tabelle \ref{PaP_SimpColTransp_table-reference}.
 	
@@ -270,13 +302,13 @@ Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
    Geheimtext: IEPLR APIOE BSEUR SSINI IZTNO TN \\
 
 
-\item {\bf AMSCO-Chiffre} \cite{pp:ACA2002}\index{AMSCO}: Die Klartextzeichen
+\item {\bf AMSCO-Chiffre} \cite{ACA2002}\index{AMSCO}: Die Klartextzeichen
    werden abwechselnd in Einer- und Zweiergruppen in ein Gitter geschrieben.
    Dann erfolgt eine Vertauschung der Spalten, anschließend das Auslesen.
 
 
-\item {\bf Doppelte Spaltentransposition / "`Doppelwürfel"'} 
-   \cite{pp:Savard1999}\index{Doppelwürfel}: 
+\item {\bf Doppelte Spaltentransposition (DST) / \glqq Doppelwürfel\grqq} 
+   \cite{Savard1999}\index{Doppelwürfel}: 
    Die doppelte 
    Spaltentransposition wurde häufig im Zweiten Weltkrieg und zu Zeiten des 
    Kalten Krieges angewendet. Dabei werden zwei Spaltentranspositionen 
@@ -286,18 +318,19 @@ Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
    zeilenweise einlesen, spaltenweise permutieren und auslesen.
    Eingabe eines (neuen) Schlüssels für die 2. Permutation, Ergebnis der
    1. Permutation zeilenweise einlesen, spaltenweise permutieren und
-   auslesen.}\\
+   auslesen.
+   % Todo: Add later same statement for CT2, if DCT is added there too. xxxxxxxxxxxx
+   }\\
    Werden zwei unterschiedliche und genügend lange Schlüssel (mindestens je 20
    Zeichen) verwendet, dann ist das auch für heutige Computer noch eine
    Herausforderung.\footnote{%
-     In MTC3\index{MTC3} findet sich dazu die Level-X-Challenge
-     "`Doppelwürfel"':\\
-     \url{http://www.mysterytwisterc3.org/de/challenges-de/level-x-kryptographie-challenges/doppelwuerfel}
+     In MTC3\index{MTC3} finden sich dazu Challenges, bspw.\\
+     \url{http://www.mysterytwisterc3.org/de/challenges/level-x-kryptographie-challenges/doppelwuerfel} und\\
+     \url{https://www.mysterytwisterc3.org/de/challenges/level-3-kryptographie-challenges/doppelwuerfel-reloaded-teil-1}
    }
 
-	
 
-\item {\bf Spaltentransposition, General Luigi Sacco} \cite{pp:Savard1999}: Die 
+\item {\bf Spaltentransposition, General Luigi Sacco} \cite{Savard1999}: Die 
    Spalten eines Gitters werden den Buchstaben des Schlüsselwortes
    entsprechend nummeriert. Der Klartext wird dann zeilenweise eingetragen,
    in der ersten Zeile bis zur Spalte mit der Nummer 1, in der zweiten Zeile
@@ -333,18 +366,22 @@ Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
 
 
 \item {\bf Spaltentransposition, Französische Armee im Ersten Weltkrieg}
-   \cite{pp:Savard1999}: 
+   \cite{Savard1999}: 
    Nach Durch"-führung einer Spaltentransposition werden diagonale Reihen
    ausgelesen.
 
 
-\item {\bf Zeilentransposition} \cite{pp:Savard1999}: Der Klartext wird in gleich 
+\item {\bf Zeilentransposition} \cite{Savard1999}: Der Klartext wird in gleich 
    lange Blöcke zerlegt, was auch mit Hilfe eines Gitters erfolgen kann. Dann
    wird die Reihenfolge der Buchstaben bzw. der Spalten vertauscht. Da das 
    Auslesen zeilenweise erfolgt, wird nur jeweils innerhalb der Blöcke 
    permutiert.\footnote{%
    Darstellung mit CT1: Eingabe eines Schlüssels für die 1. Permutation, 
-   zeilenweise einlesen, spaltenweise permutieren und zeilenweise auslesen.}
+   zeilenweise einlesen, spaltenweise permutieren und zeilenweise auslesen.\\
+   In CT2\index{CT2} findet sich die Transposition bei den Vorlagen unter
+   {\bf Kryptographie \textbackslash{} Klassisch}. Diese Komponente visualisiert
+   auch die zeilenweise Transposition.
+   }
 
 \end{itemize}
 % Ende \subsection{Spalten- und Zeilentranspositionsverfahren}
@@ -356,11 +393,11 @@ Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
 
 \begin{itemize}
 
-\item {\bf Geometrische Figuren} \cite{pp:Goebel2003}: Einem bestimmten Muster
+\item {\bf Geometrische Figuren} \cite{Goebel2014}: Einem bestimmten Muster
    folgend wird der Klartext in ein Gitter geschrieben (Schnecke, Rösselsprung
    o.ä.), einem zweiten Muster folgend wird der Geheimtext ausgelesen.
 
-\item {\bf Union Route Cipher} \cite{pp:Goebel2003}: Die Union Route Cipher hat 
+\item {\bf Union Route Cipher} \cite{Goebel2014}: Die Union Route Cipher hat 
    ihren Ursprung im Amerikanischen Bürgerkrieg. Nicht die Buchstaben einer
    Nachricht werden umsortiert, sondern die Wörter. Für besonders prägnante 
    Namen und Bezeichnungen gibt es Code"-wörter, die zusammen mit den Routen
@@ -369,7 +406,7 @@ Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
    Geheimtext ausgelesen wird. Zusätzlich gibt es eine Anzahl von
    Füllwörtern.
 
-\item {\bf Nihilist-Transposition} \cite{pp:ACA2002}%
+\item {\bf Nihilist-Transposition} \cite{ACA2002}%
    \index{Nihilist-Transposition}: 
    Der Klartext wird in eine
    quadratische Matrix eingetragen, an deren Seiten jeweils der gleiche 
@@ -405,7 +442,7 @@ Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
    das Resultat nach dem Vertauschen von Zeilen und Spalten.}
 
 
-\item {\bf Cadenus-Chiffre} \cite{pp:ACA2002}\index{Cadenus}:
+\item {\bf Cadenus-Chiffre} \cite{ACA2002}\index{Cadenus}:
    Hierbei handelt es sich um eine 
    Spalten"-transposition, die zwei Schlüs"-sel"-worte benutzt.\\
    Das erste Schlüsselwort wird benutzt, um die Spalten zu vertauschen.\\
@@ -487,33 +524,37 @@ Zuordnung ist während des ganzen Verschlüsselungsprozesses dieselbe.
 \item {\bf Allgemeine monoalphabetische Substitution / Zufällige
    Buchstabenzuordnung\footnotemark}
    \footnotetext{%
-    Dieses Verfahren kann in CT1\index{CrypTool 1} mit dem Menüpunkt 
+    Dieses Verfahren kann in CT1\index{CT1} mit dem Menüpunkt 
     {\bf Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch) \textbackslash{}
     Substitution / Atbash} abgebildet werden.\\
-    In CT2\index{CrypTool 2} finden sich diese Verfahren bei den Vorlagen unter
+    In CT2\index{CT2} finden sich diese Verfahren bei den Vorlagen unter
     {\bf Kryptographie \textbackslash{} Klassisch}.
+    Entsprechende Analyzer finden sich bei den Vorlagen unter
+    {\bf Kryptoanalyse \textbackslash{} Klassisch}.
    }
-   \cite{pp:Singh2001}: Die Substitution erfolgt aufgrund einer festgelegten
+   \cite{Singh2001}: Die Substitution erfolgt aufgrund einer festgelegten
    Zuordnung der Einzelbuchstaben.
 
 \item {\bf Atbash-Chiffre\footnotemark}
    \footnotetext{%
-   Dieses Verfahren kann in CT1\index{CrypTool 1} mit dem Menüpunkt 
+   Dieses Verfahren kann in CT1\index{CT1} mit dem Menüpunkt 
    {\bf Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch) \textbackslash{}
-   Substitution / Atbash} abgebildet werden.} 
-   \cite{pp:Singh2001}\index{Atbash}: Der erste Buchstabe des Alphabets wird 
+   Substitution / Atbash} abgebildet werden.
+   } 
+   \cite{Singh2001}\index{Atbash}: Der erste Buchstabe des Alphabets wird 
    durch den letzten Buchstaben des Alphabets ersetzt, 	der zweite durch den
    vorletzten, usw.
 
-\item {\bf Verschiebe-Chiffre, z.B. Caesar}\footnote{In CT1\index{CrypTool 1}
+\item {\bf Verschiebe-Chiffre, z.B. Caesar}\footnote{In CT1\index{CT1}
    kann man dieses Verfahren an drei verschiedenen Stellen im Menü finden:\\
    - {\bf Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch)
      \textbackslash{} Caesar / ROT13} \\
    - {\bf Analyse \textbackslash{} Symmetrische Verschlüsselung (klassisch)
      \textbackslash{} Ciphertext only \textbackslash{} Caesar} \\
    - {\bf Einzelverfahren \textbackslash{} Visualisierung von Algorithmen
-     \textbackslash{} Caesar}. }
-   \cite{pp:Singh2001}\index{Caesar}\index{Verschiebechiffre}%
+     \textbackslash{} Caesar}.
+   }
+   \cite{Singh2001}\index{Caesar}\index{Verschiebechiffre}%
    : Klartext- und Geheimtextalphabet werden um eine bestimmte Anzahl von
    Zeichen gegeneinander verschoben.
 
@@ -528,20 +569,23 @@ Zuordnung ist während des ganzen Verschlüsselungsprozesses dieselbe.
    \index{affine Chiffre}: Dies ist eine Verallgemeinerung
    der Verschiebechiffre. Jeder Klartext-Buchstabe wird erst durch einen anderen
    ersetzt und das Ergebnis wird dann mit der Verschiebechiffre verschlüsselt.
-   Die Bezeichnung "`affine Chiffre"' kommt daher, dass man die
+   Die Bezeichnung \glqq affine Chiffre\grqq kommt daher, dass man die
    Ver- und Entschlüsselung als affine bzw. lineare Funktion beschreiben kann.
 
 
 \item {\bf Substitution mit Symbolen, z.B. Freimaurerchiffre}  
-   \cite{pp:Singh2001}: Ein Buchstabe wird durch ein Symbol ersetzt.
+   \cite{Singh2001}: Ein Buchstabe wird durch ein Symbol ersetzt.
 
-\item {\bf Varianten}: Füller, absichtliche Fehler \cite{pp:Singh2001}.
+\item {\bf Varianten}: Füller, absichtliche Fehler \cite{Singh2001}.
 
 \item {\bf Nihilist-Substitution}\footnote{Eine Animation zu diesem
-   Nihilist-Verfahren findet sich in CT1\index{CrypTool 1} unter dem Menüpunkt 
+   Nihilist-Verfahren findet sich in CT1\index{CT1} unter dem Menüpunkt 
      {\bf Einzelverfahren \textbackslash{} Visualisierung von Algorithmen 
-     \textbackslash{} Nihilist}. }
-   \cite{pp:ACA2002}\index{Nihilist-Substitution}: Das Alphabet wird in 
+     \textbackslash{} Nihilist}.\\
+     In CT2\index{CT2} findet sich Nihilist bei den Vorlagen unter
+     {\bf Kryptographie \textbackslash{} Klassisch}.
+   }
+   \cite{ACA2002}\index{Nihilist-Substitution}: Das Alphabet wird in 
    eine 5x5-Matrix eingetragen und bei der Verarbeitung wird jedem Klartextbuchstaben 
    die aus Zeilen- und Spaltennummer gebildete Zahl zugeordnet. 
    Dann wird ein Schlüsselwort gewählt und über eine zweite Tabelle geschrieben.
@@ -615,7 +659,7 @@ Zuordnung ist während des ganzen Verschlüsselungsprozesses dieselbe.
    48 44 65 78 53~~~99 48 66 86 74~~~56\\
 
 
-\item {\bf Codes} \cite{pp:Singh2001}: Im Laufe der Geschichte wurden immer
+\item {\bf Codes} \cite{Singh2001}: Im Laufe der Geschichte wurden immer
    wieder Codebücher verwendet. In diesen Büchern wird jedem möglichen 
    {\bf Wort} eines Klartextes ein Codewort, ein Symbol oder eine Zahl
    zugeordnet.
@@ -623,14 +667,14 @@ Zuordnung ist während des ganzen Verschlüsselungsprozesses dieselbe.
    Sender und Empfänger exakt das gleiche Codebuch besitzen und die 
    Zuordnung der Codewörter zu den Klartextwörtern nicht offengelegt wird.
 
-\item {\bf Nomenklator} \cite{pp:Singh2001}\index{Nomenklator}:
+\item {\bf Nomenklator} \cite{Singh2001}\index{Nomenklator}:
    Als Nomenklator werden Techniken bezeichnet, die ein Verschlüsselungsverfahren
    mit einem Codebuch kombinieren. Meist basiert das Verschlüsselungssystem auf
    einem Geheimtextalphabet, mit dem ein Großteil der Nachricht chiffriert
    (via Substitution) wird. Für besonders häufig auftretende oder
    geheim zu haltende Wörter existieren eine begrenzte Anzahl von Codewörtern.
 
-\item {\bf Landkarten-Chiffre} \cite{pp:ThinkQuest1999}\index{Landkarten-Chiffre}: 
+\item {\bf Landkarten-Chiffre} \cite{ThinkQuest1999}\index{Landkarten-Chiffre}: 
    Diese Methode stellt eine Kombination aus 
    Substitution und Steganographie\footnote{Statt eine Nachricht zu 
    verschlüsseln, versucht man bei der reinen
@@ -641,7 +685,7 @@ Zuordnung ist während des ganzen Verschlüsselungsprozesses dieselbe.
 
 
 \item {\bf Straddling Checkerboard} 
-   \cite{pp:Goebel2003}\index{Straddling Checkerboard}: 
+   \cite{Goebel2014}\index{Straddling Checkerboard}: 
    Eine 3x10-Matrix wird
    mit den Buchstaben des Alphabets und zwei beliebigen Sonderzeichen oder
    Zahlen gefüllt, indem zunächst die voneinander verschiedenen Zeichen
@@ -682,12 +726,18 @@ Zuordnung ist während des ganzen Verschlüsselungsprozesses dieselbe.
    dies wird jedoch durch die folgende Variante behoben.\\
 
 
-\item {\bf Straddling Checkerboard, Variante} \cite{pp:Goebel2003}%
+\item {\bf Straddling Checkerboard, Variante} \cite{Goebel2014}%
    \index{Straddling Checkerboard}: 
    Diese Form des Straddling Checkerboards wurde von sowjetischen Spionen
    im Zweiten Weltkrieg entwickelt. Angeblich haben auch Ernesto (Ch\'e)
    Guevara\index{Ch\'e Guevara} und Fidel Castro diese Chiffre zur geheimen
-   Kommunikation benutzt.  
+   Kommunikation benutzt.\footnote{%
+     Zusätzlich benutzte Ch\'e Guevara für seine Kommunikation mit Fidel Castro
+     auch ein One-Time-Pad\index{OTP}.\\
+     Siehe Teil 3 aus der Artikelserie {\em RSA \& Co. in der Schule:
+     Moderne Kryptologie, alte Mathematik, raffinierte Protokolle}:
+     \cite{Witten1999}, S. 52.\index{RSA \& Co. in der Schule}
+   }
    Das Alphabet wird in ein Gitter eingetragen (Spaltenanzahl = Länge des 
    Schlüsselwortes), und es werden zwei beliebige Ziffern als "`reserviert"' 
    festgelegt, die später die zweite und dritte Zeile einer
@@ -747,7 +797,7 @@ Zuordnung ist während des ganzen Verschlüsselungsprozesses dieselbe.
    \begin{itemize}
       \item {\bf Ch\'e Guevara-Chiffre}:
       Einen Spezialfall dieser Variante benutzte Ch\'e Guevara (mit einem 
-      zusätzlicher Substitutionsschritt und einem leicht modifizierten Checkerboard):
+      zusätzlichen Substitutionsschritt und einem leicht modifizierten Checkerboard):
 	 \begin{itemize}
 	    \item Die sieben häufigsten Buchstaben im Spanischen werden auf
                die erste Zeile verteilt.
@@ -759,7 +809,7 @@ Zuordnung ist während des ganzen Verschlüsselungsprozesses dieselbe.
   
 
 
-\item {\bf Tri-Digital-Chiffre} \cite{pp:ACA2002}: 
+\item {\bf Tri-Digital-Chiffre} \cite{ACA2002}: 
    Aus einem Schlüssel"-wort der Länge 10 wird ein numerischer Schlüs"-sel 
    gebildet, indem die Buchstaben entsprechend ihres Auftretens im Alphabet
    durchnummeriert werden. Dieser Schlüssel wird über ein Gitter mit zehn
@@ -770,7 +820,7 @@ Zuordnung ist während des ganzen Verschlüsselungsprozesses dieselbe.
    als Trennzeichen zwischen den einzelnen Wörtern.\\
 
 
-\item {\bf Baconian-Chiffre} \cite{pp:ACA2002}\index{Baconian Cipher}: 
+\item {\bf Baconian-Chiffre} \cite{ACA2002}\index{Baconian Cipher}: 
    Jedem Buchstaben des Alphabets und 6 Zahlen oder Sonderzeichen wird ein
    fünfstelliger Binärcode zugeordnet (zum Beispiel 00000 = A, 00001 = B, 
    usw.). Die Zeichen der Nachricht werden entsprechend ersetzt. Nun benutzt
@@ -811,23 +861,23 @@ Geheimtextzeichen zugeordnet.
 
 \begin{itemize}
 
-\item {\bf Homophone monoalphabetische Substitution}\footnote{In CT1\index{CrypTool 1}
+\item {\bf Homophone monoalphabetische Substitution}\footnote{In CT1\index{CT1}
    kann man dieses Verfahren über den Menüeintrag {\bf Ver-/Entschlüsseln
    \textbackslash{} Symmetrisch (klassisch) \textbackslash{} Homophone}
    aufrufen.}
-   \cite{pp:Singh2001}: 
+   \cite{Singh2001}: 
    Um die typische Häu"-fig"-keitsvertei"-lung der Buchstaben einer natürlichen
    Sprache zu verschleiern, werden einem Klartextbuchstaben mehrere 
    Geheimtextzeichen fest zugeordnet. Die Anzahl der zugeordneten Zeichen
    richtet sich gewöhnlich nach der Häufigkeit des zu verschlüsselnden
    Buchstabens.
 
-\item {\bf Beale-Chiffre} \cite{pp:Singh2001}\index{Beale-Chiffre}: 
+\item {\bf Beale-Chiffre} \cite{Singh2001}\index{Beale-Chiffre}: 
    Die Beale-Chiffre ist eine Buchchiffre, bei der die Wörter eines 
    Schlüssel"-textes durchnummeriert werden. Diese Zahlen ersetzen die
    Buchstaben des Klartextes durch die Anfangsbuchstaben der Wörter.
 
-\item {\bf Grandpr\'e-Chiffre} \cite{pp:Savard1999}: 
+\item {\bf Grandpr\'e-Chiffre} \cite{Savard1999}: 
    Eine 10x10-Matrix (auch andere Größen sind möglich) wird mit zehn Wörter
    mit je zehn Buchstaben gefüllt, so dass die Anfangsbuchstaben ein elftes
    Wort ergeben. Da die Spalten und Zeilen mit den Ziffern 0 bis 9 
@@ -856,7 +906,7 @@ sich um Digramme, Trigramme, Silben, etc. handeln.
 
 \begin{itemize}
 
-\item {\bf Große Chiffre} \cite{pp:Singh2001}: 
+\item {\bf Große Chiffre} \cite{Singh2001}: 
    Die Große Chiffre wurde von Ludwig XIV. verwendet und erst kurz vor 
    Beginn des 20. Jahrhunderts entschlüsselt. Die Kryptogramme enthielten 587
    verschieden Zahlen, jede Zahl repräsentierte eine Silbe. Die Erfinder
@@ -866,15 +916,17 @@ sich um Digramme, Trigramme, Silben, etc. handeln.
    zuweisen.
 
    \hypertarget{playfair}{}
-\item {\bf Playfair-Chiffre}\footnote{In CT1\index{CrypTool 1}
+\item {\bf Playfair-Chiffre}\footnote{In CT1\index{CT1}
    kann man dieses Verfahren über den Menüeintrag {\bf Ver-/Entschlüsseln
    \textbackslash{} Symmetrisch (klassisch) \textbackslash{} Playfair}
    aufrufen.\\
-   In JCT\index{JCrypTool} findet man es in der Standard-Perspektive
+   In CT2\index{CT2} findet sich Playfair bei den Vorlagen unter
+   {\bf Kryptographie \textbackslash{} Klassisch}.\\
+   In JCT\index{JCT} findet man es in der Standard-Perspektive
    über den Menüeintrag {\bf Algorithmen \textbackslash{} Klassisch \textbackslash{}
    Playfair}.
    }
-   \cite{pp:Singh2001}\index{Playfair}: 
+   \cite{Singh2001}\index{Playfair}: 
    Eine 5x5-Matrix wird mit dem Alphabet gefüllt, z.B. erst mit den 
    verschiedenen Zeichen eines Schlüsselworts, dann mit den restlichen 
    Buchstaben des Alphabets. Der Klartext wird in Digramme unterteilt, die 
@@ -921,7 +973,7 @@ sich um Digramme, Trigramme, Silben, etc. handeln.
    Geheimtext: FHHLU OBDFG VAYMF GWIDP VAGCG SDOCH LUSFH VEGUR\\
 
 
-\item {\bf Playfair für Trigramme} \cite{pp:Savard1999}: 
+\item {\bf Playfair für Trigramme} \cite{Savard1999}: 
 Zunächst füllt man eine 5x5-Matrix mit dem Alphabet und teilt den Klartext
 in Trigramme auf. Für die Verschlüsselung gelten folgende Regeln:
    \begin{enumerate}
@@ -932,17 +984,17 @@ in Trigramme auf. Für die Verschlüsselung gelten folgende Regeln:
       \item Bei zwei gleichen Buchstaben in einem Trigramm gelten die Regeln
          der Original-Playfair-Verschlüsselung.
       \item Bei drei unterschiedlichen Buchstaben kommen relativ komplizierte
-         Regeln zur Anwendung, mehr dazu unter \cite{pp:Savard1999}.
+         Regeln zur Anwendung, mehr dazu unter \cite{Savard1999}.
    \end{enumerate}
 
 
-\item {\bf Ersetzung von Digrammen durch Symbole} \cite{pp:Savard1999}: 
+\item {\bf Ersetzung von Digrammen durch Symbole} \cite{Savard1999}: 
    Giovanni Battista della Porta, 15. Jahrhundert. Er benutzte eine
    20x20-Matrix, in die er für jede mögliche Buchstabenkombination (das 
    verwendete Alphabet bestand aus nur zwanzig Zeichen) ein Symbol eintrug.
 
 
-\item {\bf Four Square-Chiffre} \cite{pp:Savard1999}: 
+\item {\bf Four Square-Chiffre} \cite{Savard1999}: 
    Diese Methode ähnelt Playfair, denn es handelt sich um ein 
    Koordinatensystem, dessen vier Quadranten jeweils mit dem Alphabet gefüllt
    werden, wobei die Anordnung des Alphabets von Quadrant zu Quadrant 
@@ -982,7 +1034,7 @@ in Trigramme auf. Für die Verschlüsselung gelten folgende Regeln:
    Geheimtext:  YNKHM XFVCI LAIPC IGRWP LACXC BVIRG MKUUR XVKT\\
 
 
-\item {\bf Two Square-Chiffre} \cite{pp:Savard1999}: 
+\item {\bf Two Square-Chiffre} \cite{Savard1999}: 
    Die Vorgehensweise gleicht der der Four Square Cipher, allerdings enthält
    die Matrix nur zwei Quadranten. Befinden sich die beiden zu ersetzenden
    Buchstaben in der gleichen Reihe, werden sie nur vertauscht. Andernfalls
@@ -991,7 +1043,7 @@ in Trigramme auf. Für die Verschlüsselung gelten folgende Regeln:
    der beiden Quadranten ist horizontal und vertikal möglich.
 
 
-\item {\bf Tri Square-Chiffre} \cite{pp:ACA2002}: 
+\item {\bf Tri Square-Chiffre} \cite{ACA2002}: 
    Drei Quadranten werden jeweils mit dem Alphabet gefüllt. Der erste 
    Klartextbuchstabe wird im ersten Quadranten gesucht und kann mit jedem 
    Zeichen der selben Spalte verschlüsselt werden. Der zweite 
@@ -1000,7 +1052,7 @@ in Trigramme auf. Für die Verschlüsselung gelten folgende Regeln:
    Zwischen diese Geheimtextzeichen wird der Buchstabe des Schnittpunktes 
    gesetzt.
 
-\item {\bf Dockyard-Chiffre / Werftschlüssel} \cite{pp:Savard1999}: 
+\item {\bf Dockyard-Chiffre / Werftschlüssel} \cite{Savard1999}: 
    Angewendet von der Deutschen Marine im Zweiten Weltkrieg.
 
 \end{itemize}
@@ -1017,16 +1069,16 @@ ist die Zuordnung Klartext-/Geheimtextzeichen nicht fest, sondern variabel
 \begin{itemize}
 
 \item {\bf Vigen\`ere}\footnote{%
-   In CT1\index{CrypTool 1} kann man dieses Verfahren über den Menüeintrag {\bf 
+   In CT1\index{CT1} kann man dieses Verfahren über den Menüeintrag {\bf 
    Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch) 
    \textbackslash{} Vigen\`ere} aufrufen.\\
-   In CT2\index{CrypTool 2} findet sich dieses Verfahren bei den Vorlagen
+   In CT2\index{CT2} findet sich dieses Verfahren bei den Vorlagen
    unter {\bf Kryptographie \textbackslash{} Klassisch}.\\
-   In JCT\index{JCrypTool} findet man es in der Standard-Perspektive
+   In JCT\index{JCT} findet man es in der Standard-Perspektive
    über den Menüeintrag {\bf Algorithmen \textbackslash{} Klassisch
    \textbackslash{} Vigen\`ere}.
    }
-   \cite{pp:Singh2001}\index{Vigen\`ere}: 
+   \cite{Singh2001}\index{Vigen\`ere}: 
    Entsprechend den Zeichen eines Schlüsselwortes wird jedes Klartextzeichen
    mit einem anderen Geheimtextalphabet verschlüsselt (als Hilfsmittel dient
    das sog. Vigen\`ere-Tableau). Ist der Klartext länger als der Schlüssel,
@@ -1089,12 +1141,12 @@ ist die Zuordnung Klartext-/Geheimtextzeichen nicht fest, sondern variabel
 
  
    \item {\bf Autokey-Variante}\footnote{%
-   In CT2\index{CrypTool 2} findet sich dieses Verfahren bei den Vorlagen
+   In CT2\index{CT2} findet sich dieses Verfahren bei den Vorlagen
    unter {\bf Kryptographie \textbackslash{} Klassisch}.\\
-   In JCT\index{JCrypTool} findet man es in der Standard-Perspektive
+   In JCT\index{JCT} findet man es in der Standard-Perspektive
    über den Menüeintrag {\bf Algorithmen \textbackslash{} Klassisch
    \textbackslash{} Autokey-Vigen\`ere}.
-   } \cite{pp:Savard1999}: 
+   } \cite{Savard1999}: 
       Nachdem der vereinbarte Schlüssel abgearbeitet wurde, geht man dazu
       über, die Zeichen der Nachricht als Schlüssel zu benutzen.
 
@@ -1119,23 +1171,23 @@ ist die Zuordnung Klartext-/Geheimtextzeichen nicht fest, sondern variabel
                 %~ \\
 
 
-   \item {\bf Progressive-Key-Variante} \cite{pp:Savard1999}: 
+   \item {\bf Progressive-Key-Variante} \cite{Savard1999}: 
       Der Schlüssel ändert sich im Laufe der Chiffrierung, indem er das 
       Alphabet durchläuft. So wird aus KEY LFZ.
 
-   \item {\bf Gronsfeld} \cite{pp:Savard1999}: 
+   \item {\bf Gronsfeld} \cite{Savard1999}: 
       Vigen\`ere-Variante, die einen Zahlenschlüssel verwendet.
 
-   \item {\bf Beaufort} \cite{pp:Savard1999}\index{Beaufort}: 
+   \item {\bf Beaufort} \cite{Savard1999}\index{Beaufort}: 
       Vigen\`ere-Variante, keine Verschlüsselung durch Addition, sondern durch
       Subtraktion. Auch mit rückwärts geschriebenem Alphabet.
 
-   \item {\bf Porta} \cite{pp:ACA2002}: 
+   \item {\bf Porta} \cite{ACA2002}: 
       Vigen\`ere-Variante, die nur 13 Alphabete verwendet. Das bedeutet, dass 
       jeweils zwei Schlüsselbuch"-staben dasselbe Geheimtextalphabet zugeordnet
       wird, und die erste und zweite Hälfte des Alphabets reziprok sind.
 
-   \item {\bf Slidefair} \cite{pp:ACA2002}: 
+   \item {\bf Slidefair} \cite{ACA2002}: 
       Kann als Vigen\`ere-, Gronsfeld- oder Beaufort-Variante verwendet werden. 
       Dieses Verfahren verschlüsselt Digramme. Den ersten Buchstaben sucht man
       im Klartextalphabet über dem Tableau, den zweiten in der Zeile, die dem
@@ -1146,30 +1198,31 @@ ist die Zuordnung Klartext-/Geheimtextzeichen nicht fest, sondern variabel
 \end{itemize}
 
 
-\item {\bf Superposition}\index{Superposition}\index{Verschlüsselung!Superposition}
-   \begin{itemize}
-      \item {\bf Running-Key-Chiffre}: 
-         Addition eines Schlüsseltextes (z.B. aus einem Buch) zum Klartext.
-
-      \item {\bf Überlagerung mit einer Zahlenfolge}: 
-         Eine Möglichkeit sind mathematische Folgen wie die Fibonacci-Zahlen.
 
        \item {\bf One-Time-Pad (OTP)}\footnote{%
-          In CT1\index{CrypTool 1} kann man dieses Verfahren über den
-          Menüeintrag {\bf Ver-/Entschlüsseln \textbackslash{} Symmetrisch
-          (klassisch) \textbackslash{} Vernam / OTP} aufrufen.\\
-          In CT2\index{CrypTool 2} findet sich dieses Verfahren bei den Vorlagen
-          unter {\bf Kryptographie \textbackslash{} Klassisch}.\\
-          In JCT\index{JCrypTool} findet man es in der Standard-Perspektive
-          über den Menüeintrag {\bf Algorithmen \textbackslash{} Klassisch
-          \textbackslash{} XOR}.
-          }\index{One-Time-Pad}\index{OTP}:
-          Eine Folge von Bytes wird Byte-für-Byte mit dem Klartext
-          XOR-verknüpft.
+             In größerem Umfang wurden OTPs von Amerikanern und Briten im Rahmen des
+	     \glqq Venona\grqq-Projektes erfolgreich dechiffriert -- aufgrund von Chiffrierfehlern
+	     der sowjetischen Spione. Siehe \url{https://de.wikipedia.org/wiki/VENONA-Projekt}.
+	     \index{Venona}
+          }$^,$\footnote{%
+            In CT1\index{CT1} kann man dieses Verfahren über den
+            Menüeintrag {\bf Ver-/Entschlüsseln \textbackslash{} Symmetrisch
+            (klassisch) \textbackslash{} Vernam / OTP} aufrufen.\\
+            In CT2\index{CT2} findet sich dieses Verfahren bei den Vorlagen
+            unter {\bf Kryptographie \textbackslash{} Klassisch}.\\
+            In JCT\index{JCT} findet man es in der Standard-Perspektive
+            über den Menüeintrag {\bf Algorithmen \textbackslash{} Klassisch
+            \textbackslash{} XOR}.\\
+	    In Kapitel \ref{ss-bool-xor} finden Sie eine ausführliche Darstellung
+	    von OTP als Bitstrom-Chiffre und die Implementierung in SageMath.
+          }\index{OTP}:
+          Dies ist eine fundamentale Idee:
+	  Eine Folge von Bytes wird Byte-für-Byte mit dem Klartext XOR-verknüpft.
           Dies ist eine Verallgemeinerung des Vigen\`ere-Verfahrens, und es war
           das erste Informations-theoretisch sichere Schema (vgl.
           Kapitel~\ref{cm_Section_Security_Definitions}
           \glqq \nameref{cm_Section_Security_Definitions}\grqq).
+	  
           Für diese Anforderung muss das Pad zufällig sein und es darf nur
           einmal benutzt werden (um jede Ähnlichkeit von Patterns aus dem
           Geheimtext zu eliminieren).\\
@@ -1178,15 +1231,27 @@ ist die Zuordnung Klartext-/Geheimtextzeichen nicht fest, sondern variabel
           C1 = P1 $\oplus$ K;  C2 = P2 $\oplus$ K; \\
           Damit ergibt sich C1 $\oplus$ C2 = (P1 $\oplus$ K) $\oplus$
                            (P2 $\oplus$ K) = P1 $\oplus$ P2. \\
-          Diese Kombination kann die Klartexte durchsickern lassen.\footnote{%
-          In JCT\index{JCrypTool} kann man über den Menüeintrag
-          {\bf Visualisierungen \textbackslash{} Viterbi} mit der automatischen
-          Kryptoanalyse von Running-Key-Geheimtexten unter Verwendung der
-          Viterbi-Analyse spielen.}
+          Diese Kombination kann die Klartexte \glqq durchsickern\grqq lassen.\footnote{%
+            In JCT\index{JCT} kann man über den Menüeintrag
+            {\bf Visualisierungen \textbackslash{} Viterbi} mit der automatischen
+            Kryptoanalyse von Running-Key-Geheimtexten unter Verwendung der
+            Viterbi-Analyse spielen. Und sehen wie erstaunlich es ist, wenn sich aus
+	    den geXOR-ten Chiffraten oder den geXOR-ten Klartexten nach und nach beide
+	    ursprünglichen Klartexte gewinnen lassen.
+          }
+
+
+\item {\bf Superposition} (spezielle Varianten des OTP)\index{Superposition}\index{Verschlüsselung!Superposition}
+   \begin{itemize}
+      \item {\bf Running-Key-Chiffre}: 
+         Addition eines Schlüsseltextes (z.B. aus einem Buch) zum Klartext.
+
+      \item {\bf Überlagerung mit einer Zahlenfolge}: 
+         Eine Möglichkeit sind mathematische Folgen wie die Fibonacci-Zahlen.
    \end{itemize}
 
 
-\item {\bf Phillips-Chiffre} \cite{pp:ACA2002}: 
+\item {\bf Phillips-Chiffre} \cite{ACA2002}: 
    Das Alphabet wird in eine 5x5-Matrix eingetragen. Dann werden 7 weitere 
    Matrizen erzeugt, indem zunächst immer die erste, dann die zweite Zeile
    um eine Position nach unten verschoben wird. Der Klartext wird in Blöcke
@@ -1195,7 +1260,7 @@ ist die Zuordnung Klartext-/Geheimtextzeichen nicht fest, sondern variabel
    Klartextzeichens verwendet.
 
 
-\item {\bf Ragbaby-Chiffre} \cite{pp:ACA2002}: 
+\item {\bf Ragbaby-Chiffre} \cite{ACA2002}: 
    Zuerst wird ein Alphabet mit 24 Zeichen konstruiert. Die Zeichen des 
    Klartextes werden durchnummeriert, wobei die Nummerierung der Zeichen des
    ersten Wortes mit 1 beginnt, die des zweiten Wortes mit 2 usw. Die Zahl 25
@@ -1224,6 +1289,7 @@ ist die Zuordnung Klartext-/Geheimtextzeichen nicht fest, sondern variabel
 
 
 %------------------------------------------------------------------------------
+\clearpage
 \section{Kombination aus Substitution und Transposition}
 \label{PaP_combined_ciphers}
 \index{Kaskaden}
@@ -1236,13 +1302,13 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
 \begin{itemize}
 
 \item {\bf ADFG(V)X}\footnote{%
-   In CT1\index{CrypTool 1} kann man dieses Verfahren über den Menüeintrag
+   In CT1\index{CT1} kann man dieses Verfahren über den Menüeintrag
    {\bf Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch) 
    \textbackslash{} ADFGVX} aufrufen.\\
-   In CT2\index{CrypTool 2} findet sich dieses Verfahren bei den Vorlagen
+   In CT2\index{CT2} findet sich dieses Verfahren bei den Vorlagen
    unter {\bf Kryptographie \textbackslash{} Klassisch}.
    }
-   \cite{pp:Singh2001}\index{ADFGVX}%
+   \cite{Singh2001}\index{ADFGVX}%
    : 
    Die ADFG(V)X-Verschlüsselung wurde in Deutschland im ersten Weltkrieg 
    entwickelt. Eine 5x5- oder 6x6-Matrix wird mit dem Alphabet gefüllt, die 
@@ -1252,14 +1318,14 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
    durchgeführt.
 
 \item {\bf Zerlegung von Buchstaben, auch Fractionation genannt} 
-   \cite{pp:Savard1999}: Sammelbegriff für die Verfahren, die erst ein
+   \cite{Savard1999}: Sammelbegriff für die Verfahren, die erst ein
    Klartextzeichen durch mehrere Geheimtextzeichen verschlüsseln und auf 
    diese Verschlüsselung dann eine Transposition anwenden, so dass die 
    ursprünglich zusammengehörenden Geheimtextzeichen voneinander getrennt
    werden. 
 
    \begin{itemize}
-      \item {\bf Bifid/Polybius square/Checkerboard} \cite{pp:Goebel2003}: 
+      \item {\bf Bifid/Polybius square/Checkerboard} \cite{Goebel2014}: 
          Bei der Grundform dieser Verschlüs"-selungs"-methode wird eine
          5x5-Matrix
          mit den Buchstaben des Alphabets gefüllt (siehe Playfair). Die
@@ -1316,7 +1382,7 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
          Geheimtext: NIKMW IOTFE IGFNS UFBSS QFDGU DPIYN\\		
 
 
-      \item {\bf Trifid} \cite{pp:Savard1999}: 
+      \item {\bf Trifid} \cite{Savard1999}: 
          27 Zeichen (Alphabet + 1 Sonderzeichen) können durch Tripel aus den 
          Ziffern 1 bis 3 repräsentiert werden. Die zu verschlüsselnde 
          Botschaft wird in Blöcke der Länge 3 zerlegt und unter jeden 
@@ -1326,7 +1392,7 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
    \end{itemize}
 
 
-\item {\bf Bazeries-Chiffre} \cite{pp:ACA2002}: 
+\item {\bf Bazeries-Chiffre} \cite{ACA2002}: 
    Eine 5x5-Matrix wird spaltenweise mit dem Alphabet gefüllt, eine zweite 
    Matrix wird zeilenweise mit dem Schlüssel (einer ausgeschriebene Zahl 
    kleiner als 1.000.000) und den übrigen Buchstaben des Alphabets gefüllt. Der
@@ -1368,7 +1434,7 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
    \end{table}	
 
 
-\item {\bf Digrafid-Chiffre} \cite{pp:ACA2002}: 
+\item {\bf Digrafid-Chiffre} \cite{ACA2002}: 
    Zur Substitution der Digramme wird die nachfolgende Matrix benutzt (der 
    Einfachheit halber wird das Alphabet hier in seiner ursprünglichen 
    Reihenfolge verwendet). Der erste Buchstabe eines Digramms wird im
@@ -1433,7 +1499,7 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
 
    \end{table}
 
-\item {\bf Nicodemus-Chiffre} \cite{pp:ACA2002}: 
+\item {\bf Nicodemus-Chiffre} \cite{ACA2002}: 
    Zunächst wird eine einfache Spaltentransposition durchgeführt. Noch vor 
    dem Auslesen erfolgt eine Vigen\`ere-Verschlüsselung (die Buchstaben einer
    Spalte werden mit dem entsprechenden Zeichen des Schlüsselwortes
@@ -1469,17 +1535,39 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
 
    Geheimtext: SMXRQ ULKYX KLGCC VIIEI RBFPB CPPFL\\
 
+
+
+% \clearpage
+\item {\bf Doppelte Spaltentransposition (DST) / \glqq Granit E160\grqq} 
+   \cite{Drobick2015}\index{Granit}:\\%Hier Umbruch, um Blckbox zu vermeiden in der 3. Zeile.
+     Granit ist ein 2-stufiges Verfahren. Der zweite Schritt ist der Doppelwürfel;
+     zuvor wird im ersten Schritt der Klartext m.\,H. eines Codebuchs und einer
+     Matrix (einer Variante des Polybios-Quadrats) in eine Ziffernfolge verwandelt.
+
+     Unter anderem nutzte der Spion Günter Guillaume das Granit-Verfahren bis etwa
+     1960 für seine Kommunikation mit dem Ministerium für Staatssicherheit der
+     ehemaligen DDR.\footnote{%
+     In MTC3\index{MTC3} finden sich dazu auch Challenges. Wenn Sie unter\\
+     \url{https://www.mysterytwisterc3.org/de/challenges/die-vier-kryptographie-challenge-level?showAll=1}
+     im Browser nach \glqq Granit\grqq~suchen, finden Sie 6 Challenges dazu.\\
+     Eine 20-seitige ausführliche Beschreibung des Granit-Verfahrens finden Sie unter:\\
+     \url{https://www.mysterytwisterc3.org/images/challenges/mtc3-drobick-01-doppelwuerfel-01-de.pdf}
+     }
+
+
 \end{itemize}
 
 
-\clearpage 
+
 %------------------------------------------------------------------------------
+% \clearpage Schließt ab, das Kommende auf neuer Seite. Hier für restl. alte Fußnote eine leere Seite vorher gemacht.
+\newpage % Das Kommende auf neuer Seite, aber vorhergehensde Fußnote können noch auf die neue Seite.
 \section{Andere Verfahren}
 \label{Further-PaP-methods}
 
 \begin{itemize}
 
-\item {\bf Nadelstich-Verschlüsselung} \cite{pp:Singh2001}: 
+\item {\bf Nadelstich-Verschlüsselung} \cite{Singh2001}: 
    Dieses simple Verfahren wurde aus den unterschiedlichsten Gründen über
    viele Jahrhunderte hinweg praktiziert (eigentlich ein Verfahren der Steganografie). So markierten zum Beispiel im 
    Viktorianischen Zeitalter kleine Löcher unter Buchstaben in 
@@ -1492,7 +1580,7 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
    Eine Schablone wird über einen vorher vereinbarten Text gelegt
    und die Buchstaben, die sichtbar bleiben, bilden den Geheimtext.
 
-\item {\bf Kartenspiele} \cite{pp:Savard1999}: 
+\item {\bf Kartenspiele} \cite{Savard1999}: 
    Der Schlüssel wird mit Hilfe eines Kartenspiels und vorher festgelegter
    Regeln erzeugt. Alle im Folgenden genannten Verfahren sind als 
    Papier- und Bleistiftverfahren ausgelegt, also ohne elektronische 
@@ -1504,14 +1592,14 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
    \begin{itemize}
       \item {\bf Solitaire-Chiffre (Bruce Schneier)\footnotemark}
          \footnotetext{%
-         In CT1\index{CrypTool 1} kann man dieses Verfahren über den Menüeintrag
+         In CT1\index{CT1} kann man dieses Verfahren über den Menüeintrag
          {\bf Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch) 
          \textbackslash{} Solitaire} aufrufen.\\
-          In CT2\index{CrypTool 2} findet sich dieses Verfahren bei den Vorlagen
+          In CT2\index{CT2} findet sich dieses Verfahren bei den Vorlagen
           unter {\bf Kryptographie \textbackslash{} Klassisch} und
           unter {\bf Kryptoanalyse \textbackslash{} Klassisch}.
          }
-         \cite{pp:Schneier1999}\index{Solitaire}: 
+         \cite{Schneier1999}\index{Solitaire}: 
          Sender und Empfänger der Botschaft müssen jeweils ein Kartenspiel
          besitzen, bei dem alle Karten in der gleichen Ausgangsanordnung
          im Stapel liegen. Mit den Karten wird ein Schlüsselstrom erzeugt,
@@ -1519,7 +1607,7 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
          Klartext. 
 
          Als Basis zur Erzeugung des Schlüssels wird ein gemischtes 
-         Bridge-Kartenspiel mit 54 Karten (As, 2 - 10, Bube, Dame, König
+         Bridge-Kartenspiel mit 54 Karten (Ass, 2 - 10, Bube, Dame, König
          in vier Farben + 2 Joker) benutzt. Der Kartenstapel wird dazu offen
          in die Hand genommen:
          \begin{enumerate}
@@ -1550,12 +1638,12 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
          auch heutzutage nur schwer zu knacken ist, wenn man das ursprünglich
          sortierte Kartenspiel nicht kennt (Ciphertext-only-Angriff).\\
 
-      \item {\bf Mirdek-Chiffre (Paul Crowley)} \cite{pp:Crowley2000}: 
+      \item {\bf Mirdek-Chiffre (Paul Crowley)} \cite{Crowley2000}: 
          Hierbei handelt es sich um ein relativ kompliziertes Verfahren, der
          Autor liefert aber anhand eines Beispiels eine sehr anschauliche 
          Erklärung.\\
 
-      \item {\bf Playing Card-Chiffre (John Savard)} \cite{pp:Savard1999}: 
+      \item {\bf Playing Card-Chiffre (John Savard)} \cite{Savard1999}: 
          Dieses Verfahren verwendet ein bereits gemischtes Kartenspiel ohne 
          Joker, wobei das Mischen gesondert geregelt ist. Ein Schlüssel wird 
          erzeugt ,indem:
@@ -1592,7 +1680,7 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
          addiert und die letzte Stelle dieser Summe ist das Schlüsselzeichen.\\
    \end{itemize}
 
-\item {\bf VIC-Chiffre} \cite{pp:Savard1999}: 
+\item {\bf VIC-Chiffre} \cite{Savard1999}: 
    Dies ist ein extrem aufwändiges, aber verhältnismäßig sicheres 
    Papier- und Bleistiftverfahren. Es wurde von sowjetischen Spionen
    eingesetzt.
@@ -1600,7 +1688,7 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
    einer beliebigen fünfstelligen Zahl nach bestimmten Regeln zehn
    Pseudozufallszahlen erzeugen. Bei der Verschlüsselung findet unter 
    anderem auch ein Straddling Checkerboard Verwendung. Eine genaue 
-   Beschreibung der Vorgehensweise findet sich unter \cite{pp:Savard1999}.
+   Beschreibung der Vorgehensweise findet sich unter \cite{Savard1999}.
 
 \end{itemize}
 
@@ -1618,17 +1706,19 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
 Im Folgenden werden einige der klassischen Verfahren mit dem Open-Source Computer-Algebra-System
 \verb!SageMath!\footnote{%
      Eine erste Einführung in das CAS SageMath finden Sie im Anhang \ref{s:appendix-using-sage}.
-                                          }
+     }
 implementiert. Der Code ist lauffähig und getestet mit SageMath Version 5.3.
-Alle Verfahren sind im Kapitel~\ref{Kapitel_PaperandPencil}
-(\glqq \nameref{Kapitel_PaperandPencil}\grqq) erklärt.
+Alle Verfahren sind im Kapitel~\ref{Chapter_PaperandPencil}
+(\glqq \nameref{Chapter_PaperandPencil}\grqq) erklärt.
 
 \noindent Um die Beispielprogramme\footnote{%
      Weitere Programmbeispiele in SageMath zu klassischen Kryptoverfahren finden
      sich z.B.:\\
-     - unter \url{http://www.sagemath.org/doc/constructions/linear_codes.html\#classical-ciphers}\\
-     - in der Diplomarbeit von Minh Van Nguyen \cite{pp:Nguyen2009}
-                                          }
+     - als PDF in \url{http://doc.sagemath.org/pdf/en/reference/cryptography/cryptography.pdf}\\
+     - als HTML unter \url{http://doc.sagemath.org/html/en/reference/cryptography/index.html}\\
+     - auf \url{http://doc.sagemath.org/html/en/reference/cryptography/sage/crypto/classical.html}\\
+     - in der Diplomarbeit von Minh Van Nguyen \cite{Nguyen2009b}
+     }
 zu den Verschlüsselungsver\-fah\-ren leichter lesbar zu machen, hielten wir uns
 an die in der folgenden Abbildung \ref{naming-convention-in-Sage-cipher-samples}
 aufgeführten Bezeichnungen und Abläufe:
@@ -1648,9 +1738,10 @@ aufgeführten Bezeichnungen und Abläufe:
   \end{itemize}
 \end{itemize}
 
+% Made smaller (0.45 instead of 0.5) to fit it at the same page -- only in German version.
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[scale=0.5]{figures/notation-enc-dec_in-sage-scripts_de}
+\includegraphics[scale=0.45]{figures/notation-enc-dec_in-sage-scripts_de}
 \caption{Namenskonventionen in den SageMath-Programmbeispielen} 
 \label{naming-convention-in-Sage-cipher-samples}
 \end{center}
@@ -2352,7 +2443,14 @@ True
 \subsection{Hill-Verschlüsselung}
 \index{Hill}
 
-Die Hill~\cite{pp:Hill1929,pp:Hill1931}- oder Matrix-Verschlüsselung
+Die Hill~\cite{Hill1929,Hill1931}- oder Matrix-Verschlüsselung\footnote{%
+   In CT1\index{CT1} kann man dieses Verfahren über den Menüeintrag
+   {\bf Ver-/Entschlüsseln \textbackslash{} Symmetrisch (klassisch) 
+   \textbackslash{} Hill} aufrufen.\\
+   In CT2\index{CT2} findet sich dieses Verfahren bei den Vorlagen
+   unter {\bf Kryptographie \textbackslash{} Klassisch} und
+   unter {\bf Kryptoanalyse \textbackslash{} Klassisch}.
+   }
 ist mathematisch anspruchsvoller als die Verfahren in den bisherigen
 Programmbeispielen dieses Kapitels. Der Schlüssel dieses
 Verfahrens ist eine invertierbare quadratische Matrix (hier $key$ genannt).
@@ -2466,127 +2564,12 @@ HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
 
 
 
-
-
-
 %------------------------------------------------------------------------------
-\newpage
-\begin{thebibliography}{99999}
+\putbib[../de/references]
 \addcontentsline{toc}{section}{Literaturverzeichnis}
+\end{bibunit}
 
-\bibitem[ACA2002]{pp:ACA2002} \index{ACA 2002}
-   American Cryptogram Association, \\
-   {\em Length and Standards for all ACA Ciphers}, 2002.\\
-   \url{http://www.cryptogram.org/cdb/aca.info/aca.and.you/chap08.html#},\\
-   \url{http://www.und.edu/org/crypto/crypto/.chap08.html}
-
-\bibitem[Bauer1995]{pp:Bauer1995} \index{Bauer 1995}
-   Friedrich L. Bauer, \\
-   {\em Entzifferte Geheimnisse},\\
-   Springer, 1995.
-
-\bibitem[Bauer2000]{pp:Bauer2000} \index{Bauer 2000}
-   Friedrich L. Bauer, \\
-   {\em Decrypted Secrets},\\
-   Springer 1997, 2. Auflage 2000.
-
-\bibitem[Crowley2000]{pp:Crowley2000} \index{Crowley 2000}
-   Paul Crowley, \\
-   {\em Mirdek: A card cipher inspired by "`Solitaire"'}, 2000.\\
-   \url{http://www.ciphergoth.org/crypto/mirdek/}
-
-\bibitem[DA1999]{pp:DA1999} \index{DA 1999}
-   Data encryption page des ThinkQuest Team 27158 für ThinkQuest 1999 \\
-   (Kein Update seit 1999, keine Suchmöglichkeit), 1999.\\
-   \url{http://library.thinkquest.org/27158/}
-
-\bibitem[Goebel2003]{pp:Goebel2003} \index{Goebel 2003}
-   Greg Goebel, \\
-   {\em Codes, Ciphers and Codebreaking}, 2003.\\
-   \url{http://www.vectorsite.net/ttcode.htm}
-
-\bibitem[Hill1929]{pp:Hill1929} \index{Hill 1929}
-   Lester S. Hill,\\
-   \emph{Cryptography in an Algebraic Alphabet},\\
-   The American Mathematical Monthly, 36(6): 306--312, 1929.
-
-\bibitem[Hill1931]{pp:Hill1931} \index{Hill 1931}
-   Lester S. Hill,\\
-   \emph{Concerning Certain Linear Transformation Apparatus of Cryptography},\\
-   The American Mathematical Monthly, 38(3): 135--154, 1931.
-	
-\bibitem[Nichols1996]{pp:Nichols1996} \index{Nichols 1996} 
-    Randall K. Nichols, \\
-    {\em Classical Cryptography Course, Volume 1 and 2}, \\
-    Aegean Park Press 1996; \\
-    oder in 12 Lektionen online unter \\
-    \url{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}
-
-\bibitem[Nguyen2009]{pp:Nguyen2009} \index{Nguyen 2009} 
-       Minh Van Nguyen, \\
-       {\em Exploring Cryptography Using the SageMath Computer Algebra System}, \\
-       Victoria University, 2009, \\
-       Siehe SageMath publications\\
-       \url{http://www.sagemath.org/library-publications.html},\\
-       \url{http://www.sagemath.org/files/thesis/nguyen-thesis-2009.pdf},\\
-       \url{http://sites.google.com/site/nguyenminh2/honours-thesis-2009.pdf}
-
-\bibitem[Savard1999]{pp:Savard1999} \index{Savard 1999}
-	John J. G. Savard, \\
-	{\em A Cryptographic Compendium}, 1999.\\
-	\url{http://www.quadibloc.com/crypto/jscrypt.htm}
-% Seine alte Homepage:
-% http://www.hypermaths.org/quadibloc/main.htm    aus startet.
-% http://www.hypermaths.org/quadibloc/crypto/jscrypt.htm
-	
-\bibitem[Schmeh2004]{pp:Schmeh2004}  \index{Schmeh 2004}
-        Klaus Schmeh, \\
-        {\em Die Welt der geheimen Zeichen. Die faszinierende Geschichte der
-        Verschlüsselung},\\ 
-        W3L Verlag Bochum, 1. Auflage 2004.
-
-\bibitem[Schmeh2007]{pp:Schmeh2007}  \index{Schmeh 2007}
-        Klaus Schmeh, \\
-        {\em Codeknacker gegen Codemacher. Die faszinierende Geschichte der Verschlüsselung},\\ 
-        W3L Verlag Bochum, 2. Auflage 2007.\\
-	Dieses Buch ist das aktuellste unter denen, die sich mit der
-	Geschichte der Kryptographie beschäftigen. Es enthält auch eine kleine
-	Sammlung gelöster und ungelöster Krypto-Rätsel. Eine der Challenges
-	nutzt den "`Doppelwürfel"' (double column transposition) mit zwei
-	langen Schlüsseln, die unterschiedlich sind.\\
-	\url{http://www.mysterytwisterc3.org/de/challenges-de/level-x-kryptographie-challenges/doppelwuerfel}
-
-\bibitem[Schneier1999]{pp:Schneier1999}
-	Bruce Schneier, \\
-	{\em The Solitaire Encryption Algorithm}, \\
-	Version 1.2, 1999.\\
-	\url{http://www.schneier.com/solitaire.html}
-
-\bibitem[Singh2001]{pp:Singh2001} \index{Singh 2001}
-	Simon Singh, \\
-	{\em Geheime Botschaften. Die Kunst der Verschl\"usselung von der 
-        Antike bis in die Zeiten des Internet}, \\
-	dtv, 2001.
-
-\bibitem[ThinkQuest1999]{pp:ThinkQuest1999} \index{ThinkQuest 1999}
-	ThinkQuest Team 27158, \\
-	{\em Data Encryption}, 1999.\\
-	\url{http://library.thinkquest.org/27158/}
-	
-%xxxxxxxxxxx
-%\bibitem[x]{pp:x}  \index{x}
-%        x, \\
-%        {\em x}, 
-%       x x.
-%xxxxxxxxxxx
-% ddddddddddddddddddddddddddddddddddddddddx
-
-\end{thebibliography}  % German
-
-
-
-
-
+\noindent Alle Links wurden am 11.07.2016 überprüft.
 
 
 

@@ -1,8 +1,9 @@
+% $Id: 
 % ..........................................................................
-% --------------------------------------------------------------------------
-% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 %              Crypto 2020
-% /~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
 
 \newpage
 \hypertarget{Chapter_Crypto2020}{}
@@ -10,7 +11,10 @@
          Security}\index{security!long-term}
 \label{Chapter_Crypto2020}
 \begin{sloppypar}
-(Johannes Buchmann, Erik Dahmen, Alexander May and Ulrich Vollmer, TU Darmstadt, May~2007)\\
+(\hyperlink{author_Johannes-Buchmann}{Johannes Buchmann},
+ \hyperlink{author_Erik-Dahmen}{Erik Dahmen},
+ \hyperlink{author_Alexander-May}{Alexander May}, and
+ \hyperlink{author_Ulrich-Vollmer}{Ulrich Vollmer}, TU Darmstadt, May~2007)\\
 \end{sloppypar}
 
 % \begin{abstract}Ever more powerful hardware and new
@@ -47,10 +51,10 @@ the inventors of RSA suggested the use of RSA
 moduli with 200 decimal digits for long-term
 security.  Later, the company RSA Security
 published a list of RSA moduli of increasing size,
-the RSA challenge numbers.  RSA Security offered
+the RSA Challenge numbers.  RSA Security offered
 prizes totaling \$ 635,000 for the factorization
 of these numbers, cf.\
-\url{www.rsasecurity.com/rsalabs/}.
+\url{http://www.emc.com/emc-plus/rsa-labs/historical/the-rsa-challenge-numbers.htm}.
 
 In 2005, that is 27 years after the invention of
 RSA, Bahr, Boehm, Franke, and Kleinjung from
@@ -71,6 +75,8 @@ Please compare chapter \ref{SecurityRSA}
 \hyperlink{SecurityRSA}{Considerations regarding the
 security of the RSA algorithm}, and especially chapters
 \ref{nt:NoteFactorization} and \ref{FactorizationResearch}.
+For current cryptanalytical results against RSA and Dlog
+see chapter \ref{Chapter_Dlog-FactoringDead}.
 }
 
 In 2000, Lenstra and Verheul\index{Lenstra/Verheul}
@@ -192,8 +198,8 @@ cryptographic schemes can be easily exchanged.
 The open source library FlexiProvider\index{FlexiProvider} implements a
 multitude of cryptographic schemes.  Lately, we
 have intensified our research into ``Post Quantum
-Cryptography''\index{cryptography!post quantum}\index{post-quantum computing}\index{PQC} seeking
-cryptographic schemes which
+Cryptography'' (PQC)\index{cryptography!post quantum}\index{post-quantum computing}
+seeking cryptographic schemes which
 remain secure even in the event that powerful
 quantum computers are built.
 
@@ -252,7 +258,8 @@ able to find this lattice point in the vicinity of
 the given point in space.  The lattice point in
 turn yields the plain text.  A particularly
 efficient lattice based encryption scheme is NTRU
-Encrypt (\url{www.ntru.com})\index{encryption!lattice problems!NTR}.
+Encrypt (\url{https://www.securityinnovation.com/products/ntru-crypto})
+\index{encryption!lattice problems!NTRU}.
 However, because
 NTRU was introduced fairly recently (in 1998), and
 its specification underwent several changes due to
@@ -290,7 +297,13 @@ significant disadvantage.  In
 \cite{buchmann/coronado/dahmen/doering/klintsevich:2006},
 however, a variant of Merkle's scheme was proposed
 which allows to compute $2^{40}$ signatures with a
-single key pair.
+single key pair.\footnote{%
+  In JCT\index{JCT} you can find in the default perspective
+  below the main menu item {\bf Visuals} several components and
+  variants of this: the one-time signature WOTS+, the normal
+  Merkle signature (MSS) and the extended Merkle signature
+  scheme (XMSS).\index{Merkle signatur}\index{MSS}\index{XMSS}\index{WOTS}
+}
 
 
 %\subsection{Quantum cryptography -- a loophole?}
@@ -342,6 +355,12 @@ confidentiality remains an important open research
 problem upon which cryptographic research should
 focus.
 
-\putbib
-\addcontentsline{toc}{section}{Bibliography}   % To add it in Contents and PDF-Navigation
+
+%------------------------------------------------------------------------------
+\putbib[../de/references]
+\addcontentsline{toc}{section}{Bibliography}
+\end{bibunit}
+
+\noindent All links in the article have been confirmed at July 15, 2016.
+
 

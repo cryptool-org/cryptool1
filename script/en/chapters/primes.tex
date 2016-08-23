@@ -1,15 +1,19 @@
 % $Id$
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ..............................................................................
+%             CHAPTER 3:  P R I M E S
 %
-% C H A P T E R   T H R E E :  P R I M E S
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
 
 \newpage
-% \hypertarget{Kapitel_2}{}
+\hypertarget{Chapter_Primes}{}
+
 \chapter{Prime Numbers}
-\label{Label_Kapitel_Primes}
-(Bernhard Esslinger, May 1999; Updates Nov. 2000, Dec. 2001, June 2003, May 2005, March 2006, June 2007, Jan. 2010, Aug. 2013, Mar. 2016)
+\label{Chapter_Primes}
+(\hyperlink{author_Bernhard-Esslinger}{Bernhard Esslinger}, May 1999;
+ Updates: Nov 2000, Dec 2001, Jun 2003, May 2005, Mar 2006, Jun 2007,
+          Jan 2010, Aug 2013, Jul 2016)
 
 \begin{ctsquote}
     Progress requires exchange of knowledge.
@@ -48,9 +52,9 @@ the RSA procedure and for even more modern procedures (e.g. elliptic curves).
   \item The search for the largest known prime numbers does not have any
 practical usage known to date, but requires the best computers, is an excellent
 benchmark (possibility for determining the performance\index{performance} of computers) and leads
-to new calculation methods on many computers \\
-(see also: \url{http://www.mersenne.org/prime.htm}).
+to new calculation methods on many computers (see also: \url{http://www.mersenne.org/prime.htm}).
 \end{itemize}
+
 Many people have been fascinated by prime numbers over the past two millennia.
 Ambition to make new discoveries about prime numbers has often resulted in
 brilliant ideas and conclusions. The following section provides an easily
@@ -104,8 +108,8 @@ there are at least local patterns within the random distribution.
 \begin{figure}[!hb]
 \begin{center}
 \includegraphics[scale=0.3]{figures/Numberrectangle-with-colored-primes_Irisprime.jpg}
-\caption[Primes between the first 390 integers -- marked with color]
-        {Primes between the first 390 integers -- marked with color\protect\footnotemark}
+\caption[Primes within the first 390 integers -- marked with color]
+        {Primes within the first 390 integers -- marked with color\protect\footnotemark}
 \label{Primes-in-a-390-integer-rechtangle-figure}
 \end{center}
 \end{figure}
@@ -117,20 +121,21 @@ there are at least local patterns within the random distribution.
 \begin{figure}[!hb]
 \begin{center}
 \includegraphics[scale=0.41]{figures/Ulam_spiral_via-CT2-within-1-999.png}
-\caption[Primes between the first 999 integers -- as Ulam spiral]
-        {Primes between the first 999 integers -- as Ulam spiral\protect\footnotemark}
+\caption[Primes within the first 999 integers -- as Ulam spiral]
+        {Primes within the first 999 integers -- as Ulam spiral\protect\footnotemark}
 \label{Primes-in-a-999-integer-ulam-spiral-figure}
 \end{center}
 \end{figure}
 \footnotetext{%
-   Graphics from CT2, menu Crypto Tutorials, Distribution of primes, Ulam's spiral; 32*32 points
-   }
+   Graphics from CT2, menu Crypto Tutorials, World of Primes,
+   Distribution of primes, Ulam's spiral; 32*32 points.\index{CT2}
+}
 %\newpage
 \begin{figure}[!hb]
 \begin{center}
 \includegraphics{figures/Ulam_spiral_Wikipedia.png}
-\caption[Primes between the first 4000 integers -- as Ulam spiral]
-        {Primes between the first 4000 integers -- as Ulam spiral\protect\footnotemark}
+\caption[Primes within the first 4000 integers -- as Ulam spiral]
+        {Primes within the first 4000 integers -- as Ulam spiral\protect\footnotemark}
 \label{Primes-in-a-4000-integer-ulam-spiral-figure}
 \end{center}
 \end{figure}
@@ -187,9 +192,10 @@ set, the expression as a product of prime factors is not unique here.
 
 % --------------------------------------------------------------------------
 \section{How many prime numbers are there?}
+\label{Section_pr_How-many-primes}
 
 For the natural numbers, the primes can be compared to elements in chemistry or
-the elementary particles in physics (see \cite[p. 22]{pr:Blum1999}).
+the elementary particles in physics (see \cite[p. 22]{Blum1999}).
 
 Although there are only $92$ natural chemical elements, the number of prime
 numbers is unlimited. Even the Greek, \index{Euclid} Euclid%
@@ -198,6 +204,7 @@ a Greek mathematician of 4th and 3rd century B.C. He worked at the
 Egyptian academy of Alexandria and wrote ``The Elements'', the most well 
 known systematically textbook of the Greek mathematics.} 
 knew this in the third century B.C.
+
 \begin{theorem}[Euclid\footnote{The common usage of the term does not denote Euclid as the inventor of the theorem rather;
 the true inventor is merely not as prominent. The theorem has already been distinguished
 and proven in Euclid's Elements (Book IX, theorem 20). The phraseology is remarkable due to 
@@ -222,6 +229,7 @@ any previously existing amount of prime numbers.
 The sequence of prime numbers does not discontinue.
 Therefore, the quantity of prime numbers is infinite.
 \end{theorem}
+
 His proof that there is an infinite number of
 primes is still considered to be a brilliant mathematical consideration and
 conclusion today (\textbf{proof by contradiction} \index{proof by contradiction}). 
@@ -232,7 +240,7 @@ be wrong. As there were no mistakes in the chain of conclusions, it could
 only be the assumption that was wrong. Therefore, there must be an infinite
 number of primes!\\
 
-\hypertarget{euclid}{}
+\hypertarget{ht_euclid}{}
 \index{Euclid's proof by contradiction}\index{proof by contradiction}
 % \paragraph*{Euclid's proof by contradiction}
 % goes as follows:
@@ -277,29 +285,29 @@ $ n!= n*(n-1)*\cdots *2*1$).
 
 The largest prime numbers known today have several millions digits, 
 which is too big for us to imagine. The number of elementary particles in
-the universe is estimated to be ``only'' a $80$-digit number 
-\hyperlink{grosord}{(See: overview under \ref{s:grosord}
+the universe is estimated to be ``only'' a $80$-digit decimal number 
+\hyperlink{grosord}{(see the overview under \ref{s:grosord}
 of various orders of magnitude / dimensions)}.
+
 
 
 % --------------------------------------------------------------------------
 \hypertarget{RecordPrimes}{}
-\subsection{The 20+ largest known primes (as of January 2016)}  % Eyecatcher_neue-Mersenne
+\subsection{The 30+ largest known primes (as of June 2016)}  % Eyecatcher_neue-Mersenne
 \label{RecordPrimes}
 \index{prime number!records}
 
 The following table contains the biggest, currently known primes and
 a description of its particular number type\footnote{%
 An up-to-date version can be found in the internet
-at   \url{http://primes.utm.edu/largest.html},
+at   \url{https://primes.utm.edu/primes/search.php?Number=1000},
 at   \url{http://primes.utm.edu/mersenne/index.html}, and
 at   \url{http://www.mersenne.org/primes/}.
 }:
 
 \index{Mersenne!number!generalized}
 \index{Fermat!number!generalized} 
-
-\begin{table} % don't use [h] (error if table has >24 lines)
+\begin{table}[ht] % don't use [h] (error if table has >24 lines)
 \begin{center}
 \begin{tabular}{|c|cccc|}
 \hline \rule{0pt}{10pt}    % Eyecatcher_neue-Mersenne
@@ -316,33 +324,55 @@ at   \url{http://www.mersenne.org/primes/}.
 	9  & $2^{24,036,583}-1$ &  7,235,733 & 2004 & Mersenne, M-41 \\
 	10 & $2^{20,996,011}-1$ &  6,320,430 & 2003 & Mersenne, M-40 \\
 	11 & $2^{13,466,917}-1$ &  4,053,946 & 2001 & Mersenne, M-39 \\
-	12 & $19,249 \cdot 2^{13,018,586}+1$ & 3,918,990 & 2007 & Generalized Mersenne\footnotemark \\
-	13 & $27,653 \cdot 2^{9,167,433}+1$ & 2,759,677 & 2005 & Generalized Mersenne \\
-	14 & $28,433 \cdot 2^{7,830,457}+1$ & 2,357,207 & 2004 & Generalized Mersenne \\
-	15  & $2^{ 6,972,593}-1$ & 2,098,960 & 1999 & Mersenne, M-38 \\
-	16  & $5,359 \cdot 2^{5,054,502}+1$ & 1,521,561 & 2003 & Generalized Mersenne \\
-	17  & $4,847 \cdot 2^{3,321,063}+1$ & 999,744 & 2005 & Generalized Mersenne \\
-	18  & $3 \cdot 2^{3,136,255}-1$ & 944,108 & 2007 & Generalized Mersenne \\
-	19  & $2^{ 3,021,377}-1$ &   909,526 & 1998 & Mersenne, M-37 \\
-	20  & $2^{ 2,976,221}-1$ &   895,932 & 1997 & Mersenne, M-36 \\
-	21  & $222,361 \cdot 2^{2,854,840}+1$ & 859,398 & 2006 & Generalized Mersenne \\
-	22 & $1,372,930^{131,072}+1$ &   804,474 & 2003 & Generalized Fermat\footnotemark \\
-	23  & $1,361,244^{131,072}+1$ &   803,988 & 2004 & Generalized Fermat \\
-	24  & $1,176,694^{131,072}+1$ &   795,695 & 2003 & Generalized Fermat \\
-	25  & $342,673 \cdot 2^{2,639,439}-1$ & 794,556 & 2007 & Generalized Mersenne \\
+	12 & $19,249 \cdot 2^{13,018,586}+1$ & 3,918,990 & 2007 & Generalized Mersenne\footnotemark \\%%%
+
+	13 & $3 \cdot 2^{11,895,718}-1$ & 3,580,969 & 2015 & Generalized Mersenne \\
+	14 & $3 \cdot 2^{11,731,850}-1$ & 3,531,640 & 2015 & Generalized Mersenne \\
+	15 & $3 \cdot 2^{11,484,018}-1$ & 3,457,035 & 2014 & Generalized Mersenne \\
+	16 & $3 \cdot 2^{10,829,346}+1$ & 3,259,959 & 2014 & Generalized Mersenne \\
+	17 & $ 475,856^{524,288}+1$ &   2,976,633 & 2012 & Generalized Fermat \\
+	18 & $ 356,926^{524,288}+1$ &   2,911,151 & 2012 & Generalized Fermat \\
+	19 & $ 341,112^{524,288}+1$ &   2,900,832 & 2012 & Generalized Fermat \\
+
+	20 & $27,653 \cdot 2^{9,167,433}+1$ & 2,759,677 & 2005 & Generalized Mersenne \\%%%
+
+	21 & $90,527 \cdot 2^{9,162,167}+1$ & 2,758,093 & 2010 & Generalized Mersenne \\
+	22 & $2,038 \cdot 366^{1,028,507}-1$ & 2,636,562 & 2016 & Generalized Fermat \\
+	23 & $75,898^{524,288}+1$ & 2,558,647 & 2011 & Generalized Fermat \\
+
+	24 & $28,433 \cdot 2^{7,830,457}+1$ & 2,357,207 & 2004 & Generalized Mersenne \\%%%
+
+	25 & $502,573 \cdot 2^{7,181,987}-1$ & 2,162,000 & 2014 & Generalized Mersenne \\
+	26 & $402,539 \cdot 2^{7,173,024}-1$ & 2,159,301 & 2014 & Generalized Mersenne \\
+	27 & $161,041 \cdot 2^{7,107,964}+1$ & 2,139,716 & 2015 & Generalized Mersenne \\
+	28 & $3 \cdot 2^{7,033,641}+1$ & 2,117,338 & 2011 & Generalized Mersenne \\
+	29 & $33,661 \cdot 2^{7,031,232}+1$ & 2,116,617 & 2007 & Generalized Mersenne \\
+
+	30  & $2^{ 6,972,593}-1$ & 2,098,960 & 1999 & Mersenne, M-38 \\
+        ... &  &  &  & \\
+%	16  & $5,359 \cdot 2^{5,054,502}+1$ & 1,521,561 & 2003 & Generalized Mersenne \\
+%	17  & $4,847 \cdot 2^{3,321,063}+1$ & 999,744 & 2005 & Generalized Mersenne \\
+%	18  & $3 \cdot 2^{3,136,255}-1$ & 944,108 & 2007 & Generalized Mersenne \\
+%	19  & $2^{ 3,021,377}-1$ &   909,526 & 1998 & Mersenne, M-37 \\
+%	20  & $2^{ 2,976,221}-1$ &   895,932 & 1997 & Mersenne, M-36 \\
+%	21  & $222,361 \cdot 2^{2,854,840}+1$ & 859,398 & 2006 & Generalized Mersenne \\
+	328 & $1,372,930^{131,072}+1$ &   804,474 & 2003 & Generalized Fermat\footnotemark \\
+%	23  & $1,361,244^{131,072}+1$ &   803,988 & 2004 & Generalized Fermat \\
+%	24  & $1,176,694^{131,072}+1$ &   795,695 & 2003 & Generalized Fermat \\
+        ... &  &  &  & \\
+	342  & $342,673 \cdot 2^{2,639,439}-1$ & 794,556 & 2007 & Generalized Mersenne \\
 
 \hline
 \end{tabular}
-\caption{The 20+ largest known primes and its particular number types
-         (as of January 2016)}    % Eyecatcher_neue-Mersenne
+\caption{The 30+ largest known primes and its particular number types
+         (as of June 2016)}    % Eyecatcher_neue-Mersenne
 \label{L_n_Largest_Known-Primes}
 \end{center}
 \end{table} 
 \addtocounter{footnote}{-1}
 \footnotetext{\index{number!Sierpinski}\index{Seventeen or Bust SoB}%
 This number was found within the distributed computing project
-``Seventeen or Bust'' (SoB) (\url{http://www.seventeenorbust.com})
-% {\href{http://www.mersenne.org} {\tt http://www.mersenne.org}}
+``Seventeen or Bust'' (SoB)  (\url{https://en.wikipedia.org/wiki/Seventeen_or_Bust})
 at March 26, 2007. While the well known \hyperlink{GIMPS-project}{GIMPS project} (chapter~\ref{zahlentyp_mersenne}) searches for bigger and bigger of the infinitely many primes, there is a chance, that the SoB project could have been completed its task sometime.
 
 The SoB project tries to prove computationally, that the number $k = 78,557$ is
@@ -350,19 +380,37 @@ the smallest Sierpinski number (John Selfridge proved in 1962, that $78,557$ is 
 
 The famous Polish mathematician Waclaw Sierpinski (1882 to 1969) proved in
 1960, that there exist infinitely many odd integers k, which fulfill the
-following property: For all Sierpinski numbers k it is true: All numbers $N = k \cdot 2^{n}+1$ are composite for all integers $n>=1$ (Sierpinski's Composite Number Theorem, \url{http://mathworld.wolfram.com/SierpinskisCompositeNumberTheorem.html}).
+following property: For all Sierpinski numbers k it is true: All numbers
+$N = k \cdot 2^{n}+1$ are composite for all integers $n>=1$ (Sierpinski's
+Composite Number Theorem,
+\url{http://mathworld.wolfram.com/SierpinskisCompositeNumberTheorem.html}).
 
 When the project started in 2002 there have been 17 possible candidates $< 78557$ (this is the reason for the project's name ``Seventeen or Bust''). It is sufficient to find one single counter-example, to exclude a candidate k, which means to find a single $n>=1$, where $N = k \cdot 2^{n}+1$ is prime. So it is only a byproduct of this task that this also generates new monster primes.
+
+As of about April 19, 2016, the main SoB server is down and the future of the project unknown.
 } 
 \addtocounter{footnote}{1}
 \footnotetext{%
 Generalized Fermat number: $ 1,372,930^{131,072} + 1 = 1,372,930^{(2^{17})}+1 $
 \index{Fermat!number!generalized}  } 
-%be_2005: Erzwingen, dass die Abb. noch in diesem Kapitel !
 
-The largest known prime is a Mersenne prime, found by the
-\hyperlink{GIMPS-project}{GIMPS project}(chapter~\ref{zahlentyp_mersenne}).
+The development over time is shown in figure \ref{Figure_Caldwell_Largest-Known-Prime-From1975}.
+It starts with M21701 found in 1978. Note the vertical scale.
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[scale=0.7]{figures/Caldwell_From1975-2016-en.png}
+\caption[Number of digits of largest known prime by year since 1975]
+        {Number of digits of largest known prime by year (as of July 2016)\footnotemark}
+\label{Figure_Caldwell_Largest-Known-Prime-From1975}
+\end{center}
+\end{figure}
+\index{Caldwell, Chris}
+\footnotetext{
+  Source: Chris Caldwell, \url{http://primes.utm.edu/notes/by_year.html}
+}
 
+The larges currently known prime is a Mersenne prime, found by the
+\hyperlink{GIMPS-project}{GIMPS project} (chapter~\ref{zahlentyp_mersenne}).
 Within the largest known primes there are also numbers of the type
 \hyperlink{generalizedMersennenumbers}{generalized Mersenne number}
 (chapter~\ref{generalized-mersenne-no1})
@@ -431,46 +479,76 @@ false. This means that there exists no composite number $ n, $ such that $ 2^n -
 \vskip + 5pt
 \hypertarget{Mer-nums-not-always-prim}{}
 Unfortunately this theorem only applies in one direction (the inverse 
-statement does not apply, no equivalence): that means that there exist 
+statement does not apply, no equivalence): That means that there exist 
 prime exponent for which the Mersenne number is {\bf not} prime (see the 
 above example $2^{11}-1, $ where $11$ is prime, but $2^{11}-1$ not).
 
 Mersenne claimed that $2^{67}-1$ is a prime number. There is also a mathematical
-history behind this claim: it first took over 200 years before 
+history behind this claim: It first took over 200 years before 
 \index{Lucas, Edouard} Edouard Lucas (1842-1891) proved that this number 
 is composite.
 However, he argued indirectly and did not name any of the factors. In 1903,
 Cole\index{Cole, Frank Nelson}\footnote{%
-Frank Nelson Cole, American mathematician, Sep. 20, 1861 $-$ May 26, 1926.}
+Frank Nelson Cole, American mathematician, Sep. 20, 1861 $-$ May 26, 1926.\\
+}
 showed which factors make up this composite number: 
 $$ 2^{67} -1
 =147, 573, 952, 589, 676, 412, 927 = 193, 707, 721 \cdot 761, 838, 257, 287. $$
-He admitted to having worked 20 years on the factorization 
-\index{factorization} (expression as a product of prime factors)\footnote{%
-  Using CT1\index{CrypTool 1} you can factorize numbers in the 
+He admitted to having worked 20 years on the {\bf factorization}
+\index{factorization} (dissection as a product of prime factors)\footnote{%
+  Using CT1\index{CT1} you can factorize numbers in the 
   following way: menu {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem 
-  \textbackslash{} Factorization of a Number}. \\
+  \textbackslash{} Factorization of a Number}.\\
   CT1 can factorize with the quadratic sieve (QS) on a single PC in a reasonable
-  time numbers no longer than 250 bit.
-  Numbers bigger than 1024 bits are currently not accepted by CT1. \\
-  With CT2 you can use both the QS and the GNFS (general number field sieve),
-  and CT2 can distribute the calculations on several computers.\\
+  time numbers no longer than 250 bit. Numbers bigger than 1024 bits are anyway
+  currently not accepted by CT1.\\
+
+  \noindent CT2\index{CT2} has a GeneralFactorizer component
+  based on YAFU\index{YAFU}. This is faster than the implemented functions in CT1.
+  So CT2 offers the following factoring methods:
+  \begin{compactitem}
+   \item[-] brute-force with small primes
+   \item[-] Fermat
+   \item[-] Shanks square forms factorization (squfof)
+   \item[-] Pollard rho
+   \item[-] Pollard p-1
+   \item[-] Williams p+1
+   \item[-] Lenstra elliptic curve method (ECM)
+   \item[-] self-initializing quadratic sieve (SIQS)
+   \item[-] multiple polynomial quadratic sieve (MPQS)
+   \item[-] special number field sieve (SNFS)
+   \item[-] general number field sieve (GNFS).         
+  \end{compactitem}
+
+  \noindent CT2 started to experiment with a general infrastructure for distributed computing
+  called CrypCloud\index{CrypCloud} (both peer-to-peer and centralized). So in the future,
+  CT2 will be able to distribute the calculations on many computers. What could be achieved
+  after the components are made ready for parallelization showed a cluster for
+  distributed cryptanalysis of DES and AES: Status on March 21st, 2016 is,
+  that an AES brute-force attack (distributed keysearching) worked on
+  50 i5 PCs, each with 4 virtual CPU cores. These 200 virtual ``worker threads'' 
+  achieved to test about 350 million AES keys/sec. The ``cloud'' processed a total
+  amount of about 20 GB/sec of data. CrypCloud is a peer-to-peer-based
+  cloud system that enables CT2 users to voluntarily join distributed computing jobs. 
+
   The current factorization records are listed in chapter \ref{nt:NoteFactorization}.
-  \index{factorization!factoring records}
+  \index{factorization!factoring records}\\
 }
 of this 21-digit decimal number!
 
 Due to the fact that the exponents of the Mersenne numbers
 \index{Mersenne!number} do not use all
 natural numbers, but only the primes, the {\em experimental space} is limited
-considerably. The currently known Mersenne prime numbers 
-\index{Mersenne!prime number} have the exponents\footnote{%
-Landon Curt Noll\index{Noll, Landon Curt} lists all known Mersenne primes
-including its date of discovery and its value as number and as word:
-      \url{http://www.isthe.com/chongo/tech/math/prime/mersenne.html} \\
-Also see:
+considerably. The currently known $49$
+ % Eyecatcher_neue-Mersenne     % be_2005_UPDATEN_if-new-mersenne-prime-appears
+Mersenne prime numbers\index{prime number!Mersenne}\index{Mersenne!prime number}
+have the following exponents:\footnote{%
+  Landon Curt Noll\index{Noll, Landon Curt} lists all known Mersenne primes
+  including its date of discovery and its value as number and as word:
+      \url{http://www.isthe.com/chongo/tech/math/prime/mersenne.html}.
+  Also see:
       \url{http://www.utm.edu/}.
-                             } 
+} 
 $$
 \begin{array}{c}
 2; ~ 3; ~ 5; ~ 7; ~ 13; ~ 17; ~ 19; ~ 31; ~ 61; ~ 89; ~ 107; ~ 127;
@@ -479,14 +557,11 @@ $$
 86,243; ~ 110,503; \\
 132,049; ~ 216,091; ~ 756,839; ~ 859,433; ~ 1,257,787; ~ 1,398,269; ~ 2,976,221; ~ 3,021,377;\\
 6,972,593; ~ 13,466,917; ~ 20,996,011; ~ 24,036,583; ~ 25,964,951; ~ 30,402,457;\\
-32,582,657; ~ 37,156,667; ~ 42,643,801, ~ 43,112,609.
+32,582,657; ~ 37,156,667; ~ 42,643,801, ~ 43,112,609, ~ 57,885,161, ~ 74,207,281.
 % be_2005_UPDATEN_if-new-mersenne-prime-appears          ~ xxx,xxx,xxx.
 \end{array}
 $$
-Thus    % Eyecatcher_neue-Mersenne
-$49$            % be_2005_UPDATEN_if-new-mersenne-prime-appears
-Mersenne prime numbers are currently known%
-\index{prime number!Mersenne}\index{Mersenne!prime number}. 
+
 
 The $19$th number with the exponent $4,253$ was the first with at least $1,000$ digits in  decimal system
 (the mathematician Samual \index{Yates, Samual} Yates coined the expression {\em
@@ -503,17 +578,17 @@ Mersenne prime numbers we know that this list is complete.
 The exponents until the 49th     % be_2005_UPDATEN_if-new-mersenne-prime-appear    % Eyecatcher_neue-Mersennes
 Mersenne prime number have not yet been checked completely.\footnote{%
 The current status of the check can be found at:
-      \url{http://www.mersenne.org/status.htm}.\\
+      \url{http://www.mersenne.org/primenet/}.\\
 Hints, how the primality of a number can be checked, are in chapter
 \ref{primality_tests}, prime number tests\index{prime number!test}. }
 
 
 % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
-Right now (March 2016) all prime exponents smaller than $ 35,183,273 $ have been
+As of 2016-07-19 all prime exponents smaller than $ 36,058,573 $ have been
 tested and double-checked\footnote{%
 See home page of the GIMPS project:
       \url{http://www.mersenne.org/report_milestones}.
-                                  }:
+  }:
 So we can
 be certain, that this is really the 41th Mersenne prime number and that
 there are no smaller undiscovered Mersenne primes (it is common usage to use
@@ -683,26 +758,35 @@ No new record is likely to last that long.
 
 
 % --------------------------------------------------------------------------
-\section[Prime number tests]{Prime number tests\footnotemark}
+\section[Prime number tests]{Prime number tests\footnotemark$^,$\footnotemark}
+\addtocounter{footnote}{-1}
+\footnotetext{
+  A didactical article about the different prime number tests emphasizing
+  the Miller-Rabin test can be found within the series {\em RSA \& Co. at
+  school: Modern cryptology, old mathematics, and subtle protocols}:
+  see NF part 5 \cite{Witten2010b}.\index{RSA \& Co. at school}
+  Unfortunately these are currently only available in German.
+} 
+\addtocounter{footnote}{1}
 \footnotetext{%
     \index{NT, Learning Tool for Number Theory}%
     \index{educational tool NT}%
     With the educational tool for number theory {\bf NT} you can apply the
     tests of Fermat and of Miller-Rabin:
     See NT learning units 3.2 and 3.3, pages 3-11/11.\\
-    NT can be called in CT1\index{CrypTool 1} via the menu path
+    NT can be called in CT1\index{CT1} via the menu path
     {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
     \textbackslash{} Learning Tool for Number Theory}.
     See also appendix \ref{s:appendix-Learn-NT}.\\
-    CT2\index{CrypTool 2} contains a visualisation of these methods within
+    CT2\index{CT2} contains a visualisation of these methods within
     the tutorial ``{\bf World of Primes}''.
 }
 \label{primality_tests}   % chap. 3.5
 \index{prime number!test}
 
 In order to implement secure encryption procedures we need extremely large prime
-numbers (in the region of $2^{2,048}$, i.e. numbers with $600$ digits in the
-decimal system!).
+numbers (numbers in the region of $2^{2,048}$ have more than $600$ digits in the
+decimal system).
 
 If we look for the prime factors in order to decide whether a number is prime,
 then the search takes too long, if even the smallest prime factor is enormous.
@@ -816,9 +900,16 @@ The test applied for $a=5$ results in: $ 5^{560} \;{\rm mod}\; 561 = 1 $.
 \vskip +10 pt
 A stronger test is provided by\index{Miller, Gary L.}\index{Rabin, Michael O.}
 Miller/Rabin\footnote{
-In 1976 an efficient probabilistic primality test was published by Prof. Rabin, based on a number theoretic result of Prof. Miller from the year before. \\
-Prof. Miller worked at the Carnegie-Mellon University, School of Computer
-Science. Prof. Rabin, born in 1931, worked at the Harvard and Hebrew University.
+  In 1976 an efficient probabilistic primality test was published by Prof. Rabin,
+  based on a number theoretic result of Prof. Miller from the year before.\\
+  Prof. Rabin worked at the Harvard and Hebrew University.
+  Michael Oser Rabin was born 1931 in Breslau. His family emigrated in
+  1935 to Palestine because of the Nazi politics.
+  \\
+  Prof. Miller worked at the Carnegie-Mellon University, School of Computer
+  Science.\\
+  The functionality of the  Miller-Rabin test is explained in detail in
+  \cite{Witten2010b} using a Python program.
 }%
 : It is only passed by so-called {\em strong pseudo prime numbers}. 
 Again, there are strong pseudo prime numbers that are not primes, but this is
@@ -891,7 +982,7 @@ If their are compound numbers could their prime factors be determined?
     are known (\hyperlink{M-39}{M-39}\index{Mersenne!prime number!M-39}):
 \vspace{-10pt}
 \begin{itemize}
-  \item[] {\url{http://perso.wanadoo.fr/yves.gallot/primes/index.html}}
+  \item[] {\url{http://yves.gallot.pagesperso-orange.fr/primes/index.html}}
 \end{itemize}      % be_2005_UPDATEN_if-new-mersenne-prime-appears
 
 % --------------------------------------------------------------------------
@@ -914,7 +1005,7 @@ If their are compound numbers could their prime factors be determined?
    numbers\index{Mersenne!number!generalized}
    creates the so called Proth numbers\index{number!Proth}.
    There are (for small $k$) extremely quick prime number tests
-   (see \cite{pr:Knuth1981}). This can be performed in practice using software
+   (see \cite{Knuth1998}). This can be performed in practice using software
    such as the Proths software from Yves Gallot\index{Gallot, Yves}:
 \vspace{-10pt}
 \begin{itemize}
@@ -963,7 +1054,8 @@ If their are compound numbers could their prime factors be determined?
     his assumption, that all numbers of this type are primes.
     This assumption was disproved by Euler (1732). The prime $641$ divides
     $f(5)$.\footnote{%
-    Surprisingly this number can easily be found by using Fermat's theorem (see e.g.\ \cite[p. 176]{pr:Scheid1994})
+      Surprisingly this number can easily be found by using Fermat's theorem
+      (see e.g.\ \cite[p. 176]{Scheid2006})
     } 
 %    Surprisingly he would have been able obtain a positive result using
 %    the negative prime number test for $n=5$ based on his small theorem.
@@ -1015,13 +1107,8 @@ $$
     More details are in
     \vspace{-10pt}
     \begin{itemize}
-      \item[] \url{http://www.fermatsearch.org/history/cosgrave_record.htm/}
+      \item[] \url{http://www.fermatsearch.org/history/cosgrave_record.htm}
     \end{itemize}
-
-%    ({\url{http://perso.wanadoo.fr/yves.gallot/primes/index.html}}).
-% M.E. ist die Zahl auf seiner Webseite zu groß, da M-39 "nur" 4 Mio. Stellen hat !
-%    Heute kennt man alle Fermatschen Primzahlen mit bis zu 2.000.000.000 ??? 
-%    Dezimalstellen. \\
 
 
 
@@ -1088,8 +1175,9 @@ chapter~\ref{L-Strongpseudoprimenumber01}.
 \subsection
     [Idea based on Euclid's proof \texorpdfstring{$p_1 \cdot p_2 \cdots p_n +1$}{p\_1 ... p\_2 ... p\_n +1}]
     {Idea based on Euclid's proof $p_1 \cdot p_2 \cdots p_n +1$}
-This idea is based on \hyperlink{euclid}{Euclid's proof} that there are
-infinite many prime numbers.
+This idea is based on \hyperlink{ht_euclid}{Euclid's proof}
+(see chapter \ref{Section_pr_How-many-primes}),
+that there are infinite many prime numbers.
 $$
 \begin{array}{lll}
 2{\cdot}3 +1 &      = 7 &          \mapsto {\rm ~prime} \\
@@ -1268,7 +1356,7 @@ $$
 
     There exists no such polynomial that for all $x$ in ${\mathbb Z}$ only
     delivers prime values.
-    For a proof of this, please refer to \cite[p. 83 f.]{pr:Padberg1996}, where
+    For a proof of this, please refer to \cite[p. 83 f.]{Padberg1996}, where
     you will also find further details about prime number formulae.
 
     This means there is no hope in looking for further formulae (functions) 
@@ -1292,7 +1380,7 @@ are named.
 \nopagebreak
 Catalan \index{Catalan Eugene}  \index{number!Catalan}
 conjectured\footnote{%
-See \url{http://www.utm.edu/research/primes/mersenne.shtml}
+See \url{http://primes.utm.edu/mersenne/index.html}
            under ``Conjectures and Un\-sol\-ved Problems''.
          }
  that $ C_4 \;$ and any further term in this sequence is a prime:
@@ -1328,7 +1416,7 @@ In any case, it has not been proved that this formula delivers only primes.
 ``law of small numbers''\index{Guy's law of small numbers}\index{law of
 small numbers}\footnote{%
 \url{http://primes.utm.edu/glossary/page.php?sort=LawOfSmall}
-               }.
+   }.
 
 
 
@@ -1339,8 +1427,8 @@ small numbers}\footnote{%
 
 The above Catalan-Mersenne numbers are from $C_2$ a subset of the double
 Mersenne primes.\footnote{%
-\url{http://en.wikipedia.org/wiki/Catalan%E2%80%93Mersenne_number}
-          }
+   \url{http://en.wikipedia.org/wiki/Catalan%E2%80%93Mersenne_number}
+   }
 A double Mersenne prime is a Mersenne prime of the form
 $$ M_{M_p} = 2 ^ {2^p - 1} -1 $$
 % $ M_{M_p} = 2 ^ {2^p - 1} -1 $ 
@@ -1455,7 +1543,16 @@ and Gauss\footnote{%
   Carl Friedrich Gauss\index{Gauss, Carl Friedrich}, 
   German mathematician and astronomer, Apr 30, 1777$-$Feb 23, 1855.
 }
-but not proved until over 100 years later.
+but not proved until over 100 years later.\footnote{
+  A didactical article about the prime number theorem and its application
+  to the RSA algorithm can be found within the series {\em RSA \& Co. at
+  school: Modern cryptology, old mathematics, and subtle protocols}:
+  see NF part 4 \cite{Witten2010a}.\index{RSA \& Co. at school}
+  Unfortunately these are currently only available in German.
+} 
+
+
+
 
 \hyperlink{primhfk}{The tables} under \ref{s:primhfk} %Cross-reference
 show the number of prime numbers in various intervals.\\
@@ -1502,7 +1599,7 @@ A precise investigation shows: There are $10$ prime numbers between $10^{16}-
 Under the heading {\em How Many Primes Are There} at
 \vspace{-10pt}
 \begin{itemize}
-  \item[] \url{http://www.utm.edu/research/primes/howmany.shtml}
+  \item[] \url{http://primes.utm.edu/howmany.html}
 \end{itemize}
 \vspace{-10pt}
 you will find numerous other details.
@@ -1510,7 +1607,7 @@ you will find numerous other details.
 Using the following Web site:
 \vspace{-10pt}
 \begin{itemize}
-  \item[] \url{http://www.math.Princeton.EDU/~arbooker/nthprime.html}
+  \item[] \url{https://primes.utm.edu/nthprime/}
 \end{itemize}
 \vspace{-10pt}
 you can easily determine $PI(x)$.
@@ -1531,7 +1628,7 @@ and $787, $ $ 839$ and $853$ as well as between $887$ and $907$. \\
 For details, please see: 
 \vspace{-10pt}
 \begin{itemize}
-  \item[] \url{http://www.utm.edu/research/primes/notes/gaps.html}
+  \item[] \url{http://primes.utm.edu/notes/gaps.html}
 \end{itemize}
 
 To discover the secrets of these irregularities is precisely part of what
@@ -1574,11 +1671,11 @@ square is less than or equal to $x$ (here up to 10, as $11^2$ is already $> 120$
     sieve of Eratosthenes in a computer-aided and guided way: Enter you own
     number and do the sieving step by step:
     See the NT learning unit 1.2, pages 6/21 and 7/21.\\
-    NT can be called in CT1\index{CrypTool 1} via the menu path
+    NT can be called in CT1\index{CT1} via the menu path
     {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
     \textbackslash{} Learning Tool for Number Theory}.
     See appendix \ref{s:appendix-Learn-NT}.\\
-    CT2\index{CrypTool 2} contains a visualisation of this method within
+    CT2\index{CT2} contains a visualisation of this method within
     the tutorial \textbf{``World of Primes''}.
 }
 
@@ -1586,7 +1683,7 @@ square is less than or equal to $x$ (here up to 10, as $11^2$ is already $> 120$
 Apart from 2, prime numbers are never even. Apart from 2 and 5, prime numbers
 never end in 2, 5 or 0. So you only need to consider numbers ending in 1, 3,
 7, 9 anyway (there are infinite primes ending in these numbers; see
-\cite[vol. 1, p. 137]{pr:Tietze1973}).
+\cite[vol. 1, p. 137]{Tietze1973}).
 
 Nowadays, you can now find large databases that contain either a large
 number of primes or the factorization of numerous composite numbers.
@@ -1594,7 +1691,7 @@ number of primes or the factorization of numerous composite numbers.
 
 \paragraph*{Further interesting topics regarding prime numbers}
 \mbox{}\\
-This chapter \ref{Label_Kapitel_Primes} didn't consider other number theory topics
+This chapter \ref{Chapter_Primes} didn't consider other number theory topics
 such as divisibility rules, modulus calculation, modular inverses, modular
 powers, modular roots, Chinese remainder theorem, Euler Phi function or
 perfect numbers.
@@ -1620,7 +1717,7 @@ questions about primes, but also some quaint things and overviews.
 
   \item For each number $n$ in ${\bf N}$ there are $n$ consecutive natural
       numbers that are not primes.
-      A proof of this can be found in \cite[p. 79]{pr:Padberg1996}.
+      A proof of this can be found in \cite[p. 79]{Padberg1996}.
 
       
   \item Paul Erd\"os\footnote{%
@@ -1640,7 +1737,7 @@ questions about primes, but also some quaint things and overviews.
      The Gauss\index{Gauss bracket} bracket  $\lfloor x \rfloor $ of a real
      number $x$ is defined via: $\lfloor x \rfloor $ is the next integer less
      or equal $x$.
-     } for all $n$  (see \cite[p. 82]{pr:Padberg1996}).
+     } for all $n$  (see \cite[p. 82]{Padberg1996}).
      Unfortunately, problems arise when we try to determine $a$ 
      (see chapter \ref{link-Primzahlfunktion-base-a-Offen}).\footnote{%
      If someone knows how to prove this, we are very interested to learn
@@ -1655,8 +1752,6 @@ questions about primes, but also some quaint things and overviews.
      \index{arithmetic progression!primes in}
      of arbitrary length.\footnote{%
      Sources: \\
-     - \url{http://users.cybercity.dk/~dsl522332/math/aprecords.htm}
-         ~~~Original source\\
      - \url{http://primes.utm.edu/glossary/page.php?sort=ArithmeticSequence}
          ~~~Original source\\
      - \url{http://en.wikipedia.org/wiki/Primes_in_arithmetic_progression}\\
@@ -1715,7 +1810,7 @@ questions about primes, but also some quaint things and overviews.
      with minimal difference\footnote{%
         In the opposite, 
         \url{http://en.wikipedia.org/wiki/Primes_in_arithmetic_progression}
-        lists the "largest known AP-k". Therefore, there the last sequence
+        lists the ``largest known AP-k''. Therefore, there the last sequence
         element is a prime as big as possible.\\
         However, table \ref{Smallest AP-k with minimal difference}  lists
         the sequences which have the smallest known difference for a given
@@ -1884,7 +1979,20 @@ questions about primes, but also some quaint things and overviews.
 % --------------------------------------------------------------------------
 % \vskip +10 pt
 \newpage
-\subsection{Some unproven statements/ conjectures/ open questions about primes}
+\subsection[Unproven statements/ conjectures/ open questions about primes]
+           {Unproven statements/ conjectures/ open questions about primes\footnote{%
+  Marcus du Sautoy, a professor of mathematics in Oxford, describes in his popular
+  science book ``The Music of the Primes'', how some of the most brilliant mathematicians
+  looked at different aspects of prime numbers. He introduces these people (especially
+  Gauß, Euler, Riemann, Ramanujan, Gödel, and Connes) and then focuses on the
+  Riemann hypothesis. See \cite{duSautoy2005}.\index{Riemann hypothesis}\\
+  % Newline stat Leerzeile, da sonst Meldung "Paragraph ended before \@sect was complete".
+  Simple explanations and further references about the Riemann hypothesis can also
+  be found in {\em RSA \& Co. at school}, NF part 4 \cite{Witten2010a}.
+  \index{RSA \& Co. at school}
+}
+}
+
 \begin{itemize}
   \item Goldbach\footnote{%
      Christian Goldbach\index{Goldbach, Christian}, German mathematician,
@@ -1893,40 +2001,37 @@ questions about primes, but also some quaint things and overviews.
      be represented as the sum of two prime numbers.\footnote{Please compare
      chapter \ref{L-GoldbachConjecture}.}
 
+
   \item Riemann\footnote{%
         Bernhard Riemann\index{Riemann, Bernhard}, German mathematician,
         Sep 17, 1826$-$Jul 20, 1866.
-        }
+      }
       put forward an important, but still unproved hypothesis\footnote{%
-        \url{http://en.wikipedia.org/wiki/Riemann_hypothesis}  }
+        \url{http://en.wikipedia.org/wiki/Riemann_hypothesis}
+      }
       about the location of the nontrivial zeros of the Riemann zeta function.
       A consequence is an improved estimation within the  prime number theorem
-      (distribution of primes) .
+      (distribution of primes).\index{Riemann hypothesis}
 
-  \item Benford's law\label{primes:Benford-Law}\footnote{%
+
+  \item Benford's law\label{primes:Benford-Law}\index{Benford's law}\footnote{%
         \url{http://en.wikipedia.org/wiki/Benford%27s_law}, \\
-        \url{http://arxiv.org/PS_cache/arxiv/pdf/0906/0906.2789v1.pdf}. 
+        \url{http://arxiv.org/PS_cache/arxiv/pdf/0906/0906.2789v1.pdf}.
         }$^,$\footnote{%
         Two good didactical articles in German about applications of
         Benford's law are:
-      % \begin{itemize}	
-      % \begin{itemize}[topsep=0pt, itemsep=0pt] 
-      % \begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
-      % \begin{itemize}              [noitemsep,topsep=0pt,parsep=0pt,parskip=0pt,partopsep=0pt]
-        \begin{compactitem}
-       \item R\"udeger Baumann: "Ziffernanalyse zwecks Betrugsaufdeckung ---
-            Beispiel f\"ur kompetenzorientierten und kontextbezogenen
-            Informatikunterricht",\\
-            in LOGIN, Informatische Bildung und Computer in der Schule,
-            No. 154/155, 2008, p. 68-72
-       \item Norbert Hungerb\"uhler: "Benfords Gesetz \"uber f\"uhrende
-             Ziffern",\\
-             March 2007,
-             \url{http://www.educ.ethz.ch/unt/um/mathe/ana/benford}
-      %\end{itemize}
-      \end{compactitem}
-      \vspace{-\baselineskip} % TODO: Geht das nicht anders?
-        }
+       \begin{compactitem}
+        \item R\"udeger Baumann: ``Ziffernanalyse zwecks Betrugsaufdeckung ---
+             Beispiel f\"ur kompetenzorientierten und kontextbezogenen
+             Informatikunterricht'',\\
+             in LOGIN, Informatische Bildung und Computer in der Schule,
+             No. 154/155, 2008, p. 68-72
+        \item Norbert Hungerb\"uhler: ``Benfords Gesetz \"uber f\"uhrende
+              Ziffern'', March 2007,\\
+	      \url{https://www.ethz.ch/content/dam/ethz/special-interest/dual/educeth-dam/documents/Unterrichtsmaterialien/mathematik/Benfords%20Gesetz%20%C3%BCber%20f%C3%BChrende%20Ziffern%20(Artikel)/benford.pdf}
+       \end{compactitem}
+       \vspace{-\baselineskip}
+       }
     does not apply to primes. 
 
     According to Benford's law, also called the first-digit law, the single
@@ -1934,7 +2039,7 @@ questions about primes, but also some quaint things and overviews.
     data, are distributed in a non-uniform way. Especially the leading digit
     is much more often the digit \verb#1# than any other digit.
 
-    Which empirical data applies to this "law" ist not completely clear yet.
+    Which empirical data applies to this ``law'' ist not completely clear yet.
     Timo Eckhardt analyzed in his thesis in 2008 extensively attributes of
     prime numbers. %Among other things
     For example, all primes until 7,052,046,499 were
@@ -1962,7 +2067,7 @@ questions about primes, but also some quaint things and overviews.
 
 
 \item Does a polynomial\index{polynomial} time algorithm exist for 
-   calculating the prime factors of a number (see \cite[p. 167]{pr:Klee1997})?
+   calculating the prime factors of a number (see \cite[p. 167]{Klee1997})?
    This question can be divided into the three following questions:
    \begin{itemize} 
       \item Does a polynomial time algorithm exist that decides whether a
@@ -2002,7 +2107,6 @@ Here we will have a closer look at what is called the\index{Goldbach conjecture}
         \url{http://en.wikipedia.org/wiki/Goldbach%27s_conjecture} }.
 
 
-
 \hypertarget{HT-WeakGoldbachConjecture}{}
 \subsubsection[The weak Goldbach conjecture]%
    {The weak Goldbach conjecture\footnote{%
@@ -2022,8 +2126,8 @@ Samples: $7 = 3 + 2 + 2$ or $27 = 19 + 5 + 3$ or $27 = 17 + 5 + 5$
 \noindent This conjecture ist still (since more than 250 years) assumed
 unproven.
 
-\noindent Computers have verified the \textbf{weak Goldbach conjecture} for all odd
-natural numbers up to: $4*10^{18}$ (simple check at April 2012) and
+\noindent Computers have verified the \textbf{weak Goldbach conjecture} for
+all odd natural numbers up to: $4*10^{18}$ (simple check at April 2012) and
 $4*10^{17}$ (double check at May 2013).\footnote{%
 See \url{http://sweet.ua.pt/tos/goldbach.html} by Tomás Oliveira e Silva
     }
@@ -2035,19 +2139,27 @@ As with many famous conjectures in mathematics, there are also a number of
 purported proofs of the Goldbach conjecture, none accepted by the mathematical
 community yet.\footnote{%
 One of them is in the paper from Shan-Guang Tan, submitted on 16 Oct 2011 (v1),
-last revised 26 Jun 2013 (v11) which claims to even proof the strong Goldbach
+last revised 20 May 2016 (v19) which claims to even proof the strong Goldbach
 conjecture.\\
 v1 has the title ``A proof of the Goldbach conjecture''.\\
-v11 has the title ``On the representation of even numbers as the sum and difference of two primes and the representation of odd numbers as the sum of an odd prime and an even semiprime and the distribution of primes in short intervals''.\\
+v19 has the title ``On the representation of even numbers as the sum and
+difference of two primes and the representation of odd numbers as the sum of
+an odd prime and an even semiprime and the distribution of primes in short
+intervals''.\\
 See \url{http://arxiv.org/abs/1110.3465}.
    }
 
-A preliminary work for a prove could be the prove published recently\footnote{\url{http://arxiv.org/abs/1201.6656}, submitted on 31 Jan 2012 (v1), last revised 3 Jul 2012 (v4)} by Terence Tao\index{Tao, Terence} from the University of California. He proved that every \textbf{odd} natural number greater than 1 can be represented as the sum of \textbf{at most five} prime numbers.
+A preliminary work for a prove could be the prove published
+recently\footnote{\url{http://arxiv.org/abs/1201.6656}, submitted on
+31 Jan 2012 (v1), last revised 3 Jul 2012 (v4)} by Terence Tao\index{Tao, Terence}
+from the University of California. He proved that every \textbf{odd} natural
+number greater than 1 can be represented as the sum of \textbf{at most five}
+prime numbers.
 
 Considerable work has been done on Goldbach's weak conjecture, culminating in a 2013 claim by Harald Helfgott to fully prove the conjecture for all odd integers greater than 7.\footnote{%
 Helfgott, H.A. (2013): ``Major arcs for Goldbach's theorem''.
 \url{http://arxiv.org/abs/1305.2897}.\\
-v2 of his 133 pages paper (14 Jun 2013) states, that the proof works starting at $10^{29}$ (instead of $10^{30})$. And for all numbers up to $10^{30}$ he claims, that he and David Platt proved at the computer that the weak Goldbach is valid.
+v4 of his 79 pages paper (14 Apr 2014) states, that the proof works starting at $10^{29}$ (instead of $10^{30})$. And for all numbers up to $10^{30}$ he claims, that he and David Platt proved at the computer that the weak Goldbach is valid.
 \\
 \url{http://truthiscool.com/prime-numbers-the-271-year-old-puzzle-resolved}.\\
 \url{http://www.newscientist.com/article/dn23535-proof-that-an-infinite-number-of-primes-are-paired.html#.UgwhOpL0Ek0}.\\
@@ -2078,10 +2190,9 @@ Samples of Goldbach partitions: $8 = 5 + 3$ or $28 = 23 + 5$
      In 1999, mathematician J\"org Richstein\index{Richstein 1999}
      from the computer sciences institute at the University of Giessen,
      studied even numbers up to 400 billion ($4*10^{14}$) and found no
-     contradictory example (\cite{pr:Richstein1999}).\\
+     contradictory example (\cite{Richstein1999}).\\
      In the meantime further progress was made: See\\
      \url{http://sweet.ua.pt/tos/goldbach.html} by Tomás Oliveira e Silva, \\
-     \url{http://www.ieeta.pt/~tos/goldbach.html} by Tomás Oliveira e Silva,\\
      \url{http://en.wikipedia.org/wiki/Goldbach's\_conjecture},\\
      \url{http://primes.utm.edu/glossary/page.php/GoldbachConjecture.html}.\\      
      Nevertheless, this does not provide us with general proof.\\
@@ -2089,7 +2200,7 @@ Samples of Goldbach partitions: $8 = 5 + 3$ or $28 = 23 + 5$
      date not been proven. This leads one to believe that since the pioneer
      work of the Austrian mathematician Kurt G\"odel \index{G\""odel, Kurt}
      is well-known, not every true mathematical theorem is provable (see
-     \url{http://www.mathematik.ch/mathematiker/goedel.html}).
+     \url{https://www.mathematik.ch/mathematiker/goedel.php}).
      Perhaps Goldbach's conjecture was correct, but in any case the proof
      will never be found. Conversely, that will presumably also remain 
      unproven.}
@@ -2121,8 +2232,9 @@ Samples of Goldbach partitions: $8 = 5 + 3$ or $28 = 23 + 5$
      addition and multiplication of natural numbers.}
 
 As bigger an even number is, as more such binary Goldbach partitions can be found -- in average: For $4$ there is only one partition $2 + 2$; for $16$ there are two, $3 + 13$ and $5 + 11$. With $100$ there are six such partitions: $3 + 97$, $11 + 89$, $17 + 83$, $29 + 71$, $41 + 59$, $47 + 53$.\footnote{%
-     Progress in research about the Goldbach conjectures is often a topic in mathematical press column, like \url{http://oumathclub.wordpress.com/}.
-     }   % end_footnote
+   Progress in research about the Goldbach conjectures is often a topic in
+   mathematical press column, like \url{http://oumathclub.wordpress.com/}.
+   }   % end_footnote
 
 
 
@@ -2200,14 +2312,14 @@ J\'{a}nos Pintz and Cem Yildirim in 2003.\footnote{%
     \url{http://www.math.sjsu.edu/~goldston/OberwolfachAbstract.pdf}\\ 
     See also: 
     \begin{compactitem}
-       \item D. A. Goldstone: "Are There Infinitely Many Twin Primes?"\\
-            \url{http://www.math.sjsu.edu/~goldston/twinprimes.pdf}
-       \item K. Soundararajan: "Small Gaps Between Prime Numbers:
-            The Work Of Goldston-Pintz-Yildirim"\\
-	    \url{http://www.ams.org/bull/2007-44-01/S0273-0979-06-01142-6/S0273-0979-06-01142-6.pdf}
+       \item D. A. Goldstone: ``Are There Infinitely Many Twin Primes?''\\
+          \url{http://www.math.sjsu.edu/~goldston/twinprimes.pdf}
+       \item K. Soundararajan: ``Small Gaps Between Prime Numbers:
+          The Work Of Goldston-Pintz-Yildirim''\\
+          \url{http://www.ams.org/bull/2007-44-01/S0273-0979-06-01142-6/S0273-0979-06-01142-6.pdf}
     \end{compactitem}
-    \vspace{-\baselineskip} % TODO: Geht das nicht anders?
-                                               }
+    \vspace{-\baselineskip}
+   }
 The three mathematicians were investigating the distribution of prime numbers.
 They could proof, that \[ \liminf_{n\to\infty}{\frac{p_{n+1}-p_n}{\log{p_n}}}=0,\]
 where $p_{n}$ denotes the $n$-th prime number. \\
@@ -2245,12 +2357,13 @@ Alphonse de Polignac that there are infinitely many prime pairs for any
 possible even finite gap, not just $2$.
        }${}^,$\footnote{%
 In the meantime this minimal gap $H$ of 70 millions was improved in further
-work. The according progress in documented in the Polymath8 project (massively
-collaborative online mathematical projects): "Bounded gaps between primes".
-The best known value of $H$ till now (as of August 2013) is $4680$ -- this is
-a good progress compared to 70 million, but far away from $2$.\\
+work. The according progress is documented in the Polymath8 project (massively
+collaborative online mathematical projects): ``Bounded gaps between primes''.
+The best known value of $H$ was $4680$ (as of August 2013) and is till now
+(as of April 2014) $2460$ -- this is a good progress compared to 70 million,
+but far away from $2$.\\
 See \url{http://michaelnielsen.org/polymath1/index.php?title=Bounded_gaps_between_primes}
-       }
+   }
 
 Those results could be the basis for the proof, that infinitely many twin
 primes exist.
@@ -2265,7 +2378,7 @@ primes exist.
     \footnotetext{%
 Further curious things about primes may be found at:\\
 - \url{http://primes.utm.edu/curios/home.php}\\
-- \url{http://www.primzahlen.de/files/theorie/index.htm}.
+- \url{http://www.primzahlen.de}.
 }
 \label{HT-Quaint-curious-Primes-usage}
 
@@ -2278,7 +2391,7 @@ scientific research.
 \hypertarget{HT-GoogleRecruitment2004}{}
 \subsubsection{Recruitment at Google in 2004}%
 % \paragraph*{Recruitment at Google in 2004}%
-\index{Google!Recruitment}%
+\index{Google!recruitment}%
 \label{HT-GoogleRecruitment2004}%
 \mbox{}
 In summer 2004 the company Google used the number $e$ to attract potential
@@ -2289,10 +2402,9 @@ analysis, finance, physics and geometry. Now it was used the first time -- as
 far as I know -- for marketing or recruitment.}${}^,$\footnote{Most of this
 information is taken from the article ``e-number crunching'' by John Allen
 Paulos in TheGuardian, Sept. 30, 2004, and from the web:\\
-- \url{http://www.mkaz.com/math/google/}\\
+- \url{https://mkaz.tech/google-billboard-problems.html}\\
 - \url{http://epramono.blogspot.com/2004/10/7427466391.html}\\
-- \url{http://mathworld.wolfram.com/news/2004-10-13/google/}\\
-- \url{http://www.math.temple.edu/~paulos/}.
+- \url{http://mathworld.wolfram.com/news/2004-10-13/google/}.
 }
 
 On a prominent billboard in California's Silicon Valley on July 12 there
@@ -2342,15 +2454,14 @@ aliens didn't just speak English ...
 
 Doing communication with absolute strange and unknown beings from deep space 
 is very hard especially because of 2 reasons: 
-First the big distance and therefore the long transfer time makes it impossible
-to exchange within an average lifetime more than one message in each direction
-ne after the other.
+First, the big distance and therefore the long transfer time make it impossible
+to exchange within an average lifetime more than one message in each direction.
 Secondly the first contact must give the receiver of the radio signals a good
 chance to notice the message and to categorize it as something from
 intelligent beings.
 Therefore the aliens send numbers at the beginning of their message, which
 can be considered as the easiest part of any higher language, and which are
-not too trivial: so they chose the sequence of primes. These special numbers
+not too trivial: So they chose the sequence of primes. These special numbers
 play such a fundamental role in mathematics that one can assume that they are
 well known to each species who has the technical know-how to receive radio
 waves.
@@ -2462,8 +2573,8 @@ at an early stage.
 
 \vskip +12pt
 \noindent \textbf{Web links:}\\
-\url{http://www.math.Princeton.EDU/~arbooker/nthprime.html} \\
-\url{http://www.utm.edu/research/primes/notes/by_year.html}.
+\url{https://primes.utm.edu/nthprime/} \\
+\url{https://primes.utm.edu/notes/by_year.html}.
 
 
 
@@ -2476,7 +2587,7 @@ occur that are so large or so small that they are inaccessible to our
 intuitive understanding. It may therefore be useful to provide comparative 
 numbers from the real world around us so that we can develop a feeling for 
 the security of cryptographic algorithms. Some of the numbers listed below 
-originate from \cite{pr:Schwenk1996} and \cite[p.18]{pr:Schneier1996p}.  
+originate from \cite{Schwenk1996} and \cite[p.18]{Schneier1996}.  
 \hypertarget{grosord}{}
 
 \vskip +20pt 
@@ -2778,7 +2889,7 @@ sage: pari(10**9).primepi()-pari(10**8).primepi()
 \index{SageMath}
 
 \noindent Below is SageMath source code related to contents of the
-chapter~\ref{Label_Kapitel_Primes} (``\nameref{Label_Kapitel_Primes}''). 
+chapter~\ref{Chapter_Primes} (``\nameref{Chapter_Primes}''). 
 
 
 % ---------------------------------------------------------------------------
@@ -2789,7 +2900,7 @@ chapter~\ref{Label_Kapitel_Primes} (``\nameref{Label_Kapitel_Primes}'').
 This part of the appendix contains SageMath code, to perform some simple
 computations about primes.%
 \footnote{See the SageMath documentation about elementary number theory
-          \url{http://www.sagemath.org/doc/constructions/number_theory.html}.}
+   \url{http://doc.sagemath.org/html/en/constructions/number_theory.html}.}
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -2955,126 +3066,12 @@ Percentage of primes: 58.3416583417
 
 
 
-
-
-
-
-% --------------------------------------------------------------------------
-\newpage
-\begin{thebibliography}{99999}
+%------------------------------------------------------------------------------
+\putbib[../de/references]
 \addcontentsline{toc}{section}{Bibliography}
+\end{bibunit}
 
-
-\bibitem[Aaronson2003]{pr:Aaronson2003} \index{Aaronson 2003}
-    Scott Aaronson, \\
-    {\em The Prime Facts: From Euclid to AKS}, \\
-    \url{http://www.scottaaronson.com/writings/prime.pdf} \\
-    After I had completed the first edition of this article, I did come
-    across the fine paper by Scott Aaronson, which also offers
-    a didactically very well-done introduction to this topic. It is 
-    humorous and easy to read but at the same time precise and erudite.
-
-% already defined in elementaryNumberTheory.inc -> 2 davor
-\bibitem[Bartholome1996]{pr:2Bartholome1996}  \index{Bartholome 1996}
-    A. Bartholom\'e, J. Rung, H. Kern, \\     
-    {\em Zahlentheorie f\"ur Einsteiger}, Vieweg, 1995, 2nd edition 1996.
-
-\bibitem[Blum1999]{pr:Blum1999} \index{Blum 1999}   
-    W. Blum, \\     
-    {\em Die Grammatik der Logik}, dtv, 1999.
-
-\bibitem[Bundschuh1998]{pr:Bundschuh1998} \index{Bundschuh 1998}
-    Peter Bundschuh, \\
-    {\em Einf\"uhrung in die Zahlentheorie}, Springer, 1988, 4th edition 1998.
-
-\bibitem[Crandell2001]{pr:Crandell2001} \index{Crandell 2001} \index{Pomerance 2001}
-    Richard Crandell, Carl Pomerance, \\
-    {\em Prime Numbers. A Computational Perspective}, Springer, 2001.
-
-\bibitem[Doxiadis2000]{pr:Dioxadis2000}
-    Apostolos Doxiadis, \\
-    {\em Uncle Petros and the Goldbach's Conjecture}, \\
-    Faber/Bloomsbury, 2000.
-
-\bibitem[Graham1989]{pr:Graham1989} \index{Graham 1989}     
-   R.E. Graham, D.E. Knuth, O. Patashnik, \\
-   {\em Concrete Mathematics}, Addison-Wesley, 1989.
-
-\bibitem[Klee1997]{pr:Klee1997} \index{Klee 1997}     
-   V. Klee, S. Wagon, \\
-   {\em Ungel\"oste Probleme in der Zahlentheorie und der Geometrie der 
-   Ebene}, \\ Birkh\"auser Verlag, 1997.
-
-\bibitem[Knuth1981]{pr:Knuth1981} \index{Knuth 1981}     
-   Donald E. Knuth, \\ 
-   {\em The Art of Computer Programming, vol 2: Seminumerical Algorithms}, \\
-   Addison-Wesley, 1969, 2nd edition 1981.
-
-\bibitem[Lorenz1993]{pr:Lorenz1993} \index{Lorenz 1993}     
-   F. Lorenz, \\
-   {\em Algebraische Zahlentheorie}, BI Wissenschaftsverlag, 1993.
-
-\bibitem[Oppliger2011]{pr:Oppliger2011} \index{Oppliger 2011}
-    Rolf Oppliger \\
-    {\em Contemporary Cryptography, Second Edition},
-    Artech House, 2011, \\
-    \url{http://books.esecurity.ch/cryptography2e.html}.
-
-\bibitem[Padberg1996]{pr:Padberg1996} \index{Padberg 1996}     
-   Friedhelm Padberg, \\
-   {\em Elementare Zahlentheorie}, 
-   Spektrum Akademischer Verlag, 1988, 2nd edition 1996.
-
-\bibitem[Pieper1983]{pr:Pieper1983} \index{Pieper 1983}     
-   H. Pieper, \\
-   {\em Zahlen aus Primzahlen}, 
-   Verlag Harri Deutsch, 1974, 3rd edition 1983.
-
-\bibitem[Rempe2009]{pr:Rempe2009}  \index{Rempe 2009}
-    L. Rempe, R. Waldecker, \\
-    {\em Primzahltests f\"ur Einsteiger}, Vieweg+Teubner, 2009. \\
-    This books results from a course for specially talented pupils at the
-    ``Deutsche Sch\"ulerakademie''.
-    It completely presents the AKS proof -- without expecting mathematical
-    pre-knowledge.
-
-\bibitem[Richstein1999]{pr:Richstein1999} \index{Richstein 1999}
-    J. Richstein, \\
-    {\em Verifying the Goldbach Conjecture up to $4*10^{14},$}
-    Mathematics of Computation 70, 2001, p. 1745-1749). 
-
-\bibitem[Scheid1994]{pr:Scheid1994} \index{Scheid 1994}
-    Harald Scheid, \\ 
-    {\em Zahlentheorie}, BI Wissenschaftsverlag, 2nd edition 1994.
-
-\bibitem[Schneier1996]{pr:Schneier1996p} \index{Schneier 1996}     
-    Bruce Schneier, \\
-    {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C},\\
-    Wiley and Sons, 2nd edition 1996.
-
-\bibitem[Schroeder1999]{pr:Schroeder1999} \index{Schroeder 1999}
-    M.R. Schroeder, \\
-    {\em Number Theory in Science and Communication}, \\ 
-    Springer, 1984, 3rd edition 1997, Corrected Printing 1999.
-
-\bibitem[Schwenk1996]{pr:Schwenk1996} \index{Schwenk 1996}     
-    J. Schwenk \\
-    {\em Conditional Access}, 
-    in taschenbuch der telekom praxis, 1996, \\
-    Hrgb. B. Seiler, Verlag Schiele und Sch\"on, Berlin.
-
-\bibitem[Shoup2005]{pr:Shoup2005} \index{Shoup 2005}
-    Victor Shoup \\
-    {\em A Computational Introduction to Number Theory and Algebra},\\
-    Cambridge University Press, 2005, \\
-    \url{http://shoup.net/ntb/}.
-
-\bibitem[Tietze1973]{pr:Tietze1973} \index{Tietze 1973}     
-    H. Tietze, \\
-    {\em Gel\"oste und ungel\"oste mathematische Probleme}, \\
-    Verlag C. H. Beck, 1959, 6th edition 1973.
-
-\end{thebibliography}
+\noindent All links have been confirmed at July 11, 2016.
 
 
 % --------------------------------------------------------------------------
@@ -3083,13 +3080,13 @@ Percentage of primes: 58.3416583417
 \chapter*{Web links} \addcontentsline{toc}{section}{Web links}
 
 \begin{enumerate}
-\item GIMPS (Great Internet Mersenne-Prime Search) 
+\item GIMPS (Great Internet Mersenne Prime Search) 
       \index{Mersenne!prime number}  \index{GIMPS} \\
       www.mersenne.org is the home page of the GIMPS project, \\
-      \url{http://www.mersenne.org/prime.htm}
+      \url{http://www.mersenne.org/primes/}
 
 \item The Proth Search Page with the Windows program by Yves Gallot \\
-      \url{http://www.utm.edu/research/primes/programs/gallot/index.html}
+      \url{http://primes.utm.edu/programs/gallot/index.html}
 
 \item Generalized Fermat Prime Search \\
       \url{http://primes.utm.edu/top20/page.php?id=12}
@@ -3097,45 +3094,44 @@ Percentage of primes: 58.3416583417
 \item Distributed Search for Fermat Number Divisors \\
       \url{http://www.fermatsearch.org/}
 
-\item At the University of Tennessee you will find extensive research
+\item The University of Tennessee hosts extensive research
       results about prime numbers. \\
       \url{http://www.utm.edu/}
 
 \item The best overview about prime numbers is offered from my point of view 
       by ~``The Prime Pages'' from professor Chris Caldwell.
       \index{Caldwell Chris} \\
-      \url{http://www.utm.edu/research/primes}
+      \url{http://primes.utm.edu/}
 
-\item Descriptions e.g.\ about prime number tests \\
-      \url{http://www.utm.edu/research/primes/mersenne.shtml} \\
-      \url{http://www.utm.edu/research/primes/prove/index.html}
+\item Descriptions e.g.\ about prime number tests\\
+      \url{http://www.utm.edu/research/primes/mersenne.shtml}\\
+      \url{http://primes.utm.edu/prove/index.html}
 
 \item Showing the $n$-th prime number P(n)\\
-      \url{http://www.utm.edu/research/primes/notes/by_year.html}
+      \url{https://primes.utm.edu/notes/by_year.html}\\
+      \url{https://primes.utm.edu/nthprime/}
 
 \item The supercomputer manufacturer SGI Cray Research not only 
       employed brilliant mathematicians but also used the prime 
-      number tests as benchmarks for its machines. \\
+      number tests as benchmarks for its machines.\\
       \url{http://www.isthe.com/chongo/tech/math/prime/prime_press.html}
 	 
-\item The Cunningham Project, \index{Cunningham project}\\ 
+\item The Cunningham Project\index{Cunningham project}\\ 
       \url{http://www.cerias.purdue.edu/homes/ssw/cun/}
 
-\item \url{http://www.eff.org/awards/coop}
-
-% \item \url{http://www.informatik.tu-darmstadt.de/TI/LiDIA/}
-
-\item \url{http://www.math.Princeton.EDU/~arbooker/nthprime.html}
-% {\tt http://www.math.Princeton.EDU/\~{}arbooker/nthprime.html }
+\item EFF Cooperative Computing Awards\\
+	\url{http://www.eff.org/awards/coop}
 
 \item Goldbach conjecture verification project by Tomás Oliveira e Silva,
       \index{Goldbach project}\\ 
       \url{http://sweet.ua.pt/tos/goldbach.html}
 
-\item \url{http://www.mathematik.ch/mathematiker/goedel.html}
+\item Kurt G\"odel\\
+	\url{https://www.mathematik.ch/mathematiker/goedel.php}
 
 \end{enumerate}
 
+\noindent All links have been confirmed at July 11, 2016.
 
 
 

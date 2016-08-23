@@ -3,6 +3,9 @@
 % B i t b l o c k -  u n d  B i t s t r o m - V e r s c h l ü s s e l u n g
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
+
+
 %BERM0 Changed when bc becoming part of the CT book.
 %BERM1 Transformed to comment when bc becoming part of the CT book: There it already was in script-en.tex.
 %BERM2 Transformed to comment when bc becoming part of the CT book: Added there to script-en.tex.
@@ -23,14 +26,22 @@
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 % Pommerenings Spezialitäten
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-% \newcommand*{\C}{\mathbb{C}}   %BERM3
-\renewcommand*{\C}{\mathbb{C}}   %BERM3
 \newcommand*{\F}{\mathbb{F}}
 \newcommand*{\M}{\mathbb{M}}
-\renewcommand*{\N}{\mathbb{N}}   %BERM3
-\renewcommand*{\Q}{\mathbb{Q}}   %BERM3
-\renewcommand*{\R}{\mathbb{R}}   %BERM3
-\renewcommand*{\Z}{\mathbb{Z}}   %BERM3
+
+%% yyyyyyyyycccc 3.8.16 Side effect of using \begin{bibunit} with 5 renews: The commands
+%% are no more known from before and so cannot be renewed (so still to be newly defined)
+%% \renewcommand*{\C}{\mathbb{C}}   %BERM3
+%% \renewcommand*{\N}{\mathbb{N}}   %BERM3
+%% \renewcommand*{\Q}{\mathbb{Q}}   %BERM3
+%% \renewcommand*{\R}{\mathbb{R}}   %BERM3
+%% \renewcommand*{\Z}{\mathbb{Z}}   %BERM3
+\newcommand*{\C}{\mathbb{C}}
+\newcommand*{\N}{\mathbb{N}}
+\newcommand*{\Q}{\mathbb{Q}}
+\newcommand*{\R}{\mathbb{R}}
+\newcommand*{\Z}{\mathbb{Z}}
+
 \newcommand*{\lsb}{\operatorname{lsb}}
 \newcommand*{\Oh}{\operatorname{O}}
 
@@ -61,12 +72,13 @@
 \hypertarget{Chapter_BitCiphers}{}   %BERM0
 \chapter{Einführung in die Bitblock- und Bitstrom-Verschlüsselung}
 \label{Chapter_BitCiphers}
-(Klaus Pommerening, Januar--Juni 2015; Updates: Januar 2016, April 2016) \\
+(\hyperlink{author_Klaus-Pommerening}{Klaus Pommerening},
+ Januar--Juni 2015; Updates: Jan. 2016, Apr. 2016) \\
 
 \noindent
 Während asymmetrische Verschlüsselung meistens zahlentheoretische Methoden
 verwendet, beruhen die heutigen symmetrischen
-Verschlüsselungsverfahren\index{symmetrische Verschlüsselung}
+Verschlüsselungsverfahren\index{Verschlüsselung!symmetrisch}
 in der Regel auf Boolescher Algebra\index{Boolesche Algebra}\index{Algebra!Boolesche},
 d.\,h., auf Manipulationen von Bits.
 Das ist eine ganz andere Art von Mathematik, für Einsteiger vielleicht
@@ -94,11 +106,11 @@ Der Schwerpunkt dieses Kapitels liegt in der Einführung in die
 mathematischen Grundlagen der Verschlüsselungstechniken, die auf
 Bits operieren. Konkrete Verfahren werden nicht detailliert beschrieben;
 hierfür sei auf die Bücher von
-Menezes/Orschot/Vanstone \cite{HAC},
-Oppliger \cite{Opp},
-Paar und Pelzl \cite{PaPe},
-Schmeh \cite{Schm}
-und Stamp \cite{Sta} verwiesen.
+Menezes/Orschot/Vanstone \cite{Menezes2001},
+Oppliger \cite{Oppliger2011},
+Paar und Pelzl \cite{PaPe2009},
+Schmeh \cite{Schm2003, Schm2016}
+und Stamp \cite{Stamp2007} verwiesen.
 
 Noch ein Wort zur Nomenklatur: Die Verfahren werden in der Literatur
 meist als "`Blockchiffren\index{Blockchiffre}"' oder
@@ -112,13 +124,13 @@ aufnehmen.
 Das Thema dieses Kapitels ist also mit anderen Worten
 
 %\begin{quote}
-   {\bf Symmetrische Verschlüsselung von mit Bits dargestellten Informationen.}
+   {\bf Symmetrische Verschlüsselung von mit Bits dargestellten Informationen}.
 %\end{quote}
 
-Die mathematischen Grundlagen und Methoden gehören zu den Gebieten
+\noindent Die mathematischen Grundlagen und Methoden gehören zu den Gebieten
    
    {\bf Boolesche Algebra\index{Boolesche Algebra}\index{Algebra!Boolesche}
-   und endliche Körper\index{finite field}\index{field!finite}\index{endlicher Körper}\index{Körper!endlicher}}.
+   und endliche Körper\index{endlicher Körper}\index{Körper!endlich}}.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -189,7 +201,7 @@ und algebraischen Operationen auf.
 
 Da die algebraische Struktur als Körper\index{Körper} für die Kryptographie
 eine herausragende Rolle spielt, wird hier die in der Algebra übliche
-Bezeichnung für endliche Körper\index{Körper!endliche} $\F_q$ (oft
+Bezeichnung für endliche Körper\index{Körper!endlich} $\F_q$ (oft
 auch $\text{GF}(q)$ für "`Galois\index{Galois, Évariste}\footnote{%
   Évariste Galois, französischer Mathematiker,
   25.10.1811--31.5.1832.
@@ -235,6 +247,7 @@ hingewiesen:
       Denn das doppelte Produkt ist $0$.
 \end{itemize}
 
+
 \subsection{Beschreibung Boolescher Funktionen}\label{ss-bool-descr}
 
 Definieren wir zunächst ganz naiv: Eine {\bf Boolesche
@@ -244,15 +257,16 @@ bestimmten Anzahl von Bits ein neues Bit erzeugt. Bevor wir diese
 Definition mathematisch präzise fassen (siehe Definition~\ref{def-bool-fkt}),
 soll sie zunächst etwas anschaulicher gemacht werden.
 
-Für eine vertiefte Darstellung sei auf \cite{CuSt} oder \cite{Pomm}
+Für eine vertiefte Darstellung sei auf \cite{CuSt2009} oder \cite{Pomm2008, Pomm2014}
 sowie die beiden Artikel von Claude Carlet\footnote{%
-  siehe auch dessen Publikationsverzeichnis unter%BERM Todo ohne Eile -- evtl. \url statt \href
-  \href{http://www.math.univ-paris13.fr/~carlet/pubs.html}{\tt http://www.math.univ-paris13.fr/$\sim$carlet/pubs.html}
-} in \cite{CrHa}\footnote{%
+  siehe auch dessen Publikationsverzeichnis unter
+  %BERM \url statt \href
+  % \href{http://www.math.univ-paris13.fr/~carlet/pubs.html}{\tt http://www.math.univ-paris13.fr/$\sim$carlet/pubs.html}
+  \url{http://www.math.univ-paris13.fr/~carlet/pubs.html}
+} in \cite{CrHa2010}\footnote{%
   online zu finden unter
-  \href{http://www.math.univ-paris13.fr/~carlet/chap-fcts-Bool-corr.pdf}{\tt http://www.math.univ-paris13.fr/$\sim$carlet/chap-fcts-Bool-corr.pdf}
-  und
-  \href{http://www.math.univ-paris13.fr/~carlet/chap-vectorial-fcts-corr.pdf}{\tt http://www.math.univ-paris13.fr/$\sim$carlet/chap-vectorial-fcts-corr.pdf}
+  \url{http://www.math.univ-paris13.fr/~carlet/chap-fcts-Bool-corr.pdf}  und
+  \url{http://www.math.univ-paris13.fr/~carlet/chap-vectorial-fcts-corr.pdf}
 } verwiesen.
 
 Als ganz einfaches Musterbeispiel dient die Funktion AND\index{AND}: Sie nimmt zwei Bits
@@ -261,9 +275,13 @@ des logischen "`und"', siehe Tabelle~\ref{t-bool-xor}.
 
 Als etwas komplizierteres Beispiel möge die Funktion $f_0$ dienen, die aus drei Bits
 $x_1$, $x_2$ und $x_3$ den Wert
-\[
+\begin{equation}\label{bc_sample-fct-f0-with-3-vars}
    f_0(x_1, x_2, x_3) = x_1\: \text{AND}\: (x_2\: \text{OR}\: x_3)
-\]
+\end{equation}
+% Hier equation statt  \[...\]  oder  $$...$$, die wohl äqivalent sind. Vorher war:
+%  \[
+%     f_0(x_1, x_2, x_3) = x_1\: \text{AND}\: (x_2\: \text{OR}\: x_3)
+%  \]
 berechnet.
 
 Veranschaulichen kann man sich eine Boolesche Funktion durch eine
@@ -295,8 +313,9 @@ Arten beschreiben:
    \item {\bf pragmatisch} durch eine Wahrheitstafel\index{Wahrheitstafel}
       (das ist die Wertetabelle).
 \end{itemize}
-Für die Beispielfunktion $f_0$ steht die Formel schon da. Der Algorithmus
-wird hier ebenfalls durch diese Formel am besten beschrieben, da keinerlei
+Die Beispielfunktion $f_0$ ist mathematisch definiert in der
+Gleichung~(\ref{bc_sample-fct-f0-with-3-vars}). Der entsprechende Algorithmus
+wird hier am besten ebenfalls durch diese Formel beschrieben, da keinerlei
 Verzweigungen oder bedingte Anweisungen nötig sind. Als Schaltnetz kann man
 $f_0$ etwa wie in Abbildung~\ref{fig-bool-circuit} visualisieren.
 Die Wahrheitstafel gibt zu jedem Input-Tripel einfach den Wert von $f_0$ an,
@@ -443,7 +462,7 @@ $2^{2^n}$ Elemente.
    \item[Konvention:] Beschreibt man eine Boolesche Funktion durch ihre
       Wahrheitstafel, so ordnet man diese, wie auch oben im Beispiel
       schon gesehen, in der Regel lexikographisch\index{lexikographisch}\footnote{%
-        Bei einer lexikographischen Ordnung\index{Ordnung!lexikographische}
+        Bei einer lexikographischen Ordnung\index{Ordnung!lexikographisch}
         werden die zu ordnenden
         Zeichenketten (wie in einem Lexikon) nach der Größe des ersten
         Zeichens -- hier $0$ oder $1$ mit $0 < 1$ -- geordnet.
@@ -475,12 +494,12 @@ außer der Wahrheitstafel zwei Ansätze gebräuchlich:
       (die Operation AND\index{AND}, auch $\wedge$ geschrieben) und Negationen
       (die Operation NOT\index{NOT}, auch $\neg$ geschrieben) ausgedrückt.
       Zusammensetzungen dieser Operationen heißen {\bf logische
-      Ausdrücke}\index{logischer Ausdruck}\index{Ausdruck!logischer}.
+      Ausdrücke}\index{logischer Ausdruck}\index{Ausdruck!logisch}.
    \item In der Algebra werden Boolesche Funktionen durch die
       Addition $+$ und die Multiplikation $\cdot$ des Körpers $\F_2$
       ausgedrückt. Zusammensetzungen dieser Operationen heißen
       {\bf (binäre) polynomiale
-      Ausdrücke\index{polynomialer Ausdruck}\index{Ausdruck!polynomialer}}\footnote{%
+      Ausdrücke\index{polynomialer Ausdruck}\index{Ausdruck!polynomial}}\footnote{%
         Nicht polynomial wären Ausdrücke, in denen andere Verknüpfungen
         vorkommen. Bei Zahlen könnte man hier auch daran denken,
         Inputvariablen als Exponenten zu verwenden, das ergibt bei den
@@ -560,7 +579,7 @@ Negierte Input-Bits kommen in diesem Beispiel nicht vor. Solche sieht
 man aber in Tabelle~\ref{tab-bool-2} recht häufig.
 
 Die Gestalt einer Booleschen Funktion nach Satz~\ref{thm-bool-disj}
-heißt {\bf konjunktive Normalform\index{konjunktive Normalform}\index{Normalform!konjunktive}
+heißt {\bf konjunktive Normalform\index{konjunktive Normalform}\index{Normalform!konjunktiv}
 (CNF\index{CNF})}. Sie ist nicht eindeutig\footnote{%
   Z.\,B. könnte man der Normalform von $f_0$ noch die Terme
   $\wedge\: (x_1 \vee x_2) \wedge (x_1 \vee x_3)$ hinzufügen.
@@ -573,12 +592,12 @@ heißt {\bf konjunktive Normalform\index{konjunktive Normalform}\index{Normalform
 }.
 Ohne weitere Erklärung sei vermerkt, dass man sie weiter zu einer "`kanonischen
 CNF"' vereinfachen kann und damit eine gewisse Eindeutigkeit erhält.
-Auch eine analoge disjunktive Normalform\index{disjunktive Normalform}\index{Normalform!disjunktive}
+Auch eine analoge disjunktive Normalform\index{disjunktive Normalform}\index{Normalform!disjunktiv}
 ({\bf DNF\index{DNF}}) ist möglich ("`Disjunktion von Konjunktionen"').
 
 \subsection{Polynomiale Ausdrücke und algebraische Normalform}\label{ss-bool-anf}
 
-Betrachten wir (binäre) polynomiale\index{polynomialer Ausdruck}\index{Ausdruck!polynomialer}
+Betrachten wir (binäre) polynomiale\index{polynomialer Ausdruck}\index{Ausdruck!polynomial}
 Ausdrücke in den Variablen $x_1, \ldots, x_n$,
 wie etwa $x_1^2 x_2 + x_2 x_3 + x_3^2$, so verwenden wir als Koeffizienten,
 da wir im Körper $\F_2$ rechnen, nur die Konstanten $0$ und $1$, und diese
@@ -591,7 +610,7 @@ der ersten Potenz zu berücksichtigen brauchen. Den Beispielausdruck können
 wir also auch als $x_1 x_2 + x_2 x_3 + x_3$ schreiben.
 Ein anderes Beispiel: $x_1^3 x_2 + x_1 x_2^2 = x_1 x_2 + x_1 x_2 = 0$.
 
-Allgemein hat ein {\bf monomialer Ausdruck\index{monomialer Ausdruck}\index{Ausdruck!monomialer}}
+Allgemein hat ein {\bf monomialer Ausdruck\index{monomialer Ausdruck}\index{Ausdruck!monomial}}
 (oder einfach nur "`Monom\index{Monom}"') die Gestalt
 \[
     x^I := \prod_{i \in I} x_i
@@ -620,7 +639,7 @@ Funktion\index{Boolesche Funktion}\index{Funktion!Boolesche}
 interpretieren. Ob diese Funktionen alle verschieden
 sind, wissen wir noch nicht, werden es aber gleich sehen.
 
-Ein polynomialer\index{polynomialer Ausdruck}\index{Ausdruck!polynomialer}
+Ein polynomialer\index{polynomialer Ausdruck}\index{Ausdruck!polynomial}
 Ausdruck ist eine Summe von monomialen Ausdrücken
 (die Koeffizienten können hier im binären Fall ja nur $0$ oder $1$
 sein). Der allgemeinst mögliche (binäre) polynomiale Ausdruck
@@ -640,7 +659,7 @@ Funktion so ausdrücken lässt.
   Funktion $f\!: \F_2^n \longrightarrow \F_2$
   gibt es Koeffizienten $a_I \in \F_2$ (also $= 0$ oder $1$),
   wobei $I$ alle Teilmengen von $\{1, \ldots, n\}$ durchläuft, so dass
-  $f$ sich als polynomialer\index{polynomialer Ausdruck}\index{Ausdruck!polynomialer}
+  $f$ sich als polynomialer\index{polynomialer Ausdruck}\index{Ausdruck!polynomial}
   Ausdruck in $n$ Variablen so schreiben lässt:
 \begin{equation}\label{eq-bool-anf}
   f(x_1,\ldots,x_n) = \sum_{I \subseteq \{1,\ldots,n\}} a_I x^I.
@@ -712,8 +731,8 @@ Koeffizienten $1$ haben, während man Terme mit Koeffizienten $0$
 natürlich nicht hinzuschreiben braucht.
 
 Die durch Satz~\ref{thm-bool-anf1} garantierte Darstellung einer
-Booleschen Funktion als polynomialer Ausdruck\index{polynomialer Ausdruck}\index{Ausdruck!polynomialer}
-heißt {\bf algebraische\index{algebraische Normalform}\index{Normalform!algebraische}
+Booleschen Funktion als polynomialer Ausdruck\index{polynomialer Ausdruck}\index{Ausdruck!polynomial}
+heißt {\bf algebraische\index{algebraische Normalform}\index{Normalform!algebraisch}
 Normalform (ANF\index{ANF})}\footnote{%
    Die Umwandlung zwischen ANF und Wahrheitstafel
    wird von der (internen) Funktion {\tt \_\_convert()} der Klasse
@@ -732,7 +751,7 @@ polynomialer Ausdruck eindeutig sein. Damit ist gezeigt:
 
 \begin{satz}\label{thm-bool-anf2}
    Die Darstellung einer Booleschen Funktion in algebraischer
-   \index{algebraische Normalform}\index{Normalform!algebraische} Normalform
+   \index{algebraische Normalform}\index{Normalform!algebraisch} Normalform
    ist eindeutig.
 \end{satz}
 
@@ -743,7 +762,7 @@ polynomialer Ausdruck eindeutig sein. Damit ist gezeigt:
 \[
   \deg f = \max\{\#I \:|\: a_I \neq 0\},
 \]
-   wird als {\bf (algebraischer) Grad\index{Grad!algebraischer}} von $f$
+   wird als {\bf (algebraischer) Grad\index{Grad!algebraisch}} von $f$
    bezeichnet. Er ist stets $\leq n$.
 \end{definition}
 
@@ -757,11 +776,11 @@ maximal miteinander multipliziert werden.
       Konstanten $0$ und $1$.
 \end{description}
 Funktionen vom Grad $\leq 1$ werden auch als affine\index{affin}
-Funktionen\index{Funktion!affine} bezeichnet; sie sind die Summe einer
+Funktionen\index{Funktion!affin} bezeichnet; sie sind die Summe einer
 Konstanten und einer
 Booleschen Linearform, siehe dazu Abschnitt~\ref{ss-bool-lin}.
 Ist der Grad $> 1$, spricht man auch von nicht-linearen
-Funktionen\index{Funktion!nicht-lineare},
+Funktionen\index{Funktion!nicht-linear},
 obwohl die Bezeichnung "`nicht-affin"' korrekt wäre.
 \begin{description}
    \item[Beispiel:] Die durch $x \mapsto x_1 x_2 + x_2 x_3 + x_3$
@@ -771,7 +790,7 @@ obwohl die Bezeichnung "`nicht-affin"' korrekt wäre.
       Produkte verschiedener Variablen erreicht. Jede einzelne
       Variable kommt in jedem Monom der ANF stets nur maximal in der
       ersten Potenz vor. Man sagt auch, sämtliche partiellen
-      Grade\index{partieller Grad}\index{Grad!partieller} --
+      Grade\index{partieller Grad}\index{Grad!partiell} --
       das sind die Grade in den einzelnen Variablen $x_i$ ohne
       Berücksichtigung der anderen Variablen -- seien $\leq 1$.
 \end{description}
@@ -814,10 +833,10 @@ die Inputvariablen $x = x_1$, $y = x_2$.
 \end{table}
 
 Wir haben bereits gesehen, dass sich jede Boolesche Funktion in beliebig
-vielen Variablen als polynomialer\index{polynomialer Ausdruck}\index{Ausdruck!polynomialer}
+vielen Variablen als polynomialer\index{polynomialer Ausdruck}\index{Ausdruck!polynomial}
 Ausdruck schreiben lässt.
 Um die Darstellbarkeit aller Booleschen Funktionen als
-logische\index{logischer Ausdruck}\index{Ausdruck!logischer} Ausdrücke
+logische\index{logischer Ausdruck}\index{Ausdruck!logisch} Ausdrücke
 zu beweisen, muss man sich nur noch vergewissern, dass die algebraischen
 Operationen $+$ und $\cdot$ durch die logischen Operationen $\vee$, $\wedge$
 und $\neg$ ausgedrückt werden können. Das liest man aus den entsprechenden
@@ -924,7 +943,7 @@ $q$-Tupel (oder System) von Booleschen Funktionen
 beschrieben werden kann.
 
 \begin{definition}
-   Der {\bf (algebraische) Grad\index{algebraischer Grad}\index{Grad!algebraischer}}
+   Der {\bf (algebraische) Grad\index{algebraischer Grad}\index{Grad!algebraisch}}
    einer Booleschen Abbildung
    $f\!\!: \F_2^n \longrightarrow \F_2^q$ ist das Maximum der algebraischen
    Grade ihrer Komponenten,
@@ -943,7 +962,7 @@ beschrieben werden kann.
 \end{satz}
 Diese Darstellung einer Booleschen\index{Boolesche Abbildung}\index{Abbildung!Boolesche}
 Abbildung wird natürlich ebenfalls
-{\bf algebraische Normalform\index{algebraische Normalform}\index{Normalform!algebraische}}
+{\bf algebraische Normalform\index{algebraische Normalform}\index{Normalform!algebraisch}}
 genannt.
 Sie entsteht aus der Zusammenfassung der algebraischen Normalformen
 der Komponentenfunktionen $f_1, \ldots, f_q$.
@@ -1069,7 +1088,7 @@ Linearen Algebra üblichen Begriff entsprechen:
 \end{Beweis}
 
 Eine Boolesche Abbildung $f\!\!: \F_2^n \longrightarrow \F_2^q$ heißt
-linear\index{lineare Abbildung}\index{Abbildung!lineare},
+linear\index{lineare Abbildung}\index{Abbildung!linear},
 wenn alle ihre Komponentenfunktionen $f_1, \ldots, f_q$
 Linearformen\index{Linearform} sind. Genau wie im Fall $q = 1$ zeigt man:
 
@@ -1100,7 +1119,7 @@ Abbildung und einer Konstanten bilden lassen.
 Im Fall $q = 1$, also bei Funktionen, gibt es als mögliche Konstanten nur $0$
 und $1$. Die Addition der Konstanten $1$ entspricht genau der logischen
 Negation, d.\,h. dem "`Umkippen"' aller Bits. Daher kann man auch sagen:
-{\em Die affinen Booleschen Funktionen\index{Funktion!affine} sind genau die Linearformen und
+{\em Die affinen Booleschen Funktionen\index{Funktion!affin} sind genau die Linearformen und
 deren Negationen.}
 
 \subsection{Boolesche lineare Gleichungssysteme}\label{ss-bool-lgl}
@@ -1108,7 +1127,7 @@ deren Negationen.}
 Die Algebra über dem Körper $\F_2$ ist so einfach, dass manche Komplikation,
 die man aus anderen mathematischen Fachgebieten kennt, hier in sich zusammenfällt.
 Das gilt auch für das Lösen linearer
-Gleichungssysteme\index{lineares Gleichungssystem}\index{Gleichungssystem!lineares}.
+Gleichungssysteme\index{lineares Gleichungssystem}\index{Gleichungssystem!linear}.
 Ein solches hat die Gestalt
 \[
 \begin{matrix}
@@ -1129,9 +1148,9 @@ $(n \times 1)$- bzw. $(m \times 1)$-Matrizen gedacht werden.
 \subsubsection*{Lineare Gleichungssysteme in SageMath}
 
 Um die Verbindung mit der "`gewöhnlichen"' Linearen
-Algebra\index{lineare Algebra}\index{Algebra!Lineare} herzustellen,
+Algebra\index{lineare Algebra}\index{Algebra!lineare} herzustellen,
 betrachten wir ein Beispiel über den rationalen Zahlen, das
-Gleichungssystem\index{lineares Gleichungssystem}\index{Gleichungssystem!lineares}
+Gleichungssystem\index{lineares Gleichungssystem}\index{Gleichungssystem!linear}
 \[
 \begin{matrix}
             x_1 & + & 2 x_2 & + & 3 x_3 & = &  0 \\
@@ -1187,7 +1206,7 @@ sage: A*y
 (0, -4, -1)
 \end{verbatim}
 \caption{Auflösung eines linearen
-  Gleichungssystems\index{lineares Gleichungssystem}\index{Gleichungssystem!lineares}
+  Gleichungssystems\index{lineares Gleichungssystem}\index{Gleichungssystem!linear}
   über $\Q$}
 \label{Sage-code-bool-lin-equ-Q}
 \end{sagecode}
@@ -1197,13 +1216,13 @@ sage: A*y
 Im allgemeinen Fall (über einem beliebigen Körper) findet man die
 Lösung eines linearen Gleichungssystems
 durch Gaußsche\footnote{%
-  Johann Carl Friedrich Gauß\index{Gauss, Johann Carl Friedrich},
+  Johann Carl Friedrich Gauß\index{Gauss, Carl Friedrich},
   deutscher Mathematiker, Astronom, Geodät und Physiker, 30.4.1777--23.2.1855
 } Elimination; dieser Algorithmus steckt natürlich auch in
 der SageMath-Methode {\tt solve\_right()}.
 
 Im Booleschen Fall (über dem Körper $\F_2$) ist die Lösung
-linearer\index{lineares Gleichungssystem}\index{Gleichungssystem!lineares}
+linearer\index{lineares Gleichungssystem}\index{Gleichungssystem!linear}
 Gleichungssysteme mit Gaußscher Elimination\index{Elimination} extrem einfach, da nur
 Koeffizienten $0$ und $1$ vorkommen und Multiplikationen oder
 Divisionen völlig entfallen; auch komplizierte Koeffizienten (wie
@@ -1435,6 +1454,7 @@ stehen im SageMath-Beispiel~\ref{ss-bool-conv}.
 \caption{Interpretationen der Bitblöcke der Länge $3$}\label{tab-bool-3}
 \end{table}
 
+
 \subsubsection*{Repräsentation der Wahrheitstafel einer Booleschen Funktion}
 
 \begin{table}[hbpt]
@@ -1452,7 +1472,7 @@ stehen im SageMath-Beispiel~\ref{ss-bool-conv}.
    \hline
 \end{tabular}
 \end{center}
-\caption{Beispiel einer erweiterten Wahrheitstafel\index{Wahrheitstafel} [für
+\caption{Erweiterte Wahrheitstafel\index{Wahrheitstafel} [für
    $f_0(x_1,x_2,x_3) = x_1 \wedge (x_2 \vee x_3)$]
    mit $n = 3$ und $2^n = 8$}\label{tab-bool-wt2}
 \end{table}
@@ -1476,33 +1496,39 @@ so ab:
 Das sieht vielleicht kompliziert aus, bedeutet aber einfach: "`Deute $x$ als
 Binärdarstellung einer ganzen Zahl $i(x)$ und suche aus dem Bitblock $b$ das
 Bit heraus, das an der Stelle $i(x)$ steht"'. Eine zusätzliche Spalte für
-$i(x)$ in der Wahrheitstafel der Funktion $f_0$, Tabelle~\ref{tab-bool-wt},
-macht das beispielhaft deutlich, siehe Tabelle~\ref{tab-bool-wt2}. Die
+$i(x)$ in der Wahrheitstafel der Funktion $f_0$ ($f_0$ wurde definiert in
+Gleichung~\ref{bc_sample-fct-f0-with-3-vars}) % Tabelle~\ref{tab-bool-wt}
+%% BE_Done-by-will: Da eh in Klammern Gleichungsnr. nicht nochmal geklammert.
+macht das beispielhaft deutlich -- siehe Tabelle~\ref{tab-bool-wt2}. Die
 letzte Spalte dieser Tabelle, zeilenweise geschrieben, ist dann der
-Bitblock\footnote{%
-  der in Python/SageMath als Liste\index{Liste} implementiert wird
-} $b$.
+Bitblock $b$.
 
 Die Wahrheitstafel von $f_0$ kann also einfach durch den Bitblock
 $(0,0,0,0,0,1,1,1)$ oder noch sparsamer durch die Bitkette
 \[
      00000111
 \]
-der Länge $2^3 = 8$ vollständig beschrieben werden.
+der Länge $2^3 = 8$ vollständig beschrieben werden.\footnote{%
+  Bitblöcke werden in Python/SageMath als Liste\index{Liste} implementiert.
+}
+
 
 \subsubsection*{Repräsentation der algebraischen Normalform}
 
-Die algebraische Normalform\index{algebraische Normalform}\index{Normalform!algebraische}
+Die algebraische Normalform\index{algebraische Normalform}\index{Normalform!algebraisch}
 (ANF\index{ANF}) wird ebenfalls durch $2^n$ Bits beschrieben,
 nämlich durch die Koeffizienten der $2^n$ verschiedenen Monome\footnote{%
-  Die ANF ist eine Summe von Monomen, und jedes Monom\index{Monom} ist Produkt einer Teilmenge
-  von $\{x_1, \ldots, x_n \}$, kann also wie eben gesehen, durch eine
-  ganze Zahl zwischen $0$ und $2^n-1$ repräsentiert werden
-} (siehe Satz~\ref{thm-bool-anf1}, Seite~\pageref{thm-bool-anf1}). Auch diese
+  Die ANF ist eine Summe von Monomen. Jedes Monom\index{Monom} ist Produkt einer Teilmenge
+  von $\{x_1, \ldots, x_n \}$ und kann also, wie eben gesehen, durch eine
+  ganze Zahl zwischen $0$ und $2^n-1$ repräsentiert werden.
+}
+(siehe Satz~\ref{thm-bool-anf1}, Seite~\pageref{thm-bool-anf1}). Auch diese
 Monome kamen als Interpretation von Bitblöcken in der obigen Liste vor.
-Daher können wir einen Bitblock $a = (a_0, \ldots, a_{2^n-1})$ wie folgt
-als Repräsentation der ANF einer Booleschen Funktion
-$f\!: \F_2^n \longrightarrow \F$ ansehen:
+Daher können wir einen Bitblock $a = (a_0, \ldots, a_{2^n-1})$ als Repräsentation
+der ANF einer Booleschen Funktion
+%TODO_Pommerening: Ist das Ersetzen  \F  -->  \F_2  korrekt?
+%     OLD: $f\!: \F_2^n \longrightarrow \F$ ansehen:
+$f\!: \F_2^n \longrightarrow \F_2$ ansehen:
 \begin{align*}
      f(x) = \sum_{i=0}^{2^n-1} a_i x_1^{e_1(i)} \cdots x_n^{e_n(i)}, \quad & \text{wobei }
      i = e_1(i) \cdot 2^{n-1} + \cdots + e_n(i) \\
@@ -1570,7 +1596,7 @@ sage: z = f.getANF(); z
       aber auf die Größe des Inputs beziehen, die hier
       $N = 2^n$ ist. So gesehen ist der Aufwand im wesentlichen quadratisch:
       $N^2\cdot \log_2(N)$. Wie so oft führt auch hier eine
-      binäre Rekursion\index{binäre Rekursion}\index{Rekursion!binäre},
+      binäre Rekursion\index{binäre Rekursion}\index{Rekursion!binär},
       also eine Aufteilung in zwei Teilprobleme von halber Inputgröße zu einem
       wesentlich effizienteren Algorithmus. Hierzu startet man mit der
       Gleichung~(\ref{eq-bool-rek}) und benötigt im Endeffekt nur noch den
@@ -1588,9 +1614,9 @@ SageMath selbst bringt schon eine Klasse
 auch die Umwandlung von Wahrheitstafel\index{Wahrheitstafel} in ANF,
 enthält. Die folgende Implementation ist davon unabhängig.
 
-Allgemein kann man in einer objektorientierten
-Programmiersprache eine Klasse definieren, die die Struktur eines Objekts
-"`Boolesche Funktion\index{Boolesche Funktion}\index{Funktion!Boolesche}"' abstrahiert:
+Allgemein kann man in einer objektorientierten Programmiersprache eine Klasse definieren,
+die die Struktur eines Objekts "`Boolesche Funktion\index{Boolesche Funktion}\index{Funktion!Boolesche}"'
+abstrahiert:
 
 \begin{description}
    \item[Klasse {\tt BoolF}:] ~
@@ -1617,7 +1643,7 @@ Programmiersprache eine Klasse definieren, die die Struktur eines Objekts
                \item {\tt getANF}: Ausgabe der algebraischen Normalform (ANF\index{ANF}) als
                   Bitblock (in der "`natürlichen"' Reihenfolge wie oben beschrieben)
                \item {\tt deg}: Ausgabe des algebraischen
-                  Grades\index{algebraischer Grad}\index{Grad!algebraischer}
+                  Grades\index{algebraischer Grad}\index{Grad!algebraisch}
             \end{itemize}
       \end{description}
 \end{description}
@@ -1719,7 +1745,7 @@ alle Schlüssel gleich, also $= 1/2^l$ sein. D.\,h. wir nehmen eine
 Schlüsselauswahl nach reinem Zufall an.
 
 Unter diesen Voraussetzungen gilt eine Schlüssellänge von etwa $80$
-Bits heute als gerade noch sicher \cite{LeVe}. Mit der meistens
+Bits heute als gerade noch sicher \cite{LeVe2000}. Mit der meistens
 gewählten Schlüssellänge von $128$ Bits ist man auf der sicheren Seite.
 Das überholte, lange Jahre als Standard geltende DES-Verfahren hat
 nur einen 56-Bit-Schlüssel und ist daher heute durch Exhaustion
@@ -1760,14 +1786,14 @@ die diese Sicherheitsabstände einhalten, besteht überhaupt keine
 Notwendigkeit, weniger starke ("`übertrieben strenge"') Verfahren
 einzusetzen.
 
-\subsection{Algebraische
-  Kryptoanalyse}\label{ss-bool-algca}\index{algebraische Kryptoanalyse}\index{Kryptoanalyse!algebraische}
+\subsection{Algebraische Kryptoanalyse}
+\label{ss-bool-algca}\index{algebraische Kryptoanalyse}\index{Kryptoanalyse!algebraisch}
 
-\subsubsection*{Der Angriff mit bekanntem\index{bekannter Klartext}\index{Klartext!bekannter}
+\subsubsection*{Der Angriff mit bekanntem\index{bekannter Klartext}\index{Klartext!bekannt}
   Klartext\footnote{%
   Bei einem Angriff mit bekanntem Klartext nimmt man an, dass die
-  Angreiferin ein kleines Stück Klartext kennt
-  oder vermutet und daraus den Schlüssel oder weiteren, ihr bisher
+  Angreiferin ein kleines Stück Klartext kennt oder vermutet,
+  und dann daraus den Schlüssel oder weiteren, ihr bisher
   unbekannten Klartext ermitteln will. In diesem Abschnitt nehmen
   wir an, dass der bekannte Klartext ein ganzer Bitblock ist.}}
 
@@ -1781,7 +1807,7 @@ $F = (F_1, \ldots F_n)$ von polynomialen Ausdrücken in $n+l$ Variablen, deren
 sämtliche partiellen Grade $\leq 1$ sind.
 
 Ein Angriff mit bekanntem Klartext\index{bekannter
-Klartext}\index{Klartext!bekannter} $a \in \F_2^n$ und zugehörigem
+Klartext}\index{Klartext!bekannt} $a \in \F_2^n$ und zugehörigem
 Geheimtext $c \in \F_2^n$ ergibt ein Gleichungssystem
 \[
     F(a,x) = c
@@ -1794,14 +1820,14 @@ sind Gegenstand der Algebraischen Geometrie\index{algebraische Geometrie}.
 Die allgemeine Theorie hierzu ist hochkompliziert, insbesondere, wenn man
 konkrete Lösungsverfahren haben will.
 Aber vielleicht hilft die Beobachtung, dass man nur
-partielle Grade\index{partieller Grad}\index{Grad!partieller}
+partielle Grade\index{partieller Grad}\index{Grad!partiell}
 $\leq 1$ benötigt?
 
 \begin{description}
 \item[Beispiel 1,] Linearität: Ist $F$ eine {\em lineare}
-Abbildung\index{lineare Abbildung}\index{Abbildung!lineare},
+Abbildung\index{lineare Abbildung}\index{Abbildung!linear},
 so ist das Gleichungssystem mit den Methoden der
-Linearen Algebra\index{lineare Algebra}\index{Algebra!Lineare} effizient
+Linearen Algebra\index{lineare Algebra}\index{Algebra!lineare} effizient
 lösbar, siehe \ref{ss-bool-lgl} ($n$ lineare Gleichungen in $l$ Unbekannten
 -- ist $l < n$, braucht man natürlich mehrere bekannte Klartextblöcke, oder
 man führt eine Exhaustion über die verbliebenen $n - l$ Schlüsselbits
@@ -1842,7 +1868,7 @@ durch). Es reicht dazu schon, wenn $F$ linear in $x$ ist.
 Als allgemeine Lösungsmethoden für Gleichungssysteme über $\F_2$
 stehen zur Verfügung
 \begin{itemize}
-   \item SAT-Solver\index{SAT-Solver} \cite{GaJo}\footnote{%
+   \item SAT-Solver\index{SAT-Solver} \cite{GaJo1979}\footnote{%
       Mit SAT wird das Erfüllbarkeitsproblem\index{Erfüllbarkeitsproblem}
       der Aussagenlogik bezeichnet.
       Man betrachtet einen logischen Ausdruck in Booleschen Variablen
@@ -1851,7 +1877,7 @@ stehen zur Verfügung
       man eine Boolesche Funktion\index{Boolesche Funktion}\index{Funktion!Boolesche}
       $f$ und fragt, ob sie den Wert $1$ annimmt.
       Ein {\bf SAT-Solver} ist ein Algorithmus, der einen solchen logischen
-      Ausdruck\index{logischer Ausdruck}\index{Ausdruck!logischer} in
+      Ausdruck\index{logischer Ausdruck}\index{Ausdruck!logisch} in
       CNF\index{CNF} nimmt und die Erfüllbarkeit entscheidet, indem er
       eine Lösung für $x$ findet oder eben nicht. Das naive
       Verfahren ist die Aufstellung der Wahrheitstafel\index{Wahrheitstafel}
@@ -1863,10 +1889,10 @@ stehen zur Verfügung
       und {\tt sage.sat.boolean\_polynomials}.
       },
    \item Elimination\index{Elimination}, am effizientesten mit Hilfe von
-      Gröbner-Basen\index{Gröbner-Basis} \cite{Bric}\footnote{%
+      Gröbner-Basen\index{Gröbner-Basis} \cite{Bric2010}\footnote{%
       Zum Einstieg in dieses Gebiet eignen sich die Lehrbücher
-      \cite{Bard,CLOS,GaGe} sowie das Skript \cite{Sege} und der
-      Artikel \cite{Laza}.
+      \cite{Bard2009,CLOS2007,GaGe1999} sowie das Skript \cite{Sege2004} und der
+      Artikel \cite{Laza1983}.
       }.
 \end{itemize}
 Beide Methoden funktionieren gut, wenn die Zahl der Unbekannten klein
@@ -1877,13 +1903,13 @@ Komplexitätsgrenzen\footnote{%
 }.
 Natürlich lassen sich die Lösungen immer durch Aufstellen der kompletten
 Wertetabelle finden, aber das ist sehr ineffizient (exponenziell
-in der Zahl der Unbekannten, spätestens für 80 Unbekannte hoffnungslos).
+in der Zahl der Unbekannten, und damit spätestens für 80 Unbekannte hoffnungslos).
 Aber auch der Aufwand von SAT-Solvern und Gröbner-Basis-Methoden ist
 immer noch im wesentlichen exponenziell in der Zahl der Unbekannten.
 Selbst die Tatsache, dass man nur partielle Grade
 $\leq 1$ berücksichtigen muss, hilft da nicht weiter.
 
-\subsubsection*{Die Komplexität des Angriffs}
+\subsubsection*{Die Komplexität des algebraischen Angriffs}
 
 Die theoretische Analyse des Aufwands für das Finden einer Lösung führt
 auf einen der zentralen Begriffe der Komplexitätstheorie, die
@@ -1893,7 +1919,10 @@ auf einen der zentralen Begriffe der Komplexitätstheorie, die
   Das Problem, eine Lösung eines Systems von Polynomgleichungen über $\F_2$
   zu finden, ist {\bf NP}-vollständig\index{NP-vollständig}.
 \end{satz}
-Für den Beweis siehe das Buch von Garey/Johnson~\cite{GaJo}.
+Für den Beweis siehe das Buch von Garey/Johnson~\cite{GaJo1979}.\footnote{%
+   Ein neuerer Artikel über die Schwierigkeit, Systeme von Polynom-Gleichungen zu lösen
+   ist \cite{CGHM2003}.
+}
 
 Der Begriff "`{\bf NP}-vollständig\index{NP-vollständig}"' wird hier nicht erklärt.
 Er bedeutet nach der bisher unbewiesenen "`{\bf P} $\neq$ {\bf NP}"'-Vermutung,
@@ -1903,7 +1932,7 @@ mit der Anzahl $n$ der Input-Variablen wächst.
 
 Diesen Satz deutet man gerne so: Bei günstig gewählter Blockverschlüsselungsabbildung
 \mbox{$F\!: \F_2^n \times \F_2^l \longrightarrow \F_2^n$} ist ein Angriff mit
-bekanntem Klartext\index{bekannter Klartext}\index{Klartext!bekannter}
+bekanntem Klartext\index{bekannter Klartext}\index{Klartext!bekannt}
 (auf den Schlüssel $k \in \F_2^l$) nicht effizient durchführbar. Mathematisch streng
 genommen besagt der Satz für die praktische Anwendung aber {\em gar nichts}:
 
@@ -1927,9 +1956,9 @@ Bitblock-Verfahren gibt, und die Konstruktion von
 Bitblock-Chiffren\index{Bitblock-Chiffre} folgt der
 \begin{description}
    \item[Faustregel:] {\em Lineare
-      Gleichungssysteme\index{lineares Gleichungssystem}\index{Gleichungssystem!lineares}
+      Gleichungssysteme\index{lineares Gleichungssystem}\index{Gleichungssystem!linear}
       für Bits sind sehr effizient lösbar, nichtlineare
-      Gleichungssysteme\index{nichtlineares Gleichungssystem}\index{Gleichungssystem!nichtlineares}
+      Gleichungssysteme\index{nichtlineares Gleichungssystem}\index{Gleichungssystem!nichtlinear}
       für Bits sind dagegen in so gut wie allen Fällen nicht effizient lösbar.}
 \end{description}
 
@@ -1951,11 +1980,11 @@ für realistische Werte der Blocklänge $n$ und der
 Schlüssellänge\index{Schlüssellänge} $l$ leicht messen könnte,
 etwa für $n$ und $l$ in der Größenordnung von $128$ oder mehr.
 
-Nun gibt es tatsächlich solche Maße für die Sicherheit wie das lineare
-Potenzial\index{lineares Potenzial}\index{Potenzial!lineares} und das
-differenzielle Potenzial\index{differenzielles Potenzial}\index{Potenzial!differenzielles},
-die die Abweichung von der Linearität beschreiben, ferner die algebraische
-Immunität\index{algebraische Immunität}\index{Immunität!algebraische} und andere.
+Nun gibt es tatsächlich solche Maße für die Sicherheit -- wie das lineare
+Potenzial\index{lineares Potenzial}\index{Potenzial!linear} und das
+differenzielle Potenzial\index{differenzielles Potenzial}\index{Potenzial!differenziell},
+die die Abweichung von der Linearität beschreiben; ferner die algebraische
+Immunität\index{algebraische Immunität}\index{Immunität!algebraisch} und andere.
 Diese sind allerdings nur für kleine Blocklängen $n$, etwa in der
 Größenordnung bis $8$, effizient bestimmbar und liefern nur notwendige,
 nicht aber hinreichende Bedingungen für die Sicherheit.
@@ -2095,7 +2124,7 @@ abhängig von einem Schlüssel $k \in \F_2^l$. Dabei ist
 wobei insgesamt $r$ Runden nacheinander ausgeführt werden.
 
 Die Permutationen\index{Permutation} sind spezielle lineare
-Abbildungen\index{lineare Abbildung}\index{Abbildung!lineare}
+Abbildungen\index{lineare Abbildung}\index{Abbildung!linear}
 $P\!: \F_2^n \longrightarrow \F_2^n$. In neueren Bitblock-Chiffren
 wie AES\index{AES} werden sie oft durch allgemeinere lineare
 Abbildungen ersetzt, die eine noch bessere Diffusion bewirken.
@@ -2218,7 +2247,7 @@ Die Formel für die Entschlüsselung ist
   \item[Antwort:] Nein!
 
   \item[Begründung:] Nur $a_1$ hängt beim Entschlüsseln von $c_0$ ab,
-     d.\,h., es wird lediglich bekannter\index{bekannter Klartext}\index{Klartext!bekannter}
+     d.\,h., es wird lediglich bekannter\index{bekannter Klartext}\index{Klartext!bekannt}
      Klartext am Anfang etwas besser
      verschleiert, wenn $c_0$ geheim bleibt. Ist der zweite oder ein
      späterer Klartextblock bekannt, kann die Angreiferin wie bei ECB den
@@ -2239,16 +2268,16 @@ Für die Kryptoanalyse von Bitblock-Chiffren sind folgende allgemeine Ansätze
 bekannt:
 \begin{enumerate}
 \item Exhaustion\index{Exhaustion} = vollständige Schlüsselsuche
-\item algebraischer Angriff\index{algebraischer Angriff}\index{Angriff!algebraischer},
+\item algebraischer Angriff\index{algebraischer Angriff}\index{Angriff!algebraisch},
     siehe Abschnitt~\ref{ss-bool-algca}
-\item statistische Angriffe\index{statistischer Angriff}\index{Angriff!statistischer}
+\item statistische Angriffe\index{statistischer Angriff}\index{Angriff!statistisch}
     auf versteckte Linearität\index{Linearität}:
     \begin{enumerate}
-    \item Lineare Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!lineare}
+    \item Lineare Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!linear}
         (Matsui\index{Matsui, Mitsuru}/Yamagishi 1992).
         Sie ist das Thema der Abschnitte~\ref{ss-bool-lka} ff.
     \item Differenzielle
-         Kryptoanalyse\index{differenzielle Kryptoanalyse}\index{Kryptoanalyse!differenzielle}
+         Kryptoanalyse\index{differenzielle Kryptoanalyse}\index{Kryptoanalyse!differenziell}
         (Murphy\index{Murphy, Sean},
         Shamir\index{Shamir, Adi}, Biham\index{Biham, Eli} 1990
         -- bei IBM\index{IBM} und NSA\index{NSA} schon 1974 bekannt).
@@ -2259,7 +2288,7 @@ bekannt:
 Die statistischen Angriffe sind allerdings kaum konkret zum Brechen
 einer Chiffre im Sinne der klassischen Kryptoanalyse geeignet.
 Sie setzen meist so viele bekannte
-Klartexte\index{bekannter Klartext}\index{Klartext!bekannter} voraus,
+Klartexte\index{bekannter Klartext}\index{Klartext!bekannt} voraus,
 wie man in
 realistischen Situationen kaum je erhalten kann. Daher sollte man
 tatsächlich eher von Analysen als von Angriffen sprechen. Ihr Sinn liegt
@@ -2276,6 +2305,7 @@ und versucht, einen potenziellen Angriff über mehrere Runden auszudehnen.
 Dabei sieht man oft, wie die Schwierigkeit des Angriffs mit der Rundenzahl
 zunimmt. So erhält man Kriterien, ab wievielen Runden eine Chiffre
 "`sicher"' ist -- zumindest vor diesem speziellen Angriff.
+
 
 \subsubsection*{Kriterien für Bitblock-Chiffren}
 
@@ -2297,21 +2327,21 @@ einige Kriterien erfüllen.
     davon soll auf möglichst schwer lösbare Gleichungen führen. Diese Forderung
     hängt mit der Nichtlinearität\index{Nichtlinearität} der Abbildung zusammen.
     Eine genauere Untersuchung führt auf den Begriff der algebraischen
-    Immunität\index{algebraische Immunität}\index{Immunität!algebraische}.
+    Immunität\index{algebraische Immunität}\index{Immunität!algebraisch}.
 \item {\bf Nichtlinearität:} Hier gibt es Kriterien, die auch "`versteckte"'
     Nichtlinearität\index{Nichtlinearität} messen und vergleichsweise leicht
     zu beschreiben und handzuhaben
     sind; sie zeigen u.\,a., ob die Abbildungen anfällig für
-    lineare\index{lineare Kryptoanalyse}\index{Kryptoanalyse!lineare}
-    oder differenzielle\index{differenzielle Kryptoanalyse}\index{Kryptoanalyse!differenzielle}
-    Kryptoanalyse sind \cite{Pomm}.
+    lineare\index{lineare Kryptoanalyse}\index{Kryptoanalyse!linear}
+    oder differenzielle\index{differenzielle Kryptoanalyse}\index{Kryptoanalyse!differenziell}
+    Kryptoanalyse sind \cite{Pomm2008}.
     \begin{itemize}
-    \item Das lineare Potenzial\index{lineares Potenzial}\index{Potenzial!lineares}
+    \item Das lineare Potenzial\index{lineares Potenzial}\index{Potenzial!linear}
         soll möglichst gering, das
-        lineare Profil\index{lineares Profil}\index{Profil!lineares} möglichst
+        lineare Profil\index{lineares Profil}\index{Profil!linear} möglichst
         ausgeglichen sein.
     \item Das differenzielle
-        Potenzial\index{differenzielles Potenzial}\index{Potenzial!differenzielles}
+        Potenzial\index{differenzielles Potenzial}\index{Potenzial!differenziell}
         soll möglichst gering, das
         Differenzenprofil\index{Differenzenprofil} möglichst ausgeglichen sein.
     \end{itemize}
@@ -2327,7 +2357,7 @@ gleichmäßig hohes Niveau bezüglich aller Kriterien anzustreben.
 
 Die genauere Beschreibung der statistischen Angriffe würde jeweils
 umfangreiche Extra-""Kapitel erfordern. Am leichtesten zugänglich
-ist die lineare Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!lineare},
+ist die lineare Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!linear},
 deren Anfangsgründe wir wenigstens exemplarisch etwas näher ansehen wollen.
 
 Wir betrachten eine Bitblock-Chiffre\index{Bitblock-Chiffre} $F$
@@ -2338,7 +2368,7 @@ mit Blocklänge $n$ und Schlüssellänge $l$,
 und stellen uns die Argumente von $F$ als Klartexte $a \in \F_2^n$
 und Schlüssel $k \in \F_2^l$, die Werte von $F$ als Geheimtexte
 $c \in \F_2^n$ vor. Eine
-{\bf lineare Relation}\index{lineare Relation}\index{Relation!lineare}
+{\bf lineare Relation}\index{lineare Relation}\index{Relation!linear}
 zwischen Klartext
 $a \in \F_2^n$, Schlüssel $k \in \F_2^l$ und Geheimtext
 $c = F(a,k) \in \F_2^n$ kann man durch drei Linearformen\index{Linearform}
@@ -2365,8 +2395,8 @@ eine Gleichung für die Summe dieser Schlüsselbits $k_{i_1}, \ldots, k_{i_r}$:
      k_{i_1} + \cdots + k_{i_r} = \alpha(a) + \beta(c),
 \]
 und müssten für einen algebraischen
-Angriff\index{algebraischer Angriff}\index{Angriff!algebraischer} bei
-bekanntem Klartext\index{bekannter Klartext}\index{Klartext!bekannter}
+Angriff\index{algebraischer Angriff}\index{Angriff!algebraisch} bei
+bekanntem Klartext\index{bekannter Klartext}\index{Klartext!bekannt}
 $a$ nach Elimination\index{Elimination} eines dieser
 Bits nur noch $l-1$ unbekannte Schlüsselbits bestimmen.
 
@@ -2417,7 +2447,7 @@ die {\bf Input-Output-Korrelation}\footnote{%
 \]
 (kurz: I/O-Korrelation\index{I/O-Korrelation}) und das
 {\bf Potenzial\index{Potenzial}}
-der linearen\index{lineare Relation}\index{Relation!lineare} Relation\footnote{%
+der linearen\index{lineare Relation}\index{Relation!linear} Relation\footnote{%
    Für diese Bezeichnung (\glqq potential\grqq) ist der älteste bekannte
    Nachweis der Beitrag von Kaisa Nyberg\index{Nyberg, Kaisa} auf der {\sc EuroCrypt} 1994.
    Mathematisch weniger elegant, aber oft verwendet, ist der
@@ -2487,7 +2517,7 @@ Shamir\index{Shamir, Adi}\footnote{%
   $~^{\ast}$6.7.1952.
 }
 bemerkte schon 1985, dass es überzufällige lineare
-Relationen\index{lineare Relation}\index{Relation!lineare}
+Relationen\index{lineare Relation}\index{Relation!linear}
 für die S-Boxen des DES\index{DES}-Verfahrens gibt. Es dauerte allerdings weitere
 sieben Jahre, bis es Matsui\index{Matsui, Mitsuru}\footnote{%
   Mitsuru Matsui, japanischer Kryptologe, $~^{\ast}$16.9.1961.
@@ -2569,7 +2599,7 @@ def Matsui_Test(a, b, pc, compl = False):
    im Anhang~\ref{ss-bool-conv}.}\label{Sage-code-bool-mats}
 \end{sagecode}
 
-Wenn man eine lineare Relation\index{lineare Relation}\index{Relation!lineare}
+Wenn man eine lineare Relation\index{lineare Relation}\index{Relation!linear}
 mit hinreichend großem Potenzial\index{Potenzial}, d.\,h.
 hinreichend weit von $\frac{1}{2}$ abweichender Wahrscheinlichkeit, erwischt hat,
 wird die Erfolgswahrscheinlichkeit dieses Verfahrens bei hinreichend
@@ -2690,7 +2720,7 @@ Die Mehrheitsentscheidung führt also zu der Schätzung $k_4 = 0$
 Das war mit dem Bleistift auf Papier ganz leicht auszuzählen. Dennoch
 ist der Nachvollzug in SageMath im Hinblick auf kompliziertere Beispiele
 instruktiv. Das geschieht im SageMath-Beispiel~\ref{Sage-code-Mats-Expl}.
-Dabei wird die Funktion {\tt xor} aus dem
+Dabei wird die Funktion {\tt xor}\index{XOR} aus dem
 SageMath-Beispiel~\ref{Sage-code-bool-div-bbl} im Anhang~\ref{ss-bool-conv}
 sowie die im SageMath-Beispiel~\ref{Sage-code-Luc-S0}
 definierte Abbildung {\tt S0} verwendet. Das Ergebnis \mbox{\tt [2, 0, True]}
@@ -2729,7 +2759,7 @@ sage: Matsui_Test(alpha,beta,pclist,False)
 folgende Fragen zu klären:
 \begin{enumerate}
 	\item Wie findet man lineare
-        Relationen\index{lineare Relation}\index{Relation!lineare}
+        Relationen\index{lineare Relation}\index{Relation!linear}
         von möglichst auffälliger
         Wahrscheinlichkeit? Insbesondere im Hinblick darauf, dass die
         Auswertung der Formel~(\ref{eq-bool-avrg}) am Effizienzproblem
@@ -2748,10 +2778,10 @@ folgende Fragen zu klären:
 \end{enumerate}
 
 \noindent Die Antwort auf die erste Frage und Teil (a) der zweiten heißt:
-Aus dem linearen Profil\index{lineares Profil}\index{Profil!lineares},
+Aus dem linearen Profil\index{lineares Profil}\index{Profil!linear},
 siehe Abschnitt~\ref{ss-bool-lpr}. Die anschließenden
 Teilfragen führen zur Untersuchung von linearen
-Pfaden\index{linearer Pfad}\index{Pfad!linearer},
+Pfaden\index{linearer Pfad}\index{Pfad!linear},
 siehe Abschnitt~\ref{ss-bool-path}, und zur Kumulation von
 Wahrscheinlichkeiten, siehe Satz~\ref{thm-bool-rrnd}. Für (c) kommt
 dabei letztendlich eine brauchbare Faustregel heraus.
@@ -2760,7 +2790,7 @@ dabei letztendlich eine brauchbare Faustregel heraus.
 
 Es werden Beispiele betrachtet, die als ernsthafte Blockchiffren viel
 zu einfach sind, aber das Prinzip der linearen
-Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!lineare}
+Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!linear}
 anschaulich und nachvollziehbar demonstrieren. Dabei werden stets
 Rundenfunktionen der Gestalt $f(a+k)$ betrachtet, d.\,h., der Schlüssel
 bzw. ein $n$-bittiger Teil davon wird vor der Anwendung einer bijektiven
@@ -2770,7 +2800,7 @@ aufaddiert\footnote{%
    einzubringen, aber dennoch realistisch. Die paradigmatischen
    Beispiel-Chiffren {\sc Lucifer}\index{Lucifer}, DES\index{DES}
    und AES\index{AES} verfahren so.
-   Bei AES \cite{DaRi} heißt das \glqq key-alternating cipher structure\grqq.
+   Bei AES \cite{DaRi2002} heißt das \glqq key-alternating cipher structure\grqq.
 }. Das einfachste denkbare Modell, die Verschlüsselung nach der
 Vorschrift
 \[
@@ -2781,7 +2811,7 @@ siehe Abbildung~\ref{fig-bool-bsp0}\footnote{%
   In den grafischen Darstellungen hier und später wird die Abbildung
   $f$ auf der elementweisen Ebene durch die S-Box S repräsentiert.
 },
-ist dabei witzlos, da bei bekanntem\index{bekannter Klartext}\index{Klartext!bekannter}
+ist dabei witzlos, da bei bekanntem\index{bekannter Klartext}\index{Klartext!bekannt}
 Klartext die Gleichung nach dem
 Schlüssel $k$ auflösbar ist\footnote{%
   Die Umkehrabbildung $f^{-1}$ wird hier als der Angreiferin
@@ -2901,7 +2931,7 @@ Schlüssel $k$ auflösbar ist\footnote{%
 \end{picture}
 \end{center}
 \caption{Diagramm für eine "`approximative"' lineare
-   Relation\index{lineare Relation}\index{Relation!lineare}}\label{fig-bool-appr}
+   Relation\index{lineare Relation}\index{Relation!linear}}\label{fig-bool-appr}
 \end{figure}
 
 Dieser einfache Angriff wird bei dem etwas komplizierteren Beispiel A mit
@@ -2909,7 +2939,7 @@ Dieser einfache Angriff wird bei dem etwas komplizierteren Beispiel A mit
    c = f(a+k^{(0)}) + k^{(1)}
 \]
 verhindert (siehe Abbildung~\ref{fig-bool-bspA}); hier ist der Ansatz der linearen
-Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!lineare}
+Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!linear}
 bereits sinnvoll: Sei $(\alpha,\beta)$ ein Paar von Linearformen\index{Linearform}
 mit
 \begin{equation}\label{eq-bool-prob}
@@ -2986,7 +3016,7 @@ Mit den Bezeichnungen aus Abbildung~\ref{fig-bool-bspA} gilt nun
                    = \alpha(a + k^{(0)}) + \beta(k^{(1)})
                         = \alpha(a) + \alpha(k^{(0)}) + \beta(k^{(1)}).
 \end{align*}
-Als lineare Relation\index{lineare Relation}\index{Relation!lineare}
+Als lineare Relation\index{lineare Relation}\index{Relation!linear}
 für die Bits des Schlüssels $k = (k^{(0)},k^{(1)})$ erhalten wir
 \[
    \alpha(k^{(0)}) + \beta(k^{(1)}) \stackrel{p}{\approx} \alpha(a) + \beta(c).
@@ -3002,8 +3032,8 @@ durchführen. Insgesamt ist damit gezeigt:
   mit der Wahrscheinlichkeit $p$ wie in Formel~(\ref{eq-bool-prob}).
   Dann ist $\hat{p} =$ \mbox{$\max\{p, 1-p\}$} die Erfolgswahrscheinlichkeit für
   die Bestimmung eines Schlüsselbits aus {\em einem} bekannten
-  Klartext\index{bekannter Klartext}\index{Klartext!bekannter}
-  durch diese lineare Relation\index{lineare Relation}\index{Relation!lineare}.
+  Klartext\index{bekannter Klartext}\index{Klartext!bekannt}
+  durch diese lineare Relation\index{lineare Relation}\index{Relation!linear}.
 \end{satz}
 
 \subsubsection*{Beispiel}
@@ -3015,7 +3045,7 @@ und $\beta(y) = y_1+y_2+y_4$ definierte lineare Relation die Wahrscheinlichkeit
 $p_{f,\alpha,\beta} = \frac{14}{16} = \frac{7}{8}$ hat\footnote{%
   Deren Größe ist ein starkes Indiz dafür, dass die Designer von
   {\sc Lucifer}\index{Lucifer} die lineare
-  Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!lineare}
+  Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!linear}
   noch nicht kannten.
 }.
 
@@ -3049,13 +3079,13 @@ für die Summe der Schlüsselbits genau $14$-mal annimmt, wie es sein soll.
 \end{tabular}
 \end{center}
 \caption{Eine lineare Relation für die Schlüsselbits ($b$ entsteht aus $a$ durch Addition
-   von $k^{(0)}$, also "`Umkippen"' des ersten Bits, $b'$ aus $b$ durch Anwendung
+   von $k^{(0)}$, also ``Umkippen'' des ersten Bits, $b'$ aus $b$ durch Anwendung
    von $f$, $c$ aus $b'$ durch Addition von $k^{(1)}$.}\label{tab-bool-linrel}
 \end{table}
 
 Wie groß ist nun die Erfolgswahrscheinlichkeit $p_N$ dafür, diesen Wert
 richtig zu schätzen, wenn man $N = 1, 2, \ldots$ zufällige bekannte
-Klartexte\index{bekannter Klartext}\index{Klartext!bekannter}
+Klartexte\index{bekannter Klartext}\index{Klartext!bekannt}
 aus der Menge der $2^n$ möglichen zur Verfügung hat (zu gegebenen festen
 Linearformen $\alpha$ und $\beta$ mit $p = p_{f,\alpha,\beta}$)? Das ist genau
 eine konkrete Einkleidung der Fragestellung der hypergeometrischen Verteilung,
@@ -3068,7 +3098,7 @@ Verteilung\index{hypergeometrische Verteilung}\index{Verteilung!hypergeometrisch
   eine lineare Relation für $f$ mit der Wahrscheinlichkeit $p$ definiert.
   Dann ist die Erfolgswahrscheinlichkeit für die Bestimmung eines
   Schlüsselbits aus $N$ bekannten Klartexten durch diese lineare
-  Relation\index{lineare Relation}\index{Relation!lineare}
+  Relation\index{lineare Relation}\index{Relation!linear}
   gerade die kumulierte Wahrscheinlichkeit $p_N = p_N^{(s)}$ der
   hypergeometrischen Verteilung zu den Parametern $2^n$, $s = \hat{p}\cdot 2^n$
   und $N$ mit $\hat{p} = \max\{p, 1-p\}$.
@@ -3096,7 +3126,7 @@ Zusammen mit den bekannten Werten für die Normalverteilung\footnote{%
 } ergibt das die
 Tabelle~\ref{tab-bool-N}. D.\,h., um eine Erfolgswahrscheinlichkeit von etwa
 $95\%$ zu erreichen, braucht man $N \approx \frac{3}{\lambda}$ bekannte
-Klartexte\index{bekannter Klartext}\index{Klartext!bekannter}.
+Klartexte\index{bekannter Klartext}\index{Klartext!bekannt}.
 Im obigen konkreten Beispiel war $p = \frac{7}{8}$, also $\lambda = \frac{9}{16}$,
 und die Zahl der nötigen bekannten Klartexte für die $95$-prozentige
 Erfolgswahrscheinlichkeit ist nach der Formel $N \approx 5$. Wir waren,
@@ -3127,17 +3157,17 @@ $N\lambda = \frac{27}{16} \approx 1,68\ldots$)\footnote{%
 		                      $99,8\%$ & $99,9\%$ \\ \hline
   \end{tabular}
 \end{center}
-\caption{Zusammenhang zwischen Anzahl der bekannten
-   Klartexte\index{bekannter Klartext}\index{Klartext!bekannter}
-   und Erfolgswahrscheinlichkeit}\label{tab-bool-N}
+\caption{Zusammenhang zwischen der Anzahl der bekannten
+   Klartexte\index{bekannter Klartext}\index{Klartext!bekannt}
+   und der Erfolgs\-wahr\-schein\-lich\-keit}\label{tab-bool-N}
 \end{table}
 
 \subsection{Approximationstabelle\index{Approximationstabelle},
    Korrelationsmatrix\index{Korrelationsmatrix} und lineares
-   Profil\index{lineares Profil}\index{Profil!lineares}}\label{ss-bool-lpr}
+   Profil\index{lineares Profil}\index{Profil!linear}}\label{ss-bool-lpr}
 
 Die Häufigkeiten, mit denen lineare
-Relationen\index{lineare Relation}\index{Relation!lineare} für eine Boolesche
+Relationen\index{lineare Relation}\index{Relation!linear} für eine Boolesche
 Abbildung\index{Boolesche Abbildung}\index{Abbildung!Boolesche}
 (oder S-Box\index{S-Box}) $f\!: \F_2^n \longrightarrow \F_2^q$ gelten, werden
 in einer $2^n \times 2^q$-Matrix zusammengefasst, die zu
@@ -3158,7 +3188,7 @@ erhalten; im allgemeinen Fall würde dort $2^n$ stehen. Die übrigen Einträge
 in der ersten Spalte (entsprechend $\beta = 0$) sind $8$, weil jede von Null
 verschiedene Linearform\index{Linearform} $\alpha$ den Wert $0$ in genau der
 Hälfte aller Fälle, hier also $8$-mal, annimmt\footnote{%
-   In der Sprache der Linearen Algebra\index{lineare Algebra}\index{Algebra!Lineare}:
+   In der Sprache der Linearen Algebra\index{lineare Algebra}\index{Algebra!lineare}:
    Der Kern einer Linearform\index{Linearform} $\neq 0$
    ist ein $(n-1)$-dimensionaler Unterraum.
 }. Für die erste Zeile gilt das analoge
@@ -3266,10 +3296,10 @@ Argument -- vorausgesetzt, $f$ ist bijektiv\footnote{%
 \end{table}
 
 Die {\bf Korrelationsmatrix}\index{Korrelationsmatrix} und das
-{\bf lineare Profil}\index{lineares Profil}\index{Profil!lineares}\footnote{%
+{\bf lineare Profil}\index{lineares Profil}\index{Profil!linear}\footnote{%
    oder auch Linearitätsprofil\index{Linearitätsprofil}; nicht zu verwechseln
    mit dem linearen
-   Komplexitätsprofil\index{lineares Komplexitätsprofil}\index{Komplexitätsprofil!lineares} einer
+   Komplexitätsprofil\index{lineares Komplexitätsprofil}\index{Komplexitätsprofil!linear} einer
    Bitfolge, das mit Hilfe von linearen Schieberegistern
    definiert wird und auch oft Linearitätsprofil genannt wird.
    }
@@ -3281,16 +3311,16 @@ Approximationstabelle\index{Approximationstabelle}, indem man erst
 die Einträge durch $2^n$ dividiert, um die jeweiligen Wahrscheinlichkeiten $p$
 zu erhalten; dann muss man noch die Wahrscheinlichkeiten nach der Formel
 $\tau = 2p - 1$ in I/O-Korrelationen\index{I/O-Korrelation} umrechnen.
-Das lineare Profil\index{lineares Profil}\index{Profil!lineares}
+Das lineare Profil\index{lineares Profil}\index{Profil!linear}
 entsteht dann, indem man die Einträge der
 Korrelationsmatrix\index{Korrelationsmatrix} einzeln quadriert.
 
 Für $\mathrm{S}_0$ ist die Korrelationsmatrix\index{Korrelationsmatrix}
 in Tabelle~\ref{tab-bool-corr} und
-das lineare Profil\index{lineares Profil}\index{Profil!lineares}
+das lineare Profil\index{lineares Profil}\index{Profil!linear}
 in Tabelle~\ref{tab-bool-lp0} wiedergegeben. Auch hier sind
 die erste Zeile und die erste Spalte auffällig; die Nullen besagen, dass
-eine lineare Relation\index{lineare Relation}\index{Relation!lineare},
+eine lineare Relation\index{lineare Relation}\index{Relation!linear},
 an der die Linearform $0$ beteiligt ist, das
 Potenzial $0$ hat, also nutzlos ist. Die $1$ links oben in der Ecke
 drückt aus, dass die Relation $0 = 0$ immer gilt, ist aber ebenso nutzlos.
@@ -3327,7 +3357,7 @@ um, die durch
 \]
 definiert ist\footnote{%
    Das ist ein Spezialfall der diskreten
-   Fourier-Transformation\index{Fourier-Transformation!diskrete}. Im
+   Fourier-Transformation\index{Fourier-Transformation!diskret}. Im
    allgemeinen Fall würde man statt $-1$ die komplexe $N$-te
    Einheitswurzel\index{Einheitswurzel}
    $\zeta = e^{2\pi i/N}$ verwenden und komplexwertige Funktionen über
@@ -3365,7 +3395,7 @@ die wir mit $\alpha$ bezeichnen wollen, und $y \mapsto v \cdot y$ auf $\F_2^q$,
 der wir den Namen $\beta$ geben. Dann ist $u$ die Bitblock-Interpretation
 von $\alpha$ und $v$ die von $\beta$, und wir sehen im Exponenten etwas Bekanntes,
 das uns an die lineare
-Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!lineare} erinnert:
+Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!linear} erinnert:
 \[
      \alpha(x) + \beta \circ f(x).
 \]
@@ -3399,16 +3429,16 @@ Dieser Satz hat große theoretische und praktische Bedeutung:
    \item Auf der theoretischen Seite führt er zu sehr eleganten und
       knappen Beweisen von Aussagen über die
       Korrelationsmatrix\index{Korrelationsmatrix} und
-      die mit ihr verwandten Objekte \cite{Pomm}.
+      die mit ihr verwandten Objekte \cite{Pomm2008}.
    \item Auf der praktischen Seite ermöglicht er die Berechnung der
       Korrelationsmatrix (und damit auch der
       Approximationstabelle\index{Approximationstabelle} und
-      des lineren Profils\index{lineares Profil}\index{Profil!lineares})
+      des lineren Profils\index{lineares Profil}\index{Profil!linear})
       durch die {\em schnelle\index{Fourier-Transformation}
-      Fourier-Transformation\index{Fourier-Transformation!schnelle}}\footnote{%
-         englisch: Fast Fourier Transformation\index{Fast Fourier Transformation},
+      Fourier-Transformation\index{Fourier-Transformation!schnell}}\footnote{%
+         englisch: Fast Fourier Transformation\index{FFT},
          abgekürzt FFT\index{FFT}
-      }, die mithilfe binärer Rekursion\index{binäre Rekursion}\index{Rekursion!binäre}
+      }, die mithilfe binärer Rekursion\index{binäre Rekursion}\index{Rekursion!binär}
       den Aufwand (fast) um einen Faktor $2^n$ drückt.
 \end{itemize}
 Wie effizient ist das? Der Einfachheit halber beschränken wir uns
@@ -3420,9 +3450,9 @@ die Wertetabelle gegeben ist. Der gesamte Aufwand dafür ist also
 $2^n \cdot 2^n \cdot 2^n$.
 
 Die Erklärung der schnellen Fourier-Transformation würde hier zu
-weit führen; siehe \cite{Pomm}. Sie steckt in der Funktion
+weit führen (siehe dazu \cite{Pomm2008}). Sie steckt in der Funktion
 \verb:wtr(): aus dem Anhang~\ref{ss-bool-walsh}. Ohne Beweis
-sei vermerkt, dass die schnelle Fourier-Transformation\index{Fourier-Transformation!schnelle}
+sei vermerkt, dass die schnelle Fourier-Transformation\index{Fourier-Transformation!schnell}
 einer reellwertigen Funktion $\F_2^m \longrightarrow \R$ insgesamt
 $3m \cdot 2^m$ einfache reelle Operationen erfordert, die man
 für Funktionen mit Werten in $\{-1, 1\}$ naiv zählen kann,
@@ -3452,7 +3482,7 @@ Approximationstabelle\index{Approximationstabelle}\footnote{%
   der SageMath-Klasse {\tt sage.crypto.mq.sbox.SBox} verwenden, wenn man
   zuvor {\tt S0 = mq.SBox(12,15,7,10,14,13,11,0,2,6,3,1,9,4,5,8)}
   definiert. Achtung: siehe Fußnote auf Seite~\pageref{fn-lin-appr}.
-} und linearem Profil\index{lineares Profil}\index{Profil!lineares}
+} und linearem Profil\index{lineares Profil}\index{Profil!linear}
 von $\mathrm{S}_0$ wird im
 SageMath-Beispiel~\ref{Sage-code-bool-lpr} wiedergegeben. (Die Einträge der
 Ergebnismatrix \verb:Spec: sind durch $16$, die von \verb:linProf:
@@ -3467,7 +3497,7 @@ sage: linProf = S0.linProf()
 \end{verbatim}
 \caption{Korrelationsmatrix\index{Korrelationsmatrix},
    Approximationstabelle\index{Approximationstabelle} und lineares
-   Profil\index{lineares Profil}\index{Profil!lineares}
+   Profil\index{lineares Profil}\index{Profil!linear}
    der S-Box $\mathrm{S}_0$}\label{Sage-code-bool-lpr}
 \end{sagecode}
 
@@ -3500,7 +3530,7 @@ sage: for coord in lProf[3]:
 ('For relation at', [6, 11], 'take complement.')
 ('For relation at', [7, 6], 'take complement.')
 \end{verbatim}
-\caption{Lineares Profil\index{lineares Profil}\index{Profil!lineares}
+\caption{Lineares Profil\index{lineares Profil}\index{Profil!linear}
    der S-Box $\mathrm{S}_0$ mit Auswertung}\label{Sage-code-bool-lprext}
 \end{sagecode}
 
@@ -3812,7 +3842,7 @@ Zusammengefasst:
 \end{Beweis}
 
 Bei der Entscheidung im Matsui-Test\index{Matsui-Test}, ob die
-lineare Relation\index{lineare Relation}\index{Relation!lineare} selbst oder
+lineare Relation\index{lineare Relation}\index{Relation!linear} selbst oder
 ihre Negation zur Schätzung des Bits verwendet werden sollte, greift man
 dann, da der Schlüssel ja noch unbekannt ist, auf diesen Mittelwert
 $p_{F,\alpha,\beta,\gamma}$
@@ -3861,6 +3891,7 @@ S1 = BoolMap([g1,g2,g3,g4])
    {\sc Lucifer}\index{Lucifer})}\label{Sage-code-Luc-S1}
 \end{sagecode}
 
+
 \subsubsection*{Beispiel}
 
 Betrachten wir das folgende konkrete Beispiel:
@@ -3898,7 +3929,7 @@ sage: for i in range(0,2**n):
 ....:     bit3 = (binScPr(alpha,a) + binScPr(gamma,c)) % 2
 ....:     print(a, b0, a1, b1, a2, c, bit1, bit2, bit3)
 \end{verbatim}
-\caption{Berechnung eines Beispiels zu B}\label{Sage-code-2rds1}
+\caption{Beispiel-Berechnungen für das Beispiel B (Zweirunden-Chiffre)}\label{Sage-code-2rds1}
 \end{sagecode}
 
 Die konkreten Rundenschlüssel\index{Rundenschlüssel} seien
@@ -4057,11 +4088,11 @@ analog zu Abbildung~\ref{fig-bool-2rd}.
 Um den begrifflichen Rahmen zu präzisieren, definiert man: Gegeben sei eine
 über $r$ Runden iterierte Bitblock-Chiffre\index{Bitblock-Chiffre}.
 Sei $(\alpha_i,\beta_i,\kappa_i)$ eine lineare
-Relation\index{lineare Relation}\index{Relation!lineare} für die $i$-te
+Relation\index{lineare Relation}\index{Relation!linear} für die $i$-te
 Runde. Es sei $\alpha_i = \beta_{i-1}$ für $i = 2, \ldots, r$. Sei
 $\beta_0 := \alpha_1$. Dann heißt die Kette
 $\beta = (\beta_0, \ldots, \beta_r)$ ein
-{\bf linearer Pfad}\index{linearer Pfad}\index{Pfad!linearer} für die Chiffre.
+{\bf linearer Pfad}\index{linearer Pfad}\index{Pfad!linear} für die Chiffre.
 
 Auch hier lässt sich in einem vereinfachten Szenario, nennen wir es
 Beispiel~C -- als Verallgemeinerung von Beispiel~B --, eine nützliche
@@ -4123,7 +4154,7 @@ eingebracht werden, siehe Abbildung~\ref{fig-bool-bspC}.
    \put(350,0){\line(0,1){110}}
 \end{picture}
 \end{center}
-\caption{Beispiel C}\label{fig-bool-bspC}
+\caption{Beispiel C: Mehrere Runden, Schlüssel kommen additiv in den Algorithmus}\label{fig-bool-bspC}
 \end{figure}
 
 Für einen Schlüssel $k = (k^{(0)}, \ldots, k^{(r)}) \in \F_2^{n\cdot(r+1)}$
@@ -4228,10 +4259,10 @@ unabhängig, sondern werden
 aus einem "`Generalschlüssel"' nach einem Schlüsselauswahlverfahren
 abgeleitet. In der Praxis macht das aber kaum etwas aus.
 Die Methode der linearen
-Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!lineare}
+Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!linear}
 beruht also auf der Faustregel:
 \begin{quote}
-  {\em Entlang eines linearen Pfades\index{linearer Pfad}\index{Pfad!linearer}
+  {\em Entlang eines linearen Pfades\index{linearer Pfad}\index{Pfad!linear}
   multiplizieren sich die Potenziale\index{Potenzial}.}
 \end{quote}
 
@@ -4240,10 +4271,10 @@ betreffend und in der konkreten Anwendung nicht unbedingt genau,
 vermittelt doch eine gute Vorstellung davon, wie der kryptoanalytische Nutzen
 (also das Potenzial) von linearen Approximationen mit jeder Runde weiter abnimmt,
 d.\,h., wie die Sicherheit der Chiffre vor linearer
-Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!lineare} mit
+Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!linear} mit
 zunehmender Rundenzahl steigt, denn das Produkt von Zahlen kleiner 1
 (und größer 0) wird ja mit zunehmender Länge immer kleiner.
-Die ungefähre Anzahl $N$ benötigter bekannter\index{bekannter Klartext}\index{Klartext!bekannter}
+Die ungefähre Anzahl $N$ benötigter bekannter\index{bekannter Klartext}\index{Klartext!bekannt}
 Klartexte ergibt sich aus der Formel~(\ref{equ-bool-N}) für $p_N$.
 
 \subsection{Parallelschaltung von S-Boxen}\label{ss-bool-par}
@@ -4342,7 +4373,7 @@ Abbildung~\ref{fig-bool-par}.
      \: \text{für } x_1, \ldots, x_m \in \F_2^q.
 \]
    Sei $(\alpha_i, \beta_i)$ für $i = 1, \ldots, m$ je eine
-   lineare Relation\index{lineare Relation}\index{Relation!lineare}
+   lineare Relation\index{lineare Relation}\index{Relation!linear}
    für $\textrm{S}_i$ mit Wahrscheinlichkeit $p_i$. Dann ist $(\alpha, \beta)$
    mit
 \begin{eqnarray*}
@@ -4437,8 +4468,10 @@ durch den Matsui-Algorithmus einstimmig ohne Gegenstimme korrekt geschätzt wird.
   10110101 &   1   & 01010111 &         0         &     1     \\ \hline
 \end{tabular}
 \end{center}
-\caption{Rechenbeispiel zu Beispiel~D}\label{tab-bool-BspC}
+\caption{Rechenbeispiel zu Beispiel~D (Parallelbetrieb von $m$ S-Boxen)}\label{tab-bool-BspC}
 \end{table}
+
+
 
 \subsection{Mini-Lucifer}\label{ss-bool-mini}
 
@@ -4506,7 +4539,7 @@ def miniLuc(a,k,r):
   c = xor(aa,finkey)
   return c
 \end{verbatim}
-\caption{Mini-Lucifer\index{Mini-Lucifer}}\label{Sage-code-miniLuc}
+\caption{Mini-Lucifer über r Runden\index{Mini-Lucifer}}\label{Sage-code-miniLuc}
 \end{sagecode}
 
 \begin{figure}
@@ -4560,16 +4593,16 @@ def miniLuc(a,k,r):
    \put(150,55){\vector(-1,0){64}}
 \end{picture}
 \end{center}
-\caption{Mini-Lucifer\index{Mini-Lucifer}}\label{fig-bool-miniLuc}
+\caption{Mini-Lucifer über r Runden\index{Mini-Lucifer}}\label{fig-bool-miniLuc}
 \end{figure}
 
 Bisher hatten wir bei der linearen
-Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!lineare}
+Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!linear}
 nicht mit Permutationen\index{Permutation}
 zu tun. Können diese das Vorgehen beeinträchtigen?
 
 Nun, sei $f$ eine Boolesche Abbildung, $(\alpha, \beta)$ eine
-lineare Relation\index{lineare Relation}\index{Relation!lineare}
+lineare Relation\index{lineare Relation}\index{Relation!linear}
 für $f$ mit Wahrscheinlichkeit $p$ und $\textrm{P}$
 eine Permutation im Bildbereich von $f$. Dann setzen wir
 $\beta' = \beta \circ \textrm{P}^{-1}$
@@ -4752,19 +4785,19 @@ Schlüssel auf der "`falschen"' Seite von $\frac{1}{2}$ liegt.
 Außerdem werden natürlich die Erfolgswahrscheinlichkeiten durch
 Multiplikation immer kleiner. Und drittens
 laufen wir zunehmend in das Problem des multiplen
-Testens\index{multipler Test}\index{Test!multipler}, wenn wir immer
-wieder die gleichen bekannten\index{bekannter Klartext}\index{Klartext!bekannter}
+Testens\index{multipler Test}\index{Test!multiple}, wenn wir immer
+wieder die gleichen bekannten\index{bekannter Klartext}\index{Klartext!bekannt}
 Klartexte verwenden, was eine weitere
 Korrektur der Erfolgswahrscheinlichkeit nach unten bewirkt.
 
 \subsubsection*{Die systematische Suche nach linearen Relationen}
 
 Das Finden nutzbarer linearer
-Relationen\index{lineare Relation}\index{Relation!lineare} über
+Relationen\index{lineare Relation}\index{Relation!linear} über
 mehrere Runden\index{Runde} ist
 algorithmisch im Allgemeinen nicht elegant lösbar; in den publizierten
 Beispielen werden oft mehr oder weniger zufällig gefundene
-lineare Pfade\index{linearer Pfad}\index{Pfad!linearer} verwendet,
+lineare Pfade\index{linearer Pfad}\index{Pfad!linear} verwendet,
 ohne dass klar ist, ob es nicht wesentlich besser geeignete gibt.
 
 Ist $n$ die Blocklänge der Chiffre und $r$ die Zahl der Runden, so
@@ -4848,7 +4881,7 @@ das höhere Potenzial $\lambda = \frac{9}{64}$ erreichen. Dieses führt zu einer
 \[
      N = \frac{3}{\lambda} = \frac{64}{3} \approx 21
 \]
-bekannten\index{bekannter Klartext}\index{Klartext!bekannter} Klartexten
+bekannten\index{bekannter Klartext}\index{Klartext!bekannt} Klartexten
 zur Bestimmung eines Bits.
 
 Umgekehrt wird der Designer einer Chiffre darauf achten, dass die
@@ -4864,7 +4897,7 @@ Konstruktionsansatz die "`Wide-Trail"'-Strategie\index{Wide-Trail-Strategie}\foo
    linearen Abbildung.
 }.
 Abbildung~\ref{fig-bool-trail} zeigt ein Beispiel eines solchen verzweigten
-linearen Pfades\index{linearer Pfad}\index{Pfad!linearer}.
+linearen Pfades\index{linearer Pfad}\index{Pfad!linear}.
 
 \subsubsection*{Beispiel (Fortsetzung)}
 
@@ -5032,12 +5065,12 @@ die Erfolgswahrscheinlichkeit in dieser Situation über 90\% liegt.
 \subsubsection*{Analyse über vier Runden}
 
 Wir wollen uns nun vergewissern, wie eine Erhöhung der Rundenzahl die
-lineare Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!lineare}
+lineare Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!linear}
 entscheidend behindert.
 
 Dazu betrachten wir unsere Spiel-Chiffre Mini-Lucifer\index{Mini-Lucifer}
 über vier Runden. Die Suche nach einem optimalen linearen
-Pfad\index{linearer Pfad}\index{Pfad!linearer} über vier Runden ist
+Pfad\index{linearer Pfad}\index{Pfad!linear} über vier Runden ist
 schon etwas aufwendig, wir begnügen uns daher exemplarisch mit der
 Ausdehnung des besten Beispiels für zwei Runden, nämlich des obigen
 dritten, über weitere zwei Runden. Mit einer auf die jetzige
@@ -5075,13 +5108,13 @@ Die übrigen Kennzahlen sind
      N \approx \frac{65536}{27} \approx 2427,
 \]
 letzteres als die Zahl der für den 95-prozentigen Erfolg benötigten bekannten
-Klartexte\index{bekannter Klartext}\index{Klartext!bekannter}.
+Klartexte\index{bekannter Klartext}\index{Klartext!bekannt}.
 
 Das wäre im Aufwand immer noch geringer als die Exhaustion über alle
 $65536$ möglichen Schlüssel -- aber es gibt ja insgesamt nur $256$
 verschiedene mögliche Klartexte, so dass wir gar keinen Ansatzpunkt
 für die Analyse finden -- die lineare
-Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!lineare}
+Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!linear}
 hat durch die Erhöhung der Rundenzahl ihren Sinn verloren.
 
 \begin{figure}
@@ -5180,7 +5213,7 @@ hat durch die Erhöhung der Rundenzahl ihren Sinn verloren.
    \put(170,5){$\beta = \beta_4 \:\hat{=}\: (3,12)$}
 \end{picture}
 \end{center}
-\caption{Ein linearer Pfad\index{linearer Pfad}\index{Pfad!linearer}
+\caption{Ein linearer Pfad\index{linearer Pfad}\index{Pfad!linear}
    mit Verzweigungen (\glqq Trail\grqq). Bei S wird
    die Linearform im Bild jeweils {\em gewählt} (anhand des Potenzials),
    angedeutet durch den roten Punkt;
@@ -5191,14 +5224,14 @@ hat durch die Erhöhung der Rundenzahl ihren Sinn verloren.
 \subsection{Ausblick}\label{ss-bool-res}
 
 Wir haben gesehen, dass die lineare
-Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!lineare} Anhaltspunkte
+Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!linear} Anhaltspunkte
 für die Sicherheit einer Chiffre gibt, insbesondere für die Zunahme der
 Sicherheit durch Erhöhung der Rundenzahl. Eine mathematisch befriedigende
 Grundlage gibt es aber nur für einen Teil der Theorie. Die vorhandenen
 Publikationen beschäftigen sich meist mit ad-hoc-Analysen konkreter
 Verschlüsselungsverfahren. So hat etwa Matsui\index{Matsui, Mitsuru}
 gezeigt, wie man beim DES\index{DES}-Verfahren mit $2^{43}$ bekannten
-Klartexten\index{bekannter Klartext}\index{Klartext!bekannter}
+Klartexten\index{bekannter Klartext}\index{Klartext!bekannt}
 $14$ Schlüsselbits mit hoher Gewissheit bestimmen kann,
 was die Exhaustion auf die übrigen $42 = 56 - 14$
 Schlüsselbits reduzierte und somit auch praktisch durchführbar war
@@ -5206,10 +5239,10 @@ Schlüsselbits reduzierte und somit auch praktisch durchführbar war
 
 Die Betrachtung der linearen Kryptoanalyse ist als Beispiel zu sehen.
 Für die differenzielle
-Kryptoanalyse\index{differenzielle Kryptoanalyse}\index{Kryptoanalyse!differenzielle}
+Kryptoanalyse\index{differenzielle Kryptoanalyse}\index{Kryptoanalyse!differenziell}
 sowie die verallgemeinerten und
 gemischten Varianten laufen die Überlegungen einen analogen Gang.
-Zum Weiterlesen sei das Buch \cite{Stin} empfohlen. Dort werden auch
+Zum Weiterlesen sei das Buch \cite{Stin2006} empfohlen. Dort werden auch
 die wichtigen Verfahren DES\index{DES} und AES\index{AES} beschrieben.
 
 \begin{figure}
@@ -5328,7 +5361,7 @@ die wichtigen Verfahren DES\index{DES} und AES\index{AES} beschrieben.
 
 Die Abbildungen~\ref{fig-bool-aes1} und \ref{fig-bool-aes2}
 beschreiben grob den Aufbau des AES\index{AES}-Verfahrens\footnote{%
-  In CrypTool 2 unter "`Moderne Verfahren"'/ "`AES"' zu finden.
+  In CrypTool~2 unter "`Moderne Verfahren"'/ "`AES"' zu finden.
 } und zeigen, wie die hier
 hergeleiteten Konstruktionsprinzipien dabei umgesetzt wurden.
 \begin{itemize}
@@ -5356,8 +5389,8 @@ hergeleiteten Konstruktionsprinzipien dabei umgesetzt wurden.
          explizit bestimmen, es gibt aber auch eine "`tiefliegende"'
          mathematische Herleitung davon\footnote{%
          bei der als mathematisches Wunder die Zählung von Punkten
-         elliptischer Kurven\index{elliptische Kurve}\index{Kurve!elliptische}
-         über endlichen Körpern\index{endlicher Körper}\index{Körper!endliche}
+         elliptischer Kurven\index{elliptische Kurve}\index{Kurve!elliptisch}
+         über endlichen Körpern\index{endlicher Körper}\index{Körper!endlich}
          der Charakteristik 2 vorkommt
          }.
    \item Der Permutationsschritt besteht aus einer Permutation gefolgt
@@ -5397,11 +5430,11 @@ im Sinne des folgenden Abschnitts interpretierbar\footnote{%
 es einen Unterschied, ob der zu addierende Schlüsselstrom unabhängig
 vom Klartext vorher festgelegt wird -- man spricht dann auch von einer
 {\bf synchronen
-Bitstrom-Chiffre}\index{synchrone Bitstrom-Chiffre}\index{Bitstrom-Chiffre!synchrone}
+Bitstrom-Chiffre}\index{synchrone Bitstrom-Chiffre}\index{Bitstrom-Chiffre!synchron}
 --, oder ob er sich abhängig vom Klartext oder
 anderen Kontext-Parametern ändern kann -- dann handelt es sich um eine
 {\bf asynchrone
-Bitstrom-Chiffre}\index{asynchrone Bitstrom-Chiffre}\index{Bitstrom-Chiffre!asynchrone}.
+Bitstrom-Chiffre}\index{asynchrone Bitstrom-Chiffre}\index{Bitstrom-Chiffre!asynchron}.
 
 In diesem Abschnitt werden nur synchrone Bitstrom-Chiffren behandelt.
 Auch Stromchiffren\index{Stromchiffre} für andere Zeichenvorräte
@@ -5430,7 +5463,7 @@ als die Bits $0$, $1$ bleiben hier außen vor.
 \end{figure}
 
 Die einfachste und gängigste Art von Bitstrom-Chiffren ist die
-XOR-Verschlüsselung\index{XOR-Verschlüsselung}. Hierbei wird der Klartext als Folge von Bits
+XOR-Verschlüsselung\index{XOR}\index{Verschlüsselung!XOR}. Hierbei wird der Klartext als Folge von Bits
 aufgefasst\footnote{%
   "`Gewöhnliche"' Texte kann man etwa mit der SageMath-Methode
   {\tt ascii\_to\_bin()} aus dem Modul {\tt sage.crypto.util} in
@@ -5447,7 +5480,7 @@ Auch der Schlüssel ist eine Folge von Bits, die {\bf Schlüsselstrom}\index{Schlü
 genannt wird. Verschlüsselt wird, indem das jeweils nächste Bit des Klartexts
 mit dem nächsten Bit des Schlüsselstroms binär addiert wird.
 Abbildung~\ref{fig-bool-xor} illustriert dieses Vorgehen\footnote{%
-  In CrypTool 2 unter "`Klassische Verfahren"'/ "`XOR"' zu finden,
+  In CrypTool~2 unter "`Klassische Verfahren"'/ "`XOR"' zu finden,
   im Anhang~\ref{ss-bool-conv} als {\tt xor}, siehe
   SageMath-Beispiel~\ref{Sage-code-bool-div-bbl}.
 },
@@ -5467,7 +5500,7 @@ Abbildung~\ref{fig-bool-xorbsp} zeigt ein Beispiel.
 \caption{Ein Beispiel zur XOR-Verschlüsselung}\label{fig-bool-xorbsp}
 \end{figure}
 
-Historisch wurde die XOR-Verschlüsselung\index{XOR-Verschlüsselung}
+Historisch wurde die XOR-Verschlüsselung\index{XOR}\index{Verschlüsselung!XOR}
 in den Zwanzigerjahren des 20. Jahrhunderts zur Verschlüsselung von
 Fernschreiber\index{Fernschreiber}-Nachrichten eingesetzt. Solche
 Nachrichten wurden auf Lochstreifen\index{Lochstreifen} gestanzt, jeweils 5 Bits
@@ -5583,7 +5616,7 @@ einem Offizier und späteren Chief Signal Officer der US Army, bemerkt.
 \end{figure}
 
 
-Als One-Time-Pad\index{One-Time-Pad} lieferte die XOR-Chiffre später ein
+Als One-Time-Pad (OTP)\index{OTP} lieferte die XOR-Chiffre später ein
 Beispiel für perfekte Sicherheit im Sinne von Shannon\index{Shannon, Claude}.
 Als Algorithmus A5\index{A5} bzw. $\mathrm{E}_0$\index{E0} wirkt sie mit,
 die Mobil-Telefonie\index{Mobil-Telefonie} bzw. das
@@ -5593,7 +5626,7 @@ Client-Server-Kommunikation im World Wide Web (gelegentlich) verschlüsselt, und
 in der PKZIP\index{PKZIP}-Verschlüsselung. Viele weitere aktuelle Anwendungen kann man leicht
 finden, und viele davon erfüllen nicht die erwarteten Sicherheitsansprüche.
 \begin{quote}
-   {\em Die Spannweite der XOR-Verschlüsselung\index{XOR-Verschlüsselung}
+   {\em Die Spannweite der XOR-Verschlüsselung\index{XOR}\index{Verschlüsselung!XOR}
    reicht von trivial zu brechenden Verfahren bis hin zu unbrechbaren Chiffren.} 
 \end{quote}
 
@@ -5602,7 +5635,7 @@ finden, und viele davon erfüllen nicht die erwarteten Sicherheitsansprüche.
       \begin{itemize}
          \item Der Verschlüsselungsalgorithmus und der
                Entschlüsselungsalgorithmus sind identisch: Da
-               $c_i = a_i + k_i$, ist $a_i = c_i + k_i$, d.\,h., zur
+               $c_i = a_i + k_i$, ist $a_i = c_i + k_i$, d.\,h. zur
                Entschlüsselung wird der Schlüsselstrom auf den Geheimtext
                addiert (elementweise binär).
          \item Das Verfahren ist extrem einfach zu verstehen und zu implementieren
@@ -5611,36 +5644,41 @@ finden, und viele davon erfüllen nicht die erwarteten Sicherheitsansprüche.
                Schlüsselstrom\index{Schlüsselstrom}
                ist schon vorhanden. Für hohe Datenübertragungsraten kann
                man den Schlüsselstrom auf beiden Seiten vorherberechnen.
-         \item Bei gut gewähltem Schlüsselstrom ist sehr hohe Sicherheit möglich.
+         \item Bei gut gewähltem Schlüsselstrom ist eine sehr hohe Sicherheit möglich.
       \end{itemize}
-   \item[Nachteile:] ~
+   %   \item[Nachteile:] ~
+   \item[Nachteile] der XOR-Verschlüsselung:
       \begin{itemize}
          \item Das Verfahren ist anfällig gegen bekannten
-               Klartext\index{bekannter Klartext}\index{Klartext!bekannter}; jedes
+               Klartext\index{bekannter Klartext}\index{Klartext!bekannt}; jedes
                erratene Klartextbit ergibt ein Schlüsselbit.
          \item Die Angreiferin kann bei bekanntem Klartextstück das
                entsprechende Schlüsselstück ermitteln und dann diesen
                Klartext beliebig austauschen -- z.\,B. "`ich liebe dich"'
                durch "`ich hasse dich"' ersetzen oder einen Geldbetrag
-               von 1000 auf 9999 ändern. D.\,h., die Integrität\index{Integrität} der
-               Nachricht ist unzureichend geschützt. -- Die Nachrichten-Integrität
-               ist nur durch zusätzliche Maßnahmen zu sichern.
+               von \EUR{1000} auf \EUR{9999} ändern.
+	       % Nutzung von \EUR{} oder \euro: http://www.theiling.de/eurosym.html
+	       D.\,h., die Integrität\index{Integrität} der
+               Nachricht ist unzureichend geschützt\footnote{%
+                 Die Nachrichten-Integrität ist durch zusätzliche
+		 Maßnahmen zu sichern.
+	       }.
          \item Es gibt keine Diffusion\index{Diffusion} im Sinne der Shannonschen Kriterien,
-               jedes Klartext-Bit beeinflusst nur das entsprechende
-               Geheimtext-Bit. -- Bei Blockchiffren war die Diffusion
-               eins der grundlegenden Kriterien.
+               da jedes Klartext-Bit nur das entsprechende Geheimtext-Bit beeinflusst\footnote{%
+	         Bei Blockchiffren war die Diffusion eines der grundlegenden Kriterien.
+	       }.
          \item Jegliche Wiederverwendung eines Teils der Schlüsselfolge
                (auch in Gestalt einer Periode) macht die betroffenen
                Geheimtexte angreifbar. Die historischen Erfolge beim
                Brechen von Strom-Chiffren beruhen meist auf diesem Effekt,
                so zum Beispiel bei Chiffrier-Fernschreibern und Schlüsselzusätzen
-               im zweiten Weltkrieg oder beim Projekt VENONA\index{VENONA}
+               im zweiten Weltkrieg oder beim Projekt Venona\index{Venona}
                im Kalten Krieg.
       \end{itemize}
 \end{description}
 
 Im Zusammenhang mit dem ersten Nachteil, der Anfälligkeit für Angriffe
-mit bekanntem Klartext\index{bekannter Klartext}\index{Klartext!bekannter},
+mit bekanntem Klartext\index{bekannter Klartext}\index{Klartext!bekannt},
 hat der gewöhnliche ISO-Zeichensatz\index{ISO-Zeichensatz}
 für Texte eine systematische Schwachstelle: Die Kleinbuchstaben {\tt a..z}
 beginnen im 8-Bit-Code alle mit {\tt 011}, die Großbuchstaben {\tt A..Z}
@@ -5708,7 +5746,7 @@ eine 1 ist. Versucht er, das auffällig wiederholte Zeichen \P\ = {\tt 10110110} 
 Leerzeichen {\tt 00100000} zu deuten, kann er sofort den Schlüssel als Differenz
 {\tt 10010110} bestimmen und hat die Verschlüsselung gebrochen.
 \begin{quote}
-   {\em Bekannter\index{bekannter Klartext}\index{Klartext!bekannter} oder
+   {\em Bekannter\index{bekannter Klartext}\index{Klartext!bekannt} oder
    vermuteter Klartext führt leicht zu einem
    erfolgreichen Angriff auf die periodische XOR-Verschlüsselung.}
 \end{quote}
@@ -5732,14 +5770,15 @@ sage: ciphstr
 '110100101110001110110110111101001111111111100101
 111000101011011011110010111110011111100111110000'
 \end{verbatim}
-\caption{XOR-Verschlüsselung\index{XOR-Verschlüsselung} in Python/SageMath}\label{Sage-code-bool-xor}
+\caption{XOR-Verschlüsselung\index{XOR}\index{Verschlüsselung!XOR} in Python/SageMath}\label{Sage-code-bool-xor}
 \end{sagecode}
 % \clearpage
+
 
 \subsubsection*{MS-Word und periodisches XOR}
 
 Die folgende Tabelle (die man leicht selbst erzeugen kann) gibt
-typische Häufigkeiten für die häufigsten Bytes
+typische Häufigkeiten an für die häufigsten Bytes
 in MS-Word\index{MS-Word}-Dokumenten.
 \begin{center}
 \begin{tabular}{|l|l|l|} \hline
@@ -5758,7 +5797,7 @@ Aber darauf kommt es hier gar nicht an. Jedenfalls beobachtet man:
 \begin{quote}
    {\em Es gibt lange Ketten von {\tt 00}-Bytes.}
 \end{quote}
-Ist ein Word-Dokument XOR-verschlüsselt mit periodisch wiederholtem Schlüssel,
+Ist ein Word-Dokument XOR-verschlüsselt\index{XOR}\index{Verschlüsselung!XOR} mit periodisch wiederholtem Schlüssel,
 so ergibt sich aus der Häufung von Nullen eine effiziente Analyse-Methode:
 den Strom der Geheimtext-Bits in Blöcke entsprechend der Periodenlänge\footnote{%
   Falls die Periodenlänge nicht schon bekannt ist, kann man sie oft mit
@@ -5794,12 +5833,13 @@ gleich. Dann ist die Wahrscheinlichkeit groß, dass beide Klartextblöcke
 nur aus Nullen bestanden. Auch in diesem Fall ist der Schlüssel enthüllt.
 Wir halten fest:
 \begin{quote}
-   {\em Die XOR-Verschlüsselung mit periodischem Schlüssel ist für
+   {\em Die XOR-Verschlüsselung\index{XOR}\index{Verschlüsselung!XOR} mit periodischem Schlüssel ist für
    Dateien mit bekannter Struktur ziemlich einfach zu brechen.}
 \end{quote}
 Das gilt auch bei einer großen Periode\index{Periode}, etwa von $512$ Bytes $= 4096$ Bits,
 trotz des überastronomisch riesigen Schlüsselraums aus $2^{4096}$ verschiedenen
 potenziellen Schlüsseln.
+
 
 \subsubsection*{Lauftext-Verschlüsselung}
 
@@ -5824,23 +5864,23 @@ soll hier aber nicht weiter eingegangen werden\footnote{%
    Lauftext-Verschlüsselung erzeugte Chiffrat benötigt.
 }. Festzuhalten ist jedenfalls:
 \begin{quote}
-   {\em Die XOR-Verschlüsselung mit Lauftext ist für
+   {\em Die XOR-Verschlüsselung\index{XOR}\index{Verschlüsselung!XOR} mit Lauftext ist für
    Dateien mit bekannter Struktur nicht allzu schwer zu brechen.}
 \end{quote}
 
-\subsubsection*{Echte Zufallsfolgen}
 
-Das andere Extrem ist, als Schlüsselstrom\index{Schlüsselstrom}
-eine rein zufällige Folge von
-Bits zu verwenden. Dann heißt das Verfahren {\bf (binäres)
-One-Time-Pad\index{One-Time-Pad} (OTP\index{OTP})}.
+\subsubsection*{Echte Zufallsfolgen}\label{s-bool-bitstr-real-random}
+
+Das andere Extrem ist, als Schlüsselstrom\index{Schlüsselstrom} eine
+rein zufällige Folge von Bits zu verwenden. Dann heißt das Verfahren
+{\bf (binäres) One-Time-Pad (OTP\index{OTP})}.
 Insbesondere darf kein Teil des Schlüsselstroms irgendwann wiederholt
 verwendet werden. Die Bezeichnung "`Pad"' rührt daher, dass man sich
 die Bits wie auf einem Abreißkalender vorstellt  -- jedes Blatt wird
 nach Benutzung sofort vernichtet. Eine solche
 Verschlüsselung kann nicht gebrochen werden, d.\,h., das Verfahren ist
 perfekt sicher. Shannon\index{Shannon, Claude} hat das formal bewiesen,
-siehe etwa \cite{Stin}.
+siehe etwa \cite{Stin2006}.
 
 Man kann die Sicherheit aber auch ohne mathematischen Formalismus wie
 folgt begründen: Der Geheimtext gibt -- außer der Länge -- keinerlei
@@ -5895,7 +5935,7 @@ Pseudodecrypted bits and text:
    Klartext}\label{fig-bool-otp}
 \end{figure}
 
-Wenn das One-Time-Pad\index{One-Time-Pad} so perfekt ist -- warum wird es denn
+Wenn das One-Time-Pad\index{OTP} so perfekt ist -- warum wird es denn
 nicht generell verwendet?
 \begin{itemize}
 \item Unhandliches Schlüssel-Management:
@@ -5912,7 +5952,7 @@ nicht generell verwendet?
       {\em zwei} Partnern geeignet, wegen des Aufwands bei der
       Schlüsselverwaltung nicht für eine Mehr-Parteien-Kommunikation.
 \item Das Problem der Nachrichtenintegrität besteht beim OTP\index{OTP} wie
-      bei jeder XOR-Verschlüsselung.
+      bei jeder XOR-Verschlüsselung\index{XOR}\index{Verschlüsselung!XOR}.
 \end{itemize}
 
 Ein weiteres praktisches Problem stellt sich bei der Verschlüsselung
@@ -5950,17 +5990,17 @@ und die Erzeugung solcher Folgen ist von hoher kryptologischer
 Relevanz.
 
 \begin{quote}
-   {\em Wenn die XOR-Verschlüsselung statt mit einer Zufallsfolge
-   mit einer Pseudozufallsfolge\index{Pseudozufallsfolge} durchgeführt
-   wird, geht die perfekte Sicherheit des One-Time-Pad\index{One-Time-Pad}
-   verloren. Wenn die Pseudozufallsfolge
-   allerdings kryptographisch sicher ist (Abschnitt~\ref{ss-bool-rndperf}),
-   hat die Gegnerin keine Chance, das auszunutzen.}
+   {\em Wenn die XOR-Verschlüsselung\index{XOR}\index{Verschlüsselung!XOR}
+   statt mit einer Zufallsfolge mit einer Pseudozufallsfolge
+   \index{Pseudozufallsfolge}\index{Zufallsgenerator}
+   durchgeführt wird, geht die perfekte Sicherheit des One-Time-Pad\index{OTP}
+   verloren. Wenn die Pseudozufallsfolge allerdings kryptographisch sicher ist
+   (Abschnitt~\ref{ss-bool-rndperf}), hat die Gegnerin keine Chance, das auszunutzen.}
 \end{quote}
 
 \subsection{Pseudozufallsgeneratoren}\label{ss-bool-prg}
 
-Man versucht, die idealen Eigenschaften des One-Time-Pad\index{One-Time-Pad} zu
+Man versucht, die idealen Eigenschaften des One-Time-Pad\index{OTP} zu
 approximieren, indem man statt einer "`echten"' Zufallsfolge eine
 von einem Algorithmus ("`Zufallsgenerator\index{Zufallsgenerator}"')
 aus einem "`effektiven Schlüssel"' (= kurzen Startwert) erzeugte
@@ -5969,9 +6009,9 @@ zu einer echten Zufallsfolge
 besteht also in der leichten Reproduzierbarkeit.
 Dennoch ist sogar bei mäßiger Qualität des Zufallsgenerators
 der Geheimtext resistent gegen statistische
-Analysen\index{statistische Analyse}\index{Analyse!statistische}.
+Analysen\index{statistische Analyse}\index{Analyse!statistisch}.
 Es bleibt das Problem, die Sicherheit gegen einen Angriff mit
-bekanntem Klartext\index{bekannter Klartext}\index{Klartext!bekannter}
+bekanntem Klartext\index{bekannter Klartext}\index{Klartext!bekannt}
 in den Griff zu bekommen.
 
 Die entscheidende Frage an eine Pseudozufallsfolge\index{Pseudozufallsfolge}
@@ -5995,8 +6035,8 @@ Geschwindigkeit der Erzeugung und der Sicherheit zu finden.
 Methodisch gibt es zwei ernsthaft praktizierte Hauptrichtungen zur Erzeugung
 eines Schlüsselstroms:
 \begin{itemize}
-\item (rückgekoppelte) Schieberegister und Kombinationen davon
-      als Anwendung der Booleschen Algebra,
+\item (rückgekoppelte) Schieberegister\index{Schieberegister} und Kombinationen
+      davon als Anwendung der Booleschen Algebra,
 \item perfekte Zufallsgeneratoren als Anwendung zahlentheoretischer
       Methoden.
 \end{itemize}
@@ -6041,8 +6081,8 @@ solange bis er durch externen Eingriff gestoppt wird.
   \put(275,58){\sf Pseudozufallsfolge}
   \put(275,45){\sf ("`lang"')}
 \end{picture}
-\caption{Das Prinzip des (Pseudo-)
-   Zufallsgenerators\index{Zufallsgenerator}\index{Black Box}}\label{fig-bool-prg}
+\caption{Das Prinzip des (Pseudo-)Zufallsgenerators
+	 \index{Zufallsgenerator}\index{Black Box}}\label{fig-bool-prg}
 \end{center}
 \end{figure}
 
@@ -6051,16 +6091,20 @@ Bitfolge, den Startwert, in eine lange pseudozufällige Folge um.
 Man nennt diesen Vorgang in der Kryptologie auch
 "`Schlüsselexpansion\index{Schlüsselexpansion}"'.
 
+
 \subsubsection*{Rückgekoppelte Schieberegister}
 
 Eine klassische und weit verbreitete Methode zur Erzeugung von
 Pseudozufallsfolgen ist die Schieberegister\index{Schieberegister}-""Methode.
+Im Englischen heißen Rückgekoppelte Schieberegister\index{Schieberegister!rückgekoppelt}
+Feedback shift registers (FSR).
 Diese Methode wurde von Golomb\index{Golomb, Solomon}\footnote{%
   Solomon W. Golomb, amerikanischer Mathematiker und Ingenieur,
   $~^{\ast}$30.5.1932.
 } 1955 erstmals vorgeschlagen, wird aber oft nach Tausworthe
 benannt, der die Idee 1965 in einer Arbeit aufgriff.
 Sie ist besonders leicht in Hardware zu realisieren.
+
 Hat das Register die Länge $l$, wird es durch eine
 Boolesche Funktion\index{Boolesche Funktion}\index{Funktion!Boolesche}
 $f\!\!: \F_2^l \longrightarrow \F_2$, die
@@ -6185,13 +6229,13 @@ sage: print(bbl2str(bitlist))
 \caption{Fortschaltung eines (rückgekoppelten) Schieberegisters}\label{tab-bool-fsr2}
 \end{table}
 
-\subsubsection*{Perioden endlicher Automaten}
 
-Ein rückgekoppeltes Schieberegister ist für den Informatiker ein
-Spezialfall eines
-endlichen Zustandsautomaten\index{endlicher Zustandsautomat}\index{Zustandsautomat!endlicher}.
-Ein solcher hat stets
-eine Periode\index{Periode}. Das sieht man wie folgt.
+\subsubsection*{Perioden endlicher Automaten}% Finite-State Machine
+
+Ein rückgekoppeltes Schieberegister ist für den Informatiker ein Spezialfall eines
+endlichen Zustandsautomaten\index{endlicher Zustandsautomat}\index{Zustandsautomat!endlich}.
+Die Abfolge seiner Zustände ist periodisch oder zyklisch, d.h. er hat stets eine
+Periode\index{Periode}. Das sieht man wie folgt.
 
 Sei $M$ eine endliche Menge mit $m = \#M$ Elementen. Wir stellen uns $M$
 als die Menge der möglichen "`Zustände"' eines Automaten vor. Dazu sei eine
@@ -6201,7 +6245,7 @@ Abbildung ("`Zustandsänderung\index{Zustandsänderung}"') gegeben:
 \]
 Für jedes Element ("`Anfangszustand"') $x_0 \in M$ definieren wir eine Folge
 $(x_i)_{i \geq 0}$ in $M$ durch die Rekursionsformel $x_i = g(x_{i-1})$
-für $i \geq 1$. Nach einer Vorperiode\index{Vorperiode} der Länge $\mu$ wird diese Folge
+für $i \geq 1$. Nach einer Vorperiode\index{Periode!Vorperiode} der Länge $\mu$ wird diese Folge
 periodisch mit einer Periode\index{Periode} $\nu$, siehe Abbildung~\ref{fig-bool-P+VP},
 die Erklärung folgt gleich.
 
@@ -6235,7 +6279,7 @@ die Erklärung folgt gleich.
    \put(342,0){\line(0,1){99}}
 \end{picture}
 \end{center}
-\caption{Periode\index{Periode} und Vorperiode\index{Vorperiode}}\label{fig-bool-P+VP}
+\caption{Periode\index{Periode} und Vorperiode\index{Periode!Vorperiode}}\label{fig-bool-P+VP}
 \end{figure}
 
 Da die Menge $M$ der möglichen Zustände endlich ist, müssen diese sich
@@ -6254,12 +6298,12 @@ verschieden, und die Werte $x_0, \ldots, x_{\mu-1}$ erscheinen
 niemals wieder in der Folge.
 
 \begin{description}
-   \item[Definition:] $\mu$ heißt die (Länge der) {\bf Vorperiode\index{Vorperiode}},
+   \item[Definition:] $\mu$ heißt die (Länge der) {\bf Vorperiode\index{Periode!Vorperiode}},
       $\nu$ die (Länge der) {\bf Periode\index{Periode}}.
 \end{description}
 
 \begin{quote}
-   {\em Pseudozufallsgeneratoren\index{Pseudozufallsgenerator}
+   {\em Pseudozufallsgeneratoren\index{Zufallsgenerator}
    im Sinne von Abbildung~\ref{fig-bool-prg}
    erzeugen immer periodische Folgen. Die Periode sollte aber so
    riesig sein, dass ihre Größenordnung in der praktischen
@@ -6271,7 +6315,7 @@ niemals wieder in der Folge.
 
 Der einfachste und am besten verstandene Spezialfall rückgekoppelter
 Schieberegister sind die
-linearen\index{lineares Schieberegister}\index{Schieberegister!lineares}\footnote{%
+linearen\index{lineares Schieberegister}\index{Schieberegister!linear}\footnote{%
    abgekürzt LFSR für Linear Feedback Shift Register; im Deutschen wird
    der Zusatz "`rückgekoppelt"' meistens implizit angenommen.
 }.
@@ -6330,7 +6374,7 @@ Bei geschickter Wahl der Parameter, die hier nicht weiter
 behandelt wird, hat die Folge eine Periode\index{Periode} nahe $2^l$ -- der Anzahl der
 möglichen verschiedenen Zustände des Registers -- und ist durch statistische
 Tests praktisch nicht von einer gleichverteilten Zufallsfolge zu
-unterscheiden \cite{Golo} -- erstaunlich, dass man mit einem so
+unterscheiden \cite{Golo1982} -- erstaunlich, dass man mit einem so
 simplen Ansatz schon so guten Pseudozufall erzeugen kann! Den
 Startblock $u = (0, \ldots, 0)$ sollte man natürlich vermeiden.
 Für einen Startblock $\neq 0$ ist die maximal mögliche Periode $2^l - 1$.
@@ -6353,7 +6397,7 @@ angenommen.
 
 Das SageMath-Beispiel~\ref{Sage-code-bool-lfsr}, die Funktion {\tt lfsr()},
 implementiert ein lineares
-Schieberegister\index{lineares Schieberegister}\index{Schieberegister!lineares}
+Schieberegister\index{lineares Schieberegister}\index{Schieberegister!linear}
 in SageMath\footnote{%
   oder die Funktion {\tt sage.crypto.lfsr.lfsr\_sequence} von SageMath
 }$^,$\footnote{%
@@ -6372,7 +6416,7 @@ und ergibt den Output in Tabelle~\ref{Sage-code-bool-psr}
 (ohne Klammern und Kommata wiedergegeben).
 
 Man könnte auf diesen Bitstrom jetzt eine Reihe statistischer
-Tests\index{statistischer Test}\index{Test!statistischer}, z.\,B.
+Tests\index{statistischer Test}\index{Test!statistisch}, z.\,B.
 auf Gleichverteilung, anwenden und würde stets gute Ergebnisse sehen.
 Statt dessen wird die Folge in Abbildung~\ref{fig-bool-lfsr2}
 zur optischen Inspektion visualisiert -- was natürlich noch weniger beweist.
@@ -6383,7 +6427,7 @@ zweiten Teil des SageMath-Beispiels~\ref{Sage-code-bool-lfsr1} erzeugt.
 An den 9 aufeinanderfolgenden (schwarzen) Einsen in der drittletzten
 Zeile sollte man sich nicht stören: Die Wahrscheinlichkeit für 9 Einsen
 bei 9 Bits ist
-$1/2^9 = 1/512$. Bei einem zufälligen Bitstrom der Länge $1024$ ist
+$(1/2)^9 = 1/512$. Bei einem zufälligen Bitstrom der Länge $1024$ ist
 ein solcher "`Run"' also mit hoher Wahrscheinlichkeit zu erwarten.
 
 \begin{quote}
@@ -6428,8 +6472,8 @@ ein solcher "`Run"' also mit hoher Wahrscheinlichkeit zu erwarten.
               01110010110000010001111001100111
 \end{verbatim}
 \caption{Eine pseudozufälligen Bitfolge aus einem
-   linearen\index{lineares Schieberegister}\index{Schieberegister!lineares}
-   Schieberegister}\label{Sage-code-bool-psr}
+   linearen\index{lineares Schieberegister}\index{Schieberegister!linear}
+	Schieberegister (LSFR)\index{LFSR}}\label{Sage-code-bool-psr}
 \end{table}
 
 \begin{sagecode}
@@ -6450,8 +6494,8 @@ def lfsr(s,x,n):
     outlist.append(c)
   return outlist
 \end{verbatim}
-\caption{Ein lineares\index{lineares Schieberegister}\index{Schieberegister!lineares}
-   Schieberegister in Python/SageMath}\label{Sage-code-bool-lfsr}
+\caption{Ein lineares\index{lineares Schieberegister}\index{Schieberegister!linear}
+	Schieberegister (LSFR) in Python/SageMath}\label{Sage-code-bool-lfsr}
 \end{sagecode}
 
 \begin{sagecode}
@@ -6482,21 +6526,20 @@ sage: matrix_plot(p, subdivisions=True)
 \end{figure}
 \clearpage
 
-\subsection{Algebraischer
-   Angriff\index{algebraischer Angriff}\index{Angriff!algebraischer}
-   auf lineare Schieberegister}\label{ss-bool-alg2}
+\subsection{Algebraischer Angriff \index{algebraischer Angriff}\index{Angriff!algebraisch}
+            auf lineare Schieberegister}\label{ss-bool-alg2}
 
 Auch einfache Zufallsgeneratoren\index{Zufallsgenerator} wie die linearen
-Schieberegister\index{lineares Schieberegister}\index{Schieberegister!lineares} liefern,
+Schieberegister\index{lineares Schieberegister}\index{Schieberegister!linear} liefern,
 wie gesehen, Bitfolgen, die mit statistischen Mitteln nicht ohne weiteres
 von "`echtem"' Zufall unterschieden werden können und für statistische
 Methoden der Kryptoanalyse keinen unmittelbar erfolgversprechenden
 Ansatz bieten. Anders sieht es aus, wenn man
-bekannten Klartext\index{bekannter Klartext}\index{Klartext!bekannter} annimmt
+bekannten Klartext\index{bekannter Klartext}\index{Klartext!bekannt} annimmt
 -- dann erhält man Gleichungen für die Schlüsselbits. Werden die
 Schlüsselbits nach einem einfachen Algorithmus erzeugt, kann man
 mit algebraischer
-Kryptoanalyse\index{algebraische Kryptoanalyse}\index{Kryptoanalyse!algebraische},
+Kryptoanalyse\index{algebraische Kryptoanalyse}\index{Kryptoanalyse!algebraisch},
 d.\,h. durch Auflösung dieser Gleichungen, auf Erfolg hoffen. Dies ist besonders
 für lineare Schieberegister\footnote{%
   Die "`Rückkopplung"' wird in der Bezeichnungsweise meistens weggelassen,
@@ -6505,11 +6548,12 @@ für lineare Schieberegister\footnote{%
 } der Fall.
 
 Nehmen wir an, ein lineares
-Schieberegister\index{lineares Schieberegister}\index{Schieberegister!lineares}
+Schieberegister\index{lineares Schieberegister}\index{Schieberegister!linear}
 hat den Schlüsselbitstrom $u_0, u_1, \ldots$ nach den
 Formeln~(\ref{eq-bool-lfsr1}) und (\ref{eq-bool-lfsr2}) erzeugt.
 Mit diesem Schlüsselstrom\index{Schlüsselstrom} wurde ein
-Klartext $a$ per XOR zum Geheimtext $c$ verschlüsselt, $c_i = a_i + u_i$
+Klartext $a$ per XOR\index{XOR}\index{Verschlüsselung!XOR}
+zum Geheimtext $c$ verschlüsselt, $c_i = a_i + u_i$
 für $i = 0, 1, \ldots$ Was kann die Gegnerin erreichen, wenn sie ein
 Stück vom Anfang des Klartexts kennt?
 
@@ -6526,13 +6570,13 @@ Klartext, liefert die sehr einfache Lineare
 Algebra\index{lineare Algebra}\index{Algebra!lineare} über dem Körper
 $\F_2$ im allgemeinen eine eindeutige Lösung. Die
 $l \times l$-Koeffizientenmatrix dieses linearen
-Gleichungssystems\index{lineares Gleichungssystem}\index{Gleichungssystem!lineares}
+Gleichungssystems\index{lineares Gleichungssystem}\index{Gleichungssystem!linear}
 ist im Wesentlichen die Matrix $U$ des nächsten Abschnitts. Ein
 kleiner Umweg macht die Lösung noch ein wenig eleganter -- in den nächsten,
 etwas mehr Mathematik voraussetzenden Abschnitten wird bewiesen:
 
 \begin{satz}\label{thm-bool-lfsr}
-  Ein lineares Schieberegister\index{lineares Schieberegister}\index{Schieberegister!lineares}
+  Ein lineares Schieberegister\index{lineares Schieberegister}\index{Schieberegister!linear}
   der Länge $l$ ist aus den ersten $2l$ Bits
   vorhersagbar. Der Aufwand dazu beträgt ungefähr $\frac{1}{3} \cdot l^3$
   Bitoperationen.
@@ -6541,7 +6585,7 @@ etwas mehr Mathematik voraussetzenden Abschnitten wird bewiesen:
 \subsubsection*{Vorhersage linearer Schieberegister}
 
 Nehmen wir an, wir kennen die ersten $2l$ Bits $u_0, \ldots, u_{2l-1}$
-aus einem linearen Schieberegister\index{lineares Schieberegister}\index{Schieberegister!lineares}
+aus einem linearen Schieberegister\index{lineares Schieberegister}\index{Schieberegister!linear}
 der Länge $l$. Die Lineare Algebra lässt
 sich eleganter formulieren, wenn man die {\bf Zustandsvektoren\index{Zustandsvektor}}
 \[
@@ -6599,7 +6643,8 @@ Wir haben einen Geheimtext vorliegen:
    11000110 01010101 00001011 11010011 01111011 10110000
    10011111 00100100 00001111 01010011 11111101
 \end{verbatim}
-Wir vermuten, dass er XOR-chiffriert ist mit einem Schlüsselstrom, der
+Wir vermuten, dass er XOR-chiffriert\index{XOR}\index{Verschlüsselung!XOR}
+ist mit einem Schlüsselstrom, der
 durch ein lineares Schieberegister der Länge $l = 16$ erzeugt wurde.
 Der Kontext lässt vermuten, dass der Text mit dem Wort "`Treffpunkt"'
 beginnt. Zum Brechen benötigen wir nach der Theorie 32 Bits, also
@@ -6736,7 +6781,7 @@ aus einem Teil ihres Outputs eine der folgenden Informationen zu bestimmen:
 \item weitere Teile des Outputs ("`Vorhersageproblem\index{Vorhersageproblem}"').
 \end{itemize}
 Wie wir bei den linearen
-Schieberegistern\index{lineares Schieberegister}\index{Schieberegister!lineares}
+Schieberegistern\index{lineares Schieberegister}\index{Schieberegister!linear}
 gesehen haben, ist es
 realistisch, das Vorhersageproblem anzugehen, das auch lösbar sein
 kann, wenn die Bestimmung der internen Parameter nicht gelingt.
@@ -6749,7 +6794,7 @@ Wir halten fest:
 \end{quote}
 
 \begin{quote}
-   {\em Lineare Schieberegister\index{lineares Schieberegister}\index{Schieberegister!lineares}
+   {\em Lineare Schieberegister\index{lineares Schieberegister}\index{Schieberegister!linear}
    sind kryptographisch nicht sicher.}
 \end{quote}
 
@@ -6771,18 +6816,20 @@ zu vermeiden, gibt es verschiedene Ansätze.
 \subsubsection*{Ansatz 1: Nichtlineare Rückkopplung}
 
 Die nichtlineare Rückkopplung\index{Rückkopplung}
-(nonlinear feedback, NLFSR\footnote{
-   für Non-Linear Feedback Shift Register
-}) folgt dem Schema aus
-Abbildung~\ref{fig-bool-fsr} mit einer nichtlinearen Booleschen
-Funktion\index{Boolesche Funktion}\index{Funktion!Boolesche}
-$f$. Sie wird hier nicht weiter behandelt; ein ganz
+folgt dem Schema aus Abbildung~\ref{fig-bool-fsr}
+mit einer nichtlinearen Booleschen Funktion\index{Boolesche
+Funktion}\index{Funktion!Boolesche} $f$.
+Sie wird hier nicht weiter behandelt; ein ganz
 einfaches, kryptographisch ungeeignetes Beispiel war das
 SageMath-Beispiel~\ref{Sage-code-bool-fsr1}. Man kann aber auch
-allgemein zeigen, dass solche nichtlinearen Schieberegister\index{Schieberegister!nichtlineares},
-für sich allein genommen, unter realistischen Annahmen
+allgemein zeigen, dass solche nichtlinearen Schieberegister
+(nonlinear feedback, NLFSR\footnote{%
+   für Non-Linear Feedback Shift Register\index{Schieberegister!nichtlinear}
+}
+), für sich allein genommen, unter realistischen Annahmen
 im praktischen Einsatz nicht kryptographisch
-sicher sind \cite{Pom2}.
+sicher sind \cite{Pom2016}.
+
 
 \subsubsection*{Ansatz 2: Nichtlinearer Ausgabefilter}
 
@@ -6930,7 +6977,7 @@ durch ein weiteres lineares Schieberegister:
 \end{itemize}
 Diese Ansätze lassen sich oft bequem auch als nichtlineare Kombinierer schreiben,
 so dass Ansatz 3 als der gängigste Ansatz zur Rettung der linearen
-Schieberegister\index{lineares Schieberegister}\index{Schieberegister!lineares}
+Schieberegister\index{lineares Schieberegister}\index{Schieberegister!linear}
 angesehen werden kann.
 
 Der Mobilfunk-Verschlüsselungsstandard
@@ -6944,7 +6991,7 @@ lassen sich auf handelsüblichen PCs in Echtzeit brechen.
 
 Der Bluetooth-Verschlüsselungsstandard $\mathrm{E}_0$\index{E0} verwendet vier
 lineare Schieberegister, die nichtlinear kombiniert werden. Dieses Verfahren
-ist etwas stärker als A5, aber auch zu schwach für echte Sicherheit \cite{Schm}.
+ist etwas stärker als A5, aber auch zu schwach für echte Sicherheit \cite{Schm2016}.
 
 \subsubsection*{Beispiel: Der Geffe-Generator}
 
@@ -7089,8 +7136,7 @@ implementieren, d.\,h., eine Klasse {\tt LFSR} zu definieren\footnote{%
                     auf deutsch etwa "`Abzweig"' oder "`Abgriff"', weil bei einer
                     Hardware-Implementierung genau an diesen Stellen die für die
                     Rückkopplung verwendeten Bits abgegriffen werden
-                  }), die die
-                  rückzukoppelnden Bits definieren (konstant)
+                  }), die die  rückzukoppelnden Bits definieren (konstant)
                \item {\tt state}: der Zustand des Registers (veränderbar)
             \end{itemize}
          \item[Methoden:] ~
@@ -7117,7 +7163,7 @@ im Abschnitt~\ref{ss-bool-lfsrclass}.
 
 Zunächst wählen wir drei lineare Schieberegister der Längen 15, 16 und 17,
 deren Perioden\footnote{%
-  nach den Listen primitiver Polynome in \cite{HAC}
+  nach den Listen primitiver Polynome in \cite{Menezes2001}
 } $2^{15} - 1 = 32767$, $2^{16} - 1 = 65535$ und
 $2^{17} - 1 = 131071$ sind, und diese sind paarweise teilerfremd, siehe
 SageMath-Beispiel~\ref{Sage-code-bool-per}.
@@ -7242,7 +7288,7 @@ zu erwarten wäre. Ist $p < \frac{1}{2}$, so weicht die Korrelation nach
 unten vom zufälligen Wert ab.
 
 Diesen Effekt kann sich die Kryptoanalytikerin bei einem Angriff mit
-bekanntem Klartext\index{bekannter Klartext}\index{Klartext!bekannter}
+bekanntem Klartext\index{bekannter Klartext}\index{Klartext!bekannt}
 zunutze machen. Angenommen wird, dass ihr die
 "`Hardware"', also die Rekursionsformeln für die Register (die Taps) und
 auch die Kombinierfunktion $f$, bekannt ist. Gesucht sind die als Schlüssel
@@ -7269,9 +7315,9 @@ Das ist zwar exponenziell, aber wesentlich geringer als der Aufwand
 $\sim 2^{l_1} \cdots 2^{l_n}$ für die naive vollständige Schlüsselsuche.
 
 In der Sprache der linearen
-Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!lineare}
+Kryptoanalyse\index{lineare Kryptoanalyse}\index{Kryptoanalyse!linear}
 aus \ref{ss-bool-lka} haben
-wir hier die lineare Relation\index{lineare Relation}\index{Relation!lineare}
+wir hier die lineare Relation\index{lineare Relation}\index{Relation!linear}
 \[
      f(x_1, \ldots, x_n) \stackrel{p}{\approx} x_1
 \]
@@ -7280,7 +7326,7 @@ Relation ausnutzen kann, um die Komplexität der vollständigen Schlüsselsuche
 zu reduzieren\footnote{%
   Eine genauere Analyse der Situation führt auf den Begriff der
   Korrelationsimmunität\index{Korrelationsimmunität}, die mit dem linearen
-  Potenzial\index{lineares Potenzial}\index{Potenzial!lineares}
+  Potenzial\index{lineares Potenzial}\index{Potenzial!linear}
   verwandt ist.
 }.
 
@@ -7413,7 +7459,8 @@ Standardabweichung $\sqrt{r}/2$.
 Wie auch immer man das macht, im Fall $r = 100$ ist (exemplarisch) die
 Wahrscheinlichkeit, maximal $65$ Koinzidenzen zu finden, ziemlich
 genau $0,999$, die Überschreitungswahrscheinlichkeit also
-1 \textperthousand. Die Exhaustion der Startwerte des Registers 1
+%%%  Da \textperthousand nicht funktionierte (auch nicht mit package textcomp), \permil genommen.
+1\,\permil. Die Exhaustion der Startwerte des Registers 1
 umfasst $2^{15} = 32786$ Möglichkeiten (den eigentlich ausgeschlossenen
 Startwert $0 \in \F_2^{15}$ zählen wir großzügig mit). Dabei
 können wir also etwa $33$ "`Grenzüberschreitungen"' mit mindestens
@@ -7575,13 +7622,13 @@ nichtlineare Kombinierer\index{Kombinierer} herleiten:
 \begin{itemize}
 	\item Die einzelnen Batterieregister müssen möglichst lang sein.
 	\item Die Kombinierfunktion $f$ soll ein möglichst geringes lineares
-        Potenzial\index{lineares Potenzial}\index{Potenzial!lineares} haben.
+        Potenzial\index{lineares Potenzial}\index{Potenzial!linear} haben.
 \end{itemize}
 
 Wie lang sollen die Batterieregister sein? Es gibt verschiedene Ansätze zu
 "`schnellen"' Korrelationsattacken, z.\,B. mit Hilfe der
 Walsh-Transformation\index{Walsh-Transformation}, besonders gegen dünn
-besetzte lineare Rückkopplungsfunktionen \cite{MeSt}.
+besetzte lineare Rückkopplungsfunktionen \cite{MeSt1989}.
 Diese reduzieren zwar nicht die Komplexitätsklasse des Angriffs
 ("`mindestens exponenziell in der Länge des kürzesten Registers"'), aber der
 Aufwand wird um einen beträchtlichen Proportionalitätsfaktor verringert.
@@ -7620,7 +7667,7 @@ sind, also im Sinne von Abbildung~\ref{fig-bool-prg} zu den
 
 \subsubsection*{Effizienz}
 
-Lineare Schieberegister\index{lineares Schieberegister}\index{Schieberegister!lineares}
+Lineare Schieberegister\index{lineares Schieberegister}\index{Schieberegister!linear}
 und nichtlineare Kombinierer\index{Kombinierer} lassen sich mit
 speziell dafür gefertigter Hardware effizient realisieren, so dass pro
 Prozessortakt ein Bit herauspurzelt, durch Parallelisierung auch
@@ -7639,7 +7686,7 @@ Als Fazit kann man festhalten:
 \begin{quote}
   {\em Mit linearen Schieberegistern und nichtlinearen Kombinierern
   lassen sich brauchbare, ziemlich schnelle
-  Pseudozufallsgeneratoren\index{Pseudozufallsgenerator}
+  Pseudozufallsgeneratoren\index{Zufallsgenerator}
   aufbauen, besonders in Hardware.}
 \end{quote}
 Für die kryptologische Sicherheit dieser Pseudozufallsgeneratoren gibt es
@@ -7659,7 +7706,8 @@ d.\,h., auf ein bekanntes "`hartes"' Problem zurückgeführt werden können.
 Dadurch wurde ein neuer Qualitätsstandard für Zufallsgeneratoren gesetzt,
 der allerdings letztlich auf der mathematisch völlig unbewiesenen
 Grundlage aufbaut, dass es für gewisse zahlentheoretische Probleme wie
-die Primzerlegung\index{Primzerlegung} keine effizienten
+die Primzerlegung\index{Faktorisierung} oder den diskreten Logarithmus
+\index{Logarithmusproblem!diskret} keine effizienten
 Algorithmen gibt. -- Die Situation ist also die gleiche wie bei der
 Sicherheit der asymmetrischen Verschlüsselung.
 
@@ -7671,7 +7719,7 @@ Unvorhersagbarkeit\index{Unvorhersagbarkeit} äquivalent
 ist, siehe Satz~\ref{thm-bool-YaoTh} (Satz von Yao). Dadurch ist
 die Bezeichnung "`perfekt\index{perfekt}"' für die entsprechenden Zufallsgeneratoren
 gerechtfertigt. Insbesondere gibt es keinen effizienten
-statistischen Test\index{statistischer Test}\index{Test!statistischer},
+statistischen Test\index{statistischer Test}\index{Test!statistisch},
 der in der Lage ist, eine Folge aus einem perfekten Zufallsgenerator
 von einer echt zufälligen Folge zu unterscheiden.
 Auf der theoretischen Seite ist damit ein sehr gutes Modell
@@ -7679,7 +7727,7 @@ für Zufallsgeneratoren vorhanden, die statistisch absolut einwandfrei und
 kryptologisch unangreifbar sind. -- Also:
 \begin{quote}
    {\em Perfekte\index{perfekt}
-   Zufallsgeneratoren\index{perfekter Zufallsgenerator}\index{Zufallsgenerator!perfekter}
+   Zufallsgeneratoren\index{perfekter Zufallsgenerator}\index{Zufallsgenerator!perfekt}
    sind kryptographisch sicher
    und statistisch nicht von echten Zufallsquellen zu unterscheiden.}
 \end{quote}
@@ -7893,7 +7941,7 @@ sage: blum_blum_shub(1000,x0,p,q)
 
 \subsection{Perfektheit und Faktorisierungsvermutung}\label{ss-bool-perfqr}
 
-Informell definiert man einen {\bf Pseudozufallsgenerator}\index{Pseudozufallsgenerator}
+Informell definiert man einen {\bf Pseudozufallsgenerator}
 (kurz: einen Zufallsgenerator\index{Zufallsgenerator})
 als einen effizienten Algorithmus, der eine
 "`kurze"' Bitkette $s \in \F_2^n$ in eine "`lange"' Bitkette\index{Bitkette}
@@ -7946,7 +7994,7 @@ aber eben korrekt gemacht werden kann.
   es kein effizientes Vorhersageverfahren gibt.
 \end{definition}
 Zum Beispiel bestehen
-lineare Schieberegister\index{lineares Schieberegister}\index{Schieberegister!lineares}
+lineare Schieberegister\index{lineares Schieberegister}\index{Schieberegister!linear}
 wegen des effizienten
 Vorhersageverfahrens aus Satz~\ref{thm-bool-lfsr} den Vorhersagetest nicht.
 
@@ -7976,9 +8024,10 @@ Vorhersagetest ist "`universell"'.
 \end{satz}
 Hier ohne Beweis.
 
+
 \subsubsection*{Die (vermutete) Perfektheit des BBS-Generators}
 
-Die {\bf Faktorisierungsvermutung}\index{Faktorisierungsvermutung}
+Die {\bf Faktorisierungsvermutung}\index{Faktorisierung!Faktorisierungsvermutung}
 besagt, dass sich große natürliche
 Zahlen nicht effizient in Primfaktoren zerlegen lassen. Diese
 Vermutung ist die Begründung für die Sicherheit des RSA-Verfahrens,
@@ -8124,12 +8173,12 @@ nach ähnlichen Prinzipien funktionieren wie der BBS-Generator\index{BBS-Generato
      ersten $\lfloor \log_2 \log_2 p \rfloor$ Bits aus.
      Die Perfektheit dieses Pseudozufallsgenerators beruht auf der Vermutung,
      dass die Berechnung diskreter
-     Logarithmen\index{diskreter Logarithmus}\index{Logarithmus!diskreter}
+     Logarithmen\index{diskreter Logarithmus}\index{Logarithmus!diskret}
      $\bmod p$ hart ist. Auch hier ist der Zeitbedarf pro Bit $\Oh(n^3)$.
   \item[Der elliptische Index-Generator (Kaliski).] Er funktioniert~wie
      der Index-""Generator, nur dass man die Gruppe der invertierbaren
      Elemente des Körpers $\F_p$ durch eine
-     elliptische Kurve\index{elliptische Kurve}\index{Kurve!elliptische}
+     elliptische Kurve\index{elliptische Kurve}\index{Kurve!elliptisch}
      über $\F_p$ ersetzt
      (eine solche Kurve ist auf kanonische Weise eine endliche Gruppe).
 \end{description}
@@ -8269,31 +8318,39 @@ der Arbeit auf $k$ Prozessoren einen Gewinn um den echten Faktor
 $k$ bedeutet: Die Prozessoren können unabhängig voneinander
 arbeiten ohne Notwendigkeit zur Kommunikation.
 
-\subsection{Ausblick}\label{ss-bool-prg-res}
+\subsection{Zusammenfassung und Ausblick}\label{ss-bool-prg-res}
 
 Bitstrom-Chiffren\index{Bitstrom-Chiffre} brauchen kryptographisch
 sichere Zufallsgeneratoren\index{Zufallsgenerator}. Diese scheint
 es zu geben, auch wenn ihre Sicherheit -- wie die auch aller
 anderen Verschlüsselungsverfahren -- mathematisch nicht vollständig
-bewiesen ist. Ein guter Zufallsgenerator reicht aber nicht aus,
-um eine praxistaugliche Bitstrom-Chiffre zu implementieren.
-Das Problem der Nachrichten-Integrität\index{Integrität} erfordert zusätzliche
-Überlegungen, z.\,B. die Kombination mit einer kryptographischen
-Hash-Funktion\index{Hashfunktion}. Auch muss zuverlässig verhindert werden, dass
-der gleiche Schlüsselstrom\index{Schlüsselstrom} irgendwann noch einmal vorkommt,
-d.\,h., das Schlüsselmanagement\index{Schlüsselmanagement} erfordert zusätzliche
-Sorgfalt. Ein möglicher Ansatz dafür ist, einen längerfristig gültigen Schlüssel
-aus internen Parametern des Zufallsgenerators zusammenzusetzen und den
-Startwert gar nicht als Teil des Schlüssels, sondern als eine Art
-Initialisierungsvektor zu betrachten, der sogar offen mit der
-Nachricht übermittelt werden kann.
+bewiesen ist.
 
-Im Gegensatz zu Bitblock-Chiffren mit ihrem Standard AES\index{AES} und früheren
-Standard DES\index{DES} gibt es für Bitstrom-Chiffren kein gleichermaßen
+Ein guter Zufallsgenerator reicht aber nicht aus, um eine praxistaugliche
+Bitstrom-Chiffre zu implementieren:
+\begin{itemize}
+   \item Für die Nachrichten-Integrität\index{Integrität} sind zusätzliche
+      Überlegungen erforderlich, z.\,B. die Kombination mit einer kryptographischen
+      Hash-Funktion\index{Hashfunktion}.
+   \item Bei der Benutzung muss zuverlässig verhindert werden, dass der gleiche
+      Schlüsselstrom\index{Schlüsselstrom} irgendwann noch einmal vorkommt,
+      d.\,h., das Schlüsselmanagement\index{Schlüsselmanagement} erfordert
+      zusätzliche Sorgfalt. Ein möglicher Ansatz\footnote{%
+         Dies war der übliche Ansatz bei den Verschlüsselungsmaschinen im zweiten Weltkrieg.
+      } dafür ist es, einen längerfristig gültigen Schlüssel aus internen
+      Parametern des Zufallsgenerators
+      zusammenzusetzen und den Startwert gar nicht als Teil des Schlüssels,
+      sondern als eine Art Initialisierungsvektor zu betrachten, der sogar
+      offen mit der Nachricht übermittelt werden kann.\index{OTP}
+\end{itemize}
+% TodoTodo Pommerening!  xxxxxxxxx anderer Inhalt als im Englischen!!!!: offen?
+
+Im Gegensatz zu Bitblock-Chiffren mit ihrem akzeptierten Standard AES\index{AES}
+(und davor dem Standard DES\index{DES}) gibt es für Bitstrom-Chiffren kein gleichermaßen
 etabliertes Verfahren. Einer Standardisierung am nächsten kommt
 das \href{http://www.ecrypt.eu.org/stream/}{eSTREAM\index{eSTREAM}-Portfolio},
 das von 2004 bis 2008 in einem europäischen Projekt erarbeitet
-wurde und mehrere Verfahren empfiehlt \cite{Schm}.
+wurde und mehrere Verfahren empfiehlt \cite{Schm2016}.
 
 Leider wurden gerade im Bereich der Bitstrom-Chiffren in der
 Vergangenheit viele im Hinterzimmer entwickelte ("`proprietäre"')
@@ -8345,7 +8402,7 @@ woanders, in \verb:sage.crypto.block_cipher.sdes:, noch die Funktion
 \subsubsection*{Logische Ausdrücke}
 
 Funktionen zur Behandlung logischer
-Ausdrücke\index{logischer Ausdruck}\index{Ausdruck!logischer}
+Ausdrücke\index{logischer Ausdruck}\index{Ausdruck!logisch}
 sind in den Modulen
 \verb:sage.logic.boolformula:,
 \verb:sage.sat.converters:,
@@ -8667,7 +8724,7 @@ class BoolF(object):
           max = wt
     return max
 \end{verbatim}
-\caption{Boolesche Funktionen\index{ANF}\index{Grad!algebraischer}
+\caption{Boolesche Funktionen\index{ANF}\index{Grad!algebraisch}
    -- Fortsetzung}\label{Sage-code-bool-bool-f1}
 \end{sagecode}
 
@@ -8868,7 +8925,7 @@ class BoolMap(object):
       return lpr
 \end{verbatim}
 \caption{Boolesche Abbildungen -- lineares
-   Profil\index{lineares Profil}\index{Profil!lineares}}\label{Sage-code-bool-bool-map3}
+   Profil\index{lineares Profil}\index{Profil!linear}}\label{Sage-code-bool-bool-map3}
 \end{sagecode}
 \clearpage
 
@@ -8951,7 +9008,7 @@ def miniLuc(a,k,r):
   c = xor(aa,finkey)
   return c
 \end{verbatim}
-\caption{Mini-Lucifer\index{Mini-Lucifer}}\label{Sage-code-bool-MiniLuc}
+\caption{Mini-Lucifer über r Runden\index{Mini-Lucifer}}\label{Sage-code-bool-MiniLuc}
 \end{sagecode}
 \clearpage
 
@@ -8997,7 +9054,7 @@ class LFSR(object):
     self.__state = slist
 \end{verbatim}
 \caption{Klasse für linear rückgekoppelte
-   Schieberegister\index{lineares Schieberegister}\index{Schieberegister!lineares}
+   Schieberegister\index{lineares Schieberegister}\index{Schieberegister!linear}
    }\label{Sage-code-bool-lfsr3}
 \end{sagecode}
 
@@ -9018,142 +9075,18 @@ class LFSR(object):
     return outlist
 \end{verbatim}
 \caption{Klasse für linear rückgekoppelte
-   Schieberegister\index{lineares Schieberegister}\index{Schieberegister!lineares}
+   Schieberegister\index{lineares Schieberegister}\index{Schieberegister!linear}
    -- Fortsetzung}\label{Sage-code-bool-lfsr4}
 \end{sagecode}
 
-% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-%BERM1 \printindex
 
-\begin{thebibliography}{999}
-\bibitem{Bard}
-    Gregory V. Bard,
-    {\em Algebraic Cryptanalysis}.
-    Springer, Dordrecht 2009.
 
-\bibitem{Bric}
-    Michael Brickenstein,
-    {\em Boolean Gröbner Bases -- Theory, Algorithms and Applications}
-    (Dissertation TU Kaiserslautern 2009).
-    Logos Verlag, Berlin 2010.
-    Siehe auch \glqq \href{http://polybori.sourceforge.net/}{PolyBoRi --
-    Polynomials over Boolean Rings}\grqq, online:
-    {\tt http://polybori.sourceforge.net/} (25. September 2014).
+%------------------------------------------------------------------------------
+\putbib[../de/references]
+\addcontentsline{toc}{section}{Literaturverzeichnis}
+\end{bibunit}
 
-\bibitem{CGHM}
-    D. Castro, M. Giusti, J. Heintz, G. Matera, L. M. Pardo,
-    {\em The hardness of polynomial equation solving}.
-    Found. Comput. Math. 3 (2003), 347--420.
-
-\bibitem{CLOS}
-    David Cox, John Little, Donal O'Shea,
-    {\em Ideals, Varieties, and Algorithms}.
-    Springer, New York 2007 (3rd edition).
-
-\bibitem{CrHa}
-    Yves Crama, Peter L. Hammer (eds.),
-    {\em Boolean Models and Methods in Mathematics, Computer Science,
-    and Engineering}.
-    Cambridge University Press, New York 2010.
-
-\bibitem{CuSt}
-    Thomas W. Cusick, Pantelimon St\u{a}nic\u{a},
-    {\em Cryptographic Boolean Functions and Applications}.
-    Elsevier Academic Press, Amsterdam 2009.
-
-\bibitem{DaRi}
-    Joan Daemen, Vincent Rijmen,
-    {\em The Design of Rijndael. AES -- The Advanced Encryption Standard}.
-    Springer, Berlin 2002.
-
-\bibitem{GaJo}
-    Michael R. Garey, David S. Johnson,
-    {\em Computers and Intractability}.
-    Freeman, New York 1979.
-
-\bibitem{GaGe}
-    Joachim von zur Gathen, Jürgen Gerhard,
-    {\em Modern Computer Algebra}.
-    Cambridge University Press, 1999.
-
-\bibitem{Golo}
-   Solomon W. Golomb,
-   {\em Shift Register Sequences}.
-   Revised Edition: Aegean Park Press, Laguna Hills 1982.
-
-\bibitem{Laza}
-    Daniel Lazard,
-    {\em Gröbner bases, Gaussian elimination and resolution of systems of
-    algebraic equations}.
-    Springer Lecture Notes in Computer Science 162
-    (EUROCAL '83), p. 146--156.
-
-\bibitem{LeVe}
-    Arjen K. Lenstra, Eric R. Verheul,
-    {\em Selecting Cryptographic Key Sizes},
-    Springer Lecture Notes in Computer Science 558
-    (PKC2000), p. 446--465.
-    Siehe auch \glqq \href{http://www.keylength.com/en/2/}{Lenstra Cryptographic
-    Key Length Equations}\grqq, online:
-    {\tt http://www.keylength.com/en/2/} (19. September 2014).
-
-\bibitem{MeSt}
-    W. Meier, O. Staffelbach,
-    {\em Fast correlation attacks on certain stream ciphers},
-    Journal of Cryptology 1 (1989), 159--176.
-
-\bibitem{HAC}
-    Alfred J. Menezes, Paul C. van Oorschot, Scott A. Vanstone,
-    {\em Handbook of Applied Cryptography}.
-    CRC Press, Boca Raton 1999, online:
-    \href{http://cacr.uwaterloo.ca/hac/}{\tt http://cacr.uwaterloo.ca/hac/}
-   (4. Januar 2015)
-
-\bibitem{Opp}
-    Rolf Oppliger,
-    {\em Contemporary Cryptography}.
-    Artech House, Dedham MA 2011 (2nd edition).
-
-\bibitem{PaPe}
-    Christof Paar, Jan Pelzl,
-    {\em Understanding Cryptography -- A Textbook for Students and Practioners}.
-    Springer, 2009.
-
-\bibitem{Pomm}
-    Klaus Pommerening,
-    \href{http://www.staff.uni-mainz.de/pommeren/Kryptologie/Bitblock/A_Nonlin/nonlin.pdf}{{\em Linearitätsmaße
-    für Boolesche Abbildungen}},
-    Manuskript, 30. Mai 2000, online:
-    {\tt http://www.staff.uni-mainz.de} {\tt /pommeren/Kryptologie/Bitblock/A\_Nonlin/nonlin.pdf}
-    (19. September 2014).
-
-\bibitem{Pom2}
-    Klaus Pommerening,
-    {\em Cryptanalysis of nonlinear shift registers},
-    accepted for publication in Cryptologia.
-    % http://www.tandfonline.com/doi/abs/10.1080/01611194.2015.1055385
-
-\bibitem{Schm}
-    Klaus Schmeh,
-    {\em Kryptographie -- Verfahren, Protokolle, Infrastrukturen}.
-    dpunkt.verlag, Heidelberg 2016 (6. Auflage).
-
-\bibitem{Sege}
-    A. J. M. Segers,
-    {\em Algebraic Attacks from a Gröbner Basis Perspective}.
-    Master's Thesis, Technische Universiteit Eindhoven 2004. Online:
-    {\tt http://www.win.tue.nl/~henkvt/images} {\tt /ReportSegersGB2-11-04.pdf}
-    (22. Februar 2015)
-
-\bibitem{Sta}
-    Mark Stamp,
-    {\em Information Security: Principles and Practice}.
-    Wiley, 2011 (2nd edition).
-
-\bibitem{Stin}
-    Douglas R. Stinson,
-    {\em Cryptography -- Theory and Practice}.
-    Chapman \& Hall/CRC, Boca Raton 2006 (3. Auflage).
-\end{thebibliography}
+\noindent Alle Links wurden am 15.07.2016 überprüft.
 
 %BERM1 \end{document}
+

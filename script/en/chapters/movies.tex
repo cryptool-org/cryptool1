@@ -1,5 +1,10 @@
+% $Id: 
+% ..............................................................................
+%             M O V I E S  +  N O V E L S
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
+
 \newpage
 \hypertarget{appendix-movies}{}%neu
 \section{Movies and Fictional Literature with Relation to Cryptography}
@@ -18,21 +23,43 @@ Here is the beginning of an overview.
 
 % --------------------------------------------------------------------------
 \subsection{For Grownups and Teenagers}
+\label{s:Light-fiction-for-grownups}
 
 \begin{description}
 
 \item[\textrm{[Poe1843]}] \index{Poe 1843}
     Edgar Allan Poe\index{Poe, Edgar Allan}, \\
-    {\em The Gold Bug}, 1843. \\
+    {\em The Gold Bug}, 1843.\footnote{%
+        See \url{https://en.wikipedia.org/wiki/The_Gold-Bug}.
+
+	Part 1 of the series {\em RSA \& Co. at school: Modern cryptology,
+        old mathematics, and subtle protocols} contains a didactical description
+	for usage at school.
+	Unfortunately this series is currently only available in German.
+        See \cite{Witten1998}, pp 52 ff (``Das Gold des Gehenkten'').
+	\index{RSA \& Co. at school}
+
+	All material about a gold-bug lesson (double period) can be found at
+	\url{http://www.informatik-im-kontext.de/} via
+	``E-Mail (nur?) für Dich'' => ``Vertraulichkeit mit Verschlüsselungsverfahren''.
+
+	Poe not only was a well-known writer, but also a talented cryptographer.
+	His story is also told in the book {\em Code Breaking} \cite{Kippenhahn1997}.
+    }\\
     In this short story Poe tells as first-person narrator about his
-    acquaintanceship with the curious Mr. Legrand. They detect a fabulous
-    treasure via a gold bug and a vellum found at the coast of New England.\\
+    acquaintanceship with the curious Mr. Legrand. They detect the fabulous
+    treasure of captain Kidd via a gold bug and a vellum found at the coast
+    of New England.\\
     The cipher consists of 203 cryptic symbols and it proves to be a
     general monoalphabetic substitution cipher (see
     chapter~\ref{monoalphabeticSubstitutionCiphers}).
     The story tells how they solve the riddle step by step using a combination
     of semantic and syntax analysis (frequency analysis of single letters in
-    English texts).\\
+    English texts).\footnote{
+      Part of the learning material above is a Python program which can be used
+      to decrypt the ciphertext with Python {\em and} with SageMath\index{SageMath}.
+      See the code example in \ref{s:appendix-Code-for-light-fiction-books}.
+    }\\
     In this novel the code breaker Legrand says the famous statement:
     ``Yet it may be roundly asserted that human ingenuity cannot concoct a
     cipher which human ingenuity cannot resolve -- given the according
@@ -52,7 +79,7 @@ Here is the beginning of an overview.
     a secret message sent to him. For decryption they needed a special
     grille, which they stole from him. This turning grille was a quadratic
     piece of jig with 6x6 squares, of which 1/4 (nine) were holes
-    (see the \hyperlink{turning-grille}{turning grille} in 
+    (see the \hyperlink{turning-grille-cipher}{turning grille} in 
     chapter~\ref{introsamplesTranspositionCiphers}).\\
 
 
@@ -138,7 +165,7 @@ Here is the beginning of an overview.
     In this movie Ruth tries to solve the secret, which made her daughter
     fall silent. Here two young people suffering from autism communicate
     via 5- and 6-digit primes (see 
-    chapter~\ref{Label_Kapitel_Primes}).
+    chapter~\ref{Chapter_Primes}).
     After more than 1 hour the movie contains the following encrypted
     two series of primes:
     \begin{center}
@@ -158,7 +185,7 @@ Here is the beginning of an overview.
     decrypt all codes from any nation. \\
     In the movie the code is not described in any way%
     \footnote{
-       Leonard Adleman (the "A" within RSA) worked as mathematical consultant
+       Leonard Adleman (the ``A'' within RSA) worked as mathematical consultant
        for ``Sneakers''. He describes the funny story about his contribution
        at his homepage 
        \url{http://www.usc.edu/dept/molecular-science/fm-sneakers.htm}.
@@ -220,9 +247,10 @@ Here is the beginning of an overview.
     The plot, where also the beautiful computer expert Susan Fletcher has a
     role, is rather predictable.\\
     The idea, that the NSA or another secret service is able to decrypt any
-    code, is currently popular on several authors: In ``Digital Fortress'' the
-    super computer has 3 million processors -- nevertheless from today's sight
-    this is by no means sufficient to hack modern ciphers.\\
+    code, is currently a popular topic. % popular on several authors:
+    In ``Digital Fortress'' the super computer has 3 million processors -- 
+    nevertheless from today's view this is by no means sufficient to hack
+    modern ciphers.\\
 
 
 \item[\textrm{[Elsner1999]}] \index{Elsner 1999}
@@ -532,11 +560,38 @@ Here is the beginning of an overview.
     potentates and the Daemon society, which also evolves further already during the story.
     Cryptography is a natural part of modern technology and modern warfare as described
     in this book.
-    The new society emerging in "Freedom (TM)" is based on the darknet, an alternative to
+    The new society emerging in ``Freedom (TM)'' is based on the darknet, an alternative to
     the internet using fast wireless meshes in order to increase the durability and
     availability of the network. Despite the story is shocking in some parts, it appears to
     be realistic and not far away from the parallel usage of modern technology integrated
     into our modern lives as a virtual world overlaying our real world.\\
+
+
+
+\item[\textrm{[Olsberg2011]}] \index{Olsberg 2011}
+    Karl Olsberg,\\
+    {\em Rafael 2.0 (original title: Rafael 2.0)}, Thienemann Verlag, 2011, 240 pages.\\
+    Michael and Rafael Ogilvy are talented twins who get along very well.
+    Before the terminally ill Rafael dies, his father developed a virtual
+    computer effigy of him, an artificial intelligence (AI). This is a good
+    kept secret until Michael one day finds out what his father is hiding before
+    him. However, his first horror soon turns into joy.
+    So he still has something that reminds him of his brother. \\
+    But this computer system is also interesting for the military. One day Michael's
+    father is kidnapped and the company and thus also the computer program Rafael 2.0
+    fall into the wrong hands.
+    Michael is banished by his uncle in a boarding school, from which he can flee.
+    Henceforth, Michael and his friends try their best to find his father, of whom
+    they assume that he was abducted by a competing company. From here the
+    story gets really exciting ...
+    Michael learns that there is another artificial intelligence, Metraton,
+    which is not so well-disposed to the people.
+    Nothing is too much engrossed, young teenagers are the target audience.
+    Nevertheless, depth and substance are created when for instance the machinations
+    in acquisitions are discussed. \\
+    From a crypto perspective,the section about factoring is thrilling: With a
+    variant Michael can detect whether the computer is cheating ...\\
+
 
 
 \item[\textrm{[Burger2011]}] \index{Burger 2011}
@@ -554,9 +609,23 @@ Here is the beginning of an overview.
 
 
 
+\item[\textrm{[Eschbach2011]}] \index{Eschbach 2011}
+    Andreas Eschbach, \\
+    {\em Master of the universe -- master of all staff (original title: Herr aller Dinge)},
+    Lübbe, 2011. \\
+    This novel would have deserved a much broader audience: The idea in it
+    of the ``most terrific of all crimes'', which is the origin of the whole
+    story, is new and almost revolutionary, but also infinitely sad.
+    Along the failing partnership of Hiroshi (inventor genius) and Charlotte
+    important topics like justice, human wealth and power are dealt with.\\
+    From a crypto perspective, Hiroshi uses distributed calculations and developed
+    an encryption and backup system which misleads the government which buged him.\\
+
+
+
 \item[\textrm{[Elsberg2012]}] \index{Elsberg 2012}
     Marc Elsberg, \\
-    {\em Blackout -- Tomorrow its too late (original title: Blackout -- Morgen ist
+    {\em Blackout -- Tomorrow its too Late (original title: Blackout -- Morgen ist
     es zu sp\"at)},\\ Blanvalet, 2012, 800 pages. \\
     At a could day in winter all power supply networks in Europe break down.
     Agencies, energy suppliers and security companies are in the dark and unable to solve
@@ -569,21 +638,115 @@ Here is the beginning of an overview.
     And in the same way the reactions of the human beings ...\\
 
 
+
+\item[\textrm{[Olsberg2013]}] \index{Olsberg 2013}
+    Karl Olsberg,\\
+    {\em The Eigths Revelation (original title: Die achte Offenbarung)},\\
+    Aufbau Taschenbuch, 2013, 460 pages.\\
+    Can a message from the past change our future?
+    An ancient, encrypted manuscript fell into the hands the historian Paul Brenner.
+    The more he decodes the text, the more puzzling is the content: Because the book
+    tells with remarkable precision events years ahead of the time of its presumed creation.
+    While highly dangerous genetic material disappears from a US laboratory, someone
+    tries to prevent at any price, that Paul deciphers the last, the eighth revelation.
+    A gripping thriller about a shockingly realistic apocalypse with many human aspects ...\\
+    As a reader, you can participate in the deciphering of the manuscript.\\
+    The experiments of Paul to make the right persons aware of his discovery and to
+    correct it later, are described very exciting -- even chief editors have a dilemma
+    with conspiracy.\\
+    The cipher on the last book page is offered as a challenge in the crypto
+    competition MTC3:
+    \url{https://www.mysterytwisterc3.org/en/challenges/level-i/the-last-note}\\
+    % https://www.mysterytwisterc3.org/images/challenges/mtc3-esslinger-18-note-en.pdf
+
+
+
+\item[\textrm{[Takano2014]}] \index{Takano 2014}
+    Kazuaki Takano, \\
+    {\em Genocide of One}, 2014. (Orginal in Japanisch: ``Jenosaido'', 2011;
+    as paperback in Englisch again under the title ``Extinction'', 2016) \\
+    The cover text says: He is a new kind of human. He may mean the end for the rest of us...
+    One bright morning in Washington D.C., the US President learns of a terrifying new
+    threat to national security. Soon afterwards, American mercenary Jonathan Yeager is
+    asked to lead a team into the Congo to eliminate a mysterious enemy -- a job which
+    will help him pay for treatment for his dying son. But when they reach Africa, the
+    threat turns out to be a three-year-old child named Akili: the next step in human
+    evolution. The soldiers are under orders to kill the boy before his full potential
+    can be realized. Yet Akili's advanced knowledge might be the only hope Yeager has
+    to save his son's life... With time running out to choose a side, Yeager must
+    decide whether to follow his orders or to save a creature who may not be as
+    harmless or innocent as he appears. Because Akili is already the smartest being
+    on the planet, with the power to either save humanity -- or destroy it.\\
+    This is a very exciting book. After having overcome the first 100-200 pages
+    you'll be awarded with surprising insights. According to the recensions its
+    very well researched, but not for superficial readers.\\
+    From a crypto perspective, RSA and OTP are directly drivers of the story and
+    are explained correctly. Breaking RSA by factorization is so important that
+    the CIA wouldn't accept that this knowledge isn't in their ownership ...\\
+
+
+
+\item[\textrm{[Elsberg2014]}] \index{Elsberg 2014}
+    Marc Elsberg,\\
+    {\em ZERO -- They Know what you are Doing (original title: ZERO -- Sie wissen, was du tust)},\\
+    Blanvalet Verlag, 2014, 480 pages.\\
+    London. In a pursuit a boy is shot. His death takes the journalist Cynthia Bonsant
+    to the acclaimed internet platform Freemee. Freemee collects and analyzes data,
+    and thus promises its millions of users -- rightly -- a better life and more
+    success. There is only one who warns about Freemee and about the power that the
+    online newcomer could give just a few: ZERO, the most searched online activist
+    in the world. As Cynthia begins precisely to research, she's becoming the quarry.
+    And in a world of cameras, headsets and smartphones there is no escape ... \\
+    Highly topical and menacing: the transparent person under control.
+    The novel takes place in the near future (near fiction) and contains many
+    contemporary references such as PRISM, predictive analytics, gamification.
+    By the way, references to well-known science fiction media like ``The Running Man'',
+    ``Monkey Wrench Gang'', ``V as Vendetta'' (V wears a Guy Fawkes mask, now the
+    hallmark of Anonymous), ``Network'' and ``Body Snatchers'' are processed. \\
+    Technologically / cryptologically the protagonists move on the highest
+    level, which is not further explained: Alice Kinkaid communicates with a
+    Raspberry Pi. Cynthia's daughter Vi uses mesh networks. ~See\\
+    \url{https://de.wikipedia.org/wiki/Zero_%E2%80%93_Sie_wissen,_was_du_tust},\\
+    \url{http://www.zero-das-buch.de/actiontrailer.php}\\
+
+
+
+
+\item[\textrm{[Lagercrantz2015]}] \index{Lagercrantz 2015}
+    David Lagercrantz, \\
+    {\em The Girl in the Spider's Web}, Quercus, 2015. \\
+    This is the 4th novel in the Millennium series, and the first not written by
+    Stieg Larsson. While Mikael Blomkvist's print medium is struggling to
+    survive the reader gets more and more insight in the inner structures and the
+    combinations of publishers, secret services, public agencies, organized
+    crime, and industrial espionage.
+    Here, no care is taken for single humans, and normal humans would have no
+    chance aginst this mix of interests. However, the special skills of
+    Lisbeth Salander makes a difference, and so the NSA is informed, that
+    parts of it are led and misused  by organized crime. The characters of the
+    Millenium trilogy have been developed further in a credible way. Very exiting.\\
+    From a crypto perspective, Lisbeth and the autist August deal with elliptic
+    curves to crack RSA.\\
+    See \url{https://en.wikipedia.org/wiki/The_Girl_in_the_Spider%27s_Web}.\\
+
+
+
 \end{description}
+
 
 
 
 \vskip +20 pt
 \paragraph*{Remark 1:}
-Further samples of cryptology in fictional literature can be found on the
-following German web page:
+A long list of (partly commented) samples of cryptology in fictional literature can
+be found on the following German web page:
 \parskip -4pt  % 1-BACK to DEFAULT -- Really necessary
 \begin{center}
-    \url{http://www.staff.uni-mainz.de/pommeren/Kryptologie99/Klassisch/1\_Monoalph/Literat.html}
+    \url{http://www.staff.uni-mainz.de/pommeren/Kryptologie/Klassisch/0_Unterhaltung/}
 \end{center}
 \parskip \value{mycounterDefaultParskip} pt  % 2-BACK to DEFAULT -- Really necessary
 For some older authors (e.g. Jules Verne, Karl May, Arthur Conan Doyle,
-Edgar Allen Poe) there are links to the original and relevant text pieces.\\
+Edgar Allen Poe) there are links to the original and relevant text pieces.\\\\
 
 
 \paragraph*{Remark 2:}
@@ -594,13 +757,14 @@ Tobias Schr\"odel\index{Schroedel, Tobias}, who collects classic books about cry
    \url{http://tobiasschroedel.com/crypto_books.php}
 \end{center}
 \parskip \value{mycounterDefaultParskip} pt  % 2-BACK to DEFAULT -- Really necessary
-\vspace{1em}
+\vspace{2em}
 
 
 \paragraph*{Remark 3:}
 If you know of further books and movies, where cryptography has a major
 role then we would be very glad if you could send us the exact title and
-a short explanation about the movie/book's content. Thanks a lot.\\
+a short explanation about the movie/book's content. We will insinuate
+your possible enthusiasm for a title. Thanks a lot.\\
 
 
 
@@ -648,7 +812,7 @@ our list contains mostly German kid books):
 
     Right at page 6 it summarizes for beginners in an old fashion style
     ``The Important Things First'' about paper\&pencil encryption
-    (compare chapter~\ref{Kapitel_PaperandPencil}):
+    (compare chapter~\ref{Chapter_PaperandPencil}):
     \begin{itemize}
       \item[-] ``It must be possible to encrypt your messages at any place and
                at any location with the easiest measures and a small effort
@@ -776,6 +940,117 @@ about the book's content. Thanks a lot.\\
 
 
 
+% --------------------------------------------------------------------------
+\newpage
+\subsection{Code for the light fiction books}
+     \label{s:appendix-Code-for-light-fiction-books}  
+
+\noindent Chapter \ref{s:Light-fiction-for-grownups} lists as first book
+``The Gold Bug'' by E.A. Poe.\index{Poe 1843}
+
+Using the following Python code\footnote{%
+  See \cite{Witten1998} and the file \verb|2_MonoKidd.zip| at
+  \url{http://bscw.schule.de/pub/bscw.cgi/159132}.
+}
+you can decrypt the ciphertext of Captain Kidd (see the original text of
+``The Gold Bug'' in \url{http://pinkmonkey.com/dl/library1/gold.pdf},
+page 21) with Python or with SageMath\index{SageMath}.
+
+The code already contains the ascii characters of the ciphertext and the
+correlated alphabets for the plaintext and the ciphertext of this
+monoalphabetic cipher.
+
+The easiest way to perform the decryption is using the SageMathCell server
+(\url{http://sagecell.sagemath.org/}) in a browser:
+There you can switch between the programming languages Sage and Python.
+The code can be executed by insering it with ``copy and paste'' and
+then pressing ``Evaluate''.\\
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize]
+
+# Hier geht's los ... Start here
+import string
+PA = 'ETHSONAIRDGLBVPFYMUC'
+print 'Plaintext alphabet  PA: ', PA, '   Length of PA', len(PA)
+CA = "8;4)+*56(!302'.1:9?-"
+print 'Ciphertext alphabet CA: ', CA, '   Length of CA', len(CA)
+codetableC2P = string.maketrans(CA,PA)
+C = '''53++!305))6*;4826)4+.)4+);806*;48!8'60))85;1+(;:+*8!83(88)5*!;46
+(;88*96*?;8)*+(;485);5*!2:*+(;4956*2(5*-4)8'8*;4069285);)6!8)4++;1(+9;4
+8081;8:8+1;48!85;4)485!528806*81(+9;48;(88;4(+?34;48)4+;161;:188;+?;'''
+P = string.translate(C, codetableC2P);
+print 'Kidd decrypted:', P
+# ... und hier sind wir schon fertig ... and here we are done!
+
+\end{Verbatim}
+\caption{Decryption of the Gold-Bug ciphertext from the novel of E.A. Poe (with Python)}
+\label{Lit_Python-sample_Gold-bug}
+\end{sagecode}
+
+\paragraph*{Remark 1:}
+When printing the ciphertext of Poe, Pinkmonkey ``cheated'' similarly like
+the code author by using only ascii characters.
+
+In the archive of an original publication (e.g. at
+\url{https://archive.org/details/goldbug00poegoog} at page 95) you can see,
+that Poe used characters which were common in the letterpress printing 
+(and most of them are also part of the ascii set). It is very unlikely
+that an untaught pirate would use just such characters for his ciphertext ...
+
+\paragraph*{Remark 2:}
+The code uses the Python functions ``maketrans'' und ``translate'' from the
+String package (see e.g. the Python 2.7 documentation, section ``functions'').
+
+So both alphabets (for the plaintext and the ciphertext) are inserted as a simple
+string, and ``maketrans'' creates a mapping table. The actual encryption
+is done by ``translate''. For the decryption you just have to switch the
+arguments of ``maketrans'' for the two alphabets.
+The otherwise necessary transformations between characters and their ascii numbers
+(using ``str'' and ``ord'') can be avoided. This is ideal for
+monoalphabetic ciphers -- especially for lessons at the junior high school.
+
+
+\paragraph*{Remark 3:}
+The following screenshot shows the execution of the Python code on the SageMathCell
+server (\url{http://sagecell.sagemath.org/}).
+
+SageMathCell is the browser interface for Sage. Its functions are delivered for free
+on the Sage cell server (Sage is a comprehensive open-source math software system). 
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[scale=0.53]{figures/Using-SageMathCell-with-Python-for-Poes-GoldBug}
+\caption{Usage of SageMathCell to decipher Poe's Gold Bug (with Python)} 
+\label{MOV_Using-SageMathCell-with-Python-for-Poes-GoldBug}
+\end{center}
+\end{figure}
+
+
+\noindent As result we get:
+
+\begin{Verbatim}%
+
+Plaintext alphabet  PA:  ETHSONAIRDGLBVPFYMUC    Length of PA 20
+Ciphertext alphabet CA:  8;4)+*56(!302'.1:9?-    Length of CA 20
+Kidd decrypted: AGOODGLASSINTHEBISHOPSHOSTELINTHEDEVILSSEATFORTYONEDEGREES
+                ANDTHIRTEENMINUTESNORTHEASTANDBYNORTHMAINBRANCHSEVENTHLIMB
+                EASTSIDESHOOTFROMTHELEFTEYEOFTHEDEATHSHEADABEELINEFROMTHE
+                TREETHROUGHTHESHOTFIFTYFEETOUT
+
+\end{Verbatim}
+
+\noindent It's evident how less code is needed with Python or Sage for such tasks.
+In the above sample there were 2 unnecessary comment lines, 3 lines for input,
+3 lines of real code, and 3 lines for the output; really necessary were only
+7 lines of code.
+
+
+
+
+
+
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
@@ -785,9 +1060,9 @@ about the book's content. Thanks a lot.\\
     \index{NT, Learning Tool for Number Theory}%
     \index{educational tool NT}%
 
-CT1\index{CrypTool 1} contains an interactive educational tool for elementary
+CT1\index{CT1} contains an interactive educational tool for elementary
 {\em number theory}, called ``NT''.\footnote{%
-    NT can be called in CT1\index{CrypTool 1} via the menu path
+    NT can be called in CT1\index{CT1} via the menu path
     {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
     \textbackslash{} Learning Tool for Number Theory}.
 }
@@ -798,8 +1073,8 @@ Where necessary it show the according mathematical formulas.
 Often you can apply the mathematical methods dynamically with your own small
 numerical examples.
 
-The content of this educational tool is mainly based on the books by J.\ Buchmann and H.\ Scheid
-\cite{a:Buchmann2004,a:Scheid2003}.
+The content of this educational tool is mainly based on the books by
+J.\ Buchmann and H.\ Scheid \cite{Buchmann2016, Scheid2006}.
 
 This visualized educational tool was build with Authorware 4.\footnote{%
     As Authorware is outdated and as the vendor didn't make tools available
@@ -824,8 +1099,7 @@ educational tool ``NT'':
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.4]{figures/NT_Fig_C1-3_EuclidsAlg-LinearCombinations.png}
-\caption{Each common divisor of two integers also divides all its linear
-combinations\vspace{1ex}} 
+\caption{Each common divisor of two integers also divides all its linear combinations} 
 \label{NT_Fig_C1.3_EuclidsAlg-LinearCombinations}
 \end{center}
 \end{figure}
@@ -834,7 +1108,7 @@ combinations\vspace{1ex}}
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.4]{figures/NT_Fig_C1-3_EuclidsAlg-Procedure}
-\caption{Euklid's algorithm to determine gcd\vspace{1ex}} 
+\caption{Euklid's algorithm to determine gcd} 
 \label{NT_Fig_C1.3_EuclidsAlg-Procedure}
 \end{center}
 \end{figure}
@@ -843,7 +1117,7 @@ combinations\vspace{1ex}}
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.4]{figures/NT_Fig_C3-1_PrimesDistribution}
-\caption{Distribution of primes and its differences\vspace{1ex}} 
+\caption{Distribution of primes and its differences} 
 \label{NT_Fig_C3.1_PrimesDistribution}
 \end{center}
 \end{figure}
@@ -852,7 +1126,7 @@ combinations\vspace{1ex}}
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.4]{figures/NT_Fig_C3-2_Fermat-Test}
-\caption{Finding primes with the prime number test of Fermat\vspace{1ex}} 
+\caption{Finding primes with the prime number test of Fermat} 
 \label{NT_Fig_C3.2_Fermat-Test}
 \end{center}
 \end{figure}
@@ -862,7 +1136,7 @@ combinations\vspace{1ex}}
 \begin{center}
 \includegraphics[scale=0.4]{figures/NT_Fig_C4-1_ReversibilityAdditiveCipher}
 \caption{Reversibility of encryption mechanisms exemplified with additive
-ciphers\vspace{1ex}} 
+ciphers} 
 \label{NT_Fig_C4.1_ReversibilityAdditiveCipher}
 \end{center}
 \end{figure}
@@ -871,7 +1145,7 @@ ciphers\vspace{1ex}}
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.4]{figures/NT_Fig_C5-2_Fermat-factorization-How-far-1}
-\caption{Fermat factorization using the third binomial formula\vspace{1ex}} 
+\caption{Fermat factorization using the third binomial formula} 
 \label{NT_Fig_C5.2_Fermat-factorization-How-far-1}
 \end{center}
 \end{figure}
@@ -880,7 +1154,7 @@ ciphers\vspace{1ex}}
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.4]{figures/NT_Fig_C5-2_Fermat-factorization-How-far-2}
-\caption{Fermat factorization: Detecting squares\vspace{1ex}} 
+\caption{Fermat factorization: detecting squares} 
 \label{NT_Fig_C5.2_Fermat-factorization-How-far-2}
 \end{center}
 \end{figure}
@@ -889,26 +1163,16 @@ ciphers\vspace{1ex}}
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.4]{figures/NT_Fig_C5-3_PollardRho}
-\caption{Pollard's rho factorization: Floyd's cycle finding algorithm\vspace{1ex}} 
+\caption{Pollard's rho factorization: Floyd's cycle finding algorithm} 
 \label{NT_Fig_C5.3_PollardRho}
 \end{center}
 \end{figure}
 
 
 
-% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\clearpage
-%\newpage
-\begin{thebibliography}{99999}
-%\addcontentsline{toc}{subsection}{Literaturverzeichnis}
+%------------------------------------------------------------------------------
+\putbib[../de/references]
+\addcontentsline{toc}{section}{Bibliography}
+\end{bibunit}
 
-\bibitem[Buchmann2004]{a:Buchmann2004} \index{Buchmann 2004}
-    Johannes Buchmann, \\
-    {\em Introduction to Cryptography}, Springer, 2nd edition, 2004.
-
-\bibitem[Scheid2003]{a:Scheid2003} \index{Scheid 2003}
-    Harald Scheid, \\
-    {\em Zahlentheorie}, Spektrum Akademischer Verlag, 3rd edition, 2003.
-
-\end{thebibliography}
 
