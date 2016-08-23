@@ -1,0 +1,143 @@
+% $Id: aboutcryptool.tex 3714 2016-04-08 18:34:16Z esslinger $
+% ............................................................................
+%          Ü b e r b l i c k  (Text der 4. Seite, noch bevor Content)
+%
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+% HACK to fix warning "destination with the same identifier .. has already been used, ...":
+% REMOVED, because it caused missing index entries
+%\makeatletter \renewcommand{\thepage}{~\csname @roman\endcsname \c@page~} \makeatother
+\clearpage\phantomsection
+% HACK to fix warning "destination with the same identifier .. has already been used, ...":
+% \makeatletter \renewcommand{\thepage}{\csname @roman\endcsname \c@page} \makeatother
+% REMOVED, because it caused missing index entries
+% BE_2016-03-16: Nahm dies ohne ~ nach "page" raus. Scheint nichts zu ändern?
+
+\addcontentsline{toc}{chapter}{Überblick über den Inhalt des CrypTool-Buchs}
+\chapter*{Überblick über den Inhalt des CrypTool-Buchs}
+
+\parskip 4pt
+%\vskip +12 pt
+Der Erfolg des Internets hat zu einer verstärkten 
+Forschung der damit verbundenen Technologien geführt, was auch im
+Bereich Kryptographie viele neue Erkenntnisse schaffte.
+
+In diesem {\em Buch zu den CrypTool-Programmen} \index{CrypTool} finden Sie
+eher mathematisch orientierte Informationen zum Einsatz von
+kryptographischen Verfahren. Zu einigen Verfahren gibt es Beispielcode,
+geschrieben für das Computer-Algebra-System {\bf SageMath}\index{SageMath}
+(siehe Anhang~\ref{s:appendix-using-sage}).
+Die Hauptkapitel sind von verschiedenen {\bf Autoren} verfasst
+(siehe Anhang~\ref{s:appendix-authors}) %\hyperlink{appendix-authors}{Autoren}
+und in sich abgeschlossen. Am Ende der meisten Kapitel finden Sie
+Literaturangaben und Web-Links.
+Die Kapitel wurden reichlich mit {\em Fußnoten} versehen, in denen auch darauf
+verwiesen wird, wie man die beschriebenen Funktionen in den verschiedenen
+CrypTool-Programmen aufruft.
+
+Das \hyperlink{Chapter_EncryptionSecDefinitions}{erste Kapitel} beschreibt
+die Prinzipien der symmetrischen und asymmetrischen
+\hyperlink{Chapter_EncryptionSecDefinitions}{\bf Verschlüsselung} und
+gibt Definitionen für deren Widerstandsfähigkeit.
+
+Im \hyperlink{Chapter_PaperandPencil}{zweiten Kapitel} wird -- aus 
+didaktischen Gründen -- eine ausführliche Übersicht
+über \hyperlink{Chapter_PaperandPencil}{\bf Papier- und Bleistiftverfahren}
+gegeben.
+
+Ein großer Teil des Buchs ist dem faszinierenden Thema der
+\hyperlink{Chapter_Primes}{\bf Primzahlen} (Kapitel \ref{Chapter_Primes})
+gewidmet.
+Anhand vieler Beispiele wird in die \hyperlink{Chapter_ElementaryNT}{\bf modulare Arithmetik}
+und die \hyperlink{Chapter_ElementaryNT}{\bf elementare Zahlentheorie}
+(Kapitel \ref{Chapter_ElementaryNT}) eingeführt. Hier bilden die Eigenschaften
+des {\bf RSA-Verfahrens} einen Schwerpunkt. 
+
+Danach erhalten Sie Einblicke in die mathematischen Konzepte und
+Ideen hinter der \hyperlink{Chapter_ModernCryptography}{{\bf modernen Kryptographie}}
+(Kapitel \ref{Chapter_ModernCryptography}).
+
+%Ein \hyperlink{Chapter_Hashes-and-Digital-Signatures}{weiteres Kapitel}
+Kapitel \ref{Chapter_Hashes-and-Digital-Signatures} gibt einen Überblick zum Stand der
+Attacken gegen moderne \hyperlink{Chapter_Hashes-and-Digital-Signatures}{\bf Hashalgorithmen}
+und widmet sich dann kurz den \hyperlink{Chapter_Hashes-and-Digital-Signatures}{\bf digitalen Signaturen}
+--- sie sind unverzichtbarer Bestandteil von E-Business-Anwendungen.
+
+Kapitel \ref{Chapter_EllipticCurves} stellt \hyperlink{Chapter_EllipticCurves}
+{\bf Elliptische Kurven} vor: Sie sind eine Alternative zu RSA und für die
+Implementierung auf Chipkarten besonders gut geeignet.
+
+Kapitel \ref{Chapter_BitCiphers} führt in die \hyperlink{Chapter_BitCiphers}{\bf Boolesche Algebra} ein.
+Boolesche Algebra ist Grundlage der meisten modernen, symmetrischen
+Verschlüsselungsverfahren, da diese auf Bitströmen und Bitblöcken operieren.
+Prinzipielle Konstruktionsmethoden dieser Verfahren werden beschrieben
+und in SageMath implementiert.
+
+Kapitel \ref{Chapter_HomomorphicCiphers} stellt
+\hyperlink{Chapter_HomomorphicCiphers}{\bf Homomorphe Kryptofunktionen}
+vor: Sie sind ein modernes Forschungsgebiet, das insbesondere im Zuge des
+Cloud-Computing an Bedeutung gewann.
+
+Kapitel \ref{Chapter_Dlog-FactoringDead} beschreibt 
+\hyperlink{Chapter_Dlog-FactoringDead}{\bf Aktuelle
+Resultate zum Lösen diskreter Logarithmen und zur Faktorisierung}.
+Es gibt einen breiten Überblick und Vergleich über die zur Zeit besten
+Algorithmen für (a) das Berechnen diskreter Logarithmen in
+verschiedenen Gruppen, für (b) das Faktorisierungsproblem und
+für (c) Elliptische Kurven. Dieser Überblick wurde zusammengestellt,
+nachdem ein provozierender Vortrag auf der Black Hat-Konferenz
+2013 für Verunsicherung sorgte, weil er die Fortschritte bei endlichen
+Körpern mit kleiner Charakteristik fälschlicherweise auf Körper
+extrapolierte, die in der Realität verwendet werden.
+
+Das \hyperlink{Chapter_Crypto2020}{letzte Kapitel}
+\hyperlink{Chapter_Crypto2020}{\bf Krypto 2020}
+diskutiert Bedrohungen für bestehende kryptographische Verfahren und 
+stellt alternative Forschungsansätze (Post-Quantum-Kryptographie)
+für eine langfristige kryptographische Sicherheit vor.
+
+Während die CrypTool-\textit{eLearning-Programme}\index{eLearning} eher den
+praktischen Umgang motivieren und vermitteln, dient das \textit{Buch} dazu, 
+dem an Kryptographie Interessierten ein tieferes Verständnis für die 
+implementierten mathematischen Algorithmen zu vermitteln -- und das 
+didaktisch mög"-lichst gut nachvollziehbar. 
+
+Die \hyperlink{appendix-start}{\bf Anhänge}
+\ref{s:appendix-menu-overview-CT1},
+\ref{s:appendix-template-overview-CT2},
+\ref{s:appendix-function-overview-JCT} und
+\ref{s:appendix-function-overview-CTO}
+erlauben einen schnellen Überblick über die Funktionen in den verschiedenen
+CrypTool-Varianten\index{CT1}\index{CT2}\index{JCT}\index{CTO} via:
+\begin{itemize}
+  \item der Funktionsliste und 
+        dem \hyperlink{appendix-menu-overview-CT1}
+                      {Menübaum von CrypTool~1 (CT1)},
+  \item der Funktionsliste und 
+        den \hyperlink{appendix-template-overview-CT2}
+                      {Vorlagen in CrypTool~2 (CT2)},
+  \item der \hyperlink{appendix-function-overview-JCT}
+                      {Funktionsliste von JCrypTool (JCT)}, und
+  \item der \hyperlink{appendix-function-overview-CTO}
+                      {Funktionsliste von CrypTool-Online (CTO)}.
+\end{itemize}
+%Anker sind \hypertarget{appendix-menutree}{} und \label{s:appendix-menutree}
+%  - \hyperlink{}{} legt Link auf die Seite unter den Text in 2. Klammer
+%  - \ref{} legt Link und fügt Kapitelnummer ein.
+
+% Bernhard Esslinger, Matthias Büger, Bartol Filipovic, Henrik Koy, Roger Oyono
+% und Jörg Cornelius Schneider
+Die Autoren möchten sich an dieser Stelle bedanken bei den Kollegen 
+in der jeweiligen Firma und an den Universitäten Bochum, Darmstadt, Frankfurt,
+Gießen, Karlsruhe, Lausanne, Paris und Siegen.
+
+\enlargethispage{0.5cm}
+Wie auch bei dem E-Learning-Programm CrypTool\index{CrypTool} wächst 
+die Qualität des Buchs mit den Anregungen und Verbesserungsvorschlägen 
+von Ihnen als Leser. Wir freuen uns über Ihre Rück"-mel"-dung.
+
+
+
+% Local Variables:
+% TeX-master: "../script-de.tex"
+% End:
