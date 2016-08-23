@@ -1,8 +1,8 @@
-SRC=script-$(LANG).tex ../de/references.bib chapters/*.tex figures/*.pdf figures/*.eps figures/*.latex
-PDF=script-$(LANG).pdf
-DVI=script-$(LANG).dvi
-TEX=script-$(LANG).tex
-IDX=script-$(LANG).idx
+SRC=CT-Book-$(LANG).tex ../de/references.bib chapters/*.tex figures/*.pdf figures/*.eps figures/*.latex
+PDF=CT-Book-$(LANG).pdf
+DVI=CT-Book-$(LANG).dvi
+TEX=CT-Book-$(LANG).tex
+IDX=CT-Book-$(LANG).idx
 TMP=*.aux *.idx *.ilg *.ind *.log *.out *.toc *.bbl *.blg *.lof *.lot *.loc *.lop *.loq auto
 all: pdf
 
@@ -24,13 +24,13 @@ $(PDF): $(SRC) style.ist
 	@echo
 	echo q | pdflatex $(TEX) | tail
 
-script-$(LANG).ind: script-$(LANG).idx style.ist
-	makeindex -s style.ist script-$(LANG).idx
+CT-Book-$(LANG).ind: CT-Book-$(LANG).idx style.ist
+	makeindex -s style.ist CT-Book-$(LANG).idx
 
-script-$(LANG).idx: $(SRC) 
+CT-Book-$(LANG).idx: $(SRC) 
 	echo q | latex $(TEX) | tail
 
-$(DVI): $(TEX) figures/* chapters/* script-$(LANG).ind
+$(DVI): $(TEX) figures/* chapters/* CT-Book-$(LANG).ind
 	echo q | latex $(TEX) | tail
 
 cleantmp: 
