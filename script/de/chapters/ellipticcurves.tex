@@ -15,7 +15,7 @@
  \hyperlink{author_Bernhard-Esslinger}{Bernhard Esslinger} /
  \hyperlink{author_Roger-Oyono}{Roger Oyono},
  April 2000,
- Updates: Dez. 2001, Juni 2002, März 2003, Nov. 2009, Aug. 2013, April 2016)
+ Updates: Dez. 2001, Juni 2002, März 2003, Nov. 2009, Aug. 2013, Aug. 2016)
 
 % -----------------------------------------------------------------------------
 \section{Elliptische Kurven -- Ein effizienter Ersatz für RSA?}
@@ -44,18 +44,28 @@ RSA-Algorithmus liegt in der Tatsache, dass die sicheren Schlüssellängen
 erheblich kürzer sind. 
 
 Setzt man den Trend, dass sich die Leistung der verfügbaren Rechner im 
-Schnitt alle 18 Monate verdoppelt (Gesetz von Moore\index{Gesetz von
-Moore}\index{Moore, Gordon E.}\footnote{%
-Empirische Erkenntnis von Gordon Moore, Mitbegründer von Intel, 1965.}%
+Schnitt alle 18 Monate verdoppelt (vgl.\ dazu das Gesetz von
+Moore\index{Gesetz von Moore}\index{Moore, Gordon E.}\footnote{%
+  Das Mooresche Gesetz formuliert die empirische Beobachtung und die darauf
+  aufbauende Prognose, dass sich die Anzahl der Komponenten bzw. Transistoren
+  in einer integrierten Schaltung alle zwei Jahre verdoppelt. Es bezog sich
+  ursprünglich nur auf die Transistorendichte in einer integrierten Schaltung,
+  aber bspw. nicht auf den Zuwachs bei der Speicherdichte.
+  Diese Erkenntnis zur Transistorendichte wurde 1965 (mit einer Korrektur 1975)
+  von Gordon Moore, einem Mitbegründer von Intel, geäußert.
+  In den letzten Jahren war der Zuwachs an Computerleistung sogar höher als
+  die prognostizierte Verdopplung alle 2 Jahre. Grenzen setzt in Zukunft die
+  Transistorengröße von wenigen Atomen, die bis zum Jahr 2020 erreicht werden könnte.
+}% Siehe: https://de.wikipedia.org/wiki/Mooresches_Gesetz
 ), in die Zukunft fort, so kann man von einer Entwicklung der
 sicheren Schlüssellängen wie in Abbildung~\ref{RSAKeylength} ausgehen,
 die anhand der Tabelle 1 (auf Seite 32 in \cite{LeVe2001}) erstellt
 wurde.\footnote{%
-Weitere Informationen zum Schlüssellängen-Vergleich von Arjen Lenstra und
-Eric Verheul, aber auch zu neuereren Untersuchungen bis 2015 finden sich
-in der interaktiven Darstellung auf \url{http://www.keylength.com}.
-% \url{https://infoscience.epfl.ch/record/164539/files/NPDF-32.pdf}\\
-% Key Lengths, Arjen K. Lenstra, The Handbook of Information Security, 06/2004.
+  Weitere Informationen zum Schlüssellängen-Vergleich von Arjen Lenstra und
+  Eric Verheul, aber auch zu neueren Untersuchungen bis 2015 finden sich
+  in der interaktiven Darstellung auf \url{http://www.keylength.com}.
+  % \url{https://infoscience.epfl.ch/record/164539/files/NPDF-32.pdf}\\
+  % Key Lengths, Arjen K. Lenstra, The Handbook of Information Security, 06/2004.
 }
 
 % -> Figure 1
@@ -75,7 +85,7 @@ Bei der digitalen Signatur muss man differenzieren: für die {\em
   Erstellung} einer digitalen Signatur benötigen auf Elliptischen
 Kurven basierende Verfahren im Vergleich zu RSA nur gut ein Zehntel des
 Rechenaufwandes (66 zu 515 Ganzzahlmultiplikationen). Siehe hierzu
-Abbildung~\ref{ThousandBitMultiplications} (Quelle: Dr. J.  Merkle,
+Abbildung~\ref{ThousandBitMultiplications} (Quelle: J.  Merkle,
 Elliptic Curve Cryptography Workshop, 2001). Betrachtet man die für eine
 {\em Verifikation} durchzuführenden Rechenschritte, dreht sich dieses Bild
 jedoch zu Gunsten von RSA um (112 zu 17 Ganzzahlmultiplikationen). Der 

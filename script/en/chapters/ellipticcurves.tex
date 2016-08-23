@@ -16,7 +16,7 @@
  \hyperlink{author_Bernhard-Esslinger}{Bernhard Esslinger} /
  \hyperlink{author_Roger-Oyono}{Roger Oyono},
  Apr 2000,
- Updates: Dec 2001, Jun 2002, Mar 2003, Nov 2009, Aug 2013, Apr 2016)
+ Updates: Dec 2001, Jun 2002, Mar 2003, Nov 2009, Aug 2013, Aug 2016)
 
 % -----------------------------------------------------------------------------
 \section{Elliptic-curve cryptography -- a high-performance substitute for RSA?}
@@ -41,7 +41,17 @@ much shorter key lengths.
 
 If we assume that the computing power increases by Moore's law (i.~e.\ it
 doubles every 18 months)\footnote{%
-Empirical knowledge by Gordon Moore, co-founder of Intel, 1965}%
+  Moore's law formulates the empirical observation and the according
+  forecast that the number of components or transistors on an integrated circuit
+  doubles every two years. It referred originally only to the transistors density
+  in an integrated circuit, however not, for example, to the increase in the storage
+  density.
+  This realization for transistors density in 1965 (with a correction 1975) was
+  expressed by Gordon Moore, a co-founder of Intel.
+  In recent years, the growth of computing power was even higher than
+  the forecasted doubling every 2 years. Future limits are set by the
+  transistors size of a few atoms, which could be achieved by 2020.
+}% https://en.wikipedia.org/wiki/Moore%27s_law
 , then the evolution of the key lengths for secure communication will be as
 in figure~\ref{RSAKeylength}, which was generated from table 1 (on page 32 in
 \cite{LeVe2001}).\footnote{%
@@ -63,7 +73,7 @@ interactive website \url{http://www.keylength.com}.
 In addition, a digital signature can be processed 10-times faster with ECC
 than with RSA.  However, verification of a given signature is still more
 efficient with RSA than with ECC. Refer to
-figure~\ref{ThousandBitMultiplications} (source: Dr.~J.\ Merkle,
+figure~\ref{ThousandBitMultiplications} (source: J.\ Merkle,
 Elliptic-Curve Cryptography Workshop, 2001) for a comparison.  The reason is that
 RSA public keys can be chosen relatively small as long as the secret key is
 long enough.
