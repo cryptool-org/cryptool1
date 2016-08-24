@@ -1526,8 +1526,6 @@ nämlich durch die Koeffizienten der $2^n$ verschiedenen Monome\footnote{%
 Monome kamen als Interpretation von Bitblöcken in der obigen Liste vor.
 Daher können wir einen Bitblock $a = (a_0, \ldots, a_{2^n-1})$ als Repräsentation
 der ANF einer Booleschen Funktion
-%TODO_Pommerening: Ist das Ersetzen  \F  -->  \F_2  korrekt?
-%     OLD: $f\!: \F_2^n \longrightarrow \F$ ansehen:
 $f\!: \F_2^n \longrightarrow \F_2$ ansehen:
 \begin{align*}
      f(x) = \sum_{i=0}^{2^n-1} a_i x_1^{e_1(i)} \cdots x_n^{e_n(i)}, \quad & \text{wobei }
@@ -8338,12 +8336,12 @@ Bitstrom-Chiffre zu implementieren:
       zusätzliche Sorgfalt. Ein möglicher Ansatz\footnote{%
          Dies war der übliche Ansatz bei den Verschlüsselungsmaschinen im zweiten Weltkrieg.
       } dafür ist es, einen längerfristig gültigen Schlüssel aus internen
-      Parametern des Zufallsgenerators
-      zusammenzusetzen und den Startwert gar nicht als Teil des Schlüssels,
-      sondern als eine Art Initialisierungsvektor zu betrachten, der sogar
-      offen mit der Nachricht übermittelt werden kann.\index{OTP}
+      Parametern des Zufallsgenerators zusammenzusetzen und die übrigen
+      Parameter einschließlich Startwert als einmaligen Nachrichtenschlüssel
+      zu verwenden\index{Nachrichtenschlüssel}\index{OTP}.
+      % Ist der Startwert dann eine Art Initialisierungsvektor, der sogar
+      % offen mit der Nachricht übermittelt werden kann?
 \end{itemize}
-% TodoTodo Pommerening!  xxxxxxxxx anderer Inhalt als im Englischen!!!!: offen?
 
 Im Gegensatz zu Bitblock-Chiffren mit ihrem akzeptierten Standard AES\index{AES}
 (und davor dem Standard DES\index{DES}) gibt es für Bitstrom-Chiffren kein gleichermaßen
