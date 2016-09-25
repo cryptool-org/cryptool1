@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 for Win32, August 2016 (Beta 06d)
+    CrypTool, Version 1.4.31 for Win32, September 2016 (Beta 06d)
     
 CrypTool v1 (CT1) is an international e-learning program for cryptography and
 cryptanalysis.
@@ -2585,7 +2585,7 @@ b) The only other programs known to us, which usefully combine
   https://sites.google.com/site/cryptocrackprogram/home
 
 - "CryptoMake" by Phil Pilcrow
-  Very exhaustive progra to create classical ciphers.
+  Very exhaustive program to create classical ciphers.
   Last update: Feb 2016 -- Version 0.2 beta (0.2.5901.21555)
   https://sites.google.com/site/cryptomake/
 
