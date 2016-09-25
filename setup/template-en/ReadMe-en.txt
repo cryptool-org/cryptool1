@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 for Win32, August 2015 (Beta 07) xxxxx
+    CrypTool, Version 1.4.31 for Win32, August 2016 (Beta 06d)
     
 CrypTool v1 (CT1) is an international e-learning program for cryptography and
 cryptanalysis.
@@ -7,7 +7,7 @@ cryptanalysis.
     (c) Contributors
         including Deutsche Bank AG, Frankfurt/Main, and the
         Universities of Siegen, Darmstadt, Bochum, Duisburg-Essen, and Kassel.
-        1998-2015
+        1998-2016
     Freeware and Open Source according to the Apache License 2.0
     www.cryptool.org
     Prof. Bernhard Esslinger
@@ -100,7 +100,7 @@ could not be localized yet for all language versions:
                         DE     EN    EL    ES     PL    RS
 Online help (html)      yes    yes   no    no     no    no
 Readme file (txt)       yes    yes   no    no     no    no
-CT script (pdf)         yes    yes   no    no     no    no
+CT book (pdf)           yes    yes   no    no     no    no
 CT presentation (pdf)   yes    yes   no    yes    no    no
 Elsner stories (pdf)    yes    yes   no    no     no    no
 
@@ -124,7 +124,7 @@ is ca. 6000 (more than 1/2 of the current downloads request the English version)
 
 There are two successors of CT1, called CT2 and JCT.
 Their download numbers are: xxxxxxxxxxxxxxxxxx
-               JCT: ca. 3000 / month
+               JCT: ca. 2000 / month
                CT2: ca. 3000 / month
 The successor versions von CT1 offer a far broader functionality than CT1.
 
@@ -188,7 +188,7 @@ to do within a dialog window, please press F1. If the according
 online help isn't satisfactory please give us feedback.
 
 You can find a 1-page overview (menu tree) of all menus in CT1
-within the included CrypTool script (see appendix A1 of this PDF file).
+within the included CrypTool book (see appendix A1 of this PDF file).
 
 An overview about all functions in the different CrypTool programs can be
 found on the CT Portal website (www.cryptool.org) under the menu
@@ -251,7 +251,7 @@ b) online help
      information about individual topics and principles,
    - demos and sample scenarios (here you can learn to know single
      procedures step-by-step).
-c) script on the subject of cryptography (attached as a PDF file)
+c) book on the subject of cryptography (attached as a PDF file)
 d) presentation, which shows at some slides the possibilities of
    CrypTool (also attached as PDF file).
 
@@ -426,16 +426,17 @@ encouraged us with their code or who build code we can use, e.g.
 - the Hex Control (www.codeguru.com/Cpp/controls/controls/article.php/c5287).
 
 I also want to thank
-- Mr. Bartosz Sawicki from the University of Warsaw, who did with his team
+- Dr. Bartosz Sawicki from the University of Warsaw, who did with his team
   the first Polish version.
 - Dr. Gonzalo Alvarez from the University of Madrid, who did with his
   colleagues the first Spanish version.
 - Bojan Dimitrovski from the University of Belgrade, who did with his
   colleagues the first Serbian version.
-- Greek xxxxxxxxxxxxx
-- Turkish xxxxxxxxxxxxx
-- French xxxxxxxxxxx
-- Russian xxxxxxxxxx
+- Prof. Ioannis Mavridis and Dr. Theodoros Mastoras for the first
+  Greek version of CT1.
+- Alain Integral for the French version of CT1.
+- Turkish xxxxxxxxxxxxx Not started yet.
+- Russian xxxxxxxxxx Not started yet.
 
 
 
@@ -647,7 +648,7 @@ The general properties and functions of CT1 are:
   So you can check the integrity of the files of the CrypTool package
   stored on your computer.
 
-- Exhaustive documentation (online help, script).
+- Exhaustive documentation (online help, book).
   The online help has HTML format.
   The online help contains explanations about the handling and about all
   the cryptographic methods, a historic overview and the integration into
@@ -730,7 +731,7 @@ The general properties and functions of CT1 are:
 You can get a good overview of what CrypTool offers
 - within the online help (see "starting page"),
 - at the attached PDF presentation (title: "Cryptology with CrypTool") and
-- using the menu tree in appendix A.1 within the attached CrypTool script,
+- using the menu tree in appendix A.1 within the attached CrypTool book,
 - auf der Webseite des CrypTool-Portals unter
           "Documentation" -> "CT Function",
           http://www.cryptool.org/en/ctp-documentation-en/ctp-functions-en
@@ -762,8 +763,8 @@ b) Changes within the user documentation:
 
 - Online help: enhanced.
 
-- Within the script: minor bug-fixes, menu tree within appendix A.1 adapted
-                     to the new version of CrypTool.
+- Within the book: minor bug-fixes, menu tree within appendix A.1 adapted
+                   to the new version of CrypTool.
 
 - Updated and enhanced presentation (more than 100 pages now).
 
@@ -881,14 +882,14 @@ b) Changes within the user documentation / on the websites:
 - Online help: well enhanced (e.g. modi and padding variants used for block
                ciphers now are described explicitly).
 
-- CrypTool script: Extensive revision:
-                   - extensions and update to status quo,
-                   - inclusion of many Sage code samples,
-                     delivery of the Sage code as files,
-                   - minor bug-fixes,
-                   - menu tree within appendix A.1 adapted to the new version
-                     of CrypTool,
-                   - new cover.
+- CrypTool book: Extensive revision:
+                 - extensions and update to status quo,
+                 - inclusion of many Sage code samples,
+                   delivery of the Sage code as files,
+                 - minor bug-fixes,
+                 - menu tree within appendix A.1 adapted to the new version
+                   of CrypTool,
+                 - new cover.
 
 - Updated and enhanced presentation (more than 110 pages now).
 
@@ -1182,22 +1183,21 @@ a) Developer-relevant changes (more technically oriented):
     compiling with VS2010 (not with VS2008).
     xxxxxxxxxx
 
-- The release of CT 1.4.31 now is compiled with VS2010. xxxxxxxFM
-  (It's still possible to compile the sources with VS2008. xxxxxxxxxxxxxxxFM)
-
+- The release of CT 1.4.31 now is compiled with VS2010.
+  From CT 1.5.00 VS 2015 is used for compilation.
 
 b) Changes within the user documentation / on the websites:
 
 - Online help: updated some topics.
 
-- CrypTool script: - Some corrections and additions
-                   - Additional chapters about bitblock and bitstream
-                     encryption, and with a Survey on Current Academic Results
-                     for Solving Discrete Logarithms And Factoring  xxxxxBE
-                   - Inclusion of further Sage code samples (for primitive
-                     roots and RSA fix points)  xxxxxBE
-                   - Appendices with function overviews also for CT2 and JCT.  xxxxxBE
-                     Added the menu paths of CT2 and JCT in the foot notes.
+- CrypTool book: - Edition 12 is a major update, many corrections and additions
+                 - Additional chapters about bitblock and bitstream
+                   encryption, and with a Survey on Current Academic Results
+                   for Solving Discrete Logarithms And Factoring
+                 - Inclusion of further Sage code samples (for primitive
+                   roots and RSA fix points)  xxxxxBE
+                 - Appendices with function overviews also for CT2 and JCT.  xxxxxBE
+                 - Added the menu paths of CT2 and JCT in the foot notes.
 
 - Updated presentation about CT1.  xxxxxBE
   The description of the overall CrypTool project, and the information about
@@ -1206,6 +1206,7 @@ b) Changes within the user documentation / on the websites:
 - At January 18th, 2012 the new CrypTool website (CTP)  was released. It
   describes the 5 sub projects of the CT project in an equivalent way.
   At August 3rd, 2015 CTP was raised to Joomla 3.4.3.
+  In the meantime Joomla 3.6 ist active.
 
 
 c) New functionality / Usability / Corrections of errors:
@@ -1260,7 +1261,9 @@ c) New functionality / Usability / Corrections of errors:
 - Calling bc from within the number theory tutorial now also works under Win7.
   xxxxxxxxxxxxx
 - Playfair with a 6*6 matrix now doesn't wrongly transform J to I any more.
-- b-adic xxxxxxxxxxxx
+- The b-adic window was made broader. Now b-adic doesn't cause false positives
+  any more which several anti-virus scanners by mistake notified about the 
+  setup file.
 
 - Thanks to the many attentive users, who pointed us to bugs and
   inconsistencies.
@@ -1757,7 +1760,7 @@ NumberShark.exe .. The educational game "NumberShark".
 NumberShark_en.chm HTML help archive for the NumberShark online help.
 GameData.txt ..... First high-scores for the NumberShark game.
 
-script-en.pdf .... A manual on cryptography, prime numbers,
+script-en.pdf .... A book (manual) on cryptography, prime numbers,
                    elementary number theory and the mathematics
                    behind certain algorithms.
 
@@ -1862,7 +1865,7 @@ words\cracklib-words        // For test on password patterns
 
 
 sage\ ........... This directory contains the source code of the example
-                  calculations in the manual script-en.pdf using the
+                  calculations in the book script-en.pdf using the
                   computer algebra system Sage.
 
 sage\SAGE-Samples-in-Chap01.sage
@@ -2133,13 +2136,13 @@ Version                 English      German    needed EN     by
 1.4.20    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.21    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.30    Aug. 2010     51.5 MB      52.1 MB    94 MB        DB
-1.4.31    xxx. 2013     54.2 MB      54.9 MB    97 MB        CTxxxxxxxxx
+1.4.31    xxx. 2016     67.2 MB      67.9 MB   113 MB        CT
 
 Remarks about the versions:
 1.3.02  Many new functions compared to 1.3.00.
 1.3.03  Many minor bug fixes and documentation improvements.
 1.3.04  Some new functionality, some minor bug fixes, and major
-        documentation improvements and enhancements (online help, script).
+        documentation improvements and enhancements (online help, book).
 1.3.05  Some minor bug fixes.
 1.4.00 Beta10  Dec. 2005  First public beta of version 1.4.00.
 1.4.00 Beta12  Mar. 2006  Second public beta of version 1.4.00.
@@ -2172,7 +2175,7 @@ Remarks about the versions:
                           (first one with a Greek language version)
 1.4.31-Beta06a July 2013  Fourth public beta of CT 1.4.31
                           (first with OpenSSL and SAP lib replacing Secude).
-1.4.31  Many bug fixes and a few enhanced functionality compared to 1.4.30.
+1.4.31  Many bug fixes and only a few enhanced functionality compared to 1.4.30.
 
 
 
@@ -2510,7 +2513,7 @@ a) Available with complete source code are:
     S-Boxes and Their Algebraic Representations
     Hard Lattice Generator
   http://www.sagemath.org/doc/reference/index.html
-  SAGE is also used for some examples in the CrypTool Script.
+  SAGE is also used for some examples in the CrypTool book.
 
 
 b) The only other programs known to us, which usefully combine
@@ -2569,7 +2572,7 @@ b) The only other programs known to us, which usefully combine
   Salisbury University "to help users understand the workings of and the
   cryptanalysis of several classical ciphers".
   There are executable files (no sources) available for Windows, Linux and Mac.
-  Last Update: Sep 24, 2009 -- Version 1.2.1
+  Last update: Sep 24, 2009 -- Version 1.2.1
   http://facultyfp.salisbury.edu/despickler/personal/CryptTools.asp
 
 - "CryptoCrack" by Phil Pilcrow
@@ -2578,8 +2581,13 @@ b) The only other programs known to us, which usefully combine
   based types such as Enigma, AES, DES, Blowfish etc. (see FAQ).
   This tool solves many classical ciphers very fast and well.
   Initial release: May 29, 2011, ongoing active development.  
-  Last Update: April 3, 2013 -- Version 0.3.4841.23102
+  Last update: June 2016 -- Version 0.6 beta (0.6.5999.15171)
   https://sites.google.com/site/cryptocrackprogram/home
+
+- "CryptoMake" by Phil Pilcrow
+  Very exhaustive progra to create classical ciphers.
+  Last update: Feb 2016 -- Version 0.2 beta (0.2.5901.21555)
+  https://sites.google.com/site/cryptomake/
 
 
 If we are missing something here or are incorrect anyhow, please feel
