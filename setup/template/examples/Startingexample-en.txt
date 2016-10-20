@@ -1,24 +1,24 @@
 Starting example for the CrypTool version family 1.x (CT1)
 
-CrypTool 1 (CT1) is a comprehensive free educational program
+CrypTool 1 (CT1) is a comprehensive and free educational program
 about cryptography and cryptanalysis
 offering extensive online help and many visualizations.
 
-This is a text file, created in order to help you to make your first steps with CT1.
+This text file was created in order to help you to make your first steps with CT1.
 
 1) As a first step it is recommended you read the included online help. This will provide a useful oversight of all available functions within this application.
-The starting page of the online help can be accessed via the menu "Help -> Starting Page" at the top right of the screen or using the search keyword "Starting page" within the index of the online help.
+The starting page of the online help can be accessed via the menu "Help -> Starting Page" at the top right of the main window or by using the search keyword "Starting page" within the index of the online help.
 Press F1 to start the online help everywhere in CT1.
 
 2) A possible next step would be to encrypt a file with the Caesar algorithm. This can be done via the menu "Crypt/Decrypt -> Symmetric (Classic)".
 
 3) There are several examples (tutorials) provided within the online help which provide an easy way to gain an understanding of cryptology. These examples can be found via the menu "Help -> Scenarios (Tutorials)".
 
-4) You can also develop your knowledge by: 
-- Navigating through the menus. You can press F1 at any selected menu item to get further information.
+4) You can further develop your knowledge by: 
+- Navigating through the menus. You can press F1 at any selected menu item to get more information.
 - Reading the included Readme file (see the menu "Help -> Readme").
 - Viewing the included colorful presentation (This presentation can be found on several ways: e.g. in the "Help" menu of this application, or via the "Documentation" section found at the "Starting" page of the online help).
 - Viewing the webpage www.cryptool.org.
 
-January 2013
+October 2016
 The CrypTool Team

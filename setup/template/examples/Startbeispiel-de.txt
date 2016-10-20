@@ -20,5 +20,5 @@ Sie können die Online-Hilfe mit F1 an jeder Stelle in CT1 öffnen.
 - Sie schauen sich die beiliegende bunte Präsentation an (Diese Präsentation ist auf verschiedene Arten zugänglich: z.B. unter dem Menü "Hilfe", oder über den Abschnitt "Dokumentation" auf der Startseite der Online-Hilfe).
 - Sie schauen sich die Webseite www.cryptool.de an.
 
-Januar 2013
+Oktober 2016
 Das CrypTool-Team
