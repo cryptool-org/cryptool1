@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 für Win32, September 2016 (Beta 06d) xxx
+    CrypTool, Version 1.4.31 für Win32, Oktober 2016
 
 CrypTool v1 (CT1) ist ein internationales E-Learning-Programm für
 Kryptographie und Kryptoanalyse.
@@ -59,7 +59,7 @@ A.4. .... CT1 unter Linux
 
 
 Benutzte Abkürzungen:
-CT   CrypTool  (z.B. um das ganze CT-Projekt zu bezeichnen)
+CT   CrypTool (z.B. um das ganze CT-Projekt zu bezeichnen)
 CT1  CrypTool 1 = CrypTool-Version 1 (diese Version enthält diese Readme-Datei)
 CT2  CrypTool 2 = CrypTool-Version 2 (nutzt .NET; läuft unter Win32)
 JCT  JCrypTool  = Java-CrypTool (läuft unter Win32, Linux und MacOS)
@@ -71,19 +71,20 @@ Diese Readme-Datei gehört zur Distribution des Programms CrypTool 1 (CT1).
 CrypTool ist Open-Source und kostenlos. Mit CrypTool kann man kryptographische
 Verfahren erlernen, ausprobieren und sowohl bekannte wie unbekannte Verfahren
 analysieren.
+
 Schon in der Antike wurden solche Verfahren zur Geheimhaltung von Nachrichten
 entwickelt. Heutige Verfahren basieren auf moderner Mathematik und erlauben
 neben der Verschlüsselung auch die Prüfung der Integrität, die Erstellung von
 Signaturen, sichere Authentisierung und Vieles mehr. CrypTool unterstützt
 sowohl die Ausführung als auch die Analyse solcher Verfahren.
 
-CT1 wird seit 1998 entwickelt. Im CrypTool-Projekt arbeiten über 60
-Personen weltweit und ehrenamtlich mit.
+CT1 wird seit 1998 im CrypTool-Projekt entwickelt. Im CrypTool-Projekt
+arbeiten über 70 Personen weltweit und ehrenamtlich mit.
 
-Zu jedem Programmteil gibt es reichhaltige Online-Hilfe, die auch
+Zu jedem Programmteil von CT1 gibt es reichhaltige Online-Hilfe, die auch
 ohne tiefes Kryptowissen verstanden werden kann.
 
-CT1 existiert in den 6 Sprachen
+CT1 existiert in den 6 Sprachen (xxx Französisch)
 - Deutsch (DE),
 - Englisch (EN),
 - Griechisch (EL),
@@ -98,7 +99,7 @@ und Zahlenhai, und das Installationsprogramm (setup).
 
 Hier eine Auflistung der restlichen Komponenten des CT1-Paketes,
 die bisher nicht in allen Sprachversionen lokalisiert werden konnten:
-                        DE    EN   EL     ES     PL     RS
+                        DE    EN   EL     ES     PL     RS    (xxx)
 Onlinehilfe (html)      ja    ja   nein   nein   nein   nein
 Readme-Datei (txt)      ja    ja   nein   nein   nein   nein
 CT-Buch (pdf)           ja    ja   nein   nein   nein   nein
@@ -106,33 +107,31 @@ CT-Präsentation (pdf)   ja    ja   nein   ja     nein   nein
 Elsner-Stories (pdf)    ja    ja   nein   nein   nein   nein
 
 Im Deutschen und Englischen liegen alle Komponenten von CT1 übersetzt
-vor. Wenn etwas in einer Sprachversion nicht vorliegt, wird die englische
-Komponente beigelegt.
+vor. Wenn etwas in einer anderen Sprachversion nicht vorliegt, wird die
+englische Komponente beigelegt.
 
 Weitere Sprachversionen (türkisch, russisch, ukrainisch, französisch,...)
 sind teilweise in Arbeit.
 
 Die aktuelle Release-Version von CrypTool und den Quellcode dazu finden Sie
 unter den folgenden Internet-Adressen (dazu ist keine Registrierung nötig):
-                http://www.CrypTool.org
+                https://www.CrypTool.org
                 http://www.CrypTool.de
                 http://www.CrypTool.com
-                http://www.CrypTool.es
-                http://www.CrypTool.pl
 
-Seit Anfang 2010 werden ca. 6000 CT1-Pakete pro Monat herunter
-geladen (davon entfallen etwas über die Hälfte auf die englische Version).
+Seit Anfang 2010 werden ca. 6000 CT1-Pakete pro Monat herunter geladen
+(davon entfallen etwas über die Hälfte auf die englische Version).
 
 Zu CT1 gibt es zwei Nachfolger-Versionen, genannt CT2 und JCT.
-Deren Download-Zahlen betragen: xxxxxxxxxxxxxxxxxx
-               JCT: ca. 2000 / Mt.
-               CT2: ca. 3000 / Mt.
+Deren Download-Zahlen betragen: (xxx)
+               JCT: ca. 2000 / Monat.
+               CT2: ca. 3000 / Monat
 Die Nachfolger-Versionen von CT1 bieten einen deutlich größeren Funktionsumfang
 als CT1.
 
 Ziel aller CrypTool-Versionen ist es, kryptographische Mechanismen anschaulich
 zu machen und die Verwendung und die Grenzen einzelner Verfahren aufzuzeigen.
-In CT1 sind fast alle State-of-the-art-Krypto-funktionen implementiert.
+In CT1 sind fast alle State-of-the-art-Kryptofunktionen implementiert.
 Dies ermöglicht einen "spielerischen" Einstieg in die moderne und klassische
 Kryptographie -- unter einer einheitlichen Oberfläche.
 
@@ -151,9 +150,9 @@ allem die Kapitel 2.6 (Neuerungen in CT 1.4.31) und in Kapitel A.1
 (Roadmap nach CT 1.4.31) interessant sein.
 
 Wir laden jeden herzlich ein, an CrypTool mit zu entwickeln oder
-Feedback zu geben. Auch für Hinweise zu Arbeiten (Diplom-, Doktor-,
-Seminar- oder Projektarbeiten), die man in CrypTool integrieren könnte,
-sind wir sehr dankbar.
+Feedback zu geben. Auch für Hinweise zu Arbeiten (Diplom-, Bachelor-,
+Master-, Doktor-, Seminar- oder Projektarbeiten), die man in CrypTool
+integrieren könnte, sind wir sehr dankbar.
 Insbesondere junge Entwickler sind eingeladen, sich zu trauen -- sie können
 bei erfahrenen Entwicklern sehr viel über professionelle Software-Entwicklung
 lernen.
@@ -190,8 +189,8 @@ Wenn Ihnen ein Menüpunkt nichts sagt oder Sie in einem Dialogfenster
 nicht recht weiter wissen, sollten Sie mittels der F1-Taste ausreichend
 Hilfe finden (wenn nicht, geben Sie uns bitte Feedback).
 
-Eine 1-seitige Übersicht über alle Menüs in CrypTool (Menübaum)
-finden Sie im beigelegten CrypTool-Buch (im Anhang A1 dieser PDF-Datei).
+Eine 1-seitige Übersicht über alle Menüs in CrypTool (Menübaum) finden Sie
+in dem als PDF beigelegten CrypTool-Buch (siehe Anhang A1 dieser PDF-Datei).
 
 Eine Übersicht über alle Funktionen in den verschiedenen CrypTool-Programmen
 finden Sie auf der Webseite des CT-Portals (www.cryptool.org) unter dem Menü
@@ -217,7 +216,7 @@ Hauptteil des CT1-Paketes ist das Programm CT1 selbst:
   Mitarbeiter-Sensibilisierung für IT-Sicherheit.
 
 - Die meisten der kryptographischen Basisalgorithmen stammen aus:
-  - der Secude-Bibliothek (http://www.secude.com/), xxxxx
+  - der Secude-Bibliothek (http://www.secude.com/),  (xxx)
   - der Miracl-Bibliothek von DCU/CertiVox (vormals Shamus Software)
         (http://www.compapp.dcu.ie/~mike/shamus.html),
   - der OpenSSL-Bibliothek (http://www.openssl.org/),
@@ -226,7 +225,7 @@ Hauptteil des CT1-Paketes ist das Programm CT1 selbst:
   - der APFLOAT-Bibliothek von Mikko Tommila (http://www.apfloat.org/apfloat),
   - der MPIR-Bibliothek für beliebig genaue Arithmetik (entstanden aus GMP)
         (www.mpir.org) und
-  - der cv act library der cv cryptovision GmbH (www.cryptovision.com). xxxxxx
+  - der cv act library der cv cryptovision GmbH (www.cryptovision.com). (xxx)
 
   Die aktuell benutzten Versionen der inkludierten Bibliotheken finden
   Sie in der Dialogbox "Über CrypTool" (siehe Hilfe-Menü).
@@ -262,24 +261,27 @@ d) Präsentation, die auf Folien die Möglichkeiten von CrypTool
 
 (3) Eigenständige Programme
 ---------------------------
-Die folgenden Programme können aus CrypTool heraus, aber auch stand-alone
+Die folgenden Programme und können aus CrypTool heraus, aber auch stand-alone
 aufgerufen werden:
 
 a) Das Programm AES-Tool v 2.7 (entstanden im CrypTool-Projekt):
-   Zum Erstellen selbst-entpackender Executables ist in CrypTool ein
-   Programm integriert, das auch eigenständig benutzt werden kann.
+   Mit dem AES-Tool kann man selbst-entpackende Executables erstellen.
    AES-Tool verschlüsselt mit einem Session-Key den Inhalt einer beliebigen
-   Dateiinhalt mit dem AES-128 Bit-Verfahren.
+   Datei mit dem AES-128 Bit-Verfahren.
    Dieses Verschlüsselungstool kann sowohl als Fensteranwendung als auch
    von der Kommandozeile (z.B. aus einer Batchdatei) aufgerufen werden.
    Bei der CrypTool-Installation wird diesem Programm die Dateiendung "AES"
    zugeordnet.
 
-b) Das Lernspiel "Der Zahlenhai" v 1.2.3xxx (entstanden im CrypTool-Projekt):
+b) Das Lernspiel "Der Zahlenhai" v 1.2.3 (entstanden im CrypTool-Projekt):
    Dieses Lernspiel bringt Schülern den Umgang mit Teilern und Primfaktoren
    näher.
 
-c) Das Animationsprogramm ANIMAL (siehe http://www.algoanim.net):
+c) Das Animationsprogramm ANIMAL (siehe http://www.algoanim.net)
+   (Version 2.4.9, 5. September 2016):
+   ANIMAL is a general-purpose animation tool with a current focus on algorithm
+   animation. It contains a lot of animation generators (currently, there are
+   more than 500.)
    Mit diesem an der TU Darmstadt von Dr. Rößling gepflegten Programm
    kann man die Einzelschritte von Algorithmen oder die Komponenten von
    Datenstrukturen beliebig genau modellieren, die Einzelschritte manuell
@@ -351,10 +353,10 @@ b) Krypto-Wettbewerbe / Krypto-Rätsel:
    Mehr Informationen dazu gibt es in der Onlinehilfe zu CT1 (unter dem
    Indexeintrag "Krypto-Wettbewerbe") und in dem Buch von Klaus Schmeh.
 
-   Weitere Rätsel und Herausforderungen (Challenges) finden sich auch
+   Viele weitere Rätsel und Herausforderungen (Challenges) finden sich auch
    - auf den Seiten von CrypTool-Online und
-   - auf den Seiten des Krypto-Wettbewerb "MysteryTwister C3":
-     http://www.mysterytwisterc3.org
+   - auf den Seiten des Krypto-Wettbewerbs "MysteryTwister C3":
+     https://www.mysterytwisterc3.org
 
 
 Alle Einzeldateien, die bei der Installation des CrypTool-Paketes
@@ -369,25 +371,23 @@ Zu CT1 haben sehr viele verschiedene Personen (über 300)
 beigetragen -- insbesondere auch ehrenamtlich in ihrer Freizeit.
 Einige sind namentlich in der Dialogbox aufgeführt, die man erhält,
 wenn man in der Dialogbox "Über CrypTool" einen Doppelklick ausführt.
-Der Wohnort einiger Entwickler/Mitwirkenden ist auf der CrypTool-Webseite
-per Google-Map zu finden (Menü Team).
 Herzlichen Dank an alle Mitwirkenden.
 
-Besonders herausheben möchte ich einige Kernentwickler/-Architekten
+Besonders herausheben möchte ich einige Kernentwickler/Architekten
 im CT1-Projekt, deren hohes und langjähriges Engagement und
 deren hervorragende Kompetenz und Hartnäckigkeit solche dauerhaften,
-lebendigen und erfolgreichen Open-Source-Projekte erst ermöglicht:
+lebendigen und erfolgreichen Open-Source-Projekte erst ermöglichen:
 Jörg, Henrik, Florian, Peer.
 
-Ebenfalls danken möchte ich einigen Kernentwicklern/-Architekten in
+Ebenfalls danken möchte ich einigen Kernentwicklern/Architekten in
 den Nachfolger-Projekten CT2 und JCT, die mit großer Ausdauer und
 Kompetenz die Schwierigkeiten mit den allerneuesten Entwicklungsumgebungen
 und Software-Architekturen bewältigten:
-- Arno, Philipp, Thomas, Sebastian, Martin, Timo, Soeren, ...
-- Dominik, Matthias, Tobias, Simon, Amro, David, ...
+- Arno, Nils, Philipp, Thomas, Sebastian, Martin, Timo, Soeren, ...
+- Dominik, Simon, Matthias, Tobias, Amro, David, Michael, ...
 
 Und natürlich den vielen Ungenannten, insbesondere Studenten und
-Praktikanten, die viel dazu beitrugen -- und dabei noch mehr lernten
+Praktikanten, die viel dazu beitrugen -- und dabei noch viel mehr lernten
 von den Experten im Projekt.
 
 Ebenfalls beigetragen haben z.B. die Deutsche Bank AG, die Technische
@@ -418,12 +418,12 @@ besondere Bedingungen gelten:
   hinaus gehenden Rechte verbleiben beim jeweiligen Autor.
 
 - Die Firmen (siehe Kapitel 1.2)
-  - Secude IT Security GmbH,xxxxxxxxxxxx
+  - Secude IT Security GmbH, (xxx)
   - Shamus Software Ltd und
-  - cv cryptovision GmbH xxxxxx
+  - cv cryptovision GmbH (xxx)
   gestatteten uns großzügigerweise, ihre Krypto-Bibliotheken zu nutzen.
   Diese mit CT1 verteilten Bibliotheken dürfen nicht in einem
-  Kontext außerhalb von CrypToo benutzt werden, ohne vorher die erwähnten
+  Kontext außerhalb von CrypTool benutzt werden, ohne vorher die erwähnten
   Firmen zu kontaktieren und nach ihren aktuellen Lizenzbedingungen zu
   fragen.
 
@@ -432,7 +432,8 @@ mit ihrem Code Anregungen gaben oder deren Code wir nutzen dürfen, z.B.
 - die Bibliotheken OpenSSL, GMP/MPIR, APFLOAT und NTL,
 - die Installations-Software NSIS (http://nsis.sourceforge.net/Main_Page),
 - die Texteditor-Software Scintilla (http://scintilla.sourceforge.net),
-- das Hex-Control (www.codeguru.com/Cpp/controls/controls/article.php/c5287).
+- das Hex-Control (www.codeguru.com/Cpp/controls/controls/article.php/c5287),
+- die Rendering-Engine aus OpenQVis (http://openqvis.sourceforge.net/).
 
 Bedanken möchte ich mich auch bei
 - Herrn Dr. Bartosz Sawicki von der Universität Warschau, der mit seinem
@@ -443,7 +444,7 @@ Bedanken möchte ich mich auch bei
   Kollegen die erste serbische Version erstellte.
 - Prof. Ioannis Mavridis und Dr. Theodoros Mastoras für die erste
   griechische Version von CT1.
-- Alain Integral für die französische Version von CT1.
+- Alain Stephan für die französische Version von CT1. (xxx)
 - Türkisch xxxxxxxxxxxxx Bisher nicht begonnen.
 - Russisch xxxxxxxxxx Bisher nicht begonnen.
 
@@ -451,20 +452,22 @@ Bedanken möchte ich mich auch bei
 
 1.4. Maintainer, Hosting, Webseite und Welcome
      -----------------------------------------
+CrypTool war nie gebunden an eine einzige Person oder eine einzigen
+Lehrstuhl. Auch das Hosting wechselte. Nach Siegen und Darmstadt kamen:
 Der Lehrstuhl für Verteilte Systeme, Fakultät für Ingenieurwissenschaften
 unter Prof. Dr. Torben Weis an der Universität Duisburg-Essen hostete CT
 ab April 2008. Seit April 2014 hostet der Lehrstuhl für Angewandte
 Informationssicherheit von Prof. Dr. Arno Wacker an der Universität Kassel:
-- die Webseite des gesamten CrypTool-Projekts,
+- die Webseiten des gesamten CrypTool-Projekts,
 - das Subversion-Repository für die Programm-Sourcen von CT1, und
 - das Subversion-Repository für die Programm-Sourcen des Nachfolgers
   CrypTool 2.
 Webserver und Buildserver laufen momentan virtuell in einer Proxmox-Umgebung
-mit 24 Intel Xeon E5-2640 a 2.5GHz und 128 Gigabyte Speicher.
+mit 24 Intel Xeon E5-2640 a 2.5GHz und 128 Gigabyte Speicher. (xxx)
 
 Die CrypTool-Entwicklergruppe um Prof. Bernhard Esslinger fungiert
-als Maintainer von CT1, d.h. sie kümmert sich um die Pflege des Codes, die
-Veröffentlichung als Open Source und Freeware, und um die
+als Maintainer von CT1, d.h. sie kümmert sich um die Pflege des Codes,
+die Veröffentlichung als Open Source und Freeware, und um die
 Koordination der Weiterentwicklung. Die nächsten Schritte der
 Roadmap sind in Kapitel A.1 und auch auf der Webseite veröffentlicht.
 
@@ -492,7 +495,7 @@ Die generellen Eigenschaften und Funktionen von CT1 sind:
 
 - Alles in einem Programmpaket und steuerbar unter einer Oberfläche.
 
-- Viele klassische Verschlüsselungsverfahren: Und dazu teilweise manuell
+- Viele klassische Verschlüsselungsverfahren; und dazu teilweise manuell
   unterstützte, teilweise automatische Analysen (Known-Plaintext- und
   Ciphertext-Only-Angriff).
 
@@ -523,9 +526,8 @@ Die generellen Eigenschaften und Funktionen von CT1 sind:
      - RSA-Signaturen erzeugen und diese verifizieren.
      - das RSA-Verfahren angreifen.
 
-- Drei auf Gitterreduktionsverfahren basierende Angriffe gegen das
-  RSA-Verfahren, die dann greifen, wenn bestimmte Vorbedingungen
-  erfüllt sind:
+- Drei auf Gitterreduktion basierende Angriffe gegen das RSA-Verfahren,
+  die dann greifen, wenn bestimmte Vorbedingungen erfüllt sind:
   * ein Teil von einem der beiden Faktoren von N ist bekannt
     ("Faktorisieren mit teilweise bekanntem p"),
   * ein Teil des Klartextes einer abgefangenen verschlüsselten
@@ -563,7 +565,7 @@ Die generellen Eigenschaften und Funktionen von CT1 sind:
 
 - Demo für einen Seitenkanalangriff gegen ein typisches Hybrid-
   Verschlüsselungsprotokoll: Bei einer sub-optimalen Implementierung,
-  wie sie in der Realität vorkam, kann der Angreifer den Session-Key
+  wie sie in der Realität vorkam, kann der Angreifer den Sessionkey
   durch Protokoll-gerechte Anfragen an den Server hoch effizient
   berechnen.
 
@@ -571,8 +573,8 @@ Die generellen Eigenschaften und Funktionen von CT1 sind:
 
 - Implementierung von HMAC-Verfahren (Kombination von Hashes und
   symmetrischen Verfahren zur Authentisierung von Nachrichten).
-  Hashverfahren wurden bisher schon von den in CrypTool implementierten
-  Konzepten PKCS#5 und digitale Signaturen verwendet.
+  Hashverfahren werden auch in den in CrypTool implementierten Konzepten
+  PKCS#5 und digitale Signaturen verwendet.
 
 - Das Shared-Secret-Verfahren nach Shamir wurde mit vielen Optionen
   implementiert.
@@ -584,14 +586,12 @@ Die generellen Eigenschaften und Funktionen von CT1 sind:
     über Mausbewegung und Tastatureingaben zu sammeln.
     Dies ist die Standardeinstellung für den ersten Aufruf des
     kryptographischen Zufallsgenerators, damit deutlich wird, dass man
-    für gute Zufallszahlen einen zufälligen Input braucht.
-    xxxxxxxxxxx
+    für gute Zufallszahlen einen zufälligen Input braucht. (xxx)
   - Eine 3-D-Visualisierung von großen Mengen an Zufallszahlen mit Hilfe
-    der Volume-Rendering-Engine aus OpenQVis
-    (http://openqvis.sourceforge.net/).
+    der Volume-Rendering-Engine von OpenQVis.
 
-- PKCS#12-Export und -Import von RSA- und DSA-PSEs und damit
-  von den darin gespeicherten Schlüsseln.
+- PKCS#12-Export und -Import von RSA- und DSA-PSEs und damit von den
+  darin gespeicherten Schlüsseln.
 
 - Die modernen Verfahren wurden gemäß den internationalen Standards
   implementiert (Referenzimplementierung).
@@ -605,18 +605,18 @@ Die generellen Eigenschaften und Funktionen von CT1 sind:
   wesentlichen Eigenschaften dieses Dokuments anzeigt.
 
 - In allen klassischen Algorithmen, wo die Alphabete der zu bearbeitenden
-  Texte eine Rolle spielen, wird nun das im zentralen Dialog "Textoptionen"
+  Texte eine Rolle spielen, wird das im zentralen Dialog "Textoptionen"
   eingestellte Alphabet benutzt.
-  Damit wurde die Transparenz und Bedienbarkeit verbessert:
+  Damit wird die Transparenz und Bedienbarkeit deutlich verbessert:
   Um sofort bei der Schlüsseleingabe sichtbar zu machen, welche Verfahren
   darauf reagieren, enthält jede passende Schlüsseleingabe-Maske einen
   zusätzlichen Button "Textoptionen", der direkt zum Dialog "Textoptionen"
   führt (man muss also nicht mehr erst an der Stelle, wo man die Textoptionen
   am ehesten braucht, den Schlüsseleingabe-Dialog wieder schließen und
   über das Hauptmenü zu den Textoptionen gehen).
-  Dieser Aufruf mit einem Klick auf den Button "Textoptionen" ist implementiert
-  in den Schlüsseleingabe-Masken für Caesar, monoalphabetische Substitution,
-  Vigenère, Skytale, Permutation und Homophone.
+  Dieser Aufruf mit einem Klick auf den Button "Textoptionen" ist bspw.
+  implementiert in den Schlüsseleingabe-Masken für Caesar, monoalphabetische
+  Substitution, Vigenère, Skytale, Permutation und Homophone.
 
 - CrypTool kann man ohne Administratorrechte ausführen.
   Verschiedene Benutzer können am gleichen PC jeweils verschiedene
@@ -627,26 +627,29 @@ Die generellen Eigenschaften und Funktionen von CT1 sind:
 
 - Das eigenständige Programm AES-Tool kann selbst-entpackende
   Programme erzeugen. Damit kann man eine beliebige Datei Passwort-geschützt
-  mit AES verschlüsseln (das Passwort ist als Hexadezimal-Schlüssel
-  einzugeben).
+  mit AES verschlüsseln (das Passwort kann in ASCII oder direkt als
+  Hexadezimal-Schlüssel eingegeben werden).
   Voller Funktionsumfang auch bei einem Aufruf von der Kommandozeile.
   Erzeugt man selbst-entpackende Archive, darf das Ergebnis nicht größer
   als 4 GB werden. Erzeugt man nur die verschlüsselten AES-Dateien
   kann das Original auch deutlich größer als 4 GB sein.
 
-- Das eigenständige Lernprogramm für die Mathematik hinter der
+- Das eigenständige Lernprogramm "ZT" für die Mathematik hinter der
   asymmetrischen Kryptographie beschreibt ausführlich und interaktiv
   die elementare Zahlentheorie.
 
 - Drei auf dem Chinesischen Restesatz beruhende Anwendungen:
   * Lösung von Systemen linearer modularer Kongruenzen am Beispiel
     einer Planetenkonstellation im Sonnensystem.
-  * Veranschaulichung des Rechnens (Addieren, Subtrahieren,
-    Multiplizieren) mit modularen Resten statt mit den (größeren)
-    eigentlichen Zahlen.
+  * Veranschaulichung des Rechnens (Addieren, Subtrahieren, Multiplizieren)
+    mit modularen Resten statt mit den (größeren) eigentlichen Zahlen.
   * Veranschaulichen des Shared-Secret-Verfahrens (entspricht der
     Analogie, dass man zum Öffnen eines Tresors z.B. drei beliebige
     von 5 Schlüsselinhabern braucht).
+
+- Mit dem Dialog "Mersenne-Zahlen berechnen" können Sie sich in weniger
+  als 1 Minute die mehrere Millionen langen größten Primzahlen erzeugen,
+  die bisher im GIMPS-Projekt gefunden wurden.
 
 - Mit dem Passwort-Qualitätsmesser (PQM) kann man die Widerstandsfähigkeit
   eines Passworts mit verschiedenen Verfahren und unter Vorgabe von
@@ -660,7 +663,7 @@ Die generellen Eigenschaften und Funktionen von CT1 sind:
 - Das Lern-Spiels "Der Zahlenhai" bringt Schülern den Umgang mit
   Teilern und Primfaktoren näher.
 
-- Download-Seite http://www.cryptool.org/de/ct1-download
+- Download-Seite https://www.cryptool.org/de/ct1-downloads
   Diese Webseite enthält die Hashwerte aller herunterladbaren CrypTool-Dateien:
   Damit kann man die Integrität der Dateien aus dem CrypTool-Paket, die
   sich auf dem Computer befinden, überprüfen.
@@ -682,11 +685,14 @@ Die generellen Eigenschaften und Funktionen von CT1 sind:
 - Die Release-Sourcen (Tag "CrypTool_1_4_31") und die aktuellen Entwickler-
   Sourcen stehen direkt im Subversion-Repository zur Verfügung.
   Darauf kann jedermann lesend (ohne Angabe eines Passworts) zugreifen per
-  svn checkout http://www.cryptool.com/svn/CrypTool/trunk --username anonymous
+  svn checkout https://www.cryptool.org/svn/CrypTool/trunk/ --username anonymous
 
-- Einen Eindruck von der Größe des CT1-Projekts liefert die folgende, im
+
+- Snapshot zur Anzahl von Dateien und zur Anzahl der Source-Code-Zeilen
+
+  Einen Eindruck von der Größe des CT1-Projekts liefert die folgende, im
   Juli 2012 erstellte Statistik (anhand der Dateien für die Version
-  1.4.31 Beta 05):
+  1.4.31 Beta 05): (xxx)
 
     FILE SUMMARY (Anzahl der Dateien anhand ihrer Dateinamenserweiterung)
     ------------
@@ -723,24 +729,25 @@ Die generellen Eigenschaften und Funktionen von CT1 sind:
       benutzt werden (wie OpenSSL, NTL, Scintilla) werden nicht gezählt.
       Ebenso wenig werden automatisch erzeugte Dateien oder Wortlisten gezählt.
 
-  Snapshot zur Anzahl von Dateien und zur Anzahl der Source-Code-Zeilen
-
 
 - Details zum Compilieren, Linken und zur einheitlichen Entwicklung
   finden sich in den Sourcen in der Datei "readme-source.txt".
 
-- Die Sourcen wurden mit der Microsoft Entwicklungsumgebung Visual Studio 2010
-  Standard Edition (VC++ v9.0) compiliert, um eine aktuelle Microsoft
-  Entwicklungsumgebung zu unterstützen, die an Universitäten im Einsatz ist.
+- Die Sourcen wurden mit der Microsoft Entwicklungsumgebung Visual Studio 2008
+  Standard Edition compiliert.
   Anmerkungen zu den MS Entwicklungsumgebungs-Versionen:
-  - Die Express-Edition von VS2008 reicht nicht aus, weil CT 1.x noch die
+  - Die Express-Edition von VS2008 reicht nicht aus, weil CT 1.4 noch die
     alte MFC-Klassenbibliothek für die GUI nutzt, die die Express-Edition
     im Gegensatz zur Standard-Edition nicht unterstützt.
-  - Der Wechsel von VS2003 auf VS2008 war auch deshalb erforderlich, weil nur
-    damit manche Bibliotheken so compiliert werden konnten, dass sie sowohl
-    unter Windows Vista als auch Windows XP korrekt liefen.
-  Eine Komplett-Compilierung aller 6 Sprachversionen (jeweils Debug und Release)
-  dauert auf einem modernen PC rund 2 h.
+  - Die Compilierung mit einer aktuelleren Microsoft-Entwicklungsumgebung
+    wie Visual Studio 2010 Standard Edition (VC++ v9.0), VS2013 oder VS2015
+    funktionierte an sich, aber leider waren dann etliche Grafiken auf
+    UHD-Monitoren verzerrt (was beim VS2008 nicht so war).
+    --> Wir fanden keinen Hinweis, wie man das in den neueren Entwicklungs-
+        umgebungen abstellt, ohne alle Grafiken neu zu machen ;-)
+  
+- Eine Komplett-Compilierung aller 6 Sprachversionen (jeweils Debug und Release)
+  dauert auf einem modernen PC rund 2 h. (xxx)
 
 
 
@@ -752,9 +759,9 @@ Eine gute Übersicht, was CrypTool bietet, finden Sie auch
 - mithilfe des Menübaums im Anhang A.1 des beigelegten CrypTool-Buchs,
 - auf der Webseite des CrypTool-Portals unter
           "Dokumentation" -> "CT-Funktionsumfang",
-          http://www.cryptool.org/de/ctp-dokumentation-de/ctp-functions-de
-- auf der Webseite der CT1-Seite unter
-          - "Dokumentation" -> "Funktionen von CrypTool 1.4.3x" und
+          https://www.cryptool.org/de/ctp-dokumentation/ctp-funktionsumfang
+- auf der Webseite von CT1 (https://www.cryptool.org/de/cryptool1) unter
+          - "Dokumentation" -> "Funktionen von CrypTool 1.4.3x", und
           - "Screenshots" -> "Screenshots".
 
 
@@ -869,8 +876,8 @@ c) Funktionale Änderungen / Erweiterungen:
 Dieses Kapitel listet die Erweiterungen und Bugfixes auf, die in
 CrypTool 1.4.30 seit CrypTool 1.4.21 hinzugefügt wurden.
 
-Die Version 1.4.30 wurde zeitgleich in Deutsch, Englisch, Polnisch, Serbisch und
-Spanisch released.
+Die Version 1.4.30 wurde zeitgleich in 5 Sprachen (Deutsch, Englisch,
+Polnisch, Serbisch und Spanisch released).
 
 a) Entwickler-relevante Änderungen (eher Programm-technisch):
 
@@ -925,9 +932,9 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
                               Das kann fürs Geocachen nützlich sein.
   - www.cryptoportal.org     "Lehrerportal" mit Unterrichtsmaterial und
                               Links
-  - http://www.mysterytwisterc3.org  Ein internationaler Krypto-Wettbewerb
-                                     mit Aufgaben verschiedener
-                                     Schwierigkeitsgrade.
+  - https://www.mysterytwisterc3.org  Ein internationaler Krypto-Wettbewerb
+                                      mit Aufgaben verschiedener
+                                      Schwierigkeitsgrade.
 
 - Ein kurzes CrypTool-Video auf YouTube:
    - Deutsch:  http://www.youtube.com/watch?v=of0C9Lx0vGs
@@ -936,7 +943,7 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
 
 - Auf der CrypTool-Webseite gibt es unter Präsentationen nun eine interaktive
   Einführung in die Grundlagen von RSA (als PPT und als Flash):
-  http://cryptool.com/index.php/de/documentation-topmenu-75.html
+  https://www.cryptool.org/de/ctp-dokumentation/ctp-presentations-de
 
 
 c) Neue Funktionalität / Bedienung:
@@ -978,7 +985,8 @@ c) Neue Funktionalität / Bedienung:
        ist übersichtlicher gestaltet.
      - Die Slider sind nun breiter, so dass man die Parameter besser justieren
        kann.
-     - Die Versionsnummer wurde auf 1.1.1 erhöht und wird nun im Titel angezeigt.
+     - Die Versionsnummer wurde auf 1.1.1 erhöht und wird nun im Titel
+       angezeigt.
    - Korrektur bei DESX/DESXL: Nun wird die effektive Bitlänge in den
      Dialogen zur Verschlüsselung und zur Brute-Force-Analyse angezeigt.
    - Korrektur bei der DESX/DESXL-Brute-Force-Analyse, die Schlüssel überging,
@@ -1210,37 +1218,38 @@ Die Version 1.4.31 wird zeitgleich in Deutsch und Englisch released.
 a) Entwickler-relevante Änderungen (eher Programm-technisch):
 
 - Update der Bibliotheken und der genutzten Fremdsoftware auf ff. Versionen:
-  - Scintilla 3.2.1  
+  - Scintilla 3.2.1  (xxx)
   - compilerabhängig: cv act library 1.4.6 mit VS2008, 1.4.18 mit VS2010
-  - OpenSSL 1.0.1
-  - MPIR 1.3.1 (hergeleitet aus GMP-Version 4.2.1) statt GMP 4.1   ??????xxx
-      ???????   2.5.1   xxx
-  - Miracl 4.4.3  -->  5.5.4  xxx
+  - OpenSSL 1.0.1 (xxx)
+  - MPIR 1.3.1 (hergeleitet aus GMP-Version 4.2.1) statt GMP 4.1
+      ??????  2.5.1    (xxx)
+  - Miracl 4.4.3  -->  5.5.4 (xxx)
   - NTL 5.5.2  --> 9.3 (nun thread-safe und mit Exception-Handling, braucht
-                        einen C++11-Compiler)  xxx
-  - ANIMAL 2.4.0
+                        einen C++11-Compiler)   (xxx)
+  - ANIMAL 2.4.9
   - Ersatz der Secude-Bibliothek, da sie Probleme nach der Compilation mit
-    VS2010 (nicht mit VS2008) hatte.
-    xxxxxxxxxx
+    VS2010 (nicht mit VS2008) hatte, auf CT 1.5 verschoben. (xxx)
 
-- Das Release von CT 1.4.31 wird nun mit VS2010 kompiliert.
-  Ab CT 1.5.00 wird mit VS 2015 übersetzt.
+- Das Release von CT 1.4.31 wird weiterhin mit VS2007 kompiliert (siehe oben).
+  Ab CT 1.5 wird mit VS 2015 übersetzt.
+
 
 b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
 
 - Online-Hilfe: aktualisiert an einigen Stellen
 
-- CrypTool-Buch: - Edition is ein großes Update, viele Korrekturen und Ergänzungen
+- CrypTool-Buch: - Edition is ein großes Update, viele Korrekturen und
+                   Ergänzungen
                  - Weitere Kapitel zu Bitblock- und Bitstrom-Verschlüsselung
                    und mit einer Studie über aktuelle akademische Resultate für
                    das Lösen diskreter Logarithmen und zur Faktorisierung
                  - Aufnahme weiterer Sage-Programmbeispiele (zu
-                   Primitivwurzeln und RSA-Fixpunkten)  xxxxxBE
+                   Primitivwurzeln und RSA-Fixpunkten)   (xxx)
                  - Anhänge zu den Funktionsübersichten auch für CT2 und
-                   JCT.  xxxxxBE
+                   JCT. (xxx)
                  - In den Fußnoten nun auch die Menüpfade zu CT2 und JCT.
 
-- Aktualisierte Präsentation zu CT1.  xxxxxBE
+- Aktualisierte Präsentation zu CT1 auf CT 1.5 verschoben. (xxx)
   Die Informationen zum Gesamtprojekt und zu den beiden anderen CT-Projekten
   (CT2, JCT) liegen nun in eigenständigen Präsentationen.
 
@@ -1252,17 +1261,21 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
 
 c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
 
+- Zwei weitere Sprachen hinzugefügt: Griechisch und Französisch. (xxx)
 - Installation und Benutzung ohne Administratorrechte: Nun braucht nicht nur
   das Programm keine Administrator-Rechte mehr, sondern auch das
   Installationsprogramm kann von einem normalen Nutzer ausgeführt werden.
 - Unter den zahlentheoretischen Funktionen wurde der Spezialfall der
-  Generic t-adic NAF Schlüsselerzeuger hinzugefügt.
+  Generic t-adic NAF Schlüsselerzeuger hinzugefügt. Dialogfenster breiter.
+  Umschreiben des Generators, da sein Pattern bei einigen Virenscannern
+  zu False-Positive Falsch-Meldungen führte, die diese dann bei der
+  Setup-Installationsdatei der Beta meldeten.
 - Textfenster haben nun einen Kontextmenu-Eintrag, um zur Hexanzeige
   umzuschalten, und umgekehrt.
 - Viele kleine Verbesserungen in Dialogfenstern (z.B. "Angriff auf stereotype
   Nachrichten").
 - RSA-Demo-Dialog erhielt einige optische Änderungen aufgrund des didaktischen
-  Feedbacks, das wir erhielten.xxxxxxxxxxx
+  Feedbacks, das wir erhielten. (xxx)
 - Transpositions-Verschlüsselung: Der Schlüsseleingabe-Dialog hat nun auch den
   Button "Textoptionen".
   Ebenso hinzugefügt wurde dieser Button in der Analyse der maS.
@@ -1272,7 +1285,7 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
   des Geheimtext-Alphabets gestellt.
 - Die Analyse für die Substitutions-Chiffre wird in 2 Varianten angeboten.
   Variante 2 verwendet eine Liste häufiger Wörter, die der User bisher nicht
-  sehen oder ändern konnte. Beides ist nun möglich.
+  sehen oder ändern konnte. Beides ist nun möglich. (xxx)
 - Die ADFGVX-Analyse nutzt nun zur Bestimmung der Substitutionsmatrix auch
   die Häufigkeitsverteilung des im Textoptionen-Dialog eingestellten
   Referenztextes.
@@ -1281,7 +1294,7 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
   sind beim ADFGVX-Verfahren ausgeschlossen). Der Einleitungstext der Analyse
   wurde an das aktuelle Verhalten angepasst.
 - Die Felder zur Anzeige eines Hashwertes können nur auch 256 Bit lange
-  Hashwerte ohne Scrollen anzeigen. xxxxxxxxxxx validieren!
+  Hashwerte ohne Scrollen anzeigen. (xxx)(validieren!)
 - Zahlenhai: Einige Funktionen nun nicht nur über Tastenkombinationen sondern
   auch über Buttons erreichbar.
 - AES-Tool 2.7:
@@ -1301,12 +1314,9 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
 - Bei SHA256 / SHA512 wurde bisher die falsche Funktion aufgerufen.
   Dies betraf auch den Dialog "Generieren von HMACs".
 - Der Aufruf von bc innerhalb der Zahlentheorie-Tutorials funktioniert
-  nun auch unter Win7.xxxxxxxxxxxxxxxxxxxxxxxx
+  nun auch unter Win7. (xxx)
 - Playfair mit einer 6*6-Matrix konvertiert nun nicht mehr fälschlicherweise
   "J" zu "I".
-- b-adic wurde verbreitert (reines Layout) und verursacht nun keine
-  Falschmeldungen mehr, die etliche Antiviren-Scanner fälschlicherweise
-  bei der Setup-Installationsdatei meldeten.
 
 - Danke an die vielen aufmerksamen Benutzer, die uns auf die Bugs und 
   Inkonsistenzen aufmerksam machten.
@@ -2277,7 +2287,9 @@ Kontaktadressen:
 8. Verweise / Auszeichnungen
    -------------------------
 
-Vergleiche: http://www.cryptool.org/de/ctp-links-de
+Vergleiche:
+- https://www.cryptool.org/de/ctp-links-de
+- https://www.cryptool.org/de/ctportal-lehre/ctportal-auszeichnungen/267-ctp-medien
 
 
 8.1. Artikel über CrypTool
@@ -2467,11 +2479,11 @@ b) Auf der Professional Security Testers Warehouse (PST) postete
 
 c) Wikipedia:
    - Deutsch:
-     - http://de.wikipedia.org/wiki/CrypTool
+     - https://de.wikipedia.org/wiki/CrypTool
      - http://de.wikipedia.org/wiki/Kryptographie
      - http://de.wikipedia.org/wiki/Wikipedia:WikiProjekt_Kryptologie
    - Englisch:
-     - http://en.wikipedia.org/wiki/CrypTool
+     - https://en.wikipedia.org/wiki/CrypTool
      - http://en.wikipedia.org/wiki/Cryptography
      - http://en.wikipedia.org/wiki/Topics_in_Cryptography
    - Polnisch:
@@ -2717,8 +2729,7 @@ CrypTool erhielt u.a. folgende explizite Auszeichnungen (s. Webseite):
   Dazu fand am 22.07.08 an der Universität Siegen ein Tag-der-offenen-Tür
   statt.
 
-Vergleiche auch http://www.cryptool.org/de/ctp-lehre/ctp-auszeichnungen-de
-
+Vergleiche auch https://www.cryptool.org/de/ctp-lehre/ctp-auszeichnungen-de
 
 
 
@@ -2751,8 +2762,7 @@ wollen.
 
 Alle in CT1, CT2, JCT und CT-Online verfügbaren Funktionen können in einer
 interaktiven Liste abgerufen werden auf:
-   http://www.cryptool.org/de/ctp-dokumentation-de/ctp-functions-de
-
+   https://www.cryptool.org/de/ctp-dokumentation/ctp-funktionsumfang
 
 
 A.2. Nachfolger-Projekte mit Java/Eclipse und C#/.NET
@@ -2805,15 +2815,14 @@ c) CrypTool 2.0 (CT2)
    - Nutzt strikt die Standards von Microsoft .NET (Aussehen wie Office 2007)
    - Nutzung von Windows Presentation Foundation (WPF) zur Gestaltung
      von multimedialen Oberflächen (GUI) mit Vektorgraphiken
-   - Das gesamte Projekt lässt sich mit der kostenlosen VS2010-Express-
+   - Das gesamte Projekt lässt sich mit der kostenlosen VS201x-Express-
      Edition für C# erstellen.
    - Verfügbar sind die .NET Krypto-Provider, Bibliotheken wie GMP/MPIR und
      Crypto++ per Wrapper, und BouncyCastle für C#
    - Hoher Lerneffekt bei Einsteigern durch visuelle Programmierung
    - Enge Zusammenarbeit mit den Lehrstühlen Prof. Weis in Duisburg-Essen
      und Prof. Wacker in Kassel
-   - Nutzung von Subversion zur Source-Code-Verwaltung, gehostet von der
-     Universität Duisburg-Essen: http://www.cryptool2.vs.uni-due.de.
+   - Nutzung von Subversion zur Source-Code-Verwaltung.
 
 
 
@@ -3154,7 +3163,7 @@ A.3.4. User-Interface / Visualisierungen
 - Generelle Visualisierung der entsprechenden mathematischen Grundlagen, z.B.:
   - anhand eines Lehrbuchs
   - wie mit den Sage-Notebooks zur Einführung in ECC von Maike Massierer:
-      - http://sagenb.org/home/pub/1126/  (Version 1.3, January 2011)
+      - http://sagenb.org/home/pub/1126/  (Version 1.3, January 2011) (xxx)
     Dieses Deckblatt enthält keine Berechnungen, sondern nur die Links
     zu den übrigen Teilen; zum Ausführen der folgenden Teile
     muss man sich selbst Kopien als Sage-User anlegen.
@@ -3270,10 +3279,10 @@ begonnen worden, aber mangels Zeit nicht/wenig fortgesetzt worden.
 - Die erste Beta wurde im November 2007 veröffentlicht.
   Die zweite Beta ("still no functional version", 11 % der geplanten
   Aufgaben) wurde am 15.12.08 veröffentlicht.
-- Siehe http://www.cryptoolinux.net/
+- http://www.cryptoolinux.net/
 
 ################################################################
 
 Bitte probieren die neuen Versionen CT2 und JCT.
-Sie finden diese ebenfalls auf der Webseite www.cryptool.org.
+Sie finden diese ebenfalls auf der Webseite www.cryptool.org
 
