@@ -3216,7 +3216,7 @@ work well under Wine. Wine is much more stable than 6 years ago.
 - nok: In the online help:
        - Calling external programs from the help (readme.txt in notepad, PDFs)
        - Navigation via the back and forth buttons
-- nok: Male functions within the Macromedia application NT
+- nok: Some malfunctions within the Macromedia application NT
 
 Generally we do not aim to support Wine.
 Instead of that, please try the platform independent version JCT which also
