@@ -49,7 +49,7 @@ cryptanalysis.
  8. ... References / Hints / Awards
  8.1. ... Articles about CrypTool
  8.2. ... Further references
- 8.3. ... Further freeware projects (Crank, CAP, CryptoStudio, Sage, etc)
+ 8.3. ... Further freeware projects (Crank, CAP, CryptoStudio, SageMath, etc)
  8.4. ... Awards
 A. ... Appendix
 A.1. .... Roadmap after CT 1.4.31
@@ -84,12 +84,13 @@ than 70 persons world-wide are working voluntarily in the CrypTool project.
 Every part of the program CT1 comes with extensive online help, which
 can be understood without deep knowledge in cryptography.
 
-CT1 is available in 6 languages: (xxx French)
+CT1 is available in 7 languages (language abbreviations by ISO 639-1):
 - English (EN),
 - German (DE),
+- French (FR),
 - Greek (EL),
 - Polish (PL),
-- Serbian (RS) and
+- Serbian (SR), and
 - Spanish (ES).
 
 In all language versions the program has the same full functionality --
@@ -98,16 +99,16 @@ CrypTool, AES-Tool and Number Shark, and the installation program (setup).
 
 Here is a list of the remaining components of the CT1 package, which
 could not be localized yet for all language versions:
-                        DE     EN    EL    ES     PL    RS   (xxx)
-Online help (html)      yes    yes   no    no     no    no
-Readme file (txt)       yes    yes   no    no     no    no
-CT book (pdf)           yes    yes   no    no     no    no
-CT presentation (pdf)   yes    yes   no    yes    no    no
-Elsner stories (pdf)    yes    yes   no    no     no    no
+                        DE     EN     EL    ES    FR    PL    SR
+Online help (html)      yes    yes    no    no    no    no    no
+Readme file (txt)       yes    yes    no    no    no    no    no
+CT book (pdf)           yes    yes    no    no    no    no    no
+CT presentation (pdf)   yes    yes    no    yes   no    no    no
+Elsner stories (pdf)    yes    yes    no    no    no    no    no
 
 In English and German the CT1 package is completely localized.
-If a component isn't available for another language version, then
-the according English component is attached.
+If a component isn't available for one of the other language versions,
+then the according English component is attached.
 
 Further language versions (Turkish, Russian, Ukrainian, French, ...)
 are partly under development.
@@ -118,8 +119,8 @@ available at the following internet addresses (without registration):
                 http://www.CrypTool.com
                 http://www.CrypTool.de
 
-Since beginning of 2010, the rate of CT1 packages downloaded per month
-is ca. 6000 (more than 1/2 of the current downloads request the English version).
+Since beginning of 2010, the rate of CT1 packages downloaded per month is
+ca. 6000 (more than 1/2 of the current downloads request the English version).
 
 There are two successors of CT1, called CT2 and JCT.
 Their download numbers are: (xxx)
@@ -273,9 +274,9 @@ b) The educational game "Number Shark" v 1.2.3 (by the CrypTool project):
    This game helps pupils to get acquainted with divisors and prime
    factors.
 
-c) The animation program ANIMAL (see http://www.algoanim.net)
+c) The animation program Animal (see http://www.algoanim.net)
    (Version 2.4.9; September 5, 2016):
-   ANIMAL is a general-purpose animation tool with a current focus on algorithm
+   Animal is a general-purpose animation tool with a current focus on algorithm
    animation. It contains a lot of animation generators (currently, there are
    more than 500.)
    This program is maintained by Dr. Roessling at the Technical
@@ -290,7 +291,7 @@ c) The animation program ANIMAL (see http://www.algoanim.net)
    the Animal ControlCenter.
    To run Animal JRE 1.7 is required (see chapter 3.2).
 
-d) As well as ANIMAL the following programs are stand-alone Java applications
+d) As well as Animal the following programs are stand-alone Java applications
    (JAR files). To run them at least JRE 1.5 is required (see chapter 3.2).
    - ECC demonstration v 1.1.1
    - AES flow visualization
@@ -400,7 +401,7 @@ for their input:
   version.
 
 - Dr. Guido Roessling allowed us to include and deliver his freeware
-  ANIMAL, a Java based animation software.
+  Animal, a Java based animation software.
 
 - We also got the allowance to integrate enhanced versions of:
   - the two Flash animations for AES by Enrique Zabala,
@@ -435,9 +436,9 @@ I also want to thank
   colleagues the first Serbian version.
 - Prof. Ioannis Mavridis and Dr. Theodoros Mastoras for the first
   Greek version of CT1.
-- Alain Stephan for the French version of CT1. (xxx)
-- Turkish xxxxxxxxxxxxx Not started yet.
-- Russian xxxxxxxxxx Not started yet.
+- Alain Stephan for the French version of CT1.
+- Turkish xxxxxxxxxx Interests, but not started yet.
+- Russian xxxxxxxxxx Requests, but not started yet.
 
 
 
@@ -454,7 +455,7 @@ Security of Prof. Dr. Arno Wacker at the University Kassel hosts
 - the Subversion repository system for the program sources of the successor
   CrypTool 2.
 Webserver and buildserver are currently running virtually in a Proxmox
-environment with 24 Intel Xeon E5-2640 a 2.5GHz and 128 Gigabyte RAM. (xxx)
+environment with 24 Intel Xeon E5-2640 a 2.5GHz and 128 Gigabyte RAM.
 
 The CrypTool developer group around Prof. Bernhard Esslinger continues
 to act as maintainer of CT1: This means they take care about the source
@@ -534,7 +535,7 @@ The general properties and functions of CT1 are:
   - visualization via flow process charts (e.g. the Diffie-Hellman
     key exchange protocol or the challenge response demonstration).
   - Animations
-     - with ANIMAL: for the ciphers Caesar, Vigenère, Nihilist, and DES,
+     - with Animal: for the ciphers Caesar, Vigenère, Nihilist, and DES,
      - with Flash:  for AES, Enigma, and S/MIME,
      - with Java/SWT: - addition of points on an elliptic curve
                         (either on a discrete or on a real curve),
@@ -675,7 +676,7 @@ The general properties and functions of CT1 are:
 - Snapshot about the number of files and the number of lines of code
 
   To get an impression of the size of the CT1 project here is a statistics
-  created in July 2012 using the files of version 1.4.31 beta 05. (xxx)
+  created in October 2016 using the files of version 1.4.31 Prefinal beta 06d:
 
     FILE SUMMARY (number of files according to file extension)
     ------------
@@ -685,31 +686,30 @@ The general properties and functions of CT1 are:
             379 .h files
              36 .java files
              14 .pl files
-           1146 .html files
-             44 .txt files
-             41 .tex files
+           1152 .html files
+             46 .txt files
+             47 .tex files
               4 .sage files
-          2,029 TOTAL
+          2,043 TOTAL
 
 
     LINES OF CODE (LoC) SUMMARY
     ---------------------------
-         60,458 MFC resource code (rc)
-        260,412 C/C++ source code (c cpp h)
+         84,772 MFC resource code (rc)
+        285,633 C/C++ source code (c cpp h)
           9,795 Java source code (java)
           2,257 Perl code (pl)
-         65,958 HTML code (html hpp)
-          7,889 Text files (txt)
-         35,025 LaTeX code (tex)
+         66,267 HTML code (html hpp)
+          8,109 Text files (txt)
+         61,401 LaTeX code (tex)
             825 Sage code (sage)
-        442,619 TOTAL
+        519,059 TOTAL
 
-    TOTAL: 442,619 lines of code (plus of  1.1 % from 437,772 with CT 1.4.30)
-                                 (plus of 15.8 % from 382,244 with CT 1.4.21)
+    TOTAL: 519,059 lines of code (plus of 18 % from 437,772 with CT 1.4.30)
     - Here only code written within the CrypTool project or explicitly
       dedicated to the CrypTool project is counted. Any sources used
       within the CrypTool project coming from other open source projects
-      like OpenSSL, NTL, Scintilla, ... are not counted here.
+      like OpenSSL, NTL, Scintilla, Animal, ... are not counted here.
       Also any automatically created files or word lists are not counted.
 
 
@@ -729,8 +729,8 @@ The general properties and functions of CT1 are:
     --> We found no hint, how to get rid of this mistake in the newer
          development environments, without newly creating all graphics ;-)
 
-- Compiling all versions (6 languages, each in debug and release mode)
-  lasts about 2 h on a modern PC. (xxx)
+- Compiling all versions (7 languages, each in debug and release mode)
+  lasts about 2 h on a modern PC.
 
 
 
@@ -758,7 +758,7 @@ a) Developer-relevant changes (more technically oriented):
 
 - Clearance of source code, better re-usage.
 
-- Update to OpenSSL 0.9.8g, ANIMAL 2.3.14 and NSIS 2.37.
+- Update to OpenSSL 0.9.8g, Animal 2.3.14 and NSIS 2.37.
 
 - Automated consistency check within the online help (link to menus,
   dialogs, pictures, mutual links).
@@ -786,7 +786,7 @@ c) New functionality:
     user guidance; refresh; cursor correctly set again after dialog change;
     DH, Hill and side-channel-attack dialogs consistently offer a checkmark
     to show detail dialogs or to create log files.
-  - Corrected the AML file for the DES animation with ANIMAL (in the matrix
+  - Corrected the AML file for the DES animation with Animal (in the matrix
     K[1] a bit was set to 1 instead to 0). Thanks to attentive users!
   - The installer now handles previously installed versions better.
 
@@ -892,8 +892,8 @@ b) Changes within the user documentation / on the websites:
 
 - CrypTool book: Extensive revision:
                  - extensions and update to status quo,
-                 - inclusion of many Sage code samples,
-                   delivery of the Sage code as files,
+                 - inclusion of many SageMath code samples,
+                   delivery of the SageMath code as files,
                  - minor bug-fixes,
                  - menu tree within appendix A.1 adapted to the new version
                    of CrypTool,
@@ -1173,20 +1173,20 @@ c) New functionality / Usability:
 This chapter lists the enhancements and the bug fixes in CrypTool 1.4.31,
 which have been added since CrypTool 1.4.30.
 
-Version 1.4.31 is released simultaneously in English and German.
+Version 1.4.31 is released simultaneously in all 7 languages.
 
 a) Developer-relevant changes (more technically oriented):
 
 - Update of used libraries and other software to the following versions:
-  - Scintilla 3.2.1 (xxx)
+  - Scintilla 3.2.1 --> 3.7.0  (xxx)
   - compiler-dependent: cv act library 1.4.6 with VS2008, 1.4.18 with VS2010
   - OpenSSL 1.0.1 (xxx)
   - MPIR 1.3.1 (derived from GMP version 4.2.1) instead of GMP 4.1 xxx
       ???????  2.5.1 (xxx)
   - Miracl 4.4.3  -->  5.5.4  (xxx)
-  - NTL 5.5.2  --> 9.3 (now thread-safe and with exception handling, needs
+  - NTL 5.5.2  --> 9.3 (thread-safe and with exception handling, needs
                         a C++11 compiler)   (xxx)
-  - ANIMAL 2.4.9
+  - Animal 2.4.9
   - Substitution of the Secude library, as we encountered problems after
     compiling with VS2010 (not with VS2008) postponed to CT 1.5. (xxx)
 
@@ -1202,7 +1202,7 @@ b) Changes within the user documentation / on the websites:
                  - Additional chapters about bitblock and bitstream
                    encryption, and with a Survey on Current Academic Results
                    for Solving Discrete Logarithms And Factoring
-                 - Inclusion of further Sage code samples (for primitive
+                 - Inclusion of further SageMath code samples (for primitive
                    roots and RSA fix points)   (xxx)
                  - Appendices with function overviews also for CT2 and JCT.
                    (xxx)
@@ -1220,7 +1220,7 @@ b) Changes within the user documentation / on the websites:
 
 c) New functionality / Usability / Corrections of errors:
 
-- Two more languages added: Greek and French. (xxx)
+- Two more languages added: Greek and French.
 - Installation and usage without administrator privileges: Now not only the
   program doesn't need administrator rights any more, but also the installer
   can be executed by a normal user.
@@ -1251,18 +1251,19 @@ c) New functionality / Usability / Corrections of errors:
   distribution (case sensitivity and special characters are not allowed
   with the ADFGVX cipher). The introduction dialog of the analysis was
   adapted accordingly.
-- The fields to present hash values now can display hasvalues of 256 bit length
-  without the need of scrolling. (xxx)
+- The fields to present hash values for a file now can display values of
+  256 bit length without the need of scrolling.
 - Number Shark: Some of the hot key functionalities now also have a button.
 - AES Tool 2.7:
   - Fixed a bug which appeared when entering too long hexadecimal keys.
   - Now you can enter the key as normal ASCII characters too, and securely
     delete the original file after encrypting.
 
-- If the registry contains positions or sizes laying the CT windows outside
+- If the registry contains positions or sizes laying the CT window outside
   of the screen, CT now recognizes this at start time and adjusts its position
-  within the visible area. The disappearance of the windows happened several
-  times under Win 7 with CT 1.4.30.
+  within the visible area. The "disappearance" of the windows happened several
+  times under Win 7 with CT 1.4.30, especially after updates of the operating
+  system or after changing the monitor resolution.
 - DES-Animal animation: In the steps 357-424 and especially in the
   pre-output matrix (64 bit) some mistakes have been fixed.
   Thanks to Vasilis. Additionally the online help has been enhanced.
@@ -1270,8 +1271,10 @@ c) New functionality / Usability / Corrections of errors:
   via context menu -> Paste it didn't. Now both works ok
 - At SHA256 / SHA512 the wrong function was called yet.
   This also effected the dialog window "Generation of HMACs".
-- Calling bc from within the number theory tutorial now also works under Win7.
-   (xxx)
+- Calling bc from within the number theory tutorial now also works under
+  [Bsp: 3*5 // 5+3^2 // a=10; a+2; b=a; b+7 // sqrt(4.5) //
+   define d (n) { return (2*n); }; d(5) // l(100)/l(10) # Natural log // quit ].
+  Make own enhancements like http://x-bc.sourceforge.net/extensions_bc.html 
 - Playfair with a 6*6 matrix now doesn't wrongly transform J to I any more.
 
 - Thanks to the many attentive users, who pointed us to bugs and
@@ -1290,14 +1293,14 @@ CrypTool is a demonstration primarily for training and awareness
 purposes, which is intended to be used at once without any previous
 configuration work.
 
-Therefore, the development goal of CrypTool was not to be used
+Therefore, the development goal of CrypTool 1 was not to be used
 productively for encryption or as a Certification Authority (CA) --
 despite the functions are correctly implemented in CrypTool.
 
 For instance -- contrary to productive CA applications -- the CA key pair
 is contained directly within the software (source and binary) and
-it is protected with a very simple PIN for the CA-PSE (personal
-security environment).
+it is protected by will only with a very simple PIN for the CA-PSE
+(personal security environment).
 
 The root key of the CA built in CrypTool 1.4.31 has a length of 2048
 bit and it is valid for 20 years (July 6th, 2006 - July 6th, 2026).
@@ -1309,13 +1312,14 @@ CrypTool program contains a root CA with the same key pair.
 This means that everybody (!), who uses CrypTool, can sign user
 certificates with this built-in CA.
 
-Professional PKI software like the OpenXPKI, the FlexiTRUST from
-FlexSecure, Entrust, or the Microsoft CA additionally manage the
-whole certificate life-cycle, offer CRL handling, take care for
-unique serial numbers and use defined registration processes.
+Professional PKI software like the OpenXPKI, the Entrust CA, or the
+Microsoft CA additionally manage the whole certificate life-cycle,
+offer CRL handling, take care for unique serial numbers and use
+defined registration processes.
+
 JCT contains a plugin which visualizes the processes of a PKI.
 
-Nevertheless, all the modern crypto algorithms in CrypTool are
+Nevertheless, all the modern crypto algorithms in CrypTool 1 are
 implemented according to international standards and are working
 as "well" as in productive applications.
 
@@ -1323,13 +1327,13 @@ as "well" as in productive applications.
 3.2. Win32 environment, rights for installation and usage, Java-Runtime
      ------------------------------------------------------------------
 CT1 v1.4.31 was written to run under the operating system Windows 8 and 10.
-CT1 requires a Win32 environment, which is also available in 64-bit Win-7.
+CT1 requires a Win32 environment, which is also available in 64-bit Windows.
 
-Some functions like ANIMAL, ECC demonstration, ... [see chapter 1.2, part (3)]
+Some functions like Animal, ECC demonstration, ... [see chapter 1.2, part (3)]
 require an installed Java Runtime Environment JRE (version >= 1.7).
 
 The computer equipment should have at least a 300 MHz CPU, 256 MByte RAM,
-and 100 MByte free space on the hard drive (low requirements).
+and 200 MByte free space on the hard drive (low requirements).
 
 Different language versions (localizations) of CT1 can be used in
 parallel at one computer, if installed in different directories.
@@ -1384,23 +1388,23 @@ Remark 2:
 Event: The CT1 application stops execution with "Could not create
        temporary file".
 
-When CT1 creates a new temporary file it tries to write the file at the
-following locations: 
- 1. as of the local variable TEMP 
- 2. if TEMP is not set as of the local variable TMP 
- 3. if both variables, TEMP and TMP, are not set CT1 tries to write the file
+When CT1 creates a new temporary file it tries to write the file in one
+of the following directories: 
+ 1. the one of the local variable TEMP 
+ 2. if TEMP is not set: the one of the local variable TMP 
+ 3. if both variables, TEMP and TMP, are not set: CT1 tries to write the file
     in the folder which is actually set.
 
-Please check the access rights of the temporary variables.
-In case %TEMP% and %TMP% are not set, please set these environment variables to
-an appropiate path. In case they are set please verify if you have access rights
-to create files and folders. 
+Please check the access rights for the directories of the local variables.
+In case %TEMP% and %TMP% are not set, please set these environment variables
+to an appropiate path. In case they are set please verify if you have access
+rights to create files and folders. 
 
 
 Remark 3:
 Where the TEMP directory of Windows is, can be seen by entering %TEMP%
-in the Windows Explorer. The value can also be seen and adjusted under
-Windows 7 via "System Information" --> "Software Environment" --> 
+in the Windows Explorer. The value can also be seen and adjusted
+via "System Information" --> "Software Environment" --> 
 "Environment Variables". Or by setting a value at the commandline.
 
 
@@ -1426,7 +1430,7 @@ In CT1 you can get help for each selected menu item via pressing F1.
 3.4. Support for different languages
      -------------------------------
 Program, help facility and the documentation are designed to run
-in more than one language (currently completely in English and German).
+in more than one language.
 
 For each supported language CrypTool 1.4.31 comes with an extra installation
 program (setup).
@@ -1436,7 +1440,7 @@ program (setup).
      --------------------------------------
 - In order to demonstrate the RSA cryptosystem and to factorize
   integers CrypTool uses the long integer arithmetic of the Miracl
-  library. We restricted the integer bit length up to 8192.
+  library. We restricted the integer bit length for RSA to 8192.
 
 - From binary files "only" the first almost 2 GB can be loaded into
   the hex editor (< 0x7ffff000 = 2.147.479.552 Bytes).
@@ -1472,10 +1476,12 @@ program (setup).
    - for binary data up to 64 kByte and
    - for text data up to 256 kByte.
   Files opened, which are longer, are truncated -- only in this
-  special analysis -- to the maximal length.
+  special analysis -- to this maximal length.
 
-- Hash values of external files, which are not loaded into the internal
-  editor, can be calculated for files of any size.
+- Hash values of external files can be calculated for files of any size.
+  Remark: Loading a file, which is longer than the maximum size of the internal
+  editor, then the calculated hash values are not the same, as the document
+  shown in the editor was truncated.
 
 - SMIME Flash Video bug
   > Error description:
@@ -1526,15 +1532,24 @@ If you install it as administrator in "C:\Program Files\CrypTool"
 then you still can run CrypTool later as a normal user.
 
 If you change the name of the target directory "CrypTool" e.g. in
-"CrypTool-1.4.31-Final-E", then the entry in the start menu of the
+"CrypTool-1.4.31-Final-en", then the entry in the start menu of the
 Windows task bar will adapted accordingly.
+
+After creating the setups they have been scanned locally with the
+antivirus products from Symntac and Avira, and remotely at virustotal.com:
+There only 2/50 scanners wrote complaints. These came from two exotic products
+called Bkav (HW32.Packed.B5F3) and Qihoo-360 (HEUR/QVM20.1.0000.Malware.Gen).
+We consider these two warnings as false-positives.
 
 
 4.2. De-installation of CrypTool
      ---------------------------
-To de-install use the "Start" menu entry in the windows task bar.
-Go for "All programs" \ "CrypTool".
-Click "Uninstall CrypTool".
+To de-install CrypTool v1 there are several ways. These are the easiest ones:
+1) Use the "Start" menu entry in the Windows task bar.
+   Go for "All programs" \ "CrypTool".
+   Click in de CT menu at "Uninstall CrypTool".
+2) Use the Windows window "Properties" and search for "installing and removing
+   programs". There you get a list of installed programs and click on CrypTool.
 
 Sometimes the JAR files cannot be deleted because Windows and the JRE
 report that the file is still in use despite CrypTool and all its stand-alone
@@ -1578,9 +1593,9 @@ permissions if multiple users want to share one CrypTool
 installation. In that case set the access rights in the
 sub-trees "pse\" and "pse\pseca\" to full access for each user.
 
-The "pse\" sub-tree should not be manually altered because, if the
+The "pse\" sub-tree should not be  altered manually -- because if the
 structure becomes inconsistent, it may be necessary to completely
-reinstall CrypTool in order to use the certificate based methods.
+reinstall CrypTool in order to use the certificate-based methods.
 
 
 4.3.2. Keys stored in the files of the PSE directory
@@ -1595,11 +1610,11 @@ the user-application directory. When a user calls CrypTool the first time,
 it determines this directory using the environment variable APPDATA, and
 then the CrypTool program directory pse\ is copied completely into the
 user-application directory. These user-individual keys have the following
-benefits
-- there is no need any more for write access to parts of the program directory,
-- most (all) read and write problems in multi-user environments should be
+benefits:
+- There is no need any more for write access to parts of the program directory,
+- Most (all) read and write problems in multi-user environments should be
   solved so [see chapter 4.5.b)], and
-- when a new installation is done, the user-individual keys are not overwritten.
+- When a new installation is done, the user-individual keys are not overwritten.
 
 You can enforce the old behavior if you set the registry entry
 HKEY_CURRENT_USER\Software\CrypTool\Settings\UserKeyStore\UseUserKeyStore
@@ -1609,9 +1624,8 @@ CrypTool).
 
 4.4. Installation under multi-user operating systems
      -----------------------------------------------
-In multi-user systems like Windows 7 the administrator has full
-access to the whole file system; the other users are normally
-restricted.
+In multi-user systems the administrator has full access to the whole file
+system; the other users are normally restricted.
 
 If a normal user installs CrypTool he needs write access for the
 directory in which CrypTool should be installed:
@@ -1621,10 +1635,10 @@ directory in which CrypTool should be installed:
   if this already exists.
 If he does not have these access rights, the installation program stops.
 
-Therefore as a normal user without admin access rights, you should specify as
+Therefore, as a normal user without admin access rights, you should specify as
 target directory a so called "local directory" (instead of "C:\Program Files").
 "Local" and accessible for any user could be e.g.: %ALLUSERSPROFILE%
-(Default of the English Windows XP is: "C:\Documents and Settings\All Users").
+(Default is: "C:\ProgramData").
 
 If you install CrypTool without administrator rights and you also have no
 write access to %ALLUSERSPROFILE%\Start Menu, then the CrypTool specific
@@ -1642,8 +1656,8 @@ a) All user-specific parameters are stored in the local user-specific registry
    (including the files lastly opened or the algorithm options you changed):
 
 b) If the user wants to create (or change) files from within CrypTool in
-   multi-user systems like Windows 7, then he needs write access for
-   the appropriate target directory (or for the appropriate files).
+   multi-user systems, then he needs write access for the appropriate target
+   directory (or for the appropriate files).
    If this does not work, the user normally gets a warning.
    Write access is explicitly necessary only for two directories:
    - the default Windows directory for temporary files (TEMP) for the
@@ -1660,7 +1674,7 @@ b) If the user wants to create (or change) files from within CrypTool in
 
    This works with the program CrypTool itself. But if the online help is
    called from a client PC, then it will not be displayed according to the
-   default settings of Windows XP. This is no problem specific for CrypTool,
+   default settings of Windows. This is no problem specific for CrypTool,
    but for all Windows online help files.
    The HTML-help program then normally only shows the content overview of
    the index, but not the content of single help pages.
@@ -1712,7 +1726,7 @@ b) If the user wants to create (or change) files from within CrypTool in
 5. List of delivered files
    -----------------------
 The package is distributed as a compressed, self extracting archive
-in currently six (xxxx) different language versions.
+in currently seven different language versions.
 
 The self-extracting archive in English language
            SetupCrypTool_1_4_31_en.exe
@@ -1771,7 +1785,7 @@ GameData.txt ..... First high-scores for the NumberShark game.
 
 script-en.pdf .... A book (manual) on cryptography, prime numbers,
                    elementary number theory and the mathematics
-                   behind certain algorithms.
+                   behind certain algorithms. (xxx)
 
 CrypToolPresentation-en.pdf .. Slides presentation (English)
 
@@ -1843,20 +1857,22 @@ cryptochallenges\Schmeh01-Dorabella-enc.txt
                  Schmeh08-MathiasSandorf-enc.txt
 
 
-reference\ ...... This directory contains text files in the
-                  languages German, English, French, Greek xxxxx, Spanish, Polish
+reference\ ...... This directory contains text files in the languages
+                  German, English, French, Greek, Spanish, Polish, Serbian,
                   and Latin. These files are routinely used as
                   references for the analysis of encrypted
                   texts. These files are write-protected.
 
 reference\deutsch.txt   // Extract from the German value-added tax law
          \english.txt   // Extract from Agenda 21 [UN document]
+         \homer-el.txt  // Extract from Homer's Ilias
          \genesis-de.txt  // Book of Genesis in the
-         \genesis-en.txt  // languages German, English
-         \genesis-es.txt  // French, Spanish, Polish and Latin.
-         \genesis-fr.txt  // The 2-letter codes (en, ...) are according
-         \genesis-pl.txt  // to the ISO 639 language codes.
-         \genesis-la.txt  // xxx
+         \genesis-en.txt  // languages German, English,French, 
+         \genesis-es.txt  // Polish, Serbian, Spanish, and Latin.
+         \genesis-fr.txt  // The 2-letter codes (en, de, ...) are
+         \genesis-pl.txt  // according to the ISO 639 language codes.
+         \genesis-sr.txt  // 
+         \genesis-la.txt  // 
 
 
 words\ ........... This directory contains the files used to perform
@@ -1867,7 +1883,7 @@ words\cracklib-words        // For test on password patterns
       cracklib_dict.pwd     //
       cracklib_dict.pwi     //
       VigenereAnalysisSchroedelDictionary.txt   // For the Vigenère analysis
-      VigenereAnalysisSchroedelDigrams.txt      // (according Schroedel)
+      VigenereAnalysisSchroedelDigrams.txt      // (according to Schroedel)
       VigenereAnalysisSchroedelTrigrams.txt     // Language-dependent
       SubstitutionAnalysisMethod2-de.txt   // For variant 2 of the mono- 
       SubstitutionAnalysisMethod2-en.txt   // alphabetic substitution analysis
@@ -1875,7 +1891,7 @@ words\cracklib-words        // For test on password patterns
 
 sage\ ........... This directory contains the source code of the example
                   calculations in the book script-en.pdf using the
-                  computer algebra system Sage.
+                  computer algebra system SageMath. (xxx)
 
 sage\SAGE-Samples-in-Chap01.sage
      SAGE-Samples-in-Chap02.sage
@@ -1904,9 +1920,9 @@ pse\pseca\calog        These files are necessary for the administration
 
 
 animal\ .......... This directory contains files, necessary for the
-                   animation program ANIMAL.
+                   animation program Animal.
 
-animal\Animal-2.3.30.jar
+animal\Animal-2.3.30.jar  animal-2_4_9.jar  (xxx)
       \animal.bat
       \animal.properties
       \AnimalResources
@@ -2065,7 +2081,8 @@ smimedemo\utils\Tools.class
 
 tadicnafkeys\ ..... Files belonging to the generic t-adic NAF key generator.
 
-tadicnafkeys\t-adicNAF.exe
+tadicnafkeys\k1.txt
+            \t-adicNAF.exe
             \t-adicNAF.hta
             \t-adicNAF.pdf
 
@@ -2145,47 +2162,47 @@ Version                 English      German    needed EN     by
 1.4.20    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.21    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.30    Aug. 2010     51.5 MB      52.1 MB    94 MB        DB
-1.4.31    xxx. 2016     67.2 MB      67.9 MB   113 MB        CT
+1.4.31    Oct. 2016     83.6 MB      84.3 MB   127 MB        CT (xxx)
 
-Remarks about the versions:
-1.3.02  Many new functions compared to 1.3.00.
-1.3.03  Many minor bug fixes and documentation improvements.
+Remarks about the (intermediate) versions:
+1.3.02  Many new functions compared to 1.3.00
+1.3.03  Many minor bug fixes and documentation improvements
 1.3.04  Some new functionality, some minor bug fixes, and major
-        documentation improvements and enhancements (online help, book).
-1.3.05  Some minor bug fixes.
-1.4.00 Beta10  Dec. 2005  First public beta of version 1.4.00.
-1.4.00 Beta12  Mar. 2006  Second public beta of version 1.4.00.
-1.4.00 Beta14  July 2006  Third public beta of version 1.4.00.
-1.4.00   Many new functions compared to 1.3.05.
-1.4.10 Beta04  May  2007  First public beta of version 1.4.10.
-1.4.10 Beta06  July 2007  Second public beta of version 1.4.10.
-1.4.10  Set of functions and online help heavily enhanced compared to 1.4.00.
-1.4.20-Beta03  May  2008  First public beta of version 1.4.20.
+        documentation improvements and enhancements (online help, book)
+1.3.05  Some minor bug fixes
+1.4.00 Beta10  Dec. 2005  First public beta of version 1.4.00
+1.4.00 Beta12  Mar. 2006  Second public beta of version 1.4.00
+1.4.00 Beta14  July 2006  Third public beta of version 1.4.00
+1.4.00   Many new functions compared to 1.3.05
+1.4.10 Beta04  May  2007  First public beta of version 1.4.10
+1.4.10 Beta06  July 2007  Second public beta of version 1.4.10
+1.4.10  Set of functions and online help heavily enhanced compared to 1.4.00
+1.4.20-Beta03  May  2008  First public beta of version 1.4.20
 1.4.20  Set of functions and online help enhanced compared to 1.4.10;
         Mostly fine tuning and code stabilization (quality release).
 1.4.21  Patch containing also MSVCR71.dll. This DLL is used by the current
         OpenSSL library, but not available by default on blank Windows systems.
-1.4.30-Beta03  Mar. 2009  First public beta of version 1.4.30.
-1.4.30-Beta04  Sep. 2009  Second public beta of version 1.4.30.
-1.4.30-Beta05  Jan. 2010  Third public beta of version 1.4.30.
-1.4.30-Beta06  Feb. 2010  Forth public beta of version 1.4.30.
-1.4.30-Beta07  June 2010  Fifth public beta of version 1.4.30.
-1.4.30-Beta08  July 2010  Fifth public beta of version 1.4.30.
-1.4.30  Many bug fixes and enhanced functionality compared to CT 1.4.21.
+1.4.30-Beta03  Mar. 2009  First public beta of version 1.4.30
+1.4.30-Beta04  Sep. 2009  Second public beta of version 1.4.30
+1.4.30-Beta05  Jan. 2010  Third public beta of version 1.4.30
+1.4.30-Beta06  Feb. 2010  Forth public beta of version 1.4.30
+1.4.30-Beta07  June 2010  Fifth public beta of version 1.4.30
+1.4.30-Beta08  July 2010  Fifth public beta of version 1.4.30
+1.4.30  Many bug fixes and enhanced functionality compared to CT 1.4.21
         Disc space needed for the different language versions of CT 1.4.30:
         EN:  93.7 MB
         DE:  94.7 MB
         PL: 100.0 MB
-        RS:  93,7 MB (xxx)
-        SP:  94.4 MB
-1.4.31-Beta05  July 2012  First public beta of CT 1.4.31.
-1.4.31-Beta06  Feb. 2013  Second public beta of CT 1.4.31.
+        SR:  93,7 MB
+        ES:  94.4 MB
+1.4.31-Beta05  July 2012  First public beta of CT 1.4.31
+1.4.31-Beta06  Feb. 2013  Second public beta of CT 1.4.31
 1.4.31-Beta06a June 2013  Third public beta of CT 1.4.31
                           (first one with a Greek language version)
 1.4.31-Beta06a July 2013  Fourth public beta of CT 1.4.31
-                          (first with OpenSSL and SAP lib replacing Secude).
 1.4.31-Beta06b Oct. 2013  Fifth public beta of CT 1.4.31
-1.4.31  Many bug fixes and only a few enhanced functionality compared to 1.4.30.
+1.4.31  Many bug fixes and enhanced functionality compared to 1.4.30.
+                          (first one with a French language version)
 
 
 
@@ -2201,7 +2218,7 @@ CrypTool and we'll be helpful whenever our time allows.
 We would also be interested to hear how and where you use CrypTool.
 
 Contact addresses:
-- esslinger@fb5.uni-siegen.de
+- bernhard.esslinger@uni-siegen.de
 - esslinger@cryptool.org
 - joerg-cornelius.schneider@db.com
 - henrik.koy@db.com
@@ -2214,7 +2231,7 @@ Contact addresses:
 
 See:
 - https://www.cryptool.org/en/ctp-links-en
-- https://www.cryptool.org/en/ctp-education/ctp-awards-en/270-ctp-printmedia
+- https://www.cryptool.org/en/ctp-education/ctp-awards-en
 
 
 8.1. Articles about CrypTool
@@ -2313,7 +2330,8 @@ A 6-page article on CrypTool was published under the title
 issue 3/2009.
 
 
-Further articles can be found on the website mentioned above.
+Further articles can be found on the following website:
+https://www.cryptool.org/en/ctp-education/ctportal-awards/270-ctp-printmedia
 
 
 
@@ -2418,7 +2436,8 @@ c) Wikipedia:
      - http://it.wikipedia.org/wiki/CrypTool
    - Greek:
      - http://el.wikipedia.org/wiki/CrypTool
-   - Russian: xxxxxxxxxxxxxx
+   - Russian: (xxx)
+   - Chinese: (xxx)
 
 
 d) A small selection of further pages:
@@ -2430,16 +2449,15 @@ d) A small selection of further pages:
        (see link under "Freeware program with which you can use
                         cryptographic procedures")
    http://www.roehri.ch/~sr/links/crypto.html
-   http://williamstallings.com/Crypto/Crypto4e.html
+   http://williamstallings.com/Cryptography/Crypto7e-Student/
         (resource site for the book "Cryptography and Network Security",
-         4th edition by William Stallings)
-   http://williamstallings.com/Cryptography/Crypto5e-Student/
+         7th edition by William Stallings)
    ...
 
 
 
-8.3. Further freeware projects (Crank, CAP, CryptoStudio, Sage, etc)
-     ---------------------------------------------------------------
+8.3. Further freeware projects (Crank, CAP, CryptoStudio, SageMath, etc)
+     -------------------------------------------------------------------
 
 a) Available with complete source code are:
 
@@ -2510,8 +2528,8 @@ a) Available with complete source code are:
   It was developed in a university project by 6 (?) students in 2000.
   The Website contains the source files, but not the executables.
 
-- The open-source computer-algebra system "SAGE" has also implemented some
-  algorithms from the area of cryptography. Version 4.8. e.g. contains:
+- The open-source computer-algebra system "SageMath" has also implemented
+  some algorithms from the area of cryptography:
     Ciphers
     Classical Ciphers
     Simplified DES
@@ -2528,7 +2546,7 @@ a) Available with complete source code are:
   SAGE is also used for some examples in the CrypTool book.
 
 
-b) The only other programs known to us, which usefully combine
+b) The only other useful programs known to us, which usefully combine
    cryptography and cryptanalysis (under a graphical user interface),
    are such, where the source code is not public:
 
@@ -2588,21 +2606,24 @@ b) The only other programs known to us, which usefully combine
   http://facultyfp.salisbury.edu/despickler/personal/CryptTools.asp
 
 - "CryptoCrack" by Phil Pilcrow
-  The Windows program CryptoCrack is designed for solving classical ciphers
-  and doesn’t include routines for solving machine based or modern, computer
+  The Windows program CryptoCrack is designed for solving classical ciphers:
+  "CryptoCrack can solve over 50 different classical cipher types and in many
+  cases without knowing any plaintext or the key length" (cited from 23.10.16).
+  So it doesn’t include routines for solving machine based or modern, computer
   based types such as Enigma, AES, DES, Blowfish etc. (see FAQ).
-  This tool solves many classical ciphers very fast and well.
+  This tool solves many classical ciphers very fast and very well.
   Initial release: May 29, 2011, ongoing active development.  
   Last update: June 2016 -- Version 0.6 beta (0.6.5999.15171)
   https://sites.google.com/site/cryptocrackprogram/home
 
 - "CryptoMake" by Phil Pilcrow
   Very exhaustive program to create classical ciphers.
+  Initial release: March 5, 2014, ongoing active development.
   Last update: Feb 2016 -- Version 0.2 beta (0.2.5901.21555)
   https://sites.google.com/site/cryptomake/
 
 
-If we are missing something here or are incorrect anyhow, please feel
+If we are missing something here or if something is incorrect, please feel
 free to inform us, so that we can complete or correct the list.
 
 We explicitly want to state, that we would welcome very much if the
@@ -2618,7 +2639,7 @@ education and training. Additionally we have been very glad about the many
 positive feedback we got so far. We try to respond quickly also in the future
 to any request you have.
 
-CrypTool was honored with the following awards (see web page):
+CrypTool was honored with the following "official" awards (see web page):
 
 - TeleTrusT Special Award
   The TeleTrusT Special Award for education about cryptography and
@@ -2642,8 +2663,8 @@ CrypTool was honored with the following awards (see web page):
   The project was presented at a big public event at the University
   of Siegen on July, 22nd, 2008.
 
-Also see https://www.cryptool.org/en/ctp-education/ctp-awards-en
-
+Also see
+https://www.cryptool.org/en/ctp-education/ctp-awards-en/259-ctp-awards-en
 
 
 
@@ -2670,8 +2691,12 @@ A.1. Roadmap after CT 1.4.31
 In general all bigger new developments from the CT project will go directly to
 the two successor projects CT2 and JCT (see chapter A.2).
 
-Within CT1 bugs will still be fixed. Functions could be enhanced or
-added by people, who prefer to keep on developing in C/C++.
+The CrypTool team will continue to fix bugs within CT1. However, new functions
+could still be added by people, who prefer to keep on developing in C/C++.
+Such an enhancement for CT 1.5 will probably be the integration of a fork of
+OpenSSL which implements the set of the Chinese Crypto Standards (which is
+comparable to the NIST standards and even got more attention after Snowden's
+confirmation of the doubts which had been only rumors before).
 
 All functions available in CT1, CT2, JCT and CT-Online can be found in an
 interactive list of at:
@@ -2690,10 +2715,9 @@ a) General wish list according to the user feedback about CT1
    This is the basis for both successor projects, Java-CrypTool and CrypTool 2:
    - Modern pure-plugin architecture
    - All languages supported by one program, one setup
-   - More modern layout, less dialog changes
+   - More modern layout, less move between different dialogs
    - Standard compatibility in the user interface
    - More user interaction
-   - All languages supported by one program, one setup
    - Dynamic change between languages
    - Dynamic change between crypto providers
    - Automatic updates via the internet (keep opened files after new start)
@@ -2707,11 +2731,13 @@ a) General wish list according to the user feedback about CT1
 
 b)  Java-CrypTool (JCrypTool, JCT):
    - Completely new designed CrypTool in Java using Eclipse/RCP
-   - Platform independent
+   - Platform independent --> Support for Windows, MacOS, and Linux
    - Usage of SWT for the GUI
-   - Strictly using the standards of Eclipse 3.x
+   - Strictly using the standards of Eclipse
    - Bouncy Castle (BC) and FlexiProvider (FP) are used as crypto providers.
      FP will become part of BC.
+     Offer JCT as a dynamic graphical frontend for BC.
+   - XML Security (demonstrator for XML signatures)
    - Close cooperation with the chair of Prof. Buchmann, TU Darmstadt for the
      integration of FP
    - For newbies, but also for experts
@@ -2727,10 +2753,12 @@ c) CrypTool 2 (CT2)
    - Strictly using the standards from Microsoft .NET (looks like Office 2007)
    - Usage of Windows Presentation Foundation (WPF) to create multi media
      GUIs using vector graphics
-   - The whole project can be build with the free VS201x Express-Edition
-     for C#.
-   - Available are the .NET crypto provider, libraries like GMP/MPIR, Crypto++
-     via wrappers and BouncyCastle for C#.
+   - The whole project can be build with the respective most current, free
+     Visual Studio Express-Edition for C#.
+   - Available as crypto providers are:
+     - the .NET crypto provider,
+     - libraries like GMP/MPIR, Crypto++ via wrappers, and
+     - BouncyCastle for C#.
    - Steep learning curve for newbies by visual programming
    - Close cooperation with the chairs of Prof. Weis in Duisburg-Essen and
      Prof. Wacker in Kassel
@@ -2745,14 +2773,18 @@ The new versions are (see chapter A.2.1):
 - JCT: JCrypTool 1.x
 
 
-Some features of the release versions of the successor projects:
+
+Some (not all) features of the release versions of the successor projects:
+
+-------------------------------------------------------
 - CT2  Visual programming (composition of protocols and workflows)
 - CT2  Tutorial: Prime number visualizations
 - CT2  Tutorial: Bleichenbacher attack, enhancements by Kuehn
-- CT2  Tutorial: SOA-Security (SOAP messages according WS Security)
+- CT2  Tutorial: Lattice-based cryptography
 - CT2  WEP encryption and analysis of WEP encrypted messages (attack
        on the WEP protocol)
 - CT2  DH-Key Exchange
+- CT2  Visualization of Quantum Key Agreement, BB84 protocol
 - CT2  Steganography methods
 - CT2  Smartcard plugin (it sends commands to a smartcard using
                          the PC/SC interface in Windows)
@@ -2763,18 +2795,22 @@ Some features of the release versions of the successor projects:
        For time measures compare:
        - https://www.cryptoportal.org/details_links.php?PHPSESSID=1a3ea85bebc01e983a852682cecc48b3&link_id=69
        - http://bscw.schule.de/pub/bscw.cgi/d864899/Schulz_Witten_Zeit-Experimente.pdf  (this article is in German only)
+- CT2  GNFS (using YAFU and msieve)
 - CT2  Solitaire encryption and analysis
 - CT2  Decimalization methods (Visa, Modulo, Multiplication, IBM)
+- CT2  Mathematical tools like Berlekamp-Massey
 - CT2  Encryption of and distributed analysis against Vigenère autokey
 - CT2  Search for word patters using norms (i.e. "together" = 12341546)
 - CT2  LFSR, NLFSR
 - CT2  Symmetric encryption methods by Ecrypt (SOSEMANUK, ...)
-- CT2  Encryption with Enigma, Purple, T310/50, M209
+- CT2  Encryption with Enigma, Purple, T310/50, M209, M-138
 - CT2  Encryption with DES, AES, PRESENT, Twofish, ...
 - CT2  Encrypt plaintext with AES by using an ASCII password (which is
        converted to an AES-key by using PKCS#5). The result is base64-encoded
-       for easy copy&paste e.g. to an email.
+       for easy copy&paste e.g. to an email. Linkage with the smartphone app
+       CrypDroid.
 - CT2  Evaluation of the password strength
+
 -------------------------------------------------------
 - JCT  Adaptive navigation pane, optionally as tree or palette, with filtering
 - JCT  Vigenère autokey encryption
@@ -2785,21 +2821,22 @@ Some features of the release versions of the successor projects:
 - JCT  Analysis methods for entropy, Friedman, frequency 
 - JCT  Detailed visualization of the inner states of DES (round keys, fixed
        points, avalanche effekt within the S-box)
-- JCT  Visualization of calculations on elliptic curves over R, F(p) and F(2^m)
+- JCT  Visualization of calculations on elliptic curves over R, F(p), and F(2^m)
 - JCT  Visualization of Kleptography algorithms (four malicious methods against
        RSA key generation incl. SETUP attack)
 - JCT  Multi-partite key exchange
 - JCT  Homomorphic encryption (RSA, Paillier, Gentry&Halevi)
+- JCT  Realization of PQC signature schemes (WOTS, MSS)
 - JCT  Analysis of transposition ciphers using the ACO algorithm
 - JCT  Visualization of zero-knowledge proofs
 - JCT  Running-key encryption and its automatic analysis (Viterbi)
 - JCT  Verifiable Secret Sharing
-- JCT  XML Security (demonstrator for XML signatures)
 - JCT  Games: Number Shark (incl. heuristic solvers) and Sudoku solvers
 - JCT  Powerful action history and cascading possibility
 - JCT  Various customizing opportunities concernings the alphabets
-       of classic ciphers
+       of classic ciphers and a command line interface
 - JCT  Visualization and explanation of Android's unlock pattern (AUP)
+
 
 
 A.3 Possible areas for further development -- Future features, ideas
@@ -2810,13 +2847,16 @@ for further features requested by users:
 - CT2: https://www.cryptool.org/trac/CrypTool2/wiki/StudentTasksProposals
 - JCT: https://github.com/jcryptool/core/wiki/project-Ideas
 
-Below are possible topics for enhancements which have been requested or
-discussed already by users of CT1.
+Below are further possible topics for enhancements which have been requested
+or discussed already by users of CT1.
 Topics already planned in CT2 or JCT are marked accordingly.
 
 
 A.3.1. Functionality: Algorithms / Methods
        -----------------------------------
+- Offer an interface, so that the offline programs JCT and CT2 can be called
+  via web browsers
+
 - Implement additional algorithms on each topic:
     * Codes:
        - T9 (http://en.wikipedia.org/wiki/T9_%28predictive_text%29) etc.
@@ -2842,15 +2882,12 @@ A.3.1. Functionality: Algorithms / Methods
        - Blind signatures
        - Electronic voting
        - CT2 Virtual Credit Card Numbers (VCC) and check sums
-       - JCT Visualization of Quantum Key Agreement, BB84 protocol
        - JCT Visualization of the KEGVER protocol and further kleptographic
              methods (http://www.cryptovirology.com)
 
 - Offer fast selection between different encryption methods using a
   dialog box instead of using menus (and making all parameters of these
   algorithms customizable) (see CryptoBench)
-
-- CT2  GNFS (General number field sieve) for factorization (Ted)
 
 - Generation of all hash values using a regular expression as password
   pattern (Hartmann)
@@ -2861,7 +2898,8 @@ A.3.1. Functionality: Algorithms / Methods
   Vanstone that was proposed by the authors in 1993:
   A. Menezes and S. Vanstone,
   "Elliptic curve cryptosystems and their implementation",
-  Journal of Cryptology, 6 (1993), pp 209-224.
+  Journal of Cryptology, 6 (1993), pp 209-224,
+  or by Dan Bernstein.
 
 - Because cryptographic structures and formats are often ASN.1
   encoded: Integration of an ASN.1 decoding tool.
@@ -2901,7 +2939,8 @@ A.3.1. Functionality: Algorithms / Methods
     Idea: Open private-key ring via a given password, analyze its
     structure, get the private key (PGP sources are available) and
     use this key, to decrypt PGP files with the algorithms implemented
-    in CrypTool. This shows, that PGP also uses the standard algorithms.
+    in CrypTool. This shows, that PGP also uses the standard algorithms
+    used e.g. in S/MIME.
 
 - Create a test suite with examples and solutions, in order to
   automate testing and to make sure, that program changes do not
@@ -2918,8 +2957,11 @@ A.3.1. Functionality: Algorithms / Methods
      -> new version can be tested easier.
 
 
+
 A.3.2. Functionality: Analysis
        -----------------------
+- Usage of distributed computing for cryptanalysis
+- Offer a crytanalysis framework to have a toolbox for fast code breaking
 - CT2  Framework for distributing cryptanalytic calculations
 - CT2  Toolbox for creating and analyzing stream ciphers
 - CT2  Framework to create and analyze LFSR stream ciphers
@@ -2938,7 +2980,7 @@ A.3.2. Functionality: Analysis
 
 - Differential cryptanalysis on symmetric ciphers (DES, ...).
 
-- Enhance the brute-force possibilities: Use knowledge about
+- Enhance the brute-force possibilities: use knowledge about
   - parts of the cleartext,
   - parts of the key.
 
@@ -2988,7 +3030,7 @@ A.3.2. Functionality: Analysis
 - Facilities for correcting individual characters in the analysis
   of XOR, ADD, Vigenère. Ignorance of non-encrypted areas.
 
-- Display of second-, third-, etc. -best hit in XOR/ADD analysis
+- Display of second-, third-, etc. best hit in XOR/ADD analysis
   (this could lead to a shorter key length).
 
 - Autocorrelation: Execute further operations (XOR, ADD, ...) in the
@@ -3031,7 +3073,7 @@ A.3.3. Internal interfaces / Editors
   Offer an option to set e.g. initial vector, number of rounds, key
   length, word size or the kind of padding (e.g. for the RC5 algorithm,
   see RFC2040).
-  Then these additional customizations must become part of the
+  Then these additional customizations must also become part of the
   format for the internal key storage.
 
 - Libraries for arbitrary length numbers and cryptography:
@@ -3043,6 +3085,9 @@ A.3.3. Internal interfaces / Editors
 
 A.3.4. User interface / Visualizations
        -------------------------------
+The following suggestions are mostly related to CT1. However, similar
+requirements are there for all crypto programs wit a GUI.
+
 - There are several dialogs within CT1 where special input fields
   expect a special number format (decimal, hexadecimal, ...).
   The dialog "The RSA Cryptosystem" e.g. allows to enter the message
@@ -3060,15 +3105,16 @@ A.3.4. User interface / Visualizations
   the clipboard via button, or the mouse could drag the field content
   directly into the entry field in the CrypTool dialog box.
 
-- An interactive interface for calling the CAS system Sage would be
+- An interactive interface for calling the CAS system SageMath would be
   interesting (http://www.sagemath.org/).
 
 - Visualize generally the according mathematical basics, e.g.:
   - using a text book
   - using Sage notebooks like the ones for ECC introduction by
     Maike Massierer at:
-      - http://sagenb.org/home/pub/1126/  (Version 1.3, January 2011) (xxx)
-    This cover page contains no calculations, but the links to the
+      - http://web.maths.unsw.edu.au/~maikemassierer/ecc-notebook
+        (Version 1.3, January 2011) (xxx)
+    Part 0, the cover page contains no calculations, but the links to the
     remaining parts; in order to execute the calculations within the
     remaining parts you have to make copies as Sage user.
   - like PascGalois Software (Group Calculator)
@@ -3104,10 +3150,10 @@ A.3.4. User interface / Visualizations
   binary data of key length 56 bit till 256 bit.
   On the other hand people normally are used to type their input using
   all ASCII keyboard buttons. Within a productive application the key
-  should NOT be built of ASCII-letters. If it is wished to use a ASCII
+  should NOT be built of ASCII letters. If it is wished to use a ASCII
   password then it is better to generate a good key from the password.
   Within CrypTool both requirements (key input via ASCII and showing,
-  that good hex-keys are necessary) could be combined in the
+  that good hex keys are necessary) could be combined in the
   following way:
   Within the hexadecimal key input dialogs a button should be added,
   calling the dialog "Indiv. Procedures \ Hash \ Key Generation from
@@ -3116,16 +3162,16 @@ A.3.4. User interface / Visualizations
   and after pushing "Back" the generated key will be used as hex
   input for the encryption method. AES-256 needs SHA-256.
   CT1: From AES-Tool 2.6 (deployed with CT 1.4.31) you can enter the key
-  in ASCII form. The ASCII characters are then tranformed via PKCS#5. 
+  in ASCII form. The ASCII characters are then transformed via PKCS#5. 
 
 - Make customizable by the user, how big the part of text and binary
   files can be, which CrypTool will load.
 
 - New magnification function in the display for graphics and/or
-  display of co-ordinates of the current mouse pointer position.
+  display of the coordinates of the current mouse pointer position.
 
 - CT1: Make all dialogs thread-safe, so the user can cancel long-running
-  transactions, without stopping the whole program via the task manager.
+  transactions, without stopping the whole program via the Task Manager.
   This is already implemented in the factorization dialog.
   This is especially meaningful for cryptanalysis (it would be necessary
   for the known-plaintext analysis of the single-column transposition):
@@ -3143,7 +3189,7 @@ A.3.4. User interface / Visualizations
      that factorization of the module can break the method.
      This is implemented, but not visualized.
    - Attacks on other asymmetric methods are not implemented in
-     CrypTool yet. To attack Diffie-Hellman, DSA or EC-DSA, one
+     CrypTool yet. To attack Diffie-Hellman, DSA, or EC-DSA, one
      has to calculate "discrete logarithms". After implementing
      this it also could be visualized.
    - Show the avalanche effect at hash or encryption methods.
@@ -3155,11 +3201,22 @@ A.4. Using CT1 on Linux
 
 A.4.1. Running CT1 on Linux with Wine
        ------------------------------
-In a short test under Ubuntu 11.10 Unity with Wine 1.3.28 the setup of CrypTool
-1.4.31 Beta 04 (compiled with VS2008) worked fine. CrypTool itself run fine
-with some encryption methods and RSA key generation. But within the RSA-AES
-hybrid encryption visualization and when clicking on link within the online
-help Wine crashed.
+In a short test under MINT 17.3 with Wine 1.8.0 in Actoer 2016 the setup of
+CrypTool 1.4.31 Prefinal (compiled with VS2008) worked fine.
+
+Most functions in CT1 itself (like encryption methods and RSA key generation)
+work well under Wine. Wine is much more stable than 6 years ago.
+- ok: Calling most dialogs (incl. RSA-AES hybrid encryption demo),
+      performing the calculations, clicking F1 for context-sensitive help
+- ok: Warning dialog, if Java isn't installed in Wine
+- ok: Showing the readme file in IE (called from CT1 via menu Help)
+- nok: Calling from CT1 via menu Help a PDF (book, presentation):
+       Wine searches Acrobat Reader (even if Okular and Acrobat are there).
+- ok: In the online help: Call of inner links within the online help
+- nok: In the online help:
+       - Calling external programs from the help (readme.txt in notepad, PDFs)
+       - Navigation via the back and forth buttons
+- nok: Male functions within the Macromedia application NT
 
 Generally we do not aim to support Wine.
 Instead of that, please try the platform independent version JCT which also
@@ -3183,6 +3240,6 @@ but unfortunately not finished because lack of time.
 
 ################################################################
 
-Please try out the new versions CT2 and JCT.
-You can find them also at www.cryptool.org
+Please also try out the new versions CT2 and JCT.
+You can find them at  www.cryptool.org  too.
 
