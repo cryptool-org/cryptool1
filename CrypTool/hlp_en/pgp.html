@@ -88,11 +88,12 @@ web site dates September 2003. The successor of GnuPP is Gpg4win (see below).
 
 
 
-<P><B><U>Status June 2012</U></B>:</P>
+<br>
+<P><B><U>Status October 2016 -- Good News</U></B>:</P>
 
-<P><b>a)</b> Since 2005 release 9.0 of PGP Desktop is available. This release features instant messaging 
-(AOL) communication encryption and supports two factor authentication via smart cards.
-PGP Corporation spreaded its product line further (e.g. PGP Whole Disk Encryption or PGP Support Package
+<P><b>a)</b> Since 2005 release 9.0 of PGP Desktop is available.
+PGP Corporation spreaded its product line further (e.g. PGP Whole Disk
+Encryption or PGP Support Package
 for BlackBerry) and build up the so-called PGP Encryption Platform.<br>
 
 In an official letter to the PGP Community CEO, Philip Dunkelberger, 
@@ -101,24 +102,24 @@ enable the community to conduct code reviews and to maintain customer trust.<br>
 
 However, the source code is mainly available for the product PGP Desktop, and
 even there the build tools are not included in the package. These build tools
-can only be obtained at charge via PGP Professional Services. With regard to
-the available sources PGP speaks of more than 3.000 downloads per month.<br>
+can only be obtained at charge via PGP Professional Services.<br>
 
-Besides the founder Phil Zimmermann, PGP's technical advisory board consists
+Besides the founder Phil Zimmermann, PGP's technical advisory board consisted
 of some known experts such as Bruce Schneier or Dr. Crispin Cowan. In June 2010
 Symantec Corporation acquired PGP.<br>
 
-Meanwhile, there are free versions with a similar functionality as the
-PGP from PGP Corporation.</P>
+Meanwhile, there are free versions with a similar and often more current
+functionality as the PGP from PGP Corporation / Symantec.</P>
 
 
 
 <P><b>b)</b> The <B>GnuPG</B> project
-(<a href="http://www.gnupg.org" target="_blank">www.gnupg.org</a>) develops 
-since 1997 the free basis software (the actual signing and encryption program)
+(<a href="http://www.gnupg.org" target="_blank">www.gnupg.org</a>), lead by Werner Koch,
+develops since 1997 the free basis software (the actual signing and encryption program)
 as a command line program for several operating systems.
-<br>The GnuPG project is very active and continuously publishes new versions:
-Since March 2012 the GnuPG versions 1.4.12 and 2.0.19 are available. 
+<br>The GnuPG project is very active, in the meantime also well-funded, and continuously
+publishes new versions:
+As of September 2016 the current GnuPG versions are 1.7.0 and 2.1.15. 
 <br><a href="http://en.wikipedia.org/wiki/GNU_Privacy_Guard" target="_blank">Here</a>
 you can find further information about GnuPG.</P>
 
@@ -137,8 +138,9 @@ according commercial PGP software):</P>
 	The installation package contains programs and documentation
 	for file encryption, key management and secure e-mail.<br>
 	It is available in English and German.<br>
-	It includes exhaustive manuals, also for beginners.<br>
-	Current version: 2.1.0 (March 2012).<br>
+	It includes exhaustive manuals, also for beginners. In the opposite to its
+	manuals the software gets updates regularily and very often.<br>
+	Current version: 2.3.3 (August 2016).<br>
 	<a href="http://www.gpg4win.org" target="_blank">www.gpg4win.org</a>
         (mature and stable project, supported by the German Information Security Agency BSI)
 	<UL>
@@ -147,7 +149,8 @@ according commercial PGP software):</P>
 		<LI>The Outlook plugin <U>GPGol</U> allows encryption
 	        via PGP and S/MIME.</LI>
 		<LI>The Windows Explorer plugin <U>GpgEX</U> enables
-	        crypto operations on files.</LI>
+	        crypto operations on files and directories.</LI>
+		<LI>Gpg4win supports using SmartCards for OpenPGP and S/MIME.</LI>
 	</UL>
 	</LI>
 </UL>
@@ -157,40 +160,56 @@ according commercial PGP software):</P>
 	GnuPG Pack is also a free and complete substitute for the original PGP.
 	The installer contains the encryption program GnuPG, the frontend
 	WinPT Tray for key management, documentation and plugins for 
-	different mail clients plus Stunnel with OpenSSL.<br>
+	different mail clients plus PGPdump and Stunnel with OpenSSL.<br>
 	It is available in English and German.<br>
-	This package exists since 2003 and delivers very regular updates.<br>
-	Current version: 12.5.3 (May 2012).<br>
+	This package exists since 2003 and gets updates regularily and very often.<br>
+	Current version: 16.2.2 (October 2016).<br>
 	<a href="http://home.arcor.de/rose-indorf/" target="_blank">http://home.arcor.de/rose-indorf/</a>
 	</li>
 </UL>
 
-
+<br>
 <P><b>d)</b> The project <B>Enigmail</B>
 (<a href="http://enigmail.mozdev.org" target="_blank">http://enigmail.mozdev.org</a>)
 offers a widely used plug-in for the mail client
 <a href="http://www.mozilla.com/thunderbird" target="_blank">Thunderbird</a>.
 This is useful for secure e-mail establishing both the S/MIME and the OpenPGP standard
 (offering encryption and signature of e-mails).<br>
-For the variant OpenPGP, again GnuPG is used.
-<br>Current version: Enigmail v1.4.2 (April 2012) for Thunderbird 12.0 and 13.0.</P>
-
-
-<P><b>e)</b> A new and not yet completed project <B>GPG4Browsers</B>
-(<a href="http://gpg4browsers.recurity.com/" target="_blank">http://gpg4browsers.recurity.com/</a>)
-started in November 2011 to implement the OpenPGP message format in JavaScript.
-It is currently available as Chrome extension and can integrate itself into Googlemail.
-Supported functions are encryption and decryption, signing and verification
-of signatures, and import and export of certificates.
-<br>Current version: GPG4Browsers-v0.1.zip (May 2012).</P>
-
+For the variant OpenPGP, again GnuPG is used.<br>
+Current version (September 2016): Enigmail v1.9.5 for Thunderbird 45.4.</P>
 
 <br>
+<P><b>e)</b> The new and very promising project <B>OpenPGP.js</B>
+(<a href="https://openpgpjs.org/" target="_blank">https://openpgpjs.org/</a>)
+offers a free and open-source JavaScript implementation of the OpenPGP protocol (defined in RFC 4880).<br><br>
+
+"This project aims to provide an Open Source OpenPGP library in JavaScript so it can be used on virtually every device. Instead of other plugins that are aimed at using e.g. NPAPI (meaning they are intended to run native code), OpenPGP.js is meant to bypass this requirement (people will not have to install gpg on their machines in order to use the software). The idea is to implement all the needed OpenPGP functionality in a JavaScript library and to reuse it in other projects. It should allow you to sign, encrypt, decrypt, and verify any kind of text -- in particular e-mails -- as well as managing keys.<br>
+
+OpenPGP.js has received a first complete audit of its codebase conducted by Cure53. The audit started in Feb 2014 and was sponsored by the Open Technology Fund (RFA)."<br><br>
+
+OpenPGP.js is also part of Mailvelope (<a href="https://www.mailvelope.com/" target="_blank">https://www.mailvelope.com/</a>), a browser extension that enables the exchange of encrypted emails following the OpenPGP encryption standard (current version 10/07/2016: 1.5.1).<br><br>
+
+Mailvelope and OpenPGP.js are productively is use with more than 600,000 users at web.de and GMX.DE. These two email providers are the first who rolled out very easy-to-use end-to-end encryption in high numbers to the enduser -- but only with their own user group.<br><br>
+
+As a predecessor of OpenPGP.js, one could consider <B>GPG4Browsers</B>
+(<a href="http://gpg4browsers.recurity.com/" target="_blank">http://gpg4browsers.recurity.com/</a>)
+which started in November 2011 to implement the OpenPGP message format in JavaScript 
+as Chrome extension and for integration into Googlemail.<br><br>
 </P>
+
+
+<P><b>f)</b> Another upcoming and very promising project is <B>p=p (Pretty Easy Privacy)</B> by the Swiss-based foundation
+(<a href="https://pep.foundation/about/foundation/index.html" target="_blank">https://pep.foundation/about/foundation/index.html</a>),
+which intends to encrypt all digital communication fully automatically ("Privacy by Default").
+This supports PGP and S/MIME when using email, but also other protocols and tools like messengers.<br>
+Their software is open-source; their products are free when applied within open-source and free products.<br><br>
+</P>
+
 <B>Further Links:</B>
-<br><a href="http://en.wikipedia.org/wiki/Pretty_Good_Privacy" target="_blank">http://en.wikipedia.org/wiki/Pretty_Good_Privacy</a></P>
-
-
+<br><a href="http://en.wikipedia.org/wiki/Pretty_Good_Privacy" target="_blank">http://en.wikipedia.org/wiki/Pretty_Good_Privacy</a>
+<br><a href="https://emailselfdefense.fsf.org/en/" target="_blank">https://emailselfdefense.fsf.org/en/</a>
+</P>
+<br>
 
 
 </BODY>
