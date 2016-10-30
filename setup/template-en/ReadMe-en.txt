@@ -2440,7 +2440,7 @@ c) Wikipedia:
    - Chinese: (xxx)
 
 
-d) A small selection of further pages:
+d) A small selection of further pages mentioning CrypTool:
    https://www.a-i3.org/content/view/415/28/
    http://www.fh-lueneburg.de/mathe-lehramt/krypto/krypto.htm
    http://www.kryptographiespielplatz.de/
@@ -2449,6 +2449,10 @@ d) A small selection of further pages:
        (see link under "Freeware program with which you can use
                         cryptographic procedures")
    http://www.roehri.ch/~sr/links/crypto.html
+   http://www.freebyte.com/security/, http://www.freebyte.com/education/
+       (Last updated on April 03, 2015)
+   http://nlp.stanford.edu/projects/nmt/data/wmt14.en-de/vocab.50K.de
+       [text for Neural Machine Translation :-)]
    http://williamstallings.com/Cryptography/Crypto7e-Student/
         (resource site for the book "Cryptography and Network Security",
          7th edition by William Stallings)
@@ -2528,6 +2532,14 @@ a) Available with complete source code are:
   It was developed in a university project by 6 (?) students in 2000.
   The Website contains the source files, but not the executables.
 
+- http://silenteye.v1kings.io/
+  https://github.com/achorein/silenteye/tree/0.4/vagrant
+  SilentEye is a cross-platform application designed for an easy use of
+  steganography. It hides messages in pictures or sounds. It has a nice
+  GUI and an easy integration of new steganography algorithms.
+  And it can be run from the commandline. It's free under GNU GPL v3.
+  Last update: Version 0.4.3, Feb 2013.
+
 - The open-source computer-algebra system "SageMath" has also implemented
   some algorithms from the area of cryptography:
     Ciphers
@@ -2544,6 +2556,7 @@ a) Available with complete source code are:
     Hard Lattice Generator
   http://www.sagemath.org/doc/reference/index.html
   SAGE is also used for some examples in the CrypTool book.
+
 
 
 b) The only other useful programs known to us, which usefully combine

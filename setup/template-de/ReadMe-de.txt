@@ -2523,7 +2523,7 @@ c) Wikipedia:
    - Chinesisch: (xxx)
 
 
-d) Eine kleine Auswahl weiterer Seiten:
+d) Eine kleine Auswahl weiterer Seiten, die CrypTool erwähnen:
    https://www.a-i3.org/content/view/415/28/
    http://www.fh-lueneburg.de/mathe-lehramt/krypto/krypto.htm
    http://www.kryptographiespielplatz.de/
@@ -2532,6 +2532,10 @@ d) Eine kleine Auswahl weiterer Seiten:
        (siehe Link unter "Freeware-Programm, mit dem Sie kryptographische
                           Verfahren anwenden können")
    http://www.roehri.ch/~sr/links/crypto.html
+   http://www.freebyte.com/security/, http://www.freebyte.com/education/
+       (Last updated on April 03, 2015)
+   http://nlp.stanford.edu/projects/nmt/data/wmt14.en-de/vocab.50K.de
+       [text for Neural Machine Translation :-)]
    http://williamstallings.com/Cryptography/Crypto7e-Student/
         (Ressource-Seite zu dem Buch "Cryptography and Network Security",
          7. Auflage von William Stallings)
@@ -2615,6 +2619,14 @@ a) Vollständig mit Source-Code verfügbar sind:
   2000 entwickelt. Die Webseite enthält die Sourcen, aber nicht die
   ausführbaren Dateien.
 
+- http://silenteye.v1kings.io/
+  https://github.com/achorein/silenteye/tree/0.4/vagrant
+  SilentEye ist mittels Qt eine Cross-Plattform-Anwendung für Steganographie.
+  Damit man man Nachrichten in Bildern und Tönen verstecken. Es hat eine
+  ansprechende Oberfläche und bietet einfache Erweiterungsmöglichkeiten.
+  Zusätzlich kann man es von der Kommandozeile aufrufen. Nutzt GNU GPL v3.
+  Letzter Update: Version 0.4.3, Feb 2013.  
+
 - Im Open-Source Computer-Algebra-System "SageMath" sind ebenfalls einige
   Algorithmen aus dem Gebiet der Kryptographie implementiert:
     Ciphers
@@ -2631,6 +2643,7 @@ a) Vollständig mit Source-Code verfügbar sind:
     Hard Lattice Generator
   http://www.sagemath.org/doc/reference/index.html
   SageMath wird auch für einige Beispiele im CrypTool-Buch verwendet.
+
 
 
 b) Die einzigen weiteren uns bekannten brauchbaren Programme, die
