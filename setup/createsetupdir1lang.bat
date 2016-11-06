@@ -21,6 +21,7 @@ if x%lang%==xes set lang_sub=en
 if x%lang%==xpl set lang_sub=en
 if x%lang%==xrs set lang_sub=en
 if x%lang%==xel set lang_sub=en
+if x%lang%==xfr set lang_sub=en
 
 echo Create and populate setup-%lang% directory ...
 if exist setup-%lang%\nul rmdir /q/s setup-%lang%
