@@ -23,7 +23,7 @@ use strict;
 my $CrypToolVersionMajor = "1";
 my $CrypToolVersionMinor = "4";
 my $CrypToolVersionRevision = "31";
-my $CrypToolVersionAddition = "Beta 6d";
+my $CrypToolVersionAddition = "Final 1";
 # THE LINES ABOVE CONTROL THE BUILD
 #
 
