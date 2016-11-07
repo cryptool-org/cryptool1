@@ -62,6 +62,13 @@ BOOL CDlgTranslations::OnInitDialog()
 	};
 
 	std::list<Translation> listTranslations;
+
+	// French Translation
+	Translation translationFrench;
+	translationFrench.heading.LoadString(IDS_STRING_TRANSLATIONS_HEADING_FRENCH);
+	translationFrench.initialWork.LoadString(IDS_STRING_TRANSLATIONS_INITIAL_WORK_FRENCH);
+	translationFrench.furtherWork.LoadString(IDS_STRING_TRANSLATIONS_FURTHER_WORK_FRENCH);
+	listTranslations.push_back(translationFrench);
 	
 	// Greek translation
 	Translation translationGreek;
@@ -96,7 +103,6 @@ BOOL CDlgTranslations::OnInitDialog()
 		CString heading = (*iter).heading;
 		CString initialWork = (*iter).initialWork;
 		CString furtherWork = (*iter).furtherWork;
-		
 		translationsInformation.Append(heading);
 		translationsInformation.Append("\r\n");
 		// do some magic to underline the heading with "=" characters
