@@ -27,6 +27,7 @@ if x%1==xes set langsubstr=en
 if x%1==xpl set langsubstr=en
 if x%1==xrs set langsubstr=en
 if x%1==xel set langsubstr=en
+if x%1==xfr set langsubstr=en
 
 makensis /DLANGUAGE_STR=%lang% /DLANGUAGE_SUBST_STR=%langsubstr% %nsi%
 if not errorlevel 1 echo Created SetupCrypTool_%lang%.exe ...

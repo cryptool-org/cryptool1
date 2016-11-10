@@ -33,8 +33,9 @@ echo Copying template-%lang% ...
 xcopy /s/q template-%lang%\*.* setup-%lang%\   
 if x%lang%==xes xcopy /s/q template-en\*.* setup-%lang%\ & del setup-%lang%\license-en.rtf & del setup-%lang%\CrypToolPresentation-en.pdf & del setup-%lang%\Rijndael-Inspector.exe & del setup-%lang%\Rijndael-Animation.exe & del setup-%lang%\Enigma_en.exe & del setup-%lang%\Enigma-Help_en.html & del setup-%lang%\enigma_screenshot1.png
 if x%lang%==xpl xcopy /s/q template-en\*.* setup-%lang%\ & del setup-%lang%\license-en.rtf & del setup-%lang%\Enigma_en.exe & del setup-%lang%\Enigma-Help_en.html & del setup-%lang%\enigma_screenshot1.png
-if x%lang%==xrs xcopy /s/q template-en\*.* setup-%lang%\ 
+if x%lang%==xrs xcopy /s/q template-en\*.* setup-%lang%\ & del setup-%lang%\license-en.rtf
 if x%lang%==xel xcopy /s/q template-en\*.* setup-%lang%\ & del setup-%lang%\license-en.rtf
+if x%lang%==xfr xcopy /s/q template-en\*.* setup-%lang%\ & del setup-%lang%\license-en.rtf
 
 echo Copying ..\release_%lang%\*.exe ...
 copy ..\release_%lang%\*.exe setup-%lang%
