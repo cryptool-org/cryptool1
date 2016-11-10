@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 for Win32, October 2016
+    CrypTool, Version 1.4.31 for Win32, November 2016
     
 CrypTool v1 (CT1) is an international e-learning program for cryptography and
 cryptanalysis.
@@ -314,8 +314,6 @@ f) The Authorware application "NT" (Number Theory) introduces elementary
    number examples.
    Part of it is the program bc v1.06 by the Free Software Foundation (FSF),
    which allows to calculate with arbitrary precision from the command line.
-   Unfortunately, there is no working version of BC any more since Win7,
-   so we had to take this off.
 
 
 
@@ -1187,8 +1185,8 @@ a) Developer-relevant changes (more technically oriented):
   - NTL 5.5.2  --> 9.3 (thread-safe and with exception handling, needs
                         a C++11 compiler)   (xxx)
   - Animal 2.4.9
-  - Substitution of the Secude library, as we encountered problems after
-    compiling with VS2010 (not with VS2008) postponed to CT 1.5. (xxx)
+  - Substitution of the Secude library (as we encountered problems after
+    compiling with VS2010 (not with VS2008)) postponed to CT 1.5. (xxx)
 
 - The release of CT 1.4.31 is stll compiled with VS2008 (see above).
   From CT 1.5 VS 2015 is used for compilation.
@@ -1272,8 +1270,10 @@ c) New functionality / Usability / Corrections of errors:
 - At SHA256 / SHA512 the wrong function was called yet.
   This also effected the dialog window "Generation of HMACs".
 - Calling bc from within the number theory tutorial now also works under
-  [Bsp: 3*5 // 5+3^2 // a=10; a+2; b=a; b+7 // sqrt(4.5) //
-   define d (n) { return (2*n); }; d(5) // l(100)/l(10) # Natural log // quit ].
+  Windows [Bsp: 3*5 // 5+3^2 // a=10; a+2; b=a; b+7 // sqrt(4.5) //
+   define d (n) { return (2*n); }; d(5) // l(100)/l(10) # Natural log // quit //
+  faktbas(4) is 4*3*2*1 // Sample of a sum function via a for loop:
+  sum=0; for(i=16;i>=0;i--)sum+=32*(256^i); sum].
   Make own enhancements like http://x-bc.sourceforge.net/extensions_bc.html 
 - Playfair with a 6*6 matrix now doesn't wrongly transform J to I any more.
 
@@ -1922,7 +1922,7 @@ pse\pseca\calog        These files are necessary for the administration
 animal\ .......... This directory contains files, necessary for the
                    animation program Animal.
 
-animal\Animal-2.3.30.jar  animal-2_4_9.jar  (xxx)
+animal\animal-2_4_9.jar
       \animal.bat
       \animal.properties
       \AnimalResources
@@ -1966,7 +1966,7 @@ Bc\ .............. This directory and the ones below contain the utility
 Bc\bc.1.txt
   \bc.deutsch.txt ... German translation of bc.1.txt
   \Bc.exe
-  \BCmax.bat
+  \BCmax.bat ........ Called via F3 from within NT.exe to start BC Calculator
   \BCmin.bat
   \bruch.txt
   \calc.txt

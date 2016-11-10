@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 für Win32, Oktober 2016
+    CrypTool, Version 1.4.31 für Win32, November 2016
 
 CrypTool v1 (CT1) ist ein internationales E-Learning-Programm für
 Kryptographie und Kryptoanalyse.
@@ -318,8 +318,6 @@ f) Die Authorware-Anwendung "ZT" (Zahlentheorie) führt in die elementare
    kleinen Zahlenbeispielen ausprobiert werden.
    Dazu gehört auch das Programm bc v1.06 der Free Software Foundation (FSF),
    mit dem man auf der Kommandozeile beliebig genau rechnen kann.
-   Leider gibt es keine lauffähige BC-Variante mehr für Win7 und höher,
-   so dass dieser Teil herausgenommen wurde.
 
 
 
@@ -1227,8 +1225,8 @@ a) Entwickler-relevante Änderungen (eher Programm-technisch):
   - NTL 5.5.2  --> 9.3 (thread-safe und mit Exception-Handling, braucht
                         einen C++11-Compiler)   (xxx)
   - Animal 2.4.9
-  - Ersatz der Secude-Bibliothek, da sie Probleme nach der Compilation mit
-    VS2010 (nicht mit VS2008) hatte, auf CT 1.5 verschoben. (xxx)
+  - Ersatz der Secude-Bibliothek (dies auf CT 1.5 verschoben, da sie Probleme
+    nach der Compilation mit VS2010 (nicht mit VS2008) hatte). (xxx)
 
 - Das Release von CT 1.4.31 wird weiterhin mit VS2008 kompiliert (siehe oben).
   Ab CT 1.5 wird mit VS 2015 übersetzt.
@@ -1317,7 +1315,9 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
   Dies betraf auch den Dialog "Generieren von HMACs".
 - Der Aufruf von bc innerhalb der Zahlentheorie-Tutorials funktioniert nun
   auch unter Windows [Bsp: 3*5 // 5+3^2 // a=10; a+2; b=a; b+7 // sqrt(4.5) //
-  define d (n) { return (2*n); }; d(5) // l(100)/l(10) # Natural log // quit ].
+  define d (n) { return (2*n); }; d(5) // l(100)/l(10) # Natural log // quit //
+  faktbas(4) ist 4*3*2*1 // Beispiel einer Summenfunktion per For-Schleife:
+  sum=0; for(i=16;i>=0;i--)sum+=32*(256^i); sum].
   Eigene Erweiterungen siehe z.B.: http://x-bc.sourceforge.net/extensions_bc.html
 - Playfair mit einer 6*6-Matrix konvertiert nun nicht mehr fälschlicherweise
   "J" zu "I".
@@ -1994,7 +1994,7 @@ pse\pseca\calog        Diese Dateien sind für die Verwaltung der
 animal\ .......... Dieses Verzeichnis enthält die Dateien, die für
                    das Animationsprogramm Animal nötig sind.
 
-animal\Animal-2.3.30.jar  animal-2_4_9.jar  (xxx)
+animal\animal-2_4_9.jar
       \animal.bat
       \animal.properties
       \AnimalResources
@@ -2037,7 +2037,7 @@ Bc\ .............. In diesem Verzeichnis und darunter liegt das Utility
 Bc\bc.1.txt
   \bc.deutsch.txt ... Übersetzung von bc.1.txt
   \Bc.exe
-  \BCmax.bat
+  \BCmax.bat ........ Wird per F3 aus ZT.exe aufgerufen (startet den BC-Rechner)
   \BCmin.bat
   \bruch.txt
   \calc.txt
@@ -3224,7 +3224,7 @@ betreffen aber all Krypto-Programme mit einer GUI.
   - anhand eines Lehrbuchs
   - wie mit den Sage-Notebooks zur Einführung in ECC von Maike Massierer:
       - http://web.maths.unsw.edu.au/~maikemassierer/ecc-notebook
-        (Version 1.3, January 2011) (xxx)
+        (Version 1.3, Januar 2011) (xxx)
     Teil 0, das Deckblatt enthält keine Berechnungen, sondern nur die Links
     zu den übrigen Teilen; zum Ausführen der folgenden Teile muss man sich
     selbst Kopien als Sage-User anlegen.
