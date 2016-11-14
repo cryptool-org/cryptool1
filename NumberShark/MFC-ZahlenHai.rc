@@ -13,13 +13,11 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polish (Poland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
-#ifdef _WIN32
 LANGUAGE LANG_POLISH, SUBLANG_DEFAULT
 #pragma code_page(1250)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -229,7 +227,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_ABOUTBOX, DIALOG
     BEGIN
@@ -360,7 +358,7 @@ IDR_MAINFRAME           ICON                    "Bilder\\NumberShark.ico"
 // Accelerator
 //
 
-IDR_ACCELERATOR1 ACCELERATORS 
+IDR_ACCELERATOR1 ACCELERATORS
 BEGIN
     "N",            ID_GIVE_REST,           VIRTKEY, SHIFT, CONTROL, NOINVERT
     "C",            ID_ACCELERATOR_CHANGESTYLE, VIRTKEY, SHIFT, ALT, NOINVERT
@@ -410,11 +408,9 @@ END
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "&Informacje o Number Shark"
-    IDS_TOOLTIP_BUTTON_SWITCH_STYLE 
-                            "[i18n] Changes the display style (shells or numbers)."
     IDS_RULES               "Opis gry:\n - Na poczΉtku gry Number Shark moΏesz wybraζ rozmiar ""shell square"", czyli iloci liczb, z ktσrymi chcesz zagraζ.\n\n Rozmiar ""shell square"" - n nazywamy ""liczbΉ wybieralnych liczb"". Pula liczb zaczyna siκ o 1 \n i koρczy liczbΉ, ktσrΉ wybra³e jako rozmiar ""shell square"" (na poczΉtek sugerujemy liczbκ 20).\n\n Po tym wszystkie liczby z ""shell square"" zostanΉ podane albo Tobie albo komputerowi (""Number Shark"").\n\n MoΏesz przeczytaζ zasady tego, jak dzielone sΉ liczby  w poniΏszym tekcie\n\nCel gry:\nTwoim celem jest osiΉgnΉζ wiκkszy wynik niΏ suma liczb, ktσre zosta³y zjedzone przez Number Sharka.\n\nZasady gry:\n - Pierwszy ruch zawsze naleΏy do Ciebie: zawsze Ty rozpoczynasz pierwszΉ rundκ.\n - W tej rundzie moΏesz wybraζ kaΏdΉ z n liczb z shell square.\n - Number Shark pobiera kaΏdy dostκpny czynnik rzeczywisty liczby wybranej przez Ciebie, jeli nie zosta³ \n jeszcze wybrany. (na przyk³ad: 6 jest podzielne przez 1,2,3 i 6. Rzeczywistym czynnikiem jest 1,2 i 3).\n - We wszystkich nastκpnych rundach moΏesz wybraζ tylko liczby, ktσre nie zosta³y juΏ przez Ciebie wybrane,\n    lub zosta³y zjedzone przez Number Sharka w poprzednich rundach (np.: tylko niebieskie muszelki)\n -ALE: Number Shark moΏe nigdy siκ nie pomyliζ!\n -Jeli wybierzesz liczbκ, ktσra nie ma juΏ dostκpnych czynnikσw, wσwczas Number Shark po³yka TwojΉ liczbκ,\n a Ty otrzymujesz 0 punktσw za bieΏΉcΉ rundκ."
     IDS_PLAYER_WINS         "Gratulacje, wygra³e z Number Sharkiem!\n\n\n\n Jeli poszukujesz wiκkszego wyzwania, sprσbuj liczbκ wiκkszΉ niΏ %s. \n\n\n\nOsiΉgnΉ³e %s punktσw. Najwiκkszy moΏliwy wynik z %s liczbami wyniσs³by %s."
     IDS_VERSION_INFO        "Number Shark Wersja 1.2.3"
@@ -425,7 +421,17 @@ BEGIN
                             "NajwyΏszym osiΉgalnym wynikiem na %s numerσw jest %s \n\n\n\nMoΏemy pokazaζ Tobie najwyΏszy moΏliwy wynik, poniewaΏ ta wartoζ zosta³a juΏ policzona i jest przechowywana przez program.\n\n\n\nPodpowied:\n\nNajwiκksza liczba pierwsza z %s liczbami to %s. \n\n\n\nCzy chcesz zobaczyζ drogκ do osiΉgniκcia tego wyniku?"
 END
 
-STRINGTABLE 
+STRINGTABLE
+BEGIN
+    IDS_TOOLTIP_BUTTON_LOADGAME "Wczytuje istniejaca gre."
+    IDS_TOOLTIP_BUTTON_SAVEGAME "Zapisuje biezaca gre."
+    IDS_TAB_RADIO2          "Pokaz wczesniej obliczone wyniki"
+    IDS_SEARCH1             "NumberSharkSearch["
+    IDS_TOOLTIP_BUTTON_SWITCH_STYLE 
+                            "[i18n] Changes the display style (shells or numbers)."
+END
+
+STRINGTABLE
 BEGIN
     IDS_QUESTION            "\r\nCzy chesz aby program obliczy³ maksymalny moΏliwy wynik? \r\n"
     IDS_WARNING             "%s numery... Moze potrwac dlugo.\r\n\r\nZa pomoca algorytmu brute-force, na 20 numerow komputer z 3 GHz oliczal ok 9 godzin, do obliczenia 22 numerow trwalo okolo 9 dni. I sadzimy, ze obliczanie liczby 30 zajmie tygodnie lub miesiecy.\r\n\r\nJesli pojawia sie nowe wyniki dla numeru %s, bedziemy wdzieczni, jesli je do nas wyslesz.\r\n\r\nCzy na pewno chcesz wykonac obliczenia?\r\n"
@@ -444,7 +450,7 @@ BEGIN
     IDS_BUTTON_MAX_POINTS   "Oblicza najbardziej prawdopodobny wynik, ktσry moΏesz osiΉgnΉζ z tΉ pulΉ liczb."
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_BUTTON_OPTION       "PokaΏ opcje gry."
     IDS_BUTTON_REST         "Number Shark zjada wszystkie liczby\n z ktσrych nie moΏesz dostaζ wiκcej punktσw.\n Number Shark mσg³ zjeζ nastκpujΉce liczby na raz: %s."
@@ -463,7 +469,7 @@ BEGIN
     IDS_LOGFILE_HEADLINE    "\n\n\n\n Ten plik pokazuje Tobie kaΏdy pojedynczy ruch z rozegranych gier i wyniki kaΏdego gracza. \n\nWykres zawiera te same informacje jako ""kurs gry"".\n\n\n\n"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_TOOL_TIP_TEXT       "%s\n Tym razem zjad³by: %s\n%s"
     IDS_LOGFILE_MAXPOINTS   "\r\nNajwyΏszy moΏliwy wynik dla ciebie:"
@@ -481,7 +487,7 @@ BEGIN
     IDS_DISCLAIMER_TEXT     "Proszκ zapoznaζ siκ z warunkami licencji i informacjami odnonie braku odpowiedzialnoci za jakiekolwiek zniszczenia wynikajΉce z uΏycia gry Number Shark.\n(C) CrypTool Project 2013"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_MAX_POINTS_HEADLINE2 "Maksymalna iloζ punktσw i optymalna droga."
     IDS_INFO_TEXT           "Number Shark zosta³ stworzony jako dodatek do freeware'owego projektu open source CrypTool: www.cryptool.com"
@@ -496,7 +502,7 @@ BEGIN
     IDS_OPTIONS_TOOLTIPS    "Aktywuj podpowiedzi dla muszelek\n[Jeli umiecisz kursor troszkκ d³uΏej nad jednΉ z niebieskich muszelek (z wciΉΏ aktywnymi numerami), otworzy siκ ma³e okienko (podpowied) i dostarczy Tobie informacje, np.: czynniki ciΉgle dostκpne dla tej liczby]."
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_OPTIONS_SHOW_DIALOG "PokaΏ ""Opcje gry"" podczas nastκpnego startu programu."
     IDS_OPTIONS_SHOW_NUMBERS 
@@ -512,7 +518,7 @@ BEGIN
     IDS_SPRACHE             "PL"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_LED_WIN             "Wygra³e!"
     IDS_LED_LOST            "Przegra³e!"
@@ -527,7 +533,7 @@ BEGIN
     IDS_RADIO_EDIT1         "Tak\r\n jako ""%s"" w folderze\r\n""%s""."
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_RADIO_EDIT2         "Nie"
     IDS_TAB_HEADER1         "Witamy"
@@ -543,15 +549,7 @@ BEGIN
     IDS_TOOL_TIP_REDO       "Poprzez ""Ponσw"" moΏesz przejζ naprzσd tyle krokσw ile poszed³e wstecz w grze poprzez ""Cofnij"""
 END
 
-STRINGTABLE 
-BEGIN
-    IDS_TOOLTIP_BUTTON_LOADGAME "Wczytuje istniejaca gre."
-    IDS_TOOLTIP_BUTTON_SAVEGAME "Zapisuje biezaca gre."
-    IDS_TAB_RADIO2          "Pokaz wczesniej obliczone wyniki"
-    IDS_SEARCH1             "NumberSharkSearch["
-END
-
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_MAX_POINTS_NEW_2    "Aby obliczyζ dla %s liczb najwiκksza sumκ %s punktσw\n\n program potrzebowa³ %s sekund. Musia³ przejζ przez %s wκz³σw.\n\nNajwiκkszΉ liczbΉ pierwszΉ tutaj jest %s. Powiniene rozpoczΉζ grκ z tΉ liczbΉ pierwszΉ, aby osiΉgnΉζ maksymalny wynik.\n\n\n\nAby osiΉgnΉζ ten wynik, powiniene wybraζ liczby w tej kolejnoci: %s."
     IDS_SHELL_GROUP_BOX     "Muszelka kwadratowa (niebieski oznacza "" nadal wolny wybσr "", kolor szary oznacza "" juz rozpowszechnione i zjedzony "")"
@@ -566,7 +564,7 @@ BEGIN
     IDS_ACC_LOAD            "SHIFT + ALT + L: £aduje istniejΉcΉ grκ. \n\n\n\n"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_ACC_SAVE            "SHIFT + ALT + S: Zachowuje aktualnΉ grκ. \r\n\r\n"
     IDS_PLAYER_WINS_OPTIMAL2 
@@ -589,7 +587,7 @@ BEGIN
     IDS_HEADING_NUMBER      "Numer"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_HEADING_SCORE       "Wynik"
     IDS_HEADING_PROVED      "Optymalny rezultat?"
@@ -606,18 +604,16 @@ BEGIN
     IDS_ACC_ENTER_OR_SPACE  "ENTER / SPACJA: Wybierz numer wybranej muszelki za pomoca klawiatury."
 END
 
-#endif    // Polish resources
+#endif    // Polish (Poland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Serbian (Latin) resources
+// Serbian (Latin, Serbia and Montenegro (Former)) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_SRL)
-#ifdef _WIN32
 LANGUAGE LANG_SERBIAN, SUBLANG_SERBIAN_LATIN
 #pragma code_page(1250)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -827,7 +823,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_ABOUTBOX, DIALOG
     BEGIN
@@ -958,7 +954,7 @@ IDR_MAINFRAME           ICON                    "Bilder\\NumberShark.ico"
 // Accelerator
 //
 
-IDR_ACCELERATOR1 ACCELERATORS 
+IDR_ACCELERATOR1 ACCELERATORS
 BEGIN
     "N",            ID_GIVE_REST,           VIRTKEY, SHIFT, CONTROL, NOINVERT
     "C",            ID_ACCELERATOR_CHANGESTYLE, VIRTKEY, SHIFT, ALT, NOINVERT
@@ -972,11 +968,9 @@ END
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "&Informacije o igri Ajkula Brojeva"
-    IDS_TOOLTIP_BUTTON_SWITCH_STYLE 
-                            "[i18n] Changes the display style (shells or numbers)."
     IDS_RULES               "Opis:\r\n - Na pocetku igre Ajkula Brojeva birate velicinu kvadrata koljke, ovo je kolicina brojeva sa kojom elite da igrate.\r\n    Velicinu kvadrata koljke imenujemo sa ""n"" i zovemo je ""skup odabirljivih brojeva"". Skup brojeva pocinje sa 1\r\n    i zavrava se brojem koji ste odabrali da bude velicina koljke (predlaemo broj 20 za pocetak).\r\n    Posle toga svi brojevi iz kvadrata koljke ce biti dati ili vama ili kompjuteru (""Number Shark"").\r\n    Moete procitati pravila o deljenju brojeva iz teksta ispod.\r\n - Podrazumevano, postoji 20 u kvadratu koljke. Kao ukupan broj moete odabrati bilo koji broj od 1 do 9999 for n.\r\n\r\nCilj igre:\r\n - Va cilj je da postignete veci rezultat nego sumu brojeva koji je pojela Ajkula Brojeva.\r\n\r\nPravila:\r\n - Uvek igrate prvi, npr. pocinjete prvu rundu.\r\n - U ovoj rundi moete odabrati bilo koji od n brojeva iz kvadrata koljke.\r - Ajkula Brojeva dobija svaki dostupan realni cinilac broja koji ste odabrali, ako vec nisu odabrani\r\n    (6 je npr. deljivo sa 1, 2, 3 i 6. Realni cinioci su 1, 2 i 3).\r\n - U svim sledecim rundama moete odabrati brojeve koje niste odabrali,\r\n    ili koje je pojela Ajkula Brojeva u prethodnim rundama (npr. samo plave koljke).\r\n - ALI: Ajkula Brojeva nikada ne moe da preskoci!\r\n - Ako ste odabrali broj koji nema vie cinilaca, onda Ajkula Brojeva dobija va odabrani broj i dobijate 0 u ovoj rundi.\r\n\r\n"
     IDS_PLAYER_WINS         "Cestitamo, pobedili ste Ajkulu Brojeva!\n\n Ako traite veci izazov, probajte veci broj od %s.\n\nDobili ste %s poena. Najvii moguci rezultat sa %s brojeva bi bio %s."
     IDS_VERSION_INFO        "Ajkula Brojeva 1.2.3"
@@ -987,7 +981,17 @@ BEGIN
                             "Najveci dostian rezultat sa %s brojeva je %s.\n\nMoemo da vam prikaemo najveci rezultat, jer je ova vrednost vec izracunata i smetena u program.\n\nNagovetaj: Najveci prost broj sa %s brojeva je %s. Morate poceti igru sa ovim brojem da biste dostigli najveci rezultat.\n\nelite li da vidite optimalan nacin za dobijanje ovog rezultata?"
 END
 
-STRINGTABLE 
+STRINGTABLE
+BEGIN
+    IDS_TOOLTIP_BUTTON_LOADGAME "[i18n] Loads an existing game."
+    IDS_TOOLTIP_BUTTON_SAVEGAME "[i18n] Saves the current game."
+    IDS_TAB_RADIO2          "i18n Show the best known scores."
+    IDS_SEARCH1             "PretragaAjkuleBrojeva["
+    IDS_TOOLTIP_BUTTON_SWITCH_STYLE 
+                            "[i18n] Changes the display style (shells or numbers)."
+END
+
+STRINGTABLE
 BEGIN
     IDS_QUESTION            "Da li elite da program izracuna najveci moguci rezultat?"
     IDS_WARNING             "%s brojeva... Ovo ce dugo da traje.\n\nKoricenjem algoritma brutalne sile, za 20 brojeva sa PC na 3 GHz morao je da racuna oko 9 hours, za 22 broja racunanje je trajalo 9 dana. I verujemo da bi za 30 brojeva bile potrebne nedelje ili meseci.\n\nAko dobijete neke nove rezultate za %s brojeva, bili bismo vam zahvalni ako biste ih nam poslali.\n\nDa li stvarno elite da obavite racunanje sada?"
@@ -1006,7 +1010,7 @@ BEGIN
     IDS_BUTTON_MAX_POINTS   "Izracunaj najveci moguci rezultat koji se moe postici sa odabranim skupom."
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_BUTTON_OPTION       "Prikai opcije igre."
     IDS_BUTTON_REST         "Ajkula Brojeva jede sve brojeve od kojih vie ne moete dobiti poene. Ajkula Brojeva je mogla da pojede ove brojeve odjednom: %s"
@@ -1025,7 +1029,7 @@ BEGIN
     IDS_LOGFILE_HEADLINE    "\r\n\r\nOva datoteka prikazuje svaki potez i poene oba igraca.\r\nGrafikon sadri iste informacije kao i grafikon ""tok igre"" u dijalogu igre.\r\n\r\n"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_TOOL_TIP_TEXT       "%s\nOvaj put bi pojeo: %s\n%s"
     IDS_LOGFILE_MAXPOINTS   "\r\nNajvii moguci rezultat za vas:"
@@ -1043,7 +1047,7 @@ BEGIN
     IDS_DISCLAIMER_TEXT     "Molimo imajte na umu uslove dozvole i informacije u vezi ne \r\nobavezivanja za bilo kakvu tetu koja nastane upotrebom Ajkule Brojeva.\r\n(C) CrypTool Projekat 2013"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_MAX_POINTS_HEADLINE2 "Maksimalan broj poena na optimalan nacin"
     IDS_INFO_TEXT           "Program Ajkula Brojeva napravljen je kao dodatak\r\nprojektu otvorenog softvera CrypTool: www.cryptool.com"
@@ -1058,7 +1062,7 @@ BEGIN
     IDS_OPTIONS_TOOLTIPS    "Aktivirajte alat za nagovetaj za koljke\r\n[Ako postavite kursor mia malo due na plave koljke (one sa jo uvek aktivnim brojevima), mali prozor (nagovetaj) se otvara i daje vam informacije, npr. cinioce jo uvek dostupne za ovaj broj]."
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_OPTIONS_SHOW_DIALOG "Prikai dijalog ""Opcije igre"" sledeci put pri pokretanju programa."
     IDS_OPTIONS_SHOW_NUMBERS 
@@ -1074,7 +1078,7 @@ BEGIN
     IDS_SPRACHE             "SR"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_LED_WIN             "Pobedili ste!"
     IDS_LED_LOST            "Izgubili ste!"
@@ -1089,7 +1093,7 @@ BEGIN
     IDS_RADIO_EDIT1         "Da\r\nkao ""%s"" u folderu\r\n""%s"". "
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_RADIO_EDIT2         "Ne."
     IDS_TAB_HEADER1         "Dobrodoli"
@@ -1105,15 +1109,7 @@ BEGIN
     IDS_TOOL_TIP_REDO       "Sa ""Ponovi"" moete ici unapred i igri onoliko koraka koliko ste koristili opciju ""Vrati""."
 END
 
-STRINGTABLE 
-BEGIN
-    IDS_TOOLTIP_BUTTON_LOADGAME "[i18n] Loads an existing game."
-    IDS_TOOLTIP_BUTTON_SAVEGAME "[i18n] Saves the current game."
-    IDS_TAB_RADIO2          "i18n Show the best known scores."
-    IDS_SEARCH1             "PretragaAjkuleBrojeva["
-END
-
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_MAX_POINTS_NEW_2    "Za racunanje za %s brojeva najvii rezultat od %s poena, programu je trebalo %s sekundi. Morao je da prode kroz %s cvorova.\n\nNajveci prost broj ovde je %s. Morate poceti igru sa ovim brojem da biste mogli da postignete najveci moguci rezultat.\n\nDa biste postigli najveci moguci rezultat moete odabrati brojeve u ovom redosledu: %s"
     IDS_SHELL_GROUP_BOX     "i18n Shell square (blue means ""still free to choose""; gray means ""already distributed and eaten up"")"
@@ -1128,7 +1124,7 @@ BEGIN
     IDS_ACC_LOAD            "SHIFT + ALT + L: Ucitava postojecu igru.\r\n\r\n"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_ACC_SAVE            "SHIFT + ALT + S: Cuva trenutnu igru.\r\n\r\n"
     IDS_PLAYER_WINS_OPTIMAL2 
@@ -1151,7 +1147,7 @@ BEGIN
     IDS_HEADING_NUMBER      "[i18n] Number"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_HEADING_SCORE       "[i18n] Result"
     IDS_HEADING_PROVED      "[i18n] Result optimal?"
@@ -1168,7 +1164,7 @@ BEGIN
     IDS_ACC_ENTER_OR_SPACE  "[i18n] ENTER / SPACE: Choose the number of the selected shell via keyboard."
 END
 
-#endif    // Serbian (Latin) resources
+#endif    // Serbian (Latin, Serbia and Montenegro (Former)) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
@@ -1176,10 +1172,8 @@ END
 // German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
-#ifdef _WIN32
 LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1389,7 +1383,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_ABOUTBOX, DIALOG
     BEGIN
@@ -1520,7 +1514,7 @@ IDR_MAINFRAME           ICON                    "Bilder\\Zahlenhai.ico"
 // Accelerator
 //
 
-IDR_ACCELERATOR1 ACCELERATORS 
+IDR_ACCELERATOR1 ACCELERATORS
 BEGIN
     "N",            ID_GIVE_REST,           VIRTKEY, SHIFT, CONTROL, NOINVERT
     "C",            ID_ACCELERATOR_CHANGESTYLE, VIRTKEY, SHIFT, ALT, NOINVERT
@@ -1534,11 +1528,9 @@ END
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "&Info όber den Zahlenhai..."
-    IDS_TOOLTIP_BUTTON_SWITCH_STYLE 
-                            "Wechselt den Anzeigestil (Muscheln oder Zahlen)."
     IDS_RULES               "Beschreibung:\r\n - Im Zahlenhai-Spiel entscheidet man sich zu Beginn fόr die Grφίe des Muschelfeldes, also mit wie viel Zahlen man spielen mφchte.\r\n    Diese Grφίe des Muschelfeldes bezeichnen wir mit ""n"" und nennen sie die ""Anzahl der auswδhlbaren Zahlen"". Der Zahlenvorrat beginnt bei 1\r\n    und geht bis zu der Zahl, die Du als Grφίe fόr das Muschelfeld ausgewδhlt hast (vorgeschlagen ist zu Beginn die Zahl 20).\r\n    Danach werden alle Zahlen aus dem Zahlenvorrat nach den Regeln, die Du weiter unten findest, zwischen Dir und dem Computer (""Zahlenhai"") aufgeteilt.\r\n - Standardmδίig sind beim Start des Spiels 20 Zahlen in dem Muschelfeld eingestellt. Du kannst als Gesamtzahl n jede Zahl von 1 bis 9999 wδhlen.\r\n\r\nZiel:\r\n - Dein Ziel ist es, dass die Summe Deiner Zahlen grφίer ist als die Summe aller Zahlen, die der Zahlenhai gefressen hat.\r\n\r\nRegeln:\r\n - Du hast immer den ersten Zug, d.h. Du beginnst die erste Runde.\r\n - In der ersten Runde kannst Du Dir eine beliebige Zahl aus dem Zahlenvorrat auswδhlen\r\n   (der Zahlenvorrat umfasst n Zahlen und wird im Muschelfeld angezeigt).\r\n - Immer bekommt der Zahlenhai von der ausgewδhlten Zahl alle echten Teiler, sofern diese noch nicht ausgewδhlt wurden\r\n   (6 ist zum Beispiel teilbar durch 1,2,3,6. Die echten Teiler sind 1,2,3).\r\n - In allen darauf folgenden Runden kannst Du nur Zahlen wδhlen, die Du vorher noch nicht gewδhlt hast und die\r\n    noch nicht vom Zahlenhai gefressen wurden (also nur die blauen Muscheln).\r\n - ABER: Der Zahlenhai darf nie leer ausgehen!\r\n - Wδhlst Du eine Zahl, deren Teiler alle schon verteilt wurden, so bekommt der Zahlenhai die gewδhlte Zahl\r\n    und Du erhδltst 0 Punkte in dieser Runde.\r\n\r\n"
     IDS_PLAYER_WINS         "Glόckwunsch, Du hast gegen den Zahlenhai gewonnen!\n\nWenn Du eine grφίere Herausforderung suchst, dann nimm eine hφhere Zahl als %s.\n\nDu hast %s Punkte erreicht. Maximal wδren bei %s Zahlen %s Punkte mφglich gewesen."
     IDS_VERSION_INFO        "Zahlenhai Version 1.2.3"
@@ -1549,7 +1541,17 @@ BEGIN
                             "Bei %s Zahlen ist die maximal erreichbare Punktzahl %s.\n\nWir kφnnen Dir hier die maximale Punktzahl sofort anzeigen, da wir diesen Wert schon vorberechnet und im Programm abgelegt haben.\n\nTipp: Die hφchste Primzahl bei %s Zahlen ist %s. Mit dieser Zahl musst Du das Spiel beginnen, um die maximal mφgliche Punktzahl zu erreichen.\n\nWillst Du einen optimalen Weg wissen, der zu diesem Ergebnis fόhrt?"
 END
 
-STRINGTABLE 
+STRINGTABLE
+BEGIN
+    IDS_TOOLTIP_BUTTON_LOADGAME "Lδdt ein vorhandenes Spiel."
+    IDS_TOOLTIP_BUTTON_SAVEGAME "Speichert das aktuelle Spiel."
+    IDS_TAB_RADIO2          "Die besten bisher bekannten Punktzahlen anzeigen."
+    IDS_SEARCH1             "ZahlenHaiSuche["
+    IDS_TOOLTIP_BUTTON_SWITCH_STYLE 
+                            "Wechselt den Anzeigestil (Muscheln oder Zahlen)."
+END
+
+STRINGTABLE
 BEGIN
     IDS_QUESTION            "Soll das Programm die maximal mφgliche Punktzahl berechnen?"
     IDS_WARNING             "%s Zahlen - das kann dauern...\n\nMit einem Brute-Force-Algorithmus hat ein 3 GHz Rechner fόr 20 Zahlen knapp 8 Stunden am Stόck gerechnet. Bei 22 Zahlen dauerte das schon ca. 9 Tage. Und bei 30 Zahlen sind es wahrscheinlich Wochen oder Monate.\n\nFalls Du fόr %s Zahlen ein Ergebnis herausbekommst, wόrden wir uns freuen, wenn Du uns dieses zusendest.\n\nSoll die Berechnung jetzt wirklich durchgefόhrt werden?"
@@ -1568,7 +1570,7 @@ BEGIN
     IDS_BUTTON_MAX_POINTS   "Berechne die maximale Punktzahl, die Du bei dem Zahlenvorrat bekommen kannst."
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_BUTTON_OPTION       "Spieloptionen anzeigen."
     IDS_BUTTON_REST         "Der Hai frisst alle Zahlen, die Dir keine Punkte mehr bringen kφnnen.\nFolgende Zahlen kφnnte der Hai sofort fressen: %s"
@@ -1587,7 +1589,7 @@ BEGIN
     IDS_LOGFILE_HEADLINE    "\r\n\r\nDiese Datei zeigt die einzelnen Spielzόge und welche Punktzahl sich daraus fόr\r\nDich und den Zahlenhai ergeben haben.\r\nDie Tabelle enthδlt die gleichen Infos wie die Spielverlaufstabelle im Spielfenster.\r\n\r\n"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_TOOL_TIP_TEXT       "%s\nάbrige Teiler: %s\n%s "
     IDS_LOGFILE_MAXPOINTS   "\r\nMaximal mφgliche Punkte fόr Dich:   "
@@ -1605,7 +1607,7 @@ BEGIN
     IDS_DISCLAIMER_TEXT     "Bitte beachte die Lizenzbestimmungen und die Informationen zum \r\nHaftungsausschluss fόr eventuelle Schδden durch das Zahlenhai-Programm.\r\n(C) CrypTool-Projekt 2013"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_MAX_POINTS_HEADLINE2 "Maximale Punktzahl und ein optimaler Weg"
     IDS_INFO_TEXT           "Das Programm Zahlenhai entstand als Ergδnzung zum Freeware- und \r\nOpen-Source-Projekt CrypTool: www.cryptool.de"
@@ -1620,7 +1622,7 @@ BEGIN
     IDS_OPTIONS_TOOLTIPS    "ToolTips fόr die Muscheln aktivieren\r\n[Verweilt man mit der Maus etwas lδnger όber einer der blauen Muscheln (mit den noch auswδhlbaren Zahlen), so wird ein Rechteck (ToolTip) eingeblendet, das u.a. die noch verfόgbaren Teiler dieser Zahl anzeigt]."
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_OPTIONS_SHOW_DIALOG "Den Spieloptionen-Dialog beim nδchsten Programmstart anzeigen."
     IDS_OPTIONS_SHOW_NUMBERS 
@@ -1636,7 +1638,7 @@ BEGIN
     IDS_SPRACHE             "DE"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_LED_WIN             "Du hast gewonnen!"
     IDS_LED_LOST            "Du hast verloren!"
@@ -1651,7 +1653,7 @@ BEGIN
     IDS_RADIO_EDIT1         "Ja,\r\nin der Datei  ""%s"" im Ordner\r\n""%s""."
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_RADIO_EDIT2         "Nein."
     IDS_TAB_HEADER1         "Willkommen"
@@ -1667,15 +1669,7 @@ BEGIN
     IDS_TOOL_TIP_REDO       "Redo/Foreward:\nάber den ""Vorwδrts""-Knopf kannst Du Deine rόckgδngig gemachten Zόge solange wieder vorwδrts gehen,\nsolange Du keine Δnderung im Spielverlauf vornimmst."
 END
 
-STRINGTABLE 
-BEGIN
-    IDS_TOOLTIP_BUTTON_LOADGAME "Lδdt ein vorhandenes Spiel."
-    IDS_TOOLTIP_BUTTON_SAVEGAME "Speichert das aktuelle Spiel."
-    IDS_TAB_RADIO2          "Die besten bisher bekannten Punktzahlen anzeigen."
-    IDS_SEARCH1             "ZahlenHaiSuche["
-END
-
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_MAX_POINTS_NEW_2    "Um bei %s Zahlen die maximal mφgliche Punktzahl von %s Punkten zu berechnen, hat das Programm %s Sekunden benφtigt und musste dabei %s Knoten durchlaufen.\n\nDie hφchste Primzahl ist %s. Mit dieser Zahl musst Du das Spiel beginnen, um die maximal mφgliche Punktzahl erreichen zu kφnnen.\n\nDie hφchste Punktzahl kannst Du unter anderem mit folgender Zugfolge (Weg) erreichen: %s."
     IDS_SHELL_GROUP_BOX     "Muschelfeld (blau bedeutet ""frei wδhlbar""; grau bedeutet ""schon vergeben"")"
@@ -1690,7 +1684,7 @@ BEGIN
     IDS_ACC_LOAD            "SHIFT + ALT + L: Lδdt ein vorhandenes Spiel.\r\n\r\n"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_ACC_SAVE            "SHIFT + ALT + S: Speichert das aktuelle Spiel.\r\n\r\n"
     IDS_PLAYER_WINS_OPTIMAL2 
@@ -1713,7 +1707,7 @@ BEGIN
     IDS_HEADING_NUMBER      "Zahl"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_HEADING_SCORE       "Ergebnis"
     IDS_HEADING_PROVED      "Ergebnis optimal?"
@@ -1735,13 +1729,286 @@ END
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// French (France) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_FRA)
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Information about the Number Shark"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            128,IDC_STATIC,11,17,20,20
+    LTEXT           "Number Shark Version 1.2.2",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2013",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
+END
+
+IDD_DIALOG1 DIALOGEX 0, 0, 282, 274
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Game options"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "To the game",IDOK,117,248,50,14
+    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,5,34,270,208
+    EDITTEXT        IDC_EDIT_NAME,75,76,161,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "Start",IDC_BUTTON_MAX,220,130,35,25,BS_MULTILINE | NOT WS_VISIBLE
+    CONTROL         "  ",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | BS_MULTILINE,226,119,10,8
+    CONTROL         "",IDC_CHECK2,"Button",BS_AUTOCHECKBOX,228,166,8,8
+    CONTROL         "",IDC_CHECK3,"Button",BS_AUTOCHECKBOX,228,204,8,8
+    LTEXT           "",IDC_OPTION_REMEMBER,28,196,186,26
+    LTEXT           "Your name:",IDC_STATIC2,29,79,44,8
+    LTEXT           "",IDC_OPTION_TOOLTIP,28,102,186,42
+    GROUPBOX        "",IDC_STATIC1,21,65,233,31
+    GROUPBOX        "",IDC_STATIC3,21,95,233,54
+    GROUPBOX        "",IDC_STATIC4,21,151,233,34
+    LTEXT           "",IDC_OPTION_GAME_START,29,161,186,18
+    GROUPBOX        "",IDC_STATIC5,21,188,233,38
+    LTEXT           "",IDC_STATIC_MAX_POINTS_TEXT,16,67,244,56,NOT WS_VISIBLE
+    CTEXT           "",IDC_OPTION_START,5,9,270,21
+    CONTROL         "",IDC_RADIO_MAX1,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_DISABLED,23,129,182,10
+    CONTROL         "",IDC_RADIO_MAX2,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_DISABLED,23,150,183,8
+    GROUPBOX        "",IDC_STATIC_MAXVALUE,9,57,260,130
+    LTEXT           "",IDC_DISCLAIMER_TEXT,14,144,257,35
+    LTEXT           "",IDC_INFO_TEXT,14,110,257,31
+    LTEXT           "",IDC_GAME_IDEA,14,69,257,35
+    LTEXT           "",IDC_ACCELERATORS,12,69,255,133
+END
+
+IDD_GAME_RULES DIALOGEX 0, 0, 535, 306
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Game rules  / game description"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Back",IDOK,242,283,50,14
+    CONTROL         "",IDC_RICHEDIT21,"RichEdit20A",ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY,7,7,521,267,WS_EX_TRANSPARENT
+END
+
+IDD_GAME_SUMMARY DIALOGEX 0, 0, 358, 178
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Back to the game",IDOK,145,68,62,14
+    CONTROL         "",IDC_RICHEDIT21,"RichEdit20A",ES_MULTILINE | ES_AUTOHSCROLL,7,12,344,51,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,11,108,335,31
+    CONTROL         "",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,12,148,335,10
+    GROUPBOX        "Save the result as summary?",IDC_STATIC,7,92,344,79
+END
+
+IDD_MFCZAHLENHAI_DIALOG DIALOGEX 0, 0, 467, 379
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Number Shark"
+FONT 8, "Microsoft Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_TAB1,"SysTabControl32",TCS_RAGGEDRIGHT | WS_TABSTOP,10,187,372,119
+    EDITTEXT        IDC_EDIT1,89,333,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "&OK",IDC_BUTTON_OK,132,333,25,14
+    CONTROL         "1",IDC_BUTTON01,"Button",BS_OWNERDRAW | WS_TABSTOP,16,207,31,27
+    CONTROL         "2",IDC_BUTTON02,"Button",BS_OWNERDRAW | WS_TABSTOP,53,207,31,27
+    CONTROL         "3",IDC_BUTTON03,"Button",BS_OWNERDRAW | WS_TABSTOP,89,207,31,27
+    CONTROL         "4",IDC_BUTTON04,"Button",BS_OWNERDRAW | WS_TABSTOP,125,207,31,27
+    CONTROL         "5",IDC_BUTTON05,"Button",BS_OWNERDRAW | WS_TABSTOP,161,207,31,27
+    CONTROL         "6",IDC_BUTTON06,"Button",BS_OWNERDRAW | WS_TABSTOP,197,207,31,27
+    CONTROL         "7",IDC_BUTTON07,"Button",BS_OWNERDRAW | WS_TABSTOP,233,207,31,27
+    CONTROL         "8",IDC_BUTTON08,"Button",BS_OWNERDRAW | WS_TABSTOP,269,207,31,27
+    CONTROL         "9",IDC_BUTTON09,"Button",BS_OWNERDRAW | WS_TABSTOP,306,207,31,27
+    CONTROL         "10",IDC_BUTTON10,"Button",BS_OWNERDRAW | WS_TABSTOP,344,207,31,27
+    CONTROL         "11",IDC_BUTTON11,"Button",BS_OWNERDRAW | WS_TABSTOP,16,240,31,27
+    CONTROL         "12",IDC_BUTTON12,"Button",BS_OWNERDRAW | WS_TABSTOP,53,240,31,27
+    CONTROL         "13",IDC_BUTTON13,"Button",BS_OWNERDRAW | WS_TABSTOP,89,240,31,27
+    CONTROL         "14",IDC_BUTTON14,"Button",BS_OWNERDRAW | WS_TABSTOP,125,240,31,27
+    CONTROL         "15",IDC_BUTTON15,"Button",BS_OWNERDRAW | WS_TABSTOP,161,240,31,27
+    CONTROL         "16",IDC_BUTTON16,"Button",BS_OWNERDRAW | WS_TABSTOP,197,240,31,27
+    CONTROL         "17",IDC_BUTTON17,"Button",BS_OWNERDRAW | WS_TABSTOP,233,240,31,27
+    CONTROL         "18",IDC_BUTTON18,"Button",BS_OWNERDRAW | WS_TABSTOP,269,240,31,27
+    CONTROL         "19",IDC_BUTTON19,"Button",BS_OWNERDRAW | WS_TABSTOP,306,240,31,27
+    CONTROL         "20",IDC_BUTTON20,"Button",BS_OWNERDRAW | WS_TABSTOP,344,240,31,27
+    CONTROL         "21",IDC_BUTTON21,"Button",BS_OWNERDRAW | WS_TABSTOP,16,272,31,27
+    CONTROL         "22",IDC_BUTTON22,"Button",BS_OWNERDRAW | WS_TABSTOP,53,272,31,27
+    CONTROL         "23",IDC_BUTTON23,"Button",BS_OWNERDRAW | WS_TABSTOP,89,272,31,27
+    CONTROL         "24",IDC_BUTTON24,"Button",BS_OWNERDRAW | WS_TABSTOP,125,272,31,27
+    CONTROL         "25",IDC_BUTTON25,"Button",BS_OWNERDRAW | WS_TABSTOP,161,272,31,27
+    CONTROL         "26",IDC_BUTTON26,"Button",BS_OWNERDRAW | WS_TABSTOP,197,272,31,27
+    CONTROL         "27",IDC_BUTTON27,"Button",BS_OWNERDRAW | WS_TABSTOP,233,272,31,27
+    CONTROL         "28",IDC_BUTTON28,"Button",BS_OWNERDRAW | WS_TABSTOP,269,272,31,27
+    CONTROL         "29",IDC_BUTTON29,"Button",BS_OWNERDRAW | WS_TABSTOP,306,272,31,27
+    CONTROL         "30",IDC_BUTTON30,"Button",BS_OWNERDRAW | WS_TABSTOP,344,272,31,27
+    PUSHBUTTON      "&Rules of the game",ID_BUTTON_RULES,398,16,59,22,BS_VCENTER | BS_MULTILINE
+    PUSHBUTTON      "&Help",IDC_BUTTON_HELP,398,46,59,22
+    PUSHBUTTON      "Sh&ark food",IDC_BUTTON_REST,398,178,60,22,BS_MULTILINE | WS_DISABLED
+    PUSHBUTTON      "&Game options",IDC_BUTTON_OPTION,398,205,60,22,BS_MULTILINE
+    CONTROL         "",IDC_BUTTON_UNDO,"Button",BS_OWNERDRAW | BS_MULTILINE | WS_DISABLED | WS_TABSTOP,404,246,19,15,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_BUTTON_REDO,"Button",BS_OWNERDRAW | WS_DISABLED | WS_TABSTOP,434,246,19,15,WS_EX_TRANSPARENT
+    PUSHBUTTON      "&New game",IDC_BUTTON_STARTNEW,398,316,59,22,BS_MULTILINE
+    PUSHBUTTON      "E&xit",ID_BUTTON_END,398,345,59,22,BS_CENTER | BS_MULTILINE
+    LTEXT           "Number stack from 1 to:",IDC_STATIC,12,335,76,11
+    GROUPBOX        "Settings for a new game",IDC_STATIC_EINSTELLUNGEN,4,318,382,54,0,WS_EX_TRANSPARENT
+    GROUPBOX        "",IDC_STATIC_BLOCK,4,174,382,139
+    LTEXT           "",IDC_STATIC_SUM,11,356,371,17,NOT WS_VISIBLE
+    GROUPBOX        "Course of the game -  [ ""prime"" marks a prime number ]",IDC_STATIC_LISTE,4,6,381,161
+    CONTROL         "",IDC_LIST2,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,4,21,381,148,WS_EX_TRANSPARENT | WS_EX_CLIENTEDGE
+    LTEXT           "",IDC_LEDTEXT,4,320,381,52,NOT WS_VISIBLE
+    CONTROL         169,IDC_STATIC_HAI_LISTE,"Static",SS_BITMAP | SS_REALSIZEIMAGE,4,10,381,160
+    GROUPBOX        "",IDC_STATIC,392,6,71,366
+    PUSHBUTTON      "&Finish",IDC_BUTTON_FINISH,375,367,10,6,NOT WS_VISIBLE
+    PUSHBUTTON      "&Change style",IDC_BUTTON_SWITCH_STYLE,398,72,59,14
+    CTEXT           "Statisch",IDC_TIMER,398,148,59,14,SS_CENTERIMAGE
+    LTEXT           "Elapsed time:",IDC_STATIC,398,129,43,8
+    PUSHBUTTON      "&Load",IDC_BUTTON_LOAD,398,271,59,14
+    PUSHBUTTON      "&Save",IDC_BUTTON_SAVE,398,294,59,14
+END
+
+IDD_SEARCH_PROGRESS DIALOGEX 0, 0, 200, 110
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Search Progress"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LTEXT           "DYNAMICALLY_GENERATED",IDC_TEXT_SEARCH_PROGRESS_1,7,7,186,24
+    LTEXT           "Unfortunately we cannot predict how much time the search will take, but you can cancel the search at any time.",IDC_STATIC,7,55,186,24
+    PUSHBUTTON      "Cancel",IDCANCEL,75,87,50,16
+    CTEXT           "DYNAMICALLY_GENERATED",IDC_TEXT_SEARCH_PROGRESS_2,7,39,186,8
+END
+
+IDD_SHOW_PRECALCULATED_SCORES DIALOGEX 0, 0, 250, 200
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Show precalculated scores"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,193,177,50,16
+    LTEXT           "DYNAMICALLY_GENERATED",IDC_STATIC_INTRO,7,7,236,32
+    DEFPUSHBUTTON   "Show details",ID_SHOW_DETAILS,7,177,100,16
+    CONTROL         "",IDC_LIST_PRECALCULATED_SCORES,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,45,236,125
+END
+
+IDD_SHOW_PRECALCULATED_SCORES_IN_DETAIL DIALOGEX 0, 0, 251, 200
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Show precalculated scores in detail"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,194,177,50,16
+    EDITTEXT        IDC_EDIT_PRECALCULATED_SCORES,7,7,237,160,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 275
+        VERTGUIDE, 5
+        VERTGUIDE, 184
+        VERTGUIDE, 220
+        VERTGUIDE, 238
+        VERTGUIDE, 275
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 267
+        HORZGUIDE, 25
+        HORZGUIDE, 65
+        HORZGUIDE, 144
+    END
+
+    IDD_GAME_RULES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 528
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 297
+    END
+
+    IDD_GAME_SUMMARY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 351
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 171
+    END
+
+    IDD_MFCZAHLENHAI_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        RIGHTMARGIN, 464
+        VERTGUIDE, 4
+        VERTGUIDE, 197
+        VERTGUIDE, 295
+        VERTGUIDE, 296
+        VERTGUIDE, 382
+        VERTGUIDE, 385
+        VERTGUIDE, 398
+        VERTGUIDE, 457
+        VERTGUIDE, 463
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 373
+        HORZGUIDE, 24
+        HORZGUIDE, 44
+        HORZGUIDE, 261
+        HORZGUIDE, 288
+        HORZGUIDE, 294
+        HORZGUIDE, 320
+        HORZGUIDE, 326
+        HORZGUIDE, 353
+        HORZGUIDE, 371
+    END
+
+    IDD_SEARCH_PROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 193
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_SHOW_PRECALCULATED_SCORES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 243
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
+    END
+
+    IDD_SHOW_PRECALCULATED_SCORES_IN_DETAIL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 244
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // French (France) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United Kingdom) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
-#ifdef _WIN32
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1951,7 +2218,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_ABOUTBOX, DIALOG
     BEGIN
@@ -2082,7 +2349,7 @@ IDR_MAINFRAME           ICON                    "Bilder\\NumberShark.ico"
 // Accelerator
 //
 
-IDR_ACCELERATOR1 ACCELERATORS 
+IDR_ACCELERATOR1 ACCELERATORS
 BEGIN
     "N",            ID_GIVE_REST,           VIRTKEY, SHIFT, CONTROL, NOINVERT
     "C",            ID_ACCELERATOR_CHANGESTYLE, VIRTKEY, SHIFT, ALT, NOINVERT
@@ -2096,11 +2363,9 @@ END
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "&Information about the Number Shark"
-    IDS_TOOLTIP_BUTTON_SWITCH_STYLE 
-                            "Changes the display style (shells or numbers)."
     IDS_RULES               "Description:\r\n - At the beginning of the Number Shark game you choose the size of the shell square, this is the amount of numbers you want to play with.\r\n    We name the size of the shell square with ""n"" and call it the ""count of selectable numbers"". The pool of numbers starts with 1\r\n    and ends with the number which you have chosen for the size of the shell square (we suggest the number 20 for the beginning).\r\n    After that all numbers from the shell square will be given to either you or the computer (""Number Shark"").\r\n    You can read the rules of how the numbers are divided below in the text.\r\n - By default, there are 20 numbers in the shell square. As total number you can select every number from 1 to 9999 for n.\r\n\r\nGoal of the game:\r\n - It is your goal to achieve a higher score than the sum of the numbers that were eaten by the Number Shark.\r\n\r\nRules:\r\n - You always have the first turn, i.e. you are starting the first round.\r\n - In this round you can choose any of the n numbers from the shell square.\r - The Number Shark gets every available real factor of the number selected by you, if they have not been chosen yet\r\n    (6 for example is divisible by 1, 2, 3 and 6. The real factors are 1, 2 and 3).\r\n - In all subsequent rounds you can only choose numbers which have not been chosen by you,\r\n    or were eaten by the Number Shark in previous rounds (i.e. only the blue shells).\r\n - BUT: The Number Shark may never miss out!\r\n - If you choose a number which has no more factors, then the Number Shark gets your chosen number and you get 0 points in this round.\r\n\r\n"
     IDS_PLAYER_WINS         "Congratulation, you have won against the Number Shark!\n\n If you are looking for a bigger challenge, then try a higher number than %s.\n\nYou achieved %s points. The highest possible score with %s numbers would have been %s."
     IDS_VERSION_INFO        "Number Shark Version 1.2.3"
@@ -2111,7 +2376,17 @@ BEGIN
                             "The highest attainable score at %s numbers is %s.\n\nWe can show you the highest possible score, because this value has already been calculated and is stored in the program.\n\nHint: The highest prime with %s numbers is %s. You have to start the game with this prime to be able to reach the maximum score.\n\nDo you want to see an optimal way to achieve this score?"
 END
 
-STRINGTABLE 
+STRINGTABLE
+BEGIN
+    IDS_TOOLTIP_BUTTON_LOADGAME "Loads an existing game."
+    IDS_TOOLTIP_BUTTON_SAVEGAME "Saves the current game."
+    IDS_TAB_RADIO2          "Show the best known scores."
+    IDS_SEARCH1             "NumberSharkSearch["
+    IDS_TOOLTIP_BUTTON_SWITCH_STYLE 
+                            "Changes the display style (shells or numbers)."
+END
+
+STRINGTABLE
 BEGIN
     IDS_QUESTION            "Do you want the program to calculate the highest possible score?"
     IDS_WARNING             "%s numbers... This will take a long time.\n\nUsing a brute-force algorithm, for 20 numbers a 3 GHz PC had to calculate about 9 hours, for 22 numbers the calculation took about 9 days. And we believe for 30 numbers it will take weeks or months.\n\nIf you get some new results for %s numbers, we would appreciate it if you could send them to us.\n\nDo you really want the calculation to be performed now?"
@@ -2130,7 +2405,7 @@ BEGIN
     IDS_BUTTON_MAX_POINTS   "Calculate the highest possible score which you can achieve with this number pool."
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_BUTTON_OPTION       "Show the game options."
     IDS_BUTTON_REST         "The Number Shark eats all numbers from which you can't get any more points. The Number Shark could eat the following numbers at once: %s"
@@ -2149,7 +2424,7 @@ BEGIN
     IDS_LOGFILE_HEADLINE    "\r\n\r\nThis file shows you every single move and the score of both players.\r\nThe chart contains the same information as the ""course of the game"" chart in the game dialog.\r\n\r\n"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_TOOL_TIP_TEXT       "%s\nThis time he would eat: %s\n%s"
     IDS_LOGFILE_MAXPOINTS   "\r\nHighest possible score for you:"
@@ -2167,7 +2442,7 @@ BEGIN
     IDS_DISCLAIMER_TEXT     "Please note the terms of license and the information regarding non \r\nliability for any damage arising from the use of the Number Shark program.\r\n(C) CrypTool Project 2013"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_MAX_POINTS_HEADLINE2 "Maximum number of points and an optimal way"
     IDS_INFO_TEXT           "The Number Shark program was created as an addition to the freeware\r\nand open source project CrypTool: www.cryptool.com"
@@ -2182,7 +2457,7 @@ BEGIN
     IDS_OPTIONS_TOOLTIPS    "Activate the tooltips for the shells\r\n[If you place the cursor a bit longer over one of the blue shells (the ones with the still active numbers), a little window (tooltip) opens and provides you with information, e.g. the factors still available for this number]."
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_OPTIONS_SHOW_DIALOG "Show the ""Game options"" dialog at the next program start."
     IDS_OPTIONS_SHOW_NUMBERS 
@@ -2198,7 +2473,7 @@ BEGIN
     IDS_SPRACHE             "EN"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_LED_WIN             "You have won!"
     IDS_LED_LOST            "You have lost!"
@@ -2213,7 +2488,7 @@ BEGIN
     IDS_RADIO_EDIT1         "Yes\r\nas ""%s"" in the folder\r\n""%s"". "
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_RADIO_EDIT2         "No."
     IDS_TAB_HEADER1         "Welcome"
@@ -2229,15 +2504,7 @@ BEGIN
     IDS_TOOL_TIP_REDO       "With ""Redo"" you can go forward through the game as many steps as you went back in the game via ""Undo""."
 END
 
-STRINGTABLE 
-BEGIN
-    IDS_TOOLTIP_BUTTON_LOADGAME "Loads an existing game."
-    IDS_TOOLTIP_BUTTON_SAVEGAME "Saves the current game."
-    IDS_TAB_RADIO2          "Show the best known scores."
-    IDS_SEARCH1             "NumberSharkSearch["
-END
-
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_MAX_POINTS_NEW_2    "To calculate for %s numbers the highest score of %s points, the program spent %s seconds. It had to pass through %s knots.\n\nThe highest prime number here is %s. You must start the game with this prime to be able to reach the maximum score.\n\nTo achieve the highest score, you can choose the numbers in this order: %s"
     IDS_SHELL_GROUP_BOX     "Shell square (blue means ""still free to choose""; gray means ""already distributed and eaten up"")"
@@ -2252,7 +2519,7 @@ BEGIN
     IDS_ACC_LOAD            "SHIFT + ALT + L: Loads an existing game.\r\n\r\n"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_ACC_SAVE            "SHIFT + ALT + S: Saves the current game.\r\n\r\n"
     IDS_PLAYER_WINS_OPTIMAL2 
@@ -2275,7 +2542,7 @@ BEGIN
     IDS_HEADING_NUMBER      "Number"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_HEADING_SCORE       "Result"
     IDS_HEADING_PROVED      "Result optimal?"
@@ -2292,18 +2559,16 @@ BEGIN
     IDS_ACC_ENTER_OR_SPACE  "ENTER / SPACE: Choose the number of the selected shell via keyboard.\r\n\r\n"
 END
 
-#endif    // English (U.K.) resources
+#endif    // English (United Kingdom) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Spanish resources
+// Spanish (Spain, International Sort) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ESN)
-#ifdef _WIN32
 LANGUAGE LANG_SPANISH, SUBLANG_SPANISH_MODERN
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -2513,7 +2778,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_ABOUTBOX, DIALOG
     BEGIN
@@ -2644,7 +2909,7 @@ IDR_MAINFRAME           ICON                    "Bilder\\NumberShark.ico"
 // Accelerator
 //
 
-IDR_ACCELERATOR1 ACCELERATORS 
+IDR_ACCELERATOR1 ACCELERATORS
 BEGIN
     "N",            ID_GIVE_REST,           VIRTKEY, SHIFT, CONTROL, NOINVERT
     "C",            ID_ACCELERATOR_CHANGESTYLE, VIRTKEY, SHIFT, ALT, NOINVERT
@@ -2658,11 +2923,9 @@ END
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "&Acerca de Number Shark"
-    IDS_TOOLTIP_BUTTON_SWITCH_STYLE 
-                            "[i18n] Changes the display style (shells or numbers)."
     IDS_RULES               "Descripciσn:\r\n - Al comienzo del juego, debe decidir el tamaρo del campo del mejillσn, es decir, con que cantidad de nϊmeros jugarα.\r\n    Nombraremos al tamaρo del campo del mejillσn con la letra ""n"" y la llamaremos ""Cantidad de nϊmeros elegibles"". La poblaciσn de nϊmeros comienza con 1\r\n    y va hasta el nϊmero que ha elegido como tamaρo para el campo del mejillσn. (sugerimos empezar con el nϊmero 20).\r\n    Luego, todos los nϊmeros del campo del mejillσn serαn repartidos entre usted y la mαquina (""Number Shark"").\r\n    Al comienzo del juego, predeterminadamente se establecen 20 nϊmeros en el campo del mejillσn. Puede elegir como nϊmero n, cualquier valor entre 1 y 9999.\r\n\r\nObjetivo del Juego:\r\n - Su Objetivo es que la suma de sus nϊmeros sea mayor a la suma de los nϊmeros que la mαquina ha obtenido.\r\n\r\nReglas:\r\n - El primer turno siempre serα suyo, es decir, usted comienza la primera ronda.\r\n - En la primera ronda podrα elegir culaquier nϊmero del campo del mejillσn\r\n La mαquina selecionarα un nϊmero dentro de los divisores del nϊmero elegido, siempre y cuando, ιste todavνa estι disponible\r\n    (por Ej. 6 es divisible entre 1,2,3 y 6. Los divisores reales son 1, 2 y 3).\r\n - En todas las rondas siguientes podrα seleccionar ϊnicamente nϊmeros que aϊn no hayan sido elegidos antes (es decir, los mejillones azules).\r\n - CUIDADO: ΅La mαquina no debe nunca quedar vacνa! - Si elige un nϊmero que no tiene divisores, ella tomarα su nϊmero y usted recibirα 0 puntos en esa ronda.\r\n\r\n"
     IDS_PLAYER_WINS         "΅Felicitaciones, ha ganado la partida!\n\nSi busca un mayor desafνo, intente un nϊmero mayor que %s.\n\nHa alcanzado %s Puntos. El puntaje mαximo con %s nϊmeros, hubiera sido %s."
     IDS_VERSION_INFO        "Number Shark Version 1.2.3"
@@ -2673,7 +2936,17 @@ BEGIN
                             "Para %s nϊmeros, el mαximo alcanzable de puntos es: %s.\n\nNosotros podemos mostrarle aquν enseguida el mαximo puntaje, ya que ese valor ya ha sido calculado y almacenado en el programa.\n\nTruco: El mayor nϊmero primo para %s nϊmeros es el %s. Con ese nϊmero deberνa empezar a jugar para intentar alcanzar el mαximo puntaje posible.\n\nΏLe gustarνa ver la combinaciσn σptima para alcanzar el mejor puntaje?"
 END
 
-STRINGTABLE 
+STRINGTABLE
+BEGIN
+    IDS_TOOLTIP_BUTTON_LOADGAME "[i18n] Loads an existing game."
+    IDS_TOOLTIP_BUTTON_SAVEGAME "[i18n] Saves the current game."
+    IDS_TAB_RADIO2          "Mostrar los puntajes pre-calculados."
+    IDS_SEARCH1             "BϊsquedaNumberShark["
+    IDS_TOOLTIP_BUTTON_SWITCH_STYLE 
+                            "[i18n] Changes the display style (shells or numbers)."
+END
+
+STRINGTABLE
 BEGIN
     IDS_QUESTION            "ΏQuiere que el programa calcule el puntaje mαximo posible?"
     IDS_WARNING             "%s nϊmeros.. esto podrνa demorar.. \n\nUsando un algoritmo de Fuerza-bruta y un PC de 3GHz, para 20 nϊmeros se necesitaron unas 8 horas, para 22 nϊmeros el cαlculo tomσ 9 dias; y creemos que para 30 nϊmeros podrνa llevar semanas enteras o incluso meses.\n\nSi ha obtenido resultados nuevos para %s nϊmeros, nos alegrarνa que nos los enviara.\n\nΏEstα seguro ahora que realmente desea realizar el cαlculo?"
@@ -2692,7 +2965,7 @@ BEGIN
     IDS_BUTTON_MAX_POINTS   "Calcular el mαximo puntaje alcanzable con el conjunto de nϊmeros seleccionado."
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_BUTTON_OPTION       "Mostrar las opciones de juego."
     IDS_BUTTON_REST         "La mαquina seleciona todos los nϊmeros, a partir de los cuαles no podrα obtener mαs puntos.\nLos siguientes nϊmeros podrνan ser selecionados por la mαquina: %s."
@@ -2711,7 +2984,7 @@ BEGIN
     IDS_LOGFILE_HEADLINE    "\r\n\r\nEste archivo muestra para cada ronda, los nϊmeros elegidos y el puntaje obtenido respectivamente.\r\nLa table contiene la misma informaciσn que la tabla de resultados que se muestra durante la partida.\r\n\r\n"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_TOOL_TIP_TEXT       "%s\nDivisores restantes: %s\n%s"
     IDS_LOGFILE_MAXPOINTS   "\r\nHighest possible score for you:"
@@ -2729,7 +3002,7 @@ BEGIN
     IDS_DISCLAIMER_TEXT     "Por favor, tome en cuenta la licencia y la informaciσn sobre exoneraciσn de responsabilidad por cualquier eventual daρo ocasionado por el uso de Number Shark.\r\n(C) Proyecto CrypTool 2013"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_MAX_POINTS_HEADLINE2 "Puntaje mαximo y combinaciσn σptima"
     IDS_INFO_TEXT           "El programa Number Shark fue creado como un agregado al proyecto libre y de cσdigo abierto CrypTool - http://www.cryptool.org/"
@@ -2744,7 +3017,7 @@ BEGIN
     IDS_OPTIONS_TOOLTIPS    "Activar consejos para los mejillones\r\n[Si se detiene un instante sobre alguno de los mejillones azules (los que todavνa no han sido seleccionados), se desplegarα una pequeρa ventana (Tooltip) que muestra los factores disponibles para ese nϊmero]."
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_OPTIONS_SHOW_DIALOG "Mostrar la ventana ""Opciones de juego"" la prσxima vez que el programa inicie."
     IDS_OPTIONS_SHOW_NUMBERS 
@@ -2760,7 +3033,7 @@ BEGIN
     IDS_SPRACHE             "ES"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_LED_WIN             "΅Ha ganado!"
     IDS_LED_LOST            "Ha perdido"
@@ -2775,7 +3048,7 @@ BEGIN
     IDS_RADIO_EDIT1         "Sν\r\nas ""%s"" en la carpeta\r\n""%s"". "
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_RADIO_EDIT2         "No."
     IDS_TAB_HEADER1         "΅Bienvenido!"
@@ -2791,15 +3064,7 @@ BEGIN
     IDS_TOOL_TIP_REDO       "Con ""Rehacer"" puede adelantar tantas jugadas como haya retrocedido con ""Deshacer"". "
 END
 
-STRINGTABLE 
-BEGIN
-    IDS_TOOLTIP_BUTTON_LOADGAME "[i18n] Loads an existing game."
-    IDS_TOOLTIP_BUTTON_SAVEGAME "[i18n] Saves the current game."
-    IDS_TAB_RADIO2          "Mostrar los puntajes pre-calculados."
-    IDS_SEARCH1             "BϊsquedaNumberShark["
-END
-
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_MAX_POINTS_NEW_2    "Para calcular el mαximo puntaje posible de %d puntos sobre %d nϊmeros, este programa ha necesitado %d segundos y ha pasado a travιs de %I64d nodos.\n\nEl nϊmero primo mαs alto es %d.Se recomienda comenzar con ese nϊmero para intentar alcanzar el mαximo puntaje posible.\n\nDicho puntaje se puede lograr, entre otras, con la siguiente combinaciσn: %s. "
     IDS_SHELL_GROUP_BOX     "i18n Shell square (blue means ""still free to choose""; gray means ""already distributed and eaten up"")"
@@ -2814,7 +3079,7 @@ BEGIN
     IDS_ACC_LOAD            "SHIFT + ALT + L: Carga un juego existente.\r\n\r\n"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_ACC_SAVE            "SHIFT + ALT + S: Guarda una partida actual.\r\n\r\n"
     IDS_PLAYER_WINS_OPTIMAL2 
@@ -2837,7 +3102,7 @@ BEGIN
     IDS_HEADING_NUMBER      "Nϊmero"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_HEADING_SCORE       "Restulado"
     IDS_HEADING_PROVED      "ΏResultado σptimo?"
@@ -2854,18 +3119,16 @@ BEGIN
     IDS_ACC_ENTER_OR_SPACE  "[i18n] ENTER / SPACE: Choose the number of the selected shell via keyboard."
 END
 
-#endif    // Spanish resources
+#endif    // Spanish (Spain, International Sort) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Greek resources
+// Greek (Greece) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ELL)
-#ifdef _WIN32
 LANGUAGE LANG_GREEK, SUBLANG_DEFAULT
 #pragma code_page(1253)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -3229,15 +3492,15 @@ BEGIN
     IDS_COMPUTER_WINS       "Αυτή τη φορά νίκησε το Number Shark :,-(\n\n Σας νίκησε με %s προς %s πόντους.\n\n Δοκιμάστε ξανά!"
     IDS_DRAW                "Ισοπαλία!?!\n\nΑυτό συμβαίνει πολύ σπάνια!\n\nΕσείς και το Number Shark έχετε από %s πόντους ο καθένας."
     IDS_MAX_POINTS_NEW      "Στους %s αριθμούς, για να υπολογιστεί το μέγιστο σκορ των %s πόντων, το πρόγραμμα χρειάστηκε %s δευτερόλεπτα. Έπρεπε να περάσει %s κόμβους.\n\nΟ μεγαλύτερος πρώτος εδώ είναι ο %s. Θα πρέπει να ξεκινήσετε με αυτόν για να μπορέσετε να φτάσετε το μέγιστο σκορ.\n\nΓια να πετύχετε το μέγιστο σκορ μπορείτε να επιλέξετε αριθμούς στην εξής σειρά: %s"
-    IDS_MAX_POINTS_INFORMATION
+    IDS_MAX_POINTS_INFORMATION 
                             "Το μεγαλύτερο επιτεύξιμο σκορ στους %s αριθμούς είναι %s.\n\nΜπορούμε να σας δείξουμε το μεγαλύτερο δυνατό σκορ, επειδή αυτή η τιμή έχει ήδη υπολογιστεί και αποθηκευτεί στο πρόγραμμα.\n\nΣυμβουλή: Ο μεγαλύτερος πρώτος στους %s αριθμούς είναι ο %s. Θα πρέπει να ξεκινήσετε με αυτόν για να μπορέσετε να φτάσετε το μέγιστο σκορ.\n\nΘέλετε να δείτε ένα βέλτιστο τρόπο επίτευξης αυτού του σκορ;"
-    IDS_QUESTION            "Θέλετε το πρόγραμμα να υπολογίσει το μεγαλύτερο επιτεύξιμο σκορ;"
-    IDS_WARNING             "%s αριθμοί... Θα απαιτηθεί πολύς χρόνος.\n\nΧρησιμοποιώντας έναν αλγόριθμο ωμής βίας, για 20 αριθμούς ένα PC στα 3 GHz πρέπει να δουλεύει για περίπου 9 ώρες, για 22 αριθμούς οι υπολογισμοί χρειάζονται γύρω στις 9 μέρες. Τέλος για 30 αριθμούς πιστεύουμε πως θα απαιτούνταν εβδομάδες ή μήνες.\n\nΑν έχετε κάποια νέα αποτελέσματα για τους %s αριθμούς, θα το εκτιμούσαμε αν μας τους στέλνατε.\n\nΘέλετε πραγματικά οι υπολογισμοί να ετελεστούν τώρα;"
-    IDS_INVALID_INPUT       "Στο παιχνίδι Number Shark μπορείτε να παίξετε με αριθμούς ανάμεσα στο 1 και το %s!"
 END
 
 STRINGTABLE
 BEGIN
+    IDS_QUESTION            "Θέλετε το πρόγραμμα να υπολογίσει το μεγαλύτερο επιτεύξιμο σκορ;"
+    IDS_WARNING             "%s αριθμοί... Θα απαιτηθεί πολύς χρόνος.\n\nΧρησιμοποιώντας έναν αλγόριθμο ωμής βίας, για 20 αριθμούς ένα PC στα 3 GHz πρέπει να δουλεύει για περίπου 9 ώρες, για 22 αριθμούς οι υπολογισμοί χρειάζονται γύρω στις 9 μέρες. Τέλος για 30 αριθμούς πιστεύουμε πως θα απαιτούνταν εβδομάδες ή μήνες.\n\nΑν έχετε κάποια νέα αποτελέσματα για τους %s αριθμούς, θα το εκτιμούσαμε αν μας τους στέλνατε.\n\nΘέλετε πραγματικά οι υπολογισμοί να ετελεστούν τώρα;"
+    IDS_INVALID_INPUT       "Στο παιχνίδι Number Shark μπορείτε να παίξετε με αριθμούς ανάμεσα στο 1 και το %s!"
     IDS_ZUG                 "Κίνηση"
     IDS_SPIELER             "Δική σας\nεπιλογή"
     IDS_HAI                 "Επιλογή του\nNumber Shark"
@@ -3250,14 +3513,14 @@ BEGIN
     IDS_BUTTON_RULES        "Εμφάνιση κανόνων."
     IDS_BUTTON_OK           "Εκκίνηση του παιχνιδιού με την επιλεγμένη δεξαμενή αριθμών."
     IDS_BUTTON_MAX_POINTS   "Υπολογισμός του μέγιστου δυνατού σκορ που θα μπορούσατε να πετύχετε με αυτή τη δεξαμενή αριθμών."
-    IDS_BUTTON_OPTION       "Εμφάνιση επιλογών παιχνιδιού."
-    IDS_BUTTON_REST         "Το Number Shark τρώει όλους τους αριθμούς από τους οποίους δεν μπορείτε να αποκτήσετε άλλους πόντους. Το Number Shark θα μπορούσε να φάει αμέσως τους εξής αριθμούς: %s"
-    IDS_EDIT4               "Αυτή η τιμή περιέχει όλους τους αριθμούς συσσωρευμένους."
-    IDS_MAX_POINTS_HEADLINE "Μέγιστο δυνατό σκορ"
 END
 
 STRINGTABLE
 BEGIN
+    IDS_BUTTON_OPTION       "Εμφάνιση επιλογών παιχνιδιού."
+    IDS_BUTTON_REST         "Το Number Shark τρώει όλους τους αριθμούς από τους οποίους δεν μπορείτε να αποκτήσετε άλλους πόντους. Το Number Shark θα μπορούσε να φάει αμέσως τους εξής αριθμούς: %s"
+    IDS_EDIT4               "Αυτή η τιμή περιέχει όλους τους αριθμούς συσσωρευμένους."
+    IDS_MAX_POINTS_HEADLINE "Μέγιστο δυνατό σκορ"
     IDS_DRAW_HEADLINE       "Ισοπαλία!"
     IDS_COMPUTER_WINS_HEADLINE "Δεν έχετε νικήσει!"
     IDS_PLAYER_WINS_HEADLINE "Έχετε νικήσει!"
@@ -3269,24 +3532,28 @@ BEGIN
     IDS_VALID_INPUT_HEADLINE "Ο εισαγόμενος αριθμός είναι πολύ μεγάλος!"
     IDS_RULES_HEADLINE      "Κανόνες παιχνιδιού / περιγραφή παιχνιδιού"
     IDS_LOGFILE_HEADLINE    "\r\n\r\nΑυτό το αρχείο εμφανίζει κάθε κίνηση ξεχωριστά και το σκορ των δύο παιχτών.\r\nΤο γράφημα περιέχει τις ίδιες πληροφορίες όπως το γράφημα ""εξέλιξη παιχνιδιού"" στο πλαίσιο του παιχνιδιού.\r\n\r\n"
+END
+
+STRINGTABLE
+BEGIN
     IDS_TOOL_TIP_TEXT       "%s\nΑυτή τη φορά θα φάει: %s\n%s"
     IDS_LOGFILE_MAXPOINTS   "\r\nΜεγαλύτερο δυνατό σκορ για εσάς:"
     IDS_GAME_IDEA           "Είναι ένα απλό παιχνίδι για έναν ή περισσότερους παίχτες άνω των 10 ετών.\n\nΧρόνος παιχνιδιού: Δεν θα χρειαστείτε περισσότερα από 3 λεπτά για 20 αριθμούς, αλλά για 9.999 αριθμούς ίσως απαιτηθεί πάνω από ένα έτος."
     IDS_PRIME               "(πρώτος)"
     IDS_LOGFILE_LOCATION    "\r\nΗ περίληψη του παιχνιδιού έχει αποθηκευτεί ως %s στο φάκελο: %s\r\n\r\n"
-END
-
-STRINGTABLE
-BEGIN
     IDS_TOOL_TIP_TEXT_NO_FACTORS "%s\nΔεν απέμειναν άλλοι παράγοντες!\n%s"
     IDS_FILE_NAME           "Summary.txt"
     IDS_PLAYER_WINS_OPTIMAL "Συγχαρητήρια, νικήσατε το Number Shark!\n\nΜε %s πόντους έχετε πετύχει το μέγιστο δυνατό σκορ με %s αριθμούς.\n\nΑν ψάχνετε για μια δυσκολότερη πρόκληση, δοκιμάστε έναν αριθμό μεγαλύτερο από το %s."
     IDS_SUM_TEXT            "Με %s αριθμούς: συνολικά %s πόντοι μπορούν να δοθούν σε σας και τον Number Shark."
     IDS_LOGFILE_NUMBERS     "\r\n\r\nΔεξαμενή αριθμών:                 "
     IDS_RULES_2             "Καθώς παίζετε το παιχνίδι μπορείτε να κάνετε τα κοχύλια ορατά ή αόρατα πατώντας στο πληκτρολόγιό σας το SHIFT+ALT+C.\r\nΑυτό ίσως σας βοηθήσει να διαβάζετε καλύτερα τους αριθμούς και να παίζετε λίγο ταχύτερα.\r\n\r\nΜπορείτε να πάρετε επιπλέον βοήθεια και πληροφορίες πατώντας το πλήκτρο F1.\r\n\r\nΗ online βοήθεια περιέχει ένα εγχειρίδιο χρήσης, ένα σχολιασμένο δείγμα παιχνιδιού ως μάθημα, κάποιες πληροφορίες για την ανάπτυξή του,\r\nκαι μια πρόκληση για εσάς, η οποία σας δίνει μια ευκαιρία να μας βοηθήσετε να βελτιώσουμε το παιχνίδι.\r\n"
-    IDS_MAX_POINTS_INFORMATION2
+    IDS_MAX_POINTS_INFORMATION2 
                             "Το μεγαλύτερο επιτεύξιμο σκορ στους %s αριθμούς είναι %s.\n\nΜπορούμε να σας δείξουμε το μεγαλύτερο δυνατό σκορ, επειδή αυτή η τιμή έχει ήδη υπολογιστεί και αποθηκευτεί στο πρόγραμμα.\n\nΓια να πετύχετε το μέγιστο σκορ ένας τρόπος είναι: %s"
     IDS_DISCLAIMER_TEXT     "Παρακαλούμε σημειώστε τους όρους της άδειας και τις πληροφορίες σχετικά με\r\nτην αποποίηση ευθύνης για όποια ζημιά προκληθεί από τη χρήση του\r\nπρογράμματος Number Shark.  (C) CrypTool Project 2013"
+END
+
+STRINGTABLE
+BEGIN
     IDS_MAX_POINTS_HEADLINE2 "Μέγιστο πόντων και ένας βέλτιστος τρόπος"
     IDS_INFO_TEXT           "Το πρόγραμμα Number Shark δημιουργήθηκε ως προσθήκη στο δωρεάν\r\nκαι ανοιχτού κώδικα πρόγραμμα CrypTool: www.cryptool.com"
     IDS_PRIME_INFO          "(πρώτος)"
@@ -3295,15 +3562,15 @@ BEGIN
     IDS_GAME_DATA           "GameData.txt"
     IDS_HELP_FILE           "NumberShark-en.chm::/NumberShark.html"
     IDS_TITLE_VERSION       " - Version 1.2.3"
+    IDS_NUMBER_SHARK        "Number Shark"
+    IDS_OPTIONS_HEAD_TEXT   "Για να ξεκινήσετε αμέσως απλά πατήστε το ""Enter"" ή το κουμπί ""Στο παιχνίδι""."
+    IDS_OPTIONS_TOOLTIPS    "Ενεργοποίηση των συμβουλών για τα κοχύλια\r\n[Αν τοποθετήσετε τον δείκτη για λίγο περισσότερο πάνω από κάποιο μπλε κοχύλι (δηλ. τους ακόμη ενεργούς αριθμούς), εμφανίζεται ένα παράθυρο συμβουλής που σας πληροφορεί για τους διαθέσιμους παράγοντές του]."
 END
 
 STRINGTABLE
 BEGIN
-    IDS_NUMBER_SHARK        "Number Shark"
-    IDS_OPTIONS_HEAD_TEXT   "Για να ξεκινήσετε αμέσως απλά πατήστε το ""Enter"" ή το κουμπί ""Στο παιχνίδι""."
-    IDS_OPTIONS_TOOLTIPS    "Ενεργοποίηση των συμβουλών για τα κοχύλια\r\n[Αν τοποθετήσετε τον δείκτη για λίγο περισσότερο πάνω από κάποιο μπλε κοχύλι (δηλ. τους ακόμη ενεργούς αριθμούς), εμφανίζεται ένα παράθυρο συμβουλής που σας πληροφορεί για τους διαθέσιμους παράγοντές του]."
     IDS_OPTIONS_SHOW_DIALOG "Εμφάνισε το πλαίσιο ""Επιλογές παιχνιδιού"" κατά την επόμενη εκκίνηση του παιχνιδιού."
-    IDS_OPTIONS_SHOW_NUMBERS
+    IDS_OPTIONS_SHOW_NUMBERS 
                             "Διατήρηση του τελευταίου συνόλου της στοίβας αριθμών για την επόμενη εκκίνηση του προγράμματος."
     IDS_OPTIONS_MAX_POINTS  "Εδώ μπορείτε να υπολογίσετε το μέγιστο σκορ για τημ επιλεγμένη στοίβα των %s αριθμών. Αλλά αυτό ίσως χρειαστεί λίγο χρόνο...\r\n\r\nΑντ΄αυτού, θα μπορούσατε να εμφανίσετε τα από πριν υπολογισμένα σκορ."
     IDS_STRING_PT           ","
@@ -3314,12 +3581,12 @@ BEGIN
     IDS_LOG_LEAD            "\r\nΕπικεφαλής σας:                   "
     IDS_LOG_BEHIND          "\r\nΠίσω:                      "
     IDS_SPRACHE             "EL"
-    IDS_LED_WIN             "Έχετε νικήσει!"
-    IDS_LED_LOST            "Έχετε χάσει!"
 END
 
 STRINGTABLE
 BEGIN
+    IDS_LED_WIN             "Έχετε νικήσει!"
+    IDS_LED_LOST            "Έχετε χάσει!"
     IDS_LED_DRAW            "ΙΣΟΠΑΛΙΑ!"
     IDS_ZUG2                "Κίνηση"
     IDS_SPIELER2            "Η επιλογή σας"
@@ -3329,24 +3596,34 @@ BEGIN
     IDS_REST2               "Εναπομείναντες αριθμοί"
     IDS_ISNOT_FACTOR        "Δεν διαιρεί κανέναν άλλο αριθμό."
     IDS_RADIO_EDIT1         "Ναι ως ""%s"" στο φάκελο\r\n""%s"". "
+END
+
+STRINGTABLE
+BEGIN
     IDS_RADIO_EDIT2         "Όχι."
     IDS_TAB_HEADER1         "Καλωσήρθατε"
     IDS_TAB_HEADER2         "Τυπικά"
     IDS_TAB_HEADER3         "Μέγιστο σκορ"
     IDS_TAB_RADIO1          "Υπολογισμός του μέγιστου σκορ."
+    IDS_SEARCH2             " numbers].zha"
+    IDS_BUTTON_HELP         "Εμφανίζει τη βοήθεια για το παιχνίδι Number Shark."
+    IDS_WARNING_SHORT       "%s αριθμοί... Θα απαιτηθεί πολύς χρόνος.\n\nΘέλετε πραγματικά οι υπολογισμοί να ετελεστούν τώρα;"
+    IDS_MAX_POINTS_INFORMATION_NOVALUE 
+                            "Δυστυχώς, το αρχείο %s στο φάκελο %s δεν μπορεί να φορτωθεί. Το αρχείο πρέπει να βρίσκεται στον ίδιο φάκελο με το παιχνίδι Number Shark."
+    IDS_TOOL_TIP_UNDO       "Με το ""Αναίρεση"" μπορείτε να επαναλάβετε προηγούμενους γύρους αν θέλετε να επιλέξετε άλλους αριθμούς."
+    IDS_TOOL_TIP_REDO       "Με το ""Επανάληψη"" μπορείτε να προχωρήσετε στο παιχνίδι με όσα βήματα αναιρέσατε προηγουμένως με το ""Αναίρεση""."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_TOOLTIP_BUTTON_LOADGAME "Άνοιγμα ενός προηγούμενου παιχνιδιού."
+    IDS_TOOLTIP_BUTTON_SAVEGAME "Αποθήκευση τρέχοντος παιχνιδιού."
     IDS_TAB_RADIO2          "Εμφάνιση του από πριν υπολογισμένου σκορ."
     IDS_SEARCH1             "NumberSharkSearch["
 END
 
 STRINGTABLE
 BEGIN
-    IDS_SEARCH2             " numbers].zha"
-    IDS_BUTTON_HELP         "Εμφανίζει τη βοήθεια για το παιχνίδι Number Shark."
-    IDS_WARNING_SHORT       "%s αριθμοί... Θα απαιτηθεί πολύς χρόνος.\n\nΘέλετε πραγματικά οι υπολογισμοί να ετελεστούν τώρα;"
-    IDS_MAX_POINTS_INFORMATION_NOVALUE
-                            "Δυστυχώς, το αρχείο %s στο φάκελο %s δεν μπορεί να φορτωθεί. Το αρχείο πρέπει να βρίσκεται στον ίδιο φάκελο με το παιχνίδι Number Shark."
-    IDS_TOOL_TIP_UNDO       "Με το ""Αναίρεση"" μπορείτε να επαναλάβετε προηγούμενους γύρους αν θέλετε να επιλέξετε άλλους αριθμούς."
-    IDS_TOOL_TIP_REDO       "Με το ""Επανάληψη"" μπορείτε να προχωρήσετε στο παιχνίδι με όσα βήματα αναιρέσατε προηγουμένως με το ""Αναίρεση""."
     IDS_MAX_POINTS_NEW_2    "Στους %s αριθμούς, για να υπολογιστεί το μέγιστο σκορ των %s πόντων, το πρόγραμμα χρειάστηκε %s δευτερόλεπτα. Έπρεπε να περάσει %s κόμβους.\n\nΟ μεγαλύτερος πρώτος εδώ είναι ο %s. Θα πρέπει να ξεκινήσετε με αυτόν για να μπορέσετε να φτάσετε το μέγιστο σκορ.\n\nΓια να πετύχετε το μέγιστο σκορ μπορείτε να επιλέξετε αριθμούς στην εξής σειρά: %s"
     IDS_SHELL_GROUP_BOX     "Κοχύλι (μπλε σημαίνει ""ελεύθερο ακόμη προς επιλογή"", γκρι σημαίνει ""ήδη δοσμένο και φαγωμένο"")"
     IDS_NORMAL_GROUP_BOX    "Κοχύλι τετράγωνο"
@@ -3357,53 +3634,52 @@ BEGIN
     IDS_SEPERATOR           ","
     IDS_TAB_HEADER4         "Συντομεύσεις"
     IDS_ACC_CHANGE          "SHIFT+ALT+C: Αλλάζει το στυλ των κουμπιών κοχυλιών.\r\n\r\n"
+    IDS_ACC_LOAD            "SHIFT+ALT+L: Ανοίγει ένα προηγούμενο παιχνίδι.\r\n\r\n"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_ACC_LOAD            "SHIFT+ALT+L: Ανοίγει ένα προηγούμενο παιχνίδι.\r\n\r\n"
     IDS_ACC_SAVE            "SHIFT+ALT+S: Αποθηκεύει το τρέχον παιχνίδι.\r\n\r\n"
-    IDS_PLAYER_WINS_OPTIMAL2
+    IDS_PLAYER_WINS_OPTIMAL2 
                             "Συγχαρητήρια, νικήσατε το Number Shark!\n\nΜε %s πόντους πετύχατε μεγαλύτερο σκορ κι από το δικό μας. Το δικό μας καλύτερο σκορ ήταν %s πόντοι με %s αριθμούς.\n\nΠαρακαλώ στείλτε την περίληψη του παιχνιδιού στη διεύθυνση esslinger@fb5.uni-siegen.de."
     IDS_PLAYER_WINS3        "Συγχαρητήρια, νικήσατε το Number Shark!\n\n Αν ψάχνετε για μια δυσκολότερη πρόκληση, δοκιμάστε έναν αριθμό μεγαλύτερο από το %s.\n\nΠετύχατε %s πόντους. Μέχρι στιγμής το καλύτερο σκορ που πετύχαμε με %s αριθμούς ήταν %s."
     IDS_NUMBER_ONE          "Το Number Shark νίκησε αυτή τη φορά :,-(\n\nΣας κέρδισε με %s προς %s πόντους.\n\nΔεν μπορείτε να νικήσετε με έναν μόνο αριθμό στα κοχύλια τετράγωνα.\n\n Δοκιμάστε ξανά!"
     IDS_LOAD_FAILED         "Το αρχείο ""%s"" δεν μπόρεσε να ανοίξει."
     IDS_ASK_FOR_USER_CANCELLATION "Θέλετε να ακυρώσετε τον υπολογισμό;"
-    IDS_SELECT_SEARCH_ALGORITHM
+    IDS_SELECT_SEARCH_ALGORITHM 
                             "Το Number Shark περιέχει δυο διαφορετικούς αλγόριθμους για τον καθορισμό του μέγιστου δυνατού σκορ: Ο αρχικός αλγόριθμος ωμής-βίας ενισχύθηκε από έναν νέο αλγόριθμο back-tracking.\n\nΧρησιμοποιώντας τον αλγόριθμο ωμής βίας, ένα PC στα 3 GHz για 20 αριθμούς θα έπρεπε να δουλεύει για περίπου 9 ώρες, για 22 αριθμούς οι υπολογισμοί χρειάζονται γύρω στις 9 μέρες. Για 30 αριθμούς πιστεύουμε πως θα απαιτούνταν εβδομάδες ή μήνες.\n\nΟ νέος αλγόριθμος είναι σημαντικά πιο γρήγορος.\n\nΘέλετε να χρησιμοποιηθεί ο νέος αλγόριθμος;"
-    IDS_GAME_DATA_FILE_MISSING
+    IDS_GAME_DATA_FILE_MISSING 
                             "Δεν βρέθηκε το αρχείο δεδομένων του παιχνιδιού (%s). Πρέπεο να βρίσκεται στον ίδιο φάκελο με το εκτελέσιμο του Number Shark.\n\nΧωρίς το αρχείο δεδομένων του παιχνιδιού κάποιες λειτουργίες δεν θα είναι διαθέσιμες."
-    IDS_BACKTRACKING_ALGORITHM_RESULT
+    IDS_BACKTRACKING_ALGORITHM_RESULT 
                             "Στους %s αριθμούς, για να υπολογιστεί το μέγιστο σκορ των %s πόντων, το πρόγραμμα χρειάστηκε %s δευτερόλεπτα.\n\nΟ μεγαλύτερος πρώτος εδώ είναι ο %s. Θα πρέπει να ξεκινήσετε με αυτόν για να μπορέσετε να φτάσετε το μέγιστο σκορ.\n\nΓια να πετύχετε το μέγιστο σκορ μπορείτε να επιλέξετε αριθμούς στην εξής σειρά: %s\n\n"
-    IDS_SEARCH_PROGRESS_TEXT_1
+    IDS_SEARCH_PROGRESS_TEXT_1 
                             "Ο Number Shark χρησιμοποιεί τον αλγόριθμο %s για να βρει το μέγιστο σκορ για τους %d αριθμούς."
     IDS_SEARCH_PROGRESS_TEXT_2 "Χρειάστηκαν: %d δευτερόλεπτα"
     IDS_ALGORITHM_BRUTE_FORCE "ωμή-βία"
     IDS_ALGORITHM_BACK_TRACKING "back-tracking"
     IDS_HEADING_NUMBER      "Αριθμός"
-    IDS_HEADING_SCORE       "Αποτέλεσμα"
 END
 
 STRINGTABLE
 BEGIN
+    IDS_HEADING_SCORE       "Αποτέλεσμα"
     IDS_HEADING_PROVED      "Βέλτιστο αποτέλεσμα;"
     IDS_PROVED_YES          "Αποδεδειγμένο"
     IDS_PROVED_NO           "Άγνωστο"
-    IDS_SHOW_SEQUENCE_FOR_THIS_SPECIFIC_SCORE
+    IDS_SHOW_SEQUENCE_FOR_THIS_SPECIFIC_SCORE 
                             "Αν επιλέξετε τον αριθμό %s, ένας τρόπος επίτευξης %s πόντων είναι η εξής ακολουθία:\n\n%s."
-    IDS_PRECALCULATED_SCORES_INTRO
+    IDS_PRECALCULATED_SCORES_INTRO 
                             "Για τους αριθμούς από 1 έως %d γνωρίζουμε τους βέλτιστους τρόπους νίκης.\r\nΓια μεγαλύτερους αριθμούς %d έως %d εμφανίζονται τα καλύτερα γνωστά αποτελέσματα όπως έχουν από πριν υπολογιστεί. Ωστόσο, δεν γνωρίζουμε αν αυτά τα αποτελέσαματα πάνω από το %d είναι βέλτιστα."
     IDS_NO_SCORE_SELECTED   "Παρακαλώ επιλέξτε πρώτα ένα αποτέλεσμα."
     IDS_HEADING_SEQUENCE_LENGTH "Μήκος ακολουθίας"
     IDS_HEADING_SEQUENCE    "Ακολουθία"
     IDS_ACC_TAB             "TAB: Μετάβαση στο επόμενο κοχύλι.\r\n\r\n"
     IDS_ACC_ENTER_OR_SPACE  "ENTER / SPACE: Επιλογή του τρέχοντος αριθμού μέσω πληκτρολογίου.\r\n\r\n"
-    IDS_TOOLTIP_BUTTON_LOADGAME "Άνοιγμα ενός προηγούμενου παιχνιδιού."
-    IDS_TOOLTIP_BUTTON_SAVEGAME "Αποθήκευση τρέχοντος παιχνιδιού."
 END
 
-#endif    // Greek resources
+#endif    // Greek (Greece) resources
 /////////////////////////////////////////////////////////////////////////////
+
 
 
 #ifndef APSTUDIO_INVOKED

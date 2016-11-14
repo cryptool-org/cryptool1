@@ -12,13 +12,11 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polish (Poland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
-#ifdef _WIN32
 LANGUAGE LANG_POLISH, SUBLANG_DEFAULT
 #pragma code_page(1250)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -164,7 +162,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_SPLASH, DIALOG
     BEGIN
@@ -242,7 +240,7 @@ AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\95check.bmp"
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "Inf&ormacje o AES-Tool..."
     IDS_STRING_DECRYPT      "Odszyfrowanie pliku"
@@ -257,7 +255,7 @@ BEGIN
     IDS_STRING_KEYERROR     "Niewlasciwy klucz lub uszkodzony plik %s."
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_STRING_ENCERROR     "Blad szyfrowania pliku: %s"
     IDS_STRING_VERSION      "Ten plik zostal zaszyfrowany za pomoca starszej wersji AES-Tool. \nProsze uzywac tej samej wersji do odszyfrowania."
@@ -269,23 +267,20 @@ BEGIN
                             "Klucz [maksymalnie 64 cyfr szesnastkowych (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]"
     IDS_STRING_KEY_HEADER_ASCII "Klucz [maksymalnie 32 znakσw]"
     IDS_STRING_AES_TOOL_HELP_PREFIX "Pomoc dla %s"
-    IDS_STRING_FILE_DELETION_FAILED 
-                            "Plik %s nie moze zostac usuniety."
+    IDS_STRING_FILE_DELETION_FAILED "Plik %s nie moze zostac usuniety."
     IDS_STRING_ENCRYPT_DECRYPT "Szyfrowanie lub odszyfrowywania pliku"
 END
 
-#endif    // Polish resources
+#endif    // Polish (Poland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Serbian (Latin) resources
+// Serbian (Latin, Serbia and Montenegro (Former)) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_SRL)
-#ifdef _WIN32
 LANGUAGE LANG_SERBIAN, SUBLANG_SERBIAN_LATIN
 #pragma code_page(1250)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -431,7 +426,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_SPLASH, DIALOG
     BEGIN
@@ -523,7 +518,7 @@ END
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "[i18n][SERBIAN] Inf&ormation about AES-Tool..."
     IDS_STRING_DECRYPT      "[i18n][SERBIAN] Decrypt a file"
@@ -538,7 +533,7 @@ BEGIN
     IDS_STRING_KEYERROR     "[i18n][SERBIAN] Wrong key or file %s corrupt."
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_STRING_ENCERROR     "[i18n][SERBIAN] File encryption error: %s"
     IDS_STRING_VERSION      "[i18n][SERBIAN] This file has been encrypted with an older version of AES-Tool. \nPlease use the same version for decrypting."
@@ -555,7 +550,7 @@ BEGIN
     IDS_STRING_ENCRYPT_DECRYPT "[i18n][SERBIAN] Encrypt or decrypt a file"
 END
 
-#endif    // Serbian (Latin) resources
+#endif    // Serbian (Latin, Serbia and Montenegro (Former)) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
@@ -563,10 +558,8 @@ END
 // German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
-#ifdef _WIN32
 LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -715,7 +708,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_ABOUTBOX, DIALOG
     BEGIN
@@ -787,7 +780,7 @@ END
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "Inf&o όber AES-Tool..."
     IDS_STRING_DECRYPT      "Entschlόsseln einer Datei"
@@ -802,7 +795,7 @@ BEGIN
     IDS_STRING_KEYERROR     "Falscher Schlόssel oder Datei %s beschδdigt."
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_STRING_ENCERROR     "Fehler beim Verschlόsseln: %s"
     IDS_STRING_VERSION      "Diese Datei wurde mit einer δlteren Version von AES-Tool verschlόsselt.\nBitte verwenden Sie diese auch zum Entschlόsseln."
@@ -824,13 +817,164 @@ END
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// French (France) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_FRA)
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Information about AES-Tool"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "AES-Tool 2.7",IDC_AES_TOOL_VERSION,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2014",IDC_STATIC1,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 382, 205
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "AES-Tool 2.7"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_KEY_HEX,26,67,340,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SRC,26,105,273,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
+    PUSHBUTTON      "Search...",IDC_BUTTON_SRC,306,102,60,18
+    CONTROL         "Self-extracting and encrypted",IDC_RADIO_EXE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,155,130,10
+    CONTROL         "Encrypted",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,170,155,80,10
+    PUSHBUTTON      "Exit",IDCANCEL,254,180,60,18
+    PUSHBUTTON      "Help",IDC_BUTTON3,315,180,60,18
+    LTEXT           "Encrypt or decrypt a file",IDC_STATIC_TITLE,17,9,80,8
+    GROUPBOX        "Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",IDC_KEY_HEADER,15,28,360,58
+    GROUPBOX        "Input file",IDC_STATIC,15,92,360,45
+    GROUPBOX        "Output format",IDC_STATIC,15,143,360,30
+    CONTROL         "Show entered key",IDC_CHECK_SHOW_PASSWORD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,42,73,10
+    CONTROL         "Enter key as hex",IDC_CHECK_ENTER_PASSWORD_AS_HEX,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,53,69,10
+    EDITTEXT        IDC_EDIT_KEY_ASCII,26,67,340,12,ES_AUTOHSCROLL
+    CONTROL         "Securely delete input file after encryption",IDC_CHECK_SECURELY_DELETE_SOURCE_FILE_AFTER_ENCRYPTION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,121,143,10
+    PUSHBUTTON      "Encrypt",IDC_BUTTON_ENCRYPT,15,180,62,18
+    PUSHBUTTON      "Decrypt",IDC_BUTTON_DECRYPT,79,180,62,18
+END
+
+IDD_HELP DIALOGEX 0, 0, 500, 350
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Help for AES-Tool 2.7"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,209,329,50,14
+    LTEXT           "AES-Tool is an encryption program that can be used to encrypt files using the symmetric and license-free Rijndael algorithm (= AES).",IDC_STATIC,12,9,476,10
+    LTEXT           "The program can be invoked in three different ways:",IDC_STATIC,12,21,476,11
+    LTEXT           "These parameters are:",IDC_STATIC,24,42,464,10
+    LTEXT           "Key:",IDC_STATIC,24,52,38,8
+    LTEXT           "Input file:",IDC_STATIC,24,70,38,8
+    LTEXT           "Output file:",IDC_STATIC,24,107,38,19
+    LTEXT           "The key can be entered as either HEX or ASCII characters (see check box ""Enter key as hex""). In hex mode the maximum key length is 256 bits (64 HEX characters), in ASCII mode the key is derived from the password with regards to PKCS#5 (SHA256).",IDC_STATIC,62,52,426,18
+    LTEXT           "The input file contains the data to be encrypted or decrypted. If a file is chosen that was encrypted with this program, then the program will be automatically set to decryption mode. Otherwise the program will stay in encryption mode.",IDC_STATIC,62,70,426,16
+    LTEXT           "The output file name and directory can be determined after pressing the ""Encrypt""/""Decrypt"" button. \nWhen encrypting you can select between two output formats via ""radio buttons"":",IDC_STATIC,62,107,426,19
+    LTEXT           "A 'self extracting archive' is a file containing data and at the same time it is a program. This program has the same functionality as AES-Tool and can be used to decrypt the data and store it in a file (after the correct password has been entered).",IDC_STATIC,69,125,419,19
+    LTEXT           "An 'encrypted file' contains the encrypted data only. Then the AES-Tool program is required for decryption.",IDC_STATIC,69,142,419,11
+    LTEXT           "The second way to invoke the program is with command line parameters. These can be specified either by position or by key word. If all",IDC_STATIC,24,156,425,8
+    LTEXT           "AESTool <Input file> <Output file> <key>",IDC_STATIC,62,177,426,10
+    LTEXT           "AESTool -i <Input file> -o <Output file> -k <Key>",IDC_STATIC,62,187,426,10
+    LTEXT           "The third possibility for program invocation is the self extracting archive. The output file name here is being preset by the self extracting archive.",IDC_STATIC,24,228,464,15
+    LTEXT           "With a normal start by clicking the icon, all necessary parameters can be entered into a dialog box.",IDC_STATIC,24,33,464,9
+    LTEXT           "1.",IDC_STATIC,12,33,12,9
+    LTEXT           "2.",IDC_STATIC,12,156,12,11
+    LTEXT           "3.",IDC_STATIC,12,228,12,11
+    RTEXT           "-",IDC_STATIC,56,126,8,19
+    RTEXT           "-",IDC_STATIC,56,145,8,11
+    LTEXT           "The program determines automatically if the input file is encrypted and then decrypts it. Otherwise the program encrypts it accordingly.",IDC_STATIC,24,198,464,8
+    LTEXT           "parameters are entered no user interaction is required, otherwise a window pops up and the remaining data can be entered interactively.",IDC_STATIC,24,164,426,8
+    LTEXT           "The exit code reflects the program's success: 0: everything OK; 1: an error occurred, an error message is displayed on stderr.",IDC_STATIC,24,214,391,8
+    LTEXT           "The output file's extension determines the encryption format: .EXE: self extracting archive, others: ordinary encrypted file.",IDC_STATIC,24,206,464,9
+    LTEXT           "Please note to check the origin before calling self extracting archives.\nIt is recommendable to always keep antivirus and operating system software up to date.",IDC_STATIC,12,286,476,18
+    LTEXT           "You can also select the input file with the mouse (drag and drop) by dragging it from the Windows Explorer into the field ""Input file"", and you can choose to delete it after encryption if necessary.",IDC_STATIC,62,86,426,16
+    LTEXT           "Self extracting archives (extension EXE) can be 4 GB large at most, that means the file to be encrypted must be a bit smaller than 4 GB.\nHowever, if you create an encrypted AES file, the file to be encrypted can be larger than 4 GB.",IDC_STATIC,12,256,476,16
+END
+
+IDD_SPLASH DIALOGEX 0, 0, 211, 122
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Warning"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,47,101,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,113,101,50,14
+    LTEXT           "You just started executable code that was probably presented to you by a third party.\nThis procedure is usually NOT ADVISABLE as you could import harmful code to your computer.",IDC_STATIC,7,7,197,35
+    LTEXT           "Generally it is advisable to use good precaution when starting code presented by third parties. Otherwise damages inflicted by viruses, trojans etc. can not be completely ruled out.",IDC_STATIC,7,45,197,40
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_AESTOOL_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 375
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 198
+    END
+
+    IDD_HELP, DIALOG
+    BEGIN
+        LEFTMARGIN, 12
+        RIGHTMARGIN, 488
+        VERTGUIDE, 24
+        VERTGUIDE, 62
+        VERTGUIDE, 69
+        VERTGUIDE, 268
+        TOPMARGIN, 12
+        BOTTOMMARGIN, 343
+        HORZGUIDE, 22
+        HORZGUIDE, 33
+        HORZGUIDE, 42
+        HORZGUIDE, 52
+        HORZGUIDE, 70
+    END
+
+    IDD_SPLASH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 204
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 115
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // French (France) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United Kingdom) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
-#ifdef _WIN32
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -976,7 +1120,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_SPLASH, DIALOG
     BEGIN
@@ -1080,7 +1224,7 @@ END
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "Inf&ormation about AES-Tool..."
     IDS_STRING_DECRYPT      "Decrypt a file"
@@ -1095,7 +1239,7 @@ BEGIN
     IDS_STRING_KEYERROR     "Wrong key or file %s corrupt."
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_STRING_ENCERROR     "File encryption error: %s"
     IDS_STRING_VERSION      "This file has been encrypted with an older version of AES-Tool. \nPlease use the same version for decrypting."
@@ -1111,18 +1255,16 @@ BEGIN
     IDS_STRING_ENCRYPT_DECRYPT "Encrypt or decrypt a file"
 END
 
-#endif    // English (U.K.) resources
+#endif    // English (United Kingdom) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Spanish resources
+// Spanish (Spain, International Sort) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ESN)
-#ifdef _WIN32
 LANGUAGE LANG_SPANISH, SUBLANG_SPANISH_MODERN
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1268,7 +1410,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_ABOUTBOX, DIALOG
     BEGIN
@@ -1329,7 +1471,7 @@ AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\95check.bmp"
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "[i18n][SPANISH] Inf&ormation about AES-Tool..."
     IDS_STRING_DECRYPT      "[i18n][SPANISH] Decrypt a file"
@@ -1344,7 +1486,7 @@ BEGIN
     IDS_STRING_KEYERROR     "[i18n][SPANISH] Wrong key or file %s corrupt."
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_STRING_ENCERROR     "[i18n][SPANISH] File encryption error: %s"
     IDS_STRING_VERSION      "[i18n][SPANISH] This file has been encrypted with an older version of AES-Tool. \nPlease use the same version for decrypting."
@@ -1361,18 +1503,16 @@ BEGIN
     IDS_STRING_ENCRYPT_DECRYPT "[i18n][SPANISH] Encrypt or decrypt a file"
 END
 
-#endif    // Spanish resources
+#endif    // Spanish (Spain, International Sort) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Greek resources
+// Greek (Greece) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ELL)
-#ifdef _WIN32
 LANGUAGE LANG_GREEK, SUBLANG_DEFAULT
 #pragma code_page(1253)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1597,19 +1737,19 @@ AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\95check.bmp"
 // TEXTINCLUDE
 //
 
-2 TEXTINCLUDE
+2 TEXTINCLUDE 
 BEGIN
     "#include ""resource.h""\r\n"
     "#include ""afxres.h""\r\0"
 END
 
-3 TEXTINCLUDE
+3 TEXTINCLUDE 
 BEGIN
     "\r\n"
     "\0"
 END
 
-1 TEXTINCLUDE
+1 TEXTINCLUDE 
 BEGIN
     "resource.h\0"
 END
@@ -1645,7 +1785,7 @@ BEGIN
     IDS_STRING_CORRUPT      "Το κρυπτογραφημένο αρχείο δεν είναι αναγνώσιμο."
     IDS_STRING_INVALID_KEY  "Μη επιτρεπτός χαρακτήρας στο συνθηματικό. Παρακαλώ χρησιμοποιήστε μόνο 0-9, a-f, A-F."
     IDS_STRING_KEY_TOO_LONG "Πολύ μεγάλο συνθηματικό. Το μέγιστο μήκος κλειδιού στον AES είναι 256 bits (= 32 bytes = 64 δεκαεξαδικά ψηφία)."
-    IDS_STRING_KEY_HEADER_HEX
+    IDS_STRING_KEY_HEADER_HEX 
                             "Συνθηματικό [το πολύ 64 δεκαεξαδικά ψηφία (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]"
     IDS_STRING_KEY_HEADER_ASCII "Συνθηματικό [το πολύ 32 χαρακτήρες]"
     IDS_STRING_AES_TOOL_HELP_PREFIX "Βοήθεια για %s"
@@ -1653,8 +1793,9 @@ BEGIN
     IDS_STRING_ENCRYPT_DECRYPT "Κρυπτογράφηση ή αποκρυπτογράφηση αρχείου"
 END
 
-#endif    // Greek resources
+#endif    // Greek (Greece) resources
 /////////////////////////////////////////////////////////////////////////////
+
 
 
 #ifndef APSTUDIO_INVOKED
