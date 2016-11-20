@@ -1417,6 +1417,10 @@
     <None Include="res\afx_idb_.bmp" />
     <None Include="res\bmp00001.bmp" />
     <None Include="res\bmp00002.bmp" />
+    <None Include="res\bmp00003.bmp" />
+    <None Include="res\bmp00004.bmp" />
+    <None Include="res\bmp00005.bmp" />
+    <None Include="res\bmp00006.bmp" />
     <None Include="res\bmp26567.bmp" />
     <None Include="res\help.cur" />
     <None Include="res\idr_main.ico" />

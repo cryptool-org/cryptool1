@@ -792,6 +792,9 @@
     <ClInclude Include="zhl.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="bilder\bitmap_n.bmp" />
+    <None Include="bilder\bmp00007.bmp" />
+    <None Include="bilder\bmp00008.bmp" />
     <None Include="resource.hm" />
     <None Include="Bilder\backward-engl.bmp" />
     <None Include="Bilder\backward.bmp" />

@@ -1901,6 +1901,44 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 //
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,2,3,0
+ PRODUCTVERSION 1,2,3,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040704e4"
+        BEGIN
+            VALUE "FileDescription", "NumberShark"
+            VALUE "FileVersion", "1.2.3"
+            VALUE "InternalName", "NumberShark.exe"
+            VALUE "LegalCopyright", "Contributors © 1998-2013"
+            VALUE "OriginalFilename", "NumberShark.exe"
+            VALUE "ProductName", "NumberShark"
+            VALUE "ProductVersion", "1.2.3"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x407, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
 // DESIGNINFO
 //
 
@@ -1998,6 +2036,253 @@ BEGIN
     END
 END
 #endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP_NUMBERSHARK_01 BITMAP                  "bilder\\bitmap_n.bmp"
+IDB_BITMAP_NUMBERSHARK_02 BITMAP                  "bilder\\bmp00001.bmp"
+IDB_BITMAP_NUMBERSHARK_03 BITMAP                  "bilder\\bmp00002.bmp"
+IDB_BITMAP_NUMBERSHARK_04 BITMAP                  "bilder\\bmp00003.bmp"
+IDB_BITMAP_NUMBERSHARK_05 BITMAP                  "bilder\\bmp00004.bmp"
+IDB_BITMAP_NUMBERSHARK_06 BITMAP                  "bilder\\bmp00005.bmp"
+IDB_BITMAP_NUMBERSHARK_07 BITMAP                  "bilder\\bmp00006.bmp"
+IDB_BITMAP_NUMBERSHARK_08 BITMAP                  "bilder\\bmp00007.bmp"
+IDB_BITMAP_NUMBERSHARK_09 BITMAP                  "bilder\\bmp00008.bmp"
+IDB_BITMAP_REDO         BITMAP                  "bilder\\bitmap_r.bmp"
+IDB_BITMAP_UNDO         BITMAP                  "bilder\\bitmap_u.bmp"
+IDB_BITMAP1             BITMAP                  "bilder\\bitmap1.bmp"
+IDB_BITMAP2             BITMAP                  "bilder\\bitmap2.bmp"
+IDB_BITMAP3             BITMAP                  "bilder\\bitmap3.bmp"
+IDB_BITMAP8             BITMAP                  "bilder\\bitmap8.bmp"
+IDB_BITMAP9             BITMAP                  "bilder\\bitmap9.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "bilder\\idr_main.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCELERATOR1 ACCELERATORS
+BEGIN
+    "N",            ID_GIVE_REST,           VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "C",            ID_ACCELERATOR_CHANGESTYLE, VIRTKEY, SHIFT, ALT, NOINVERT
+    "L",            ID_ACCELERATOR_LOADGAME, VIRTKEY, SHIFT, ALT, NOINVERT
+    "S",            ID_ACCELERATOR_SAVEGAME, VIRTKEY, SHIFT, ALT, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "&Information about the Number Shark"
+    IDS_RULES               "Description:\r\n - At the beginning of the Number Shark game you choose the size of the shell square, this is the amount of numbers you want to play with.\r\n    We name the size of the shell square with ""n"" and call it the ""count of selectable numbers"". The pool of numbers starts with 1\r\n    and ends with the number which you have chosen for the size of the shell square (we suggest the number 20 for the beginning).\r\n    After that all numbers from the shell square will be given to either you or the computer (""Number Shark"").\r\n    You can read the rules of how the numbers are divided below in the text.\r\n - By default, there are 20 numbers in the shell square. As total number you can select every number from 1 to 9999 for n.\r\n\r\nGoal of the game:\r\n - It is your goal to achieve a higher score than the sum of the numbers that were eaten by the Number Shark.\r\n\r\nRules:\r\n - You always have the first turn, i.e. you are starting the first round.\r\n - In this round you can choose any of the n numbers from the shell square.\r - The Number Shark gets every available real factor of the number selected by you, if they have not been chosen yet\r\n    (6 for example is divisible by 1, 2, 3 and 6. The real factors are 1, 2 and 3).\r\n - In all subsequent rounds you can only choose numbers which have not been chosen by you,\r\n    or were eaten by the Number Shark in previous rounds (i.e. only the blue shells).\r\n - BUT: The Number Shark may never miss out!\r\n - If you choose a number which has no more factors, then the Number Shark gets your chosen number and you get 0 points in this round.\r\n\r\n"
+    IDS_PLAYER_WINS         "Congratulation, you have won against the Number Shark!\n\n If you are looking for a bigger challenge, then try a higher number than %s.\n\nYou achieved %s points. The highest possible score with %s numbers would have been %s."
+    IDS_VERSION_INFO        "Number Shark Version 1.2.3"
+    IDS_COMPUTER_WINS       "This time the Number Shark won :,-(\n\n It has beaten you with %s to %s points.\n\n Go -- Try again!"
+    IDS_DRAW                "Draw!?!\n\nThis happens only very seldom!\n\nYou and the Number Shark have %s points each."
+    IDS_MAX_POINTS_NEW      "To calculate for %s numbers the highest score of %s points, the program spent %s seconds. It had to pass through %s knots.\n\nThe highest prime number here is %s. You must start the game with this prime to be able to reach the maximum score.\n\nTo achieve the highest score, you can choose the numbers in this order: %s"
+    IDS_MAX_POINTS_INFORMATION 
+                            "The highest attainable score at %s numbers is %s.\n\nWe can show you the highest possible score, because this value has already been calculated and is stored in the program.\n\nHint: The highest prime with %s numbers is %s. You have to start the game with this prime to be able to reach the maximum score.\n\nDo you want to see an optimal way to achieve this score?"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_TOOLTIP_BUTTON_LOADGAME "Loads an existing game."
+    IDS_TOOLTIP_BUTTON_SAVEGAME "Saves the current game."
+    IDS_TAB_RADIO2          "Show the best known scores."
+    IDS_SEARCH1             "NumberSharkSearch["
+    IDS_TOOLTIP_BUTTON_SWITCH_STYLE 
+                            "Changes the display style (shells or numbers)."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_QUESTION            "Do you want the program to calculate the highest possible score?"
+    IDS_WARNING             "%s numbers... This will take a long time.\n\nUsing a brute-force algorithm, for 20 numbers a 3 GHz PC had to calculate about 9 hours, for 22 numbers the calculation took about 9 days. And we believe for 30 numbers it will take weeks or months.\n\nIf you get some new results for %s numbers, we would appreciate it if you could send them to us.\n\nDo you really want the calculation to be performed now?"
+    IDS_INVALID_INPUT       "In the Number Shark game you can play with numbers between 1 and %s!"
+    IDS_ZUG                 "Move"
+    IDS_SPIELER             "Your\nchoice"
+    IDS_HAI                 "Number Shark's\nchoice"
+    IDS_SPIELER_PUNKTE      "Your\npoints"
+    IDS_HAI_PUNKTE          "Number Shark's\npoints"
+    IDS_REST                "Remaining\nnumbers"
+    IDS_PLAYER_WINS_2       "Congratulation, you have won against the Number Shark!\n\nIf you are looking for a bigger challenge, then try a higher number than %s.\n\nYou achieved %s points."
+    IDS_BUTTON_STARTNEW     "Start a new game."
+    IDS_BUTTON_END          "Finish the game."
+    IDS_BUTTON_RULES        "Read the rules."
+    IDS_BUTTON_OK           "Start the game with the selected number pool."
+    IDS_BUTTON_MAX_POINTS   "Calculate the highest possible score which you can achieve with this number pool."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_BUTTON_OPTION       "Show the game options."
+    IDS_BUTTON_REST         "The Number Shark eats all numbers from which you can't get any more points. The Number Shark could eat the following numbers at once: %s"
+    IDS_EDIT4               "This value contains all numbers added up."
+    IDS_MAX_POINTS_HEADLINE "Highest possible score"
+    IDS_DRAW_HEADLINE       "Draw!"
+    IDS_COMPUTER_WINS_HEADLINE "You didn't win!"
+    IDS_PLAYER_WINS_HEADLINE "You have won!"
+    IDS_LOGFILE_DATE        "\r\n\r\nDate/Time:                   "
+    IDS_LOGFILE_NAME        "\r\n\r\nPlayer's name:               "
+    IDS_LOGFILE_POINTS_PLAYER "\r\n\r\nPlayer's points:             "
+    IDS_LOGFILE_POINTS_COMPUTER "\r\nNumber Shark points:         "
+    IDS_LOGFILE_ROUNDS      "\r\nRequired moves:              "
+    IDS_VALID_INPUT_HEADLINE "The entered number is too big!"
+    IDS_RULES_HEADLINE      "Game rules / game description"
+    IDS_LOGFILE_HEADLINE    "\r\n\r\nThis file shows you every single move and the score of both players.\r\nThe chart contains the same information as the ""course of the game"" chart in the game dialog.\r\n\r\n"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_TOOL_TIP_TEXT       "%s\nThis time he would eat: %s\n%s"
+    IDS_LOGFILE_MAXPOINTS   "\r\nHighest possible score for you:"
+    IDS_GAME_IDEA           "It's a savvy game for one or more players from age 10.\n\nPlay time: You shouldn't need more than 3 minutes for 20 numbers, but 9,999 numbers might take you more than a year."
+    IDS_PRIME               "(prime)"
+    IDS_LOGFILE_LOCATION    "\r\nThe summary of the game has been saved as %s to this folder: %s\r\n\r\n"
+    IDS_TOOL_TIP_TEXT_NO_FACTORS "%s\nNo more factors left!\n%s"
+    IDS_FILE_NAME           "Summary.txt"
+    IDS_PLAYER_WINS_OPTIMAL "Congratulation, you have won against the Number Shark!\n\nWith %s points you even achieved the highest possible score with %s numbers.\n\nIf you are looking for a bigger challenge, then try a higher number than %s."
+    IDS_SUM_TEXT            "With %s numbers: %s points can be assigned in total to you and to the Number Shark."
+    IDS_LOGFILE_NUMBERS     "\r\n\r\nNumber pool:                 "
+    IDS_RULES_2             "While playing the game you can make the shells on the buttons visible and invisible by pressing SHIFT+ALT+C on your keyboard.\r\nThis can help you to read the numbers on the buttons better and to make the game a bit faster.\r\n\r\nYou can get additional help and information by pressing the F1 button.\r\n\r\nThe online help contains a operation manual, a commented sample game course, some information about how the game was developed,\r\nand a challenge for you, which gives you the chance to help us improve the game.\r\n"
+    IDS_MAX_POINTS_INFORMATION2 
+                            "For %s numbers, the highest attainable score is %s.\n\nWe can show you the highest possible score, because this value has already been calculated and is stored in the program.\n\nOne way to achieve the highest possible score is: %s."
+    IDS_DISCLAIMER_TEXT     "Please note the terms of license and the information regarding non \r\nliability for any damage arising from the use of the Number Shark program.\r\n(C) CrypTool Project 2013"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MAX_POINTS_HEADLINE2 "Maximum number of points and an optimal way"
+    IDS_INFO_TEXT           "The Number Shark program was created as an addition to the freeware\r\nand open source project CrypTool: www.cryptool.com"
+    IDS_PRIME_INFO          "(prime)"
+    IDS_REG_TRUE            "true"
+    IDS_SHARK_AGAINST       " against "
+    IDS_GAME_DATA           "GameData.txt"
+    IDS_HELP_FILE           "NumberShark-en.chm::/NumberShark.html"
+    IDS_TITLE_VERSION       " - Version 1.2.3"
+    IDS_NUMBER_SHARK        "Number Shark"
+    IDS_OPTIONS_HEAD_TEXT   "To start immediately just press ""Enter"" or press the  ""To the game""  button."
+    IDS_OPTIONS_TOOLTIPS    "Activate the tooltips for the shells\r\n[If you place the cursor a bit longer over one of the blue shells (the ones with the still active numbers), a little window (tooltip) opens and provides you with information, e.g. the factors still available for this number]."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_OPTIONS_SHOW_DIALOG "Show the ""Game options"" dialog at the next program start."
+    IDS_OPTIONS_SHOW_NUMBERS 
+                            "Remember the last total number of the number stack for the next program start."
+    IDS_OPTIONS_MAX_POINTS  "Here you can calculate the maximum score for your selected number stack of %s numbers. But this might take a while...\r\n\r\nInstead, we could immediately show you the scores we have precalculated already."
+    IDS_STRING_PT           ","
+    IDS_MAX_POINTS_OLD      "To calculate for %d numbers the highest score of %d points, the program spent %d seconds. It had to pass through %I64d knots.\n\nThe highest prime number here is %d. You must start the game with this prime to be able to reach the maximum score.\n\nTo achieve the highest score you can choose the numbers in this order: %s"
+    IDS_TOOL_TIP_NUMBER     "Number: %s"
+    IDS_TOOL_TIP_ISFACTOR   "Is a factor of: %s"
+    IDS_START_INFO          "Now you can choose one of the shells to start with the game."
+    IDS_LOG_LEAD            "\r\nYour lead:                   "
+    IDS_LOG_BEHIND          "\r\nBehind:                      "
+    IDS_SPRACHE             "EN"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_LED_WIN             "You have won!"
+    IDS_LED_LOST            "You have lost!"
+    IDS_LED_DRAW            "DRAW!"
+    IDS_ZUG2                "Move"
+    IDS_SPIELER2            "Your choice"
+    IDS_HAI2                "Number Shark's choice"
+    IDS_SPIELER_PUNKTE2     "Your points"
+    IDS_HAI_PUNKTE2         "Number Shark's points"
+    IDS_REST2               "Remaining numbers"
+    IDS_ISNOT_FACTOR        "Does not divide any other number."
+    IDS_RADIO_EDIT1         "Yes\r\nas ""%s"" in the folder\r\n""%s"". "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_RADIO_EDIT2         "No."
+    IDS_TAB_HEADER1         "Welcome"
+    IDS_TAB_HEADER2         "Standard"
+    IDS_TAB_HEADER3         "Maximum score"
+    IDS_TAB_RADIO1          "Calculate the maximum score."
+    IDS_SEARCH2             " numbers].zha"
+    IDS_BUTTON_HELP         "Shows you the help for the Number Shark game."
+    IDS_WARNING_SHORT       "%s numbers... This will take a long time.\n\nDo you really want the calculation to be performed now?"
+    IDS_MAX_POINTS_INFORMATION_NOVALUE 
+                            "Unfortunately, the file %s in directory %s could not be loaded. The file must be located in the same folder like the Number Shark game."
+    IDS_TOOL_TIP_UNDO       "With ""Undo"" you can repeat previous rounds if you want to choose other numbers."
+    IDS_TOOL_TIP_REDO       "With ""Redo"" you can go forward through the game as many steps as you went back in the game via ""Undo""."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MAX_POINTS_NEW_2    "To calculate for %s numbers the highest score of %s points, the program spent %s seconds. It had to pass through %s knots.\n\nThe highest prime number here is %s. You must start the game with this prime to be able to reach the maximum score.\n\nTo achieve the highest score, you can choose the numbers in this order: %s"
+    IDS_SHELL_GROUP_BOX     "Shell square (blue means ""still free to choose""; gray means ""already distributed and eaten up"")"
+    IDS_NORMAL_GROUP_BOX    "Shell square"
+    IDS_NO_SEARCH           "The file ""%s"" could not be written. Probably you do not have enough rights in the folder\r\n""%s"".\r\n\r\nThe calculation will be started anyway, but can't be continued after a break. "
+    IDS_NO_SUMMARY          "The file ""%s"" could not be written. Probably you do not have enough rights in the folder\r\n""%s"".\r\n"
+    IDS_VALID_INPUT_HEADLINE_LOW "The entered number is to low."
+    IDS_LOGFILE_PLAYER_NUMBERS "\r\nYour chosen numbers: "
+    IDS_SEPERATOR           ","
+    IDS_TAB_HEADER4         "Shortcuts"
+    IDS_ACC_CHANGE          "SHIFT + ALT + C: Changes the style of the buttons in the shell square.\r\n\r\n"
+    IDS_ACC_LOAD            "SHIFT + ALT + L: Loads an existing game.\r\n\r\n"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ACC_SAVE            "SHIFT + ALT + S: Saves the current game.\r\n\r\n"
+    IDS_PLAYER_WINS_OPTIMAL2 
+                            "Congratulation, you have won against the Number Shark!\n\nWith %s points you even achieved a higher score than we did. Our best score was %s points with %s numbers.\n\nPlease send the summary of the game to esslinger@fb5.uni-siegen.de."
+    IDS_PLAYER_WINS3        "Congratulation, you have won against the Number Shark!\n\n If you are looking for a bigger challenge, then try a higher number than %s.\n\nYou achieved %s points. Until now the highest score we achieved with %s numbers was %s."
+    IDS_NUMBER_ONE          "This time the Number Shark won :,-(\n\nIt has beaten you with %s to %s points.\n\nYou can't win with only one number in the shell square.\n\n Go -- Try again!"
+    IDS_LOAD_FAILED         "The file ""%s"" could not be loaded."
+    IDS_ASK_FOR_USER_CANCELLATION "Do you want to cancel the calculation?"
+    IDS_SELECT_SEARCH_ALGORITHM 
+                            "The Number Shark contains two different algorithms to determine the maximum number of points possible: The originally available brute-force algorithm was complemented by a new back-tracking algorithm.\n\nUsing the brute-force algorithm, a 3 GHz PC had to calculate about 9 hours for 20 numbers. For 22 numbers the calculation took about 9 days. And we believe it will take weeks or months for 30 numbers.\n\nThe new algorithm is considerably faster.\n\nDo you want to use the new algorithm?"
+    IDS_GAME_DATA_FILE_MISSING 
+                            "The game data file (%s) was not found. It needs to be placed in the same folder as the Number Shark executable.\n\nWithout the game data file some functions will remain unavailable."
+    IDS_BACKTRACKING_ALGORITHM_RESULT 
+                            "To calculate for %s numbers the highest score of %s points, the program spent %s seconds.\n\nThe highest prime number here is %s. You should start the game with this prime to be able to reach the maximum score.\n\nTo achieve the highest score, you can choose the numbers in this order: %s\n\n"
+    IDS_SEARCH_PROGRESS_TEXT_1 
+                            "The Number Shark is using a %s algorithm to find the highest possible score for %d numbers."
+    IDS_SEARCH_PROGRESS_TEXT_2 "Elapsed time: %d seconds"
+    IDS_ALGORITHM_BRUTE_FORCE "brute-force"
+    IDS_ALGORITHM_BACK_TRACKING "back-tracking"
+    IDS_HEADING_NUMBER      "Number"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HEADING_SCORE       "Result"
+    IDS_HEADING_PROVED      "Result optimal?"
+    IDS_PROVED_YES          "Proven"
+    IDS_PROVED_NO           "Unknown"
+    IDS_SHOW_SEQUENCE_FOR_THIS_SPECIFIC_SCORE 
+                            "If you choose the number %s, one way to achieve %s points is the following sequence:\n\n%s."
+    IDS_PRECALCULATED_SCORES_INTRO 
+                            "For numbers 1 through %d we know optimal ways to win.\r\nFor the higher numbers %d through %d we show the best known results already precalculated. However, we don't know whether these results from %d up are optimal."
+    IDS_NO_SCORE_SELECTED   "Please select a result first."
+    IDS_HEADING_SEQUENCE_LENGTH "Sequence length"
+    IDS_HEADING_SEQUENCE    "Sequence"
+    IDS_ACC_TAB             "TAB: Selects the next shell within the shown number block (of one tab).\r\n\r\n"
+    IDS_ACC_ENTER_OR_SPACE  "ENTER / SPACE: Choose the number of the selected shell via keyboard.\r\n\r\n"
+END
 
 #endif    // French (France) resources
 /////////////////////////////////////////////////////////////////////////////

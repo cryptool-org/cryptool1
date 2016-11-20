@@ -749,6 +749,16 @@ END
 #endif    // APSTUDIO_INVOKED
 
 
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+AFX_IDB_CHECKLISTBOX_NT BITMAP                  "res\\afx_idb_.bmp"
+26567                   BITMAP                  "res\\bmp26567.bmp"
+AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\bmp00001.bmp"
+AFX_IDB_MINIFRAME_MENU  BITMAP                  "res\\bmp00005.bmp"
+
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -822,6 +832,15 @@ END
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_FRA)
 LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
 #pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\idr_main.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -916,6 +935,44 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 //
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,6,0,0
+ PRODUCTVERSION 2,6,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080904b0"
+        BEGIN
+            VALUE "FileDescription", "AES-Tool"
+            VALUE "FileVersion", "2.7"
+            VALUE "InternalName", "aestool"
+            VALUE "LegalCopyright", "Contributors © 2002-2014"
+            VALUE "OriginalFilename", "aestool.exe"
+            VALUE "ProductName", "AES-Tool"
+            VALUE "ProductVersion", "2.7"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x809, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
 // DESIGNINFO
 //
 
@@ -964,6 +1021,53 @@ BEGIN
     END
 END
 #endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+AFX_IDB_CHECKLISTBOX_NT BITMAP                  "res\\bmp00002.bmp"
+26567                   BITMAP                  "res\\bmp00003.bmp"
+AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\bmp00004.bmp"
+AFX_IDB_MINIFRAME_MENU  BITMAP                  "res\\bmp00006.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "Inf&ormation about AES-Tool..."
+    IDS_STRING_DECRYPT      "Decrypt a file"
+    IDS_STRING_ENCRYPT      "Encrypt a file"
+    IDS_STRING_DECERROR     "File decryption error: %s"
+    IDS_STRING_ENCOK        "The encrypted file %s has been successfully created."
+    IDS_STRING_DECOK        "The decrypted file %s has been successfully created."
+    IDS_STRING_VERSCHLUESSELN "Encrypt"
+    IDS_STRING_ENTSCHLUESSELN "Decrypt"
+    IDS_STRING_FILEERROR    "Error opening %s: %s\n"
+    IDS_STRING_NOMEMORY     "Out of virtual memory."
+    IDS_STRING_KEYERROR     "Wrong key or file %s corrupt."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING_ENCERROR     "File encryption error: %s"
+    IDS_STRING_VERSION      "This file has been encrypted with an older version of AES-Tool. \nPlease use the same version for decrypting."
+    IDS_STRING_AES_TOOL_VERSION "AES-Tool 2.7"
+    IDS_STRING_CORRUPT      "This encrypted file is corrupt."
+    IDS_STRING_INVALID_KEY  "Invalid character in key. Please use only 0-9,a-f,A-F."
+    IDS_STRING_KEY_TOO_LONG "Key too long. Maximum AES key length is 256 bits (= 32 bytes = 64 hexadecimal digits)."
+    IDS_STRING_KEY_HEADER_HEX 
+                            "Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]"
+    IDS_STRING_KEY_HEADER_ASCII "Key [at most 32 characters]"
+    IDS_STRING_AES_TOOL_HELP_PREFIX "Help for %s"
+    IDS_STRING_FILE_DELETION_FAILED "The file %s could not be deleted."
+    IDS_STRING_ENCRYPT_DECRYPT "Encrypt or decrypt a file"
+END
 
 #endif    // French (France) resources
 /////////////////////////////////////////////////////////////////////////////
