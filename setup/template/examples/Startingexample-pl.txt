@@ -1,8 +1,8 @@
 CrypTool
 
-CrypTool jest programem do nauki kryptografii i kryptoanalizy.
+CrypTool 1 (CT1) jest darmowym programem do nauki kryptografii i kryptoanalizy.
 
-Ten plik ma pomóc uzytkownikowi w wykonaniu pierwszych kroków z programem.
+Ten plik ma pomóc uzytkownikowi w wykonaniu pierwszych kroków z programem CT1.
 
 1) Jako pierwszy krok zaleca sie zapoznanie sie z wlaczona pomoca online, stanowi to uzyteczny przeglad wszystkich dostepnych funkcji w obrebie tej aplikacji. Dostep na strone startowa pomocy online mozna uzyskac poprzez menu "Pomoc / Strona startowa" w prawym górnym rogu ekranu, lub korzystajac z wyszukiwania slów kluczowych "Strona startowa" w indeksie pomocy online. 
 Nacisnij F1, aby rozpoczac pomoc online.
@@ -18,7 +18,7 @@ Dalsze poznawanie mozliwosci programu mozliwe jest na wiele sposobów:
 - poprzez klikanie kolejnych pozycji w menu. Nacisnij klawisz F1 aby uzyskac pomoc na temat wybranych pozycji menu.
 - poprzez przejrzenie pliku ReadMe (menu "Pomoc").
 - poprzez przejrzenie prezentacji mozliwosci programu (zobacz rozdzial "Dokumentacja" na stronie startowej pomocy).
-- poprzez odwiedzenie strony www.cryptool.pl.
+- poprzez odwiedzenie strony www.cryptool.org.
 
-Styczén 2012
+Listopad 2016
 Zespól CrypTool

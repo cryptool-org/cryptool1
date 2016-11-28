@@ -53,7 +53,7 @@ BEGIN
     CONTROL         "",IDC_RICHEDIT21,"RichEdit20A",ES_MULTILINE | ES_AUTOHSCROLL,7,12,344,51,WS_EX_TRANSPARENT
     CONTROL         "",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,11,108,335,31
     CONTROL         "",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,12,148,335,10
-    GROUPBOX        "Save the result as summary?",IDC_STATIC,7,92,344,79
+    GROUPBOX        "Zapisz wynik jako podsumowanie?",IDC_STATIC,7,92,344,79
 END
 
 IDD_DIALOG1 DIALOGEX 0, 0, 282, 274
@@ -167,7 +167,7 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFR
 CAPTION "Pokaz wczesniej obliczone wyniki szczególowe"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Close",IDOK,194,177,50,16
+    DEFPUSHBUTTON   "Zamknij",IDOK,194,177,50,16
     EDITTEXT        IDC_EDIT_PRECALCULATED_SCORES,7,7,237,160,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
 END
 
@@ -176,9 +176,9 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Pokaz wczesniej obliczone wyniki."
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Close",IDOK,193,177,50,16
+    DEFPUSHBUTTON   "Zamknij",IDOK,193,177,50,16
     LTEXT           "DYNAMICALLY_GENERATED",IDC_STATIC_INTRO,7,7,236,32
-    DEFPUSHBUTTON   "Show details",ID_SHOW_DETAILS,7,177,100,16
+    DEFPUSHBUTTON   "Pokaz szczególy",ID_SHOW_DETAILS,7,177,100,16
     CONTROL         "",IDC_LIST_PRECALCULATED_SCORES,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,45,236,125
 END
 
@@ -428,7 +428,7 @@ BEGIN
     IDS_TAB_RADIO2          "Pokaz wczesniej obliczone wyniki"
     IDS_SEARCH1             "NumberSharkSearch["
     IDS_TOOLTIP_BUTTON_SWITCH_STYLE 
-                            "[i18n] Changes the display style (shells or numbers)."
+                            "Zmienia styl wyswietlania (muszle lub numery)."
 END
 
 STRINGTABLE
