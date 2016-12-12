@@ -24,10 +24,11 @@
 
 <P>Wir möchten hier noch mal betonen, dass mit CrypTool erzeugte Schlüssel und Zertifikate nur für Ausbildungszwecke bestimmt sind. Es ist nicht zu empfehlen, diese in einer produktiven Applikation zu nutzen, da jeder ein gültiges CrypTool Zertifikat erstellen kann (für jede CrypTool-Installation ist der CA-Schlüssel identisch).</P>
 
-<P><B>Einschränkungen:</B> </P>
-
+<P><B>Einschränkungen</B></P>
 
 <P>Obwohl die in der CrypTool-Umgebung erzeugten und genutzten Zertifikate dem X.509-Standard genügen, ist es nicht möglich, fremde Zertifikate in CrypTool zu importieren. CrypTool speichert innerhalb der PKCS #12-Struktur weitere intern benötigte Daten, die von fremden Applikationen nicht zur Verfügung gestellt werden. Diese Daten werden beim Importieren des Zertifikats in einer weiteren CrypTool-Installation benötigt.</P>
+
+<P>Weiterhin ist es nicht möglich, ein Zertifikat zu importieren, das nach dem Exportieren aus dem CrypTool-Zertifikatsspeicher gelöscht worden ist.</P>
 
 </BODY>
 </HTML>

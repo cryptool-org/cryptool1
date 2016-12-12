@@ -24,12 +24,11 @@
 
 <P>Users should be aware that the certificates created by CrypTool are for educational use only. It is not recommended to use these certificates in real-world applications because of security considerations (the CrypTool CA key is the same for each CrypTool installation).</P>
 
-<P><B>Limitations:</B> </P>
-
-
+<P><B>Limitations</B></P>
 
 <P>Although the certificates created and used in CrypTool are standard X.509 certificates, it is currently not possible to import foreign certificates into CrypTool. CrypTool stores internal data in the certificate subject name that is not present in foreign certificates. This data is necessary to fill internal CrypTool data structures when transferring certificates to another CrypTool installation.</P>
-</div>
+
+<P>Furthermore it is not possible to import a certificate which, after being exported, has been deleted from the CrypTool certificate store.</P>
 
 </BODY>
 </HTML>
