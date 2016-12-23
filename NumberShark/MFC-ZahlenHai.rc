@@ -622,11 +622,11 @@ LANGUAGE LANG_SERBIAN, SUBLANG_SERBIAN_LATIN
 
 IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Informacije o igri Ajkula Brojeva"
+CAPTION "Informacije o igri Ajkula brojeva"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            128,IDC_STATIC,11,17,20,20
-    LTEXT           "Ajkula Brojeva Verzija 1.2.2",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Ajkula brojeva verzije 1.2.2",IDC_STATIC,40,10,119,8,SS_NOPREFIX
     LTEXT           "Copyright (C) 2013",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
 END
@@ -686,7 +686,7 @@ END
 IDD_MFCZAHLENHAI_DIALOG DIALOGEX 0, 0, 467, 379
 STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
-CAPTION "Ajkula Brojeva"
+CAPTION "Ajkula brojeva"
 FONT 8, "Microsoft Sans Serif", 0, 0, 0x1
 BEGIN
     CONTROL         "",IDC_TAB1,"SysTabControl32",TCS_RAGGEDRIGHT | WS_TABSTOP,10,187,372,119
@@ -749,18 +749,18 @@ END
 
 IDD_SEARCH_PROGRESS DIALOGEX 0, 0, 200, 110
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Napredak Pretrage"
+CAPTION "Napredak pretrage"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     LTEXT           "DYNAMICALLY_GENERATED",IDC_TEXT_SEARCH_PROGRESS_1,7,7,186,24
-    LTEXT           "Nažalost ne možemo da predvidimo koliko ce vremena biti potrebno, ali možete da otkažete pretragu bilo kada.",IDC_STATIC,7,55,186,24
+    LTEXT           "Nažalost ne možemo da predvidimo koliko ce vremena biti potrebno, ali pretragu možete da otkažete u svakom trenutku.",IDC_STATIC,7,55,186,24
     PUSHBUTTON      "Otkaži",IDCANCEL,75,87,50,16
     CTEXT           "DYNAMICALLY_GENERATED",IDC_TEXT_SEARCH_PROGRESS_2,7,39,186,8
 END
 
 IDD_SHOW_PRECALCULATED_SCORES_IN_DETAIL DIALOGEX 0, 0, 251, 200
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
-CAPTION "i18n Show precalculated scores in detail"
+CAPTION "Prikaži izracunate rezultate detaljno"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Close",IDOK,194,177,50,16
@@ -769,7 +769,7 @@ END
 
 IDD_SHOW_PRECALCULATED_SCORES DIALOGEX 0, 0, 250, 200
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "i18n Show precalculated scores"
+CAPTION "Prikaži izracunate rezultate"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Close",IDOK,193,177,50,16
@@ -970,50 +970,50 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_ABOUTBOX            "&Informacije o igri Ajkula Brojeva"
-    IDS_RULES               "Opis:\r\n - Na pocetku igre Ajkula Brojeva birate velicinu kvadrata školjke, ovo je kolicina brojeva sa kojom želite da igrate.\r\n    Velicinu kvadrata školjke imenujemo sa ""n"" i zovemo je ""skup odabirljivih brojeva"". Skup brojeva pocinje sa 1\r\n    i završava se brojem koji ste odabrali da bude velicina školjke (predlažemo broj 20 za pocetak).\r\n    Posle toga svi brojevi iz kvadrata školjke ce biti dati ili vama ili kompjuteru (""Number Shark"").\r\n    Možete procitati pravila o deljenju brojeva iz teksta ispod.\r\n - Podrazumevano, postoji 20 u kvadratu školjke. Kao ukupan broj možete odabrati bilo koji broj od 1 do 9999 for n.\r\n\r\nCilj igre:\r\n - Vaš cilj je da postignete veci rezultat nego sumu brojeva koji je pojela Ajkula Brojeva.\r\n\r\nPravila:\r\n - Uvek igrate prvi, npr. pocinjete prvu rundu.\r\n - U ovoj rundi možete odabrati bilo koji od n brojeva iz kvadrata školjke.\r - Ajkula Brojeva dobija svaki dostupan realni cinilac broja koji ste odabrali, ako vec nisu odabrani\r\n    (6 je npr. deljivo sa 1, 2, 3 i 6. Realni cinioci su 1, 2 i 3).\r\n - U svim sledecim rundama možete odabrati brojeve koje niste odabrali,\r\n    ili koje je pojela Ajkula Brojeva u prethodnim rundama (npr. samo plave školjke).\r\n - ALI: Ajkula Brojeva nikada ne može da preskoci!\r\n - Ako ste odabrali broj koji nema više cinilaca, onda Ajkula Brojeva dobija vaš odabrani broj i dobijate 0 u ovoj rundi.\r\n\r\n"
-    IDS_PLAYER_WINS         "Cestitamo, pobedili ste Ajkulu Brojeva!\n\n Ako tražite veci izazov, probajte veci broj od %s.\n\nDobili ste %s poena. Najviši moguci rezultat sa %s brojeva bi bio %s."
-    IDS_VERSION_INFO        "Ajkula Brojeva 1.2.3"
-    IDS_COMPUTER_WINS       "Ovaj put je Ajkula Brojeva pobedila :,-(\n\n Pojeva vas je sa %s do %s poena.\n\n Krenite -- Pokušajte opet!"
-    IDS_DRAW                "Nerešeno!?!\n\nOvo se dešava veoma retko!\n\nVi i Ajkula Brojeva imate po %s poena."
-    IDS_MAX_POINTS_NEW      "Za racunanje za %s brojeva najveci rezultat od %s poena, programu je trebalo %s sekundi. Morao je da prode %s cvorova.\n\nNajveci prost broj ovde je %s. Morate poceti igru sa ovim brojem da biste dostigli najviši rezultat.\n\nDa biste postigli najviši rezultat, možete odabrati brojeve u ovom redosledu: %s"
+    IDS_ABOUTBOX            "&Informacije o igri Ajkula brojeva"
+    IDS_RULES               "Opis:\r\n - Na pocetku igre Ajkula brojeva birate velicinu kvadrata školjke, ovo je skup brojeva sa kojima želite da igrate.\r\n    Velicinu kvadrata školjke imenujemo sa ""n"" i zovemo je ""skup brojeva izmedju kojih možete birati"". Skup brojeva pocinje sa 1\r\n    i završava se brojem koji ste odabrali da bude velicina školjke (predlažemo broj 20 za pocetak).\r\n    Posle toga svi brojevi iz kvadrata školjke ce biti dati ili vama ili racunaru (""Number Shark"").\r\n    Možete procitati pravila o deljenju brojeva u tekstu prikazanim ispod.\r\n – Podrazumevano je da postoji 20 u kvadratu školjke. Kao ukupan broj možete odabrati bilo koji broj od 1 do 9999 for n.\r\n\r\nCilj igre:\r\n - Vaš cilj je da postignete veci rezultat od sumu brojeva koji je pojela ajkula brojeva.\r\n\r\nPravila:\r\n - Uvek igrate prvi, npr. pocinjete prvu rundu.\r\n - U ovoj rundi možete odabrati bilo koji od n brojeva iz kvadrata školjke.\r - Ajkula brojeva dobija svaki dostupan realni cinilac broja koji ste odabrali, ako vec nisu odabrani\r\n    (6 je npr. deljivo sa 1, 2, 3 i 6. Realni cinioci su 1, 2 i 3).\r\n - U svim sledecim rundama možete odabrati brojeve koje niste odabrali,\r\n    ili koje je pojela ajkula brojeva u prethodnim rundama (npr. samo plave školjke).\r\n - ALI: Ajkula brojeva nikada ne može da preskoci!\r\n - Ako ste odabrali broj koji nema više cinilaca, onda ajkula brojeva dobija Vaš odabrani broj i dobijate 0 u ovoj rundi.\r\n\r\n"
+    IDS_PLAYER_WINS         "Cestitamo, pobedili ste ajkulu brojeva!\n\n Ako tražite veci izazov, probajte veci broj od %s.\n\nDobili ste %s poena. Najviši moguci rezultat sa %s brojeva bi bio %s."
+    IDS_VERSION_INFO        "Ajkula brojeva 1.2.3"
+    IDS_COMPUTER_WINS       "Ovaj put je ajkula brojeva pobedila :,-(\n\n Pojela vas je sa %s do %s poena.\n\n Krenite -- Pokušajte opet!"
+    IDS_DRAW                "Nerešeno!?!\n\nOvo se dešava veoma retko!\n\nVi i ajkula brojeva imate po %s poena."
+    IDS_MAX_POINTS_NEW      "Za racunanje za %s brojeva najveci rezultat od %s poena, programu je trebalo %s sekundi. Morao je da prodje %s cvorova.\n\nNajveci prost broj ovde je %s. Morate poceti igru sa ovim brojem da biste dostigli najviši rezultat.\n\nDa biste postigli najviši rezultat, možete odabrati brojeve u ovom redosledu: %s"
     IDS_MAX_POINTS_INFORMATION 
                             "Najveci dostižan rezultat sa %s brojeva je %s.\n\nMožemo da vam prikažemo najveci rezultat, jer je ova vrednost vec izracunata i smeštena u program.\n\nNagoveštaj: Najveci prost broj sa %s brojeva je %s. Morate poceti igru sa ovim brojem da biste dostigli najveci rezultat.\n\nŽelite li da vidite optimalan nacin za dobijanje ovog rezultata?"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_TOOLTIP_BUTTON_LOADGAME "[i18n] Loads an existing game."
-    IDS_TOOLTIP_BUTTON_SAVEGAME "[i18n] Saves the current game."
-    IDS_TAB_RADIO2          "i18n Show the best known scores."
-    IDS_SEARCH1             "PretragaAjkuleBrojeva["
+    IDS_TOOLTIP_BUTTON_LOADGAME "Pokrece zapocetu igru."
+    IDS_TOOLTIP_BUTTON_SAVEGAME "Cuva trenutnu igru."
+    IDS_TAB_RADIO2          "i18n Prikazuje najvece rezultate."
+    IDS_SEARCH1             "PretragaAjkulebrojeva["
     IDS_TOOLTIP_BUTTON_SWITCH_STYLE 
-                            "[i18n] Changes the display style (shells or numbers)."
+                            "Menja stil prikaza(školjke ili brojevi)."
 END
 
 STRINGTABLE
 BEGIN
     IDS_QUESTION            "Da li želite da program izracuna najveci moguci rezultat?"
-    IDS_WARNING             "%s brojeva... Ovo ce dugo da traje.\n\nKorišcenjem algoritma brutalne sile, za 20 brojeva sa PC na 3 GHz morao je da racuna oko 9 hours, za 22 broja racunanje je trajalo 9 dana. I verujemo da bi za 30 brojeva bile potrebne nedelje ili meseci.\n\nAko dobijete neke nove rezultate za %s brojeva, bili bismo vam zahvalni ako biste ih nam poslali.\n\nDa li stvarno želite da obavite racunanje sada?"
-    IDS_INVALID_INPUT       "U igri Ajkula Brojeva možete igrati sa brojevima izmedu 1 i %s!"
+    IDS_WARNING             "%s brojeva... Ovo ce dugo da traje.\n\nKorišcenjem algoritma grube sile, za 20 brojeva sa PC na 3 GHz morao je da racuna oko 9 hours, za 22 broja racunanje je trajalo 9 dana.Verujemo da bi za 30 brojeva bile potrebne nedelje ili meseci.\n\nAko dobijete neke nove rezultate za %s brojeva, bili bismo zahvalni ako biste ih nam poslali.\n\nDa li stvarno želite da sada obavite racunanje?"
+    IDS_INVALID_INPUT       "U igri “Ajkula brojeva” možete igrati sa brojevima izmedu 1 i %s!"
     IDS_ZUG                 "Potez"
     IDS_SPIELER             "Vaš\nizbor"
-    IDS_HAI                 "Izbor\nAjkule Brojeva"
+    IDS_HAI                 "Izbor\nAjkule brojeva"
     IDS_SPIELER_PUNKTE      "Vaši\npoeni"
-    IDS_HAI_PUNKTE          "Poeni\nAjkule Brojeva"
+    IDS_HAI_PUNKTE          "Poeni\nAjkule brojeva"
     IDS_REST                "Preostali\nbrojevi"
-    IDS_PLAYER_WINS_2       "Cestitamo, pobedili ste Ajkulu Brojeva!\n\n Ako tražite veci izazov, probajte veci broj od %s.\n\nDobili ste %s poena."
+    IDS_PLAYER_WINS_2       "Cestitamo, pobedili ste ajkulu brojeva!\n\n Ako tražite veci izazov, probajte veci broj od %s.\n\nDobili ste %s poena."
     IDS_BUTTON_STARTNEW     "Pocni novu igru."
     IDS_BUTTON_END          "Završi igru."
     IDS_BUTTON_RULES        "Procitaj pravila."
-    IDS_BUTTON_OK           "Pocni igru sa odabranim skupom brojeva."
+    IDS_BUTTON_OK           "Pccni igru sa odabranim skupom brojeva."
     IDS_BUTTON_MAX_POINTS   "Izracunaj najveci moguci rezultat koji se može postici sa odabranim skupom."
 END
 
 STRINGTABLE
 BEGIN
     IDS_BUTTON_OPTION       "Prikaži opcije igre."
-    IDS_BUTTON_REST         "Ajkula Brojeva jede sve brojeve od kojih više ne možete dobiti poene. Ajkula Brojeva je mogla da pojede ove brojeve odjednom: %s"
+    IDS_BUTTON_REST         "Ajkula brojeva jede sve brojeve od kojih više ne možete dobiti poene. Ajkula brojeva je mogla da pojede ove brojeve odjednom: %s"
     IDS_EDIT4               "Ova vrednost sadrži sve dodate brojeve."
     IDS_MAX_POINTS_HEADLINE "Najveci moguci rezultat"
     IDS_DRAW_HEADLINE       "Nerešeno!"
@@ -1022,7 +1022,7 @@ BEGIN
     IDS_LOGFILE_DATE        "\r\n\r\nDatum/Vreme:                   "
     IDS_LOGFILE_NAME        "\r\n\r\nIme igraca:               "
     IDS_LOGFILE_POINTS_PLAYER "\r\n\r\nPoeni igraca:             "
-    IDS_LOGFILE_POINTS_COMPUTER "\r\nPoeni Ajkule Brojeva:         "
+    IDS_LOGFILE_POINTS_COMPUTER "\r\nPoeni ajkule brojeva:         "
     IDS_LOGFILE_ROUNDS      "\r\nZahtevano poteza:              "
     IDS_VALID_INPUT_HEADLINE "Unešeni broj je preveliki!"
     IDS_RULES_HEADLINE      "Pravila igre / opis igre"
@@ -1035,30 +1035,30 @@ BEGIN
     IDS_LOGFILE_MAXPOINTS   "\r\nNajviši moguci rezultat za vas:"
     IDS_GAME_IDEA           "Ovo je zdravorazumska igra za jednog ili više igraca od 10. godine.\n\nVreme igre: Ne bi vam trebalo više od 3 minuta za 20 brojeva, ali za 9,999 brojeva bilo bi vam potrebno više od godine."
     IDS_PRIME               "(prost broj)"
-    IDS_LOGFILE_LOCATION    "\r\nPregled igre je sacuvan kao %s u ovaj folder: %s\r\n\r\n"
+    IDS_LOGFILE_LOCATION    "\r\nPregled igre je sacuvan kao %s u ovoj fascikli: %s\r\n\r\n"
     IDS_TOOL_TIP_TEXT_NO_FACTORS "%s\nNije ostalo više cinilaca!\n%s"
     IDS_FILE_NAME           "Summary.txt"
-    IDS_PLAYER_WINS_OPTIMAL "Cestitamo, pobedili ste Ajkulu Brojeva!\n\nSa %s poena cak ste postigli i najviši moguci rezultat sa %s brojeva.\n\nAko tražite veci izazov, probajte veci broj od %s."
-    IDS_SUM_TEXT            "Sa %s brojeva: %s poena može biti ukupno dodeljeno vama i Ajkuli Brojeva."
+    IDS_PLAYER_WINS_OPTIMAL "Cestitamo, pobedili ste ajkulu brojeva!\n\nSa %s poena cak ste postigli i najviši moguci rezultat sa %s brojeva.\n\nAko tražite veci izazov, probajte veci broj od %s."
+    IDS_SUM_TEXT            "Sa %s brojeva: %s poena može biti ukupno dodeljeno vama i ajkuli brojeva."
     IDS_LOGFILE_NUMBERS     "\r\n\r\nSkup brojeva:                 "
-    IDS_RULES_2             "U toku igre možete ukljuciti ili iskljuciti vidljivost školjki na dugnetu pritiskom na SHIFT+ALT+C na vašoj tastaturi.\r\nOvo vam može pomoci da procitate brojeve na dugmadima bolje i malo ubrzate igru.\r\n\r\nMožete dobiti dodatne informacije i pomoc pritiskom na dugme F1.\r\n\r\nOnline pomoc sadrži prirucnik za rukovanje, iskomentarisani primer toka igre, neke informacije o tome kako je program razvijan,\r\\i izazov za vas, koji vam daje šansu da nam pomognete da poboljšamo igru.\r\n"
+    IDS_RULES_2             "U toku igre možete ukljuciti ili iskljuciti vidljivost školjki na dugmetu pritiskom na kombinaciju taster SHIFT+ALT+C na tastaturi.\r\nOvo može pomoci da procitate brojeve na dugmadima bolje i malo ubrzate igru.\r\n\r\nMožete dobiti dodatne informacije i pomoc pritiskom na taster F1.\r\n\r\nOnline pomoc sadrži prirccnik za rukovanje, iskomentarisani primer toka igre, neke informacije o tome kako je program razvijan,\r\\i izazov za vas, koji vam daje šansu da nam pomognete da poboljšamo igru.\r\n"
     IDS_MAX_POINTS_INFORMATION2 
                             "Za %s najviši dostižan rezultat je %s.\n\nMožemo da vam prikažemo najveci rezultat, jer je ova vrednost vec izracunata i smeštena u program.\n\nJedan nacin da postignete najveci moguci rezultat je: %s."
-    IDS_DISCLAIMER_TEXT     "Molimo imajte na umu uslove dozvole i informacije u vezi ne \r\nobavezivanja za bilo kakvu štetu koja nastane upotrebom Ajkule Brojeva.\r\n(C) CrypTool Projekat 2013"
+    IDS_DISCLAIMER_TEXT     "Molimo imajte na umu uslove dozvole i informacije u vezi ne \r\nobavezivanja za bilo kakvu štetu koja nastane upotrebom ajkule brojeva.\r\n(C) CrypTool Projekat 2013"
 END
 
 STRINGTABLE
 BEGIN
     IDS_MAX_POINTS_HEADLINE2 "Maksimalan broj poena na optimalan nacin"
-    IDS_INFO_TEXT           "Program Ajkula Brojeva napravljen je kao dodatak\r\nprojektu otvorenog softvera CrypTool: www.cryptool.com"
+    IDS_INFO_TEXT           "Program “Ajkula brojeva” napravljen je kao dodatak\r\nprojektu otvorenog softvera CrypTool: www.cryptool.com"
     IDS_PRIME_INFO          "(prost broj)"
     IDS_REG_TRUE            "tacno"
     IDS_SHARK_AGAINST       " protiv "
     IDS_GAME_DATA           "GameData.txt"
     IDS_HELP_FILE           "NumberShark-en.chm::/NumberShark.html"
     IDS_TITLE_VERSION       " - Verzija 1.2.3"
-    IDS_NUMBER_SHARK        "Ajkula Brojeva"
-    IDS_OPTIONS_HEAD_TEXT   "Da biste poceli odmah samo pritisnite ""Enter"" ili pritisnite dugme  ""Na igru"" ."
+    IDS_NUMBER_SHARK        "Ajkula brojeva"
+    IDS_OPTIONS_HEAD_TEXT   "Da biste poceli odmah samo pritisnite taster ""Enter"" ili pritisnite dugme  ""Na igru"" ."
     IDS_OPTIONS_TOOLTIPS    "Aktivirajte alat za nagoveštaj za školjke\r\n[Ako postavite kursor miša malo duže na plave školjke (one sa još uvek aktivnim brojevima), mali prozor (nagoveštaj) se otvara i daje vam informacije, npr. cinioce još uvek dostupne za ovaj broj]."
 END
 
@@ -1067,9 +1067,9 @@ BEGIN
     IDS_OPTIONS_SHOW_DIALOG "Prikaži dijalog ""Opcije igre"" sledeci put pri pokretanju programa."
     IDS_OPTIONS_SHOW_NUMBERS 
                             "Zapamti zadnji ukupan broj skupa brojeva za sledece pokretanje programa."
-    IDS_OPTIONS_MAX_POINTS  "i18n Here you can calculate the maximum score for your selected number stack of %s numbers. But this might take a while...\r\n\r\nInstead, we could immediately show you the scores we have precalculated already."
+    IDS_OPTIONS_MAX_POINTS  "Ovde možete izracunati najveci rezultat za skup vaših izabranih %s brojeva. Medjutim, to može potrajati...\r\n\r\nUmesto toga, možemo Vam odmah pokazati rezultate koje smo vec unapred izracunali."
     IDS_STRING_PT           ","
-    IDS_MAX_POINTS_OLD      "Da biste izracunali za %d brojeva najeci rezultat od %d poena, programu je trebalo %d sekundi. Morao je da prode %I64d cvorova.\n\nNajviši prost broj ovde je %d. Morate poceti igru sa ovim brojem da biste mogli da postignete najveci moguci rezultat.\n\nDa biste postigli najveci moguci rezultat možete odabrati brojeve u ovom redosledu: %s"
+    IDS_MAX_POINTS_OLD      "Da biste izracunali za %d brojeva najveci rezultat od %d poena, programu je trebalo %d sekundi. Morao je da prodje %I64d cvorova.\n\nNajviši prost broj ovde je %d. Morate pcceti igru sa ovim brojem da biste mogli da postignete najveci moguci rezultat.\n\nDa biste postigli najveci moguci rezultat možete odabrati brojeve u ovom redosledu: %s"
     IDS_TOOL_TIP_NUMBER     "Broj: %s"
     IDS_TOOL_TIP_ISFACTOR   "Je cinilac: %s"
     IDS_START_INFO          "Sad možete odabrati jednu od školjki da biste poceli igru."
@@ -1085,9 +1085,9 @@ BEGIN
     IDS_LED_DRAW            "NEREŠENO!"
     IDS_ZUG2                "Potez"
     IDS_SPIELER2            "Vaš izbor"
-    IDS_HAI2                "Izbor Ajkule Brojeva"
+    IDS_HAI2                "Izbor ajkule brojeva"
     IDS_SPIELER_PUNKTE2     "Vaši poeni"
-    IDS_HAI_PUNKTE2         "Poeni Ajkule Brojeva"
+    IDS_HAI_PUNKTE2         "Poeni ajkule brojeva"
     IDS_REST2               "Preostali brojevi"
     IDS_ISNOT_FACTOR        "Ne deli nijedan drugi broj."
     IDS_RADIO_EDIT1         "Da\r\nkao ""%s"" u folderu\r\n""%s"". "
@@ -1098,29 +1098,29 @@ BEGIN
     IDS_RADIO_EDIT2         "Ne."
     IDS_TAB_HEADER1         "Dobrodošli"
     IDS_TAB_HEADER2         "Standardno"
-    IDS_TAB_HEADER3         "i18n Maximum score"
-    IDS_TAB_RADIO1          "i18n Calculate the maximum score."
+    IDS_TAB_HEADER3         "Najveci rezultat"
+    IDS_TAB_RADIO1          "Izracunaj najveci rezultat."
     IDS_SEARCH2             " brojevi].zha"
-    IDS_BUTTON_HELP         "Prikazuje vam pomoc za igru Ajkula Brojeva."
+    IDS_BUTTON_HELP         "Prikazuje vam pomoc za igru ajkula brojeva."
     IDS_WARNING_SHORT       "%s brojeva... Ovo ce trajati dugo.\n\nDa li stvarno želite da izvršite racunanje sada?"
     IDS_MAX_POINTS_INFORMATION_NOVALUE 
-                            "Nažalost, datoteka %s u direktorijumu %s nije mogla da se ucita. Datoteka mora biti smeštena u istom folderu kao i Ajkula Brojeva."
+                            "Nažalost, datoteka %s u direktorijumu %s nije mogla da se ucita. Datoteka mora biti smeštena u istoj fascikli kao i Ajkula brojeva."
     IDS_TOOL_TIP_UNDO       "Sa ""Vrati"" možete ponoviti prethodne runde ako želite da odaberete druge brojeve."
     IDS_TOOL_TIP_REDO       "Sa ""Ponovi"" možete ici unapred i igri onoliko koraka koliko ste koristili opciju ""Vrati""."
 END
 
 STRINGTABLE
 BEGIN
-    IDS_MAX_POINTS_NEW_2    "Za racunanje za %s brojeva najviši rezultat od %s poena, programu je trebalo %s sekundi. Morao je da prode kroz %s cvorova.\n\nNajveci prost broj ovde je %s. Morate poceti igru sa ovim brojem da biste mogli da postignete najveci moguci rezultat.\n\nDa biste postigli najveci moguci rezultat možete odabrati brojeve u ovom redosledu: %s"
+    IDS_MAX_POINTS_NEW_2    "Za racunanje za %s brojeva najviši rezultat od %s poena, programu je trebalo %s sekundi. Morao je da prodje kroz %s cvorova.\n\nNajveci prost broj ovde je %s. Morate poceti igru sa ovim brojem da biste mogli da postignete najveci moguci rezultat.\n\nDa biste postigli najveci moguci rezultat možete odabrati brojeve u ovom redosledu: %s"
     IDS_SHELL_GROUP_BOX     "i18n Shell square (blue means ""still free to choose""; gray means ""already distributed and eaten up"")"
     IDS_NORMAL_GROUP_BOX    "Kvadrat školjke"
-    IDS_NO_SEARCH           "Nije moguce pisati u datoteku ""%s"". Verovatno nemate dovoljno prava nad ovim folderom\r\n""%s"".\r\n\r\nProracun ce svejedno biti pokrenut, ali nece moci da se nastavi posle prekida."
-    IDS_NO_SUMMARY          "Nije moguce pisati u datoteku ""%s"". Verovatno nemate dovoljno prava nad ovim folderom\r\n""%s"".\r\n\r\n"
+    IDS_NO_SEARCH           "Nije moguce pisati u datoteku ""%s"". Verovatno nemate dovoljno prava nad ovom fasciklom \r\n""%s"".\r\n\r\nProracun ce svejedno biti pokrenut, ali nece moci da se nastavi posle prekida."
+    IDS_NO_SUMMARY          "Nije moguce pisati u datoteku ""%s"". Verovatno nemate dovoljno prava nad ovom fasciklom \r\n""%s"".\r\n\r\n"
     IDS_VALID_INPUT_HEADLINE_LOW "Uneseni broj je premali."
     IDS_LOGFILE_PLAYER_NUMBERS "\r\nVaši odabrani brojevi: "
     IDS_SEPERATOR           ","
     IDS_TAB_HEADER4         "Ubrzavaci"
-    IDS_ACC_CHANGE          "SHIFT + ALT + C: Menja stil dugmati u kvadratu školjki.\r\n\r\n"
+    IDS_ACC_CHANGE          "SHIFT + ALT + C: Menja stil dugmadi u kvadratu školjki.\r\n\r\n"
     IDS_ACC_LOAD            "SHIFT + ALT + L: Ucitava postojecu igru.\r\n\r\n"
 END
 
@@ -1128,40 +1128,40 @@ STRINGTABLE
 BEGIN
     IDS_ACC_SAVE            "SHIFT + ALT + S: Cuva trenutnu igru.\r\n\r\n"
     IDS_PLAYER_WINS_OPTIMAL2 
-                            "Cestitamo, pobedili ste Ajkulu Brojeva!\n\nSa %s cak ste postigli veci rezultat nego mi. Naš najbolji rezultat je %s poena sa %s brojeva.\n\nMolimo pošaljite pregled igre na esslinger@fb5.uni-siegen.de."
-    IDS_PLAYER_WINS3        "Cestitamo, pobedili ste Ajkulu Brojeva!\n\n Ako tražite veci izazov, probajte veci broj od %s.\n\nOsvojili ste %s poena. Do sada, najviši rezultat koji smo postigli sa %s brojeva je bio %s."
-    IDS_NUMBER_ONE          "Ovaj put je Ajkula Brojeva pobedila :,-(\n\nPobedila vas je sa %s do %s poena.\n\nNe možete da pobedite samo sa jednim brojem u kvadratu školjke.\n\n Krenite -- Pokušajte opet!"
+                            "Cestitamo, pobedili ste ajkulu brojeva!\n\nSa %s cak ste postigli veci rezultat nego mi. Naš najbolji rezultat je %s poena sa %s brojeva.\n\nMolimo pošaljite pregled igre na esslinger@fb5.uni-siegen.de."
+    IDS_PLAYER_WINS3        "Cestitamo, pobedili ste ajkulu brojeva!\n\n Ako tražite veci izazov, probajte veci broj od %s.\n\nOsvojili ste %s poena. Do sada, najviši rezultat koji smo postigli sa %s brojeva je bio %s."
+    IDS_NUMBER_ONE          "Ovaj put je ajkula brojeva pobedila :,-(\n\nPobedila vas je sa %s do %s poena.\n\nNe možete da pobedite samo sa jednim brojem u kvadratu školjke.\n\n Krenite -- Pokušajte opet!"
     IDS_LOAD_FAILED         "Datoteka ""%s"" ne može da se ucita."
     IDS_ASK_FOR_USER_CANCELLATION "Da li želite da otkažete proracun?"
     IDS_SELECT_SEARCH_ALGORITHM 
-                            "Ajkula Brojeva sadrži dva razlicita algoritma da ustanovi maksimalan broj poena: Prvobitno dostupan algoritam brutalne sile upotpunjen je sa novim algoritmom pracenja unazad.\n\nKorišcenjem algoritma brutalne sile, za 20 brojeva sa PC na 3 GHz morao je da racuna oko 9 hours, za 22 broja racunanje je trajalo 9 dana. I verujemo da bi za 30 brojeva bile potrebne nedelje ili meseci.\n\nNovi algoritam je znatno brži.\n\nDa li želite da koristite novi algoritam?"
+                            "Ajkula brojeva sadrži dva razlicita algoritma da ustanovi maksimalan broj poena: Prvobitno dostupan algoritam grube sile upotpunjen je sa novim algoritmom pracenja unazad.\n\nKorišcenjem algoritma grube sile, za 20 brojeva sa PC na 3 GHz morao je da racuna oko 9 sati, za 22 broja racunanje je trajalo 9 dana. Verujemo da bi za 30 brojeva bile potrebne nedelje ili meseci.\n\nNovi algoritam je znatno brži.\n\nDa li želite da koristite novi algoritam?"
     IDS_GAME_DATA_FILE_MISSING 
-                            "Datoteka sa podacima o igri (%s) nije pronadena. Mora da bude u istom folderu kao i izvršna datoteka Ajkule Brojeva.\n\nBez datoteke o podacima igre neke funkcije ce biti nedostupne."
+                            "Datoteka sa podacima o igri (%s) nije pronadjena. Mora da bude u istoj fascikli kao i izvršna datoteka Ajkule brojeva.\n\nBez datoteke o podacima igre neke funkcije ce biti nedostupne."
     IDS_BACKTRACKING_ALGORITHM_RESULT 
                             "Za racunanje za %s brojeva najviši rezultat od %s poena, programu je trebalo %s sekundi.\n\nNajveci prost broj ovde je bio %s. Trebalo bi da pocnete novu igru sa ovim brojem da biste postigli najveci moguci rezultat.\n\nDa biste postigli najveci moguci rezultat, možete odabrati brojeve u ovom redosledu: %s\n\n"
     IDS_SEARCH_PROGRESS_TEXT_1 
-                            "Ajkula Brojeva koristi %s algoritam da pronade najveci moguci rezultat za %d brojeva."
+                            "Ajkula brojeva koristi %s algoritam da pronadje najveci moguci rezultat za %d brojeva."
     IDS_SEARCH_PROGRESS_TEXT_2 "Proteklo vreme: %d sekundi"
-    IDS_ALGORITHM_BRUTE_FORCE "brutalna sila"
+    IDS_ALGORITHM_BRUTE_FORCE "gruba sila"
     IDS_ALGORITHM_BACK_TRACKING "pracenje unazad"
-    IDS_HEADING_NUMBER      "[i18n] Number"
+    IDS_HEADING_NUMBER      "Broj"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_HEADING_SCORE       "[i18n] Result"
-    IDS_HEADING_PROVED      "[i18n] Result optimal?"
-    IDS_PROVED_YES          "[i18n] Proven"
-    IDS_PROVED_NO           "[i18n] Unknown"
+    IDS_HEADING_SCORE       "Rezultat"
+    IDS_HEADING_PROVED      "Optimalan rezultat?"
+    IDS_PROVED_YES          "Dokazan"
+    IDS_PROVED_NO           "Nepoznat"
     IDS_SHOW_SEQUENCE_FOR_THIS_SPECIFIC_SCORE 
-                            "[i18n] If you choose the number %s, one way to achieve %s points is the following sequence:\n\n%s."
+                            "Ako izaberete broj %s, jedan nacin da osvojite %s poena je sledeci redosled:\n\n%s."
     IDS_PRECALCULATED_SCORES_INTRO 
-                            "[i18n] For numbers 1 through %d we know optimal ways to win.\r\nFor the higher numbers %d through %d we show the best known results already precalculated. However, we don't know whether these results from %d up are optimal."
-    IDS_NO_SCORE_SELECTED   "[i18n] Please select a result first."
-    IDS_HEADING_SEQUENCE_LENGTH "[i18n] Sequence length"
-    IDS_HEADING_SEQUENCE    "[i18n] Sequence"
-    IDS_ACC_TAB             "[i18n] TAB: Selects the next shell within the shown number block (of one tab)."
-    IDS_ACC_ENTER_OR_SPACE  "[i18n] ENTER / SPACE: Choose the number of the selected shell via keyboard."
+                            "Za brojeve od jedan do %d znamo najbolje nacine za pobedu.\r\nZa vece brojeve od %d do %d prikazacemo najbolje poznate rezultate vec preracunate. Medjutim, ne znamo da li su ovi rezultati od %d nagore optimalni."
+    IDS_NO_SCORE_SELECTED   "Izaberite prvo rezultat."
+    IDS_HEADING_SEQUENCE_LENGTH "Dužina niza"
+    IDS_HEADING_SEQUENCE    "Niz"
+    IDS_ACC_TAB             "TAB: Bira sledecu školjku unutar prikazanog bloka brojeva(jednog od tab-ova)."
+    IDS_ACC_ENTER_OR_SPACE  "ENTER / SPACE: Izaberite broj izabrane školjke preko tastature."
 END
 
 #endif    // Serbian (Latin, Serbia and Montenegro (Former)) resources

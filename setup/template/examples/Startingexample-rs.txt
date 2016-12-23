@@ -1,22 +1,22 @@
-CrypTool (Po?etni primer za CrypTool verzije familije 1.x)
+CrypTool (Pocetni primer za CrypTool verzije familije 1.x) (CT1)
 
-CrypTool je sveobuhvatan besplatan obrazovni program o kriptografiji i kriptoanalizi
-koji nudi obimnu online pomo? i mnoge vizualizacije.
+CrypTool 1 (CT1) je sveobuhvatan i besplatan program za ucenje o kriptografiji i kriptoanalizi koji nudi obimnu online pomoc i mnoge vizuelne prikaze.
 
-Ovo je tekstualna datoteka, kreirana u cilju da Vam pomogne pri Vašim prvim koracima sa CrypTool-om.
+Ova tekstualna datoteka služi kao pomoc pri prvim koracima sa programom CrypTool.
 
-1) Kao Vaš prvi korak, preporu?ljivo je da pro?itate online pomo?, ona ?e Vam pružiti koristan pregled svih funkcija koje su dostupne uz ovu aplikaciju. Po?etnoj strani online pomo?i možete pristupiti putem menija "Pomo? -> Po?etna strana" u gornjem desnom delu ekrana ili koriste?i klju?nu re? "Po?etna strana" unutar indeksa online pomo?i.
-Pritisnite F1 da biste pokrenuli online pomo? bilo gde u CrypTool-u.
+1) Preporucuje se da procitate online pomoc. Ona ce dati koristan pregled svih funkcija koje su dostupne u okviru ove aplikacije. Pocetnoj stranici online pomoci se može pristupiti preko menija „Pomoc -> Pocetna stranica” koji se nalazi u gornjem desnom uglu glavnog prozora ili uz pomoc kljucnih reci za pretragu „Pocetna stranica” u okviru indeksa online pomoci.
 
-2) Mogu?i slede?i korak bi bio šifrovanje datoteke pomo?u Caesar algoritma. Ovo može biti u?injeno putem menija "Šifrovanje/DeŠifrovanje -> Simetri?no (Klasi?no)".
+Pritisnite taster F1 da biste pokrenuli online pomoc bilo gde u programu CT1.
 
-3) Postoji nekoliko primera (tutorijala) isporu?enih uz online pomo? koji nude lak na?in za razumevanje kriptologije. Ovi primeri mogu biti prona?eni putem menija "Pomo? -> Scenarija (Tutorijali)".
+2) Sledeci korak bi mogao biti šifrovanje datoteke pomocu algoritma poznatog pod nazivom Cezarova šifra (engl. Caesar cipher). To je moguce uraditi koristeci meni „Šifrovanje/Dešifrovanje -> Simetricno (Klasicno)”. 
 
-4) Tako?e možete razviti svoje znanje: 
-- Navigacijom kroz menije. Možete pritisnuti F1 na bilo koju stavku menija za dobijanje daljih informacija.
-- ?itanjem Pro?itaj me datoteke (pogledajte meni "Pomo? -> Pro?itaj").
-- ?itanjem uklju?ene šarenolike prezentacije (Ova prezentacija se može prona?i na više na?ina: npr. u meniju "Pomo?" ove aplikacije, ili putem sekcije "Dokumentacija" koja se nalazi na "Po?etnoj" strani online pomo?i).
-- Pregledom web stranice www.cryptool.org.
+3) Postoji nekoliko primera (prirucnika) isporucenih uz online pomoc koji nude lak nacin za razumevanje kriptologije. Do ovih primera se može doci putem menija „Pomoc -> Scenarija (Prirucnici)".
 
-Januar 2012
+4) Svoje znanje možete proširitii koristeci: 
+Navigaciju kroz menije. Za dobijanje više informacija možete pritisnuti taster F1 uz oznacenu stavku menija. 
+Citanje „Procitaj me” datoteke (pogledati meni „Pomoc -> Procitaj”).
+Pregled živopisne prezentacije (Do ove prezentacije se može doci na nekoliko nacina: npr. preko menija "Pomoc" ove aplikacije, ili preko odeljka "Dokumentacija" koja se nalazi na "Pocetnoj" strani online pomoci).
+Pregled web stranice www.cryptool.org.
+
+Oktobar 2016
 CrypTool tim

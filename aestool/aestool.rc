@@ -302,9 +302,9 @@ CAPTION "Upozorenje"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,47,101,50,14
-    PUSHBUTTON      "Otkaži",IDCANCEL,113,101,50,14
-    LTEXT           "Upravo ste pokrenuli izvršni kod koji Vam je verovatno ponuden od strane trecih lica.\nOva procedura obicno NIJE PREPORUCLJICA jer bi ste mogli da unesete štetan kod u Vaš kompjuter.",IDC_STATIC,7,7,197,35
-    LTEXT           "Generalno se savetuje da budete pažljivi kada pokrecete kod od trecih lica. Inace štete prouzrokovane virusima, trojancima itd. ne mogu biti kompletno uklonjene.",IDC_STATIC,7,45,197,40
+    PUSHBUTTON      "Otkazi",IDCANCEL,113,101,50,14
+    LTEXT           "Upravo ste pokrenuli izvrsni kod koji Vam je verovatno ponudjen od strane trecih lica.\nOva procedura obicno se NE PREPORUCUJE jer biste mogli da unesete stetan kod u Vas racunar.",IDC_STATIC,7,7,197,35
+    LTEXT           "Generalno se savetuje da budete pazljivi kada pokrecete kod od trecih lica. U suprotnom stete prouzrokovane virusima, trojancima itd. ne mogu biti kompletno uklonjene.",IDC_STATIC,7,45,197,40
 END
 
 IDD_HELP DIALOGEX 0, 0, 500, 350
@@ -313,43 +313,43 @@ CAPTION "Pomoc za AES-Tool 2.7"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,209,329,50,14
-    LTEXT           "AES-Tool je program za šifrovanje koji može da posluži za šifrovanje datoteka pomocu simetricnog slobodnog Rijndael algoritma (= AES).",IDC_STATIC,12,9,476,10
-    LTEXT           "Program može biti pozvan na tri razlicita nacina:",IDC_STATIC,12,21,476,11
+    LTEXT           "AES-Tool je program za sifrovanje koji moze da posluzi za sifrovanje datoteka pomocu simetricnog slobodnog Rijndael algoritma (= AES).",IDC_STATIC,12,9,476,10
+    LTEXT           "Program moze biti pozvan na tri razlicita nacina:",IDC_STATIC,12,21,476,11
     LTEXT           "Ovi parametri su:",IDC_STATIC,24,42,464,10
     LTEXT           "Kljuc:",IDC_STATIC,24,52,38,8
     LTEXT           "Ulazna datoteka:",IDC_STATIC,24,70,38,8
     LTEXT           "Izlazna datoteka:",IDC_STATIC,24,99,38,19
-    LTEXT           "Ulazna datoteka sadrži podatke za šifrovanje ili dešifrovanje. Ako je odabrana datoteka koja je šifrovana pomocu ovog programa, onda ce program podrazumevano biti podešen na režim za dešifrovanje. U suprotnom program ce ostati u režimu za dešifrovanje.",IDC_STATIC,62,70,426,16
-    LTEXT           "Izlazna datoteka i direktorijum mogu se ustanoviti pritiskom na dugme ""Šifruj""/""Dešifruj"". \nKada šifrujete, možete odabrati dva izlazna formata, pomocu ""radio dugmadi"":",IDC_STATIC,62,99,426,19
-    LTEXT           "'Samoekstraktujuca arhiva' je datoteka koja sadrži podatke i u isto vreme je program. Ovaj program ima istu funkcionalnost kao i AES-Tool i može da se koristi za deširfovanje podataka i cuvanje u datoteci (nakon što je unesena ispravna lozinka).",IDC_STATIC,69,117,419,19
-    LTEXT           " 'Šifrovana datoteka' sadrži samo šifrovane podatke. Tada je AES-Tool program potreban za dešifrovanje.",IDC_STATIC,69,134,419,11
-    LTEXT           "Drugi nacin da pozovete program je uz parametre sa komandne linije. Oni mogu biti odredeni ili pozicijom ili recju. Ako su svi",IDC_STATIC,24,148,425,8
+    LTEXT           "Ulazna datoteka sadrzi podatke za sifrovanje ili desifrovanje. Ako je odabrana datoteka koja je sifrovana pomocu ovog programa, onda ce program podrazumevano biti podesen na rezim za desifrovanje. U suprotnom program ce ostati u rezimu za desifrovanje.",IDC_STATIC,62,70,426,16
+    LTEXT           "Izlazna datoteka i direktorijum mogu se ustanoviti pritiskom na dugme ""Sifruj""/""Desifruj"". \nKada sifrujete, mozete odabrati dva izlazna formata, pomocu ""radio dugmadi"":",IDC_STATIC,62,99,426,19
+    LTEXT           "'Samoekstraktujuca arhiva' je datoteka koja sadrzi podatke i u isto vreme je program. Ovaj program ima istu funkcionalnost kao i AES-Tool i moze da se koristi za desifrovanje podataka i cuvanje u datoteci (nakon sto je unesena ispravna lozinka).",IDC_STATIC,69,117,419,19
+    LTEXT           " 'Sifrovana datoteka' sadrzi samo sifrovane podatke. Tada je potreban za desifrovanje AES-Tool program.",IDC_STATIC,69,134,419,11
+    LTEXT           "Drugi nacin da pozovete program je uz parametre sa komandne linije. Oni mogu biti odredjeni ili pozicijom ili recju. Ako su svi",IDC_STATIC,24,148,425,8
     LTEXT           "AESTool <Ulazna datoteka> <Izlazna datoteka> <kljuc>",IDC_STATIC,62,169,426,10
     LTEXT           "AESTool -i <Ulazna datoteka> -o <Izlazna datoteka> -k <Kljuc>",IDC_STATIC,62,179,426,10
-    LTEXT           "Treca mogucnost za pozivanje programa je samoekstraltujuca arhiva. Ulazno ime datoteke ovde je vec podešeno od strane samoekstraktujuce arhive.",IDC_STATIC,24,220,464,15
+    LTEXT           "Treca mogucnost za pozivanje programa je samoekstraltujuca arhiva. Ulazno ime datoteke ovde je vec podeseno od strane samoekstraktujuce arhive.",IDC_STATIC,24,220,464,15
     LTEXT           "Sa normalnim pokretanjem klikom na ikonicu, svi neophodni parametri ce biti uneseni u dijalog kutiju.",IDC_STATIC,24,33,464,9
     LTEXT           "1.",IDC_STATIC,12,33,12,9
     LTEXT           "2.",IDC_STATIC,12,148,12,11
     LTEXT           "3.",IDC_STATIC,12,220,12,11
     RTEXT           "-",IDC_STATIC,56,118,8,19
     RTEXT           "-",IDC_STATIC,56,137,8,11
-    LTEXT           "Program automatski ustanovljava ako je ulazna datoteka šifrovana i potom je dešifruje. U suprotnom, program je šifruje shodno tome.",IDC_STATIC,24,190,464,8
+    LTEXT           "Program automatski ustanovljava ako je ulazna datoteka sifrovana i potom je desifruje. U suprotnom, program je sifruje shodno tome.",IDC_STATIC,24,190,464,8
     LTEXT           "parametri uneseni ne zahteva se akcija od korisnika, u suprotnom izlazi prozor i ostali podaci mogu biti uneseni interaktivno.",IDC_STATIC,24,156,426,8
-    LTEXT           "Izlazni kod pokazuje uspeh programa: 0: sve je OK; 1: došlo je do greške, bice prikazana na stderr.",IDC_STATIC,24,206,391,8
-    LTEXT           "Ekstenzija izlazne datoteke ustanovljuje format šifrovanja: .EXE: samoekstraktujuca datoteka, druge: obicna zašifrovana datoteka.",IDC_STATIC,24,198,464,9
-    LTEXT           "Imajte na umu da proverite poreklo pre pozivanja samoekstraktujucih datoteka.\nPreporucuje se da uvek imate ažuriran antivirus softver i softver operativnog sistema.",IDC_STATIC,12,278,476,18
-    LTEXT           "Takode možete odabrati datoteku i prevlacenjem (prevuci i spusti) Windows Explorer-a u polje ""Ulazna datoteka"".",IDC_STATIC,62,86,426,8
+    LTEXT           "Izlazni kod pokazuje uspeh programa: 0: sve je OK; 1: doslo je do greske, bice prikazana na stderr.",IDC_STATIC,24,206,391,8
+    LTEXT           "Ekstenzija izlazne datoteke ustanovljuje format sifrovanja: .EXE: samoekstraktujuca datoteka, druge: obicna zasifrovana datoteka.",IDC_STATIC,24,198,464,9
+    LTEXT           "Imajte na umu da proverite poreklo pre pozivanja samoekstraktujucih datoteka.\nPreporucuje se da uvek imate azuriran antivirus softver i softver operativnog sistema.",IDC_STATIC,12,278,476,18
+    LTEXT           "Takodje mozete odabrati datoteku i prevlacenjem (prevuci i spusti) Windows Explorer-a u polje ""Ulazna datoteka"".",IDC_STATIC,62,86,426,8
     LTEXT           "TODO: i18n",IDC_STATIC,12,248,476,16
-    LTEXT           "[i18n][SERBIAN] The key can be entered in either HEX or ASCII characters. The maximum key length is 256 bits (64 HEX or 32 ASCII characters). The key length should be bigger than 88 bits (22 HEX or 11 ASCII characters).",IDC_STATIC,62,52,426,18
+    LTEXT           "Kljuc se moze uneti ili u heksadecimalnim ili ASCII karakterima. Najveca duzina kljuca je 256 bitova (64 heksadecimalnih ili 32 ASCII karaktera). Duzina kljuca treba da bude veca od 88 bitova (22 heksadecimalnih ili 11 ASCII karaktera).",IDC_STATIC,62,52,426,18
 END
 
 IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Informacije o AES-Tool"
+CAPTION "Informacije o naprednom standardu za enkripiciju (AES-Tool)"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-    LTEXT           "AES-Tool Version 2.7",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "AES-Tool verzija 2.7",IDC_STATIC,40,10,119,8,SS_NOPREFIX
     LTEXT           "Copyright (C) 2014",IDC_STATIC1,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
 END
@@ -362,23 +362,23 @@ FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT_KEY_HEX,26,67,340,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_SRC,26,105,273,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
-    PUSHBUTTON      "Search...",IDC_BUTTON_SRC,306,102,60,18
-    CONTROL         "Self-extracting and encrypted",IDC_RADIO_EXE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,155,130,10
+    PUSHBUTTON      "Pretrazi...",IDC_BUTTON_SRC,306,102,60,18
+    CONTROL         "Samoekstraktujuce i enkriptovano",IDC_RADIO_EXE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,155,130,10
     CONTROL         "Encrypted",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,170,155,80,10
-    PUSHBUTTON      "Exit",IDCANCEL,254,180,60,18
-    PUSHBUTTON      "Help",IDC_BUTTON3,315,180,60,18
-    LTEXT           "Encrypt or decrypt a file",IDC_STATIC_TITLE,17,9,80,8
-    GROUPBOX        "Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",IDC_KEY_HEADER,15,28,360,58
-    GROUPBOX        "Input file",IDC_STATIC,15,92,360,45
-    GROUPBOX        "Output format",IDC_STATIC,15,143,360,30
-    CONTROL         "Show entered key",IDC_CHECK_SHOW_PASSWORD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,42,73,10
-    CONTROL         "Enter key as hex",IDC_CHECK_ENTER_PASSWORD_AS_HEX,
+    PUSHBUTTON      "Izlaz",IDCANCEL,254,180,60,18
+    PUSHBUTTON      "Pomoc",IDC_BUTTON3,315,180,60,18
+    LTEXT           "Zasifruj ili odsifruj datoteku",IDC_STATIC_TITLE,17,9,80,8
+    GROUPBOX        "Kljuc [najvise 64 heksadecimalnih cifara (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",IDC_KEY_HEADER,15,28,360,58
+    GROUPBOX        "Ulazna datoteka",IDC_STATIC,15,92,360,45
+    GROUPBOX        "Izlazni format",IDC_STATIC,15,143,360,30
+    CONTROL         "Prikazi uneseni kljuc",IDC_CHECK_SHOW_PASSWORD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,42,73,10
+    CONTROL         "Unesi kljuc heksadecimalno",IDC_CHECK_ENTER_PASSWORD_AS_HEX,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,53,69,10
     EDITTEXT        IDC_EDIT_KEY_ASCII,26,67,340,12,ES_AUTOHSCROLL
-    CONTROL         "Securely delete input file after encryption",IDC_CHECK_SECURELY_DELETE_SOURCE_FILE_AFTER_ENCRYPTION,
+    CONTROL         "Iz bezbednosnih razloga izbrisi ulaznu datoteku nakon sifrovanja",IDC_CHECK_SECURELY_DELETE_SOURCE_FILE_AFTER_ENCRYPTION,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,121,143,10
-    PUSHBUTTON      "Encrypt",IDC_BUTTON_ENCRYPT,15,180,62,18
-    PUSHBUTTON      "Decrypt",IDC_BUTTON_DECRYPT,79,180,62,18
+    PUSHBUTTON      "Zasifruj",IDC_BUTTON_ENCRYPT,15,180,62,18
+    PUSHBUTTON      "Odsifruj",IDC_BUTTON_DECRYPT,79,180,62,18
 END
 
 
@@ -520,34 +520,34 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_ABOUTBOX            "[i18n][SERBIAN] Inf&ormation about AES-Tool..."
-    IDS_STRING_DECRYPT      "[i18n][SERBIAN] Decrypt a file"
-    IDS_STRING_ENCRYPT      "[i18n][SERBIAN] Encrypt a file"
-    IDS_STRING_DECERROR     "[i18n][SERBIAN] File decryption error: %s"
-    IDS_STRING_ENCOK        "[i18n][SERBIAN] The encrypted file %s has been successfully created."
-    IDS_STRING_DECOK        "[i18n][SERBIAN] The decrypted file %s has been successfully created."
-    IDS_STRING_VERSCHLUESSELN "[i18n][SERBIAN] Encrypt"
-    IDS_STRING_ENTSCHLUESSELN "[i18n][SERBIAN] Decrypt"
-    IDS_STRING_FILEERROR    "[i18n][SERBIAN] Error opening %s: %s\n"
-    IDS_STRING_NOMEMORY     "[i18n][SERBIAN] Out of virtual memory."
-    IDS_STRING_KEYERROR     "[i18n][SERBIAN] Wrong key or file %s corrupt."
+    IDS_ABOUTBOX            "Inf&ormacije o AES-Tool..."
+    IDS_STRING_DECRYPT      "Odsifruj datoteku"
+    IDS_STRING_ENCRYPT      "Zasifruj datoteku"
+    IDS_STRING_DECERROR     "Greska pri odsifravanju: %s"
+    IDS_STRING_ENCOK        "Uspesno je kreirana sifrovana %s datoteka."
+    IDS_STRING_DECOK        "Uspesno je kreirana odsifrovana %s datoteka."
+    IDS_STRING_VERSCHLUESSELN "Zasifruj"
+    IDS_STRING_ENTSCHLUESSELN "Odsifruj"
+    IDS_STRING_FILEERROR    "Greska pri otvaranju %s: %s\n"
+    IDS_STRING_NOMEMORY     "Nema dovoljno virtualne memorije."
+    IDS_STRING_KEYERROR     "Pogresna ili ostecena %s  datoteka."
 END
 
 STRINGTABLE
 BEGIN
-    IDS_STRING_ENCERROR     "[i18n][SERBIAN] File encryption error: %s"
-    IDS_STRING_VERSION      "[i18n][SERBIAN] This file has been encrypted with an older version of AES-Tool. \nPlease use the same version for decrypting."
-    IDS_STRING_AES_TOOL_VERSION "[i18n][SERBIAN] AES-Tool 2.7"
-    IDS_STRING_CORRUPT      "[i18n][SERBIAN] This encrypted file is corrupt."
-    IDS_STRING_INVALID_KEY  "[i18n][SERBIAN] Invalid character in key. Please use only 0-9,a-f,A-F."
-    IDS_STRING_KEY_TOO_LONG "[i18n][SERBIAN] Key too long. Maximum AES key length is 256 bits (= 32 bytes = 64 hexadecimal digits)."
+    IDS_STRING_ENCERROR     "Greska : %s pri sifrovanju datoteke"
+    IDS_STRING_VERSION      "Ova datoteka je zasifrovana starom verzijom alatke AES-Tool. \nMolimo koristite istu verziju za odsifrovanje."
+    IDS_STRING_AES_TOOL_VERSION "AES-Tool 2.7"
+    IDS_STRING_CORRUPT      "Ova sifrovana datoteka je ostecena."
+    IDS_STRING_INVALID_KEY  "Neispravan karakter u kljucu. Molimo da koristite samo 0-9,a-f,A-F."
+    IDS_STRING_KEY_TOO_LONG "Kljuc je suvise dugacak. Najveca duzina AES kljuca je 256 bitova (= 32 bajtova = 64 heksadecimalnih cifara)."
     IDS_STRING_KEY_HEADER_HEX 
-                            "[i18n][SERBIAN] Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]"
-    IDS_STRING_KEY_HEADER_ASCII "[i18n][SERBIAN] Key [at most 32 characters]"
-    IDS_STRING_AES_TOOL_HELP_PREFIX "[i18n][SERBIAN] Help for %s"
+                            "Kljuc [najvise 64 heksadecimalnih cifara (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]"
+    IDS_STRING_KEY_HEADER_ASCII "Kljuc [najvise 32 karaktera]"
+    IDS_STRING_AES_TOOL_HELP_PREFIX "Pomoc za %s"
     IDS_STRING_FILE_DELETION_FAILED 
-                            "[i18n][SERBIAN] The file %s could not be deleted."
-    IDS_STRING_ENCRYPT_DECRYPT "[i18n][SERBIAN] Encrypt or decrypt a file"
+                            "Nemoguce je izbrisati %s datoteku."
+    IDS_STRING_ENCRYPT_DECRYPT "Zasifruj ili odsifruj datoteku"
 END
 
 #endif    // Serbian (Latin, Serbia and Montenegro (Former)) resources
