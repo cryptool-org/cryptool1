@@ -1,24 +1,24 @@
-Starting example for the CrypTool version family 1.x (CT1)
+Εναρκτήριο παράδειγμα για το CrypTool έκδοση 1.x (CT1)
 
-CrypTool 1 (CT1) is a comprehensive and free educational program
-about cryptography and cryptanalysis
-offering extensive online help and many visualizations.
+Το Cryptool 1 (CT1) είναι ένα ολοκληρωμένο και δωρεάν εκπαιδευτικό πρόγραμμα 
+κρυπτογραφίας και κρυπτανάλυσης,
+που παρέχει εκτεταμένη ηλεκτρονική βοήθεια και πολλές οπτικοποιήσεις.
 
-This text file was created in order to help you to make your first steps with CT1.
+Αυτό το αρχείο κειμένου θα σας βοηθήσει να κάνετε τα πρώτα σας βήματα με το CT1.
 
-1) As a first step it is recommended you read the included online help. This will provide a useful oversight of all available functions within this application.
-The starting page of the online help can be accessed via the menu "Help -> Starting Page" at the top right of the main window or by using the search keyword "Starting page" within the index of the online help.
-Press F1 to start the online help everywhere in CT1.
+1) Ως πρώτο βήμα, συνιστάται να μελετήσετε τη διαθέσιμη ηλεκτρονική σελίδα βοήθειας. Η σελίδα αυτή παρέχει μία γενική επισκόπηση όλων των διαθέσιμων λειτουργιών της εφαρμογής.
+Μπορείτε να προσπελάστε την αρχική σελίδα της ηλεκτρονικής βοήθειας μέσω του μενού "Βοήθεια -> Σελίδα Εκκίνησης" στην πάνω δεξιά γωνία του κύριου παραθύρου ή χρησιμοποιώντας τη λέξη-κλειδί "Starting page" στο πεδίο αναζήτησης της ηλεκτρονικής βοήθειας.
+Επιπλέον, με το πλήκτρο F1 μπορείτε να περιηγηθείτε στην ηλεκτρονική βοήθεια από οπουδήποτε στο CT1.
 
-2) A possible next step would be to encrypt a file with the Caesar algorithm. This can be done via the menu "Crypt/Decrypt -> Symmetric (Classic)".
+2) Ένα πιθανό επόμενο βήμα θα ήταν να κρυπτογραφήσετε ένα αρχείο με τον αλγόριθμο Ceasar. Αυτό μπορεί να γίνει μέσω του μενού "Κρυπ/ση / Αποκρ/ση -> Συμμετρική Κρυπτογράφηση (Κλασική)".
 
-3) There are several examples (tutorials) provided within the online help which provide an easy way to gain an understanding of cryptology. These examples can be found via the menu "Help -> Scenarios (Tutorials)".
+3) Ένας εύκολος τρόπος για να κατανοήσετε τα βασικά σημεία της κρυπτογραφίας, είναι μέσω των παραδειγμάτων (Οδηγών) που παρέχει η online σελίδα βοήθειας. Αυτά τα παραδείγματα μπορούν να βρεθούν μέσω του μενού "Βοήθεια -> Σενάρια (Οδηγοί)".
 
-4) You can further develop your knowledge by: 
-- Navigating through the menus. You can press F1 at any selected menu item to get more information.
-- Reading the included Readme file (see the menu "Help -> Readme").
-- Viewing the included colorful presentation (This presentation can be found on several ways: e.g. in the "Help" menu of this application, or via the "Documentation" section found at the "Starting" page of the online help).
-- Viewing the webpage www.cryptool.org.
+4) Μπορείτε να διευρύνετε περαιτέρω τις γνώσεις σας:
+- Πατώντας το πλήκτρο F1 σε οποιοδήποτε επιλογή του μενού, μπορείτε να πάρετε επιπλέον πληροφορίες.
+- Μελετώντας το αρχείο Readme (δείτε το μενού "Βοήθεια -> Readme").
+- Προβάλοντας την εισαγωγική παρουσίαση (Η παρουσίαση αυτή μπορεί να βρεθεί με διάφορους τρόπους: π.χ. είτε στο μενού "Βοήθεια" της εφαρμογής, ή στην ενότητα "Documentation"  της αρχικής σελίδας της ηλεκτρονικής βοήθειας).
+- Μέσω της ιστοσελίδας www.cryptool.org.
 
-October 2016
-The CrypTool Team
+Οκτ 2016
+Η ομάδα του cryptool
