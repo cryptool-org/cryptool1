@@ -545,8 +545,7 @@ BEGIN
                             "Kljuc [najvise 64 heksadecimalnih cifara (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]"
     IDS_STRING_KEY_HEADER_ASCII "Kljuc [najvise 32 karaktera]"
     IDS_STRING_AES_TOOL_HELP_PREFIX "Pomoc za %s"
-    IDS_STRING_FILE_DELETION_FAILED 
-                            "Nemoguce je izbrisati %s datoteku."
+    IDS_STRING_FILE_DELETION_FAILED "Nemoguce je izbrisati %s datoteku."
     IDS_STRING_ENCRYPT_DECRYPT "Zasifruj ili odsifruj datoteku"
 END
 
@@ -1401,34 +1400,34 @@ CAPTION "Ayuda para AES-Tool 2.7"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Aceptar",IDOK,209,329,50,14
-    LTEXT           "AESTool es una herramienta de cifrado que es usada para cifrar archivos a través del algoritmo simétrico y de licencia libre Rijndael (= AES).",IDC_STATIC,12,9,476,10
+    LTEXT           "AESTool es una herramienta de cifrado que es usada para cifrar archivos a traves del algoritmo simetrico y de licencia libre Rijndael (= AES).",IDC_STATIC,12,9,476,10
     LTEXT           "Esta herramienta puede ser invocada de tres formas:",IDC_STATIC,12,21,476,11
-    LTEXT           "Los parámetros son:",IDC_STATIC,24,42,464,10
+    LTEXT           "Los parametros son:",IDC_STATIC,24,42,464,10
     LTEXT           "Clave:",IDC_STATIC,24,52,38,8
     LTEXT           "Archivo de entrada:",IDC_STATIC,24,70,38,19
     LTEXT           "Archivo de salida:",IDC_STATIC,24,99,38,19
-    LTEXT           "El archivo de entrada contiene la información necesaria para cifrar o descifrar. Si es seleccionado un archivo que fue previamente cifrado con esta herramienta, ésta pasará automáticamente al modo Descifrado, caso contrario, permanecerá en modo Cifrado.",IDC_STATIC,62,70,426,16
-    LTEXT           "El nombre y la ruta del archivo de salida se pueden determinar presionando el botón de Cifrado/Descifrado. Para el Cifrado, se puede mediante el botón de opción (o botón de radio), seleccionar el formato del Archivo de Salida:",IDC_STATIC,62,99,426,19
-    LTEXT           "Un  ""Autoextraíble"" es un archivo que contiene información, y al mismo tiempo, es un programa. Ese programa tiene la misma funcionalidad que la herramienta AESTool, por lo tanto, permite descifrar la información contenida y almacenarla en un archivo.",IDC_STATIC,69,117,419,19
-    LTEXT           "Un ""Archivo Cifrado"" contiene sólo los datos. Para volver a descifrarlo, es necesario este programa. ",IDC_STATIC,69,134,419,11
-    LTEXT           "La segunda forma de invocar esta herramienta es a través de parámetros en la línea de comandos, que pueden ser tanto una posición ",IDC_STATIC,24,148,426,8
+    LTEXT           "El archivo de entrada contiene la informacion necesaria para cifrar o descifrar. Si es seleccionado un archivo que fue previamente cifrado con esta herramienta, esta pasara automaticamente al modo Descifrado, caso contrario, permanecera en modo Cifrado.",IDC_STATIC,62,70,426,16
+    LTEXT           "El nombre y la ruta del archivo de salida se pueden determinar presionando el boton de Cifrado/Descifrado. Para el Cifrado, se puede mediante el boton de opcion (o boton de radio), seleccionar el formato del Archivo de Salida:",IDC_STATIC,62,99,426,19
+    LTEXT           "Un  ""Autoextraible"" es un archivo que contiene informacion, y al mismo tiempo, es un programa. Ese programa tiene la misma funcionalidad que la herramienta AESTool, por lo tanto, permite descifrar la informacion contenida y almacenarla en un archivo.",IDC_STATIC,69,117,419,19
+    LTEXT           "Un ""Archivo Cifrado"" contiene solo los datos. Para volver a descifrarlo, es necesario este programa. ",IDC_STATIC,69,134,419,11
+    LTEXT           "La segunda forma de invocar esta herramienta es a traves de parametros en la linea de comandos, que pueden ser tanto una posicion ",IDC_STATIC,24,148,426,8
     LTEXT           "AESTool <Archivo de entrada> <Archivo de salida> <Clave>",IDC_STATIC,62,175,426,10
     LTEXT           "AESTool -i <Archivo de entrada> -o <Archivo de salida> -k <Clave>",IDC_STATIC,62,185,426,10
-    LTEXT           "La tercera posibilidad es mediante el archivo autoextraíble. Aquí se determina el archivo de salida a través del contenido del archivo autoextraíble.",IDC_STATIC,24,227,464,15
-    LTEXT           "Simplemente haciendo click sobre la opción correspondiente puede ingresar directamente en un cuadro de diálogo los parámetros necesarios.",IDC_STATIC,24,33,464,9
+    LTEXT           "La tercera posibilidad es mediante el archivo autoextraible. Aqui se determina el archivo de salida a traves del contenido del archivo autoextraible.",IDC_STATIC,24,227,464,15
+    LTEXT           "Simplemente haciendo click sobre la opcion correspondiente puede ingresar directamente en un cuadro de dialogo los parametros necesarios.",IDC_STATIC,24,33,464,9
     LTEXT           "1.",IDC_STATIC,12,33,12,9
     LTEXT           "2.",IDC_STATIC,12,148,12,11
     LTEXT           "3.",IDC_STATIC,12,227,12,11
     RTEXT           "-",IDC_STATIC,56,118,8,19
     RTEXT           "-",IDC_STATIC,56,137,8,11
-    LTEXT           "Se reconocerá automáticamente si el Archivo de entrada está cifrado para descifrarlo, caso contrario, la herramienta procederá a cifrarlo.",IDC_STATIC,24,197,464,8
-    LTEXT           "como una palabra clave. Una vez que todos los parámetros fueron ingresados a la línea de comandos, no se necesita ninguna otra interacción. De lo contrario, se abre una ventana y la información restante puede ser ingresada interactivamente.",IDC_STATIC,24,156,461,16
-    LTEXT           "El éxito de la operación se puede observar con el código de salida: 0: salida exitosa; 1: ha ocurrido un error.",IDC_STATIC,24,213,339,8
-    LTEXT           "La extensión del archivo de salida determina el formato de cifrado: .exe: archivo autoextraíble; otros: archivo cifrado convencional.",IDC_STATIC,24,205,464,9
-    LTEXT           "Es importante que antes de realizar la ejecución, haya comprobado que el archivo proviene de una fuente fiable.\nEs recomendable también mantener el Sistema Operativo y el Antivirus siempre actualizados. ",IDC_STATIC,12,285,476,18
-    LTEXT           "También es posible arrastrar el archivo desde el Explorador de Windows hacia el campo ""Archivo de Entrada"".",IDC_STATIC,62,86,426,8
-    LTEXT           "El tamaño de los archivos autoextraíbles (extensión EXE) puede ser de hasta 4 Gb, eso significa que el archivo a ser cifrado debe ser menor que 4 Gb.\nEn cambio, al crear un archivo AES, el archivo a ser cifrado puede sobrepasar el límite de los 4 Gb. ",IDC_STATIC,12,255,476,16
-    LTEXT           "[i18n][SPANISH] The key can be entered in either HEX or ASCII characters. The maximum key length is 256 bits (64 HEX or 32 ASCII characters). The key length should be bigger than 88 bits (22 HEX or 11 ASCII characters).",IDC_STATIC,62,52,426,18
+    LTEXT           "Se reconocera automaticamente si el Archivo de entrada esta cifrado para descifrarlo, caso contrario, la herramienta procedera a cifrarlo.",IDC_STATIC,24,197,464,8
+    LTEXT           "como una palabra clave. Una vez que todos los parametros fueron ingresados a la linea de comandos, no se necesita ninguna otra interaccion. De lo contrario, se abre una ventana y la informacion restante puede ser ingresada interactivamente.",IDC_STATIC,24,156,461,16
+    LTEXT           "El exito de la operacion se puede observar con el codigo de salida: 0: salida exitosa; 1: ha ocurrido un error.",IDC_STATIC,24,213,339,8
+    LTEXT           "La extension del archivo de salida determina el formato de cifrado: .exe: archivo autoextraible; otros: archivo cifrado convencional.",IDC_STATIC,24,205,464,9
+    LTEXT           "Es importante que antes de realizar la ejecucion, haya comprobado que el archivo proviene de una fuente fiable.\nEs recomendable tambien mantener el Sistema Operativo y el Antivirus siempre actualizados. ",IDC_STATIC,12,285,476,18
+    LTEXT           "Tambien es posible arrastrar el archivo desde el Explorador de Windows hacia el campo ""Archivo de Entrada"".",IDC_STATIC,62,86,426,8
+    LTEXT           "El tamano de los archivos autoextraibles (extension EXE) puede ser de hasta 4 Gb, eso significa que el archivo a ser cifrado debe ser menor que 4 Gb.\nEn cambio, al crear un archivo AES, el archivo a ser cifrado puede sobrepasar el limite de los 4 Gb. ",IDC_STATIC,12,255,476,16
+    LTEXT           "La clave puede ingresarse tanto en caracteres HEX como ASCII. Su tamano debe estar entre 88 bits (22 HEX o 11 ASCII) y 256 bits (64 HEX o 32 ASCII).",IDC_STATIC,62,52,426,18
 END
 
 IDD_SPLASH DIALOGEX 0, 0, 211, 122
@@ -1438,14 +1437,14 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&Aceptar",IDOK,47,101,50,14
     PUSHBUTTON      "&Cancelar",IDCANCEL,113,101,50,14
-    LTEXT           "Acaba de ejecutar un archivo que probablemente fue provisto por terceros.\nNormalmente este procedimiento NO ES RECOMENDABLE, ya que podría ejecutar código dañino en su PC.",IDC_STATIC,7,7,197,35
-    LTEXT           "Generalmente es aconsejable tener mucha precaución al ejecutar código de terceros en su ordenador para evitar posibles virus, troyanos y demás daños.",IDC_STATIC,7,45,197,40
+    LTEXT           "Acaba de ejecutar un archivo que probablemente fue provisto por terceros.\nNormalmente este procedimiento NO ES RECOMENDABLE, ya que podria ejecutar codigo danino en su PC.",IDC_STATIC,7,7,197,35
+    LTEXT           "Generalmente es aconsejable tener mucha precaucion al ejecutar codigo de terceros en su ordenador para evitar posibles virus, troyanos y demas danos.",IDC_STATIC,7,45,197,40
 END
 
 IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 382, 205
 STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
-CAPTION "[i18n][SPANISH] AES-Tool 2.7"
+CAPTION "AES-Tool 2.7"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT_KEY_HEX,26,67,340,12,ES_AUTOHSCROLL
@@ -1577,34 +1576,33 @@ AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\95check.bmp"
 
 STRINGTABLE
 BEGIN
-    IDS_ABOUTBOX            "[i18n][SPANISH] Inf&ormation about AES-Tool..."
-    IDS_STRING_DECRYPT      "[i18n][SPANISH] Decrypt a file"
-    IDS_STRING_ENCRYPT      "[i18n][SPANISH] Encrypt a file"
-    IDS_STRING_DECERROR     "[i18n][SPANISH] File decryption error: %s"
-    IDS_STRING_ENCOK        "[i18n][SPANISH] The encrypted file %s has been successfully created."
-    IDS_STRING_DECOK        "[i18n][SPANISH] The decrypted file %s has been successfully created."
-    IDS_STRING_VERSCHLUESSELN "[i18n][SPANISH] Encrypt"
-    IDS_STRING_ENTSCHLUESSELN "[i18n][SPANISH] Decrypt"
-    IDS_STRING_FILEERROR    "[i18n][SPANISH] Error opening %s: %s\n"
-    IDS_STRING_NOMEMORY     "[i18n][SPANISH] Out of virtual memory."
-    IDS_STRING_KEYERROR     "[i18n][SPANISH] Wrong key or file %s corrupt."
+    IDS_ABOUTBOX            "Inf&ormacion sobre AES-Tool..."
+    IDS_STRING_DECRYPT      "Descifrar un archivo"
+    IDS_STRING_ENCRYPT      "Cifrar un archivo"
+    IDS_STRING_DECERROR     "Error de cifrado de archivo: %s"
+    IDS_STRING_ENCOK        "El archivo cifrado %s ha sido exitosamente creado."
+    IDS_STRING_DECOK        "El archivo descifrado %s ha sido exitosamente creado."
+    IDS_STRING_VERSCHLUESSELN "Cifrar"
+    IDS_STRING_ENTSCHLUESSELN "Descifrar"
+    IDS_STRING_FILEERROR    "Error abriendo %s: %s\n"
+    IDS_STRING_NOMEMORY     "Memoria virtual agotada."
+    IDS_STRING_KEYERROR     "Tecla incorrecta o archivo %s corrupto."
 END
 
 STRINGTABLE
 BEGIN
-    IDS_STRING_ENCERROR     "[i18n][SPANISH] File encryption error: %s"
-    IDS_STRING_VERSION      "[i18n][SPANISH] This file has been encrypted with an older version of AES-Tool. \nPlease use the same version for decrypting."
-    IDS_STRING_AES_TOOL_VERSION "[i18n][SPANISH] AES-Tool 2.7"
-    IDS_STRING_CORRUPT      "[i18n][SPANISH] This encrypted file is corrupt."
-    IDS_STRING_INVALID_KEY  "[i18n][SPANISH] Invalid character in key. Please use only 0-9,a-f,A-F."
-    IDS_STRING_KEY_TOO_LONG "[i18n][SPANISH] Key too long. Maximum AES key length is 256 bits (= 32 bytes = 64 hexadecimal digits)."
+    IDS_STRING_ENCERROR     "Error de cifrado de archivo: %s"
+    IDS_STRING_VERSION      "Este archivo fue cifrado usando una version anterior de AES-Tool. \nPor favor, use la misma version para descifrar."
+    IDS_STRING_AES_TOOL_VERSION "AES-Tool 2.7"
+    IDS_STRING_CORRUPT      "El archivo cifrado es corrupto."
+    IDS_STRING_INVALID_KEY  "Caracter invalido en la clave. Por favor, use solo 0-9,a-f,A-F."
+    IDS_STRING_KEY_TOO_LONG "La clave es muy larga. El tamano de clave maximo para AES es 256 bits (= 32 bytes = 64 hexadecimal digits)."
     IDS_STRING_KEY_HEADER_HEX 
-                            "[i18n][SPANISH] Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]"
-    IDS_STRING_KEY_HEADER_ASCII "[i18n][SPANISH] Key [at most 32 characters]"
-    IDS_STRING_AES_TOOL_HELP_PREFIX "[i18n][SPANISH] Help for %s"
-    IDS_STRING_FILE_DELETION_FAILED 
-                            "[i18n][SPANISH] The file %s could not be deleted."
-    IDS_STRING_ENCRYPT_DECRYPT "[i18n][SPANISH] Encrypt or decrypt a file"
+                            "Clave [maximo 64 caracteres hexadecimales (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]"
+    IDS_STRING_KEY_HEADER_ASCII "Clave [maximo32 caracteres]"
+    IDS_STRING_AES_TOOL_HELP_PREFIX "Ayuda para %s"
+    IDS_STRING_FILE_DELETION_FAILED "El archivo %s no pudo ser eliminado."
+    IDS_STRING_ENCRYPT_DECRYPT "Cifrar o descifrar un archivo."
 END
 
 #endif    // Spanish (Spain, International Sort) resources
