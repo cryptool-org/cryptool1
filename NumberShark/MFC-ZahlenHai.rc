@@ -987,8 +987,7 @@ BEGIN
     IDS_TOOLTIP_BUTTON_SAVEGAME "Cuva trenutnu igru."
     IDS_TAB_RADIO2          "i18n Prikazuje najvece rezultate."
     IDS_SEARCH1             "PretragaAjkulebrojeva["
-    IDS_TOOLTIP_BUTTON_SWITCH_STYLE 
-                            "Menja stil prikaza(školjke ili brojevi)."
+    IDS_TOOLTIP_BUTTON_SWITCH_STYLE "Menja stil prikaza(školjke ili brojevi)."
 END
 
 STRINGTABLE
@@ -2965,7 +2964,7 @@ BEGIN
     PUSHBUTTON      "&Reglas de Juego",ID_BUTTON_RULES,398,16,59,22,BS_VCENTER | BS_MULTILINE
     PUSHBUTTON      "&Ayuda",IDC_BUTTON_HELP,398,46,59,22
     PUSHBUTTON      "Númer&os sin\ndivisores",IDC_BUTTON_REST,398,178,60,22,BS_MULTILINE | WS_DISABLED
-    PUSHBUTTON      "i18n &Game options",IDC_BUTTON_OPTION,398,205,60,22,BS_MULTILINE
+    PUSHBUTTON      "Opciones de Jue&go",IDC_BUTTON_OPTION,398,205,60,22,BS_MULTILINE
     CONTROL         "",IDC_BUTTON_UNDO,"Button",BS_OWNERDRAW | BS_MULTILINE | WS_DISABLED | WS_TABSTOP,404,246,19,15,WS_EX_TRANSPARENT
     CONTROL         "",IDC_BUTTON_REDO,"Button",BS_OWNERDRAW | WS_DISABLED | WS_TABSTOP,434,246,19,15,WS_EX_TRANSPARENT
     PUSHBUTTON      "&Nuevo Juego",IDC_BUTTON_STARTNEW,398,316,59,22,BS_MULTILINE
@@ -3223,12 +3222,12 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_TOOLTIP_BUTTON_LOADGAME "[i18n] Loads an existing game."
-    IDS_TOOLTIP_BUTTON_SAVEGAME "[i18n] Saves the current game."
+    IDS_TOOLTIP_BUTTON_LOADGAME "Cargar una partida existente."
+    IDS_TOOLTIP_BUTTON_SAVEGAME "Guardar la partida actual."
     IDS_TAB_RADIO2          "Mostrar los puntajes pre-calculados."
     IDS_SEARCH1             "BúsquedaNumberShark["
     IDS_TOOLTIP_BUTTON_SWITCH_STYLE 
-                            "[i18n] Changes the display style (shells or numbers)."
+                            "Cambiar el estilo de la pantalla (mejillones o números)."
 END
 
 STRINGTABLE
@@ -3352,7 +3351,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_MAX_POINTS_NEW_2    "Para calcular el máximo puntaje posible de %d puntos sobre %d números, este programa ha necesitado %d segundos y ha pasado a través de %I64d nodos.\n\nEl número primo más alto es %d.Se recomienda comenzar con ese número para intentar alcanzar el máximo puntaje posible.\n\nDicho puntaje se puede lograr, entre otras, con la siguiente combinación: %s. "
-    IDS_SHELL_GROUP_BOX     "i18n Shell square (blue means ""still free to choose""; gray means ""already distributed and eaten up"")"
+    IDS_SHELL_GROUP_BOX     "Mejillones (azul significa ""todavía libre de elegir""; gris significa ""ya distribuido y comido"")"
     IDS_NORMAL_GROUP_BOX    "Mejillones"
     IDS_NO_SEARCH           "El archivo""%s"" no pudo ser creado. Eso se debe probablemente a que usted no posee suficientes privilegios para acceder a la carpeta\r\n""%s"". El cálculo comenzará de todos formas, sin embargo no podrá continuar luego de una interrupción."
     IDS_NO_SUMMARY          "El archivo""%s"" no pudo ser creado. Eso se debe probablemente a que usted no posee suficientes privilegios para acceder a la carpeta\r\n""%s""."
@@ -3400,8 +3399,8 @@ BEGIN
     IDS_NO_SCORE_SELECTED   "Por favor, seleccione un resultado primero. "
     IDS_HEADING_SEQUENCE_LENGTH "Tamaño de la secuencia"
     IDS_HEADING_SEQUENCE    "Secuencia"
-    IDS_ACC_TAB             "[i18n] TAB: Selects the next shell within the shown number block (of one tab)."
-    IDS_ACC_ENTER_OR_SPACE  "[i18n] ENTER / SPACE: Choose the number of the selected shell via keyboard."
+    IDS_ACC_TAB             "Tecla TAB: Selecciona el próximo mejillón del bloque del número mostrado."
+    IDS_ACC_ENTER_OR_SPACE  "Teclas ENTER o ESPACIO: Selecciona el número del mejillón seleccionado a través del teclado."
 END
 
 #endif    // Spanish (Spain, International Sort) resources
