@@ -5210,7 +5210,7 @@ of primitive roots for a given range of primes}
 
 \newpage
 \noindent A variant of our function \verb!count_PrimitiveRoots_of_a_PrimesRange!
-slightly modified by Minh Van Nguyen was used to generate a database of all
+(slightly modified by Minh Van Nguyen) was used to generate a database of all
 primitive roots of all primes between 1 and 100,000.
 
 \begin{sagecode}
@@ -5239,32 +5239,31 @@ This code and the function \verb!enum_PrimitiveRoots_of_an_Integer!
 was executed in a Sage script file non-interactively.
 It took about 6 hours on a modern PC with SageMath 7.2.
 
+Between 1 and 100,000 there are 9,592 primes. For them, more than 169 million primitive
+roots have been calculated. For each prime $p>3$ it holds that between 20 \% and almost
+50 \% of all integers between 1 and p are an according primitive root.
+
 The resulting file ``primroots\_1-100000.dat'' is a database of all primitive roots of all
 % Either mask _ within brackets, or use \verb!!primroots_1-100000.dat!
 primes between 1 and 100,000 inclusive. It is a large file (about 1.1 GB
 uncompressed, and 156 MB compressed with 7Zip).
-You can find the compressed file at
+You can find the compressed file at\\
 \url{https://www.cryptool.org/images/ctp/documents/primroots_1-100000.7z}.
 
-Between 1 and  100,000 there are 9,592 primes. For them, more than 169 million primitive
-roots have been calculated. For each prime p>3 it holds that between 20 \% and almost
-50 \% of all integers between 1 and p are an according primitive root and that the
-number of primitive roots is always an odd number. We don't know a formula which delivers
-the number of primitive roots for a given number.
+Its content looks like this:
+\begin{Verbatim}%
+[fontsize=\footnotesize]
+2      1      {1}
+3      1      {2}
+5      2      {2, 3}
+7      2      {3, 5}
+11     4      {8, 2, 6, 7}
+...
+99989  42840  {2, 3, 8, 10, 11, 13, 14, ..., 99978, 99979, 99981, 99986, 99987}
+99991  24000  {65539, 6, 65546, 11, 12, ..., 65518, 65520, 87379, 65526, 65528}
+\end{Verbatim}
 
-If you are looking for the smallest primitive root ... they have been calculated
-for all primes out to a million with the Sage script \ref{l:Sagecode_SmallestPrimRoot}
-and stored in  file ``primroot-smallest\_up-to-one-million.dat''.
-%%%   : about xxxxx.1 GB uncompressed, and xxxxx MB compressed with 7Zip.
-You can find the compressed file at
-\url{https://www.cryptool.org/images/ctp/documents/primroot-smallest_up-to-one-million.7z}.
 
-The resulting database contains all primes p between 1 and 1,000,000 together with the
-according number of primitive roots and the according smallest prim root mod p. This
-may be interesting to some number theorists.\footnote{%
-  See Re: [sage-devel] What can we do with a database of primitive roots?
-  \url{https://groups.google.com/forum/m/#!topic/sage-devel/TA5Nk2GdhOI}
-}
 
 
 \newpage
@@ -5300,6 +5299,46 @@ file.close()
 	for all primes between 1 and 1,000,000}
 \label{l:Sagecode_SmallestPrimRoot}{}
 \end{sagecode}
+
+%%% \vskip +20 pt
+The Sage script \ref{l:Sagecode_SmallestPrimRoot} was stopped after several weeks
+(running on a modern PC with SageMath 7.2) after investigating all primes up to
+half a million. The result was stored in the file
+``primroot\_number-of-and-smallest\_up-to-prime-500107.dat'', which is 617 kB
+uncompressed, and 178 kB compressed with 7Zip.
+
+You can find the compressed file at
+%%% \url{https://www.cryptool.org/images/ctp/documents/primroot-smallest_up-to-one-million.7z}.
+\url{https://www.cryptool.org/images/ctp/documents/primroot_number-of-and-smallest_up-to-prime-500107.7z}.
+
+This database contains all primes p between 1 and 500,107 together with the
+according number of primitive roots and the according smallest prim root mod p.
+It holds that the number of primitive roots (for $p>3$ )is always an odd number.
+We don't know a formula which delivers the number of primitive roots for a given number.
+So this database may be interesting to some number theorists.\footnote{%
+  See Re: [sage-devel] What can we do with a database of primitive roots?\\
+  \url{https://groups.google.com/forum/m/#!topic/sage-devel/TA5Nk2GdhOI}
+}
+Its content looks like this:
+\begin{Verbatim}%xxxxxxxxxxx
+[fontsize=\footnotesize]
+2       1       1
+3       1       2
+5       2       2
+7       2       3
+11      4       2
+13      4       2
+17      8       3
+...
+99989   42840   2
+99991   24000   6
+100003  28560   2
+...
+500069  250032  2
+500083  151520  2
+500107  156864  2
+\end{Verbatim}
+
 
 \vskip +20 pt
 If you are looking only for the smallest primitive root, then this script could be

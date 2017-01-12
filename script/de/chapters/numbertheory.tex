@@ -5591,57 +5591,42 @@ Auch dieser Code und die Funktion \verb!enum_PrimitiveRoots_of_an_Integer!
 wurden mit einer Sage-Skriptdatei nicht-interaktiv ausgeführt.
 Die Ausführung dauerte mit SageMath 7.2 auf einem modernen PC rund 6 h.
 
-Die Datei \glqq primroots\_1-100000.dat\grqq~enthält die Liste aller Primitivwurzeln
-% Either mask _ within brackets, or use \verb!!primroots_1-100000.dat!
-für alle Primzahlen zwischen 1 und 100.000 inklusive. Dies ist eine große Datei
-(ca. 1,1 GB unkomprimiert, und 156 MB komprimiert mit 7Zip).
-Die komprimierte Datei kann abgerufen werden unter\\
-\url{https://www.cryptool.org/images/ctp/documents/primroots_1-100000.7z}.
-
 Im Bereich 1 bis 100.000 liegen 9.592 Primzahlen. Für sie wurden insgesamt mehr als 
-169 Millionen Primitivwurzeln berechnet. Für jede Primzahl p>3 gilt, dass zwischen
-20 \% und knapp 50 \% aller Zahlen zwischen 1 und p eine Primitivwurzel davon darstellen
-und dass die Anzahl der Primitivwurzeln immer eine gerade Zahl ist.
-% Oder anders:
+169 Millionen Primitivwurzeln berechnet. Für jede Primzahl $p>3$ gilt, dass zwischen
+20 \% und knapp 50 \% aller Zahlen zwischen 1 und p eine Primitivwurzel davon darstellen.
+%%%%% Oder anders:
 % Theorem: If p is a prime, then there is a primitive root for p.
 % (In fact, if p is a prime and p>2, there are always at least two primitive roots,
 % and sometimes many more.)
 % The proof of this theorem is hard. It's in our ??? text (9.2?) and in
 % second-semeter abstract algebra.
-Eine Formel, die die Anzahl der Primitivwurzeln zu einer Zahl angibt, kennen wir nicht.
 
-Wenn man die kleinste Primitivwurzel sucht ... diese wurden für alle Primzahlen
-bis zu einer Million mit dem Sage-Skript \ref{l:Sagecode_SmallestPrimRoot} berechnet
-und in der Datei \glqq primroot-smallest\_up-to-one-million.dat\grqq~gespeichert.
-%%%   : ca. xxxxxxxxx,1 GB unkomprimiert, und xxxxx MB komprimiert mit 7Zip.
-Die komprimierte Datei kann abgerufen werden unter
-\url{https://www.cryptool.org/images/ctp/documents/primroot-smallest_up-to-one-million.7z}.
+Die resultierende Datei \glqq primroots\_1-100000.dat\grqq~enthält die Liste
+% Either mask _ within brackets, or use \verb!!primroots_1-100000.dat!
+aller Primitivwurzeln für alle Primzahlen zwischen 1 und 100.000 inklusive.
+Dies ist eine große Datei (ca. 1,1 GB unkomprimiert, und 156 MB komprimiert mit 7Zip).
+Die komprimierte Datei kann abgerufen werden unter\\
+\url{https://www.cryptool.org/images/ctp/documents/primroots_1-100000.7z}.
 
-Die Ergebnis-Datenbank enthält für jede einzelne Primzahl p zwischen 1 und 1.000.000
-die Anzahl der zugehörigen Primitivwurzeln und die kleinste Primitivwurzel mod p.
-Dies kann für Zahlentheoretiker interessant sein.\footnote{%
-  Siehe auch Re: [sage-devel] What can we do with a database of primitive roots?
-  \url{https://groups.google.com/forum/m/#!topic/sage-devel/TA5Nk2GdhOI}
-}
+Ihr Inhalt sieht wie folgt aus:
+\begin{Verbatim}%
+[fontsize=\footnotesize]
+2      1      {1}
+3      1      {2}
+5      2      {2, 3}
+7      2      {3, 5}
+11     4      {8, 2, 6, 7}
+...
+99989  42840  {2, 3, 8, 10, 11, 13, 14, ..., 99978, 99979, 99981, 99986, 99987}
+99991  24000  {65539, 6, 65546, 11, 12, ..., 65518, 65520, 87379, 65526, 65528}
+\end{Verbatim}
 
-% David Joyner mentions in his answer in [sage-devel]:
-% "Least primitive root of prime numbers"
-% http://plouffe.fr/simon/articles/Least%20primitive%20root%20of%20prime%20numbers.pdf
-% Tomás Oliveira e Silva  October 21, 2004 (Universidade de Aveiro, PORTUGAL)
 
-% Vgl. später auch mal:
-% - http://wstein.org/edu/124/lectures/lecture11/lecture11.tex
-% - http://www.aw-bc.com/rosen/weblinkch9.html   Annotated Web Links to
-%   CHAPTER 9 - Primitive Roots in Elementary Number Theory, 5/E by
-%   Kenneth H. Rosen, AT&T Laboratories, Publisher: Addison-Wesley, 2005, 744 pages
-% - http://arxiv.org/pdf/0810.2325.pdf
-%   A NOTE ON ARTIN’S CONSTANT  by  IVAN CHEREDNIK
-% xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
 \newpage
-Das Sage-Skript \ref{l:Sagecode_SmallestPrimRoot} berechnet alle Primitivwurzeln
-für alle Primzahlen bis zu einer Million, und gibt jeweils die Anzahl unterschiedlicher
+Das Sage-Skript \ref{l:Sagecode_SmallestPrimRoot} berechnet für jede Primzahl (bis \glqq end\grqq)
+alle Primitivwurzeln, und gibt jeweils die Anzahl unterschiedlicher
 Primitivwurzeln und die jeweils kleinste Primitivwurzel aus.
 
 \begin{sagecode}
@@ -5673,8 +5658,61 @@ file.close()
 \label{l:Sagecode_SmallestPrimRoot}{}
 \end{sagecode}
 
+Das Sage-Skript \ref{l:Sagecode_SmallestPrimRoot} wurde nach mehreren Wochen
+gestoppt (wo es auf einem modernen PC mit SageMath 7.2 lief), nachdem es alle
+Primzahlen bis zu einer halben Million auswertete. Das Ergebnis wurde in der
+Datei \glqq primroot\_number-of-and-smallest\_up-to-prime-500107.dat\grqq~gespeichert
+(sie ist unkomprimiert 617 kB groß, und 178 kB komprimiert mit 7Zip).
+
+Die komprimierte Datei kann abgerufen werden unter
+%%% \url{https://www.cryptool.org/images/ctp/documents/primroot-smallest_up-to-one-million.7z}.
+\url{https://www.cryptool.org/images/ctp/documents/primroot_number-of-and-smallest_up-to-prime-500107.7z}.
+
+Diese Datenbank enthält für jede einzelne Primzahl p zwischen 1 und 500.107
+die Anzahl der zugehörigen Primitivwurzeln und die kleinste Primitivwurzel mod p.
+Es gilt, dass die Anzahl der Primitivwurzeln (für $p>3$) immer gerade ist.
+Eine Formel, die die Anzahl der Primitivwurzeln zu einer Zahl angibt, kennen wir nicht.
+Diese Datenbank könnte für Zahlentheoretiker interessant sein.\footnote{%
+  Siehe auch Re: [sage-devel] What can we do with a database of primitive roots?\\
+  \url{https://groups.google.com/forum/m/#!topic/sage-devel/TA5Nk2GdhOI}
+}
+% David Joyner mentions in his answer in [sage-devel]:
+% "Least primitive root of prime numbers"
+% http://plouffe.fr/simon/articles/Least%20primitive%20root%20of%20prime%20numbers.pdf
+% Tomás Oliveira e Silva  October 21, 2004 (Universidade de Aveiro, PORTUGAL)
+%
+% Vgl. später auch mal:
+% - http://wstein.org/edu/124/lectures/lecture11/lecture11.tex
+% - http://www.aw-bc.com/rosen/weblinkch9.html   Annotated Web Links to
+%   CHAPTER 9 - Primitive Roots in Elementary Number Theory, 5/E by
+%   Kenneth H. Rosen, AT&T Laboratories, Publisher: Addison-Wesley, 2005, 744 pages
+% - http://arxiv.org/pdf/0810.2325.pdf
+%   A NOTE ON ARTIN’S CONSTANT  by  IVAN CHEREDNIK
+% xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+%
+Ihr Inhalt sieht wie folgt aus:
+\begin{Verbatim}%xxxxxxxxxxx
+[fontsize=\footnotesize]
+2       1       1
+3       1       2
+5       2       2
+7       2       3
+11      4       2
+13      4       2
+17      8       3
+...
+99989   42840   2
+99991   24000   6
+100003  28560   2
+...
+500069  250032  2
+500083  151520  2
+500107  156864  2
+\end{Verbatim}
+
+
 \vskip +20 pt
-Wenn man pro Primzahl nur die kleinste Primitivwurzel sucht, könnte man dieses Skript
+Wenn man pro Primzahl nur die kleinste Primitivwurzel sucht, kann man dieses Skript
 drastisch beschleunigen, indem man anhand der Theorie die möglichen Kandidaten direkter
 sucht (anstatt mit \verb!enum_PrimitiveRoots_of_an_Integer! erstmal alle Primroots zu
 generieren).
