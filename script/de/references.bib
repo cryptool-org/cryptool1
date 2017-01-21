@@ -5,7 +5,7 @@
 %%                            annotation is in German for a German text and in English otherwise.
 %%                          - Text in quotation marks (Gänsefüßchen) auch jeweils passend zur Sprache:
 %%                            E: Note    = "\\See also ``PolyBoRi'' ...
-$$                            D: Note    = "\\Siehe auch \glqq PolyBoRi\grqq ...
+%%  $$                        D: Note    = "\\Siehe auch \glqq PolyBoRi\grqq ...
 
 
 % --------------------------------------------------------
@@ -766,7 +766,7 @@ year = {1993},
 @Comment{
 // %% Concerning "Month =" :
 // %% - With bibtex: The 3-word version "Jun", "Aug" was recommend. Works fine for one language.
-// %% - With bibtex and babelbix: Using numbers is better --> will be expanded to März or March.
+// %% - With bibtex and babelbib: Using numbers is better --> will be expanded to März or March.
 // %%
 // %% Concerning URLs:
 // %% 1) Using bibtext, but no babelbib:
@@ -782,7 +782,7 @@ year = {1993},
 // %%    b) Another advantage is (checked with using (at)book):
 // %%       The order of note, comment and url in Schm07 was printed in the order written here!
 // %%    --> After using babelbib switched back to techreport!
-// %% 3) Advantage of techreport instaed of misc: bibtex writes its a techreport.
+// %% 3) Advantage of techreport instead of misc: bibtex writes its a techreport.
 // %% 4) Now there is also a good way to deal with more than one URL (using note= instead of url=).
 // %%    - Things which didn't work:
 // %%       - Two different url = statements: Only the first URL is printed.
@@ -832,7 +832,7 @@ year = {1993},
 
 % - Wenn mit bibtex, aber ohne babelbib, dann wird bei InProceedings{Heninger2012,
 %   weder per url noch per howpublished die URL ausgegeben.
-% - Mit bibtex, ohne babelbib und bei misc, dann wird die URL gedruckt, aber booktitle geht verloren!
+% - Mit bibtex, ohne babelbib, dann wird bei misc die URL gedruckt, aber booktitle geht verloren!
 % - Mit bibtex und babelbib tut auch InProceedings wie gewünscht.
 % url = {https://factorable.net/paper.html},
 % howpublished "\url{https://factorable.net/paper.html}",

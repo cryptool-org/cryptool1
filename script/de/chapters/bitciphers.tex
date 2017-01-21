@@ -404,7 +404,7 @@ Abschnitt~\ref{ss-bool-2}, Tabelle~\ref{tab-bool-2}, aufgelistet.
 
 Für Gruppierungen von Bits gibt es je nach Kontext verschiedene
 Bezeichnungen\footnote{%
-   Begrifflich beschreiben sie das gleiche. In Python bzw. SageMath
+   Begrifflich beschreiben sie das gleiche. In Python\index{Python} bzw. SageMath
    entsprechen den verschiedenen Bezeichnungen aber z.\,T. unterschiedliche
    Typen.
 }:
@@ -1509,7 +1509,7 @@ $(0,0,0,0,0,1,1,1)$ oder noch sparsamer durch die Bitkette
      00000111
 \]
 der Länge $2^3 = 8$ vollständig beschrieben werden.\footnote{%
-  Bitblöcke werden in Python/SageMath als Liste\index{Liste} implementiert.
+  Bitblöcke werden in Python/SageMath\index{Python} als Liste\index{Liste} implementiert.
 }
 
 
@@ -1605,7 +1605,7 @@ sage: z = f.getANF(); z
 
 \subsubsection*{Objektorientierte Implementation}
 
-Für eine Implementation von Booleschen Funktionen in SageMath (bzw. Python) siehe
+Für eine Implementation von Booleschen Funktionen in SageMath (bzw. Python\index{Python}) siehe
 den Anhang~\ref{ss-bool-class} (Klasse {\tt BoolF()}).
 SageMath selbst bringt schon eine Klasse
 {\tt sage.crypto.boolean\_function} mit, die viele der benötigten Methoden,
@@ -4492,7 +4492,7 @@ sie wie folgt auf:
       letzten Runde, wie bei SP-Netzen üblich, weggelassen.
 \end{itemize}
 Das gesamte Schema ist in Abbildung~\ref{fig-bool-miniLuc} veranschaulicht,
-das SageMath-Beipiel~\ref{Sage-code-miniLuc} enthält den SageMath/Python-Code dafür.
+das SageMath-Beipiel~\ref{Sage-code-miniLuc} enthält den SageMath/Python-Code\index{Python} dafür.
 
 \begin{sagecode}
 \begin{verbatim}
@@ -4824,7 +4824,7 @@ nicht wesentlich verringern:
 Für unser 2-Runden-Beispiel mit Mini-Lucifer\index{Mini-Lucifer}
 ist die systematische Suche
 noch leicht durchführbar; selbstverständlich kann man sich dabei auch
-mit SageMath (oder einem Python-Programm) behelfen, das soll hier aber nicht
+mit SageMath (oder einem Python-Programm\index{Python}) behelfen, das soll hier aber nicht
 ausgewalzt werden. Das obige Beispiel hatte folgende Kenngrößen:
 \begin{itemize}
    \item $\alpha = (\alpha_1,\alpha_2)$\footnote{%
@@ -5768,7 +5768,7 @@ sage: ciphstr
 '110100101110001110110110111101001111111111100101
 111000101011011011110010111110011111100111110000'
 \end{verbatim}
-\caption{XOR-Verschlüsselung\index{XOR}\index{Verschlüsselung!XOR} in Python/SageMath}\label{Sage-code-bool-xor}
+\caption{XOR-Verschlüsselung\index{XOR}\index{Verschlüsselung!XOR} in Python/SageMath\index{Python}}\label{Sage-code-bool-xor}
 \end{sagecode}
 % \clearpage
 
@@ -6194,7 +6194,7 @@ def fsr(f,x,n):
     outlist.append(c)
   return outlist
 \end{verbatim}
-\caption{Ein rückgekoppeltes Schieberegister in Python/SageMath}\label{Sage-code-bool-fsr}
+\caption{Ein rückgekoppeltes Schieberegister in Python/SageMath\index{Python}}\label{Sage-code-bool-fsr}
 \end{sagecode}
 
 \begin{sagecode}
@@ -6208,7 +6208,7 @@ sage: bitlist = fsr(f, start, 32)
 sage: print(bbl2str(bitlist))
 11101010101010101010101010101010
 \end{verbatim}
-\caption{Eine Pseudozufallsfolge\index{Pseudozufallsfolge} in Python/SageMath}\label{Sage-code-bool-fsr1}
+\caption{Eine Pseudozufallsfolge\index{Pseudozufallsfolge} in Python/SageMath\index{Python}}\label{Sage-code-bool-fsr1}
 \end{sagecode}
 %\clearpage
 
@@ -6493,7 +6493,7 @@ def lfsr(s,x,n):
   return outlist
 \end{verbatim}
 \caption{Ein lineares\index{lineares Schieberegister}\index{Schieberegister!linear}
-	Schieberegister (LSFR) in Python/SageMath}\label{Sage-code-bool-lfsr}
+	Schieberegister (LSFR) in Python/SageMath\index{Python}}\label{Sage-code-bool-lfsr}
 \end{sagecode}
 
 \begin{sagecode}
@@ -6511,7 +6511,7 @@ sage: p = m+n                  # Toggle bits of m ---> 1 = black
 sage: p.subdivide(range(0,33),range(0,33))
 sage: matrix_plot(p, subdivisions=True)
 \end{verbatim}
-\caption{Eine Pseudozufallsfolge\index{Pseudozufallsfolge} in Python/SageMath}\label{Sage-code-bool-lfsr1}
+\caption{Eine Pseudozufallsfolge\index{Pseudozufallsfolge} in Python/SageMath\index{Python}}\label{Sage-code-bool-lfsr1}
 \end{sagecode}
 
 \begin{figure}[htbp]
@@ -7151,7 +7151,7 @@ implementieren, d.\,h., eine Klasse {\tt LFSR} zu definieren\footnote{%
       \end{description}
 \end{description}
 Dazu ist es zur Überwachung des Registers praktisch, noch eine Methode
-(die in Python generisch {\tt \_\_str\_\_} heißt) zu haben, die die
+(die in Python\index{Python} generisch {\tt \_\_str\_\_} heißt) zu haben, die die
 Attribute in lesbarer Form ausgibt.
 
 Für die Implementation siehe das SageMath-Beispiel~\ref{Sage-code-bool-lfsr3}
@@ -8382,7 +8382,7 @@ Man könnte sich damit behelfen. In diesem Text stützen wir uns allerdings
    Man nennt das "`das Rad neu erfinden"'. Die angestrebte Einheitlichkeit
    und Vollständigkeit mögen es entschuldigen. Auch sollte das Durcharbeiten
    einen Lerneffekt mit sich bringen. Weiterer Aspekt:
-   Die folgenden Module sind reines Python und deshalb auch ohne eine
+   Die folgenden Module sind reines Python\index{Python} und deshalb auch ohne eine
    SageMath-Implementation verwendbar.
 }.
 
@@ -8434,7 +8434,7 @@ als Methoden der Klasse \verb:SBox: aus dem Modul \verb:sage.crypto.mq.sbox:.
 
 Die im Folgenden beschriebenen SageMath-Klassen und -Funktionen sind
 im Modul \verb:bitciphers.sage: zusammengefasst
-Sie wurden mit Python 3.4.1\footnote{%
+Sie wurden mit Python\index{Python} 3.4.1\footnote{%
    Der einzige Unterschied zu Python 2, der verwendet wurde, ist der
    Operator {\tt //} für die Ganzzahl-Division.
 } unter OS X entwickelt und mit SageMath 6.2 getestet.

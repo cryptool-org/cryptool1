@@ -335,7 +335,7 @@ Section~\ref{ss-bool-2}, Table~\ref{tab-bool-2}.
 \subsection{Bitblocks and Boolean Functions}\label{ss-bool-blck}
 
 Collections of bits are denoted by several different names\footnote{%
-   that all refer the same conceptual entities. However in Python or SageMath
+   that all refer the same conceptual entities. However in Python\index{Python} or SageMath
    the different names sometimes denote different types.
 },
 depending on the context:
@@ -1295,7 +1295,7 @@ objects. A bitblock $b = (b_1, \ldots, b_n) \in \F_2^n$ describes:
 \begin{itemize}
    \item a vector\index{vector} $b \in \F_2^n$ written as a row or a column.
       This is the primary meaning of the term bitblock\footnote{%
-         in Python/SageMath implemented as list\index{list}, or tuple, or vector
+         in Python/SageMath\index{Python} implemented as list\index{list}, or tuple, or vector
       }.
    \item an argument of a Boolean function or map of $n$ variables, also used
       as row index of a value table (or truth table\index{truth table})
@@ -1369,7 +1369,7 @@ the bitstring
      00000111
 \]
 of length $2^3 = 8$ completely specifies the truth table of $f_0$.\footnote{%
-  In Python/SageMath bitblocks are implemented as lists\index{list}.
+  In Python/SageMath\index{Python} bitblocks are implemented as lists\index{list}.
 }
 
 \begin{table}[hbpt]
@@ -1486,7 +1486,7 @@ sage: z = f.getANF(); z
 
 \subsubsection*{Object-Oriented Implementation}
 
-For an implementation of Boolean functions in SageMath (or Python) see
+For an implementation of Boolean functions in SageMath (or Python\index{Python}) see
 Appendix~\ref{ss-bool-class} (class {\tt BoolF()}). SageMath itself has a class
 {\tt sage.crypto.boolean\_function} that contains many of the needed
 methods, also the conversion of a truth table\index{truth table} into ANF.
@@ -4252,7 +4252,7 @@ Figure~\ref{fig-bool-miniLuc}:
       itself as defined in SageMath sample~\ref{Sage-code-LucP}. As usual
       for SP-networks we omit it in the last round.
 \end{itemize}
-SageMath sample~\ref{Sage-code-miniLuc} contains the SageMath/Python code.
+SageMath sample~\ref{Sage-code-miniLuc} contains the SageMath/Python\index{Python} code.
 
 \begin{sagecode}
 \begin{verbatim}
@@ -4572,7 +4572,7 @@ however don't reduce the order of magnitude of the cost:
 
 For our 2-round example with Mini-Lucifer\index{Mini-Lucifer} the
 systematic search is feasible by pencil and paper or by a SageMath or
-Python script. Our example has the following characteristics:
+Python\index{Python} script. Our example has the following characteristics:
 \begin{itemize}
    \item $\alpha = (\alpha_1,\alpha_2)$\footnote{%
       $\alpha_1$ was formerly denoted $\alpha$. Now for uniformity we
@@ -5468,7 +5468,7 @@ sage: ciphstr = bbl2str(cipher); ciphstr
 '110101011111100111111011111100111011011011110111
 111000101011011011111000111111111111100011110011'
 \end{verbatim}
-\caption{XOR encryption\index{XOR}\index{encryption!XOR}\index{cipher!XOR} in Python/SageMath}\label{Sage-code-bool-xor}
+\caption{XOR encryption\index{XOR}\index{encryption!XOR}\index{cipher!XOR} in Python/SageMath\index{Python}}\label{Sage-code-bool-xor}
 \end{sagecode}
 
 
@@ -5889,7 +5889,7 @@ def fsr(f,x,n):
     outlist.append(c)
   return outlist
 \end{verbatim}
-\caption{A feedback shift register (FSR) in Python/SageMath}\label{Sage-code-bool-fsr}
+\caption{A feedback shift register (FSR) in Python/SageMath\index{Python}}\label{Sage-code-bool-fsr}
 \end{sagecode}
 
 \begin{sagecode}
@@ -5904,7 +5904,7 @@ sage: print(bbl2str(bitlist))
 11101010101010101010101010101010
 \end{verbatim}
 \caption{A (very poor) pseudo-random sequence\index{pseudo-random sequence}
-   in Python/SageMath}\label{Sage-code-bool-fsr1}
+   in Python/SageMath\index{Python}}\label{Sage-code-bool-fsr1}
 \end{sagecode}
 
 \begin{table}
@@ -6166,7 +6166,7 @@ def lfsr(s,x,n):
     outlist.append(c)
   return outlist
 \end{verbatim}
-\caption{Defining an LFSR\index{LFSR} in Python/SageMath}\label{Sage-code-bool-lfsr}
+\caption{Defining an LFSR\index{LFSR} in Python/SageMath\index{Python}}\label{Sage-code-bool-lfsr}
 \end{sagecode}
 
 \begin{sagecode}
@@ -6185,7 +6185,7 @@ sage: p.subdivide(range(0,33),range(0,33))
 sage: matrix_plot(p, subdivisions=True)
 \end{verbatim}
 \caption{A pseudo-random bit sequence\index{pseudo-random sequence}
-   in Python/SageMath}\label{Sage-code-bool-lfsr1}
+   in Python/SageMath\index{Python}}\label{Sage-code-bool-lfsr1}
 \end{sagecode}
 
 \begin{figure}[htbp]
@@ -6779,7 +6779,7 @@ This suggests an implementation of LFSRs as objects of a class {\tt LFSR}\footno
       \end{description}
 \end{description}
 For observing the register a method (generically called {\tt \_\_str\_\_}
-in Python) is convenient that outputs the attributes in human-readable form.
+in Python\index{Python}) is convenient that outputs the attributes in human-readable form.
 
 The complete implementation is in SageMath sample~\ref{Sage-code-bool-lfsr3}
 in Section~\ref{ss-bool-lfsrclass}.
@@ -7935,7 +7935,7 @@ we mostly use our own independent (and free) implementation\footnote{%
    This is known as ``reinventing the wheel''. Forgive it in view of
    intended uniformity and consistency. Working through the functions in the
    SageMath samples should facilitate learning the algorithms. A further aspect:
-   Our modules are written in pure Python and may be used without installing
+   Our modules are written in pure Python\index{Python} and may be used without installing
    SageMath.
 }.
 
@@ -7980,7 +7980,7 @@ as methods of the class \verb:SBox: from the module \verb:sage.crypto.mq.sbox:.
 \subsection{New SageMath Functions for this Chapter}
 
 The SageMath classes and functions defined in the following can be found in the
-module \verb:bitciphers.sage:. They were developed with Python 3.4.1\footnote{%
+module \verb:bitciphers.sage:. They were developed with Python\index{Python} 3.4.1\footnote{%
    The only relevant difference with Python 2 is the operator {\tt //} for the
    division of integers.
 } under OS X, and tested with SageMath 6.2.
