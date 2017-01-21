@@ -400,8 +400,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
-  \includepdf[pages=1]{figures/coverv1_de_draft.pdf}  % 100dpi (kein Draftbalken mehr, nur geringere Auflösung)
+% \includegraphics[width=\paperheight]{figures/coverv1deQual90.jpg}  % 1. Seite leer, 2. zeigt Grafik nicht ganz und hat Seitennummer!
+% \include[pages=1]{figures/coverv1deQual90.jpg}  % 1. Seite leer. Nur Dateiname steht da.
+% \includepdf[pages=1]{figures/coverv1_de_draft.pdf}  % 100dpi (kein Draftbalken mehr, nur geringere Auflösung)
 % \includepdf[pages=1]{figures/coverv1_de.pdf}        % 300dpi (wieder pdf statt png)
+\includepdf[pages=1]{figures/coverv1_de.pdf}        % ab 2017 nur eine Auflösung und kein Querbalken
 
 \pagestyle{plain}
 %16xxxxxxxxxxxxxxERSTMAL weggelassen \pagestyle{myheadings}
@@ -416,7 +419,7 @@
 \VerbatimFootnotes
 % space between text and footnote 
 % \renewcommand{\footnoterule}{\parindent0cm\rule{13cm}{.1pt}\vspace{.2cm}}
-% Formatierung der Fuï¿½noten
+% Formatierung der Fußnoten
 \renewcommand\footnoterule{
 \vspace{2em}%   <-- one line space between text and footnoterule
 % \kern-3\p@
