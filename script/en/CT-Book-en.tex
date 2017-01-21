@@ -11,8 +11,8 @@
 %           manner like sentences, but without dot at the end.
 %         - Use American English instead of British English consistently.
 %
-% Orthography English: - finite abelian group  --> "abelian" klein.
-%                      - a Boolean function --> bisher immer groß [passt das zu abelian?]
+% Orthography English: - finite abelian group  --> "abelian" lower case.
+%                      - a Boolean function --> till now always upper case [Boolean <--> abelian?]
 %
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -63,9 +63,8 @@
 \do\x\do\y\do\z}
 
 
-\usepackage[labelstoglobalaux]{bibunits}
-%%%NEWNEW \xxxdefaultbibliography{references} % Why only in English version?
-%%%NEWNEW \xxxdefaultbibliographystyle{abbrv} % Why only in English version?
+\usepackage[]{bibunits}
+\defaultbibliography{../de/references}
 
 
 \usepackage{float}
@@ -77,8 +76,6 @@
 
 % -------------
 \usepackage[colorlinks=true,linkcolor=blue, citecolor=blue,urlcolor=black,bookmarksnumbered=true,pdfpagelabels,plainpages=false,hyperfootnotes=false]{hyperref}
-%16xxxxxxxxxxxxxxProbiere es erstmal ohne dies aus dlog.tex \usepackage{hyperref,cite,url} 
-%%%              Bedeutung der Syntax? Im Deutschen nicht (mehr?) drin.
 
 
 
@@ -101,7 +98,7 @@
 \RequirePackage[normalem]{ulem} %DIF PREAMBLE%16xxxxxxxxxxxxxx
 \RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE%16xxxxxxxxxxxxxx
 \providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE%16xxxxxxxxxxxxxx
-\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE%16xxxxxxxxxxxxxx
+\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}}   %DIF PREAMBLE%16xxxxxxxxxxxxxx
 
 \providecommand{\DIFaddbegin}{} %DIF PREAMBLE%16xxxxxxxxxxxxxx
 \providecommand{\DIFaddend}{} %DIF PREAMBLE%16xxxxxxxxxxxxxx
@@ -121,7 +118,7 @@
 \hypersetup{colorlinks=true}
 
 %\newcommand{\href}[2]{#2}
-\newcommand{\hypertag}[2]{#1}
+\newcommand{\hypertag}[2]{#1} %%%%%% NUR im ENGLISCHEN ???
 %\newcommand{\hyperlink}[2]{#2}
 %\newcommand{\hypertarget}[2]{#2}
 
@@ -138,7 +135,7 @@
 
 
 % Define title ..............
-\title{% Keine Leerzeilen, sonst Meldung: "Paragraph ended before \title was complete."
+\title{% Empty lines between these brackets cause: "Paragraph ended before \title was complete."
 	{\Huge The CrypTool Book: \\[20pt]
          {\bf Learning and Experiencing\\[10pt] Cryptography\\[15pt]
           with CrypTool and SageMath}}\\[35pt]
@@ -152,8 +149,7 @@
 
 \author{
         {\LARGE Prof.\ Bernhard Esslinger (co-author and editor)}\\[10pt]
-        {\LARGE and the CrypTool Team, 1998-2016}\\[10pt]
-%        {\LARGE Frankfurt am Main, Germany} \\*[15pt]
+        {\LARGE and the CrypTool Team, 1998-2017}\\[10pt]
         \url{www.cryptool.org}
 }
 
@@ -165,7 +161,6 @@
 % \includepdf[pages=1]{figures/coverv1_en.pdf}   % 300dpi
 
 \pagestyle{plain}
-%16xxxxxxxxxxxxxxERSTMAL weggelassen \pagestyle{myheadings}
 \tikzset{ampersand replacement=\&} %DIF > %16xxxxxxxxxxxxxx
 
 \setlength{\fboxrule}{.5mm}
@@ -194,7 +189,7 @@ possible, as in all other documents.\\
 Additionally, this document is liable to the specific license of the
 GNU Free Documentation Licence.
 
-    Copyright \copyright{} 1998--2016 Bernhard Esslinger and the
+    Copyright \copyright{} 1998--2017 Bernhard Esslinger and the
     CrypTool Team. Permission is granted to copy,
     distribute and/or modify this document under the terms of the GNU
     Free Documentation License, Version 1.3 or any later version
@@ -209,13 +204,13 @@ GNU Free Documentation Licence.
 \vspace{70pt}\noindent Suggestion for referencing with bibtex:
 \begin{Verbatim}%
 [fontsize=\footnotesize]
-@book{Esslinger:ctb_2016,
+@book{Esslinger:ctb_2017,
   editor    = {Bernhard Esslinger},
   title     = {{L}earning and {E}xperiencing {C}ryptography
                with {C}ryp{T}ool and {S}age{M}ath},
   publisher = {CrypTool Project},
   edition   = {12},
-  year      = {2016}
+  year      = {2017}
 }
 \end{Verbatim}
 
@@ -245,26 +240,21 @@ Version control software: Subversion
 \parskip \value{mycounterDefaultParskip} pt 
 
 
-\input{chapters/introduction.tex}
+\renewcommand{\bibname}{Bibliography \CTBChapName{}}
+\newcommand{\CTBChapName}{(Chap Intro)}           \input{chapters/introduction.tex}
 \mainmatter
+\renewcommand{\CTBChapName}{(Chap CryptoMeth)}    \input{chapters/cryptomethods.tex}
+\renewcommand{\CTBChapName}{(Chap PaP)}           \input{chapters/paper_and_pencil.tex}
+\renewcommand{\CTBChapName}{(Chap Primes)}        \input{chapters/primes.tex}
+\renewcommand{\CTBChapName}{(Chap NT)}            \input{chapters/numbertheory.tex}
+\renewcommand{\CTBChapName}{(Chap ModernCrypto)}  \input{chapters/moderncryptography.tex}
+\renewcommand{\CTBChapName}{(Chap DigSig)}        \input{chapters/digitalsignatures.tex}
+\renewcommand{\CTBChapName}{(Chap EllCurves)}     \input{chapters/ellipticcurves.tex}
+\renewcommand{\CTBChapName}{(Chap BitCiphers)}    \input{chapters/bitciphers.tex}
+\renewcommand{\CTBChapName}{(Chap HE)}            \input{chapters/homomorphicencryption.tex}
+\renewcommand{\CTBChapName}{(Chap DLogFact)}      \input{chapters/dlog-factoringdead.tex}
+\renewcommand{\CTBChapName}{(Chap Crypto2020)}    \input{chapters/crypto2020.tex}
 
-%%% \xxbibliographyunit[\chapter]
-%%% \xxbibliography*{../de/references}
-%%% \xxbibliographystyle*{plain}
-
-\input{chapters/cryptomethods.tex}
-\input{chapters/paper_and_pencil.tex}
-\input{chapters/primes.tex}
-\input{chapters/numbertheory.tex}
-\input{chapters/moderncryptography.tex}
-\input{chapters/digitalsignatures.tex}
-\input{chapters/ellipticcurves.tex}
-\input{chapters/bitciphers.tex}
-\input{chapters/homomorphicencryption.tex}
-\input{chapters/dlog-factoringdead.tex}
-\input{chapters/crypto2020.tex}
-
-%%% \xxbibliographyunit
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -286,18 +276,17 @@ Version control software: Subversion
       \item[8] \hyperlink{appendix-authors}{Authors of the CrypTool Book}
     \end{itemize}
   \newpage
-  \input{chapters/menus.tex}
-  \input{chapters/movies.tex}
-  \input{chapters/what-is-sage.tex}
-  \input{chapters/authors.tex}
+  \renewcommand{\CTBChapName}{(Appendix Menus)}      \input{chapters/menus.tex}
+  \renewcommand{\CTBChapName}{(Appendix LearnTool)}  \input{chapters/movies.tex}
+  \renewcommand{\CTBChapName}{(Appendix Sage)}       \input{chapters/what-is-sage.tex}
+  \renewcommand{\CTBChapName}{(Appendix Authors)}    \input{chapters/authors.tex}
 \end{appendix}
 
-\input{chapters/gnu-fdl-1.3.tex}
+\renewcommand{\CTBChapName}{(Appendix gnu-fdl)}      \input{chapters/gnu-fdl-1.3.tex}
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \begingroup
-  %\setlength{\parskip}{0pt}
   \renewcommand*{\addvspace}[1]{}
 
   \clearpage\phantomsection
@@ -352,21 +341,20 @@ Version control software: Subversion
 
 
 %------------------------------------------------------------------------------
-% Create two complete bibliographies with different style
-%% \begin{bibunit}[plain]
-\begin{bibunit}[babplain]
+% Create two complete bibliographies with different styles
+\begin{bibunit}[babplain] %% Style not just plain!
 \nocite{*}
-\renewcommand{\bibname}{References of All Chapters}
+\renewcommand{\bibname}{All References from All Chapters (numbered by babplain)}
 \putbib[../de/references]
-\addcontentsline{toc}{chapter}{Bibliography with References from All Chapters}
+\addcontentsline{toc}{chapter}{Bibliography with All References (Numbered)}
 \end{bibunit}
 
 
 \begin{bibunit}[babalpha]
 \nocite{*}
-\renewcommand{\bibname}{All References (sorted by alpha)}
+\renewcommand{\bibname}{All References from All Chapters (sorted by babalpha)}
 \putbib[../de/references]
-\addcontentsline{toc}{chapter}{Bibliography of All Chapters (sorted by alpha)}
+\addcontentsline{toc}{chapter}{Bibliography with All References (Sorted by AuthorYear)}
 \end{bibunit}
 
 
