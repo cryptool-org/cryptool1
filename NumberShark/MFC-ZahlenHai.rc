@@ -31,7 +31,7 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            128,IDC_STATIC,11,17,20,20
     LTEXT           "Number Shark Wersja 1.2.2",IDC_STATIC,40,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2013",IDC_STATIC,40,25,119,8
+    LTEXT           "Copyright (C) 2017",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
 END
 
@@ -208,7 +208,7 @@ BEGIN
             VALUE "FileDescription", "NumberShark"
             VALUE "FileVersion", "1.2.3"
             VALUE "InternalName", "NumberShark.exe"
-            VALUE "LegalCopyright", "Contributors © 1998-2013"
+            VALUE "LegalCopyright", "Contributors © 1998-2017"
             VALUE "OriginalFilename", "NumberShark.exe"
             VALUE "ProductName", "NumberShark"
             VALUE "ProductVersion", "1.2.3"
@@ -484,7 +484,7 @@ BEGIN
     IDS_RULES_2             "Podczas gry moΏesz okreliζ widocznoζ muszelek na przyciskach,\n wciskajΉc SHIFT+ALT+C.\n\n To moΏe pomσc Tobie lepiej odczytywaζ cyfry na przyciskach i przyspieszy grκ.\n\nDodatkowΉ pomoc uzyskasz, wciskajΉc F1. \n\n Pomoc online zawiera manual, kurs gry oraz informacje o tym, jak powsta³a gra."
     IDS_MAX_POINTS_INFORMATION2 
                             "Dla %s liczb, najwiκkszym osiΉgalnym wynikiem jest %s\n\n\n\nMoΏemy pokazaζ Tobie najwiκkszy moΏliwy wynik, poniewaΏ ta wartoζ zosta³a juΏ policzona i jest przechowywana przez program. \n\n\n\n "
-    IDS_DISCLAIMER_TEXT     "Proszκ zapoznaζ siκ z warunkami licencji i informacjami odnonie braku odpowiedzialnoci za jakiekolwiek zniszczenia wynikajΉce z uΏycia gry Number Shark.\n(C) CrypTool Project 2013"
+    IDS_DISCLAIMER_TEXT     "Proszκ zapoznaζ siκ z warunkami licencji i informacjami odnonie braku odpowiedzialnoci za jakiekolwiek zniszczenia wynikajΉce z uΏycia gry Number Shark.\n(C) CrypTool Project 2017"
 END
 
 STRINGTABLE
@@ -627,7 +627,7 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            128,IDC_STATIC,11,17,20,20
     LTEXT           "Ajkula brojeva verzije 1.2.2",IDC_STATIC,40,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2013",IDC_STATIC,40,25,119,8
+    LTEXT           "Copyright (C) 2017",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
 END
 
@@ -725,7 +725,7 @@ BEGIN
     PUSHBUTTON      "&Pravila igre",ID_BUTTON_RULES,398,16,59,22,BS_VCENTER | BS_MULTILINE
     PUSHBUTTON      "&Pomoc",IDC_BUTTON_HELP,398,46,59,22
     PUSHBUTTON      "Hr&ana za ajkulu",IDC_BUTTON_REST,398,178,60,22,BS_MULTILINE | WS_DISABLED
-    PUSHBUTTON      "i18n &Game options",IDC_BUTTON_OPTION,398,205,60,22,BS_MULTILINE
+    PUSHBUTTON      "&Opcije igre",IDC_BUTTON_OPTION,398,205,60,22,BS_MULTILINE
     CONTROL         "",IDC_BUTTON_UNDO,"Button",BS_OWNERDRAW | BS_MULTILINE | WS_DISABLED | WS_TABSTOP,404,246,19,15,WS_EX_TRANSPARENT
     CONTROL         "",IDC_BUTTON_REDO,"Button",BS_OWNERDRAW | WS_DISABLED | WS_TABSTOP,434,246,19,15,WS_EX_TRANSPARENT
     PUSHBUTTON      "&Nova igra",IDC_BUTTON_STARTNEW,398,316,59,22,BS_MULTILINE
@@ -804,7 +804,7 @@ BEGIN
             VALUE "FileDescription", "NumberShark"
             VALUE "FileVersion", "1.2.3"
             VALUE "InternalName", "NumberShark.exe"
-            VALUE "LegalCopyright", "Contributors © 1998-2013"
+            VALUE "LegalCopyright", "Contributors © 1998-2017"
             VALUE "OriginalFilename", "NumberShark.exe"
             VALUE "ProductName", "NumberShark"
             VALUE "ProductVersion", "1.2.3"
@@ -985,7 +985,7 @@ STRINGTABLE
 BEGIN
     IDS_TOOLTIP_BUTTON_LOADGAME "Pokrece zapocetu igru."
     IDS_TOOLTIP_BUTTON_SAVEGAME "Cuva trenutnu igru."
-    IDS_TAB_RADIO2          "i18n Prikazuje najvece rezultate."
+    IDS_TAB_RADIO2          "Prikazuje najvece rezultate."
     IDS_SEARCH1             "PretragaAjkulebrojeva["
     IDS_TOOLTIP_BUTTON_SWITCH_STYLE "Menja stil prikaza(koljke ili brojevi)."
 END
@@ -1043,7 +1043,7 @@ BEGIN
     IDS_RULES_2             "U toku igre moete ukljuciti ili iskljuciti vidljivost koljki na dugmetu pritiskom na kombinaciju taster SHIFT+ALT+C na tastaturi.\r\nOvo moe pomoci da procitate brojeve na dugmadima bolje i malo ubrzate igru.\r\n\r\nMoete dobiti dodatne informacije i pomoc pritiskom na taster F1.\r\n\r\nOnline pomoc sadri prirccnik za rukovanje, iskomentarisani primer toka igre, neke informacije o tome kako je program razvijan,\r\\i izazov za vas, koji vam daje ansu da nam pomognete da poboljamo igru.\r\n"
     IDS_MAX_POINTS_INFORMATION2 
                             "Za %s najvii dostian rezultat je %s.\n\nMoemo da vam prikaemo najveci rezultat, jer je ova vrednost vec izracunata i smetena u program.\n\nJedan nacin da postignete najveci moguci rezultat je: %s."
-    IDS_DISCLAIMER_TEXT     "Molimo imajte na umu uslove dozvole i informacije u vezi ne \r\nobavezivanja za bilo kakvu tetu koja nastane upotrebom ajkule brojeva.\r\n(C) CrypTool Projekat 2013"
+    IDS_DISCLAIMER_TEXT     "Molimo imajte na umu uslove dozvole i informacije u vezi ne \r\nobavezivanja za bilo kakvu tetu koja nastane upotrebom ajkule brojeva.\r\n(C) CrypTool Projekat 2017"
 END
 
 STRINGTABLE
@@ -1111,7 +1111,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_MAX_POINTS_NEW_2    "Za racunanje za %s brojeva najvii rezultat od %s poena, programu je trebalo %s sekundi. Morao je da prodje kroz %s cvorova.\n\nNajveci prost broj ovde je %s. Morate poceti igru sa ovim brojem da biste mogli da postignete najveci moguci rezultat.\n\nDa biste postigli najveci moguci rezultat moete odabrati brojeve u ovom redosledu: %s"
-    IDS_SHELL_GROUP_BOX     "i18n Shell square (blue means ""still free to choose""; gray means ""already distributed and eaten up"")"
+    IDS_SHELL_GROUP_BOX     "Kvadrat koljke (plava boja znaci ""moguce iskoristiti""; sivo znaci ""vec distribuirano i pojedeno"")"
     IDS_NORMAL_GROUP_BOX    "Kvadrat koljke"
     IDS_NO_SEARCH           "Nije moguce pisati u datoteku ""%s"". Verovatno nemate dovoljno prava nad ovom fasciklom \r\n""%s"".\r\n\r\nProracun ce svejedno biti pokrenut, ali nece moci da se nastavi posle prekida."
     IDS_NO_SUMMARY          "Nije moguce pisati u datoteku ""%s"". Verovatno nemate dovoljno prava nad ovom fasciklom \r\n""%s"".\r\n\r\n"
@@ -1186,7 +1186,7 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            128,IDC_STATIC,11,17,20,20
     LTEXT           "ZahlenHai Version 1.2.2",IDC_STATIC,40,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2013",IDC_STATIC,40,25,119,8
+    LTEXT           "Copyright (C) 2017",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
 END
 
@@ -1363,7 +1363,7 @@ BEGIN
             VALUE "FileDescription", "NumberShark"
             VALUE "FileVersion", "1.2.3"
             VALUE "InternalName", "NumberShark.exe"
-            VALUE "LegalCopyright", "Contributors © 1998-2013"
+            VALUE "LegalCopyright", "Contributors © 1998-2017"
             VALUE "OriginalFilename", "NumberShark.exe"
             VALUE "ProductName", "NumberShark"
             VALUE "ProductVersion", "1.2.3"
@@ -1603,7 +1603,7 @@ BEGIN
     IDS_RULES_2             "Wδhrend des Spielens kannst Du mit der Tastenkombination SHIFT+ALT+C die Muscheln auf den Buttons sichtbar und unsichtbar machen.\r\nDadurch kann man die Zahlen auf den Buttons noch besser lesen und das Spiel kann dadurch auch flόssiger dargestellt werden.\r\n\r\nHilfen und weitere Hinweise stehen in der Online-Hilfe. Diese kannst Du an jeder Stelle im Zahlenhai-Spiel mit der F1-Taste φffnen.\r\n\r\nDie Online-Hilfe enthδlt eine ausfόhrliche Bedienungsanleitung, einen konkreten kommentierten Spielverlauf (Probespiel), Informationen zur Entstehung des Spiels\r\nsowie eine Herausforderung an Euch, mit der Ihr uns helfen kφnnt, dieses Spiel zu verbessern.\r\n"
     IDS_MAX_POINTS_INFORMATION2 
                             "Bei %s Zahlen ist die maximal erreichbare Punktzahl %s.\n\nWir konnten Dir hier die maximale Punktzahl sofort anzeigen, da wir diesen Wert schon vorberechnet und im Programm abgelegt haben.\n\nEin optimaler Weg lautet: %s."
-    IDS_DISCLAIMER_TEXT     "Bitte beachte die Lizenzbestimmungen und die Informationen zum \r\nHaftungsausschluss fόr eventuelle Schδden durch das Zahlenhai-Programm.\r\n(C) CrypTool-Projekt 2013"
+    IDS_DISCLAIMER_TEXT     "Bitte beachte die Lizenzbestimmungen und die Informationen zum \r\nHaftungsausschluss fόr eventuelle Schδden durch das Zahlenhai-Programm.\r\n(C) CrypTool-Projekt 2017"
 END
 
 STRINGTABLE
@@ -1746,7 +1746,7 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            128,IDC_STATIC,11,17,20,20
     LTEXT           "Number Shark Version 1.2.2",IDC_STATIC,40,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2013",IDC_STATIC,40,25,119,8
+    LTEXT           "Copyright (C) 2017",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
 END
 
@@ -1923,7 +1923,7 @@ BEGIN
             VALUE "FileDescription", "NumberShark"
             VALUE "FileVersion", "1.2.3"
             VALUE "InternalName", "NumberShark.exe"
-            VALUE "LegalCopyright", "Contributors © 1998-2013"
+            VALUE "LegalCopyright", "Contributors © 1998-2017"
             VALUE "OriginalFilename", "NumberShark.exe"
             VALUE "ProductName", "NumberShark"
             VALUE "ProductVersion", "1.2.3"
@@ -2163,7 +2163,7 @@ BEGIN
     IDS_RULES_2             "While playing the game you can make the shells on the buttons visible and invisible by pressing SHIFT+ALT+C on your keyboard.\r\nThis can help you to read the numbers on the buttons better and to make the game a bit faster.\r\n\r\nYou can get additional help and information by pressing the F1 button.\r\n\r\nThe online help contains a operation manual, a commented sample game course, some information about how the game was developed,\r\nand a challenge for you, which gives you the chance to help us improve the game.\r\n"
     IDS_MAX_POINTS_INFORMATION2 
                             "For %s numbers, the highest attainable score is %s.\n\nWe can show you the highest possible score, because this value has already been calculated and is stored in the program.\n\nOne way to achieve the highest possible score is: %s."
-    IDS_DISCLAIMER_TEXT     "Please note the terms of license and the information regarding non \r\nliability for any damage arising from the use of the Number Shark program.\r\n(C) CrypTool Project 2013"
+    IDS_DISCLAIMER_TEXT     "Please note the terms of license and the information regarding non \r\nliability for any damage arising from the use of the Number Shark program.\r\n(C) CrypTool Project 2017"
 END
 
 STRINGTABLE
@@ -2306,7 +2306,7 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            128,IDC_STATIC,11,17,20,20
     LTEXT           "Number Shark Version 1.2.2",IDC_STATIC,40,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2013",IDC_STATIC,40,25,119,8
+    LTEXT           "Copyright (C) 2017",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
 END
 
@@ -2483,7 +2483,7 @@ BEGIN
             VALUE "FileDescription", "NumberShark"
             VALUE "FileVersion", "1.2.3"
             VALUE "InternalName", "NumberShark.exe"
-            VALUE "LegalCopyright", "Contributors © 1998-2013"
+            VALUE "LegalCopyright", "Contributors © 1998-2017"
             VALUE "OriginalFilename", "NumberShark.exe"
             VALUE "ProductName", "NumberShark"
             VALUE "ProductVersion", "1.2.3"
@@ -2723,7 +2723,7 @@ BEGIN
     IDS_RULES_2             "While playing the game you can make the shells on the buttons visible and invisible by pressing SHIFT+ALT+C on your keyboard.\r\nThis can help you to read the numbers on the buttons better and to make the game a bit faster.\r\n\r\nYou can get additional help and information by pressing the F1 button.\r\n\r\nThe online help contains a operation manual, a commented sample game course, some information about how the game was developed,\r\nand a challenge for you, which gives you the chance to help us improve the game.\r\n"
     IDS_MAX_POINTS_INFORMATION2 
                             "For %s numbers, the highest attainable score is %s.\n\nWe can show you the highest possible score, because this value has already been calculated and is stored in the program.\n\nOne way to achieve the highest possible score is: %s."
-    IDS_DISCLAIMER_TEXT     "Please note the terms of license and the information regarding non \r\nliability for any damage arising from the use of the Number Shark program.\r\n(C) CrypTool Project 2013"
+    IDS_DISCLAIMER_TEXT     "Please note the terms of license and the information regarding non \r\nliability for any damage arising from the use of the Number Shark program.\r\n(C) CrypTool Project 2017"
 END
 
 STRINGTABLE
@@ -2866,7 +2866,7 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            128,IDC_STATIC,11,17,20,20
     LTEXT           "Number Shark Version 1.2.2",IDC_STATIC,40,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2013",IDC_STATIC,40,25,119,8
+    LTEXT           "Copyright (C) 2017",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "Aceptar",IDOK,178,7,50,16,WS_GROUP
 END
 
@@ -3043,7 +3043,7 @@ BEGIN
             VALUE "FileDescription", "NumberShark"
             VALUE "FileVersion", "1.2.3"
             VALUE "InternalName", "NumberShark.exe"
-            VALUE "LegalCopyright", "Contributors © 1998-2013"
+            VALUE "LegalCopyright", "Contributors © 1998-2017"
             VALUE "OriginalFilename", "NumberShark.exe"
             VALUE "ProductName", "NumberShark"
             VALUE "ProductVersion", "1.2.3"
@@ -3283,7 +3283,7 @@ BEGIN
     IDS_RULES_2             "Durante la partida los mejillones que se encuentran sobre los botones pueden hacerse visibles o invisibles a travιs de la siguiente combinaciσn de teclas:\r\nSHIFT+ALT+C. Esto podrνa ayudarlo a leer mejor los nϊmeros y el juego podrνa ser un poco mαs αgil.\r\n\r\nAyuda y consejos adicionales se encuentran en la Ayuda del juego. Ιsta puede ser invocada en cualquier momento de la partida presionando la tecla F1.\r\n\r\nLa Ayuda contiene un manual de usuario, una explicaciσn detallada de una partida (partida de prueba), informaciσn acerca de cσmo fue desarrollado el juego,\r\nasν como tambiιn un desafνo para usted, con el cuαl nos puede ayudar a mejorar el juego.\r\n"
     IDS_MAX_POINTS_INFORMATION2 
                             "Para %s nϊmeros el mαximo puntaje posible es %s.\n\nNosotros podemos mostrarle aquν enseguida el mαximo puntaje, ya que ese valor ha sido ya calculado y almacenado en el programa.\n\nLa combinaciσn σptima serνa: %s."
-    IDS_DISCLAIMER_TEXT     "Por favor, tome en cuenta la licencia y la informaciσn sobre exoneraciσn de responsabilidad por cualquier eventual daρo ocasionado por el uso de Number Shark.\r\n(C) Proyecto CrypTool 2013"
+    IDS_DISCLAIMER_TEXT     "Por favor, tome en cuenta la licencia y la informaciσn sobre exoneraciσn de responsabilidad por cualquier eventual daρo ocasionado por el uso de Number Shark.\r\n(C) Proyecto CrypTool 2017"
 END
 
 STRINGTABLE
@@ -3426,7 +3426,7 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            128,IDC_STATIC,11,17,20,20
     LTEXT           "Number Shark Version 1.2.2",IDC_STATIC,40,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2013",IDC_STATIC,40,25,119,8
+    LTEXT           "Copyright (C) 2017",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
 END
 
@@ -3603,7 +3603,7 @@ BEGIN
             VALUE "FileDescription", "NumberShark"
             VALUE "FileVersion", "1.2.3"
             VALUE "InternalName", "NumberShark.exe"
-            VALUE "LegalCopyright", "Contributors © 1998-2013"
+            VALUE "LegalCopyright", "Contributors © 1998-2017"
             VALUE "OriginalFilename", "NumberShark.exe"
             VALUE "ProductName", "NumberShark"
             VALUE "ProductVersion", "1.2.3"
@@ -3833,7 +3833,7 @@ BEGIN
     IDS_RULES_2             "Καθώς παίζετε το παιχνίδι μπορείτε να κάνετε τα κοχύλια ορατά ή αόρατα πατώντας στο πληκτρολόγιό σας το SHIFT+ALT+C.\r\nΑυτό ίσως σας βοηθήσει να διαβάζετε καλύτερα τους αριθμούς και να παίζετε λίγο ταχύτερα.\r\n\r\nΜπορείτε να πάρετε επιπλέον βοήθεια και πληροφορίες πατώντας το πλήκτρο F1.\r\n\r\nΗ online βοήθεια περιέχει ένα εγχειρίδιο χρήσης, ένα σχολιασμένο δείγμα παιχνιδιού ως μάθημα, κάποιες πληροφορίες για την ανάπτυξή του,\r\nκαι μια πρόκληση για εσάς, η οποία σας δίνει μια ευκαιρία να μας βοηθήσετε να βελτιώσουμε το παιχνίδι.\r\n"
     IDS_MAX_POINTS_INFORMATION2 
                             "Το μεγαλύτερο επιτεύξιμο σκορ στους %s αριθμούς είναι %s.\n\nΜπορούμε να σας δείξουμε το μεγαλύτερο δυνατό σκορ, επειδή αυτή η τιμή έχει ήδη υπολογιστεί και αποθηκευτεί στο πρόγραμμα.\n\nΓια να πετύχετε το μέγιστο σκορ ένας τρόπος είναι: %s"
-    IDS_DISCLAIMER_TEXT     "Παρακαλούμε σημειώστε τους όρους της άδειας και τις πληροφορίες σχετικά με\r\nτην αποποίηση ευθύνης για όποια ζημιά προκληθεί από τη χρήση του\r\nπρογράμματος Number Shark.  (C) CrypTool Project 2013"
+    IDS_DISCLAIMER_TEXT     "Παρακαλούμε σημειώστε τους όρους της άδειας και τις πληροφορίες σχετικά με\r\nτην αποποίηση ευθύνης για όποια ζημιά προκληθεί από τη χρήση του\r\nπρογράμματος Number Shark.  (C) CrypTool Project 2017"
 END
 
 STRINGTABLE
