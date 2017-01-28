@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 for Win32, November 2016
+    CrypTool, Version 1.4.31 for Win32, January 2017
     
 CrypTool v1 (CT1) is an international e-learning program for cryptography and
 cryptanalysis.
@@ -7,7 +7,7 @@ cryptanalysis.
     (c) Contributors
         including Deutsche Bank AG, Frankfurt/Main, and the
         Universities of Siegen, Darmstadt, Bochum, Duisburg-Essen, and Kassel.
-        1998-2016
+        1998-2017
     Freeware and Open Source according to the Apache License 2.0
     www.cryptool.org
     Prof. Bernhard Esslinger
@@ -110,8 +110,14 @@ In English and German the CT1 package is completely localized.
 If a component isn't available for one of the other language versions,
 then the according English component is attached.
 
-Further language versions (Turkish, Russian, Ukrainian, French, ...)
+Further language versions (Turkish, Russian, Ukrainian, ...)
 are partly under development.
+
+Currently the Greek version is not available as the compiler VS2008
+does not support the Greek fonts (as UTF16) correctly.
+However, for other reasons we have to stay with VS2008 for CT 1.4.31.
+Nevertheless, from CT 1.5 we will use the newest MS compiler (VS 2017)
+again. xxxxx
 
 The current release version of CrypTool and the source code are
 available at the following internet addresses (without registration):
@@ -124,9 +130,9 @@ ca. 6000 (more than 1/2 of the current downloads request the English version).
 
 There are two successors of CT1, called CT2 and JCT.
 Their download numbers are: (xxx)
-               JCT: ca. 2000 / month
-               CT2: ca. 3000 / month
-The successor versions von CT1 offer a far broader functionality than CT1.
+               JCT: ca. 1000 / month
+               CT2: ca. 4000 / month
+The successor versions of CT1 offer a far broader functionality than CT1.
 
 The aim of all CrypTool versions is to explain cryptographic mechanisms
 and to demonstrate the use and the limitations of individual mechanisms.
@@ -434,7 +440,11 @@ I also want to thank
   colleagues the first Serbian version.
 - Prof. Ioannis Mavridis and Dr. Theodoros Mastoras for the first
   Greek version of CT1.
-- Alain Stephan for the French version of CT1.
+- Alain Stephan for the first French version of CT1.
+And several people (like Vasilios and Vesna) who helped to continue the
+translations for new versions of CT1.
+
+Potential further translations:
 - Turkish xxxxxxxxxx Interests, but not started yet.
 - Russian xxxxxxxxxx Requests, but not started yet.
 
@@ -442,17 +452,18 @@ I also want to thank
 
 1.4. Maintainer and hosting
      ----------------------
-CrypTool was never bound only to a single person or a signle faculty. Also
-the hosting changed. After Siegen and Darmstadt there were:
+CrypTool was never bound only to a single person or a single faculty.
+Also the hosting changed. After Siegen and Darmstadt there were:
 From April 2008 the chair "Division for distributed systems", Engineering
 department of Prof. Dr. Torben Weis at the University of Duisburg-Essen,
-Germany hosted CT.  Since April 2014 the chair for Applied Information
-Security of Prof. Dr. Arno Wacker at the University Kassel hosts
-- the web pagen of the whole CrypTool project,
+Germany hosted CT.
+Since April 2014 the chair for Applied Information Security of Prof. Dr.
+Arno Wacker at the University Kassel hosts
+- the web pages of the whole CrypTool project,
 - the Subversion repository system for the program sources of CT1, and
 - the Subversion repository system for the program sources of the successor
   CrypTool 2.
-Webserver and buildserver are currently running virtually in a Proxmox
+Webserver and build server are currently running virtually in a Proxmox
 environment with 24 Intel Xeon E5-2640 a 2.5GHz and 128 Gigabyte RAM.
 
 The CrypTool developer group around Prof. Bernhard Esslinger continues
@@ -674,7 +685,7 @@ The general properties and functions of CT1 are:
 - Snapshot about the number of files and the number of lines of code
 
   To get an impression of the size of the CT1 project here is a statistics
-  created in October 2016 using the files of version 1.4.31 Prefinal beta 06d:
+  created in October 2016 using the files of version 1.4.31 Prefinal beta 06d: xxx
 
     FILE SUMMARY (number of files according to file extension)
     ------------
@@ -720,15 +731,19 @@ The general properties and functions of CT1 are:
   - The Express Edition of VS2008 is not sufficient, because this does not
     support the old MFC library (in contrast to the Standard Edition) for
     the GUI, which is still used in CT 1.4.
-  - The compiliation itself worked when using a more modern Microsoft
+  - The compiliation itself worked well when using a more modern Microsoft
     development environment like Visual Studio 2010 Standard Edition
     (VC++ v9.0), VS2013, or VS2015. However, many graphics then appeared
-    distorted at UHD monitors (in the opposite to the VS2008).
-    --> We found no hint, how to get rid of this mistake in the newer
-         development environments, without newly creating all graphics ;-)
+    distorted or too small at UHD monitors (in the opposite to executables
+    built with VS2008).
+    --> We found no hint, how to get rid of this adaption in the newer
+        development environments, without newly creating all graphics ;-)
+        The adaption is probably caused by the GUI settings where users
+        can change the "size of texts, apps and other elements" to a value
+        different of 100 %.
 
 - Compiling all versions (7 languages, each in debug and release mode)
-  lasts about 2 h on a modern PC.
+  lasts about 2 h on a modern PC. (xxx)
 
 
 
@@ -1171,7 +1186,7 @@ c) New functionality / Usability:
 This chapter lists the enhancements and the bug fixes in CrypTool 1.4.31,
 which have been added since CrypTool 1.4.30.
 
-Version 1.4.31 is released simultaneously in all 7 languages.
+Version 1.4.31 is released simultaneously in all 7 (xxx) languages.
 
 a) Developer-relevant changes (more technically oriented):
 
@@ -1189,7 +1204,7 @@ a) Developer-relevant changes (more technically oriented):
     compiling with VS2010 (not with VS2008)) postponed to CT 1.5. (xxx)
 
 - The release of CT 1.4.31 is stll compiled with VS2008 (see above).
-  From CT 1.5 VS 2015 is used for compilation.
+  From CT 1.5 VS 2017 will be used for compilation.
 
 
 b) Changes within the user documentation / on the websites:
@@ -1200,9 +1215,9 @@ b) Changes within the user documentation / on the websites:
                  - Additional chapters about bitblock and bitstream
                    encryption, and with a Survey on Current Academic Results
                    for Solving Discrete Logarithms And Factoring
-                 - Inclusion of further SageMath code samples (for primitive
-                   roots and RSA fix points)   (xxx)
-                 - Appendices with function overviews also for CT2 and JCT.
+                 - Inclusion of further SageMath code samples
+                   (for primitive roots and RSA fix points)
+                 - Appendices with function overviews also for CT2 and JCT
                    (xxx)
                  - Added the menu paths of CT2 and JCT in the foot notes.
 
@@ -1210,10 +1225,9 @@ b) Changes within the user documentation / on the websites:
   The description of the overall CrypTool project, and the information about
   the two other CT projects (CT2, JCT) are now in self-contained presentations.
 
-- At January 18th, 2012 the new CrypTool website (CTP)  was released. It
+- At January 18th, 2012 the new CrypTool website (CTP) was released. It
   describes the 5 sub projects of the CT project in an equivalent way.
-  At August 3rd, 2015 CTP was raised to Joomla 3.4.3.
-  In the meantime Joomla 3.6 ist active.
+  The CT Portal (CTP) uses as CMS Joomla.
 
 
 c) New functionality / Usability / Corrections of errors:
@@ -2162,7 +2176,7 @@ Version                 English      German    needed EN     by
 1.4.20    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.21    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.30    Aug. 2010     51.5 MB      52.1 MB    94 MB        DB
-1.4.31    Oct. 2016     83.6 MB      84.3 MB   127 MB        CT (xxx)
+1.4.31    Jan. 2017     69.2 MB      69.9 MB   113 MB        CT (xxx)
 
 Remarks about the (intermediate) versions:
 1.3.02  Many new functions compared to 1.3.00
@@ -2201,6 +2215,8 @@ Remarks about the (intermediate) versions:
                           (first one with a Greek language version)
 1.4.31-Beta06a July 2013  Fourth public beta of CT 1.4.31
 1.4.31-Beta06b Oct. 2013  Fifth public beta of CT 1.4.31
+1.4.31-Beta06c 2015       Further beta of CT 1.4.31
+1.4.31-Beta06d 2016       Further beta of CT 1.4.31
 1.4.31  Many bug fixes and enhanced functionality compared to 1.4.30.
                           (first one with a French language version)
 
@@ -2229,7 +2245,7 @@ Contact addresses:
 8. References / Hints / Awards
    ---------------------------
 
-See:
+See also:
 - https://www.cryptool.org/en/ctp-links-en
 - https://www.cryptool.org/en/ctp-education/ctp-awards-en
 
@@ -2437,6 +2453,7 @@ c) Wikipedia:
    - Greek:
      - http://el.wikipedia.org/wiki/CrypTool
    - Russian: (xxx)
+   - Turkish: (xxx)
    - Chinese: (xxx)
 
 
@@ -2456,6 +2473,7 @@ d) A small selection of further pages mentioning CrypTool:
    http://williamstallings.com/Cryptography/Crypto7e-Student/
         (resource site for the book "Cryptography and Network Security",
          7th edition by William Stallings)
+   http://www.garykessler.net/library/crypto.html
    ...
 
 
@@ -2626,7 +2644,7 @@ b) The only other useful programs known to us, which usefully combine
   based types such as Enigma, AES, DES, Blowfish etc. (see FAQ).
   This tool solves many classical ciphers very fast and very well.
   Initial release: May 29, 2011, ongoing active development.  
-  Last update: June 2016 -- Version 0.6 beta (0.6.5999.15171)
+  Last update: Jan 2017 -- Version 0.7 beta (version 0.7.6216.17785))
   https://sites.google.com/site/cryptocrackprogram/home
 
 - "CryptoMake" by Phil Pilcrow
@@ -2751,7 +2769,7 @@ b)  Java-CrypTool (JCrypTool, JCT):
      FP will become part of BC.
      Offer JCT as a dynamic graphical frontend for BC.
    - XML Security (demonstrator for XML signatures)
-   - Close cooperation with the chair of Prof. Buchmann, TU Darmstadt for the
+   - Cooperation with the chair of Prof. Buchmann, TU Darmstadt for the
      integration of FP
    - For newbies, but also for experts
    - Using of Github with Git for source code management:
@@ -2839,7 +2857,7 @@ Some (not all) features of the release versions of the successor projects:
        RSA key generation incl. SETUP attack)
 - JCT  Multi-partite key exchange
 - JCT  Homomorphic encryption (RSA, Paillier, Gentry&Halevi)
-- JCT  Realization of PQC signature schemes (WOTS, MSS)
+- JCT  PQC signature schemes (WOTS, MSS, XMSS-MT)
 - JCT  Analysis of transposition ciphers using the ACO algorithm
 - JCT  Visualization of zero-knowledge proofs
 - JCT  Running-key encryption and its automatic analysis (Viterbi)
@@ -3231,8 +3249,8 @@ work well under Wine. Wine is much more stable than 6 years ago.
        - Navigation via the back and forth buttons
 - nok: Some malfunctions within the Macromedia application NT
 
-Generally we do not aim to support Wine.
-Instead of that, please try the platform independent version JCT which also
+Generally we do not make extra efforts to support Wine.
+Instead of that, please try the platform-independent version JCT which also
 runs under Linux (see chapter 3.5).
 
 

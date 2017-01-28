@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 für Win32, November 2016
+    CrypTool, Version 1.4.31 für Win32, Januar 2017
 
 CrypTool v1 (CT1) ist ein internationales E-Learning-Programm für
 Kryptographie und Kryptoanalyse.
@@ -7,7 +7,7 @@ Kryptographie und Kryptoanalyse.
     (c) Contributors
         Dazu gehören z.B. Deutsche Bank AG, Frankfurt am Main, und die
         Universitäten Siegen, Darmstadt, Bochum, Duisburg-Essen und Kassel.
-        1998-2016
+        1998-2017
     Freie Software und Open Source gemäß der Apache Lizenz 2.0
     www.cryptool.org
     Prof. Bernhard Esslinger
@@ -111,8 +111,14 @@ Im Deutschen und Englischen liegen alle Komponenten von CT1 übersetzt
 vor. Wenn etwas in einer der anderen Sprachversion nicht vorliegt, wird
 die englische Komponente beigelegt.
 
-Weitere Sprachversionen (türkisch, russisch, ukrainisch, französisch,...)
+Weitere Sprachversionen (türkisch, russisch, ukrainisch,...)
 sind teilweise in Arbeit.
+
+Momentan ist die griechische Version nicht verfügbar, da der Compiler VS2008
+die griechischen Fonts (als UTF16) nicht korrekt unterstützt.
+Aus anderen Gründen müssen wir für CT 1.4.31 jedoch VS2008 benutzen.
+Nichtsdestotrotz werden wir ab CT 1.5 wieder den neuesten MS-Compiler (VS 2017)
+einsetzen. xxxxx
 
 Die aktuelle Release-Version von CrypTool und den Quellcode dazu finden Sie
 unter den folgenden Internet-Adressen (dazu ist keine Registrierung nötig):
@@ -125,8 +131,8 @@ Seit Anfang 2010 werden ca. 6000 CT1-Pakete pro Monat herunter geladen
 
 Zu CT1 gibt es zwei Nachfolger-Versionen, genannt CT2 und JCT.
 Deren Download-Zahlen betragen: (xxx)
-               JCT: ca. 2000 / Monat.
-               CT2: ca. 3000 / Monat
+               JCT: ca. 1000 / Monat.
+               CT2: ca. 4000 / Monat
 Die Nachfolger-Versionen von CT1 bieten einen deutlich größeren Funktionsumfang
 als CT1.
 
@@ -443,7 +449,11 @@ Bedanken möchte ich mich auch bei
   Kollegen die erste serbische Version erstellte.
 - Prof. Ioannis Mavridis und Dr. Theodoros Mastoras für die erste
   griechische Version von CT1.
-- Alain Stephan für die französische Version von CT1.
+- Alain Stephan für die erste französische Version von CT1.
+Und einigen weiteren Personen (wie Vasilios und Vesna), die dafür sorgten,
+dass die Änderungen in neuen CT1-Versionen ebenfalls übersetzt wurden.
+
+Evtl. weitere übersetzungen:
 - Türkisch xxxxxxxxxx Interesse, aber bisher nicht begonnen.
 - Russisch xxxxxxxxxx Anfragen, aber bisher nicht begonnen.
 
@@ -451,12 +461,13 @@ Bedanken möchte ich mich auch bei
 
 1.4. Maintainer, Hosting, Webseite und Welcome
      -----------------------------------------
-CrypTool war nie gebunden an eine einzige Person oder eine einzigen
+CrypTool war nie gebunden an eine einzige Person oder einen einzigen
 Lehrstuhl. Auch das Hosting wechselte. Nach Siegen und Darmstadt kamen:
 Der Lehrstuhl für Verteilte Systeme, Fakultät für Ingenieurwissenschaften
 unter Prof. Dr. Torben Weis an der Universität Duisburg-Essen hostete CT
-ab April 2008. Seit April 2014 hostet der Lehrstuhl für Angewandte
-Informationssicherheit von Prof. Dr. Arno Wacker an der Universität Kassel:
+ab April 2008.
+Seit April 2014 hostet der Lehrstuhl für Angewandte Informationssicherheit
+von Prof. Dr. Arno Wacker an der Universität Kassel:
 - die Webseiten des gesamten CrypTool-Projekts,
 - das Subversion-Repository für die Programm-Sourcen von CT1, und
 - das Subversion-Repository für die Programm-Sourcen des Nachfolgers
@@ -691,7 +702,7 @@ Die generellen Eigenschaften und Funktionen von CT1 sind:
 
   Einen Eindruck von der Größe des CT1-Projekts liefert die folgende, im
   Oktober 2016 erstellte Statistik (anhand der Dateien für die Version
-  1.4.31 Prefinal-Beta 6d):
+  1.4.31 Prefinal-Beta 6d): xxx
 
     FILE SUMMARY (Anzahl der Dateien anhand ihrer Dateinamenserweiterung)
     ------------
@@ -741,11 +752,14 @@ Die generellen Eigenschaften und Funktionen von CT1 sind:
     wie Visual Studio 2010 Standard Edition (VC++ v9.0), VS2013 oder VS2015
     funktionierte an sich, aber leider waren dann etliche Grafiken auf
     UHD-Monitoren verzerrt (was beim VS2008 nicht so war).
-    --> Wir fanden keinen Hinweis, wie man das in den neueren Entwicklungs-
-        umgebungen abstellt, ohne alle Grafiken neu zu machen ;-)
-  
+    --> Wir fanden keinen Hinweis, wie man diese Anpassung in den neueren
+        Entwicklungsumgebungen abstellt, ohne alle Grafiken neu zu machen ;-)
+        Diese Anpassung wird wahrscheinlich durch die GUI-Einstellungen
+        verursacht, die es Benutzern erlaubt, "Größe von Text, Apps und
+        anderen Elementen" auf Werte ungleich 100 % zu setzen.
+
 - Eine Komplett-Compilierung aller Versionen (7 Sprachen, jeweils Debug und
-  Release) dauert auf einem modernen PC rund 2 h.
+  Release) dauert auf einem modernen PC rund 2 h. (xxx)
 
 
 
@@ -1211,7 +1225,7 @@ c) Neue Funktionalität / Bedienung:
 Dieses Kapitel listet die Erweiterungen und die Bugfixes auf, die in
 CrypTool 1.4.31 seit CrypTool 1.4.30 hinzugefügt wurden.
 
-Die Version 1.4.31 wird zeitgleich in allen 7 Sprachen released.
+Die Version 1.4.31 wird zeitgleich in allen 7 (xxx) Sprachen released.
 
 a) Entwickler-relevante Änderungen (eher Programm-technisch):
 
@@ -1229,7 +1243,7 @@ a) Entwickler-relevante Änderungen (eher Programm-technisch):
     nach der Compilation mit VS2010 (nicht mit VS2008) hatte). (xxx)
 
 - Das Release von CT 1.4.31 wird weiterhin mit VS2008 kompiliert (siehe oben).
-  Ab CT 1.5 wird mit VS 2015 übersetzt.
+  Ab CT 1.5 wird mit VS 2017 übersetzt.
 
 
 b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
@@ -1241,10 +1255,10 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
                  - Zwei weitere Kapitel: zu Bitblock- und Bitstrom-Verschlüsselung
                    und mit einer Studie über aktuelle akademische Resultate für
                    das Lösen diskreter Logarithmen und zur Faktorisierung
-                 - Aufnahme weiterer SageMath-Programmbeispiele (zu
-                   Primitivwurzeln und RSA-Fixpunkten)   (xxx)
+                 - Aufnahme weiterer SageMath-Programmbeispiele
+                   (zu Primitivwurzeln und RSA-Fixpunkten)
                  - Anhänge zu den Funktionsübersichten auch für CT2 und
-                   JCT. (xxx)
+                   JCT  (xxx)
                  - In den Fußnoten nun auch die Menüpfade zu CT2 und JCT.
 
 - Aktualisierte Präsentation zu CT1 auf CT 1.5 verschoben. (xxx)
@@ -1253,8 +1267,7 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
 
 - Am 18. Januar 2012 wurde die neue CrypTool-Webseite (CTP) freigegeben, die
   die 5 Unterprojekte des CT-Projektes gleichwertig darstellt.
-  Am 3. August 2015 wurde CTP auf Joomla 3.4.3 gehoben.
-  Inzwischen ist Joomla 3.6. aktiv.
+  Das CT-Portal (CTP) nutzt als CMS Joomla.
 
 
 c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
@@ -1322,7 +1335,7 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
 - Playfair mit einer 6*6-Matrix konvertiert nun nicht mehr fälschlicherweise
   "J" zu "I".
 
-- Danke an die vielen aufmerksamen Benutzer, die uns auf die Bugs und 
+- Danke an die vielen aufmerksamen Benutzer, die uns auf Bugs und 
   Inkonsistenzen aufmerksam machten.
 
 
@@ -2235,7 +2248,7 @@ Version                  Deutsch    Englisch      Bedarf DE      durch
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.30    Aug. 2010      52,1 MB     51,5 MB         95 MB        DB
-1.4.31    Okt. 2016      84,3 MB     83,6 MB        128 MB        CT (xxx)
+1.4.31    Jan. 2017      69,9 MB     69,2 MB        113 MB        CT (xxx)
 
 Bemerkungen zu den (Zwischen-)Versionen:
 1.3.02  Viele neue Funktionen gegenüber 1.3.00
@@ -2275,6 +2288,8 @@ Bemerkungen zu den (Zwischen-)Versionen:
                           (erstmal mit einer griechischen Sprachversion)
 1.4.31-Beta06a Juli 2013  Vierte öffentliche Beta von Version 1.4.31
 1.4.31-Beta06b Okt. 2013  Fünfte öffentliche Beta von Version 1.4.31
+1.4.31-Beta06c 2015       Weitere Beta von Version 1.4.31
+1.4.31-Beta06d 2016       Weitere Beta von Version 1.4.31
 1.4.31  Viele Bugfixes und erweiterter Funktionsumfang i.Vgl. zu 1.4.30.
                           (erstmal mit einer französicher Sprachversion)
 
@@ -2304,7 +2319,7 @@ Kontaktadressen:
 8. Verweise / Auszeichnungen
    -------------------------
 
-Vergleiche:
+Vergleiche auch:
 - https://www.cryptool.org/de/ctp-links-de
 - https://www.cryptool.org/de/ctp-lehre/ctp-auszeichnungen-de
 
@@ -2520,6 +2535,7 @@ c) Wikipedia:
    - Griechisch:
      - http://el.wikipedia.org/wiki/CrypTool
    - Russisch: (xxx)
+   - Türkisch: (xxx)
    - Chinesisch: (xxx)
 
 
@@ -2539,6 +2555,7 @@ d) Eine kleine Auswahl weiterer Seiten, die CrypTool erwähnen:
    http://williamstallings.com/Cryptography/Crypto7e-Student/
         (Ressource-Seite zu dem Buch "Cryptography and Network Security",
          7. Auflage von William Stallings)
+   http://www.garykessler.net/library/crypto.html
    ...
 
 
@@ -2713,7 +2730,7 @@ b) Die einzigen weiteren uns bekannten brauchbaren Programme, die
   Computer-basierte Verfahren wie Enigma, AES, DES, Blowfish etc. zu knacken.
   Dieses Tool löst viele klassische Chiffren sehr schnell und in guter Qualität.
   Erstes Release: 29.5.2011; weiterhin aktive Weiterentwicklung.  
-  Letztes Update: Juni 2016 -- Version 0.6 beta (version 0.6.5999.15171)
+  Letztes Update: Jan 2017 -- Version 0.7 beta (version 0.7.6216.17785))
   https://sites.google.com/site/cryptocrackprogram/home
 
 - "CryptoMake" von Phil Pilcrow
@@ -2841,7 +2858,7 @@ b) Java-CrypTool (JCrypTool, JCT):
      Der FP wird in BC aufgehen.
      JCT als Angebot eines dynamischen, grafischen Frontends für BC.
    - XML-Sicherheit (Demonstrator für XML-Signaturen)
-   - Enge Zusammenarbeit mit dem Lehrstuhl Prof. Buchmann, TU Darmstadt für
+   - Zusammenarbeit mit dem Lehrstuhl Prof. Buchmann, TU Darmstadt für
      die Integration des FlexiProviders
    - Für Einsteiger, aber auch für Experten
    - Nutzung von Github mit Git zur Sourcecode-Verwaltung:
@@ -2851,7 +2868,7 @@ b) Java-CrypTool (JCrypTool, JCT):
      https://github.com/jcryptool/crypto
      https://github.com/jcryptool/doc
 
-c) CrypTool 2.0 (CT2)
+c) CrypTool 2 (CT2)
    - Komplett neu designtes CrypTool in C# mit dem .NET-Framework und WPF
    - Nutzt strikt die Standards von Microsoft .NET (Aussehen wie Office 2007)
    - Nutzung von Windows Presentation Foundation (WPF) zur Gestaltung
@@ -2930,7 +2947,7 @@ Einige (nicht alle) Funktionen der Release-Versionen der Nachfolger-Projekte:
        "böswillige" Verfahren zur RSA-Schlüsselerzeugung incl. SETUP-Angriff)
 - JCT  Multi-partite Schlüsselvereinbarung
 - JCT  Homomorphe Verschlüsselung (RSA, Paillier, Gentry&Halevi)
-- JCT  Realisierung von PQC-Signaturschemata (WOTS, MSS)
+- JCT  PQC-Signaturschemata (WOTS, MSS, XMSS-MT)
 - JCT  Analyse von Transpositions-Chiffren mit dem ACO-Algorithmus
 - JCT  Visualisierung von Zero-Knowledge-Beweisen
 - JCT  Running-Key-Verschlüsselung und automatische Analyse (Viterbi)
@@ -3333,7 +3350,7 @@ als vor 6 Jahren.
        - Vor- und Zurück-Button
 - nok: Fehlfunktionen innerhalb der Macromedia-Anwendung ZT
 
-Wir unternehmen keine Anstrengungen, Wine zu unterstützen.
+Wir unternehmen keine extra Anstrengungen, Wine zu unterstützen.
 Stattdessen empfehlen wir, die plattformunabhängige Version JCT zu benutzen,
 die auch unter Linux läuft (siehe Kapitel 3.5).
 
