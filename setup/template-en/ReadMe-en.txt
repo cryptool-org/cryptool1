@@ -117,7 +117,7 @@ Currently the Greek version is not available as the compiler VS2008
 does not support the Greek fonts (as UTF16) correctly.
 However, for other reasons we have to stay with VS2008 for CT 1.4.31.
 Nevertheless, from CT 1.5 we will use the newest MS compiler (VS 2017)
-again. xxxxx
+again. (xxx)
 
 The current release version of CrypTool and the source code are
 available at the following internet addresses (without registration):
@@ -445,8 +445,8 @@ And several people (like Vasilios and Vesna) who helped to continue the
 translations for new versions of CT1.
 
 Potential further translations:
-- Turkish xxxxxxxxxx Interests, but not started yet.
-- Russian xxxxxxxxxx Requests, but not started yet.
+- Turkish (xxx): Interests, but not started yet.
+- Russian (xxx): Requests, but not started yet.
 
 
 
@@ -685,7 +685,7 @@ The general properties and functions of CT1 are:
 - Snapshot about the number of files and the number of lines of code
 
   To get an impression of the size of the CT1 project here is a statistics
-  created in October 2016 using the files of version 1.4.31 Prefinal beta 06d: xxx
+  created in October 2016 using the files of version 1.4.31 Prefinal beta 06d:(xxx)
 
     FILE SUMMARY (number of files according to file extension)
     ------------
@@ -1194,7 +1194,7 @@ a) Developer-relevant changes (more technically oriented):
   - Scintilla 3.2.1 --> 3.7.0  (xxx)
   - compiler-dependent: cv act library 1.4.6 with VS2008, 1.4.18 with VS2010
   - OpenSSL 1.0.1 (xxx)
-  - MPIR 1.3.1 (derived from GMP version 4.2.1) instead of GMP 4.1 xxx
+  - MPIR 1.3.1 (derived from GMP version 4.2.1) instead of GMP 4.1 (xxx)
       ???????  2.5.1 (xxx)
   - Miracl 4.4.3  -->  5.5.4  (xxx)
   - NTL 5.5.2  --> 9.3 (thread-safe and with exception handling, needs
@@ -1766,14 +1766,14 @@ EC-Param.ini ..... Initialization file for public-key procedures
                    based on elliptic curves.
 TEST-Param.ini ... Initialization file for random number tests.
 secude.dll ....... Library of cryptographic functions provided by
-                   Secude IT Security Ltd.xxxxxxxx
-ticket ........... License for the Secude library.xxxxxxxx
-libxml2.dll ...... Is used by the secude.dll.xxxxxxxx
-secidea.dll ...... Is used by the secude.dll for IDEA encryption.xxxxxxx
+                   Secude IT Security Ltd. (xxx)
+ticket ........... License for the Secude library. (xxx)
+libxml2.dll ...... Is used by the secude.dll. (xxx)
+secidea.dll ...... Is used by the secude.dll for IDEA encryption. (xxx)
 srndmskb.dll ..... Used by secude.dll for collecting entropy when
-                   initializing the Secude random number generator.xxxxxxx
-db.dll ........... Is used by the secude.dll.xxxxxxxxxx
-secude.xml ....... Is used by the secude.dll.xxxxxxxxxxxx
+                   initializing the Secude random number generator. (xxx)
+db.dll ........... Is used by the secude.dll. (xxx)
+secude.xml ....... Is used by the secude.dll. (xxx)
 libeay32.dll ..... Library from OpenSSL.
 SciLexer.dll ..... Library of the Scintilla text editor.
 cracklib_Win32.dll .. Supports PQM tests.

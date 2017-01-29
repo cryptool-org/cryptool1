@@ -118,7 +118,7 @@ Momentan ist die griechische Version nicht verfügbar, da der Compiler VS2008
 die griechischen Fonts (als UTF16) nicht korrekt unterstützt.
 Aus anderen Gründen müssen wir für CT 1.4.31 jedoch VS2008 benutzen.
 Nichtsdestotrotz werden wir ab CT 1.5 wieder den neuesten MS-Compiler (VS 2017)
-einsetzen. xxxxx
+einsetzen. (xxx)
 
 Die aktuelle Release-Version von CrypTool und den Quellcode dazu finden Sie
 unter den folgenden Internet-Adressen (dazu ist keine Registrierung nötig):
@@ -454,8 +454,8 @@ Und einigen weiteren Personen (wie Vasilios und Vesna), die dafür sorgten,
 dass die Änderungen in neuen CT1-Versionen ebenfalls übersetzt wurden.
 
 Evtl. weitere übersetzungen:
-- Türkisch xxxxxxxxxx Interesse, aber bisher nicht begonnen.
-- Russisch xxxxxxxxxx Anfragen, aber bisher nicht begonnen.
+- Türkisch (xxx): Interesse, aber bisher nicht begonnen.
+- Russisch (xxx): Anfragen, aber bisher nicht begonnen.
 
 
 
@@ -702,7 +702,7 @@ Die generellen Eigenschaften und Funktionen von CT1 sind:
 
   Einen Eindruck von der Größe des CT1-Projekts liefert die folgende, im
   Oktober 2016 erstellte Statistik (anhand der Dateien für die Version
-  1.4.31 Prefinal-Beta 6d): xxx
+  1.4.31 Prefinal-Beta 6d): (xxx)
 
     FILE SUMMARY (Anzahl der Dateien anhand ihrer Dateinamenserweiterung)
     ------------
@@ -1835,15 +1835,15 @@ EC-Param.ini ..... Initialisierungsdatei für auf Elliptischen
                    Kurven basierende Public-Key-Verfahren.
 TEST-Param.ini ... Initialisierungsdatei für die Zufallstests.
 secude.dll ....... Bibliothek kryptographischer Funktionen von der
-                   Secude IT Security GmbH.xxxxxxxxx
-ticket ........... Lizenz für die Secude-Bibliothek.xxxxxxx
-libxml2.dll ...... Wird benötigt von der secude.dll.xxxxxxx
+                   Secude IT Security GmbH. (xxx)
+ticket ........... Lizenz für die Secude-Bibliothek. (xxx)
+libxml2.dll ...... Wird benötigt von der secude.dll. (xxx)
 secidea.dll ...... Wird benötigt von der secude.dll für die
-                   IDEA-Verschlüsselung.xxxxxxxx
+                   IDEA-Verschlüsselung. (xxx)
 srndmskb.dll ..... Wird von der secude.dll für den Entropie-Sammler zur
-                   Initialisierung des Secude-Zufallsgenerators benötigt.xxxx
-db.dll ........... Wird benötigt von der secude.dll.xxxxxxxxx
-secude.xml ....... Wird benötigt von der secude.dll.xxxxxxxxxx
+                   Initialisierung des Secude-Zufallsgenerators benötigt.(xxx)
+db.dll ........... Wird benötigt von der secude.dll. (xxx)
+secude.xml ....... Wird benötigt von der secude.dll. (xxx)
 libeay32.dll...... Bibliothek aus OpenSSL.
 SciLexer.dll ..... Bibliothek des Scintilla-Texteditor.
 cracklib_Win32.dll .. Unterstützt die PQM-Tests.
