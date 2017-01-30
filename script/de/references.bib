@@ -13,6 +13,7 @@
 % --------------------------------------------------------
 
 % BE_Remark: Evtl. die NIST-Standards alle gleich als Manual oder alle als techreport behandeln.
+% Note = {\iflanguage{ngerman}{"y1 dies ist deutsch"}{"y2 this is english"}},
 @Manual{AES-Standard:2002,
   key = {AES},
   title = {Federal Information Processing Standards Publication 197: Advanced
@@ -165,13 +166,21 @@
   institution = {BSI (Bundesamt für Sicherheit in der Informationstechnik)},
   title     = {{Angaben des BSI für die Algorithmenkataloge der Vorjahre, Empfehlungen zur Wahl der Schlüssellängen}},
   year      = {2016},
-  Note    = "\\ \url{https://www.bsi.bund.de/DE/Themen/DigitaleGesellschaft/ElektronischeSignatur/TechnischeRealisierung/Kryptoalgorithmen/kryptoalg.html}
+  Note = {\iflanguage{ngerman}{
+	  \\ \url{https://www.bsi.bund.de/DE/Themen/DigitaleGesellschaft/ElektronischeSignatur/TechnischeRealisierung/Kryptoalgorithmen/kryptoalg.html}
              \\ - Vgl.: BNetzA (Bundesnetzagentur): Jährlich erscheinende Veröffentlichung zu Algorithmen und Parametern im Umfeld elektronischer Signaturen:
              \\ \url{http://www.bundesnetzagentur.de/cln_1411/DE/Service-Funktionen/ElektronischeVertrauensdienste/QES/WelcheAufgabenhatdieBundesnetzagentur/GeeigneteAlgorithmenfestlegen/geeignetealgorithmenfestlegen_node.html}
              \\ - Vgl.: Eine Stellungnahme zu diesen Empfehlungen:
-             \\ \url{http://www.secorvo.de/publikationen/stellungnahme-algorithmenempfehlung-020307.pdf}",
+             \\ \url{http://www.secorvo.de/publikationen/stellungnahme-algorithmenempfehlung-020307.pdf}
+                              }
+                              {
+	  \\ \url{https://www.bsi.bund.de/DE/Themen/DigitaleGesellschaft/ElektronischeSignatur/TechnischeRealisierung/Kryptoalgorithmen/kryptoalg.html}
+             \\ - See: BNetzA (Bundesnetzagentur): Annual publication about algorithms and parameters in the context of electronic signatures:
+             \\ \url{http://www.bundesnetzagentur.de/cln_1411/DE/Service-Funktionen/ElektronischeVertrauensdienste/QES/WelcheAufgabenhatdieBundesnetzagentur/GeeigneteAlgorithmenfestlegen/geeignetealgorithmenfestlegen_node.html}
+             \\ -  See: A statement on these recommendations:
+             \\ \url{http://www.secorvo.de/publikationen/stellungnahme-algorithmenempfehlung-020307.pdf}
+                              }},
 }
-
 
 
 
@@ -432,7 +441,6 @@
 
 
 % url = {http://csrc.nist.gov/archive/aes/},
-% comment = {AES Discussion Groups},
 @article{Coppersmith2002,
   author    = {Don Coppersmith},
   title     = {{Re: Impact of Courtois and Pieprzyk results}},
@@ -764,8 +772,10 @@ year = {1993},
 
 
 @Comment{
+// %% Learned, found out and decisions:
+// %%
 // %% Concerning "Month =" :
-// %% - With bibtex: The 3-word version "Jun", "Aug" was recommend. Works fine for one language.
+// %% - With bibtex: The 3-word version "Jun", "Aug" was recommended. Works fine for one language.
 // %% - With bibtex and babelbib: Using numbers is better --> will be expanded to März or March.
 // %%
 // %% Concerning URLs:
@@ -782,7 +792,7 @@ year = {1993},
 // %%    b) Another advantage is (checked with using (at)book):
 // %%       The order of note, comment and url in Schm07 was printed in the order written here!
 // %%    --> After using babelbib switched back to techreport!
-// %% 3) Advantage of techreport instead of misc: bibtex writes its a techreport.
+// %% 3) Advantage of techreport instead of misc: bibtex writes it as techreport.
 // %% 4) Now there is also a good way to deal with more than one URL (using note= instead of url=).
 // %%    - Things which didn't work:
 // %%       - Two different url = statements: Only the first URL is printed.
@@ -834,8 +844,6 @@ year = {1993},
 %   weder per url noch per howpublished die URL ausgegeben.
 % - Mit bibtex, ohne babelbib, dann wird bei misc die URL gedruckt, aber booktitle geht verloren!
 % - Mit bibtex und babelbib tut auch InProceedings wie gewünscht.
-% url = {https://factorable.net/paper.html},
-% howpublished "\url{https://factorable.net/paper.html}",
 % misc{Heninger2012,
 @InProceedings{Heninger2012,
   author    = {Nadia Heninger and Zakir Durumeric and Eric Wustrow and J. Alex Halderman},
@@ -878,17 +886,21 @@ year = {2009},
 }
 
 
-%% See also ``PolyBoRi -- Polynomials over Boolean Rings'', online:\\
-%% Siehe auch \glqq PolyBoRi -- Polynomials over Boolean Rings\grqq, online:\\
-%%  url = {http://polybori.sourceforge.net/},
 @phdthesis{Bric2010,
   author  = {Michael Brickenstein},
   publisher = {Logos Verlag},
   title   = {{Boolean Gröbner Bases -- Theory, Algorithms and Applications}},
   year    = {2010},
-  Note    = "\\See also ``PolyBoRi -- Polynomials over Boolean Rings'', online:
-             \\ \url{http://polybori.sourceforge.net/}",
+  Note    = {\iflanguage{ngerman}{
+	     \\Siehe auch \glqq PolyBoRi -- Polynomials over Boolean Rings\grqq, online:
+                              }
+                              {
+             \\See also ``PolyBoRi -- Polynomials over Boolean Rings'', online:
+                              }
+             \\ \url{http://polybori.sourceforge.net/}"
+            },
 }
+
 
 @article{CGHM2003,
 author = {D. Castro and M. Giusti and J. Heintz and G. Matera and L. M. Pardo},
@@ -977,9 +989,6 @@ title = {{Understanding Cryptography -- A Textbook for Students and Practioners}
 year = {2009},
 }
 
-
-% url = {http://www.staff.uni-mainz.de/pommeren/Kryptologie/Bitblock/A_Nonlin/nonlin.pdf},
-% note = {Manuskript, 30. Mai 2000. Letzte Revision 4. Juli 2008. English equivalent: Fourier Analysis of Boolean Maps -- A Tutorial},
 @techreport{Pomm2008,
   author  = {Klaus Pommerening},
   title   = {{Linearitätsmaße für Boolesche Abbildungen}},
@@ -989,9 +998,6 @@ year = {2009},
             \\ \url{http://www.staff.uni-mainz.de/pommeren/Kryptologie/Bitblock/A_Nonlin/nonlin.pdf}",
 }
 
-
-% url = {http://www.staff.uni-mainz.de/pommeren/Cryptology/Bitblock/Fourier/Fourier.pdf},
-% comment = {Manuscript: May 30, 2000. Last revision August 11, 2014. Aequivalent to the German {\em Linearitätsmaße für Boolesche Abbildungen}},
 @techreport{Pomm2014,
   author  = {Klaus Pommerening},
   title   = {{Fourier Analysis of Boolean Maps -- A Tutorial}},
@@ -1020,44 +1026,52 @@ year = {2009},
   publisher = {John Wiley},
   title     = {{Cryptography and Public Key Infrastructure on the Internet}},
   year      = {2003},
-  note      = {In German, the 6th edition was published in 2016.},
+  note = {\iflanguage{ngerman}
+	     {Im Gegensatz zum Englischen gibt es das Buch im Deutschen schon in der 6. Auflage.}
+	     {In German, the 6th edition was published in 2016.}
+         },  
 }
 
 
-% Easy to read, up-to-date and comprehensive book about cryptography. 
-% It also deals with practical problems like standardization or the
-% application in real existing software. This is in German.
 @book{Schm2016,
   author    = {Klaus Schmeh},
   edition   = {6},
   publisher = {dpunkt.verlag},
   title     = {{Kryptographie -- Verfahren, Protokolle, Infrastrukturen}},
   year      = {2016},
-  note      = {Sehr gut lesbares, aktuelles und umfangreiches Buch über Kryptographie. 
-               Geht auch auf praktische Probleme (wie Standardisierung oder 
-               real existierende Software) ein.},
+  note = {\iflanguage{ngerman}{
+	   Sehr gut lesbares, aktuelles und umfangreiches Buch über Kryptographie. 
+           Geht auch auf praktische Probleme (wie Standardisierung oder 
+           real existierende Software) ein}
+                              {
+           \\Easy to read, up-to-date and comprehensive book about cryptography. 
+           It also deals with practical problems like standardization or the
+           application in real existing software. Written in German}
+          },
 }
 
 
-% url= {https://www.mysterytwisterc3.org/de/challenges/level-x-kryptographie-challenges/doppelwuerfel},
-% comment = {Das Buch enthält auch eine kleine Sammlung gelöster und ungelöster Krypto-Rätsel. Eine der Challenges nutzt den "`Doppelwürfel"' (double-column transposition) mit zwei langen Schlüsseln, die unterschiedlich sind.},
-%  This is most current among the books dealing in a comprehensive manner
-%  with the history of cryptology. It also contains a small collection of
-%  solved and unsolved crypto riddles. One of the challenges deals with
-%  a double-column transposition using two different, long keys.\\
 @book{Schm2007,
   author    = {Klaus Schmeh},
   edition   = {2},
   publisher = {W3L Verlag Bochum},
   title     = {{Codeknacker gegen Codemacher. Die faszinierende Geschichte der Verschlüsselung}},
   year      = {2007},
-  Note      = "\\Dieses Buch ist bis dato das aktuellste unter denen, die sich mit der Geschichte der Kryptographie beschäftigen.
-	       \\ Das Buch enthält auch eine kleine Sammlung gelöster und ungelöster Krypto-Rätsel. Eine der Challenges nutzt den ``Doppelwürfel'' (double-column transposition) mit zwei langen Schlüsseln, die unterschiedlich sind.
-	       \\ Siehe die Challenge auf MTC3: \url{https://www.mysterytwisterc3.org/de/challenges/level-x-kryptographie-challenges/doppelwuerfel}",
+  note    = {\iflanguage{ngerman}{
+	       \\ Dieses Buch ist bis dato das aktuellste unter denen, die sich mit der Geschichte der Kryptographie beschäftigen.
+	       \\ Das Buch enthält auch eine kleine Sammlung gelöster und ungelöster Krypto-Rätsel. Eine der Challenges nutzt den "`Doppelwürfel"' (doppelte Spaltentransposition) mit zwei langen Schlüsseln, die unterschiedlich sind.
+	       \\ Siehe die Challenge auf MTC3: \url{https://www.mysterytwisterc3.org/de/challenges/level-x-kryptographie-challenges/doppelwuerfel}
+                              }
+                              {
+               \\ So far, this is the most current among the books dealing in a comprehensive manner
+  with the history of cryptology.
+               \\ It also contains a small collection of solved and unsolved crypto riddles. One of the challenges deals with the ``Doppelwürfel'', a double-column transposition using two different, long keys.
+	       \\ See the challenge on MTC3: \url{https://www.mysterytwisterc3.org/en/challenges/level-x/double-column-transposition}
+                              }
+            },
 }
 
 
-% url = {http://www.win.tue.nl/~henkvt/images/ReportSegersGB2-11-04.pdf},
 @mastersthesis{Sege2004,
   author  = {A. J. M. Segers},
   school  = {Technische Universiteit Eindhoven},
@@ -1102,18 +1116,19 @@ url = {http://eprint.iacr.org/2009/317},
 
 
 % received 10 Apr 2002, last revised 9 Nov 2002.\\
-%  Eine davon verschiedene~\glqq compact version\grqq~des ersten
-%    XSL-Angriffs wurde auf der Asiacrypt im Dezember 2002 veröffentlicht.\\
-%  A different version, so called compact version of the first XSL attack,
-%    was published at Asiacrypt Dec 2002. \\
-% url = {http://eprint.iacr.org/2002/044},
 @article{Courtois2002,
   author  = {Nicolas Courtois and Josef Pieprzyk},
   title   = {{Cryptanalysis of Block Ciphers with Overdefined Systems of Equations}},
   year    = {2002},
-  Note    = "\\A different, so called compact version of the first XSL attack,
+  Note = {\iflanguage{ngerman}{
+	     \\Eine davon verschiedene~\glqq compact version\grqq~des ersten
+             XSL-Angriffs wurde auf der Asiacrypt im Dezember 2002 veröffentlicht.
+             \url{http://eprint.iacr.org/2002/044}}
+                              {
+             \\A different, so called compact version of the first XSL attack,
              was published at Asiacrypt Dec 2002.
-             \url{http://eprint.iacr.org/2002/044}",
+             \url{http://eprint.iacr.org/2002/044}}
+          },
 }
 
 
@@ -1149,7 +1164,6 @@ title = {{Neue Ergebnisse zur Sicherheit des Verschlüsselungsstandards AES}},
 year = {2002},
 }
 
-% url = {http://paper.ijcsns.org/07_book/200707/20070735.pdf},
 @article{Mansoori2007,
   author  = {S. Davod Mansoori and H. Khaleghei Bizaki},
   journal = {IJCSNS International Journal of Computer Science and Network Security},
@@ -1189,10 +1203,7 @@ year = {1996},
 }
 
 
-% url = {http://www.rose-hulman.edu/~holden/Preprints/s-aes.pdf},
-% comment = {\url{http://math.scu.edu/ eschaefe/} Ed Schaefer's Homepage},
 % Veraltet: \url{http://findarticles.com/p/articles/mi_qa3926/is_200304/ai_n9181658}\\
-
 @article{Musa2003,
   author  = {Mohammad A. Musa and Edward F. Schaefer and Stephen Wedig},
   journal = {Cryptologia},
@@ -1215,6 +1226,7 @@ year = {1996},
   url = {http://faculty.washington.edu/moishe/hanoiex/Number%20Theory%20Applications/numtheory-crypto.pdf},
 }
 
+
 % 4.8.16:
 % Solange bitex ohne babelbib:
 % 1) Wenn als masterthesis:
@@ -1230,7 +1242,7 @@ year = {1996},
 %    - da er "school = {Victoria University}," nicht ausgibt, schreibt man das in "note =".
 %    - Links nach "url =" werden gar nicht ausgegeben.
 %    - per "howpublished " werden anklickbare Links ausgegeben, aber es öffnete sich kein Browser??
-%    - Außerdem hätte ich gerne, dass die URLs ganz ans Ende kommen, also nach den "note".
+%    - Außerdem sollten die URLs ganz ans Ende kommen, also nach den "note".
 % howpublished "\url{http://www.sagemath.org/files/thesis/nguyen-thesis-2009.pdf}, \url{http://www.sagemath.org/library-publications.html}",
 % note = {Victoria University, Master's thesis},
 % comment = {SageMath publications},
@@ -1252,9 +1264,12 @@ year = {1996},
   institution = {Aegean Park Press 1996},
   title     = {{Classical Cryptography Course, Volume 1 and 2}},
   year      = {1996},
-  Note      = "12 lessons.
-	      \\ \url{www.apprendre-en-ligne.net/crypto/bibliotheque/lanaki/lesson1.htm}",
+  Note = {\iflanguage{ngerman}{12 Lektionen.}
+                              {12 lessons.}
+	  \\ \url{www.apprendre-en-ligne.net/crypto/bibliotheque/lanaki/lesson1.htm}
+          },
 }
+
 
 % howpublished "\url{http://books.esecurity.ch/cryptography2e.html}",
 @book{Oppliger2011,
@@ -1278,7 +1293,6 @@ year = {2002},
 }
 
 
-% url = {http://www.tandfonline.com/doi/abs/10.1080/0161-110391891964},
 % Veraltet: \url{http://findarticles.com/p/articles/mi_qa3926/is_200310/ai_n9311721/}
 @article{Phan2003,
   author  = {Raphael Chung-Wei Phan},
@@ -1308,19 +1322,21 @@ url = {http://crypto.rd.francetelecom.com/people/Robshaw/rijndael/rijndael.html}
 }
 
 
-% url = {http://www.heise.de/security/artikel/Kryptographie-in-der-IT-Empfehlungen-zu-Verschluesselung-und-Verfahren-3221002.html},
-% Published at 2016-06-17.
-% This article was published first in c't 01/2016, p~174, and then at June 16th, 2016 in\\
-% Dieser Artikel erschien ursprünglich in c't 01/2016, Seite 174.\\
-% Veröffentlicht am 17.06.2016 in
 @article{Schmidt2016,
   author  = {Jürgen Schmidt},
   journal = {c't},
   number  = {1},
   title   = {{Kryptographie in der IT -- Empfehlungen zu Verschlüsselung und Verfahren}},
   year    = {2016},
-  Note    = "Veröffentlicht am 17.06.2016 in:
-	    \\ \url{http://www.heise.de/security/artikel/Kryptographie-in-der-IT-Empfehlungen-zu-Verschluesselung-und-Verfahren-3221002.html}",
+
+  Note    = {\iflanguage{ngerman}{
+  	       \\Dieser Artikel erschien ursprünglich in c't 01/2016, Seite 174.
+	       Danach veröffentlicht am 17.06.2016 in:}
+                                 {
+               \\This article was published first in c't 01/2016, p~174,
+	       and then at June 16th, 2016 in}
+             \\ \url{http://www.heise.de/security/artikel/Kryptographie-in-der-IT-Empfehlungen-zu-Verschluesselung-und-Verfahren-3221002.html}
+            },
 }
 
 @book{Schneier1996,
@@ -1436,16 +1452,17 @@ year = {2005},
 }
 
 
-% comment = {und der Leserbrief dazu von Johannes Merkle in der iX 2/2003},
-% plus the reader's remark by Johannes Merkle in iX Feb 2003.
 @article{Wobst2002,
   author  = {Reinhard Wobst},
   journal = {iX},
   month   = {12},
   title   = {{Angekratzt -- Kryptoanalyse von AES schreitet voran}},
   year    = {2002},
-  Note    = "(Und der Leserbrief dazu von Johannes Merkle in der iX 2/2003)",
-
+  Note = {\iflanguage{ngerman}{
+    	       (Und der Leserbrief dazu von Johannes Merkle in der iX 2/2003)}
+                              {
+               (Plus the reader's remark by Johannes Merkle in iX Feb 2003)}
+          }, 
 }
 
 @techreport{X.509,
@@ -1831,7 +1848,7 @@ url = {http://www.tau.ac.il/~tromer/papers/twirl.pdf},
 % url = {http://www.tau.ac.il/~tromer/papers/cbtwirl.pdf},
    % dead link: \url{http://www.rsasecurity.com/rsalabs/cryptobytes/CryptoBytes_August_2003.pdf}
    % info: http://ece.gmu.edu/coursewebpages/ECE/ECE646/F13/viewgraphs_F13/ECE646_lecture9_RSA_6.pdf
-   % Here is a list of all the CryptoBytes, but the link sbelow are dead:
+   % Here is a list of all the CryptoBytes, but the links below are dead:
    %   http://www.emc.com/emc-plus/rsa-labs/historical/cryptobytes-technical-newsletter.htm
    % Die Ausgaben bis 2000 finden sich unter:
    %      ftp://ftp.arnes.si/packages/crypto-tools/rsa.com/cryptobytes/
@@ -2005,14 +2022,13 @@ comment = {Die ursprüngliche URL {http://library.thinkquest.org/27158/} ist leid
 %    across the fine paper by Scott Aaronson, which also offers
 %    a didactically very well-done introduction to this topic. It is 
 %    humorous and easy to read but at the same time precise and erudite.},
-% Note    = "\\ \url{http://www.scottaaronson.com/writings/prime.pdf}",
+%  Note_EN    = "Test: ENG-Note",
+%  Note_DE    = "Test: DEU-Note",
 @techreport{Aaronson2003,
   author  = {Scott Aaronson},
   title   = {{The Prime Facts: From Euclid to AKS}},
   year    = {2003},
   Note    = "\\ \url{http://www.scottaaronson.com/writings/prime.pdf}",
-  Note_EN    = "Test: ENG-Note",
-  Note_DE    = "Test: DEU-Note",
 }
 
 @book{Blum1999,
@@ -2087,16 +2103,15 @@ comment = {1. Aufglage 1974.},
 }
 
 
-% This book results from a course for especially talented pupils at the
-%  ``Deutsche Sch\"ulerakademie''.
-%  It completely presents the AKS proof -- without expecting mathematical
-%  pre-knowledge.
 @book{Rempe2009,
   author    = {L. Rempe and R. Waldecker},
   publisher = {Vieweg+Teubner},
   title     = {{Primzahltests für Einsteiger}},
   year      = {2009},
-  Note      = "\\Dieses Buch entstand aus einem Kurs an der \glqq Deutschen Schülerakademie\grqq. Es stellt den AKS-Beweis vollständig dar, ohne mathematisches Vorwissen zu erwarten.",
+  Note = {\iflanguage{ngerman}
+	    {\\Dieses Buch entstand aus einem Kurs an der \glqq Deutschen Schülerakademie\grqq. Es stellt den AKS-Beweis vollständig dar, ohne viel mathematisches Vorwissen zu erwarten}
+	    {\\This book results from a course for especially talented pupils at the ``Deutsche Sch\"ulerakademie''. It completely presents the AKS proof -- without expecting much mathematical pre-knowledge}
+          },
 }
 
 @article{Richstein1999,
@@ -2217,21 +2232,23 @@ comment = {1. Auflage 1959.},
 }
 
 % url = {{http://bscw.schule.de/pub/nj_bscw.cgi/d1024013/RSA_u_Co_NF7.pdf}, {http://www.log-in-verlag.de/wp-content/uploads/2015/07/Internetquellen-LOG-IN-Heft-Nr.181-182.doc}},
-% comment = {Hierin sind u.a. DH und Elgamal in einem breiten Kontext behandelt. Die Verfahren werden mit Codebeispielen in Python und SageMath erläutert.},
 @article{Witten2015,
   author  = {Helmut Witten and Ralph-Hardo Schulz and Bernhard Esslinger},
   journal = {RSA \& Co. in der Schule: Moderne Kryptologie, alte Mathematik, raffinierte Protokolle, NF Teil 7: Alternativen zu RSA oder Diskreter Logarithmus statt Faktorisierung},
   number  = {181-182},
   pages   = {85-102},
   year    = {2015},
-  Note    = "\\ \url{http://bscw.schule.de/pub/nj_bscw.cgi/d1024013/RSA_u_Co_NF7.pdf},
-               \\ \url{http://www.log-in-verlag.de/wp-content/uploads/2015/07/Internetquellen-LOG-IN-Heft-Nr.181-182.doc}",
+  Note = {\iflanguage{ngerman}{
+    	       \\ Hierin werden u.a. DH und Elgamal in einem breiteren Kontext behandelt.
+	       Die Verfahren werden mit Codebeispielen in Python und SageMath erläutert.}
+                              {
+    	       \\ This article discusses DH and Elgamal in a broader context.
+	       The algorithms are explained with code samples in Python and SageMath.}
+           \\ \url{http://bscw.schule.de/pub/nj_bscw.cgi/d1024013/RSA_u_Co_NF7.pdf},
+           \\ \url{http://www.log-in-verlag.de/wp-content/uploads/2015/07/Internetquellen-LOG-IN-Heft-Nr.181-182.doc}
+          },
 }
 
-% url = {http://bscw.schule.de/pub/nj_bscw.cgi/d1024028/Schulz_Witten_Esslinger-Rechnen_mit_Punkten_einer_elliptischen_Kurve.pdf},
-% comment = {Geschrieben für Lehrer, didaktisch aufbereitet, leicht verständlich, mit vielen SageMath-Beispielen.},
-% Written for teachers, didactically prepared, easy to understand,
-% with many SageMath examples. Sadly, this article is only available in German
 @article{Schulz2015,
   author  = {Ralph-Hardo Schulz and Helmut Witten and Bernhard Esslinger},
   journal = {LOG IN},
@@ -2239,8 +2256,14 @@ comment = {1. Auflage 1959.},
   pages   = {103-115},
   title   = {{Rechnen mit Punkten einer elliptischen Kurve}},
   year    = {2015},
-  Note    = "\\Didaktische Aufbereitung für Lehrer, leicht verständlich, mit vielen SageMath-Beispielen.
-	     \\ \url{http://bscw.schule.de/pub/nj_bscw.cgi/d1024028/Schulz_Witten_Esslinger-Rechnen_mit_Punkten_einer_elliptischen_Kurve.pdf}",
+  Note = {\iflanguage{ngerman}{
+    	       Geschrieben für Lehrer; didaktisch aufbereitet,
+	       leicht verständlich, mit vielen SageMath-Beispielen.}
+                              {
+               \\ Written for teachers; didactically prepared, easy to understand,
+	       with many SageMath examples. Sadly, this article is only available in German.}
+           \\ \url{http://bscw.schule.de/pub/nj_bscw.cgi/d1024028/Schulz_Witten_Esslinger-Rechnen_mit_Punkten_einer_elliptischen_Kurve.pdf}
+          },
 }
 
 % url = {http://bscw.schule.de/pub/bscw.cgi/d864899/Schulz_Witten_Zeit-Experimente.pdf},
