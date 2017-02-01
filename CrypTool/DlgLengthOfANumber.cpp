@@ -46,6 +46,7 @@ BOOL CDlgLengthOfANumber::OnInitDialog()
 	CDialog::OnInitDialog();
 	// by default we start with decimal representation (binary = 0, octal = 1, decimal = 2, hexadecimal = 3)
 	numberRepresentation = 2;
+	UpdateData(false);
 	// we also start with an empty number
 	stringNumber.Empty();
 	// update both, the number representation and the number itself
