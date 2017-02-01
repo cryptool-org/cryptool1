@@ -65,14 +65,38 @@ immer verfügbar ist (auch wenn kein Dokument geöffnet ist).
 
 %--------------------------------------------------------------------
 \clearpage
+\setlength{\hoffset}{-10mm} %beg--Linken Rand verkleinern -- funktionierte,
+                            % aber zum Verkleinern rechten Rand gab es keinen Befehl.
+			    % (setlength jeweils nach \clearpage
+%%%%\setlength{\hoffset}{0mm} %end--Linken Rand verkleinern
+        % (evtl. auch mit \oddsidemargin und \evensidemargin): \setlength{\oddsidemargin}{-10mm}
+	% \setlength{\marginparwidth}{0pt}
+	% Wirkt wahrscheinlich aber nur, wenn man überhaupt Marhins nutzt.
+	% Siehe ftp://ftp.fernuni-hagen.de/pub/pdf/urz-broschueren/broschueren/a027.pdf, Kap. 3.2
+        % Diskussion http://www.matheboard.de/archive/342332/thread.html (incl. KOMA-Script)
+%%%% --> führte 1. Mal geometry-Package ein
+%%%%     (http://www.howtotex.com/tips-tricks/change-margins-of-a-single-page/
+%%%%      http://texwelt.de/wissen/fragen/1791/wie-kann-ich-innerhalb-eines-dokuments-seitengroe-und-rand-andern)
+
+%\newgeometry{
+%  left=1.3cm,
+%  right=1cm,
+%  bottom=3.2cm % Bei 1cm liegt die Seitennummer genau am unteren Blattrand;
+%               % bei 3.2cm wieder fast wie normal.
+%               % Ohne buttom-Param liegt die Seitennummer noch weiter oben (direkt unter figure).
+%}
+
 \begin{figure}[hb]
 \begin{center}
-\vspace{-30pt}% Negative Werte schieben Bild nach oben.
+\vspace{-30pt}% Negative Werte schieben Bild nach oben.  %%%% vorher -30pt // mit newgeometry: -150
+% Ebenso wenn der Wert bei minipage verkleinert wurde ({1.45\textwidth}), schob es sich nach oben.
 
 % Vor(rotate + minipage) war es mit \includegraphics[scale=0.35,angle=270] gemacht.
 % Dann ist die Bildunterschrift aber weiterhin statt auf der Längsseite.
 \rotatebox{90}{%
-\begin{minipage}{1.57\textwidth}% So sah es für mich mittig aus.
+\begin{minipage}{1.45\textwidth}% So sah es für mich mittig aus.
+%%%% Alte Fassung vor 1.4.31-Final:
+%%%% \begin{minipage}{1.57\textwidth}% So sah es für mich mittig aus.
 	% Mit nur "{1.5\textwidth}" ragt die Grafik nach oben raus.
 	% Mit 1.5 stößt es an den oberen Rand (schw. Balken), aber keine LaTeX Warning.
 	% Mit 1.55 erscheint es etwas kleiner, aber immer noch kommt:
@@ -83,20 +107,28 @@ immer verfügbar ist (auch wenn kein Dokument geöffnet ist).
 	%   LaTeX Warning: Float too large for page by 82.63066pt on input line 87.
 	% Mit 1.8 ragt es nach unten raus, und es kommt
 	%   LaTeX Warning: Float too large for page by 127.9302pt on input line 85.
+	% Siehe http://www.namsu.de/Extra/befehle/Minipage.html
 %\frame{ % Erzeugt einen Rahmen und Rand (siehe viewport) drumherum -- gut zum Testen
-\includegraphics[scale=0.35]{figures/CT1-menutree-de}  % Ohne Runterscallieren
+\includegraphics[scale=0.4]{figures/CT1-menutree-de}  % Ohne Runterskalieren
  % ist die Grafik zu groß, und ragt über die sichtbare Minipage / Seite hinaus.
 %} % Ende von \frame
 \hypertarget{appendix-figure-menu-overview-CT1}{}
-\caption{Komplett-Übersicht über den Menü-Baum von CT1 (CrypTool~1.4.31)}%TODO-xxxxxxxxxxxxxxxxx
+% \captionsetup[figure]{skip=110pt}  %%%% Tat nicht: Package caption Warning: Unused \captionsetup[figure]
+\setlength{\abovecaptionskip}{5mm}  %%%% Tat, um den Abstand zwischen Bild und Überschrift zu ändern
+\caption{Komplett-Übersicht über den Menü-Baum von CT1 (CrypTool~1.4.31)}%TODO-xxxxxx(last update 1.4.31-final)
 \label{appendix-figure-menu-overview-CT1}
 \end{minipage}
 }
 
 \end{center}
 \end{figure}
-\clearpage
 
+\clearpage
+\setlength{\hoffset}{0mm}
+%\restoregeometry
+%\newgeometry{bottom=3.2cm} % Trotz restoregeometry ist die Seitennummer etwas nach oben geschoben.
+                           % Aber wenn zusätzlich neues geometry, gibt es Probleme, denn es macht
+			   % bspw. den li. Rand breiter --> falsche Umbrüche. TODO-xxxxxxxxxxxxxxxxsofort
 
 
 
@@ -184,7 +216,7 @@ Funktionen in JCrypTool\index{JCT}.\footnote{%
 \end{center}
 \end{figure}
 %\clearpage
-Mit Klick auf \glqq Start\grqq kann man die verschiedenen Funktionen direkt nutzen.
+Mit Klick auf \glqq Start\grqq~kann man die verschiedenen Funktionen direkt nutzen.
 Die in JCT implementierten Funktionen werden über zwei unterschiedliche Perspektiven angeboten:
 \begin{itemize}
    \item Standard-Perspektive
@@ -192,9 +224,9 @@ Die in JCT implementierten Funktionen werden über zwei unterschiedliche Perspekt
  \end{itemize}
 
 Alle Funktionen in der {\bf Standard-Perspektive} finden sich sowohl in den Menüs als
-auch in der \glqq Krypto-Explorer\grqq genannten Navigationsleiste (rechts). Die Standard-Perspektive enthält alle wichtigen Verfahren (wie z.B. die klassische Transposition oder den modernen AES)  und viele Visualisierungen (z.B. Diffie-Hellman-Schlüsselaustausch oder Berechnungen auf Elliptischen Kurven).
+auch in der \glqq Krypto-Explorer\grqq~genannten Navigationsleiste (rechts). Die Standard-Perspektive enthält alle wichtigen Verfahren (wie z.B. die klassische Transposition oder den modernen AES)  und viele Visualisierungen (z.B. Diffie-Hellman-Schlüsselaustausch oder Berechnungen auf Elliptischen Kurven).
 
-Alle Funktionen der {\bf Algorithmen-Perspektive} finden sich in der \glqq Algorithmen\grqq genannten Navigationsleiste (in dieser Perspektive ebenfalls rechts). Die Algorithmen-Perspektive enthält alle Detaileinstellungen der verschiedenen Algorithmen und bietet insbesondere auch Algorithmen aus dem Bereich des Post-Quantum-Computings\index{Post-Quantum-Computing} (PQC) an.
+Alle Funktionen der {\bf Algorithmen-Perspektive} finden sich in der \glqq Algorithmen\grqq~genannten Navigationsleiste (in dieser Perspektive ebenfalls rechts). Die Algorithmen-Perspektive enthält alle Detaileinstellungen der verschiedenen Algorithmen und bietet insbesondere auch Algorithmen aus dem Bereich des Post-Quantum-Computings\index{Post-Quantum-Computing} (PQC) an.
 
 \clearpage
 \begin{figure}[hb]

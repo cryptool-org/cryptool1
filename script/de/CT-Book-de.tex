@@ -80,7 +80,6 @@
 \DeclareTextSymbolDefault{\dh}{T1}
 \DeclareTextSymbolDefault{\textperthousand}{T1}
 
-
 %%% Remark: Wenn man biblatex nutzt, darf man nicht mehr nutzen / braucht man kein babelbib mehr !!!
 %%%         Siehe: http://tex.stackexchange.com/questions/219203/how-to-use-babelbib
 %%%   It is really much easier to do this in biblatex (and you can use the natbib option
@@ -95,6 +94,12 @@
 %% \bibliographystyle{babplain}
 %%% \bibliography{../de/references.bib}  %% Evtl. hier EINMAL setzen, statt in jedem \putbib[../de/references]
 
+
+% \usepackage{geometry} %%%% 1.1.17: Added to make right border smaller for page with menutree only // Wieder raus, da danach li. Rand zu groß! Müsste wohl alles gleich zu Beginn hier setzen.
+% \geometry{a4paper, left=2.7cm, right=2.7cm, top=2.5cm, bottom=2.2cm}
+% \setlength{\footskip}{2cm}
+% \geometry{bottom=3.2cm}
+% \usepackage{caption}  %%%% 1.1.17: Added to enlarge distance between menutree figure and its caption a bit // Wieder raus: nutzte \abovecaptionskip statt caption package.
 
 \usepackage{morewrites}% Neu wegen "message {No room for a new \string #" nach Hinzufügen von \lostof{opensslcode}
 
