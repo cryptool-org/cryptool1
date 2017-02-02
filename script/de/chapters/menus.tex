@@ -16,11 +16,12 @@ CrypTool\index{CrypTool}-Version 1.4.31\footnote{%
   CrypTool~1 ({\bf CT1})\index{CT1} vor allem auf Bugfixes
   beschränkten, fließen viele Neuerungen in die beiden Nachfolgeversionen
   CrypTool~2 ({\bf CT2})\index{CT2} und JCrypTool ({\bf JCT})\index{JCT} ein:\\
-  - Webseite CT2: \url{http://www.cryptool.org/de/ct2-documentation-de} \\
-  - Webseite JCT: \url{http://www.cryptool.org/de/jct-machmit-de} \\
-  Diese Nachfolgeversionen sind zur Zeit (Nov. 2012) noch Betaversionen;
-  sie stehen aber kurz vor ihrem jeweiligen ersten Release und sind schon
-  länger stabil genug, um von Endbenutzern genutzt werden zu können.
+  - Webseite CT2: \url{http://www.cryptool.org/de/ct2-dokumentation} \\
+  - Webseite JCT: \url{http://www.cryptool.org/de/jct-machmit} \\
+  Von beiden Nachfolgern stehen stabile Versionen zur Verfügung.
+  Stand Februar 2017 gibt es CT 2.0 Release und CT 2.1 Beta-1 plus
+  tägliche Nightly Builds; von JCT gibt es den RC8 und jeden Samstag
+  ein neues Weekly Build.%%%TODO_xxxx_Ergänzen bei Updates
 }.
 
 \noindent Das Haupt-Menü von CT1 enthält die generellen Service-Funktionen
@@ -65,7 +66,9 @@ immer verfügbar ist (auch wenn kein Dokument geöffnet ist).
 
 %--------------------------------------------------------------------
 \clearpage
-\setlength{\hoffset}{-10mm} %beg--Linken Rand verkleinern -- funktionierte,
+%beg--Linken Rand verkleinern per setlength -- funktionierte,
+% \setlength{\hoffset}{-10mm} % So gut ohne \makebox[\paperwidth]
+\setlength{\hoffset}{-20mm} % So gut mit \makebox[\paperwidth]
                             % aber zum Verkleinern rechten Rand gab es keinen Befehl.
 			    % (setlength jeweils nach \clearpage
 %%%%\setlength{\hoffset}{0mm} %end--Linken Rand verkleinern
@@ -87,9 +90,18 @@ immer verfügbar ist (auch wenn kein Dokument geöffnet ist).
 %}
 
 \begin{figure}[hb]
+% \hss war Tipp FM, für glue stretching [geht nur hier, sonst Meldung 
+%      "! Infinite glue shrinkage found in a paragraph.";
+%      Aber hier bebewirkt es nichts: Schwarzer Balken re. bleibt.]
 \begin{center}
 \vspace{-30pt}% Negative Werte schieben Bild nach oben.  %%%% vorher -30pt // mit newgeometry: -150
 % Ebenso wenn der Wert bei minipage verkleinert wurde ({1.45\textwidth}), schob es sich nach oben.
+
+
+\makebox[\paperwidth]{  % Makebox nur rein, um den schw. Balken re. wegzubekommen -- er ist nun 
+	% außerhalb des sichtbaren Bereichs (wird sichtbar, wenn man \setlength{\hoffset}{-30mm} setzt.
+	% Makebox wieder rausnehmen, wenn geometry-Package. Und es beseitigt auch nur den schwarzen
+	% Balken im draft-Mode, aber die Warnung dürfte weiterhin dastehen.
 
 % Vor(rotate + minipage) war es mit \includegraphics[scale=0.35,angle=270] gemacht.
 % Dann ist die Bildunterschrift aber weiterhin statt auf der Längsseite.
@@ -119,6 +131,7 @@ immer verfügbar ist (auch wenn kein Dokument geöffnet ist).
 \label{appendix-figure-menu-overview-CT1}
 \end{minipage}
 }
+}
 
 \end{center}
 \end{figure}
@@ -142,7 +155,7 @@ immer verfügbar ist (auch wenn kein Dokument geöffnet ist).
 \noindent Dieser Anhang enthält auf den folgenden Seiten den Baum
 mit allen Vorlagen in CrypTool~2\index{CT2}.\footnote{%
   Weitere Informationen zu CT2 finden Sie auf:
-  \url{http://www.cryptool.org/de/ct2-documentation-de}
+  \url{https://www.cryptool.org/de/ct2-dokumentation}
 }
 
 \noindent Beim Start von CT2 öffnet sich das Startcenter.
@@ -200,7 +213,7 @@ Im Vorlagen-Baum gibt es zu jeder Komponente mindestens eine Vorlage. Die angebo
 \noindent Dieser Anhang enthält auf den folgenden Seiten eine Liste aller
 Funktionen in JCrypTool\index{JCT}.\footnote{%
   Weitere Informationen zu JCT finden Sie auf:
-  \url{http://www.cryptool.org/de/jct-machmit-de} \\
+  \url{http://www.cryptool.org/de/jct-machmit} \\
   Die Liste wurde mit Hilfe der CT-Portal-Webseite gewonnen.}
 
 \noindent Beim ersten Start von JCT öffnet sich das Willkommen-Fenster.
@@ -268,7 +281,7 @@ Funktionen in CrypTool-Online (CTO)\index{CTO}.\footnote{%
   Weitere Informationen zu CTO finden Sie auf:
   \url{www.cryptool-online.org} \\
   Die Liste wurde mit Hilfe der Funktionsliste auf der CT-Portal-Webseite gewonnen:\\
-  \url{http://www.cryptool.org/ctp-documentation-en/ctp-functions-en}}
+  \url{https://www.cryptool.org/de/ctp-dokumentation/ctp-funktionsumfang}}
 
 
 %\noindent Die Einstiegsseite von CTO sieht so aus:
