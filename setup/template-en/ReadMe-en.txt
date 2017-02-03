@@ -1797,7 +1797,7 @@ NumberShark.exe .. The educational game "NumberShark".
 NumberShark_en.chm HTML help archive for the NumberShark online help.
 GameData.txt ..... First high-scores for the NumberShark game.
 
-script-en.pdf .... A book (manual) on cryptography, prime numbers,
+CT-Book-en.pdf ... A book (manual) on cryptography, prime numbers,
                    elementary number theory and the mathematics
                    behind certain algorithms. (xxx)
 
@@ -1904,7 +1904,7 @@ words\cracklib-words        // For test on password patterns
 
 
 sage\ ........... This directory contains the source code of the example
-                  calculations in the book script-en.pdf using the
+                  calculations in the book CT-Book-en.pdf using the
                   computer algebra system SageMath. (xxx)
 
 sage\SAGE-Samples-in-Chap01.sage

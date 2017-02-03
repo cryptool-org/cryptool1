@@ -1867,7 +1867,7 @@ Zahlenhai.exe .... Das Programm zum Lernspiel "Der Zahlenhai".
 NumberShark_de.chm HTML-Hilfe-Archiv für die Zahlenhai-Onlinehilfe.
 GameData.txt ..... Die ersten High-Scores für das Zahlenhai-Spiel.
 
-script-de.pdf .... Ein Buch (deutsch) über Kryptographie, Primzahlen,
+CT-Book-de.pdf ... Ein Buch (deutsch) über Kryptographie, Primzahlen,
                    elementare Zahlentheorie und die Mathematik hinter
                    einigen Algorithmen. (xxx)
 
@@ -1975,7 +1975,7 @@ words\cracklib-words        // Für Tests auf Passwortmuster
 
 
 sage\ ........... Dieses Verzeichnis enthält die Beispiel-Berechnungen
-                  aus dem CT-Buch script-de.pdf, die mit dem Computer-
+                  aus dem CT-Buch CT-Book-de.pdf, die mit dem Computer-
                   Algebra-System SageMath ausgeführt wurden. (xxx)
 
 sage\SAGE-Samples-in-Chap01.sage
