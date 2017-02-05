@@ -18,5 +18,5 @@ Citanje „Procitaj me” datoteke (pogledati meni „Pomoc -> Procitaj”).
 Pregled živopisne prezentacije (Do ove prezentacije se može doci na nekoliko nacina: npr. preko menija "Pomoc" ove aplikacije, ili preko odeljka "Dokumentacija" koja se nalazi na "Pocetnoj" strani online pomoci).
 Pregled web stranice www.cryptool.org.
 
-Oktobar 2016
+Februara 2017
 CrypTool tim
