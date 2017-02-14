@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 for Win32, January 2017
+    CrypTool, Version 1.4.31 for Win32, February 2017
     
 CrypTool v1 (CT1) is an international e-learning program for cryptography and
 cryptanalysis.
@@ -187,7 +187,7 @@ in the online help contents overview under "Start with CrypTool").
 The easiest way to try out many of the CrypTool functions is with
 the file "Startingexample-en.txt", which is open by default in the
 CrypTool work area. But you also can open any unencrypted file from
-the "examples" subdirectory or any other file.
+the "examples" sub-directory or any other file.
 
 If a menu item has no meaning to you or you don't know exactly what
 to do within a dialog window, please press F1. If the according
@@ -220,9 +220,9 @@ Main part of the CT1 package is the program CT1 itself:
   employee's awareness about the importance of IT security.
 
 - Most of the cryptographic basic algorithms used are taken from:
-  - the Secude library (http://www.secude.com/),  (xxx)
-  - the Miracl library from DCU/CertiVox (former Shamus Software)
-        (http://www.compapp.dcu.ie/~mike/shamus.html),
+  - the Secude library (http://secude.com/),  (xxx)
+  - the Miracl library from Miracl (former DCU/CertiVox, Shamus Software)
+        (https://www.miracl.com),
   - the OpenSSL library (http://www.openssl.org/),
   - the NTL number theory library of Victor Shoup
         (http://www.shoup.net/ntl/),
@@ -370,7 +370,7 @@ chapter 5 (see below in this ReadMe file).
 A big number of individuals (more than 300) have contributed to CT1,
 normally complimentary in their free time (some are listed in the dialog
 box you get after double clicking the "About" dialog box).
-We are extremely grateful to these persons.
+We are extremely grateful to these person.
 
 I'd like to mention some outstanding software developers / architects
 within the CT1 project. Their empowered and long-time dedication
@@ -441,8 +441,8 @@ I also want to thank
 - Prof. Ioannis Mavridis and Dr. Theodoros Mastoras for the first
   Greek version of CT1.
 - Alain Stephan for the first French version of CT1.
-And several people (like Vasilios and Vesna) who helped to continue the
-translations for new versions of CT1.
+And several people (like Pawel, Vasilios, and Vesna) who helped to continue
+the translations for new versions of CT1.
 
 Potential further translations:
 - Turkish (xxx): Interests, but not started yet.
@@ -602,7 +602,7 @@ The general properties and functions of CT1 are:
 
 - In all classic algorithms where the alphabets of the text documents play
   a role, the used alphabet is the one handled in the common dialog
-  "Text Options". So the tranparency and usability is clearly improved:
+  "Text Options". So the transparency and usability are clearly improved:
   When entering a key, you now can see at once which method is adapted,
   because each according key-entry dialog contains the additional button
   "Text options", which directly leads to the dialog "Text Options"
@@ -610,7 +610,7 @@ The general properties and functions of CT1 are:
   the key-entry dialog. So from here it's no more necessary to first close
   the key-entry dialog again and then call the text options via the main menu).
   This call via a click at the button "Text options" is implemented for
-  instance within the key-entry dialogs for Caesar, monoalphabetic
+  instance within the key-entry dialogs for Caesar, mono-alphabetic
   substitution, Vigenère, Scytale, permutation and homophones.
 
 - CrypTool can be used without having administrator access rights.
@@ -634,7 +634,7 @@ The general properties and functions of CT1 are:
   elementary number theory.
 
 - Three applications based on the Chinese remainder theorem:
-  * Solving a system of linear modular congruencies using the solar
+  * Solving a system of linear modular congruences using the solar
     system as an example.
   * Showing how you can calculate (add, subtract or multiply) with
     modular remainders (residues) instead of the (bigger) actual numbers.
@@ -731,7 +731,7 @@ The general properties and functions of CT1 are:
   - The Express Edition of VS2008 is not sufficient, because this does not
     support the old MFC library (in contrast to the Standard Edition) for
     the GUI, which is still used in CT 1.4.
-  - The compiliation itself worked well when using a more modern Microsoft
+  - The compilation itself worked well when using a more modern Microsoft
     development environment like Visual Studio 2010 Standard Edition
     (VC++ v9.0), VS2013, or VS2015. However, many graphics then appeared
     distorted or too small at UHD monitors (in the opposite to executables
@@ -1125,7 +1125,7 @@ c) New functionality / Usability:
 
   The "Text options" button is enabled at
   - the classic substitution methods (Caesar, Vigenère,
-        monoalphabetic substitution, Hill) and at
+        mono-alphabetic substitution, Hill) and at
   - the classic transposition methods (Scytale, transposition part of ADFGVX).
 
   The "Text options" button is intentionally not available in the key entry
@@ -1138,7 +1138,7 @@ c) New functionality / Usability:
                the 26 upper-case letters and deletes all other characters).
 
   This enhancement came especially because of many requests to offer more
-  characters for the monoalphabetic substitution.
+  characters for the mono-alphabetic substitution.
 
 
 - A visualization for secure e-mail was added: The user can enter dynamically
@@ -1186,24 +1186,26 @@ c) New functionality / Usability:
 This chapter lists the enhancements and the bug fixes in CrypTool 1.4.31,
 which have been added since CrypTool 1.4.30.
 
-Version 1.4.31 is released simultaneously in all 7 (xxx) languages.
+Version 1.4.31 is released simultaneously in 6 of 7 (xxx) languages.
+Greek will follow.
 
 a) Developer-relevant changes (more technically oriented):
 
 - Update of used libraries and other software to the following versions:
-  - Scintilla 3.2.1 --> 3.7.0  (xxx)
+  - Scintilla 3.2.1 --> 3.7.0  (postponed to CT 1.5) (xxx)
   - compiler-dependent: cv act library 1.4.6 with VS2008, 1.4.18 with VS2010
   - OpenSSL 1.0.1 (xxx)
   - MPIR 1.3.1 (derived from GMP version 4.2.1) instead of GMP 4.1 (xxx)
-      ???????  2.5.1 (xxx)
-  - Miracl 4.4.3  -->  5.5.4  (xxx)
-  - NTL 5.5.2  --> 9.3 (thread-safe and with exception handling, needs
-                        a C++11 compiler)   (xxx)
+      ???????  2.5.1 (postponed to CT 1.5) (xxx)
+  - Miracl 4.4.3  -->  5.5.4  (postponed to CT 1.5) (xxx)
+  - NTL 5.5.2  --> 10.3 (thread-safe and with exception handling, needs
+                        a C++11 compiler)   (postponed to CT 1.5) (xxx)
   - Animal 2.4.9
   - Substitution of the Secude library (as we encountered problems after
-    compiling with VS2010 (not with VS2008)) postponed to CT 1.5. (xxx)
+    compiling with VS2010 (not with VS2008)) postponed to CT 1.5.
+    (postponed to CT 1.5) (xxx)
 
-- The release of CT 1.4.31 is stll compiled with VS2008 (see above).
+- The release of CT 1.4.31 is still compiled with VS2008 (see above).
   From CT 1.5 VS 2017 will be used for compilation.
 
 
@@ -1227,7 +1229,7 @@ b) Changes within the user documentation / on the websites:
 
 - At January 18th, 2012 the new CrypTool website (CTP) was released. It
   describes the 5 sub projects of the CT project in an equivalent way.
-  The CT Portal (CTP) uses as CMS Joomla.
+  The CT Portal (CTP) uses Joomla as CMS.
 
 
 c) New functionality / Usability / Corrections of errors:
@@ -1249,7 +1251,7 @@ c) New functionality / Usability / Corrections of errors:
 - Transposition Encryption: The key entry dialog now also contains a text
   options dialog.
   This button was also added with the analysis of the maS.
-- Monoalphabetic substitutio (maS): The key entry dialog features a new
+- Mono-alphabetic substitution (maS): The key entry dialog features a new
   parameter to define the starting position (offset) of the password. In the
   past the password was always positioned at the beginning of the ciphertext
   alphabet.
@@ -1377,7 +1379,7 @@ Remark 1 -- Details concerning access rights:
 a) Program Directory:
    For a successful installation the installation directory selected by the
    user must be writable during installation.
-   Two subdirectories of the installation directory ("pse" and "examples")
+   Two sub-directories of the installation directory ("pse" and "examples")
    will be enabled for writing for everybody who is in the group "Users".
 
 b) Windows Registry:
@@ -1550,7 +1552,7 @@ If you change the name of the target directory "CrypTool" e.g. in
 Windows task bar will adapted accordingly.
 
 After creating the setups they have been scanned locally with the
-antivirus products from Symntac and Avira, and remotely at virustotal.com:
+antivirus products from Symantec and Avira, and remotely at virustotal.com:
 There only 2/50 scanners wrote complaints. These came from two exotic products
 called Bkav (HW32.Packed.B5F3) and Qihoo-360 (HEUR/QVM20.1.0000.Malware.Gen).
 We consider these two warnings as false-positives.
@@ -1913,8 +1915,8 @@ sage\SAGE-Samples-in-Chap01.sage
      SAGE-Samples-in-Chap04.sage
 
 
-pse\ ............. This directory and its subdirectory pseca\ are
-                   used to store (asymmetric) keys and
+pse\ ............. This directory and its sub-directory pseca\
+                   are used to store (asymmetric) keys and
                    certificates that have been generated.
 
 pse\[SideChannelAttack][Bob][RSA-512][1152179494][PIN=1234].pse
@@ -2176,7 +2178,7 @@ Version                 English      German    needed EN     by
 1.4.20    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.21    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.30    Aug. 2010     51.5 MB      52.1 MB    94 MB        DB
-1.4.31    Jan. 2017     69.2 MB      69.9 MB   113 MB        CT (xxx)
+1.4.31    Feb. 2017     69.4 MB      70.1 MB   112 MB        CT (xxx)
 
 Remarks about the (intermediate) versions:
 1.3.02  Many new functions compared to 1.3.00
@@ -2246,8 +2248,8 @@ Contact addresses:
    ---------------------------
 
 See also:
-- https://www.cryptool.org/en/ctp-links-en
-- https://www.cryptool.org/en/ctp-education/ctp-awards-en
+- https://www.cryptool.org/en/ctp-links
+- https://www.cryptool.org/en/ctp-education/ctp-awards
 
 
 8.1. Articles about CrypTool
@@ -2755,7 +2757,7 @@ a) General wish list according to the user feedback about CT1
    - Implementing all functions as threads (parallel, interruptible)
    - Functions use all cores is available
    - Easier handling of cascades using the existing building blocks
-   - More customizing opportunities concernings alphabets of classic ciphers
+   - More customizing opportunities concerning alphabets of classic ciphers
    - Offer a recorder for user interactions (action history)
    - Handle all files as stream to be able to operate very big files
    - Control of all functionality also from the command line
@@ -2864,7 +2866,7 @@ Some (not all) features of the release versions of the successor projects:
 - JCT  Verifiable Secret Sharing
 - JCT  Games: Number Shark (incl. heuristic solvers) and Sudoku solvers
 - JCT  Powerful action history and cascading possibility
-- JCT  Various customizing opportunities concernings the alphabets
+- JCT  Various customizing opportunities concerning the alphabets
        of classic ciphers and a command line interface
 - JCT  Visualization and explanation of Android's unlock pattern (AUP)
 
@@ -3195,7 +3197,7 @@ requirements are there for all crypto programs wit a GUI.
   CT1: From AES-Tool 2.6 (deployed with CT 1.4.31) you can enter the key
   in ASCII form. The ASCII characters are then transformed via PKCS#5. 
 
-- Make customizable by the user, how big the part of text and binary
+- Make it customizable by the user, how big the part of text and binary
   files can be, which CrypTool will load.
 
 - New magnification function in the display for graphics and/or
@@ -3232,7 +3234,7 @@ A.4. Using CT1 on Linux
 
 A.4.1. Running CT1 on Linux with Wine
        ------------------------------
-In a short test under MINT 17.3 with Wine 1.8.0 in Actoer 2016 the setup of
+In a short test under MINT 17.3 with Wine 1.8.0 in October 2016 the setup of
 CrypTool 1.4.31 Prefinal (compiled with VS2008) worked fine.
 
 Most functions in CT1 itself (like encryption methods and RSA key generation)
@@ -3242,7 +3244,8 @@ work well under Wine. Wine is much more stable than 6 years ago.
 - ok: Warning dialog, if Java isn't installed in Wine
 - ok: Showing the readme file in IE (called from CT1 via menu Help)
 - nok: Calling from CT1 via menu Help a PDF (book, presentation):
-       Wine searches Acrobat Reader (even if Okular and Acrobat are there).
+       Wine unsuccessfully searches Acrobat Reader (even if Okular and
+       Acrobat are there).
 - ok: In the online help: Call of inner links within the online help
 - nok: In the online help:
        - Calling external programs from the help (readme.txt in notepad, PDFs)

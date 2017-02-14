@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 für Win32, Januar 2017
+    CrypTool, Version 1.4.31 für Win32, Februar 2017
 
 CrypTool v1 (CT1) ist ein internationales E-Learning-Programm für
 Kryptographie und Kryptoanalyse.
@@ -223,9 +223,9 @@ Hauptteil des CT1-Paketes ist das Programm CT1 selbst:
   Mitarbeiter-Sensibilisierung für IT-Sicherheit.
 
 - Die meisten der kryptographischen Basisalgorithmen stammen aus:
-  - der Secude-Bibliothek (http://www.secude.com/),  (xxx)
-  - der Miracl-Bibliothek von DCU/CertiVox (vormals Shamus Software)
-        (http://www.compapp.dcu.ie/~mike/shamus.html),
+  - der Secude-Bibliothek (http://secude.com/),  (xxx)
+  - der Miracl-Bibliothek von Miracl (vormals DCU/CertiVox, Shamus Software)
+        (https://www.miracl.com),
   - der OpenSSL-Bibliothek (http://www.openssl.org/),
   - der NTL-Zahlentheorie-Bibliothek von Victor Shoup
         (http://www.shoup.net/ntl/),
@@ -450,10 +450,10 @@ Bedanken möchte ich mich auch bei
 - Prof. Ioannis Mavridis und Dr. Theodoros Mastoras für die erste
   griechische Version von CT1.
 - Alain Stephan für die erste französische Version von CT1.
-Und einigen weiteren Personen (wie Vasilios und Vesna), die dafür sorgten,
-dass die Änderungen in neuen CT1-Versionen ebenfalls übersetzt wurden.
+Und einigen weiteren Personen (wie Pawel, Vasilios und Vesna), die dafür
+sorgten, dass die Änderungen in neuen CT1-Versionen ebenfalls übersetzt wurden.
 
-Evtl. weitere übersetzungen:
+Evtl. weitere Übersetzungen:
 - Türkisch (xxx): Interesse, aber bisher nicht begonnen.
 - Russisch (xxx): Anfragen, aber bisher nicht begonnen.
 
@@ -1041,7 +1041,7 @@ c) Neue Funktionalität / Bedienung:
 - Viele kleine Verbesserungen in den Masken, z.B. Elapsed-Time-Anzeige beim
   AKS-Test; der Text in der About-Box kann markiert und kopiert werden;
   sofortige Anzeige der Zeit und der Anzahl der bisherigen Faktoren bei
-  der Faktorisierung; im Menu zur Analyse von Ciphertext-Only-Verfahren
+  der Faktorisierung; im Menü zur Analyse von Ciphertext-Only-Verfahren
   steht nun "XOR / Vernam" statt nur "XOR".
 
 - Die Mitwirkenden und die übersetzenden Organisationen werden nun in
@@ -1225,22 +1225,24 @@ c) Neue Funktionalität / Bedienung:
 Dieses Kapitel listet die Erweiterungen und die Bugfixes auf, die in
 CrypTool 1.4.31 seit CrypTool 1.4.30 hinzugefügt wurden.
 
-Die Version 1.4.31 wird zeitgleich in allen 7 (xxx) Sprachen released.
+Die Version 1.4.31 wird zeitgleich in 6 von 7 (xxx) Sprachen released.
+Griechisch folgt.
 
 a) Entwickler-relevante Änderungen (eher Programm-technisch):
 
 - Update der Bibliotheken und der genutzten Fremdsoftware auf ff. Versionen:
-  - Scintilla 3.2.1 --> 3.7.0  (xxx)
+  - Scintilla 3.2.1 --> 3.7.0  (postponed to CT 1.5) (xxx)
   - compilerabhängig: cv act library 1.4.6 mit VS2008, 1.4.18 mit VS2010
   - OpenSSL 1.0.1 (xxx)
   - MPIR 1.3.1 (hergeleitet aus GMP-Version 4.2.1) statt GMP 4.1
-      ??????  2.5.1    (xxx)
-  - Miracl 4.4.3  -->  5.5.4 (xxx)
-  - NTL 5.5.2  --> 9.3 (thread-safe und mit Exception-Handling, braucht
-                        einen C++11-Compiler)   (xxx)
+      ??????  2.5.1    (postponed to CT 1.5) (xxx)
+  - Miracl 4.4.3  -->  5.5.4 (postponed to CT 1.5) (xxx)
+  - NTL 5.5.2  --> 10.3 (thread-safe und mit Exception-Handling, braucht
+                        einen C++11-Compiler)   (postponed to CT 1.5) (xxx)
   - Animal 2.4.9
   - Ersatz der Secude-Bibliothek (dies auf CT 1.5 verschoben, da sie Probleme
-    nach der Compilation mit VS2010 (nicht mit VS2008) hatte). (xxx)
+    nach der Compilation mit VS2010 (nicht mit VS2008) hatte). 
+    (postponed to CT 1.5) (xxx)
 
 - Das Release von CT 1.4.31 wird weiterhin mit VS2008 kompiliert (siehe oben).
   Ab CT 1.5 wird mit VS 2017 übersetzt.
@@ -1281,7 +1283,7 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
   Umschreiben des Generators, da sein Pattern bei einigen Virenscannern
   zu False-Positive Falsch-Meldungen führte, die diese dann bei der
   Setup-Installationsdatei der Beta meldeten.
-- Textfenster haben nun einen Kontextmenu-Eintrag, um zur Hexanzeige
+- Textfenster haben nun einen Kontextmenü-Eintrag, um zur Hexanzeige
   umzuschalten, und umgekehrt.
 - Viele kleine Verbesserungen in Dialogfenstern (z.B. "Angriff auf stereotype
   Nachrichten").
@@ -1323,7 +1325,7 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
   in der Pre-Output-Matrix (64 bit) wurden beseitigt.
   Danke an Vasilis. Zusätzlich wurde die entsprechende Online-Hilfe erweitert.
 - Dialog zur Eingabe von Hex-Schlüsseln: Bisher funktionierte das Einfügen per
-  Strg-V korrekt; per Kontextmenu -> Paste aber nicht. Nun tut beides korrekt. 
+  Strg-V korrekt; per Kontextmenü -> Paste aber nicht. Nun tut beides korrekt. 
 - Bei SHA256 / SHA512 wurde bisher die falsche Funktion aufgerufen.
   Dies betraf auch den Dialog "Generieren von HMACs".
 - Der Aufruf von bc innerhalb der Zahlentheorie-Tutorials funktioniert nun
@@ -1605,7 +1607,7 @@ Wenn Sie den Zielverzeichnis-Namen "CrypTool" ändern, z.B. in
 der Windows-Taskleiste entsprechend geändert.
 
 Nach der Erzeugung wurde das Setup lokal mit den Antiviren-Produkten von
-Symntac und Avira gescannt, und remote bei virustotal.com: Dort fanden
+Symantec und Avira gescannt, und remote bei virustotal.com: Dort fanden
 nur 2/50 Scannern etwas. Das waren die zwei exotischen Produkte Bkav
 (HW32.Packed.B5F3) und Qihoo-360 (HEUR/QVM20.1.0000.Malware.Gen), deren
 Meldung wir für False-Positives halten.
@@ -1615,7 +1617,7 @@ Meldung wir für False-Positives halten.
      ---------------------------
 Um CrypTool v1 zu de-installieren, gibt es mehrere Wege -- dies sind die
 beiden einfachsten Wege:
-1) Sie benutzen das "Start"-Menu in der Windows-Taskleiste.
+1) Sie benutzen das "Start"-Menü in der Windows-Taskleiste.
    Dort gehen Sie zu "Alle Programme" \ "CrypTool".
    Dann klicken Sie im CT-Menü auf "CrypTool deinstallieren".
 2) Sie nutzen das Windows-Fenster "Einstellungen" und suchen darin nach
@@ -2248,7 +2250,7 @@ Version                  Deutsch    Englisch      Bedarf DE      durch
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.30    Aug. 2010      52,1 MB     51,5 MB         95 MB        DB
-1.4.31    Jan. 2017      69,9 MB     69,2 MB        113 MB        CT (xxx)
+1.4.31    Feb. 2017      70,1 MB     69,4 MB        113 MB        CT (xxx)
 
 Bemerkungen zu den (Zwischen-)Versionen:
 1.3.02  Viele neue Funktionen gegenüber 1.3.00
@@ -2285,13 +2287,13 @@ Bemerkungen zu den (Zwischen-)Versionen:
 1.4.31-Beta05  Juli 2012  Erste öffentliche Beta von Version 1.4.31
 1.4.31-Beta06  Feb. 2013  Zweite öffentliche Beta von Version 1.4.31
 1.4.31-Beta06a Juni 2013  Dritte öffentliche Beta von Version 1.4.31
-                          (erstmal mit einer griechischen Sprachversion)
+                          (erstmals mit einer griechischen Sprachversion)
 1.4.31-Beta06a Juli 2013  Vierte öffentliche Beta von Version 1.4.31
 1.4.31-Beta06b Okt. 2013  Fünfte öffentliche Beta von Version 1.4.31
 1.4.31-Beta06c 2015       Weitere Beta von Version 1.4.31
 1.4.31-Beta06d 2016       Weitere Beta von Version 1.4.31
 1.4.31  Viele Bugfixes und erweiterter Funktionsumfang i.Vgl. zu 1.4.30.
-                          (erstmal mit einer französicher Sprachversion)
+                          (erstmals mit einer französischen Sprachversion)
 
 
 
@@ -2320,8 +2322,8 @@ Kontaktadressen:
    -------------------------
 
 Vergleiche auch:
-- https://www.cryptool.org/de/ctp-links-de
-- https://www.cryptool.org/de/ctp-lehre/ctp-auszeichnungen-de
+- https://www.cryptool.org/de/ctp-links
+- https://www.cryptool.org/de/ctp-lehre/ctp-auszeichnungen
 
 
 8.1. Artikel über CrypTool
@@ -2619,7 +2621,7 @@ a) Vollständig mit Source-Code verfügbar sind:
   und ohne Analysefunktionalität, geschrieben in Python.
   Die drei klassischen Verschlüsselungsverfahren können sowohl von der GUI,
   von der Kommandozeile wie als Netzwerk-Proxy ausgeführt werden.
-  Die aktuelle Version 1.0 stammt vom Juni 2003 von Shannon -jj Behrens
+  Die aktuelle Version 1.0 wurde von Shannon -jj Behrens im Juni 2003
   veröffentlicht.
 
 - http://www.nku.edu/~cryptography/doku.php?id=downloads:downloads
@@ -2741,7 +2743,7 @@ b) Die einzigen weiteren uns bekannten brauchbaren Programme, die
 
 
 Falls uns hier etwas entgangen ist, würden wir uns über eine Nachricht
-freuen - wir vervollständigen oder korrigieren diese Liste gerne.
+freuen -- wir vervollständigen oder korrigieren diese Liste gerne.
 
 Außerdem wollen wir hier ausdrücklich das Angebot machen, die
 Anstrengungen für diese einzelnen Programme in ein einziges
@@ -3332,8 +3334,8 @@ A.4. CT1 unter Linux
 
 A.4.1. Ausführen von CT1 unter Linux mit Wine
        --------------------------------------
-Bei einem kurzen Test mit Wine 1.8.0 unter MINT 17.3 im Okt. 2016 lief das Setup
-von CrypTool 1.4.31 Prefinal (compiliert mit VS2008) ok durch.
+Bei einem kurzen Test mit Wine 1.8.0 unter MINT 17.3 im Oktober 2016 lief das
+Setup von CrypTool 1.4.31 Prefinal (compiliert mit VS2008) ok durch.
 
 Die meisten Funktionen in CT1 selbst (wie Verschlüsselungsmethoden oder
 RSA-Schlüsselgenerierung) sind ausführbar unter Wine. Wine ist viel stabiler
@@ -3343,7 +3345,8 @@ als vor 6 Jahren.
 - ok: Melden, wenn Java nicht in Wine installiert ist
 - ok: Aus CT1, per Menü Hilfe das Readme in IE anzeigen
 - nok: Aus CT1, per Menü Hilfe ein PDF (Buch, Präsentation) starten:
-       Wine sucht Acrobat Reader, auch wenn Okular und Acrobat vorhanden sind.
+       Wine sucht vergeblich nach dem Acrobat Reader, auch wenn Okular
+       und Acrobat vorhanden sind.
 - ok: In der Onlinehilfe: Aufruf innerer Links in der Hilfe
 - nok: In der Onlinehilfe:
        - Aufruf von externen Programmen aus der Hilfe (Readme.txt im Notepad, PDFs)
