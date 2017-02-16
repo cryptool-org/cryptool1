@@ -111,11 +111,13 @@ BOOL CDlgRot13Caesar::OnInitDialog()
 	// set the limit for the numeric key length (depends on the length of the alphabet)
 	controlEditNumericKey.SetLimitText(getDigitsOfAlphabetLength());
 
-	// some default settings
+	// some default settings (note that we're trying to use the 2nd character of the 
+	// alphabet as default key so that the user can actually see something happening 
+	// when encrypting without changing any of the parameters)
 	controlRadioButtonCaesar.SetCheck(TRUE);
 	controlRadioButtonKeyOffsetZero.SetCheck(TRUE);
 	controlRadioButtonAlphabetic.SetCheck(TRUE);
-	char charDefaultKey = theApp.TextOptions.getAlphabet()[0];
+	const char charDefaultKey = theApp.TextOptions.getAlphabet().GetLength() > 1 ? theApp.TextOptions.getAlphabet()[1] : theApp.TextOptions.getAlphabet()[0];
 	CString strDefaultKey;
 	strDefaultKey += charDefaultKey;
 	controlEditAlphabeticKey.SetWindowText(strDefaultKey);
