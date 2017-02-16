@@ -49,7 +49,7 @@ Sebastian Przybylski
 Martin Ramberger
 Marco Verch
 Axel Poschmann
-Gonzalo Alvarez
+Gonzalo Alvarez Maranon
 Richard Christensen
 Bartol Filipovic
 Jörg Hambamer
@@ -67,6 +67,12 @@ Alexander Klink
 Matthias Walthart
 Raphael Labaca Castro
 Patrick Vacek
+Alain Stephan
+Vasilios Mavroudis
+Theodoros Mastoras
+Dragan Pleskonjic
+Bojan Dimitrovski
+Vesna Milosavljevic
 
 #
 # [REVIEW FEEDBACK]
@@ -87,5 +93,5 @@ Marc Rennhard
 Helmut Witten
 Simon Leischnig
 Sergej Sabarnij
-Vasilis Mavroudis
+Vasilios Mavroudis
 Nikhil Bhalla
