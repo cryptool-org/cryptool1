@@ -13,10 +13,41 @@
 		</OBJECT>
 		<h3>SHA-1 (Menu <A href="menu_related_methods.html">Individual Procedures</A></B> 
 			\ Hash)</h3>
-		<P>The SHA-1 algorithm produces a <!--ZZZPOPUP--><A href="hashwert.html">hash value</A>
-			of length 160 bits (= 20 bytes). This is the successor of the <a href="hid_crypt_hash_sha.html">SHA</a> algorithm.</P>
-		<P>Beside RIPMED-160 hash algorithm, SHA-1 (published by the <!--ZZZPOPUP--><A href="nist.html">NIST</A>
-			in 1991) is the most commonly used cryptographic hash function.</P>
+
+		<P>The SHA-1 algorithm (Secure Hash Algorithm) produces a
+	       	<!--ZZZPOPUP--><A href="hashwert.html">hash value</A>
+		of length 160 bits (= 20 bytes). SHA-1 is the successor of the
+	       	<a href="hid_crypt_hash_sha.html">SHA</a> algorithm; but it was
+	       	replaced in the meantime by the SHA-2 family.
+		</P>
+		<br>
+
+		<P>Nowadays, SHA-1 should not be used for security measures any more.</P>
+
+		<P>Cryptologists consider a hash function as broken/dead, once a single hash collision is found.
+		<br>
+		On February, 23rd 2017 such a collision attack on SHA-1 was presented by
+		researchers from the national research institute for mathematics and
+		computer science in the Netherlands (CWI) and the Google Research Security,
+		Privacy and Anti-abuse Group.
+		<br>
+		The researchers succeeded in creating a practical attack on the SHA-1
+		hash algorithm (collision attack) as well as creating an actual SHA-1
+		hash collision. They published two pdf files (good.pdf and bad.pdf) with
+		different contents but having the same SHA-1 hash value.
+		<br><br>
+		CT2 contains a template showing this collision with the two files good.pdf and bad.pdf.
+		<br><br>
+		This are the links to the
+		<a href="https://shattered.io/" target="_blank">website of the researchers of the attack</a>
+		and to the 
+		<a href="https://shattered.io/static/shattered.pdf"
+		       	target="_blank">research paper on the attack</a>.
+		</P>
+		<br>
+
+		<P>Besides RIPMED-160, SHA-1 (published by the <!--ZZZPOPUP--><A href="nist.html">NIST</A>
+			in 1991) was the most commonly used cryptographic hash function.</P>
 		<P>The algorithm is described in FIPS180-1, an extract from which is provided 
 			below.</P>
 		<P><B>1. MESSAGE PADDING</B></P>

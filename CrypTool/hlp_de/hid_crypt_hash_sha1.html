@@ -16,11 +16,40 @@
 
 <h3>SHA-1 (Menü <A href="menu_related_methods.html">Einzelverfahren</A> \ Hashverfahren)</h3>
 
-		<P>Der SHA-1-Algorithmus (Secure Hash Algorithm) liefert einen <!--ZZZPOPUP--><A href="hashwert.html">Hashwert</A>
-			der Länge 160 Bits (= 20 Bytes). Es ist der Nachfolger des <a href="hid_crypt_hash_sha.html">SHA</a>-Verfahrens.
+		<P>Der SHA-1-Algorithmus (Secure Hash Algorithm) liefert einen
+	       	<!--ZZZPOPUP--><A href="hashwert.html">Hashwert</A>
+		der Länge 160 Bits (= 20 Bytes). SHA-1 ist Nachfolger des
+	       	<a href="hid_crypt_hash_sha.html">SHA</a>-Verfahrens, wurde
+	       	inzwischen aber wiederum von der SHA-2-Familie abgelöst.
 		</P>
-		<P>Neben RIPEMD-160 ist dieses 1991 von der <!--ZZZPOPUP--><A href="nist.html">NIST</A>
-			veröffentlichte Hashverfahren die derzeit wichtigste kryptographische 
+		<br>
+		
+		<P>Inzwischen sollte man SHA-1 nicht mehr für Sicherheitsmaßnahmen verwenden.</P>
+
+		<P>Kryptologen betrachten eine Hash-Funktion als gebrochen/tot, wenn nur eine
+	        einzige Hash-Kollision gefunden wurde.
+		<br>
+		Am 23. Februar 2017 präsentierten Forscher des nationalen Forschungsinstituts 
+		für Mathematik und Informatik in den Niederlanden (CWI) sowie der Google 
+		Research Security, Privacy and Anti-abuse-Gruppe einen solchen Kollisionsangriff auf SHA-1.
+		<br>
+		Den Forschern gelang es, einen praktischen Angriff auf den SHA-1-Hash-Algorithmus
+	       	(Kollisionsangriff) zu erstellen und eine SHA-1-Hash-Kollision zu erzeugen. Sie
+		veröffentlichten zwei pdf-Dateien (good.pdf und bad.pdf) mit
+		verschiedenen Inhalten, die zu denselben SHA-1 Hash-Werten führen.
+		<br><br>
+		In CT2 ist eine Vorlage, die diese Kollision mit den beiden Dateien good.pdf und bad.pdf zeigt.
+		<br><br>
+		Hier die Links zur
+		<a href="https://shattered.io/" target="_blank">Webseite der Forscher des Angriffs</a>
+		und zur 
+		<a href="https://shattered.io/static/shattered.pdf"
+		       	target="_blank">Forschungsarbeit zum Angriff</a>.
+		</P>
+		<br>
+
+		<P>Neben RIPEMD-160 war das 1991 von der <!--ZZZPOPUP--><A href="nist.html">NIST</A>
+			veröffentlichte SHA-1 die verbreitetste kryptographische 
 			Hashfunktion.</P>
 		<P>Der Algorithmus ist im FIPS180-1 beschrieben, hier ein Auszug:</P>
 		<B>1. MESSAGE PADDING</B>
