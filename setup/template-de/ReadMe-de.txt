@@ -1,8 +1,8 @@
 ==================================================================
     CrypTool, Version 1.4.31 für Win32, Februar 2017
 
-CrypTool v1 (CT1) ist ein internationales E-Learning-Programm für
-Kryptographie und Kryptoanalyse.
+CrypTool v1 (CT1) ist ein internationales E-Learning-Programm
+für Kryptographie und Kryptoanalyse.
 
     (c) Contributors
         Dazu gehören z.B. Deutsche Bank AG, Frankfurt am Main, und die
@@ -2803,24 +2803,33 @@ A.4.1. .... Ausführen von CT1 unter Linux mit Wine
 A.4.2. .... Portierungsversuch von CT1 nach Linux mit Qt
 
 
+Alle in CT1, CT2, JCT und CT-Online verfügbaren Funktionen können in einer
+interaktiven Liste abgerufen werden auf:
+   https://www.cryptool.org/de/ctp-dokumentation/ctp-funktionsumfang
+
+
 
 A.1. Roadmap nach CT 1.4.31
      ----------------------
 Generell fließen alle größeren Neu-Entwicklungen aus dem CT-Projekt nun in
-die beiden Nachfolger-Projekte CT2 und JCT (siehe A.2).
+die beiden schon existierenden Nachfolger-Projekte CT2 und JCT (siehe A.2).
 
-In CT1 werden weiterhin Fehler behoben. Trotzdem können Funktionen erweitert
-oder hinzugefügt werden von Mitwirkenden, die lieber in C/C++ implementieren
-wollen.
-Eine solche Erweiterung für CT 1.5 wird wahrscheinlich die Integration eines
-Forks von OpenSSL sein, der die Chinesischen Krypto-Standards implementiert
-(diese sind vergleichbar zu den NIST-Standards und genießen noch mehr
-Aufmerksamkeit, seit durch Snowden Gewissheit wurde, was vorher nur Gerüchte
-waren).
+In CT1 werden weiterhin Fehler behoben.
 
-Alle in CT1, CT2, JCT und CT-Online verfügbaren Funktionen können in einer
-interaktiven Liste abgerufen werden auf:
-   https://www.cryptool.org/de/ctp-dokumentation/ctp-funktionsumfang
+Für diejenigen, die weiterhin lieber in C/C++ implementieren wollen, gibt es
+auch einen Nachfolger: QCrypTool (QCT).
+Hier wird CT1 mit Qt 5 weiter entwickelt:
+- Die Oberfläche wird komplett neu geschrieben mit Qt (statt MFC) und
+  damit Plattform-unabhängig sein.
+- QCT wird ebenso wie JCT auf Linux, MacOS, and Windows laufen.
+- Mittels Qt kann man mehrere Sprachen in ein Setup und in ein Executable
+  packen, so dass man in QCT ohne Neustart die Sprache wechseln kann.
+- Eine mögliche inhaltliche Weiterentwicklung ist die Integration eines
+  Forks von OpenSSL sein, der die Chinesischen Krypto-Standards implementiert
+  (diese sind vergleichbar zu den NIST-Standards und genießen noch mehr
+  Aufmerksamkeit, seit durch Edward Snowden Gewissheit wurde, was vorher
+  nur Gerüchte waren).
+- Siehe https://github.com/flomar/QCrypTool
 
 
 A.2. Nachfolger-Projekte mit Java/Eclipse und C#/.NET
@@ -3358,9 +3367,9 @@ Stattdessen empfehlen wir, die plattformunabhängige Version JCT zu benutzen,
 die auch unter Linux läuft (siehe Kapitel 3.5).
 
 
-A.4.2. Portierungsversuch von CT1 nach Linux mit Qt
-       --------------------------------------------
-Eine Portierung von CrypTool 1.4.x nach Linux mit Hilfe von GCC 4.x und
+A.4.2. Portierung von CT1 nach Linux mit Qt
+       ------------------------------------
+Eine erste Portierung von CrypTool 1.x nach Linux mit Hilfe von GCC 4.x und
 Qt 4.x war außerhalb des eigentlichen CrypTool-Projektes von Einzelpersonen
 begonnen worden, aber mangels Zeit nicht/wenig fortgesetzt worden.
 - Die Bibliotheken von Miracl, NTL, OpenSSL und GMP/MPIR stehen
@@ -3373,6 +3382,10 @@ begonnen worden, aber mangels Zeit nicht/wenig fortgesetzt worden.
   Die zweite Beta ("still no functional version", 11 % der geplanten
   Aufgaben) wurde am 15.12.2008 veröffentlicht.
 - http://www.cryptoolinux.net/
+
+Mit QCrypTool (QCT) wird das CT-Kernteam einen Nachfolger von CT1
+mit Qt 5 bauen (siehe A.1).
+
 
 ################################################################
 
