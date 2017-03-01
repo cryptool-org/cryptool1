@@ -2825,7 +2825,7 @@ Hier wird CT1 mit Qt 5 weiter entwickelt:
 - Mittels Qt kann man mehrere Sprachen in ein Setup und in ein Executable
   packen, so dass man in QCT ohne Neustart die Sprache wechseln kann.
 - Eine mögliche inhaltliche Weiterentwicklung ist die Integration eines
-  Forks von OpenSSL sein, der die Chinesischen Krypto-Standards implementiert
+  Forks von OpenSSL, der die Chinesischen Krypto-Standards implementiert
   (diese sind vergleichbar zu den NIST-Standards und genießen noch mehr
   Aufmerksamkeit, seit durch Edward Snowden Gewissheit wurde, was vorher
   nur Gerüchte waren).

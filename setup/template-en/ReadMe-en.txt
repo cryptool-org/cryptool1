@@ -2731,14 +2731,14 @@ the two existing successor projects CT2 and JCT (see chapter A.2).
 
 The CrypTool team will continue to fix bugs within CT1.
 
-For those who prefer to keep on developing in C/C++, wird es auch einen
-Nachfolger geben: QCrypTool (QCT).
+For those who prefer to keep on developing in C/C++, there will also be
+a successor: QCrypTool (QCT).
 Here, CT1 is further developed using Qt 5:
 - The GUI will be completely written with Qt (instead of MFC) which
-  enables platform-independence.
+  enables platform independence.
 - Like JCT, QCT will run on Linux, MacOS, and Windows.
 - With Qt, several languages can be combined in one setup and in one
-  executable. So within QCT you can switch the language without a restart.
+  executable. So within QCT, you can switch the language without a restart.
 - A possible further development could be the integration of a fork of
   OpenSSL which implements the set of the Chinese Crypto Standards (which
   is comparable to the NIST standards and even got more attention after
