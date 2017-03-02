@@ -955,7 +955,7 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
 
 - Auf der CrypTool-Webseite gibt es unter Präsentationen nun eine interaktive
   Einführung in die Grundlagen von RSA (als PPT und als Flash):
-  https://www.cryptool.org/de/ctp-dokumentation/ctp-presentations-de
+  https://www.cryptool.org/de/ctp-dokumentation/ctp-presentations
 
 
 c) Neue Funktionalität / Bedienung:
@@ -1873,7 +1873,7 @@ CT-Book-de.pdf ... Ein Buch (deutsch) über Kryptographie, Primzahlen,
                    elementare Zahlentheorie und die Mathematik hinter
                    einigen Algorithmen. (xxx)
 
-CrypToolPresentation-de.pdf .. Folien-Präsentation (deutsch)
+CrypTool1-Presentation-de.pdf .. Folien-Präsentation (deutsch)
 
 DialogSchwestern.pdf .. Fantasy-Geschichte von Dr. Elsner, in der
                         eine Variante des RSA-Kryptosystems
@@ -2421,7 +2421,7 @@ CrypTool.
 
 
 Weitere Artikel sind auf der folgenden Webseite aufgelistet:
-https://www.cryptool.org/de/ctp-lehre/ctp-auszeichnungen-de/267-ctp-medien
+https://www.cryptool.org/de/ctp-lehre/ctp-auszeichnungen/267-ctp-medien
 
 
 
@@ -2782,7 +2782,7 @@ CrypTool erhielt u.a. folgende explizite Auszeichnungen (s. Webseite):
   statt.
 
 Vergleiche auch
-https://www.cryptool.org/de/ctp-lehre/ctp-auszeichnungen-de/258-ctp-auszeichnungen
+https://www.cryptool.org/de/ctp-lehre/ctp-auszeichnungen/258-ctp-auszeichnungen
 
 
 

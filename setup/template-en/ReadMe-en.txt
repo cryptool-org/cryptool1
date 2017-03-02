@@ -937,7 +937,7 @@ b) Changes within the user documentation / on the websites:
 
 - At the CrypTool website, section presentations, now there is an interactive
   introduction into the basics of RSA (as PPT and as Flash):
-  https://www.cryptool.org/en/ctp-documentation/ctp-presentations-en
+  https://www.cryptool.org/en/ctp-documentation/ctp-presentations
 
 
 c) New functionality / Usability:
@@ -1803,7 +1803,7 @@ CT-Book-en.pdf ... A book (manual) on cryptography, prime numbers,
                    elementary number theory and the mathematics
                    behind certain algorithms. (xxx)
 
-CrypToolPresentation-en.pdf .. Slides presentation (English)
+CrypTool1-Presentation-en.pdf .. Slides presentation (English)
 
 DialogueSisters.pdf .. Fantasy story by Dr. Elsner describing a
                        variant of the RSA cryptosystem.
@@ -2697,7 +2697,7 @@ CrypTool was honored with the following "official" awards (see web page):
   of Siegen on July, 22nd, 2008.
 
 Also see
-https://www.cryptool.org/en/ctp-education/ctp-awards-en/259-ctp-awards-en
+https://www.cryptool.org/en/ctp-education/ctp-awards/259-ctp-awards
 
 
 
