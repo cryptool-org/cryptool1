@@ -15,17 +15,29 @@
 
 use strict;
 
-#
-# NOTE: "MAJOR", "MINOR", "REVISION" ***MUST*** BE DEFINED!
-# THE "ADDITION" (i.e. 'Beta 10') MAY BE UNDEFINED.
-#
-# THE LINES BELOW CONTROL THE BUILD
+#############################################################
+#                                                           #
+# CrypTool versions are displayed as follows:               #
+# [MAJOR].[MINOR].[REVISION] [ADDITION] [IDE]               #
+#                                                           #
+# The [MAJOR], [MINOR] and [REVISION] parameters (see       #
+# below) must be defined, [ADDITION] and [IDE] (defined     #
+# through command-line parameters) are optional. However,   #
+# if the "RELEASE" variable is defined, both the [ADDITION] # 
+# as well as the [IDE] parameters are completely ignored.   #
+#                                                           #
+#############################################################
+
+my $RELEASE = 1;
+
 my $CrypToolVersionMajor = "1";
 my $CrypToolVersionMinor = "4";
 my $CrypToolVersionRevision = "31";
 my $CrypToolVersionAddition = "Final 1";
-# THE LINES ABOVE CONTROL THE BUILD
-#
+
+#############################################################
+#                                                           #
+#############################################################
 
 my $mode = undef;
 my $ide = undef;
@@ -75,16 +87,16 @@ if($mode eq "PRE") {
 	
 	#
 	# build the CrypTool version (used throught the CrypTool application);
-	# if we have a non-release version (read: $CrypToolVersionAddition is 
-	# defined), we also append the IDE information; format looks as follows:
+	# if we have a non-release version (read: $RELEASE is undefined), we 
+	# also append the IDE information; format looks as follows:
 	# 	"CrypTool 1.4.31 Beta 5"
 	#
 	my $CrypToolVersion = $CrypToolVersionMajor . "." . $CrypToolVersionMinor . "." . $CrypToolVersionRevision;
 	my $CrypToolVersionFull = $CrypToolVersion;
 	# use a version string with an additional tag and IDE information (if existent)
-	if(defined $CrypToolVersionAddition) {
+	if(not defined $RELEASE && defined $CrypToolVersionAddition) {
 		$CrypToolVersionFull .= " " . $CrypToolVersionAddition;
-		if(defined $ide) {
+		if(not defined $RELEASE && defined $ide) {
 			$CrypToolVersionFull .= " " . "[" . $ide . "]";
 		}
 	}
@@ -146,11 +158,11 @@ if($mode eq "PRE") {
 		if($line =~ m{ \[CRYPTOOL_VERSION_FULL\] }xms) {
 			$line = "IDR_MAINFRAME \"CrypTool $CrypToolVersionFull\"\n";
 		}
-		# inserting i.e. "1.4.31 Beta 5" (version without CrypTool name and IDE)
+		# inserting i.e. "1.4.31"
 		if($line =~ m{ FileVersion }xms and $line =~ m{ \[CRYPTOOL_VERSION\] }xms) {
 			$line = "VALUE \"FileVersion\", \"$CrypToolVersion\"\n";
 		}
-		# inserting i.e. "1.4.31 Beta 5" (version without CrypTool name)
+		# inserting i.e. "1.4.31"
 		if($line =~ m{ ProductVersion }xms and $line =~ m{ \[CRYPTOOL_VERSION\] }xms) {
 			$line = "VALUE \"ProductVersion\", \"$CrypToolVersion\"\n";
 		}
