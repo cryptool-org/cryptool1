@@ -1,10 +1,12 @@
-How to update the Scintilla library distributed with CrypTool
-=============================================================
+How to build the Scintilla library distributed with CrypTool
+============================================================
 
-1. Download and Build Scintilla
+1. Build Scintilla
+
+Extract "scite177.zip" somewhere.
 
 Follow the instructions in LexCrypTool.cxx regarding "Internal lexer build:"
-After unpacking sciteXXX.zip change into the unpacked directory "scintilla" 
+After unpacking "scite177.zip", change into the unpacked directory "scintilla" 
 and apply the patch:
 	patch -p1 < ...\scintilla-wordwrap-ignore-style.diff
 Then continue to build Scintilla as described in LexCrypTool.cxx.
