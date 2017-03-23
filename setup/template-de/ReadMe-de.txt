@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 für Win32, Februar 2017
+    CrypTool, Version 1.4.31 für Win32, März 2017
 
 CrypTool v1 (CT1) ist ein internationales E-Learning-Programm
 für Kryptographie und Kryptoanalyse.
@@ -787,7 +787,7 @@ a) Entwickler-relevante Änderungen (eher Programm-technisch):
 
 - Aufräumen des Source-Code, höhere Wiederverwendung.
 
-- Update auf OpenSSL 0.9.8g, Animal 2.3.14 and NSIS 2.37.
+- Update auf OpenSSL 0.9.8g, Animal 2.3.14 und NSIS 2.37.
 
 - Automatisierter Konsistenzcheck in der Onlinehilfe (Verweis auf Menüs,
   Dialoge, Bilder, Querverlinkung).
@@ -1231,7 +1231,7 @@ Griechisch folgt.
 a) Entwickler-relevante Änderungen (eher Programm-technisch):
 
 - Update der Bibliotheken und der genutzten Fremdsoftware auf ff. Versionen:
-  - Scintilla 3.2.1 --> 3.7.0  (postponed to CT 1.5) (xxx)
+  - Scintilla (3.7.0 postponed to CT 1.5; weiterhin modifizierte 1.7.7 benutzt)
   - compilerabhängig: cv act library 1.4.6 mit VS2008, 1.4.18 mit VS2010
   - OpenSSL 1.0.1 (xxx)
   - MPIR 1.3.1 (hergeleitet aus GMP-Version 4.2.1) statt GMP 4.1
@@ -1336,6 +1336,8 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
   Eigene Erweiterungen siehe z.B.: http://x-bc.sourceforge.net/extensions_bc.html
 - Playfair mit einer 6*6-Matrix konvertiert nun nicht mehr fälschlicherweise
   "J" zu "I".
+- Scilexer.dll graut Nicht-Alphabet-Zeichen wieder korrekt aus.
+
 
 - Danke an die vielen aufmerksamen Benutzer, die uns auf Bugs und 
   Inkonsistenzen aufmerksam machten.
@@ -2821,7 +2823,7 @@ auch einen Nachfolger: QCrypTool (QCT).
 Hier wird CT1 mit Qt 5 weiter entwickelt:
 - Die Oberfläche wird komplett neu geschrieben mit Qt (statt MFC) und
   damit Plattform-unabhängig sein.
-- QCT wird ebenso wie JCT auf Linux, MacOS, and Windows laufen.
+- QCT wird ebenso wie JCT auf Linux, MacOS, und Windows laufen.
 - Mittels Qt kann man mehrere Sprachen in ein Setup und in ein Executable
   packen, so dass man in QCT ohne Neustart die Sprache wechseln kann.
 - Eine mögliche inhaltliche Weiterentwicklung ist die Integration eines

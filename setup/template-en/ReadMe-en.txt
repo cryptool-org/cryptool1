@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 for Win32, February 2017
+    CrypTool, Version 1.4.31 for Win32, March 2017
     
 CrypTool v1 (CT1) is an international e-learning program
 for cryptography and cryptanalysis.
@@ -1192,7 +1192,7 @@ Greek will follow.
 a) Developer-relevant changes (more technically oriented):
 
 - Update of used libraries and other software to the following versions:
-  - Scintilla 3.2.1 --> 3.7.0  (postponed to CT 1.5) (xxx)
+  - Scintilla (3.7.0 postponed to CT 1.5; still using modified 1.7.7)
   - compiler-dependent: cv act library 1.4.6 with VS2008, 1.4.18 with VS2010
   - OpenSSL 1.0.1 (xxx)
   - MPIR 1.3.1 (derived from GMP version 4.2.1) instead of GMP 4.1 (xxx)
@@ -1292,6 +1292,7 @@ c) New functionality / Usability / Corrections of errors:
   sum=0; for(i=16;i>=0;i--)sum+=32*(256^i); sum].
   Make own enhancements like http://x-bc.sourceforge.net/extensions_bc.html 
 - Playfair with a 6*6 matrix now doesn't wrongly transform J to I any more.
+- Scilexer.dll again greys out non-alphabet characters correctly.
 
 - Thanks to the many attentive users, who pointed us to bugs and
   inconsistencies.
