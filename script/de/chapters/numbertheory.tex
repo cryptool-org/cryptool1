@@ -4271,8 +4271,10 @@ erhalten (genauso wie wenn man oben in der Dezimalschreibweise alle Zahlen
 }
 \label{SrcArith4c}\\
 Verschlüsselung pro Zeichen per: $C \equiv M^{65.537}{\rm ~(mod~}256.027)$:\footnote{%
-  In Kapitel~\ref{nt:AppArith4c} \glqq \nameref{nt:AppArith4c}\grqq~
-  finden Sie den Quelltext zur RSA-Exponentiation mit SageMath.
+%%  In Kapitel~\ref{nt:AppArith4c} \glqq \nameref{nt:AppArith4c}\grqq~
+%%  finden Sie den Quelltext zur RSA-Exponentiation mit SageMath.  %%% BE_War gerade so lange, dass danach eine Leerzeile.
+  Kapitel~\ref{nt:AppArith4c} \glqq \nameref{nt:AppArith4c}\grqq~
+  enthält den Quelltext zur RSA-Exponentiation mit SageMath.
 }\\
 {\tt
 \begin{tabular}{lllll}
@@ -4306,7 +4308,8 @@ Bei der Variante 2 wird die Blockbildung in zwei verschiedenen Untervarianten 4.
 
 \noindent {\bf 4. Verschlüsselung:}\\
 Blockbildung\footnote{%
-\\ \tt \begin{tabular}{ll@{ }l@{ }l}
+Blockbildung:\\ \tt \begin{tabular}{ll@{ }l@{ }l}
+%%% \tt \begin{tabular}{ll@{ }l@{ }l}   %%% BE_So steht die Fußnotennummer nicht oberhalb, sondern vertikal mittig vor der Table.
 Einzelzeichen& Binärdarstellung  &&Dezimaldarstellung\\
 01010010, 82 & 01010010 01010011 & = &21075\\
 01010011, 83 &\\
@@ -4319,7 +4322,7 @@ Einzelzeichen& Binärdarstellung  &&Dezimaldarstellung\\
 01110011, 115 & 01110011 00100001 & = &29473\\
 00100001, 33: 
 \end{tabular}
-} (die ASCII-Zeichen werden als 8-stellige Binärzahlen hintereinander geschrie"-ben):\\
+} (je zwei ASCII-Zeichen werden als je 8-stellige Binärzahlen hintereinander geschrie"-ben):\\
 {\tt 21075 16672 30575 29291 29473}\footnote{%
 Mit CT1\index{CT1} können Sie dies per Menü {\bf Einzelverfahren \textbackslash{}
 RSA-Kryptosystem \textbackslash{} RSA-Demo} mit den folgenden Optionen lösen: alle

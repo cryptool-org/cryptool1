@@ -3732,7 +3732,7 @@ chapter~\ref{nt:AppArith3a2} ``\nameref{nt:AppArith3a2}''.
 \footnotetext{%
     \index{SageMath}%
     \index{Nguyen, Minh Van }%
-    Nguyen wrote a short, didactically very clear article about some basic number theory
+    Nguyen wrote a short, didactically very clear article about basic number theory
     and SageMath usage \cite{Nguyen2009a}.
 }
 \label{rsaconcrete}\index{RSA}
@@ -3973,7 +3973,9 @@ In variant 2 the block formation is done in two different sub-variants: (4./5. a
 \end{tabular} } % \tt
 
 \noindent {\bf 4. Encryption:}\\
-Blocks are formed\footnote{\vskip +3 pt \tt \begin{tabular}{ll@{ }l@{ }l}
+Blocks are formed\footnote{%
+%%% \vskip +3 pt \tt \begin{tabular}{ll@{ }l@{ }l}  %%% BE_Empty line doesn't look well
+Forming a block:\\ \tt \begin{tabular}{ll@{ }l@{ }l}
 single character& binary representation  && decimal representation\\
 01010010, 82 & 01010010 01010011 & = &21075\\
 01010011, 83 &\\
@@ -3985,9 +3987,9 @@ single character& binary representation  && decimal representation\\
 01101011, 107\\
 01110011, 115 & 01110011 00100001 & = &29473\\
 00100001, 33: 
-\end{tabular}} (each ASCII character is encoded into a 8 digit binary number below):\\
+\end{tabular}} (each ASCII character is encoded into a 8 digit binary number and two binary numbers are joined):\\
 {\tt 21075 16672 30575 29291 29473}\footnote{%
-Using CT1\index{CT1} you can solve this with the menu {\bf Indiv. Procedures
+In CT1\index{CT1} you can solve this with the menu {\bf Indiv. Procedures
 \textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration} 
 with the following options: all 256 ASCII characters, b-adic,
 block length\index{block length} 2 and decimal representation.
