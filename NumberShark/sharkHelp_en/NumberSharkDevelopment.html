@@ -12,12 +12,7 @@
 the game in Delphi. The Number Shark game is used to improve and to train the knowledge of factors and 
 prime numbers in grades six to ten.</p>
 
-<p>The original program from Mr. Carl was freeware, but not open source:<br>
-<a href="http://www.learn-line.nrw.de/angebote/neuemedien/medio/mathe/coalgebr/zahlhai/hai01.htm" target="_blank">http://www.learn-line.nrw.de/angebote/neuemedien/medio/mathe/coalgebr/zahlhai/hai01.htm</a></P>
-
-<P>You can find the maximum amount of points possible for numbers up to n=50 on Mr. Carl's site. 
-However, these values were created while playing, so the results are subject to change (the last 
-change dates back to 10/12/2000).</p>
+<p>The original program from Mr. Carl was freeware, but not open source. It's not accessible any more.<br>
 
 <P>Mr. Carl kindly allowed us to use his ideas and the name for a new implementation. The following 
 picture shows the original version of the Number Shark (German version):</p>
@@ -31,15 +26,15 @@ picture shows the original version of the Number Shark (German version):</p>
 <P>In the English speaking world this game idea is called "tax man" significantly.</P>
 
 <P>The site <a href="https://oeis.org/A019312" target="_blank">https://oeis.org/A019312</a> 
-within <b>ATT Integer Sequences</b> contains the maximum amount of points possible up to n=158. The 
+of the <b>Integer Sequences</b> contains the known maximum amounts of points. The 
 sequence can be displayed there graphically, too. Meanwhile, for each n the ideal way is stated too in 
 the notes (thanks to Dan Hoey). A formula for the ideal value is not known as of now, though.</P>
 
 <P>For big values of n, all known methods to calculate the ideal way need <B>very</B> long. The new 
-JavaCrypTool contains heuristic methods that find good - but not necessarily ideal - ways. These 
+JavaCrypTool contains heuristic methods that find good -- but not necessarily ideal -- ways. These 
 methods are very fast.</P>
 
-<P>In March 2015 the maximum amount of points possible was extended up to n=404.</P>
+<P>In March 2015 the maximum amounts of points possible was extended up to n=404.</P>
 <P>(Status February 2017)</P>
 	
 
@@ -47,7 +42,7 @@ methods are very fast.</P>
 
 <p>Within the first year of the apprenticeship as an IT specialist, the idea of Mr. Carl was chosen as a sample to teach programming skills in C++ and to expand them by upgrading the program step by step.</p>
 
-<p>At first the Number Shark procedure was implemented as a console program (Console programs can only do text in- and output. They are started from a command line: You can find the command line in Windows via: Start \ Programs \ Accessroies \ Command Prompt). The command line version of the program was only developed in German.</p>
+<p>At first the Number Shark procedure was implemented as a console program (Console programs can only do text in- and output. They are started from a command line: You can find the command line in Windows via: Start \ Programs \ Accessories \ Command Prompt). The command line version of the program was only developed in German.</p>
 
 <p><IMG SRC="Pictures_en/console_de.png" ALT="console_de.png" BORDER=0 width="91%"></p>
 
@@ -71,7 +66,7 @@ different algorithms:</p>
 move order and compares the achieved scores (brute-force).</P>
 
 <P><B>Back-tracking algorithm</B>: This algorithm is using trial and error to assemble partial solutions 
-to a wholistic solution. You can find further information on backtracking 
+to a holistic solution. You can find further information on backtracking 
 <a href="http://de.wikipedia.org/wiki/Backtracking" target="_blank">here</a>.</P>
 
 <P>After choosing the algorithm, you get:</P>
@@ -99,8 +94,8 @@ file "GameData.txt", so that they don't need to be calculated again and can be d
 
 <p><IMG SRC="Pictures_en/Dlg_max_old_en.png" ALT="Dlg_max_old_en.png" BORDER=0 width="91%"></p>
 
-<p>And the program can show you one optimal way to achieve this score. (i.e. in which way you should 
-take the numbers)</p>
+<p>And the program can show you an optimal way to achieve this score (i.e. in which order you should 
+take the numbers).</p>
 
 <p><IMG SRC="Pictures_en/Dlg_max_way_en.png" ALT="Dlg_max_way_en.png" BORDER=0 width="91%"></p>
 
@@ -113,7 +108,7 @@ take the numbers)</p>
 <p>When you start a new calculation the program first looks if an intermediate result for this number already exists. If yes, then the calculation starts at the same position where the former one stopped. Even without any knowledge of the content of this file or how the calculation works, you can, if you have a fast PC with a lot of idle time, calculate new values on your own.</p>
 
 <p><u><b>Remark</b></u>:</p>
-<p>There are two algorithms searching for an optimal result (brute-force and back-tracking). Only for the brute-force algorithm it is implemented to restart using already calculated pre-results.</p>
+<p>There are two algorithms searching for an optimal result (brute-force and back-tracking). Only for the brute-force algorithm it is implemented to restart using already calculated preresults.</p>
 
 <p>For numbers &gt; 158 we need your help: see <a href="NumberSharkChallenge.html">Challenge</a>. We have precalculated and saved the maximum possible points, and one of the best ways to get these points for numbers &lt; 158 in our program. If you reach the highest possible score and an optimal way with numbers &gt; 158 then we would be pleased if you could send us your results to bernhard.esslinger@uni-siegen.de.</p>
 
@@ -208,6 +203,8 @@ target="_blank">http://www.codeproject.com</a>.
 <p>You can find general information about the interface <a href="NumberShark.html">here</a>, hints for the game are available <a href="NumberSharkTutorial.html">here</a>.</p>
 
 <p>By legal reasons we explicitly have to point at the <a href="NumberSharkLicense.html">terms of license and the information regarding non-liability</a>.</p>
+<br />
 
 </BODY>
 </HTML>
+

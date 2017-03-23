@@ -13,12 +13,18 @@ Version in Delphi programmierte. Das Zahlenhai-Spiel dient zur Verbesserung und 
 spielerischen Training der Kenntnisse &uuml;ber Teilbarkeiten und über Primzahlen
 in den Klassen 6 bis 10.</p>
 
-<p>Das Original-Zahlenhai-Spiel von Herrn Carl war Freeware, aber nicht Open-Source:<br>
+<p>Das Original-Zahlenhai-Spiel von Herrn Carl war Freeware, aber nicht Open-Source.<br>
+Leider ist es nicht mehr zugänglich: 
+<a href="http://archive.is/djxT9" target="_blank">http://archive.is/djxT9</a></p>
+<!-- Kommentar:
 <a href="http://www.learn-line.nrw.de/angebote/neuemedien/medio/mathe/coalgebr/zahlhai/hai01.htm" target="_blank">http://www.learn-line.nrw.de/angebote/neuemedien/medio/mathe/coalgebr/zahlhai/hai01.htm</a></p>
+  -->
 
+<!-- Kommentar:
 <P>Auf der Seite von Herrn Carl stehen die für den Spieler maximal erreichbaren Punktzahlen für 
 Zahlenvorr&auml;te bis n=50. Das sind allerdings erspielte Werte, so dass sich die Ergebnisse noch 
 &auml;ndern k&ouml;nnen (die letzte Änderung der Seite datiert auf den 12.10.2000).</P>
+  -->
 
 <P>Herr Carl hat uns dankenswerterweise erlaubt, seine Idee und seinen Spielnamen f&uuml;r eine 
 Neuimplementierung uneingeschr&auml;nkt zu nutzen. Das nachfolgende Bild zeigt die 
@@ -33,14 +39,14 @@ urspr&uuml;ngliche Fassung des Zahlenhai-Spiels:</P>
 <P>Im Englischen heißt diese Spielidee bezeichnenderweise "Taxman".</P>
 
 <P>Die Seite <a href="https://oeis.org/A019312" target="_blank">https://oeis.org/A019312</a> 
-innerhalb der <b>ATT Integer Sequences</b> enthält die Maximalwerte bis n=158. Dort kann die Folge auch 
+der <b>Integer Sequences</b> enthält die bekannten Maximalwerte. Dort kann die Folge auch 
 gleich grafisch angezeigt werden. Bei der ATT Integer Sequence ist - dank Dan Hoey - inzwischen in den 
 "Notes" auch der optimale Weg angegeben. Eine Formel für den optimalen Wert ist bisher nicht bekannt.</P>
 
 <P>Alle bisher bekannten Verfahren zur Berechnung des optimalen Weges benötigen für große Werte von n 
-<B>sehr</B> lange. Im neuen Java-CrypTool sind heuristische Verfahren implementiert, die gute - aber nicht unbedingt optimale Wege - suchen. Diese Verfahren sind sehr schnell.</P>
+<B>sehr</B> lange. Im neuen Java-CrypTool sind heuristische Verfahren implementiert, die gute -- aber nicht unbedingt optimale Wege -- suchen. Diese Verfahren sind sehr schnell.</P>
 
-<P>Im März 2015 wurden die Folge der Maximalwerte ausgedehnt bis n=404.</P>
+<P>Im März 2015 wurde die Folge der Maximalwerte ausgedehnt bis n=404.</P>
 <P>(Stand: Februar 2017)</P>
 	
 
@@ -54,7 +60,7 @@ gleich grafisch angezeigt werden. Bei der ATT Integer Sequence ist - dank Dan Ho
 
 <p>Erst als die Logik des Algorithmus korrekt implementiert war, wurde eine grafische Oberfl&auml;che erstellt.</p>
 
-<p>Danach wurde das Programm stetig erweitert: <a name="Buttons">Die</a> erste Erweiterung bestand darin, das Spiel mit mehr als 50 Zahlen spielen zu k&ouml;nnen (50 Zahlen waren die Obergrenze in dem Spiel von Herrn Carl). Daf&uuml;r wurde ein Reiter-Control verwendet, auf dem sich 30 Buttons befinden, die je nach ausgew&auml;hltem Reiter ihre Beschriftung und somit auch ihren Wert &auml;ndern.<br>
+<p>Danach wurde das Programm stetig erweitert: <a name="Buttons">Die</a> erste Erweiterung bestand darin, das Spiel mit mehr als 50 Zahlen spielen zu k&ouml;nnen (50 Zahlen waren die Obergrenze in dem Spiel von Herrn Carl). Daf&uuml;r wurde ein Reiter-Control (Tab) verwendet, auf dem sich 30 Buttons befinden, die je nach ausgew&auml;hltem Reiter ihre Beschriftung und somit auch ihren Wert &auml;ndern.<br>
 Dadurch wurde die maximal m&ouml;gliche Anzahl an Zahlen auf 9999 erh&ouml;ht. Die Grenze ist im Quellcode so vorgegeben und ist bedingt durch die Gr&ouml;&szlig;e der Buttons und der Reiter. Es w&auml;re auch nicht sinnvoll, mit noch mehr Zahlen zu spielen, da man bei so einer Menge gleichzeitig sehr viele Teiler von sehr vielen Zahlen ber&uuml;cksichtigen muss und dadurch auch schnell den &Uuml;berblick &uuml;ber das Spiel verliert.</p>
 <p>Das Spielfenster und alle Teile darin haben eine feste Gr&ouml;&szlig;e. Wir h&auml;tten gern das Fenster wenigstens in vertikaler Richtung  so gr&ouml;&szlig;enver&auml;nderlich gemacht, dass sich die Spielverlaufstabelle entsprechend anpasst, leider bot uns der Layout-Manager im Ressourceneditor von Visual C++ 6.0 und Visual C++ 7.1 (Visual Studio 2003) keine M&ouml;glichkeit f&uuml;r das so genannte "Andocken" von grafischen Elementen an die Dialogmasken. Nur die Spalten der Spielverlaufstabelle sind in ihrer Breite ver&auml;nderbar, damit sich der Spieler wirklich alle Punkte, die der Zahlenhai erhalten hat, anschauen kann. Die Spalten passen sich aber nicht automatisch ihrem Inhalt an. Die Größenveränderlichkeit wäre eine gute Aufgabe für eine zukünftige Version, die den Grafikmechanismus WPF von Windows 7 benutzt (siehe <a href="#TODOLIST">TODO #16</a> unten in Kapitel 7 dieser Onlinehilfe-Seite).</p>
 
@@ -70,7 +76,7 @@ ausrechnet. Dr&uuml;ckt man auf den Button <b>Start</b>, welcher sich in dem "Sp
 
 <p><B>Brute-Force-Algorithmus</B>: <a name="Berechnung">Die</a> hier implementierte Berechnung 
 l&auml;sst das Programm jedes m&ouml;gliche Spiel und jeden m&ouml;glichen Spielzug spielen und die 
-erreichten Punkte vergleichen (Brute-Force-Ansatz).</P>
+erreichten Punkte vergleichen.</P>
 
 <P><B>Back-Tracking-Algorithmus</B>: Der Algorithmus arbeitet nach dem Versuch-und-Irrtum-Prinzip; 
 Teillösungen werden Schritt für Schritt zu einer Gesamtlösung zusammengesetzt. Weitere Informationen 
@@ -123,7 +129,7 @@ zu Back-Tracking-Algorithmen findest Du <a href="http://de.wikipedia.org/wiki/Ba
 <p><b><u>4. Programmsteuerung</u></b></p>
 
 <p>a) Auswahl der Zahlen im Muschelfeld</p>
-<p>Um die Benutzerfreundlichkeit in dem Programm zu erh&ouml;hen, wurde auch noch eine reine Tastatursteuerung implementiert, die es dem Benutzer erm&ouml;glich, sich mit den Pfeiltasten (links, rechts, hoch, runter) frei auf den mit Zahlen beschrifteten Muscheln, sowie den dazugeh&ouml;rigen Reitern, zu bewegen. In früheren Versionen konnte man sich nur mit den Pfeiltasten links und rechts, sowie mit der Tabulator-Taste bewegen sowie mit der Leertaste eine Zahl auswählen. Ausw&auml;hlen kann man die Zahlen dann mit der <B>Enter-</B> oder der <B>Leertaste</B>.</p>
+<p>Um die Benutzerfreundlichkeit in dem Programm zu erh&ouml;hen, wurde auch noch eine reine Tastatursteuerung implementiert: Damit kann sich der Benutzer mit den Pfeiltasten (links, rechts, hoch, runter) frei auf den mit Zahlen beschrifteten Muscheln, sowie den dazugeh&ouml;rigen Reitern, bewegen. In früheren Versionen konnte man sich nur mit den Pfeiltasten links und rechts, sowie mit der Tabulator-Taste bewegen sowie mit der Leertaste eine Zahl auswählen. Ausw&auml;hlen kann man die Zahlen dann mit der <B>Enter-</B> oder der <B>Leertaste</B>.</p>
 <p>b) R&uuml;ckg&auml;ngig machen und wieder Vorw&auml;rts-Gehen mit den Undo- und Redo-Buttons</p>
 <p>Im Zahlenhai kannst Du &uuml;ber den <b>R&uuml;ckw&auml;rts</b>-Button (Undo) <IMG SRC="Pictures_de/Dlg_main_undo.png" ALT="Dlg_main_undo.png" BORDER=0> bereits gespielte Spielz&uuml;ge r&uuml;ckg&auml;ngig machen, um Dich f&uuml;r eine andere Zahl zu entscheiden. Mit dem <b>Vorw&auml;rts</b>-Button (Redo) <IMG SRC="Pictures_de/Dlg_main_redo.png" ALT="Dlg_main_redo.png" BORDER=0> kannst Du Deine zur&uuml;ck genommenen Spielz&uuml;ge auch wieder vorw&auml;rts gehen, solange Du keine &Auml;nderungen im Spielverlauf vorgenommen hast.</p>
 
@@ -182,7 +188,7 @@ target="_blank">http://www.codeproject.com</a> zurückgegriffen.</p>
 	<li>Da sich die Spalten der Spielverlaufstabelle nicht automatisch ihrem Inhalt anpassen, sondern der Benutzer dies selber machen muss, soll es auch eine M&ouml;glichkeit f&uuml;r den Benutzer geben, die Spalten wieder auf ihre Ursprungsbreite zur&uuml;ck zu setzen.</li>
 	<li>Eine weitere Spielm&ouml;glichkeit f&uuml;r das Programm w&auml;re, dass Spieler und Zahlenhai die Rollen tauschen.</li>
 	<li>Zeilen aus der Spielverlaufstabelle markieren und in ein Clipboard kopieren k&ouml;nnen.</li>
-	<li>Batch-Aufruf mit allen n&ouml;tigen Eingaben (Name, Anzahl, Eingabezahlen, Outputdateiname). Damit k&ouml;nnte man herausfinden, wieviel Punkte man durchschnittlich erh&auml;lt, wenn die Muscheln willk&uuml;rlich gedr&uuml;ckt werden. Man könnte auch eine Folge von benutzergewählten Zahlen direkt eingeben, und das Programm berechnet den zugehörigen Wert.</li>
+	<li>Batch-Aufruf mit allen n&ouml;tigen Eingaben (Name, Anzahl, Eingabezahlen, Outputdateiname). Damit k&ouml;nnte man herausfinden, wieviele Punkte man durchschnittlich erh&auml;lt, wenn die Muscheln willk&uuml;rlich gedr&uuml;ckt werden. Ein Benutzer könnte auch eine Folge von Zahlen direkt eingeben, und das Programm berechnet den zugehörigen Wert.</li>
 	<li>Eine Idee w&auml;re auch noch, dass man das Spiel nicht mit einem Zahlenvorrat von 1 bis n startet, sondern zum Beispiel von 5 bis n (den kleinsten Wert ändern).</li>
 	<li>Wenn man brute-force optimale Werte f&uuml;r n &gt; 158 berechnen l&auml;sst, sollte<br>
 	<ol type = "a">
@@ -208,6 +214,8 @@ target="_blank">http://www.codeproject.com</a> zurückgegriffen.</p>
 <p>Allgemeine Hinweise zur Benutzeroberfl&auml;che findest Du <a href="NumberShark.html">hier</a>. Und Tipps zum Spielverlauf findest Du <a href="NumberSharkTutorial.html">hier</a>.</p>
 
 <p>Aus rechtlichen Gr&uuml;nden m&uuml;ssen wir explizit auf <a href="NumberSharkLicense.html">Lizenzbestimmungen / Haftungsausschluss</a> hinweisen.</p>
+<br />
 
 </BODY>
 </HTML>
+
