@@ -71,7 +71,7 @@ public:
 	int     m_InputType;
 	int		m_Bitlength;
 	int		m_NoOfHomophones;
-	int		m_EditNoOfHomophones;
+	CString m_EditNoOfHomophones;
 	CString	m_RowHomophonesList;
 	CString	m_HomophonesList;
 	CButton m_ctrlEncodeUmlauts;

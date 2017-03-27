@@ -47,9 +47,9 @@ CDlgKeyHomophone::CDlgKeyHomophone(CWnd* pParent /*=NULL*/)
 	m_InputType = 0;
 	m_Bitlength = 8;
 	m_NoOfHomophones = range;
-	m_EditNoOfHomophones = 0;
-	m_RowHomophonesList = _T("");
-	m_HomophonesList = _T("");
+	m_EditNoOfHomophones.Empty();
+	m_RowHomophonesList.Empty();
+	m_HomophonesList.Empty();
 	//}}AFX_DATA_INIT
 	m_crypt = 0;
 	m_lastSelectedRow = -1;
@@ -74,7 +74,6 @@ void CDlgKeyHomophone::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT5, m_Bitlength);
 	DDX_Text(pDX, IDC_EDIT1, m_NoOfHomophones);
 	DDX_Text(pDX, IDC_EDIT3, m_EditNoOfHomophones);
-	DDV_MinMaxInt(pDX, m_EditNoOfHomophones, 0, 4096);
 	DDX_Text(pDX, IDC_EDIT2, m_RowHomophonesList);
 	DDX_Text(pDX, IDC_ROW, m_HomophonesList);
 	DDX_Control(pDX, IDC_CHECK2, m_ctrlEncodeUmlauts);
@@ -113,9 +112,9 @@ void CDlgKeyHomophone::OnErzeugen()
 	Init_ListBox();
 
 // === Reset selected homophonic list
-	m_EditNoOfHomophones = 0;
-	m_RowHomophonesList = _T("");
-	m_HomophonesList = _T("");
+	m_EditNoOfHomophones.Empty();
+	m_RowHomophonesList.Empty();
+	m_HomophonesList.Empty();
 
 	HIDE_HOUR_GLASS
 	UpdateData(false);
@@ -178,6 +177,10 @@ BOOL CDlgKeyHomophone::OnInitDialog()
 	int colWidth = 100;										// Spaltenbreite in Pixel
 
 	CDialog::OnInitDialog();
+
+	m_EditNoOfHomophones.Empty();
+	m_RowHomophonesList.Empty();
+	m_HomophonesList.Empty();
 
 	m_ctrlEncodeUmlauts.SetCheck(FALSE);
 	m_AlphabetBackup = theApp.TextOptions.getAlphabet();
@@ -393,9 +396,9 @@ void CDlgKeyHomophone::OnLoadKey()
 
 
 // === Reset selected homophonic list
-	m_EditNoOfHomophones = 0;
-	m_RowHomophonesList = _T("");
-	m_HomophonesList = _T("");
+	m_EditNoOfHomophones.Empty();
+	m_RowHomophonesList.Empty();
+	m_HomophonesList.Empty();
 
 	UpdateData(FALSE);
 
@@ -511,9 +514,9 @@ void CDlgKeyHomophone::OnActualizeNoOfHomophones()
 		Init_ListBox();
 
 	// === Reset selected homophonic list
-		m_EditNoOfHomophones = 0;
-		m_RowHomophonesList = _T("");
-		m_HomophonesList = _T("");
+		m_EditNoOfHomophones.Empty();
+		m_RowHomophonesList.Empty();
+		m_HomophonesList.Empty();
 		InputTypeIsChanged = FALSE;
 
 		HIDE_HOUR_GLASS
@@ -608,7 +611,7 @@ void CDlgKeyHomophone::OnDblclkSelect(NMHDR* pNMHDR, LRESULT* pResult)
 	m_RowHomophonesList = Text;
 
 	Text = m_listview.GetItemText( selRow, 3 );
-	m_EditNoOfHomophones = atoi(Text);
+	m_EditNoOfHomophones = Text;
 
 	int   m;
 	char  ch_tmp;
@@ -621,7 +624,7 @@ void CDlgKeyHomophone::OnDblclkSelect(NMHDR* pNMHDR, LRESULT* pResult)
 	char string[16000];
 	string[0] = '\0';
 	char	num[64];
-	for(int k=0;k<m_EditNoOfHomophones;k++)
+	for(int k=0;k<atoi(m_EditNoOfHomophones);k++)
 	{
 		int number = HB.GetKey( m );
 		num[0] = '\0';
@@ -630,7 +633,7 @@ void CDlgKeyHomophone::OnDblclkSelect(NMHDR* pNMHDR, LRESULT* pResult)
 		else
 			sprintf(num,"%d", number);
 		strcat(string, num);
-		if(k<m_EditNoOfHomophones-1) 
+		if(k<atoi(m_EditNoOfHomophones)-1) 
 			strcat(string, ", ");				
 		m++;
 	}
