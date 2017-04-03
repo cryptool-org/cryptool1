@@ -1,11 +1,11 @@
 ==================================================================
-    CrypTool, Version 1.4.31 für Win32, März 2017
+    CrypTool, Version 1.4.31 für Win32, April 2017
 
 CrypTool v1 (CT1) ist ein internationales E-Learning-Programm
 für Kryptographie und Kryptoanalyse.
 
     (c) Contributors
-        Dazu gehören z.B. Deutsche Bank AG, Frankfurt am Main, und die
+        Dazu gehören u.a. Deutsche Bank AG, Frankfurt am Main, und die
         Universitäten Siegen, Darmstadt, Bochum, Duisburg-Essen und Kassel.
         1998-2017
     Freie Software und Open Source gemäß der Apache Lizenz 2.0
@@ -280,7 +280,7 @@ a) Das Programm AES-Tool v 2.7 (entstanden im CrypTool-Projekt):
    Bei der CrypTool-Installation wird diesem Programm die Dateiendung "AES"
    zugeordnet.
 
-b) Das Lernspiel "Der Zahlenhai" v 1.2.3 (entstanden im CrypTool-Projekt):
+b) Das Lernspiel "Der Zahlenhai" v 1.2.4 (entstanden im CrypTool-Projekt):
    Dieses Lernspiel bringt Schülern den Umgang mit Teilern und Primfaktoren
    näher.
 
@@ -1225,7 +1225,7 @@ c) Neue Funktionalität / Bedienung:
 Dieses Kapitel listet die Erweiterungen und die Bugfixes auf, die in
 CrypTool 1.4.31 seit CrypTool 1.4.30 hinzugefügt wurden.
 
-Die Version 1.4.31 wird zeitgleich in 6 von 7 (xxx) Sprachen released.
+Die Version 1.4.31 wird zeitgleich in 6 von 7 Sprachen released.
 Griechisch folgt.
 
 a) Entwickler-relevante Änderungen (eher Programm-technisch):
@@ -1241,16 +1241,24 @@ a) Entwickler-relevante Änderungen (eher Programm-technisch):
                         einen C++11-Compiler)   (postponed to CT 1.5) (xxx)
   - Animal 2.4.9
   - Ersatz der Secude-Bibliothek (dies auf CT 1.5 verschoben, da sie Probleme
-    nach der Compilation mit VS2010 (nicht mit VS2008) hatte). 
-    (postponed to CT 1.5) (xxx)
+    nach der Compilation mit VS2010 (nicht mit VS2008) hatte) (xxx)
 
+- Das CT1-Installationsprogramm ist nun signiert mit einem Zertifikat, das von
+  einer CA herausgegeben wird, die im Windows-Schlüsselspeicher enthalten ist.
+  Dies vermeidet, dass Windows dem Benutzer unnötige Warnungen über
+  nicht-signierte Software angezeigt.
+
+- Das Installationsprogramm füllt nun das Herausgeber-Feld, so dass in der
+  Windows-Übersicht der installierten Software nun "CrypTool-Team" angezeigt
+  wird.
+  
 - Das Release von CT 1.4.31 wird weiterhin mit VS2008 kompiliert (siehe oben).
-  Ab CT 1.5 wird mit VS 2017 übersetzt.
+  Ab CT 1.5 wird mit VS 2017 übersetzt, oder QCT ersetzt CT1.
 
 
 b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
 
-- Online-Hilfe: aktualisiert an einigen Stellen
+- Online-Hilfe: aktualisiert an einigen Stellen.
 
 - CrypTool-Buch: - Edition 12 ist ein großes Update, viele Korrekturen und
                    Ergänzungen
@@ -1263,12 +1271,13 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
                    JCT  (xxx)
                  - In den Fußnoten nun auch die Menüpfade zu CT2 und JCT.
 
-- Aktualisierte Präsentation zu CT1 auf CT 1.5 verschoben. (xxx)
+- Präsentation zu CT1 aktualisiert (März 2017)
   Die Informationen zum Gesamtprojekt und zu den beiden anderen CT-Projekten
   (CT2, JCT) liegen nun in eigenständigen Präsentationen.
 
 - Am 18. Januar 2012 wurde die neue CrypTool-Webseite (CTP) freigegeben, die
   die 5 Unterprojekte des CT-Projektes gleichwertig darstellt.
+  Dazu gehört auch CT1.
   Das CT-Portal (CTP) nutzt als CMS Joomla.
 
 
@@ -1308,8 +1317,10 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
   wurde an das aktuelle Verhalten angepasst.
 - Die Felder zur Anzeige des Hashwertes einer Datei können nur auch 256 Bit
   lange Hashwerte ohne Scrollen anzeigen.
-- Zahlenhai: Einige Funktionen nun nicht nur über Tastenkombinationen sondern
-  auch über Buttons erreichbar.
+- Zahlenhai 1.2.4:
+  - Einige Funktionen nun nicht nur über Tastenkombinationen sondern
+    auch über Buttons erreichbar.
+  - Onlinehilfe korrigiert, insbesondere einige veraltete Links.
 - AES-Tool 2.7:
   - Fehler behoben, der beim Eingeben von zu langen hexadezimalen Schlüsseln
     auftrat.
@@ -1337,6 +1348,9 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
 - Playfair mit einer 6*6-Matrix konvertiert nun nicht mehr fälschlicherweise
   "J" zu "I".
 - Scilexer.dll graut Nicht-Alphabet-Zeichen wieder korrekt aus.
+  Siehe z.B. Menü Ansicht --> Alphabet oder den Hill-Analysedialog.
+- Einen kleinen Fehler im Homophonen-Dialog korrigiert, wo initial ein
+  falscher Index angezeigt wurde.
 
 
 - Danke an die vielen aufmerksamen Benutzer, die uns auf Bugs und 
@@ -1873,7 +1887,7 @@ GameData.txt ..... Die ersten High-Scores für das Zahlenhai-Spiel.
 
 CT-Book-de.pdf ... Ein Buch (deutsch) über Kryptographie, Primzahlen,
                    elementare Zahlentheorie und die Mathematik hinter
-                   einigen Algorithmen. (xxx)
+                   einigen Algorithmen.
 
 CrypTool1-Presentation-de.pdf .. Folien-Präsentation (deutsch)
 
@@ -2252,7 +2266,7 @@ Version                  Deutsch    Englisch      Bedarf DE      durch
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.30    Aug. 2010      52,1 MB     51,5 MB         95 MB        DB
-1.4.31    Feb. 2017      70,1 MB     69,4 MB        113 MB        CT (xxx)
+1.4.31    Apr. 2017      70,1 MB     69,4 MB        114 MB        CT (xxx)
 
 Bemerkungen zu den (Zwischen-)Versionen:
 1.3.02  Viele neue Funktionen gegenüber 1.3.00
@@ -2932,6 +2946,7 @@ Einige (nicht alle) Funktionen der Release-Versionen der Nachfolger-Projekte:
 - CT2  Dezimalisierungsverfahren (Visa, Modulo, Multiplikation, IBM)
 - CT2  Mathematische Werkzeuge wie Berlekamp-Massey
 - CT2  Vigenère-Autokey-Verschlüsselung und verteilte Analyse dazu
+- CT2  Mächtige Analyseverfahren gegen klassische Verfahren (incl. Enigma)
 - CT2  Suche nach Wort-Patterns m.H. von Normierungen (z.B. "einen" = 12313)
 - CT2  LFSR, NLFSR
 - CT2  Symmetrische Verschlüsselungsverfahren von Ecrypt (SOSEMANUK, ...)
@@ -3393,4 +3408,6 @@ mit Qt 5 bauen (siehe A.1).
 
 Bitte probieren Sie auch die neuen Versionen CT2 und JCT.
 Sie finden diese ebenfalls auf der Webseite  www.cryptool.org  
+
+Vergleiche auch: https://de.wikipedia.org/wiki/CrypTool
 

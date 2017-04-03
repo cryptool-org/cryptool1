@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 for Win32, March 2017
+    CrypTool, Version 1.4.31 for Win32, April 2017
     
 CrypTool v1 (CT1) is an international e-learning program
 for cryptography and cryptanalysis.
@@ -95,7 +95,7 @@ CT1 is available in 7 languages (language abbreviations by ISO 639-1):
 
 In all language versions the program has the same full functionality --
 translated and localized are the GUI (menus, dialogs, etc.) of the programs
-CrypTool, AES-Tool and Number Shark, and the installation program (setup).
+CrypTool, AES-Tool, and Number Shark, and the installer program (setup).
 
 Here is a list of the remaining components of the CT1 package, which
 could not be localized yet for all language versions:
@@ -276,7 +276,7 @@ a) The program AES-Tool v 2.7 (developed within the CrypTool project):
    The installation of CrypTool assigns the file extension "AES" with
    this program.
 
-b) The educational game "Number Shark" v 1.2.3 (by the CrypTool project):
+b) The educational game "Number Shark" v 1.2.4 (by the CrypTool project):
    This game helps pupils to get acquainted with divisors and prime
    factors.
 
@@ -1004,7 +1004,7 @@ c) New functionality / Usability:
      key length despite the shown autocorrelation was correct.
      Now the correct key length is shown and used.
    - Correction of quite a few typos within the CrypTool online help, the
-     resource files of  CrypTool, AES-Tool and NumberShark, and the Animal
+     resource files of  CrypTool, AES-Tool, and Number Shark, and the Animal
      AML files.
 
 
@@ -1186,7 +1186,7 @@ c) New functionality / Usability:
 This chapter lists the enhancements and the bug fixes in CrypTool 1.4.31,
 which have been added since CrypTool 1.4.30.
 
-Version 1.4.31 is released simultaneously in 6 of 7 (xxx) languages.
+Version 1.4.31 is released simultaneously in 6 of 7 languages.
 Greek will follow.
 
 a) Developer-relevant changes (more technically oriented):
@@ -1202,11 +1202,17 @@ a) Developer-relevant changes (more technically oriented):
                         a C++11 compiler)   (postponed to CT 1.5) (xxx)
   - Animal 2.4.9
   - Substitution of the Secude library (as we encountered problems after
-    compiling with VS2010 (not with VS2008)) postponed to CT 1.5.
-    (postponed to CT 1.5) (xxx)
+    compiling with VS2010 (not with VS2008) postponed to CT 1.5.) (xxx)
 
+- The CT1 installer now is signed with a certificat issued by a CA which
+  is contained in the Windows keystore. This avoids that Windows shows
+  users unnecessary warnings about unsigned software.
+
+- Installer fills the publisher field so the Windows overview of installed
+  software shows now "CrypTool Team".
+  
 - The release of CT 1.4.31 is still compiled with VS2008 (see above).
-  From CT 1.5 VS 2017 will be used for compilation.
+  From CT 1.5 VS 2017 will be used for compilation, or QCT substitutes CT1.
 
 
 b) Changes within the user documentation / on the websites:
@@ -1223,12 +1229,13 @@ b) Changes within the user documentation / on the websites:
                    (xxx)
                  - Added the menu paths of CT2 and JCT in the foot notes.
 
-- Updated presentation about CT1 postponed to CT 1.5. (xxx)
+- Presentation about CT1 updated in March 2017.
   The description of the overall CrypTool project, and the information about
   the two other CT projects (CT2, JCT) are now in self-contained presentations.
 
 - At January 18th, 2012 the new CrypTool website (CTP) was released. It
   describes the 5 sub projects of the CT project in an equivalent way.
+  This contains CT1.
   The CT Portal (CTP) uses Joomla as CMS.
 
 
@@ -1267,7 +1274,9 @@ c) New functionality / Usability / Corrections of errors:
   adapted accordingly.
 - The fields to present hash values for a file now can display values of
   256 bit length without the need of scrolling.
-- Number Shark: Some of the hot key functionalities now also have a button.
+- Number Shark 1.2.4:
+  - Some of the hot key functionalities now also have a button.
+  - Updated online help (especially some outdated links).
 - AES Tool 2.7:
   - Fixed a bug which appeared when entering too long hexadecimal keys.
   - Now you can enter the key as normal ASCII characters too, and securely
@@ -1293,6 +1302,8 @@ c) New functionality / Usability / Corrections of errors:
   Make own enhancements like http://x-bc.sourceforge.net/extensions_bc.html 
 - Playfair with a 6*6 matrix now doesn't wrongly transform J to I any more.
 - Scilexer.dll again greys out non-alphabet characters correctly.
+  See e.g. menu View --> Alphabet or the Hill analyzer.
+- Fixed small issue with wrong index shown initially in the homophones dialog.
 
 - Thanks to the many attentive users, who pointed us to bugs and
   inconsistencies.
@@ -1796,13 +1807,13 @@ NT.exe ........... Educational program (Authorware) of number theory.
 TextNumberConverter.exe .. Auxiliary program of "NT.exe".
 ToolBarWrapper.dll .. Necessary for the Authorware program NT.exe
 
-NumberShark.exe .. The educational game "NumberShark".
-NumberShark_en.chm HTML help archive for the NumberShark online help.
-GameData.txt ..... First high-scores for the NumberShark game.
+NumberShark.exe .. The educational game "Number Shark".
+NumberShark_en.chm HTML help archive for the Number Shark online help.
+GameData.txt ..... First high-scores for the Number Shark game.
 
 CT-Book-en.pdf ... A book (manual) on cryptography, prime numbers,
                    elementary number theory and the mathematics
-                   behind certain algorithms. (xxx)
+                   behind certain algorithms.
 
 CrypTool1-Presentation-en.pdf .. Slides presentation (English)
 
@@ -2179,7 +2190,7 @@ Version                 English      German    needed EN     by
 1.4.20    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.21    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.30    Aug. 2010     51.5 MB      52.1 MB    94 MB        DB
-1.4.31    Feb. 2017     69.4 MB      70.1 MB   112 MB        CT (xxx)
+1.4.31    Apr. 2017     69.4 MB      70.1 MB   112 MB        CT (xxx)
 
 Remarks about the (intermediate) versions:
 1.3.02  Many new functions compared to 1.3.00
@@ -2845,6 +2856,7 @@ Some (not all) features of the release versions of the successor projects:
 - CT2  Decimalization methods (Visa, Modulo, Multiplication, IBM)
 - CT2  Mathematical tools like Berlekamp-Massey
 - CT2  Encryption of and distributed analysis against Vigenère autokey
+- CT2  Powerful analyzers against classical ciphers (including Enigma)
 - CT2  Search for word patters using norms (i.e. "together" = 12341546)
 - CT2  LFSR, NLFSR
 - CT2  Symmetric encryption methods by Ecrypt (SOSEMANUK, ...)
@@ -3291,4 +3303,6 @@ using Qt 5 (see A.1).
 
 Please also try out the new versions CT2 and JCT.
 You can find them at  www.cryptool.org  too.
+
+Compare: https://en.wikipedia.org/wiki/CrypTool
 
