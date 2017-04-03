@@ -1204,7 +1204,7 @@ a) Developer-relevant changes (more technically oriented):
   - Substitution of the Secude library (as we encountered problems after
     compiling with VS2010 (not with VS2008) postponed to CT 1.5.) (xxx)
 
-- The CT1 installer now is signed with a certificat issued by a CA which
+- The CT1 installer now is signed with a certificate issued by a CA which
   is contained in the Windows keystore. This avoids that Windows shows
   users unnecessary warnings about unsigned software.
 
