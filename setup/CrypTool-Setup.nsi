@@ -20,6 +20,7 @@
   !define ProgramName "CrypTool"
   !define VersionInfo "1.4.31" ; no beta here to avoid line wrap in installer
   !define VersionFile "1_4_31" ; _beta_0x
+  !define Publisher "CrypTool Team"
   
   Name "${ProgramName} ${VersionInfo}"
   OutFile "SetupCrypTool_${VersionFile}_${LANGUAGE_STR}.exe"
@@ -313,6 +314,8 @@ Section "CrypTool"
 				 "DisplayName" "$ShortCutName ${VersionInfo}"
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName" \
 				 "DisplayVersion" "${VersionInfo}"
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName" \
+				"Publisher" "${Publisher}"
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName" \
 				 "URLUpdateInfo" "${URL}"
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName" \
