@@ -349,7 +349,7 @@ b) Krypto-Wettbewerbe / Krypto-Rätsel:
    2) D’Agapeyeff-Chiffre (ungelöst)
    3) Feynman-Chiffren (3 Teile, von denen zwei ungelöst sind)
    4) Kryptos-Skulptur (4 Teile, von denen der letzte ungelöst ist)
-   5) Doppelwürfel (erstellt von Klaus Schmeh, Quelltext englisch, ungelöst)
+   5) Doppelwürfel (erstellt von Klaus Schmeh, Quelltext englisch, gelöst)
    6) "Die tanzenden Männchen" von Arthur Conan Doyle (Sherlock Holmes)
                    (transkribiert, gelöst)
    7) Harry-Potter-Chiffre (von Klaus Schmeh, Quelltext deutsch, ungelöst)
@@ -2679,6 +2679,12 @@ a) Vollständig mit Source-Code verfügbar sind:
   http://www.sagemath.org/doc/reference/index.html
   SageMath wird auch für einige Beispiele im CrypTool-Buch verwendet.
 
+- Die Webseite der American Cryptogram Association (ACA), einer Non-Profit-
+  Organisation, die sich "dem Hobby und der Kunst der Kryptoanalye" widmet.
+  Diese Seite enthält sehr viel Code und Informationen zu Papier&Bleistift-
+  Verfahren und zu klassichen Chiffren und ihrer Kryptoanalyse.
+  http://www.cryptogram.org/
+
 
 
 b) Die einzigen weiteren uns bekannten brauchbaren Programme, die
@@ -2748,7 +2754,7 @@ b) Die einzigen weiteren uns bekannten brauchbaren Programme, die
   Computer-basierte Verfahren wie Enigma, AES, DES, Blowfish etc. zu knacken.
   Dieses Tool löst viele klassische Chiffren sehr schnell und in guter Qualität.
   Erstes Release: 29.5.2011; weiterhin aktive Weiterentwicklung.  
-  Letztes Update: Jan 2017 -- Version 0.7 beta (version 0.7.6216.17785))
+  Letztes Update: März 2017 -- Version 0.7 beta (Version 0.7.6279.17017))
   https://sites.google.com/site/cryptocrackprogram/home
 
 - "CryptoMake" von Phil Pilcrow

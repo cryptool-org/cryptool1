@@ -120,7 +120,7 @@ Nevertheless, from CT 1.5 we will use the newest MS compiler (VS 2017)
 again. (xxx)
 
 The current release version of CrypTool and the source code are
-available at the following internet addresses (without registration):
+available at the following Internet addresses (without registration):
                 https://www.CrypTool.org
                 http://www.CrypTool.com
                 http://www.CrypTool.de
@@ -344,7 +344,7 @@ b) Cipher Challenges / Cipher Riddles:
    3) Feynman ciphers (3 parts, two are still unsolved)
    4) Kryptos sculpture (4 parts, the last one is still unsolved)
    5) Double-Column-Transposition (Doppelwuerfel) (riddle created by Klaus
-                   Schmeh, plaintext is English, unsolved)
+                   Schmeh, plaintext is English, solved)
    6) "The Adventure of the Dancing Men" ("Die tanzenden Maennchen") by
             Arthur Conan Doyle (Sherlock Holmes)(transliterated, solved)
    7) Harry-Potter cipher (riddle created by Klaus Schmeh, plaintext is
@@ -510,7 +510,7 @@ The general properties and functions of CT1 are:
    joker characters and the expected elapsed time is displayed.
    Additionally you can customize the width of the entropy field
    used for this kind of analysis within the analysis options; and you can
-   specify which alphabet you expect the cleartext is build from).
+   specify which alphabet you expect the plaintext is build from).
 
 - Modern (asymmetric) crypto methods and protocols (hash, RSA, ECC, digital
   signature, hybrid encryption, PKCS#5, shared secret, ...) and partly
@@ -532,7 +532,7 @@ The general properties and functions of CT1 are:
   if special preconditions are given:
   * either a part of one of the two factors of N is known
     ("Factoring with a Hint"),
-  * or a part of the cleartext of an eavesdropped encrypted message
+  * or a part of the plaintext of an eavesdropped encrypted message
     is known and e is small ("Attack on Stereotyped Messages"),
   * or if d is too small compared to N, N can be factorized
     ("Attack on Small Secret Keys (according to Bloemer/May)").
@@ -1026,12 +1026,12 @@ c) New functionality / Usability:
 
 - Extensive enhancements of the online help.
 
-- External PDFs on the internet now can be opened directly within the online
+- External PDFs on the Internet now can be opened directly within the online
   help.
 
 - The XOR/Psion tutorial in the presentation used an encrypted file (created
-  from a German cleartext). Now there is also a file with an encrypted English
-  cleartext: psion-en-enc.hex
+  from a German plaintext). Now there is also a file with an encrypted English
+  plaintext: psion-en-enc.hex
 
 - For all DES based methods now the dialogs show both the effectively used
   key length and the key length which the user has to enter.
@@ -1068,7 +1068,7 @@ c) New functionality / Usability:
 
 - Enhancement of the brute-force analysis for symmetric ciphers:
   Another column was added to also show the key which goes with the
-  current columns of entropy of cleartext, cleartext and ciphertext.
+  current columns of entropy of plaintext, plaintext and ciphertext.
 
 
 - If the result in the dialog primality testing says, that the given number
@@ -1291,7 +1291,7 @@ c) New functionality / Usability / Corrections of errors:
   pre-output matrix (64 bit) some mistakes have been fixed.
   Thanks to Vasilis. Additionally the online help has been enhanced.
 - Dialog to enter hex keys: Before entering via Ctrl-V worked correctly,
-  via context menu -> Paste it didn't. Now both works ok
+  via context menu -> Paste it didn't. Now both work ok.
 - At SHA256 / SHA512 the wrong function was called yet.
   This also effected the dialog window "Generation of HMACs".
 - Calling bc from within the number theory tutorial now also works under
@@ -1425,7 +1425,7 @@ of the following directories:
 
 Please check the access rights for the directories of the local variables.
 In case %TEMP% and %TMP% are not set, please set these environment variables
-to an appropiate path. In case they are set please verify if you have access
+to an appropriate path. In case they are set please verify if you have access
 rights to create files and folders. 
 
 
@@ -1613,7 +1613,7 @@ a) Import from a CrypTool version older than version 1.4.00:
      from the old CrypTool\pse directory into the new one.
 b) Import from CrypTool version 1.4.00:
    Copy the entire pse\ directory into another directory BEFORE doing
-   the deinstallation. After the installation of the new version copy
+   the uninstallation. After the installation of the new version copy
    the saved pse\ directory to the installation folder.
 
 Please note that it might be necessary to adjust the access
@@ -2589,6 +2589,12 @@ a) Available with complete source code are:
   http://www.sagemath.org/doc/reference/index.html
   SAGE is also used for some examples in the CrypTool book.
 
+- The website of the American Cryptogram Association (ACA), a non-profit
+  organization "dedicated to promoting the hobby and art of cryptanalysis".
+  This site contains a wealth of code and information for paper&pencil and
+  classical ciphers and their cryptanalysis.
+  http://www.cryptogram.org/
+
 
 
 b) The only other useful programs known to us, which usefully combine
@@ -2658,7 +2664,7 @@ b) The only other useful programs known to us, which usefully combine
   based types such as Enigma, AES, DES, Blowfish etc. (see FAQ).
   This tool solves many classical ciphers very fast and very well.
   Initial release: May 29, 2011, ongoing active development.  
-  Last update: Jan 2017 -- Version 0.7 beta (version 0.7.6216.17785))
+  Last update: Mar 2017 -- Version 0.7 beta (version 0.7.6279.17017))
   https://sites.google.com/site/cryptocrackprogram/home
 
 - "CryptoMake" by Phil Pilcrow
@@ -2776,7 +2782,7 @@ a) General wish list according to the user feedback about CT1
    - More user interaction
    - Dynamic change between languages
    - Dynamic change between crypto providers
-   - Automatic updates via the internet (keep opened files after new start)
+   - Automatic updates via the Internet (keep opened files after new start)
    - Implementing all functions as threads (parallel, interruptible)
    - Functions use all cores is available
    - Easier handling of cascades using the existing building blocks
@@ -3005,7 +3011,7 @@ A.3.1. Functionality: Algorithms / Methods
   a) interface, to load test cases manually into the dialog boxes
   b) interface, to load test cases from a file into the different
      dialog boxes.
-     Maybe build a script language to control all dialogues or
+     Maybe build a script language to control all dialogs or
      use automated test tools off-the-shelf.
   c) create command line interface, so test cases can be read from a
      file without using dialog boxes (no user interface), solved
@@ -3018,7 +3024,7 @@ A.3.1. Functionality: Algorithms / Methods
 A.3.2. Functionality: Analysis
        -----------------------
 - Usage of distributed computing for cryptanalysis
-- Offer a crytanalysis framework to have a toolbox for fast code breaking
+- Offer a cryptanalysis framework to have a toolbox for fast code breaking
 - CT2  Framework for distributing cryptanalytic calculations
 - CT2  Toolbox for creating and analyzing stream ciphers
 - CT2  Framework to create and analyze LFSR stream ciphers
@@ -3038,7 +3044,7 @@ A.3.2. Functionality: Analysis
 - Differential cryptanalysis on symmetric ciphers (DES, ...).
 
 - Enhance the brute-force possibilities: use knowledge about
-  - parts of the cleartext,
+  - parts of the plaintext,
   - parts of the key.
 
 - Demonstration, how long an exhaustive key search lasts (depending
@@ -3184,12 +3190,12 @@ requirements are there for all crypto programs wit a GUI.
 - CT1: Offer a customizing feature to the user, so that he can choose
   that all new windows appear within the main windows (as right now)
   or as "free" (modal or a-modal) windows outside the main window.
-  E.g. show single dialogue windows in an a-modal way (e.g. N-gram
+  E.g. show single dialog windows in an a-modal way (e.g. N-gram
   analysis, manual analysis, hybrid encryption demonstration).
   This allows that one can switch between the main window and
-  the dialogue window without closing the dialogue window first
+  the dialog window without closing the dialog window first
   (the burden is a more complex control mechanism, handling of
-  multiple calls to the same dialogue, update after change of
+  multiple calls to the same dialog, update after change of
   window focus or after changing the underlying original data
   within the main window, ...).
 
