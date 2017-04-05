@@ -48,7 +48,7 @@ Geheimtexte, die man gut als "Übungsmaterial" und Zeitvertreib verwenden kann:</
 		<a class="filelink" onclick="parser('cryptochallenges//Schmeh04d-Kryptos-enc.txt')">Schmeh04d-Kryptos-enc.txt</a></LI>
 	<LI class="withTopMargin">
 		Doppelwürfel (erstellt von Klaus Schmeh auf Anregung von Otto Leiberich, 
-		Quelltext ist englisch, ungelöst)<br>
+		Quelltext ist englisch, gelöst)<br>
 		<a class="filelink" onclick="parser('cryptochallenges//Schmeh05-Doppelwuerfel-enc.txt')">Schmeh05-Doppelwuerfel-enc.txt</a></LI>
 	<LI class="withTopMargin">
 		"Die tanzenden Männchen" von Arthur Conan Doyle (Sherlock Holmes), 
@@ -61,37 +61,47 @@ Geheimtexte, die man gut als "Übungsmaterial" und Zeitvertreib verwenden kann:</
 		"Mathias Sandorf" von Jules Verne (gelöst)<br>
 		<a class="filelink" onclick="parser('cryptochallenges//Schmeh08-MathiasSandorf-enc.txt')">Schmeh08-MathiasSandorf-enc.txt</a></LI>
 </OL>
-		
-<P>Spannend ist insbesondere die Nr. 5, der Doppelwürfel.</P>
 
-<P>Diese historische Chiffre hält bei korrekter Verwendung auch heutigen Angriffen 
-	Stand, da sie ungefähr dieselbe Widerstandskraft (Schlüsselraum) hat wie der 
-	RC5.</P>
 
-<P>Um dies auch nachvollziehbar zu machen, rief Hr. Schmeh einen eigenen 
-	Kryptoanalyse-Wettbewerb ins Leben. Die gestellte Aufgabe basiert auf einer 
-	Idee von Otto Leiberich, dem ehemaligen Präsidenten des Bundesamtes für 
-	Sicherheit in der Informationstechnik (BSI). Leiberich berichtete 1999 in
-       	einem Zeitschriftenartikel über den so genannten Doppelwürfel [2].</P>
+<br><P>Spannend ist insbesondere das Verfahren zur Nr. 5, der Doppelwürfel:</P>
+
+<P>Obwohl die ursprüngliche Challenge von Klaus Schmeh zum Doppelwürfel
+        von George Lasry im Jahre 2013 gelöst werden konnte,
+       	hält diese historische Chiffre bei "korrekter" Verwendung
+       	auch heutigen Angriffen Stand, da sie ungefähr dieselbe
+       	Widerstandskraft (Schlüsselraum) hat wie der RC5.</P>
 
 <P>Beim Doppelwürfel handelt es sich um ein Verschlüsselungsverfahren, das ohne 
 	Computerunterstützung von Hand ausgeführt werden kann und trotzdem als recht 
 	sicher gilt. Es wird auch als doppelte Spaltentransposition bezeichnet. Der 
-	Doppelwürfel wurde (und wird vermutlich noch heute) häufig von Spionen 
+	Doppelwürfel wurde (und wird vermutlich noch heute) von Spionen 
 	eingesetzt, die sich nicht mit einem Verschlüsselungsgerät oder einem 
 	entsprechenden Computer-Programm verdächtig machen wollten.</P>
 
-<P>Trotz der weiten Verbreitung sind nur wenige wissenschaftliche Untersuchungen 
-	des Doppelwürfels bekannt. Man kann die Sicherheit des Verfahrens daher 
-	schlecht einschätzen. Aus diesem Grund regte Otto Leiberich in seinem Artikel 
-	ein kryptografisches Rätsel an, bei dem es um die Entschlüsselung eines 
-	Doppelwürfel-Geheimtexts geht. Klaus Schmeh verschlüsselte dazu einen 
-	englischen Text mit zwei längeren englischen Passwörtern unterschiedlicher 
-	Länge und veröffentlichte das Resultat in seinem Buch "Codeknacker gegen 
-	Codemacher" [1] und in einem Telepolis-Artikel [3].</P>
+<P>Trotz der weiten Verbreitung waren bis 1999 nur wenige wissenschaftliche Untersuchungen 
+	des Doppelwürfels bekannt. Man konnte die Sicherheit des Verfahrens daher 
+	schlecht einschätzen. Aus diesem Grund regte Otto Leiberich, ehemaliger
+       	Präsident des Bundesamtes für Sicherheit in der Informationstechnik (BSI),
+       	1999 in einem mehrfach aufgelegten Artikel [2] ein kryptografisches Rätsel an,
+       	bei dem es um die Entschlüsselung eines Doppelwürfel-Geheimtexts geht.</P>
+       
+<P>Klaus Schmeh griff diese Idee auf und verschlüsselte dazu einen englischen Text
+        mit zwei längeren englischen Passwörtern unterschiedlicher Länge und
+       	veröffentlichte	das Chiffrat 2007 in seinem Buch "Codeknacker gegen Codemacher" [1],
+       	in einem Telepolis-Artikel [3] und als MTC3-Challenge<br>
+	<a href="https://www.mysterytwisterc3.org/de/challenges/level-x-kryptographie-challenges/doppelwuerfel" target="_blank">https://www.mysterytwisterc3.org/de/challenges/level-x-kryptographie-challenges/doppelwuerfel</a>.
+	<br>
+        Siehe auch <a href="http://scienceblogs.de/klausis-krypto-kolumne/2013/09/13/top-25-der-ungelosten-verschlusselungen-platz-5-die-doppelwurfel-challenge/" target="_blank">http://scienceblogs.de/klausis-krypto-kolumne/2013/09/13/top-25-der-ungelosten-verschlusselungen-platz-5-die-doppelwurfel-challenge/</a></P>
 
-<P>Wer sich mit dieser Aufgabe intensiver auseinandersetzen will, kann sich 
-	gerne an das CrypTool-Team wenden.</P>
+<P>Nach rund 6 Jahren, wo es trotz vieler Bemühungen keinen Durchbruch zu geben schien, wurde diese ursprüngliche Challenge dann von George Lasry geknackt [4].</P>
+       
+<P>Um zu zeigen, dass der Doppelwürfel bei "korrekten" Parametern auch heute noch sicher ist,
+        wurde Ende 2013 die Serie "Doppelwürfel Reloaded" erstellt:<br>
+<a href="https://www.mysterytwisterc3.org/de/challenges/level-3-kryptographie-challenges/doppelwuerfel-reloaded-teil-1" target="_blank">https://www.mysterytwisterc3.org/de/challenges/level-3-kryptographie-challenges/doppelwuerfel-reloaded-teil-1</a></P>
+<br>
+
+
+
 
 <P>Als weitere Krypto-Puzzles führt Klaus Schmeh auf:</P>
 
@@ -151,8 +161,7 @@ Geheimtexte, die man gut als "Übungsmaterial" und Zeitvertreib verwenden kann:</
 	<a href="http://www.cryptool.org/de/jcryptool" target="_blank">JCT</a>
 	implementiert. Zusätzlich untersuchten die Autoren etwas die mathematischen
 	Grenzen zum Finden der optimalen Ganzzahl-Folge
-	<a href="http://www.research.att.com/~njas/sequences/A019312" target="_blank"
-		>http://www.research.att.com/~njas/sequences/A019312</a>.</LI>
+	<a href="https://oeis.org/A019312" target="_blank">https://oeis.org/A019312</a>.</LI>
 	<LI>TU Darmstadt Lattice Challenge 2008<br>
 	siehe <a href="http://www.latticechallenge.org"
 	target="_blank">http://www.latticechallenge.org</a></LI>      
@@ -170,12 +179,18 @@ Geheimtexte, die man gut als "Übungsmaterial" und Zeitvertreib verwenden kann:</
 
 <P>[1] Klaus Schmeh: "Codeknacker gegen Codemacher. Die faszinierende Geschichte 
 	der Verschlüsselung", 2. Auflage, Dezember 2007, W3L-Verlag</P>
+
 <P>[2] Otto Leiberich, "Vom diplomatischen Code zuf Falltürfunktion", Wiederveröffentlicht in Spektrum der Wissenschaft, Dossier 4/2001, Kryptographie, S. 12-18 </P>
+
 <P>[3] Klaus Schmeh: "Wettrennen der Codeknacker", Telepolis-Artikel vom 09.01.2008<BR>
 	Darin bringt der Autor eine gute Übersicht über die zwei Arten von 
 	Krypto-Wettbewerben: zur Kryptoanalyse von Chiffraten und zum Finden der 
 	geeignetsten Algorithmen für bestimmte Zwecke.<BR>
 	Siehe <a href="http://www.heise.de/tp/r4/artikel/26/26876/1.html" target="_blank">http://www.heise.de/tp/r4/artikel/26/26876/1.html</a></P>
+
+<P>[4] Lasry, G., Kopal, N., Wacker, A.: Solving the Double Transposition Challenge with a Divide and Conquer Approach. Cryptologia. 38, 197-214 (2014)<br>
+<a href="https://www.uni-kassel.de/eecs/fileadmin/datas/fb16/Fachgebiete/UC/papers/Solving_the_Double_Transposition_Challenge_with_a_Divide_and_Conquer_Approach.pdf?" target="_blank">https://www.uni-kassel.de/eecs/fileadmin/datas/fb16/Fachgebiete/UC/papers/Solving_the_Double_Transposition_Challenge_with_a_Divide_and_Conquer_Approach.pdf?</a></P>
+<br>
 
 </BODY>
 </HTML>

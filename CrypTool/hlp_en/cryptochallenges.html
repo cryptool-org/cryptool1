@@ -45,7 +45,7 @@ Klaus Schmeh compiled in his book "Codebreaker vs. Codemaker" [1].</P>
 		<a class="filelink" onclick="parser('cryptochallenges//Schmeh04c-Kryptos-enc.txt')">Schmeh04c-Kryptos-enc.txt</a><br>
 		<a class="filelink" onclick="parser('cryptochallenges//Schmeh04d-Kryptos-enc.txt')">Schmeh04d-Kryptos-enc.txt</a></LI>
 	<LI class="withTopMargin">
-		Double-column transposition (created by Klaus Schmeh, proposed by Otto Leiberich, plaintext is English, unsolved)<br>
+		Double-column transposition (created by Klaus Schmeh, proposed by Otto Leiberich, plaintext is English, solved)<br>
 		<a class="filelink" onclick="parser('cryptochallenges//Schmeh05-Doppelwuerfel-enc.txt')">Schmeh05-Doppelwuerfel-enc.txt</a></LI>
 	<LI class="withTopMargin">
 		"Die tanzenden Maennchen" by Arthur Conan Doyle (Sherlock Holmes), (transcribed, solved)<br>
@@ -57,19 +57,33 @@ Klaus Schmeh compiled in his book "Codebreaker vs. Codemaker" [1].</P>
 		"Mathias Sandorf" by Jules Verne (solved)<br>
 		<a class="filelink" onclick="parser('cryptochallenges//Schmeh08-MathiasSandorf-enc.txt')">Schmeh08-MathiasSandorf-enc.txt</a></LI>
 </OL>
-		
-<P>Particularly exciting is number 5, the double-column transposition.</P>
 
-<P>If used correctly, this historic cipher even resists modern attacks because it holds roughly the same resistibility (key space) as RC5.</P>
 
-<P>To make this comprehensible, Mr. Schmeh launched a cryptanalysis competition.
-The exercise is based on an idea by Otto Leiberich, former president of the German Information Security Agency (BSI). Leiberich reported on the double-column transposition in a magazine article in 1999 [2].</P>
+<br><P>Particularly exciting is the method used in number 5, the double-column transposition:</P>
 
-<P>The double-column transposition is an encryption algorithm that can be executed by hand without the help of a computer and is still considered quite safe. The double-column transposition was (and probably still is) often used by spies who did not want to arouse suspicion by using an encryption device or a computer program.</P>
+<P>Despite the original double-column transposition challenge (from Klaus Schmeh)
+   was solved by Gorge Lasry in 2013 it still holds: If used "correctly", this
+   historic cipher even resists modern attacks because it roughly has the same
+   resistibility (key space) as RC5.</P>
 
-<P>In spite of its wide usage, only a few scientific analyses are known. Thus, the security of the algorithm can hardly be estimated. For this reason, Otto Leibereich created a crypto challenge in his article. Klaus Schmeh encrypted an English text with two passwords of different length and published the result in his book "Codebreaker vs. Codemaker" [1] and in a Telepolis article [3].</P>
+<P>The double-column transposition is an encryption algorithm that can be executed by hand without the help of a computer and is still considered quite safe. The double-column transposition was (and probably still is) used by spies who did not want to arouse suspicion by using an encryption device or a computer program.</P>
 
-<P>Everybody who wants to intensively deal with this challenge is encouraged to approach the CrypTool team.</P>
+<P>Despite of its wide usage, till 1999 only a few scientific analyses about the double-column transposition were known. Thus, the security of the algorithm could hardly be estimated. For this reason, Otto Leiberich, former president of the German Information Security Agency (BSI),
+       	suggested in 1999 in an article published several times [2] to create a cryptographic
+	riddle, which deals with solving a double-column transposition ciphertext.</P>
+
+<P>Klaus Schmeh adopted this idea and encrypted an English text with two passwords of different length and published the ciphertext in his book "Codebreaker vs. Codemaker" [1], in a Telepolis article [3], and as MTC3 challenge<br>
+	<a href="https://www.mysterytwisterc3.org/en/challenges/level-x/double-column-transposition" target="_blank">https://www.mysterytwisterc3.org/en/challenges/level-x/double-column-transposition</a>.
+	<br>
+        Also see <a href="http://scienceblogs.de/klausis-krypto-kolumne/2013/09/13/top-25-der-ungelosten-verschlusselungen-platz-5-die-doppelwurfel-challenge/" target="_blank">http://scienceblogs.de/klausis-krypto-kolumne/2013/09/13/top-25-der-ungelosten-verschlusselungen-platz-5-die-doppelwurfel-challenge/</a> .</P>
+
+<P>After 6 years, where despite many efforts no breakthrough seems to come, the original challenge was solved by George Lasry [4].</P>
+       
+<P>In order to show that double-column transposition is still secure today when using "correct" parameters, end of 2013 the series "Double Column Transposition Reloaded" was created:<br>
+       	<a href="https://www.mysterytwisterc3.org/en/challenges/level-iii/double-column-transposition-reloaded-part-1" target="_blank">https://www.mysterytwisterc3.org/en/challenges/level-iii/double-column-transposition-reloaded-part-1</a></P>
+<br>
+
+
 
 <P>Furthermore, Klaus Schmeh lists some other crypto puzzles:</P>
 
@@ -127,8 +141,7 @@ The exercise is based on an idea by Otto Leiberich, former president of the Germ
 	and <a href="http://www.cryptool.org/en/jcryptool" target="_blank"
 	>JCT</a>. Additionally the authors investigated a bit the mathematical
         borders for finding the optimal integer sequence
-	<a href="http://www.research.att.com/~njas/sequences/A019312" target="_blank"
-	        >http://www.research.att.com/~njas/sequences/A019312</a>.</LI>
+	<a href="https://oeis.org/A019312" target="_blank">https://oeis.org/A019312</a>.</LI>
 	<LI>TU Darmstadt Lattice Challenge 2008<br>
 	see <a href="http://www.latticechallenge.org" target="_blank">http://www.latticechallenge.org</a></LI>
 	<LI>
@@ -144,8 +157,7 @@ The exercise is based on an idea by Otto Leiberich, former president of the Germ
 <br>
 
 <P>[1] Klaus Schmeh: "Codeknacker gegen Codemacher. Die faszinierende Geschichte 
-       der Verschlüsselung", 2nd edition, December 2007, W3L-Verlag (currently
-       only in German)</P>
+       der Verschlüsselung", 2nd edition, December 2007, W3L-Verlag (only in German)</P>
 
 <P>[2] Otto Leiberich, "Vom diplomatischen Code zuf Falltürfunktion", reprinted in
        Spektrum der Wissenschaft, Dossier 4/2001, Kryptographie, pp. 12-18 </P>
@@ -155,6 +167,10 @@ The exercise is based on an idea by Otto Leiberich, former president of the Germ
        cryptanalysis of ciphertexts and the identification of the best algorithm for
        a certain purpose.<BR>
        See <a href="http://www.heise.de/tp/r4/artikel/26/26876/1.html" target="_blank">http://www.heise.de/tp/r4/artikel/26/26876/1.html</a> (German only)</P>
+
+<P>[4] Lasry, G., Kopal, N., Wacker, A.: Solving the Double Transposition Challenge with a Divide and Conquer Approach. Cryptologia. 38, 197-214 (2014)<br>
+<a href="https://www.uni-kassel.de/eecs/fileadmin/datas/fb16/Fachgebiete/UC/papers/Solving_the_Double_Transposition_Challenge_with_a_Divide_and_Conquer_Approach.pdf?" target="_blank">https://www.uni-kassel.de/eecs/fileadmin/datas/fb16/Fachgebiete/UC/papers/Solving_the_Double_Transposition_Challenge_with_a_Divide_and_Conquer_Approach.pdf?</a></P>
+<br>
 
 </BODY>
 </HTML>
