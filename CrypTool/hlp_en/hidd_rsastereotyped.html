@@ -25,65 +25,100 @@
 
 <p><br>
   The dialog <a href="hid_rsa_stereotyped.html">Attack on stereotyped messages</a> 
-  offers two different approaches:<br>
-  <strong>1. Generate example input data (enter only parts of the required information) 
-  and start an attack<br>
-  </strong>Is is possible to generate an own example in the dialog which then 
-  can be attacked. This mode leaves unexperienced users with the option to try 
-  out the capabilities and limits of the attack.<br>
+  offers two different approaches:<br><br>
+  <strong>1. Generate example input data and start an attack<br>
+  </strong>Here you can generate an own example in the dialog which then 
+  can be attacked. In addition, it has to be marked which part of the message is unknown.
+  This mode leaves unexperienced users with the option to try 
+  out the capabilities and the limits of the attack.<br><br>
+
   <strong>2. Enter all input data manually and start the attack<br>
-  </strong>By entering the public key, the known part of the message and the ciphertext 
-  the attack can be mounted. After the <a href="offset.html">offset</a> and length of the unknown part are 
-  provided by the user, the attack can be started. This mode is not to be recommended 
-  to inexperienced users.</p>
-<h4>1. Generate input data and start the attack</h4>
+  </strong>By entering the public key, the known part of the message, and the ciphertext 
+  the attack can be launched. After <a href="offset.html">offset</a> and length of
+  the unknown part are provided by the user, the attack can be started. This mode is
+  not recommended to inexperienced users.<br></p>
+
+
+<br><h4>1. Generate example input data and start the attack</h4>
 <p align="center"><img src="images/RSA_Stereotyped_EN.gif" width="786" height="700"></p>
 <ol>
-  <li>First the public key has to be entered. <font face="Times New Roman, Times, serif"><strong>e</strong></font> 
-    should not be selected to big since the unknown part of the message may not 
+  <li>First the public key
+   <font face="Times New Roman, Times, serif"><strong>(N,e) </strong></font>
+    has to be entered. <font face="Times New Roman, Times, serif"><strong>e</strong></font> 
+    should not be selected too big since the unknown part of the message may not 
     exceed <font face="Times New Roman, Times, serif"><strong>(n/e) </strong></font>bit 
-    of the message. <font face="Times New Roman, Times, serif"><strong>n</strong></font> 
-    denotes the bit length of <font face="Times New Roman, Times, serif"><strong>N</strong></font> 
-    . (If e.g. <font face="Times New Roman, Times, serif"><strong>N</strong></font> 
+    of the message. Here, <font face="Times New Roman, Times, serif"><strong>n</strong></font> 
+    denotes the bit length of <font face="Times New Roman, Times, serif"><strong>N</strong></font>.
+    If e.g. <font face="Times New Roman, Times, serif"><strong>N</strong></font> 
     is a <font face="Times New Roman, Times, serif"><strong>1024</strong></font> 
     bit modulus and<font face="Times New Roman, Times, serif"><strong> e</strong></font> 
     equals<font face="Times New Roman, Times, serif"><strong> 3</strong></font>, 
-    at most <font face="Times New Roman, Times, serif"><strong>1024/3=341</strong></font> 
+    at most <font face="Times New Roman, Times, serif"><strong>1024/3 = 341</strong></font> 
     bit or<font face="Times New Roman, Times, serif"><strong> 42</strong></font> 
-    characters of the message can be unknown.) <br>
-    It is possible to have the program generate a random <font face="Times New Roman, Times, serif"><strong>N</strong></font> 
-    by entering the desired bit length of<font face="Times New Roman, Times, serif"><strong> 
-    N</strong></font> and clicking &quot;Generate key&quot;.</li>
-  <li> After that the complete plaintext has to be entered. With a normal attack 
-    the attacker does not know the complete plaintext, but it is required to generate 
-    a valid example.</li>
-  <li> Now the plaintext is encrypted by clicking the &quot;Encrypt&quot; button.</li>
-  <li>With either the mouse or the arrow keys holding down the shift key the part 
-    of the plaintext is highlighted which should be unknown to the attacker. Consider 
-    that this part is not to be chosen too long (refer to point 1). After clicking 
-    the &quot;Cut&quot; button, the textboxes for the known and unknown part of 
-    the plaintext are updated.</li>
-  <li> To start the attack just click the &quot;start&quot; button. In the “Attack” 
-    section information on the current attack are shown and in case of success 
-    the sought part is displayed.</li>
+    characters of the message may be unknown.<br>
+
+    It is also possible to make the program generate a random <font face="Times New Roman, Times, serif"><strong>N</strong></font> 
+    by entering the desired bit length of<font face="Times New Roman, Times, serif"><strong>
+    N</strong></font> and clicking &quot;Create modulus&quot;.</li>
+
+  <li> The fastest way to proceed is when the 2nd radiobutton is checked in
+    <em>&quot;Step 2&quot;</em> of the dialog.
+    Then, only the complete plaintext (no ciphertext) has to be entered.
+    With a normal attack, the attacker does not know the complete plaintext,
+    but for educational purposes it is required to generate a valid example.
+    If you want to use a more realistic scenario, use the second approach.<br>
+    Remark: In this educational dialog the whole plaintext must fit into one RSA block
+    of <font face="Times New Roman, Times, serif"><strong>N</strong></font> bits.
+    Converted in bytes you get the maximum length in characters shown below the
+    textbox "Plaintext".
+  </li>
+
+  <li> Now the plaintext can be encrypted by clicking the &quot;Encrypt&quot; button.
+    The according ciphertext is shown in the field aside.</li>
+
+  <li>Either with the mouse or with the arrow keys (holding down the shift key) the part 
+    of the plaintext has to be highlighted which should be unknown to the attacker.
+    The highlighting has to be done in in the grouping <em>&quot;Step 2&quot;</em>
+    in the dialog.
+    Make sure that this unknown part is not too long (refer to point 1).<br>
+    After clicking the &quot;Cut&quot; button, the textboxes for the known and unknown
+    part of the plaintext are updated, and the &quot;start&quot; button is activated.</li>
+  
+  <li> To start the attack just click the &quot;Start&quot; button. Section
+    (grouping) <em>&quot;Step 5&quot;</em> shown further information on the current attack.
+    In case of success, the sought und previously unknown parts of the plaintext
+    are displayed.</li>
 </ol>
-<h4> <strong>2. Enter all input data manually and start the attack</strong></h4>
-<p> First the public key is needed. Then the known part of the plaintext and the 
-  complete ciphertext has to be entered. Furthermore the offset and the length 
-  of the unknown part has to be entered. This can be done by entering them directly 
-  into the textboxes or using the spin buttons. If the plaintext is already entered 
-  at this stage, changes can be directly monitored in the &quot;Preview&quot; 
-  textbox. </p>
+
+
+<br><h4> <strong>2. Enter all input data manually and start the attack</strong></h4>
+<p> First, the public key
+   <font face="Times New Roman, Times, serif"><strong>(N,e) </strong></font>
+   is needed (ignore the field "desired bit length of
+   <font face="Times New Roman, Times, serif"><strong>N</strong></font>").<br>
+  Then, in <em>&quot;Step 2&quot;</em> of the dialog, the first radiobutton has to be
+  chosen and the complete ciphertext has to be entered.<br>
+  Then, in <em>&quot;Step 3&quot;</em> of the dialog, the known part of the plaintext
+  has to be delivered.  Furthermore, the offset and the length of the unknown part of
+  the message have to be entered. This can be done by entering them directly 
+  into the textboxes or using the spin buttons. If the plaintext is already entered,
+  changes can be directly monitored in the &quot;Preview&quot; textbox: Here you see,
+  that &quot;Length&quot; many stars are inserted into the known plaintext -- starting
+  from the given offset.</p>
+
 <h4>Attack parameters</h4>
-<p>In the &quot;Attack parameters&quot; group the parameter h can be changed (<font face="Times New Roman, Times, serif"><strong>h&gt;1</strong></font>). 
+<p>In the <em>&quot;Step 4&quot;</em> group, the parameter h can be changed (<font face="Times New Roman, Times, serif"><strong>h&gt;1</strong></font>). 
   A greater value fo <font face="Times New Roman, Times, serif"><strong>h </strong></font> 
   allows a bigger part of the message to be unknown, but an increase in this number 
   results in a bigger lattice-dimension and thus negatively influences the runtime 
   of the program.</p> 
 </p>
-<h4>Example:</h4>
+<p> To start the attack just click the &quot;Start&quot; button in section <em>&quot;Step 5&quot;</em> of the dialog.</p> 
+
+
+<h4>Example</h4>
 <p><font face="Times New Roman, Times, serif"><strong>N:</strong></font> <br>
-  81310067042521973654412416255383522902083490331150101578762604997556337351877500251868504140980638835702886192443448896428977810893957566807779481557371020210138654283590601149334614497294215115728214075082663632500764651168005473090221075184203807588533522903997544767899971452793878122769013464319929212827 
+  81310067042521973654412416255383522902083490331150101578762604997556337351877500251868504140980638835702886192443448896428977810893957566807779481557371020210138654283590601149334614497294215115728214075082663632500764651168005473090221075184203807588533522903997544767899971452793878122769013464319929212827 <br>
   <br>
   <font face="Times New Roman, Times, serif"><strong>e:</strong></font> <br>
   3<br>
@@ -100,14 +135,13 @@
   <br>
   <font face="Times New Roman, Times, serif"><strong>Offset of the unknown part:</strong></font> 
   <br>
-  44<br>
+  33<br>
   <br>
   <font face="Times New Roman, Times, serif"><strong>Length of the unknown part:</strong></font> 
   <br>
   10</p>
-<p> <br>
-  <br>
-</p>
+<p> Then it should find the value for the password: "Roadrunner". </p>
 
+<p> <br> <br> </p>
 </BODY>
 </HTML>

@@ -18,79 +18,118 @@
 
 <h3>Dialog Angriff auf stereotype Nachrichten</h3>
 
-<p>.Sie erreichen diesen Dialog über den Menüeintrag <A href="menu_related_methods.html">Einzelverfahren</A> \ <a href="menu_individualprocedures_rsacryptosystem.html">RSA-Kryptosystem</a> \ <a href="menu_individualprocedures_rsacryptosystem_latticebasedattacks.html">Gitterbasierte Angriffe auf RSA</a> \ <a href="HID_RSA_STEREOTYPED.html">Angriff auf stereotype Nachrichten</a>.</p>
+<p>Sie erreichen diesen Dialog über den Menüeintrag
+<A href="menu_related_methods.html">Einzelverfahren</A> \ 
+<a href="menu_individualprocedures_rsacryptosystem.html">RSA-Kryptosystem</a> \ 
+<a href="menu_individualprocedures_rsacryptosystem_latticebasedattacks.html">Gitterbasierte Angriffe auf RSA</a> \ <a href="HID_RSA_STEREOTYPED.html">Angriff auf stereotype Nachrichten</a>.</p>
 
 <p><br>
   Die Maske zum <a href="hid_rsa_stereotyped.html">Angriff auf stereotype Nachrichten</a> 
-  bietet zwei verschiedene Ans&auml;tze:<br>
+  bietet zwei verschiedene Ans&auml;tze:<br><br>
   <strong>1. Beispieldaten erzeugen lassen, dann Angriff durchf&uuml;hren<br>
   </strong>Man erzeugt in der Maske selbst ein Beispiel und f&uuml;hrt anschlie&szlig;end 
-  den Angriff darauf durch. Dieser Modus gibt unerfahreneren Benutzern die M&ouml;glichkeit, 
-  die Grenzen des Verfahrens zu erkunden. <br>
+  den Angriff darauf durch. Zus&auml;tzlich muss gekennzeichnet werden, welcher 
+  Teil der Nachricht unbekannt ist.
+  Dieser Modus gibt unerfahreneren Benutzern die M&ouml;glichkeit, 
+  die Grenzen des Verfahrens zu erkunden. <br><br>
+  
   <strong>2. Alle Informationen selbst eingeben, dann Angriff durchf&uuml;hren<br>
   </strong>Man gibt den &ouml;ffentlichen Schl&uuml;ssel, den bekannten Teil der 
-  Nachricht und den Chiffretext selbst ein, um einen Angriff durchzuf&uuml;hren. 
+  Nachricht und den Geheimtext selbst ein, um einen Angriff durchzuf&uuml;hren. 
   Zus&auml;tzlich m&uuml;ssen noch Angaben zur L&auml;nge und Position des unbekannten 
   Teils der Nachricht gemacht werden. Dieser Modus ist nur f&uuml;r erfahrene 
-  Benutzer zu empfehlen.</p>
-<h4><strong>1. Beispieldaten erzeugen lassen, dann Angriff durchf&uuml;hren</strong></h4>
+  Benutzer zu empfehlen.<br></p>
+
+
+<br><h4><strong>1. Beispieldaten erzeugen lassen, dann Angriff durchf&uuml;hren</strong></h4>
 <p align="center"><img src="images/RSA_Stereotyped_DE.gif" width="786" height="700"></p>
-<p>Hier wird zun&auml;chst der zweite Modus beschrieben, um einen schnellen Einstieg 
-  zu erlauben. Unter &quot;Vollst&auml;ndig eigenen Angriff durchf&uuml;hren&quot; 
-  wird der erste Modus n&auml;her erl&auml;utert.</p>
 <ol>
-  <li> Zun&auml;chst muss der &ouml;ffentliche Schl&uuml;ssel eingegeben werden. 
+  <li> Zun&auml;chst muss der &ouml;ffentliche Schl&uuml;ssel
+   <font face="Times New Roman, Times, serif"><strong>(N,e) </strong></font>
+    eingegeben werden. 
     Dabei ist darauf zu achten, dass <font face="Times New Roman, Times, serif"><strong>e</strong></font> 
     nicht zu gro&szlig; gew&auml;hlt wird, da h&ouml;chstens <font face="Times New Roman, Times, serif"><strong>(n/e) 
-    </strong></font>Bit der Nachricht unbekannt sein d&uuml;rfen. <font face="Times New Roman, Times, serif"><strong>n</strong></font> 
-    bezeichnet dabei die Bitl&auml;nge von N. (Ist z.B. <font face="Times New Roman, Times, serif"><strong>N</strong></font> 
+    </strong></font>Bit der Nachricht unbekannt sein d&uuml;rfen, wobei <font face="Times New Roman, Times, serif"><strong>n</strong></font> 
+    die Bitl&auml;nge von N bezeichnet. Ist z.B. <font face="Times New Roman, Times, serif"><strong>N</strong></font> 
     ein <font face="Times New Roman, Times, serif"><strong>1024</strong></font> 
-    Bit Modulus und<font face="Times New Roman, Times, serif"><strong> e=3</strong></font> 
+    Bit Modulus und<font face="Times New Roman, Times, serif"><strong> e=3</strong></font>, 
     dann d&uuml;rfen h&ouml;chstens <font face="Times New Roman, Times, serif"><strong>1024/3=341</strong></font> 
-    Bit also<font face="Times New Roman, Times, serif"><strong> 42</strong></font> 
-    Zeichen unbekannt sein.) <br>
+    Bit, also<font face="Times New Roman, Times, serif"><strong> 42</strong></font> 
+    Zeichen, unbekannt sein. <br>
+
     Man kann sich auch ein zuf&auml;lliges <font face="Times New Roman, Times, serif"><strong>N</strong></font> 
     erzeugen lassen, wenn man die gew&uuml;nschte Bitl&auml;nge von <font face="Times New Roman, Times, serif"><strong>N</strong></font> 
-    eingibt und auf <em>&quot;Schl&uuml;ssel erzeugen&quot;</em> klickt.</li>
-  <li> Anschlie&szlig;end muss der vollst&auml;ndige Klartext der Nachricht eingegeben 
-    werden. Dieser steht bei einem normalen Angriff nicht zur Verf&uuml;gung, 
-    wird hier jedoch ben&ouml;tigt, um ein g&uuml;ltiges Beispiel zu erzeugen.</li>
-  <li> Nachdem der Klartext eingegeben wurde, wird dieser mit <em>&quot;Verschl&uuml;sseln&quot;</em> 
-    verschl&uuml;sselt und der Chiffretext erscheint im entsprechenden Feld.</li>
-  <li> Nun muss mit der Maus oder den Pfeiltasten bei gedr&uuml;ckter Umschalt-Taste 
-    (Shift) der Teil des Klartextes markiert werden, der dem Angreifer nicht zu 
-    Verf&uuml;gung stehen soll. Dabei ist darauf zu achteen, dass dieser Teil 
-    nicht zu lang ist (siehe die Bedingung unter 1). Wenn nun der Button <em>&quot;Beschneiden&quot;</em> 
-    gedr&uuml;ckt wird, werden die Felder zum bekannten und unbekannten Teil der 
-    Nachricht automatisch aktualisiert.</li>
-  <li> Zum Starten des Angriffs wird nun der <em>&quot;Starten&quot;</em>-Button 
-    bet&auml;tigt. Die Gruppierung <em>&quot;Angriff&quot;</em> enth&auml;lt Informationen 
-    zum gegenw&auml;rtigen Status des Angriffs.</li>
+    eingibt und auf <em>&quot;Modul erzeugen&quot;</em> klickt.</li>
+
+  <li> Am schnellsten geht es weiter, wenn in <em>&quot;Schritt 2&quot;</em> im Dialog
+    der zweite Radiobutton gedrückt ist.
+    Dann muss nur der vollst&auml;ndige Klartext (kein Geheimtext) eingegeben werden.
+    Dieser Klartext steht bei einem normalen Angriff nicht zur Verf&uuml;gung, 
+    wird aus didaktischen Gründen hier jedoch ben&ouml;tigt, um ein g&uuml;ltiges Beispiel zu erzeugen.
+    Das realistische Szenario können Sie im 2. Ansatz durchspielen.<br>
+    Bemerkung: Der ganze Klartext muss in diesem didaktischen Dialog in einen einzigen
+    RSA-Block von <font face="Times New Roman, Times, serif"><strong>N</strong></font>
+    Bits Länge passen. Umgerechnet in Bytes erhält man die in Klammern unter dem Feld
+    "Klartext" angegebene Maximallänge in ASCII-Zeichen.</li>
+
+  <li> Nachdem der Klartext eingegeben wurde, wird dieser mit
+    <em>&quot;Verschl&uuml;sseln&quot;</em> 
+    verschl&uuml;sselt, und der Geheimtext erscheint im entsprechenden Feld.</li>
+
+  <li> Nun muss -- entweder mit der Maus oder mit den Pfeiltasten (bei gedr&uuml;ckter
+    Umschalt-(Shift-)Taste) -- der Teil des Klartextes markiert werden, der dem Angreifer
+    nicht zu Verf&uuml;gung stehen soll. Das Markieren passiert ebenfalls in der
+    Gruppierung <em>&quot;Schritt 2&quot;</em> im Dialog.
+    Dabei ist darauf zu achten, dass dieser unbekannte Teil nicht zu lang ist
+    (siehe die Bedingung unter 1).<br>
+    Wird nun der Button <em>&quot;Beschneiden&quot;</em> 
+    gedr&uuml;ckt, werden die Felder zum bekannten und unbekannten Teil der 
+    Nachricht automatisch aktualisiert, und der <em>&quot;Starten&quot;</em>-Button
+    aktiviert.</li>
+
+  <li> Zum Starten des Angriffs dr&uuml;cken Sie auf den <em>&quot;Starten&quot;</em>-Button. 
+    Die Gruppierung <em>&quot;Schritt 5&quot;</em> enth&auml;lt Informationen 
+    zum gegenw&auml;rtigen Status des Angriffs. Wenn der Angriff erfolgreich ist,
+    werden die gesuchten und vorher unbekannten Teile des Klartextes angezeigt.</li>
 </ol>
-<h4> <strong>2. Alle Informationen selbst eingeben, dann Angriff durchf&uuml;hren</strong></h4>
-<p> Hier wird ebenfalls zun&auml;chst der &ouml;ffentliche Schl&uuml;ssel ben&ouml;tigt. 
-  Anschlie&szlig;end m&uuml;ssen der bekannte Teil des Klartextes und der Chiffretext 
-  eingegeben werden. Dar&uuml;ber hinaus muss die Position und die L&auml;nge 
-  des unbekannten Teils der Nachricht eingestellt werden. Dies kann entweder durch 
-  direkte Eingabe in die entsprechenden Felder oder durch Verwendung der Drehfelder 
-  geschehen. Wurde bereits der bekannte Teil des Klartextes eingegeben, k&ouml;nnen 
+
+
+<br><h4> <strong>2. Alle Informationen selbst eingeben, dann Angriff durchf&uuml;hren</strong></h4>
+<p> Hier ist zuerst der &ouml;ffentliche Schl&uuml;ssel
+  <font face="Times New Roman, Times, serif"><strong>(N,e) </strong></font>
+  einzugeben (das Feld "gew&uuml;nschte Bitl&auml;nge von
+  <font face="Times New Roman, Times, serif"><strong>N</strong></font>"
+  kann man hierbei ignorieren).<br>
+  Dann ist in <em>&quot;Schritt 2&quot;</em> des Dialogs der erste Radiobutton auszuwählen
+  und der gesamte Geheimtext einzugeben.<br>
+  Anschlie&szlig;end muss in <em>&quot;Schritt 3&quot;</em> der bekannte Teil des
+  Klartextes eingegeben werden. Dar&uuml;ber hinaus m&uuml;ssen die Position und die
+  L&auml;nge des unbekannten Teils der Nachricht eingestellt werden. Dies kann entweder
+  durch direkte Eingabe in die entsprechenden Felder oder durch Verwendung der Drehfelder 
+  geschehen. Wurde der bekannte Teil des Klartextes bereits eingegeben, k&ouml;nnen 
   im <em>&quot;Vorschau&quot;</em>-Feld die &Auml;nderungen direkt nachvollzogen 
-  werden. </p>
+  werden: Es werden &quot;L&auml;nge&quot; viele Sterne in den bekannten Klartext
+  eingefügt, angefangen ab dem gegebenen Offset.</p>
+
 <h4>Angriffsparameter </h4>
-<p>In der Gruppierung Angriffsparameter kann der Parameter <font face="Times New Roman, Times, serif"><strong>h 
+<p>In der Gruppierung <em>&quot;Schritt 4&quot;</em> kann der Parameter <font face="Times New Roman, Times, serif"><strong>h 
   </strong></font> dieses Angriffes ver&auml;ndert werden (<font face="Times New Roman, Times, serif"><strong>h&gt;1</strong></font>). 
   Ein gr&ouml;&szlig;eres <font face="Times New Roman, Times, serif"><strong>h 
   </strong></font> erlaubt zwar einen gr&ouml;&szlig;eren unbekannten Teil, wirkt 
   sich jedoch ung&uuml;nstig auf die Gitterdimension und damit die Laufzeit aus.</p> 
 </p>
-<h4>Beispiel:</h4>
+<p> Zum Starten des Angriffs dr&uuml;cken Sie auf den <em>&quot;Starten&quot;</em>-Button
+in der Gruppierung <em>&quot;Schritt 5&quot;</em> des Dialogs.</p> 
+
+
+<h4>Beispiel</h4>
 <p><font face="Times New Roman, Times, serif"><strong>N:</strong></font> <br>
-  81310067042521973654412416255383522902083490331150101578762604997556337351877500251868504140980638835702886192443448896428977810893957566807779481557371020210138654283590601149334614497294215115728214075082663632500764651168005473090221075184203807588533522903997544767899971452793878122769013464319929212827 
+  81310067042521973654412416255383522902083490331150101578762604997556337351877500251868504140980638835702886192443448896428977810893957566807779481557371020210138654283590601149334614497294215115728214075082663632500764651168005473090221075184203807588533522903997544767899971452793878122769013464319929212827 <br>
   <br>
   <font face="Times New Roman, Times, serif"><strong>e:</strong></font> <br>
   3<br>
   <br>
-  <font face="Times New Roman, Times, serif"><strong>Chiffretext (dezimal):</strong></font> 
+  <font face="Times New Roman, Times, serif"><strong>Geheimtext (dezimal):</strong></font> 
   <br>
   6876244464448251820979970022698884385836638083088083419902980411203512466120416238865613640690374802876646562813408073087772632930261205441418948916744828883561053460736104035313942934234432107110875242023732132161152311950942935350416008458837058423162900984604703060723925905499919978226774400829173376590 
   <br>
@@ -107,9 +146,8 @@
   <font face="Times New Roman, Times, serif"><strong><br>
   L&auml;nge des unbekannten Teils:</strong></font> <br>
   10</p>
-<p> <br>
-  <br>
-</p>
+<p> Dann sollte es als Passwort den folgenden String finden: "Roadrunner". </p>
 
+<p> <br> <br> </p>
 </BODY>
 </HTML>
