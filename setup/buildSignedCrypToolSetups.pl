@@ -1,7 +1,11 @@
 # buildSignedCrypToolSetups.pl
 
 #
-# Be aware that this script doesn't run as-is.
+# Be aware that this script doesn't run as-is due to hard-coded paths 
+# to the "devenv.exe" and the "signtool.exe". Apart from that, the 
+# script accepts two possible arguments: "noSign" and "noRebuild". 
+# If these arguments are omitted, the script tries to sign the 
+# resulting archives and CrypTool is fully rebuilt for each language.
 #
 # flomar, March 2017
 #
@@ -13,19 +17,23 @@ use Win32::Process;
 
 my @languages = ( "de", "en", "es", "fr", "pl", "rs" );
 
+my $noSign = undef;
+my $noRebuild = undef;
+
 my $absoluteScriptPath = getAbsoluteScriptPath();
 
 my $certificateFilename = $absoluteScriptPath . "certificate.pfx";
 my $certificatePassword = undef;
 
+applyArguments();
 printIntroductoryInformation();
-printCertificateInformation();
-$certificatePassword = requestPassword();
+printCertificateInformation() if($noSign == 0);
+$certificatePassword = requestPassword() if($noSign == 0);
 buildCrypTool();
 createCrypToolSetupDirectories();
-signCrypToolSetupDirectories();
+signCrypToolSetupDirectories() if($noSign == 0);
 createCrypToolSetupExecutables();
-signCrypToolSetupExecutables();
+signCrypToolSetupExecutables() if($noSign == 0);
 
 sub getAbsoluteScriptPath() {
 	my $file = $0;
@@ -34,6 +42,19 @@ sub getAbsoluteScriptPath() {
 		return $1;
 	}
 	return "";
+}
+
+sub applyArguments() {
+	$noSign = 0;
+	$noRebuild = 0;
+	foreach my $argument (@ARGV) {
+		if($argument eq "noSign") {
+			$noSign = 1;
+		}
+		if($argument eq "noRebuild") {
+			$noRebuild = 1;
+		}
+	}
 }
 
 sub printIntroductoryInformation() {
@@ -61,24 +82,25 @@ sub requestPassword() {
 }
 
 sub buildCrypTool() {
-	my @filesToBeTouched = ( $absoluteScriptPath . "CrypTool\\CrypTool\\CrypTool.rc", $absoluteScriptPath . "CrypTool\\CrypTool\\CrypToolApp.cpp", $absoluteScriptPath . "CrypTool\\CrypTool\\DlgAbout.cpp" );
+	my @filesToBeTouched = ( $absoluteScriptPath . "..\\CrypTool\\CrypTool.rc", $absoluteScriptPath . "..\\CrypTool\\CrypToolApp.cpp", $absoluteScriptPath . "..\\CrypTool\\DlgAbout.cpp" );
 	foreach my $fileToBeTouched (@filesToBeTouched) {
 		utime(undef, undef, $fileToBeTouched);
 	}
 	my $VS2008IdePath = "C:\\Program Files (x86)\\Microsoft Visual Studio 9.0\\Common7\\IDE\\devenv.exe";
-	my $VS2008SolutionPath = $absoluteScriptPath . "CrypTool\\CrypTool\\CrypTool-VS2008.sln";
+	my $VS2008SolutionPath = $absoluteScriptPath . "..\\CrypTool\\CrypTool-VS2008.sln";
+	my $buildMode = $noRebuild == 0 ? "/Build" : "/Rebuild";
 	foreach my $language (@languages) {
 		print("Building CrypTool_$language...\n");
 		my $process = undef;
-		Win32::Process::Create($process, $VS2008IdePath, "devenv $VS2008SolutionPath /Build Release_$language", 1, Win32::Process::CREATE_NO_WINDOW(), ".") or print Win32::FormatMessage(Win32::GetLastError());
+		Win32::Process::Create($process, $VS2008IdePath, "devenv $VS2008SolutionPath $buildMode Release_$language", 1, Win32::Process::CREATE_NO_WINDOW(), ".") or print Win32::FormatMessage(Win32::GetLastError());
 		$process->Wait(INFINITE);
 	}
 	print("\n");
 }
 
 sub createCrypToolSetupDirectories() {
-	my $setupPath = $absoluteScriptPath . "CrypTool\\setup";
-	my $batchPath = $absoluteScriptPath . "CrypTool\\setup\\createsetupdir1lang.bat";
+	my $setupPath = $absoluteScriptPath . "..\\setup";
+	my $batchPath = $absoluteScriptPath . "..\\setup\\createsetupdir1lang.bat";
 	foreach my $language (@languages) {
 		print("Creating CrypTool_$language setup directory...\n");
 		my $process = undef;
@@ -103,10 +125,10 @@ sub signCrypToolSetupDirectories() {
 }
 
 sub createCrypToolSetupExecutables() {
-	my $setupPath = $absoluteScriptPath . "CrypTool\\setup";
-	my $batchPath = $absoluteScriptPath . "CrypTool\\setup\\createsetupexe1lang.bat";
+	my $setupPath = $absoluteScriptPath . "..\\setup";
+	my $batchPath = $absoluteScriptPath . "..\\setup\\createsetupexe1lang.bat";
 	foreach my $language (@languages) {
-		print("Creating CrypTool_$language setup directory...\n");
+		print("Creating CrypTool_$language setup executable...\n");
 		my $process = undef;
 		Win32::Process::Create($process, $batchPath, "createsetupexe1lang $language", 1, Win32::Process::CREATE_NO_WINDOW(), $setupPath) or print Win32::FormatMessage(Win32::GetLastError());
 		$process->Wait(INFINITE);
@@ -116,7 +138,7 @@ sub createCrypToolSetupExecutables() {
 
 sub signCrypToolSetupExecutables {
 	my $signtoolPath = "C:\\Program Files\\Microsoft SDKs\\Windows\\v6.0A\\Bin\\signtool.exe";
-	my $setupPath = $absoluteScriptPath . "CrypTool\\setup";
+	my $setupPath = $absoluteScriptPath . "..\\setup";
 	foreach my $language (@languages) {
 		print("Signing CrypTool_$language setup executable...\n");
 		my $setupsToBeSigned = getSetupsToBeSigned($language);
@@ -131,7 +153,7 @@ sub signCrypToolSetupExecutables {
 
 sub getFilesToBeSigned() {
 	my ($language) = @_;
-	my $setupPath = $absoluteScriptPath . "CrypTool\\setup\\setup-$language";
+	my $setupPath = $absoluteScriptPath . "..\\setup\\setup-$language";
 	my @extensions = ( "dll", "exe" );
 	my @filesToBeSigned = ( );
 	foreach my $extension (@extensions) {
@@ -145,7 +167,7 @@ sub getFilesToBeSigned() {
 
 sub getSetupsToBeSigned() {
 	my ($language) = @_;
-	my $setupPath = $absoluteScriptPath . "CrypTool\\setup";
+	my $setupPath = $absoluteScriptPath . "..\\setup";
 	my @setupsToBeSigned = glob "$setupPath\\SetupCrypTool_*_$language.exe";
 	return \@setupsToBeSigned;
 }
