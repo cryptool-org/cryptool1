@@ -1,8 +1,8 @@
 ==================================================================
-    CrypTool, Version 1.4.31 für Win32, April 2017
+    CrypTool, Version 1.4.31 für Win32, Mai 2017
 
-CrypTool v1 (CT1) ist ein internationales E-Learning-Programm
-für Kryptographie und Kryptoanalyse.
+CrypTool v1 (CT1) ist ein freies, internationales
+E-Learning-Programm für Kryptographie und Kryptoanalyse.
 
     (c) Contributors
         Dazu gehören u.a. Deutsche Bank AG, Frankfurt am Main, und die
@@ -1278,7 +1278,6 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
 - Am 18. Januar 2012 wurde die neue CrypTool-Webseite (CTP) freigegeben, die
   die 5 Unterprojekte des CT-Projektes gleichwertig darstellt.
   Dazu gehört auch CT1.
-  Das CT-Portal (CTP) nutzt als CMS Joomla.
 
 
 c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
@@ -1330,7 +1329,7 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
 - Wenn in der Registry Positions- und Größenangaben liegen, die das CT-Fenster
   außerhalb des Bildschirms positionieren, fängt CT das beim Start selbst ab.
   Das "Verschwinden" der Fenster kam vermehrt unter Win 7 mit CT 1.4.30 vor,
-  wenn Betriebssystemupdates eingespielt oder Monitorauflösungen geändert
+  wenn Betriebssystem-Updates eingespielt oder Monitorauflösungen geändert
   wurden.
 - DES-Animal-Animation: Einige Fehler in den Schritten 357-424 und insbesondere
   in der Pre-Output-Matrix (64 bit) wurden beseitigt.
@@ -1351,7 +1350,8 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
   Siehe z.B. Menü Ansicht --> Alphabet oder den Hill-Analysedialog.
 - Einen kleinen Fehler im Homophonen-Dialog korrigiert, wo initial ein
   falscher Index angezeigt wurde.
-
+- Den Dialog "Angriff auf stereotype Nachrichten" stabiler gemacht, und ein
+  paar Layout-Fehler behoben.
 
 - Danke an die vielen aufmerksamen Benutzer, die uns auf Bugs und 
   Inkonsistenzen aufmerksam machten.
@@ -2266,7 +2266,7 @@ Version                  Deutsch    Englisch      Bedarf DE      durch
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.30    Aug. 2010      52,1 MB     51,5 MB         95 MB        DB
-1.4.31    Apr. 2017      70,1 MB     69,4 MB        114 MB        CT (xxx)
+1.4.31    Mai  2017      70,1 MB     69,4 MB        114 MB        CT (xxx)
 
 Bemerkungen zu den (Zwischen-)Versionen:
 1.3.02  Viele neue Funktionen gegenüber 1.3.00
@@ -2574,6 +2574,15 @@ d) Eine kleine Auswahl weiterer Seiten, die CrypTool erwähnen:
         (Ressource-Seite zu dem Buch "Cryptography and Network Security",
          7. Auflage von William Stallings)
    http://www.garykessler.net/library/crypto.html
+   http://blog.learningtree.com/an-introduction-to-using-cryptool-to-show-how-ciphers-work
+   Ein freies Schulbuch zum Fach Informatik am Gymnasium:
+   - http://blog.learningtree.com/an-introduction-to-using-cryptool-to-show-how-ciphers-work
+   - http://www.inf-schule.de/kommunikation/kryptologie/historischechiffriersysteme/station_ersetzungsverfahren
+   - http://www.inf-schule.de/kommunikation/kryptologie/historischechiffriersysteme/station_vigenereverfahren
+   - http://www.inf-schule.de/kommunikation/kryptologie/historischechiffriersysteme/station_onetimepad
+   - http://www.inf-schule.de/kommunikation/kryptologie/modernechiffriersysteme/beispiel_aes/exkurs_experimentecryptool
+   - http://www.inf-schule.de/kommunikation/kryptologie/rsa/cryptool/station_rsademo
+   - http://www.inf-schule.de/kommunikation/kryptologie/digitalesignatur/einstieg_hashfunktion/experimentecryptool
    ...
 
 
@@ -3415,5 +3424,5 @@ mit Qt 5 bauen (siehe A.1).
 Bitte probieren Sie auch die neuen Versionen CT2 und JCT.
 Sie finden diese ebenfalls auf der Webseite  www.cryptool.org  
 
-Vergleiche auch: https://de.wikipedia.org/wiki/CrypTool
+Eintrag in der Wikipedia: https://de.wikipedia.org/wiki/CrypTool
 

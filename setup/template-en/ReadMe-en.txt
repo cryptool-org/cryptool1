@@ -1,8 +1,8 @@
 ==================================================================
-    CrypTool, Version 1.4.31 for Win32, April 2017
+    CrypTool, Version 1.4.31 for Win32, May 2017
     
-CrypTool v1 (CT1) is an international e-learning program
-for cryptography and cryptanalysis.
+CrypTool v1 (CT1) is a free, international
+e-learning program for cryptography and cryptanalysis.
 
     (c) Contributors
         including Deutsche Bank AG, Frankfurt/Main, and the Universities
@@ -27,11 +27,11 @@ for cryptography and cryptanalysis.
  2.5. ... What's new in version 1.4.30
  2.6. ... What's new in version 1.4.31
  3. ... Limitations and requirements
- 3.1. ... Scope of this Education, training and awareness software
- 3.2. ... Win32 environment, rights for installation and usage, Java-Runtime
+ 3.1. ... Scope of this education, training and awareness software
+ 3.2. ... Win32 environment, rights for installation and usage, Java runtime
  3.3. ... Interactive online help under Windows XP
  3.4. ... Support for different languages
- 3.5. ... Restrictions / Features / Hints & Tips
+ 3.5. ... Restrictions / features / hints & tips
  3.6. ... Using certificates and keys created with older CT1 versions
  4. ... Installation / de-installation / key usage / operating
  4.1. ... Installation
@@ -46,7 +46,7 @@ for cryptography and cryptanalysis.
  5.1. ... Checking the integrity of downloaded files
  6. ... Brief history of the released main versions of CT1
  7. ... Feedback and contact addresses
- 8. ... References / Hints / Awards
+ 8. ... References / hints / awards
  8.1. ... Articles about CrypTool
  8.2. ... Further references
  8.3. ... Further freeware projects (Crank, CAP, CryptoStudio, SageMath, etc)
@@ -1236,7 +1236,6 @@ b) Changes within the user documentation / on the websites:
 - At January 18th, 2012 the new CrypTool website (CTP) was released. It
   describes the 5 sub projects of the CT project in an equivalent way.
   This contains CT1.
-  The CT Portal (CTP) uses Joomla as CMS.
 
 
 c) New functionality / Usability / Corrections of errors:
@@ -1304,6 +1303,8 @@ c) New functionality / Usability / Corrections of errors:
 - Scilexer.dll again greys out non-alphabet characters correctly.
   See e.g. menu View --> Alphabet or the Hill analyzer.
 - Fixed small issue with wrong index shown initially in the homophones dialog.
+- Making the dialog "Attack on Stereotyped Messages" more robust, and
+  fixed some smaller mistakes in layout. 
 
 - Thanks to the many attentive users, who pointed us to bugs and
   inconsistencies.
@@ -1315,7 +1316,7 @@ c) New functionality / Usability / Corrections of errors:
 3. Limitations and requirements
    ----------------------------
 
-3.1. Scope of this Education, training and awareness software
+3.1. Scope of this education, training and awareness software
      --------------------------------------------------------
 CrypTool is a demonstration primarily for training and awareness
 purposes, which is intended to be used at once without any previous
@@ -1352,7 +1353,7 @@ implemented according to international standards and are working
 as "well" as in productive applications.
 
 
-3.2. Win32 environment, rights for installation and usage, Java-Runtime
+3.2. Win32 environment, rights for installation and usage, Java runtime
      ------------------------------------------------------------------
 CT1 v1.4.31 was written to run under the operating system Windows 8 and 10.
 CT1 requires a Win32 environment, which is also available in 64-bit Windows.
@@ -1464,7 +1465,7 @@ For each supported language CrypTool 1.4.31 comes with an extra installation
 program (setup).
 
 
-3.5. Restrictions / Features / Hints & Tips
+3.5. Restrictions / features / hints & tips
      --------------------------------------
 - In order to demonstrate the RSA cryptosystem and to factorize
   integers CrypTool uses the long integer arithmetic of the Miracl
@@ -2190,7 +2191,7 @@ Version                 English      German    needed EN     by
 1.4.20    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.21    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.30    Aug. 2010     51.5 MB      52.1 MB    94 MB        DB
-1.4.31    Apr. 2017     69.4 MB      70.1 MB   112 MB        CT (xxx)
+1.4.31    May  2017     69.4 MB      70.1 MB   112 MB        CT (xxx)
 
 Remarks about the (intermediate) versions:
 1.3.02  Many new functions compared to 1.3.00
@@ -2256,7 +2257,7 @@ Contact addresses:
 
 
 
-8. References / Hints / Awards
+8. References / hints / awards
    ---------------------------
 
 See also:
@@ -2488,6 +2489,7 @@ d) A small selection of further pages mentioning CrypTool:
         (resource site for the book "Cryptography and Network Security",
          7th edition by William Stallings)
    http://www.garykessler.net/library/crypto.html
+   http://blog.learningtree.com/an-introduction-to-using-cryptool-to-show-how-ciphers-work
    ...
 
 
@@ -3310,5 +3312,5 @@ using Qt 5 (see A.1).
 Please also try out the new versions CT2 and JCT.
 You can find them at  www.cryptool.org  too.
 
-Compare: https://en.wikipedia.org/wiki/CrypTool
+Enrty in Wikipedia: https://en.wikipedia.org/wiki/CrypTool
 
