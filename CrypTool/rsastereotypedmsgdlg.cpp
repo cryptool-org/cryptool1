@@ -32,6 +32,8 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
+#define MODULUS_CREATION_WARNING_LIMIT_BITS 2048
+
 /////////////////////////////////////////////////////////////////////////////
 // CRSAStereotypedMSGDlg Dialogfeld
 
@@ -195,8 +197,8 @@ void CRSAStereotypedMSGDlg::updatePreview()
 	for(int i=0; i<length;i++)
 		preview+="*";
 	preview+=right;
-	
-	SetDlgItemText(IDC_EDITPREVIEW, preview);	
+
+	SetDlgItemText(IDC_EDITPREVIEW, preview);
 }
 
 void CRSAStereotypedMSGDlg::OnChangeEditlength() 
@@ -547,19 +549,40 @@ void CRSAStereotypedMSGDlg::OnRandom()
 			this->GetWindowText(myTitle);
 			MessageBox(tmp,myTitle);
 		}
-		else{
-			BeginWaitCursor();
-			int bitsOfQ=m_bitsOfN/2;
-			int bitsOfP=(m_bitsOfN+1)/2;
-			SetSeed(to_ZZ(GetTime()*10000)); 
-			ZZ p = GenPrime_ZZ(bitsOfP); // generate N, p and q
-			ZZ q = GenPrime_ZZ(bitsOfQ);
-			ZZ N = p*q;	
-			SetDlgItemText(IDC_EDITN,toString(N,10,0));
-			EndWaitCursor();
+		else {
+			// flomar, 2017/04/30
+			// here we display a warning to the user if the chosen modulus size exceeds 
+			// a preconfigured value (MODULUS_CREATION_WARNING_LIMIT_BITS); if the user 
+			// presses "No", the modulus will not be created; if the user presses "Yes", 
+			// the program proceeds as usual
+			bool proceed = true;
+			if(m_bitsOfN > MODULUS_CREATION_WARNING_LIMIT_BITS) {
+				CString title;
+				GetWindowText(title);
+				CString message;
+				message.Format(IDS_RSASTEREOTYPEDATTACK_MODULUS_CREATION_WARNING, MODULUS_CREATION_WARNING_LIMIT_BITS);
+				const int result = MessageBox(message, title, MB_YESNO|MB_ICONWARNING);
+				if(result != IDYES) {
+					proceed = false;
+				}
+			}
+			if(proceed) {
+				BeginWaitCursor();
+				int bitsOfQ=m_bitsOfN/2;
+				int bitsOfP=(m_bitsOfN+1)/2;
+				SetSeed(to_ZZ(GetTime()*10000)); 
+				ZZ p = GenPrime_ZZ(bitsOfP); // generate N, p and q
+				ZZ q = GenPrime_ZZ(bitsOfQ);
+				ZZ N = p*q;
+				m_N = toString(N, 10, 0);
+				m_e = "3";
+				EndWaitCursor();
+				UpdateData(false);
+			}
 		}
 	}
 	OnChangeEditplainfull();
+	CheckEncryptButton();
 }
 
 void CRSAStereotypedMSGDlg::enableDisable(bool b)
@@ -608,6 +631,14 @@ void CRSAStereotypedMSGDlg::OnButtonlog()
 
 	CAppDocument *NewDoc = theApp.OpenDocumentFileNoMRU(filename);
 	delete filename;
+
+	// flomar, 2017/04/30
+	// here we inform the user that the log text was written to a new document
+	CString title;
+	GetWindowText(title);
+	CString message;
+	message.Format(IDS_DH_KEY_LOGTEXT_CREATED);
+	MessageBox(message, title, MB_OK|MB_ICONINFORMATION);
 }
 
 void CRSAStereotypedMSGDlg::OnRadiochoice() 
@@ -728,7 +759,7 @@ void CRSAStereotypedMSGDlg::OnChangeEditplainfull()
 		MaxChars = to_ZZ(floor(log(N+255)/log(256.0)));
 	else
 		MaxChars = 0;
-	chars.Format("%d(%s)",tmp.GetLength(),toString(MaxChars,10,0));
+	chars.Format("%d (%s)",tmp.GetLength(),toString(MaxChars,10,0));
 	SetDlgItemText(IDC_EDITPLAINLENGTH,chars);
 	SetDlgItemText(IDC_EDITCIPHER,"");
 	UpdateSliders();

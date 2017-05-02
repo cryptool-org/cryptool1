@@ -31,9 +31,23 @@ void StereotypedAttack::attack(){
 	reduceLatticeTime=0.0;
 	startTime=GetTime();
 
+	Log = "";
+
+	// flomar, 2017/04/30
+	// here we dump the most important parameters for the attack (N, e, h)
+	CString logStringN = "N: ";
+	logStringN += toString(N, 10, 0);
+	CString logStringE = "e: ";
+	logStringE += toString(e, 10, 0);
+	CString logStringH = "h: ";
+	logStringH += toString(h, 10, 0);
+	Log += logStringN + "\r\n";
+	Log += logStringE + "\r\n";
+	Log += logStringH + "\r\n";
+
 	CString logStringStereotypedAttackStarted;
 	logStringStereotypedAttackStarted.LoadString(IDS_RSA_LOG_STEREOTYPED_ATTACK_STARTED);
-	Log = timeStamp() + logStringStereotypedAttackStarted + "\r\n";
+	Log += timeStamp() + logStringStereotypedAttackStarted + "\r\n";
 
 	CString logStringBuildingLattice;
 	logStringBuildingLattice.LoadString(IDS_RSA_LOG_BUILDING_LATTICE);
@@ -100,15 +114,17 @@ long StereotypedAttack::reductions = 0;
 void StereotypedAttack::buildPoly(){
 	poly.kill();
 
-	CString logStringTextLeftOfUnknownPart;
-	logStringTextLeftOfUnknownPart.LoadString(IDS_RSA_LOG_TEXT_LEFT_OF_UNKNOWN_PART);
-	Log += logStringTextLeftOfUnknownPart + "\r\n";
-	Log+=toString(leftText,256,0)+"\r\n";
-
-	CString logStringTextRightOfUnknownPart;
-	logStringTextRightOfUnknownPart.LoadString(IDS_RSA_LOG_TEXT_RIGHT_OF_UNKNOWN_PART);
-	Log += logStringTextRightOfUnknownPart + "\r\n";
-	Log+=toString(rightText,256,0)+"\r\n";
+	// flomar, 2017/04/30
+	// here we display the plaintext and the unknown part as we do in the preview box 
+	// of the dialog, i.e. "this is the plaintext, the ******* part is hidden"
+	CString logStringPlaintextAndUnknownPart;
+	logStringPlaintextAndUnknownPart.Format(IDS_RSASTEREOTYPEDATTACK_PLAINTEXTANDUNKNOWNPART);
+	Log += logStringPlaintextAndUnknownPart;
+	Log += "\r\n";
+	Log += toString(leftText, 256, 0);
+	for(int i=0; i<unknownLength; i++) Log += "*";
+	Log += toString(rightText, 256, 0);
+	Log += "\r\n";
 
 	CString logStringLengthOfUnknownPart;
 	logStringLengthOfUnknownPart.LoadString(IDS_RSA_LOG_LENGTH_OF_UNKNOWN_PART);
