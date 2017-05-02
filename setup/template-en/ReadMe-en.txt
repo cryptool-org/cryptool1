@@ -3312,5 +3312,5 @@ using Qt 5 (see A.1).
 Please also try out the new versions CT2 and JCT.
 You can find them at  www.cryptool.org  too.
 
-Enrty in Wikipedia: https://en.wikipedia.org/wiki/CrypTool
+Entry in Wikipedia: https://en.wikipedia.org/wiki/CrypTool
 
