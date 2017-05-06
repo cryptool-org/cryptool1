@@ -43,7 +43,7 @@ CRSAStereotypedMSGDlg::CRSAStereotypedMSGDlg(CWnd* pParent /*=NULL*/)
 	//{{AFX_DATA_INIT(CRSAStereotypedMSGDlg)
 	m_baseOfCipher = 0;
 	m_cipher = _T("");
-	m_bitsOfN = 0;
+	m_bitsOfN = "1024";
 	m_h = 4;
 	m_N = _T("");
 	m_e = _T("");
@@ -76,6 +76,7 @@ BEGIN_MESSAGE_MAP(CRSAStereotypedMSGDlg, CDialog)
 	ON_EN_CHANGE(IDC_EDITPLAIN, OnChangeEditplain)
 	ON_EN_CHANGE(IDC_EDITLENGTH, OnChangeEditlength)
 	ON_EN_CHANGE(IDC_EDITPOS, OnChangeEditpos)
+	ON_EN_CHANGE(IDC_EDITBITSOFN, OnChangeEditbitsofn)
 	ON_EN_CHANGE(IDC_EDITN, OnChangeEditn)
 	ON_EN_CHANGE(IDC_EDITE, OnChangeEdite)
 	ON_BN_CLICKED(IDC_BUTTONENCRYPT, OnButtonencrypt)
@@ -157,9 +158,11 @@ HCURSOR CRSAStereotypedMSGDlg::OnQueryDragIcon()
 // adjusted and the preview must be updated.
 void CRSAStereotypedMSGDlg::OnChangeEditplain() 
 {
-
+	UpdateData(true);
+	CheckEncryptButton();
 	updatePreview();
 	checkParameters();
+	UpdateData(false);
 }
 
 // This function gets called, when the preview has to be updated.
@@ -238,6 +241,8 @@ void CRSAStereotypedMSGDlg::OnChangeEditlength()
 	}
 
 	updatePreview();
+
+	checkParameters();
 }
 
 void CRSAStereotypedMSGDlg::OnChangeEditpos() 
@@ -273,11 +278,25 @@ void CRSAStereotypedMSGDlg::OnChangeEditpos()
 		fullPlainText.Delete(pos, length);
 		SetDlgItemText(IDC_EDITPLAIN, fullPlainText);
 	}
+
 	updatePreview();
+
+	checkParameters();
+}
+
+void CRSAStereotypedMSGDlg::OnChangeEditbitsofn()
+{
+	UpdateData(true);
+	m_N = "";
+	m_e = "";
+	UpdateData(false);
+	CheckEncryptButton();
+	checkParameters();
 }
 
 void CRSAStereotypedMSGDlg::OnChangeEditn() 
 {
+	OnChangeEditplainfull();
 	CheckEncryptButton();
 	checkParameters();
 }
@@ -289,9 +308,10 @@ void CRSAStereotypedMSGDlg::CheckEncryptButton()
 	NTLExpPars myPars;
 	ZZ N=myPars.parseExp(m_N);
 	ZZ e=myPars.parseExp(m_e);
-	if(N>0)
-		if(e>0)
-			((CButton*)GetDlgItem(IDC_BUTTONENCRYPT))->EnableWindow(true);
+	CString plaintextFull;
+	GetDlgItemText(IDC_EDITPLAINFULL, plaintextFull);
+	if(N>0 && e>0 && plaintextFull.GetLength() > 0)
+		((CButton*)GetDlgItem(IDC_BUTTONENCRYPT))->EnableWindow(true);
 }
 // Reads the String from an edit and converts it to NTL's ZZ (big integer).
 ZZ CRSAStereotypedMSGDlg::GetDlgItemZZ(int ID, int base)
@@ -303,6 +323,7 @@ ZZ CRSAStereotypedMSGDlg::GetDlgItemZZ(int ID, int base)
 
 void CRSAStereotypedMSGDlg::OnChangeEdite() 
 {
+	OnChangeEditplainfull();
 	CheckEncryptButton();
 	checkParameters();
 }
@@ -405,9 +426,10 @@ void CRSAStereotypedMSGDlg::checkParameters()
 	if(sa.getBound()>0){
 		SetDlgItemZZ(IDC_EDITPOSLENGTH, to_ZZ(floor(log(sa.getBound())/log((double)256))),10,0);
 		SetDlgItemInt(IDC_EDITDIM, GetDlgItemInt(IDC_EDITE)*GetDlgItemInt(IDC_EDITH));
-		if(GetDlgItemZZ(IDC_EDITPLAIN,256)>0&&
-			GetDlgItemZZ(IDC_EDITCIPHER,cbase)>0)
-				((CButton*)GetDlgItem(IDC_BUTTONSTART))->EnableWindow(true);
+		if(GetDlgItemZZ(IDC_EDITPLAIN,256)>0 && GetDlgItemZZ(IDC_EDITCIPHER,cbase)>0) {
+			((CButton*)GetDlgItem(IDC_BUTTONSTART))->EnableWindow(true);
+			((CButton*)GetDlgItem(IDC_BUTTONSTART))->SetFocus();
+		}
 	}else
 		SetDlgItemInt(IDC_EDITPOSLENGTH, 0);
 }
@@ -542,12 +564,17 @@ void CRSAStereotypedMSGDlg::OnOK()
 
 void CRSAStereotypedMSGDlg::OnRandom() 
 {
-	if (UpdateData()){
-		if(m_bitsOfN<=10){
-			CString tmp, myTitle;
-			tmp.LoadString(IDS_RSA_SM_WRONGN);
-			this->GetWindowText(myTitle);
-			MessageBox(tmp,myTitle);
+	if(UpdateData()) {
+		if(atoi(m_bitsOfN) <= 10) {
+			CString title;
+			GetWindowText(title);
+			CString message;
+			message.Format(IDS_RSA_SM_WRONGN);
+			MessageBox(message, title);
+			UpdateData(true);
+			m_N = "";
+			m_e = "";
+			UpdateData(false);
 		}
 		else {
 			// flomar, 2017/04/30
@@ -556,7 +583,7 @@ void CRSAStereotypedMSGDlg::OnRandom()
 			// presses "No", the modulus will not be created; if the user presses "Yes", 
 			// the program proceeds as usual
 			bool proceed = true;
-			if(m_bitsOfN > MODULUS_CREATION_WARNING_LIMIT_BITS) {
+			if(atoi(m_bitsOfN) > MODULUS_CREATION_WARNING_LIMIT_BITS) {
 				CString title;
 				GetWindowText(title);
 				CString message;
@@ -568,8 +595,8 @@ void CRSAStereotypedMSGDlg::OnRandom()
 			}
 			if(proceed) {
 				BeginWaitCursor();
-				int bitsOfQ=m_bitsOfN/2;
-				int bitsOfP=(m_bitsOfN+1)/2;
+				int bitsOfQ=atoi(m_bitsOfN)/2;
+				int bitsOfP=(atoi(m_bitsOfN)+1)/2;
 				SetSeed(to_ZZ(GetTime()*10000)); 
 				ZZ p = GenPrime_ZZ(bitsOfP); // generate N, p and q
 				ZZ q = GenPrime_ZZ(bitsOfQ);
@@ -748,6 +775,7 @@ void CRSAStereotypedMSGDlg::UpdateSliders(){
 
 void CRSAStereotypedMSGDlg::OnChangeEditplainfull() 
 {
+	UpdateData(true);
 	ZZ plain=GetDlgItemZZ(IDC_EDITPLAINFULL,256);
 	NTLExpPars myPars;
 	ZZ N=myPars.parseExp(m_N);
@@ -764,6 +792,8 @@ void CRSAStereotypedMSGDlg::OnChangeEditplainfull()
 	SetDlgItemText(IDC_EDITCIPHER,"");
 	UpdateSliders();
 	updatePreview();
+	CheckEncryptButton();
+	UpdateData(false);
 }
 
 void CRSAStereotypedMSGDlg::OnKillfocusEdite() 

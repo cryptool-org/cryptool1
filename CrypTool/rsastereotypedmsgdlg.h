@@ -61,7 +61,7 @@ public:
 	CSpinButtonCtrl	m_spinPosControl;
 	int		m_baseOfCipher;
 	CString	m_cipher;
-	int		m_bitsOfN;
+	CString	m_bitsOfN;
 	int		m_h;
 	CString	m_N;
 	CString	m_e;
@@ -86,6 +86,7 @@ protected:
 	afx_msg void OnChangeEditplain();
 	afx_msg void OnChangeEditlength();
 	afx_msg void OnChangeEditpos();
+	afx_msg void OnChangeEditbitsofn();
 	afx_msg void OnChangeEditn();
 	afx_msg void OnChangeEdite();
 	afx_msg void OnButtonencrypt();
