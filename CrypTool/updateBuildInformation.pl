@@ -8,7 +8,7 @@
 # (i.e. the IDE version in the window title) if invoked 
 # with the "PRE" parameter, and it reverts those changes 
 # when invoked after the build with the "POST" parameter.
-# The "VS2008" or "VS2010" parameters are optional.
+# The "IDE" parameter is optional.
 #
 # flomar, 03/04/2012
 #
@@ -66,9 +66,6 @@ else {
 	}
 	if($ARGV[1] eq "VS2008") {
 		$ide = "VS2008";
-	}
-	if($ARGV[1] eq "VS2010") {
-		$ide = "VS2010";
 	}
 }
 
@@ -154,7 +151,7 @@ if($mode eq "PRE") {
 	
 	# update the file content (with build time and current SVN revision)
 	foreach my $line(@lineArrayFileCrypToolRC) {
-		# inserting i.e. "CrypTool 1.4.31 Beta 5 [VS2010]" (full version)
+		# inserting i.e. "CrypTool 1.4.31 Beta 5 [VS2008]" (full version)
 		if($line =~ m{ \[CRYPTOOL_VERSION_FULL\] }xms) {
 			$line = "IDR_MAINFRAME \"CrypTool $CrypToolVersionFull\"\n";
 		}

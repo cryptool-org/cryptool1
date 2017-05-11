@@ -32,8 +32,6 @@
 #ifndef _MYTEMPLATES_H
 #define _MYTEMPLATES_H 1
 
-// flomar, 03/13/2012: we're going with the STL instead of custom 
-// templates; unlike VS2008, for some reason VS2010 didn't like them
 #include <xutility>
 
 ///////////////////////////////////////////////////////////////////////////////////////

@@ -19,16 +19,6 @@ s_prng.c -- Implemetation of two functions for returning pseudorandom integers.
 #include "arithmet.h"
 #include "ECsecude.h"
 
-// flomar, May 2012: the following functions replace the Secude-based 
-// functions "_rand_bit" and "_rand_int", since calling them under 
-// VS2010 (_MSC_VER > 1500) makes CrypTool crash; both functions are 
-// defined in "CrypToolPRNG.h" and "CrypToolPRNG.cpp" respectively;
-// no changes for IDEs older than VS2010, we keep using Secude there
-#if _MSC_VER > 1500
-extern int CrypToolPRNG_GetRandomBit();
-extern unsigned long CrypToolPRNG_GetRandomInt(unsigned long _range);
-#endif
-
 /*************************************************************************************************/
 /*                                     _rand_bit()
 /*************************************************************************************************/
@@ -38,17 +28,12 @@ int _rand_bit(void)
 #else
 int _rand_bit(void)
 #endif
-{
-	// flomar, May 2012: see comments above
-#if _MSC_VER > 1500
-	return CrypToolPRNG_GetRandomBit();
-#else
+{	
 	L_NUMBER temp[MAXLGTH];
 	unsigned long int rand_nb;
 	SECUDE(rndm)(1,temp,0);
 	rand_nb=lntoint(temp);
 	return ((int) rand_nb);  /* return 0 or 1 */
-#endif
 }
 
 /*************************************************************************************************/
@@ -63,16 +48,11 @@ void _rand_int(n, range)
             L_NUMBER *range;
 #endif
 {
-	// flomar, May 2012: see comments above
-#if _MSC_VER > 1500
-	*n = CrypToolPRNG_GetRandomInt(*range);
-#else
 	int number_of_bits;
 	L_NUMBER temp[MAXLGTH];
 	number_of_bits = SECUDE(lngtouse)(range)+1;
 	SECUDE(rndm)(number_of_bits, n,  0);
 	SECUDE(div)(n, range, temp , n); /* n is now a number in the intervall [0, range-1] */
-#endif
 }
 
 /********************************************** EOF **********************************************/

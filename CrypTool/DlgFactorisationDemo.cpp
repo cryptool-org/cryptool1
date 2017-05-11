@@ -655,9 +655,6 @@ void CDlgFactorisationDemo::expandFactorisation(CString &composite, CString &f1,
 void CDlgFactorisationDemo::Set_NonPrime_Factor_Red()
 {
 	CHARFORMAT cf;
-	// flomar, 09/06/2012: don't forget to initialize the struct properly, otherwise we 
-	// may encounter weird behavior under VS2010; for some reason VS2008 seems to be fine 
-	// even without explicitly initializing everything to zero
 	memset(&cf, 0, sizeof(cf));
 	// go on as usual...
 	cf.cbSize = sizeof (CHARFORMAT);

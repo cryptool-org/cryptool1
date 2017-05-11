@@ -536,27 +536,8 @@ int encrypt(act::Blob &encBlob, const CString &sName, const CString &sVorname, c
 	
 	//symmetrische Datenverschlüsselung
 	act::Blob plaintext,ciphertext,sessionKey;
-
-	// flomar, 04/11/2012: we're using libcvact 1.4.6 with VS2008, and libcvact 1.4.18 with VS2010;
-	// unfortunately the functions "act::file2blob" and "act::blob2file" are no longer supported by
-	// the new version, therefore we're using a compiler-dependent fix (BTW, thanks to M. Kraft)
-#if _MSC_VER > 1500
-	std::ifstream file;
-	file.open(ifile, ios_base::in|ios_base::binary);
-	if(!file)
-		return 66;
-	file.seekg(0, ios_base::end);
-	int len = (int)file.tellg();
-	file.seekg(0);
-	BYTE* ucMessage = (BYTE*)calloc(len,1);
-	file.read((char*)ucMessage, len);
-	file.close();
-	for(int i=0;i<len;i++)
-		plaintext.append(1, ucMessage[i]);
-	free(ucMessage);
-#else
+	
 	act::file2blob(ifile, plaintext);
-#endif
 
 	encryptData(plaintext, sessionKey, ciphertext);
 	
@@ -820,26 +801,9 @@ int readEncFile(const CString &ifile, CString &sName, CString &sVorname, CString
 	act::Blob input;
 
 	CString message,tag;
-
-	// flomar, 04/11/2012: we're using libcvact 1.4.6 with VS2008, and libcvact 1.4.18 with VS2010;
-	// unfortunately the functions "act::file2blob" and "act::blob2file" are no longer supported by
-	// the new version, therefore we're using a compiler-dependent fix (BTW, thanks to M. Kraft)
-#if _MSC_VER > 1500
-	std::ifstream file;
-	file.open(ifile, ios_base::in|ios_base::binary);
-	if(!file)
-		return 66;
-	file.seekg(0, ios_base::end);
-	int len = (int)file.tellg();
-	file.seekg(0);
-	BYTE* ucMessage = (BYTE*)calloc(len,1);
-	file.read((char*)ucMessage, len);
-	file.close();
-	message = CString(ucMessage);
-#else
+	
 	act::file2blob(ifile, input);
 	message=reinterpret_cast<char*>(&input[0]);
-#endif
 	
 	//Receiver
 	LoadString(AfxGetInstanceHandle(),IDS_ECIES_HEADER_02,pc_str,STR_LAENGE_STRING_TABLE);
@@ -911,20 +875,9 @@ int readEncFile(const CString &ifile, CString &sName, CString &sVorname, CString
 
 	act::Blob key;
 	act::Blob ctext;
-
-	// flomar, 04/11/2012: we're using libcvact 1.4.6 with VS2008, and libcvact 1.4.18 with VS2010;
-	// unfortunately the functions "act::file2blob" and "act::blob2file" are no longer supported by
-	// the new version, therefore we're using a compiler-dependent fix (BTW, thanks to M. Kraft)
-#if _MSC_VER > 1500
-	for(int i=0;i<keylength;i++)
-		key.push_back(ucMessage[keyStart+i]);
-	for(int i=0;i<ctLength;i++)
-		ctext.push_back(ucMessage[ctStart+i]);
-	free(ucMessage);
-#else
+	
 	key.insert(key.begin(),&input[keyStart],&input[keyEnd]);
 	ctext.insert(ctext.begin(),&input[ctStart],&input[input.size()]);
-#endif
 
 	encryptedSessionKey=key;
 	ciphertext=ctext;
@@ -941,25 +894,8 @@ void newWindow(const bool &plain, const act::Blob &output, const char* &OldTitle
 {
 	char outfile[128];
 	GetTmpName(outfile,"cry",".tmp");
-
-	// flomar, 04/11/2012: we're using libcvact 1.4.6 with VS2008, and libcvact 1.4.18 with VS2010;
-	// unfortunately the functions "act::file2blob" and "act::blob2file" are no longer supported by
-	// the new version, therefore we're using a compiler-dependent fix (BTW, thanks to M. Kraft)
-#if _MSC_VER > 1500
-	std::ofstream file;
-	file.open(outfile, ios_base::trunc|ios_base::binary);
-	if(!file)
-		return;
-	int len = output.size();
-	BYTE* ucMessage = (BYTE*)calloc(len,1);
-	for(int i=0;i<len;i++)
-		ucMessage[i] = output[i];
-	file.write((const char*)ucMessage, len);
-	file.close();
-	free(ucMessage);
-#else
+	
 	act::blob2file(outfile, output);
-#endif
 	
 	OpenNewDoc(outfile,ReceiverName+", "+ReceiverFirstname+", "+ReceiverKeyType,OldTitle,IDS_ECIES_CRYPT,plain,0);
 }

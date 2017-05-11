@@ -2859,7 +2859,6 @@ cmd /c copy /y "%(RootDir)%(Directory)ticket" "$(OutDir)"
     <ClCompile Include="CryptDocTemplate.cpp" />
     <ClCompile Include="Cryptography.cpp" />
     <ClCompile Include="CrypToolApp.cpp" />
-    <ClCompile Include="CrypToolPRNG.cpp" />
     <ClCompile Include="CrypToolTools.cpp" />
     <ClCompile Include="CrypToolView.cpp" />
     <ClCompile Include="CrypToolVolRen.cpp" />
@@ -2893,7 +2892,6 @@ cmd /c copy /y "%(RootDir)%(Directory)ticket" "$(OutDir)"
     <ClCompile Include="DlgCrtSecretSharing_Log.cpp" />
     <ClCompile Include="DlgCrtSecretSharingOptions.cpp" />
     <ClCompile Include="DlgCrtTransformation.cpp" />
-    <ClCompile Include="DlgCrypToolPRNGSeedCollector.cpp" />
     <ClCompile Include="DlgDemoRSAKeyGeneration.cpp" />
     <ClCompile Include="DlgDiffieHellmanCreateSharedKey.cpp" />
     <ClCompile Include="DlgDiffieHellmanExchangeSharedKeys.cpp" />
@@ -3158,7 +3156,6 @@ cmd /c copy /y "%(RootDir)%(Directory)ticket" "$(OutDir)"
     <ClInclude Include="CryptDocTemplate.h" />
     <ClInclude Include="Cryptography.h" />
     <ClInclude Include="CrypToolApp.h" />
-    <ClInclude Include="CrypToolPRNG.h" />
     <ClInclude Include="CrypToolTools.h" />
     <ClInclude Include="CrypToolView.h" />
     <ClInclude Include="CrypToolVolRen.h" />
@@ -3193,7 +3190,6 @@ cmd /c copy /y "%(RootDir)%(Directory)ticket" "$(OutDir)"
     <ClInclude Include="DlgCrtSecretSharing_Log.h" />
     <ClInclude Include="DlgCrtSecretSharingOptions.h" />
     <ClInclude Include="DlgCrtTransformation.h" />
-    <ClInclude Include="DlgCrypToolPRNGSeedCollector.h" />
     <ClInclude Include="DlgDemoRSAKeyGeneration.h" />
     <ClInclude Include="DlgDiffieHellmanCreateSharedKey.h" />
     <ClInclude Include="DlgDiffieHellmanExchangeSharedKeys.h" />

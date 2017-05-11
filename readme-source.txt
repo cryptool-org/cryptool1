@@ -44,7 +44,7 @@ Remark:
 The following paragraphs always tell the German and English names of the menu items.
 
 The project files, which can be opened with MS-Visual C, are located at
-- VS.net 2008:     CrypTool\CrypTool.sln 
+- VS.net 2008:     CrypTool\CrypTool-VS2008.sln 
 To open the project file please double click it or 
 with MS-VC choose Datei[File] -> Arbeitsbereich öffnen[open project/solution].
 

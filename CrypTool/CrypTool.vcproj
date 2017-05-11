@@ -7398,14 +7398,6 @@
 			</FileConfiguration>
 		</File>
 		<File
-			RelativePath=".\CrypToolPRNG.cpp"
-			>
-		</File>
-		<File
-			RelativePath=".\CrypToolPRNG.h"
-			>
-		</File>
-		<File
 			RelativePath=".\res\CrypToolStartLogo-de.bmp"
 			>
 		</File>
@@ -9725,14 +9717,6 @@
 		</File>
 		<File
 			RelativePath=".\DlgCrtTransformation.h"
-			>
-		</File>
-		<File
-			RelativePath=".\DlgCrypToolPRNGSeedCollector.cpp"
-			>
-		</File>
-		<File
-			RelativePath=".\DlgCrypToolPRNGSeedCollector.h"
 			>
 		</File>
 		<File
