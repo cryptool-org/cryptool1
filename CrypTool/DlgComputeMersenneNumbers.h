@@ -78,7 +78,8 @@ protected:
 	CWnd *buttonStart;
 	CWnd *buttonCancel;
 	CWnd *buttonPrimeNumberTest;
-	CWnd *buttonWriteResultToFile;	
+	CWnd *buttonWriteResultToFile;
+	CWnd *buttonClose;
 
 public:
 	// some random functions

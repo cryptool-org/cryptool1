@@ -80,11 +80,13 @@ BOOL CDlgComputeMersenneNumbers::OnInitDialog()
 	buttonCancel = GetDlgItem(IDC_BUTTON_CANCEL_COMPUTATION);
 	buttonPrimeNumberTest = GetDlgItem(IDC_BUTTON_PRIME_TEST);
 	buttonWriteResultToFile = GetDlgItem(IDC_BUTTON_WRITE_RESULT_TO_FILE);
+	buttonClose = GetDlgItem(IDCANCEL);
 
 	assert(buttonStart);
 	assert(buttonCancel);
 	assert(buttonPrimeNumberTest);
 	assert(buttonWriteResultToFile);
+	assert(buttonClose);
 
 	// enable/disable buttons
 	numberEditBase.setShowIntegralSeparators(true);
@@ -96,9 +98,9 @@ BOOL CDlgComputeMersenneNumbers::OnInitDialog()
 	numberEditResult.setReadOnly(true);
 	numberEditResultLength.setReadOnly(true);
 
-	// we go with base 2 by default
+	// set default values for base and exponent
 	numberEditBase.setText("2");
-	numberEditExponent.setText("");
+	numberEditExponent.setText("10");
 
 	UpdateData(false);
 
@@ -207,6 +209,7 @@ void CDlgComputeMersenneNumbers::OnBnClickedStartComputation()
 	buttonCancel->EnableWindow(true);
 	buttonPrimeNumberTest->EnableWindow(false);
 	buttonWriteResultToFile->EnableWindow(false);
+	buttonClose->EnableWindow(false);
 
 	// start the computation thread
 	computationThread = AfxBeginThread(computeMersenneNumber, (PVOID)(&mersenneComputationParameters));
@@ -237,6 +240,11 @@ void CDlgComputeMersenneNumbers::OnBnClickedCancelComputation()
 	buttonCancel->EnableWindow(false);
 	buttonPrimeNumberTest->EnableWindow(false);
 	buttonWriteResultToFile->EnableWindow(false);
+	buttonClose->EnableWindow(true);
+
+	// avoid zombie threads by forcing the thread to terminate
+	TerminateThread(computationThread->m_hThread, 0);
+	CloseHandle(computationThread->m_hThread);
 
 	UpdateData(false);
 }
@@ -313,8 +321,10 @@ void CDlgComputeMersenneNumbers::OnTimer(UINT nIDEvent)
 		buttonCancel->EnableWindow(false);
 		buttonPrimeNumberTest->EnableWindow(false);
 		buttonWriteResultToFile->EnableWindow(false);
+		buttonClose->EnableWindow(true);
 		
 		if(done) {
+			SHOW_HOUR_GLASS
 			// display the amount of time needed for the calculation (if it's longer than a sec)
 			double timeNeeded = difftime(timeComputationEnd, timeComputationStart);
 			if(timeNeeded > 1.0f) {
@@ -334,6 +344,7 @@ void CDlgComputeMersenneNumbers::OnTimer(UINT nIDEvent)
 			// and set selection to beginning of edit fields
 			numberEditResult.SetSel(0, 0);
 			numberEditResultLength.SetSel(0, 0);
+			HIDE_HOUR_GLASS
 		}
 	}
 

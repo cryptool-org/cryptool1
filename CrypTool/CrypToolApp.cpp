@@ -96,6 +96,9 @@
 #include "CrypToolTools.h"
 // #endif
 
+// include apfloat header
+#include "ap.h"
+
 #pragma warning(disable : 4996)
 
 // flomar, 03/04/2012: don't touch the two lines below, they're automatically adjusted during build time
@@ -814,6 +817,9 @@ BOOL CCrypToolApp::InitInstance()
 	// Enable RichEdit Windows...
 	AfxEnableControlContainer();
 
+	// initialize the apfloat library
+	apinit();
+
 	return TRUE;
 }
 
@@ -1034,6 +1040,9 @@ int CCrypToolApp::ExitInstance()
 	if(m_Selfextract_EXE) free(m_Selfextract_EXE);
 	if(m_NumberShark_Selfextract_EXE) free(m_NumberShark_Selfextract_EXE);
 	if (ScintillaLib) FreeLibrary(ScintillaLib);
+
+	// deinitialize apfloat library
+	apdeinit();
 
 	return CWinApp::ExitInstance();
 //	m_pRecentFileList->WriteList();
