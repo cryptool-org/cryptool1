@@ -74,7 +74,7 @@ END_MESSAGE_MAP()
 BOOL CDlgComputeMersenneNumbers::OnInitDialog()
 {
 	CDialog::OnInitDialog();
-
+	
 	// get window handles to our buttons for enabling/disabling
 	buttonStart = GetDlgItem(IDC_BUTTON_START_COMPUTATION);
 	buttonCancel = GetDlgItem(IDC_BUTTON_CANCEL_COMPUTATION);
@@ -122,22 +122,51 @@ UINT computeMersenneNumber(PVOID _parameters)
 	// we go with base 10 by default
 	apbase(10);
 
-	// compute the mersenne number and store the time needed
+	// store start time of computation
 	dialog->setTimeComputationStart(time(0));
-	apint mersenneNumber = pow(parameters.base, parameters.exponent) - 1;
+
+	// compute the mersenne number
+	apint base = parameters.base;
+	unsigned long exp = parameters.exponent;
+	apint r = base;
+	int b2pow = 0;
+	if(!exp) return 1;
+	while(!(exp & 1) && !dialog->isCanceled()) {
+		b2pow++;
+		exp >>= 1;
+	}
+	while(exp >>= 1 && !dialog->isCanceled()) {
+		base *= base;
+		if(exp & 1) r *= base;
+	}
+	while(b2pow-- && !dialog->isCanceled()) {
+		r *= r;
+	}
+	apint result = r - 1;
+
+	// store finish time of computation
 	dialog->setTimeComputationEnd(time(0));
 
-	// convert apint to something readable
-	std::ostringstream outbuffer;
-	std::string buffer;
-	outbuffer << mersenneNumber;
-	buffer = outbuffer.str();
-
-	// write the result back to the dialog
-	dialog->setResult(buffer.c_str());
-	dialog->setDone(true);
-	dialog->setCanceled(false);
-	dialog->setRunning(false);
+	// if the computation was finished normally
+	if(!dialog->isCanceled()) {
+		// convert result to something readable
+		std::ostringstream outbuffer;
+		std::string buffer;
+		outbuffer << result;
+		buffer = outbuffer.str();
+		// write the result back to the dialog
+		dialog->setResult(buffer.c_str());
+		// set some flags
+		dialog->setRunning(false);
+		dialog->setCanceled(false);
+		dialog->setDone(true);
+	}
+	// if the computation was canceled
+	else {
+		dialog->setRunning(false);
+		dialog->setCanceled(true);
+		dialog->setDone(false);
+	}
 	
 	// implicitly end this thread
 	AfxEndThread(0);
@@ -159,8 +188,13 @@ void CDlgComputeMersenneNumbers::OnBnClickedStartComputation()
 	canceled = false;
 	done = false;
 
+	// clear result fields
+	numberEditResult.setText("");
+	numberEditResultLength.setText("");
+
 	// indicate to the user that we're running
-	CString stringInfo; stringInfo.Format(IDS_MERSENNE_NUMBER_COMPUTATION_RUNNING);
+	CString stringInfo; 
+	stringInfo.Format(IDS_MERSENNE_NUMBER_COMPUTATION_RUNNING);
 	numberEditResult.setText(stringInfo);
 
 	// activate the timer (calls OnTimer every 10 ms)
@@ -174,9 +208,6 @@ void CDlgComputeMersenneNumbers::OnBnClickedStartComputation()
 	buttonPrimeNumberTest->EnableWindow(false);
 	buttonWriteResultToFile->EnableWindow(false);
 
-	// flomar, 07/02/2010: hack of the day
-	startApfloatComputation();
-
 	// start the computation thread
 	computationThread = AfxBeginThread(computeMersenneNumber, (PVOID)(&mersenneComputationParameters));
 
@@ -185,16 +216,18 @@ void CDlgComputeMersenneNumbers::OnBnClickedStartComputation()
 
 void CDlgComputeMersenneNumbers::OnBnClickedCancelComputation()
 {
-	// flomar, 07/02/2010: hack of the day
-	cancelApfloatComputation();
-
 	// set some flags
 	running = false;
 	canceled = true;
 	done = false;
 
+	// clear result fields
+	numberEditResult.setText("");
+	numberEditResultLength.setText("");
+
 	// indicate to the user that the computation was canceled
-	CString stringInfo; stringInfo.Format(IDS_MERSENNE_NUMBER_COMPUTATION_CANCELLED);
+	CString stringInfo;
+	stringInfo.Format(IDS_MERSENNE_NUMBER_COMPUTATION_CANCELLED);
 	numberEditResult.setText(stringInfo);
 
 	// enable/disable buttons
@@ -293,7 +326,8 @@ void CDlgComputeMersenneNumbers::OnTimer(UINT nIDEvent)
 			buttonPrimeNumberTest->EnableWindow(true);
 			buttonWriteResultToFile->EnableWindow(true);
 			// also update the result and result length
-			CString stringResultLength; stringResultLength.Format("%d", numberEditResult.getNumberAsCString().GetLength());
+			CString stringResultLength;
+			stringResultLength.Format("%d", numberEditResult.getNumberAsCString().GetLength());
 			numberEditResultLength.setNumber(stringResultLength);
 			numberEditResult.updateNumber();
 			numberEditResultLength.updateNumber();

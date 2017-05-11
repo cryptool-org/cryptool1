@@ -337,9 +337,6 @@ inline apint &apint::operator>>= (size_t d)
     return *this;
 }
 
-// flomar, 07/02/2010: hack of the day
-void startApfloatComputation();
-void cancelApfloatComputation();
 
 // Overloaded mathematical functions
 

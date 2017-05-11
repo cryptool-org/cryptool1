@@ -55,17 +55,21 @@ protected:
 	bool done;
 
 public:
-	// this is used from the extern thread to control the computation
 	void setRunning(bool _running) { running = _running; };
 	void setCanceled(bool _canceled) { canceled = _canceled; };
 	void setDone(bool _done) { done = _done; };
 
-protected:
+public:
+	bool isRunning() const { return running; }
+	bool isCanceled() const { return canceled; }
+	bool isDone() const { return done; }
 
+protected:
 	// start and end of computation
 	time_t timeComputationStart;
 	time_t timeComputationEnd;
 
+protected:
 	// we need these to enable/disable the buttons
 	CNumberEdit numberEditBase;
 	CNumberEdit numberEditExponent;
