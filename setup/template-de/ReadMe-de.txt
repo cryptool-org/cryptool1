@@ -14,7 +14,7 @@ E-Learning-Programm für Kryptographie und Kryptoanalyse.
     $Id$
 ==================================================================
 
- 1. ... Kurzbeschreibung des CT1-Paketes
+ 1. ... Kurzbeschreibung des CT1-Paketes (und bekannte Fehler)
  1.1. ... Wie Sie als Benutzer am besten starten -- Der Einstieg in CT1
  1.2. ... Was beinhaltet die CT1-Distribution
  1.3. ... Danke
@@ -65,8 +65,8 @@ CT2  CrypTool 2 = CrypTool-Version 2 (nutzt .NET; läuft unter Win32)
 JCT  JCrypTool  = Java-CrypTool (läuft unter Win32, Linux und MacOS)
 
 
-1. Kurzbeschreibung des CT1-Paketes
-   --------------------------------
+1. Kurzbeschreibung des CT1-Paketes (und bekannte Fehler)
+   ------------------------------------------------------
 Diese Readme-Datei gehört zur Distribution des Programms CrypTool 1 (CT1).
 CrypTool ist Open-Source und kostenlos. Mit CrypTool kann man kryptographische
 Verfahren erlernen, ausprobieren und sowohl bekannte wie unbekannte Verfahren
@@ -164,6 +164,16 @@ Insbesondere junge Entwickler sind eingeladen, sich zu trauen -- sie können
 bei erfahrenen Entwicklern sehr viel über professionelle Software-Entwicklung
 lernen.
 Kontakte: Siehe Kapitel 7 unten.
+
+
+Bekannter Fehler:
+Unter Windows 10 Home kam es häufiger zu folgendem Phänomen:
+Beim ersten Aufruf von PDFs (wie der CT1-Präsentation oder des CT-Buches) aus
+der CT1-Onlinehilfe, aus dem CT1-Menü "Hilfe" oder aus dem Windows-Startmenu
+heraus, startet Acrobat nicht. Das lag daran, dass ein Acrobat-Prozess hängen blieb.
+Wenn man diesen Acrobat-Prozess dann im Windows-TaskManager beendet, starten auch
+die PDFs aus CT1 heraus wie gewünscht.
+
 
 
 1.1. Wie Sie als Benutzer am besten starten -- Der Einstieg in CT1
@@ -1253,7 +1263,7 @@ a) Entwickler-relevante Änderungen (eher Programm-technisch):
   wird.
   
 - Das Release von CT 1.4.31 wird weiterhin mit VS2008 kompiliert (siehe oben).
-  Ab CT 1.5 wird mit VS 2017 übersetzt, oder QCT ersetzt CT1.
+  Ab CT 1.5 wird mit VS 2017 übersetzt, oder CT1 gleich durch QCT ersetzt.
 
 
 b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
@@ -1283,6 +1293,8 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
 c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
 
 - Zwei weitere Sprachen hinzugefügt: Griechisch und Französisch.
+  Das Griechische Release wird aufgrund von Fontproblemen erst später
+  ausgeliefert.
 - Installation und Benutzung ohne Administratorrechte: Nun braucht nicht nur
   das Programm keine Administrator-Rechte mehr, sondern auch das
   Installationsprogramm kann von einem normalen Nutzer ausgeführt werden.
@@ -1352,6 +1364,12 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
   falscher Index angezeigt wurde.
 - Den Dialog "Angriff auf stereotype Nachrichten" stabiler gemacht, und ein
   paar Layout-Fehler behoben.
+- Die Berechnung im Dialog "Mersenne-Zahlen berechnen" robuster gemacht,
+  indem eine ini-Datei für die apfloat-Bibliothek benutzt wird.
+  Tausendertrenner (Punkte) werden nun auch für das Feld "Ergebnislänge"
+  gesetzt. Für das Feld Ergebnis werden weiterhin keine Tausendertrenner
+  angezeigt, denn deren Berechnung und Anzeige in einem MFC-Control dauert
+  zu lange.
 
 - Danke an die vielen aufmerksamen Benutzer, die uns auf Bugs und 
   Inkonsistenzen aufmerksam machten.

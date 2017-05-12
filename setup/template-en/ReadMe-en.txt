@@ -14,7 +14,7 @@ e-learning program for cryptography and cryptanalysis.
     $Id$
 ==================================================================
 
- 1. ... Brief description of the CT1 package
+ 1. ... Brief description of the CT1 package (and known bugs)
  1.1. ... How to start using CT1 -- An introduction to CT1
  1.2. ... Components of the CT1 distribution
  1.3. ... Acknowledgments
@@ -65,8 +65,8 @@ CT2  CrypTool 2 = CrypTool version 2 (uses .NET; runs under Win32)
 JCT  JCrypTool  = Java-CrypTool (runs under Win32, Linux and MacOS)
 
 
-1. Brief description of the CT1 package
-   ------------------------------------
+1. Brief description of the CT1 package (and known bugs)
+   -----------------------------------------------------
 This ReadMe file is part of the distribution of the program CrypTool 1 (CT1).
 CrypTool is a free and open-source program by means of which cryptographic
 functions can be easily learned and demonstrated, and known and unknown
@@ -163,6 +163,16 @@ Especially young developers should have the heart to participate -- as
 proven in the past they'll learn a lot about professional software
 development from the experienced developers.
 Contacts: Please see chapter 7 below.
+
+
+Known bug:
+With Windows 10 Home the following phenomenon appeared:
+Starting a PDF (like the CT1 presentation or the CT book) from within the
+CT1 onlinehelp, from the CT1 menu "Help", or from the Windows Start menu,
+then Acrobat didn't show up. The reason was a hanging Acrobat process.
+If you stop this Acrobat process within the Windows TaskManager, then
+PDFs start from within CT1 as usual.
+
 
 
 1.1. How to start using CrypTool -- An introduction to CT1
@@ -1212,7 +1222,8 @@ a) Developer-relevant changes (more technically oriented):
   software shows now "CrypTool Team".
   
 - The release of CT 1.4.31 is still compiled with VS2008 (see above).
-  From CT 1.5 VS 2017 will be used for compilation, or QCT substitutes CT1.
+  From CT 1.5 either VS 2017 will be used for compilation,
+  or QCT substitutes CT1 directly.
 
 
 b) Changes within the user documentation / on the websites:
@@ -1241,6 +1252,7 @@ b) Changes within the user documentation / on the websites:
 c) New functionality / Usability / Corrections of errors:
 
 - Two more languages added: Greek and French.
+  The Greek release version will be delivered later because of font problems.
 - Installation and usage without administrator privileges: Now not only the
   program doesn't need administrator rights any more, but also the installer
   can be executed by a normal user.
@@ -1304,7 +1316,12 @@ c) New functionality / Usability / Corrections of errors:
   See e.g. menu View --> Alphabet or the Hill analyzer.
 - Fixed small issue with wrong index shown initially in the homophones dialog.
 - Making the dialog "Attack on Stereotyped Messages" more robust, and
-  fixed some smaller mistakes in layout. 
+  fixed some smaller mistakes in layout.
+- Making the calculations in the dialog "Compute Mersenne Numbers" more robust
+  by using an ini file for the apfloat lib.
+  Adding digit grouping (commas) now also for the length of the result.
+  The result itself still doesn't show digit groupings as its calculation and
+  display takes too much time.
 
 - Thanks to the many attentive users, who pointed us to bugs and
   inconsistencies.
