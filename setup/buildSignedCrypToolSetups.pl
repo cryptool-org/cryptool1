@@ -1,13 +1,12 @@
 # buildSignedCrypToolSetups.pl
 
 #
-# Be aware that this script doesn't run as-is due to hard-coded paths 
-# to the "devenv.exe" and the "signtool.exe". Apart from that, the 
-# script accepts two possible arguments: "noSign" and "noRebuild". 
-# If these arguments are omitted, the script tries to sign the 
-# resulting archives and CrypTool is fully rebuilt for each language.
+# Please define all required paths and values (see "ATTENTION" markers below) 
+# before executing this script. All other input for the build configuration 
+# is gathered from STDIN after executing this script. You can press ENTER 
+# three times to go with the default build configuration.
 #
-# flomar, March 2017
+# flomar, May 2017
 #
 
 use strict;
@@ -15,25 +14,32 @@ use Cwd qw/abs_path/;
 use Term::ReadKey;
 use Win32::Process;
 
-my @languages = ( "de", "en", "es", "fr", "pl", "rs" );
-
-my $noSign = undef;
-my $noRebuild = undef;
-
 my $absoluteScriptPath = getAbsoluteScriptPath();
 
-my $certificateFilename = $absoluteScriptPath . "certificate.pfx";
+# ATTENTION: this path must point to the VS2008 "devenv.exe"
+my $devenvPath = "C:\\Program Files (x86)\\Microsoft Visual Studio 9.0\\Common7\\IDE\\devenv.exe";
+# ATTENTION: this path must point to the Windows "signtool.exe"
+my $signtoolPath = "C:\\Program Files\\Microsoft SDKs\\Windows\\v6.0A\\Bin\\signtool.exe";
+# ATTENTION: this path must point to your #PKCS12 certificate file; 
+# you can either define an absolute path or a relative one using 
+# the following pattern: $absoluteScriptPath . "mycert.pfx"
+my $certificateFilename = undef;
+# ATTENTION: this value must contain the certificate password
 my $certificatePassword = undef;
 
-applyArguments();
-printIntroductoryInformation();
-printCertificateInformation() if($noSign == 0);
-$certificatePassword = requestPassword() if($noSign == 0);
+my @supportedLanguages = ( "de", "en", "es", "fr", "pl", "rs" );
+
+my $configuration = undef;
+while(not defined $configuration) {
+	print("\n");
+	$configuration = requestConfiguration();
+	print("\n");
+}
 buildCrypTool();
 createCrypToolSetupDirectories();
-signCrypToolSetupDirectories() if($noSign == 0);
+signCrypToolSetupDirectories() if($configuration->{"SIGN"} == 1);
 createCrypToolSetupExecutables();
-signCrypToolSetupExecutables() if($noSign == 0);
+signCrypToolSetupExecutables() if($configuration->{"SIGN"} == 1);
 
 sub getAbsoluteScriptPath() {
 	my $file = $0;
@@ -44,41 +50,71 @@ sub getAbsoluteScriptPath() {
 	return "";
 }
 
-sub applyArguments() {
-	$noSign = 0;
-	$noRebuild = 0;
-	foreach my $argument (@ARGV) {
-		if($argument eq "noSign") {
-			$noSign = 1;
-		}
-		if($argument eq "noRebuild") {
-			$noRebuild = 1;
-		}
-	}
-}
-
-sub printIntroductoryInformation() {
+sub printScriptName() {
 	print("$0\n");
 	print("\n");
-	print("CrypTool will be built in the following languages:\n");
-	print(" - " . join(", ", @languages) . ".\n");
-	print("\n");
 }
 
-sub printCertificateInformation() {
-	print("The following PKCS#12 file will be used for the signing process:\n");
-	print(" - " . $certificateFilename . "\n");
-	print("\n");
+sub requestConfiguration() {
+	my %configuration;
+	$configuration{"LANGUAGES"} = requestLanguageConfiguration();
+	return undef if(not defined $configuration{"LANGUAGES"});
+	$configuration{"REBUILD"} = requestRebuildConfiguration();
+	return undef if(not defined $configuration{"REBUILD"});
+	$configuration{"SIGN"} = requestSignConfiguration();
+	return undef if(not defined $configuration{"SIGN"});
+	return \%configuration;
 }
 
-sub requestPassword() {
-	print("Please specify the password for the PKCS#12 file: ");
-	ReadMode("noecho");
-	chomp(my $password = <STDIN>);
-	ReadMode(0);
-	print("\n");
-	print("\n");
-	return $password;
+sub requestLanguageConfiguration() {
+	print("LANGUAGES.....[ ");
+	foreach my $language (@supportedLanguages) {
+		print("$language ");
+	}
+	print("]: ");
+	chomp(my $input = <STDIN>);
+	$input =~ s/^\s+|\s+$//g;
+	if(length($input) == 0) {
+		return \@supportedLanguages;
+	}
+	my @languages = ( );
+	my @inputLanguages = split(" ", $input);
+	foreach my $inputLanguage (@inputLanguages) {
+		$inputLanguage =~ s/^\s+|\s+$//g;
+		if(grep(/^$inputLanguage$/, @supportedLanguages)) {
+			push(@languages, $inputLanguage);
+		}
+	}
+	if(scalar(@languages) > 0) {
+		return \@languages;
+	}
+	return undef;
+}
+
+sub requestRebuildConfiguration() {
+	print("REBUILD.......[ yes ]: ");
+	chomp(my $input = <STDIN>);
+	$input =~ s/^\s+|\s+$//g;
+	if(length($input) == 0) {
+		return 1;
+	}
+	if(lc($input) eq "y" or lc($input) eq "yes") {
+		return 1;
+	}
+	return 0;
+}
+
+sub requestSignConfiguration() {
+	print("SIGN..........[ yes ]: ");
+	chomp(my $input = <STDIN>);
+	$input =~ s/^\s+|\s+$//g;
+	if(length($input) == 0) {
+		return 1;
+	}
+	if(lc($input) eq "y" or lc($input) eq "yes") {
+		return 1;
+	}
+	return 0;
 }
 
 sub buildCrypTool() {
@@ -86,13 +122,12 @@ sub buildCrypTool() {
 	foreach my $fileToBeTouched (@filesToBeTouched) {
 		utime(undef, undef, $fileToBeTouched);
 	}
-	my $VS2008IdePath = "C:\\Program Files (x86)\\Microsoft Visual Studio 9.0\\Common7\\IDE\\devenv.exe";
-	my $VS2008SolutionPath = $absoluteScriptPath . "..\\CrypTool\\CrypTool-VS2008.sln";
-	my $buildMode = $noRebuild == 0 ? "/Build" : "/Rebuild";
-	foreach my $language (@languages) {
+	my $solutionPath = $absoluteScriptPath . "..\\CrypTool\\CrypTool-VS2008.sln";
+	my $buildMode = $configuration->{"REBUILD"} == 0 ? "/Build" : "/Rebuild";
+	foreach my $language (@{$configuration->{"LANGUAGES"}}) {
 		print("Building CrypTool_$language...\n");
 		my $process = undef;
-		Win32::Process::Create($process, $VS2008IdePath, "devenv $VS2008SolutionPath $buildMode Release_$language", 1, Win32::Process::CREATE_NO_WINDOW(), ".") or print Win32::FormatMessage(Win32::GetLastError());
+		Win32::Process::Create($process, $devenvPath, "devenv $solutionPath $buildMode Release_$language", 1, Win32::Process::CREATE_NO_WINDOW(), ".") or print Win32::FormatMessage(Win32::GetLastError());
 		$process->Wait(INFINITE);
 	}
 	print("\n");
@@ -101,7 +136,7 @@ sub buildCrypTool() {
 sub createCrypToolSetupDirectories() {
 	my $setupPath = $absoluteScriptPath . "..\\setup";
 	my $batchPath = $absoluteScriptPath . "..\\setup\\createsetupdir1lang.bat";
-	foreach my $language (@languages) {
+	foreach my $language (@{$configuration->{"LANGUAGES"}}) {
 		print("Creating CrypTool_$language setup directory...\n");
 		my $process = undef;
 		Win32::Process::Create($process, $batchPath, "createsetupdir1lang $language", 1, Win32::Process::CREATE_NO_WINDOW(), $setupPath) or print Win32::FormatMessage(Win32::GetLastError());
@@ -111,8 +146,7 @@ sub createCrypToolSetupDirectories() {
 }
 
 sub signCrypToolSetupDirectories() {
-	my $signtoolPath = "C:\\Program Files\\Microsoft SDKs\\Windows\\v6.0A\\Bin\\signtool.exe";
-	foreach my $language (@languages) {
+	foreach my $language (@{$configuration->{"LANGUAGES"}}) {
 		print("Signing CrypTool_$language setup directory...\n");
 		my $filesToBeSigned = getFilesToBeSigned($language);
 		foreach my $fileToBeSigned (@{$filesToBeSigned}) {
@@ -127,7 +161,7 @@ sub signCrypToolSetupDirectories() {
 sub createCrypToolSetupExecutables() {
 	my $setupPath = $absoluteScriptPath . "..\\setup";
 	my $batchPath = $absoluteScriptPath . "..\\setup\\createsetupexe1lang.bat";
-	foreach my $language (@languages) {
+	foreach my $language (@{$configuration->{"LANGUAGES"}}) {
 		print("Creating CrypTool_$language setup executable...\n");
 		my $process = undef;
 		Win32::Process::Create($process, $batchPath, "createsetupexe1lang $language", 1, Win32::Process::CREATE_NO_WINDOW(), $setupPath) or print Win32::FormatMessage(Win32::GetLastError());
@@ -137,9 +171,8 @@ sub createCrypToolSetupExecutables() {
 }
 
 sub signCrypToolSetupExecutables {
-	my $signtoolPath = "C:\\Program Files\\Microsoft SDKs\\Windows\\v6.0A\\Bin\\signtool.exe";
 	my $setupPath = $absoluteScriptPath . "..\\setup";
-	foreach my $language (@languages) {
+	foreach my $language (@{$configuration->{"LANGUAGES"}}) {
 		print("Signing CrypTool_$language setup executable...\n");
 		my $setupsToBeSigned = getSetupsToBeSigned($language);
 		foreach my $setupToBeSigned (@{$setupsToBeSigned}) {
