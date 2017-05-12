@@ -85,7 +85,13 @@ public:
 	// some random functions
 	void setTimeComputationStart(const time_t _time) { timeComputationStart = _time; };
 	void setTimeComputationEnd(const time_t _time) { timeComputationEnd = _time; };
-	void setResult(const CString _result) { numberEditResult.setNumber(_result); };
+	
+public:
+	// this function sets the result value displayed in the dialog; due to the potentially 
+	// extremely large size of the result and the subsequent unresponsiveness of the GUI, 
+	// we only write parts of the result back to the dialog if the result length exceeds 
+	// a certain size (GUI_RESULT_LENGTH_LIMIT)
+	void setResult(const std::string &_result);
 
 public:
 	// message handlers

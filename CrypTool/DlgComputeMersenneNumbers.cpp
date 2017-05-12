@@ -111,15 +111,18 @@ struct MersenneNumberComputationParameters {
 	CDlgComputeMersenneNumbers *dialog;
 	apint base;
 	unsigned long exponent;
+	std::string result;
 } mersenneComputationParameters;
 
 UINT computeMersenneNumber(PVOID _parameters)
 {
 	// get parameters necessary for the computation
-	MersenneNumberComputationParameters parameters = *(MersenneNumberComputationParameters*)(_parameters);
+	MersenneNumberComputationParameters *parameters = (MersenneNumberComputationParameters*)(_parameters);
+	assert(parameters);
 
 	// get the pointer to our dialog (the one that started this thread)
-	CDlgComputeMersenneNumbers *dialog = parameters.dialog;
+	CDlgComputeMersenneNumbers *dialog = parameters->dialog;
+	assert(dialog);
 	
 	// we go with base 10 by default
 	apbase(10);
@@ -128,8 +131,8 @@ UINT computeMersenneNumber(PVOID _parameters)
 	dialog->setTimeComputationStart(time(0));
 
 	// compute the mersenne number
-	apint base = parameters.base;
-	unsigned long exp = parameters.exponent;
+	apint base = parameters->base;
+	unsigned long exp = parameters->exponent;
 	apint r = base;
 	int b2pow = 0;
 	if(!exp) return 1;
@@ -151,13 +154,10 @@ UINT computeMersenneNumber(PVOID _parameters)
 
 	// if the computation was finished normally
 	if(!dialog->isCanceled()) {
-		// convert result to something readable
-		std::ostringstream outbuffer;
-		std::string buffer;
-		outbuffer << result;
-		buffer = outbuffer.str();
-		// write the result back to the dialog
-		dialog->setResult(buffer.c_str());
+		// assign result variable
+		std::ostringstream buffer;
+		buffer << result;
+		parameters->result = buffer.str();
 		// set some flags
 		dialog->setRunning(false);
 		dialog->setCanceled(false);
@@ -176,14 +176,42 @@ UINT computeMersenneNumber(PVOID _parameters)
 	return 0;
 }
 
+#define GUI_RESULT_LENGTH_LIMIT 100000
+#define GUI_RESULT_LENGTH_LIMIT_PREFIX 10
+#define GUI_RESULT_LENGTH_LIMIT_SUFFIX 10
+
+void CDlgComputeMersenneNumbers::setResult(const std::string &_result) {
+	// if result is too large, display only parts of it
+	const size_t resultLength = _result.length();
+	CString resultLengthString;
+	resultLengthString.Format("%lld", (long long)(resultLength));
+	if(resultLength > GUI_RESULT_LENGTH_LIMIT) {
+		// display information dialog
+		CString stringLargeResultToBeShortened;
+		stringLargeResultToBeShortened.Format(IDS_MERSENNE_NUMBER_COMPUTATION_LARGE_RESULT_TO_BE_SHORTENED);
+		AfxMessageBox(stringLargeResultToBeShortened);
+		// display parts of the result
+		const std::string resultPrefix = _result.substr(0, GUI_RESULT_LENGTH_LIMIT_PREFIX);
+		const std::string resultSuffix = _result.substr(resultLength - GUI_RESULT_LENGTH_LIMIT_SUFFIX, GUI_RESULT_LENGTH_LIMIT_SUFFIX);
+		const std::string result = resultPrefix + "..." + resultSuffix;
+		numberEditResult.setText(result.c_str());
+	}
+	// otherwise display the complete result
+	else {
+		numberEditResult.setNumber(_result.c_str());
+	}
+	numberEditResultLength.setText(resultLengthString);
+}
+
 void CDlgComputeMersenneNumbers::OnBnClickedStartComputation()
 {
 	UpdateData(true);
 
-	// assign dialog object, base and exponent
+	// assign dialog object, base and exponent, and clear the result variable
 	mersenneComputationParameters.dialog = this;
 	mersenneComputationParameters.base = (char*)(LPCTSTR)(numberEditBase.getNumberAsCString());
 	mersenneComputationParameters.exponent = strtoul((LPCTSTR)(numberEditExponent.getNumberAsCString()), NULL, 10);
+	mersenneComputationParameters.result = "";
 
 	// set some flags
 	running = true;
@@ -258,18 +286,33 @@ void CDlgComputeMersenneNumbers::OnBnClickedPrimeNumberTest()
 
 void CDlgComputeMersenneNumbers::OnBnClickedWriteResultToFile()
 {
+	// if result is too large, display an information dialog
+	const size_t resultLength = mersenneComputationParameters.result.length();
+	if(resultLength > GUI_RESULT_LENGTH_LIMIT) {
+		// display information dialog
+		CString stringLargeResultToBeWritten;
+		stringLargeResultToBeWritten.Format(IDS_MERSENNE_NUMBER_COMPUTATION_LARGE_RESULT_TO_BE_WRITTEN);
+		AfxMessageBox(stringLargeResultToBeWritten);
+	}
+
+	SHOW_HOUR_GLASS
+
 	// create temporary file name
 	char *filename = new char[CRYPTOOL_PATH_LENGTH];
 	GetTmpName(filename, "cry", ".txt");
 
 	ofstream Outfile;
 	Outfile.open(filename, std::ios::out | std::ios::trunc);
-	Outfile << numberEditResult.getNumberAsCString();
+	Outfile << "b: " << mersenneComputationParameters.base << "\r\n";
+	Outfile << "e: " << mersenneComputationParameters.exponent << "\r\n";
+	Outfile << "r: " << mersenneComputationParameters.result << "\r\n";
 	Outfile.close();
-
+	
 	CAppDocument *NewDoc = theApp.OpenDocumentFileNoMRU(filename);
 
-	delete filename;	
+	delete filename;
+
+	HIDE_HOUR_GLASS;
 }
 
 void CDlgComputeMersenneNumbers::OnChangeEditBase()
@@ -324,7 +367,6 @@ void CDlgComputeMersenneNumbers::OnTimer(UINT nIDEvent)
 		buttonClose->EnableWindow(true);
 		
 		if(done) {
-			SHOW_HOUR_GLASS
 			// display the amount of time needed for the calculation (if it's longer than a sec)
 			double timeNeeded = difftime(timeComputationEnd, timeComputationStart);
 			if(timeNeeded > 1.0f) {
@@ -336,15 +378,10 @@ void CDlgComputeMersenneNumbers::OnTimer(UINT nIDEvent)
 			buttonPrimeNumberTest->EnableWindow(true);
 			buttonWriteResultToFile->EnableWindow(true);
 			// also update the result and result length
-			CString stringResultLength;
-			stringResultLength.Format("%d", numberEditResult.getNumberAsCString().GetLength());
-			numberEditResultLength.setNumber(stringResultLength);
-			numberEditResult.updateNumber();
-			numberEditResultLength.updateNumber();
+			setResult(mersenneComputationParameters.result);
 			// and set selection to beginning of edit fields
 			numberEditResult.SetSel(0, 0);
 			numberEditResultLength.SetSel(0, 0);
-			HIDE_HOUR_GLASS
 		}
 	}
 
