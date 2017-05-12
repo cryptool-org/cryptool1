@@ -279,9 +279,21 @@ void CDlgComputeMersenneNumbers::OnBnClickedCancelComputation()
 
 void CDlgComputeMersenneNumbers::OnBnClickedPrimeNumberTest()
 {
-	CDlgPrimeTest dialog;
-	dialog.setNumber(numberEditResult.getNumberAsCString());
-	dialog.DoModal();
+	// flomar, 2017/05/09: the prime number test dialog only supports numbers up 
+	// to 8192 bits which equals 2467 decimal digits; if this number is exceeded, 
+	// display a warning message and return because otherwise the dialog behaves 
+	// in a weird way
+	const size_t resultLength = mersenneComputationParameters.result.length();
+	if(resultLength > 2467) {
+		CString message;
+		message.Format(IDS_STRING_BIG_NUMBER);
+		AfxMessageBox(message);
+	}
+	else {
+		CDlgPrimeTest dialog;
+		dialog.setNumber(mersenneComputationParameters.result.c_str());
+		dialog.DoModal();
+	}
 }
 
 void CDlgComputeMersenneNumbers::OnBnClickedWriteResultToFile()
