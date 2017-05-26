@@ -16,31 +16,35 @@
 
 <H3>Solitaire (Menu <A href="menu_crypt.html">Encrypt/Decrypt</A> \ Symmetric (classical))</H3>
 
-<p>Information about the associated dialog can be found <a href="hidd_solitaire.html">here</a>.</p>
+<p>Here, the Solitaire cipher itself is described. Information about the associated dialog can be found <a href="hidd_solitaire.html">here</a>.</p>
 
-<P>Solitaire is a typical symmetric Paper-and-Pencil-<a href="verschlverfahren.html">encryption-algorithm</a>. It became known after it was featured in Neal Stephenson's novel <i>Cryptonomicon</i>.</P>
+<P>Solitaire is a typical symmetric paper-and-pencil <a href="verschlverfahren.html">encryption algorithm</a>. It became known after it was featured in Neal Stephenson's novel <i>Cryptonomicon</i>.</P>
 
 <P>The algorithm was designed by Bruce Schneier. Its security is drawn from the inherent randomness of a well-shuffled <a href="kartendeck.html">deck of cards</a> and the fact that each key (a given shuffled deck) is used only once.</P>
 
-<p>The key in this algorithm is a particular sequence of cards in a shuffled deck. Both the sender and the receiver must have the same card order.<br>
-The actual Solitaire algorithm describes how to use the key (a shuffled bridge deck with 54 cards) to generate a <i>pseudo</i> random keystream.<br>
-Each character in the keystream is added modulo 26 (ADD) to each character of the plaintext or ciphertext. This is very similar to the concept of a one-time pad, although the keystream of this algorithm is not completely random.</P>
+<p>The key in this algorithm is a particular sequence of cards in a shuffled initial deck. Both the sender and the receiver must have the same card order.</p>
 
-<p>The Solitaire cipher is based on the Vernam cipher (in which the plaintext is ADDed with the keystream) and the stream cipher (in which a keystream is generated from an initial value). Randomness can only be guaranteed in the initial deck.</p>
+<P>The actual Solitaire algorithm describes how to use the key (a shuffled initial bridge deck with 54 cards) to generate a <i>pseudo</i> random keystream.</p>
 
-<p>The keystream generation algorithm consists of five steps, of which the first four permute the deck. The first two steps just move the jokers around, and steps 3 and 4 swap sections of the deck. Step 5 locates the value of the next keystream letter, but does not change the order of cards. The interim card orderings are called temporary decks and the last variation is called the final deck.<br>
-In normal operation, the initial deck and final deck each contain a permutation of the card values 1 to 54. The keystream contains values from 1 to 52 and has the same length as the plaintext.</p>
+<P>Each character in the keystream is added modulo 26 (ADD) to each character of the plaintext or ciphertext.</P>
+
+<p>The Solitaire cipher is based on the Vernam cipher (in which the plaintext is ADDed with the keystream) and the stream ciphers (in which a keystream is generated from an initial value). This is very similar to the concept of a one-time pad, which requires the keystream to be completely random. Randomness in Solitaire can only be guaranteed in the initial deck.</p>
+
+<p>The keystream generation algorithm consists of five steps, of which the first four permute the deck. The first two steps just move the jokers around, and steps 3 and 4 swap sections of the deck. Step 5 locates the value of the next keystream letter, but does not change the order of cards. The interim card orderings are called temporary decks and the last variation is called the final deck.</p>
+
+<p>In normal operation, the initial deck and final deck each contain a permutation of the card values 1 to 54. The keystream contains values from 1 to 52 and has the same length as the plaintext.</p>
+
 
 <p><U><B>Encryption with Solitaire</B></U></p>
 
 <p>The precondition for encryption is the existence of a keystream with the same length as the plaintext. It consists of a stream of numbers between 1 and 26.</p>
 
-<p>All non-alphabetic characters are removed from the <a href="klartext.html">plaintext</a>, and then it is split in groups of five characters. Each plaintext letter is converted into a number from 1 to 26 (where A = 1, B = 2, C = 3, Z = 26, etc.) and added <a href="modulo.html">modulo</a> 26 to the keystream. (The results of a modulo 26 operation will be between 0 and 25, where 0 is then interpreted as 26 and thus equal to Z.) The result of reconverting the number stream into letters is the <a href="chiffretext.html">ciphertext</a>.</p>
+<p>All non-alphabetic characters are removed from the <a href="klartext.html">plaintext</a>, and then it is split in groups of five characters. Each plaintext letter is converted into a number from 1 to 26 (where A = 1, B = 2, C = 3, Z = 26, etc.) and added <a href="modulo.html">modulo</a> 26 to the keystream. The results of a modulo 26 operation will be between 0 and 25, where 0 is then interpreted as 26 and thus equal to Z. Reconverting the number stream into letters leads to the <a href="chiffretext.html">ciphertext</a>.</p>
 
 
 <p><U><B>Decryption with Solitaire</B></U></p>
 
-<p>Because Solitaire is a symmetric cipher, the same <a href="schluessel.html">key</a> (that is, keystream) is used for both encryption and decryption.</p>
+<p>Because Solitaire is a symmetric cipher, the same <a href="schluessel.html">key</a> (i.e here the same keystream) is used for both encryption and decryption.</p>
 
 <p>To decrypt, the ciphertext is again split into groups of five letters, just as with encryption. After the letter-stream is converted to a number-stream, the keystream numbers are subtracted modulo 26 from the ciphertext numbers. The resulting number-stream must be converted back into a letter-stream to obtain the plaintext.</p>
 
@@ -48,22 +52,23 @@ In normal operation, the initial deck and final deck each contain a permutation 
 
 <P>It is recommended that the receiver keeps a copy of the initial deck, since it will become modified during the generation of a keystream. If he or she makes a mistake and does not have a copy, the procedure cannot be restarted and the plaintext cannot be decrypted.</p>
 
+
 <p><U><B>Initial key generation</B></U></p>
 
 <p>The cards are given values depending on the suit: the ace of clubs becomes 1, the 2 of clubs becomes 2, the king of clubs becomes 13, and so on. The diamonds follow the same pattern in the range 14 to 26, hearts from 27 to 39, and spades from 40 to 52. Due to calculation with modulo 26, the generated keystream is a sequence of numbers from 1 to 26.</p>
 
 <p>To initialize the <a href="kartendeck.html">card deck</a>, Schneier describes three alternatives:</p>
 
-<p>1. Shuffle cards:<br>
+<p>1. Shuffle cards<br>
 Use identically shuffled decks. A random key is best. One of the participants can shuffle a random deck and then create an exact copy for the other partner. Since most people are not particularly good shufflers, the deck should be shuffled at least six times. Both parties should also keep a spare deck with the exact same card order in case a mistake is made with the first deck.</p>
 
-<p>2. Bridge suite order:<br>
-Use a particular bridge ordering based on a set of bridge hands that can be found in newspapers or bridge books. Agree on a way to take the bridge-hand diagram and convert it into an ordering of the deck. Then agree on a way to put the two jokers into the deck. (A simple solution is to put the A joker after the first card mentioned in the text, and the B joker after the second card mentioned in the text.)</p>
+<p>2. Bridge suite order<br>
+Use a particular bridge ordering based on a set of bridge hands that can be found in newspapers or bridge books. Agree on a way to take the bridge-hand diagram and convert it into an ordering of the deck. Then agree on a way to put the two jokers into the deck. A simple solution is to put the A joker after the first card mentioned in the text, and the B joker after the second card mentioned in the text.</p>
 
-<p>3. Password:<br>
-Use a password to order the deck. This method uses the Solitaire algorithm to create an initial deck ordering. Both the sender and receiver share a passphrase. Start with the deck in a fixed order; lowest card to highest card, divided by suit, followed by the A and then the B joker. Perform the normal Solitaire operation, but instead of step 5, cut the deck based on the first character of the password (which is essentially just a repetition of step 4). The top cards must be put just above the bottom card in the deck as before.</p>
+<p>3. Password<br>
+Use a password to order the deck. This method uses the Solitaire algorithm to create the ordering of the initial deck. Both, sender and receiver share a passphrase. Start with the deck in a fixed order; lowest card to highest card, divided by suit, followed by the A and then the B joker. Perform the normal Solitaire operation, but instead of step 5, cut the deck based on the first character of the password (which is essentially just a repetition of step 4). The top cards must be put just above the bottom card in the deck as before.</p>
 
-<p>The sender and the receiver need to use the same bridge suite order so that both sides can generate the keystream. There are 54! (approx. 2*10^71) different possibilities of how the card deck can be ordered.</p>
+<p>Sender and receiver both need to use the same bridge suite order so that both sides can generate the keystream. There are 54! (54 factorial is approx. 2*10^71) different possibilities of how the card deck can be ordered.</p>
 
 <p><U><B>Keystream generation</B></U></p>
 
@@ -72,15 +77,18 @@ To initialize the deck, hold it face up. Then arrange the cards in the initial c
 
 <p><U>Step 1</U>: Find the A joker. Move it one card down (that is, swap it with the card beneath it). If the joker is at the bottom of the deck, move it just below the top card.</p>
 
-<p><U>Step 2</U>: Find the B joker. Move it two cards down. If the joker is the bottom card of the deck, move it just below the second card from the top. If the joker is one away from the bottom card, move it just below the top card. (Basically, treat the deck as if it wraps around.)</p>
+<p><U>Step 2</U>: Find the B joker. Move it two cards down. If the joker is the bottom card of the deck, move it just below the second card from the top. If the joker is one away from the bottom card, move it just below the top card. Basically, treat the deck as if it wraps around.</p>
 
 <p><U>Step 3</U>: Perform a triple cut by swapping the cards above the first joker with the cards below the second joker. It does not matter which joker is first; it is simply decided by which is nearest to the top of the deck. The jokers are not swapped. If one of the three sections is empty (because the jokers are adjacent to one another or one is on the top or bottom), it should still be moved accordingly.</p>
 
-<p><U>Step 4</U>: Step 4: Look at the bottom card. The value of the bottom card is called u (which is defined from the range 1 to 53 as defined previously). Count from the top card downwards until that number (u) is reached. Cut after the last card counted, leaving the bottom card where it is.</p>
+<p><U>Step 4</U>: Look at the bottom card.<br>
+The value of the bottom card is called u (which is defined from the range 1 to 53 as defined previously). Count from the top card downwards until that number (u) is reached. Cut after the last card counted, leaving the bottom card where it is.</p>
 
-<p><U>Step 5</U>: The output card is found as follows. Look at the top card and count that many cards downward. (Count the top card as the first one.) The card after the last one reached is the output card. Do not remove it from the deck. If the card is a joker, this is called a <a href="nullrunde.html">zero round</a>); do not write anything down and start over with step 1. The card's value (between 1 and 52) modulo 26 is the keystream character. If there are not enough keystream letters, start over from step 1.</p>
+<p><U>Step 5</U>: The output card is found as follows.<br>
+Look at the value of the top card and count that many cards downwards (the top card is considered as the first one). The card after the last one reached is the output card. Do not remove it from the deck. If the card is a joker, this is called a <a href="nullrunde.html">zero round</a>. Do not write anything down and start over with step 1. The card's value (between 1 and 52) modulo 26 is the keystream character. If there are not enough keystream letters, start over from step 1.</p>
 
-<p>CrypTool features both the ability to encrypt and decrypt messages with the Solitaire cipher, and to perform a partially automated cryptanalysis with a recovered final deck and a corresponding ciphertext.</p>
+<p><a href="cryptool.html">CrypTool</a> features both the ability to encrypt and decrypt messages with the Solitaire cipher, and to perform a partially automated cryptanalysis with a recovered final deck and a corresponding ciphertext (see <a href=HID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE.html>Solitaire Analysis</a>).</p>
 
+<br>
 </BODY>
 </HTML>

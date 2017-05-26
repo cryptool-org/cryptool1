@@ -63,6 +63,7 @@ CT   CrypTool (z.B. um das ganze CT-Projekt zu bezeichnen)
 CT1  CrypTool 1 = CrypTool-Version 1 (diese Version enthält diese Readme-Datei)
 CT2  CrypTool 2 = CrypTool-Version 2 (nutzt .NET; läuft unter Win32)
 JCT  JCrypTool  = Java-CrypTool (läuft unter Win32, Linux und MacOS)
+QCT  QtCrypTool = Zukünftige Portierung von CT1 mit Qt (auch Plattform-unabhängig)
 
 
 1. Kurzbeschreibung des CT1-Paketes (und bekannte Fehler)
@@ -1362,6 +1363,8 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
   Siehe z.B. Menü Ansicht --> Alphabet oder den Hill-Analysedialog.
 - Einen kleinen Fehler im Homophonen-Dialog korrigiert, wo initial ein
   falscher Index angezeigt wurde.
+- Den Dialog zu Solitaire-Verschlüsselung und Solitaire-Analyse verbessert,
+  und die entsprechende Onlinehilfe korrigiert.
 - Den Dialog "Angriff auf stereotype Nachrichten" stabiler gemacht, und ein
   paar Layout-Fehler behoben.
 - Die Berechnung im Dialog "Mersenne-Zahlen berechnen" robuster gemacht,
@@ -2831,7 +2834,7 @@ CrypTool erhielt u.a. folgende explizite Auszeichnungen (s. Webseite):
   statt.
 
 Vergleiche auch
-https://www.cryptool.org/de/ctp-lehre/ctp-auszeichnungen/258-ctp-auszeichnungen
+https://www.cryptool.org/de/ctp-lehre/auszeichnungen/258
 
 
 
@@ -2854,7 +2857,7 @@ A.4.2. .... Portierungsversuch von CT1 nach Linux mit Qt
 
 Alle in CT1, CT2, JCT und CT-Online verfügbaren Funktionen können in einer
 interaktiven Liste abgerufen werden auf:
-   https://www.cryptool.org/de/ctp-dokumentation/ctp-funktionsumfang
+   https://www.cryptool.org/de/ctp-dokumentation/funktionsumfang
 
 
 
@@ -2869,7 +2872,8 @@ Für diejenigen, die weiterhin lieber in C/C++ implementieren wollen, gibt es
 auch einen Nachfolger: QCrypTool (QCT).
 Hier wird CT1 mit Qt 5 weiter entwickelt:
 - Die Oberfläche wird komplett neu geschrieben mit Qt (statt MFC) und
-  damit Plattform-unabhängig sein.
+  damit Plattform-unabhängig sein. Sie soll dasselbe Look&Feel wie CT1
+  haben.
 - QCT wird ebenso wie JCT auf Linux, MacOS, und Windows laufen.
 - Mittels Qt kann man mehrere Sprachen in ein Setup und in ein Executable
   packen, so dass man in QCT ohne Neustart die Sprache wechseln kann.
@@ -3434,7 +3438,7 @@ begonnen worden, aber mangels Zeit nicht/wenig fortgesetzt worden.
 - http://www.cryptoolinux.net/
 
 Mit QCrypTool (QCT) wird das CT-Kernteam einen Nachfolger von CT1
-mit Qt 5 bauen (siehe A.1).
+mit Qt 5 bauen, der dasselbe Look&Feel wie CT1 hat (siehe A.1).
 
 
 ################################################################

@@ -15,23 +15,23 @@
 </OBJECT>
 
 
-<h3><P><A NAME="hidd_solitaire"></A><B>Dialog zur Schlüsselstromerzeugung und <a href="menu_crypt.html">Ver-/Entschlüsselung</a> mit dem <a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire-Algorithmus</a></B></P></H3>
+<h3><P><A NAME="hidd_solitaire"></A>Dialog zur Schlüsselstromerzeugung und zur <a href="menu_crypt.html">Ver-/Entschlüsselung</a> mit dem <a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire-Algorithmus</a></H3>
 
+<br>
 <IMG SRC="images/Solitaire_Dialog.gif" BORDER=0>
 
 
 <p>Dieser Dialog dient zur Erzeugung eines Schlüsselstromes mit dem Solitaire-Algorithmus.</p>
-<p>Der erzeugte Schlüsselstrom kann zur Klartext-Verschlüsselung (Button <B>Verschlüsseln</B>) als auch zur Geheimtext-Entschlüsselung (Button <B>Entschlüsseln</B> verwendet werden. Vor der Solitaire Ver- bzw. Entschlüsselung muss der Klartext oder der Geheimtext in CrypTool als aktuelles Dokument geöffnet sein.
-</p>
-<p>
-<B>Bemerkung</B>:<br>Ein mit Solitaire verschlüsselter Geheimtext kann in CrypTool mit Hilfe der halbautomatischen <a href="HID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE.html">Solitaire-Analyse</a> analysiert werden.
+<p>Der erzeugte Schlüsselstrom kann dann zur Klartext-Verschlüsselung (Button <B>Verschlüsseln</B>) als auch zur Geheimtext-Entschlüsselung (Button <B>Entschlüsseln</B> verwendet werden. Vor der Solitaire Ver- bzw. Entschlüsselung muss der Klartext oder der Geheimtext in CrypTool als aktuelles Dokument geöffnet sein.</p>
+
+<p><B>Bemerkung</B>:<br> Ein mit Solitaire verschlüsselter Geheimtext kann in CrypTool mit Hilfe der halbautomatischen <a href="HID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE.html">Solitaire-Analyse</a> analysiert werden.
 </p>
 
 </BR><p><U><B>1) Schlüssel erzeugen</B></U></p>
 <p>Bitte folgen Sie den Nummerierungen der umrandeten Felder (Gruppierungen) in diesem Dialog. Wenn Sie eine Korrektur an einem vorherigen Schritt durchführen möchten, ist es ratsam, erneut mit Schritt 1 zu beginnen.
 </p>
 
-<p><B>Gruppierung 1a: Initial deck erstellen (= Mischen)  ==  Schlüssel erzeugen</B><br>
+<p><B>Gruppierung 1 a: Initial-Deck erstellen (= Mischen)  ==  Schlüssel erzeugen</B><br>
 Wählen Sie die von Ihnen gewünschte Kartenanzahl aus, mit der der <a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire-Algorithmus </a>durchgeführt werden soll.<br>
 Normalerweise werden 54 Karten verwendet (52 + 2 Joker). Diese Kartenanzahl wird auch vom Erfinder Bruce Schneier empfohlen und ist deshalb voreingestellt.<br>
 Der Dialog erlaubt Ihnen auch, weniger Karten auszuwählen (mindestens 3 = 1 + 2 Joker).
@@ -40,42 +40,52 @@ Der Dialog erlaubt Ihnen auch, weniger Karten auszuwählen (mindestens 3 = 1 + 2 
 
 
 
-<p><B>Gruppierung 1b: Kartenreihenfolge festlegen</B><br>
+<p><B>Gruppierung 1 b: Kartenreihenfolge festlegen</B><br>
 Wählen Sie die von Ihnen gewünschte <a href="kartendeck.html">Kartenausgangsposition</a> aus. Hier gibt es sechs verschiedene Möglichkeiten, wobei die "aufsteigende Sortierung" voreingestellt ist.
 </p>
 <p>
 <ul>
-<li><U>aufsteigend sortiert:</U> sortiert die Karten in aufsteigender Reihenfolge (begonnen mit der niedrigsten).</li>
-<li><U>absteigend sortiert:</U> sortiert die Karten in absteigender Reihenfolge (begonnen mit der höchsten).</li>
-<li><U>gemischt:</U> mischt die Karten mit Hilfe einer Zufallsfunktion (kann auch mehrmals durchgeführt werden).</li>
-<li><U>nach Vorgabe:</U> Sie entscheiden selbst über die Position der Karten (anschließend fortfahren unter der Gruppierung "Optional -> Nach Vorgabe").</li>
-<li><U>Initialdeck laden:</U> Sie laden das zuletzt gespeicherte Initialdeck.</li>
-<li><U>Ausgangsdeck laden:</U> Sie laden das zuletzt gespeicherte Ausgangsdeck (= Deck nach Durchführung aller <a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire</a>-Schritte).</li>
+<li><U>Aufsteigend sortiert</U> Sortiert die Karten in aufsteigender Reihenfolge (begonnen mit der niedrigsten)</li>
+<li><U>Absteigend sortiert</U> Sortiert die Karten in absteigender Reihenfolge (begonnen mit der höchsten)</li>
+<li><U>Gemischt</U> Mischt die Karten mit Hilfe einer Zufallsfunktion (kann mehrfach durchgeführt werden)</li>
+<li><U>Passwort</U> Sie geben in der optionalen Gruppierung "Passworteingabe" ein Passwort ein. Nach Klick auf "Initial-Deck modifizieren" wird das Initial-Deck erzeugt.</li>
+<li><U>Nach Vorgabe</U> Sie legen die Reihenfolge der Karten per Button-Klick fest (in der optionalen Gruppierung "Nach Vorgabe")</li>
+<li><U>Gespeichertes Kartendeck laden</U> Sie können entweder ein Initial-Deck (gemischt) oder ein End-Deck (= Deck nach Durchführung aller <a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire</a>-Schritte) laden</li>
 </ul>
 </p>
-<p>
-Beim Entschlüsseln müssen Sie das gleiche Initialdeck einstellen, das zur Verschlüsselung ihres Geheimtextes verwendet wurde (das Initialdeck ist der geheime Schlüssel).
+
+<p>Der Button <B>Andere Mischung</B> wird nur aktiv, wenn man in der Drop-down-Box den Eintrag "Gemischt" ausgewählt hat. Damit kann man neue zufällige Mischungen für das Initial-Deck erzeugen.
 </p>
+
+<p>Der Button <B>Initial-Deck modifizieren</B> wird nur aktiv, wenn man gerade den Eintrag "Passwort" auswählte.
+</p>
+
+<p>Beim Entschlüsseln müssen Sie das gleiche Initial-Deck einstellen, das zur Verschlüsselung ihres Geheimtextes verwendet wurde (das Initial-Deck ist der geheime Schlüssel).
+</p>
+
 
 <IMG SRC="images/Solitaire_Art.gif" BORDER=0>
 
-<p><B>Gruppierung Optional: Passworteingabe</B><br>
-Nachdem Sie die Kartenreihenfolge in Gruppierung 1 b. festgelegt haben, können Sie das Initialdeck anschließend zusätzlich durch eine Passworteingabe modifizieren. Geben Sie einfach ein Passwort ein (maximal 1024 Zeichen), welches nur aus Buchstaben besteht (andere Zeichen werden unterdrückt). Haben Sie ihr Passwort korrekt eingegeben, wenden Sie es bitte durch Klicken des <B>Initialdeck modifizieren</B>-Buttons auf das Initialdeck an. Sie können den Button auch mehrfach drücken. Bei jedem Mal wird das Passwort erneut auf das Kartendeck angewendet, wodurch sich die Reihenfolge des Kartendecks entsprechend ändert.<br> 
-Beim Entschlüsseln müssen Sie das gleiche Passwort einstellen und genauso oft den <B>Initialdeck modifizieren</B>-Button drücken, wie bei der Anwendung des Passwortes beim Verschlüsseln.<br>
-Wenden Sie beispielsweise das Passwort "<I>test</I>" zweimal an (durch zweimaliges Drücken des <B>Initialdeck modifizieren</B>-Buttons), ist dies das Gleiche wie die einmalige Anwendung des Passwortes "<I>testtest</I>".  
+<p><B>Gruppierung "Optional": Passworteingabe</B><br>
+Nachdem Sie die Kartenreihenfolge in Gruppierung "1 b" festgelegt haben, können Sie das Initial-Deck anschließend zusätzlich durch eine Passworteingabe modifizieren. Geben Sie einfach ein Passwort ein (maximal 1024 Zeichen), welches nur aus Buchstaben besteht (andere Zeichen werden unterdrückt). Haben Sie ihr Passwort korrekt eingegeben, wenden Sie es bitte durch Klicken des <B>Initial-Deck modifizieren</B>-Buttons auf das Initial-Deck an. Sie können den Button auch mehrfach drücken. Bei jedem Mal wird das Passwort erneut auf das Kartendeck angewendet, wodurch sich die Reihenfolge des Kartendecks entsprechend ändert.<br> 
+Beim Entschlüsseln müssen Sie das gleiche Passwort einstellen und genauso oft den <B>Initial-Deck modifizieren</B>-Button drücken, wie bei der Anwendung des Passwortes beim Verschlüsseln.<br>
+Wenden Sie beispielsweise das Passwort "<I>test</I>" zweimal an (durch zweimaliges Drücken des <B>Initial-Deck modifizieren</B>-Buttons), ist dies das Gleiche wie die einmalige Anwendung des Passwortes "<I>testtest</I>".  
 </p>
 
 <IMG SRC="images/Solitaire_Passwort.gif" BORDER=0>
 
 
-<p><B>Gruppierung Optional: Nach Vorgabe</B><br>
-Dieses Steuerelement wird aktiviert, wenn Sie in der Gruppierung 1 b. die Festlegung der Kartenreihenfolge "Nach Vorgabe" gewählt haben. Bitte bauen Sie das von Ihnen gewünschte Initialdeck selbst zusammen, indem Sie die einzelnen Buttons (<B>1-54</B>) in der entsprechenden Reihenfolge anklicken. Wenn Sie eine kleinere Kartenanzahl gewählt haben, dann werden die Buttons für die nicht benötigten Zahlen deaktiviert. Beachten Sie, dass bei der Wahl der vorletzten Zahl der Joker 'A' und bei der Wahl der letzten Zahl der Joker 'B' an das Kartendeck angefügt wird.<br>
-Unterläuft Ihnen ein Fehler, klicken Sie bitte den <B>Reset</B>-Button und beginnen die Eingabe erneut. Die Zahlenwerte auf den Buttons entsprechen den Kartenwerten, wie sie in der <a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire-Beschreibung</a> beschrieben sind. Während Sie die einzelnen Buttons anklicken, können Sie Ihr bisher erzeugtes <a href="kartendeck.html">Deck</a>  im Feld "Initialdeck" unter der Gruppierung "Ausgabe der verschiedenen Zustände des Kartendecks und des erzeugten Schlüsselstroms" sehen. Sobald Sie die in Gruppierung 1 a. eingestellte Kartenanzahl erreicht haben, wird dieses Steuerelement deaktiviert und Gruppierung 2. aktiviert. 
+<p><B>Gruppierung "Optional": Nach Vorgabe</B><br>
+Dieses Steuerelement wird aktiviert, wenn Sie in der Gruppierung "1 b" die Festlegung der Kartenreihenfolge "Nach Vorgabe" gewählt haben. Bitte bauen Sie das von Ihnen gewünschte Initial-Deck selbst zusammen, indem Sie die einzelnen Buttons (<B>1-54</B>) in der entsprechenden Reihenfolge anklicken. Wenn Sie eine kleinere Kartenanzahl gewählt haben, dann werden die Buttons für die nicht benötigten Zahlen deaktiviert. Beachten Sie, dass bei der Wahl der vorletzten Zahl der Joker 'A' und bei der Wahl der letzten Zahl der Joker 'B' an das Kartendeck angefügt wird.<br>
+Unterläuft Ihnen ein Fehler, klicken Sie bitte den <B>Reset</B>-Button und beginnen die Eingabe erneut. Die Zahlenwerte auf den Buttons entsprechen den Kartenwerten, wie sie in der <a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire-Beschreibung</a> beschrieben sind. Während Sie die einzelnen Buttons anklicken, können Sie Ihr bisher erzeugtes <a href="kartendeck.html">Deck</a>  im Feld "Initial-Deck" unter der Gruppierung "Ausgabe der verschiedenen Zustände des Kartendecks und des erzeugten Schlüsselstroms" sehen. Sobald Sie die in Gruppierung "1 a" eingestellte Kartenanzahl erreicht haben, wird dieses Steuerelement deaktiviert und Gruppierung "2" aktiviert. 
 </p>
 <IMG SRC="images/Solitaire_Vorgabe.gif" BORDER=0>
 
 
+
+
 </BR></BR><p><U><B>2) Schlüsselstrom erzeugen</B></U></p>
+
 <p><B>Gruppierung 2: Schlüsselstrom erzeugen (automatisch oder manuell)</B><br>
 Dieses Steuerelement bietet Ihnen zwei Alternativen der Schlüsselstromerzeugung zur Auswahl.
 </p>
@@ -83,37 +93,42 @@ Dieses Steuerelement bietet Ihnen zwei Alternativen der Schlüsselstromerzeugung 
 <p>
 <ul><li><B>Automatisch</B></li><br>
 Dieser Button führt alle 5 Schritte des Solitaire-Algorithmus zur Schlüsselstromerzeugung automatisch so oft aus, wie der zu verschlüsselnde Klartext bzw. der zu entschlüsselnde Geheimtext Schlüsselstromzeichen benötigt.<br>
-Anschließend können Sie im Feld "Ausgangsdeck" der <a href="kartendeck.html">Ausgabe</a> sehen, wie das <a href="kartendeck.html">Kartendeck</a> nach der Ausführung der Solitaire-Schritte aussieht. <br>
+Anschließend können Sie im Feld "End-Deck" der <a href="kartendeck.html">Ausgabe</a> sehen, wie das <a href="kartendeck.html">Kartendeck</a> nach der Ausführung der Solitaire-Schritte aussieht. <br>
 Im Feld "Schlüsselstrom" sehen Sie den Schlüsselstrom, mit dessen Hilfe nun ver- bzw. entschlüsselt werden kann.<br><br>
 <li><B>Manuell</B></li><br>
-Dieser Button ermöglicht Ihnen, die 5 Schritte des Solitaire-Algorithmus zur Schlüsselstromerzeugung manuell durchzuführen. Nachdem Sie diesen Button geklickt haben, öffnet sich die nächste Steuerelement-Gruppierung 2 a., in der Sie die einzelnen Schritte anklicken können.
+Dieser Button ermöglicht Ihnen, die 5 Schritte des Solitaire-Algorithmus zur Schlüsselstromerzeugung manuell durchzuführen. Nachdem Sie diesen Button geklickt haben, öffnet sich die nächste Steuerelement-Gruppierung "2 a", in der Sie die einzelnen Schritte anklicken können.
 </ul>
 <B>Bemerkung</B>:<br>
-Falls Sie in Gruppierung 1 b. für die Festlegung der Kartenreihenfolge „Nach Vorgabe“ wählten, werden diese beiden Buttons erst dann aktiv, wenn das Initialdeck ganz gefüllt ist, d.h. wenn alle aktivierten Buttons in der Matrix von Gruppierung 1 "Nach Vorgabe" gedrückt worden sind.
+Falls Sie in Gruppierung "1 b" für die Festlegung der Kartenreihenfolge „Nach Vorgabe“ wählten, werden diese beiden Buttons erst dann aktiv, wenn das Initial-Deck ganz gefüllt ist, d.h. wenn alle aktivierten Buttons in der Matrix von Gruppierung 1 "Nach Vorgabe" gedrückt worden sind.
 </p>
 
 
 
-<p><B>Gruppierung 2 a:  Manuelle Einzelschritte des Solitaire-Algorithmus</B><br>
-Diese Steuermöglichkeiten werden aktiviert sobald Sie in Gruppierung 2 den <B>Manuell</B>-Button geklickt haben. Um die Vorgaben des Solitaire-Algorithmus einzuhalten klicken Sie die Buttons (Schritt 1 bis Schritt 5) in aufsteigender Reihenfolge so oft an, bis Sie genügend Schlüsselstromzeichen erzeugt haben. Bei jedem Schritt kann man die Veränderung des <a href="kartendeck.html">Decks</a> im Feld "Ausgangsdeck" in der Deckausgabe erkennen. Ein weiteres Schlüsselstromzeichen wird lediglich bei Schritt 5 erzeugt und der Schlüsselausgabe hinzugefügt. <br><br>
+<p><B>Gruppierung 2:  Manuelle Einzelschritte des Solitaire-Algorithmus</B><br>
+Diese Steuermöglichkeiten werden aktiviert sobald Sie in Gruppierung 2 den <B>Manuell</B>-Button geklickt haben. Um die Vorgaben des Solitaire-Algorithmus einzuhalten, klicken Sie die Buttons (Schritt 1 bis Schritt 5) in aufsteigender Reihenfolge so oft an, bis Sie genügend Schlüsselstromzeichen erzeugt haben. Bei jedem Schritt kann man die Veränderung des <a href="kartendeck.html">Decks</a> im Feld "End-Deck" in der Deckausgabe erkennen. Neue Schlüsselstromzeichen werden lediglich bei Schritt 5 erzeugt. <br><br>
 </p>
+
 <IMG SRC="images/Solitaire_schritte.gif" BORDER=0>
+
 <p>
 <B>Bemerkung</B>:<br>
-Falls Ihr Klartext z.B. 100 Buchstaben lang ist und Sie manuell z.B. erst 15 Zeichen erzeugt haben, können Sie auch auf den Button <B>Rest generieren</B> klicken. Dadurch werden die restlichen (z.B. 100-15) Schlüsselstromzeichen automatisch erzeugt. In dem kleinen Anzeigetext rechts neben Button-<B>Schritt 5</B> wird die Anzahl bereits erzeugter Schlüsselstromzeichen und die Anzahl der benötigten Schlüsselstromzeichen angezeigt.<br>
+Falls Ihr Klartext z.B. 100 Buchstaben lang ist und Sie manuell z.B. erst 15 Zeichen erzeugt haben, können Sie auch auf den Button <B>Rest generieren</B> klicken. Dadurch werden die restlichen (z.B. 100-15=85) Schlüsselstromzeichen automatisch erzeugt. In dem kleinen Anzeigetext rechts neben Button <B>Schritt 5</B> wird die Anzahl bereits erzeugter Schlüsselstromzeichen und die Anzahl der noch benötigten Schlüsselstromzeichen angezeigt.<br>
 Nachdem ein Schlüsselstrom in ausreichender Länge erzeugt wurde [d.h. Ihr Schlüsselstrom enthält genauso viele Buchstaben (max. 65.535) wie das vorher ausgewählte Dokument (Klartext oder Geheimtext)], werden die Buttons <B>Verschlüsseln</B>, <B>Entschlüsseln</B> und die 3 <B>Speichern</B>-Buttons aktiviert.
 </p>
 
+
 <p><B>Speichern</B><br>
 <ul>
-<li>Wenn Sie den obersten <B>Speichern</B>-Button anklicken, wird das momentan im Feld "Initialdeck" angezeigte Kartendeck in der Textdatei "<I>StoredLastInitialdeck.txt</I>" auf Ihrer Festplatte in den CrypTool-Ordner gespeichert.</li>
-<li>Wenn Sie den mittleren <B>Speichern</B>-Button anklicken, wird das momentan im Feld "Ausgangsdeck" angezeigte Kartendeck in der Textdatei "<I>StoredLastFinaldeck.txt</I>" auf Ihrer Festplatte in den CrypTool-Ordner gespeichert.</li>
+<li>Wenn Sie den obersten <B>Speichern</B>-Button anklicken, wird das momentan im Feld "Initial-Deck" angezeigte Kartendeck in der Textdatei "<I>StoredLastInitialdeck.txt</I>" auf Ihrer Festplatte in den CrypTool-Ordner gespeichert.</li>
+<li>Wenn Sie den mittleren <B>Speichern</B>-Button anklicken, wird das momentan im Feld "End-Deck" angezeigte Kartendeck in der Textdatei "<I>StoredLastFinaldeck.txt</I>" auf Ihrer Festplatte in den CrypTool-Ordner gespeichert.</li>
 <li>Wenn Sie den untersten <B>Speichern</B>-Button anklicken, wird der momentan im Feld "Schlüsselstrom" angezeigte Schlüsselstrom in der Textdatei "<I>StoredLastKeystream.txt</I>" auf Ihrer Festplatte in den CrypTool-Ordner gespeichert.</li>
 </ul>
 </p>
 
 
+
 </BR><p><U><B>3) Durchführen der Ver- und Entschlüsselung mit Hilfe des Schlüsselstroms</B></U></p>
+
 <p><B>Verschlüsseln</B><br>
 Wenn Sie diesen Button anklicken, wird mit Hilfe des Schlüsselstroms und dem Klartext der Geheimtext erzeugt.
 </p>
@@ -124,9 +139,10 @@ Wenn diesen Button anklicken, wird mit Hilfe des Schlüsselstroms und dem Geheimt
 <p>
 Nach dem Klicken der Buttons <B>Verschlüsseln</B> bzw. <B>Entschlüsseln</B> wird der Dialog verlassen und der erzeugte Klar- bzw. Geheimtext erscheint in einem neuen Dokument im CrypTool-Hauptfenster.
 </p>
-<p><B>Abbrechen</B><br>
-Mit Hilfe dieses Buttons können Sie den Dialog jederzeit verlassen.
-</p>
+
+<br><p><B>Abbrechen</B><br>
+Mit Hilfe dieses Buttons können Sie den Dialog jederzeit verlassen.</p><br>
+
 </BODY>
 </HTML>
 

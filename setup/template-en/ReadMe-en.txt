@@ -63,6 +63,7 @@ CT   CrypTool (for instance used to characterize the whole CT project)
 CT1  CrypTool 1 = CrypTool version 1 (the version delivered with this readme)
 CT2  CrypTool 2 = CrypTool version 2 (uses .NET; runs under Win32)
 JCT  JCrypTool  = Java-CrypTool (runs under Win32, Linux and MacOS)
+QCT  QtCrypTool = Future port of CT1 with Qt (also platform independent)
 
 
 1. Brief description of the CT1 package (and known bugs)
@@ -1315,6 +1316,8 @@ c) New functionality / Usability / Corrections of errors:
 - Scilexer.dll again greys out non-alphabet characters correctly.
   See e.g. menu View --> Alphabet or the Hill analyzer.
 - Fixed small issue with wrong index shown initially in the homophones dialog.
+- Improved the dialog of Solitaire encryption and Solitaire analysis, and
+  corrected the according online help.
 - Making the dialog "Attack on Stereotyped Messages" more robust, and
   fixed some smaller mistakes in layout.
 - Making the calculations in the dialog "Compute Mersenne Numbers" more robust
@@ -2734,7 +2737,7 @@ CrypTool was honored with the following "official" awards (see web page):
   of Siegen on July, 22nd, 2008.
 
 Also see
-https://www.cryptool.org/en/ctp-education/ctp-awards/259-ctp-awards
+https://www.cryptool.org/en/ctp-education/awards/259
 
 
 
@@ -2755,9 +2758,9 @@ A.4.1. .... Running CT1 on Linux with Wine
 A.4.2. .... Porting draft of CT1 to Linux with Qt
 
 
-All functions available in CT1, CT2, JCT and CT-Online can be found in an
+All functions available in CT1, CT2, JCT, and CT-Online can be found in an
 interactive list of at:
-   https://www.cryptool.org/en/ctp-documentation/ctp-functions
+   https://www.cryptool.org/en/ctp-documentation/functions
 
 
 
@@ -2772,7 +2775,8 @@ For those who prefer to keep on developing in C/C++, there will also be
 a successor: QCrypTool (QCT).
 Here, CT1 is further developed using Qt 5:
 - The GUI will be completely written with Qt (instead of MFC) which
-  enables platform independence.
+  enables platform independence. The GUI should have the same look&feel
+  as CT1.
 - Like JCT, QCT will run on Linux, MacOS, and Windows.
 - With Qt, several languages can be combined in one setup and in one
   executable. So within QCT, you can switch the language without a restart.
@@ -3322,7 +3326,7 @@ but unfortunately not finished because lack of time.
 - http://www.cryptoolinux.net/
 
 With QCrypTool (QCT), the CT core team will build a successor of CT1
-using Qt 5 (see A.1).
+using Qt 5, which will have the same look&feel as CT1 (see A.1).
 
 ################################################################
 
