@@ -2282,7 +2282,7 @@ Contact addresses:
 
 See also:
 - https://www.cryptool.org/en/ctp-links
-- https://www.cryptool.org/en/ctp-education/ctp-awards
+- https://www.cryptool.org/en/ctp-education/awards
 
 
 8.1. Articles about CrypTool
@@ -2382,7 +2382,7 @@ issue 3/2009.
 
 
 Further articles can be found on the following website:
-https://www.cryptool.org/en/ctp-education/ctportal-awards/270-ctp-printmedia
+https://www.cryptool.org/en/ctp-education/awards/270-printmedia
 
 
 
@@ -2737,8 +2737,7 @@ CrypTool was honored with the following "official" awards (see web page):
   of Siegen on July, 22nd, 2008.
 
 Also see
-https://www.cryptool.org/en/ctp-education/awards/259
-
+https://www.cryptool.org/en/ctp-education/awards/259-awards
 
 
 A. Appendix

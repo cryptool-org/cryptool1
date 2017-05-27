@@ -2360,7 +2360,7 @@ Kontaktadressen:
 
 Vergleiche auch:
 - https://www.cryptool.org/de/ctp-links
-- https://www.cryptool.org/de/ctp-lehre/ctp-auszeichnungen
+- https://www.cryptool.org/de/ctp-lehre/auszeichnungen
 
 
 8.1. Artikel über CrypTool
@@ -2458,7 +2458,7 @@ CrypTool.
 
 
 Weitere Artikel sind auf der folgenden Webseite aufgelistet:
-https://www.cryptool.org/de/ctp-lehre/ctp-auszeichnungen/267-ctp-medien
+https://www.cryptool.org/de/ctp-lehre/auszeichnungen/267-medien
 
 
 
@@ -2834,8 +2834,7 @@ CrypTool erhielt u.a. folgende explizite Auszeichnungen (s. Webseite):
   statt.
 
 Vergleiche auch
-https://www.cryptool.org/de/ctp-lehre/auszeichnungen/258
-
+https://www.cryptool.org/de/ctp-lehre/auszeichnungen/258-auszeichnungen
 
 
 A. Anhang
