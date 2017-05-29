@@ -22,6 +22,7 @@
 #include "CrypToolApp.h"
 #include "DlgComputeMersenneNumbers.h"
 #include "FileTools.h"
+#include "CrypToolTools.h"
 #include "DlgPrimeTest.h"
 
 // include apfloat and utility headers
@@ -394,6 +395,10 @@ void CDlgComputeMersenneNumbers::OnTimer(UINT nIDEvent)
 			// and set selection to beginning of edit fields
 			numberEditResult.SetSel(0, 0);
 			numberEditResultLength.SetSel(0, 0);
+			// here we insert integral separators into the result field for better readability; 
+			// we don't do this for the result itself as it doesn't make sense if the result 
+			// is shortened due to its size
+			numberEditResultLength.setText(createStringNumberWithDigitGrouping(numberEditResultLength.getNumberAsCString()));
 		}
 	}
 
