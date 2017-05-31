@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>Solitaire-Analyse</Title>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<BODY>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Kartenspiel">
+	<PARAM NAME="Keyword" VALUE="Analyse">
+	<PARAM NAME="Keyword" VALUE="Solitaire-Verschlüsselungsverfahren">
+</OBJECT>
+
+<H3>Solitaire (Menü <A href="menu_analyze.html">Analyse</A> \ Symmetrische Verschl&uuml;sselung (klassisch) 
+\ Ciphertext-Only)</H3>
+
+<P>Die Beschreibung des Solitaire-Analyse-Dialogs finden Sie <A href="hidd_Solitaire_Analyse.html">
+hier</A>.</P>
+
+<P>Für das <A href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire-Verschlüsselungsverfahren</a> steht ein Angriff 
+(Angriffsszenario <A href="ciphertextonlyangriff.html">Ciphertext-only-Angriff</a>) in Form der 
+halbautomatisierten Schlüsselsuche zur Verfügung. Hierfür ist es notwendig, 
+das <a href="kartendeck.html">End-Deck</a> sowie den zugehörigen 
+(<A href="chiffretext.html">Geheimtext</a>) zu kennen.</P>
+
+<P>Da jeder Schritt des Algorithmus reversibel ist, ist der Algorithmus insgesamt stark reversibel. So kann anhand der Umkehrung der einzelnen Schritte das <a href="kartendeck.html">End-Deck</a> ermittelt und somit der symmetrische <A href="schluessel.html">
+Schl&uuml;ssel</a> erzeugt werden. Mit Hilfe dieses Schl&uuml;ssels kann der Geheimtext entschl&uuml;sselt 
+werden.</P>
+
+<P> Das Problem bei der Analyse besteht darin, dass der Algorithmus nicht hundertprozentig reversibel ist und somit nicht jeder Schritt eindeutig r&uuml;ckg&auml;ngig gemacht werden kann (wenn man nur das Ergebnis kennt). Schlägt man den falschen Weg ein, so ist die weitere Analyse falsch.</P>
+
+<p>Die Analyse operiert in drei Schritten:</P>
+
+<UL>
+<LI>1. Ermittlung des <a href="kartendeck.html">Initial-Decks</a></LI>
+<LI>2. Erzeugung des Schlüsselstroms</LI>
+<LI>3. Entschlüsselung des Geheimtextes</LI>
+</UL>
+
+<br><p><b>1. Ermittlung des Initial-Decks</b></p>
+
+<P>Der Solitaire-Algorithmus wird für jedes Geheimtextzeichen einmal rückwärts durchlaufen. Das bedeutet, es wird mit Schritt 5 begonnen, dann folgen Schritt 4, Schritt 3, Schritt 2 und Schritt 1. Diese einzelnen Schritte werden entgegengesetzt zu Solitaire durchgeführt.</P>
+
+<UL>
+<LI>Schritt 5:<br>Es wird kein Zeichen notiert. Es wird lediglich geprüft, ob eine 
+<a href="nullrunde.html">Nullrunde</a> auftaucht. Ist dies der Fall, muss der Algorithmus ein zusätzliches Mal rückwärts durchlaufen werden.</LI>
+<LI>Schritt4:<br>Die Karten, die bei Schritt vier vor der letzten Karte einsortiert wurden, müssen wieder an den Anfang gesetzt werden. Die Anzahl wird durch die letzte Karte angegeben.</LI>
+<LI>Schritt3:<br>Vertausche den Stapel vor dem ersten Joker mit dem Stapel hinter dem zweiten Joker.</LI>
+<LI>Schritt2:<br>Joker B wird zwei Karten vorher einsortiert.</LI>
+<LI>Schritt1:<br>Joker A wird eine Karte vorher einsortiert.</LI>
+</UL>
+
+<P>Nachdem der Algorithmus für jedes Geheimtextzeichen und jede <a href="nullrunde.html">Nullrunde</a> rückwärts durchlaufen wurde, ist das Initial-Deck erzeugt. Da Schritt 1 und 2 nicht immer eindeutig umgekehrt werden kann, ist der Algorithmus nicht vollständig reversibel. Wird in den Schritten 1 bzw. 2 der Joker A bzw. Joker B falsch einsortiert, so erhält man nach dem Entschlüsseln nicht den korrekten Klartext (weil die gegenwärtige Implementierung nur immer einem der beiden Wege folgt und nicht alle Gabelungen per Brute-Force verfolgt).</P>
+
+<p>Von hier an ist das Vorgehen analog zum Entschlüsseln mit Solitaire</p>
+
+
+<br><p><b>2. Erzeugung des Schlüsselstroms</b></P>
+
+<P>Auf das <a href="kartendeck.html">Initial-Deck</a> wird nun für jedes Geheimtextzeichen und für jede <a href="nullrunde.html">Nullrunde</a> einmal der Solitaire-Algorithmus angewendet 
+(<A href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire-Schl&uuml;sselstromerzeugung</a> ). Dadurch erhält man den Schlüsselstrom, mit dem der Klartext verschlüsselt wurde.</p>
+
+
+<br><p><b>3. Entschlüsselung des Geheimtextes</b></P>
+
+<P>Der Geheimtext wird mit diesem Schlüsselstrom entschlüsselt (das Solitaire-Verfahren selbst wird <A href="HID_SYMCLASSIC_SOLITAIRE.html">hier</a> beschrieben).</p>
+
+</BODY>
+</HTML>

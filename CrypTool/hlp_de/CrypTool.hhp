@@ -95,8 +95,8 @@ hid_analyse_ngram.html
 hid_analyse_period.html
 hid_analyse_rc2.html
 hid_analyse_rc4.html
-hid_analyse_symmclassic_adfgvx.html
-hid_analyse_symmclassic_ciphertextoly_solitaire.html
+hid_analyse_symclassic_adfgvx.html
+hid_analyse_symclassic_ciphertextonly_solitaire.html
 hid_analyse_tripledescbc.html
 hid_analyse_tripledesecb.html
 hid_analyse_vitany.html

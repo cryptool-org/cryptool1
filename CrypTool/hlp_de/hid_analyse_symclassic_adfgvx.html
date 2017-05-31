@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Halbautomatische Analyse der ADFGVX-Verschlüsselung</TITLE>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Analyse">
+	<PARAM NAME="Keyword" VALUE="ADFGVX-Verschlüsselungsverfahren">
+</OBJECT>
+
+<BODY>
+
+<h3>ADFGVX (Menü <A href="menu_analyze.html">Analyse</A> \ Symmetrische Verschlüsselung (klassisch) \ Ciphertext-Only)</h3>
+
+		<p>Für das <!--ZZZPOPUP--><A href="hid_encrypt_adfgvx.html">ADFGVX-Verfahren</A> steht 
+			in CrypTool ein Dialog zu Unterstützung der manuellen Analyse zur Verfügung (Dialog <!--ZZZPOPUP--><A href="hidd_adfgvx_manual.html">
+				Halbautomatische Analyse ADFGVX-Verschlüsselungsverfahren</A>).<br>
+			<br>
+			Da die <b>Substitutionsstufe</b> von ADFGVX allein auf dem Matrixschlüssel 
+			basiert und der Schlüssel zufällig sein sollte, ist eine automatische Analyse 
+			von ADFGVX nicht möglich. Eine Bigrammanalyse kann eine gute Näherung zur Lösung
+			der Substitutionsstufe liefern, eine Nachkontrolle ist jedoch erforderlich.<br>
+			<br>
+			Die Analyse der <b>Transposition</b> ist bei einzelnen Nachrichten nur mittels 
+			Brute-Force möglich. Es müssen also alle möglichen Transpositionsschlüssel auf 
+			die Nachricht angewendet werden, wenn man die Schlüssellänge nicht einschränken 
+			kann (durch die zwingende Eindeutigkeit und – historisch bedingt – die 
+			ausschließliche Benutzung der Buchstaben 'A' bis 'Z' ist die Passwortlänge auf 
+			26 Zeichen begrenzt).<br>
+			<br>
+			Die Größe des Schlüsselraums ist ein Problem bei der Transpositionsanalyse: Da 
+			die Brute-Force-Suche jede mögliche Kombination untersuchen muss, werden im 
+			Rahmen der Analyse des Transpositionsteils im Mittel</FONT>
+		</p>
+		<TABLE cols="2" width="0*" class="pad20" ID="Table1">
+			<tr>
+				<td><img border="0" src="images/adfgvx_keyspace.gif" width="167" height="128"></td>
+				<td><font face="Arial">(c:= maximale Passwortlänge)</font></td>
+			</tr>
+		</TABLE>
+		<p>
+			Kombinationen untersucht, wenn die Passwortlänge nicht weiter (nach oben oder 
+			unten) eingegrenzt werden kann.
+			<br>
+			<br>
+			<b>Ein Beispiel:</b><br>
+			Bei einer maximalen Passwortlänge von nur 5 Zeichen ergeben sich noch 
+			überschaubare 1! + 2! + 3! + 4! + 5! = 153 mögliche Kombinationen.<br>
+			Die Erweiterung um ein Zeichen vergrößert den Bereich bereits auf 153 + 6! = 
+			153 + 720 = 873.<br>
+			Von einer Suche über den gesamten Passwortbereich einer maximalen Länge von 26 
+			Zeichen und somit 419.450.149.241.406.189.412.940.313 bzw. 4,2 *10^26 möglichen 
+			Passworten sollte daher abgesehen werden.<br>
+			<br>
+			Als Ergebnis der jeweiligen Retransposition stehen nun die Buchstabenpaare 
+			(Bigramme) der Substitution wieder nebeneinander und können mittels einer 
+			Bigrammanalyse auf die relative Häufigkeit ihres Vorkommens getestet werden. 
+			Stimmen die Werte grob mit Referenzwerten überein, ist das zugrundeliegende 
+			Transpositionspasswort eine mögliche Lösung. Obwohl diese Aufgabe sehr leicht 
+			automatisch ausgeführt werden kann, besteht noch eine <b>Schwierigkeit</b>, die 
+			wiederum eine Entscheidung durch den Benutzer notwendig macht:
+			<br>
+			<br>
+			<A name="Spaltenverschiebung"></A>Besteht das Transpositionspasswort aus einer 
+			geraden Anzahl von Zeichen, so stehen in einer Tabellenspalte jeweils nur die 
+			ersten bzw. nur die zweiten Buchstaben der Bigramme. Dadurch ist es möglich, 
+			die nebeneinander liegenden Spalten gemeinsam zu verschieben, ohne die 
+			Bigrammhäufigkeit zu verändern.&nbsp;Deshalb sind die drei folgenden 
+			Transpositionstabellen völlig äquivalent, obwohl nur eine einzige die korrekte 
+			Lösung darstellt.<br>
+			&nbsp;</FONT></p>
+		<table border="1" cellpadding="0" cellspacing="0" style="BORDER-COLLAPSE: collapse" bordercolor="#111111"
+			width="17%" id="AutoNumber1">
+			<tr>
+				<td width="4%" align="center" bgcolor="#ffff00"><font face="Arial">M</font></td>
+				<td width="4%" align="center" bgcolor="#ffff00"><font face="Arial">A</font></td>
+				<td width="4%" align="center" bgcolor="#00ff00"><font face="Arial">T</font></td>
+				<td width="4%" align="center" bgcolor="#00ff00"><font face="Arial">R</font></td>
+				<td width="4%" align="center" bgcolor="#ff00ff"><font face="Arial">I</font></td>
+				<td width="4%" align="center" bgcolor="#ff00ff"><font face="Arial">X</font></td>
+			</tr>
+			<tr>
+				<td width="4%" align="center" bgcolor="#ffff00"><font face="Arial">A</font></td>
+				<td width="4%" align="center" bgcolor="#ffff00"><font face="Arial">F</font></td>
+				<td width="4%" align="center" bgcolor="#00ff00"><font face="Arial">V</font></td>
+				<td width="4%" align="center" bgcolor="#00ff00"><font face="Arial">D</font></td>
+				<td width="4%" align="center" bgcolor="#ff00ff"><font face="Arial">D</font></td>
+				<td width="4%" align="center" bgcolor="#ff00ff"><font face="Arial">X</font></td>
+			</tr>
+			<tr>
+				<td width="4%" align="center" bgcolor="#ffff00"><font face="Arial">D</font></td>
+				<td width="4%" align="center" bgcolor="#ffff00"><font face="Arial">G</font></td>
+				<td width="4%" align="center" bgcolor="#00ff00"><font face="Arial">X</font></td>
+				<td width="4%" align="center" bgcolor="#00ff00"><font face="Arial">G</font></td>
+				<td width="4%" align="center" bgcolor="#ff00ff"><font face="Arial">A</font></td>
+				<td width="4%" align="center" bgcolor="#ff00ff"><font face="Arial">A</font></td>
+			</tr>
+			<tr>
+				<td width="4%" align="center" bgcolor="#ffff00"><font face="Arial">F</font></td>
+				<td width="4%" align="center" bgcolor="#ffff00"><font face="Arial">A</font></td>
+				<td width="4%" align="center" bgcolor="#00ff00"><font face="Arial">V</font></td>
+				<td width="4%" align="center" bgcolor="#00ff00"><font face="Arial">X</font></td>
+				<td width="4%" align="center" bgcolor="#ff00ff"><font face="Arial">F</font></td>
+				<td width="4%" align="center" bgcolor="#ff00ff"><font face="Arial">D</font></td>
+			</tr>
+		</table>
+		<p>&nbsp;</p>
+		<table border="1" cellpadding="0" cellspacing="0" style="BORDER-COLLAPSE: collapse" bordercolor="#111111"
+			width="17%" id="AutoNumber1">
+			<tr>
+				<td width="4%" align="center" bgcolor="#00ff00"><font face="Arial">T</font></td>
+				<td width="4%" align="center" bgcolor="#00ff00"><font face="Arial">R</font></td>
+				<td width="5%" align="center" bgcolor="#ffff00"><font face="Arial">M</font></td>
+				<td width="5%" align="center" bgcolor="#ffff00"><font face="Arial">A</font></td>
+				<td width="5%" align="center" bgcolor="#ff00ff"><font face="Arial">I</font></td>
+				<td width="5%" align="center" bgcolor="#ff00ff"><font face="Arial">X</font></td>
+			</tr>
+			<tr>
+				<td width="4%" align="center" bgcolor="#00ff00"><font face="Arial">V</font></td>
+				<td width="4%" align="center" bgcolor="#00ff00"><font face="Arial">D</font></td>
+				<td width="5%" align="center" bgcolor="#ffff00"><font face="Arial">A</font></td>
+				<td width="5%" align="center" bgcolor="#ffff00"><font face="Arial">F</font></td>
+				<td width="5%" align="center" bgcolor="#ff00ff"><font face="Arial">D</font></td>
+				<td width="5%" align="center" bgcolor="#ff00ff"><font face="Arial">X</font></td>
+			</tr>
+			<tr>
+				<td width="4%" align="center" bgcolor="#00ff00"><font face="Arial">X</font></td>
+				<td width="4%" align="center" bgcolor="#00ff00"><font face="Arial">G</font></td>
+				<td width="5%" align="center" bgcolor="#ffff00"><font face="Arial">D</font></td>
+				<td width="5%" align="center" bgcolor="#ffff00"><font face="Arial">G</font></td>
+				<td width="5%" align="center" bgcolor="#ff00ff"><font face="Arial">A</font></td>
+				<td width="5%" align="center" bgcolor="#ff00ff"><font face="Arial">A</font></td>
+			</tr>
+			<tr>
+				<td width="4%" align="center" bgcolor="#00ff00"><font face="Arial">V</font></td>
+				<td width="4%" align="center" bgcolor="#00ff00"><font face="Arial">X</font></td>
+				<td width="5%" align="center" bgcolor="#ffff00"><font face="Arial">F</font></td>
+				<td width="5%" align="center" bgcolor="#ffff00"><font face="Arial">A</font></td>
+				<td width="5%" align="center" bgcolor="#ff00ff"><font face="Arial">F</font></td>
+				<td width="5%" align="center" bgcolor="#ff00ff"><font face="Arial">D</font></td>
+			</tr>
+		</table>
+		<p>&nbsp;</p>
+		<table border="1" cellpadding="0" cellspacing="0" style="BORDER-COLLAPSE: collapse" bordercolor="#111111"
+			width="17%" id="AutoNumber1">
+			<tr>
+				<td width="5%" align="center" bgcolor="#ffff00"><font face="Arial">M</font></td>
+				<td width="5%" align="center" bgcolor="#ffff00"><font face="Arial">A</font></td>
+				<td width="5%" align="center" bgcolor="#ff00ff"><font face="Arial">I</font></td>
+				<td width="5%" align="center" bgcolor="#ff00ff"><font face="Arial">X</font></td>
+				<td width="5%" align="center" bgcolor="#00ff00"><font face="Arial">T</font></td>
+				<td width="5%" align="center" bgcolor="#00ff00"><font face="Arial">R</font></td>
+			</tr>
+			<tr>
+				<td width="5%" align="center" bgcolor="#ffff00"><font face="Arial">A</font></td>
+				<td width="5%" align="center" bgcolor="#ffff00"><font face="Arial">F</font></td>
+				<td width="5%" align="center" bgcolor="#ff00ff"><font face="Arial">D</font></td>
+				<td width="5%" align="center" bgcolor="#ff00ff"><font face="Arial">X</font></td>
+				<td width="5%" align="center" bgcolor="#00ff00"><font face="Arial">V</font></td>
+				<td width="5%" align="center" bgcolor="#00ff00"><font face="Arial">D</font></td>
+			</tr>
+			<tr>
+				<td width="5%" align="center" bgcolor="#ffff00"><font face="Arial">D</font></td>
+				<td width="5%" align="center" bgcolor="#ffff00"><font face="Arial">G</font></td>
+				<td width="5%" align="center" bgcolor="#ff00ff"><font face="Arial">A</font></td>
+				<td width="5%" align="center" bgcolor="#ff00ff"><font face="Arial">A</font></td>
+				<td width="5%" align="center" bgcolor="#00ff00"><font face="Arial">X</font></td>
+				<td width="5%" align="center" bgcolor="#00ff00"><font face="Arial">G</font></td>
+			</tr>
+			<tr>
+				<td width="5%" align="center" bgcolor="#ffff00"><font face="Arial">F</font></td>
+				<td width="5%" align="center" bgcolor="#ffff00"><font face="Arial">A</font></td>
+				<td width="5%" align="center" bgcolor="#ff00ff"><font face="Arial">F</font></td>
+				<td width="5%" align="center" bgcolor="#ff00ff"><font face="Arial">D</font></td>
+				<td width="5%" align="center" bgcolor="#00ff00"><font face="Arial">V</font></td>
+				<td width="5%" align="center" bgcolor="#00ff00"><font face="Arial">X</font></td>
+			</tr>
+		</table>
+		<p><font face="Arial"><br>
+				<br>
+				Eine Lösung dieses Problems wäre eine Bigrammanalyse: da jedes Klartextbigramm 
+				aus vier ADFGVX-Zeichen besteht, könnte man jeweils vier Spalten als 
+				zusammengehörig markieren. Dies setzt jedoch eine Auflösung der Substitution 
+				voraus, die wiederum nicht ohne die Analyse der Transposition erfolgen kann. 
+				Außerdem könnten die Spalten immer noch in Vierergruppen vertauscht werden.<br>
+				<br>
+				Bei diesen Überlegungen wird deutlich, dass die ADFGVX-Kaskade sehr effektiv 
+				funktioniert. Die einzige Möglichkeit, einzelne ADFGVX-Nachrichten zu 
+				entschlüsseln ist, die möglichen Transpositionslösungen manuell auf Korrektheit 
+				hin zu untersuchen, indem für jede Transpositionslösung gleichzeitig die 
+				Substitution analysiert wird.<br>
+				<br>
+				&nbsp;</font></p>
+	</BODY>
+</HTML>
