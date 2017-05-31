@@ -9,6 +9,7 @@
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Kartenspiel">
+	<PARAM NAME="Keyword" VALUE="Kartendeck">
 	<PARAM NAME="Keyword" VALUE="Solitaire-Verschlüsselungsverfahren">
 </OBJECT>
 
@@ -54,12 +55,12 @@ Die Joker m&uuml;ssen wegen Schritt 1 und 2 des <a href="HID_SYMCLASSIC_SOLITAIR
 Sollten weniger als 54 Karten benutzt werden, m&uuml;ssen die Kartenwerte angepasst werden. Die Joker A und B d&uuml;rfen nicht fehlen und nehmen einen Kartenwert an, der sich aus Kartenanzahl-1 ergibt (bei 54 Karten, ist der Kartenwert beider Joker 54-1 = 53).<br> Das Minimum an Karten ist auf drei beschr&auml;nkt, da ein Deck, das nur aus den beiden Jokern besteht, keine Schl&uuml;sselzeichen erzeugen kann. 
 </P>
 
-<H4><P><B>Initialdeck</B></P></H4>
-<p>Das Initialdeck stellt beim <a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire-Algorithmus</a> das (schon gemischte) Ausgangskartenspiel dar. Es repr&auml;sentiert den Zustand des Kartenspiels, bevor der Algorithmus zur Schl&uuml;sselstromerzeugung das erste Mal angewendet wird. Das Initialdeck wird von beiden Agenten (Sender und Empf&auml;nger) ben&ouml;tigt, um einen &uuml;bereinstimmenden <a href="schluessel.html">Schl&uuml;sselstrom</a> zu erzeugen.</p>
+<H4><P><B>Initial-Deck</B></P></H4>
+<p>Das Initial-Deck stellt beim <a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire-Algorithmus</a> das (schon gemischte) Ausgangskartenspiel dar. Es repr&auml;sentiert den Zustand des Kartenspiels, bevor der Algorithmus zur Schl&uuml;sselstromerzeugung das erste Mal angewendet wird. Das Initial-Deck wird von beiden Agenten (Sender und Empf&auml;nger) ben&ouml;tigt, um einen &uuml;bereinstimmenden <a href="schluessel.html">Schl&uuml;sselstrom</a> zu erzeugen.</p>
 
-<H4><P><B>Ausgangsdeck</B></P></H4>
-<p>Das Ausgangsdeck stellt beim <a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire-Algorithmus</a> das Ausgangskartenspiel dar. Es repräsentiert den Zustand des Kartenspiels, direkt nachdem der Algorithmus zur Schlüsselstromerzeugung das letzte Mal angewendet wurde (also nach dem Erzeugen des letzten Schlüsselstromzeichens).<br>
-Das Ausgangsdeck wird normalerweise von Sender und Empfänger nach der Erzeugung des <a href="schluessel.html">Schl&uuml;sselstroms</a> "vernichtet" (neu gemischt). Hier kann das Ausgangsdeck gespeichert werden, weil die implementierte <a href="HID_ANALYSE_SYMCLASSIC_CIPHERTEXTONLY_SOLITAIRE.html">Solitaire-Kryptoanalyse</a> sowohl den Ciphertext als auch das Ausgangsdeck benötigt.</p>
+<H4><P><B>End-Deck</B></P></H4>
+<p>Das End-Deck stellt beim <a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire-Algorithmus</a> das Ausgangskartenspiel dar. Es repräsentiert den Zustand des Kartenspiels, direkt nachdem der Algorithmus zur Schlüsselstromerzeugung das letzte Mal angewendet wurde (also nach dem Erzeugen des letzten Schlüsselstromzeichens).<br>
+Das End-Deck wird normalerweise von Sender und Empfänger nach der Erzeugung des <a href="schluessel.html">Schl&uuml;sselstroms</a> "vernichtet" (neu gemischt). Hier soll das End-Deck gespeichert werden, weil die implementierte <a href="HID_ANALYSE_SYMCLASSIC_CIPHERTEXTONLY_SOLITAIRE.html">Solitaire-Kryptoanalyse</a> sowohl den Ciphertext als auch das End-Deck benötigt.</p>
 
 </BODY>
 </HTML>
