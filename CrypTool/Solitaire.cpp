@@ -23,6 +23,7 @@
 #include <fstream>
 #include "CrypToolTools.h"
 
+extern char *Pfad;
 
 using namespace std;
 
@@ -1359,6 +1360,14 @@ int Deck::loaddeck( const char *default_filename )
 {
 	DWORD   dwFlags(OFN_HIDEREADONLY | OFN_PATHMUSTEXIST);
 	CFileDialog dlg(TRUE, 0, CString(default_filename), dwFlags, _T("*.txt"));
+	
+	// flomar, 2017/05/31: this extension should fire up the file dialog in the "Solitaire" 
+	// directory (after installation, this directory should reside on the same level as the 
+	// CrypTool executable)
+	CString initialDirectory;
+	initialDirectory.Format("%sSolitaire", Pfad);
+	dlg.m_ofn.lpstrInitialDir = (LPCSTR)(initialDirectory);
+
 	if ( IDOK == dlg.DoModal() )
 	{
 		CString pathStr = dlg.GetPathName();
