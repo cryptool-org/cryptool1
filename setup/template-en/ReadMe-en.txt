@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 for Win32, May 2017
+    CrypTool, Version 1.4.31 for Win32, June 2017
     
 CrypTool v1 (CT1) is a free, international
 e-learning program for cryptography and cryptanalysis.
@@ -47,7 +47,7 @@ e-learning program for cryptography and cryptanalysis.
  6. ... Brief history of the released main versions of CT1
  7. ... Feedback and contact addresses
  8. ... References / hints / awards
- 8.1. ... Articles about CrypTool
+ 8.1. ... Articles / scientific papers about CrypTool
  8.2. ... Further references
  8.3. ... Further freeware projects (Crank, CAP, CryptoStudio, SageMath, etc)
  8.4. ... Awards
@@ -2282,18 +2282,21 @@ Contact addresses:
 
 See also:
 - https://www.cryptool.org/en/ctp-links
+- https://www.cryptool.org/en/ctp-education/papers
 - https://www.cryptool.org/en/ctp-education/awards
 
 
-8.1. Articles about CrypTool
-     -----------------------
-8.1.1. c't 14/2001, pp 204-208
-       -----------------------
+8.1. Articles / scientific papers about CrypTool
+     -------------------------------------------
+
+8.1.1. Articles -- an older selection
+       ------------------------------
+
+- c't 14/2001, pp 204-208
 A 5-page article on CrypTool was published in July 2001 in this
 renowned and widely circulated German computer magazine.
 
-8.1.2. DuD October 2002
-       ----------------
+- DuD October 2002
 A 4-page article on CrypTool was published under the title
 "CrypTool - spielerischer Einstieg in klassische und moderne
 Kryptographie. Neue Version - fundierte Awareness in Deutsch
@@ -2301,8 +2304,7 @@ und Englisch" in the German technical journal "DuD Datenschutz
 und Datensicherheit" (Privacy and Data Protection) in the
 issue 10/2002.
 
-8.1.3. KES 2/2003 (May 2003)
-       ---------------------
+- KES 2/2003 (May 2003)
 A 6-page article on CrypTool was published under the title
 "(Ver)Schlüsselerlebnisse - CrypTool unterstützt Verständnis für
 die Grundlagen der Internetsicherheit" in the German technical
@@ -2311,16 +2313,14 @@ for information security) in the issue 2/2003.
 [The Title means "Experience cryptography -- CrypTool improves the
 understanding of information security"].
 
-8.1.4. Proceedings 8th German IT-Security Congress of GISA (May 2003)
-       --------------------------------------------------------------
-The presentation "Awareness in der Informationsgesellschaft: CrypTool
-- Kryptographie spielerisch verstehen" was given by Mr Koy at the GISA
-(German Information Security Agency) congress 2003 in Bonn.
-The article for the congress is within the proceedings, "IT-Sicherheit
-im verteilten Chaos", at page 485 - 500.
+- Proceedings 8th German IT-Security Congress of GISA (May 2003)
+  The presentation "Awareness in der Informationsgesellschaft:
+  CrypTool - Kryptographie spielerisch verstehen" was given by Mr Koy
+  at the GISA (German Information Security Agency) congress 2003 in Bonn.
+  The article for the congress is within the proceedings, "IT-Sicherheit
+  im verteilten Chaos", at page 485 - 500.
 
-8.1.5. Datenschutz PRAXIS (June 2005)
-       ------------------------------
+- Datenschutz PRAXIS (June 2005)
 A 2-page article on CrypTool was published under the title
 "Spielend verschlüsseln lernen mit dem kostenlosen CrypTool" by
 Dr. Rainer W. Gerling,  in the German journal "Datenschutz PRAXIS",
@@ -2328,21 +2328,18 @@ in the issue June 2005
 [The Title means "Learn playfully how to encrypt with the free software
 CrypTool"].
 
-8.1.6. Report Touch Briefing Information Security (October 2006)
-       ---------------------------------------------------------
+- Report Touch Briefing Information Security (October 2006)
 The "Touch Briefing Information Security" report 2006 contains the article
 "The CrypTool Project -- Improving Awareness and Education for Cryptology".
 Accessible via: http://www.touchbriefings.com/pdf/2259/esslinger.pdf
 Using the search keywords "awareness cryptology" both google.de and
 google.com afterwards listed this article at the top ranking.
 
-8.1.7. DFN-News, Edition 73 (April 2008)
-       ---------------------------------------------------------
+- DFN-News, Edition 73 (April 2008)
 This edition of the German Research Net organization (DFN) contains the
 4-page article "CrypTool -- An e-learning programme for cryptology".
 
-8.1.8. KES 3/2008 (July 2008)
-       ----------------------
+- KES 3/2008 (July 2008)
 A 3 1/3-page article on CrypTool was published under the title
 "(Ver)Schlüsselerlebnisse NG" in the German technical
 journal "KES - Zeitschrift für Informations-Sicherheit" (journal
@@ -2351,29 +2348,25 @@ for information security) in the issue 3/2008.
 It deals with the 10th anniversary of CrypTool and the upcoming new
 versions.
 
-8.1.9. Telepolis 8/2008 (August 2008)
-       ------------------------------
+- Telepolis 8/2008 (August 2008)
 An article by Klaus Schmeh about CrypTool was published under the title
 "Werkzeugkasten für Codeknacker" in the German online magazine Telepolis.
 [The title means "Tool box for code analysts"].
 http://www.heise.de/tp/r4/artikel/28/28389/1.html
 
-8.1.10. Eclipse Magazin 4/2008 (October 2008)
-        --------------------------------------
+- Eclipse Magazin 4/2008 (October 2008)
 An article by Dominik Schadow about JCrypTool was published under the title
 "JCrypTool: Kryptisch gesagt..." in the German "Eclipse" magazine.
 This article is available as reprint via the direct download link:
 http://www.trivadis.com/fileadmin/user_upload/PDFs/Trivadis_in_der_Presse/EclipseMagazin_Kryptisch_gesagt_Schadow.pdf
 
-8.1.11. ep-Elektropraktiker January 2009
-        --------------------------------
+- ep-Elektropraktiker January 2009
 A 2-page article on CrypTool was published under the title
 "CrypTool - sichere Kommunikation" in the German technical journal
 "ep-Elektropraktiker" (Practical Electronics) in the issue 1/2009 by H. Moebus.
 http://www.elektropraktiker.de/download/luk-2009-1-06-46867.html
 
-8.1.12. DuD March 2009
-        --------------
+- DuD March 2009
 A 6-page article on CrypTool was published under the title
 "CrypTool - an open source project in practice. Lessons learned from a
  successful open source project" in the German technical journal
@@ -2383,6 +2376,12 @@ issue 3/2009.
 
 Further articles can be found on the following website:
 https://www.cryptool.org/en/ctp-education/awards/270-printmedia
+
+
+8.1.2. Scientific papers
+       ------------------------------------
+Soem are listed here:
+https://www.cryptool.org/en/ctp-education/papers
 
 
 
@@ -2510,6 +2509,7 @@ d) A small selection of further pages mentioning CrypTool:
          7th edition by William Stallings)
    http://www.garykessler.net/library/crypto.html
    http://blog.learningtree.com/an-introduction-to-using-cryptool-to-show-how-ciphers-work
+   http://scienceblogs.de/klausis-krypto-kolumne/
    ...
 
 

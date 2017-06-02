@@ -6,19 +6,21 @@ offering extensive online help and many visualizations.
 
 This text file was created in order to help you to make your first steps with CT1.
 
-1) As a first step it is recommended you read the included online help. This will provide a useful oversight of all available functions within this application.
+1) The starting page of the online help offers the best oversight of CT1's
+capacity. From the starting page you can reach all essential functions via
+links.
 The starting page of the online help can be accessed via the menu "Help -> Starting Page" at the top right of the main window or by using the search keyword "Starting page" within the index of the online help.
 Press F1 to start the online help everywhere in CT1.
 
-2) A possible next step would be to encrypt a file with the Caesar algorithm. This can be done via the menu "Crypt/Decrypt -> Symmetric (Classic)".
+2) A possible next step would be to encrypt a file with the Caesar algorithm. This can be done via the menu "Crypt/Decrypt -> Symmetric (classic)".
 
 3) There are several examples (tutorials) provided within the online help which provide an easy way to gain an understanding of cryptology. These examples can be found via the menu "Help -> Scenarios (Tutorials)".
 
 4) You can further develop your knowledge by: 
-- Navigating through the menus. You can press F1 at any selected menu item to get more information.
-- Reading the included Readme file (see the menu "Help -> Readme").
-- Viewing the included colorful presentation (This presentation can be found on several ways: e.g. in the "Help" menu of this application, or via the "Documentation" section found at the "Starting" page of the online help).
+- Navigating playfully through the menus. You can press F1 at any selected menu item to get more information.
+- Reading the included readme file (see the menu "Help -> Readme").
+- Viewing the included colorful presentation. This presentation can be found on several ways: e.g. in the "Help" menu of this application, or via the "Documentation" section found at the "Starting" page of the online help.
 - Viewing the webpage www.cryptool.org.
 
-February 2017
+June 2017
 The CrypTool Team

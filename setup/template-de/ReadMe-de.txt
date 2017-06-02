@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 für Win32, Mai 2017
+    CrypTool, Version 1.4.31 für Win32, Juni 2017
 
 CrypTool v1 (CT1) ist ein freies, internationales
 E-Learning-Programm für Kryptographie und Kryptoanalyse.
@@ -47,7 +47,7 @@ E-Learning-Programm für Kryptographie und Kryptoanalyse.
  6. ... Kurze Historie der freigegebenen Hauptversionen von CT1
  7. ... Feedback und Kontaktadressen
  8. ... Verweise / Auszeichnungen
- 8.1. ... Artikel über CrypTool
+ 8.1. ... Artikel / Wissenschaftliche Veröffentlichungen über CrypTool
  8.2. ... Sonstige Referenzen auf CrypTool
  8.3. ... Weitere Freeware-Projekte (Crank, CAP, CryptoStudio, SageMath, etc.)
  8.4. ... Auszeichnungen
@@ -2360,27 +2360,29 @@ Kontaktadressen:
 
 Vergleiche auch:
 - https://www.cryptool.org/de/ctp-links
+- https://www.cryptool.org/de/ctp-lehre/wissenschaft
 - https://www.cryptool.org/de/ctp-lehre/auszeichnungen
 
 
-8.1. Artikel über CrypTool
-     ---------------------
-8.1.1. c't 14/2001
-       -----------
+8.1. Artikel / Wissenschaftliche Veröffentlichungen über CrypTool
+     ------------------------------------------------------------
+
+8.1.1. Artikel -- eine ältere Auswahl
+       ------------------------------
+
+- c't 14/2001
 In diesem renommierten und auflagenstarken deutsch-sprachigen
 Computermagazin wurde im Juli 2001 ein 5-seitiger Artikel zu
 CrypTool veröffentlicht (S. 204-208).
 
-8.1.2. DuD Oktober 2002
-       ----------------
+- DuD Oktober 2002
 In der deutsch-sprachigen Fachzeitschrift "DuD Datenschutz und
 Datensicherheit", Ausgabe 10/2002 erschien unter dem Titel
 "CrypTool - spielerischer Einstieg in klassische und moderne
 Kryptographie. Neue Version - fundierte Awareness in Deutsch
 und Englisch" ein 4-seitiger Artikel über CrypTool.
 
-8.1.3. KES 2/2003 (Mai 2003)
-       ---------------------
+- KES 2/2003 (Mai 2003)
 In der deutsch-sprachigen Fachzeitschrift "KES - Zeitschrift für
 Informations-Sicherheit", Ausgabe 2/2003 erschien unter dem Titel
 "(Ver)Schlüsselerlebnisse - CrypTool unterstützt Verständnis für
@@ -2392,15 +2394,13 @@ http://www.kes.info/index.html per Suchbegriff "CrypTool" unter
 unterstützt Verständnis für die Grundlagen der Internetsicherheit" oder
 direkt per http://www.kes.info/archiv/online/03-2-018.htm.
 
-8.1.4. Tagungsband 8. Deutscher IT-Sicherheitskongress des BSI (Mai 2003)
-       ------------------------------------------------------------------
+- Tagungsband 8. Deutscher IT-Sicherheitskongress des BSI (Mai 2003)
 Auf dem BSI-Kongress 2003 in Bonn wurde von Hr. Koy der Vortrag
 "Awareness in der Informationsgesellschaft: CrypTool - Kryptographie
 spielerisch verstehen" gehalten. Die Textfassung dazu steht im
 Tagungsband, "IT-Sicherheit im verteilten Chaos", auf S. 485 - 500.
 
-8.1.5. Datenschutz PRAXIS (Juni 2005)
-       ------------------------------
+- Datenschutz PRAXIS (Juni 2005)
 In der deutsch-sprachigen Fachzeitschrift "Datenschutz PRAXIS",
 Ausgabe Juni 2005 erschien unter dem Titel "Spielend verschlüsseln lernen
 mit dem kostenlosen CrypTool" ein 2-seitiger Artikel über CrypTool von
@@ -2408,8 +2408,7 @@ Dr. Rainer W. Gerling.
 Diesen Artikel finden Sie im Internet unter
 http://www.lrz-muenchen.de/~rgerling/pdf/DatenschutzPRAXIS_2005_06_9.pdf.
 
-8.1.6. Report Touch Briefing Information Security (Oktober 2006)
-       ---------------------------------------------------------
+- Report Touch Briefing Information Security (Oktober 2006)
 Der "Touch Briefing Information Security"-Report 2006 enthält den Artikel
 "The CrypTool Project -- Improving Awareness and Education for Cryptology".
 Abrufbar im Internet unter:
@@ -2417,48 +2416,47 @@ Abrufbar im Internet unter:
 Mit den Suchbegriffen "awareness cryptology" listeten danach sowohl
 google.de wie google.com diesen Artikel auf Platz 1.
 
-8.1.7. DFN-Mitteilungen, Heft 73 (Dezember 2007)
-       ---------------------------------------------------------
+- DFN-Mitteilungen, Heft 73 (Dezember 2007)
 Diese Mitteilungen des Deutschen Forschungsnetzes (DFN) enthalten den
 4-seitigen Artikel "CrypTool -- Ein E-Learning-Programm für Kryptologie".
 
-8.1.8. KES 3/2008 (Juli 2008)
-       ----------------------
+- KES 3/2008 (Juli 2008)
 In der deutsch-sprachigen Fachzeitschrift "KES - Zeitschrift für
 Informations-Sicherheit", Ausgabe 3/2008 erschien unter dem Titel
 "(Ver)Schlüsselerlebnisse NG" ein 3 1/3-seitiger Artikel zum
 10-jährigen Jubiläum von CrypTool und zu den neuen Versionen.
 
-8.1.9. Telepolis 8/2008 (August 2008)
-       ------------------------------
+- Telepolis 8/2008 (August 2008)
 Ein Artikel von Klaus Schmeh über CrypTool erschien unter dem Titel
 "Werkzeugkasten für Codeknacker" in dem Online-Magazin Telepolis.
 http://www.heise.de/tp/r4/artikel/28/28389/1.html
 
-8.1.10. Eclipse Magazin 4/2008 (Oktober 2008)
-        --------------------------------------
+- Eclipse Magazin 4/2008 (Oktober 2008)
 Ein Artikel von Dominik Schadow über JCrypTool erschien unter dem Titel
 "JCrypTool: Kryptisch gesagt..." im "Eclipse Magazin".
 Dieser Artikel kann als Reprint herunter geladen werden von:
 http://www.trivadis.com/fileadmin/user_upload/PDFs/Trivadis_in_der_Presse/EclipseMagazin_Kryptisch_gesagt_Schadow.pdf
 
-8.1.11. ep-Elektropraktiker Januar 2009
-        -------------------------------
+- ep-Elektropraktiker Januar 2009
 In der deutsch-sprachigen Fachzeitschrift "ep-Elektropraktiker", Ausgabe 01/2009 erschien unter dem Titel "CrypTool - sichere Kommunikation" ein 2-seitiger
 Artikel über CrypTool von H. Möbus.
 http://www.elektropraktiker.de/download/luk-2009-1-06-46867.html
 
-8.1.12. DuD März 2009
-        -------------
+- DuD März 2009
 In der deutsch-sprachigen Fachzeitschrift "DuD Datenschutz und
 Datensicherheit", Ausgabe 03/2009 erschien unter dem Titel
 "CrypTool - Ein Open-Source-Projekt in der Praxis. Erfahrungsbericht
 eines erfolgreichen Open-Source-Projektes" ein 6-seitiger Artikel über
 CrypTool.
 
-
 Weitere Artikel sind auf der folgenden Webseite aufgelistet:
 https://www.cryptool.org/de/ctp-lehre/auszeichnungen/267-medien
+
+
+8.1.2. Wissenschaftliche Veröffentlichungen
+       ------------------------------------
+Ein paar sind aufgeführt unter:
+https://www.cryptool.org/de/ctp-lehre/wissenschaft
 
 
 
@@ -2604,6 +2602,7 @@ d) Eine kleine Auswahl weiterer Seiten, die CrypTool erwähnen:
    - http://www.inf-schule.de/kommunikation/kryptologie/modernechiffriersysteme/beispiel_aes/exkurs_experimentecryptool
    - http://www.inf-schule.de/kommunikation/kryptologie/rsa/cryptool/station_rsademo
    - http://www.inf-schule.de/kommunikation/kryptologie/digitalesignatur/einstieg_hashfunktion/experimentecryptool
+   http://scienceblogs.de/klausis-krypto-kolumne/
    ...
 
 
