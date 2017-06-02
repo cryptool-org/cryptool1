@@ -121,10 +121,8 @@ Nevertheless, from CT 1.5 we will use the newest MS compiler (VS 2017)
 again. (xxx)
 
 The current release version of CrypTool and the source code are
-available at the following Internet addresses (without registration):
-                https://www.CrypTool.org
-                http://www.CrypTool.com
-                http://www.CrypTool.de
+available at the following Internet address (without registration):
+                https://www.cryptool.org/en/
 
 Since beginning of 2010, the rate of CT1 packages downloaded per month is
 ca. 6000 (more than 1/2 of the current downloads request the English version).
@@ -762,11 +760,11 @@ The general properties and functions of CT1 are:
      -------------------------------------------------
 You can get a good overview of what CrypTool offers
 - within the online help (see "starting page"),
-- at the attached PDF presentation (title: "Cryptology with CrypTool") and
+- at the attached PDF presentation (title: "Cryptology with CrypTool"),
 - using the menu tree in appendix A.1 within the attached CrypTool book,
-- at the website of the CrypTool portal under
-          "Documentation" -> "CT Function",
-          https://www.cryptool.org/en/ctp-documentation/ctp-functions
+- at the website of the CrypTool portal
+  (https://www.cryptool.org/en/ctp-documentation/functions) under
+          - "Documentation" -> "CT function",
 - at the website of CT1 (https://www.cryptool.org/en/cryptool1) under
           - "Documentation" -> "Features of CrypTool 1.4.3x", and
           - "Screenshots" -> "Screenshots".
@@ -929,8 +927,8 @@ b) Changes within the user documentation / on the websites:
   versions JCT and CT2, which already offer their current and stable
   betas for download.
 
-- The following additional websites also belonging to the CrypTool family
-  of website went life:
+- The following additional websites went life which also belong to the
+  CrypTool family of websites:
   - www.cryptool-online.org  "CrypTool-Online" runs various crypto functions
                               directly within a browser.
   - www.m.cryptool.org       "CrypTool-Mobil" runs various crypto functions
@@ -948,7 +946,7 @@ b) Changes within the user documentation / on the websites:
 
 - At the CrypTool website, section presentations, now there is an interactive
   introduction into the basics of RSA (as PPT and as Flash):
-  https://www.cryptool.org/en/ctp-documentation/ctp-presentations
+  https://www.cryptool.org/en/ctp-documentation/presentations
 
 
 c) New functionality / Usability:
@@ -2160,7 +2158,7 @@ are able to identify a much larger object.
 The files of the CrypTool project normally get onto your computer by
 downloading the archive (setup file) and unpacking the archive:
 a) Downloadable files:
-   At the homepage of CrypTool www.cryptool.org you can find the
+   At the homepage of CrypTool (www.cryptool.org) you can find the
    hash values of all files directly downloadable from the English
    Web page within the files md5sum.txt and sha1sum.txt there.
    If you newly calculate the hash of a downloaded file and then
@@ -3313,7 +3311,8 @@ A.4.2. Porting of CT1 to Linux with Qt
        -------------------------------
 A first project to port CrypTool 1.x to Linux using GCC 4.x and Qt 4.x
 was started outside of the actual CrypTool project by single persons,
-but unfortunately not finished because lack of time.
+but unfortunately not finished because lack of time (formerly under
+http://www.cryptoolinux.net/).
 - The libraries from Miracl, NTL, OpenSSL and GMP/MPIR are available.
 - Dividing the complete task in meaningful parts is recommended:
        - graphical user interface: This is the main task.
@@ -3322,10 +3321,11 @@ but unfortunately not finished because lack of time.
 - The first beta was released in November 2007.
   The second beta ("still no full functional version", 11 % of the
   planned tasks) was published mid December 2008.
-- http://www.cryptoolinux.net/
+- This project has stopped.
 
-With QCrypTool (QCT), the CT core team will build a successor of CT1
-using Qt 5, which will have the same look&feel as CT1 (see A.1).
+However, the CT1 core team will build a successor of CT1 using Qt 5,
+which will have the same look&feel as CT1 and which is called QCT
+(see A.1: Roadmap after CT 1.4.31).
 
 ################################################################
 

@@ -14,7 +14,7 @@ Press F1 to start the online help everywhere in CT1.
 
 2) A possible next step would be to encrypt a file with the Caesar algorithm. This can be done via the menu "Crypt/Decrypt -> Symmetric (classic)".
 
-3) There are several examples (tutorials) provided within the online help which provide an easy way to gain an understanding of cryptology. These examples can be found via the menu "Help -> Scenarios (Tutorials)".
+3) There are several examples (tutorials) within the online help which provide an easy way to gain an understanding of cryptology. These examples can be found via the menu "Help -> Scenarios (Tutorials)".
 
 4) You can further develop your knowledge by: 
 - Navigating playfully through the menus. You can press F1 at any selected menu item to get more information.

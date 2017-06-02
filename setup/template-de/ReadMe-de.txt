@@ -122,10 +122,8 @@ Nichtsdestotrotz werden wir ab CT 1.5 wieder den neuesten MS-Compiler (VS 2017)
 einsetzen. (xxx)
 
 Die aktuelle Release-Version von CrypTool und den Quellcode dazu finden Sie
-unter den folgenden Internet-Adressen (dazu ist keine Registrierung nötig):
-                https://www.CrypTool.org
-                http://www.CrypTool.de
-                http://www.CrypTool.com
+unter der folgenden Internet-Adresse (dazu ist keine Registrierung nötig):
+                https://www.cryptool.org/de/
 
 Seit Anfang 2010 werden ca. 6000 CT1-Pakete pro Monat herunter geladen
 (davon entfallen etwas über die Hälfte auf die englische Version).
@@ -777,12 +775,12 @@ Die generellen Eigenschaften und Funktionen von CT1 sind:
 2.3. Wo finden Sie weitere Überblicke zu CrypTool
      --------------------------------------------
 Eine gute Übersicht, was CrypTool bietet, finden Sie auch
-- in der Onlinehilfe (siehe "Startseite")
+- in der Onlinehilfe (siehe "Startseite"),
 - in der beigelegten PDF-Präsentation (Titel: "Kryptologie mit CrypTool"),
 - mithilfe des Menübaums im Anhang A.1 des beigelegten CrypTool-Buchs,
-- auf der Webseite des CrypTool-Portals unter
-          "Dokumentation" -> "CT-Funktionsumfang",
-          https://www.cryptool.org/de/ctp-dokumentation/ctp-funktionsumfang
+- auf der Webseite des CrypTool-Portals
+  (https://www.cryptool.org/de/ctp-dokumentation/funktionsumfang) unter
+          - "Dokumentation" -> "CT-Funktionsumfang",
 - auf der Webseite von CT1 (https://www.cryptool.org/de/cryptool1) unter
           - "Dokumentation" -> "Funktionen von CrypTool 1.4.3x", und
           - "Screenshots" -> "Screenshots".
@@ -966,7 +964,7 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
 
 - Auf der CrypTool-Webseite gibt es unter Präsentationen nun eine interaktive
   Einführung in die Grundlagen von RSA (als PPT und als Flash):
-  https://www.cryptool.org/de/ctp-dokumentation/ctp-presentations
+  https://www.cryptool.org/de/ctp-dokumentation/presentations
 
 
 c) Neue Funktionalität / Bedienung:
@@ -2233,7 +2231,7 @@ Die Dateien vom CrypTool-Projekt kommen normalerweise dadurch auf
 Ihren Computer, dass das Archiv (Setup-Datei) heruntergeladen und
 die darin enthaltenen Dateien entpackt werden:
 a) Herunterladbare Dateien:
-   Auf der Homepage von CrypTool www.cryptool.org finden Sie
+   Auf der Homepage von CrypTool (www.cryptool.org) finden Sie
    die Hashwerte aller von der deutschen Webseite direkt
    herunterladbaren Dateien in den dortigen Dateien md5sum.txt bzw.
    in sha1sum.txt.
@@ -3423,7 +3421,8 @@ A.4.2. Portierung von CT1 nach Linux mit Qt
        ------------------------------------
 Eine erste Portierung von CrypTool 1.x nach Linux mit Hilfe von GCC 4.x und
 Qt 4.x war außerhalb des eigentlichen CrypTool-Projektes von Einzelpersonen
-begonnen worden, aber mangels Zeit nicht/wenig fortgesetzt worden.
+begonnen worden, aber mangels Zeit nicht/wenig fortgesetzt worden (früher
+unter http://www.cryptoolinux.net/).
 - Die Bibliotheken von Miracl, NTL, OpenSSL und GMP/MPIR stehen
   zur Verfügung.
 - Die Gesamtaufgabe sollte man in sinnvolle Teile zerlegen:
@@ -3433,10 +3432,11 @@ begonnen worden, aber mangels Zeit nicht/wenig fortgesetzt worden.
 - Die erste Beta wurde im November 2007 veröffentlicht.
   Die zweite Beta ("still no functional version", 11 % der geplanten
   Aufgaben) wurde am 15.12.2008 veröffentlicht.
-- http://www.cryptoolinux.net/
+- Dieses Projekt ist beendet.
 
-Mit QCrypTool (QCT) wird das CT-Kernteam einen Nachfolger von CT1
-mit Qt 5 bauen, der dasselbe Look&Feel wie CT1 hat (siehe A.1).
+Nichtsdestotrotz wird das CT1-Kernteam einen Nachfolger von CT1 mit Qt 5 bauen,
+der dasselbe Look&Feel wie CT1 hat und QCT genannt wird
+(siehe A.1 Roadmap nach CT 1.4.31).
 
 
 ################################################################
