@@ -6,9 +6,7 @@ offering extensive online help and many visualizations.
 
 This text file was created in order to help you to make your first steps with CT1.
 
-1) The starting page of the online help offers the best oversight of CT1's
-capacity. From the starting page you can reach all essential functions via
-links.
+1) The starting page of the online help offers the best oversight of CT1's capacity. From the starting page you can reach all essential functions via links.
 The starting page of the online help can be accessed via the menu "Help -> Starting Page" at the top right of the main window or by using the search keyword "Starting page" within the index of the online help.
 Press F1 to start the online help everywhere in CT1.
 
