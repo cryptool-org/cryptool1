@@ -27,8 +27,6 @@
 
 <P>DESX is used with a slightly modified key in the SAFER security toolkit by RSA. The 64-bit pre-whitening key K<span style="vertical-align:text-bottom;font-size:0.6em">1</span> and the DES key K<span style="vertical-align:text-bottom;font-size:0.6em">DES</span> are concatenated and fed into a one-way function. The 64-bit output of this one-way function serves as the post-whitening key K<span style="vertical-align:text-bottom;font-size:0.6em">2</span>.</P>
 
-<P>For further information see: <A href="http://www.crypto.rub.de/en_publications.html" target="_blank">http://www.crypto.rub.de/en_publications.html</A></P>
-
 <P>CrypTool uses DESX in <A href="cbcmodus.html">CBC mode</A> mit zero initialization vector and <a href="padding.html#0100">01-00 padding</a>.</P>
 
 <p>It expects key entry in the order K<span style="vertical-align:text-bottom;font-size:0.6em">DES</span>, K<span style="vertical-align:text-bottom;font-size:0.6em">1</span>, K<span style="vertical-align:text-bottom;font-size:0.6em">2</span>. E. g. the input <blockquote>00 00 00 00 00 00 00 00 11 11 11 11 11 11 11 11 22 22 22 22 22 22 22 22</blockquote> is interpreted as K<span style="vertical-align:text-bottom;font-size:0.6em">DES</span> = 00 ... 00, K<span style="vertical-align:text-bottom;font-size:0.6em">1</span> = 11 ... 11 and K<span style="vertical-align:text-bottom;font-size:0.6em">2</span> = 22 ... 22. </p>

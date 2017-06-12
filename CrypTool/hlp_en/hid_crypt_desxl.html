@@ -18,7 +18,7 @@
 <h3>DESXL (Menu <A href="menu_crypt.html">Encrypt/Decrypt</A> \ Symmetric (modern) \ Further Algorithms)</h3>
 
 <P>The <A href="des_info.html">DES</A> variant DESXL was, similar to <A href="hid_crypt_desl.html">DESL</A>, designed by
-the <A href="http://www.crypto.rub.de/en_news.html" target="_blank">Communication Security Group</A> at the Ruhr-University Bochum. DESXL is the
+the Communication Security Group at the Ruhr-University Bochum. DESXL is the
 <A href="hid_crypt_desx.html">DESX</A> variant of <A href="hid_crypt_desl.html">DESL</A>, i.e. the plaintext x is XORed with
 the pre-whitening key K<span style="vertical-align:text-bottom;font-size:0.6em">1</span>, then it is encrypted with DESL and the key
 K<span style="vertical-align:text-bottom;font-size:0.6em">DESL</span>, and finally the result is XORed with the post-whitening key
@@ -28,8 +28,6 @@ K<span style="vertical-align:text-bottom;font-size:0.6em">2</span>. </P>
 <P>There are various applications for DESXL imaginable, ranging from RFID-tags to constrained devices in general.</P>
 
 <P>The European research project UbiSec&amp;Sens (<a href="http://www.ist-ubisecsens.org" target="_blank">www.ist-ubisecsens.org</a>), where the Security Group from Bochum is one of eight partners, aims to develop a toolbox of security components for wireless sensor networks (WSNs). WSNs are build up of many (a few tens till several tens of thousands) mini computers with only very small CPU performance. DESXL will be a basic component of this security toolbox.</P>
-
-<P>For further information see: <A href="http://www.crypto.rub.de/en_publications.html">http://www.crypto.rub.de/en_publications.html</A></P>
 
 <P>CrypTool uses DESXL in <A href="cbcmodus.html">CBC mode</A> mit zero initialization vector and <a href="padding.html#0100">01-00 padding</a>.</P>
 
