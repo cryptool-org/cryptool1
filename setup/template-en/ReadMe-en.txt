@@ -1227,7 +1227,8 @@ a) Developer-relevant changes (more technically oriented):
 
 b) Changes within the user documentation / on the websites:
 
-- Online help: updated some topics.
+- Online help: updated some topics (like bc) and correction of more than 70
+               internal and external links.
 
 - CrypTool book: - Edition 12 is a major update, many corrections and additions
                  - Additional chapters about bitblock and bitstream
