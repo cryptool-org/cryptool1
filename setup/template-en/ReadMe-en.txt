@@ -327,7 +327,7 @@ f) The Authorware application "NT" (Number Theory) introduces elementary
    Where appropriate, the mathematical formulas are shown.
    It allows to dynamically check out the mathematical methods with own
    number examples.
-   Part of it is the program bc v1.06 by the Free Software Foundation (FSF),
+   Enclosed is the program bc v1.06 from the Free Software Foundation (FSF),
    which allows to calculate with arbitrary precision from the command line.
 
 
@@ -1305,11 +1305,13 @@ c) New functionality / Usability / Corrections of errors:
 - At SHA256 / SHA512 the wrong function was called yet.
   This also effected the dialog window "Generation of HMACs".
 - Calling bc from within the number theory tutorial now also works under
-  Windows [Bsp: 3*5 // 5+3^2 // a=10; a+2; b=a; b+7 // sqrt(4.5) //
-   define d (n) { return (2*n); }; d(5) // l(100)/l(10) # Natural log // quit //
-  faktbas(4) is 4*3*2*1 // Sample of a sum function via a for loop:
-  sum=0; for(i=16;i>=0;i--)sum+=32*(256^i); sum].
-  Make own enhancements like http://x-bc.sourceforge.net/extensions_bc.html 
+  Windows. You also can call bc directly from within the bc sub directory.
+  Sample inputs: 3*5 // 5+3^2 // a=10; a+2; b=a; b+7 // sqrt(4.5) //
+    define d (n) { return (2*n); }; d(5) // l(100)/l(10) # Natural log //
+    quit // Sample of a sum function via a for loop:
+    sum=0; for(i=16;i>=0;i--)sum+=32*(256^i); sum
+  The online help of CT1 contains a more detailed explanation about bc.
+
 - Playfair with a 6*6 matrix now doesn't wrongly transform J to I any more.
 - Scilexer.dll again greys out non-alphabet characters correctly.
   See e.g. menu View --> Alphabet or the Hill analyzer.
@@ -2004,7 +2006,7 @@ animal\anims\caesar_en.aml
 
 
 Bc\ .............. This directory and the ones below contain the utility
-                   BC for calculations with arbitrary precision. It belongs
+                   bc for calculations with arbitrary precision. It belongs
                    to "NT.exe", from where it can be started directly.
                    Only bc.exe and bc.1.txt are part of the original
                    distribution; the remaining BC files are from the "NT.exe"
@@ -2013,7 +2015,8 @@ Bc\ .............. This directory and the ones below contain the utility
 Bc\bc.1.txt
   \bc.deutsch.txt ... German translation of bc.1.txt
   \Bc.exe
-  \BCmax.bat ........ Called via F3 from within NT.exe to start BC Calculator
+  \BCmax.bat ........ Called via F3 from within NT.exe
+                      (bat file starts bc.exe with some libraries)
   \BCmin.bat
   \bruch.txt
   \calc.txt

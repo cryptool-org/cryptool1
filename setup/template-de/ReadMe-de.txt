@@ -329,9 +329,9 @@ f) Die Authorware-Anwendung "ZT" (Zahlentheorie) führt in die elementare
    Zahlentheorie ein und visualisiert viele der Verfahren und Konzepte,
    die Grundlage der modernen Public-Key-Kryptographie sind.
    Wo nötig zeigt sie auch die entsprechenden mathematischen Formeln.
-   Dabei können diese mathematischen Verfahren dynamisch mit eigenen
+   Dabei können die mathematischen Verfahren dynamisch mit eigenen
    kleinen Zahlenbeispielen ausprobiert werden.
-   Dazu gehört auch das Programm bc v1.06 der Free Software Foundation (FSF),
+   Beigelegt ist auch das Programm bc v1.06 der Free Software Foundation (FSF),
    mit dem man auf der Kommandozeile beliebig genau rechnen kann.
 
 
@@ -1350,11 +1350,14 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
 - Bei SHA256 / SHA512 wurde bisher die falsche Funktion aufgerufen.
   Dies betraf auch den Dialog "Generieren von HMACs".
 - Der Aufruf von bc innerhalb der Zahlentheorie-Tutorials funktioniert nun
-  auch unter Windows [Bsp: 3*5 // 5+3^2 // a=10; a+2; b=a; b+7 // sqrt(4.5) //
-  define d (n) { return (2*n); }; d(5) // l(100)/l(10) # Natural log // quit //
-  faktbas(4) ist 4*3*2*1 // Beispiel einer Summenfunktion per For-Schleife:
-  sum=0; for(i=16;i>=0;i--)sum+=32*(256^i); sum].
-  Eigene Erweiterungen siehe z.B.: http://x-bc.sourceforge.net/extensions_bc.html
+  auch unter Windows. Sie können bc auch direkt im BC-Unterverzeichnis
+  aufrufen.
+  Beispieleingaben: 3*5 // 5+3^2 // a=10; a+2; b=a; b+7 // sqrt(4.5) //
+    define d (n) { return (2*n); }; d(5) // l(100)/l(10) # Natural log //
+    quit // Beispiel einer Summenfunktion per For-Schleife:
+    sum=0; for(i=16;i>=0;i--)sum+=32*(256^i); sum
+  Eine ausführliche Erläuterung zu bc findet sich auch in der CT1-Onlinehilfe.
+
 - Playfair mit einer 6*6-Matrix konvertiert nun nicht mehr fälschlicherweise
   "J" zu "I".
 - Scilexer.dll graut Nicht-Alphabet-Zeichen wieder korrekt aus.
@@ -1897,7 +1900,7 @@ enigma_screenshot1.png .. Screenshot für die Enigma-Hilfedatei.
 eccdemo.jar ...... Demo (Java) zur Punktaddition auf Elliptischen Kurven.
 
 ZT.exe ........... Lernprogramm (Authorware) zur Zahlentheorie.
-TextZahlWandler.exe ...... Hilfsprogramm zu "ZT.exe".
+TextZahlWandler.exe .. Hilfsprogramm zu "ZT.exe".
 ToolBarWrapper.dll .. Notwendig für das Authorware-Programm ZT.exe
 
 Zahlenhai.exe .... Das Programm zum Lernspiel "Der Zahlenhai".
@@ -2078,16 +2081,17 @@ animal\anims\caesar_de.aml
 
 
 Bc\ .............. In diesem Verzeichnis und darunter liegt das Utility
-                   BC zum Rechnen mit beliebig langen Zahlen. Es gehört
+                   bc zum Rechnen mit beliebig langen Zahlen. Es gehört
                    zu "ZT.exe" und kann direkt daraus gestartet werden.
                    Nur bc.exe und bc.1.txt sind im Original dabei; die
                    restlichen BC-Dateien stammen vom "ZT.exe"-Autor
-                   und beinhalten Skripte mit Funktionen.
+                   und beinhalten Skripte mit zahlentheoret. Funktionen.
 
 Bc\bc.1.txt
   \bc.deutsch.txt ... Übersetzung von bc.1.txt
   \Bc.exe
-  \BCmax.bat ........ Wird per F3 aus ZT.exe aufgerufen (startet den BC-Rechner)
+  \BCmax.bat ........ Wird per F3 aus ZT.exe aufgerufen
+                      (bat-Datei startet bc.exe mit ein paar Bibliotheken)
   \BCmin.bat
   \bruch.txt
   \calc.txt
