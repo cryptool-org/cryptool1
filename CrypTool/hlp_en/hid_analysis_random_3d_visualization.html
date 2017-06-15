@@ -25,14 +25,14 @@
 <P><B><U>General Information</U></B></P>
 
 <p>
-Random numbers are used extensively in cryptography, e. g. for generation
+Random numbers are used extensively in cryptography, e.g. for generation
 of key material. It is among the more difficult tasks of a cryptographer
-to determine the quality of a random number source - statistically good
+to determine the quality of a random number source -- statistically good
 random numbers are not necessarily cryptographically secure as well.
 If an adversary is able to exploit a structure within the stream of random
 numbers in order to deduce future values with a certain probability, the
 cryptographic keys generated from these random numbers are vulnerable to
-attack - even if the cryptographic algorithm itself is secure.
+attack -- even if the cryptographic algorithm itself is secure.
 </p>
 <p>
 In order to measure the quality of random numbers various tests and criteria
@@ -55,9 +55,9 @@ was active during invocation of 3D visualization. Once all input data
 has been processed as described below, the resulting 3D cube is rendered
 in a CrypTool window. The cube can be manipulated freely by 
 <ul>
-  <li>dragging it with the mouse (left mouse button plus drag),</li>
-  <li>scaling it (shift, right button plus drag) and</li>
-  <li>panning it (right mouse button plus drag).</li>
+  <li>dragging it with the mouse (left mouse button plus dragging),</li>
+  <li>scaling it (shift key, right mouse button plus dragging) and</li>
+  <li>panning/moving it (right mouse button plus dragging).</li>
 </ul>
 </p>
 <p>
@@ -111,7 +111,7 @@ are applied to the render window after closing the preference window:
     analysis perspective, but it influences the results of phase space
     analysis and its visualization. The correct choice for a distinct
     input file depends on the type of data contained therein:
-    Audio data (e. g. in WAV format) uses a 2 byte word size, executable
+    Audio data (e.g. in WAV format) uses a 2 byte word size, executable
     data of 32 bit processors has a word size of 4 byte.
   </dd>
 </dl>
@@ -129,7 +129,7 @@ computed and interpreted as a coordinate in 3D space:
 <p>
 In this example the word length is 1, hence the difference between individual
 adjacent bytes of the input sequence is computed directly.
-The difference computation is done modulo the word co-domain, i. e. 256
+The difference computation is done modulo the word co-domain, i.e. 256
 for word size 1, 65.536 for word size 2 and 4.294.967.296 for word size 4.
 </p>
 <p>
@@ -141,7 +141,7 @@ For this example the two coordinates P1 = (128, 40, 244) and
 P2 = (237, 209, 121) are calculated.
 </p>
 <p>
-If a word size of e. g. 2 is used, the general procedure remains the same.
+If a word size of e.g. 2 is used, the general procedure remains the same.
 The only difference is that adjacent bytes in the input sequence are interpreted
 as a word in 
 <a href="http://en.wikipedia.org/wiki/Little_endian">Little-Endian format</a>
@@ -151,9 +151,13 @@ that is used for the usual difference calculation:
 <p>
 The resulting pixel has the coordinates (7080, 48609, 62001).
 </p>
-<h3>Interpretation of rendering results</h3>
+
+
+
+
+<h3>Interpretation of rendering results with 3 examples</h3>
 <p>
-Phase space visualization is capable of showing structure in data sequences.
+1) Phase space visualization is capable of showing structure in data sequences.
 A stream of true random data generates a uniform fog-like filling of the 
 rendered cube:
 </p>
@@ -162,8 +166,9 @@ rendered cube:
 If dots, clusters, lines or planes can be made out this is an indication
 for an inner structure of the input data.
 </p>
+
 <p>
-Particularly interesting is the analysis of non-random data types, such
+2) Particularly interesting is the analysis of non-random data types, such
 as executable programs, office documents, PDF files, pictures, audio
 or text files. In most data formats characteristic patterns can be
 recognized. The following screenshot shows the phase space of a CrypTool 
@@ -171,7 +176,7 @@ executable in which planes and lines can be seen:
 </p>
 <img src="images/3dvis2.png"/>
 <p>
-If a document contains many similar values (e. g. null bytes in program
+If a document contains many similar values (e.g. null bytes in program
 data), a high number of computed differences is close to zero, resulting
 in a corresponding 3D coordinate that is close to its origin. Without
 shifting the origin this would result in a cumulation in the cube's corners.
@@ -180,6 +185,22 @@ coordinates 50 % within the cube: clusters around the origin hence move
 to the center of the cube and often form geometric patterns which can be
 made out much easier this way.
 </p>
+
+<p>
+3) As third example, a normal text file was used. Naturally, it's clear
+that this kind of file has no high randomness. The point is, which
+properties show this best.
+</p>
+<img src="images/3dvis3_Randomness-of-text-file_en.png"/>
+<p>
+It would best to adjust density to its maximal value. In addition, you
+can lower the resolution below its default value of 128, and lower the
+word length from 4 to 1.
+</p><br>
+
+
+
+
 <h3>Limitations of phase space analysis</h3>
 <p>
 If structures can be recognized within a phase space visualization,

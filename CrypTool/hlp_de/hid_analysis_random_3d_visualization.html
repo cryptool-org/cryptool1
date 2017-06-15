@@ -27,7 +27,7 @@
 Zufallszahlen spielen eine wichtige Rolle in der Kryptographie, die dort
 beispielsweise zur Erzeugung von Schlüsselmaterial verwendet werden.
 Für die Beurteilung der Qualität von Zufallszahlen können verschiedene
-Kriterien herangezogen werden - statistisch gute Zufallszahlen sind nicht
+Kriterien herangezogen werden -- statistisch gute Zufallszahlen sind nicht
 notwendigerweise auch kryptographisch sichere. Kann ein Angreifer eine
 wie auch immer geartete Struktur innerhalb der Zahlenfolge ausnutzen, 
 um ausgehend von bekannten Zahlen zukünftige Werte mit einer 
@@ -60,7 +60,7 @@ in einem eigenen
 CrypTool-Fenster angezeigt. Der Kubus lässt sich 
 <ul>
   <li>drehen (linke Maustaste und Mausbewegung),</li>
-  <li>skalieren (Shift, rechte Maustaste und Mausbewegung) und</li>
+  <li>skalieren (Shift-Taste, rechte Maustaste und Mausbewegung) und</li>
   <li>verschieben (rechte Maustaste und Mausbewegung).</li>
 </ul>
 </p>
@@ -111,7 +111,7 @@ einstellen, die sich nach Schließen des Eigenschaftenfensters auf die
   <dd>
     Alle berechneten Koordinaten werden vor der Anzeige um den 
     eingestellten Wert (bezogen auf die logische Auflösung) verschoben.
-    Das bedeutet, dass z. B. bei einem Verschiebungswert von 50 % der
+    Das bedeutet, dass z.B. bei einem Verschiebungswert von 50 % der
     Koordinatenursprung im Zentrum des Würfels liegt.
   </dd>
   <dt><b>Wortlänge</b></dt>
@@ -167,9 +167,12 @@ interpretiert, das in die Differenzbildung eingeht:
 <p>
 Der ermittelte Punkt hat hier die Koordinaten (7080, 48609, 62001).
 </p>
-<h3>Interpretation der Anzeige</h3>
+
+
+
+<h3>Interpretation der Anzeige anhand von 3 Beispielen</h3>
 <p>
-Die Phasenraumvisualisierung ist geeignet, Strukturen in Datenströmen
+1) Die Phasenraumvisualisierung ist geeignet, Strukturen in Datenströmen
 darzustellen. Ein Strom echter Zufallszahlen erzeugt eine gleichmäßige
 nebelartige Füllung des Kubus:
 </p>
@@ -179,9 +182,10 @@ Lassen sich jedoch Punkte, Haufen, Linien
 oder Ebenen erkennen, so ist dies ein Beleg dafür, dass die Eingabedaten
 eine innere Struktur haben.
 </p>
+
 <p>
-Besonders eindrucksvoll ist die Analyse von verschiedenen Dateitypen,
-wie z. B. Programmdateien, Office-Dokumenten, PDF-Dateien, Bildern, 
+2) Besonders eindrucksvoll ist die Analyse von verschiedenen Dateitypen,
+wie z.B. Programmdateien, Office-Dokumenten, PDF-Dateien, Bildern, 
 Ton- oder Textdateien. In den meisten Datenformaten lassen sich 
 charakteristische Muster erkennen. Die folgende Abbildung zeigt die
 Visualisierung einer CrypTool-Programmdatei, in der Ebenen und Geraden 
@@ -189,7 +193,7 @@ zu erkennen sind.
 </p>
 <img src="images/3dvis2.png"/>
 <p>
-Enthält ein Dokument viele gleichartige Werte (z. B. Nullbytes
+Enthält ein Dokument viele gleichartige Werte (z.B. Nullbytes
 in Programmdateien), so ist eine hohe Zahl der ermittelten Differenzen ebenfalls
 Null, was in einer oder mehreren Null-Komponenten der ermittelten Koordinaten
 resultiert. Ohne Verschiebung der angezeigten Koordinaten würde also eine
@@ -200,6 +204,21 @@ Häufungen um die 0 wandern damit in die Mitte des Kubus und formen auf diese
 Weise oft markante geometrische Figuren, die sich so viel besser erkennen
 lassen.
 </p>
+
+<p>
+3) Als drittes Beispiel wurde eine normale Texdatei genommen. Natürlich ist
+klar, dass diese keine hohe Zufälligkeit aufweist. Es geht hier darum, mit
+welchen Einstellungen man das am besten sieht.
+</p>
+<img src="images/3dvis3_Randomness-of-text-file_de.png"/>
+<p>
+Dazu wird am besten die Dichte auf den Maximalwert gestellt. Zusätzlich kann
+man auch die Auflösung auf wenig als den Standardwert 128 stellen und die
+Wortlänge von 4 auf 1 verkleinern.
+</p><br>
+
+
+
 <h3>Grenzen der Analyse</h3>
 <p>
 Sind in einer Phasenraumvisualisierung deutliche Strukturen erkennbar,
