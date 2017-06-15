@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
 <HEAD>
-<TITLE>BC (arbitrary precision calculator)</TITLE>
+<TITLE>BC (Arbitrary Precision Calculator)</TITLE>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 <script language="JScript" src="helper.js"></script>
@@ -14,7 +14,7 @@
 	<PARAM NAME="Keyword" VALUE="BC">
 </OBJECT>
 
-<h3>BC (arbitrary precision calculator)</h3>
+<h3>BC (Arbitrary Precision Calculator)</h3>
 
 <P>bc is both a <B>programming language</B> that supports arbitrary precision numbers and an arbitrary precision desktop calculator (<B>command line utility</B>), which handles scripts and commands written in the language bc and interactively executes the statements from the user. This tool can be used to do number theoretical calculations with high speed and high precision.
 
@@ -47,7 +47,7 @@ For example:<br>
 
 
 <br>
-<P><B>bc as Command Line Calculator</B></P>
+<P><B>bc as command line calculator</B></P>
 
 <P><B>1)</B> Here some simple inputs and calculations within bc.</P>
 <P class="paddedleft">3*5<br>15</P>
@@ -80,7 +80,7 @@ If you call both command lines consecutively after each other, the input for oba
 <P class="paddedleft">obase=10; ibase=10; scale=3; 7/3<br>2.2523</P>
 
 
-<P><b>4)</b> To do calculation with bc there are three possibilities:</P>
+<P><b>4)</b> To do calculations with bc there are three possibilities:</P>
 
 <UL>
 <LI>Execute scripts, given to bc as argument at the command line,</LI>
@@ -96,7 +96,7 @@ If you call both command lines consecutively after each other, the input for oba
 
 
 <br>
-<P><B>Further Sample Calculations Using bc (Base Calculator)</B></P>
+<P><B>Further sample calculations using bc</B></P>
 
 <P>You can call bc from within the educational program "Number Theory" via F3 (menu Calculators \ BC Calculator) or from the command prompt:</P>
 
@@ -111,7 +111,7 @@ If you call both command lines consecutively after each other, the input for oba
 
 
 <br>
-<P><B>Remark 1: BC as a Programming Language</B></P>
+<P><B>Remark 1: bc as a programming language</B></P>
 
 <P>bc is a programming language, which supports calculations (numeric processing) in an arbitrary precision. Its description is included in the POSIX P1003.2/D11 draft standard.</P>
 
@@ -137,14 +137,14 @@ If you call both command lines consecutively after each other, the input for oba
 
 <P class="paddedleft">/* Sample of a sum function via a for loop: */ sum=0; for(i=16;i>=0;i--)sum+=32*(256^i); sum<br>10931737842416972128203783466984490934304</P>
 
-<P>Faktorial defined according to <a href="http://progopedia.com/example/factorial/243/" target="_blank">http://progopedia.com/example/factorial/243/</a></P>
+<P>Factorial defined according to <a href="http://progopedia.com/example/factorial/243/" target="_blank">http://progopedia.com/example/factorial/243/</a></P>
 
-<P class="paddedleft">define factorial(n) {
-    if (n == 0) return(1);
-    return(n * factorial(n - 1));
-}
-for (n = 0; n &lt;= 16; n++) {
-    print n; "! = "; factorial(n);
+<P class="paddedleft">define factorial(n) {<br>
+    if (n == 0) return(1);<br>
+    return(n * factorial(n - 1));<br>
+}<br>
+for (n = 0; n <= 16; n++) {<br>
+    print n; "! = "; factorial(n);<br>
 }
 <br>
 0! = 1<br>
@@ -183,15 +183,19 @@ for (n = 0; n &lt;= 16; n++) {
 
 
 <P>Make own enhancements like in <a href="http://x-bc.sourceforge.net/extensions_bc.html" target="_blank">http://x-bc.sourceforge.net/extensions_bc.html</a></P>
+   
+
+
+
 
 <br>
-<P><B>Remark 2: Links</B></P>
+<P><B>Remark 2: links</B></P>
 
 <P><a href="http://directory.fsf.org/gnu/bc.html" target="_blank">http://directory.fsf.org/gnu/bc.html</a> -- Web page about the GNU package</P>
 <P><a href="http://www.gnu.org/software/bc/bc.html" target="_blank">http://www.gnu.org/software/bc/bc.html</a> -- Web page about BC</P>
 <P><a href="http://ftp.gnu.org/pub/gnu/bc/bc-1.06.tar.gz" target="_blank">http://ftp.gnu.org/pub/gnu/bc/bc-1.06.tar.gz</a> -- Source code, released 2001</P>
+<P><a href="http://en.wikipedia.org/wiki/Bc_(Unix)" target="_blank">http://en.wikipedia.org/wiki/Bc_(Unix)</a> -- Wikipedia about bc</P>
 <P><a href="http://de.wikipedia.org/wiki/Basic_Calculator" target="_blank">http://de.wikipedia.org/wiki/Basic_Calculator</a> -- Wikipedia about bc</P>
-<P><a href="http://en.wikipedia.org/wiki/Bc_%28programming_language%29" target="_blank">http://en.wikipedia.org/wiki/Bc_(programming_language)</a> -- Wikipedia about bc</P>
 
 <P><a href="https://www.gnu.org/software/bc/manual/html_mono/bc.html" target="_blank">https://www.gnu.org/software/bc/manual/html_mono/bc.html</a></P>
 <P><a href="http://www.basicallytech.com/blog/archive/23/command-line-calculations-using-bc/" target="_blank">http://www.basicallytech.com/blog/archive/23/command-line-calculations-using-bc/</a></P>
@@ -206,14 +210,15 @@ for (n = 0; n &lt;= 16; n++) {
 
 
 <br>
-<P><B>Remark 3: BC and SageMath</B></P>
+<P><B>Remark 3: bc and SageMath</B></P>
 
-<P> bc 1.06 is the last version, released by FSF in 2000. There seems to be no further development.
+<P> bc 1.06 is the last version of bc, released by FSF in 2000. There seems to be no further development.
 In the meantime, <a href="http://www.sagemath.org/" target="_blank">SageMath</a> offers a much broader and more mature scope of work.</P>
 
-<p>An overview about SageMath can be found in appendix A.7 of the <A class="filelink" onclick="parser('CT-Book-en.pdf')">CT-Book</a>.</p>
+<p>An overview about SageMath can be found in appendix A.7 of the <A class="filelink" onclick="parser('CT-Book-en.pdf')">CT Book</a>.</p>
 
 <br>
 
 </BODY>
 </HTML>
+

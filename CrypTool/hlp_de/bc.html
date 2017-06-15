@@ -99,7 +99,7 @@ Führt man beide Kommandozeilen nacheinander aus, werden in der zweiten Zeile die
 
 
 <br>
-<P><B>Weitere Beispiel-Berechnungen mit bc (Base Calculator)</B></P>
+<P><B>Weitere Beispiel-Berechnungen mit bc</B></P>
 
 <P>Aufruf aus dem Lernprogramm "Zahlentheorie" per F3 (Menü Rechner \ BC-Rechner) oder von der Kommandozeile:</P>
 
@@ -114,7 +114,7 @@ Führt man beide Kommandozeilen nacheinander aus, werden in der zweiten Zeile die
 
 
 <br>
-<P><B>Bemerkung 1: BC als Programmiersprache</B></P>
+<P><B>Bemerkung 1: bc als Programmiersprache</B></P>
 
 <P>BC ist eine Programmiersprache, die das Rechnen mit einer definierten Genauigkeit unterstützt. Ihre Beschreibung ist im POSIX P1003.2/D11 Draft-Standard enthalten.</P>
 
@@ -142,12 +142,12 @@ Führt man beide Kommandozeilen nacheinander aus, werden in der zweiten Zeile die
 
 <P>Faktorial definiert nach <a href="http://progopedia.com/example/factorial/243/" target="_blank">http://progopedia.com/example/factorial/243/</a></P>
 
-<P class="paddedleft">define factorial(n) { 
-    if (n == 0) return(1);
-    return(n * factorial(n - 1));
-}
-for (n = 0; n &lt;= 16; n++) {
-    print n; "! = "; factorial(n);
+<P class="paddedleft">define factorial(n) {<br>
+    if (n == 0) return(1);<br>
+    return(n * factorial(n - 1));<br>
+}<br>
+for (n = 0; n <= 16; n++) {<br>
+    print n; "! = "; factorial(n);<br>
 }
 <br>
 0! = 1<br>
@@ -215,7 +215,7 @@ for (n = 0; n &lt;= 16; n++) {
 <br>
 <P><B>Bemerkung 3: BC und SageMath</B></P>
 
-<P>bc 1.06 ist die letzte von der FSF herausgegebene Version (2000). BC scheint nicht mehr weiter entwickelt zu werden. Inzwischen bietet <a href="http://www.sagemath.org/" target="_blank">SageMath</a>  einen viel größeren und ausgereifteren Leistungsumfang.</P>
+<P>bc 1.06 ist die letzte von der FSF herausgegebene bc-Version (2000). BC scheint nicht mehr weiter entwickelt zu werden. Inzwischen bietet <a href="http://www.sagemath.org/" target="_blank">SageMath</a>  einen viel größeren und ausgereifteren Leistungsumfang.</P>
 
 <P>Einen Überblick über SageMath finden Sie im Anhang A.7 des <A class="filelink" onclick="parser('CT-Book-de.pdf')">CT-Buches</A>.</P>
 
@@ -223,3 +223,4 @@ for (n = 0; n &lt;= 16; n++) {
 
 </BODY>
 </HTML>
+
