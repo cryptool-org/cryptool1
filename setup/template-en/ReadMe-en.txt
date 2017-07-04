@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 for Win32, June 2017
+    CrypTool, Version 1.4.31 for Win32, July 2017
     
 CrypTool v1 (CT1) is a free, international
 e-learning program for cryptography and cryptanalysis.
@@ -164,13 +164,22 @@ development from the experienced developers.
 Contacts: Please see chapter 7 below.
 
 
-Known bug:
-With Windows 10 Home the following phenomenon appeared:
-Starting a PDF (like the CT1 presentation or the CT book) from within the
-CT1 onlinehelp, from the CT1 menu "Help", or from the Windows Start menu,
-then Acrobat didn't show up. The reason was a hanging Acrobat process.
-If you stop this Acrobat process within the Windows TaskManager, then
-PDFs start from within CT1 as usual.
+Known bugs:
+1) With Windows 10 the following phenomenon appeared:
+   Starting a PDF (like the CT1 presentation or the CT book) the first time
+   from within the CT1 onlinehelp, from the CT1 menu "Help", or from the Windows
+   Start menu, then Acrobat didn't show up. Sometimes the onlinehelp shows an
+   empty page before it crashes. After the next start of the onlinehelp these
+   calls works.
+   The reason was a hanging Acrobat process. If you stop this Acrobat process
+   within the Windows TaskManager, then PDFs start from within CT1 as usual.
+   Sadly, this happens again when you restart CrypTool 1.
+2) Another annoying bug which seems to be outside of our CrypTool code.
+   Calling the calculator BC from the enclosed NT-Tools (via F3 or from the
+   NT menu "Calulators"), then BC crashes at its first call.
+   Without closing NT you can click F3 again, and BC doesn't crash any more.
+   Sadly, neither NT nor BC will be further maintained, so nothing will change
+   here.
 
 
 
@@ -2493,7 +2502,7 @@ c) Wikipedia:
    - Chinese: (xxx)
 
 
-d) A small selection of further pages mentioning CrypTool:
+d) A small selection of further pages mentioning CrypTool 1:
    https://www.a-i3.org/content/view/415/28/
    http://www.fh-lueneburg.de/mathe-lehramt/krypto/krypto.htm
    http://www.kryptographiespielplatz.de/
@@ -2511,8 +2520,11 @@ d) A small selection of further pages mentioning CrypTool:
          7th edition by William Stallings)
    http://www.garykessler.net/library/crypto.html
    http://blog.learningtree.com/an-introduction-to-using-cryptool-to-show-how-ciphers-work
+   http://www.c-sharpcorner.com/article/encryption-decryption-using-cryptool/
+   https://crypto.stackexchange.com/questions/18001/cryptool-des-ecb-and-cbc-double-encyption
+   https://www.limited-entropy.com/crypto-series-introduction-to-cryptool/
+   http://www.guru99.com/how-to-make-your-data-safe-using-cryptography.html  +++
    http://scienceblogs.de/klausis-krypto-kolumne/
-   ...
 
 
 
@@ -2773,7 +2785,7 @@ the two existing successor projects CT2 and JCT (see chapter A.2).
 The CrypTool team will continue to fix bugs within CT1.
 
 For those who prefer to keep on developing in C/C++, there will also be
-a successor: QCrypTool (QCT).
+a successor: Qt-CrypTool (QCT).
 Here, CT1 is further developed using Qt 5:
 - The GUI will be completely written with Qt (instead of MFC) which
   enables platform independence. The GUI should have the same look&feel

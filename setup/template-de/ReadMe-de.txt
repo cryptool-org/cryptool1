@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 für Win32, Juni 2017
+    CrypTool, Version 1.4.31 für Win32, Juli 2017
 
 CrypTool v1 (CT1) ist ein freies, internationales
 E-Learning-Programm für Kryptographie und Kryptoanalyse.
@@ -165,13 +165,23 @@ lernen.
 Kontakte: Siehe Kapitel 7 unten.
 
 
-Bekannter Fehler:
-Unter Windows 10 Home kam es häufiger zu folgendem Phänomen:
-Beim ersten Aufruf von PDFs (wie der CT1-Präsentation oder des CT-Buches) aus
-der CT1-Onlinehilfe, aus dem CT1-Menü "Hilfe" oder aus dem Windows-Startmenu
-heraus, startet Acrobat nicht. Das lag daran, dass ein Acrobat-Prozess hängen blieb.
-Wenn man diesen Acrobat-Prozess dann im Windows-TaskManager beendet, starten auch
-die PDFs aus CT1 heraus wie gewünscht.
+Bekannte Fehler:
+1) Unter Windows 10 kam es häufiger zu folgendem Phänomen:
+   Beim ersten Aufruf von PDFs (wie der CT1-Präsentation oder des CT-Buches) aus
+   der CT1-Onlinehilfe, aus dem CT1-Menü "Hilfe" oder aus dem Windows-Startmenu
+   heraus, startet Acrobat nicht. Evtl. zeigt die Onlinehilfe eine leere Seite,
+   dann stürzt die Onlinehilfe ab. Beim nächsten Start der Onlinehilfe klappen
+   diese Aufrufe.
+   Das lag daran, dass ein Acrobat-Prozess hängen blieb. Wenn man diesen
+   Acrobat-Prozess im Windows-TaskManager beendet, starten auch die PDFs
+   aus CT1 heraus wie gewünscht.
+   Leider geschieht das bei jedem Neustart von CT1 erneut.
+2) Ein weiterer Fehler, der außerhalb unseres CrypTool-Codes zu liegen scheint.
+   Ruft man den Calculator BC aus den beigelegten ZT-Tools auf (per F3 oder
+   aus dem ZT-Menü "Rechner"), stürzt BC beim ersten Aufruf ab.
+   Ohne ZT zu schließen, kann man F3 erneut drücken, und BC stürzt nicht
+   mehr ab. Leider werden weder ZT noch BC weiter entwickelt, so dass sich
+   an diesem Verhalten nichts ändern wird.
 
 
 
@@ -2579,7 +2589,7 @@ c) Wikipedia:
    - Chinesisch: (xxx)
 
 
-d) Eine kleine Auswahl weiterer Seiten, die CrypTool erwähnen:
+d) Eine kleine Auswahl weiterer Seiten, die CrypTool 1 erwähnen:
    https://www.a-i3.org/content/view/415/28/
    http://www.fh-lueneburg.de/mathe-lehramt/krypto/krypto.htm
    http://www.kryptographiespielplatz.de/
@@ -2597,6 +2607,12 @@ d) Eine kleine Auswahl weiterer Seiten, die CrypTool erwähnen:
          7. Auflage von William Stallings)
    http://www.garykessler.net/library/crypto.html
    http://blog.learningtree.com/an-introduction-to-using-cryptool-to-show-how-ciphers-work
+   http://www.c-sharpcorner.com/article/encryption-decryption-using-cryptool/
+   https://crypto.stackexchange.com/questions/18001/cryptool-des-ecb-and-cbc-double-encyption
+   https://www.limited-entropy.com/crypto-series-introduction-to-cryptool/
+   http://www.guru99.com/how-to-make-your-data-safe-using-cryptography.html  +++
+   http://scienceblogs.de/klausis-krypto-kolumne/
+
    Ein freies Schulbuch zum Fach Informatik am Gymnasium:
    - http://blog.learningtree.com/an-introduction-to-using-cryptool-to-show-how-ciphers-work
    - http://www.inf-schule.de/kommunikation/kryptologie/historischechiffriersysteme/station_ersetzungsverfahren
@@ -2605,8 +2621,6 @@ d) Eine kleine Auswahl weiterer Seiten, die CrypTool erwähnen:
    - http://www.inf-schule.de/kommunikation/kryptologie/modernechiffriersysteme/beispiel_aes/exkurs_experimentecryptool
    - http://www.inf-schule.de/kommunikation/kryptologie/rsa/cryptool/station_rsademo
    - http://www.inf-schule.de/kommunikation/kryptologie/digitalesignatur/einstieg_hashfunktion/experimentecryptool
-   http://scienceblogs.de/klausis-krypto-kolumne/
-   ...
 
 
 
@@ -2870,7 +2884,7 @@ die beiden schon existierenden Nachfolger-Projekte CT2 und JCT (siehe A.2).
 In CT1 werden weiterhin Fehler behoben.
 
 Für diejenigen, die weiterhin lieber in C/C++ implementieren wollen, gibt es
-auch einen Nachfolger: QCrypTool (QCT).
+auch einen Nachfolger: Qt-CrypTool (QCT).
 Hier wird CT1 mit Qt 5 weiter entwickelt:
 - Die Oberfläche wird komplett neu geschrieben mit Qt (statt MFC) und
   damit Plattform-unabhängig sein. Sie soll dasselbe Look&Feel wie CT1
@@ -3439,8 +3453,8 @@ unter http://www.cryptoolinux.net/).
   Aufgaben) wurde am 15.12.2008 veröffentlicht.
 - Dieses Projekt ist beendet.
 
-Nichtsdestotrotz wird das CT1-Kernteam einen Nachfolger von CT1 mit Qt 5 bauen,
-der dasselbe Look&Feel wie CT1 hat und QCT genannt wird
+Nichtsdestotrotz wird das CT1-Kernteam einen Nachfolger von CT1 mit Qt 5
+bauen, der dasselbe Look&Feel wie CT1 hat und QCT genannt wird
 (siehe A.1 Roadmap nach CT 1.4.31).
 
 
