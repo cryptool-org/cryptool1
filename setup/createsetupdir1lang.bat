@@ -24,6 +24,7 @@ if x%lang%==xel set lang_sub=en
 if x%lang%==xfr set lang_sub=en
 
 echo Create and populate setup-%lang% directory ...
+echo Create and populate setup-%lang% directory ...
 if exist setup-%lang%\nul rmdir /q/s setup-%lang%
 
 echo Copying template ...
@@ -31,8 +32,8 @@ xcopy /s/q template\*.* setup-%lang%\
 
 echo Copying template-%lang% ...
 xcopy /s/q template-%lang%\*.* setup-%lang%\   
-if x%lang%==xes xcopy /s/q template-en\*.* setup-%lang%\ & del setup-%lang%\license-en.rtf & del setup-%lang%\CrypToolPresentation-en.pdf & del setup-%lang%\Rijndael-Inspector.exe & del setup-%lang%\Rijndael-Animation.exe & del setup-%lang%\Enigma_en.exe & del setup-%lang%\Enigma-Help_en.html & del setup-%lang%\enigma_screenshot1.png
-if x%lang%==xpl xcopy /s/q template-en\*.* setup-%lang%\ & del setup-%lang%\license-en.rtf & del setup-%lang%\Enigma_en.exe & del setup-%lang%\Enigma-Help_en.html & del setup-%lang%\enigma_screenshot1.png
+if x%lang%==xes xcopy /s/q template-en\*.* setup-%lang%\ & del setup-%lang%\license-en.rtf & del setup-%lang%\CrypTool1-Presentation-en.pdf & del setup-%lang%\Rijndael-Inspector.exe & del setup-%lang%\Rijndael-Animation.exe & del setup-%lang%\Enigma_en.exe & del setup-%lang%\Enigma-Help_en.html
+if x%lang%==xpl xcopy /s/q template-en\*.* setup-%lang%\ & del setup-%lang%\license-en.rtf & del setup-%lang%\Enigma_en.exe & del setup-%lang%\Enigma-Help_en.html
 if x%lang%==xrs xcopy /s/q template-en\*.* setup-%lang%\ & del setup-%lang%\license-en.rtf
 if x%lang%==xel xcopy /s/q template-en\*.* setup-%lang%\ & del setup-%lang%\license-en.rtf
 if x%lang%==xfr xcopy /s/q template-en\*.* setup-%lang%\ & del setup-%lang%\license-en.rtf
@@ -60,7 +61,6 @@ xcopy /s/q/i ..\smimedemo\utils         setup-%lang%\smimedemo\utils
 xcopy /q ..\smimedemo\*.* setup-%lang%\smimedemo
 echo Copying ..\AES_flow_visualisation\*.* setup-%lang%
 xcopy /q ..\AES_flow_visualisation\AES_Flussvisualisierung.jar setup-%lang%
-xcopy /q ..\AES_flow_visualisation\rijndael-poster-de.pdf setup-%lang%
 xcopy /q ..\CrypTool\hlp_%lang_sub%\images\enigma_screenshot1.png setup-%lang%
 
 cd setup-%lang%
