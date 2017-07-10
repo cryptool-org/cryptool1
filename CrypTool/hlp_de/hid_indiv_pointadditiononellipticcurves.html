@@ -17,7 +17,7 @@
 
 <P>Dieses Programm visualisiert verschiedene Elliptische Kurven und ermöglicht es, Punktadditionen auf diesen durchzuführen.</P>
 
-<P>Die Kurven können entweder über dem Zahlenraum der reellen Zahlen oder über der diskreten Gruppe über Primzahlen zwischen 3 und 97 erzeugt werden.</P>
+<P>Die Kurven können in dieser Demo entweder über dem Zahlenraum der reellen Zahlen oder über der diskreten Gruppe über Primzahlen zwischen 3 und 97 erzeugt werden.</P>
 
 <P>Wenn Sie das nicht-modale Fenster mit den Log-Ausgaben öffnen, können Sie Ihre Aktionen (z.B. fortgesetzte Additionen) parallel verfolgen.</P>
 
@@ -26,15 +26,19 @@
 <br>
 <IMG src="images/ellipticcurves-log.png" alt="ellipticcurves-log.png"/>
 
+<br><br>
+<P>Wenn man einen Punkt P mehrfach zu sich selbst addiert, erhält man wieder einen Punkt R = n*P auf derselben Kurve. Für die Kryptographie ist das Vielfache eines Punktes über einer diskreten Gruppe (Körper) interessant. Arbeitet man auf einem diskreten Körper über einer Primzahl, und sind P und R gegeben, ist das Problem, den skalaren Faktor n zu finden (sofern die Zahlen groß genug sind). Wenn Sie im Screenshot oben auf die diskrete Gruppe umschalten, wird standardmäßg modulo p=23 gerechnet. Kryptographie in realen Anwendungen dagegen verwendet viel größere Zahlen, wo p bspw. eine Länge von 200 Bit und mehr hat.</P>
+
 
 <br><br><P><B>Bemerkung Nachfolgeversion Java-CrypTool (JCT):</B></P>
 
 <P>Mit JCT können nicht nur
 <br>1. Kurven über den reellen Zahlen, und
-<br>2. Kurven in dem Körper F(p), sondern auch
+<br>2. Kurven in dem Körper F(p),<br>sondern auch
 <br>3. Kurven im Körper F(2^m)
 <br>berechnet und visualisiert werden.
 </P>
+<br>
 
 
 </BODY>

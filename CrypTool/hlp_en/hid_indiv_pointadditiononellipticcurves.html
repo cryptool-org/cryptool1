@@ -17,7 +17,7 @@
 
 <P>This program allows you to generate various elliptic curves and to carry out point additions on these curves.</P>
 
-<P>As number spaces you can use the real numbers or groups over the prime numbers ranging from 3 to 97.</P>
+<P>As number spaces you can use in this demonstration either the real numbers or groups over the prime numbers ranging from 3 to 97.</P>
 
 <P>By opening the non-modal window for the log output you can simultaneously track your actions (like consecutive point additions).</P>
 
@@ -26,14 +26,18 @@
 <br>
 <IMG src="images/ellipticcurves-log.png" alt="ellipticcurves-log.png"/>
 
+<br><br>
+<P>Adding a point P multiple times to itself results in another point R = n*P on the same curve. For cryptography the multiple of a point on a discrete field is interesting. If working on a discrete field over a prime number, and given P and R, the problem is to find the according scalar factor n if numbers are big enough. In the screenshot above, R = 10*P. If you have only R and P, it isn't hard to find this n, as in the screenshot the calculations where done modulo p=23. Real-world cryptography is performed with numbers much bigger, where p has a length of e.g. 200 bit and more. Then it is a hard problem to find such an n.</P>
 
-<br><br><P><B>Remark Successor Version Java-CrypTool (JCT):</B></P>
+
+<br><br><P><B>Remark Successor version Java-CrypTool (JCT):</B></P>
 
 <P>Using JCT you cannot only calculate and visualize
 <br>1. Curves in the real number space, and
-<br>2. Curves in the field F(p), but also
+<br>2. Curves in the field F(p),<br>but also
 <br>3. Curves in the field F(2^m).
 </P>
+<br>
 
 
 </BODY>
