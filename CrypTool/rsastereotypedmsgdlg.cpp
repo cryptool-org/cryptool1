@@ -51,6 +51,7 @@ CRSAStereotypedMSGDlg::CRSAStereotypedMSGDlg(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 	// Beachten Sie, dass LoadIcon unter Win32 keinen nachfolgenden DestroyIcon-Aufruf benötigt
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+	initialized = false;
 }
 
 void CRSAStereotypedMSGDlg::DoDataExchange(CDataExchange* pDX)
@@ -114,6 +115,11 @@ BOOL CRSAStereotypedMSGDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Kleines Symbol verwenden
 	//OnRadiochoice();
 	// ZU ERLEDIGEN: Hier zusätzliche Initialisierung einfügen
+
+	// flomar, 2017/07/15: Here we mark the dialog as properly initialized 
+	// so we can safely invoke the 'checkParameters' function (see below)
+	initialized = true;
+
 	return TRUE;  // Geben Sie TRUE zurück, außer ein Steuerelement soll den Fokus erhalten
 }
 
@@ -410,6 +416,11 @@ void CRSAStereotypedMSGDlg::OnChangeEdith()
 // are right and enables or disables the start button.
 void CRSAStereotypedMSGDlg::checkParameters()
 {
+	// flomar, 2017/07/15: If the dialog has not been initialized completely 
+	// (see 'initialized' flag), it is unsafe to call this method due to how 
+	// MFC sets up this dialog's resources.
+	if(!initialized) return;
+
 	UpdateData();
 	((CButton*)GetDlgItem(IDC_BUTTONSTART))->EnableWindow(false);
 	StereotypedAttack sa;

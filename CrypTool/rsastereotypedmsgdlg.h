@@ -119,6 +119,7 @@ private:
 	void updatePreview();
 	void UpdateSliders();
 	CWinThread* pThread;
+	bool initialized;
 };
 
 //{{AFX_INSERT_LOCATION}}
