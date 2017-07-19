@@ -118,8 +118,8 @@ sind teilweise in Arbeit.
 Momentan ist die griechische Version nicht verfügbar, da der Compiler VS2008
 die griechischen Fonts (als UTF16) nicht korrekt unterstützt.
 Aus anderen Gründen müssen wir für CT 1.4.31 jedoch VS2008 benutzen.
-Nichtsdestotrotz werden wir ab CT 1.5 wieder den neuesten MS-Compiler (VS 2017)
-einsetzen. (xxx)
+Nichtsdestotrotz werden wir ab CT 1.5 wieder den neuesten MS-Compiler
+(VS 2017) einsetzen. (xxx)
 
 Die aktuelle Release-Version von CrypTool und den Quellcode dazu finden Sie
 unter der folgenden Internet-Adresse (dazu ist keine Registrierung nötig):
@@ -132,8 +132,8 @@ Zu CT1 gibt es zwei Nachfolger-Versionen, genannt CT2 und JCT.
 Deren Download-Zahlen betragen: (xxx)
                JCT: ca. 1000 / Monat.
                CT2: ca. 4000 / Monat
-Die Nachfolger-Versionen von CT1 bieten einen deutlich größeren Funktionsumfang
-als CT1.
+Die Nachfolger-Versionen von CT1 bieten einen deutlich größeren
+Funktionsumfang als CT1.
 
 Ziel aller CrypTool-Versionen ist es, kryptographische Mechanismen anschaulich
 zu machen und die Verwendung und die Grenzen einzelner Verfahren aufzuzeigen.
@@ -167,16 +167,19 @@ Kontakte: Siehe Kapitel 7 unten.
 
 Bekannte Fehler:
 1) Unter Windows 10 kam es häufiger zu folgendem Phänomen:
-   Beim ersten Aufruf von PDFs (wie der CT1-Präsentation oder des CT-Buches) aus
-   der CT1-Onlinehilfe, aus dem CT1-Menü "Hilfe" oder aus dem Windows-Startmenu
-   heraus, startet Acrobat nicht. Evtl. zeigt die Onlinehilfe eine leere Seite,
-   dann stürzt die Onlinehilfe ab. Beim nächsten Start der Onlinehilfe klappen
-   diese Aufrufe.
+   Beim ersten Aufruf von PDFs (wie der CT1-Präsentation oder des CT-Buches)
+   aus der CT1-Onlinehilfe, aus dem CT1-Menü "Hilfe" oder aus dem
+   Windows-Startmenu heraus, startet Acrobat nicht. Evtl. zeigt die
+   Onlinehilfe eine leere Seite, dann stürzt die Onlinehilfe ab.
+   Beim nächsten Start der Onlinehilfe klappen diese Aufrufe.
    Das lag daran, dass ein Acrobat-Prozess hängen blieb. Wenn man diesen
-   Acrobat-Prozess im Windows-TaskManager beendet, starten auch die PDFs
-   aus CT1 heraus wie gewünscht.
-   Leider geschieht das bei jedem Neustart von CT1 erneut.
-2) Ein weiterer Fehler, der außerhalb unseres CrypTool-Codes zu liegen scheint.
+   Acrobat-Prozess im Windows-TaskManager beendet, starten meist auch die
+   PDFs aus CT1 heraus wie gewünscht.
+   Leider kann es geschehen, dass sich auch beim folgenden Aufruf des PDFs
+   wieder ein Acrobat-Prozess aufhängt (bis es einmal klappt) oder dass der
+   Fehler beim Neustart von CT1 erneut auftritt.
+2) Ein weiterer Fehler, der außerhalb unseres CrypTool-Codes zu liegen
+   scheint:
    Ruft man den Calculator BC aus den beigelegten ZT-Tools auf (per F3 oder
    aus dem ZT-Menü "Rechner"), stürzt BC beim ersten Aufruf ab.
    Ohne ZT zu schließen, kann man F3 erneut drücken, und BC stürzt nicht
@@ -221,7 +224,7 @@ in dem als PDF beigelegten CrypTool-Buch (siehe Anhang A1 dieser PDF-Datei).
 Eine Übersicht über alle Funktionen in den verschiedenen CrypTool-Programmen
 finden Sie auf der Webseite des CT-Portals (www.cryptool.org) unter dem Menü
 "Dokumentation --> CT-Funktionen" oder direkt via:
-   https://www.cryptool.org/de/ctp-dokumentation/ctp-funktionsumfang
+   https://www.cryptool.org/de/ctp-dokumentation/funktionsumfang
 
 Wir wünschen viel Spaß beim Lernen und beim Ausprobieren der Funktionen
 von CrypTool.
@@ -305,9 +308,9 @@ b) Das Lernspiel "Der Zahlenhai" v 1.2.4 (entstanden im CrypTool-Projekt):
 
 c) Das Animationsprogramm Animal (siehe http://www.algoanim.net)
    (Version 2.4.9, 5. September 2016):
-   Animal is a general-purpose animation tool with a current focus on algorithm
-   animation. It contains a lot of animation generators (currently, there are
-   more than 500.)
+   Animal is a general-purpose animation tool with a current focus on
+   algorithm animation. It contains a lot of animation generators
+   (currently, there are more than 500.)
    Mit diesem an der TU Darmstadt von Dr. Rößling gepflegten Programm
    kann man die Einzelschritte von Algorithmen oder die Komponenten von
    Datenstrukturen beliebig genau modellieren, die Einzelschritte manuell
@@ -341,8 +344,8 @@ f) Die Authorware-Anwendung "ZT" (Zahlentheorie) führt in die elementare
    Wo nötig zeigt sie auch die entsprechenden mathematischen Formeln.
    Dabei können die mathematischen Verfahren dynamisch mit eigenen
    kleinen Zahlenbeispielen ausprobiert werden.
-   Beigelegt ist auch das Programm bc v1.06 der Free Software Foundation (FSF),
-   mit dem man auf der Kommandozeile beliebig genau rechnen kann.
+   Beigelegt ist auch das Programm bc v1.06 der Free Software Foundation
+   (FSF), mit dem man auf der Kommandozeile beliebig genau rechnen kann.
 
 
 
@@ -379,7 +382,7 @@ b) Krypto-Wettbewerbe / Krypto-Rätsel:
 
    Viele weitere Rätsel und Herausforderungen (Challenges) finden sich auch
    - auf den Seiten von CrypTool-Online und
-   - auf den Seiten des Krypto-Wettbewerbs "MysteryTwister C3":
+   - auf den Seiten des Krypto-Wettbewerbs "MysteryTwister C3" (MTC3):
      https://www.mysterytwisterc3.org
 
 
@@ -693,9 +696,9 @@ Die generellen Eigenschaften und Funktionen von CT1 sind:
   Teilern und Primfaktoren näher.
 
 - Download-Seite https://www.cryptool.org/de/ct1-downloads
-  Diese Webseite enthält die Hashwerte aller herunterladbaren CrypTool-Dateien:
-  Damit kann man die Integrität der Dateien aus dem CrypTool-Paket, die
-  sich auf dem Computer befinden, überprüfen.
+  Diese Webseite enthält die Hashwerte aller herunterladbaren CrypTool-
+  Dateien: Damit kann man die Integrität der Dateien aus dem CrypTool-Paket,
+  die sich auf dem Computer befinden, überprüfen.
 
 - Umfangreiche Dokumentation (Onlinehilfe, Buch).
   Die Online-Hilfe ist im HTML-Format.
@@ -752,10 +755,12 @@ Die generellen Eigenschaften und Funktionen von CT1 sind:
 
     TOTAL: 519.059 Code-Zeilen (plus von 18 % gegenüber 437.772 bei CT 1.4.30)
     - In den TOTAL-Wert gehen nur Sourcen ein, die innerhalb des
-      CrypTool-Projektes entwickelt wurden oder dem CT-Projekt gewidmet wurden.
+      CrypTool-Projektes entwickelt wurden oder dem CT-Projekt gewidmet
+      wurden.
       Die Sourcen anderer Open-Source-Projekte, die innerhalb von CrypTool
       benutzt werden (wie OpenSSL, NTL, Scintilla) werden nicht gezählt.
-      Ebenso wenig werden automatisch erzeugte Dateien oder Wortlisten gezählt.
+      Ebenso wenig werden automatisch erzeugte Dateien oder Wortlisten
+      (Referenzdateien) gezählt.
 
 
 - Details zum Compilieren, Linken und zur einheitlichen Entwicklung
@@ -997,7 +1002,8 @@ c) Neue Funktionalität / Bedienung:
    - DH-Demo: Wenn man automatisch erzeugte Generatoren danach änderte (z.B.
      die Ziffer 2 anfügen) kam es in früheren Versionen zum Absturz.
      Ist behoben.
-   - Seitenkanalangriff auf das Hybridverschlüsselungsprotokoll (Textbook-RSA):
+   - Seitenkanalangriff auf das Hybridverschlüsselungsprotokoll
+     (Textbook-RSA):
      Wenn man mit RSA-Modulen arbeitete, die länger als 1024 Bit waren, kam es
      zum Absturz, wenn man den Angriffszyklus startete.
      Ist behoben.
@@ -1007,8 +1013,9 @@ c) Neue Funktionalität / Bedienung:
    - RSA-Demo: Ein eingegebener Wert für e wird auch nach Aufruf des
      Optionen-Dialogs beibehalten.
    - Korrektur der ECC-Demo:
-     - Die Vorgängerversion lieferte über der Gruppe F(p) bei der Punktaddition
-       unter bestimmten Umständen einen Punkt außerhalb der Kurve.
+     - Die Vorgängerversion lieferte über der Gruppe F(p) bei der
+       Punktaddition unter bestimmten Umständen einen Punkt außerhalb der
+       Kurve.
      - Die Koordinaten der Punkte, die dynamisch in der Nähe des Mauszeigers
        erscheinen, sind nun auch am rechten Rand ganz sichtbar.
      - Der Punkt im Unendlichen wird zur Gesamtzahl der Punkte hinzugezählt.
@@ -1089,7 +1096,8 @@ c) Neue Funktionalität / Bedienung:
 
 - Im HMAC-Dialog sind die Bezeichnungen der Literatur angepasst und in der
   Onlinehilfe sind nun die entsprechenden Quellen angegeben.
-  Variante 5 der HMAC-Beispiel-Konstruktionen entspricht nun genau dem RFC 2104.
+  Variante 5 der HMAC-Beispiel-Konstruktionen entspricht nun genau dem
+  RFC 2104.
   Details:
   In CrypTool sind fünf HMAC-Varianten implementiert (H = Hash-Funktion,
   k = Schlüssel, m = Nachricht):
@@ -1105,7 +1113,8 @@ c) Neue Funktionalität / Bedienung:
   wird k durch H(k) ersetzt.
   Alle diese Funktionen sind mit Hilfe von OpenSSL implementiert.
 
-- Beim PKCS #5-Dialog können nun bis zu 100.000 Iterationen eingestellt werden.
+- Beim PKCS #5-Dialog können nun bis zu 100.000 Iterationen eingestellt
+  werden.
   Außerdem werden mehr Hashverfahren unterstützt, als der ursprüngliche
   Standard vorsieht.
 
@@ -1182,9 +1191,9 @@ c) Neue Funktionalität / Bedienung:
   eingabe-Dialogen der folgenden Verschlüsselungsverfahren:
   - Substitutions-Teil von ADFGVX (Algorithmus erfordert ein festes Alphabet)
   - Playfair (der Algorithmus legt über die Matrix auch das Alphabet fest)
-  - Permutation (alle Daten werden permutiert; wenn gewünscht, kann das Dokument
-                 von Ihnen selbst vorab vorformatiert werden -- mit dem Menü
-                 "Ansicht \ Textdokument formatieren")
+  - Permutation (alle Daten werden permutiert; wenn gewünscht, kann das
+                 Dokument von Ihnen selbst vorab vorformatiert werden -- mit
+                 dem Menü "Ansicht \ Textdokument formatieren")
   - Solitaire (der Algorithmus erfordert ein festes Alphabet; alle Buchstaben
                werden in die 26 Großbuchstaben verwandelt und alle anderen
                Zeichen gelöscht).
@@ -1250,7 +1259,8 @@ Griechisch folgt.
 a) Entwickler-relevante Änderungen (eher Programm-technisch):
 
 - Update der Bibliotheken und der genutzten Fremdsoftware auf ff. Versionen:
-  - Scintilla (3.7.0 postponed to CT 1.5; weiterhin modifizierte 1.7.7 benutzt)
+  - Scintilla (3.7.0 postponed to CT 1.5; weiterhin modifizierte 1.7.7
+    benutzt)
   - compilerabhängig: cv act library 1.4.6 mit VS2008, 1.4.18 mit VS2010
   - OpenSSL 1.0.1 (xxx)
   - MPIR 1.3.1 (hergeleitet aus GMP-Version 4.2.1) statt GMP 4.1
@@ -1282,9 +1292,10 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
 
 - CrypTool-Buch: - Edition 12 ist ein großes Update, viele Korrekturen und
                    Ergänzungen
-                 - Zwei weitere Kapitel: zu Bitblock- und Bitstrom-Verschlüsselung
-                   und mit einer Studie über aktuelle akademische Resultate für
-                   das Lösen diskreter Logarithmen und zur Faktorisierung
+                 - Zwei weitere Kapitel: zu Bitblock- und Bitstrom-
+                   Verschlüsselung und mit einer Studie über aktuelle
+                   akademische Resultate für das Lösen diskreter Logarithmen
+                   und zur Faktorisierung
                  - Aufnahme weiterer SageMath-Programmbeispiele
                    (zu Primitivwurzeln und RSA-Fixpunkten)
                  - Anhänge zu den Funktionsübersichten auch für CT2 und
@@ -1297,7 +1308,7 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
 
 - Am 18. Januar 2012 wurde die neue CrypTool-Webseite (CTP) freigegeben, die
   die 5 Unterprojekte des CT-Projektes gleichwertig darstellt.
-  Dazu gehört auch CT1.
+  Dazu gehört auch CT1. Seitdem wurde die Seite regelmäßig geupdated.
 
 
 c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
@@ -1353,8 +1364,8 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
   Das "Verschwinden" der Fenster kam vermehrt unter Win 7 mit CT 1.4.30 vor,
   wenn Betriebssystem-Updates eingespielt oder Monitorauflösungen geändert
   wurden.
-- DES-Animal-Animation: Einige Fehler in den Schritten 357-424 und insbesondere
-  in der Pre-Output-Matrix (64 bit) wurden beseitigt.
+- DES-Animal-Animation: Einige Fehler in den Schritten 357-424 und
+  insbesondere in der Pre-Output-Matrix (64 bit) wurden beseitigt.
   Danke an Vasilis. Zusätzlich wurde die entsprechende Online-Hilfe erweitert.
 - Dialog zur Eingabe von Hex-Schlüsseln: Bisher funktionierte das Einfügen per
   Strg-V korrekt; per Kontextmenü -> Paste aber nicht. Nun tut beides korrekt. 
@@ -1618,8 +1629,9 @@ Installationsprogramm (Setup).
 - AES-Tool:
   - Um Dateien verschlüsselt als selbstextrahierende Archive abzuspeichern,
     dürfen diese Dateien nicht größer als 4 GB sein.
-  - Wenn man dagegen nur die reine verschlüsselte AES-Datei ohne Selbstent-
-    packungscode erzeugt, kann man auch "beliebig" große Dateien verschlüsseln.
+  - Wenn man dagegen nur die reine verschlüsselte AES-Datei ohne
+    Selbstentpackungscode erzeugt, kann man auch "beliebig" große
+    Dateien verschlüsseln.
 
   Bitte beachten Sie, dass die Ausgabe des Standalone AES-Tools nicht
   ganz identisch ist mit der Ausgabe, die Sie in CrypTool mit der
@@ -2300,7 +2312,7 @@ Version                  Deutsch    Englisch      Bedarf DE      durch
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.30    Aug. 2010      52,1 MB     51,5 MB         95 MB        DB
-1.4.31    Mai  2017      70,7 MB     69,9 MB        114 MB        CT (xxxok)
+1.4.31    Juli 2017      70,7 MB     69,9 MB        113 MB        CT (xxxok)
 
 Bemerkungen zu den (Zwischen-)Versionen:
 1.3.02  Viele neue Funktionen gegenüber 1.3.00
@@ -2689,7 +2701,8 @@ a) Vollständig mit Source-Code verfügbar sind:
 - http://www.nku.edu/~cryptography/doku.php?id=downloads:downloads
   (von http://www.nku.edu/~christensen)
   Das darin enthaltene Java-Programm CryptoHelper.JAR vom "Math and Computer
-  Science Club" an der NKU ist ziemlich komplett, was klassische Chiffren angeht.
+  Science Club" an der NKU ist ziemlich komplett, was klassische Chiffren
+  angeht.
   Letzter Update: Gary Watson, Aug 2005.
 
 - http://www.cs.unc.edu/~stotts/145/homes/crypt/
@@ -2794,11 +2807,13 @@ b) Die einzigen weiteren uns bekannten brauchbaren Programme, die
 
 - "CryptoCrack" von Phil Pilcrow
   Das Windows-Programm CryptoCrack wurde entworfen, um klassiche Chiffren zu
-  lösen: "CryptoCrack can solve over 50 different classical cipher types and in
-  many cases without knowing any plaintext or the key length" (Abruf 23.10.16).
+  lösen: "CryptoCrack can solve over 50 different classical cipher types and
+  in many cases without knowing any plaintext or the key length"
+  (Abruf 23.10.16).
   Deshalb enthält es keine Routinen, um Maschinen-basierte oder moderne,
   Computer-basierte Verfahren wie Enigma, AES, DES, Blowfish etc. zu knacken.
-  Dieses Tool löst viele klassische Chiffren sehr schnell und in guter Qualität.
+  Dieses Tool löst viele klassische Chiffren sehr schnell und in guter
+  Qualität.
   Erstes Release: 29.5.2011; weiterhin aktive Weiterentwicklung.  
   Letztes Update: März 2017 -- Version 0.7 beta (Version 0.7.6279.17017))
   https://sites.google.com/site/cryptocrackprogram/home
@@ -2933,8 +2948,8 @@ b) Java-CrypTool (JCrypTool, JCT):
    - Plattform-unabhängig --> Support für Windows, MacOS und Linux
    - Nutzung von SWT für die GUI
    - Nutzt strikt die Standards von Eclipse
-   - Bouncy-Castle (BC) und FlexiProvider (FP) werden als Krypto-Provider benutzt.
-     Der FP wird in BC aufgehen.
+   - Bouncy-Castle (BC) und FlexiProvider (FP) werden als Krypto-Provider
+     benutzt. Der FP wird in BC aufgehen.
      JCT als Angebot eines dynamischen, grafischen Frontends für BC.
    - XML-Sicherheit (Demonstrator für XML-Signaturen)
    - Zusammenarbeit mit dem Lehrstuhl Prof. Buchmann, TU Darmstadt für
@@ -3016,7 +3031,7 @@ Einige (nicht alle) Funktionen der Release-Versionen der Nachfolger-Projekte:
 - JCT  Vigenère-Autokey-Verschlüsselung
 - JCT  Visualisierung klassischer (Analyse-)Verfahren
 - JCT  Einstellbarkeit aller Detail-Parameter moderner Algorithmen
-       in der FlexiProvider-Perspektive (insbesondere Post-Quantum-Algorithmen)
+       in der Algorithmen-Perspektive (bspw. für Post-Quantum-Algorithmen)
 - JCT  Dragon-Verschlüsselung & LFSR
 - JCT  Analyse-Verfahren für Entropie, Friedman, Häufigkeit
 - JCT  Detaillierte Visualisierung der inneren Eigenschaften von DES
@@ -3027,7 +3042,6 @@ Einige (nicht alle) Funktionen der Release-Versionen der Nachfolger-Projekte:
        "böswillige" Verfahren zur RSA-Schlüsselerzeugung incl. SETUP-Angriff)
 - JCT  Multi-partite Schlüsselvereinbarung
 - JCT  Homomorphe Verschlüsselung (RSA, Paillier, Gentry&Halevi)
-- JCT  PQC-Signaturschemata (WOTS, MSS, XMSS-MT)
 - JCT  Analyse von Transpositions-Chiffren mit dem ACO-Algorithmus
 - JCT  Visualisierung von Zero-Knowledge-Beweisen
 - JCT  Running-Key-Verschlüsselung und automatische Analyse (Viterbi)
@@ -3038,6 +3052,12 @@ Einige (nicht alle) Funktionen der Release-Versionen der Nachfolger-Projekte:
        Verschlüsselungs-Verfahren benutzten Alphabete und ein integriertes
        Kommandozeilenprogramm dafür
 - JCT  Visualisierung und Erläuterung der Mustersperre von Android (AUP)
+- JCT  Visualisierung der Ergebnisse verschiedener Gültigkeitsmodelle für
+       Zertifikate (nutzt Schiebregler, um die Parameter schnell anzupassen)
+- JCT  PQC-Signaturschemata (WOTS, MSS, XMSS-MT) und damit
+       Visualisierung und Erläuterung des Merkle tree und von Post-Quantum
+       sicheren Signaturen
+
 
 
 
@@ -3418,16 +3438,17 @@ Setup von CrypTool 1.4.31 Prefinal (compiliert mit VS2008) ok durch.
 Die meisten Funktionen in CT1 selbst (wie Verschlüsselungsmethoden oder
 RSA-Schlüsselgenerierung) sind ausführbar unter Wine. Wine ist viel stabiler
 als vor 6 Jahren.
-- ok: Aufruf der meisten Masken (incl. RSA-AES-Hybrid-Verschlüsselungs-Demo),
-      Durchführen der Berechnungen und Klick auf F1 (Kontext-sensitive Hilfe)
-- ok: Melden, wenn Java nicht in Wine installiert ist
-- ok: Aus CT1, per Menü Hilfe das Readme in IE anzeigen
+- ok:  Aufruf der meisten Masken (incl. RSA-AES-Hybrid-Verschlüsselungs-Demo),
+       Durchführen der Berechnungen und Klick auf F1 (Kontext-sensitive Hilfe)
+- ok:  Melden, wenn Java nicht in Wine installiert ist
+- ok:  Aus CT1, per Menü Hilfe das Readme in IE anzeigen
 - nok: Aus CT1, per Menü Hilfe ein PDF (Buch, Präsentation) starten:
        Wine sucht vergeblich nach dem Acrobat Reader, auch wenn Okular
        und Acrobat vorhanden sind.
-- ok: In der Onlinehilfe: Aufruf innerer Links in der Hilfe
+- ok:  In der Onlinehilfe: Aufruf innerer Links in der Hilfe
 - nok: In der Onlinehilfe:
-       - Aufruf von externen Programmen aus der Hilfe (Readme.txt im Notepad, PDFs)
+       - Aufruf von externen Programmen aus der Hilfe (Readme.txt im Notepad,
+         PDFs)
        - Vor- und Zurück-Button
 - nok: Fehlfunktionen innerhalb der Macromedia-Anwendung ZT
 
