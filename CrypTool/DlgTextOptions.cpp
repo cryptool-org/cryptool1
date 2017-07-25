@@ -137,7 +137,7 @@ void CDlgTextOptions::SetDefaultOptions()
 	title= referenceFile.Mid(pos+1);
 
 	referenceFile.Replace("\\\\", "\\");
-	selectedLanguageReferenceFile = 0;
+	selectedLanguageReferenceFile = -1;
 }
 
 
@@ -195,116 +195,17 @@ BOOL CDlgTextOptions::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// flomar, 06/20/2012: create language reference file structs for all supported languages;
-	// for now we support the following languages:
-	//   CUSTOM (user-defined), EN, DE, PL, SR, ES, FR, LA, RU, GR
-	// if one of the default files is invalid, we don't add it to our drop-down box (see below)
-	CString pathToReferenceFiles;
-	CString stringLanguageName;
-	CString stringFileName;
-	// set path to reference files
-	if(Pfad) {
-		pathToReferenceFiles = Pfad;
-		pathToReferenceFiles.Append("\\reference\\");
-		pathToReferenceFiles.Replace("\\\\", "\\");
-	}
-	// a struct to verify the existence of files
-	CFileStatus fileStatus;
+	// Initialize all available language reference files (we put them in a combo box), 
+	// and then, if the user hasn't selected a file yet, try to select the file matching 
+	// the CrypTool runtime language, or stick with the existing (user-defined) setting.
+	initializeLanguageReferenceFiles();
 
-	// make sure the list doesn't keep piling up due to re-opening the dialog several times
-	listLanguageReferenceFiles.clear();
-
-	// CUSTOM
-	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_CUSTOM);
-	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_CUSTOM);
-	LanguageReferenceFile languageReferenceFileCustom;
-	languageReferenceFileCustom.language = stringLanguageName;
-	languageReferenceFileCustom.referenceFile = stringFileName;
-	listLanguageReferenceFiles.push_back(languageReferenceFileCustom);
-	// EN
-	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_ENGLISH);
-	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_ENGLISH);
-	LanguageReferenceFile languageReferenceFileEnglish;
-	languageReferenceFileEnglish.language = stringLanguageName;
-	languageReferenceFileEnglish.referenceFile = pathToReferenceFiles + stringFileName;
-	if(CFile::GetStatus(languageReferenceFileEnglish.referenceFile, fileStatus))
-		listLanguageReferenceFiles.push_back(languageReferenceFileEnglish);
-	// DE
-	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_GERMAN);
-	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_GERMAN);
-	LanguageReferenceFile languageReferenceFileGerman;
-	languageReferenceFileGerman.language = stringLanguageName;
-	languageReferenceFileGerman.referenceFile = pathToReferenceFiles + stringFileName;
-	if(CFile::GetStatus(languageReferenceFileGerman.referenceFile, fileStatus))
-		listLanguageReferenceFiles.push_back(languageReferenceFileGerman);
-	// PL
-	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_POLISH);
-	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_POLISH);
-	LanguageReferenceFile languageReferenceFilePolish;
-	languageReferenceFilePolish.language = stringLanguageName;
-	languageReferenceFilePolish.referenceFile = pathToReferenceFiles + stringFileName;
-	if(CFile::GetStatus(languageReferenceFilePolish.referenceFile, fileStatus))
-		listLanguageReferenceFiles.push_back(languageReferenceFilePolish);
-	// SR
-	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_SERBIAN);
-	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_SERBIAN);
-	LanguageReferenceFile languageReferenceFileSerbian;
-	languageReferenceFileSerbian.language = stringLanguageName;
-	languageReferenceFileSerbian.referenceFile = pathToReferenceFiles + stringFileName;
-	if(CFile::GetStatus(languageReferenceFileSerbian.referenceFile, fileStatus))
-		listLanguageReferenceFiles.push_back(languageReferenceFileSerbian);
-	// ES
-	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_SPANISH);
-	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_SPANISH);
-	LanguageReferenceFile languageReferenceFileSpanish;
-	languageReferenceFileSpanish.language = stringLanguageName;
-	languageReferenceFileSpanish.referenceFile = pathToReferenceFiles + stringFileName;
-	if(CFile::GetStatus(languageReferenceFileSpanish.referenceFile, fileStatus))
-		listLanguageReferenceFiles.push_back(languageReferenceFileSpanish);
-	// FR
-	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_FRENCH);
-	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_FRENCH);
-	LanguageReferenceFile languageReferenceFileFrench;
-	languageReferenceFileFrench.language = stringLanguageName;
-	languageReferenceFileFrench.referenceFile = pathToReferenceFiles + stringFileName;
-	if(CFile::GetStatus(languageReferenceFileFrench.referenceFile, fileStatus))
-		listLanguageReferenceFiles.push_back(languageReferenceFileFrench);
-	// LA
-	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_LATIN);
-	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_LATIN);
-	LanguageReferenceFile languageReferenceFileLatin;
-	languageReferenceFileLatin.language = stringLanguageName;
-	languageReferenceFileLatin.referenceFile = pathToReferenceFiles + stringFileName;
-	if(CFile::GetStatus(languageReferenceFileLatin.referenceFile, fileStatus))
-		listLanguageReferenceFiles.push_back(languageReferenceFileLatin);
-	// RU
-	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_RUSSIAN);
-	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_RUSSIAN);
-	LanguageReferenceFile languageReferenceFileRussian;
-	languageReferenceFileRussian.language = stringLanguageName;
-	languageReferenceFileRussian.referenceFile = pathToReferenceFiles + stringFileName;
-	if(CFile::GetStatus(languageReferenceFileRussian.referenceFile, fileStatus))
-		listLanguageReferenceFiles.push_back(languageReferenceFileRussian);
-	// GR
-	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_GREEK);
-	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_GREEK);
-	LanguageReferenceFile languageReferenceFileGreek;
-	languageReferenceFileGreek.language = stringLanguageName;
-	languageReferenceFileGreek.referenceFile = pathToReferenceFiles + stringFileName;
-	if(CFile::GetStatus(languageReferenceFileGreek.referenceFile, fileStatus))
-		listLanguageReferenceFiles.push_back(languageReferenceFileGreek);
-	// fill combox box for reference file selection according to our list
-	for(std::list<LanguageReferenceFile>::iterator i=listLanguageReferenceFiles.begin(); i!=listLanguageReferenceFiles.end(); i++) {
-		CString language = (*i).language;
-		controlComboBoxSelectReferenceFile.AddString(language);
-	}
-
-	// initial combo box selection
+	// Update the combo box so that it reflects the proper selection, and make sure 
+	// we have a properly formatted reference file.
 	controlComboBoxSelectReferenceFile.SetCurSel(selectedLanguageReferenceFile);
-	// some minor correction
 	referenceFile.Replace("\\\\", "\\");
 
-	// save information to return to settings in case user exits the dialog with the Cancel button
+	// Save information to return to settings in case user exits the dialog with the Cancel button.
 	oldKeepCharactersNotPresentInAlphabetUnchanged  = keepCharactersNotPresentInAlphabetUnchanged;
 	oldKeepUpperLowerCaseInformation                = keepUpperLowerCaseInformation;
 	oldDistinguishUpperLowerCase                    = distinguishUpperLowerCase;
@@ -472,6 +373,7 @@ void CDlgTextOptions::OnButtonRestoreStandard()
    UpdateData(FALSE);
 	updateAlphabetHeading();
 	// update gui elements
+	initializeLanguageReferenceFiles();
 	controlEditReferenceFile.SetSel(0,-1);
 	controlComboBoxSelectReferenceFile.SetCurSel(selectedLanguageReferenceFile);
 }
@@ -654,3 +556,147 @@ void CDlgTextOptions::OnSelendokComboSelectReferenceFile()
 	selectedLanguageReferenceFile = controlComboBoxSelectReferenceFile.GetCurSel();
 }
 
+void CDlgTextOptions::initializeLanguageReferenceFiles() {
+	// flomar, 2017/07/24: Here we initialize the available language reference files. The 
+	// supported languages are DE, EN, ES, FR, GR, LA, PL, RU, SR. Additional languages 
+	// will need to be implemented explicitly.
+	listLanguageReferenceFiles.clear();
+	controlComboBoxSelectReferenceFile.Clear();
+	CString crypToolRuntimeLanguage;
+	crypToolRuntimeLanguage.LoadStringA(IDS_CRYPTOOL_RUNTIME_LANGUAGE_STRING);
+	CString pathToReferenceFiles;
+	CString stringLanguageName;
+	CString stringFileName;
+	if(Pfad) {
+		pathToReferenceFiles = Pfad;
+		pathToReferenceFiles.Append("\\reference\\");
+		pathToReferenceFiles.Replace("\\\\", "\\");
+	}
+	CFileStatus fileStatus;
+	// Here we initialize the entry for the custom reference file which is always present. 
+	// Other entries (see supported languages above) are only added if the corresponding 
+	// language files do actually exist.
+	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_CUSTOM);
+	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_CUSTOM);
+	LanguageReferenceFile languageReferenceFileCustom;
+	languageReferenceFileCustom.language = stringLanguageName;
+	languageReferenceFileCustom.referenceFile = stringFileName;
+	listLanguageReferenceFiles.push_back(languageReferenceFileCustom);
+	// DE
+	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_GERMAN);
+	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_GERMAN);
+	LanguageReferenceFile languageReferenceFileGerman;
+	languageReferenceFileGerman.language = stringLanguageName;
+	languageReferenceFileGerman.referenceFile = pathToReferenceFiles + stringFileName;
+	if(CFile::GetStatus(languageReferenceFileGerman.referenceFile, fileStatus)) {
+		listLanguageReferenceFiles.push_back(languageReferenceFileGerman);
+		if(selectedLanguageReferenceFile == -1 && crypToolRuntimeLanguage == "German") {
+			selectedLanguageReferenceFile = listLanguageReferenceFiles.size() - 1;
+		}
+	}
+	// EN
+	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_ENGLISH);
+	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_ENGLISH);
+	LanguageReferenceFile languageReferenceFileEnglish;
+	languageReferenceFileEnglish.language = stringLanguageName;
+	languageReferenceFileEnglish.referenceFile = pathToReferenceFiles + stringFileName;
+	if(CFile::GetStatus(languageReferenceFileEnglish.referenceFile, fileStatus)) {
+		listLanguageReferenceFiles.push_back(languageReferenceFileEnglish);
+		if(selectedLanguageReferenceFile == -1 && crypToolRuntimeLanguage == "English") {
+			selectedLanguageReferenceFile = listLanguageReferenceFiles.size() - 1;
+		}
+	}
+	// ES
+	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_SPANISH);
+	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_SPANISH);
+	LanguageReferenceFile languageReferenceFileSpanish;
+	languageReferenceFileSpanish.language = stringLanguageName;
+	languageReferenceFileSpanish.referenceFile = pathToReferenceFiles + stringFileName;
+	if(CFile::GetStatus(languageReferenceFileSpanish.referenceFile, fileStatus)) {
+		listLanguageReferenceFiles.push_back(languageReferenceFileSpanish);
+		if(selectedLanguageReferenceFile == -1 && crypToolRuntimeLanguage == "Spanish") {
+			selectedLanguageReferenceFile = listLanguageReferenceFiles.size() - 1;
+		}
+	}
+	// FR
+	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_FRENCH);
+	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_FRENCH);
+	LanguageReferenceFile languageReferenceFileFrench;
+	languageReferenceFileFrench.language = stringLanguageName;
+	languageReferenceFileFrench.referenceFile = pathToReferenceFiles + stringFileName;
+	if(CFile::GetStatus(languageReferenceFileFrench.referenceFile, fileStatus)) {
+		listLanguageReferenceFiles.push_back(languageReferenceFileFrench);
+		if(selectedLanguageReferenceFile == -1 && crypToolRuntimeLanguage == "French") {
+			selectedLanguageReferenceFile = listLanguageReferenceFiles.size() - 1;
+		}
+	}
+	// GR
+	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_GREEK);
+	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_GREEK);
+	LanguageReferenceFile languageReferenceFileGreek;
+	languageReferenceFileGreek.language = stringLanguageName;
+	languageReferenceFileGreek.referenceFile = pathToReferenceFiles + stringFileName;
+	if(CFile::GetStatus(languageReferenceFileGreek.referenceFile, fileStatus)) {
+		listLanguageReferenceFiles.push_back(languageReferenceFileGreek);
+		if(selectedLanguageReferenceFile == -1 && crypToolRuntimeLanguage == "Greek") {
+			selectedLanguageReferenceFile = listLanguageReferenceFiles.size() - 1;
+		}
+	}
+	// LA
+	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_LATIN);
+	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_LATIN);
+	LanguageReferenceFile languageReferenceFileLatin;
+	languageReferenceFileLatin.language = stringLanguageName;
+	languageReferenceFileLatin.referenceFile = pathToReferenceFiles + stringFileName;
+	if(CFile::GetStatus(languageReferenceFileLatin.referenceFile, fileStatus)) {
+		listLanguageReferenceFiles.push_back(languageReferenceFileLatin);
+		if(selectedLanguageReferenceFile == -1 && crypToolRuntimeLanguage == "Latin") {
+			selectedLanguageReferenceFile = listLanguageReferenceFiles.size() - 1;
+		}
+	}
+	// PL
+	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_POLISH);
+	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_POLISH);
+	LanguageReferenceFile languageReferenceFilePolish;
+	languageReferenceFilePolish.language = stringLanguageName;
+	languageReferenceFilePolish.referenceFile = pathToReferenceFiles + stringFileName;
+	if(CFile::GetStatus(languageReferenceFilePolish.referenceFile, fileStatus)) {
+		listLanguageReferenceFiles.push_back(languageReferenceFilePolish);
+		if(selectedLanguageReferenceFile == -1 && crypToolRuntimeLanguage == "Polish") {
+			selectedLanguageReferenceFile = listLanguageReferenceFiles.size() - 1;
+		}
+	}
+	// RU
+	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_RUSSIAN);
+	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_RUSSIAN);
+	LanguageReferenceFile languageReferenceFileRussian;
+	languageReferenceFileRussian.language = stringLanguageName;
+	languageReferenceFileRussian.referenceFile = pathToReferenceFiles + stringFileName;
+	if(CFile::GetStatus(languageReferenceFileRussian.referenceFile, fileStatus)) {
+		listLanguageReferenceFiles.push_back(languageReferenceFileRussian);
+		if(selectedLanguageReferenceFile == -1 && crypToolRuntimeLanguage == "Russian") {
+			selectedLanguageReferenceFile = listLanguageReferenceFiles.size() - 1;
+		}
+	}
+	// SR
+	stringLanguageName.LoadString(IDS_LANGUAGEREFERENCEFILE_LANGUAGENAME_SERBIAN);
+	stringFileName.LoadString(IDS_LANGUAGEREFERENCEFILE_FILENAME_SERBIAN);
+	LanguageReferenceFile languageReferenceFileSerbian;
+	languageReferenceFileSerbian.language = stringLanguageName;
+	languageReferenceFileSerbian.referenceFile = pathToReferenceFiles + stringFileName;
+	if(CFile::GetStatus(languageReferenceFileSerbian.referenceFile, fileStatus)) {
+		listLanguageReferenceFiles.push_back(languageReferenceFileSerbian);
+		if(selectedLanguageReferenceFile == -1 && crypToolRuntimeLanguage == "Serbian") {
+			selectedLanguageReferenceFile = listLanguageReferenceFiles.size() - 1;
+		}
+	}
+	// Fill the combo box for reference file selection with regards to our list.
+	for(std::list<LanguageReferenceFile>::iterator i=listLanguageReferenceFiles.begin(); i!=listLanguageReferenceFiles.end(); i++) {
+		CString language = (*i).language;
+		controlComboBoxSelectReferenceFile.AddString(language);
+	}
+	// Here we make sure we don't apply invalid selections.
+	if(selectedLanguageReferenceFile < 0 || selectedLanguageReferenceFile >= listLanguageReferenceFiles.size()) {
+		selectedLanguageReferenceFile = 0;
+	}
+}

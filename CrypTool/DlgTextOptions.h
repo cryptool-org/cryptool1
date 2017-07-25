@@ -109,6 +109,7 @@ private:
 		CString referenceFile;
 	};
 	std::list<LanguageReferenceFile> listLanguageReferenceFiles;
+	void initializeLanguageReferenceFiles();
 protected:
 	CComboBox	controlComboBoxSelectReferenceFile;
 	afx_msg void OnSelendokComboSelectReferenceFile();
