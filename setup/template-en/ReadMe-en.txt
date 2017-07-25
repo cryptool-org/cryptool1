@@ -170,8 +170,8 @@ Known bugs:
    from within the CT1 onlinehelp, from the CT1 menu "Help", or from the
    Windows Start menu, then Acrobat didn't show up. Sometimes the onlinehelp
    shows an empty page before it crashes. After the next start of the
-   onlinehelp these calls works.
-   The reason was a hanging Acrobat process. If you stop this Acrobat process
+   onlinehelp this call of the pdf should work.
+   The reason is a hanging Acrobat process. If you stop this Acrobat process
    within the Windows TaskManager, then PDFs mostly start from within CT1 as
    usual.
    Sadly, it can happen, that a following call of the PDFs also causes an
