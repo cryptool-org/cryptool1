@@ -76,6 +76,13 @@ void CDlgTextOptions::updateAlphabetHeading()
 
 ////////////////////////////////////////////////////////////////////
 // CLASS API FUNCTIONS
+
+CString CDlgTextOptions::getTitle() const {
+	const int position = referenceFile.ReverseFind('\\');
+	const CString title = referenceFile.Mid(position + 1);
+	return title;
+}
+
 const CString &CDlgTextOptions::getAlphabet()
 {
 	return alphabet;
@@ -133,9 +140,6 @@ void CDlgTextOptions::SetDefaultOptions()
 	referenceFile = (!Pfad) ? _T("") : Pfad;
 	referenceFile += _T("\\");
 	referenceFile.Append(pc_str);
-	int pos = referenceFile.ReverseFind('\\');
-	title= referenceFile.Mid(pos+1);
-
 	referenceFile.Replace("\\\\", "\\");
 	selectedLanguageReferenceFile = -1;
 }
@@ -297,7 +301,6 @@ void CDlgTextOptions::OnButtonSearchReferenceFile()
 	
 	UpdateData(TRUE);
 	referenceFile=fname;
-	title = ofn.lpstrFileTitle;
 	selectedLanguageReferenceFile = 0;
 	controlComboBoxSelectReferenceFile.SetCurSel(0);
 	UpdateData(FALSE);

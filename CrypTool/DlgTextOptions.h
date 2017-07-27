@@ -62,7 +62,7 @@ protected:
 
 public:
 	// access methods
-	CString getTitle() { return title; }
+	CString getTitle() const;
 	CString getReferenceFile() { return referenceFile; }
 	const CString &getAlphabet(); 
    int            setAlphabet( CString &new_alphabet );
@@ -79,7 +79,6 @@ private:
 	CEdit controlEditReferenceFile;
 	CEdit controlEditAlphabet;
 	// misc variables
-	CString title;
 	CString	separator;
 	CString	alphabet;
 	CString oldAlphabet;
