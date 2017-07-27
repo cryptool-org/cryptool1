@@ -203,11 +203,10 @@ BOOL CDlgTextOptions::OnInitDialog()
 	// and then, if the user hasn't selected a file yet, try to select the file matching 
 	// the CrypTool runtime language, or stick with the existing (user-defined) setting.
 	initializeLanguageReferenceFiles();
-
 	// Update the combo box so that it reflects the proper selection, and make sure 
 	// we have a properly formatted reference file.
 	controlComboBoxSelectReferenceFile.SetCurSel(selectedLanguageReferenceFile);
-	referenceFile.Replace("\\\\", "\\");
+	updateReferenceFile();
 
 	// Save information to return to settings in case user exits the dialog with the Cancel button.
 	oldKeepCharactersNotPresentInAlphabetUnchanged  = keepCharactersNotPresentInAlphabetUnchanged;
@@ -543,16 +542,8 @@ void CDlgTextOptions::updateCheckState()
 
 void CDlgTextOptions::OnSelendokComboSelectReferenceFile()
 {
-	CString language;
-	controlComboBoxSelectReferenceFile.GetWindowText(language);
-	for(std::list<LanguageReferenceFile>::iterator i=listLanguageReferenceFiles.begin(); i!=listLanguageReferenceFiles.end(); i++) {
-		LanguageReferenceFile languageReferenceFile = (*i);
-		if(languageReferenceFile.language == language) {
-			referenceFile = languageReferenceFile.referenceFile;
-			UpdateData(false);
-			break;
-		}
-	}
+	// update reference file w/r/t the combo box selection
+	updateReferenceFile();
 	// move selection to the end of the edit box (so the user can easier see changes occuring)
 	controlEditReferenceFile.SetSel(0,-1);
 	// don't forget to update this variable
@@ -701,5 +692,19 @@ void CDlgTextOptions::initializeLanguageReferenceFiles() {
 	// Here we make sure we don't apply invalid selections.
 	if(selectedLanguageReferenceFile < 0 || selectedLanguageReferenceFile >= listLanguageReferenceFiles.size()) {
 		selectedLanguageReferenceFile = 0;
+	}
+}
+
+void CDlgTextOptions::updateReferenceFile() {
+	CString language;
+	controlComboBoxSelectReferenceFile.GetWindowText(language);
+	for(std::list<LanguageReferenceFile>::iterator i=listLanguageReferenceFiles.begin(); i!=listLanguageReferenceFiles.end(); i++) {
+		LanguageReferenceFile languageReferenceFile = (*i);
+		if(languageReferenceFile.language == language) {
+			referenceFile = languageReferenceFile.referenceFile;
+			referenceFile.Replace("\\\\", "\\");
+			UpdateData(false);
+			break;
+		}
 	}
 }
