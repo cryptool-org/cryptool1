@@ -714,34 +714,34 @@ The general properties and functions of CT1 are:
     ------------
               4 .rc files
              36 .c files
-            325 .cpp files
-            379 .h files
+            324 .cpp files
+            378 .h files
              36 .java files
              14 .pl files
            1152 .html files
-             46 .txt files
+             47 .txt files
              47 .tex files
               4 .sage files
-          2,043 TOTAL
+          2,042 TOTAL
 
 
     LINES OF CODE (LoC) SUMMARY
     ---------------------------
-         84,772 MFC resource code (rc)
-        285,633 C/C++ source code (c cpp h)
+         85,625 MFC resource code (rc)
+        286,487 C/C++ source code (c cpp h)
           9,795 Java source code (java)
-          2,257 Perl code (pl)
-         66,267 HTML code (html hpp)
-          8,109 Text files (txt)
-         61,401 LaTeX code (tex)
+          2,266 Perl code (pl)
+         66,610 HTML code (html hpp)
+          8,532 Text files (txt)
+         61,545 LaTeX code (tex)
             825 Sage code (sage)
-        519,059 TOTAL
+        521,685 TOTAL
 
-    TOTAL: 519,059 lines of code (plus of 18 % from 437,772 with CT 1.4.30)
-    - Here only code written within the CrypTool project or explicitly
-      dedicated to the CrypTool project is counted. Any sources used
-      within the CrypTool project coming from other open source projects
-      like OpenSSL, NTL, Scintilla, Animal, ... are not counted here.
+    TOTAL: 521,685 lines of code (plus of 19 % from 437,772 with CT 1.4.30)
+    - The TOTAL value counts only code written within the CrypTool project or
+      explicitly dedicated to the CrypTool project. Any sources used
+      within the CrypTool project coming from other open-source projects
+      like OpenSSL, NTL, Scintilla, Animal are not counted here.
       Also any automatically created files or word lists (reference files)
       are not counted.
 
@@ -1316,6 +1316,10 @@ c) New functionality / Usability / Corrections of errors:
   within the visible area. The "disappearance" of the windows happened several
   times under Win 7 with CT 1.4.30, especially after updates of the operating
   system or after changing the monitor resolution.
+- The reference text file in the text options dialog is set now initially in
+  a way that it fits to the according language and that different language
+  versions of CT1 can be installed in parallel.
+
 - DES-Animal animation: In the steps 357-424 and especially in the
   pre-output matrix (64 bit) some mistakes have been fixed.
   Thanks to Vasilis. Additionally the online help has been enhanced.

@@ -723,44 +723,44 @@ Die generellen Eigenschaften und Funktionen von CT1 sind:
 - Snapshot zur Anzahl von Dateien und zur Anzahl der Source-Code-Zeilen
 
   Einen Eindruck von der Größe des CT1-Projekts liefert die folgende, im
-  Oktober 2016 erstellte Statistik (anhand der Dateien für die Version
-  1.4.31 Prefinal-Beta 6d): (xxx)
+  Juli 2017 erstellte Statistik (anhand der Dateien für die Version
+  1.4.31 Prefinal):
 
     FILE SUMMARY (Anzahl der Dateien anhand ihrer Dateinamenserweiterung)
     ------------
               4 .rc files
              36 .c files
-            325 .cpp files
-            379 .h files
+            324 .cpp files
+            378 .h files
              36 .java files
              14 .pl files
            1152 .html files
-             46 .txt files
+             47 .txt files
              47 .tex files
               4 .sage files
-          2.043 TOTAL
+          2.042 TOTAL
 
 
     LINES OF CODE (LoC) SUMMARY
     ---------------------------
-         84.772 MFC resource code (rc)
-        285.633 C/C++ source code (c cpp h)
+         85.625 MFC resource code (rc)
+        286.487 C/C++ source code (c cpp h)
           9.795 Java source code (java)
-          2.257 Perl code (pl)
-         66.267 HTML code (html hpp)
-          8.109 Text files (txt)
-         61.401 LaTeX code (tex)
+          2.266 Perl code (pl)
+         66.610 HTML code (html hpp)
+          8.532 Text files (txt)
+         61.545 LaTeX code (tex)
             825 Sage code (sage)
-        519.059 TOTAL
+        521.685 TOTAL
 
-    TOTAL: 519.059 Code-Zeilen (plus von 18 % gegenüber 437.772 bei CT 1.4.30)
+    TOTAL: 521.685 Code-Zeilen (plus von 19 % gegenüber 437.772 bei CT 1.4.30)
     - In den TOTAL-Wert gehen nur Sourcen ein, die innerhalb des
       CrypTool-Projektes entwickelt wurden oder dem CT-Projekt gewidmet
       wurden.
       Die Sourcen anderer Open-Source-Projekte, die innerhalb von CrypTool
-      benutzt werden (wie OpenSSL, NTL, Scintilla) werden nicht gezählt.
-      Ebenso wenig werden automatisch erzeugte Dateien oder Wortlisten
-      (Referenzdateien) gezählt.
+      benutzt werden (wie OpenSSL, NTL, Scintilla, Animal) werden nicht
+      gezählt. Ebenso wenig werden automatisch erzeugte Dateien oder
+      Wortlisten (Referenzdateien) gezählt.
 
 
 - Details zum Compilieren, Linken und zur einheitlichen Entwicklung
@@ -1364,6 +1364,10 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
   Das "Verschwinden" der Fenster kam vermehrt unter Win 7 mit CT 1.4.30 vor,
   wenn Betriebssystem-Updates eingespielt oder Monitorauflösungen geändert
   wurden.
+- Im Textoptionen-Dialog wird nun die Referenzdatei für Analysen initial
+  so gesetzt, dass sie zur jeweiligen Sprache passt und verschiedene
+  Sprachversionen von CT1 auch nebeneinander installiert sein können.
+
 - DES-Animal-Animation: Einige Fehler in den Schritten 357-424 und
   insbesondere in der Pre-Output-Matrix (64 bit) wurden beseitigt.
   Danke an Vasilis. Zusätzlich wurde die entsprechende Online-Hilfe erweitert.
