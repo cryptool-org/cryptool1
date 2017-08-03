@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 für Win32, Juli 2017
+    CrypTool, Version 1.4.31 für Win32, August 2017
 
 CrypTool v1 (CT1) ist ein freies, internationales
 E-Learning-Programm für Kryptographie und Kryptoanalyse.
