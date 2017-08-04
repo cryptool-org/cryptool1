@@ -2239,7 +2239,7 @@ Version                 English      German    needed EN     by
 1.4.20    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.21    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.30    Aug. 2010     51.5 MB      52.1 MB    94 MB        DB
-1.4.31    July 2017     69.9 MB      70.7 MB   112 MB        CT (xxxok)
+1.4.31    Aug. 2017     69.9 MB      70.7 MB   112 MB        CT (xxxok)
 
 Remarks about the (intermediate) versions:
 1.3.02  Many new functions compared to 1.3.00
