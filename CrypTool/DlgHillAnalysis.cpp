@@ -148,8 +148,7 @@ int CDlgHillAnaylsis::setSourceFilename(const char *filename, char *&fn, __int64
 
 void CDlgHillAnaylsis::setViewOptions()
 {
-	CString Alphabet;
-	theApp.TextOptions.getAlphabetWithOptions(Alphabet);
+	CString Alphabet = theApp.TextOptions.getAlphabetWithOptions();
 	ScinMSG(SCI_STYLESETFORE, atoi(STYLE_NONEALPHABET), RGB(192,192,192));
 	ScinMSG(SCI_SETPROPERTY, (WPARAM)_T("cryptool.nonalphabetstyle"), (LPARAM)STYLE_NONEALPHABET);
 	ScinMSG(SCI_SETPROPERTY, (WPARAM)_T("cryptool.alphabet"), (LPARAM)(LPCTSTR)Alphabet);

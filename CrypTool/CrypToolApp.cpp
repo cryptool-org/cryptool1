@@ -461,7 +461,10 @@ BOOL CCrypToolApp::InitInstance()
 	_tcscpy(help1, Pfad2);
 	
 	Pfad=help1;
-	TextOptions.SetDefaultOptions();
+
+	// Now that the path variable ("Pfad") has been initialized, 
+	// we can safely initialize the TextOptions dialog instance.
+	TextOptions.initialize();
 
 // Old Path Settings for KeyStore
 	CString PseV, CaPseD, CaPseV;
@@ -675,7 +678,7 @@ BOOL CCrypToolApp::InitInstance()
 	// WinHelp(ID_WIE_SIE_STARTEN+0x10000);
 
 	// initialize the application dependent Converter
-	AppConv.SetAlphabet(TextOptions.refAlphabet().GetBuffer(257), TextOptions.getIgnoreCase());
+	AppConv.SetAlphabet(TextOptions.getAlphabetReference().GetBuffer(257), TextOptions.getIgnoreCase());
 
 
 	SecudeStatus = SecudeLib.GetStatus();

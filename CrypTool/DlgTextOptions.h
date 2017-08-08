@@ -21,100 +21,141 @@
 #ifndef _DLGTEXTOPTIONS_H_
 #define _DLGTEXTOPTIONS_H_
 
-#include <list>
+#include <vector>
 
-class CDlgTextOptions : public CDialog
-{
+class CDlgTextOptions : public CDialog {
 	enum { IDD = IDD_TEXT_OPTIONS };
-
 public:
-	// construction
+	// Dialog construction and destruction.
 	CDlgTextOptions(CWnd *pParent = NULL);
-	void         SetDefaultOptions();
-
+	virtual ~CDlgTextOptions();
+public:
+	// This function is invoked as soon as the path variable ("Pfad") 
+	// has been set, it initializes the default options including the 
+	// reference files (for which the path variable is required).
+	void initialize();
+public:
+	// Returns a const reference to the alphabet.
+	const CString &getAlphabet() const;
+	// Returns a non-const reference to the alphabet.
+	CString &getAlphabetReference();
+	// Returns an alphabet based on the internal alphabet, but 
+	// with the currently selected options applied.
+	CString getAlphabetWithOptions() const;
+	// Sets the new alphabet. Returns false if the new alphabet contains 
+	// invalid characters (in which case the internal alphabet will not 
+	// be changed), and returns true otherwise.
+	bool setAlphabet(const CString &_alphabet);
+	// Returns the full path of the language reference file.
+	CString getReferenceFilePath() const;
+	// Returns the name of the language reference file without any 
+	// information about the path, compare "getReferenceFilePath".
+	CString getReferenceFileName() const;
+public:
+	BOOL getKeepCharactersNotPresentInAlphabetUnchanged() const { return options.keepCharactersNotPresentInAlphabetUnchanged == 1; };
+	BOOL getKeepUpperLowerCaseInformation() const { return options.keepUpperLowerCaseInformation == 1; };
+	BOOL getDistinguishUpperLowerCase() const { return options.distinguishUpperLowerCase == 1; };
+	BOOL getIgnoreCase() const { return options.distinguishUpperLowerCase == 0; };
+public:
+	CString getAllowedCharacters() const;
+	CString getUpperCaseCharacters() const;
+	CString getLowerCaseCharacters() const;
+	CString getSpecialCharacters() const;
+	CString getDigitCharacters() const;
+	CString getUpperCaseUmlautCharacters() const;
+	CString getLowerCaseUmlautCharacters() const;
 protected:
-	// initialization
 	virtual BOOL OnInitDialog();
-	// data exchange
 	virtual void DoDataExchange(CDataExchange *pDX);
-	// functions associated with standard buttons
-	afx_msg void OnOK();
-	afx_msg void OnCancel();
-	// functions associated with check boxes
+	DECLARE_MESSAGE_MAP()
+protected:
+	afx_msg void OnCheckKeepCharactersNotPresentInAlphabetUnchanged();
 	afx_msg void OnCheckKeepUpperLowerCaseInformation();
 	afx_msg void OnCheckDistinguishUpperLowerCase();
 	afx_msg void OnCheckUpperCase();
-	afx_msg void OnCheckPunctuation();
-	afx_msg void OnCheckSpace();
 	afx_msg void OnCheckLowerCase();
+	afx_msg void OnCheckSpace();
+	afx_msg void OnCheckSpecial();
 	afx_msg void OnCheckDigits();
 	afx_msg void OnCheckUmlauts();
-	afx_msg void OnCheckPlayfair();
-	// misc functions
+protected:
 	afx_msg void OnUpdateEditAlphabet();
-	afx_msg void OnUpdateEditSeparator();
-	afx_msg void OnButtonRestoreStandard();
 	afx_msg void OnButtonSearchReferenceFile();
-	void updateAlphabetHeading();
-	void updateCheckState();
-
-	DECLARE_MESSAGE_MAP()
-
-public:
-	// access methods
-	CString getTitle() const;
-	CString getReferenceFile() { return referenceFile; }
-	const CString &getAlphabet(); 
-   int            setAlphabet( CString &new_alphabet );
-	CString &refAlphabet(); 
-	void getAlphabetWithOptions(CString &AlphabetWithOptions);
-	BOOL getDistinguishUpperLowerCase() { return distinguishUpperLowerCase; };
-	BOOL getKeepCharactersNotPresentInAlphabetUnchanged() { return keepCharactersNotPresentInAlphabetUnchanged; };
-	BOOL getKeepUpperLowerCaseInformation() { return keepUpperLowerCaseInformation; };
-	BOOL getIgnoreCase() { return ignoreCase; };
-
-private:
-	// variables associated with the dialog resource
-	CStatic	informationAlphabetSize;
-	CEdit controlEditReferenceFile;
+	afx_msg void OnComboSelectReferenceFile();
+protected:
+	afx_msg void OnButtonOK();
+	afx_msg void OnButtonRestoreStandard();
+	afx_msg void OnButtonCancel();
+protected:
+	CStatic	controlEditAlphabetHeading;
 	CEdit controlEditAlphabet;
-	// misc variables
-	CString	separator;
-	CString	alphabet;
-	CString oldAlphabet;
-	CString referenceFile;
-	CString oldReferenceFile;
-	// boolean variables
-	BOOL keepCharactersNotPresentInAlphabetUnchanged;
-	BOOL oldKeepCharactersNotPresentInAlphabetUnchanged;
-	BOOL keepUpperLowerCaseInformation;
-	BOOL oldKeepUpperLowerCaseInformation;
-	BOOL distinguishUpperLowerCase;
-	BOOL oldDistinguishUpperLowerCase;
-	BOOL space;
-	BOOL separateLetters;
-	BOOL ignoreCase;
-	// tri-state variables associated with the check boxes
-	int upperCase;
-	int lowerCase;
-	int punctuation;
-	int digits;
-	int umlauts;
+	CEdit controlEditReferenceFile;
+	CComboBox controlComboBoxSelectReferenceFile;
 private:
-	struct LanguageReferenceFile {
-		// the name of the language
-		CString language;
-		// the path to the reference file associated with the language
+	// This function is called upon construction of the dialog, it initializes 
+	// both the current and the old options to the same default values.
+	void restoreDefaultOptions();
+	// This function is invoked whenever the alphabet is changed to 
+	// reflect the updated alphabet length towards the user.
+	void updateEditAlphabetHeading();
+	// This function is invoked to dynamically update tri-state controls 
+	// based on the currently configured alphabet.
+	void updateCheckState();
+	// This function is invoked to dynamically enable/disable the OK 
+	// button based on whether there is a valid reference file selected.
+	void updateButtonOK();
+private:
+	// This struct is used for handling language reference files.
+	struct ReferenceFile {
+		CString name;
+		CString path;
+	};
+	// This struct contains the options which can be manipulated through the 
+	// user interface. Note that, besides a lot of configuration flags, it also 
+	// contains all the reference files which the user can choose from.
+	struct Options {
+		Options() :
+			keepCharactersNotPresentInAlphabetUnchanged(0),
+			keepUpperLowerCaseInformation(0),
+			distinguishUpperLowerCase(0),
+			alphabetUpperCase(0),
+			alphabetLowerCase(0),
+			alphabetSpace(0),
+			alphabetSpecial(0),
+			alphabetDigits(0),
+			alphabetUmlauts(0),
+			alphabet(""),
+			referenceFiles(std::vector<ReferenceFile>()),
+			referenceFileIndex(0),
+			referenceFile("") { }
+		int keepCharactersNotPresentInAlphabetUnchanged;
+		int keepUpperLowerCaseInformation;
+		int distinguishUpperLowerCase;
+		int alphabetUpperCase;
+		int alphabetLowerCase;
+		int alphabetSpace;
+		int alphabetSpecial;
+		int alphabetDigits;
+		int alphabetUmlauts;
+		CString alphabet;
+		std::vector<ReferenceFile> referenceFiles;
+		int referenceFileIndex;
 		CString referenceFile;
 	};
-	std::list<LanguageReferenceFile> listLanguageReferenceFiles;
-	void initializeLanguageReferenceFiles();
-	void updateReferenceFile();
-protected:
-	CComboBox	controlComboBoxSelectReferenceFile;
-	afx_msg void OnSelendokComboSelectReferenceFile();
-	int selectedLanguageReferenceFile;
-	int oldSelectedLanguageReferenceFile;
+	// This function initializes the reference files for the specified options. 
+	// This function should only be invoked once in the "initialize" function.
+	void initializeReferenceFiles(Options &_options);
+	// This function updates the user interface w/r/t the reference files, in 
+	// other words both the file name for the currently selected reference file 
+	// as well as the combo box are updated. Note that this function should 
+	// not be called before "OnInitDialog" hasn't been called.
+	void updateReferenceFiles(const Options &_options);
+	// This function copies one set of options onto another.
+	void copyOptions(const Options &_optionsSource, Options &_optionsTarget);
+	// This variable contains the current options.
+	Options options;
+	// This variable contains the old options.
+	Options optionsOld;
 };
 
 #endif

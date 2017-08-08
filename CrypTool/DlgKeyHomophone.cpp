@@ -215,22 +215,22 @@ BOOL CDlgKeyHomophone::OnInitDialog()
 			if ( m_ctrlEncryptFormatCharacters.GetCheck() )
 			{	
 				if ( 0 > theApp.TextOptions.getAlphabet().Find("\n", 0) ) 
-					theApp.TextOptions.refAlphabet().Insert(0, "\n"); 
+					theApp.TextOptions.getAlphabetReference().Insert(0, "\n"); 
 				if ( 0 > theApp.TextOptions.getAlphabet().Find("\t", 0) ) 
-					theApp.TextOptions.refAlphabet().Insert(0, "\t");
+					theApp.TextOptions.getAlphabetReference().Insert(0, "\t");
 				if ( 0 > theApp.TextOptions.getAlphabet().Find("\r", 0) ) 
-					theApp.TextOptions.refAlphabet().Insert(0, "\r");			
+					theApp.TextOptions.getAlphabetReference().Insert(0, "\r");			
 				ReInitFlag = 1;
 			}	
 			else
 			{
 				int ndx;
 				if ( 0 <= (ndx = theApp.TextOptions.getAlphabet().Find("\n", 0)) ) 
-					theApp.TextOptions.refAlphabet().Delete(ndx);
+					theApp.TextOptions.getAlphabetReference().Delete(ndx);
 				if ( 0 <= (ndx = theApp.TextOptions.getAlphabet().Find("\t", 0)) ) 
-					theApp.TextOptions.refAlphabet().Delete(ndx);
+					theApp.TextOptions.getAlphabetReference().Delete(ndx);
 				if ( 0 <= (ndx = theApp.TextOptions.getAlphabet().Find("\r", 0)) ) 
-					theApp.TextOptions.refAlphabet().Delete(ndx);
+					theApp.TextOptions.getAlphabetReference().Delete(ndx);
 			}
 		}
 
@@ -380,7 +380,7 @@ void CDlgKeyHomophone::OnLoadKey()
 	if ( (HOM_ENC_TXT == m_InputType) && (Flag & 2 || newAlphabet.GetLength() != theApp.TextOptions.getAlphabet().GetLength()) ) {
 		Message( IDS_MSG_HOMOPHONE_CHANGE_OF_ALPHABET, MB_ICONINFORMATION,
 			 theApp.TextOptions.getAlphabet(), newAlphabet );
-		theApp.TextOptions.refAlphabet() = newAlphabet;
+		theApp.TextOptions.getAlphabetReference() = newAlphabet;
 	}
 
 	if ( m_InputType == HOM_ENC_TXT )
@@ -682,11 +682,11 @@ void CDlgKeyHomophone::OnSelectEncryptFormatCharacters()
 
 		m_ctrlEncryptFormatCharacters.SetCheck(1);
 		if ( 0 > theApp.TextOptions.getAlphabet().Find("\n", 0) ) 
-			theApp.TextOptions.refAlphabet().Insert(0, "\n"); 
+			theApp.TextOptions.getAlphabetReference().Insert(0, "\n"); 
 		if ( 0 > theApp.TextOptions.getAlphabet().Find("\t", 0) ) 
-			theApp.TextOptions.refAlphabet().Insert(0, "\t");
+			theApp.TextOptions.getAlphabetReference().Insert(0, "\t");
 		if ( 0 > theApp.TextOptions.getAlphabet().Find("\r", 0) ) 
-			theApp.TextOptions.refAlphabet().Insert(0, "\r");
+			theApp.TextOptions.getAlphabetReference().Insert(0, "\r");
 		m_listview.DeleteAllItems(); 
 		LoadListBox();	
 		OnErzeugen();
@@ -695,11 +695,11 @@ void CDlgKeyHomophone::OnSelectEncryptFormatCharacters()
 	{
 		int ndx;
 		if ( 0 <= (ndx = theApp.TextOptions.getAlphabet().Find("\n", 0)) ) 
-			theApp.TextOptions.refAlphabet().Delete(ndx);
+			theApp.TextOptions.getAlphabetReference().Delete(ndx);
 		if ( 0 <= (ndx = theApp.TextOptions.getAlphabet().Find("\t", 0)) ) 
-			theApp.TextOptions.refAlphabet().Delete(ndx);
+			theApp.TextOptions.getAlphabetReference().Delete(ndx);
 		if ( 0 <= (ndx = theApp.TextOptions.getAlphabet().Find("\r", 0)) ) 
-			theApp.TextOptions.refAlphabet().Delete(ndx);
+			theApp.TextOptions.getAlphabetReference().Delete(ndx);
 		m_listview.DeleteAllItems(); 
 		LoadListBox();
 		OnErzeugen();

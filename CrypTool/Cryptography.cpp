@@ -2556,11 +2556,11 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 
 	if(IDOK!=DH.DoModal()) 
 	{
-		theApp.TextOptions.refAlphabet() = DH.m_AlphabetBackup;
+		theApp.TextOptions.getAlphabetReference() = DH.m_AlphabetBackup;
 		in.close();
 		return;
 	}
-	theApp.TextOptions.refAlphabet() = DH.m_AlphabetBackup;
+	theApp.TextOptions.getAlphabetReference() = DH.m_AlphabetBackup;
 
 // Routine zur Homophonen Verschlüsselung
 	char outbuffer[17000];

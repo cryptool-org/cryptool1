@@ -1449,23 +1449,23 @@ FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT_KEY_HEX,26,67,340,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_SRC,26,105,273,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
-    PUSHBUTTON      "Search...",IDC_BUTTON_SRC,306,102,60,18
-    CONTROL         "Self-extracting and encrypted",IDC_RADIO_EXE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,155,130,10
-    CONTROL         "Encrypted",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,170,155,80,10
-    PUSHBUTTON      "Exit",IDCANCEL,254,180,60,18
-    PUSHBUTTON      "Help",IDC_BUTTON3,315,180,60,18
-    LTEXT           "Encrypt or decrypt a file",IDC_STATIC_TITLE,17,9,80,8
-    GROUPBOX        "Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",IDC_KEY_HEADER,15,28,360,58
-    GROUPBOX        "Input file",IDC_STATIC,15,92,360,45
-    GROUPBOX        "Output format",IDC_STATIC,15,143,360,30
-    CONTROL         "Show entered key",IDC_CHECK_SHOW_PASSWORD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,42,73,10
-    CONTROL         "Enter key as hex",IDC_CHECK_ENTER_PASSWORD_AS_HEX,
+    PUSHBUTTON      "Buscar...",IDC_BUTTON_SRC,306,102,60,18
+    CONTROL         "Auto extraible y cifrado",IDC_RADIO_EXE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,155,130,10
+    CONTROL         "Cifrado",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,170,155,80,10
+    PUSHBUTTON      "Salir",IDCANCEL,254,180,60,18
+    PUSHBUTTON      "Ayuda",IDC_BUTTON3,315,180,60,18
+    LTEXT           "Cifrar o descifrar un archivo",IDC_STATIC_TITLE,17,9,80,8
+    GROUPBOX        "Clave [maximo 64 digitos hexadecimales (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",IDC_KEY_HEADER,15,28,360,58
+    GROUPBOX        "Archivo de entrada",IDC_STATIC,15,92,360,45
+    GROUPBOX        "Formato de salida",IDC_STATIC,15,143,360,30
+    CONTROL         "Mostrar clave ingresada",IDC_CHECK_SHOW_PASSWORD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,42,73,10
+    CONTROL         "Ingresar clave como hexadecimal",IDC_CHECK_ENTER_PASSWORD_AS_HEX,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,53,69,10
     EDITTEXT        IDC_EDIT_KEY_ASCII,26,67,340,12,ES_AUTOHSCROLL
-    CONTROL         "Securely delete input file after encryption",IDC_CHECK_SECURELY_DELETE_SOURCE_FILE_AFTER_ENCRYPTION,
+    CONTROL         "Eliminar el archivo de entrada de forma segura luego del cifrado",IDC_CHECK_SECURELY_DELETE_SOURCE_FILE_AFTER_ENCRYPTION,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,121,143,10
-    PUSHBUTTON      "Encrypt",IDC_BUTTON_ENCRYPT,15,180,62,18
-    PUSHBUTTON      "Decrypt",IDC_BUTTON_DECRYPT,79,180,62,18
+    PUSHBUTTON      "Cifrar",IDC_BUTTON_ENCRYPT,15,180,62,18
+    PUSHBUTTON      "Descifrar",IDC_BUTTON_DECRYPT,79,180,62,18
 END
 
 

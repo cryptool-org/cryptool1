@@ -1156,8 +1156,7 @@ void CScintillaWnd::SetShowAlphabet(BOOL show)
 	// we do not check if show == m_bShowAlphabet, because this method is also 
 	// used to refresh the alphabet after changes to the text options
 	if (show) {
-		CString Alphabet;
-		theApp.TextOptions.getAlphabetWithOptions(Alphabet);
+		CString Alphabet = theApp.TextOptions.getAlphabetWithOptions();
 		SendMessage(SCI_STYLESETFORE, atoi(STYLE_NONEALPHABET), RGB(192,192,192));
 		SendMessage(SCI_SETPROPERTY, (WPARAM)_T("cryptool.nonalphabetstyle"), (LPARAM)STYLE_NONEALPHABET);
 		SendMessage(SCI_SETPROPERTY, (WPARAM)_T("cryptool.alphabet"), (LPARAM)(LPCTSTR)Alphabet);

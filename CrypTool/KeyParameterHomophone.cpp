@@ -180,7 +180,7 @@ bool CKeyParameterHomophone::Analyse(int _keyType)
 	Init(_keyType);
 
 	// check for reference file for statistical applications
-	while(theApp.TextOptions.getReferenceFile().IsEmpty()) 
+	while(theApp.TextOptions.getReferenceFilePath().IsEmpty()) 
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_STATISTICAL_REFERENCE_FILE_MISSING, pc_str, STR_LAENGE_STRING_TABLE);
 		AfxMessageBox(pc_str, MB_ICONINFORMATION);
@@ -196,7 +196,7 @@ bool CKeyParameterHomophone::Analyse(int _keyType)
 
 	// at this point the reference file should be valid
 
-	ifstream f(theApp.TextOptions.getReferenceFile(), ios::binary | ios::in );
+	ifstream f(theApp.TextOptions.getReferenceFilePath(), ios::binary | ios::in );
 	f.read(buffer,buffsize);
 
 	if ( !f.is_open() )

@@ -856,7 +856,7 @@ void CDlgAdfgvxManual::SetFrequenciesFromReference()
 
   //read reference text
   SymbolArray text(adfgvxConv);
-  if(!text.Read(theApp.TextOptions.getReferenceFile()))
+  if(!text.Read(theApp.TextOptions.getReferenceFilePath()))
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_ERRON_OPEN_REFERENCE_FILE,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox(pc_str, MB_ICONINFORMATION);

@@ -73,10 +73,10 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 
 // == in the first step, the histograms of the ciphertext and the reference text will be displayed
 	if (theApp.Options.m_CHist) {
-		HistogramASCII(theApp.TextOptions.getReferenceFile(), theApp.TextOptions.getTitle());
+		HistogramASCII(theApp.TextOptions.getReferenceFilePath(), theApp.TextOptions.getReferenceFileName());
 		HistogramASCII(infile, OldTitle);
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_CMP_CIPHER_REFERENCE,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line, pc_str, theApp.TextOptions.getTitle());
+		sprintf(line, pc_str, theApp.TextOptions.getReferenceFileName());
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_CAESAR,pc_str1,STR_LAENGE_STRING_TABLE);
 		theApp.m_MainWnd->MessageBox(line, pc_str1, MB_OK);
 	}
@@ -95,12 +95,12 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 // == compare the ciphertext and the reference text
 	SymbolArray reference(AppConv);
 	
-	if ( 1 > filesize(theApp.TextOptions.getReferenceFile().GetBuffer(0)) )
+	if ( 1 > filesize(theApp.TextOptions.getReferenceFilePath().GetBuffer(0)) )
 	{
 		Message(IDS_ERRON_OPEN_REFERENCE_FILE, MB_ICONEXCLAMATION);
 		return;
 	}
-	reference.Read(theApp.TextOptions.getReferenceFile());
+	reference.Read(theApp.TextOptions.getReferenceFilePath());
 	reference+=1;
 	
 	NGram t(text);
@@ -113,7 +113,7 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 		GetTmpName(name,"cry",".plt");
 		
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_CORRELATION,pc_str,STR_LAENGE_STRING_TABLE);
-		MakeNewName2(line,sizeof(line),pc_str,theApp.TextOptions.getTitle(), OldTitle);
+		MakeNewName2(line,sizeof(line),pc_str,theApp.TextOptions.getReferenceFileName(), OldTitle);
 		
 		c.Show(OStream(name)<< OStream::Title(0) << OStream::Description(0) << OStream::Summary(0));
 		
@@ -267,13 +267,13 @@ UINT VigenereAuto(PVOID p)
 	SymbolArray reference(AppConv);
 	// bug: CrypTool terminated when no valid reference file was given (e.g. empty string)
 	// solution: tell user to specify valid reference file and return
-	if(theApp.TextOptions.getReferenceFile().GetLength() <= 0)
+	if(theApp.TextOptions.getReferenceFilePath().GetLength() <= 0)
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_ERRON_OPEN_REFERENCE_FILE,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox(pc_str, MB_ICONINFORMATION);
 		return -1;
 	}
-	reference.Read(theApp.TextOptions.getReferenceFile());
+	reference.Read(theApp.TextOptions.getReferenceFilePath());
 	reference += 1;
 	NGram d(reference);
 
@@ -308,7 +308,7 @@ UINT VigenereAuto(PVOID p)
 			// Ausgabe der Korrelation zwischen deutschem Text und dem Chiffrat
 			GetTmpName(name,"cry",".plt");
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_CORRELATION_CAESAR_REFERENCE,pc_str,STR_LAENGE_STRING_TABLE);
-			sprintf(line,pc_str,i+1, theApp.TextOptions.getTitle());
+			sprintf(line,pc_str,i+1, theApp.TextOptions.getReferenceFileName());
 			
 			c.Show(OStream(name)<< OStream::Title(0) << OStream::Description(0) << OStream::Summary(0));
 			
