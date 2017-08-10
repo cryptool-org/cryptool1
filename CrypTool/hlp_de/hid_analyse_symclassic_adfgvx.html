@@ -20,12 +20,12 @@
 			in CrypTool ein Dialog zu Unterstützung der manuellen Analyse zur Verfügung (Dialog <!--ZZZPOPUP--><A href="hidd_adfgvx_manual.html">
 				Halbautomatische Analyse ADFGVX-Verschlüsselungsverfahren</A>).<br>
 			<br>
-			Da die <b>Substitutionsstufe</b> von ADFGVX allein auf dem Matrixschlüssel 
-			basiert und der Schlüssel zufällig sein sollte, ist eine automatische Analyse 
-			von ADFGVX nicht möglich. Eine Bigrammanalyse kann eine gute Näherung zur Lösung
+			Die <b>Substitutionsstufe</b> von ADFGVX basiert auf dem Matrixschlüssel, 
+			dieser Schlüssel sollte zufällig sein, was eine automatische Analyse 
+			von ADFGVX erschwert. Eine Bigrammanalyse kann eine gute Näherung zur Lösung
 			der Substitutionsstufe liefern, eine Nachkontrolle ist jedoch erforderlich.<br>
 			<br>
-			Die Analyse der <b>Transposition</b> ist bei einzelnen Nachrichten nur mittels 
+			Die Analyse der <b>Transposition</b> bei einer Einzel-Nachrichten ist oft nur mittels 
 			Brute-Force möglich. Es müssen also alle möglichen Transpositionsschlüssel auf 
 			die Nachricht angewendet werden, wenn man die Schlüssellänge nicht einschränken 
 			kann (durch die zwingende Eindeutigkeit und – historisch bedingt – die 
@@ -182,17 +182,25 @@
 		</table>
 		<p><font face="Arial"><br>
 				<br>
-				Eine Lösung dieses Problems wäre eine Bigrammanalyse: da jedes Klartextbigramm 
+				Eine Lösung dieses Problems wäre eine Bigrammanalyse: Da jedes Klartextbigramm 
 				aus vier ADFGVX-Zeichen besteht, könnte man jeweils vier Spalten als 
 				zusammengehörig markieren. Dies setzt jedoch eine Auflösung der Substitution 
 				voraus, die wiederum nicht ohne die Analyse der Transposition erfolgen kann. 
 				Außerdem könnten die Spalten immer noch in Vierergruppen vertauscht werden.<br>
 				<br>
 				Bei diesen Überlegungen wird deutlich, dass die ADFGVX-Kaskade sehr effektiv 
-				funktioniert. Die einzige Möglichkeit, einzelne ADFGVX-Nachrichten zu 
-				entschlüsseln ist, die möglichen Transpositionslösungen manuell auf Korrektheit 
-				hin zu untersuchen, indem für jede Transpositionslösung gleichzeitig die 
-				Substitution analysiert wird.<br>
+				funktioniert. Um einzelne ADFGVX-Nachrichten zu entschlüsseln könnte man die
+			       	möglichen Transpositionslösungen manuell auf ihre Korrektheit untersuchen,
+			       	indem für jede Transpositionslösung gleichzeitig die Substitution analysiert
+			       	wird.<br>
+				<br>
+				In CrypTool 2 (CT2) finden Sie eine Vorlage, die einen automatischen 
+			       	Wörterbuch-Angriff gegen den Transposition-Schritt durchführt.<br>
+			       	Eine neue Methode, um eine komplette Ciphertext-only-Analyse gegen
+			       	ADFGVX-Nachrichten durchzuführen, wurde in der Cryptologia 41(2)
+				2017 von George Lasry, Ingo Niebel, Nils Kopal und Arno Wacker
+				veröffentlicht: "Deciphering ADFGVX Messages from the Eastern Front
+			       	of World War I".<br>
 				<br>
 				&nbsp;</font></p>
 	</BODY>

@@ -20,15 +20,15 @@
 			CrypTool provides a dialog window for supporting the manual analysis (dialog<!--ZZZPOPUP--><A href="hidd_adfgvx_manual.html"> 
 				Semiautomatic Analysis of the ADFGVX Cipher</A>).<br>
 			<br>
-			Since the <b>substitution step</b> of ADFGVX is based solely on the matrix 
-			which should be random, a reliable and fast automatic analysis of the cipher is 
-			not possible. While a frequency analysis can determine the letters that stand 
+			The <b>substitution step</b> of ADFGVX is based on the matrix key which
+		       	should be random, what makes a reliable and fast automatic analysis of ADFGVX
+			hard. While a frequency analysis can determine the letters that stand 
 			out clearly from the histogram in long enough texts,&nbsp;the 
 			remaining&nbsp;letters&nbsp;cannot be recognized&nbsp;with a high enough 
 			certainty to guarantee a correct automatic allocation.<br>
 			<br>
-			With single messages, the analysis of the <b>transposition step</b> is only 
-			possible by brute-force. All possible transposition keys must be applied to the 
+			Given only a single messages, the analysis of the <b>transposition step</b> is often
+			only possible via brute-force. All possible transposition keys must be applied to the 
 			ciphertext, unless the key length can be restricted (due to the condition that 
 			the password must not contain double characters in order to permit a definite 
 			alphabetical sequence and the historical restriction to the letters 'A' to 'Z', 
@@ -61,15 +61,15 @@
 			stage are now standing in order and can be analyzed by counting their relative 
 			frequency. If the values concur roughly with a suitable reference table, the 
 			transposition password is a possible solution. Although this task can easily be 
-			automatted, there remains another <b>problem</b> that requires a decision by 
+			automated, there remains another <b>problem</b> that requires a decision by 
 			the user:
 			<br>
 			<A name="column_shift"></A>If the transposition password consists of an even 
 			number of letters, each column exclusively holds either the first or the second 
 			letter of an ADFGVX bigram. Thus it is possible to shift a pair of two matching 
-			columns without changing the bigram-frequencies of the ciphertext.&nbsp;So the 
+			columns without changing the bigram frequencies of the ciphertext.&nbsp;So the 
 			following three transposition tables are completely identical in having the 
-			same bigram-frequencies, although there is only one correct solution:<br>
+			same bigram frequencies, although there is only one correct solution:<br>
 			&nbsp;</FONT></p>
 		<table border="1" cellpadding="0" cellspacing="0" style="BORDER-COLLAPSE: collapse" bordercolor="#111111"
 			width="17%" id="AutoNumber1">
@@ -180,18 +180,25 @@
 		</table>
 		<p><font face="Arial"><br>
 				<br>
-				One solution to this problem would be an analysis of plaintext-bigrams: each 
-				bigram of plaintext is represented by four letters of ADFGVX-ciphertext, making 
+				One solution to this problem would be an analysis of plaintext bigrams: each 
+				bigram of plaintext is represented by four letters of ADFGVX ciphertext, making 
 				it possible to mark four columns as related. However, this requires a 
 				resolution of the substitution stage which cannot be accomplished without 
 				solving the transposition. In addition, the columns could still be exchanged in 
 				groups of four.<br>
 				<br>
 				Through these considerations, it becomes apparent that the ADFGVX cascade 
-				cipher is very effective. The sole method of deciphering a single ADFGVX 
-				message is to examine all possible transposition keys for correctness by 
-				analysing the substitution step of the cipher for each possible transposition 
-				key&nbsp;of the message.<br>
+				cipher is very effective. To decipher a single ADFGVX message you could
+				manually examine all possible transposition keys for correctness by 
+				analyzing the substitution step of the cipher for each possible transposition 
+				key&nbsp;.<br>
+				<br>
+				In CrypTool 2 (CT2) you can find a template which does an automatic
+			       	dictionary attack against the transposition step.<br>
+			       	A new method to perform a complete ciphertext-only cryptanalysis of ADFGVX
+			       	messages was published in Cryptologia 41(2), 2017 by George Lasry,
+			       	Ingo Niebel, Nils Kopal, and Arno Wacker: "Deciphering ADFGVX Messages
+			       	from the Eastern Front of World War I".<br>
 				<br>
 				&nbsp;</font></p>
 	</body>

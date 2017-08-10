@@ -1297,7 +1297,7 @@ c) New functionality / Usability / Corrections of errors:
 - To determine the substitution matrix the ADFGVX analysis now also uses the
   frequency distribution of the reference text selected in the text options
   dialog.
-  Additionally you can determine whether digits are also used for the
+  Additionally, you can determine whether digits are also used for the
   frequency distribution (case sensitivity and special characters are not
   allowed with the ADFGVX cipher). The introduction dialog of the analysis
   was adapted accordingly.

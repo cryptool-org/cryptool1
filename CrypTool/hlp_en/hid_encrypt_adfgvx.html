@@ -24,17 +24,18 @@
 			<br>
 			The key input is done in the dialog window <!--ZZZPOPUP--><A href="hidd_adfgvx.html">key entry: ADFGVX</A>.<br>
 			<br>
-			The <b>substitution</b> is executed by means of a 6x6-matrix, containing the letters 
+			The <b>substitution</b> is executed by means of a 6x6 matrix, containing the letters 
 			'A' to 'Z' and ciphers '0' to '9' in random order. The rows and columns of the 
 			matrix are identified by the letters A, D, F, G, V and X.<br>
 			<br>
 			Since the substitution matrix is part of the key, it must be known to the 
 			recipient of the message. The <b>first encryption stage (substitution)</b> 
 			determines the position of each plaintext letter within the matrix and replaces 
-			it by its row- and column-indicator. This way, every plaintext letter is 
+			it by its row  and column indicator. This way, every plaintext letter is 
 			replaced by two ciphertext letters.<br>
 			<br>
-			During the <b>second encryption stage</b> the ciphertext generated in the first stage is further 
+			During the <b>second encryption stage</b> the ciphertext generated in the first stage
+		       	is further 
 			encoded by means of a column transposition. The basis of this transposition is 
 			the transposition password, which must consist exclusively of the letters 'A' 
 			to 'Z'; redundant characters are not allowed. Thus, the password length is 
@@ -48,9 +49,9 @@
 			password are arranged in alphabetical order. Finally, the stage 2 ciphertext is 
 			extracted from the matrix column by column.<br>
 			<br>
-			The security of this cipher bases on the fact that the two ciphertext letters 
-			substituting every plaintext letter are separated by the transposition, 
-			making a frequency analysis of the bigrams useless.
+			The security of this cipher mainly bases on the fact that the two ciphertext
+		       	letters substituting every plaintext letter are separated (fractioned) by the
+		       	transposition, making a frequency analysis of the bigrams useless.
 			<br>
 			<br>
 			Thus, using the <!--ZZZPOPUP--><A href="hid_analyse_symclassic_adfgvx.html">semi-manual analysis</A>
