@@ -296,6 +296,10 @@ a) The program AES-Tool v 2.7 (developed within the CrypTool project):
    and as a command line tool (e.g. called from within a batch file).
    The installation of CrypTool assigns the file extension "AES" with
    this program.
+   Remark: alternative tool, independent of the CT project: With the free
+   open-source programm "AES Crypt" from packetizer you can encrypt files
+   on many plattforms (www.aescrypt.com/download/).
+
 
 b) The educational game "Number Shark" v 1.2.4 (by the CrypTool project):
    This game helps pupils to get acquainted with divisors and prime

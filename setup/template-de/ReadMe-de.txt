@@ -301,6 +301,10 @@ a) Das Programm AES-Tool v 2.7 (entstanden im CrypTool-Projekt):
    von der Kommandozeile (z.B. aus einer Batchdatei) aufgerufen werden.
    Bei der CrypTool-Installation wird diesem Programm die Dateiendung "AES"
    zugeordnet.
+   Verweis: Alternativ-Tool, das nichts mit dem CT-Projekt zu tun hat: Mit dem
+   freien Open-Source-Programm "AES Crypt" von packetizer kann man auf nahezu
+   allen Plattformen Dateien mit AES verschlüsseln (www.aescrypt.com/download/).
+   
 
 b) Das Lernspiel "Der Zahlenhai" v 1.2.4 (entstanden im CrypTool-Projekt):
    Dieses Lernspiel bringt Schülern den Umgang mit Teilern und Primfaktoren
