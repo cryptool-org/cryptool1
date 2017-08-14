@@ -28,8 +28,12 @@
 <P>Die Funktionalität von AES-Tool ist in drei Bereiche unterteilt:</P>
 
 <UL>
-<LI>Die Gruppierung <B>Schlüssel</B>: Hier können Sie den Schlüssel eingeben. Über die Checkbox <I>Eingegebenen Schlüssel anzeigen</I> können Sie steuern, ob der Schlüssel bei der Eingabe sichtbar ist oder nicht. Mit der Checkbox <I>Schlüssel hexadezimal eingeben</I> legen Sie fest, wie der Schlüssel eingegeben wird (hexadezimal oder als Text).</LI>
-<LI>Die Gruppierung <B>Eingabedatei</B>: Hier können Sie die Eingabedatei festlegen. Wenn Sie die Checkbox <I>Sicheres Löschen der Eingabedatei nach Verschlüsselung</I> markieren, wird die Eingabedatei unwiederbringlich gelöscht. Beachten Sie, dass dieser Vorgang in Abhängigkeit der Größe der zu verschlüsselnden Datei eine lange Zeit in Anspruch nehmen kann, da die Eingabedatei mehrfach überschrieben wird, bevor sie gelöscht wird.</LI>
+<LI>Die Gruppierung <B>Schlüssel</B>: Hier können Sie den Schlüssel eingeben.
+       Über die Checkbox <I>Eingegebenen Schlüssel anzeigen</I> können Sie steuern, ob der Schlüssel bei der Eingabe sichtbar ist oder nicht.
+       Mit der Checkbox <I>Schlüssel hexadezimal eingeben</I> legen Sie fest, ob der Schlüssel in Hex-Form oder als Text (ASCII) eingegeben wird. Wird der Schlüssel in Textform eingegeben, wird der benutzte Hex-Schlüssel intern per PKCS#5 aus den ASCII-Zeichen hergeleitet.</LI>
+
+<LI>Die Gruppierung <B>Eingabedatei</B>: Hier können Sie die Eingabedatei festlegen.
+       Wenn Sie die Checkbox <I>Sicheres Löschen der Eingabedatei nach Verschlüsselung</I> markieren, wird die Eingabedatei unwiederbringlich gelöscht. Beachten Sie, dass dieser Vorgang in Abhängigkeit der Größe der zu verschlüsselnden Datei eine lange Zeit in Anspruch nehmen kann, da die Eingabedatei mehrfach überschrieben wird, bevor sie gelöscht wird.</LI>
 <LI>Die Gruppierung <B>Ausgabeformat</B>: Hier können Sie zwischen zwei Formaten für die Ausgabedatei wählen: <I>Selbstextrahierund und verschlüsselt</I> oder <I>Verschlüsselt</I>. Bei einer selbstextrahierenden und verschlüsselten Datei wird der komplette AES-Tool-Programmcode in das Archiv integriert, und so kann das Archiv deutlich größer sein als die Eingabedatei. Während eine verschlüsselte Datei (ohne den AES-Tool-Programmcode) kleiner ist als ein selbstexrahierendes Archiv, braucht der Empfänger ebenfalls AES-Tool zum Entschlüsseln der Datei.</LI>
 </UL>
 
@@ -57,7 +61,8 @@
 		<P>Zu kurze Schlüssellängen stellen also ein Sicherheitsrisiko dar (vergleiche 
 			Dialog <A href="hidd_key.html">Schlüsseleingabe</A>).</P>
 		<P><B>Bemerkung 4</B>:</P>
-		<P>Das AES-Tool Version 2.3 wurde als Standalone-Programm mit Dateien bis 4 GB erfolgreich getestet.</P>	
+		<P>Seit AES-Tool Version 2.3 können Dateien bis 4 GB Output-Länge verschlüsselt werden
+	           (sowohl für den selbstextrahierenden Output als auch für den rein verschlüsselten Output).</P>	
 		
 	</BODY>
 </HTML>

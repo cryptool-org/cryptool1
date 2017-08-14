@@ -290,13 +290,13 @@ d) Präsentation, die auf Folien die Möglichkeiten von CrypTool
 
 (3) Eigenständige Programme
 ---------------------------
-Die folgenden Programme und können aus CrypTool heraus, aber auch stand-alone
+Die folgenden Programme können sowohl aus CrypTool heraus als auch stand-alone
 aufgerufen werden:
 
 a) Das Programm AES-Tool v 2.7 (entstanden im CrypTool-Projekt):
    Mit dem AES-Tool kann man selbst-entpackende Executables erstellen.
    AES-Tool verschlüsselt mit einem Session-Key den Inhalt einer beliebigen
-   Datei mit dem AES-128 Bit-Verfahren.
+   Datei mit dem AES-128 Bit-Verfahren im CBC-Modus.
    Dieses Verschlüsselungstool kann sowohl als Fensteranwendung als auch
    von der Kommandozeile (z.B. aus einer Batchdatei) aufgerufen werden.
    Bei der CrypTool-Installation wird diesem Programm die Dateiendung "AES"
@@ -843,10 +843,6 @@ c) Funktionale Änderungen / Erweiterungen:
     K[1] war ein Bit auf 1 statt auf 0). Danke an aufmerksame Benutzer!
   - Installer behandelt schon installierte Versionen nun besser.
 
-- Installer ordnet die Datei-Endung AES dem AES-Tool zu; und trägt das
-  AES-Tool optional in das Kontextmenü "Öffnen mit ..." im Windows-
-  Explorer ein.
-
 - Das Menü "Hilfe" innerhalb der CrypTool-Anwendung enthält nun auch den
   Aufruf der CrypTool-Präsentation.
 
@@ -876,7 +872,9 @@ c) Funktionale Änderungen / Erweiterungen:
   - Anbieten der 50 Klartexte mit den niedrigsten Entropie-Werten zur Auswahl.
 
 - Das AES-Tool in der Version 2.5 ist bei großen Dateien schneller.
-  Die Datei-Endung AES wird bei der Installation diesem Programm zugeordnet.
+  Der Installer ordnet die Datei-Endung AES dem AES-Tool zu; und trägt das
+  AES-Tool optional in das Kontextmenü "Öffnen mit ..." im Windows-
+  Explorer ein.
 
 - Das Lernprogramm/Lernspiel "Zahlenhai" in der Version 1.1.5 wurde etwas
   korrigiert und vor allem wurde die Onlinehilfe erweitert.
@@ -3366,16 +3364,19 @@ betreffen aber all Krypto-Programme mit einer GUI.
   rufen derselben Dialogbox, evtl. Update nach Fokus-Wechsel bzw.
   nach Änderung der Originaldaten im Hauptfenster, ...).
 
+
 - AES-Tool als eigenständiges Tool erweitern:
-  - Einbinden des PKCS#5-Dialogs, um dem Benutzer seine gewohnte
+  - Auch Verschlüsseln ganzer Verzeichnisse.
+  - Einbinden des PKCS#5-Dialogs (Hashwert bzw. Schlüssel aus einem
+    textbasierten Passwort generieren), um dem Benutzer seine gewohnte
     Eingabeweise zu bieten: Dabei zufällige Werte für Salz und
     Iterationszahl voreinstellen und den User auffordern, sich
-    den Hexwert zu merken oder ihn sicher aufzubewahren.
-  - Auch Verschlüsseln ganzer Verzeichnisse.
-  Generell sind bei CrypTool die Schlüssel ganz bewusst für die
-  modernen Verschlüsselungsverfahren in Hex-Zeichen einzugeben.
+    den angezeigten Hexwert zu merken oder ihn sicher aufzubewahren.
+
+  Generell sind bei CrypTool die Schlüssel für die modernen
+  Verschlüsselungsverfahren ganz bewusst in Hex-Zeichen einzugeben.
   Es ist Absicht, dass man in CrypTool zunächst sieht, welche Art
-  Schlüssel die verschiedenen Algorithmen erwarten: Bei den
+  von Schlüssel die verschiedenen Algorithmen erwarten: Bei den
   klassischen Verfahren besteht der Schlüssel oft aus Elementen des
   zugrunde liegenden Alphabets, bei den modernen symmetrischen Verfahren
   sind es Binärdaten von 56 Bit bis 256 Bit Länge.
@@ -3383,19 +3384,21 @@ betreffen aber all Krypto-Programme mit einer GUI.
   zu machen. Da in einer produktiven Anwendung der Schlüssel nicht
   aus ASCII-Zeichen bestehen sollte, ist es besser, wenn man ein
   ASCII-Passwort als Grundlage verwendet, um daraus mit einem
-  vernünftigen Verfahren einen Schlüssel herzuleiten.
+  passenden Verfahren einen Schlüssel herzuleiten.
   In CrypTool könnte man die Anforderung "ASCII-Schlüsseleingabe" und
   "Zeigen, dass gute Hex-Keys zu verwenden sind", folgendermaßen
-  miteinander verbinden:
+  in einer zukünftigen Version miteinander verbinden:
   In dem Hex-Schlüsseleingabe-Dialog sollte man per Button die
   Funktion "Einzelverfahren \ Hashverfahren \ Schlüssel aus Passwort
   generieren (PKCS#5)" aufrufen können.
   Der Dialog ist dann mit der richtigen Schlüssellänge parametrisiert
   und der generierte Schlüssel wird in die Hex-Schlüsseleingabe
   übernommen. AES-256 braucht dazu SHA-256.
-  CT1: Ab AES-Tool 2.6 (ausgeliefert mit CT 1.4.31) kann man die Schlüssel
-  auch in ASCII-Form eingeben. Die ASCII-Zeichen werden dann per PKCS#5
-  transformiert. 
+  Ab AES-Tool 2.6 (ausgeliefert mit CT 1.4.31) kann man die Schlüssel
+  auch in ASCII-Form eingeben. Die ASCII-Zeichen werden dann intern per
+  PKCS#5 transformiert (der hergeleitete und benutzte Hex-Schlüssel ist
+  aber noch nicht sichtbar). 
+
 
 - Für den Benutzer konfigurierbar einstellbar machen, wie groß die
   Teile von Text- und Binärdateien sein können, die CrypTool laden kann.

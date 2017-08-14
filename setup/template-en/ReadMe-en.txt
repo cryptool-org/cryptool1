@@ -286,12 +286,12 @@ d) presentation, which shows at some slides the possibilities of
 (3) Self-contained programs
 ---------------------------
 The following programs can be called from within CrypTool or directly
-as a stand-alone program:
+as stand-alone program:
 
 a) The program AES-Tool v 2.7 (developed within the CrypTool project):
    AES-Tool can create self-extracting executable files.
    AES-Tool encrypts the content of any file using a session key and
-   the AES 128 bit cipher.
+   the AES 128 bit cipher in CBC mode.
    This encryption tool can be called both as a Windows application
    and as a command line tool (e.g. called from within a batch file).
    The installation of CrypTool assigns the file extension "AES" with
@@ -827,10 +827,6 @@ c) New functionality:
     K[1] a bit was set to 1 instead to 0). Thanks to attentive users!
   - The installer now handles previously installed versions better.
 
-- The installer links the file extension AES to the AES-Tool; and optionally
-  includes AES-Tool into the context menu "Open with ..." within the
-  Windows Explorer.
-
 - The menu "Help" within the CrypTool application now also contains the
   item for the CrypTool presentation.
 
@@ -860,8 +856,9 @@ c) New functionality:
   - Showing a choice of the 50 plaintexts with the lowest entropy values.
 
 - The AES-Tool in version 2.5 is faster when handling large files.
-  The files extension AES is linked to this application during the
-  installation process.
+  The installer links the file extension AES to the AES-Tool; and optionally
+  includes AES-Tool into the context menu "Open with ..." within the
+  Windows Explorer.
 
 - The educational program/game "Number Shark" in version 1.1.5 was corrected
   a little bit and the online help was enhanced.
@@ -3261,33 +3258,38 @@ requirements are there for all crypto programs wit a GUI.
   window focus or after changing the underlying original data
   within the main window, ...).
 
+
 - AES-Tool -- enhancement as standalone tool:
-  - Integrate the PKCS#5 dialog to let the user enter letters in
-    his used way: then set random values for salt and iteration
+  - Also encryption of complete directories.
+  - Integrate the PKCS#5 dialog (which generates a hash value or key
+    from a text-based password) to let the user enter letters in
+    his usual way: Then set random values for salt and iteration
     counter and ask the user, to remember the generated hex value
     or store it securely.
-  - Also encryption of complete directories.
-  Generally within CrypTool the keys of modern encryption methods
+
+  Generally within CrypTool, the keys of modern encryption methods
   intentionally must be typed in using the hex format.
   We pedagogically did it by will, that everybody sees what type of
   key the different methods expect: classical methods expect a key
   built from the used alphabet, modern symmetric methods expect
-  binary data of key length 56 bit till 256 bit.
-  On the other hand people normally are used to type their input using
+  binary data of key length 56 bit to 256 bit.
+  On the other hand, people normally are used to type their input using
   all ASCII keyboard buttons. Within a productive application the key
   should NOT be built of ASCII letters. If it is wished to use a ASCII
   password then it is better to generate a good key from the password.
   Within CrypTool both requirements (key input via ASCII and showing,
-  that good hex keys are necessary) could be combined in the
-  following way:
+  that good hex keys are necessary) could be combined in a future version
+  in the following way:
   Within the hexadecimal key input dialogs a button should be added,
   calling the dialog "Indiv. Procedures \ Hash \ Key Generation from
   Password (PKCS#5)".
   The called dialog then is already customized with the right key length
   and after pushing "Back" the generated key will be used as hex
   input for the encryption method. AES-256 needs SHA-256.
-  CT1: From AES-Tool 2.6 (deployed with CT 1.4.31) you can enter the key
-  in ASCII form. The ASCII characters are then transformed via PKCS#5. 
+  From AES-Tool 2.6 (deployed with CT 1.4.31) you can enter the key in
+  ASCII form. The ASCII characters are then internally transformed via
+  PKCS#5 (the derived and used hex key is not shown yet).
+
 
 - Make it customizable by the user, how big the part of text and binary
   files can be, which CrypTool will load.

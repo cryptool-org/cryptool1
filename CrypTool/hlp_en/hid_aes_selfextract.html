@@ -28,8 +28,12 @@
 <P>The functionality of AES-Tool is divided into three areas:</P>
 
 <UL>
-<LI>The <B>Key</B> group box: Here you can enter the key. Depending on the <I>Show entered key</I> check box, the key is either shown or hidden. The <I>Enter key as hex</I> check box controls whether the key is entered in hexadecimal or text form.</LI>
-<LI>The <B>Input file</B> group box: Here you can enter the file to be encrypted. If the check box <I>Securely delete input file after encryption</I> is checked, the input file is irreversibly deleted. Please note: Depending on the size of the file to be encrypted, activating this option may take a lot of time as the contents of the input file is overwritten multiple times before actually being deleted.</LI>
+<LI>The <B>Key</B> group box: Here you can enter the key.
+       Depending on the <I>Show entered key</I> check box, the key is either shown or hidden.
+       The <I>Enter key as hex</I> check box controls whether the key is entered in hexadecimal or text form (ASCII). If entered in text form, the used hex key is internally derived from the text via PKCS#5.</LI>
+
+<LI>The <B>Input file</B> group box: Here you can enter the file to be encrypted.
+       If the check box <I>Securely delete input file after encryption</I> is checked, the input file is irreversibly deleted. Please note: Depending on the size of the file to be encrypted, activating this option may take a lot of time as the contents of the input file is overwritten multiple times before actually being deleted.</LI>
 <LI>The <B>Output format</B> Here you can choose between two formats for the output file: <I>Self-extracting and encrypted</I> or <I>Encrypted</I>. For a self-extracting and ecrypted file the complete AES-Tool executable is included in the archive, so this may result in a significantly increased size of the archive compared to the encrypted file. While an encrypted file (without the executable overhead) is smaller than a self-extracting archive, the receiver also needs AES-Tool to decrypt the file.</LI>
 </UL>
 
@@ -53,7 +57,8 @@
 
 <P><B>Remark 4</B>:</P>
 
-<P>AES-Tool version 2.3 was successfully tested as standalone program with files up to 4 GB length.</P>
+<P>Since AES-Tool version 2.3, files up to 4 GB output length can be encrypted (both for the
+self-extracting output as well as for the purely encrypted output).</P>
 
 </BODY>
 </HTML>
