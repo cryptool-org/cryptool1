@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.31 für Win32, August 2017
+    CrypTool, Version 1.4.40 für Win32, August 2017
 
 CrypTool v1 (CT1) ist ein freies, internationales
 E-Learning-Programm für Kryptographie und Kryptoanalyse.
@@ -25,7 +25,7 @@ E-Learning-Programm für Kryptographie und Kryptoanalyse.
  2.3. ... Wo finden Sie weitere Überblicke zu CT1
  2.4. ... Neuerungen in Version 1.4.20 / 1.4.21
  2.5. ... Neuerungen in Version 1.4.30
- 2.6. ... Neuerungen in Version 1.4.31
+ 2.6. ... Neuerungen in Version 1.4.40
  3. ... Beschränkungen und Voraussetzungen
  3.1. ... Anwendungsbereich dieser Lern-, Trainings- und Awareness-Software
  3.2. ... Win32-Umgebung, Rechte bei Installation und Betrieb, Java-Runtime
@@ -52,7 +52,7 @@ E-Learning-Programm für Kryptographie und Kryptoanalyse.
  8.3. ... Weitere Freeware-Projekte (Crank, CAP, CryptoStudio, SageMath, etc.)
  8.4. ... Auszeichnungen
 A. ... Anhang
-A.1. .... Roadmap nach CT 1.4.31
+A.1. .... Roadmap nach CT 1.4.40
 A.2. .... Nachfolger-Projekte mit Java/Eclipse und C#/.NET
 A.3. .... Mögliche Punkte für eine Weiterentwicklung -- Neue Funktionen, Ideen
 A.4. .... CT1 unter Linux
@@ -117,7 +117,7 @@ sind teilweise in Arbeit.
 
 Momentan ist die griechische Version nicht verfügbar, da der Compiler VS2008
 die griechischen Fonts (als UTF16) nicht korrekt unterstützt.
-Aus anderen Gründen müssen wir für CT 1.4.31 jedoch VS2008 benutzen.
+Aus anderen Gründen müssen wir für CT 1.4.40 jedoch VS2008 benutzen.
 Nichtsdestotrotz werden wir ab CT 1.5 wieder den neuesten MS-Compiler
 (VS 2017) einsetzen. (xxx)
 
@@ -152,8 +152,8 @@ Diese werden z.B. auf der Webseite, bei der Installation und auf der
 Einstiegsseite der Online-Hilfe erläutert.
 
 Für bisherige Benutzer von CT1 dürften in diesem Readme vor
-allem die Kapitel 2.6 (Neuerungen in CT 1.4.31) und in Kapitel A.1
-(Roadmap nach CT 1.4.31) interessant sein.
+allem die Kapitel 2.6 (Neuerungen in CT 1.4.40) und in Kapitel A.1
+(Roadmap nach CT 1.4.40) interessant sein.
 
 Wir laden jeden herzlich ein, an CrypTool mit zu entwickeln oder
 Feedback zu geben. Auch für Hinweise zu Arbeiten (Diplom-, Bachelor-,
@@ -718,7 +718,7 @@ Die generellen Eigenschaften und Funktionen von CT1 sind:
 2.2. Informationen für Entwickler / Wo finden Sie die Sourcen
      --------------------------------------------------------
 
-- Die Release-Sourcen (Tag "CrypTool_1_4_31") und die aktuellen Entwickler-
+- Die Release-Sourcen (Tag "CrypTool_1_4_40") und die aktuellen Entwickler-
   Sourcen stehen direkt im Subversion-Repository zur Verfügung.
   Darauf kann jedermann lesend (ohne Angabe eines Passworts) zugreifen per
   svn checkout https://www.cryptool.org/svn/CrypTool/trunk/ --username anonymous
@@ -728,7 +728,7 @@ Die generellen Eigenschaften und Funktionen von CT1 sind:
 
   Einen Eindruck von der Größe des CT1-Projekts liefert die folgende, im
   Juli 2017 erstellte Statistik (anhand der Dateien für die Version
-  1.4.31 Prefinal):
+  1.4.40 Prefinal):
 
     FILE SUMMARY (Anzahl der Dateien anhand ihrer Dateinamenserweiterung)
     ------------
@@ -1250,12 +1250,12 @@ c) Neue Funktionalität / Bedienung:
 
 
 
-2.6. Neuerungen in Version 1.4.31
+2.6. Neuerungen in Version 1.4.40
      ----------------------------
 Dieses Kapitel listet die Erweiterungen und die Bugfixes auf, die in
-CrypTool 1.4.31 seit CrypTool 1.4.30 hinzugefügt wurden.
+CrypTool 1.4.40 seit CrypTool 1.4.30 hinzugefügt wurden.
 
-Die Version 1.4.31 wird zeitgleich in 6 von 7 Sprachen released.
+Die Version 1.4.40 wird zeitgleich in 6 von 7 Sprachen released.
 Griechisch folgt.
 
 a) Entwickler-relevante Änderungen (eher Programm-technisch):
@@ -1283,7 +1283,7 @@ a) Entwickler-relevante Änderungen (eher Programm-technisch):
   Windows-Übersicht der installierten Software nun "CrypTool-Team" angezeigt
   wird.
   
-- Das Release von CT 1.4.31 wird weiterhin mit VS2008 kompiliert (siehe oben).
+- Das Release von CT 1.4.40 wird weiterhin mit VS2008 kompiliert (siehe oben).
   Ab CT 1.5 wird mit VS 2017 übersetzt, oder CT1 gleich durch QCT ersetzt.
 
 
@@ -1428,10 +1428,10 @@ das CA-Schlüsselpaar fest in der Software (Source und Binary) und es
 ist geschützt mit einer ebenfalls bewusst nur sehr einfachen PIN für die
 CA-PSE (Personal Security Environment).
 
-Der Rootschlüssel der in CrypTool 1.4.31 eingebauten CA hat eine Länge
+Der Rootschlüssel der in CrypTool 1.4.40 eingebauten CA hat eine Länge
 von 2048 Bit und ist 20 Jahre gültig (06.07.2006 - 06.07.2026).
 Zertifikate, die mit dem alten Rootkey aus früheren CrypTool-Versionen
-(1.3.05 und älter) ausgestellt wurden, können nicht in Version 1.4.31
+(1.3.05 und älter) ausgestellt wurden, können nicht in Version 1.4.40
 importiert werden.
 
 Beachten Sie also beim Umgang mit Zertifikaten, dass jedes CrypTool-
@@ -1454,7 +1454,7 @@ wie in kommerziellen Anwendungen.
 
 3.2. Win32-Umgebung, Rechte bei Installation und Betrieb, Java-Runtime
      -----------------------------------------------------------------
-CT1 v1.4.31 ist geschrieben für das Betriebssystem Windows 8 und 10.
+CT1 v1.4.40 ist geschrieben für das Betriebssystem Windows 8 und 10.
 CT1 erfordert eine Win32-Umgebung. Diese ist auch unter 64-Bit Windows
 vorhanden.
 
@@ -1565,7 +1565,7 @@ Hilfe anfordern.
      ------------------------------------
 Programm, Hilfesystem und Dokumentation sind mehrsprachig ausgelegt.
 
-Für jede unterstützte Sprache gibt es bei CrypTool 1.4.31 ein eigenes
+Für jede unterstützte Sprache gibt es bei CrypTool 1.4.40 ein eigenes
 Installationsprogramm (Setup).
 
 
@@ -1670,7 +1670,7 @@ Wenn Sie es als Administrator in "C:\Programme\CrypTool" installieren,
 können Sie CrypTool danach trotzdem als normaler Benutzer ausführen.
 
 Wenn Sie den Zielverzeichnis-Namen "CrypTool" ändern, z.B. in
-"CrypTool-1.4.31-Final-de", so wird auch der Eintrag im Startmenü
+"CrypTool-1.4.40-Final-de", so wird auch der Eintrag im Startmenü
 der Windows-Taskleiste entsprechend geändert.
 
 Nach der Erzeugung wurde das Setup lokal mit den Antiviren-Produkten von
@@ -1881,7 +1881,7 @@ CrypTool wird als komprimiertes, selbstextrahierendes Archiv in derzeit
 sieben verschiedenen Sprachversionen verteilt.
 
 Das selbstextrahierende Archiv in deutscher Sprache
-           SetupCrypTool_1_4_31_de.exe
+           SetupCrypTool_1_4_40_de.exe
 enthält folgende Dateien:
 
 ReadMe-de.txt .... Diese Kurzanleitung (deutsch).
@@ -2318,7 +2318,7 @@ Version                  Deutsch    Englisch      Bedarf DE      durch
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.30    Aug. 2010      52,1 MB     51,5 MB         95 MB        DB
-1.4.31    Aug. 2017      70,7 MB     69,9 MB        113 MB        CT (xxxok)
+1.4.40    Aug. 2017      70,7 MB     69,9 MB        113 MB        CT (xxxok)
 
 Bemerkungen zu den (Zwischen-)Versionen:
 1.3.02  Viele neue Funktionen gegenüber 1.3.00
@@ -2360,7 +2360,7 @@ Bemerkungen zu den (Zwischen-)Versionen:
 1.4.31-Beta06b Okt. 2013  Fünfte öffentliche Beta von Version 1.4.31
 1.4.31-Beta06c 2015       Weitere Beta von Version 1.4.31
 1.4.31-Beta06d 2016       Weitere Beta von Version 1.4.31
-1.4.31  Viele Bugfixes und erweiterter Funktionsumfang i.Vgl. zu 1.4.30.
+1.4.40  Viele Bugfixes und erweiterter Funktionsumfang i.Vgl. zu 1.4.30.
                           (erstmals mit einer französischen Sprachversion)
 
 
@@ -2877,7 +2877,7 @@ https://www.cryptool.org/de/ctp-lehre/auszeichnungen/258-auszeichnungen
 A. Anhang
    ------
 
-A.1. .... Roadmap nach CT 1.4.31
+A.1. .... Roadmap nach CT 1.4.40
 A.2. .... Nachfolger-Projekte mit Java/Eclipse und C#/.NET
 A.2.1. .... Design der Nachfolger-Projekte CT2 und JCT
 A.2.2. .... Funktionen der Nachfolger-Projekte CT2 und JCT
@@ -2897,7 +2897,7 @@ interaktiven Liste abgerufen werden auf:
 
 
 
-A.1. Roadmap nach CT 1.4.31
+A.1. Roadmap nach CT 1.4.40
      ----------------------
 Generell fließen alle größeren Neu-Entwicklungen aus dem CT-Projekt nun in
 die beiden schon existierenden Nachfolger-Projekte CT2 und JCT (siehe A.2).
@@ -3444,7 +3444,7 @@ A.4. CT1 unter Linux
 A.4.1. Ausführen von CT1 unter Linux mit Wine
        --------------------------------------
 Bei einem kurzen Test mit Wine 1.8.0 unter MINT 17.3 im Oktober 2016 lief das
-Setup von CrypTool 1.4.31 Prefinal (compiliert mit VS2008) ok durch.
+Setup von CrypTool 1.4.40 Prefinal (compiliert mit VS2008) ok durch.
 
 Die meisten Funktionen in CT1 selbst (wie Verschlüsselungsmethoden oder
 RSA-Schlüsselgenerierung) sind ausführbar unter Wine. Wine ist viel stabiler
@@ -3487,7 +3487,7 @@ unter http://www.cryptoolinux.net/).
 
 Nichtsdestotrotz wird das CT1-Kernteam einen Nachfolger von CT1 mit Qt 5
 bauen, der dasselbe Look&Feel wie CT1 hat und QCT genannt wird
-(siehe A.1 Roadmap nach CT 1.4.31).
+(siehe A.1 Roadmap nach CT 1.4.40).
 
 
 ################################################################
