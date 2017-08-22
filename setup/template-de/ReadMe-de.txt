@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.40 für Win32, August 2017
+    CrypTool, Version 1.4.40 für Win32, September 2017
 
 CrypTool v1 (CT1) ist ein freies, internationales
 E-Learning-Programm für Kryptographie und Kryptoanalyse.
@@ -2318,7 +2318,7 @@ Version                  Deutsch    Englisch      Bedarf DE      durch
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.30    Aug. 2010      52,1 MB     51,5 MB         95 MB        DB
-1.4.40    Aug. 2017      70,7 MB     69,9 MB        113 MB        CT (xxxok)
+1.4.40    Sep. 2017      70,7 MB     69,9 MB        113 MB        CT (xxxok)
 
 Bemerkungen zu den (Zwischen-)Versionen:
 1.3.02  Viele neue Funktionen gegenüber 1.3.00
