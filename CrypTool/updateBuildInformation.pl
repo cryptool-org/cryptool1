@@ -32,8 +32,8 @@ my $RELEASE = 1;
 
 my $CrypToolVersionMajor = "1";
 my $CrypToolVersionMinor = "4";
-my $CrypToolVersionRevision = "31";
-my $CrypToolVersionAddition = "Final 1";
+my $CrypToolVersionRevision = "40";
+my $CrypToolVersionAddition = "";
 
 #############################################################
 #                                                           #
