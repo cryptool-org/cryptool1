@@ -768,7 +768,7 @@ Die generellen Eigenschaften und Funktionen von CT1 sind:
 
 
 - Details zum Compilieren, Linken und zur einheitlichen Entwicklung
-  finden sich in den Sourcen in der Datei "readme-source.txt".
+  finden sich in den Sourcen in der Datei "CrypToolDeveloperReadme.pdf".
 
 - Die Sourcen wurden mit der Microsoft Entwicklungsumgebung Visual Studio 2008
   Standard Edition compiliert.

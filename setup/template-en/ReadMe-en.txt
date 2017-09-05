@@ -156,7 +156,7 @@ of this ReadMe.
 
 We warmly welcome everybody willing to further develop CrypTool
 or to give feedback. We are also glad about hints telling us about
-papers (diploma, bachelor, master, or doctor thesis or seminar and
+papers (diploma, bachelor, master, or doctor thesis, or seminar and
 project works), which could be integrated into CrypTool.
 Especially young developers should have the heart to participate -- as
 proven in the past they'll learn a lot about professional software
@@ -751,7 +751,7 @@ The general properties and functions of CT1 are:
 
 
 - Details about compilation, linking and about a consistent development
-  can be found in the sources in the file "readme-source.txt".
+  can be found in the sources in the file "CrypToolDeveloperReadme.pdf".
 
 - The sources have been compiled with the Microsoft development environment
   Visual Studio 2008 Standard Edition.
