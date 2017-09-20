@@ -1255,7 +1255,6 @@ b) Changes within the user documentation / on the websites:
                  - Inclusion of further SageMath code samples
                    (for primitive roots and RSA fix points)
                  - Appendices with function overviews also for CT2 and JCT
-                   (xxx)
                  - Added the menu paths of CT2 and JCT in the foot notes.
 
 - Presentation about CT1 updated in March 2017.
@@ -1284,7 +1283,7 @@ c) New functionality / Usability / Corrections of errors:
 - Many small improvements in the dialog window layouts, like in "Attack on
   Stereotyped Messages". 
 - The layout of the RSA demonstration dialog was improved according to some
-  didactical feedback we received. (xxx)  
+  didactical feedback we received.
 - Transposition Encryption: The key entry dialog now also contains a text
   options dialog.
   This button was also added with the analysis of the maS.

@@ -1300,8 +1300,7 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
                    und zur Faktorisierung
                  - Aufnahme weiterer SageMath-Programmbeispiele
                    (zu Primitivwurzeln und RSA-Fixpunkten)
-                 - Anhänge zu den Funktionsübersichten auch für CT2 und
-                   JCT  (xxx)
+                 - Anhänge zu den Funktionsübersichten auch für CT2 und JCT
                  - In den Fußnoten nun auch die Menüpfade zu CT2 und JCT.
 
 - Präsentation zu CT1 aktualisiert (März 2017)
@@ -1331,7 +1330,7 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
 - Viele kleine Verbesserungen in Dialogfenstern (z.B. "Angriff auf stereotype
   Nachrichten").
 - RSA-Demo-Dialog erhielt einige optische Änderungen aufgrund des didaktischen
-  Feedbacks, das wir erhielten. (xxx)
+  Feedbacks, das wir erhielten.
 - Transpositions-Verschlüsselung: Der Schlüsseleingabe-Dialog hat nun auch den
   Button "Textoptionen".
   Ebenso hinzugefügt wurde dieser Button in der Analyse der maS.
