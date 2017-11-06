@@ -27,6 +27,11 @@ my $certificateFilename = undef;
 # ATTENTION: this value must contain the certificate password
 my $certificatePassword = undef;
 
+# ATTENTION: these files are "blacklisted" with regards to being signed, 
+# which means THEY WILL NOT BE SIGNED because after injecting the signature 
+# using "signtool.exe" they would no longer be functional for some reason.
+my @signtoolBlacklist = ( "Engima_de.exe", "Enigma_en.exe", "Enigma_es.exe", "Enigma_pl.exe", "NT.exe", "ZT.exe", "TextNumberConverter.exe", "TextZahlWandler.exe", "Rijndael-Animation.exe", "Rijndael-Inspector.exe" );
+
 my @supportedLanguages = ( "de", "en", "es", "fr", "pl", "rs" );
 
 my $configuration = undef;
@@ -195,7 +200,19 @@ sub getFilesToBeSigned() {
 			push(@filesToBeSigned, $file);
 		}
 	}
-	return \@filesToBeSigned;
+	my @filesToBeSignedWhitelist = ( );
+	foreach my $file (@filesToBeSigned) {
+		my $whitelisted = 1;
+		foreach my $fileBlacklist (@signtoolBlacklist) {
+			if($file =~ /$fileBlacklist$/) {
+				$whitelisted = 0;
+			}
+		}
+		if($whitelisted eq 1) {
+			push(@filesToBeSignedWhitelist, $file);
+		}
+	}
+	return \@filesToBeSignedWhitelist;
 }
 
 sub getSetupsToBeSigned() {
