@@ -11,6 +11,7 @@
 
 use strict;
 use Cwd qw/abs_path/;
+use File::Find;
 use Term::ReadKey;
 use Win32::Process;
 
@@ -30,7 +31,7 @@ my $certificatePassword = undef;
 # ATTENTION: these files are "blacklisted" with regards to being signed, 
 # which means THEY WILL NOT BE SIGNED because after injecting the signature 
 # using "signtool.exe" they would no longer be functional for some reason.
-my @signtoolBlacklist = ( "Engima_de.exe", "Enigma_en.exe", "Enigma_es.exe", "Enigma_pl.exe", "NT.exe", "ZT.exe", "TextNumberConverter.exe", "TextZahlWandler.exe", "Rijndael-Animation.exe", "Rijndael-Inspector.exe" );
+my @signtoolBlacklist = ( "Enigma_de.exe", "Enigma_en.exe", "Enigma_es.exe", "Enigma_pl.exe", "Rijndael-Animation.exe", "Rijndael-Inspector.exe", "SMIME_Animation.exe" );
 
 my @supportedLanguages = ( "de", "en", "es", "fr", "pl", "rs" );
 
@@ -195,10 +196,7 @@ sub getFilesToBeSigned() {
 	my @extensions = ( "dll", "exe" );
 	my @filesToBeSigned = ( );
 	foreach my $extension (@extensions) {
-		my @files = glob "$setupPath\\*.$extension";
-		foreach my $file (@files) {
-			push(@filesToBeSigned, $file);
-		}
+		find(sub { return unless -f; return unless /\.$extension$/; push(@filesToBeSigned, $File::Find::name); }, $setupPath);
 	}
 	my @filesToBeSignedWhitelist = ( );
 	foreach my $file (@filesToBeSigned) {
