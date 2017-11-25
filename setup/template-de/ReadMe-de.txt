@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.40 für Win32, September 2017
+    CrypTool, Version 1.4.41 für Win32, November 2017
 
 CrypTool v1 (CT1) ist ein freies, internationales
 E-Learning-Programm für Kryptographie und Kryptoanalyse.
@@ -25,7 +25,7 @@ E-Learning-Programm für Kryptographie und Kryptoanalyse.
  2.3. ... Wo finden Sie weitere Überblicke zu CT1
  2.4. ... Neuerungen in Version 1.4.20 / 1.4.21
  2.5. ... Neuerungen in Version 1.4.30
- 2.6. ... Neuerungen in Version 1.4.40
+ 2.6. ... Neuerungen in Version 1.4.40 / 1.4.41
  3. ... Beschränkungen und Voraussetzungen
  3.1. ... Anwendungsbereich dieser Lern-, Trainings- und Awareness-Software
  3.2. ... Win32-Umgebung, Rechte bei Installation und Betrieb, Java-Runtime
@@ -52,7 +52,7 @@ E-Learning-Programm für Kryptographie und Kryptoanalyse.
  8.3. ... Weitere Freeware-Projekte (Crank, CAP, CryptoStudio, SageMath, etc.)
  8.4. ... Auszeichnungen
 A. ... Anhang
-A.1. .... Roadmap nach CT 1.4.40
+A.1. .... Roadmap nach CT 1.4.4x
 A.2. .... Nachfolger-Projekte mit Java/Eclipse und C#/.NET
 A.3. .... Mögliche Punkte für eine Weiterentwicklung -- Neue Funktionen, Ideen
 A.4. .... CT1 unter Linux
@@ -117,9 +117,9 @@ sind teilweise in Arbeit.
 
 Momentan ist die griechische Version nicht verfügbar, da der Compiler VS2008
 die griechischen Fonts (als UTF16) nicht korrekt unterstützt.
-Aus anderen Gründen müssen wir für CT 1.4.40 jedoch VS2008 benutzen.
+Aus anderen Gründen müssen wir für CT 1.4.4x jedoch VS2008 benutzen.
 Nichtsdestotrotz werden wir ab CT 1.5 wieder den neuesten MS-Compiler
-(VS 2017) einsetzen. (xxx)
+(VS 2017) einsetzen. Evtl. wird es aber statt CT 1.5 ein QCT geben. (xxx)
 
 Die aktuelle Release-Version von CrypTool und den Quellcode dazu finden Sie
 unter der folgenden Internet-Adresse (dazu ist keine Registrierung nötig):
@@ -152,8 +152,8 @@ Diese werden z.B. auf der Webseite, bei der Installation und auf der
 Einstiegsseite der Online-Hilfe erläutert.
 
 Für bisherige Benutzer von CT1 dürften in diesem Readme vor
-allem die Kapitel 2.6 (Neuerungen in CT 1.4.40) und in Kapitel A.1
-(Roadmap nach CT 1.4.40) interessant sein.
+allem die Kapitel 2.6 (Neuerungen in CT 1.4.40 / 1.4.41) und
+Kapitel A.1 (Roadmap nach CT 1.4.4x) interessant sein.
 
 Wir laden jeden herzlich ein, an CrypTool mit zu entwickeln oder
 Feedback zu geben. Auch für Hinweise zu Arbeiten (Diplom-, Bachelor-,
@@ -314,7 +314,7 @@ c) Das Animationsprogramm Animal (siehe http://www.algoanim.net)
    (Version 2.4.9, 5. September 2016):
    Animal is a general-purpose animation tool with a current focus on
    algorithm animation. It contains a lot of animation generators
-   (currently, there are more than 500.)
+   (currently, there are more than 500).
    Mit diesem an der TU Darmstadt von Dr. Rößling gepflegten Programm
    kann man die Einzelschritte von Algorithmen oder die Komponenten von
    Datenstrukturen beliebig genau modellieren, die Einzelschritte manuell
@@ -328,12 +328,24 @@ c) Das Animationsprogramm Animal (siehe http://www.algoanim.net)
    Animal benötigt JRE 1.7 (siehe Kapitel 3.2).
 
 d) Ebenso wie Animal sind die ff. Programme eigenständige Java-Anwendungen
-   (JAR-Dateien). Diese benötigen jeweils mindestens JRE 1.5 (s. Kapitel 3.2).
-   - ECC-Demo v 1.1.1
+   (JAR-Dateien). Diese benötigen jeweils mindestens JRE 1.7 (s. Kapitel 3.2).
+   - ECC-Demo v 1.1.1 (Punktaddition auf Elliptischen Kurven)
    - AES-Flussvisualisierung
-   - Das Control-Center zur Steuerung der S/MIME-Demo (diese erstellt anhand
-     der Parameter eine XML-Datei, die zur Steuerung der aufgerufenen
-     Flash-Animation dient).
+   - Das Control-Center zur Steuerung der S/MIME-Demo (dieses Java-Programm
+     erstellt anhand der im Fenster eingegebenen Parameter eine XML-Datei,
+     die zur Steuerung der dann aufgerufenen Flash-Animation dient).
+
+     Zwei Anmerkungen zu diesem Java-Programm und seiner Flash-Animation:
+     1) Dieses Java-Programm macht die Berechnunge und ruft das Flash-Programm,
+        das die Daten nur anzeigt und animiert.
+        Um mit Java starke Verschlüsselung zu nutzen, braucht man die "unrestricted
+        policy files". Man erhält diese z.B. von http://java.sun.com oder
+        http://java.sun.com/javase/downloads/index.jsp respectively.
+     2) Die aufgerufene Flash-Animation benutzt den Windows Pixel-Font
+        "Bavaria Extended." Diesen Font kann man hier herunterladen:
+        http://pixelfonts.style-force.net/download/bavaria-extended/
+     Weitere Details finden Sie in der Onlinehilfe von CT1 unter dem
+     Suchbegriff "S/MIME".
 
 e) Die Flash-Anwendungen:
    - Rijndael-Animation (visualisiert das Verschlüsselungsverfahren AES),
@@ -1250,10 +1262,10 @@ c) Neue Funktionalität / Bedienung:
 
 
 
-2.6. Neuerungen in Version 1.4.40
-     ----------------------------
+2.6. Neuerungen in Version 1.4.40 / 1.4.41
+     -------------------------------------
 Dieses Kapitel listet die Erweiterungen und die Bugfixes auf, die in
-CrypTool 1.4.40 seit CrypTool 1.4.30 hinzugefügt wurden.
+CrypTool 1.4.4x seit CrypTool 1.4.30 hinzugefügt wurden.
 
 Die Version 1.4.40 wird zeitgleich in 6 von 7 Sprachen released.
 Griechisch folgt.
@@ -1283,7 +1295,7 @@ a) Entwickler-relevante Änderungen (eher Programm-technisch):
   Windows-Übersicht der installierten Software nun "CrypTool-Team" angezeigt
   wird.
   
-- Das Release von CT 1.4.40 wird weiterhin mit VS2008 kompiliert (siehe oben).
+- Das Release von CT 1.4.4x wird weiterhin mit VS2008 kompiliert (siehe oben).
   Ab CT 1.5 wird mit VS 2017 übersetzt, oder CT1 gleich durch QCT ersetzt.
 
 
@@ -1401,6 +1413,8 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
   gesetzt. Für das Feld Ergebnis werden weiterhin keine Tausendertrenner
   angezeigt, denn deren Berechnung und Anzeige in einem MFC-Control dauert
   zu lange.
+- Die SWT-Dateien für das Java-Programm S/MIME-Demo werden nun getrennt
+  für 32- und 64-Bit-VMs ausgeliefert.
 
 - Danke an die vielen aufmerksamen Benutzer, die uns auf Bugs und 
   Inkonsistenzen aufmerksam machten.
@@ -1427,10 +1441,10 @@ das CA-Schlüsselpaar fest in der Software (Source und Binary) und es
 ist geschützt mit einer ebenfalls bewusst nur sehr einfachen PIN für die
 CA-PSE (Personal Security Environment).
 
-Der Rootschlüssel der in CrypTool 1.4.40 eingebauten CA hat eine Länge
+Der Rootschlüssel der in CrypTool 1.4.4x eingebauten CA hat eine Länge
 von 2048 Bit und ist 20 Jahre gültig (06.07.2006 - 06.07.2026).
 Zertifikate, die mit dem alten Rootkey aus früheren CrypTool-Versionen
-(1.3.05 und älter) ausgestellt wurden, können nicht in Version 1.4.40
+(1.3.05 und älter) ausgestellt wurden, können nicht in Version 1.4.4x
 importiert werden.
 
 Beachten Sie also beim Umgang mit Zertifikaten, dass jedes CrypTool-
@@ -1453,7 +1467,7 @@ wie in kommerziellen Anwendungen.
 
 3.2. Win32-Umgebung, Rechte bei Installation und Betrieb, Java-Runtime
      -----------------------------------------------------------------
-CT1 v1.4.40 ist geschrieben für das Betriebssystem Windows 8 und 10.
+CT1 v1.4.4x ist geschrieben für das Betriebssystem Windows 8 und 10.
 CT1 erfordert eine Win32-Umgebung. Diese ist auch unter 64-Bit Windows
 vorhanden.
 
@@ -1564,7 +1578,7 @@ Hilfe anfordern.
      ------------------------------------
 Programm, Hilfesystem und Dokumentation sind mehrsprachig ausgelegt.
 
-Für jede unterstützte Sprache gibt es bei CrypTool 1.4.40 ein eigenes
+Für jede unterstützte Sprache gibt es bei CrypTool 1.4.4x ein eigenes
 Installationsprogramm (Setup).
 
 
@@ -2317,7 +2331,8 @@ Version                  Deutsch    Englisch      Bedarf DE      durch
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.30    Aug. 2010      52,1 MB     51,5 MB         95 MB        DB
-1.4.40    Sep. 2017      70,7 MB     69,9 MB        113 MB        CT (xxxok)
+1.4.40    Sep. 2017      70,7 MB     69,9 MB        113 MB        CT
+1.4.41    Nov. 2017      70,7 MB     69,9 MB        113 MB        CT (xxxok)
 
 Bemerkungen zu den (Zwischen-)Versionen:
 1.3.02  Viele neue Funktionen gegenüber 1.3.00
@@ -2361,6 +2376,7 @@ Bemerkungen zu den (Zwischen-)Versionen:
 1.4.31-Beta06d 2016       Weitere Beta von Version 1.4.31
 1.4.40  Viele Bugfixes und erweiterter Funktionsumfang i.Vgl. zu 1.4.30.
                           (erstmals mit einer französischen Sprachversion)
+1.4.41  Kleine Bugfixes.
 
 
 
@@ -2639,6 +2655,9 @@ d) Eine kleine Auswahl weiterer Seiten, die CrypTool 1 erwähnen:
    - http://www.inf-schule.de/kommunikation/kryptologie/rsa/cryptool/station_rsademo
    - http://www.inf-schule.de/kommunikation/kryptologie/digitalesignatur/einstieg_hashfunktion/experimentecryptool
 
+e) Bewertung von CrypTool 1:
+   - https://www.openhub.net/p/8247
+     "... took an estimated 133 years of effort (COCOMO model)"
 
 
 8.3. Weitere Freeware-Projekte (Crank, CAP, CryptoStudio, SageMath, etc.)
@@ -2725,6 +2744,14 @@ a) Vollständig mit Source-Code verfügbar sind:
   ansprechende Oberfläche und bietet einfache Erweiterungsmöglichkeiten.
   Zusätzlich kann man es von der Kommandozeile aufrufen. Nutzt GNU GPL v3.
   Letzter Update: Version 0.4.3, Feb 2013.  
+
+- http://celan.informatik.uni-oldenburg.de/kryptos/
+  Kryptos ist eine Webseite, die dem Nutzer die Kryptologie und einzelne ihrer
+  Teildisziplinen auf anschauliche Weise näher bringt und es ermöglicht, 
+  eine Vielzahl von Algorithmen selbst auszuprobieren.
+  Insbesondere enthält es eine gute, minimalistische Visualisierung von
+  Keccak.
+  Letzter Update: Keine Versionsnummer, 07. Juli 2016.
 
 - Im Open-Source Computer-Algebra-System "SageMath" sind ebenfalls einige
   Algorithmen aus dem Gebiet der Kryptographie implementiert:
@@ -2876,7 +2903,7 @@ https://www.cryptool.org/de/ctp-lehre/auszeichnungen/258-auszeichnungen
 A. Anhang
    ------
 
-A.1. .... Roadmap nach CT 1.4.40
+A.1. .... Roadmap nach CT 1.4.4x
 A.2. .... Nachfolger-Projekte mit Java/Eclipse und C#/.NET
 A.2.1. .... Design der Nachfolger-Projekte CT2 und JCT
 A.2.2. .... Funktionen der Nachfolger-Projekte CT2 und JCT
@@ -2896,7 +2923,7 @@ interaktiven Liste abgerufen werden auf:
 
 
 
-A.1. Roadmap nach CT 1.4.40
+A.1. Roadmap nach CT 1.4.4x
      ----------------------
 Generell fließen alle größeren Neu-Entwicklungen aus dem CT-Projekt nun in
 die beiden schon existierenden Nachfolger-Projekte CT2 und JCT (siehe A.2).
@@ -3486,7 +3513,7 @@ unter http://www.cryptoolinux.net/).
 
 Nichtsdestotrotz wird das CT1-Kernteam einen Nachfolger von CT1 mit Qt 5
 bauen, der dasselbe Look&Feel wie CT1 hat und QCT genannt wird
-(siehe A.1 Roadmap nach CT 1.4.40).
+(siehe A.1 Roadmap nach CT 1.4.4x).
 
 
 ################################################################

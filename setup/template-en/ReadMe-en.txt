@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.40 for Win32, September 2017
+    CrypTool, Version 1.4.41 for Win32, November 2017
     
 CrypTool v1 (CT1) is a free, international
 e-learning program for cryptography and cryptanalysis.
@@ -25,7 +25,7 @@ e-learning program for cryptography and cryptanalysis.
  2.3. ... Where can you get another overview about CT1
  2.4. ... What's new in version 1.4.20 / 1.4.21
  2.5. ... What's new in version 1.4.30
- 2.6. ... What's new in version 1.4.40
+ 2.6. ... What's new in version 1.4.40 / 1.4.41
  3. ... Limitations and requirements
  3.1. ... Scope of this education, training and awareness software
  3.2. ... Win32 environment, rights for installation and usage, Java runtime
@@ -52,7 +52,7 @@ e-learning program for cryptography and cryptanalysis.
  8.3. ... Further freeware projects (Crank, CAP, CryptoStudio, SageMath, etc)
  8.4. ... Awards
 A. ... Appendix
-A.1. .... Roadmap after CT 1.4.40
+A.1. .... Roadmap after CT 1.4.4x
 A.2. .... Successor projects using Java/Eclipse and C#/.NET
 A.3. .... Possible areas for further development -- Future features, ideas
 A.4. .... Using CT1 on Linux
@@ -116,9 +116,9 @@ are partly under development.
 
 Currently the Greek version is not available as the compiler VS2008
 does not support the Greek fonts (as UTF16) correctly.
-However, for other reasons we have to stay with VS2008 for CT 1.4.40.
+However, for other reasons we have to stay with VS2008 for CT 1.4.4x.
 Nevertheless, from CT 1.5 we will use the newest MS compiler (VS 2017)
-again. (xxx)
+again. Potentially, there will QCT instead of CT 1.5. (xxx)
 
 The current release version of CrypTool and the source code are
 available at the following Internet address (without registration):
@@ -151,8 +151,8 @@ conditions are described e.g. at the web page, during the installation
 process and at the introduction page of the online help of CT1.
 
 Previous users of CT1 may find interesting especially chapter 2.6
-(What's new in version CT 1.4.40) and chapter A.1 (Roadmap after CT 1.4.40)
-of this ReadMe.
+(What's new in version CT 1.4.40 / 1.4.41) and chapter A.1 (Roadmap
+after CT 1.4.4x) of this ReadMe.
 
 We warmly welcome everybody willing to further develop CrypTool
 or to give feedback. We are also glad about hints telling us about
@@ -167,10 +167,10 @@ Contacts: Please see chapter 7 below.
 Known bugs:
 1) With Windows 10 the following phenomenon appeared:
    Starting a PDF (like the CT1 presentation or the CT book) the first time
-   from within the CT1 onlinehelp, from the CT1 menu "Help", or from the
-   Windows Start menu, then Acrobat didn't show up. Sometimes the onlinehelp
+   from within the CT1 online help, from the CT1 menu "Help", or from the
+   Windows Start menu, then Acrobat didn't show up. Sometimes the online help
    shows an empty page before it crashes. After the next start of the
-   onlinehelp this call of the pdf should work.
+   online help this call of the pdf should work.
    The reason is a hanging Acrobat process. If you stop this Acrobat process
    within the Windows TaskManager, then PDFs mostly start from within CT1 as
    usual.
@@ -309,7 +309,7 @@ c) The animation program Animal (see http://www.algoanim.net)
    (Version 2.4.9; September 5, 2016):
    Animal is a general-purpose animation tool with a current focus on
    algorithm animation. It contains a lot of animation generators
-   (currently, there are more than 500.)
+   (currently, there are more than 500).
    This program is maintained by Dr. Roessling at the Technical
    University of Darmstadt. It allows to specify and model the single
    steps of algorithms or the components of data structures with as
@@ -323,12 +323,23 @@ c) The animation program Animal (see http://www.algoanim.net)
    To run Animal JRE 1.7 is required (see chapter 3.2).
 
 d) As well as Animal the following programs are stand-alone Java applications
-   (JAR files). To run them at least JRE 1.5 is required (see chapter 3.2).
-   - ECC demonstration v 1.1.1
+   (JAR files). To run them at least JRE 1.7 is required (see chapter 3.2).
+   - ECC demonstration v 1.1.1 (Point addition on ellipic curves)
    - AES flow visualization
    - The Control Center of the S/MIME demonstration (according to given
-     parameters it creates an XML file, which is used to control the called
-     Flash animation).
+     parameters this Java program creates an XML file, which is used to
+     control the called Flash animation).
+
+     Two remarks about this Java program and its Flash animation:
+     1) This Java program does the calculations and calls the Flash program
+        which just displays and animates the data.
+        In order to do strong encryption with Java the "unrestricted policy files"
+        are needed. You can obtain these files from http://java.sun.com or
+        http://java.sun.com/javase/downloads/index.jsp respectively.
+     2) The called Flash animation uses the Windows pixel font Bavaria Extended.
+        This font can downloaded from:
+        http://pixelfonts.style-force.net/download/bavaria-extended/
+     More details are in the online help of CT1 when you look for the "S/MIME".
 
 e) The Flash applications:
    - Rijndael Animation (visualizes the AES encryption method),
@@ -1207,9 +1218,9 @@ c) New functionality / Usability:
 
 
 
-2.6. What's new in version 1.4.40
-     ----------------------------
-This chapter lists the enhancements and the bug fixes in CrypTool 1.4.40,
+2.6. What's new in version 1.4.40 / 1.4.41
+     -------------------------------------
+This chapter lists the enhancements and the bug fixes in CrypTool 1.4.4x,
 which have been added since CrypTool 1.4.30.
 
 Version 1.4.40 is released simultaneously in 6 of 7 languages.
@@ -1237,7 +1248,7 @@ a) Developer-relevant changes (more technically oriented):
 - Installer fills the publisher field so the Windows overview of installed
   software shows now "CrypTool Team".
   
-- The release of CT 1.4.40 is still compiled with VS2008 (see above).
+- The release of CT 1.4.4x is still compiled with VS2008 (see above).
   From CT 1.5 either VS 2017 will be used for compilation,
   or QCT substitutes CT1 directly.
 
@@ -1348,6 +1359,8 @@ c) New functionality / Usability / Corrections of errors:
   Adding digit grouping (commas) now also for the length of the result.
   The result itself still doesn't show digit groupings as its calculation and
   display takes too much time.
+- The SWT files for the Java program S/MIME Demo are now delivered separately
+  for a 32 bit and a 64 bit VM.
 
 - Thanks to the many attentive users, who pointed us to bugs and
   inconsistencies.
@@ -1374,10 +1387,10 @@ is contained directly within the software (source and binary) and
 it is protected by will only with a very simple PIN for the CA-PSE
 (personal security environment).
 
-The root key of the CA built in CrypTool 1.4.40 has a length of 2048
+The root key of the CA built in CrypTool 1.4.4x has a length of 2048
 bit and it is valid for 20 years (July 6th, 2006 - July 6th, 2026).
 Certificates issued with the root key of older CrypTool versions
-(1.3.05 and older) cannot be imported in version 1.4.40.
+(1.3.05 and older) cannot be imported in version 1.4.4x.
 
 Please notice when creating user certificates with CrypTool, that each
 CrypTool program contains a root CA with the same key pair.
@@ -1398,7 +1411,7 @@ as "well" as in productive applications.
 
 3.2. Win32 environment, rights for installation and usage, Java runtime
      ------------------------------------------------------------------
-CT1 v1.4.40 was written to run under the operating system Windows 8 and 10.
+CT1 v1.4.4x was written to run under the operating system Windows 8 and 10.
 CT1 requires a Win32 environment, which is also available in 64-bit Windows.
 
 Some functions like Animal, ECC demonstration, ... [see chapter 1.2, part (3)]
@@ -1505,7 +1518,7 @@ In CT1 you can get help for each selected menu item via pressing F1.
 Program, help facility and the documentation are designed to run
 in more than one language.
 
-For each supported language CrypTool 1.4.40 comes with an extra installation
+For each supported language CrypTool 1.4.4x comes with an extra installation
 program (setup).
 
 
@@ -2239,7 +2252,8 @@ Version                 English      German    needed EN     by
 1.4.20    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.21    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.30    Aug. 2010     51.5 MB      52.1 MB    94 MB        DB
-1.4.40    Sep. 2017     69.9 MB      70.7 MB   112 MB        CT (xxxok)
+1.4.40    Sep. 2017     69.9 MB      70.7 MB   112 MB        CT
+1.4.41    Nov. 2017     69.9 MB      70.7 MB   112 MB        CT (xxxok)
 
 Remarks about the (intermediate) versions:
 1.3.02  Many new functions compared to 1.3.00
@@ -2283,6 +2297,7 @@ Remarks about the (intermediate) versions:
 1.4.31-Beta06d 2016       Further beta of CT 1.4.31
 1.4.40  Many bug fixes and enhanced functionality compared to 1.4.30.
                           (first one with a French language version)
+1.4.41  Small bug fixes.
 
 
 
@@ -2544,6 +2559,9 @@ d) A small selection of further pages mentioning CrypTool 1:
    http://www.guru99.com/how-to-make-your-data-safe-using-cryptography.html  +++
    http://scienceblogs.de/klausis-krypto-kolumne/
 
+e) Rating of CrypTool 1:
+   - https://www.openhub.net/p/8247
+     "... took an estimated 133 years of effort (COCOMO model)"
 
 
 8.3. Further freeware projects (Crank, CAP, CryptoStudio, SageMath, etc)
@@ -2625,6 +2643,14 @@ a) Available with complete source code are:
   GUI and an easy integration of new steganography algorithms.
   And it can be run from the commandline. It's free under GNU GPL v3.
   Last update: Version 0.4.3, Feb 2013.
+
+- http://celan.informatik.uni-oldenburg.de/kryptos/
+  Kryptos is a website that provides the user with access to cryptology
+  and some of its branches (partial disciplines) in a descriptive way.
+  It also makes it possible to try out a variety of algorithms yourself.
+  In particular, it contains a good and minimalistic visualization of 
+  Keccak.
+  Last update: No version number, July 2016. Available only in German.
 
 - The open-source computer-algebra system "SageMath" has also implemented
   some algorithms from the area of cryptography:
@@ -2777,7 +2803,7 @@ https://www.cryptool.org/en/ctp-education/awards/259-awards
 A. Appendix
    --------
 
-A.1. .... Roadmap after CT 1.4.40
+A.1. .... Roadmap after CT 1.4.4x
 A.2. .... Successor projects using Java/Eclipse and C#/.NET
 A.2.1. .... Design of the successor projects CT2 and JCT
 A.2.2. .... Features of the successor projects CT2 and JCT
@@ -2797,7 +2823,7 @@ interactive list of at:
 
 
 
-A.1. Roadmap after CT 1.4.40
+A.1. Roadmap after CT 1.4.4x
      -----------------------
 In general, all bigger new developments from the CT project will go directly
 to the two existing successor projects CT2 and JCT (see chapter A.2).
@@ -3372,7 +3398,7 @@ http://www.cryptoolinux.net/).
 
 However, the CT1 core team will build a successor of CT1 using Qt 5,
 which will have the same look&feel as CT1 and which is called QCT
-(see A.1: Roadmap after CT 1.4.40).
+(see A.1: Roadmap after CT 1.4.4x).
 
 ################################################################
 
