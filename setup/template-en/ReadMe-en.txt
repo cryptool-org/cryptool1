@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.41 for Win32, November 2017
+    CrypTool, Version 1.4.41 for Win32, December 2017
     
 CrypTool v1 (CT1) is a free, international
 e-learning program for cryptography and cryptanalysis.
@@ -330,15 +330,21 @@ d) As well as Animal the following programs are stand-alone Java applications
      parameters this Java program creates an XML file, which is used to
      control the called Flash animation).
 
-     Two remarks about this Java program and its Flash animation:
+     Four remarks about this Java program and its Flash animation:
      1) This Java program does the calculations and calls the Flash program
-        which just displays and animates the data.
+        which then displays and animates the data.
         In order to do strong encryption with Java the "unrestricted policy files"
         are needed. You can obtain these files from http://java.sun.com or
         http://java.sun.com/javase/downloads/index.jsp respectively.
-     2) The called Flash animation uses the Windows pixel font Bavaria Extended.
-        This font can downloaded from:
+     2) The Flash animation uses the Windows pixel font Bavaria Extended.
+        This font can be downloaded from:
         http://pixelfonts.style-force.net/download/bavaria-extended/
+     3) Without CT1 this Java program can be startes with the following
+        command from within the directory smimedemo:
+        java -cp ".;./swt64.jar;./lib/*" main.Programm %1
+     4) On monitors with high resolution the size of the window of the Java
+        program is not big enough in order to show all elements. So the user
+        has to make it bigger manually -- unfortunately.
      More details are in the online help of CT1 when you look for the "S/MIME".
 
 e) The Flash applications:
@@ -1359,8 +1365,14 @@ c) New functionality / Usability / Corrections of errors:
   Adding digit grouping (commas) now also for the length of the result.
   The result itself still doesn't show digit groupings as its calculation and
   display takes too much time.
-- The SWT files for the Java program S/MIME Demo are now delivered separately
-  for a 32 bit and a 64 bit VM.
+
+- In the window for the log messages of the CRT secret sharing demo now also
+  all text can be selected with Crtl+A.
+- The SWT files for the Java program S/MIME animation are now delivered
+  separately for a 32 bit and a 64 bit Java VM.
+- In 1.4.40, Flash executables (with integrated content) were signed. However,
+  this caused a white empty window instead of the content. So from 1.4.41
+  these they are delivered unsigned as before.
 
 - Thanks to the many attentive users, who pointed us to bugs and
   inconsistencies.
@@ -1518,7 +1530,7 @@ In CT1 you can get help for each selected menu item via pressing F1.
 Program, help facility and the documentation are designed to run
 in more than one language.
 
-For each supported language CrypTool 1.4.4x comes with an extra installation
+For each supported language, CrypTool 1.4.4x comes with an extra installation
 program (setup).
 
 
@@ -2253,7 +2265,7 @@ Version                 English      German    needed EN     by
 1.4.21    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.30    Aug. 2010     51.5 MB      52.1 MB    94 MB        DB
 1.4.40    Sep. 2017     69.9 MB      70.7 MB   112 MB        CT
-1.4.41    Nov. 2017     69.9 MB      70.7 MB   112 MB        CT (xxxok)
+1.4.41    Nov. 2017     69.9 MB      71.0 MB   112 MB        CT (xxxok)
 
 Remarks about the (intermediate) versions:
 1.3.02  Many new functions compared to 1.3.00
@@ -3378,6 +3390,8 @@ work well under Wine. Wine is much more stable than 6 years ago.
 Generally we do not make extra efforts to support Wine.
 Instead of that, please try the platform-independent version JCT which also
 runs under Linux (see chapter 3.5).
+
+See also: https://www.codeweavers.com/compatibility/crossover/cryptool
 
 
 A.4.2. Porting of CT1 to Linux with Qt

@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.41 für Win32, November 2017
+    CrypTool, Version 1.4.41 für Win32, Dezember 2017
 
 CrypTool v1 (CT1) ist ein freies, internationales
 E-Learning-Programm für Kryptographie und Kryptoanalyse.
@@ -335,15 +335,25 @@ d) Ebenso wie Animal sind die ff. Programme eigenständige Java-Anwendungen
      erstellt anhand der im Fenster eingegebenen Parameter eine XML-Datei,
      die zur Steuerung der dann aufgerufenen Flash-Animation dient).
 
-     Zwei Anmerkungen zu diesem Java-Programm und seiner Flash-Animation:
-     1) Dieses Java-Programm macht die Berechnunge und ruft das Flash-Programm,
-        das die Daten nur anzeigt und animiert.
+     Vier Anmerkungen zu diesem Java-Programm und seiner Flash-Animation:
+     1) Das Java-Programm macht die Berechnungen und ruft das Flash-Programm,
+        das die Daten dann anzeigt und animiert.
         Um mit Java starke Verschlüsselung zu nutzen, braucht man die "unrestricted
         policy files". Man erhält diese z.B. von http://java.sun.com oder
         http://java.sun.com/javase/downloads/index.jsp respectively.
      2) Die aufgerufene Flash-Animation benutzt den Windows Pixel-Font
         "Bavaria Extended." Diesen Font kann man hier herunterladen:
         http://pixelfonts.style-force.net/download/bavaria-extended/
+     3) Ohne CT1 kann man das Java-Programm per Batchfile folgendermaßen
+        starten -- diese Batchdatei (bspw. smimedemo.bat) sollte im
+        Verzeichnis smimedemo liegen und da auch gestartet werden (swt32.jar
+        und swt64.jar liegen schon in diesem Verzeichnis). Folgender Befehl
+        sollte in der Batchdatei stehen (per "start beepfile" kann man evtl.
+        zusätzlich auf den Start aufmerksam machen):
+        java -cp ".;./swt64.jar;./lib/*" main.Programm %1
+     4) Das Fenster des Java-Programms ist auf hochauflösenden Monitoren
+        nicht groß genug, um alle Elemente anzuzeigen. Der Benutzer muss
+        es (leider) selbst größer ziehen.
      Weitere Details finden Sie in der Onlinehilfe von CT1 unter dem
      Suchbegriff "S/MIME".
 
@@ -1413,8 +1423,14 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
   gesetzt. Für das Feld Ergebnis werden weiterhin keine Tausendertrenner
   angezeigt, denn deren Berechnung und Anzeige in einem MFC-Control dauert
   zu lange.
-- Die SWT-Dateien für das Java-Programm S/MIME-Demo werden nun getrennt
-  für 32- und 64-Bit-VMs ausgeliefert.
+
+- Im Fenster mit den Lognachrichten der CRT Secret-Sharing-Demo kann man
+  nun auch mit Strg+A den gesamten Text markieren.
+- Die SWT-Dateien für das Java-Programm S/MIME-Animation werden nun getrennt
+  für 32- und 64-Bit-Java-VMs ausgeliefert.
+- Flash-Executables (mit integriertem Inhalt) wurden in 1.4.40 signiert. Dann
+  wurde statt dem Inhalt nur ein leeres, weißes Fenster angezeigt. Ab 1.4.41
+  werden sie wie vorher unsigniert ausgeliefert.
 
 - Danke an die vielen aufmerksamen Benutzer, die uns auf Bugs und 
   Inkonsistenzen aufmerksam machten.
@@ -2181,8 +2197,8 @@ smimedemo\anim.swf
          \lock2.gif
          \smime.ini
          \SMIME_Animation.exe   [erzeugt temporär params.xml]
-         \start-de.bat
-         \swt-awt-win32-3235.dll
+         \start-de.bat             [xxx Korrigieren] 
+         \swt-awt-win32-3235.dll   [xxx Korrigieren]
          \swt-gdip-win32-3235.dll
          \swt-wgl-win32-3235.dll
          \swt-win32-3235.dll
@@ -2203,7 +2219,7 @@ smimedemo\lib\bcmail-jdk16-141.jar
              \bcprov-jdk16-141.jar
              \commons-codec-1.3.jar
              \mail.jar
-             \swt.jar
+             \swt.jar        [xxx Korrigieren]
 
 smimedemo\mail\Mail.class
               \MailService.class
@@ -2332,7 +2348,7 @@ Version                  Deutsch    Englisch      Bedarf DE      durch
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.30    Aug. 2010      52,1 MB     51,5 MB         95 MB        DB
 1.4.40    Sep. 2017      70,7 MB     69,9 MB        113 MB        CT
-1.4.41    Nov. 2017      70,7 MB     69,9 MB        113 MB        CT (xxxok)
+1.4.41    Nov. 2017      71,0 MB     69,9 MB        114 MB        CT (xxxok)
 
 Bemerkungen zu den (Zwischen-)Versionen:
 1.3.02  Viele neue Funktionen gegenüber 1.3.00
@@ -3492,6 +3508,8 @@ als vor 6 Jahren.
 Wir unternehmen keine extra Anstrengungen, Wine zu unterstützen.
 Stattdessen empfehlen wir, die plattformunabhängige Version JCT zu benutzen,
 die auch unter Linux läuft (siehe Kapitel 3.5).
+
+Siehe auch: https://www.codeweavers.com/compatibility/crossover/cryptool
 
 
 A.4.2. Portierung von CT1 nach Linux mit Qt
