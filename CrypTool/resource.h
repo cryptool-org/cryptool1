@@ -3282,9 +3282,6 @@
 #define IDS_PLAINTEXT                   62027
 #define IDS_CIPHERTEXT                  62028
 #define IDS_PA_EMPTYREFFILE             62029
-#define IDS_ERROPEN_SMIMEDEMO           62030
-#define IDS_SMIMEDEMO_EXE               62031
-#define IDS_SMIMEDEMO_PARAM             62032
 #define IDS_AES_FLOWVISUALIZATION_PARAM 62033
 #define IDS_ERR_AES_FLOWVISUALIZATION   62034
 #define IDS_PA_KEYFOUND                 62035

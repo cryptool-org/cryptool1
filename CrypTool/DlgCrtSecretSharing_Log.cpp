@@ -74,6 +74,21 @@ BOOL CDlgCrtSecretSharing_Log::OnInitDialog()
 	UpdateData(false);
 	return TRUE;
 }
+
+BOOL CDlgCrtSecretSharing_Log::PreTranslateMessage(MSG *msg) {
+	// flomar, 2017/12/05: This custom message handler functionality was necessary 
+	// to allow users to press Ctrl+A to select all text in the log window. For some 
+	// mysterious reason MFC would not allow it out-of-the-box.
+	if(msg->message == WM_KEYDOWN && msg->wParam == 'A' && GetKeyState(VK_CONTROL) < 0) {
+		CEdit *edit = (CEdit*)(GetDlgItem(IDC_CRT_LOG));
+		if(edit) {
+			edit->SetSel(0, -1);
+			return true;
+		}
+	}
+	return CDialog::PreTranslateMessage(msg);
+}
+
 void CDlgCrtSecretSharing_Log::OnBnClickedButton1()
 { 
 	OnOK(); 

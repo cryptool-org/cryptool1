@@ -1673,11 +1673,24 @@ void CCrypToolApp::OnProtokolSMIME()
 		return;
 	}
 
+	// flomar, 2017/12/05: for the SMIME visualization to work we need to make 
+	// sure we're grabbing the proper SWT framework (32bit or 64bit) depending 
+	// on the installed Java VM.
+	int javaVersionMajor = 0;
+	int javaVersionMinor = 0;
+	int javaBits = 0;
+	if(!extractJavaInformation(javaVersionMajor, javaVersionMinor, javaBits)) {
+		CString message;
+		message.Format(IDS_STRING_JAVA_PROGRAM_EXECUTION_FAILED);
+		AfxMessageBox(message, MB_ICONSTOP);
+		return;
+	}
+
 	CString javaProgram;
 	CString javaProgramCompleteCall;
 	CString javaExecPath = CString(Pfad) + CString(_T("\\smimedemo\\")); 
-	javaProgram.LoadStringA(IDS_STRING_SMIME_DEMO_PROGRAM);
-	javaProgramCompleteCall.LoadStringA(IDS_STRING_SMIME_DEMO_PROGRAM_COMPLETE_CALL);
+	javaProgram.Format(IDS_STRING_SMIME_DEMO_PROGRAM);
+	javaProgramCompleteCall.Format(IDS_STRING_SMIME_DEMO_PROGRAM_COMPLETE_CALL, javaBits);
 	ShellExecuteJava(javaProgram, javaProgramCompleteCall, javaExecPath);
 }
 

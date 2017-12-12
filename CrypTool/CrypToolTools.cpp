@@ -260,6 +260,20 @@ BOOL CT_WRITE_REGISTRY			(const char *value,	const char *ID)
 	return TRUE;
 }
 
+// This function returns true if the operating system on which 
+// CrypTool is executed is a 64bit Windows, otherwise this function 
+// returns false.
+bool isWindows64Bit() {
+#if defined (_WIN64)
+	return true;
+#elif defined(_WIN32)
+	BOOL windows64bit = false;
+	return IsWow64Process(GetCurrentProcess(), &windows64bit) && windows64bit;
+#else
+	return false;
+#endif
+}
+
 // This function expects a string of KEY/VALUE pairs as follows:
 // "key0: value0, key1: value1, key2: value2..."
 // Taking a key as argument, the function returns the respective value 
@@ -327,6 +341,64 @@ bool isAppDataVariableDefined() {
 	return true;
 }
 
+// This function tries to extract information about Java version installed 
+// on the system. If all goes well, the extracted information is returned 
+// through the output parameters. If something goes wrong, the function 
+// returns false and all output parameters default to zero.
+bool extractJavaInformation(int &_versionMajor, int &_versionMinor, int &_bits) {
+	// initialize output parameters
+	_versionMajor = 0;
+	_versionMinor = 0;
+	_bits = 0;
+	// having a valid %APPDATA% variable is required, not just for 
+	// evaluating the Java information, but for other areas as well
+	if(isAppDataVariableDefined()) {
+		// check if Java is available at all
+		if(reinterpret_cast<int>(ShellExecute(NULL, NULL, "java", NULL, NULL, SW_HIDE)) > 32) {
+			// this *should* probably be done with "CreateProcess" and pipes, 
+			// but piping the Java output into a file should work as well
+			const CString outputFileName = CString(getenv("APPDATA")) + CString("\\") + CString("__CRYPTOOL_JAVA_VERSION__");
+			// pipe the Java version output into the file
+			system(CString("java -XshowSettings:all") + CString(" 2> ") + CString(outputFileName));
+			// try to open the file and extract the desired information
+			CStdioFile inputFile;
+			if(inputFile.Open(outputFileName, CFile::modeRead)) {
+				int versionMajor = 0;
+				int versionMinor = 0;
+				int bits = 0;
+				CString line;
+				while(inputFile.ReadString(line)) {
+					if(line.Find("java.version") != -1) {
+						CString lineVersion = line;
+						lineVersion.Replace("java.version = ", "");
+						std::vector<CString> elements = splitString(lineVersion, ".");
+						if(elements.size() >= 2) {
+							versionMajor = atoi(elements[0]);
+							versionMinor = atoi(elements[1]);
+						}
+					}
+					if(line.Find("sun.arch.data.model") != -1) {
+						CString lineBits = line;
+						lineBits.Replace("sun.arch.data.model = ", "");
+						bits = atoi(lineBits);
+					}
+				}
+				inputFile.Close();
+				// delete the file
+				system(CString("del") + CString(" ") + CString(outputFileName));
+				// if all extracted information is non-zero, we're good
+				if(versionMajor != 0 && versionMinor != 0 && bits != 0) {
+					_versionMajor = versionMajor;
+					_versionMinor = versionMinor;
+					_bits = bits;
+					return true;
+				}
+			}
+		}
+	}
+	return false;
+}
+
 // This function checks whether a specific Java version is available; 
 // to test against a specific Java version, simply supply a string 
 // like "1.3" or "1.4". Note that more sophisticated filtering is 
@@ -334,66 +406,34 @@ bool isAppDataVariableDefined() {
 // error handling stuff around the call to this function, as it 
 // presents its own error message in case it returns false.
 bool isJavaAvailable(const CString &_version) {
-	// check if hava is available
-	if(reinterpret_cast<int>(ShellExecute(NULL, NULL, "java", NULL, NULL, SW_HIDE)) > 32) {
-		// make sure we have a valid "%APPDATA%" environment variable; if not, 
-		// return false directly without an explicit error message as the function 
-		// below creates its own error message in case it returns false
-		if(!isAppDataVariableDefined()) {
-			return false;
-		}
-		// this *should* probably be done with "CreateProcess" and pipes, 
-		// but piping the Java output into a file should work as well
-		const CString outputFileName = CString(getenv("APPDATA")) + CString("\\") + CString("__CRYPTOOL_JAVA_VERSION__");
-		// pipe the Java version output into the file
-		system(CString("java -version") + CString(" 2> ") + CString(outputFileName));
-		// try to open the file and retrieve the version
-		CString version;
-		CStdioFile inputFile;
-		if(inputFile.Open(outputFileName, CFile::modeRead)) {
-			// read the version line
-			inputFile.ReadString(version);
-			inputFile.Close();
-			// delete the file
-			system(CString("del") + CString(" ") + CString(outputFileName));
-			// parse the version line which comes in the following format:
-			//   java version "1.2.3abc"
-			// we want to remove everything before and after the two quotes
-			int indexQuote1 = version.Find("\"", 0);
-			int indexQuote2 = version.Find("\"", indexQuote1);
-			version.Delete(0, indexQuote1 + 1);
-			version.Delete(indexQuote2, version.GetLength() - indexQuote2);
-			// now we split the versions (available + specified)
-			std::vector<CString> vectorAvailableVersionStrings = splitString(version, ".");
-			std::vector<CString> vectorSpecifiedVersionStrings = splitString(_version, ".");
-			// compare versions
-			if(vectorAvailableVersionStrings.size() >= 2 && vectorSpecifiedVersionStrings.size() >= 2) {
-				const CString stringAvailableVersionMajor = vectorAvailableVersionStrings[0];
-				const CString stringAvailableVersionMinor = vectorAvailableVersionStrings[1];
-				const CString stringSpecifiedVersionMajor = vectorSpecifiedVersionStrings[0];
-				const CString stringSpecifiedVersionMinor = vectorSpecifiedVersionStrings[1];
-				const int availableVersionMajor = atoi(stringAvailableVersionMajor);
-				const int availableVersionMinor = atoi(stringAvailableVersionMinor);
-				const int specifiedVersionMajor = atoi(stringSpecifiedVersionMajor);
-				const int specifiedVersionMinor = atoi(stringSpecifiedVersionMinor);
-				if(availableVersionMajor >= specifiedVersionMajor && availableVersionMinor >= specifiedVersionMinor) {
-					return true;
-				}
-			}
-			// if we reach this point, Java seems to be installed, but 
-			// the Java version is not sufficient (with regards to the 
-			// Java version specified when calling this function)
-			CString errorMessage;
-			errorMessage.Format(IDS_STRING_JAVA_REQUIREMENTS_NOT_MET, _version, version);
-			AfxMessageBox(errorMessage, MB_ICONINFORMATION);
-			return false;
-		}
+	int requestedVersionMajor = 0;
+	int requestedVersionMinor = 0;
+	std::vector<CString> requestedVersionElements = splitString(_version, ".");
+	if(requestedVersionElements.size() >= 2) {
+		requestedVersionMajor = atoi(requestedVersionElements[0]);
+		requestedVersionMinor = atoi(requestedVersionElements[1]);
 	}
-	// if we reach this point, Java is not installed
-	CString errorMessage;
-	errorMessage.Format(IDS_STRING_JAVA_NOT_INSTALLED, _version);
-	AfxMessageBox(errorMessage, MB_ICONERROR);
-	return false;
+	int availableVersionMajor = 0;
+	int availableVersionMinor = 0;
+	int availableBits = 0;
+	extractJavaInformation(availableVersionMajor, availableVersionMinor, availableBits);
+	// check whether Java is available at all
+	if(availableVersionMajor == 0 || availableVersionMinor == 0 || availableBits == 0) {
+		CString errorMessage;
+		errorMessage.Format(IDS_STRING_JAVA_NOT_INSTALLED, _version);
+		AfxMessageBox(errorMessage, MB_ICONERROR);
+		return false;
+	}
+	// check whether the requested Java version is sufficient
+	if(availableVersionMajor < requestedVersionMajor || availableVersionMajor == requestedVersionMajor && availableVersionMinor < requestedVersionMinor) {
+		CString version;
+		version.Format("%i.%i", availableVersionMajor, availableVersionMinor);
+		CString errorMessage;
+		errorMessage.Format(IDS_STRING_JAVA_REQUIREMENTS_NOT_MET, _version, version);
+		AfxMessageBox(errorMessage, MB_ICONINFORMATION);
+		return false;
+	}
+	return true;
 }
 
 // This function tries to execute a Java program (parameter 1) using 
@@ -426,7 +466,7 @@ void ShellExecuteJava(const CString &_javaProgram, const CString &_javaProgramCo
 		return;
 	}
 	// try to execute the Java progam
-	if(reinterpret_cast<int>(ShellExecute(NULL, NULL, "java", javaProgramCompleteCall, _path, SW_HIDE)) <= 32) {
+	if(reinterpret_cast<int>(ShellExecute(NULL, NULL, "java", javaProgramCompleteCall, _path, SW_SHOW)) <= 32) {
 		CString message;
 		message.LoadStringA(IDS_STRING_JAVA_PROGRAM_EXECUTION_FAILED);
 		AfxMessageBox(message, MB_ICONSTOP);

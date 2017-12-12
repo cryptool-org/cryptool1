@@ -49,6 +49,9 @@ BOOL CT_WRITE_REGISTRY			(const unsigned long value, const char *ID);
 BOOL CT_WRITE_REGISTRY			(const char *value,         const char *ID);
 
 // see implementation
+bool isWindows64Bit();
+
+// see implementation
 CString extractValueFromStringByKey(CString _key, CString _string);
 
 // see implementation
@@ -56,8 +59,13 @@ std::vector<CString> splitString(const CString &_string, const CString &_separat
 
 // see implementation
 bool isAppDataDirectoryDefined();
+
+// see implementation
+bool extractJavaInformation(int &_versionMajor, int &_versionMinor, int &_bits);
+
 // see implementation
 bool isJavaAvailable(const CString &_version);
+
 // see implementation
 void ShellExecuteJava(const CString &_javaProgram, const CString &_javaProgramCompleteCall, const CString &_path);
 

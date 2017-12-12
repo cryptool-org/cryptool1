@@ -42,6 +42,7 @@ public:
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
 	virtual BOOL OnInitDialog();
+	virtual BOOL PreTranslateMessage(MSG *msg);
 	DECLARE_MESSAGE_MAP()
 public:
 	CString m_log;
