@@ -445,10 +445,9 @@ bool isJavaAvailable(const CString &_version) {
 // if the program exists, this function tries to execute the program 
 // within a shell window
 void ShellExecuteJava(const CString &_javaProgram, const CString &_javaProgramCompleteCall, const CString &_path) {
-
 	CString javaProgram = _javaProgram;
 	CString javaProgramCompleteCall = _javaProgramCompleteCall;
-
+	CString path = _path;
 	// check if Java is installed
 	if(reinterpret_cast<int>(ShellExecute(NULL, NULL, "java", NULL, NULL, SW_HIDE)) <= 32) {
 		CString message;
@@ -457,7 +456,7 @@ void ShellExecuteJava(const CString &_javaProgram, const CString &_javaProgramCo
 		return;
 	}
 	// check if Java program is there
-	javaProgram.Insert(0, _path);
+	javaProgram.Insert(0, path);
 	struct stat javaProgramFileInformation;
 	if(stat(javaProgram.GetBuffer(), &javaProgramFileInformation) != 0) {
 		CString message;
@@ -465,13 +464,17 @@ void ShellExecuteJava(const CString &_javaProgram, const CString &_javaProgramCo
 		AfxMessageBox(message, MB_ICONINFORMATION);
 		return;
 	}
-	// try to execute the Java progam
-	if(reinterpret_cast<int>(ShellExecute(NULL, NULL, "java", javaProgramCompleteCall, _path, SW_SHOW)) <= 32) {
+	// try to execute the Java program in its own process
+	STARTUPINFO si = {0};
+	PROCESS_INFORMATION pi = {0};
+	CString command;
+	command.Format("java %s", javaProgramCompleteCall);
+	if(!CreateProcess(NULL, (LPSTR)(LPCTSTR)(command), NULL, NULL, false, CREATE_NO_WINDOW, NULL, (LPCTSTR)(path), &si, &pi)) {
 		CString message;
 		message.LoadStringA(IDS_STRING_JAVA_PROGRAM_EXECUTION_FAILED);
 		AfxMessageBox(message, MB_ICONSTOP);
 		return;
-	}	
+	}
 }
 
 // this function implicitly converts all lowercase letters in the key 

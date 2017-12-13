@@ -50,7 +50,7 @@
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
 				TreatWChar_tAsBuiltInType="true"
-				UsePrecompiledHeader="2"
+				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="4"
@@ -134,7 +134,7 @@
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
 				TreatWChar_tAsBuiltInType="true"
-				UsePrecompiledHeader="2"
+				UsePrecompiledHeader="0"
 				WarningLevel="4"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="4"
@@ -217,7 +217,7 @@
 				RuntimeLibrary="0"
 				DisableLanguageExtensions="false"
 				TreatWChar_tAsBuiltInType="true"
-				UsePrecompiledHeader="2"
+				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="3"
@@ -303,7 +303,7 @@
 				RuntimeLibrary="0"
 				DisableLanguageExtensions="false"
 				TreatWChar_tAsBuiltInType="true"
-				UsePrecompiledHeader="2"
+				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="3"
@@ -389,7 +389,7 @@
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
 				TreatWChar_tAsBuiltInType="true"
-				UsePrecompiledHeader="2"
+				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="4"
@@ -474,7 +474,7 @@
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
 				TreatWChar_tAsBuiltInType="true"
-				UsePrecompiledHeader="2"
+				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="4"
@@ -559,7 +559,7 @@
 				RuntimeLibrary="0"
 				DisableLanguageExtensions="false"
 				TreatWChar_tAsBuiltInType="true"
-				UsePrecompiledHeader="2"
+				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="3"
@@ -646,7 +646,7 @@
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
 				TreatWChar_tAsBuiltInType="true"
-				UsePrecompiledHeader="2"
+				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="4"
@@ -730,7 +730,7 @@
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
 				TreatWChar_tAsBuiltInType="true"
-				UsePrecompiledHeader="2"
+				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="4"
@@ -814,7 +814,7 @@
 				RuntimeLibrary="0"
 				DisableLanguageExtensions="false"
 				TreatWChar_tAsBuiltInType="true"
-				UsePrecompiledHeader="2"
+				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="3"
@@ -902,7 +902,7 @@
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
 				TreatWChar_tAsBuiltInType="true"
-				UsePrecompiledHeader="2"
+				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="4"
@@ -985,7 +985,7 @@
 				RuntimeLibrary="0"
 				DisableLanguageExtensions="false"
 				TreatWChar_tAsBuiltInType="true"
-				UsePrecompiledHeader="2"
+				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="3"
@@ -1072,7 +1072,7 @@
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
 				TreatWChar_tAsBuiltInType="true"
-				UsePrecompiledHeader="2"
+				UsePrecompiledHeader="0"
 				WarningLevel="4"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="4"
@@ -1155,7 +1155,7 @@
 				RuntimeLibrary="0"
 				DisableLanguageExtensions="false"
 				TreatWChar_tAsBuiltInType="true"
-				UsePrecompiledHeader="2"
+				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="3"
@@ -1657,11 +1657,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\res\NumberShark.ico"
+				RelativePath=".\Bilder\NumberShark.ico"
 				>
 			</File>
 			<File
-				RelativePath=".\Bilder\NumberShark.ico"
+				RelativePath=".\res\NumberShark.ico"
 				>
 			</File>
 			<File
@@ -1689,11 +1689,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\res\Zahlenhai.ico"
+				RelativePath=".\Bilder\Zahlenhai.ico"
 				>
 			</File>
 			<File
-				RelativePath=".\Bilder\Zahlenhai.ico"
+				RelativePath=".\res\Zahlenhai.ico"
 				>
 			</File>
 			<File
