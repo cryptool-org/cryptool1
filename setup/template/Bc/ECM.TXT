@@ -244,13 +244,13 @@ define mal (x0, y0, z0, faktor) {		# setzt xprod, yprod, zprod
 
 
 
-define ecm (n) {
+define ecm (n) {    # BE: returns 0 if prime, otherwise one prime factor
 
   auto maxab, i, a, b, d, xprod, yprod, x0, y0		# global: iter_ecm, pollardk, faktbasi # rekpt: sameEC
 
   n = abs(n)
 
-  print "\nECM ", n, " B = ", pollardb, "\n"	#, " same_ec ", same_ec, "\n"
+  print "ECM ", n, " B = ", pollardb, "\n"	#, " same_ec ", same_ec, "\n"
 
   if ( n < 4) return n
   if ( euklidx(n,6) > 1 ) return euklidx(n,6)
@@ -341,7 +341,7 @@ define nach_ecm (n, x, y, z) {	# (x,y,z) = (x0,y0,z0) * pollardk, wurde von ecm 
   #showij(ecm[],1,maxab)
 
 
-  # 2. rechnen
+  # 2. Rechnen
 
   p1 = prims[faktbasi]			# erste Primzahl > pollardb
   
@@ -737,6 +737,8 @@ define probiere_kurve (a, b, q, n, ord) {
 #start_a_ecm = 70
 
 
+htest=faktbas(4)        # BE:Nach dem Starten der Batchdatei Variablenname eingeben
+                        #    und sehen, ob richtig berechnet
 h = faktbas(100)	# setzt faktbasi
 ein = (2^127+8)/(8*17)
 

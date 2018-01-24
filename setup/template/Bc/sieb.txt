@@ -1,3 +1,5 @@
+# BE: Führt meist zu "Fatal error: Out of memory for malloc" bzw. Absturz von BC
+
 /*
     BC-Funktionen zum Faktorisieren mit dem Quadratischen Sieb,
     braucht BC-Funktionen der Dateien prims.txt und quadRest.txt
@@ -22,6 +24,10 @@
 sieb_geladen = 1
 array_limit = 2^16	# max. Array-Länge 65536 - nicht vergrößern!
 sieb_limit = 100000
+                        # BE: Versuche fruchtlos.  BC stürzt unter der Win-Kommandozeile
+                        #     sporadisch ab, ohne Eingreif in die Programme und Parameter
+# array_limit = 2^13	# BE: Versuch, um die Out of memory-Abstürze zu vermeiden
+# sieb_limit = 10000	# BE: Versuch, um die Out of memory-Abstürze zu vermeiden
 
 
 
@@ -1087,6 +1093,8 @@ define lanczos (a[], b[], n, m) {		# löse Ax = b (mod m) (A symmetrisch, n-dim)
 
 p=prims[2002]
 q=prims[1001]
+p  ###### Test output just from loading
+q
 #p=nextprime(10^5+1000)
 #q=nextprime(10^6-1000)
 #p=nextprime(10^7)
@@ -1134,8 +1142,8 @@ lanczos(a[],aus[],3,0)
 showij( x[],0,2)
 scale = 0
 */
-/*
 
+/*
 modul=29;  n=6;  i=0	# Beispiel bei Thomas Denny:
 
 a[i++]=26;  a[i++]= 0;  a[i++]=11;  a[i++]=22;  a[i++]=12;  a[i++]= 3;    b[0]= 9
@@ -1148,7 +1156,6 @@ a[i++]= 3;  a[i++]=-1;  a[i++]=20;  a[i++]=-2;  a[i++]= 9;  a[i++]= 5;    b[5]= 
 lanczos(a[],b[],n, modul)
 for (i=0; i<n; i++) {if (x[i] = mod(x[i],modul) < 0) x[i] = x[i] + modul} 
 h=showij( x[],0,n-1)
-
 */
 
 /*
@@ -1156,6 +1163,8 @@ iter_mr=2
 sieb_limit=100
 p=nextprime(10^11)
 q=nextprime(10^12)
-
+p
+q
 quadsieb(p*q)
 */
+

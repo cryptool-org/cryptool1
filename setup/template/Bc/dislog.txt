@@ -223,7 +223,7 @@ define dislog_anfang (basis, a, modul, ord) {	# saubere Bedingungen, ggf. Primit
   } 
   # a[] enthält Primteiler und unzerlegte Teiler von |G|.
 
-  print "\nLoese ", bas, "^x = ", a, " mod ", modul, "\n"
+  print "Loese ", bas, "^x = ", a, " mod ", modul, "\n"
 
   if ( mod(bas-a, modul) == 0) return (1)			# Lösung = 1
 
@@ -260,7 +260,7 @@ define dislog (bas, a, modul) {			# diskreter Log Reduktion Primzahlpotenzordnun
   }
   pp[j+1] = 0
 
-  print "\nPrimzahlpotenzen, die |G| teilen\n"
+  print "Primzahlpotenzen, die |G| teilen\n"
   show(pp[])
 
   for (i=1; pp[i]; i++) {					# Log für jede Primzahlpotenz lösen: x[]
@@ -272,7 +272,7 @@ define dislog (bas, a, modul) {			# diskreter Log Reduktion Primzahlpotenzordnun
     if (x[i] < 0) return -1
   }
 
-  print "\nChinesischer Restsatz:\n"
+  print "Chinesischer Restsatz:\n"
   return mod( chin(x[], pp[]), ord)				# Gesamt-Log mittels Chinesischem Restsatz
 }
 
@@ -337,7 +337,7 @@ define dislogp (bas, alpha, modul, p, e) {	# diskreter Log Reduktion auf Primzah
     alpha = mod(alpha * powermod(bas, -x[i]*p^i, modul), modul)
   }
 
-  print "\nx berechnen\n"
+  print "x berechnen\n"
   showij(x[], 0, e-1)
 
   phi = p^e

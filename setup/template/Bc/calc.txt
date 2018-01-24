@@ -1,3 +1,4 @@
+# To be called with: bc -lq prims.txt bruch.txt calc.txt
 seed = 11152276
 teiler(9979787976011101)
 quit

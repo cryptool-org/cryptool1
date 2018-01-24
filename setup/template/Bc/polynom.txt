@@ -33,6 +33,8 @@ lim_fft = 4000	# global
 
 
 define poly(n) {	# baue Polynom aus[]
+                        #  beachte, dass alle Eingaben mod modulp=3 gerechnet werden und
+                        #  ein Koeffizient von 3 zu einem 0-Wert führt!
 
   auto i, h, flag
 
@@ -44,15 +46,18 @@ define poly(n) {	# baue Polynom aus[]
       h = mod(h, modulp)
     }
     aus[i+1] = h
+    # print "BE1: aus[i+1]: ", aus[i+1], "\n"
     if ((h || !i) && !flag) {
       flag = 1
       aus[0] = i
     }
+    # print "BE2: aus[i+1]: ", aus[i+1], "\n"
   }
   print "\n"
 
-  i = showp(aus[])
-  #i = showij(aus[],0,aus[0]+1)
+  # showp(aus[])  # BE: ohne Zuweisung auf, damit es ausgegeben wird.
+  i = showp(aus[])  #: BE raus, da es ja 0-Werte weglässt
+  # i = showij(aus[],0,aus[0]+1)
 }
 
 
@@ -607,6 +612,8 @@ define mrp (a[]) {		# Miller-Rabin-Test, ob Polynom irreduzibel, max. Anzahl Dur
 
 
 define aks (n) {		# Agrawal-Primzahl-Test    (www.math.princeton.edu/~annals/issues/2004/Sept2004/Agrawal.pdf)
+                                # BE: führt auf WIn10 mit aks(23) zum Absturz
+                                #     und mit aks(42) zu falschem Ergebnis.
 
   auto a, ln, ln2, r, q, h, i, s
 
@@ -922,7 +929,7 @@ define testfft (ar[]) {		# FFT hin und zurück
   n = 2
   while (n<=ar[0]) n=2*n	# nächste 2er-Potenz > Grad des Polynoms
 
-  print "test FFT(", n, ")\n"
+  print "polynom.txt: test FFT(", n, ")\n"
   h = einheitswurzeln (n)
 
   for (i=ar[0]+2; i<=n; i++) ar[i] = 0	# ar[] reinigen
@@ -967,7 +974,7 @@ define multpfft (ar[], br[], quad) {	# Polynom-Multiplikation mit FFT
 
   n = 2
   while (n<=ar[0]+br[0]) n=2*n		# Grad des Produkts
-  print "FFT(", n, ")\n"
+  print "polynom.txt: FFT(", n, ")\n"
   h = einheitswurzeln (n)
 
   for (i=ar[0]+2; i<=n; i++) ar[i] = 0	# ar[] reinigen
@@ -1048,7 +1055,6 @@ h=copyp(aus[],4)
 return gleichp(pol3[],pol4[])
 }
 
-test(10)
-
-
+# test(10) 
+test(5) # Hope this helps to avoid every 2nd getting "Fatal error: Out of memory for malloc."
 

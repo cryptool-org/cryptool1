@@ -1,6 +1,5 @@
 /*
-    BC-Funktionen zu Quadratischen Resten, daneben u.a. Faktorisierungen nach Jones
-und Lehman
+    BC-Funktionen zu Quadratischen Resten, daneben u.a. Faktorisierungen nach Jones und Lehman
     braucht BC-Funktionen der Datei prims.txt
     Copyright (C) 2006, 2007, 2008 Martin Ramberger (rambo@uni-koblenz.de)
 
@@ -419,7 +418,7 @@ define repunit_factor (n) {	# Primteiler von Rep-Unit
 
 
 
-define rotate (n, len, d) {		# Rotiere n um d Stellen nach rechts
+define rotate (n, len, d) { # Rotiere n um d Stellen nach rechts (len = Länge der Dezimalzahl n)
 
   auto s, r
 
@@ -543,12 +542,14 @@ define lehman (n, start, ziel) {	# Faktorisierung nach Lehman
 
 
 /*
-Wenn man in der folgenden Gleichung für die 26 Unbekannten nichtnegative ganze
+Wenn man in der folgenden Gleichung für die 26 Unbekannten  nichtnegative ganze
 Zahlen einsetzt, dann ist jedes positive Ergebnis eine Primzahl und es existieren
 unendlich viele Lösungen.
 */
 
-define p(a[]) {		# http://www.mathematic.de/beweise/primenumbers-jsww.html
+define p(a[]) {	# http://www.mathematic.de/beweise/primenumbers-jsww.html, 1976
+                # vgl. http://www.maths.ed.ac.uk/~mbooth/mrdp.pdf 2017
+                # http://forums.xkcd.com/viewtopic.php?t=112725
 
   auto res
 
@@ -572,10 +573,10 @@ define p(a[]) {		# http://www.mathematic.de/beweise/primenumbers-jsww.html
 
 /*
 Der Term ist ein Produkt aus k+2 und einem zweiten Faktor, der kleiner/gleich 1 ist.
-Somit ergibt sich P(a, b, c, ...,z) = k+2 und der zweite Faktor muß gleich 1 sein.
+Somit ergibt sich P(a, b, c, ...,z) = k+2 und der zweite Faktor muss gleich 1 sein.
 Der zweite Faktor ist 1 minus einer Summe von Quadraten, soll dieser 1 sein müssen
-alle Quadrate gleich 0 sein. Das heißt, daß man alle Primzahlen dadurch ermitteln
-kann, daß man alle nichtnegativen Lösungen der 14 Gleichungen in den 26 Unbekannten,
+alle Quadrate gleich 0 sein. Das heißt, dass man alle Primzahlen dadurch ermitteln
+kann, dass man alle nichtnegativen Lösungen der 14 Gleichungen in den 26 Unbekannten,
 die man durch Nullsetzen der Summanden des zweiten Faktors erhält, aufsucht. Bislang
 wurde keine der unendlich vielen Lösungen gefunden (Wissensstand 1995).
 */
@@ -597,7 +598,7 @@ define ftest (n) {	# Test, ob n-te Fermatzahl Primzahl
   } else {		# exponent zu large in raise
     long = 1
   }
-  print "\nProbedivisionen ...\n"
+  print "Probedivisionen ...\n"
 
   # 3 * 5 * 7 * 11 * 13 = 15015
   for (i=0; i<15015; i++ ) reste[i] = 1
@@ -699,7 +700,7 @@ iter_fermat 10^5	10^6	10^7
 */
 
 
-define lucas (p) {	# Test, ob n-te Mersennezahl Primzahl
+define lucas (p) { # Test, ob n-te Mersennezahl prim ist (returns 0 if not prime)
 
   auto mn, s, i, d, diff
 

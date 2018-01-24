@@ -249,7 +249,8 @@ define probe (n, a, b) {	# n Zufallszahlen aus {a, ..., b} unsortiert
 
 
 define show (a[]) {		# zeige Inhalt des angegebenen Arrays
-
+                                # BE: Fehlerhafte (unerwartete) Ausgaben, wenn eines (bsp. gleich
+                                #     das 1.) der Elemente 0 ist! Und es fängt erst bei a[1] an.
   auto i			# global: zeil
 
   for (i=1; a[i]!=0; i++) {
@@ -442,7 +443,7 @@ define fermat (n) {	# Fermat Faktorisierung
   n = abs(n)
   if ( mod(n,2) == 0 ) return(2)
 
-  print "Fermat ", n, "\n"
+  # print "Fermat ", n, "\n"
   w = sqrt(n)
   q = w*w
   if (q == n) return(w) 
@@ -559,7 +560,7 @@ define faktbas (b) {	# Faktorbasis für Pollards p-1 Faktorisierung und ECM
 define pollardp1 (a) {		# Pollards p-1 Faktorisierung
 
   auto i, bas, d
-  print "\nPollard p-1 ", a, "\n"
+  #print "\nPollard p-1 ", a, "\n"
 
   a = abs(a)
   if (a < 4) return 0
@@ -602,7 +603,7 @@ define pollardrho (n) {		# Pollards Rho Faktorisierung
 
   auto lim, x, y, y1, y2, y3, y4, ggt, i, j, k, d
 
-print "\nPollard Rho ", n, "\n"
+  #print "\nPollard Rho ", n, "\n"
 
   n = abs(n)
   if (n < 4) return 0
@@ -785,7 +786,8 @@ define primteiler (n) {		# sucht alle Primteiler, gibt sie mehrfach aus
     n = 1
   }
 
-  print "\nPrimteiler: "
+  #print "\nPrimteiler: "
+  print "Primteiler: "
   p = zeil			# zeil ist global
   zeil = 0
   i = show(a[])			# gefundene Primteiler
@@ -803,6 +805,7 @@ define primteiler (n) {		# sucht alle Primteiler, gibt sie mehrfach aus
 
 
 define teiler (n) {		# erzeugt die Teiler systematisch aus den Primteilern
+                                # n itself missing, but therefore prime twice (with n=15,25)
 
   auto pt[], ptn[], i, anz, anzpt, expo[], sum, len
 
@@ -855,6 +858,7 @@ define teiler (n) {		# erzeugt die Teiler systematisch aus den Primteilern
 
 
 define phi (n) {		# Euler-Funktion
+                                # probably error, if n is a quadratic integer -- see phi(25)
 
   auto i, x, y, phi
 
