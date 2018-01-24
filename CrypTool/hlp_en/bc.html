@@ -16,29 +16,35 @@
 
 <h3>BC (Arbitrary Precision Calculator)</h3>
 
-<P>bc is both a <B>programming language</B> that supports arbitrary precision numbers and an arbitrary precision desktop calculator (<B>command line utility</B>), which handles scripts and commands written in the language bc and interactively executes the statements from the user. This tool can be used to do number theoretical calculations with high speed and high precision.
+<P>bc is both, a <B>programming language</B> that supports arbitrary precision numbers and an arbitrary precision desktop calculator (<B>command line utility</B>), which handles scripts and commands written in the language bc and interactively executes the statements from the user. This tool can be used to do number theoretical calculations with high speed and high precision.
 
-bc is delivered together with the number theory <a href="hid_interactive_number_theory.html">educational program</a> <B>NT</B>.</P>
+Within CT1, bc is delivered together with the number theory <a href="hid_interactive_number_theory.html">educational program</a> <B>NT</B>.</P>
 
-<P>The utility bc, an extended precision calculator, can compute to at least 99 places right of the decimal point and at least 4000 to the left.</P>
+<P>The utility bc can compute up to at least 99 places right of the decimal point and at least 4000 to the left.</P>
 
-<P>A standard math library is available by command line option. bc starts by processing code from all the files listed on the command line in the order they are listed. After all files have been processed, bc reads from the standard input. All code is executed as it is read. (If a file contains a command to halt the processor, bc will never read from the standard input.)</P>
+<P>A standard math library is available by the command line option -l. In addition, bc starts by processing code from all the files listed on the command line in the order they are listed. After all files have been processed, bc reads from the standard input. All code is executed as it is read. (If a file contains a command to halt the processor, bc will never read from the standard input.)</P>
 
 <P>Calling syntax:<br>bc [ -hlwsqv ] [long options] [ files ]</P>
-<P>Sample call from bcmax.bat:<br>bc -lq prims.txt dislog.txt ecm.txt quadRest.txt seed</P>
+<P>Sample call from <B>bcmax.bat</B>:<br>bc -lq prims.txt dislog.txt ecm.txt quadRest.txt seed</P>
+
+<P>The option -q suppresses version information (quiet mode) at the beginning.<br>
+>bc<br>
+bc 1.06<br>
+Copyright 1991-1994, 1997, 1998, 2000 Free Software Foundation, Inc.<br>
+This is free software with ABSOLUTELY NO WARRANTY.</P>
 
 
 <br>
-<P><B>BC and the Educational Software "<a href="hid_interactive_number_theory.html">Number Theory (NT)</a>" -- Distributed with CrypTool 1</B></P>
+<P><B>BC and the Educational Software "<a href="hid_interactive_number_theory.html">Number Theory (NT)</a>" – Distributed with CrypTool 1</B></P>
 
 <P>Part of the distribution of the educational tool "Number Theory" is the command line calculator, <a href="http://en.wikipedia.org/wiki/Basic_Calculator">bc</a> (version 1.06, published by Free Software Foundation under <a href="hidd_tipps_and_tricks.html#opensource">GPL</a>), supplemented with some functions loaded via bcmax.bat when starting bc (via F3 from the educational tool).</P>
 
 
 
 <br>
-<P><B>General remark on bc</B></P>
+<h3>General information about bc</h3>
 
-<P>The most basic element in bc is the number. Numbers are arbitrary precision numbers. This precision is both in the integer part and the fractional part. All numbers are represented internally in decimal and all computation is done in decimal. There are two attributes of numbers, the length and the scale. The length is the total number of significant decimal digits in a number and the scale is the total number of decimal digits after the decimal point.
+<P>The basic elements in bc are decimal numbers in arbitrary precision. This precision is both in the integer part and the fractional part. All numbers are represented internally in decimal and all computation is done in decimal. There are two attributes of numbers, the length and the scale. The length is the total number of significant decimal digits in a number and the scale is the total number of decimal digits after the decimal point.
 <br>
 For example:<br>
 .000001 has a length of 6 and scale of 6<br>
@@ -54,25 +60,55 @@ For example:<br>
 <P class="paddedleft">5+3^2<br>14</P>
 <P class="paddedleft">a=10; a+2; b=a; b+7<br>12<br>17</P>
 <P class="paddedleft">sqrt(4.5)<br>2.1</P>
+<P class="paddedleft">scale=3;sqrt(4.5)<br>2.121</P>
+
 
 
 <P><B>2)</B> For whole numbers bc can deal with different <B>bases</B>. The input base is stored in the environment variable <b>ibase</b>. Setting conversion bases means, bc inputs ALL following numbers using <b>ibase</b>. The output base is stored in <b>obase</b>.</P>
 
-<P>Sample: To convert 4521 from base 7 to base 13, you have to enter:
+<P>Sample 1: To convert 4521 from base 7 to base 13, you have to enter:
 <P class="paddedleft">obase = 13; ibase = 7; 4521<br>987</P>
 
-<P>Sample: Conversion from the decimal to the hexadecimal number system:</P>
+<P>Sample 2: Conversion from the decimal to the hexadecimal number system:</P>
 <P class="paddedleft">obase=16; ibase=10; 13<br>B</P>
 
-<P>Sample: Conversion from the decimal to the binary number system:</P>
+<P>Sample 3: Conversion from the decimal to the binary number system:</P>
 <P class="paddedleft">obase=2; ibase=10; 13<br>1101</P>
 
 
-<P>A typical mistake, as there is no command to set back ibase to its default value 10: Both samples above deliver the shown result, if bc is started newly before calling them.
-If you call both command lines consecutively after each other, the input for obase and ibase in the second line are still considered to be of base 7, and you get as result A instead of D.</P>
+<P>A typical mistake, as there is no extra command to set back ibase to its default value 10: All samples above deliver the shown result, if bc is started newly before calling them.
+If you call all command lines consecutively after each other, the input for obase and ibase in the second line are still considered to be of base 7, and you get as result A, instead of D. So to switch back to the default bases you need to know the current base.</P>
+
+<P>Sample 4: Switching the conversion back to the decimal number system:</P>
+<P class="paddedleft">obase = 13; ibase = 7; 4521;   obase=16; ibase=10; 13<br>
+987<br>
+A<br>
+obase = 13; ibase = 7; 4521;   obase=16; ibase=10; 13<br>
+1632<br>
+A<br>
+obase = 13; ibase = 7; 4521;   obase=16; ibase=10; 13<br>
+1632<br>
+A<br>
+ibase<br>
+7<br>
+ibase=13; obase = 13; ibase = 7; 4521;   ibase=13; obase=16; ibase=10; 13<br>
+987<br>
+D</P>
+
+<P class="paddedleft">obase=2; ibase=10; 13;   obase=2; ibase=10; 13<br>
+1101<br>
+1101<br>
+obase=2; ibase=10; 13; obase=10; ibase=2; 1101; ibase=1010; 13; ibase; obase;<br>
+1101<br>
+13<br>
+13<br>
+10<br>
+10</P>
 
 
-<P><B>3)</B> For <B>fractional precision</B> of the calculation bc deals with the environment variable <b>scale</b>, which means the precision of floating points, which is how many digits after the point. By default the <B>scale</B> is 0, that means it is integer. The result of division will usually be a floating point number. In order to get the correct answer, you need to specify the variable <b>scale</b>. <b>scale</b> means the precision of floating point. In "5.00500" the <b>scale</b> is 5; in "5.005" the <b>scale</b> is 3. Some implementations also output one digit more (see below).</P>
+
+
+<P><B>3)</B> For <B>fractional precision</B> of the calculation bc deals with the environment variable <b>scale</b>: This variable specifies the precision of floating points via the number of digits after the point. By default the <B>scale</B> is 0, that means it is integer. The result of division will usually be a floating point number. In order to get the correct answer, you need to specify the variable <b>scale</b>. In "5.00500" the <b>scale</b> is 5; in "5.005" the <b>scale</b> is 3. Some implementations also output one digit more (see below).</P>
 
 <P>Samples:</P>
 <P class="paddedleft">scale=6;  60/7.02<br>6.6476776</P>
@@ -84,29 +120,523 @@ If you call both command lines consecutively after each other, the input for oba
 
 <UL>
 <LI>Execute scripts, given to bc as argument at the command line,</LI>
-<LI>Type a terms after starting bc, or</LI>
-<LI>Passing the term through pipeline, such as in the following samples:<br>
+<LI>Type a term after starting bc (input mode), or</LI>
+<LI>Passing the term through a pipeline, such as in the following samples:<br>
     echo "56.8 + 77.7" | bc<br>echo "obase=16; ibase=10; 56" | bc</LI>
 </UL>
 
 <P>At the input mode of bc you can repeat the last statement using the vertical arrow keys on the keyboard, and then edit it.</P>
 
-<P>To get the value of an environment variable: Just enter the name of the variable and enter.</P>
+<P>To get the value of an environment variable: Just enter the name of the variable and press Enter.</P>
+
+
+
+
+<br>
+<h3>Enhancing bc with own functions in scripts</h3>
+
+<P>Together with the program "Number Theory" (NT) in CT1 there are 10 files (scripts) delivered with code enhancing bc:<br>
+bruch.txt, calc.txt, dislog.txt, ECM.TXT, pi.txt, polynom.txt,
+Prims.txt, quadRest.txt, RSA.txt, and sieb.txt.<br>
+Prims.txt is a file with helper functions needed in almost all of the other bc enhancement files.</P>
+
+<P>Descriptions for these additional bc functions are available within the "Number Theory" program via F8 (menu Glossaries \ BC Functions).</P>
+
+<P>In the following there are some sample calls of functions defined in <B>prims.txt</B>. The easiest way to try them on the command line is starting <B>testbruch.bat</B>:</P>
+
+
+<P class="paddedleft">gcm = euklid1( 40, 15 ) # gcm = greatest common divisor<br>
+gcm<br>
+5</P>
+
+<P class="paddedleft">bot(10.8) # next smaller whole number<br>
+10</P>
+
+<P class="paddedleft">top(10.8) # next bigger whole number<br>
+11</P>
+
+<P class="paddedleft">powermod(2,5,26) # 2^5 mod 26<br>
+6</P>
+
+<P class="paddedleft">kong(2,3,7) # solve congruence 2*x = 3 mod 7<br>
+5</P>
+
+<P class="paddedleft">random(2,100) # random number from {2, ..., 100}<br>
+41</P>
+
+<P class="paddedleft">probe(5,2,100) # deliver 5 random numbers from {2, ..., 100}<br>
+16<br>
+34<br>
+86<br>
+12<br>
+16</P>
+
+
+<P class="paddedleft">maxp = erat(102); maxp; show(prims[]) # fill prims[] using the sieve of Eratosthenes, output the number of primes till 102+1 and the primes array prims[]<br>
+27<br>
+2 3 5 7 11 13 17 19 23 29<br>
+31 37 41 43 47 53 59 61 67 71<br>
+73 79 83 89 97 101 103</P>
+
+
+<P class="paddedleft">maxabstand () # biggest gap between the primes collected in prims[]<br>
+8</P>
+
+<P class="paddedleft">mr (66) # Miller-Rabin prime number test, maximum number of rounds: iter_mr<br>
+0<br>
+mr (67)<br>
+67</P>
+
+
+<P class="paddedleft">nextprime (63) # next prime >= n<br>
+67</P>
+
+
+<P class="paddedleft">fermat (21) # Fermat factorization (returns one prime factor)<br>
+3<br>
+fermat (7) # Fermat factorization (return of 0 means that the given value is prime)<br>
+0</P>
+
+
+<P class="paddedleft">nroot(125,3) # returns a positive value if there is an integer 3rd root of 125<br>
+5</P>
+
+
+<P class="paddedleft">ispp (125, 4) # returns the base, if 125 is a power of a prime base not smaller than 4<br>
+5<br>
+ispp (125, 5)<br>
+5<br>
+ispp (125, 6)<br>
+0</P>
+
+
+
+<P class="paddedleft">pollardp1 (234567) # Pollards p-1 factorization, returns 0 if prime, otherwise an integer divisor<br>
+|603<br>
+pollardp1 (1111234567)<br>
+||||| ||||| 0<br>
+pollardrho (234567) # Pollards rho factorization, returns 0 if prime, otherwise an integer divisor<br>
+|3<br>
+pollardrho (1111234567)<br>
+|||||||||||||||0</P>
+
+
+
+<P class="paddedleft">primteiler (1234567) # sucht alle Primteiler (return value > 0 if ready)<br>
+Primteiler: 127 9721<br>
+1</P>
+
+<P class="paddedleft">primteiler (234567) # detects all prime factors, outputs them (several times if needed), and stores them in the global array a[] (return value > 0 if ready)<br>
+Primteiler: 3 3 67 389<br>
+1</P>
+
+<P class="paddedleft">show(a[]) # TEST FUNCTION<br>
+3 3 67 389<br>
+0<br>
+testpt() # multiply all prime factors, which are expected to be in the global array a[]<br>
+234567</P>
+
+
+
+
+<P class="paddedleft">teiler (1234567) # creates the divsors systematically using the prime factors<br>
+Primteiler: 127 9721<br>
+Teiler<br>
+      1<br>
+    127<br>
+   9721<br>
+1234567<br>
+Summe: 1244416<br>
+Anzahl: 4</P>
+
+
+
+<P class="paddedleft">phi(35) # Euler function<br>
+Primteiler: 5 7<br>
+24</P>
+
+
+
+<P class="paddedleft">pprod(2) # Product of the first 2 prime numbers<br>
+6<br>
+pprod(3)<br>
+30<br>
+pprod(4)<br>
+210</P>
+
+
+
+
+
+
+
+<br>
+<P>In the following there are some sample calls of functions defined in <B>bruch.txt</B>. The easiest way to try them on the command line is starting <B>testbruch.bat</B>:</P>
+
+<P class="paddedleft">kuerze(40,15)<br>showb() # Show the reduced fraction<br>8/3</P>
+
+<P class="paddedleft">fak(5) # factorial n!<br>120out</P>
+
+<P class="paddedleft">bin(49,6) # binomial coefficient n choose k (here Lotto in Germany)<br>13983816</P>
+
+
+
+
+
+
+
+<br>
+<P>In the following there are some sample calls of functions defined in <B>dislog.txt</B> and <B>polynom.txt</B>. The easiest way to try them on the command line is starting <B>testPolynom.bat</B>:</P>
+
+
+<P class="paddedleft">phi_zyk (15) # Euler function with cyclic n  (difference between phi()?<br>
+0</P>
+
+
+<P class="paddedleft">phi(15)<br>
+Primteiler: 3 5<br>
+8</P>
+
+
+<P class="paddedleft">ord(2, 11) # Order of 2 mod 11<br>
+Primteiler: 11<br>
+Primteiler: 2 5<br>
+10<br>
+ord(3, 11)<br>
+Primteiler: 11<br>
+Primteiler: 2 5<br>
+5</P>
+
+
+<P class="paddedleft">proot (11) # Primitive root<br>
+Phi: 10<br>
+Primteiler: 2 5<br>
+2</P>
+
+
+<P class="paddedleft"># Preparation for applying the Chinese Remainder theorem (CRT)<br>
+a[1]=0; a[2]=3; a[3]=4; m[1]=3; m[2]=4; m[3]=5; showij(a[],1,3); showij(m[],1,3);<br>
+0 3 4<br>
+0<br>
+3 4 5<br>
+0<br>
+chin(a[], m[]) # Call the CRT<br>
+n = 60<br>
+39</P>
+
+
+
+<P class="paddedleft">dislog (11, 49, 347) # discreter log reduction prim power order (solve 11^x = 49 mod 347)<br>
+Berechne Primteiler von Phi(347)<br>
+Primteiler: 2 173<br>
+Berechne ord(11 mod 347)<br>
+Loese 11^x = 49 mod 347<br>
+|G|: 173<br>
+Primzahlpotenzen, die |G| teilen<br>
+173<br>
+0<br>
+Loese 11^x = 49 mod 347<br>
+|G|: 173<br>
+Wurzel(|G|): 14<br>
+sammle Babysteps ...<br>
+noch keine Loesung<br>
+Giantsteps<br>
+delta = Primitivwurzel^Wurzel mod 347: 4<br>
+Erhoehe q, bis delta^q die erste Komponente eines Babysteps ist ...<br>
+Bingo! (256, 11), q: 4<br>
+14 * q + 11 mod 347 = Loesung:<br>
+x berechnen<br>
+67<br>
+0<br>
+Chinesischer Restsatz:<br>
+n = 173<br>
+67</P>
+
+
+
+<P class="paddedleft"># How to call and interpret the result?<br>
+dislogp (11, 49, 347, 1, 1) # diskreter Log Reduktion auf Primzahlordnung<br>
+Loese 11^x = 49 mod 347<br>
+|G|: 1<br>
+x berechnen<br>
+1<br>
+0<br>
+0</P>
+
+
+
+<P class="paddedleft">pollardlog (11, 49, 347) # Solve 11^x = 49 mod 347<br>
+Berechne Primteiler von Phi(347)<br>
+Primteiler: 2 173<br>
+Berechne ord(11 mod 347)<br>
+Loese 11^x = 49 mod 347<br>
+|G|: 173<br>
+|||||<br>
+Loese Kongruenz -70*x = -19 mod 173<br>
+k: 1<br>
+67<br>
+Anzahl Loesungen: 1<br>
+passende Loesung: (11^x = 49 mod 347)<br>
+67</P>
+
+
+
+<P class="paddedleft">shank (11, 49, 347, 1, 1) # Solve bas^x = alpha mod modul; last 2 parameters ord, zehner not clear<br>
+Loese 11^x = 49 mod 347<br>
+|G|: 1<br>
+1<br>
+shank (11, 49, 347, 100, 1)<br>
+Loese 11^x = 49 mod 347<br>
+|G|: 100<br>
+Wurzel(|G|): 10<br>
+sammle Babysteps ...<br>
+noch keine Loesung<br>
+Giantsteps<br>
+delta = Primitivwurzel^Wurzel mod 347: 114<br>
+Erhoehe q, bis delta^q die erste Komponente eines Babysteps ist ...<br>
+Bingo! (149, 7), q: 6<br>
+10 * q + 7 mod 347 = Loesung: 67</P>
+
+
+
+
+<P class="paddedleft">poly (4) # Create the polynom from the requested user input for the coefficients and store them within the array aus[]<br>
+Koeffizient bei x^4: 5<br>
+Koeffizient bei x^3: 4<br>
+Koeffizient bei x^2: 5<br>
+Koeffizient bei x^1: 4<br>
+Koeffizient bei x^0: 5<br>
+2*x^4 + x^3 + 2*x^2 + x + 2<br>
+0</P>
+
+
+
+<P class="paddedleft">showp(aus[]) # Output the polynom using the array aus[]<br>
+2*x^4 + x^3 + 2*x^2 + x + 2<br>
+0</P>
+
+
+<P class="paddedleft">wertp(aus[],3)<br>
+2</P>
+
+<P class="paddedleft"># And several more like FFT (however, aks() doesn't work well)</P>
+
+
+
+
+
+
+
+
+<br>
+<P>In the following there are some sample calls of functions defined in <B>pi.txt</B>. The easiest way to try them on the command line is starting <B>testpi.bat</B>:</P>
+
+<P class="paddedleft">vieta (2)<br>
+3.0614674589207181738276798722431909340907564998850163314704050850203682716807175378961102827382683782<br>
+vieta (5)<br>
+3.1403311569547529123171185243316901321437032336481868934478434092266201320934884366221290951552463225</P>
+
+<P class="paddedleft">wallis(2)<br>
+2.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666<br>
+wallis(5)<br>
+3.4133333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333</P>
+
+<P class="paddedleft">leibniz(2)<br>
+2.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666<br>
+leibniz(5)<br>
+3.3396825396825396825396825396825396825396825396825396825396825396825396825396825396825396825396825396</P>
+
+<P class="paddedleft">heron(2)<br>
+1<br>
+heron(5)<br>
+2<br>
+heron(100)<br>
+10</P>
+
+
+
+
+
+
+
+<br>
+<P>In the following there are some sample calls of functions defined in <B>ECM.txt</B>. The easiest way to try them on the command line is starting <B>testECM.bat</B>:</P>
+
+<P class="paddedleft">proveprime(nextprime(1000)) # Prime proving according to Atkin/Morain<br>
+d: -3<br>
+x: 62  y: 8<br>
+ord_ellk a: 0, b: 1, n: 1009<br>
+(0, 1)<br>
+ 1072 gestrichen<br>
+ 967 gestrichen<br>
+ 991 gestrichen<br>
+(1, 439)<br>
+ 1029 gestrichen<br>
+ 1053 gestrichen<br>
+a: 0  b: 1<br>
+Ordnung: 948<br>
+Primteiler: 2 2 3 79<br>
+Probiere Kurve a: 0, b: 1 mit q: 79<br>
+(0, 1)<br>
+(1, 439)<br>
+(572, 971)<br>
+a: 0 b: 1<br>
+1009 Primzahl, wenn 79 Primzahl<br>
+79</P>
+
+
+<P class="paddedleft">ecm (31)<br>
+ECM 31 B = 100<br>
+Kurve 1 a: 2 b: 1<br>
+Kurve 2 a: 3 b: 1<br>
+...<br>
+Kurve 19 a: 21 b: 1<br>
+Kurve 20 a: 22 b: 1<br>
+0</P>
+
+<P class="paddedleft">ecm (93)<br>
+ECM 93 B = 100<br>
+3</P>
+
+
+
+
+
+
+
+<br>
+<P>In the following there are some sample calls of functions defined in <B>quadRest.txt</B>. The easiest way to try them on the command line is starting <B>testquadRest.bat</B>:</P>
+
+<P class="paddedleft">solstr(1009) # Solovay-Strassen primality test (returns 0 if not prime)<br>
+1<br>
+solstr(1008)<br>
+0<br>
+solstr(23)<br>
+1</P>
+
+
+<P class="paddedleft">pock(23)<br>
+Primteiler: 2 11<br>
+f = 11<br>
+1<br>
+pock(1009)<br>
+Primteiler: 2 2 2 2 3 3 7<br>
+f = 63<br>
+1<br>
+pock(1008)<br>
+0</P>
+
+
+<P class="paddedleft">sqrmod(0, 2)<br>
+0<br>
+sqrmod(1, 2)<br>
+1<br>
+sqrmod(3, 37)<br>
+15<br>
+sqrtmod(3, 37)  # ??<br>
+22</P>
+
+
+<P class="paddedleft">repunit(7) # Rep-unit with 7 Ones<br>
+1111111</P>
+
+<P class="paddedleft">testrep(1, 7) # Which rep-units are prime?<br>
+2 0<br>
+testrep(1, 8)<br>
+2 19 0</P>
+
+
+<P class="paddedleft">rotate (5273, 4, 2) # Rotate n by d positions to the right (len = length of the decimal number n)<br>
+7352<br>
+rotate (5273, 4, 1)<br>
+3527</P>
+
+
+<P class="paddedleft">ftest(4) # Test whether the n-th Fermat number is prime<br>
+F4: 65537<br>
+Probedivisionen ...<br>
+kein Teiler < 193<br>
+0<br>
+ftest(5)<br>
+F5: 4294967297<br>
+Probedivisionen ...<br>
+Primteiler bei i=5: 641<br>
+ftest(6)<br>
+F6: 18446744073709551617<br>
+Probedivisionen ...<br>
+Primteiler bei i=1071: 274177</P>
+
+
+<P class="paddedleft">lucas (3) # Test whether the n-th Mersenne number is prim (returns 0 if not prime)<br>
+M3: 7<br>
+2p+1 ist prim<br>
+0<br>
+lucas (4)<br>
+M4: 15<br>
+Argument nicht prim<br>
+0<br>
+lucas (5)<br>
+M5: 31<br>
+kein Teiler <= 0<br>
+1<br>
+lucas (6)<br>
+M6: 63<br>
+Argument nicht prim<br>
+lucas (7)<br>
+M7: 127<br>
+kein Teiler <= 0<br>
+1<br>
+lucas (11)<br>
+M11: 2047<br>
+2p+1 ist prim<br>
+0<br>
+lucas (13)<br>
+M13: 8191<br>
+kein Teiler <= 0<br>
+1</P>
+
+
+
+
+
+<br>
+<P>In the following there is a sample call of a function defined in <B>RSA.txt</B>. The easiest way to try it on the command line is starting <B>testRSA.bat</B>:</P>
+
+<P class="paddedleft">rsa_dec() # create the RSA keys and decrypt the given ciphertext<br>
+private Primzahl p: 149<br>
+private Primzahl q: 139<br>
+public Exponent:    65537<br>
+Geheimtext (Zahl): 15543<br>
+Klartext (Zahl): 22</P>
+
+
+
+
+
+
+
+
+
 
 
 
 <br>
 <P><B>Further sample calculations using bc</B></P>
 
-<P>You can call bc from within the educational program "Number Theory" via F3 (menu Calculators \ BC Calculator) or from the command prompt:</P>
-
+<P>a) You can call bc from within the educational program "Number Theory" via F3 (menu Calculators \ BC Calculator) or from the command prompt (here wihout an argument):</P>
 <P class="paddedleft">bc</P>
 <P>Enter: 686^79:</P>
 <P class="paddedleft">686^79<br>117382982726682578986166177099458354591354816385525364361499835772376409385660129455427115381646910282753710610818762831176373701406457183724515147357457376424117782495278817923488619922286175976292059037752989068589810057216<br>quit</P>
 
-<P>Description for further functions transferred via the educational program "Number Theory" are available within the educational program via F8 (menu Glossaries \ BC Functions).</P>
-<P class="paddedleft">powermod(17,33,11)<br>7</P>
-<p class="paddedleft">euklid(847,22)<br>11</p>
+<P>b) You can call bc from within the educational program "Number Theory" via F3 (menu Calculators \ BC Calculator) or from the command prompt (starting in the directory "Bc" under the installation of CT1):</P>
+<P class="paddedleft">bc -q prims.txt</P>
+<P class="paddedleft">powermod(17,33,11) # 17^33 mod 11<br>7</P>
+<p class="paddedleft">euklid(847,22) # returns the gcd<br>11</p>
+
+<P>Everything after a "#" character is interpreted by bc as a comment.</P>
+
+
+
 
 
 
@@ -182,7 +712,7 @@ for (n = 0; n &lt;= 16; n++) {<br>
 </P>
 
 
-<P>Make own enhancements like in <a href="http://x-bc.sourceforge.net/extensions_bc.html" target="_blank">http://x-bc.sourceforge.net/extensions_bc.html</a></P>
+<P>Further own enhancements can be found e.g. in <a href="http://x-bc.sourceforge.net/extensions_bc.html" target="_blank">http://x-bc.sourceforge.net/extensions_bc.html</a></P>
    
 
 
@@ -195,7 +725,7 @@ for (n = 0; n &lt;= 16; n++) {<br>
 <P><a href="http://www.gnu.org/software/bc/bc.html" target="_blank">http://www.gnu.org/software/bc/bc.html</a> -- Web page about BC</P>
 <P><a href="http://ftp.gnu.org/pub/gnu/bc/bc-1.06.tar.gz" target="_blank">http://ftp.gnu.org/pub/gnu/bc/bc-1.06.tar.gz</a> -- Source code, released 2001</P>
 <P><a href="http://en.wikipedia.org/wiki/Bc_(Unix)" target="_blank">http://en.wikipedia.org/wiki/Bc_(Unix)</a> -- Wikipedia about bc</P>
-<P><a href="http://de.wikipedia.org/wiki/Basic_Calculator" target="_blank">http://de.wikipedia.org/wiki/Basic_Calculator</a> -- Wikipedia about bc</P>
+<P><a href="http://en.wikipedia.org/wiki/Bc_%28programming_language%29" target="_blank">http://en.wikipedia.org/wiki/Bc_(programming_language)</a> -- Wikipedia about bc</P>
 
 <P><a href="https://www.gnu.org/software/bc/manual/html_mono/bc.html" target="_blank">https://www.gnu.org/software/bc/manual/html_mono/bc.html</a></P>
 <P><a href="http://www.basicallytech.com/blog/archive/23/command-line-calculations-using-bc/" target="_blank">http://www.basicallytech.com/blog/archive/23/command-line-calculations-using-bc/</a></P>
@@ -210,15 +740,22 @@ for (n = 0; n &lt;= 16; n++) {<br>
 
 
 <br>
-<P><B>Remark 3: bc and SageMath</B></P>
+<P><B>Remark 3: Stability of bc under Windows</B></P>
+
+<P>Sadly, very often we get crashes (sometimes telling "Fatal error: Out of memory for malloc") when calling bc with these scripts (especially "polynom.txt") under Windows. Under Linux it's a bit more stable. If someone has an idea why, any feedback is welcome.</P>
+
+
+
+<br>
+<P><B>Remark 4: bc and SageMath</B></P>
 
 <P> bc 1.06 is the last version of bc, released by FSF in 2000. There seems to be no further development.
 In the meantime, <a href="http://www.sagemath.org/" target="_blank">SageMath</a> offers a much broader and more mature scope of work.</P>
 
 <p>An overview about SageMath can be found in appendix A.7 of the <A class="filelink" onclick="parser('CT-Book-en.pdf')">CT Book</a>.</p>
 
-<br>
 
+<br>
 </BODY>
 </HTML>
 

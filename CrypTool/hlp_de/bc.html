@@ -20,15 +20,21 @@ classid=clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e VIEWASTEXT>
 <P>bc ist einerseits eine <B>Programmiersprache</B>, die beliebig genaue Zahlen unterstützt, und andererseits ein <B>Kommandozeilen-Programm</B> (Tool, Utility), das Skripte und Kommandos ausführen kann, die in dieser Sprache bc geschrieben sind, und interaktiv die Eingaben des Benutzers berechnet. 
 In bc kann man zahlentheoretische Berechnungen mit hoher Geschwindigkeit und großer Genauigkeit ausführen. 
 
-bc wird zusammen mit dem <a href="hid_interactive_number_theory.html">Lernprogramm</a> <B>ZT</B> ausgeliefert.
+Innerhalb von CT1 wird bc zusammen mit dem <a href="hid_interactive_number_theory.html">Lernprogramm</a> <B>ZT</B> ausgeliefert.
 </P>
 
-<P>Das Tool bc, ein Taschenrechner mit erweiterter Genauigkeit, kann Zahlen darstellen mit mindestens 99 Stellen hinter dem Komma und wenigstens 4000 Stellen vor dem Komma.</P>
+<P>Das Tool bc kann Zahlen mit bis zu mindestens 99 Stellen hinter dem Komma und wenigstens 4000 Stellen vor dem Komma darstellen.</P>
 
-<P>Eine mathematische Standardbibliothek ist per Kommandozeilenoption verfügbar. Beim Start prozessiert bc den Code von allen Dateien auf der Kommandozeile in der angegebenen Reihenfolge. Nachdem alle diese Dateien prozessiert wurden, liest bc von Standard-Input. Jeder Code wird sofort nach dem Lesen ausgeführt (enthält eine Datei ein Kommando, das den Prozessor anhält, liest bc nichts mehr von der Kommandozeile (Standard-Input) ein).</P>
+<P>Eine mathematische Standardbibliothek ist per Kommandozeilenoption (-l) verfügbar. Zusätzlich prozessiert bc beim Start den Code von allen Dateien auf der Kommandozeile in der angegebenen Reihenfolge. Nachdem alle diese Dateien prozessiert wurden, liest bc von Standard-Input. Jeder Code wird sofort nach dem Lesen ausgeführt (enthält eine Datei ein Kommando, das den Prozessor anhält, liest bc nichts mehr von der Kommandozeile (Standard-Input) ein).</P>
 
-<P>Aufruf-Syntax:<br>bc [ -hlwsqv ] [Lang-Optionen [ Dateien ]</P>
-<P>Beispiel-Aufruf aus bcmax.bat:<br>bc -lq prims.txt dislog.txt ecm.txt quadRest.txt seed</P>
+<P>Aufruf-Syntax:<br>bc [ -hlwsqv ] [Lang-Optionen] [ Dateien ]</P>
+<P>Beispiel-Aufruf aus <B>bcmax.bat</B>:<br>bc -lq prims.txt dislog.txt ecm.txt quadRest.txt seed</P>
+
+<P>Die Option -q unterdrückt Versionsinformationen am Anfang (quiet mode).<br>
+>bc<br>
+bc 1.06<br>
+Copyright 1991-1994, 1997, 1998, 2000 Free Software Foundation, Inc.<br>
+This is free software with ABSOLUTELY NO WARRANTY.</P>
 
 
 <br>
@@ -39,13 +45,13 @@ bc wird zusammen mit dem <a href="hid_interactive_number_theory.html">Lernprogra
 
 
 <br>
-<P><B>Generelles zu bc</B></P>
+<h3>Generelles zu bc</h3>
 
-<P>Basiselement in bc ist eine Zahl. Zahlen können eine beliebige Genauigkeit haben. Diese Genauigkeit gilt sowohl für den ganzzahligen wie für den gebrochenen Teil. Intern werden alle Zahlen im Zehnersystem repräsentiert. Ebenso werden alle Berechnungen im Zehnersystem durchgeführt. Zu jeder Zahl gibt es 2 Attribute: die Länge (length) und Nachkommastellenzahl (scale). Die Länge ist die Gesamtzahl aller signifikanten Zeichen im Zehnersystem; der Scale ist die Gesamtzahl der Nachkommastellen (ebenfalls im Zehnersystem).
+<P>Basiselement in bc sind Dezimalzahlen von beliebiger Genauigkeit. Diese Genauigkeit gilt sowohl für den ganzzahligen wie für den gebrochenen Teil. Intern werden alle Zahlen im Zehnersystem repräsentiert. Ebenso werden alle Berechnungen im Zehnersystem durchgeführt. Zu jeder Zahl gibt es 2 Attribute: die Länge (length) und Nachkommastellenzahl (scale). Die Länge ist die Gesamtzahl aller signifikanten Zeichen im Zehnersystem; der Scale ist die Gesamtzahl der Nachkommastellen (ebenfalls im Zehnersystem).
 <br>
 Beispiel:<br>
 .000001 hat eine length von 6 und einen scale von 6<br>
-1935.000 hat eine length von 7 und einen scale of 3.</P>
+1935.000 hat eine length von 7 und einen scale von 3.</P>
 
 
 
@@ -57,25 +63,55 @@ Beispiel:<br>
 <P class="paddedleft">5+3^2<br>14</P>
 <P class="paddedleft">a=10; a+2; b=a; b+7<br>12<br>17</P>
 <P class="paddedleft">sqrt(4.5)<br>2.1</P>
+<P class="paddedleft">scale=3;sqrt(4.5)<br>2.121</P>
 
 
 <P><B>2)</B> Bei ganzen Zahlen kann bc mit unterschiedlichen <B>Basen</B> (Basis des Stellenwertsystems) arbeiten. Die Basis für den Input wird in der Umgebungsvariablen <B>ibase</B> gespeichert. Setzt man diese Basis, benutzt bc <B>ibase</B> für alle folgenden Eingabezahlen. Die Basis für den Output wird in der Variablen <B>obase</B> gespeichert.</P>
 
-<P>Beispiel: Konvertieren der Zahl 4521 von der Basis 7 in die Basis 13:</P>
+<P>Beispiel 1: Konvertieren der Zahl 4521 von der Basis 7 in die Basis 13:</P>
 <P class="paddedleft">obase = 13; ibase = 7; 4521<br>987</P>
 
-<P>Beispiel: Umwandeln vom Zehnersystem ins Hexadezimal-System:</P>
+<P>Beispiel 1: Umwandeln vom Zehnersystem ins Hexadezimal-System:</P>
 <P class="paddedleft">obase=16; ibase=10; 13<br>D</P>
 
-<P>Beispiel: Umwandeln vom Zehnersystem ins Zweier-System:</P>
+<P>Beispiel 1: Umwandeln vom Zehnersystem ins Zweier-System:</P>
 <P class="paddedleft">obase=2; ibase=10; 13<br>1101</P>
 
 
-<P>Ein typischer Fehler, weil es kein Kommando gibt, das die Eingabe-Basis auf den Defaultwert 10 zurücksetzt: Beide vorangegangenen Beispiele ergeben den angegebene Output dann, wenn man bc jeweils neu startet.
-Führt man beide Kommandozeilen nacheinander aus, werden in der zweiten Zeile die Eingaben für obase und ibase noch zur Basis 7 betrachtet und man erhält das Ergebnis A statt D.</P>
+<P>Ein typischer Fehler, weil es kein extra Kommando gibt, das die Eingabe-Basis auf den Defaultwert 10 zurücksetzt: Alle vorangegangenen Beispiele ergeben den angegebenen Output dann, wenn man bc jeweils neu startet.
+Führt man alle Kommandozeilen nacheinander aus, werden in der zweiten Zeile die Eingaben für obase und ibase noch zur Basis 7 betrachtet und man erhält das Ergebnis A statt D.</P>
+
+<P>Beispiel 4: Zurücksetzen der Eingabebasis auf das Dezimalsystem:</P>
+<P class="paddedleft">obase = 13; ibase = 7; 4521;   obase=16; ibase=10; 13<br>
+987<br>
+A<br>
+obase = 13; ibase = 7; 4521;   obase=16; ibase=10; 13<br>
+1632<br>
+A<br>
+obase = 13; ibase = 7; 4521;   obase=16; ibase=10; 13<br>
+1632<br>
+A<br>
+ibase<br>
+7<br>
+ibase=13; obase = 13; ibase = 7; 4521;   ibase=13; obase=16; ibase=10; 13<br>
+987<br>
+D</P>
+
+<P class="paddedleft">obase=2; ibase=10; 13;   obase=2; ibase=10; 13<br>
+1101<br>
+1101<br>
+obase=2; ibase=10; 13; obase=10; ibase=2; 1101; ibase=1010; 13; ibase; obase;<br>
+1101<br>
+13<br>
+13<br>
+10<br>
+10</P>
 
 
-<P><B>3)</B> Bei <b>Gleitkommazahlen</b> wird die Genauigkeit mit der Umgebungsvariablen <B>scale</B> eingestellt. Diese Variable bestimmt die Genauigkeit der Anzahl der Stellen hinter dem Komma. Standardmäßig hat <B>scale</B> den Wert 0, so dass Eingaben als ganze Zahlen betrachtet werden. Da das Ergebnis einer Division normalerweise eine Gleitkommazahl ist, muss man die Variable <B>scale</B> setzen, um das richtige Ergebnis zu erhalten. In "5.00500" hat <b>scale</b> den Wert 5, in "5.005" den Wert 3. In manchen Implementierungen wird auch eine Stelle mehr ausgegeben (siehe unten).
+
+
+
+<P><B>3)</B> Bei <b>Gleitkommazahlen</b> wird die Genauigkeit mit der Umgebungsvariablen <B>scale</B> eingestellt. Diese Variable bestimmt die Genauigkeit über die Anzahl der Stellen hinter dem Komma. Standardmäßig hat <B>scale</B> den Wert 0, so dass Eingaben als ganze Zahlen betrachtet werden. Da das Ergebnis einer Division normalerweise eine Gleitkommazahl ist, muss man die Variable <B>scale</B> setzen, um das richtige Ergebnis zu erhalten. In "5.00500" hat <b>scale</b> den Wert 5, in "5.005" den Wert 3. In manchen Implementierungen wird auch eine Stelle mehr ausgegeben (siehe unten).
 
 <P>Beispiele:</P>
 <P class="paddedleft">scale=6;  60/7.02<br>6.6476776</P>
@@ -87,29 +123,523 @@ Führt man beide Kommandozeilen nacheinander aus, werden in der zweiten Zeile die
 
 <UL>
 <LI>Ausführen von Skripten, die man bc auf der Kommandozeile als Argument übergibt,</LI>
-<LI>Eingabe eines Termen nach dem Start im Eingabemodus von bc, oder</LI>  
+<LI>Eingabe eines Terms nach dem Start im Eingabemodus von bc (Eingabemodus), oder</LI>  
 <LI>Übergabe des Terms mittels einer Pipe, wie in den folgenden Beispielen:<br>
     echo "56.8 + 77.7" | bc<br>echo "obase=16; ibase=10; 56" | bc</LI>
 </UL>
 
 <P>Im Eingabemodus von bc kann man die letzten Befehle mit den vertikalen Pfeiltasten wiederholen und dann editieren.</P>
 
-<P>Abfrage des aktuellen Wert einer Umgebungsvariablen: Einfach Variablenname eingeben und Enter (Datenfreigabe-Taste).</P>
+<P>Abfrage des aktuellen Wert einer Umgebungsvariablen: Einfach Variablenname eingeben und Enter (Datenfreigabe-Taste) drücken.</P>
+
+
+
+<br>
+<h3>Erweiterung von bc durch eigene Funktionen in Skripten</h3>
+
+<P> Zusammen mit dem Lernprogramm „Zahlentheorie“ (ZT) in CT1 werden 10 Dateien (Skripte) ausgeliefert, die Code enthalten, die bc erweitern:
+bruch.txt, calc.txt, dislog.txt, ECM.TXT, pi.txt, polynom.txt,
+Prims.txt, quadRest.txt, RSA.txt, und sieb.txt.<br>
+Prims.txt enthält vor allem Hilfsfunktionen, die von fast allen der anderen bc-Erweiterungs-Dateien benötigt werden.</P>
+
+<P>Beschreibungen zu diesen zusätzlichen bc-Funktionen erhalten Sie innerhalb des „Zahlentheorie“-Programms per F8 (Menü Verzeichnisse \ BC-Funktionen).</P>
+
+<P>Hier folgen Beispielaufrufe für einige der in <B>prims.txt</B> definierten Funktionen. Am einfachsten kann man das auf der Kommandozeile ausprobieren, wenn man <B>testbruch.bat</B> aufruft:</P>
+
+<P class="paddedleft">ggT = euklid1( 40, 15 ) # ggT = größter gemeinsamer Teiler<br>
+ggT<br>
+5</P>
+
+<P class="paddedleft">bot(10.8) # nächst-kleinere ganze Zahl<br>
+10</P>
+
+<P class="paddedleft">top(10.8) # nächst-größere ganze Zahl<br>
+11</P>
+
+<P class="paddedleft">powermod(2,5,26) # 2^5 mod 26<br>
+6</P>
+
+<P class="paddedleft">kong(2,3,7) # löse Kongruenz 2*x = 3 mod 7<br>
+5</P>
+
+<P class="paddedleft">random(2,100) # Zufallszahl aus {2, ..., 100}<br>
+41</P>
+
+<P class="paddedleft">probe(5,2,100) # liefere 5 Zufallszahlen aus {2, ..., 100}<br>
+16<br>
+34<br>
+86<br>
+12<br>
+16</P>
+
+
+<P class="paddedleft">maxp = erat(102); maxp; show(prims[]) # prims[] mit dem Sieb des Eratosthenes füllen, Ausgabe der Anzahl der Primes bis 102+1 und des Primes-Arrays prims[]<br>
+27<br>
+2 3 5 7 11 13 17 19 23 29<br>
+31 37 41 43 47 53 59 61 67 71<br>
+73 79 83 89 97 101 103</P>
+
+
+<P class="paddedleft">maxabstand () # größte Lücke zwischen den gesammelten Primzahlen in prims[]<br>
+8</P>
+
+<P class="paddedleft">mr (66) # Miller-Rabin-Primzahltest, max. Anzahl Durchläufe: iter_mr<br>
+0<br>
+mr (67)<br>
+67</P>
+
+
+<P class="paddedleft">nextprime (63) # nächste Primzahl >= n<br>
+67</P>
+
+
+<P class="paddedleft">fermat (21) # Fermat-Faktorisierung (returns one prime factor)<br>
+3<br>
+fermat (7) # Fermat-Faktorisierung (return of 0 means that the given value is prime)<br>
+0</P>
+
+
+<P class="paddedleft">nroot(125,3) # returns a positive value if there is an integer 3rd root of 125<br>
+5</P>
+
+
+<P class="paddedleft">ispp (125, 4) # returns the base, if 125 is a power of a prime base not smaller than 4<br>
+5<br>
+ispp (125, 5)<br>
+5<br>
+ispp (125, 6)<br>
+0</P>
+
+
+
+<P class="paddedleft">pollardp1 (234567) # Pollards p-1 Faktorisierung, returns 0 if prime, otherwise an integer divisor<br>
+|603<br>
+pollardp1 (1111234567)<br>
+||||| ||||| 0<br>
+pollardrho (234567) # Pollards rho Faktorisierung, returns 0 if prime, otherwise an integer divisor<br>
+|3<br>
+pollardrho (1111234567)<br>
+|||||||||||||||0</P>
+
+
+
+<P class="paddedleft">primteiler (1234567) # sucht alle Primteiler (return value > 0 if ready)<br>
+Primteiler: 127 9721<br>
+1</P>
+
+<P class="paddedleft">primteiler (234567) # sucht alle Primteiler, gibt sie (bei Bedarf mehrfach) aus und speichert sie in dem globalen Array a[] (return value > 0 if ready)<br>
+Primteiler: 3 3 67 389<br>
+1</P>
+
+<P class="paddedleft">show(a[]) # TEST FUNCTION<br>
+3 3 67 389<br>
+0<br>
+testpt() # multipliziere die Primteiler, erwartet diese in dem globalen Array a[]<br>
+234567</P>
+
+
+
+
+<P class="paddedleft">teiler (1234567) # erzeugt die Teiler systematisch aus den Primteilern<br>
+Primteiler: 127 9721<br>
+Teiler<br>
+      1<br>
+    127<br>
+   9721<br>
+1234567<br>
+Summe: 1244416<br>
+Anzahl: 4</P>
+
+
+
+<P class="paddedleft">phi(35) # Euler-Funktion<br>
+Primteiler: 5 7<br>
+24</P>
+
+
+
+<P class="paddedleft">pprod(2) # Produkt der 2 ersten Primzahlen<br>
+6<br>
+pprod(3)<br>
+30<br>
+pprod(4)<br>
+210</P>
+
+
+
+
+
+
+
+<br>
+<P>Hier folgen Beispielaufrufe für einige der in <B>bruch.txt</B> definierten Funktionen. Am einfachsten kann man das auf der Kommandozeile ausprobieren, wenn man <B>testbruch.bat</B> aufruft:</P>
+
+<P class="paddedleft">kuerze(40,15)<br>showb() # Zeige gekürzten Bruch<br>8/3</P>
+
+<P class="paddedleft">fak(5) # Fakultät n!<br>120out</P>
+
+<P class="paddedleft">bin(49,6) # Binomialkoeffizienten n über k (hier Lotto in D)<br>13983816</P>
+
+
+
+
+
+
+
+<br>
+<P>Hier folgen Beispielaufrufe für einige der in <B>dislog.txt</B> und <B>polynom.txt</B> definierten Funktionen. Am einfachsten kann man das auf der Kommandozeile ausprobieren, wenn man <B>testPolynom.bat</B> aufruft:</P>
+
+<P class="paddedleft">phi_zyk (15) # Euler-Funktion bei zyklischem n  (Unterschied zu phi()?<br>
+0</P>
+
+
+<P class="paddedleft">phi(15)<br>
+Primteiler: 3 5<br>
+8</P>
+
+
+<P class="paddedleft">ord(2, 11) # Ordnung von 2 mod 11<br>
+Primteiler: 11<br>
+Primteiler: 2 5<br>
+10<br>
+ord(3, 11)<br>
+Primteiler: 11<br>
+Primteiler: 2 5<br>
+5</P>
+
+
+<P class="paddedleft">proot (11) # Primitivwurzel<br>
+Phi: 10<br>
+Primteiler: 2 5<br>
+2</P>
+
+
+<P class="paddedleft"># Definition der Variablen für den Chinesischen Restsatz (CRT)<br>
+a[1]=0; a[2]=3; a[3]=4; m[1]=3; m[2]=4; m[3]=5; showij(a[],1,3); showij(m[],1,3);<br>
+0 3 4<br>
+0<br>
+3 4 5<br>
+0<br>
+chin(a[], m[]) # Aufruf des CRT<br>
+n = 60<br>
+39</P>
+
+
+
+<P class="paddedleft">dislog (11, 49, 347) # diskreter Log Reduktion Primzahlpotenzordnung (löse 11^x = 49 mod 347)<br>
+Berechne Primteiler von Phi(347)<br>
+Primteiler: 2 173<br>
+Berechne ord(11 mod 347)<br>
+Loese 11^x = 49 mod 347<br>
+|G|: 173<br>
+Primzahlpotenzen, die |G| teilen<br>
+173<br>
+0<br>
+Loese 11^x = 49 mod 347<br>
+|G|: 173<br>
+Wurzel(|G|): 14<br>
+sammle Babysteps ...<br>
+noch keine Loesung<br>
+Giantsteps<br>
+delta = Primitivwurzel^Wurzel mod 347: 4<br>
+Erhoehe q, bis delta^q die erste Komponente eines Babysteps ist ...<br>
+Bingo! (256, 11), q: 4<br>
+14 * q + 11 mod 347 = Loesung:<br>
+x berechnen<br>
+67<br>
+0<br>
+Chinesischer Restsatz:<br>
+n = 173<br>
+67</P>
+
+
+
+<P class="paddedleft"># Wie Aufruf und Interpretation des Ergebnisses?<br>
+dislogp (11, 49, 347, 1, 1) # diskreter Log Reduktion auf Primzahlordnung<br>
+Loese 11^x = 49 mod 347<br>
+|G|: 1<br>
+x berechnen<br>
+1<br>
+0<br>
+0</P>
+
+
+
+<P class="paddedleft">pollardlog (11, 49, 347) # Löse 11^x = 49 mod 347<br>
+Berechne Primteiler von Phi(347)<br>
+Primteiler: 2 173<br>
+Berechne ord(11 mod 347)<br>
+Loese 11^x = 49 mod 347<br>
+|G|: 173<br>
+|||||<br>
+Loese Kongruenz -70*x = -19 mod 173<br>
+k: 1<br>
+67<br>
+Anzahl Loesungen: 1<br>
+passende Loesung: (11^x = 49 mod 347)<br>
+67</P>
+
+
+
+<P class="paddedleft">shank (11, 49, 347, 1, 1) # Löse bas^x = alpha mod modul; letzte 2 Parameter ord, zehner unklar<br>
+Loese 11^x = 49 mod 347<br>
+|G|: 1<br>
+1<br>
+shank (11, 49, 347, 100, 1)<br>
+Loese 11^x = 49 mod 347<br>
+|G|: 100<br>
+Wurzel(|G|): 10<br>
+sammle Babysteps ...<br>
+noch keine Loesung<br>
+Giantsteps<br>
+delta = Primitivwurzel^Wurzel mod 347: 114<br>
+Erhoehe q, bis delta^q die erste Komponente eines Babysteps ist ...<br>
+Bingo! (149, 7), q: 6<br>
+10 * q + 7 mod 347 = Loesung: 67</P>
+
+
+
+
+<P class="paddedleft">poly (4) # Erstelle das Polynom aus den abgefragten Eingaben für die Koeffizienten und speichere diese in dem Array aus[]<br>
+Koeffizient bei x^4: 5<br>
+Koeffizient bei x^3: 4<br>
+Koeffizient bei x^2: 5<br>
+Koeffizient bei x^1: 4<br>
+Koeffizient bei x^0: 5<br>
+2*x^4 + x^3 + 2*x^2 + x + 2<br>
+0</P>
+
+
+
+<P class="paddedleft">showp(aus[]) # Ausgabe des Polynoms mit Hilfe des Arrays aus[]<br>
+2*x^4 + x^3 + 2*x^2 + x + 2<br>
+0</P>
+
+
+<P class="paddedleft">wertp(aus[],3)<br>
+2</P>
+
+<P class="paddedleft"># Und etliche mehr wie FFT (wobei aks() nicht richtig tut)</P>
+
+
+
+
+
+
+
+
+<br>
+<P>Hier folgen Beispielaufrufe für einige der in <B>pi.txt</B> definierten Funktionen. Am einfachsten kann man das auf der Kommandozeile ausprobieren, wenn man <B>testPi.bat</B> aufruft:</P>
+
+<P class="paddedleft">vieta (2)<br>
+3.0614674589207181738276798722431909340907564998850163314704050850203682716807175378961102827382683782<br>
+vieta (5)<br>
+3.1403311569547529123171185243316901321437032336481868934478434092266201320934884366221290951552463225</P>
+
+<P class="paddedleft">wallis(2)<br>
+2.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666<br>
+wallis(5)<br>
+3.4133333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333</P>
+
+<P class="paddedleft">leibniz(2)<br>
+2.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666<br>
+leibniz(5)<br>
+3.3396825396825396825396825396825396825396825396825396825396825396825396825396825396825396825396825396</P>
+
+<P class="paddedleft">heron(2)<br>
+1<br>
+heron(5)<br>
+2<br>
+heron(100)<br>
+10</P>
+
+
+
+
+
+
+
+<br>
+<P>Hier folgen Beispielaufrufe für einige der in <B>ECM.txt</B> definierten Funktionen. Am einfachsten kann man das auf der Kommandozeile ausprobieren, wenn man <B>testECM.bat</B> aufruft:</P>
+
+<P class="paddedleft">proveprime(nextprime(1000)) # Primzahl-Beweis nach Atkin/Morain<br>
+d: -3<br>
+x: 62  y: 8<br>
+ord_ellk a: 0, b: 1, n: 1009<br>
+(0, 1)<br>
+ 1072 gestrichen<br>
+ 967 gestrichen<br>
+ 991 gestrichen<br>
+(1, 439)<br>
+ 1029 gestrichen<br>
+ 1053 gestrichen<br>
+a: 0  b: 1<br>
+Ordnung: 948<br>
+Primteiler: 2 2 3 79<br>
+Probiere Kurve a: 0, b: 1 mit q: 79<br>
+(0, 1)<br>
+(1, 439)<br>
+(572, 971)<br>
+a: 0 b: 1<br>
+1009 Primzahl, wenn 79 Primzahl<br>
+79</P>
+
+
+<P class="paddedleft">ecm (31)<br>
+ECM 31 B = 100<br>
+Kurve 1 a: 2 b: 1<br>
+Kurve 2 a: 3 b: 1<br>
+...<br>
+Kurve 19 a: 21 b: 1<br>
+Kurve 20 a: 22 b: 1<br>
+0</P>
+
+<P class="paddedleft">ecm (93)<br>
+ECM 93 B = 100<br>
+3</P>
+
+
+
+
+
+
+
+<br>
+<P>Hier folgen Beispielaufrufe für einige der in <B>quadRest.txt</B>
+definierten Funktionen. Am einfachsten kann man das auf der Kommandozeile
+ausprobieren, wenn man <B>testquadRest.bat</B> aufruft:</P>
+
+<P class="paddedleft">solstr(1009) # Solovay-Strassen-Primzahltest (returns 0 if not prime)<br>
+1<br>
+solstr(1008)<br>
+0<br>
+solstr(23)<br>
+1</P>
+
+
+<P class="paddedleft">pock(23)<br>
+Primteiler: 2 11<br>
+f = 11<br>
+1<br>
+pock(1009)<br>
+Primteiler: 2 2 2 2 3 3 7<br>
+f = 63<br>
+1<br>
+pock(1008)<br>
+0</P>
+
+
+<P class="paddedleft">sqrmod(0, 2)<br>
+0<br>
+sqrmod(1, 2)<br>
+1<br>
+sqrmod(3, 37)<br>
+15<br>
+sqrtmod(3, 37)  # ??<br>
+22</P>
+
+
+<P class="paddedleft">repunit(7) # Rep-Unit mit 7 Einsen<br>
+1111111</P>
+
+<P class="paddedleft">testrep(1, 7) # Welche Rep-Units sind Primzahlen?<br>
+2 0<br>
+testrep(1, 8)<br>
+2 19 0</P>
+
+
+<P class="paddedleft">rotate (5273, 4, 2) # Rotiere n um d Stellen nach rechts (len = Länge der Dezimalzahl n)<br>
+7352<br>
+rotate (5273, 4, 1)<br>
+3527</P>
+
+
+<P class="paddedleft">ftest(4) # Test, ob n-te Fermatzahl Primzahl<br>
+F4: 65537<br>
+Probedivisionen ...<br>
+kein Teiler < 193<br>
+0<br>
+ftest(5)<br>
+F5: 4294967297<br>
+Probedivisionen ...<br>
+Primteiler bei i=5: 641<br>
+ftest(6)<br>
+F6: 18446744073709551617<br>
+Probedivisionen ...<br>
+Primteiler bei i=1071: 274177</P>
+
+
+<P class="paddedleft">lucas (3) # Test, ob n-te Mersennezahl prim ist (returns 0 if not prime)<br>
+M3: 7<br>
+2p+1 ist prim<br>
+0<br>
+lucas (4)<br>
+M4: 15<br>
+Argument nicht prim<br>
+0<br>
+lucas (5)<br>
+M5: 31<br>
+kein Teiler <= 0<br>
+1<br>
+lucas (6)<br>
+M6: 63<br>
+Argument nicht prim<br>
+lucas (7)<br>
+M7: 127<br>
+kein Teiler <= 0<br>
+1<br>
+lucas (11)<br>
+M11: 2047<br>
+2p+1 ist prim<br>
+0<br>
+lucas (13)<br>
+M13: 8191<br>
+kein Teiler <= 0<br>
+1</P>
+
+
+
+
+
+<br>
+<P>Hier folgt ein Beispielaufruf für die in <B>RSA.txt</B> definierte Funktion.
+Am einfachsten kann man das auf der Kommandozeile ausprobieren, wenn man
+<B>testRSA.bat</B> aufruft. Man wird dann vom Programm zur Eingabe aufgefordert:</P>
+
+<P class="paddedleft">rsa_dec() # Erzeuge die RSA-Schlüssel und entschlüssle den gegebenen Geheimtext<br>
+private Primzahl p: 149<br>
+private Primzahl q: 139<br>
+public Exponent:    65537<br>
+Geheimtext (Zahl): 15543<br>
+Klartext (Zahl): 22</P>
+
+
+
+
+
+
+
+
+
 
 
 
 <br>
 <P><B>Weitere Beispiel-Berechnungen mit bc</B></P>
 
-<P>Aufruf aus dem Lernprogramm "Zahlentheorie" per F3 (Menü Rechner \ BC-Rechner) oder von der Kommandozeile:</P>
-
+<P>a) Aufruf aus dem Lernprogramm "Zahlentheorie" per F3 (Menü Rechner \ BC-Rechner) oder von der Kommandozeile (hier ohne Argumente):</P>
 <P class="paddedleft">bc</P>
 <P>Eingabe: 686^79:</P>
 <P class="paddedleft">686^79<br>117382982726682578986166177099458354591354816385525364361499835772376409385660129455427115381646910282753710610818762831176373701406457183724515147357457376424117782495278817923488619922286175976292059037752989068589810057216<br>quit</P>
 
-<P>Beschreibungen zu weiteren, aus dem Lernprogramm „Zahlentheorie“ heraus übergebenen Funktionen von bc, erhalten Sie innerhalb des Lernprogramms per F8 (Menü Verzeichnisse \ BC-Funktionen).</P>
-<P class="paddedleft">powermod(17,33,11)<br>7</P>
-<p class="paddedleft">euklid(847,22)<br>11</p>
+<P>b) Aufruf  aus dem Lernprogramm "Zahlentheorie" per F3 (Menü Rechner \ BC-Rechner) oder von der Kommandozeile (wenn man sich im Verzeichnis "Bc" unter der CT1-Installation befindet):</P>
+<P class="paddedleft">bc -q prims.txt</P>
+<P class="paddedleft">powermod(17,33,11) # 17^33 mod 11<br>7</P>
+<p class="paddedleft">euklid(847,22) # gibt den ggT zurück<br>11</p>
+
+<P>Alles was hinter einem "#"-Zeichen steht, wird von bc als Kommentar interpretiert.</P>
+
+
 
 
 
@@ -213,14 +743,21 @@ for (n = 0; n &lt;= 16; n++) {<br>
 
 
 <br>
-<P><B>Bemerkung 3: BC und SageMath</B></P>
+<P><B>Bemerkung 3: Stabilität von BC und Windows</B></P>
+
+<P>Leider bekommt man sehr häufig Abstürze, wenn man bc mit diesen Skripten (insbesondere "polynom.txt") unter Windows aufruft (manchmal, nicht immer, meldet er: "Fatal error: Out of memory for malloc"). Unter Linux läuft das etwas stabiler. Wenn jemand eine Idee hat warum, würden wir uns über Feedback freuen.</P>
+
+
+
+<br>
+<P><B>Bemerkung 4: BC und SageMath</B></P>
 
 <P>bc 1.06 ist die letzte von der FSF herausgegebene bc-Version (2000). bc scheint nicht mehr weiter entwickelt zu werden. Inzwischen bietet <a href="http://www.sagemath.org/" target="_blank">SageMath</a>  einen viel größeren und ausgereifteren Leistungsumfang.</P>
 
 <P>Einen Überblick über SageMath finden Sie im Anhang A.7 des <A class="filelink" onclick="parser('CT-Book-de.pdf')">CT-Buches</A>.</P>
 
-<br>
 
+<br>
 </BODY>
 </HTML>
 
