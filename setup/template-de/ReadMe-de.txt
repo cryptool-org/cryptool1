@@ -1322,8 +1322,8 @@ a) Entwickler-relevante Änderungen (eher Programm-technisch):
 
 b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
 
-- Online-Hilfe: aktualisiert an etlichen Stellen (bspw. bc) und Korrektur
-                von über 70 internen und externen Links.
+- Online-Hilfe: aktualisiert an etlichen Stellen (bspw. bc und PGP) und
+                Korrektur von über 70 internen und externen Links.
 
 - CrypTool-Buch: - Edition 12 ist ein großes Update, viele Korrekturen und
                    Ergänzungen
