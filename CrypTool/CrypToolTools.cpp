@@ -353,13 +353,35 @@ bool extractJavaInformation(int &_versionMajor, int &_versionMinor, int &_bits) 
 	// having a valid %APPDATA% variable is required, not just for 
 	// evaluating the Java information, but for other areas as well
 	if(isAppDataVariableDefined()) {
-		// check if Java is available at all
-		if(reinterpret_cast<int>(ShellExecute(NULL, NULL, "java", NULL, NULL, SW_HIDE)) > 32) {
-			// this *should* probably be done with "CreateProcess" and pipes, 
-			// but piping the Java output into a file should work as well
-			const CString outputFileName = CString(getenv("APPDATA")) + CString("\\") + CString("__CRYPTOOL_JAVA_VERSION__");
+		// return structures for CreateProcess
+		STARTUPINFO si;
+		PROCESS_INFORMATION pi;
+		// check if Java is installed (exists in %PATH% variable)
+		memset(&si, 0, sizeof(si));
+		memset(&pi, 0, sizeof(pi));
+		if(CreateProcess(NULL, "java", NULL, NULL, false, CREATE_NO_WINDOW, NULL, NULL, &si, &pi)) {
 			// pipe the Java version output into the file
-			system(CString("java -XshowSettings:all") + CString(" 2> ") + CString(outputFileName));
+			const CString outputFileName = CString(getenv("APPDATA")) + CString("\\") + CString("__CRYPTOOL_JAVA_VERSION__");
+			memset(&si, 0, sizeof(si));
+			memset(&pi, 0, sizeof(pi));
+			// CreateProcess doesn't know about stdout/stderr by default
+			SECURITY_ATTRIBUTES sa;
+			sa.nLength = sizeof(sa);
+			sa.lpSecurityDescriptor = NULL;
+			sa.bInheritHandle = TRUE;
+			HANDLE outputFileHandle = CreateFile(outputFileName, FILE_WRITE_DATA, FILE_SHARE_WRITE | FILE_SHARE_READ, &sa, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+			// initialize startup info
+			si.cb = sizeof(STARTUPINFO); 
+			si.dwFlags |= STARTF_USESTDHANDLES;
+			si.hStdInput = NULL;
+			si.hStdError = outputFileHandle;
+			si.hStdOutput = outputFileHandle;
+			const CString commandWriteFile = CString("java -XshowSettings:all");
+			CreateProcess(NULL, (LPSTR)(LPCTSTR)(commandWriteFile), NULL, NULL, true, CREATE_NO_WINDOW, NULL, NULL, &si, &pi);
+			WaitForSingleObject(pi.hProcess, INFINITE);
+			CloseHandle(pi.hProcess);
+			CloseHandle(pi.hThread);
+			CloseHandle(outputFileHandle);
 			// try to open the file and extract the desired information
 			CStdioFile inputFile;
 			if(inputFile.Open(outputFileName, CFile::modeRead)) {
@@ -385,7 +407,7 @@ bool extractJavaInformation(int &_versionMajor, int &_versionMinor, int &_bits) 
 				}
 				inputFile.Close();
 				// delete the file
-				system(CString("del") + CString(" ") + CString(outputFileName));
+				DeleteFile(outputFileName);
 				// if all extracted information is non-zero, we're good
 				if(versionMajor != 0 && versionMinor != 0 && bits != 0) {
 					_versionMajor = versionMajor;
@@ -448,8 +470,13 @@ void ShellExecuteJava(const CString &_javaProgram, const CString &_javaProgramCo
 	CString javaProgram = _javaProgram;
 	CString javaProgramCompleteCall = _javaProgramCompleteCall;
 	CString path = _path;
-	// check if Java is installed
-	if(reinterpret_cast<int>(ShellExecute(NULL, NULL, "java", NULL, NULL, SW_HIDE)) <= 32) {
+	// return structures for CreateProcess
+	STARTUPINFO si;
+	PROCESS_INFORMATION pi;
+	// check if Java is installed (exists in %PATH% variable)
+	memset(&si, 0, sizeof(si));
+	memset(&pi, 0, sizeof(pi));
+	if(!CreateProcess(NULL, "java", NULL, NULL, false, CREATE_NO_WINDOW, NULL, NULL, &si, &pi)) {
 		CString message;
 		message.LoadStringA(IDS_STRING_JAVA_JRE_NOT_INSTALLED);
 		AfxMessageBox(message, MB_ICONINFORMATION);
@@ -464,9 +491,9 @@ void ShellExecuteJava(const CString &_javaProgram, const CString &_javaProgramCo
 		AfxMessageBox(message, MB_ICONINFORMATION);
 		return;
 	}
-	// try to execute the Java program in its own process
-	STARTUPINFO si = {0};
-	PROCESS_INFORMATION pi = {0};
+	// try to execute the Java program
+	memset(&si, 0, sizeof(si));
+	memset(&pi, 0, sizeof(pi));
 	CString command;
 	command.Format("java %s", javaProgramCompleteCall);
 	if(!CreateProcess(NULL, (LPSTR)(LPCTSTR)(command), NULL, NULL, false, CREATE_NO_WINDOW, NULL, (LPCTSTR)(path), &si, &pi)) {
