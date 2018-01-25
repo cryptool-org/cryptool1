@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.41 für Win32, Dezember 2017
+    CrypTool, Version 1.4.41 für Win32, Februar 2018
 
 CrypTool v1 (CT1) ist ein freies, internationales
 E-Learning-Programm für Kryptographie und Kryptoanalyse.
@@ -7,7 +7,7 @@ E-Learning-Programm für Kryptographie und Kryptoanalyse.
     (c) Contributors
         Dazu gehören u.a. Deutsche Bank AG, Frankfurt am Main, und die
         Universitäten Siegen, Darmstadt, Bochum, Duisburg-Essen und Kassel.
-        1998-2017
+        1998-2018
     Freie Software und Open Source gemäß der Apache Lizenz 2.0
     www.cryptool.org
     Prof. Bernhard Esslinger
@@ -166,18 +166,27 @@ Kontakte: Siehe Kapitel 7 unten.
 
 
 Bekannte Fehler:
+================
+
 1) Unter Windows 10 kam es häufiger zu folgendem Phänomen:
    Beim ersten Aufruf von PDFs (wie der CT1-Präsentation oder des CT-Buches)
    aus der CT1-Onlinehilfe, aus dem CT1-Menü "Hilfe" oder aus dem
    Windows-Startmenu heraus, startet Acrobat nicht. Evtl. zeigt die
    Onlinehilfe eine leere Seite, dann stürzt die Onlinehilfe ab.
    Beim nächsten Start der Onlinehilfe klappen diese Aufrufe.
-   Das lag daran, dass ein Acrobat-Prozess hängen blieb. Wenn man diesen
-   Acrobat-Prozess im Windows-TaskManager beendet, starten meist auch die
+   Das lag daran, dass Acrobat-Prozesse hängen blieben. Wenn man diese
+   Acrobat-Prozesse im Windows-TaskManager beendet, starten meist auch die
    PDFs aus CT1 heraus wie gewünscht.
    Leider kann es geschehen, dass sich auch beim folgenden Aufruf des PDFs
    wieder ein Acrobat-Prozess aufhängt (bis es einmal klappt) oder dass der
    Fehler beim Neustart von CT1 erneut auftritt.
+   Evtl. erkennen Sie das auch daran, dass der Adobe Acrobat Reader die
+   ff. Meldung bringt: "Acrobat failed to connect to DDE server". Der
+   zugehörige Prozess wir machmal gleich viermal auf einmal gestartet.
+
+   Anmerkung: Ist der Acrobat-Reader nicht installiert, funktionieren alle
+   diese Aufrufe von PDFs ok (implizit wird das vom Edge-Browser erledigt).
+
 2) Ein weiterer Fehler, der außerhalb unseres CrypTool-Codes zu liegen
    scheint:
    Ruft man den Calculator BC aus den beigelegten ZT-Tools auf (per F3 oder
@@ -1299,7 +1308,9 @@ a) Entwickler-relevante Änderungen (eher Programm-technisch):
 - Das CT1-Installationsprogramm ist nun signiert mit einem Zertifikat, das von
   einer CA herausgegeben wird, die im Windows-Schlüsselspeicher enthalten ist.
   Dies vermeidet, dass Windows dem Benutzer unnötige Warnungen über
-  nicht-signierte Software angezeigt.
+  nicht-signierte Software angezeigt. Auch im Installationsprogramm
+  enthaltene Executables sind signiert (bis auf die Flash-Executables,
+  die nach einer Signatur nur noch ein weißes Fenster zeigten).
 
 - Das Installationsprogramm füllt nun das Herausgeber-Feld, so dass in der
   Windows-Übersicht der installierten Software nun "CrypTool-Team" angezeigt
@@ -1332,6 +1343,9 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
 - Am 18. Januar 2012 wurde die neue CrypTool-Webseite (CTP) freigegeben, die
   die 5 Unterprojekte des CT-Projektes gleichwertig darstellt.
   Dazu gehört auch CT1. Seitdem wurde die Seite regelmäßig geupdated.
+  In 2017 wurden alle CT-Unterprojekte bis auf MTC3 in ein gemeinsames
+  Joomla zusammengeführt, und CTO auf responsive Design mit JS und Bootstrap
+  umgestellt.
 
 
 c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
@@ -1430,7 +1444,7 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
   für 32- und 64-Bit-Java-VMs ausgeliefert.
 - Flash-Executables (mit integriertem Inhalt) wurden in 1.4.40 signiert. Dann
   wurde statt dem Inhalt nur ein leeres, weißes Fenster angezeigt. Ab 1.4.41
-  werden sie wie vorher unsigniert ausgeliefert.
+  werden diese wie vorher unsigniert ausgeliefert.
 
 - Danke an die vielen aufmerksamen Benutzer, die uns auf Bugs und 
   Inkonsistenzen aufmerksam machten.
@@ -2348,7 +2362,7 @@ Version                  Deutsch    Englisch      Bedarf DE      durch
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.30    Aug. 2010      52,1 MB     51,5 MB         95 MB        DB
 1.4.40    Sep. 2017      70,7 MB     69,9 MB        113 MB        CT
-1.4.41    Nov. 2017      71,0 MB     69,9 MB        114 MB        CT (xxxok)
+1.4.41    Feb. 2018      73,0 MB     71,6 MB        116 MB        CT (xxxok)
 
 Bemerkungen zu den (Zwischen-)Versionen:
 1.3.02  Viele neue Funktionen gegenüber 1.3.00
@@ -2392,7 +2406,7 @@ Bemerkungen zu den (Zwischen-)Versionen:
 1.4.31-Beta06d 2016       Weitere Beta von Version 1.4.31
 1.4.40  Viele Bugfixes und erweiterter Funktionsumfang i.Vgl. zu 1.4.30.
                           (erstmals mit einer französischen Sprachversion)
-1.4.41  Kleine Bugfixes.
+1.4.41  Bugfixes, Aktualisierung Onlinehilfe (zu PGP)
 
 
 
@@ -3505,6 +3519,9 @@ als vor 6 Jahren.
        - Vor- und Zurück-Button
 - nok: Fehlfunktionen innerhalb der Macromedia-Anwendung ZT
 
+Mit der im Jan 2018 erschienenen Version Wine 3.0 (https://www.winehq.org/)
+haben wir noch nicht getestet. Über Feedback dazu würden wir uns freuen.
+
 Wir unternehmen keine extra Anstrengungen, Wine zu unterstützen.
 Stattdessen empfehlen wir, die plattformunabhängige Version JCT zu benutzen,
 die auch unter Linux läuft (siehe Kapitel 3.5).
@@ -3529,8 +3546,8 @@ unter http://www.cryptoolinux.net/).
   Aufgaben) wurde am 15.12.2008 veröffentlicht.
 - Dieses Projekt ist beendet.
 
-Nichtsdestotrotz wird das CT1-Kernteam einen Nachfolger von CT1 mit Qt 5
-bauen, der dasselbe Look&Feel wie CT1 hat und QCT genannt wird
+Nichtsdestotrotz plant das CT1-Kernteam, einen Nachfolger von CT1 mit
+Qt 5 bauen, der dasselbe Look&Feel wie CT1 hat und QCT genannt wird
 (siehe A.1 Roadmap nach CT 1.4.4x).
 
 

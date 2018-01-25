@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.41 for Win32, December 2017
+    CrypTool, Version 1.4.41 for Win32, February 2018
     
 CrypTool v1 (CT1) is a free, international
 e-learning program for cryptography and cryptanalysis.
@@ -7,7 +7,7 @@ e-learning program for cryptography and cryptanalysis.
     (c) Contributors
         including Deutsche Bank AG, Frankfurt/Main, and the Universities
         of Siegen, Darmstadt, Bochum, Duisburg-Essen, and Kassel.
-        1998-2017
+        1998-2018
     Freeware and Open Source according to the Apache License 2.0
     www.cryptool.org
     Prof. Bernhard Esslinger
@@ -165,18 +165,27 @@ Contacts: Please see chapter 7 below.
 
 
 Known bugs:
+===========
+
 1) With Windows 10 the following phenomenon appeared:
    Starting a PDF (like the CT1 presentation or the CT book) the first time
    from within the CT1 online help, from the CT1 menu "Help", or from the
-   Windows Start menu, then Acrobat didn't show up. Sometimes the online help
-   shows an empty page before it crashes. After the next start of the
-   online help this call of the pdf should work.
+   Windows Start menu, then Acrobat didn't show up. Sometimes, the online
+   help shows an empty page before it crashes. After the next start of the
+   online help this call of a pdf file from within CT1 should work.
    The reason is a hanging Acrobat process. If you stop this Acrobat process
    within the Windows TaskManager, then PDFs mostly start from within CT1 as
    usual.
    Sadly, it can happen, that a following call of the PDFs also causes an
    Acrobat process to hang (until it works once), or that this mistake
    happens again after you restart CT1.
+   Maybe you can recognize this because the Adobe Acrobat Reader pops up the
+   following message: "Acrobat failed to connect to DDE server". The
+   according process is sometimes started several times at once.
+
+   Remark: If there is no Acrobat reader installed, all these calls of
+   the pdfs work fine (implicitely they are handles by the Edge browser).
+
 2) Another annoying bug which seems to be outside of our CrypTool code:
    Calling the calculator BC from the enclosed NT-Tools (via F3 or from the
    NT menu "Calulators"), then BC crashes at its first call.
@@ -1250,6 +1259,8 @@ a) Developer-relevant changes (more technically oriented):
 - The CT1 installer now is signed with a certificate issued by a CA which
   is contained in the Windows keystore. This avoids that Windows shows
   users unnecessary warnings about unsigned software.
+  Excecutables contained in the CT1 installer are also signed (except some
+  Flash executables which showed only a white window after being signed).
 
 - Installer fills the publisher field so the Windows overview of installed
   software shows now "CrypTool Team".
@@ -1261,8 +1272,8 @@ a) Developer-relevant changes (more technically oriented):
 
 b) Changes within the user documentation / on the websites:
 
-- Online help: updated some topics (like bc) and correction of more than 70
-               internal and external links.
+- Online help: updated some topics (like bc and pgp) and corrected more
+               than 70 internal and external links.
 
 - CrypTool book: - Edition 12 is a major update, with many corrections and
                    additions
@@ -1282,6 +1293,9 @@ b) Changes within the user documentation / on the websites:
 - At January 18th, 2012 the new CrypTool website (CTP) was released. It
   describes the 5 sub projects of the CT project in an equivalent way.
   This contains CT1. Since then the website was updated regularily.
+  In 2017 all CT sub projects besides MTC3 have been joined in a common
+  Joomla, and CTO switched to a responsive Design using JS and Bootstrap.
+
 
 
 c) New functionality / Usability / Corrections of errors:
@@ -1372,7 +1386,7 @@ c) New functionality / Usability / Corrections of errors:
   separately for a 32 bit and a 64 bit Java VM.
 - In 1.4.40, Flash executables (with integrated content) were signed. However,
   this caused a white empty window instead of the content. So from 1.4.41
-  these they are delivered unsigned as before.
+  these are delivered unsigned as before.
 
 - Thanks to the many attentive users, who pointed us to bugs and
   inconsistencies.
@@ -2265,7 +2279,7 @@ Version                 English      German    needed EN     by
 1.4.21    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.30    Aug. 2010     51.5 MB      52.1 MB    94 MB        DB
 1.4.40    Sep. 2017     69.9 MB      70.7 MB   112 MB        CT
-1.4.41    Nov. 2017     69.9 MB      71.0 MB   112 MB        CT (xxxok)
+1.4.41    Feb. 2018     71.6 MB      73.0 MB   114 MB        CT (xxxok)
 
 Remarks about the (intermediate) versions:
 1.3.02  Many new functions compared to 1.3.00
@@ -2309,7 +2323,7 @@ Remarks about the (intermediate) versions:
 1.4.31-Beta06d 2016       Further beta of CT 1.4.31
 1.4.40  Many bug fixes and enhanced functionality compared to 1.4.30.
                           (first one with a French language version)
-1.4.41  Small bug fixes.
+1.4.41  Bug fixes, actualization of online help (PGP)
 
 
 
@@ -3387,6 +3401,9 @@ work well under Wine. Wine is much more stable than 6 years ago.
        - Navigation via the back and forth buttons
 - nok: Some malfunctions within the Macromedia application NT
 
+We haven't done tests yet with Wine 3.0 published in Jan 2018 (https://www.winehq.org/).
+Any feedback about that is welcome.
+
 Generally we do not make extra efforts to support Wine.
 Instead of that, please try the platform-independent version JCT which also
 runs under Linux (see chapter 3.5).
@@ -3410,8 +3427,8 @@ http://www.cryptoolinux.net/).
   planned tasks) was published mid December 2008.
 - This project has stopped.
 
-However, the CT1 core team will build a successor of CT1 using Qt 5,
-which will have the same look&feel as CT1 and which is called QCT
+However, the CT1 core team plans to build a successor of CT1 using
+Qt 5, which will have the same look&feel as CT1 and which is called QCT
 (see A.1: Roadmap after CT 1.4.4x).
 
 ################################################################
