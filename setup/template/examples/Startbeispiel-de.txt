@@ -19,7 +19,7 @@ Sie können die Online-Hilfe mit F1 an jeder Stelle in CT1 öffnen.
   ausgewählten Menü-Eintrag Informationen erhalten, indem Sie F1 drücken.
 - Sie schauen sich die Readme-Datei an (siehe Menü "Hilfe -> Readme").
 - Sie schauen sich die beiliegende bunte Präsentation an. Diese Präsentation ist auf verschiedene Arten zugänglich: z.B. unter dem Menü "Hilfe", oder über den Abschnitt "Dokumentation" auf der Startseite der Online-Hilfe.
-- Sie schauen sich die Webseite www.cryptool.de an.
+- Sie schauen sich die Webseite www.cryptool.org an.
 
-Dezember 2017
+Februar 2018
 Das CrypTool-Team

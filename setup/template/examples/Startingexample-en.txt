@@ -20,5 +20,5 @@ Press F1 to start the online help everywhere in CT1.
 - Viewing the included colorful presentation. This presentation can be found on several ways: e.g. in the "Help" menu of this application, or via the "Documentation" section found at the "Starting" page of the online help.
 - Viewing the webpage www.cryptool.org.
 
-December 2017
+February 2018
 The CrypTool Team

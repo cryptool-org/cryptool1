@@ -19,6 +19,6 @@ Vous pouvez lancer l'Aide en ligne à tout moment dans CT1, avec la touche F1.
 - l'affichage de la présentation en couleurs. Cette présentation peut être affichée de plusieurs façons: par exemple dans le menu "Aide", ou via la section "Documentation" disponible dans la page d'accueil de l'Aide.
 - la consultation du site web www.cryptool.org.
 
-Fèvrier 2017
+Fèvrier 2018
 L'équipe CrypTool
 
