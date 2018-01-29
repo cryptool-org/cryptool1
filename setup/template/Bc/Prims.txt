@@ -20,7 +20,7 @@
 print "\n"	# default-Ausgabe für Ergebnisdatei (zeigt AW Ende auch bei Fehler)
 
 
-# dürfen vom Benutzer NICHT verändert werden:
+# dürfen vom Benutzer NICHT verändert werden: 
 
 scale = 0	# Nachkommastellen - würden die Funktionen durcheinander bringen.
 maxp = 1	# global (nextprime, faktbas, primteiler) 	# Anzahl gespeicherter Primzahlen
@@ -212,7 +212,7 @@ define kong (a, b, m) { 			# löse Kongruenz a*x = b mod m
 
 
 
-define random (a, b) {					# Zufallszahl aus {a, ..., b}
+define ntrandom (a, b) {					# Zufallszahl aus {a, ..., b}
 
   auto m						# global: rbas, seed
 
@@ -238,9 +238,9 @@ define probe (n, a, b) {	# n Zufallszahlen aus {a, ..., b} unsortiert
 
   if (n <= 0) return 0
   for (i=1; i<n; i++) {
-    print random(a, b), "\n"
+    print ntrandom(a, b), "\n"
   }
-  return random(a, b)
+  return ntrandom(a, b)
 }
 
 
@@ -355,7 +355,7 @@ define mrkern (a,d,s) {		# Kern des Miller-Rabin-Primzahltests
   auto bas, c
   #auto c	# bas global zum Nachprüfen
 
-  bas = random(2,a-2)				# Zufallsbasis, a >= 4 ist gewährleistet
+  bas = ntrandom(2,a-2)				# Zufallsbasis, a >= 4 ist gewährleistet
 
   if (euklid1(bas,a) > 1) return 0		# a keine Primzahl
 
@@ -576,7 +576,7 @@ define pollardp1 (a) {		# Pollards p-1 Faktorisierung
 				# Rechner Dude, Win XP
     print "|"
     if (!mod(i, 5)) print " "
-    bas = random(2, a-2)			# Zufallsbasis
+    bas = ntrandom(2, a-2)			# Zufallsbasis
     #print bas, "\n"    
     d = euklid1(bas,a)
     if (d > 1) return d				# Glück! echter Teiler
@@ -612,7 +612,7 @@ define pollardrho (n) {		# Pollards Rho Faktorisierung
   lim = min( iter_pollard, sqrt(sqrt(n))+20000 )
   #lim = sqrt(sqrt(n))+1000
 
-  x = random(0,n-1)				# zufälliger Startwert x
+  x = ntrandom(0,n-1)				# zufälliger Startwert x
   ggt = 1
   i = 1
 
@@ -912,7 +912,7 @@ define pprod(n) {if(n==0) return 1; return prims[n]*pprod(n-1)}		# Produkt der e
 
 define hart(von, bis) {		# suche harte Nuss zufällig im Bereich von..bis
   auto i; 
-  while(1) {x=random(von, bis); if(x%2==0) x=x+1; if(primteiler(x)==0) return x; i++}
+  while(1) {x=ntrandom(von, bis); if(x%2==0) x=x+1; if(primteiler(x)==0) return x; i++}
 }
 
 
@@ -990,3 +990,4 @@ define zahl () {
   }
 }
 */
+

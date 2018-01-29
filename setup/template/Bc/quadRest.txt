@@ -100,7 +100,7 @@ define solstr(n) {		# Solovay-Strassen-Primzahl-Test
   if (n % 2 == 0) return 0		# nicht prim
 
   for (i=1; i<=iter_mr; i++) {
-    a = random(2, n-2)
+    a = ntrandom(2, n-2)
     j = jacobi(a, n)
     #print j, "\n"
 

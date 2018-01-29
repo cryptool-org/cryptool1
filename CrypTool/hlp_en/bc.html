@@ -22,22 +22,29 @@ Within CT1, bc is delivered together with the number theory <a href="hid_interac
 
 <P>The utility bc can compute up to at least 99 places right of the decimal point and at least 4000 to the left.</P>
 
-<P>A standard math library is available by the command line option -l. In addition, bc starts by processing code from all the files listed on the command line in the order they are listed. After all files have been processed, bc reads from the standard input. All code is executed as it is read. (If a file contains a command to halt the processor, bc will never read from the standard input.)</P>
+<P>A standard math library is available by the command line option -l. In addition, bc starts by processing code from all the files listed on the command line in the order they are listed. After all files have been processed, bc reads from the standard input. All code is executed as it is read. (If a file contains a command to halt the processor, bc cannot read from the standard input.)</P>
 
 <P>Calling syntax:<br>bc [ -hlwsqv ] [long options] [ files ]</P>
 <P>Sample call from <B>bcmax.bat</B>:<br>bc -lq prims.txt dislog.txt ecm.txt quadRest.txt seed</P>
 
-<P>The option -q suppresses version information (quiet mode) at the beginning.<br>
+<P>The option -q suppresses version information (quiet mode) at the beginning. The delivered Windows bc outputs:<br>
 >bc<br>
 bc 1.06<br>
 Copyright 1991-1994, 1997, 1998, 2000 Free Software Foundation, Inc.<br>
+This is free software with ABSOLUTELY NO WARRANTY.</P>
+
+<P>If you run BC under Unix you may get:<br>
+>bc<br>
+bc 1.06.95<br>
+Copyright 1991-1994, 1997, 1998, 2000, 2004, 2006 Free Software Foundation, Inc.<br>
 This is free software with ABSOLUTELY NO WARRANTY.</P>
 
 
 <br>
 <P><B>BC and the Educational Software "<a href="hid_interactive_number_theory.html">Number Theory (NT)</a>" – Distributed with CrypTool 1</B></P>
 
-<P>Part of the distribution of the educational tool "Number Theory" is the command line calculator, <a href="http://en.wikipedia.org/wiki/Basic_Calculator">bc</a> (version 1.06, published by Free Software Foundation under <a href="hidd_tipps_and_tricks.html#opensource">GPL</a>), supplemented with some functions loaded via bcmax.bat when starting bc (via F3 from the educational tool).</P>
+<P>Part of the distribution of the educational tool "Number Theory" is the command line calculator, <a href="http://en.wikipedia.org/wiki/Basic_Calculator">bc</a> (version 1.06, published by Free Software Foundation under <a href="hidd_tipps_and_tricks.html#opensource">GPL</a>).</P>
+<P>When you call bc from this "Number Theory" tool (for instance via F3) it starts supplemented with some additional functions in scripts loaded via bcmax.bat. If bc fails to start with these scripts under Windows, you may either try F3 several times or try the bc scripts under Unix.</P>
 
 
 
@@ -142,7 +149,8 @@ Prims.txt is a file with helper functions needed in almost all of the other bc e
 
 <P>Descriptions for these additional bc functions are available within the "Number Theory" program via F8 (menu Glossaries \ BC Functions).</P>
 
-<P>In the following there are some sample calls of functions defined in <B>prims.txt</B>. The easiest way to try them on the command line is starting <B>testbruch.bat</B>:</P>
+
+<P><b>1)</b> In the following there are some sample calls of functions defined in <B>prims.txt</B>. The easiest way to try them on the command line is starting <B>testbruch.bat</B>, or directly call on the command line: <B>bc -lq prims.txt bruch.txt</B>:</P>
 
 
 <P class="paddedleft">gcm = euklid1( 40, 15 ) # gcm = greatest common divisor<br>
@@ -189,7 +197,9 @@ mr (67)<br>
 
 
 <P class="paddedleft">nextprime (63) # next prime >= n<br>
-67</P>
+67<br>
+nextprime(10^18)<br>
+1000000000000000003</P>
 
 
 <P class="paddedleft">fermat (21) # Fermat factorization (returns one prime factor)<br>
@@ -271,11 +281,11 @@ pprod(4)<br>
 
 
 <br>
-<P>In the following there are some sample calls of functions defined in <B>bruch.txt</B>. The easiest way to try them on the command line is starting <B>testbruch.bat</B>:</P>
+<P><b>2)</b> In the following there are some sample calls of functions defined in <B>bruch.txt</B>. The easiest way to try them on the command line is starting <B>testbruch.bat</B>, or directly call on the command line: <B>bc -lq prims.txt bruch.txt</B>:</P>
 
 <P class="paddedleft">kuerze(40,15)<br>showb() # Show the reduced fraction<br>8/3</P>
 
-<P class="paddedleft">fak(5) # factorial n!<br>120out</P>
+<P class="paddedleft">fak(5) # factorial n!<br>120</P>
 
 <P class="paddedleft">bin(49,6) # binomial coefficient n choose k (here Lotto in Germany)<br>13983816</P>
 
@@ -286,7 +296,7 @@ pprod(4)<br>
 
 
 <br>
-<P>In the following there are some sample calls of functions defined in <B>dislog.txt</B> and <B>polynom.txt</B>. The easiest way to try them on the command line is starting <B>testPolynom.bat</B>:</P>
+<P><b>3)</b> In the following there are some sample calls of functions defined in <B>dislog.txt</B> and <B>polynom.txt</B>. The easiest way to try them on the command line is starting <B>testPolynom.bat</B>, or directly call on the command line: <B>bc -lq prims.txt dislog.txt polynom.txt</B>:</P>
 
 
 <P class="paddedleft">phi_zyk (15) # Euler function with cyclic n  (difference between phi()?<br>
@@ -326,7 +336,7 @@ n = 60<br>
 
 
 
-<P class="paddedleft">dislog (11, 49, 347) # discreter log reduction prim power order (solve 11^x = 49 mod 347)<br>
+<P class="paddedleft">dislog (11, 49, 347) # discrete log reduction prim power order (solve 11^x = 49 mod 347)<br>
 Berechne Primteiler von Phi(347)<br>
 Primteiler: 2 173<br>
 Berechne ord(11 mod 347)<br>
@@ -410,7 +420,6 @@ Koeffizient bei x^0: 5<br>
 0</P>
 
 
-
 <P class="paddedleft">showp(aus[]) # Output the polynom using the array aus[]<br>
 2*x^4 + x^3 + 2*x^2 + x + 2<br>
 0</P>
@@ -419,7 +428,45 @@ Koeffizient bei x^0: 5<br>
 <P class="paddedleft">wertp(aus[],3)<br>
 2</P>
 
-<P class="paddedleft"># And several more like FFT (however, aks() doesn't work well)</P>
+
+
+
+<P class="paddedleft">aks(23) # aks() doesn't work with the Windows bc, but it does with the Unix bc.<br>
+# aks(n) returns 1, if n is prime<br>
+ln: 3.1354942159<br>
+Primteiler: 2 <br>
+...<br>
+r: 17<br>
+m[]: x^17 -1<br>
+<br>
+a: 1 von 12.5419768636<br>
+a[]: x -1<br>
+powermodp( a[], n, m[] ): <br>
+23<br>
+...<br>
+b[]: x^6 -1<br>
+<br>
+a: 2 von 12.5419768636<br>
+a[]: x -2<br>
+...<br>
+b[]: x^6 -2<br>
+<br>
+a: 3 von 12.5419768636<br>
+a[]: x -3<br>
+...<br>
+b[]: x^6 -3<br>
+<br>
+a: 12 von 12.5419768636<br>
+a[]: x -12<br>
+...<br>
+b[]: x^6 -12<br>
+1<br>
+</P>
+
+
+
+
+<P class="paddedleft"># And several more like FFT.</P>
 
 
 
@@ -429,7 +476,8 @@ Koeffizient bei x^0: 5<br>
 
 
 <br>
-<P>In the following there are some sample calls of functions defined in <B>pi.txt</B>. The easiest way to try them on the command line is starting <B>testpi.bat</B>:</P>
+<P><b>4)</b> In the following there are some sample calls of functions defined in <B>pi.txt</B>. The easiest way to try them on the command line is starting <B>testpi.bat</B>, or directly call on the command line:
+<B>bc -lq prims.txt bruch.txt pi.txt</B>:</P>
 
 <P class="paddedleft">vieta (2)<br>
 3.0614674589207181738276798722431909340907564998850163314704050850203682716807175378961102827382683782<br>
@@ -460,7 +508,8 @@ heron(100)<br>
 
 
 <br>
-<P>In the following there are some sample calls of functions defined in <B>ECM.txt</B>. The easiest way to try them on the command line is starting <B>testECM.bat</B>:</P>
+<P><b>5)</b> In the following there are some sample calls of functions defined in <B>ECM.txt</B>. The easiest way to try them on the command line is starting <B>testECM.bat</B>, or directly call on the command line:
+<B>bc -lq prims.txt quadRest.txt ECM.txt</B>:</P>
 
 <P class="paddedleft">proveprime(nextprime(1000)) # Prime proving according to Atkin/Morain<br>
 d: -3<br>
@@ -505,7 +554,7 @@ ECM 93 B = 100<br>
 
 
 <br>
-<P>In the following there are some sample calls of functions defined in <B>quadRest.txt</B>. The easiest way to try them on the command line is starting <B>testquadRest.bat</B>:</P>
+<P><b>6)</b> In the following there are some sample calls of functions defined in <B>quadrest.txt</B>. The easiest way to try them on the command line is starting <B>testquadrest.bat</B>, or directly call on the command line: <B>bc -lq prims.txt quadrest.txt ECM.txt</B>:</P>
 
 <P class="paddedleft">solstr(1009) # Solovay-Strassen primality test (returns 0 if not prime)<br>
 1<br>
@@ -600,7 +649,35 @@ kein Teiler <= 0<br>
 
 
 <br>
-<P>In the following there is a sample call of a function defined in <B>RSA.txt</B>. The easiest way to try it on the command line is starting <B>testRSA.bat</B>:</P>
+<P><b>7)</b> In the following there are sample calls of functions defined in <B>sieb.txt</B>.
+sieb.txt contains many helper functions for QS.
+The easiest way to try them on the command line is starting <B>testsieb.bat</B>, or directly call on the command line:
+<B>bc -lq prims.txt quadrest.txt sieb.txt</B>:</P>
+
+<P>Remark: 1935876319563194563149586135986001 = 245811717352469 * 7875443613566007629.</P>
+
+<P class="paddedleft">quadsieb(1935876319563194563149586135986001)<br>
+sieb(8,6,64,1935876319563194563149586135986001)<br>
+...<br>
+Offset: 983040<br>
+Kongruenzen bis jetzt: 512 (Ziel: 512)<br>
+Big-Paare: 253<br>
+smatrix(s[],512,502,1935876319563194563149586135986001,43998594518043352)<br>
+Anzahl Einsen: 5755 (ca. 2.2% und ca. 11.4 pro Zeile)<br>
+gauss(512,502,0)<br>
+  Pivot-Zeile: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21\<br>
+...<br>
+7875443613566007629</P>
+
+<P>Remark: The command <B>bc -lq prims.txt quadrest.txt sieb.txt seed calc.txt > res.txt</B> stops itself because of the "quit" command within calc.txt, and writes its output to the file "res.txt".</P>
+
+
+
+
+
+<br>
+<P><b>8)</b> In the following there is a sample call of a function defined in <B>RSA.txt</B>. The easiest way to try it on the command line is starting <B>testRSA.bat</B>, or directly call on the command line:
+<B>bc -lq prims.txt RSA.txt</B>. The program requests input from you:</P>
 
 <P class="paddedleft">rsa_dec() # create the RSA keys and decrypt the given ciphertext<br>
 private Primzahl p: 149<br>
@@ -610,6 +687,17 @@ Geheimtext (Zahl): 15543<br>
 Klartext (Zahl): 22</P>
 
 
+
+<br>
+<P><B>Remarks about the delivered bc scripts:</B></P>
+<P>Remark <B>1</B>: Function names in bc scripts may only contain lower case letters.</P>
+<P>Remark <B>2</B>: The function random() was already defined in the Unix bc (but not in the Windows bc), so it was renamed in the script prims.txt.</P>
+<P>Remark <B>3</B>: While the Windows bc can deal with scripts terminating the line with both CRNL or only NL; the Unix bc can only deal with the Unix style. Therefore, in order to make them usable both under Windows and under Unix, the delivered scripts end only with NL. This avoids the error message "illegal character: ^M".<br>
+If you have a DOS/Windows script and want to run it under Unix, just revert the line termination via<br>
+> dos2unix prims.txt<br>
+and check this via<br>
+> file *.txt</P>
+<P>Remark <B>4</B>: The Unix bc was tested under Ubuntu 17.04, the Windows bc was tested with Windows 10. The Unix bc is a bit newer and much more stable. You will notice that when working with bigger numbers or when requiring more memory. Under Windows some of the scripts fail when be called and stop bc from working, so you may try several times. Under Unix all scripts worked without problems.</P>
 
 
 
@@ -621,9 +709,9 @@ Klartext (Zahl): 22</P>
 
 
 <br>
-<P><B>Further sample calculations using bc</B></P>
+<h3>Further sample calculations using bc</h3>
 
-<P>a) You can call bc from within the educational program "Number Theory" via F3 (menu Calculators \ BC Calculator) or from the command prompt (here wihout an argument):</P>
+<P>a) You can call bc from within the educational program "Number Theory" via F3 (menu Calculators \ BC Calculator) or from the command prompt (here without an argument):</P>
 <P class="paddedleft">bc</P>
 <P>Enter: 686^79:</P>
 <P class="paddedleft">686^79<br>117382982726682578986166177099458354591354816385525364361499835772376409385660129455427115381646910282753710610818762831176373701406457183724515147357457376424117782495278817923488619922286175976292059037752989068589810057216<br>quit</P>
@@ -712,7 +800,13 @@ for (n = 0; n &lt;= 16; n++) {<br>
 </P>
 
 
-<P>Further own enhancements can be found e.g. in <a href="http://x-bc.sourceforge.net/extensions_bc.html" target="_blank">http://x-bc.sourceforge.net/extensions_bc.html</a></P>
+<P>Further own enhancements can be found e.g.
+in <a href="http://x-bc.sourceforge.net/extensions_bc.html" target="_blank">http://x-bc.sourceforge.net/extensions_bc.html</a> or
+in <a href="https://github.com/susca/bc-extensions" target="_blank">https://github.com/susca/bc-extensions</a> or
+in <a href="https://github.com/esovetkin/bc-extensions" target="_blank">https://github.com/esovetkin/bc-extensions</a> or
+in <a href="http://phodd.net/gnu-bc/" target="_blank">http://phodd.net/gnu-bc/</a> or
+in <a href="http://www.numbertheory.org/php/" target="_blank">http://www.numbertheory.org/php/</a>.
+</P>
    
 
 
@@ -742,15 +836,15 @@ for (n = 0; n &lt;= 16; n++) {<br>
 <br>
 <P><B>Remark 3: Stability of bc under Windows</B></P>
 
-<P>Sadly, very often we get crashes (sometimes telling "Fatal error: Out of memory for malloc") when calling bc with these scripts (especially "polynom.txt") under Windows. Under Linux it's a bit more stable. If someone has an idea why, any feedback is welcome.</P>
+<P>Sadly, very often we get crashes (sometimes telling "Fatal error: Out of memory for malloc") when calling bc with these scripts (especially "polynom.txt" and "sieb.txt") under Windows. Under Linux it's much more stable. If someone has an idea why, any feedback or an imporved Windows version of bc is welcome.</P>
 
 
 
 <br>
 <P><B>Remark 4: bc and SageMath</B></P>
 
-<P> bc 1.06 is the last version of bc, released by FSF in 2000. There seems to be no further development.
-In the meantime, <a href="http://www.sagemath.org/" target="_blank">SageMath</a> offers a much broader and more mature scope of work.</P>
+<P> bc 1.06 is the last version of bc, released by FSF in 2000 aka 2006. There seems to be no further development.
+In the meantime, <a href="http://www.sagemath.org/" target="_blank">SageMath</a> offers a much broader and more mature scope of work. BC is recommended only for the quick usage at the command line and with "not too complicated" scripts.</P>
 
 <p>An overview about SageMath can be found in appendix A.7 of the <A class="filelink" onclick="parser('CT-Book-en.pdf')">CT Book</a>.</p>
 

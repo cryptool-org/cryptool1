@@ -30,17 +30,24 @@ Innerhalb von CT1 wird bc zusammen mit dem <a href="hid_interactive_number_theor
 <P>Aufruf-Syntax:<br>bc [ -hlwsqv ] [Lang-Optionen] [ Dateien ]</P>
 <P>Beispiel-Aufruf aus <B>bcmax.bat</B>:<br>bc -lq prims.txt dislog.txt ecm.txt quadRest.txt seed</P>
 
-<P>Die Option -q unterdrückt Versionsinformationen am Anfang (quiet mode).<br>
+<P>Die Option -q unterdrückt Versionsinformationen am Anfang (quiet mode). Die ausgelieferte Windows-Version von bc gibt Folgendes aus:<br>
 >bc<br>
 bc 1.06<br>
 Copyright 1991-1994, 1997, 1998, 2000 Free Software Foundation, Inc.<br>
+This is free software with ABSOLUTELY NO WARRANTY.</P>
+
+<P>Wenn Sie bc unter UNIX aufrufen, bekommen Sie wahrscheinlich:<br>
+>bc<br>
+bc 1.06.95<br>
+Copyright 1991-1994, 1997, 1998, 2000, 2004, 2006 Free Software Foundation, Inc.<br>
 This is free software with ABSOLUTELY NO WARRANTY.</P>
 
 
 <br>
 <P><B>BC und die Lernsoftware "<a href="hid_interactive_number_theory.html">Zahlentheorie (ZT)</a>" (verteilt mit CrypTool 1)</B></P>
 
-<P>Zu der Distribution des Lernprogramms "Zahlentheorie" gehört der Kommandozeilen-Calculator <a href="http://de.wikipedia.org/wiki/Basic_Calculator">bc</a> (Version 1.06, veröffentlicht von der Free Software Foundation unter der <a href="hidd_tipps_and_tricks.html#opensource">GPL</a>), ergänzt um einige Funktionen, die via bcmax.bat beim Start von bc (per F3 aus dem Lernprogramm heraus) geladen werden.</P>
+<P>Zu der Distribution des Lernprogramms "Zahlentheorie" gehört der Kommandozeilen-Calculator <a href="http://de.wikipedia.org/wiki/Basic_Calculator">bc</a> (Version 1.06, veröffentlicht von der Free Software Foundation unter der <a href="hidd_tipps_and_tricks.html#opensource">GPL</a>).</P>
+<P>Beim Start von bc aus dem Lernprogramms "Zahlentheorie" heraus (bspw. per F3) werden via bcmax.bat aus Skripten ergänzende Funktionen gleich mit geladen. Falls es fehlschlägt, bc mit diesen Skripten unter Windows zu starten, können Sie entweder mehrfach F3 drücken oder diese Skripten unter Unix ausführen.</P>
 
 
 
@@ -144,7 +151,8 @@ Prims.txt enthält vor allem Hilfsfunktionen, die von fast allen der anderen bc-E
 
 <P>Beschreibungen zu diesen zusätzlichen bc-Funktionen erhalten Sie innerhalb des „Zahlentheorie“-Programms per F8 (Menü Verzeichnisse \ BC-Funktionen).</P>
 
-<P>Hier folgen Beispielaufrufe für einige der in <B>prims.txt</B> definierten Funktionen. Am einfachsten kann man das auf der Kommandozeile ausprobieren, wenn man <B>testbruch.bat</B> aufruft:</P>
+
+<P><b>1)</b> Hier folgen Beispielaufrufe für einige der in <B>prims.txt</B> definierten Funktionen. Am einfachsten kann man das auf der Kommandozeile ausprobieren, wenn man <B>testbruch.bat</B> aufruft, oder direkt auf der Kommandozeile den Befehl <B>bc -lq prims.txt bruch.txt</B> eingibt:</P>
 
 <P class="paddedleft">ggT = euklid1( 40, 15 ) # ggT = größter gemeinsamer Teiler<br>
 ggT<br>
@@ -190,7 +198,9 @@ mr (67)<br>
 
 
 <P class="paddedleft">nextprime (63) # nächste Primzahl >= n<br>
-67</P>
+67<br>
+nextprime(10^18)<br>
+1000000000000000003</P>
 
 
 <P class="paddedleft">fermat (21) # Fermat-Faktorisierung (returns one prime factor)<br>
@@ -272,11 +282,11 @@ pprod(4)<br>
 
 
 <br>
-<P>Hier folgen Beispielaufrufe für einige der in <B>bruch.txt</B> definierten Funktionen. Am einfachsten kann man das auf der Kommandozeile ausprobieren, wenn man <B>testbruch.bat</B> aufruft:</P>
+<P><b>2)</b> Hier folgen Beispielaufrufe für einige der in <B>bruch.txt</B> definierten Funktionen. Am einfachsten kann man das auf der Kommandozeile ausprobieren, wenn man <B>testbruch.bat</B> aufruft, oder direkt auf der Kommandozeile den Befehl <B>bc -lq prims.txt bruch.txt</B> eingibt:</P>
 
 <P class="paddedleft">kuerze(40,15)<br>showb() # Zeige gekürzten Bruch<br>8/3</P>
 
-<P class="paddedleft">fak(5) # Fakultät n!<br>120out</P>
+<P class="paddedleft">fak(5) # Fakultät n!<br>120</P>
 
 <P class="paddedleft">bin(49,6) # Binomialkoeffizienten n über k (hier Lotto in D)<br>13983816</P>
 
@@ -287,7 +297,7 @@ pprod(4)<br>
 
 
 <br>
-<P>Hier folgen Beispielaufrufe für einige der in <B>dislog.txt</B> und <B>polynom.txt</B> definierten Funktionen. Am einfachsten kann man das auf der Kommandozeile ausprobieren, wenn man <B>testPolynom.bat</B> aufruft:</P>
+<P><b>3)</b> Hier folgen Beispielaufrufe für einige der in <B>dislog.txt</B> und <B>polynom.txt</B> definierten Funktionen. Am einfachsten kann man das auf der Kommandozeile ausprobieren, wenn man <B>testPolynom.bat</B> aufruft, oder direkt auf der Kommandozeile den Befehl <B>bc -lq prims.txt dislog.txt polynom.txt</B> eingibt:</P>
 
 <P class="paddedleft">phi_zyk (15) # Euler-Funktion bei zyklischem n  (Unterschied zu phi()?<br>
 0</P>
@@ -410,7 +420,6 @@ Koeffizient bei x^0: 5<br>
 0</P>
 
 
-
 <P class="paddedleft">showp(aus[]) # Ausgabe des Polynoms mit Hilfe des Arrays aus[]<br>
 2*x^4 + x^3 + 2*x^2 + x + 2<br>
 0</P>
@@ -419,7 +428,44 @@ Koeffizient bei x^0: 5<br>
 <P class="paddedleft">wertp(aus[],3)<br>
 2</P>
 
-<P class="paddedleft"># Und etliche mehr wie FFT (wobei aks() nicht richtig tut)</P>
+
+
+
+<P class="paddedleft">aks(23) # aks() funktioniert nicht richtig mit dem Windows bc, aber mit dem Unix bc.<br>
+# aks(n) liefert 1, wenn n prim<br>
+ln: 3.1354942159<br>
+Primteiler: 2 <br>
+...<br>
+r: 17<br>
+m[]: x^17 -1<br>
+<br>
+a: 1 von 12.5419768636<br>
+a[]: x -1<br>
+powermodp( a[], n, m[] ): <br>
+23<br>
+...<br>
+b[]: x^6 -1<br>
+<br>
+a: 2 von 12.5419768636<br>
+a[]: x -2<br>
+...<br>
+b[]: x^6 -2<br>
+<br>
+a: 3 von 12.5419768636<br>
+a[]: x -3<br>
+...<br>
+b[]: x^6 -3<br>
+<br>
+a: 12 von 12.5419768636<br>
+a[]: x -12<br>
+...<br>
+b[]: x^6 -12<br>
+1<br>
+</P>
+
+
+
+<P class="paddedleft"># Und etliche mehr wie FFT.</P>
 
 
 
@@ -429,7 +475,7 @@ Koeffizient bei x^0: 5<br>
 
 
 <br>
-<P>Hier folgen Beispielaufrufe für einige der in <B>pi.txt</B> definierten Funktionen. Am einfachsten kann man das auf der Kommandozeile ausprobieren, wenn man <B>testPi.bat</B> aufruft:</P>
+<P><b>4)</b> Hier folgen Beispielaufrufe für einige der in <B>pi.txt</B> definierten Funktionen. Am einfachsten kann man das auf der Kommandozeile ausprobieren, wenn man <B>testPi.bat</B> aufruft, oder direkt auf der Kommandozeile den Befehl <B>bc -lq prims.txt bruch.txt pi.txt</B> eingibt:</P>
 
 <P class="paddedleft">vieta (2)<br>
 3.0614674589207181738276798722431909340907564998850163314704050850203682716807175378961102827382683782<br>
@@ -460,7 +506,7 @@ heron(100)<br>
 
 
 <br>
-<P>Hier folgen Beispielaufrufe für einige der in <B>ECM.txt</B> definierten Funktionen. Am einfachsten kann man das auf der Kommandozeile ausprobieren, wenn man <B>testECM.bat</B> aufruft:</P>
+<P><b>5)</b> Hier folgen Beispielaufrufe für einige der in <B>ECM.txt</B> definierten Funktionen. Am einfachsten kann man das auf der Kommandozeile ausprobieren, wenn man <B>testECM.bat</B> aufruft, oder direkt auf der Kommandozeile den Befehl <B>bc -lq prims.txt quadRest.txt ECM.txt</B> eingibt:</P>
 
 <P class="paddedleft">proveprime(nextprime(1000)) # Primzahl-Beweis nach Atkin/Morain<br>
 d: -3<br>
@@ -505,9 +551,10 @@ ECM 93 B = 100<br>
 
 
 <br>
-<P>Hier folgen Beispielaufrufe für einige der in <B>quadRest.txt</B>
+<P><b>6)</b> Hier folgen Beispielaufrufe für einige der in <B>quadrest.txt</B>
 definierten Funktionen. Am einfachsten kann man das auf der Kommandozeile
-ausprobieren, wenn man <B>testquadRest.bat</B> aufruft:</P>
+ausprobieren, wenn man <B>testquadrest.bat</B> aufruft, oder direkt auf der Kommandozeile den Befehl
+<B>bc -lq prims.txt quadrest.txt ECM.txt</B> eingibt:</P>
 
 <P class="paddedleft">solstr(1009) # Solovay-Strassen-Primzahltest (returns 0 if not prime)<br>
 1<br>
@@ -602,9 +649,37 @@ kein Teiler <= 0<br>
 
 
 <br>
-<P>Hier folgt ein Beispielaufruf für die in <B>RSA.txt</B> definierte Funktion.
+<P><b>7)</b> Hier folgen Beispielaufrufe für in <B>sieb.txt</B> definierte Funktionen.
+sieb.txt enthält viele Hilfsfunktionen fürs QS.
 Am einfachsten kann man das auf der Kommandozeile ausprobieren, wenn man
-<B>testRSA.bat</B> aufruft. Man wird dann vom Programm zur Eingabe aufgefordert:</P>
+<B>testsieb.bat</B> aufruft, oder direkt auf der Kommandozeile den Befehl
+<B>bc -lq prims.txt quadrest.txt sieb.txt</B> eingibt:</P>
+
+<P>Bemerkung: 1935876319563194563149586135986001 = 245811717352469 * 7875443613566007629.</P>
+
+<P class="paddedleft">quadsieb(1935876319563194563149586135986001)<br>
+sieb(8,6,64,1935876319563194563149586135986001)<br>
+...<br>
+Offset: 983040<br>
+Kongruenzen bis jetzt: 512 (Ziel: 512)<br>
+Big-Paare: 253<br>
+smatrix(s[],512,502,1935876319563194563149586135986001,43998594518043352)<br>
+Anzahl Einsen: 5755 (ca. 2.2% und ca. 11.4 pro Zeile)<br>
+gauss(512,502,0)<br>
+  Pivot-Zeile: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21\<br>
+...<br>
+7875443613566007629</P>
+
+<P>Bemerkung: Der Befehl <B>bc -lq prims.txt quadrest.txt sieb.txt seed calc.txt > res.txt</B> beendet sich selbst aufgrund des "quit"-Befehls in calc.txt, und schreibt seinen Output in die Datei "res.txt".</P>
+
+
+
+
+<br>
+<P><b>8)</b> Hier folgt ein Beispielaufruf für die in <B>RSA.txt</B> definierte Funktion.
+Am einfachsten kann man das auf der Kommandozeile ausprobieren, wenn man
+<B>testRSA.bat</B> aufruft, oder direkt auf der Kommandozeile den Befehl
+<B>bc -lq prims.txt RSA.txt</B> eingibt. Man wird dann vom Programm zur Eingabe aufgefordert:</P>
 
 <P class="paddedleft">rsa_dec() # Erzeuge die RSA-Schlüssel und entschlüssle den gegebenen Geheimtext<br>
 private Primzahl p: 149<br>
@@ -615,8 +690,16 @@ Klartext (Zahl): 22</P>
 
 
 
-
-
+<br>
+<P><B>Bemerkungen zu den ausgelieferten bc-Skripten:</B></P>
+<P>Bemerkung <B>1</B>: Funktionsnamen in bc-Skripten dürfen nur aus Kleinbuchstaben bestehen.</P>
+<P>Bemerkung <B>2</B>: Die Funktion random() war im Unix-bc schon definiert (aber nicht im Windows-bc). Deshalb wurde sie in dem Skript prims.txt umbenannt.</P>
+<P>Bemerkung <B>3</B>: Das Windows-bc kann mit Skripten umgehen, deren Zeilen mit CRNL enden und auch mit solchen, deren Zeilen nur mit NL enden; das Unix-bc kann nur mit dem Unix-Stil umgehen. Deshalb, damit man die ausgelieferten Skripte sowohl auf Windows wie auch auf Unix einsetzen kann, enden sie nur mit NL. Dies vermeidet die Fehlermeldung "illegal character: ^M".<br>
+Wenn Sie ein DOS/Windows-Skript haben und es unter Unix einsetzen wollen, ändern Sie zuerst die Zeilen-Terminierung via<br>
+> dos2unix prims.txt<br>
+und prüfen das dann via<br>
+> file *.txt</P>
+<P>Bemerkung <B>4</B>: Das Unix-bc wurde unter Ubuntu 17.04 getestet, das Windows-bc unter Windows 10. Das Unix-bc ist etwas neuer und viel stabiler. Wenn Sie große Zahlen verwenden oder viel Speicher benötigen, werden Sie das bemerken. Unter Windows versagen einige Skrpten, wenn man sie aufruft und stoppen dann sogar bc selbst; manchmal hilft es unter Windows, die Aufrufe mehrfach zu wiederholen. Unter Unix arbeiteten alle Skripte ohne Probleme.</P>
 
 
 
@@ -625,7 +708,8 @@ Klartext (Zahl): 22</P>
 
 
 <br>
-<P><B>Weitere Beispiel-Berechnungen mit bc</B></P>
+<h3>Weitere Beispiel-Berechnungen mit bc</h3>
+
 
 <P>a) Aufruf aus dem Lernprogramm "Zahlentheorie" per F3 (Menü Rechner \ BC-Rechner) oder von der Kommandozeile (hier ohne Argumente):</P>
 <P class="paddedleft">bc</P>
@@ -715,7 +799,11 @@ for (n = 0; n &lt;= 16; n++) {<br>
 </P>
 
 
-<P>Weitere eigene Erweiterungen finden sich bspw. in <a href="http://x-bc.sourceforge.net/extensions_bc.html" target="_blank">http://x-bc.sourceforge.net/extensions_bc.html</a></P>
+<P>Weitere eigene Erweiterungen finden sich bspw. in <a href="http://x-bc.sourceforge.net/extensions_bc.html" target="_blank">http://x-bc.sourceforge.net/extensions_bc.html</a> oder
+in <a href="https://github.com/susca/bc-extensions" target="_blank">https://github.com/susca/bc-extensions</a> oder
+in <a href="https://github.com/esovetkin/bc-extensions" target="_blank">https://github.com/esovetkin/bc-extensions</a> oder
+in <a href="http://phodd.net/gnu-bc/" target="_blank">http://phodd.net/gnu-bc/</a> oder
+in <a href="http://www.numbertheory.org/php/" target="_blank">http://www.numbertheory.org/php/</a>.</P>
    
 
 
@@ -745,14 +833,14 @@ for (n = 0; n &lt;= 16; n++) {<br>
 <br>
 <P><B>Bemerkung 3: Stabilität von BC und Windows</B></P>
 
-<P>Leider bekommt man sehr häufig Abstürze, wenn man bc mit diesen Skripten (insbesondere "polynom.txt") unter Windows aufruft (manchmal, nicht immer, meldet er: "Fatal error: Out of memory for malloc"). Unter Linux läuft das etwas stabiler. Wenn jemand eine Idee hat warum, würden wir uns über Feedback freuen.</P>
+<P>Leider bekommt man sehr häufig Abstürze, wenn man bc mit diesen Skripten (insbesondere "polynom.txt" und "sieb.txt") unter Windows aufruft (manchmal, nicht immer, meldet er: "Fatal error: Out of memory for malloc"). Unter Linux läuft bc viel stabiler. Wenn jemand eine Idee hat warum, würden wir uns über Feedback und eine verbesserte Windows-Version von bc freuen.</P>
 
 
 
 <br>
 <P><B>Bemerkung 4: BC und SageMath</B></P>
 
-<P>bc 1.06 ist die letzte von der FSF herausgegebene bc-Version (2000). bc scheint nicht mehr weiter entwickelt zu werden. Inzwischen bietet <a href="http://www.sagemath.org/" target="_blank">SageMath</a>  einen viel größeren und ausgereifteren Leistungsumfang.</P>
+<P>bc 1.06 ist die letzte von der FSF herausgegebene bc-Version (2000 bzw. 2006). bc scheint nicht mehr weiter entwickelt zu werden. Inzwischen bietet <a href="http://www.sagemath.org/" target="_blank">SageMath</a> einen viel größeren und ausgereifteren Leistungsumfang. BC empfiehlt sich nur noch für den schnellen Gebrauch auf der Kommandozeile und bei "einfacheren" Skripten.</P>
 
 <P>Einen Überblick über SageMath finden Sie im Anhang A.7 des <A class="filelink" onclick="parser('CT-Book-de.pdf')">CT-Buches</A>.</P>
 

@@ -19,7 +19,7 @@
 */
 
 
-################### ehemals in Prims.txt (verschoben zwecks Ballance) ######################
+################### ehemals in Prims.txt (verschoben zwecks Balance) ######################
 
 
 define phi_zyk (n) {		# Euler-Funktion bei zyklischem n
@@ -371,7 +371,7 @@ define pollardlogo (bas, a, modul, ord) {	# Löse bas^x = a mod modul
 
   g1 = modul/3				# Grenze 1
   g2 = 2*g1				# Grenze 2
-  z = random(1, ord)			# zufälliger Startwert z0
+  z = ntrandom(1, ord)			# zufälliger Startwert z0
   y = 0					# y0
   b = powermod(bas, z, modul)
   balt = b;  zalt = z;  yalt = y
@@ -427,7 +427,7 @@ define pollardlogo (bas, a, modul, ord) {	# Löse bas^x = a mod modul
 
 	} else if (k > lim) {
 	  print "suche Kongruenz mit weniger Loesungen\n"
-	  z = random(1, ord)			# zufälliger Startwert z0
+	  z = ntrandom(1, ord)			# zufälliger Startwert z0
 	  y = 0					# y0
 	  b = powermod(bas, z, modul)
           for (k=8; k>1; k--) {ba[k] = 0; z[k] = 0; y[k] = 0}

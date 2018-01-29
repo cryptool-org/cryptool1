@@ -538,7 +538,7 @@ define randomp (p, n, voll) {			# Zufalls-Polynom über Zp vom Grad <=n, nicht 0
 
   for (i=1; i<=n+1; i++) {
 
-    aus[i] = random(0, p-1)
+    aus[i] = ntrandom(0, p-1)
   }
 
   aus[0] = grad(aus[], i-1)
