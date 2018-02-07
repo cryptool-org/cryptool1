@@ -147,7 +147,8 @@ bruch.txt, calc.txt, dislog.txt, ECM.TXT, pi.txt, polynom.txt,
 Prims.txt, quadRest.txt, RSA.txt, and sieb.txt.<br>
 Prims.txt is a file with helper functions needed in almost all of the other bc enhancement files.</P>
 
-<P>Descriptions for these additional bc functions are available within the "Number Theory" program via F8 (menu Glossaries \ BC Functions).</P>
+<P>Descriptions in English for these additional bc functions are available within the "Number Theory" program via F8 (menu Glossaries \ BC Functions).<br>
+Some of the additional functions produce status information with words only in German.</P>
 
 
 <P><b>1)</b> In the following there are some sample calls of functions defined in <B>prims.txt</B>. The easiest way to try them on the command line is starting <B>testbruch.bat</B>, or directly call on the command line: <B>bc -lq prims.txt bruch.txt</B>:</P>
@@ -232,7 +233,7 @@ pollardrho (1111234567)<br>
 
 
 
-<P class="paddedleft">primteiler (1234567) # sucht alle Primteiler (return value > 0 if ready)<br>
+<P class="paddedleft">primteiler (1234567) # searches all prime factors (return value > 0 if ready)<br>
 Primteiler: 127 9721<br>
 1</P>
 
@@ -355,7 +356,6 @@ delta = Primitivwurzel^Wurzel mod 347: 4<br>
 Erhoehe q, bis delta^q die erste Komponente eines Babysteps ist ...<br>
 Bingo! (256, 11), q: 4<br>
 14 * q + 11 mod 347 = Loesung:<br>
-x berechnen<br>
 67<br>
 0<br>
 Chinesischer Restsatz:<br>
@@ -365,7 +365,7 @@ n = 173<br>
 
 
 <P class="paddedleft"># How to call and interpret the result?<br>
-dislogp (11, 49, 347, 1, 1) # diskreter Log Reduktion auf Primzahlordnung<br>
+dislogp (11, 49, 347, 1, 1) # discrete log reduction prim power order<br>
 Loese 11^x = 49 mod 347<br>
 |G|: 1<br>
 x berechnen<br>
@@ -616,7 +616,7 @@ Probedivisionen ...<br>
 Primteiler bei i=1071: 274177</P>
 
 
-<P class="paddedleft">lucas (3) # Test whether the n-th Mersenne number is prim (returns 0 if not prime)<br>
+<P class="paddedleft">lucas (3) # Test whether the n-th Mersenne number is prime (returns 0 if not prime)<br>
 M3: 7<br>
 2p+1 ist prim<br>
 0<br>
