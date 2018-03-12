@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.41 für Win32, Februar 2018
+    CrypTool, Version 1.4.41 für Win32, März 2018
 
 CrypTool v1 (CT1) ist ein freies, internationales
 E-Learning-Programm für Kryptographie und Kryptoanalyse.
@@ -320,7 +320,7 @@ b) Das Lernspiel "Der Zahlenhai" v 1.2.4 (entstanden im CrypTool-Projekt):
    näher.
 
 c) Das Animationsprogramm Animal (siehe http://www.algoanim.net)
-   (Version 2.4.9, 5. September 2016):
+   (Version 2.5.3, 21. Januar 2018):
    Animal is a general-purpose animation tool with a current focus on
    algorithm animation. It contains a lot of animation generators
    (currently, there are more than 500).
@@ -334,7 +334,8 @@ c) Das Animationsprogramm Animal (siehe http://www.algoanim.net)
    Weitere Beispiele für Animationen finden sich im Animal-Repository
    auf der Webseite (www.algoanim.net/available-animations) und inkludiert
    im mitgelieferten Animal-ControlCenter.
-   Animal benötigt JRE 1.7 (siehe Kapitel 3.2).
+   Animal benötigt mindestens JRE 1.7 (siehe Kapitel 3.2).
+   Diese Version von Animal läuft auch unter Java 9.
 
 d) Ebenso wie Animal sind die ff. Programme eigenständige Java-Anwendungen
    (JAR-Dateien). Diese benötigen jeweils mindestens JRE 1.7 (s. Kapitel 3.2).
@@ -1297,11 +1298,11 @@ a) Entwickler-relevante Änderungen (eher Programm-technisch):
   - compilerabhängig: cv act library 1.4.6 mit VS2008, 1.4.18 mit VS2010
   - OpenSSL 1.0.1 (xxx)
   - MPIR 1.3.1 (hergeleitet aus GMP-Version 4.2.1) statt GMP 4.1
-      ??????  2.5.1    (postponed to CT 1.5) (xxx)
+         2.5.1    (postponed to CT 1.5) (xxx)
   - Miracl 4.4.3  -->  5.5.4 (postponed to CT 1.5) (xxx)
   - NTL 5.5.2  --> 10.3 (thread-safe und mit Exception-Handling, braucht
                         einen C++11-Compiler)   (postponed to CT 1.5) (xxx)
-  - Animal 2.4.9
+  - Animal 2.4.9 (1.4.40) bzw. Animal 2.5.3 (1.4.41)
   - Ersatz der Secude-Bibliothek (dies auf CT 1.5 verschoben, da sie Probleme
     nach der Compilation mit VS2010 (nicht mit VS2008) hatte) (xxx)
 
@@ -1419,7 +1420,7 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
     define d (n) { return (2*n); }; d(5) // l(100)/l(10) # Natural log //
     quit // Beispiel einer Summenfunktion per For-Schleife:
     sum=0; for(i=16;i>=0;i--)sum+=32*(256^i); sum
-  Eine ausführliche Erläuterung zu bc findet sich auch in der CT1-Onlinehilfe.
+  Eine sehr ausführliche Erläuterung zu bc findet sich in der CT1-Onlinehilfe.
 
 - Playfair mit einer 6*6-Matrix konvertiert nun nicht mehr fälschlicherweise
   "J" zu "I".
@@ -1445,6 +1446,11 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
 - Flash-Executables (mit integriertem Inhalt) wurden in 1.4.40 signiert. Dann
   wurde statt dem Inhalt nur ein leeres, weißes Fenster angezeigt. Ab 1.4.41
   werden diese wie vorher unsigniert ausgeliefert.
+- Ab 1.4.41 werden alle externen Programme (auch PDF) über dasselbe Interface
+  aufgerufen.
+- Für 1.4.41 wurden alle Animationsdateien (AML) von Animal geupdatet.
+  Damit gibt es auch Sprungsziele (im table-of-contents) in der deutschen
+  DES-Animation und in der Nihilist-Animation.
 
 - Danke an die vielen aufmerksamen Benutzer, die uns auf Bugs und 
   Inkonsistenzen aufmerksam machten.
@@ -2119,7 +2125,7 @@ pse\pseca\calog        Diese Dateien sind für die Verwaltung der
 animal\ .......... Dieses Verzeichnis enthält die Dateien, die für
                    das Animationsprogramm Animal nötig sind.
 
-animal\animal-2_4_9.jar
+animal\animal-2.5.3.jar
       \animal.bat
       \animal.properties
       \AnimalResources
@@ -2362,7 +2368,7 @@ Version                  Deutsch    Englisch      Bedarf DE      durch
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.30    Aug. 2010      52,1 MB     51,5 MB         95 MB        DB
 1.4.40    Sep. 2017      70,7 MB     69,9 MB        113 MB        CT
-1.4.41    Feb. 2018      73,0 MB     71,6 MB        116 MB        CT (xxxok)
+1.4.41    März 2018      73,0 MB     71,6 MB        116 MB        CT (xxxok)
 
 Bemerkungen zu den (Zwischen-)Versionen:
 1.3.02  Viele neue Funktionen gegenüber 1.3.00
@@ -2538,6 +2544,8 @@ https://www.cryptool.org/de/ctp-lehre/wissenschaft
 
 8.2. Sonstige Referenzen auf CrypTool
      --------------------------------
+Aktuellere Referenzen finden Sie auf dem CrypTool-Portal www.cryptool.org.
+
 8.2.1. Wirtschaftswoche Spezial (September 2000)
        -----------------------------------------
 Das Spezial "Kryptographie" der Zeitschrift Wirtschaftswoche

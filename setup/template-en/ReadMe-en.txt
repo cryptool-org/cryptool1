@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.41 for Win32, February 2018
+    CrypTool, Version 1.4.41 for Win32, March 2018
     
 CrypTool v1 (CT1) is a free, international
 e-learning program for cryptography and cryptanalysis.
@@ -315,7 +315,7 @@ b) The educational game "Number Shark" v 1.2.4 (by the CrypTool project):
    factors.
 
 c) The animation program Animal (see http://www.algoanim.net)
-   (Version 2.4.9; September 5, 2016):
+   (Version 2.5.3; January 21, 2018):
    Animal is a general-purpose animation tool with a current focus on
    algorithm animation. It contains a lot of animation generators
    (currently, there are more than 500).
@@ -329,7 +329,8 @@ c) The animation program Animal (see http://www.algoanim.net)
    Further examples of animations can be found within the Animal repository
    at the website (www.algoanim.net/available-animations) or included within
    the Animal ControlCenter.
-   To run Animal JRE 1.7 is required (see chapter 3.2).
+   To run Animal at least JRE 1.7 is required (see chapter 3.2).
+   This version also runs under Java 9.
 
 d) As well as Animal the following programs are stand-alone Java applications
    (JAR files). To run them at least JRE 1.7 is required (see chapter 3.2).
@@ -1248,11 +1249,11 @@ a) Developer-relevant changes (more technically oriented):
   - compiler-dependent: cv act library 1.4.6 with VS2008, 1.4.18 with VS2010
   - OpenSSL 1.0.1 (xxx)
   - MPIR 1.3.1 (derived from GMP version 4.2.1) instead of GMP 4.1 (xxx)
-      ???????  2.5.1 (postponed to CT 1.5) (xxx)
+         2.5.1 (postponed to CT 1.5) (xxx)
   - Miracl 4.4.3  -->  5.5.4  (postponed to CT 1.5) (xxx)
   - NTL 5.5.2  --> 10.3 (thread-safe and with exception handling, needs
                         a C++11 compiler)   (postponed to CT 1.5) (xxx)
-  - Animal 2.4.9
+  - Animal 2.4.9 (1.4.40) respectively Animal 2.5.3 (1.4.41)
   - Substitution of the Secude library (as we encountered problems after
     compiling with VS2010 (not with VS2008) postponed to CT 1.5.) (xxx)
 
@@ -1364,7 +1365,7 @@ c) New functionality / Usability / Corrections of errors:
     define d (n) { return (2*n); }; d(5) // l(100)/l(10) # Natural log //
     quit // Sample of a sum function via a for loop:
     sum=0; for(i=16;i>=0;i--)sum+=32*(256^i); sum
-  The online help of CT1 contains a more detailed explanation about bc.
+  The online help of CT1 contains a much more detailed explanation about bc.
 
 - Playfair with a 6*6 matrix now doesn't wrongly transform J to I any more.
 - Scilexer.dll again greys out non-alphabet characters correctly.
@@ -1387,6 +1388,11 @@ c) New functionality / Usability / Corrections of errors:
 - In 1.4.40, Flash executables (with integrated content) were signed. However,
   this caused a white empty window instead of the content. So from 1.4.41
   these are delivered unsigned as before.
+- From 1.4.41 all external programs (also PDF) are called over the same
+  interface.
+- For 1.4.41 all animation files (AML) for Animal have been updated.
+  Now there are jump destinations (in table-of-contents) also for the Nihilist
+  animations.
 
 - Thanks to the many attentive users, who pointed us to bugs and
   inconsistencies.
@@ -2037,7 +2043,7 @@ pse\pseca\calog        These files are necessary for the administration
 animal\ .......... This directory contains files, necessary for the
                    animation program Animal.
 
-animal\animal-2_4_9.jar
+animal\animal-2.5.3.jar
       \animal.bat
       \animal.properties
       \AnimalResources
@@ -2279,7 +2285,7 @@ Version                 English      German    needed EN     by
 1.4.21    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.30    Aug. 2010     51.5 MB      52.1 MB    94 MB        DB
 1.4.40    Sep. 2017     69.9 MB      70.7 MB   112 MB        CT
-1.4.41    Feb. 2018     71.6 MB      73.0 MB   114 MB        CT (xxxok)
+1.4.41    Mar. 2018     71.6 MB      73.0 MB   114 MB        CT (xxxok)
 
 Remarks about the (intermediate) versions:
 1.3.02  Many new functions compared to 1.3.00
@@ -2457,6 +2463,8 @@ https://www.cryptool.org/en/ctp-education/papers
 
 8.2. Further references
      ------------------
+More current ones can be found on the CrypTool portal www.cryptool.org.
+
 8.2.1. Wirtschaftswoche special issue
        ------------------------------
 In the special issue "Cryptography" of the magazine Wirtschaftswoche
