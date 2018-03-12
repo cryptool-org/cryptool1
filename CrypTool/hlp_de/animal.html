@@ -15,26 +15,27 @@
 
 <h3>Die Animationssoftware ANIMAL</h3>
 
-<P>Die freie Animationssoftware <B>ANIMAL</B> kann Algorithmen veranschaulichen. ANIMAL ist eine Java-Applikation, die es erlaubt, die Einzelschritte von Algorithmen beliebig genau zu modellieren. Die Schrittfolgen können mit statischen Daten in einer AML-Datei abgelegt werden oder mit dynamischen Daten über AnimalScript definiert werden.</P>
+<P>Die freie Animationssoftware <B>ANIMAL</B> kann Algorithmen veranschaulichen. ANIMAL ist eine Java-Applikation, mit der man die Einzelschritte von Algorithmen beliebig genau modellieren kann. Die Schrittfolgen können mit statischen Daten in einer AML-Datei abgelegt werden oder mit dynamischen Daten über AnimalScript definiert werden.</P>
 
-<P>ANIMAL erlaubt, diese Schrittfolgen manuell vor und zurück durchzulaufen oder die gesamte Schrittfolge automatisch abzuspielen. Dabei haben Sie z.B. Optionen zur Geschwindigkeit und Darstellung in ANIMAL selbst.</P>
+<P>ANIMAL erlaubt, diese Schrittfolgen manuell vor und zurück durchzulaufen oder die gesamte Schrittfolge automatisch abzuspielen. Dabei haben Sie z.B. Optionen zur Geschwindigkeit und zum Zoomen in ANIMAL selbst.</P>
 
-<P>Mit CrypTool wird ANIMAL 2 ausgeliefert (siehe Menü <a href="menu_related_methods.html">Einzelverfahren</a> \ <a href="menu_individualprocedures_visualizations.html">Visualisierung von Algorithmen</a>). Da ANIMAL eine Java-Applikation ist, müssen Sie vorher eine Java Runtime-Umgebung installiert haben (mindestens in der Version 1.7), damit CrypTool das ANIMAL-Programm aufrufen kann (das Java Runtime Environment gibt es z.B. unter http://java.sun.com).</P>
+<P>ANIMAL wird mit CT1 ausgeliefert (siehe Menü <a href="menu_related_methods.html">Einzelverfahren</a> \ <a href="menu_individualprocedures_visualizations.html">Visualisierung von Algorithmen</a>). Da ANIMAL eine Java-Applikation ist, müssen Sie vorher eine Java Runtime-Umgebung installiert haben (mindestens in der Version 1.7), damit CrypTool das ANIMAL-Programm aufrufen kann (das Java Runtime-Environment gibt es z.B. unter http://java.sun.com). Seit Animal 2.5.3 läuft Animal auch unter Java 9.</P>
 
 <P>Die jeweils aktuelle Fassung von ANIMAL gibt es in Deutsch und Englisch unter <a href="http://www.algoanim.net/" target="_blank">http://www.algoanim.net/</a>. Dort gibt es auch eine große Sammlung freier Animationen von Algorithmen aus ganz verschiedenen Bereichen.</P>
 
 <P>Wenn man ANIMAL lädt, werden zwei Fenster geöffnet:</P>
 
 <UL>
-<LI>ein ANIMAL-Steuerfenster und</LI>
-<LI>ein ANIMAL-Anzeigefenster.</LI>
+<LI>ein ANIMAL-Steuerfenster (auch Control-Center genannt) und</LI>
+<LI>ein ANIMAL-Anzeigefenster (auch Animationsfenster) (seit 2.5 startet es Full-Screen).</LI>
 </UL>
 
 <P>Ist das Anzeigefenster nicht sichtbar, kann man es im Steuerfenster über das Menü "Bearbeiten \ Animationsfenster anzeigen" aufrufen.</P>
 
+<P>Das Layout des Anzeigefensters änderte sich mehrfach in seinem Lebenszyklus. Normalerweise hat es die folgenden Ikonen zur Bedienung des ANIMAL-Anzeigefensters:</P>
+
 <p align="center"><img border="0" src="images/AnimationWindow.gif" ></p>
-<p align="left">Die Bedienung des ANIMAL-Anzeigefensters wird im folgenden 
-  beschrieben:</p>
+
 <p align="left"><img border="0" src="images/speed.gif"> 
   Regelt die Geschwindigkeit der Animation</p>
 <p align="left"><img border="0" src="images/mag.gif"> Vergrößert 
@@ -58,8 +59,24 @@
 <p align="left"><img border="0" src="images/ende.gif"> 
   Zum Ende der Animation</p>
 <p align="left"><img border="0" src="images/schliessen.gif"> 
-  Zum Beenden der Animationen müssen sowohl das Animationsfenster als auch das 
-  Programmfenster von Animal geschlossen werden.</p>
+  Zum Beenden der Animationen müssen sowohl das Anzeigefenster als auch das 
+  Steuerfenster von Animal geschlossen werden.</p>
+
+<P><br></P>
+<P>Bemerkung 1:<br>
+Aus CT1 heraus wird die Animal-Jar-Datei nicht direkt gestartet, sondern über die Batchdatei animal.bat.</P>
+
+<P>Bemerkung 2:<br>
+Die DES-Animation und die Nihilist-Animation enthalten "Titel" (Label),
+die die Schritte der Animation strukturieren und clustern.<br>
+Deshalb wird zusammen mit dem Anzeigefenster auch ein Table-of-Contents-Fenster geöffnet.<br>
+Klickt man darin auf einen Titel (d.h. selektiert man eine Zeile), springt der Prozess im Anzeigefenster direkt zu dem entsprechenden Schritt.</P>
+
+<P>Bemerkung 3:<br>
+Sie können das Table-of-Contents-Fenster auch von dem Menü
+"Fenster --> Sprungziele anzeigen" im Animal Control Center öffnen.</P>
+<p align="center"><img border="0" src="images/Animal-Control-Center_Windows-menu_Sprungsziele-anzeigen_de.png" ></p>
+
 
 </BODY>
 </HTML>
