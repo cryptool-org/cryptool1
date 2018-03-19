@@ -1403,55 +1403,42 @@ void CCrypToolApp::OnRsaBloemermay()
 }
 // #endif
 
-void CCrypToolApp::execAnimalVisualization(int animalPathID, int animalFileID, int animalExecutableID, int animalLocaleID)
-{
+void CCrypToolApp::execAnimalVisualization(int _animalFileIdentifier) {
 	// flomar, 01/07/2014: for all animal visualizations we require at least Java 1.7;
 	// in case this function returns false, an appropriate warning message is displayed
 	if(!isJavaAvailable("1.7")) {
 		return;
 	}
-
-	CString animalPath, animalFile, animalExecutable, animalLocale;
-	LoadString(AfxGetInstanceHandle(),animalPathID,pc_str,STR_LAENGE_STRING_TABLE);
-	animalPath = CString(Pfad) + CString(pc_str);
-	
-	LoadString(AfxGetInstanceHandle(),animalExecutableID,pc_str,STR_LAENGE_STRING_TABLE);
-	animalExecutable = pc_str;
-	
-	LoadString(AfxGetInstanceHandle(),animalFileID,pc_str,STR_LAENGE_STRING_TABLE);
-	animalFile = pc_str;
-	
-	LoadString(AfxGetInstanceHandle(),animalLocaleID,pc_str,STR_LAENGE_STRING_TABLE);
-	animalLocale = pc_str;
-
-	animalFile = animalLocale + CString(" ") + CString("\"") + animalPath + animalFile +CString("\"");
-
+	// Construct 'ShellExecute' command line parameters.
+	CString animalExecutable;
+	animalExecutable.LoadString(IDS_ANIMAL_EXECUTABLE);
+	CString animalFile;
+	animalFile.LoadString(_animalFileIdentifier);
+	CString animalPath;
+	animalPath.LoadString(IDS_ANIMAL_PATH);
+	animalPath = CString(Pfad) + animalPath;
 	animalPath.Replace("/","\\");
-
-	HINSTANCE hInst=ShellExecute(NULL,NULL,animalExecutable,animalFile,animalPath,SW_HIDE );
-	
-	if ( reinterpret_cast<int>(hInst) <= 32 )
+	// Try to execute animal visualization, or throw an error.
+	HINSTANCE hInst = ShellExecute(NULL, NULL, animalExecutable, animalFile, animalPath, SW_HIDE);
+	if(reinterpret_cast<int>(hInst) <= 32) {
 		Message(IDS_ERROPEN_ANIM, MB_ICONSTOP);
+	}
 }
 
-void CCrypToolApp::OnAnimalCaesar() 
-{
-	execAnimalVisualization(IDS_ANIMAL_PATH, IDS_ANIMAL_FILE_CAESAR, IDS_ANIMAL_EXECUTABLE, IDS_ANIMAL_FILE_LOCALE);
+void CCrypToolApp::OnAnimalCaesar() {
+	execAnimalVisualization(IDS_ANIMAL_FILE_CAESAR);
 }
 
-void CCrypToolApp::OnAnimalVigenere() 
-{
-	execAnimalVisualization(IDS_ANIMAL_PATH, IDS_ANIMAL_FILE_VIGENERE, IDS_ANIMAL_EXECUTABLE, IDS_ANIMAL_FILE_LOCALE);
+void CCrypToolApp::OnAnimalVigenere() {
+	execAnimalVisualization(IDS_ANIMAL_FILE_VIGENERE);
 }
 
-void CCrypToolApp::OnAnimalNihilist() 
-{
-	execAnimalVisualization(IDS_ANIMAL_PATH, IDS_ANIMAL_FILE_NIHILIST, IDS_ANIMAL_EXECUTABLE, IDS_ANIMAL_FILE_LOCALE);
+void CCrypToolApp::OnAnimalNihilist() {
+	execAnimalVisualization(IDS_ANIMAL_FILE_NIHILIST);
 }
 
-void CCrypToolApp::OnAnimalDes() 
-{
-	execAnimalVisualization(IDS_ANIMAL_PATH, IDS_ANIMAL_FILE_DES, IDS_ANIMAL_EXECUTABLE, IDS_ANIMAL_FILE_LOCALE);
+void CCrypToolApp::OnAnimalDes() {
+	execAnimalVisualization(IDS_ANIMAL_FILE_DES);
 }
 
 void CCrypToolApp::OnIndivCrtPlanet() 

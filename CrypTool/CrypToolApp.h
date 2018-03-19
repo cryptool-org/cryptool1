@@ -212,7 +212,7 @@ public:
 private:
 	void callHtmlHelp(UINT uCommand, DWORD dwData);
 	virtual int ExitInstance();
-	void execAnimalVisualization(int animalPathID, int animalFileID, int animalExecutableID, int animalLocaleID);
+	void execAnimalVisualization(int _animalFile);
 public:
 	virtual BOOL OnDDECommand(LPTSTR lpszCommand);
 	afx_msg void OnPrimenumberTest();
