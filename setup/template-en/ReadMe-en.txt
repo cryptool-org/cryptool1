@@ -190,8 +190,8 @@ Known bugs:
    Without closing NT you can click F3 again, and BC doesn't crash any more.
    Sadly, neither NT nor BC will be further maintained, so nothing will change
    here.
-   Sie können bc jedoch mit allen Funktionen unter Linux aufrufen (siehe die
-   Beschreibung in der CT1-Onlinehilfe).
+   However, you can call bc with all functions call underLinux (see the
+   description in the CT1 online help).
 
 
 
