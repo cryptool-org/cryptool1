@@ -117,8 +117,6 @@ are partly under development.
 Currently the Greek version is not available as the compiler VS2008
 does not support the Greek fonts (as UTF16) correctly.
 However, for other reasons we have to stay with VS2008 for CT 1.4.4x.
-Nevertheless, from CT 1.5 we will use the newest MS compiler (VS 2017)
-again. Potentially, there will QCT instead of CT 1.5. (xxx)
 
 The current release version of CrypTool and the source code are
 available at the following Internet address (without registration):
@@ -192,6 +190,8 @@ Known bugs:
    Without closing NT you can click F3 again, and BC doesn't crash any more.
    Sadly, neither NT nor BC will be further maintained, so nothing will change
    here.
+   Sie können bc jedoch mit allen Funktionen unter Linux aufrufen (siehe die
+   Beschreibung in der CT1-Onlinehilfe).
 
 
 
@@ -496,9 +496,10 @@ I also want to thank
 And several people (like Pawel, Vasilios, and Vesna) who helped to continue
 the translations for new versions of CT1.
 
-Potential further translations:
+Potential further translations of CT1:
 - Turkish (xxx): Interests, but not started yet.
 - Russian (xxx): Requests, but not started yet.
+                 (For CT2, a translation to Russian is already started.)
 
 
 
@@ -1386,13 +1387,15 @@ c) New functionality / Usability / Corrections of errors:
 - The SWT files for the Java program S/MIME animation are now delivered
   separately for a 32 bit and a 64 bit Java VM.
 - In 1.4.40, Flash executables (with integrated content) were signed. However,
-  this caused a white empty window instead of the content. So from 1.4.41
-  these are delivered unsigned as before.
+  this caused that only a white, empty window was shown instead of the content.
+  So from 1.4.41 these Flash executables are delivered unsigned, as before.
 - From 1.4.41 all external programs (also PDF) are called over the same
   interface.
 - For 1.4.41 all animation files (AML) for Animal have been updated.
-  Now there are jump destinations (in table-of-contents) also for the Nihilist
-  animations.
+  Now there are jump destinations (in table-of-contents) also for the
+  Nihilist animation.
+- Animal now also starts faster. Each Animal animation initially starts
+  as a fullscreen windows.
 
 - Thanks to the many attentive users, who pointed us to bugs and
   inconsistencies.
@@ -2285,7 +2288,7 @@ Version                 English      German    needed EN     by
 1.4.21    July 2008     36.1 MB      37.1 MB    73 MB        DB
 1.4.30    Aug. 2010     51.5 MB      52.1 MB    94 MB        DB
 1.4.40    Sep. 2017     69.9 MB      70.7 MB   112 MB        CT
-1.4.41    Mar. 2018     71.6 MB      73.0 MB   114 MB        CT (xxxok)
+1.4.41    Mar. 2018     78.5 MB      79.6 MB   122 MB        CT (xxxok)
 
 Remarks about the (intermediate) versions:
 1.3.02  Many new functions compared to 1.3.00
@@ -2329,7 +2332,7 @@ Remarks about the (intermediate) versions:
 1.4.31-Beta06d 2016       Further beta of CT 1.4.31
 1.4.40  Many bug fixes and enhanced functionality compared to 1.4.30.
                           (first one with a French language version)
-1.4.41  Bug fixes, actualization of online help (PGP)
+1.4.41  Bug fixes, actualization of Animal and online help (PGP)
 
 
 
@@ -2864,9 +2867,9 @@ to the two existing successor projects CT2 and JCT (see chapter A.2).
 
 The CrypTool team will continue to fix bugs within CT1.
 
-For those who prefer to keep on developing in C/C++, there will also be
-a successor: Qt-CrypTool (QCT).
-Here, CT1 is further developed using Qt 5:
+For those who prefer to keep on developing in C/C++, there are discussions
+whether to create another successor: Qt-CrypTool (QCT).
+There, CT1 might be further developed using Qt 5:
 - The GUI will be completely written with Qt (instead of MFC) which
   enables platform independence. The GUI should have the same look&feel
   as CT1.
@@ -3391,26 +3394,31 @@ A.4. Using CT1 on Linux
 
 A.4.1. Running CT1 on Linux with Wine
        ------------------------------
-In a short test under MINT 17.3 with Wine 1.8.0 in October 2016 the setup of
-CrypTool 1.4.40 Prefinal (compiled with VS2008) worked fine.
+In a short test under MINT 17.3 with Wine 3.0 (https://www.winehq.org/)
+in March 2018 the setup of CrypTool 1.4.41 worked fine.
 
-Most functions in CT1 itself (like encryption methods and RSA key generation)
-work well under Wine. Wine is much more stable than 6 years ago.
+Most functions in CT1 itself (about 90 %; like encryption methods, RSA key
+generation, or hash demo) work well under Wine.
+
+Wine is much more stable than 2 and 8 years ago.
+Here some details what worked well (ok) at the test, and what did not (nok):
 - ok:  Calling most dialogs (incl. RSA-AES hybrid encryption demo),
-       performing the calculations, clicking F1 for context-sensitive help
+       performing the calculations,
+       calling of Flash executables, and
+       clicking F1 for context-sensitive help within CT1
+- nok: Calling of F1 for a selected menu item
 - ok:  Warning dialog, if Java isn't installed in Wine
-- ok:  Showing the readme file in IE (called from CT1 via menu Help)
-- nok: Calling from CT1 via menu Help a PDF (book, presentation):
+- ok:  Showing the readme file in IE (called from CT1 via menu "Help")
+- nok: Calling a PDF (book, presentation) from CT1 via the menu "Help":
        Wine unsuccessfully searches Acrobat Reader (even if Okular and
        Acrobat are there).
 - ok:  In the online help: Call of inner links within the online help
 - nok: In the online help:
        - Calling external programs from the help (readme.txt in notepad, PDFs)
+       - Search within the Microsoft online help doesn't work.
+- ok:  In the online help:
        - Navigation via the back and forth buttons
 - nok: Some malfunctions within the Macromedia application NT
-
-We haven't done tests yet with Wine 3.0 published in Jan 2018 (https://www.winehq.org/).
-Any feedback about that is welcome.
 
 Generally we do not make extra efforts to support Wine.
 Instead of that, please try the platform-independent version JCT which also
@@ -3435,9 +3443,10 @@ http://www.cryptoolinux.net/).
   planned tasks) was published mid December 2008.
 - This project has stopped.
 
-However, the CT1 core team plans to build a successor of CT1 using
-Qt 5, which will have the same look&feel as CT1 and which is called QCT
-(see A.1: Roadmap after CT 1.4.4x).
+The CT1 core team discussed to build a successor of CT1 using Qt 5,
+which has the same look&feel as CT1 and which is called QCT
+(see A.1: Roadmap after CT 1.4.4x). There is no decision made
+yet concerning QCT. 
 
 ################################################################
 

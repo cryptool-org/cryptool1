@@ -118,8 +118,6 @@ sind teilweise in Arbeit.
 Momentan ist die griechische Version nicht verfügbar, da der Compiler VS2008
 die griechischen Fonts (als UTF16) nicht korrekt unterstützt.
 Aus anderen Gründen müssen wir für CT 1.4.4x jedoch VS2008 benutzen.
-Nichtsdestotrotz werden wir ab CT 1.5 wieder den neuesten MS-Compiler
-(VS 2017) einsetzen. Evtl. wird es aber statt CT 1.5 ein QCT geben. (xxx)
 
 Die aktuelle Release-Version von CrypTool und den Quellcode dazu finden Sie
 unter der folgenden Internet-Adresse (dazu ist keine Registrierung nötig):
@@ -194,6 +192,8 @@ Bekannte Fehler:
    Ohne ZT zu schließen, kann man F3 erneut drücken, und BC stürzt nicht
    mehr ab. Leider werden weder ZT noch BC weiter entwickelt, so dass sich
    an diesem Verhalten nichts ändern wird.
+   Wie in der CT1-Onlinehilfe beschrieben, können Sie bc aber mit allen
+   Funktionen unter Linux aufrufen.
 
 
 
@@ -511,9 +511,10 @@ Bedanken möchte ich mich auch bei
 Und einigen weiteren Personen (wie Pawel, Vasilios und Vesna), die dafür
 sorgten, dass die Änderungen in neuen CT1-Versionen ebenfalls übersetzt wurden.
 
-Evtl. weitere Übersetzungen:
+Evtl. weitere Übersetzungen für CT1:
 - Türkisch (xxx): Interesse, aber bisher nicht begonnen.
 - Russisch (xxx): Anfragen, aber bisher nicht begonnen.
+                  (Für CT2 wurde eine russische Version schon begonnen.)
 
 
 
@@ -1443,14 +1444,17 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
   nun auch mit Strg+A den gesamten Text markieren.
 - Die SWT-Dateien für das Java-Programm S/MIME-Animation werden nun getrennt
   für 32- und 64-Bit-Java-VMs ausgeliefert.
-- Flash-Executables (mit integriertem Inhalt) wurden in 1.4.40 signiert. Dann
-  wurde statt dem Inhalt nur ein leeres, weißes Fenster angezeigt. Ab 1.4.41
-  werden diese wie vorher unsigniert ausgeliefert.
+- Flash-Executables (mit integriertem Inhalt) wurden in 1.4.40  auch signiert.
+  Dies führte leider dazu, dass statt dem Inhalt nur ein leeres, weißes
+  Fenster angezeigt wurde. Ab 1.4.41 werden Flash-Exes wie vorher unsigniert
+  ausgeliefert.
 - Ab 1.4.41 werden alle externen Programme (auch PDF) über dasselbe Interface
   aufgerufen.
 - Für 1.4.41 wurden alle Animationsdateien (AML) von Animal geupdatet.
-  Damit gibt es auch Sprungsziele (im table-of-contents) in der deutschen
+  Damit gibt es Sprungsziele (im table-of-contents) auch in der deutschen
   DES-Animation und in der Nihilist-Animation.
+- Außerdem startet Animal nun schneller. Alle Animal-Animationen starten
+  nun in einem Fullscreen-Fenster.
 
 - Danke an die vielen aufmerksamen Benutzer, die uns auf Bugs und 
   Inkonsistenzen aufmerksam machten.
@@ -2368,7 +2372,7 @@ Version                  Deutsch    Englisch      Bedarf DE      durch
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.30    Aug. 2010      52,1 MB     51,5 MB         95 MB        DB
 1.4.40    Sep. 2017      70,7 MB     69,9 MB        113 MB        CT
-1.4.41    März 2018      73,0 MB     71,6 MB        116 MB        CT (xxxok)
+1.4.41    März 2018      79,6 MB     78,5 MB        123 MB        CT (xxxok)
 
 Bemerkungen zu den (Zwischen-)Versionen:
 1.3.02  Viele neue Funktionen gegenüber 1.3.00
@@ -2412,7 +2416,7 @@ Bemerkungen zu den (Zwischen-)Versionen:
 1.4.31-Beta06d 2016       Weitere Beta von Version 1.4.31
 1.4.40  Viele Bugfixes und erweiterter Funktionsumfang i.Vgl. zu 1.4.30.
                           (erstmals mit einer französischen Sprachversion)
-1.4.41  Bugfixes, Aktualisierung Onlinehilfe (zu PGP)
+1.4.41  Bugfixes, Aktualisierung Animal und der Onlinehilfe (zu PGP)
 
 
 
@@ -2969,8 +2973,8 @@ die beiden schon existierenden Nachfolger-Projekte CT2 und JCT (siehe A.2).
 In CT1 werden weiterhin Fehler behoben.
 
 Für diejenigen, die weiterhin lieber in C/C++ implementieren wollen, gibt es
-auch einen Nachfolger: Qt-CrypTool (QCT).
-Hier wird CT1 mit Qt 5 weiter entwickelt:
+eventuell auch einen Nachfolger: Qt-CrypTool (QCT).
+Hier soll CT1 mit Qt 5 weiter entwickelt werden:
 - Die Oberfläche wird komplett neu geschrieben mit Qt (statt MFC) und
   damit Plattform-unabhängig sein. Sie soll dasselbe Look&Feel wie CT1
   haben.
@@ -3507,28 +3511,33 @@ A.4. CT1 unter Linux
 
 A.4.1. Ausführen von CT1 unter Linux mit Wine
        --------------------------------------
-Bei einem kurzen Test mit Wine 1.8.0 unter MINT 17.3 im Oktober 2016 lief das
-Setup von CrypTool 1.4.40 Prefinal (compiliert mit VS2008) ok durch.
+Bei einem kurzen Test mit Wine 3.0 (https://www.winehq.org/) unter
+MINT 17.3 im März 2018 lief das Setup von CrypTool 1.4.41 ok durch.
 
-Die meisten Funktionen in CT1 selbst (wie Verschlüsselungsmethoden oder
-RSA-Schlüsselgenerierung) sind ausführbar unter Wine. Wine ist viel stabiler
-als vor 6 Jahren.
+Die meisten Funktionen in CT1 selbst (ca. 90 % der Funktionen, wie
+Verschlüsselungsverfahren, RSA-Schlüsselgenerierung, Hash-Demo) sind
+ausführbar unter Wine.
+
+Wine ist viel stabiler als vor 2 und vor 8 Jahren.
+Hier ein paar Details, was beim Test ging (ok), und was nicht (nok):
 - ok:  Aufruf der meisten Masken (incl. RSA-AES-Hybrid-Verschlüsselungs-Demo),
-       Durchführen der Berechnungen und Klick auf F1 (Kontext-sensitive Hilfe)
+       Durchführen der Berechnungen,
+       Aufruf von Flashdateien,
+       und Klick auf F1 (Kontext-sensitive Hilfe innerhalb von CT1)
+- nok: Aufruf von F1 zu einem selektierten Menüeintrag
 - ok:  Melden, wenn Java nicht in Wine installiert ist
-- ok:  Aus CT1, per Menü Hilfe das Readme in IE anzeigen
-- nok: Aus CT1, per Menü Hilfe ein PDF (Buch, Präsentation) starten:
+- ok:  Aus CT1, per Menü "Hilfe" das Readme in IE anzeigen
+- nok: Aus CT1, per Menü "Hilfe" ein PDF (Buch, Präsentation) starten:
        Wine sucht vergeblich nach dem Acrobat Reader, auch wenn Okular
        und Acrobat vorhanden sind.
 - ok:  In der Onlinehilfe: Aufruf innerer Links in der Hilfe
 - nok: In der Onlinehilfe:
        - Aufruf von externen Programmen aus der Hilfe (Readme.txt im Notepad,
          PDFs)
+       - Die Suche innerhalb der Microsoft Onlinehilfe geht nicht
+- ok:  In der Onlinehilfe:
        - Vor- und Zurück-Button
 - nok: Fehlfunktionen innerhalb der Macromedia-Anwendung ZT
-
-Mit der im Jan 2018 erschienenen Version Wine 3.0 (https://www.winehq.org/)
-haben wir noch nicht getestet. Über Feedback dazu würden wir uns freuen.
 
 Wir unternehmen keine extra Anstrengungen, Wine zu unterstützen.
 Stattdessen empfehlen wir, die plattformunabhängige Version JCT zu benutzen,
@@ -3554,9 +3563,9 @@ unter http://www.cryptoolinux.net/).
   Aufgaben) wurde am 15.12.2008 veröffentlicht.
 - Dieses Projekt ist beendet.
 
-Nichtsdestotrotz plant das CT1-Kernteam, einen Nachfolger von CT1 mit
-Qt 5 bauen, der dasselbe Look&Feel wie CT1 hat und QCT genannt wird
-(siehe A.1 Roadmap nach CT 1.4.4x).
+Diskutiert wurde vom CT1-Kernteam, einen Nachfolger von CT1 mit Qt 5
+zu bauen, der dasselbe Look&Feel wie CT1 hat und QCT genannt wird
+(siehe A.1 Roadmap nach CT 1.4.4x). Beschlossen ist zu QCT noch nichts.
 
 
 ################################################################
