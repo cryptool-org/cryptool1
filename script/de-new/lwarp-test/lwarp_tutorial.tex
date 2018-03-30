@@ -1,16 +1,61 @@
-\documentclass{book}
+\documentclass[ngerman]{book}
 \usepackage{lmodern}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{blindtext}
- 
+
 \usepackage{lwarp}
 \booltrue{FormatEPUB} % !
  
+%%% aus dem Buch
+\usepackage{booktabs}
+\usepackage{babel}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage{paralist}
+\usepackage{xcolor}
+\usepackage{listings}
+%\usepackage{libertine}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+\usepackage{microtype}
+
+\usepackage{makeidx} 
+\makeindex
+
+\usepackage[flushmargin]{footmisc}
+
+
+\usepackage{amsmath}
+%\usepackage{amssymb} %,amscd,latexsym   
+%\usepackage{amsfonts}
+%\usepackage{amsthm}
+
+%%%%%%%%%%%%%%%% aus dem Buch
+
+\title{Cryptool}
+\author{Cryptool Projekt}
+
+\usepackage{ragged2e} % be_2016-08-04: ragged margin with hyphenation w/ blackbox in index
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{satz}{Satz}[section]
+\newenvironment{proof}[1]{\noindent\textbf{Beweis #1} \\}{\hfill$\Box$\par}
+\newenvironment{Beweis}[1]{\noindent\textbf{Beweis #1} \\}{\hfill$\Box$\par}
+\newenvironment{example}[1]{\noindent\textbf{Beispiel#1}}{}
+\newenvironment{remark}[1]{\noindent\textbf{Bemerkung#1}}{}
+
+% Immer als letztes laden, definiert viel um
+%\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=black,bookmarksnumbered=true,pdfpagelabels,plainpages=false,hyperfootnotes=false]{hyperref}
+
+
+
+
+
+ 
 \usepackage{hyperref,cleveref}
  
-\title{The Lwarp Tutorial}
-\author{Uwe Ziegenhagen}
  
 \setcounter{FileDepth}{1} 
 \booltrue{CombineHigherDepths}
@@ -25,13 +70,7 @@
  
 \tableofcontents
  
-\section{Hallo}
  
-\blindtext[20]
- 
-\section{Welt}
- 
-\blindtext[20]
- 
+ \input{../chapters/introduction.tex}
  
 \end{document}
