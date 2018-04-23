@@ -13,7 +13,7 @@
 \label{Chapter_Primes}
 (\hyperlink{author_Bernhard-Esslinger}{Bernhard Esslinger}, May 1999;
  Updates: Nov 2000, Dec 2001, Jun 2003, May 2005, Mar 2006, Jun 2007,
-          Jan 2010, Aug 2013, Jul 2016)
+          Jan 2010, Aug 2013, Jul 2016, Apr 2018)
 
 \begin{ctsquote}
     Progress requires exchange of knowledge.
@@ -279,12 +279,17 @@ $ n!= n*(n-1)*\cdots *2*1$).
 
 % --------------------------------------------------------------------------
 % --------------------------------------------------------------------------
-\vskip + 20pt
+%% \vskip + 20pt
+\newpage
 \section{The search for extremely large primes}
 \label{search_for_very_big_primes}   % chap. 3.4
 
-The largest prime numbers known today have several millions digits, 
-which is too big for us to imagine. The number of elementary particles in
+The largest prime numbers known today have several millions digits.\footnote{%
+	In CT1\index{CT1} you can calculate all digits of such a big number
+	very quickly via the menu path {\bf Indiv. Procedures \textbackslash{}
+	Number Theory Interactive \textbackslash{} Compute Mersenne Numbers}.
+} 
+This is too big for us to imagine. The number of elementary particles in
 the universe is estimated to be ``only'' a $80$-digit decimal number 
 \hyperlink{grosord}{(see the overview under \ref{s:grosord}
 of various orders of magnitude / dimensions)}.
@@ -293,62 +298,66 @@ of various orders of magnitude / dimensions)}.
 
 % --------------------------------------------------------------------------
 \hypertarget{RecordPrimes}{}
-\subsection{The 30+ largest known primes (as of June 2016)}  % Eyecatcher_neue-Mersenne
+\subsection{The 30+ largest known primes (as of Jan 2018)}  % Eyecatcher_neue-Mersenne
 \label{RecordPrimes}
 \index{prime number!records}
 
-The following table contains the biggest, currently known primes and
-a description of its particular number type\footnote{%
+The following table \ref{L_n_Largest_Known-Primes} contains the biggest,
+currently known primes and a description of its particular number
+type.\footnote{%
 An up-to-date version can be found in the internet
 at   \url{https://primes.utm.edu/primes/search.php?Number=1000},
 at   \url{http://primes.utm.edu/mersenne/index.html}, and
 at   \url{http://www.mersenne.org/primes/}.
-}:
+}
 
 \index{Mersenne!number!generalized}
-\index{Fermat!number!generalized} 
+\index{Fermat!number!generalized}
+
+\ignoreoutput{\rowno[0]}
 \begin{table}[ht] % don't use [h] (error if table has >24 lines)
 \begin{center}
 \begin{tabular}{|c|cccc|}
 \hline \rule{0pt}{10pt}    % Eyecatcher_neue-Mersenne
 	& {\bf Definition} & {\bf Decimal Digits} & {\bf When} & {\bf Description} \\
 \hline \rule{0pt}{15pt}
-	1  & $2^{74,207,281}-1$ & 22,338,618 & 2016 & Mersenne, 49th known \\
-	2  & $2^{57,885,161}-1$ & 17,425,170 & 2013 & Mersenne, 48th known \\
-	3  & $2^{43,112,609}-1$ & 12,978,189 & 2008 & Mersenne, 47th known \\
-	4  & $2^{42,643,801}-1$ & 12,837,064 & 2009 & Mersenne, 46th known \\
-	5  & $2^{37,156,667}-1$ & 11,185,272 & 2008 & Mersenne, 45th known \\
-	6  & $2^{32,582,657}-1$ &  9,808,358 & 2006 & Mersenne, M-44 \\
-	7  & $2^{30,402,457}-1$ &  9,152,052 & 2005 & Mersenne, M-43 \\
-	8  & $2^{25,964,951}-1$ &  7,816,230 & 2005 & Mersenne, M-42 \\
-	9  & $2^{24,036,583}-1$ &  7,235,733 & 2004 & Mersenne, M-41 \\
-	10 & $2^{20,996,011}-1$ &  6,320,430 & 2003 & Mersenne, M-40 \\
-	11 & $2^{13,466,917}-1$ &  4,053,946 & 2001 & Mersenne, M-39 \\
-	12 & $19,249 \cdot 2^{13,018,586}+1$ & 3,918,990 & 2007 & Generalized Mersenne\footnotemark \\%%%
+	\rowno & $2^{77,232,917}-1$ & 23,249,425 & 2018 & Mersenne, 50th known \\
+	\rowno & $2^{74,207,281}-1$ & 22,338,618 & 2016 & Mersenne, 49th known \\
+	\rowno & $2^{57,885,161}-1$ & 17,425,170 & 2013 & Mersenne, 48th known \\
+	\rowno & $2^{43,112,609}-1$ & 12,978,189 & 2008 & Mersenne, M-47 \\
+	\rowno & $2^{42,643,801}-1$ & 12,837,064 & 2009 & Mersenne, M-46 \\
+	\rowno & $2^{37,156,667}-1$ & 11,185,272 & 2008 & Mersenne, M-45 \\
+	\rowno & $2^{32,582,657}-1$ &  9,808,358 & 2006 & Mersenne, M-44 \\
+	\rowno & $2^{30,402,457}-1$ &  9,152,052 & 2005 & Mersenne, M-43 \\
+	\rowno & $2^{25,964,951}-1$ &  7,816,230 & 2005 & Mersenne, M-42 \\
+	\rowno & $2^{24,036,583}-1$ &  7,235,733 & 2004 & Mersenne, M-41 \\
+	\rowno & $2^{20,996,011}-1$ &  6,320,430 & 2003 & Mersenne, M-40 \\
+	\rowno & $2^{13,466,917}-1$ &  4,053,946 & 2001 & Mersenne, M-39 \\
+	\rowno & $19,249 \cdot 2^{13,018,586}+1$ & 3,918,990 & 2007 & Generalized Mersenne\footnotemark \\%%%
 
-	13 & $3 \cdot 2^{11,895,718}-1$ & 3,580,969 & 2015 & Generalized Mersenne \\
-	14 & $3 \cdot 2^{11,731,850}-1$ & 3,531,640 & 2015 & Generalized Mersenne \\
-	15 & $3 \cdot 2^{11,484,018}-1$ & 3,457,035 & 2014 & Generalized Mersenne \\
-	16 & $3 \cdot 2^{10,829,346}+1$ & 3,259,959 & 2014 & Generalized Mersenne \\
-	17 & $ 475,856^{524,288}+1$ &   2,976,633 & 2012 & Generalized Fermat \\
-	18 & $ 356,926^{524,288}+1$ &   2,911,151 & 2012 & Generalized Fermat \\
-	19 & $ 341,112^{524,288}+1$ &   2,900,832 & 2012 & Generalized Fermat \\
+	\rowno & $3 \cdot 2^{11,895,718}-1$ & 3,580,969 & 2015 & Generalized Mersenne \\
+	\rowno & $3 \cdot 2^{11,731,850}-1$ & 3,531,640 & 2015 & Generalized Mersenne \\
+	\rowno & $3 \cdot 2^{11,484,018}-1$ & 3,457,035 & 2014 & Generalized Mersenne \\
+	\rowno & $3 \cdot 2^{10,829,346}+1$ & 3,259,959 & 2014 & Generalized Mersenne \\
+	\rowno & $ 475,856^{524,288}+1$ &   2,976,633 & 2012 & Generalized Fermat \\
+	\rowno & $ 356,926^{524,288}+1$ &   2,911,151 & 2012 & Generalized Fermat \\
+	\rowno & $ 341,112^{524,288}+1$ &   2,900,832 & 2012 & Generalized Fermat \\
 
-	20 & $27,653 \cdot 2^{9,167,433}+1$ & 2,759,677 & 2005 & Generalized Mersenne \\%%%
+	\rowno & $27,653 \cdot 2^{9,167,433}+1$ & 2,759,677 & 2005 & Generalized Mersenne \\%%%
 
-	21 & $90,527 \cdot 2^{9,162,167}+1$ & 2,758,093 & 2010 & Generalized Mersenne \\
-	22 & $2,038 \cdot 366^{1,028,507}-1$ & 2,636,562 & 2016 & Generalized Fermat \\
-	23 & $75,898^{524,288}+1$ & 2,558,647 & 2011 & Generalized Fermat \\
+	\rowno & $90,527 \cdot 2^{9,162,167}+1$ & 2,758,093 & 2010 & Generalized Mersenne \\
+	\rowno & $2,038 \cdot 366^{1,028,507}-1$ & 2,636,562 & 2016 & Generalized Fermat \\
+	\rowno & $75,898^{524,288}+1$ & 2,558,647 & 2011 & Generalized Fermat \\
 
-	24 & $28,433 \cdot 2^{7,830,457}+1$ & 2,357,207 & 2004 & Generalized Mersenne \\%%%
+	\rowno & $28,433 \cdot 2^{7,830,457}+1$ & 2,357,207 & 2004 & Generalized Mersenne \\%%%
 
-	25 & $502,573 \cdot 2^{7,181,987}-1$ & 2,162,000 & 2014 & Generalized Mersenne \\
-	26 & $402,539 \cdot 2^{7,173,024}-1$ & 2,159,301 & 2014 & Generalized Mersenne \\
-	27 & $161,041 \cdot 2^{7,107,964}+1$ & 2,139,716 & 2015 & Generalized Mersenne \\
-	28 & $3 \cdot 2^{7,033,641}+1$ & 2,117,338 & 2011 & Generalized Mersenne \\
-	29 & $33,661 \cdot 2^{7,031,232}+1$ & 2,116,617 & 2007 & Generalized Mersenne \\
+	\rowno & $502,573 \cdot 2^{7,181,987}-1$ & 2,162,000 & 2014 & Generalized Mersenne \\
+	\rowno & $402,539 \cdot 2^{7,173,024}-1$ & 2,159,301 & 2014 & Generalized Mersenne \\
+	\rowno & $161,041 \cdot 2^{7,107,964}+1$ & 2,139,716 & 2015 & Generalized Mersenne \\
+	\rowno & $3 \cdot 2^{7,033,641}+1$ & 2,117,338 & 2011 & Generalized Mersenne \\
+	\rowno & $33,661 \cdot 2^{7,031,232}+1$ & 2,116,617 & 2007 & Generalized Mersenne \\
 
-	30  & $2^{ 6,972,593}-1$ & 2,098,960 & 1999 & Mersenne, M-38 \\
+	\rowno  & $2^{ 6,972,593}-1$ & 2,098,960 & 1999 & Mersenne, M-38 \\
         ... &  &  &  & \\
 %	16  & $5,359 \cdot 2^{5,054,502}+1$ & 1,521,561 & 2003 & Generalized Mersenne \\
 %	17  & $4,847 \cdot 2^{3,321,063}+1$ & 999,744 & 2005 & Generalized Mersenne \\
@@ -356,16 +365,18 @@ at   \url{http://www.mersenne.org/primes/}.
 %	19  & $2^{ 3,021,377}-1$ &   909,526 & 1998 & Mersenne, M-37 \\
 %	20  & $2^{ 2,976,221}-1$ &   895,932 & 1997 & Mersenne, M-36 \\
 %	21  & $222,361 \cdot 2^{2,854,840}+1$ & 859,398 & 2006 & Generalized Mersenne \\
-	328 & $1,372,930^{131,072}+1$ &   804,474 & 2003 & Generalized Fermat\footnotemark \\
+        % Eyecatcher_neue-Mersenne
+	329 & $1,372,930^{131,072}+1$ &   804,474 & 2003 & Generalized Fermat\footnotemark \\
 %	23  & $1,361,244^{131,072}+1$ &   803,988 & 2004 & Generalized Fermat \\
 %	24  & $1,176,694^{131,072}+1$ &   795,695 & 2003 & Generalized Fermat \\
         ... &  &  &  & \\
-	342  & $342,673 \cdot 2^{2,639,439}-1$ & 794,556 & 2007 & Generalized Mersenne \\
+        % Eyecatcher_neue-Mersenne
+	343  & $342,673 \cdot 2^{2,639,439}-1$ & 794,556 & 2007 & Generalized Mersenne \\
 
 \hline
 \end{tabular}
 \caption{The 30+ largest known primes and its particular number types
-         (as of June 2016)}    % Eyecatcher_neue-Mersenne
+         (as of Jan 2018)}    % Eyecatcher_neue-Mersenne
 \label{L_n_Largest_Known-Primes}
 \end{center}
 \end{table} 
@@ -392,7 +403,11 @@ As of about April 19, 2016, the main SoB server is down and the future of the pr
 \addtocounter{footnote}{1}
 \footnotetext{%
 Generalized Fermat number: $ 1,372,930^{131,072} + 1 = 1,372,930^{(2^{17})}+1 $
-\index{Fermat!number!generalized}  } 
+\index{Fermat!number!generalized}  }
+
+\clearpage
+
+
 
 The development over time is shown in figure \ref{Figure_Caldwell_Largest-Known-Prime-From1975}.
 It starts with M21701 found in 1978. Note the vertical scale.
@@ -409,7 +424,7 @@ It starts with M21701 found in 1978. Note the vertical scale.
   Source: Chris Caldwell, \url{http://primes.utm.edu/notes/by_year.html}
 }
 
-The larges currently known prime is a Mersenne prime, found by the
+The largest currently known prime is a Mersenne prime, found by the
 \hyperlink{GIMPS-project}{GIMPS project} (chapter~\ref{zahlentyp_mersenne}).
 Within the largest known primes there are also numbers of the type
 \hyperlink{generalizedMersennenumbers}{generalized Mersenne number}
@@ -417,6 +432,8 @@ Within the largest known primes there are also numbers of the type
 and 
 \hyperlink{generalizedFermatprimes}{generalized Fermat numbers}
 (chapter~\ref{generalized-fermat}).
+
+\clearpage
 
 
 % --------------------------------------------------------------------------
@@ -539,7 +556,7 @@ of this 21-digit decimal number!
 Due to the fact that the exponents of the Mersenne numbers
 \index{Mersenne!number} do not use all
 natural numbers, but only the primes, the {\em experimental space} is limited
-considerably. The currently known $49$
+considerably. The currently known $50$
  % Eyecatcher_neue-Mersenne     % be_2005_UPDATEN_if-new-mersenne-prime-appears
 Mersenne prime numbers\index{prime number!Mersenne}\index{Mersenne!prime number}
 have the following exponents:\footnote{%
@@ -557,7 +574,7 @@ $$
 86,243; ~ 110,503; \\
 132,049; ~ 216,091; ~ 756,839; ~ 859,433; ~ 1,257,787; ~ 1,398,269; ~ 2,976,221; ~ 3,021,377;\\
 6,972,593; ~ 13,466,917; ~ 20,996,011; ~ 24,036,583; ~ 25,964,951; ~ 30,402,457;\\
-32,582,657; ~ 37,156,667; ~ 42,643,801, ~ 43,112,609, ~ 57,885,161, ~ 74,207,281.
+32,582,657; ~ 37,156,667; ~ 42,643,801, ~ 43,112,609, ~ 57,885,161, ~ 74,207,281, ~ 77,232,917.
 % be_2005_UPDATEN_if-new-mersenne-prime-appears          ~ xxx,xxx,xxx.
 \end{array}
 $$
@@ -573,9 +590,9 @@ now long outdated).
 
 
 \vskip +10 pt
-For the first 44  % be_2005_UPDATEN_if-new-mersenne-prime-appears  % Eyecatcher_neue-Mersenne
+For the first 47  % be_2005_UPDATEN_if-new-mersenne-prime-appears  % Eyecatcher_neue-Mersenne
 Mersenne prime numbers we know that this list is complete.
-The exponents until the 49th     % be_2005_UPDATEN_if-new-mersenne-prime-appear    % Eyecatcher_neue-Mersennes
+The exponents until the 50th     % be_2005_UPDATEN_if-new-mersenne-prime-appear    % Eyecatcher_neue-Mersennes
 Mersenne prime number have not yet been checked completely.\footnote{%
 The current status of the check can be found at:
       \url{http://www.mersenne.org/primenet/}.\\
@@ -584,13 +601,14 @@ Hints, how the primality of a number can be checked, are in chapter
 
 
 % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
-As of 2016-07-19 all prime exponents smaller than $ 36,058,573 $ have been
+As of 2018-04-23 all prime exponents smaller than $ 43,261,403 $ have been
 tested and double-checked\footnote{%
 See home page of the GIMPS project:
       \url{http://www.mersenne.org/report_milestones}.
   }:
-So we can
-be certain, that this is really the 41th Mersenne prime number and that
+% be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
+So we can be certain, that this is really the 47th
+Mersenne prime number and that
 there are no smaller undiscovered Mersenne primes (it is common usage to use
 the notation M-nn not until it is proven, that the nn-th known Mersenne prime
 is really the nn-th Mersenne prime). Here are some examples in more detail:
@@ -656,7 +674,7 @@ Further explanations about this number type can be found under
 \hyperlink{MersenneNumbers02}{Mersenne numbers} and 
 \hyperlink{MersenneNumbers01}{Mersenne primes}.
 
-Right now the GIMPS project has discovered 15
+Right now the GIMPS project has discovered 16 %% https://www.mersenne.org/primes/
    % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
 largest Mersenne primes so far, including the largest known prime number at all. 
 
@@ -674,39 +692,57 @@ cannot see at once whether and how it brings mankind forward.
 }
 
    % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
+\ignoreoutput{\rowno[0]}
 \begin{table}[ht]
 \begin{center}
-\begin{tabular}{|cccc|}
+\begin{tabular}{|c|cccc|}
 \hline \rule{0pt}{10pt} 
-	{\bf Definition} & {\bf Decimal Digits} & {\bf When} & {\bf Who} \\
+	& {\bf Definition} & {\bf Decimal Digits} & {\bf When} & {\bf Who} \\
 \hline \rule{0pt}{15pt} 
 
-	$2^{74,207,281}-1$ & 22,338,618 & January 7, 2016 & Curtis Cooper  \\
-	$2^{57,885,161}-1$ & 17,425,170 & January 25, 2013 & Curtis Cooper  \\
-	$2^{43,112,609}-1$ & 12,978,189 & August 23, 2008 & Edson Smith  \\
-	$2^{42,643,801}-1$ & 12,837,064 & April 12, 2009 & Odd Magnar Strindmo \\
-	$2^{37,156,667}-1$ & 11,185,272 & September 6, 2008 & Hans-Michael Elvenich \\
+	\rowno & $2^{77,232,917}-1$ & 23,249,425 & Dec 26, 2017 & Jonathan Pace  \\
+	\rowno & $2^{74,207,281}-1$ & 22,338,618 & Jan 7, 2016 & Curtis Cooper  \\
+	\rowno & $2^{57,885,161}-1$ & 17,425,170 & Jan 25, 2013 & Curtis Cooper  \\
+	\rowno & $2^{43,112,609}-1$ & 12,978,189 & Aug 23, 2008 & Edson Smith  \\
+	\rowno & $2^{42,643,801}-1$ & 12,837,064 & Apr 12, 2009 & Odd Magnar Strindmo \\
+	\rowno & $2^{37,156,667}-1$ & 11,185,272 & Sep 6, 2008 & Hans-Michael Elvenich \\
 
-	$2^{32,582,657}-1$ &  9,808,358 & September 4, 2006 & Curtis Cooper/Steven Boone \\
-	$2^{30,402,457}-1$ &  9,152,052 & December 15, 2005 & Curtis Cooper/Steven Boone \\
-	$2^{25,964,951}-1$ &  7,816,230 & February 18, 2005 & Martin Nowak     \\
-	$2^{24,036,583}-1$ &  7,235,733 & May 15, 2004      & Josh Findley     \\
-	$2^{20,996,011}-1$ &  6,320,430 & November 17, 2003 & Michael Shafer   \\
-	$2^{13,466,917}-1$ &  4,053,946 & November 14, 2001 & Michael Cameron  \\
-	$2^{ 6,972,593}-1$ &  2,098,960 & June 1, 1999      & Nayan Hajratwala \\
-	$2^{ 3,021,377}-1$ &    909,526 & January 27, 1998  & Roland Clarkson  \\
-	$2^{ 2,976,221}-1$ &    895,932 & August 24, 1997   & Gordon Spence    \\
-	$2^{ 1,398,269}-1$ &    420,921 & November 1996     & Joel Armengaud   \\
+	\rowno & $2^{32,582,657}-1$ &  9,808,358 & Sep 4, 2006 & Curtis Cooper/Steven Boone \\
+	\rowno & $2^{30,402,457}-1$ &  9,152,052 & Dec 15, 2005 & Curtis Cooper/Steven Boone \\
+	\rowno & $2^{25,964,951}-1$ &  7,816,230 & Feb 18, 2005 & Martin Nowak     \\
+	\rowno & $2^{24,036,583}-1$ &  7,235,733 & May 15, 2004 & Josh Findley     \\
+	\rowno & $2^{20,996,011}-1$ &  6,320,430 & Nov 17, 2003 & Michael Shafer   \\
+	\rowno & $2^{13,466,917}-1$ &  4,053,946 & Nov 14, 2001 & Michael Cameron  \\
+	\rowno & $2^{ 6,972,593}-1$ &  2,098,960 & Jun 1, 1999 & Nayan Hajratwala \\
+	\rowno & $2^{ 3,021,377}-1$ &    909,526 & Jan 27, 1998 & Roland Clarkson  \\
+	\rowno & $2^{ 2,976,221}-1$ &    895,932 & Aug 24, 1997 & Gordon Spence    \\
+	\rowno & $2^{ 1,398,269}-1$ &    420,921 & November 1996 & Joel Armengaud   \\
 
 \hline
 \end{tabular}
    % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
-\caption{The largest primes found by the GIMPS project (as of January 2016)}
+\caption{The largest primes found by the GIMPS project (as of January 2018)}
 \label{Primes_GIMPS-Primes_table-reference}
 \end{center}
 \end{table} 
 
-%be_2005: Erzwingen, dass die Abb. noch in diesem Kapitel !
+%%% beg-VERSUCH-TRY_FP: really not necessary -------------------------
+% Ich wollte im Tabellentitel die Anzahl drin haben, aber \FPeval macht mit
+% \rowno Probleme:
+% \caption{The $ \rowno -2 $ largest primes found by the GIMPS project (as of January 2018)}
+% TESTTEST: \FPeval{\result}{clip( 8 - 2 )}  Ausgabe: $8-2=\result$ \\
+% TESTTEST: Value of rowno: \value{\rowno} \\
+%%ERROR  \FPeval{\result}{clip(\value{\rowno} - 2)} TESTTEST: Ausgabe: $rowno-2=\result$
+% \newcommand{\variableforfpevalx}{0}
+% TESTTEST: Ausgabe variableforfpevalx direkt: \variableforfpevalx \\
+% TESTTEST: \FPeval{\result}{clip( \variableforfpevalx - 2 )}  Ausgabe: $0-2=\result$ \\
+% \newcommand{\variableforfpevaly}{\value{\rowno}}
+% TESTTEST: Ausgabe variableforfpevaly direkt: \variableforfpevaly \\
+%%ERROR  TESTTEST: \FPeval{\result}{clip( \variableforfpevaly - 2 )}  Ausgabe: $0-2=\result$ \\
+% TESTTEST: Value of rowno: \value{\rowno} \\
+%%% end-VERSUCH-TRY_FP: really not necessary -------------------------
+
+
 
 Richard Crandall\index{Crandall, Richard} discovered the advanced 
 transform algorithm used by the GIMPS program. George Woltman implemented

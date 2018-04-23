@@ -132,6 +132,40 @@
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
 
+\newcommand{\ignoreoutput}[1]{\setbox0\vbox{\everypar{}#1}}
+
+\usepackage{ifthen}
+\makeatletter
+\providecommand{\rowno}[1][__empty__]{%%% used for col 1 of prime records table
+    \ifthenelse{\isundefined{\c@rowno}}{%
+        \newcounter{rowno}}{}%
+    \ifthenelse{\equal{#1}{__empty__}}{%
+        \stepcounter{rowno}% increases counter, see https://en.wikibooks.org/wiki/LaTeX/Counters
+        }{%
+        \setcounter{rowno}{#1}%
+        }%
+    \therowno%
+}
+\makeatother
+
+
+%%% beg-VERSUCH-TRY_FP: really not necessary -------------------------
+% Tried to write the row number of the last row (table 3.2) into the header
+% of the table. As each call make it ti increment, I need to do calculations.
+% ==> Probably using Python is much better than the package fp.
+% http://anamorphose.de/rechnen.pdf
+% https://stackoverflow.com/questions/1219121/is-there-a-calculator-with-latex-syntax  --> SageMath
+% https://tex.stackexchange.com/questions/154224/fp-calculation-variable
+% https://tex.stackexchange.com/questions/30081/how-can-i-sum-two-values-and-store-the-result-in-other-variable   and  http://ctan.org/pkg/fp
+%%%    \FPeval{\result}{clip(5+6)}%
+%%%    $5+6=\result$
+%%%    \FPeval{\result}{round(2+3/5*pi,5)}%
+%%%    $2+3/5\times\pi=\result$
+% \usepackage[nomessages]{fp}
+%%% end-VERSUCH-TRY_FP: really not necessary -------------------------
+
+
+
 
 % Define title ..............
 \title{% Empty lines between these brackets cause: "Paragraph ended before \title was complete."
@@ -148,7 +182,7 @@
 
 \author{
         {\LARGE Prof.\ Bernhard Esslinger (co-author and editor)}\\[10pt]
-        {\LARGE and the CrypTool Team, 1998-2017}\\[10pt]
+        {\LARGE and the CrypTool Team, 1998-2018}\\[10pt]
         \url{www.cryptool.org}
 }
 
@@ -187,7 +221,7 @@ possible, as in all other documents.\\
 Additionally, this document is liable to the specific license of the
 GNU Free Documentation Licence.
 
-    Copyright \copyright{} 1998--2017 Bernhard Esslinger and the
+    Copyright \copyright{} 1998--2018 Bernhard Esslinger and the
     CrypTool Team. Permission is granted to copy,
     distribute and/or modify this document under the terms of the GNU
     Free Documentation License, Version 1.3 or any later version
@@ -202,13 +236,13 @@ GNU Free Documentation Licence.
 \vspace{70pt}\noindent Suggestion for referencing with bibtex:
 \begin{Verbatim}%
 [fontsize=\footnotesize]
-@book{Esslinger:ctb_2017,
+@book{Esslinger:ctb_2018,
   editor    = {Bernhard Esslinger},
   title     = {{L}earning and {E}xperiencing {C}ryptography
                with {C}ryp{T}ool and {S}age{M}ath},
   publisher = {CrypTool Project},
   edition   = {12},
-  year      = {2017}
+  year      = {2018}
 }
 \end{Verbatim}
 

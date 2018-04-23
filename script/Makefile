@@ -12,8 +12,8 @@ pdf1-en:
 	$(MAKE) -C en pdf1
 
 zip:
-	rm -f script-`date -I`.zip
-	zip script-`date -I`.zip */*.tex */chapters/*.tex de/*.pdf en/*.pdf
+	rm -f ctbook-`date -I`.zip
+	zip ctbook-`date -I`.zip */*.tex */chapters/*.tex de/*.pdf en/*.pdf
 
 clean:
 	$(MAKE) -C de clean

@@ -1,0 +1,40 @@
+SRC=CT-Book-$(LANG).tex ../de/references.bib chapters/*.tex figures/*.pdf figures/*.eps figures/*.latex
+PDF=CT-Book-$(LANG).pdf
+DVI=CT-Book-$(LANG).dvi
+TEX=CT-Book-$(LANG).tex
+IDX=CT-Book-$(LANG).idx
+TMP=*.aux *.idx *.ilg *.ind *.log *.out *.toc *.bbl *.blg *.lof *.lot *.loc *.lop *.loq auto
+all: pdf
+
+pdf: $(PDF)
+dvi: $(DVI)
+pdf1:
+	echo q | pdflatex $(TEX) | tail
+
+$(PDF): $(SRC) style.ist
+	echo q | pdflatex $(TEX) | tail -2
+	@echo
+	echo q | pdflatex $(TEX) | tail -2
+	@echo
+	for f in bu*.aux; do bibtex $$f; done
+	@echo
+	makeindex -s style.ist $(IDX)
+	@echo
+	echo q | pdflatex $(TEX) | tail -2
+	@echo
+	echo q | pdflatex $(TEX) | tail
+
+CT-Book-$(LANG).ind: CT-Book-$(LANG).idx style.ist
+	makeindex -s style.ist CT-Book-$(LANG).idx
+
+CT-Book-$(LANG).idx: $(SRC) 
+	echo q | latex $(TEX) | tail
+
+$(DVI): $(TEX) figures/* chapters/* CT-Book-$(LANG).ind
+	echo q | latex $(TEX) | tail
+
+cleantmp: 
+	-rm -rf $(TMP)
+
+clean: cleantmp
+	-rm -f $(PDF) $(DVI)

@@ -325,10 +325,21 @@
 \setcounter{tocdepth}{4}    % Das Inhaltsverzeichnis wird vier Ebenen tief (Default ist 3)
 \setcounter{secnumdepth}{4} % Nummerierung auch bei subsubsection
 
-%\pdfinfo{ /Title (CrypTool-Skript) /Creator (TeX) /Producer
-%(pdfTeX 0.14a) /Author /CreationDate
-%(D:20000920201000) } ???????????????
+\newcommand{\ignoreoutput}[1]{\setbox0\vbox{\everypar{}#1}}
 
+\usepackage{ifthen}
+\makeatletter
+\providecommand{\rowno}[1][__empty__]{%%% used for col 1 of prime records table
+    \ifthenelse{\isundefined{\c@rowno}}{%
+        \newcounter{rowno}}{}%
+    \ifthenelse{\equal{#1}{__empty__}}{%
+        \stepcounter{rowno}% increases counter, see https://en.wikibooks.org/wiki/LaTeX/Counters
+        }{%
+        \setcounter{rowno}{#1}%
+        }%
+    \therowno%
+}
+\makeatother
 
 
 
@@ -366,7 +377,7 @@
 
 \author{% Die Klammer zur Fontänderung funktioniert bei \author nur einzeilig im Gegensatz zu \title?!
 	{\LARGE Prof.\ Bernhard Esslinger (Mitautor und Herausgeber)}\\[10pt]
-	{\LARGE und das CrypTool-Team, 1998-2017}\\[10pt]
+	{\LARGE und das CrypTool-Team, 1998-2018}\\[10pt]
 %	{\LARGE Frankfurt am Main}\\*[15pt]
 	\url{www.cryptool.org}
 }
@@ -453,8 +464,8 @@ anderen Werk auch, zitiert werden. \\
 Darüber hinaus unterliegt dieses Dokument der GNU-Lizenz für freie
 Dokumentation.
 
-%   Copyright \textcopyright{} 1998--2017 Bernhard Esslinger and the    %% Geht beides.
-    Copyright \copyright{} 1998--2017 Bernhard Esslinger and the
+%   Copyright \textcopyright{} 1998--2018 Bernhard Esslinger and the    %% Geht beides.
+    Copyright \copyright{} 1998--2018 Bernhard Esslinger and the
     CrypTool Team. Permission is granted to copy,
     distribute and/or modify this document under the terms of the GNU
     Free Documentation License, Version 1.3 or any later version
@@ -474,13 +485,13 @@ Dokumentation.
 % Optionale Felder: volume oder number, series, address, edition, month, note, isbn
 \begin{Verbatim}%
 [fontsize=\footnotesize]
-@book{Esslinger:ctb_2017,
+@book{Esslinger:ctb_2018,
   editor    = {Bernhard Esslinger},
   title     = {{D}as {C}ryp{T}ool-{B}uch: {K}ryptographie lernen
                und anwenden mit {C}ryp{T}ool und {S}age{M}ath},
   publisher = {CrypTool-Projekt},
   edition   = {12},
-  year      = {2017}
+  year      = {2018}
 }
 \end{Verbatim}
 % 

@@ -15,7 +15,7 @@
 \label{Chapter_Primes}  %Die Kapitelnummer von \label wird per \ref geholt.
 (\hyperlink{author_Bernhard-Esslinger}{Bernhard Esslinger}, Mai 1999; 
  Updates: Nov. 2000, Dez. 2001, Juni 2003, Mai 2005, März 2006, Juni 2007,
-          Jan. 2010, Aug. 2013, Juli 2016)
+          Jan. 2010, Aug. 2013, Juli 2016, Apr. 2018)
 
 \begin{ctsquote}
     Der Fortschritt lebt vom Austausch des Wissens.
@@ -281,33 +281,41 @@ Zahlen, also $n!=n*(n-1)* \cdots *3*2*1$).
 
 % --------------------------------------------------------------------------
 % --------------------------------------------------------------------------
-\vskip + 20pt
+%% \vskip + 20pt
+\newpage
 \section{Die Suche nach sehr großen Primzahlen}
 \label{search_for_very_big_primes}   % chap. 3.4
 
 Die größten heute bekannten Primzahlen haben mehrere
-Millionen Stellen. Das ist unvorstellbar groß. Die Anzahl
-der Elementarteilchen im Universum wird auf eine \glqq nur\grqq\
-$80$-stellige Dezimalzahl geschätzt \hyperlink{grosord}{(siehe
-Übersicht unter \ref{s:grosord} über verschiedene Größenordnungen /
-Dimensionen)}.
+Millionen Stellen.\footnote{%
+	In CT1\index{CT1} können Sie über das Menü
+	{\bf Einzelverfahren \textbackslash{} Zahlentheorie 
+	interaktiv \textbackslash{} Mersenne-Zahlen berechnen}
+	alle Stellen einer solch großen Zahl sehr schnell berechnen.
+	%% zur Die 50. – und bislang größte bekannte – Mersenne-Primzahl
+	%% Auf meinem PC war die Zahl in 20 sec berechnet (wohlgemerkt, das ist nur die Zeit für die Berechnung der Zweierpotenz, nicht der Beweis, dass die Zahl prim ist). Das Abspeichern und Anzeigen der knapp 23 MB großen Zahl dauerte dann länger als die Berechnung.
+}
+Das ist unvorstellbar groß. Die Anzahl der Elementarteilchen im
+Universum wird auf eine \glqq nur\grqq\ $80$-stellige Dezimalzahl
+geschätzt \hyperlink{grosord}{(siehe Übersicht unter \ref{s:grosord}
+über verschiedene Größenordnungen / Dimensionen)}.
 
 
 
 % --------------------------------------------------------------------------
 \hypertarget{RecordPrimes}{}
-\subsection{Die 30+ größten bekannten Primzahlen (Stand Juni 2016)}  % Eyecatcher_neue-Mersenne
+\subsection{Die 30+ größten bekannten Primzahlen (Stand Jan. 2018)}  % Eyecatcher_neue-Mersenne
 \index{Primzahlrekorde}
 \label{RecordPrimes}
 
-In der folgenden Tabelle sind die größten, derzeit bekannten Primzahlen und
-eine Beschreibung des jeweiligen Zahlentyps aufgeführt\footnote{%
+In der folgenden Tabelle \ref{L_n_Largest_Known-Primes} sind die größten, derzeit bekannten Primzahlen und
+eine Beschreibung des jeweiligen Zahlentyps aufgeführt.\footnote{%
 Eine jeweils aktuelle Fassung findet sich im Internet
 unter  \url{https://primes.utm.edu/primes/search.php?Number=1000},
 % at   \url{http://primes.utm.edu/largest.html},
 unter  \url{http://primes.utm.edu/mersenne/index.html}, und
 unter  \url{http://www.mersenne.org/primes/}.
-}:
+}
 % Bsp-Meldungen
 % - http://www.heise.de/newsticker/meldung/Neue-groesste-bekannte-Primzahl-mit-ueber-22-Millionen-Stellen-gefunden-3079127.html  20.01.2016
 % - http://www.spiegel.de/wissenschaft/mensch/primzahlen-neue-rekord-zahl-mit-22-33-millionen-stellen-gefunden-a-1072883.html  20.1.16
@@ -317,48 +325,60 @@ unter  \url{http://www.mersenne.org/primes/}.
 
 \index{Mersenne!Mersennezahl!verallgemeinert} 
 \index{Fermat!Fermatzahl!verallgemeinert}
+
+%% Der Aufruf von \rowno[0] machte immer auch gleich eine Ausgabe.
+%% Ich wollte Ausgabe unterdrücken (suppress, discard-command-output)
+%% \setcounter{rowno}{0} tat nicht, weil rowno ein command (e ex. nur interner counter) 
+\ignoreoutput{\rowno[0]} % Could have used \rowno[1] in the 1st row of the table.
+                         % However, to make maintenance for adding new records
+			 % easier, I wanted to have always "\rowno" in each line.
+                         % Therefore I have to call the command (which sets the
+			 % counter and increases it by one) before, but suppress
+			 % the output.
+
 \begin{table}[ht]   % Vgl. http://primes.utm.edu/largest.html
 \begin{center}
 \begin{tabular}{|c|cccc|}
 \hline \rule{0pt}{10pt}     % Eyecatcher_neue-Mersenne
  	& {\bf Definition} & {\bf Dezimalstellen} & {\bf Wann} & {\bf Beschreibung} \\
 \hline \rule{0pt}{15pt} % Damit erreicht, dass die Exponenten nicht in die waagrechte Linie hineinragen.
-        1  & $2^{74.207.281}-1$ & 22.338.618 & 2016 & Mersenne, 49. bekannte \\
-	2  & $2^{57.885.161}-1$ & 17.425.170 & 2013 & Mersenne, 48. bekannte \\
-	3  & $2^{43.112.609}-1$ & 12.978.189 & 2008 & Mersenne, 47. bekannte \\
-	4  & $2^{42.643.801}-1$ & 12.837.064 & 2009 & Mersenne, 46. bekannte \\
-	5  & $2^{37.156.667}-1$ & 11.185.272 & 2008 & Mersenne, 45. bekannte \\
-	6  & $2^{32.582.657}-1$ &  9.808.358 & 2006 & Mersenne, M-44 \\
-	7  & $2^{30.402.457}-1$ &  9.152.052 & 2005 & Mersenne, M-43 \\
-	8  & $2^{25.964.951}-1$ &  7.816.230 & 2005 & Mersenne, M-42 \\
-	9  & $2^{24.036.583}-1$ &  7.235.733 & 2004 & Mersenne, M-41 \\
-	10 & $2^{20.996.011}-1$ &  6.320.430 & 2003 & Mersenne, M-40 \\
-	11 & $2^{13.466.917}-1$ &  4.053.946 & 2001 & Mersenne, M-39 \\
-	12 & $19.249 \cdot 2^{13.018.586}+1$ & 3.918.990 & 2007 & Verallgem. Mersenne\footnotemark \\%%%
+        \rowno & $2^{77.232.917}-1$ & 23.249.425 & 2018 & Mersenne, 50. bekannte \\
+        \rowno & $2^{74.207.281}-1$ & 22.338.618 & 2016 & Mersenne, 49. bekannte \\
+	\rowno & $2^{57.885.161}-1$ & 17.425.170 & 2013 & Mersenne, 48. bekannte \\
+	\rowno & $2^{43.112.609}-1$ & 12.978.189 & 2008 & Mersenne, M-47 \\
+	\rowno & $2^{42.643.801}-1$ & 12.837.064 & 2009 & Mersenne, M-46 \\
+	\rowno & $2^{37.156.667}-1$ & 11.185.272 & 2008 & Mersenne, M-45 \\
+	\rowno & $2^{32.582.657}-1$ &  9.808.358 & 2006 & Mersenne, M-44 \\
+	\rowno & $2^{30.402.457}-1$ &  9.152.052 & 2005 & Mersenne, M-43 \\
+	\rowno & $2^{25.964.951}-1$ &  7.816.230 & 2005 & Mersenne, M-42 \\
+	\rowno & $2^{24.036.583}-1$ &  7.235.733 & 2004 & Mersenne, M-41 \\
+	\rowno & $2^{20.996.011}-1$ &  6.320.430 & 2003 & Mersenne, M-40 \\
+	\rowno & $2^{13.466.917}-1$ &  4.053.946 & 2001 & Mersenne, M-39 \\
+	\rowno & $19.249 \cdot 2^{13.018.586}+1$ & 3.918.990 & 2007 & Verallgem. Mersenne\footnotemark \\%%%
 
-	13 & $3 \cdot 2^{11.895.718}-1$ & 3.580.969 & 2015 & Verallgem. Mersenne \\
-	14 & $3 \cdot 2^{11.731.850}-1$ & 3.531.640 & 2015 & Verallgem. Mersenne \\
-	15 & $3 \cdot 2^{11.484.018}-1$ & 3.457.035 & 2014 & Verallgem. Mersenne \\
-	16 & $3 \cdot 2^{10.829.346}+1$ & 3.259.959 & 2014 & Verallgem. Mersenne \\
-	17 & $ 475.856^{524.288}+1$ &   2.976.633 & 2012 & Verallgem. Fermat \\
-	18 & $ 356.926^{524.288}+1$ &   2.911.151 & 2012 & Verallgem. Fermat \\
-	19 & $ 341.112^{524.288}+1$ &   2.900.832 & 2012 & Verallgem. Fermat \\
+	\rowno & $3 \cdot 2^{11.895.718}-1$ & 3.580.969 & 2015 & Verallgem. Mersenne \\
+	\rowno & $3 \cdot 2^{11.731.850}-1$ & 3.531.640 & 2015 & Verallgem. Mersenne \\
+	\rowno & $3 \cdot 2^{11.484.018}-1$ & 3.457.035 & 2014 & Verallgem. Mersenne \\
+	\rowno & $3 \cdot 2^{10.829.346}+1$ & 3.259.959 & 2014 & Verallgem. Mersenne \\
+	\rowno & $ 475.856^{524.288}+1$ &   2.976.633 & 2012 & Verallgem. Fermat \\
+	\rowno & $ 356.926^{524.288}+1$ &   2.911.151 & 2012 & Verallgem. Fermat \\
+	\rowno & $ 341.112^{524.288}+1$ &   2.900.832 & 2012 & Verallgem. Fermat \\
 
-	20 & $27.653 \cdot 2^{9.167.433}+1$ & 2.759.677 & 2005 & Verallgem. Mersenne \\%%%
+	\rowno & $27.653 \cdot 2^{9.167.433}+1$ & 2.759.677 & 2005 & Verallgem. Mersenne \\%%%
 
-	21 & $90.527 \cdot 2^{9.162.167}+1$ & 2.758.093 & 2010 & Verallgem. Mersenne \\
-	22 & $2.038 \cdot 366^{1.028.507}-1$ & 2.636.562 & 2016 & Verallgem. Fermat \\
-	23 & $75.898^{524.288}+1$ & 2.558.647 & 2011 & Verallgem. Fermat \\
+	\rowno & $90.527 \cdot 2^{9.162.167}+1$ & 2.758.093 & 2010 & Verallgem. Mersenne \\
+	\rowno & $2.038 \cdot 366^{1.028.507}-1$ & 2.636.562 & 2016 & Verallgem. Fermat \\
+	\rowno & $75.898^{524.288}+1$ & 2.558.647 & 2011 & Verallgem. Fermat \\
 
-	24 & $28.433 \cdot 2^{7.830.457}+1$ & 2.357.207 & 2004 & Verallgem. Mersenne \\%%%
+	\rowno & $28.433 \cdot 2^{7.830.457}+1$ & 2.357.207 & 2004 & Verallgem. Mersenne \\%%%
 
-	25 & $502.573 \cdot 2^{7.181.987}-1$ & 2.162.000 & 2014 & Verallgem. Mersenne \\
-	26 & $402.539 \cdot 2^{7.173.024}-1$ & 2.159.301 & 2014 & Verallgem. Mersenne \\
-	27 & $161.041 \cdot 2^{7.107.964}+1$ & 2.139.716 & 2015 & Verallgem. Mersenne \\
-	28 & $3 \cdot 2^{7.033.641}+1$ & 2.117.338 & 2011 & Verallgem. Mersenne \\
-	29 & $33.661 \cdot 2^{7.031.232}+1$ & 2.116.617 & 2007 & Verallgem. Mersenne \\
+	\rowno & $502.573 \cdot 2^{7.181.987}-1$ & 2.162.000 & 2014 & Verallgem. Mersenne \\
+	\rowno & $402.539 \cdot 2^{7.173.024}-1$ & 2.159.301 & 2014 & Verallgem. Mersenne \\
+	\rowno & $161.041 \cdot 2^{7.107.964}+1$ & 2.139.716 & 2015 & Verallgem. Mersenne \\
+	\rowno & $3 \cdot 2^{7.033.641}+1$ & 2.117.338 & 2011 & Verallgem. Mersenne \\
+	\rowno & $33.661 \cdot 2^{7.031.232}+1$ & 2.116.617 & 2007 & Verallgem. Mersenne \\
 
-	30 & $2^{ 6.972.593}-1$ & 2.098.960 & 1999 & Mersenne, M-38 \\%%%
+	\rowno & $2^{ 6.972.593}-1$ & 2.098.960 & 1999 & Mersenne, M-38 \\%%%
         ... &  &  &  & \\
 %	16 & $5.359 \cdot 2^{5.054.502}+1$ & 1.521.561 & 2003 & Verallgem. Mersenne \\
 %	17 & $4.847 \cdot 2^{3.321.063}+1$ & 999.744 & 2005 & Verallgem. Mersenne \\
@@ -366,16 +386,18 @@ unter  \url{http://www.mersenne.org/primes/}.
 %	19 & $2^{ 3.021.377}-1$ &   909.526 & 1998 & Mersenne, M-37 \\
 %	20 & $2^{ 2.976.221}-1$ &   895.932 & 1997 & Mersenne, M-36 \\
 %	21 & $222.361 \cdot 2^{2.854.840}+1$ & 859.398 & 2006 & Verallgem. Mersenne \\
-	328 & $1.372.930^{131.072}+1$ &   804.474 & 2003 & Verallgem. Fermat\footnotemark \\
+        % Eyecatcher_neue-Mersenne
+	329 & $1.372.930^{131.072}+1$ &   804.474 & 2003 & Verallgem. Fermat\footnotemark \\
 %	23 & $1.361.244^{131.072}+1$ &   803.988 & 2004 & Verallgem. Fermat \\
 %	24 & $1.176.694^{131.072}+1$ &   795.695 & 2003 & Verallgem. Fermat \\
         ... &  &  &  & \\
-	342 & $342.673 \cdot 2^{2.639.439}-1$ & 794.556 & 2007 & Verallgem. Mersenne \\
+        % Eyecatcher_neue-Mersenne
+	343 & $342.673 \cdot 2^{2.639.439}-1$ & 794.556 & 2007 & Verallgem. Mersenne \\
 
    \hline
 \end{tabular}
 \caption{Die 30+ größten Primzahlen und ihr jeweiliger Zahlentyp
-         (Stand Juni 2016)}    %  Eyecatcher_neue-Mersenne
+         (Stand Jan. 2018)}    %  Eyecatcher_neue-Mersenne
 \label{L_n_Largest_Known-Primes}
 \end{center}
 \end{table} 
@@ -415,7 +437,11 @@ Verallgemeinerte Fermatzahl: $ 1.372.930^{131.072} + 1 = 1.372.930^{(2^{17})}+1 
 } 
 %be_2005: footnotemark und footnotetext statt nur footnote (sonst sieht man nur
 %         die Fussnoten-Nr., aber nicht den Text!
-%be_2005: Erzwingen, dass die Tabelle noch in diesem Kapitel !
+
+\clearpage  %% Erzwingen, dass die Tabelle noch in diesem Kapitel und vor Fig. 3.4 
+
+
+
 
 Die zeitliche Entwicklung wird in Abbildung \ref{Figure_Caldwell_Largest-Known-Prime-From1975}
 verdeutlicht. Sie startet mit M21701 (gefunden 1978). Bitte die logarithmische vertikale Skala beachten.
@@ -441,6 +467,10 @@ vom Typ \hyperlink{generalizedMersennenumbers}{verallgemeinerte Mersennezahl}
 und 
 vom Typ \hyperlink{generalizedFermatprimes}{verallgemeinerte Fermatzahl} 
 (Kapitel~\ref{generalized-fermat}).
+
+% clearpage war nötig, denn sonst stand Tab. 3.1 erst auf S. 90 unter 3.8.1
+% Im Englischen passt das -- ohne händische Korrektur -- alles noch in 3.4.1.
+\clearpage
 
 
 % --------------------------------------------------------------------------
@@ -579,7 +609,7 @@ dieser 21-stelligen Dezimalzahl gearbeitet zu haben!
 
 Dadurch, dass man bei den Exponenten der Mersennezahlen nicht alle 
 natürlichen Zahlen verwendet, sondern nur die Primzahlen, engt man
-den {\em Versuchsraum} deutlich ein. Die derzeit bekannten $49$
+den {\em Versuchsraum} deutlich ein. Die derzeit bekannten $50$
     % Eyecatcher_neue-Mersenne  % be_2005_UPDATEN_if-new-mersenne-prime-appears
 Mersenne-Primzahlen\index{Primzahl!Mersenne}\index{Mersenne!Mersenne-Primzahl}
 gibt es für die folgenden Exponenten\footnote{%
@@ -596,7 +626,7 @@ $$
 4.423, ~9.689, ~ 9.941, ~ 11.213, ~ 19.937, ~ 21.701, ~ 23.207, ~ 44.497, ~ 86.243, ~ 110.503, ~ 132.049,\\
 216.091, ~ 756.839, ~ 859.433, ~ 1.257.787, ~ 1.398.269, ~ 2.976.221, ~ 3.021.377, ~ 6.972.593,\\
  ~ 13.466.917, ~ 20.996.011, ~ 24.036.583, ~ 25.964.951, ~ 30.402.457, ~ 32.582.657,\\
- ~ 37.156.667, ~ 42.643.801, ~ 43.112.609, ~ 57.885.161, ~ 74.207.281.
+ ~ 37.156.667, ~ 42.643.801, ~ 43.112.609, ~ 57.885.161, ~ 74.207.281, ~ 77.232.917.
 % be_2005_UPDATEN_if-new-mersenne-prime-appears          ~ xxx.xxx.xxx.
 \end{array}
 $$
@@ -627,9 +657,9 @@ veraltet).
 
 
 \vskip +10 pt
-Für die ersten 44  % be_2005_UPDATEN_if-new-mersenne-prime-appears % Eyecatcher_neue-Mersenne
+Für die ersten 47  % be_2005_UPDATEN_if-new-mersenne-prime-appears % Eyecatcher_neue-Mersenne
 Mersenne-Primzahlen weiß man inzwischen, dass diese Liste vollständig ist. 
-Die Exponenten bis zur 49.  % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
+Die Exponenten bis zur 50.  % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
 bekannten Mersenne-Primzahl sind noch nicht vollständig geprüft.\footnote{%
 Den aktuellen Status der Prüfung findet man auf der Seite:
       \url{http://www.mersenne.org/primenet/}.\\
@@ -639,13 +669,14 @@ in Kapitel \ref{primality_tests}, Primzahltests\index{Primzahltest}.      }
 
 
 % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
-Inzwischen (Stand 2016-07-19) wurden alle primen Exponenten kleiner als
-$ 36.058.573 $ getestet und nochmal geprüft\footnote{%
+Inzwischen (Stand 2018-04-23) wurden alle primen Exponenten kleiner als
+$ 43.261.403 $ getestet und nochmal geprüft\footnote{%
 Siehe die Homepage des GIMPS-Projekts:
       \url{http://www.mersenne.org/report_milestones}.
   }:
 somit können wir sicher sein, dass dies wirklich 
-die 41. Mersenne-Primzahl ist und dass keine kleineren unentdeckten
+% be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
+die 47. Mersenne-Primzahl ist und dass keine kleineren unentdeckten
 Mersenne-Primzahlen existieren (es ist üblich, die Bezeichnung M-nn erst dann
 zu verwenden, wenn die nn. bekannte Mersenne-Primzahl auch bewiesenermaßen die
 nn. Mersenne-Primzahl ist).
@@ -717,7 +748,7 @@ Genauere Erläuterungen zu diesem Zahlentyp finden sich unter
 \hyperlink{MersenneNumbers01}{Mersenne-Primzahlen}.
 
 \begin{sloppypar}
-Bisher hat das GIMPS-Projekt 15
+Bisher hat das GIMPS-Projekt 16  %% vgl. Tab. auf https://www.mersenne.org/primes/
    % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
 größte Mersenne-Primzahlen entdeckt, inklusive der größten bekannten
 Primzahl überhaupt. 
@@ -737,38 +768,40 @@ Menschheit voranbringt.
 }
 
    % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
+\ignoreoutput{\rowno[0]}
 \begin{table}[ht]
 \begin{center}
-\begin{tabular}{|cccc|}
+\begin{tabular}{|c|cccc|}
 \hline \rule{0pt}{10pt} 
-	{\bf Definition} & {\bf Dezimalstellen} & {\bf Wann} & {\bf Wer} \\
+	& {\bf Definition} & {\bf Dezimalstellen} & {\bf Wann} & {\bf Wer} \\
 \hline \rule{0pt}{15pt} 
 
-	$2^{74.207.281}-1$ & 22.338.618 & 7. Januar 2016 & Curtis Cooper  \\
-	$2^{57.885.161}-1$ & 17.425.170 & 25. Januar 2013 & Curtis Cooper  \\
-	$2^{43.112.609}-1$ & 12.978.189 & 23. August 2008 & Edson Smith  \\
-	$2^{42.643.801}-1$ & 12.837.064 & 12. April 2009 & Odd Magnar Strindmo \\
-	$2^{37.156.667}-1$ & 11.185.272 & 6. September 2008 & Hans-Michael Elvenich \\
+	\rowno & $2^{77.232.917}-1$ & 23.249.425 & 26. Dez. 2017 & Jonathan Pace  \\
+	\rowno & $2^{74.207.281}-1$ & 22.338.618 & 7. Jan. 2016 & Curtis Cooper  \\
+	\rowno & $2^{57.885.161}-1$ & 17.425.170 & 25. Jan. 2013 & Curtis Cooper  \\
+	\rowno & $2^{43.112.609}-1$ & 12.978.189 & 23. Aug. 2008 & Edson Smith  \\
+	\rowno & $2^{42.643.801}-1$ & 12.837.064 & 12. Apr. 2009 & Odd Magnar Strindmo \\
+	\rowno & $2^{37.156.667}-1$ & 11.185.272 & 6. Sep. 2008 & Hans-Michael Elvenich \\
 
-	$2^{32.582.657}-1$ &  9.808.358 & 4. September 2006 & Curtis Cooper/Steven Boone \\
-	$2^{30.402.457}-1$ &  9.152.052 & 15. Dezember 2005 & Curtis Cooper/Steven Boone \\
-	$2^{25.964.951}-1$ &  7.816.230 & 18. Februar 2005  & Martin Nowak \\
-	$2^{24.036.583}-1$ &  7.235.733 & 15. Mai 2004      & Josh Findley     \\
-	$2^{20.996.011}-1$ &  6.320.430 & 17. November 2003 & Michael Shafer   \\
-	$2^{13.466.917}-1$ &  4.053.946 & 14. November 2001 & Michael Cameron  \\
-	$2^{ 6.972.593}-1$ &  2.098.960 & 1. Juni 1999      & Nayan Hajratwala \\
-	$2^{ 3.021.377}-1$ &    909.526 & 27. Januar 1998   & Roland Clarkson  \\
-	$2^{ 2.976.221}-1$ &    895.932 & 24. August 1997   & Gordon Spence    \\
-	$2^{ 1.398.269}-1$ &    420.921 & November 1996     & Joel Armengaud   \\
+	\rowno & $2^{32.582.657}-1$ &  9.808.358 & 4. Sep. 2006 & Curtis Cooper/Steven Boone \\
+	\rowno & $2^{30.402.457}-1$ &  9.152.052 & 15. Dez. 2005 & Curtis Cooper/Steven Boone \\
+	\rowno & $2^{25.964.951}-1$ &  7.816.230 & 18. Feb. 2005 & Martin Nowak \\
+	\rowno & $2^{24.036.583}-1$ &  7.235.733 & 15. Mai 2004  & Josh Findley     \\
+	\rowno & $2^{20.996.011}-1$ &  6.320.430 & 17. Nov. 2003 & Michael Shafer   \\
+	\rowno & $2^{13.466.917}-1$ &  4.053.946 & 14. Nov. 2001 & Michael Cameron  \\
+	\rowno & $2^{ 6.972.593}-1$ &  2.098.960 & 1. Juni 1999 & Nayan Hajratwala \\
+	\rowno & $2^{ 3.021.377}-1$ &    909.526 & 27. Jan. 1998 & Roland Clarkson  \\
+	\rowno & $2^{ 2.976.221}-1$ &    895.932 & 24. Aug. 1997 & Gordon Spence    \\
+	\rowno & $2^{ 1.398.269}-1$ &    420.921 & November 1996 & Joel Armengaud   \\
 \hline
 \end{tabular}
    % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
-\caption{Die größten vom GIMPS-Projekt gefundenen Primzahlen (Stand Januar 2016)}
+\caption{Die größten vom GIMPS-Projekt gefundenen Primzahlen (Stand Jan. 2018)}
 \label{Primes_GIMPS-Primes_table-reference}
 \end{center}
 \end{table} 
 
-%be_2005: Erzwingen, dass die Abb. noch in diesem Kapitel !
+
 
 Richard Crandall\index{Crandall, Richard} erfand den Transformations-Algorithmus,
 der im GIMPS-Programm benutzt wird. George Woltman implementierte 

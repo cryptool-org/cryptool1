@@ -2221,9 +2221,9 @@ on the difficulty to calculate the private key $d$ from the public key $(n,e)$.
     not enough primes: Raising the dimension (exponent) of the modul always
     offers enough primes to consider -- this is visualized in
     chapter~\ref{primes:_Appendix_Plotting-Primes-Quantity}
-    ``\nameref{primes:_Appendix_Plotting-Primes-Quantity}''.
+    ``\nameref{primes:_Appendix_Plotting-Primes-Quantity}''
 }
-\index{factorization!factorization problem}.
+\index{factorization!factorization problem}
 \end{enumerate}
 \vskip +1em
 
@@ -2319,7 +2319,7 @@ $$
     \footnotetext{%
     Major parts of the first part of chapter~\ref{SecurityRSA} follow
     the article ``Vorz\"uge und Grenzen des RSA-Verfahrens'' written by
-    F.~Bourseau, D.~Fox and C.~Thiel \cite{Bourseau2002}.}
+    F.~Bourseau, D.~Fox, and C.~Thiel \cite{Bourseau2002}.}
     \label{SecurityRSA}
 
 There have always been discussions about the suitability of the RSA
@@ -2419,7 +2419,7 @@ Please refer to: {\em Handbook of Applied Cryptography} \cite{Menezes2001}.
     \textbackslash{} Learning Tool for Number Theory}.
     See appendix~\ref{s:appendix-Learn-NT}.\\
     \noindent The quadratic sieve (QS) can be found in CT1 and CT2;
-    GNFS, the most modern factorisation method for moduli bigger than 130
+    GNFS, the most modern factorization method for moduli bigger than 130
     decimal digits, is only part of CT2 (via YAFU and msieve).\\
   \noindent CT2 \index{CT2} has a GeneralFactorizer component
   based on YAFU\index{YAFU}. This is faster than the implemented functions in CT1.
@@ -2599,7 +2599,9 @@ methods can be found on the following web pages:
 \vspace{-10pt}
 \begin{itemize}
 \item[]
-     \url{http://www.crypto-world.com}\\
+     %% URL doesn't exist any more in 2018: \url{http://www.crypto-world.com}\\
+     %% http://primes.utm.edu/glossary/xpage/WheelFactorization.html no overview
+     \url{http://primerecords.dk/consecutive_factorizations.htm}\\
      \url{http://en.wikipedia.org/wiki/Integer_factorization_records}\\
      \url{http://en.wikipedia.org/wiki/RSA_Factoring_Challenge}
 \end{itemize}
@@ -2640,7 +2642,9 @@ form. This  makes it an order of magnitude easier to factor them
 as moduli of the same length build for RSA.
                           }
 with factorization algorithms for composed numbers are
-listed in the table~\ref{factorizationrecords}.
+listed in table~\ref{factorizationrecords}.
+
+%% TODO_BE_TODO: Update 2^1193-1 laut https://www.newscientist.com/article/dn26135-factorisation-factory-smashes-number-cracking-record/  und   https://eprint.iacr.org/2014/653
 
 \begin{table}[ht]
 \begin{center}
@@ -2782,8 +2786,10 @@ So now all 8 prime factors of $2^{953} - 1$ have been found.
 Links:
 \vspace{-10pt}
 \begin{itemize}
-\item[]   \url{https://members.loria.fr/PZimmermann/records/gnfs158}\\
-          \url{http://www.crypto-world.com/announcements/c158.txt}
+\item \url{https://members.loria.fr/PZimmermann/records/gnfs158}
+\item \url{https://web.archive.org/web/20170518021747/http://www.crypto-world.com:80/announcements/c158.txt}
+          %% URL doesn't exist any more in 2018:
+	  %% \url{http://www.crypto-world.com/announcements/c158.txt}
 \end{itemize}
 \end{minipage}
 \vspace{12pt}
@@ -2798,7 +2804,8 @@ Links:
 On January 18, 2002 researchers at the German University of Bonn\footnote{%
           \url{https://members.loria.fr/PZimmermann/records/rsa160}\\
           \url{https://members.loria.fr/PZimmermann/records/factor.html}\\
-          \url{http://www.crypto-world.com/FactorWorld.html}
+          \url{https://web.archive.org/web/20170518021747/http://www.crypto-world.com:80/FactorWorld.html}
+          %% \url{http://www.crypto-world.com/FactorWorld.html}
 } 
 factorized a 160-digit number into its both prime factors (these are build
 with each 80 decimal digits) using the GNFS method (general number field
@@ -3034,9 +3041,9 @@ So now the number $2^{1039}-1$ is completely factorized in its 3 prime factors.
 Links:
 \vspace{-10pt}
 \begin{itemize}
-\item[]]  \url{http://www.loria.fr/~zimmerma/records/21039-}\\
-          \url{http://www.crypto-world.com/announcements/m1039.txt}\\
-          \url{http://www.crypto-world.com/FactorAnnouncements.html}
+\item \url{http://www.loria.fr/~zimmerma/records/21039-}
+\item \url{https://web.archive.org/web/20170518021747/http://www.crypto-world.com:80/announcements/m1039.txt}
+\item \url{https://web.archive.org/web/20170518024506/http://www.crypto-world.com:80/FactorAnnouncements.html}
 \end{itemize}
 \end{minipage}
 
@@ -4572,11 +4579,11 @@ RSA cipher in an interactive way.
 \noindent There are three variants:
 \begin{itemize}
  \item Powerpoint 2007 (for download; dynamical, animated)\footnote{%
-    \url{http://www.cryptool.org/images/ct1/presentations/RSA/RSA-de.pptx}}
+    \url{http://www.cryptool.org/images/ct1/presentations/RSA/RSA-en.pptx}}
  \item PDF (for download; static, no interaction)\footnote{%
-    \url{http://www.cryptool.org/images/ct1/presentations/RSA/RSA-de(keine%20Interaktivitaet).pdf}}
+    \url{http://www.cryptool.org/images/ct1/presentations/RSA/RSA-en(keine%20Interaktivitaet).pdf}}
  \item Flash (can be started within the browser, requires JavaScript; time-controlled replay)\footnote{%
-\url{http://www.cryptool.org/images/ct1/presentations/RSA/RSA-Flash-de/player.html}}
+\url{http://www.cryptool.org/images/ct1/presentations/RSA/RSA-Flash-en/player.html}}
 \end{itemize}
 
 \begin{figure}[ht]
@@ -6315,8 +6322,8 @@ Theorem~\ref{nt-thm-Anzahl-RSA-Fixpunkte} & number of RSA fixed points & \pagere
    \item Factorization records and factoring challenges
 	 \index{factorization!factoring records}
 	 \index{factorization!factoring challenges}\\
-         \url{http://www.crypto-world.com/},~~ last update 2013\\
-         \url{http://www.crypto-world.com/FactorWorld.html},~~ Webseite von Scott Contini\\
+         \url{https://web.archive.org/web/20170704003418/http://www.crypto-world.com:80/},~~ last update 2013\\
+         \url{https://web.archive.org/web/20170518021747/http://www.crypto-world.com:80/FactorWorld.html},~~ Webseite von Scott Contini\\
          \url{http://www.loria.fr/~zimmerma/records/factor.html}
 	 \begin{sloppypar}
 	     \url{http://www.emc.com/emc-plus/rsa-labs/historical/the-rsa-factoring-challenge.htm}
