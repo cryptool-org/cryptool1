@@ -4,10 +4,10 @@
 %
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-\clearpage\phantomsection
-
-\addcontentsline{toc}{chapter}{Overview about the Content of the CrypTool Book}
-\chapter*{Overview about the Content of the CrypTool Book}  
+\clearpage
+\setcounter{secnumdepth}{-1}  % Prevent this chapter title from having a number
+\chapter{Overview about the Content of the CrypTool Book}
+\setcounter{secnumdepth}{4}  % Set back default from CT-Book-en.tex (show numbers till level 4)
 
 \parskip 4pt
 %\vskip +12 pt
@@ -35,7 +35,7 @@ Because of didactic reasons the \hyperlink{Chapter_PaperandPencil}
 {second chapter} gives an exhaustive overview about
 \hyperlink{Chapter_PaperandPencil}{\bf paper and pencil encryption methods}.
 
-Big parts of this book are dedicated to the fascinating topic of 
+Big parts of this book are dedicated to the fascinating topic of
 \hyperlink{Chapter_Primes}{\bf prime numbers} (chap. \ref{Chapter_Primes}).
 Using numerous examples, \hyperlink{Chapter_ElementaryNT}{\bf modular arithmetic}
 and \hyperlink{Chapter_ElementaryNT}{\bf elementary number theory}
@@ -43,14 +43,14 @@ and \hyperlink{Chapter_ElementaryNT}{\bf elementary number theory}
 of the {\bf RSA procedure} are a key aspect.
 
 By reading chapter \ref{Chapter_ModernCryptography}
-you'll gain an insight into the mathematical ideas and concepts behind 
+you'll gain an insight into the mathematical ideas and concepts behind
 \hyperlink{Chapter_ModernCryptography}{\bf modern cryptography}.
 
 Chapter \ref{Chapter_Hashes-and-Digital-Signatures} gives
 an overview about the status of attacks against modern
 \hyperlink{Chapter_Hashes-and-Digital-Signatures}{\bf hash algorithms}
 and is then shortly devoted to \hyperlink{Chapter_Hashes-and-Digital-Signatures}
-{\bf digital signatures}, 
+{\bf digital signatures},
 which are an essential component of e-business applications.
 
 Chapter \ref{Chapter_EllipticCurves} describes \hyperlink{Chapter_EllipticCurves}
@@ -67,7 +67,7 @@ Chapter \ref{Chapter_HomomorphicCiphers} describes
 functions}: They are a modern research topic which got especial attention
 in the course of cloud computing.
 
-Chapter \ref{Chapter_Dlog-FactoringDead} describes 
+Chapter \ref{Chapter_Dlog-FactoringDead} describes
 \hyperlink{Chapter_Dlog-FactoringDead}{\bf Current Results
 for Solving Discrete Logarithms and Factoring}.
 It provides a broad picture and comparison about the currently best
@@ -109,15 +109,15 @@ CrypTool variants\index{CT1}\index{CT2}\index{JCT}\index{CTO} via:
                       {function list of CrypTool-Online (CTO)}.
 \end{itemize}
 
-% Bernhard Esslinger, Matthias B\"uger, Bartol Filipovic, Henrik Koy, 
+% Bernhard Esslinger, Matthias B\"uger, Bartol Filipovic, Henrik Koy,
 % Roger Oyono and J\"org Cornelius Schneider
-The authors would like to take this opportunity to thank their colleagues 
+The authors would like to take this opportunity to thank their colleagues
 in the particular companies and at the universities of Bochum, Darmstadt,
 Frankfurt, Gie\ss en, Karlsruhe, Lausanne, Paris, and Siegen.
 
 \enlargethispage{12pt}
-As with the e-learning program CrypTool\index{CrypTool}, the quality of the 
-book is enhanced by your suggestions and ideas for improvement. 
+As with the e-learning program CrypTool\index{CrypTool}, the quality of the
+book is enhanced by your suggestions and ideas for improvement.
 We look forward to your feedback.
 
 

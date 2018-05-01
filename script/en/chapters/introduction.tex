@@ -4,15 +4,16 @@
 %
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-\clearpage\phantomsection
-\addcontentsline{toc}{chapter}{Preface to the 12th Edition of the CrypTool Book}
-\chapter*{Preface to the 12th Edition of the CrypTool Book}
+\clearpage
+\setcounter{secnumdepth}{-1}  % Prevent this chapter title from having a number
+\chapter{Preface to the 12th Edition of the CrypTool Book}
+\setcounter{secnumdepth}{4}  % Set back default from CT-Book-en.tex (show numbers till level 4)
 
 The book's goal is to explain some mathematical topics from cryptology in
 exact detail, nevertheless in a way which is easy to understand.
 
 This book was delivered since the year 2000 -- together with the CrypTool~1
-(CT1)\index{CT1} package in version 1.2.01. 
+(CT1)\index{CT1} package in version 1.2.01.
 Since then it has been expanded and revised in almost every new version of CT1 and CT2.
 
 Topics from mathematics and cryptography have been meaningfully split up and
@@ -36,15 +37,15 @@ updated with many topics, for instance:
 %        (chapter \ref{cm_Section_Security_Definitions}),
   \item the largest prime numbers (chap. \ref{search_for_very_big_primes}),
 %        new factorization records (chap. \ref{RSA-768}),
-%  \item progress in cryptanalysis of AES 
+%  \item progress in cryptanalysis of AES
 %        (chap. \ref{NeueAES-Analyse}) and
-%  \item progress in cryptanalysis of hash algorithms 
+%  \item progress in cryptanalysis of hash algorithms
 %        (chap. \ref{collision-attacks-against-sha-1}) and
-%  \item progress in ideas for new crypto methods (RSA successor) 
+%  \item progress in ideas for new crypto methods (RSA successor)
 %        (chap. \ref{xxxxxxxxxcm_Brute-force-versus-Symmetr})\index{xxxxxxxxxx} and
-  \item the list of movies or novels, in which cryptography or number theory 
+  \item the list of movies or novels, in which cryptography or number theory
         played a major role (see appendix \ref{s:appendix-movies}),
-%       and where primes are used as hangers  
+%       and where primes are used as hangers
 %        (see curiouses in \ref{HT-Quaint-curious-Primes-usage}),
   \item the overviews of all functions in
         \hyperlink{appendix-template-overview-CT2}{CrypTool~2 (CT2)},
@@ -90,7 +91,7 @@ applied their very special talents and showed really great engagement:
    \item Mr.\ Florian Marchal
    \item Dr.\ Peer Wichmann
    \item Mr.\ Dominik Schadow
-   \item Staff of 
+   \item Staff of
          Prof.\ Johannes Buchmann,
          Prof.\ Claudia Eckert,
          Prof.\ Alexander May,
@@ -98,7 +99,7 @@ applied their very special talents and showed really great engagement:
          Prof.~Arno Wacker.
 \end{list}
 
-Also I want to thank all the many people not mentioned here for their 
+Also I want to thank all the many people not mentioned here for their
 hard work (mostly carried out in their spare time).
 
 Thanks also to the readers who sent us feedback. And especial thanks for the
@@ -106,8 +107,8 @@ free proof reading of this edition done by Helmut Witten and Prof.\ Ralph-Hardo 
 % Especially I would like to acknowledge the English language proof-reading
 % of this book version done by Richard Christensen and Lowell Montgomery. Tom.
 
-I hope that many readers have fun with this book and that they get 
-out of it more interest and greater understanding of this modern but 
+I hope that many readers have fun with this book and that they get
+out of it more interest and greater understanding of this modern but
 also very ancient topic.
 
 
@@ -139,7 +140,7 @@ e.g. about
 Todos to be dealt with to make edition 12 of this CTB a release (till then we still call it a draft):%xxxxxxxxxxxxx
 \begin{compactitem}
    \item Update all information about SageMath (chap.~\ref{ec:Sage_Massierer}
-      and appendix) and run the code against the newest SageMath (version 8.x) -- 
+      and appendix) and run the code against the newest SageMath (version 8.x) --
       both command line and SageMathCloud notebook. SageMath 8 is also
       available for Windows.
    \item Update the function lists of the four CT versions (in the appendix).
@@ -154,9 +155,17 @@ Todos to be dealt with to make edition 12 of this CTB a release (till then we st
 
 
 % --------------------------------------------------------------------------
-\clearpage\phantomsection
-\addcontentsline{toc}{chapter}{Introduction -- How do the Book and the Programs Play together?}
-\chapter*{Introduction -- How do the Book and the Programs Play together?}
+% BE_2018-05-02: According to Brian Dunn's recommendation: \phantomsection and
+%                \chapter* substituted by \chapter and setting/resetting secnumdepth.
+%                This also allows to get rid of \addcontentsline
+% \clearpage\phantomsection
+% \addcontentsline{toc}{chapter}{Introduction -- How do the Book and the Programs Play together?}
+% \chapter*{Introduction -- How do the Book and the Programs Play together?}
+
+\clearpage
+\setcounter{secnumdepth}{-1}  % Prevent this chapter title from having a number
+\chapter{Introduction -- How do the Book and the Programs Play together?}
+\setcounter{secnumdepth}{4}  % Set back default from CT-Book-en.tex (show numbers till level 4)
 
 \textbf{This CrypTool book}
 
@@ -177,7 +186,7 @@ require a deeper knowledge in mathematics, while the other chapters should
 be understandable with a school leaving certificate.
 
 The \hyperlink{appendix-authors}{authors}
-have attempted to describe cryptography for a broad 
+have attempted to describe cryptography for a broad
 audience -- without being mathematically incorrect. We believe that this
 didactic pretension is the best way to promote the awareness for IT
 security and the readiness to use standardized modern cryptography.

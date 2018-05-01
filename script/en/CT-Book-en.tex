@@ -172,7 +172,7 @@
 	{\Huge The CrypTool Book: \\[20pt]
          {\bf Learning and Experiencing\\[10pt] Cryptography\\[15pt]
           with CrypTool and SageMath}}\\[35pt]
-	{\LARGE	Background reading for CrypTool\\ 
+	{\LARGE	Background reading for CrypTool\\
          the free e-learning crypto program \\[5pt]
 	 (Cryptography, Mathematics, and More)} \\[35pt]
 	% {\large 12th edition}
@@ -262,14 +262,14 @@ Version control software: Subversion
 \shorttoc{Contents Overview}{0}
 \clearpage\phantomsection
 \pdfbookmark[0]{\contentsname}{Contents}
-\tableofcontents 
+\tableofcontents
 
 \newpage
 \normalsize
 
 \newcounter{mycounterDefaultParskip}
 \setcounter{mycounterDefaultParskip}{4}
-\parskip \value{mycounterDefaultParskip} pt 
+\parskip \value{mycounterDefaultParskip} pt
 
 
 \renewcommand{\bibname}{Bibliography \CTBChapName{}}
@@ -321,7 +321,7 @@ Version control software: Subversion
 \begingroup
   \renewcommand*{\addvspace}[1]{}
 
-  \clearpage\phantomsection
+  \clearpage\phantomsection  %be_2018-05-02: Taking \phantomsection away from here causes link in ToC to move to an earlier page.
   \addcontentsline{toc}{chapter}{\listfigurename}
   \listoffigures
 
@@ -392,6 +392,7 @@ Version control software: Subversion
 
 %------------------------------------------------------------------------------
 \clearpage\phantomsection
+
   \index{BSI|see{GISA}}
   \index{gpg|see{GnuPG}}
   \index{one-time pad|see{OTP}}

@@ -20,11 +20,12 @@
 
 % \begin{document}
 %---------------------------------------------------------------------
-\clearpage\phantomsection
-\addcontentsline{toc}{chapter}{GNU Free Documentation License}
-\chapter*{\rlap{GNU Free Documentation License}}
-% \phantomsection  % so hyperref creates bookmarks
-%\label{label_fdl}
+\clearpage
+\setcounter{secnumdepth}{-1}  % Prevent this chapter title from having a number
+%\chapter{\rlap{GNU Free Documentation License}}  % With chapter* we had \rlap. Keeping \rlap with chapter caused that in the ToC this title was no link any more.
+\chapter{GNU Free Documentation License}
+\setcounter{secnumdepth}{4}  % Set back default from CT-Book-en.tex (show numbers till level 4)
+
 \hypertarget{appendix-GNU-fdl}{}
 \label{s:appendix-GNU-fdl}
 
