@@ -4,21 +4,14 @@
 %
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-% HACK to fix warning "destination with the same identifier .. has already been used, ...":
-% REMOVED, because it caused missing index entries
-%\makeatletter \renewcommand{\thepage}{~\csname @roman\endcsname \c@page~} \makeatother
-\clearpage\phantomsection
-% HACK to fix warning "destination with the same identifier .. has already been used, ...":
-% \makeatletter \renewcommand{\thepage}{\csname @roman\endcsname \c@page} \makeatother
-% REMOVED, because it caused missing index entries
-% BE_2016-03-16: Nahm dies ohne ~ nach "page" raus. Scheint nichts zu ändern?
-
-\addcontentsline{toc}{chapter}{Überblick über den Inhalt des CrypTool-Buchs}
-\chapter*{Überblick über den Inhalt des CrypTool-Buchs}
+\clearpage
+\setcounter{secnumdepth}{-1}  % Prevent this chapter title from having a number
+\chapter{Überblick über den Inhalt des CrypTool-Buchs}
+\setcounter{secnumdepth}{4}  % Set back default from CT-Book-de.tex (show numbers till level 4)
 
 \parskip 4pt
 %\vskip +12 pt
-Der Erfolg des Internets hat zu einer verstärkten 
+Der Erfolg des Internets hat zu einer verstärkten
 Forschung der damit verbundenen Technologien geführt, was auch im
 Bereich Kryptographie viele neue Erkenntnisse schaffte.
 
@@ -40,7 +33,7 @@ die Prinzipien der symmetrischen und asymmetrischen
 \hyperlink{Chapter_EncryptionSecDefinitions}{\bf Verschlüsselung} und
 gibt Definitionen für deren Widerstandsfähigkeit.
 
-Im \hyperlink{Chapter_PaperandPencil}{zweiten Kapitel} wird -- aus 
+Im \hyperlink{Chapter_PaperandPencil}{zweiten Kapitel} wird -- aus
 didaktischen Gründen -- eine ausführliche Übersicht
 über \hyperlink{Chapter_PaperandPencil}{\bf Papier- und Bleistiftverfahren}
 gegeben.
@@ -51,7 +44,7 @@ gewidmet.
 Anhand vieler Beispiele wird in die \hyperlink{Chapter_ElementaryNT}{\bf modulare Arithmetik}
 und die \hyperlink{Chapter_ElementaryNT}{\bf elementare Zahlentheorie}
 (Kapitel \ref{Chapter_ElementaryNT}) eingeführt. Hier bilden die Eigenschaften
-des {\bf RSA-Verfahrens} einen Schwerpunkt. 
+des {\bf RSA-Verfahrens} einen Schwerpunkt.
 
 Danach erhalten Sie Einblicke in die mathematischen Konzepte und
 Ideen hinter der \hyperlink{Chapter_ModernCryptography}{{\bf modernen Kryptographie}}
@@ -78,7 +71,7 @@ Kapitel \ref{Chapter_HomomorphicCiphers} stellt
 vor: Sie sind ein modernes Forschungsgebiet, das insbesondere im Zuge des
 Cloud-Computing an Bedeutung gewann.
 
-Kapitel \ref{Chapter_Dlog-FactoringDead} beschreibt 
+Kapitel \ref{Chapter_Dlog-FactoringDead} beschreibt
 \hyperlink{Chapter_Dlog-FactoringDead}{\bf Aktuelle
 Resultate zum Lösen diskreter Logarithmen und zur Faktorisierung}.
 Es gibt einen breiten Überblick und Vergleich über die zur Zeit besten
@@ -92,15 +85,15 @@ extrapolierte, die in der Realität verwendet werden.
 
 Das \hyperlink{Chapter_Crypto2020}{letzte Kapitel}
 \hyperlink{Chapter_Crypto2020}{\bf Krypto 2020}
-diskutiert Bedrohungen für bestehende kryptographische Verfahren und 
+diskutiert Bedrohungen für bestehende kryptographische Verfahren und
 stellt alternative Forschungsansätze (Post-Quantum-Kryptographie)
 für eine langfristige kryptographische Sicherheit vor.
 
 Während die CrypTool-\textit{eLearning-Programme}\index{eLearning} eher den
-praktischen Umgang motivieren und vermitteln, dient das \textit{Buch} dazu, 
-dem an Kryptographie Interessierten ein tieferes Verständnis für die 
-implementierten mathematischen Algorithmen zu vermitteln -- und das 
-didaktisch mög"-lichst gut nachvollziehbar. 
+praktischen Umgang motivieren und vermitteln, dient das \textit{Buch} dazu,
+dem an Kryptographie Interessierten ein tieferes Verständnis für die
+implementierten mathematischen Algorithmen zu vermitteln -- und das
+didaktisch mög"-lichst gut nachvollziehbar.
 
 Die \hyperlink{appendix-start}{\bf Anhänge}
 \ref{s:appendix-menu-overview-CT1},
@@ -110,10 +103,10 @@ Die \hyperlink{appendix-start}{\bf Anhänge}
 erlauben einen schnellen Überblick über die Funktionen in den verschiedenen
 CrypTool-Varianten\index{CT1}\index{CT2}\index{JCT}\index{CTO} via:
 \begin{itemize}
-  \item der Funktionsliste und 
+  \item der Funktionsliste und
         dem \hyperlink{appendix-menu-overview-CT1}
                       {Menübaum von CrypTool~1 (CT1)},
-  \item der Funktionsliste und 
+  \item der Funktionsliste und
         den \hyperlink{appendix-template-overview-CT2}
                       {Vorlagen in CrypTool~2 (CT2)},
   \item der \hyperlink{appendix-function-overview-JCT}
@@ -127,13 +120,13 @@ CrypTool-Varianten\index{CT1}\index{CT2}\index{JCT}\index{CTO} via:
 
 % Bernhard Esslinger, Matthias Büger, Bartol Filipovic, Henrik Koy, Roger Oyono
 % und Jörg Cornelius Schneider
-Die Autoren möchten sich an dieser Stelle bedanken bei den Kollegen 
+Die Autoren möchten sich an dieser Stelle bedanken bei den Kollegen
 in der jeweiligen Firma und an den Universitäten Bochum, Darmstadt, Frankfurt,
 Gießen, Karlsruhe, Lausanne, Paris und Siegen.
 
 \enlargethispage{0.5cm}
-Wie auch bei dem E-Learning-Programm CrypTool\index{CrypTool} wächst 
-die Qualität des Buchs mit den Anregungen und Verbesserungsvorschlägen 
+Wie auch bei dem E-Learning-Programm CrypTool\index{CrypTool} wächst
+die Qualität des Buchs mit den Anregungen und Verbesserungsvorschlägen
 von Ihnen als Leser. Wir freuen uns über Ihre Rück"-mel"-dung.
 
 

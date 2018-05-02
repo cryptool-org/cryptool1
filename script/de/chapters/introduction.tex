@@ -1,15 +1,14 @@
 % $Id$
 % ............................................................................
-%      V O R W O R T  und  E I N F U E H R U N G  (Zusammenspiel CT-Buch und CT-Programme) 
+%      V O R W O R T  und  E I N F U E H R U N G  (Zusammenspiel CT-Buch und CT-Programme)
 %
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-\clearpage\phantomsection
-% \vspace{-10pt}  wirkungslos!
-\addcontentsline{toc}{chapter}{Vorwort zur 12. Auflage des CrypTool-Buchs}
-\chapter*{Vorwort zur 12. Auflage des CrypTool-Buchs}
+\clearpage
+\setcounter{secnumdepth}{-1}  % Prevent this chapter title from having a number
+\chapter{Vorwort zur 12. Auflage des CrypTool-Buchs}
+\setcounter{secnumdepth}{4}  % Set back default from CT-Book-de.tex (show numbers till level 4)
 
-%\vspace{-12pt}
 Das CrypTool-Buch versucht, einzelne Themen aus der Mathematik der Kryptologie
 genau und trotzdem möglichst verständlich zu erläutern.
 
@@ -19,7 +18,7 @@ Seitdem ist das Buch mit fast jeder neuen Version von CT1 und CT2 ebenfalls erwe
 und aktualisiert worden.
 
 Themen aus Mathematik und Kryptographie wurden sinnvoll unterteilt und dafür
-wurden jeweils eigenständig lesbare Kapitel geschrieben, damit 
+wurden jeweils eigenständig lesbare Kapitel geschrieben, damit
 Entwickler/Autoren unabhängig voneinander mitarbeiten können. Natürlich gäbe
 es viel mehr Themen aus der Kryptographie, die man vertiefen könnte -- deshalb
 ist diese Auswahl auch nur eine von vielen möglichen.
@@ -31,7 +30,7 @@ Fußnoten hinzugefügt, Index-Einträge vereinheitlicht und Korrekturen vorgenommen
 %aktuellen Stand gebracht:
 Im Vergleich zu Ausgabe 11 des Buchs wurden in dieser Ausgabe
 die TeX-Sourcen des Dokuments komplett überarbei"-tet (bspw. eine einzige
-bibtex-Datei für alle Kapitel und beide Sprachen), und 
+bibtex-Datei für alle Kapitel und beide Sprachen), und
 etliche Themen ergänzt, korrigiert und auf den aktuellen Stand gebracht, z.B.:
 \vspace{-5pt}
 
@@ -73,7 +72,7 @@ etliche Themen ergänzt, korrigiert und auf den aktuellen Stand gebracht, z.B.:
 %        (Kapitel \ref{cm_Section_Security_Definitions}),
   \item die größten Primzahlen (Kap. \ref{search_for_very_big_primes}),
 %        neue Faktorisierungsrekorde (Kap. \ref{RSA-768}), und
-%  \item Fortschritte bei der Kryptoanalyse von Hashverfahren 
+%  \item Fortschritte bei der Kryptoanalyse von Hashverfahren
 %        (Kap. \ref{collision-attacks-against-sha-1}) und
 %  \item Fortschritte bei den Ideen für neue Kryptoverfahren (RSA-Nachfolger)
 %	(Kap. \ref{xxxxcm_Brute-force-versus-Symmetr})\index{xxxxxxxxxxxxxxxx} und
@@ -85,7 +84,7 @@ etliche Themen ergänzt, korrigiert und auf den aktuellen Stand gebracht, z.B.:
         \hyperlink{appendix-function-overview-JCT}{zu JCrypTool (JCT)} und
         \hyperlink{appendix-function-overview-CTO}{zu CrypTool-Online (CTO)}
         (siehe Anhang),
-  \item weitere SageMath-Skripte zu Kryptoverfahren, und die Einführung in das 
+  \item weitere SageMath-Skripte zu Kryptoverfahren, und die Einführung in das
         Computer-Algebra-System (CAS) SageMath (siehe
         Anhang \ref{s:appendix-using-sage}),
         % Nguyen und Massierer (vgl. auch Kap.~\ref{ec:Sage_Massierer})
@@ -128,8 +127,8 @@ etliche Themen ergänzt, korrigiert und auf den aktuellen Stand gebracht, z.B.:
 \newpage
 \noindent \textbf{Dank}
 
-An dieser Stelle möchte ich explizit folgenden Personen danken, 
-die bisher in ganz besonderer Weise zum CrypTool-Projekt\index{CrypTool} 
+An dieser Stelle möchte ich explizit folgenden Personen danken,
+die bisher in ganz besonderer Weise zum CrypTool-Projekt\index{CrypTool}
 beigetragen haben.
 Ohne ihre besonderen Fähigkeiten und ihr großes Engagement wäre CrypTool
 nicht, was es heute ist:
@@ -148,14 +147,14 @@ nicht, was es heute ist:
          Prof.\ Arno Wacker.
 \end{list}
 
-Auch allen hier nicht namentlich Genannten ganz herzlichen Dank für das 
+Auch allen hier nicht namentlich Genannten ganz herzlichen Dank für das
 (meist in der Freizeit) geleistete Engagement.
 
 Danke auch an die Leser, die uns Feedback sandten. Und ein ganz besonderer
 Dank für das konstruktive Gegenlesen dieser Version durch Helmut Witten und
 Prof.\ Ralph-Hardo Schulz.
 
-Ich hoffe, dass viele Leser mit diesem Buch mehr Interesse an und 
+Ich hoffe, dass viele Leser mit diesem Buch mehr Interesse an und
 Verständnis für dieses moderne und zugleich uralte Thema finden.
 
 
@@ -188,7 +187,7 @@ Ausstehende Todos für Edition 12 dieses Buches (bis dahin nennen wir es weiterhi
 %\begin{list}{\textbullet}{\addtolength{\itemsep}{-0.5\baselineskip}}
 %\end{list}
 % - Abstand nach/zwischen den Bulletzeilen per itemsep+baselineskip;
-% - Abstand vor erstem Bulletpoint versucht per \vskip und negativem Wert, aber 
+% - Abstand vor erstem Bulletpoint versucht per \vskip und negativem Wert, aber
 %   \par \vskip -15pt wirkte weder VOR dem \begin{list} noch DANACH. --> Nutzte eben compactitem!
 \begin{compactitem}
 \item Updaten aller Informationen zu SageMath (Kap.~\ref{ec:Sage_Massierer} und Appendix) und Testen des Codes gegen das neueste SageMath (Version 8.x), sowohl von der Kommandozeile als auch mit dem SageMathCloud-Notebook. SageMath 8 ist auch für Windows verfügbar.
@@ -209,9 +208,10 @@ Ausstehende Todos für Edition 12 dieses Buches (bis dahin nennen wir es weiterhi
 
 
 % --------------------------------------------------------------------------
-\clearpage\phantomsection
-\addcontentsline{toc}{chapter}{Einführung -- Zusammenspiel von Buch und Programmen}
-\chapter*{Einführung -- Zusammenspiel von Buch und Programmen}
+\clearpage
+\setcounter{secnumdepth}{-1}  % Prevent this chapter title from having a number
+\chapter{Einführung -- Zusammenspiel von Buch und Programmen}
+\setcounter{secnumdepth}{4}  % Set back default from CT-Book-de.tex (show numbers till level 4)
 
 \textbf{Das CrypTool-Buch}
 
@@ -278,7 +278,7 @@ Der internationale Kryptographie-Wettbewerb
 MysteryTwister C3 (MTC3) (\url{http://www.mysterytwisterc3.org})
 wird ebenfalls vom CT-Projekt getragen.
 Hier findet man kryptographische Rätsel in vier verschiedenen Kategorien, eine
-High-Score-Liste und ein moderiertes Forum. Stand 2016-06-16 sind über 7000 
+High-Score-Liste und ein moderiertes Forum. Stand 2016-06-16 sind über 7000
 Teilnehmer dabei, und es gibt über 200 Aufgaben, von denen 162 von
 zumindest einem Teilnehmer gelöst wurden.
 %% Todo-repetitively: 2016-06-16: All: 75+84+48+12=219; Solved: 75+75+6+6=162. Diff = 57.
@@ -320,7 +320,7 @@ einen entsprechenden Kurs in Englisch anbieten würde.
 
 \noindent \textbf{Dank}
 
-Herzlichen Dank an alle, die mit ihrem großem Einsatz zum 
+Herzlichen Dank an alle, die mit ihrem großem Einsatz zum
 Erfolg und zur weiten Verbreitung dieses Projekts beigetragen haben.
 
 
