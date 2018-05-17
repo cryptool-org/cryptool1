@@ -3,7 +3,7 @@ PDF=CT-Book-$(LANG).pdf
 DVI=CT-Book-$(LANG).dvi
 TEX=CT-Book-$(LANG).tex
 IDX=CT-Book-$(LANG).idx
-TMP=*.aux *.idx *.ilg *.ind *.log *.out *.toc *.bbl *.blg *.lof *.lot *.loc *.lop *.loq auto
+TMP=*.aux *.idx *.ilg *.ind *.log *.out *.toc *.bbl *.blg *.lof *.lot *.loc *.lop *.loq auto *.loos *.mw *.synctex
 all: pdf
 
 pdf: $(PDF)

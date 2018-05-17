@@ -1,49 +1,62 @@
 % $Id$
+% !Mode:: "TeX:EN:US"    % Setting document mode and submode for WinEdt
 % ............................................................................
-%        MAIN or STARTING file for this document
+%        MAIN or STARTING file for the CrypTool book
 %
 % Comments: - Add (lengthy) comments only into the German version!
-%           - Add comments to the English version which refer only to English.
+%           - Add to the English version only comments which refer only to English.
 %
 % Schreibregelung / Syntax rules / Writing rules / Notation in English:
 %         - Chapter/Section header with all nouns/verbs capitalized.
-%         - All other headers (incl. Section/Subsection) in the normal lower/upper case
-%           manner like sentences, but without dot at the end.
+%         - All other headers (incl. Section/Subsection) in the normal
+%           lower/upper case manner like sentences, but without dot at the end.
 %         - Use American English instead of British English consistently.
 %
-% Orthography English: - finite abelian group  --> "abelian" lower case.
-%                      - a Boolean function --> till now always upper case [Boolean <--> abelian?]
+% EN Orthography: - finite abelian group  --> "abelian" lower case.
+%                 - a Boolean function --> till now always upper case [Boolean <--> abelian?]
 %
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-\documentclass[a4paper,11pt,oneside]{book}
+% \documentclass[a4paper,11pt,oneside,english]{book}
+% \documentclass[a4paper,11pt,oneside,USenglish,english]{book}
+% caused the
+% Package Babel Warning: The package option `english' should not be used
+% (Babel)                with a more specific one (like `USenglish').
+\documentclass[a4paper,11pt,oneside,ngerman,english]{book}  % ngerman used in reference.bib
 \overfullrule=5pt
 \usepackage[latin1]{inputenc}
-\usepackage[final]{microtype}%Loaded just because to avoid black boxes which appeared only in documentclass draft mode
+\usepackage[final]{microtype}% Loaded just to avoid black boxes which appeared even without
+                             % documentclass draft mode(see Todos-for-later #1 in CT-Book-de.text).
+                             % Necessary only in EN to avoid black box e.g. at p 397
+                             % at begin of chap 10.1.1  (and book had 554 instead of
+                             % 552 pages, but 7760 kb instead of 7873 kB).
+
 \DeclareTextSymbolDefault{\dh}{T1}
 \DeclareTextSymbolDefault{\textperthousand}{T1}
 
-\usepackage[english]{babel} % Necessary only, because package babelbib was used.
-\usepackage[fixlanguage]{babelbib} % E: per bibtex erzeugte Bibliography: edition: "1" --> "1st"
-\selectbiblanguage{english}
 
+%% \usepackage[french,ngerman,english]{babel}
+%% \usepackage[ngerman,main=english]{babel}
+\usepackage[english]{babel}
+\usepackage[fixlanguage]{babelbib}
+\selectbiblanguage{english} % E: causes bibtex to put in Bibliography: edition: "1" --> "1st"
 
-\usepackage{datetime} % To distinguish often compiled draft versions
+\usepackage{datetime}
 
 \setlength{\fboxrule}{.5mm}
 \setlength{\fboxsep}{1.75mm}
 \setlength{\footnotesep}{6pt}
 
 \usepackage{amsmath}
-\usepackage{amssymb,amscd,latexsym}   %BERM2: added for biciphers.tex
+\usepackage{amssymb,amscd,latexsym}
 \usepackage{amsfonts}
 \usepackage{amsthm}
-\usepackage{ae}%16xxxxxxxxxxxxxx Neu wegen dlog.tex
+\usepackage{ae}
 \usepackage{color}
-\usepackage{wrapfig}%16xxxxxxxxxxxxxx WIRKLICH NOETIG?
+\usepackage{wrapfig}
 
-\usepackage{tikz,tikz-cd} %16xxxxxxxxxxxxxx WIRKLICH NOETIG?
-\usepackage{fancybox} %16xxxxxxxxxxxxxx
+\usepackage{tikz,tikz-cd}
+\usepackage{fancybox}
 
 \usepackage{fancyvrb}
 \usepackage{makeidx}
@@ -61,22 +74,17 @@
 \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w
 \do\x\do\y\do\z}
 
-
 \usepackage[]{bibunits}
 \defaultbibliography{../de/references}
-
 
 \usepackage{float}
 \usepackage{subfig}
 \usepackage{shorttoc}
+
 \usepackage{wasysym}%Necessary for promille symbol in bitcipers.tex
 
-
-
-% -------------
-\usepackage[colorlinks=true,linkcolor=blue, citecolor=blue,urlcolor=black,bookmarksnumbered=true,pdfpagelabels,plainpages=false,hyperfootnotes=false]{hyperref}
-
-
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=black,
+bookmarksnumbered=true,pdfpagelabels,plainpages=false,hyperfootnotes=false]{hyperref}
 
 \floatstyle{boxed}
 \newfloat{ctsquotefloat}{H}{loq}
@@ -91,26 +99,25 @@
 \floatname{opensslcode}{OpenSSL sample}
 
 \newfloat{cryptoprocedure}{!ht}{lop}[chapter]
-\floatname{cryptoprocedure}{Crypto Procedure}
+\floatname{cryptoprocedure}{Crypto procedure}
 
 
-\RequirePackage[normalem]{ulem} %DIF PREAMBLE%16xxxxxxxxxxxxxx
-\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE%16xxxxxxxxxxxxxx
-\providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE%16xxxxxxxxxxxxxx
-\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}}   %DIF PREAMBLE%16xxxxxxxxxxxxxx
+\RequirePackage[normalem]{ulem}
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1}
+\providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}}
+\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}}
 
-\providecommand{\DIFaddbegin}{} %DIF PREAMBLE%16xxxxxxxxxxxxxx
-\providecommand{\DIFaddend}{} %DIF PREAMBLE%16xxxxxxxxxxxxxx
-\providecommand{\DIFdelbegin}{} %DIF PREAMBLE%16xxxxxxxxxxxxxx
-\providecommand{\DIFdelend}{} %DIF PREAMBLE%16xxxxxxxxxxxxxx
+\providecommand{\DIFaddbegin}{}
+\providecommand{\DIFaddend}{}
+\providecommand{\DIFdelbegin}{}
+\providecommand{\DIFdelend}{}
 
-\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE%16xxxxxxxxxxxxxx
-\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE%16xxxxxxxxxxxxxx
-\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE%16xxxxxxxxxxxxxx
-\providecommand{\DIFaddendFL}{} %DIF PREAMBLE%16xxxxxxxxxxxxxx
-\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE%16xxxxxxxxxxxxxx
-\providecommand{\DIFdelendFL}{} %DIF PREAMBLE%16xxxxxxxxxxxxxx
-
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}}
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}}
+\providecommand{\DIFaddbeginFL}{}
+\providecommand{\DIFaddendFL}{}
+\providecommand{\DIFdelbeginFL}{}
+\providecommand{\DIFdelendFL}{}
 
 
 \makeindex
@@ -127,6 +134,7 @@
 \newenvironment{example}[1]{\noindent\textbf{Example#1}}{}
 \newenvironment{remark}[1]{\noindent\textbf{Comment#1}}{}
 
+
 \newenvironment{ Latex_Create-Closed-Dummy-Environ }{}{}
 
 \setcounter{tocdepth}{4}
@@ -136,11 +144,11 @@
 
 \usepackage{ifthen}
 \makeatletter
-\providecommand{\rowno}[1][__empty__]{%%% used for col 1 of prime records table
+\providecommand{\rowno}[1][__empty__]{%
     \ifthenelse{\isundefined{\c@rowno}}{%
         \newcounter{rowno}}{}%
     \ifthenelse{\equal{#1}{__empty__}}{%
-        \stepcounter{rowno}% increases counter, see https://en.wikibooks.org/wiki/LaTeX/Counters
+        \stepcounter{rowno}%
         }{%
         \setcounter{rowno}{#1}%
         }%
@@ -149,26 +157,7 @@
 \makeatother
 
 
-%%% beg-VERSUCH-TRY_FP: really not necessary -------------------------
-% Tried to write the row number of the last row (table 3.2) into the header
-% of the table. As each call make it ti increment, I need to do calculations.
-% ==> Probably using Python is much better than the package fp.
-% http://anamorphose.de/rechnen.pdf
-% https://stackoverflow.com/questions/1219121/is-there-a-calculator-with-latex-syntax  --> SageMath
-% https://tex.stackexchange.com/questions/154224/fp-calculation-variable
-% https://tex.stackexchange.com/questions/30081/how-can-i-sum-two-values-and-store-the-result-in-other-variable   and  http://ctan.org/pkg/fp
-%%%    \FPeval{\result}{clip(5+6)}%
-%%%    $5+6=\result$
-%%%    \FPeval{\result}{round(2+3/5*pi,5)}%
-%%%    $2+3/5\times\pi=\result$
-% \usepackage[nomessages]{fp}
-%%% end-VERSUCH-TRY_FP: really not necessary -------------------------
-
-
-
-
-% Define title ..............
-\title{% Empty lines between these brackets cause: "Paragraph ended before \title was complete."
+\title{% Avoid empty lines between the title brackets
 	{\Huge The CrypTool Book: \\[20pt]
          {\bf Learning and Experiencing\\[10pt] Cryptography\\[15pt]
           with CrypTool and SageMath}}\\[35pt]
@@ -188,12 +177,13 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
 \includepdf[pages=1]{figures/coverv1_en.pdf}
 
 \pagestyle{plain}
-\tikzset{ampersand replacement=\&} %DIF > %16xxxxxxxxxxxxxx
+\tikzset{ampersand replacement=\&}
 
 \setlength{\fboxrule}{.5mm}
 \setlength{\fboxsep}{1.75mm}
@@ -225,7 +215,7 @@ GNU Free Documentation Licence.
     CrypTool Team. Permission is granted to copy,
     distribute and/or modify this document under the terms of the GNU
     Free Documentation License, Version 1.3 or any later version
-    published by the Free Software Foundation. A copy of
+    published by the Free Software Foundation (FSF). A copy of
     the license is included in the section entitled
     \hyperlink{appendix-GNU-fdl}{``GNU Free Documentation License''}.
 
@@ -256,7 +246,6 @@ Version control software: Subversion
 
 \input{chapters/overviewcontent.tex}
 
-
 \newpage
 \pdfbookmark[0]{Contents Overview}{ShortContents}
 \shorttoc{Contents Overview}{0}
@@ -272,6 +261,7 @@ Version control software: Subversion
 \parskip \value{mycounterDefaultParskip} pt
 
 
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \renewcommand{\bibname}{Bibliography \CTBChapName{}}
 \newcommand{\CTBChapName}{(Chap Intro)}           \input{chapters/introduction.tex}
 \mainmatter
@@ -286,7 +276,6 @@ Version control software: Subversion
 \renewcommand{\CTBChapName}{(Chap HE)}            \input{chapters/homomorphicencryption.tex}
 \renewcommand{\CTBChapName}{(Chap DLogFact)}      \input{chapters/dlog-factoringdead.tex}
 \renewcommand{\CTBChapName}{(Chap Crypto2020)}    \input{chapters/crypto2020.tex}
-
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -321,7 +310,7 @@ Version control software: Subversion
 \begingroup
   \renewcommand*{\addvspace}[1]{}
 
-  \clearpage\phantomsection  %be_2018-05-02: Taking \phantomsection away from here causes link in ToC to move to an earlier page.
+  \clearpage\phantomsection
   \addcontentsline{toc}{chapter}{\listfigurename}
   \listoffigures
 
@@ -368,19 +357,18 @@ Version control software: Subversion
         - SageMath-Samples-in-Chap03.sage \\
         - SageMath-Samples-in-Chap04.sage
   \item All samples have been tested with SageMath Version 5.3 (Release Date 2012-09-08).
-\end{itemize}   % xxxxxxxxxxxxxx Weitere Beispiele ergänzen !  % TODOTODO: Update.
+\end{itemize}
 
 
 
 %------------------------------------------------------------------------------
 % Create two complete bibliographies with different styles
-\begin{bibunit}[babplain] %% Style not just plain!
+\begin{bibunit}[babplain]
 \nocite{*}
 \renewcommand{\bibname}{All References from All Chapters (numbered by babplain)}
 \putbib[../de/references]
 \addcontentsline{toc}{chapter}{Bibliography with All References (Numbered)}
 \end{bibunit}
-
 
 \begin{bibunit}[babalpha]
 \nocite{*}
