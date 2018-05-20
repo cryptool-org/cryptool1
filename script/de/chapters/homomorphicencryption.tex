@@ -1,4 +1,5 @@
 % $Id:
+% !Mode:: "TeX:DE"    % Setting document mode and submode for WinEdt
 % ..............................................................................
 %         H o m o m o r p h e   C h i f f r e n
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -64,7 +65,7 @@ $$c = E(m,r) = (n+1)^m  * r^n  \bmod n^2$$
 \subsubsection{Entschlüsselung}
 
 Sind der private Schlüssel $\lambda$ und ein Geheimtext $c \in \mathbb{Z}_{n^2}^*$ gegeben, berechnen wir zunächst
-$$S = c^\lambda \bmod n^2 \mbox{ und } T = \phi(n)^{(-1)} \bmod n^2,$$ 
+$$S = c^\lambda \bmod n^2 \mbox{ und } T = \phi(n)^{(-1)} \bmod n^2,$$
 wobei $\phi$ die Eulersche Funktion ist.
 Und dann $m = D(c) = (S-1)/n * T \bmod n$.
 
@@ -106,7 +107,7 @@ Die homomorphe Eigenschaft lässt sich dazu verwenden, um verschlüsselte Werte zu
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.4]{figures/CT2-PaillierVoting.png}
-\caption{Voting-Beispiel für Paillier} 
+\caption{Voting-Beispiel für Paillier}
 \label{CT2-PaillierVoting}
 \end{center}
 \end{figure}
@@ -125,7 +126,7 @@ In CrypTool~2\index{CT2} findet man bereits eine Implementierung des Paillier-Kr
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.8]{figures/CT2-Paillier.png}
-\caption{Paillier-Kryptosystem in CrypTool~2 (CT2)} 
+\caption{Paillier-Kryptosystem in CrypTool~2 (CT2)}
 \label{CT2-Paillier}
 \end{center}
 \end{figure}
@@ -139,7 +140,7 @@ Im JCrypTool\index{JCT} gibt es eine Implementierung (siehe Bild \ref{JCT-HomEnc
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.4]{figures/JCT-HomEnc.PNG}
-\caption{Kryptosysteme mit homomorphen Eigenschaften in JCrypTool (JCT)} 
+\caption{Kryptosysteme mit homomorphen Eigenschaften in JCrypTool (JCT)}
 \label{JCT-HomEnc}
 \end{center}
 \end{figure}

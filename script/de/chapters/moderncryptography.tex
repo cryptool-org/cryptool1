@@ -1,4 +1,5 @@
 % $Id$
+% !Mode:: "TeX:DE"    % Setting document mode and submode for WinEdt
 % ..........................................................................
 %         Die mathematischen Ideen hinter der modernen Kryptographie
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -19,9 +20,9 @@
 \newcommand{\K}{\text{I}\!\text{K}}
 \newcommand{\Z}{\mathbf{\mathbb{Z}}}
 %--------------------------------------- matheScript-Zeichen definieren
-\newcommand{\fs}{\mathscr{F}}  
-\newcommand{\es}{\mathscr{E}}  
-\newcommand{\cs}{\mathscr{C}}  
+\newcommand{\fs}{\mathscr{F}}
+\newcommand{\es}{\mathscr{E}}
+\newcommand{\cs}{\mathscr{C}}
 \newcommand{\gs}{\mathscr{G}}
 \newcommand{\is}{\mathscr{I}}
 \newcommand{\os}{\mathscr{O}}
@@ -67,12 +68,12 @@
     besprochenen Verfahren (RSA, Rabin, DH, ElGamal) nachvollziehen
     (siehe Lern-Kapitel 4.2 und 4.3, Seite 9-17/17).\\
     ZT können Sie in CT1\index{CT1} über das Menü
-    {\bf Einzelverfahren \textbackslash{} Zahlentheorie 
+    {\bf Einzelverfahren \textbackslash{} Zahlentheorie
     interaktiv \textbackslash{} Lernprogramm für Zahlentheorie} aufrufen.
     Siehe Anhang \ref{s:appendix-Learn-NT}.\\
     Entsprechende Funktionen finden Sie auch in den Programmen CT1,
     CT2\index{CT2} und JCT\index{JCT}: siehe die Liste der darin
-    enthaltenen Funktionen in Anhang \ref{s:appendix-menu-overview-CT1}, 
+    enthaltenen Funktionen in Anhang \ref{s:appendix-menu-overview-CT1},
     \ref{s:appendix-template-overview-CT2} und
     \ref{s:appendix-function-overview-JCT}.
 }
@@ -95,8 +96,8 @@
 \caption[Georg Christoph Lichtenberg]{Georg Christoph Lichtenberg\footnotemark}
 \end{ctsquote}
 \footnotetext{%
-  Georg Christoph Lichtenberg\index{Lichtenberg, Georg Christoph}, 
-  deutscher Schriftsteller und Physiker (1742-1799),\\ 
+  Georg Christoph Lichtenberg\index{Lichtenberg, Georg Christoph},
+  deutscher Schriftsteller und Physiker (1742-1799),\\
   (siehe auch: \url{http://de.wikipedia.org/wiki/Georg\_Christoph\_Lichtenberg})
 }
 
@@ -106,8 +107,8 @@
 \label{OneWayFunktion1}
 %--------------------------------------------------------------------
 \index{Kryptographie!modern} \index{Einwegfunktion}
-Eine {\bf Einwegfunktion} ist eine effizient zu 
-berechnende Funktion, deren Umkehrung jedoch nur mit 
+Eine {\bf Einwegfunktion} ist eine effizient zu
+berechnende Funktion, deren Umkehrung jedoch nur mit
 extrem hohem Rechenaufwand -- jedoch praktisch unmöglich -- zu berechnen ist.\par
 
 Etwas genauer formuliert:  Eine Einwegfunktion ist eine Abbildung $ f $ einer Menge $ X $ in eine Menge $ Y, $ so dass $ f(x) $ für jedes Element $ x $ von $ X $ leicht zu berechnen ist, während es für (fast) jedes $ y $ aus $ Y $  praktisch unmöglich ist, ein Urbild $ x $ (d.h. ein $ x $ mit $ f(x)=y $) zu finden.\par
@@ -125,40 +126,40 @@ den privaten Schlüssel  $ d_T $ zu bestimmen.\par
 
 Zur Konstruktion nützlicher Public-Key-Verfahren sucht man also eine Einwegfunktion, die in einer Richtung \glqq einfach\grqq {} zu berechnen, die in der anderen Richtung jedoch \glqq schwer\grqq {} (praktisch unmöglich) zu berechnen ist, solange eine bestimmte zusätzliche Information \index{Einwegfunktion!mit Falltür} (Falltür) nicht zur Verfügung steht. Mit der zusätzlichen Information kann die Umkehrung effizient gelöst werden. Solche Funktionen nennt man {\bf Einwegfunktionen mit Falltür} (trapdoor one-way function). Im obigen Fall ist die Einwegfunktion die Verschlüsselung durch Potenzieren mit dem öffentlichen Schl\"ussel $e_T$ (als Exponent). Der geheime Schlüssel $ d_T $ ist die Falltür-In"-for"-ma"-tion.\par
 
-Dabei bezeichnet man ein Problem als \glqq einfach\grqq, wenn es in \index{Laufzeit!polynomial} \index{Polynom} polynomialer Zeit als Funktion der Länge der Eingabe lösbar ist, d.h. wenn es so gelöst werden kann, dass der Zeitaufwand sich als polynomiale Funktion in Abhängigkeit der Länge der Eingabe darstellen lässt. 
-Wenn die Länge der Eingabe $ n $ Bits beträgt, so ist die Zeit der Berechnung der Funktion proportional zu $ n^{a}, $ wobei $ a $  eine Konstante ist. Man sagt, dass die \index{Komplexität} Komplexität solcher Probleme $ O(n^{a}) $ beträgt (Landau- oder Big-O-Notation). 
+Dabei bezeichnet man ein Problem als \glqq einfach\grqq, wenn es in \index{Laufzeit!polynomial} \index{Polynom} polynomialer Zeit als Funktion der Länge der Eingabe lösbar ist, d.h. wenn es so gelöst werden kann, dass der Zeitaufwand sich als polynomiale Funktion in Abhängigkeit der Länge der Eingabe darstellen lässt.
+Wenn die Länge der Eingabe $ n $ Bits beträgt, so ist die Zeit der Berechnung der Funktion proportional zu $ n^{a}, $ wobei $ a $  eine Konstante ist. Man sagt, dass die \index{Komplexität} Komplexität solcher Probleme $ O(n^{a}) $ beträgt (Landau- oder Big-O-Notation).
 
-Vergleicht man 2 Funktionen  $ 2^n $  und   $ n^{a} $, wobei $ a $  
+Vergleicht man 2 Funktionen  $ 2^n $  und   $ n^{a} $, wobei $ a $
 eine Konstante ist, dann gibt es immer einen Wert für  $ n $, ab dem
-für alle weiteren $ n $ gilt: $ n^{a}  <  2^n $. 
+für alle weiteren $ n $ gilt: $ n^{a}  <  2^n $.
 Die Funktion  $ n^{a} $  hat eine geringere Komplexität.
-Z.B. für $ a=5 $ gilt: ab der Länge $ n=23 $ ist 
-$ 2^n > n^5 $ ~\mbox{und} danach wächst $ 2^n $ auch deutlich 
+Z.B. für $ a=5 $ gilt: ab der Länge $ n=23 $ ist
+$ 2^n > n^5 $ ~\mbox{und} danach wächst $ 2^n $ auch deutlich
 schneller \
 [($ 2^{22}= 4.194.304 $, $ 22^5= 5.153.632 $), \
  ($ 2^{23}= 8.388.608 $, $ 23^5= 6.436.343 $), \
- ($ 2^{24}=16.777.216 $, $ 24^5= 7.962.624 $)].\par 
+ ($ 2^{24}=16.777.216 $, $ 24^5= 7.962.624 $)].\par
 % "\mbox" nur, weil bei Ausdruck bei be die Blanks stets falsch saßen:
 %  "n^5un d"
 
-Der Begriff \glqq praktisch unmöglich\grqq {} ist etwas schwammiger. 
+Der Begriff \glqq praktisch unmöglich\grqq {} ist etwas schwammiger.
 Allgemein kann man sagen, ein Problem ist \index{Laufzeit!effizient}
 nicht effizient lösbar, wenn der zu seiner Lösung benötigte Aufwand
 schneller wächst als die polynomiale \index{Polynom} Zeit als Funktion der Größe der
 Eingabe. Wenn beispielsweise die Länge der Eingabe $ n $  Bits beträgt
-und die Zeit zur Berechnung der Funktion proportional zu $ 2^n $ ist, 
-so gilt gegenwärtig: die Funktion ist für $n > 80$ praktisch nicht zu 
+und die Zeit zur Berechnung der Funktion proportional zu $ 2^n $ ist,
+so gilt gegenwärtig: die Funktion ist für $n > 80$ praktisch nicht zu
 berechnen.
 
 Die Entwicklung eines praktisch einsetzbaren Public-Key-Verfahrens hängt daher von der Entdeckung einer geeigneten Einwegfunktion mit Falltür ab.\par
 
 Um Ordnung in die verwirrende Vielfalt von möglichen Problemen und ihre Komplexitäten zu bringen, fasst man Probleme mit ähnlicher Komplexität zu Klassen zusammen.
 
-Die wichtigsten Komplexitätsklassen  sind die Klassen \textbf{P} und \textbf{NP}: 
+Die wichtigsten Komplexitätsklassen  sind die Klassen \textbf{P} und \textbf{NP}:
 
 \begin{itemize}
     \item Die Klasse \textbf{P}: Zu dieser Klasse gehören diejenigen Probleme, die mit polynomialem \index{Polynom} Zeit"-auf"-wand lösbar sind.
-    
+
     \item Die Klasse \textbf{NP}: Bei der Definition dieser Klasse betrachten wir nicht den Aufwand zur Lösung eines Problems, sondern den Aufwand zur Verifizierung einer gegebenen Lösung. Die Klasse \textbf{NP} besteht aus denjenigen Problemen, bei denen die Verifizierung einer gegebenen Lösung mit polynomialem Zeitaufwand möglich ist. Dabei bedeutet der Begriff \textbf{NP} \glqq nichtdeterministisch\grqq {} polynomial \index{Polynom} und bezieht sich auf ein Berechnungsmodell, d.h. auf einen nur in der Theorie existierenden Computer, der richtige Lösungen nichtdeterministisch \glqq raten\grqq {} und dies dann in polynomialer Zeit verifizieren kann.
 \end{itemize}
 
@@ -206,7 +207,7 @@ gibt, so dass
     \item $ a_i \equiv w a'_i \mod m $ für alle $ i=1, \dots, n.$
 
 \end{enumerate}
- 
+
 \begin{remark}{:}\\
 Kongruente 0-1-Knapsackprobleme haben dieselben Lösungen.
 Ein schneller Algorithmus zur Klärung der Frage, ob zwei 0-1-Knapsackprobleme kongruent sind, ist nicht bekannt.
@@ -218,7 +219,7 @@ Allerdings ist die Lösung für spezielle $ a_1, \dots, a_n $   recht einfach zu f
   Vertauschung der Reihenfolge, in der diese Zahlen aufgezählt werden.
   Beispielsweise ist eine Permutation $\pi$ von $(1,2,3)$ gleich $(3,1,2)$,
   also $\pi(1) = 3$, $\pi(2) = 1$ und $\pi(3) = 2$.
-} 
+}
 $ \pi $  von $ 1, \dots, n $  mit $ a_{\pi (j)} > \sum_{i=1}^{j-1} a_{\pi(i)} $
 mit $ j =  1, \dots, n $ existiert.
 Ist zusätzlich $ \pi $ die Identität, d.h. $ \pi(i)=i $ für $ i=1,2,\dots,n, $ so heißt die Folge $ a_1, \dots , a_n $ superwachsend.
@@ -244,7 +245,7 @@ Das Verfahren \ref{knapsackalgo} löst das Knapsackproblem mit superwachsender Fo
 
 %--------------------------------------------------------------------
 \subsection{Merkle-Hellman Knapsack-Verschlüsselung}
-\index{Hellman, Martin} \index{Merkle, Ralph} 
+\index{Hellman, Martin} \index{Merkle, Ralph}
 
 1978 gaben Merkle und Hellman \cite{Merkle1978} \index{Verschlüsselung!Merkle-Hellman} ein Public-Key-Verschlüsselungs-Verfahren an, das darauf beruht, das leichte 0-1-Knapsackproblem mit einer superwachsenden Folge in ein kongruentes mit einer nicht superwachsenden Folge zu \glqq verfremden\grqq. Es ist eine Blockchiffrierung, die bei jedem Durchgang einen $n$ Bit langen Klartext chiffriert, siehe Krypto-Verfahren \ref{merklehellmanproc}.
 \index{Knapsack!Merkle-Hellman}
@@ -268,7 +269,7 @@ Der Schlüsselinhaber bildet
 und verschafft sich die $ x_{\mu(i)}^{(j)} \in \{ 0,1\} $ (und somit auch die $ x_i^{(j)} $) aus
 \begin{eqnarray*}
 G^{(j)} & \equiv & \bar{w} g^{(j)} = \sum_{i=1}^n x_i^{(j)} b_{\pi (i)} \bar{w} \equiv \sum_{i=1}^n x_i^{(j)} a_{\pi (i)} \mod m\\
-& = & \sum_{i=1}^n x_{\mu (i)}^{(j)} a_{\pi (\mu (i))} = \sum _{i=1}^n x_{\mu (i)}^{(j)} a_i \mod m, 
+& = & \sum_{i=1}^n x_{\mu (i)}^{(j)} a_{\pi (\mu (i))} = \sum _{i=1}^n x_{\mu (i)}^{(j)} a_i \mod m,
 \end{eqnarray*}
 indem er die leichten 0-1-Knapsackprobleme $ K(a_1,\dots,a_n;G^{(j)}) $ mit superwachsender Folge $ a_1, \dots,a_n $ löst.
 \caption{Merkle-Hellman (auf Knapsackproblemen basierend)}
@@ -308,7 +309,7 @@ Primzahlen sind Grundlage für eine große Anzahl von Algorithmen für Public-Key-V
   Vergleiche auch die Kapitel \ref{rsabeweis}, ff.
 }$^,$\footnote{%
 Mit CT1\index{CT1} können Sie praktische Erfahrungen
-mit dem RSA-Verfahren sammeln: per Menü {\bf Einzelverfahren 
+mit dem RSA-Verfahren sammeln: per Menü {\bf Einzelverfahren
 \textbackslash{} RSA-Kryptosystem \textbackslash{} RSA-Demo}.\\
 RSA finden Sie ebenfalls in CT2\index{CT2} und JCT\index{JCT}.
 }
@@ -317,7 +318,7 @@ RSA finden Sie ebenfalls in CT2\index{CT2} und JCT\index{JCT}.
 
 Bereits 1978 stellten R. \index{Rivest, Ronald} Rivest,
 \index{Shamir, Adi} A. Shamir,  \index{Adleman, Leonard} L. Adleman
-\cite{rivest/shamir/adleman:1978} das bis heute wichtigste 
+\cite{rivest/shamir/adleman:1978} das bis heute wichtigste
 asymmetrische Kryptographie-Verfahren vor (Krypto-Verfahren~\ref{rsaproc}).
 
 
@@ -333,7 +334,7 @@ d.h. $ \ggt (e,\phi (N))=1. $ Mit dem Euklidschen Algorithmus berechnet
 man die natürliche Zahl  $ d < \phi (N), $ so dass gilt
 
 \[ ed \equiv 1 \mod \phi (N). \]
-Dabei ist $ \phi $ die {\bf Eulersche Phi-Funktion}. 
+Dabei ist $ \phi $ die {\bf Eulersche Phi-Funktion}.
 
 Der Ausgangstext wird in Blöcke zerlegt und verschlüsselt, wobei jeder Block einen binären Wert $ x^{(j)} \leq N $ hat. \vskip + 5 pt
 
@@ -370,13 +371,13 @@ Der Ausgangstext wird in Blöcke zerlegt und verschlüsselt, wobei jeder Block ein
 sind teilerfremd\index{Zahlen!teilerfremd (co-prime)}, falls $ \ggt (a,b)=1. $
 
 \vskip +10 pt
-\noindent Für die Eulersche Phi-Funktion gilt: 
+\noindent Für die Eulersche Phi-Funktion gilt:
 \[
 \phi(1)=1,~~ \phi(2)=1,~~
 \phi(3)=2,~~ \phi(4)=2,~~ \phi(6)=2,~~ \phi(10)= 4,~~ \phi(15)=8.
 \]
 
-\noindent Zum Beispiel ist $ \phi (24)=8, $ weil 
+\noindent Zum Beispiel ist $ \phi (24)=8, $ weil
 \[
 |\{ x <24 : \ggt (x,24) =1 \}| =|\{1,5,7,11,13,17,19,23\}|.
 \]
@@ -391,14 +392,14 @@ $n$  &  $\phi(n) $  &  Die zu $ n $ teilerfremden\index{Zahlen!teilerfremd
 (co-prime)} natürlichen Zahlen kleiner $n$.\\ \hline
 1 & 1 & 1\\
 2 & 1 & 1\\
-3 &  2 & 1, 2\\ 
-4 &  2 & 1, 3\\ 
-5 &  4 & 1, 2, 3, 4\\ 
-6 &  2 & 1, 5\\ 
-7 &  6 & 1, 2, 3, 4, 5, 6\\ 
-8 &  4 & 1, 3, 5, 7\\ 
-9 &  6 & 1, 2, 4, 5, 7, 8\\ 
-10 &  4 & 1, 3, 7, 9\\ 
+3 &  2 & 1, 2\\
+4 &  2 & 1, 3\\
+5 &  4 & 1, 2, 3, 4\\
+6 &  2 & 1, 5\\
+7 &  6 & 1, 2, 3, 4, 5, 6\\
+8 &  4 & 1, 3, 5, 7\\
+9 &  6 & 1, 2, 4, 5, 7, 8\\
+10 &  4 & 1, 3, 7, 9\\
 15 &  8 & 1, 2, 4, 7, 8, 11, 13, 14\\
 20 &  8 & 1, 3, 7, 9, 11, 13, 17, 19\\
 25 &  20 & 1, 2, 3, 4, 6, 7, 8, 9, 11, 12, 13, 14, 16, 17, 18, 19, 21, 22, 23, 24\\ \hline
@@ -417,7 +418,7 @@ $n$  &  $\phi(n) $  &  Die zu $ n $ teilerfremden\index{Zahlen!teilerfremd
 \]
 
 
-\noindent Kennt man die verschiedenen Primfaktoren $ p_1, \dots , p_k $ von $ n $, so ist 
+\noindent Kennt man die verschiedenen Primfaktoren $ p_1, \dots , p_k $ von $ n $, so ist
 \[
 \phi (n) = n \cdot (1-\frac{1}{p_1}) \,
 \cdots \, (1-\frac{1}{p_k}).\footnote{%
@@ -465,7 +466,7 @@ unzerlegbar bleiben dürfte, falls es zu keinem mathematischen Durchbruch kommt.
 Dass es aber nicht doch schon morgen zu einem mathematischen Durchbruch kommt,
 kann man nie ausschließen.\\
 Wie leicht man sich verschätzen kann, zeigt die
-\hyperlink{RSA-200-chap3}{Faktorisierung von RSA-200} 
+\hyperlink{RSA-200-chap3}{Faktorisierung von RSA-200}
 (siehe Kapitel \ref{nt:NoteFactorization}) -- ganz ohne \glqq mathematische
 Durchbrüche\grqq.}
 
@@ -474,7 +475,7 @@ Durchbrüche\grqq.}
 %--------------------------------------------------------------------
 \subsection{Rabin-Public-Key-Verfahren (1979)}
 
-Für \index{Rabin, Michael O.} \index{Rabin!Public-Key-Verfahren} 
+Für \index{Rabin, Michael O.} \index{Rabin!Public-Key-Verfahren}
 dieses Verfahren (\ref{rabinproc}) konnte gezeigt werden, dass es äquivalent zum
 Brechen des Faktorisierungsproblems ist. Leider ist dieses Verfahren anfällig
 gegen Chosen-Ciphertext-Angriffe.
@@ -496,7 +497,7 @@ Seien $ p $ und $ q $ zwei verschiedene Primzahlen mit $ p,q\equiv 3 \mod 4 $ un
 Vorsicht:
 Wegen $ p,q \equiv 3 \mod 4 $  ist die Verschlüsselung (mit Kenntnis des Schlüssels) leicht  zu berechnen. Dies ist nicht der Fall für $ p \equiv 1 \mod 4. $ Außerdem ist die Verschlüsselungsfunkti"-on nicht injektiv: Es gibt genau vier verschiedene Quellcodes, die $ e_T(x) $  als Urbild besitzen $ x,-x-B,\omega (x+B/2)-B/2, -\omega(x+B/2)-B/2, $ dabei ist  $ \omega $  eine der vier Einheitswurzeln. Es muss also eine  Redundanz der Quellcodes geben, damit die Entschlüsselung trotzdem eindeutig bleibt!
 
-Hintertür-Information ist die Primfaktorzerlegung von $ n = pq. $ 
+Hintertür-Information ist die Primfaktorzerlegung von $ n = pq. $
 
 
 
@@ -558,7 +559,7 @@ des diskreten Logarithmus wurde im Februar 2007 von der Gruppe Kleinjung, Franke
 der Universität Bonn aufgestellt.\footnote{%
    \url{http://www.nabble.com/Discrete-logarithms-in-GF(p)-----160-digits-t3175622.html}}
 Kleinjung berechnete den diskreten
-Logarithmus modulo einer 160-stelligen Prim"-zahl $p$ und Erzeuger $g$: 
+Logarithmus modulo einer 160-stelligen Prim"-zahl $p$ und Erzeuger $g$:
 $$
 \begin{array}{r@{\:}c@{\:}l}
 p & = & \lfloor 10^{159}\pi\rfloor + 119849\\
@@ -592,15 +593,15 @@ benötigte ca.~17 CPU-Jahre auf 3.2 GHz Xeon Maschinen.
 {Diffie-Hellman-Schlüsselvereinbarung\footnotemark}
 \footnotetext{%
   In CT1\index{CT1} ist dieses Austauschprotokoll visualisiert:
-  Sie können die einzelnen Schritte mit konkreten Zahlen nachvollziehen 
+  Sie können die einzelnen Schritte mit konkreten Zahlen nachvollziehen
   per Menü {\bf Einzelverfahren \textbackslash{} Protokolle \textbackslash{}
   Diffie-Hellman-Demo}.\\
   In JCT\index{JCT} findet man es in der Standard-Perspektive
   über den Menüeintrag {\bf Visualisierungen \textbackslash{}
   Diffie-Hellman-Schlüsselaustausch (EC)}.
 }
-\index{Diffie, Whitfield} 
-\index{Hellman, Martin} 
+\index{Diffie, Whitfield}
+\index{Hellman, Martin}
 \index{Diffie-Hellman}
 \hypertarget{DH-KeyExch}{} \label{DH-KeyExch}
 
@@ -609,7 +610,7 @@ Das Revolutionäre der modernen Kryptographie ist unter anderem, dass man keine g
 Ein Protokoll, das dieses Problem löst, ist das von Diffie und Hellman (Krypto-Verfahren~\ref{diffiehellmanproc}).
 
 \begin{cryptoprocedure}
-Zwei Teilnehmer $ A $ und $ B $ wollen einen gemeinsamen geheimen Schlüssel vereinbaren. \par    
+Zwei Teilnehmer $ A $ und $ B $ wollen einen gemeinsamen geheimen Schlüssel vereinbaren. \par
 Sei $ p $ eine Primzahl und $ g $ eine natürliche Zahl. Diese beide Zahlen müssen nicht geheim sein.\\
 Zunächst wählen sich die beiden Teilnehmer je eine geheime Zahl $ a $ bzw. $ b. $ Daraus bilden sie die Werte $ \alpha = g^{a}\mod p $ und $ \beta = g^b \mod p. $ Dann werden die Zahlen $ \alpha $ und $ \beta $ ausgetauscht. Schließlich potenziert jeder den erhaltenen Wert mit seiner geheimen Zahl und erhält $ \beta^{a} \mod p $ bzw. $ \alpha^b \mod p. $\\
 Damit gilt
@@ -624,13 +625,13 @@ Die Sicherheit des {\bf Diffie-Hellman-Protokolls} hängt eng mit der Berechnung 
 %--------------------------------------------------------------------
 \subsection{ElGamal-Public-Key-Verschlüsselungsverfahren in \texorpdfstring{$ \Z_p^\ast$}{Zp*}}
 \index{ElGamal!Public-Key}
-\index{Verschlüsselung!ElGamal-Public-Key} 
+\index{Verschlüsselung!ElGamal-Public-Key}
 
-Indem man das Diffie-Hellman Schlüsselvereinbarungsprotokoll\index{Diffie-Hellman} 
+Indem man das Diffie-Hellman Schlüsselvereinbarungsprotokoll\index{Diffie-Hellman}
 leicht variiert, kann man einen asymmetrischen Verschlüsselungsalgorithmus
 erhalten (Krypto-Verfahren~\ref{elgamalproc}). Diese Beobachtung geht auf Taher ElGamal zurück.
 \begin{cryptoprocedure}
-Sei $p$ eine Primzahl, so dass der diskrete Logarithmus in $\Z_p$ schwierig zu berechnen ist. 
+Sei $p$ eine Primzahl, so dass der diskrete Logarithmus in $\Z_p$ schwierig zu berechnen ist.
 Sei $ \alpha \in \Z_p^\ast $ ein primitives Element. Sei $a \in \N$ eine natürliche Zahl und $ \beta = \alpha^{a}  \mod p. $\\
 \textbf{Öffentlicher Schlüssel:}
 \[ p,\alpha,\beta. \]
@@ -674,7 +675,7 @@ berechnet werden.
 
 \vskip +10 pt
 \begin{Beweis}{}
-Sei $ k=2^n + k_{n-1} 2^{n-1} + \cdots + k_1 2 + k_0 $ die Binärdarstellung von $k. $ Dann ist $ n \leq \log_2 (k), $  denn $ 2^n \leq k < 2^{n+1}. $ $ k $ kann in der Form $ k=2k' + k_0 $ mit $ k'= 2^{n-1} + k_{n-1} 2^{n-2} + \cdots + k_1 $ geschrieben werden. Es folgt 
+Sei $ k=2^n + k_{n-1} 2^{n-1} + \cdots + k_1 2 + k_0 $ die Binärdarstellung von $k. $ Dann ist $ n \leq \log_2 (k), $  denn $ 2^n \leq k < 2^{n+1}. $ $ k $ kann in der Form $ k=2k' + k_0 $ mit $ k'= 2^{n-1} + k_{n-1} 2^{n-2} + \cdots + k_1 $ geschrieben werden. Es folgt
 \[ g^k = g^{2k'+k_0}= (g^{k'})^2 g^{k_0} .\]
 Man erhält also $ g^k $ aus $ g^{k'} $ indem man einmal quadriert und eventuell mit $ g $ multipliziert. Damit folgt die Behauptung durch Induktion nach $ n. $
 \end{Beweis}
@@ -682,9 +683,9 @@ Man erhält also $ g^k $ aus $ g^{k'} $ indem man einmal quadriert und eventuell 
 \vskip +10 pt
 \noindent {\bf Problem \index{Logarithmusproblem!diskret} des diskreten Logarithmus}
 \begin{center}
-\fbox{\parbox{11cm}{ 
+\fbox{\parbox{11cm}{
 Sei $ G $ eine endliche Gruppe mit der Operation $ \circ. $ Sei $ \alpha \in G $ und $ \beta \in H=\{ \alpha^{i}: i\geq 0\}. $\\
-Gesucht ist das eindeutige $ a \in \N $ mit $ 0 \leq a \leq |H| -1 $ und $ \beta = \alpha^{a}. $\\       
+Gesucht ist das eindeutige $ a \in \N $ mit $ 0 \leq a \leq |H| -1 $ und $ \beta = \alpha^{a}. $\\
 Wir bezeichnen $ a $ mit $ \log_\alpha (\beta). $
 }}
 \end{center}

@@ -1,4 +1,5 @@
 % $Id$
+% !Mode:: "TeX:DE"    % Setting document mode and submode for WinEdt
 % ..............................................................................
 %                  D I G I T A L E  S I G N A T U R E N
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -16,7 +17,7 @@
 (\hyperlink{author_Joerg-Cornelius-Schneider}{Jörg-Cornelius Schneider} /
  \hyperlink{author_Bernhard-Esslinger}{Bernhard Esslinger} /
  \hyperlink{author_Henrik-Koy}{Henrik Koy},
- Juni 2002; 
+ Juni 2002;
  Updates: Feb. 2003, Juni 2005, Juli 2009, Nov. 2012)
 % --------------------------------------------------------------------------
 %\vskip + 30pt
@@ -41,12 +42,12 @@ künstlichen Intelligenz ausführte.}
       Es kann überprüft werden, ob eine Nachricht tatsächlich
       von einer bestimmten Person stammt.
  \item Nachrichtenintegrität:\index{Nachrichtenintegrität}\\
-      Es kann überprüft werden, ob die Nachricht (unterwegs) 
+      Es kann überprüft werden, ob die Nachricht (unterwegs)
       verändert wurde.
 \end{itemize}
 
 
-Zum Einsatz kommt wieder eine asymmetrische Technik (siehe 
+Zum Einsatz kommt wieder eine asymmetrische Technik (siehe
 Verschlüsselungsverfahren).
 Ein Teilnehmer, der eine digitale Signatur für ein Dokument erzeugen will,
 muss ein Schlüssel"-paar besitzen. Er benutzt seinen geheimen Schlüssel,
@@ -59,24 +60,24 @@ Im Detail sieht ein \index{Signaturverfahren}
 {\em Signaturverfahren}\footnote{%
 Mit CT1\index{CT1} können Sie ebenfalls digitale Signaturen
 erzeugen und prüfen:\\
-entweder in den Untermenüs des Hauptmenüpunktes 
+entweder in den Untermenüs des Hauptmenüpunktes
 {\bf Digitale Signaturen / PKI} oder\\
-per 
+per
 {\bf Einzelverfahren \textbackslash{} RSA-Kryptosystem \textbackslash{}
 Signaturdemo (Signaturerzeugung)}.\\
 Ebenso können mit JCT\index{JCT} (in der Standard- und der
 Algorithmen-Perspektive) unterschiedliche Arten elektronischer Signaturen
 erzeugt werden.
-} 
+}
 folgendermaßen aus:\\
 Der Absender berechnet aus seiner Nachricht und seinem geheimen Schlüssel
 die digitale Signatur der Nachricht. Im Vergleich zur handschriftlichen
-Unterschrift hat die digitale Signatur den Vorteil, dass die 
+Unterschrift hat die digitale Signatur den Vorteil, dass die
 Unterschrift auch vom unterschriebenen Dokument abhängt. Die Unterschriften
 ein und desselben Teilnehmers sind verschieden, sofern die unterzeichneten
 Dokumente nicht vollkommen übereinstimmen. Selbst das Einfügen eines
 Leerzeichens in den Text würde zu einer anderen Signatur führen. Eine
-Verletzung der Nachrichtenintegrität wird also vom Empfänger der 
+Verletzung der Nachrichtenintegrität wird also vom Empfänger der
 Nachricht erkannt, da in diesem Falle die Signatur nicht mehr zum Dokument
 passt und sich bei der Überprüfung als unkorrekt erweist.
 
@@ -87,7 +88,7 @@ Das gerade beschriebene Verfahren hätte in der Praxis jedoch einen
 entscheidenden Nachteil: Die Signatur wäre ungefähr genauso lang wie das
 eigentliche Dokument. Um den Datenverkehr nicht unnötig anwachsen zu
 lassen und aus Performance-Gründen\index{Performance} wendet man -- vor
-dem Signieren -- auf das Dokument eine kryptographische 
+dem Signieren -- auf das Dokument eine kryptographische
 Hashfunktion\footnote{%
 Hashfunktionen\index{Hashfunktion} sind in CT1\index{CT1}
 an mehreren Stellen implementiert.\\
@@ -120,11 +121,11 @@ Hashverfahren: Vergleiche die Funktionenliste im Anhang
 \section{Hashfunktionen}
 \index{Hashfunktion}
 Eine {\em Hashfunktion}\footnote{%
-Hashverfahren berechnen eine komprimierte Repräsentation 
+Hashverfahren berechnen eine komprimierte Repräsentation
 elektronischer Daten (Message).
 Die Verarbeitung dieser Message durch das Hashverfahren ergibt als Output
 einen sogenannten Message Digest. Message Digests sind typischerweise
-zwischen 128 und 512 Bit lang -- abhängig vom Algorithmus. 
+zwischen 128 und 512 Bit lang -- abhängig vom Algorithmus.
 Sichere Hashverfahren werden typischerweise mit anderen kryptographischen
 Algorithmen kombiniert, wie z.B. Digitale-Signatur-Algorithmen,
 Keyed-Hash Message Authentication Codes, oder bei der Erzeugung von
@@ -132,7 +133,7 @@ Zufallszahlen (Bits) benutzt.
 }
 bildet eine Nachricht beliebiger Länge auf eine Zeichenfolge mit
 konstanter Größe, den \index{Hashwert}
-Hashwert, ab. 
+Hashwert, ab.
 
 
 
@@ -171,16 +172,16 @@ Kryptographisch sichere Hashfunktionen erfüllen folgende drei Anforderungen
 \label{collision-attacks-against-sha-1}
 
 Bisher konnte die Existenz von perfekt sicheren kryptographischen
-Hashfunktionen nicht formal bewiesen werden. 
+Hashfunktionen nicht formal bewiesen werden.
 
 Über mehrere Jahre gab es keine neuen Attacken gegen Hashverfahren,
 und allgemein wurde den Kandidaten, die in der Praxis bislang keine
-Schwächen in ihrer Struktur gezeigt hatten 
+Schwächen in ihrer Struktur gezeigt hatten
 (zum Beispiel \index{SHA-1} SHA-1\footnote{%
   SHA-1 \index{SHA-1} ist eine in den Standards FIPS 180-1 (durch die
   US-Behörde NIST), ANSI X9.30 Part 2 und
   \cite{FIPS186} spezifizierte 160-Bit Hashfunktion.\\
-  SHA bedeutet \glqq Secure Hash Algorithm\grqq~und wird häufig benutzt, z.B. 
+  SHA bedeutet \glqq Secure Hash Algorithm\grqq~und wird häufig benutzt, z.B.
   mit DSA, RSA oder ECDSA.\\
   Der aktuelle Standard \cite{FIPS180} definiert vier sichere Hashverfahren
   -- SHA-1, SHA-256, SHA-384 und SHA-512.
@@ -190,24 +191,24 @@ Schwächen in ihrer Struktur gezeigt hatten
   Die Ausgabelänge der SHA-Algorithmen wurde vergrößert aufgrund der
   Möglichkeit von Geburtstagsangriffen:
   \index{Angriff!Geburtstagsangriff} \index{Kollision}
-  diese machen -- grob gesprochen -- den n-Bit AES und ein 2n-bit 
+  diese machen -- grob gesprochen -- den n-Bit AES und ein 2n-bit
   Hashverfahren äquivalent:\\
   - 128-bit AES -- SHA-256\\
   - 192-bit AES -- SHA-384\\
   - 256-bit AES -- SHA-512.
 
   Mit CT1\index{CT1} können Sie den Geburtstagsangriff
-  \index{Angriff!Geburtstagsangriff} auf digitale Signaturen 
+  \index{Angriff!Geburtstagsangriff} auf digitale Signaturen
   nachvollziehen:\\
   über das Menü {\bf Analyse \textbackslash{} Hashverfahren
   \textbackslash{} Angriff auf den Hashwert der digitalen Signatur}.\\
   CT2\index{CT2} enthält einen MD5-Kollisionsgenerator.
-  } 
+  }
 oder \index{RIPEMD-160} RIPEMD-160\footnote{%
   RIPEMD-160, RIPEMD-128 und die optionale Erweiterung RIPEMD-256 haben
   Object Identifier, definiert von der ISO-identifizierten Organisation
   TeleTrusT, sowohl für Hashverfahren als auch in Kombination mit RSA.
-  RIPEMD-160 ist Teil des internationalen ISO/IEC-Standards 
+  RIPEMD-160 ist Teil des internationalen ISO/IEC-Standards
   ISO/IEC 10118-3:1998 für dedizierte Hashfunktionen, zusammen mit
   RIPEMD-128 and SHA-1. Weitere Details:\\
 - \url{http://www.esat.kuleuven.ac.be/~bosselae/ripemd160.html}\\
@@ -218,7 +219,7 @@ oder \index{RIPEMD-160} RIPEMD-160\footnote{%
 
 Auf der Crypto 2004 (August 2004)\footnote{%
     \url{http://www.iacr.org/conferences/crypto2004/} }
-wurde dieses Sicherheitsgefühl jedoch stark in Zweifel gezogen: 
+wurde dieses Sicherheitsgefühl jedoch stark in Zweifel gezogen:
 Chinesische Wissenschaftler veröffentlichten
 Kollisionsangriffe gegen MD4, SHA-0 und Teile von SHA-1, die
 weltweit zu einer starken Beschäftigung mit neuen Hash-Angriffen
@@ -233,7 +234,7 @@ gerückt, denn ähnliche Aufwände wurden in der Vergangenheit schon realisiert (s.
 \ref{cm_Brute-force-versus-Symmetr}).
 
 Die Sicherheit bereits erstellter Signaturen wird durch den geschilderten
-Kollisionsangriff aber nicht gefährdet. 
+Kollisionsangriff aber nicht gefährdet.
 
 % be_2005_UPDATEN_if-hash-attacks-make-progress
 Nach dem aktuellen Kenntnisstand ist keine Panik angesagt, aber für
@@ -257,14 +258,14 @@ verkündet.\footnote{%
     Keccak-Hash (SHA-3)} die Keccak-Hashfunktion ausführen und visualisieren.\\
     Keccak kann auch als Zufallszahlengenerator und als Stromchiffre benutzt
     werden: Das finden Sie in den Startcenter-Vorlagen über
-    {\bf Werkzeuge \textbackslash{} Keccak PRNG}, bzw. 
+    {\bf Werkzeuge \textbackslash{} Keccak PRNG}, bzw.
     {\bf Kryptographie \textbackslash{} Modern \textbackslash{} Symmetrisch
          \textbackslash{} Keccak-Stromchiffre}.
 }
 
 Weitere Informationen zu diesem Thema finden sich z.B. in dem Artikel
 \glqq Hash mich -- Konsequenzen der erfolgreichen Angriffe auf SHA-1\grqq\
-von Reinhard Wobst und Jürgen Schmidt\footnote{% 
+von Reinhard Wobst und Jürgen Schmidt\footnote{%
       \url{http://www.heise.de/security/artikel/56555}.\\
 % = http://www.heise.de/security/artikel/Consequences-of-the-successful-attacks-on-SHA-1-270650.html
   Weitere Quellen sind z.B.:\\
@@ -281,13 +282,13 @@ von Reinhard Wobst und Jürgen Schmidt\footnote{%
 \subsection{Signieren mit Hilfe von Hashfunktionen}
 
 \begin{ctsquote}
-\glqq Manipulation war Sobols Spezialität ... das Hauptziel der Ermittlungen sollte sein, hinter Sobols Masterplan zu kommen.\grqq 
+\glqq Manipulation war Sobols Spezialität ... das Hauptziel der Ermittlungen sollte sein, hinter Sobols Masterplan zu kommen.\grqq
 \caption[Daniel Suarez]{Daniel Suarez\footnotemark}\index{Suarez, Daniel}
 \end{ctsquote}
 \addtocounter{footnote}{0}\footnotetext{Daniel Suarez, \glqq Daemon\grqq, rororo, (c) 2010,
 Kapitel 14, \glqq mem-payload\grqq, S. 148, Ross.}
 
-Signatur-Verfahren mit Hashfunktion\footnote{% 
+Signatur-Verfahren mit Hashfunktion\footnote{%
 Vergleiche auch:\\
       \url{http://de.wikipedia.org/wiki/Digitale_Signatur},\\
       \url{http://en.wikipedia.org/wiki/Digital_signature}.
@@ -335,7 +336,7 @@ Wie im Kommentar am Ende von \hyperlink{RSAproof}{Abschnitt
 privaten und öffentlichen Schlüssel in umgekehrter Reihenfolge auszuführen,
 d.~h.\ $M$ hoch $d$ hoch $e \Mod{N}$ ergibt wieder $M$. Wegen dieser
 simplen Tatsache ist es möglich, RSA als Signaturverfahren zu
-verwenden. 
+verwenden.
 
 Eine RSA-Signatur $S$ zur die Nachricht $M$ wird durch folgende Operation
 mit dem privaten Schlüssel erzeugt:
@@ -354,7 +355,7 @@ Nachricht ausführt, sondern auf einem kryptographischen Hashwert davon. Um
 verschiedene Attacken auf das Sig"-naturverfahren (und seine Kombination mit
 Verschlüsselung) auszuschließen, ist es nötig, den Hashwert vor der
 Exponentiation auf spezielle Weise zu formatieren, wie in PKCS\#1 (Public
-Key Cryptography Standard \#1 \cite{PKCS1_2002})\index{PKCS\#1} beschrieben. 
+Key Cryptography Standard \#1 \cite{PKCS1_2002})\index{PKCS\#1} beschrieben.
 Der Tatsache, dass
 dieser Standard nach mehreren Jahren Einsatz revidiert werden musste, kann
 als Beispiel dafür dienen, wie schwer es ist, kryptographische Details
@@ -385,7 +386,7 @@ $p$ & prim\\
 $q$ & 160-Bit Primfaktor von $p - 1$\\
 $g$ & $ = h^{(p-1)/q}  \mbox{ mod } p$, wobei $h < p - 1$ und
 $h^{(p-1)/q} > 1  \Mod{p}$\\
-$y$ & $\strut \equiv  g^x  \mbox{ mod } p$ 
+$y$ & $\strut \equiv  g^x  \mbox{ mod } p$
 \end{tabular}
 
 \begin{remark}{:} Die Parameter $p,q$ und $g$ können von einer Gruppe von
@@ -394,7 +395,7 @@ Benutzern gemeinsam genutzt werden.
 
 \paragraph*{Privater Schlüssel}\strut\\
 \begin{tabular}{l@{ }l}
-$x < q$ (160-Bit Zahl) 
+$x < q$ (160-Bit Zahl)
 \end{tabular}
 
 \paragraph*{Signatur}\strut\\
@@ -443,7 +444,7 @@ sind, nach RSA bzw. ElGamal zu verschlüsseln.
 \section{Public-Key-Zertifizierung}
 \index{Zertifizierung!Public-Key}
 \index{PKI}
-Ziel der Public-Key-Zertifizierung ist es, die Bindung eines 
+Ziel der Public-Key-Zertifizierung ist es, die Bindung eines
 öffentlichen Schlüssels an einen Benutzers zu garantieren und nach außen
 nachvollziehbar zu machen. In Fällen, in denen nicht sichergestellt werden
 kann, dass ein öffentlicher Schlüssel auch wirklich zu einer bestimmten
@@ -454,11 +455,11 @@ einzelnen kryptographischen Bausteine nicht geknackt werden können.
 
 % --------------------------------------------------------------------------
 \vskip + 15pt
-\subsection{Die Impersonalisierungsattacke} 
+\subsection{Die Impersonalisierungsattacke}
 \label{Impersonalisierungsattacke}
-\index{Impersonalisierungsattacke} \index{Angriff!Impersonalisierungsattacke} 
+\index{Impersonalisierungsattacke} \index{Angriff!Impersonalisierungsattacke}
 
-Angenommen Charlie hat zwei Schlüsselpaare (PK1, SK1) und (PK2, SK2). 
+Angenommen Charlie hat zwei Schlüsselpaare (PK1, SK1) und (PK2, SK2).
 Hierbei bezeichnet SK den geheimen Schlüssel (secret key) und PK den
 öffentlichen Schlüssel (public key). Weiter angenommen, es gelingt ihm,
 Alice PK1 als öffentlichen Schlüssel von Bob und Bob PK2 als
@@ -488,7 +489,7 @@ abzuhören und die ausgetauschten Nachrichten zu verändern, ohne dass dies
 von den beteiligten Personen bemerkt wird. Der Angriff funktioniert
 auch, wenn Charlie nur ein Schlüsselpaar hat.
 
-Ein anderer Name für diese Art von Angriffen ist 
+Ein anderer Name für diese Art von Angriffen ist
 \index{Angriff!Man-in-the-Middle-Attack}
 \glqq Man-in-the-Middle-Attack\grqq. Hilfe gegen diese Art von Angriffen
 verspricht die Public-Key-Zertifizierung, die die \index{Authentizität}
@@ -507,14 +508,14 @@ Oft auch Trustcenter oder im deutschen Signaturgesetz
 \glqq Zertifizierungsdiensteanbieter\grqq\ genannt, wenn die Zertifikate nicht
 nur einer geschlossenen Benutzergruppe angeboten werden.
 }.
-Dieser beweist er seine Identität (etwa durch Vorlage seines 
+Dieser beweist er seine Identität (etwa durch Vorlage seines
 Personalausweises). Anschließend stellt die CA ihm ein elektronisches
-Dokument (Zertifikat) aus, in dem im wesentlichen der Name des 
-Zertifikatnehmers und der Name der CA, der öffentliche Schlüssel des 
+Dokument (Zertifikat) aus, in dem im wesentlichen der Name des
+Zertifikatnehmers und der Name der CA, der öffentliche Schlüssel des
 Zertifikatnehmers und der Gültigkeitszeitraum des Zertifikats vermerkt
 sind. Die CA unterzeichnet das Zertifikat anschließend mit ihrem geheimen
 Schlüssel.
-  
+
 Jeder kann nun anhand des öffentlichen Schlüssels der CA überprüfen, ob
 das Zertifikat unverfälscht ist. Die CA garantiert also die Zugehörigkeit
 von Benutzer und öffentlichem Schlüssel.

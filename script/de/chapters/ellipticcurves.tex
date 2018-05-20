@@ -1,4 +1,5 @@
 % $Id$
+% !Mode:: "TeX:DE"    % Setting document mode and submode for WinEdt
 % ..............................................................................
 %                  E L L I P T I S C H E  K U R V E N
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -29,10 +30,10 @@ Verschlüsselungsverfahren.
 Solange die verwendeten Schlüssel hinreichend lang sind, bestehen keinerlei
 Bedenken gegen die {\em Sicherheit} des RSA-Verfahrens. Allerdings hat die
 Entwicklung der Rechnerleistungen in der vergangenen Jahren dazu geführt,
-dass die benötigten Schlüssellängen mehrfach angehoben werden mussten 
+dass die benötigten Schlüssellängen mehrfach angehoben werden mussten
 (vergleiche Kapitel \ref{SecurityRSA}).
 Da die meisten Chips auf Smartcards\index{Smartcard} nicht in der Lage sind,
-längere Schlüssel als z.B. 2000 Bit zu verarbeiten, besteht Bedarf für 
+längere Schlüssel als z.B. 2000 Bit zu verarbeiten, besteht Bedarf für
 Alternativen zum RSA. Eine solche Alternative sind Elliptische Kurven. Diese
 werden inzwischen auch auf Smartcards eingesetzt.
 
@@ -41,9 +42,9 @@ von der benötigten \linebreak[4]Schlüssellänge und vom Rechenaufwand ab,
 um ein vorgeschriebenes Sicherheitsniveau zu erreichen.
 Der entscheidende Vorteil Elliptischer Kurven im Vergleich zum
 RSA-Algorithmus liegt in der Tatsache, dass die sicheren Schlüssellängen
-erheblich kürzer sind. 
+erheblich kürzer sind.
 
-Setzt man den Trend, dass sich die Leistung der verfügbaren Rechner im 
+Setzt man den Trend, dass sich die Leistung der verfügbaren Rechner im
 Schnitt alle 18 Monate verdoppelt (vgl.\ dazu das Gesetz von
 Moore\index{Gesetz von Moore}\index{Moore, Gordon E.}\footnote{%
   Das Mooresche Gesetz formuliert die empirische Beobachtung und die darauf
@@ -73,7 +74,7 @@ wurde.\footnote{%
 \begin{center}
 \includegraphics[scale=0.7]{figures/RSAKeyLength-2}
 \caption{Prognose für die Entwicklung der als sicher betrachteten
-  Schlüssellängen bei RSA und bei Elliptische Kurven} 
+  Schlüssellängen bei RSA und bei Elliptische Kurven}
 \label{RSAKeylength}
 \end{center}
 \vskip -30 pt
@@ -84,13 +85,13 @@ wurde.\footnote{%
 Bei der digitalen Signatur muss man differenzieren: für die {\em
   Erstellung} einer digitalen Signatur benötigen auf Elliptischen
 Kurven basierende Verfahren im Vergleich zu RSA nur gut ein Zehntel des
-Rechenaufwandes (66 zu 515 Ganzzahlmultiplikationen). Siehe hierzu
+Rechenaufwands (66 zu 515 Ganzzahlmultiplikationen). Siehe hierzu
 Abbildung~\ref{ThousandBitMultiplications} (Quelle: J.  Merkle,
 Elliptic Curve Cryptography Workshop, 2001). Betrachtet man die für eine
 {\em Verifikation} durchzuführenden Rechenschritte, dreht sich dieses Bild
-jedoch zu Gunsten von RSA um (112 zu 17 Ganzzahlmultiplikationen). Der 
-Grund liegt darin, dass es bei Verwendung des RSA möglich ist, einen sehr 
-kurzen Exponent für den öffentlichen Schlüssel zu wählen, solange der 
+jedoch zu Gunsten von RSA um (112 zu 17 Ganzzahlmultiplikationen). Der
+Grund liegt darin, dass es bei Verwendung des RSA möglich ist, einen sehr
+kurzen Exponent für den öffentlichen Schlüssel zu wählen, solange der
 private Exponent nur hinreichend lang ist.
 
 % -> Figure 2
@@ -99,7 +100,7 @@ private Exponent nur hinreichend lang ist.
 \begin{center}
 \vspace{1.5cm}\includegraphics[scale=0.7]{figures/ECCRSA}
 \caption{Gegenüberstellung des Aufwands der Operationen Signieren und
-         Verifizieren bei RSA und bei Elliptischen Kurven} 
+         Verifizieren bei RSA und bei Elliptischen Kurven}
 \label{ThousandBitMultiplications}
 \end{center}
 \vskip -10 pt
@@ -108,7 +109,7 @@ private Exponent nur hinreichend lang ist.
 Da bei Smartcards, die auf RSA basieren, stets der lange (private)
 Schlüssel auf der Karte gespeichert werden muss und die Erstellung
 der digitalen Signatur, nicht aber die Verifikation, auf der Karte
-stattfindet, treten hier deutlich die Vorteile Elliptischer Kurven zutage. 
+stattfindet, treten hier deutlich die Vorteile Elliptischer Kurven zutage.
 \par
 \smallskip
 Das größte Problem bei der Implementierung von Verfahren, die auf Elliptischen Kurven beruhen, ist bislang die
@@ -124,8 +125,8 @@ eine Vielzahl von Implementierungen vorhalten, was den Effizienzvorteil gegenübe
 zunichte macht.
 
 Deshalb bemühen sich internationale Organisationen um Standardisierung:
-IEEE (P1363), ASC (ANSI X9.62, X9.63), ISO/IEC sowie 
-RSA Laboratories\index{RSA Laboratories} und Certicom\index{Certicom}. 
+IEEE (P1363), ASC (ANSI X9.62, X9.63), ISO/IEC sowie
+RSA Laboratories\index{RSA Laboratories} und Certicom\index{Certicom}.
 Im Gegensatz zur IEEE, die bisher nur eine Beschreibung der verschiedenen
 Implementierungen vorgenommen hat, hat die ASC konkret 10 Kurven ausgewählt
 und empfiehlt deren Verwendung. Der Vorteil des ASC-Ansatzes ist,
@@ -134,7 +135,7 @@ Zur Zeit ist jedoch nicht absehbar, ob es der ASC gelingen wird, einen
 de-facto-Standard durchzusetzen.
 
 Obwohl aktuell kein Handlungsbedarf besteht\footnote{%
-  Aktuelle Informationen zur Sicherheit des RSA-Verfahrens finden Sie in 
+  Aktuelle Informationen zur Sicherheit des RSA-Verfahrens finden Sie in
   den Kapiteln \ref{SecurityRSA} und \ref{Chapter_Dlog-FactoringDead}.
 },
 laufende RSA-Anwendungen umzustellen, sollte man ernsthaft den Einsatz
@@ -194,26 +195,26 @@ im klaren sein, dass die Elliptischen Kurven im allgemeinen sehr tiefgreifende M
 
 Soweit zur Rolle der Elliptischen Kurven in der reinen Mathematik.
 Im Jahr 1985 haben Neal Koblitz\index{Koblitz, Neal} und Victor Miller
-\index{Miller, Victor} unabhängig voneinander vorgeschlagen, 
-Elliptische Kurven in der Kryptographie einzusetzen. Damit haben die 
+\index{Miller, Victor} unabhängig voneinander vorgeschlagen,
+Elliptische Kurven in der Kryptographie einzusetzen. Damit haben die
 Elliptischen Kurven auch eine ganz konkrete praktische Anwendung gefunden.
 Ein weiteres interessantes Einsatzgebiet für Elliptische Kurven ist die
 Faktorisierung von ganzen Zahlen \index{Faktorisierung}
 (auf der \index{Komplexität} Schwierigkeit/Komplexität, die Primfaktoren
-einer sehr großen Zahl zu finden, beruht das RSA-Kryptosystem: 
+einer sehr großen Zahl zu finden, beruht das RSA-Kryptosystem:
 vergleiche Kapitel \ref{SecurityRSA}
-). 
+).
 In diesem Bereich werden seit 1987 Verfahren untersucht und eingesetzt,
 die auf Elliptischen Kurven basieren
 (vergleiche Kapitel \ref{ECC-Factorisation}).\\
-Es gibt auch Primzahltests\index{Primzahltest}, die auf Elliptischen 
+Es gibt auch Primzahltests\index{Primzahltest}, die auf Elliptischen
 Kurven basieren.
 % (s. Anmerkung U. Kuehn)
 
 Elliptische Kurven werden in den verschiedenen Gebieten unterschiedlich
-eingesetzt: 
+eingesetzt:
 Verschlüsselungsverfahren auf Basis von Elliptischen Kurven beruhen auf der
-Schwierigkeit des als Elliptische Kurven Diskreter Logarithmus bekannten 
+Schwierigkeit des als Elliptische Kurven Diskreter Logarithmus bekannten
 Problems.
 Zur Faktorisierung ganzer Zahlen wird die Tatsache benutzt, dass man eine
 große Zahl elliptischer Kurven für eine natürliche zusammengesetzte Zahl $n$
@@ -252,7 +253,7 @@ man die Gruppe $G$ eine {\em abelsche} Gruppe.
 
 Da man auf der selben Menge mehrere Verknüpfung erklären kann, unterscheidet man
 diese durch verschiedene Namensgebungen und Zeichen (z.B. $+$ Addition oder $\cdot$
-Multiplikation). 
+Multiplikation).
 
 Als einfachstes Beispiel einer (abelschen) Gruppe sei die Gruppe der ganzen Zahlen
 mit der üblichen Addition genannt. Die Menge der ganzen Zahlen wird mit ${\mathbb Z}$
@@ -292,10 +293,10 @@ Verknüpfung, sondern zwei Verknüpfungen definiert sind. Diese nennt man oft Addi
 
 Unter einem Körper versteht man in der Mathematik eine Menge $K$ mit den zwei Verknüp"-fungen Addition und Multiplikation (mit $+$ und $\cdot$ bezeichnet), so dass die folgenden Bedingungen erfüllt sind:
 \begin{itemize}
-   \item Die Menge $K$ ist zusammen mit der Verknüpfung $+$ (Addition) 
-         eine abelsche Gruppe. Dabei sei $0$ das neutrale Element der 
+   \item Die Menge $K$ ist zusammen mit der Verknüpfung $+$ (Addition)
+         eine abelsche Gruppe. Dabei sei $0$ das neutrale Element der
 	 Verknüpfung $+$.
-   \item Die Menge $K\setminus\{0\}$ (d.h. $K$ ohne das Element 0) ist 
+   \item Die Menge $K\setminus\{0\}$ (d.h. $K$ ohne das Element 0) ist
          zusammen mit der Verknüpfung $\cdot$ (Multiplikation)
          ebenfalls eine abelsche Gruppe. Dabei sei $1$ das neutrale Element
 	 der Verknüpfung $\cdot$.
@@ -331,32 +332,32 @@ Wie bereits erwähnt, hat jeder endliche Körper eine Charakteristik $p\ne 0$, wob
 Die Anzahl der Elemente eines Körpers muss jedoch im allgemeinen keine Primzahl sein. So ist es nicht schwer, einen Körper mit $4$ Elementen zu konstruieren\footnote{%
 Die Menge $K=\{0,1,a,b\}$ ist mit den Verknüpfungen der folgenden Tabellen ein Körper:\\
 $
-\begin{array}{|c||c|c|c|c|} 
-\hline 
+\begin{array}{|c||c|c|c|c|}
+\hline
 + & 0 & 1 & a & b\\
 \hline \hline
 0 & 0 & 1 & a & b\\
-\hline 
+\hline
 1 & 1 & 0 & b & a\\
-\hline 
+\hline
 a & a & b & 0 & 1\\
-\hline 
+\hline
 b & b & a & 1 & 0\\
-\hline 
+\hline
 \end{array} \qquad {\rm ~und~} \qquad
-\begin{array}{|c||c|c|c|c|} 
-\hline 
+\begin{array}{|c||c|c|c|c|}
+\hline
 \cdot & 0 & 1 & a & b\\
 \hline \hline
-0 & 0 & 0 & 0 & 0\\ 
-\hline 
-1 & 0 & 1 & a & b\\ 
-\hline 
-a & 0 & a & b & 1\\ 
-\hline 
+0 & 0 & 0 & 0 & 0\\
+\hline
+1 & 0 & 1 & a & b\\
+\hline
+a & 0 & a & b & 1\\
+\hline
 b & 0 & b & 1 & a\\
-\hline 
-\end{array} 
+\hline
+\end{array}
 $\\
 }.
 
@@ -403,10 +404,10 @@ Ferner betrachten wir Punkte, die sich nur durch eine Vervielfachung jeder Kompo
 \\ Setzt man in der Ausgangsgleichung $x_3=0$, so wird diese zu $-x_1^3=0$, also $x_1=0$. Folglich ist die Äquivalenzklasse, die das Element $(0,1,0)$ enthält, die einzige Punkt mit $x_3=0$. Für alle anderen Lösungspunkte können wir die Transformation
 $$ K\times K\times (K\setminus\{0\})\ni (x_1,x_2,x_3) \mapsto (x,y):=\left( \frac{x_1}{x_3}, \frac{x_2}{x_3}\right) \in K\times K
 $$
-vornehmen, die die Anzahl der Variablen von drei auf zwei reduziert. 
+vornehmen, die die Anzahl der Variablen von drei auf zwei reduziert.
 Die Ausgangsgleichung $F(x_1,x_2,x_3)=0$ war so gewählt, dass sich auf
 diese Weise die sogenannte Weierstrass-Glei"-chung\footnote{%
-Karl Weierstrass\index{Weierstrass, Karl}, 31.10.1815$-$19.12.1897, deutscher Mathematiker, 
+Karl Weierstrass\index{Weierstrass, Karl}, 31.10.1815$-$19.12.1897, deutscher Mathematiker,
 Verfechter der streng formalen Ausrichtung der Mathematik.
 }
 \begin{equation}
@@ -423,7 +424,7 @@ Dabei soll ${\cal O}$ den auf diese Weise nicht beschriebenen Punkt $(0,1,0)$ da
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.60]{figures/elliptic-curve}
-\caption{Beispiel einer Elliptischen Kurve über dem Körper der reellen Zahlen} 
+\caption{Beispiel einer Elliptischen Kurve über dem Körper der reellen Zahlen}
 \label{ExampleEllipticCurve}
 \end{center}
 \vskip -10 pt
@@ -451,7 +452,7 @@ mit $b\ne 0$\footnote{Die Form (\ref{ellp}) ist die Standardform der Weierstrass
 Durch diese Bedingungen an die Parameter $a,b$ ist gewährleistet, dass die Elliptische Gleichung für kryptographische Anwendungen geeignet ist\footnote{Formal sagt man, die Kurve ist nicht singulär.}.
 
 
-Für die Anzahl $|E|$ der Elemente einer Elliptischen Kurve $E$ über einem Körper $GF(k)$ (praktisch $k=p$ prim oder $k=2^n$) gilt nach dem Satz von Hasse \cite{Silverman2009} die einfache Beziehung $| \, |E| - k-1\,| \le 2\cdot \sqrt{k}$. Diese Ungleichung ist äquivalent zu $k+1 - 2\sqrt{k} < |E| < k+1+2\sqrt{k}$. Dies bedeutet, dass die Anzahl der Elemente der Elliptischen Kurve mit der Größe $k$ gut abgeschätzt werden kann. 
+Für die Anzahl $|E|$ der Elemente einer Elliptischen Kurve $E$ über einem Körper $GF(k)$ (praktisch $k=p$ prim oder $k=2^n$) gilt nach dem Satz von Hasse \cite{Silverman2009} die einfache Beziehung $| \, |E| - k-1\,| \le 2\cdot \sqrt{k}$. Diese Ungleichung ist äquivalent zu $k+1 - 2\sqrt{k} < |E| < k+1+2\sqrt{k}$. Dies bedeutet, dass die Anzahl der Elemente der Elliptischen Kurve mit der Größe $k$ gut abgeschätzt werden kann.
 
 % $$ (\sqrt{k}-1)^2=k-2\sqrt{k}+1 \le |E| \le k+1 .
 % $$
@@ -490,7 +491,7 @@ $$
 Hieraus folgt insbesondere für $P=(x,y)\in E$, dass gilt $-P=(x,x+y)$.
 
 (Beachte: $-(-P)=(x,x+(x+y))=(x,2x+y)=(x,y)$, da der zugrunde liegende Körper Charakteristik $2$ hat.)\footnote{%
-Eine Animation der Punktaddition auf Elliptischen Kurven 
+Eine Animation der Punktaddition auf Elliptischen Kurven
 findet man auf der Certicom-Seite\index{Certicom} unter\\
 \url{https://www.certicom.com/ecc-tutorial} (Datum letzte Änderung unklar).\\
 Vergleiche auch den Web-Link zum \hyperlink{ec:Web-Link:Java_Laubrock}
@@ -508,11 +509,11 @@ Abschnitt zeigt.
 \begin{figure}[htbp]
 \subsection*{Addieren von Punkten auf einer Elliptischen Kurve}
 Die zwei folgenden Abbildungen zeigen, wie bei einer Elliptischen Kurve über den reellen Zahlen in affinen Koordinaten
-zwei Punkte addiert werden. Der unendlich ferne Punkt ${\cal O}$ kann nicht in der affinen 
-Ebene dargestellt werden.  
+zwei Punkte addiert werden. Der unendlich ferne Punkt ${\cal O}$ kann nicht in der affinen
+Ebene dargestellt werden.
 \begin{center}
 \includegraphics[scale=1.08]{figures/ec-mult2}
-\caption{Verdoppelung eines Punktes} 
+\caption{Verdoppelung eines Punktes}
 \vspace{\floatsep}
 \vskip +20 pt
 \includegraphics[scale=0.65]{figures/ec-add}  %be_2005 evtl. an diesem Vergrößerungsfaktor spielen
@@ -605,7 +606,7 @@ In der Schreibweise der Elliptischen Kurven liest sich das Diffie-Hellman Verfah
 Um einen \glqq Man-in-the-Middle\grqq-Angriff zu verhindern, kann man auch hier wie schon in Kapitel \ref{Impersonalisierungsattacke} beschrieben, die übertragenen Werte $G,q,R_A,R_B$ digital signieren.
 
 \par
-%\smallskip 
+%\smallskip
 %{\bf Signatur-Erstellung:}
 \subsection{Signatur-Erstellung}
 
@@ -617,7 +618,7 @@ $$
 Das Tripel $(m,r_1,x)$ bildet nun die digitale Signatur.
 
 \par
-%\smallskip 
+%\smallskip
 %{\bf Signatur-Verifikation:}
 \subsection{Signatur-Verifikation}
 
@@ -633,17 +634,17 @@ Nun ist $R=rG$. Also folgt hier $\bar v_1=\bar r_1$, d.h. $R$ und $V$ stimmen mo
 
 % -----------------------------------------------------------------------------
 \hypertarget{faktell}{}
-\section{Faktorisieren mit Elliptischen Kurven} \label{ECC-Factorisation} 
+\section{Faktorisieren mit Elliptischen Kurven} \label{ECC-Factorisation}
 
 Es gibt Faktorisierungsalgorithmen%
-\footnote{John M. Pollard \index{Pollard, John M.} war an der 
+\footnote{John M. Pollard \index{Pollard, John M.} war an der
 Entwicklung vieler verschiedener Faktorisierungsalgorithmen beteiligt; auch
 beim Faktorisieren mit ECC war er einer der führenden Köpfe. Als Mitarbeiter
 von British Telekom hat er leider nie viel selbst publiziert. Auf der RSA
-Konferenz 1999 wurde er für seine \glqq outstanding contributions in 
+Konferenz 1999 wurde er für seine \glqq outstanding contributions in
 mathematics\grqq~ausgezeichnet.\\
 Im Jahr 1987 stellte H.W. Lenstra\index{Lenstra 1987} einen häufig genutzten
-Faktorisierungsalgorithmus vor, der auf Elliptischen Kurven basiert 
+Faktorisierungsalgorithmus vor, der auf Elliptischen Kurven basiert
 (siehe \cite{Lenstra1987}).
   % Leerzeile vor schließender Footnote-Klammer zu #21 nötig, um einheitlich eine
   % Leerzeile am Ende der Fußnoten zu haben -- solange keine andere Lösung
@@ -658,19 +659,19 @@ Zahlen\index{Faktorisierung!Faktorisierungsrekorde} haben ca. 80 Dezimalstellen:
 Vergleiche auch den Web-Link über das \hyperlink{Lenstra2}{ECMNET-Projekt}
 \index{ECMNET} am Ende dieser Kapitels.
 }.
-Genauer gesagt, machen sich diese Verfahren zunutze, dass man auch 
+Genauer gesagt, machen sich diese Verfahren zunutze, dass man auch
 über ${\mathbb Z}_n$ ($n$ zusammengesetzte Zahl) Elliptische Kurven
 definieren kann. Elliptische Kurven über ${\mathbb Z}_n$ bilden keine
 Gruppe, da es nicht zu jedem Punkt auf solchen Elliptischen Kurven einen
-inversen Punkt geben muss. Dies hängt damit zusammen, dass es -- falls $n$ 
-eine zusammengesetzte Zahl ist -- in ${\mathbb Z}_n$ Elemente gibt, die 
-kein Inverses bezüglich der Multiplikation modulo $n$ haben. Um zwei 
+inversen Punkt geben muss. Dies hängt damit zusammen, dass es -- falls $n$
+eine zusammengesetzte Zahl ist -- in ${\mathbb Z}_n$ Elemente gibt, die
+kein Inverses bezüglich der Multiplikation modulo $n$ haben. Um zwei
 Punkte auf einer Elliptischen Kurve über ${\mathbb Z}_n$ zu addieren, kann
 prinzipiell genauso gerechnet werden wie auf Elliptischen Kurven über
 ${\mathbb Z}_p$. Eine Addition von zwei Punkten (auf einer Elliptischen
-Kurve über ${\mathbb Z}_n$) scheitert aber genau dann, wenn man einen 
+Kurve über ${\mathbb Z}_n$) scheitert aber genau dann, wenn man einen
 Teiler von $n$ gefunden hat. Der Grund dafür ist, dass das Verfahren zum
-Addieren von Punkten auf Elliptischen Kurven Elemente in ${\mathbb Z}_n$ 
+Addieren von Punkten auf Elliptischen Kurven Elemente in ${\mathbb Z}_n$
 ermittelt und zu diesen Elementen die inversen Elemente (bezüglich der
 Multiplikation modulo $n$) in ${\mathbb Z}_n$ berechnet. Dazu wird der
 erweiterte \index{Euklidscher Algorithmus} Euklidsche Algorithmus benutzt.
@@ -703,7 +704,7 @@ Im Folgenden wird aufgezeigt, welche Funktionalität dazu in CrypTool und in Sage
 
 CT1 enthält Elliptische Kurven, um digitale Signaturen zu erzeugen%
 \footnote{%
-Die Dialogbox, die in CT1\index{CT1} nach dem Menü 
+Die Dialogbox, die in CT1\index{CT1} nach dem Menü
 {\bf Digitale Signaturen/PKI \textbackslash{} Dokument signieren} erscheint,
 bietet die EC-Verfahren ECSP-DSA und ECSP-NR an.
   % Leerzeile vor schließender Footnote-Klammer zu #20 nötig, um einheitlich eine
@@ -773,7 +774,7 @@ SageMath-Beispiele dazu finden sich z.B. auch in
   % - Leerzeile am Ende vor der schließenden Footnote-Klammer nötig -- nicht vor Kommentar
   %   und nicht per\\ nach der url (um Absatz-Ende zu erkennen, sonst hat die 2. Zeile
   %   (also die URL) KEINEN hängenden Einzug?! (TODO_LaTeX)
-  
+
 }
 
 \begin{sloppypar} % Nötig, da der 2. Link sonst nicht umgebrochen.
@@ -963,7 +964,7 @@ der Schlüssellänge (begrenzter Speicherplatz) eine entscheidende Bedeutung zukom
         ECC-Tutorial als SageMath-Notebook, Version 1.3, Januar 2011
         \url{http://web.maths.unsw.edu.au/~maikemassierer/ecc-notebook/}\\
 
-   \hypertarget{ec:Web-Link:Certicom_Tutorial}{} 
+   \hypertarget{ec:Web-Link:Certicom_Tutorial}{}
    \item Online-Tutorial über Elliptische Kurven der Firma
         Certicom\index{Certicom} (alles in Englisch),\\
 	\url{https://www.certicom.com/index.php/ecc-tutorial}
@@ -977,7 +978,7 @@ der Schlüssellänge (begrenzter Speicherplatz) eine entscheidende Bedeutung zukom
         \url{http://www.emc.com/emc-plus/rsa-labs/historical/overview-elliptic-curve-cryptosystems.htm}
         \end{sloppypar}
 
-   \hypertarget{ec:Web-Link:Java_Laubrock}{} 
+   \hypertarget{ec:Web-Link:Java_Laubrock}{}
    \item Tutorial mit Java Applets -- Krypto-Verfahren basierend auf
         elliptischen Kurven,\\
         Diplomarbeit Thomas Laubrock, 1999,\\

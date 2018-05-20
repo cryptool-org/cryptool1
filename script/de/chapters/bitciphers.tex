@@ -1,4 +1,5 @@
 % $Id: cryptomethods.tex 3712 2016-03-22 23:36:46Z xesslinger $
+% !Mode:: "TeX:DE"    % Setting document mode and submode for WinEdt
 % ..............................................................................
 % B i t b l o c k -  u n d  B i t s t r o m - V e r s c h l ü s s e l u n g
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -68,7 +69,7 @@
 \setcounter{definition}{0}
 
 
-\newpage %BERM0 
+\newpage %BERM0
 \hypertarget{Chapter_BitCiphers}{}   %BERM0
 \chapter{Einführung in die Bitblock- und Bitstrom-Verschlüsselung}
 \label{Chapter_BitCiphers}
@@ -128,7 +129,7 @@ Das Thema dieses Kapitels ist also mit anderen Worten
 %\end{quote}
 
 \noindent Die mathematischen Grundlagen und Methoden gehören zu den Gebieten
-   
+
    {\bf Boolesche Algebra\index{Boolesche Algebra}\index{Algebra!Boolesche}
    und endliche Körper\index{endlicher Körper}\index{Körper!endlich}}.
 
@@ -411,7 +412,7 @@ Bezeichnungen\footnote{%
 Vektoren\index{Vektor}, Listen\index{Liste}, ($n$-) Tupel\index{Tupel},
 \ldots, bei bestimmten Größen auch spezielle Bezeichnungen wie Bytes\index{Byte}
 (für 8 Bits), Wörter\index{Wort} (für 32 oder
-64 Bytes, je nach Prozessorarchitektur) \ldots\ 
+64 Bytes, je nach Prozessorarchitektur) \ldots\
 In diesem Kapitel wird überwiegend
 die in der Kryptographie gängige Bezeichnung "`Bitblöcke\index{Bitblock}"' verwendet.
 Ein {\bf Bitblock} der Länge $n$ ist also eine Liste $(x_1, \ldots, x_n)$ von
@@ -650,7 +651,7 @@ hat also die Gestalt
 wobei die Koeffizienten $a_I$ alle $0$ oder $1$ sind. D.\,h., es wird
 eine Teilmenge aller $2^n$ möglichen monomialen Ausdrücke aufaddiert, und
 dafür gibt es $2^{2^n}$ Möglichkeiten. Die dadurch beschriebenen
-Booleschen Funktionen sind alle verschieden, aber das müssen wir 
+Booleschen Funktionen sind alle verschieden, aber das müssen wir
 erst noch zeigen. Zunächst wird bewiesen, dass sich jede Boolesche
 Funktion so ausdrücken lässt.
 
@@ -766,7 +767,7 @@ polynomialer Ausdruck eindeutig sein. Damit ist gezeigt:
    bezeichnet. Er ist stets $\leq n$.
 \end{definition}
 
-Der Grad gibt also an, wieviele verschiedene Variablen in einem
+Der Grad gibt also an, wie viele verschiedene Variablen in einem
 Monom\index{Monom} der ANF
 maximal miteinander multipliziert werden.
 
@@ -807,7 +808,7 @@ die Inputvariablen $x = x_1$, $y = x_2$.
 
 \begin{table}[hbpt]
 \begin{center}
-  \begin{tabular}{|cccc|l|ll|l|} \hline 
+  \begin{tabular}{|cccc|l|ll|l|} \hline
     $a$&$b$&$c$&$d$& ANF        & \multicolumn{2}{l|}{logische Operation} & CNF               \\ \hline\hline
      0 & 0 & 0 & 0 & $0$        & False     & Konstante                   & $x \wedge \neg x$ \\ \hline
      1 & 0 & 0 & 0 & $1$        & True      & Konstante                   & $x \vee \neg x$   \\ \hline
@@ -954,7 +955,7 @@ beschrieben werden kann.
 
 \begin{satz}\label{thm-bool-anf3}
   Jede Boolesche Abbildung $f\!\!: \F_2^n \longrightarrow \F_2^q$ hat
-  eine eindeutige Darstellung als 
+  eine eindeutige Darstellung als
 \[
   f(x_1,\ldots,x_n) = \sum_{I \subseteq \{1,\ldots,n\}} x^I a_I
 \]
@@ -1439,7 +1440,7 @@ stehen im SageMath-Beispiel~\ref{ss-bool-conv}.
 
 \begin{table}[hbpt]
 \begin{center}
-  \begin{tabular}{|c|c|c|c|c|} \hline 
+  \begin{tabular}{|c|c|c|c|c|} \hline
     Zahl & Bitkette & Teilmenge   & Linearform    & Monom       \\ \hline
     $0$  &   000    & $\emptyset$ &    $0$        &  $1$        \\
     $1$  &   001    & $\{3\}$     &    $x_3$      &  $x_3$      \\
@@ -2250,7 +2251,7 @@ Die Formel für die Entschlüsselung ist
      verschleiert, wenn $c_0$ geheim bleibt. Ist der zweite oder ein
      späterer Klartextblock bekannt, kann die Angreiferin wie bei ECB den
      Schlüssel bestimmen (durch vollständige Suche oder einen weiteren
-     Angriff mit bekanntem Klartext). 
+     Angriff mit bekanntem Klartext).
 \end{description}
 
 Für weitere Betriebsarten kann man den Wikipedia-Eintrag
@@ -2739,14 +2740,14 @@ sage: pclist = []
 sage: for i in range(0,len(plist)):
 ....:     x = xor(plist[i],k)
 ....:     xlist.append(x)
-....:     
+....:
 sage: xlist
 [[1, 0, 1, 0], [1, 1, 0, 1], [0, 0, 1, 0]]
 sage: for i in range(0,len(plist)):
 ....:     val = S0.valueAt(xlist[i])
 ....:     xclist.append([xlist[i],val])
 ....:     pclist.append([plist[i],val])
-....:     
+....:
 sage: Matsui_Test(alpha,beta,pclist,False)
 [2, 0, True]
 \end{verbatim}
@@ -3252,12 +3253,12 @@ Argument -- vorausgesetzt, $f$ ist bijektiv\footnote{%
 \begin{table}
 \begin{center}
 \begin{tabular}{|c|cccccccccccccccc|} \hline
-  &0& 1            & 2            & 3            & 4            & 5            & 6            & 7            
+  &0& 1            & 2            & 3            & 4            & 5            & 6            & 7
      & 8            & 9            &10            &11            &12            &13            &14            &15            \\
 \hline
- 0&1& 0            & 0            & 0            & 0            & 0            & 0            & 0            
+ 0&1& 0            & 0            & 0            & 0            & 0            & 0            & 0
      & 0            & 0            & 0            & 0            & 0            & 0            & 0            & 0            \\
- 1&0&$\frac{1}{16}$&$\frac{1}{16}$& 0            & 0            &$\frac{1}{16}$&$\frac{1}{16}$& 0            
+ 1&0&$\frac{1}{16}$&$\frac{1}{16}$& 0            & 0            &$\frac{1}{16}$&$\frac{1}{16}$& 0
      & 0            &$\frac{1}{16}$&$\frac{1}{16}$& 0            & 0            &$\frac{9}{16}$&$\frac{1}{16}$& 0            \\
  2&0&$\frac{1}{16}$& 0            &$\frac{1}{16}$&$\frac{1}{4}$ &$\frac{1}{16}$& 0            &$\frac{1}{16}$&$\frac{1}{16}$
      &$\frac{1}{4}$ &$\frac{1}{16}$& 0            &$\frac{1}{16}$& 0            &$\frac{1}{16}$& 0            \\
@@ -3267,13 +3268,13 @@ Argument -- vorausgesetzt, $f$ ist bijektiv\footnote{%
      &$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{16}$\\
  5&0&$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{4}$ & 0            &$\frac{1}{16}$&$\frac{1}{16}$& 0            &$\frac{1}{16}$
      & 0            &$\frac{1}{4}$ &$\frac{1}{16}$&$\frac{1}{16}$& 0            & 0            &$\frac{1}{16}$\\
- 6&0&$\frac{1}{16}$& 0            &$\frac{1}{16}$& 0            &$\frac{1}{16}$& 0            &$\frac{1}{16}$& 0            
+ 6&0&$\frac{1}{16}$& 0            &$\frac{1}{16}$& 0            &$\frac{1}{16}$& 0            &$\frac{1}{16}$& 0
      &$\frac{1}{16}$& 0            &$\frac{9}{16}$& 0            &$\frac{1}{16}$& 0            &$\frac{1}{16}$\\
- 7&0& 0            &$\frac{1}{16}$&$\frac{1}{16}$& 0            & 0            &$\frac{9}{16}$&$\frac{1}{16}$& 0            
+ 7&0& 0            &$\frac{1}{16}$&$\frac{1}{16}$& 0            & 0            &$\frac{9}{16}$&$\frac{1}{16}$& 0
      & 0            &$\frac{1}{16}$&$\frac{1}{16}$& 0            & 0            &$\frac{1}{16}$&$\frac{1}{16}$\\
- 8&0& 0            &$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{16}$& 0            & 0            &$\frac{1}{4}$ 
+ 8&0& 0            &$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{16}$& 0            & 0            &$\frac{1}{4}$
      & 0            &$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{4}$ & 0            \\
- 9&0&$\frac{1}{16}$& 0            &$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{4}$&$\frac{1}{16}$& 0            & 0            
+ 9&0&$\frac{1}{16}$& 0            &$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{4}$&$\frac{1}{16}$& 0            & 0
      &$\frac{1}{16}$& 0            &$\frac{1}{16}$&$\frac{1}{16}$& 0            &$\frac{1}{16}$&$\frac{1}{4}$ \\
 10&0&$\frac{1}{16}$&$\frac{1}{16}$& 0            &$\frac{1}{16}$& 0            & 0            &$\frac{1}{16}$&$\frac{1}{16}$
      &$\frac{1}{4}$ & 0            &$\frac{1}{16}$&$\frac{1}{4}$ &$\frac{1}{16}$&$\frac{1}{16}$& 0            \\
@@ -3283,9 +3284,9 @@ Argument -- vorausgesetzt, $f$ ist bijektiv\footnote{%
      &$\frac{1}{16}$& 0            & 0            &$\frac{1}{4}$ & 0            &$\frac{1}{16}$&$\frac{1}{16}$\\
 13&0&$\frac{1}{16}$&$\frac{1}{4}$&$\frac{1}{16}$&$\frac{1}{16}$& 0            &$\frac{1}{16}$& 0            &$\frac{1}{16}$
      & 0            &$\frac{1}{16}$& 0            & 0            &$\frac{1}{16}$&$\frac{1}{4}$ &$0$\\
-14&0&$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{4}$ &$\frac{1}{16}$&$\frac{1}{4}$ & 0            &$\frac{1}{16}$& 0            
+14&0&$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{4}$ &$\frac{1}{16}$&$\frac{1}{4}$ & 0            &$\frac{1}{16}$& 0
      &$\frac{1}{16}$&$\frac{1}{16}$& 0            &$\frac{1}{16}$& 0            & 0            &$\frac{1}{16}$\\
-15&0& 0            & 0            & 0            &$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{4}$ 
+15&0& 0            & 0            & 0            &$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{4}$
      & 0            &$\frac{1}{4}$ & 0            &$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{16}$&$\frac{1}{16}$\\
 \hline
 \end{tabular}
@@ -3524,7 +3525,7 @@ sage: Spec = S0.wspec()
 sage: for coord in lProf[3]:
 ....:     if (Spec[coord[0]][coord[1]] < 0):
 ....:         print ("For relation at", coord, "take complement.")
-....:         
+....:
 ('For relation at', [6, 11], 'take complement.')
 ('For relation at', [7, 6], 'take complement.')
 \end{verbatim}
@@ -4017,7 +4018,7 @@ mit dem korrekten Mittelwert $\frac{5}{16}$.
 \begin{verbatim}
 
 sage: n = 4; NN = 2**n
-sage: alpha = [0,0,0,1]; beta = [1,1,0,1]; gamma = [1,1,0,0]                       
+sage: alpha = [0,0,0,1]; beta = [1,1,0,1]; gamma = [1,1,0,0]
 sage: reslist = []
 sage: sum = 0
 sage: for j in range(0,NN):
@@ -4033,7 +4034,7 @@ sage: for j in range(0,NN):
 ....:     prob = ctr/NN
 ....:     reslist.append([k1, ctr, prob])
 ....:     sum += ctr
-....:     
+....:
 sage: reslist
 [[[0, 0, 0, 0], 4, 1/4],
  [[0, 0, 0, 1], 4, 1/4],
@@ -4763,7 +4764,7 @@ wird das nicht der Fall sein. Dass man mit dieser Unabhängigkeitsannahme
 trotzdem arbeiten kann, ist nur empirisch belegt, und daraus folgt die
 Faustregel:
 \begin{quote}
-   {\em Die Erfolgswahrscheinlichkeit der linearen Kryptoanalyse bestimmt 
+   {\em Die Erfolgswahrscheinlichkeit der linearen Kryptoanalyse bestimmt
    sich (ungefähr) durch die Multiplikativität der
    I/O-Korrelationen\index{I/O-Korrelation} (oder der
    Potenziale\index{Potenzial}) aller entlang des betrachteten Pfades (samt
@@ -4953,7 +4954,7 @@ sage: for i in range (0,NN):
 ....:     klist[2].append(kbit)
 ....:     kbit=(1+plain[0]+plain[1]+plain[2]+plain[3]+ciph[0]+ciph[1]+ciph[3])%2
 ....:     klist[3].append(kbit)
-....:     
+....:
 [...]
 sage: for j in range(0,4):
 ....:     sum = 0
@@ -4963,7 +4964,7 @@ sage: for j in range(0,4):
 ....:         sum = NN - sum
 ....:     print("True bit:", bit[j], klist[j])
 ....:     print("    Relation", j+1, ":", sum, "of", NN ,"guesses are correct.")
-....:     
+....:
 [...]
 \end{verbatim}
 }
@@ -5490,7 +5491,7 @@ Abbildung~\ref{fig-bool-xorbsp} zeigt ein Beispiel.
 \begin{verbatim}
    a: 01000100011101 ...
    k: 10010110100101 ...
-      ------------------ 
+      ------------------
    c: 11010010111000 ...
 \end{verbatim}
 \end{minipage}
@@ -5625,7 +5626,7 @@ in der PKZIP\index{PKZIP}-Verschlüsselung. Viele weitere aktuelle Anwendungen ka
 finden, und viele davon erfüllen nicht die erwarteten Sicherheitsansprüche.
 \begin{quote}
    {\em Die Spannweite der XOR-Verschlüsselung\index{XOR}\index{Verschlüsselung!XOR}
-   reicht von trivial zu brechenden Verfahren bis hin zu unbrechbaren Chiffren.} 
+   reicht von trivial zu brechenden Verfahren bis hin zu unbrechbaren Chiffren.}
 \end{quote}
 
 \begin{description}
@@ -5719,10 +5720,10 @@ Hierbei ist allerdings die Qualität des Schlüsselstroms sehr kritisch.
          D    |   u    |        |   b    |   i    |   s    |
    a: 01000100|01110101|00100000|01100010|01101001|01110011|
    k: 10010110|10010110|10010110|10010110|10010110|10010110|
-      -------- -------- -------- -------- -------- -------- 
+      -------- -------- -------- -------- -------- --------
    c: 11010010|11100011|10110110|11110100|11111111|11100101|
 
-         t    |        |   d    |   o    |   o    |   f    
+         t    |        |   d    |   o    |   o    |   f
       01110100|00100000|01100100|01101111|01101111|01100110
       10010110|10010110|10010110|10010110|10010110|10010110
       -------- -------- -------- -------- -------- --------
@@ -5900,7 +5901,7 @@ in Abbildung~\ref{fig-bool-otp} demonstriert.
 \begin{verbatim}
 Plain bits and text:
 01000100 01101001 01100101 01110011 01100101 01110010  Dieser
-00100000 01010100 01100101 01111000 01110100 00100000   Text 
+00100000 01010100 01100101 01111000 01110100 00100000   Text
 01101001 01110011 01110100 00100000 01100010 01110010  ist br
 01101001 01110011 01100001 01101110 01110100 00101110  isant.
 
@@ -5924,7 +5925,7 @@ Pseudokey bits:
 
 Pseudodecrypted bits and text:
 01000100 01101001 01100101 01110011 01100101 01110010  Dieser
-00100000 01010100 01100101 01111000 01110100 00100000   Text 
+00100000 01010100 01100101 01111000 01110100 00100000   Text
 01101001 01110011 01110100 00100000 01101000 01100001  ist ha
 01110010 01101101 01101100 01101111 01110011 00101110  rmlos.
 \end{verbatim}
@@ -5944,7 +5945,7 @@ nicht generell verwendet?
       Bedarf vereinbaren,
       benötigen sie dazu einen sicheren Kommunikationsweg,
       aber dann können sie den (auch nicht längeren) Klartext
-      gleich direkt verschicken. 
+      gleich direkt verschicken.
 \item Keine Eignung zur Massenanwendung:
       Das Verfahren ist bestenfalls zur Kommunikation zwischen
       {\em zwei} Partnern geeignet, wegen des Aufwands bei der
@@ -6020,7 +6021,7 @@ bzw. an den sie erzeugenden Zufallsgenerator\footnote{%
 } ist:
 \begin{quote}
    Kann man aus einem bekannten (auch fragmentierten) Stück
-   der Folge weitere Bits -- vorwärts oder rückwärts -- bestimmen? 
+   der Folge weitere Bits -- vorwärts oder rückwärts -- bestimmen?
 \end{quote}
 Die Antwort für die "`klassischen"', in statistischen Anwendungen
 und Simulationen verwendeten Zufallsgeneratoren ist JA, siehe
@@ -6288,7 +6289,7 @@ den kleinsten Index, für den das Element $x_{\mu}$ irgendwo in der
 Folge noch einmal auftritt, und als $\mu+\nu$ den Index, bei dem diese
 erste Wiederholung auftritt. Dann ist auch
 \[
-    x_{i+\nu} = x_i  \quad \text{für } i \geq \mu. 
+    x_{i+\nu} = x_i  \quad \text{für } i \geq \mu.
 \]
 Dabei ist $0 \leq \mu \leq m - 1$, $1 \leq \nu \leq m$,
 $\mu + \nu \leq m$. Die Werte $x_0, \ldots, x_{\mu+\nu-1}$ sind alle
@@ -6722,7 +6723,7 @@ Unterraum liegt. D.\,h., es gibt Koeffizienten $t_1, \ldots, t_k \in \F_2$ mit
 \[
      u_{(k)}  =  t_1 u_{(k-1)} + \cdots + t_k u_{(0)}.
 \]
-Dann gilt aber auch $u_{(k+1)} = S\cdot u_{(k)} = 
+Dann gilt aber auch $u_{(k+1)} = S\cdot u_{(k)} =
 t_1 S\cdot u_{(k-1)} + \cdots + t_k S\cdot u_{(0)} =
 t_1 u_{(k)} + \cdots + t_k u_{(1)}$ und weiter durch Induktion
 \[
@@ -7256,7 +7257,7 @@ sage: outlist = []
 sage: for i in range(0,nofBits):
 ....:     x = [outlist15[i],outlist16[i],outlist17[i]]
 ....:     outlist.append(geff.valueAt(x))
-....: 
+....:
 sage: print(outlist)
 [1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1,
  0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1,
@@ -7488,7 +7489,7 @@ sage: for i in range(0,2**15):
 ....:     c = coinc(outlist,testlist)
 ....:     histogr[c] += 1
 ....:     clist.append(c)
-....:     
+....:
 sage: print(histogr)
 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 12, 12, 37, 78, 116, 216,
@@ -7536,7 +7537,7 @@ sage: for i in range(0,2**16):
 ....:     c = coinc(outlist,testlist)
 ....:     histogr[c] += 1
 ....:     clist.append(c)
-....:     
+....:
 sage: print(histogr)
 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
  0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 3, 4, 8, 17, 25, 51, 92, 171,
@@ -7750,7 +7751,7 @@ trotzdem (vermutlich) kryptographisch sicheren Zufallsgeneratoren.
 
 Wie beim RSA\index{RSA}-Verfahren betrachtet man einen ganzzahligen Modul $m$, der
 Produkt zweier großer Primzahlen ist. Für den BBS-Generator\index{BBS-Generator} wählt man
--- aus technischen Gründen, die hier nicht weiter erläutert werden -- 
+-- aus technischen Gründen, die hier nicht weiter erläutert werden --
 {\bf Blum-Primzahlen}\index{Blum-Primzahl} $p$; das sind solche, die $\equiv 3 \bmod 4$
 sind. Ein Produkt zweier Blum-Primzahlen heißt {\bf Blum-Zahl}\index{Blum-Zahl}.
 
@@ -7912,24 +7913,24 @@ sage: blum_blum_shub(1000,x0,p,q)
 \begin{table}[hbtp]
 \begin{verbatim}
   1010 0110 0011 0100 0000 0111 1111 0100 1111 0111 0010 1001
-  0000 0100 1111 0000 0010 1010 1011 1111 1000 0101 1110 0011 
-  1110 1000 1001 1100 1000 1000 0110 0111 0011 0011 1010 0011 
-  1100 1111 0011 1000 1011 0110 1011 1110 0110 1110 0111 1000 
+  0000 0100 1111 0000 0010 1010 1011 1111 1000 0101 1110 0011
+  1110 1000 1001 1100 1000 1000 0110 0111 0011 0011 1010 0011
+  1100 1111 0011 1000 1011 0110 1011 1110 0110 1110 0111 1000
   1101 0011 1101 0010 1000 1101 0000 1100 0100 1011 1110 0011
-  0110 0010 1011 0000 1010 1001 0110 0000 0011 1010 0011 1111 
-  1010 0110 0101 1000 1011 0100 0100 1111 1010 1011 0001 1100 
-  0000 0011 1101 1001 0001 0000 1111 1010 1001 0111 0111 0111 
-  0000 1010 0101 0111 0111 0001 0110 1001 0011 1011 0000 0011 
-  1000 0000 0111 0110 0110 1010 0110 0011 0111 1100 0010 0110 
-  0011 1001 1010 1111 0001 0010 1111 0010 1100 1111 0110 0100 
-  0001 1000 0101 0011 0000 0101 1111 1100 0101 0000 0100 0100 
-  0100 0101 0010 1110 1010 1011 1011 0110 0101 1011 1111 1110 
-  1100 1001 1011 0110 1001 0111 0111 1110 0101 0111 0011 0100 
-  1101 1110 0011 1111 1101 0100 1111 1011 1010 0010 0111 1111 
-  1010 1000 1100 1001 1010 1001 1010 0111 0100 0100 1010 0110 
+  0110 0010 1011 0000 1010 1001 0110 0000 0011 1010 0011 1111
+  1010 0110 0101 1000 1011 0100 0100 1111 1010 1011 0001 1100
+  0000 0011 1101 1001 0001 0000 1111 1010 1001 0111 0111 0111
+  0000 1010 0101 0111 0111 0001 0110 1001 0011 1011 0000 0011
+  1000 0000 0111 0110 0110 1010 0110 0011 0111 1100 0010 0110
+  0011 1001 1010 1111 0001 0010 1111 0010 1100 1111 0110 0100
+  0001 1000 0101 0011 0000 0101 1111 1100 0101 0000 0100 0100
+  0100 0101 0010 1110 1010 1011 1011 0110 0101 1011 1111 1110
+  1100 1001 1011 0110 1001 0111 0111 1110 0101 0111 0011 0100
+  1101 1110 0011 1111 1101 0100 1111 1011 1010 0010 0111 1111
+  1010 1000 1100 1001 1010 1001 1010 0111 0100 0100 1010 0110
   0011 0010 1110 0111 0101 0111 1101 0000 0110 0000 1110 1100
-  0101 1010 0111 1000 0101 1111 0010 1101 0110 0100 0010 1101 
-  0000 1101 0111 1011 0010 1010 1000 0110 0100 0111 1100 0000 
+  0101 1010 0111 1000 0101 1111 0010 1101 0110 0100 0010 1101
+  0000 1101 0111 1011 0010 1010 1000 0110 0100 0111 1100 0000
   1101 0000 1011 1111 0101 1011 0011 1110 0010 1110 1101 0001
   1110 1111 1000 0111 1010 0000 1100 0101 0110 0001
 \end{verbatim}
@@ -8509,7 +8510,7 @@ def txt2bbl(text):
     n = ord(text[k])
     by = int2bbl(n,8)
     xbl.extend(by)
-  return xbl  
+  return xbl
 
 def bbl2sub(bbl):
   """Converts bitblock to subset."""
@@ -8549,7 +8550,7 @@ def xor(plain,key):
   """Binary addition of bitblocks.
   Crops key if longer than plain.
   Repeats key if shorter than plain.
-  """ 
+  """
   lk = len(key)
   lp = len(plain)
   ciph = []
