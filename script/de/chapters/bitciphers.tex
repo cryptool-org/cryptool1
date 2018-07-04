@@ -4,7 +4,7 @@
 % B i t b l o c k -  u n d  B i t s t r o m - V e r s c h l ü s s e l u n g
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
+%\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
 
 
 %BERM0 Changed when bc becoming part of the CT book.
@@ -30,18 +30,11 @@
 \newcommand*{\F}{\mathbb{F}}
 \newcommand*{\M}{\mathbb{M}}
 
-%% yyyyyyyyycccc 3.8.16 Side effect of using \begin{bibunit} with 5 renews: The commands
-%% are no more known from before and so cannot be renewed (so still to be newly defined)
-%% \renewcommand*{\C}{\mathbb{C}}   %BERM3
-%% \renewcommand*{\N}{\mathbb{N}}   %BERM3
-%% \renewcommand*{\Q}{\mathbb{Q}}   %BERM3
-%% \renewcommand*{\R}{\mathbb{R}}   %BERM3
-%% \renewcommand*{\Z}{\mathbb{Z}}   %BERM3
-\newcommand*{\C}{\mathbb{C}}
-\newcommand*{\N}{\mathbb{N}}
-\newcommand*{\Q}{\mathbb{Q}}
-\newcommand*{\R}{\mathbb{R}}
-\newcommand*{\Z}{\mathbb{Z}}
+%\newcommand*{\C}{\mathbb{C}}
+\renewcommand*{\N}{\mathbb{N}}
+\renewcommand*{\Q}{\mathbb{Q}}
+\renewcommand*{\R}{\mathbb{R}}
+\renewcommand*{\Z}{\mathbb{Z}}
 
 \newcommand*{\lsb}{\operatorname{lsb}}
 \newcommand*{\Oh}{\operatorname{O}}
@@ -9081,9 +9074,10 @@ class LFSR(object):
 
 
 %------------------------------------------------------------------------------
-\putbib[../de/references]
+%\putbib[../de/references]
 \addcontentsline{toc}{section}{Literaturverzeichnis}
-\end{bibunit}
+%\end{bibunit}
+\printbibliography
 
 \noindent Alle Links wurden am 15.07.2016 überprüft.
 

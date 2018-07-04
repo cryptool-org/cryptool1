@@ -5,7 +5,7 @@
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % be_2016-07-14: Housekeeping: " \\\" --> "\\" done (d+E).
 
-\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
+%\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
 
 
 \newcommand{\mmod}{\hspace{1mm}{\rm mod}\hspace{1mm}}
@@ -15,18 +15,12 @@
 
 %% yyyyyyyyycccc 3.8.16 Side effect of using \begin{bibunit} with 5 renews: The commands
 %% are no more known from before and so cannot be renewed (so still to be newly defined)
-%% \renewcommand{\Q}{\mathbb{Q}}%16xxxxxxxxxxxxxx
-%% \renewcommand{\N}{\mathbb{N}}%16xxxxxxxxxxxxxx
-%% \renewcommand{\C}{\mathbb{C}}%16xxxxxxxxxxxxxx
-%% \renewcommand{\Z}{\mathbb{Z}}%16xxxxxxxxxxxxxx
-%% \renewcommand{\R}{\mathbb{R}}%16xxxxxxxxxxxxxx
-%% \renewcommand{\F}{\mathbb{F}}%16xxxxxxxxxxxxxx % Schon definiert in bitciphers.tex
-\newcommand{\Q}{\mathbb{Q}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\F}{\mathbb{F}}
+\renewcommand{\Q}{\mathbb{Q}}
+\renewcommand{\N}{\mathbb{N}}
+\renewcommand{\C}{\mathbb{C}}
+\renewcommand{\Z}{\mathbb{Z}}
+\renewcommand{\R}{\mathbb{R}}
+\renewcommand{\F}{\mathbb{F}}
 
 \newcommand{\phin}{\phi(N)}
 \newcommand{\bigO}{{\cal O}}
@@ -885,9 +879,10 @@ Seit April 2014 haben sich viele Dinge geändert (es gab es neue Rekorde bei dlog
 
 
 %------------------------------------------------------------------------------
-\putbib[../de/references]
+%\putbib[../de/references]
 \addcontentsline{toc}{section}{Literaturverzeichnis}   % To add it in Contents and for left PDF navigation bar.
-\end{bibunit}
+%\end{bibunit}
+\printbibliography
 
 
 \noindent Alle Links wurden am 15.07.2016 überprüft.

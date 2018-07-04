@@ -4,7 +4,7 @@
 %       P & P - V E R S C H L U E S S E L U N G S V E R F A H R E N
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
+\begin{refsection}
 
 \newpage
 \hypertarget{Chapter_PaperandPencil}{}
@@ -2562,17 +2562,15 @@ HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
 \caption{Hill-Verschlüsselung mit einer zufällig generierten Schlüsselmatrix}
 \end{sagecode}
 
-
-
-
 %------------------------------------------------------------------------------
-\putbib[../de/references]
-\addcontentsline{toc}{section}{Literaturverzeichnis}
-\end{bibunit}
+\printbibheading
+
+\printbibliography[heading=subbibintoc,
+	title={Literatur zu Kapitel \thechapter}]
 
 \noindent Alle Links wurden am 11.07.2016 überprüft.
 
-
+\end{refsection}
 
 % Local Variables:
 % TeX-master: "../script-de.tex"
