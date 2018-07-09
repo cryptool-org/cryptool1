@@ -4,7 +4,7 @@
 %         H o m o m o r p h e   C h i f f r e n
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-%\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
+\begin{refsegment}
 
 \newpage
 % #### old naming: \hypertarget{homciph}{}
@@ -148,16 +148,18 @@ Im JCrypTool\index{JCT} gibt es eine Implementierung (siehe Bild \ref{JCT-HomEnc
 
 
 %------------------------------------------------------------------------------
-%\putbib[../de/references]
-\addcontentsline{toc}{section}{Literaturverzeichnis}
-%\end{bibunit}
-\printbibliography
+\printbibliography[%
+	heading=subbibintoc,
+	title={Literatur zu Kapitel \thechapter},
+	segment=\therefsegment,
+]
+
 
 \noindent Alle Links im Artikel wurden am 15.07.2016 überprüft.
 
 
+\end{refsegment}
+
 % Local Variables:
 % TeX-master: "../script-de.tex"
 % End:
-
-

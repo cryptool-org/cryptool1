@@ -4,13 +4,14 @@
 %       P & P - V E R S C H L U E S S E L U N G S V E R F A H R E N
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-\begin{refsection}
+\begin{refsegment}
 
 \newpage
 \hypertarget{Chapter_PaperandPencil}{}
 
 \chapter{Papier- und Bleistift-Verschlüsselungsverfahren}
 \label{Chapter_PaperandPencil}
+\chaptermark{Papier und Bleistift}
 (\hyperlink{author_Christine-Stoetzel}{Christine Stötzel}, Apr. 2004;
  Updates B.+C. Esslinger, Juni 2005;
  Updates: \hyperlink{author_Minh-Van-Nguyen}{Minh Van Nguyen} und
@@ -2563,14 +2564,17 @@ HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
 \end{sagecode}
 
 %------------------------------------------------------------------------------
-\printbibheading
 
-\printbibliography[heading=subbibintoc,
-	title={Literatur zu Kapitel \thechapter}]
+\printbibliography[%
+	heading=subbibintoc,
+	title={Literatur zu Kapitel \thechapter},
+	segment=\therefsegment,
+]
+
 
 \noindent Alle Links wurden am 11.07.2016 überprüft.
 
-\end{refsection}
+\end{refsegment}
 
 % Local Variables:
 % TeX-master: "../script-de.tex"

@@ -4,7 +4,7 @@
 %              Krypto 2020
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-%\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
+\begin{refsegment}
 
 \newpage
 \hypertarget{Chapter_Crypto2020}{}
@@ -319,11 +319,13 @@ das sich zukünftige Forschung fokussieren sollte.
 
 
 %------------------------------------------------------------------------------
-%\putbib[../de/references]
-\addcontentsline{toc}{section}{Literaturverzeichnis}
-%\end{bibunit}
-\printbibliography
+\printbibliography[%
+	heading=subbibintoc,
+	title={Literatur zu Kapitel \thechapter},
+	segment=\therefsegment,
+]
+
 
 \noindent Alle Links im Artikel wurden am 15.07.2016 überprüft.
 
-
+\end{refsegment}

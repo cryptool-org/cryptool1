@@ -4,7 +4,7 @@
 %                  E L L I P T I S C H E  K U R V E N
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-%\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
+\begin{refsegment}
 
 \newpage
 \hypertarget{Chapter_EllipticCurves}{}
@@ -942,10 +942,12 @@ der Schlüssellänge (begrenzter Speicherplatz) eine entscheidende Bedeutung zukom
 
 
 %------------------------------------------------------------------------------
-%\putbib[../de/references]
-\addcontentsline{toc}{section}{Literaturverzeichnis}
-%\end{bibunit}
-\printbibliography
+\printbibliography[%
+	heading=subbibintoc,
+	title={Literatur zu Kapitel \thechapter},
+	segment=\therefsegment,
+]
+
 
 \noindent Alle Links wurden am 14.07.2016 überprüft.
 
@@ -1012,8 +1014,7 @@ der Schlüssellänge (begrenzter Speicherplatz) eine entscheidende Bedeutung zukom
 
 \noindent Alle Links wurden am 14.07.2016 überprüft.
 
+\end{refsegment}
 % Local Variables:
 % TeX-master: "../script-de.tex"
 % End:
-
-

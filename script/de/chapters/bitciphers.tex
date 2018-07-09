@@ -4,7 +4,7 @@
 % B i t b l o c k -  u n d  B i t s t r o m - V e r s c h l ü s s e l u n g
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-%\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
+\begin{refsegment}
 
 
 %BERM0 Changed when bc becoming part of the CT book.
@@ -31,10 +31,10 @@
 \newcommand*{\M}{\mathbb{M}}
 
 %\newcommand*{\C}{\mathbb{C}}
-\renewcommand*{\N}{\mathbb{N}}
-\renewcommand*{\Q}{\mathbb{Q}}
-\renewcommand*{\R}{\mathbb{R}}
-\renewcommand*{\Z}{\mathbb{Z}}
+\newcommand*{\N}{\mathbb{N}}
+\newcommand*{\Q}{\mathbb{Q}}
+\newcommand*{\R}{\mathbb{R}}
+\newcommand*{\Z}{\mathbb{Z}}
 
 \newcommand*{\lsb}{\operatorname{lsb}}
 \newcommand*{\Oh}{\operatorname{O}}
@@ -9074,12 +9074,14 @@ class LFSR(object):
 
 
 %------------------------------------------------------------------------------
-%\putbib[../de/references]
-\addcontentsline{toc}{section}{Literaturverzeichnis}
-%\end{bibunit}
-\printbibliography
+\printbibliography[%
+	heading=subbibintoc,
+	title={Literatur zu Kapitel \thechapter},
+	segment=\therefsegment,
+]
 
 \noindent Alle Links wurden am 15.07.2016 überprüft.
 
+\end{refsegment}
 %BERM1 \end{document}
 

@@ -7,7 +7,7 @@
 %                         in primes.text and numbertheory.tex!
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-%\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
+\begin{refsegment}
 
 \newpage
 \hypertarget{Chapter_Primes}{}
@@ -3291,10 +3291,12 @@ Percentage of primes: 58.3416583417
 
 
 %------------------------------------------------------------------------------
-\printbibliography
-%\putbib[../de/references]
-\addcontentsline{toc}{section}{Literaturverzeichnis}
-%\end{bibunit}
+
+\printbibliography[%
+	heading=subbibintoc,
+	title={Literatur zu Kapitel \thechapter},
+	segment=\therefsegment,
+]
 
 \noindent Alle Links wurden am 11.07.2016 überprüft.
 
@@ -3382,7 +3384,7 @@ dieses Artikels: Hr. Henrik Koy und Hr. Roger Oyono.
 
 
 
-
+\end{refsegment}
 % Local Variables:
 % TeX-master: "../script-de.tex"
 % End:(5\cdot2^7 - 1)(5^2\cdot2^14 + 1)(5\cdot2^7 - 1)(5^2\cdot2^14 + 1)

@@ -5,8 +5,7 @@
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % be_2016-07-13: Housekeeping: " \\\" --> "\\" done (d+E).
 
-
-%\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
+\begin{refsegment}
 
 \newpage
 % --------------------------------------------------------------------------
@@ -538,13 +537,16 @@ gesichert übermittelt werden.
 
 
 %------------------------------------------------------------------------------
-%\putbib[../de/references]
-\addcontentsline{toc}{section}{Literaturverzeichnis}
-%\end{bibunit}
-\printbibliography
+\printbibliography[%
+	heading=subbibintoc,
+	title={Literatur zu Kapitel \thechapter},
+	segment=\therefsegment,
+]
+
 
 \noindent Alle Links wurden am 14.07.2016 überprüft.
 
+\end{refsegment}
 
 % Local Variables:
 % TeX-master: "../script-de.tex"

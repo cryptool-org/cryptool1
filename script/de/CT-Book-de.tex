@@ -88,8 +88,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%------bibliographie
 %\usepackage[style=alphabetic,backend=biber,refsection=chapter]{biblatex}
 \usepackage[style=alphabetic,backend=biber]{biblatex}
-%\defbibheading{subbibliography}{%
-%	\section*{Literatur für Kapitel \thechapter}}
 \addbibresource{references-new.bib}
 \usepackage{csquotes}
 
@@ -156,6 +154,7 @@
 
 %%%%%%%%%%beginfolding%%%%%%%%%%%%%%-----layout, z.B. boxen, listen, linien
 \pagestyle{headings}
+%\chapter[toc version]{doc version}\chaptermark{running-header version}
 \usepackage{fancybox} %16xxxxxxxxxxxxxx
 \usepackage{paralist}  %BE_2012: eliminate space after end{itemize} worked with compactitem
 \usepackage{verse}    %BE_Feb2013: To use \settowidth{\versewidth}{xxx}
@@ -523,22 +522,9 @@ Versionsverwaltungs-Software: Subversion
 
 %bibliographie beginfolding
 %------------------------------------------------------------------------------
-%\begin{bibunit}[babplain] %% Style not just plain! %% \begin{bibunit}[plain]
 %\nocite{*}
-%	\renewcommand{\bibname}{Literaturverzeichnis über alle Kapitel (nummeriert by babplain)}
-%\putbib[../de/references]
-	\addcontentsline{toc}{chapter}{Literaturverzeichnis über alle Kapitel (nummeriert)}
-%\end{bibunit}
-
-%\begin{bibunit}[babalpha] %% Style not just alpha! %% \begin{bibunit}[alpha]
-%\nocite{*}  %% Wenn auskommentiert, ist Ges.lit.verzeichnis leer und
-            %% ("Label `Heninger2012' multiply defined"). Es kommen nur 18 statt 210
-            %% Warnungen ("multiply defined references"). Warum noch 18?  Todo_LaTeX.
-%\renewcommand{\bibname}{Literaturverzeichnis über alle Kapitel (sortiert by babalpha)}
-%\putbib[../de/references]
-\addcontentsline{toc}{chapter}{Literaturverzeichnis über alle Kapitel (sortiert nach AutorJahr)}
-%\end{bibunit}
-\printbibliography
+\printbibliography[heading=bibintoc,
+title={Gesamtliteraturverzeichnis}]
 
 %endfolding
 

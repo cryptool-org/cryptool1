@@ -4,7 +4,7 @@
 %             V E R S C H L U E S S E L U N G S V E R F A H R E N
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-\begin{refsection}
+\begin{refsegment}
 
 % HACK to fix warning "destination with the same identifier .. has already been used, ...":
 % REMOVED, because it caused missing index entries
@@ -13,7 +13,9 @@
 %%%% Old naming: \hypertarget{Kapitel_1}{}
 \hypertarget{Chapter_EncryptionSecDefinitions}{}
 
-\chapter{Sicherheits-Definitionen und Verschlüsselungsverfahren}
+\chapter%[Sicherheitsdef. und Verschl.verfahren]%
+{Sicherheits-Definitionen und Verschlüsselungsverfahren}
+\chaptermark{Sicherheitsdef. und Verschl.verfahren}
 \label{Chapter_EncryptionSecDefinitions}
 (\hyperlink{author_Bernhard-Esslinger}{Bernhard Esslinger},
  \hyperlink{author_Joerg-Cornelius-Schneider}{Jörg-Cornelius Schneider},
@@ -1193,8 +1195,12 @@ Die Referenz zu SageMath v7.2 führt als kryptographische Funktionen u.a. auf:%
 
 
 %------------------------------------------------------------------------------
-\printbibliography[heading=subbibliography,
-	title={Literatur zu Kapitel \thechapter}]
+
+\printbibliography[%
+	heading=subbibintoc,
+	title={Literatur zu Kapitel \thechapter},
+	segment=\therefsegment,
+]
 
 \noindent Alle Links wurden am 10.07.2016 überprüft.
 
@@ -1235,7 +1241,7 @@ Die Referenz zu SageMath v7.2 führt als kryptographische Funktionen u.a. auf:%
 
 Alle Links wurden am 10.07.2016 überprüft.
 
-\end{refsection}
+\end{refsegment}
 
 % Local Variables:
 % TeX-master: "../script-de.tex"

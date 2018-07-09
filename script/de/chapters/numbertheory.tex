@@ -4,7 +4,7 @@
 %              E l e m e n t a r e  Z a h l e n t h e o r i e
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-%\begin{bibunit}[babalpha] %% alpha: Chapter bibliography shows authors abbreviation
+\begin{refsegment}
 
 	
 %\def\QM {{,\kern -0.9 pt ,}}
@@ -13,6 +13,7 @@
 
 \hypertarget{Chapter_ElementaryNT}{}
 \chapter{Einführung in die elementare Zahlentheorie mit Beispielen}
+\chaptermark{Zahlentheorie}
 \label{Chapter_ElementaryNT}
 (\hyperlink{author_Bernhard-Esslinger}{Bernhard Esslinger}, Juli 2001;
  Updates: Nov. 2001, Juni 2002, Mai 2003,
@@ -6670,10 +6671,12 @@ Satz~\ref{nt-thm-Anzahl-RSA-Fixpunkte} & Anzahl der RSA-Fixpunkte & \pageref{nt-
 
 
 %------------------------------------------------------------------------------
-%\putbib[../de/references]
-\addcontentsline{toc}{section}{Literaturverzeichnis}
-%\end{bibunit}
-\printbibliography
+\printbibliography[%
+	heading=subbibintoc,
+	title={Literatur zu Kapitel \thechapter},
+	segment=\therefsegment,
+]
+
 
 \noindent Alle Links wurden am 12.07.2016 überprüft.
 
@@ -6809,6 +6812,7 @@ herzlich zu danken:
 
 \end{itemize}
 
+\end{refsegment}
 
 % Local Variables:
 % TeX-master: "../script-de.tex"
