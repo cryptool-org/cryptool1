@@ -48,15 +48,13 @@ aspects of mathematics.
 
 %% \centering statt \begin{center} ... \end{center}, da dies zusätzlich vertical space erzeugt.
 \noindent In the meantime there are lots of PDF and HTML documents about using SageMath, so we name only a few of them as a good starting point\footnote{%
-- ``Library'': {\centering \url{http://www.sagemath.org/library/index.html}},\\
+- ``Library'': {\centering \url{http://www.sagemath.org/library.html}},\\
 - ``Documentation Project'': {\centering \url{http://wiki.sagemath.org/DocumentationProject}},\\
 - ``Teaching'': {\centering \url{http://wiki.sagemath.org/Teaching_with_SAGE}}.
 }.
 
 \noindent With respect to studying cryptography, SageMath modules can be used
 to complement a first course in cryptography\footnote{%
-- Module sources in the directory \url{SAGE_ROOT/devel/sage-main/sage/crypto}.
-
 \noindent\hangindent=6pt\makebox[6pt][l]{-}Overview, what crypto currently is in SageMath:\\
    \url{http://www.sagemath.org/doc/reference/sage/crypto/}
 
@@ -64,16 +62,16 @@ to complement a first course in cryptography\footnote{%
    about teaching related aspects of development crypto in SageMath:\\
    \url{http://groups.google.com/group/sage-devel/browse_thread/thread/c5572c4d8d42d081}
 
-   % Leerzeile am Ende nötig, sonst hat die zweite Zeile KEINEN hängenden Einzug?! (TODO_LaTeX)
-   % Dadurch aber mehr Abstand von Seitennummer als sonst!
+   % TODO: hängender Einzug und Leerzeile (TODO_LaTeX)
+   % Dadurch aber mehr Abstand von Seitennummer als sonst! ?
 }.
 
 \noindent Comprehensive introductions into cryptography are in this
 footnote\footnote{%
 - David Kohel's notes from 2008 are a ready cource\\
-{\centering \url{http://www.sagemath.org/library/crypto.pdf} }
-or the same eventually newer at\\
-{\centering \url{http://sage.math.washington.edu/home/wdj/teaching/kohel-crypto.pdf} }.\\
+{\centering \url{http://www.sagemath.org/files/kohel-book-2008.pdf} }
+or the same newer (from 2015) at\\
+{\centering \url{http://iml.univ-mrs.fr/~kohel/tch/M2-CryptoSymetrique/crypto.pdf} }.\\
 - ``Introduction to Cryptography with Open-Source Software, a very good book
   from Alasdair McAndrew, CRC, 2011\\
 }.
@@ -98,8 +96,8 @@ $\Rightarrow$ ``\nameref{ec:Sage_Massierer}'').
                       }
 online at different servers, without having to install SageMath locally, e.g:
 \begin{center}
-\url{http://www.sagenb.org} or\\
-\url{http://sage.mathematik.uni-siegen.de:8000}
+\url{http://sagecell.sagemath.org/} or\\
+\url{https://cocalc.com/}
 \end{center}
 
 SageMath runs under many Linux distributions, Mac OS X, and Windows.
@@ -375,7 +373,7 @@ chapter \ref{NumberTheory_Appendix_E} (``\nameref{NumberTheory_Appendix_E}'').
 \noindent To program and test SageMath code using an editor there are two useful commands:
 \verb!load()! and \verb!attach()!\footnote{%
 See SageMath tutorial about Programming, chapter ``Loading and Attaching Sage files'',\\
-\url{http://www.sagemath.org/doc/tutorial/programming.html\#loading-and-attaching-sage-files}.}.\\
+\url{http://doc.sagemath.org/html/en/tutorial/programming.html}.}.\\
 Suppose you have a function definition like this:
 \begin{Verbatim}%
    [fontsize=\footnotesize]

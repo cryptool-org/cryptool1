@@ -11,6 +11,10 @@
 \index{SageMath}
 \index{SageMath!Programmbeispiele}
 
+%% Unter \url{https://wiki.sagemath.org/combinat} gibt es Weiterentwicklung on-top of Sage.
+%% Diese kommen meist nach und nach ins offizielle Sage rein.
+
+
 Dieses Buch enthält zahlreiche mit SageMath erstellte Programmbeispiele. SageMath ist
 ein Open-Source Computer-Algebra-System (CAS), das für Lehre, Studium und Forschung
 eingesetzt wird.
@@ -54,7 +58,7 @@ Bereich der algorithmischen Aspekte der Mathematik zu betreiben.
 
 
 \noindent Es gibt inzwischen viele PDF- und HTML-Dokumente über SageMath, so dass wir als guten Startpunkt nur einige wenige nennen\footnote{%
-- \glqq Bibliothek\grqq: {\centering \url{http://www.sagemath.org/library/index.html}},\\
+- \glqq Bibliothek\grqq: {\centering \url{http://www.sagemath.org/library.html}},\\
 - \glqq Dokumentationsprojekt\grqq:
   {\centering \url{http://wiki.sagemath.org/DocumentationProject}},\\
 - \glqq Lehrmaterial\grqq: {\centering \url{http://wiki.sagemath.org/Teaching_with_SAGE}}.
@@ -62,8 +66,6 @@ Bereich der algorithmischen Aspekte der Mathematik zu betreiben.
 
 \noindent Auch beim Studium der Kryptologie können fertige SageMath-Module genutzt
 werden\footnote{%
-- Sourcen der Module im Verzeichnis \url{SAGE_ROOT/devel/sage-main/sage/crypto}.
-
 \noindent\hangindent=6pt\makebox[6pt][l]{-}Überblick,
    welche Kryptographie momentan in SageMath enthalten ist:\\
    \url{http://www.sagemath.org/doc/reference/sage/crypto/}
@@ -71,16 +73,16 @@ werden\footnote{%
 \noindent\hangindent=6pt\makebox[6pt][l]{-}Diskussionen
    über Lernaspekte beim Entwickeln weiterer Krypto-Module in SageMath:\\
    \url{http://groups.google.com/group/sage-devel/browse_thread/thread/c5572c4d8d42d081}
-   % Leerzeile am Ende nötig, sonst hat die zweite Zeile KEINEN hängenden Einzug?! (TODO)
-
+% Leerzeile bei den Aufzählungen am Ende nötig, damit die 2. Zeile (Url) hängenden Einzug hat.
+% ABER: Bei der letzten Aufzählung führt Leerzeile zu leerer Zeile (was nicht gewollt ist) und die letzte Url hat trotzdem keinen hängenden Einzug! (TODOTODO)
 }.
 
 \noindent Umfangreiche Kryptographie-Einführungen finden sich in der folgenden Fußnote\footnote{%
 \noindent\hangindent=6pt\makebox[6pt][l]{-}Ein fertiger Kryptographie-Kurs von David Kohel,
   der SageMath nutzt, aus 2008:\\
-  {\centering \url{http://www.sagemath.org/library/crypto.pdf} }\\
-  bzw. derselbe Kurs in einer eventuell neueren Fassung\\
-  {\centering \url{http://sage.math.washington.edu/home/wdj/teaching/kohel-crypto.pdf} }.
+  {\centering \url{http://www.sagemath.org/files/kohel-book-2008.pdf} }\\
+  bzw. derselbe Kurs in einer neueren Fassung (2015)\\
+  {\centering \url{http://iml.univ-mrs.fr/~kohel/tch/M2-CryptoSymetrique/crypto.pdf} }.
 
 \noindent\hangindent=6pt\makebox[6pt][l]{-}\glqq Introduction to Cryptography with
   Open-Source Software\grqq, ein hervorragendes Buch von Alasdair McAndrew, CRC, 2011
@@ -106,8 +108,8 @@ Kapitel~\ref{ec:Sage_Massierer}
                       }
 auch online auf verschiedenen Servern nutzen, ohne SageMath lokal zu installieren, z.B.:
 \begin{center}
-\url{http://www.sagenb.org} oder \\
-\url{http://sage.mathematik.uni-siegen.de:8000}
+\url{http://sagecell.sagemath.org/} oder \\
+\url{https://cocalc.com/}
 \end{center}
 
 SageMath läuft unter den Betriebssystemen Linux, Mac OS X und Windows.
@@ -384,7 +386,7 @@ angewandt.
 nützliche Befehle: \verb!load()! und \verb!attach()!\footnote{%
 Vergleiche das SageMath-Tutorial über Programmierung, Kapitel
 \glqq Loading and Attaching Sage files\grqq,\\
-\url{http://www.sagemath.org/doc/tutorial/programming.html\#loading-and-attaching-sage-files}.}.\\
+\url{http://doc.sagemath.org/html/en/tutorial/programming.html}.}.\\
 Angenommen Sie haben die folgende Funktions-Definition:
 \begin{Verbatim}%
    [fontsize=\footnotesize]
