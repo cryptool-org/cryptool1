@@ -1,4 +1,12 @@
 % $Id$
+% arara: pdflatex
+% arara: biber
+% arara: makeindex: {style: style.ist}
+% arara: pdflatex
+% arara: pdflatex
+% arara: clean:{extensions:[aux,bbl,bcf,blg,fdb_latexmk,fls,idx,
+% arara: --> ilg,ind,loc,lof,log,loos,lop,loq,lot,mw,mw.mw,
+% arara: --> out,run.xml,toc]}
 % doris beginfolding in vim
 % !TEX TS-program = pdflatexmk
 % !BIB TS-program=biber
@@ -55,6 +63,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[a4paper,11pt,oneside,english,ngerman]{book}  % the order ngerman-english doesn't seem to matter.
+
+\newcommand*{\indexsection}[1]{\markright{#1}}
+
 
 \usepackage[ngerman]{babel}
 \usepackage{datetime} % To distinguish often compiled draft versions
