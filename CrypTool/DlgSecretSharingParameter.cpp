@@ -26,6 +26,7 @@
 #include "DlgSecretSharingOptions.h"
 #include "DlgSecretSharingParameter.h"
 #include ".\dlgsecretsharingparameter.h"
+#include "CrypToolTools.h"
 
 // CDlgSecretSharingParameter-Dialogfeld
 
@@ -276,66 +277,65 @@ void CDlgSecretSharingParameter::CheckEdit(CString &m_edit, int &sels, int &sele
 	}
 }
 
+// flomar, 2018/10/01: The original code contained a bug that would display 
+// error messages and prevent the user from proceeding although all the 
+// given parameters were good.
 void CDlgSecretSharingParameter::OnButtonClickedOk()
 {
-	CString strCoefficients = this->m_myCoeff;
-	CString strOneCoeff;
-	int pos = 0;
-	int nCount = 0;
-	int tmpPrime = atoi(LPCSTR(this->m_myPrime));
-	int tmpThreshold = atoi(LPCSTR(this->m_threshold));
-
-	// FIXME !!!
-	pos = strCoefficients.Find(',', pos);
-	strOneCoeff = strCoefficients.Mid(0, pos);
-	// Tokenize not supported in MFC 6 // strOneCoeff = strCoefficients.Tokenize(",", pos);
-	while (strOneCoeff != "")
-	{
-		//Koeffizienten einlesen
-		long singleCoeff = atoi(LPCSTR(strOneCoeff));
-		if(singleCoeff != setupCoeff[nCount])
-		{
-			isNew = true;
-			this->m_ctrlButtonOK.EnableWindow(true);
+	// Make a copy of the supplied coefficients, but ignore all characters 
+	// which are not part of the valid alphabet. Here, the valid alphabet 
+	// consists of digits and the comma separator.
+	const CString digits = "0123456789";
+	const CString separator = ",";
+	CString stringCoefficients;
+	for(int index=0; index<m_myCoeff.GetLength(); index++) {
+		const char character = m_myCoeff[index];
+		if(digits.Find(character) != -1 || separator.Find(character) != -1) {
+			stringCoefficients.AppendChar(character);
 		}
-		//auf Shamir-Bedingungen achten
-		if(singleCoeff >= oldPrime)
-		{
-			LoadString(AfxGetInstanceHandle(), IDS_STRING_SECRETSHARING_BIGCOEFF, pc_str, 110);
-			AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
-			this->m_myCoeff = "";
-			this->m_ctrlButtonOK.EnableWindow(false);
+	}
+	// Now we split the coefficients using the separator so that we have 
+	// isolated string representations of each coefficient in a vector.
+	const std::vector<CString> vectorCoefficients = splitString(stringCoefficients, separator);
+	// If we don't have the exact number of required coefficients, 
+	// we can bail right away with an appropriate error message.
+	const int numberOfCoefficients = vectorCoefficients.size();
+	const int numberOfCoefficientsRequired = atoi(LPCSTR(m_threshold)) - 1;
+	if(numberOfCoefficients != numberOfCoefficientsRequired) {
+		CString message;
+		message.Format(IDS_STRING_SECRETSHARING_MORECOEFF, numberOfCoefficientsRequired);
+		AfxMessageBox(message, MB_ICONINFORMATION);
+		m_myCoeff = "";
+		m_ctrlButtonOK.EnableWindow(false);
+		UpdateData(false);
+		return;
+	}
+	// Now go through all coefficients and make sure they're valid, as in 
+	// "smaller than the prime".
+	const int prime = atoi(LPCSTR(m_myPrime));
+	for(int index=0; index<vectorCoefficients.size(); index++) {
+		const CString stringCoefficient = vectorCoefficients[index];
+		const int coefficient = atoi(LPCSTR(stringCoefficient));
+		if(coefficient >= prime) {
+			CString message;
+			message.Format(IDS_STRING_SECRETSHARING_BIGCOEFF, MB_ICONINFORMATION);
+			m_myCoeff = "";
+			m_ctrlButtonOK.EnableWindow(false);
 			UpdateData(false);
 			return;
 		}
-		setupCoeff[nCount] = singleCoeff;
-
-		// FIXME !!!
-		int posOld = pos+1;
-		pos = strCoefficients.Find(',', posOld);
-		strOneCoeff = strCoefficients.Mid(posOld, pos - posOld);
-		// Tokenize not supported in MFC 6 // strOneCoeff = strCoefficients.Tokenize(",", pos);
-		nCount++;
 	}
-	if(nCount >= tmpThreshold)
-	{
-		CString strMsg;
-		strMsg.Format(IDS_STRING_SECRETSHARING_MORECOEFF, tmpThreshold-1);
-		AfxMessageBox(strMsg, MB_ICONINFORMATION);
-		this->m_myCoeff = "";
-		this->m_ctrlButtonOK.EnableWindow(false);
-		UpdateData(false);
-		return;
-	}
-	if(nCount < (tmpThreshold-1))
-	{
-		CString strMsg;
-		strMsg.Format(IDS_STRING_SECRETSHARING_MORECOEFF, tmpThreshold-1);
-		AfxMessageBox(strMsg, MB_ICONINFORMATION|MB_OK);
-		this->m_myCoeff = "";
-		this->m_ctrlButtonOK.EnableWindow(false);
-		UpdateData(false);
-		return;
+	// At this point all coeffiencts seem to be valid. Therefore write them 
+	// back to the original data source (that weird long pointer), and make 
+	// sure to enable the OK button.
+	for(int index=0; index<vectorCoefficients.size(); index++) {
+		const CString stringCoefficient = vectorCoefficients[index];
+		const int coefficient = atoi(LPCSTR(stringCoefficient));
+		if(setupCoeff[index] != (long)(coefficient)) {
+			setupCoeff[index] = (long)(coefficient);
+			isNew = true;
+			m_ctrlButtonOK.EnableWindow(true);
+		}
 	}
 	UpdateData(false);
 	OnOK();
