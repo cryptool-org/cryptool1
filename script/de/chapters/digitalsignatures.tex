@@ -13,7 +13,7 @@
 \chapter{Hashfunktionen und Digitale Signaturen}
 \label{Chapter_Hashes-and-Digital-Signatures}
 \index{Signatur!digital}
-(\hyperlink{author_Joerg-Cornelius-Schneider}{Jörg-Cornelius Schneider} /
+(\hyperlink{author_Joerg-Cornelius-Schneider}{JÃ¶rg-Cornelius Schneider} /
  \hyperlink{author_Bernhard-Esslinger}{Bernhard Esslinger} /
  \hyperlink{author_Henrik-Koy}{Henrik Koy},
  Juni 2002;
@@ -21,89 +21,89 @@
 % --------------------------------------------------------------------------
 %\vskip + 30pt
 \begin{ctsquote}
-Wir können alles aus dieser Welt machen, nur nicht eine Welt, in der die
-Menschen in einigen zigtausend Jahren überlegen könnten: 'So, es ist nun
-genug. So soll es von nun an für immer bleiben. Verändern wir nichts,
+Wir kÃ¶nnen alles aus dieser Welt machen, nur nicht eine Welt, in der die
+Menschen in einigen zigtausend Jahren Ã¼berlegen kÃ¶nnten: 'So, es ist nun
+genug. So soll es von nun an fÃ¼r immer bleiben. VerÃ¤ndern wir nichts,
 erfinden wir nichts, weil es besser nicht sein kann, und wenn doch, dann
 wollen wir es nicht.'
 \caption[Stanislaw Lem]{Stanislaw Lem\footnotemark}\index{Lem, Stanislaw}
 \end{ctsquote}
 \addtocounter{footnote}{0}\footnotetext{Antwort von Stanislaw Lem auf
 die Kritik an seinem philosophischen Hauptwerk ~\glqq Summa Technologiae\grqq,
-1964, in der er die evolutionäre Möglichkeit einer Entstehung der
-künstlichen Intelligenz ausführte.}
+1964, in der er die evolutionÃ¤re MÃ¶glichkeit einer Entstehung der
+kÃ¼nstlichen Intelligenz ausfÃ¼hrte.}
 
 
 %\vspace{12pt}
-\noindent Ziel der digitalen Signatur ist es, folgende zwei Punkte zu gewährleisten:
+\noindent Ziel der digitalen Signatur ist es, folgende zwei Punkte zu gewÃ¤hrleisten:
 \begin{itemize}
- \item Benutzerauthentizität:\index{Authentizität!Benutzer-}\\
-      Es kann überprüft werden, ob eine Nachricht tatsächlich
+ \item BenutzerauthentizitÃ¤t:\index{AuthentizitÃ¤t!Benutzer-}\\
+      Es kann Ã¼berprÃ¼ft werden, ob eine Nachricht tatsÃ¤chlich
       von einer bestimmten Person stammt.
- \item Nachrichtenintegrität:\index{Nachrichtenintegrität}\\
-      Es kann überprüft werden, ob die Nachricht (unterwegs)
-      verändert wurde.
+ \item NachrichtenintegritÃ¤t:\index{NachrichtenintegritÃ¤t}\\
+      Es kann Ã¼berprÃ¼ft werden, ob die Nachricht (unterwegs)
+      verÃ¤ndert wurde.
 \end{itemize}
 
 
 Zum Einsatz kommt wieder eine asymmetrische Technik (siehe
-Verschlüsselungsverfahren).
-Ein Teilnehmer, der eine digitale Signatur für ein Dokument erzeugen will,
-muss ein Schlüssel"-paar besitzen. Er benutzt seinen geheimen Schlüssel,
-um Signaturen zu erzeugen, und der Empfänger benutzt den öffentlichen
-Schlüssel des Absenders, um die Richtigkeit der Signatur zu überprüfen.
-Es darf wiederum nicht möglich sein, aus dem öffentlichen den geheimen
-Schlüssel abzuleiten.
+VerschlÃ¼sselungsverfahren).
+Ein Teilnehmer, der eine digitale Signatur fÃ¼r ein Dokument erzeugen will,
+muss ein SchlÃ¼ssel"-paar besitzen. Er benutzt seinen geheimen SchlÃ¼ssel,
+um Signaturen zu erzeugen, und der EmpfÃ¤nger benutzt den Ã¶ffentlichen
+SchlÃ¼ssel des Absenders, um die Richtigkeit der Signatur zu Ã¼berprÃ¼fen.
+Es darf wiederum nicht mÃ¶glich sein, aus dem Ã¶ffentlichen den geheimen
+SchlÃ¼ssel abzuleiten.
 
 Im Detail sieht ein \index{Signaturverfahren}
 {\em Signaturverfahren}\footnote{%
-Mit CT1\index{CT1} können Sie ebenfalls digitale Signaturen
-erzeugen und prüfen:\\
-entweder in den Untermenüs des Hauptmenüpunktes
+Mit CT1\index{CT1} kÃ¶nnen Sie ebenfalls digitale Signaturen
+erzeugen und prÃ¼fen:\\
+entweder in den UntermenÃ¼s des HauptmenÃ¼punktes
 {\bf Digitale Signaturen / PKI} oder\\
 per
 {\bf Einzelverfahren \textbackslash{} RSA-Kryptosystem \textbackslash{}
 Signaturdemo (Signaturerzeugung)}.\\
-Ebenso können mit JCT\index{JCT} (in der Standard- und der
+Ebenso kÃ¶nnen mit JCT\index{JCT} (in der Standard- und der
 Algorithmen-Perspektive) unterschiedliche Arten elektronischer Signaturen
 erzeugt werden.
 }
-folgendermaßen aus:\\
-Der Absender berechnet aus seiner Nachricht und seinem geheimen Schlüssel
+folgendermaÃŸen aus:\\
+Der Absender berechnet aus seiner Nachricht und seinem geheimen SchlÃ¼ssel
 die digitale Signatur der Nachricht. Im Vergleich zur handschriftlichen
 Unterschrift hat die digitale Signatur den Vorteil, dass die
-Unterschrift auch vom unterschriebenen Dokument abhängt. Die Unterschriften
+Unterschrift auch vom unterschriebenen Dokument abhÃ¤ngt. Die Unterschriften
 ein und desselben Teilnehmers sind verschieden, sofern die unterzeichneten
-Dokumente nicht vollkommen übereinstimmen. Selbst das Einfügen eines
-Leerzeichens in den Text würde zu einer anderen Signatur führen. Eine
-Verletzung der Nachrichtenintegrität wird also vom Empfänger der
+Dokumente nicht vollkommen Ã¼bereinstimmen. Selbst das EinfÃ¼gen eines
+Leerzeichens in den Text wÃ¼rde zu einer anderen Signatur fÃ¼hren. Eine
+Verletzung der NachrichtenintegritÃ¤t wird also vom EmpfÃ¤nger der
 Nachricht erkannt, da in diesem Falle die Signatur nicht mehr zum Dokument
-passt und sich bei der Überprüfung als unkorrekt erweist.
+passt und sich bei der ÃœberprÃ¼fung als unkorrekt erweist.
 
-Das Dokument wird samt Signatur an den Empfänger verschickt. Dieser kann
-mit Hilfe des öffentlichen Schlüssels des Absenders, des Dokuments und
+Das Dokument wird samt Signatur an den EmpfÃ¤nger verschickt. Dieser kann
+mit Hilfe des Ã¶ffentlichen SchlÃ¼ssels des Absenders, des Dokuments und
 der Signatur feststellen, ob die Signatur korrekt ist.
-Das gerade beschriebene Verfahren hätte in der Praxis jedoch einen
-entscheidenden Nachteil: Die Signatur wäre ungefähr genauso lang wie das
-eigentliche Dokument. Um den Datenverkehr nicht unnötig anwachsen zu
-lassen und aus Performance-Gründen\index{Performance} wendet man -- vor
+Das gerade beschriebene Verfahren hÃ¤tte in der Praxis jedoch einen
+entscheidenden Nachteil: Die Signatur wÃ¤re ungefÃ¤hr genauso lang wie das
+eigentliche Dokument. Um den Datenverkehr nicht unnÃ¶tig anwachsen zu
+lassen und aus Performance-GrÃ¼nden\index{Performance} wendet man -- vor
 dem Signieren -- auf das Dokument eine kryptographische
 Hashfunktion\footnote{%
 Hashfunktionen\index{Hashfunktion} sind in CT1\index{CT1}
 an mehreren Stellen implementiert.\\
-In den Menüs {\bf Einzelverfahren \textbackslash{} Hashverfahren} bzw.
+In den MenÃ¼s {\bf Einzelverfahren \textbackslash{} Hashverfahren} bzw.
               {\bf Analyse \textbackslash{} Hashverfahren}
-haben Sie die Möglichkeit
-% hier die items nicht einrücken!
+haben Sie die MÃ¶glichkeit
+% hier die items nicht einrÃ¼cken!
 \begin{list}{\textbullet}{\leftmargin10pt\addtolength{\itemsep}{-1.0\baselineskip}}
 %\begin{itemize}\addtolength{\itemsep}{-1.0\baselineskip}
 \item 6 Hashfunktionen auf den Inhalt des aktiven Fensters anzuwenden,\\
-\item für eine Datei den Hashwert zu berechnen,\\
-\item in der Hash-Demo die Auswirkung von Textänderungen auf den
+\item fÃ¼r eine Datei den Hashwert zu berechnen,\\
+\item in der Hash-Demo die Auswirkung von TextÃ¤nderungen auf den
       Hashwert zu testen,\\
-\item aus einem Passwort gemäß dem PKCS\#5-Standard\index{PKCS\#5}
-      einen Schlüssel zu berechnen,\\
-\item aus einem Text und einem geheimen Schlüssel HMACs zu berechnen, und\\
+\item aus einem Passwort gemÃ¤ÃŸ dem PKCS\#5-Standard\index{PKCS\#5}
+      einen SchlÃ¼ssel zu berechnen,\\
+\item aus einem Text und einem geheimen SchlÃ¼ssel HMACs zu berechnen, und\\
 \item aufgrund von gezielt gesuchten Hashwertkollisionen\index{Kollision}
       einen Angriff auf digitale Signaturen zu simulieren.
 \end{list}
@@ -120,18 +120,18 @@ Hashverfahren: Vergleiche die Funktionenliste im Anhang
 \section{Hashfunktionen}
 \index{Hashfunktion}
 Eine {\em Hashfunktion}\footnote{%
-Hashverfahren berechnen eine komprimierte Repräsentation
+Hashverfahren berechnen eine komprimierte ReprÃ¤sentation
 elektronischer Daten (Message).
 Die Verarbeitung dieser Message durch das Hashverfahren ergibt als Output
 einen sogenannten Message Digest. Message Digests sind typischerweise
-zwischen 128 und 512 Bit lang -- abhängig vom Algorithmus.
+zwischen 128 und 512 Bit lang -- abhÃ¤ngig vom Algorithmus.
 Sichere Hashverfahren werden typischerweise mit anderen kryptographischen
 Algorithmen kombiniert, wie z.B. Digitale-Signatur-Algorithmen,
 Keyed-Hash Message Authentication Codes, oder bei der Erzeugung von
 Zufallszahlen (Bits) benutzt.
 }
-bildet eine Nachricht beliebiger Länge auf eine Zeichenfolge mit
-konstanter Größe, den \index{Hashwert}
+bildet eine Nachricht beliebiger LÃ¤nge auf eine Zeichenfolge mit
+konstanter GrÃ¶ÃŸe, den \index{Hashwert}
 Hashwert, ab.
 
 
@@ -140,24 +140,24 @@ Hashwert, ab.
 \vskip + 15pt
 \subsection{Anforderungen an Hashfunktionen}
 
-Kryptographisch sichere Hashfunktionen erfüllen folgende drei Anforderungen
+Kryptographisch sichere Hashfunktionen erfÃ¼llen folgende drei Anforderungen
 (Reihenfolge so, dass die Anforderungen ansteigen):
 \begin{itemize}
  \item Standhaftigkeit gegen 1st-Pre-Image-Attacks:
       \index{Pre-Image-Attack!1st} \index{Angriff!Pre-Image!1st}\\
-      Es sollte praktisch unmöglich sein, zu einer gegebenen Zahl eine
+      Es sollte praktisch unmÃ¶glich sein, zu einer gegebenen Zahl eine
       Nachricht zu finden, die genau diese Zahl als Hashwert hat.\\
       Gegeben (fix): Hashwert H',\\
       Gesucht: Nachricht m, so dass gilt: H(m) = H'.
  \item Standhaftigkeit gegen 2nd-Pre-Image-Attacks:
       \index{Pre-Image-Attack!2nd} \index{Angriff!Pre-Image!2nd}\\
-      Es sollte praktisch unmöglich sein, zu einer gegebenen Nachricht
+      Es sollte praktisch unmÃ¶glich sein, zu einer gegebenen Nachricht
       eine zweite Nachricht zu finden, die genau denselben Hashwert hat.\\
       Gegeben (fix): Nachricht m1 [und damit der Hashwert H1 = H(m1)],\\
       Gesucht: Nachricht m2, so dass gilt: H(m2) = H1.
  \item Standhaftigkeit gegen Kollisionsangriffe:
       \index{Angriff!Kollisionsangriff}\\
-      Es sollte es praktisch unmöglich sein, zwei (beliebige) Nachrichten
+      Es sollte es praktisch unmÃ¶glich sein, zwei (beliebige) Nachrichten
       mit demselben Hashwert (welcher ist egal) zu finden.\\
       Gesucht: 2 Nachrichten m1 und m2, so dass gilt: H(m1) = H(m2).
 \end{itemize}
@@ -173,42 +173,42 @@ Kryptographisch sichere Hashfunktionen erfüllen folgende drei Anforderungen
 Bisher konnte die Existenz von perfekt sicheren kryptographischen
 Hashfunktionen nicht formal bewiesen werden.
 
-Über mehrere Jahre gab es keine neuen Attacken gegen Hashverfahren,
+Ãœber mehrere Jahre gab es keine neuen Attacken gegen Hashverfahren,
 und allgemein wurde den Kandidaten, die in der Praxis bislang keine
-Schwächen in ihrer Struktur gezeigt hatten
+SchwÃ¤chen in ihrer Struktur gezeigt hatten
 (zum Beispiel \index{SHA-1} SHA-1\footnote{%
   SHA-1 \index{SHA-1} ist eine in den Standards FIPS 180-1 (durch die
-  US-Behörde NIST), ANSI X9.30 Part 2 und
+  US-BehÃ¶rde NIST), ANSI X9.30 Part 2 und
   \cite{FIPS186} spezifizierte 160-Bit Hashfunktion.\\
-  SHA bedeutet \glqq Secure Hash Algorithm\grqq~und wird häufig benutzt, z.B.
+  SHA bedeutet \glqq Secure Hash Algorithm\grqq~und wird hÃ¤ufig benutzt, z.B.
   mit DSA, RSA oder ECDSA.\\
   Der aktuelle Standard \cite{FIPS180} definiert vier sichere Hashverfahren
   -- SHA-1, SHA-256, SHA-384 und SHA-512.
-  Für diese Hashalgorithmen sind in der Testsuite FIPS 140-2 auch
+  FÃ¼r diese Hashalgorithmen sind in der Testsuite FIPS 140-2 auch
   Validierungstests definiert.
 
-  Die Ausgabelänge der SHA-Algorithmen wurde vergrößert aufgrund der
-  Möglichkeit von Geburtstagsangriffen:
+  Die AusgabelÃ¤nge der SHA-Algorithmen wurde vergrÃ¶ÃŸert aufgrund der
+  MÃ¶glichkeit von Geburtstagsangriffen:
   \index{Angriff!Geburtstagsangriff} \index{Kollision}
   diese machen -- grob gesprochen -- den n-Bit AES und ein 2n-bit
-  Hashverfahren äquivalent:\\
+  Hashverfahren Ã¤quivalent:\\
   - 128-bit AES -- SHA-256\\
   - 192-bit AES -- SHA-384\\
   - 256-bit AES -- SHA-512.
 
-  Mit CT1\index{CT1} können Sie den Geburtstagsangriff
+  Mit CT1\index{CT1} kÃ¶nnen Sie den Geburtstagsangriff
   \index{Angriff!Geburtstagsangriff} auf digitale Signaturen
   nachvollziehen:\\
-  über das Menü {\bf Analyse \textbackslash{} Hashverfahren
+  Ã¼ber das MenÃ¼ {\bf Analyse \textbackslash{} Hashverfahren
   \textbackslash{} Angriff auf den Hashwert der digitalen Signatur}.\\
-  CT2\index{CT2} enthält einen MD5-Kollisionsgenerator.
+  CT2\index{CT2} enthÃ¤lt einen MD5-Kollisionsgenerator.
   }
 oder \index{RIPEMD-160} RIPEMD-160\footnote{%
   RIPEMD-160, RIPEMD-128 und die optionale Erweiterung RIPEMD-256 haben
   Object Identifier, definiert von der ISO-identifizierten Organisation
-  TeleTrusT, sowohl für Hashverfahren als auch in Kombination mit RSA.
+  TeleTrusT, sowohl fÃ¼r Hashverfahren als auch in Kombination mit RSA.
   RIPEMD-160 ist Teil des internationalen ISO/IEC-Standards
-  ISO/IEC 10118-3:1998 für dedizierte Hashfunktionen, zusammen mit
+  ISO/IEC 10118-3:1998 fÃ¼r dedizierte Hashfunktionen, zusammen mit
   RIPEMD-128 and SHA-1. Weitere Details:\\
 %% BE_Link umgeleitet: - \url{http://www.esat.kuleuven.ac.be/~bosselae/ripemd160.html}\\
 - \url{https://homes.esat.kuleuven.be/~bosselae/ripemd160.html}\\
@@ -219,45 +219,45 @@ oder \index{RIPEMD-160} RIPEMD-160\footnote{%
 
 Auf der Crypto 2004 (August 2004)\footnote{%
     \url{http://www.iacr.org/conferences/crypto2004/} }
-wurde dieses Sicherheitsgefühl jedoch stark in Zweifel gezogen:
-Chinesische Wissenschaftler veröffentlichten
+wurde dieses SicherheitsgefÃ¼hl jedoch stark in Zweifel gezogen:
+Chinesische Wissenschaftler verÃ¶ffentlichten
 Kollisionsangriffe gegen MD4, SHA-0 und Teile von SHA-1, die
-weltweit zu einer starken Beschäftigung mit neuen Hash-Angriffen
-führte.
+weltweit zu einer starken BeschÃ¤ftigung mit neuen Hash-Angriffen
+fÃ¼hrte.
 
-Die zunächst veröffentlichten Resultate reduzierten den erwarteten Aufwand für
+Die zunÃ¤chst verÃ¶ffentlichten Resultate reduzierten den erwarteten Aufwand fÃ¼r
 die Suche nach einer SHA-1 Kollision von $2^{80}$ (brute-force) auf $2^{69}$
-\cite{Wang2005}.  In der Folge wurden Verfahren angekündigt, die den Aufwand
+\cite{Wang2005}.  In der Folge wurden Verfahren angekÃ¼ndigt, die den Aufwand
 weiter auf $2^{63}$ \cite{Wang2005b} und $2^{52}$ \cite{McDonald2009} reduzieren
-sollen.  Damit wäre der Kollisionsangriff in den Bereich des praktisch möglichen
-gerückt, denn ähnliche Aufwände wurden in der Vergangenheit schon realisiert (s.\
+sollen.  Damit wÃ¤re der Kollisionsangriff in den Bereich des praktisch mÃ¶glichen
+gerÃ¼ckt, denn Ã¤hnliche AufwÃ¤nde wurden in der Vergangenheit schon realisiert (s.\
 \ref{cm_Brute-force-versus-Symmetr}).
 
 Die Sicherheit bereits erstellter Signaturen wird durch den geschilderten
-Kollisionsangriff aber nicht gefährdet.
+Kollisionsangriff aber nicht gefÃ¤hrdet.
 
 % be_2005_UPDATEN_if-hash-attacks-make-progress
-Nach dem aktuellen Kenntnisstand ist keine Panik angesagt, aber für
-digitale Signaturen sollten zumindest in Zukunft längere Hashwerte und/oder
+Nach dem aktuellen Kenntnisstand ist keine Panik angesagt, aber fÃ¼r
+digitale Signaturen sollten zumindest in Zukunft lÃ¤ngere Hashwerte und/oder
 andere Verfahren benutzt werden.
 
 Das U.S. National Institute of Standards and Technology (NIST)\index{NIST} hat
-schon vor Bekanntwerden der neuen Ergebnisse angekündigt, SHA-1 in den
-näch"-sten Jahren auslaufen zu lassen. Es ist daher zu empfehlen, für neue
+schon vor Bekanntwerden der neuen Ergebnisse angekÃ¼ndigt, SHA-1 in den
+nÃ¤ch"-sten Jahren auslaufen zu lassen. Es ist daher zu empfehlen, fÃ¼r neue
 Produkte zur Erstellung von Sig"-naturen SHA-1 nicht mehr zu verwenden. Die
-SHA-2 Familie \cite{FIPS180} bietet stärkere Verfahren.
+SHA-2 Familie \cite{FIPS180} bietet stÃ¤rkere Verfahren.
 
 Um den neuen Erkenntnissen in der Kryptoanalyse von Hashfunktionen Rechnung
 zu tragen, hat das NIST 2008 einen Wettbewerb gestartet, um eine neue
 Hash-Funktion jenseits der SHA-2-Familie zu entwickeln: Als neue Hashfunktion
 \glqq SHA-3\grqq~wurde im Oktober 2012 Keccak\index{Keccak}\index{SHA-3}
-verkündet.\footnote{%
+verkÃ¼ndet.\footnote{%
 \url{https://csrc.nist.gov/groups/ST/hash/sha-3/}\\
-    Mit {\bf CT2}\index{CT2} können Sie im Startcenter
-    über {\bf Vorlagen \textbackslash{} Hash-Funktionen \textbackslash{}
-    Keccak-Hash (SHA-3)} die Keccak-Hashfunktion ausführen und visualisieren.\\
+    Mit {\bf CT2}\index{CT2} kÃ¶nnen Sie im Startcenter
+    Ã¼ber {\bf Vorlagen \textbackslash{} Hash-Funktionen \textbackslash{}
+    Keccak-Hash (SHA-3)} die Keccak-Hashfunktion ausfÃ¼hren und visualisieren.\\
     Keccak kann auch als Zufallszahlengenerator und als Stromchiffre benutzt
-    werden: Das finden Sie in den Startcenter-Vorlagen über
+    werden: Das finden Sie in den Startcenter-Vorlagen Ã¼ber
     {\bf Werkzeuge \textbackslash{} Keccak PRNG}, bzw.
     {\bf Kryptographie \textbackslash{} Modern \textbackslash{} Symmetrisch
          \textbackslash{} Keccak-Stromchiffre}.
@@ -266,7 +266,7 @@ verkündet.\footnote{%
 Weitere Informationen zu diesem Thema finden sich z.B. in dem Artikel
 % BE: the \ after \grqq avoids that "(2005" follows without a blank. A "~" could do it too.
 \glqq Konsequenzen der erfolgreichen Angriffe auf SHA-1\grqq\
-(2005) von Reinhard Wobst und Jürgen Schmidt\footnote{%
+(2005) von Reinhard Wobst und JÃ¼rgen Schmidt\footnote{%
       \url{https://www.heise.de/security/artikel/Konsequenzen-der-erfolgreichen-Angriffe-auf-SHA-1-270648.html}.\\
   Weitere Quellen sind z.B.:\\
       %%% Toter Link: \url{http://www.bsi.bund.de/esig/basics/techbas/krypto/index.htm}\\
@@ -282,7 +282,7 @@ Weitere Informationen zu diesem Thema finden sich z.B. in dem Artikel
 \subsection{Signieren mit Hilfe von Hashfunktionen}
 
 \begin{ctsquote}
-\glqq Manipulation war Sobols Spezialität ... das Hauptziel der Ermittlungen sollte sein, hinter Sobols Masterplan zu kommen.\grqq
+\glqq Manipulation war Sobols SpezialitÃ¤t ... das Hauptziel der Ermittlungen sollte sein, hinter Sobols Masterplan zu kommen.\grqq
 \caption[Daniel Suarez]{Daniel Suarez\footnotemark}\index{Suarez, Daniel}
 \end{ctsquote}
 \addtocounter{footnote}{0}\footnotetext{Daniel Suarez, \glqq Daemon\grqq, rororo, (c) 2010,
@@ -293,30 +293,30 @@ Vergleiche auch:\\
       \url{http://de.wikipedia.org/wiki/Digitale_Signatur},\\
       \url{http://en.wikipedia.org/wiki/Digital_signature}.
 }
-funktionieren folgendermaßen: Anstatt das eigentliche Dokument zu signieren,
+funktionieren folgendermaÃŸen: Anstatt das eigentliche Dokument zu signieren,
 berechnet der Absender nun zuerst den Hashwert der Nachricht und signiert
-diesen. Der Empfänger bildet ebenfalls den Hashwert der Nachricht (der
-benutzte Algorithmus muss bekannt sein). Er überprüft dann, ob die
+diesen. Der EmpfÃ¤nger bildet ebenfalls den Hashwert der Nachricht (der
+benutzte Algorithmus muss bekannt sein). Er Ã¼berprÃ¼ft dann, ob die
 mitgeschickte Signatur eine korrekte Signatur des Hashwertes ist. Ist dies der
-Fall, so wurde die Signatur korrekt verifiziert. Die Authentizität der
+Fall, so wurde die Signatur korrekt verifiziert. Die AuthentizitÃ¤t der
 Nachricht ist damit gegeben, da wir angenommen hatten, dass aus der Kenntnis
-des öffentlichen Schlüssels nicht der geheime Schlüssel abgeleitet werden
-kann. Dieser geheime Schlüssel wäre jedoch notwendig, um Nachrichten in einem
+des Ã¶ffentlichen SchlÃ¼ssels nicht der geheime SchlÃ¼ssel abgeleitet werden
+kann. Dieser geheime SchlÃ¼ssel wÃ¤re jedoch notwendig, um Nachrichten in einem
 fremden Namen zu signieren.
 
 Einige digitale Signaturverfahren basieren auf asymmetrischer
-Verschlüsselung, das bekannteste Beispiel dieser Gattung ist RSA. Für die
+VerschlÃ¼sselung, das bekannteste Beispiel dieser Gattung ist RSA. FÃ¼r die
 RSA-Signatur verwendet man die gleiche mathematische Operation wie zum
-Entschlüsseln, nur wird sie auf den Hash-Wert des zu unterschreibenden
+EntschlÃ¼sseln, nur wird sie auf den Hash-Wert des zu unterschreibenden
 Dokuments angewendet.
 
 Andere Systeme der digitalen Signatur wurden, wie DSA (Digital Signature
-Algorithm), ausschließlich zu diesem Zweck entwickelt, und stehen in
+Algorithm), ausschlieÃŸlich zu diesem Zweck entwickelt, und stehen in
 keiner direkten Verbindung zu einem entsprechenden
-Verschlüsselungsverfahren.
+VerschlÃ¼sselungsverfahren.
 
 Beide Signaturverfahren, RSA und DSA, werden in den folgenden beiden
-Abschnitten näher beleuchtet. Anschließend gehen wir einen Schritt weiter
+Abschnitten nÃ¤her beleuchtet. AnschlieÃŸend gehen wir einen Schritt weiter
 und zeigen, wie basierend auf der elektronischen Unterschrift das digitale
 Pendant zum Personalausweis entwickelt wurde. Dieses Verfahren nennt man
 Public-Key-Zertifizierung.
@@ -332,33 +332,33 @@ Public-Key-Zertifizierung.
 \def\Mod#1{\ (\mbox{mod }#1)}
 
 Wie im Kommentar am Ende von \hyperlink{RSAproof}{Abschnitt
-\ref{RSAproof}} bemerkt, ist es möglich, die RSA-Operati"-onen mit dem
-privaten und öffentlichen Schlüssel in umgekehrter Reihenfolge auszuführen,
+\ref{RSAproof}} bemerkt, ist es mÃ¶glich, die RSA-Operati"-onen mit dem
+privaten und Ã¶ffentlichen SchlÃ¼ssel in umgekehrter Reihenfolge auszufÃ¼hren,
 d.~h.\ $M$ hoch $d$ hoch $e \Mod{N}$ ergibt wieder $M$. Wegen dieser
-simplen Tatsache ist es möglich, RSA als Signaturverfahren zu
+simplen Tatsache ist es mÃ¶glich, RSA als Signaturverfahren zu
 verwenden.
 
 Eine RSA-Signatur $S$ zur die Nachricht $M$ wird durch folgende Operation
-mit dem privaten Schlüssel erzeugt:
+mit dem privaten SchlÃ¼ssel erzeugt:
 $$ S \equiv M^d \Mod{N} $$
 Zur Verifikation wird die korrespondierende Public-Key-Operation auf der
-Signatur $S$ ausgeführt und das Ergebnis mit der Nachricht $M$ verglichen:
+Signatur $S$ ausgefÃ¼hrt und das Ergebnis mit der Nachricht $M$ verglichen:
 $$
 S^e \equiv (M^d)^e \equiv (M^e)^d \equiv M \Mod{N}$$
 Wenn das Ergebnis
-$S^e$ mit der Nachricht $M$ übereinstimmt, dann akzeptiert der Prüfer die
-Sig"-natur, andernfalls ist die Nachricht entweder verändert worden, oder
+$S^e$ mit der Nachricht $M$ Ã¼bereinstimmt, dann akzeptiert der PrÃ¼fer die
+Sig"-natur, andernfalls ist die Nachricht entweder verÃ¤ndert worden, oder
 sie wurde nicht vom Inhaber von $d$ unterschrieben.
 
-Wie weiter oben erklärt, werden Signaturen in der Praxis nie direkt auf der
-Nachricht ausführt, sondern auf einem kryptographischen Hashwert davon. Um
+Wie weiter oben erklÃ¤rt, werden Signaturen in der Praxis nie direkt auf der
+Nachricht ausfÃ¼hrt, sondern auf einem kryptographischen Hashwert davon. Um
 verschiedene Attacken auf das Sig"-naturverfahren (und seine Kombination mit
-Verschlüsselung) auszuschließen, ist es nötig, den Hashwert vor der
+VerschlÃ¼sselung) auszuschlieÃŸen, ist es nÃ¶tig, den Hashwert vor der
 Exponentiation auf spezielle Weise zu formatieren, wie in PKCS\#1 (Public
 Key Cryptography Standard \#1 \cite{PKCS1_2002})\index{PKCS\#1} beschrieben.
 Der Tatsache, dass
 dieser Standard nach mehreren Jahren Einsatz revidiert werden musste, kann
-als Beispiel dafür dienen, wie schwer es ist, kryptographische Details
+als Beispiel dafÃ¼r dienen, wie schwer es ist, kryptographische Details
 richtig zu definieren.
 
 
@@ -371,16 +371,16 @@ richtig zu definieren.
 
 Im August 1991 hat das U.S. National Institute of Standards and Technology
 (NIST)\index{NIST} einen digitalen Signaturalgorithmus (DSA, Digital Signature
-Algorithm) vorgestellt, der später zum U.S. Federal Information Processing
+Algorithm) vorgestellt, der spÃ¤ter zum U.S. Federal Information Processing
 Standard (FIPS 186 \cite{FIPS186}) wurde.
 
 Der Algorithmus ist eine Variante des ElGamal-Verfahrens. Seine Sicherheit
 beruht auf dem Diskreten Logarithmus
 Problem\index{Logarithmusproblem!diskret}. Die Bestandteile des privaten
-und öffentlichen DSA-Schlüssels, sowie die Verfahren zur Signatur und
+und Ã¶ffentlichen DSA-SchlÃ¼ssels, sowie die Verfahren zur Signatur und
 Verifikation sind in Krypto-Verfahren~\ref{dsasigproc} zusammengefasst.
 \begin{cryptoprocedure}
-\paragraph*{Öffentlicher Schlüssel}\strut\\
+\paragraph*{Ã–ffentlicher SchlÃ¼ssel}\strut\\
 \begin{tabular}{l@{ }l}
 $p$ & prim\\
 $q$ & 160-Bit Primfaktor von $p - 1$\\
@@ -389,11 +389,11 @@ $h^{(p-1)/q} > 1  \Mod{p}$\\
 $y$ & $\strut \equiv  g^x  \mbox{ mod } p$
 \end{tabular}
 
-\begin{remark}{:} Die Parameter $p,q$ und $g$ können von einer Gruppe von
+\begin{remark}{:} Die Parameter $p,q$ und $g$ kÃ¶nnen von einer Gruppe von
 Benutzern gemeinsam genutzt werden.
 \end{remark}
 
-\paragraph*{Privater Schlüssel}\strut\\
+\paragraph*{Privater SchlÃ¼ssel}\strut\\
 \begin{tabular}{l@{ }l}
 $x < q$ (160-Bit Zahl)
 \end{tabular}
@@ -401,7 +401,7 @@ $x < q$ (160-Bit Zahl)
 \paragraph*{Signatur}\strut\\
 \begin{tabular}{l@{ }l}
 $m$ & zu signierende Nachricht\\
-$k$ & zufällig\index{Zufall} gewählte Primzahl, kleiner als $q$\\
+$k$ & zufÃ¤llig\index{Zufall} gewÃ¤hlte Primzahl, kleiner als $q$\\
 $r$ & $= (g^k \; \mbox{ mod } p) \mbox{ mod } q$\\
 $s$ & $= (k^{-1}(\mbox{SHA-1}(m) + xr)) \mbox{ mod } q$
 \end{tabular}
@@ -409,9 +409,9 @@ $s$ & $= (k^{-1}(\mbox{SHA-1}(m) + xr)) \mbox{ mod } q$
 \begin{remark}{:}
 \begin{itemize}
 \item $(s,r)$ ist die Signatur.
-\item Die Sicherheit der Signatur hängt nicht nur von der Mathematik ab,
-sondern auch von der Verfügbarkeit einer guten Zufallsquelle\index{Zufall}
-für $k$.
+\item Die Sicherheit der Signatur hÃ¤ngt nicht nur von der Mathematik ab,
+sondern auch von der VerfÃ¼gbarkeit einer guten Zufallsquelle\index{Zufall}
+fÃ¼r $k$.
 \item SHA-1 \index{SHA-1} ist eine 160-Bit Hashfunktion.
 \end{itemize}
 \end{remark}
@@ -424,18 +424,18 @@ $v$ & $= (g^{u_1}y^{u_2}) \mbox{ mod } p)  \mbox{ mod } q$\\
 
 \end{tabular}
 
-\begin{remark}{:} Wenn $v = r$, dann ist die Signatur gültig.
+\begin{remark}{:} Wenn $v = r$, dann ist die Signatur gÃ¼ltig.
 \end{remark}
 \caption{DSA-Signatur}
 \label{dsasigproc}
 \end{cryptoprocedure}
 
-Obwohl DSA unabhängig von einem Verschlüsselungsverfahren so spezifiziert
-wurde, dass es aus Länder exportiert werden kann, die den Export von
-kryptographischer Hard- und Software einschränken (wie die USA zum
+Obwohl DSA unabhÃ¤ngig von einem VerschlÃ¼sselungsverfahren so spezifiziert
+wurde, dass es aus LÃ¤nder exportiert werden kann, die den Export von
+kryptographischer Hard- und Software einschrÃ¤nken (wie die USA zum
 Zeitpunkt der Spezifikation), wurde festgestellt
 \cite[S.~490]{Schneier1996}, dass die Operationen des DSA dazu geeignet
-sind, nach RSA bzw. ElGamal zu verschlüsseln.
+sind, nach RSA bzw. ElGamal zu verschlÃ¼sseln.
 
 
 
@@ -445,11 +445,11 @@ sind, nach RSA bzw. ElGamal zu verschlüsseln.
 \index{Zertifizierung!Public-Key}
 \index{PKI}
 Ziel der Public-Key-Zertifizierung ist es, die Bindung eines
-öffentlichen Schlüssels an einen Benutzers zu garantieren und nach außen
-nachvollziehbar zu machen. In Fällen, in denen nicht sichergestellt werden
-kann, dass ein öffentlicher Schlüssel auch wirklich zu einer bestimmten
-Person gehört, sind viele Protokolle nicht mehr sicher, selbst wenn die
-einzelnen kryptographischen Bausteine nicht geknackt werden können.
+Ã¶ffentlichen SchlÃ¼ssels an einen Benutzers zu garantieren und nach auÃŸen
+nachvollziehbar zu machen. In FÃ¤llen, in denen nicht sichergestellt werden
+kann, dass ein Ã¶ffentlicher SchlÃ¼ssel auch wirklich zu einer bestimmten
+Person gehÃ¶rt, sind viele Protokolle nicht mehr sicher, selbst wenn die
+einzelnen kryptographischen Bausteine nicht geknackt werden kÃ¶nnen.
 
 
 
@@ -459,41 +459,41 @@ einzelnen kryptographischen Bausteine nicht geknackt werden können.
 \label{Impersonalisierungsattacke}
 \index{Impersonalisierungsattacke} \index{Angriff!Impersonalisierungsattacke}
 
-Angenommen Charlie hat zwei Schlüsselpaare (PK1, SK1) und (PK2, SK2).
-Hierbei bezeichnet SK den geheimen Schlüssel (secret key) und PK den
-öffentlichen Schlüssel (public key). Weiter angenommen, es gelingt ihm,
-Alice PK1 als öffentlichen Schlüssel von Bob und Bob PK2 als
-öffentlichen Schlüssel von Alice \glqq unterzujubeln\grqq~(etwa indem
-er ein öffentliches Schlüsselverzeich"-nis fälscht).
+Angenommen Charlie hat zwei SchlÃ¼sselpaare (PK1, SK1) und (PK2, SK2).
+Hierbei bezeichnet SK den geheimen SchlÃ¼ssel (secret key) und PK den
+Ã¶ffentlichen SchlÃ¼ssel (public key). Weiter angenommen, es gelingt ihm,
+Alice PK1 als Ã¶ffentlichen SchlÃ¼ssel von Bob und Bob PK2 als
+Ã¶ffentlichen SchlÃ¼ssel von Alice \glqq unterzujubeln\grqq~(etwa indem
+er ein Ã¶ffentliches SchlÃ¼sselverzeich"-nis fÃ¤lscht).
 
-Dann ist folgender Angriff möglich:
+Dann ist folgender Angriff mÃ¶glich:
 \begin{itemize}
-    \item Alice möchte eine Nachricht an Bob senden. Sie verschlüsselt diese
-          mit PK1, da sie denkt, dies sei Bobs öffentlicher Schlüssel.
-          Anschließend signiert sie die Nachricht mit ihrem geheimen
-         Schlüssel und schickt sie ab.
-    \item Charlie fängt die Nachricht ab, entfernt die Signatur und
-          entschlüsselt die Nachricht mit SK1. Wenn er möchte, kann er die
-          Nachricht anschließend nach Belieben verändern. Dann
-          verschlüsselt er sie wieder, aber diesmal mit dem echten
-          öffentlichen Schlüssel von Bob, den er sich aus einem
-          öffentlichen Schlüsselverzeichnis geholt hat, signiert sie mit
+    \item Alice mÃ¶chte eine Nachricht an Bob senden. Sie verschlÃ¼sselt diese
+          mit PK1, da sie denkt, dies sei Bobs Ã¶ffentlicher SchlÃ¼ssel.
+          AnschlieÃŸend signiert sie die Nachricht mit ihrem geheimen
+         SchlÃ¼ssel und schickt sie ab.
+    \item Charlie fÃ¤ngt die Nachricht ab, entfernt die Signatur und
+          entschlÃ¼sselt die Nachricht mit SK1. Wenn er mÃ¶chte, kann er die
+          Nachricht anschlieÃŸend nach Belieben verÃ¤ndern. Dann
+          verschlÃ¼sselt er sie wieder, aber diesmal mit dem echten
+          Ã¶ffentlichen SchlÃ¼ssel von Bob, den er sich aus einem
+          Ã¶ffentlichen SchlÃ¼sselverzeichnis geholt hat, signiert sie mit
           SK2 und schickt die Nachricht weiter an Bob.
-    \item Bob überprüft die Signatur mit PK2 und wird zu dem Ergebnis
-          kommen, dass die Signatur in Ordnung ist. Dann entschlüsselt er
-          die Nachricht mit seinem geheimen Schlüssel.
+    \item Bob Ã¼berprÃ¼ft die Signatur mit PK2 und wird zu dem Ergebnis
+          kommen, dass die Signatur in Ordnung ist. Dann entschlÃ¼sselt er
+          die Nachricht mit seinem geheimen SchlÃ¼ssel.
 \end{itemize}
 
 Charlie ist so in der Lage, die Kommunikation zwischen Alice und Bob
-abzuhören und die ausgetauschten Nachrichten zu verändern, ohne dass dies
+abzuhÃ¶ren und die ausgetauschten Nachrichten zu verÃ¤ndern, ohne dass dies
 von den beteiligten Personen bemerkt wird. Der Angriff funktioniert
-auch, wenn Charlie nur ein Schlüsselpaar hat.
+auch, wenn Charlie nur ein SchlÃ¼sselpaar hat.
 
-Ein anderer Name für diese Art von Angriffen ist
+Ein anderer Name fÃ¼r diese Art von Angriffen ist
 \index{Angriff!Man-in-the-Middle-Attack}
 \glqq Man-in-the-Middle-Attack\grqq. Hilfe gegen diese Art von Angriffen
-verspricht die Public-Key-Zertifizierung, die die \index{Authentizität}
-Authentizität öffent"-licher Schlüssel garantieren kann. Die am weitesten
+verspricht die Public-Key-Zertifizierung, die die \index{AuthentizitÃ¤t}
+AuthentizitÃ¤t Ã¶ffent"-licher SchlÃ¼ssel garantieren kann. Die am weitesten
 verbreitete Zertifizierungsmethode ist der X.509-Standard.
 
 % --------------------------------------------------------------------------
@@ -501,39 +501,39 @@ verbreitete Zertifizierungsmethode ist der X.509-Standard.
 \subsection{X.509-Zertifikat}
 \index{X.509}
 Jeder Teilnehmer, der sich per X.509-Zertifikat \cite{X.509}
-die Zugehörigkeit seines öffentlichen Schlüssels zu seiner realen Person
-bestätigen lassen möchte, wendet sich an eine sogenannte
+die ZugehÃ¶rigkeit seines Ã¶ffentlichen SchlÃ¼ssels zu seiner realen Person
+bestÃ¤tigen lassen mÃ¶chte, wendet sich an eine sogenannte
 \index{Certification Authority (CA)} Certification Authority (CA)\footnote{%
 Oft auch Trustcenter oder im deutschen Signaturgesetz
 \glqq Zertifizierungsdiensteanbieter\grqq\ genannt, wenn die Zertifikate nicht
 nur einer geschlossenen Benutzergruppe angeboten werden.
 }.
-Dieser beweist er seine Identität (etwa durch Vorlage seines
-Personalausweises). Anschließend stellt die CA ihm ein elektronisches
+Dieser beweist er seine IdentitÃ¤t (etwa durch Vorlage seines
+Personalausweises). AnschlieÃŸend stellt die CA ihm ein elektronisches
 Dokument (Zertifikat) aus, in dem im wesentlichen der Name des
-Zertifikatnehmers und der Name der CA, der öffentliche Schlüssel des
-Zertifikatnehmers und der Gültigkeitszeitraum des Zertifikats vermerkt
-sind. Die CA unterzeichnet das Zertifikat anschließend mit ihrem geheimen
-Schlüssel.
+Zertifikatnehmers und der Name der CA, der Ã¶ffentliche SchlÃ¼ssel des
+Zertifikatnehmers und der GÃ¼ltigkeitszeitraum des Zertifikats vermerkt
+sind. Die CA unterzeichnet das Zertifikat anschlieÃŸend mit ihrem geheimen
+SchlÃ¼ssel.
 
-Jeder kann nun anhand des öffentlichen Schlüssels der CA überprüfen, ob
-das Zertifikat unverfälscht ist. Die CA garantiert also die Zugehörigkeit
-von Benutzer und öffentlichem Schlüssel.
+Jeder kann nun anhand des Ã¶ffentlichen SchlÃ¼ssels der CA Ã¼berprÃ¼fen, ob
+das Zertifikat unverfÃ¤lscht ist. Die CA garantiert also die ZugehÃ¶rigkeit
+von Benutzer und Ã¶ffentlichem SchlÃ¼ssel.
 
 Dieses Verfahren ist nur so lange sicher, wie die Richtigkeit des
-öffentlichen Schlüssels der CA sichergestellt ist. Aus diesem Grund lässt
-jede CA ihren öffentlichen Schlüssel bei einer anderen CA zertifizieren,
-die in der Hierarchie über ihr steht. In der obersten Hierarchieebene
-(Wurzelinstanz) gibt es in der Regel nur eine CA, die dann natürlich keine
-Möglichkeit mehr hat, sich ihren Schlüssel bei einer anderen CA
-zertifizieren zu lassen. Sie ist also darauf angewiesen, ihren Schlüssel
-auf andere Art und Weise gesichert zu übermitteln. Bei vielen
+Ã¶ffentlichen SchlÃ¼ssels der CA sichergestellt ist. Aus diesem Grund lÃ¤sst
+jede CA ihren Ã¶ffentlichen SchlÃ¼ssel bei einer anderen CA zertifizieren,
+die in der Hierarchie Ã¼ber ihr steht. In der obersten Hierarchieebene
+(Wurzelinstanz) gibt es in der Regel nur eine CA, die dann natÃ¼rlich keine
+MÃ¶glichkeit mehr hat, sich ihren SchlÃ¼ssel bei einer anderen CA
+zertifizieren zu lassen. Sie ist also darauf angewiesen, ihren SchlÃ¼ssel
+auf andere Art und Weise gesichert zu Ã¼bermitteln. Bei vielen
 Software-Produkten, die mit Zertifikaten arbeiten (zum Beispiel den
 Webbrowsern von Microsoft und Netscape) sind die Zertifikate dieser
-Wurzel-CAs schon von Anfang an fest in das Programm eingebettet und können
-auch vom Benutzer nachträglich nicht mehr geändert werden. Aber auch durch
-öffentliche Bekanntgabe in Zeitungen können (öffentliche) CA-Schlüssel
-gesichert übermittelt werden.
+Wurzel-CAs schon von Anfang an fest in das Programm eingebettet und kÃ¶nnen
+auch vom Benutzer nachtrÃ¤glich nicht mehr geÃ¤ndert werden. Aber auch durch
+Ã¶ffentliche Bekanntgabe in Zeitungen kÃ¶nnen (Ã¶ffentliche) CA-SchlÃ¼ssel
+gesichert Ã¼bermittelt werden.
 
 
 
@@ -545,7 +545,7 @@ gesichert übermittelt werden.
 ]
 
 
-\noindent Alle Links wurden am 06.08.2018 überprüft.
+\noindent Alle Links wurden am 06.08.2018 Ã¼berprÃ¼ft.
 
 \end{refsegment}
 

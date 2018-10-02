@@ -11,28 +11,28 @@
 \setcounter{secnumdepth}{4}  % Set back default from CT-Book-de.tex (show numbers till level 4)
 
 Das CrypTool-Buch versucht, einzelne Themen aus der Mathematik der Kryptologie
-genau und trotzdem möglichst verständlich zu erläutern.
+genau und trotzdem mÃ¶glichst verstÃ¤ndlich zu erlÃ¤utern.
 
 Dieses Buch wurde ab dem Jahr 2000 -- zusammen mit dem CrypTool-1-Paket
 (CT1)\index{CT1} in Version 1.2.01 -- ausgeliefert.
 Seitdem ist das Buch mit fast jeder neuen Version von CT1 und CT2 ebenfalls erweitert
 und aktualisiert worden.
 
-Themen aus Mathematik und Kryptographie wurden sinnvoll unterteilt und dafür
-wurden jeweils eigenständig lesbare Kapitel geschrieben, damit
-Entwickler/Autoren unabhängig voneinander mitarbeiten können. Natürlich gäbe
-es viel mehr Themen aus der Kryptographie, die man vertiefen könnte -- deshalb
-ist diese Auswahl auch nur eine von vielen möglichen.
+Themen aus Mathematik und Kryptographie wurden sinnvoll unterteilt und dafÃ¼r
+wurden jeweils eigenstÃ¤ndig lesbare Kapitel geschrieben, damit
+Entwickler/Autoren unabhÃ¤ngig voneinander mitarbeiten kÃ¶nnen. NatÃ¼rlich gÃ¤be
+es viel mehr Themen aus der Kryptographie, die man vertiefen kÃ¶nnte -- deshalb
+ist diese Auswahl auch nur eine von vielen mÃ¶glichen.
 
-In der anschließenden redaktionellen Arbeit wurden in LaTeX Querverweise ergänzt,
-Fußnoten hinzugefügt, Index-Einträge vereinheitlicht und Korrekturen vorgenommen.
+In der anschlieÃŸenden redaktionellen Arbeit wurden in LaTeX Querverweise ergÃ¤nzt,
+FuÃŸnoten hinzugefÃ¼gt, Index-EintrÃ¤ge vereinheitlicht und Korrekturen vorgenommen.
 
 %In dieser Ausgabe des CT-Buchs wurden wieder einige Themen auf den
 %aktuellen Stand gebracht:
 Im Vergleich zu Ausgabe 11 des Buchs wurden in dieser Ausgabe
-die TeX-Sourcen des Dokuments komplett überarbei"-tet (bspw. eine einzige
-bibtex-Datei für alle Kapitel und beide Sprachen), und
-etliche Themen ergänzt, korrigiert und auf den aktuellen Stand gebracht, z.B.:
+die TeX-Sourcen des Dokuments komplett Ã¼berarbei"-tet (bspw. eine einzige
+bibtex-Datei fÃ¼r alle Kapitel und beide Sprachen), und
+etliche Themen ergÃ¤nzt, korrigiert und auf den aktuellen Stand gebracht, z.B.:
 \vspace{-5pt}
 
 %%%%%%%%%%%%%BE_2016Jun: %% be_todo BEGIN
@@ -69,45 +69,45 @@ etliche Themen ergänzt, korrigiert und auf den aktuellen Stand gebracht, z.B.:
 %%%%%%%%%%%%%%%%%%%% %BE_2016Jun: %% be_todo END
 
 \begin{itemize}
-%  \item die Definitionen zur Stärke von Sicherheits-Funktionen
+%  \item die Definitionen zur StÃ¤rke von Sicherheits-Funktionen
 %        (Kapitel \ref{cm_Section_Security_Definitions}),
-  \item die größten Primzahlen (Kap. \ref{search_for_very_big_primes}),
+  \item die grÃ¶ÃŸten Primzahlen (Kap. \ref{search_for_very_big_primes}),
 %        neue Faktorisierungsrekorde (Kap. \ref{RSA-768}), und
 %  \item Fortschritte bei der Kryptoanalyse von Hashverfahren
 %        (Kap. \ref{collision-attacks-against-sha-1}) und
-%  \item Fortschritte bei den Ideen für neue Kryptoverfahren (RSA-Nachfolger)
+%  \item Fortschritte bei den Ideen fÃ¼r neue Kryptoverfahren (RSA-Nachfolger)
 %	(Kap. \ref{xxxxcm_Brute-force-versus-Symmetr})\index{xxxxxxxxxxxxxxxx} und
   \item die Auflistung, in welchen Filmen und Romanen Kryptographie eine
         wesentliche Rolle spielt (siehe Anhang \ref{s:appendix-movies}),
 %       und Kurioses zu Primzahlen (siehe \ref{HT-Quaint-curious-Primes-usage}),
-  \item die Funktionsübersichten
+  \item die FunktionsÃ¼bersichten
         \hyperlink{appendix-template-overview-CT2}{zu CrypTool~2 (CT2)},
         \hyperlink{appendix-function-overview-JCT}{zu JCrypTool (JCT)} und
         \hyperlink{appendix-function-overview-CTO}{zu CrypTool-Online (CTO)}
         (siehe Anhang),
-  \item weitere SageMath-Skripte zu Kryptoverfahren, und die Einführung in das
+  \item weitere SageMath-Skripte zu Kryptoverfahren, und die EinfÃ¼hrung in das
         Computer-Algebra-System (CAS) SageMath (siehe
         Anhang \ref{s:appendix-using-sage}),
         % Nguyen und Massierer (vgl. auch Kap.~\ref{ec:Sage_Massierer})
-  \item der Abschnitt über die Goldbach-Vermutung
-        (siehe \ref{L-GoldbachConjecture}) und über Primzahl-Zwillinge
+  \item der Abschnitt Ã¼ber die Goldbach-Vermutung
+        (siehe \ref{L-GoldbachConjecture}) und Ã¼ber Primzahl-Zwillinge
         (siehe \ref{L-TwinCousinPrimes}),
-  \item der Abschnitt über gemeinsame Primzahlen in real verwendeten
+  \item der Abschnitt Ã¼ber gemeinsame Primzahlen in real verwendeten
         RSA-Modulen (siehe \ref{nt_Shared-Primes}),
-%  \item der Abschnitt über RSA-Fixpunkte
+%  \item der Abschnitt Ã¼ber RSA-Fixpunkte
 %        (siehe \ref{l:NumberTheory_Sage_Number-of-RSA-FixedPoints}), und
-%  \item Homomorphe Verschlüsselung
+%  \item Homomorphe VerschlÃ¼sselung
 %        (siehe Kapitel \ref{Chapter_HomomorphicCiphers})
-  \item die~\glqq \nameref{Chapter_BitCiphers}\grqq~ist völlig neu
+  \item die~\glqq \nameref{Chapter_BitCiphers}\grqq~ist vÃ¶llig neu
 	(siehe Kapitel \ref{Chapter_BitCiphers}),
 
-  %% \item die~\glqq \StrSubstitute{ XXXXXXXXXXXX }{a}{AA}\grqq~ist völlig neu
-  %% \item die~\glqq \StrSubstitute{ \nameref{Chapter_Dlog-FactoringDead} }{a}{AA}\grqq~ist völlig neu  %% tut nicht
-  %% \item die~\glqq \StrSubstitute{FactFactoringFact}{a}{AA}\grqq~ist völlig neu  %% das tut
-  %% \item die~\glqq \StrSubstitute{\nameref{Chapter_Dlog-FactoringDead}}{a}{AA}\grqq~ist völlig neu
-  %% \item die~\glqq \nameref{Chapter_Dlog-FactoringDead}\grqq~ist völlig neu
-  \item die Studie ~\glqq \nameref{Chapter_Dlog-FactoringDead}\grqq~ist völlig neu
-	%% So kommt leider auch der Umbruch rein, der für den Titel nötig ist bei nameref.
+  %% \item die~\glqq \StrSubstitute{ XXXXXXXXXXXX }{a}{AA}\grqq~ist vÃ¶llig neu
+  %% \item die~\glqq \StrSubstitute{ \nameref{Chapter_Dlog-FactoringDead} }{a}{AA}\grqq~ist vÃ¶llig neu  %% tut nicht
+  %% \item die~\glqq \StrSubstitute{FactFactoringFact}{a}{AA}\grqq~ist vÃ¶llig neu  %% das tut
+  %% \item die~\glqq \StrSubstitute{\nameref{Chapter_Dlog-FactoringDead}}{a}{AA}\grqq~ist vÃ¶llig neu
+  %% \item die~\glqq \nameref{Chapter_Dlog-FactoringDead}\grqq~ist vÃ¶llig neu
+  \item die Studie ~\glqq \nameref{Chapter_Dlog-FactoringDead}\grqq~ist vÃ¶llig neu
+	%% So kommt leider auch der Umbruch rein, der fÃ¼r den Titel nÃ¶tig ist bei nameref.
 	%% myNewSt = strrep(mySt,sprintf('\n'),'');
 	%% \usepackage{xstring}
 	%% \StrSubstitute{abcde}{d}{D}   %%  {//}{ }  Use of \@xs@StrSubstitute@@ doesn't match its definition.
@@ -117,26 +117,26 @@ etliche Themen ergänzt, korrigiert und auf den aktuellen Stand gebracht, z.B.:
 	%% 	  Number of characters in string = \testStrNumOfChars
 	%% http://www.golatex.de/wiki/%5Cmakeatletter
 	(siehe Kapitel \ref{Chapter_Dlog-FactoringDead}). Das ist ein
-	phantastischer und eingehender Überblick über die Grenzen der
+	phantastischer und eingehender Ãœberblick Ã¼ber die Grenzen der
 	entsprechenden aktuellen kryptoanalytischen Methoden.
 \end{itemize}
 
 %Inzwischen bekommt das CT-Projekt Feedback und Testimonials aus nahezu allen
-%Ländern der Erde.
+%LÃ¤ndern der Erde.
 
 
 \newpage
 \noindent \textbf{Dank}
 
-An dieser Stelle möchte ich explizit folgenden Personen danken,
+An dieser Stelle mÃ¶chte ich explizit folgenden Personen danken,
 die bisher in ganz besonderer Weise zum CrypTool-Projekt\index{CrypTool}
 beigetragen haben.
-Ohne ihre besonderen Fähigkeiten und ihr großes Engagement wäre CrypTool
+Ohne ihre besonderen FÃ¤higkeiten und ihr groÃŸes Engagement wÃ¤re CrypTool
 nicht, was es heute ist:
 \vspace{-6pt}
 \begin{list}{\textbullet}{\addtolength{\itemsep}{-0.5\baselineskip}}
    \item Hr.\ Henrik Koy
-   \item Hr.\ Jörg-Cornelius Schneider
+   \item Hr.\ JÃ¶rg-Cornelius Schneider
    \item Hr.\ Florian Marchal
    \item Dr.\ Peer Wichmann
    \item Hr.\ Dominik Schadow
@@ -148,15 +148,15 @@ nicht, was es heute ist:
          Prof.\ Arno Wacker.
 \end{list}
 
-Auch allen hier nicht namentlich Genannten ganz herzlichen Dank für das
+Auch allen hier nicht namentlich Genannten ganz herzlichen Dank fÃ¼r das
 (meist in der Freizeit) geleistete Engagement.
 
 Danke auch an die Leser, die uns Feedback sandten. Und ein ganz besonderer
-Dank für das konstruktive Gegenlesen dieser Version durch Helmut Witten und
+Dank fÃ¼r das konstruktive Gegenlesen dieser Version durch Helmut Witten und
 Prof.\ Ralph-Hardo Schulz.
 
 Ich hoffe, dass viele Leser mit diesem Buch mehr Interesse an und
-Verständnis für dieses moderne und zugleich uralte Thema finden.
+VerstÃ¤ndnis fÃ¼r dieses moderne und zugleich uralte Thema finden.
 
 
 
@@ -169,14 +169,14 @@ Verständnis für dieses moderne und zugleich uralte Thema finden.
 
 \par \vskip + 80pt
 \noindent PS:\\
-Wir würden uns freuen, wenn sich weitere Autoren finden, die vorhandene Kapitel verbessern oder fundierte
-Kapitel z.B. zu einem der folgenden Themen ergänzen könnten:
+Wir wÃ¼rden uns freuen, wenn sich weitere Autoren finden, die vorhandene Kapitel verbessern oder fundierte
+Kapitel z.B. zu einem der folgenden Themen ergÃ¤nzen kÃ¶nnten:
 \begin{compactitem}
    \item Riemannsche Zeta-Funktion,
    \item Hashverfahren und Passwort-Knacken,
    \item Gitter-basierte Kryptographie,
    \item Zufallszahlen,
-   \item Format-erhaltende Verschlüsselung, Privacy-preserving Kryptographie,
+   \item Format-erhaltende VerschlÃ¼sselung, Privacy-preserving Kryptographie,
    \item Diskussion der Wirkung verschiedener Blockmodi auf die Sicherheit,
    \item Design/Angriff auf Krypto-Protokolle (wie SSL).
 \end{compactitem}
@@ -184,14 +184,14 @@ Kapitel z.B. zu einem der folgenden Themen ergänzen könnten:
 
 \par \vskip + 15pt
 \noindent PPS:\\%xxxxxxxxxx Todo
-Ausstehende Todos für Edition 12 dieses Buches (bis dahin nennen wir es weiterhin Draft):%xxxxxxxxxxxxx
+Ausstehende Todos fÃ¼r Edition 12 dieses Buches (bis dahin nennen wir es weiterhin Draft):%xxxxxxxxxxxxx
 %\begin{list}{\textbullet}{\addtolength{\itemsep}{-0.5\baselineskip}}
 %\end{list}
 % - Abstand nach/zwischen den Bulletzeilen per itemsep+baselineskip;
 % - Abstand vor erstem Bulletpoint versucht per \vskip und negativem Wert, aber
 %   \par \vskip -15pt wirkte weder VOR dem \begin{list} noch DANACH. --> Nutzte eben compactitem!
 \begin{compactitem}
-\item Updaten aller Informationen zu SageMath (Kap.~\ref{ec:Sage_Massierer} und Appendix) und Testen des Codes gegen das neueste SageMath (Version 8.x), sowohl von der Kommandozeile als auch mit dem SageMathCloud-Notebook. SageMath 8 ist auch für Windows verfügbar.
+\item Updaten aller Informationen zu SageMath (Kap.~\ref{ec:Sage_Massierer} und Appendix) und Testen des Codes gegen das neueste SageMath (Version 8.x), sowohl von der Kommandozeile als auch mit dem SageMathCloud-Notebook. SageMath 8 ist auch fÃ¼r Windows verfÃ¼gbar.
    \item Updaten der Funktionslisten zu den vier CT-Versionen (im Appendix).
 \end{compactitem}
 
@@ -211,7 +211,7 @@ Ausstehende Todos für Edition 12 dieses Buches (bis dahin nennen wir es weiterhi
 % --------------------------------------------------------------------------
 \clearpage
 \setcounter{secnumdepth}{-1}  % Prevent this chapter title from having a number
-\chapter{Einführung -- Zusammenspiel von Buch und Programmen}
+\chapter{EinfÃ¼hrung -- Zusammenspiel von Buch und Programmen}
 \setcounter{secnumdepth}{4}  % Set back default from CT-Book-de.tex (show numbers till level 4)
 
 \textbf{Das CrypTool-Buch}
@@ -220,29 +220,29 @@ Dieses Buch wird zusammen mit den Open-Source-Programmen des
 CrypTool-Projektes\index{CrypTool} ausgeliefert. Es kann auch direkt auf der
 Webseite des CT-Portals herunter geladen werden (\url{https://www.cryptool.org/de/ctp-dokumentation}).
 
-Die Kapitel dieses Buchs sind weitgehend in sich abgeschlossen und können
-auch unabhängig von den CrypTool-Programmen gelesen werden.
+Die Kapitel dieses Buchs sind weitgehend in sich abgeschlossen und kÃ¶nnen
+auch unabhÃ¤ngig von den CrypTool-Programmen gelesen werden.
 
-%Während für das Verständnis der meisten Kapitel Abiturwissen ausreicht,
+%WÃ¤hrend fÃ¼r das VerstÃ¤ndnis der meisten Kapitel Abiturwissen ausreicht,
 %erfordern die Kapitel \ref{Chapter_ModernCryptography} (Moderne Kryptografie)
 %und \ref{Chapter_EllipticCurves} (Elliptische Kurven) tiefere mathematische
 %Kennt"-nisse.
-Für das Verständnis der meisten Kapitel reicht Abiturwissen aus. Die Kapitel
+FÃ¼r das VerstÃ¤ndnis der meisten Kapitel reicht Abiturwissen aus. Die Kapitel
 \ref{Chapter_ModernCryptography} (\glqq Moderne Kryptografie\grqq), %% (\glqq \nameref{Chapter_ModernCryptography}\grqq)
 \ref{Chapter_EllipticCurves} (\glqq \nameref{Chapter_EllipticCurves}\grqq),
-\ref{Chapter_BitCiphers} (\glqq Bitblock- und Bitstrom-Verschlüsselung\grqq), %% (\glqq \nameref{Chapter_BitCiphers}\grqq)
+\ref{Chapter_BitCiphers} (\glqq Bitblock- und Bitstrom-VerschlÃ¼sselung\grqq), %% (\glqq \nameref{Chapter_BitCiphers}\grqq)
 \ref{Chapter_HomomorphicCiphers}~(\glqq \nameref{Chapter_HomomorphicCiphers}\grqq) und
-\ref{Chapter_Dlog-FactoringDead} (\glqq Resultate für das Lösen diskreter Logarithmen und zur Faktorisierung\grqq) %% (\glqq \nameref{Chapter_Dlog-FactoringDead}\grqq)
+\ref{Chapter_Dlog-FactoringDead} (\glqq Resultate fÃ¼r das LÃ¶sen diskreter Logarithmen und zur Faktorisierung\grqq) %% (\glqq \nameref{Chapter_Dlog-FactoringDead}\grqq)
 erfordern tiefere mathematische Kennt"-nisse.
 
 Die \hyperlink{appendix-authors}{Autoren}
 % \hyperlink{appendix-authors}{(Autoren)}
 % in \ref{s:appendix-authors}
 % \hypertarget{appendix-authors}{}\label{s:appendix-authors}
-haben sich bemüht, Kryptographie für eine möglichst breite Leserschaft
+haben sich bemÃ¼ht, Kryptographie fÃ¼r eine mÃ¶glichst breite Leserschaft
 darzu"-stellen -- ohne mathematisch unkorrekt zu werden. Sie wollen die
-Awareness für die IT-Sicherheit und den Einsatz standardisierter, moderner
-Kryptographie fördern.
+Awareness fÃ¼r die IT-Sicherheit und den Einsatz standardisierter, moderner
+Kryptographie fÃ¶rdern.
 \par \vskip + 15pt
 
 
@@ -250,10 +250,10 @@ Kryptographie fördern.
   CrypTool~2\index{CT2} und JCrypTool\index{JCT}}
 % \index{CrypTool~1}\index{CT1} \index{CrypTool~2}\index{CT2} \index{JCrypTool}\index{JCT}
 
-CrypTool~1 (CT1) ist ein Lernprogramm, mit dem Sie unter einer einheitlichen Oberfläche
-kryptographische Verfahren anwenden und analysieren können. Die umfangreicher Onlinehilfe
-in CT1 enthält nicht nur Anleitungen zur Bedienung des Programms, sondern auch
-Informationen zu den Verfahren selbst (aber weniger ausführlich und anders
+CrypTool~1 (CT1) ist ein Lernprogramm, mit dem Sie unter einer einheitlichen OberflÃ¤che
+kryptographische Verfahren anwenden und analysieren kÃ¶nnen. Die umfangreicher Onlinehilfe
+in CT1 enthÃ¤lt nicht nur Anleitungen zur Bedienung des Programms, sondern auch
+Informationen zu den Verfahren selbst (aber weniger ausfÃ¼hrlich und anders
 strukturiert als im CT-Buch).
 
 CrypTool~1 und die Nachfolgeversionen CrypTool~2 (CT2) und JCrypTool (JCT)
@@ -265,8 +265,8 @@ werden weltweit in Schule, Lehre, Aus- und Fortbildung eingesetzt.
 
 Die Webseite CrypTool-Online (CTO) (\url{http://www.cryptool-online.org}), auf
 der man im Browser oder vom Smartphone aus kryptographische Verfahren
-ausprobieren und anwenden kann, gehört ebenfalls zum CT-Projekt. Der Umfang
-von CTO ist bei weitem nicht so groß wie der der Standalone-Programme CT1,
+ausprobieren und anwenden kann, gehÃ¶rt ebenfalls zum CT-Projekt. Der Umfang
+von CTO ist bei weitem nicht so groÃŸ wie der der Standalone-Programme CT1,
 CT2 und JCT. Jedoch wird CTO mehr und mehr als Erstkontakt genutzt, weshalb
 wir Backbone und Frontend momentan mit moderner Webtechnologie neu designen,
 um ein schnelles, konsistentes und responsives Look\&Feel anzubieten.
@@ -278,10 +278,10 @@ um ein schnelles, konsistentes und responsives Look\&Feel anzubieten.
 Der internationale Kryptographie-Wettbewerb
 MysteryTwister C3 (MTC3) (\url{http://www.mysterytwisterc3.org})
 wird ebenfalls vom CT-Projekt getragen.
-Hier findet man kryptographische Rätsel in vier verschiedenen Kategorien, eine
-High-Score-Liste und ein moderiertes Forum. Stand 2016-06-16 sind über 7000
-Teilnehmer dabei, und es gibt über 200 Aufgaben, von denen 162 von
-zumindest einem Teilnehmer gelöst wurden.
+Hier findet man kryptographische RÃ¤tsel in vier verschiedenen Kategorien, eine
+High-Score-Liste und ein moderiertes Forum. Stand 2016-06-16 sind Ã¼ber 7000
+Teilnehmer dabei, und es gibt Ã¼ber 200 Aufgaben, von denen 162 von
+zumindest einem Teilnehmer gelÃ¶st wurden.
 %% Todo-repetitively: 2016-06-16: All: 75+84+48+12=219; Solved: 75+75+6+6=162. Diff = 57.
 \par \vskip + 15pt
 
@@ -290,38 +290,38 @@ zumindest einem Teilnehmer gelöst wurden.
 \noindent \textbf{Das Computer-Algebra-Programm SageMath\index{SageMath}}
 
 SageMath ist Open-Source und ein umfangreiches Computer-Algebra-System (CAS)-Paket,
-mit dem sich die in diesem Buch erläuterten mathematischen Verfahren leicht
-Schritt-für-Schritt programmieren lassen. Eine Besonderheit dieses CAS ist,
+mit dem sich die in diesem Buch erlÃ¤uterten mathematischen Verfahren leicht
+Schritt-fÃ¼r-Schritt programmieren lassen. Eine Besonderheit dieses CAS ist,
 dass als Skript-Sprache Python (z.Zt. Version 2.x) benutzt wird.
 % be_xxxxxxxxxx_Update, if SageMath moves to 3.x
 Dadurch stehen einem in Sage-Skripten nach einem import-Befehl auch alle Funktionen
-der Sprache Pytho\index{Python}n zur Verfügung.\\
+der Sprache Pytho\index{Python}n zur VerfÃ¼gung.\\
 SageMath wird mehr und mehr zum Standard-CAS an Hochschulen.
 \par \vskip + 15pt
 
 
 
-\noindent \textbf{Die Schüler-Krypto-Kurse\index{Schüler-Krypto}}
+\noindent \textbf{Die SchÃ¼ler-Krypto-Kurse\index{SchÃ¼ler-Krypto}}
 
-Diese Initiative bietet Ein- und Zwei-Tages-Kurse in Kryptologie für Schüler
-und Lehrer, um zu zeigen, wie attraktiv MINT-Fächer wie Mathematik,
+Diese Initiative bietet Ein- und Zwei-Tages-Kurse in Kryptologie fÃ¼r SchÃ¼ler
+und Lehrer, um zu zeigen, wie attraktiv MINT-FÃ¤cher wie Mathematik,
 Informatik und insbesondere Kryptologie sind.
 Die Kursidee ist eine virtuelle Geheimagenten-Ausbildung.\\
 Inzwischen finden diese Kurse seit mehreren Jahren in Deutschland in
-unterschiedlichen Städten statt.\\
-Alle Kursunterlagen sind frei erhältlich auf
+unterschiedlichen StÃ¤dten statt.\\
+Alle Kursunterlagen sind frei erhÃ¤ltlich auf
 \url{http://www.cryptool.org/schuelerkrypto/}.\\
 Alle eingesetzte Software ist ebenfalls frei (meist wird CT1 und CT2
 eingesetzt).\\
-Wir würden uns freuen, wenn jemand die Kursunterlagen übersetzt und
-einen entsprechenden Kurs in Englisch anbieten würde.
+Wir wÃ¼rden uns freuen, wenn jemand die Kursunterlagen Ã¼bersetzt und
+einen entsprechenden Kurs in Englisch anbieten wÃ¼rde.
 \par \vskip + 15pt
 
 
 
 \noindent \textbf{Dank}
 
-Herzlichen Dank an alle, die mit ihrem großem Einsatz zum
+Herzlichen Dank an alle, die mit ihrem groÃŸem Einsatz zum
 Erfolg und zur weiten Verbreitung dieses Projekts beigetragen haben.
 
 

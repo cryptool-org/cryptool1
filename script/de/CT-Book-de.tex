@@ -3,6 +3,7 @@
 % arara: biber
 % arara: makeindex: {style: style.ist}
 % arara: pdflatex
+% arara: makeindex: {style: style.ist}
 % arara: pdflatex
 % arara: clean:{extensions:[aux,bbl,bcf,blg,fdb_latexmk,fls,idx,
 % arara: --> ilg,ind,loc,lof,log,loos,lop,loq,lot,mw,mw.mw,
@@ -13,7 +14,7 @@
 % doris: obige zeilen f"ur TeXShop aufm mac
 % !Mode:: "TeX:DE"    % Setting document mode and submode for WinEdt
 % ............................................................................
-%        MAIN- or STARTING-Datei für das CrypTool-Buch-Dokument
+%        MAIN- or STARTING-Datei fÃ¼r das CrypTool-Buch-Dokument
 %
 % Comments: - Add (lengthy) comment only into this German version!
 %           - Kommentare, die sich NICHT NUR auf die englische Version beziehen,
@@ -32,7 +33,7 @@
 %                                ^^^^^
 %    It will go away if you delete this - and just appear as a warning in texfile.log
 %    such as  Overfull \hbox (38.36009pt too wide)  in paragraph at lines 16--30
-% 2) Black boxes kamen auch nach Einfügen der Referenzen:
+% 2) Black boxes kamen auch nach EinfÃ¼gen der Referenzen:
 %    http://tex.stackexchange.com/questions/171999/overfull-hbox-in-biblatex
 %    --> Load \usepackage[final]{microtype}
 %        or try  \emergencystretch=1em  or try  \begin{tolerant}{3000}
@@ -80,18 +81,18 @@
 %endfolding abmessungen
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-------fonts, encoding etc.
-\usepackage[latin1]{inputenc} % Umlaute  %%BERM2: Added for bitciphers.tex (still necessary?)
+%\usepackage[latin1]{inputenc} % Umlaute  %%BERM2: Added for bitciphers.tex (still necessary?)
 % \usepackage[utf8]{inputenc}   % Bessere Alternative? --> Doris
 %\usepackage[T1]{fontenc} %BERM2: bitciphers.tex used T1.
                 % Ohne T1 wurden dort \dh und \textperthousand nicht erkannt.
-                % Die Hinzunahme von T1 (soll eigentlich Umbrüche verbessern)
-                % erzeugt aber ein paar zusätzliche schwarze Balken (z.B. bei
+                % Die Hinzunahme von T1 (soll eigentlich UmbrÃ¼che verbessern)
+                % erzeugt aber ein paar zusÃ¤tzliche schwarze Balken (z.B. bei
                 % "Der DES-Algorithmus ist" in cryptomethods.text im Deutschen,
                 % und bei der Trennung von "straddling checker-board" in 2.2.1 im Englischen.
-% Statt T1 als Package zu inkludieren, nur die wirklich benötigten Sonderzeichen definiert.
+% Statt T1 als Package zu inkludieren, nur die wirklich benÃ¶tigten Sonderzeichen definiert.
 \DeclareTextSymbolDefault{\dh}{T1}
 \DeclareTextSymbolDefault{\textperthousand}{T1}
-\usepackage{eurosym}%Necessary for € symbol in chap 8.3.1 bitcipers.tex (not in en version)
+\usepackage{eurosym}%Necessary for Â€ symbol in chap 8.3.1 bitcipers.tex (not in en version)
 
 \usepackage{ae}%16xxxxxxxxxxxxxx Neu wegen dlog.tex% doris: iwas mit fonts
 %endfolding fonts etc.
@@ -104,7 +105,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%------index
-\usepackage{makeidx}  % Alternativ evtl. \usepackage{imakeidx} (bemerkte keinen Unterschied) --> Alphabetheader wahrscheinlich möglich!
+\usepackage{makeidx}  % Alternativ evtl. \usepackage{imakeidx} (bemerkte keinen Unterschied) --> Alphabetheader wahrscheinlich mÃ¶glich!
 % definiert 2 befehle: see und printindex
 \makeindex
 % \makeindex[columns=3, title=Alphabetical Index] %%% TodoTodo_Nice-to-have-only: Alphabetzeichen als Header im Index. Tat nicht! --> Siehe usepackage{imakeidx}
@@ -186,8 +187,8 @@
 %%beginfolding%%%%%%%%%%%%%%%%%%%%%%%%%%%-----not needed anymore
 %\usepackage{myThanks} %\usepackage{thumbpdf} %\usepackage[T1]{fontenc} %\usepackage{times}
 %\usepackage{pslatex} %\usepackage{ae,aecompl}
-% Rahmen um Boxen, die auch mehrzeilig sein können (siehe Euler-Phi-Def.)
-% \usepackage{framed}  %% Nicht gebraucht, da man dafür auch \parbox innerhalb von \fbox aufrufen kann.
+% Rahmen um Boxen, die auch mehrzeilig sein kÃ¶nnen (siehe Euler-Phi-Def.)
+% \usepackage{framed}  %% Nicht gebraucht, da man dafÃ¼r auch \parbox innerhalb von \fbox aufrufen kann.
 %\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE%16xxxxxxxxxxxxxx% doris: hab ich rausgeschmissen, da es nirgends gebraucht wird!
 %endfolding
 
@@ -215,7 +216,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%------------ misc
-\usepackage{morewrites}% Neu wegen "message {No room for a new \string #" nach Hinzufügen von \lostof{opensslcode}
+\usepackage{morewrites}% Neu wegen "message {No room for a new \string #" nach HinzufÃ¼gen von \lostof{opensslcode}
 \usepackage{ifthen}
 
 %beginfolding%%%%%%%%%%%%%%%%----------user-defined-commands,envir., counters etc.
@@ -290,7 +291,6 @@
 
 %%beginfolding%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-------hyperref &co
 %\usepackage[hyphens]{url} % options "hyphens" enables linebreaks nach Bindestrich in \url{}
-%                          % (evtl. usepackage url erst NACH usepackage hyperref?)
 %\appto\UrlBreaks{\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j
 %\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w
 %\do\x\do\y\do\z}
@@ -310,12 +310,12 @@ bookmarksnumbered=true,pdfpagelabels,plainpages=false,hyperfootnotes=false]{hype
 %test
 %\end{document}
 
-\includepdf[pages=1]{figures/coverv1_de.pdf}  % ab 2017 nur eine Auflösung und kein Querbalken
+\includepdf[pages=1]{figures/coverv1_de.pdf}  % ab 2017 nur eine AuflÃ¶sung und kein Querbalken
 \VerbatimFootnotes
 %doris: manual adjustment of look of footnotes: get rid of!%beginfolding
 % space between text and footnote
 % \renewcommand{\footnoterule}{\parindent0cm\rule{13cm}{.1pt}\vspace{.2cm}}
-% Formatierung der Fußnoten
+% Formatierung der FuÃŸnoten
 \renewcommand\footnoterule{
 \vspace{2em}%   <-- one line space between text and footnoterule
 % \kern-3\p@
@@ -323,18 +323,18 @@ bookmarksnumbered=true,pdfpagelabels,plainpages=false,hyperfootnotes=false]{hype
 \vspace{4pt}
 % kern 2.6\p@
 }%endfolding
-\frontmatter % Ab hier beginnt Seitennummerierung mit römischen Ziffern
+\frontmatter % Ab hier beginnt Seitennummerierung mit rÃ¶mischen Ziffern
 \maketitle
 
 %beginfoldingersteseiten
 % Vergleichbar zur Nutzung von Texten aus der Wikipedia (=GNU Free Documentation Licence, GFDL)
 \begin{quote}
-Dies ist ein freies Dokument, d.h. Inhalte des Dokuments können kopiert und
+Dies ist ein freies Dokument, d.h. Inhalte des Dokuments kÃ¶nnen kopiert und
 verbreitet werden, auch zu kommerziellen Zwecken.\\
 Im Gegenzug sind Autor, Titel und die CrypTool-Webseite (\url{www.cryptool.org}) zu
-nennen. Selbstverständlich darf aus dem CrypTool-Buch, genau wie aus jedem
+nennen. SelbstverstÃ¤ndlich darf aus dem CrypTool-Buch, genau wie aus jedem
 anderen Werk auch, zitiert werden. \\
-Darüber hinaus unterliegt dieses Dokument der GNU-Lizenz für freie
+DarÃ¼ber hinaus unterliegt dieses Dokument der GNU-Lizenz fÃ¼r freie
 Dokumentation.
 
 %   Copyright \textcopyright{} 1998--2018 Bernhard Esslinger and the    %% Geht beides.
@@ -346,7 +346,7 @@ Dokumentation.
     the license is included in the section entitled
     \hyperlink{appendix-GNU-fdl}{``GNU Free Documentation License''}.
 
-    Dies beinhaltet auch den Code für die SageMath-Beispiele in diesem Dokument.
+    Dies beinhaltet auch den Code fÃ¼r die SageMath-Beispiele in diesem Dokument.
 \end{quote}
 
 
@@ -373,12 +373,12 @@ Dokumentation.
 \vfill
 
 \noindent
-Quelle Coverfoto: \url{www.photocase.com}, Andre Günther\\
+Quelle Coverfoto: \url{www.photocase.com}, Andre GÃ¼nther\\
 Schriftsatz-Software: \LaTeX\\
 Versionsverwaltungs-Software: Subversion
 %endfoldingersteseiten
 
-\input{chapters/overviewcontent.tex} % Überblick über Inhalt des CT-Buches soll vor toc
+\input{chapters/overviewcontent.tex} % Ãœberblick Ã¼ber Inhalt des CT-Buches soll vor toc
 
 \newpage
 \pdfbookmark[0]{Kurzinhaltsverzeichnis}{ShortContents}
@@ -394,7 +394,7 @@ Versionsverwaltungs-Software: Subversion
 \newcounter{mycounterDefaultParskip} \setcounter{mycounterDefaultParskip}{4}
 \parskip \value{mycounterDefaultParskip} pt
 
-%%% 2) Überall im Text sollen die automatisch erzeugten alpha-Referenzen angezeigt werden.
+%%% 2) Ãœberall im Text sollen die automatisch erzeugten alpha-Referenzen angezeigt werden.
 %doris: was sind alpha-Referenzen??
 %xy%%_17-01-19: Introduced
 %LaTeX var CTBChapName to have a specific headline for the chapter bibliography
@@ -437,7 +437,7 @@ Versionsverwaltungs-Software: Subversion
 \hypertarget{appendix-start}{}\label{s:appendix-start}
 \chapter{Anhang}
     \begin{itemize}%doris: what??? wieso nicht enumerate???
-      \item[1] \hyperlink{appendix-menu-overview-CT1}{CrypTool-1-Menübaum}
+      \item[1] \hyperlink{appendix-menu-overview-CT1}{CrypTool-1-MenÃ¼baum}
       \item[2] \hyperlink{appendix-template-overview-CT2}{CrypTool-2-Vorlagen}
       \item[3] \hyperlink{appendix-function-overview-JCT}{JCrypTool-Funktionen}
       \item[4] \hyperlink{appendix-function-overview-CTO}{CrypTool-Online-Funktionen}
@@ -446,7 +446,7 @@ Versionsverwaltungs-Software: Subversion
       \item[6] \hyperlink{appendix-Learn-NT}
                          {Lernprogramm Elementare Zahlentheorie}
       \item[7] \hyperlink{appendix-using-sage}
-                         {Kurzeinführung in das Computer-Algebra-System SageMath}
+                         {KurzeinfÃ¼hrung in das Computer-Algebra-System SageMath}
       \item[8] \hyperlink{appendix-authors}{Autoren des CrypTool-Buchs}
     \end{itemize}
 \renewcommand{\CTBChapName}{(Appendix\_Menus)}
@@ -493,7 +493,7 @@ Versionsverwaltungs-Software: Subversion
 
 %liste openssl etc. beginfolding
 % Zur Fehlermeldung vgl https://www.ntg.nl/doc/fairbairns/newfaq.pdf, #228:
-%                       Läuft mir damit eine Registerzahl über? Welche?
+%                       LÃ¤uft mir damit eine Registerzahl Ã¼ber? Welche?
 % http://tex.stackexchange.com/questions/289734/special-package-combination-gives-no-room-for-new-write:
 % The solution was to use \usepackage{morewrites} since basically any of the packages already loaded
 % there grabs at least one (write) file handle, but the number of file handles is restricted to
@@ -526,7 +526,7 @@ Versionsverwaltungs-Software: Subversion
         - SageMath-Samples-in-Chap03.sage \\
         - SageMath-Samples-in-Chap04.sage
   \item Alle Beispiel wurden mit der SageMath-Version 5.3 (Release Date 2012-09-08) getestet.
-\end{itemize}   % xxxxxxxxxxxxxx Weitere Beispiele ergänzen !  % TODOTODO: Update.
+\end{itemize}   % xxxxxxxxxxxxxx Weitere Beispiele ergÃ¤nzen !  % TODOTODO: Update.
 %endfolding
 
 
@@ -555,23 +555,23 @@ title={Gesamtliteraturverzeichnis}]
   \index{One-Time-Pad|see{OTP}}
   \index{PRNG|see{Zufallsgenerator}}
   \index{Pseudozufallsgenerator|see{Zufallsgenerator}}
-  \index{Schlüsselaustausch!Diffie-Hellman|see{Diffie-Hellman}}
+  \index{SchlÃ¼sselaustausch!Diffie-Hellman|see{Diffie-Hellman}}
   \index{ECC|see{elliptische Kurve}}
   \index{Triple-DES|see{DES, Triple-DES}}
 
-  \index{Fermat!großer Satz|see{Fermat, letzter Satz}}
+  \index{Fermat!groÃŸer Satz|see{Fermat, letzter Satz}}
   \index{Fermat!zweiter Satz|see{Fermat, letzter Satz}}
-  \index{großer Satz|see{Fermat, letzter Satz}}
+  \index{groÃŸer Satz|see{Fermat, letzter Satz}}
   \index{zweiter Satz|see{Fermat, letzter Satz}}
   \index{letzter Satz|see{Fermat, letzter Satz}}
   \index{kleiner Satz|see{Fermat, kleiner Satz}}
 
   % \index{MysteryTwister C3|see{MTC3}|see{Krypto-Wettbewerb}}  % Das geht nicht, zeigt nur "siehe MTC3".
   \index{MysteryTwister C3|see{MTC3}}
-  % \index{MysteryTwister C3|see{Krypto-Wettbewerb}}  Raus, da 2 Verweise nicht schön, und vor allem
+  % \index{MysteryTwister C3|see{Krypto-Wettbewerb}}  Raus, da 2 Verweise nicht schÃ¶n, und vor allem
   %            werden sie alphabetisch geordnet und nach "siehe Krypto-Wettbewerb" ist eine Blackbox.
   \index{Challenge|see{Krypto-Wettbewerb}}
-  % \index{Cipher-Challenge|see{Krypto-Wettbewerb}}  Raus, führt trotz RaggedRight zu Blackbox.
+  % \index{Cipher-Challenge|see{Krypto-Wettbewerb}}  Raus, fÃ¼hrt trotz RaggedRight zu Blackbox.
   \index{CrypTool~1|see{CT1}}  %% So \index{CrypTool~1} is no more needed, only \index{CT1}.
   \index{CrypTool~2|see{CT2}}
   \index{JCrypTool|see{JCT}}
@@ -580,7 +580,7 @@ title={Gesamtliteraturverzeichnis}]
   \index{Phi-Funktion|see{Eulersche Phi-Funktion}}
   \index{Fast Fourier Transformation|see{FFT}}
   \index{FSR|see{Schieberegister}}
-  \index{rückgekoppeltes Schieberegister|see{Schieberegister}}
+  \index{rÃ¼ckgekoppeltes Schieberegister|see{Schieberegister}}
   \index{PQC|see{Post-Quantum-Computing}}
 
 %% be_2016-08-04: Da es 4 blackboxes im Index gab (nur dt.), ragged2e und RaggedRight --> half.

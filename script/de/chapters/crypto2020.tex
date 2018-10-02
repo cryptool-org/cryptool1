@@ -8,7 +8,7 @@
 
 \newpage
 \hypertarget{Chapter_Crypto2020}{}
-\chapter{Krypto 2020 --- Perspektiven für langfristige kryptographische
+\chapter{Krypto 2020 --- Perspektiven fÃ¼r langfristige kryptographische
          Sicherheit}\index{Sicherheit!langfristig}
 \chaptermark{Krypto 2020}
 \label{Chapter_Crypto2020}
@@ -22,36 +22,36 @@
 
 \hyphenation{mathe-ma-tischer Schwie-rig-keit}
 % \begin{abstract}
-%    Krypto-Schlüsseln und -Algorithmen droht Gefahr durch die
-%    fortschreitende Entwicklung leistungsfähiger Hardware und neuer
-%    mathematischer Verfahren. Wie lange können die heutigen Verfahren
+%    Krypto-SchlÃ¼sseln und -Algorithmen droht Gefahr durch die
+%    fortschreitende Entwicklung leistungsfÃ¤higer Hardware und neuer
+%    mathematischer Verfahren. Wie lange kÃ¶nnen die heutigen Verfahren
 %    noch halten, was sie versprechen? Und welche Alternativen zeichnen
-%    sich für danach ab?
+%    sich fÃ¼r danach ab?
 % \end{abstract}
 
-Kryptographie ist ein Grundbaustein aller IT-Sicherheitslösungen.  Aber
+Kryptographie ist ein Grundbaustein aller IT-SicherheitslÃ¶sungen.  Aber
 wie lange sind die heute benutzten kryptographischen Verfahren noch
 sicher? Reicht diese Zeit, um zum Beispiel medizinische Daten lang genug
-geheim zu halten? Doch auch kurzfristig ließe sich großer Schaden
-anrichten, wenn auch nur bestimmte Schlüssel gebrochen würden: Etwa bei
-den digitalen Signaturen, welche die Authentizität von automatischen
+geheim zu halten? Doch auch kurzfristig lieÃŸe sich groÃŸer Schaden
+anrichten, wenn auch nur bestimmte SchlÃ¼ssel gebrochen wÃ¼rden: Etwa bei
+den digitalen Signaturen, welche die AuthentizitÃ¤t von automatischen
 Windows-Updates sichern.
 
 
 \section{Verbreitete Verfahren}
 \label{sec:verfahren}
 
-In ihrer berühmten Arbeit aus dem Jahr 1978 stellten Rivest, Shamir und
+In ihrer berÃ¼hmten Arbeit aus dem Jahr 1978 stellten Rivest, Shamir und
 Adleman \cite{rivest/shamir/adleman:1978} das RSA\index{RSA}
-Public-Key-Verschlüsselungs- und Signaturverfahren vor. RSA ist auch
+Public-Key-VerschlÃ¼sselungs- und Signaturverfahren vor. RSA ist auch
 heute noch das in der Praxis meistverwendete Public-Key-System. Die
 Sicherheit von RSA beruht auf der Schwierigkeit, so genannte RSA-Moduln
-$N=pq$ in ihre (großen) Primfaktoren $p$ und $q$ zu zerlegen. In ihrer
-Arbeit schlugen die Erfinder von RSA damals vor, für langfristige
-Sicherheit $200$-stellige RSA-Moduln zu verwenden. Später
-veröffentlichte die Firma RSA Security eine Liste von RSA-Moduln
-wachsender Größe (RSA Challenge numbers) und setzte Preise von insgesamt
-635.000 US-\$ für das Faktorisieren dieser Zahlen aus (siehe
+$N=pq$ in ihre (groÃŸen) Primfaktoren $p$ und $q$ zu zerlegen. In ihrer
+Arbeit schlugen die Erfinder von RSA damals vor, fÃ¼r langfristige
+Sicherheit $200$-stellige RSA-Moduln zu verwenden. SpÃ¤ter
+verÃ¶ffentlichte die Firma RSA Security eine Liste von RSA-Moduln
+wachsender GrÃ¶ÃŸe (RSA Challenge numbers) und setzte Preise von insgesamt
+635.000 US-\$ fÃ¼r das Faktorisieren dieser Zahlen aus (siehe
 %% be_2017-07: Toter Link: \url{www.rsasecurity.com/rsalabs/}
 %\url{http://www.rsalabs.com/}
 %\url{http://www.emc.com/emc-plus/rsa-labs/index.htm}
@@ -59,13 +59,13 @@ wachsender Größe (RSA Challenge numbers) und setzte Preise von insgesamt
 ).
 
 Im Jahr 2005, also 27 Jahre nach der Erfindung von RSA, gelang es Bahr,
-Boehm, Franke und Kleinjung von der Universität Bonn bereits innerhalb
-von fünf Monaten, eine 200-stellige RSA-Challenge zu faktorisieren und
-damit die ursprüngliche Empfehlung langfristiger Sicherheit zu brechen
+Boehm, Franke und Kleinjung von der UniversitÃ¤t Bonn bereits innerhalb
+von fÃ¼nf Monaten, eine 200-stellige RSA-Challenge zu faktorisieren und
+damit die ursprÃ¼ngliche Empfehlung langfristiger Sicherheit zu brechen
 (\url{www.mat.uniroma2.it/~eal/rsa640.txt}).  Dies belegt anschaulich
 die Fortschritte in den letzten 30 Jahren bei der Faktorisierung von
 RSA-Moduln. Diese Fortschritte beruhen sowohl auf bahnbrechenden mathematischen
-Ideen, zum Beispiel der Entwicklung des Zahlkörpersiebs durch John Pollard,
+Ideen, zum Beispiel der Entwicklung des ZahlkÃ¶rpersiebs durch John Pollard,
 als auch auf bedeutenden Fortschritten in der Computer- und
 Implementierungstechnik.\footnote{%
 Vergleiche Kapitel \ref{SecurityRSA}
@@ -80,20 +80,20 @@ Interpolationsformel zur Voraussage der Sicherheit\index{Sicherheit!Voraussage}
 von RSA und anderen wichtigen kryptographischen Verfahren
 (vgl.\ \url{www.keylength.com}). Dieser Formel zufolge muss man
 derzeit schon 850-stellige RSA-Moduln verwenden,
-um Sicherheit für die nächsten dreißig Jahre zu gewährleisten.
+um Sicherheit fÃ¼r die nÃ¤chsten dreiÃŸig Jahre zu gewÃ¤hrleisten.
 
 Aber auch eine solche Interpolationsformel ist keine
-Sicherheitsgarantie! Brillante mathematische Ideen könnten jederzeit
-dazu führen, dass das Lösen des Faktorisierungsproblems leicht
+Sicherheitsgarantie! Brillante mathematische Ideen kÃ¶nnten jederzeit
+dazu fÃ¼hren, dass das LÃ¶sen des Faktorisierungsproblems leicht
 und RSA damit generell unbrauchbar wird. So bewies beispielsweise Peter
 Shor 1996, dass ein Quantencomputer -- ein neuer Computertyp, der die
-Gesetze der Quantenmechanik ausnutzt -- große Zahlen im Prinzip sehr
-schnell faktorisieren könnte \cite{shor:1997}. Trotz intensiver
-Forschungsbemühungen ist es aber auch heute noch unklar, ob sich jemals
-hinreichend leistungsfähige Quantencomputer\index{Quantencomputer}
+Gesetze der Quantenmechanik ausnutzt -- groÃŸe Zahlen im Prinzip sehr
+schnell faktorisieren kÃ¶nnte \cite{shor:1997}. Trotz intensiver
+ForschungsbemÃ¼hungen ist es aber auch heute noch unklar, ob sich jemals
+hinreichend leistungsfÃ¤hige Quantencomputer\index{Quantencomputer}
 bauen lassen.\footnote{%
-Benötigte qbits für Angriffe auf RSA, DSA und ECDSA für Schlüssel
-der Bit-Länge n: \\
+BenÃ¶tigte qbits fÃ¼r Angriffe auf RSA, DSA und ECDSA fÃ¼r SchlÃ¼ssel
+der Bit-LÃ¤nge n: \\
 \vskip +1 pt
 \begin{tabular}{|c|l|}
 \hline
@@ -106,8 +106,8 @@ der Bit-Länge n: \\
 \vskip +6 pt
 Vergleiche Kap. 5.3 in
 \glqq SicAri -- Eine Sicherheitsplattform und deren Werkzeuge
-für die ubiquitäre Internetnutzung, KB2.1 -- Abschlussbericht,
-Übersicht über Angriffe auf relevante kryptographische Verfahren\grqq,
+fÃ¼r die ubiquitÃ¤re Internetnutzung, KB2.1 -- Abschlussbericht,
+Ãœbersicht Ã¼ber Angriffe auf relevante kryptographische Verfahren\grqq,
 Version 1.0, 17. Mai 2005,
 Prof. Dr. Johannes Buchmann et al., TUD-KryptC und cv cryptovision GmbH
 (\href{http://www.cdc.informatik.tu-darmstadt.de/~schepers/kb\_21\_angriffe.pdf}
@@ -118,132 +118,132 @@ und die Dissertation von Axel Schmidt am gleichen Lehrstuhl.
 Aktuelle Verlautbarungen der Start-up-Firma D-Wave (\url{www.dwavesys.com})
 trafen auf verbreitete Skepsis, ja Spott.
 
-Analog zu RSA verläuft die Entwicklung bei Angriffen
+Analog zu RSA verlÃ¤uft die Entwicklung bei Angriffen
 auf die meistverwendeten Public-Key-Alternativen:
 den Digital Signature Algorithm (DSA) und Elliptic Curve
 Cryptography (ECC), die beide auf der Schwierigkeit
 der Berechnung diskreter Logarithmen beruhen. Es gibt
 schon heute deutliche algorithmische Fortschritte und
-Quantencomputer würden auch diese Verfahren unsicher
+Quantencomputer wÃ¼rden auch diese Verfahren unsicher
 machen.
 
 Wie steht es um die langfristige Sicherheit von so genannten
-Secret-Key-Verschlüsselungsver"-fah"-ren? DES wurde 1977 als Data Encryption
-Standard eingeführt \cite{DES-Standard:1977} -- 21 Jahre später stellte
+Secret-Key-VerschlÃ¼sselungsver"-fah"-ren? DES wurde 1977 als Data Encryption
+Standard eingefÃ¼hrt \cite{DES-Standard:1977} -- 21 Jahre spÃ¤ter stellte
 die Electronic Frontier Foundation (EFF) den Spezialcomputer Deep Crack
 vor, der DES in 56 Stunden bricht. Das Problem von DES war die zu kurz
-gewählte Schlüssellänge: Offenbar hatten seine Erfinder die rasante
+gewÃ¤hlte SchlÃ¼ssellÃ¤nge: Offenbar hatten seine Erfinder die rasante
 Entwicklung bei der Hardware nicht richtig einkalkuliert. Der
 DES-Nachfolger Advanced Encryption Standard (AES)
 \cite{AES-Standard:2002} gilt heute als sicher, wenngleich interessante
 Angriffsversuche mit algebraischen Methoden existieren.
 
 
-\section{Vorsorge für morgen}
+\section{Vorsorge fÃ¼r morgen}
 \label{vorsorge}
 
 Ist die heutige Kryptographie angesichts ihrer
 wachsenden Bedeutung noch sicher genug? Die Erfahrung
-zeigt: Sorgfältig konzipierte und implementierte kryptographische
+zeigt: SorgfÃ¤ltig konzipierte und implementierte kryptographische
 Verfahren haben eine Lebensdauer von 5 bis
 20 Jahren. Wer heute RSA, ECC oder AES zur kurzfristigen
-Absicherung verwendet, darf sich sicher fühlen. Und
-langfristige Verbindlichkeit lässt sich beispielsweise mit
-den von Jan Sönke Maseberg vorgeschlagenen multiplen
-Signaturen lösen \cite{maseberg-thesis:2002}.
+Absicherung verwendet, darf sich sicher fÃ¼hlen. Und
+langfristige Verbindlichkeit lÃ¤sst sich beispielsweise mit
+den von Jan SÃ¶nke Maseberg vorgeschlagenen multiplen
+Signaturen lÃ¶sen \cite{maseberg-thesis:2002}.
 
-Aber langfristige Vertraulichkeit können wir
+Aber langfristige Vertraulichkeit kÃ¶nnen wir
 heute mit den genannten Verfahren nicht garan"-tieren.
 Und was ist in 20 Jahren? Was kann man tun, wenn ein
 unerwarteter mathematischer Fortschritt ein wichtiges
-Kryptoverfahren plötzlich -- quasi über Nacht -- unsicher
-macht? Drei Dinge sind zur Vorbereitung nötig:
+Kryptoverfahren plÃ¶tzlich -- quasi Ã¼ber Nacht -- unsicher
+macht? Drei Dinge sind zur Vorbereitung nÃ¶tig:
 
 \begin{itemize}
 \item ein Pool alternativer sicherer Kryptoverfahren,
-\item Infrastrukturen, die es ermöglichen, unsichere kryptographische
+\item Infrastrukturen, die es ermÃ¶glichen, unsichere kryptographische
    Verfahren leicht gegen sichere auszutauschen und
 \item Verfahren, die langfristige Vertraulichkeit sicherstellen.
 \end{itemize}
 
 
-%% be_2017-07: Ist der ff. Absatz noch gültig: FP -> BC; Webseite www.flexiprovider.de hat "Stand: 26.6.16".
+%% be_2017-07: Ist der ff. Absatz noch gÃ¼ltig: FP -> BC; Webseite www.flexiprovider.de hat "Stand: 26.6.16".
 Diese Ziele verfolgen auch die Kryptoarbeitsgruppe der TU Darmstadt und
 der daraus entstandene Spin-off FlexSecure (\url{www.flexsecure.de})
 seit vielen Jahren. Die Trustcenter-Software FlexiTrust, die in der
 deutschen nationalen Root-Zertifizierungsstelle und in der deutschen
 Country-Signing-Zertifizierungsstelle verwendet wird, ist eine
-Infrastruktur, die den einfachen Austausch von Kryptographie-Verfahren möglich
+Infrastruktur, die den einfachen Austausch von Kryptographie-Verfahren mÃ¶glich
 macht. Die Open-Source-Bibliothek FlexiPro"-vider\index{FlexiProvider}
 (siehe \url{www.flexiprovider.de}) stellt zudem eine Vielzahl
-unterschiedlicher kryptographischer Verfahren zur Verfügung und in
-jüngerer Zeit laufen intensive Forschungen zur \glqq Post Quantum
+unterschiedlicher kryptographischer Verfahren zur VerfÃ¼gung und in
+jÃ¼ngerer Zeit laufen intensive Forschungen zur \glqq Post Quantum
 Cryptography\grqq~(PQC)\index{Kryptographie!Post Quantum}\index{Post-Quantum-Computing}:
 Kryptographie, die auch dann noch sicher bleibt, wenn es
-(leistungsfähige) Quantencomputer tatsächlich gibt.
+(leistungsfÃ¤hige) Quantencomputer tatsÃ¤chlich gibt.
 
 Die Sicherheit der Public-Key-Kryptographie beruht traditionell auf der
-Schwierigkeit, bestimmte mathematische Probleme zu lösen. Heute
+Schwierigkeit, bestimmte mathematische Probleme zu lÃ¶sen. Heute
 diskutierte Alternativen zum Faktorisierungs- und Diskrete-Logarithmen-
-Problem sind: das Dekodierungsproblem, das Problem, kürzeste und näch"-ste
+Problem sind: das Dekodierungsproblem, das Problem, kÃ¼rzeste und nÃ¤ch"-ste
 Gittervektoren zu berechnen, und das Problem, quadratische Gleichungen
-mit vielen Variablen zu lösen. Es wird vermutet, dass diese Probleme
-auch von Quantencomputern\index{Quantencomputer} nicht effizient lösbar wären.
+mit vielen Variablen zu lÃ¶sen. Es wird vermutet, dass diese Probleme
+auch von Quantencomputern\index{Quantencomputer} nicht effizient lÃ¶sbar wÃ¤ren.
 
 
 \section{Neue mathematische Probleme}
 \label{sec:probleme}
 
-Wie sehen diese Alternativen näher aus? Verschlüsselung
+Wie sehen diese Alternativen nÃ¤her aus? VerschlÃ¼sselung
 auf der Basis des Dekodierungsproblems wurde
-von McEliece erfunden~\cite{mceliece:1978}\index{Verschlüsselung!McEliece}.
+von McEliece erfunden~\cite{mceliece:1978}\index{VerschlÃ¼sselung!McEliece}.
 Der Hintergrund: Fehlerkorrigierende
 Codes dienen dazu, digitale Informationen so zu
-speichern, dass sie selbst dann noch vollständig lesbar
+speichern, dass sie selbst dann noch vollstÃ¤ndig lesbar
 bleiben, wenn einzelne Bits auf dem Speichermedium
-verändert werden. Diese Eigenschaft nutzen zum Beispiel
-CDs, sodass Informationen auf leicht verkratzten Datenträgern
-immer noch vollständig rekonstruierbar sind.
+verÃ¤ndert werden. Diese Eigenschaft nutzen zum Beispiel
+CDs, sodass Informationen auf leicht verkratzten DatentrÃ¤gern
+immer noch vollstÃ¤ndig rekonstruierbar sind.
 
-Bei der codebasierten Verschlüsselung\index{Verschlüsselung!codebasiert}
-werden Daten verschlüsselt, indem
-zu ihrer Kodierung mit einem öffentlich bekannten Code gezielt Fehler
-addiert werden, das heißt einzelne Bits werden verändert. Die
-Entschlüsselung erfordert die Kenntnis einer geeigneten
+Bei der codebasierten VerschlÃ¼sselung\index{VerschlÃ¼sselung!codebasiert}
+werden Daten verschlÃ¼sselt, indem
+zu ihrer Kodierung mit einem Ã¶ffentlich bekannten Code gezielt Fehler
+addiert werden, das heiÃŸt einzelne Bits werden verÃ¤ndert. Die
+EntschlÃ¼sselung erfordert die Kenntnis einer geeigneten
 Dekodierungsmethode, welche diese Fehler effizient zu entfernen vermag.
-Diese Methode ist der geheime Schlüssel -- nur wer sie kennt, kann
-dechiffrieren. Codebasierte Public-Key-Verschlüsselung ist im
-Allgemeinen sehr effizient durchführbar. Derzeit wird daran geforscht,
-welche Codes zu sicheren Verschlüsselungsverfahren mit möglichst kleinen
-Schlüsseln führen.
+Diese Methode ist der geheime SchlÃ¼ssel -- nur wer sie kennt, kann
+dechiffrieren. Codebasierte Public-Key-VerschlÃ¼sselung ist im
+Allgemeinen sehr effizient durchfÃ¼hrbar. Derzeit wird daran geforscht,
+welche Codes zu sicheren VerschlÃ¼sselungsverfahren mit mÃ¶glichst kleinen
+SchlÃ¼sseln fÃ¼hren.
 
 
-%% be_2017-07: Klick auf www.ntru.com führt zu https://www.securityinnovation.com/
+%% be_2017-07: Klick auf www.ntru.com fÃ¼hrt zu https://www.securityinnovation.com/
 %% Dort gibt es sie dann unter https://www.securityinnovation.com/products/ntru-crypto
 %% Vgl.: https://www.securityinnovation.com/products/ntru-crypto/ntru-challenge !!!
-%% Die ersten 7 von 27 sind gelöst:
+%% Die ersten 7 von 27 sind gelÃ¶st:
 %%    https://assets.securityinnovation.com/static/downloads/NTRU/challenge/ntru-challenge-parameter-sets-and-public-keys-new.pdf?mtime=20160411180153
 %%    https://assets.securityinnovation.com/static/downloads/NTRU/challenge/ntru-challenge-parameter-sets-and-public-keys-answers.pdf
 %% Wohl neuerdings unter neuer Firma: https://www.onboardsecurity.com/products/ntru-crypto
 %% Vgl. auch:
 %% https://github.com/NTRUOpenSourceProject/NTRUEncrypt/releases/tag/Public-domain
 %% https://github.com/NTRUOpenSourceProject/NTRUMLS
-Verschlüsselung auf der Grundlage von
-Gitterproblemen\index{Verschlüsselung!Gitterprobleme} ist den
-codebasierten Verschlüssel"-ungs"-ver"-fah"-ren sehr ähnlich. Gitter sind
-regelmäßige Strukturen von Punkten im Raum. Zum Beispiel bilden die
+VerschlÃ¼sselung auf der Grundlage von
+Gitterproblemen\index{VerschlÃ¼sselung!Gitterprobleme} ist den
+codebasierten VerschlÃ¼ssel"-ungs"-ver"-fah"-ren sehr Ã¤hnlich. Gitter sind
+regelmÃ¤ÃŸige Strukturen von Punkten im Raum. Zum Beispiel bilden die
 Eckpunkte der Quadrate auf kariertem Papier ein zweidimensionales
-Gitter. In der Kryptographie verwendet man jedoch Gitter in viel höheren
-Dimensionen. Verschlüsselt wird nach dem folgenden Prinzip: Aus dem
-Klartext wird zunächst ein Gitterpunkt konstruiert und anschließend
-geringfügig verschoben, sodass er kein Gitterpunkt mehr ist, aber in der
-Nähe eines solchen liegt. Wer ein Geheimnis über das Gitter kennt, kann
-diesen Gitterpunkt in der Nähe finden und damit entschlüsseln. Ein
-besonders praktikables Gitterverschlüsselungsverfahren ist NTRU
-(\url{https://www.onboardsecurity.com/products/ntru-crypto})\index{Verschlüsselung!Gitterprobleme!NTRU}.
+Gitter. In der Kryptographie verwendet man jedoch Gitter in viel hÃ¶heren
+Dimensionen. VerschlÃ¼sselt wird nach dem folgenden Prinzip: Aus dem
+Klartext wird zunÃ¤chst ein Gitterpunkt konstruiert und anschlieÃŸend
+geringfÃ¼gig verschoben, sodass er kein Gitterpunkt mehr ist, aber in der
+NÃ¤he eines solchen liegt. Wer ein Geheimnis Ã¼ber das Gitter kennt, kann
+diesen Gitterpunkt in der NÃ¤he finden und damit entschlÃ¼sseln. Ein
+besonders praktikables GitterverschlÃ¼sselungsverfahren ist NTRU
+(\url{https://www.onboardsecurity.com/products/ntru-crypto})\index{VerschlÃ¼sselung!Gitterprobleme!NTRU}.
 Da NTRU vor vergleichsweise kurzer Zeit
-eingeführt wurde (1998) und seine Spezifizierung aufgrund verschiedener
-Angriffe mehrfach geändert wurde, sind allerdings noch weitere
+eingefÃ¼hrt wurde (1998) und seine Spezifizierung aufgrund verschiedener
+Angriffe mehrfach geÃ¤ndert wurde, sind allerdings noch weitere
 kryptanalytische Untersuchungen erforderlich, um Vertrauen in dieses
 Verfahren zu gewinnen.
 
@@ -251,33 +251,33 @@ Verfahren zu gewinnen.
 \section{Neue Signaturen}
 \label{sec:signaturen}
 
-1979 schlug Ralph Merkle einen bemerkenswerten Ansatz für die
+1979 schlug Ralph Merkle einen bemerkenswerten Ansatz fÃ¼r die
 Konstruktion von Signaturverfahren in seiner Dissertation
 \cite{merkle-thesis:1979} vor.  Im Gegensatz zu allen anderen
 Signaturverfahren\index{Signatur!Merkle} beruht seine Sicherheit
 nicht darauf, dass ein
 zahlentheoretisches, algebraisches oder geometrisches Problem schwer
-lösbar ist. Benötigt wird ausschließlich, was andere Signaturverfahren
+lÃ¶sbar ist. BenÃ¶tigt wird ausschlieÃŸlich, was andere Signaturverfahren
 ebenfalls voraussetzen: eine sichere kryptographische Hash-Funktion und
-ein sicherer Pseudozufallszahlengenerator. Jede neue Hash-Funktion führt
+ein sicherer Pseudozufallszahlengenerator. Jede neue Hash-Funktion fÃ¼hrt
 somit zu einem neuen Signaturalgorithmus, wodurch das Merkle-Verfahren
-das Potential hat, das Problem der langfristigen Verfügbarkeit digitaler
-Signaturverfahren zu lösen.
+das Potential hat, das Problem der langfristigen VerfÃ¼gbarkeit digitaler
+Signaturverfahren zu lÃ¶sen.
 
 Merkle verwendet in seiner Konstruktion so genannte Einmal-Signaturen:
-Dabei benötigt jede neue Signatur einen neuen Signierschlüssel und einen
-neuen Verifikationsschlüssel. Die Idee von Merkle ist es, die Gültigkeit
-vieler Verifikationsschlüssel mittels eines Hash-Baums auf die
-Gültigkeit eines einzelnen öffentlichen Schlüssels zurückzuführen. Im
-Merkle-Verfahren muss man bei der Schlüsselerzeugung eine Maximalzahl
-möglicher Signaturen festlegen, was lange wie ein gravierender Nachteil
+Dabei benÃ¶tigt jede neue Signatur einen neuen SignierschlÃ¼ssel und einen
+neuen VerifikationsschlÃ¼ssel. Die Idee von Merkle ist es, die GÃ¼ltigkeit
+vieler VerifikationsschlÃ¼ssel mittels eines Hash-Baums auf die
+GÃ¼ltigkeit eines einzelnen Ã¶ffentlichen SchlÃ¼ssels zurÃ¼ckzufÃ¼hren. Im
+Merkle-Verfahren muss man bei der SchlÃ¼sselerzeugung eine Maximalzahl
+mÃ¶glicher Signaturen festlegen, was lange wie ein gravierender Nachteil
 aussah. In \cite{buchmann/coronado/dahmen/doering/klintsevich:2006}
 wurde jedoch eine Variante des Merkle-Verfahrens vorgestellt, die es
-ermöglicht, äußerst effizient mit einem einzigen Schlüsselpaar bis zu
+ermÃ¶glicht, Ã¤uÃŸerst effizient mit einem einzigen SchlÃ¼sselpaar bis zu
 $2^{40}$ Signaturen zu erzeugen und zu verifizieren.\footnote{%
   In JCT\index{JCT} findet man in der Standard-Perspektive
-  unter dem Hauptmenü-Eintrag {\bf Visualisierungen} verschiedene
-  Komponenten und Ausprägungen davon: die Einmalsignatur WOTS+,
+  unter dem HauptmenÃ¼-Eintrag {\bf Visualisierungen} verschiedene
+  Komponenten und AusprÃ¤gungen davon: die Einmalsignatur WOTS+,
   die normale Merkle-Signatur (MSS) und die Extended-Merkle-Signatur
   (XMSS).\index{Merkle-Signatur}\index{MSS}\index{XMSS}\index{WOTS}
 }
@@ -286,18 +286,18 @@ $2^{40}$ Signaturen zu erzeugen und zu verifizieren.\footnote{%
 \section{Quantenkryptographie -- Ein Ausweg?}%Quantum
 \label{sec:Quantenkryptographie}\index{Quantenkryptographie}
 
-Ungelöst bleibt aus Sicht der heutigen Kryptographie das Problem der
+UngelÃ¶st bleibt aus Sicht der heutigen Kryptographie das Problem der
 langfristigen Vertraulich"-keit: Ein praktikables Verfahren, das die
-Vertraulichkeit einer verschlüsselten Nachricht über einen sehr langen
+Vertraulichkeit einer verschlÃ¼sselten Nachricht Ã¼ber einen sehr langen
 Zeitraum sicherstellt, ist derzeit nicht bekannt.
 
-Einen Ausweg kann hier möglicherweise die Quantenkryptographie liefern:
-Sie ermöglicht Verfahren zum Schlüsselaustausch (sehr lange Schlüssel
-für One-time-Pads), deren Sicherheit auf der Gültigkeit
+Einen Ausweg kann hier mÃ¶glicherweise die Quantenkryptographie liefern:
+Sie ermÃ¶glicht Verfahren zum SchlÃ¼sselaustausch (sehr lange SchlÃ¼ssel
+fÃ¼r One-time-Pads), deren Sicherheit auf der GÃ¼ltigkeit
 der Gesetze der Quantenmechanik beruhen, vgl.\ z.B.\
 \cite{bennett/brassard:1984b}. Jedoch sind bekannte Verfahren der
 Quantenkryptographie derzeit noch sehr ineffizient und es ist unklar,
-welche kryptographischen Funktionen damit realisiert werden können.
+welche kryptographischen Funktionen damit realisiert werden kÃ¶nnen.
 
 
 \section{Fazit}
@@ -305,22 +305,22 @@ welche kryptographischen Funktionen damit realisiert werden können.
 
 Wie lautet die Bilanz? Die heutige Kryptographie
 liefert gute Werkzeuge, um kurzfristige und mittelfristige
-Sicherheit zu gewährleisten. Anwendungen können diese
+Sicherheit zu gewÃ¤hrleisten. Anwendungen kÃ¶nnen diese
 Werkzeuge ruhigen Gewissens verwenden, solange sie in
 der Lage sind, unsichere Komponenten schnell gegen
 Alternativen auszutauschen.
 
-Um IT-Sicherheit auch für die Zukunft zu garantieren, müssen wir ein
-Portfolio sicherer kryptographischer Funktionen vorbereiten. Es benötigt
-Verfahren, die sowohl für die Welt der allgegenwärtigen (weniger
-leistungsfähigen) Computer geeignet sind als auch dann sicher bleiben,
-wenn es leistungsfähige Quantencomputer\index{Quantencomputer} gibt.
+Um IT-Sicherheit auch fÃ¼r die Zukunft zu garantieren, mÃ¼ssen wir ein
+Portfolio sicherer kryptographischer Funktionen vorbereiten. Es benÃ¶tigt
+Verfahren, die sowohl fÃ¼r die Welt der allgegenwÃ¤rtigen (weniger
+leistungsfÃ¤higen) Computer geeignet sind als auch dann sicher bleiben,
+wenn es leistungsfÃ¤hige Quantencomputer\index{Quantencomputer} gibt.
 Einige viel versprechende
-Kandidaten für ein solches Portfolio wurden in diesem Artikel
-vorgestellt; diese müssen jedoch noch sorgfältig erforscht und für die
+Kandidaten fÃ¼r ein solches Portfolio wurden in diesem Artikel
+vorgestellt; diese mÃ¼ssen jedoch noch sorgfÃ¤ltig erforscht und fÃ¼r die
 Praxis aufbereitet werden. Die Frage nach einem Verfahren zur Sicherung
 langfristiger Vertraulichkeit bleibt ein wichtiges offenes Problem, auf
-das sich zukünftige Forschung fokussieren sollte.
+das sich zukÃ¼nftige Forschung fokussieren sollte.
 
 
 %------------------------------------------------------------------------------
@@ -331,6 +331,6 @@ das sich zukünftige Forschung fokussieren sollte.
 ]
 
 
-\noindent Alle Links im Artikel wurden am 15.07.2016 überprüft.
+\noindent Alle Links im Artikel wurden am 15.07.2016 Ã¼berprÃ¼ft.
 
 \end{refsegment}
