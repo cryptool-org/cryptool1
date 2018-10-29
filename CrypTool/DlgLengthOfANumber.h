@@ -36,7 +36,13 @@ protected:
 protected:
 	afx_msg void updateNumberRepresentation();
 	afx_msg void updateNumber();
-private:
+protected:
+	CWnd wndBinary;
+	CWnd wndOctal;
+	CWnd wndDecimal;
+	CWnd wndHexadecimal;
+	CEdit editNumberControl;
+protected:
 	int getBase(const int _numberRepresentation) const;
 private:
 	// the number representation chosen by the user
@@ -44,7 +50,13 @@ private:
 	int numberRepresentationOld;
 	// the number string inserted by the user
 	CString stringNumber;
-
+	// the number string used for decimal formulas
+	CString stringNumberFormula;
+	// the number lengths for the individual representations
+	CString stringNumberLengthBinary;
+	CString stringNumberLengthOctal;
+	CString stringNumberLengthDecimal;
+	CString stringNumberLengthHexadecimal;
 	DECLARE_MESSAGE_MAP()
 };
 
