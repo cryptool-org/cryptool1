@@ -115,8 +115,7 @@ void CDlgLengthOfANumber::updateNumber()
 	// remove all invalid characters
 	if(base == 2) stringNumber = removeNonAlphabetCharacters(stringNumber, "01");
 	if(base == 8) stringNumber = removeNonAlphabetCharacters(stringNumber, "01234567");
-
-	if(base == 10) stringNumber = removeNonAlphabetCharacters(stringNumber, "0123456789+*^()");
+	if(base == 10) stringNumber = removeNonAlphabetCharacters(stringNumber, "0123456789+-*^()");
 	if(base == 16) stringNumber = removeNonAlphabetCharacters(stringNumber, "0123456789ABCDEF");
 	// initialize the formula variable
 	stringNumberFormula = CString();
