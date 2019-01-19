@@ -1,23 +1,31 @@
 
-@Manual{AES-Standard:2002,
-  key = {AES},
-  title = {Federal Information Processing Standards Publication 197: Advanced
-  Encyption Standard},
-  year = {2002},
-  organization = {National Institute of Standards and Technology (NIST)},
-  %_language = {USenglish},
-  %language = {english},
+@manual{AES-Standard:2002,
+sortname = {AES}, label={AES},
+author={M. J. Dworkin and E. B. Barker and J. R. Nechvatal and J. Foti
+and L. E. Bassham and E. Roback and J. F. Dray Jr.},
+title = {Advanced Encyption Standard (AES)},
+series={Federal Information Processing Standards (FIPS)},
+number={197},
+date= {2001-11-26},
+organization= {National Institute of Standards and Technology (NIST)},
+%type={Standard},
+publisher={U.S. Department of Commerce},
+location={Gaithersburg},
+url={https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197.pdf},
 }
 
-@Manual{DES-Standard:1977,
-  key = {DES},
-  title = {Federal Information Processing Standards Publication 46: Data
-  Encryption Standard},
+@manual{DES-Standard:1977,
+  label = {DES},
+sortname={DES},
+  title = {Data
+  Encryption Standard (DES)},
+series={Federal Information Processing Standards (FIPS)},
+number={46},
+organization= {National Bureau of Standards, National Technical Information Service},
+%type={Standard},
+publisher={U.S. Department of Commerce},
+location={Springfield, Virginia},
   year = {1977},
-  organization = {U.S. Department of Commerce, National Bureau of Standards,
-                  National Technical Information Service, Springfield, Virginia},
-  %_language = {USenglish},
-  %language = {english},
 }
 
 @InProceedings{bennett/brassard:1984b,
@@ -30,8 +38,6 @@
   volume = {196},
   pages = {475-480},
   publisher = {Springer-Verlag},
-  %_language = {USenglish},
-  %language = {english},
 }
 
 @InProceedings{buchmann/coronado/dahmen/doering/klintsevich:2006,
@@ -46,16 +52,13 @@
   number = {4392},
   pages = {349--363},
   publisher = {Springer-Verlag},
-  %_language = {USenglish},
-  %language = {english},
 }
 
-@PhdThesis{maseberg-thesis:2002,
+@thesis{maseberg-thesis:2002,
   author = {Jan S{\"o}nke Maseberg},
   title = {Fail-Safe-Konzept f{\"u}r Public-Key-Infrastrukturen},
   year = {2002},
-  school = {TU Darmstadt},
-  %language = {ngerman},
+  institution = {TU Darmstadt},
 }
 
 @Article{mceliece:1978,
@@ -66,8 +69,6 @@
   volume = {42--44},
   pages = {114--116},
   publisher = {Jet Propulsion Laboratory, Pasadena, CA},
-  %_language = {USenglish},
-  %language = {english},
 }
 
 @PhdThesis{merkle-thesis:1979,
@@ -75,8 +76,6 @@
   title = {Secrecy, authentication, and public key systems},
   year = {1979},
   school = {Department of Electrical Engineering, Stanford University},
-  %_language = {USenglish},
-  %language = {english},
 }
 
 @Article{rivest/shamir/adleman:1978,
@@ -88,8 +87,6 @@
   volume = {21},
   number = {2},
   pages = {120--126},
-  %_language = {USenglish},
-  %language = {english},
 }
 
 
@@ -103,16 +100,8 @@
   volume = {26},
   number = {5},
   pages = {1484--1509},
-  %_language = {USenglish},
-  %language = {english},
 }
 
-
-% --------------------------------------------------------
-% Part for dlog-factoringdead (old name when separated: bib-dfd.bib)
-% --------------------------------------------------------
-% The according file was created with JabRef 2.5.
-% Encoding: CP1252
 
 
 @book{Joux2009,
@@ -122,54 +111,60 @@
   isbn      = {1420070029},
   series    = {CRC Cryptography and Network Security Series},
   publisher = {Chapman \& Hall},
-  %_language = {USenglish},
-  %language  = {english},
 }
 
 
-% howpublished "\url{http://www.cits.ruhr-uni-bochum.de/imperia/md/content/may/12/ws1213/kryptanal12/kryptanalyse_2013.pdf}",
 @misc{May2012b,
   author    = {Alexander May},
   title     = {{Vorlesungsskript Kryptanalyse 2}},
   year      = {2012},
-  Note      = "Ruhr-University Bochum.\\ \url{http://www.cits.ruhr-uni-bochum.de/imperia/md/content/may/12/ws1213/kryptanal12/kryptanalyse_2013.pdf}",
-  %language = {ngerman},
+  institution      = {Ruhr-University Bochum},
+url={http://www.cits.ruhr-uni-bochum.de/imperia/md/content/may/12/ws1213/kryptanal12/kryptanalyse_2013.pdf},
 }
 
-% howpublished "\url{http://www.cits.ruhr-uni-bochum.de/imperia/md/content/may/pkk08/skript.pdf}",
 @misc{May2012a,
   author    = {Alexander May},
   title     = {{Vorlesungsskript Kryptanalyse 1}},
   year      = {2008},
-  Note      = "Ruhr-University Bochum.\\ \url{http://www.cits.ruhr-uni-bochum.de/imperia/md/content/may/pkk08/skript.pdf}",
-  %language = {ngerman},
+  institution      = {Ruhr-University Bochum},
+url={http://www.cits.ruhr-uni-bochum.de/imperia/md/content/may/pkk08/skript.pdf},
 }
 
-% howpublished "\url{http://www.cits.ruhr-uni-bochum.de/imperia/md/content/may/13/ss13/zahlenss13/zahlentheorie.pdf}",
 @misc{May2013,
   author    = {Alexander May},
   title     = {{Vorlesungsskript Zahlentheorie}},
   year      = {2013},
-  Note      = "Ruhr-University Bochum.\\ \url{http://www.cits.ruhr-uni-bochum.de/imperia/md/content/may/13/ss13/zahlenss13/zahlentheorie.pdf}",
-  %language = {ngerman},
+  institution= {Ruhr-University Bochum},
+url={http://www.cits.ruhr-uni-bochum.de/imperia/md/content/may/13/ss13/zahlenss13/zahlentheorie.pdf},
 }
 
 
-% howpublished "\url{https://www.bsi.bund.de/DE/Publikationen/TechnischeRichtlinien/tr02102/index_htm}",
 @misc{BSI2012,
   author    = {{BSI (Bundesamt für Sicherheit in der Informationstechnik)}},
   title     = {{BSI TR-02102 Kryptographische Verfahren: Empfehlungen und Schlüssellängen}},
   year      = {2012},
   publisher = {BSI},
-  Note    = "\\ \url{https://www.bsi.bund.de/DE/Publikationen/TechnischeRichtlinien/tr02102/index_htm}",
-  %language = {ngerman},
+  url={https://www.bsi.bund.de/DE/Publikationen/TechnischeRichtlinien/tr02102/index_htm},
 }
 
 
-% url = {https://www.bsi.bund.de/DE/Themen/DigitaleGesellschaft/ElektronischeSignatur/TechnischeRealisierung/Kryptoalgorithmen/kryptoalg.html},
-% comment = {BNetzA (Bundesnetzagentur): Jährlich erscheinende Veröffentlichung zu Algorithmen und Parametern im Umfeld elektronischer Signaturen},
-%  A statement on these recommendations:\\
-% Added author only because of bibtex warning "to sort, need author or key".
+%marke
+%@manual{AES-Standard:2002,
+%sortname = {AES}, label={AES},
+%author={M. J. Dworkin and E. B. Barker and J. R. Nechvatal and J. Foti
+%and L. E. Bassham and E. Roback and J. F. Dray Jr.},
+%title = {Advanced Encyption Standard (AES)},
+%series={Federal Information Processing Standards (FIPS)},
+%number={197},
+%date= {2001-11-26},
+%organization= {National Institute of Standards and Technology (NIST)},
+%%type={Standard},
+%publisher={U.S. Department of Commerce},
+%location={Gaithersburg},
+%url={https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197.pdf},
+%urldate={2018-11-04},
+%}
+%@manual{BSI2016,
 @techreport{BSI2016,
   author    = {BSI},
   institution = {BSI (Bundesamt für Sicherheit in der Informationstechnik)},
@@ -189,87 +184,65 @@
              \\ -  See: A statement on these recommendations:
              \\ \url{http://www.secorvo.de/publikationen/stellungnahme-algorithmenempfehlung-020307.pdf}
                               }},
-  %language = {ngerman},
 }
 
 
 
-@Comment{
-// %%16xxxTODO_JOUX: Old url doesn't exist any more. Is the new one correct?
-// %% The old url was the following:
-// %  howpublished = "\url{http://www.ssi.gouv.fr/fr/reglementation-ssi/referentiel-general-de-securite/}",
-// %% neu: howpublished = "\url{http://www.ssi.gouv.fr/administration/reglementation/}",
-}
+
+
 @misc{refanssi2013,
-  author    = {{Agence nationale de la s\'ecurit\'e des syst\`emes d'information}},
-  title     = {{R\'ef\'erentiel g\'en\'eral de s\'ecurit\'e Version 2.02}},
+  author    = {{Agence nationale de la sécurité des systèmes d'information}},
+  title     = {{Référentiel général de sécurité Version 2.02}},
   year      = {2013},
   publisher = {ANSSI},
-  Note    = "\\ \url{http://www.ssi.gouv.fr/administration/reglementation/}",  
-  %_language = {french},
-  %language = {english},
-}
-@Comment{
-// % Also see: https://fr.wikipedia.org/wiki/R%C3%A9f%C3%A9rentiel_g%C3%A9n%C3%A9ral_de_s%C3%A9curit%C3%A9
-// %           http://www.ssi.gouv.fr/entreprise/reglementation/administration-electronique/le-referentiel-general-de-securite-rgs/
+  url={http://www.ssi.gouv.fr/administration/reglementation/confiance-numerique/le-referentiel-general-de-securite-rgs/}
 }
 
 
 
-% howpublished  "\url{http://www.math.uni-frankfurt.de/~dmst/teaching/lecture_notes/bloemer.algorithmische_zahlentheorie.ps.gz}",
-@misc{Bloemer1999,
+
+@manual{Bloemer1999,
   author    = {J. Blömer},
   title     = {{Vorlesungsskript Algorithmische Zahlentheorie}},
   year      = {1999},
-  Note      = "Ruhr-University Bochum.\\ \url{http://www.math.uni-frankfurt.de/~dmst/teaching/lecture_notes/bloemer.algorithmische_zahlentheorie.ps.gz}",
-  %language = {ngerman},
+  institution      = {Ruhr-University Bochum},
+url={http://www.math.uni-frankfurt.de/~dmst/teaching/lecture_notes/bloemer.algorithmische_zahlentheorie.ps.gz},
 }
 
 
-% howpublished  "\url{http://www.rfc-base.org/txt/rfc-5639.txt}",
-@misc{LM2010,
+@manual{LM2010,
   author    = {Manfred Lochter and Johannes Merkle},
   title     = {{Elliptic Curve Cryptography (ECC) Brainpool Standard
                 Curves and Curve Generation}},
   year      = {2010},
-  Note      = "RFC 5639.\\ \url{http://www.rfc-base.org/txt/rfc-5639.txt}",
-  %_language = {USenglish},
-  %language  = {english},
+  note      = {RFC 5639},
+url={http://www.rfc-base.org/txt/rfc-5639.txt},
 }
-
-% howpublished  "\url{http://tools.ietf.org/search/rfc7027}",
+% choosing misc or manual seems to make no difference in those two cases ;-)
 @misc{LM2013,
   author    = {Manfred Lochter and Johannes Merkle},
   title     = {{Elliptic Curve Cryptography (ECC) Brainpool Curves
                 for Transport Layer Security (TLS)}},
   year      = {2013},
-  Note      = "RFC 7027.\\ \url{http://tools.ietf.org/search/rfc7027}",
-  %_language = {USenglish},
-  %language = {english},
+  Note      = {RFC 7027},
+url={http://tools.ietf.org/search/rfc7027},
 }
 
 
-% BE_ALte URL tot: "\url{www.ecc-brainpool.org/download/Domain-parameters.pdf}"
-% howpublished  "\url{https://www.teletrust.de/fileadmin/files/oid/oid_ECC-Brainpool-Standard-curves-V1.pdf}",
 @misc{LM2005,
   author    = {Manfred Lochter and Johannes Merkle},
-  title     = {{ECC Brainpool Standard Curves and Curve Generationv. 1.0}},
+  title     = {{ECC Brainpool Standard Curves and Curve Generation v. 1.0}},
   year      = {2005},
-  Note      = "\\ \url{https://www.teletrust.de/fileadmin/files/oid/oid_ECC-Brainpool-Standard-curves-V1.pdf}",
-  %_language = {USenglish},
-  %language  = {english},
+ url={https://www.teletrust.de/fileadmin/files/oid/oid_ECC-Brainpool-Standard-curves-V1.pdf},
 }
 
 
-% howpublished  "\url{https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/selecting.pdf}",
 @misc{BCLN2014,
   author    = {Joppe W. Bos and Craig Costello and Patrick Longa and Michael Naehrig},
   title     = {{Selecting Elliptic Curves for Cryptography: An Efficiency and Security Analysis}},
   year      = {2014},
-  Note      = "Microsoft Research.
-	     \\ \url{https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/selecting.pdf}",
-  %_language = {USenglish},
-  %language  = {english},
+  publisher      ={Microsoft Research},
+url={https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/selecting.pdf},
 }
 
 
@@ -282,8 +255,6 @@
   year     = {2015},
   Note     = "Microsoft Research.
 	     \\ \url{https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/NIST.pdf}",
-  %_language = {USenglish},
-  %language = {english},
 }
 
 
@@ -294,8 +265,6 @@
               Elliptic Curves}},
   year     = {1998},
   journal  = {Commentarii Mathematici Universitatis Sancti Pauli 47},
-  %_language = {USenglish},
-  %language = {english},
 }
 
 
@@ -305,8 +274,6 @@
               Elliptic Curves}},
   year     = {1998},
   journal  = {Mathematics of Computation 67},
-  %_language = {USenglish},
-  %language = {english},
 }
 
 
@@ -316,18 +283,14 @@
               Curves of Trace One}},
   year      = {1999},
   journal   = {Journal of Cryptology 12},
-  %_language = {USenglish},
-  %language = {english},
 }
 
 
-@misc{BernsteinLange2014,
+@manual{BernsteinLange2014,
   author    = {Bernstein, Daniel  and  Lange, Tanja},
   title     = {{SafeCurves: choosing safe curves for elliptic-curve cryptography}},
   year      = {2014},
-  howpublished = "\url{http://safecurves.cr.yp.to/}",
-  %_language = {USenglish},
-  %language  = {english},
+  url = {http://safecurves.cr.yp.to/},
 }
 
 
@@ -336,9 +299,7 @@
   title     = {Quantum Computer Science: An Introduction},
   year      = {2007},
   isbn      = {9780521876582},
-  publisher = {Vieweg+Teubner Verlag},
-  %_language = {USenglish},
-  %language = {english},
+  publisher = {Vieweg+Teub\-ner Verlag},
 }
 
 @book{Mermin2008,
@@ -347,7 +308,6 @@
   year      = {2008},
   isbn      = {3834804363},
   publisher = {Cambridge University Press},
-  %language  = {english},
 }
 
 @book{MSP2011,
@@ -356,13 +316,11 @@
   year      = {2011},
   isbn      = {3834882631},
   publisher = {Vieweg Studium},
-  %language = {ngerman},
 }
 
-%% edition = {5th printing},
 % url = {http://cacr.uwaterloo.ca/hac/, http://www.cacr.math.uwaterloo.ca/hac/},
 % comment = {(Errata last update Jan 22, 2014)},
-@book{Menezes2001,
+@manualx{Menezes2001,
   author    = {Alfred J. Menezes and Paul C. van Oorschot and Scott A. Vanstone},
   edition   = {5},
   publisher = {CRC Press},
@@ -370,11 +328,9 @@
   isbn      = {0-8493-8523-7},
   series    = {Series on Discrete Mathematics and Its Application},
   year      = {2001},
-  Note      = "(Errata last update Jan 22, 2014).
-	       \\ \url{http://cacr.uwaterloo.ca/hac/},
-	       \\ \url{http://www.cacr.math.uwaterloo.ca/hac/}",
-  %_language = {USenglish},
-  %language  = {english},
+  Note      = {(Errata last update Jan 22, 2014)},
+url={http://cacr.uwaterloo.ca/hac/},
+zurl={http://www.cacr.math.uwaterloo.ca/hac/},
 }
 
 @book{Galbraith2012,
@@ -383,8 +339,6 @@
   year      = {2012},
   isbn      = {9781107013926},
   publisher = {Cambridge University Press},
-  %_language = {USenglish},
-  %language = {english},
 }
 
 @article{Pollard1975,
@@ -394,8 +348,6 @@
   volume    = {3},
   year      = {1975},
   pages     = {331--334},
-  %_language = {USenglish},
-  %language = {english},
 }
 
 @article{Pollard2000,
@@ -408,8 +360,6 @@
   pages     = {437-447},
   ee        = {http://dx.doi.org/10.1007/s001450010010},
   bibsource = {DBLP, http://dblp.uni-trier.de},
-  %_language = {USenglish},
-  %language = {english},
 }
 
 
@@ -429,8 +379,6 @@
   year      = {2014},
   journal   = {{Cryptology ePrint Archive}},
   url       = {https://eprint.iacr.org/2013/761},
-  %_language = {USenglish},
-  %language = {english},
 }
 
 
@@ -445,8 +393,6 @@
   pages     = {124-134},
   ee        = {http://doi.ieeecomputersociety.org/10.1109/SFCS.1994.365700},
   bibsource = {DBLP, http://dblp.uni-trier.de},
-  %_language = {USenglish},
-  %language = {english},
 }
 
 
@@ -463,44 +409,15 @@
   pages     = {55-60},
   ee        = {http://doi.ieeecomputersociety.org/10.1109/SFCS.1979.2},
   bibsource = {DBLP, http://dblp.uni-trier.de},
-  %_language = {USenglish},
-  %language  = {english},
 }
 
-@Comment{
-// The comment command is necessary, as neither % nor // alone don't hide
-// the inproceedings command in bibtex
-// See https://tex.stackexchange.com/questions/93972/comment-out-sections-of-text-in-bib-file
-// With bibtex used here: Get rid of the ampersand before inproceedings
-//                        Adding // before the following line doesn't help.
-%%  inproceedings{Coppersmith:1984:ELG:800057.808682,
-%%  author = {Coppersmith, Don},
-%%   title = {Evaluating Logarithms in GF(2N)},
-%%   booktitle = {Proceedings of the Sixteenth Annual ACM Symposium on Theory of Computing},
-%%   series = {STOC '84},
-%%   year = {1984},
-%%   isbn = {0-89791-133-4},
-%%   pages = {201--207},
-%%   numpages = {7},
-%%   url = {http://doi.acm.org/10.1145/800057.808682},
-%%   doi = {10.1145/800057.808682},
-%%   acmid = {808682},
-%%   publisher = {ACM},
-%%   address = {New York, NY, USA},
-%%  } 
-%%  title     = {{Evaluating Logarithms in GF(2\verb|^|n)}},
-%%  title     = {{Evaluating Logarithms in $GF(2\verb|^|n)$}},
-}
 @inproceedings{Coppersmith1984,
   author    = {Don Coppersmith},
   title     = {{Evaluating Logarithms in $GF(2^n)$}},
   booktitle = {STOC},
   year      = {1984},
   pages     = {201-207},
-  ee        = {http://doi.acm.org/10.1145/800057.808682},
-  bibsource = {DBLP, http://dblp.uni-trier.de},
-  %_language = {USenglish},
-  %language  = {english},
+  url        = {http://doi.acm.org/10.1145/800057.808682},
 }
 
 
@@ -514,22 +431,16 @@
   number    = {1},
   year      = {1986},
   pages     = {1-15},
-  ee        = {http://dx.doi.org/10.1007/BF01840433},
-  bibsource = {DBLP, http://dblp.uni-trier.de},
-  %_language = {USenglish},
-  %language  = {english},
+  url        = {http://dx.doi.org/10.1007/BF01840433},
 }
 
 
-% url = {http://csrc.nist.gov/archive/aes/},
-@article{Coppersmith2002,
+@misc{Coppersmith2002,
   author    = {Don Coppersmith},
   title     = {{Re: Impact of Courtois and Pieprzyk results}},
-  journal   = {Journal unknown},
-  year      = {2002},
-  Note      = "\\ \url{http://csrc.nist.gov/archive/aes/} ~~Former link from the AES Discussion Groups",
-  %_language = {USenglish},
-  %language  = {english},
+  date= {2002-09-19},
+  Note      = {Former link from the AES Discussion Groups},
+  url={http://csrc.nist.gov/archive/aes/},
 }
 
 @inproceedings{Pomerance1984,
@@ -542,8 +453,6 @@
   pages     = {169-182},
   ee        = {http://dx.doi.org/10.1007/3-540-39757-4_17},
   bibsource = {DBLP, http://dblp.uni-trier.de},
-  %_language = {USenglish},
-  %language  = {english},
 }
 
 @ARTICLE{Pomerance1996,
@@ -553,8 +462,6 @@
   year     = {1996},
   volume   = {43},
   pages    = {1473--1485},
-  %_language = {USenglish},
-  %language = {english},
 }
 
 @book{NFS1993,
@@ -564,8 +471,6 @@
   isbn      = {0387570136},
   series    = {Lecture Notes in Mathematics},
   publisher = {Springer Verlag},
-  %_language = {USenglish},
-  %language = {english},
 }
 
 @inproceedings{keys2012,
@@ -579,10 +484,8 @@
   booktitle = {CRYPTO},
   year      = {2012},
   pages     = {626-642},
-  ee        = {http://dx.doi.org/10.1007/978-3-642-32009-5_37},
-  bibsource = {DBLP, http://dblp.uni-trier.de},
-  %_language = {USenglish},
-  %language  = {english},
+  url        = {http://dx.doi.org/10.1007/978-3-642-32009-5_37},
+%  bibsource = {DBLP, http://dblp.uni-trier.de},
 }
 
 @inproceedings{factor768_2010,
@@ -603,10 +506,8 @@
   booktitle = {CRYPTO},
   year      = {2010},
   pages     = {333-350},
-  ee        = {http://dx.doi.org/10.1007/978-3-642-14623-7_18},
-  bibsource = {DBLP, http://dblp.uni-trier.de},
-  %_language = {USenglish},
-  %language  = {english},
+  url        = {http://dx.doi.org/10.1007/978-3-642-14623-7_18},
+  %bibsource = {DBLP, http://dblp.uni-trier.de},
 }
 
 
@@ -616,27 +517,21 @@
   title    = {{Factorization of a 768-bit RSA modulus, version 1.4}},
   year     = {2010},
   url      = {http://eprint.iacr.org/2010/006.pdf},
-  %_language = {USenglish},
-  %language = {english},
 }
 
 
 
-% url = {http://www.keylength.com/en/2/},
 @inproceedings{LeVe2000,
   author    = {Arjen K. Lenstra and Eric R. Verheul},
   booktitle = {Lecture Notes in Computer Science 558},
   pages     = {446-465},
   title     = {{Selecting Cryptographic Key Sizes}},
   year      = {2000},
-  Note      = "PKC2000.\\
-	       See also ``BlueKrypt Cryptographic Key Length Recommendation'',
-               last update 2015, online: \url{http://www.keylength.com/en/2/}",
-  %_language = {USenglish},
-  %language  = {english},
+  Note      = {PKC2000. See also "`BlueKrypt Cryptographic Key Length Recommendation"',
+               last update 2015},
+url={http://www.keylength.com/en/2/},
 }
 
-% url = {{http://www.cs.ru.nl/E.Verheul/papers/Joc2001/joc2001.pdf}, {http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.20.69&rep=rep1&type=pdf}},
 @article{LeVe2001,
   author = {Arjen K. Lenstra and Eric R. Verheul},
   journal = {Journal of Cryptology},
@@ -644,10 +539,8 @@
   title  = {{Selecting Cryptographic Key Sizes (1999 + 2001)}},
   volume = {14},
   year   = {2001},
-  Note   = "\\ \url{http://www.cs.ru.nl/E.Verheul/papers/Joc2001/joc2001.pdf},
-            \\ \url{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.20.69&rep=rep1&type=pdf}",
-  %_language = {USenglish},
-  %language = {english},
+  url={http://www.cs.ru.nl/E.Verheul/papers/Joc2001/joc2001.pdf},
+     zurl={http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.20.69&rep=rep1&type=pdf},
 }
 
 
@@ -658,8 +551,6 @@ pages = {649-673},
 title = {{Factoring Integers with Elliptic Curves}},
 volume = {126},
 year = {1987},
-%_language = {USenglish},
-  %language = {english},
 }
 
 
@@ -669,25 +560,17 @@ series = {Lecture Notes in Mathematics 1554},
 title = {{The development of the Number Field Sieve}},
 publisher = {Springer},
 year = {1993},
-%_language = {USenglish},
-  %language = {english},
 }
 
 
-% url = {http://tau.ac.il/~tromer/papers/meshc.pdf},
-% Changed from techreport to misc, because of bibtex warning "empty institution".
 @misc{Lenstra2002,
   author    = {Arjen K. Lenstra and Adi Shamir and Jim Tomlinson and Eran Tromer},
   title     = {{Analysis of Bernstein's Factorization Circuit}},
   year      = {2002},
-  Note      = "\\ \url{http://tau.ac.il/~tromer/papers/meshc.pdf}",
-  %_language = {USenglish},
-  %language = {english},
+  url={http://tau.ac.il/~tromer/papers/meshc.pdf},
 }
 
 
-% url = {http://eprint.iacr.org/2012/064.pdf},
-% Added journal, because of bibtex warning "empty journal".
 @article{Lenstra2012,
   author    = {Arjen K. Lenstra and James P. Hughes and Maxime Augier and
                Joppe W. Bos and Thorsten Kleinjung and Christophe Wachter},
@@ -695,9 +578,7 @@ year = {1993},
   journal   = {{Cryptology ePrint Archive}},
   year      = {2012},
   month     = {2},
-  Note      = "\\ \url{http://eprint.iacr.org/2012/064.pdf}",
-  %_language = {USenglish},
-  %language  = {english},
+  url={http://eprint.iacr.org/2012/064.pdf},
 }
 
 
@@ -710,8 +591,6 @@ year = {1993},
   pages     = {254-270},
   ee        = {http://dx.doi.org/10.1007/11761679_16},
   bibsource = {DBLP, http://dblp.uni-trier.de},
-  %_language = {USenglish},
-  %language  = {english},
 }
 
 @article{JV2011,
@@ -725,8 +604,6 @@ year = {1993},
   pages     = {20},
   ee        = {http://eprint.iacr.org/2011/020},
   bibsource = {DBLP, http://dblp.uni-trier.de},
-  %_language = {USenglish},
-  %language  = {english},
 }
 
 @article{EGT2011,
@@ -740,8 +617,6 @@ year = {1993},
   pages     = {24-41},
   ee        = {http://dx.doi.org/10.1007/s00145-010-9057-y},
   bibsource = {DBLP, http://dblp.uni-trier.de},
-  %_language = {USenglish},
-  %language  = {english},
 }
 
 @inproceedings{Pin2013,
@@ -753,8 +628,6 @@ year = {1993},
   pages     = {177-193},
   ee        = {http://dx.doi.org/10.1007/978-3-642-38348-9_11},
   bibsource = {DBLP, http://dblp.uni-trier.de},
-  %_language = {USenglish},
-  %language  = {english},
 }
 
 @article{BGJT2013,
@@ -767,8 +640,6 @@ year = {1993},
   year      = {2013},
   ee        = {http://arxiv.org/abs/1306.4244},
   bibsource = {DBLP, http://dblp.uni-trier.de},
-  %_language = {USenglish},
-  %language  = {english},
 }
 
 @article{Joux2013,
@@ -781,8 +652,6 @@ year = {1993},
   pages     = {95},
   ee        = {http://eprint.iacr.org/2013/095},
   bibsource = {DBLP, http://dblp.uni-trier.de},
-  %_language = {USenglish},
-  %language  = {english},
 }
 
 @article{Blackhat2013,
@@ -791,8 +660,6 @@ year = {1993},
   journal   = {Black Hat Conference},
   year      = {2013},
   ee        = {https://media.blackhat.com/us-13/us-13-Stamos-The-Factoring-Dead.pdf},
-  %_language = {USenglish},
-  %language = {english},
 }
 
 @inproceedings{Shoup1997,
@@ -803,8 +670,6 @@ year = {1993},
   pages     = {256-266},
   ee        = {http://dx.doi.org/10.1007/3-540-69053-0_18},
   bibsource = {DBLP, http://dblp.uni-trier.de},
-  %_language = {USenglish},
-  %language  = {english},
 }
 
 
@@ -814,8 +679,6 @@ year = {1993},
   publisher = {Springer},
   title     = {{Rational Points on Elliptic Curves}},
   year      = {1992},
-  %_language = {USenglish},
-  %language  = {english},
 }
 
 
@@ -826,8 +689,6 @@ year = {1993},
   year    = {1999},
   volume  = {20},
   pages   = {5--40},
-  %_language = {USenglish},
-  %language = {english},
 }
 
 
@@ -839,8 +700,6 @@ year = {1993},
   isbn      = {978-0-387-09493-9},
   series    = {Graduate Texts in Mathematics 106},
   publisher = {Springer},
-  %_language = {USenglish},
-  %language  = {english},
 }
 
 
@@ -852,8 +711,6 @@ year = {1993},
   isbn      = {9781420071467},
   series    = {Discrete Mathematics and its Applications},
   publisher = {Chapman and Hall/CRC},
-  %_language = {USenglish},
-  %language = {english},
 }
 
 @article{GHS2002,
@@ -867,7 +724,6 @@ year = {1993},
   pages     = {19-46},
   ee        = {http://dx.doi.org/10.1007/s00145-001-0011-x},
   bibsource = {DBLP, http://dblp.uni-trier.de},
-  %language  = {english},
 }
 
 @inproceedings{GGMZ2013,
@@ -880,8 +736,6 @@ year = {1993},
   pages     = {109-128},
   ee        = {http://dx.doi.org/10.1007/978-3-642-40084-1_7},
   bibsource = {DBLP, http://dblp.uni-trier.de},
-  %_language = {USenglish},
-  %language  = {english},
 }
 
 @article{Gaudry2009,
@@ -895,8 +749,6 @@ year = {1993},
   pages     = {1690-1702},
   ee        = {http://dx.doi.org/10.1016/j.jsc.2008.08.005},
   bibsource = {DBLP, http://dblp.uni-trier.de},
-  %_language = {USenglish},
-  %language = {english},
 }
 
 @article{Semaev2004,
@@ -909,22 +761,18 @@ year = {1993},
   pages     = {31},
   ee        = {http://eprint.iacr.org/2004/031},
   bibsource = {DBLP, http://dblp.uni-trier.de},
-  %_language = {USenglish},
-  %language  = {english},
 }
 
 
-@techreport{Bach1984,
+@manualx{Bach1984,
     Author  = {Bach, Eric},
     Title   = {{Discrete Logarithms and Factoring}},
     Institution = {EECS Department, University of California, Berkeley},
     Year    = {1984},
     Month   = {6},
     Number  = {UCB/CSD-84-186},
-    Note    = "\\ \url{http://www.eecs.berkeley.edu/Pubs/TechRpts/1984/5973.html},
-               \\ \url{http://www.eecs.berkeley.edu/Pubs/TechRpts/1984/CSD-84-186.pdf}",
-	%_language = {USenglish},
-    %language = {english},
+    url    = {http://www.eecs.berkeley.edu/Pubs/TechRpts/1984/5973.html},
+zurl={http://www.eecs.berkeley.edu/Pubs/TechRpts/1984/CSD-84-186.pdf},
 }
 
 @inproceedings{YY1996,
@@ -936,8 +784,6 @@ year = {1993},
   pages     = {89-103},
   ee        = {http://dx.doi.org/10.1007/3-540-68697-5_8},
   bibsource = {DBLP, http://dblp.uni-trier.de},
-  %_language = {USenglish},
-  %language = {english},
 }
 
 @inproceedings{YY1997,
@@ -948,25 +794,16 @@ year = {1993},
   pages     = {62-74},
   ee        = {http://dx.doi.org/10.1007/3-540-69053-0_6},
   bibsource = {DBLP, http://dblp.uni-trier.de},
-  %_language = {USenglish},
-  %language = {english},
 }
 
 
-% - Wenn mit bibtex, aber ohne babelbib, dann wird bei InProceedings{Heninger2012,
-%   weder per url noch per howpublished die URL ausgegeben.
-% - Mit bibtex, ohne babelbib, dann wird bei misc die URL gedruckt, aber booktitle geht verloren!
-% - Mit bibtex und babelbib tut auch InProceedings wie gewünscht.
-% misc{Heninger2012,
 @InProceedings{Heninger2012,
   author    = {Nadia Heninger and Zakir Durumeric and Eric Wustrow and J. Alex Halderman},
   title     = {{Mining Your Ps and {Q}s: Detection of Widespread Weak Keys in Network Devices}},
   booktitle = {Proceedings of the 21st {USENIX} Security Symposium},
   month     = {8},
   year      = {2012},
-  Note      = "\\ \url{https://factorable.net/paper.html}",
-  %_language = {USenglish},
-  %language = {english},
+ url={https://factorable.net/paper.html},
 }
 
 
@@ -998,31 +835,26 @@ author = {Gregory V. Bard},
 publisher = {Springer},
 title = {{Algebraic Cryptanalysis}},
 year = {2009},
-%_language = {USenglish},
-%language = {english},
 }
 
 
-% Added school, because of bibtex warning "empty school".
-@phdthesis{Bric2010,
+@thesis{Bric2010,
   author  = {Michael Brickenstein},
   title   = {{Boolean Gröbner Bases -- Theory, Algorithms and Applications}},
   year    = {2010},
-  school  = {TU Kaiserslautern,
+  institution= {TU Kaiserslautern,
 			\iflanguage{ngerman}{Fachbereich Mathematik}
 								{department of Mathematics}
 			},
   publisher = {Logos Verlag},
   Note    = {\iflanguage{ngerman}{
-	     \\Siehe auch \glqq PolyBoRi -- Polynomials over Boolean Rings\grqq, online:
+	     \\Siehe auch \glqq PolyBoRi -- Polynomials over Boolean Rings\grqq
                               }
                               {
              \\See also ``PolyBoRi -- Polynomials over Boolean Rings'', online:
                               }
-             \\ \url{http://polybori.sourceforge.net/}"
             },
-  %_language = {USenglish},
-  %language = {english},
+             url={http://polybori.sourceforge.net/}
 }
 
 
@@ -1033,8 +865,6 @@ pages = {347-420},
 title = {{The hardness of polynomial equation solving}},
 volume = {3},
 year = {2003},
-%_language = {USenglish},
-%language = {english},
 }
 
 @book{CLOS2007,
@@ -1043,8 +873,6 @@ edition = {3},
 publisher = {Springer},
 title = {{Ideals, Varieties, and Algorithms}},
 year = {2007},
-%_language = {USenglish},
-%language = {english},
 }
 
 @book{CrHa2010,
@@ -1052,7 +880,6 @@ editor = {Yves Crama and Peter L. Hammer},
 publisher = {Cambridge University Press},
 title = {{Boolean Models and Methods in Mathematics, Computer Science, and Engineering}},
 year = {2010},
-%language = {english},
 }
 
 @book{CuSt2009,
@@ -1060,8 +887,6 @@ author = {Thomas W. Cusick and Pantelimon St\u{a}nic\u{a}},
 publisher = {Elsevier Academic Press},
 title = {{Cryptographic Boolean Functions and Applications}},
 year = {2009},
-%_language = {USenglish},
-%language = {english},
 }
 
 @book{DaRi2002,
@@ -1069,8 +894,6 @@ author = {Joan Daemen and Vincent Rijmen},
 publisher = {Springer},
 title = {{The Design of Rijndael. AES -- The Advanced Encryption Standard}},
 year = {2002},
-%_language = {USenglish},
-%language = {english},
 }
 
 @book{GaJo1979,
@@ -1078,8 +901,6 @@ author = {Michael R. Garey and David S. Johnson},
 publisher = {Freeman},
 title = {{Computers and Intractability}},
 year = {1979},
-%_language = {USenglish},
-%language = {english},
 }
 
 @book{GaGe1999,
@@ -1087,8 +908,6 @@ author = {Joachim von zur Gathen and Jürgen Gerhard},
 publisher = {Cambridge University Press},
 title = {{Modern Computer Algebra}},
 year = {1999},
-%_language = {USenglish},
-%language = {english},
 }
 
 @book{Golo1982,
@@ -1098,8 +917,6 @@ title = {{Shift Register Sequences}},
 year = {1982},
 note = {Revised Edition},
 comment = {Kommentar},
-%_language = {USenglish},
-%language = {english},
 }
 
 @inproceedings{Laza1983,
@@ -1110,8 +927,6 @@ publisher = {Springer},
 title = {{Gröbner bases, Gaussian elimination and resolution of systems of algebraic equations}},
 year = {1983},
 note = {EUROCAL '83},
-%_language = {USenglish},
-%language = {english},
 }
 
 @article{MeSt1989,
@@ -1121,8 +936,6 @@ pages = {159-176},
 title = {{Fast correlation attacks on certain stream ciphers}},
 volume = {1},
 year = {1989},
-%_language = {USenglish},
-%language = {english},
 }
 
 @book{PaPe2009,
@@ -1130,34 +943,26 @@ author = {Christof Paar and Jan Pelzl},
 publisher = {Springer},
 title = {{Understanding Cryptography -- A Textbook for Students and Practioners}},
 year = {2009},
-%_language = {USenglish},
-%language = {english},
 }
 
-% Changed from techreport to misc, because of bibtex warning "empty institution".
 @misc{Pomm2008,
   author  = {Klaus Pommerening},
-  title   = {{Linearitätsmaße für Boolesche Abbildungen}},
+  title   = {{Linearitätsma"se für Boolesche Abbildungen}},
   year    = {2008},
-  Note    = "Manuskript, 30. Mai 2000. Letzte Revision 4. Juli 2008.
-            \\ English equivalent:  {\em Fourier Analysis of Boolean Maps -- A Tutorial}.
-            \\ \url{http://www.staff.uni-mainz.de/pommeren/Kryptologie/Bitblock/A_Nonlin/nonlin.pdf}",
-  %language = {ngerman},
+  Note    = {Manuskript, 30. Mai 2000. Letzte Revision 4. Juli 2008;
+English equivalent:  {\em Fourier Analysis of Boolean Maps -- A Tutorial}},
+url={http://www.staff.uni-mainz.de/pommeren/Kryptologie/Bitblock/A_Nonlin/nonlin.pdf},
 }
 
-% Changed from techreport to misc, because of bibtex warning "empty institution".
 @misc{Pomm2014,
   author  = {Klaus Pommerening},
   title   = {{Fourier Analysis of Boolean Maps -- A Tutorial}},
   year    = {2014},
-  Note    = "Manuscript: May 30, 2000. Last revision August 11, 2014.
-	    \\ German aequivalent: {\em Linearitätsmaße für Boolesche Abbildungen}.
-            \\ \url{http://www.staff.uni-mainz.de/pommeren/Cryptology/Bitblock/Fourier/Fourier.pdf}",
-  %_language = {USenglish},
-  %language = {english},
+  Note    = {Manuscript: May 30, 2000. Last revision August 11, 2014;
+	German aequivalent: {\em Linearitätsma"se für Boolesche Abbildungen}},
+url={http://www.staff.uni-mainz.de/pommeren/Cryptology/Bitblock/Fourier/Fourier.pdf},
 }
 
-% url = {http://www.tandfonline.com/doi/abs/10.1080/01611194.2015.1055385},
 @article{Pom2016,
   author  = {Klaus Pommerening},
   title   = {{Cryptanalysis of nonlinear shift registers}},
@@ -1165,9 +970,7 @@ year = {2009},
   volume  = {30},
   issue   = {4},
   year    = {2016},
-  Note    = "\\ \url{http://www.tandfonline.com/doi/abs/10.1080/01611194.2015.1055385}",
-  %_language = {USenglish},
-  %language = {english},
+  url={http://www.tandfonline.com/doi/abs/10.1080/01611194.2015.1055385},
 }
 
 
@@ -1182,8 +985,6 @@ year = {2009},
 	     {Im Gegensatz zum Englischen gibt es das Buch im Deutschen schon in der 6. Auflage.}
 	     {In German, the 6th edition was published in 2016.}
          },  
-  %_language = {USenglish},
-  %language = {english},
 }
 
 
@@ -1202,7 +1003,6 @@ year = {2009},
            It also deals with practical problems like standardization or the
            application in real existing software. Written in German}
           },
-  %language  = {ngerman},
 }
 
 
@@ -1224,30 +1024,24 @@ year = {2009},
 	       \\ See the challenge on MTC3: \url{https://www.mysterytwisterc3.org/en/challenges/level-x/double-column-transposition}
                               }
             },
-  %language  = {ngerman},
 }
 
 
-@mastersthesis{Sege2004,
+@thesis{Sege2004,
   author  = {A. J. M. Segers},
-  school  = {Technische Universiteit Eindhoven},
+  institution  = {Technische Universiteit Eindhoven},
   title   = {{Algebraic Attacks from a Gröbner Basis Perspective}},
   year    = {2004},
-  Note    = "\\ \url{http://www.win.tue.nl/~henkvt/images/ReportSegersGB2-11-04.pdf}",
-  %_language = {USenglish},
-  %language = {english},
+url={http://www.win.tue.nl/~henkvt/images/ReportSegersGB2-11-04.pdf},
 }
 
 
-% url = {http://www.cs.sjsu.edu/~stamp/crypto/},
 @book{Stamp2007,
   author    = {Mark Stamp and Richard M. Low},
   publisher = {Wiley-IEEE Press},
   title     = {{Applied Cryptanalysis: Breaking Ciphers in the Real World}},
   year      = {2007},
-  Note      = "\\ \url{http://www.cs.sjsu.edu/~stamp/crypto/}",
-  %_language = {USenglish},
-  %language  = {english},
+ url={http://www.cs.sjsu.edu/~stamp/crypto/},
 }
 
 @book{Stamp2011,
@@ -1256,8 +1050,6 @@ edition = {2},
 publisher = {Wiley},
 title = {{Information Security: Principles and Practice}},
 year = {2011},
-%_language = {USenglish},
-%language = {english},
 }
 
 @book{Stin2006,
@@ -1266,8 +1058,6 @@ edition = {3},
 publisher = {Chapman \& Hall/CRC},
 title = {{Cryptography -- Theory and Practice}},
 year = {2006},
-%_language = {USenglish},
-%language = {english},
 }
 
 
@@ -1277,8 +1067,6 @@ title = {{Related-key Cryptanalysis of the Full AES-192 and AES-256}},
 journal = {{Cryptology ePrint Archive}},
 year = {2009},
 url = {http://eprint.iacr.org/2009/317},
-%_language = {USenglish},
-%language = {english},
 }
 
 
@@ -1299,44 +1087,30 @@ url = {http://eprint.iacr.org/2009/317},
              was published in the proceedings for Asiacrypt Dec 2002.
              \url{http://eprint.iacr.org/2002/044}}
           },
-  %language = {english},
 }
 
 
-% url = {http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.28.4921},
-% Draft 1. Mai 2001.    ////   Draft 2001/05/1.
-% (als MISC statt als techreport, weil techreport das bibtex meldet:
-%  Warning--empty institution in Ferguson2001)
-@MISC{Ferguson2001,
+@misc{Ferguson2001,
   author = {Niels Ferguson and Richard Schroeppel and Doug Whiting},
   title  = {{A simple algebraic representation of Rijndael}},
   year   = {2001},
-  Note   = "\\ \url{http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.28.4921}",
-  %_language = {USenglish},
-  %language = {english},
+  url   = {http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.28.4921},
 }
 
 
-% (als MISC statt als techreport, weil bibtex sonst meldet: Warning--empty institution)
 @MISC{Haan2008,
 author = {Kristian Laurent Haan},
 title = {{Advanced Encryption Standard (AES)}},
 year = {2008},
 url = {http://www.codeplanet.eu/tutorials/cpp/51-advanced-encryption-standard.html},
-%_language = {USenglish},
-%language = {english},
 }
 
 
-% BE_Remark: url ok, no note with \url needed. Starts right after a newline.
-% (als MISC statt als techreport, weil bibtex sonst meldet: Warning--empty institution)
 @MISC{Hoffman2006,
 author = {Nick Hoffman},
 title = {{A SIMPLIFIED IDEA ALGORITHM}},
 year = {2006},
 url = {http://www.nku.edu/~christensen/simplified%20IDEA%20algorithm.pdf},
-%_language = {USenglish},
-%language = {english},
 }
 
 @article{Lucks2002,
@@ -1345,7 +1119,6 @@ journal = {DuD},
 month = {12},
 title = {{Neue Ergebnisse zur Sicherheit des Verschlüsselungsstandards AES}},
 year = {2002},
-language = {ngerman},
 }
 
 @article{Mansoori2007,
@@ -1356,9 +1129,7 @@ language = {ngerman},
   title   = {{On the vulnerability of Simplified AES Algorithm Against Linear Cryptanalysis}},
   volume  = {7},
   year    = {2007},
-  Note    = "\\ \url{http://paper.ijcsns.org/07_book/200707/20070735.pdf}",
-  %_language = {USenglish},
-  %language = {english},
+url={http://paper.ijcsns.org/07_book/200707/20070735.pdf},
 }
 
 @article{Massacci2000,
@@ -1368,8 +1139,6 @@ pages = {165-203},
 title = {{Logical Cryptanalysis as a SAT Problem: Encoding and Analysis}},
 volume = {24},
 year = {2000},
-%_language = {USenglish},
-%language = {english},
 }
 
 @book{Mironov2006,
@@ -1377,8 +1146,6 @@ author = {Ilya Mironov and Lintao Zhang},
 publisher = {Springer},
 title = {{Applications of SAT Solvers to Cryptanalysis of Hash Functions}},
 year = {2006},
-%_language = {USenglish},
-%language = {english},
 }
 
 
@@ -1390,13 +1157,10 @@ pages = {77-84},
 title = {{A Simplified Data Encryption Standard Algorithm}},
 volume = {20},
 year = {1996},
-%_language = {USenglish},
-%language = {english},
 }
 
 
-% Veraltet: \url{http://findarticles.com/p/articles/mi_qa3926/is_200304/ai_n9181658}\\
-@article{Musa2003,
+@articlex{Musa2003,
   author  = {Mohammad A. Musa and Edward F. Schaefer and Stephen Wedig},
   journal = {Cryptologia},
   month   = {4},
@@ -1405,70 +1169,36 @@ year = {1996},
   title   = {{A simplified AES algorithm and its linear and differential cryptanalyses}},
   volume  = {17},
   year    = {2003},
-  Note    = "\\ \url{http://www.rose-hulman.edu/~holden/Preprints/s-aes.pdf},
-             \\ \url{http://math.scu.edu/~eschaefe/} ~~Ed Schaefer's homepage",
-  %_language = {USenglish},
-  %language = {english},
+  url={http://www.rose-hulman.edu/~holden/Preprints/s-aes.pdf},
+  zurl={http://math.scu.edu/~eschaefe/},% ~~Ed Schaefer's homepage",
 }
 
 
-% BE_Remark: url ok, no note with \url needed. Fills just 1 1/2 lines.
-% (als MISC statt als techreport, weil bibtex sonst meldet: Warning--empty institution)
 @MISC{Nguyen2009a,
   author = {Minh Van Nguyen},
   title = {{Number Theory and the RSA Public Key Cryptosystem -- An introductory tutorial on using SageMath to study elementary number theory and public key cryptography}},
   year = {2009},
   url = {http://faculty.washington.edu/moishe/hanoiex/Number%20Theory%20Applications/numtheory-crypto.pdf},
-  %_language = {USenglish},
-  %language = {english},
 }
 
 
-% 4.8.16:
-% Solange bibtex ohne babelbib:
-% 1) Wenn als masterthesis:
-%    - Ausgabe war:
-%      [Ngu09] Minh Van Nguyen. Exploring Cryptography Using the Sage Computer Algebra System.
-%              Master's thesis, Victoria University, 2009.
-%    - Links nach "note =" werden ausgegeben, sind aber nicht anklickbar.
-%      note = {{http://www.sagemath.org/files/thesis/nguyen-thesis-2009.pdf}, {http://www.sagemath.org/library-publications.html}},
-%    - Links nach "url =" werden gar nicht ausgegeben.
-%      url = {{http://www.sagemath.org/files/thesis/nguyen-thesis-2009.pdf}, {http://www.sagemath.org/library-publications.html}},
-%    - Links nach "howpublished " werden gar nicht ausgegeben.
-% 2) Wenn als misc, bekommt man das alles hin ==> Lösung:
-%    - da er "school = {Victoria University}," nicht ausgibt, schreibt man das in "note =".
-%    - Links nach "url =" werden gar nicht ausgegeben.
-%    - per "howpublished " werden anklickbare Links ausgegeben, aber es öffnete sich kein Browser??
-%    - Außerdem sollten die URLs ganz ans Ende kommen, also nach den "note".
-% howpublished "\url{http://www.sagemath.org/files/thesis/nguyen-thesis-2009.pdf}, \url{http://www.sagemath.org/library-publications.html}",
-% note = {Victoria University, Master's thesis},
-% comment = {SageMath publications},
-@mastersthesis{Nguyen2009b,
+@manualx{Nguyen2009b,
   author = {Minh Van Nguyen},
-  school = {Victoria University},
+  institution = {Victoria University},
   title  = {{Exploring Cryptography Using the Sage Computer Algebra System}},
   year   = {2009},
-  Note   = "\\ \url{http://www.sagemath.org/files/thesis/nguyen-thesis-2009.pdf},
-            \\ \url{http://www.sagemath.org/library-publications.html}",
-  %_language = {USenglish},
-  %language = {english},
+  url={http://www.sagemath.org/files/thesis/nguyen-thesis-2009.pdf},
+  zurl={http://www.sagemath.org/library-publications.html},
 }
 
 
-% url = {www.apprendre-en-ligne.net/crypto/bibliotheque/lanaki/lesson1.htm},
-% comment = {12 lessons},
-% oder in 12 Lektionen online unter: \\
 @techreport{Nichols1996,
   author      = {Randall K. Nichols},
   institution = {Aegean Park Press 1996},
   title       = {{Classical Cryptography Course, Volume 1 and 2}},
   year        = {1996},
-  Note = {\iflanguage{ngerman}{12 Lektionen.}
-                              {12 lessons.}
-	  \\ \url{www.apprendre-en-ligne.net/crypto/bibliotheque/lanaki/lesson1.htm}
-          },
-  %_language = {USenglish},
-  %language = {english},
+  Note = {\iflanguage{ngerman}{12 Lektionen}{12 lessons}},
+url={http://www.apprendre-en-ligne.net/crypto/bibliotheque/lanaki/lesson1.htm},
 }
 
 
@@ -1480,8 +1210,6 @@ publisher = {Artech House},
 title = {{Contemporary Cryptography, Second Edition}},
 year = {2011},
 url = {http://books.esecurity.ch/cryptography2e.html},
-%_language = {USenglish},
-%language = {english},
 }
 
 
@@ -1493,8 +1221,6 @@ pages = {283-306},
 title = {{Mini Advanced Encryption Standard (Mini-AES): A Testbed for Cryptanalysis Students}},
 volume = {26},
 year = {2002},
-%_language = {USenglish},
-%language = {english},
 }
 
 
@@ -1505,8 +1231,6 @@ year = {2002},
   title   = {{Impossible differential cryptanalysis of Mini-AES}},
   year    = {2003},
   Note    = "\\ \url{http://www.tandfonline.com/doi/abs/10.1080/0161-110391891964}",
-  %_language = {USenglish},
-  %language = {english},
 }
 
 % BE_Remark: url ok, no note with \url needed. Fills just a bit more than 1 line.
@@ -1517,8 +1241,6 @@ institution = {Crypto 2002},
 title = {{Essential Algebraic Structure within the AES}},
 year = {2002},
 url = {http://crypto.rd.francetelecom.com/people/Robshaw/rijndael/rijndael.html},
-%_language = {USenglish},
-%language = {english},
 }
 
 % BE_Remark: url ok, no note with \url needed. Fills just a bit more than 1 line.
@@ -1529,29 +1251,23 @@ month = {9},
 title = {{Comments on the Security of the AES and the XSL Technique}},
 year = {2002},
 url = {http://crypto.rd.francetelecom.com/people/Robshaw/rijndael/rijndael.html},
-%_language = {USenglish},
-%language = {english},
 }
 
 
-% Added volume because of bibtex warning "there's a number but no volume"
 @article{Schmidt2016,
   author  = {Jürgen Schmidt},
   journal = {c't},
-  volume  = {2016},
   number  = {1},
   title   = {{Kryptographie in der IT -- Empfehlungen zu Verschlüsselung und Verfahren}},
   year    = {2016},
-
   Note    = {\iflanguage{ngerman}{
   	       \\Dieser Artikel erschien ursprünglich in c't 01/2016, Seite 174.
 	       Danach veröffentlicht am 17.06.2016 in:}
                                  {
                \\This article was published first in c't 01/2016, p~174,
 	       and then at June 16th, 2016 in}
-             \\ \url{http://www.heise.de/security/artikel/Kryptographie-in-der-IT-Empfehlungen-zu-Verschluesselung-und-Verfahren-3221002.html}
             },
-  %language = {ngerman},
+             url={http://www.heise.de/security/artikel/Kryptographie-in-der-IT-Empfehlungen-zu-Verschluesselung-und-Verfahren-3221002.html},
 }
 
 @book{Schneier1996,
@@ -1560,8 +1276,6 @@ edition = {2},
 publisher = {Wiley},
 title = {{Applied Cryptography, Protocols, Algorithms, and Source Code in C}},
 year = {1996},
-%_language = {USenglish},
-%language = {english},
 }
 
 % BE_Remark: url ok, no note with \url needed. Fits into the rest of the line.
@@ -1573,8 +1287,6 @@ title = {{A Self-Study Course in Block-Cipher Cryptanalysis}},
 volume = {24},
 year = {2000},
 url = {www.schneier.com/paper-self-study.pdf},
-%_language = {USenglish},
-%language = {english},
 }
 
 % url = {https://www.schneier.com/academic/solitaire/},
@@ -1584,8 +1296,6 @@ url = {www.schneier.com/paper-self-study.pdf},
   title    = {{The Solitaire Encryption Algorithm}},
   year     = {1999},
   Note     = "v.~1.2. \\ \url{https://www.schneier.com/academic/solitaire/}",
-  %_language = {USenglish},
-  %language = {english},
 }
 
 % url = {http://williamstallings.com/Cryptography/},
@@ -1595,8 +1305,6 @@ url = {www.schneier.com/paper-self-study.pdf},
   title     = {{Cryptography and Network Security}},
   year      = {2014},
   Note      = "\\ \url{http://williamstallings.com/Cryptography/}",
-  %_language = {USenglish},
-  %language = {english},
 }
 
 @book{Swenson2008,
@@ -1604,46 +1312,47 @@ author = {Christopher Swenson},
 publisher = {Wiley},
 title = {{Modern Cryptanalysis: Techniques for Advanced Code Breaking}},
 year = {2008},
-%_language = {USenglish},
-%language = {english},
 }
 
 
-% url = {{http://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf},{http://csrc.nist.gov/publications/PubsFIPS.html}},
-@techreport{FIPS180,
-  author  = {NIST},
-  institution = {{NIST (U.S. Department of Commerce)}},
-  month   = {8},
+@manualx{FIPS180,
+sortname = {SHS}, label={SHS},
+author={Quynh H. Dang},
   title   = {{Secure Hash Standard (SHS)}},
-  year    = {2015},
-  Note    = "FIPS 180-4 supersedes FIPS 180-2.
-	     \\ \url{http://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf},
-             \\ \url{http://csrc.nist.gov/publications/PubsFIPS.html}",
-  %_language = {USenglish},
-  %language = {english},
+number={180-4},
+series={Federal Information Processing Standards (FIPS)},
+organization= {National Institute of Standards and Technology (NIST)},
+  year= {2015},%-04-17},
+	     url={http://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf},
+             zurl={http://csrc.nist.gov/publications/PubsFIPS.html},
+publisher={U.S. Department of Commerce},
+location={Gaithersburg},
 }
 
-% url = {{http://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf},{http://csrc.nist.gov/publications/PubsFIPS.html}},
-@techreport{FIPS186,
-  author  = {NIST},
-  institution = {{NIST (U.S. Department of Commerce)}},
+@manualx{FIPS186,
   title   = {{Digital Signature Standard (DSS)}},
-  year    = {2013},
-  Note    = "Change note 4.
-	     \\ \url{http://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf},
-         \\ \url{http://csrc.nist.gov/publications/PubsFIPS.html}",
-  %_language = {USenglish},
-  %language = {english},
+number={186-4},
+series={Federal Information Processing Standards (FIPS)},
+organization= {National Institute of Standards and Technology (NIST)},
+date    = {2013-07-19},
+publisher={U.S. Department of Commerce},
+location={Gaithersburg},
+	   url={http://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf},
+         zurl={http://csrc.nist.gov/publications/PubsFIPS.html},
+durl={https://www.nist.gov/publications/digital-signature-standard-dss-2},
 }
 
-@techreport{FIPS196,
-  author  = {NIST},
-  institution = {{NIST (U.S. Department of Commerce)}},
-  note = {No more valid (withdrawal date: October 2015).},
-  title = {{Entity authentication using public key cryptography}},
-  year = {1997},
-  %_language = {USenglish},
-  %language = {english},
+@manual{FIPS196,
+  author  = {James Foti},
+  title = {{Entity Authentication Using Public Key Cryptography}},
+number={196},
+series={Federal Information Processing Standards (FIPS)},
+organization= {National Institute of Standards and Technology (NIST)},
+  note = {No more valid (withdrawal date: 19 October 2015)},
+  date= {1997-02-18},
+publisher={U.S. Department of Commerce},
+location={Gaithersburg},
+url={https://www.nist.gov/publications/entity-authentication-using-public-key-cryptography},
 }
 
 
@@ -1653,8 +1362,6 @@ year = {2008},
   year   = {2012},
   journal = {{Cryptology ePrint Archive}},
   url    = {http://eprint.iacr.org/2009/259},
-  %_language = {USenglish},
-  %language = {english},
 }
 
 @techreport{PKCS1_2002,
@@ -1663,8 +1370,6 @@ institution = {RSA Laboratories},
 month = {4},
 title = {{PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard}},
 year = {2002},
-%_language = {USenglish},
-%language = {english},
 }
 
 @article{Wang2005,
@@ -1673,19 +1378,14 @@ journal = {Advances in Cryptology-Crypto, LNCS 3621},
 pages = {17-36},
 title = {{Finding Collisions in the Full SHA-1}},
 year = {2005},
-%_language = {USenglish},
-%language = {english},
 }
 
-% url = {http://www.iacr.org/conferences/crypto2005/rumpSchedule.html},
 @techreport{Wang2005b,
   author    = {Xiaoyun Wang and Andrew Yao and Frances Yao},
   institution = {Crypto 2005, Rump Session},
   title     = {{New Collision Search for SHA-1}},
   year      = {2005},
-  Note      = "\\ \url{http://www.iacr.org/conferences/crypto2005/rumpSchedule.html}",
-  %_language = {USenglish},
-  %language = {english},
+url={http://www.iacr.org/conferences/crypto2005/rumpSchedule.html},
 }
 
 @article{Wobst2005,
@@ -1694,8 +1394,6 @@ journal = {Information Security Bulletin},
 month = {4},
 title = {{New Attacks Against Hash Functions}},
 year = {2005},
-%_language = {USenglish},
-%language = {english},
 }
 
 
@@ -1710,7 +1408,6 @@ year = {2005},
                               {
                (Plus the reader's remark by Johannes Merkle in iX Feb 2003)}
           }, 
-  %language = {ngerman},
 }
 
 % Added author, because of bibtex warning "empty institution".
@@ -1720,8 +1417,6 @@ institution = {International Telecommunication Union ITU-T},
 month = {6},
 title = {{ITU-T Recommendation X.509 (1997 E): Information Technology -- Open Systems Interconnection -- The Directory: Authentication Framework}},
 year = {1997},
-%_language = {USenglish},
-%language = {english},
 }
 
 @techreport{X.509v3,
@@ -1731,8 +1426,6 @@ month = {7},
 note = {(equivalent to amendment 1 to ISO/IEC 9594-8)},
 title = {{X.509 (1993) Amendment 1: Certificate Extensions, The Directory Authentication Framework}},
 year = {1995},
-%_language = {USenglish},
-%language = {english},
 }
 
 @book{Cassels1991,
@@ -1740,8 +1433,6 @@ author = {J. W. S. Cassels},
 publisher = {Cambridge University Press},
 title = {{Lectures on Elliptic Curves}},
 year = {1991},
-%_language = {USenglish},
-%language = {english},
 }
 
 @article{Koblitz1984,
@@ -1749,8 +1440,6 @@ author = {N. Koblitz},
 journal = {Graduate Texts in Mathemathics, Springer},
 title = {{Introduction to Elliptic Curves and Modular Forms}},
 year = {1984},
-%_language = {USenglish},
-%language = {english},
 }
 
 @book{Koblitz1998,
@@ -1759,8 +1448,6 @@ publisher = {Springer},
 title = {{Algebraic Aspects of Cryptography. With an appendix on Hyperelleptic Curves
           by Alfred J. Menezes, Yi Hong Wu, and Robert J. Zuccherato}},
 year = {1998},
-%_language = {USenglish},
-%language = {english},
 }
 
 @book{Menezes1993,
@@ -1768,8 +1455,6 @@ author = {A. J. Menezes},
 publisher = {Kluwer Academic Publishers},
 title = {{Elliptic Curve Public Key Cryptosystems}},
 year = {1993},
-%_language = {USenglish},
-%language = {english},
 }
 
 @inproceedings{Paillier1999,
@@ -1777,30 +1462,25 @@ author = {Pascal Paillier},
 booktitle = {Advances in Cryptology -- EUROCRYPT'99},
 title = {{Public-Key Cryptosystems Based on Composite Degree Residuosity Classes}},
 year = {1999},
-%_language = {USenglish},
-%language = {english},
 }
 
 
-% Added author, changed from article to misc and took away journal, because of bibtex warnings "to sort, need author or key" and "empty year". So it better follows Wikipedia's recommendation on http://en.wikipedia.org/wiki/Wikipedia%3aCiting_Wikipedia
 @misc{Wiki_SMC,
-  author = {Wikipedia},
+  author = {{Wikipedia contributors}},
   title   = {{Secure Multiparty Computation}},
-  Note    = "\\ \url{http://en.wikipedia.org/wiki/Secure_multi-party_computation}",
-  %_language = {USenglish},
-  %language = {english},
+publisher={Wikipedia, The Free Encyclopedia},
+url={http://en.wikipedia.org/wiki/Secure_multi-party_computation},
+urldate={2019-01-19},
 }
 
 
-% url = {{https://en.wikipedia.org/wiki/Homomorphic_encryption}, {https://de.wikipedia.org/wiki/Homomorphismus}},
-% Added author, changed from article to misc and took away journal, because of bibtex warning "to sort, need author or key". So it follows Wikipedia's recommendation on http://en.wikipedia.org/wiki/Wikipedia%3aCiting_Wikipedia
-@misc{Wiki_HomEnc,
-  author = {Wikipedia},
+@manualx{Wiki_HomEnc,
+  author = {{Wikipedia contributors}},
   title   = {{Homomorphic Encryption \& Homomorphismus}},
-  Note    = "\\ \url{https://en.wikipedia.org/wiki/Homomorphic_encryption},
-             \\ \url{https://de.wikipedia.org/wiki/Homomorphismus}",
-  %_language = {USenglish},
-  %language = {english},
+  publisher={Wikipedia, The Free Encyclopedia},
+  url={https://en.wikipedia.org/wiki/Homomorphic_encryption},
+     zurl={https://de.wikipedia.org/wiki/Homomorphismus},
+urldate={2019-01-19},
 }
 
 
@@ -1809,8 +1489,6 @@ author = {Craig Gentry},
 booktitle = {{41st ACM Symposium on Theory of Computing (STOC)}},
 title = {{Fully Homomorphic Encryption Using Ideal Lattices}},
 year = {2009},
-%_language = {USenglish},
-%language = {english},
 }
 
 @inproceedings{Adleman1982,
@@ -1820,8 +1498,6 @@ pages = {303-308},
 publisher = {Plenum Press},
 title = {{On breaking the iterated Merkle-Hellman public-key Cryptosystem}},
 year = {1983},
-%_language = {USenglish},
-%language = {english},
 }
 
 @book{Balcazar1988,
@@ -1829,8 +1505,6 @@ author = {Balcazar, J. L. and Daaz, J. and Gabarr, J.},
 title = {{Structural Complexity I}},
 year      = {1998},
 publisher = {Springer},
-%_language = {USenglish},
-%language = {english},
 }
 
 @inproceedings{Brickell1985,
@@ -1840,8 +1514,6 @@ pages = {342-358},
 publisher = {Springer},
 title = {{Breaking Iterated Knapsacks}},
 year = {1985},
-%_language = {USenglish},
-%language = {english},
 }
 
 % Changed from techreport to misc, because of bibtex warning "empty institution".
@@ -1851,8 +1523,6 @@ month = {2},
 title = {{The borderline between P and NP}},
 year = {2001},
 url = {http://www.cs.rug.nl/~wim/pub/whh237.pdf},
-%_language = {USenglish},
-%language = {english},
 }
 
 @inproceedings{Lagarias1983,
@@ -1861,8 +1531,6 @@ booktitle = {Advances in Cryptology, Proceedings of Crypto 83},
 publisher = {Plenum Press},
 title = {{Knapsack public key Cryptosystems and diophantine Approximation}},
 year = {1983},
-%_language = {USenglish},
-%language = {english},
 }
 
 @article{Merkle1978,
@@ -1871,8 +1539,6 @@ journal = {IEEE Trans. Information Theory, IT-24},
 title = {Hiding information and signatures in trapdoor knapsacks},
 volume = {24},
 year = {1978},
-%_language = {USenglish},
-%language = {english},
 }
 
 @inproceedings{Shamir1982,
@@ -1881,8 +1547,6 @@ booktitle = {Symposium on Foundations of Computer Science},
 pages = {145-152},
 title = {{A polynomial time algorithm for breaking the basic Merkle-Hellman Cryptosystem}},
 year = {1982},
-%_language = {USenglish},
-%language = {english},
 }
 
 
@@ -1893,7 +1557,6 @@ note = {Paperback},
 publisher = {Springer},
 title = {{Einführung in die Kryptographie}},
 year = {2016},
-%language = {ngerman},
 }
 
 @book{Kippenhahn1997,
@@ -1904,7 +1567,6 @@ year = {2016},
   publisher = {rowohlt},
   title     = {{Verschlüsselte Botschaften: Geheimschrift, Enigma und Chipkarte}},
   year      = {1997},
-  %language  = {ngerman},
 }
 
 @book{Kippenhahn1999,
@@ -1912,8 +1574,6 @@ author = {Rudolph Kippenhahn},
 publisher = {Constable},
 title = {{Code Breaking -- A History and Exploration}},
 year = {1999},
-%_language = {USenglish},
-%language = {english},
 }
 
 @book{Scheid2006,
@@ -1922,22 +1582,19 @@ edition = {4},
 publisher = {Spektrum Akademischer Verlag},
 title = {{Zahlentheorie}},
 year = {2006},
-%language = {ngerman},
 }
 
 
 % url = {{http://www.cse.iitk.ac.in/~manindra/algebra/primality_v6.pdf},{http://fatphil.org/maths/AKS/}},
 % Changed from techreport to misc, because of bibtex warning "empty institution".
-@misc{Agrawal2002,
+@manualx{Agrawal2002,
   author = {M. Agrawal and N. Kayal and N. Saxena},
   month  = {8},
   title  = {{PRIMES in P}},
   year   = {2002},
-  Note   = "Corrected version.
-			\\ \url{http://www.cse.iitk.ac.in/~manindra/algebra/primality_v6.pdf},
-            \\ \url{http://fatphil.org/maths/AKS/}",
-  %_language = {USenglish},
-  %language = {english},
+note= {Corrected version},
+url={http://www.cse.iitk.ac.in/~manindra/algebra/primality_v6.pdf},
+   zurl={http://fatphil.org/maths/AKS/},
 }
 
 @book{Bartholome1996,
@@ -1946,7 +1603,6 @@ edition = {2},
 publisher = {Vieweg},
 title = {{Zahlentheorie für Einsteiger}},
 year = {1996},
-%language = {ngerman},
 }
 
 @book{Bauer1995,
@@ -1954,7 +1610,6 @@ author = {Friedrich L. Bauer},
 publisher = {Springer},
 title = {{Entzifferte Geheimnisse}},
 year = {1995},
-%language = {ngerman},
 }
 
 @book{Bauer2000,
@@ -1963,22 +1618,14 @@ edition = {2},
 publisher = {Springer},
 title = {{Decrypted Secrets}},
 year = {2000},
-%_language = {USenglish},
-%language = {english},
 }
 
-% url = {{http://cr.yp.to/papers/nfscircuit.ps}, {http://cr.yp.to/djb.html}},
-%  Note      = "\\ \url{http://cr.yp.to/papers/nfscircuit.ps},
-%               \\ \url{http://cr.yp.to/djb.html}",
-% Changed from techreport to misc, because of bibtex warning "empty institution".
-@misc{Bernstein2001,
+@manualx{Bernstein2001,
   author    = {Daniel J. Bernstein},
   title     = {{Circuits for integer factorization: a proposal}},
   year      = {2001},
-  howpublished = "\\ \url{http://cr.yp.to/papers/nfscircuit.ps},
-               \\ \url{http://cr.yp.to/djb.html}",
-  %_language = {USenglish},
-  %language = {english},
+  url={http://cr.yp.to/papers/nfscircuit.ps},
+    zurl={http://cr.yp.to/djb.html},
 }
 
 @article{Bernstein2005,
@@ -1988,8 +1635,6 @@ title = {Factoring into coprimes in essentially linear time},
 volume = {54},
 year = {2005},
 url = {http://cr.yp.to/lineartime/dcba-20040404.pdf},
-%_language = {USenglish},
-%language = {english},
 }
 
 @book{Beutelspacher1996,
@@ -1998,10 +1643,8 @@ edition = {5},
 publisher = {Vieweg},
 title = {Kryptologie},
 year = {1996},
-%language = {ngerman},
 }
 
-% url = {http://www.secorvo.de/publikationen/rsa-grenzen-fox-2002.pdf},
 @article{Bourseau2002,
   author  = {F. Bourseau and D. Fox and C. Thiel},
   journal = {Datenschutz und Datensicherheit (DuD)},
@@ -2009,8 +1652,7 @@ year = {1996},
   title   = {{Vorzüge und Grenzen des RSA-Verfahrens}},
   volume  = {26},
   year    = {2002},
-  Note    = "\\ \url{http://www.secorvo.de/publikationen/rsa-grenzen-fox-2002.pdf}",
-  %language = {ngerman},
+  url={http://www.secorvo.de/publikationen/rsa-grenzen-fox-2002.pdf},
 }
 
 @book{Brands2002,
@@ -2018,7 +1660,6 @@ author = {Gilbert Brands},
 publisher = {Vieweg},
 title = {{Verschlüsselungsalgorithmen -- Angewandte Zahlentheorie rund um Sicherheitsprotokolle}},
 year = {2002},
-%language = {ngerman},
 }
 
 @incollection{Buhler1993,
@@ -2029,8 +1670,6 @@ pages = {50-94},
 publisher = {Springer},
 title = {Factoring integers with the number field sieve},
 year = {1993},
-%_language = {USenglish},
-%language = {english},
 }
 
 @book{Eckert2014,
@@ -2040,7 +1679,6 @@ note = {Paperback},
 publisher = {De Gruyter Oldenbourg},
 title = {{IT-Sicherheit: Konzepte-Verfahren-Protokolle}},
 year = {2014},
-%language = {ngerman},
 }
 
 @book{Ertel2001,
@@ -2048,26 +1686,20 @@ author = {Wolfgang Ertel},
 publisher = {Fachbuchverlag Leipzig FV},
 title = {{Angewandte Kryptographie}},
 year = {2001},
-%language = {ngerman},
 }
 
-% url = {https://www.cryptool.org/images/ctp/documents/kes_2012_RSA_Sicherheit.pdf},
-% howpublished "\url{https://www.cryptool.org/images/ctp/documents/kes_2012_RSA_Sicherheit.pdf}",
 @article{Esslinger2012,
   author = {Esslinger, B. and Schneider, J. and Simon, V.},
   journal = {KES Zeitschrift für Informationssicherheit},
   month = {4},
   number = {2},
   pages = {22-27},
-  title = {{RSA -- Sicherheit in der Praxis}},
+  title = {RSA -- Sicherheit in der Praxis},
   volume = {2012},
   year = {2012},
-  Note    = "\\ \url{https://www.cryptool.org/images/ctp/documents/kes_2012_RSA_Sicherheit.pdf}",
-  %language = {ngerman},
+  url={https://www.cryptool.org/images/ctp/documents/kes_2012_RSA_Sicherheit.pdf},
 }
 
-% url = {https://www.cryptool.org/images/ctp/documents/krypto_nsa.pdf},
-% howpublished "\url{https://www.cryptool.org/images/ctp/documents/krypto_nsa.pdf}",
 @article{Esslinger2014,
   author = {Esslinger, B. and Schneider, J. and Simon, V.},
   journal = {KES Zeitschrift für Informationssicherheit},
@@ -2077,8 +1709,7 @@ year = {2001},
   title = {{Krypto + NSA = ? -- Kryptografische Folgerungen aus der NSA-Affäre}},
   volume = {2014},
   year = {2014},
-  Note    = "\\ \url{https://www.cryptool.org/images/ctp/documents/krypto_nsa.pdf}",
-  %language = {ngerman},
+  url    = {https://www.cryptool.org/images/ctp/documents/krypto_nsa.pdf},
 }
 
 @book{Graham1994,
@@ -2087,8 +1718,6 @@ edition = {6},
 publisher = {Addison Wesley},
 title = {{Concrete Mathemathics, a Foundation of Computer Science}},
 year = {1994},
-%_language = {USenglish},
-%language = {english},
 }
 
 
@@ -2097,8 +1726,6 @@ author = {Stefan Katzenbeisser},
 publisher = {Springer},
 title = {{Recent Advances in RSA Cryptography}},
 year = {2001},
-%_language = {USenglish},
-%language = {english},
 }
 
 
@@ -2109,8 +1736,6 @@ publisher = {Addison-Wesley},
 title = {{The Art of Computer Programming, vol 2: Seminumerical Algorithms}},
 year = {1998},
 comment = {1st edition 1969.},
-%_language = {USenglish},
-%language = {english},
 }
 
 
@@ -2121,8 +1746,6 @@ comment = {1st edition 1969.},
   title     = {{Making a Faster Cryptanalytic Time-Memory Trade-Off}},
   year      = {2003},
   Note      = "\\ \url{http://lasecwww.epfl.ch/pub/lasec/doc/Oech03.pdf}",
-  %_language = {USenglish},
-  %language = {english},
 }
 
 @book{Pfleeger1997,
@@ -2131,8 +1754,6 @@ edition = {2},
 publisher = {Prentice-Hall},
 title = {{Security in Computing}},
 year = {1997},
-%_language = {USenglish},
-%language = {english},
 }
 
 % Added author only because of bibtex warning "to sort, need author or key".
@@ -2143,7 +1764,6 @@ month = {4},
 title = {{Has the RSA algorithm been compromised as a result of Bernstein's Paper?}},
 year = {2002},
 url = {http://www.emc.com/emc-plus/rsa-labs/historical/has-the-rsa-algorithm-been-compromised.htm},
-%language = {english},
 }
 
 @mastersthesis{SchneiM2004,
@@ -2152,7 +1772,6 @@ school = {Universität Siegen},
 title = {{Analyse der Sicherheit des RSA-Algorithmus. Mögliche Angriffe, deren Einfluss auf sichere Implementierungen und ökonomische Konsequenzen}},
 year = {2004},
 comment = {Diplomarbeit},
-%language = {ngerman},
 }
 
 @book{Schwenk2002,
@@ -2160,7 +1779,6 @@ author = {Jörg Schwenk},
 publisher = {Vieweg},
 title = {{Sicherheit und Kryptographie im Internet}},
 year = {2002},
-%language = {ngerman},
 }
 
 @book{Sedgewick1990,
@@ -2168,7 +1786,6 @@ author = {Robert Sedgewick},
 publisher = {Addison-Wesley},
 title = {{Algorithms in C}},
 year = {1990},
-%language = {english},
 }
 
 % BE_Remark: url ok, no note with \url needed. Fits into the rest of the line.
@@ -2178,22 +1795,8 @@ author = {Adi Shamir and Eran Tromer},
 title = {{Factoring Large Numbers with the TWIRL Device}},
 year = {2003},
 url = {http://www.tau.ac.il/~tromer/papers/twirl.pdf},
-%_language = {USenglish},
-%language = {english},
 }
 
-% url = {http://www.tau.ac.il/~tromer/papers/cbtwirl.pdf},
-   % dead link: \url{http://www.rsasecurity.com/rsalabs/cryptobytes/CryptoBytes_August_2003.pdf}
-   % info: http://ece.gmu.edu/coursewebpages/ECE/ECE646/F13/viewgraphs_F13/ECE646_lecture9_RSA_6.pdf
-   % Here is a list of all the CryptoBytes, but the links below are dead:
-   %   http://www.emc.com/emc-plus/rsa-labs/historical/cryptobytes-technical-newsletter.htm
-   % Die Ausgaben bis 2000 finden sich unter:
-   %      ftp://ftp.arnes.si/packages/crypto-tools/rsa.com/cryptobytes/
-   % Vol 2, No 1, Spring 1996: https://www.cs.bgu.ac.il/~beimel/Courses/crypto/BCK.pdf
-   % Vol 6, No 1, Spring 2003: http://saweis.net/pdfs/cbytes-rfid.pdf
-   % Vol 7, No 2, Fall 2004: https://people.csail.mit.edu/rivest/voting/papers/CryptoBytes_Fall2004.pdf
-   % https://github.com/sweis/crypto-might-not-suck
-   % ftp://ftp.di.ens.fr/pub/users/pointche/Papers/2002_cryptobytes.pdf
 @article{Shamir2003a,
   author  = {Adi Shamir and Eran Tromer},
   journal = {RSA Laboratories CryptoBytes},
@@ -2202,8 +1805,7 @@ url = {http://www.tau.ac.il/~tromer/papers/twirl.pdf},
   title   = {{On the Cost of Factoring RSA-1024}},
   volume  = {6},
   year    = {2003},
-  Note    = "\\ \url{http://www.tau.ac.il/~tromer/papers/cbtwirl.pdf}",
-  %language = {english},
+  url={http://www.tau.ac.il/~tromer/papers/cbtwirl.pdf},
 }
 
 @article{Silverman2000,
@@ -2214,8 +1816,6 @@ pages = {1-22},
 title = {{A Cost-Based Security Analysis of Symmetric and Asymmetric Key Lengths}},
 volume = {13},
 year = {2000},
-%_language = {USenglish},
-%language = {english},
 }
 
 % Added volume using dblp because of bibtex warning "there's a number but no volume".
@@ -2229,7 +1829,6 @@ pages = {360-362},
 title = {{Sicherheit von 1024 bit RSA-Schlüsseln gefährdet}},
 year = {2003},
 comment = {Der Artikel erläutert Details zum TWIRL-Device.},
-%language = {ngerman},
 }
 
 @book{Welschenbach2001,
@@ -2237,7 +1836,6 @@ author = {Welschenbach, Michael},
 publisher = {Springer},
 title = {{Kryptographie in C und C++}},
 year = {2001},
-%language = {ngerman},
 }
 
 @article{Wiles1994,
@@ -2246,7 +1844,6 @@ journal = {Annals of Mathematics},
 title = {Modular elliptic curves and Fermat's Last Theorem},
 volume = {141},
 year = {1995},
-%language = {english},
 }
 
 @book{Wolfenstetter1998,
@@ -2255,7 +1852,6 @@ edition = {2},
 publisher = {Vieweg},
 title = {{Moderne Verfahren in der Kryptographie}},
 year = {1998},
-%language = {ngerman},
 }
 
 @book{Yan2000,
@@ -2263,17 +1859,16 @@ author = {Song Y. Yan},
 publisher = {Springer},
 title = {{Number Theory for Computing}},
 year = {2000},
-%_language = {USenglish},
-%language = {english},
 }
 
-% Added author only because of bibtex warning "to sort, need author or key".
-@techreport{ACA2002,
+% marke
+@manual{ACA2002,
   author = {ACA},
   institution = {American Cryptogram Association},
   title     = {{Length and Standards for all ACA Ciphers}},
   year      = {2002},
-  %language  = {english},
+url={http://www.cryptogram.org/resource-area/cipher-types/},
+urldate={2019-01-19},
 }
 
 
@@ -2285,8 +1880,6 @@ author = {Paul Crowley},
 title = {{Mirdek: A card cipher inspired by ``Solitaire''}},
 year = {2000},
 url = {http://www.ciphergoth.org/crypto/mirdek/},
-%_language = {USenglish},
-%language = {english},
 }
 
 % Changed from techreport to misc, because of bibtex warning "empty institution".
@@ -2295,20 +1888,14 @@ author = {Jörg Drobick},
 title = {{Abriss DDR-Chiffriergeschichte: SAS- und Chiffrierdienst}},
 year = {2015},
 url = {http://scz.bplaced.net/m.html#dwa},
-%language = {ngerman},
 }
 
-% url = {http://www.vectorsite.net/ttcode.html},
-% Remark: Hier vor der url in note die Newline bewusst weggelassen.
-% Changed from techreport to misc, because of bibtex warning "empty institution".
 @misc{Goebel2014,
   author    = {Greg Goebel},
   title     = {{Codes, Ciphers and Codebreaking}},
   year      = {2014},
-  Note      = "Version 2.3.2.
-	       \url{http://www.vectorsite.net/ttcode.html}",
-  %_language = {USenglish},
-  %language = {english},
+  version      = {2.3.2.},
+url={http://www.vectorsite.net/ttcode.html},
 }
 
 % url = {http://www.vectorsite.net/ttcode.html},
@@ -2319,8 +1906,6 @@ url = {http://scz.bplaced.net/m.html#dwa},
   year      = {2015},
   Note      = "Version 1.0.5.
 	       \\ \url{http://www.vectorsite.net/ttcode.html}",
-  %_language = {USenglish},
-  %language = {english},
 }
 
 @article{Hill1929,
@@ -2331,8 +1916,6 @@ pages = {306-312},
 title = {{Cryptography in an Algebraic Alphabet}},
 volume = {36},
 year = {1929},
-%_language = {USenglish},
-%language = {english},
 }
 
 @article{Hill1931,
@@ -2343,19 +1926,13 @@ pages = {135-154},
 title = {{Concerning Certain Linear Transformation Apparatus of Cryptography}},
 volume = {38},
 year = {1931},
-%_language = {USenglish},
-%language = {english},
 }
 
-% url = {http://www.quadibloc.com/crypto/jscrypt.htm},
-% Changed from techreport to misc, because of bibtex warning "empty institution".
 @misc{Savard1999,
   author  = {John J. G. Savard},
   title   = {{A Cryptographic Compendium}},
   year    = {1999},
-  Note    = "\\ \url{http://www.quadibloc.com/crypto/jscrypt.htm}",
-  %_language = {USenglish},
-  %language = {english},
+url={http://www.quadibloc.com/crypto/jscrypt.htm},
 }
 
 @book{Singh1999,
@@ -2363,7 +1940,6 @@ author = {Simon Singh},
 publisher = {Anchor},
 title = {{The Code Book: The Science of Secrecy from Ancient Egypt to Quantum Cryptography}},
 year = {1999},
-%language = {english},
 }
 
 @book{Singh2001,
@@ -2371,7 +1947,6 @@ author = {Simon Singh},
 publisher = {dtv},
 title = {{Geheime Botschaften. Die Kunst der Verschl\"usselung von der Antike bis in die Zeiten des Internet}},
 year = {2001},
-%language = {ngerman},
 }
 
 
@@ -2381,8 +1956,6 @@ author = {{ThinkQuest Team 27158}},
 title = {{Data Encryption}},
 year = {1999},
 comment = {Die ursprüngliche URL {http://library.thinkquest.org/27158/} ist leider tot.},
-%_language = {USenglish},
-%language = {english},
 }
 
 
@@ -2402,8 +1975,6 @@ comment = {Die ursprüngliche URL {http://library.thinkquest.org/27158/} ist lei
   title   = {{The Prime Facts: From Euclid to AKS}},
   year    = {2003},
   Note    = "\\ \url{http://www.scottaaronson.com/writings/prime.pdf}",
-  %_language = {USenglish},
-  %%language = {english},
 }
 
 @book{Blum1999,
@@ -2411,8 +1982,6 @@ author = {W. Blum},
 publisher = {dtv},
 title = {{Die Grammatik der Logik}},
 year = {1999},
-%_language = {USenglish},
-%language = {english},
 }
 
 @book{Bundschuh1998,
@@ -2421,7 +1990,6 @@ edition = {4},
 publisher = {Springer},
 title = {{Einführung in die Zahlentheorie}},
 year = {1998},
-%language = {ngerman},
 }
 
 @book{Crandell2001,
@@ -2429,8 +1997,6 @@ author = {Richard Crandell and Carl Pomerance},
 publisher = {Springer},
 title = {{Prime Numbers. A Computational Perspective}},
 year = {2001},
-%_language = {USenglish},
-%language = {english},
 }
 
 @book{Dioxiadis2001,
@@ -2439,7 +2005,6 @@ publisher = {Lübbe},
 title = {{Onkel Petros und die Goldbachsche Vermutung}},
 year = {2001},
 comment = {Paperback (originally Bloomsbury 2000)},
-%language = {ngerman},
 }
 
 @book{duSautoy2005,
@@ -2449,7 +2014,6 @@ publisher = {Beck},
 title = {{Die Musik der Primzahlen: Auf den Spuren des größten Rätsels der Mathematik}},
 year = {2005},
 comment = {Originally Harper-Collins 2003.},
-%language = {ngerman},
 }
 
 @book{Klee1997,
@@ -2457,7 +2021,6 @@ author = {V. Klee and S. Wagon},
 publisher = {Birkhäuser Verlag},
 title = {{Ungelöste Probleme in der Zahlentheorie und der Geometrie der Ebene}},
 year = {1997},
-%language = {ngerman},
 }
 
 @book{Lorenz1993,
@@ -2465,7 +2028,6 @@ author = {F. Lorenz},
 publisher = {BI Wissenschaftsverlag},
 title = {{Algebraische Zahlentheorie}},
 year = {1993},
-%language = {ngerman},
 }
 
 @book{Padberg1996,
@@ -2475,7 +2037,6 @@ publisher = {Spektrum Akademischer Verlag},
 title = {{Elementare Zahlentheorie}},
 year = {1996},
 comment = {1. Auflage war 1988.},
-%language = {ngerman},
 }
 
 @book{Pieper1983,
@@ -2485,7 +2046,6 @@ publisher = {Verlag Harri Deutsch},
 title = {{Zahlen aus Primzahlen}},
 year = {1983},
 comment = {1. Auflage war 1974.},
-%language = {ngerman},
 }
 
 
@@ -2498,7 +2058,6 @@ comment = {1. Auflage war 1974.},
 	    {\\Dieses Buch entstand aus einem Kurs an der \glqq Deutschen Schülerakademie\grqq. Es stellt den AKS-Beweis vollständig dar, ohne viel mathematisches Vorwissen zu erwarten}
 	    {\\This book results from a course for especially talented pupils at the ``Deutsche Sch\"ulerakademie''. It completely presents the AKS proof -- without expecting much mathematical pre-knowledge}
           },
-  %language = {ngerman},
 }
 
 @article{Richstein1999,
@@ -2508,8 +2067,6 @@ pages = {1745-1749},
 title = {{Verifying the Goldbach Conjecture up to $4*10^{14}$}},
 volume = {70},
 year = {2001},
-%_language = {USenglish},
-%language = {english},
 }
 
 % edition = {3 (corrected printing)},
@@ -2520,8 +2077,6 @@ publisher = {Springer},
 title = {{Number Theory in Science and Communication}},
 year = {1999},
 comment = {1st edition 1984.},
-%_language = {USenglish},
-%language = {english},
 }
 
 % Changed editor to publisher, because of bibtex warning "can't use both author and editor fields".
@@ -2532,7 +2087,6 @@ publisher = {B. Seiler},
 series = {taschenbuch der telekom praxis},
 title = {{Conditional Access}},
 year = {1996},
-%language = {ngerman},
 }
 
 % BE_Remark: url ok, no note with \url needed. Fits into the rest of the line.
@@ -2543,7 +2097,6 @@ publisher = {Cambridge University Press},
 title = {{A Computational Introduction to Number Theory and Algebra}},
 year = {2008},
 url = {http://shoup.net/ntb/},
-%language = {english},
 }
 
 @book{Tietze1973,
@@ -2553,11 +2106,9 @@ publisher = {C.H. Beck},
 title = {{Gelöste und ungelöste mathematische Probleme}},
 year = {1973},
 comment = {1. Auflage 1959.},
-%language = {ngerman},
 }
 
 
-% url = {http://bscw.schule.de/pub/bscw.cgi/d637160/RSA_u_Co_T1.pdf},
 % Beim Zitieren jeweils im Englischen: \index{RSA \& Co. at school}
 %                       im Deutschen:  \index{RSA \& Co. in der Schule}
 % Unfortunately only available in German.\\
@@ -2565,16 +2116,13 @@ comment = {1. Auflage 1959.},
 @article{Witten1998,
   author  = {Helmut Witten and Irmgard Letzner and Ralph-Hardo Schulz},
   journal = {LOG IN},
-  volume  = {1998},
   number  = {3/4},
   pages   = {57-65},
   title   = {{RSA \& Co. in der Schule: Moderne Kryptologie, alte Mathematik, raffinierte Protokolle, Teil 1: Sprache und Statistik}},
   year    = {1998},
-  Note    = "\\ \url{http://bscw.schule.de/pub/bscw.cgi/d637160/RSA_u_Co_T1.pdf}",
-  %language = {ngerman},
+  url={http://bscw.schule.de/pub/bscw.cgi/d637160/RSA_u_Co_T1.pdf},
 }
 
-% BE_Remark: url ok, no note with \url needed. Starts right after a newline.
 @article{Witten1999,
   author  = {Helmut Witten and Irmgard Letzner and Ralph-Hardo Schulz},
   journal = {LOG IN},
@@ -2584,88 +2132,74 @@ comment = {1. Auflage 1959.},
   title   = {{RSA \& Co. in der Schule: Moderne Kryptologie, alte Mathematik, raffinierte Protokolle. Teil 3: Flusschiffren, perfekte Sicherheit und Zufall per Computer}},
   year    = {1999},
   url     = {http://bscw.schule.de/pub/nj_bscw.cgi/d637156/RSA_u_Co_T3.pdf},
-  %language = {ngerman},
 }
 
-% url = {http://bscw.schule.de/pub/bscw.cgi/d404410/RSA_u_Co_NF2.pdf},
-% Added volume because of bibtex warning "there's a number but no volume".
 @article{Witten2006,
   author  = {Helmut Witten and Ralph-Hardo Schulz},
   journal = {LOG IN},
-  volume  = {2006},
   number  = {143},
   pages   = {50-58},
   title   = {{RSA \& Co. in der Schule: Moderne Kryptologie, alte Mathematik, raffinierte Protokolle. NF Teil 2: RSA für große Zahlen}},
   year    = {2006},
-  Note    = "\\ \url{http://bscw.schule.de/pub/bscw.cgi/d404410/RSA_u_Co_NF2.pdf}",
-  %language = {ngerman},
+  url={http://bscw.schule.de/pub/bscw.cgi/d404410/RSA_u_Co_NF2.pdf},
 }
 
-% url = {https://bscw.schule.de/pub/bscw.cgi/d533821/RSA_u_Co_NF3.pdf},
 @article{Witten2008,
   author  = {Helmut Witten and Ralph-Hardo Schulz},
   journal = {LOG IN},
-  volume  = {2008},
   number  = {152},
   pages   = {60-70},
   title   = {{RSA \& Co. in der Schule: Moderne Kryptologie, alte Mathematik, raffinierte Protokolle. NF Teil 3: RSA und die elementare Zahlentheorie}},
   year    = {2008},
-  Note    = "\\ \url{https://bscw.schule.de/pub/bscw.cgi/d533821/RSA_u_Co_NF3.pdf}",
-  %language = {ngerman},
+  url={https://bscw.schule.de/pub/bscw.cgi/d533821/RSA_u_Co_NF3.pdf},
 }
 
 % url = {http://bscw.schule.de/pub/bscw.cgi/d864891/RSA_u_Co_NF4.pdf},
 @article{Witten2010a,
   author = {Helmut Witten and Ralph-Hardo Schulz},
   journal = {LOG IN},
-  volume  = {2010},
   number = {163},
   pages = {97-103},
   title = {{RSA \& Co. in der Schule: Moderne Kryptologie, alte Mathematik, raffinierte Protokolle. NF Teil 4: Gibt es genügend Primzahlen für RSA?}},
   year = {2010},
-  Note      = "\\ \url{http://bscw.schule.de/pub/bscw.cgi/d864891/RSA_u_Co_NF4.pdf}",
-  %language = {ngerman},
+url={http://bscw.schule.de/pub/bscw.cgi/d864891/RSA_u_Co_NF4.pdf},
 }
 
 % url = {http://bscw.schule.de/pub/bscw.cgi/d864895/RSA_u_Co_NF5.pdf},
 @article{Witten2010b,
   author  = {Helmut Witten and Ralph-Hardo Schulz},
   journal = {LOG IN},
-  volume  = {2010},
   number  = {166/167},
   pages   = {92-106},
   title   = {{RSA \& Co. in der Schule: Moderne Kryptologie, alte Mathematik, raffinierte Protokolle. NF Teil 5: Der Miller-Rabin-Primzahltest oder: Falltüren für RSA mit Primzahlen aus Monte Carlo}},
   year    = {2010},
-  Note    = "\\ \url{http://bscw.schule.de/pub/bscw.cgi/d864895/RSA_u_Co_NF5.pdf}",
-  %language = {ngerman},
+  url={http://bscw.schule.de/pub/bscw.cgi/d864895/RSA_u_Co_NF5.pdf},
 }
-
-% url = {{http://bscw.schule.de/pub/bscw.cgi/d1024013/RSA_u_Co_NF7.pdf}, {http://www.log-in-verlag.de/wp-content/uploads/2015/07/Internetquellen-LOG-IN-Heft-Nr.181-182.doc}},
-@article{Witten2015,
+@articlex{Witten2015,
   author  = {Helmut Witten and Ralph-Hardo Schulz and Bernhard Esslinger},
+url={http://www.log-in-verlag.de/wp-content/uploads/2015/07/Internetquellen-LOG-IN-Heft-Nr.181-182.doc},
+        zurl = {http://bscw.schule.de/pub/bscw.cgi/d1024013/RSA_u_Co_NF7.pdf},
+  title  = {RSA \& Co. in der Schule},
+subtitle={Moderne Kryptologie,
+       alte Mathematik, raffinierte Protokolle, NF Teil 7: Alternativen
+       zu RSA oder Diskreter Logarithmus statt Faktorisierung},
   journal = {LOG IN},
   volume  = {2010},
-  title  = {{RSA \& Co. in der Schule: Moderne Kryptologie, alte Mathematik, raffinierte Protokolle, NF Teil 7: Alternativen zu RSA oder Diskreter Logarithmus statt Faktorisierung}},
   number  = {181-182},
   pages   = {85-102},
   year    = {2015},
-  Note = {\iflanguage{ngerman}{
-    	       \\ Hierin werden u.a. DH und Elgamal in einem breiteren Kontext behandelt.
-	       Die Verfahren werden mit Codebeispielen in Python und SageMath erläutert.}
-                              {
-    	       \\ This article discusses DH and ElGamal in a broader context.
-	       The algorithms are explained with code samples in Python and SageMath.}
-           \\ \url{http://bscw.schule.de/pub/bscw.cgi/d1024013/RSA_u_Co_NF7.pdf},
-           \\ \url{http://www.log-in-verlag.de/wp-content/uploads/2015/07/Internetquellen-LOG-IN-Heft-Nr.181-182.doc}
-          },
-  %language = {ngerman},
+note ={   
+      \iflanguage{ngerman}{
+         \\ Hierin werden u.a. DH und Elgamal in einem breiteren Kontext behandelt.      
+         Die Verfahren werden mit Codebeispielen in Python und SageMath erläutert.}      
+         { \\ This article discusses DH and ElGamal in a broader context.
+         The algorithms are explained with code samples in Python and SageMath.}\\       
+        },
 }
 
-% Added volume because of bibtex warning "there's a number but no volume".
 @article{Schulz2015,
   author  = {Ralph-Hardo Schulz and Helmut Witten and Bernhard Esslinger},
   journal = {LOG IN},
-  volume  = {2015},
   number  = {181/182},
   pages   = {103-115},
   title   = {{Rechnen mit Punkten einer elliptischen Kurve}},
@@ -2676,12 +2210,10 @@ comment = {1. Auflage 1959.},
                               {
                \\ Written for teachers; didactically prepared, easy to understand,
 	       with many SageMath examples. Sadly, this article is only available in German.}
-           \\ \url{http://bscw.schule.de/pub/bscw.cgi/d1024028/Schulz_Witten_Esslinger-Rechnen_mit_Punkten_einer_elliptischen_Kurve.pdf}
           },
-  %language = {ngerman},
+          url={http://bscw.schule.de/pub/bscw.cgi/d1024028/Schulz_Witten_Esslinger-Rechnen_mit_Punkten_einer_elliptischen_Kurve.pdf},
 }
 
-% url = {http://bscw.schule.de/pub/bscw.cgi/d864899/Schulz_Witten_Zeit-Experimente.pdf},
 @article{Schulz2010,
   author  = {Ralph-Hardo Schulz and Helmut Witten},
   journal = {LOG IN},
@@ -2689,8 +2221,7 @@ comment = {1. Auflage 1959.},
   title   = {{Zeitexperimente zur Faktorisierung. Ein Beitrag zur Didaktik der Kryptographie}},
   volume  = {166/167},
   year    = {2010},
-  Note    = "\\ \url{http://bscw.schule.de/pub/bscw.cgi/d864899/Schulz_Witten_Zeit-Experimente.pdf}",
-  %language = {ngerman},
+ url={http://bscw.schule.de/pub/bscw.cgi/d864899/Schulz_Witten_Zeit-Experimente.pdf},
 }
 
 

@@ -1,15 +1,15 @@
 % $Id$
-% arara: pdflatex
+% arara: lualatex
 % arara: biber
 % arara: makeindex: {style: style.ist}
-% arara: pdflatex
+% arara: lualatex
 % arara: makeindex: {style: style.ist}
-% arara: pdflatex
+% arara: lualatex
 % arara: clean:{extensions:[aux,bbl,bcf,blg,fdb_latexmk,fls,idx,
 % arara: --> ilg,ind,loc,lof,log,loos,lop,loq,lot,mw,mw.mw,
 % arara: --> out,run.xml,toc]}
 % doris beginfolding in vim
-% !TEX TS-program = pdflatexmk
+% !TEX TS-program = lualatexmk
 % !BIB TS-program=biber
 % doris: obige zeilen f"ur TeXShop aufm mac
 % !Mode:: "TeX:DE"    % Setting document mode and submode for WinEdt
@@ -63,7 +63,9 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[a4paper,11pt,oneside,english,ngerman]{book}  % the order ngerman-english doesn't seem to matter.
+\documentclass[a4paper,11pt,oneside,english,ngerman]{book}
+%\documentclass[a4paper,11pt,oneside,english,ngerman,draft]{book}
+% the order ngerman-english doesn't seem to matter.
 
 \newcommand*{\indexsection}[1]{\markright{#1}}
 
@@ -81,8 +83,9 @@
 %endfolding abmessungen
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-------fonts, encoding etc.
-%\usepackage[latin1]{inputenc} % Umlaute  %%BERM2: Added for bitciphers.tex (still necessary?)
-% \usepackage[utf8]{inputenc}   % Bessere Alternative? --> Doris
+\usepackage{fontspec}%f"ur lualatex, statt fontec wie bei pdflatex
+\setmainfont[Path=/Library/fonts/,Extension=.otf]{STIXGeneral}
+\usepackage[final]{microtype}
 %\usepackage[T1]{fontenc} %BERM2: bitciphers.tex used T1.
                 % Ohne T1 wurden dort \dh und \textperthousand nicht erkannt.
                 % Die Hinzunahme von T1 (soll eigentlich Umbrüche verbessern)
@@ -98,11 +101,10 @@
 %endfolding fonts etc.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%------bibliographie
-%\usepackage[style=alphabetic,backend=biber,refsection=chapter]{biblatex}
-\usepackage[style=alphabetic,backend=biber]{biblatex}
+%\usepackage[style=alphabetic,backend=biber,refsection=chapter,sorting=nyt]{biblatex}
+\usepackage[style=alphabetic,backend=biber,sorting=nyt,maxbibnames=99]{biblatex}
 \addbibresource{references-new.bib}
 \usepackage{csquotes}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%------index
 \usepackage{makeidx}  % Alternativ evtl. \usepackage{imakeidx} (bemerkte keinen Unterschied) --> Alphabetheader wahrscheinlich möglich!
@@ -135,7 +137,7 @@
 \usepackage{color}   %BERM2: added for biciphers.tex
 \providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE%16xxxxxxxxxxxxxx
 \providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE%16xxxxxxxxxxxxxx
-
+\usepackage{rotating}
 \usepackage{graphicx} %BE_20180715
 \usepackage{tikz,tikz-cd} %16xxxxxxxxxxxxxx WIRKLICH NOETIG?
 \tikzset{ampersand replacement=\&} %DIF > %16xxxxxxxxxxxxxx
@@ -164,6 +166,7 @@
 %endfoldingfloats
 
 %%%%%%%%%%beginfolding%%%%%%%%%%%%%%-----layout, z.B. boxen, listen, linien
+\raggedbottom
 \pagestyle{headings}
 %\chapter[toc version]{doc version}\chaptermark{running-header version}
 \usepackage{fancybox} %16xxxxxxxxxxxxxx
@@ -216,7 +219,8 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%------------ misc
-\usepackage{morewrites}% Neu wegen "message {No room for a new \string #" nach Hinzufügen von \lostof{opensslcode}
+%\usepackage{morewrites}% Neu wegen "message {No room for a new \string #" nach Hinzufügen von \lostof{opensslcode}
+%brauchen wir nicht mehr mit luatex
 \usepackage{ifthen}
 
 %beginfolding%%%%%%%%%%%%%%%%----------user-defined-commands,envir., counters etc.
@@ -284,19 +288,20 @@
 
 \author{% beginfolding
 	{\LARGE Prof.\ Bernhard Esslinger (Mitautor und Herausgeber)}\\[10pt]
-	{\LARGE und das CrypTool-Team, 1998-2018}\\[10pt]
+	{\LARGE und das CrypTool-Team, 1998-2019}\\[10pt]
 %	{\LARGE Frankfurt am Main}\\*[15pt]
 	\url{www.cryptool.org}
 }%endfolding
 
 %%beginfolding%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-------hyperref &co
-%\usepackage[hyphens]{url} % options "hyphens" enables linebreaks nach Bindestrich in \url{}
-%\appto\UrlBreaks{\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j
-%\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w
-%\do\x\do\y\do\z}
-
+\usepackage{xurl}
+%the following 3 counters have to be set manually, because
+%biblatex does not understand xurl, but we want to avoid bad
+%boxes resulting from not broken urls in the bib
+\setcounter{biburllcpenalty}{1} \setcounter{biburlucpenalty}{1} \setcounter{biburlnumpenalty}{1}
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=cyan, %% BE_2018-07 black->cyan,
-bookmarksnumbered=true,pdfpagelabels,plainpages=false,hyperfootnotes=false]{hyperref}
+bookmarksnumbered=true,pdfpagelabels,plainpages=false,%
+hyperfootnotes=false]{hyperref}
 
 %endfoldinghyperref
 
