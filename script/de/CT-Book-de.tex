@@ -83,8 +83,9 @@
 %endfolding abmessungen
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-------fonts, encoding etc.
-\usepackage{fontspec}%f"ur lualatex, statt fontec wie bei pdflatex
-\setmainfont[Path=/Library/fonts/,Extension=.otf]{STIXGeneral}
+\usepackage{fontspec}% für lualatex, statt fontec wie bei pdflatex
+\setmainfont{STIXGeneral}
+
 \usepackage[final]{microtype}
 %\usepackage[T1]{fontenc} %BERM2: bitciphers.tex used T1.
                 % Ohne T1 wurden dort \dh und \textperthousand nicht erkannt.
@@ -342,8 +343,8 @@ anderen Werk auch, zitiert werden. \\
 Darüber hinaus unterliegt dieses Dokument der GNU-Lizenz für freie
 Dokumentation.
 
-%   Copyright \textcopyright{} 1998--2018 Bernhard Esslinger and the    %% Geht beides.
-    Copyright \copyright{} 1998--2018 Bernhard Esslinger and the
+%   Copyright \textcopyright{} 1998--2019 Bernhard Esslinger and the    %% Geht beides.
+    Copyright \copyright{} 1998--2019 Bernhard Esslinger and the
     CrypTool Team. Permission is granted to copy,
     distribute and/or modify this document under the terms of the GNU
     Free Documentation License, Version 1.3 or any later version
@@ -363,13 +364,13 @@ Dokumentation.
 %doris: wozu sind bei title die div. Buchstaben extra geklammert???
 \begin{Verbatim}% Verbatim instead of verbatim from package fancyvrb
 [fontsize=\footnotesize]
-@book{Esslinger:ctb_2018,
+@book{Esslinger:ctb_2019,
   editor    = {Bernhard Esslinger},
   title     = {{D}as {C}ryp{T}ool-{B}uch: {K}ryptographie lernen
                und anwenden mit {C}ryp{T}ool und {S}age{M}ath},
   publisher = {CrypTool-Projekt},
   edition   = {12},
-  year      = {2018}
+  year      = {2019}
 }
 \end{Verbatim}
 
