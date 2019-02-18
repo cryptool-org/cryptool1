@@ -98,6 +98,20 @@ BOOL CDlgShowKey::OnInitDialog()
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
 
+BOOL CDlgShowKey::PreTranslateMessage(MSG *msg) {
+	// flomar, 2019/02/18: This custom message handler functionality was necessary 
+	// to allow users to press Ctrl+A to select all text in the log window. For some 
+	// mysterious reason MFC would not allow it out-of-the-box.
+	if(msg->message == WM_KEYDOWN && msg->wParam == 'A' && GetKeyState(VK_CONTROL) < 0) {
+		CEdit *edit = (CEdit*)(GetDlgItem(IDC_EDIT1));
+		if(edit) {
+			edit->SetSel(0, -1);
+			return true;
+		}
+	}
+	return CDialog::PreTranslateMessage(msg);
+}
+
 int CDlgShowKey::DoModal() 
 {
 	// TODO: Speziellen Code hier einfügen und/oder Basisklasse aufrufen

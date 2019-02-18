@@ -2706,7 +2706,7 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
 		}
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_HOMOPHONE,pc_str,STR_LAENGE_STRING_TABLE);
-		MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,"");
+		MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,DH.HB.GetKeyStr());
 		NewDoc->SetTitle(title);
 	}
 

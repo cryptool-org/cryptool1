@@ -66,7 +66,8 @@ protected:
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgShowKey)
 	afx_msg void OnCopyKey();
-	virtual BOOL OnInitDialog();
+	afx_msg BOOL OnInitDialog();
+	afx_msg BOOL PreTranslateMessage(MSG* pMsg);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
