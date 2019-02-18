@@ -92,8 +92,9 @@ protected:
 	CFont m_Font;
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgKeyHomophone)
+	afx_msg BOOL OnInitDialog();
+	afx_msg BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnErzeugen();
-	virtual BOOL OnInitDialog();
 	afx_msg void OnLoadKey();
 	afx_msg void OnDecrypt();
 	afx_msg void OnEncrypt();

@@ -302,6 +302,28 @@ BOOL CDlgKeyHomophone::OnInitDialog()
 	return(TRUE);
 }
 
+BOOL CDlgKeyHomophone::PreTranslateMessage(MSG* pMsg) {
+	switch(pMsg->message) {
+	case WM_KEYDOWN:
+		// flomar, 2019/02/18: Whenever the focus is on the number of homophones 
+		// edit field, pressing the "Enter" key will not close the dialog, but 
+		// instead will only update the number of homophones. Only then the focus 
+		// is shifted to the "OK" button. This is provided for convenience as per 
+		// BE's request.
+		if(pMsg->wParam == VK_RETURN) {
+			CWnd *windowFocus = GetFocus();
+			CWnd *windowUpdate = GetDlgItem(IDC_EDIT1);
+			CWnd *windowOK = GetDlgItem(IDOK);
+			if(windowFocus && windowUpdate && windowOK && windowFocus == windowUpdate) {
+				OnActualizeNoOfHomophones();
+				windowOK->SetFocus();
+				return true;
+			}
+		}
+	}
+	return CDialog::PreTranslateMessage(pMsg);
+}
+
 void CDlgKeyHomophone::Init_ListBox()
 // füllt die Liste auf mit
 //	1.	den im Alphabet (Textoptionen) eingestellten Zeichen
