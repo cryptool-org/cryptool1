@@ -84,7 +84,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-------fonts, encoding etc.
 \usepackage{fontspec}% für lualatex, statt fontec wie bei pdflatex
-\setmainfont{STIXGeneral}
+%\setmainfont[Path=/Library/Fonts]{STIXGeneral}
+\usepackage[utf8]{luainputenc} %n"otig f"ur ok umlaute in sidebar vom pdf
 
 \usepackage[final]{microtype}
 %\usepackage[T1]{fontenc} %BERM2: bitciphers.tex used T1.
@@ -115,6 +116,10 @@
 %endfoldingindex
 
 %%%beginfolding%%%%%%%%%%%%%%%%%%%%%%%%%%%%----mathe, symbole
+
+\newcommand*{\F}{\mathbb{F}}
+\newcommand*{\Z}{\mathbb{Z}}
+\newcommand*{\Oh}{\cal{O}}
 \usepackage{amsmath}
 \usepackage{amssymb,amscd,latexsym}   %BERM2: added for biciphers.tex
 %amscd commutative diagrams; %latexsym some additional characters
@@ -302,7 +307,8 @@
 \setcounter{biburllcpenalty}{1} \setcounter{biburlucpenalty}{1} \setcounter{biburlnumpenalty}{1}
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=cyan, %% BE_2018-07 black->cyan,
 bookmarksnumbered=true,pdfpagelabels,plainpages=false,%
-hyperfootnotes=false]{hyperref}
+hyperfootnotes=false,
+pdfencoding=auto]{hyperref}
 
 %endfoldinghyperref
 

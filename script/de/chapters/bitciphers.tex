@@ -27,17 +27,8 @@
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 % Pommerenings Spezialitäten
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-\newcommand*{\F}{\mathbb{F}}
-\newcommand*{\M}{\mathbb{M}}
 
-%\newcommand*{\C}{\mathbb{C}}
-\newcommand*{\N}{\mathbb{N}}
-\newcommand*{\Q}{\mathbb{Q}}
-\newcommand*{\R}{\mathbb{R}}
-\newcommand*{\Z}{\mathbb{Z}}
-
-\newcommand*{\lsb}{\operatorname{lsb}}
-\newcommand*{\Oh}{\operatorname{O}}
+%\newcommand*{\Oh}{\operatorname{O}}
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 % CrypTool-Spezialitäten
@@ -1202,7 +1193,7 @@ sage: A*y
 \end{verbatim}
 \caption{Auflösung eines linearen
   Gleichungssystems\index{lineares Gleichungssystem}\index{Gleichungssystem!linear}
-  über $\Q$}
+  über $\mathbb{Q}$}
 \label{Sage-code-bool-lin-equ-Q}
 \end{sagecode}
 
@@ -1221,8 +1212,8 @@ linearer\index{lineares Gleichungssystem}\index{Gleichungssystem!linear}
 Gleichungssysteme mit Gaußscher Elimination\index{Elimination} extrem einfach, da nur
 Koeffizienten $0$ und $1$ vorkommen und Multiplikationen oder
 Divisionen völlig entfallen; auch komplizierte Koeffizienten (wie
-Brüche über $\Q$) oder ungenaue Koeffizienten (wie Gleitkommazahlen über
-$\R$) gibt es hier nicht. Die Methode ist so einfach, dass selbst für sechs
+Brüche über $\mathbb{Q}$) oder ungenaue Koeffizienten (wie Gleitkommazahlen über
+$\mathbb{R}$) gibt es hier nicht. Die Methode ist so einfach, dass selbst für sechs
 Unbekannte das Rechnen per "`Papier und Bleistift"' fast noch schneller
 geht, als dem zugehörigen SageMath-Progrämmchen die richtigen Werte zu
 übergeben. Dies wird durch ein Beispiel illustriert.
@@ -3342,8 +3333,8 @@ Erfindungen hier auch Hadamard\footnote{%
    Joseph L. Walsh\index{Walsh, Joseph L.}, US-amerikanischer Mathematiker, 21.9.1895--6.12.1973
 }-Transformation\index{Walsh-Transformation}
 genannt wird. Diese Transformation wandelt eine {\em reellwertige} (!)
-Funktion $\varphi\!: \F_2^m \longrightarrow \R$ wieder in eine
-reellwertige Funktion $\hat{\varphi}\!: \F_2^m \longrightarrow \R$
+Funktion $\varphi\!: \F_2^m \longrightarrow \mathbb{R}$ wieder in eine
+reellwertige Funktion $\hat{\varphi}\!: \F_2^m \longrightarrow \mathbb{R}$
 um, die durch
 \[
   \hat{\varphi}(u) := \sum_{x \in \F_2^m} \varphi(x)\cdot (-1)^{u\cdot x}.
@@ -3368,7 +3359,7 @@ Wir betrachten nun eine Boolesche
 Abbildung\index{Boolesche Abbildung}\index{Abbildung!Boolesche}
 $f\!: \F_2^n \longrightarrow \F_2^q$ und ihre
 {\bf Indikatorfunktion}\index{Indikatorfunktion}
-$\vartheta_f: \F_2^n \times \F_2^q \longrightarrow \R$,
+$\vartheta_f: \F_2^n \times \F_2^q \longrightarrow \mathbb{R}$,
 \[
   \vartheta_f(x,y) := \left\{ \begin{array}{ll}
                      1, & \textrm{wenn } y = f(x), \\
@@ -3407,7 +3398,7 @@ I/O-Korrelation\index{I/O-Korrelation} von $(\alpha, \beta)$.
 Die Fourier-Transformierte der Indikatorfunktion\index{Indikatorfunktion}
 einer Booleschen Abbildung\index{Boolesche Abbildung}\index{Abbildung!Boolesche}
 $f\!\!: \F_2^n \longrightarrow \F_2^q$, also
-$\hat{\vartheta_f}\!\!: \F_2^n \times \F_2^q \longrightarrow \R$,
+$\hat{\vartheta_f}\!\!: \F_2^n \times \F_2^q \longrightarrow \mathbb{R}$,
 wird oft das (Walsh-) {\bf Spektrum}\index{Spektrum}\index{Walsh-Spektrum}
 von $f$ genannt. Wir haben also gezeigt:
 
@@ -3446,7 +3437,7 @@ Die Erklärung der schnellen Fourier-Transformation würde hier zu
 weit führen (siehe dazu \cite{Pomm2008}). Sie steckt in der Funktion
 \verb:wtr(): aus dem Anhang~\ref{ss-bool-walsh}. Ohne Beweis
 sei vermerkt, dass die schnelle Fourier-Transformation\index{Fourier-Transformation!schnell}
-einer reellwertigen Funktion $\F_2^m \longrightarrow \R$ insgesamt
+einer reellwertigen Funktion $\F_2^m \longrightarrow \mathbb{R}$ insgesamt
 $3m \cdot 2^m$ einfache reelle Operationen erfordert, die man
 für Funktionen mit Werten in $\{-1, 1\}$ naiv zählen kann,
 denn es kommen nur ganze Zahlen vor, die nicht allzu groß
@@ -6800,7 +6791,7 @@ und beim Militär -- denn sie sind
 	\item sehr einfach zu realisieren,
 	\item extrem effizient in Hardware,
 	\item als Zufallsgeneratoren für statistische Zwecke sehr gut geeignet,
-	\item problemlos in großer Anzahl parallel zu betreiben,
+	\item problemlos in gro"ser Anzahl parallel zu betreiben,
 	\item aber leider kryptologisch völlig unsicher.
 \end{itemize}
 Um die positiven Eigenschaften zu nutzen und die kryptologische Schwäche
@@ -7643,7 +7634,7 @@ schon gut hinkommen\footnote{%
 
 Ein eleganter Ausweg, der die Korrelationsattacke zusammenbrechen lässt,
 wurde von Rueppel vorgeschlagen: eine "`zeitabhängige"' Kombinierfunktion,
-also eine Familie $(f_t)_{t \in \N}$ zu verwenden. D.\,h., zur Berechnung
+also eine Familie $(f_t)_{t \in \mathbb{N}}$ zu verwenden. D.\,h., zur Berechnung
 des Bits $u_t$ des Schlüsselstroms wird die Kombinierfunktion $f_t$
 verwendet. Die Sicherheit dieses Ansatzes wird hier nicht weiter
 analysiert.
@@ -7950,7 +7941,7 @@ von Booleschen Abbildungen\index{Boolesche Abbildung}
 Parameter $n$ gegen unendlich gehen lässt. Damit ein solcher
 Algorithmus -- repräsentiert durch die Familie $(G_n)$ Boolescher
 Abbildungen -- überhaupt effizient sein kann, darf die "`Streckungsfunktion"'
-$r\!: \N \longrightarrow \N$ höchstens polynomial mit dem Parameter
+$r\!: \mathbb{N} \longrightarrow \mathbb{N}$ höchstens polynomial mit dem Parameter
 $n$ wachsen, sonst wäre ja schon das Hinschreiben der Output-Folge
 nicht mehr effizient möglich. Dann misst man den
 Aufwand in einer irgendwie sinnvollen Weise -- z.\,B. die Anzahl der

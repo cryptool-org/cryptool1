@@ -11,14 +11,6 @@
 \setcounter{satz}{0}
 \setcounter{definition}{0}
 
-\newcommand{\NT}{\vspace*{0.2\baselineskip}\\}
-\newcommand{\HZ}{\vspace*{0.5\baselineskip}}
-\newcommand{\R}{\text{I}\!\text{R}}
-\newcommand{\N}{\text{I}\!\text{N}}
-\newcommand{\Q}{\text{Q}\!\!\!\text{l}\,\,}
-\newcommand{\C}{\text{C}\!\!\!\text{l}\,\,}
-\newcommand{\K}{\text{I}\!\text{K}}
-\newcommand{\Z}{\mathbf{\mathbb{Z}}}
 %--------------------------------------- matheScript-Zeichen definieren
 \newcommand{\fs}{\mathscr{F}}
 \newcommand{\es}{\mathscr{E}}
@@ -638,7 +630,7 @@ leicht variiert, kann man einen asymmetrischen Verschlüsselungsalgorithmus
 erhalten (Krypto-Verfahren~\ref{elgamalproc}). Diese Beobachtung geht auf Taher ElGamal zurück.
 \begin{cryptoprocedure}
 Sei $p$ eine Primzahl, so dass der diskrete Logarithmus in $\Z_p$ schwierig zu berechnen ist.
-Sei $ \alpha \in \Z_p^\ast $ ein primitives Element. Sei $a \in \N$ eine natürliche Zahl und $ \beta = \alpha^{a}  \mod p. $\\
+Sei $ \alpha \in \Z_p^\ast $ ein primitives Element. Sei $a \in \mathbb{N}$ eine natürliche Zahl und $ \beta = \alpha^{a}  \mod p. $\\
 \textbf{Öffentlicher Schlüssel:}
 \[ p,\alpha,\beta. \]
 \textbf{Privater Schlüssel:}
@@ -666,7 +658,7 @@ Dabei schreiben wir statt $g\circ h$ oft nur $g h$.\\
 \index{Exponentialfunktion!Berechnung}
 \paragraph*{Berechnung der diskreten Exponentialfunktion}
 Sei $ G $ eine Gruppe mit der Operation $ \circ $ und $ g \in G. $ Die (diskrete) Exponentialfunktion  zur Basis $ g $ ist definiert durch
-\[e_g: k \longmapsto g^k, \quad \text{ für alle } k \in \N. \]
+\[e_g: k \longmapsto g^k, \quad \text{ für alle } k \in \mathbb{N}. \]
 Dabei definiert man
  \[ \ g^{k}:=\underbrace{g \circ \ldots \circ g}_{k \text{ mal}}.\]
 Die Exponentialfunktion ist leicht zu berechnen:
@@ -691,7 +683,7 @@ Man erhält also $ g^k $ aus $ g^{k'} $ indem man einmal quadriert und eventuell
 \begin{center}
 \fbox{\parbox{11cm}{
 Sei $ G $ eine endliche Gruppe mit der Operation $ \circ. $ Sei $ \alpha \in G $ und $ \beta \in H=\{ \alpha^{i}: i\geq 0\}. $\\
-Gesucht ist das eindeutige $ a \in \N $ mit $ 0 \leq a \leq |H| -1 $ und $ \beta = \alpha^{a}. $\\
+Gesucht ist das eindeutige $ a \in \mathbb{N} $ mit $ 0 \leq a \leq |H| -1 $ und $ \beta = \alpha^{a}. $\\
 Wir bezeichnen $ a $ mit $ \log_\alpha (\beta). $
 }}
 \end{center}
