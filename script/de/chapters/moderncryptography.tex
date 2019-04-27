@@ -57,11 +57,11 @@
 \footnotetext{%
     \index{ZT, Lernprogramm Zahlentheorie}%
     \index{Lernprogramm ZT}%
-    Mit dem Lernprogramm {\bf ZT} können Sie spielerisch einige der hier
+    Mit dem Lernprogramm \textbf{ZT} können Sie spielerisch einige der hier
     besprochenen Verfahren (RSA, Rabin, DH, ElGamal) nachvollziehen
     (siehe Lern-Kapitel 4.2 und 4.3, Seite 9-17/17).\\
     ZT können Sie in CT1\index{CT1} über das Menü
-    {\bf Einzelverfahren \textbackslash{} Zahlentheorie
+    \textbf{Einzelverfahren \textbackslash{} Zahlentheorie
     interaktiv \textbackslash{} Lernprogramm für Zahlentheorie} aufrufen.
     Siehe Anhang \ref{s:appendix-Learn-NT}.\\
     Entsprechende Funktionen finden Sie auch in den Programmen CT1,
@@ -100,7 +100,7 @@
 \label{OneWayFunktion1}
 %--------------------------------------------------------------------
 \index{Kryptographie!modern} \index{Einwegfunktion}
-Eine {\bf Einwegfunktion} ist eine effizient zu
+Eine \textbf{Einwegfunktion} ist eine effizient zu
 berechnende Funktion, deren Umkehrung jedoch nur mit
 extrem hohem Rechenaufwand -- jedoch praktisch unmöglich -- zu berechnen ist.\par
 
@@ -117,7 +117,7 @@ gelten:\\
 Für einen Gegner, der den öffentlichen Schlüssel $ e_T $ kennt, ist es praktisch unmöglich,
 den privaten Schlüssel  $ d_T $ zu bestimmen.\par
 
-Zur Konstruktion nützlicher Public-Key-Verfahren sucht man also eine Einwegfunktion, die in einer Richtung \glqq einfach\grqq {} zu berechnen, die in der anderen Richtung jedoch \glqq schwer\grqq {} (praktisch unmöglich) zu berechnen ist, solange eine bestimmte zusätzliche Information \index{Einwegfunktion!mit Falltür} (Falltür) nicht zur Verfügung steht. Mit der zusätzlichen Information kann die Umkehrung effizient gelöst werden. Solche Funktionen nennt man {\bf Einwegfunktionen mit Falltür} (trapdoor one-way function). Im obigen Fall ist die Einwegfunktion die Verschlüsselung durch Potenzieren mit dem öffentlichen Schl\"ussel $e_T$ (als Exponent). Der geheime Schlüssel $ d_T $ ist die Falltür-In"-for"-ma"-tion.\par
+Zur Konstruktion nützlicher Public-Key-Verfahren sucht man also eine Einwegfunktion, die in einer Richtung \glqq einfach\grqq {} zu berechnen, die in der anderen Richtung jedoch \glqq schwer\grqq {} (praktisch unmöglich) zu berechnen ist, solange eine bestimmte zusätzliche Information \index{Einwegfunktion!mit Falltür} (Falltür) nicht zur Verfügung steht. Mit der zusätzlichen Information kann die Umkehrung effizient gelöst werden. Solche Funktionen nennt man \textbf{Einwegfunktionen mit Falltür} (trapdoor one-way function). Im obigen Fall ist die Einwegfunktion die Verschlüsselung durch Potenzieren mit dem öffentlichen Schl\"ussel $e_T$ (als Exponent). Der geheime Schlüssel $ d_T $ ist die Falltür-In"-for"-ma"-tion.\par
 
 Dabei bezeichnet man ein Problem als \glqq einfach\grqq, wenn es in \index{Laufzeit!polynomial} \index{Polynom} polynomialer Zeit als Funktion der Länge der Eingabe lösbar ist, d.h. wenn es so gelöst werden kann, dass der Zeitaufwand sich als polynomiale Funktion in Abhängigkeit der Länge der Eingabe darstellen lässt.
 Wenn die Länge der Eingabe $ n $ Bits beträgt, so ist die Zeit der Berechnung der Funktion proportional zu $ n^{a}, $ wobei $ a $  eine Konstante ist. Man sagt, dass die \index{Komplexität} Komplexität solcher Probleme $ O(n^{a}) $ beträgt (Landau- oder Big-O-Notation).
@@ -181,12 +181,12 @@ Es wurden eine Reihe von Algorithmen für Public-Key-Verfahren vorgeschlagen. Ei
 \subsection{Knapsackproblem} \index{Knapsack}
 
 Gegeben $ n $ Gegenstände $ G_1, \dots, G_n $ mit den Gewichten $ g_1, \dots g_n $ und den Werten $w_1, \cdots, w_n. $ Man soll wertmäßig so viel wie möglich unter Beachtung einer oberen Gewichtsschranke $ g $ davontragen. Gesucht ist also eine Teilmenge von $ \{ G_1, \cdots,G_n\}, $ etwa $ \{G_{i_1}, \dots ,G_{i_k} \}, $ so dass  $ w_{i_1}+ \cdots +w_{i_k} $ maximal wird unter der Bedingung $  g_{i_1}+ \cdots +g_{i_k} \leq g. $ \par
-Derartige Fragen gehören zu den {\bf NP}-vollständige Problemen (nicht \index{Laufzeit!nicht polynomial NP} deterministisch polynomial\index{Polynom}), die aufwendig zu berechnen sind.\index{Knapsack}
+Derartige Fragen gehören zu den \textbf{NP}-vollständige Problemen (nicht \index{Laufzeit!nicht polynomial NP} deterministisch polynomial\index{Polynom}), die aufwendig zu berechnen sind.\index{Knapsack}
 
 Ein Spezialfall des Knapsackproblems ist:\\
 Gegeben sind die natürlichen Zahlen $ a_1, \dots, a_n $   und $ g .$
 Gesucht sind  $ x_1, \dots, x_n \in \{ 0,1\} $  mit $ g = \sum_{i=1}^{n}x_i a_i $  (wo also $ g_i = a_i = w_i $ gewählt ist).
-Dieses Problem heißt auch  {\bf 0-1-Knapsackprob"-lem} und wird mit $ K(a_1, \dots, a_n;g) $  bezeichnet.\\
+Dieses Problem heißt auch  \textbf{0-1-Knapsackprob"-lem} und wird mit $ K(a_1, \dots, a_n;g) $  bezeichnet.\\
 
 Zwei 0-1-Knapsackprobleme  $ K(a_1, \dots, a_n;g) $   und
 $ K(a'_1, \dots, a'_n;g') $  heißen kongruent, falls es zwei
@@ -220,15 +220,15 @@ Das Verfahren \ref{knapsackalgo} löst das Knapsackproblem mit superwachsender F
 \begin{cryptoprocedure}
 \begin{tabbing}
 \hspace*{0.5cm} \= \hspace*{0.5cm} \= \hspace*{0.5cm} \= \kill
-\>{\bf for} $ i=n $ {\bf to} 1 {\bf do}\\
-\>\> {\bf if} $ T\geq a_i $ {\bf then}\\
+\>\textbf{for} $ i=n $ \textbf{to} 1 \textbf{do}\\
+\>\> \textbf{if} $ T\geq a_i $ \textbf{then}\\
 \>\> \> $ T:=T-s_i $\\
 \>\>\> $ x_i:=1 $\\
-\>\> {\bf else}\\
+\>\> \textbf{else}\\
 \>\>\> $ x_i:=0 $\\
-\>{\bf if} $ T=0 $ {\bf then}\\
+\>\textbf{if} $ T=0 $ \textbf{then}\\
 \>\> $ X:=(x_1, \dots, x_n) $ ist die Lösung.\\
-\>{\bf else}\\
+\>\textbf{else}\\
 \>\> Es gibt keine Lösung.
 \end{tabbing}
 \caption{Lösen von Knapsackproblemen mit superwachsenden Gewichten}
@@ -302,7 +302,7 @@ Primzahlen sind Grundlage für eine große Anzahl von Algorithmen für Public-Ke
   Vergleiche auch die Kapitel \ref{rsabeweis}, ff.
 }$^,$\footnote{%
 Mit CT1\index{CT1} können Sie praktische Erfahrungen
-mit dem RSA-Verfahren sammeln: per Menü {\bf Einzelverfahren
+mit dem RSA-Verfahren sammeln: per Menü \textbf{Einzelverfahren
 \textbackslash{} RSA-Kryptosystem \textbackslash{} RSA-Demo}.\\
 RSA finden Sie ebenfalls in CT2\index{CT2} und JCT\index{JCT}.
 }
@@ -327,7 +327,7 @@ d.h. $ \ggt (e,\phi (N))=1. $ Mit dem Euklidschen Algorithmus berechnet
 man die natürliche Zahl  $ d < \phi (N), $ so dass gilt
 
 \[ ed \equiv 1 \mod \phi (N). \]
-Dabei ist $ \phi $ die {\bf Eulersche Phi-Funktion}.
+Dabei ist $ \phi $ die \textbf{Eulersche Phi-Funktion}.
 
 Der Ausgangstext wird in Blöcke zerlegt und verschlüsselt, wobei jeder Block einen binären Wert $ x^{(j)} \leq N $ hat. \vskip + 5 pt
 
@@ -502,12 +502,12 @@ Hintertür-Information ist die Primfaktorzerlegung von $ n = pq. $
 \footnotetext{%
     \index{ZT, Lernprogramm Zahlentheorie}%
     \index{Lernprogramm ZT}%
-    In dem Lernprogramm {\bf ZT} können Sie mit der Verteilung des diskreten
+    In dem Lernprogramm \textbf{ZT} können Sie mit der Verteilung des diskreten
     Logarithmus experimentieren und Shanks Babystep-Giantstep-Methode
     anwenden:
     Siehe Lern-Kapitel 6.1-6.3, Seiten 1-6/6.\\
     ZT können Sie in CT1\index{CT1} über das Menü
-    {\bf Einzelverfahren \textbackslash{} Zahlentheorie
+    \textbf{Einzelverfahren \textbackslash{} Zahlentheorie
     interaktiv \textbackslash{} Lernprogramm für Zahlentheorie} aufrufen.
     Siehe Anhang \ref{s:appendix-Learn-NT}.
 }
@@ -592,10 +592,10 @@ benötigte ca.~17 CPU-Jahre auf 3.2 GHz Xeon Maschinen.
 \footnotetext{%
   In CT1\index{CT1} ist dieses Austauschprotokoll visualisiert:
   Sie können die einzelnen Schritte mit konkreten Zahlen nachvollziehen
-  per Menü {\bf Einzelverfahren \textbackslash{} Protokolle \textbackslash{}
+  per Menü \textbf{Einzelverfahren \textbackslash{} Protokolle \textbackslash{}
   Diffie-Hellman-Demo}.\\
   In JCT\index{JCT} findet man es in der Standard-Perspektive
-  über den Menüeintrag {\bf Visualisierungen \textbackslash{}
+  über den Menüeintrag \textbf{Visualisierungen \textbackslash{}
   Diffie-Hellman-Schlüsselaustausch (EC)}.
 }
 \index{Diffie, Whitfield}
@@ -617,7 +617,7 @@ Damit gilt
 \label{diffiehellmanproc}
 \end{cryptoprocedure}
 
-Die Sicherheit des {\bf Diffie-Hellman-Protokolls} hängt eng mit der Berechnung des diskreten Logarithmus modulo $p$ zusammen. Es wird sogar vermutet, dass diese Probleme äquivalent sind.
+Die Sicherheit des \textbf{Diffie-Hellman-Protokolls} hängt eng mit der Berechnung des diskreten Logarithmus modulo $p$ zusammen. Es wird sogar vermutet, dass diese Probleme äquivalent sind.
 
 
 %--------------------------------------------------------------------
@@ -664,7 +664,7 @@ Dabei definiert man
 Die Exponentialfunktion ist leicht zu berechnen:
 
 \vskip +10 pt \noindent
-{\bf Lemma}\par
+\textbf{Lemma}\par
 \nopagebreak[4]
 {\em
 \noindent Die Potenz $ g^k $ kann in höchstens $ 2 \log_2 k $ Gruppenoperationen
@@ -679,7 +679,7 @@ Man erhält also $ g^k $ aus $ g^{k'} $ indem man einmal quadriert und eventuell
 \end{Beweis}
 
 \vskip +10 pt
-\noindent {\bf Problem \index{Logarithmusproblem!diskret} des diskreten Logarithmus}
+\noindent \textbf{Problem \index{Logarithmusproblem!diskret} des diskreten Logarithmus}
 \begin{center}
 \fbox{\parbox{11cm}{
 Sei $ G $ eine endliche Gruppe mit der Operation $ \circ. $ Sei $ \alpha \in G $ und $ \beta \in H=\{ \alpha^{i}: i\geq 0\}. $\\

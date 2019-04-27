@@ -79,7 +79,7 @@ Abhängigkeit von den Möglichkeiten des Angreifers (vgl. z.B.
 
 \begin{itemize}
 
-\item {\bf Berechenbare, bedingte oder praktische Sicherheit}\\
+\item \textbf{Berechenbare, bedingte oder praktische Sicherheit}\\
   Ein Verschlüsselungsverfahren ist {\em berechenbar} sicher, wenn es (obwohl
   es theoretisch möglich ist, es zu brechen) selbst mit den besten bekannten
   Verfahren nicht gebrochen werden kann. Theoretische Fortschritte (z.B.
@@ -93,7 +93,7 @@ Abhängigkeit von den Möglichkeiten des Angreifers (vgl. z.B.
   Daher basiert dieses Konzept auf Annahmen über die begrenzte Rechenkraft des
   Angreifers und auf dem aktuellen Stand der Wissenschaft.
 
-\item {\bf Informations-theoretische oder unbedingte Sicherheit}\\
+\item \textbf{Informations-theoretische oder unbedingte Sicherheit}\\
   Ein Verschlüsselungsverfahren wird als {\em unbedingt} sicher bezeichnet,
   wenn seine Sicherheit gewährleistet ist, völlig unabhängig davon, wieviele
   Ressourcen (Zeit, Speicher) der Angreifer hat -- also auch in dem Fall,
@@ -122,7 +122,7 @@ Abhängigkeit von den Möglichkeiten des Angreifers (vgl. z.B.
 
 \begin{itemize}
 
-\item {\bf Beweisbare Sicherheit}
+\item \textbf{Beweisbare Sicherheit}
 Dies bedeutet, dass das Brechen eines Kryptosystems mindestens so schwierig ist
 wie die Lösung eines bestimmten schwierigen Problems, z.B. die Berechnung des
 diskreten Logarithmus, die diskrete Quadratwurzel-Berechnung oder die
@@ -139,7 +139,7 @@ werden kann.
 Das Rabin-Kryptosystem war das erste Kryptosystem, für das sich beweisen ließ,
 dass es berechenbar äquivalent zu einem harten mathematischen Problem ist.
 
-\item {\bf Ad-hoc-Sicherheit}
+\item \textbf{Ad-hoc-Sicherheit}
 Ein kryptographisches System hat diese Sicherheit, wenn es sich nicht lohnt,
 es zu versuchen es zu brechen, weil der Aufwand dafür teurer ist als der Wert
 der Daten, die man durch das Brechen erhalten würde. Z.B. weil ein Angriff
@@ -195,7 +195,7 @@ bieten auch die Bücher von Bruce Schneier \cite{Schneier1996} und Klaus Schmeh
 Bevor Verschlüsselungstechnologien mit dem Aufkommen des Internets und der drahtlosen
 Kommunikation für jedermann zur Verfügung standen, waren sie schon seit Jahrhunderten
 im Gebrauch von Regierungen, Militärs und Diplomaten. Welche Seite diese Technologie
-besser beherrschte konnte mit Hilfen der Geheimdienste großen Einfluss auf die {\bf Politik}
+besser beherrschte konnte mit Hilfen der Geheimdienste großen Einfluss auf die \textbf{Politik}
 und den Kriegsverlauf nehmen. Auf die Historie geht dieses Buch nur insofern ein, als
 in Kapitel \ref{Chapter_PaperandPencil} auch die früher benutzten Verfahren vorgestellt
 werden. Einen Eindruck, welch entscheidende Bedeutung Kryptologie für die Mächtigen
@@ -236,13 +236,13 @@ Hier sollen kurz zwei Aspekte von Kryptoverfahren erwähnt werden, auf die oft n
 
 \begin{itemize}
 
-\item {\bf Zufallsbasiert}\\
+\item \textbf{Zufallsbasiert}\\
 \index{Zufall}
 Man kann Algorithmen aufteilen in deterministische\index{deterministisch} und heuristische\index{heuristisch} Verfahren. Meistens lernten Studenten nur deterministische Verfahren kennen, bei denen die Ausgabe eindeutig durch die Eingabe vorgegeben wird. Bei heuristischen Verfahren werden Entscheidungen aufgrund zufälliger Werte getroffen. Moderne Verfahren des maschinellen Lernens gehören ebenfalls hierzu.
 
 In Kryptoverfahren spielt Zufall eine große Rolle. Immer müssen die Schlüssel zufällig gewählt werden, so dass zumindest bei der Schlüsselgenerierung~\glqq Zufall\grqq~erzeugt werden muss. Zusätzlich sind manche Verfahren (vor allem aus der Kryptoanalyse) heuristisch.
 
-\item {\bf Konstanten-basiert}\\
+\item \textbf{Konstanten-basiert}\\
 Viele moderne Verfahren (insbesondere Hashverfahren und symmetrische Verschlüsse-lungsverfahren) benutzen numerische Konstanten. Diese sollten nachvollziehbar sein und keine Hintertüren ermöglichen. Zahlen, die das erfüllen, nennt man im Englischen~\glqq Nichts-im-Ärmel\grqq-Zahlen: Nothing-up-my-sleeve number\index{Zahlen!Nothing-up-my-sleeve}.%
 \footnote{\url{http://en.wikipedia.org/wiki/Nothing_up_my_sleeve_number}}
 
@@ -290,19 +290,19 @@ wo ein entsprechendes Text-Beispiel mit SageMath erstellt wird.
 \section[Symmetrische Verschlüsselung] % Was zwischen [...] steht, kommt ins Inhaltsverzeichnis!
         {Symmetrische Verschlüsselung\footnotemark}
   \footnotetext{% Dieses Prozent ist nötig, sonst startet die Fußnote mit einem Blank !
-    Mit CrypTool~1 ({\bf CT1})\index{CT1} können Sie über das
-    Menü {\bf Ver-/Entschlüsseln \textbackslash{} Symmetrisch (modern)} folgende
+    Mit CrypTool~1 (\textbf{CT1})\index{CT1} können Sie über das
+    Menü \textbf{Ver-/Entschlüsseln \textbackslash{} Symmetrisch (modern)} folgende
     modernen symmetrischen Verschlüsselungsverfahren ausführen:\\
     IDEA, RC2, RC4, DES (ECB), DES (CBC), Triple-DES (ECB), Triple-DES (CBC),
     MARS (AES-Kandidat), RC6 (AES-Kandidat), Serpent (AES-Kandidat),
     Twofish (AES-Kandidat),
     Rijndael (offizielles AES-Verfahren)\index{AES}.\\
-    Mit CrypTool~2 ({\bf CT2})\index{CT2} können Sie im Startcenter
-    über {\bf Vorlagen \textbackslash{} Kryptographie \textbackslash{}
+    Mit CrypTool~2 (\textbf{CT2})\index{CT2} können Sie im Startcenter
+    über \textbf{Vorlagen \textbackslash{} Kryptographie \textbackslash{}
     Modern \textbackslash{} Symmetrisch} folgende modernen symmetrischen
     Verschlüsselungsverfahren ausführen:\\
     AES, DES, PRESENT, RC2, RC4, SDES, TEA, Triple-DES, Twofish.\\
-    In JCrypTool ({\bf JCT})\index{JCT} stehen Ihnen die folgenden
+    In JCrypTool (\textbf{JCT})\index{JCT} stehen Ihnen die folgenden
     modernen symmetrischen Verschlüsselungsverfahren zur Verfügung:\\
     AES, Rijndael, Camellia, DES, Dragon, IDEA, LFSR, MARS, Misty1, RC2, RC5,
     RC6, SAFER+, SAFER++, Serpent, Shacal, Shacal2, Twofish.
@@ -352,7 +352,7 @@ müssen also $n(n - 1)/2$ Schlüssel ausgetauscht werden.\par \vskip + 3pt
 \subsection[AES (Advanced Encryption Standard)]{AES (Advanced Encryption Standard)\footnotemark}
 \footnotetext{%
    In CT1\index{CT1} finden Sie 3 Visualisierungen dieses Verfahrens
-   über das Menü {\bf Einzelverfahren \textbackslash{} Visualisierung von
+   über das Menü \textbf{Einzelverfahren \textbackslash{} Visualisierung von
    Algorithmen \textbackslash{} AES}.\\
    In CT2\index{CT2} können Sie im Startcenter
    mit dem Suchstring \glqq AES\grqq~eine Vorlage (Template) finden,
@@ -385,9 +385,9 @@ Einen Einstieg und weitere Verweise zum AES-Algorithmus und den AES-Kandidaten
 der letzten Runde finden Sie z.B. in der Online-Hilfe von
 CrypTool\index{CrypTool}%
 \footnote{%
-      Online-Hilfe von CT1\index{CT1}: Das Stichwort {\bf AES} im Index
-      führt auf die drei Hilfeseiten: {\bf AES-Kandidaten},
-      {\bf Der AES-Gewinner Rijndael} und {\bf Der AES-Algorithmus Rijndael}.\\
+      Online-Hilfe von CT1\index{CT1}: Das Stichwort \textbf{AES} im Index
+      führt auf die drei Hilfeseiten: \textbf{AES-Kandidaten},
+      \textbf{Der AES-Gewinner Rijndael} und \textbf{Der AES-Algorithmus Rijndael}.\\
       Eine ausführliche Beschreibung von AES mit C-Code findet sich
       in \cite{Haan2008}.
   }
@@ -429,7 +429,7 @@ uns nur der 1. Block (wenn mehr vorhanden ist, ist das Padding -- hier Null-Padd
 Zur Veranschaulichung machen wir das einmal mit CT2 und einmal mit OpenSSL.\\
 
 \noindent Abbildung \ref{AES_Encrypting-one-block-with-CT2} zeigt die Verschlüsselung
-eines Blocks in {\bf CT2}\index{CT2}.
+eines Blocks in \textbf{CT2}\index{CT2}.
 
 \noindent Der Klartext \glqq AESTEST1USINGCT2\grqq~wird nach Hex
 (41 45 53 54 45 53 54 31 55 53 49 4E 47 43 54 32)
@@ -446,7 +446,7 @@ B1 13 D6 47 DB 75 C6 D8 47 FD 8B 92 9A 29 DE 08
 \end{figure}
 
 \vspace{15pt}
-\noindent Dasselbe Ergebnis kann man mit {\bf OpenSSL}\index{OpenSSL}%
+\noindent Dasselbe Ergebnis kann man mit \textbf{OpenSSL}\index{OpenSSL}%
 \footnote{%
       OpenSSL\index{OpenSSL} ist eine sehr verbreitete freie Open-Source Kryptobibliothek,
       die von vielen Anwendungen benutzt wird, bspw. um das TLS-Protokoll zu implementieren.
@@ -645,9 +645,9 @@ Ein sehr altes und gut studiertes Problem in der Informatik ist das sogenannte S
 Beispiel: Die Formel \glqq A UND B\grqq~wird zu 1 ausgewertet, wenn A=B=1 gilt. Für die Formel \glqq A UND NICHT(A)\grqq~gibt es keine Belegung für A, so dass sie zu 1 ausgewertet wird.
 
 Für größere Formeln ist es nicht so einfach herauszufinden, ob eine Formel zu 1 ausgewertet werden kann (dieses Problem gehört zu den NP-vollständigen Problemen). Daher wurden spezielle Tools entwickelt, um dieses Problem für generelle Boolesche Formeln zu lösen, sogenannte SAT-Solver\footnote{
-    Mit {\bf CT2}\index{CT2} können Sie im Startcenter
-    über {\bf Vorlagen \textbackslash{} Mathematisch \textbackslash{}
-    SAT-Solver (Texteingabe)}  und  {\bf SAT-Solver (Dateieingabe)} einen
+    Mit \textbf{CT2}\index{CT2} können Sie im Startcenter
+    über \textbf{Vorlagen \textbackslash{} Mathematisch \textbackslash{}
+    SAT-Solver (Texteingabe)}  und  \textbf{SAT-Solver (Dateieingabe)} einen
     SAT-Solver aufrufen.
     }. Wie sich herausgestellt hat, können SAT-Solver auch eingesetzt werden, um Krypto-Verfahren
 anzugreifen.
@@ -685,13 +685,13 @@ der Geheimtext mit allen möglichen Schlüsseln des Schlüsselraums
 entschlüsselt%
 \footnote{%
   Mit CT1\index{CT1} können Sie über das Menü
-  {\bf Analyse \textbackslash{} Symmetrische Verschlüsselung (modern)}
+  \textbf{Analyse \textbackslash{} Symmetrische Verschlüsselung (modern)}
   ebenfalls Brute-Force-Analysen von modernen symmetrischen Verfahren
   durchführen (unter der schwächsten aller möglichen Annahmen: Der
   Angreifer kennt nur den Geheimtext, er führt also einen
   Ciphertext-only-Angriff durch).\\
   Mit CT2\index{CT2} können Sie bei den Vorlagen unter
-  {\bf Kryptoanalyse \textbackslash{} Modern} ebenfalls Brute-Force-Analysen
+  \textbf{Kryptoanalyse \textbackslash{} Modern} ebenfalls Brute-Force-Analysen
   durchführen. Besonders mächtig ist die KeySearcher-Komponente, die
   die Ausführung auch auf mehrere Rechner verteilen kann.
 }
@@ -721,7 +721,7 @@ sogenannte Cipher-Challenges\index{Challenge}.\footnote{%
 
   Ein weites Spektrum einfacher und komplexer, symmetrischer und asymmetrischer
   Rätsel-Aufgaben bietet der internationale Krypto-Wettbewerb
-  {\bf MysteryTwister C3}: %% \glqq MysteryTwister C3\grqq:
+  \textbf{MysteryTwister C3}: %% \glqq MysteryTwister C3\grqq:
   \url{http://www.mysterytwisterc3.org}.
   \index{MTC3}\index{Krypto-Wettbewerb}
   }
@@ -785,18 +785,18 @@ zu halten.
 {Asymmetrische Verschlüsselung\footnotemark}
   \footnotetext{%
    Das RSA-Kryptosystem kann mit CT1\index{CT1} über das Menü
-   {\bf Einzelverfahren \textbackslash{} RSA-Kryptosystem \textbackslash{}
+   \textbf{Einzelverfahren \textbackslash{} RSA-Kryptosystem \textbackslash{}
    RSA-Demo} in vielen Variationen nachvollzogen werden.\\
    Mit CT1\index{CT1} können Sie über das Menü
-   {\bf Ver-/Entschlüsseln \textbackslash{} Asymmetrisch} mit RSA
+   \textbf{Ver-/Entschlüsseln \textbackslash{} Asymmetrisch} mit RSA
    ver- und entschlüsseln. In beiden Fällen müssen Sie ein
    RSA-Schlüsselpaar auswählen. Nur bei der Entschlüsselung wird der
    geheime RSA-Schlüssel benötigt -- deshalb wird nur hier die PIN abgefragt.\\
    Mit CT2\index{CT2} können Sie bei den Vorlagen unter
-   {\bf Kryptographie \textbackslash{} Modern} ebenfalls asymmetrische
+   \textbf{Kryptographie \textbackslash{} Modern} ebenfalls asymmetrische
    Verfahren durchführen.\\
    JCT\index{JCT} bietet asymmetrische Verfahren wie RSA sowohl im
-   Menü {\bf Visualisierungen} der Standard-Perspektive als auch in der
+   Menü \textbf{Visualisierungen} der Standard-Perspektive als auch in der
    Algorithmen-Perspektive.%Funktionalen
   }
 \label{cm_Section_Asymmetric-encryption}
@@ -917,13 +917,13 @@ Signature Algorithm).
 \section[Hybridverfahren]{Hybridverfahren\footnotemark}
 \footnotetext{%
    In CT1\index{CT1} finden Sie dieses Verfahren über das Menü
-   {\bf Ver-/Entschlüsseln \textbackslash{} Hybrid}:
+   \textbf{Ver-/Entschlüsseln \textbackslash{} Hybrid}:
    Dabei können Sie die einzelnen Schritte und ihre Abhängigkeiten mit konkreten
    Zahlen nachvollziehen. Die Variante mit RSA als asymmetrischem Verfahren
    ist graphisch visualisiert; die Variante mit ECC nutzt die Standard-Dialoge.
    In beiden Fällen wird AES als symmetrisches Verfahren eingesetzt.\index{AES}\\
    JCT\index{JCT} bietet Hybrid-Verfahren (z.B. ECIES) in der
-   Algorithmen-Perspektive an unter {\bf Algorithms \textbackslash{} Hybrid Ciphers}.
+   Algorithmen-Perspektive an unter \textbf{Algorithms \textbackslash{} Hybrid Ciphers}.
 }
 \label{CM_Hybrid-procedures}
 \index{Hybridverfahren}
@@ -937,13 +937,13 @@ verschlüsselt: Der Schlüssel ist ein vom Absender zufällig\footnote{%
    Die Erzeugung zufälliger Zahlen\index{Zufall} ist ein wichtiger Bestandteil
    kryptographisch sicherer Verfahren.\\
    - Mit CT1\index{CT1} können Sie über das Menü
-   {\bf Einzelverfahren \textbackslash{} Zufallsdaten erzeugen}
+   \textbf{Einzelverfahren \textbackslash{} Zufallsdaten erzeugen}
    verschiedene Zufallszahlengeneratoren\index{Zufallsgenerator} (PRNGs) ausprobieren.
-   Über das Menü {\bf Analyse \textbackslash{} Zufallsanalyse} können Sie
+   Über das Menü \textbf{Analyse \textbackslash{} Zufallsanalyse} können Sie
    verschiedene Testverfahren für Zufallsdaten auf binäre Dokumente
    anwenden.\\
    % CT1 konzentriert sich auf kryptographisch starke
-   % {\bf Pseudo}zufallszahlengeneratoren. \glqq Echte\grqq~
+   % \textbf{Pseudo}zufallszahlengeneratoren. \glqq Echte\grqq~
    % Zufallsquellen werden nur über den Aufruf des Secude-Generators einbezogen.\\
    %
    - In CT2\index{CT2} können Sie im Startcenter
@@ -953,8 +953,8 @@ verschlüsselt: Der Schlüssel ist ein vom Absender zufällig\footnote{%
    Linear Congruential Generator (LCG)\index{LCG}. Sie werden dann
    bspw. für Schlüsselgenerierung oder Dezimalisierung genutzt.\\
    %
-   - JCT\index{JCT} bietet {\bf Pseudo}zufallszahlengeneratoren sowohl
-   im Menü {\bf Algorithms \textbackslash{} Random Number Generator} der
+   - JCT\index{JCT} bietet \textbf{Pseudo}zufallszahlengeneratoren sowohl
+   im Menü \textbf{Algorithms \textbackslash{} Random Number Generator} der
    Standard-Perspektive als auch in der Algorithmen-Perspektive an.
 }\index{Zufall}
 generierter geheimer Sitzungsschlüssel (session key)\index{Session Key},

@@ -109,13 +109,11 @@ aufnehmen.
 
 Das Thema dieses Kapitels ist also mit anderen Worten
 
-%\begin{quote}
-   {\bf Symmetrische Verschlüsselung von mit Bits dargestellten Informationen}.
-%\end{quote}
+   \textbf{Symmetrische Verschlüsselung von mit Bits dargestellten Informationen}.
 
 \noindent Die mathematischen Grundlagen und Methoden gehören zu den Gebieten
 
-   {\bf Boolesche Algebra\index{Boolesche Algebra}\index{Algebra!Boolesche}
+   \textbf{Boolesche Algebra\index{Boolesche Algebra}\index{Algebra!Boolesche}
    und endliche Körper\index{endlicher Körper}\index{Körper!endlich}}.
 
 
@@ -154,7 +152,7 @@ und algebraischen Operationen auf.
 \begin{table}[h]
 \begin{center}
 \begin{tabular}{|cc|ccc||cc|cc|} \hline
-   \multicolumn{5}{|c||}{\bf logisch} & \multicolumn{4}{c|}{\bf algebraisch} \\ \hline
+   \multicolumn{5}{|c||}{\textbf{logisch}} & \multicolumn{4}{c|}{\textbf{algebraisch}} \\ \hline
    \multicolumn{2}{|c|}{Bits} & \multicolumn{3}{|c||}{Verknüpfung} &
         \multicolumn{2}{|c|}{Bits} & \multicolumn{2}{|c|}{Verknüpfung} \\ \hline
    $x$ & $y$ & OR & AND & XOR & $x$ & $y$ & + & $\cdot$ \\ \hline
@@ -173,10 +171,10 @@ und algebraischen Operationen auf.
 \begin{table}[h]
 \begin{center}
 \begin{tabular}{|rcl|} \hline
-   \multicolumn{3}{|c|}{\bf algebraisch nach logisch}          \\ \hline
+   \multicolumn{3}{|c|}{\textbf{algebraisch nach logisch}}          \\ \hline
    $x + y$      & = & $(x \vee y) \wedge (\neg x \vee \neg y)$ \\
    $x \cdot y$  & = & $x \wedge y$                             \\ \hline \hline
-   \multicolumn{3}{|c|}{\bf logisch nach algebraisch}          \\ \hline
+   \multicolumn{3}{|c|}{\textbf{logisch nach algebraisch}}          \\ \hline
    $x \vee y$   & = & $x + y + x\cdot y$                       \\
    $x \wedge y$ & = & $x \cdot y$                              \\
    $\neg x$     & = & $1 + x$                                  \\ \hline
@@ -236,8 +234,8 @@ hingewiesen:
 
 \subsection{Beschreibung Boolescher Funktionen}\label{ss-bool-descr}
 
-Definieren wir zunächst ganz naiv: Eine {\bf Boolesche
-Funktion}\index{Boolesche Funktion}\index{Funktion!Boolesche} ist eine
+Definieren wir zunächst ganz naiv: Eine {\textbf{Boolesche
+Funktion}}\index{Boolesche Funktion}\index{Funktion!Boolesche} ist eine
 Vorschrift (oder eine Rechenregel oder ein Algorithmus), die aus einer
 bestimmten Anzahl von Bits ein neues Bit erzeugt. Bevor wir diese
 Definition mathematisch präzise fassen (siehe Definition~\ref{def-bool-fkt}),
@@ -246,8 +244,6 @@ soll sie zunächst etwas anschaulicher gemacht werden.
 Für eine vertiefte Darstellung sei auf \cite{CuSt2009} oder \cite{Pomm2008, Pomm2014}
 sowie die beiden Artikel von Claude Carlet\footnote{%
   siehe auch dessen Publikationsverzeichnis unter
-  %BERM \url statt \href
-  % \href{http://www.math.univ-paris13.fr/~carlet/pubs.html}{\tt http://www.math.univ-paris13.fr/$\sim$carlet/pubs.html}
   \url{http://www.math.univ-paris13.fr/~carlet/pubs.html}
 } in \cite{CrHa2010}\footnote{%
   online zu finden unter
@@ -284,19 +280,19 @@ Veranschaulichen kann man sich eine Boolesche Funktion durch eine
    \put(105,35){\line(0,1){10}}
    \put(115,35){\line(0,1){10}}
    \put(70,20){\line(0,-1){10}}
-   \put(48,50){\sf Input-Bits}
-   \put(48,0){\sf Output-Bit}
+   \put(48,50)\textsf{Input-Bits}
+   \put(48,0)\textsf{Output-Bit}
 \end{picture}
 \end{center}
 
 \noindent Was innerhalb dieser "`Black Box"' passiert, kann man auf verschiedene
 Arten beschreiben:
 \begin{itemize}
-   \item {\bf mathematisch} durch eine Formel,
-   \item {\bf informatisch} durch einen Algorithmus,
-   \item {\bf technisch} durch ein Schaltnetz\index{Schaltnetz}
+   \item \textbf{mathematisch} durch eine Formel,
+   \item \textbf{informatisch} durch einen Algorithmus,
+   \item \textbf{technisch} durch ein Schaltnetz\index{Schaltnetz}
       (oder Schaltdiagramm),
-   \item {\bf pragmatisch} durch eine Wahrheitstafel\index{Wahrheitstafel}
+   \item \textbf{pragmatisch} durch eine Wahrheitstafel\index{Wahrheitstafel}
       (das ist die Wertetabelle).
 \end{itemize}
 Die Beispielfunktion $f_0$ ist mathematisch definiert in der
@@ -400,7 +396,7 @@ Vektoren\index{Vektor}, Listen\index{Liste}, ($n$-) Tupel\index{Tupel},
 64 Bytes, je nach Prozessorarchitektur) \ldots\
 In diesem Kapitel wird überwiegend
 die in der Kryptographie gängige Bezeichnung "`Bitblöcke\index{Bitblock}"' verwendet.
-Ein {\bf Bitblock} der Länge $n$ ist also eine Liste $(x_1, \ldots, x_n)$ von
+Ein \textbf{Bitblock} der Länge $n$ ist also eine Liste $(x_1, \ldots, x_n)$ von
 Bits. Hierbei kommt es auf die Reihenfolge an. Es gibt acht
 verschiedene Bitblöcke der Länge $3$. Dies sind sie:
 \[
@@ -432,7 +428,7 @@ $x$ und $y \in \F_2^n$ addieren und mit Skalaren $a \in \F_2$ multiplizieren:
 Damit können wir nun die mathematisch exakte Definition formulieren:
 
 \begin{definition}\label{def-bool-fkt}\index{Boolesche Funktion}\index{Funktion!Boolesche}
-  Eine {\bf Boolesche Funktion von $n$ Variablen} ist eine Abbildung
+  Eine \textbf{Boolesche Funktion von $n$ Variablen} ist eine Abbildung
 \[
      f\!\!: \F_2^n \longrightarrow \F_2.
 \]
@@ -479,12 +475,12 @@ außer der Wahrheitstafel zwei Ansätze gebräuchlich:
       (die Operation OR\index{OR}, auch $\vee$ geschrieben), Konjunktionen\index{Konjunktion}
       (die Operation AND\index{AND}, auch $\wedge$ geschrieben) und Negationen
       (die Operation NOT\index{NOT}, auch $\neg$ geschrieben) ausgedrückt.
-      Zusammensetzungen dieser Operationen heißen {\bf logische
+      Zusammensetzungen dieser Operationen heißen \textbf{logische
       Ausdrücke}\index{logischer Ausdruck}\index{Ausdruck!logisch}.
    \item In der Algebra werden Boolesche Funktionen durch die
       Addition $+$ und die Multiplikation $\cdot$ des Körpers $\F_2$
       ausgedrückt. Zusammensetzungen dieser Operationen heißen
-      {\bf (binäre) polynomiale
+      \textbf{(binäre) polynomiale
       Ausdrücke\index{polynomialer Ausdruck}\index{Ausdruck!polynomial}}\footnote{%
         Nicht polynomial wären Ausdrücke, in denen andere Verknüpfungen
         vorkommen. Bei Zahlen könnte man hier auch daran denken,
@@ -565,7 +561,7 @@ Negierte Input-Bits kommen in diesem Beispiel nicht vor. Solche sieht
 man aber in Tabelle~\ref{tab-bool-2} recht häufig.
 
 Die Gestalt einer Booleschen Funktion nach Satz~\ref{thm-bool-disj}
-heißt {\bf konjunktive Normalform\index{konjunktive Normalform}\index{Normalform!konjunktiv}
+heißt \textbf{konjunktive Normalform\index{konjunktive Normalform}\index{Normalform!konjunktiv}
 (CNF\index{CNF})}. Sie ist nicht eindeutig\footnote{%
   Z.\,B. könnte man der Normalform von $f_0$ noch die Terme
   $\wedge\: (x_1 \vee x_2) \wedge (x_1 \vee x_3)$ hinzufügen.
@@ -579,7 +575,7 @@ heißt {\bf konjunktive Normalform\index{konjunktive Normalform}\index{Normalfor
 Ohne weitere Erklärung sei vermerkt, dass man sie weiter zu einer "`kanonischen
 CNF"' vereinfachen kann und damit eine gewisse Eindeutigkeit erhält.
 Auch eine analoge disjunktive Normalform\index{disjunktive Normalform}\index{Normalform!disjunktiv}
-({\bf DNF\index{DNF}}) ist möglich ("`Disjunktion von Konjunktionen"').
+(\textbf{DNF\index{DNF}}) ist möglich ("`Disjunktion von Konjunktionen"').
 
 \subsection{Polynomiale Ausdrücke und algebraische Normalform}\label{ss-bool-anf}
 
@@ -596,7 +592,7 @@ der ersten Potenz zu berücksichtigen brauchen. Den Beispielausdruck können
 wir also auch als $x_1 x_2 + x_2 x_3 + x_3$ schreiben.
 Ein anderes Beispiel: $x_1^3 x_2 + x_1 x_2^2 = x_1 x_2 + x_1 x_2 = 0$.
 
-Allgemein hat ein {\bf monomialer Ausdruck\index{monomialer Ausdruck}\index{Ausdruck!monomial}}
+Allgemein hat ein \textbf{monomialer Ausdruck\index{monomialer Ausdruck}\index{Ausdruck!monomial}}
 (oder einfach nur "`Monom\index{Monom}"') die Gestalt
 \[
     x^I := \prod_{i \in I} x_i
@@ -718,7 +714,7 @@ natürlich nicht hinzuschreiben braucht.
 
 Die durch Satz~\ref{thm-bool-anf1} garantierte Darstellung einer
 Booleschen Funktion als polynomialer Ausdruck\index{polynomialer Ausdruck}\index{Ausdruck!polynomial}
-heißt {\bf algebraische\index{algebraische Normalform}\index{Normalform!algebraisch}
+heißt \textbf{algebraische\index{algebraische Normalform}\index{Normalform!algebraisch}
 Normalform (ANF\index{ANF})}\footnote{%
    Die Umwandlung zwischen ANF und Wahrheitstafel
    wird von der (internen) Funktion {\tt \_\_convert()} der Klasse
@@ -748,7 +744,7 @@ polynomialer Ausdruck eindeutig sein. Damit ist gezeigt:
 \[
   \deg f = \max\{\#I \:|\: a_I \neq 0\},
 \]
-   wird als {\bf (algebraischer) Grad\index{Grad!algebraisch}} von $f$
+   wird als \textbf{(algebraischer) Grad\index{Grad!algebraisch}} von $f$
    bezeichnet. Er ist stets $\leq n$.
 \end{definition}
 
@@ -879,7 +875,7 @@ des hier unbewiesenen Satzes~\ref{thm-bool-disj}) gezeigt:
 
 In der Kryptographie braucht man meistens Prozesse, die nicht nur ein
 Bit, sondern gleich mehrere produzieren. Dies wird durch das Konzept
-einer {\bf Booleschen Abbildung\index{Boolesche Abbildung}\index{Abbildung!Boolesche}}
+einer \textbf{Booleschen Abbildung\index{Boolesche Abbildung}\index{Abbildung!Boolesche}}
 abstrakt beschrieben, also als Abbildung\footnote{%
    Die begriffliche Unterscheidung zwischen "`Funktion"' und "`Abbildung"'
    ist etwas willkürlich, wird aber in der Mathematik oft so wie hier
@@ -911,8 +907,8 @@ mit natürlichen Zahlen $n$ und $q$, illustriert durch die folgende Grafik
    \put(90,20){\line(0,-1){10}}
    \put(100,20){\line(0,-1){10}}
    \put(110,20){\line(0,-1){10}}
-   \put(40,50){$n$ {\sf Input-Bits}}
-   \put(40,0){$q$ {\sf Output-Bits}}
+   \put(40,50){$n$ \textsf{Input-Bits}}
+   \put(40,0){$q$ \textsf{Output-Bits}}
 \end{picture}
 \end{center}
 
@@ -929,7 +925,7 @@ $q$-Tupel (oder System) von Booleschen Funktionen
 beschrieben werden kann.
 
 \begin{definition}
-   Der {\bf (algebraische) Grad\index{algebraischer Grad}\index{Grad!algebraisch}}
+   Der \textbf{(algebraische) Grad\index{algebraischer Grad}\index{Grad!algebraisch}}
    einer Booleschen Abbildung
    $f\!\!: \F_2^n \longrightarrow \F_2^q$ ist das Maximum der algebraischen
    Grade ihrer Komponenten,
@@ -948,7 +944,7 @@ beschrieben werden kann.
 \end{satz}
 Diese Darstellung einer Booleschen\index{Boolesche Abbildung}\index{Abbildung!Boolesche}
 Abbildung wird natürlich ebenfalls
-{\bf algebraische Normalform\index{algebraische Normalform}\index{Normalform!algebraisch}}
+\textbf{algebraische Normalform\index{algebraische Normalform}\index{Normalform!algebraisch}}
 genannt.
 Sie entsteht aus der Zusammenfassung der algebraischen Normalformen
 der Komponentenfunktionen $f_1, \ldots, f_q$.
@@ -1013,7 +1009,7 @@ von $g$ sind dabei als Bitketten der Länge $2$ geschrieben\footnote{%
 \subsection{Linearformen und lineare Abbildungen}\label{ss-bool-lin}
 
 Eine Boolesche Funktion $f\!\!: \F_2^n \longrightarrow \F_2$ heißt
-{\bf Linearform\index{Linearform}}, wenn sie vom Grad $1$ und ihr absolutes Glied $0$ ist.
+\textbf{Linearform\index{Linearform}}, wenn sie vom Grad $1$ und ihr absolutes Glied $0$ ist.
 Insbesondere kommen in ihrer algebraischen Normalform nur lineare
 Terme vor, d.\,h., sie hat die Gestalt
 \[
@@ -1098,7 +1094,7 @@ Linearformen\index{Linearform} sind. Genau wie im Fall $q = 1$ zeigt man:
 \end{satz}
 (Hier sind $x_i$ und $s_i$ wieder in umgekehrter Reihenfolge geschrieben.)
 
-{\bf Affine\index{affin} (Boolesche) Abbildungen} sind solche, deren algebraischer Grad
+\textbf{Affine\index{affin} (Boolesche) Abbildungen} sind solche, deren algebraischer Grad
 $\leq 1$ ist. Das sind genau die, die sich durch Addition einer linearen
 Abbildung und einer Konstanten bilden lassen.
 
@@ -1860,7 +1856,7 @@ stehen zur Verfügung
       die den Ausdruck "`wahr"' machen. Anders ausgedrückt betrachtet
       man eine Boolesche Funktion\index{Boolesche Funktion}\index{Funktion!Boolesche}
       $f$ und fragt, ob sie den Wert $1$ annimmt.
-      Ein {\bf SAT-Solver} ist ein Algorithmus, der einen solchen logischen
+      Ein \textbf{SAT-Solver} ist ein Algorithmus, der einen solchen logischen
       Ausdruck\index{logischer Ausdruck}\index{Ausdruck!logisch} in
       CNF\index{CNF} nimmt und die Erfüllbarkeit entscheidet, indem er
       eine Lösung für $x$ findet oder eben nicht. Das naive
@@ -1883,7 +1879,7 @@ Beide Methoden funktionieren gut, wenn die Zahl der Unbekannten klein
 ist. Sie stoßen mit wachsender Zahl von Unbekannten aber bald an
 Komplexitätsgrenzen\footnote{%
   In der Tat ist SAT\index{SAT} das historisch erste Problem, für das die
-  {\bf NP}-Vollständigkeit\index{NP-vollständig} gezeigt wurde.
+  \textbf{NP}-Vollständigkeit\index{NP-vollständig} gezeigt wurde.
 }.
 Natürlich lassen sich die Lösungen immer durch Aufstellen der kompletten
 Wertetabelle finden, aber das ist sehr ineffizient (exponenziell
@@ -1897,19 +1893,19 @@ $\leq 1$ berücksichtigen muss, hilft da nicht weiter.
 
 Die theoretische Analyse des Aufwands für das Finden einer Lösung führt
 auf einen der zentralen Begriffe der Komplexitätstheorie, die
-{\bf NP}-Vollständigkeit\index{NP-vollständig}.
+\textbf{NP}-Vollständigkeit\index{NP-vollständig}.
 
 \begin{satz}[Garey/Johnson]
   Das Problem, eine Lösung eines Systems von Polynomgleichungen über $\F_2$
-  zu finden, ist {\bf NP}-vollständig\index{NP-vollständig}.
+  zu finden, ist \textbf{NP}-vollständig\index{NP-vollständig}.
 \end{satz}
 Für den Beweis siehe das Buch von Garey/Johnson~\cite{GaJo1979}.\footnote{%
    Ein neuerer Artikel über die Schwierigkeit, Systeme von Polynom-Gleichungen zu lösen
    ist \cite{CGHM2003}.
 }
 
-Der Begriff "`{\bf NP}-vollständig\index{NP-vollständig}"' wird hier nicht erklärt.
-Er bedeutet nach der bisher unbewiesenen "`{\bf P} $\neq$ {\bf NP}"'-Vermutung,
+Der Begriff "`\textbf{NP}-vollständig\index{NP-vollständig}"' wird hier nicht erklärt.
+Er bedeutet nach der bisher unbewiesenen "`\textbf{P} $\neq$ \textbf{NP}"'-Vermutung,
 dass ein Problem algorithmisch nicht effizient lösbar ist, also dass kein
 Lösungsalgorithmus bekannt ist, dessen Zeitbedarf höchstens polynomial
 mit der Anzahl $n$ der Input-Variablen wächst.
@@ -1981,14 +1977,14 @@ aus. Die Schritte dahin sind:
       Dimension $q$ (= Blocklänge des Definitionsbereichs),
       etwa $4$, $6$ oder $8$, die bezüglich aller bekannten und
       messbaren Sicherheitseigenschaften hinreichend gut sind. Diese werden
-      {\bf S-Boxen}\index{S-Box} genannt und bilden die elementaren Bausteine des
+      \textbf{S-Boxen}\index{S-Box} genannt und bilden die elementaren Bausteine des
       Verschlüsselungsverfahrens. ("`S"' steht für Substitution\index{Substitution}.)
    \item Nach "`Einmischen"' einiger Schlüsselbits wird durch
       parallele Anwendung der S-Boxen (oft wird auch dieselbe
       S-Box parallel angewendet) eine Abbildung auf der gewünschten
       Input-Breite erzeugt.
    \item Dann wird der gesamte Bitblock auf voller Breite permutiert.
-   \item Diese Schritte zusammen bilden eine {\bf "`Runde\index{Runde}"'} des gesamten
+   \item Diese Schritte zusammen bilden eine \textbf{"`Runde\index{Runde}"'} des gesamten
       Schemas. Die Schwächen dieser Runde, die hauptsächlich aus der zu
       niedrigen Dimension der S-Boxen resultieren, werden analysiert.
       Durch Iteration über mehrere gleichartige Runden -- mit wechselnder
@@ -2003,7 +1999,7 @@ In Abbildung~\ref{fig-bool-round} ist das Schema für eine Runde skizziert.
 \begin{center}
 \begin{picture}(350,165)
 % Input
-   \put(100,155){\sf Runden-Input ($n$ Bits)}
+   \put(100,155)\textsf{Runden-Input ($n$ Bits)}
    \put(30,150){\vector(0,-1){20}}
    \put(40,150){\vector(0,-1){20}}
    \put(50,150){\vector(0,-1){20}}
@@ -2014,12 +2010,12 @@ In Abbildung~\ref{fig-bool-round} ist das Schema für eine Runde skizziert.
    \put(270,150){\vector(0,-1){20}}
 
 % Add key
-   \put(298,134){\sf Schlüssel}
+   \put(298,134)\textsf{Schlüssel}
    \put(317,117){$k$}
-   \put(290,100){\sf ($q$ von $l$ Bits)}
+   \put(290,100)\textsf{($q$ von $l$ Bits)}
    \put(320,120){\circle{20}}
    \put(310,120){\vector(-1,0){30}}
-   \put(20,110){\framebox(260,20){\sf [$\oplus$ oder andere Verknüpfung]}}
+   \put(20,110){\framebox(260,20)\textsf{[$\oplus$ oder andere Verknüpfung]}}
    \put(25,110){\vector(0,-1){20}}
    \put(30,97){\ldots}
    \put(45,110){\vector(0,-1){20}}
@@ -2055,7 +2051,7 @@ In Abbildung~\ref{fig-bool-round} ist das Schema für eine Runde skizziert.
    \put(270,30){\vector(0,-1){20}}
 
 % Output
-   \put(100,0){\sf Runden-Output ($n$ Bits)}
+   \put(100,0)\textsf{Runden-Output ($n$ Bits)}
 \end{picture}
 \end{center}
 \caption{Eine Runde\index{Runde} eines Bitblock-Verfahrens
@@ -2088,8 +2084,8 @@ möglichst unvorhersagbar.
 \end{quote}
 Shannon\index{Shannon, Claude} schlug daher als Konstruktionsprinzip
 für starke Blockchiffren vor,
-diese aus einer wechselnden Folge von {\bf S}ubstitutionen und
-{\bf P}ermutationen zu bilden -- sogenannte {\bf SP-Netze}\index{SP-Netz}.
+diese aus einer wechselnden Folge von \textbf{S}ubstitutionen und
+\textbf{P}ermutationen zu bilden -- sogenannte \textbf{SP-Netze}\index{SP-Netz}.
 Das sieht so aus:
 \begin{align*}
     \F_2^n \stackrel{S_1(\bullet,k)}{\longrightarrow} \F_2^n &
@@ -2103,7 +2099,7 @@ abhängig von einem Schlüssel $k \in \F_2^l$. Dabei ist
 \begin{align*}
     S_i & = \text{$i$-te Substitution,} \\
     P_i & = \text{$i$-te Permutation,} \\
-    P_i \circ S_i & = \text{$i$-te {\bf Runde},}
+    P_i \circ S_i & = \text{$i$-te \textbf{Runde},}
 \end{align*}
 wobei insgesamt $r$ Runden nacheinander ausgeführt werden.
 
@@ -2112,7 +2108,7 @@ Abbildungen\index{lineare Abbildung}\index{Abbildung!linear}
 $P\!: \F_2^n \longrightarrow \F_2^n$. In neueren Bitblock-Chiffren
 wie AES\index{AES} werden sie oft durch allgemeinere lineare
 Abbildungen ersetzt, die eine noch bessere Diffusion bewirken.
-Der pasende Begriff {\bf "`LP-Netz"'}\index{LP-Netz} hat sich
+Der pasende Begriff \textbf{"`LP-Netz"'}\index{LP-Netz} hat sich
 bisher aber nicht eingebürgert.
 
 \subsection{Betriebsarten}\label{ss-bool-modi}\index{Betriebsart}\index{Modus}
@@ -2298,21 +2294,21 @@ Runden-Abbildungen oder deren nichtlineare Bausteine, die S-Boxen\index{S-Box},
 einige Kriterien erfüllen.
 
 \begin{itemize}
-\item {\bf Balanciertheit\index{Balanciertheit}:} Alle Urbildmengen
+\item \textbf{Balanciertheit\index{Balanciertheit}:} Alle Urbildmengen
     sind gleich groß, d.\,h., die Werte
     der Abbildung sind gleichmäßig verteilt. Unregelmäßigkeiten in der Verteilung
     würden einen Ansatz zu statistischen Auswertungen bieten.
-\item {\bf Diffusion\index{Diffusion}/Lawineneffekt\index{Lawineneffekt}:}
+\item \textbf{Diffusion\index{Diffusion}/Lawineneffekt\index{Lawineneffekt}:}
     Bei Änderung eines Klartextbits ändern sich sehr viele, am besten
     ca. 50\%, der Geheimtextbits. Hierdurch soll die Ähnlichkeit von Klartexten
     (und Schlüsseln) verschleiert werden, d.\,h., die Angreiferin soll nicht
     erkennen, wenn sie den Klartext (oder Schlüssel) fast richtig geraten hat.
-\item {\bf Algebraische Komplexität:} Die Bestimmung von Urbildern oder Teilen
+\item \textbf{Algebraische Komplexität:} Die Bestimmung von Urbildern oder Teilen
     davon soll auf möglichst schwer lösbare Gleichungen führen. Diese Forderung
     hängt mit der Nichtlinearität\index{Nichtlinearität} der Abbildung zusammen.
     Eine genauere Untersuchung führt auf den Begriff der algebraischen
     Immunität\index{algebraische Immunität}\index{Immunität!algebraisch}.
-\item {\bf Nichtlinearität:} Hier gibt es Kriterien, die auch "`versteckte"'
+\item \textbf{Nichtlinearität:} Hier gibt es Kriterien, die auch "`versteckte"'
     Nichtlinearität\index{Nichtlinearität} messen und vergleichsweise leicht
     zu beschreiben und handzuhaben
     sind; sie zeigen u.\,a., ob die Abbildungen anfällig für
@@ -2352,7 +2348,7 @@ mit Blocklänge $n$ und Schlüssellänge $l$,
 und stellen uns die Argumente von $F$ als Klartexte $a \in \F_2^n$
 und Schlüssel $k \in \F_2^l$, die Werte von $F$ als Geheimtexte
 $c \in \F_2^n$ vor. Eine
-{\bf lineare Relation}\index{lineare Relation}\index{Relation!linear}
+\textbf{lineare Relation}\index{lineare Relation}\index{Relation!linear}
 zwischen Klartext
 $a \in \F_2^n$, Schlüssel $k \in \F_2^l$ und Geheimtext
 $c = F(a,k) \in \F_2^n$ kann man durch drei Linearformen\index{Linearform}
@@ -2391,7 +2387,7 @@ $0$ oder $1$. Das Beste, was man mit Blick auf die Sicherheit
 erwarten kann, ist, dass eine solche Relation bei festem zu
 bestimmenden Schlüssel $k$ für ziemlich genau die Hälfte aller
 Klartexte $a$ gilt (mit zugehörigen Geheimtexten $c = F(a,k)$),
-weil das dem Zufall entspräche. Ist die {\bf Wahrscheinlichkeit}
+weil das dem Zufall entspräche. Ist die \textbf{Wahrscheinlichkeit}
 der Relation,
 \[
    p_{F,\alpha,\beta,\kappa}(k) := \frac{1}{2^n} \cdot
@@ -2414,7 +2410,7 @@ vom Idealwert $\frac{1}{2}$ also symmetrisch ist\footnote{%
    Diese kommen in der Literatur meist ohne explizite Namensgebung vor,
    so z.\,B. in den Originalarbeiten von Matsui\index{Matsui, Mitsuru}.
 },
-die {\bf Input-Output-Korrelation}\footnote{%
+die \textbf{Input-Output-Korrelation}\footnote{%
    Das ist die Korrelation\index{Korrelation} zwischen zwei Booleschen Funktionen auf
    $\F_2^n$, nämlich $\alpha + \kappa(k)$ und $\beta \circ F_k$.
    (Bei festem $k$ ist $\kappa(k)$ eine Konstante, also $0$ oder $1$).
@@ -2430,7 +2426,7 @@ die {\bf Input-Output-Korrelation}\footnote{%
    \tau_{F,\alpha,\beta,\kappa}(k) := 2 p_{F,\alpha,\beta,\kappa}(k) - 1
 \]
 (kurz: I/O-Korrelation\index{I/O-Korrelation}) und das
-{\bf Potenzial\index{Potenzial}}
+\textbf{Potenzial\index{Potenzial}}
 der linearen\index{lineare Relation}\index{Relation!linear} Relation\footnote{%
    Für diese Bezeichnung (\glqq potential\grqq) ist der älteste bekannte
    Nachweis der Beitrag von Kaisa Nyberg\index{Nyberg, Kaisa} auf der {\sc EuroCrypt} 1994.
@@ -2520,15 +2516,15 @@ bei der Entscheidung die Werte $0$ und $1$ vertauschen\footnote{%
   Methode in dieser Form unbrauchbar.
 }):
 \begin{enumerate}
-	\item {\bf [Sammelphase]} Man sammelt $N$ Klartext-Geheimtextpaare
+	\item \textbf{[Sammelphase]} Man sammelt $N$ Klartext-Geheimtextpaare
 	  $(a_1,c_1), \ldots, (a_N,c_N)$.
 
-	\item {\bf [Auszählung]} Man bestimmt die Anzahl
+	\item \textbf{[Auszählung]} Man bestimmt die Anzahl
 \[
     t := \# \{i = 1, \ldots, N \:|\: \alpha(a_i) + \beta(c_i) = 0\}.
 \]
 
-	\item {\bf [Mehrheitsentscheidung]} aufgrund von $t$:
+	\item \textbf{[Mehrheitsentscheidung]} aufgrund von $t$:
 	  \begin{itemize}
 	    \item Ist $t > \frac{N}{2}$, schätzt man $\kappa(k) = 0$.
 	    \item Ist $t < \frac{N}{2}$, schätzt man $\kappa(k) = 1$.
@@ -3157,7 +3153,7 @@ Abbildung\index{Boolesche Abbildung}\index{Abbildung!Boolesche}
 in einer $2^n \times 2^q$-Matrix zusammengefasst, die zu
 jedem Paar von Linearformen\index{Linearform} $(\alpha,\beta)$
 die Anzahl der Argumente $x$ mit $\beta\circ f(x) = \alpha(x)$ angibt und
-{\bf Approximationstabelle\index{Approximationstabelle}}
+\textbf{Approximationstabelle\index{Approximationstabelle}}
 genannt wird\footnote{%
    Vorsicht mit den Literatur-Referenzen: Oft wird von allen Einträgen
    noch der Wert $2^{n-1}$ abgezogen, so z.\,B. bei der SageMath-Funktion
@@ -3279,8 +3275,8 @@ Argument -- vorausgesetzt, $f$ ist bijektiv\footnote{%
    Zeilen- und Spaltenindizes sind durch Zahlen repräsentierte Linearformen.}\label{tab-bool-lp0}
 \end{table}
 
-Die {\bf Korrelationsmatrix}\index{Korrelationsmatrix} und das
-{\bf lineare Profil}\index{lineares Profil}\index{Profil!linear}\footnote{%
+Die \textbf{Korrelationsmatrix}\index{Korrelationsmatrix} und das
+\textbf{lineare Profil}\index{lineares Profil}\index{Profil!linear}\footnote{%
    oder auch Linearitätsprofil\index{Linearitätsprofil}; nicht zu verwechseln
    mit dem linearen
    Komplexitätsprofil\index{lineares Komplexitätsprofil}\index{Komplexitätsprofil!linear} einer
@@ -3358,7 +3354,7 @@ Restklasse modulo $2$ relevant ist.
 Wir betrachten nun eine Boolesche
 Abbildung\index{Boolesche Abbildung}\index{Abbildung!Boolesche}
 $f\!: \F_2^n \longrightarrow \F_2^q$ und ihre
-{\bf Indikatorfunktion}\index{Indikatorfunktion}
+\textbf{Indikatorfunktion}\index{Indikatorfunktion}
 $\vartheta_f: \F_2^n \times \F_2^q \longrightarrow \mathbb{R}$,
 \[
   \vartheta_f(x,y) := \left\{ \begin{array}{ll}
@@ -3399,7 +3395,7 @@ Die Fourier-Transformierte der Indikatorfunktion\index{Indikatorfunktion}
 einer Booleschen Abbildung\index{Boolesche Abbildung}\index{Abbildung!Boolesche}
 $f\!\!: \F_2^n \longrightarrow \F_2^q$, also
 $\hat{\vartheta_f}\!\!: \F_2^n \times \F_2^q \longrightarrow \mathbb{R}$,
-wird oft das (Walsh-) {\bf Spektrum}\index{Spektrum}\index{Walsh-Spektrum}
+wird oft das (Walsh-) \textbf{Spektrum}\index{Spektrum}\index{Walsh-Spektrum}
 von $f$ genannt. Wir haben also gezeigt:
 
 \begin{satz}\label{hwtchar}
@@ -3561,11 +3557,11 @@ wie in Abbildung~\ref{fig-bool-2rd} grafisch dargestellt\footnote{%
    \put(2,12){$c = f(c^{(1)},k^{(2)}) =$}
    \put(88,9){\framebox(23,17){$c^{(2)}$}}
 % Formeln
-   \put(194,171){\sf Lineare Relation $(\alpha_1,\beta_1,\kappa_1)$}
-   \put(194,151){\sf mit $\kappa_1(k^{(1)}) \stackrel{p_1}{\approx}
+   \put(194,171)\textsf{Lineare Relation $(\alpha_1,\beta_1,\kappa_1)$}
+   \put(194,151)\textsf{mit $\kappa_1(k^{(1)}) \stackrel{p_1}{\approx}
                                            \alpha_1(c^{(0)}) + \beta_1(c^{(1)})$}
-   \put(194,71){\sf Lineare Relation $(\alpha_2,\beta_2,\kappa_2)$}
-   \put(194,51){\sf mit $\kappa_2(k^{(2)}) \stackrel{p_2}{\approx}
+   \put(194,71)\textsf{Lineare Relation $(\alpha_2,\beta_2,\kappa_2)$}
+   \put(194,51)\textsf{mit $\kappa_2(k^{(2)}) \stackrel{p_2}{\approx}
                                            \alpha_2(c^{(1)}) + \beta_2(c^{(2)})$}
 % Rahmen
    \put(0,0){\line(1,0){350}}
@@ -3588,7 +3584,7 @@ Potenzial $\lambda_1 = \tau_1^2$ und
 \]
 mit Wahrscheinlichkeit $p_2$, I/O-Korrelation $\tau_2 = 2p_2 - 1$ und
 Potenzial $\lambda_2 = \tau_2^2$.
-Die beiden linearen Relationen sind {\bf kombinierbar}, wenn $\alpha_2 = \beta_1$.
+Die beiden linearen Relationen sind \textbf{kombinierbar}, wenn $\alpha_2 = \beta_1$.
 Dann gilt eine lineare Relation für Schlüsselbits, ausgedrückt durch
 den (bekannten) Klartext $c^{(0)} = a$ und den Geheimtext $c^{(2)} = c$:
 \[
@@ -4076,7 +4072,7 @@ Relation\index{lineare Relation}\index{Relation!linear} für die $i$-te
 Runde. Es sei $\alpha_i = \beta_{i-1}$ für $i = 2, \ldots, r$. Sei
 $\beta_0 := \alpha_1$. Dann heißt die Kette
 $\beta = (\beta_0, \ldots, \beta_r)$ ein
-{\bf linearer Pfad}\index{linearer Pfad}\index{Pfad!linear} für die Chiffre.
+\textbf{linearer Pfad}\index{linearer Pfad}\index{Pfad!linear} für die Chiffre.
 
 Auch hier lässt sich in einem vereinfachten Szenario, nennen wir es
 Beispiel~C -- als Verallgemeinerung von Beispiel~B --, eine nützliche
@@ -4273,7 +4269,7 @@ Abbildung~\ref{fig-bool-par}.
 \begin{center}
 \begin{picture}(350,245)
 % Input
-   \put(112,235){\sf ($n = m\cdot q$ Bits)}
+   \put(112,235)\textsf{($n = m\cdot q$ Bits)}
    \put(20,210){\framebox(260,20){$a$}}
    \put(30,210){\vector(0,-1){20}}
    \put(40,210){\vector(0,-1){20}}
@@ -4285,9 +4281,9 @@ Abbildung~\ref{fig-bool-par}.
    \put(270,210){\vector(0,-1){20}}
 
 % Add key
-   \put(295,194){\sf Teilschlüssel}
+   \put(295,194)\textsf{Teilschlüssel}
    \put(313,175){$k^{(0)}$}
-   \put(303,160){\sf ($n$ Bits)}
+   \put(303,160)\textsf{($n$ Bits)}
    \put(320,180){\circle{20}}
    \put(310,180){\vector(-1,0){30}}
    \put(20,170){\framebox(260,20){$b = a + k^{(0)}$}}
@@ -4329,9 +4325,9 @@ Abbildung~\ref{fig-bool-par}.
    \put(20,50){\framebox(260,20){$b'$}}
 % Add key
    \put(20,10){\framebox(260,20){$c = b' + k^{(1)}$}}
-   \put(295,34){\sf Teilschlüssel}
+   \put(295,34)\textsf{Teilschlüssel}
    \put(313,16){$k^{(1)}$}
-   \put(303,0){\sf ($n$ Bits)}
+   \put(303,0)\textsf{($n$ Bits)}
    \put(320,20){\circle{20}}
    \put(310,20){\vector(-1,0){30}}
    \put(30,50){\vector(0,-1){20}}
@@ -4534,8 +4530,8 @@ def miniLuc(a,k,r):
    \put(80,330){\vector(0,-1){20}}
    \put(74,302){$\bigoplus$}
    \put(80,300){\vector(0,-1){20}}
-   \put(170,320){\sf Rundenschlüssel}
-   \put(150,295){\framebox(120,20){$k^{(i)} = k^{(0)}$ {\sf oder} $k^{(1)}$}}
+   \put(170,320)\textsf{Rundenschlüssel}
+   \put(150,295){\framebox(120,20){$k^{(i)} = k^{(0)}$ \textsf{oder} $k^{(1)}$}}
    \put(150,305){\vector(-1,0){64}}
    \put(20,260){\framebox(120,20){$b = a + k^{(i)}$}}
 
@@ -4558,7 +4554,7 @@ def miniLuc(a,k,r):
    \put(80,150){\vector(0,-1){20}}
    \put(77,118){$\textrm{P}$}
    \put(80,122){\circle{15}}
-   \put(150,118){\sf \ldots\ außer in der letzten Runde}
+   \put(150,118)\textsf{\ldots\ außer in der letzten Runde}
    \put(80,115){\vector(0,-1){15}}
    \put(20,80){\framebox(120,20){$a'$}}
 
@@ -4573,7 +4569,7 @@ def miniLuc(a,k,r):
    \put(74,52){$\bigoplus$}
    \put(80,50){\vector(0,-1){20}}
    \put(20,10){\framebox(120,20){$c = a' + k^{(r)}$}}
-   \put(150,45){\framebox(120,20){$k^{(r)} = k^{(0)}$ {\sf oder} $k^{(1)}$}}
+   \put(150,45){\framebox(120,20){$k^{(r)} = k^{(0)}$ \textsf{oder} $k^{(1)}$}}
    \put(150,55){\vector(-1,0){64}}
 \end{picture}
 \end{center}
@@ -5232,34 +5228,34 @@ die wichtigen Verfahren DES\index{DES} und AES\index{AES} beschrieben.
 \begin{figure}
 \begin{center}
 \begin{picture}(300,250)
-  \put(20,5){\framebox(260,20){\sf Geheimtextblock}}
+  \put(20,5){\framebox(260,20)\textsf{Geheimtextblock}}
   \put(150,44){\vector(0,-1){20}}
   \put(148,84){$\vdots$}
   \put(150,79){\vector(0,-1){20}}
   \put(144,47){$\bigoplus$}
   \put(150,118){\vector(0,-1){20}}
   \put(147,123){$f$}
-  \put(160,126){\sf Runden-}
-  \put(160,116){\sf funktion}
+  \put(160,126)\textsf{Runden-}
+  \put(160,116)\textsf{funktion}
   \put(150,125){\circle{13}}
   \put(150,153){\vector(0,-1){20}}
   \put(148,193){$\vdots$}
   \put(150,188){\vector(0,-1){20}}
   \put(144,156){$\bigoplus$}
   \put(150,227){\vector(0,-1){20}}
-  \put(20,227){\framebox(260,20){\sf Klartextblock}}
+  \put(20,227){\framebox(260,20)\textsf{Klartextblock}}
 
   \put(20,44){\framebox(20,164){~}}
-  \put(26,94){\rotatebox{90}{\sf Schlüsselblock}}
+  \put(26,94){\rotatebox{90}{\textsf{Schlüsselblock}}}
   \put(40,159){\vector(1,0){102}}
-  \put(55,162){\sf Teilschlüssel $k^{(i-1)}$}
+  \put(55,162)\textsf{Teilschlüssel $k^{(i-1)}$}
   \put(40,49){\vector(1,0){102}}
-  \put(55,52){\sf Teilschlüssel $k^{(r)}$}
+  \put(55,52)\textsf{Teilschlüssel $k^{(r)}$}
 
   \put(230,164){\line(0,-1){70}}
   \put(220,164){\line(1,0){10}}
   \put(220,94){\line(1,0){10}}
-  \put(235,124){\sf $i$-te Runde}
+  \put(235,124)\textsf{$i$-te Runde}
 \end{picture}
 \end{center}
 \caption{Grobe Struktur des AES-Verfahrens}\label{fig-bool-aes1}
@@ -5278,7 +5274,7 @@ die wichtigen Verfahren DES\index{DES} und AES\index{AES} beschrieben.
    \put(258,180){\vector(0,-1){20}}
    \put(268,180){\vector(0,-1){20}}
    \put(20,140){\framebox(260,20){~}}
-   \put(90,146){\sf Zerlegung in 8-Bit-Blöcke}
+   \put(90,146)\textsf{Zerlegung in 8-Bit-Blöcke}
    \put(50,140){\line(0,1){20}}
    \put(250,140){\line(0,1){20}}
    \put(25,140){\vector(0,-1){20}}
@@ -5298,7 +5294,7 @@ die wichtigen Verfahren DES\index{DES} und AES\index{AES} beschrieben.
    \put(42,60){\vector(0,-1){20}}
    \put(52,60){\vector(-1,-1){20}}
    \put(60,47){\ldots}
-   \put(79,46){\sf Permutation / lineare Abbildung}
+   \put(79,46)\textsf{Permutation / lineare Abbildung}
    \put(230,47){\ldots}
    \put(248,60){\vector(1,-1){20}}
    \put(258,60){\vector(0,-1){20}}
@@ -5320,7 +5316,7 @@ die wichtigen Verfahren DES\index{DES} und AES\index{AES} beschrieben.
    \put(45,100){\vector(0,-1){20}}
    \put(60,107){\ldots}
    \put(230,107){\ldots}
-   \put(80,106){\sf Parallele Anwendung der S-Box}
+   \put(80,106)\textsf{Parallele Anwendung der S-Box}
    \put(70,87){\ldots}
    \put(220,87){\ldots}
    \put(250,100){\framebox(30,20){~}}
@@ -5413,11 +5409,11 @@ im Sinne des folgenden Abschnitts interpretierbar\footnote{%
 }. Allerdings macht
 es einen Unterschied, ob der zu addierende Schlüsselstrom unabhängig
 vom Klartext vorher festgelegt wird -- man spricht dann auch von einer
-{\bf synchronen
+\textbf{synchronen
 Bitstrom-Chiffre}\index{synchrone Bitstrom-Chiffre}\index{Bitstrom-Chiffre!synchron}
 --, oder ob er sich abhängig vom Klartext oder
 anderen Kontext-Parametern ändern kann -- dann handelt es sich um eine
-{\bf asynchrone
+\textbf{asynchrone
 Bitstrom-Chiffre}\index{asynchrone Bitstrom-Chiffre}\index{Bitstrom-Chiffre!asynchron}.
 
 In diesem Abschnitt werden nur synchrone Bitstrom-Chiffren behandelt.
@@ -5429,17 +5425,17 @@ als die Bits $0$, $1$ bleiben hier außen vor.
 \begin{figure}[bhtp]
 \begin{center}
 \begin{picture}(340,120)
-  \put(10,97){\sf Klartext-Bits}
+  \put(10,97)\textsf{Klartext-Bits}
   \put(10,80){\framebox[80pt][l]{$a_1 a_2 a_3 \ldots$}}
   \put(10,20){\framebox[80pt][l]{$k_1 k_2 k_3 \ldots$}}
-  \put(10,3){\sf Schlüssel-Bits}
+  \put(10,3)\textsf{Schlüssel-Bits}
   \put(250,50){\framebox[80pt][l]{$c_1 c_2 c_3 \ldots$}}
-  \put(250,33){\sf Geheimtext-Bits}
+  \put(250,33)\textsf{Geheimtext-Bits}
 
   \put(90,78){\vector(3,-1){60}}
   \put(90,30){\vector(3,1){60}}
   \put(170,55){\circle{40}}
-  \put(156,51){\bf XOR}
+  \put(156,51)\textbf{XOR}
   \put(190,55){\vector(1,0){60}}
 \end{picture}
 \end{center}
@@ -5460,7 +5456,7 @@ aufgefasst\footnote{%
   Für die weitere Verwandlung in Bitketten kann man {\tt bbl2str}
   anschließen.
 }.
-Auch der Schlüssel ist eine Folge von Bits, die {\bf Schlüsselstrom}\index{Schlüsselstrom}
+Auch der Schlüssel ist eine Folge von Bits, die \textbf{Schlüsselstrom}\index{Schlüsselstrom}
 genannt wird. Verschlüsselt wird, indem das jeweils nächste Bit des Klartexts
 mit dem nächsten Bit des Schlüsselstroms binär addiert wird.
 Abbildung~\ref{fig-bool-xor} illustriert dieses Vorgehen\footnote{%
@@ -5766,7 +5762,7 @@ typische Häufigkeiten an für die häufigsten Bytes
 in MS-Word\index{MS-Word}-Dokumenten.
 \begin{center}
 \begin{tabular}{|l|l|l|} \hline
-   {\bf Byte} (hexadezimal) & {\bf Bits} & {\bf Häufigkeit} \\ \hline
+   \textbf{Byte} (hexadezimal) & \textbf{Bits} & \textbf{Häufigkeit} \\ \hline
    {\tt 00}                 & 00000000   & 7--70\%          \\
    {\tt 01}                 & 00000001   & 0.8--17\%        \\
    {\tt 20} (Leerzeichen)   & 00100000   & 0.8--12\%        \\
@@ -5796,9 +5792,9 @@ die Situation:
 \begin{tabular}{rc|ccc|c|ccc|c}
                      & $\ldots$ & \multicolumn{3}{c|}{Block 1} & $\ldots$ & \multicolumn{3}{c|}{Block 2} & $\ldots$ \\
 \hline
-   {\bf Klartext:}   & $\ldots$ & $a_1$ & $\ldots$ & $a_s$     & $\ldots$ & $0$    & $\ldots$ & $0$      & $\ldots$ \\
-   {\bf Schlüssel:}  & $\ldots$ & $k_1$ & $\ldots$ & $k_s$     & $\ldots$ & $k_1$  & $\ldots$ & $k_s$    & $\ldots$ \\
-   {\bf Geheimtext:} & $\ldots$ & $c_1$ & $\ldots$ & $c_s$     & $\ldots$ & $c_1'$ & $\ldots$ & $c_s'$   & $\ldots$
+   \textbf{Klartext:}   & $\ldots$ & $a_1$ & $\ldots$ & $a_s$     & $\ldots$ & $0$    & $\ldots$ & $0$      & $\ldots$ \\
+   \textbf{Schlüssel:}  & $\ldots$ & $k_1$ & $\ldots$ & $k_s$     & $\ldots$ & $k_1$  & $\ldots$ & $k_s$    & $\ldots$ \\
+   \textbf{Geheimtext:} & $\ldots$ & $c_1$ & $\ldots$ & $c_s$     & $\ldots$ & $c_1'$ & $\ldots$ & $c_s'$   & $\ldots$
 \end{tabular}
 \end{center}
 mit $c_i = a_i + k_i$ und $c_i' = 0 + k_i = k_i$ für $i = 1, \ldots, s$.
@@ -5857,7 +5853,7 @@ soll hier aber nicht weiter eingegangen werden\footnote{%
 
 Das andere Extrem ist, als Schlüsselstrom\index{Schlüsselstrom} eine
 rein zufällige Folge von Bits zu verwenden. Dann heißt das Verfahren
-{\bf (binäres) One-Time-Pad (OTP\index{OTP})}.
+\textbf{(binäres) One-Time-Pad (OTP\index{OTP})}.
 Insbesondere darf kein Teil des Schlüsselstroms irgendwann wiederholt
 verwendet werden. Die Bezeichnung "`Pad"' rührt daher, dass man sich
 die Bits wie auf einem Abreißkalender vorstellt  -- jedes Blatt wird
@@ -6049,21 +6045,21 @@ solange bis er durch externen Eingriff gestoppt wird.
   \put(260,40){\line(0,1){60}}
   \put(80,100){\line(1,0){180}}
   \put(80,40){\line(0,1){60}}
-  \put(85,80){\bf \sf Zustand}
-  \put(85,55){\sf Algorithmus zur Zustandsänderung}
+  \put(85,80)\textbf\textsf{Zustand}
+  \put(85,55)\textsf{Algorithmus zur Zustandsänderung}
 
-  \put(10,150){\bf \sf Geheimer Teil ("`Black Box"')}
-  \put(100,125){\sf interne Parameter (geheim)}
+  \put(10,150)\textbf\textsf{Geheimer Teil ("`Black Box"')}
+  \put(100,125)\textsf{interne Parameter (geheim)}
   \put(160,120){\vector(0,-1){20}}
-  \put(4,70){\bf \sf Startwert}
-  \put(4,57){\sf ("`kurze"' Folge)}
+  \put(4,70)\textbf\textsf{Startwert}
+  \put(4,57)\textsf{("`kurze"' Folge)}
   \put(62,73){\vector(1,0){18}}
-  \put(100,0){\sf externe Parameter (öffentlich)}
+  \put(100,0)\textsf{externe Parameter (öffentlich)}
   \put(160,10){\vector(0,1){30}}
   \put(260,73){\vector(1,0){100}}
-  \put(275,80){\bf \sf Output}
-  \put(275,58){\sf Pseudozufallsfolge}
-  \put(275,45){\sf ("`lang"')}
+  \put(275,80)\textbf\textsf{Output}
+  \put(275,58)\textsf{Pseudozufallsfolge}
+  \put(275,45)\textsf{("`lang"')}
 \end{picture}
 \caption{Das Prinzip des (Pseudo-)Zufallsgenerators
 	 \index{Zufallsgenerator}\index{Black Box}}\label{fig-bool-prg}
@@ -6253,9 +6249,9 @@ die Erklärung folgt gleich.
    \put(199,25){\vector(0,1){14}}
 % Sammelwischer
    \put(23,65){$\overbrace{\rule{137pt}{0pt}}$}
-   \put(66,80){\sf Vorperiode}
+   \put(66,80)\textsf{Vorperiode}
    \put(185,65){$\overbrace{\rule{145pt}{0pt}}$}
-   \put(239,80){\sf Periode}
+   \put(239,80)\textsf{Periode}
 % Rahmen
    \put(0,0){\line(1,0){342}}
    \put(0,99){\line(1,0){342}}
@@ -6282,8 +6278,8 @@ verschieden, und die Werte $x_0, \ldots, x_{\mu-1}$ erscheinen
 niemals wieder in der Folge.
 
 \begin{description}
-   \item[Definition:] $\mu$ heißt die (Länge der) {\bf Vorperiode\index{Periode!Vorperiode}},
-      $\nu$ die (Länge der) {\bf Periode\index{Periode}}.
+   \item[Definition:] $\mu$ heißt die (Länge der) \textbf{Vorperiode\index{Periode!Vorperiode}},
+      $\nu$ die (Länge der) \textbf{Periode\index{Periode}}.
 \end{description}
 
 \begin{quote}
@@ -6339,7 +6335,7 @@ entsprechenden Zellen der Rückgabe-Summe definieren.
   \put(110,30){\ldots}
   \put(180,30){\ldots}
 
-  \put(300,5){\sf taps}
+  \put(300,5)\textsf{taps}
   \put(280,5){$\dashleftarrow$}
   \put(40,20){\line(0,-1){20}}
   \put(80,20){\line(0,-1){20}}
@@ -6571,7 +6567,7 @@ etwas mehr Mathematik voraussetzenden Abschnitten wird bewiesen:
 Nehmen wir an, wir kennen die ersten $2l$ Bits $u_0, \ldots, u_{2l-1}$
 aus einem linearen Schieberegister\index{lineares Schieberegister}\index{Schieberegister!linear}
 der Länge $l$. Die Lineare Algebra lässt
-sich eleganter formulieren, wenn man die {\bf Zustandsvektoren\index{Zustandsvektor}}
+sich eleganter formulieren, wenn man die \textbf{Zustandsvektoren\index{Zustandsvektor}}
 \[
      u_{(i)} = (u_i, \ldots, u_{i+l-1}) \quad \text{für } i = 0, 1, \ldots
 \]
@@ -6942,17 +6938,17 @@ Weitere Möglichkeiten bestehen in verschiedenen Methoden zur Steuerung
 einer Batterie von $n$ parallel betriebenen linearen Schieberegistern
 durch ein weiteres lineares Schieberegister:
 \begin{itemize}
-	\item Bei der {\bf Auswahlsteuerung}\index{Auswahlsteuerung}
+	\item Bei der \textbf{Auswahlsteuerung}\index{Auswahlsteuerung}
         wird je nach Zustand des "`Hilfsregisters"'
 	   das aktuelle Output-Bit von genau einem der "`Batterie-Register"' als
 	   Output des Zufallsgenerators ausgewählt. Allgemeiner kann man auch
 	   eine Auswahl "`$r$ aus $n$"' treffen.
-	\item Bei der {\bf Dezimierung}\index{Dezimierung} nimmt man
+	\item Bei der \textbf{Dezimierung}\index{Dezimierung} nimmt man
         im allgemeinen $n = 1$ an und gibt das
 	   Output-Bit des einen Batterie-Registers nur dann aus, wenn das
 	   Hilfsregister einen bestimmten Zustand hat. Diese Art der Dezimierung
 	   kann man natürlich analog auf jede Bitfolge anwenden.
-	\item Bei der {\bf Taktung}\index{Taktung} gibt der Zustand
+	\item Bei der \textbf{Taktung}\index{Taktung} gibt der Zustand
         des Hilfsregisters an, welche
 	   der Batterie-Register im aktuellen Taktzyklus weitergeschoben werden
 	   (und um wie viele Positionen) und welche in ihrem momentanen Zustand bleiben.
@@ -7445,8 +7441,7 @@ Standardabweichung $\sqrt{r}/2$.
 Wie auch immer man das macht, im Fall $r = 100$ ist (exemplarisch) die
 Wahrscheinlichkeit, maximal $65$ Koinzidenzen zu finden, ziemlich
 genau $0,999$, die Überschreitungswahrscheinlichkeit also
-%%%  Da \textperthousand nicht funktionierte (auch nicht mit package textcomp), \permil genommen.
-1\,\permil. Die Exhaustion der Startwerte des Registers 1
+1\,\textperthousand{}. Die Exhaustion der Startwerte des Registers 1
 umfasst $2^{15} = 32786$ Möglichkeiten (den eigentlich ausgeschlossenen
 Startwert $0 \in \F_2^{15}$ zählen wir großzügig mit). Dabei
 können wir also etwa $33$ "`Grenzüberschreitungen"' mit mindestens
@@ -7739,8 +7734,8 @@ trotzdem (vermutlich) kryptographisch sicheren Zufallsgeneratoren.
 Wie beim RSA\index{RSA}-Verfahren betrachtet man einen ganzzahligen Modul $m$, der
 Produkt zweier großer Primzahlen ist. Für den BBS-Generator\index{BBS-Generator} wählt man
 -- aus technischen Gründen, die hier nicht weiter erläutert werden --
-{\bf Blum-Primzahlen}\index{Blum-Primzahl} $p$; das sind solche, die $\equiv 3 \bmod 4$
-sind. Ein Produkt zweier Blum-Primzahlen heißt {\bf Blum-Zahl}\index{Blum-Zahl}.
+\textbf{Blum-Primzahlen}\index{Blum-Primzahl} $p$; das sind solche, die $\equiv 3 \bmod 4$
+sind. Ein Produkt zweier Blum-Primzahlen heißt \textbf{Blum-Zahl}\index{Blum-Zahl}.
 
 Der BBS-Generator\index{BBS-Generator} funktioniert dann so:
 Als ersten Schritt bildet man eine große Blum-Zahl $m$ als Produkt
@@ -7927,7 +7922,7 @@ sage: blum_blum_shub(1000,x0,p,q)
 
 \subsection{Perfektheit und Faktorisierungsvermutung}\label{ss-bool-perfqr}
 
-Informell definiert man einen {\bf Pseudozufallsgenerator}
+Informell definiert man einen \textbf{Pseudozufallsgenerator}
 (kurz: einen Zufallsgenerator\index{Zufallsgenerator})
 als einen effizienten Algorithmus, der eine
 "`kurze"' Bitkette $s \in \F_2^n$ in eine "`lange"' Bitkette\index{Bitkette}
@@ -7968,14 +7963,14 @@ aber eben korrekt gemacht werden kann.
 
 \begin{definition}\label{def-bool-prg-pred}\index{Vorhersageverfahren}
   Gegeben sei ein Pseudozufallsgenerator.
-  Ein {\bf  Vorhersageverfahren}\footnote{%
+  Ein \textbf{ Vorhersageverfahren}\footnote{%
     englisch: next bit predictor
   } ist ein Algorithmus, der aus einem
   Anfangsstück $u_0, \ldots, u_{r-1}$ der erzeugten Folge das nächste
   Bit $u_r$ berechnet, ohne dabei auf die internen Parameter des
   Pseudozufallsgenerators zuzugreifen.
 
-  Der Pseudozufallsgenerator {\bf besteht den
+  Der Pseudozufallsgenerator \textbf{besteht den
   Vorhersagetest\index{Vorhersagetest}}, wenn
   es kein effizientes Vorhersageverfahren gibt.
 \end{definition}
@@ -7986,13 +7981,13 @@ Vorhersageverfahrens aus Satz~\ref{thm-bool-lfsr} den Vorhersagetest nicht.
 
 \begin{definition}\label{def-bool-prg-perf}\index{perfekter Pseudozufallsgenerator}
   Gegeben sei ein Pseudozufallsgenerator.
-  Ein {\bf  Unterscheidungsverfahren}\index{Unterscheidungsverfahren}\footnote{%
+  Ein \textbf{ Unterscheidungsverfahren}\index{Unterscheidungsverfahren}\footnote{%
     englisch: distinguisher
   } ist ein Algorithmus, der, ohne dabei auf die internen Parameter des
   Pseudozufallsgenerators zuzugreifen, eine davon erzeugte Folge von
   einer echten Zufallsfolge\index{Zufallsfolge} unterscheiden kann.
 
-  Der Pseudozufallsgenerator ist {\bf perfekt}\index{perfekt}, wenn
+  Der Pseudozufallsgenerator ist \textbf{perfekt}\index{perfekt}, wenn
   es kein effizientes Unterscheidungsverfahren gibt.
 \end{definition}
 Ein perfekter Pseudozufallsgenerator ist insbesondere durch keinen
@@ -8013,7 +8008,7 @@ Hier ohne Beweis.
 
 \subsubsection*{Die (vermutete) Perfektheit des BBS-Generators}
 
-Die {\bf Faktorisierungsvermutung}\index{Faktorisierung!Faktorisierungsvermutung}
+Die \textbf{Faktorisierungsvermutung}\index{Faktorisierung!Faktorisierungsvermutung}
 besagt, dass sich große natürliche
 Zahlen nicht effizient in Primfaktoren zerlegen lassen. Diese
 Vermutung ist die Begründung für die Sicherheit des RSA-Verfahrens,
@@ -8205,7 +8200,7 @@ $y_i$. Die Abbildung~\ref{fig-bool-micsch} macht das deutlich.
   \put(175,25){$y_2$}
   \put(110,40){$x_1^d \bmod m$}
   \put(260,27){\vector(1,0){60}}
-  \put(270,30){\sf Output}
+  \put(270,30)\textsf{Output}
   \put(330,25){$y_2$}
   \put(0,20){\line(0,-1){20}}
   \put(95,20){\line(4,-1){80}}
@@ -8222,9 +8217,9 @@ $y_i$. Die Abbildung~\ref{fig-bool-micsch} macht das deutlich.
   \put(45,95){$x_1$}
   \put(175,95){$y_1$}
   \put(110,110){$x_0^d \bmod m$}
-  \put(10,122){\sf --- --- --- $n$ Bits --- --- --- --- --- --- --- ---}
+  \put(10,122)\textsf{--- --- --- $n$ Bits --- --- --- --- --- --- --- ---}
   \put(260,97){\vector(1,0){60}}
-  \put(270,100){\sf Output}
+  \put(270,100)\textsf{Output}
   \put(330,95){$y_1$}
   \put(0,90){\line(0,-1){40}}
   \put(95,90){\line(4,-1){160}}
@@ -8237,11 +8232,11 @@ $y_i$. Die Abbildung~\ref{fig-bool-micsch} macht das deutlich.
 
   \linethickness{1pt}
   \put(45,165){$x_0$}
-  \put(10,150){\sf --- $2n/d$ Bits ---}
+  \put(10,150)\textsf{--- $2n/d$ Bits ---}
   \put(0,160){\line(0,-1){40}}
   \put(95,160){\line(4,-1){160}}
-  \put(275,165){\sf $x_0$ hat $2n/d$ Bits.}
-  \put(280,145){\sf $x_0^d$ hat $2n$ Bits.}
+  \put(275,165)\textsf{$x_0$ hat $2n/d$ Bits.}
+  \put(280,145)\textsf{$x_0^d$ hat $2n$ Bits.}
 \end{picture}
 \end{center}
 \caption{Micali-Schnorr-Generator}\label{fig-bool-micsch}

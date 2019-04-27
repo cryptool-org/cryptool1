@@ -361,7 +361,7 @@ b & 0 & b & 1 & a\\
 $\\
 }.
 
-Man kann zeigen, dass die Ordnung jedes Körpers eine Primzahlpotenz (d.h. die Potenz einer Primzahl) ist. Andererseits kann man zu jeder Primzahlpotenz $p^n$ einen Körper konstruieren, der die Ordnung $p^n$~hat. Da zwei endliche Körper mit gleicher Zahl von Elementen nicht unterscheidbar\footnote{Sind $K,K'$ zwei Körper mit $k=p^n$ Elementen, so gibt es eine eineindeutige Abbildung $\varphi:K\to K'$, die sich mit der Körperarithmetik verträgt. Eine solche Abbildung nennt man Isomorphie. Isomorphe Körper verhalten sich mathematisch gleich, so dass es keinen Sinn macht, zwischen ihnen zu unterscheiden. Z.B. sind ${\mathbb Z}_2$ und $K'=\{ NULL,EINS\}$ mit Nullelement $NULL$ und Einselement $EINS$ isomorph. Hierbei sei darauf hingewiesen, dass mathematische Objekte ausschließlich über ihre Eigenschaften definiert sind.} sind, spricht man von {\bf dem\ Körper mit $p^n$ Elementen} und bezeichnet diesen mit $GF(p^n)$ oder im Amerikanischen mit
+Man kann zeigen, dass die Ordnung jedes Körpers eine Primzahlpotenz (d.h. die Potenz einer Primzahl) ist. Andererseits kann man zu jeder Primzahlpotenz $p^n$ einen Körper konstruieren, der die Ordnung $p^n$~hat. Da zwei endliche Körper mit gleicher Zahl von Elementen nicht unterscheidbar\footnote{Sind $K,K'$ zwei Körper mit $k=p^n$ Elementen, so gibt es eine eineindeutige Abbildung $\varphi:K\to K'$, die sich mit der Körperarithmetik verträgt. Eine solche Abbildung nennt man Isomorphie. Isomorphe Körper verhalten sich mathematisch gleich, so dass es keinen Sinn macht, zwischen ihnen zu unterscheiden. Z.B. sind ${\mathbb Z}_2$ und $K'=\{ NULL,EINS\}$ mit Nullelement $NULL$ und Einselement $EINS$ isomorph. Hierbei sei darauf hingewiesen, dass mathematische Objekte ausschließlich über ihre Eigenschaften definiert sind.} sind, spricht man von \textbf{dem\ Körper mit $p^n$ Elementen} und bezeichnet diesen mit $GF(p^n)$ oder im Amerikanischen mit
 $\mathbb{F}_p^{n}$. Dabei steht $GF$ für {\it Galois Feld} in Erinnerung an den französischen Mathematiker Galois.
 
 Eine besondere Rolle spielen die Körper $GF(p)$, deren Ordnung eine Primzahl ist. Man
@@ -416,7 +416,7 @@ Verfechter der streng formalen Ausrichtung der Mathematik.
 \end{equation}
 ergibt.
 Da alle bis auf einen Lösungspunkt durch die Gleichung (\ref{ell}) beschrieben werden können, bezeichnet man (\ref{ell}) auch oft als die Elliptische Gleichung, ihre Lösungsmenge folglich mit
-$$ {\bf E} = \left\{(x,y)\in K\times K \, |\, y^2+a_1xy+a_3y = x^3+a_2x^2+a_4x+a_6  \right\} \cup \{{\cal O} \}.
+$$ \textbf{E} = \left\{(x,y)\in K\times K \, |\, y^2+a_1xy+a_3y = x^3+a_2x^2+a_4x+a_6  \right\} \cup \{{\cal O} \}.
 $$
 Dabei soll ${\cal O}$ den auf diese Weise nicht beschriebenen Punkt $(0,1,0)$ darstellen, der durch die Projektion (Division durch $x_3$) quasi in den unendlich fernen Punkt abgebildet wird.
 
@@ -549,7 +549,7 @@ Formal betrachten wir in der Elliptischen-Kurven-Kryptographie die Punkte der Ku
 Definition einer Kurve auf die Wahl der Parameter achten muss. Denn für bestimmte Klassen von
 Elliptischen Kurven ist es möglich, das ECDLP leichter zu lösen als im allgemeinen Fall. Kryptographisch
 ungeeignete Elliptische Kurven sind die sogenannten {\em anormalen} Kurven (das sind Kurven über ${\mathbb Z}_p$,
-für die die Menge ${\bf E}$ genau $p$ Elemente hat) und die {\em supersingulären} Kurven (das sind Kurven, für die man das
+für die die Menge $\textbf{E}$ genau $p$ Elemente hat) und die {\em supersingulären} Kurven (das sind Kurven, für die man das
 Berechnen des ECDLP auf das Berechnen des \glqq normalen\grqq\ Diskreten Logarithmus in anderen endlichen Körper
 reduzieren, d.h. vereinfachen, kann). Daher gibt es kryptographisch gute und schlechte Kurven. Allerdings
 kann man für gegebene Parameter $a$ und $b$ mit etwas Aufwand feststellen, ob die resultierende Elliptische
@@ -586,16 +586,16 @@ größer sind als die Parameter von Kryptoverfahren, die auf dem ECDL-Problem ba
   Grundlage für die Elliptische-Kurven-Kryptographie. Darauf basierend gibt es verschiedene Signaturverfahren. Um ein solches Signaturverfahren anzuwenden, benötigt man:
 \end{sloppypar}
 \begin{itemize}
-    \item Eine Elliptische Kurve {\bf E}, beschrieben durch den zugrunde liegenden Körper $GF(p^n)$.
-    \item Eine Primzahl $q\ne p$ sowie einen Punkt $G$ auf der Elliptischen Kurve ${\bf E}$ mit Ordnung $q$. D.h., es gilt $qG={\cal O}$ und $rG\ne {\cal O}$ für alle $r\in \{1,2,\dots,q-1\}$. Die Zahl $q$ muss dann ein Teiler der Gruppenordnung (entspricht der Anzahl der Elemente) $\#{\bf E}$ sein. Aufgrund der Primordnung, erzeugt $G$ eine zyklischen Untergruppe von ${\bf E}$ mit Ordnung $q$.
+    \item Eine Elliptische Kurve \textbf{E}, beschrieben durch den zugrunde liegenden Körper $GF(p^n)$.
+    \item Eine Primzahl $q\ne p$ sowie einen Punkt $G$ auf der Elliptischen Kurve $\textbf{E}$ mit Ordnung $q$. D.h., es gilt $qG={\cal O}$ und $rG\ne {\cal O}$ für alle $r\in \{1,2,\dots,q-1\}$. Die Zahl $q$ muss dann ein Teiler der Gruppenordnung (entspricht der Anzahl der Elemente) $\#\textbf{E}$ sein. Aufgrund der Primordnung, erzeugt $G$ eine zyklischen Untergruppe von $\textbf{E}$ mit Ordnung $q$.
 \end{itemize}
 Die genannten Parameter bezeichnet man als \index{Domain-Parameter} {\em Domain}-Para\-meter. Durch sie wird
-festgelegt, auf welcher Elliptischen Kurve ${\bf E}$ und in welcher zyklischen Untergruppe von ${\bf E}$ ein
+festgelegt, auf welcher Elliptischen Kurve $\textbf{E}$ und in welcher zyklischen Untergruppe von $\textbf{E}$ ein
 Signaturverfahren eingesetzt  wurde.
 
 \par
 %\smallskip
-%{\bf Verschlüsselung:}
+%\textbf{Verschlüsselung:}
 \subsection{Verschlüsselung}
 
 Mit Hilfe Elliptischer Kurven kann ein sicherer Schlüsselaustausch nach dem \hyperlink{DH-KeyExch}{Diffie-Hellman}-Protokoll \index{Diffie-Hellman} erfolgen (siehe Kapitel \ref{DH-KeyExch}). Dieser Schlüssel kann dann für eine anschließende symmetrische Verschlüsselung verwendet werden. Ein Schlüsselpaar mit privatem und öffentlichem Schlüssel wird im Gegensatz zum RSA-Algorithmus nicht erzeugt!
@@ -607,7 +607,7 @@ Um einen \glqq Man-in-the-Middle\grqq-Angriff zu verhindern, kann man auch hier 
 
 \par
 %\smallskip
-%{\bf Signatur-Erstellung:}
+%\textbf{Signatur-Erstellung:}
 \subsection{Signatur-Erstellung}
 
 Überträgt man den \index{DSA} DSA auf Elliptische Kurve, so kann man wie folgt eine digitale Signatur erzeugen: Man wählt vorab eine (nicht-triviale) Zahl $s\in{\mathbb Z}_q$. Diese bildet den privaten Schlüssel. Hingegen werden $q$, $G$ und $R=sG$ veröffentlicht. Aus $G$ und $R$ lässt sich jedoch $s$ nicht ermitteln, worauf die Sicherheit des Signaturverfahrens beruht.
@@ -619,7 +619,7 @@ Das Tripel $(m,r_1,x)$ bildet nun die digitale Signatur.
 
 \par
 %\smallskip
-%{\bf Signatur-Verifikation:}
+%\textbf{Signatur-Verifikation:}
 \subsection{Signatur-Verifikation}
 
 Zur Verifikation muss zunächst $u_1=h(m)/x$, $u_2=\bar r_1/x$ (in ${\mathbb Z}_q$ gebildet werden). Dann bestimmt man
@@ -705,7 +705,7 @@ Im Folgenden wird aufgezeigt, welche Funktionalität dazu in CrypTool und in Sag
 CT1 enthält Elliptische Kurven, um digitale Signaturen zu erzeugen%
 \footnote{%
 Die Dialogbox, die in CT1\index{CT1} nach dem Menü
-{\bf Digitale Signaturen/PKI \textbackslash{} Dokument signieren} erscheint,
+\textbf{Digitale Signaturen/PKI \textbackslash{} Dokument signieren} erscheint,
 bietet die EC-Verfahren ECSP-DSA und ECSP-NR an.
   % Leerzeile vor schließender Footnote-Klammer zu #20 nötig, um einheitlich eine
   % Leerzeile am Ende der Fußnoten zu haben -- solange keine andere Lösung
@@ -714,7 +714,7 @@ bietet die EC-Verfahren ECSP-DSA und ECSP-NR an.
 } und um die ECC-AES-Hybridverschlüsselung durchzuführen%
 \footnote{%
 In CT1\index{CT1} finden Sie dieses Verfahren über das Menü
-{\bf Ver-/Entschlüsseln \textbackslash{} Hybrid}.
+\textbf{Ver-/Entschlüsseln \textbackslash{} Hybrid}.
   % Leerzeile vor schließender Footnote-Klammer zu #21 nötig, um einheitlich eine
   % Leerzeile am Ende der Fußnoten zu haben -- solange keine andere Lösung
   % für das Einrückproblem bei Fußnote #23 (TODO_LaTeX)
@@ -736,9 +736,9 @@ Varianten von Nyberg-Rueppel-Signaturen und \index{DSA} DSA-Signaturen.
 Schritt-für-Schritt ist die Punkt-Addition auf elliptischen Kurven
 in CT1\index{CT1} and JCT\index{JCT} visualisiert.%
 \footnote{%
-  CT1: Menü {\bf Digitale Signaturen/PKI \textbackslash{} Signaturdemo
+  CT1: Menü \textbf{Digitale Signaturen/PKI \textbackslash{} Signaturdemo
   (Signaturerzeugung)},\\
-  JCT (Standard-Perspektive): Menü {\bf Visualisierungen \textbackslash{}
+  JCT (Standard-Perspektive): Menü \textbf{Visualisierungen \textbackslash{}
   Elliptische Kurven-Berechnungen}.
   % Leerzeile vor schließender Footnote-Klammer zu #22 nötig, um einheitlich eine
   % Leerzeile am Ende der Fußnoten zu haben -- solange keine andere Lösung
