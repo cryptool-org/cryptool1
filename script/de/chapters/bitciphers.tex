@@ -7,22 +7,6 @@
 \begin{refsegment}
 
 
-%BERM0 Changed when bc becoming part of the CT book.
-%BERM1 Transformed to comment when bc becoming part of the CT book: There it already was in script-en.tex.
-%BERM2 Transformed to comment when bc becoming part of the CT book: Added there to script-en.tex.
-%BERM3 Redefined new commands already existing in moderncryptography.tex when bc becoming part of the CT book
-%BERM3 (see http://tex.stackexchange.com/questions/36175/what-do-newcommand-renewcommand-and-providecommand-do-and-how-do-they-differ).
-
-%BERM1 \documentclass[11pt,a4paper,leqno]{report}
-%BERM1 \usepackage[latin1]{inputenc}
-%BERM1 \usepackage[T1]{fontenc}
-%BERM1 \usepackage{german}
-%BERM1 \usepackage{amsmath,amssymb,amscd,latexsym}
-%BERM1 \usepackage{color}
-%BERM1 \usepackage{hyperref}
-%BERM1 \usepackage{makeidx}
-%BERM1 \usepackage[pdftex]{graphicx}
-%BERM1 \usepackage{float}
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 % Pommerenings Spezialitäten
@@ -33,20 +17,8 @@
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 % CrypTool-Spezialitäten
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-%BERM1 \newtheorem{definition}{Definition}[section]
-%BERM1 \newtheorem{satz}{Satz}[section]
-%BERM1 \newenvironment{Beweis}[1]{\noindent\textbf{Beweis #1} \\}{\hfill$\Box$\par}
-%BERM1 \newenvironment{example}[1]{\noindent\textbf{Beispiel#1}}{}
-%BERM1 \newenvironment{remark}[1]{\noindent\textbf{Bemerkung#1}}{}
-%BERM1 \setcounter{secnumdepth}{4} % Nummerierung auch bei subsubsection
-%BERM1 \floatstyle{ruled}
-%BERM1 \newfloat{sagecode}{!ht}{loc}[chapter]
-%BERM1 \floatname{sagecode}{SageMath-Beispiel}
 
-\sloppy
-\frenchspacing
-%BERM1 \makeindex
-%BERM1 \begin{document}
+%\sloppy 
 
 %BERM0 \setcounter{chapter}{98}  % ====> Dummy - beim Einfügen ins CT-Skript löschen <=====
 \setcounter{satz}{0}
@@ -61,7 +33,6 @@
 (\hyperlink{author_Klaus-Pommerening}{Klaus Pommerening},
  Januar--Juni 2015; Updates: Jan. 2016, Apr. 2016) \\
 
-\noindent
 Während asymmetrische Verschlüsselung meistens zahlentheoretische Methoden
 verwendet, beruhen die heutigen symmetrischen
 Verschlüsselungsverfahren\index{Verschlüsselung!symmetrisch}
@@ -111,7 +82,7 @@ Das Thema dieses Kapitels ist also mit anderen Worten
 
    \textbf{Symmetrische Verschlüsselung von mit Bits dargestellten Informationen}.
 
-\noindent Die mathematischen Grundlagen und Methoden gehören zu den Gebieten
+Die mathematischen Grundlagen und Methoden gehören zu den Gebieten
 
    \textbf{Boolesche Algebra\index{Boolesche Algebra}\index{Algebra!Boolesche}
    und endliche Körper\index{endlicher Körper}\index{Körper!endlich}}.
@@ -285,7 +256,7 @@ Veranschaulichen kann man sich eine Boolesche Funktion durch eine
 \end{picture}
 \end{center}
 
-\noindent Was innerhalb dieser "`Black Box"' passiert, kann man auf verschiedene
+Was innerhalb dieser "`Black Box"' passiert, kann man auf verschiedene
 Arten beschreiben:
 \begin{itemize}
    \item \textbf{mathematisch} durch eine Formel,
@@ -2735,7 +2706,7 @@ sage: Matsui_Test(alpha,beta,pclist,False)
 \caption{Ein Beispiel für den Matsui-Test\index{Matsui-Test}}\label{Sage-code-Mats-Expl}
 \end{sagecode}
 
-\noindent Damit das Verfahren im allgemeinen Fall Erfolg verspricht, sind
+Damit das Verfahren im allgemeinen Fall Erfolg verspricht, sind
 folgende Fragen zu klären:
 \begin{enumerate}
 	\item Wie findet man lineare
@@ -2757,7 +2728,7 @@ folgende Fragen zu klären:
 	\end{enumerate}
 \end{enumerate}
 
-\noindent Die Antwort auf die erste Frage und Teil (a) der zweiten heißt:
+Die Antwort auf die erste Frage und Teil (a) der zweiten heißt:
 Aus dem linearen Profil\index{lineares Profil}\index{Profil!linear},
 siehe Abschnitt~\ref{ss-bool-lpr}. Die anschließenden
 Teilfragen führen zur Untersuchung von linearen
@@ -6127,11 +6098,11 @@ bekannt annehmen muss. In Software dagegen ist die Rückkopplungsfunktion
 jederzeit leicht änderbar und damit als Bestandteil des Schlüssels
 geeignet.
 
-\begin{figure}[hbtp]
+\begin{figure}[hbtp]%behrendt: oje!!! mit figure!!!
 \begin{center}
 \begin{picture}(342,114)(0,0)
    \put(122,31){\fbox{$u_{l-1}\:\ldots\:\ldots\:u_2\:u_1\:u_0$}}
-   \put(146,26){\line(0,1){12}}
+   \put(146,26){\line(0,1){12}}%das hier sind die senkrechten striche zw. den u's
    \put(183,26){\line(0,1){12}}
    \put(196,26){\line(0,1){12}}
    \put(208,26){\line(0,1){12}}
@@ -6154,6 +6125,7 @@ geeignet.
    \put(0,0){\line(0,1){114}}
    \put(342,0){\line(0,1){114}}
 \end{picture}
+
 \caption{Ein rückgekoppeltes Schieberegister (beim ersten Iterationsschritt). Die
    Boolesche Funktion $f$ berechnet aus dem aktuellen Zustand des Registers ein
    neues Bit, das von links nachgeschoben wird.}\label{fig-bool-fsr}
@@ -9069,7 +9041,7 @@ class LFSR(object):
 	segment=\therefsegment,
 ]
 
-\noindent Alle Links wurden am 15.07.2016 überprüft.
+Alle Links wurden am 15.07.2016 überprüft.
 
 \end{refsegment}
 %BERM1 \end{document}

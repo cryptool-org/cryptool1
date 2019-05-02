@@ -35,7 +35,7 @@ sich selbst teilen kann. Alle anderen natürlichen Zahlen größer gleich $4$
 sind zusammengesetzte Zahlen und lassen sich durch Multiplikation von
 Primzahlen bilden.
 
-\noindent Somit bestehen die {\em natürlichen} \index{Zahlen} Zahlen
+ Somit bestehen die {\em natürlichen} \index{Zahlen} Zahlen
 $ \mathbb{N} = \{1, 2, 3, 4,\cdots \} $ aus
 \begin{itemize}
    \item der Zahl $1$ (dem Einheitswert)
@@ -43,7 +43,7 @@ $ \mathbb{N} = \{1, 2, 3, 4,\cdots \} $ aus
    \item den zusammengesetzten Zahlen (composite numbers).
 \end{itemize}
 
-\noindent Primzahlen haben aus drei Gründen besondere Bedeutung erlangt:
+ Primzahlen haben aus drei Gründen besondere Bedeutung erlangt:
 \begin{itemize}
   \item Sie werden in der Zahlentheorie als die Grundbausteine der
         natürlichen Zahlen betrachtet, anhand derer eine Menge genialer
@@ -575,7 +575,7 @@ Er gestand, 20 Jahre an der \textbf{Faktorisierung} \index{Faktorisierung}
   auf einem Einzel-PC Zahlen bis 250 Bit Länge. Zahlen größer
   als 1024 Bit werden zur Zeit von CT1 sowieso nicht angenommen.\\
 
-  \noindent CT2\index{CT2} hat die Komponente GeneralFactorizer
+   CT2\index{CT2} hat die Komponente GeneralFactorizer
   (basierend auf YAFU\index{YAFU}). Diese ist schneller als die in CT1
   implementierten Funktionen.
   Damit bietet CT2 die folgenden Faktorisierungsverfahren:
@@ -593,7 +593,7 @@ Er gestand, 20 Jahre an der \textbf{Faktorisierung} \index{Faktorisierung}
    \item[-] General Number Field Sieve (GNFS).
   \end{compactitem}
 
-  \noindent CT2 hat begonnen, mit einer allgemeinen Infrastruktur für verteiltes
+   CT2 hat begonnen, mit einer allgemeinen Infrastruktur für verteiltes
   Rechnen zu experimentieren (CrypCloud\index{CrypCloud}, die sowohl Peer-to-Peer
   als auch zentralisiert eingesetzt werden kann). Damit wird CT2 in Zukunft in die
   Lage versetzt, Berechnungen auf viele Computer zu verteilen.
@@ -606,7 +606,7 @@ Er gestand, 20 Jahre an der \textbf{Faktorisierung} \index{Faktorisierung}
   ist eine Volunteering-Cloud, so dass CT2-Nutzer sich freiwillig bei
   verteilten Jobs anschließen können.
 
-  \noindent Die aktuellen Faktorisierungsrekorde finden Sie in Kapitel
+   Die aktuellen Faktorisierungsrekorde finden Sie in Kapitel
   \ref{nt:NoteFactorization}.
   \index{Faktorisierung!Faktorisierungsrekorde}
 }
@@ -648,7 +648,7 @@ prägte dafür den Ausdruck \index{Primzahl!gigantisch}  {\em
 gigantische} Primzahl. Diese Bezeichnungen sind heute längst
 veraltet).
 
-% \vskip - 4pt \noindent
+% \vskip - 4pt 
 % \begin{quote}
 % (Der Supercomputerhersteller SGI Cray Research beschäftigte nicht
 % nur hervorragende Mathematiker, sondern benutzte die Primzahltests
@@ -1365,7 +1365,7 @@ e_8 = e_1 \cdot e_2 \cdots e_7 + 1 &    = 29.881\cdot 67.003 \cdot 9.119.521 \cd
 \end{array}
 $$
 
-\noindent Auch $e_9, \cdots, e_{17}$ sind zusammengesetzt, so dass dies auch
+ Auch $e_9, \cdots, e_{17}$ sind zusammengesetzt, so dass dies auch
 keine brauchbare Primzahlformel ist.
 
 \begin{remark}{:}\\
@@ -1527,10 +1527,10 @@ C_4 = 2^{C_3} - 1, \cdots \\
 \end{array}
 $$
 %% \begin{sloppypar}
-%% \noindent
+%% 
 %% \end{sloppypar}
 
-\noindent Diese Folge ist rekursiv definiert und wächst sehr schnell.
+ Diese Folge ist rekursiv definiert und wächst sehr schnell.
 Besteht sie nur aus Primzahlen?
 $$
 \begin{array}{lll}
@@ -1542,13 +1542,13 @@ C_4 = 2^{127} - 1 &      = 170. 141. 183. 460. 469. 231. 731. 687. 303. 715. 884
 \end{array}
 $$
 
-\noindent Ob $C_5 = 2^{C_4} - 1$ bzw.\ alle weiteren Elemente dieser Reihe prim sind,
+ Ob $C_5 = 2^{C_4} - 1$ bzw.\ alle weiteren Elemente dieser Reihe prim sind,
 ist (noch) nicht bekannt. Bewiesen ist jedenfalls nicht, dass diese Formel nur
 Primzahlen liefert.
 
-\noindent Es scheint sehr unwahr"-scheinlich, dass $C_5$ (und die weiteren Folgenglieder) prim sind.
+ Es scheint sehr unwahr"-scheinlich, dass $C_5$ (und die weiteren Folgenglieder) prim sind.
 
-\noindent Dies könnte ein weiteres Beispiel von Guys "`Gesetz der kleinen Zahlen"'\index{Guys Gesetz der kleinen Zahlen}\index{Gesetz der kleinen Zahlen}\footnote{%
+ Dies könnte ein weiteres Beispiel von Guys "`Gesetz der kleinen Zahlen"'\index{Guys Gesetz der kleinen Zahlen}\index{Gesetz der kleinen Zahlen}\footnote{%
 \url{http://primes.utm.edu/glossary/page.php?sort=LawOfSmall}
    } sein.
 
@@ -1782,15 +1782,9 @@ Vielfachen von 2. Anschließend umkreist man die kleinste noch
 nicht umkreiste oder gestrichene Zahl (nun 3), streicht wieder
 alle ihre Vielfachen, usw.
 
-% Mit \frame um \includegraphics fehlt der obere Rand um die Grafik.
-% Nimmt man [!h] raus, steht die Grafik oben auf der Seite und hat
-% einen vollständigen Rahmen. Auch \vskip +10pt vor \begin{figure}
-% half nicht. Also nahm ich \fbox statt \frame. Tat, nur ist die
-% Rahmenlinie nun dicker. Korrigiert per \fboxrule.
-% Vgl. http://home.mathematik.uni-freiburg.de/junker/ss10/LaTeX-SS10-5.pdf
 \begin{figure}[!hb]
 \begin{center}
-\fboxrule0.5pt \fbox{
+\frame{
  \includegraphics{figures/Primes-via-Eratosthenes-from-Wikipedia_en.png}
  }
 % footnotemark, damit Nummer direkt hinter dem Titel; protect davor, um Compilierungsfehler
@@ -2278,15 +2272,15 @@ eingegangen werden.
 \label{L-WeakGoldbachConjecture}%
 %\mbox{}
 
-\noindent Goldbach stellte 1742 in einem Brief an den Mathematiker Euler die Behauptung auf:
+ Goldbach stellte 1742 in einem Brief an den Mathematiker Euler die Behauptung auf:
 
 Jede \textbf{ungerade} natürliche Zahl größer als 5 ist als Summe von \textbf{genau drei} Primzahlen darstellbar.
 
 Beispiele: $7 = 3 + 2 + 2$ oder $27 = 19 + 5 + 3$ oder $27 = 17 + 5 + 5$
 
-\noindent Diese Behauptung ist immer noch (seit über 250 Jahren) unbewiesen.
+ Diese Behauptung ist immer noch (seit über 250 Jahren) unbewiesen.
 
-\noindent Mit Computern ist die \textbf{schwache Goldbach-Vermutung} für alle
+ Mit Computern ist die \textbf{schwache Goldbach-Vermutung} für alle
 ungeraden natürlichen Zahlen einfach bis $4*10^{18}$ (Stand April 2012) bzw.
 doppelt bis  $4*10^{17}$ (Stand Mai 2013) verifiziert.\footnote{%
 Siehe \url{http://sweet.ua.pt/tos/goldbach.html} von Tomás Oliveira e Silva
@@ -2345,13 +2339,13 @@ Probieren am Computer erbrachten.
 \label{L-StrongGoldbachConjecture}%
 %\mbox{}
 
-\noindent Goldbachs starke Primzahlhypothese wurde von Euler nach einem Briefwechsel mit Goldbach formuliert, und wird meist einfach als \textbf{die} Goldbach-Vermutung bezeichnet:
+ Goldbachs starke Primzahlhypothese wurde von Euler nach einem Briefwechsel mit Goldbach formuliert, und wird meist einfach als \textbf{die} Goldbach-Vermutung bezeichnet:
 
 Jede \textbf{gerade} natürliche Zahl größer als 2 ist als Summe von \textbf{genau zwei} Primzahlen darstellbar.
 
 Beispiele für Goldach-Zerlegungen: $8 = 5 + 3$ oder $28 = 23 + 5$
 
-\noindent Mit Computern ist die \textbf{Goldbach-Vermutung}\index{Goldbach-Vermutung}
+ Mit Computern ist die \textbf{Goldbach-Vermutung}\index{Goldbach-Vermutung}
      für alle geraden Zahlen bis $4*10^{18}$ (Stand Mai 2013) einfach
      verifiziert\footnote{%
      Dass die Goldbach-Vermutung wahr ist, d.h. für alle geraden
@@ -2424,7 +2418,7 @@ Je größer eine gerade Zahl ist, umso mehr solcher binärer Goldbach-Zerlegunge
 \subsubsection{Zusammenhang zwischen den beiden Goldbach-Ver\-mutungen}%
 %\mbox{}
 
-\noindent Wenn die starke Goldbach-Vermutung gilt, gilt auch die schwache (d.h. die starke impliziert die schwache Vermutung).
+ Wenn die starke Goldbach-Vermutung gilt, gilt auch die schwache (d.h. die starke impliziert die schwache Vermutung).
 
 Der Beweis dafür ist relativ einfach:\\
 Voraussetzung: Sei $u$ eine ungerade Zahl größer als $5$.\\
@@ -2460,14 +2454,14 @@ Primzahlzwillinge\index{Primzahlzwilling} sind Primzahlen, die genau den
 Abstand 2 voneinander haben, zum Beispiel 5 und 7, oder 101 und 103,
 oder $1.693.965 \cdot 2^{66.443} \pm 1$.
 
-\noindent Das größte heutzutage bekannte Primzahlzwillingspaar
+ Das größte heutzutage bekannte Primzahlzwillingspaar
 \[3.756.801.695.685\cdot 2^{666.669} \pm 1\] wurde im
 Dezember 2011 gefunden und hat $200.700$ Dezimalstellen.\footnote{%
    \url{http://primes.utm.edu/primes},
    \url{http://www.primegrid.com/download/twin-666669.pdf} }
 
 
-\noindent Offen ist:
+ Offen ist:
 \begin{itemize}
 \item Gibt es unendlich viele oder eine begrenzte Anzahl von
       Primzahlzwillingen?\footnote{%
@@ -2490,7 +2484,7 @@ Dezember 2011 gefunden und hat $200.700$ Dezimalstellen.\footnote{%
 \item Gibt es eine Formel für die Anzahl der Primzahlzwillinge pro Intervall?
 \end{itemize}
 
-\noindent Im Folgenden werden zwei größere Meilensteine erläutert, die dem
+ Im Folgenden werden zwei größere Meilensteine erläutert, die dem
 Rätsel näher kommen.
 
 
@@ -2772,7 +2766,7 @@ Index   &   Genauer Wert  &       Gerundeter Wert &    Bemerkung \\
 \end{remark}
 
 \vskip +12pt
-\noindent \textbf{Web-Links (URLs):}\\
+ \textbf{Web-Links (URLs):}\\
 \url{https://primes.utm.edu/nthprime/} \\
 \url{https://primes.utm.edu/notes/by_year.html}.
 
@@ -3117,7 +3111,7 @@ sage: pari(10**9).primepi()-pari(10**8).primepi()
 \index{SageMath!Programmbeispiele}
 \index{SageMath}
 
-\noindent Der folgende Abschnitt enthält SageMath Source-Code zu den Inhalten aus
+ Der folgende Abschnitt enthält SageMath Source-Code zu den Inhalten aus
 Kapitel~\ref{Chapter_Primes} (\glqq \nameref{Chapter_Primes}\grqq).
 
 
@@ -3185,7 +3179,7 @@ die die folgenden drei Argumente hat:
   ob für jede erzeugte Einzelzahl $f(n)$ eine Ausgabe zur Primalität erfolgen soll.
 \end{itemize}
 
-\noindent Eine sinnvolle Änderung dieses Codes besteht darin, eine andere Funktion anzugeben,
+ Eine sinnvolle Änderung dieses Codes besteht darin, eine andere Funktion anzugeben,
 deren Funktionswerte auf Primalität geprüft werden sollen.
 
 
@@ -3273,7 +3267,7 @@ Number of primes: 48
 Percentage of primes: 94.1176470588
 \end{Verbatim}
 
-\noindent Die Statistik in den letzten beiden Zeilen der Ausgabe zeigt, dass
+ Die Statistik in den letzten beiden Zeilen der Ausgabe zeigt, dass
 $f(n)$ 48 Primzahlen erzeugt für $0 \leq n \leq 50$, was ca. 94\% der von
 $f(n)$ erzeugten Werte darstellt.\\
 
@@ -3303,7 +3297,7 @@ Percentage of primes: 58.3416583417
 	segment=\therefsegment,
 ]
 
-\noindent Alle Links wurden am 11.07.2016 überprüft.
+ Alle Links wurden am 11.07.2016 überprüft.
 
 
 % --------------------------------------------------------------------------
@@ -3376,7 +3370,7 @@ Percentage of primes: 58.3416583417
 
 \end{enumerate}
 
-\noindent Alle Links wurden am 06.08.2018 überprüft.
+ Alle Links wurden am 06.08.2018 überprüft.
 
 
 

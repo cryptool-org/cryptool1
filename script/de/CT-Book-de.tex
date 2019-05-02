@@ -68,6 +68,7 @@
 %\documentclass[a4paper,11pt,oneside,english,ngerman,draft]{book}
 % the order ngerman-english doesn't seem to matter.
 
+
 \newcommand*{\indexsection}[1]{\markright{#1}}
 
 
@@ -80,7 +81,8 @@
 \usepackage[margin=2.54cm]{geometry}
 
 \overfullrule=5pt % uncomment to mark overfull boxes
-%endfolding abmessungen
+\setlength{\parskip}{2em plus .5em minus .5em}
+\parindent0pt
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-------fonts, encoding etc.
 \usepackage{fontspec}% für lualatex, statt fontenc wie bei pdflatex
@@ -91,6 +93,12 @@
 
 \usepackage[final]{microtype}
 \usepackage{eurosym}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%------mathe
+\usepackage{amsmath}
+\usepackage{amssymb,amscd,latexsym}   %BERM2: added for biciphers.tex
+\usepackage{amsfonts}
+\usepackage{amsthm}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%------bibliographie
@@ -105,12 +113,8 @@
 % \makeindex[columns=3, title=Alphabetical Index] %%% TodoTodo_Nice-to-have-only: Alphabetzeichen als Header im Index. Tat nicht! --> Siehe usepackage{imakeidx}
 
 
-\usepackage{amsmath}
-\usepackage{amssymb,amscd,latexsym}   %BERM2: added for biciphers.tex
-\usepackage{amsfonts}
-\usepackage{amsthm}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%----graphik
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%----graphik, farben
 \usepackage{color}   %BERM2: added for bitciphers.tex
 \providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE%16xxxxxxxxxxxxxx
 \providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE%16xxxxxxxxxxxxxx
@@ -126,9 +130,12 @@
 \usepackage{float}% for option >>here<< and for defining new floats
 \floatstyle{boxed}  % This is necessary to have borders around the Zitate.
                     % After the ctsquote def overruled by \floatstyle{ruled} ?
+
 \newfloat{ctsquotefloat}{H}{loq}   % ctsQuotes-from-Books, List-of-Quotes
 \floatname{ctsquotefloat}{Zitat}   % ctsQuotes with centering
+
 \newenvironment{ctsquote}{\begin{ctsquotefloat}\center}{\end{ctsquotefloat}}
+
 \floatstyle{ruled}
 
 \newfloat{sagecode}{!ht}{loc}[chapter]
@@ -178,24 +185,53 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%------------ misc
-%\usepackage{morewrites}% Neu wegen "message {No room for a new \string #" nach Hinzufügen von \lostof{opensslcode}
-%brauchen wir nicht mehr mit luatex
 \usepackage{ifthen}
 
 %%%%%%%%%%%%%%%%%%%5%%%%%%%%%%%%%%%----------user-defined-commands,envir., counters etc.
 \newcommand*{\F}{\mathbb{F}}
 \newcommand*{\Z}{\mathbb{Z}}
 \newcommand*{\Oh}{\cal{O}}
+\newcommand{\fs}{\mathscr{F}}
+\newcommand{\es}{\mathscr{E}}
+\newcommand{\cs}{\mathscr{C}}
+\newcommand{\gs}{\mathscr{G}}
+\newcommand{\is}{\mathscr{I}}
+\newcommand{\os}{\mathscr{O}}
+\newcommand{\ks}{\mathscr{K}}
+\newcommand{\qs}{\mathscr{Q}}
+\newcommand{\us}{\mathscr{U}}
+\newcommand{\hs}{\mathscr{H}}
+\newcommand{\ps}{\mathscr{P}}
+\newcommand{\as}{\mathscr{A}}
+\newcommand{\rs}{\mathscr{R}}
+\newcommand{\bs}{\mathscr{B}}
+%-------------------------------------
+\newcommand{\PG}{\text{I}\!\text{P}}
+\newcommand{\carre}{\square}
+\newcommand{\ncarre}{/\negthickspace\negthickspace\square}
+\newcommand{\ncarreq}{{\ncarre}_q}
+\newcommand{\ncarree}{/\negthickspace\negthickspace\negthickspace\square}
+\newcommand{\ncarrepi}{{\ncarre}_{p^i}}
+\newcommand{\mc}[1]{{\cal #1}}
+\newcommand{\Char}{\text{char}}
+\newcommand{\Aut}{\text{Aut}}
+\newcommand{\Fix}{\text{Fix}}
+\newcommand{\Syl}{\text{Syl}}
+\newcommand{\Bild}{\text{Bild}}
+\newcommand{\ggt}{\text{ggT}}
+\newcommand{\kgv}{\text{kgV}}
+\newcommand{\Id}{\text{Id}}
+\newcommand{\nqcarre}{{\ncarre}_{q^2}}
 
 \newcommand{\ignoreoutput}[1]{\setbox0\vbox{\everypar{}#1}}
 
 \newtheorem{definition}{Definition}[section]
 \newtheorem{satz}{Satz}[section]
 
-\renewenvironment{proof}[1]{\noindent\textbf{Beweis #1} \\}{\hfill$\Box$\par}
-\newenvironment{Beweis}[1]{\noindent\textbf{Beweis #1} \\}{\hfill$\Box$\par}
-\newenvironment{example}[1]{\noindent\textbf{Beispiel#1}}{}
-\newenvironment{remark}[1]{\noindent\textbf{Bemerkung#1}}{}
+\renewenvironment{proof}[1]{\textbf{Beweis #1} \\}{\hfill$\Box$\par}
+\newenvironment{Beweis}[1]{\textbf{Beweis #1} \\}{\hfill$\Box$\par}
+\newenvironment{example}[1]{\textbf{Beispiel#1}}{}
+\newenvironment{remark}[1]{\textbf{Bemerkung#1}}{}
 \newenvironment{ Latex_Create-Closed-Dummy-Environ }{}{}
 %seems to be necessary for some graphics in bitcipher chapter
 
@@ -203,6 +239,7 @@
 \setcounter{secnumdepth}{4} % Nummerierung auch bei subsubsection
 
 %what is the use of those????
+%for latexdiff!
 \providecommand{\DIFaddbegin}{} %DIF PREAMBLE%16xxxxxxxxxxxxxx
 \providecommand{\DIFaddend}{} %DIF PREAMBLE%16xxxxxxxxxxxxxx
 \providecommand{\DIFdelbegin}{} %DIF PREAMBLE%16xxxxxxxxxxxxxx
@@ -229,32 +266,9 @@
 \makeatother
 %rowno is only used in chapter >>primes<< %endfolding
 
-\setlength{\fboxrule}{.5mm}
-\setlength{\fboxsep}{1.75mm}
-\setlength{\footnotesep}{6pt}
-\addtolength{\footskip}{8pt}
-% \setlength{\footskip}{4cm}
-%endfoldinguserdefined
 
-% Define title %doris: please let's do it now from scratch later! beginfolding
-\title{%
-% be_Wished to enlarge only the main title, however \HUGE not available,
-	{\Huge Das CrypTool-Buch:\\[20pt]
-	       {\bf Kryptographie lernen und anwenden\\[15pt]
-                mit CrypTool und SageMath}} \\[35pt]
-	{\LARGE Hintergrundmaterial und Zusatzinformationen\\
-	 zum freien E-Learning Krypto-Programm CrypTool\\[5pt]
-	 (Kryptographie, Mathematik und mehr)} \\[35pt]
-	%{\large 12. Auflage}
-	 {\large 12. Auflage --  {\bf Draft-Version} (\settimeformat{hhmmsstime}\currenttime)}
-}%endfolding
 
-\author{% beginfolding
-	{\LARGE Prof.\ Bernhard Esslinger (Mitautor und Herausgeber)}\\[10pt]
-	{\LARGE und das CrypTool-Team, 1998-2019}\\[10pt]
-%	{\LARGE Frankfurt am Main}\\*[15pt]
-	\url{www.cryptool.org}
-}%endfolding
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-------hyperref &co
 \usepackage{xurl}
@@ -282,7 +296,6 @@ pdfencoding=auto]{hyperref}
 \VerbatimFootnotes
 %doris: manual adjustment of look of footnotes: get rid of!%beginfolding
 % space between text and footnote
-% \renewcommand{\footnoterule}{\parindent0cm\rule{13cm}{.1pt}\vspace{.2cm}}
 % Formatierung der Fußnoten
 \renewcommand\footnoterule{
 \vspace{2em}%   <-- one line space between text and footnoterule
@@ -292,7 +305,32 @@ pdfencoding=auto]{hyperref}
 % kern 2.6\p@
 }%endfolding
 %\frontmatter % Ab hier beginnt Seitennummerierung mit römischen Ziffern
-\maketitle
+%\maketitle
+
+{\centering
+\strut\vfill
+{\fontsize{30pt}{30pt}\selectfont Das CrypTool-Buch:}\\[\baselineskip]
+\textbf{\fontsize{35pt}{35pt}\selectfont Kryptographie lernen und anwenden
+                mit CrypTool und SageMath}
+
+{\LARGE Hintergrundmaterial und Zusatzinformationen\\
+	 zum freien E-Learning Krypto-Programm CrypTool\\
+	 (Kryptographie, Mathematik und mehr)}
+
+	 {\large 12. Auflage --  {\bf Draft-Version} (\settimeformat{hhmmsstime}\currenttime)}
+\vfill
+	{\fontsize{25pt}{25pt}\selectfont Prof.\ Bernhard Esslinger (Mitautor und Herausgeber)
+
+	und das CrypTool-Team, 1998-2019}
+
+	\url{www.cryptool.org}
+
+	\today
+
+\vfill
+}%ende titelseite
+
+\newpage
 
 %beginfoldingersteseiten
 % Vergleichbar zur Nutzung von Texten aus der Wikipedia (=GNU Free Documentation Licence, GFDL)
@@ -318,7 +356,7 @@ Dokumentation.
 
 
 
-\vspace{70pt}\noindent Zum Referenzieren per bibtex:
+\vspace{70pt}Zum Referenzieren per bibtex:
 % Referenzart: book
 % Notwendige Felder: author oder editor, title, publisher, year
 % Optionale Felder: volume oder number, series, address, edition, month, note, isbn
@@ -339,7 +377,6 @@ Dokumentation.
 
 \vfill
 
-\noindent
 Quelle Coverfoto: \url{www.photocase.com}, Andre Günther\\
 Schriftsatz-Software: \LaTeX\\
 Versionsverwaltungs-Software: Subversion

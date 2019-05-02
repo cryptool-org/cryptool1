@@ -11,41 +11,7 @@
 \setcounter{satz}{0}
 \setcounter{definition}{0}
 
-%--------------------------------------- matheScript-Zeichen definieren
-\newcommand{\fs}{\mathscr{F}}
-\newcommand{\es}{\mathscr{E}}
-\newcommand{\cs}{\mathscr{C}}
-\newcommand{\gs}{\mathscr{G}}
-\newcommand{\is}{\mathscr{I}}
-\newcommand{\os}{\mathscr{O}}
-\newcommand{\ks}{\mathscr{K}}
-\newcommand{\qs}{\mathscr{Q}}
-\newcommand{\us}{\mathscr{U}}
-\newcommand{\hs}{\mathscr{H}}
-\newcommand{\ps}{\mathscr{P}}
-\newcommand{\as}{\mathscr{A}}
-\newcommand{\rs}{\mathscr{R}}
-\newcommand{\bs}{\mathscr{B}}
-%-------------------------------------
-\newcommand{\PG}{\text{I}\!\text{P}}
-\newcommand{\carre}{\square}
-\newcommand{\ncarre}{/\negthickspace\negthickspace\square}
-\newcommand{\ncarreq}{{\ncarre}_q}
-\newcommand{\ncarree}{/\negthickspace\negthickspace\negthickspace\square}
-\newcommand{\ncarrepi}{{\ncarre}_{p^i}}
-\newcommand{\mc}[1]{{\cal #1}}
-\newcommand{\Char}{\text{char}}
-\newcommand{\Aut}{\text{Aut}}
-\newcommand{\Fix}{\text{Fix}}
-\newcommand{\Syl}{\text{Syl}}
-\newcommand{\Bild}{\text{Bild}}
-\newcommand{\ggt}{\text{ggT}}
-\newcommand{\kgv}{\text{kgV}}
-\newcommand{\Id}{\text{Id}}
-\newcommand{\nqcarre}{{\ncarre}_{q^2}}
 
-\setlength{\fboxrule}{.4pt}
-\setlength{\fboxsep}{4pt}
 
 
 \newpage
@@ -351,7 +317,7 @@ Der Ausgangstext wird in Blöcke zerlegt und verschlüsselt, wobei jeder Block e
 \index{Eulersche Phi-Funktion}
 
 \vskip +10 pt
-\noindent Die Eulersche Phi-Funktion ist definiert duch:
+Die Eulersche Phi-Funktion ist definiert durch:
 
 \fbox{\parbox{0.8\linewidth}{
 \centering
@@ -360,23 +326,23 @@ Der Ausgangstext wird in Blöcke zerlegt und verschlüsselt, wobei jeder Block e
 }}
 
 \vskip +10 pt
-\noindent Kein gemeinsamer Faktor bedeutet: Zwei natürliche Zahlen $ a $ und $ b $
+Kein gemeinsamer Faktor bedeutet: Zwei natürliche Zahlen $ a $ und $ b $
 sind teilerfremd\index{Zahlen!teilerfremd (co-prime)}, falls $ \ggt (a,b)=1. $
 
 \vskip +10 pt
-\noindent Für die Eulersche Phi-Funktion gilt:
+Für die Eulersche Phi-Funktion gilt:
 \[
 \phi(1)=1,~~ \phi(2)=1,~~
 \phi(3)=2,~~ \phi(4)=2,~~ \phi(6)=2,~~ \phi(10)= 4,~~ \phi(15)=8.
 \]
 
-\noindent Zum Beispiel ist $ \phi (24)=8, $ weil
+Zum Beispiel ist $ \phi (24)=8, $ weil
 \[
 |\{ x <24 : \ggt (x,24) =1 \}| =|\{1,5,7,11,13,17,19,23\}|.
 \]
 
 
-\noindent Tabelle~\ref{phi15} zeigt Werte von $ \phi(n)$ bis $25$.
+Tabelle~\ref{phi15} zeigt Werte von $ \phi(n)$ bis $25$.
 
 \begin{table}[ht]
 \begin{center}
@@ -403,15 +369,15 @@ $n$  &  $\phi(n) $  &  Die zu $ n $ teilerfremden\index{Zahlen!teilerfremd
 \end{table}
 
 
-\noindent Ist $ p $ eine Primzahl, so gilt $ \phi (p)= p-1$.\\
+Ist $ p $ eine Primzahl, so gilt $ \phi (p)= p-1$.\\
 
-\noindent Im Spezialfall $ N=pq $ gilt:
+Im Spezialfall $ N=pq $ gilt:
 \[
 \phi (N)= pq(1-1/p)(1-1/q) = p(1-1/p)q(1-1/q)=(p-1)(q-1).
 \]
 
 
-\noindent Kennt man die verschiedenen Primfaktoren $ p_1, \dots , p_k $ von $ n $, so ist
+Kennt man die verschiedenen Primfaktoren $ p_1, \dots , p_k $ von $ n $, so ist
 \[
 \phi (n) = n \cdot (1-\frac{1}{p_1}) \,
 \cdots \, (1-\frac{1}{p_k}).\footnote{%
@@ -663,11 +629,11 @@ Dabei definiert man
  \[ \ g^{k}:=\underbrace{g \circ \ldots \circ g}_{k \text{ mal}}.\]
 Die Exponentialfunktion ist leicht zu berechnen:
 
-\vskip +10 pt \noindent
+\vskip +10 pt 
 \textbf{Lemma}\par
 \nopagebreak[4]
 {\em
-\noindent Die Potenz $ g^k $ kann in höchstens $ 2 \log_2 k $ Gruppenoperationen
+Die Potenz $ g^k $ kann in höchstens $ 2 \log_2 k $ Gruppenoperationen
 berechnet werden.
 }
 
@@ -679,10 +645,10 @@ Man erhält also $ g^k $ aus $ g^{k'} $ indem man einmal quadriert und eventuell
 \end{Beweis}
 
 \vskip +10 pt
-\noindent \textbf{Problem \index{Logarithmusproblem!diskret} des diskreten Logarithmus}
+\textbf{Problem \index{Logarithmusproblem!diskret} des diskreten Logarithmus}
 \begin{center}
-\fbox{\parbox{11cm}{
-Sei $ G $ eine endliche Gruppe mit der Operation $ \circ. $ Sei $ \alpha \in G $ und $ \beta \in H=\{ \alpha^{i}: i\geq 0\}. $\\
+\fbox{\parbox{.75\textwidth}{
+Sei $ G $ eine endliche Gruppe mit der Operation $ \circ. $ Sei $ \alpha \in G $ und \mbox{$ \beta \in H=\{ \alpha^{i}: i\geq 0\}. $}\\
 Gesucht ist das eindeutige $ a \in \mathbb{N} $ mit $ 0 \leq a \leq |H| -1 $ und $ \beta = \alpha^{a}. $\\
 Wir bezeichnen $ a $ mit $ \log_\alpha (\beta). $
 }}
@@ -718,10 +684,10 @@ In endlichen abelschen Gruppen lässt sich das  dis"-krete Logarithmusproblem in
 Sei $ G $ eine endliche abelsche Gruppe mit $ |G|= p_1^{a_1} p_2^{a_2} \cdot \ldots \cdot p_s^{a_s}. $ Dann lässt sich das diskrete Logarithmusproblem in $ G $ auf das Lösen von Logarithmenproblemen in Gruppen der Ordnung $ p_1, \ldots , p_s $ zurückführen.
 \end{satz}
 
-\noindent Enthält $ |G| $ einen \glqq dominanten\grqq {} Primteiler $ p ,$ so ist die Komplexität \index{Komplexität} des Logarithmusproblems ungefähr
+Enthält $ |G| $ einen \glqq dominanten\grqq {} Primteiler $ p ,$ so ist die Komplexität \index{Komplexität} des Logarithmusproblems ungefähr
 \[ O(\sqrt{p}). \]
 
-\noindent Wenn also das Logarithmusproblem schwer sein soll, so muss die Ordnung der verwendeten Gruppe $ G $ einen großen Primteiler haben. Insbesondere gilt, wenn die diskrete Exponentialfunktion in der Gruppe $ \Z_p^{\ast} $ eine Einwegfunktion sein soll, so muss $ p -1 $ einen großen Primteiler haben. In diesem Fall kann man ein verallgemeinertes ElGamal-Verfahren definieren (Krypto-Verfahren~\ref{genelgamalproc}).
+Wenn also das Logarithmusproblem schwer sein soll, so muss die Ordnung der verwendeten Gruppe $ G $ einen großen Primteiler haben. Insbesondere gilt, wenn die diskrete Exponentialfunktion in der Gruppe $ \Z_p^{\ast} $ eine Einwegfunktion sein soll, so muss $ p -1 $ einen großen Primteiler haben. In diesem Fall kann man ein verallgemeinertes ElGamal-Verfahren definieren (Krypto-Verfahren~\ref{genelgamalproc}).
 
 \begin{cryptoprocedure}
 \vskip +6pt
@@ -749,7 +715,7 @@ und
 \end{cryptoprocedure}
 
 \vskip +25pt
-\noindent \hyperlink{Chapter_EllipticCurves}{Elliptische Kurven}{} (siehe Kapitel \ref{Chapter_EllipticCurves})
+\hyperlink{Chapter_EllipticCurves}{Elliptische Kurven}{} (siehe Kapitel \ref{Chapter_EllipticCurves})
 liefern nützliche Gruppen für Public-Key-Verschlüsselungs\-ver\-fahren.
 
 
@@ -762,30 +728,9 @@ liefern nützliche Gruppen für Public-Key-Verschlüsselungs\-ver\-fahren.
 ]
 
 
-\noindent Alle Links wurden am 13.07.2016 überprüft.
+Alle Links wurden am 13.07.2016 überprüft.
 
 
-%--------------------------------------------------------------------
-%\newpage
-%\chapter*{Web-Links}%------------- DEUTSCH --------------------
-%
-%\addcontentsline{toc}{section}{Web-Links}
-%\begin{enumerate}
-%   \item \url{http://www.geocities.com/st_busygin/clipat.html}
-%\end{enumerate}
-
-%--------------------------------------------------------------------
-%\newpage
-%\chapter*{Web links}%------------- ENGLISH --------------------
-%% \section*{Web links}  %%% TODO: einheitlich section oder chapter für Web-Links
-                         %%% TODO: einheitlich addcontentsline NACH WebLinks und NACH Bibliography
-%\addcontentsline{toc}{section}{Web links}
-%\begin{enumerate}
-%   \item \url{http://www.geocities.com/st_busygin/clipat.html}
-%\end{enumerate}
 
 \end{refsegment}
 
-% Local Variables:
-% TeX-master: "../script-de.tex"
-% End:

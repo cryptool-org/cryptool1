@@ -31,12 +31,6 @@
 \put(0,3){\framebox(6,6){}}
 \end{picture}}
 
-%%16 Folgendes nicht verewendet (Warum war es mal mit Punkt und Blank, und mal mit Doppelpunkt am Ende?)
-%\newenvironment{Proof}{\noindent\textbf{Beweis:}$\mbox{}\;$}%
-%{\hfill\copy\BeweisSym\linebreak\par\noindent}
-%\renewenvironment{proof}{\noindent{\it Beweis. }$\mbox{}\;$}
-%{\par\noindent}
-%\newtheorem{Claim}{Claim}
 
 \newtheorem{defi}{Definition}
 \newtheorem{theo}[defi]{Theorem}
@@ -78,7 +72,7 @@
 
 (\hyperlink{author_Antoine-Joux}{Antoine Joux}, \hyperlink{author_Arjen-Lenstra}{Arjen Lenstra} \& \hyperlink{author_Alexander-May}{Alexander May}; April 2014)\\
 
-\noindent (Übersetzung ins Deutsche: Patricia Wienen, 2016)\\
+(Übersetzung ins Deutsche: Patricia Wienen, 2016)\\
 % Übersetzung:
 % - 'smooth co-factor'  glatter Cofaktor
 % - 'Hensel lifting process'   Hensel Lifting bzw. Hensel Lift Prozess
@@ -88,7 +82,7 @@
 
 
 
-\noindent \textbf{Abstract:}
+\textbf{Abstract:}
 Neuste algorithmische Entwicklungen für das Lösen diskreter Logarithmen in endlichen
 Körpern mit kleiner Charakteristik führten zu einer gewissen (publizistisch beförderten)
 Unsicherheit bei kryptographischen Nutzern bezüglich des Einflusses auf die Sicherheit kürzlich entwickelter Kryptoverfahren (siehe dazu beispielsweise die Diskussion in~\cite{Blackhat2013} unter dem Stichwort~\glqq Cryptocalypse\grqq).\index{Cryptocalypse}   Dieses Kapitel gibt einen Überblick über die zur Zeit besten Algorithmen für das Berechnen diskreter Logarithmen in verschiedenen Gruppen und über den Status des Faktorisierungsproblems. Unser Ziel ist zu klären, was im Moment algorithmisch machbar ist und wofür erst weitere bedeutende Durchbrüche nötig sind. Zusammenfassend sehen wir im Moment keinen Weg, wie man die bestehenden algorithmischen Prozesse für endliche Körper mit kleiner Charakteristik entweder auf Körper mit großer Charakteristik oder auf das ganzzahlige Faktorisierungsproblem erweitern könnte.
@@ -124,11 +118,8 @@ In diesem Kapitel beschreiben wir {\em allgemeine} kryptoanalytische Algorithmen
 
 Des Weiteren sei $G$ eine Gruppe der Ordnung $n$ und sei $n=p_1^{e_1} \cdot \ldots \cdot p_{\ell}^{e_{\ell}}$ die Primfaktorzerlegung von $n$. Wir werden sehen, dass diskrete Logarithmen in $G$ in Zeit $\bigO(e_1 \sqrt{p_1} + \ldots + e_{\ell}\sqrt{p_{\ell}})$ berechnet werden können. Man bemerke, dass diese Beschränkung äquivalent ist zu Pollard's Beschränkung $O(\sqrt n)$ g.d.w. $n$ prim ist. Andernfalls wird die Komplexität der Berechnung des diskreten Logarithmus hauptsächlich beschränkt durch die Größe des größten Primteilers der Gruppenordnung. Dies erklärt, warum z.B. Schnorr-/DSA-Signaturen in Gruppen implementiert werden, die per Konstruktion einen Primfaktor von mindestens $160$ Bit Länge enthalten. Das erklärt außerdem, warum Gruppen über Elliptischen Kurven üblicherweise primer Ordnung sind oder deren Ordnung nur einen sehr kleinen \textbf{glatten Cofaktor} enthält.
 
-%\DIFaddbegin \DIFadd{\fbox{It should be $\bigO(\sqrt{p_1} + \ldots + \sqrt{p_{\ell}}) \leq \bigO \left( \left(\sum_ {i=1}^\ell e_i  \right)\max_{i}(\sqrt p_i) \right)$}
-%}
 
-
-\DIFaddend \subsection{Die Pollard-Rho-Methode}
+\subsection{Die Pollard-Rho-Methode}
 \index{Pollard-Rho}
 Sei $G$ eine endliche abelsche Gruppe. Sei $g$ ein Generator einer großen Untergruppe $G' = \{g, g^2, \ldots, g^n\} \subseteq G$ (z.B. könnte $g$ die Gruppe $G$ selbst generieren). Sei $y=g^{x}$. Dann beschreibt das diskrete Logarithmus-Problem den Versuch, bei Eingabe von $g$ und $y$ den Wert $x \mod n$ auszugeben.
 Wir schreiben $x=\dlog_g(y)$.
@@ -180,9 +171,9 @@ In 1995 veröffentlichte Shor einen Algorithmus für die Berechnung diskreter Lo
 
 Sollten wir also in den nächsten Jahrzehnten die Entwicklung groß angelegter Quantencomputer miterleben, muss folglich die ganze klassische, auf Dlog oder Faktorisierung basierende Kryptographie ersetzt werden. Man sollte allerdings betonen, dass die Konstruktion großer Quantencomputer mit vielen Qubits sehr viel schwieriger zu sein scheint als die seines klassischen Gegenstücks, da die meisten kleinen Quantensysteme nicht gut skalieren und ein Problem mit Dekohärenz haben.\\[0.1cm]
 
-\noindent \textbf{Empfehlung:} Es scheint schwierig zu sein, die Entwicklungen in der Konstruktion von Quantencomputern vorherzusagen. Experten der Quantenphysik sehen aber derzeit keine unüberwindbaren Hindernisse, die die Entwicklung großer Quantencomputer auf lange Sicht behindern würden. Es dürfte sehr wichtig sein, den aktuellen Fortschritt in diesem Gebiet im Blick zu behalten und in den nächsten 15 Jahren alternative quanten-resistente Kryptoverfahren zur Hand zu haben.\\[0.1cm]
+\textbf{Empfehlung:} Es scheint schwierig zu sein, die Entwicklungen in der Konstruktion von Quantencomputern vorherzusagen. Experten der Quantenphysik sehen aber derzeit keine unüberwindbaren Hindernisse, die die Entwicklung großer Quantencomputer auf lange Sicht behindern würden. Es dürfte sehr wichtig sein, den aktuellen Fortschritt in diesem Gebiet im Blick zu behalten und in den nächsten 15 Jahren alternative quanten-resistente Kryptoverfahren zur Hand zu haben.\\[0.1cm]
 
-\noindent \textbf{Referenzen und weiterführende Literatur:}
+\textbf{Referenzen und weiterführende Literatur:}
 Wir empfehlen die Bücher von Menezes, van Oorschot und Vanstone~\cite{Menezes2001}, Joux~\cite{Joux2009} und Galbraith~\cite{Galbraith2012} zur Studie kryptoanalytischer Techniken. Einen einführenden Kurs in Kryptoanalyse stellt Mays Vorlesungsskript zur Kryptoanalyse zur Verfügung~\cite{May2012a,May2012b}. Eine Einleitung zu Quantenalgorithmen findet sich in den Büchern von Homeister~\cite{Homeister2007} und Mermin~\cite{Mermin2008}.
 
 Die Algorithmen in diesem Kapitel wurden ursprünglich in den hervorragenden Arbeiten von Pollard~\cite{Pollard1975,Pollard2000} und Shor~\cite{Shor1994} vorgestellt.
@@ -280,17 +271,17 @@ $$
 Dies führt zu der Lösung $x \equiv 4 \mmod 10$.
 \end{description}
 
-\noindent \textbf{Laufzeit:}
+\textbf{Laufzeit:}
 Eine große Faktorbasis zu wählen macht es einfacher, Relationen zu finden, da es die Wahrscheinlichkeit erhöht, dass sich eine bestimmte Zahl in der Faktorbasis aufteilt. Auf der anderen Seite müssen wir für eine große Faktorbasis mehr Relationen finden, um die Dlogs aller Faktorbasiselemente zu berechnen. Eine Optimierung dieses Kompromisses führt zu einer Laufzeit von $L_p[\frac 1 2]$ für den "`relation finding"'-Schritt und ebenfalls $L_p[\frac 1 2]$ für die Berechnung des individuellen diskreten Logarithmus in Schritt~3.
 
 Lasst uns kurz die Vor- und Nachteile des obigen, simplen Index-Calculus-Algorithmus aus der Sicht eines Kryptoanalysten diskutieren.
 
-\noindent \textbf{Vorteile:}
+\textbf{Vorteile:}
 \begin{itemize}
 \item Für $g^{x_i} = \prod_{j=1}^k f_j^{e_{ij}}$ ist es trivial, den diskreten Logarithmus auf der linken Seite zu berechnen.
 \end{itemize}
 
-\noindent \textbf{Nachteile:}
+\textbf{Nachteile:}
 \begin{itemize}
 \item Wir müssen relativ große Zahlen $g^{x_i}$ über die ganzen Zahlen mit einbeziehen. Man kann zeigen, dass dies zwangsläufig zu einer Laufzeit von $L_p[\frac 1 2]$ führt, und dass es keine Hoffnung gibt, unter die Konstante $\frac 1 2$ zu kommen.
 \DIFdelbegin %DIFDELCMD <
@@ -353,11 +344,11 @@ Diese Prozedur gibt uns den diskreten Logarithmus der Faktorbasiselemente.
 \item[Dlog-Berechnung:] Drücke den gesuchten Logarithmus als Linearkombination der Faktorbasiselemente aus.
 \end{description}
 
-\noindent \textbf{Laufzeit:}
+\textbf{Laufzeit:}
 Das Zahlkörpersieb ist der derzeit effizienteste bekannte Algorithmus für das diskrete Logarithmus-Problem mit großer Charakteristik. Im allgemeinen Fall -- d.h. p hat keine spezielle Form, z.B. nah an einer Primzahlpotenz -- ist seine Komplexität $L_p[\frac 1
 3,\left(\frac{64}{9}\right)^{1/3}]$.
 
-\noindent \textbf{Referenzen und weiterführende Literatur:}
+\textbf{Referenzen und weiterführende Literatur:}
 Für eine Einleitung zu Index-Calculus und die damit verbundenen mathematischen Werkzeuge siehe Mays Vorlesungsskript zur Zahlentheorie~\cite{May2013} und das Buch zur Zahlentheorie von M\"uller-Stach, Piontkowski~\cite{MSP2011}. Um ein tieferes Verständnis des Zahlkörpersiebs zu erlangen, sollte man das Buch von Lenstra und Lenstra~\cite{NFS1993} studieren, das alle Originalarbeiten enthält, die zur Entwicklung des Zahlkörpersieb-Algorithmus in den späten 80ern und frühen 90ern geführt haben.
 
 Als guten Start, um das Zahlkörpersieb zu verstehen, empfehlen wir, zunächst seine Vorgänger zu studieren, die in den Originalarbeiten von Adleman~\cite{Adleman1979}, Coppersmith~\cite{CoppersmithOS1986} und Pomerance~\cite{Pomerance1984,Pomerance1996} beschrieben sind.
@@ -424,13 +415,13 @@ Lassen Sie uns eine high-level Beschreibung der Ideen zu ihrer Verbesserungen ge
 \item[Dlog-Berechnung:] Die Berechnung des individuellen diskreten Logarithmus ist ähnlich wie im Joux-Lercier-Algorithmus.
 \end{description}
 
-\noindent \textbf{Laufzeit:} Wir rechnen in einem Körper $\mathbb{F}_{q^n}$, mit $q=2^{\ell}$. Somit würde ein Polynomialzeit-Algorithmus eine Laufzeit erfordern, die polynomiell in den Parametern $n$ und $\log q$ ist. Das "`relation finding"' oben benötigt jedoch eine Zeit von $\bigO(n \cdot q^2)$, was polynomiell in $n$ ist, aber exponentiell in $\log q$. Damit arbeitet der Algorithmus aber nur unzureichend, wenn man den Basiskörper $\mathbb{F}_q = \mathbb{F}_{2^{\ell}}$ in Betracht zieht.
+\textbf{Laufzeit:} Wir rechnen in einem Körper $\mathbb{F}_{q^n}$, mit $q=2^{\ell}$. Somit würde ein Polynomialzeit-Algorithmus eine Laufzeit erfordern, die polynomiell in den Parametern $n$ und $\log q$ ist. Das "`relation finding"' oben benötigt jedoch eine Zeit von $\bigO(n \cdot q^2)$, was polynomiell in $n$ ist, aber exponentiell in $\log q$. Damit arbeitet der Algorithmus aber nur unzureichend, wenn man den Basiskörper $\mathbb{F}_q = \mathbb{F}_{2^{\ell}}$ in Betracht zieht.
 
 Der Trick, um das zu umgehen, ist die Größe der Basis $q$ auf $q'$ zu reduzieren, während man den Erweiterungsgrad $n$ etwas auf $n'$ erhöht. Unser Ziel dabei ist, dass die neue Basiskörpergröße $q'$ ungefähr dem neuen Erweiterungsgrad $n'$ entspricht, also $q' \approx n'$. In diesem Fall erhalten wir erneut eine Laufzeit, die polynomiell in $n'$ und $q'$ ist, aber jetzt ist $q'$ ebenfalls polynomiell beschränkt durch $n'$. Insgesamt ist unsere Laufzeit für Schritt 2 damit polynomiell beschränkt durch $n'$.\\[0.1cm]
 
 Lassen Sie uns ein einfaches Beispiel angeben, wie das für konkrete Parameter gehandhabt wird. Angenommen wir wollen einen diskreten Logarithmus in $\mathbb{F}_{(2^{100})^{100}}$ berechnen. Dann würden wir den Basiskörper zu $q'=2^{10}$ verringern und gleichzeitig den Erweiterungsgrad zu $n'=1000$ erhöhen, d.h. wir rechnen in $\mathbb{F}_{(2^{10})^{1000}}$. Bemerke, dass dies immer gemacht werden kann durch Nutzung effizient berechenbarer Isomorphismen zwischen endlichen Körpern gleicher Kardinalität.\\[0.1cm]
 
-\noindent{\em Warnung:} Man könnte versucht sein, das Obige mit der Wahl von Exponenten zu umgehen, die sich nicht geeignet teilen lassen, d.h. durch Wahl von $\mathbb{F}_{2^p}$ mit $p$ prim. Man kann jedoch immer den endlichen Körper in einen größeren Körper einbetten -- ebenso wie die entsprechenden diskreten Logarithmen. Deshalb werden endliche Körper mit kleiner Charakteristik als unsicher angesehen, unabhängig von der speziellen Form des Erweiterungsgrades $n$.\\[0.1cm]
+{\em Warnung:} Man könnte versucht sein, das Obige mit der Wahl von Exponenten zu umgehen, die sich nicht geeignet teilen lassen, d.h. durch Wahl von $\mathbb{F}_{2^p}$ mit $p$ prim. Man kann jedoch immer den endlichen Körper in einen größeren Körper einbetten -- ebenso wie die entsprechenden diskreten Logarithmen. Deshalb werden endliche Körper mit kleiner Charakteristik als unsicher angesehen, unabhängig von der speziellen Form des Erweiterungsgrades $n$.\\[0.1cm]
 
 Während das "`relation finding"' in Schritt 2 von G\"ologlu, Granger, McGuire und Zumbr\"agel in {\em polynomieller Zeit} erledigt werden kann, ist die Berechnung des individuellen Logarithmus immer noch zeitraubend. Macht man dies auf naive Art und Weise, ist Schritt 3 wegen des erhöhten Erweiterungsgrades $n'$ sogar noch zeitintensiver als in Joux-Lercier. Balanciert man die Laufzeiten von Schritt 2 und Schritt 3 aus, erhält man eine verbesserte Gesamtlaufzeit von $L_{q^n}[\frac 1 3, (\frac 4 9)^{\frac 1 3}]$.
 %\DIFaddbegin \DIFadd{With the pinpointing technique of Joux, the resulting complexity also
@@ -457,7 +448,7 @@ das sich offensichtlich in die Faktorbasis faktorisieren lässt. Jetzt wendet ma
 \item[Dlog-Berechnung:] Barbulescu et al präsentieren einen effizienten {\em Gradabstiegs}-Algorithmus, der bei Eingabe eines Polynoms $p(x)$ von Grad $n$ eine lineare Relation zwischen dem diskreten Logarithmus von $p(x)$ und $\bigO(nq^2)$ Polynomen von Grad $\frac n 2$ ausgibt, in einer Zeit, die polynomiell in $q$ und $D$ ist. Das bedeutet, dass wir einen Baum von Polynomen bekommen, bei dem der Grad mit jedem Level um den Faktor zwei fällt, was umgekehrt eine Baumtiefe von $\log n$ impliziert. Das resultiert in einer Laufzeit von $\bigO(q^{\bigO(\log n)})$.
 \end{description}
 
-\noindent \textbf{Laufzeit:}
+\textbf{Laufzeit:}
 Wie im vorigen Abschnitt~\ref{GGMZ} nehmen wir an, dass die Größe $q$ des Basiskörpers die gleiche Größe hat wie der Erweiterungsgrad $n$, d.h. $q=\bigO(n)$. Dann läuft Schritt 2 in Zeit $\bigO(q)=\bigO(n)$, was polynomiell in $n$ ist. Schritt 3 läuft in Zeit $\bigO(q^{\bigO(\log n)})=\bigO(n^{\bigO(\log n)}) = L_{q^n}[o(1)]$. Bemerke, dass $n^{\log n}=2^{\log^2 n}$ schneller wächst als jede polynomielle Funktion in $n$, aber langsamer als jede sub-exponentielle Funktion $2^{n^{c}}$ für ein $c>0$.
 
 
@@ -485,7 +476,7 @@ Datum & Körper & Bitgröße & Kosten (CPU-Stunden) & Algorithmus\\
 \end{center}
 \end{table}
 
-\noindent \textbf{Empfehlung:}
+\textbf{Empfehlung:}
 Der Gebrauch von Körpern mit kleiner Charakteristik für Dlog-basierte Verfahren auf Basis diskreter Logarithmen ist \textbf{gänzlich unsicher}, unabhängig davon welche Schlüsselgröße verwendet wird. Glücklicherweise wird davon -- nach unserem Wissen -- in weit verbreiteten/standardisierten kryptographischen Verfahren kein Gebrauch gemacht.
 
 
@@ -496,7 +487,7 @@ Index-Calculus-Algo\-rithmen übertragen?}
 
 Aus der Sicht eines Kryptoanwenders würde man sich sorgen, dass sich die aktuellen bahnbrechenden Ergebnisse, die die Komplexität für die Berechnung diskreter Logarithmen in Körpern mit kleiner Charakteristik von $L[\frac 1 3]$ auf $L[o(1)]$ senken, auch auf diskrete Logarithmen in anderen Gruppen anwenden lassen. Man könnte zum Beispiel besorgt sein über das tatsächliche Sicherheitslevel von auf diskreten Logarithmen basierender Kryptographie in endlichen Körpern $\mathbb{F}_p$ mit {\em großer} Charakteristik.\\[0.1cm]
 
-\noindent \textbf{Vermutung:} Wir glauben, dass sich die neuen Techniken nicht auf endliche Körper mit großer Charakteristik oder auf Elliptische Kurven übertragen lassen, die gegenwärtig den Standard für kryptographische Konstruktionen darstellen.\\[0.1cm]
+\textbf{Vermutung:} Wir glauben, dass sich die neuen Techniken nicht auf endliche Körper mit großer Charakteristik oder auf Elliptische Kurven übertragen lassen, die gegenwärtig den Standard für kryptographische Konstruktionen darstellen.\\[0.1cm]
 
 Lasst uns kurz einige Gründe sammeln, warum sich die aktuellen Techniken nicht auf diese Gruppen übertragen lassen, und welche Probleme gelöst werden müssen, bevor wir einen signifikanten Fortschritt in der Laufzeit für diese Gruppen sehen.
 
@@ -514,7 +505,7 @@ Was ganze Zahlen eigentlich härter macht als Polynome ist der Effekt der Übert
 \item\textbf{Komplexität der Schritte 2 \& 3:} Jeglicher algorithmische Durchbruch für diskrete Logarithmen vom Typ Index-Calculus müsste die diskreten Logarithmen einer wohldefinierten Faktorbasis effizient lösen {\em und} den gewünschten Logarithmus in Termen aus dieser Faktorbasis ausdrücken. Zur Zeit haben wir aber im Fall großer Primkörper $\mathbb{F}_p$ für keinen dieser Schritte eine effiziente Methode.
 \end{itemize}
 
-\noindent \textbf{Referenzen und weiterführende Literatur:}
+\textbf{Referenzen und weiterführende Literatur:}
 Coppersmiths Algorithmus~\cite{Coppersmith1984} aus der Mitte der 80er war lange Zeit die Referenzmethode für die Berechnung diskreter Logarithmen in Körpern mit kleiner Charakteristik. Der Joux-Lercier-Function-Field-Sieve wurde 2006 in~\cite{JL2006} vorgestellt.\index{Function-Field-Sieve (FFS)}
 
 Die aktuellen Fortschritte begannen auf der Eurocrypt 2013 mit Jouxs Pinpointing-Tech\-nik~\cite{Pin2013}. Auf der Crypto 2013 verbesserten G\"ologlu, Granger, McGuire und Jens Zumbr\"agel~\cite{GGMZ2013} bereits die Konstante $c$ in der $L[\frac 1 3,c]$-Laufzeit. Die Verbesserung zur Laufzeit $L[\frac 1 4]$ wurde dann vorgestellt in der Arbeit von Joux~\cite{Joux2013}. Letztendlich schlugen Barbulescu, Gaudry, Joux und Thom{\'e}~\cite{BGJT2013} einen Algorithmus für den Abstieg vor, der zur Laufzeit $L[o(1)]$ führte.
@@ -575,7 +566,7 @@ Da $f$ und $g$ verschieden sind, definieren sie verschiedene Ringe $\mathbb{Z}[X
 \item[Lineare Algebra:] Mit Hilfe Linearer Algebra suchen wir ein Produkt der Elemente $\pi_f$, das ein Quadrat ist und dessen korrespondierendes Produkt der $\pi_g$ ebenfalls ein Quadrat ist. Bilden wir diese Elemente mit unserem Homomorphismus $X \mapsto m$ auf $\mathbb{Z}/n\mathbb{Z}$ ab, so erhalten wir Elemente $x^2,y^2 \in \mathbb{Z}/n\mathbb{Z}$, so dass $x^2 \equiv y^2 \mmod n$. Berechnen wir erst die Quadratwurzeln von $\pi_f$ und $\pi_g$ in deren entsprechenden Zahlkörpern, ohne vorher den Homomorphismus anzuwenden, so erhalten wir wie gewünscht $x, y \in \mathbb{Z}/n\mathbb{Z}$ mit $x^2 \equiv y^2 \mmod N$. Die Unabhängigkeit von $x,y$ leitet sich ab aus den verschiedenen Repräsentationen in beiden Zahlkörpern.
 \end{description}
 
-\noindent \textbf{Laufzeit:}
+\textbf{Laufzeit:}
 Der obige Algorithmus ist bis auf manche Details -- z.B. die Quadratwurzelberechnung im Zahlkörper -- identisch zum Algorithmus aus Abschnitt~\ref{nfs-dlog} und besitzt die gleiche Laufzeit $L[\frac 1
 3,\left(\frac{64}{9}\right)^{1/3}]$.
 
@@ -674,7 +665,7 @@ Bitgröße & Sicherheit\\
 %Moreover, the $L$-function can be easily
 
 
-\noindent \textbf{Referenzen und weiterführende Literatur:}
+\textbf{Referenzen und weiterführende Literatur:}
 Eine Einleitung zu mehreren Faktorisierungsalgorithmen inklusive des Quadratic Sieve -- dem Vorgänger des Zahlkörpersiebs -- findet sich in Mays Skript zur Zahlentheorie~\cite{May2013}. Wir empfehlen Bl\"omers Skript zur Algorithmischen Zahlentheorie~\cite{Bloemer1999} als Einleitung zum Zahlkörpersieb.
 
 Die Entwicklung des Zahlkörpersiebs wird beschrieben im Lehrbuch von Lenstra und Lenstra~\cite{NFS1993}, das alle Originalarbeiten beinhaltet. Die Relation von diskreten Logarithmen und Faktorisierung wurde diskutiert von Bach~\cite{Bach1984}. Details zum aktuellen Faktorisierungsrekord für RSA-768 kann man in~\cite{factor768_2010} finden.
@@ -721,7 +712,7 @@ Gaudry's Diskreter-Logarithmus-Algorithmus ist vom Typ Index-Calculus. Wir umrei
 \end{description}
 
 
-\noindent \textbf{Laufzeit:}
+\textbf{Laufzeit:}
 Die Faktorbasis kann in Zeit $\bigO(p)$ berechnet werden. Jedes $R$ kann geschrieben werden als Summe von $n$ Faktorbasiselementen, d.h. es liefert eine Relation mit einer Wahrscheinlichkeit, die exponentiell klein ist in $n$ (aber unabhängig von $p$). Falls es eine Lösung liefert, ist die Laufzeit für die Berechnung einer Gröbnerbasis\index{Gröbner-Basis} ebenfalls exponentiell in $n$ (aber polynomiell in $\log p$). Insgesamt benötigen wir ungefähr $p$ Relationen, die berechnet werden können in einer Zeit, die linear in $p$ und exponentiell in $n$ ist. Da wir annehmen, dass $n$ fest ist, müssen wir uns nicht um das schlechte Verhalten in $n$ kümmern. Der Schritt mit Linearer Algebra auf einer $(p \times p)$-Matrix kann in $\bigO(p^2)$ durchgeführt werden, da die Matrix dünn besetzt ist -- jede Zeile enthält genau $n$ Einträge, die nicht Null sind. Mit Hilfe zusätzlicher Tricks erzielt man eine Laufzeit von $\bigO(p^{2-\frac 2 n})$ für Gaudry's Algorithmus.
 
 Dies sollte verglichen werden mit der generischen Schranke von $\bigO(p^{\frac n 2})$, die wir erreichen, wenn wir den Pollard-Rho-Algorithmus aus Kapitel~\ref{generic} verwenden. Ähnlich wie in Kapitel~\ref{ffs} scheint sich fast die ganze Komplexität des Problems in der Größe des Basiskörpers $p$ zu konzentrieren, und nicht im Erweiterungsgrad $n$. Bemerke, dass in Kapitel~\ref{ffs} Gaudry's Algorithmus exponentiell ist in $\log p$.
@@ -731,7 +722,7 @@ Dies sollte verglichen werden mit der generischen Schranke von $\bigO(p^{\frac n
 \subsection{\texorpdfstring{Beste bekannte Algorithmen für Elliptische Kurven $E[p]$ über Primkörpern}{Beste bekannte Algorithmen für Elliptische Kurven E[p] über Primkörpern}}
 \index{elliptische Kurve}
 
-\noindent \textbf{Generisches Lösen diskreter Logarithmen:}
+\textbf{Generisches Lösen diskreter Logarithmen:}
 Allgemein ist der beste uns bekannte Algorithmus für beliebige Elliptische Kurven $E[p]$ die Pollard-Rho-Methode mit einer Laufzeit von $\bigO(\sqrt p)$. Für den Moment scheint niemand zu wissen, wie man die Struktur einer Gruppe Elliptischer Kurven oder seiner Elemente ausnutzt, um die generische Schranke zu verbessern.
 
 Wir möchten außerdem betonen, dass {\em zufällige} Elliptische Kurven, d.h. deren Parameter $a,b$ aus der definierenden Weierstrassgleichung $y^2 \equiv x^3+ax+b \mmod p$ zufällig gleichverteilt
@@ -743,12 +734,12 @@ Wir möchten außerdem betonen, dass {\em zufällige} Elliptische Kurven, d.h. d
 %%% sein, z.B. Binomial-, Poisson-, Gauß-verteilt.
 gewählt werden, zu den harten Instanzen gehören. Um Elliptische Kurven noch härter zu machen, wählt man für die Standardisierung nur solche Kurven, die (nahezu) Primordnung haben. Das bedeutet, dass der Co-Faktor der größten Primzahl in der Gruppenordnung üblicherweise $1$ ist, so dass die Nutzung des Silver-Pohlig-Hellman-Algorithmus nichts nützt.
 
-\noindent \textbf{Einbetten von $E[p]$ in $\mathbb{F}_{p^k}$:}
+\textbf{Einbetten von $E[p]$ in $\mathbb{F}_{p^k}$:}
 Es ist bekannt, dass im Allgemeinen Elliptische Kurven $E[p]$ in einen endlichen Körper $\mathbb{F}_{p^k}$ eingebettet werden können, wobei $k$ der sogenannte {\em Grad der Einbettung} ist. In $\mathbb{F}_{p^k}$ könnten wir das Zahlkörpersieb für die Berechnung diskreter Logarithmen verwenden. Damit wäre solch eine Einbettung attraktiv, wenn $L_{p^k}[\frac 1 3]$ kleiner ist als $\sqrt p$, was nur der Fall ist, wenn der Grad der Einbettung $k$ sehr klein ist. Allerdings ist für fast alle Elliptischen Kurven der Grad der Einbettung bekannterweise groß, nämlich vergleichbar zu $p$ selbst.
 
 Manche Konstruktionen in der Kryptographie, z.B. solche, die bilineare Paarungen (bilinear pairings) verwenden, nutzen die Vorteile eines kleinen Einbettungsgrades aus. Damit werden in diesen Verfahren Elliptische Kurven explizit mit kleinem Einbettungsgrad gewählt, z.B. $k=6$, was die Härte des diskreten Logarithmus-Problems auf $E[p]$ und in $\mathbb{F}_p^k$ ausbalanciert.
 
-\noindent \textbf{Der Xedni-Calculus-Algorithmus:}
+\textbf{Der Xedni-Calculus-Algorithmus:}
 In 2000 veröffentlichte Silverman seinen {\em Xedni-Calculus-Algorithmus} (man lese Xedni rückwärts), der die Gruppenstruktur von $E[p]$ für die Berechnung diskreter Logarithmen verwendet, und der somit der einzige bekannte nicht-generische Algorithmus ist, der direkt auf $E[p]$ arbeitet. Allerdings wurde kurz nach seiner Veröffentlichung entdeckt, dass der sogenannte Hebungsprozess in Silvermans Algorithmus nur mit vernachlässigbarer Wahrscheinlichkeit erfolgreich einen diskreten Logarithmus berechnet.
 
 
@@ -777,7 +768,7 @@ Eine umfangreiche Beschreibung, wie man die Domain-Parameter für Elliptische Ku
 \item \textbf{Eine große Klassenzahl}. Dies schließt aus, dass $E[p]$ effizient zu einer über einen algebraischen Zahlkörper definierten Kurve gehoben werden kann. Diese Voraussetzung ist recht konservativ, da derzeit sogar für kleine Klassenzahlen kein effizienter Angriff bekannt ist.
 \end{itemize}
 
-\noindent Außerdem bestehen die Autoren auf folgenden nützlichen Eigenschaften.
+Außerdem bestehen die Autoren auf folgenden nützlichen Eigenschaften.
 \begin{itemize}
 \item \textbf{Primzahlordnung}. Dies schließt einfach Untergruppenangriffe aus.
 
@@ -790,7 +781,7 @@ Die Arbeit von Bos, Costello, Longa und Naehrig~\cite{BCLN2014} gibt eine wertvo
 
 Wir empfehlen sehr das SafeCurve-Projekt\index{SafeCurve-Projekt} von Daniel Bernstein und Tanja Lange~\cite{BernsteinLange2014}, das einen exzellenten Überblick für verschiedene Auswahlmethoden und deren Vor- und Nachteile zur Verfügung stellt.\index{Bernstein} Das Ziel von Bernstein und Lange ist es, Sicherheit für die Kryptographie mit Elliptischen Kurven zu liefern -- und nicht nur Stärke von Elliptischen Kurven gegenüber Angriffen auf diskrete Logarithmen. Deshalb berücksichtigen sie verschiedene Typen von Seitenkanälen, die Geheimnisse in einer Implementierung durchsickern lassen könnten.
 
-\noindent \textbf{Referenzen und weiterführende Literatur:}
+\textbf{Referenzen und weiterführende Literatur:}
 Für eine Einleitung zur Mathematik Elliptischer Kurven und deren kryptographische Anwendungen beziehen wir uns auf die Lehrbücher von Washington~\cite{Washington2008}, Galbraith~\cite{Galbraith2012} und Silverman~\cite{Silverman1999}.
 
 In diesem Abschnitt wurden die Ergebnisse der Originalarbeiten von Gaudry, Hess und Smart~\cite{GHS2002}, Gaudry~\cite{Gaudry2009}, Semaev~\cite{Semaev2004} und der Xedni-Algorithmus von Silverman~\cite{Silverman1999} beschrieben.
@@ -818,17 +809,19 @@ Derzeit gibt es einige Spekulationen darüber, ob die NSA das amerikanische Inst
 Für auf Faktorisierung basierende Verfahren ist die Situation etwas anders als bei solchen, die auf diskreten Logarithmen basieren. Im Gegensatz zu auf diskreten Logarithmen basierenden Verfahren gibt es keine systemweiten Parameter, die eine Gruppe definieren. Dennoch gibt es bekannte Wege, um z.B. Informationen über die Faktorisierung des RSA-Moduls N in den öffentlichen RSA-Exponenten $e$ einzubetten. Außerdem zeigen neueste Angriffe auf die Infrastrukturen der öffentlichen RSA-Schlüssel~\cite{keys2012, Heninger2012}, dass es ein schwieriges Problem zu sein scheint, öffentliche RSA-Schlüssel mit verschiedenen Primzahlen in der Öffentlichkeit zu generieren, hauptsächlich wegen schlechter Initialisierungen von Pseudozufallsgeneratoren. Dies betrifft natürlich nur schlecht gewählte Schlüssel von einzelnen anstatt von allen Anwendern eines kryptographischen Verfahrens.\\[0.1cm]
 
 
-\noindent \textbf{Empfehlung:} Dlog-basierte Verfahren scheinen aus der Sicht eines Krypto-Designers einfacher zu kontrollieren zu sein, da hier alle Anwender die gleichen systemweiten Parameter nehmen müssen.\\[0.1cm]
+
+
+ \textbf{Empfehlung:} Dlog-basierte Verfahren scheinen aus der Sicht eines Krypto-Designers einfacher zu kontrollieren zu sein, da hier alle Anwender die gleichen systemweiten Parameter nehmen müssen.\\[0.1cm]
 
 %It seems impossible to completely guard...
 
 Wir diskutieren an dieser Stelle nicht die Möglichkeit von Malware -- welche jeglichen kryptographischen Versuch des Schutzes hinfällig machen könnte -- oder wie man sich dagegen schützt. Aber wir möchten folgende (einigermaßen triviale) Warnung betonen, die sich auf einen bedeutenden Punkt in der Praxis bezieht.\\[0.1cm]
 
-\noindent \textbf{Warnung:} Kryptographie kann Daten nur beschützen, wenn sie korrekt implementiert ist und ihr immanentes Geheimnis nicht preisgibt. Somit müssen wir zusätzlich zur mathematischen Härte des zugrunde liegenden Problems auch dem Implementierer des kryptographischen Verfahrens vertrauen. Dieses Vertrauen beinhaltet nicht nur, dass das Verfahren so implementiert ist wie es ursprünglich designed wurde -- ohne das Einbetten einer Falltür -- sondern auch, dass der Implementierer einer dritten Partei nicht die generierten geheimen Schlüssel offenlegt.
+ \textbf{Warnung:} Kryptographie kann Daten nur beschützen, wenn sie korrekt implementiert ist und ihr immanentes Geheimnis nicht preisgibt. Somit müssen wir zusätzlich zur mathematischen Härte des zugrunde liegenden Problems auch dem Implementierer des kryptographischen Verfahrens vertrauen. Dieses Vertrauen beinhaltet nicht nur, dass das Verfahren so implementiert ist wie es ursprünglich designed wurde -- ohne das Einbetten einer Falltür -- sondern auch, dass der Implementierer einer dritten Partei nicht die generierten geheimen Schlüssel offenlegt.
 
 Es scheint, dass in der NSA-Affäre manche Firmen gezwungen wurden, geheime Schlüssel zu offenbaren. Somit sollte man bedenken, dass man kryptographische Verfahren von einer völlig verlässlichen Firma kaufen muss, die nicht kompromittiert wurde.\\
 
-\noindent \textbf{Referenzen und weiterführende Literatur:}
+ \textbf{Referenzen und weiterführende Literatur:}
 Für eine nette Diskussion, wie man unaufspürbare Falltüren in verschiedene kryptographische Verfahren einbettet, siehe die Originalarbeiten von Young und Yung~\cite{YY1996,YY1997}. Siehe~\cite{keys2012} für einen aktuellen Angriff auf eine signifikant große Menge von RSA-Schlüsseln in der Praxis infolge schlechter Pseudozufallsgeneration.
 
 
@@ -868,13 +861,13 @@ Unsere Präferenz ist, \textbf{Gruppen über Elliptischen Kurven} $E[p]$ zu verw
 \item Falls eine Elliptische Kurve $E[p]$ sorgfältig gewählt ist, d.h. dass die Gruppe rechnerisch hart und ohne Hintertür ist, dann profitieren alle Anwender von der Härte des diskreten Logarithmus-Problems. Man merke, dass diese Wahl entscheidend ist: Falls die Gruppe nicht sicher ist, dann leiden auch alle Anwender durch ihre Unsicherheit.
 \end{itemize}
 
-\noindent \textbf{Warnung:} Man sollte bedenken, dass obige Empfehlungen nur in einer Welt ohne große Quantencomputer gelten.\index{Quantencomputer}
+ \textbf{Warnung:} Man sollte bedenken, dass obige Empfehlungen nur in einer Welt ohne große Quantencomputer gelten.\index{Quantencomputer}
  Es scheint sehr wichtig zu sein, den aktuellen Fortschritt in diesem Gebiet zu verfolgen und innerhalb der nächsten 15 Jahre einige alternative, Quantencomputer-resistente Kryptoverfahren bereit zu haben.
 
-\noindent \textbf{Referenzen und weiterführende Literatur:}
+ \textbf{Referenzen und weiterführende Literatur:}
 Für eine gute und konservative Wahl von Schlüsselgrößen empfehlen wir sehr, den Vorschlägen des Bundesamtes f\"ur Sicherheit in der Informationstechnik (BSI)~\cite{BSI2012} und der Agence nationale de la s\'ecurit\'e des syst\`emes d'informa\-tion~\cite{refanssi2013} zu folgen. Beide Quellen bieten außerdem mehrere wertvolle Empfehlungen, wie man verschiedene kryptographische Primitiven korrekt implementiert und kombiniert.\\\\
 
-\noindent \textbf{Anmerkung des Editors im Juni 2016:}
+ \textbf{Anmerkung des Editors im Juni 2016:}
 Seit April 2014 haben sich viele Dinge geändert (es gab es neue Rekorde bei dlog-endlichen Körpern und kleinere Verbesserungen des L(1/3)-Algorithmus in einigen Kontexten). Trotzdem bleibt die Gesamtaussage bestehen, dass (nur) endliche Körper mit kleiner Charakteristik nicht mehr sicher sind.
 
 
@@ -888,6 +881,6 @@ Seit April 2014 haben sich viele Dinge geändert (es gab es neue Rekorde bei dlo
 \end{refsegment}
 
 
-\noindent Alle Links wurden am 15.07.2016 überprüft.
+ Alle Links wurden am 15.07.2016 überprüft.
 
 

@@ -696,7 +696,8 @@ Daher eignen sich diese Verfahren auch sehr gut für eine Parallelisierung.
 \label{ec:Implementing-for-Education}
 
 Es gibt relativ wenig freie Programme mit graphischer Oberfläche, die ECC implementieren.
-Im Folgenden wird aufgezeigt, welche Funktionalität dazu in CrypTool und in SageMath vorhanden ist.
+Im Folgenden wird aufgezeigt, welche Funktionalität
+dazu in CrypTool und in SageMath vorhanden ist.
 
 
 % -----------------------------------------------------------------------------
@@ -707,18 +708,10 @@ CT1 enthält Elliptische Kurven, um digitale Signaturen zu erzeugen%
 Die Dialogbox, die in CT1\index{CT1} nach dem Menü
 \textbf{Digitale Signaturen/PKI \textbackslash{} Dokument signieren} erscheint,
 bietet die EC-Verfahren ECSP-DSA und ECSP-NR an.
-  % Leerzeile vor schließender Footnote-Klammer zu #20 nötig, um einheitlich eine
-  % Leerzeile am Ende der Fußnoten zu haben -- solange keine andere Lösung
-  % für das Einrückproblem bei Fußnote #23 (TODO_LaTeX)
-
 } und um die ECC-AES-Hybridverschlüsselung durchzuführen%
 \footnote{%
 In CT1\index{CT1} finden Sie dieses Verfahren über das Menü
 \textbf{Ver-/Entschlüsseln \textbackslash{} Hybrid}.
-  % Leerzeile vor schließender Footnote-Klammer zu #21 nötig, um einheitlich eine
-  % Leerzeile am Ende der Fußnoten zu haben -- solange keine andere Lösung
-  % für das Einrückproblem bei Fußnote #23 (TODO_LaTeX)
-
 }.
 
 Implementiert sind die Basisalgorithmen für Gruppenoperationen, für das
@@ -740,10 +733,6 @@ in CT1\index{CT1} and JCT\index{JCT} visualisiert.%
   (Signaturerzeugung)},\\
   JCT (Standard-Perspektive): Menü \textbf{Visualisierungen \textbackslash{}
   Elliptische Kurven-Berechnungen}.
-  % Leerzeile vor schließender Footnote-Klammer zu #22 nötig, um einheitlich eine
-  % Leerzeile am Ende der Fußnoten zu haben -- solange keine andere Lösung
-  % für das Einrückproblem bei Fußnote #23 (TODO_LaTeX)
-
 }
 
 
@@ -756,24 +745,8 @@ in CT1\index{CT1} and JCT\index{JCT} visualisiert.%
 In SageMath finden sich sehr gute Beschreibungen über Elliptische Kurven unter:%
 \footnote{%
 SageMath-Beispiele dazu finden sich z.B. auch in
-% be_2016-07-14: Links zu alten published worksheets tot. Wo sind diese nun?
-% den \glqq Published Worksheets\grqq~auf
-% \url{http://www.sagenb.org/pub/}:\\
-  %%% http://sage.math.gordon.edu/pub/,  http://sage.math.canterbury.ac.nz/pub/
-  %%% https://sage.math.leidenuniv.nl/pub/
-%- über Elliptic Curve: \url{http://www.sagenb.org/home/pub/606/}\\
-%  --> (danke, laut Mail von William Stein 14.7.16)
-%  https://cloud.sagemath.com/projects/19575ea0-317e-402b-be57-368d04c113db/files/pub/601-701/606.sagews
-%- über Elliptic Curve ElGamal: \url{http://www.sagenb.org/home/pub/104/}, oder im
-%
-%  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
   dem \glqq Elliptic Curve Cryptography (ECC) Tutorial\grqq\\
   \url{http://www.williamstein.org/simuw06/notes/notes/node12.html}
-  % - Leerzeile nach "oder im" nötig (\\ führt auch zu ungewünschter Verschiebung)
-  % - Leerzeile am Ende vor der schließenden Footnote-Klammer nötig -- nicht vor Kommentar
-  %   und nicht per\\ nach der url (um Absatz-Ende zu erkennen, sonst hat die 2. Zeile
-  %   (also die URL) KEINEN hängenden Einzug?! (TODO_LaTeX)
-
 }
 
 \begin{sloppypar} % Nötig, da der 2. Link sonst nicht umgebrochen.
@@ -784,16 +757,15 @@ SageMath-Beispiele dazu finden sich z.B. auch in
 \end{sloppypar}
 
 
-\noindent Zusätzlich gibt es ein ausführliches, interaktives
+Zusätzlich gibt es ein ausführliches, interaktives
 \hyperlink{ec:Web-Link:Sage_Massierer}{ECC-Tutorial} von Maike Massierer.
 Diese Einführung in die Elliptische-Kurven-Kryptographie (ECC)
 ist als SageMath-Notebook aufgebaut.
 
-\noindent SageMath-Notebooks werden im Browser nach einem Logon-Vorgang aufgerufen%
+SageMath-Notebooks werden im Browser nach einem Logon-Vorgang aufgerufen%
 \footnote{%
 Hat man SageMath auf einem eigenen (Unix-)Server installiert, muss
 man auf der SageMath-Kommandozeile erst den Befehl \verb#notebook()# aufrufen.
-
 }${}^,$\footnote{%
 Das \hyperlink{ec:Web-Link:Sage_Massierer}{ECC-Notebook} von Massierer
 benötigt die KASH3-Bibliothek: Deshalb muss (z.B. für SageMath 4.2.1)%TODO-Version
@@ -809,55 +781,16 @@ wurde 2008 von Massierer\footnote{%
 Anleitung zur Benutzung eines interaktiven SageMath-Notebooks\index{SageMath!Anleitung interaktives Notebook}:
 Aktualisieren für die neue SageMathCloud xxxxxxxxxxxxx\\
 %todoTODO
-
-  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  Manche SageMath-Server sind öffentlich
-  %wie
-  %\url{http://sage.mathematik.uni-siegen.de:8000} oder
-  %\url{http://www.sagenb.org/}
+\begin{itemize}
+  \item[-] Manche SageMath-Server sind öffentlich
   und bieten Worksheets als
   \glqq Published Worksheets\grqq~ an, die man ohne Log-in
   ausführen kann. Diese Worksheets werden aufgelistet, wenn man
   auf \glqq Published\grqq~in der oberen rechten Ecke klickt.
-
-  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  Worksheets, die den  \verb#Interact#-Befehl nutzen, erfordern z.Zt.
+  \item[-] Worksheets, die den  \verb#Interact#-Befehl nutzen, erfordern z.Zt.
   einige weitere Schritte vom Benutzer: Einloggen, Kopie erstellen,
   alle Kommandos nochmal ausführen.\\
-%  Das Vorgehen ist im Folgenden beschrieben (am Beispiel des sagenb-Servers
-%  und für das ECC-Tutorial):\\
-%
-%  TODO --> SageMathCloud
-%  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-%  Anlegen eines Accounts für ein SageMath-Notebook unter \url{http://sagenb.org/register}
-%  und Einloggen unter \url{http://sagenb.org/}.
-%  Todo --> Hier nun SageMathCloud !
-
-%  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-%  Öffnen des Worksheets \url{http://sagenb.org/home/pub/1126/}.
-%  Dieses enthält das Inhaltsverzeichnis des interaktiven ECC-Notebook.
-%  Von hier aus kann man per Klick zu den anderen Kapiteln des Dokuments navigieren.
-
-%  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-%  Klicken Sie auf \verb#Edit a copy#~in der linken oberen Ecke,
-%  um eine eigene Kopie des Worksheets zu erstellen.
-
-%  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-%  Manchmal ist es nötig, dass man das Worksheet nach dem Start nochmal neu ausführt.
-%  Klicken Sie dazu in der linken oberen Ecke \verb#Action -> Evaluate all#.
-
-%  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-%  Manche Befehle funktionieren manchmal trotzdem nicht nach dem Öffnen eines Worksheet.
-%  Statt eines ansprechende Layouts kommen viele (blaue) Fehlermeldungen.
-%  Das kann man normalerweise schnell lösen, indem man den grauen
-%  \glqq \%hide\grqq-String anklickt: Danach sieht man den Code hinter der Grafik.
-%  Mit Shift-Enter kann man die Grafik neu erzeugen.\\
-%  Selbst dann verschwindet der Grafik-Code nicht immer, sondern wird grau.
-%  Dann hilft meist ein Klick auf den grauen Text, und danach ein Klick außerhalb
-%  der Text-Box. Danach verschwindet der Code und man sieht das grafische Layout des
-%  Worksheet.
-
-  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
+\item[-]
   Teile des ECC-Tutorial benutzen einen speziellen Mathematik-Font, der standardmäßig
   bei den meisten Browser nicht mitinstalliert wird. Wenn Sie bemerken, dass Formeln
   nicht korrekt dargestellt sind oder Ihr Browser meldet, dass Fonts fehlen,
@@ -866,13 +799,7 @@ Aktualisieren für die neue SageMathCloud xxxxxxxxxxxxx\\
   Nach der Installation dieser Fonts hat man das jsMath-Symbol am unteren Rand
   des Browsers. Klickt man dieses Symbol an, erhält man die Download-Seite dieser
   TIFF-Fonts. Diese Font-Installation muss an jedem PC einzeln erfolgen.
-%
-%  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-%  Gemäß der SageMath-Support-Newsgroup wird daran gearbeitet, ein System zu erstellen,
-%  so dass \verb#@interact# komplett außerhalb des SageMath-Notebooks benutzt werden kann
-%  (JS-Code innerhalb von statischen HTML-Seiten).
-%   % Leerzeile am Ende nötig (Erkennen Absatz-Ende, sonst hat die 2. Zeile KEINEN hängenden Einzug?! (TODO_LaTeX)
-
+\end{itemize}
 }
 erstellt und besteht aus 8 Teilen (\glqq Titelseite\grqq~mit Inhaltsverzeichnis
 plus 7 Kapitel) und zielt darauf ab, dass selbst ein Einsteiger versteht, was
@@ -948,7 +875,7 @@ der Schlüssellänge (begrenzter Speicherplatz) eine entscheidende Bedeutung zuk
 ]
 
 
-\noindent Alle Links wurden am 14.07.2016 überprüft.
+Alle Links wurden am 14.07.2016 überprüft.
 
 
 
@@ -1012,7 +939,7 @@ der Schlüssellänge (begrenzter Speicherplatz) eine entscheidende Bedeutung zuk
 
 \end{enumerate}
 
-\noindent Alle Links wurden am 06.08.2018 überprüft.
+Alle Links wurden am 06.08.2018 überprüft.
 
 \end{refsegment}
 % Local Variables:

@@ -485,14 +485,14 @@ Summe $(a + b)$!
 $11 \equiv 2$ (mod $3$), also ist $11 - 2 = 9 \equiv 0$ (mod $3$); aber $11 + 2 = 13$ ist nicht durch $3$ teilbar.
 \end{example}
 
-\noindent Für Summen gilt die Aussage von Satz~\ref{thm-zth-div} nicht einmal
+Für Summen gilt die Aussage von Satz~\ref{thm-zth-div} nicht einmal
 in eine Richtung. Richtig ist sie bei Summen nur für den Rest $0$ und nur in
 der folgenden Richtung: Teilt ein Teiler beide Summanden ohne Rest, teilt er
 auch die Summe ohne Rest.
 }
 \end{satz}
 
-\noindent In anderen Worten:~~~
+In anderen Worten:~~~
 $ a \equiv b \bmod{m}   ~~ \Longleftrightarrow ~~
   m | (a-b)             ~~ \Longleftrightarrow ~~
   (a-b) \equiv 0 \bmod{m} $
@@ -566,7 +566,7 @@ Tabelle~\ref{mulmod6} in Kapitel~\ref{add-and-mult-inverses}.
 \label{ftn-res-divmodn}\label{ftn-zth-divmodn}
 } ist kein Bruch, sondern eine ganze Zahl zwischen $0$ und $m-1$.
 
-\noindent Es gelten die bekannten Gesetze:
+Es gelten die bekannten Gesetze:
 \begin{itemize}
 \item[\textbf{1.}] \textbf{Assoziativgesetz:}\index{Assoziativgesetz}\\
     $((a+b) + c) {\rm ~(mod~ } m) \equiv  (a + (b+c)) {\rm ~(mod~ } m).$\\
@@ -923,7 +923,7 @@ Primitivwurzel\index{Primitivwurzel}}.
 \end{satz}
 
 
-\noindent Die folgenden drei Beispiele\footnote{%
+Die folgenden drei Beispiele\footnote{%
   In Kapitel~\ref{nt:AppArith1} \glqq \nameref{nt:AppArith1}\grqq~
   finden Sie den Quellcode zur Berechnung der Tabellen mit SageMath.\index{SageMath}
 }
@@ -931,7 +931,7 @@ veranschaulichen Eigenschaften der multiplikativen Inversen (hier sind nicht
 mehr die vollständigen Multiplikationstabellen angegeben, sondern nur die Zeilen
 für die Faktoren $5$ und $6$).
 
-\noindent Tabelle~\textbf{\ref{mulmod17}} (Multiplikationstabelle mod $17$ wurde
+Tabelle~\textbf{\ref{mulmod17}} (Multiplikationstabelle mod $17$ wurde
 für $i = 1, 2, \cdots, 18$ berechnet:
 \begin{itemize}
    \item[] $(5*i)/17 = a$ Rest $r$ und hervorgehoben $5*i \equiv 1$ (mod $17$),
@@ -966,14 +966,14 @@ $m=17$ sind, kommen zwischen $i=1, \cdots, m$ für die Reste alle Werte zwischen
 $0, \cdots, m-1$ vor (vollständige $m$-Permutation\index{Permutation}).
 % \enlargethispage{0.5cm}
 
-\noindent \textbf{Die multiplikative Inverse von $5$ (mod $17$)
+\textbf{Die multiplikative Inverse von $5$ (mod $17$)
 ist $7$, die Inverse von $6$ (mod $17$) ist $3$.}
 
 
 
 
 \vskip + 20pt
-\noindent Tabelle~\textbf{\ref{mulmod13}} (Multiplikationstabelle mod $13$
+Tabelle~\textbf{\ref{mulmod13}} (Multiplikationstabelle mod $13$
 berechnet die Reste der Produkte $5*i$ und $6*i$:
 \begin{table}[ht] \label{SrcArith1b}
 \begin{center}                                                                  \begin{tabular}{|l@{\:}||c|c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|}
@@ -999,13 +999,13 @@ zwischen $i=1, \cdots, m$ für die Reste alle Werte zwischen
 $0, \cdots, m-1$ vor.
 
 
-\noindent \textbf{Die multiplikative Inverse von $5$ (mod $13$)
+\textbf{Die multiplikative Inverse von $5$ (mod $13$)
 ist $8$, die Inverse von $6$ (mod $13$) ist $11$.}
 
 
 
 \vskip + 20pt
-\noindent Tabelle~\textbf{\ref{mulmod12}} enthält ein Beispiel dafür, wo der
+Tabelle~\textbf{\ref{mulmod12}} enthält ein Beispiel dafür, wo der
 Modul $m$ und die Zahl $(a=6)$ {\em nicht} teilerfremd sind.
 
 \begin{table}[ht]
@@ -1032,7 +1032,7 @@ sind, kommen zwischen $i=1, \cdots, m$ nicht alle Werte zwischen
 $0, \cdots, m-1$ vor und $6$ hat mod $12$ auch keine Inverse!
 \index{Inverse!additiv} \index{Inverse!multiplikativ}
 
-\noindent \textbf{Die multiplikative Inverse von $5$ (mod $12$)
+\textbf{Die multiplikative Inverse von $5$ (mod $12$)
 ist $5$. Die Zahl $6$ hat keine Inverse (mod $12$). }
 
 
@@ -1182,7 +1182,7 @@ Logarithmen sind abermals ganze Zahlen, aber im Gegensatz zur üblichen
 Situation sind sie nicht nur mühsam, sondern bei sehr großen Zahlen in
 \glqq erträglicher\grqq~ Zeit überhaupt nicht zu berechnen.
 
-\noindent Gegeben sei die Gleichung: $a \equiv b^c{\rm ~(mod~}m)$.
+Gegeben sei die Gleichung: $a \equiv b^c{\rm ~(mod~}m)$.
 
 \begin{itemize}
 \item [\textbf{a)}]
@@ -1328,7 +1328,7 @@ man mit $\mathbb{Z}_n^*$ .
 $$ \mathbb{Z}_n^* := \{ a \in \mathbb{Z}_n \big| {\rm ggT}(a,n) = 1 \}.$$
 \end{definition}
 
-\noindent $\mathbb{Z}_n^*$ wird manchmal auch als \index{Restmenge!reduziert}
+$\mathbb{Z}_n^*$ wird manchmal auch als \index{Restmenge!reduziert}
 {\em reduzierte Restmenge} $R'$ modulo $n$ bezeichnet.
 
 \begin{example}{:}
@@ -1443,7 +1443,7 @@ Für eine Primzahl gilt: $\phi(p) = p - 1.$
 Ist $n$ das Produkt zweier verschiedenen Primzahlen $p$ und $q$, so gilt:
 $$\phi(p*q) = (p - 1) * (q - 1) \quad {\rm oder} \quad \phi(p * q) = \phi(p) * \phi(q).$$
 \end{satz}
-\noindent Dieser Fall ist für das RSA-Verfahren wichtig.
+Dieser Fall ist für das RSA-Verfahren wichtig.
 
 \begin{satz}\label{thm-zth-phimultprime} \label{J_of_p1..pk}
 Ist $n = p_1 * p_2 * \cdots * p_k$, wobei $p_1$ bis $p_k$ verschiedene
@@ -1756,7 +1756,7 @@ a=10         & 10  & \textbf{1}   & 10  & 1   & 10    & 1   & 10  & 1   & 10  & 
 \label{expmod11}
 \end{table}
 
-\noindent Aus der Tabelle~\ref{expmod11} kann man ersehen, dass z.B. die
+Aus der Tabelle~\ref{expmod11} kann man ersehen, dass z.B. die
 Ordnung von $3$ modulo $11$ den Wert $5$ hat.\\
 
 
@@ -1836,9 +1836,9 @@ ergebenden Wert $ord_{45}(a)$.
 \end{table}
 
 \vskip +10 pt
-\noindent $\phi(45)$ berechnet sich nach Satz~\ref{J_of_n}: $\phi(45) = \phi(3^2*5) = [3^1*2] * [1*4] = 24$.
+$\phi(45)$ berechnet sich nach Satz~\ref{J_of_n}: $\phi(45) = \phi(3^2*5) = [3^1*2] * [1*4] = 24$.
 
-\noindent Da $45$ keine Primzahl ist, gibt es nicht für alle Werte von $a$
+Da $45$ keine Primzahl ist, gibt es nicht für alle Werte von $a$
 eine \glqq Multiplikative Ordnung\grqq~(für alle nicht zu $45$
 teilerfremden\index{Zahlen!teilerfremd (co-prime)} Zahlen:
 $3, 5, 6, 9, 10, 12, \cdots,$ da $45 = 3^2*5$).
@@ -1850,7 +1850,7 @@ $3, 5, 6, 9, 10, 12, \cdots,$ da $45 = 3^2*5$).
 \begin{example}{ 3:}\\
 Hat $7$ eine Primitivwurzel\index{Primitivwurzel} modulo $45$?
 
-\noindent Die notwendige, aber nicht hinreichende Voraussetzung/Bedingung
+Die notwendige, aber nicht hinreichende Voraussetzung/Bedingung
 ggT$(7,45)=1$ ist erfüllt.
 Aus der Tabelle~\ref{expmod45} kann man ersehen, dass die
 Zahl $a=7$ keine Primitivwurzel\index{Primitivwurzel} von $45$ ist,
@@ -1867,7 +1867,7 @@ Die folgende Tabelle~\ref{expmod46}\footnote{%
   Siehe Kapitel~\ref{nt:AppArith3c}, \glqq \nameref{nt:AppArith3c}\grqq.}
 beantwortet die Frage, ob die Zahl $a=7$ eine Primitivwurzel\index{Primitivwurzel} von $46$ ist.
 
-\noindent Die notwendige, aber nicht hinreichende Voraussetzung/Bedingung
+Die notwendige, aber nicht hinreichende Voraussetzung/Bedingung
 ggT$(7,46)=1$ ist erfüllt.\\
 $\phi(46)$ berechnet sich nach Satz~\ref{J_of_pq}: $\phi(46) = \phi(2*23) = 1*22 = 22$.
 Die Zahl $7$ ist eine Primitivwurzel\index{Primitivwurzel} von $46$,
@@ -1958,7 +1958,7 @@ maximale Ordnung $\phi(n)$ haben. In diesem Beispiel haben nur $5,7,11,15,17,19
 die Ordnung 22.
 }
 \end{satz}
-\noindent Die multiplikative Gruppe $Z_n^*$ nimmt nur dann alle Werte von $1$ bis $n-1$
+Die multiplikative Gruppe $Z_n^*$ nimmt nur dann alle Werte von $1$ bis $n-1$
 an, wenn n prim ist (vgl. Definition \ref{def-zth-znmult}).
 
 
@@ -1967,30 +1967,30 @@ an, wenn n prim ist (vgl. Definition \ref{def-zth-znmult}).
 \newpage
 \begin{example}{ 5: Zykluslängen}
 
-\noindent Die folgenden Tabellen~\ref{expmod14} und~\ref{expmod22}\footnote{%
+Die folgenden Tabellen~\ref{expmod14} und~\ref{expmod22}\footnote{%
   In Kapitel~\ref{nt:AppArith3d}, \glqq \nameref{nt:AppArith3d}\grqq~
   finden Sie den Quelltext zur Berechnung der Tabellen~\ref{expmod14} und~\ref{expmod22}
   mit SageMath.
 } dienen als Beispiele, um Zykluslängen\index{Zykluslänge} zu betrachten -- ein
 Thema, das über die multiplikative Ordnung hinausführt.
 
-\noindent Als Zyklus bezeichnet man hier eine Folge von Zahlen $a^i{\rm ~mod~}n$
+Als Zyklus bezeichnet man hier eine Folge von Zahlen $a^i{\rm ~mod~}n$
 mit $1\leq i<n$ für ein festes $a$, wobei sich die Folge wiederholt. Hier kommt
 innerhalb eines Zyklus jede Zahl nur einmal vor (aufgrund der Erzeugung als
 modulare Potenz). Die Zyklen hier müssen die $1$ nicht enthalten -- es sei
 denn, dieser Zyklus gehört zu einer multiplikativen Ordnung $\ge 1$
 (diese haben die $1$ immer am Ende des Zyklus und an der Stelle
 $a^{n-1} ~mod~n$).\\
-\noindent Im Folgenden bezeichnet $l$ die Zykluslänge.
+ Im Folgenden bezeichnet $l$ die Zykluslänge.
 
-\noindent Die maximale Zykluslänge $l_{max}$ ist $\phi(n)$.
+ Die maximale Zykluslänge $l_{max}$ ist $\phi(n)$.
 
-\noindent Für die folgenden Tabellen~\ref{expmod14} und~\ref{expmod22} gilt
+ Für die folgenden Tabellen~\ref{expmod14} und~\ref{expmod22} gilt
 (nach Satz~\ref{J_of_n}):\\
 \indent  - $\phi(14) = \phi(2*7) = 1*6 = 6$.\\
 \indent  - $\phi(22) = \phi(2*11) = 1*10 = 10$.
 
-\noindent a) Falls die multiplikative Ordnung für $a$ existiert, gilt (egal
+ a) Falls die multiplikative Ordnung für $a$ existiert, gilt (egal
 ob $a$ prim ist): $ord_{n}(a) = l$.
 \indent Beispiele: Die maximale Länge $l_{max}$\footnote{%
             Wir kennen keine Formel, für welche a die maximale Länge erreicht wird.}
@@ -1998,7 +1998,7 @@ wird beispielsweise erreicht für:\\
 \indent  - $a=3$ mit $l_{max} = ord_{14}(a) = 6$ in Tabelle~\ref{expmod14}, oder\\
 \indent  - $a=10$ mit $l_{max} = ord_{22}(a) = 10$ in Tabelle~\ref{expmod22}.
 
-\noindent b) Auch wenn für $a$ keine multiplikative Ordnung existiert, kann
+ b) Auch wenn für $a$ keine multiplikative Ordnung existiert, kann
 die Zykluslänge maximal sein.\footnote{%
          Die Folgen hier werden gebildet per $a^i{\rm ~mod~}n$ mit $1\leq i<n$,
          und enthalten für zusammengesetzte $n$ nie alle Zahlen $1, ..., n-1$.\\
@@ -2391,7 +2391,7 @@ Die Sicherheit des RSA-Verfahrens hängt wie bei allen Public-Key-Verfahren davo
 dass man den privaten Key $d$ nicht aus  dem öffentlichen Key $(n,e)$ berechnen kann.
 \end{remark}
 
-\noindent Beim RSA-Verfahren bedeutet dies,
+ Beim RSA-Verfahren bedeutet dies,
 \begin{enumerate}
   \item dass $\phi(n)$ für große zusammengesetzte $n$ schwer zu berechnen ist, und
   \item dass $n$ für große $n$ nur schwer in seine Primfaktoren zerlegt werden kann
@@ -2419,16 +2419,16 @@ gelten: $$M  \equiv  (M^e)^d  {\rm ~(mod~} n) \quad {\rm wobei} \quad
             (M^e)^d  =  M^{e * d}.$$
 Das heißt, der oben angegebene Dechiffrieralgorithmus arbeitet korrekt.
 
-\noindent Zu zeigen ist also:
+ Zu zeigen ist also:
    $$ M^{e * d}  \equiv  M  {\rm ~(mod~} n) $$
 
-\noindent Wir zeigen das in 3 Schritten mit Hilfe von Satz~\ref{thm-zth-fermat1} (Kleiner Satz von Fermat)\\ (siehe \cite[S. 131ff]{Beutelspacher1996}).
+ Wir zeigen das in 3 Schritten mit Hilfe von Satz~\ref{thm-zth-fermat1} (Kleiner Satz von Fermat)\\ (siehe \cite[S. 131ff]{Beutelspacher1996}).
 
-\noindent \textbf{Schritt 1:}
+ \textbf{Schritt 1:}
 
-\noindent Im ersten Schritt zeigen wir: $M^{e * d} \equiv M{\rm ~(mod~}p)$
+ Im ersten Schritt zeigen wir: $M^{e * d} \equiv M{\rm ~(mod~}p)$
 
-\noindent Da $n=p*q$ und $\phi(p*q)=(p-1)*(q-1)$ und da $e$ und $d$ so gewählt sind, dass $e*d \equiv 1 {\rm ~(mod~}\phi(n))$,
+ Da $n=p*q$ und $\phi(p*q)=(p-1)*(q-1)$ und da $e$ und $d$ so gewählt sind, dass $e*d \equiv 1 {\rm ~(mod~}\phi(n))$,
 gibt es eine ganze Zahl $k$, so dass gilt: $e*d = 1 + k*(p-1)*(q-1)$.
 \begin{eqnarray*}
 M^{e * d}  & \equiv & M^{1+k*\phi(n)} \equiv M * M^{k*\phi(n)} \equiv M * M^{k*(p-1)*(q-1)}{\rm ~(mod~}p) \nonumber\\
@@ -2451,13 +2451,13 @@ Da $p$ sowohl $M$ als auch $M^{e * d}$ teilt, teilt er auch ihre Differenz:
 $$ (M^{e * d} - M ) \equiv 0 {\rm ~(mod~}p).$$
 Und damit gilt auch in diesem Spezialfall unsere zu beweisende Behauptung.\\
 
-\noindent \textbf{Schritt 2:}
+ \textbf{Schritt 2:}
 
-\noindent Völlig analog beweist man:  $M^{e * d} \equiv M{\rm ~(mod~}q)$.\\
+ Völlig analog beweist man:  $M^{e * d} \equiv M{\rm ~(mod~}q)$.\\
 
-\noindent \textbf{Schritt 3:}
+ \textbf{Schritt 3:}
 
-\noindent Nun führen wir die Behauptungen aus Schritt 1 und 2 zusammen für
+ Nun führen wir die Behauptungen aus Schritt 1 und 2 zusammen für
 $n=p*q$, um zu zeigen:
 $$ M^{e * d} \equiv M{\rm ~(mod~}n) \mbox{~für~alle~} M < n. $$
 Nach Schritt 1 und 2 gilt $(M^{e * d} - M) \equiv 0 {\rm ~(mod~} p)$ und $(M^{e * d} - M) \equiv 0 {\rm ~(mod~} q)$,
@@ -2584,7 +2584,7 @@ Die umgekehrte Aussage, dass das RSA-Verfahren ausschließlich durch eine Faktor
 ist bis heute nicht bewiesen. Zahlentheoretiker halten das \glqq RSA-Problem\grqq~und das Faktorisierungsproblem für
 komplexitätstheoretisch äquivalent.
 
-% \noindent   Wird das gebraucht ? (2003-03-02)
+%    Wird das gebraucht ? (2003-03-02)
 Siehe: {\em Handbook of Applied Cryptography} \cite{Menezes2001}.
 
 
@@ -2607,10 +2607,10 @@ Siehe: {\em Handbook of Applied Cryptography} \cite{Menezes2001}.
     Siehe Anhang~\ref{s:appendix-Learn-NT}.\\
 %%% Kann hier kein Leerzeile lassen, sondern muss \\ nehmen im \paragraph,
 %%% sonst kommt error: ! Paragraph ended before \@ssect was complete.
-    \noindent Das Quadratische Sieb (QS) finden Sie in CT1 und CT2;
+     Das Quadratische Sieb (QS) finden Sie in CT1 und CT2;
     GNFS, das modernste Faktorisierungsverfahren für Moduli größer 130
     Dezimalstellen, ist (mittels YAFU und msieve) nur in CT2 enthalten.\\
-  \noindent CT2\index{CT2} hat die Komponente GeneralFactorizer
+   CT2\index{CT2} hat die Komponente GeneralFactorizer
   (basierend auf YAFU\index{YAFU}). Diese ist schneller als die in CT1
   implementierten Funktionen.
   Damit bietet CT2 die folgenden Faktorisierungsverfahren:
@@ -2746,7 +2746,7 @@ in Kapitel ~\ref{ECAlternative}).
   unter Einbeziehung aller Einflussfaktoren: Pro Jahr kommen durchschnittlich 20
   Bit dazu. Damit liegt er unter den optimistischeren Schätzungen von BSI und NIST.
 \end{sloppypar}
-\noindent
+
 
 Diese Prognose von Dirk Fox\index{Fox, Dirk} aus dem Jahr 2001 scheint sich
 anhand der neuesten Faktorisierungsrekorde von RSA-200 und RSA-768 (siehe Kapitel~\ref{RSA-200})
@@ -2896,7 +2896,7 @@ Open-Source Software-Paketen Pari-GP, SageMath, CrypTool~1 und CrypTool~2
 finden sich in "`Zeitexperimente zur Faktorisierung"' (siehe \cite{Schulz2010}).
 
 \vskip +20pt
-%\noindent
+%
 Im Folgenden werden die letzten Rekorde aus Tabelle~\ref{factorizationrecords}
 etwas ausführlicher erläutert\footnote{%
 Die beiden dabei benutzten Methoden GNFS und SNFS werden kurz z.B. auf
@@ -2996,7 +2996,7 @@ $$
 $$
 Damit wurde die Zahl $2^{953}+1$ vollständig in ihre 8 Primfaktoren zerlegt.
 
-\noindent\begin{minipage}{\textwidth}
+\begin{minipage}{\textwidth}
 \vspace{3ex}
 Verweise:
 \vspace{-10pt}
@@ -3298,7 +3298,7 @@ p227 = 207581819464423827645704813703594695162939708007395209881208\\
 $$
 Damit wurde die Zahl $2^{1039}-1$ vollständig in ihre 3 Primfaktoren zerlegt.
 
-\noindent\begin{minipage}{\textwidth}
+\begin{minipage}{\textwidth}
 \vspace{3ex}
 Verweise:
 \vspace{-10pt}
@@ -3476,7 +3476,7 @@ darüber bekannt, inwieweit die im Bernstein-Papier vorgeschlagenen
 theoretischen Ansätze realisiert wurden oder wieweit die Finanzierung
 seines Forschungsprojektes ist.
 %%
-%% \noindent\begin{minipage}{\textwidth}
+%% \begin{minipage}{\textwidth}
 %% \vspace{3ex}
 %% Verweise:
 %% \vspace{-10pt}
@@ -3546,7 +3546,7 @@ Die Bedeutung dieser Entdeckung liegt darin, dass sie Zahlentheoretiker mit neue
 Aber selbst die Autoren merken an, dass andere bekannte Algorithmen (z.B. ECPP) schneller sein können. Der neue Algorithmus funktioniert für alle positiven ganzen Zahlen. Dagegen verwendet das GIMPS-Projekt den Lucas-Lehmer-Primzahltest, der besondere Eigenschaften der Mersennezahlen ausnutzt. Dadurch ist der Lucas-Lehmer-Test viel schneller und erlaubt, Zahlen mit Millionen von Stellen zu testen, während generische Algorithmen auf Zahlen mit einigen tausend Stellen beschränkt sind. Nachteil der bisherigen schnellen Verfahren ist, dass sie probabilistisch sind, also ihr Ergebnis höchstwahrscheinlich, aber nicht ganz sicher ist.
 
 \enlargethispage{20pt}
-\noindent Aktuelle Forschungsergebnisse dazu finden sich z.B. auf:
+ Aktuelle Forschungsergebnisse dazu finden sich z.B. auf:
 \vspace{-10pt}
 \begin{itemize}
   \item[] \url{http://www.mersenne.org/}\\
@@ -3692,7 +3692,7 @@ zu rechnen, denn das bedeutete, $(P \bmod m_{i} ) / m_{i}$ zu benutzen: Denn
 $m_{i} | P$, so dass $P/m_{i}$ immer eine ganze Zahl ist, so dass
 $(P \bmod m_{i} )$ immer $= 0$ ist.
 
-\noindent Beispiel mit sehr kleinen Modulen:\\
+ Beispiel mit sehr kleinen Modulen:\\
 $ m_{1} = 2*3 = 6;~~~ m_{2} = 2*7 = 14;~~~ P=6*14=84 $\\
 $ P \bmod m_{1} = 84 \bmod 6 = 0;~~~ P \bmod {m_{1}^{2}} = 84 \bmod 36 = 12 $\\
 $ P \bmod m_{2} = 84 \bmod 14 = 0;~~~ P \bmod {m_{2}^{2}} = 84 \bmod 196 = 84 $\\
@@ -3871,9 +3871,9 @@ mitgelesen hat, vermag daraus weder $a$ noch $b$ noch $S$ zu berechnen.
 \input{figures/DH-de.latex}
 \vskip +20 pt
 
-\noindent \textbf{Ablauf:}\par
+ \textbf{Ablauf:}\par
 \nopagebreak
-\noindent Alice und Bob wollen also einen geheimen Sessionkey $S$ über einen
+ Alice und Bob wollen also einen geheimen Sessionkey $S$ über einen
 abhörbaren Kanal aushandeln.
 \begin{itemize}
    \item[\textbf{1.}] Sie wählen eine Primzahl $p$ und eine Zufallszahl $g$, und tauschen diese
@@ -3905,7 +3905,7 @@ finden Sie in den Kapiteln~\ref{L-Discrete-Logarithm-as-Basis} und \ref{Chapter_
 }
 
 \vskip +10 pt
-\noindent Das Ganze soll an einem Beispiel mit (unrealistisch) kleinen Zahlen gezeigt
+ Das Ganze soll an einem Beispiel mit (unrealistisch) kleinen Zahlen gezeigt
 werden.\vskip +1em
 
 \begin{example}{ mit kleinen Zahlen:}
@@ -3924,7 +3924,7 @@ kommunizieren. Auch wenn ein Spion alles abhörte, was über die Leitung ging:
 $g = 11, p = 347, A = 49$ und $B = 285$; den geheimen Schlüssel $S$ kann er nicht
 berechnen.
 
-\noindent Dies ist aber nur für sehr große Zahlen so, weil der diskrete Logarithmus
+ Dies ist aber nur für sehr große Zahlen so, weil der diskrete Logarithmus
 nur dann extrem schwierig gefunden werden kann (siehe Kapitel \ref{Chapter_Dlog-FactoringDead}).
 
 \end{example}
@@ -3933,15 +3933,15 @@ nur dann extrem schwierig gefunden werden kann (siehe Kapitel \ref{Chapter_Dlog-
 \newpage
 \begin{remark}{:}
 
-\noindent Für solch kleine Zahlen wie in dem obigen Beispiel ist das
+ Für solch kleine Zahlen wie in dem obigen Beispiel ist das
 DH-Schlüsselaustausch-Protokoll angreifbar, da das diskrete
 Logarithmusproblem\index{Logarithmusproblem!diskret} leicht berechnet
 werden kann, um die Exponenten $a$ oder $b$ zu finden.
 
-\noindent Wenn man $a$ oder $b$ hat, kann man $S$ genauso berechnen
+ Wenn man $a$ oder $b$ hat, kann man $S$ genauso berechnen
 wie es Alice or Bob vorher machten.
 
-\noindent Um die diskreten Logarithen\index{Logarithmusproblem!diskret}
+ Um die diskreten Logarithen\index{Logarithmusproblem!diskret}
 zu erhalten, ist hier Folgendes zu berechnen:
 
 $a$ von Alice: $11 ^ x \equiv 49 \pmod{347}$, also $\log_{11}(49) \pmod{347}$.
@@ -3949,7 +3949,7 @@ $a$ von Alice: $11 ^ x \equiv 49 \pmod{347}$, also $\log_{11}(49) \pmod{347}$.
 $b$ von Bob:   $11 ^ y \equiv 285 {\rm ~(mod~}347)$, also $\log_{11}(285){\rm ~(mod~}347)$.
 
 
-\noindent Mit SageMath\index{SageMath} kann man den diskreten Logarithmus $x$,
+ Mit SageMath\index{SageMath} kann man den diskreten Logarithmus $x$,
 der die obige Gleichung (z.B. für Allice) löst:
 
 \begin{sagecode}
@@ -3974,7 +3974,7 @@ sage: discrete_log(B,g)
 \caption{Beispiel mit kleinen Zahlen: Berechnen der diskreten Logs $a$ und $b$, um DH anzugreifen}
 \end{sagecode}
 
-\noindent Da die SageMath-Funktion discrete\_log als Argumente nur
+ Da die SageMath-Funktion discrete\_log als Argumente nur
 Elemente eines Rings erwartet (Integer zwischen 0 und einer Obergrenze),
 können wir diesen Typ einerseits erzwingen, indem wir die Zahlen direkt mit dem
 zugehörigen Modulo-Operator eingeben: \texttt{discrete\_log(mod(49, 347), mod(11, 347))}.\\
@@ -4036,7 +4036,7 @@ i  & $11^i \bmod 347$ &\\
 \end{tabular}
 \vskip +6 pt
 
-\noindent Weitere Details finden Sie~
+ Weitere Details finden Sie~
 in Kapitel~\ref{nt:AppArith3a2} \glqq \nameref{nt:AppArith3a2}\grqq.
 }
 
@@ -4145,7 +4145,7 @@ L       & 12   & Y    & 25\\
 \label{alphacode}
 \end{table}
 
-\noindent \textbf{Schlüsselerzeugung (Schritt 1 bis 3):}\\
+ \textbf{Schlüsselerzeugung (Schritt 1 bis 3):}\\
 %\vskip 5 pt
 \textbf{1.} $p=47, q=79$ $( n= 3713;~ \phi(n) = (p-1)*(q-1)=3588).$\\
 \textbf{2.} $e=37$ ($e$ sollte\footnote{%
@@ -4159,7 +4159,7 @@ L       & 12   & Y    & 25\\
   Anhang~\ref{nt:NumberTheory_Appendix_GCD} gezeigt.
 }
 
-\noindent \textbf{4. Verschlüsselung:}\\
+ \textbf{4. Verschlüsselung:}\\
 {\tt
 \begin{tabular}{rcccccccccccccccccccc}
 {\rm Text:} & A & T & T & A & C & K & & A & T &  & D & A & W & N\\
@@ -4168,33 +4168,33 @@ L       & 12   & Y    & 25\\
 }
 \index{Blocklänge}
 
-\noindent Aufteilung dieser 28-stelligen Zahl in 4-stellige Teile (denn $2626$ ist noch kleiner als $n=3713$), d.h. dass
+ Aufteilung dieser 28-stelligen Zahl in 4-stellige Teile (denn $2626$ ist noch kleiner als $n=3713$), d.h. dass
 die Blocklänge 2 beträgt.\\
 {\tt 0120 2001 0311 0001 2000 0401 2314}
 
 \label{SrcArith4a}
-\noindent Verschlüsselung aller 7 Teile jeweils per: $C \equiv M^{37}{\rm ~(mod~3713)}$:\footnote{%
+ Verschlüsselung aller 7 Teile jeweils per: $C \equiv M^{37}{\rm ~(mod~3713)}$:\footnote{%
   In Kapitel~\ref{nt:AppArith4a} \glqq \nameref{nt:AppArith4a}\grqq~
   finden Sie den Beispiel-Quelltext zur RSA-Verschlüsselung mit SageMath.
 }\\
 {\tt 1404 2932 3536 0001 3284 2280 2235}
 
-\noindent \textbf{5. Entschlüsselung:}\\
+ \textbf{5. Entschlüsselung:}\\
 Chiffrat: {\tt 1404 2932 3536 0001 3284 2280 2235 }
 
-\noindent Aufteilung dieser 28-stelligen Zahl in 4-stellige Teile.
+ Aufteilung dieser 28-stelligen Zahl in 4-stellige Teile.
 
-\noindent Entschlüsselung aller $7$ Teile jeweils per: $M \equiv C^{97}{\rm ~(mod~}3713)$:\\
+ Entschlüsselung aller $7$ Teile jeweils per: $M \equiv C^{97}{\rm ~(mod~}3713)$:\\
 {\tt 0120 2001 0311 0001 2000 0401 2314}
 
-\noindent Umwandeln von 2-stelligen Zahlen in Großbuchstaben und Blanks.
+ Umwandeln von 2-stelligen Zahlen in Großbuchstaben und Blanks.
 
-\noindent Bei den gewählten Werten ist es für einen Kryptoanalytiker
+ Bei den gewählten Werten ist es für einen Kryptoanalytiker
 \index{Kryptoanalyse} einfach, aus den öffentlichen Parametern
 $n=3713$ und $e=37$ die geheimen Werte zu finden, indem
 er offenlegt, dass $3713 = 47 * 79$.
 
-\noindent Wenn $n$ eine $1024$-Bit-Zahl ist, bestehen dafür -- nach heutigen
+ Wenn $n$ eine $1024$-Bit-Zahl ist, bestehen dafür -- nach heutigen
 Kenntnissen -- wenig Chancen.
 
 
@@ -4205,7 +4205,7 @@ Kenntnissen -- wenig Chancen.
 Real wird das ASCII-Alphabet benutzt, um die Einzelzeichen der Nachricht in
 8-Bit lange Zahlen zu codieren.
 
-\noindent Diese Aufgabe\footnote{%
+ Diese Aufgabe\footnote{%
 Mit CT1\index{CT1} können Sie diese Aufgabe per Menü
   \textbf{Einzelverfahren \textbackslash{} RSA-Kryptosystem \textbackslash{}
   RSA-Demo} lösen.\\
@@ -4221,7 +4221,7 @@ ist angeregt durch das Beispiel aus \cite[S. 271]{Eckert2014}.
 % wählte bei gl. Text. In Eckert 20003 sind nochmal andere Zahlen,
 % aber ich ließ das Skript unverändert.
 
-\noindent Der Text \glqq RSA works!\grqq~bedeutet in Dezimalschreibweise codiert:
+ Der Text \glqq RSA works!\grqq~bedeutet in Dezimalschreibweise codiert:
 
 {\tt
 \begin{tabular}{rcccccccccccccccccccc}
@@ -4229,9 +4229,9 @@ ist angeregt durch das Beispiel aus \cite[S. 271]{Eckert2014}.
 {\rm Zahl:} & 82 & 83 & 65 & 32 & 119 & 111 & 114 & 107 & 115 & 33
 \end{tabular} } % \tt
 
-\noindent Das Beispiel wird in 2 Varianten durchgespielt. Gemeinsam für beide sind die Schritte $1$ bis $3$.
+ Das Beispiel wird in 2 Varianten durchgespielt. Gemeinsam für beide sind die Schritte $1$ bis $3$.
 \vskip +10pt
-\noindent \textbf{Schlüsselerzeugung (Schritt 1 bis 3):}\\\label{SrcArith4b}%
+ \textbf{Schlüsselerzeugung (Schritt 1 bis 3):}\\\label{SrcArith4b}%
 \textbf{1.} $p=509,~q=503 \quad (n= 256.027; \; ~\phi(n)=(p-1)*(q-1)=255.016=2^3*127*251)$.\footnote{%
   In Kapitel~\ref{nt:AppArith4b} \glqq \nameref{nt:AppArith4b}\grqq~
   finden Sie den Quelltext zur Faktorisierung von $\phi(n)$ mit SageMath.
@@ -4265,7 +4265,7 @@ Andere mögliche Kombinationen von (e,d) sind z.B.: (3, 170.011), (5, 204.013), 
 {\rm Zahl:} & 82 & 83 & 65 & 32 & 119 & 111 & 114 & 107 & 115 & 33
 \end{tabular} } % \tt
 
-\noindent Keine Zusammenfassung der Buchstaben!\footnote{%
+ Keine Zusammenfassung der Buchstaben!\footnote{%
 Für sichere Verfahren braucht man große Zahlen, die möglichst alle Werte bis
 $n-1$ annehmen. Wenn die mögliche Wertemenge der Zahlen in der Nachricht zu
 klein ist, nutzen auch große Primzahlen nichts für die Sicherheit.
@@ -4292,7 +4292,7 @@ Verschlüsselung pro Zeichen per: $C \equiv M^{65.537}{\rm ~(mod~}256.027)$:\foo
 \end{tabular}
 }
 
-\noindent \textbf{5. Entschlüsselung:}\\
+ \textbf{5. Entschlüsselung:}\\
 Chiffrat:\\
 {\tt
 \begin{tabular}{lllll}
@@ -4300,7 +4300,7 @@ Chiffrat:\\
 100412 & 054196 & 100184 & 058179 & 227433\\
 \end{tabular} }
 
-\noindent Entschlüsselung pro Zeichen per: $M \equiv C^{231.953}{\rm ~mod~}256.027$:\\
+ Entschlüsselung pro Zeichen per: $M \equiv C^{231.953}{\rm ~mod~}256.027$:\\
 {\tt 82 83 65 32 119 111 114 107 115 33}\\
 
 
@@ -4315,7 +4315,7 @@ Bei der Variante 2 wird die Blockbildung in zwei verschiedenen Untervarianten 4.
 {\rm Zahl:} & 82 & 83 & 65 & 32 & 119 & 111 & 114 & 107 & 115 & 33
 \end{tabular} } % \tt
 
-\noindent \textbf{4. Verschlüsselung:}\\
+ \textbf{4. Verschlüsselung:}\\
 Blockbildung\footnote{%
 Blockbildung:\\ \tt \begin{tabular}{ll@{ }l@{ }l}
 %%% \tt \begin{tabular}{ll@{ }l@{ }l}   %%% BE_So steht die Fußnotennummer nicht oberhalb, sondern vertikal mittig vor der Table.
@@ -4339,23 +4339,23 @@ $256$ Zeichen, b-adisch, Blocklänge\index{Blocklänge} 2, dezimale Darstellung.
 }
 
 \label{SrcArith4d}
-\noindent Verschlüsselung pro Block per: $C \equiv M^{65.537}{\rm ~(mod~}256027)$:\footnote{%
+ Verschlüsselung pro Block per: $C \equiv M^{65.537}{\rm ~(mod~}256027)$:\footnote{%
   In Kapitel~\ref{nt:AppArith4d} \glqq \nameref{nt:AppArith4d}\grqq~
   finden Sie den Quelltext zur RSA-Exponentiation mit SageMath.
 }\\
 {\tt 158721 137346 37358 240130 112898}
 
-\noindent \textbf{5. Entschlüsselung:}\\
+ \textbf{5. Entschlüsselung:}\\
 Chiffrat:\\
 {\tt 158721 137346 37358 240130 112898}
 
-\noindent Entschlüsselung pro Block per: $M \equiv C^{231.953}{\rm ~(mod~}256.027)$:\\
+ Entschlüsselung pro Block per: $M \equiv C^{231.953}{\rm ~(mod~}256.027)$:\\
 {\tt 21075 16672 30575 29291 29473}
 
 \vskip +10 pt
 %\textbf{Umwandeln:} jeden Block binär in 2 Zahlen; danach jede Zahl in ASCII-Zeichen.
 
-\noindent \textbf{4'. Verschlüsselung:}\\
+ \textbf{4'. Verschlüsselung:}\\
 Blockbildung (die ASCII-Zeichen werden als 3-stellige Dezimalzahlen hintereinander geschrie"-ben):\\
 {\tt 82083 65032 119111 114107 115033}\footnote{%
 Die RSA-Verschlüsselung mit dem Modul $n=256.027$ ist bei dieser Einstellung korrekt,
@@ -4363,18 +4363,18 @@ da die ASCII-Blöcke in Zahlen kleiner oder gleich $255.255$ kodiert werden.
 }
 
 \label{SrcArith4e}
-\noindent Verschlüsselung pro Block per: $C \equiv M^{65537}{\rm ~(mod~}256.027)$:\footnote{%
+ Verschlüsselung pro Block per: $C \equiv M^{65537}{\rm ~(mod~}256.027)$:\footnote{%
   In Kapitel~\ref{nt:AppArith4e} \glqq \nameref{nt:AppArith4e}\grqq~
   %%xIn \hyperlink{nt:AppArith4e}{Anhang zu diesem Kapitel}
   finden Sie den Quelltext zur RSA-Exponentiation mit SageMath.
 }\\
 {\tt 198967 051405 254571 115318 014251}
 
-\noindent \textbf{5'. Entschlüsselung:}\\
+ \textbf{5'. Entschlüsselung:}\\
 Chiffrat:\\
 {\tt 198967 051405 254571 115318 014251}
 
-\noindent Entschlüsselung pro Block per: $M \equiv C^{231.953}{\rm ~(mod~}256.027)$:\\
+ Entschlüsselung pro Block per: $M \equiv C^{231.953}{\rm ~(mod~}256.027)$:\\
 {\tt 82083 65032 119111 114107 115033}
 
 
@@ -4394,7 +4394,7 @@ Im Szenario der Online-Hilfe zu CT1\index{CT1} und in der
 Präsentation auf der CT-Webseite wird der Lösungsweg skizziert.
 }
 
-\noindent Hier die Aufgabe im Originaltext:
+ Hier die Aufgabe im Originaltext:
 
 Two samples of RSA ciphertext are presented in Tables~\ref{stinson1}\footnote{%
 Die Zahlen dieser Tabelle können Sie mit Copy und Paste weiter bearbeiten.
@@ -4405,8 +4405,8 @@ and \ref{stinson2}\footnote{%
 }.
 Your task is to decrypt them. The public parameters of the system are
 
-\noindent $n = 18.923$ and $e = 1261$ (for Table~\ref{stinson1}) and\\
-\noindent $n = 31.313$ and $e = 4913$ (for Table~\ref{stinson2}).
+ $n = 18.923$ and $e = 1261$ (for Table~\ref{stinson1}) and\\
+ $n = 31.313$ and $e = 4913$ (for Table~\ref{stinson2}).
 
 This can be accomplished as follows. First, factor $n$ (which is easy
 because it is so small). Then compute the exponent $d$ from $\phi(n)$, and,
@@ -4641,7 +4641,7 @@ $$ \left(\begin{array}{c}a \\ b\end{array}\right) =
    \left(\begin{array}{cc} 1 & 0 \\ 0 & 1 \end{array}\right) *
    \left(\begin{array}{c} a \\ b \end{array} \right).$$
 
-\noindent Wir fassen diese Informationen in der erweiterten Matrix
+ Wir fassen diese Informationen in der erweiterten Matrix
 $$\left(\begin{array}{cccc} a & | & 1 & 0 \\ b & | & 0 & 1 \end{array} \right)$$
 zusammen. Wendet man den ggT-Algorithmus auf diese Matrix an, so erhält man den
 {\em erweiterten Euklidschen Algorithmus}, mit dem die multiplikative Inverse
@@ -4657,7 +4657,7 @@ bestimmt wird.\footnote{%
 \index{Euklidscher Algorithmus!erweiterter}
 
 \newpage
-\noindent {\tt INPUT:} $a,b \not= 0$
+ {\tt INPUT:} $a,b \not= 0$
 \begin{itemize}
   \item[\tt 0.] $x_{1,1} := 1, x_{1,2} := 0, x_{2,1} := 0, x_{2,2} := 1$
   \item[\tt 1.] $ \left(\begin{array}{cccc} a & | & x_{1,1} & x_{1,2} \\ b & | & x_{2,1} & x_{2,2} \end{array} \right) :=
@@ -4666,10 +4666,10 @@ bestimmt wird.\footnote{%
   \item[\tt 2.] {\tt if (b != 0) then goto 1.}
 \end{itemize}
 
-\noindent{\tt OUTPUT:} \glqq ggT$(a,b) = a*x +b*y$: \grqq,~~ \glqq ggT$(a,b) =$ \grqq $b$,~~
+{\tt OUTPUT:} \glqq ggT$(a,b) = a*x +b*y$: \grqq,~~ \glqq ggT$(a,b) =$ \grqq $b$,~~
                        \glqq $x = $\grqq $x_{2,1}$,~~ \glqq $y = $\grqq $x_{2,2}$
 
-\noindent Da dieser Algorithmus nur lineare Transformationen durchführt, gelten immer die Gleichungen
+ Da dieser Algorithmus nur lineare Transformationen durchführt, gelten immer die Gleichungen
 \begin{eqnarray*}
  a & = & x_{1,1}*a + x_{1,2}*b \nonumber\\
  b & = & x_{2,1}*a + x_{2,2}*b, \nonumber
@@ -4705,11 +4705,11 @@ $d$ bestimmen (d.h. $37*d \equiv 1 {\rm ~(mod~} 3588$)):
    \left(\begin{array}{cccc} 36 & | & 1 & -96 \\ 1 & | & -1 & 97 \end{array} \right).$\\
 
 \vskip + 12pt
-\noindent {\tt OUTPUT:}\\
+ {\tt OUTPUT:}\\
 ggT($37,3588) = a*x + b*y$:\\
 ggT($37,3588$) = 1, $x = -1$, $y=97$.
 
-\noindent Es folgt
+ Es folgt
 \begin{enumerate}
 
    \item $37$ und $3588$ sind teilerfremd\index{Zahlen!teilerfremd (co-prime)}
@@ -4907,7 +4907,7 @@ Damit ergibt sich $EA$.
 Die Binärzahl $z = 1000100101110101$ wird in die Dezimaldarstellung durch
 die folgenden Berechnungen umgewandelt:
 
-\noindent $1000100101110101 = 1001$ (mod $1010)  \Longrightarrow a_0 = 9$, ~ ~ $1000100101110101 / 1010 = 110110111110$\\
+ $1000100101110101 = 1001$ (mod $1010)  \Longrightarrow a_0 = 9$, ~ ~ $1000100101110101 / 1010 = 110110111110$\\
 $110110111110 = 1000$ (mod $1010) \Longrightarrow a_1 = 8$, $110110111110 / 1010 = 101011111$\\
 $101011111 = 1$ (mod $1010) \Longrightarrow a_2 = 1$, $10101111 / 1010 = 100011$\\
 $100011 =  101$ (mod $1010) \Longrightarrow a_3 = 5$, $100011 / 1010 = 1$\\
@@ -4927,7 +4927,7 @@ Damit ergibt sich $z = 35189$.
 Die folgende Präsentation (letzte Änderung Nov. 2010) zeigt in interaktiver
 Form die Grundlagen und Funktionsweisen der RSA-Chiffre.
 
-\noindent Folgende drei Varianten der Präsentation sind vorhanden:
+ Folgende drei Varianten der Präsentation sind vorhanden:
 \begin{itemize}
  \item Powerpoint 2007 (dynamisch, animiert)\footnote{%
     \url{http://www.cryptool.org/images/ct1/presentations/RSA/RSA-de.pptx}}
@@ -4963,7 +4963,7 @@ Form die Grundlagen und Funktionsweisen der RSA-Chiffre.
      rororo, (c) 2011, Kapitel 19, \glqq Scheideweg\grqq, S. 229, Philips.}
 
 
-\noindent In diesem Anhang finden Sie SageMath-Quellcode, mit dem Sie die Tabellen und
+ In diesem Anhang finden Sie SageMath-Quellcode, mit dem Sie die Tabellen und
 Beispiele des Kapitels~\ref{Chapter_ElementaryNT}
 (\glqq \nameref{Chapter_ElementaryNT}\grqq) berechnen können.
 
@@ -4989,7 +4989,7 @@ sage: [mod(b * i, m).lift() for i in xrange(m)]
 \caption{Multiplikationstabelle $a \times i \pmod{m}$ mit $m = 17$, $a=5$ and $a=6$}
 \end{sagecode}
 
-\noindent Die Funktion \verb!mod()! gibt das Objekt zurück, das die natürlichen
+ Die Funktion \verb!mod()! gibt das Objekt zurück, das die natürlichen
 Zahlen modulo $m$ (in unserem Fall $m = 17$) repräsentiert.
 Aus dem {\tt Mod}-Objekt kann man die einzelnen Komponenten entweder mit der
 \texttt{component}- oder mit der \texttt{lift}-Funktion zurückgewinnen.
@@ -5282,7 +5282,7 @@ $(\mathbf{Z} / n \mathbf{Z})^{\ast}$ berechnet werden, sofern eine existiert.
 Ist $n$ prim, dann ist das äquivalent zum Berechnen einer Primitivwurzel in
 $\mathbf{Z} / n \mathbf{Z}$.
 
-\noindent Im folgenden berechnen wir die Primitivwurzeln einiger natürlicher Zahlen.
+ Im folgenden berechnen wir die Primitivwurzeln einiger natürlicher Zahlen.
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -5313,12 +5313,12 @@ sage: for p in primes(1, 50):
 \caption{Berechnen einer Primitivwurzel für eine gegebene Primzahl}
 \end{sagecode}
 
-\noindent Ist $p$ prim, dann hat $\mathbf{Z} / p \mathbf{Z}$ mindestens eine Primitivwurzel.\\
+ Ist $p$ prim, dann hat $\mathbf{Z} / p \mathbf{Z}$ mindestens eine Primitivwurzel.\\
 
 
 
 \newpage
-\noindent Will man \texttt{alle} Primitivwurzeln von $(\mathbf{Z} / n \mathbf{Z})^{\ast}$
+ Will man \texttt{alle} Primitivwurzeln von $(\mathbf{Z} / n \mathbf{Z})^{\ast}$
 berechnen, und nicht nur irgend eine einzige von $(\mathbf{Z} / n \mathbf{Z})^{\ast}$,
 dann kann man das mit der folgenden selbstgeschriebenen Funktion durchführen.%
 \footnote{Der folgende Code wurde als SageMath-Skriptdatei erstellt und
@@ -5390,7 +5390,7 @@ AA_Start -- Testcases for enum_PrimitiveRoots_of_an_Integer(M)
 
 
 \newpage
-\noindent Das folgende Beispiel listet alle Primitivwurzeln der Primzahl 541 auf.
+ Das folgende Beispiel listet alle Primitivwurzeln der Primzahl 541 auf.
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -5416,7 +5416,7 @@ sage: len(L)
 
 
 \newpage
-\noindent Mit etwas Programmieren kann man zählen, wie viele Primitivwurzeln
+ Mit etwas Programmieren kann man zählen, wie viele Primitivwurzeln
 es gibt für alle natürlichen Zahlen in einem gegebenen Zahlenbereich.
 Wir können das für alle Zahlen oder nur für die Primzahlen in diesem Bereich berechnen.
 
@@ -5470,7 +5470,7 @@ def count_PrimitiveRoots_of_an_IntegerRange(start, end, bPrimesOnly=True):
 
 
 \newpage
-\noindent Um zu sehen, wie lange unser Computer für diese Berechnung braucht,
+ Um zu sehen, wie lange unser Computer für diese Berechnung braucht,
 kann man den SageMath-Befehl \verb!time! verwenden.
 
 \begin{sagecode}
@@ -5512,7 +5512,7 @@ Time: CPU 1.52 s, Wall: 1.59 s
 
 
 \clearpage
-\noindent Mit unserer selbst erstellten Funktion \verb!enum_PrimitiveRoots_of_an_Integer!
+ Mit unserer selbst erstellten Funktion \verb!enum_PrimitiveRoots_of_an_Integer!
 kann man alle Primitivwurzeln einer Primzahl $p$ finden.
 
 Die folgende Funktion zählt, wie viele Primitivwurzeln es innerhalb eines Primzahl-Bereiches
@@ -5576,7 +5576,7 @@ Time: CPU 7.55 s, Wall: 7.85 s
 
 
 \newpage
-\noindent Die Funktion \verb!count_PrimitiveRoots_of_a_PrimesRange! wurde von
+ Die Funktion \verb!count_PrimitiveRoots_of_a_PrimesRange! wurde von
 Minh Van Nguyen leicht geändert, um eine Liste (Datenbank) aller Primitivwurzeln
 für alle Primzahlen zwischen 1 und 100.000 zu erstellen.
 
@@ -5739,7 +5739,7 @@ generieren).
 
 % \newpage
 \clearpage
-\noindent Die Datei \glqq primroots\_1-100000.dat\grqq~wurde dann als Input benutzt,
+ Die Datei \glqq primroots\_1-100000.dat\grqq~wurde dann als Input benutzt,
 um mit dem folgenden Code (Sage-Skript \ref{l:Sagecode_Graphics-Distribution-PrimRoots})
 drei Grafiken zu erstellen.
 
@@ -5845,12 +5845,12 @@ mit der größten Primitivwurzel zu jeder Primzahl im obigen Intervall.
 \subsection{RSA-Beispiele mit SageMath}
 \label{l:NumberTheory_Sage_RSA_sample}{}
 
-\noindent In diesem Abschnitt sind die SageMath-Quelltexte für die einfachen RSA-Beispiele
+ In diesem Abschnitt sind die SageMath-Quelltexte für die einfachen RSA-Beispiele
 im Kapitel~\ref{rsaconcrete} (\glqq \nameref{rsaconcrete}\grqq) angegeben.
 
 \vskip +10 pt
 \hypertarget{nt:AppArith4a}{%
-\noindent \textbf{Beispiel auf Seite~\pageref{SrcArith4a}:}}
+ \textbf{Beispiel auf Seite~\pageref{SrcArith4a}:}}
 \label{nt:AppArith4a}\\
 Die RSA-Exponentiation $M^{37} \pmod{3713}$ für die Nachricht $M = 120$ kann
 mit SageMath folgendermaßen ausgeführt werden:
@@ -5864,7 +5864,7 @@ sage: power_mod(120, 37, 3713)
 
 \vskip +10 pt
 \hypertarget{nt:AppArith4b}{%
-\noindent \textbf{Beispiel auf Seite~\pageref{SrcArith4b}:}}
+ \textbf{Beispiel auf Seite~\pageref{SrcArith4b}:}}
 \label{nt:AppArith4b}\\
 Die Faktorisierung von $\phi(256.027) = 255.016 = 2^3 * 127 * 251$ kann mit SageMath
 folgendermaßen durchgeführt werden:
@@ -5881,7 +5881,7 @@ sage: factor(255016)
 
 \vskip +10 pt
 \hypertarget{nt:AppArith4c}{%
-\noindent \textbf{Beispiel auf Seite~\pageref{SrcArith4c}:}}
+ \textbf{Beispiel auf Seite~\pageref{SrcArith4c}:}}
 \label{nt:AppArith4c}\\
 RSA-Verschlüsselung mit SageMath:
 
@@ -5899,7 +5899,7 @@ sage: [power_mod(a, e, m) for a in A]
 
 \vskip +10 pt
 \hypertarget{nt:AppArith4d}{%
-\noindent \textbf{Beispiel auf Seite~\pageref{SrcArith4d}:}}
+ \textbf{Beispiel auf Seite~\pageref{SrcArith4d}:}}
 \label{nt:AppArith4d}\\
 RSA-Verschlüsselung mit SageMath:
 
@@ -5914,7 +5914,7 @@ sage: [power_mod(a, e, m) for a in A]
 
 \vskip +10 pt
 \hypertarget{nt:AppArith4e}{%
-\noindent \textbf{Beispiel auf Seite~\pageref{SrcArith4e}:}}
+ \textbf{Beispiel auf Seite~\pageref{SrcArith4e}:}}
 \label{nt:AppArith4e}\\
 RSA-Verschlüsselung mit SageMath:
 
@@ -5987,7 +5987,7 @@ geht die Anzahl der Primzahlen $PI(x)$ asymptotisch gegen $x / ln(x)$.
 Zwischen $1$ und einem gegebenen $n$ gibt es also ca. $n / ln(n)$ unterschiedliche
 Primzahlen.
 
-\noindent Will man nicht faktorisieren, sondern stellt sich eine Frage ähnlich
+ Will man nicht faktorisieren, sondern stellt sich eine Frage ähnlich
 wie bei den klassischen Verschlüsselungsverfahren, kann man herausfinden wollen:
 Wie viele verschiedene private Schlüssel $(n, d)$ gibt es für einen bestimmten
 Bereich der Schlüsselgröße $n \in [a, b]$?\footnote{%
@@ -5996,7 +5996,7 @@ S.~\pageref{L_nt_Num-of-d-mod-26} behandelt den Spezialfall $n=26$.
 }
 
 \newpage
-\noindent Das SageMath-Programm~\ref{nt_sagesample_Count_RSA_Keys} unten
+ Das SageMath-Programm~\ref{nt_sagesample_Count_RSA_Keys} unten
 definiert die Funktion \verb#count_Number_of_RSA_Keys#, die diese Frage konkret
 beantwortet (wenn der Modulus nicht zu groß ist).\footnote{%
 %\begin{compactitem}
@@ -6016,7 +6016,7 @@ annimmt).\\
 \vin Die Anzahl der Primzahlen im gegebenen Bereich beträgt: $143$.\\
 \vin Die Anzahl der privaten Schlüssel beträgt: $34.816$.
 \end{verse}
-%\noindent %       \item
+% %       \item
 \begin{verse}[\versewidth]
  b) Der Aufruf \verb#sage: count_Number_of_RSA_Keys(100, 100, True)#
 hat die folgende Ausgabe:\\
@@ -6096,7 +6096,7 @@ Time: CPU 0.63 s, Wall: 0.66 s
 \label{nt_sagesample_Count_RSA_Keys}
 \end{sagecode}
 
-\noindent Weil es mehr private Schlüssel $(n, d)$ innerhalb eines größeren
+ Weil es mehr private Schlüssel $(n, d)$ innerhalb eines größeren
 Bereiches von Werten für $n$ gibt, ist das Brute-Force-Faktorisieren
 viel effizienter als das Durchprobieren aller möglichen Schlüssel.
 
@@ -6168,23 +6168,23 @@ Weiterhin ist die Zerlegung auf der rechten Seite äquivalent zu:
 $$m^{e-1} = 1 \bmod p \text{ ~~~und~~~ } m^{e-1} = 1 \bmod q. $$
 
 
-\noindent Wir betrachten  $m^{e-1} = 1 \bmod p $ und  suchen alle $(e-1)$-ten
+ Wir betrachten  $m^{e-1} = 1 \bmod p $ und  suchen alle $(e-1)$-ten
 Einheitswurzeln\index{Einheitswurzel}\footnote{%
 - In der Algebra werden Zahlen $x$, deren n-te Potenz die Zahl 1 ergibt, n-te \textbf{Einheitswurzeln} genannt.
 
-\noindent- Eine $n$-te Einheitswurzel $x$ heißt \textbf{primitiv}, falls für $x$ gilt:
+- Eine $n$-te Einheitswurzel $x$ heißt \textbf{primitiv}, falls für $x$ gilt:
  $$x^{n} = 1  \text{ und }   x^{k} \neq 1 ~~~(k = 1,2, 3, ..., n-1)$$
 
 % Was ist der Zusammenhang zw. "Primitivwurzel" und "primitiver Einheitswurzel"?
 
-\noindent- Ist $F$ ein endlicher Körper und $n$ eine natürliche Zahl, dann ist eine
+- Ist $F$ ein endlicher Körper und $n$ eine natürliche Zahl, dann ist eine
 $n$-te Einheitswurzel in $F$ eine Lösung der Gleichung $$ x^{n}-1 = 0 \text{ in } F $$
 }
 in $\mathbb{Z}_p^{*}.$\\
 Es gilt:~~ $\mathbb{Z}_p^{*}$ für p prim ist zyklisch.~~$\Rightarrow $~~
 Es existiert ein Generator $g$, der $\mathbb{Z}_p^{*}$ erzeugt: $\mathbb{Z}_p^{*}=<g>$.
 
-\noindent Der ff. Satz aus \cite[S. 69]{Katzenbeisser2001}\index{Katzenbeisser 2001} charakterisiert alle $(e-1)$-ten Einheitswurzeln in $\mathbb{Z}_p^{*}$:
+ Der ff. Satz aus \cite[S. 69]{Katzenbeisser2001}\index{Katzenbeisser 2001} charakterisiert alle $(e-1)$-ten Einheitswurzeln in $\mathbb{Z}_p^{*}$:
 %\begin{lem}[$\cite{Katzenbeisser2001}$]
 %\end{lem}
 
@@ -6211,16 +6211,16 @@ $(e-1)$-ten Einheitswurzeln $g^{\alpha \frac{p-1}{\delta}} \bmod p$ in $\mathbb{
 %%%% Ist $g^{\alpha \frac{p-1}{\delta}} \bmod p$ in $\mathbb{Z}_p^{*}$ richtig?
 
 
-\noindent Analog für $q$: Für $m^{e-1} = 1 \bmod q $ haben wir dann $ ggT(q-1, e-1) $
+ Analog für $q$: Für $m^{e-1} = 1 \bmod q $ haben wir dann $ ggT(q-1, e-1) $
 viele $(e-1)$-te Einheitswurzeln.\\
 
-\noindent Die Anzahl der Arten, die $(e-1)$-ten Einheitswurzeln in $\mathbb{Z}_p^{*}$ und
+ Die Anzahl der Arten, die $(e-1)$-ten Einheitswurzeln in $\mathbb{Z}_p^{*}$ und
 $\mathbb{Z}_q^{*}$ zu kombinieren, ergibt die Gesamt-Anzahl der RSA-Fixpunkte
 $ m^e = m \bmod n$ mit $ m \in \{1,...,n-1\}$:\\
  $ggT(p-1, e-1) \cdot ggT(q-1, e-1) $\\
 
 
-\noindent Nimmt man $m=0$ hinzu, ergibt sich Satz \ref{nt-thm-Anzahl-RSA-Fixpunkte}:
+ Nimmt man $m=0$ hinzu, ergibt sich Satz \ref{nt-thm-Anzahl-RSA-Fixpunkte}:
 \begin{satz}\label{nt-thm-Anzahl-RSA-Fixpunkte}
 Wenn $ m \in \{0,...,n-1\}$ ist, dann ist die Anzahl der RSA-Fixpunkte:
           \[ (ggT(p-1, e-1)+1) \cdot (ggT(q-1, e-1)+1) \]
@@ -6237,11 +6237,11 @@ Im folgenden Kapitel zeigen wir, dass eine untere Schranke für die Anzahl der R
 existiert. Diese untere Schranke $6$ liegt vor, wenn die beiden unterschiedlichen
 RSA-Primzahlen die kleinstmöglichen sind (2 und 3).
 
-\noindent\textbf{Behauptung 1:} Sei $p = 2, q = 3$.\\
+\textbf{Behauptung 1:} Sei $p = 2, q = 3$.\\
 Die Anzahl der RSA-Fixpunkte für $p=2$ und $q=3$ ist\\
 $(\underbrace{ggT(p-1, e-1)}_{=1}+1) \cdot (\underbrace{ggT(q-1, e-1)}_{=2}+1)=2 \cdot 3=6$\\
 
-\noindent\textbf{Behauptung 2:} Sei $p \neq q; p > 2,q > 2$.\\
+\textbf{Behauptung 2:} Sei $p \neq q; p > 2,q > 2$.\\
 Die Anzahl der RSA-Fixpunkte für $p \neq q; p,q > 2$ ist $\geq 9$.
 
 \begin{proof}{(der 2. Behauptung)}
@@ -6256,7 +6256,7 @@ $\Rightarrow (ggT(p-1, e-1)+1) \cdot (ggT(q-1, e-1)+1) \geq 9$
 \end{proof}
 
 \vspace{\baselineskip}
-\noindent \textbf{Beispiele:}\\
+ \textbf{Beispiele:}\\
 Für $(e,n)=(17,6)$ sind alle sechs möglichen Nachrichten \{0,1,2,3,4,5\} Fixpunkte (bei $n=6$ ist das unabhängig vom Wert von $e$).\\
 Für $(e,n)=(17,10)$ sind alle 10 möglichen Nachrichten Fixpunkte.\\
 Für $(e,n)=(19,10)$ sind nur 6 der 10 möglichen Nachrichten Fixpunkte.
@@ -6273,9 +6273,9 @@ und erweitern das dann auf alle möglichen schlecht gewählten Werte für $e$.
 %%% Wie viele solcher ungeschickter e existieren?
 %%% Warum muss es das kgV sein, und kann nicht irgendein Vielfaches von phi?
 
-\noindent Wenn $e=1$, dann gilt für alle $ m$: $ c = m^e = m$. Das ist der Trivialfall.\\
+ Wenn $e=1$, dann gilt für alle $ m$: $ c = m^e = m$. Das ist der Trivialfall.\\
 
-\noindent\textbf{Behauptung:} Sei $p,q > 2$.\\
+\textbf{Behauptung:} Sei $p,q > 2$.\\
 Wenn $e=1+kgV(p-1,q-1)$, dann gilt für alle $ m \in \{1,...,n-1\}$: $ m^e = m \bmod n$.
 
 \begin{proof}{}
@@ -6283,13 +6283,13 @@ Es gilt:\\
 -~~~ $ ~~~ e\cdot d=1 \mod \phi(n)$ ~oder~ $e\cdot d=1 \mod kgV(p-1,q-1) $\\
 -~~~ $ ~~~ m^{x} \mod n = m^{x \mod \phi(n)} \mod n $
 
-\noindent Verschlüsseln von Nachrichten:\\
+ Verschlüsseln von Nachrichten:\\
  $~~~c=m^e \mod n$, wobei c der Geheimtext und m der Klartext ist.
 
-\noindent Entschlüsseln von Nachrichten:\\
+ Entschlüsseln von Nachrichten:\\
  $~~~m'=c^d \mod n$, wobei d die multiplikative Inverse von e ist.
 
-\noindent Zu zeigen ist: $c=m \mod n$ für das gewählte e.
+ Zu zeigen ist: $c=m \mod n$ für das gewählte e.
 
 $~~~c = m^e \mod n$
 
@@ -6304,7 +6304,7 @@ $~~~c = m^1 \cdot m^{0} = m \mod n $
 
 \newpage
 %~\\ % Zeilenumbruch erzwingen
-\noindent\textbf{Beispiel: Fixpunkteigenschaft für alle m:}\\
+\textbf{Beispiel: Fixpunkteigenschaft für alle m:}\\
 Gegeben sei $n=p\cdot q= 13\cdot 37=481\\
 \Rightarrow \phi(n)=(p-1)(q-1)=12\cdot 36=432$\\
 $\Rightarrow e=kgV(p-1,q-1)+1=kgV(12,36)+1=36+1=37$.\\
@@ -6316,7 +6316,7 @@ $480^{37} \mod 481=480 $\\
    % be-xxxxxxxx Testen aller m-Werte auch mit 1 + 2*36 = 37+36= 73 !!!!!!!!!!!!!
 
 ~\\ % Trick: Zeilenumbruch erzwingen
-\noindent Es gibt nicht nur das einzige $e$ (siehe oben), so dass für alle $ m \in \{1,...,n-1\}$ die Fixpunkteigenschaft $ m^e = m \bmod n$ gilt.\footnote{%
+ Es gibt nicht nur das einzige $e$ (siehe oben), so dass für alle $ m \in \{1,...,n-1\}$ die Fixpunkteigenschaft $ m^e = m \bmod n$ gilt.\footnote{%
   Man kann diese $e$, die jede Nachricht zu einem Fixpunkt machen, als
   "`schwache Schlüssel"' $(e,n)$ des RSA-Verfahrens
   bezeichnen\index{Schlüssel!schwach}.
@@ -6337,15 +6337,15 @@ $e=j\cdot kgV(p-1,q-1)+1$, wobei $j=0,1,2,3,4, ... $ bis $e \leq \phi(n)$.
 \end{satz}
 
 ~\\ % Zeilenumbruch erzwingen
-\noindent\textbf{Beispiel: Weitere Werte für $e$ mit Fixpunkteigenschaft:}\\
+\textbf{Beispiel: Weitere Werte für $e$ mit Fixpunkteigenschaft:}\\
 Betrachten wir wieder
 $n=p\cdot q= 13\cdot 37=481$ mit $kgV(p-1,q-1)=kgV(12,36)=36$.\\
 Dann kann $e$ die ff. Werte annehmen: $e=j\cdot kgV(p-1,q-1)+1$ für $j=0,1,2,...,11$:\\
 $\Rightarrow e \in \left\{ 1, 37,73,109,145,181,217, 253, 289, 325, 361,397\right\}$.\\
 
-\noindent Ab $j=12$ gilt: $ e=12\cdot kgV(12,36)+1=432+1=433 > 432=\phi(n)$.\\
+ Ab $j=12$ gilt: $ e=12\cdot kgV(12,36)+1=432+1=433 > 432=\phi(n)$.\\
 
-\noindent Überprüfen wir z.B. wieder die obigen vier Werte für $m$ mit $e=217$, ergibt sich:\\
+ Überprüfen wir z.B. wieder die obigen vier Werte für $m$ mit $e=217$, ergibt sich:\\
 $~~4^{217} \mod 481=~~4 $\\
 $~~6^{217} \mod 481=~~6 $\\
 $~~7^{217} \mod 481=~~7 $\\
@@ -6357,7 +6357,7 @@ Die Anzahl der möglichen Werte für $e\text{ mit } m^e = m \bmod n$ lässt sich
 \]
 \end{satz}
 
-\noindent In unserem Beispiel ergibt dies $\frac{432}{kgV(12,36)}=12 $ verschiedene Werte
+ In unserem Beispiel ergibt dies $\frac{432}{kgV(12,36)}=12 $ verschiedene Werte
 für $e$, bei denen für alle $m$ in $\mathbb{Z}_{481}$ gilt: $m^e = m \bmod n$.\\
 ~\\ % Zeilenumbruch erzwingen
 
@@ -6370,7 +6370,7 @@ für $e$, bei denen für alle $m$ in $\mathbb{Z}_{481}$ gilt: $m^e = m \bmod n$.
 In diesem Kapitel machen wir eine empirische Abschätzung der Anzahl der Fixpunkte
 für wachsende Moduli (und nicht schwache $e$).
 
-\noindent Dabei haben wir $p $ und $ q$ zufällig aus den sechs folgenden Bereichen
+ Dabei haben wir $p $ und $ q$ zufällig aus den sechs folgenden Bereichen
 gewählt (jeder gkennzeichnet durch seine untere und obere Schranke):\\
 $(2^2, 2^{10}), (2^{10}, 2^{20}), (2^{20}, 2^{40}), (2^{40}, 2^{80}),
  (2^{80}, 2^{160}), (2^{160}, 2^{320})$.\\
@@ -6379,7 +6379,7 @@ immer den Standardwert $e=2^{16}+1$ genommen. Die Anzahl der Fixpunkte wurde fü
 alle 60 Versuche mit dem Programm
 \ref{nt_sagesample_Calculate_RSA-Fixpoints} "`Getfixpoints.sage"' berechnet.
 
-\noindent Die folgenden fünf Mengen enthalten die zufällig gewählten Wertepaare (p,q) innerhalb
+ Die folgenden fünf Mengen enthalten die zufällig gewählten Wertepaare (p,q) innerhalb
 der ersten fünf Größenbereiche.
 
 \begin{equation*}
@@ -6469,28 +6469,28 @@ Abbildung \ref{fig:NumberFixpointsGrowingN} zeigt, dass innerhalb der sechs Grö
 
 Die Aufgabe besteht darin, alle Fixpunkte für (n, e) = (866959, 17) zu bestimmem.\\
 
-\noindent \textbf{Lösung:}\\
+ \textbf{Lösung:}\\
 Zuerst faktorisieren wir $n$:  $ 866959 = 811 \cdot 1069$.\\
 
-\noindent Die Anzahl der RSA-Fixpunkte ergibt sich nach Satz \ref{nt-thm-Anzahl-RSA-Fixpunkte}:\\
+ Die Anzahl der RSA-Fixpunkte ergibt sich nach Satz \ref{nt-thm-Anzahl-RSA-Fixpunkte}:\\
 $ (ggT(  p-1,  e-1)+1) \cdot (ggT(   q-1,  e-1)+1) =
   (ggT(811-1, 17-1)+1) \cdot (ggT(1069-1, 17-1)+1) = (2+1) \cdot (4+1) = 15 $\\
 
-  \noindent Das SageMath-Programm \ref{nt_sagesample_Calculate_RSA-Fixpoints} (Getfixpoints) liefert für $(n,e) = (866959, 17)$ die folgenden 15 Fixpunkte:
+   Das SageMath-Programm \ref{nt_sagesample_Calculate_RSA-Fixpoints} (Getfixpoints) liefert für $(n,e) = (866959, 17)$ die folgenden 15 Fixpunkte:
 %
-%\noindent \textbf{3 Fixpunkte modulo p:}\\
+% \textbf{3 Fixpunkte modulo p:}\\
 %$ ~~~~~0$ (trivialer Fixpunkt manuell hinzugefügt)\\
 %$ ~~~~~1$\\
 %$ ~~~810$\\
 %
-%\noindent \textbf{5 Fixpunkte modulo q:}\\
+% \textbf{5 Fixpunkte modulo q:}\\
 %~~~~~~0 (trivialer Fixpunkt manuell hinzugefügt)\\
 %~~~~~~1\\
 %~~~~249\\
 %~~~~820\\
 %~~~1068\\
 %
-%\noindent \textbf{15 Fixpunkte modulo 866959 bei e= 17:}\\  % TODO_LaTeX: Warum wirkt "~" nicht?
+% \textbf{15 Fixpunkte modulo 866959 bei e= 17:}\\  % TODO_LaTeX: Warum wirkt "~" nicht?
 % Deshalb Tabelle statt Liste (spart auch Platz)
 %$~~~~~~~~0$\\
 %~~~~~~~~1\\
@@ -6518,7 +6518,7 @@ $ (ggT(  p-1,  e-1)+1) \cdot (ggT(   q-1,  e-1)+1) =
 \end{center}
 \end{table}
 
-\noindent \textbf{Beispiel:}\\
+ \textbf{Beispiel:}\\
 Beispielhaftes Validieren für $ 843441 $:~~
 $843441^{17} \mod 866959 = 843441$\\
 Also ist $ m = 843441$ ein Fixpunkt für das gegebene $(n,e)$.\\
@@ -6594,7 +6594,7 @@ print "\nRemark: You can verify each fixpoint with power_mod(m,e,n).";
 
 
 \vspace{60pt}
-\noindent \textbf{Bedeutung der Variablen im SageMath-Code
+ \textbf{Bedeutung der Variablen im SageMath-Code
                   \ref{nt_sagesample_Calculate_RSA-Fixpoints}:}
 \begin{Verbatim}%
 [fontsize=\footnotesize]
@@ -6678,7 +6678,7 @@ Satz~\ref{nt-thm-Anzahl-RSA-Fixpunkte} & Anzahl der RSA-Fixpunkte & \pageref{nt-
 ]
 
 
-\noindent Alle Links wurden am 12.07.2016 überprüft.
+ Alle Links wurden am 12.07.2016 überprüft.
 
 
 
@@ -6780,7 +6780,7 @@ Satz~\ref{nt-thm-Anzahl-RSA-Fixpunkte} & Anzahl der RSA-Fixpunkte & \pageref{nt-
 
 \end{enumerate}
 
-\noindent Alle Links wurden am 06.08.2018 überprüft.
+ Alle Links wurden am 06.08.2018 überprüft.
 
 
 
