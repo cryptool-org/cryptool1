@@ -99,6 +99,7 @@
 \usepackage{amssymb,amscd,latexsym}   %BERM2: added for biciphers.tex
 \usepackage{amsfonts}
 \usepackage{amsthm}
+\usepackage{siunitx}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%------bibliographie
@@ -152,11 +153,13 @@
 \pagestyle{headings}
 %\chapter[toc version]{doc version}\chaptermark{running-header version}
 \usepackage{fancybox} %16xxxxxxxxxxxxxx
-\usepackage{paralist}  %BE_2012: eliminate space after end{itemize} worked with compactitem
+%\usepackage{paralist}  %BE_2012: eliminate space after end{itemize} worked with compactitem
+\usepackage{enumitem}
 \usepackage{verse}    %BE_Feb2013: To use \settowidth{\versewidth}{xxx}
 \usepackage{shorttoc}
 \RequirePackage[normalem]{ulem} %DIF PREAMBLE%16xxxxxxxxxxxxxx%underline nicely
 \usepackage{ragged2e} % be_2016-08-04: ragged margin with hyphenation w/ blackbox in index (needed only for index in de)
+\usepackage{multicol}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-----code
 \usepackage{fancyvrb} % for verbatim; VerbatimFootnotes command after preamble allows
@@ -309,28 +312,40 @@ pdfencoding=auto]{hyperref}
 
 {\centering
 \strut\vfill
-{\fontsize{30pt}{30pt}\selectfont Das CrypTool-Buch:}\\[\baselineskip]
-\textbf{\fontsize{35pt}{35pt}\selectfont Kryptographie lernen und anwenden
+{\fontsize{25pt}{25pt}\selectfont Das CrypTool-Buch:}\\[\baselineskip]
+\fontsize{35pt}{45pt}\selectfont
+\textbf{
+Kryptographie lernen und anwenden
                 mit CrypTool und SageMath}
 
-{\LARGE Hintergrundmaterial und Zusatzinformationen\\
+\bigskip
+
+\fontsize{20pt}{25pt}\selectfont
+{Hintergrundmaterial und Zusatzinformationen\\
 	 zum freien E-Learning Krypto-Programm CrypTool\\
 	 (Kryptographie, Mathematik und mehr)}
 
-	 {\large 12. Auflage --  {\bf Draft-Version} (\settimeformat{hhmmsstime}\currenttime)}
 \vfill
-	{\fontsize{25pt}{25pt}\selectfont Prof.\ Bernhard Esslinger (Mitautor und Herausgeber)
 
-	und das CrypTool-Team, 1998-2019}
+ {\large 12. Auflage --  {\bf Draft-Version}
+(\settimeformat{hhmmsstime}\currenttime)}
 
+\vfill
+
+\fontsize{20pt}{25pt}\selectfont
+Prof.\ Bernhard Esslinger (Mitautor und Herausgeber)
+	und das CrypTool-Team, 1998-2019
+
+\large
 	\url{www.cryptool.org}
 
 	\today
 
 \vfill
-}%ende titelseite
+}%ende titelseite, ende centering
 
 \newpage
+%\end{document}
 
 %beginfoldingersteseiten
 % Vergleichbar zur Nutzung von Texten aus der Wikipedia (=GNU Free Documentation Licence, GFDL)
@@ -356,7 +371,9 @@ Dokumentation.
 
 
 
-\vspace{70pt}Zum Referenzieren per bibtex:
+\vfill
+
+Zum Referenzieren per bib(La)tex:
 % Referenzart: book
 % Notwendige Felder: author oder editor, title, publisher, year
 % Optionale Felder: volume oder number, series, address, edition, month, note, isbn
@@ -381,6 +398,8 @@ Quelle Coverfoto: \url{www.photocase.com}, Andre Günther\\
 Schriftsatz-Software: \LaTeX\\
 Versionsverwaltungs-Software: Subversion
 %endfoldingersteseiten
+
+\newpage
 
 \input{chapters/overviewcontent.tex} % Überblick über Inhalt des CT-Buches soll vor toc
 

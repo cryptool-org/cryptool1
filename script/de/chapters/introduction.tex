@@ -8,6 +8,7 @@
 \clearpage
 %\setcounter{secnumdepth}{-1}  % Prevent this chapter title from having a number
 \chapter*{Vorwort zur 12. Auflage des CrypTool-Buchs}
+\addcontentsline{toc}{chapter}{Vorwort zur 12. Auflage des CrypTool-Buchs}
 \setcounter{secnumdepth}{4}  % Set back default from CT-Book-de.tex (show numbers till level 4)
 
 Das CrypTool-Buch versucht, einzelne Themen aus der Mathematik der Kryptologie
@@ -27,46 +28,11 @@ ist diese Auswahl auch nur eine von vielen möglichen.
 In der anschließenden redaktionellen Arbeit wurden in LaTeX Querverweise ergänzt,
 Fußnoten hinzugefügt, Index-Einträge vereinheitlicht und Korrekturen vorgenommen.
 
-%In dieser Ausgabe des CT-Buchs wurden wieder einige Themen auf den
-%aktuellen Stand gebracht:
 Im Vergleich zu Ausgabe 11 des Buchs wurden in dieser Ausgabe
 die TeX-Sourcen des Dokuments komplett überarbei"-tet (bspw. eine einzige
 bibtex-Datei für alle Kapitel und beide Sprachen), und
 etliche Themen ergänzt, korrigiert und auf den aktuellen Stand gebracht, z.B.:
-\vspace{-5pt}
 
-%%%%%%%%%%%%%BE_2016Jun: %% be_todo BEGIN
-%% myNewSt = strrep(mySt,sprintf('\n'),'');
-%% be_todo -- TUT noch nicht:
-%% https://viaverdepaisagismo.com.br/index.cgi/ar/00/http/tex.stackexchange.com/questions/296643/how-to-use-nameref-with-xstring-package-to-check-string-length
-%% http://tex.stackexchange.com/questions/296643/how-to-use-nameref-with-xstring-package-to-check-string-length/296648
-%\StrLen{\getnamereftext{testLabel}}[\testStrNumOfChars1] yyy
-%Number of characters in string1 = \testStrNumOfChars1
-%\StrLen{\getnamereftext{\nameref{Chapter_Dlog-FactoringDead}}}[\testStrNumOfChars2]
-%Number of characters in string2 = \testStrNumOfChars2
-
-%\makeatletter
-%\edef\@currentlabelname{This is a somewhat longxxx string}
-%\label{testLabel}
-%\makeatother
-%\StrLen{\getnamereftext{testLabel}}[\testStrNumOfChars1] yyy
-%Number of characters2 = \testStrNumOfChars1
-
-%\makeatletter
-%\edef\@currentlabelname{This is a somewhat longxxx string}
-%\label{testLabel}
-%\makeatother
-%\StrLen{\getnamereftext{testLabel}}[\testStrNumOfChars1] yyy
-%Nmbr3 = \testStrNumOfChars1
-
-%BE_2016Jun: %% be_todo -- 3. Versuch: nameref erst einer Variablen zuweisen und diese dann um // strippen.
-%                                      Aber auch beim Zuweisen zu einer Variablen wird es nicht korrekt expandiert.
-% \def\mystring{XYZ}  % Das tut ok.
-%\def\mystring{\nameref{Chapter_Dlog-FactoringDead}}
-%\StrLen{\mystring}[\mystringlen]
-%\mystring \\
-%\mystringlen
-%%%%%%%%%%%%%%%%%%%% %BE_2016Jun: %% be_todo END
 
 \begin{itemize}
 %  \item die Definitionen zur Stärke von Sicherheits-Funktionen
@@ -101,21 +67,7 @@ etliche Themen ergänzt, korrigiert und auf den aktuellen Stand gebracht, z.B.:
   \item die~\glqq \nameref{Chapter_BitCiphers}\grqq~ist völlig neu
 	(siehe Kapitel \ref{Chapter_BitCiphers}),
 
-  %% \item die~\glqq \StrSubstitute{ XXXXXXXXXXXX }{a}{AA}\grqq~ist völlig neu
-  %% \item die~\glqq \StrSubstitute{ \nameref{Chapter_Dlog-FactoringDead} }{a}{AA}\grqq~ist völlig neu  %% tut nicht
-  %% \item die~\glqq \StrSubstitute{FactFactoringFact}{a}{AA}\grqq~ist völlig neu  %% das tut
-  %% \item die~\glqq \StrSubstitute{\nameref{Chapter_Dlog-FactoringDead}}{a}{AA}\grqq~ist völlig neu
-  %% \item die~\glqq \nameref{Chapter_Dlog-FactoringDead}\grqq~ist völlig neu
   \item die Studie ~\glqq \nameref{Chapter_Dlog-FactoringDead}\grqq~ist völlig neu
-	%% So kommt leider auch der Umbruch rein, der für den Titel nötig ist bei nameref.
-	%% myNewSt = strrep(mySt,sprintf('\n'),'');
-	%% \usepackage{xstring}
-	%% \StrSubstitute{abcde}{d}{D}   %%  {//}{ }  Use of \@xs@StrSubstitute@@ doesn't match its definition.
-	%% \StrSubstitute[<number>]{<string>}{<stringA>}{<stringB>}[<name>]
-	%% Man muss erzwingen, dass nameref expandiert wird vor der Verwendung!
-	%% 	  \StrLen{\getnamereftext{testLabel}}[\testStrNumOfChars]
-	%% 	  Number of characters in string = \testStrNumOfChars
-	%% http://www.golatex.de/wiki/%5Cmakeatletter
 	(siehe Kapitel \ref{Chapter_Dlog-FactoringDead}). Das ist ein
 	phantastischer und eingehender Überblick über die Grenzen der
 	entsprechenden aktuellen kryptoanalytischen Methoden.
@@ -133,8 +85,7 @@ die bisher in ganz besonderer Weise zum CrypTool-Projekt\index{CrypTool}
 beigetragen haben.
 Ohne ihre besonderen Fähigkeiten und ihr großes Engagement wäre CrypTool
 nicht, was es heute ist:
-\vspace{-6pt}
-\begin{list}{\textbullet}{\addtolength{\itemsep}{-0.5\baselineskip}}
+\begin{itemize}[nosep]
    \item Hr.\ Henrik Koy
    \item Hr.\ Jörg-Cornelius Schneider
    \item Hr.\ Florian Marchal
@@ -146,7 +97,7 @@ nicht, was es heute ist:
          Prof.~Alexander May,
          Prof.~Torben Weis und insbesondere
          Prof.\ Arno Wacker.
-\end{list}
+\end{itemize}
 
 Auch allen hier nicht namentlich Genannten ganz herzlichen Dank für das
 (meist in der Freizeit) geleistete Engagement.
@@ -160,18 +111,22 @@ Verständnis für dieses moderne und zugleich uralte Thema finden.
 
 
 
-\par \vskip + 35pt
+\vfill
+
 Bernhard Esslinger
-\par \vskip + 10pt
+
+\bigskip
+
 Heilbronn/Siegen, August 2016 + August 2017 + Mai 2018
 
 
 
-\par \vskip + 80pt
+\vfill
+
 PS:\\
 Wir würden uns freuen, wenn sich weitere Autoren finden, die vorhandene Kapitel verbessern oder fundierte
 Kapitel z.B. zu einem der folgenden Themen ergänzen könnten:
-\begin{compactitem}
+\begin{itemize}[nosep]
    \item Riemannsche Zeta-Funktion,
    \item Hashverfahren und Passwort-Knacken,
    \item Gitter-basierte Kryptographie,
@@ -179,26 +134,18 @@ Kapitel z.B. zu einem der folgenden Themen ergänzen könnten:
    \item Format-erhaltende Verschlüsselung, Privacy-preserving Kryptographie,
    \item Diskussion der Wirkung verschiedener Blockmodi auf die Sicherheit,
    \item Design/Angriff auf Krypto-Protokolle (wie SSL).
-\end{compactitem}
+\end{itemize}
 
 
-\par \vskip + 15pt
-PPS:\\%xxxxxxxxxx Todo
-Ausstehende Todos für Edition 12 dieses Buches (bis dahin nennen wir es weiterhin Draft):%xxxxxxxxxxxxx
-%\begin{list}{\textbullet}{\addtolength{\itemsep}{-0.5\baselineskip}}
-%\end{list}
-% - Abstand nach/zwischen den Bulletzeilen per itemsep+baselineskip;
-% - Abstand vor erstem Bulletpoint versucht per \vskip und negativem Wert, aber
-%   \par \vskip -15pt wirkte weder VOR dem \begin{list} noch DANACH. --> Nutzte eben compactitem!
-\begin{compactitem}
+\vfill
+PPS:\\
+Ausstehende Todos für Edition 12 dieses Buches (bis dahin nennen wir es weiterhin Draft):
+\begin{itemize}[nosep]
 \item Updaten aller Informationen zu SageMath (Kap.~\ref{ec:Sage_Massierer} und Appendix) und Testen des Codes gegen das neueste SageMath (Version 8.x), sowohl von der Kommandozeile als auch mit dem SageMathCloud-Notebook. SageMath 8 ist auch für Windows verfügbar.
    \item Updaten der Funktionslisten zu den vier CT-Versionen (im Appendix).
-\end{compactitem}
+\end{itemize}
 
 
-% [1.5\baselineskip]
-% \enlargethispage*{2\baselineskip}
-% \nopagebreak
 
 
 
@@ -243,8 +190,8 @@ haben sich bemüht, Kryptographie für eine möglichst breite Leserschaft
 darzu"-stellen -- ohne mathematisch unkorrekt zu werden. Sie wollen die
 Awareness für die IT-Sicherheit und den Einsatz standardisierter, moderner
 Kryptographie fördern.
-\par \vskip + 15pt
 
+\bigskip
 
 \textbf{Die Programme CrypTool~1\index{CT1},
   CrypTool~2\index{CT2} und JCrypTool\index{JCT}}
@@ -258,8 +205,8 @@ strukturiert als im CT-Buch).
 
 CrypTool~1 und die Nachfolgeversionen CrypTool~2 (CT2) und JCrypTool (JCT)
 werden weltweit in Schule, Lehre, Aus- und Fortbildung eingesetzt.
-\par \vskip + 15pt
 
+\bigskip
 
 \textbf{CrypTool-Online\index{CTO}}
 
@@ -270,8 +217,8 @@ von CTO ist bei weitem nicht so groß wie der der Standalone-Programme CT1,
 CT2 und JCT. Jedoch wird CTO mehr und mehr als Erstkontakt genutzt, weshalb
 wir Backbone und Frontend momentan mit moderner Webtechnologie neu designen,
 um ein schnelles, konsistentes und responsives Look\&Feel anzubieten.
-\par \vskip + 15pt
 
+\bigskip
 
 \textbf{MTC3\index{MTC3}}
 
@@ -283,8 +230,8 @@ High-Score-Liste und ein moderiertes Forum. Stand 2016-06-16 sind über 7000
 Teilnehmer dabei, und es gibt über 200 Aufgaben, von denen 162 von
 zumindest einem Teilnehmer gelöst wurden.
 %% Todo-repetitively: 2016-06-16: All: 75+84+48+12=219; Solved: 75+75+6+6=162. Diff = 57.
-\par \vskip + 15pt
 
+\bigskip
 
 
 \textbf{Das Computer-Algebra-Programm SageMath\index{SageMath}}
@@ -297,8 +244,8 @@ dass als Skript-Sprache Python (z.Zt. Version 2.x) benutzt wird.
 Dadurch stehen einem in Sage-Skripten nach einem import-Befehl auch alle Funktionen
 der Sprache Pytho\index{Python}n zur Verfügung.\\
 SageMath wird mehr und mehr zum Standard-CAS an Hochschulen.
-\par \vskip + 15pt
 
+\bigskip
 
 
 \textbf{Die Schüler-Krypto-Kurse\index{Schüler-Krypto}}
@@ -315,8 +262,8 @@ Alle eingesetzte Software ist ebenfalls frei (meist wird CT1 und CT2
 eingesetzt).\\
 Wir würden uns freuen, wenn jemand die Kursunterlagen übersetzt und
 einen entsprechenden Kurs in Englisch anbieten würde.
-\par \vskip + 15pt
 
+\bigskip
 
 
 \textbf{Dank}
@@ -326,9 +273,11 @@ Erfolg und zur weiten Verbreitung dieses Projekts beigetragen haben.
 
 
 
-\par \vskip + 45pt
+\vfill
 Bernhard Esslinger
-\par \vskip + 10pt
+
+\bigskip
+
 Heilbronn/Siegen, August 2017
 
 % Local Variables:

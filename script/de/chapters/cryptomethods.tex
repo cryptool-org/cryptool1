@@ -34,7 +34,7 @@ sogenannten Schlüssels, die es ihm erlaubt, die Daten zu entschlüsseln,
 während sie jedem anderen verborgen bleiben.\footnote{%
   Natürlich kann ein Angreifer trotzdem die Verbindung stören oder
   Metadaten (wie wer mit wem kommuniziert) abgreifen.
-}%\par \vskip + 3pt
+}
 
 Zur Erläuterung verwenden wir im Folgenden die Begriffe aus der
 Abbildung \ref{cm_Generic-Notations-when-Encrypting}:
@@ -49,7 +49,6 @@ Abbildung \ref{cm_Generic-Notations-when-Encrypting}:
 
 
 % --------------------------------------------------------------------------
-\newpage
 
 \begin{ctsquote}
 Erkläre es mir, ich werde es vergessen.\\
@@ -72,7 +71,6 @@ Computer-Praxis. Beim Design kryptographischer Algorithmen werden Annahmen
 zur Schwierigkeit von Berechnungen so gemacht, so dass sich solche Verfahren
 in der Praxis von einem Angreifer nur schwer brechen lassen.
 
-\vskip +3pt
 Die zwei Hauptnotationen in der Literatur definieren Sicherheit in
 Abhängigkeit von den Möglichkeiten des Angreifers (vgl. z.B.
 {\em Contemporary Cryptography} \cite{Oppliger2011}):
@@ -112,12 +110,11 @@ Abhängigkeit von den Möglichkeiten des Angreifers (vgl. z.B.
   verwendete Schlüssel darf nur einmal verwendet werden, muss zufällig
   gewählt werden und mindestens so lang sein wie die zu schützende Nachricht),
   so dass es außer in geschlossenen Umgebungen, zum Beispiel beim heißen
-  Draht zwischen Moskau und Washington, kaum eine Rolle spielt.%\par \vskip + 3pt
+  Draht zwischen Moskau und Washington, kaum eine Rolle spielt.
 
 \end{itemize}
 
 
-\vskip +3pt
 Manchmal werden auch zwei weitere Konzepte verwendet:
 
 \begin{itemize}
@@ -153,7 +150,6 @@ würde.
 \end{itemize}
 
 
-\vskip +3pt
 Bei den heutzutage verwendeten guten Verfahren ist der Zeitaufwand zum Brechen
 so hoch, dass sie praktisch nicht gebrochen werden können. Deshalb kann man
 diese Verfahren als (praktisch) sicher ansehen -- aus einer rein auf den
@@ -168,9 +164,7 @@ Algorithmus bezogenen Sichtweise.\footnote{%
   Implementierung?
 }
 
-\vskip +3pt
-\begin{sloppypar}
-Grundsätz"-lich unterscheidet man zwischen symmetrischen
+Grundsätzlich unterscheidet man zwischen symmetrischen
 (siehe Kapitel \ref{cm_Section_Symmetric-encryption}) und asymmetrischen
 (siehe Kapitel \ref{cm_Section_Asymmetric-encryption})
 Verfahren zur Verschlüsse"-lung.
@@ -189,9 +183,7 @@ bieten auch die Bücher von Bruce Schneier \cite{Schneier1996} und Klaus Schmeh
   % Vertraulichkeit und Privatsphäre hängen davon ab. Der folgende Krypto-Wegweiser
   % gibt einen kompakten Überblick zu den aktuell relevanten Verfahren.
 }
-\end{sloppypar}
 
-\vskip +3pt
 Bevor Verschlüsselungstechnologien mit dem Aufkommen des Internets und der drahtlosen
 Kommunikation für jedermann zur Verfügung standen, waren sie schon seit Jahrhunderten
 im Gebrauch von Regierungen, Militärs und Diplomaten. Welche Seite diese Technologie
@@ -219,7 +211,6 @@ und der Debatte um die sogenannten Krypto-Wars\footnote{%
 
 
 % --------------------------------------------------------------------------
-\newpage
 
 \begin{ctsquote}
 \glqq Man kann nicht nicht kommunizieren!\grqq
@@ -249,7 +240,6 @@ Viele moderne Verfahren (insbesondere Hashverfahren und symmetrische Verschlüss
 \end{itemize}
 
 
-\newpage
 Die folgende Abbildung \ref{cm_Figure_OTP-demo-pictures} soll eine Idee davon vermitteln, dass es nicht möglich ist, bei einem OTP\index{OTP} den Klartext zu bestimmen (sofern das OTP-Verfahren richtig angewendet wird und alle Schlüssel gleich wahrscheinlich sind).
 
 In dem Beispiel in der Abbildung ist als Geheimtext ein 8 Zeichen langes Wort gegeben:
@@ -277,7 +267,6 @@ wo ein entsprechendes Text-Beispiel mit SageMath erstellt wird.
 
 
 % --------------------------------------------------------------------------
-\newpage
 
 \begin{ctsquote}
 \glqq Transparenz. Das ist das Höchste, was man sich in einer technologisch hoch entwickelten Gesellschaft erhoffen kann ... sonst wird man einfach nur manipuliert.\grqq
@@ -316,7 +305,7 @@ Bei der {\em symmetrischen} Verschlüsselung
 über einen gemeinsamen (geheimen) Schlüssel verfügen, den sie vor
 Beginn der eigentlichen Kommunikation ausgetauscht haben. Der Sender
 benutzt diesen Schlüssel, um die Nachricht zu verschlüsseln und der
-Empfänger, um diese zu entschlüsseln.\par %\vskip + 3pt
+Empfänger, um diese zu entschlüsseln.
 
 Dies veranschaulicht Abbildung \ref{cm_Figure_Symmetric-Enc_Secret-Key-Enc}:
 \begin{figure}[ht]
@@ -345,7 +334,7 @@ sind, scheint so nahezu unmöglich. Soll in einem Netz mit $ n $
 Teilnehmern jeder mit jedem zu jeder Zeit spontan kommunizieren
 können, so muss jeder Teilnehmer vorher mit jedem anderen der
 $n - 1$ Teilnehmer einen Schlüssel ausgetauscht haben. Insgesamt
-müssen also $n(n - 1)/2$ Schlüssel ausgetauscht werden.\par \vskip + 3pt
+müssen also $n(n - 1)/2$ Schlüssel ausgetauscht werden.
 
 
 
@@ -374,7 +363,6 @@ Paritätsbits enthalten), sind in der Vergangenheit schon mehrfach mit dem
 DES verschlüsselte Nachrichten gebrochen worden, so dass er heute nicht
 mehr als sicher anzusehen ist. Alternativen zum DES sind zum Beispiel die
 Algorithmen IDEA\index{IDEA}, Triple-DES (TDES) und vor allem AES.
-\par \vskip + 3pt
 
 Standard unter den symmetrischen Verfahren ist heute AES\index{AES}:
 Der dazu gehörende Rijndael-Algo"-rithmus wurde am 2. Oktober 2000 zum
@@ -445,7 +433,6 @@ B1 13 D6 47 DB 75 C6 D8 47 FD 8B 92 9A 29 DE 08
 \end{center}
 \end{figure}
 
-\vspace{15pt}
 Dasselbe Ergebnis kann man mit \textbf{OpenSSL}\index{OpenSSL}%
 \footnote{%
       OpenSSL\index{OpenSSL} ist eine sehr verbreitete freie Open-Source Kryptobibliothek,
@@ -591,7 +578,6 @@ den Aufwand für den XSL-Angriff auf $2^{200}$ Operationen.
 Weitere Details finden Sie unter den Weblinks bei
 \hyperlink{CM_HT_Weblink_Rijndael-Cryptosystem}{\glqq Das AES-/Rijndael-Kryptosystem\grqq}.
 % nur \href oder \url rückt nicht ein, deshalb \item dazu !
-%\vspace{-10pt}
 %\begin{itemize}
 %  \item[] \url{http://www.cryptosystem.net/aes} \\
 %          \url{http://www.minrank.org/aes/}
@@ -636,7 +622,6 @@ Es gibt unterschiedliche moderne Angriffsverfahren, die die Strukturen eines Pro
 }.
 
 
-%\vskip +25 pt
 \paragraph*{Beschreibung SAT-Solver}\index{SAT-Solver}\mbox{}
 \hypertarget{ht_SAT-Solver}{}
 
@@ -653,7 +638,6 @@ Für größere Formeln ist es nicht so einfach herauszufinden, ob eine Formel zu
 anzugreifen.
 
 
-%\vskip +25 pt
 \paragraph*{SAT-Solver basierte Kryptoanalyse}\index{SAT-Solver}\mbox{}
 \hypertarget{ht_SAT-Solver_Cryptanalysis}{}
 
@@ -780,7 +764,6 @@ zu halten.
 
 
 % --------------------------------------------------------------------------
-\newpage
 \section[Asymmetrische Verschlüsselung] % Was zw. [..] steht, kommt ins Inhaltsverzeichnis!
 {Asymmetrische Verschlüsselung\footnotemark}
   \footnotetext{%
@@ -810,7 +793,6 @@ Der öffentliche Schlüssel wird, der Name deutet es an,
 öffentlich bekanntgemacht -- zum Beispiel in einem Schlüsselverzeichnis
 im Internet (diese Art von \glqq Schwarzem Brett\grqq~wird auch Directory oder
 öffentlicher Schlüsselring genannt) oder in einem sogenannten \index{Zertifikat} Zertifikat.
-\par \vskip + 3pt
 
 Die asymmetrische Verschlüsselung veranschaulicht Abbildung \ref{cm_Figure_Asymmetric-Enc_Public-Key-Enc}:
 \begin{figure}[ht]
@@ -842,7 +824,7 @@ Selbst Alice als Absenderin der Nachricht kann aus der von ihr
 versandten (verschlüsselten) Nachricht den Klartext nicht wieder
 herstellen. Natürlich muss sichergestellt sein, dass man aus dem
 öffentlichen Schlüssel nicht auf den geheimen Schlüssel schließen
-kann.\par \vskip + 3pt
+kann.
 
 % Abbildung evtl. besser hier, wenn Seitenaufteilung ausginge.
 
@@ -852,7 +834,7 @@ verfasst habe, so suche ich den Briefkasten\index{Briefkasten} mit dem
 Namensschild des Empfängers und werfe den Brief dort ein. Danach kann ich die
 Nachricht selbst nicht mehr lesen oder verändern, da nur der
 legitime Empfänger im Besitz des Schlüssels für den Briefkasten
-ist.\par \vskip + 3pt
+ist.
 
 Vorteil von asymmetrischen Verfahren ist das einfachere
 \index{Schlüsselmanagement} Schlüsselmanagement. Betrachten wir
@@ -874,7 +856,7 @@ Cyber-Angriffen sind.
 auf die Unverfälschtheit (Integrität und Authentizität)
 \index{Authentizität} des öffentlichen Schlüssels zu achten.
 Nachteil: Im Vergleich zu symmetrischen Verfahren sind reine
-asymmetrische Verfahren jedoch um ein Vielfaches langsamer.\par \vskip + 3pt
+asymmetrische Verfahren jedoch um ein Vielfaches langsamer.
 
 Das bekannteste asymmetrische Verfahren ist der \index{RSA}
 RSA-Algorithmus\index{CrypTool}%
@@ -913,7 +895,6 @@ Angriffe gegen asymmetrische Verfahren werden behandelt in\\
 
 
 % --------------------------------------------------------------------------
-\newpage
 \section[Hybridverfahren]{Hybridverfahren\footnotemark}
 \footnotetext{%
    In CT1\index{CT1} finden Sie dieses Verfahren über das Menü
@@ -930,7 +911,7 @@ Angriffe gegen asymmetrische Verfahren werden behandelt in\\
 
 Um die Vorteile von symmetrischen und asymmetrischen Techniken gemeinsam
 nutzen zu können, werden (zur Verschlüsselung) in der Praxis meist
-Hybridverfahren \index{Verschlüsselung!hybrid} verwendet.\par \vskip + 3pt
+Hybridverfahren \index{Verschlüsselung!hybrid} verwendet.
 
 Hier werden die Mengen-Daten mittels symmetrischer Verfahren
 verschlüsselt: Der Schlüssel ist ein vom Absender zufällig\footnote{%
@@ -975,8 +956,6 @@ Datenmengen zu verschlüsseln (mit den geheimen Schlüsseln).
 
 
 % --------------------------------------------------------------------------
-\newpage
-% \vskip +40 pt
 
 \begin{ctsquote}
     Ein altes Sprichwort, angeblich geprägt von der
@@ -1071,7 +1050,6 @@ einzelnen symmetrischen und asymmetrischen Verschlüsselungsverfahren.
 
 % ---------------------------------------------------------------------------
 % ---------------------------------------------------------------------------
-\newpage
 \hypertarget{CM_Appendix_SageCode}{}
 \section{Anhang: Beispiele mit SageMath}
 \label{CM_Sage_samples}
@@ -1207,7 +1185,6 @@ Alle Links wurden am 10.07.2016 überprüft.
 
 
 % --------------------------------------------------------------------------
-\newpage
 \chapter*{Web-Links}\addcontentsline{toc}{section}{Web-Links}
 
 \begin{enumerate}

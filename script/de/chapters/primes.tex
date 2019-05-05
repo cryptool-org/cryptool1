@@ -9,7 +9,6 @@
 
 \begin{refsegment}
 
-\newpage
 \hypertarget{Chapter_Primes}{}
 
 \chapter{Primzahlen}
@@ -102,7 +101,6 @@ aber auch Zahlen, die {\em wie Primzahlen aussehen}, aber doch keine sind:
 $$ 91 = 7 \cdot 13, \quad 161=7 \cdot 23, \quad 767 =13 \cdot 59. $$
 
 
-\newpage
 Die folgende Tabelle vermittelt einen Eindruck, wie Primzahlen in den natürlichen Zahlen verteilt sind. Es gibt auch viele grafische Darstellungsformen (am bekanntesten ist die Ulam-Spirale), diese brachten bisher keinen konkreten Erkenntnisgewinn, doch sie erweckten bei manchen den Eindruck, dass es in der zufälligen Verteilung zumindest lokale Muster gäbe.
 
 \begin{figure}[!hb]
@@ -132,7 +130,6 @@ Die folgende Tabelle vermittelt einen Eindruck, wie Primzahlen in den natürlich
    Grafik von CT2, Menü Kryptotutorien, Die Welt der Primzahlen,
    Verteilung der Primzahlen, Ulam-Spirale; 32*32 Punkte.\index{CT2}
 }
-%\newpage
 \begin{figure}[!hb]
 \begin{center}
 \includegraphics{figures/Ulam_spiral_Wikipedia.png}
@@ -150,7 +147,6 @@ Die folgende Tabelle vermittelt einen Eindruck, wie Primzahlen in den natürlich
 
 
 
-\newpage
 \begin{satz}\label{thm-pz-sqr}
 Jede ganze Zahl $m$ größer als $1$ besitzt einen kleinsten Teiler größer als $1$.
 Dieser ist eine Primzahl $p$. Sofern $m$ nicht selbst eine Primzahl ist, gilt:
@@ -268,7 +264,6 @@ Also gibt es {\em unendlich} viele Primzahlen
 Anzahl von Primzahlen in verschiedenen Intervallen).
 \end{Beweis}
 
-\par \vskip + 10pt
 
 Wir erwähnen hier auch noch eine andere, auf den ersten Blick
 überraschende Tatsache, dass nämlich in der Folge aller
@@ -286,8 +281,6 @@ Zahlen, also $n!=n*(n-1)* \cdots *3*2*1$).
 
 % --------------------------------------------------------------------------
 % --------------------------------------------------------------------------
-%% \vskip + 20pt
-\newpage
 \section{Die Suche nach sehr großen Primzahlen}
 \label{search_for_very_big_primes}   % chap. 3.4
 
@@ -443,7 +436,6 @@ Verallgemeinerte Fermatzahl: $ 1.372.930^{131.072} + 1 = 1.372.930^{(2^{17})}+1 
 %be_2005: footnotemark und footnotetext statt nur footnote (sonst sieht man nur
 %         die Fussnoten-Nr., aber nicht den Text!
 
-\clearpage  %% Erzwingen, dass die Tabelle noch in diesem Kapitel und vor Fig. 3.4
 
 
 
@@ -473,9 +465,7 @@ und
 vom Typ \hyperlink{generalizedFermatprimes}{verallgemeinerte Fermatzahl}
 (Kapitel~\ref{generalized-fermat}).
 
-% clearpage war nötig, denn sonst stand Tab. 3.1 erst auf S. 90 unter 3.8.1
 % Im Englischen passt das -- ohne händische Korrektur -- alles noch in 3.4.1.
-\clearpage
 
 
 % --------------------------------------------------------------------------
@@ -546,7 +536,6 @@ falsch. Also gibt es keine zusammengesetzte Zahl $ n, $ so dass $
 2^n -1 $ eine Primzahl ist.
 \end{Beweis}
 
-\vskip + 5pt
 \hypertarget{Mer-nums-not-always-prim}{}
 Leider gilt dieser Satz nur in einer Richtung (die Umkehrung gilt
 nicht, keine Äquivalenz): Das heißt, dass es prime Exponenten gibt,
@@ -579,19 +568,22 @@ Er gestand, 20 Jahre an der \textbf{Faktorisierung} \index{Faktorisierung}
   (basierend auf YAFU\index{YAFU}). Diese ist schneller als die in CT1
   implementierten Funktionen.
   Damit bietet CT2 die folgenden Faktorisierungsverfahren:
-  \begin{compactitem}
-   \item[-] Brute-force mit kleinen Primzahlen
-   \item[-] Fermat
-   \item[-] Shanks Square Forms Factorization (squfof)
-   \item[-] Pollard rho
-   \item[-] Pollard p-1
-   \item[-] Williams p+1
-   \item[-] Lenstra Elliptic Curve Method (ECM)
-   \item[-] Self-initializing Quadratic Sieve (SIQS)
-   \item[-] Multiple-polynomial Quadratic Qieve (MPQS)
-   \item[-] Special Number Field Sieve (SNFS)
-   \item[-] General Number Field Sieve (GNFS).
-  \end{compactitem}
+\strut\\[-1.5\baselineskip]
+\begin{multicols}{2}
+  \begin{itemize}[nosep,label=-]
+   \item Brute-force mit kleinen Primzahlen
+   \item Fermat
+   \item Shanks Square Forms Factorization (squfof)
+   \item Pollard rho
+   \item Pollard p-1
+   \item Williams p+1
+   \item Lenstra Elliptic Curve Method (ECM)
+   \item Self-initializing Quadratic Sieve (SIQS)
+   \item Multiple-polynomial Quadratic Qieve (MPQS)
+   \item Special Number Field Sieve (SNFS)
+   \item General Number Field Sieve (GNFS).
+  \end{itemize}
+\end{multicols}
 
    CT2 hat begonnen, mit einer allgemeinen Infrastruktur für verteiltes
   Rechnen zu experimentieren (CrypCloud\index{CrypCloud}, die sowohl Peer-to-Peer
@@ -637,7 +629,6 @@ $$
 $$
 
 
-\vskip +10 pt
 Die $19$. Zahl mit dem Exponenten $4.253$ war die erste mit mindestens $1.000$
 Stellen im Zehnersystem (der Mathematiker Samual \index{Yates,
 Samual} Yates prägte dafür den Ausdruck {\em titanische}
@@ -648,20 +639,17 @@ prägte dafür den Ausdruck \index{Primzahl!gigantisch}  {\em
 gigantische} Primzahl. Diese Bezeichnungen sind heute längst
 veraltet).
 
-% \vskip - 4pt 
 % \begin{quote}
 % (Der Supercomputerhersteller SGI Cray Research beschäftigte nicht
 % nur hervorragende Mathematiker, sondern benutzte die Primzahltests
 % auch als Benchmarks für seine Maschinen.)
 % \end{quote}
 
-% \vspace{-10pt}
 % \begin{itemize}
 %  \item[] \url{http://reality.sgi.com/chongo/prime/prime_press.html}
 % \end{itemize}
 
 
-\vskip +10 pt
 Für die ersten 47  % be_2005_UPDATEN_if-new-mersenne-prime-appears % Eyecatcher_neue-Mersenne
 Mersenne-Primzahlen weiß man inzwischen, dass diese Liste vollständig ist.
 Die Exponenten bis zur 50.  % be_2005_UPDATEN_if-new-mersenne-prime-appears    % Eyecatcher_neue-Mersenne
@@ -686,10 +674,8 @@ Mersenne-Primzahlen existieren (es ist üblich, die Bezeichnung M-nn erst dann
 zu verwenden, wenn die nn. bekannte Mersenne-Primzahl auch bewiesenermaßen die
 nn. Mersenne-Primzahl ist).
 
-\vskip +10 pt
 Hier einige Beispiele mit ein paar mehr Details:
 
-\vskip +10 pt
 \paragraph*{M-37 -- Januar 1998} \index{Mersenne!Mersenne-Primzahl!M-37}\mbox{}
 
 Die 37. Mersenne-Primzahl, $$2^{3.021.377} - 1 $$
@@ -697,7 +683,6 @@ wurde im Januar 1998 gefunden und hat
 909.526 Stellen im Zehnersystem, was 33 Seiten in der FAZ entspricht!
 
 
-\vskip +25 pt
 \paragraph*{M-38 -- Juni 1999}\index{Mersenne!Mersenne-Primzahl!M-38}\mbox{}
 
 Die 38. Mersenne-Primzahl, genannt M-38, $$ 2^{6.972.593} - 1 $$
@@ -705,7 +690,6 @@ wurde im Juni 1999 gefunden und hat $2.098.960$ Stellen im
 Zehnersystem (das entspricht rund 77 Seiten in der FAZ).
 
 
-\vskip +25 pt
 \hypertarget{M-39}{}
 \paragraph*{M-39 -- Dezember 2001}
 \index{Mersenne!Mersenne-Primzahl!M-39}\mbox{}
@@ -721,7 +705,6 @@ $$
 $$
 bräuchte man in der FAZ knapp 200 Seiten.
 
-%\vskip +25 pt
 %\paragraph*{Mxxxxxxxxx -- Juni 2003 -- M-40 ?}
 %\index{Mersenne!Mersenne-Primzahl!M-40}\mbox{}
 
@@ -741,7 +724,6 @@ bräuchte man in der FAZ knapp 200 Seiten.
 
 
 
-\vskip +25 pt
 \paragraph*{GIMPS}\index{GIMPS}\mbox{}
 \hypertarget{GIMPS-project}{}
 
@@ -831,7 +813,6 @@ Firma Entropia organisierte \glqq PrimeNet\grqq~ einbinden.
 
 
 % --------------------------------------------------------------------------
-\vskip +25 pt
 \subsection{Wettbewerb der Electronic Frontier Foundation (EFF)}\index{EFF}
 Angefacht wird diese Suche noch zusätzlich durch einen Wettbewerb, den die
 Non\-profit-Orga"-nisa"-tion EFF (Electronic Frontier Foundation) mit den
@@ -964,12 +945,10 @@ wir einen einfachen Beweis für die Primzahleigenschaft (man sagt auch,
 man hätte dann ein einfaches Primzahlkriterium).
 
 
-\vskip +25 pt
 \paragraph*{Pseudoprimzahlen}%
 \index{Primzahl!Pseudoprimzahl}\index{Zahlen!Pseudoprimzahl}%
 \hypertarget{HT-Pseudoprimenumber01}{}\label{L-Pseudoprimenumber01}%
-\mbox{}
-\vskip +10 pt
+
 Zahlen n, die die Eigenschaft
 $$ 2^n \equiv 2 \;{\rm mod}\; n $$
 erfüllen, aber nicht prim sind, bezeichnet man als {\em Pseudoprimzahlen}
@@ -977,12 +956,10 @@ erfüllen, aber nicht prim sind, bezeichnet man als {\em Pseudoprimzahlen}
 Die erste Pseudoprimzahl ist $$ 341 = 11 \cdot 31 .$$
 
 
-\vskip +25 pt
 \paragraph*{Carmichaelzahlen}%
 \index{Zahlen!Carmichaelzahl}%
 \hypertarget{HT-Carmichael-number01}{}\label{L-Carmichael-number01}%
-\mbox{}
-\vskip +10 pt
+
 Es gibt Pseudoprimzahlen n, die den Fermat-Test
 $$ a^{n-1} \equiv 1 \;{\rm mod}\; n $$
 mit allen Basen a, die teilerfremd zu n sind [$ gcd (a,n) = 1 $], bestehen,
@@ -1001,12 +978,10 @@ Der Test angewandt auf $a=3$ ergibt: $3^{560} \;{\rm mod}\; 561 = 375$. \\
 Der Test angewandt auf $a=5$ ergibt: $5^{560} \;{\rm mod}\; 561 = 1$.
 \end{example}
 
-\vskip +25 pt
 \paragraph*{Starke Pseudoprimzahlen}%
 \index{Primzahl!starke Pseudoprimzahl} \index{Zahlen!starke Pseudoprimzahl}%
 \hypertarget{HT-Strongpseudoprimenumber01}{}\label{L-Strongpseudoprimenumber01}%
-\mbox{}
-\vskip +10 pt
+
 Ein stärkerer Test stammt von\index{Miller Gary L.}\index{Rabin, Michael O.}
 Miller/Rabin\footnote{
   1976 veröffentlichte Prof. Rabin einen effizienten probabilistischen
@@ -1034,17 +1009,13 @@ Weiterführende Mathematik hinter dem Rabin-Test gibt dann die Wahrscheinlichkei
 untersuchte Zahl prim ist (solche Wahrscheinlichkeiten liegen heutzutage bei circa  $10^{-60}$).
 
 Ausführliche Beschreibungen zu Tests, um herauszufinden, ob eine Zahl
-prim ist, finden sich zum Beispiel unter:
-\vspace{-10pt}
-\begin{itemize}
-  \item[] \url{http://www.utm.edu/research/primes/mersenne.shtml} \\
-          \url{http://www.utm.edu/research/primes/prove/index.html}
-\end{itemize}
+prim ist, finden sich zum Beispiel unter
+ \url{http://www.utm.edu/research/primes/mersenne.shtml} oder
+ \url{http://www.utm.edu/research/primes/prove/index.html}.
 
 
 
 % --------------------------------------------------------------------------
-\vskip +30 pt
 \section{Spezial-Zahlentypen und die Suche nach einer Formel für Primzahlen}
 \label{spezialzahlentypen}
 \index{Primzahl!Formel}
@@ -1060,10 +1031,7 @@ bekommen, also für
 $f(8) = 19\,$ oder für  $f(52) = 239$.
 
 Ideen dazu finden sich in
-\vspace{-10pt}
-\begin{itemize}
-  \item[] {\url{http://www.utm.edu/research/primes/notes/faq/p_n.html}}.
-\end{itemize}
+\url{http://www.utm.edu/research/primes/notes/faq/p_n.html}.
 
 
 \hyperlink{ntePrimzahl}{Die Tabelle unter \ref{s:ntePrimzahl}} enthält
@@ -1082,7 +1050,6 @@ Wenn es zusammengesetzte Zahlen sind, konnten die Primfaktoren bestimmt werden?
 
 
 % --------------------------------------------------------------------------
-\vskip +10 pt
 \hypertarget{MersenneNumbers02}{}
 \subsection{Mersennezahlen \texorpdfstring{$f(n) = 2^n - 1$ für $ n $}{f(n) = 2\^{}n - 1 für n} prim}
     \index{Primzahl!Mersenne} \index{Mersenne!Mersenne-Primzahl}
@@ -1094,13 +1061,10 @@ Wenn es zusammengesetzte Zahlen sind, konnten die Primfaktoren bestimmt werden?
     Heute kennt man alle Mersenne-Primzahlen mit bis zu ca. 4.000.000
     Dezimalstellen (\hyperlink{M-39}{M-39}
     \index{Mersenne!Mersenne-Primzahl!M-39}):
-\vspace{-10pt}
-\begin{itemize}
-  \item[] {\url{http://yves.gallot.pagesperso-orange.fr/primes/index.html}}
-\end{itemize}     % be_2005_UPDATEN_if-new-mersenne-prime-appears
+  \url{http://yves.gallot.pagesperso-orange.fr/primes/index.html}
+ % be_2005_UPDATEN_if-new-mersenne-prime-appears
 
 % --------------------------------------------------------------------------
-\vskip +10 pt
 \subsection
     [Verallgemeinerte Mersennezahlen \texorpdfstring{$f(k,n) = k \cdot 2^n \pm 1$}{f(k,n) = k ... 2\^{}n +- 1} / Proth-Zahlen]
     {Verallgemeinerte Mersennezahlen
@@ -1122,14 +1086,10 @@ Wenn es zusammengesetzte Zahlen sind, konnten die Primfaktoren bestimmt werden?
     ebenfalls sehr schnelle Primzahltests (vgl. \cite{Knuth1998}).\\
     Praktisch ausführen lässt sich das zum Beispiel mit der Software
     Proths von Yves Gallot\index{Gallot, Yves}:
-\vspace{-10pt}
-\begin{itemize}
-  \item[] {\url{http://www.prothsearch.net/index.html}}.
-\end{itemize}
+  \url{http://www.prothsearch.net/index.html}.
 
 
 % --------------------------------------------------------------------------
-\vskip +10 pt
 \hypertarget{generalizedMersennenumbers}{}
 \subsection
     [Verallgemeinerte Mersennezahlen \texorpdfstring{$ f(b,n) = b^n \pm 1$}{ f(b,n) = b\^{}n +- 1} / Cunningham-Projekt]
@@ -1152,7 +1112,6 @@ Wenn es zusammengesetzte Zahlen sind, konnten die Primfaktoren bestimmt werden?
 
 
 % --------------------------------------------------------------------------
-\vskip +10 pt
 \hypertarget{FermatNumbers02}{}
 \subsection[Fermatzahlen \texorpdfstring{$f(n) = 2^{2^n} + 1$}{f(n) = 2\^{}{2\^{}n} + 1}]
               {Fermatzahlen\footnotemark~$f(n) = 2^{2^n} + 1$}
@@ -1243,7 +1202,6 @@ $$
 
 
 % --------------------------------------------------------------------------
-\vskip +10 pt
 \hypertarget{generalizedFermatprimes}{}    %be_2005 Eigentlich sind es "Zahlen", nicht nur "Primes" !
 \subsection
     [Verallgemeinerte Fermatzahlen \texorpdfstring{$f(b,n) = b^{2^n} + 1$}{f(b,n) = b\^{}{2\^{}n} + 1}]
@@ -1282,7 +1240,6 @@ $$
 
 
 % --------------------------------------------------------------------------
-\vskip +10 pt
 \subsection{Carmichaelzahlen}\index{Zahlen!Carmichaelzahl}
 Wie \hyperlink{HT-Carmichael-number01}{oben} in
 Kapitel~\ref{L-Carmichael-number01} erwähnt,
@@ -1290,7 +1247,6 @@ sind nicht alle Carmichaelzahlen prim.
 
 
 % --------------------------------------------------------------------------
-\vskip +10 pt
 \subsection{Pseudoprimzahlen}
 \index{Primzahl!Pseudoprimzahl}\index{Zahlen!Pseudoprimzahl}
 Siehe \hyperlink{HT-Pseudoprimenumber01}{oben} in
@@ -1298,7 +1254,6 @@ Kapitel~\ref{L-Pseudoprimenumber01}.
 
 
 % --------------------------------------------------------------------------
-\vskip +10 pt
 \subsection{Starke Pseudoprimzahlen}
 \index{Primzahl!starke Pseudoprimzahl} \index{Zahlen!starke Pseudoprimzahl}
 Siehe \hyperlink{HT-Strongpseudoprimenumber01}{oben} in
@@ -1307,7 +1262,6 @@ Kapitel~\ref{L-Strongpseudoprimenumber01}.
 
 
 % --------------------------------------------------------------------------
-\vskip +10 pt
 \subsection
     [Idee aufgrund von Euklids Beweis \texorpdfstring{$p_1 \cdot p_2 \cdots p_n +1$}{p\_1 ... p\_2 ... p\_n +1}]
     {Idee aufgrund von Euklids Beweis $p_1 \cdot p_2 \cdots p_n +1$}
@@ -1327,7 +1281,6 @@ $$
 
 
 % --------------------------------------------------------------------------
-\vskip +10 pt
 \subsection{Wie zuvor, nur \texorpdfstring{$-1$ statt $+1$: $p_1 \cdot p_2 \cdots p_n -1$}{-1 statt +1: p\_1 ... p\_2 ... p\_n -1}}
 $$
  \begin{array}{lll}
@@ -1342,7 +1295,6 @@ $$
 
 
 % --------------------------------------------------------------------------
-\vskip +10 pt
 \subsection[Euklidzahlen \texorpdfstring{$e_n = e_0 \cdot e_1 \cdots e_{n-1} + 1$}{e\_n = e\_0 ... e\_1 ... e\_n-1 + 1}]
               {Euklidzahlen $e_n = e_0 \cdot e_1 \cdots e_{n-1} + 1$
 	       mit $ n \geq 1 $ und $ e_0 := 1 $}
@@ -1384,7 +1336,6 @@ Siehe Seite \pageref{nt:NumberTheory_Appendix_GCD}.  %KORR_NumberTheory_Appendix
 
 % --------------------------------------------------------------------------
 % f(40) hier und f(80) im folgenden Kapitel nach Hinweis von Erik Berger korr. (2005-05)
-\vskip +10 pt
 \subsection{\texorpdfstring{$f(n) = n^2 + n + 41$}{f(n) = n\^{}2 + n + 41}}
 \label{L-Polynomfunktion01-41}
    Diese Folge hat einen sehr {\em erfolgversprechenden} Anfang,
@@ -1421,7 +1372,6 @@ $$
 
 
 % --------------------------------------------------------------------------
-\vskip +10 pt
 \subsection{\texorpdfstring{$f(n) = n^2 - 79 \cdot n + 1.601$}{f(n) = n\^{}2 - 79 ... n + 1.601}}
 \label{L-Polynomfunktion02-1601}   \label{SrcPrimArith1}
    Diese Funktion liefert für die Werte $n=0$ bis $n=79$ stets
@@ -1478,7 +1428,6 @@ $$
 
 
 % --------------------------------------------------------------------------
-\vskip +20 pt
 \subsection[Polynomfunktionen
     \texorpdfstring{$f(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_1 x^1 + a_0$}
                    {f(x) = a\_n x\^{}n + a\_n-1 x\^{}n-1 + ... + a\_1 x\^{}1 + a\_0}]
@@ -1500,7 +1449,6 @@ $$
 
 
 % --------------------------------------------------------------------------
-\vskip +10 pt
 \subsection[Catalans Mersenne-Vermutung]{Catalans Mersenne-Vermutung\footnotemark}
     \footnotetext{%
 Eugene Charles Catalan, belgischer Mathematiker, 30.5.1814$-$14.2.1894.\\
@@ -1555,7 +1503,6 @@ Primzahlen liefert.
 
 
 % --------------------------------------------------------------------------
-\vskip +10 pt
 \subsection[Doppelte Mersenne-Primzahlen]
            {Doppelte Mersenne-Primzahlen}
 
@@ -1594,7 +1541,6 @@ Mit einer Größe von $ 1,695 * 10^{694.127.911.065.419.641} $ ist auch diese Za
 
 
 % --------------------------------------------------------------------------
-\vskip +10 pt
 \hypertarget{h_Primes_Distrib-of-Primes}{}
 \section{Dichte und Verteilung der Primzahlen}
 \label{l_Primes_Distrib-of-Primes}
@@ -1635,11 +1581,9 @@ die Menge der quadratischen Zahlen:\footnotemark
 \end{itemize}
 
 
-\vskip +15 pt
 \paragraph*{Der Wert der $n$-ten Primzahl $P(n)$}%
 \index{P(n)}%
-\mbox{}
-\vskip +10 pt
+
 \begin{satz}\label{thm-pz-density}
 Für große $n$ gilt: Der Wert der $n$-ten Primzahl $P(n)$ ist
 asymptotisch zu $n \cdot ln(n)$, d.h. der Grenzwert des
@@ -1653,11 +1597,9 @@ Vergleiche auch \hyperlink{ntePrimzahl}{Tabelle \ref{s:ntePrimzahl}}.
 }
 
 
-\vskip +15 pt
 \paragraph*{Die Anzahl der Primzahlen $PI(x)$}%
 \index{PI(x), $\Pi(x)$}%
-\mbox{}
-\vskip +10 pt
+
 Ähnlich wird die Anzahl\footnote{%
 Oft wird statt PI(x) auch $\Pi(x)$ geschrieben.
 } $PI(x)$ definiert: Es ist die Anzahl aller Primzahlen,
@@ -1847,7 +1789,6 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
 
 
 % --------------------------------------------------------------------------
-\vskip +20 pt
 \subsection{Bewiesene Aussagen / Sätze zu Primzahlen}
 \begin{itemize}
 
@@ -1885,7 +1826,6 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
 % \hyperlink{GIMPS-project}{GIMPS-Projekt} (Kapitel~\ref{zahlentyp_mersenne}),
 
 
-  \vskip +6 pt
   \item \hypertarget{link-Arithmetic-sequence-of-primes}{}
      Es gibt arithmetische Primzahlfolgen \index{Primzahlfolge!arithmetische}
      beliebig großer Länge.\footnote{%
@@ -2056,7 +1996,6 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
      \label{Smallest AP-k with minimal difference}
      \end{center}
      \end{table}
-     \clearpage
 
      Wer solche Folgen entdecken möchte, sollte folgendes berücksichtigen.
      Die Länge der Folge bestimmt den Mindestabstand zwischen den einzelnen
@@ -2095,7 +2034,6 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
      \end{table}
 
 
-     \vskip +10 pt
      \textbf{Weitere Restriktion an die arithmetische Folge:}\\
      Sucht man arithmetische Primzahlfolgen,
      die die {\em zusätzliche} Bedingung erfüllen, dass alle Primzahlen
@@ -2120,8 +2058,6 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
 
 
 % --------------------------------------------------------------------------
-% \vskip +10 pt
-\newpage
 \subsection[Verschiedene unbewiesene Aussagen / Vermutungen / offene Fragestellungen zu Primzahlen]
            {Verschiedene unbewiesene Aussagen / Vermutungen / offene Fragestellungen zu Primzahlen\footnote{%
   In seinem populärwissenschaftlichen Buch \glqq Die Musik der Primzahlen\grqq~
@@ -2164,9 +2100,9 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
         }$^,$\footnote{%
         Didaktische Darstellungen zu Anwendungen von Benfords Gesetz finden sich
         unter:
-        \begin{compactitem}
+        \begin{itemize}[nosep,label=-]
          \item Rüdeger Baumann: \glqq Ziffernanalyse zwecks Betrugsaufdeckung
-              --- Beispiel für kompetenzorientierten und kontextbezogenen
+         -- Beispiel für kompetenzorientierten und kontextbezogenen
               Informatikunterricht\grqq, \\
               in LOGIN, Informatische Bildung und Computer in der Schule,
               Nr. 154/155, 2008, S. 68-72
@@ -2174,8 +2110,7 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
               Ziffern\grqq, März 2007,\\
               %% Link tot: \url{http://www.educ.ethz.ch/unt/um/mathe/ana/benford}
 	      \url{https://www.ethz.ch/content/dam/ethz/special-interest/dual/educeth-dam/documents/Unterrichtsmaterialien/mathematik/Benfords%20Gesetz%20%C3%BCber%20f%C3%BChrende%20Ziffern%20(Artikel)/benford.pdf}
-        \end{compactitem}
-        %\vspace{-\baselineskip} % Nützte nichts im Deutschen. Nötig im Englischen.
+        \end{itemize}
         }
      gilt nicht für Primzahlen.
 
@@ -2244,7 +2179,6 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
 
 
 % --------------------------------------------------------------------------
-\vskip +10 pt
 \hypertarget{HT-GoldbachConjecture}{}
 \subsection{Die Goldbach-Vermutung}
 \label{L-GoldbachConjecture}
@@ -2255,7 +2189,6 @@ Hier soll noch etwas tiefer auf die
 eingegangen werden.
 
 
-%\vskip +25 pt
 \hypertarget{HT-WeakGoldbachConjecture}{}
 %\paragraph*{Die schwache Goldbach-Vermutung\footnote{%
 %   Sie wird auch \textbf{ungerade} oder \textbf{ternäre} Goldbach-Vermutung
@@ -2327,7 +2260,6 @@ Probieren am Computer erbrachten.
 
 
 
-%\vskip +25 pt
 \hypertarget{HT-StrongGoldbachConjecture}{}
 %\subsubsubsection{xxx} 3*sub kannte er nicht, deshalb paragraph !
 \subsubsection[Die starke Goldbach-Vermutung]%
@@ -2413,8 +2345,6 @@ Je größer eine gerade Zahl ist, umso mehr solcher binärer Goldbach-Zerlegunge
 
 
 
-\vskip +35 pt %Größer gemacht als 15, damit die ff. Überschrift nicht alle am Seitenende
-%\subsubsubsection{xxx} 3*sub kannte er nicht, deshalb paragraph !
 \subsubsection{Zusammenhang zwischen den beiden Goldbach-Ver\-mutungen}%
 %\mbox{}
 
@@ -2445,7 +2375,6 @@ Zahlen):
 
 
 % --------------------------------------------------------------------------
-\vskip +35 pt
 \hypertarget{HT-TwinCousinPrimes}{}
 \subsection{Offene Fragen zu Primzahlzwillingen und Primzahl-Cousins}
 \label{L-TwinCousinPrimes}
@@ -2495,13 +2424,13 @@ Dan Goldston, J\'{a}nos Pintz und Cem Yildirim im Jahre 2003.\footnote{%
     D. A. Goldston: \glqq Gaps Between Primes\grqq \\
     \url{http://www.math.sjsu.edu/~goldston/OberwolfachAbstract.pdf}\\
     Siehe auch:
-    \begin{compactitem}
+    \begin{itemize}[nosep,label=-]
        \item D. A. Goldstone: \glqq Are There Infinitely Many Twin Primes?\grqq, \\
           \url{http://www.math.sjsu.edu/~goldston/twinprimes.pdf}
        \item K. Soundararajan: \glqq Small Gaps Between Prime Numbers:
            The Work Of Goldston-Pintz-Yildirim\grqq, \\
            \url{http://www.ams.org/bull/2007-44-01/S0273-0979-06-01142-6/S0273-0979-06-01142-6.pdf}
-    \end{compactitem}
+    \end{itemize}
     \vspace{-\baselineskip} % TODO_LaTeX: Geht das nicht anders?
    }
 Die drei Mathematiker beschäftigten sich mit der Verteilung von Primzahlen.
@@ -2565,14 +2494,6 @@ viele Primzahl"-zwillinge gibt.
 
 
 % --------------------------------------------------------------------------
-%\vskip +25 pt
-\newpage
-% Die eckigen Klammern sind nötig, will man \footnotmark innerhalb der {}
-% verwenden.
-% Man muss den Titel sowohl in die [] als auch in die {} stellen:
-% - Fehlt er innerhalb {}, ist die Überschrift innerhalb des Textes leer.
-% - Fehlt er innerhalb [], fehlt die Überschrift links im PDF-Rahmen und
-%   im Inhaltsverzeichnis.
 \subsection[Kurioses und Interessantes zu Primzahlen]
               {Kurioses und Interessantes zu Primzahlen\footnotemark}
     \footnotetext{%
@@ -2587,7 +2508,6 @@ Forschungsgebiet. Mit ihnen beschäftigen sich Menschen auch hobbymäßig und
 außerhalb der wissenschaftlichen For"-schung.
 
 
-\vskip +25 pt
 \hypertarget{HT-GoogleRecruitment2004}{}
 \subsubsection{Mitarbeiterwerbung bei Google im Jahre 2004}
 % \paragraph*{Mitarbeiterwerbung bei Google im Jahre 2004}%
@@ -2634,7 +2554,6 @@ Zahlenfolge finden: Dies hatte nichts mehr mit Primzahlen zu tun.}
 
 
 
-\vskip +25 pt
 \hypertarget{HT-Movie-Contact01}{}
 \subsubsection{Contact [Film, 1997] -- Primzahlen zur Kontaktaufnahme}
 % \paragraph*{xxx}
@@ -2673,11 +2592,9 @@ Die Aliens schicken danach den Plan zum Bau einer mysteriösen Maschine ...
 
 
 % --------------------------------------------------------------------------
-\newpage
 \hypertarget{primhfk}{}
 \section{Anhang: Anzahl von Primzahlen in verschiedenen Intervallen}
 \label{s:primhfk}
-\vskip +10 pt
 
 \begin{table}[ht]
 \begin{center}
@@ -2698,7 +2615,6 @@ Intervall  &     Anzahl &    Intervall  &  Anzahl &  Intervall  &    Anzahl\\ \h
 \caption{Wieviele Primzahlen gibt es innerhalb der ersten Zehner-/Hunderter-/Tausender-Intervalle?}
 \end{center}
 \end{table}
-\vskip +20 pt
 
 
 \begin{table}[ht]
@@ -2716,7 +2632,6 @@ Dimension & Intervall & Anzahl & Durchschnittl. Anzahl pro 1000 \\ \hline
 \caption{Wieviele Primzahlen gibt es innerhalb der ersten Dimensionsintervalle?}
 \end{center}
 \end{table}
-\vskip +6 pt
 
 Eine Visualisierung der Anzahl von Primzahlen in höheren Intervallen von
 Zehnerpotenzen finden Sie in Kapitel \ref{primes:_Appendix_Plotting-Primes-Quantity}
@@ -2725,11 +2640,9 @@ auf Seite \pageref{primes:_Appendix_subsubsection_NumberofPrimes-in-intervals}.
 
 
 % --------------------------------------------------------------------------
-\newpage
 \hypertarget{ntePrimzahl}{}
 \section{Anhang: Indizierung von Primzahlen (\texorpdfstring{$n$}{n}-te Primzahl)}
 \label{s:ntePrimzahl}
-\vskip +10 pt
 
 \begin{table}[ht]
 \begin{center}
@@ -2761,19 +2674,16 @@ Index   &   Genauer Wert  &       Gerundeter Wert &    Bemerkung \\
 \end{table}
 
 
-\vskip +10pt
 \begin{remark}{:} Mit Lücke wurden früh sehr große Primzahlen entdeckt. \\
 \end{remark}
 
-\vskip +12pt
- \textbf{Web-Links (URLs):}\\
+\textbf{Web-Links (URLs):}\\
 \url{https://primes.utm.edu/nthprime/} \\
 \url{https://primes.utm.edu/notes/by_year.html}.
 
 
 
 % --------------------------------------------------------------------------
-\newpage
 \section{Anhang: Größenordnungen / Dimensionen in der Realität}
 \label{s:grosord}
 Bei der Beschreibung kryptographischer Protokolle und Algorithmen
@@ -2789,7 +2699,6 @@ Werte stammen größtenteils aus \cite{Schwenk1996} und
 % Wahrscheinlichkeit, dass Sie auf ihrem nächsten Flug entführt werden:	&~~ \= abcdefhijk \= \kill
 % Wahrscheinlichkeit, dass Sie auf ihrem nächsten Flug entführt werden \> $ 5,5 \cdot 10^{-6} $\> \\
 
-\vskip +20pt
 \begin{table}[ht]
 \begin{center}
 \begin{tabular}{|l|l|}\hline
@@ -2816,7 +2725,6 @@ Volumen des Universums (in $cm^3$)		&  $10^{84}$   = $(2^{280})$ \\ \hline
 
 
 % --------------------------------------------------------------------------
-\newpage
 \section{Anhang: Spezielle Werte des Zweier- und Zehnersystems}
 
 Diese Werte können dazu benutzt werden, aus einer Schlüssellänge in Bit
@@ -2896,13 +2804,11 @@ for e in E:
 
 % ---------------------------------------------------------------------------
 % ---------------------------------------------------------------------------
-\newpage
 \hypertarget{primes:_Appendix_Plotting-Primes-Quantity}{}
 \section{Anhang: Visualisierung der Menge der Primzahlen in hohen Bereichen}
 \label{primes:_Appendix_Plotting-Primes-Quantity}
 \index{SageMath!Programmbeispiele}
 \index{SageMath}
-\vskip +15pt
 
 % ---------------------------------------------------------------------------
 \subsection*{Zur Verteilung von Primzahlen}
@@ -2950,11 +2856,7 @@ Es ist zu sehen, dass mit steigendem Exponenten $x$ die Zahlen immer größer we
 	\subfloat[$10^x$]{\label{10hochx}\includegraphics[height=4cm]{figures/10hochx.png}}
 	\caption{Graph der Funktionen $x$ und $10^x$}
 	\label{xund10hochx}
-        \vskip +25pt
 \end{figure}
-% \\ nach end{figure} führt zu  LaTeX Error: There's no line here to end.
-% \vskip +30pt  nach end{figure} stellt den Space an den falschen Ort, da die Grafik eigenständig gesetzt wird.
-% \clearpage
 
 
 \subsubsection*{Die Funktion $\ln{x}$}
@@ -2974,7 +2876,6 @@ in diesen Graphen auch die Funktion $\frac{x}{\ln{x}}$ eingezeichnet.
 	\subfloat[ ]{\includegraphics[height=4cm]{figures/lnxbis10hoch10.png}}
 	\caption{Graph der Funktion $\ln{x}$ bis $100$ und bis $10^{10}$}
 	\label{lnxbis}
-        \vskip +25pt
 \end{figure}
 
 \begin{figure}[!htb]
@@ -2983,7 +2884,6 @@ in diesen Graphen auch die Funktion $\frac{x}{\ln{x}}$ eingezeichnet.
 	\caption{Die Funktionen $x$ (blau), $\ln{x}$ (rot)
                  und $\frac{x}{\ln{x}}$ (grün)}
 	\label{xundlnxundxdurchlnx}
-        \vskip +15pt
 \end{figure}
 
 
@@ -3101,8 +3001,6 @@ sage: pari(10**9).primepi()-pari(10**8).primepi()
 
 % ---------------------------------------------------------------------------
 % ---------------------------------------------------------------------------
-\clearpage
-\newpage
 \hypertarget{primes:_Appendix_Sage-Samples}{}
 \section{Anhang: Beispiele mit SageMath}
 % \section*{Appendix A: Beispiele mit SageMath}
@@ -3116,7 +3014,6 @@ Kapitel~\ref{Chapter_Primes} (\glqq \nameref{Chapter_Primes}\grqq).
 
 
 % ---------------------------------------------------------------------------
-% \newpage
 \subsection{Einfache Funktionen zu Primzahlen mit SageMath}
 \index{SageMath}
 
@@ -3157,7 +3054,6 @@ sage: list(primes(1,10))
 
 
 % ---------------------------------------------------------------------------
-\newpage
 \subsection{Primalitäts-Check der von einer quadratischen Funktion erzeugten Zahlen}
 \index{SageMath}
 
@@ -3301,7 +3197,6 @@ Percentage of primes: 58.3416583417
 
 
 % --------------------------------------------------------------------------
-\newpage
 \chapter*{Web-Links}\addcontentsline{toc}{section}{Web-Links}
 
 \begin{enumerate}
@@ -3374,7 +3269,6 @@ Percentage of primes: 58.3416583417
 
 
 
-\vskip +10 pt
 % --------------------------------------------------------------------------(5\cdot2^7 - 1)(5^2\cdot2^14 + 1)
 \section*{Dank} \addcontentsline{toc}{section}{Dank}
 Für das sehr konstruktive Korrekturlesen der ersten Versionen

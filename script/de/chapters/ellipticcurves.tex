@@ -6,7 +6,6 @@
 
 \begin{refsegment}
 
-\newpage
 \hypertarget{Chapter_EllipticCurves}{}
 \chapter{Elliptische Kurven}
 \label{Chapter_EllipticCurves}
@@ -77,10 +76,8 @@ wurde.\footnote{%
   Schlüssellängen bei RSA und bei Elliptische Kurven}
 \label{RSAKeylength}
 \end{center}
-\vskip -30 pt
 \end{figure}
 
-\newpage
 
 Bei der digitalen Signatur muss man differenzieren: für die {\em
   Erstellung} einer digitalen Signatur benötigen auf Elliptischen
@@ -96,14 +93,12 @@ private Exponent nur hinreichend lang ist.
 
 % -> Figure 2
 \begin{figure}[ht]
-\vskip -40 pt
 \begin{center}
-\vspace{1.5cm}\includegraphics[scale=0.7]{figures/ECCRSA}
+\includegraphics[scale=0.7]{figures/ECCRSA}
 \caption{Gegenüberstellung des Aufwands der Operationen Signieren und
          Verifizieren bei RSA und bei Elliptischen Kurven}
 \label{ThousandBitMultiplications}
 \end{center}
-\vskip -10 pt
 \end{figure}
 
 Da bei Smartcards, die auf RSA basieren, stets der lange (private)
@@ -427,7 +422,6 @@ Dabei soll ${\cal O}$ den auf diese Weise nicht beschriebenen Punkt $(0,1,0)$ da
 \caption{Beispiel einer Elliptischen Kurve über dem Körper der reellen Zahlen}
 \label{ExampleEllipticCurve}
 \end{center}
-\vskip -10 pt
 \end{figure}
 Als zugrunde liegenden Körper für eine Elliptische Kurve verwendet man in der Kryptographie stets endliche Körper $K=GF(p^n)$, also nicht wie in Abbildung \ref{ExampleEllipticCurve} die zu einer stetigen Kurve führenden reellen Zahlen. Der Grund liegt, einfach gesagt, darin, dass wir bei der Verarbeitung und Übertragung von Nachrichten stets nur endlich viele Zustände zur Verfügung haben (aufgrund der Arbeitsweise moderner Computer), Körper mit unendlich vielen Elementen wie z.B. die reellen Zahlen daher stets nur unvollständig darstellen können.
 
@@ -505,7 +499,6 @@ Kurvenpunkte stets wieder ein Punkt auf der Elliptische Kurve ist. Diese
 Addition läßt sich auch geometrisch veranschaulichen, wie der folgende
 Abschnitt zeigt.
 
-% \newpage
 \begin{figure}[htbp]
 \subsection*{Addieren von Punkten auf einer Elliptischen Kurve}
 Die zwei folgenden Abbildungen zeigen, wie bei einer Elliptischen Kurve über den reellen Zahlen in affinen Koordinaten
@@ -514,15 +507,10 @@ Ebene dargestellt werden.
 \begin{center}
 \includegraphics[scale=1.08]{figures/ec-mult2}
 \caption{Verdoppelung eines Punktes}
-\vspace{\floatsep}
-\vskip +20 pt
 \includegraphics[scale=0.65]{figures/ec-add}  %be_2005 evtl. an diesem Vergrößerungsfaktor spielen
 \caption{Addition zweier verschiedener Punkte im Körper der reellen Zahlen} % \footnotemark }
 \end{center}
 \end{figure}
-% \addtocounter{footnote}{0}\footnotetext{Der Punkt $O$ kann nicht in der affinen Ebene dargestellt werden.}
-\enlargethispage{+20pt}
-\newpage
 
 
 % -----------------------------------------------------------------------------
@@ -543,7 +531,6 @@ Dies wird als das \glqq Diskrete Logarithmus Problem über Elliptischen
 Kurven\grqq\ bezeichnet (auch ECDLP\index{ECDLP} -- Elliptic Curve Discrete
 Logarithm Problem -- abgekürzt).
 
-\vskip +5 pt
 
 Formal betrachten wir in der Elliptischen-Kurven-Kryptographie die Punkte der Kurve als Elemente einer Gruppe mit der Addition als Verknüpfung. Allerdings sind nur solche Elliptischen Kurven für kryptographische Anwendungen geeignet, bei der die Anzahl der Kurvenpunkte hinreichend groß ist. Ferner können in Spezialfällen Elliptische Kurven auch aus anderen Gründen ungeeignet sein. Das bedeutet, dass man bei der
 Definition einer Kurve auf die Wahl der Parameter achten muss. Denn für bestimmte Klassen von
@@ -556,7 +543,6 @@ kann man für gegebene Parameter $a$ und $b$ mit etwas Aufwand feststellen, ob d
 Kurve kryptographisch brauchbar ist oder nicht. Die in der Kryptographie eingesetzten Kurven werden meist
 von Fachleuten zur Verfügung gestellt. Sie gewährleisten, dass die von ihnen als sicher eingestuften
 Elliptischen Kurven den aktuellen Sicherheitsanforderungen genügen.
-\vskip +5 pt
 
 Bei sicheren Kurven wird hauptsächlich
 durch den Parameter $p$ im Fall des zugrunde liegenden Körpers $GF(p)$ bzw. $n$ im Fall des zugrunde liegenden Körpers $GF(2^n)$ bestimmt, wie lange es dauert, das ECDLP auf dieser Kurve zu lösen. Je größer diese
@@ -691,7 +677,6 @@ Daher eignen sich diese Verfahren auch sehr gut für eine Parallelisierung.
 
 
 % -----------------------------------------------------------------------------
-\newpage
 \section{Implementierung Elliptischer Kurven zu Lehrzwecken}
 \label{ec:Implementing-for-Education}
 
@@ -781,16 +766,16 @@ wurde 2008 von Massierer\footnote{%
 Anleitung zur Benutzung eines interaktiven SageMath-Notebooks\index{SageMath!Anleitung interaktives Notebook}:
 Aktualisieren für die neue SageMathCloud xxxxxxxxxxxxx\\
 %todoTODO
-\begin{itemize}
-  \item[-] Manche SageMath-Server sind öffentlich
+\begin{itemize}[nosep,label=-]
+  \item Manche SageMath-Server sind öffentlich
   und bieten Worksheets als
   \glqq Published Worksheets\grqq~ an, die man ohne Log-in
   ausführen kann. Diese Worksheets werden aufgelistet, wenn man
   auf \glqq Published\grqq~in der oberen rechten Ecke klickt.
-  \item[-] Worksheets, die den  \verb#Interact#-Befehl nutzen, erfordern z.Zt.
+  \item Worksheets, die den  \verb#Interact#-Befehl nutzen, erfordern z.Zt.
   einige weitere Schritte vom Benutzer: Einloggen, Kopie erstellen,
   alle Kommandos nochmal ausführen.\\
-\item[-]
+\item
   Teile des ECC-Tutorial benutzen einen speziellen Mathematik-Font, der standardmäßig
   bei den meisten Browser nicht mitinstalliert wird. Wenn Sie bemerken, dass Formeln
   nicht korrekt dargestellt sind oder Ihr Browser meldet, dass Fonts fehlen,
@@ -818,7 +803,6 @@ Elliptische Kurven sind (es ist nur auf Englisch vorhanden):
 
 
 % -----------------------------------------------------------------------------
-\newpage
 \section{Patentaspekte}\index{Patent}
 
 Wenn man statt des Primkörpers $GF(p)$ einen Körper der Form $GF(2^n)$ zugrunde legt, ergeben sich wesentliche Unterschiede in der Implementierung. Der Vorteil einer Implementierung unter Verwendung von $GF(2^n)$ liegt darin, dass Rechnungen aufgrund der binären Darstellung effizienter durchgeführt werden können. Dies betrifft insbesondere die Division, die in $GF(p)$ vergleichsweise aufwändig ist (was z.B. bei dem oben beschriebenen Signaturverfahren sowohl die Erstellung der Signatur als auch ihre spätere Verifikation betrifft, da beide eine Divisionsoperation enthalten).

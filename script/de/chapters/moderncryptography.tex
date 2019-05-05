@@ -14,7 +14,6 @@
 
 
 
-\newpage
 %********************************************************************
 \hypertarget{Chapter_ModernCryptography}{}
 \chapter[Die mathematischen Ideen hinter der modernen Kryptographie]
@@ -127,7 +126,6 @@ Die Klasse \textbf{P} ist in der Klasse \textbf{NP} enthalten. Ein berühmtes of
 Viele kryptographische Protokolle sind so gemacht, dass die \glqq guten\grqq {} Teilnehmer nur Probleme aus \textbf{P} lösen müssen, während sich ein Angreifer vor Probleme aus \textbf{NP} gestellt sieht.
 
 Man weiß leider bis heute nicht, ob es Einwegfunktionen überhaupt gibt. Man kann aber zeigen, dass Einwegfunktionen genau dann existieren, wenn $ \textbf{P} \neq \textbf{NP} $ gilt \cite[S.63]{Balcazar1988}.
-\vskip +5pt
 
 Immer wieder behauptete jemand, er habe die Äquivalenz bewiesen
 (siehe \cite{Hesselink2001}), %%Hinweis wegen geocities per he.pa, 16.2.2010
@@ -136,8 +134,6 @@ aber bisher erwiesen sich diese Aussagen stets als falsch.
 Es wurden eine Reihe von Algorithmen für Public-Key-Verfahren vorgeschlagen. Einige davon erwiesen sich, obwohl sie zunächst vielversprechend erschienen, als polynomial \index{Polynom} lösbar. Der berühmteste durchgefallene Bewerber ist der von Ralph Merkle \cite{Merkle1978} vorgeschlagene Knapsack mit Falltür.
 
 
-%\newpage
-\vskip +20 pt
 %--------------------------------------------------------------------
 \section{Knapsackproblem als Basis für Public-Key-Verfahren}
 \index{Kryptographie!Public-Key}
@@ -295,7 +291,7 @@ man die natürliche Zahl  $ d < \phi (N), $ so dass gilt
 \[ ed \equiv 1 \mod \phi (N). \]
 Dabei ist $ \phi $ die \textbf{Eulersche Phi-Funktion}.
 
-Der Ausgangstext wird in Blöcke zerlegt und verschlüsselt, wobei jeder Block einen binären Wert $ x^{(j)} \leq N $ hat. \vskip + 5 pt
+Der Ausgangstext wird in Blöcke zerlegt und verschlüsselt, wobei jeder Block einen binären Wert $ x^{(j)} \leq N $ hat. 
 
 \textbf{Öffentlicher Schlüssel:}
 \[ N,e. \]
@@ -311,12 +307,10 @@ Der Ausgangstext wird in Blöcke zerlegt und verschlüsselt, wobei jeder Block e
 
 
 
-\newpage
 \begin{remark}{: Eulersche Phi-Funktion}\\
 \label{mc:Euler-phi} \hypertarget{mc:Euler-phi}{}
 \index{Eulersche Phi-Funktion}
 
-\vskip +10 pt
 Die Eulersche Phi-Funktion ist definiert durch:
 
 \fbox{\parbox{0.8\linewidth}{
@@ -325,11 +319,9 @@ Die Eulersche Phi-Funktion ist definiert durch:
   die mit $ n $ keinen gemeinsamen Faktor haben.
 }}
 
-\vskip +10 pt
 Kein gemeinsamer Faktor bedeutet: Zwei natürliche Zahlen $ a $ und $ b $
 sind teilerfremd\index{Zahlen!teilerfremd (co-prime)}, falls $ \ggt (a,b)=1. $
 
-\vskip +10 pt
 Für die Eulersche Phi-Funktion gilt:
 \[
 \phi(1)=1,~~ \phi(2)=1,~~
@@ -387,7 +379,6 @@ Kennt man die verschiedenen Primfaktoren $ p_1, \dots , p_k $ von $ n $, so ist
 \]
 
 \end{remark}
-\newpage
 
 
 
@@ -460,7 +451,6 @@ Hintertür-Information ist die Primfaktorzerlegung von $ n = pq. $
 
 
 
-\vskip +20 pt
 %--------------------------------------------------------------------
 \hypertarget{HT-Discrete-Logarithm-as-Basis}{}
 \section[Der diskrete Logarithmus als Basis für Public-Key-Verfahren]
@@ -629,7 +619,6 @@ Dabei definiert man
  \[ \ g^{k}:=\underbrace{g \circ \ldots \circ g}_{k \text{ mal}}.\]
 Die Exponentialfunktion ist leicht zu berechnen:
 
-\vskip +10 pt 
 \textbf{Lemma}\par
 \nopagebreak[4]
 {\em
@@ -637,14 +626,12 @@ Die Potenz $ g^k $ kann in höchstens $ 2 \log_2 k $ Gruppenoperationen
 berechnet werden.
 }
 
-\vskip +10 pt
 \begin{Beweis}{}
 Sei $ k=2^n + k_{n-1} 2^{n-1} + \cdots + k_1 2 + k_0 $ die Binärdarstellung von $k. $ Dann ist $ n \leq \log_2 (k), $  denn $ 2^n \leq k < 2^{n+1}. $ $ k $ kann in der Form $ k=2k' + k_0 $ mit $ k'= 2^{n-1} + k_{n-1} 2^{n-2} + \cdots + k_1 $ geschrieben werden. Es folgt
 \[ g^k = g^{2k'+k_0}= (g^{k'})^2 g^{k_0} .\]
 Man erhält also $ g^k $ aus $ g^{k'} $ indem man einmal quadriert und eventuell mit $ g $ multipliziert. Damit folgt die Behauptung durch Induktion nach $ n. $
 \end{Beweis}
 
-\vskip +10 pt
 \textbf{Problem \index{Logarithmusproblem!diskret} des diskreten Logarithmus}
 \begin{center}
 \fbox{\parbox{.75\textwidth}{
@@ -690,7 +677,6 @@ Enthält $ |G| $ einen \glqq dominanten\grqq {} Primteiler $ p ,$ so ist die Kom
 Wenn also das Logarithmusproblem schwer sein soll, so muss die Ordnung der verwendeten Gruppe $ G $ einen großen Primteiler haben. Insbesondere gilt, wenn die diskrete Exponentialfunktion in der Gruppe $ \Z_p^{\ast} $ eine Einwegfunktion sein soll, so muss $ p -1 $ einen großen Primteiler haben. In diesem Fall kann man ein verallgemeinertes ElGamal-Verfahren definieren (Krypto-Verfahren~\ref{genelgamalproc}).
 
 \begin{cryptoprocedure}
-\vskip +6pt
 Sei $ G $ eine endliche Gruppe  mit Operation $ \circ $, und sei $ \alpha \in G $,
 so dass der diskrete Logarithmus in $ H =\{ \alpha^{i}: i \geq 0 \} $ schwer zu
 berechnen ist. Sei $ a $ mit $ 0 \leq a \leq |H| -1 $ und sei $ \beta = \alpha^{a} $.\\
@@ -714,7 +700,6 @@ und
 \label{genelgamalproc}
 \end{cryptoprocedure}
 
-\vskip +25pt
 \hyperlink{Chapter_EllipticCurves}{Elliptische Kurven}{} (siehe Kapitel \ref{Chapter_EllipticCurves})
 liefern nützliche Gruppen für Public-Key-Verschlüsselungs\-ver\-fahren.
 

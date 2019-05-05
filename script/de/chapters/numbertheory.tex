@@ -123,7 +123,6 @@ machen, und für möglichst alle Beispiele SageMath-Code anzugeben.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\newpage
 \begin{ctsquote}
 Die Mathematik ist die Königin der Wissenschaften, die Zahlentheorie aber
 ist die Königin der Mathematik.
@@ -212,7 +211,6 @@ Zahlentheorie.
 
 
 % --------------------------------------------------------------------------
-\vskip +40 pt
 \subsection{Konvention}
 \index{Konvention}
 Wird nichts anderes gesagt, gilt:
@@ -227,8 +225,6 @@ sind die {\em natürlichen} und die {\em ganzen} Zahlen.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-%\vskip +40 pt
-\newpage
 \begin{ctsquote}
 Das ist nicht Zauberei, das ist Logik, ein Rätsel.
 Viele von den größten Zauberern haben keine Unze Logik im Kopf.
@@ -360,10 +356,8 @@ Primzahlen, Kapitel~\ref{Chapter_Primes}.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\newpage
 \section[Teilbarkeit, Modulus und Restklassen]
         {Teilbarkeit, Modulus und Restklassen\footnotemark}
-%\nopagebreak  % Keines der vier nopagebreak brachte etwas -> hart newpage davor.
 \footnotetext{%
     \index{ZT, Lernprogramm Zahlentheorie}%
     \index{Lernprogramm ZT}%
@@ -420,6 +414,7 @@ Diese Schreibweise heißt Division mit Rest. Dabei heißt $c$ der ganzzahlige
 \begin{example}{:}
 $$\frac{19}{7} = 2 + \frac{5}{7} \quad (m=7, c = 2, r = 5)$$
 \end{example}
+
 Was haben die Zahlen $5, 12, 19, 26, \cdots$ bei der Division durch $7$
 gemeinsam?
 Es ergibt sich immer der Rest $r = 5$.
@@ -437,14 +432,10 @@ und $b$, die zur gleichen Restklasse modulo $7$ gehören, bezeichnen wir als
 Als \textbf{Restklasse $r$ modulo $m$} bezeichnet man alle ganzen Zahlen $a$, die
 bei der Division durch $m$ denselben Rest $r$ haben.
 \end{definition}
-\newpage
-\begin{example}{ von Restklassen:}
-%\begin{itemize}
-\begin{compactitem}
-\item[] Restklasse $0$ modulo $4 = \{ x | x = 4*n; \; n \in \mathbb{Z} \} = \{ \dots, -16, -12, -8, -4, 0, 4, 8, 12, 16, \dots \}$
-\item[] Restklasse $3$ modulo $4 = \{ x | x = 4*n + 3;\; n \in \mathbb{Z} \} = \{ \dots, -13, -9, -5, -1, 3, 7, 11, 15, \dots \}$
-%\end{itemize}
-\end{compactitem}
+
+\begin{example}{ von Restklassen:}\\
+\hspace*{2em}Restklasse $0$ modulo $4 = \{ x | x = 4*n; \; n \in \mathbb{Z} \} = \{ \dots, -16, -12, -8, -4, 0, 4, 8, 12, 16, \dots \}$\\
+\hspace*{2em}Restklasse $3$ modulo $4 = \{ x | x = 4*n + 3;\; n \in \mathbb{Z} \} = \{ \dots, -13, -9, -5, -1, 3, 7, 11, 15, \dots \}$
 \end{example}
 Da modulo $m$ nur die Reste $0, 1, 2, \cdots, m-1$ möglich sind, rechnet die modulare Arithmetik in endlichen Mengen.
 Zu jedem Modul $m$ gibt es genau $m$ Restklassen.
@@ -464,17 +455,12 @@ Man schreibt: $a \equiv b {\rm ~(mod~} m)$. Und sagt:  {\em $a$ ist kongruent $b
 dass $a$ und $b$ zur gleichen Restklasse gehören. Der Modul ist also der Teiler. Diese Schreibweise wurde von
 Gauss eingeführt. Gewöhnlich ist der Teiler positiv, aber $a$ und $b$ können auch beliebige ganze Zahlen sein.
 
-\begin{example}{:}
-%\begin{itemize}
-\begin{compactitem}
-   \item[] $19 \equiv 12 {\rm ~(mod~} 7)$,
-           denn die Reste sind gleich:  $19 / 7 = 2$ Rest $5$  und  $12 / 7 = 1$ Rest $5$.
-   \item[] $23103 \equiv 0 {\rm ~(mod~} 453)$, denn $23103 / 453 = 51$ Rest $0$  und  $0 / 453 = 0$ Rest $0$.
-%\end{itemize}
-\end{compactitem}
+\begin{example}{:}\\
+\hspace*{2em}$19 \equiv 12 {\rm ~(mod~} 7)$,
+           denn die Reste sind gleich:  $19 / 7 = 2$ Rest $5$  und  $12 / 7 = 1$ Rest $5$.\\
+\hspace*{2em}$23103 \equiv 0 {\rm ~(mod~} 453)$, denn $23103 / 453 = 51$ Rest $0$  und  $0 / 453 = 0$ Rest $0$.
 \end{example}
 
-\vskip +20 pt
 \begin{satz}\label{thm-zth-div}
 $a \equiv b$ (mod $m$) gilt genau dann,  wenn die Differenz $(a - b)$ durch $m$
 teilbar ist, also wenn ein $q\in \mathbf{Z}$ existiert mit $ (a-b)=q*m.$\footnote{%
@@ -516,7 +502,6 @@ Anwenden kann man die obige Äquivalenz von Satz~\ref{thm-zth-div}, wenn man sch
 und geschickt für große Zahlen entscheiden will, ob sie durch eine bestimmte
 Zahl teilbar sind.
 
-%\newpage
 \begin{example}{:}\\
 Ist $69.993$ durch $7$ teilbar?\\
 Da die Zahl in eine Differenz zerlegt werden kann, bei der einfach zu ersehen
@@ -544,7 +529,6 @@ Dadurch bleiben alle Ergebnisse im Bereich von $0$ bis $m-1$.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\newpage
 \section{Rechnen in endlichen Mengen}
 
 % --------------------------------------------------------------------------
@@ -597,21 +581,18 @@ Assoziativgesetz und Kommutativgesetz gelten sowohl für die Addition als auch f
 Inverse sind nur dann Inverse, wenn sie bezüglich der gegebenen Operation
 eindeutig sind.
 }:
-\begin{compactitem}
-
+\begin{itemize}[nosep]
 \item \textbf{Additive Inverse}\index{Inverse!additiv}\\
    Für jedes ganzzahlige $a$ und $m$ gibt es eine ganze Zahl $-a$, so dass
    gilt:\\
    $(a + (-a)) {\rm ~(mod~}m) \equiv  0 {\rm ~(mod~ } m)$
    % \quad (additive Inverse)
-
 \item \textbf{Multiplikative Inverse modulo einer Primzahl p}\\
    Für jedes ganzzahlige $a$ (mit $a \not\equiv 0 {\rm ~(mod~ } p$) und $p$
    prim) gibt es eine ganze Zahl $a^{-1}$, so dass gilt:~~~
    $(a * a^{-1}) {\rm ~(mod~ } p) \equiv 1 {\rm ~(mod~}p)$
    % \quad (multiplikative Inverse).
    \index{Inverse!multiplikativ}.
-
 \item \textbf{Multiplikative Inverse modulo einer zusammengesetzten
            Zahl m}\footnote{%
     Da $8 \equiv 3 ~mod~ 5$ und $ 3 * 2 \equiv 1 ~mod~ 5$,
@@ -622,9 +603,7 @@ eindeutig sind.
     Für alle ganzzahligen $a$ und $m$ (mit $a \not\equiv 0 {\rm ~(mod~ } m$)
     und $ggT(a,m) = 1$) gibt es eine ganze Zahl $a^{-1}$, so dass gilt:
     $(a * a^{-1}) {\rm ~(mod~ } m) \equiv 1 {\rm ~(mod~}m)$
-
-
-\end{compactitem}
+\end{itemize}
 
 
 
@@ -660,7 +639,6 @@ bezüglich dieser Operation.
 
 
 
-\newpage
 \begin{ctsquote}
     Lang ist der Weg durch Lehren, kurz und wirksam durch Beispiele.
 \caption[Seneca]{Seneca\footnotemark}\index{Seneca}
@@ -777,7 +755,6 @@ Beachte: Die Multiplikation wird auf der Menge $\mathbb{Z}$ ohne $0$ definiert
 
 
 % --------------------------------------------------------------------------
-%\newpage
 \subsection{Additive und multiplikative Inverse}
 \label{add-and-mult-inverses}\label{multmodn}
 \index{Inverse!additiv} \index{Inverse!multiplikativ}
@@ -906,7 +883,6 @@ multiplikative Inverse berechnen und die Invertierbarkeit bestimmen
 Alternativ kann auch die Primitivwurzel\index{Primitivwurzel} genutzt werden.
 }
 
-\vskip +10 pt
 Kryptographisch ist nicht nur die Eindeutigkeit der Inversen, sondern auch das
 Ausschöpfen des gesamten Wertebereiches\index{Wertebereich} eine wichtige
 Eigenschaft.
@@ -972,7 +948,6 @@ ist $7$, die Inverse von $6$ (mod $17$) ist $3$.}
 
 
 
-\vskip + 20pt
 Tabelle~\textbf{\ref{mulmod13}} (Multiplikationstabelle mod $13$
 berechnet die Reste der Produkte $5*i$ und $6*i$:
 \begin{table}[ht] \label{SrcArith1b}
@@ -1004,7 +979,6 @@ ist $8$, die Inverse von $6$ (mod $13$) ist $11$.}
 
 
 
-\vskip + 20pt
 Tabelle~\textbf{\ref{mulmod12}} enthält ein Beispiel dafür, wo der
 Modul $m$ und die Zahl $(a=6)$ {\em nicht} teilerfremd sind.
 
@@ -1092,7 +1066,6 @@ $$
 Das liefert das richtige Ergebnis.
 \end{quote}
 \end{example}
-\vskip + 10 pt
 
 
 \begin{satz}\label{thm-zth-pot}
@@ -1107,7 +1080,6 @@ $$
 
 
 % --------------------------------------------------------------------------
-\vskip + 10pt
 \hypertarget{hohpot}{}
 \subsection{Schnelles Berechnen hoher Potenzen}
 \label{hohpot} \index{Potenz}
@@ -1174,7 +1146,6 @@ Dieser häufig verwendete Algorithmus heißt \glqq Square and Multiply\grqq. \in
 
 
 % --------------------------------------------------------------------------
-\vskip +40 pt
 \subsection{Wurzeln und Logarithmen} \index{Wurzel}
 
 Die Umkehrungen des Potenzierens modulo m sind ebenfalls definiert: Wurzeln und
@@ -1387,7 +1358,6 @@ unrational, ja sogar \textbf{irrational und damit wirklichkeitsnäher} sind.
 \end{ctsquote}
 \addtocounter{footnote}{0}\footnotetext{Eric Berne, \glqq Spiele der
      Erwachsenen\grqq, rororo, (c) 1964, S. 235.}
-\vskip +4pt
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \hypertarget{Chapter_ElementaryNT_8}{}
@@ -1465,23 +1435,21 @@ Verallgemeinert gilt für jede Primzahl $p$ und jedes $n$ aus $\mathbb{N}$:
 \end{satz}
 
 
-\pagebreak  % Oder \newpage oder \vskip +12pt
+\begin{minipage}{\textwidth}
 \begin{example}{:}
-% \nopagebreak dazwischen nützte nichts --> vskip !!
 \begin{itemize}
-% \nopagebreak Nützte nichts !!
 \item  $n=70=2*5*7 \Longrightarrow $ nach Satz~\ref{J_of_p1..pk}: $ \phi(n)= 1\cdot 4 \cdot 6 =24.$
 \item  $n=9=3^2 \Longrightarrow$ nach Satz~\ref{J_of_n}: $ \phi(n)= 3^1\cdot 2 =6,$ weil  $\mathbb{Z}_9^* =\{ 1,2,4,5,7,8\}.$
 \item $n = 2.701.125 = 3^2 * 5^3 * 7^4$ $\Longrightarrow$ nach Satz~\ref{J_of_n}:
-$\phi(n) = [3^1 * 2] * [5^2 * 4] * [7^3 * 6] = 1.234.800.$
+$\phi(n) = [3^1 * 2] * [5^2 * 4] * [7^3 * 6] = \num{1234800}$
 \end{itemize}
 \end{example}
+\end{minipage}
 
 
 
 % TodoTodo: Eventuell später ein extra Kapitel zu ZT-Funktionen im primes-Kapitel,
 %           und dann dieses Remark mit der Grafik dahin verschieben.
-\vskip +25 pt
 \begin{remark}{: Zahlentheoretische Funktionen in CT2}\\
 \label{mc:NT-functions-in-CT2-01} \hypertarget{mc:NT-functions-in-CT2-01}{}
 \index{Eulersche Phi-Funktion}
@@ -1505,7 +1473,6 @@ die Eulersche Phi-Funktion für die Zahl 24 hervorgehoben.
 }
 
 \end{remark}
-\newpage
 
 
 
@@ -1552,11 +1519,9 @@ Falls $n$ das Produkt zweier verschiedenen Primzahlen ist, kann man mit
 dem Satz von Euler in bestimmten Fällen sehr schnell das Ergebnis einer
 modularen Potenz berechnen.
 Es gilt: $a^{(p-1)*(q-1)} \equiv 1 {\rm ~(mod~}pq)$.
-\vskip +7 pt
 
 \begin{example}{ Berechnung einer modularen Potenz:}
-\vskip -4pt
-\begin{itemize}
+\begin{itemize}[nosep]
    \item Was ist $5^{2} {\rm ~(mod~}6)$ ?\\
          Mit $2 = 1 * 2$ und $6 = 2*3$, wobei $2$ und $3$ jeweils prim;
          $\phi(6) = 2$, da nur $1$ und $5$ zu $6$ teilerfremd
@@ -1657,7 +1622,7 @@ Für $n=pq$  mit $p\neq q$ gilt $ \phi(n) = (p-1)*(q-1)
 $x^2-(p+q)x+pq=0. $\\
 Sind nur
 $n$ und $\phi(n)$ bekannt, so gilt $pq=n$ und $p+q= n +1 -\phi(n).$  Man erhält somit die Faktoren $p$ und $q$ von $n$, indem man die folgende quadratische Gleichung löst:
-$$ x^2 +(\phi(n)-n-1)x +n=0 $$\vspace{-\baselineskip}
+$$ x^2 +(\phi(n)-n-1)x +n=0 $$
 }
 (vergleiche Forderung 3 in \hyperlink{Chapter_ElementaryNT_10_1}
 {Kapitel~\ref{Label_Chapter_ElementaryNT_10_1}}).
@@ -1712,7 +1677,6 @@ haben: Die Ordnungen sind $1, 2, 5$ und $10$. Es gilt:
         \textbf{maximale Ordnung}\index{Ordnung!maximal}.
 \end{enumerate}
 
-\newpage
 \begin{example}{ 1:}\\
 Die folgende Tabelle~\ref{expmod11}\footnote{%
   Das SageMath-Beispiel~\ref{nt_Sage-code_MultOrder_expmod11} enthält den
@@ -1787,7 +1751,6 @@ Die folgenden beiden Tabellen \ref{expmod45} und \ref{expmod46} zeigen
 multiplikative Ordnung und Primitivwurzel\index{Primitivwurzel} modulo
 $45$ und modulo $46$.
 
-\newpage
 \begin{example}{ 2:}\\
 Die folgende Tabelle~\ref{expmod45}\footnote{%
   Das SageMath-Beispiel~\ref{nt_Sage-code_MultOrder_expmod45} enthält den
@@ -1835,7 +1798,6 @@ ergebenden Wert $ord_{45}(a)$.
 \label{expmod45}
 \end{table}
 
-\vskip +10 pt
 $\phi(45)$ berechnet sich nach Satz~\ref{J_of_n}: $\phi(45) = \phi(3^2*5) = [3^1*2] * [1*4] = 24$.
 
 Da $45$ keine Primzahl ist, gibt es nicht für alle Werte von $a$
@@ -1845,8 +1807,6 @@ $3, 5, 6, 9, 10, 12, \cdots,$ da $45 = 3^2*5$).
 
 
 
-\vspace{\baselineskip}
-\vspace{\baselineskip}
 \begin{example}{ 3:}\\
 Hat $7$ eine Primitivwurzel\index{Primitivwurzel} modulo $45$?
 
@@ -1854,12 +1814,11 @@ Die notwendige, aber nicht hinreichende Voraussetzung/Bedingung
 ggT$(7,45)=1$ ist erfüllt.
 Aus der Tabelle~\ref{expmod45} kann man ersehen, dass die
 Zahl $a=7$ keine Primitivwurzel\index{Primitivwurzel} von $45$ ist,
-denn $ord_{45}(7) = 12 \not= 24 = \phi(45)$.%\vskip + 1em
+denn $ord_{45}(7) = 12 \not= 24 = \phi(45)$.
 \end{example}
 
 
 
-\newpage
 \begin{example}{ 4:}\\
 Die folgende Tabelle~\ref{expmod46}\footnote{%
   Das SageMath-Beispiel~\ref{nt_Sage-code_MultOrder_expmod46} enthält den
@@ -1878,8 +1837,6 @@ denn $ord_{46}(7) = 22 = \phi(46)$.
 \label{SrcArith3c}
 {\textmd \small
 \begin{center}
-%\vspace{-5ex}  %Dieses vspace bewirkte, dass die Überschrift in der Tab. stand.
-\vspace{-2ex}  % Rein, damit Kap. 4.10 oben auf der ff. Seite beginnt.
 \begin{tabular}{|p{16 pt}||@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|c|}
 \hline
 $a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 & 21 & 22 & 23 & ord\\
@@ -1939,7 +1896,6 @@ $a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 &
 \end{table}
 
 
-\vskip +10 pt
 \begin{satz}\label{thm-zth-ordp}
 Für einen Modul $n$ und eine Zahl $a$,
 teilerfremd\index{Zahlen!teilerfremd (co-prime)} zu $n$ gilt:\\
@@ -1964,7 +1920,6 @@ an, wenn n prim ist (vgl. Definition \ref{def-zth-znmult}).
 
 
 
-\newpage
 \begin{example}{ 5: Zykluslängen}
 
 Die folgenden Tabellen~\ref{expmod14} und~\ref{expmod22}\footnote{%
@@ -2067,7 +2022,6 @@ $a \setminus i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & $ord_{
 \end{table}
 
 
-\newpage
 \begin{table}[ht]
 \begin{center}
 % \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c||c|c|}
@@ -2134,7 +2088,6 @@ $a \setminus i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 1
 \label{expmod22}
 \end{table}
 
-% \newpage
 % Information SageMath's latex command
 % Table 4.8 created this way (hier fehlt noch die letzte Spalte mit \phi(45) (Jan 2013)
 % - latex nur auf SageMath-Objekte anwendbar (also erst alles in eine Matrix schreiben)
@@ -2207,8 +2160,6 @@ $a \setminus i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 1
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\clearpage
-\newpage
 %\hypertarget{Chapter_ElementaryNT_10}{}
 \hypertarget{RSABeweis}{}
 \section{Beweis des RSA-Verfahrens mit Euler-Fermat}
@@ -2385,7 +2336,6 @@ mit einem großen \glqq N\grqq~bezeichnet.
 Die Zahlen $d, e, n$ sind normalerweise sehr groß (z.B. sind $d$ und $e$ $300$ bit,
 und $n$ $600$ bit lang).
 
-\vskip +10pt
 \begin{remark}{:}\\
 Die Sicherheit des RSA-Verfahrens hängt wie bei allen Public-Key-Verfahren davon ab,
 dass man den privaten Key $d$ nicht aus  dem öffentlichen Key $(n,e)$ berechnen kann.
@@ -2408,7 +2358,6 @@ dass man den privaten Key $d$ nicht aus  dem öffentlichen Key $(n,e)$ berechnen
 
 
 % --------------------------------------------------------------------------
-\vskip +10pt
 \hypertarget{RSAproof}{}
 \subsection{Beweis der Forderung 1 (Umkehrbarkeit)}
 \label{RSAproof}
@@ -2491,13 +2440,11 @@ einsetzbar, weil gilt:
 $$
 M \equiv (M^d)^e{\rm ~(mod~}n).
 $$
-\vspace{0ex}
 \end{remark}
 
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\newpage
 \hypertarget{SecurityRSA}{}
 \section[Zur Sicherheit des RSA-Verfahrens]
 {Zur Sicherheit des RSA-Verfahrens\footnotemark}
@@ -2551,7 +2498,6 @@ $$
 % {\em The development of the Number Field Sieve} \cite{Lenstra1993} und\\
 % {\em A Cost-Based Security Analysis of Symmetric and Asymmetric
 %     Key Lengths} \cite{Silverman2000}
-%\vspace{-10pt}
 %\begin{itemize}
 %  \item[] A. Lenstra, H. Lenstra:
 %          {\em The development of the Number Field Sieve}
@@ -2563,7 +2509,6 @@ $$
 %\end{itemize}
 
 
-\vskip +12pt
 
 Die Formel zeigt, dass das Faktorisierungsproblem zur
 Komplexitätsklasse\index{Komplexität!Komplexitätsklasse} der
@@ -2590,16 +2535,14 @@ Siehe: {\em Handbook of Applied Cryptography} \cite{Menezes2001}.
 
 
 % --------------------------------------------------------------------------
-%\vskip +40pt
 % \pagebreak
 \subsection{Sicherheitsparameter aufgrund neuer Algorithmen}
 \label{chptSecurityParam}
-%\vskip +15 pt
 \paragraph*{Faktorisierungsalgorithmen\footnote{%
     \index{ZT, Lernprogramm Zahlentheorie}%
     \index{Lernprogramm ZT}%
     Mit dem Lernprogramm \textbf{ZT} können Sie einige der gängigen
-    Faktorisierungsverfahren (Fermat, Pollard-Rho, Polard p-1, QS) vertiefen
+    Faktorisierungsverfahren (Fermat, Pollard-Rho, Polard $p-1$, QS) vertiefen
     (siehe Lern-Kapitel 5.1-5.5, Seiten 1-15/15).\\
     ZT können Sie in CT1\index{CT1} über das Menü
     \textbf{Einzelverfahren \textbackslash{} Zahlentheorie
@@ -2614,19 +2557,22 @@ Siehe: {\em Handbook of Applied Cryptography} \cite{Menezes2001}.
   (basierend auf YAFU\index{YAFU}). Diese ist schneller als die in CT1
   implementierten Funktionen.
   Damit bietet CT2 die folgenden Faktorisierungsverfahren:
-  \begin{compactitem}
-   \item[-] Brute-force mit kleinen Primzahlen
-   \item[-] Fermat
-   \item[-] Shanks Square Forms Factorization (squfof)
-   \item[-] Pollard rho
-   \item[-] Pollard p-1
-   \item[-] Williams p+1
-   \item[-] Lenstra Elliptic Curve Method (ECM)
-   \item[-] Self-initializing Quadratic Sieve (SIQS)
-   \item[-] Multiple-polynomial Quadratic Qieve (MPQS)
-   \item[-] Special Number Field Sieve (SNFS)
-   \item[-] General Number Field Sieve (GNFS).
-  \end{compactitem}
+\strut\\[-1.5\baselineskip]
+\begin{multicols}{2}
+  \begin{itemize}[nosep,label=-]
+   \item Brute-force mit kleinen Primzahlen
+   \item Fermat
+   \item Shanks Square Forms Factorization (squfof)
+   \item Pollard rho
+   \item Pollard $p-1$
+   \item Williams $p+1$
+   \item Lenstra Elliptic Curve Method (ECM)
+   \item Self-initializing Quadratic Sieve (SIQS)
+   \item Multiple-polynomial Quadratic Qieve (MPQS)
+   \item Special Number Field Sieve (SNFS)
+   \item General Number Field Sieve (GNFS).
+  \end{itemize}
+\end{multicols}
 }}
 \mbox{}%Damit er nach der Paragraph-Überschrift nicht hintendran weiter schreibt, sondern umbricht,
 
@@ -2645,7 +2591,6 @@ sich an den Möglichkeiten der aktuellen Faktorisierungsalgorithmen:
                 {\em The quadratic sieve factoring algorithm}
                 \cite{Pomerance1984}.
       \end{list}
-      \vskip +12pt
 
 \item 1999 wurde mit dem von Buhler, Lenstra und Pomerance entwickelten
       General Number Field Sieve-Algorithmus (GNFS), der ab ca. 116
@@ -2658,7 +2603,6 @@ sich an den Möglichkeiten der aktuellen Faktorisierungsalgorithmen:
                 {\em Factoring integers with the number field sieve}
                 \cite{Buhler1993}.
       \end{list}
-      \vskip +12 pt
 
 \item Ende 2009, also rund 10 Jahre später, wurde von Kleinjung etc.
       nach rund 2 1/2 Jahren ein 232-stelliger Modul (768 bit) faktorisiert.\\
@@ -2668,7 +2612,6 @@ sich an den Möglichkeiten der aktuellen Faktorisierungsalgorithmen:
                 {\em Factorization of a 768-bit RSA modulus}
                 \cite{Kleinjung2010}.
       \end{list}
-      \vskip +12 pt
 \end{itemize}
 
 Damit ist auch praktisch klar geworden, dass eine Modullänge von $768$ bit
@@ -2679,7 +2622,6 @@ siehe Kapitel~\ref{RSA-200}.
 
 
 
-\vskip +15 pt
 \paragraph*{Algorithmen zur Gitterbasenreduktion} \mbox{}
 
 Die Modullänge $l$ ist aber nicht der einzige Sicherheits-relevante Parameter.
@@ -2706,7 +2648,6 @@ von Matthias Schneider \cite{SchneiM2004}.
 
 
 % --------------------------------------------------------------------------
-\vskip +40pt
 \subsection{Vorhersagen zur Faktorisierung großer Zahlen}
 \index{Faktorisierung!Prognose}
 
@@ -2781,7 +2722,7 @@ prognostizierten Entwicklung (rot) [Quelle Fox 2001; letzte Ergänzung 2011]}
 
 
 
-\clearpage  % Erzwingt, dass alle Floating Objekte (z.B. Grafiken VORHER
+%\clearpage  % Erzwingt, dass alle Floating Objekte (z.B. Grafiken VORHER
             % geschrieben werden ! (sonst wurde Kapitel 4.11.4 begonnen,
             % und die Secorvo-Grafik auf er Folgeseite UNTER die Fussnote
             % geschoben. Außerdem wahrscheinlich auch Zeilenumbruch,
@@ -2803,22 +2744,19 @@ prognostizierten Entwicklung (rot) [Quelle Fox 2001; letzte Ergänzung 2011]}
 Ausführliche Übersichten über die Rekorde im Faktorisieren
 zusammengesetzter Zahlen \index{Faktorisierung!Faktorisierungsrekorde}
 mit unterschiedlichen Methoden finden sich auf den folgenden Webseiten:
-\vspace{-10pt}
-\begin{itemize}
-\item[]
+\begin{itemize}[nosep,label=-]
+\item
      %% URL doesn't exist any more in 2018: \url{http://www.crypto-world.com} -- archive.org used below\\
      %% http://primes.utm.edu/glossary/xpage/WheelFactorization.html no overview
-     \url{http://primerecords.dk/consecutive_factorizations.htm}\\
-     \url{http://en.wikipedia.org/wiki/Integer_factorization_records}\\
-     \url{http://en.wikipedia.org/wiki/RSA_Factoring_Challenge}
-
+\item     \url{http://primerecords.dk/consecutive_factorizations.htm}\\
+\item     \url{http://en.wikipedia.org/wiki/Integer_factorization_records}\\
+\item     \url{http://en.wikipedia.org/wiki/RSA_Factoring_Challenge}
 \end{itemize}
 
 Der aktuelle Rekord (Stand Nov. 2012) mit der GNFS-Methode (General Number
 Field Sieve) \index{General Number Field Sieve (GNFS)} zerlegte eine
 allgemeine $232$-stellige Dezimalzahl in ihre beiden Primfaktoren.
 
-\vskip +10pt
 Die letzten Rekorde\footnote{%
 Die  "`RSA-Zahlen"' sind große semiprime Zahlen (d.h. Zahlen, die genau aus
 2 Primfaktoren bestehen)\index{Zahlen!semiprim}\index{Primzahl!semiprim}.
@@ -2895,7 +2833,6 @@ Laufzeituntersuchungen zur Faktorisierung\index{Faktorisierung} mit den
 Open-Source Software-Paketen Pari-GP, SageMath, CrypTool~1 und CrypTool~2
 finden sich in "`Zeitexperimente zur Faktorisierung"' (siehe \cite{Schulz2010}).
 
-\vskip +20pt
 %
 Im Folgenden werden die letzten Rekorde aus Tabelle~\ref{factorizationrecords}
 etwas ausführlicher erläutert\footnote{%
@@ -2908,12 +2845,10 @@ den ff. Webseiten dargestellt:
       \url{http://en.wikipedia.org/wiki/Special_number_field_sieve}\\
       \url{http://en.wikipedia.org/wiki/General_number_field_sieve}
 \end{itemize}
-\vspace{-10pt}
 }:
 
 
 % --------------------------------------------------------------------------
-%\vskip +20pt
 \paragraph*{RSA-155} \label{RSA-155} \index{RSA-155}
 \mbox{} % Trick: für Zeilenumbruch, da er "//" allein nicht mag ! xxxxxxxxx
 
@@ -2925,7 +2860,6 @@ Mit der $512$ Bit-Zahl RSA-155 war eine {\em magische} Grenze erreicht.
 
 
 % --------------------------------------------------------------------------
-\vskip +20pt
 \paragraph*{C158} \label{C158} \index{C158}
 \mbox{} % für Zeilenumbruch
 \hypertarget{C158-chap3}{}
@@ -2997,22 +2931,18 @@ $$
 Damit wurde die Zahl $2^{953}+1$ vollständig in ihre 8 Primfaktoren zerlegt.
 
 \begin{minipage}{\textwidth}
-\vspace{3ex}
 Verweise:
-\vspace{-10pt}
-\begin{itemize}
+\begin{itemize}[nosep,label=-]
 \item \url{https://members.loria.fr/PZimmermann/records/gnfs158}
 \item \url{https://web.archive.org/web/20170518021747/http://www.crypto-world.com:80/announcements/c158.txt}
         %% original URL doesn't exist any more in 2018:
 	%% \url{http://www.crypto-world.com/announcements/c158.txt}
 \end{itemize}
 \end{minipage}
-\vspace{24pt}
 
 
 
 % --------------------------------------------------------------------------
-\vskip +20pt
 \paragraph*{RSA-160} \label{RSA-160} \index{RSA-160}\mbox{}
 \hypertarget{RSA-160-chap3}{}
 
@@ -3069,7 +2999,6 @@ q = 47388090603832016196633832303788951\\
 $$
 
 Die Berechnungen erfolgten zwischen Dezember 2002 und April 2003.
-\vspace{24pt}
 
 
 
@@ -3115,7 +3044,6 @@ Die Berechnungen erfolgten zwischen Dezember 2002 und April 2003.
 
 
 % --------------------------------------------------------------------------
-\vskip +20pt
 \hypertarget{RSA-200-chap3}{}
 \paragraph*{RSA-200} \label{RSA-200} \index{RSA-200}\mbox{}
 \nopagebreak
@@ -3164,13 +3092,11 @@ ausführt, in einem Jahr bewältigt. Zur Illustration: ein INTEL
 Pentium 100 Prozessor hat etwa 50 MIPS.
 Für die Zerlegung eines 2048-Bit-Moduls bräuchte man ca. {$8,5 \cdot
 10^{40}$ MY}.}.
-\vspace{24pt}
 
 
 
 
 % --------------------------------------------------------------------------
-\vskip +20pt
 \hypertarget{RSA-768-chap3}{}
 \paragraph*{RSA-768} \label{RSA-768} \index{RSA-768}\mbox{}
 \nopagebreak
@@ -3212,14 +3138,12 @@ $$
 Die Berechnungen dauerten 2 1/2 Jahre.\footnote{%
 Dies war ein "`academic effort"' -- Organisationen mit besserer Ressourcen-Ausstattung
 könnten es deutlich schneller durchführen.}
-\vspace{24pt}
 
 
 
 
 
 % --------------------------------------------------------------------------
-\vskip +20pt
 \paragraph*{C307 / M1039} \label{C307} \index{C307} \index{M1039}
 \mbox{} % für Zeilenumbruch
 \hypertarget{C307-chap3}{}
@@ -3299,10 +3223,8 @@ $$
 Damit wurde die Zahl $2^{1039}-1$ vollständig in ihre 3 Primfaktoren zerlegt.
 
 \begin{minipage}{\textwidth}
-\vspace{3ex}
 Verweise:
-\vspace{-10pt}
-\begin{itemize}
+\begin{itemize}[nosep,label=-]
 \item \url{http://www.loria.fr/~zimmerma/records/21039-}
 \item \url{https://web.archive.org/web/20170518021747/http://www.crypto-world.com:80/announcements/m1039.txt}
 \item \url{https://web.archive.org/web/20170518024506/http://www.crypto-world.com:80/FactorAnnouncements.html}
@@ -3315,7 +3237,6 @@ Verweise:
 
 
 % --------------------------------------------------------------------------
-\vskip +50pt
 \paragraph*{Größenordnung faktorisierter Zahlen im Vergleich zu auf Primalität
 getesteter Zahlen}
 \mbox{}
@@ -3345,7 +3266,6 @@ $$ [vgl.~Tab.~\ref{factorizationrecords}] ~~\longleftrightarrow{}~~ [vgl.~Tab.~\
 
 
 % --------------------------------------------------------------------------
-\vskip +60pt
 \subsection[Weitere Forschungsergebnisse zu Primzahlen und Faktorisierung]
            {Weitere Forschungsergebnisse zu Primzahlen und Faktorisie"-rung}
 \label{FactorisationResearch}
@@ -3375,7 +3295,6 @@ den Einsatz des RSA ganz verzichtet werden.
 
 
 % --------------------------------------------------------------------------
-\vskip +20pt
 %\paragraph*
 \subsubsection{Das Papier von Bernstein und seine Auswirkungen auf die Sicherheit
                des RSA-Algorithmus}
@@ -3477,9 +3396,7 @@ theoretischen Ansätze realisiert wurden oder wieweit die Finanzierung
 seines Forschungsprojektes ist.
 %%
 %% \begin{minipage}{\textwidth}
-%% \vspace{3ex}
 %% Verweise:
-%% \vspace{-10pt}
 %% \begin{itemize}
 %%   \item[] \url{http://cr.yp.to/djb.html}\\
 %%           %% Link tot: \url{http://www.counterpane.com/crypto-gram-0203.html\#6}\\
@@ -3490,7 +3407,6 @@ seines Forschungsprojektes ist.
 
 
 % --------------------------------------------------------------------------
-\vskip +20pt
 %\paragraph*
 \subsubsection{Das TWIRL-Device} \label{TWIRLDevice} \index{TWIRL-Device}
 %\mbox{} % Trick: für Zeilenumbruch
@@ -3530,7 +3446,6 @@ RSA-Schlüssellängen umzustellen, mehr als gerechtfertigt.
 
 
 % --------------------------------------------------------------------------
-\vskip +20pt
 %\paragraph*{``Primes in P'': Testen auf Primalität ist polynominal}
 \subsubsection{\glqq Primes in P\grqq: Testen auf Primalität ist polynominal}
 \label{PrimesinP} \index{Primzahltest}
@@ -3545,21 +3460,17 @@ Die Bedeutung dieser Entdeckung liegt darin, dass sie Zahlentheoretiker mit neue
 
 Aber selbst die Autoren merken an, dass andere bekannte Algorithmen (z.B. ECPP) schneller sein können. Der neue Algorithmus funktioniert für alle positiven ganzen Zahlen. Dagegen verwendet das GIMPS-Projekt den Lucas-Lehmer-Primzahltest, der besondere Eigenschaften der Mersennezahlen ausnutzt. Dadurch ist der Lucas-Lehmer-Test viel schneller und erlaubt, Zahlen mit Millionen von Stellen zu testen, während generische Algorithmen auf Zahlen mit einigen tausend Stellen beschränkt sind. Nachteil der bisherigen schnellen Verfahren ist, dass sie probabilistisch sind, also ihr Ergebnis höchstwahrscheinlich, aber nicht ganz sicher ist.
 
-\enlargethispage{20pt}
- Aktuelle Forschungsergebnisse dazu finden sich z.B. auf:
-\vspace{-10pt}
-\begin{itemize}
-  \item[] \url{http://www.mersenne.org/}\\
-          \url{http://fatphil.org/maths/AKS/} Originaltext in Englisch
+Aktuelle Forschungsergebnisse dazu finden sich z.B. auf:
+\begin{itemize}[nosep,label=-]
+\item \url{http://www.mersenne.org/}
+\item \url{http://fatphil.org/maths/AKS/} Originaltext in Englisch
           % BE_2018 Toter Link: \href{http://ls2-www.cs.uni-dortmund.de/lehre/winter200203/kt/material/primes.ps}{\tt http://ls2-www.cs.uni-dortmund.de/lehre/winter200203/kt/material/primes.ps}\\% \url... created overfull \hbox
           % BE_2018  \hspace*{2em}\hspace*{2em}Gute Erläuterung in Deutsch von Thomas Hofmeister.
 \end{itemize}
-\vskip +10 pt
 
 
 
 % --------------------------------------------------------------------------
-\vskip +20pt
 \subsubsection{\glqq Shared Primes\grqq: Module mit gleichen Primfaktoren}
 \label{nt_Shared-Primes} \index{Primzahl!Shared}
 %~\ref{nt_Shared-Primes}, S.~\pageref{nt_Shared-Primes}
@@ -3663,7 +3574,6 @@ Wall time: 76.85 s
 
 
 
-\clearpage
 \section*{Effiziente Berechnung aller ggT-Paare und Erläuterung der benutzten Formel zur Bestimmung der Shared Primes}
 
 Der hervorragende Artikel \glqq Mining Your Ps and Qs: Detection of Widespread Weak Keys in Network Devices\grqq~\cite{Heninger2012} erklärt, wie der Algorithmus die ggTs von allen RSA-Moduln effizient berechnet.
@@ -3750,7 +3660,6 @@ Weil dies offensichtlich wahr ist, können wir schließen, dass die zwei ggTs ä
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\newpage
 \begin{ctsquote}
 Viel mehr als unsere Fähigkeiten sind es
 unsere Entscheidungen \dots, die zeigen, wer wir wirklich sind.
@@ -3830,7 +3739,6 @@ Funktion im ganzen.
 
 
 % --------------------------------------------------------------------------
-\vskip +10 pt
 \subsection{Das Diffie-Hellman Schlüsselaustausch-Protokoll}
 \index{Diffie, Whitfield}
 \index{Hellman, Martin}
@@ -3867,9 +3775,7 @@ den ihm vorliegenden Daten rekonstruieren, Alice wiederum Bobs Geheimnis $b$
 nicht ermitteln, und ein Lauscher, der $g$ kennt und sowohl $A$ als auch $B$
 mitgelesen hat, vermag daraus weder $a$ noch $b$ noch $S$ zu berechnen.
 
-\vskip +10 pt
 \input{figures/DH-de.latex}
-\vskip +20 pt
 
  \textbf{Ablauf:}\par
 \nopagebreak
@@ -3904,9 +3810,8 @@ Weitere Details zum \index{Logarithmusproblem!diskret}
 finden Sie in den Kapiteln~\ref{L-Discrete-Logarithm-as-Basis} und \ref{Chapter_Dlog-FactoringDead}.
 }
 
-\vskip +10 pt
  Das Ganze soll an einem Beispiel mit (unrealistisch) kleinen Zahlen gezeigt
-werden.\vskip +1em
+werden.
 
 \begin{example}{ mit kleinen Zahlen:}
 \begin{itemize}
@@ -3930,7 +3835,6 @@ nur dann extrem schwierig gefunden werden kann (siehe Kapitel \ref{Chapter_Dlog-
 \end{example}
 
 
-\newpage
 \begin{remark}{:}
 
  Für solch kleine Zahlen wie in dem obigen Beispiel ist das
@@ -3986,14 +3890,14 @@ Solche zahlentheoretischen Aufgaben können auch mit anderen Tools wie PariGP\in
 LiDIA\index{LiDIA}, BC\index{BC} oder Mathematica\index{Mathematica}
 (siehe Anhang Web-Links am Ende dieses Kapitel) gelöst werden:
 Hier die entsprechende Syntax, um den diskreten Log für Alice zu bekommen:
-	\begin{compactitem}
+	\begin{itemize}[nosep,label=-]
 	\item Pari-GP: \texttt{znlog(Mod(49,347),Mod(11,347))}
 	\item LiDIA:   \texttt{dl(11,49,347)}
 	\item Mathematica: {\tt MultiplicativeOrder[11, 347, 49]}\\
 		Die allgemeine Funktion \glqq Solve\grqq~liefert die  \glqq {em tdep message}\grqq:
 		The equations appear to involve the variables to be solved
 		for in an essentially non-algebraic way.
-	\end{compactitem}
+	\end{itemize}
 Alle liefern das Ergebnis $67$.
 }${}^,$\footnote{%
 Warum haben die Funktionen für den diskreten
@@ -4006,7 +3910,7 @@ Sessionkeys benutzt werden: $285^{240}  \equiv 285^{67} \equiv 268 {\rm ~(mod~}3
 Hätten Alice und Bob als Basis $g$ eine Primitivwurzel\index{Primitivwurzel} modulo $p$ gewählt,
 dann gibt es für jeden Rest aus der Menge
 $\{1, 2, \cdots, p-1\}$ genau einen Exponenten aus der Menge $\{0, 1, \cdots, p-2\}.$\\
-\indent Info: Zum Modul $347$ gibt es $172$ verschiedene Primitivwurzeln, davon sind $32$
+Info: Zum Modul $347$ gibt es $172$ verschiedene Primitivwurzeln, davon sind $32$
 prim (ist nicht notwendig).
 Da die im Beispiel für $g$ gewählte Zahl $11$ keine Primitivwurzel\index{Primitivwurzel}
 von $347$ ist, nehmen die Reste nicht alle Werte aus der Menge $\{1, 2, \cdots, 346\}$ an.
@@ -4034,7 +3938,6 @@ i  & $11^i \bmod 347$ &\\
     240  &         49   & gesuchter Exponent\\
 \hline
 \end{tabular}
-\vskip +6 pt
 
  Weitere Details finden Sie~
 in Kapitel~\ref{nt:AppArith3a2} \glqq \nameref{nt:AppArith3a2}\grqq.
@@ -4045,7 +3948,6 @@ in Kapitel~\ref{nt:AppArith3a2} \glqq \nameref{nt:AppArith3a2}\grqq.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\newpage
 \hypertarget{RSAKonkret}{}%
 \hypertarget{Chapter_ElementaryNT_12}{}%ist wahrscheinlich redundant !
 \section[Das RSA-Verfahren mit konkreten Zahlen]
@@ -4146,7 +4048,6 @@ L       & 12   & Y    & 25\\
 \end{table}
 
  \textbf{Schlüsselerzeugung (Schritt 1 bis 3):}\\
-%\vskip 5 pt
 \textbf{1.} $p=47, q=79$ $( n= 3713;~ \phi(n) = (p-1)*(q-1)=3588).$\\
 \textbf{2.} $e=37$ ($e$ sollte\footnote{%
                 Siehe Fußnote~\ref{foot:Selection-of-e} auf Seite
@@ -4230,7 +4131,6 @@ ist angeregt durch das Beispiel aus \cite[S. 271]{Eckert2014}.
 \end{tabular} } % \tt
 
  Das Beispiel wird in 2 Varianten durchgespielt. Gemeinsam für beide sind die Schritte $1$ bis $3$.
-\vskip +10pt
  \textbf{Schlüsselerzeugung (Schritt 1 bis 3):}\\\label{SrcArith4b}%
 \textbf{1.} $p=509,~q=503 \quad (n= 256.027; \; ~\phi(n)=(p-1)*(q-1)=255.016=2^3*127*251)$.\footnote{%
   In Kapitel~\ref{nt:AppArith4b} \glqq \nameref{nt:AppArith4b}\grqq~
@@ -4352,7 +4252,6 @@ Chiffrat:\\
  Entschlüsselung pro Block per: $M \equiv C^{231.953}{\rm ~(mod~}256.027)$:\\
 {\tt 21075 16672 30575 29291 29473}
 
-\vskip +10 pt
 %\textbf{Umwandeln:} jeden Block binär in 2 Zahlen; danach jede Zahl in ASCII-Zeichen.
 
  \textbf{4'. Verschlüsselung:}\\
@@ -4495,7 +4394,6 @@ by Garrison Keillor, 1985.
 
 
 % --------------------------------------------------------------------------
-\clearpage
 \subsection{Eine kleine RSA-Cipher-Challenge (2)}
 \index{RSA!Cipher-Challenge}
 
@@ -4519,7 +4417,6 @@ zusätzlich bekannten Ursprungsnachricht.
 } (ohne Kenntnis der Nachrichten).
 \end{itemize}
 
-%\newpage
 $n = 63978486879527143858831415041, ~e = 17579$
 
 Klartextnachricht\footnote{%
@@ -4544,7 +4441,6 @@ Geheimtext:
 46468979279750354732637631044,\\
 32870167545903741339819671379
 \end{tabular} } % tt
-\vskip +8pt
 
 \begin{remark}{:}\\
 Die ursprüngliche Nachricht bestand aus einem Satz mit 31 Zeichen (codiert
@@ -4566,7 +4462,6 @@ des Padding sehr wichtig ist für interoperable Algorithmen.
 % ---------------------------------------------------------------------------
 % ---------------------------------------------------------------------------
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\newpage
 \hypertarget{nt:NumberTheory_Appendix_GCD}{}
 \section[Anhang: Der ggT und die beiden Algorithmen von Euklid]
         {Anhang: Der größte gemeinsame Teiler (ggT) von ganzen Zahlen und die beiden
@@ -4656,7 +4551,6 @@ bestimmt wird.\footnote{%
 }
 \index{Euklidscher Algorithmus!erweiterter}
 
-\newpage
  {\tt INPUT:} $a,b \not= 0$
 \begin{itemize}
   \item[\tt 0.] $x_{1,1} := 1, x_{1,2} := 0, x_{2,1} := 0, x_{2,2} := 1$
@@ -4681,7 +4575,6 @@ $a$ und $b$ verschieden sind und ihre Gültigkeit nur im Rahmen des Algorithmus 
 } die erweiterte ggT-Gleichung:
 $$gcd(a,b) = a*x_{2,1} + b*x_{2,2}.$$
 
-% \vskip +8 pt
 \begin{example}{:}\\
 Mit dem erweiterten ggT lässt sich für $e = 37$ die modulo $3588$ multiplikativ inverse Zahl
 $d$ bestimmen (d.h. $37*d \equiv 1 {\rm ~(mod~} 3588$)):
@@ -4704,7 +4597,6 @@ $d$ bestimmen (d.h. $37*d \equiv 1 {\rm ~(mod~} 3588$)):
    \left(\begin{array}{cc} 0 & 1  \\ 1 & - (\lfloor 36/1 \rfloor = 36) * 1 \end{array} \right)*
    \left(\begin{array}{cccc} 36 & | & 1 & -96 \\ 1 & | & -1 & 97 \end{array} \right).$\\
 
-\vskip + 12pt
  {\tt OUTPUT:}\\
 ggT($37,3588) = a*x + b*y$:\\
 ggT($37,3588$) = 1, $x = -1$, $y=97$.
@@ -4726,7 +4618,6 @@ ggT($37,3588$) = 1, $x = -1$, $y=97$.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\newpage
 \hypertarget{nt:NumberTheory_Appendix_B}{}
 \section{Anhang: Abschlussbildung}
 \label{nt:NumberTheory_Appendix_B}{}
@@ -4757,7 +4648,6 @@ G_3 & = & G_2 {\rm ~~--- man~sagt:~} G_2
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\vskip +60pt
 \hypertarget{nt:NumberTheory_Appendix_C}{}
 \section{Anhang: Bemerkungen zur modulo Subtraktion}
 \label{nt:NumberTheory_Appendix_C}{}
@@ -4771,13 +4661,11 @@ Warum dies nicht gleich ist, kann man sich gut verdeutlichen, wenn man die
 Permutation $(0, 1, 2, 3, 4)$ aus $\mathbb{Z}_5$ von z.B. $-11$ bis $+11$
 wiederholt über den Zahlenstrahl aus $\mathbb{Z}$ legt.
 
-\vskip +10 pt
 \input{figures/line-de.latex}
 
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\newpage
 \hypertarget{NumberTheory_Appendix_D}{}
 \section[Anhang: Basisdarstellung von Zahlen, Abschätzung der Ziffernlänge]
         {Anhang: Basisdarstellung und -umwandlung von Zahlen, Abschätzung der Ziffernlänge}
@@ -4830,7 +4718,6 @@ Basis $b = 16$: $FE70A = 15\cdot16^4 + 14\cdot 16^3 + 7\cdot 16^2 + 0\cdot 16^1 
 \end{example}
 
 
-\vskip +20 pt
 \subsection*{Länge der Zifferndarstellung}
 
 Für eine natürliche Zahl $z$ kann die Länge der Zahl in $b$-adischer
@@ -4854,21 +4741,18 @@ der Zahl $z$ in $b$-adischer Schreibweise. Es gilt die Gleichung
 $$l_b(z) = \lfloor \log_b z \rfloor +1. $$
 
 
-\vskip +10 pt
 \begin{example}{ 1 (dezimal$\rightarrow$hex):}\\
 Für die Zahl $z = 234$ in Dezimalschreibweise (EA in hex) bestimmt man die
 Länge in Hexadezimalschreibweise durch
 $$l_{16}(z) = \lfloor \log_{16}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(16) \rfloor + 1 = \lfloor 1,96... \rfloor + 1 = 1 + 1 = 2.$$
 \end{example}
 
-\vskip +10 pt
 \begin{example}{ 2 (dezimal$\rightarrow$binär):}\\
 Für die Zahl $z = 234$ in Dezimalschreibweise (11101010 in binär) bestimmt
 man die Länge in Binärschreibweise durch
 $$l_{2}(z) = \lfloor \log_{2}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(2) \rfloor + 1 = \lfloor 7,87... \rfloor + 1 = 7 + 1 = 8.$$
 \end{example}
 
-\vskip +10 pt
 \begin{example}{ 3 (binär$\rightarrow$dezimal):}\\
 Für die Zahl $z = 11101010$ in Binärschreibweise (234 dezimal) bestimmt
 man die Länge in Dezimalschreibweise durch
@@ -4877,7 +4761,6 @@ $$l_{10}(z) = \lfloor \log_{10}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(10) \rflo
 
 
 
-\vskip + 20 pt
 \subsection*{Algorithmus zur Basisdarstellung von Zahlen}
 Ausgehend von der Zahl $z$ bestimmt man die Zahlendarstellung zur Basis $b$
 durch den folgenden Algorithmus:
@@ -4902,7 +4785,6 @@ Damit ergibt sich $EA$.
 \end{example}
 
 
-\vskip +10 pt
 \begin{example}{ 2 (binär$\rightarrow$dezimal):}\\
 Die Binärzahl $z = 1000100101110101$ wird in die Dezimaldarstellung durch
 die folgenden Berechnungen umgewandelt:
@@ -4919,7 +4801,6 @@ Damit ergibt sich $z = 35189$.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\newpage
 \hypertarget{NumberTheory_Appendix_D2_Koblenz}{}
 \section{Anhang: Interaktive Präsentation zur RSA-Chiffre}
 \label{l:NumberTheory_Appendix_D2_Koblenz}{}
@@ -4948,7 +4829,6 @@ Form die Grundlagen und Funktionsweisen der RSA-Chiffre.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\newpage
 \hypertarget{NumberTheory_Appendix_E}{}
 \section{Anhang: Beispiele mit SageMath}
 \label{NumberTheory_Appendix_E}{}
@@ -5003,7 +4883,6 @@ kann man auf dieselbe Weise bestimmen, wenn man im Quelltext jeweils
 
 
 % ---------------------------------------------------------------------------
-\vskip +25 pt
 \hypertarget{nt:AppArith2}{}
 \subsection{Schnelles Berechnen hoher Potenzen}
 \label{nt:AppArith2}{}
@@ -5027,7 +4906,6 @@ sage: [power_mod(a, e, m) for e in exp]
 
 
 % ---------------------------------------------------------------------------
-\newpage
 \hypertarget{nt:AppArith3a1}{}
 \subsection{Multiplikative Ordnung}
 \label{nt:AppArith3a1}{}
@@ -5081,7 +4959,6 @@ sage: for a in xrange(1, m):
 \end{sagecode}
 
 
-\newpage
 \hypertarget{nt:AppArith3b}{}
 \label{nt:AppArith3b}{}
 Die Tabelle~\ref{expmod45} auf Seite~\pageref{SrcArith3b} enthält Beispiele
@@ -5134,7 +5011,6 @@ Daher wird dann im \verb!except!-Block ans Ende der Zeile der String \verb!"None
 angehängt (die Zeile wird durch das Objekt \verb!lst! repräsentiert).
 
 
-\newpage
 \hypertarget{nt:AppArith3c}{}
 \label{nt:AppArith3c}{}
 Die Tabelle~\ref{expmod46} auf Seite~\pageref{SrcArith3c} enthält Beispiele
@@ -5187,7 +5063,6 @@ sage: for a in xrange(1, 24):
 
 
 
-\newpage
 \hypertarget{nt:AppArith3d}{}
 \label{nt:AppArith3d}{}
 Der folgende Code für die Tabellen~\ref{expmod14} und~\ref{expmod22}
@@ -5197,7 +5072,7 @@ dass alle Inhalte vorher einem SageMath-Objekt (hier einer Matrix) zugewiesen
 werden.\footnote{%
         Anmerkungen zu dem SageMath-Programm, insbesondere den
         SageMath-Indizes\index{SageMath}\index{SageMath!latex()}:
-        \begin{compactitem}
+        \begin{itemize}[nosep,label=-]
          \item for x in xrange(2, 5) liefert 2,3,4.
          \item m = matrix(ZZ, 2, 5) hat 2 Zeilen und 5 Spalten.\\
                Die Zellen haben die Bezeichner m(0,0) bis m(1,4).
@@ -5212,8 +5087,7 @@ werden.\footnote{%
          \item Die Zykluslänge in der letzten Spalte in den
                Tabellen~\ref{expmod14} und~\ref{expmod22}
                wurde noch von Hand ermittelt.
-        \end{compactitem}
-        \vspace{-\baselineskip} % Hier nötig, damit alles auf 1 Seite passt!
+        \end{itemize}
         }
 
 \begin{sagecode}
@@ -5267,7 +5141,6 @@ r = power_mod_order_matrix(m, max_a, max_i);print r.str();print latex(r)
 
 
 % ---------------------------------------------------------------------------
-\newpage
 \hypertarget{nt:AppArith3a2}{}
 \subsection{Primitivwurzeln}
 \label{nt:AppArith3a2}
@@ -5317,7 +5190,6 @@ sage: for p in primes(1, 50):
 
 
 
-\newpage
  Will man \texttt{alle} Primitivwurzeln von $(\mathbf{Z} / n \mathbf{Z})^{\ast}$
 berechnen, und nicht nur irgend eine einzige von $(\mathbf{Z} / n \mathbf{Z})^{\ast}$,
 dann kann man das mit der folgenden selbstgeschriebenen Funktion durchführen.%
@@ -5327,8 +5199,6 @@ dann kann man das mit der folgenden selbstgeschriebenen Funktion durchführen.%
   \glqq ....:\grqq~anfangen wie in den SageMath-Programmbeispielen bisher.
 }
 
-%\newpage %BERM_Warning: Egal, ob Newpage hier oder vor dem Text (wie im Englischen): Warum gibt
-         %              es nur im Deutschen die Warnung: "Text page 202 contains only floats."
 \begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize]
@@ -5389,7 +5259,6 @@ AA_Start -- Testcases for enum_PrimitiveRoots_of_an_Integer(M)
 
 
 
-\newpage
  Das folgende Beispiel listet alle Primitivwurzeln der Primzahl 541 auf.
 
 \begin{sagecode}
@@ -5415,7 +5284,6 @@ sage: len(L)
 
 
 
-\newpage
  Mit etwas Programmieren kann man zählen, wie viele Primitivwurzeln
 es gibt für alle natürlichen Zahlen in einem gegebenen Zahlenbereich.
 Wir können das für alle Zahlen oder nur für die Primzahlen in diesem Bereich berechnen.
@@ -5469,7 +5337,6 @@ def count_PrimitiveRoots_of_an_IntegerRange(start, end, bPrimesOnly=True):
 \end{sagecode}
 
 
-\newpage
  Um zu sehen, wie lange unser Computer für diese Berechnung braucht,
 kann man den SageMath-Befehl \verb!time! verwenden.
 
@@ -5511,7 +5378,6 @@ Time: CPU 1.52 s, Wall: 1.59 s
 
 
 
-\clearpage
  Mit unserer selbst erstellten Funktion \verb!enum_PrimitiveRoots_of_an_Integer!
 kann man alle Primitivwurzeln einer Primzahl $p$ finden.
 
@@ -5575,7 +5441,6 @@ Time: CPU 7.55 s, Wall: 7.85 s
 
 
 
-\newpage
  Die Funktion \verb!count_PrimitiveRoots_of_a_PrimesRange! wurde von
 Minh Van Nguyen leicht geändert, um eine Liste (Datenbank) aller Primitivwurzeln
 für alle Primzahlen zwischen 1 und 100.000 zu erstellen.
@@ -5639,7 +5504,6 @@ Ihr Inhalt sieht wie folgt aus:
 
 
 
-\newpage
 Das Sage-Skript \ref{l:Sagecode_SmallestPrimRoot} berechnet für jede Primzahl (bis \glqq end\grqq)
 alle Primitivwurzeln, und gibt jeweils die Anzahl unterschiedlicher
 Primitivwurzeln und die jeweils kleinste Primitivwurzel aus.
@@ -5726,7 +5590,6 @@ Ihr Inhalt sieht wie folgt aus:
 \end{Verbatim}
 
 
-\vskip +20 pt
 Wenn man pro Primzahl nur die kleinste Primitivwurzel sucht, kann man dieses Skript
 drastisch beschleunigen, indem man anhand der Theorie die möglichen Kandidaten direkter
 sucht (anstatt mit \verb!enum_PrimitiveRoots_of_an_Integer! erstmal alle Primroots zu
@@ -5737,8 +5600,6 @@ generieren).
 
 
 
-% \newpage
-\clearpage
  Die Datei \glqq primroots\_1-100000.dat\grqq~wurde dann als Input benutzt,
 um mit dem folgenden Code (Sage-Skript \ref{l:Sagecode_Graphics-Distribution-PrimRoots})
 drei Grafiken zu erstellen.
@@ -5793,7 +5654,6 @@ sage: maxplot
 
 
 
-\newpage
 Abbildung~\ref{fig:primitive_roots_all} gibt die Anzahl der Primitivwurzeln
 für jede Primzahl zwischen 1 und 100.000 aus. Die $x$-Achse repräsentiert
 die Primzahlen 1 bis 100.000, die $y$-Achse gibt die Anzahl der Primitivwurzeln
@@ -5806,13 +5666,11 @@ pro Primzahl aus.
 \label{fig:primitive_roots_all}
 \end{figure}
 
-\vskip +50 pt
 Abbildung~\ref{fig:primitive_roots_smallest} gibt die kleinste Primitivwurzel
 von jeder Primzahl zwischen 1 und 100.000 aus. Die $x$-Achse repräsentiert
 die Primzahlen 1 bis 100.000, die $y$-Achse gibt die kleinste Primitivwurzel
 pro Primzahl aus.
 
-\vskip +25 pt
 Abbildung~\ref{fig:primitive_roots_largest} zeigt die entsprechende Grafik
 mit der größten Primitivwurzel zu jeder Primzahl im obigen Intervall.
 
@@ -5840,7 +5698,6 @@ mit der größten Primitivwurzel zu jeder Primzahl im obigen Intervall.
 
 
 % ---------------------------------------------------------------------------
-\newpage
 \hypertarget{NumberTheory_Sage_RSA_sample}{}
 \subsection{RSA-Beispiele mit SageMath}
 \label{l:NumberTheory_Sage_RSA_sample}{}
@@ -5848,7 +5705,6 @@ mit der größten Primitivwurzel zu jeder Primzahl im obigen Intervall.
  In diesem Abschnitt sind die SageMath-Quelltexte für die einfachen RSA-Beispiele
 im Kapitel~\ref{rsaconcrete} (\glqq \nameref{rsaconcrete}\grqq) angegeben.
 
-\vskip +10 pt
 \hypertarget{nt:AppArith4a}{%
  \textbf{Beispiel auf Seite~\pageref{SrcArith4a}:}}
 \label{nt:AppArith4a}\\
@@ -5862,7 +5718,6 @@ sage: power_mod(120, 37, 3713)
 \end{Verbatim}
 
 
-\vskip +10 pt
 \hypertarget{nt:AppArith4b}{%
  \textbf{Beispiel auf Seite~\pageref{SrcArith4b}:}}
 \label{nt:AppArith4b}\\
@@ -5879,7 +5734,6 @@ sage: factor(255016)
 \end{sagecode}
 
 
-\vskip +10 pt
 \hypertarget{nt:AppArith4c}{%
  \textbf{Beispiel auf Seite~\pageref{SrcArith4c}:}}
 \label{nt:AppArith4c}\\
@@ -5897,7 +5751,6 @@ sage: [power_mod(a, e, m) for a in A]
 \end{sagecode}
 
 
-\vskip +10 pt
 \hypertarget{nt:AppArith4d}{%
  \textbf{Beispiel auf Seite~\pageref{SrcArith4d}:}}
 \label{nt:AppArith4d}\\
@@ -5912,7 +5765,6 @@ sage: [power_mod(a, e, m) for a in A]
 \end{Verbatim}
 
 
-\vskip +10 pt
 \hypertarget{nt:AppArith4e}{%
  \textbf{Beispiel auf Seite~\pageref{SrcArith4e}:}}
 \label{nt:AppArith4e}\\
@@ -5930,7 +5782,6 @@ sage: [power_mod(a, e, m) for a in A]
 
 
 % ---------------------------------------------------------------------------
-\newpage
 \hypertarget{NumberTheory_Sage_Number-of-RSA-keys}{}
 %\subsection{Wie viele private RSA-Schlüssel gibt es innerhalb eines Modulo-Bereiches?}
 % \texorpdfstring{$d$}{d} not necessary as title-id and title-output separated.
@@ -5958,10 +5809,10 @@ eigentliche Verschlüsselung dar:
                   {\rm ~(mod~} \phi(n))$,\\
 		  d.h. $d$ ist die multiplikative Inverse von $e$ modulo $\phi(n)$.
 		  Dann kann man $\phi(n)$ \glqq wegwerfen\grqq.
-    \begin{compactitem}
-      \item[] $\rightarrow (n, e)$ ist der öffentliche Schlüssel $P$.
-      \item[] $\rightarrow (n, d)$ ist der private Schlüssel $S$ (nur $d$ muss man geheim halten).
-    \end{compactitem}
+    \begin{itemize}[nosep,label={}]
+      \item $\rightarrow (n, e)$ ist der öffentliche Schlüssel $P$.
+      \item $\rightarrow (n, d)$ ist der private Schlüssel $S$ (nur $d$ muss man geheim halten).
+    \end{itemize}
 
   \item[\textbf{4.}] Zur Verschlüsselung wird die Nachricht als (binäre) Ziffernfolge
                   geschrieben. Diese Ziffernfolge wird dann so in gleich lange
@@ -5995,40 +5846,34 @@ Kapitel~\ref{L_nt_Num-of-d-mod-26} (\glqq \nameref{L_nt_Num-of-d-mod-26}\grqq),
 S.~\pageref{L_nt_Num-of-d-mod-26} behandelt den Spezialfall $n=26$.
 }
 
-\newpage
  Das SageMath-Programm~\ref{nt_sagesample_Count_RSA_Keys} unten
 definiert die Funktion \verb#count_Number_of_RSA_Keys#, die diese Frage konkret
 beantwortet (wenn der Modulus nicht zu groß ist).\footnote{%
-%\begin{compactitem}
-\newlength{\saveleftmargini}
-\setlength{\saveleftmargini}{\leftmargini}
-\setlength{\leftmargini}{0em}% for example to outdent verse
-\settowidth{\versewidth}{xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx}
-\vspace{-\baselineskip} % TODO_LaTeX: Geht das nicht anders?
-\begin{verse}[\versewidth]
- a) Der Aufruf \verb#sage: count_Number_of_RSA_Keys(100, 1000)# bedeutet, dass
+\strut\\[-2\baselineskip]
+\begin{enumerate}[nosep,label=\emph{\alph*})]
+\item Der Aufruf \verb#sage: count_Number_of_RSA_Keys(100, 1000)# bedeutet, dass
 man das Intervall $[100, 1000]$ für $n$ betrachtet.
-$n$ war definiert durch die beiden Primzahlen $p, q: n = p*q$.
-\verselinebreak Daher kann hier die eine Primzahl höchstens den Wert $500$ annehmen, weil
-$2 * 500 =1000$ (d.h. wenn die andere Primzahl den kleinst-möglichen Primzahlwert $2$
-annimmt).\\
-\vin Die Anzahl möglicher Primzahl-Kombinationen beträgt: $comb = 258$.\\
-\vin Die Anzahl der Primzahlen im gegebenen Bereich beträgt: $143$.\\
-\vin Die Anzahl der privaten Schlüssel beträgt: $34.816$.
-\end{verse}
-% %       \item
-\begin{verse}[\versewidth]
- b) Der Aufruf \verb#sage: count_Number_of_RSA_Keys(100, 100, True)#
-hat die folgende Ausgabe:\\
-\vin    - Number of private keys for modulus in a given range: 0\\
-\vin    - Number of primes in a given range: 0\\
-\vin   Der Grund dafür ist, dass mit diesem Aufruf nur $n=100$ betrachtet wird und
-   die Funktion nur semiprime $n$\\ % TODO_LaTeX: Newline und anschließendes \vin sind nur Krücken, damit der ganze Satz vorne bündig! Unklar, wie man länger Sätze linksbündig ausgibt.
-\vin untersucht. Die Zahl $100$ ist nicht
+Definiert war $n$ durch die beiden Primzahlen $p, q: n = p*q$.\\
+Daher kann hier die eine Primzahl höchstens den Wert $500$ annehmen, weil
+$2 * 500 =1000$ (d.h. wenn die andere Primzahl den kleinstmöglichen Primzahlwert $2$
+annimmt).
+\begin{itemize}[nosep,label={}]
+\item Die Anzahl möglicher Primzahl-Kombinationen beträgt: $comb = 258$.
+\item Die Anzahl der Primzahlen im gegebenen Bereich beträgt: $143$.
+\item Die Anzahl der privaten Schlüssel beträgt: $34.816$.
+\end{itemize}
+\item
+Der Aufruf \verb#sage: count_Number_of_RSA_Keys(100, 100, True)#
+hat die folgende Ausgabe:
+\begin{itemize}[nosep,label=-]
+\item Number of private keys for modulus in a given range: 0
+\item Number of primes in a given range: 0
+\end{itemize}
+Der Grund dafür ist, dass mit diesem Aufruf nur $n=100$ betrachtet wird und
+   die Funktion nur semiprime $n$
+untersucht. Die Zahl $100$ ist nicht
    semiprim\index{Primzahl!semiprim}\index{Primzahl!Halbprimzahl}\index{Halbprimzahl}\index{Zahlen!semiprim}, d.h. $100$ ist nicht das Produkt von genau zwei Primzahlen.
-\end{verse}
-\setlength{\leftmargini}{\saveleftmargini}% restore original value
-%\end{compactitem}
+\end{enumerate}
 }
 
 
@@ -6104,8 +5949,6 @@ viel effizienter als das Durchprobieren aller möglichen Schlüssel.
 
 
 % ---------------------------------------------------------------------------
-\clearpage
-\newpage
 \hypertarget{NumberTheory_Sage_Number-of-RSA-FixedPoints}{}
 \subsection
     [RSA-Fixpunkte \texorpdfstring{}{m = m\^{}e}]%Das kommt ins Inhaltsverzeichnis
@@ -6227,7 +6070,6 @@ Wenn $ m \in \{0,...,n-1\}$ ist, dann ist die Anzahl der RSA-Fixpunkte:
 \end{satz}
 
 \end{proof}
-\vspace{15pt}
 
 
 
@@ -6255,8 +6097,7 @@ $\Rightarrow (ggT(p-1, e-1)+1) \geq 3$ und $(ggT(q-1, e-1)+1) \geq 3$\\
 $\Rightarrow (ggT(p-1, e-1)+1) \cdot (ggT(q-1, e-1)+1) \geq 9$
 \end{proof}
 
-\vspace{\baselineskip}
- \textbf{Beispiele:}\\
+\textbf{Beispiele:}\\
 Für $(e,n)=(17,6)$ sind alle sechs möglichen Nachrichten \{0,1,2,3,4,5\} Fixpunkte (bei $n=6$ ist das unabhängig vom Wert von $e$).\\
 Für $(e,n)=(17,10)$ sind alle 10 möglichen Nachrichten Fixpunkte.\\
 Für $(e,n)=(19,10)$ sind nur 6 der 10 möglichen Nachrichten Fixpunkte.
@@ -6264,7 +6105,6 @@ Für $(e,n)=(19,10)$ sind nur 6 der 10 möglichen Nachrichten Fixpunkte.
 
 
 % ----------------------------------------------------
-\vspace{15pt}
 \subsubsection{Ungeschickte Wahl von \texorpdfstring{$e$}{e}}%%%BE_Remark: Im Englischen ohne \texorpdfstring. Nötig?
 
 In diesem Kapitel zeigen wir, dass mit $e=1+kgV(p-1,q-1)$ jede Verschlüsselung ein
@@ -6302,8 +6142,6 @@ $~~~c = m^1 \cdot m^{[k \cdot \phi(n)] \mod \phi(n)} \mod n$
 $~~~c = m^1 \cdot m^{0} = m \mod n $
 \end{proof}
 
-\newpage
-%~\\ % Zeilenumbruch erzwingen
 \textbf{Beispiel: Fixpunkteigenschaft für alle m:}\\
 Gegeben sei $n=p\cdot q= 13\cdot 37=481\\
 \Rightarrow \phi(n)=(p-1)(q-1)=12\cdot 36=432$\\
@@ -6364,7 +6202,6 @@ für $e$, bei denen für alle $m$ in $\mathbb{Z}_{481}$ gilt: $m^e = m \bmod n$.
 
 
 % ----------------------------------------------------
-\newpage
 \subsubsection[Empirische Abschätzung der Anzahl der Fixpunkte für wachsende Moduli]
               {Eine empirische Abschätzung der Anzahl der Fixpunkte für wachsende Moduli}
 In diesem Kapitel machen wir eine empirische Abschätzung der Anzahl der Fixpunkte
@@ -6453,7 +6290,6 @@ Aus (2^{80}, 2^{160}): (p,q)~\in~
    \includegraphics[width=0.92\textwidth]{figures/MAF.png}
   \caption{Eine empirische Abschätzung der Anzahl der Fixpunkte für wachsende Moduli}
   \label{fig:NumberFixpointsGrowingN}
-  %\vskip +45pt
 \end{figure}
 
 Abbildung \ref{fig:NumberFixpointsGrowingN} zeigt, dass innerhalb der sechs Größenbereiche die durchschnittliche Anzahl der Fixpunkte nicht größer als 40 ist.
@@ -6463,7 +6299,6 @@ Abbildung \ref{fig:NumberFixpointsGrowingN} zeigt, dass innerhalb der sechs Grö
 
 
 
-\vspace{15pt}
 % ----------------------------------------------------
 \subsubsection{Beispiel: Bestimmung aller Fixpunkte für einen bestimmten öf\discretionary{-}{}{}fent\-lichen RSA-Schlüssel}
 
@@ -6593,8 +6428,7 @@ print "\nRemark: You can verify each fixpoint with power_mod(m,e,n).";
 %#                print "Verification failed !!!";
 
 
-\vspace{60pt}
- \textbf{Bedeutung der Variablen im SageMath-Code
+\textbf{Bedeutung der Variablen im SageMath-Code
                   \ref{nt_sagesample_Calculate_RSA-Fixpoints}:}
 \begin{Verbatim}%
 [fontsize=\footnotesize]
@@ -6617,8 +6451,6 @@ print "\nRemark: You can verify each fixpoint with power_mod(m,e,n).";
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\clearpage
-\newpage
 \hypertarget{NumberTheory_Appendix_F}{}  %\hypertarget{AppendixListAndDef}{}
 \section{Anhang: Liste der in diesem Kapitel formulierten Definitionen und Sätze}
 \label{l:NumberTheory_Appendix_F}{}  %\label{l:AppendixListAndDef}{}
@@ -6664,7 +6496,6 @@ Satz~\ref{nt-thm-Anzahl-RSA-Fixpunkte} & Anzahl der RSA-Fixpunkte & \pageref{nt-
 
 \end{tabular}
 \end{center}
-\vskip +6 pt
 
 
 
@@ -6683,7 +6514,6 @@ Satz~\ref{nt-thm-Anzahl-RSA-Fixpunkte} & Anzahl der RSA-Fixpunkte & \pageref{nt-
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\newpage
 \section*{Web-Links}\addcontentsline{toc}{section}{Web-Links}
 
 \begin{enumerate}
@@ -6785,7 +6615,6 @@ Satz~\ref{nt-thm-Anzahl-RSA-Fixpunkte} & Anzahl der RSA-Fixpunkte & \pageref{nt-
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\vskip +20 pt
 \section*{Dank} \addcontentsline{toc}{section}{Dank}
 Ich möchte hier die Gelegenheit nutzen, den folgenden Personen ganz
 herzlich zu danken:

@@ -7,7 +7,6 @@
 
 \begin{refsegment}
 
-\newpage
 % --------------------------------------------------------------------------
 \hypertarget{Chapter_Hashes-and-Digital-Signatures}{}
 \chapter{Hashfunktionen und Digitale Signaturen}
@@ -19,7 +18,6 @@
  Juni 2002;
  Updates: Feb. 2003, Juni 2005, Juli 2009, Nov. 2012)
 % --------------------------------------------------------------------------
-%\vskip + 30pt
 \begin{ctsquote}
 Wir können alles aus dieser Welt machen, nur nicht eine Welt, in der die
 Menschen in einigen zigtausend Jahren überlegen könnten: 'So, es ist nun
@@ -34,7 +32,6 @@ die Kritik an seinem philosophischen Hauptwerk ~\glqq Summa Technologiae\grqq,
 künstlichen Intelligenz ausführte.}
 
 
-%\vspace{12pt}
 Ziel der digitalen Signatur ist es, folgende zwei Punkte zu gewährleisten:
 \begin{itemize}
  \item Benutzerauthentizität:\index{Authentizität!Benutzer-}\\
@@ -94,9 +91,8 @@ an mehreren Stellen implementiert.\\
 In den Menüs \textbf{Einzelverfahren \textbackslash{} Hashverfahren} bzw.
               \textbf{Analyse \textbackslash{} Hashverfahren}
 haben Sie die Möglichkeit
-% hier die items nicht einrücken!
-\begin{list}{\textbullet}{\leftmargin10pt\addtolength{\itemsep}{-1.0\baselineskip}}
-%\begin{itemize}\addtolength{\itemsep}{-1.0\baselineskip}
+% hier die items nicht einrücken!%behrendt: wieso??
+\begin{itemize}[nosep,label=-]
 \item 6 Hashfunktionen auf den Inhalt des aktiven Fensters anzuwenden,\\
 \item für eine Datei den Hashwert zu berechnen,\\
 \item in der Hash-Demo die Auswirkung von Textänderungen auf den
@@ -106,7 +102,7 @@ haben Sie die Möglichkeit
 \item aus einem Text und einem geheimen Schlüssel HMACs zu berechnen, und\\
 \item aufgrund von gezielt gesuchten Hashwertkollisionen\index{Kollision}
       einen Angriff auf digitale Signaturen zu simulieren.
-\end{list}
+\end{itemize}
 CT2\index{CT2} und JCT\index{JCT} enthalten ebenfalls verschiedene
 Hashverfahren: Vergleiche die Funktionenliste im Anhang
 \ref{s:appendix-template-overview-CT2} und
@@ -137,7 +133,6 @@ Hashwert, ab.
 
 
 % --------------------------------------------------------------------------
-\vskip + 15pt
 \subsection{Anforderungen an Hashfunktionen}
 
 Kryptographisch sichere Hashfunktionen erfüllen folgende drei Anforderungen
@@ -166,7 +161,6 @@ Kryptographisch sichere Hashfunktionen erfüllen folgende drei Anforderungen
 
 
 % --------------------------------------------------------------------------
-\vskip + 15pt
 \subsection{Aktuelle Angriffe gegen Hashfunktionen // SHA-3}
 \label{collision-attacks-against-sha-1}
 
@@ -278,7 +272,6 @@ Weitere Informationen zu diesem Thema finden sich z.B. in dem Artikel
 
 
 % --------------------------------------------------------------------------
-\vskip + 15pt
 \subsection{Signieren mit Hilfe von Hashfunktionen}
 
 \begin{ctsquote}
@@ -323,7 +316,6 @@ Public-Key-Zertifizierung.
 
 
 % --------------------------------------------------------------------------
-\vskip + 15pt
 \section{RSA-Signatur}
 \index{Signatur!digital}
 \index{Signatur!RSA}
@@ -363,7 +355,6 @@ richtig zu definieren.
 
 
 % --------------------------------------------------------------------------
-\vskip + 15pt
 \section{DSA-Signatur}
 \index{Signatur!digital}
 \index{Signatur!DSA}
@@ -440,7 +431,6 @@ sind, nach RSA bzw. ElGamal zu verschlüsseln.
 
 
 % --------------------------------------------------------------------------
-\vskip + 15pt
 \section{Public-Key-Zertifizierung}
 \index{Zertifizierung!Public-Key}
 \index{PKI}
@@ -454,7 +444,6 @@ einzelnen kryptographischen Bausteine nicht geknackt werden können.
 
 
 % --------------------------------------------------------------------------
-\vskip + 15pt
 \subsection{Die Impersonalisierungsattacke}
 \label{Impersonalisierungsattacke}
 \index{Impersonalisierungsattacke} \index{Angriff!Impersonalisierungsattacke}
@@ -497,7 +486,6 @@ Authentizität öffent"-licher Schlüssel garantieren kann. Die am weitesten
 verbreitete Zertifizierungsmethode ist der X.509-Standard.
 
 % --------------------------------------------------------------------------
-\vskip + 15pt
 \subsection{X.509-Zertifikat}
 \index{X.509}
 Jeder Teilnehmer, der sich per X.509-Zertifikat \cite{X.509}
