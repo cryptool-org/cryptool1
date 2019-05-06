@@ -86,6 +86,23 @@ CString createStringNumberWithDigitGrouping(const CString &_number);
 // see implementation
 CString removeNonAlphabetCharacters(CString &_text, const CString &_alphabet);
 
+// flomar, 2019/02/20: The following functions are convenience functions used 
+// by the new Homophonic Substitution dialog. A lot of other places over the 
+// source code could make use of them as well (in particular the functions to 
+// easily copy/paste to/from the clipboard), but this will be a pretty big 
+// refactoring job.
+bool copyTextToClipboard(const CString &_text);
+bool pasteTextFromClipboard(CString &_text);
+// These functions make copying/pasting keys to/from the clipboard as easy 
+// as possible. All it takes is a key type identifier (a whole range of 
+// them is defined in KeyRepository.cpp in the CryptMethods array) and 
+// the key. Makes use of the existing key store implementation, but with 
+// less complicated invocations.
+bool copyKeyToKeystore(const int keyTypeIdentifier, const CString &key);
+bool pasteKeyFromKeystore(const int keyTypeIdentifier, CString &key);
+bool copyKeyToClipboard(const int keyTypeIdentifier, const CString &key);
+bool pasteKeyFromClipboard(const int keyTypeIdentifier, CString &key);
+
 #endif
 
 

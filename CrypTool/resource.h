@@ -15,6 +15,9 @@
 #define IDC_BUTTON71                    11
 #define IDC_BUTTON72                    12
 #define IDC_BUTTON73                    13
+#define IDC_BUTTON_CANCEL               14
+#define IDENCRYPT                       15
+#define IDDECRYPT                       16
 #define IDC_EDIT53                      53
 #define IDC_EDIT69                      54
 #define IDC_EDIT88                      55
@@ -125,6 +128,7 @@
 #define IDS_STRING_TRANSLATIONS_INITIAL_WORK_SPANISH 192
 #define IDS_STRING_TRANSLATIONS_FURTHER_WORK_SPANISH 193
 #define IDI_PLOTTYPE                    194
+#define IDS_STRING_COPY_KEY_TO_KEY_STORE 194
 #define IDS_RSA_DEMO_RSA_MODULUS_INVALID 195
 #define IDS_STRING_HASH_DEMO_SOURCE_DOCUMENT_CONTAINS_NULL_BYTE 196
 #define IDS_STRING_TRANSLATIONS_HEADING_GREEK 197
@@ -132,16 +136,27 @@
 #define IDI_ICON1                       199
 #define IDS_STRING_TRANSLATIONS_FURTHER_WORK_GREEK 199
 #define IDI_ICON2                       200
+#define IDS_STRING_PASTE_KEY_FROM_CLIPBOARD 200
 #define IDI_ICON3                       201
+#define IDS_STRING_COPY_KEY_TO_CLIPBOARD 201
 #define IDI_ICON4                       202
+#define IDS_STRING_HOMOPHONIC_SUBSTITUTION_COLUMN_HEADER_CODE 202
 #define IDI_ICON5                       203
+#define IDS_STRING_HOMOPHONIC_SUBSTITUTION_COLUMN_HEADER_CHARACTER 203
 #define IDI_ICON6                       204
+#define IDS_STRING_HOMOPHONIC_SUBSTITUTION_COLUMN_HEADER_COUNT 204
 #define IDS_MERSENNE_NUMBER_COMPUTATION_LARGE_RESULT_TO_BE_SHORTENED 205
 #define IDS_MERSENNE_NUMBER_COMPUTATION_LARGE_RESULT_TO_BE_WRITTEN 206
+#define IDS_STRING_HOMOPHONIC_SUBSTITUTION_COLUMN_HEADER_FREQUENCY 207
+#define IDS_STRING_HOMOPHONIC_SUBSTITUTION_COLUMN_HEADER_HOMOPHONES 208
 #define IDD_ECSIGNATRURE_STEPBYSTEP     209
+#define IDS_STRING_HOMOPHONIC_SUBSTITUTION 209
 #define IDD_EXTRACT_SIGNATURE           210
+#define IDS_CRYPT_HOMOPHONIC_SUBSTITUTION 210
 #define IDD_VERIFY_ECSIGNATURE_STEPBYSTEP 211
+#define IDS_HOMOPHONIC_SUBSTITUTION_EMPTY_DOCUMENT 211
 #define IDD_MAC                         212
+#define IDS_HOMOPHONIC_SUBSTITUTION_ADJUSTED_NUMBER_OF_HOMOPHONES 212
 #define IDS_STRING_JAVA_REQUIREMENTS_NOT_MET 213
 #define IDD_KEY_PLAYFAIR                214
 #define IDD_BRUTEFORCE                  215
@@ -412,6 +427,8 @@
 #define IDD_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_LANGUAGES 881
 #define IDD_GENERATE_SAVE_PRIME         882
 #define IDD_KEYS_LIST                   883
+#define IDD_HOMOPHONIC_SUBSTITUTION     885
+#define IDD_HOMOPHONIC_SUBSTITUTION_KEY_ENTRY_DETAILS 889
 #define IDS_CRYPT_DESX                  1000
 #define IDC_BTN_KLARTEXT                1000
 #define IDS_CRYPT_DESL                  1001
@@ -448,8 +465,11 @@
 #define IDC_TB_INTERVALL_MAX            1019
 #define IDC_CHECK16                     1019
 #define IDC_CHECK_MV                    1019
+#define IDC_EDIT_DETAILS_HOMOPHONES     1019
+#define IDC_EDIT_COUNT                  1019
 #define IDC_EDIT4                       1020
 #define IDC_RB_AUS_SW_ZW                1020
+#define IDC_EDIT_HOMOPHONES             1020
 #define IDC_EDIT5                       1021
 #define IDC_RB_EIN_SW_ZW                1021
 #define IDC_EDIT6                       1022
@@ -826,7 +846,6 @@
 #define IDC_BUTTON_OK                   1215
 #define IDC_EDIT811                     1215
 #define IDC_EDIT229                     1215
-#define IDC_BUTTON_cancel               1216
 #define IDC_BUTTON6                     1216
 #define IDC_EDIT193                     1216
 #define IDC_BUTTON_Primzahlen_generieren 1217
@@ -1807,6 +1826,23 @@
 #define IDC_STATIC_OCTAL                2126
 #define IDC_STATIC_DECIMAL              2127
 #define IDC_STATIC_HEXADECIMAL          2128
+#define IDC_BUTTON_GENERATE_RANDOM_KEY  2131
+#define IDC_BUTTON_GENERATE_KEY         2131
+#define IDC_BUTTON_PASTE_KEY_FROM_KEYSTORE 2132
+#define IDC_BUTTON_PASTE_KEY_FROM_CLIPBOARD 2133
+#define IDC_EDIT_COUNT_HOMOPHONES       2134
+#define IDC_BUTTON_COPY_KEY_TO_KEYSTORE 2135
+#define IDC_EDIT_DETAILS_CHARACTER      2136
+#define IDC_EDIT_DETAILS_NUMBER         2137
+#define IDC_LIST_HOMOPHONES_KEY_TABLE   2138
+#define IDC_RADIO_BUTTON_HEXADECIMAL    2139
+#define IDC_RADIO_BUTTON_DECIMAL        2140
+#define IDC_BUTTON_COPY_KEY_TO_CLIPBOARD 2141
+#define IDC_BUTTON_UPDATE_COUNT_HOMOPHONES 2142
+#define IDC_EDIT_CODE                   2143
+#define IDC_EDIT_CHARACTER              2144
+#define IDC_EDIT_FREQUENCY              2145
+#define IDC_BUTTON_CLOSE                2146
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -2132,7 +2168,7 @@
 #define ID_BLA                          33279
 #define ID_CODE_BASE64                  33281
 #define ID_CODE_UU                      33282
-#define ID_ANALYSE_SYMCLASSIC_ADFGVX   33283
+#define ID_ANALYSE_SYMCLASSIC_ADFGVX    33283
 #define ID_HELP_ANIMAL_DES              33285
 #define ID_HELP_ANIMAL_VIGENERE         33286
 #define ID_HELP_ANIMAL_NIHILIST         33287
@@ -3457,9 +3493,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        885
+#define _APS_NEXT_RESOURCE_VALUE        890
 #define _APS_NEXT_COMMAND_VALUE         33398
-#define _APS_NEXT_CONTROL_VALUE         2129
+#define _APS_NEXT_CONTROL_VALUE         2147
 #define _APS_NEXT_SYMED_VALUE           114
 #endif
 #endif

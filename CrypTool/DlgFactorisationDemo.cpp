@@ -99,7 +99,7 @@ void CDlgFactorisationDemo::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CDlgFactorisationDemo, CDialog)
 	//{{AFX_MSG_MAP(CDlgFactorisationDemo)
-	ON_BN_CLICKED(IDC_BUTTON_cancel, OnButtonEnd)
+	ON_BN_CLICKED(IDC_BUTTON_CANCEL, OnButtonEnd)
 	ON_BN_CLICKED(IDC_BUTTON_Faktorisieren, OnButtonFactorisation)
 	ON_BN_CLICKED(IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION, OnButtonVollstaendigFaktorisation)
 	ON_EN_UPDATE(IDC_EDIT1, OnUpdateEditEingabe)

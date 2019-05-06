@@ -21,6 +21,7 @@
 #include "CrypToolTools.h"
 #include "DialogeMessage.h"
 #include "MakeNewName.h"
+#include "KeyRepository.h"
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -308,19 +309,25 @@ CString extractValueFromStringByKey(CString _key, CString _string) {
 
 // This function is a very basic 'split' implemenation-- it splits the specified 
 // string with regards to the specified separator and returns the results as a 
-// list of strings; if no separator can be found, an empty list is returned
+// list of strings; if no separator can be found, a list with a single element 
+// (the original string) is returned.
 std::vector<CString> splitString(const CString &_string, const CString &_separator) {
 	std::vector<CString> vectorStrings;
-	CString inputString = _string;
-	int index;
-	while((index = inputString.Find(_separator)) != -1) {
-		CString temporaryString = inputString;
-		temporaryString.Delete(index, temporaryString.GetLength() - index);
-		vectorStrings.push_back(temporaryString);
-		inputString.Delete(0, index + _separator.GetLength());
+	if(_string.Find(_separator) == -1) {
+		vectorStrings.push_back(_string);
 	}
-	if(vectorStrings.size() > 0) {
-		vectorStrings.push_back(inputString);
+	else {
+		CString inputString = _string;
+		int index;
+		while((index = inputString.Find(_separator)) != -1) {
+			CString temporaryString = inputString;
+			temporaryString.Delete(index, temporaryString.GetLength() - index);
+			vectorStrings.push_back(temporaryString);
+			inputString.Delete(0, index + _separator.GetLength());
+		}
+		if(vectorStrings.size() > 0) {
+			vectorStrings.push_back(inputString);
+		}
 	}
 	return vectorStrings;
 }
@@ -699,4 +706,78 @@ CString removeNonAlphabetCharacters(CString &_text, const CString &_alphabet) {
 		}
 	}
 	return result;
+}
+
+bool copyTextToClipboard(const CString &_text) {
+	if(OpenClipboard(AfxGetApp()->GetMainWnd()->m_hWnd)) {
+		EmptyClipboard();
+		HGLOBAL hClipboardData = GlobalAlloc(GMEM_DDESHARE, _text.GetLength() + 1);
+		LPTSTR lpClipboardText = (LPTSTR)GlobalLock(hClipboardData);
+		strncpy(lpClipboardText, LPCSTR(_text), _text.GetLength());
+		GlobalUnlock(hClipboardData);
+		SetClipboardData(CF_TEXT, hClipboardData);
+		CloseClipboard();
+		return true;
+	}
+	return false;
+}
+
+bool pasteTextFromClipboard(CString &_text) {
+	if(OpenClipboard(AfxGetApp()->GetMainWnd()->m_hWnd)) {
+		HGLOBAL hClipboardData = GetClipboardData(CF_TEXT);
+		LPTSTR lpClipboardText = (LPTSTR)GlobalLock(hClipboardData);
+		if(lpClipboardText) {
+			_text = lpClipboardText;
+			GlobalUnlock(hClipboardData);
+			CloseClipboard();
+			return true;
+		}
+		CloseClipboard();
+	}
+	return false;
+}
+
+bool copyKeyToKeystore(const int keyTypeIdentifier, const CString &key) {
+	CString stringKeyTypeIdentifier;
+	stringKeyTypeIdentifier.LoadString(keyTypeIdentifier);
+	if(CopyKey(stringKeyTypeIdentifier, key)) {
+		return true;
+	}
+	return false;
+}
+
+bool pasteKeyFromKeystore(const int keyTypeIdentifier, CString &key) {
+	CString stringKeyTypeIdentifier;
+	stringKeyTypeIdentifier.LoadString(keyTypeIdentifier);
+	if(PasteKey(stringKeyTypeIdentifier, key)) {
+		return true;
+	}
+	key = CString();
+	return false;
+}
+
+bool copyKeyToClipboard(const int keyTypeIdentifier, const CString &key) {
+	CString stringKeyTypeIdentifier;
+	stringKeyTypeIdentifier.LoadString(keyTypeIdentifier);
+	CString text;
+	text.Format("%s:%s", stringKeyTypeIdentifier, key);
+	return copyTextToClipboard(text);
+}
+
+bool pasteKeyFromClipboard(const int keyTypeIdentifier, CString &key) {
+	CString stringKeyTypeIdentifier;
+	stringKeyTypeIdentifier.LoadString(keyTypeIdentifier);
+	CString text;
+	if(pasteTextFromClipboard(text)) {
+		const int indexSeparator = text.Find(":");
+		if(indexSeparator > -1) {
+			if(indexSeparator + 1 < text.GetLength()) {
+				if(text.Mid(0, indexSeparator) == stringKeyTypeIdentifier) {
+					key = text.Mid(indexSeparator + 1, text.GetLength() - indexSeparator - 1);
+					return true;
+				}
+			}
+		}
+	}
+	return false;
 }

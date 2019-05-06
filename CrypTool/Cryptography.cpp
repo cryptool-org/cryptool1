@@ -47,6 +47,7 @@ using namespace std;
 #include "DlgKeyPlayfair.h"
 #include "DlgPlayfairAnalysis.h"
 #include "RandomAnalysisTools.h"
+#include "DlgHomophonicSubstitution.h"
 #include "DlgKeyHomophone.h"
 #include "DlgNGramAnalysis.h"
 #include "DlgRandomGenerator.h"
@@ -2712,6 +2713,50 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 
 	HIDE_HOUR_GLASS
 } // end Hompohone Asc
+
+// flomar, 2019/02/20
+void HomophonicSubstitutionAsc(const char *infile, const char *title) {
+	CDlgHomophonicSubstitution dlg(infile, title);
+	const int result = dlg.DoModal();
+	if(result == IDENCRYPT || result == IDDECRYPT) {
+		char outfile[1024];
+		GetTmpName(outfile, "cry", ".hex");
+		if(result == IDENCRYPT) {
+			const bool resultEncryption = dlg.executeEncryption(outfile);
+			if(!resultEncryption) {
+				AfxMessageBox("TODO/FIXME: critical error");
+				remove(outfile);
+				return;
+			}
+		}
+		if(result == IDDECRYPT) {
+			const bool resultDecryption = dlg.executeDecryption(outfile);
+			if(!resultDecryption) {
+				AfxMessageBox("TODO/FIXME: critical error");
+				remove(outfile);
+				return;
+			}
+		}
+		CAppDocument *document = theApp.OpenDocumentFileNoMRU(outfile, dlg.getKeyAsString());
+		remove(outfile);
+		if(document) {
+			CString documentTitle;
+			CString stringAlgorithm;
+			CString stringTitle;
+			CString stringKey;
+			stringAlgorithm.LoadString(IDS_STRING_HOMOPHONIC_SUBSTITUTION);
+			stringTitle = title;
+			stringKey = dlg.getKeyAsString();
+			if(result == IDENCRYPT) {
+				documentTitle.Format(IDS_STRING_ENCRYPTION_OF_USING_KEY, stringAlgorithm, stringTitle, stringKey);
+			}
+			if(result == IDDECRYPT) {
+				documentTitle.Format(IDS_STRING_DECRYPTION_OF_USING_KEY, stringAlgorithm, stringTitle, stringKey);
+			}
+			document->SetTitle(documentTitle);
+		}
+	}
+}
 
 // =====================================================================================
 // NGram Analyse:

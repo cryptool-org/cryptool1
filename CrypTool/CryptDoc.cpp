@@ -41,6 +41,7 @@
 #include "AsymmetricEncryption.h"
 #include "DlgAbout.h"
 #include "RandomAnalysisTools.h"
+#include "DlgHomophonicSubstitution.h"
 #include "DlgKeyHomophone.h"
 #include "DlgNGramAnalysis.h"
 #include "DlgExtractSignature.h" // für OnCryptExtract
@@ -1246,8 +1247,18 @@ void CCryptDoc::OnPeriod()
 
 void CCryptDoc::OnHomophone() 
 {
-    UpdateContent();
+	// flomar, 2019/02/20: Replaced the existing "HomophoneAsc" implementation 
+	// with the new "HomophonicSubstitutionAsc" implementation. The new version 
+	// is way simpler in all aspects, and it is completely isolated from the 
+	// old version. So if you want to go back to the 2001 version, simply 
+	// change the if/else statement below.
+#if 0
+	UpdateContent();
+	HomophonicSubstitutionAsc(ContentName, GetTitle());
+#else
+	UpdateContent();
     HomophoneAsc(ContentName, GetTitle());
+#endif
 }
 
 void CCryptDoc::OnAnalyseNGram()
