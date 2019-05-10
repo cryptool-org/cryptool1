@@ -390,7 +390,8 @@ ergeben sich als Lösung"-en einer Gleichung der Form\footnote{%
 \label{eccbasisgleichung}
 \end{equation}
 
-Dabei sind die Variablen $x_1,x_2,x_3$ sowie die Parameter $a_1,\dots,a_4,a_6$ Elemente eines gegebenen Kör"pers $K$. Körper und Parameter müssen so gewählt werden, dass die Kurve bestimmte, für die Kryptographie relevante Eigenschaften besitzt. Der zugrunde liegende Körper $K$ kann einfach die bekannte Menge der reellen Zahlen oder auch ein endlicher Körper sein (vgl. letzter Abschnitt).
+Dabei sind die Variablen $x_1,x_2,x_3$ sowie die Parameter $a_1,\dots,a_4,a_6$ Elemente
+eines gegebenen Körpers $K$. Körper und Parameter müssen so gewählt werden, dass die Kurve bestimmte, für die Kryptographie relevante Eigenschaften besitzt. Der zugrunde liegende Körper $K$ kann einfach die bekannte Menge der reellen Zahlen oder auch ein endlicher Körper sein (vgl. letzter Abschnitt).
 Damit sich eine sinnvolle Kurve ergibt, müssen die Parameter so gewählt sein, dass die folgenden Nebenbedingungen gelten
 $$ \frac{\partial F}{\partial x_1}\ne 0, \quad \frac{\partial F}{\partial x_2}\ne 0, \quad
 \frac{\partial F}{\partial x_3}\ne 0 .
@@ -427,7 +428,8 @@ Als zugrunde liegenden Körper für eine Elliptische Kurve verwendet man in der 
 
 In der Praxis hat es sich als sinnvoll erwiesen, entweder $GF(p)$ mit einer großen Primzahl $p$ oder $GF(2^n)$ mit einer (großen) natürlichen Zahl $n$ zu betrachten. Der Grund für die Verwendung des Primkörpers $GF(p)$ liegt in seiner einfachen Arithmetik; andererseits kommt $GF(2^n)$ der binären Darstellung in Computersystemen entgegen. Andere Körper wie z.B. $GF(7^n)$ bieten keiner dieser beiden Vorteile und werden daher in der Praxis nicht verwendet, ohne dass dies theoretische Gründe hätte.
 
-Durch Koordinatentransformation kann man die Weierstrass-Gleichung\index{Weierstrass, Karl} in einer einfacheren Form schreiben\footnote{Anschaulich bedeutet eine solche Koordinatentransformation eine Drehung bzw. Streckung der Koordinatenachsen, ohne dass die zugrunde liegende Kurve selbst verändert wird.}.  Je nachdem, ob $p>3$ ist, verwendet man unterschiedliche Transformationen und erhält so
+Durch Koordinatentransformation kann man die Weierstrass-Gleichung\index{Weierstrass, Karl} in einer einfacheren Form schreiben\footnote{Anschaulich bedeutet eine solche Koordinatentransformation eine Drehung bzw. Streckung der Koordinatenachsen, ohne dass die zugrunde liegende Kurve selbst verändert wird.}.  Je nachdem, ob $p>3$ ist, verwendet man unterschiedliche Transformationen und erhält so%
+\footnote{Die Form (\ref{ellp}) ist die Standardform der Weierstrass-Gleichung\index{Weierstrass, Karl}. Ist die Charakteristik des Körpers jedoch $2$ oder $3$, so ist $4=0$ bzw. $27=0$, was dazu führt, dass man in der Bedingung an die Parameter $a,b$ wesentliche Informationen verliert. Dies ist ein Hinweis darauf, dass die Transformation auf die Standardform in diesen Fällen nicht zu befriedigenden Ergebnissen führt.}.
 
 \begin{itemize}
 \item im Fall $GF(p)$, $p>3$, die Elliptische Kurven-Gleichung der Form
@@ -441,7 +443,7 @@ mit $4a^3+27b^2\ne 0$
  y^2+xy = x^3 + ax^2 + b
 \label{ell2}
 \end{equation}
-mit $b\ne 0$\footnote{Die Form (\ref{ellp}) ist die Standardform der Weierstrass-Gleichung\index{Weierstrass, Karl}. Ist die Charakteristik des Körpers jedoch $2$ oder $3$, so ist $4=0$ bzw. $27=0$, was dazu führt, dass man in der Bedingung an die Parameter $a,b$ wesentliche Informationen verliert. Dies ist ein Hinweis darauf, dass die Transformation auf die Standardform in diesen Fällen nicht zu befriedigenden Ergebnissen führt.}.
+mit $b\ne 0$
 \end{itemize}
 Durch diese Bedingungen an die Parameter $a,b$ ist gewährleistet, dass die Elliptische Gleichung für kryptographische Anwendungen geeignet ist\footnote{Formal sagt man, die Kurve ist nicht singulär.}.
 
@@ -460,7 +462,8 @@ Um mit Elliptischen Kurven arbeiten zu können, definiert man eine Verknüpfung 
 \begin{enumerate}
 \item $P+{\cal O}={\cal O}+P=P$ für alle $P\in E$,
 \item für $P=(x,y)$ und $Q=(x,-y)$ ist $P+Q={\cal O}$,
-\item für $P_1=(x_1,x_2),P_2=(x_2,y_2)\in E$ mit $P_1,P_2\ne {\cal O}$ und $(x_2,y_2)\ne (x_1,-y_1)$ ist $P_3:=P_1+P_2$, $P_3=(x_3,y_3)$ definiert durch
+\item für $P_1=(x_1,y_1),P_2=(x_2,y_2)\in E$ mit $P_1,P_2\ne {\cal O}$
+und $(x_2,y_2)\ne (x_1,-y_1)$ ist $P_3:=P_1+P_2$, $P_3=(x_3,y_3)$ definiert durch
 $$ x_3:=-x_1-x_2+\lambda^2 \, , \qquad y_3:=-y_1+\lambda (x_1-x_3)
 $$
 mit dem Hilfsquotienten
@@ -519,7 +522,8 @@ Ebene dargestellt werden.
 Wie bereits in Abschnitt \ref{ECC-Crypto} erwähnt, betrachten wir in der Kryptographie Elliptische Kurven über diskreten\footnote{Diskret im Gegensatz zu kontinuierlich.} Körpern $GF(2^n)$ oder $GF(p)$ (für große Primzahlen $p$). Dies bedeutet, dass alle Parameter, die zur Beschreibung der Elliptischen Kurve notwendig sind, aus diesem zugrunde liegenden Körper stammen. Ist nun $E$ eine Elliptische Kurve über einem solchen Körper und $P$ ein Punkt auf der Kurve $E$, so kann man für jede natürliche Zahl $m$
 $$ mP := \underbrace{P+P+\dots+P}_{\hbox{$m$ mal}}
 $$
-bilden. Diese Operation ist aus kryptographischer Sicht deshalb besonders interessant, weil man einerseits um $mP$ zu berechnen im allgemeinen nur $\log m$ Additionen durchführen muss --- man bildet einfach $P$, $2P$, $2^2P$, $2^3P$, \dots, schreibt $m$ binär und addiert schließlich entsprechend der Binärdarstellung von $m$ auf --- es andererseits sehr aufwa"ndig zu sein scheint, zu gegebenen Punkten $P$ und $Q=mP$ auf $E$ die Zahl $m$ zu bestimmen. Natürlich kann man die Folge $P,2P,3P,4P,5P,\dots$ bilden und jeweils mit $Q$ vergleichen. Hierzu benötigt man jedoch $m$ Additionen.
+bilden. Diese Operation ist aus kryptographischer Sicht deshalb besonders interessant, weil man einerseits um $mP$ zu berechnen im allgemeinen nur $\log m$ Additionen durchführen muss --- man bildet einfach $P$, $2P$, $2^2P$, $2^3P$, \dots, schreibt $m$ binär und addiert schließlich entsprechend der Binärdarstellung von $m$ auf --- es andererseits sehr
+aufwändig zu sein scheint, zu gegebenen Punkten $P$ und $Q=mP$ auf $E$ die Zahl $m$ zu bestimmen. Natürlich kann man die Folge $P,2P,3P,4P,5P,\dots$ bilden und jeweils mit $Q$ vergleichen. Hierzu benötigt man jedoch $m$ Additionen.
 
 Bisher ist noch kein Algorithmus bekannt, der effizient $m$ aus $P$ und $Q$ berechnet. Die bisher besten Verfahren liegen z.B. im Fall $GF(p)$ in der Größenordnung $\sqrt{q}$, wobei $q$ ein (großer) Primfaktor von $p-1$ ist; $m$ selbst sollte in diesem Fall zwischen $1$ und $q$ liegen, so dass man für die Muliplikation $mP$ maximal $\log q$ Schritte benötigt. Der Quotient $\frac{\sqrt{q}}{\log q}$ strebt jedoch (schnell) gegen $+\infty$.
 
