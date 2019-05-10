@@ -1,4 +1,0 @@
-preamble "\\begin{theindex}\\sloppy\n"
-headings_flag 1
-heading_prefix "\\textbf{"
-heading_suffix "}\\nopagebreak"
