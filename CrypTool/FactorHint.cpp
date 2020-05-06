@@ -38,12 +38,15 @@ void FactorHint::MSBFact(){
 	logStringMostSignificantBitsAttackStarted.LoadString(IDS_RSA_LOG_MOST_SIGNIFICANT_BITS_ATTACK_STARTED);
 	log = timeStamp() + logStringMostSignificantBitsAttackStarted + "\r\n";
 
-	buildMSBPolyPowers();
-
 	CString form;
 	log+="N: "+toString(N,10,0)+"\r\n";
 	log+="P: "+toString(P,10,0)+"\r\n";
-	
+	P*=power(to_ZZ(2),MSBbitsDelta);
+	log+="P*2^(l2(p)-l2(P)): "+toString(P,10,0)+"\r\n";
+
+	buildMSBPolyPowers();
+
+
 	CString logStringLatticeDimension;
 	logStringLatticeDimension.LoadString(IDS_RSA_LOG_LATTICE_DIMENSION);
 	form.Format(CString(logStringLatticeDimension + " %d" + "\r\n"), d);
@@ -353,14 +356,15 @@ FactorHint::~FactorHint()
 	delete [] polyPowers;
 }
 
-void FactorHint::setN(ZZ N){
-	this->N=N;
+void FactorHint::setN(ZZ param_N){
+	this->N=param_N;
 }
-void FactorHint::setP(ZZ P){
-	this->P=P;
+void FactorHint::setP(ZZ param_P){
+//	this->P=P;
+	this->P=param_P;
 }
-void FactorHint::setB(int b){
-	this->b=b;
+void FactorHint::setB(int param_b){
+	this->b=param_b;
 }
 
 ZZ FactorHint::getN(){

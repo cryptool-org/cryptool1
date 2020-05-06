@@ -39,9 +39,10 @@ public:
 	void cancel();
 	static int status;
 	static long reductions;
-	void setN(ZZ N);
-	void setP(ZZ p);
-	void setB(int b);
+	void setN(ZZ param_N);
+	void setP(ZZ param_p);
+	void setB(int param_b);
+	void set_MSBbitsDelta(int bit_delta) { MSBbitsDelta = bit_delta; }
 	ZZ getN();
 	ZZ getQ();
 	ZZ getP();
@@ -52,6 +53,7 @@ public:
 private:
 	CString timeStamp();
 	int bitsOfP;
+	int MSBbitsDelta;
 	mat_ZZ Lattice; // the lattice to be reduced
 	int dim;
 	ZZ N; // modulus

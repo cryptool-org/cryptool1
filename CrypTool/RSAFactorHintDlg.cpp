@@ -202,8 +202,11 @@ void CRSAFactorHintDlg::OnStart()
 					
 					fh.setN(m_N);
 					ZZ P = m_GuessP;
-					if(m_msbLsb==0)
-						P*=power(to_ZZ(2),m_bitsOfP-m_b);
+
+					if(m_msbLsb==0)	{
+						fh.set_MSBbitsDelta(m_bitsOfP-m_b);
+					}
+					
 					fh.setP(P);
 					fh.setBitsOfP(m_bitsOfP);
 					fh.setB(GetDlgItemInt(IDC_EDITB));
@@ -213,6 +216,7 @@ void CRSAFactorHintDlg::OnStart()
 					
 					UpdateData();
 					fh.status=1;
+
 					pThread = AfxBeginThread (thrFunction, this); 
 				}
 				
@@ -321,7 +325,6 @@ void CRSAFactorHintDlg::updateNP()
 	((CEdit*)GetDlgItem(IDC_EDITP_RIGHT))->SetSel(0,-1);
 	((CEdit*)GetDlgItem(IDC_EDITGUESSP_RIGHT))->SetSel(0,-1);
 	UpdateData(false);
-
 }
 
 
