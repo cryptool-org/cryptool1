@@ -233,7 +233,7 @@ BOOL CDlgSignature::OnInitDialog()
 	CDialog::OnInitDialog();
 
 	// Default RSA mit MD5
-	CheckRadioButton (IDC_RADIO1, IDC_RADIO5, IDC_RADIO2);
+	CheckRadioButton (IDC_RADIO1, IDC_RADIO5, IDC_RADIO5);
 	CheckRadioButton (IDC_RADIO6, IDC_RADIO9, IDC_RADIO6);
 
 	CheckRadioButton (IDC_RADIO10, IDC_RADIO11, IDC_RADIO11); // Projective Coordinates for EC-Points
