@@ -1,5 +1,8 @@
 Starting example for the CrypTool version family 1.x (CT1)
 
+Remark:
+The successor versions of CT1 (called CT2, JCT and CTO) now offer a significantly wider range of functionality than CT1. In CT1 only errors will be corrected. Please use the newer versions of CrypTool little by little.
+
 CrypTool 1 (CT1) is a comprehensive and free educational program
 about cryptography and cryptanalysis
 offering extensive online help and many visualizations.
@@ -20,5 +23,5 @@ Press F1 to start the online help everywhere in CT1.
 - Viewing the included colorful presentation. This presentation can be found on several ways: e.g. in the "Help" menu of this application, or via the "Documentation" section found at the "Starting" page of the online help.
 - Viewing the webpage www.cryptool.org.
 
-March 2018
+December 2021
 The CrypTool Team

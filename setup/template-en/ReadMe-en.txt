@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.41 for Win32, March 2018
+    CrypTool, Version 1.4.42 for Win32, December 2021
     
 CrypTool v1 (CT1) is a free, international
 e-learning program for cryptography and cryptanalysis.
@@ -7,12 +7,21 @@ e-learning program for cryptography and cryptanalysis.
     (c) Contributors
         including Deutsche Bank AG, Frankfurt/Main, and the Universities
         of Siegen, Darmstadt, Bochum, Duisburg-Essen, and Kassel.
-        1998-2018
+        1998-2021
     Freeware and Open Source according to the Apache License 2.0
     www.cryptool.org
     Prof. Bernhard Esslinger
     $Id$
 ==================================================================
+
+Comment:
+--------
+The successor versions of CT1 together now offer a significantly wider
+range of functionality than CT1. In general, all new developments from
+the CT project are now going into the two existing successor projects
+CT2 and JCT, and into CTO. In CT1 only errors are corrected.
+Please use the newer versions of CrypTool little by little.
+
 
  1. ... Brief description of the CT1 package (and known bugs)
  1.1. ... How to start using CT1 -- An introduction to CT1
@@ -25,7 +34,7 @@ e-learning program for cryptography and cryptanalysis.
  2.3. ... Where can you get another overview about CT1
  2.4. ... What's new in version 1.4.20 / 1.4.21
  2.5. ... What's new in version 1.4.30
- 2.6. ... What's new in version 1.4.40 / 1.4.41
+ 2.6. ... What's new in version 1.4.40 / 1.4.41 / 1.4.42
  3. ... Limitations and requirements
  3.1. ... Scope of this education, training and awareness software
  3.2. ... Win32 environment, rights for installation and usage, Java runtime
@@ -55,6 +64,7 @@ A. ... Appendix
 A.1. .... Roadmap after CT 1.4.4x
 A.2. .... Successor projects using Java/Eclipse and C#/.NET
 A.3. .... Possible areas for further development -- Future features, ideas
+A.3.1. .... CrypTool-Online -- the future
 A.4. .... Using CT1 on Linux
 
 
@@ -63,7 +73,8 @@ CT   CrypTool (for instance used to characterize the whole CT project)
 CT1  CrypTool 1 = CrypTool version 1 (the version delivered with this readme)
 CT2  CrypTool 2 = CrypTool version 2 (uses .NET; runs under Win32)
 JCT  JCrypTool  = Java-CrypTool (runs under Win32, Linux and MacOS)
-QCT  QtCrypTool = Future port of CT1 with Qt (also platform independent)
+QCT  QtCrypTool = never realized port of CT1 with Qt
+CTO  CrypTool-Online = CrypTool within a browser (the future)
 
 
 1. Brief description of the CT1 package (and known bugs)
@@ -74,10 +85,10 @@ functions can be easily learned and demonstrated, and known and unknown
 algorithms can be analyzed.
 
 Already in the ancient ages such methods have been used to assure the privacy
-of messages. Current methods are based on modern mathematics and
-offer besides encryption also to check integrity, to build digital
-signatures, secure authentication and many more. CrypTool supports
-both the execution and the analysis of such methods.
+of messages. Current methods are based on modern mathematics and offer
+besides encryption also to check integrity, to build digital signatures,
+secure authentication and many more. CrypTool supports both the
+execution and the analysis of such methods.
 
 CT1 has been developed since 1998 in the CrypTool project. Currently more
 than 70 persons world-wide are working voluntarily in the CrypTool project.
@@ -97,13 +108,14 @@ CT1 is available in 7 languages (language abbreviations by ISO 639-1):
 In all language versions the program has the same full functionality --
 translated and localized are the GUI (menus, dialogs, etc.) of the programs
 CrypTool, AES-Tool, and Number Shark, and the installer program (setup).
+The core team only maintains the English and German version.
 
 Here is a list of the remaining components of the CT1 package, which
 could not be localized yet for all language versions:
                         DE     EN     EL    ES    FR    PL    SR
 Online help (html)      yes    yes    no    no    no    no    no
 Readme file (txt)       yes    yes    no    no    no    no    no
-CT book (pdf)           yes    yes    no    no    no    no    no
+CT Book (pdf)           yes    yes    no    no    no    no    no
 CT presentation (pdf)   yes    yes    no    yes   no    no    no
 Elsner stories (pdf)    yes    yes    no    no    no    no    no
 
@@ -122,14 +134,15 @@ The current release version of CrypTool and the source code are
 available at the following Internet address (without registration):
                 https://www.cryptool.org/en/
 
-Since beginning of 2010, the rate of CT1 packages downloaded per month is
+Beginning of 2010, the rate of CT1 packages downloaded per month is
 ca. 6000 (more than 1/2 of the current downloads request the English version).
 
-There are two successors of CT1, called CT2 and JCT.
-Their download numbers are: (xxx)
+There are two successors of CT1 as desktop applications, called CT2 and JCT.
+Their download numbers are:
                JCT: ca. 1000 / month
                CT2: ca. 4000 / month
-The successor versions of CT1 offer a far broader functionality than CT1.
+In the meantime, the successor versions of CT1 together now offer a far
+broader functionality than CT1.
 
 The aim of all CrypTool versions is to explain cryptographic mechanisms
 and to demonstrate the use and the limitations of individual mechanisms.
@@ -149,8 +162,8 @@ conditions are described e.g. at the web page, during the installation
 process and at the introduction page of the online help of CT1.
 
 Previous users of CT1 may find interesting especially chapter 2.6
-(What's new in version CT 1.4.40 / 1.4.41) and chapter A.1 (Roadmap
-after CT 1.4.4x) of this ReadMe.
+(What's new in version CT 1.4.4x) and chapter A.1 (Roadmap after
+CT 1.4.4x) of this ReadMe.
 
 We warmly welcome everybody willing to further develop CrypTool
 or to give feedback. We are also glad about hints telling us about
@@ -166,7 +179,7 @@ Known bugs:
 ===========
 
 1) With Windows 10 the following phenomenon appeared:
-   Starting a PDF (like the CT1 presentation or the CT book) the first time
+   Starting a PDF (like the CT1 presentation or the CT Book) the first time
    from within the CT1 online help, from the CT1 menu "Help", or from the
    Windows Start menu, then Acrobat didn't show up. Sometimes, the online
    help shows an empty page before it crashes. After the next start of the
@@ -177,22 +190,26 @@ Known bugs:
    Sadly, it can happen, that a following call of the PDFs also causes an
    Acrobat process to hang (until it works once), or that this mistake
    happens again after you restart CT1.
-   Maybe you can recognize this because the Adobe Acrobat Reader pops up the
-   following message: "Acrobat failed to connect to DDE server". The
+   Maybe you can recognize this because the Adobe Acrobat Reader pops up
+   the following message: "Acrobat failed to connect to DDE server". The
    according process is sometimes started several times at once.
 
    Remark: If there is no Acrobat reader installed, all these calls of
-   the pdfs work fine (implicitely they are handles by the Edge browser).
+   the pdfs work fine (implicitely they are handled by the Edge browser).
 
 2) Another annoying bug which seems to be outside of our CrypTool code:
-   Calling the calculator BC from the enclosed NT-Tools (via F3 or from the
-   NT menu "Calulators"), then BC crashes at its first call.
-   Without closing NT you can click F3 again, and BC doesn't crash any more.
-   Sadly, neither NT nor BC will be further maintained, so nothing will change
-   here.
+   Calling the calculator BC from the enclosed NT-Tools (via F3 or from
+   the NT menu "Calulators") crashes BC at its first call.
+   Without closing NT you can click F3 again, and BC doesn't crash any
+   more. Sadly, neither NT nor BC will be further maintained, so nothing
+   will change here.
    However, you can call bc with all functions under Linux (see the
    description in the CT1 online help).
 
+3) From Java 1.8 in 2019, Oracle changed their Java distribution process
+   and often the included Java-based programs (see chapter 1.2., part (3)
+   below) don't start. Even if Java is reinstalled this might not work.
+  
 
 
 1.1. How to start using CrypTool -- An introduction to CT1
@@ -224,12 +241,12 @@ to do within a dialog window, please press F1. If the according
 online help isn't satisfactory please give us feedback.
 
 You can find a 1-page overview (menu tree) of all menus in CT1 within
-the CrypTool book, attached as PDF (see appendix A1 of this PDF file).
+the CrypTool Book, attached as PDF (see appendix A1 of this PDF file).
 
 An overview about all functions in the different CrypTool programs can be
 found on the CT Portal website (www.cryptool.org) under the menu
 "Documentation --> CT Functions" or directly via:
-   https://www.cryptool.org/en/ctp-documentation/functionvolume
+   https://www.cryptool.org/en/documentation/functionvolume
 
 We hope you enjoy learning about cryptography and trying out all the
 functionality within CrypTool.
@@ -250,7 +267,7 @@ Main part of the CT1 package is the program CT1 itself:
   employee's awareness about the importance of IT security.
 
 - Most of the cryptographic basic algorithms used are taken from:
-  - the Secude library (http://secude.com/),  (xxx)
+  - the Secude library (http://secude.com/),
   - the Miracl library from Miracl (former DCU/CertiVox, Shamus Software)
         (https://www.miracl.com),
   - the OpenSSL library (http://www.openssl.org/),
@@ -259,7 +276,7 @@ Main part of the CT1 package is the program CT1 itself:
   - the APFLOAT library of Mikko Tommila (http://www.apfloat.org/apfloat),
   - the MPIR library for arbitrary precision arithmetic (derived from GMP)
         (www.mpir.org), and
-  - the cv act library of cv cryptovision Ltd (www.cryptovision.com). (xxx)
+  - the cv act library of cv cryptovision Ltd (www.cryptovision.com).
 
   The currently used version of the included libraries can be seen
   within the "About CrypTool" dialog (see help menu).
@@ -288,6 +305,8 @@ b) online help
    - demos and sample scenarios (here you can learn to know single
      procedures step-by-step).
 c) book on the subject of cryptography (attached as a PDF file)
+   --> A newer version of the CrypTool Book (CTB) can be found at
+       https://www.cryptool.org/en/documentation/ctbook/
 d) presentation, which shows at some slides the possibilities of
    CrypTool (also attached as PDF file).
 
@@ -297,7 +316,7 @@ d) presentation, which shows at some slides the possibilities of
 The following programs can be called from within CrypTool or directly
 as stand-alone program:
 
-a) The program AES-Tool v 2.7 (developed within the CrypTool project):
+a) The program "AES-Tool" v 2.7 (developed within the CrypTool project):
    AES-Tool can create self-extracting executable files.
    AES-Tool encrypts the content of any file using a session key and
    the AES 128 bit cipher in CBC mode.
@@ -307,8 +326,7 @@ a) The program AES-Tool v 2.7 (developed within the CrypTool project):
    this program.
    Remark: alternative tool, independent of the CT project: With the free
    open-source programm "AES Crypt" from packetizer you can encrypt files
-   on many plattforms (www.aescrypt.com/download/).
-
+   on many platforms (www.aescrypt.com/download/).
 
 b) The educational game "Number Shark" v 1.2.4 (by the CrypTool project):
    This game helps pupils to get acquainted with divisors and prime
@@ -330,7 +348,7 @@ c) The animation program Animal (see http://www.algoanim.net)
    at the website (www.algoanim.net/available-animations) or included within
    the Animal ControlCenter.
    To run Animal at least JRE 1.7 is required (see chapter 3.2).
-   This version also runs under Java 9.
+   This version also runs under Java 9 or higher.
 
 d) As well as Animal the following programs are stand-alone Java applications
    (JAR files). To run them at least JRE 1.7 is required (see chapter 3.2).
@@ -339,7 +357,6 @@ d) As well as Animal the following programs are stand-alone Java applications
    - The Control Center of the S/MIME demonstration (according to given
      parameters this Java program creates an XML file, which is used to
      control the called Flash animation).
-
      Four remarks about this Java program and its Flash animation:
      1) This Java program does the calculations and calls the Flash program
         which then displays and animates the data.
@@ -358,9 +375,13 @@ d) As well as Animal the following programs are stand-alone Java applications
      More details are in the online help of CT1 when you look for the "S/MIME".
 
 e) The Flash applications:
-   - Rijndael Animation (visualizes the AES encryption method),
+   - Rijndael Animation (visualizes the AES encryption method)
+     --> An improved version built with modern web technology can be found
+         at https://www.cryptool.org/en/cto/aes-animation,
    - Rijndael Inspector (visualizes the changes in the state matrix after
-                         each step of each round of AES),
+                         each step of each round of AES)
+     --> In more depth, this can be understood at the folowing website:
+         https://www.cryptool.org/en/cto/aes-step-by-step
    - S/MIME Demonstration, and
    - Enigma (visualizes the WW2 crypto machine Enigma).
 
@@ -382,6 +403,8 @@ a) There are two stories attached as PDF file.
      variant of the RSA algorithm, in order to communicate securely.
    - In "The Chinese Labyrinth" Marco Polo has to solve number theoretic
      problems to become a minister of the Great Khan.
+     --> A newer and enhanced version can be found at:
+         https://www.cryptool.org/assets/ctp/documents/cttc/chinlab-en.pdf
 
 b) Cipher Challenges / Cipher Riddles:
    Also enclosed are 13 files with encrypted texts, which we got by courtesy
@@ -392,7 +415,7 @@ b) Cipher Challenges / Cipher Riddles:
    These files contain some historically interesting (solved and unsolved)
    ciphertexts, which are appropriate as exercise or simply as pastime:
    1) Dorabella cipher (unsolved)
-   2) D’Agapeyeff cipher (unsolved)
+   2) D'Agapeyeff cipher (unsolved)
    3) Feynman ciphers (3 parts, two are still unsolved)
    4) Kryptos sculpture (4 parts, the last one is still unsolved)
    5) Double-Column-Transposition (Doppelwuerfel) (riddle created by Klaus
@@ -403,14 +426,15 @@ b) Cipher Challenges / Cipher Riddles:
                            German, unsolved)
    8) "Mathias Sandorf" by Jules Verne (solved)
 
-   More information about these files are available in the online help of
+   More information about these files is available in the online help of
    CT1 (see index item "Crypto Competitions/Crypto Puzzles") and within
    the book of Klaus Schmeh.
 
    Many more riddles and challenges can be found
    - at the pages of CrypTool-Online and
-   - at the pages of the crypto challenge "MysteryTwister C3" (MTC3):
-     https://www.mysterytwisterc3.org
+   - at the pages of the crypto challenge contest "MysteryTwister" (MTC3):
+     https://www.mysterytwister.org
+
 
 All the single files included in the package are listed within
 chapter 5 (see below in this ReadMe file).
@@ -467,9 +491,9 @@ for their input:
   application remain with the appropriate owners/authors.
 
 - The companies (see chapter 1.2)
-  - Secude IT Security Ltd, (xxx)
+  - Secude IT Security Ltd,
   - Shamus Software Ltd, and
-  - cv cryptovision Ltd (xxx)
+  - cv cryptovision Ltd
   allowed us gratefully to use their cryptographic libraries.
   These libraries distributed with CT1 are not allowed to be
   used in another context than CrypTool without contacting the
@@ -496,10 +520,9 @@ I also want to thank
 And several people (like Pawel, Vasilios, and Vesna) who helped to continue
 the translations for new versions of CT1.
 
-Potential further translations of CT1:
-- Turkish (xxx): Interests, but not started yet.
-- Russian (xxx): Requests, but not started yet.
-                 (For CT2, a translation to Russian is already started.)
+Potential further translations of CT1: no more plans.
+Our ressourcen go into newer versions of CT -- for CT2 e.g. there are plans
+for Russian and Turkish versions.
 
 
 
@@ -635,7 +658,7 @@ The general properties and functions of CT1 are:
   - The Secude cryptographic random number generator allows to gather
     entropy by mouse moves and keyboard entries.
     This is the default, when calling it the first time, because it shows,
-    that you need a random source in order to get good random data. (xxx)
+    that you need a random source in order to get good random data.
   - 3-D visualization of big sets of random numbers with the rendering
     engine from OpenQVis.
 
@@ -716,7 +739,7 @@ The general properties and functions of CT1 are:
   So you can check the integrity of the files of the CrypTool package
   stored on your computer.
 
-- Exhaustive documentation (online help, book).
+- Exhaustive documentation (online help, CrypTool Book).
   The online help has HTML format.
   The online help contains explanations about the handling and about all
   the cryptographic methods, a historic overview and the integration into
@@ -739,8 +762,7 @@ The general properties and functions of CT1 are:
 - Snapshot about the number of files and the number of lines of code
 
   To get an impression of the size of the CT1 project here is a statistics
-  created in October 2016 using the files of version 1.4.40 Prefinal
-  beta 06d:(xxx)
+  created in October 2016 using the files of version 1.4.40 Prefinal:
 
     FILE SUMMARY (number of files according to file extension)
     ------------
@@ -799,7 +821,7 @@ The general properties and functions of CT1 are:
         different of 100 %.
 
 - Compiling all versions (7 languages, each in debug and release mode)
-  lasts about 2 h on a modern PC. (xxx)
+  lasts about 2 h on a modern PC.
 
 
 
@@ -808,12 +830,12 @@ The general properties and functions of CT1 are:
 You can get a good overview of what CrypTool offers
 - within the online help (see "starting page"),
 - at the attached PDF presentation (title: "Cryptology with CrypTool"),
-- using the menu tree in appendix A.1 within the attached CrypTool book,
+- using the menu tree in appendix A.1 within the attached CrypTool Book (CTB),
 - at the website of the CrypTool portal
-  (https://www.cryptool.org/en/ctp-documentation/functionvolume) under
+  (https://www.cryptool.org/en/documentation/functionvolume) under
           - "Documentation" -> "CT function volume",
 - at the website of CT1 (https://www.cryptool.org/en/cryptool1) under
-          - "Documentation" -> "Features of CrypTool 1.4.3x", and
+          - "Documentation" -> "Features of CrypTool 1.4.4x", and
           - "Screenshots" -> "Screenshots".
 
 
@@ -840,8 +862,8 @@ b) Changes within the user documentation:
 
 - Online help: enhanced.
 
-- Within the book: minor bug-fixes, menu tree within appendix A.1 adapted
-                   to the new version of CrypTool.
+- Within the book (CTB): minor bug-fixes, menu tree within appendix A.1
+                         adapted to the new version of CrypTool.
 
 - Updated and enhanced presentation (more than 100 pages now).
 
@@ -956,7 +978,7 @@ b) Changes within the user documentation / on the websites:
 - Online help: well enhanced (e.g. modi and padding variants used for block
                ciphers now are described explicitly).
 
-- CrypTool book: Extensive revision:
+- CrypTool Book (CTB): Extensive revision:
                  - extensions and update to status quo,
                  - inclusion of many SageMath code samples,
                    delivery of the SageMath code as files,
@@ -1248,15 +1270,15 @@ a) Developer-relevant changes (more technically oriented):
 - Update of used libraries and other software to the following versions:
   - Scintilla (3.7.0 postponed to CT 1.5; still using modified 1.7.7)
   - compiler-dependent: cv act library 1.4.6 with VS2008, 1.4.18 with VS2010
-  - OpenSSL 1.0.1 (xxx)
-  - MPIR 1.3.1 (derived from GMP version 4.2.1) instead of GMP 4.1 (xxx)
-         2.5.1 (postponed to CT 1.5) (xxx)
-  - Miracl 4.4.3  -->  5.5.4  (postponed to CT 1.5) (xxx)
+  - OpenSSL 1.0.1
+  - MPIR 1.3.1 (derived from GMP version 4.2.1) instead of GMP 4.1
+         2.5.1 (postponed to CT 1.5)
+  - Miracl 4.4.3  -->  5.5.4  (postponed to CT 1.5)
   - NTL 5.5.2  --> 10.3 (thread-safe and with exception handling, needs
-                        a C++11 compiler)   (postponed to CT 1.5) (xxx)
+                        a C++11 compiler)   (postponed to CT 1.5)
   - Animal 2.4.9 (1.4.40) respectively Animal 2.5.3 (1.4.41)
   - Substitution of the Secude library (as we encountered problems after
-    compiling with VS2010 (not with VS2008) postponed to CT 1.5.) (xxx)
+    compiling with VS2010 (not with VS2008) postponed to CT 1.5.)
 
 - The CT1 installer now is signed with a certificate issued by a CA which
   is contained in the Windows keystore. This avoids that Windows shows
@@ -1277,8 +1299,8 @@ b) Changes within the user documentation / on the websites:
 - Online help: updated some topics (like bc and pgp) and corrected more
                than 70 internal and external links.
 
-- CrypTool book: - Edition 12 is a major update, with many corrections and
-                   additions
+- CrypTool Book: - Edition 12 is a major update, with many corrections and
+  (CTB)            additions
                  - Additional chapters about bitblock and bitstream
                    encryption, and with a Survey on Current Academic Results
                    for Solving Discrete Logarithms And Factoring
@@ -1289,14 +1311,15 @@ b) Changes within the user documentation / on the websites:
 
 - Presentation about CT1 updated in March 2017.
   The description of the overall CrypTool project, and the information
-  about the two other CT projects (CT2, JCT) are now in self-contained
+  about the three other CT projects (CT2, JCT,CTO) are now in self-contained
   presentations.
 
-- At January 18th, 2012 the new CrypTool website (CTP) was released. It
-  describes the 5 sub projects of the CT project in an equivalent way.
+- In 2012, a CrypTool website (CTP) was released, which describes the 5 sub
+  projects of the CT project (CT1, CT2, JCT, CTO, MTC3) in an equivalent way.
+  Since then the page is regularly updated.
   This contains CT1. Since then the website was updated regularily.
-  In 2017 all CT sub projects besides MTC3 have been joined in a common
-  Joomla, and CTO switched to a responsive Design using JS and Bootstrap.
+  In 2017 CTO switched to a responsive Design using JS and Bootstrap.
+  In 2021 MTC3 was relaunched with a new GUI and a new backbone.
 
 
 
@@ -1326,7 +1349,7 @@ c) New functionality / Usability / Corrections of errors:
   alphabet.
 - The analysis of the substitution cipher offers two variants. The second
   variant uses a list of frequent words, which were not revealed and
-  changeable by the user in former versions. Both is possible now. (xxx)
+  changeable by the user in former versions. Both is possible now.
 - To determine the substitution matrix the ADFGVX analysis now also uses the
   frequency distribution of the reference text selected in the text options
   dialog.
@@ -1396,6 +1419,12 @@ c) New functionality / Usability / Corrections of errors:
   Nihilist animation.
 - Animal now also starts faster. Each Animal animation initially starts
   as a fullscreen windows.
+
+- The difference between 1.4.41 and 1.4.42 is a tiny fix in the resource file
+  (the signature generation time is now correctly displayed in the Polish version
+  too) and in the dialog "Sign a Document" dialog the default hash function is
+  now SHA1 instead of MD5.
+  Also this readme has been updated.
 
 - Thanks to the many attentive users, who pointed us to bugs and
   inconsistencies.
@@ -1742,7 +1771,7 @@ benefits:
 
 You can enforce the old behavior if you set the registry entry
 HKEY_CURRENT_USER\Software\CrypTool\Settings\UserKeyStore\UseUserKeyStore
-to the value ‘0’ (this registry variable is visible after the first call of
+to the value "0" (this registry variable is visible after the first call of
 CrypTool).
 
 
@@ -1876,14 +1905,14 @@ EC-Param.ini ..... Initialization file for public-key procedures
                    based on elliptic curves.
 TEST-Param.ini ... Initialization file for random number tests.
 secude.dll ....... Library of cryptographic functions provided by
-                   Secude IT Security Ltd. (xxx)
-ticket ........... License for the Secude library. (xxx)
-libxml2.dll ...... Is used by the secude.dll. (xxx)
-secidea.dll ...... Is used by the secude.dll for IDEA encryption. (xxx)
+                   Secude IT Security Ltd.
+ticket ........... License for the Secude library.
+libxml2.dll ...... Is used by the secude.dll.
+secidea.dll ...... Is used by the secude.dll for IDEA encryption.
 srndmskb.dll ..... Used by secude.dll for collecting entropy when
-                   initializing the Secude random number generator. (xxx)
-db.dll ........... Is used by the secude.dll. (xxx)
-secude.xml ....... Is used by the secude.dll. (xxx)
+                   initializing the Secude random number generator.
+db.dll ........... Is used by the secude.dll.
+secude.xml ....... Is used by the secude.dll.
 libeay32.dll ..... Library from OpenSSL.
 SciLexer.dll ..... Library of the Scintilla text editor.
 cracklib_Win32.dll .. Supports PQM tests.
@@ -2015,7 +2044,7 @@ words\cracklib-words        // For test on password patterns
 
 sage\ ........... This directory contains the source code of the example
                   calculations in the book CT-Book-en.pdf using the
-                  computer algebra system SageMath. (xxx)
+                  computer-algebra system SageMath.
 
 sage\SAGE-Samples-in-Chap01.sage
      SAGE-Samples-in-Chap02.sage
@@ -2294,7 +2323,7 @@ Remarks about the (intermediate) versions:
 1.3.02  Many new functions compared to 1.3.00
 1.3.03  Many minor bug fixes and documentation improvements
 1.3.04  Some new functionality, some minor bug fixes, and major
-        documentation improvements and enhancements (online help, book)
+        documentation improvements and enhancements (online help, CrypTool Book)
 1.3.05  Some minor bug fixes
 1.4.00 Beta10  Dec. 2005  First public beta of version 1.4.00
 1.4.00 Beta12  Mar. 2006  Second public beta of version 1.4.00
@@ -2546,27 +2575,27 @@ b) The Professional Security Testers Warehouse (PST) had a submission by
 c) Wikipedia:
    - English:
      - https://en.wikipedia.org/wiki/CrypTool
-     - http://en.wikipedia.org/wiki/Cryptography
-     - http://en.wikipedia.org/wiki/Topics_in_Cryptography
+     - https://en.wikipedia.org/wiki/Cryptography
+     - https://en.wikipedia.org/wiki/Topics_in_Cryptography
    - German:
      - https://de.wikipedia.org/wiki/CrypTool
-     - http://de.wikipedia.org/wiki/Kryptographie
-     - http://de.wikipedia.org/wiki/Wikipedia:WikiProjekt_Kryptologie
+     - https://de.wikipedia.org/wiki/Kryptographie
+     - https://de.wikipedia.org/wiki/Wikipedia:WikiProjekt_Kryptologie
    - Polish:
-     - http://pl.wikipedia.org/wiki/CrypTool
-     - http://pl.wikipedia.org/wiki/Kryptografia
+     - https://pl.wikipedia.org/wiki/CrypTool
+     - https://pl.wikipedia.org/wiki/Kryptografia
    - Spanish:
-     - http://es.wikipedia.org/wiki/CrypTool
+     - https://es.wikipedia.org/wiki/CrypTool
    - Serbian:
-     - http://sr.wikipedia.org/sr/CrypTool
+     - https://sr.wikipedia.org/sr/CrypTool
    - French:
-     - http://fr.wikipedia.org/wiki/CrypTool
+     - https://fr.wikipedia.org/wiki/CrypTool
    - Thai:
-     - http://th.wikipedia.org/wiki/CrypTool
+     - https://th.wikipedia.org/wiki/CrypTool
    - Italian:
-     - http://it.wikipedia.org/wiki/CrypTool
+     - https://it.wikipedia.org/wiki/CrypTool
    - Greek:
-     - http://el.wikipedia.org/wiki/CrypTool
+     - https://el.wikipedia.org/wiki/CrypTool
    - Russian: (xxx)
    - Turkish: (xxx)
    - Chinese: (xxx)
@@ -2704,7 +2733,7 @@ a) Available with complete source code are:
     S-Boxes and Their Algebraic Representations
     Hard Lattice Generator
   http://www.sagemath.org/doc/reference/index.html
-  SAGE is also used for some examples in the CrypTool book.
+  SAGE is also used for some examples in the CrypTool Book.
 
 - The website of the American Cryptogram Association (ACA), a non-profit
   organization "dedicated to promoting the hobby and art of cryptanalysis".
@@ -2837,6 +2866,7 @@ Also see
 https://www.cryptool.org/en/ctp-education/awards/259-awards
 
 
+
 A. Appendix
    --------
 
@@ -2854,18 +2884,18 @@ A.4.1. .... Running CT1 on Linux with Wine
 A.4.2. .... Porting draft of CT1 to Linux with Qt
 
 
-All functions available in CT1, CT2, JCT, and CT-Online can be found in an
-interactive list of at:
-   https://www.cryptool.org/en/ctp-documentation/functionvolume
-
+All functions available in CT1, CT2, JCT, and CT-Online (CTO) can be
+found in an interactive list of at:
+   https://www.cryptool.org/en/documentation/functionvolume
 
 
 A.1. Roadmap after CT 1.4.4x
      -----------------------
 In general, all bigger new developments from the CT project will go directly
-to the two existing successor projects CT2 and JCT (see chapter A.2).
+to the two existing successor projects CT2 and JCT (see chapter A.2) and
+to CTO.
 
-The CrypTool team will continue to fix bugs within CT1.
+The CrypTool team will in the future only fix bugs within CT1.
 
 For those who prefer to keep on developing in C/C++, there are discussions
 whether to create another successor: Qt-CrypTool (QCT).
@@ -2953,10 +2983,7 @@ The new versions are (see chapter A.2.1):
 - CT2: CrypTool 2.x   and
 - JCT: JCrypTool 1.x
 
-
-
 Some (not all) features of the release versions of the successor projects:
-
 -------------------------------------------------------
 - CT2  Visual programming (composition of protocols and workflows)
 - CT2  Tutorial: Prime number visualizations
@@ -3029,6 +3056,17 @@ Some (not all) features of the release versions of the successor projects:
 A.3 Possible areas for further development -- Future features, ideas
     ----------------------------------------------------------------
 
+A.3.1. CrypTool-Online -- the future
+       -----------------------------
+The web version CrypTool-Online at https://www.cryptool.org/en/cto/
+now is a focus of our development: We use modern web technology
+to build the website and its crypto plugins.
+Webassembly e.g. helped to make an OpenSSL port, an Msieve port or a
+Python IDE run as quick as native application while still running
+purely locally in the browser.
+
+
+
 The developer wikis of CT2 and JCT each contain a list with development tasks
 for further features requested by users:
 - CT2: https://www.cryptool.org/trac/CrypTool2/wiki/StudentTasksProposals
@@ -3038,8 +3076,7 @@ Below are further possible topics for enhancements which have been requested
 or discussed already by users of CT1.
 Topics already planned in CT2 or JCT are marked accordingly.
 
-
-A.3.1. Functionality: Algorithms / Methods
+A.3.2. Functionality: Algorithms / Methods
        -----------------------------------
 - Offer an interface, so that the offline programs JCT and CT2 can be called
   via web browsers
@@ -3146,7 +3183,7 @@ A.3.1. Functionality: Algorithms / Methods
 
 
 
-A.3.2. Functionality: Analysis
+A.3.3. Functionality: Analysis
        -----------------------
 - Usage of distributed computing for cryptanalysis
 - Offer a cryptanalysis framework to have a toolbox for fast code breaking
@@ -3247,7 +3284,7 @@ A.3.2. Functionality: Analysis
 
 
 
-A.3.3. Internal interfaces / Editors
+A.3.4. Internal interfaces / Editors
        -----------------------------
 - Store all used keys in a container.
   Enable showing all keys for the different encryption methods in a dialog.
@@ -3271,7 +3308,7 @@ A.3.3. Internal interfaces / Editors
 
 
 
-A.3.4. User interface / Visualizations
+A.3.5. User interface / Visualizations
        -------------------------------
 The following suggestions are mostly related to CT1. However, similar
 requirements are there for all crypto programs wit a GUI.
@@ -3394,35 +3431,37 @@ A.4. Using CT1 on Linux
 
 A.4.1. Running CT1 on Linux with Wine
        ------------------------------
-In a short test under MINT 17.3 with Wine 3.0 (https://www.winehq.org/)
-in March 2018 the setup of CrypTool 1.4.41 worked fine.
+In a short test under Ubuntu 20.04 with Wine 5.0 (https://www.winehq.org/)
+in 2021 the setup of CrypTool 1.4.42 worked fine.
 
 Most functions in CT1 itself (about 90 %; like encryption methods, RSA key
 generation, or hash demo) work well under Wine.
 
-Wine is much more stable than 2 and 8 years ago.
+In the meantime, Wine is much more stable than older versions of Wine.
 Here some details what worked well (ok) at the test, and what did not (nok):
 - ok:  Calling most dialogs (incl. RSA-AES hybrid encryption demo),
        performing the calculations,
        calling of Flash executables, and
        clicking F1 for context-sensitive help within CT1
-- nok: Calling of F1 for a selected menu item
+- ok:  Calling of F1 for a selected menu item
 - ok:  Warning dialog, if Java isn't installed in Wine
 - ok:  Showing the readme file in IE (called from CT1 via menu "Help")
-- nok: Calling a PDF (book, presentation) from CT1 via the menu "Help":
-       Wine unsuccessfully searches Acrobat Reader (even if Okular and
-       Acrobat are there).
+- ok:  Calling a PDF (CT Book, presentation) from CT1 via the menu "Help":
+       Wine successfully finds pdf readers like Acrobat, Okular or Foxit.
 - ok:  In the online help: Call of inner links within the online help
 - nok: In the online help:
-       - Calling external programs from the help (readme.txt in notepad, PDFs)
-       - Search within the Microsoft online help doesn't work.
+       - Calling external programs from the help (readme.txt, PDFs)
+       - Staring the context menu
+       - Search within the Microsoft online help doesn't work
 - ok:  In the online help:
        - Navigation via the back and forth buttons
 - nok: Some malfunctions within the Macromedia application NT
+- nok: Generic t-adic NAF Key Generator cannot be started
+- Since Oracle changes the procedures for Java, it's often nt found.
 
 Generally we do not make extra efforts to support Wine.
 Instead of that, please try the platform-independent version JCT which also
-runs under Linux (see chapter 3.5).
+runs under Linux (see chapter A.2).
 
 See also: https://www.codeweavers.com/compatibility/crossover/cryptool
 
@@ -3444,14 +3483,16 @@ http://www.cryptoolinux.net/).
 - This project has stopped.
 
 The CT1 core team discussed to build a successor of CT1 using Qt 5,
-which has the same look&feel as CT1 and which is called QCT
-(see A.1: Roadmap after CT 1.4.4x). There is no decision made
-yet concerning QCT. 
+which has the same look&feel as CT1 and which is called QCT (see
+A.1: Roadmap after CT 1.4.4x). However, with JCT there is a native
+Linux version. So instead, the CT team will focus on the three
+successors of CT1.
+
 
 ################################################################
 
-Please also try out the new versions CT2 and JCT.
-You can find them at  www.cryptool.org  too.
+Please also try out the newer versions CT2 and JCT, and the browser
+version CTO. You can find them at  www.cryptool.org  too.
 
 Entry in Wikipedia: https://en.wikipedia.org/wiki/CrypTool
 
