@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.42 für Win32, Dezember 2021
+    CrypTool, Version 1.4.43 für Win32, Juli 2022
 
 CrypTool v1 (CT1) ist ein freies, internationales
 E-Learning-Programm für Kryptografie und Kryptoanalyse.
@@ -7,7 +7,7 @@ E-Learning-Programm für Kryptografie und Kryptoanalyse.
     (c) Contributors
         Dazu gehören u.a. Deutsche Bank AG, Frankfurt am Main, und die
         Universitäten Siegen, Darmstadt, Bochum, Duisburg-Essen und Kassel.
-        1998-2021
+        1998-2022
     Freie Software und Open Source gemäß der Apache Lizenz 2.0
     www.cryptool.org
     Prof. Bernhard Esslinger
@@ -35,7 +35,7 @@ und nach die neueren Versionen von CrypTool.
  2.3. ... Wo finden Sie weitere Überblicke zu CT1
  2.4. ... Neuerungen in Version 1.4.20 / 1.4.21
  2.5. ... Neuerungen in Version 1.4.30
- 2.6. ... Neuerungen in Version 1.4.40 / 1.4.41 / 1.4.42
+ 2.6. ... Neuerungen in Version 1.4.40 / 1.4.41 / 1.4.42 / 1.4.43
  3. ... Beschränkungen und Voraussetzungen
  3.1. ... Anwendungsbereich dieser Lern-, Trainings- und Awareness-Software
  3.2. ... Win32-Umgebung, Rechte bei Installation und Betrieb, Java-Runtime
@@ -65,7 +65,7 @@ A. ... Anhang
 A.1. .... Roadmap nach CT 1.4.4x
 A.2. .... Nachfolger-Projekte mit Java/Eclipse und C#/.NET
 A.3. .... Mögliche Punkte für eine Weiterentwicklung -- Neue Funktionen, Ideen
-A.3.1. .... CrypTool-Online -- die Zukunft
+A.3.1. .... CrypTool-Online (CTO) -- die Zukunft
 A.4. .... CT1 unter Linux
 
 
@@ -73,8 +73,8 @@ Benutzte Abkürzungen:
 CT   CrypTool (z.B. um das ganze CT-Projekt zu bezeichnen)
 CT1  CrypTool 1 = CrypTool-Version 1 (diese Version enthält diese Readme-Datei)
 CT2  CrypTool 2 = CrypTool-Version 2 (nutzt .NET; läuft unter Win32)
-JCT  JCrypTool  = Java-CrypTool (läuft unter Win32, Linux und MacOS)
-QCT  QtCrypTool = Nie gebaute Portierung von CT1 mit Qt
+JCT  JCrypTool  = Java-CrypTool (läuft unter Win32, Linux und macOS)
+QCT  QtCrypTool = Nie fertig gebaute Portierung von CT1 mit Qt
 CTO  CrypTool-Online = CrypTool im Browser (die Zukunft)
 
 
@@ -1307,8 +1307,8 @@ c) Neue Funktionalität / Bedienung:
 
 
 
-2.6. Neuerungen in Version 1.4.40 / 1.4.41
-     -------------------------------------
+2.6. Neuerungen in Version 1.4.40 / 1.4.41 / 1.4.42 / 1.4.43
+     -------------------------------------------------------
 Dieses Kapitel listet die Erweiterungen und die Bugfixes auf, die in
 CrypTool 1.4.4x seit CrypTool 1.4.30 hinzugefügt wurden.
 
@@ -1343,7 +1343,6 @@ a) Entwickler-relevante Änderungen (eher Programm-technisch):
   wird.
   
 - Das Release von CT 1.4.4x wird weiterhin mit VS2008 kompiliert (siehe oben).
-  Ab CT 1.5 wird mit VS 2017 übersetzt, oder CT1 gleich durch QCT ersetzt.
 
 
 b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
@@ -1351,8 +1350,8 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
 - Online-Hilfe: aktualisiert an etlichen Stellen (bspw. bc und PGP) und
                 Korrektur von über 70 internen und externen Links.
 
-- CrypTool-Buch: - Edition 12 ist ein großes Update, viele Korrekturen und
-  (CTB)            Ergänzungen
+- CrypTool-Buch: Edition 12 (2018) ist ein großes Update, viele Korrekturen
+  (CTB)            und Ergänzungen
                  - Zwei weitere Kapitel: zu Bitblock- und Bitstrom-
                    Verschlüsselung und mit einer Studie über aktuelle
                    akademische Resultate für das Lösen diskreter Logarithmen
@@ -1361,6 +1360,8 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
                    (zu Primitivwurzeln und RSA-Fixpunkten)
                  - Anhänge zu den Funktionsübersichten auch für CT2 und JCT
                  - In den Fußnoten nun auch die Menüpfade zu CT2 und JCT.
+                 Edition 13 (2022) ist wieder ein großes Update, das noch in
+                 2022 erscheinen wird.
 
 - Präsentation zu CT1 aktualisiert (März 2017)
   Die Informationen zum Gesamtprojekt und zu den drei anderen CT-Projekten
@@ -1371,6 +1372,7 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
   darstellt. Seitdem wurde die Seite regelmäßig geupdated.
   In 2017 wurde CTO auf responsive Design mit JS und Bootstrap umgestellt.
   In 2021 wurde MTC3 mit neuer Oberfläche und neuem Backbone relaunched.
+  In 2022 wurde CTO stark erweitert (u.a. mit WebAssembly und React).
   
 
 
@@ -1486,8 +1488,18 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
   signieren" ist das Standard-Hashverfahren nun SHA1 statt MD5.
   Und diese Readme-Datei wurde geupdated.
 
+- Der Unterschied zwischen 1.4.42 und 1.4.43 ist ein kleiner Fix bei der
+  Erkennung der installierten Java-Version. Es konnte sonst sein, dass
+  frühere CT1-Versionen die inzwischen sehr vielfältigen Java-Versionsstrings
+  nicht erkannten und die Java-basierten Unterprogramme in CT1 nicht starteten.
+  (In CT1 sind ein paar externe Java-Programme integriert, die eine 64-bit-Java-VM
+  voraussetzen.)
+  Außerdem wurde diese Readme-Datei und die Onlinehilfe geupdated.
+  Die Hinweise auf QCT wurden entfernt, da die Neuentwicklung sich auf CT2
+  und CTO konzentriert.
+
 - Danke an die vielen aufmerksamen Benutzer, die uns auf Bugs und 
-  Inkonsistenzen aufmerksam machten.
+  Inkonsistenzen aufmerksam machten, und Anregungen gaben.
 
 
 
@@ -1498,6 +1510,8 @@ c) Neue Funktionalität / einheitlichere Bedienung / Fehlerkorrekturen:
 
 3.1. Anwendungsbereich dieser Lern-, Trainings- und Awareness-Software
      -----------------------------------------------------------------
+Die letzte Version von CT1 wurde getestet unter Win 10 und Win 11.
+
 CrypTool dient vor allem Ausbildungs- und Awareness-Zwecken. Man soll
 es ohne vorherige Konfiguration sofort benutzen können.
 
@@ -2969,8 +2983,7 @@ CrypTool erhielt u.a. folgende explizite Auszeichnungen (s. Webseite):
   statt.
 
 Vergleiche auch
-https://www.cryptool.org/de/ctp-lehre/auszeichnungen/258-auszeichnungen
-
+https://www.cryptool.org/de/education/awards
 
 
 A. Anhang
@@ -2981,10 +2994,11 @@ A.2. .... Nachfolger-Projekte mit Java/Eclipse und C#/.NET
 A.2.1. .... Design der Nachfolger-Projekte CT2 und JCT
 A.2.2. .... Funktionen der Nachfolger-Projekte CT2 und JCT
 A.3. .... Mögliche Punkte für eine Weiterentwicklung -- Neue Funktionen, Ideen
-A.3.1. .... Funktionalität: Algorithmen / Verfahren
-A.3.2. .... Funktionalität: Analyse
-A.3.3. .... Interne Schnittstellen / Editoren
-A.3.4. .... User-Interface / Visualisierungen
+A.3.1. .... CrypTool-Online (CTO) -- die Zukunft
+A.3.2. .... Funktionalität: Algorithmen / Verfahren
+A.3.3. .... Funktionalität: Analyse
+A.3.4. .... Interne Schnittstellen / Editoren
+A.3.5. .... User-Interface / Visualisierungen
 A.4. .... CT1 unter Linux
 A.4.1. .... Ausführen von CT1 unter Linux mit Wine
 A.4.2. .... Portierungsversuch von CT1 nach Linux mit Qt
@@ -2999,26 +3013,13 @@ in einer interaktiven Liste abgerufen werden auf:
 A.1. Roadmap nach CT 1.4.4x
      ----------------------
 Generell fließen nun alle größeren Neu-Entwicklungen aus dem CT-Projekt in
-die beiden schon existierenden Nachfolger-Projekte CT2 und JCT (siehe A.2)
-und in CTO.
+die Nachfolger-Projekte CT2 (siehe A.2) und CTO (siehe A.3.1).
 
 In CT1 werden nur noch Fehler behoben.
 
-Für diejenigen, die weiterhin lieber in C/C++ implementieren wollen, gibt es
-eventuell auch einen Nachfolger: Qt-CrypTool (QCT).
-Hier soll CT1 mit Qt 5 weiter entwickelt werden:
-- Die Oberfläche wird komplett neu geschrieben mit Qt (statt MFC) und
-  damit Plattform-unabhängig sein. Sie soll dasselbe Look&Feel wie CT1
-  haben.
-- QCT wird ebenso wie JCT auf Linux, MacOS, und Windows laufen.
-- Mittels Qt kann man mehrere Sprachen in ein Setup und in ein Executable
-  packen, so dass man in QCT ohne Neustart die Sprache wechseln kann.
-- Eine mögliche inhaltliche Weiterentwicklung ist die Integration eines
-  Forks von OpenSSL, der die Chinesischen Krypto-Standards implementiert
-  (diese sind vergleichbar zu den NIST-Standards und genießen noch mehr
-  Aufmerksamkeit, seit durch Edward Snowden Gewissheit wurde, was vorher
-  nur Gerüchte waren).
-- Siehe https://github.com/flomar/QCrypTool
+Da CT1 Open-Source ist, können freiwillige C++-Entwickler aber weiterhin
+Anpassungen vornehmen oder Ergänzungen beisteuern.
+
 
 
 A.2. Nachfolger-Projekte mit Java/Eclipse und C#/.NET
@@ -3051,11 +3052,11 @@ a) Generelle Wunschliste anhand des Benutzerfeedbacks zu CT1
 
 b) Java-CrypTool (JCrypTool, JCT):
    - Komplett neu designtes CrypTool in Java mit Eclipse/RCP
-   - Plattform-unabhängig --> Support für Windows, MacOS und Linux
+   - Plattform-unabhängig --> Support für Windows, macOS und Linux
    - Nutzung von SWT für die GUI
    - Nutzt strikt die Standards von Eclipse
    - Bouncy-Castle (BC) und FlexiProvider (FP) werden als Krypto-Provider
-     benutzt. Der FP wird in BC aufgehen.
+     benutzt. Der FP ging in BC auf.
      JCT als Angebot eines dynamischen, grafischen Frontends für BC.
    - XML-Sicherheit (Demonstrator für XML-Signaturen)
    - Zusammenarbeit mit dem Lehrstuhl Prof. Buchmann, TU Darmstadt für
@@ -3070,11 +3071,13 @@ b) Java-CrypTool (JCrypTool, JCT):
 
 c) CrypTool 2 (CT2)
    - Komplett neu designtes CrypTool in C# mit dem .NET-Framework und WPF
-   - Nutzt strikt die Standards von Microsoft .NET (Aussehen wie Office 2007)
+   - Nutzt strikt die Standards von Microsoft .NET (Aussehen wie Office 2007,
+     Ribbon Bar)
    - Nutzung von Windows Presentation Foundation (WPF) zur Gestaltung
      von multimedialen Oberflächen (GUI) mit Vektorgraphiken
    - Das gesamte Projekt lässt sich mit der jeweils neuesten kostenlosen
-     Version von Visual Studio Express-Edition für C# erstellen.
+     Version von Visual Studio Community (früher Visual Studio Express)
+     für C# erstellen.
    - Verfügbar als Krypto-Provider sind:
      - der .NET Krypto-Provider,
      - Bibliotheken wie GMP/MPIR und Crypto++ per Wrapper, und
@@ -3106,28 +3109,30 @@ Einige (nicht alle) Funktionen der Release-Versionen der Nachfolger-Projekte:
                          mittels der PC/SC-Schnittstelle in Windows)
 - CT2  Cube Attack gegen symmetrische Chiffren (I. Dinur und A. Shamir)
 - CT2  SAT-Solver
-- CT2  Homomorphe Verschlüsselung (Paillier)
+- CT2  Homomorphe Verschlüsselung (Paillier, DGK)
 - CT2  Quadratisches Sieb (deutlich schneller als in CT1)
-       Zeitmessungen siehe:
-       - https://www.cryptoportal.org/details_links.php?PHPSESSID=1a3ea85bebc01e983a852682cecc48b3&link_id=69
-       - http://bscw.schule.de/pub/bscw.cgi/d864899/Schulz_Witten_Zeit-Experimente.pdf
-- CT2  GNFS (aufbauend auf YAFU und msieve)
 - CT2  Solitaire-Verschlüsselung und -Analyse
 - CT2  Dezimalisierungsverfahren (Visa, Modulo, Multiplikation, IBM)
 - CT2  Mathematische Werkzeuge wie Berlekamp-Massey
 - CT2  Vigenère-Autokey-Verschlüsselung und verteilte Analyse dazu
-- CT2  Mächtige Analyseverfahren gegen klassische Verfahren (incl. Enigma)
+- CT2  Mächtige Analyseverfahren gegen klassische Verfahren (incl. Enigma),
+       wie monoalphabetische und Homophonen-Substitutions-Analyzer
 - CT2  Suche nach Wort-Patterns m.H. von Normierungen (z.B. "einen" = 12313)
+- CT2  Visuelle Kryptografie
 - CT2  LFSR, NLFSR
-- CT2  Symmetrische Verschlüsselungsverfahren von Ecrypt (SOSEMANUK, ...)
-- CT2  Verschlüsselung mit Enigma, Purple, T310/50, M209, M-138
+- CT2  Symmetrische Verschlüsselungsverfahren von Ecrypt (SOSEMANUK, ...), ChaCha
+- CT2  Verschlüsselung mit Enigma, Purple, T310/50, LAMBDA 1, M209, M-138,
+       VIC, ...
 - CT2  Verschlüsselung mit DES, AES, PRESENT, Twofish, ...
 - CT2  Verschlüsselung eines Klartextes mit AES unter Verwendung eines ASCII-
        Passworts (das per PKCS#5 in einen AES-Schlüssel konvertiert wird). Das
        Ergebnis wird Base64-encoded ausgegeben, um es leicht per Copy & Paste
        z.B. in eine Email einfügen zu können. Verbinden mit der Smartphone
-       App CrypDroid.
+       App CrypDroid oder der Flutter-App "AES Cryptor"
 - CT2  Bewertung der Passwort-Stärke
+- CT2  Padding-Oracle-Visualisierung (POA)
+- CT2  Format-erhaltende Verschlüsselung
+- CT2  RAPPOR -- Differential-Privacy-Demonstration
 
 -------------------------------------------------------
 - JCT  Adaptive Navigationsleiste, wahlweise als Baum oder Palette, mit Filter
@@ -3157,7 +3162,7 @@ Einige (nicht alle) Funktionen der Release-Versionen der Nachfolger-Projekte:
 - JCT  Visualisierung und Erläuterung der Mustersperre von Android (AUP)
 - JCT  Visualisierung der Ergebnisse verschiedener Gültigkeitsmodelle für
        Zertifikate (nutzt Schiebregler, um die Parameter schnell anzupassen)
-- JCT  PQC-Signaturschemata (WOTS, MSS, XMSS-MT) und damit
+- JCT  PQC-Signaturschemata (WOTS, MSS, XMSS-MT, SPINCS+) und damit
        Visualisierung und Erläuterung des Merkle tree und von Post-Quantum
        sicheren Signaturen
 
@@ -3167,58 +3172,69 @@ Einige (nicht alle) Funktionen der Release-Versionen der Nachfolger-Projekte:
 A.3. Mögliche Punkte für eine Weiterentwicklung -- Neue Funktionen, Ideen
      --------------------------------------------------------------------
 
-A.3.1. CrypTool-Online -- die Zukunft
-       ------------------------------
+A.3.1. CrypTool-Online (CTO) -- die Zukunft
+       ------------------------------------
 Die Webversion CrypTool-Online unter https://www.cryptool.org/de/cto/
 steht nun im Fokus unserer Entwicklung: Wir verwenden moderne Webtechnologien
 zum Aufbau der Website und ihrer kryptologischen Plugins.
-Webassembly z.B. half dabei, eine OpenSSL-Portierung, eine Msieve-Portierung
-oder eine Python-IDE so schnell wie eine native Anwendung zu machen, während
-sie dennoch rein lokal im Browser laufen.
 
+Webassembly half z.B. dabei, die OpenSSL-3-Portierung, eine Msieve-Portierung
+oder eine Python-IDE (Pyodide) so schnell wie eine native Anwendung zu machen,
+während sie dennoch rein lokal im Browser laufen.
+
+Das Ziel ist, diese Browser-Anwendung nicht nur benutzerfreundlich und reaktiv
+für alle möglichen Gerätegrößen zu machen, sondern trotzdem auf PC-Monitoren
+ein Full-Screen-Design anzubieten.
+
+Den Quellcode der Plugin finden Sie auf: https://github.com/cryptool-org/cto
 
 
 Die Entwickler-Wikis von CT2 und JCT enthalten je eine Liste mit Programmier-
 Aufgaben zu weiteren Funktionen, die nachgefragt wurden:
-- CT2: https://www.cryptool.org/trac/CrypTool2/wiki/StudentTasksProposals
+- CT2: https://github.com/CrypToolProject/CrypTool-2/wiki/Proposals-for-Student-Tasks
 - JCT: https://github.com/jcryptool/core/wiki/project-Ideas
 
 Hier sind weitere mögliche Themen für Erweiterungen, die noch bei CT1 hochkamen.
-Was schon in CT2 oder JCT geplant ist, ist entsprechend gekennzeichnet.
+Was schon in CT2 oder JCT geplant oder enthalten ist, ist entsprechend gekennzeichnet.
 
 A.3.2. Funktionalität: Algorithmen / Verfahren
        ---------------------------------------
 - Erstellen eines Interfaces, so dass die Offline-Programme JCT und CT2 von
   Webbrowsern aus aufgerufen werden können
+  - teilweise per Kommandozeile möglich für CT2
 
 - Weitere Algorithmen zu jedem Thema implementieren:
     * Codes:
-       - T9 (http://de.wikipedia.org/wiki/Text_on_9_keys) etc.
-    * Verschlüsselung:
+       - CT2: T9 (http://de.wikipedia.org/wiki/Text_on_9_keys)
+    * Verschlüsselung + Signaturen:
        - Klassische Verfahren (incl. Analyse): z.B.
-           - Sigaba
+           - CT2: Sigaba
            - Weitere Rotorchiffren, Hagelin, Lorenz-Maschine
            - JCT: Alphabete auch für die klassischen Verfahren
                   auf 256 Zeichen ausdehnen
        - Symmetrische Verfahren:
            Camellia (RFC3713), RC5 und Gost (http://vipul.net/gost),
            Radio Gatun, SOSEMANUK, VSH, ...
-       - Public-Key-Verfahren: McEliece, Rabin, NTRU
-       - Demonstration der Visuellen Kryptografie
+       - JCT: Public-Key-Verfahren:
+              McEliece, Rabin, NTRU, Multivariate Kryptografie
+       - CT2: Demonstration der Visuellen Kryptografie
        - Neue Verfahren von Ecrypt (Network of Excellence in Cryptology)
          integrieren. Siehe http://www.ecrypt.eu.org
     * Hashverfahren:
        - CT2: Tiger (http://www.cs.technion.ac.il/~biham/Reports/Tiger)
-       - Alle SHA-3-Kandidaten
+       - JCT: Alle SHA-3-Kandidaten
          (http://csrc.nist.gov/groups/ST/hash/sha-3/index.html)
     * Protokolle / Protokollschwächen:
+       - mehr MPC
        - Visualisierung von Man-in-the-Middle-Angriffen
        - Visualisierung von SSL
-       - Blind Signatures
+       - CT2: Blind Signatures
+       - CT2: Blockchain
        - Elektronische Wahlen
        - CT2 Virtuelle Kreditkartennummern (VCC) und Prüfziffern
        - JCT Visualisierung des KEGVER-Protokolls und weiterer Kleptographie-
              Verfahren (http://www.cryptovirology.com)
+       - alle Verfahren aus dem PQC-Wettbewerb des NIST
 
 - Schnelle Auswahl der verschiedenen Verschlüsselungsverfahren
   über eine Dialogbox statt über die Menüs (Offenlegung aller
@@ -3267,7 +3283,7 @@ A.3.2. Funktionalität: Algorithmen / Verfahren
   Standardverfahren (z.B. PKCS#5) verwendet werden (Hauptarbeit
   dabei sind das User Interface und die Dokumentation).
 
-- JCT  PGP-S/MIME Interoperabilität
+- JCT: PGP-S/MIME Interoperabilität
 
 - Verbindung zwischen CrypTool (PKCS#12) und PGP schaffen, indem man
   PGP-Keys in CrypTool verwenden kann. Idee: Per Passwort-Eingabe
@@ -3316,7 +3332,7 @@ A.3.3. Funktionalität: Analyse
 - Angriff auf symmetrische Verschlüsselungsverfahren, bei denen die
   Parameter der Verschlüsselungsverfahren flexibel reduziert werden können.
 
-- Differentielle Kryptoanalyse auf symmetrische Chiffren (DES, ...).
+- CT2: Differentielle Kryptoanalyse auf symmetrische Chiffren (DES, ...).
 
 - Die Brute-Force-Möglichkeiten erweitern: Nutzen von Wissen
   - um Teile des Klartextes,
@@ -3356,7 +3372,7 @@ A.3.3. Funktionalität: Analyse
         Zusätzlich könnte man noch den Text des jeweiligen Spalten-
         Caesars ausgeben.
 
-- Wörterbücher für alle Angriffe benutzen, nicht nur für die Substitution.
+- CT2: Wörterbücher für alle Angriffe benutzen, nicht nur für die Substitution.
 
 - Nutzung von Algorithmen aus dem Bereich KI (Künstliche Intelligenz) und
   GP/GA (Genetic Programming/Algorithms) zur automatischen Analyse
@@ -3421,14 +3437,15 @@ A.3.4. Interne Schnittstellen / Editoren
 - Langzahl- und Krypto-Bibliotheken:
    - Unterstützung weiterer Libraries (FLINT/C, Wei Dai's Crypto++, ...).
 
-- JCT  Commandline-Funktionalität (für Benutzer und Test-Automatisierung)
+- Commandline-Funktionalität (für Benutzer und Test-Automatisierung)
+  (von außen per Terminal und/oder von innen)
 
 
 
 A.3.5. User-Interface / Visualisierungen
        ---------------------------------
 Die folgenden Vorschläge beziehen sich meist auf CT1. Ähnliche Anforderungen
-betreffen aber all Krypto-Programme mit einer GUI.
+betreffen aber alle Krypto-Programme mit einer GUI.
 
 - In den Dialogen in CT1 können Zahlen nicht immer in allen
   Darstellungsarten eingegeben werden (z.B. kann im Dialog
@@ -3452,17 +3469,13 @@ betreffen aber all Krypto-Programme mit einer GUI.
 - Generelle Visualisierung der entsprechenden mathematischen Grundlagen, z.B.:
   - anhand eines Lehrbuchs
   - wie mit den Sage-Notebooks zur Einführung in ECC von Maike Massierer:
-      - http://web.maths.unsw.edu.au/~maikemassierer/ecc-notebook
-        (Version 1.3, Januar 2011) (xxx)
-    Teil 0, das Deckblatt enthält keine Berechnungen, sondern nur die Links
-    zu den übrigen Teilen; zum Ausführen der folgenden Teile muss man sich
-    selbst Kopien als Sage-User anlegen.
-  - wie die PascGalois Software (Group Calculator)
-      - http://www.pascgalois.org/software.html
-  - http://www.martindalecenter.com/Calculators2_6_NZ.html
-  - http://world.std.com/~reinhold/BigNumCalc.html
-  - http://mathforum.org/library/resource_types/calculators/?keyid=28652723&start_at=301&num_to_see=50
-  - http://www.hbmeyer.de/pythagen.htm (Pythagorean Triples)
+  - wie die PascGalois Software (dialog Group Calculator)
+      - http://www.pascgalois.org/software.html -- website of PascGalois Project dead
+      - http://faculty.salisbury.edu/~despickler/pascgalois/PascGaloisJE.html
+        last version: 7/10/19: Version 2.6.1  (source code not public)
+  - http://mathforum.org/library/resource_types/calculators/?keyid=28652723&start_at=301&num_to_see=50    (https://www.nctm.org/classroomresources)
+  - http://www.hbmeyer.de/pythag.htm (Pythagoräische Tripel),
+    http://www.hbmeyer.de/taupaare.htm
 
 - CT1: Für den Benutzer konfigurierbar einstellbar machen, ob neue Fenster
   wie bisher innerhalb des Hauptfensters erscheinen oder als "freie"
@@ -3579,7 +3592,7 @@ Hier ein paar Details, was beim Test ging (ok), und was nicht (nok):
 - nok: Generic t-adic NAF Key Generator starte nicht
 - nok: Seit Änderungen bei Oracle-Java wird Java oft nicht gefunden.
 
-Wir unternehmen keine extra Anstrengungen, Wine zu unterstützen.
+Wir unternehmen keine extra Anstrengungen, CT1 auf Wine zu unterstützen.
 Stattdessen empfehlen wir, die plattformunabhängige Version JCT zu benutzen,
 die auch unter Linux läuft (siehe Kapitel A.2).
 
@@ -3605,9 +3618,8 @@ unter http://www.cryptoolinux.net/).
 
 Diskutiert wurde vom CT1-Kernteam, einen Nachfolger von CT1 mit Qt 5
 zu bauen, der dasselbe Look&Feel wie CT1 hat und QCT genannt wird
-(siehe A.1 Roadmap nach CT 1.4.4x). Mit JCT gibt es jedoch schon
-eine native Linux-Version. Daher wird sich das CT-Team stattdessen
-auf die drei Nachfolger von CT1 konzentrieren.
+(https://github.com/flomar/QCrypTool). QCT wird nicht fortgesetzt,
+denn mit JCT gibt es schon eine native Linux-Version.
 
 
 ################################################################

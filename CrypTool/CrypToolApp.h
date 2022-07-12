@@ -54,6 +54,8 @@
 #include "DlgFindAndReplace.h"
 #include <atlbase.h>   // Registry
 #include <fstream>
+#include <list>
+#include <string>
 
 #include "HillEncryption.h"
 

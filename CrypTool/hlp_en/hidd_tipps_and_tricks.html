@@ -28,7 +28,7 @@
 <P>This is the starting page of the online help for "CrypTool 1" (CT1). Within
 this online help, from now on the version family CT1 is just called "CrypTool".</P>
 
-<P>You can find further information about the future program versions CT2, JCT, and QCT
+<P>You can find further information about the future program versions CT2, JCT, and CTO
 under <a href="#FutureVersions">Future Versions of CrypTool</a>. Stronger cryptanalysis
 methods are implemented especially in CT2.</P>
 
@@ -82,7 +82,8 @@ Help is available for
 
 <P>CrypTool contains exhaustive <A href="main_index.html">online help</A>, which can be understood without extensive knowledge of cryptography.</p>
 
-<p>CrypTool has been continously developed since 1998. It is available in <B>English</B>, <B>German</B>, <B>French</B>, <B>Greek</B>, <B>Polish</B>, <B>Serbian</B>, and <B>Spanish</B>. A version in <B>Russian</B> is under construction.
+<p>CrypTool (CT1) was continuously developed from 1998 to ca. 2011. As of 2011, only regular maintenance releases are issued. The resources of the CT project go into the successors CT2, JCT, and CTO.
+CT1 is available in <B>English</B>, <B>German</B>, <B>French</B>, <B>Greek</B>, <B>Polish</B>, <B>Serbian</B>, and <B>Spanish</B>. <!--  xxxA version in <B>Russian</B> is under construction.  -->
 CrypTool has implemented almost all state-of-the-art crypto functions and allows you to learn about and use <B>cryptography</B> within the same environment.</P>
 
 <P>The methods available include both classic methods and modern cryptosystems:</P>
@@ -154,7 +155,7 @@ For example:</P>
 <P>The RSA cryptosystem (see menu <A href="menu_related_methods.html">Indiv. Procedures</A> \ <A href="menu_individualprocedures_rsacryptosystem.html">RSA Cryptosystem</A> \ <A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">RSA demonstration</A>) is covered comprehensively and implemented for different codings. The RSA key can be generated from prime numbers selected by the user. Key generation, encryption, and decryption can be followed step-by-step.</P>
 
 <P>Factorization of numbers is also an important application for cryptography. Simple RSA cryptosystems can be easily cracked using the factorization algorithms presented in CrypTool. Thus, you get an idea of the minimum length of keys necessary for secure systems.</P>
-<P>Remark: The factorization algorithms implemented in CT2 are faster than the ones in CT1 -- one reason is that in CT2 all cores of the CPU are used for parallel threads.</P>
+<P>Remark: The factorization algorithms implemented in CT2 are faster than the ones in CT1&nbsp;&ndash; one reason is that in CT2 all cores of the CPU are used for parallel threads.</P>
 
 
 
@@ -221,26 +222,20 @@ factors and to make use of prime numbers.</p>
 
 
 <P>Besides the online help, CrypTool provides additional documentation: </P>
-
 <UL>
+<LI>The <A class="filelink" onclick="parser('readme-en.txt')">readme file</A> describes all important elements of the CrypTool package and the new features of this version.<br>
+Additionally it contains information about the project itself.</LI>
 
-	<LI>The <A class="filelink" onclick="parser('readme-en.txt')">readme file</A> describes all important elements of the CrypTool package and the new features of this version.<br>
-	Additionally it contains information about the project itself.</LI>
-
-<LI>In the <A class="filelink" onclick="parser('CT-Book-en.pdf')">CT Book</A> (provided as a PDF file) you will find more mathematically oriented information about</LI>
+<LI>In the <A class="filelink" onclick="parser('CT-Book-en.pdf')">CT Book</A> (provided as a PDF file) you will find more mathematically oriented information about
 
 <UL type="disc">
-
 <LI>cryptographic methods.</LI>
-
 <LI>prime numbers.</LI>
-
 <LI>elementary number theory with many examples.</LI>
-
 <LI>current results of the cryptanalytic research. </LI>
-
 </UL>
-Additionally the appendix of the CT Book contains a list of movies and novels where cryptography plays a role.
+
+Additionally the appendix of the CT Book contains a list of movies and novels where cryptography plays a role. Delivered with CT1 is the 12th edition of the book from 2018. The edition 13 from 2022 can be found at the CT website.</LI>
 
 <LI>The <A class="filelink" onclick="parser('CrypTool1-Presentation-en.pdf')">CrypTool presentation</A> with about 120 slides gives an overview about the CrypTool project and the features of CrypTool.</LI>
 
@@ -248,7 +243,9 @@ Additionally the appendix of the CT Book contains a list of movies and novels wh
 
 <li>In the second fantasy story by Dr. Carsten Elsner, <A class="filelink" onclick="parser('ChinLab-en.pdf')">The Chinese Labyrinth</a>, Marco Polo has to solve some number theoretic problems to become a chief advisor of the Great Khan.
 
+For a more recent version of this (from 2020), see <a href="https://www.cryptool.org/en/education/CTTC" target="_blank">The Chinese Labyrinth</a>.
 </UL>
+
 
 <P>In addition to the tutorials and the online help you can call from within
 CrypTool an
@@ -261,7 +258,7 @@ compiled most of these <a href="cryptochallenges.html">Crypto Puzzles</a>
 and illustrated them in his book).<br>
 Many more cryptographic challenges can be found at the website of the crypto
 cipher contest
-<a href="http://www.mysterytwisterc3.org" target="_blank">MysteryTwister C3</a>.</P>
+<a href="http://www.mysterytwisterc3.org" target="_blank">MysteryTwister</a>.</P>
 
 
 
@@ -296,17 +293,19 @@ cipher contest
 
 <p>Information about the future roadmap can be found on the <a href="http://www.cryptool.org" target="_blank">CrypTool website</a>, within the <a class="filelink" onclick="parser('readme-en.txt')">Readme file</a>, and in the <A class="filelink" onclick="parser('CrypTool1-Presentation-en.pdf')">CrypTool 1 presentation</a>. There, the successor projects are introduced too.</P>
 
-<p>The successor versions of CT1 are QCT, CT2, and JCT.
-CT2 and JCT are independent further developments, and there are already stable programs available; the development of QCT was only discussed and did not start yet:
+<p>The successor versions of CT1 are CT2, JCT, and CTO.
+CT2 and JCT are independent desktop developments, and for some time now they have stable programs available for download.
+CTO is the variant running in the browser, which does not need to be downloaded and installed separately.
 <ul>
-<li><a href="https://github.com/flomar/QCrypTool" target="_blank">QCT</a>: Qt-CrypTool is developed with C++ and Qt 5 for the platforms Windows, MacOS, and Linux. It could be a direct, plattform independent successor of CT1 with a GUI almost identical to CT1.<br><br></li>
-
 <li><a href="http://www.cryptool.org/en/ct2-documentation" target="_blank">CT2</a>: CrypTool 2 is developed for the .NET platform using C#, WPF, and VisualStudio. CT2 is based on a modern plugin software architecture and offers visual programming to the user.<br><br></li>
 
-<li><a href="http://www.cryptool.org/en/jct-volunteer" target="_blank">JCT</a>: Java-CrypTool is developed for the platforms Windows, MacOS, and Linux using Java, SWT, and Eclipse. JCT is also based on a modern plugin software architecture and offers document and function centric perspectives.</li>
+<li><a href="http://www.cryptool.org/en/jct-volunteer" target="_blank">JCT</a>: Java-CrypTool is developed for the platforms Windows, macOS, and Linux using Java, SWT, and Eclipse. JCT is also based on a modern plugin software architecture and offers document and function centric perspectives.<br><br></li>
+
+<li><a href="https://www.cryptool.org/en/cto/" target="_blank">CTO</a>: CTO is the web variant of CrypTool that most project resources are currently going into. With modern web technologies like React, Bootstrap, Flutter, and WebAssembly, you can develop fast and attractive pages that are responsive and user-friendly on all device sizes.</li>
 </ul></p>
 
-<P>A summary of all the <B>encryption algorithms</B> implemented in all CT variants is available at the <a href="https://www.cryptool.org/en/" target="_blank">CrypTool Portal</a> under the menu "Documentation".</P>
+
+<P>A summary of all the <B>encryption algorithms</B> implemented in all CT variants is available at the <a href="https://www.cryptool.org/en/" target="_blank">CrypTool Portal</a> under the menu "Documentation &rarr; CT Functions Volume".</P>
 
 
 <br><P><A NAME="licence_terms"></A><B>Terms of the License / Non-Liability / Copyright</B></P>
@@ -363,7 +362,7 @@ CT2 and JCT are independent further developments, and there are already stable p
 
 <P>Please note the <a href="#licence_terms">terms of license</a> and the <A href="gewaehrleistung.html">information regarding non-liability for any damage arising from the use of CrypTool</A>.</P>
 
-<p><b><i>Bernhard Esslinger -- Copyright &copy; 1998 - 2018 Deutsche Bank AG and Contributors</i></b></p><br>
+<p><b><i>Bernhard Esslinger&nbsp;&ndash; Copyright &copy; 1998 - 2022 Deutsche Bank AG and Contributors</i></b></p><br>
 
 </BODY>
 </HTML>

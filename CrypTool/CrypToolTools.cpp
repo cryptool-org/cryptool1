@@ -428,41 +428,81 @@ bool extractJavaInformation(int &_versionMajor, int &_versionMinor, int &_bits) 
 	return false;
 }
 
-// This function checks whether a specific Java version is available; 
-// to test against a specific Java version, simply supply a string 
-// like "1.3" or "1.4". Note that more sophisticated filtering is 
-// not supported at the moment. Also, you don't need to create any 
-// error handling stuff around the call to this function, as it 
-// presents its own error message in case it returns false.
-bool isJavaAvailable(const CString &_version) {
-	int requestedVersionMajor = 0;
-	int requestedVersionMinor = 0;
-	std::vector<CString> requestedVersionElements = splitString(_version, ".");
-	if(requestedVersionElements.size() >= 2) {
-		requestedVersionMajor = atoi(requestedVersionElements[0]);
-		requestedVersionMinor = atoi(requestedVersionElements[1]);
+// 2022/05/03, flomar: This function extracts information about the Java
+// version installed on the system. Essentially, the function returns a
+// string list with each line returned by "java -XshowSettings:all". If
+// the call fails for whatever reason, an empty string list is returned.
+// Also note that the Java ouput is temporarily stored in a file in the
+// %APPDATA% folder. Consequently, if that folder doesn't exist, the
+// function errors out by returning an empty string list.
+std::list<std::string> extractJavaInformation() {
+	std::list<std::string> javaInformation;
+	if(isAppDataVariableDefined()) {
+		STARTUPINFO si;
+		PROCESS_INFORMATION pi;
+		memset(&si, 0, sizeof(si));
+		memset(&pi, 0, sizeof(pi));
+		if(CreateProcess(NULL, "java", NULL, NULL, false, CREATE_NO_WINDOW, NULL, NULL, &si, &pi)) {
+			const CString outputFileName = CString(getenv("APPDATA")) + CString("\\") + CString("__CRYPTOOL_JAVA_VERSION__");
+			memset(&si, 0, sizeof(si));
+			memset(&pi, 0, sizeof(pi));
+			SECURITY_ATTRIBUTES sa;
+			sa.nLength = sizeof(sa);
+			sa.lpSecurityDescriptor = NULL;
+			sa.bInheritHandle = TRUE;
+			HANDLE outputFileHandle = CreateFile(outputFileName, FILE_WRITE_DATA, FILE_SHARE_WRITE | FILE_SHARE_READ, &sa, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+			si.cb = sizeof(STARTUPINFO); 
+			si.dwFlags |= STARTF_USESTDHANDLES;
+			si.hStdInput = NULL;
+			si.hStdError = outputFileHandle;
+			si.hStdOutput = outputFileHandle;
+			const CString commandWriteFile = CString("java -XshowSettings:all");
+			CreateProcess(NULL, (LPSTR)(LPCTSTR)(commandWriteFile), NULL, NULL, true, CREATE_NO_WINDOW, NULL, NULL, &si, &pi);
+			WaitForSingleObject(pi.hProcess, INFINITE);
+			CloseHandle(pi.hProcess);
+			CloseHandle(pi.hThread);
+			CloseHandle(outputFileHandle);
+			CStdioFile inputFile;
+			if(inputFile.Open(outputFileName, CFile::modeRead)) {
+				CString line;
+				while(inputFile.ReadString(line)) {
+					javaInformation.push_back((LPCTSTR)(line));
+				}
+				inputFile.Close();
+			}
+			DeleteFile(outputFileName);
+		}
 	}
-	int availableVersionMajor = 0;
-	int availableVersionMinor = 0;
-	int availableBits = 0;
-	extractJavaInformation(availableVersionMajor, availableVersionMinor, availableBits);
-	// check whether Java is available at all
-	if(availableVersionMajor == 0 || availableVersionMinor == 0 || availableBits == 0) {
-		CString errorMessage;
-		errorMessage.Format(IDS_STRING_JAVA_NOT_INSTALLED, _version);
-		AfxMessageBox(errorMessage, MB_ICONERROR);
-		return false;
+	return javaInformation;
+}
+
+// 2022/05/03, flomar: This function checks whether a Java version with
+// a 64 bit architecture is available. Since all Java programs rolled out
+// with CrypTool require Java >= 1.7 (which is absolutely ancient), checking
+// for ANY Java version should suffice. Note that you don't have to wrap any
+// error message code around the call to this function: If the function does
+// return false, an error message is implicitly presented to the user.
+bool isJavaAvailable() {
+	const std::list<std::string> javaInformation = extractJavaInformation();
+	for(std::list<std::string>::const_iterator iterator = javaInformation.begin(); iterator != javaInformation.end(); iterator++) {
+		const std::string line = *iterator;
+		// Some more details as to why the check is implemented the way it is:
+		// First, each 'sun.arch.data.model' property should contain '64' for
+		// a 64bit VM. However, for some reason not all VMs expose this property.
+		// As a fallback, also try to find '64' on the 'os.arch' property.
+		// If both checks fail, well, then we don't consider the VM to be 64 bit.
+		// This is far from a perfect solution though...
+		if(line.find("sun.arch.data.model") != -1 && line.find("64") != -1) {
+			return true;
+		}
+		if(line.find("os.arch") != -1 && line.find("64") != -1) {
+			return true;
+		}
 	}
-	// check whether the requested Java version is sufficient
-	if(availableVersionMajor < requestedVersionMajor || availableVersionMajor == requestedVersionMajor && availableVersionMinor < requestedVersionMinor) {
-		CString version;
-		version.Format("%i.%i", availableVersionMajor, availableVersionMinor);
-		CString errorMessage;
-		errorMessage.Format(IDS_STRING_JAVA_REQUIREMENTS_NOT_MET, _version, version);
-		AfxMessageBox(errorMessage, MB_ICONINFORMATION);
-		return false;
-	}
-	return true;
+	CString errorMessage;
+	errorMessage.Format(IDS_STRING_JAVA_NOT_INSTALLED);
+	AfxMessageBox(errorMessage, MB_ICONERROR);
+	return false;
 }
 
 // This function tries to execute a Java program (parameter 1) using 

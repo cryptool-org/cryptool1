@@ -1404,12 +1404,9 @@ void CCrypToolApp::OnRsaBloemermay()
 // #endif
 
 void CCrypToolApp::execAnimalVisualization(int _animalFileIdentifier) {
-	// flomar, 01/07/2014: for all animal visualizations we require at least Java 1.7;
-	// in case this function returns false, an appropriate warning message is displayed
-	if(!isJavaAvailable("1.7")) {
+	if(!isJavaAvailable()) {
 		return;
 	}
-	// Construct 'ShellExecute' command line parameters.
 	CString animalExecutable;
 	animalExecutable.LoadString(IDS_ANIMAL_EXECUTABLE);
 	CString animalFile;
@@ -1418,7 +1415,6 @@ void CCrypToolApp::execAnimalVisualization(int _animalFileIdentifier) {
 	animalPath.LoadString(IDS_ANIMAL_PATH);
 	animalPath = CString(Pfad) + animalPath;
 	animalPath.Replace("/","\\");
-	// Try to execute animal visualization, or throw an error.
 	HINSTANCE hInst = ShellExecute(NULL, NULL, animalExecutable, animalFile, animalPath, SW_HIDE);
 	if(reinterpret_cast<int>(hInst) <= 32) {
 		Message(IDS_ERROPEN_ANIM, MB_ICONSTOP);
@@ -1570,14 +1566,10 @@ void CCrypToolApp::OnAesSelfextract()
 	// FIXME: Interpret return value of _spawnl
 }
 
-void CCrypToolApp::OnIndivPointadditiononellipticcurves()
-{
-	// flomar, 01/20/2014: for the following Java program we require at least Java 1.5;
-	// in case this function returns false, an appropriate warning message is displayed
-	if(!isJavaAvailable("1.5")) {
+void CCrypToolApp::OnIndivPointadditiononellipticcurves() {
+	if(!isJavaAvailable()) {
 		return;
 	}
-
 	CString javaProgram;
 	CString javaProgramCompleteCall;
 	CString javaExecPath = Pfad; 
@@ -1652,43 +1644,22 @@ void CCrypToolApp::OnFlashEnigmademo()
 	}
 }
 
-void CCrypToolApp::OnProtokolSMIME()
-{
-	// flomar, 01/20/2014: for the SMIME visualizations we require at least Java 1.5;
-	// in case this function returns false, an appropriate warning message is displayed
-	if(!isJavaAvailable("1.5")) {
+void CCrypToolApp::OnProtokolSMIME() {
+	if(!isJavaAvailable()) {
 		return;
 	}
-
-	// flomar, 2017/12/05: for the SMIME visualization to work we need to make 
-	// sure we're grabbing the proper SWT framework (32bit or 64bit) depending 
-	// on the installed Java VM.
-	int javaVersionMajor = 0;
-	int javaVersionMinor = 0;
-	int javaBits = 0;
-	if(!extractJavaInformation(javaVersionMajor, javaVersionMinor, javaBits)) {
-		CString message;
-		message.Format(IDS_STRING_JAVA_PROGRAM_EXECUTION_FAILED);
-		AfxMessageBox(message, MB_ICONSTOP);
-		return;
-	}
-
 	CString javaProgram;
 	CString javaProgramCompleteCall;
 	CString javaExecPath = CString(Pfad) + CString(_T("\\smimedemo\\")); 
 	javaProgram.Format(IDS_STRING_SMIME_DEMO_PROGRAM);
-	javaProgramCompleteCall.Format(IDS_STRING_SMIME_DEMO_PROGRAM_COMPLETE_CALL, javaBits);
+	javaProgramCompleteCall.Format(IDS_STRING_SMIME_DEMO_PROGRAM_COMPLETE_CALL, 64);
 	ShellExecuteJava(javaProgram, javaProgramCompleteCall, javaExecPath);
 }
 
-void CCrypToolApp::OnAesRijndaelFlowvisualisation()
-{
-	// flomar, 01/20/2014: for the following Java program we require at least Java 1.5;
-	// in case this function returns false, an appropriate warning message is displayed
-	if(!isJavaAvailable("1.5")) {
+void CCrypToolApp::OnAesRijndaelFlowvisualisation() {
+	if(!isJavaAvailable()) {
 		return;
 	}
-
 	CString javaProgram;
 	CString javaProgramCompleteCall;
 	CString javaExecPath = Pfad; 

@@ -18,8 +18,8 @@
 
   ;Name and file
   !define ProgramName "CrypTool"
-  !define VersionInfo "1.4.42" ; no beta here to avoid line wrap in installer
-  !define VersionFile "1_4_42" ; _beta_0x
+  !define VersionInfo "1.4.43" ; no beta here to avoid line wrap in installer
+  !define VersionFile "1_4_43" ; _beta_0x
   !define Publisher "CrypTool Team"
   
   Name "${ProgramName} ${VersionInfo}"

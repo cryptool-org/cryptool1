@@ -61,10 +61,10 @@ std::vector<CString> splitString(const CString &_string, const CString &_separat
 bool isAppDataDirectoryDefined();
 
 // see implementation
-bool extractJavaInformation(int &_versionMajor, int &_versionMinor, int &_bits);
+std::list<std::string> extractJavaInformation();
 
 // see implementation
-bool isJavaAvailable(const CString &_version);
+bool isJavaAvailable();
 
 // see implementation
 void ShellExecuteJava(const CString &_javaProgram, const CString &_javaProgramCompleteCall, const CString &_path);
