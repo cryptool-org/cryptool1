@@ -1066,6 +1066,9 @@ void CDlgRSADemo::ButtonManagement()
 		KeyStatusPrimeQValid());
 	// conditions for button "Encrypt"
 	m_ButtonEncrypt.EnableWindow(
+		KeyStatusPublicKeyOnly() &&
+		KeyStatusInputValid() &&
+		KeyStatusOptionsValid() ||
 		KeyStatusPrivateKey() &&
 		KeyStatusPrimePValid() &&
 		KeyStatusPrimeQValid() &&
