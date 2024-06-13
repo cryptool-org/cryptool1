@@ -1,7 +1,7 @@
 # CrypTool 1
 [CrypTool 1](https://www.cryptool.org/ct1/) (CT1) is a free Windows program for cryptography and cryptanalysis.
 
-It is part of the [CryptTool Project](https://www.cryptool.org/).
+It is part of the [CrypTool Project](https://www.cryptool.org/).
 
 ![CT1 screenshot](https://www.cryptool.org/media/page-contents/ct1/ct1-screen-en.png)
 
